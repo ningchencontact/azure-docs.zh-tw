@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: b533df58d24b3bc76a229ad09c682d1d8aeaf741
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 12/11/2017
 若要對使用者推出功能，您必須使用 Active Directory 中的群組原則，將下列 Azure AD URL 新增至使用者的內部網路區域設定：
 
 - https://autologon.microsoftazuread-sso.com
-- https://aadg.windows.net.nsatc.net
+
 
 此外，您也需要透過「群組原則」，啟用內部網路區域原則設定，稱為**允許透過指令碼更新狀態列**。 
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>為什麼需要修改使用者的內部網路區域設定？
 
-瀏覽器預設會自動從指定的 URL 計算正確的區域 (網際網路或內部網路)。 例如，"http://contoso/" 會對應到內部網路區域，而 "http://intranet.contoso.com/" 會對應到網際網路區域 (因為 URL 包含句點)。 除非將 URL 明確地新增至瀏覽器的內部網路區域，否則瀏覽器不會將 Kerberos 票證傳送給雲端端點 (例如兩個 Azure AD URL)。
+瀏覽器預設會自動從指定的 URL 計算正確的區域 (網際網路或內部網路)。 例如，"http://contoso/" 會對應到內部網路區域，而 "http://intranet.contoso.com/" 會對應到網際網路區域 (因為 URL 包含句點)。 除非將 URL 明確地新增至瀏覽器的內部網路區域，否則瀏覽器不會將 Kerberos 票證傳送給雲端端點 (例如 Azure AD URL)。
 
 ### <a name="detailed-steps"></a>詳細步驟
 
@@ -99,14 +99,10 @@ ms.lasthandoff: 12/11/2017
    - **值名稱**：轉送 Kerberos 票證的 Azure AD URL。
    - **值** (資料)：**1** 表示內部網路區域。
 
-   結果如下所示：
+    結果如下所示：
 
     值︰https://autologon.microsoftazuread-sso.com
   
-    Data 1
-        
-   值︰https://aadg.windows.net.nsatc.net
-
     Data 1
 
    >[!NOTE]
@@ -133,7 +129,7 @@ Mozilla Firefox 不會自動使用 Kerberos 驗證。 每個使用者都必須�
 1. 執行 Firefox，並在網址列中輸入 `about:config`。 關閉任何您看到的通知。
 2. 搜尋 **network.negotiate-auth.trusted-uris** 喜好設定。 此喜好設定列出 Firefox 進行 Kerberos 驗證的受信任網站。
 3. 按一下滑鼠右鍵，然後選取 [修改]。
-4. 在欄位中，輸入 https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net。
+4. 在欄位中輸入 https://autologon.microsoftazuread-sso.com。
 5. 選取 [確定]，然後重新開啟瀏覽器。
 
 #### <a name="safari-mac-os"></a>Safari (Mac OS)
@@ -142,7 +138,7 @@ Mozilla Firefox 不會自動使用 Kerberos 驗證。 每個使用者都必須�
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (所有平台)
 
-如果您已覆寫環境中的 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) \(英文\) 或 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) \(英文\) 原則設定，請確定也將 Azure AD 的 URL (https://autologon.microsoftazuread-sso.com 和 https://aadg.windows.net.nsatc.net) 新增到這些設定。
+如果您已覆寫環境中的 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) \(英文\) 或 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) \(英文\) 原則設定，請確定也將 Azure AD 的 URL (https://autologon.microsoftazuread-sso.com) 新增到這些設定。
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (僅限 Mac OS)
 

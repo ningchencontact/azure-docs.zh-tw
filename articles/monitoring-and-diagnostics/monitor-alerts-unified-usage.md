@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 5e4068cc694b623f67d998f410f207356efd873f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>使用 Azure 監視器建立、檢視及管理警示 - 警示 (預覽)
 
@@ -28,14 +28,14 @@ ms.lasthandoff: 02/09/2018
 - 條件：訊號中所示且會觸發動作的特定條件或邏輯
 - 動作：傳送至通知 (電子郵件、SMS、Webhook 等) 接收者的特定呼叫。
 
-警示 (預覽) 會使用**記錄警示**字詞來描述警示，而訊號是以 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) 為基礎的自訂查詢。 現有警示體驗中稱為「[近乎即時的計量警示](monitoring-near-real-time-metric-alerts.md)」的計量警示功能，在警示 (預覽) 中稱為**計量警示**。 在*計量警示*中，某些資源類型會針對特定 Azure 資源提供[多維度計量](monitoring-metric-charts.md)，因此可針對這類資源使用其他篩選，來依據維度發出更具體的警示；這類警示稱為**多維度計量警示**。
+警示 (預覽) 會使用**記錄警示**字詞來描述警示，而訊號是以 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) 或 [Azure Application Insights](../application-insights/app-insights-analytics.md) 為基礎的自訂查詢。 現有警示體驗中稱為「[近乎即時的計量警示](monitoring-near-real-time-metric-alerts.md)」的計量警示功能，在警示 (預覽) 中稱為**計量警示**。 在*計量警示*中，某些資源類型會針對特定 Azure 資源提供[多維度計量](monitoring-metric-charts.md)，因此可針對這類資源使用其他篩選，來依據維度發出更具體的警示；這類警示稱為**多維度計量警示**。
 Azure 警示 (預覽) 也會提供所有警示規則的統一檢視，並且可讓您在單一位置管理這些警示規則；包括檢視任何未解決的警示。 可從 [Azure 警示 (預覽) - 概觀](monitoring-overview-unified-alerts.md)中深入了解功能。
 
 > [!NOTE]
 > Azure 警示 (預覽) 讓您在 Azure 中建立警示時擁有最新且強化的體驗。 但您仍可使用現有的 [Azure 警示](monitoring-overview-alerts.md)體驗
 >
 
-下列是使用 Azure 警示 (預覽) 的詳細逐步指南。
+接下來詳細說明使用 Azure 警示 (預覽) 的詳細逐步指南。
 
 ## <a name="create-an-alert-rule-with-the-azure-portal"></a>使用 Azure 入口網站建立警示規則
 1. 在[入口網站](https://portal.azure.com/)中選取 [監視]，並在 [監視] 區段下選擇 [警示 (預覽)]。  
@@ -81,16 +81,13 @@ Azure 警示 (預覽) 也會提供所有警示規則的統一檢視，並且可�
 
     ![設定多維度計量的訊號邏輯](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. 記錄警示：確認**資源類型**是分析來源 (例如 Log Analytics/Application Insights)，並在選取適當的**資源**後，按一下 [完成]。 接著使用 [新增準則] 按鈕，檢視資源可用的訊號選項清單，然後從訊號清單中選取所選記錄監視服務 (例如 Log Analytics/Application Insights) 的 [自訂記錄搜尋] 選項。
+8. 記錄警示確認 [資料類型]是分析來源 (例如 Log Analytics 或 Application Insights)，然後在選擇適當的 [資源] 後，按一下 [完成]。 接著使用 [新增準則] 按鈕，檢視資源可用的訊號選項清單，然後從訊號清單中選取所選記錄監視服務 (例如 *Log Analytics* 或 *Application Insights*) 的 [自訂記錄搜尋] 選項。
 
    ![選取資源 - 自訂記錄搜尋](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > 在 Log Analytics 中選擇資源時，**警示預覽**會將儲存的記錄搜尋列在「記錄」訊號類型 (已儲存的查詢)。
-   因此您可以在 Analytics 中完成理想的查詢後，將其儲存以供日後使用，如需詳細資料，請參閱[在記錄分析中使用記錄搜尋](../log-analytics/log-analytics-log-searches.md)。 然後您可以直接根據這些查詢來建立警示規則，如下列範例畫面所示，其中便具有已儲存的搜尋：
-
-   ![選取資源 - 自訂記錄搜尋](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+   > 警示 (預覽) 清單可匯入分析查詢作為訊號類型 - 記錄 (已儲存的查詢)，如上圖所示。 因此使用者可在 Analytics 中完成理想的查詢後，將其儲存以供日後在警示中使用 - 如需使用儲存查詢的詳細資料，請參閱[在記錄分析中使用記錄搜尋](../log-analytics/log-analytics-log-searches.md)或[在 Application Insights 分析中的共用的查詢](../log-analytics/log-analytics-overview.md)。 
 
 9.  *記錄警示*：選好後，即可在 [搜尋查詢] 欄位中指定警示的查詢；如果查詢語法不正確，欄位會以紅色顯示錯誤。 如果查詢語法正確 - 指定查詢的記錄資料會顯示為圖形以供參考，以及顯示調整時間範圍的選項 (從過去六小時到過去一週)。
 
@@ -162,5 +159,5 @@ Azure 警示 (預覽) 也會提供所有警示規則的統一檢視，並且可�
 
 - 深入了解新的[近乎即時計量警示 (預覽)](monitoring-near-real-time-metric-alerts.md)
 - 依照 [計量集合概觀](insights-how-to-customize-monitoring.md) 中的做法，確保您的服務可使用且有回應。
-- 深入了解 [Azure 警示 (預覽) 中的記錄警示](monitor-alerts-unified-log.md)
+- 了解 [Azure 警示 (預覽) 中的記錄警示](monitor-alerts-unified-log.md)
 - [深入了解警示 (預覽) 體驗中的活動記錄警示](monitoring-activity-log-alerts-new-experience.md)

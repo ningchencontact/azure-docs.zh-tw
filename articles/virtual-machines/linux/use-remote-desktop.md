@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 33b9c36d4600646c36a519e647bd8cc8b6d68666
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1aa75b87b01417b8864632b7a09539bd6be05d0b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>在 Azure 中安裝和設定遠端桌面，以連接至 Linux VM
 在 Azure 中的 Linux 虛擬機器 (VM) 通常是使用安全殼層 (SSH) 連接從命令列管理。 如果是 Linux 的新手，或者是快速疑難排解的案例，使用遠端桌面可能會比較容易。 本文將詳細說明如何使用 Resource Manager 部署模型為您的 Linux VM 安裝和設定桌面環境 ([xfce](https://www.xfce.org)) 和遠端桌面 ([xrdp](http://www.xrdp.org))。
 
 
 ## <a name="prerequisites"></a>先決條件
-這篇文章需要在 Azure 中有現有的 Linux VM。 如果您需要建立 VM，請使用下列其中一個方法︰
+本文需要在 Azure 中有現有的 Ubuntu 16.04 LTS VM。 如果您需要建立 VM，請使用下列其中一個方法︰
 
 - [Azure CLI 2.0](quick-create-cli.md)
 - [Azure 入口網站](quick-create-portal.md)
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>在 Linux VM 上安裝桌面環境
 在 Azure 中大多數 Linux VM 預設沒有安裝桌面環境。 Linux VM 通常是使用 SSH 連接來管理，而不是使用桌面環境來管理。 在 Linux 中您有各種不同的桌面環境可以選擇。 根據您選擇的桌面環境，可能會使用 1 到 2 GB 的磁碟空間，並且需要 5 到 10 分鐘，才能安裝及設定所有必要的套件。
 
-下列範例會在 Ubuntu VM 上安裝輕量型 [xfce4](https://www.xfce.org/) 桌面環境。 其他散發的命令稍微不同 (例如，使用 `yum` 以在 Red Hat Enterprise Linux 上安裝及設定適當的 `selinux` 規則，或使用 `zypper` 在 SUSE 上安裝)。
+下列範例會在 Ubuntu 16.04 LTS VM 上安裝輕量型 [xfce4](https://www.xfce.org/) 桌面環境。 其他散發的命令稍微不同 (例如，使用 `yum` 以在 Red Hat Enterprise Linux 上安裝及設定適當的 `selinux` 規則，或使用 `zypper` 在 SUSE 上安裝)。
 
 首先，SSH 連接至您的 VM。 下列範例會連線至名為 myvm.westus.cloudapp.azure.com 且具有使用者名稱 azureuser 的 VM：
 

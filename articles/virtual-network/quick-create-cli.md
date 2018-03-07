@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: b2fc8a622549a9858c6c769a7e648fe07a3d01c1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 792b92731f89f3d0bab4f23221223e469ddf9550
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>使用 Azure CLI 建立虛擬網路
 
-在本文中，您將了解如何建立虛擬網路。 建立虛擬網路之後，您需將兩部虛擬機器部署到虛擬網路中，然後在兩者間進行私密通訊。
+在本文中，您將了解如何建立虛擬網路。 建立虛擬網路之後，您需將兩部虛擬機器部署到虛擬網路中，以在兩者間測試私人網路通訊。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.4 版或更新版本。 若要尋找已安裝的版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 2.0.4 版或更新版本。 若要尋找已安裝的版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -66,9 +66,11 @@ az network vnet create \
 
 傳回的另一部分資訊是命令中所指定 *default* 子網路的 **addressPrefix** *10.0.0.0/24*。 虛擬網路會包含零個或多個子網路。 此命令建立了一個名為 *default* 的單一子網路，但並沒有為此子網路指定任何位址首碼。 沒有為虛擬網路或子網路指定位址首碼時，Azure 預設會定義 10.0.0.0/24 作為第一個子網路的位址首碼。 因此，子網路會包含 10.0.0.0-10.0.0.254，但只有 10.0.0.4-10.0.0.254 可供使用，因為 Azure 會保留每個子網路中的前四個位址 (0-3) 和最後一個位址。
 
-## <a name="create-virtual-machines"></a>建立虛擬機器
+## <a name="test-network-communication"></a>測試網路通訊
 
-虛擬網路可讓數種類型的 Azure 資源互相進行私密通訊。 其中一種您可以部署到虛擬網路中的資源類型是虛擬機器。 請在虛擬網路中建立兩部虛擬機器，如此您才能在稍後的步驟中，驗證和了解虛擬網路中虛擬機器間的通訊如何運作。
+虛擬網路可讓數種類型的 Azure 資源互相進行私密通訊。 其中一種您可以部署到虛擬網路中的資源類型是虛擬機器。 在虛擬網路中建立兩部虛擬機器，以便您可以在稍後步驟中驗證它們之間的私密通訊。
+
+### <a name="create-virtual-machines"></a>建立虛擬機器
 
 使用 [az vm create](/cli/azure/vm#az_vm_create) 命令建立虛擬機器。 以下範例會建立名為 *myVm1* 的虛擬機器。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。 `--no-wait` 選項會在背景建立虛擬機器，因此您可以繼續進行下一步。
 
@@ -81,7 +83,7 @@ az vm create \
   --no-wait
 ```
 
-Azure 會自動在 *myVirtualNetwork* 虛擬網路的 *default* 子網路中建立虛擬機器，因為虛擬網路存在於資源群組中，而命令中並未指定任何虛擬網路或子網路。 建立虛擬機器時，Azure DHCP 自動將 10.0.0.4 指派給了虛擬機器，因為這是 *default* 子網路中第一個可用的位址。 虛擬機器的建立位置必須與虛擬網路所的位置相同。 虛擬機器不一定要與虛擬網路屬於相同資源群組，雖然在本文中兩者屬於相同資源群組。
+Azure 會自動在 *myVirtualNetwork* 虛擬網路的 *default* 子網路中建立虛擬機器，因為虛擬網路存在於資源群組中，而命令中並未指定任何虛擬網路或子網路。 建立虛擬機器時，Azure DHCP 自動將 10.0.0.4 指派給了虛擬機器，因為這是 *default* 子網路中第一個可用的位址。 虛擬機器的建立位置必須與虛擬網路所的位置相同。 虛擬機器不一定要與虛擬網路屬於相同資源群組，雖然在本文中兩者屬於相同的資源群組。
 
 建立第二部虛擬機器。 根據預設，Azure 也會在 *default* 子網路中建立此虛擬機器。
 
@@ -110,7 +112,7 @@ az vm create \
 
 在此範例中，您會看到 **privateIpAddress** 是 *10.0.0.5*。 Azure DHCP 自動將 *10.0.0.5* 指派給了虛擬機器，因為這是 *default* 子網路中下一個可用的位址。 請記下 **publicIpAddress**。 這個位址可在稍後的步驟中，用來從網際網路存取虛擬機器。 公用 IP 位址不是從虛擬網路或子網路位址首碼內指派的。 將會從[指派給每個 Azure 區域的位址集區](https://www.microsoft.com/download/details.aspx?id=41653) \(英文\) 指派公用 IP 位址。 雖然 Azure 知道哪個公用 IP 位址已指派給虛擬機器，但在虛擬機器中執行的作業系統並不會察覺指派給它的任何公用 IP 位址。
 
-## <a name="connect-to-a-virtual-machine"></a>連接到虛擬機器
+### <a name="connect-to-a-virtual-machine"></a>連接到虛擬機器
 
 請使用下列命令來建立與 *myVm2* 虛擬機器的 SSH 工作階段。 以虛擬機器的公用 IP 位址取代 `<publicIpAddress>` 位址。 在上面的範例中，IP 位址是 *40.68.254.142*。
 
@@ -118,7 +120,7 @@ az vm create \
 ssh <publicIpAddress>
 ```
 
-## <a name="validate-communication"></a>驗證通訊
+### <a name="validate-communication"></a>驗證通訊
 
 請使用下列命令來確認從 *myVm2* 與 *myVm1* 進行的通訊：
 
@@ -136,9 +138,11 @@ ping bing.com -c 4
 
 您會從 bing.com 收到四個回覆。根據預設，虛擬網路中的所有虛擬機器都能對網際網路進行輸出通訊。
 
+結束虛擬機器的 SSH 工作階段。
+
 ## <a name="clean-up-resources"></a>清除資源
 
-不再需要資源群組時，您可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令來移除資源群組及其包含的所有資源。 請結束與 VM 的 SSH 工作階段，然後將資源刪除。
+不再需要資源群組時，您可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令來移除資源群組及其包含的所有資源：
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -146,8 +150,7 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已部署一個含有一個子網路和兩部虛擬機器的預設虛擬網路。 若要了解如何建立含有多個子網路的自訂虛擬網路並執行基本管理工作，請繼續進行建立自訂虛擬網路並加以管理的教學課程。
-
+在本文中，您已部署含有一個子網路的預設虛擬網路。 若要了解如何建立含有多個子網路的自訂虛擬網路，請繼續進行建立自訂虛擬網路的教學課程。
 
 > [!div class="nextstepaction"]
-> [建立自訂虛擬網路並加以管理](virtual-networks-create-vnet-arm-pportal.md#azure-cli)
+> [建立自訂虛擬網路](virtual-networks-create-vnet-arm-pportal.md#azure-cli)

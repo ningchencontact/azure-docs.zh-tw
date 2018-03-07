@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2017
+ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 63ae975426f1057b178171ef89ce98402ff18725
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -34,6 +34,72 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 所需的權限 | 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](./active-directory-aadconnect-accounts-permissions.md#upgrade)。
 
 下載 | [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)。
+
+## <a name="117490"></a>1.1.749.0
+狀態：已發行給選定的客戶。此版本目前散發給已啟用自動升級的一小部分隨機 AADConnect 租用戶。 我們會在接下來幾週擴大這個租用戶群組，直到 100% 的自動升級客戶都都收到此版本為止。 之後，我們會在上述下載連結上公佈此組建以供一般下載 - 目前是預計在 2018 年的三月中。
+>[!NOTE]
+>當這個新的版本的升級完成時，會自動觸發 Azure AD 連接器的完整同步處理和完整匯入，以及 AD 連接器的完整同步處理。 由於這可能需要一些時間，視您的 Azure AD Connect 環境大小而定，所以請確定您已採取支援這項作業的必要步驟，否則請暫緩升級直到您找到方便執行這項作業的時間。
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>已修正的問題
+* 修正計時視窗在 [資料分割篩選] 頁面上的背景工作
+* 修正計時視窗切換至下一個頁面時，在 [資料分割篩選] 頁面背景工作的問題。
+
+* 修正 ConfigDB 自訂動作期間造成存取違規的錯誤 (bug)。
+
+* 修正從 SQL 復原連線逾時的錯誤 (bug)。
+
+* 修正含 SAN 萬用字元的憑證在必要條件檢查中失敗的錯誤 (bug)。
+
+* 修正在 Azure AD 連接器匯出期間造成 miiserver.exe 當機的錯誤 (bug)。
+
+* 修正當執行 Azure AD Connect 精靈變更設定時，錯誤密碼嘗試登入 DC 的錯誤 (bug)。
+
+
+#### <a name="new-features-and-improvements"></a>新功能和改進
+
+* 新增「一般資料保護規定」(GDPR) 的「隱私權設定」。  基於 GDPR，我們必須指示客戶與 Microsoft (遙測、健康情況等) 共用的資料種類，提供包含詳細線上文件的連結，以及提供讓客戶變更其喜好設定的方式。  這項新措施加入下列各項：
+
+
+    - 全新安裝 EULA 頁面上的資料共用和隱私權通知。
+    - 升級頁面上的資料共用和隱私權通知。
+    - 新的其他工作「隱私權設定」，讓使用者可以變更其喜好設定。
+
+* 應用程式遙測 - 系統管理員可以任意切換此資料類別的開啟/關閉
+
+* Azure AD Health 資料 - 系統管理員必須瀏覽健康情況入口網站來控制其健康情況設定。
+   一旦變更服務原則，代理程式會讀取並強制執行它。
+
+* 加入裝置回寫式設定動作和頁面初始化的進度列。
+
+* 改善 ZIP 文字 / HTML 報表中 HTML 報表與完整資料集合的一般診斷。
+
+* 改善自動升級的可靠性，並加入其他遙測，以確保您可以判斷伺服器的健康情況。
+
+* 限制 AD 連接器帳戶的特殊權限帳戶的可用權限。
+
+  * 在新的安裝中，精靈會限制在建立 MSOL 帳戶後，特殊權限帳戶對 MSOL 帳戶的權限。
+
+這些變更涵蓋：
+1. 快速安裝
+2. 含自動建立帳戶的自訂安裝
+
+* 修改了安裝程式，使其在全新安裝 Azure AD Connect 時不需要 SA 權限。
+
+* 加入新的公用程式，可針對特定物件的同步處理問題進行疑難排解。 它位於 Azure AD Connect 精靈疑難排解其他工作的「針對物件同步處理進行疑難排解」選項底下。 目前，此公用程式會檢查下列各項：
+
+  * 同步處理的使用者物件與 Azure AD 租用戶中使用者帳戶的 UserPrincipalName 不符。
+  * 是否因為網域篩選而從同步處理篩選物件
+  * 是否因為組織單位 (OU) 篩選而從同步處理篩選物件
+
+* 加入新的公用程式來同步處理目前儲存在內部部署 Active Directory 中的特定使用者帳戶的密碼雜湊。
+
+此公用程式不需要變更密碼。 它位於 Azure AD Connect 精靈疑難排解其他工作的「針對密碼雜湊同步處理進行疑難排解」選項底下。
+
+
+
+
+
 
 ## <a name="116540"></a>1.1.654.0
 狀態：2017 年 12 月 12 日

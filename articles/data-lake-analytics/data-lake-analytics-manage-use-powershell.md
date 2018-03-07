@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: 65bf5928428b21e98c893a9de8ca596329329411
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd81e9d6c91387b3873593b84e952ca4f2546c57
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Data Lake Analytics
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -99,13 +99,13 @@ New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -
 Get-AdlAnalyticsAccount -Name $adla
 ```
 
-檢查特定的 Data Lake Analytics 帳戶是否存在。 此 Cmdlet 會傳回 `True` 或 `False`。
+檢查特定的 Data Lake Analytics 帳戶是否存在。 此 Cmdlet 會傳回 `$true` 或 `$false`。
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
-檢查特定的 Data Lake Store account 帳戶是否存在。 此 Cmdlet 會傳回 `True` 或 `False`。
+檢查特定的 Data Lake Store account 帳戶是否存在。 此 Cmdlet 會傳回 `$true` 或 `$false`。
 
 ```powershell
 Test-AdlStoreAccount -Name $adls
@@ -154,8 +154,6 @@ Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $sta
 ```powershell
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
-
-
 
 允許 Azure IP 位址。
 
@@ -239,7 +237,6 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-
 ### <a name="submit-a-file-as-a-u-sql-script"></a>以 U-SQL 指令碼形式提交檔案
 
 ```powershell
@@ -258,15 +255,13 @@ Submit-AdlJob -AccountName $adla –ScriptPath $scriptpath -Name "Demo"
 Get-AdlJob -Account $adla
 ```
 
+### <a name="list-the-top-n-jobs"></a>列出前 N 個作業
 
-### <a name="list-a-specific-number-of-jobs"></a>列出特定數目的作業
-
-預設會在提交時排序作業清單。 因此，最新提交的作業會顯示在最前面。 ADLA 帳戶預設會記住 180 天內的作業，但 Ge-AdlJob Cmdlet 預設只會傳回前 500 個作業。 請使用 -Top 參數來列出特定數目的作業。
+預設會在提交時排序作業清單。 因此，最新提交的作業會顯示在最前面。 根據預設，ADLA 帳戶會記住 180 天內的作業，但 Ge-AdlJob Cmdlet 預設只會傳回前 500 個作業。 請使用 -Top 參數來列出特定數目的作業。
 
 ```powershell
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
-
 
 ### <a name="list-jobs-based-on-the-value-of-job-property"></a>根據作業屬性的值列出作業
 
@@ -308,7 +303,6 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
 
-
 `-Submitter` 參數可協助您識別由誰提交工作。
 
 ```powershell
@@ -338,7 +332,6 @@ Get-AdlJob -Account $adla -SubmittedAfter $d
 
 ```powershell
 $pipelines = Get-AdlJobPipeline -Account $adla
-
 $pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
 ```
 

@@ -14,18 +14,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a30b5d08377594b8ad7e10b63a23e2a9d168af9c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
-
-
 
 
 > 請訂閱 [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [摘要](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us)，以便隨時收到 Azure Active Directory (Azure AD) 的最新訊息。
@@ -43,6 +41,256 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 此頁面會每月更新，因此請定期瀏覽。
 
 
+
+## <a name="february-2018"></a>2018 年 2 月
+ 
+
+### <a name="improved-navigation-for-managing-users-and-groups"></a>改進使用者和群組的管理瀏覽體驗
+
+**類型：**方案變更  
+**服務類別：**目錄管理  
+**產品功能：**目錄
+ 
+
+使用者和群組的管理瀏覽體驗已經簡化。 您現在可以從目錄概觀直接瀏覽至所有使用者清單，且更容易存取已刪除的使用者清單。 您也可以從目錄概觀直接瀏覽至所有群組清單，且更容易存取群組管理設定。 此外，從目錄概觀頁面，您還可搜尋使用者、群組、企業應用程式或應用程式註冊。
+ 
+
+---
+
+
+### <a name="availability-of-sign-ins-and-audit-reports-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>21Vianet (Azure 中國 21Vianet) 所營運的 Microsoft Azure 提供登入和稽核報告
+
+**類型：**新功能  
+**服務類別：**主權雲端  
+**產品功能：**監視和報告
+ 
+
+21Vianet (Azure 中國 21Vianet) 執行個體所營運的 Microsoft Azure 現已提供 Azure AD 活動記錄報告。 以下是包含的記錄：
+
+- **登入活動記錄** - 包括與您租用戶相關的所有登入記錄。
+
+- **自助密碼稽核記錄** - 包括所有 SSPR 稽核記錄。
+
+- **目錄管理稽核記錄** - 包括所有目錄管理相關的稽核記錄，例如使用者管理、應用程式管理等。
+
+藉由這些記錄，您便可深入了解您環境的運作情況。 提供的資料可讓您：
+
+- 判斷使用者如何利用您的應用程式和服務。
+
+- 針對會阻止使用者完成其工作的問題進行疑難排解。
+
+如需有關如何使用這些報告的詳細資訊，請參閱 [Azure Active Directory 報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)。
+ 
+
+---
+
+
+### <a name="use-report-reader-role-non-admin-role-to-view-azure-ad-activity-reports"></a>使用「報告讀取者」角色 (非管理員角色) 來檢視 Azure AD 活動報告
+
+**類型：**新功能  
+**服務類別：**報告  
+**產品功能：**監視和報告
+ 
+
+在對於讓非管理員角色能夠存取 Azure AD 活動記錄的客戶意見反應中，我們已讓具備「報告讀取者」角色的使用者除了能夠使用我們的「圖形 API」之外，也能夠存取 Azure 入口網站內的「登入」和「稽核」活動。 
+
+如需有關如何使用這些報告的詳細資訊，請參閱 [Azure Active Directory 報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)。 
+
+---
+ 
+
+
+### <a name="employeeid-claim-available-as-user-attribute-and-user-identifier"></a>提供 EmployeeID 宣告作為使用者屬性和使用者識別碼
+
+**類型：**新功能  
+**服務類別：**企業應用程式  
+**產品功能：**SSO
+ 
+
+您可以從企業應用程式 UI 設定 **EmployeeID**，作為 SAML 登入應用程式中成員使用者和 B2B 來賓的使用者識別碼和使用者屬性。
+
+如需詳細資訊，請參閱[針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)。
+ 
+
+---
+
+
+### <a name="simplified-application-management-using-wildcards-in-azure-ad-application-proxy"></a>在 Azure AD 應用程式 Proxy 中使用萬用字元來簡化應用程式管理
+
+**類型：**新功能  
+**服務類別：**應用程式 Proxy  
+**產品功能：**使用者驗證
+ 
+
+為了讓應用程式部署更簡單並減輕您的系統管理額外負荷，我們現已支援使用萬用字元來發佈應用程式的功能。 若要發佈萬用字元應用程式，您可以依照標準的應用程式發佈流程，但在內部和外部 URL 中使用萬用字元。
+
+如需詳細資訊，請參閱 [Azure Active Directory 應用程式 Proxy 中的萬用字元應用程式](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-wildcard)
+
+ 
+
+---
+ 
+### <a name="new-cmdlets-to-support-configuration-of-application-proxy"></a>可支援設定應用程式 Proxy 的新 Cmdlet
+
+**類型：**新功能  
+**服務類別：**應用程式 Proxy  
+**產品功能：**平台
+ 
+
+最新版的「AzureAD PowerShell 預覽」模組包含可讓客戶使用 PowerShell 來設定「應用程式 Proxy 應用程式」的新 Cmdlet。
+
+這些新 Cmdlet 包括： 
+
+- Get-AzureADApplicationProxyApplication
+- Get-AzureADApplicationProxyApplicationConnectorGroup
+- Get-AzureADApplicationProxyConnector
+- Get-AzureADApplicationProxyConnectorGroup
+- Get-AzureADApplicationProxyConnectorGroupMembers
+- Get-AzureADApplicationProxyConnectorMemberOf
+- New-AzureADApplicationProxyApplication
+- New-AzureADApplicationProxyConnectorGroup
+- Remove-AzureADApplicationProxyApplication
+- Remove-AzureADApplicationProxyApplicationConnectorGroup
+- Remove-AzureADApplicationProxyConnectorGroup
+- Set-AzureADApplicationProxyApplication
+- Set-AzureADApplicationProxyApplicationConnectorGroup
+- Set-AzureADApplicationProxyApplicationCustomDomainCertificate
+- Set-AzureADApplicationProxyApplicationSingleSignOn
+- Set-AzureADApplicationProxyConnector
+- Set-AzureADApplicationProxyConnectorGroup
+
+
+ 
+
+---
+ 
+
+### <a name="new-cmdlets-to-support-configuration-of-groups"></a>可支援設定群組的新 Cmdlet
+
+**類型：**新功能  
+**服務類別：**應用程式 Proxy  
+**產品功能：**平台
+ 
+
+最新版的 AzureAD PowerShell 模組包含可管理 Azure AD 中群組的 Cmdlet。 這些 Cmdlet 先前是在 AzureADPreview 模組中提供的，現已新增到 AzureAD 模組中
+
+現已發行而可正式運作的 Group Cmdlet 包括： 
+
+- Get-AzureADMSGroup
+- New-AzureADMSGroup
+- Remove-AzureADMSGroup
+- Set-AzureADMSGroup
+- Get-AzureADMSGroupLifecyclePolicy
+- New-AzureADMSGroupLifecyclePolicy
+- Remove-AzureADMSGroupLifecyclePolicy
+- Add-AzureADMSLifecyclePolicyGroup
+- Remove-AzureADMSLifecyclePolicyGroup
+- Reset-AzureADMSLifeCycleGroup   
+- Get-AzureADMSLifecyclePolicyGroup
+ 
+
+---
+ 
+### <a name="a-new-release-of-azure-ad-connect-is-available"></a>提供新版 Azure AD Connect
+
+**類型：**新功能  
+**服務類別：**AD 同步  
+**產品功能：**平台
+ 
+
+Azure AD Connect 是在 Azure AD 與內部部署資料來源 (包括 Windows Server Active Directory 和 LDAP) 之間同步處理資料時，建議使用的工具。
+
+**重要**
+ 
+這個組建導入了結構描述和同步處理規則變更。 「Azure AD Connect 同步處理服務」會在升級後觸發「完整匯入」和「完整同步處理」步驟。 如需有關如何變更此行為的資訊，請參閱[如何延遲升級之後的完整同步處理](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#how-to-defer-full-synchronization-after-upgrade)。
+
+此版本包含下列更新和變更：
+
+**已修正的問題**
+
+- 修正 [分割區篩選] 頁面切換至下一頁時背景工作上的時間間隔問題。
+- 修正在 ConfigDB 自訂動作期間造成存取違規的錯誤 (bug)。
+- 修正從 SQL 復原時連線逾時的錯誤 (bug)。
+- 修正含 SAN 萬用字元的憑證在進行必要條件檢查時失敗的錯誤 (bug)。
+- 修正造成 miiserver.exe 在 AAD 連接器匯出期間當機的錯誤 (bug)。
+- 修正當執行 AAD Connect 精靈來變更設定時，錯誤密碼嘗試被記錄在 DC 上的錯誤 (bug)
+
+**新功能和改進**
+
+- 基於 GDPR，我們必須指出客戶與 Microsoft 共用的資料種類 (遙測、健康情況等)、提供詳細線上文件的連結，以及提供讓您變更其喜好設定的方式。  這項新措施加入下列各項：
+    - 全新安裝 EULA 頁面上的資料共用和隱私權通知。
+
+    - 升級頁面上的資料共用和隱私權通知。
+
+    - 新的額外工作**隱私權設定**，讓使用者可以變更其喜好設定。
+ 
+- 應用程式遙測 - 系統管理員可以開啟/關閉此類別的資料。
+
+- Azure AD 健康情況資料 - 系統管理員必須瀏覽健康情況入口網站，才能控制其健康情況設定。 一旦變更服務原則，代理程式會讀取並強制執行它。
+
+- 新增裝置回寫設定動作和頁面初始化的進度列。
+
+- 藉由 HTML 報告改善一般診斷並以 ZIP 文字/HTML 報告提供完整資料收集。
+
+- 改善自動升級的可靠性，並新增其他遙測，以確保您可以判斷伺服器的健康情況。
+
+- 限制具特殊權限帳戶對 AD 連接器帳戶的可用權限。 針對新的安裝，精靈會在建立 MSOL 帳戶之後，限制具特殊權限帳戶對 MSOL 帳戶的權限。 這些變更會影響「自動建立」帳戶的相關快速安裝和自訂安裝。
+
+- 將安裝程式變更為在進行 AADConnect 全新安裝時不需要 SA 權限。
+
+- 可針對特定物件的同步處理問題進行疑難排解的新公用程式。 目前，此公用程式會檢查下列各項：
+
+    - 同步處理的使用者物件與 Azure AD 租用戶中使用者帳戶的 UserPrincipalName 不符。
+  
+    - 是否因為網域篩選而從同步處理篩選物件
+  
+    - 是否因為組織單位 (OU) 篩選而從同步處理篩選物件
+
+- 可針對特定使用者帳戶同步處理儲存在內部部署 Active Directory 中之目前密碼雜湊的新公用程式。 此公用程式不需要變更密碼。 
+ 
+
+---
+ 
+
+### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>新增支援 Intune 應用程式防護原則的應用程式，以與 Azure AD 應用程式型條件式存取搭配使用
+
+**類型：**已變更的功能  
+**服務類別：**條件式存取  
+**產品功能：**身分識別安全性與保護
+ 
+
+我們已新增更多支援應用程式型條件式存取的應用程式。 現在，您可以使用這些已核准的用戶端應用程式，來存取 Office 365 及其他已連線至 Azure AD 的雲端應用程式。
+
+以下是會在二月底前新增的應用程式 
+
+- Microsoft PowerBI
+
+- Microsoft Launcher
+
+- Microsoft Invoicing
+
+如需詳細資訊，請參閱
+
+- [已核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+ 
+
+---
+ 
+
+### <a name="terms-of-use-update-to-mobile-experience"></a>更新行動體驗的使用規定 
+
+**類型：**已變更的功能  
+**服務類別：**使用規定  
+**產品功能：**治理
+ 
+
+顯示使用規定時，您現在可以按一下 [檢視時發生問題嗎?請按一下這裡]。 按一下此連結會在您裝置上以原生方式開啟使用規定。 不論文件中的字型大小或裝置的螢幕大小為何，您都可以視需要縮放並閱讀文件。 
+ 
+
+---
+ 
 ## <a name="january-2018"></a>2018 年 1 月
  
 
@@ -125,7 +373,7 @@ Azure 傳統入口網站中的 Azure AD 系統管理體驗自 2018 年 1 月 8 �
  
 ---
 
-### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Azure 傳統入口網站中的 Azure AD 系統管理體驗已淘汰
+### <a name="the-phonefactor-web-portal-has-been-retired"></a>PhoneFactor Web 入口網站已淘汰
 
 **類型：**已被取代  
 **服務類別：**Azure AD  
@@ -221,7 +469,7 @@ Azure AD 登入頁面上的 [讓我保持登入] 核取方塊已被新的提示�
 
 **類型：**新功能  
 **服務類別：**使用規定  
-**產品功能：**治理
+**產品功能：**治理/合規性
  
 一個系統管理員選項，可要求其使用者在接受使用規定之前，先展開該規定。
 
@@ -668,7 +916,7 @@ Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支�
 
 **類型：**新功能  
 **服務類別：**使用規定  
-**產品功能：**治理  
+**產品功能：**治理/合規性  
 
 
 
@@ -711,7 +959,7 @@ Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支�
 
 **類型：**新功能  
 **服務類別：**存取權檢閱  
-**產品功能：**治理  
+**產品功能：**治理/合規性  
 
 
 

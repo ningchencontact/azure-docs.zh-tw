@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-relay-faqs"></a>Azure 轉送常見問題集
 
@@ -76,14 +76,13 @@ ms.lasthandoff: 12/21/2017
 使用 **netTCPRelay** WCF 繫結開啟的轉送不會將訊息視為個別的訊息，但是會視為通過系統的資料流。 當您使用此繫結時，只有傳送者和接聽程式能夠看見傳送和接收之個別訊息的框架。 對於使用 **netTCPRelay** 繫結的轉送，所有資料都會被視為資料流，以便計算計費訊息。 在此情況下，服務匯流排會以 5 分鐘為基礎，計算透過每個個別轉送傳送或接收的資料總量。 然後，它會依據 64 KB 來分割資料總量，以判斷該期間該轉送的計費訊息數目。
 
 ## <a name="quotas"></a>配額
-| 配額名稱 | Scope | 類型 | 超出時的行為 | 值 |
-| --- | --- | --- | --- | --- |
-| 轉送上的並行接聽程式 |實體 |靜態 |後續對更多連線的要求將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 |25 |
-| 並行轉送接聽程式 |全系統 |靜態 |後續對更多連線的要求將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 |2,000 |
-| 服務命名空間中所有轉送端點的並行轉送連線 |全系統 |靜態 |- |5,000 |
-| 每個服務命名空間的轉送端點 |全系統 |靜態 |- |10,000 |
-| [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) 和 [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) 轉送的訊息大小 |全系統 |靜態 |超出這些配額的內送訊息將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 |64 KB |
-| [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) 和 [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) 轉送的訊息大小 |全系統 |靜態 |- |無限 |
+| 配額名稱 | Scope |  注意 | 值 |
+| --- | --- | --- | --- |
+| 轉送上的並行接聽程式 |實體 |後續對更多連線的要求將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 |25 |
+| 服務命名空間中所有轉送端點的並行轉送連線 |命名空間 |- |5,000 |
+| 每個服務命名空間的轉送端點 |命名空間 |- |10,000 |
+| [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) 和 [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) 轉送的訊息大小 |命名空間 |超出這些配額的內送訊息將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 |64 KB |
+| [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) 和 [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) 轉送的訊息大小 |命名空間 |訊息大小沒有限制。 |無限 |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>轉送是否有任何使用量配額？
 根據預設，對於所有雲端服務，Microsoft 會設定針對所有客戶的訂用帳戶計算的彙總每月使用量配額。 我們了解有時候您的需求可能會超過這些限制。 您可以隨時連絡客戶服務部門，讓我們知道您的需求並適當地調整這些限制。 服務匯流排的彙總使用量配額如下：

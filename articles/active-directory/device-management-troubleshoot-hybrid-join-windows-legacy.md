@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f1b92c604e20198714e9697bf4d08b3f71f23ae3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解 
 
@@ -55,7 +55,6 @@ ms.lasthandoff: 12/11/2017
 
 - 重新安裝作業系統或手動取消註冊再重新註冊時，可能會在 Azure AD 上建立新的註冊，而導致在 Azure 入口網站中 [使用者] 資訊索引標籤底下有多個項目。 
 
-
 ## <a name="step-1-retrieve-the-registration-status"></a>步驟 1：擷取註冊狀態 
 
 **確認註冊狀態：**  
@@ -82,6 +81,19 @@ ms.lasthandoff: 12/11/2017
 - 您不是以網域使用者身分登入
 
     ![Workplace Join for Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/03.png)
+    
+    這種情況可能是由幾種不同的原因所致︰
+    
+    1. 如果登入的使用者不是網域使用者 (例如本機使用者)。 對下層裝置的混合式 Azure AD 聯結僅支援網域使用者。
+    
+    2. 如果 Autoworkplace.exe 因故無法以無訊息方式使用 Azure AD 或 AD FS 進行驗證。 幾個可能的原因包括對 Azure AD URL 的輸出網路連線有問題 (請檢查先決條件)，或是已為使用者啟用/設定 MFA，但在同盟伺服器上未設定 WIAORMUTLIAUTHN (請檢查設定步驟)。 另一個可能的原因是，主領域探索 (HRD) 頁面正在等候使用者互動，導致 Autoworkplace.exe 無法以無訊息模式取得權杖。
+    
+    3. 如果組織使用 Azure AD 無縫單一登入，則下列 URL 不會存在於裝置的 IE 內部網路設定中：
+    
+       - https://autologon.microsoftazuread-sso.com
+       - https://aadg.windows.net.nsatc.net
+    
+       而且必須為內部網路區域啟用 [允許透過指令碼更新狀態列]。
 
 - 已達到配額限制
 

@@ -10,11 +10,11 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 467111978d43d35788276cf7a464496393e4599b
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 的分散式超參數微調
 
@@ -39,19 +39,14 @@ ms.lasthandoff: 12/20/2017
 * 已安裝的 [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) 複本，請依照[安裝和建立快速入門](./quickstart-installation.md)安裝 Workbench 並建立帳戶。
 * 此案例假設您在 Windows 10 或 MacOS (已於本機安裝 Docker 引擎) 上執行 Azure ML Workbench。 
 * 若要執行具有遠端 Docker 容器的案例，請依照[指示](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm)佈建 Ubuntu 資料科學虛擬機器 (DSVM)。 我們建議使用至少 8 個核心和 28 GB 記憶體的虛擬機器。 虛擬機器的 D4 執行個體有此容量。 
-* 若要搭配 Spark 叢集執行此案例，請依照這些[指示](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)佈建 Azure HDInsight 叢集。   
-我們建議使用至少具備以下條件的叢集：
-    - 六個背景工作節點
+* 若要搭配 Spark 叢集執行此案例，請依照這些[指示](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)來佈建 Spark HDInsight 叢集。 建議使用一個在標頭和背景工作節點中採用下列設定的叢：集：
+    - 四個背景工作節點
     - 八個核心
-    - 標頭和背景工作節點皆具備 28 Gb 的記憶體。 虛擬機器的 D4 執行個體有此容量。       
-    - 我們建議變更下列參數，來使叢集發揮最高效能：
-        - spark.executor.instances
-        - spark.executor.cores
-        - spark.executor.memory 
+    - 28 GB 記憶體  
+      
+  虛擬機器的 D4 執行個體有此容量。 
 
-您可以遵循這些[指示](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager)並編輯 [自訂 Spark 預設值] 區段中的定義。
-
-     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+     **疑難排解**：您的 Azure 訂用帳戶有可用的核心數目配額。 Azure 入口網站不允許建立核心總數超過配額的叢集。 若要找出您的配額，請進入 Azure 入口網站的 [訂用帳戶] 區段，按一下用來部署叢集的訂用帳戶，然後按一下 [使用量 + 配額]。 通常會針對每個 Azure 區域定義配額，您可以選擇在有足夠可用核心的區域中部署 Spark 叢集。 
 
 * 建立用來儲存資料集的 Azure 儲存體帳戶。 請遵循這些[指示](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)以建立儲存體帳戶。
 
@@ -118,7 +113,7 @@ ms.lasthandoff: 12/20/2017
 
 若要設定 Spark 環境，請在 CLI 中執行
 
-    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
+    az ml computetarget attach cluster --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 使用叢集的名稱、叢集的 SSH 使用者名稱和密碼。 SSH 使用者名稱的預設值是 `sshuser`，除非您在叢集的佈建期間變更此值。 在 Azure 入口網站中您叢集頁面的 [屬性] 區段中，可以找到叢集的名稱：
 
@@ -126,14 +121,20 @@ ms.lasthandoff: 12/20/2017
 
 我們使用 spark-sklearn 套件，讓 Spark 成為分散式超參數微調的執行環境。 我們修改了 spark_dependencies.yml 檔案，以在使用 Spark 執行環境時安裝這個套件：
 
-    configuration: {}
+    configuration: 
+      #"spark.driver.cores": "8"
+      #"spark.driver.memory": "5200m"
+      #"spark.executor.instances": "128"
+      #"spark.executor.memory": "5200m"  
+      #"spark.executor.cores": "2"
+  
     repositories:
       - "https://mmlspark.azureedge.net/maven"
       - "https://spark-packages.org/packages"
     packages:
       - group: "com.microsoft.ml.spark"
         artifact: "mmlspark_2.11"
-        version: "0.7"
+        version: "0.7.91"
       - group: "databricks"
         artifact: "spark-sklearn"
         version: "0.2.0"
@@ -199,9 +200,9 @@ ms.lasthandoff: 12/20/2017
 由於本機環境對於計算所有特徵集而言太小，所以我們會切換至具有較大記憶體的遠端 DSVM。 在 DSVM 內部執行是在 AML Workbench 所管理的 Docker 容器內部進行。 使用這個 DSVM，我們就能夠計算所有特徵、訓練模型，以及微調超參數 (請參閱下一節)。 singleVM.py 檔案具有完整特徵計算和模型化程式碼。 在下一節中，我們將示範如何在遠端 DSVM 中執行 singleVM.py。 
 
 ### <a name="tuning-hyperparameters-using-remote-dsvm"></a>使用遠端 DSVM 微調超參數
-我們會使用梯度樹提升的 [xgboost](https://anaconda.org/conda-forge/xgboost) 實作 [1]。 我們會使用 [scikit-learn](http://scikit-learn.org/) 套件來微調 xgboost 的超參數。 雖然 xgboost 不屬於 scikit-learn 套件，但它會實作 scikit-learn API，因此可以搭配 scikit-learn 的超參數微調函式使用。 
+我們會使用梯度樹提升的 [xgboost](https://anaconda.org/conda-forge/xgboost) 實作 [1]。 我們也會使用 [scikit-learn](http://scikit-learn.org/) 套件來微調 xgboost 的超參數。 雖然 xgboost 不屬於 scikit-learn 套件，但它會實作 scikit-learn API，因此可以搭配 scikit-learn 的超參數微調函式使用。 
 
-Xgboost 有八個超參數：
+Xgboost 有八個超參數，如[這裡](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md)所述：
 * n_estimators
 * max_depth
 * reg_alpha
@@ -210,14 +211,13 @@ Xgboost 有八個超參數：
 * learning_rate
 * colsample\_by_level
 * subsample
-* 在下列兩個位置可以找到這些超參數的目標 A 說明：
-- http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn- https://github.com/dmlc/xgboost/blob/master/doc/parameter.md)。 
-- 
+* objective  
+ 
 一開始，我們會使用遠端 DSVM 並從小型候選值網格中微調超參數：
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
-此網格有四個超參數的值組合。 我們使用 5 折交叉驗證，產生 xgboost 的 4x5=20 次執行。 為了測量模型的效能，我們使用負值對數損失計量。 下列程式碼會從網格中尋找可將交叉驗證負值對數損失最大化的超參數值。 此程式碼也會使用這些值來訓練完整訓練集的最終模型：
+此網格有四個超參數的值組合。 我們使用 5 折交叉驗證，這會產生 4x5=20 次的 xgboost 執行。 為了測量模型的效能，我們使用負值對數損失計量。 下列程式碼會從網格中尋找可將交叉驗證負值對數損失最大化的超參數值。 此程式碼也會使用這些值來訓練完整訓練集的最終模型：
 
     clf = XGBClassifier(seed=0)
     metric = 'neg_log_loss'
@@ -285,7 +285,7 @@ Xgboost 有八個超參數：
 
 此網格有 16 個超參數的值組合。 因為我們使用 5 折交叉驗證，所以我們會執行 xgboost 16x5=80 次。
 
-scikit-learn 套件沒有使用 Spark 叢集微調超參數的原生支援。 幸運的是，Databricks 提供的 [spark-sklearn](https://spark-packages.org/package/databricks/spark-sklearn) 套件填補此缺口。 此套件提供 GridSearchCV 函式，其具有與 scikit-learn 中的 GridSearchCV 函式幾乎相同的 API。 為了使用 spark-sklearn 及使用 Spark 來微調超參數，我們必須連線來建立 Spark 內容
+scikit-learn 套件沒有使用 Spark 叢集微調超參數的原生支援。 幸運的是，Databricks 提供的 [spark-sklearn](https://spark-packages.org/package/databricks/spark-sklearn) 套件填補此缺口。 此套件提供 GridSearchCV 函式，其具有與 scikit-learn 中的 GridSearchCV 函式幾乎相同的 API。 為了使用 spark-sklearn 及使用 Spark 來微調超參數，我們必須建立 Spark 內容
 
     from pyspark import SparkContext
     sc = SparkContext.getOrCreate()

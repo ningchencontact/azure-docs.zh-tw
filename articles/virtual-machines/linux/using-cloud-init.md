@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 2d110705a86fa8bc05859bd8bfde34b0b5b11575
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5c1d4eb0825d132037cc3a20a17c1f417578d35d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure 中虛擬機器的 Cloud-init 支援
 本文說明針對 [cloud-init](https://cloudinit.readthedocs.io) 存在的支援，以便在 Azure 中佈建時，設定虛擬機器 (VM) 或虛擬機器擴展集 (VMSS)。 一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。  
@@ -39,7 +39,7 @@ Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install**
 |OpenLogic |CentOS |7-CI |最新 |preview |
 |RedHat |RHEL |7-RAW-CI |最新 |preview |
 
-在預覽期間，Azure Stack 將不支援使用 cloud-init 佈建 RHEL 7.4 和 CentOS 7.4。
+目前 Azure Stack 不支援使用 cloud-init 來佈建 RHEL 7.4 和 CentOS 7.4。
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>cloud-init 和 Linux 代理程式 (WALA) 之間有哪些差異？
 WALA 是 Azure 平台專屬的代理程式，用於佈建及設定 VM，並處理 Azure 擴充功能。 我們一直在加強設定 VM 使用 cloud-init 代替 Linux 代理程式的工作，以讓現有的 cloud-init 客戶使用其目前的 cloud-init 指令碼。  如果您已經對設定 Linux 系統所使用的 cloud-init 指令碼有所投入，則**不需要其他任何設定**，就可以將其啟用。 

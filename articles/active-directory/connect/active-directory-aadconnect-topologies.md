@@ -12,13 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓撲
 本文說明使用 Azure AD Connect 同步處理做為重要整合解決方案的各種內部部署和 Azure Active Directory (Azure AD) 拓撲。 本文包含受支援和不受支援的組態。
@@ -144,7 +144,9 @@ Azure AD Connect 同步處理伺服器和 Azure AD 租用戶之間有 1:1 的關
 
 DNS 網域只能在單一 Azure AD 租用戶中註冊。 內部部署 Active Directory 執行個體中的使用者 UPN 也必須使用個別的命名空間。 例如，在上圖中，三個個別的 UPN 尾碼都登錄在內部部署 Active Directory 執行個體中：contoso.com、fabrikam.com 和 wingtiptoys.com。每個內部部署 Active Directory 網域中的使用者會使用不同的命名空間。
 
-Azure AD 租用戶執行個體之間沒有 GALSync。 Exchange Online 和商務用 Skype 中的通訊錄只會顯示相同租用戶中的使用者。
+>[!NOTE]
+>「全域通訊清單同步處理」(GalSync) 在此拓撲中不會自動執行，需要額外的自訂 MIM 實作以確保每個租用戶在 Exchange Online 和「商務用 Skype Online」中都擁有完整的「全域通訊清單」(GAL)。
+
 
 對於另外支援的案例，此拓撲具有下列限制︰
 
