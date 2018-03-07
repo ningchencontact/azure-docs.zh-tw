@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: abaad6514b24bd4bcc923d87a7b721cc80648c47
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b43061f5af3e836ba3f0b37eb11b351a769890be
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring"></a>將 IoT DevKit AZ3166 連線到 Azure IoT 套件以便進行遠端監視
 
 在本教學課程中，您將會了解如何在 DevKit 上執行範例應用程式，以將感應器資料傳送至 Azure IoT 套件。
+
+[MXChip IoT DevKit](https://aka.ms/iot-devkit) 是全方位 Arduino 相容板，具有豐富的週邊設備和感應器。 您可以使用[適用於 Arduino 的 Visual Studio Code 延伸模組](https://aka.ms/arduino)來對它進行開發。 它隨附不斷增長的[專案目錄](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/)，以引導您設定運用 Microsoft Azure 服務的物聯網 (IoT) 解決方案原型。
 
 ## <a name="what-you-need"></a>您需要什麼
 
@@ -122,3 +124,4 @@ DevKit 會重新開機，然後開始執行程式碼。
 您已了解如何將 DevKit 裝置連接至 Azure IoT 套件並將感應器資料視覺化，以下是建議的後續步驟：
 
 * [Azure IoT 套件概觀](https://docs.microsoft.com/azure/iot-suite/)
+* [將 MXChip IoT DevKit 裝置連線到您的 Microsoft IoT Central 應用程式](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)

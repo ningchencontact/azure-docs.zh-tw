@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 122646f73b6e4e7c62eb0e6d4b6672b603d8acb2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resource-classes-for-workload-management"></a>適用於工作負載管理的資源類別
 在 Azure SQL 資料倉儲中，使用資源類別來管理同時執行的並行查詢數目以及適用於查詢之計算資源的指引。
@@ -84,6 +84,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 ```
 
 服務管理員的資源類別是固定且無法變更的。  服務管理員是在佈建程序期間建立的使用者。
+
+> [!NOTE]
+> 定義為 Active Directory 管理員的使用者或群組，也會是服務管理員。
+>
+>
 
 ### <a name="default-resource-class"></a>預設的資源類別
 根據預設，每位使用者都是小型資源類別 **smallrc** 的成員。 

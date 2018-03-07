@@ -1,6 +1,6 @@
 ---
-title: "監視 Resource Manager 部署的虛擬機器備份 | Microsoft Docs"
-description: "監視 Resource Manager 部署的虛擬機器備份中的事件和警示。 根據警示傳送電子郵件。"
+title: "監視 Azure 虛擬機器的備份警示 | Microsoft Docs"
+description: "監視來自 Azure 虛擬機器備份作業的事件與警示。 根據警示傳送電子郵件。"
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2016
+ms.date: 02/23/2018
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 0f92d63d6eabe48bfac444b79bc10e090df239ca
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>監視 Azure 虛擬機器備份的警示
 警示是來自已達到或超過事件閾值之服務的回應。 了解何時出現問題，可能對於維持低商務成本很重要。 警示通常不會依照排程發生，因此在警示發生之後盡早得知將會有所幫助。 例如，當備份或還原作業失敗時，警示會在失敗後五分鐘內發生。 在保存庫儀表板中，[備份警示] 圖格會顯示嚴重和警告層級的事件。 在 [備份警示] 設定中，您可以檢視所有事件。 但是，如果在您處理不同問題時發生警示，您該怎麼辦？ 如果您不知道何時發生警示，可能會有點不便，或可能危及資料。 若要確定正確的人員會留意警示 (當它發生時)，請設定服務以透過電子郵件傳送警示通知。 如需設定電子郵件通知的詳細資訊，請參閱 [設定通知](backup-azure-monitor-vms.md#configure-notifications)。
@@ -70,9 +70,9 @@ ms.lasthandoff: 12/19/2017
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>有哪些警示類型可供 Azure IaaS VM 備份使用？
    | 警示層級 | 傳送的警示 |
    | --- | --- |
-   | 重要 |備份失敗、復原失敗 |
-   | 警告 |None |
-   | 資訊 |None |
+   | 重要 | 適用於備份失敗、復原失敗 |
+   | 警告 | 適用於成功但有警告的備份作業 (例如：建立快照集時的一些寫入失敗) |
+   | 資訊 | 目前沒有適用於 Azure VM 備份的資訊警示 |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>會有即使已設定通知卻不寄送電子郵件的情況嗎？
 即使已正確設定通知，仍會有不寄送警示的情況。 在下列情況下將不會寄送電子郵件通知，以避免警示雜訊︰

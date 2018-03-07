@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a3b83f0a5ed9638f3e9277d4a467b478961d3fc3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a3143703a946cadccf14d1675399c0848835d97c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="problems-configuring-and-provisioning-users-to-an-application"></a>為應用程式設定和佈建使用者時發生問題
 
@@ -31,5 +31,6 @@ ms.lasthandoff: 12/11/2017
   下列文件可協助您解決此類別的一些最常見問題。
   * [我不知道如何設定 Azure AD 資源庫應用程式的使用者佈建](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-how-to/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [我在設定 Azure AD 資源庫應用程式的使用者佈建時遇到問題](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
+  * [在設定 Azure Active Directory 資源庫應用程式之使用者佈建的情況下儲存系統管理員認證時發生問題](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-storage-limit/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [我已設定 Azure AD 資源庫應用程式的佈建，但佈建中沒有使用者](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-no-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Azure AD 資源庫應用程式的佈建運作正常，但佈建的該組使用者不正確](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-wrong-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)

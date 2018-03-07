@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: cccbd4952c66d3d8140e2a03e3b76afaa5ba3fbf
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: aelnably;msangapu
+ms.openlocfilehash: e61c767ada31fc32e28bfd9a2a4e843e9ca88053
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>使用用於容器的 Web 應用程式進行持續部署
 
@@ -34,14 +34,14 @@ ms.lasthandoff: 10/25/2017
 您可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 並執行下列命令來啟用持續部署功能
 
 ```azurecli-interactive
-az webapp deployment container config -n sname -g rgname -e true
+az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
 ```
 
 在 **[Azure 入口網站](https://portal.azure.com/)**中，按一下頁面左側的 [App Service] 選項。
 
 按一下您想要設定 Docker 中樞連續部署的應用程式名稱。
 
-在 [應用程式設定] 中，新增名為 `DOCKER_ENABLE_CI` 且包含 `true` 值的應用程式設定。
+在 [Docker 容器] 中，請選取 [開啟]，然後按 [儲存] 以啟用持續部署。
 
 ![將應用程式設定的影像插入](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
@@ -50,7 +50,7 @@ az webapp deployment container config -n sname -g rgname -e true
 您可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 並執行下列命令來取得 Webhook URL
 
 ```azurecli-interactive
-az webapp deployment container show-cd-url -n sname1 -g rgname
+az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
 針對 Webhook URL，您必須擁有下列端點︰`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`。
@@ -89,6 +89,6 @@ az webapp deployment container show-cd-url -n sname1 -g rgname
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [在 Linux 上的 Azure App Service 中使用 .NET Core](quickstart-dotnetcore.md)
 * [在 Linux 上的 Azure App Service 中使用 Ruby](quickstart-ruby.md)
-* [如何針對用於容器的 Web 應用程式使用自訂 Docker 映像](quickstart-custom-docker-image.md)
+* [如何針對用於容器的 Web 應用程式使用自訂 Docker 映像](quickstart-docker-go.md)
 * [Azure App Service Web App for Containers 常見問題集](./app-service-linux-faq.md)
 * [使用 Azure CLI 2.0 管理 Web App for Containers](./app-service-linux-cli.md)

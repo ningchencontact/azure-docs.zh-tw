@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 6a518f9c7ddb11de2b459d5d28c404316eb62355
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD 群組型授權的 PowerShell 範例
 
@@ -27,6 +27,9 @@ ms.lasthandoff: 01/03/2018
 
 > [!NOTE]
 > 在開始執行這些 Cmdlet 之前，請先確定您已藉由執行 `Connect-MsolService` Cmdlet 來連線到租用戶。
+
+>[!WARNING]
+>此程式碼是基於示範目的而提供的範例。 如果您需要在環境中使用它，請考量先進行小規模測試，或在個別的測試租用戶中進行測試。 您可能需要調整程式碼以符合您環境的特定需求。
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>檢視指派給群組的產品授權
 [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) Cmdlet 可用來擷取群組物件並檢查「授權」屬性︰它會列出目前指派給群組的所有產品授權。
@@ -70,7 +73,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ```
 
 ## <a name="get-statistics-for-groups-with-licenses"></a>取得具有授權之群組的統計資料
-您可以針對具有授權的群組提出基本統計資料報告。 下列範例列出了使用者總人數、群組已對其指派授權的使用者人數，以及群組無法對其指派授權的使用者人數。
+您可以針對具有授權的群組提出基本統計資料報告。 下列範例中，指令碼列出使用者總人數、群組已對其指派授權的使用者人數，以及群組無法對其指派授權的使用者人數。
 
 ```
 #get all groups with licenses
@@ -167,7 +170,7 @@ ObjectId                             DisplayName      License Error
 ```
 ## <a name="get-all-users-with-license-errors-in-the-entire-tenant"></a>取得整個租用戶中具有授權錯誤的所有使用者
 
-若要列出具有一或多個群組之授權錯誤的所有使用者，您可以使用下列指令碼。 此指令碼會將每位使用者的每個授權錯誤各列在一個資料列中，以方便您清楚識別每個錯誤的來源。
+下列指令碼可用來取得具有一或多個群組之授權錯誤的所有使用者。 此指令碼會將每位使用者的每個授權錯誤各列印在一個資料列中，以方便您清楚識別每個錯誤的來源。
 
 > [!NOTE]
 > 此指令碼會列舉租用戶中的所有使用者，因此可能不適合大型租用戶使用。
@@ -302,7 +305,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>移除具有群組授權之使用者的直接授權
 此指令碼的目的，是要為已從群組繼承了相同授權的使用者，移除不必要的直接授權；例如，在[轉換為群組型授權](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal)的過程中進行此操作。
 > [!NOTE]
-> 請務必先驗證，要移除的直接授權所啟用的服務功能，沒有比繼承的授權所啟用的功能多。 否則，移除直接授權可能會停用使用者對服務和資料的存取權。 目前無法透過 PowerShell 來檢查哪些服務是透過繼承授權來啟用，哪些則是透過直接授權來啟用。 在指令碼中，我們會指定已知從群組所繼承而來的最低層級服務，然後就此進行檢查。
+> 請務必先驗證，要移除的直接授權所啟用的服務功能，沒有比繼承的授權所啟用的功能多。 否則，移除直接授權可能會停用使用者對服務和資料的存取權。 目前無法透過 PowerShell 來檢查哪些服務是透過繼承授權來啟用，哪些則是透過直接授權來啟用。 在指令碼中，我們會指定已知從群組所繼承而來的最低層級服務，然後就此進行檢查，以確定使用者不會意外失去服務的存取權。
 
 ```
 #BEGIN: Helper functions used by the script
@@ -382,7 +385,7 @@ function GetDisabledPlansForSKU
 {
     Param([string]$skuId, [string[]]$enabledPlans)
 
-    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
+    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation" -and $_.ServicePlan.TargetClass -ieq "User"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
     $disabledPlans = $allPlans | Where {$enabledPlans -inotcontains $_}
 
     return $disabledPlans
@@ -476,7 +479,7 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解透過群組管理授權的功能集，請參閱下列各項：
+若要深入了解透過群組管理授權的功能集，請參閱下列文章：
 
 * [什麼是 Azure Active Directory 中以群組為基礎的授權？](active-directory-licensing-whatis-azure-portal.md)
 * [將授權指派給 Azure Active Directory 中的群組](active-directory-licensing-group-assignment-azure-portal.md)

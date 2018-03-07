@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 觸發程序和繫結概念
 
@@ -43,7 +43,51 @@ ms.lasthandoff: 02/09/2018
 
 如需哪些繫結為預覽狀態或已核准可用於實際執行環境的資訊，請參閱[支援的語言](supported-languages.md)。
 
-## <a name="example-queue-trigger-and-table-output-binding"></a>範例︰佇列觸發程序和資料表輸出繫結
+## <a name="register-binding-extensions"></a>註冊繫結延伸模組
+
+在 2.x 版的 Azure Functions 執行階段中，您必須明確註冊您在函式應用程式中使用的[繫結延伸模組](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md)。 
+
+延伸模組會以 NuGet 套件的形式來傳遞，而套件名稱的開頭通常是 [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions)。  您安裝及註冊繫結延伸模組的方式取決於您如何開發您的函式： 
+
++ [在本機 C# 中使用 Visual Studio 或 VS Code](#precompiled-functions-c)
++ [在本機使用 Azure Functions Core Tools](#local-development-azure-functions-core-tools)
++ [在 Azure 入口網站中](#azure-portal-development) 
+
+2.x 版中有一組核心繫結並未提供作為延伸模組。 您不需要註冊下列觸發程序和繫結的延伸模組：HTTP、計時器和 Azure 儲存體。 
+
+如需如何設定函式應用程式以使用 Functions 執行階段 2.x 版的相關資訊，請參閱[如何設定 Azure Functions 執行階段目標版本](set-runtime-version.md)。 Functions 執行階段 2.x 版目前為預覽狀態。 
+
+本節中顯示的套件版本僅提供作為範例。 請查看 [NuGet.org 網站](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions)來判斷函式應用程式中的其他相依性需要所指定延伸模組的哪個版本。    
+
+###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>使用 Visual Studio 或 VS Code 的本機 C# 開發 
+
+當您使用 Visual Studio 或 Visual Studio Code 透過 C# 在本機開發函式時，只需新增 NuGet 套件來取得延伸模組。 
+
++ **Visual Studio**：使用 NuGet 套件管理員工具。 下列 [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 命令會從套件管理員主控台安裝 Azure Cosmos DB 延伸模組：
+
+    ```
+    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
+    ```
++ **Visual Studio Code**：您可以在 .NET CLI 中使用 [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 命令，從命令提示字元安裝套件，如下所示：
+
+    ```
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
+    ```
+
+### <a name="local-development-azure-functions-core-tools"></a>本機開發 Azure Functions Core Tools
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+### <a name="azure-portal-development"></a>Azure 入口網站開發
+
+當您建立函式或將繫結新增至現有函式時，系統會在要新增之觸發程序或繫結的延伸模組需要註冊時提示您。   
+
+在要安裝之特定延伸模組的警告出現之後，請按一下 [安裝] 來註冊延伸模組。 針對指定的函式應用程式，您只須安裝每個延伸模組一次。 
+
+>[!Note] 
+>入口網站安裝程序在取用方案上可能需要 10 分鐘。
+
+## <a name="example-trigger-and-binding"></a>觸發程序和繫結範例
 
 假設您想要每當新訊息出現在 Azure 佇列儲存體時，就在 Azure 表格儲存體寫入新的資料列。 此案例可以使用 Azure 佇列儲存體觸發程序和 Azure 表格儲存體輸出繫結來實作。 
 
@@ -70,7 +114,7 @@ ms.lasthandoff: 02/09/2018
 }
 ```
 
-`bindings` 陣列中的第一個元素是佇列儲存體觸發程序。 `type` 和 `direction` 屬性可識別觸發程序。 `name` 屬性可識別將會接收佇列訊息內容的函式參數。 要監視的佇列名稱是在 `queueName` 中，而連接字串則是在 `connection` 所識別的應用程式設定中。
+`bindings` 陣列中的第一個元素是佇列儲存體觸發程序。 `type` 和 `direction` 屬性可識別觸發程序。 `name` 屬性可識別會接收佇列訊息內容的函式參數。 要監視的佇列名稱是在 `queueName` 中，而連接字串則是在 `connection` 所識別的應用程式設定中。
 
 `bindings` 陣列中的第二個元素是 Azure 表格儲存體輸出繫結。 `type` 和 `direction` 屬性可識別繫結。 `name` 屬性指定函式如何提供新的資料表資料列，在本例中是透過函式傳回值。 資料表的名稱是在 `tableName` 中，而連接字串則是在 `connection` 所識別的應用程式設定中。
 
@@ -124,7 +168,7 @@ function generateRandomId() {
 }
 ```
 
-在類別庫中，所有屬性會提供相同的觸發程序和繫結資訊 (佇列和資料表名稱、儲存體帳戶、輸入和輸出的函式參數)：
+在類別庫中，會由屬性 (而非 function.json 檔案) 提供相同的觸發程序和繫結資訊 &mdash;佇列和資料表名稱、儲存體帳戶、輸入和輸出的函式參數&mdash;。 以下是範例：
 
 ```csharp
  public static class QueueTriggerTableOutput
@@ -162,12 +206,53 @@ function generateRandomId() {
 
 當您使用[類別庫中的屬性](functions-dotnet-class-library.md)來設定觸發程序和繫結時，請在屬性建構函式中提供方向，或從參數類型推斷方向。
 
-## <a name="using-the-function-return-type-to-return-a-single-output"></a>使用函數傳回類型來傳回單一輸出
+## <a name="using-the-function-return-value"></a>使用函式傳回值
 
-上述範例示範如何使用函式傳回值，來提供輸出給繫結，這是在 *function.json* 中透過 `name` 屬性的特殊值 `$return` 所指定。 (這只支援有傳回值的語言，例如 C# 指令碼、JavaScript 和 F#)。如果函數有多個輸出繫結，請只將 `$return` 用於其中一個輸出繫結。 
+在具有傳回值的語言中，您可以將「輸出繫結」繫結至傳回值：
+
+* 在 C# 類別庫中，將輸出繫結屬性套用至方法傳回值。
+* 在其他語言中，將 function.json 中的 `name` 屬性設定為 `$return`。
+
+如果您必須撰寫多個項目，請使用[收集器物件](functions-reference-csharp.md#writing-multiple-output-values)而不是使用傳回值。 如果有多個輸出繫結，請只對其中一個使用傳回值。
+
+請參閱特定語言的範例：
+
+* [C#](#c-example)
+* [C# 指令碼 (.csx)](#c-script-example)
+* [F#](#f-example)
+* [JavaScript](#javascript-example)
+
+### <a name="c-example"></a>C# 範例
+
+以下是使用輸出繫結傳回值的 C# 程式碼，接著則是非同步範例：
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return Task.FromResult(json);
+}
+```
+
+### <a name="c-script-example"></a>C# 指令碼範例
+
+以下是 function.json 檔案中的輸出繫結：
 
 ```json
-// excerpt of function.json
 {
     "name": "$return",
     "type": "blob",
@@ -176,10 +261,9 @@ function generateRandomId() {
 }
 ```
 
-下列範例示範如何在 C# 指令碼、JavaScript 和 F# 中搭配輸出繫結使用傳回型別。
+以下是 C# 指令程式碼，接著則是非同步範例：
 
 ```cs
-// C# example: use method return value for output binding
 public static string Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -189,7 +273,6 @@ public static string Run(WorkItem input, TraceWriter log)
 ```
 
 ```cs
-// C# example: async method, using return value for output binding
 public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -198,21 +281,49 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 }
 ```
 
+### <a name="f-example"></a>F# 範例
+
+以下是 function.json 檔案中的輸出繫結：
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+以下是 F# 程式碼：
+
+```fsharp
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+### <a name="javascript-example"></a>JavaScript 範例
+
+以下是 function.json 檔案中的輸出繫結：
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+在 JavaScript 中，傳回值是放在 `context.done` 的第二個參數中：
+
 ```javascript
-// JavaScript: return a value in the second parameter to context.done
 module.exports = function (context, input) {
     var json = JSON.stringify(input);
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
-```
-
-```fsharp
-// F# example: use return value for output binding
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
 ```
 
 ## <a name="binding-datatype-property"></a>繫結 dataType 屬性
@@ -232,13 +343,32 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 `dataType` 也另具有 `stream` 和 `string` 兩種選項。
 
-## <a name="resolving-app-settings"></a>解析應用程式設定
+## <a name="binding-expressions-and-patterns"></a>繫結運算式和模式
 
-為了遵循最佳做法，祕密和連接字串應使用應用程式設定來管理，而不是使用組態檔。 這會限制對這些祕密的存取，並保護儲存在公用原始檔控制存放庫的 *function.json*。
+觸發程序和繫結其中一個最強大的功能就是「繫結運算式」。 在 function.json 檔案以及函式參數與程式碼中，您可以使用多個運算式，這些運算式會將各種來源解析為相對應的多個值。
+
+大多數運算式會藉由以大括號裹住來供您識別。 例如，在佇列觸發程序函式中，`{queueTrigger}` 會解析為佇列訊息文字。 如果 Blob 輸出繫結的 `path` 屬性是 `container/{queueTrigger}`，且函式是由佇列訊息 `HelloWorld` 所觸發，則系統會建立名為 `HelloWorld` 的 Blob。
+
+繫結運算式的類型
+
+* [應用程式設定](#binding-expressions---app-settings)
+* [觸發程序檔案名稱](#binding-expressions---trigger-file-name)
+* [觸發程序中繼資料](#binding-expressions---trigger-metadata)
+* [JSON 承載](#binding-expressions---json-payloads)
+* [新 GUID](#binding-expressions---create-guids)
+* [目前的日期和時間](#binding-expressions---current-time)
+
+### <a name="binding-expressions---app-settings"></a>繫結運算式 - 應用程式設定
+
+為了遵循最佳做法，祕密和連接字串應使用應用程式設定來管理，而不是使用組態檔。 這會限制對這些祕密的存取，並保護儲存在公用原始檔控制存放庫的檔案，例如 function.json。
 
 當您想要根據環境來變更設定時，應用程式設定也很有用。 例如，在測試環境中，您可能會想要監視不同佇列或 Blob 儲存體容器。
 
-只要某個值是以百分比符號括住 (例如 `%MyAppSetting%`)，就會解析應用程式設定。 請注意，觸發程序和繫結的 `connection` 屬性是特殊案例，且會自動將值解析為應用程式設定。 
+應用程式設定繫結運算式可藉由不同於其他繫結運算式的方式來識別：它們會以百分比符號裹住，而不是以大括號裹住。 例如，如果 Blob 輸出繫結路徑是 `%Environment%/newblob.txt` 而 `Environment` 應用程式設定值是 `Development`，則系統會在 `Development` 容器中建立 Blob。
+
+在本機執行函式時，應用程式設定值來自 local.settings.json 檔案。
+
+請注意，觸發程序和繫結的 `connection` 屬性是特殊案例，且會自動將值解析為應用程式設定，不含百分比符號。 
 
 下列範例是使用應用程式設定 `%input-queue-name%` 來定義要觸發之佇列的 Azure 佇列儲存體觸發程序。
 
@@ -268,9 +398,75 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-metadata-properties"></a>觸發程序中繼資料屬性
+### <a name="binding-expressions---trigger-file-name"></a>繫結運算式 - 觸發程序檔案名稱
 
-除了觸發程序提供的資料承載 (例如觸發函數的佇列訊息) 之外，許多觸發程序都提供額外的中繼資料值。 這些值可以在 C# 和 F# 中作為輸入參數使用，或在 JavaScript 中做為 `context.bindings` 物件上的屬性使用。 
+Blob 觸發程序的 `path` 可以是可讓您參考其他繫結和函式程式碼中之觸發 Blob 名稱的模式。 此模式也可以包含篩選條件，該條件會指定哪個 Blob 可以觸發函式引動過程。
+
+例如，在下列 Blob 觸發程序繫結中，`path` 模式是 `sample-images/{filename}`，它會建立名為 `filename` 的繫結運算式：
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    ...
+```
+
+然後可以在輸出繫結中使用運算式 `filename` 以指定要建立之 Blob 的名稱：
+
+```json
+    ...
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+函式程式碼可以使用 `filename` 作為參數名稱來存取此相同值：
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+類別庫中的所有屬性都可以使用繫結運算式和模式。 在下列範例中，屬性建構函式參數是與上述 function.json 範例相同的 `path` 值： 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{filename}")] Stream image,
+    [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
+    string filename,
+    TraceWriter log)
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+}
+
+```
+
+您也可以為檔案名稱的各個部分 (例如副檔名) 建立運算式。 如需如何在 Blob 路徑字串中使用運算式和模式的詳細資訊，請參閱[儲存體 Blob 繫結參考](functions-bindings-storage-blob.md)。
+ 
+### <a name="binding-expressions---trigger-metadata"></a>繫結運算式 - 觸發程序中繼資料
+
+除了觸發程序提供的資料承載 (例如觸發函式的佇列訊息內容) 之外，許多觸發程序都提供額外的中繼資料值。 這些值可以在 C# 和 F# 中作為輸入參數使用，或在 JavaScript 中做為 `context.bindings` 物件上的屬性使用。 
 
 例如，Azure 佇列儲存體觸發程序支援下列屬性：
 
@@ -304,112 +500,11 @@ public static void Run(
 
 在對應的參考文章中，會描述每個觸發程序之中繼資料屬性的詳細資料。 如需範例，請參閱[佇列觸發程序中繼資料](functions-bindings-storage-queue.md#trigger---message-metadata)。 您也可以在入口網站的 [整合] 索引標籤中，繫結設定區域之下的 [文件] 區段取得文件。  
 
-## <a name="binding-expressions-and-patterns"></a>繫結運算式和模式
+### <a name="binding-expressions---json-payloads"></a>繫結運算式 - JSON 承載
 
-觸發程序和繫結其中一個最強大的功能就是「繫結運算式」。 在繫結設定中，您可以定義模式運算式，並將它用於其他繫結或您的程式碼。 觸發程序中繼資料也可以用於繫結運算式，如上一節所示。
+當觸發程序承載為 JSON 時，您可以在相同函式與函式程式碼內之其他繫結的設定中參考其屬性。
 
-例如，當您想要調整特定 Blob 儲存體容器中的影像大小時，就如同 Azure 入口網站的 [新增函式] 頁面中的 [Image Resizer] \(影像大小重新調整器) 範本 (請參閱**範例**案例)。 
-
-以下是 *function.json* 定義：
-
-```json
-{
-  "bindings": [
-    {
-      "name": "image",
-      "type": "blobTrigger",
-      "path": "sample-images/{filename}",
-      "direction": "in",
-      "connection": "MyStorageConnection"
-    },
-    {
-      "name": "imageSmall",
-      "type": "blob",
-      "path": "sample-images-sm/{filename}",
-      "direction": "out",
-      "connection": "MyStorageConnection"
-    }
-  ],
-}
-```
-
-請注意，`filename` 參數用於 Blob 觸發程序定義和 Blob 輸出繫結。 這個參數也可以用於函數程式碼。
-
-```csharp
-// C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
-{
-    log.Info($"Blob trigger processing: {filename}");
-    // ...
-} 
-```
-
-<!--TODO: add JavaScript example -->
-<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
-
-類別庫中的所有屬性都可以使用繫結運算式和模式。 例如，以下是類別庫中的影像調整大小函式：
-
-```csharp
-[FunctionName("ResizeImage")]
-[StorageAccount("AzureWebJobsStorage")]
-public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
-{
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
-
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-}
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
-```
-
-### <a name="create-guids"></a>建立 GUID
-
-`{rand-guid}` 繫結運算式可建立 GUID。 下列範例使用 GUID 建立唯一的 Blob 名稱： 
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{rand-guid}"
-}
-```
-
-### <a name="current-time"></a>目前時間
-
-繫結運算式 `DateTime` 會解析成 `DateTime.UtcNow`。
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{DateTime}"
-}
-```
-
-## <a name="bind-to-custom-input-properties"></a>繫結至自訂輸入屬性
-
-繫結運算式也可以參考在其觸發程序承載中定義的屬性。 例如，您可能想要從在 Webhook 中提供的檔案名稱動態地繫結到 Blob 儲存體檔案。
-
-例如，下列 *function.json* 使用來自觸發程序承載且稱為 `BlobName` 的屬性：
+下列範例針對接收 JSON 中 Blob 名稱的 Webhook 函式顯示 function.json 檔案：`{"BlobName":"HelloWorld.txt"}`。 Blob 輸入繫結會讀取 Blob，HTTP 輸出繫結則會在 HTTP 回應中傳回 Blob 內容。 請注意，Blob 輸入繫結會藉由直接參考 `BlobName` 屬性 (`"path": "strings/{BlobName}"`) 來取得 Blob 名稱
 
 ```json
 {
@@ -424,7 +519,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName}",
+      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -436,7 +531,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 }
 ```
 
-若要在 C# 和 F# 中完成此動作，您必須定義一個 POCO，以定義將在觸發程序承載中還原序列化的欄位。
+為了能夠在 C# 和 F# 中運作，您需要一個類別來定義要還原序列化的欄位，如下列範例所示：
 
 ```csharp
 using System.Net;
@@ -458,7 +553,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 }
 ```
 
-在 JavaScript 中，會自動執行 JSON 還原序列化，且您可以直接使用該屬性。
+JavaScript 會自動執行 JSON 還原序列化。
 
 ```javascript
 module.exports = function (context, info) {
@@ -476,9 +571,67 @@ module.exports = function (context, info) {
 }
 ```
 
-## <a name="configuring-binding-data-at-runtime"></a>在執行階段設定繫結資料
+#### <a name="dot-notation"></a>點標記法
 
-在 C# 和其他 .NET 語言中，您可以使用相對於 *function.json* 和屬性中宣告式繫結的命令式繫結模式。 當繫結參數需要在執行階段而不是設計階段中計算時，命令式繫結非常有用。 若要深入了解，請參閱 C# 開發人員參考中的[在執行階段透過命令式繫結進行繫結](functions-reference-csharp.md#imperative-bindings)。
+如果 JSON 承載中的某些屬性是具有屬性的物件，您可以使用點標記法來直接參考這些屬性。 例如，假設您的 JSON 看起來如下：
+
+```json
+{"BlobName": {
+  "FileName":"HelloWorld",
+  "Extension":"txt"
+  }
+}
+```
+
+您可直接以 `BlobName.FileName` 的形式參考 `FileName`。 在使用此 JSON 格式時，以下是上述範例中 `path` 屬性的樣貌：
+
+```json
+"path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+```
+
+在 C# 中，您需要兩個類別：
+
+```csharp
+public class BlobInfo
+{
+    public BlobName BlobName { get; set; }
+}
+public class BlobName
+{
+    public string FileName { get; set; }
+    public string Extension { get; set; }
+}
+```
+
+### <a name="binding-expressions---create-guids"></a>繫結運算式 - 建立 GUID
+
+`{rand-guid}` 繫結運算式可建立 GUID。 `function.json` 檔案中的下列 Blob 路徑會建立具有如 50710cb5-84b9-4d87-9d83-a03d6976a682.txt 之名稱的 Blob。
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{rand-guid}"
+}
+```
+
+### <a name="binding-expressions---current-time"></a>繫結運算式 - 目前時間
+
+繫結運算式 `DateTime` 會解析成 `DateTime.UtcNow`。 `function.json` 檔案中的下列 Blob 路徑會建立具有如 2018-02-16T17-59-55Z.txt 之名稱的 Blob。
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
+## <a name="binding-at-runtime"></a>執行階段的繫結
+
+在 C# 和其他 .NET 語言中，您可以使用相對於 *function.json* 和屬性中宣告式繫結的命令式繫結模式。 當繫結參數需要在執行階段而不是設計階段中計算時，命令式繫結非常有用。 若要深入了解，請參閱 [C# 開發人員參考](functions-dotnet-class-library.md#binding-at-runtime)或 [C# 指令碼開發人員參考](functions-reference-csharp.md#binding-at-runtime)。
 
 ## <a name="functionjson-file-schema"></a>function.json 檔案結構描述
 

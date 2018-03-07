@@ -3,7 +3,7 @@ title: "Azure 中 Windows VM 的已排定事件 | Microsoft Docs"
 description: "針對您的 Windows 虛擬機器，使用 Azure 中繼資料服務排定事件。"
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: 
-author: zivraf
+author: ericrad
 manager: timlt
 editor: 
 tags: 
@@ -13,23 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
-ms.author: zivr
-ms.openlocfilehash: 75e811f77bade3701cce2d9945cf35d6e14e376f
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.date: 02/22/2018
+ms.author: ericrad
+ms.openlocfilehash: 8f78f476e28ec04acfea9fe45d57a4c18d5db678
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Azure 中繼資料服務：Windows VM 的已排定事件 (預覽)
-
-> [!NOTE] 
-> 若您同意使用規定即可取得預覽。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
->
+# <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 中繼資料服務：Windows VM 的已排定事件
 
 排程的事件是 Azure 中繼資料服務，可為您的應用程式提供時間準備虛擬機器維護。 它提供即將進行維護事件 (例如重新啟動) 的相關資訊，讓您的應用程式可進行準備以及限制中斷。 它適用於所有 Azure 虛擬機器類型 (包括 Windows 和 Linux 上的 PaaS 和 IaaS)。 
 
 如需 Linux 上已排定事件的資訊，請參閱 [Linux VM 的已排定事件](../linux/scheduled-events.md)。
+
+> [!Note] 
+> 已排定事件已在所有 Azure 區域中正式推出。 請參閱[版本和區域可用性](#version-and-region-availability)以取得最新的版本資訊。
 
 ## <a name="why-scheduled-events"></a>為什麼要使用排定的事件？
 
@@ -52,54 +51,38 @@ ms.lasthandoff: 12/06/2017
 
 如果您是使用可由 VM 內存取的 REST 端點來執行虛擬機器，Azure 中繼資料服務會公開這類相關資訊。 這項資訊是透過無法路由傳送的 IP 取得，因此不會在 VM 之外公開。
 
-### <a name="scope"></a>Scope
-排程的事件會傳送到：
-- 雲端服務中的所有虛擬機器
-- 可用性設定組中的所有虛擬機器
-- 擴展集放置群組中的所有虛擬機器。 
-
-因此，您應該檢查事件中的 `Resources` 欄位以找出哪些 VM 即將受到影響。 
-
-## <a name="discovering-the-endpoint"></a>探索端點
-針對已啟用 VNET 的 VM，最新版排程事件的完整端點為： 
+### <a name="endpoint-discovery"></a>端點探索
+針對已啟用 VNET 的 VM，中繼資料服務可以從靜態非可路由 IP `169.254.169.254` 取得。 最新版已排定事件的完整端點為： 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
 
-如果虛擬機器是在虛擬網路 (VNet) 中建立的情況下，可從無法路由傳送的靜態 IP (`169.254.169.254`) 取得中繼資料服務。
 如果虛擬機器不是在虛擬網路中建立，則針對雲端服務和傳統 VM 的預設案例，需要其他邏輯來探索可使用的 IP 位址。 請參閱此範例以了解如何[探索主機端點](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)。
 
-### <a name="versioning"></a>版本控制 
+### <a name="version-and-region-availability"></a>版本和區域可用性
 排程的事件服務已進行版本設定。 版本是必要項目，且目前版本為 `2017-08-01`。
 
-| 版本 | 版本資訊 | 
-| - | - | 
-| 2017-08-01 | <li> 已從 IaaS VM 的資源名稱中移除預留底線<br><li>強制所有要求的中繼資料標頭需求 | 
-| 2017-03-01 | <li>公開預覽版本
+| 版本 | 版本類型 | 區域 | 版本資訊 | 
+| - | - | - | - |
+| 2017-08-01 | 正式運作 | 全部 | <li> 已從 IaaS VM 的資源名稱中移除預留底線<br><li>強制所有要求的中繼資料標頭需求 | 
+| 2017-03-01 | 預覽 | 全部 |<li>初始版本
 
 > [!NOTE] 
 > 先前排定事件的預覽版支援作為 API 版本的 {latest}。 此格式將不再受到支援且之後會遭到取代。
 
-### <a name="using-headers"></a>使用標頭
-查詢中繼資料服務時，您必須提供 `Metadata:true` 標頭以免不小心重新導向要求。 所有排程的事件都需要 `Metadata:true` 標頭。 要求中未包含標頭會導致中繼資料服務不正確的要求回應。
+### <a name="enabling-and-disabling-scheduled-events"></a>啟用和停用已排定事件
+系統會在您第一次提出事件要求時，為您的服務啟用「已排定事件」。 您可能會在第一次呼叫中遇到長達兩分鐘的延遲回應。
 
-### <a name="enabling-scheduled-events"></a>啟用排定的事件
-第一次要求排定的事件時，Azure 會在您的虛擬機器上隱含啟用此功能。 因此，您可能會在第一次呼叫中遇到長達兩分鐘的延遲回應。
-
-> [!NOTE]
-> 如果您的服務 1 天不呼叫結束點，您的服務就會自動停用排程的事件。 一旦您的服務停用排程的事件，就不會建立使用者起始維護的事件。
+如果長達 24 小時未提出要求，您的服務就會停用已排定事件。
 
 ### <a name="user-initiated-maintenance"></a>使用者起始的維護
 使用者透過 Azure 入口網站、API、CLI 或 PowerShell 起始的虛擬機器維護，將會產生「排定的事件」。 這可讓您測試應用程式中的維護準備邏輯，讓應用程式可以為使用者啟動的維護預作準備。
 
 重新啟動虛擬機器會排定 `Reboot` 類型的事件。 重新部署虛擬機器會排定 `Redeploy` 類型的事件。
 
-> [!NOTE] 
-> 目前最多可同時排程 100 個使用者起始的維護作業。
-
-> [!NOTE] 
-> 使用者起始的維護會導致「排程的事件」，這個狀況目前尚無法設定。 預計在未來版本中，將可針對此狀況作設定。
-
 ## <a name="using-the-api"></a>使用 API
+
+### <a name="headers"></a>headers
+查詢中繼資料服務時，您必須提供 `Metadata:true` 標頭以免不小心重新導向要求。 所有排程的事件都需要 `Metadata:true` 標頭。 要求中未包含標頭會導致中繼資料服務不正確的要求回應。
 
 ### <a name="query-for-events"></a>查詢事件
 您只要進行下列呼叫，即可查詢排定的事件：
@@ -137,7 +120,7 @@ curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @
 | 事件狀態 | 此事件的狀態。 <br><br> 值： <ul><li>`Scheduled`︰此事件已排定在 `NotBefore` 屬性所指定的時間之後啟動。<li>`Started`︰已啟動事件。</ul> 如果未提供任何 `Completed` 或類似的狀態，事件完成時，將不會再傳回事件。
 | NotBefore| 自此之後可能會啟動此事件的時間。 <br><br> 範例： <br><ul><li> 2016-09-19T18:29:47Z  |
 
-### <a name="event-scheduling"></a>事件排定
+### <a name="event-scheduling"></a>事件排程
 系統會根據事件類型，為每個事件在未來安排最少的時間量。 事件的 `NotBefore` 屬性會反映這個時間。 
 
 |EventType  | 最短時間通知 |
@@ -145,6 +128,14 @@ curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @
 | 凍結| 15 分鐘 |
 | 重新啟動 | 15 分鐘 |
 | 重新部署 | 10 分鐘 |
+
+### <a name="event-scope"></a>事件範圍     
+排程的事件會傳送到：        
+ - 雲端服務中的所有虛擬機器      
+ - 可用性設定組中的所有虛擬機器      
+ - 擴展集放置群組中的所有虛擬機器。         
+
+因此，您應該檢查事件中的 `Resources` 欄位以找出哪些 VM 即將受到影響。 
 
 ### <a name="starting-an-event"></a>啟動事件 
 
@@ -231,6 +222,7 @@ foreach($event in $scheduledEvents.Events)
 
 ## <a name="next-steps"></a>後續步驟 
 
+- 在 Azure Friday 上觀賞[已排定事件示範](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance)。 
 - 在 [Azure 執行個體中繼資料排程的事件 Github 存放庫](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)中檢閱排程的事件程式碼範例
 - 深入了解[執行個體中繼資料服務](instance-metadata-service.md)中提供的 API。
 - 了解 [Azure 中 Windows 虛擬機器預定進行的維修](planned-maintenance.md)。

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d72e10332263fac0b0ca0f937d394d2832d88781
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>針對使用 Hive 查詢之 Hadoop 叢集中的資料建立特徵
 本文件說明如何使用 Hive 查詢，針對儲存在 Azure HDInsight Hadoop 叢集中的資料建立特徵。 這些 Hive 查詢會使用針對其提供指令碼的內嵌 Hive 使用者定義函式 (UDF)。
@@ -93,14 +93,14 @@ Hive 會和一組 UDF 一起出現，用來處理日期時間欄位。 在 Hive 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-這個 Hive 查詢假設 *&#60;datetime field>* 是預設的日期時間格式。
+這個 Hive 查詢假設 *<datetime field>* 是預設的日期時間格式。
 
 如果日期時間欄位不是預設格式，您需要先將日期時間欄位轉換為 Unix 時間戳記，然後將 Unix 時間戳記轉換為預設格式的日期時間字串。 將日期時間為預設格式之後，使用者就可以套用內嵌的日期時間 UDF 來擷取功能。
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-在這個查詢中，如果 *&#60;datetime field>* 具有類似 *03/26/2015 12:04:39* 的模式，則 *'&#60;pattern of the datetime field>'* 應該是 `'MM/dd/yyyy HH:mm:ss'`。 若要進行測試，使用者可以執行
+在此查詢中，如果 *<datetime field>* 的模式類似於 *03/26/2015 12:04:39*，則 *<pattern of the datetime field>'* 應為 `'MM/dd/yyyy HH:mm:ss'`。 若要進行測試，使用者可以執行
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;

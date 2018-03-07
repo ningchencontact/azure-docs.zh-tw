@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 37713db70f3ae837edafc997b78b16b121d0a885
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d6c675d314e96cd0caab7e5eb5c60e3b1458e4a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>建立和修改 ExpressRoute 線路的對等互連 (傳統)
 > [!div class="op_single_selector"]
@@ -78,10 +78,10 @@ ms.lasthandoff: 12/21/2017
 ### <a name="to-create-azure-private-peering"></a>建立 Azure 私用對等
 1. **匯入 ExpressRoute 的 PowerShell 模組。**
    
-    您必須將 Azure 和 ExpressRoute 模組匯入至 PowerShell 工作階段，才能開始使用 ExpressRoute Cmdlet。 執行下列命令將 Azure 和 ExpressRoute 模組匯入至 PowerShell 工作階段。  
+    您必須將 Azure 和 ExpressRoute 模組匯入至 PowerShell 工作階段，才能開始使用 ExpressRoute Cmdlet。 執行下列命令將 Azure 和 ExpressRoute 模組匯入至 PowerShell 工作階段。 版本可能不同。    
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **建立 ExpressRoute 線路。**
    
     請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-classic.md) ，並由連線提供者佈建它。 如果您的連線提供者是提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。 
@@ -168,10 +168,10 @@ ms.lasthandoff: 12/21/2017
 ### <a name="to-create-azure-public-peering"></a>建立 Azure 公用對等
 1. **匯入 ExpressRoute 的 PowerShell 模組。**
    
-    您必須將 Azure 和 ExpressRoute 模組匯入至 PowerShell 工作階段，才能開始使用 ExpressRoute Cmdlet。 執行下列命令將 Azure 和 ExpressRoute 模組匯入至 PowerShell 工作階段。 
+    您必須將 Azure 和 ExpressRoute 模組匯入至 PowerShell 工作階段，才能開始使用 ExpressRoute Cmdlet。 執行下列命令將 Azure 和 ExpressRoute 模組匯入至 PowerShell 工作階段。 版本可能不同。   
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **建立 ExpressRoute 線路**
    
     請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-classic.md) ，並由連線提供者佈建它。 如果您的連線提供者提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 公用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
@@ -254,10 +254,10 @@ ms.lasthandoff: 12/21/2017
 ### <a name="to-create-microsoft-peering"></a>建立 Microsoft 對等
 1. **匯入 ExpressRoute 的 PowerShell 模組。**
    
-    您必須將 Azure 和 ExpressRoute 模組匯入至 PowerShell 工作階段，才能開始使用 ExpressRoute Cmdlet。 執行下列命令將 Azure 和 ExpressRoute 模組匯入至 PowerShell 工作階段。  
+    您必須將 Azure 和 ExpressRoute 模組匯入至 PowerShell 工作階段，才能開始使用 ExpressRoute Cmdlet。 執行下列命令將 Azure 和 ExpressRoute 模組匯入至 PowerShell 工作階段。 版本可能不同。   
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **建立 ExpressRoute 線路**
    
     請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-classic.md) ，並由連線提供者佈建它。 如果您的連線提供者是提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。

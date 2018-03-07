@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: ae266b0fc78083250c5d14ff2978cd59d394b202
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>非背書散發套件的資訊
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-只有使用其中一個[背書散發套件](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)時，Azure 平台 SLA 才適用於執行 Linux OS 的虛擬機器。 Azure 映像庫中提供的所有 Linux 散發套件，皆為使用必要組態的背書散發套件。
+只有使用其中一個[背書散發套件](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)時，Azure 平台 SLA 才適用於執行 Linux OS 的虛擬機器。 對於這些背書散發套件，Linux 映像會以所需的組態在 Azure Marketplace 中供應。
 
 * [Azure 背書散發套件上的 Linux](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [支援 Microsoft Azure 中的 Linux 映像](https://support.microsoft.com/kb/2941892)

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4449dfa1b189f51292d24af884ba9d2addf1fe24
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>在 Linux 上使用 HDInsight 的相關資訊
 
@@ -35,7 +35,7 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 
 * [cURL](https://curl.haxx.se/) - 用來與 Web 型服務通訊
 * [jq](https://stedolan.github.io/jq/) - 用來剖析 JSON 文件
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (預覽) - 用來從遠端管理 Azure 服務
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) - 用來從遠端管理 Azure 服務
 
 ## <a name="users"></a>使用者
 

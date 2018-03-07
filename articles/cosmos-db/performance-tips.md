@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: mimig
-ms.openlocfilehash: 2e49613cf37fa625efc7859802db86780dcb128a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2b822794cbafa037d4ab3cb23d2a885914c83607
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -97,7 +97,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
     Azure Cosmos DB SDK 會持續改善以提供最佳效能。 請參閱 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 頁面來判斷最新的 SDK 並檢閱改善項目。
 2. **在應用程式存留期內使用單一 Azure Cosmos DB 用戶端**
 
-    每個 DocumentClient 執行個體都具備執行緒安全，並且在直接模式中運作時執行有效率的連線管理和位址快取。 若要藉由 DocumentClient 獲得有效率的連接管理和更佳的效能，建議在應用程式存留期內對每個 AppDomain 使用單一 DocumentClient 執行個體。
+    每個 DocumentClient 執行個體都是安全執行緒，並且在直接模式中運作時執行有效率的連線管理和位址快取。 若要藉由 DocumentClient 獲得有效率的連接管理和更佳的效能，建議在應用程式存留期內對每個 AppDomain 使用單一 DocumentClient 執行個體。
 
    <a id="max-connection"></a>
 3. **增加使用閘道模式時每部主機的 System.Net MaxConnections**

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -234,16 +234,16 @@ module.exports = function (context) {
 
 ## <a name="trigger---message-metadata"></a>觸發程序 - 訊息中繼資料
 
-佇列觸發程序提供數個中繼資料屬性。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些值的語意與 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) 相同。
+佇列觸發程序提供數個[中繼資料屬性](functions-triggers-bindings.md#binding-expressions---trigger-metadata)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些值的語意與 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) 相同。
 
 |屬性|類型|說明|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|佇列承載 (如果為有效字串)。 如果佇列承載為字串，`QueueTrigger` 具有相同於 *function.json* 中由 `name` 屬性命名之變數的值。|
 |`DequeueCount`|`int`|此訊息已從佇列清除的次數。|
-|`ExpirationTime`|`DateTimeOffset?`|訊息到期時間。|
+|`ExpirationTime`|`DateTimeOffset`|訊息到期時間。|
 |`Id`|`string`|佇列訊息識別碼。|
-|`InsertionTime`|`DateTimeOffset?`|訊息新增至佇列的時間。|
-|`NextVisibleTime`|`DateTimeOffset?`|下次顯示訊息的時間。|
+|`InsertionTime`|`DateTimeOffset`|訊息新增至佇列的時間。|
+|`NextVisibleTime`|`DateTimeOffset`|下次顯示訊息的時間。|
 |`PopReceipt`|`string`|訊息的離開通知。|
 
 ## <a name="trigger---poison-messages"></a>觸發程序 - 有害訊息
@@ -251,6 +251,18 @@ module.exports = function (context) {
 當佇列觸發程序函數失敗時，Azure Functions 會針對指定的佇列訊息重試該函數最多五次，包括第一次嘗試。 如果五次嘗試全都失敗，Functions 執行階段會將訊息新增至名為 *&lt;originalqueuename>-poison* 的佇列。 您可以撰寫函數，透過記錄或傳送通知表示需要手動處理，來處理有害佇列中的訊息。
 
 若要手動處理有害訊息，請檢查佇列訊息的 [dequeueCount](#trigger---message-metadata)。
+
+## <a name="trigger---polling-algorithm"></a>觸發程序 - 輪詢演算法
+
+佇列觸發程序會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲存體交易成本的影響。  找到訊息時，執行階段會等待兩秒，然後檢查另一個訊息；當找不到任何訊息時，它會等候大約四秒，然後再試一次。 連續嘗試取得佇列訊息失敗後，等候時間會持續增加，直到它到達等待時間上限 (預設值為一分鐘)。 可透過 [host.json 檔案](functions-host-json.md#queues)中的 `maxPollingInterval` 屬性來設定最長等待時間。
+
+## <a name="trigger---concurrency"></a>觸發程序 - 並行
+
+有多個佇列訊息在等候時，佇列觸發程序會擷取批次訊息，並同時叫用函式執行個體來處理它們。 依預設，批次大小為 16。 當要處理的數目減少到 8 時，執行階段就會取得另一個批次，並開始處理那些訊息。 因此，每個函式在一個虛擬機器 (VM) 上並行處理的訊息上限為 24。 這項限制會個別套用至每個 VM 上每個佇列觸發的函式。 如果您的函式應用程式擴展至多個 VM，則每個 VM 會等候觸發程序，並嘗試執行函式。 例如，如果函式應用程式擴展到 3 個 VM，一個佇列觸發函式的並行執行個體數上限會預設為 72。
+
+可在 [host.json 檔案](functions-host-json.md#queues)中設定批次大小和取得新批次的閾值。 如果您需要將一個函式應用程式中佇列觸發函式的平行執行最小化，可以將批次大小設定為 1。 只要您的函式應用程式在單一虛擬機器 (VM) 上執行，這項設定就只會將並行排除。 
+
+佇列觸發程序會自動防止函式處理佇列訊息多次；不需將函式撰寫成等冪函式。
 
 ## <a name="trigger---hostjson-properties"></a>觸發程序 - host.json 屬性
 

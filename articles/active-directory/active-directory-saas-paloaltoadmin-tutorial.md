@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 60430f08f54232db619efd054ca3a7d9a44f4cdc
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>教學課程：Azure Active Directory 與 Palo Alto 網路 - 系統管理 UI 整合
 
@@ -106,11 +106,14 @@ ms.lasthandoff: 01/19/2018
 
 3. 在 [Palo Alto 網路 - 系統管理 UI 網域與 URL] 區段上，執行下列步驟：
 
-    ![[Palo Alto 網路 - 系統管理 UI 網域和 URL] 單一登入資訊](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
-
+    ![[Palo Alto 網路 - 系統管理 UI 網域和 URL] 單一登入資訊](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_show_advanced_url.png)
+    
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<Customer Firewall FQDN>/php/login.php`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<Customer Firewall FQDN>/SAML20/SP`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<Customer Firewall FQDN>:443/SAML20/SP`
+    
+    c. 在 [回覆 URL] 文字方塊中，使用下列模式輸入「判斷提示取用者服務 (ACS) URL」：`https://<Customer Firewall FQDN>:443/SAML20/SP/ACS`
+    
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Palo Alto 網路 - 系統管理 UI 用戶端支援小組](https://support.paloaltonetworks.com/support) \(英文\) 以取得這些值。 
@@ -163,13 +166,71 @@ ms.lasthandoff: 01/19/2018
 
 11. 在 [Import] \(匯入\) 視窗執行下列動作
 
-    ![設定 Palo Alto 單一登入](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin3.png)
+    ![設定 Palo Alto 單一登入](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
-    a. 在 [Profile Name] \(設定檔名稱\) 文字方塊中提供名稱，例如 Azure AD 系統管理 UI。
+    a. 在 [設定檔名稱] 文字方塊中提供名稱，例如 AzureAD 系統管理 UI。
     
     b. 在 [Identity Provider Metadata] \(識別提供者中繼資料\) 中，按一下 [Browse] \(瀏覽\)，然後選取您從 Azure 入口網站下載的中繼資料 .xml 檔案
     
-    c. 按一下 [確定] 
+    c. 將「**驗證識別提供者憑證**」取消選取
+    
+    d. 按一下 [確定] 
+    
+    e. 選取 [認可] 按鈕以認可防火牆上的組態
+
+12. 從左側導覽列選取 [SAML 識別提供者]，然後在先前步驟中建立的 SAML 識別提供者設定檔 (例如 AzureAD 系統管理 UI) 上按一下。 
+    
+  ![設定 Palo Alto 網路單一登入](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
+
+13. 在 [SAML 識別提供者伺服器設定檔] 視窗上執行下列動作
+
+  ![設定 Palo Alto 網路單一登出](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
+  
+  a. 在 [識別提供者 SLO URL] 文字方塊中，將先前匯入的 SLO URL 移除，然後新增下列 URL：`https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`
+  
+  b. 按一下 [確定] 
+
+
+14. 在 Palo Alto 網路防火牆的系統管理 UI 中，按一下 [裝置] 然後選取 [管理員角色]
+
+15. 按一下 [新增]  按鈕。 在 [管理員角色設定檔] 視窗中，提供管理員角色的名稱 (例如 fwadmin)。 此管理員角色名稱應該符合識別提供者所傳送的 SAML 管理員角色屬性名稱。 在步驟 5 中，已建立管理員角色的名稱和值。 
+
+  ![設定 Palo Alto 網路管理員角色](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
+  
+16. 在防火牆的系統管理 UI 中，按一下 [裝置]，然後選取 [驗證設定檔]
+
+17. 按一下 [新增]  按鈕。 在 [驗證設定檔] 視窗中，執行下列動作： 
+
+ ![設定 Palo Alto 網路驗證設定檔](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
+
+   a. 在 [名稱] 文字方塊中提供名稱，例如 AzureSAML_Admin_AuthProfile
+    
+   b. 在 [類型] 下拉式清單中，選取 [SAML] 
+   
+   c. 在 [IdP 伺服器設定檔] 下拉式清單中，選取適當的 SAML 識別提供者伺服器設定檔 (例如 AzureAD 系統管理 UI)
+   
+   c. 選取 [啟用單一登出] 核取方塊
+    
+   d. 在 [管理員角色屬性] 文字方塊中輸入屬性名稱 (例如 adminrole)。 
+   
+   e. 選取 [進階] 索引標籤，然後按一下 [允許清單] 窗格中的 [新增] 按鈕。 全選或選取可以使用此設定檔進行驗證的特定使用者和群組。 當使用者進行驗證時，防火牆會針對此清單中的項目比對相關聯的使用者名稱或群組。 如果您未新增項目，則無法驗證任何使用者。
+   
+   ![設定 Palo Alto 網路驗證設定檔](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_allowlist.png)
+   
+   f. 按一下 [確定] 
+
+18. 若要使用 Azure 來讓管理員使用 SAML SSO，請按一下 [裝置] 然後選取 [安裝]。 在 [設定] 窗格中，選取 [管理] 索引標籤，然後按一下 [驗證設定] 底下的齒輪圖示。 
+
+ ![設定 Palo Alto 網路驗證設定](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
+
+19. 選取在步驟 17 中建立的 SAML 驗證設定檔。 (例如 AzureSAML_Admin_AuthProfile)
+
+ ![設定 Palo Alto 網路驗證設定](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
+
+20. 按一下 [確定] 
+
+21. 選取 [認可] 按鈕以認可組態。
+
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

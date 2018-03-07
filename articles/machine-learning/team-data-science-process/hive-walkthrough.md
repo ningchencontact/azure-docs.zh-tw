@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
-ms.openlocfilehash: daf5168ba9a21a56d72fc14649c349b0fb63a167
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4671493c23bfed72517e436dd6922f4ef8a213b0
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process 實務：使用 Azure HDInsight Hadoop 叢集
 在此逐步解說中，我們在端對端案例中使用 [Team Data Science Process (TDSP)](overview.md)。 我們使用 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)，以對 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) \(英文\) 資料集內可公開使用的資料進行儲存、探索和特徵工程設計，並縮減取樣資料。 若要處理二元和多元分類和迴歸預測工作，我們使用 Azure Machine Learning 建置資料的模型。 
@@ -104,10 +104,10 @@ NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未
 
 在下列 AzCopy 命令中，以建立 Hadoop 叢集和解壓縮資料檔案時指定的實際值取代下列參數。
 
-* ***&#60;path_to_data_folder>***：在包含未解壓縮資料檔案之電腦上的目錄 (以及路徑)。  
-* ***&#60;storage account name of Hadoop cluster>***：與您的 HDInsight 叢集關聯的儲存體帳戶。
-* ***&#60;default container of Hadoop cluster>***：您的叢集所使用的預設容器。 請注意，預設容器的名稱通常與叢集本身的名稱相同。 例如，如果叢集稱為 "abc123.azurehdinsight.net"，預設容器即為 abc123。
-* ***&#60;storage account key>***：您的叢集所使用的儲存體帳戶金鑰。
+* ***<path_to_data_folder>***：您的電腦上包含未解壓縮之資料檔案的目錄 (以及路徑)。  
+* ***<storage account name of Hadoop cluster>***與您的 HDInsight 叢集相關聯的儲存體帳戶。
+* ***<default container of Hadoop cluster>***您的叢集所使用的預設容器。 請注意，預設容器的名稱通常與叢集本身的名稱相同。 例如，如果叢集稱為 "abc123.azurehdinsight.net"，預設容器即為 abc123。
+* ***<storage account key>***您的叢集所使用的儲存體帳戶金鑰。
 
 從命令提示字元或 Windows PowerShell 視窗，執行下列兩個 AzCopy 命令。
 

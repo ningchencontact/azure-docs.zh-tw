@@ -11,15 +11,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 01/30/2018
+ms.date: 02/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e49f555b2ae972cd3a0437fc44d2331aaeb5e955
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 角色型存取控制的內建角色
 Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派給使用者、群組與服務。 您無法修改內建角色定義。 不過，您可以建立 [Azure RBAC 中的自訂角色](role-based-access-control-custom-roles.md) 以符合您組織的特定需求。
@@ -51,6 +51,7 @@ Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派
 | [BizTalk 參與者](#biztalk-contributor) |可以管理 BizTalk 服務 |
 | [ClearDB MySQL DB 參與者](#cleardb-mysql-db-contributor) |可以管理 ClearDB MySQL 資料庫 |
 | [參與者](#contributor) |可以管理存取以外的所有內容。 |
+| [Cosmos DB 帳戶讀者角色](#cosmos-db-account-reader-role) |可以讀取 Azure Cosmos DB 帳戶資料 |
 | [Data Factory 參與者](#data-factory-contributor) |可以建立和管理 Data Factory 以及其中的子資源。 |
 | [DevTest Labs 使用者](#devtest-labs-user) |可以檢視所有項目，並連接、啟動、重新啟動和關閉虛擬機器 |
 | [DNS 區域參與者](#dns-zone-contributor) |可以管理 DNS 區域和記錄 |
@@ -311,6 +312,19 @@ Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派
 | --- | --- |
 | Microsoft.Authorization/*/Delete |無法刪除角色和角色指派 |
 | Microsoft.Authorization/*/Write |無法建立角色和角色指派 |
+
+### <a name="cosmos-db-account-reader-role"></a>Cosmos DB 帳戶讀者角色
+可以讀取 Azure Cosmos DB 帳戶資料。 請參閱 [DocumentDB 帳戶參與者](#documentdb-account-contributor)以管理 Azure Cosmos DB 帳戶。
+
+| **動作** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|讀取角色和角色指派，可以讀取提供給每個使用者的權限|
+|Microsoft.DocumentDB/*/read|讀取任何集合|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|讀取唯讀索引鍵窗格|
+|Microsoft.Insights/Metrics/read|讀取帳戶計量|
+|Microsoft.Insights/MetricDefinitions/read|讀取計量定義|
+|Microsoft.Resources/subscriptions/resourceGroups/read|讀取資源群組|
+|Microsoft.Support/*|建立和管理支援票證|
 
 ### <a name="data-factory-contributor"></a>Data Factory 參與者
 建立和管理 Data Factory 以及其中的子資源。

@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 01dd1900fe765618e5da20bd289b9c3a021ea9a3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 查詢和管理任何服務的資料分割。
@@ -48,7 +48,7 @@ ms.lasthandoff: 01/18/2018
 取得指定 Service Fabric 分割區的健康情況。
 
 取得指定分割區的健康情況資訊。 使用 EventsHealthStateFilter 可根據健康情況狀態，篩選針對服務所報告的健康情況事件集合。
-使用 ReplicasHealthStateFilter 可篩選分割區上 ReplicaHealthState 物件的集合。 如果您指定的分割區不在健康狀態資料存放區中，此 Cmdlet 會傳回錯誤。 .
+使用 ReplicasHealthStateFilter 可篩選分割區上 ReplicaHealthState 物件的集合。 如果您指定的分割區不在健康狀態資料存放區中，此 Cmdlet 會傳回錯誤。
 
 ### <a name="arguments"></a>引數
 
@@ -101,7 +101,7 @@ Partitions 端點會傳回指定分割區的相關資訊。 回應包括分割�
 
 |引數|說明|
 | --- | --- |
-| --service-id [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是"fabric://myapp/app1/svc1"，服務識別在 6.0+ 中會是 "myapp~app1~svc1"，在舊版中會是 "myapp/app1/svc1"。|
+| --service-id [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 "fabric:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp~app1~svc1"，而在舊版中會是 "myapp/app1/svc1"。|
 | --continuation-token| 接續權杖參數可用來取得下一組結果。         具有非空白值的接續權杖會在來自系統的結果無法放入單一回應中時，隨附在 API 的回應中。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。|
 | --timeout -t        | 伺服器逾時 (秒)。  預設值：60。|
 
@@ -162,7 +162,7 @@ Partitions 端點會傳回指定分割區的相關資訊。 回應包括分割�
 ## <a name="sfctl-partition-restart"></a>sfctl partition restart
 此 API 會重新啟動指定分割區的部分或所有複本或執行個體。
 
-此 API 在測試容錯移轉時很有用。 如果用來針對無狀態服務的分割區，RestartPartitionMode 必須是 AllReplicasOrInstances。 使用相同的 OperationId 呼叫 GetPartitionRestartProgress API 可取得進度。 .
+此 API 在測試容錯移轉時很有用。 如果用來針對無狀態服務的分割區，RestartPartitionMode 必須是 AllReplicasOrInstances。 使用相同的 OperationId 呼叫 GetPartitionRestartProgress API 可取得進度。
 
 ### <a name="arguments"></a>引數
 
@@ -170,8 +170,8 @@ Partitions 端點會傳回指定分割區的相關資訊。 回應包括分割�
 | --- | --- |
 | --operation-id [必要]| 識別此 API 呼叫的 GUID。  這會傳入對應的 GetProgress API。|
 | --partition-id [必要]| 分割區的識別。|
-| --restart-partition-mode [必要]| - Invalid - 保留。  請勿傳入 API。 - AllReplicasOrInstances - 分割區中的所有複本或執行個體都會立即重新啟動。 - OnlyActiveSecondaries - 只有次要複本會重新啟動。 .|
-| --service-id [必要]| 服務的識別。 這通常是服務沒有 'fabric:' URI 配置的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是"fabric://myapp/app1/svc1"，服務識別在 6.0+ 中會是 "myapp~app1~svc1"，在舊版中會是 "myapp/app1/svc1"。|
+| --restart-partition-mode [必要]| 描述要重新啟動哪個分割區。|
+| --service-id [必要]| 服務的識別。 這通常是服務沒有 'fabric:' URI 配置的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 "fabric:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp~app1~svc1"，而在舊版中會是 "myapp/app1/svc1"。|
 | --timeout -t                    | 伺服器逾時 (秒)。  預設值：60。|
 
 ### <a name="global-arguments"></a>全域引數

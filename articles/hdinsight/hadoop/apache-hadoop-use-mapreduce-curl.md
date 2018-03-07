@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/04/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dd3e5904ee21ee74da5adaa65abd7865a82c8b36
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: e48e9f833db86f01d944133c8a32d2c6b27b7b48
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>使用 REST 搭配 HDInsight 上的 Hadoop 執行 MapReduce 作業
 
@@ -33,23 +33,46 @@ ms.lasthandoff: 12/05/2017
 ## <a id="prereq"></a>必要條件
 
 * 一個 Hadoop on HDInsight 叢集
-* [Curl](http://curl.haxx.se/)
-* [jq](http://stedolan.github.io/jq/)
+* Windows PowerShell 或 [Curl](http://curl.haxx.se/) 和 [jq](http://stedolan.github.io/jq/)
 
-## <a id="curl"></a>使用 Curl 執行 MapReduce 工作
+## <a id="curl"></a>執行 MapReduce 作業
 
 > [!NOTE]
 > 在使用 Curl 或與 WebHCat 進行任何其他 REST 通訊時，您必須提供 HDInsight 叢集管理員使用者名稱和密碼來驗證要求。 您必須使用叢集名稱，作為用來將要求傳送至伺服器之 URI 的一部分。
 >
-> 針對本節中的命令，請將 **admin** 取代為要驗證叢集的使用者。 將 **CLUSTERNAME** 取代為您叢集的名稱。 出現提示時，提供使用者帳戶的密碼。
->
 > 使用 [基本存取驗證](http://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。 您應該一律使用 HTTPS 提出要求，確保認證安全地傳送至伺服器。
 
-
-1. 從命令列中，使用下列命令來確認您可以連線到 HDInsight 叢集：
+1. 若要設定本文中的指令碼所使用的叢集登入，請使用下列其中一個命令：
 
     ```bash
-    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    read -p "Enter your cluster login account name: " LOGIN
+    ```
+
+    ```powershell
+    $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
+    ```
+
+2. 若要設定叢集名稱，請使用下列其中一個命令：
+
+    ```bash
+    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    ```
+
+    ```powershell
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    ```
+
+3. 從命令列中，使用下列命令來確認您可以連線到 HDInsight 叢集：
+
+    ```bash
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    ```
+
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.net/templeton/v1/status" `
+        -Credential $creds `
+        -UseBasicParsing
+    $resp.Content
     ```
 
     您應該會收到類似以下 JSON 的回應：
@@ -63,10 +86,28 @@ ms.lasthandoff: 12/05/2017
 
    所有要求的 URI 開頭 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** 都相同。
 
-2. 若要提交 MapReduce 工作，請使用下列命令：
+4. 若要提交 MapReduce 工作，請使用下列命令：
 
     ```bash
-    curl -u admin -d user.name=admin -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
+    JOBID=`curl -u $LOGIN -d user.name=$LOGIN -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/output https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar | jq .id`
+    echo $JOBID
+    ```
+
+    ```powershell
+    $reqParams = @{}
+    $reqParams."user.name" = "admin"
+    $reqParams.jar = "/example/jars/hadoop-mapreduce-examples.jar"
+    $reqParams.class = "wordcount"
+    $reqParams.arg = @()
+    $reqParams.arg += "/example/data/gutenberg/davinci.txt"
+    $reqparams.arg += "/example/data/output"
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/mapreduce/jar" `
+       -Credential $creds `
+       -Body $reqParams `
+       -Method POST `
+       -UseBasicParsing
+    $jobID = (ConvertFrom-Json $resp.Content).id
+    $jobID
     ```
 
     URI 結尾 (/mapreduce/jar) 會告訴 WebHCat，此要求會從 jar 檔案中的類別啟動 MapReduce 作業。 此命令中使用的參數如下：
@@ -79,22 +120,32 @@ ms.lasthandoff: 12/05/2017
 
    此命令應該會傳回可用來檢查工作狀態的工作識別碼：
 
-       {"id":"job_1415651640909_0026"}
+       job_1415651640909_0026
 
-3. 若要檢查作業的狀態，請使用下列命令：
+5. 若要檢查作業的狀態，請使用下列命令：
 
     ```bash
-    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
     ```
 
-    將 **JOBID** 取代為上一個步驟中所傳回的值。 例如，如果傳回值為 `{"id":"job_1415651640909_0026"}`，則 JOBID 會是 `job_1415651640909_0026`。
+    ```powershell
+    $reqParams=@{"user.name"="admin"}
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" `
+       -Credential $creds `
+       -Body $reqParams `
+       -UseBasicParsing
+    # ConvertFrom-JSON can't handle duplicate names with different case
+    # So change one to prevent the error
+    $fixDup=$resp.Content.Replace("jobID","job_ID")
+    (ConvertFrom-Json $fixDup).status.state
+    ```
 
     如果作業已完成，傳回的狀態會是 `SUCCEEDED`。
 
    > [!NOTE]
    > 此 Curl 要求會傳回含有作業資訊的 JSON 文件。 jq 是用來只擷取狀態值。
 
-4. 當作業狀態變更為 `SUCCEEDED` 之後，您就可以從 Azure Blob 儲存體擷取作業結果。 隨查詢一起傳遞的 `statusdir` 參數包含輸出檔案的位置。 在此範例中，位置是 `/example/curl`。 此位址會將作業的輸出儲存在叢集預設儲存體的 `/example/curl` 中。
+6. 當作業狀態變更為 `SUCCEEDED` 之後，您就可以從 Azure Blob 儲存體擷取作業結果。 隨查詢一起傳遞的 `statusdir` 參數包含輸出檔案的位置。 在此範例中，位置是 `/example/curl`。 此位址會將作業的輸出儲存在叢集預設儲存體的 `/example/curl` 中。
 
 您可以使用 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) 列出並下載這些檔案。 如需從 Azure CLI 使用 Blob 的詳細資訊，請參閱[搭配 Azure 儲存體使用 Azure CLI 2.0](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) 文件。
 

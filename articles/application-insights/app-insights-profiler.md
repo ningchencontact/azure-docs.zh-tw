@@ -12,54 +12,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 80792a82adbb93e80c94b4829b704b70d2a8ed23
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c65ef9141898369b8fcadd4c52972b767aca7cfe
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>使用 Application Insights 來分析即時 Azure Web 應用程式
 
-*這個 Application Insights 功能在 Azure App Service 是正式運作版，在 Azure 計算資源則是預覽版。*
+這個 Azure Application Insights 功能在 Azure App Service 的 Web 應用程式功能是正式運作版，在 Azure 計算資源則是預覽版。
 
-了解在使用 [Application Insights ](app-insights-overview.md) 時，即時 Web 應用程式的每個方法各使用了多少時間。 Application Insights 分析工具會顯示應用程式所服務之即時要求的詳細設定檔，並醒目提示使用最多時間的「最忙碌路徑」。 系統會根據取樣來分析具有不同回應時間的要求。 您可以使用各種技術將應用程式的額外負荷降到最低。
+本文討論當您使用 [Application Insights](app-insights-overview.md) 時，在即時 Web 應用程式之每個方法中所花費的時間量。 Application Insights Profiler 工具會顯示由您的應用程式提供服務之即時要求的詳細設定檔。 Profiler 會醒目提示使用最多時間的最忙碌路徑。 系統會根據取樣來分析具有不同回應時間的要求。 藉由使用各種不同的技術，您可以將與應用程式相關聯的額外負荷降至最低。
 
-分析工具目前適用於在 Azure App Service 上執行的 ASP.NET 和 ASP.NET Core Web 應用程式。 需要**基本**或更高的服務層，才可使用分析工具。
+Profiler 目前適用於在 Web Apps 上執行的 ASP.NET 和 ASP.NET Core Web 應用程式。 需要基本或更高的服務層，才可使用 Profiler。
 
-## <a id="installation"></a>啟用 App Service Web 應用程式的剖析工具
-如果您已將應用程式發佈至 App Service，但還未在原始程式碼中進行任何工作以使用 Application Insights，請瀏覽至 Azure 入口網站上的 [App Service] 窗格，移至 [監視] | [Application Insights]，然後遵循窗格中的指示，建立新的資源或選取現有 Application Insights 資源以監視 Web 應用程式。
+## <a id="installation"></a> 為您的 Web Apps Web 應用程式啟用 Profiler
+如果您已經將應用程式發佈至 Web 應用程式，但是尚未在原始程式碼中進行任何設定以便使用 Application Insights，請執行下列作業：
+1. 移至 Azure 入口網站中的 [App Service] 窗格。
+2. 在 [監視] 底下，選取 [Application Insights]，然後遵循窗格上的指示以建立新資源，或選取現有 Application Insights 資源以監視您的 Web 應用程式。
 
-![在 App Service 入口網站上啟用 Application Insights][appinsights-in-appservices]
+   ![在 App Service 入口網站上啟用 Application Insights][appinsights-in-appservices]
 
-如果您可以存取專案的原始程式碼，請[安裝 Application Insights](app-insights-asp-net.md)。 如果已安裝，請確定您擁有的是最新版本  若要檢查最新版本，請在 [方案總管] 中您的專案上按一下滑鼠右鍵，然後選取 [管理 NuGet 套件] > [更新] > [更新所有套件]。 然後，部署應用程式。
+3. 如果您可以存取專案的原始程式碼，請[安裝 Application Insights](app-insights-asp-net.md)。  
+   如果已安裝，請確定您擁有的是最新版本  若要檢查最新版本，請在 [方案總管] 中您的專案上按一下滑鼠右鍵，然後選取 [管理 NuGet 套件] > [更新] > [更新所有套件]。 然後，部署應用程式。
 
-ASP.NET Core 應用程式需要安裝 Microsoft.ApplicationInsights.AspNetCore NuGet 套件 2.1.0-beta6 或更新版本，才能與分析工具搭配運作。 自 2017 年 6 月 27 日起不支援舊版。
+ASP.NET Core 應用程式需要安裝 Microsoft.ApplicationInsights.AspNetCore NuGet 套件 2.1.0-beta6 或更新版本，才能與 Profiler 搭配運作。 自 2017 年 6 月 27 日起不支援舊版。
 
-在 [Azure 入口網站](https://portal.azure.com) 中，開啟您 Web 應用程式的 Application Insights 資源。 選取 [效能] > [啟用 Application Insights Profiler]。
+1. 在 [Azure 入口網站](https://portal.azure.com) 中，開啟您 Web 應用程式的 Application Insights 資源。 
+2. 選取 [效能] > [啟用 Application Insights Profiler]。
 
-![選取 [啟用分析工具] 橫幅][enable-profiler-banner]
+   ![選取 [啟用分析工具] 橫幅][enable-profiler-banner]
 
-或者，您也可以選取 [分析工具] 設定來檢視狀態，以及啟用或停用分析工具。
+3. 或者，您也可以選取 [Profiler] 設定來檢視狀態，以及啟用或停用 Profiler。
 
-![在 [效能] 底下，選取 [分析工具] 設定][performance-blade]
+   ![選取 Profiler 設定][performance-blade]
 
-使用 Application Insights 所設定的 Web 應用程式會列在 [分析工具] 設定窗格中。 如果您已遵循上述步驟來進行操作，系統中應該已安裝了分析工具代理程式。 選取 [分析工具] 設定窗格中的 [啟用分析工具]。
+   使用 Application Insights 所設定的 Web 應用程式會列在 [分析工具] 設定窗格中。 如果您已遵循上述步驟，系統中應該已安裝了 Profiler 代理程式。 
 
-請視需要依照指示安裝分析工具代理程式。 如果尚未使用 Application Insights 設定任何 Web 應用程式，請選取 [新增連結的 App]。
+4. 在 [Profiler] 設定窗格中選取 [啟用 Profiler]。
 
-![[設定] 窗格選項][linked app services]
+5. 請視需要依照指示安裝 Profiler 代理程式。 如果尚未使用 Application Insights 設定任何 Web 應用程式，請選取 [新增連結的 App]。
 
-不同於透過 App Service 方案裝載的 Web 應用程式，裝載在 Azure 計算資源 (例如「Azure 虛擬機器」、虛擬機器擴展集、Azure Service Fabric 或Azure 雲端服務」) 中的應用程式 並不直接由 Azure 管理。 在此情況下，沒有任何 Web 應用程式可供連結。 請選取 [啟用分析工具]按鈕，而不是連結至應用程式。
+   ![[設定] 窗格選項][linked app services]
 
-### <a name="enable-the-profiler-for-azure-compute-resources-preview"></a>啟用 Azure 計算資源的分析工具 (預覽)
+不同於透過 Web Apps 方案裝載的 Web 應用程式，裝載在 Azure 計算資源 (例如「Azure 虛擬機器」、虛擬機器擴展集、Azure Service Fabric 或Azure 雲端服務」) 中的應用程式並不直接由 Azure 管理。 在此情況下，沒有任何 Web 應用程式可供連結。 請選取 [啟用分析工具]按鈕，而不是連結至應用程式。
 
-深入了解 [Azure 計算資源的分析工具預覽版](https://go.microsoft.com/fwlink/?linkid=848155)。
+### <a name="enable-profiler-for-azure-compute-resources-preview"></a>啟用 Azure 計算資源的 Profiler (預覽)
+
+如需詳細資訊，請參閱 [Azure 計算資源的 Profiler 預覽版](https://go.microsoft.com/fwlink/?linkid=848155)。
 
 ## <a name="view-profiler-data"></a>檢視分析工具資料
 
-**確定應用程式正在接收流量。** 如果您要進行實驗，則可以使用 [Application Insights 效能測試](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test) \(英文\) 來產生 Web 應用程式的要求。 如果您剛啟用分析工具，則可以執行大約 15 分鐘的簡短負載測試，這應該會產生分析工具追蹤。 如果您啟用分析工具已有一段時間，請記住，分析工具會每個小時隨機執行兩次，每次執行兩分鐘。 建議您先執行一小時的負載測試，以確實取得分析工具追蹤樣本。
+確定應用程式正在接收流量。 如果您要進行實驗，則可以使用 [Application Insights 效能測試](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test)來產生 Web 應用程式的要求。 如果您剛啟用 Profiler，則可以執行大約 15 分鐘的簡短負載測試，這應該會產生分析工具追蹤。 如果您啟用 Profiler 已有一段時間，請記住，Profiler 會每個小時隨機執行兩次，每次執行兩分鐘。 建議您先執行一小時的負載測試，以確實取得分析工具追蹤樣本。
 
-應用程式接收到流量之後，請移至 [效能] 刀鋒視窗 > [採取動作] 以檢視分析工具追蹤。 選取 [分析工具追蹤] 按鈕。
+應用程式接收到流量之後，請移至 [效能] 窗格，選取 [採取動作] 以檢視分析工具追蹤，然後選取 [分析工具追蹤]。
 
 ![Application Insights [效能] 窗格預覽分析工具追蹤][performance-blade-v2-examples]
 
@@ -78,7 +84,7 @@ ASP.NET Core 應用程式需要安裝 Microsoft.ApplicationInsights.AspNetCore N
 
 Microsoft 服務分析工具會合併使用取樣方法和檢測功能，來分析應用程式的效能。 當系統在進行詳細的收集作業時，服務分析工具會對電腦的每個 CPU 指令指標每毫秒進行取樣一次。 每次取樣都會擷取目前執行中執行緒的完整呼叫堆疊。 它會提供有關該執行緒所執行工作的詳細資訊，不論是概括還是詳細的抽象概念都有提供。 服務分析工具也會收集其他事件來追蹤活動的相互關聯和因果關係，包括內容切換事件、「工作平行程式庫」(TPL) 事件及執行緒集區事件。
 
-時間表檢視中顯示的呼叫堆疊是取樣和檢測的結果。 由於每個樣本都會擷取執行緒的完整呼叫堆疊，因此它會包含來自 Microsoft .NET Framework 和您所參考之其他架構的程式碼。
+時間表檢視中顯示的呼叫堆疊是取樣和檢測的結果。 由於每個範例都會擷取執行緒的完整呼叫堆疊，因此它會包含來自 Microsoft .NET Framework 和您所參考之其他架構的程式碼。
 
 ### <a id="jitnewobj"></a>物件配置 (clr!JIT\_New 或 clr!JIT\_Newarr1)
 
@@ -90,7 +96,7 @@ Microsoft 服務分析工具會合併使用取樣方法和檢測功能，來分�
 如果 **clr!ThePreStub** 針對某個要求花費相當長的時間，即表示該要求是第一個執行該方法的要求。 .NET Framework 執行階段載入第一個方法的時間相當重要。 您可以考慮先使用熱身程序來執行該部分的程式碼，再讓使用者存取該程式碼，或考慮在您的組件上執行 Native Image Generator (ngen.exe)。
 
 ### <a id="lockcontention"></a>鎖定爭用 (clr!JITutil\_MonContention 或 clr!JITutil\_MonEnterWorker)
-**clr!JITutil\_MonContention** 或 **clr!JITutil\_MonEnterWorker** 表示目前的執行緒正在等候鎖定被釋放。 通常是在執行 C# **LOCK** 陳述式、叫用 **Monitor.Enter** 方法，或叫用含有 **MethodImplOptions.Synchronized** 屬性的方法時，會出現此情況。 當執行緒 A 已取得鎖定，但執行緒 B 在執行緒 A 釋放鎖定之前就嘗試取得同一鎖定，通常就會發生鎖定爭用。
+**clr!JITutil\_MonContention** 或 **clr!JITutil\_MonEnterWorker** 表示目前的執行緒正在等候鎖定被釋放。 此文字通常是在執行 C# **LOCK** 陳述式、叫用 **Monitor.Enter** 方法，或叫用含有 **MethodImplOptions.Synchronized** 屬性的方法時顯示。 當執行緒 _A_ 已取得鎖定，但執行緒 _B_ 在執行緒 _A_ 釋放鎖定之前就嘗試取得同一鎖定，通常就會發生鎖定爭用。
 
 ### <a id="ngencold"></a>載入程式碼 ([COLD])
 如果方法名稱包含 **[COLD]** (例如 **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**)，即表示 .NET Framework 執行階段是第一次執行程式碼，而該程式碼尚未由<a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">特性指引最佳化</a>進行最佳化。 每個方法最多只應該會在程序的存留期內顯示一次這個名稱。
@@ -119,40 +125,41 @@ CPU 正忙於執行指令。
 應用程式正在執行網路作業。
 
 ### <a id="when"></a>何時資料行
-[何時] 資料行會以視覺方式呈現針對節點收集的 INCLUSIVE 樣本如何隨著時間變化。 要求的總範圍會分成 32 個時間貯體。 該節點的內含範例會在這 32 個貯體中累積。 每個貯體都以一個長條表示。 長條的高度代表換算值。 節點如果標示為 **CPU_TIME** 或 **BLOCKED_TIME**，或是與耗用資源 (CPU、磁碟、執行緒) 有明顯的關聯性，長條便代表在該貯體的期間內耗用這其中一個資源。 如果耗用多個資源，這些計量的值便有可能大於 100%。 例如，如果您在一段間隔內平均使用兩個 CPU，值就會是 200%。
+[何時] 資料行會以視覺方式呈現針對節點收集的 INCLUSIVE 樣本如何隨著時間變化。 要求的總範圍會分成 32 個時間貯體。 該節點的內含範例會在這 32 個貯體中累積。 每個貯體都以一個長條表示。 長條的高度代表換算值。 節點如果標示為 **CPU_TIME** 或 **BLOCKED_TIME**，或是與耗用資源 (例如，CPU、磁碟或執行緒) 有明顯的關聯性，長條便代表在該貯體的期間內耗用這其中一個資源。 如果耗用多個資源，這些計量的值便有可能大於 100%。 例如，如果您在一段間隔內平均使用兩個 CPU，值就會是 200%。
 
 ## <a name="limitations"></a>限制
 
 預設資料保留期為 5 天。 每天的內嵌資料上限為 10 GB。
 
-使用分析工具服務為免費。 若要使用分析工具服務，您的 Web 應用程式必須至少裝載在 Azure App Service 的「基本」層。
+使用 Profiler 服務為免費。 若要使用 Profiler 服務，您的 Web 應用程式必須至少裝載在 Web Apps 的「基本」層。
 
 ## <a name="overhead-and-sampling-algorithm"></a>額外負荷和取樣演算法
 
-在裝載已啟用分析工具來擷取追蹤之應用程式的每部虛擬機器上，分析工具會每小時隨機執行 2 分鐘。 當分析工具執行時，會為伺服器增加 5% 到 15% 的 CPU 額外負荷。
-可供裝載應用程式的伺服器越多，分析工具對整體應用程式效能的影響就越小。 這是因為取樣演算法會使得分析工具在任何時間都只在 5% 的伺服器上執行。 可服務 Web 要求的伺服器越多，就越能抵消執行分析工具所造成的伺服器額外負荷。
+Profiler 會在裝載已啟用 Profiler 之應用程式的每部虛擬機器上，每小時隨機執行 2 分鐘來擷取追蹤。 Profiler 在執行時會對伺服器增加 5% 到 15% 的 CPU 額外負荷。
 
-## <a name="disable-the-profiler"></a>停用分析工具
-若要停止或重新啟動個別 App Service 執行個體的分析工具，請在 [Web 工作] 底下，移至該 App Service 資源。 若要刪除分析工具，請移至 [擴充功能]。
+可供裝載應用程式的伺服器越多，Profiler 對整體應用程式效能的影響就越小。 這是因為取樣演算法會使得 Profiler 在任何時間都只在 5% 的伺服器上執行。 可服務 Web 要求的伺服器越多，就越能抵消執行 Profiler 所造成的伺服器額外負荷。
 
-![停用 web 作業的分析工具][disable-profiler-webjob]
+## <a name="disable-profiler"></a>停用 Profiler
+若要停止或重新啟動個別 Web 應用程式執行個體的 Profiler，請在 [Web 作業] 底下，移至該 Web Apps 資源。 若要刪除 Profiler，請移至 [擴充功能]。
 
-建議您在所有 Web 應用程式上都啟用分析工具，以儘早找出任何效能問題。
+![停用 Web 作業的 Profiler][disable-profiler-webjob]
 
-如果您使用 WebDeploy 來部署對 Web 應用程式所做的變更，請確定您已排除 [App_Data] 資料夾，以免系統在部署期間刪除它。 否則，下次您將 Web 應用程式部署到 Azure 時，系統就會刪除分析工具擴充功能的檔案。
+建議您在所有 Web 應用程式上都啟用 Profiler，以儘早找出任何效能問題。
+
+如果您使用 WebDeploy 來部署對 Web 應用程式所做的變更，請確定您已排除 [App_Data] 資料夾，以免系統在部署期間刪除它。 否則，下次您將 Web 應用程式部署到 Azure 時，系統就會刪除 Profiler 擴充功能的檔案。
 
 
 ## <a id="troubleshooting"></a>疑難排解
 
 ### <a name="too-many-active-profiling-sessions"></a>太多個使用中分析工作階段
 
-目前，您最多可以在於相同服務方案中執行的 4 個 Azure Web 應用程式及部署位置上啟用分析工具。 如果分析工具 Web 工作回報太多作用中分析工作階段，請將一些 Web 應用程式移至不同的服務方案。
+目前，您最多可以在於相同服務方案中執行的 4 個 Azure Web 應用程式及部署位置上啟用 Profiler。 如果 Profiler Web 作業回報太多作用中分析工作階段，請將一些 Web 應用程式移至不同的服務方案。
 
 ### <a name="how-do-i-determine-whether-application-insights-profiler-is-running"></a>如何判斷 Application Insights Profiler 是否有在執行？
 
-分析工具會在 Web 應用程式中以連續性 Web 工作的形式執行。 您可以在 [Azure 入口網站](https://portal.azure.com)中開啟 Web 應用程式資源。 在 [WebJobs] 窗格中，檢查 **ApplicationInsightsProfiler** 的狀態。 如果它並沒有在執行，請開啟 [記錄] 以取得詳細資訊。
+Profiler 會在 Web 應用程式中以連續性 Web 作業的形式執行。 您可以在 [Azure 入口網站](https://portal.azure.com)中開啟 Web 應用程式資源。 在 [WebJobs] 窗格中，檢查 **ApplicationInsightsProfiler** 的狀態。 如果它並沒有在執行，請開啟 [記錄] 以取得詳細資訊。
 
-### <a name="why-cant-i-find-any-stack-examples-even-though-the-profiler-is-running"></a>為什麼分析工具明明已在執行，我卻找不到任何堆疊範例？
+### <a name="why-cant-i-find-any-stack-examples-even-though-profiler-is-running"></a>為什麼 Profiler 明明已在執行，我卻找不到任何堆疊範例？
 
 以下是您可以檢查的幾點：
 
@@ -162,11 +169,11 @@ CPU 正忙於執行指令。
 * 確定 Web 應用程式是在 .NET Framework 4.6 上執行。
 * 如果 Web 應用程式是 ASP.NET Core 應用程式，請檢查[所需的相依性](#aspnetcore)。
 
-在啟動分析工具之後，會有一小段熱身時間，分析工具會利用這段時間積極收集幾項效能追蹤資料。 之後，分析工具會每隔一小時花兩分鐘時間來收集效能追蹤資料。
+在啟動 Profiler 之後，會有一小段熱身時間，Profiler 會利用這段時間積極收集幾項效能追蹤資料。 之後，Profiler 會每隔一小時花兩分鐘時間來收集效能追蹤資料。
 
-### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>我之前使用的是 Azure Service Profiler。 它有什麼改變？
+### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>我之前使用的是 Azure Service 分析工具。 它有什麼改變？
 
-當您啟用 Application Insights Profiler 時，系統會將 Azure Service Profiler 代理程式停用。
+當您啟用 Application Insights Profiler 時，系統會將 Azure Service 分析工具代理程式停用。
 
 ### <a id="double-counting"></a>平行執行緒重複計算
 
@@ -181,8 +188,8 @@ CPU 正忙於執行指令。
 以下是您可以檢查的幾點：
 
 * 如果您嘗試檢視的資料已存在好幾週，請試著限縮時間篩選器，然後再試一次。
-* 確認系統未阻止 Proxy 或防火牆存取 https://gateway.azureserviceprofiler.net。
-* 確認您在應用程式中使用的 Application Insights 檢測金鑰與您用來啟用分析功能的 Application Insights 資源相同。 此金鑰通常位於 ApplicationInsights.config 中，但也可能在 web.config 或 app.config 檔案中。
+* 確定系統未阻止 Proxy 或防火牆存取 https://gateway.azureserviceprofiler.net。
+* 確定您在應用程式中使用的 Application Insights 檢測金鑰與您用來啟用分析功能的 Application Insights 資源相同。 此金鑰通常位於 ApplicationInsights.config 檔案中，但也可能在 web.config 或 app.config 檔案中。
 
 ### <a name="error-report-in-the-profiling-viewer"></a>分析檢視器的錯誤報表
 
@@ -190,7 +197,7 @@ CPU 正忙於執行指令。
 
 ### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>部署錯誤：目錄尚有資料 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 
-如果您要將 Web 應用程式重新部署到已啟用分析工具的 App Service 資源，您可能會看到類似以下的訊息：
+如果您要將 Web 應用程式重新部署到已啟用 Profiler 的 Web Apps 資源，您可能會看到類似以下的訊息：
 
 目錄尚有資料 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 
@@ -200,98 +207,112 @@ CPU 正忙於執行指令。
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
 ```
 
-這些參數會刪除 Application Insights Profiler 所使用的資料夾，並將重新部署程序解除封鎖。 它們並不會影響目前正在執行的分析工具執行個體。
+這些參數會刪除 Application Insights Profiler 所使用的資料夾，並將重新部署程序解除封鎖。 它們並不會影響目前正在執行的 Profiler 執行個體。
 
 
 ## <a name="manual-installation"></a>手動安裝
 
-當您設定分析工具時，系統會對 Web 應用程式的設定進行更新。 您可以視環境需要，手動套用這些更新。 例如，如果您的應用程式是在 PowerApps 的 App Service 環境中執行的話。
+當您設定 Profiler 時，系統會對 Web 應用程式的設定進行更新。 您可以視環境需要，手動套用這些更新。 可能的範例為您的應用程式在 PowerApps 的 Web Apps 環境中執行。
 
-1. 在 Web 應用程式控制項窗格中，開啟 [設定]。
+1. 在 [Web 應用程式控制項] 窗格中，開啟 [設定]。
 2. 將 [.Net Framework 版本] 設定為 [v4.6]。
 3. 將 [一律開啟] 設定為 [開啟]。
-4. 新增 __APPINSIGHTS_INSTRUMENTATIONKEY__ 應用程式設定，並將值設定為與 SDK 所用相同的檢測金鑰。
+4. 新增 **APPINSIGHTS_INSTRUMENTATIONKEY** 應用程式設定，並將值設定為與 SDK 所用相同的檢測金鑰。
 5. 開啟 [進階工具]。
 6. 選取 [執行] 以開啟 Kudu 網站。
 7. 在 Kudu 網站上，選取 [網站延伸模組]。
 8. 從 Azure Web Apps 資源庫安裝 [Application Insights]。
 9. 重新啟動 Web 應用程式。
 
-## <a id="profileondemand"></a>手動觸發分析工具
-我們在開發分析工具時新增了命令列介面，以便能夠在應用程式服務上測試分析工具。 使用者也可以使用相同的介面來自訂分析工具的啟動方式。 概括而言，分析工具會使用 App Service 的 Kudu 系統來管理背景中所進行的分析作業。 當您安裝 Application Insights 擴充功能時，我們會建立連續 Web 作業來裝載分析工具。 我們會使用同樣的技術來建立新的 Web 作業，而您可加以自訂以符合您的需求。
+## <a id="profileondemand"></a>手動觸發 Profiler
+我們在開發 Profiler 時新增了命令列介面，以便能夠在應用程式服務上測試 Profiler。 使用者也可以使用此相同介面來自訂 Profiler 的啟動方式。 概括而言，Profiler 會使用 Web Apps Kudu 系統來管理背景中所進行的分析作業。 當您安裝 Application Insights 擴充功能時，我們會建立連續 Web 作業來裝載 Profiler。 我們會使用同樣的技術來建立新的 Web 作業，而您可加以自訂以符合您的需求。
 
 本節說明如何：
 
-1. 建立 Web 作業，只要按下按鈕即可讓分析工具啟動兩分鐘。
-2. 建立 Web 作業，以排程要執行的分析工具。
-3. 設定分析工具的引數。
+* 建立 Web 作業，只要按下按鈕即可讓 Profiler 啟動兩分鐘。
+* 建立 Web 作業，以排程要執行的 Profiler。
+* 設定 Profiler 的引數。
 
 
 ### <a name="set-up"></a>設定
-首先，請先熟悉 Web 作業的儀表板。 按一下 [設定] 底下的 [WebJobs] 索引標籤。
+首先，請先熟悉 Web 作業的儀表板。 選取 [設定] 底下的 [WebJobs] 索引標籤。
 
 ![Webjobs 刀鋒視窗](./media/app-insights-profiler/webjobs-blade.png)
 
-如您所見，這個儀表板會顯示網站上目前已安裝的所有 Web 作業。 您可以看到 ApplicationInsightsProfiler2 Web 作業有正在執行的分析工具作業。 最終，我們會在這裡建立新的 Web 作業，以供進行手動和排程的分析作業。
+如您所見，這個儀表板會顯示網站上目前已安裝的所有 Web 作業。 您可以看到 ApplicationInsightsProfiler2 Web 作業有正在執行的 Profiler 作業。 我們會在這裡建立新的 Web 作業，以供進行手動和排程的分析作業。
 
-首先，我們要取得所需的二進位檔。
+若要取得您需要的二進位檔，請執行下列作業：
 
-1.  前往 Kudu 網站。 在 [開發工具] 索引標籤底下，按一下具有 Kudu 標誌的 [進階工具] 索引標籤。 按一下 [執行]。 您會進入新網站，並自動登入。
-2.  接下來，我們需要下載分析工具二進位檔。 透過頁面頂端的 [偵錯主控台] -> [CMD]，瀏覽至檔案總管。
-3.  按一下 [網站] -> [wwwroot] -> [App_Data] -> [作業] -> [連續]。 您應該會看到 "ApplicationInsightsProfiler2" 資料夾。 按一下資料夾左邊的 [下載] 圖示。 這會下載 "ApplicationInsightsProfiler2.zip" 檔案。
-4.  這會下載您需要的所有檔案。 建議您建立空白的目錄以供此 zip 封存移入，然後才繼續後續步驟。
+1.  在 Kudu 網站的 [開發工具] 索引標籤上，選取具有 Kudu 標誌的 [進階工具] 索引標籤，然後選取 [執行]。  
+   新的網站隨即開啟，您會自動登入。
+2.  若要下載 Profiler 二進位檔，請透過 [偵錯主控台] > [CMD] (位於頁面頂端) 移至 [檔案總管]。
+3.  選取 [網站] > [wwwroot] > [App_Data] > [作業] > [連續]。  
+   您應該會看到名為 ApplicationInsightsProfiler2 的資料夾。 
+4. 在資料夾左側，選取 [下載] 圖示。  
+   這個動作會下載 ApplicationInsightsProfiler2.zip 檔案。 建議您建立空白的目錄以供此 zip 封存移入。
 
 ### <a name="setting-up-the-web-job-archive"></a>設定 Web 作業封存
-當您在 Azure 網站中新增 Web 作業時，基本上便是利用內部的 run.cmd 來建立 zip 封存。 run.cmd 會向 Web 作業的系統指出，當您執行 Web 作業時其該如何應對。
+當您在 Azure 網站中新增 Web 作業時，基本上便是利用內部的 run.cmd 檔案來建立 zip 封存。 run.cmd 檔案會向 Web 作業的系統指出，當您執行 Web 作業時其該如何應對。
 
-1.  為了開始建立新資料夾，範例將命名為 "RunProfiler2Minutes"。
+1.  建立新的資料夾 (例如，RunProfiler2Minutes)。
 2.  將解壓縮之 ApplicationInsightProfiler2 資料夾中的檔案複製到這個新的資料夾。
-3.  建立新的 run.cmd 檔案。 (為求方便，您可以在開始之前於 VS Code 中開啟這個工作資料夾)。
-4.  新增 `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120` 命令，然後儲存檔案。
-a.  `start` 命令會指示分析工具啟動。
-b.  `--engine-mode immediate` 會向分析工具指出我們要立即啟動分析工具。
-c.  `--single` 表示要先執行然後自動停止。  `--immediate-profiling-duration 120` 表示要讓分析工具執行 120 秒 (2 分鐘)。
-5.  儲存這個檔案。
-6.  封存此資料夾，您可以在資料夾上按一下滑鼠右鍵，然後選擇 [傳送至] -> [壓縮的 (zipped) 資料夾]。 這會使用資料夾名稱來建立 .zip 檔案。
+3.  建立新的 run.cmd 檔案。  
+    為求方便，您可以在開始之前於 Visual Studio Code 中開啟工作資料夾。
+4.  在檔案中，新增命令 `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`。 命令的說明如下：
 
-![啟動分析工具命令](./media/app-insights-profiler/start-profiler-command.png)
+    * `start`：會指示 Profiler 啟動。  
+    * `--engine-mode immediate`：會指示 Profiler 立即開始分析。  
+    * `--single`：會指示 Profiler 先執行然後自動停止。  
+    * `--immediate-profiling-duration 120`：會指示 Profiler 執行 120 秒 (即 2 分鐘)。
 
-我們現已擁有 Web 作業 .zip，以供用來在網站中設定 Web 作業。
+5.  儲存您的變更。
+6.  封存資料夾，方法是以滑鼠右鍵按一下資料夾，然後選取 [傳送至] > [壓縮的 (zipped) 資料夾]。  
+   這個動作會建立 .zip 檔案，該檔案使用資料夾名稱。
+
+![啟動 Profiler 命令](./media/app-insights-profiler/start-profiler-command.png)
+
+您現在已建立 Web 作業 .zip 檔案，可用來在您的網站中設定 Web 作業。
 
 ### <a name="add-a-new-web-job"></a>新增 Web 作業
-接下來，我們要在網站中新增 Web 作業。 此範例會說明如何新增手動觸發的 Web 作業。 在可以進行此工作之後，剩下的流程就和排程的作業所需的流程差不多。
+在本節中，您可以在您的網站上新增 Web 作業。 下列範例會說明如何新增手動觸發的 Web 作業。 新增手動觸發的 Web 作業之後，程序便與排定的 Web 作業幾乎相同。
 
-1.  移至 Web 作業儀表板。
-2.  按一下工具列上的 [新增] 命令。
-3.  命名您的 Web 作業。 為了清楚起見，可讓名稱符合封存的名稱，並讓它可以用不同版本的 run.cmd 來開啟。
-4.  在表單的檔案上傳組件中，按一下 [開啟檔案] 圖示，並尋找您在前面製作的 .zip 檔案。
-5.  在 [類型] 中選擇 [已觸發]。
-6.  在 [觸發程序] 中選擇 [手動]。
-7.  點擊 [確定] 以進行儲存。
+1.  移至 [Web 作業] 儀表板。
+2.  在工具列上，選取 [新增]。
+3.  命名您的 Web 作業。  
+    為了清楚起見，可讓名稱符合封存的名稱，並讓它可以用不同版本的 run.cmd 檔案來開啟。
+4.  在表單的 [檔案上傳] 區域，選取 [開啟檔案] 圖示，然後搜尋您在上一節中建立的 .zip 檔案。
 
-![啟動分析工具命令](./media/app-insights-profiler/create-webjob.png)
+    a.  在 [類型] 方塊中，選取 [已觸發]。  
+    b.  在 [觸發程序] 方塊中，選取 [手動]。
 
-### <a name="run-the-profiler"></a>執行分析工具
+5.  選取 [確定] 。
 
-現在我們已有可手動觸發的新 Web 作業，接下來我們可以嘗試執行看看。
+![啟動 Profiler 命令](./media/app-insights-profiler/create-webjob.png)
 
-1. 根據設計，無論何時您都只能在機器上執行一個 ApplicationInsightsProfiler.exe 處理序。 因此，一開始請務必先在此儀表板上停用連續 Web 作業。 按一下資料列，然後按 [停止]。 接著，選取工具列上的 [重新整理]，然後確認狀態指出作業已停止。
-2. 按一下具有所新增 Web 作業的資料列，然後按 [執行]。
-3. 在資料列仍保持選取的狀態下，按一下工具列中的 [記錄] 命令，此動作會讓您前往已啟動 Web 作業的 Web 作業儀表板。 裡面會列出最近的執行及其結果。
-4. 按一下您剛啟動之執行的執行個體。
-5. 如果一切順利，您應該會看到一些來自分析工具的診斷記錄，而能確認我們已開始分析作業。
+### <a name="run-profiler"></a>執行 Profiler
+
+現在您已經有可以手動觸發的新 Web 作業，您可以嘗試遵循本節中的指示來執行它。
+
+根據設計，無論何時您都只能在機器上執行一個 ApplicationInsightsProfiler.exe 處理序。 因此，在您開始之前，請先在此儀表板上停用連續 Web 作業。 
+1. 選取具有新 Web 作業的資料列，然後選取 [停止]。 
+2. 在工具列上選取 [重新整理]，然後確認狀態指出作業已停止。
+3. 選取具有新 Web 作業的資料列，然後選取 [執行]。
+4. 在資料列保持選取的情況下，於工具列上選取 [記錄] 命令。  
+    這個動作會開啟新 Web 作業的 Web 作業儀表板，列出最新的執行及其結果。
+5. 選取您剛啟動之執行的執行個體。  
+    如果您已成功觸發新的 Web 作業，您可以檢視來自 Profiler 的某些診斷記錄，這些記錄可確認系統已開始分析。
 
 ### <a name="things-to-consider"></a>考量事項
 
-這個方法雖相對簡單，但仍有一些考量事項。
+這個方法雖相對簡單，但是請考量下列事項：
 
-- 由於此方法並非由我們的服務來管理，所以我們無法為您的 Web 作業更新代理程式二進位檔。 我們的二進位檔目前沒有穩定的下載頁面，所以您只能更新擴充功能並從連續資料夾抓取 (如先前步驟的做法)，以取得最新的二進位檔。
+* 因為您的 Web 作業並非由我們的服務來管理，所以我們無法為您的 Web 作業更新代理程式二進位檔。 我們的二進位檔目前沒有穩定的下載頁面，所以您只能更新擴充功能並從連續資料夾抓取 (如先前步驟的做法)，以取得最新的二進位檔。
 
-- 由於此方法所使用的命令列引數原本是設計供開發人員使用，而非供終端使用者使用，因此這些引數未來可能會變更，升級時請留意這一點。 您可以新增 Web 作業、加以執行並測試其可正常運作，所以這應該不是什麼大問題。 我們最終將會建置 UI 來處理此流程，而不再需要手動流程。
+* 因為此程序會利用原本是為開發人員 (而非使用者) 設計的命令列引數，所以這些引數未來可能會變更。 當您升級時，請注意可能發生的變更。 您可以新增 Web 作業、加以執行並測試以確認其可正常運作，所以這應該不是什麼大問題。 我們最終將會建置 UI 來處理此流程，而不再需要手動流程。
 
-- App Service 的 Web 作業功能之所以獨特，是因為它在執行 Web 作業時，會確保處理序具有網站最後會擁有的相同環境變數和應用程式設定。 這表示您不需要透過命令列將檢測金鑰傳遞至分析工具。 它自己就會從環境中挑選檢測金鑰。 不過，如果您要在開發機器上或 App Service 外部的機器上執行分析工具，則需要提供檢測金鑰。 藉由傳入 `--ikey <instrumentation-key>` 引數即可提供此金鑰。 此值必須符合應用程式所使用的檢測金鑰。 分析工具的記錄輸出會告訴您分析工具啟動時所使用的 ikey，以及在分析時是否偵測到來自該檢測金鑰的活動。
+* Web Apps 的 Web 作業功能是獨特的。 它在執行 Web 作業時，會確保處理序具有網站最後會擁有的相同環境變數和應用程式設定。 這表示您不需要透過命令列將檢測金鑰傳遞至 Profiler。 Profiler 會從環境中挑選檢測金鑰。 不過，如果您要在開發機器上或 Web Apps 外部的機器上執行 Profiler，則需要提供檢測金鑰。 藉由傳入 `--ikey <instrumentation-key>` 引數即可提供此金鑰。 此值必須符合應用程式所使用的檢測金鑰。 Profiler 的記錄輸出會告訴您 Profiler 啟動時所使用的 ikey，以及在分析時是否偵測到來自該檢測金鑰的活動。
 
-- 實際上，手動觸發的 Web 作業可以透過 Web Hook 來觸發。 若要取得此 URL，請在儀表板上的 Web 作業上按一下滑鼠右鍵，然後檢視屬性。 或者，從資料表中選取 Web 作業之後，選擇工具列中的屬性。 這會創造出無限多的可能性，像是從 CI/CD 管線 (例如 VSTS) 或從 Microsoft Flow (https://flow.microsoft.com/en-us/) 等服務來觸發分析工具。 雖然有許多可能性，但是要如何做最終仍取決於您要讓 run.cmd (也可以是 run.ps1) 有多複雜。
+* 手動觸發的 Web 作業可以透過 Web Hook 來觸發。 若要取得此 URL，請在儀表板上的 Web 作業上按一下滑鼠右鍵，然後檢視屬性。 或者，您也可以在資料表中選取 Web 作業之後，在工具列中選取 [屬性]。 這個方法會創造出無限多的可能性，像是從 CI/CD 管線 (例如 VSTS) 或從 Microsoft Flow (https://flow.microsoft.com/en-us/) 等服務來觸發 Profiler。 最終，您的選擇取決於您要讓 run.cmd 檔案 (也可以是 run.ps1 檔案) 變得多複雜，但彈性也在其中。
 
 ## <a name="next-steps"></a>後續步驟
 

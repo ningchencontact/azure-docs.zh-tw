@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: bfc55a305fd0099af5cc2bb394420e547d2703bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c82ee87b341de4e85e2eab566f7a3c6fcffdace1
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 可用的 Azure Marketplace 項目
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 
 ## <a name="virtual-machine-extensions"></a>虛擬機器擴充功能
-建議您，只要有所需的虛擬機器擴充功能更新時，就下載下列項目。 產品隨附的擴充功能將不會在正常修補程式和更新流程中進行更新；請經常檢查更新。 其他擴充功能只會透過 Marketplace Management 提供。
+只要您所使用的虛擬機器 (VM) 擴充功能有可用的更新，您即應加以下載。 產品隨附的擴充功能不會在正常修補程式和更新流程中進行更新；因此請經常檢查更新。 其他擴充功能只會透過 Marketplace Management 提供。
 
 |  | 項目名稱 | 說明 | 發行者 | OS 類型 |
 | --- | --- | --- | --- | --- |
@@ -42,7 +42,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft 虛擬機器映像和解決方案範本
 
-Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案範本。 請依附註，分別下載任何相依性。 除了標示為免費或試用版以外的應用程式，SQL Server 和 Machine Learning Server 等應用程式會需要適當的授權。
+Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案範本。 如前所述，請個別下載任何相依性。 除了標示為免費或試用版以外的應用程式，SQL Server 和 Machine Learning Server 等應用程式會需要適當的授權。
 
 |  | 項目名稱 | 說明 | 發行者 |
 | --- | --- | --- | --- |
@@ -71,9 +71,9 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Express](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | 免費 Express 版本的 SQL Server 2016 SP1。 | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017EnterpriseonSLES12SP2) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Web](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017WebonSLES12SP2) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 | Microsoft + SUSE |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Windows Server 2016 上的 Microsoft Machine Learning Server 9.2.1](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Windows Server 2016 上的 Microsoft Machine Learning Server 9.2.1。 | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Ubuntu 16.04 上的 Microsoft Machine Learning Server 9.2.1](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Ubuntu 16.04 上的 Microsoft Machine Learning Server 9.2.1。 | Microsoft + Canonical |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [CentOS Linux 7.2 上的 Microsoft Machine Learning Server 9.2.1](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | CentOS Linux 7.2 上的 Microsoft Machine Learning Server 9.2.1。 | Microsoft + Rogue Wave |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Windows Server 2016 上的 Microsoft Machine Learning Server 9.3.0](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onWindowsServer2016) | Windows Server 2016 上的 Microsoft Machine Learning Server 9.3.0。 | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Ubuntu 16.04 上的 Microsoft Machine Learning Server 9.3.0](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Ubuntu 16.04 上的 Microsoft Machine Learning Server 9.3.0。 | Microsoft + Canonical |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [CentOS Linux 7.2 上的 Microsoft Machine Learning Server 9.3.0](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | CentOS Linux 7.2 上的 Microsoft Machine Learning Server 9.3.0。 | Microsoft + Rogue Wave |
 
 
 ## <a name="linux-distributions"></a>Linux 散發套件

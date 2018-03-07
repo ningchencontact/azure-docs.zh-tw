@@ -15,30 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 8bc7767d9903761f3338b7825185171aad74de78
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>適用於 HDInsight 上 R 伺服器的計算內容選項
 
 Azure HDInsight 上的 Microsoft R 伺服器控制如何透過設定計算內容來執行呼叫。 此文章概述可用於指定是否以及如何跨邊緣節點核心或 HDInsight 叢集將執行作業平行化的選項。
 
-叢集的邊緣節點提供便利的地方，以便連線到叢集以及執行 R 指令碼。 有了邊緣節點之後，即可選擇跨邊緣節點伺服器的核心，執行 ScaleR 的平行分散式函數。 您也可以使用 ScaleR 的 Hadoop Map Reduce 或 Spark 計算內容，跨越叢集的節點來執行這些函數。
+叢集的邊緣節點提供便利的地方，以便連線到叢集以及執行 R 指令碼。 有了邊緣節點之後，即可選擇跨邊緣節點伺服器的核心，執行 RevoScaleR 的平行分散式函式。 您也可以使用 RevoScaleR 的 Hadoop Map Reduce 或 Spark 計算內容，跨越叢集的節點來執行這些函式。
 
 ## <a name="microsoft-r-server-on-azure-hdinsight"></a>Azure HDInsight 上的 Microsoft R 伺服器
-[Azure HDInsight 上的 Microsoft R 伺服器](r-server-overview.md)可提供最新的 R 型分析功能。 它可以使用儲存在 [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob 儲存體") 儲存體帳戶、Data Lake Store 或本機 Linux 檔案系統上之 HDFS 容器中的資料。 R 伺服器是根據開放原始碼 R 所建置，因此您建置的 R 型應用程式可以套用 8000 多個開放原始碼 R 套件中的任何一個。 它們也可以使用 [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler) (R 伺服器隨附的 Microsoft 巨量資料分析套件) 中的常式。  
+[Azure HDInsight 上的 Microsoft R 伺服器](r-server-overview.md)可提供最新的 R 型分析功能。 它可以使用儲存在 [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob 儲存體") 儲存體帳戶、Data Lake Store 或本機 Linux 檔案系統上之 HDFS 容器中的資料。 R 伺服器是根據開放原始碼 R 所建置，因此您建置的 R 型應用程式可以套用 8000 多個開放原始碼 R 套件中的任何一個。 它們也可以使用 [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler) (R 伺服器隨附的 Microsoft 巨量資料分析套件) 中的常式。  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>邊緣節點的計算內容
-一般而言，在邊緣節點上 R 伺服器中執行的 R 指令碼會在該節點上的 R 解譯器內執行。 但呼叫 ScaleR 函數的步驟則屬例外。 ScaleR 呼叫會在計算環境中執行，該環境是由您設定 ScaleR 計算內容的方式所決定。  當您從邊緣節點執行 R 指令碼時，可能的計算內容值為：
+一般而言，在邊緣節點上 R 伺服器中執行的 R 指令碼會在該節點上的 R 解譯器內執行。 但呼叫 RevoScaleR 函式的步驟則屬例外狀況。 RevoScaleR 呼叫會在計算環境中執行，該環境是由您設定 RevoScaleR 計算內容的方式所決定。  當您從邊緣節點執行 R 指令碼時，可能的計算內容值為：
 
 - 本機循序 (local)
 - 本機平行 (localpar)
 - Map Reduce
 - Spark
 
-local 和 localpar 選項的差別只在於執行 **rxExec** 呼叫的方式。 它們都會在所有可用的核心之間，以平行方式執行其他的 rx 函數呼叫，除非已指定，否則皆使用 ScaleR **numCoresToUse** 選項，例如 `rxOptions(numCoresToUse=6)`。 平行執行選項提供最佳效能。
+local 和 localpar 選項的差別只在於執行 **rxExec** 呼叫的方式。 它們都會在所有可用的核心之間，以平行方式執行其他的 rx 函式呼叫，除非已指定，否則皆使用 RevoScaleR **numCoresToUse** 選項，例如 `rxOptions(numCoresToUse=6)`。 平行執行選項提供最佳效能。
 
 下表摘要說明各種不同的計算內容選項來設定呼叫的執行方式：
 
@@ -72,11 +72,11 @@ local 和 localpar 選項的差別只在於執行 **rxExec** 呼叫的方式。 
 * 只有在您使用 Spark 計算內容發生無法克服的問題時才使用 Map Reduce 計算內容，因為它的速度通常會比較慢。  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>rxSetComputeContext 的內嵌說明
-如需 ScaleR 計算內容的詳細資訊和範例，請參閱 R 中有關 rxSetComputeContext 方法的內嵌說明，例如︰
+如需 RevoScaleR 計算內容的詳細資訊和範例，請參閱 R 中有關 rxSetComputeContext 方法的內嵌說明，例如︰
 
     > ?rxSetComputeContext
 
-您也可以參閱可從 [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) 文件庫取得的 [ScaleR 分散式計算指南](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) \(英文\)。
+您也可以參考 [Machine Learning Server 文件](https://docs.microsoft.com/machine-learning-server/)中的[分散式計算概觀](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing)。
 
 ## <a name="next-steps"></a>後續步驟
 在此文章中，您可以了解可用於指定是否以及如何跨邊緣節點核心或 HDInsight 叢集將執行作業平行化的選項。 若要深入了解如何搭配 HDInsight 叢集使用 R 伺服器，請參閱下列主題：

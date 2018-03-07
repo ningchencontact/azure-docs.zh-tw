@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: f385d832deed2eaf8ea21eb75d62944cbbf3d13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5160913b2f08a04f0a985d8ddadd6641a664b258
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>使用內部部署資料閘道從邏輯應用程式連線至內部部署資料來源
 
@@ -63,21 +63,19 @@ ms.lasthandoff: 10/11/2017
   > [!NOTE]
   > Windows 服務帳戶與用來連線至內部部署資料來源的帳戶不同，也與用來登入雲端服務的公司或學校 Azure 帳戶不同。
 
-## <a name="set-up-the-data-gateway-connection"></a>設定資料閘道連線
-
-### <a name="1-install-the-on-premises-data-gateway"></a>1.安裝內部部署資料閘道
+## <a name="install-the-on-premises-data-gateway"></a>安裝內部部署資料閘道
 
 如果您還沒有這麼做，請依照[步驟來安裝內部部署資料閘道](logic-apps-gateway-install.md)。 在繼續進行其他步驟前，請先確定您已在本機電腦上安裝資料閘道。
 
 <a name="create-gateway-resource"></a>
 
-### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2.建立內部部署資料閘道的 Azure 資源
+## <a name="create-an-azure-resource-for-the-on-premises-data-gateway"></a>建立內部部署資料閘道的 Azure 資源
 
 在本機電腦上安裝閘道之後，您必須將資料閘道建立為 Azure 資源。 此步驟也會讓閘道資源與 Azure 訂用帳戶產生關聯。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com "Azure 入口網站")。 請務必使用您在安裝閘道時所使用的同一個 Azure 公司或學校電子郵件地址。
 
-2. 在主要 Azure 功能表中，選擇 [新增] > [企業整合] > [內部部署資料閘道]，如以下所示︰
+2. 在主要 Azure 功能表中，選擇 [建立資源] > [企業整合] > [內部部署資料閘道]。
 
    ![尋找 [內部部署資料閘道]](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -109,13 +107,14 @@ ms.lasthandoff: 10/11/2017
 
     ![提供詳細資料以建立內部部署資料閘道](./media/logic-apps-gateway-connection/createblade.png)
 
-    在任何時候，若要尋找或檢視資料閘道，請從主要 Azure 功能表，移至 [更多服務] > [企業整合] > [內部部署資料閘道]。
+    您可以隨時從主要 Azure 功能表中選擇 [所有服務]，來尋找和檢視資料閘道。 
+    在搜尋方塊中，輸入「內部部署資料閘道」，然後選擇 [內部部署資料閘道]。
 
-    ![移至 [更多服務] > [企業整合] > [內部部署資料閘道]](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+    ![尋找 [內部部署資料閘道]](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 
-### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3.將邏輯應用程式連線到內部部署資料閘道
+## <a name="connect-your-logic-app-to-the-on-premises-data-gateway"></a>將邏輯應用程式連線到內部部署資料閘道
 
 您已建立資料閘道資源並讓 Azure 訂用帳戶與該資源相關聯，接下來請建立邏輯應用程式與資料閘道之間的連線。
 
@@ -157,6 +156,7 @@ ms.lasthandoff: 10/11/2017
    > 如果您的更新未生效，請嘗試[先停止再重新啟動閘道 Windows 服務](./logic-apps-gateway-install.md#restart-gateway)。
 
 <a name="change-delete-gateway-resource"></a>
+
 ## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>切換或刪除內部部署資料閘道資源
 
 若要建立不同的閘道資源、讓閘道與其他資源相關連，或是要移除閘道資源，您可以直接刪除閘道資源，這並不會影響閘道安裝。 
@@ -166,6 +166,7 @@ ms.lasthandoff: 10/11/2017
 3. 選擇 [內部部署資料閘道]，然後在 [資源] 工具列上選擇 [刪除]。
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]

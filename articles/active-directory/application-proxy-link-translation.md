@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 02/23/2018
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d5d704dac58d65dd7d62bc3eca400f9541714d5d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>重新導向使用 Azure AD Application Proxy 發佈之應用程式的硬式編碼連結
 
@@ -27,7 +27,7 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 
 若要確定連結在公司網路內部和外部的運作方式相同，最佳方法就是將您應用程式的外部 URL 設定為與其內部 URL 相同。 使用[自訂網域](active-directory-application-proxy-custom-domains.md)，將您的外部 URL 設定為包含公司網域名稱，而不是預設的應用程式 Proxy 網域。
 
-如果您無法在租用戶中使用自訂網域，應用程式 Proxy 的連結轉譯功能會讓您的連結保持運作 (不論您的使用者身在何處)。 當您有直接指向內部端點或連接埠的應用程式時，您可以將這些內部 URL 對應至已發佈的外部 Application Proxy URL。 若已啟用連結轉譯，應用程式 Proxy 會透過 HTML、CSS 搜尋，並選取已發佈內部連結的 JavaScript 標籤。 然後應用程式 Proxy 會將它們轉譯，以便使用者獲得不受干擾的體驗。
+如果您無法在租用戶中使用自訂網域，應用程式 Proxy 的連結轉譯功能會讓您的連結保持運作 (不論您的使用者身在何處)。 當您有直接指向內部端點或連接埠的應用程式時，您可以將這些內部 URL 對應至已發佈的外部 Application Proxy URL。 當連結轉譯啟用且 Application Proxy 透過 HTML 和 CSS 搜尋已發佈的內部連結時，Application Proxy 服務會將它們轉譯，以便您的使用者獲得不受干擾的體驗。
 
 >[!NOTE]
 >連結轉譯功能適用於無法使用自訂網域 (不論何種原因) 讓其應用程式具有相同內部和外部 URL 的租用戶。 在您啟用這項功能之前，請查看您是否適用 [Azure AD Application Proxy 中的自訂網域](active-directory-application-proxy-custom-domains.md)。
@@ -64,7 +64,7 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 為了改善效能和安全性，並未轉譯有些連結：
 
 - 不在程式碼標籤內的連結。 
-- 不在 HTML、CSS 或 JavaScript 中的連結。 
+- 不在 HTML 或 CSS 中的連結。 
 - 從其他程式開啟的內部連結。 不會轉譯透過電子郵件或立即訊息傳送的連結，或包含在其他文件中的連結。 使用者必須知道要移至外部 URL。
 
 如果您必須支援下列其中一種情況，請使用相同的內部和外部 URL，而不需進行連結轉譯。  
@@ -84,7 +84,7 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 
 ## <a name="send-feedback"></a>傳送意見反應
 
-我們需要您的協助，讓這項功能可用於您所有的應用程式。 我們搜尋 HTML 和 CSS 中超過 30 個標籤，並考慮要支援哪些 JavaScript 案例。 如果您有不在轉譯中的已產生連結範例，請將程式碼片段傳送至 [Application Proxy 意見反應](mailto:aadapfeedback@microsoft.com)。 
+我們需要您的協助，讓這項功能可用於您所有的應用程式。 我們在 HTML 和 CSS 中搜尋超過 30 個標籤。 如果您有不在轉譯中的已產生連結範例，請將程式碼片段傳送至 [Application Proxy 意見反應](mailto:aadapfeedback@microsoft.com)。 
 
 ## <a name="next-steps"></a>後續步驟
 [使用自訂網域搭配 Azure AD 應用程式 Proxy](active-directory-application-proxy-custom-domains.md) 以具有相同的內部和外部 URL

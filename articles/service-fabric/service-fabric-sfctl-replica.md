@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 422c19dfa9a204d98a898f76bc1af92a05c054d0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 管理屬於服務分割區的複本。
@@ -64,7 +64,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="sfctl-replica-health"></a>sfctl replica health
 取得 Service Fabric 具狀態服務複本或無狀態服務執行個體的健康情況。
 
-取得 Service Fabric 複本的健康情況。 使用 EventsHealthStateFilter 可根據健康情況狀態，篩選針對複本所報告的健康情況事件集合。 .
+取得 Service Fabric 複本的健康情況。 使用 EventsHealthStateFilter 可根據健康情況狀態，篩選針對複本所報告的健康情況事件集合。
 
 ### <a name="arguments"></a>引數
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 01/18/2018
 | --debug                  | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h                | 顯示此說明訊息並結束。|
 | --output -o              | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
-| --query                  | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
+| --query                  | JMESPath 查詢字串。 如需詳細資訊，請參閱 http://jmespath.org/。|
 | --verbose                | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
@@ -106,7 +106,7 @@ ms.lasthandoff: 01/18/2018
 | --debug               | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h             | 顯示此說明訊息並結束。|
 | --output -o           | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
-| --query               | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
+| --query               | JMESPath 查詢字串。 如需詳細資訊，請參閱 http://jmespath.org/。|
 | --verbose             | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list

@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 02/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: eca3f95b672a7334d77ac027b4774addf4efed2c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>使用 Apache Kafka 搭配 Storm on HDInsight
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/03/2018
 
 若要編譯此專案，您需要開發環境的下列設定：
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 或更新版本。 HDInsight 3.5 或更新版本需要 Java 8。
+* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 或更新版本。 HDInsight 3.5 或更新版本需要 Java 8。
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -121,7 +121,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
     此拓撲使用 Storm HdfsBolt 將資料寫入 Storm 叢集的預設儲存體。
 ### <a name="flux"></a>Flux
 
-拓撲是使用 [Flux](https://storm.apache.org/releases/1.1.0/flux.html) 來定義的。 Storm 0.10.x 引進了 Flux，可讓您區隔拓撲組態與程式碼。 若為使用 Flux 架構的拓撲，拓撲定義於 YAML 檔案中。 YAML 檔案可以納入為拓撲的一部分。 它也可以是您提交拓撲時使用的獨立檔案。 Flux 也支援執行階段的變數替代 (在此範例中使用)。
+拓撲是使用 [Flux](https://storm.apache.org/releases/1.1.2/flux.html) 來定義的。 Storm 0.10.x 引進了 Flux，可讓您區隔拓撲組態與程式碼。 若為使用 Flux 架構的拓撲，拓撲定義於 YAML 檔案中。 YAML 檔案可以納入為拓撲的一部分。 它也可以是您提交拓撲時使用的獨立檔案。 Flux 也支援執行階段的變數替代 (在此範例中使用)。
 
 在執行階段會針對這些拓撲設定下列參數：
 
@@ -131,7 +131,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 * `${kafka.zookeeper.hosts}`：Kafka 叢集中 Zookeeper 執行所在的主機。
 
-如需 Flux 拓撲的詳細資訊，請參閱 [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html)。
+如需 Flux 拓撲的詳細資訊，請參閱 [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html)。
 
 ## <a name="download-and-compile-the-project"></a>下載並編譯專案
 
@@ -172,7 +172,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
     ```
 
     > [!IMPORTANT]
-    > Bash 範例假設 `$CLUSTERNAME` 包含 HDInsight 叢集的名稱。 它也假設已安裝 [jq](https://stedolan.github.io/jq/)。 出現提示時，輸入叢集登入帳戶的密碼。
+    > Bash 範例假設 `$CLUSTERNAME` 包含 HDInsight 叢集的名稱。 它同時假設已安裝 [jq](https://stedolan.github.io/jq/) 1.5 版或更新版本。 出現提示時，輸入叢集登入帳戶的密碼。
 
     傳回的值類似下列文字︰
 
@@ -218,7 +218,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 4. 儲存 `dev.properties` 檔案，然後使用下列命令將它上傳至 Storm 叢集：
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     將 **USERNAME** 替換為叢集的 SSH 使用者名稱。 將 **BASENAME** 替換為您在建立叢集時使用的基底名稱。
@@ -287,6 +287,9 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
     使用 Ctrl + c 來停止指令碼。
 
 ## <a name="start-the-reader"></a>開始讀取器
+
+> [!NOTE]
+> 在 Storm UI 中檢視讀取器時，您可能會看到__拓撲 Spout 延遲錯誤__區段。 針對此範例，您可以忽略此錯誤。
 
 1. 在 Storm 叢集的 SSH 工作階段中，使用下列命令來啟動讀取器拓撲：
 

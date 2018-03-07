@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 2694c25b0db7a4a0b9f527ec67e62fede5de6a80
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: f0a706a5a7724788d62479d1570fffac07ce6d54
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -63,7 +63,7 @@ Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https:
 執行個體中繼資料適用於使用 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 建立/管理的執行中 VM。 使用下列要求，存取虛擬機器執行個體的所有資料類別：
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
 > [!NOTE] 
@@ -81,7 +81,7 @@ API | 預設資料格式 | 其他格式
 若要存取非預設的回應格式，請指定要求的格式作為要求中的 querystring 參數。 例如：
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 ### <a name="security"></a>安全性
@@ -149,7 +149,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 #### <a name="retrieving-public-ip-address"></a>擷取公用 IP 位址
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="retrieving-all-metadata-for-an-instance"></a>擷取執行個體的所有中繼資料
@@ -218,13 +218,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 可以透過 Powershell 公用程式 `curl` 在 Windows 中擷取執行個體中繼資料： 
 
 ```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
 或透過 `Invoke-RestMethod` Cmdlet：
     
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
 ```
 
 **回應**
@@ -302,7 +302,7 @@ subnet/address | VM 的子網路位址 | 2017-04-02
 subnet/prefix | 子網路首碼，範例 24 | 2017-04-02 
 ipv6/ipAddress | VM 的本機 IPv6 位址 | 2017-04-02 
 macAddress | VM mac 位址 | 2017-04-02 
-scheduledevents | 目前為公開預覽狀態。 請參閱[排定的事件](scheduled-events.md) | 2017-03-01
+scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>使用方式的範例案例  
 
@@ -313,7 +313,7 @@ scheduledevents | 目前為公開預覽狀態。 請參閱[排定的事件](sche
 **要求**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 **回應**
@@ -330,7 +330,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 **要求**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text" 
 ```
 
 **回應**
@@ -346,7 +346,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 **要求**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-08-01"
 ```
 
 **回應**
@@ -411,4 +411,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解執行個體中繼資料服務所提供的[排程的事件](scheduled-events.md) API **公開預覽版**。
+- 深入了解[排程的事件](scheduled-events.md)

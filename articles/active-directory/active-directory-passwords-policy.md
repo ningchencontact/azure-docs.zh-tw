@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 48ec84cd01126f431f22457a4ace451e4d9bce42
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>密碼原則和 Azure Active Directory 中的限制
 
@@ -86,8 +86,8 @@ Microsoft 會針對任何 Azure 管理員角色強制執行強式預設*兩個�
 | 屬性 | UserPrincipalName 需求 |
 | --- | --- |
 | 允許的字元 |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-| 不允許的字元 |<ul> <li>任何不是用來分隔使用者名稱和網域的 "@" 字元。</li> <li>"@" 符號前面不可直接包含句點字元 "."</li></ul> |
-| 長度限制 |<ul> <li>總長度不得超過 113 個字元</li><li>"@" 符號之前最多可以有 64 個字元</li><li>"@" 符號之後最多可以有 48 個字元</li></ul> |
+| 不允許的字元 |<ul> <li>任何不是用來分隔使用者名稱和網域的 "\@\" 字元。</li> <li>"\@\" 符號前面不可包含緊鄰的句點字元 "."</li></ul> |
+| 長度限制 |<ul> <li>總長度不得超過 113 個字元</li><li>"\@\" 符號前面最多可以有 64 個字元</li><li>"\@\" 符號後面最多可以有 48 個字元</li></ul> |
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>僅適用於雲端使用者帳戶的密碼原則
 
@@ -96,7 +96,7 @@ Microsoft 會針對任何 Azure 管理員角色強制執行強式預設*兩個�
 | 屬性 | 需求 |
 | --- | --- |
 | 允許的字元 |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| 不允許的字元 |<ul><li>Unicode 字元。</li><li>空格。</li><li> 僅限使用強式密碼："@" 符號前面不能直接包含點字元 "."。</li></ul> |
+| 不允許的字元 |<ul><li>Unicode 字元。</li><li>空格。</li><li> 僅限使用強式密碼："\@\" 符號前面不可包含緊鄰的點字元 "."。</li></ul> |
 | 密碼限制 |<ul><li>最少 8 個字元和最多 16 個字元。</li><li>僅限使用增強式密碼︰需要下列四種字元中的三種：<ul><li>小寫字元。</li><li>大寫字元。</li><li>數字 (0-9)。</li><li>符號 (請參閱先前的密碼限制)。</li></ul></li></ul> |
 | 密碼到期時間 |<ul><li>預設值：**90** 天。</li><li>可透過適用於 Windows PowerShell 的 Azure Active Directory 模組使用 `Set-MsolPasswordPolicy` Cmdlet 設定該值。</li></ul> |
 | 密碼到期通知 |<ul><li>預設值：**14** 天 (密碼到期之前)。</li><li>可使用 `Set-MsolPasswordPolicy` Cmdlet 設定此值。</li></ul> |

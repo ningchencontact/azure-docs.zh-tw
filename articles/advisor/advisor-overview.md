@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 906450f75557820bb27762707c3328b08b23cccb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure 建議程式簡介
 
@@ -32,7 +32,7 @@ Advisor 是個人化的雲端顧問，可協助您依最佳做法來最佳化您
 * 改善資源的效能、安全性及高可用性，同時尋找降低整體 Azure 費用的機會。
 * 取得內嵌了提議動作的建議。
 
-您可以透過 [Azure 入口網站](https://aka.ms/azureadvisordashboard)存取建議程式。 登入[入口網站](https://portal.azure.com)，在導覽功能表中找出 [Advisor]，或在 [更多服務] 功能表中搜尋它。
+您可以透過 [Azure 入口網站](https://aka.ms/azureadvisordashboard)存取建議程式。 登入[入口網站](https://portal.azure.com)，在導覽功能表中找出 [Advisor]，或在 [所有服務] 功能表中搜尋它。
 
 Advisor 儀表板會顯示您所有訂用帳戶的個人化建議。  您可以套用篩選來顯示適用於特定訂用帳戶和資源類型的建議。  建議分為四個類別： 
 
@@ -52,12 +52,12 @@ Advisor 儀表板會顯示您所有訂用帳戶的個人化建議。  您可以�
 
 請選取某個建議的建議動作以實作該建議。  這會開啟一個簡單的介面，可讓您實作該建議，或讓您參考可協助您進行實作的文件。  實作建議之後，可能需要一天的時間，Azure Advisor 才能完成認可。
 
-如果您不想對建議立即採取行動，您可以將它延遲一段時間或加以關閉。  如果您不想要收到針對特定訂用帳戶或資源群組的建議，您可以將 Advisor 設定成只針對指定的訂用帳戶和資源群組產生建議。
+如果您不想對建議立即採取行動，您可以將它延期一段時間或加以關閉。  如果您不想要收到針對特定訂用帳戶或資源群組的建議，您可以將 Advisor 設定成只針對指定的訂用帳戶和資源群組產生建議。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 ### <a name="how-do-i-access-advisor"></a>如何存取建議程式？
-您可以透過 [Azure 入口網站](https://aka.ms/azureadvisordashboard)存取建議程式。 登入[入口網站](https://portal.azure.com)，在導覽功能表中找出 [Advisor]，或在 [更多服務] 功能表中搜尋它。
+您可以透過 [Azure 入口網站](https://aka.ms/azureadvisordashboard)存取建議程式。 登入[入口網站](https://portal.azure.com)，在導覽功能表中找出 [Advisor]，或在 [所有服務] 功能表中搜尋它。
 
 您也可以透過虛擬機器資源介面檢視 Advisor 建議。 選擇虛擬機器，然後捲動至功能表中的建議程式建議。 
 
@@ -69,9 +69,9 @@ Advisor 儀表板會顯示您所有訂用帳戶的個人化建議。  您可以�
 
 Advisor 可提供虛擬機器、可用性設定組、應用程式閘道、應用程式服務、SQL Server、SQL Database 和 Redis 快取的建議。
 
-### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>是否可以延遲或解除建議？
+### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>是否可以延期或解除建議？
 
-若要延遲或關閉建議，請按一下 [延遲] 連結。 您可以指定延遲時間週期，或選取 [永不] 來解除建議。
+若要延期或關閉建議，請按一下 [延期] 連結。 您可以指定延期週期，或選取 [永不] 來解除建議。
 
 ## <a name="next-steps"></a>後續步驟
 

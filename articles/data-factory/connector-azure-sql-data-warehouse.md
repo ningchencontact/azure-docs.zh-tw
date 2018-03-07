@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 456e5bd722d103f10779aa0cd99bf01fdcf8a7fe
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 2601d386bdacbe005b2930a44db531a0b58fb7b5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,9 +35,15 @@ ms.lasthandoff: 02/13/2018
 
 具體而言，這個「Azure SQL 資料倉儲」連接器支援：
 
-- 使用 SQL 驗證來複製資料。
+- 使用 **SQL 驗證**和 **Azure Active Directory 應用程式權杖驗證**與服務主體或受控服務識別 (MSI) 來複製資料。
 - 作為來源時，使用 SQL 查詢或預存程序來擷取資料。
 - 作為接收器時，使用 **PolyBase** 或大量插入來載入資料。 **建議**使用前者，以獲得較佳的複製效能。
+
+> [!IMPORTANT]
+> 請注意，PolyBase 僅支援 SQL 驗證，不支援 Azure Active Directory 驗證。
+
+> [!IMPORTANT]
+> 如果您使用 Azure 整合執行階段複製資料，請將 [Azure SQL Server 防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)設定為[允許 Azure 服務存取伺服器](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)。 如果您使用自我裝載整合執行階段複製資料，請將 Azure SQL Server 防火牆設定為允許適當的 IP 範圍，包括用來連線到 Azure SQL Database 之機器的 IP。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -52,14 +58,21 @@ ms.lasthandoff: 02/13/2018
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設為： **AzureSqlDW** | yes |
-| connectionString |針對 connectionString 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 僅支援基本驗證。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |yes |
+| connectionString |針對 connectionString 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |yes |
+| servicePrincipalId | 指定應用程式的用戶端識別碼。 | 搭配服務主體使用 AAD 驗證時為是。 |
+| servicePrincipalKey | 指定應用程式的金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 搭配服務主體使用 AAD 驗證時為是。 |
+| tenant | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 搭配服務主體使用 AAD 驗證時為是。 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
+針對不同的驗證類型，請分別參閱下列有關先決條件和 JSON 範例的章節：
 
-> [!IMPORTANT]
-> 請設定 [Azure SQL 資料倉儲防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)和資料庫伺服器，以[允許 Azure 服務存取伺服器](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)。 此外，如果您要將資料從 Azure 外部 (包括從具有「自我裝載 Integration Runtime」的內部部署資料來源) 複製到「Azure SQL 資料倉儲」，請為傳送資料給「Azure SQL 資料倉儲」的電腦設定適當的 IP 位址範圍。
+- [使用 SQL 驗證](#using-sql-authentication)
+- [使用 AAD 應用程式權杖驗證 - 服務主體](#using-service-principal-authentication)
+- [使用 AAD 應用程式權杖驗證 - 受控服務識別](#using-managed-service-identity-authentication)
 
-**範例：**
+### <a name="using-sql-authentication"></a>使用 SQL 驗證
+
+**使用 SQL 驗證的連結服務範例：**
 
 ```json
 {
@@ -70,6 +83,113 @@ ms.lasthandoff: 02/13/2018
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-service-principal-authentication"></a>使用服務主體驗證
+
+若要使用以服務主體為基礎的 AAD 應用程式權杖驗證，請遵循下列步驟：
+
+1. **[從 Azure 入口網站建立 Azure Active Directory 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)。**  請記下應用程式名稱，以及下列可供用來定義連結服務的值：
+
+    - 應用程式識別碼
+    - 應用程式金鑰
+    - 租用戶識別碼
+
+2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL Server **[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**。 AAD 系統管理員可以是 AAD 使用者或 AAD 群組。 如果您將系統管理員角色授與具有 MSI 的群組，請略過下面的步驟 3 和 4，因為系統管理員具有資料庫的完整存取權。
+
+3. **針對服務主體建立自主資料庫使用者**，方法是以至少具有 ALTER ANY USER 權限的 AAD 身分識別，使用 SSMS 之類的工具連線至您想要將資料複製到其中或從中複製資料的資料倉儲，然後執行下列 T-SQL。 從[這裡](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)深入了解自主資料庫使用者。
+    
+    ```sql
+    CREATE USER [your application name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. 像您一般對 SQL 使用者所做的一樣，**授與服務主體所需的權限**，例如藉由執行以下動作：
+
+    ```sql
+    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    ```
+
+5. 在 ADF 中，設定 Azure SQL 資料倉儲連結服務。
+
+
+**使用服務主體驗證的連結服務範例：**
+
+```json
+{
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identity-authentication"></a>使用受控服務識別驗證
+
+資料處理站可以與[受控服務識別 (MSI)](data-factory-service-identity.md) 相關聯，用後者來表示此特定資料處理站。 您可以針對 Azure SQL 資料倉儲驗證使用此服務識別，讓這個指定的處理站可以存取及複製資料到您的資料倉儲，以及從中存取、複製。
+
+若要使用以 MSI 為基礎的 AAD 應用程式權杖驗證，請遵循下列步驟：
+
+1. **在 Azure AD 中建立群組，並讓處理站 MSI 成為此群組的成員**。
+
+    a. 從 Azure 入口網站尋找資料處理站服務識別。 移至您的資料處理站 -> [屬性]-> 複製 [服務識別識別碼]。
+
+    b. 安裝 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) 模組，使用 `Connect-AzureAD` 命令登入，然後執行下列命令以建立群組，並且新增資料處理站 MSI 作為成員。
+    ```powershell
+    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
+    ```
+
+2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL Server **[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**。
+
+3. **針對 AAD 群組建立自主資料庫使用者**，方法是以至少具有 ALTER ANY USER 權限的 AAD 身分識別，使用 SSMS 之類的工具連線至您想要將資料複製到其中或從中複製資料的資料倉儲，然後執行下列 T-SQL。 從[這裡](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)深入了解自主資料庫使用者。
+    
+    ```sql
+    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. 像您一般對 SQL 使用者所做的一樣，**授與 AAD 群組所需的權限**，例如藉由執行以下動作：
+
+    ```sql
+    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    ```
+
+5. 在 ADF 中，設定 Azure SQL 資料倉儲連結服務。
+
+**使用 MSI 驗證的連結服務範例：**
+
+```json
+{
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             }
         },
         "connectVia": {
@@ -259,6 +379,9 @@ GO
 
 * 如果您的來源資料位在 Azure Blob 或 Azure Data Lake Store，且其格式與 PolyBase 相容，您就可以使用 PolyBase 直接複製到 Azure SQL 資料倉儲。 請參閱**[使用 PolyBase 直接複製](#direct-copy-using-polybase)**了解詳細資料。
 * 如果您的來源資料存放區與格式不受 PolyBase 支援，您可以改為使用[使用 PolyBase 分段複製](#staged-copy-using-polybase)功能。 它也能透過將資料自動轉換為 PolyBase 相容的格式，並將資料儲存在 Azure Blob 儲存體中，來提供更佳的輸送量。 然後，它會將資料載入 SQL 資料倉儲。
+
+> [!IMPORTANT]
+> 請注意，PolyBase 僅支援 Azure SQL 資料倉儲 SQL 驗證，不支援 Azure Active Directory 驗證。
 
 ### <a name="direct-copy-using-polybase"></a>使用 PolyBase 直接複製
 

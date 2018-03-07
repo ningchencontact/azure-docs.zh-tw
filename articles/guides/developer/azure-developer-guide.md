@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 8eb3cae792a09fc530b84243f2baa01ecc5d13dc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e740b655cbd22a08aab988e83a057cc770e8dfe3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 開發人員開始使用指南
 
@@ -151,7 +151,7 @@ Azure 提供數種方式，以在應用程式中使用容器。
 
     >**使用時機**：在 Linux 上將 Web 應用程式部署至 Docker 映像時。
 
-    >**開始使用**：[針對 Linux 上的 App Service 使用自訂 Docker 映像](../../app-service/containers/quickstart-custom-docker-image.md)。
+    >**開始使用**：[針對 Linux 上的 App Service 使用自訂 Docker 映像](../../app-service/containers/quickstart-docker-go.md)。
 
 ### <a name="authentication"></a>驗證
 
@@ -222,7 +222,7 @@ Azure 提供兩種方式，使用 Bash、終端機、命令提示字元或您選
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-Azure 入口網站是一種 Web 應用程式，可用來建立、管理和移除 Azure 資源和服務。 Azure 入口網站位於 <https://portal.azure.com>。它會包含可自訂的儀表板、用於管理 Azure 資源的工具，以及訂用帳戶設定和計費資訊的存取權。 如需詳細資訊，請參閱 [Azure 入口網站概觀](../../azure-portal-overview.md)。
+Azure 入口網站是一種 Web 應用程式，可用來建立、管理和移除 Azure 資源和服務。 Azure入口網站位於 <https://portal.azure.com>。 它會包含可自訂的儀表板、用於管理 Azure 資源的工具，以及訂用帳戶設定和計費資訊的存取權。 如需詳細資訊，請參閱 [Azure 入口網站概觀](../../azure-portal-overview.md)。
 
 ### <a name="rest-apis"></a>REST API
 

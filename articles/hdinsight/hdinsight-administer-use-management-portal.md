@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 中的 Windows 型 Hadoop 叢集
 
@@ -294,7 +294,7 @@ HDInsight 查詢主控台包括下列功能：
     ![HDInsight portal YARN UI](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
 
 ## <a name="run-hive-queries"></a>執行 Hive 查詢
-若要從入口網站執行 Hive 作業，請按一下 HDInsight 查詢主控台中的 [ **Hive 編輯器** ]。 請參閱 [開啟 HDInsight 查詢主控台](#open-hdinsight-query-console)。
+若要從入口網站執行 Hive 作業，請按一下 HDInsight 查詢主控台中的 [Hive 編輯器]。 請參閱 [開啟 HDInsight 查詢主控台](#open-hdinsight-query-console)。
 
 ## <a name="monitor-jobs"></a>監視工作
 若要從入口網站監視 Hive 作業，請按一下 HDInsight 查詢主控台中的 [ **工作歷程記錄** ]。 請參閱 [開啟 HDInsight 查詢主控台](#open-hdinsight-query-console)。

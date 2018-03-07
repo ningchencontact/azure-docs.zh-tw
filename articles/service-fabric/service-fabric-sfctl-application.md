@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2018
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 345717e76097931f52354369e822af41133b34f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3a10437d0a2d680e586ada6a87750a69453c1f0c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-application"></a>sfctl application
 建立、刪除與管理應用程式和應用程式類型。
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/01/2018
 | list         | 取得 Service Fabric 叢集中所建立且符合指定為參數之篩選的應用程式清單。|
 | load | 取得 Service Fabric 應用程式的載入資訊。 |
 | manifest     | 取得可描述應用程式類型的資訊清單。|
-| provision    | 向叢集佈建或註冊 Service Fabric 應用程式類型。|
+| provision    | 使用外部存放區中的 .sfpkg 套件或使用映像存放區中的應用程式套件，向叢集佈建或註冊 Service Fabric 應用程式類型。|
 | report-health| 傳送 Service Fabric 應用程式的健康情況報告。|
 | type         | 取得 Service Fabric 叢集中完全符合指定名稱的應用程式類型清單。|
 | type-list    | 取得 Service Fabric 叢集中的應用程式類型清單。|
@@ -83,7 +83,7 @@ ms.lasthandoff: 02/01/2018
 
 |引數|說明|
 | --- | --- |
-| --application-id [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果應用程式名稱是 "fabric://myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp~app1"，而在舊版中會是 "myapp/app1"。|
+| --application-id [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果應用程式名稱是 "fabric:/myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp~app1"，而在舊版中會是 "myapp/app1"。|
 | --force-remove          | 強制移除 Service Fabric 應用程式或服務，而不需要經過正常關機順序。 當服務程式碼中有無法正常關閉複本的問題而導致刪除逾時時，此參數可用來強制刪除應用程式或服務。|
 | --timeout -t            | 伺服器逾時 (秒)。  預設值：60。|
 
@@ -99,12 +99,14 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="sfctl-application-deployed"></a>sfctl application deployed
 取得 Service Fabric 節點上所部署應用程式的相關資訊。
+
+取得 Service Fabric 節點上所部署應用程式的相關資訊。  如果所提供的應用程式識別碼適用於系統應用程式，則此查詢會傳回系統應用程式資訊。 結果包含作用中、正在啟用以及下載中狀態的已部署應用程式。 要使用這項查詢，節點名稱就必須對應到叢集上的節點。 如果所提供的節點名稱未指向叢集上任何作用中的 Service Fabric 節點，則查詢會失敗。
      
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
-| --application-id [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果應用程式名稱是 "fabric://myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp~app1"，而在舊版中會是 "myapp/app1"。|
+| --application-id [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果應用程式名稱是 "fabric:/myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp~app1"，而在舊版中會是 "myapp/app1"。|
 | --node-name      [必要]| 節點的名稱。|
 | --timeout -t            | 伺服器逾時 (秒)。  預設值：60。|
 
@@ -127,7 +129,7 @@ ms.lasthandoff: 02/01/2018
 
 |引數|說明|
 | --- | --- |
-| --application-id                 [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果應用程式名稱是 "fabric://myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp~app1"，而在舊版中會是 "myapp/app1"。|
+| --application-id                 [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果應用程式名稱是 "fabric:/myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp~app1"，而在舊版中會是 "myapp/app1"。|
 | --deployed-applications-health-state-filter| 可根據健康情況狀態來篩選應用程式健康情況查詢結果中所傳回的已部署應用程式健康情況狀態物件。 此參數的可能值包括下列其中一個健康情況狀態的整數值。 只會傳回符合篩選條件的已部署應用程式。 所有已部署應用程式都會用來評估彙總的健康情況狀態。 如果未指定，則會傳回所有項目。 狀態值是以旗標為基礎的列舉，因此值可以是使用位元 'OR' 運算子取得的這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的已部署應用程式健康情況狀態。 - Default - 預設值。 符合任何 HealthState。 值為零。 - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。 - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。 - Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。 - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。 - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。|
 | --events-health-state-filter            | 可根據健康情況狀態來篩選所傳回的 HealthEvent 物件集合。 此參數的可能值包括下列其中一個健康情況狀態的整數值。 只會傳回符合篩選條件的事件。 所有事件都會用來評估彙總的健康情況狀態。 如果未指定，則會傳回所有項目。 狀態值是以旗標為基礎的列舉，因此值可以是使用位元 'OR' 運算子取得的這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的所有事件。 - Default - 預設值。 符合任何 HealthState。 值為零。 - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。 - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。 - Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。 - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。 - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。|
 | --exclude-health-statistics | 表示健康情況統計資料是否傳回為查詢結果的一部分。 預設為 False。 統計資料顯示健康情況狀態為 Ok、Warning 和 Error 的子項目數目。|
@@ -141,7 +143,7 @@ ms.lasthandoff: 02/01/2018
 | --debug                                 | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h                               | 顯示此說明訊息並結束。|
 | --output -o                             | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
-| --query                                 | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
+| --query                                 | JMESPath 查詢字串。 如需詳細資訊，請參閱 http://jmespath.org/。|
 | --verbose                               | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-application-info"></a>sfctl application info
@@ -153,7 +155,7 @@ ms.lasthandoff: 02/01/2018
 
 |引數|說明|
 | --- | --- |
-| --application-id      [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果應用程式名稱是 "fabric://myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp~app1"，而在舊版中會是 "myapp/app1"。|
+| --application-id      [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果應用程式名稱是 "fabric:/myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp~app1"，而在舊版中會是 "myapp/app1"。|
 | --exclude-application-parameters| 指定是否從結果排除應用程式參數的旗標。|
 | --timeout -t                 | 伺服器逾時 (秒)。  預設值：60。|
 
@@ -164,22 +166,23 @@ ms.lasthandoff: 02/01/2018
 | --debug                      | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h                    | 顯示此說明訊息並結束。|
 | --output -o                  | 輸出格式。  允許的值：json、jsonc、table、tsv。             預設值：json。|
-| --query                      | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
+| --query                      | JMESPath 查詢字串。 如需詳細資訊，請參閱 http://jmespath.org/。|
 | --verbose                    | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-application-list"></a>sfctl application list
 取得 Service Fabric 叢集中所建立且符合指定為參數之篩選的應用程式清單。
 
-取得 Service Fabric 叢集中已建立或正在建立且符合指定為參數之篩選的應用程式相關資訊。 回應包括名稱、類型、狀態、參數，以及應用程式的其他詳細資料。 如果應用程式無法放入一頁，則會傳回一頁結果，以及可用來取得下一頁的接續權杖。
+取得 Service Fabric 叢集中已建立或正在建立且符合指定為參數之篩選的應用程式相關資訊。 回應包括名稱、類型、狀態、參數，以及應用程式的其他詳細資料。 如果應用程式無法放入一頁，則會傳回一頁結果，以及可用來取得下一頁的接續權杖。 無法同時指定篩選條件 ApplicationTypeName 和 ApplicationDefinitionKindFilter。
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
-|--application-definition-kind-filter| 用來篩選 ApplicationDefinitionKind 上的應用程式查詢作業。 - Default - 預設值。 符合具有任何 ApplicationDefinitionKind 值之輸入的篩選條件。 值為 0。 - All - 符合具有任何 ApplicationDefinitionKind 值之輸入的篩選條件。 值為 65535。 - ServiceFabricApplicationDescription - 符合具有 ApplicationDefinitionKind 值 ServiceFabricApplicationDescription 之輸入的篩選條件。 值為 1。 - Compose - 符合具有 ApplicationDefinitionKind 值 Compose 之輸入的篩選條件。 值為 2。 預設值：65535。|
+|--application-definition-kind-filter| 用來篩選 ApplicationDefinitionKind，這是用來定義 Service Fabric 應用程式的機制。 - Default - 預設值，所執行的功能和選取 "All" 時相同。 值為 0。 - All - 符合具有任何 ApplicationDefinitionKind 值之輸入的篩選條件。 值為 65535。 - ServiceFabricApplicationDescription - 符合具有 ApplicationDefinitionKind 值 ServiceFabricApplicationDescription 之輸入的篩選條件。 值為 1。 - Compose - 符合具有 ApplicationDefinitionKind 值 Compose 之輸入的篩選條件。 值為 2。|
 | --application-type-name      | 用來篩選要查詢之應用程式的應用程式類型名稱。 此值不得包含應用程式類型版本。|
 | --continuation-token         | 接續權杖參數可用來取得下一組結果。 具有非空白值的接續權杖會在來自系統的結果無法放入單一回應中時，隨附在 API 的回應中。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。|
 | --exclude-application-parameters| 指定是否從結果排除應用程式參數的旗標。|
+| --max-results|分頁式查詢時傳回的最大結果數目。 此參數定義傳回結果數目的上限。 根據設定中所定義的訊息大小限制上限，如果所傳回的結果無法放入訊息中，則它們可以小於指定的結果上限。 如果此參數為零或未指定，分頁式查詢會在傳回訊息中盡可能包含越多結果。|
 | --timeout -t                 | 伺服器逾時 (秒)。  預設值：60。|
 
 ### <a name="global-arguments"></a>全域引數
@@ -200,7 +203,7 @@ ms.lasthandoff: 02/01/2018
 ### <a name="arguments"></a>引數
 |引數|說明|
 | --- | --- |
-|--application-id [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果應用程式名稱是 "fabric://myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp~app1"，而在舊版中會是 "myapp/app1"。 |
+|--application-id [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果應用程式名稱是 "fabric:/myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp~app1"，而在舊版中會是 "myapp/app1"。 |
 | --timeout -t               | 伺服器逾時 (秒)。  預設值：60。|
 
 ### <a name="global-arguments"></a>全域引數
@@ -209,7 +212,7 @@ ms.lasthandoff: 02/01/2018
 |--debug                    | 增加記錄詳細程度以顯示所有偵錯記錄。|
     --help -h                  | 顯示此說明訊息並結束。|
     --output -o                | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
-    --query                    | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
+    --query                    | JMESPath 查詢字串。 如需詳細資訊，請參閱 http://jmespath.org/。|
     --verbose                  | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-application-manifest"></a>sfctl application manifest
@@ -232,20 +235,29 @@ ms.lasthandoff: 02/01/2018
 | --debug                           | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h                         | 顯示此說明訊息並結束。|
 | --output -o                       | 輸出格式。  允許的值：json、jsonc、table、tsv。                  預設值：json。|
-| --query                           | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
+| --query                           | JMESPath 查詢字串。 如需詳細資訊，請參閱 http://jmespath.org/。|
 | --verbose                         | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
-向叢集佈建或註冊 Service Fabric 應用程式類型。
+使用外部存放區中的 SFPKG 套件或使用映像存放區中的應用程式套件，向叢集佈建或註冊 Service Fabric 應用程式類型。
+
+向叢集佈建 Service Fabric 應用程式類型。 需要有這個項目，才能具現化任何新的應用程式。 佈建作業可以在由 relativePathInImageStore 指定的應用程式套件上執行，也可以使用外部 SFPKG 的 URI 來執行。 除非已設定 --external-provision，否則此命令必須要有映像存放區
+
+佈建。
         
-向叢集佈建或註冊 Service Fabric 應用程式類型。 需要有這個項目，才能具現化任何新的應用程式。
+
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
-| --application-type-build-path [必要]| 應用程式套件的相對映像存放區路徑。|
-| --timeout -t                         | 伺服器逾時 (秒)。  預設值：60。|
+| --application-package-download-uri| '.sfpkg' 應用程式套件的路徑，使用 HTTP 或 HTTPS 通訊協定可以從這個位置下載應用程式套件。 僅適用於從外部存放區佈建。 應用程式套件可以儲存在外部存放區，該存放區提供 GET 作業以下載檔案。 支援的通訊協定為 HTTP 和 HTTPS，而且路徑必須允許讀取存取權。|
+| --application-type-build-path       | 僅適用於佈建類型映像存放區。 先前上傳作業期間所指定之映像存放區中應用程式套件的相對路徑。 |
+| --application-type-name| 僅適用於從外部存放區佈建。 應用程式類型名稱代表在應用程式資訊清單中找到之應用程式類型的名稱。|
+| --application-type-version| 僅適用於從外部存放區佈建。 應用程式類型版本代表在應用程式資訊清單中找到之應用程式類型的版本。|
+| --external-provision| 可供註冊或佈建應用程式套件的位置。 表示佈建是適用於先前上傳到外部存放區的應用程式套件。 此應用程式套件的結尾是 *.sfpkg 副檔名。|
+| --no-wait| 表示佈建是否應該以非同步方式發生。  設為 true 時，如果系統接受要求，佈建作業就會回歸，且佈建作業會繼續而沒有任何逾時限制。 預設值為 False。 針對大型應用程式套件，建議您將此值設定為 true。|
+| --timeout -t                      | 伺服器逾時 (秒)。  預設值：60。|
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -254,7 +266,7 @@ ms.lasthandoff: 02/01/2018
 | --debug                              | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h                            | 顯示此說明訊息並結束。|
 | --output -o                          | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
-| --query                              | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
+| --query                              | JMESPath 查詢字串。 如需詳細資訊，請參閱 http://jmespath.org/。|
 | --verbose                            | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-application-type"></a>sfctl application type
@@ -268,6 +280,7 @@ ms.lasthandoff: 02/01/2018
 |引數|說明|
 | --- | --- |
 | --application-type-name [必要]| 應用程式類型的名稱。|
+| --application-type-version        | 應用程式類型的版本。|
 | --continuation-token           | 接續權杖參數可用來取得下一組結果。 具有非空白值的接續權杖會在來自系統的結果無法放入單一回應中時，隨附在 API 的回應中。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。|
 | --exclude-application-parameters  | 指定是否從結果排除應用程式參數的旗標。|
 | --max-results                  | 分頁式查詢時傳回的最大結果數目。 此參數定義傳回結果數目的上限。 根據設定中所定義的訊息大小限制上限，如果所傳回的結果無法放入訊息中，則它們可以小於指定的結果上限。 如果此參數為零或未指定，分頁式查詢會在傳回訊息中盡可能包含越多結果。|
@@ -293,7 +306,8 @@ ms.lasthandoff: 02/01/2018
 |引數|說明|
 | --- | --- |
 | --application-type-name    [必要]| 應用程式類型的名稱。|
-| --application-type-version [必要]| 應用程式類型版本。|
+| --application-type-version [必要]| 應用程式資訊清單中所定義的應用程式類型版本。|
+|--async-parameter                    | 指出解除佈建是否應該以非同步方式發生的旗標。 設為 true 時，如果系統接受要求，解除佈建作業就會回歸，且解除佈建作業會繼續而沒有任何逾時限制。 預設值為 False。 不過，建議您針對已佈建的大型應用程式套件將它設定為 true。|
 | --timeout -t                      | 伺服器逾時 (秒)。  預設值：60。|
 
 ### <a name="global-arguments"></a>全域引數
@@ -303,19 +317,19 @@ ms.lasthandoff: 02/01/2018
 | --debug                           | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h                         | 顯示此說明訊息並結束。|
 | --output -o                       | 輸出格式。  允許的值：json、jsonc、table、tsv。                  預設值：json。|
-| --query                           | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
+| --query                           | JMESPath 查詢字串。 如需詳細資訊，請參閱 http://jmespath.org/。|
 | --verbose                         | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="sfctl-application-upgrade"></a>sfctl application upgrade
 開始在 Service Fabric 叢集中升級應用程式。
 
-驗證提供的應用程式升級參數，並在參數有效時開始升級應用程式。 請注意，升級描述會取代現有應用程式描述。 這表示，如果未指定參數，則會將應用程式上的現有參數覆寫為空的參數清單。 這會導致應用程式使用應用程式資訊清單中參數的預設值。
+驗證提供的應用程式升級參數，並在參數有效時開始升級應用程式。 升級描述會取代現有應用程式描述。 這表示，如果未指定參數，則會將應用程式上的現有參數覆寫為空的參數清單。 這會導致應用程式使用應用程式資訊清單中參數的預設值。
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
-| --app-id             [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 '~' 字元分隔。 例如，如果應用程式名稱是 'fabric://myapp/app1'，則應用程式識別在 6.0+ 中會是 'myapp~app1'，而在舊版中會是 'myapp/app1'。|
+| --app-id             [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 '~' 字元分隔。 例如，如果應用程式名稱是 'fabric:/myapp/app1'，則應用程式識別在 6.0+ 中會是 'myapp~app1'，而在舊版中會是 'myapp/app1'。|
 | --app-version        [必要]| 目標應用程式版本。|
 | --parameters         [必要]| 要在升級應用程式時套用之應用程式參數覆寫的 JSON 編碼清單。|
 | --default-service-health-policy| 預設用來評估服務類型健康狀況之健康狀況原則的 JSON 編碼規格。|
@@ -363,7 +377,7 @@ ms.lasthandoff: 02/01/2018
 | --debug       | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h     | 顯示此說明訊息並結束。|
 | --output -o   | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
-| --query       | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
+| --query       | JMESPath 查詢字串。 如需詳細資訊，請參閱 http://jmespath.org/。|
 | --verbose     | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="next-steps"></a>後續步驟

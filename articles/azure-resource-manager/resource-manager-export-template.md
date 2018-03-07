@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: c8f19a4f0aadbee2de97bb3ec85c2c85b493a394
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ac553a3608df41548f845e27c545ff63886e37c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>從現有資源匯出 Azure Resource Manager 範本
 在本文中，您將了解如何從您訂用帳戶中的現有資源匯出 Resource Manager 範本。 您可以使用這個產生的範本，來深入了解範本語法。
@@ -26,14 +26,14 @@ ms.lasthandoff: 10/11/2017
 有兩種方式可以匯出範本：
 
 * 您可以匯出**用於部署的實際範本**。 匯出的範本包含與原始範本完全相同的所有參數和變數。 如果您透過入口網站部署資源，而且想要知道範本如何建立這些資源，則這種方法十分有用。 此範本立即可用。 
-* 您可以匯出**代表資源群組目前狀態的已產生範本**。 匯出的範本不是以任何用於部署的範本為基礎。 反而，它所建立的範本是資源群組的快照。 匯出的範本會有許多硬式編碼值，但數量可能不如您通常會定義的參數數量。 當您在部署之後修改資源群組時，這種方法十分有用。 此範本通常需要修改才能使用。
+* 您可以匯出**代表資源群組目前狀態的已產生範本**。 匯出的範本不是以任何用於部署的範本為基礎。 相反地，它所建立的範本是資源群組的「快照集」或「備份」。 匯出的範本會有許多硬式編碼值，但數量可能不如您通常會定義的參數數量。 使用此選項來將資源重新部署至相同的資源群組。 若要對其他資源群組使用此範本，您可能必須大幅修改它。
 
-本主題說明透過入口網站的兩種方法。
+本文說明透過入口網站的兩種方法。
 
 ## <a name="deploy-resources"></a>部署資源
 請開始將可用於匯出為範本的資源部署至 Azure。 如果您的訂用帳戶中已有想要匯出至範本的資源群組，就可以略過本節。 本文的其餘部分假設您已部署本節中所顯示的 Web 應用程式和 SQL 資料庫解決方案。 如果您使用不同的解決方案，則體驗可能會稍有不同，但匯出範本的步驟相同。 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [新增]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源]。
    
       ![選取 [新增]](./media/resource-manager-export-template/new.png)
 2. 搜尋 **Web 應用程式 + SQL**，並從可用的選項加以選取。
@@ -51,13 +51,13 @@ ms.lasthandoff: 10/11/2017
 部署可能需要一會兒的時間。 部署完成後，您的訂用帳戶就會包含解決方案。
 
 ## <a name="view-template-from-deployment-history"></a>從部署記錄中檢視範本
-1. 移至您的新資源群組的 [資源群組] 刀鋒視窗。 請注意，刀鋒視窗會顯示最後部署的結果。 選取此連結。
+1. 移至新資源群組的資源群組。 請注意，入口網站會顯示最後部署的結果。 選取此連結。
    
-      ![資源群組刀鋒視窗](./media/resource-manager-export-template/select-deployment.png)
-2. 您會看到群組的部署歷程記錄。 在您的案例中，刀鋒視窗可能只列出一個部署。 選取此部署。
+      ![資源群組](./media/resource-manager-export-template/select-deployment.png)
+2. 您會看到群組的部署歷程記錄。 在您的案例中，入口網站可能只列出一個部署。 選取此部署。
    
      ![上次部署](./media/resource-manager-export-template/select-history.png)
-3. 刀鋒視窗會顯示部署的摘要。 摘要包含部署和其作業的狀態，與您為參數所提供的值。 若要查看用於部署的範本，請選取 [檢視範本] 。
+3. 入口網站會顯示部署的摘要。 摘要包含部署和其作業的狀態，與您為參數所提供的值。 若要查看用於部署的範本，請選取 [檢視範本] 。
    
      ![檢視部署摘要](./media/resource-manager-export-template/view-template.png)
 4. Resource Manager 會為您擷取下列七個檔案：
@@ -70,14 +70,14 @@ ms.lasthandoff: 10/11/2017
    5. **.NET** - 您可以為了部署範本而使用的 .NET 類別。
    6. **Ruby** - 您可以為了部署範本而使用的 Ruby 類別。
       
-      這些檔案可以透過刀鋒視窗的連結取得。 根據預設，刀鋒視窗會顯示範本。
+      根據預設，入口網站會顯示範本。
       
        ![檢視範本](./media/resource-manager-export-template/see-template.png)
       
 此範本是用來建立 Web 應用程式和 SQL 資料庫的實際範本。 請注意，其中包含的參數可讓您在部署期間提供不同的值。 若要深入了解範本的結構，請參閱 [編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。
 
 ## <a name="export-the-template-from-resource-group"></a>從資源群組匯出範本
-如果您已手動變更資源或在多個部署中新增資源，則從部署記錄中擷取範本並不會反映資源群組的目前狀態。 本節說明您如何匯出反映資源群組目前狀態的範本。 
+如果您已手動變更資源或在多個部署中新增資源，則從部署記錄中擷取範本並不會反映資源群組的目前狀態。 本節說明您如何匯出反映資源群組目前狀態的範本。 其目的在作為資源群組的快照集，您可以用來重新部署至相同的資源群組。 若要對其他解決方案使用匯出的範本，您必須大幅加以修改。
 
 > [!NOTE]
 > 您無法針對具有超過 200 個資源的資源群組匯出範本。
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
    
       ![下載範本](./media/resource-manager-export-template/download-template.png)
    
-     如果您未設定 JSON 編輯器，則可能會偏好透過入口網站來編輯範本。 本主題的其餘部分假設您已將範本儲存至入口網站中的程式庫。 不過，不論是在本機使用 JSON 編輯器進行工作或透過入口網站來進行，您都要對範本進行相同的語法變更。 若要透過入口網站工作，請選取 [新增至程式庫]。
+     如果您未設定 JSON 編輯器，則可能會偏好透過入口網站來編輯範本。 本文的其餘部分假設您已將範本儲存至入口網站中的程式庫。 不過，不論是在本機使用 JSON 編輯器進行工作或透過入口網站來進行，您都要對範本進行相同的語法變更。 若要透過入口網站工作，請選取 [新增至程式庫]。
    
       ![新增至程式庫](./media/resource-manager-export-template/add-to-library.png)
    
@@ -170,9 +170,8 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="next-steps"></a>後續步驟
-您已經了解如何從您在入口網站中建立的資源匯出範本。
 
 * 您可以透過 [PowerShell](resource-group-template-deploy.md)、[Azure CLI](resource-group-template-deploy-cli.md) 或 [REST API](resource-group-template-deploy-rest.md) 部署範本。
-* 若要查看如何透過 PowerShell 匯出範本，請參閱 [搭配使用 Azure PowerShell 與 Azure Resource Manager](powershell-azure-resource-manager.md)。
-* 若要查看如何透過 Azure CLI 匯出範本，請參閱 [搭配使用 Mac、Linux 和 Windows 適用的 Azure CLI 與 Azure Resource Manager](xplat-cli-azure-resource-manager.md)。
+* 若要查看如何透過 PowerShell 匯出範本，請參閱[使用 PowerShell 來匯出 Azure Resource Manager 範本](resource-manager-export-template-powershell.md)。
+* 若要查看如何透過 Azure CLI 匯出範本，請參閱[使用 Azure CLI 來匯出 Azure Resource Manager 範本](resource-manager-export-template-cli.md)。
 
