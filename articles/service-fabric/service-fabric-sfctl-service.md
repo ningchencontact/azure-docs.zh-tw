@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5c1f485812918397b5b52e650611032c9058e3ee
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5b30d3732ff00e5bb79e2d58a9f0b3e5b29dedf8
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-service"></a>sfctl service
 建立、刪除與管理服務、服務類型和服務套件。
@@ -34,6 +34,7 @@ ms.lasthandoff: 01/18/2018
 |    deployed-type  | 取得 Service Fabric 叢集節點上所部署應用程式之指定服務類型的相關資訊。|
 |    deployed-type-list| 取得一份清單，內含 Service Fabric 叢集節點上所部署應用程式之服務類型的相關資訊。|
 |    說明    | 取得現有 Service Fabric 服務的描述。|
+|get-container-logs| 取得在 Service Fabric 節點上部署之容器的容器記錄。|
 |    health         | 取得所指定 Service Fabric 服務的健康情況。|
 |    info           | 取得屬於 Service Fabric 應用程式之特定服務的相關資訊。|
 |    list           | 取得屬於應用程式識別碼所指定應用程式之所有服務的相關資訊。|
@@ -56,7 +57,7 @@ ms.lasthandoff: 01/18/2018
 
 |引數|說明|
 | --- | --- |
-| --app-id       [必要]| 父應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整識別碼。 從 6.0 版開始，階層的名稱會以 '~' 字元分隔。 例如，如果應用程式名稱是 'fabric://myapp/app1'，則應用程式識別在 6.0+ 中會是 'myapp~app1'，而在舊版中會是 'myapp/app1'。|
+| --app-id       [必要]| 父應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整識別碼。 從 6.0 版開始，階層的名稱會以 '~' 字元分隔。 例如，如果應用程式名稱是 'fabric:/myapp/app1'，則應用程式識別在 6.0+ 中會是 'myapp~app1'，而在舊版中會是 'myapp/app1'。|
 | --name         [必要]| 服務的名稱。 這應該是應用程式識別碼的子系。           這是包含 `fabric:` URI 的完整名稱。 例如，服務 `fabric:/A/B` 是應用程式 `fabric:/A` 的子項目。|
 | --service-type [必要]| 服務類型的名稱。|
 | --activation-mode     | 服務套件的啟用模式。|
@@ -104,7 +105,7 @@ ms.lasthandoff: 01/18/2018
 
 |引數|說明|
 | --- | --- |
-| --service-id [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 "fabric://myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp~app1~svc1"，而在舊版中會是 "myapp/app1/svc1"。|
+| --service-id [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 fabric:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp~app1~svc1"，而在舊版中會是 "myapp/app1/svc1"。|
 | --force-remove      | 強制移除 Service Fabric 應用程式或服務，而不需要經過正常關機順序。 這個參數可以用來強制刪除應用程式或服務，而其刪除因無法正常關閉複本之服務程式碼的問題而逾時。|
 | --timeout -t        | 伺服器逾時 (秒)。  預設值：60。|
 
@@ -127,7 +128,7 @@ ms.lasthandoff: 01/18/2018
 
 |引數|說明|
 | --- | --- |
-| --service-id [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 "fabric://myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp~app1~svc1"，而在舊版中會是 "myapp/app1/svc1"。|
+| --service-id [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 "fabric:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp~app1~svc1"，而在舊版中會是 "myapp/app1/svc1"。|
 | --timeout -t        | 伺服器逾時 (秒)。  預設值：60。|
 
 ### <a name="global-arguments"></a>全域引數
@@ -143,13 +144,13 @@ ms.lasthandoff: 01/18/2018
 ## <a name="sfctl-service-health"></a>sfctl service health
 取得所指定 Service Fabric 服務的健康情況。
 
-取得所指定服務的健康情況資訊。 使用 EventsHealthStateFilter 可根據健康情況狀態，篩選針對服務所報告的健康情況事件集合。 使用 PartitionsHealthStateFilter 來篩選所傳回資料分割的集合。 如果您指定的服務不在健康狀態資料存放區中，此 Cmdlet 會傳回錯誤。 .
+取得所指定服務的健康情況資訊。 使用 EventsHealthStateFilter 可根據健康情況狀態，篩選針對服務所報告的健康情況事件集合。 使用 PartitionsHealthStateFilter 來篩選所傳回資料分割的集合。 如果您指定的服務不在健康狀態資料存放區中，此 Cmdlet 會傳回錯誤。
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
-| --service-id          [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 "fabric://myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp~app1~svc1"，而在舊版中會是 "myapp/app1/svc1"。|
+| --service-id          [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 "fabric:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp~app1~svc1"，而在舊版中會是 "myapp/app1/svc1"。|
 | --events-health-state-filter | 可根據健康情況狀態來篩選所傳回的 HealthEvent 物件集合。 此參數的可能值包括下列其中一個健康情況狀態的整數值。 只會傳回符合篩選條件的事件。 所有事件都會用來評估彙總的健康情況狀態。 如果未指定，則會傳回所有項目。 狀態值是以旗標為基礎的列舉，因此值可以是使用位元 'OR' 運算子取得的這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的所有事件。 -                  Default - 預設值。 符合任何 HealthState。 值為零。 - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。 - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。 -                  Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。 - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。 - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。|
 |--exclude-health-statistics     | 表示健康情況統計資料是否傳回為查詢結果的一部分。 預設為 False。 統計資料顯示健康情況狀態為 Ok、Warning 和 Error 的子項目數目。|
 | --partitions-health-state-filter| 可根據健康情況狀態來篩選服務健康情況查詢結果中所傳回的資料分割健康情況狀態物件。 此參數的可能值包括下列其中一個健康情況狀態的整數值。 只會傳回符合篩選條件的資料分割。 所有資料分割都會用來評估彙總的健康情況狀態。 如果未指定，則會傳回所有項目。 狀態值是以旗標為基礎的列舉，因此值可以是使用位元 'OR' 運算子取得的這些值的組合。 例如，如果提供的值為 "6"，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的資料分割健康情況狀態。 - Default - 預設值。 符合任何 HealthState。                  值為零。 - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。 - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。 -                  Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。 - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。 - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。|
@@ -174,8 +175,8 @@ ms.lasthandoff: 01/18/2018
 
 |引數|說明|
 | --- | --- |
-| --application-id [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果應用程式名稱是 "fabric://myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp~app1"，而在舊版中會是 "myapp/app1"。|
-| --service-id     [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 "fabric://myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp~app1~svc1"，而在舊版中會是 "myapp/app1/svc1"。|
+| --application-id [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果應用程式名稱是 "fabric:/myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp~app1"，而在舊版中會是 "myapp/app1"。|
+| --service-id     [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 "fabric:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp~app1~svc1"，而在舊版中會是 "myapp/app1/svc1"。|
 | --timeout -t            | 伺服器逾時 (秒)。  預設值：60。|
 
 ### <a name="global-arguments"></a>全域引數
@@ -197,7 +198,7 @@ ms.lasthandoff: 01/18/2018
 
 |引數|說明|
 | --- | --- |
-| --application-id [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果應用程式名稱是 "fabric://myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp~app1"，而在舊版中會是 "myapp/app1"。|
+| --application-id [必要]| 應用程式的身分識別。 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果應用程式名稱是 "fabric:/myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp~app1"，而在舊版中會是 "myapp/app1"。|
 | --continuation-token    | 接續權杖參數可用來取得下一組結果。 具有非空白值的接續權杖會在來自系統的結果無法放入單一回應中時，隨附在 API 的回應中。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。|
 | --service-type-name     | 用來篩選要查詢之服務的服務類型名稱。|
 | --timeout -t            | 伺服器逾時 (秒)。  預設值：60。|
@@ -245,7 +246,7 @@ ms.lasthandoff: 01/18/2018
 
 |引數|說明|
 | --- | --- |
-| --service-id [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 "fabric://myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp~app1~svc1"，而在舊版中會是 "myapp/app1/svc1"。|
+| --service-id [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 "fabric:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp~app1~svc1"，而在舊版中會是 "myapp/app1/svc1"。|
 | --timeout -t        | 伺服器逾時 (秒)。  預設值：60。|
 
 ### <a name="global-arguments"></a>全域引數
@@ -267,7 +268,7 @@ ms.lasthandoff: 01/18/2018
 
 |引數|說明|
 | --- | --- |
-| --service-id [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 "fabric://myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp~app1~svc1"，而在舊版中會是 "myapp/app1/svc1"。|
+| --service-id [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 "fabric:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp~app1~svc1"，而在舊版中會是 "myapp/app1/svc1"。|
 | --partition-key-type| 資料分割的索引鍵類型。 如果服務的資料分割配置是 Int64Range 或 Named，則需要此參數。 可能的值如下。 - None (1) - 指出未指定 PartitionKeyValue 參數。 這適用於資料分割配置為 Singleton 的資料分割。 這是預設值。 值為 1。 - Int64Range (2) - 指出 PartitionKeyValue 參數是 int64 資料分割索引鍵。 這適用於資料分割配置為 Int64Range 的資料分割。 值為 2。 - Named (3) -         指出 PartitionKeyValue 參數是資料分割名稱。 這適用於資料分割配置為 Named 的資料分割。 值為 3。|
 | --partition-key-value  | 資料分割索引鍵。 如果服務的資料分割配置是 Int64Range 或 Named，則需要此項目。|
 | --previous-rsp-version | 先前收到之回應的 [版本] 欄位中的值。 如果使用者知道先前取得的結果已過時，則這是必要的。|
@@ -290,7 +291,7 @@ ms.lasthandoff: 01/18/2018
 
 |引數|說明|
 | --- | --- |
-| --service-id   [必要]| 要更新的目標服務。 這通常是沒有 'fabric:' URI 配置之服務的完整識別碼。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 'fabric://myapp/app1/svc1'，則服務識別在 6.0+ 中會是 'myapp~app1~svc1'，而在舊版中會是 'myapp/app1/svc1'。|
+| --service-id   [必要]| 要更新的目標服務。 這通常是沒有 'fabric:' URI 配置之服務的完整識別碼。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是 'fabric:/myapp/app1/svc1'，則服務識別在 6.0+ 中會是 'myapp~app1~svc1'，而在舊版中會是 'myapp/app1/svc1'。|
 | --constraints         | 以字串表示的放置限制式。 放置限制式是節點屬性上的布林運算式，並允許根據服務需求將服務限制為特定節點。 例如，若要在 NodeType 為 blue 的節點上放置服務，請指定下列項目："NodeColor == blue"。|
 | --correlated-service  | 要與之建立相互關聯的目標服務名稱。|
 | --correlation         | 使用對齊親和性，相互關聯服務與現有服務。|

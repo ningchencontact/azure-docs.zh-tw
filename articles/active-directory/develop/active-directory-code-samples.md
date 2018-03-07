@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.openlocfilehash: ba8356a018605331dc4b9cc9ff401929cd8793bf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f47f03594e64281b55161edb1c391ed0be83a73
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-active-directory-code-samples"></a>Azure Active Directory 程式碼範例
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -83,6 +83,14 @@ ms.lasthandoff: 12/11/2017
 | C#/.NET |[Daemon-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-daemon) |呼叫 Web API 的主控台應用程式。 用戶端認證是密碼。 |
 | C#/.NET |[Daemon-CertificateCredential-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) |呼叫 Web API 的主控台應用程式。 用戶端認證是憑證。 |
 
+## <a name="calling-microsoft-graph-api"></a>呼叫 Microsoft Graph API
+這些程式碼範例示範如何建立應用程式，其呼叫 Microsoft Graph API 來讀取和寫入目錄資料。
+
+| 語言/平台 | 範例 | 說明 |
+| --- | --- | --- |
+| C#/.NET |[WebApp-MSGraphAPI-DotNet](https://github.com/microsoftgraph/aspnet-snippets-sample) |使用 Microsoft Graph API 來存取 Azure AD 目錄資料的 Web 應用程式。 |
+| C#/.NET |[UWPApp-MSGraphAPI-DotNet](https://github.com/microsoftgraph/uwp-csharp-snippets-sample) |此通用 Windows 平台應用程式會示範如何在 Windows 10 應用程式中向 Microsoft Graph API 發出要求，以存取多個資源 (包括 Microsoft Azure Active Directory (AD) 和 Office 365 API)。 |
+
 ## <a name="calling-azure-ad-graph-api"></a>呼叫 Azure AD Graph API
 這些程式碼範例示範如何建立應用程式，其呼叫 Azure AD Graph API 來讀取和寫入目錄資料。
 
@@ -90,8 +98,6 @@ ms.lasthandoff: 12/11/2017
 | --- | --- | --- |
 | Java |[WebApp-GraphAPI-Java](https://github.com/Azure-Samples/active-directory-java-graphapi-web) |使用 Graph API 來存取 Azure AD 目錄資料的 Web 應用程式。 |
 | PHP |[WebApp-GraphAPI-PHP](https://github.com/Azure-Samples/active-directory-php-graphapi-web) |使用 Graph API 來存取 Azure AD 目錄資料的 Web 應用程式。 |
-| C#/.NET |[WebApp-GraphAPI-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-web) |使用 Graph API 來存取 Azure AD 目錄資料的 Web 應用程式。 |
-| C#/.NET |[ConsoleApp-GraphAPI-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-console) |此主控台應用程式示範對 Graph API 的一般讀取和寫入呼叫，並示範如何執行使用者授權指派及更新使用者的縮圖相片和連結。 |
 | C#/.NET |[ConsoleApp-GraphAPI-DiffQuery-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-diffquery) |主控台應用程式，其在 Graph API 中使用差異查詢來取得 Azure AD 租用戶中使用者物件的定期變更。 |
 | C#/.NET |[WebApp-GraphAPI-DirectoryExtensions-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-directoryextensions-web) |MVC 應用程式，使用 Graph API 查詢來產生簡易的公司組織圖。 |
 | PHP |[WebApp-GraphAPI-DirectoryExtensions-PHP](https://github.com/Azure-Samples/active-directory-php-graphapi-directoryextensions-web) |PHP 應用程式，其呼叫 Graph API 來註冊延伸模組，然後讀取、更新和刪除延伸模組屬性中的值。 |

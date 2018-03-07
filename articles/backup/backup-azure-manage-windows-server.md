@@ -1,6 +1,6 @@
 ---
 title: "管理 Azure 復原服務保存庫與伺服器 | Microsoft Docs"
-description: "使用本教學課程了解如何管理 Azure 復原服務保存庫與伺服器。"
+description: "使用本文來管理 Azure 復原服務保存庫與伺服器。"
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/23/2018
 ms.author: markgal
-ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2e5fd9e7e3cae1665519e4f08604fddf7834fd51
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>監視和管理 Windows 電腦的 Azure 復原服務保存庫和伺服器
 
@@ -32,13 +32,11 @@ ms.lasthandoff: 11/11/2017
 復原服務保存庫儀表板會顯示復原服務保存庫的詳細資料或屬性。
 
 1. 使用 Azure 訂用帳戶登入 [Azure 入口網站](https://portal.azure.com/) 。
-2. 在 [中樞] 功能表上，按一下 [更多服務]。
-
-    ![開啟復原服務保存庫清單的步驟 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+2. 按一下 [所有服務]。 
 
 3. 您想要開啟復原服務保存庫。 在對話方塊中，開始輸入**復原服務**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 按一下 [復原服務保存庫]，以顯示您訂用帳戶中的復原服務保存庫清單。
 
-    ![建立復原服務保存庫的步驟 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+     ![開啟復原服務保存庫清單的步驟 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
     復原服務保存庫清單隨即開啟。
 
@@ -74,9 +72,9 @@ ms.lasthandoff: 11/11/2017
 ## <a name="alerts-for-backups-using-azure-backup-agent"></a>針對使用 Azure 備份代理程式之備份的警示：
 | 警示層級 | 傳送的警示 |
 | --- | --- |
-| 重要 |備份失敗、復原失敗 |
-| 警告 |備份完成，但有警告 (當不到 100 個檔案因為損毀問題而未備份，以及超過 100 萬個檔案成功備份時) |
-| 資訊 |None |
+| 重要 | 適用於備份失敗、復原失敗和延後的刪除 (例如有人停止刪除資料的保護) |
+| 警告 | 適用於備份完成，但有警告 (當不到 100 個檔案因為損毀問題而未備份，以及超過 100 萬個檔案成功備份時) |
+| 資訊 | 目前沒有適用於 Azure 備份代理程式的資訊警示 |
 
 ## <a name="manage-backup-alerts"></a>管理備份警示
 按一下 [備份警示] 圖格以開啟 [備份警示] 功能表及管理警示。
@@ -307,7 +305,7 @@ A3. 以下是不傳送通知以便減少警示雜訊的案例︰
 2. 假設此程序不在執行中，請開啟 [控制台] 並瀏覽服務清單。 啟動或重新啟動 **Microsoft Azure 復原服務管理代理程式**。
 
     如需進一步資訊，請瀏覽以下位置的記錄檔：<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` 例如：<br/>
+   例如 `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`：<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>後續步驟

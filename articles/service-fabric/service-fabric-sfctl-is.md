@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b611a447dd6669a09ca16c816de74acd7f3e8c7e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3a4c7a308bdf7132cebffc13a5e7214ec73eaf2
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-is"></a>sfctl is
 查詢命令，並將其傳送至基礎結構服務。
@@ -34,14 +34,14 @@ ms.lasthandoff: 01/18/2018
 ## <a name="sfctl-is-command"></a>sfctl is command
 叫用指定基礎結構服務執行個體上的系統管理命令。
 
-對於設定一或多個基礎結構服務執行個體的叢集，此 API 提供將基礎結構特有的命令傳送至基礎結構服務特定執行個體的方法。 可用的命令和其對應的回應格式會根據叢集執行所在的基礎結構而有所不同。 這個 API 支援 Service Fabric 平台；這不表示直接從您的程式碼使用。 .
+對於設定一或多個基礎結構服務執行個體的叢集，此 API 提供將基礎結構特有的命令傳送至基礎結構服務特定執行個體的方法。 可用的命令和其對應的回應格式會根據叢集執行所在的基礎結構而有所不同。 這個 API 支援 Service Fabric 平台；這不表示直接從您的程式碼使用。 
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
-| --command [必要]| 要叫用的命令文字。 命令的內容與基礎結構有關。  預設值：is command。|
-| --service-id     | 基礎結構服務的識別。 這是沒有 'fabric:' URI 配置之基礎結構服務的完整名稱。 當叢集中有一個以上的基礎結構服務執行個體執行時，才需要此參數。|
+| --command [必要]| 要叫用的命令文字。 命令的內容與基礎結構有關。 |
+| --service-id     | 基礎結構服務的識別。 ID 是沒有 'fabric:' URI 配置之基礎結構服務的完整名稱。 當叢集中有一個以上的基礎結構服務執行個體執行時，才需要此參數。|
 | --timeout -t     | 伺服器逾時 (秒)。  預設值：60。|
 
 ### <a name="global-arguments"></a>全域引數
@@ -63,8 +63,8 @@ ms.lasthandoff: 01/18/2018
 
 |引數|說明|
 | --- | --- |
-| --command [必要]| 要叫用的命令文字。 命令的內容與基礎結構有關。  預設值：is query。|
-| --service-id     | 基礎結構服務的識別。 這是沒有 'fabric:' URI 配置之基礎結構服務的完整名稱。 當叢集中有一個以上的基礎結構服務執行個體執行時，才需要此參數。|
+| --command [必要]| 要叫用的命令文字。 命令的內容與基礎結構有關。|
+| --service-id     | 基礎結構服務的識別。 ID 是沒有 'fabric:' URI 配置之基礎結構服務的完整名稱。 當叢集中有一個以上的基礎結構服務執行個體執行時，才需要此參數。|
 | --timeout -t     | 伺服器逾時 (秒)。  預設值：60。|
 
 ### <a name="global-arguments"></a>全域引數

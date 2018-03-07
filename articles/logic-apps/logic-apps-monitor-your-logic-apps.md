@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>監視狀態、設定診斷記錄，以及開啟 Azure Logic Apps 的警示
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>檢視邏輯應用程式的執行和觸發程序歷程記錄
 
-1. 若要在 [Azure 入口網站](https://portal.azure.com)中尋找邏輯應用程式，請在主要 Azure 功能表上選擇 [更多服務]。 在搜尋方塊中，尋找「邏輯應用程式」，然後選擇 [邏輯應用程式]。
+1. 若要在 [Azure 入口網站](https://portal.azure.com)中尋找邏輯應用程式，請在主要 Azure 功能表上選擇 [所有服務]。 在搜尋方塊中，輸入「邏輯應用程式」，然後選擇 [邏輯應用程式]。
 
    ![尋找邏輯應用程式](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 01/19/2018
 
 若要在邏輯應用程式中尋找並檢視觸發程序事件、執行事件和動作事件這類事件，請遵循下列步驟。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選擇 [更多服務]。 搜尋 "log analytics"，然後選擇 [Log Analytics]，如下所示：
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選擇 [所有服務]。 搜尋 "log analytics"，然後選擇 [Log Analytics]，如下所示：
 
    ![選擇 [Log Analytics]](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 01/19/2018
 
 5. 在搜尋方塊中，指定您想要尋找的欄位，然後按 **Enter**。 當您開始鍵入時，OMS 會顯示您可以使用的可能相符項目和作業。 
 
-   例如，若要尋找所發生的前 10 個事件，請輸入並選取此搜尋查詢：**Category=WorkflowRuntime |top 10**
+   例如，若要尋找所發生的前 10 個事件，請輸入並選取此搜尋查詢：**search Category == "WorkflowRuntime" | limit 10**
 
    ![輸入搜尋字串](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 

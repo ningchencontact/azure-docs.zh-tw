@@ -9,18 +9,19 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: d777d467b3f0d4ef6101dffa551ec5c85feb209c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: c89556cf66526f793ab81383e205ff45075385a3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 開發 Apache Storm 的 C# 拓撲
 
@@ -42,9 +43,6 @@ ms.lasthandoff: 11/28/2017
 
 > [!IMPORTANT]
 > 在以 Linux 為基礎之叢集上的 C# 拓撲必須使用 .NET 4.5，並使用 Mono 以在 HDInsight 叢集上執行。 查看 [Mono 相容性](http://www.mono-project.com/docs/about-mono/compatibility/) \(英文\) 以了解可能的不相容情形。
-
-> [!WARNING]
-> 如果您在使用 SCP.NET 版本 1.0.0.x 建置專案時發生問題，請連絡 Microsoft 支援服務尋求協助。
 
 ## <a name="install-visual-studio"></a>安裝 Visual Studio
 
@@ -124,7 +122,7 @@ Data Lake Tools for Visual Studio 提供下列範本：
 | Storm 範例 |基本的字數統計拓撲。 |
 
 > [!WARNING]
-> 並非所有範本都能與 Linux 架構的 HDInsight 搭配運作。 範本所使用的 Nuget 套件可能無法與 Mono 相容。 請查看 [Mono 相容性](http://www.mono-project.com/docs/about-mono/compatibility/)文件，並使用 [.NET Portability Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) 來找出潛在問題。
+> 並非所有範本都能與以 Linux 為基礎的 HDInsight 搭配運作。 範本所使用的 NuGet 套件可能無法與 Mono 相容。 請查看 [Mono 相容性](http://www.mono-project.com/docs/about-mono/compatibility/)文件，並使用 [.NET Portability Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) 來找出潛在問題。
 
 在這份文件的步驟中，您會使用基本 Storm 應用程式專案類型來建立拓撲。
 
@@ -169,7 +167,7 @@ HBase 讀取器和寫入器範本會使用 HBase REST API (而不是 HBase Java 
 
    * **Fail** (僅限交易式拓撲)：處理無法處理拓撲中之其他元件的 Tuple。 實作 Fail 方法可讓您重新發出 Tuple，以便再次處理它。
 
-2. 將 **Spout** 類別的內容取代為下文字。 此 spout 會將句子隨機發出至拓撲。
+2. 將 **Spout** 類別的內容取代為下列文字：這個 Spout 會隨機發出句子到拓撲。
 
     ```csharp
     private Context ctx;
@@ -290,7 +288,7 @@ HBase 讀取器和寫入器範本會使用 HBase REST API (而不是 HBase Java 
     }
     ```
 
-5. 開啟 **Counter.cs**，並將類別內容取代為下列內容：
+5. 開啟 **Counter.cs**，並將類別內容取代為下列代碼：
 
     ```csharp
     private Context ctx;
@@ -352,7 +350,7 @@ Spout 和 Bolt 是以圖形方式排列，用以定義資料在元件之間的�
 
 句子是從 Spout 發出，並分散到 Splitter Bolt 執行個體。 Splitter Bolt 會將句子分成多個單字，並將這些單字分散到 Counter Bolt。
 
-因為字數會本機保留在 Counter 執行個體中，所以我們想要確保特定單字流向相同的 Counter Bolt 執行個體。 每個執行個體會保持追蹤特定文字。 分割器 Bolt 會維持無狀態，因為分割器的哪個執行個體收到哪個句子並不重要。
+因為字數會保留在本機 Counter 執行個體中，所以您必須確保特定單字流向相同的 Counter Bolt 執行個體。 每個執行個體會保持追蹤特定文字。 分割器 Bolt 會維持無狀態，因為分割器的哪個執行個體收到哪個句子並不重要。
 
 開啟 **Program.cs**。 重要的方法是 **GetTopologyBuilder**，其用來定義提交至 Storm 的拓撲。 將 **GetTopologyBuilder** 的內容取代為下列程式碼，以實作先前所述的拓撲：
 
@@ -472,16 +470,16 @@ return topologyBuilder;
   > 這個版本也會示範如何使用文字檔中的 Clojure 程式碼做為 Java 元件。
 
 
-若要切換為提交專案時所使用的拓撲，只要在提交至叢集之前將 `[Active(true)]` 陳述式移至您要使用的拓撲即可。
+若要切換為提交專案時所使用的拓撲，請在提交至叢集之前，將 `[Active(true)]` 陳述式移至您要使用的拓撲即可。
 
 > [!NOTE]
 > 在 **JavaDependency** 資料夾中，所需的所有 Java 檔案都會提供為此專案的一部分。
 
 當您建立和提交混合式拓撲時，請考慮下列項目：
 
-* 您必須使用 **JavaComponentConstructor** 來建立 Spout 或 Bolt 之 Java 類別的執行個體。
+* 使用 **JavaComponentConstructor** 來建立 Spout 或 Bolt 之 Java 類別的執行個體。
 
-* 您應該使用 **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** 來將進入或離開 Java 元件的資料從 Java 物件序列化至 JSON。
+* 使用 **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** 將進入或離開 Java 元件的資料從 Java 物件序列化至 JSON 中。
 
 * 提交拓撲至伺服器時，您必須使用 [其他組態] 選項指定 [Java 檔案路徑]。 指定的路徑應該是含有 JAR 檔案的目錄，而 JAR 檔案包含您的 Java 類別。
 
@@ -703,7 +701,7 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 ### <a name="log-information"></a>記錄資訊
 
-您可以使用 `Context.Logger`，輕鬆地記錄拓撲元件中的資訊。 例如，以下會建立一個參考性記錄項目：
+您可以使用 `Context.Logger`，輕鬆地記錄拓撲元件中的資訊。 例如，下列命令會建立一個參考性記錄項目：
 
 ```csharp
 Context.Logger.Info("Component started");

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: b465993882563420652ef1ac8c623a1b9b7295ec
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: af43f4b2a11f217853a9160f473dea8c488ea852
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>教學課程：Azure Active Directory 與 Box 整合
 
@@ -114,7 +114,6 @@ Box 與 Azure AD 整合提供下列優點：
      
     > [!NOTE] 
     > 這不是真實的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Box 用戶端支援小組](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire)以取得此值。 
-
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/active-directory-saas-box-tutorial/tutorial_box_certificate.png) 
@@ -123,7 +122,10 @@ Box 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-box-tutorial/tutorial_general_400.png)
     
-6. 若要為您的應用程式設定 SSO，請連絡 [Box 用戶端支援小組](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire)並提供下載的 XML 檔案。
+6. 若要設定應用程式的 SSO，請執行[自行設定 SSO](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown) 中的步驟
+
+> [!NOTE] 
+> 如果您無法為 Box 帳戶啟用單一登入設定，您可能需要連絡 [Salesforce 用戶端支援小組](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire)，並將下載的 XML 檔案提供給他們。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

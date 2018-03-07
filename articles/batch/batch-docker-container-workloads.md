@@ -8,13 +8,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>在 Azure Batch 上執行容器應用程式
 
@@ -27,7 +27,7 @@ Azure Batch 可讓您在 Azure 上執行及縮放大量批次運算作業。 到
 
 ## <a name="prerequisites"></a>先決條件
 
-* SDK 版本：以下版本的 Batch SDK 可支援容器映像：
+* SDK 版本：自以下版本起的 Batch SDK 可支援容器映像：
     * Batch REST API 2017-09-01.6.0 版
     * Batch .NET SDK 8.0.0 版
     * Batch Python SDK 4.0 版
@@ -87,7 +87,7 @@ Azure Batch 可讓您在 Azure 上執行及縮放大量批次運算作業。 到
 
     若要從 Azure 入口網站中取得此映像識別碼，請開啟 [所有資源]，選取自訂映像，然後從映像刀鋒視窗中的 [概觀]區段中，複製 [資源識別碼] 中的路徑。
 
-* 如果您使用 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) 映像，請提供描述映像的一組參數：提供項目的類型、發行者、SKU 和映像版本，如[虛擬機器映像清單](batch-linux-nodes.md#list-of-virtual-machine-images)中所示：
+* 如果您使用 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) 映像，請提供描述映像的一組參數：發行者、提供項目的類型、SKU 和映像版本，如[虛擬機器映像清單](batch-linux-nodes.md#list-of-virtual-machine-images)中所示：
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -239,7 +239,7 @@ CloudTask containerTask = new CloudTask (
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需 Batch 的深入概觀，請參閱[使用 Batch 開發大規模的平行計算解決方案](batch-api-basics.md)。
+* 如何透過 [Batch Shipyard 訣竅](https://github.com/Azure/batch-shipyard/tree/master/recipes)在 Azure Batch 上輕鬆部署容器工作負載，另請參閱 [Batch Shipyard](https://github.com/Azure/batch-shipyard) 工具組。
 
 * 如需有關在 Linux 上安裝和使用 Docker CE 的詳細資訊，請參閱 [Docker](https://docs.docker.com/engine/installation/) 文件。
 

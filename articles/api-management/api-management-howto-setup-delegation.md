@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: e94d920c7d55ad643ed81deda43e8ce96c304346
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派使用者註冊和產品訂閱
 委派可讓您使用現有的網站來處理開發人員登入/註冊和產品訂閱，而非使用開發人員入口網站中的內建功能。 這樣可讓您的網站擁有使用者資料，並以自訂方式來執行這些步驟的驗證。
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/24/2018
 ![Delegation page][api-management-delegation-signin-up]
 
 * 決定特殊委派端點的 URL，並在 [ **Delegation endpoint URL** ] 欄位中輸入。 
-* 在 [ **Delegation authentication key** ] 欄位中輸入密碼，用來計算提供給您驗證的簽章，以確定要求確實來自 Azure API 管理。 您可以按一下 [ **產生** ] 按鈕，讓 API 管理為您隨機產生金鑰。
+* 在 [委派驗證金鑰] 欄位中輸入密碼，用來計算提供給您驗證的簽章，以確定要求確實來自 Azure API 管理。 您可以按一下 [產生] 按鈕，讓 API 管理為您隨機產生金鑰。
 
 現在您需要建立「 **委派端點**」。 必須執行一些動作：
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 01/24/2018
      > 
    * 將使用者重新導向至以上產生的 URL
 
-除了 **SignIn** 作業之外，您也可以遵循上述步驟來執行帳戶管理，並使用以下其中一項作業。
+除了 **SignIn** 作業之外，您也可以遵循上述步驟來執行帳戶管理，並使用以下其中一項作業：
 
 * **ChangePassword**
 * **ChangeProfile**
@@ -110,20 +110,20 @@ ms.lasthandoff: 01/24/2018
    * **operation**：識別委派要求的類型。 對於產品訂閱要求，有效的選項包括：
      * "Subscribe"：為使用者訂閱具有提供之識別碼的 (請參閱下面) 指定產品的要求
      * "Unsubscribe"：將為使用者取消訂閱產品的要求
-     * "Renew"：續約訂閱的要求 (例如，可能過期)
+     * "Renew"：訂閱續訂要求 (例如，可能過期)
    * **productId**：使用者要求訂閱之產品的識別碼
    * **userId**：提出要求之使用者的識別碼
    * **salt**：特殊 salt 字串，用於計算安全性雜湊
    * **sig**：已經過計算的安全性雜湊，用於和您已計算的雜湊進行比較
 2. 確認要求來自 Azure API 管理 (選擇性，但基於安全性理由，強烈建議這麼做)
    
-   * 根據 **productId**、**userId** 和 **salt** 查詢字串，計算字串的 HMAC-SHA512：
+   * 根據 **productId**、**userId 和 **salt** 查詢字串，計算字串的 HMAC-SHA512：
      
      > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
    * 比較以上計算的雜湊和 **sig** 查詢參數的值。 如果兩個雜湊相符，則繼續下一步，否則拒絕要求。
-3. 根據 **operation** 中要求的操作類型 (例如帳單、進一步的問題等)，執行任何產品訂閱處理
+3. 根據 **operation** 中要求的操作類型 (例如帳單、進一步的問題等)，執行任何產品訂閱處理。
 4. 當使用者在您這邊成功訂閱產品時， [呼叫 REST API 來訂閱產品]，讓使用者訂閱 API 管理產品。
 
 ## <a name="delegate-example-code"> </a> 範例程式碼
@@ -164,7 +164,7 @@ var signature = digest.toString('base64');
 ```
 
 ## <a name="next-steps"></a>後續步驟
-如需委派的詳細資訊，請觀看以下影片。
+如需委派的詳細資訊，請觀看以下影片：
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]
 > 

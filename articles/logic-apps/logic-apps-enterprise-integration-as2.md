@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8c6dbc507cd1b79fe9424071bc3eb8bf24331a16
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>利用邏輯應用程式交換適用於企業整合的 AS2 訊息
 
@@ -40,23 +40,22 @@ ms.lasthandoff: 12/18/2017
 
 1.  登入 [Azure 入口網站](http://portal.azure.com "Azure 入口網站")。  
 
-2.  從左側功能表中選取 [更多服務]。 在搜尋方塊中，輸入**整合**做為篩選條件。 在結果清單中選取 [整合帳戶]。
+2. 在主要 Azure 功能表上，選取 [所有服務]。 在搜尋方塊中輸入「整合」，然後選取 [整合帳戶]。
 
-    > [!TIP]
-    > 如果沒有看到 [更多服務]，您可能必須先展開功能表。 在摺疊功能表的頂端，選取 [顯示功能表]。
+   ![尋找您的整合帳戶](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
-    ![更多服務，依據 [整合] 篩選，選取 [整合帳戶]](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+   > [!TIP]
+   > 如果沒有看到 [所有服務]，您可能必須先展開功能表。 在摺疊功能表的頂端，選取 [顯示文字標籤]。
 
-3. 在開啟的 [整合帳戶]  刀鋒視窗中，選取您要在其中建立合約的整合帳戶。
-如果沒有看到任何整合帳戶，請[先建立一個](../logic-apps/logic-apps-enterprise-integration-accounts.md "關於整合帳戶的一切")。  
+3. 在 [整合帳戶] 底下，選取要在其中建立合約的整合帳戶。
 
-    ![選取您要在其中建立合約的整合帳戶](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![選取您要在其中建立合約的整合帳戶](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
 4. 選擇 [合約] 圖格。 如果您沒有 [合約] 圖格，請先新增圖格。
 
     ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. 在開啟的 [合約] 刀鋒視窗中選擇 [新增]  按鈕。
+5. 在 [合約] 之下，選擇 [新增]。
 
     ![選擇 [新增]](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
@@ -166,13 +165,13 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="find-your-created-agreement"></a>尋找您建立的合約
 
-1.  完成所有合約屬性的設定之後，請在 [新增] 刀鋒視窗中選擇 [確定]，以完成合約建立並回到整合帳戶刀鋒視窗。
+1. 完成所有合約屬性的設定之後，請在 [新增] 頁面中選擇 [確定]，以完成合約建立並回到整合帳戶。
 
     您新增的合約現在顯示於您的 [合約] 清單中。
 
-2.  您也可以在整合帳戶概觀中檢視您的合約。 在整合帳戶刀鋒視窗上，選擇 [概觀]，然後選取 [合約] 圖格。 
+2. 您也可以在整合帳戶概觀中檢視您的合約。 在整合帳戶功能表上，選擇 [概觀]，然後選取 [合約] 圖格。 
 
-    ![選擇 [合約] 圖格來檢視所有合約](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
+   ![選擇 [合約] 圖格來檢視所有合約](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>檢視 Swagger
 請參閱 [Swagger 詳細資料](/connectors/as2/)。 

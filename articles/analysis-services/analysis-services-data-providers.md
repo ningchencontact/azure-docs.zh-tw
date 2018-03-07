@@ -13,26 +13,37 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: 870d430d1926859894f452e0af812d794272a9e6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 5c847f5cd02503b708db8a0a0211b5d403df0943
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>可供連接到 Azure Analysis Services 的用戶端程式庫
 
 用戶端程式庫是用戶端應用程式和工具連接到 Analysis Services 伺服器的必備條件。 
 
-## <a name="download-the-latest-client-libraries"></a>下載最新的用戶端程式庫  
+## <a name="download-the-latest-client-libraries-windows-installer"></a>下載最新的用戶端程式庫 (Windows Installer)  
 
-|下載  |版本  | 
+|下載  |產品版本  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    14.0.801.241      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    14.0.801.241      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   14.0.800.117      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    14.0.801.241      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.208      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.208      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2     |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2     |
+
+## <a name="amo-and-adomd-nuget-packages"></a>AMO 和 ADOMD (NuGet 套件)
+
+Analysis Services 管理物件 (AMO) 和 ADOMD 用戶端文件庫可從 [NuGet.org](https://www.nuget.org/)作為可安裝套件使用。建議您移轉至 NuGet 參考，而不是使用 Windows Installer。 
+
+|Package  | 產品版本  | 
+|---------|---------|
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2.0      |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2.0      |
+
+Nuget 套件組件 AssemblyVersion 會遵循語意化版本控制系統：MAJOR.MINOR.PATCH。 NuGet 參考會載入預期的版本，即使是 GAC (產生自 MSI 安裝) 中的不同版本也一樣。 PATCH 會針對每個版本遞增。 AMO 和 ADOMD 版本會保持同步。
 
 ## <a name="understanding-client-libraries"></a>了解用戶端程式庫
 
@@ -54,9 +65,7 @@ Microsoft 用戶端應用程式 (像是 Power BI Desktop 和 Excel) 會安裝這
 
 ### <a name="amo"></a>AMO  
 
- AMO 是用於伺服器管理及資料定義的受控用戶端程式庫。 工具和用戶端應用程式會加以安裝並使用。 例如，SQL Server Management Studio (SSMS) 會使用 AMO 來連線到 Analysis Services。  
-  
- 使用 AMO 的連線通常是最簡短的，由 `“data source=\<servername>”` 所組成。 建立連線之後，您可以使用 API 來處理資料庫集合與主要物件。 SSDT 和 SSMS 都會使用 AMO 來連線到 Analysis Services 執行個體。  
+ AMO 是用於伺服器管理及資料定義的受控用戶端程式庫。 工具和用戶端應用程式會加以安裝並使用。 例如，SQL Server Management Studio (SSMS) 會使用 AMO 來連線到 Analysis Services。 使用 AMO 的連線通常是最簡短的，由 `“data source=\<servername>”` 所組成。 建立連線之後，您可以使用 API 來處理資料庫集合與主要物件。 SSDT 和 SSMS 都會使用 AMO 來連線到 Analysis Services 執行個體。  
 
   
 ### <a name="adomd"></a>ADOMD
@@ -70,20 +79,21 @@ Microsoft 用戶端應用程式 (像是 Power BI Desktop 和 Excel) 會安裝這
   
 ### <a name="oleddb-msolap"></a>OLEDDB (MSOLAP)  
   
-1.  移至 `C:\Program Files\Microsoft Analysis Services\AS OLEDB\140`。 如果您有多個資料夾，請選擇較高的數字。
+1.  移至 C:\Program Files\Microsoft Analysis Services\AS OLEDB\。 如果您有多個資料夾，請選擇較高的數字。
   
-2.  以滑鼠右鍵按一下 [msolap140.dll] > [屬性] > [詳細資料]。  
+2.  以滑鼠右鍵按一下 [msolap.dll] > [屬性] > [詳細資料]。 如果檔名為 msolap140.dll，就會比最新版本還舊，而應進行升級。
     
     ![用戶端程式庫詳細資料](media/analysis-services-data-providers/aas-msolap-details.png)
+    
   
 ### <a name="amo"></a>AMO
 
-1. 移至 `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\v4.0_14.0.0.0__89845dcd8080cc91`。
+1. 移至 `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`。 如果您有多個資料夾，請選擇較高的數字。
 2. 以滑鼠右鍵按一下 [Microsoft.AnalysisServices] > [屬性] > [詳細資料]。  
 
 ### <a name="adomd"></a>ADOMD
 
-1. 移至 `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\v4.0_14.0.0.0__89845dcd8080cc91`。
+1. 移至 `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\`。 如果您有多個資料夾，請選擇較高的數字。
 2. 以滑鼠右鍵按一下 [Microsoft.AnalysisServices.AdomdClient] > [屬性] > [詳細資料]。  
 
 

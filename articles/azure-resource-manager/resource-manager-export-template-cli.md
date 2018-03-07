@@ -11,13 +11,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 15e7e811c7cb1777e34f1bfb629fa24a60f9e5cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>使用 Azure CLI 來匯出 Azure Resource Manager 範本
 
@@ -25,10 +25,10 @@ Resource Manager 可讓您從您的訂用帳戶中現有的資源匯出 Resource
 
 請務必注意，有兩種不同的方式可匯出範本︰
 
-* 您可以匯出用於部署的實際範本。 匯出的範本包含與原始範本完全相同的所有參數和變數。 當您需要擷取範本時，這個方法很有用。
-* 您可以匯出代表資源群組目前狀態的範本。 匯出的範本不是以任何用於部署的範本為基礎。 反而，它所建立的範本是資源群組的快照。 匯出的範本會有許多硬式編碼值，但數量可能不如您通常會定義的參數數量。 當您已修改資源群組時，這個方法很有用。 現在，您需要擷取做為範本的資源群組。
+* 您可以匯出**用於部署的實際範本**。 匯出的範本包含與原始範本完全相同的所有參數和變數。 當您需要擷取範本時，這個方法很有用。
+* 您可以匯出**代表資源群組目前狀態的已產生範本**。 匯出的範本不是以任何用於部署的範本為基礎。 反而，它所建立的範本是資源群組的「快照集」或「備份」。 匯出的範本會有許多硬式編碼值，但數量可能不如您通常會定義的參數數量。 使用此選項來將資源重新部署至相同的資源群組。 若要對其他資源群組使用此範本，您可能必須大幅修改它。
 
-本主題說明這兩種方法。
+本文章說明這兩種方法。
 
 ## <a name="deploy-a-solution"></a>部署解決方案
 
@@ -55,13 +55,13 @@ az group deployment export --name NewStorage --resource-group ExampleGroup
 
 ## <a name="export-resource-group-as-template"></a>匯出資源群組以作為範本
 
-您不必從部署歷程記錄擷取範本，而可以使用 [az group export](/cli/azure/group#az_group_export) 命令來擷取範本，以代表資源群組的目前狀態。 當您對資源群組做了許多變更，且現有的範本均無法完全呈現這些變更時，就可以使用這個命令。
+您不必從部署歷程記錄擷取範本，而可以使用 [az group export](/cli/azure/group#az_group_export) 命令來擷取範本，以代表資源群組的目前狀態。 當您對資源群組做了許多變更，且現有的範本均無法完全呈現這些變更時，就可以使用這個命令。 其目的在作為資源群組的快照集，以供您用來重新部署至相同的資源群組。 若要對其他解決方案使用所匯出的範本，您必須大幅修改它。
 
 ```azurecli
 az group export --name ExampleGroup
 ```
 
-它會傳回範本。 複製 JSON，並儲存為檔案。 請注意，它與 GitHub 中的範本不同。 它有不同的參數，而且沒有任何變數。 儲存體 SKU 和位置皆已硬式編碼為值。 下列範例會顯示所匯出的範本，但您的範本會有稍微不同的參數名稱︰
+它會傳回範本。 複製 JSON，並儲存為檔案。 請注意，它與 GitHub 中的範本不同。 範本有不同的參數，而且沒有任何變數。 儲存體 SKU 和位置皆已硬式編碼為值。 下列範例會顯示所匯出的範本，但您的範本會有稍微不同的參數名稱︰
 
 ```json
 {

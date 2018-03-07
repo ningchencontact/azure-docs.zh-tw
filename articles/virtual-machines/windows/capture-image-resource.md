@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 172ad5198f7c813ed114f9fe3caea3d6a5dc6a97
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 84f6f0c13e8c06aa934d98ecc3c3e4a61f95c641
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中建立一般化 VM 的受控映像
 
@@ -65,7 +65,7 @@ Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電
 直接從 VM 建立映像，可確保映像包含 VM 的所有相關磁碟，包括 OS 磁碟和任何資料磁碟。 此範例示範如何從使用受控磁碟的 VM 建立受控映像。
 
 
-開始之前，請確定您擁有最新版的 AzureRM.Compute PowerShell 模組。 執行下列命令來安裝它。
+開始之前，請確定您擁有最新版的 AzureRM.Compute PowerShell 模組。 執行下列命令來安裝它。 (使用 `Get-Module` 來檢查您擁有的版本。)
 
 ```azurepowershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0

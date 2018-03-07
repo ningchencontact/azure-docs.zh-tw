@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: f3cb11bc13ad2561e62c096d840c0b8e4471d271
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure 磁碟加密常見問題集
 
@@ -49,10 +49,11 @@ ms.lasthandoff: 01/24/2018
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | 作業系統和資料磁碟 |
 | Ubuntu | 14.04.5-DAILY-LTS | 作業系統和資料磁碟 |
-| RHEL | 7.3 | 作業系統和資料磁碟 |
-| RHEL | 7.2 | 作業系統和資料磁碟 |
-| RHEL | 6.8 | 作業系統和資料磁碟 |
-| RHEL | 6.7 | 資料磁碟 |
+| RHEL | 7.4 | 資料磁碟* |
+| RHEL | 7.3 | 資料磁碟* |
+| RHEL | 7.2 | 資料磁碟* |
+| RHEL | 6.8 | 資料磁碟* |
+| RHEL | 6.7 | 資料磁碟* |
 | CentOS | 7.3 | 作業系統和資料磁碟 |
 | CentOS | 7.2n | 作業系統和資料磁碟 |
 | CentOS | 6.8 | 作業系統和資料磁碟 |
@@ -67,6 +68,8 @@ ms.lasthandoff: 01/24/2018
 | SLES | HPC 12 | 資料磁碟 |
 | SLES | 優先順序：11-SP4 | 資料磁碟 |
 | SLES | 11 SP4 | 資料磁碟 |
+
+*__ADE 可供 RHEL 用於資料磁碟。目前的 ADE 實作適用於 OS 磁碟，但目前不受共同支援。Microsoft 和 Red Hat 都可執行共同支援的解決方案。在過渡期間，您可以在[這裡](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)參考 ADE 白皮書，以取得 Linux OS 磁碟加密的相關資訊。__
 
 **問：**如何開始使用 Azure 磁碟加密？
 

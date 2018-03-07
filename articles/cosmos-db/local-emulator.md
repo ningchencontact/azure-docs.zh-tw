@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 40d7b8a52f67d116ab764b9716c917d5c7865467
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 1991157330f6607efcf42ad42694c6b4d19fe609
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos DB 模擬器進行本機開發和測試
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 02/01/2018
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
+  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
 </tr>
 <tr>
   <td><strong>Docker 來源</strong></td>
-  <td>[Github](https://github.com/azure/azure-documentdb-emulator-docker)</td>
+  <td>[Github](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
 </tr>
 </table>
   
@@ -195,6 +195,11 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
   <td></td>
 </tr>
 <tr>
+  <td>GetStatus</td>
+  <td>取得 Azure Cosmos DB 模擬器的狀態。 狀態會以結束代碼表示：1 = 啟動，2 = 執行中，3 = 已停止。 負數的結束代碼表示發生錯誤。 不會產生其他輸出。</td>
+  <td>CosmosDB.Emulator.exe /GetStatus</td>
+  <td></td>
+<tr>
   <td>Shutdown</td>
   <td>關閉 Azure Cosmos DB 模擬器。</td>
   <td>CosmosDB.Emulator.exe /Shutdown</td>
@@ -250,7 +255,7 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 </tr>
 <tr>
   <td>NoExplorer</td>
-  <td>啟動時不要顯示文件總管。</td>
+  <td>啟動時不要顯示資料總管。</td>
   <td>CosmosDB.Emulator.exe /NoExplorer</td>
   <td></td>
 </tr>
@@ -317,6 +322,40 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 3. 結束所有開啟的執行個體，方法是以滑鼠右鍵按一下系統匣上的 [Azure Cosmos DB 模擬器] 圖示，然後按一下 [結束]。 結束所有執行個體可能需要數分鐘的時間。
 4. 安裝最新版的 [Azure Cosmos DB Emulator 模擬器](https://aka.ms/cosmosdb-emulator)。
 5. 啟動具有 PartitionCount 旗標的模擬器，方法是設定值 <= 250。 例如：`C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`。
+
+## <a name="controlling-the-emulator"></a>控制模擬器
+
+模擬器隨附 PowerShell 模組，可啟動、停止、解除安裝及擷取服務的狀態。 使用方式：
+
+```powershell
+Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+```
+
+或將 `PSModules` 目錄置於 `PSModulesPath` 上，並匯入如下：
+
+```powershell
+$env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
+Import-Module Microsoft.Azure.CosmosDB.Emulator
+```
+
+以下是從 PowerShell 控制模擬器的命令摘要：
+
+### `Get-CosmosDbEmulatorStatus`
+
+傳回這些 ServiceControllerStatus 值的其中一個：ServiceControllerStatus.StartPending、ServiceControllerStatus.Running 或 ServiceControllerStatus.Stopped。
+
+### `Start-CosmosDbEmulator [-NoWait]`
+
+啟動模擬器。 根據預設，命令會等到模擬器準備好接受要求。 如果您希望啟動模擬器時立即傳回 Cmdlet，請使用 -NoWait 選項。
+
+### `Stop-CosmosDbEmulator [-NoWait]`
+
+停止模擬器。 根據預設，此命令會等到模擬器完全關機。 如果您希望模擬器開始關閉時立即傳回 Cmdlet，請使用 -NoWait 選項。
+
+### `Uninstall-CosmosDbEmulator [-RemoveData]`
+
+解除安裝模擬器，並選擇性地移除 $env 的完整內容：LOCALAPPDATA\CosmosDbEmulator。
+Cmdlet 可確保在解除安裝之前停止模擬器。
 
 ## <a name="running-on-docker"></a>在 Docker 上執行
 
@@ -416,7 +455,29 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 以滑鼠右鍵按一下工作列上的本機模擬器圖示，然後按一下關於功能表項目，以檢查版本號碼。
 
-### <a name="120-released-on-january-26-2018"></a>已於 2018 年 1 月 26 日發行 1.20 版
+### <a name="1201084-released-on-february-14-2018"></a>已於 2018 年 2 月 14 日發行 1.20.108.4 版
+
+此版本有一項新功能及兩個錯誤 (bug) 修正。 這點受惠協助我們找出並修正這些問題的客戶。
+
+#### <a name="bug-fixes"></a>錯誤修正
+
+1. 模擬器目前適用於具有 1 或 2 個核心 (或虛擬 CPU) 的電腦
+
+   Cosmos DB 會配置工作來執行各種服務。 配置的工作數是主機上核心數的倍數。 預設倍數適用於核心數很大的生產環境。 不過，在 1 或 2 個處理器的機器上套用這個倍數時，沒有工作會配置來執行這些服務。
+
+   我們的修正方法是新增模擬器設定覆寫。 我們現在套用 1 的倍數。 配置來執行各種服務的工作數目現在等於主機上的核心數。
+
+   此版本已著重處理此問題。 我們發現裝載模擬器的許多開發/測試環境中有 1 或 2 個核心。
+
+2. 模擬器不再需要 Microsoft Visual C++ 2015 可轉散發套件才能進行安裝。
+
+   我們發現 Windows (桌面和伺服器版本) 的全新安裝不包含這個可轉散發套件。 因此，我們現在將可轉散發套件的二進位檔與模擬器組合在一起。
+
+#### <a name="features"></a>特性
+
+許多與我們談過的客戶提到：如果模擬器可編寫指令碼應該會不錯。 因此在這個版本中，我們新增了某些指令碼功能。 模擬器現在包含 PowerShell 模組，可啟動、停止、取得狀態及解除安裝其本身：`Microsoft.Azure.CosmosDB.Emulator`。 
+
+### <a name="120911-released-on-january-26-2018"></a>已於 2018 年 1 月 26 日發行 1.20.91.1 版
 
 * 依預設已啟用 MongoDB 彙總管線。
 

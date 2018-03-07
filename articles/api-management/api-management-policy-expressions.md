@@ -14,26 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: fb50ba3f292a390c45f1afe6259731d2b92cc335
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a5bcd03e71a69928fa1e02a5286801c4933d17ef
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="api-management-policy-expressions"></a>API 管理原則運算式
-原則運算式的語法是 C# 6.0。 每個運算式皆可存取以隱含方式提供的[內容](api-management-policy-expressions.md#ContextVariables)變數，以及允許的 .NET Framework 類型[子集](api-management-policy-expressions.md#CLRTypes)。  
-  
-> [!TIP]
->  如需原則運算式的詳細資訊，請觀賞[原則運算式](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/)影片。  
->   
->  如需使用原則運算式來設定原則的示範，請觀賞 [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)。 這段影片中包含下列原則運算式的示範：  
->   
->  -   10:30 - 了解如何提供內容資訊給您的後端服務。 使用[設定查詢字串參數](api-management-transformation-policies.md#SetQueryStringParameter)和[設定 HTTP 標頭](api-management-transformation-policies.md#SetHTTPheader)原則來提供此資訊。 12:10 處是在開發人員入口網站中呼叫作業的示範，您可以看到這些原則的運作。  
-> -   13:50 - 了解如何使用[驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT) 原則來根據權杖宣告預先授與作業的存取權。 向前快轉到 15:00，可看到原則如何在原則編輯器中進行設定。 在 18:50 處，您可以看到使用和不使用必要授權權杖，從開發人員入口網站呼叫作業的示範。  
-> -   21:00 - 使用 [API 檢查器](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/)追蹤，以查看原則的評估方式和那些評估的結果。  
-> -   25:25 - 了解如何使用運算式搭配[從快取中取得](api-management-caching-policies.md#GetFromCache)和[儲存至快取](api-management-caching-policies.md#StoreToCache)原則，來設定 API 管理回應的快取。 設定一段持續時間，使其符合備用服務中 `Cache-Control` 指示詞所指定的後端服務回應快取。  
-> -   34:30 - 了解如何執行內容篩選。 使用[控制流程](api-management-advanced-policies.md#choose)和[設定本文](api-management-transformation-policies.md#SetBody)原則，移除「從後端收到的回應」中的資料元素。 從 31:50 處開始觀賞用於本示範的 [The Dark Sky Forecast API](https://developer.forecast.io/) 概觀。  
-> -   若要下載這段影片中使用的原則陳述式，請參閱 [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub 儲存機制。  
+本文討論的原則運算式語法是 C# 6.0。 每個運算式皆可存取以隱含方式提供的[內容](api-management-policy-expressions.md#ContextVariables)變數，以及允許的 .NET Framework 類型[子集](api-management-policy-expressions.md#CLRTypes)。  
+
+其他資訊：
+
+- 了解如何提供內容資訊給您的後端服務。 使用[設定查詢字串參數](api-management-transformation-policies.md#SetQueryStringParameter)和[設定 HTTP 標頭](api-management-transformation-policies.md#SetHTTPheader)原則來提供此資訊。
+- 了解如何使用[驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT) 原則來根據權杖宣告預先授與作業的存取權。   
+- 了解如何使用 [API 檢查器](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/)追蹤，以查看原則的評估方式和那些評估結果。  
+- 了解如何使用運算式搭配[從快取中取得](api-management-caching-policies.md#GetFromCache)和[儲存至快取](api-management-caching-policies.md#StoreToCache)原則，來設定 API 管理回應的快取。 設定一段持續時間，使其符合備用服務中 `Cache-Control` 指示詞所指定的後端服務回應快取。  
+- 了解如何執行內容篩選。 使用[控制流程](api-management-advanced-policies.md#choose)和[設定本文](api-management-transformation-policies.md#SetBody)原則，移除「從後端收到的回應」中的資料元素。 
+- 若要下載原則陳述式，請參閱 [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub 存放庫。  
   
   
 ##  <a name="Syntax"></a>語法  
@@ -172,7 +169,7 @@ ms.lasthandoff: 01/17/2018
   
 |內容變數|允許的方法、屬性和參數值|  
 |----------------------|-------------------------------------------------------|  
-|context|Api：IApi<br /><br /> Deployment<br /><br /> 經過時間：TimeSpan - Timestamp 值與目前時間之間的時間間隔<br /><br /> LastError<br /><br /> 作業<br /><br /> 產品<br /><br /> 要求<br /><br /> RequestId：Guid - 唯一要求識別碼<br /><br /> Response<br /><br /> 訂用帳戶<br /><br /> 時間戳記：DateTime - 收到要求的時間點<br /><br /> 追蹤：bool - 指出追蹤是開啟還是關閉 <br /><br /> User<br /><br /> 變數：IReadOnlyDictionary<string, object><br /><br /> void Trace(訊息：字串)|  
+|context|Api：IApi<br /><br /> 部署<br /><br /> 經過時間：TimeSpan - Timestamp 值與目前時間之間的時間間隔<br /><br /> LastError<br /><br /> 作業<br /><br /> 產品<br /><br /> 要求<br /><br /> RequestId：Guid - 唯一要求識別碼<br /><br /> Response<br /><br /> 訂用帳戶<br /><br /> 時間戳記：DateTime - 收到要求的時間點<br /><br /> 追蹤：bool - 指出追蹤是開啟還是關閉 <br /><br /> User<br /><br /> 變數：IReadOnlyDictionary<string, object><br /><br /> void Trace(訊息：字串)|  
 |context.Api|識別碼︰字串<br /><br /> IsRevisionCurrent: bool<br /><br />  名稱︰字串<br /><br /> 路徑︰字串<br /><br /> 修訂：字串<br /><br /> ServiceUrl：IUrl<br /><br /> 版本：字串 |  
 |context.Deployment|區域︰字串<br /><br /> ServiceName︰字串<br /><br /> 憑證：IReadOnlyDictionary<string, X509Certificate2>|  
 |context.LastError|來源︰字串<br /><br /> 原因︰字串<br /><br /> 訊息︰字串<br /><br /> 範圍︰字串<br /><br /> 區段︰字串<br /><br /> 路徑︰字串<br /><br /> PolicyId︰字串<br /><br /> 如需 context.LastError 的詳細資訊，請參閱[錯誤處理](api-management-error-handling-policies.md)。|  
@@ -206,10 +203,7 @@ ms.lasthandoff: 01/17/2018
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|輸入 - 要解密的 Cypher 文字<br /><br />alg - 加密演算法<br /><br />傳回純文字。|
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|輸入 - 要解密的 Cypher 文字<br /><br />alg - 加密演算法<br /><br />金鑰 - 加密金鑰<br /><br />iv - 初始化向量<br /><br />傳回純文字。|
 
-## <a name="video"></a>影片
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
->
 ## <a name="next-steps"></a>後續步驟
 
 如需使用原則的詳細資訊，請參閱︰

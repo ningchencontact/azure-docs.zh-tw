@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: d169645b9b701e611d27e0d984bf44b7ca85d2ad
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: b2b5427f037203e86f6b73610084993892ed4a37
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Azure HDInsight 中的 Hadoop
 
@@ -46,7 +46,7 @@ Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure H
 ## <a name="install-microsoft-hive-odbc-driver"></a>安裝 Microsoft Hive ODBC 驅動程式
 從[下載中心][hive-odbc-driver-download]下載並安裝 Microsoft Hive ODBC 驅動程式。
 
-此驅動程式可以安裝在 32 位元或 64 位元版本的 Windows 7、Windows 8、Windows 10、Windows Server 2008 R2 和 Windows Server 2012。 驅動程式可允許 Azure HDInsight (1.6 版及更新版本) 與 Azure HDInsight Emulator (1.0.0.0 版及更新版本) 的連線。 您所安裝的版本必須與您要使用 ODBC 驅動程式的應用程式版本相符。 本教學課程將會從 Office Excel 使用此驅動程式。
+此驅動程式可以安裝在 32 位元或 64 位元版本的 Windows 7、Windows 8、Windows 10、Windows Server 2008 R2 和 Windows Server 2012。 驅動程式可允許 Azure HDInsight 的連線。 您所安裝的版本必須與您要使用 ODBC 驅動程式的應用程式版本相符。 本教學課程將會從 Office Excel 使用此驅動程式。
 
 ## <a name="create-hive-odbc-data-source"></a>建立 Hive ODBC 資料來源
 下列步驟將說明如何建立 Hive ODBC 資料來源。

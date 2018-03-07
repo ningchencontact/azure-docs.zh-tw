@@ -12,16 +12,16 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 23adc7fa6ee53d1c5edd10b2772f8825dbcef2a8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 7c8563539ca8507f05fa99fdeffbf511b1540a6a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl"></a>sfctl 
-用於管理 Service Fabric 叢集和實體的命令。 這個版本與 Service Fabric 6.0 執行階段相容。 命令依循名詞動詞模式，如需詳細資訊，請參閱下列子群組。
+用於管理 Service Fabric 叢集和實體的命令。 這個版本與 Service Fabric 6.1 執行階段相容。 命令依循名詞動詞模式，如需詳細資訊，請參閱下列子群組。
 
 ## <a name="subgroups"></a>子群組
 |子群組|說明|
@@ -33,6 +33,7 @@ ms.lasthandoff: 01/18/2018
 | [is](service-fabric-sfctl-is.md)      | 查詢命令，並將其傳送至基礎結構服務。|
 | [node](service-fabric-sfctl-node.md)    | 管理形成叢集的節點。|
 | [partition](service-fabric-sfctl-partition.md)  | 查詢和管理任何服務的資料分割。|
+| 屬性  | 在 Service Fabric 名稱底下儲存和查詢屬性。|
 | [rpm](service-fabric-sfctl-rpm.md)        | 查詢命令，並將其傳送至修復管理員服務。|
 | [replica](service-fabric-sfctl-replica.md) | 管理屬於服務資料分割的複本。|
 | [service](service-fabric-sfctl-service.md) | 建立、刪除與管理服務、服務類型和服務套件。|

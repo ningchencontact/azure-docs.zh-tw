@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 7e6bb974565810ebb8d8e21d1c274d42d6d39e55
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 支援 SSH
 
@@ -29,7 +29,7 @@ Linux 上的 App Service 會利用每個用於新 Web 應用程式的「執行�
 
 ![執行階段堆疊](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-您也可以使用 SSH 搭配自訂 Docker 映像，方法是將 SSH 伺服器納入映像，並如本主題中所述將它進行設定。
+您也可以使用 SSH 搭配自訂 Docker 映像，方法是將 SSH 伺服器納入映像，並如本文中所述將它進行設定。
 
 ## <a name="making-a-client-connection"></a>建立用戶端連線
 
@@ -65,7 +65,7 @@ https://<your sitename>.scm.azurewebsites.net/webssh/host
         && echo "root:Docker!" | chpasswd
     ```
 
-1. 將 [`COPY` 指示](https://docs.docker.com/engine/reference/builder/#copy)新增至 Dockerfile，以將 [sshd_config](http://man.openbsd.org/sshd_config) 檔案複製到 */etc/ssh/* 目錄。 組態檔需根據我們[這裡](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config)的 Azure-App-Service GitHub 存放庫中的 sshd_config 檔案。
+1. 將 [`COPY` 指示](https://docs.docker.com/engine/reference/builder/#copy)新增至 Dockerfile，以將 [sshd_config](http://man.openbsd.org/sshd_config) 檔案複製到 */etc/ssh/* 目錄。 組態檔需根據[這裡](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config)的 Azure-App-Service GitHub 存放庫中的 sshd_config 檔案。
 
     > [!NOTE]
     > sshd_config 檔案必須包含下列項目，否則無法連線︰ 
@@ -82,28 +82,30 @@ https://<your sitename>.scm.azurewebsites.net/webssh/host
     EXPOSE 2222 80
     ```
 
-1. 請確定使用 */bin* 目錄中的殼層指令碼，來[啟動 ssh 服務](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)。
+1. 請務必使用殼層指令碼來啟動 SSH 服務 (請參閱位於 [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) 的範例)。
 
     ```bash
     #!/bin/bash
     service ssh start
     ```
 
-Dockerfile 會使用 [`CMD` 指示](https://docs.docker.com/engine/reference/builder/#cmd)來執行指令碼。
+Dockerfile 會使用 [`ENTRYPOINT` 指示](https://docs.docker.com/engine/reference/builder/#entrypoint)來執行指令碼。
 
     ```docker
-    COPY init_container.sh /bin/
+    COPY startup /opt/startup
     ...
-    RUN chmod 755 /bin/init_container.sh
+    RUN chmod 755 /opt/startup/init_container.sh
     ...
-    CMD ["/bin/init_container.sh"]
+    ENTRYPOINT ["/opt/startup/init_container.sh"]
     ```
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 Web App for Containers 的相關資訊，請參閱下列連結。 您可以在[我們的論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)張貼問題和疑難。
+您可以在 [Azure 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)張貼問題和疑難。
 
-* [如何針對用於容器的 Web 應用程式使用自訂 Docker 映像](quickstart-custom-docker-image.md)
+如需「用於容器的 Web App」的詳細資訊，請參閱：
+
+* [如何針對用於容器的 Web 應用程式使用自訂 Docker 映像](quickstart-docker-go.md)
 * [在 Linux 上的 Azure App Service 中使用 .NET Core](quickstart-dotnetcore.md)
 * [在 Linux 上的 Azure App Service 中使用 Ruby](quickstart-ruby.md)
 * [Azure App Service Web App for Containers 常見問題集](app-service-linux-faq.md)

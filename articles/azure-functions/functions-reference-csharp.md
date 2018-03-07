@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5e94ba1a45bccefedfa0017ad0123942e66f70bb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 683ef1ebffaec74df95b454d717857d55b8026dd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 指令碼 (.csx) 開發人員參考
 
@@ -199,24 +199,7 @@ public class Order
 
 ## <a name="binding-to-method-return-value"></a>繫結至方法傳回值
 
-您可以使用 function.json 中的名稱 `$return`，使用輸出繫結的方法傳回值：
-
-```json
-{
-    "type": "queue",
-    "direction": "out",
-    "name": "$return",
-    "queueName": "outqueue",
-    "connection": "MyStorageConnectionString",
-}
-```
-
-```csharp
-public static string Run(string input, TraceWriter log)
-{
-    return input;
-}
-```
+您可以使用 *function.json* 中的名稱 `$return`，使用輸出繫結的方法傳回值。 如需範例，請參閱[觸發程序和繫結](functions-triggers-bindings.md#using-the-function-return-value)。
 
 ## <a name="writing-multiple-output-values"></a>撰寫多個輸出值
 
@@ -264,17 +247,31 @@ public async static Task ProcessQueueMessageAsync(
 
 ## <a name="cancellation-tokens"></a>取消權杖
 
-某些作業需要正常關機。 雖然撰寫能夠處理當機情況的程式碼一律是最理想的做法，但是如果您想要處理關機要求，請定義 [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) 型別引數。  提供 `CancellationToken` ，表示已觸發主機關機。
+可以接受 [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) 參數的函式，讓作業系統能夠在函式即將終止時通知您的程式碼。 您可以使用此通知來確保函數不會在讓資料維持不一致狀態的情況下意外終止。
+
+下列範例示範如何檢查即將終止的函式。
 
 ```csharp
-public async static Task ProcessQueueMessageAsyncCancellationToken(
-    string blobName,
-    Stream blobInput,
-    Stream blobOutput,
+using System;
+using System.IO;
+using System.Threading;
+
+public static void Run(
+    string inputText,
+    TextWriter logger,
     CancellationToken token)
+{
+    for (int i = 0; i < 100; i++)
     {
-        await blobInput.CopyToAsync(blobOutput, 4096, token);
+        if (token.IsCancellationRequested)
+        {
+            logger.WriteLine("Function was cancelled at iteration {0}", i);
+            break;
+        }
+        Thread.Sleep(5000);
+        logger.WriteLine("Normal processing for queue message={0}", inputText);
     }
+}
 ```
 
 ## <a name="importing-namespaces"></a>匯入命名空間

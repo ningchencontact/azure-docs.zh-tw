@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/10/2018
+ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 4b64331a4f25ce0cc01b2ee9f32633ab035e3131
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 3c34a3851dbb5c5258b3dc0cf35a510f62cbe14e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>了解 ImageStoreConnectionString 設定
 
@@ -42,7 +42,9 @@ Service Fabric 由許多不同的小組以內部 Microsoft 耗用量的平台開
 
 在叢集本身的系統服務中裝載映像存放可排除封裝儲存機制的外部相依性，並讓我們更充分掌控儲存體位置。 有關映像存放的未來增強功能應該會先將目標放在映像存放區提供者 (如果不是專用)。 映像存放區服務提供者的連接字串沒有任何唯一的資訊，因為用戶端已連接至目標叢集。 用戶端只需要知道，應該使用目標為系統服務的通訊協定。
 
-在開發期間會針對本機一整體叢集使用檔案系統提供者而非映像存放區服務，以稍微加速啟動叢集。 差別通常很小，但它在開發期間對於大部分人是有用的最佳化。 可以使用其他存放裝置提供者類型部署本機一整體叢集，但通常沒有理由這麼做，因為開發/測試工作流程將保持不變，不論提供者為何。 除了這項用法以外，檔案系統和 Azure 儲存體提供者只存在於舊版支援。
+在開發期間會針對本機一整體叢集使用檔案系統提供者而非映像存放區服務，以稍微加速啟動叢集。 差別通常很小，但它在開發期間對於大部分人是有用的最佳化。 可以使用其他存放裝置提供者類型部署本機一整體叢集，但通常沒有理由這麼做，因為開發/測試工作流程將保持不變，不論提供者為何。 Azure 儲存體提供者的存在，只是要為在映像存放區服務提供者導入之前部署的舊叢集提供舊版支援。
+
+此外，檔案系統提供者或 Azure 儲存體提供者均不應作為在多個叢集之間共用映像存放區的方法 - 這會導致叢集組態資料損毀，因為每個叢集都可以將衝突的資料寫入至映像存放區。 若要在多個叢集之間共用已佈建的應用程式套件，請改用 [sfpkg][12] 檔案，此檔案可透過下載 URI 上傳至任何外部存放區。
 
 因此，當 ImageStoreConnectionString 可設定時，您通常只使用預設設定。 透過 Visual Studio 發佈至 Azure 時，參數會自動針對您進行相對應的設定。 針對以程式設計方式部署至 Azure 中裝載的叢集，連接字串一律是 "fabric:ImageStore"。 但是當有疑問時，其值一律能夠藉由 [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest)[.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) 或 [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest) 擷取叢集資訊清單來驗證。 內部部署測試與生產叢集也應該一律設定為使用映像存放區服務提供者。
 
@@ -55,4 +57,4 @@ Service Fabric 由許多不同的小組以內部 Microsoft 耗用量的平台開
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-
+[12]: service-fabric-package-apps.md#create-an-sfpkg

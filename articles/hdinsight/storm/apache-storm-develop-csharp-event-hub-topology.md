@@ -8,22 +8,23 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: 9ad160377a8779ae917e6fd2d605ee01b12c3e2a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: fe1cf3eab1f0ca930b516e4ab44f1e2439cb3e07
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)
 
-了解如何從 Apache Storm on HDInsight 處理 Azure 事件中樞。 本文件使用 C# Storm 拓撲來從事件中樞讀取和寫入資料
+了解如何從 Apache Storm on HDInsight 處理 Azure 事件中樞。 本文件使用 C# Storm 拓撲從事件中樞讀取和寫入資料
 
 > [!NOTE]
 > 如需本專案的 Java 版本，請參閱[使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)。
@@ -36,9 +37,6 @@ ms.lasthandoff: 11/28/2017
 > 雖然本文件中的步驟依賴 Windows 開發環境與 Visual Studio，但已編譯的專案可以提交到使用 Linux 之 HDInsight 叢集上的 Storm。 只有在 2016 年 10 月 28 日之後所建立之以 Linux 為基礎的叢集可支援 SCP.NET 拓撲。
 
 HDInsight 3.4 和更高版本使用單聲道來執行 C# 拓撲。 本文件中使用的範例會使用 HDInsight 3.6。 如果您打算針對 HDInsight 來建立您自己的 .NET 解決方案，請參閱 [Mono 相容性](http://www.mono-project.com/docs/about-mono/compatibility/)文件，以了解可能不相容之處。
-
-> [!WARNING]
-> 如果您在使用 SCP.NET 版本 1.0.0.x 建置專案時發生問題，請連絡 Microsoft 支援服務尋求協助。
 
 ### <a name="cluster-versioning"></a>叢集版本控制
 
@@ -142,7 +140,7 @@ topologyBuilder.SetJavaBolt(
 
 事件中樞是此範例的資料來源。 請使用[開始使用事件中樞](../../event-hubs/event-hubs-create.md)的＜建立事件中樞＞一節中的資訊。
 
-1. 在建立事件中樞之後，檢視 Azure 入口網站中的 [事件中樞] 刀鋒視窗，然後選取 [共用存取原則]。 選取 [+ 新增] 連結來新增下列原則︰
+1. 在建立事件中樞之後，檢視 Azure 入口網站中的 [事件中樞] 設定，然後選取 [共用存取原則]。 選取 [+ 新增] 連結來新增下列原則︰
 
    | Name | 權限 |
    | --- | --- |

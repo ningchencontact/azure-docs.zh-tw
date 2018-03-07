@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: byvinyal
-ms.openlocfilehash: 22e05af889b4e792dcc6f6fc438e8a58674b9f0e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 551f34436dfeac14bb6e8676dd7c9b10d30a3af3
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Azure App Service 靜態 IP 限制 #
 
@@ -26,7 +26,7 @@ IP 限制可讓您定義允許存取應用程式的 IP 位址清單。 允許清
 
 當用戶端對應用程式產生要求時，就會根據允許清單來評估 IP 位址。 如果此 IP 位址不在清單中，應用程式會回覆 [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) 狀態碼。
 
-IP 限制會定義在您的應用程式於執行階段取用的 web.config 中。 在某些情況下，可能會先執行某些模組，再執行 HTTP 管線中的 IP 限制邏輯。 若發生這種情況，要求會失敗並傳回不同的 HTTP 錯誤碼。
+應用程式在執行階段上使用的 web.config 中會定義 IP 限制 (更精確地說，系統會將限制插入 applicationHost.config 檔案中的一組允許 IP 位址中，因此，如果您也將一組允許的 IP 位址新增至 web.config 檔案，則這些位址會有最高的優先順序)。 在某些情況下，可能會先執行某些模組，再執行 HTTP 管線中的 IP 限制邏輯。 若發生這種情況，要求會失敗並傳回不同的 HTTP 錯誤碼。
 
 IP 限制會在指派給應用程式的同一個 App Service 方案執行個體上進行評估。
 

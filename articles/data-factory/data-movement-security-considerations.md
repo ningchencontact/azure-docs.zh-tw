@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ebe0523849b4709424e2f4bdac00f6bf98bf7cf4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 資料移動的安全性考量
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -150,8 +150,8 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
 | `*.servicebus.windows.net`    | 443、80        | 必須提供此資訊，自我裝載整合執行階段才能連線到 Data Factory 中的資料移動服務 |
 | `*.core.windows.net`          | 443            | 當您使用[分段複製](copy-activity-performance.md#staged-copy)功能時，可供自我裝載整合執行階段用來連線到「Azure 儲存體帳戶」。 |
 | `*.frontend.clouddatahub.net` | 443            | 必須提供此資訊，自我裝載整合執行階段才能連線到 Azure Data Factory 服務。 |
-| `*.database.windows.net`      | 1433           | (選擇性) 當您的目的地是 Azure SQL Database/「Azure SQL 資料倉儲」時，需要提供此資訊。 若要在不開啟連接埠 1433 的情況下，將資料複製到 Azure SQL Database/「Azure SQL 資料倉儲」，請使用分段複製功能。 |
-| `*.azuredatalakestore.net`    | 443            | (選擇性) 當您的目的地是 Azure Data Lake Store 時，需要提供此資訊。 |
+| `*.database.windows.net`      | 1433           | (選擇性) 當您在 Azure SQL Database/Azure SQL 資料倉儲來回複製時，需要提供此資訊。 若要在不開啟連接埠 1433 的情況下，將資料複製到 Azure SQL Database/「Azure SQL 資料倉儲」，請使用分段複製功能。 |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (選擇性) 當您在 Azure Data Lake Store 來回複製時，需要提供此資訊 |
 
 > [!NOTE] 
 > 您可能需要依個別資料來源所需，在公司防火牆層級管理連接埠/將網域加入白名單。 此表格僅使用 Azure SQL Database、「Azure SQL 資料倉儲」、Azure Data Lake Store 作為範例。   

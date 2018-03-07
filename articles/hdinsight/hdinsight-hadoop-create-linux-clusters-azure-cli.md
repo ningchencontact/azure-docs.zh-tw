@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 983e167d248d711efde9c64a70f59d5a9e81769a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>使用 Azure CLI 建立 HDInsight 叢集
 
@@ -29,8 +29,9 @@ ms.lasthandoff: 12/11/2017
 此文件中的步驟詳細說明如何使用 Azure CLI 1.0 建立 HDInsight 3.5 叢集。
 
 > [!IMPORTANT]
-> Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
+> 本主題說明如何使用 Azure CLI 1.0 建立 HDInsight 叢集。 此版本的 CLI 已過時，且建立 HDInsight 叢集的支援尚未加入 Azure CLI 2.0 中。
+>
+> 您也可以使用 Azure PowerShell 來建立和管理 HDInsight 叢集。 如需詳細資訊，請參閱[使用 Azure PowerShell 建立 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)文件。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 12/11/2017
 * **Azure CLI**。 這份文件中的步驟最近一次是以 Azure CLI 版本 0.10.14 來測試。
 
     > [!IMPORTANT]
-    > 此文件中的步驟不適用於 Azure CLI 2.0。 Azure CLI 2.0 不支援建立 HDInsight 叢集。
+    > Azure CLI 1.0 已過時，且建立 HDInsight 叢集的支援尚未加入 Azure CLI 2.0 中。
 
 ## <a name="log-in-to-your-azure-subscription"></a>登入您的 Azure 訂用帳戶
 

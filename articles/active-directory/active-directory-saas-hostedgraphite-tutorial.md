@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 57ee7770193641d0e13da2c7f8aaa6cfc6aefe73
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>教學課程：Azure Active Directory 與 Hosted Graphite 整合
 
@@ -205,7 +205,7 @@ ms.lasthandoff: 12/11/2017
 在這一節沒有您需要進行的動作項目。 嘗試存取 Hosted Graphite 時，如果使用者還不存在，就會建立新使用者。
 
 >[!NOTE]
->如果您需要手動建立使用者，您需要透過 <mailto:help@hostedgraphite.com> 連絡 Hosted Graphite 支援小組。 
+>如果您需要手動建立使用者，必須透過 <mailto:help@hostedgraphite.com> 連絡 Hosted Graphite 支援小組。 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

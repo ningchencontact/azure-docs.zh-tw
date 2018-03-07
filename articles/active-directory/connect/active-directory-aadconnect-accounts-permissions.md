@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶與權限
 Azure AD Connect 安裝精靈提供兩個不同的路徑：
@@ -98,7 +98,7 @@ Azure AD Connect 1.1.524.0 版和更新版本有選項可讓 Azure AD Connect �
 當您從一個 Azure AD Connect 版本升級到新版本時，需要下列權限：
 
 >[!IMPORTANT]
->從組建 1.1.484 開始，Azure AD Connect 出現一個迴歸錯誤 (bug)，導致需要有 sysadmin 權限才能升級 SQL 資料庫。  此錯誤 (bug) 仍存在於最新的組建 1.1.614 中。  如果想要升級至這個組建，您需要 sysadmin 權限。  Dbo 權限還不夠。  如果您嘗試升級 Azure AD Connect 但沒有 sysadmin 權限，升級會失敗，然後 Azure AD Connect 將無法再正常運作。  Microsoft 知道這個問題，正在設法解決。
+>從組建 1.1.484 開始，Azure AD Connect 出現一個迴歸錯誤 (bug)，導致需要有 sysadmin 權限才能升級 SQL 資料庫。  組建 1.1.647 中已更正這個錯誤。  如果想要升級至這個組建，您需要 sysadmin 權限。  Dbo 權限還不夠。  如果您嘗試升級 Azure AD Connect 但沒有 sysadmin 權限，升級會失敗，然後 Azure AD Connect 將無法再正常運作。  Microsoft 知道這個問題，正在設法解決。
 
 
 | 主體 | 所需的權限 | 用於 |

@@ -14,11 +14,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 12/25/2016
 ms.author: aasthan
-ms.openlocfilehash: da969e3f619c9703ea0c02a148f11a9509d6e988
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: b1dc49a9da42aa3630618c8099a7994950b313b4
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB：適用於 SQL API 的 C++ 主控台應用程式教學課程
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/18/2017
 讓我們開始吧！
 
 ## <a name="prerequisites-for-the-c-tutorial"></a>C++ 教學課程的必要條件
-請確定您具有下列項目：
+請確定您具有下列資源：
 
 * 使用中的 Azure 帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
@@ -74,14 +74,14 @@ ms.lasthandoff: 12/18/2017
 4. 建立專案後，開啟 NuGet 套件管理員，方法是以滑鼠右鍵按一下 [方案總管] 中的 **hellodocumentdb** 專案，然後按一下 [管理 NuGet 套件]。 
    
     ![專案功能表上顯示管理 NuGet 套件的螢幕擷取畫面](media/sql-api-cpp-get-started/nuget.png)
-5. 在 [NuGet: hellodocumentdb] 索引標籤上，按一下 [瀏覽]，然後搜尋「documentdbcpp」。 在結果中選取 DocumentDbCPP，如下列螢幕擷取畫面所示。 此套件會安裝 C++ REST SDK 的參考，該 SDK 是 DocumentDbCPP 的相依項目。  
+5. 在 [NuGet: hellodocumentdb] 索引標籤上，按一下 [瀏覽]，然後搜尋「documentdbcpp」。 在結果中選取 DocumentDbCPP，如下列螢幕擷取畫面所示：   
    
     ![顯示已醒目提示 DocumentDbCpp 套件的螢幕擷取畫面](media/sql-api-cpp-get-started/cpp.png)
    
-    套件新增至您的專案後，一切便已準備就緒，可以開始撰寫一些程式碼。   
+    此套件會安裝 C++ REST SDK 的參考，該 SDK 是 DocumentDbCPP 的相依項目。 在將套件新增至您的專案後，一切便已準備就緒，您可以開始撰寫一些程式碼。   
 
 ## <a id="Config"></a>步驟 3︰從 Azure 入口網站為您的 Azure Cosmos DB 資料庫複製連線詳細資料
-讓 [Azure 入口網站](https://portal.azure.com)出現，並周遊至您所建立的 Azure Cosmos DB 資料庫帳戶。 在下一個步驟中，我們需要從 Azure 入口網站取得的 URI 和主要金鑰，以便從我們的 C++ 程式碼片段建立連線。 
+讓 [Azure 入口網站](https://portal.azure.com)出現，並瀏覽至您所建立的 Azure Cosmos DB 帳戶。 在下一個步驟中，您需要從 Azure 入口網站取得的 URI 和主要金鑰，以便從 C++ 程式碼片段建立連線。 
 
 ![Azure 入口網站中的 Azure Cosmos DB URI 和金鑰](media/sql-api-cpp-get-started/nosql-tutorial-keys.png)
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 12/18/2017
     您現在具有程式碼，可將用戶端初始化，讓我們看看如何使用 Azure Cosmos DB 資源。
 
 ## <a id="CreateDBColl"></a>步驟 5︰建立 C++ 資料庫和集合
-在執行此步驟之前，有人可能不熟悉 Azure Cosmos DB，因此我們先了解一下資料庫、集合和文件的互動方式。 [資料庫](sql-api-resources.md#databases)是分配到多個集合之文件儲存體的邏輯容器。 [集合](sql-api-resources.md#collections)是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。 您可以在 [Azure Cosmos DB 階層式資源模型和概念](sql-api-resources.md)中，深入了解 Azure Cosmos DB 階層式資源模型和概念。
+在執行此步驟之前，有人可能不熟悉 Azure Cosmos DB，因此我們先了解一下資料庫、集合及文件的互動方式。 [資料庫](sql-api-resources.md#databases)是分配到多個集合之文件儲存體的邏輯容器。 [集合](sql-api-resources.md#collections)是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。 您可以在 [Azure Cosmos DB 階層式資源模型和概念](sql-api-resources.md)中，深入了解 Azure Cosmos DB 階層式資源模型和概念。
 
 為了建立資料庫和對應的集合，請在 main 函式結尾新增下列程式碼。 這會使用您在上一個步驟中宣告的用戶端組態，建立名為「FamilyRegistry」的資料庫和名為「FamilyCollection」的集合。
 
@@ -134,12 +134,12 @@ ms.lasthandoff: 12/18/2017
       wcout << ex.message();
     }
 
-總結來說，此程式碼會建立 Azure Cosmos DB 資料庫、集合和文件，而您可以在 Azure 入口網站的文件總管中進行查詢。 
+總結來說，此程式碼會建立 Azure Cosmos DB 資料庫、集合及文件，而您可以在 Azure 入口網站的資料總管中進行查詢。 
 
 ![C++ 教學課程 - 說明帳戶、資料庫、集合和文件之間階層式關聯性的圖表](media/sql-api-cpp-get-started/docs.png)
 
 ## <a id="QueryDB"></a>步驟 7︰查詢 Azure Cosmos DB 資源
-Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行[豐富查詢](sql-api-sql-query.md)。 下列範例程式碼示範使用 SQL 語法所建立的查詢，您可以針對我們在上一個步驟中建立的文件執行該查詢。
+Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行[豐富查詢](sql-api-sql-query.md)。 下列範例程式碼示範使用 SQL 語法所建立的查詢，您可以針對在上一個步驟中建立的文件執行該查詢。
 
 函式會採用資料庫和集合以及文件用戶端的唯一識別碼或資源識別碼來做為引數。 請在 main 函式之前新增此程式碼。
 
@@ -218,7 +218,7 @@ Azure Cosmos DB 支援刪除 JSON 文件，只要在 replacedocument 函式之�
     }
 
 ## <a id="Run"></a>步驟 11：一起執行您的 C++ 應用程式！
-我們現已新增程式碼來建立、查詢、修改和刪除不同的 Azure Cosmos DB 資源。  現在讓我們將這一切連接起來，方法是從 hellodocumentdb.cpp 中的 main 函式對這些不同的函式新增呼叫以及一些診斷訊息。
+您現已新增程式碼來建立、查詢、修改和刪除不同的 Azure Cosmos DB 資源。  現在請將這一切連接起來，方法是從 hellodocumentdb.cpp 中的 main 函式對這些不同的函式新增呼叫以及一些診斷訊息。
 
 若要這麼做，您可以使用下列程式碼取代應用程式的 main 函式。 這會覆寫您在步驟 3 中複製到程式碼的 account_configuration_uri 和 primary_key，因此請儲存該行，或從入口網站將這些值再次複製進來。 
 
@@ -271,7 +271,7 @@ Azure Cosmos DB 支援刪除 JSON 文件，只要在 replacedocument 函式之�
 
 現在您應該能夠在 Visual Studio 中建置並執行您的程式碼，方法是按 F5 鍵，或是在終端機視窗中尋找應用程式並執行可執行檔。 
 
-您應該可以看到入門應用程式的輸出。 該輸出應該會符合以下螢幕擷取畫面。
+您應該可以看到入門應用程式的輸出。 該輸出應該會符合以下螢幕擷取畫面：
 
 ![Azure Cosmos DB C++ 應用程式輸出](media/sql-api-cpp-get-started/console.png)
 
@@ -285,7 +285,7 @@ Azure Cosmos DB 支援刪除 JSON 文件，只要在 replacedocument 函式之�
 
 ## <a name="next-steps"></a>後續步驟
 * 了解如何[監視 Azure Cosmos DB 帳戶](monitor-accounts.md)。
-* 在 [Query Playground](https://www.documentdb.com/sql/demo)中，針對範例資料集執行查詢。
+* 在 [Query Playground](https://www.documentdb.com/sql/demo) \(英文\) 中，針對範例資料集執行查詢。
 * 如需深入了解程式設計模型，請參閱 [Azure Cosmos DB 文件頁面](https://azure.microsoft.com/documentation/services/cosmos-db/)中的＜開發＞一節。
 
 [create-account]: create-sql-api-dotnet.md#create-account

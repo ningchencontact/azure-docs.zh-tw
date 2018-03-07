@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>裝置對應項、作業和訊息路由的 IoT 中樞查詢語言
 
@@ -298,27 +298,27 @@ IoT 中樞假設訊息路由的訊息標頭採用下列 JSON 表示法：
 
 ```json
 {
-    "$messageId": "",
-    "$enqueuedTime": "",
-    "$to": "",
-    "$expiryTimeUtc": "",
-    "$correlationId": "",
-    "$userId": "",
-    "$ack": "",
-    "$connectionDeviceId": "",
-    "$connectionDeviceGenerationId": "",
-    "$connectionAuthMethod": "",
-    "$content-type": "",
-    "$content-encoding": "",
-
-    "userProperty1": "",
-    "userProperty2": ""
+  "message": {
+    "systemProperties": {
+      "contentType": "application/json",
+      "contentEncoding": "utf-8",
+      "iothub-message-source": "deviceMessages",
+      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
+    },
+    "appProperties": {
+      "processingPath": "<optional>",
+      "verbose": "<optional>",
+      "severity": "<optional>",
+      "testDevice": "<optional>"
+    },
+    "body": "{\"Weather\":{\"Temperature\":50}}"
+  }
 }
 ```
 
 訊息系統屬性前面會加上 `'$'` 符號。
-使用者屬性則一律透過其名稱來存取。 如果使用者屬性名稱恰巧與系統屬性 (例如 `$to`) 相同，就會使用 `$to` 運算式來擷取使用者屬性。
-您一律可以使用括弧 `{}` 來存取系統屬性：例如，您可以使用運算式 `{$to}` 來存取系統屬性 `to`。 以括弧括住的屬性名稱一律會擷取對應的系統屬性。
+使用者屬性則一律透過其名稱來存取。 如果使用者屬性名稱恰巧與系統屬性 (例如 `$contentType`) 相同，就會使用 `$contentType` 運算式來擷取使用者屬性。
+您一律可以使用括弧 `{}` 來存取系統屬性：例如，您可以使用運算式 `{$contentType}` 來存取系統屬性 `contentType`。 以括弧括住的屬性名稱一律會擷取對應的系統屬性。
 
 請記住，屬性名稱不區分大小寫。
 
@@ -350,12 +350,58 @@ messageType = 'alerts' AND as_number(severity) <= 2
 
 只有當訊息本文是以 UTF-8、UTF-16 或 UTF-32 編碼的正確格式 JSON 時，「IoT 中樞」才能依據訊息本文內容進行路由。 請將訊息的內容類型設定為 `application/json`。 請在訊息標頭中，將內容編碼設定為其中一種支援的 UTF 編碼。 如果未指定任一標頭，「IoT 中樞」就不會嘗試針對訊息評估任何涉及本文的查詢運算式。 如果您的訊息不是 JSON 訊息，或如果訊息未指定內容類型和內容編碼，您仍然可以使用訊息路由來依據訊息標頭路由傳送訊息。
 
+下列範例說明如何以經過正確格式化和編碼的 JSON 主體建立訊息：
+
+```csharp
+string messageBody = @"{ 
+                            ""Weather"":{ 
+                                ""Temperature"":50, 
+                                ""Time"":""2017-03-09T00:00:00.000Z"", 
+                                ""PrevTemperatures"":[ 
+                                    20, 
+                                    30, 
+                                    40 
+                                ], 
+                                ""IsEnabled"":true, 
+                                ""Location"":{ 
+                                    ""Street"":""One Microsoft Way"", 
+                                    ""City"":""Redmond"", 
+                                    ""State"":""WA"" 
+                                }, 
+                                ""HistoricalData"":[ 
+                                    { 
+                                    ""Month"":""Feb"", 
+                                    ""Temperature"":40 
+                                    }, 
+                                    { 
+                                    ""Month"":""Jan"", 
+                                    ""Temperature"":30 
+                                    } 
+                                ] 
+                            } 
+                        }"; 
+ 
+// Encode message body using UTF-8 
+byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
+ 
+using (var message = new Message(messageBytes)) 
+{ 
+    // Set message body type and content encoding. 
+    message.ContentEncoding = "utf-8"; 
+    message.ContentType = "application/json"; 
+ 
+    // Add other custom application properties.  
+    message.Properties["Status"] = "Active";    
+ 
+    await deviceClient.SendEventAsync(message); 
+}
+```
+
 您可以在查詢運算式中使用 `$body` 來路由傳送訊息。 您可以在查詢運算式中使用簡單內文參考、內文陣列參考或多個內文參考。 您的查詢運算式也可以將內文參考與訊息標頭參考合併。 例如，以下是所有有效的查詢運算式：
 
 ```sql
-$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```

@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure Stack 中虛擬機器的考量
 
@@ -41,19 +41,25 @@ ms.lasthandoff: 02/01/2018
 |虛擬機器擴展集|支援自動調整|不支援自動調整。<br>使用入口網站、Resource Manager 範本或 PowerShell 將更多執行個體新增到擴展集。
 
 ## <a name="virtual-machine-sizes"></a>虛擬機器大小
+Azure 會以數種方式施加資源限制，來避免資源 (伺服器本機和服務層級) 的過度耗用。 如果未對租用戶施加一些資源耗用限制，當鄰近的機器過度耗用資源時，租用戶體驗就會變差。 
+- 虛擬機器的網路輸出已有頻寬上限。 Azure Stack 中的上限符合 Azure 中的上限。  
+- 針對儲存體資源，Azure Stack 會實作儲存體 IOPs 限制，以避免租用戶為了存取儲存體而造成基本的資源過度耗用。 
+- 針對具有多個連結資料磁碟的虛擬機器，每個個別資料磁碟的最大輸送量是 500 IOPS (適用於 HHD) 和 2300 IOPS (適用於 SSD)。
 
-Azure Stack 支援下列大小：
+下表列出 Azure Stack 所支援的虛擬機器及其設定：
 
-| 類型 | 大小 | 支援的大小範圍 |
-| --- | --- | --- |
-|一般用途 |基本 A|A0 - A4|
-|一般用途 |標準 A|A0 - A7|
-|一般用途 |D 系列|D1 - D4|
-|一般用途 |Dv2 系列|D1_v2 - D5_v2|
-|一般用途 |DS 系列|DS1 - DS4|
-|一般用途 |DSv2 系列|DS1_v2 - DS5_v2|
-|記憶體最佳化|DS 系列|DS11 - DS14|
-|記憶體最佳化 |DSv2 系列|DS11_v2 - DS14_v2|
+| 類型           | 大小          | 支援的大小範圍 |
+| ---------------| ------------- | ------------------------ |
+|一般用途 |基本 A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|一般用途 |標準 A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|一般用途 |D 系列       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|一般用途 |Dv2 系列     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|一般用途 |DS 系列      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|一般用途 |DSv2 系列    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|記憶體最佳化|D 系列       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|記憶體最佳化|DS 系列      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|記憶體最佳化|Dv2 系列     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|記憶體最佳化|DSv2-系列 -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
 Azure Stack 與 Azure 之間的虛擬機器大小及其關聯資源數量是一致的。 例如，此種一致性包括記憶體數量、核心數目，以及可建立的資料磁碟數目/大小。 不過，Azure Stack 中相同 VM 大小的效能取決於特定 Azure Stack 環境的底層特性。
 

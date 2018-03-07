@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: bfad01d8c14cdd972ebe8e4038f226ffe0da93b1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c644dd98d468a8c99625c45bad3f06031ff22b4e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>利用邏輯應用程式交換適用於企業整合的 X12 訊息
 
@@ -31,37 +31,34 @@ ms.lasthandoff: 12/18/2017
 
 以下是您所需的項目︰
 
-* 已經定義並與 Azure 訂用帳戶相關聯的[整合帳戶](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+* 已經定義並與 Azure 訂用帳戶相關聯的[整合帳戶](logic-apps-enterprise-integration-create-integration-account.md)
 * 至少已在整合帳戶中定義兩個[夥伴](../logic-apps/logic-apps-enterprise-integration-partners.md)，以及在 [企業身分識別] 之下設定 X12 識別碼    
-* 要上傳到[整合帳戶](../logic-apps/logic-apps-enterprise-integration-accounts.md)的必要[結構描述](../logic-apps/logic-apps-enterprise-integration-schemas.md)
+* 您可以上傳到整合帳戶的必要[結構描述](../logic-apps/logic-apps-enterprise-integration-schemas.md)
 
-在您[建立整合帳戶](../logic-apps/logic-apps-enterprise-integration-accounts.md)、[新增夥伴](logic-apps-enterprise-integration-partners.md)，以及具有您有使用的[結構描述](../logic-apps/logic-apps-enterprise-integration-schemas.md)之後，您可以依照下列步驟建立 X12 合約。
+在您[建立整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)、[新增夥伴](logic-apps-enterprise-integration-partners.md)，以及具有您有使用的[結構描述](../logic-apps/logic-apps-enterprise-integration-schemas.md)之後，您可以依照下列步驟建立 X12 合約。
 
 ## <a name="create-an-x12-agreement"></a>建立 X12 合約
 
-1.  登入 [Azure 入口網站](http://portal.azure.com "Azure 入口網站")。 從左側功能表中選取 [更多服務]。 
+1. 登入 [Azure 入口網站](http://portal.azure.com "Azure 入口網站")。 
 
-    > [!TIP]
-    > 如果沒有看到 [更多服務]，您可能必須先展開功能表。 在摺疊功能表的頂端，選取 [顯示功能表]。
+2. 從主要 Azure 功能表中選取 [所有服務]。 在搜尋方塊中輸入「整合」，然後選取 [整合帳戶]。  
 
-    ![在左側功能表上選取 [更多服務]](./media/logic-apps-enterprise-integration-x12/account-1.png)
+   ![尋找您的整合帳戶](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.  在搜尋方塊中，輸入 [整合] 做為篩選條件。 在結果清單中選取 [整合帳戶]。  
+   > [!TIP]
+   > 如果 [所有服務] 未出現，您可能必須先展開功能表。 在摺疊功能表的頂端，選取 [顯示功能表]。
 
-    ![依據 [整合] 篩選，選取 [整合帳戶]](./media/logic-apps-enterprise-integration-x12/account-2.png)
+3. 在 [整合帳戶] 底下，選取要在其中新增合約的整合帳戶。
 
-3. 在開啟的 [整合帳戶]  刀鋒視窗中，選取您要在其中新增合約的整合帳戶。
-如果沒有看到任何整合帳戶，請[先建立一個](../logic-apps/logic-apps-enterprise-integration-accounts.md "關於整合帳戶的一切")。
-
-    ![選取您要在其中建立合約的整合帳戶](./media/logic-apps-enterprise-integration-x12/account-3.png)
+   ![選取您要在其中建立合約的整合帳戶](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. 選取 [概觀]，然後選取 [合約] 圖格。 如果您沒有 [合約] 圖格，請先新增圖格。 
 
-    ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. 在開啟的 [合約] 刀鋒視窗中選擇 [新增]  按鈕。
+5. 在 [合約] 之下，選擇 [新增]。
 
-    ![選擇 [新增]](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![選擇 [新增]](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. 在 [新增] 之下，輸入合約的 [名稱]。 針對 [合約類型]，選取 **X12**。 選取合約的 [主機夥伴]、[主機身分識別]、[來賓夥伴] 和 [來賓身分識別]。 如需更多屬性詳細資訊，請參閱此步驟中的資料表。
 
@@ -263,7 +260,7 @@ ms.lasthandoff: 12/18/2017
 | 屬性 | 說明 |
 | --- | --- |
 | 要使用的字元集 |若要驗證屬性，請選取 X12 字元集。 選項包括 [基本]、[延伸] 和 [UTF8]。 |
-| 結構描述 |從下拉式清單中選取結構描述。 在您完成每個資料列時，便會自動新增一個資料列。 針對選取的結構描述，根據下列分隔符號說明，選取您要使用的分隔符號集。 |
+| 結構描述 |從下拉式清單中選取結構描述。 在您完成每個資料列時，便會自動新增一個資料列。 針對選取的結構描述，根據下面的分隔符號說明，選取您要使用的分隔符號集。 |
 | 輸入類型 |從下拉式清單中選取輸入類型。 |
 | 元件分隔符號 |若要分隔複合的資料元素，請輸入單一字元。 |
 | 資料元素分隔符號 |若要分隔複合資料元素內的簡單資料元素，請輸入單一字元。 |
@@ -291,13 +288,13 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="find-your-created-agreement"></a>尋找您建立的合約
 
-1.  完成所有合約屬性的設定之後，請在 [新增] 刀鋒視窗中選擇 [確定]，以完成合約建立並回到整合帳戶刀鋒視窗。
+1.  完成所有合約屬性的設定之後，請在 [新增] 頁面中選擇 [確定]，以完成合約建立並回到整合帳戶。
 
     您新增的合約現在顯示於您的 [合約] 清單中。
 
-2.  您也可以在整合帳戶概觀中檢視您的合約。 在整合帳戶刀鋒視窗上，選擇 [概觀]，然後選取 [合約] 圖格。
+2.  您也可以在整合帳戶概觀中檢視您的合約。 在整合帳戶功能表上，選擇 [概觀]，然後選取 [合約] 圖格。
 
-    ![選擇 [合約] 圖格來檢視所有合約](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+    ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
 ## <a name="view-the-swagger"></a>檢視 Swagger
 請參閱 [Swagger 詳細資料](/connectors/x12/)。 

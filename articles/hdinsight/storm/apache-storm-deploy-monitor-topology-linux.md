@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: a972344e2b6205fbcf69d2969c42211ec5b24869
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>部署和管理 HDInsight 上的 Apache Storm 拓撲
 
@@ -226,7 +226,7 @@ Storm UI 是以 REST API 為建置基礎，因此您可以使用 REST API 執行
 
 * **從 SSH 工作階段**：使用命令 `headnode -f` (從 SSH 工作階段到叢集)。
 * **從 Ambari Web**：從頁面頂端選取 [服務]，然後選取 [Storm]。 從 [摘要] 索引標籤，選取 [Storm UI 伺服器]。 託管 Storm UI 和 REST API 的節點 FQDN 位於頁面頂端。
-* **從 Ambari REST API**：使用命令 `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 來擷取 Storm UI 和 REST API 執行所在節點的相關資訊。 將 **PASSWORD** 取代為叢集的系統管理員密碼。 將 **CLUSTERNAME** 取代為叢集名稱。 在回應中，"host_name" 項目包含節點的 FQDN。
+* **從 Ambari REST API**：使用命令 `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 來擷取 Storm UI 和 REST API 執行所在節點的相關資訊。 將 **CLUSTERNAME** 取代為叢集名稱。 出現提示時，請輸入登入 (系統管理員) 帳戶的密碼。 在回應中，"host_name" 項目包含節點的 FQDN。
 
 ### <a name="authentication"></a>驗證
 

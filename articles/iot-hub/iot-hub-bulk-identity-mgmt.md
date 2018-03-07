@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>管理大量的 IoT 中樞裝置身分識別
 
@@ -49,7 +49,18 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > [!NOTE]
 > 若要在 C# 程式碼中使用 **RegistryManager** 類別，請將 **Microsoft.Azure.Devices** NuGet 套件新增至您的專案。 **RegistryManager** 類別位於 **Microsoft.Azure.Devices** 命名空間。
 
-您可以使用 **RegistryManager** 類別來查詢**作業**的狀態 (使用所傳回的 **JobProperties** 中繼資料)。
+您可以使用 **RegistryManager** 類別來查詢**作業**的狀態 (使用所傳回的 **JobProperties** 中繼資料)。 若要建立 **RegistryManager** 類別的執行個體，請使用 **CreateFromConnectionString** 方法：
+
+```csharp
+RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
+```
+
+若要尋找 IoT 中樞的連接字串，請在 Azure 入口網站中：
+
+- 瀏覽至您的 IoT 中樞。
+- 選取 [共用存取原則]。
+- 選取原則，並將您需要的權限列入考量。
+- 從螢幕右側的面板複製連接字串。
 
 下列 C# 程式碼片段示範如何每五秒輪詢一次以查看作業是否已執行完成：
 
@@ -236,7 +247,7 @@ JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasU
 
 在每個裝置的匯入序列化資料中使用選擇性的 **importMode** 屬性控制每個裝置的匯入程序。 **ImportMode** 屬性具有下列選項：
 
-| importMode | 描述 |
+| importMode | 說明 |
 | --- | --- |
 | **createOrUpdate** |如果不存在具有指定 **識別碼**的裝置，則表示是新註冊的裝置。 <br/>如果裝置已存在，則會以所提供的輸入資料覆寫現有資訊，而不管 **ETag** 值為何。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
 | **create** |如果不存在具有指定 **識別碼**的裝置，則表示是新註冊的裝置。 <br/>如果裝置已存在，則會在記錄檔中寫入錯誤。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |

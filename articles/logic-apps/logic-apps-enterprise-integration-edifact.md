@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: fc9a0068de5f9464133eec0b043fbba1dc0fbde7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b1ea9966add3cf0d5f75988f11cda57fa4e4cf6
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>利用邏輯應用程式交換 EDIFACT 訊息以進行企業整合
 
@@ -32,65 +32,63 @@ ms.lasthandoff: 10/11/2017
 
 以下是您所需的項目︰
 
-* 已經定義並與 Azure 訂用帳戶相關聯的[整合帳戶](../logic-apps/logic-apps-enterprise-integration-accounts.md)  
+* 已經定義並與 Azure 訂用帳戶相關聯的[整合帳戶](logic-apps-enterprise-integration-create-integration-account.md)  
 * 至少已經在整合帳戶中定義兩個[夥伴](logic-apps-enterprise-integration-partners.md)
 
 > [!NOTE]
 > 建立合約時，您對夥伴接收或傳送之訊息中的內容必須與合約類型相符。
 
-在您[建立整合帳戶](../logic-apps/logic-apps-enterprise-integration-accounts.md)並[新增夥伴](logic-apps-enterprise-integration-partners.md)之後，您可以依照下列步驟建立 EDIFACT 合約。
+在您[建立整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)並[新增夥伴](logic-apps-enterprise-integration-partners.md)之後，您可以依照下列步驟建立 EDIFACT 合約。
 
 ## <a name="create-an-edifact-agreement"></a>建立 EDIFACT 合約 
 
-1.  登入 [Azure 入口網站](http://portal.azure.com "Azure 入口網站")。 從左側功能表中選取 [更多服務]。
+1. 登入 [Azure 入口網站](http://portal.azure.com "Azure 入口網站")。 
 
-    > [!TIP]
-    > 如果沒有看到 [更多服務]，您可能必須先展開功能表。 在摺疊功能表的頂端，選取 [顯示功能表]。
+2. 在主要 Azure 功能表上，選取 [所有服務]。 在搜尋方塊中輸入「整合」，然後選取 [整合帳戶]。
 
-    ![在左側功能表上選取 [更多服務]](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+   ![尋找您的整合帳戶](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
-2. 在搜尋方塊中，輸入 [整合] 做為篩選條件。 在結果清單中選取 [整合帳戶]。
+   > [!TIP]
+   > 如果 [所有服務] 未出現，您可能必須先展開功能表。 在摺疊功能表的頂端，選取 [顯示文字標籤]。
 
-    ![依據 [整合] 篩選，選取 [整合帳戶]](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
+3. 在 [整合帳戶] 底下，選取要在其中建立合約的整合帳戶。
 
-3. 在開啟的 [整合帳戶]  刀鋒視窗中，選取您要在其中建立合約的整合帳戶。
-如果沒有看到任何整合帳戶，請[先建立一個](../logic-apps/logic-apps-enterprise-integration-accounts.md "關於整合帳戶的一切")。  
+   ![選取您要在其中建立合約的整合帳戶](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
-    ![選取您要在其中建立合約的整合帳戶](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+4. 選擇 [合約]。 如果您沒有 [合約] 圖格，請先新增圖格。   
 
-4. 選擇 [合約] 圖格。 如果您沒有 [合約] 圖格，請先新增圖格。   
+   ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
 
-    ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+5. 在 [合約] 頁面上，選擇 [新增]。
 
-5. 在開啟的 [合約] 刀鋒視窗中選擇 [新增]  按鈕。
-
-    ![選擇 [新增]](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+   ![選擇 [新增]](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
 6. 在 [新增] 之下，輸入合約的 [名稱]。 針對 [合約類型]，選取 **EDIFACT**。 選取合約的 [主機夥伴]、[主機身分識別]、[來賓夥伴] 和 [來賓身分識別]。
 
-    ![提供合約詳細資料](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
+   ![提供合約詳細資料](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-    | 屬性 | 說明 |
-    | --- | --- |
-    | Name |合約的名稱 |
-    | 合約類型 | 應該是 EDIFACT |
-    | 主控夥伴 |合約需要主控夥伴和來賓夥伴。 主機夥伴代表設定合約的組織。 |
-    | 主控身分識別 |主控夥伴的識別碼 |
-    | 來賓夥伴 |合約需要主控夥伴和來賓夥伴。 來賓夥伴代表與主控夥伴有生意往來的組織。 |
-    | 來賓身分識別 |來賓合作夥伴的識別碼 |
-    | 接收設定 |這些屬性會套用到合約所接收的所有訊息。 |
-    | 傳送設定 |這些屬性會套用到合約所傳送的所有訊息。 |
+   | 屬性 | 說明 |
+   | --- | --- |
+   | Name |合約的名稱 |
+   | 合約類型 | 應該是 EDIFACT |
+   | 主控夥伴 |合約需要主控夥伴和來賓夥伴。 主機夥伴代表設定合約的組織。 |
+   | 主控身分識別 |主控夥伴的識別碼 |
+   | 來賓夥伴 |合約需要主控夥伴和來賓夥伴。 來賓夥伴代表與主控夥伴有生意往來的組織。 |
+   | 來賓身分識別 |來賓合作夥伴的識別碼 |
+   | 接收設定 |這些屬性會套用到合約所接收的所有訊息。 |
+   | 傳送設定 |這些屬性會套用到合約所傳送的所有訊息。 |
+   ||| 
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>設定合約處理所收到訊息的方式
 
 您現在已經設定合約屬性，您可以設定此合約如何識別及處理您透過此合約從夥伴接收的內送訊息。
 
-1.  在 [新增] 之下，選取 [接收設定]。
+1. 在 [新增] 之下，選取 [接收設定]。
 根據您與其交換訊息之夥伴所簽署的合約，設定這些屬性。 如需屬性說明，請參閱本節中的資料表。
 
-    [接收設定] 分成下列各區段：識別碼、通知、結構描述、控制編號、驗證和內部設定。
+   [接收設定] 分成下列各區段：識別碼、通知、結構描述、控制編號、驗證和內部設定。
 
-    ![設定 [接收設定]](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
+   ![設定 [接收設定]](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
 2. 完成後，請務必選擇 [確定] 以儲存設定。
 
@@ -211,7 +209,7 @@ ms.lasthandoff: 10/11/2017
 | 屬性 | 說明 |
 | --- | --- |
 | UNB1.1 (系統識別碼) |選取要套用於外送交換的 EDIFACT 字元集。 |
-| 結構描述 |從下拉式清單中選取結構描述。 在您完成每個資料列時，便會自動新增一個資料列。 針對選取的結構描述，根據下列分隔符號說明，選取您要使用的分隔符號集。 |
+| 結構描述 |從下拉式清單中選取結構描述。 在您完成每個資料列時，便會自動新增一個資料列。 針對選取的結構描述，根據下面的分隔符號說明，選取您要使用的分隔符號集。 |
 | 輸入類型 |從下拉式清單中選取輸入類型。 |
 | 元件分隔符號 |若要分隔複合的資料元素，請輸入單一字元。 |
 | 資料元素分隔符號 |若要分隔複合資料元素內的簡單資料元素，請輸入單一字元。 |
@@ -240,13 +238,13 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="find-your-created-agreement"></a>尋找您建立的合約
 
-1.  完成所有合約屬性的設定之後，請在 [新增] 刀鋒視窗中選擇 [確定]，以完成合約建立並回到整合帳戶刀鋒視窗。
+1.  完成所有合約屬性的設定之後，請在 [新增] 頁面中選擇 [確定]，以完成合約建立並回到整合帳戶。
 
     您新增的合約現在顯示於您的 [合約] 清單中。
 
-2.  您也可以在整合帳戶概觀中檢視您的合約。 在整合帳戶刀鋒視窗上，選擇 [概觀]，然後選取 [合約] 圖格。 
+2.  您也可以在整合帳戶概觀中檢視您的合約。 在整合帳戶功能表上，選擇 [概觀]，然後選取 [合約] 圖格。 
 
-    ![選擇 [合約] 圖格來檢視所有合約](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="view-swagger-file"></a>檢視 Swagger 檔案
 若要檢視 EDIFACT 連接器的 Swagger 詳細資料，請參閱 [EDIFACT](/connectors/edifact/)。

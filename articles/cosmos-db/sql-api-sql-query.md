@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>適用於 Azure Cosmos DB 的 SQL 查詢
 
@@ -937,7 +937,7 @@ TOP 可以與常數值 (如上所示) 或使用參數化查詢的變數值搭配
 彙總也可以對陣列反覆運算的結果執行。 如需詳細資訊，請參閱[查詢中的陣列反覆運算](#Iteration)。
 
 > [!NOTE]
-> 使用 Azure 入口網站的 [查詢總管] 時，請注意彙總查詢可能會對查詢頁面傳回部分彙總的結果。 SDK 會產生所有頁面的單一累計值。 
+> 使用 Azure 入口網站的 [資料總管] 時，請注意彙總查詢可能會對查詢頁面傳回部分彙總的結果。 SDK 會產生所有頁面的單一累計值。 
 > 
 > 若要使用程式碼執行彙總查詢，您需要 .NET SDK 1.12.0、.NET Core SDK 1.1.0 或 Java SDK 1.9.5 或更高版本。    
 >

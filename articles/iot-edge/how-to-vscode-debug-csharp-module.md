@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 46d9ca0bf6c9ddf95c147fc2eb62d275c973845e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5ed517cf8d70cd279a55b79ad448709116cf511b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>使用 Visual Studio Code 搭配 Azure IoT Edge 進行 C# 模組偵錯
 本文提供詳細的指示，說明如何使用 [Visual Studio Code](https://code.visualstudio.com/) 作為主要開發工具來進行 Azure IoT Edge 模組偵錯。
@@ -47,7 +47,7 @@ ms.lasthandoff: 02/01/2018
 
 2. 在 `launch.json` 中，瀏覽至 [針對 IoT Edge 自訂模組進行偵錯 (.NET Core)] 區段。 在 [pipeArgs] 底下，填入 `<container_name>`。 在本教學課程中，應該是 `filtermodule`。
 
-    ![VS Code 偵錯視窗的螢幕擷取畫面](./media/how-to-debug-csharp-module/f5-debug-option.png)
+    ![VS Code launch.json 的螢幕擷取畫面](./media/how-to-debug-csharp-module/add-container-name.png)
 
 3. 瀏覽至 **Program.cs**。 在 `method static async Task<MessageResponse> FilterModule(Message message, object userContext)` 中新增中斷點。
 4. 再次按 **F5**，然後選取要連結的程序。 在本教學課程中，程序名稱應該是 `FilterModule.dll`。

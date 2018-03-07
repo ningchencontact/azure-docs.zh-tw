@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 28ecdc541bc7e95dfa6d7c1b2d984cba0654699f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 64b0982ab1d0b212120d962d4c47a1b8db8ca025
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>使用 Azure Data Factory (搶鮮版 (Beta)) 從 ServiceNow 複製資料
 
@@ -114,11 +114,11 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 在查詢中指定 ServiceNow 的結構描述和資料行時，請注意下列事項：
 
-- **結構描述：**查詢 ServiceNow 時需要將結構描述指定為 `Actual` 或 `Display`，而在呼叫 [ServiceNow RESTful API](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET) 時，您可以將它看待為 `sysparm_display_value` 的參數 (true 或 false)。 
-- **資料行：**實際值的資料行名稱為 `[columne name]_value`，而顯示值的資料行名稱為 `[columne name]_display_value`。
+- **結構描述：**在 ServiceNow 查詢中，將結構描述指定為 `Actual` 或 `Display`，而在呼叫 [ServiceNow RESTful API](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET) 時，您可以將它視為 `sysparm_display_value` 的參數 (true 或 false)。 
+- **資料行：**`Actual` 結構描述下實際值的資料行名稱為 `[columne name]_value`，而 `Display` 結構描述下顯示值的資料行名稱為 `[columne name]_display_value`。 請注意，資料行名稱必須對應至要在查詢中使用的結構描述。
 
 **範例查詢：**
-`SELECT distinct col_value, col_display_value FROM Actual.alm_asset` 或 `SELECT distinct col_value, col_display_value FROM Display.alm_asset`
+`SELECT col_value FROM Actual.alm_asset` 或 `SELECT col_display_value FROM Display.alm_asset`
 
 **範例：**
 
