@@ -1,9 +1,9 @@
 ---
-title: "設定 Azure ExpressRoute 線路的網路效能監視器 (預覽) | Microsoft Docs"
-description: "設定 Azure ExpressRoute 線路的路由 NPM。 (預覽)"
+title: "設定 Azure ExpressRoute 線路的網路效能監控 | Microsoft Docs"
+description: "設定 Azure ExpressRoute 線路的雲端式網路監視。"
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: ajaycode
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
-ms.author: pareshmu
-ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.date: 02/14/2018
+ms.author: agummadi
+ms.openlocfilehash: 4f3edb6879ff256b1b50a1437fe349084fe7de41
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="configure-network-performance-monitor-for-expressroute-preview"></a>設定 ExpressRoute 線路的網路效能監視器 (預覽)
+# <a name="configure-network-performance-monitor-for-expressroute"></a>設定 ExpressRoute 的網路效能監控
 
 「網路效能監視器」(NPM) 是一個雲端式網路監視解決方案，可監視 Azure 雲端部署與內部部署位置 (分公司等) 之間的連線。 NPM 是 Microsoft Operations Management Suite (OMS) 的一部分。 NPM 現在為 ExpressRoute 提供擴充功能，可讓您監視經由已設定為使用「私用對等互連」之 ExpressRoute 線路的網路效能。 設定 ExpressRoute 的 NPM 時，您可以偵測網路問題來予以識別並排除。
 
@@ -49,6 +49,10 @@ ms.lasthandoff: 02/01/2018
 * 東南亞 
 * 澳大利亞東南部
 
+>[!NOTE]
+>預計在2018 年 Q2 推出在 Azure Government 雲端中監視連線到 VNET 之 ExpressRoute 電路的支援。   
+>
+
 ## <a name="workflow"></a>工作流程
 
 監視代理程式安裝在內部部署和 Azure 中的多部伺服器上。 這些代理程式會彼此互相通訊但不會傳送資料，而是會傳送 TCP 交握封包。 代理程式之間的通訊可讓 Azure 對應流量可採用的網路拓撲和路徑。
@@ -62,9 +66,15 @@ ms.lasthandoff: 02/01/2018
 
 如果您已經使用「網路效能監視器」來監視其他物件或服務，並且在其中一個支援的區域中已經有工作區，則可以略過步驟 1 和步驟 2，然後從步驟 3 開始進行設定。
 
-## <a name="configure"></a>步驟 1：建立工作區 (在有 VNET 連結至 ExpressRoute 線路的訂用帳戶中)
+## <a name="configure"></a>步驟 1：建立工作區
+
+在有 VNet 連結至 ExpressRoute 線路的訂用帳戶中建立工作區。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取有 VNET 對等連至 ExpressRoute 線路的訂用帳戶。 然後搜尋 **Marketplace** 中的服務清單，以找出 [網路效能監視器]。 在傳回的結果中，按一下以開啟 [網路效能監視器] 頁面。
+
+>[!NOTE]
+>您可以建立新的工作區，或使用現有的工作區。  如果您想要使用現有的工作區，您必須確定工作區已移轉至新的查詢語言。 [詳細資訊...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+>
 
   ![入口網站](.\media\how-to-npm\3.png)<br><br>
 2. 在 [網路效能監視器] 主頁面底部，按一下 [建立] 以開啟 [網路效能監視器 - 建立新的解決方案] 頁面。 按一下 [OMS 工作區 - 選取工作區] 以開啟 [工作區] 頁面。 按一下 [+ 建立新工作區] 以開啟 [工作區] 頁面。
@@ -79,29 +89,25 @@ ms.lasthandoff: 02/01/2018
   >[!NOTE]
   >ExpressRoute 電路可能位於全世界的任何位置，且不一定要與工作區位於相同的區域。
   >
-
-
+  
   ![工作區](.\media\how-to-npm\4.png)<br><br>
 4. 按一下 [確定] 以儲存並部署設定範本。 在範本驗證之後，按一下 [建立] 以部署工作區。
 5. 部署工作區之後，瀏覽至您所建立的 [NetworkMonitoring (名稱)] 資源。 驗證設定，然後按一下 [解決方案需要其他設定]。
 
   ![其他設定](.\media\how-to-npm\5.png)
-6. 在 [歡迎使用網路效能監視器] 頁面上，選取 [使用 TCP 進行綜合交易]，然後按一下 [提交]。 TCP 交易僅供用來建立和中斷連線。 不會透過這些 TCP 連線傳送任何資訊。
-
-  ![用於綜合交易的 TCP](.\media\how-to-npm\6.png)
 
 ## <a name="agents"></a>步驟 2：安裝及設定代理程式
 
 ### <a name="download"></a>2.1：下載代理程式安裝檔案
 
-1. 在您資源的 [網路效能監視器設定 - TCP 設定] 頁面上的 [安裝 OMS 代理程式] 區段中，按一下與您伺服器的處理器對應的代理程式，然後下載安裝檔案。
+1. 移至資源的 [網路效能監控設定] 頁面中 [一般設定] 索引標籤。 從 [安裝 OMS Agent] 區段中按一下對應至您伺服器處理器的代理程式，並下載安裝檔案。
 
   >[!NOTE]
   >代理程式必須安裝於 Windows Server (2008 SP1 或更新版本) 上。 不支援使用 Windows 桌面版 OS 和 Linux OS 監視 ExpressRoute 線路。 
   >
   >
 2. 接著，將 [工作區識別碼] 和 [主要金鑰] 複製到 [記事本]。
-3. 在 [設定代理程式] 區段中，下載 Powershell 指令碼。 此 PowerShell 指令碼將協助您開啟 TCP 交易的相關防火牆連接埠。
+3. 從 [使用 TCP 通訊協定設定 OMS Agent 以供監視] 區段中，下載 Powershell 指令碼。 此 PowerShell 指令碼將協助您開啟 TCP 交易的相關防火牆連接埠。
 
   ![PowerShell 指令碼](.\media\how-to-npm\7.png)
 

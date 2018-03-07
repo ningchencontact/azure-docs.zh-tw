@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 02/22/2018
 ms.author: nitinme
-ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 87e60bcc097157c733c1e08356b7cd9ea48bb868
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Spark 叢集上的 Jupyter Notebook 核心 
 
@@ -88,7 +88,7 @@ HDInsight Spark 叢集提供的核心，可讓您用於 Spark 上的 Jupyter Not
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |針對 sqlContext 執行 Hive 查詢。 如果傳遞 `-o` 參數，則查詢的結果會當做 [Pandas](http://pandas.pydata.org/) 資料框架，保存在 %%local Python 內容中。 |
    | local |`%%local`<br>`a=1` |接下來幾行的程式碼全部在本機執行。 程式碼必須是有效的 Python2 程式碼，即使與您使用的核心無關也一樣。 因此，即使您在建立 Notebook 時選取 **PySpark3** 或 **Spark** 核心，如果您在資料格中使用核心 `%%local` magic，該資料格只能包含有效的 Python2 程式碼。 |
    | logs |`%%logs` |輸出目前 Livy 工作階段的記錄檔。 |
-   | delete |`%%delete -f -s <session number>` |刪除目前 Livy 端點的特定工作階段。 請注意，您無法刪除針對核心本身起始的工作階段。 |
+   | delete |`%%delete -f -s <session number>` |刪除目前 Livy 端點的特定工作階段。 您無法刪除針對核心本身起始的工作階段。 |
    | cleanup |`%%cleanup -f` |刪除目前 Livy 端點的所有工作階段，包括此 Notebook 的工作階段。 force 旗標 -f 是必要的。 |
 
    > [!NOTE]
@@ -135,7 +135,11 @@ HDInsight Spark 叢集提供的核心，可讓您用於 Spark 上的 Jupyter Not
 
 ## <a name="where-are-the-notebooks-stored"></a>Notebook 會儲存在哪裡？
 
-Jupyter 筆記本會儲存到 **/HdiNotebooks** 資料夾下，與叢集相關聯的儲存體帳戶。  您從 Jupyter 內建立的 Notebook、文字檔案和資料夾，都可從儲存體帳戶存取。  例如，如果您使用 Jupyter 建立資料夾 **myfolder** 和 Notebook **myfolder/mynotebook.ipynb**，您可以在儲存體帳戶內從 `/HdiNotebooks/myfolder/mynotebook.ipynb` 存取該 Notebook。  反之亦然，也就是說，如果您直接將 Notebook 上傳至儲存體帳戶的 `/HdiNotebooks/mynotebook1.ipynb`，則從 Jupyter 也能看到該 Notebook。  即使在刪除叢集之後，Notebook 仍會保留在儲存體帳戶中。
+如果您的叢集使用 Azure 儲存體作為預設的儲存體帳戶，Jupyter 筆記本會儲存在儲存體帳戶的 **/HdiNotebooks** 資料夾底下。  您從 Jupyter 內建立的 Notebook、文字檔案和資料夾，都可從儲存體帳戶存取。  例如，如果您使用 Jupyter 建立資料夾 **myfolder** 和 Notebook **myfolder/mynotebook.ipynb**，您可以在儲存體帳戶內從 `/HdiNotebooks/myfolder/mynotebook.ipynb` 存取該 Notebook。  反之亦然，也就是說，如果您直接將 Notebook 上傳至儲存體帳戶的 `/HdiNotebooks/mynotebook1.ipynb`，則從 Jupyter 也能看到該 Notebook。  即使在刪除叢集之後，Notebook 仍會保留在儲存體帳戶中。
+
+> [!NOTE]
+> 使用 Azure Data Lake Store 作為預設儲存體帳戶的 HDInsight 叢集，不會在相關聯的儲存體中儲存筆記本。
+>
 
 將 Notebook 儲存到儲存體帳戶的方式與 HDFS 相容。 因此，如果對叢集執行 SSH，您可以使用檔案管理命令，如下列程式碼片段所示︰
 
@@ -143,8 +147,7 @@ Jupyter 筆記本會儲存到 **/HdiNotebooks** 資料夾下，與叢集相關�
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
-
-萬一叢集有儲存體帳戶存取問題，Notebook 也會儲存在前端節點 `/var/lib/jupyter`上。
+無論叢集是使用 Azure 儲存體或 Azure Data Lake Store 作為預設的儲存體帳戶，筆記本也會儲存在叢集前端節點的 `/var/lib/jupyter` 上。
 
 ## <a name="supported-browser"></a>支援的瀏覽器
 
@@ -160,7 +163,6 @@ Google Chrome 上只支援 Spark HDInsight 叢集上的 Jupyter Notebook。
 * [Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
 * [Spark 和機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 串流：使用 HDInsight 中的 Spark 來建置即時串流應用程式](apache-spark-eventhub-streaming.md)
 * [使用 HDInsight 中的 Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>建立及執行應用程式

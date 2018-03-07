@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 83d96a2706e879f8817540e85369729289be9456
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bf20a0f15b1bc285a598c64c7e9f2de0082b2904
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：Azure 點對站連線問題
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/09/2018
 若要解決此問題，請遵循下列步驟：
 
 1. 移除閘道子網路上的 UDR。 確定 UDR 會適當地轉送所有流量。
-2. 在 Azure 入口網站中檢查根憑證的狀態，以查看它是否已被撤銷。 如果它未被撤銷，請嘗試將根憑證刪除，然後重新上傳。 如需詳細資訊，請參閱[建立憑證](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts)。
+2. 在 Azure 入口網站中檢查根憑證的狀態，以查看它是否已被撤銷。 如果它未遭撤銷，請嘗試將根憑證刪除，然後重新上傳。 如需詳細資訊，請參閱 [建立憑證](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts)。
 
 ## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>VPN 用戶端錯誤：憑證鏈結已處理但被終止 
 

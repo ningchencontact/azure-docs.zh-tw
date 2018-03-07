@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/07/2018
+ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3c5e893508126c87f6e4371918d33d3d040a5894
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/11/2018
 
 ## <a name="common-scenarios"></a>常見案例
 
-在行動第一、雲端第一的世界中，Azure Active Directory 可讓您從任何地方單一登入至裝置、應用程式和服務。 隨著裝置 (包括 BYOD)、在公司網路外部作業，以及協力廠商 SaaS 應用程式的激增，IT 專業人員面臨到兩個相對的目標︰
+在行動第一、雲端第一的世界中，Azure Active Directory 可讓您從任何地方單一登入至裝置、應用程式和服務。 隨著裝置 (包括 BYOD)、公司網路外部作業、第三方 SaaS 應用程式的激增，IT 專業人員面臨到兩個相對的目標︰
 
 - 讓使用者隨時隨地都具有生產力
 - 隨時保護公司資產
@@ -45,13 +45,13 @@ ms.lasthandoff: 02/11/2018
 
 
 
-- **[登入風險](active-directory-conditional-access-conditions.md#sign-in-risk)**：Azure AD Identity Protection 會偵測登入風險。 如果偵測到的登入風險指出有不良執行者，您要如何限制存取？ 當您想要取得登入使用者真的是合法使用者的更有力證據，或是您的懷疑強烈到甚至足以封鎖定使用者存取應用程式時，又該怎麼辦？
+- **[登入風險](active-directory-conditional-access-conditions.md#sign-in-risk)**：Azure AD Identity Protection 會偵測登入風險。 如果偵測到的登入風險指出有不良執行者，您要如何限制存取？ 當您想要取得登入使用者是合法使用者的更有力證據，或是您的懷疑強烈到甚至足以封鎖定使用者存取應用程式時，又該怎麼辦？
 
 - **[網路位置](active-directory-conditional-access-locations.md)**：從任何位置都可以存取 Azure AD。 如果執行存取嘗試的來源網路位置不在您的 IT 部門控制下，該怎麼辦？ 當對您資源的存取嘗試來自公司網路時，使用使用者名稱與密碼的組合可能就足以作為身分識別證明。 如果針對從世界上其他非預期國家或地區起始的存取嘗試，您要求提供更強力的證明，該怎麼辦？ 當您甚至想要封鎖來自特定位置的存取嘗試時，又該怎麼辦？  
 
 - **[裝置管理](active-directory-conditional-access-conditions.md#device-platforms)**在 Azure AD 中，使用者可以從種類廣泛的裝置 (包括行動裝置，還有個人裝置) 存取雲端應用程式。 如果您要求只有使用您 IT 部門所管理裝置的使用者才能嘗試存取，該怎麼辦？ 當您甚至想要封鎖特定裝置類型存取您環境中的雲端應用程式時，又該怎麼辦？ 
 
-- **[用戶端應用程式](active-directory-conditional-access-conditions.md#client-apps)**現今，您可以使用各種不同的應用程式類型 (例如 Web 型應用程式、行動應用程式或傳統型應用程式) 來存取許多雲端應用程式。 如果存取嘗試是使用造成已知問題的用戶端應用程式類型來執行的，該怎麼辦？ 如果您要求必須使用 IT 部門所管理的裝置才能使用某些應用程式類型，又該怎麼辦？ 
+- **[用戶端應用程式](active-directory-conditional-access-conditions.md#client-apps)**：現今，您可以使用各種不同的應用程式類型 (例如 Web 型應用程式、行動應用程式或傳統型應用程式) 來存取許多雲端應用程式。 如果存取嘗試是使用造成已知問題的用戶端應用程式類型來執行的，該怎麼辦？ 如果您要求必須使用 IT 部門所管理的裝置才能使用某些應用程式類型，又該怎麼辦？ 
 
 這些問題和相關解答代表了 Azure AD 條件式存取的常見存取案例。 條件式存取是 Azure Active Directory 的功能，可讓您使用以原則為基礎的方法來處理存取案例。
 
@@ -81,6 +81,34 @@ ms.lasthandoff: 02/11/2018
 
 使用以原則為基礎的方法來為您的雲端應用程式提供存取保護有一個優點，就是您可以使用本文簡述的結構來開始草擬您環境的原則需求，而無須擔心技術方面的實作。 
 
+## <a name="what-you-need-to-know"></a>您所需了解的事情
+
+### <a name="general-requirements-for-using-conditional-access"></a>使用條件式存取的一般需求
+
+您可以使用 Azure AD 條件式存取來保護雲端應用程式，因應來自以下來源的驗證嘗試：
+
+- 網頁瀏覽器
+
+- 使用新式驗證的用戶端應用程式
+
+- Exchange ActiveSync
+
+如需詳細資訊，請參閱[用戶端應用程式](active-directory-conditional-access-conditions.md#client-apps)。
+
+有些[雲端應用程式](active-directory-conditional-access-conditions.md#cloud-apps)也支援舊版驗證通訊協定。 SharePoint Online 和 Exchange Online 即是一例。 當用戶端應用程式可以使用舊版驗證通訊協定來存取雲端應用程式時，Azure AD 無法針對該存取嘗試強制執行條件式存取原則。 若要預防用戶端應用程式略過強制執行的原則，您應該確認是否可以只針對受影響的雲端應用程式啟用新式驗證。
+
+不適用用戶端應用程式條件式存取的範例包括：
+
+- Office 2010 和先前版本
+
+- Office 2013 (未啟用新式驗證時)
+
+如需詳細資訊，請參閱[設定 SharePoint Online 和 Exchange Online，以便採用 Azure Active Directory 條件式存取](active-directory-conditional-access-no-modern-authentication.md)。
+
+
+### <a name="license-requirements-for-using-conditional-access"></a>使用條件式存取的授權需求
+
+使用條件式存取需要 Azure AD Premium 授權。 若要尋找適用於您需求的正確授權，請參閱[比較 Free、Basic 及 Premium 版本的正式運作功能](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features)。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: bb8a81327163513ab721d2ad72da19173b59bc1f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>教學課程：Azure Active Directory 與 Rollbar 整合
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 01/05/2018
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://rollbar.com/<accountname>/saml/login/azure/`
      
     > [!NOTE] 
-    > 這些都不是真正的值。 請使用實際的「回覆 URL」和「登入 URL」來更新這些值。 請連絡 [Rollbar 用戶端支援小組](mailto:support@rollbar.com)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [Rollbar 用戶端支援小組](mailto:support@rollbar.com)以取得這些值。 
 
 5. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -149,11 +149,14 @@ ms.lasthandoff: 01/05/2018
 
     c. 按一下 [檔案] 。
 
-11. 按一下 [Save] \(儲存\) 按鈕之後，畫面將會像這樣。 請在本節中執行下列步驟：
+11. 按一下 [Save] \(儲存\) 按鈕之後，畫面將會像這樣：
     
     ![組態](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+    > [!NOTE] 
+    > 為了完成下列步驟，您必須先在 Azure 中新增自己作為 Rollbar 應用成的使用者。
+    a. 如果您想要要求所有使用者都透過 Azure 進行驗證，則請按一下 [log in via your identity provider] \(透過您的身分識別提供者登入\) 來透過 Azure 重新進行驗證。  
 
-    a. 選取 [Require login via SAML Identity Provider] \(需要透過 SAML 身分識別提供者登入\) 核取方塊。
+    b.  返回畫面之後，選取 [Require login via SAML Identity Provider] \(需要透過 SAML 身分識別提供者登入\) 核取方塊。
 
     b. 按一下 [檔案] 。
 

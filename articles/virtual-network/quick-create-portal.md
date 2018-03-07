@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 264dc38383b9adad70325f7fb7802b1dcf2da1c0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b1dbe96b9f522474cd2eeb2b63f3429f9ea4d8ed
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-portal"></a>使用 Azure 入口網站建立虛擬網路
 
-在本文中，您將了解如何建立虛擬網路。 建立虛擬網路之後，您需將兩部虛擬機器部署到虛擬網路中，然後在兩者間進行私密通訊。
+在本文中，您將了解如何建立虛擬網路。 建立虛擬網路之後，您需將兩部虛擬機器部署到虛擬網路中，以在兩者間測試私人網路通訊。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -34,39 +34,41 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-1. 按一下 Azure 入口網站左上角的 [+ 新增]。
+1. 選取 Azure 入口網站左上角的 [+ 新增]。
 
 2. 選取 [網絡]，然後選取 [虛擬網路]。
 
-3. 如下圖所示，針對 [名稱] 輸入 *myVirtualNetwork*、針對 [資源群組] 輸入 *myResourceGroup*、選取 [位置] 和您的 [訂用帳戶]、接受其餘的預設值，然後按一下 [建立]。 
+3. 如下圖所示，針對 [名稱] 輸入 *myVirtualNetwork*、針對 [資源群組] 輸入 *myResourceGroup*、選取 [位置] 和您的 [訂用帳戶]、接受其餘的預設值，然後選取 [建立]。 
 
     ![輸入虛擬網路的相關基本資訊](./media/quick-create-portal/virtual-network.png)
 
     [位址空間] 需以 CIDR 標記法指定。 虛擬網路會包含零個或多個子網路。 預設子網路**位址範圍** 10.0.0.0/24 會使用虛擬網路的整個位址範圍，因此，使用預設的位址空間和範圍時，無法在虛擬網路中建立另一個子網路。 指定的位址範圍包括 IP 位址 10.0.0.0-10.0.0.254。 不過，只有 10.0.0.4-10.0.0.254 可供使用，因為 Azure 會保留每個子網路中的前四個位址 (0-3) 和最後一個位址。 可用的 IP 位址會指派給部署在虛擬網路內的資源。
 
-## <a name="create-virtual-machines"></a>建立虛擬機器
+## <a name="test-network-communication"></a>測試網路通訊
 
-虛擬網路可讓數種類型的 Azure 資源互相進行私密通訊。 其中一種您可以部署到虛擬網路中的資源類型是虛擬機器。 請在虛擬網路中建立兩部虛擬機器，如此您才能在稍後的步驟中，驗證和了解虛擬網路中虛擬機器間的通訊如何運作。
+虛擬網路可讓數種類型的 Azure 資源互相進行私密通訊。 其中一種您可以部署到虛擬網路中的資源類型是虛擬機器。 在虛擬網路中建立兩部虛擬機器，以便您可以在稍後步驟中驗證它們之間的私密通訊。
 
-1. 按一下 Azure 入口網站左上角的 [新增] 按鈕。
+### <a name="create-virtual-machines"></a>建立虛擬機器
+
+1. 選取 Azure 入口網站左上角的 [新增] 按鈕。
 
 2. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。
 
-3. 依照下圖所示，輸入虛擬機器資訊。 您輸入的 [使用者名稱] 和 [密碼] 會在稍後的步驟中用來登入虛擬機器。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。 選取你的 [訂用帳戶]，選擇使用現有的 [myResourceGroup] 資源群組，並確定所選 [位置] 與您建立虛擬機器的位置相同。 完成時，按一下 [確定]。
+3. 依照下圖所示，輸入虛擬機器資訊。 您輸入的 [使用者名稱] 和 [密碼] 會在稍後的步驟中用來登入虛擬機器。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。 選取你的 [訂用帳戶]，選擇使用現有的 [myResourceGroup] 資源群組，並確定所選 [位置] 與您建立虛擬機器的位置相同。 完成時選取 [確定]。
 
     ![輸入虛擬機器的相關基本資訊](./media/quick-create-portal/virtual-machine-basics.png)
 
-4. 選取虛擬機器的大小，然後按一下 [選取]。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 為您顯示的大小可能與以下範例不同： 
+4. 選取虛擬機器的大小，然後選取 [選取]。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 為您顯示的大小可能與以下範例不同： 
 
     ![選取虛擬機器的大小](./media/quick-create-portal/virtual-machine-size.png)
 
-5. 在 [設定] 底下，應該已經針對 [虛擬網路] 選取 [myVirtualNetwork]，如果沒有，請按一下 [虛擬網路]，然後選取 [myVirtualNetwork]。 針對 [子網路] 保留選取 [default]，然後按一下 [確定]。
+5. 在 [設定] 底下，應該已經針對 [虛擬網路] 選取 [myVirtualNetwork]，如果沒有，請選取 [虛擬網路]，然後選取 [myVirtualNetwork]。 針對 [子網路]保留選取 [default]，然後選取 [確定]。
 
     ![選取虛擬網路](./media/quick-create-portal/virtual-machine-network-settings.png)
 
-6. 在 [摘要] 頁面上，按一下 [建立] 來開始進行虛擬機器部署。 
+6. 在 [摘要] 頁面上，選取 [建立] 來開始進行虛擬機器部署。 
 
-7. 建立虛擬機器需要幾分鐘的時間。 建立之後，虛擬機器會釘選到 Azure 入口網站儀表板上，並且會自動開啟虛擬機器摘要。 按一下 [網路]。
+7. 建立虛擬機器需要幾分鐘的時間。 建立之後，虛擬機器會釘選到 Azure 入口網站儀表板上，並且會自動開啟虛擬機器摘要。 選取 [網路功能]。
 
     ![虛擬機器網路資訊](./media/quick-create-portal/virtual-machine-networking.png)
 
@@ -76,19 +78,19 @@ ms.lasthandoff: 02/01/2018
 
 8. 再次完成步驟 1-7，但在步驟 3 中，將虛擬機器命名為 *myVm2*。 
 
-9. 建立虛擬機器之後，如您在步驟 7 中所做的一樣，按一下 [網路]。 您會看到 [私人 IP] 位址為 *10.0.0.5*。 由於 Azure 先前已將子網路中第一個可用的位址 *10.0.0.4* 指派給 *myVm1* 虛擬機器，因此它將 *10.0.0.5* 指派給 *myVm2* 虛擬機器，因為這是子網路中下一個可用的位址。
+9. 建立虛擬機器之後，如您在步驟 7 中所做的一樣，選取 [網路功能]。 您會看到 [私人 IP] 位址為 *10.0.0.5*。 由於 Azure 先前已將子網路中第一個可用的位址 *10.0.0.4* 指派給 *myVm1* 虛擬機器，因此它將 *10.0.0.5* 指派給 *myVm2* 虛擬機器，因為這是子網路中下一個可用的位址。
 
-## <a name="connect-to-a-virtual-machine"></a>連接到虛擬機器
+### <a name="connect-to-a-virtual-machine"></a>連接到虛擬機器
 
-1. 從遠端連線至 *myVm1*虛擬機器。 在 Azure 入口網站頂端，輸入 *myVm1*。 當 **myVm1**出現在搜尋結果中時，按一下它。 按一下 [連線]  按鈕。
+1. 從遠端連線至 *myVm1*虛擬機器。 在 Azure 入口網站頂端，輸入 *myVm1*。 當 **myVm1** 出現在搜尋結果中時，選取它。 選取 [連線]  按鈕。
 
     ![虛擬機器概觀](./media/quick-create-portal/virtual-machine-overview.png)
 
+2. 在選取 [連線] 按鈕之後，將會建立一個「遠端桌面通訊協定」(.rdp) 檔案並下載至您的電腦。  
 
-2. 在按一下 [連線] 按鈕，將會建立一個「遠端桌面通訊協定」(.rdp) 檔案並下載至您的電腦。  
-3. 開啟所下載的 rdp 檔案。 出現提示時，按一下 [連線]。 輸入您在建立虛擬機器時指定的使用者名稱和密碼，然後按一下 [確定]。 您可能會在登入過程中收到憑證警告。 按一下 [是] 或 [繼續] 以繼續進行連線。
+3. 開啟所下載的 rdp 檔案。 如果出現提示，請選取 [連接]。 輸入您在建立虛擬機器時指定的使用者名稱和密碼，然後選取 [確定]。 您可能會在登入過程中收到憑證警告。 選取 [是] 或 [繼續] 以繼續進行連線。
 
-## <a name="validate-communication"></a>驗證通訊
+### <a name="validate-communication"></a>驗證通訊
 
 嘗試針對 Windows 虛擬機器執行 Ping 會失敗，因為預設不允許 Ping 穿過 Windows 防火牆。 若要允許針對 *myVm1* 執行 Ping，請從命令提示字元中輸入下列命令：
 
@@ -102,7 +104,7 @@ netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in actio
 mstsc /v:myVm2
 ```
 
-遠端桌面連線成功，因為兩部虛擬機器都已從 *default* 子網路獲指派私人 IP 位址，並且預設穿過 Windows 防火牆開啟了遠端桌面。 您能夠依據主機名稱連線至 *myVm2*，因為 Azure 會自動為虛擬網路內的所有主機提供 DNS 名稱解析。 在命令提示字元中，從 *myVm2* 針對 *myVm1* 執行 Ping。
+遠端桌面連線成功，因為兩部虛擬機器都已從 *default* 子網路獲指派私人 IP 位址，並且預設穿過 Windows 防火牆開啟了遠端桌面。 您能夠依據主機名稱連線至 *myVm2*，因為 Azure 會自動為虛擬網路內的所有主機提供 DNS 名稱解析。 在命令提示字元中，從 myVm2 針對 myVm1 執行 Ping。
 
 ```
 ping myvm1
@@ -114,16 +116,17 @@ Ping 執行成功，因為您在上一個步驟中允許它穿過 *myVm1* 虛擬
 ping bing.com
 ```
 
-您會從 bing.com 收到四個回覆。根據預設，虛擬網路中的所有虛擬機器都能對網際網路進行輸出通訊。
+您會從 bing.com 收到四個回覆。根據預設，虛擬網路中的所有虛擬機器都能對網際網路進行輸出通訊。 
+
+結束遠端桌面工作階段。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當不再需要資源群組時，請將資源群組及其所有內容刪除。 在 Azure 入口網站頂端，輸入 *myResourceGroup*。 當 **myResourceGroup** 出現在搜尋結果中時，按一下它。 按一下 [刪除] 。
+當不再需要資源群組時，請將資源群組及其所有內容刪除。 在 Azure 入口網站頂端，輸入 *myResourceGroup*。 當 **myResourceGroup** 出現在搜尋結果中時，選取它。 選取 [刪除] 。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已部署一個含有一個子網路和兩部虛擬機器的預設虛擬網路。 若要了解如何建立含有多個子網路的自訂虛擬網路並執行基本管理工作，請繼續進行建立自訂虛擬網路並加以管理的教學課程。
-
+在本文中，您已部署含有一個子網路的預設虛擬網路。 若要了解如何建立含有多個子網路的自訂虛擬網路，請繼續進行建立自訂虛擬網路的教學課程。
 
 > [!div class="nextstepaction"]
-> [建立自訂虛擬網路並加以管理](virtual-networks-create-vnet-arm-pportal.md#portal)
+> [建立自訂虛擬網路](virtual-networks-create-vnet-arm-pportal.md#portal)

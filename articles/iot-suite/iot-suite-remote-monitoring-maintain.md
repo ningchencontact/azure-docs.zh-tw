@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>針對裝置問題進行疑難排解和補救
 
@@ -58,6 +58,8 @@ Contoso 會在現場測試新的**原型**裝置。 身為 Contoso 操作員，�
 
 ![認知警示](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
+在您認可警示之後，發生項目的狀態就會變更為 [已認可]。
+
 在清單中，您可以看到負責引發溫度警示的**原型**裝置：
 
 ![列出造成警示的裝置](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
@@ -84,7 +86,7 @@ Contoso 會在現場測試新的**原型**裝置。 身為 Contoso 操作員，�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，我們已示範如何：
+在本教學課程中，您已了解如何：
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

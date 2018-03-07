@@ -10,13 +10,13 @@ ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 096fcce979bd488a0fe9dead2b1232a057d0ae02
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7c75a65714898f27ab0008ad5a30a5714d7174f4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>使用「事件格線」來觸發動作以回應「IoT 中樞」事件 - 預覽
 
@@ -28,14 +28,7 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="regional-availability"></a>區域可用性
 
-「事件格線」整合目前為公開預覽版，因此僅在有限的區域中可供使用。 此整合適用於位於下列區域中的 IoT 中樞：
-
-* 美國中部
-* 美國東部
-* 美國東部 2
-* 美國中西部
-* 美國西部
-* 美國西部 2
+位於支援「事件格線」之區域中的 IoT 中樞都可使用「事件格線」整合。 如需最新的區域清單，請參閱 [Azure 事件格線簡介][lnk-eg-overview]。 
 
 ## <a name="event-types"></a>事件類型
 
@@ -43,7 +36,7 @@ ms.lasthandoff: 02/01/2018
 
 | 事件類型 | 說明 |
 | ---------- | ----------- |
-| Microsoft.Devices.DeviceCreated | 將裝置註冊至 IoT 中樞時發佈。 |
+| Microsoft.Devices.DeviceCreated | 向 IoT 中樞註冊裝置時發佈。 |
 | Microsoft.Devices.DeviceDeleted | 從 IoT 中樞刪除裝置時發佈。 | 
 
 請使用 Azure 入口網站或 Azure CLI 來設定要從每個 IoT 中樞發佈哪些事件。 例如，請試試[使用 Logic Apps 來傳送 Azure IoT 中樞事件的相關電子郵件通知](../event-grid/publish-iot-hub-events-to-logic-apps.md)教學課程。 
@@ -107,7 +100,7 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="filter-events"></a>篩選事件
 
-「IoT 中樞」事件訂閱可以根據事件類型和裝置名稱來篩選事件。 「事件格線」中主旨篩選的運作方式是根據**首碼**和**尾碼**比對，以便將具有相符主旨的事件傳遞給訂閱者。 
+「IoT 中樞」事件訂閱可以根據事件類型和裝置名稱來篩選事件。 Event Grid 中的主旨篩選會根據**前置詞**和**尾碼**的比對而運作。 篩選會使用 `AND` 運算子，讓主旨同時符合前置詞和尾碼的事件會傳遞給訂閱者。 
 
 「IoT 事件」的主旨使用以下格式：
 

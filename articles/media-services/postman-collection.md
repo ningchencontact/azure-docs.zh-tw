@@ -1,5 +1,5 @@
 ---
-title: "匯入 Postman 集合"
+title: "使用 Azure 隨選串流匯入 Postman 集合作業"
 description: "本文提供適用於 Azure 媒體服務 REST 呼叫之 Postman 集合的定義。"
 services: media-services
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
-ms.openlocfilehash: 9d1937f11d379910437a2e4ea21d4a963aacbc9a
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 0146f02df44d9b38f3a3f85c025ec42750a9c6e7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="import-the-postman-collection"></a>匯入 Postman 集合
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>使用隨選串流匯入 Postman 集合作業
 
-本文內有 **Postman** 集合的定義，集合內有呼叫媒體服務 REST API 的分組 HTTP 要求。 「[設定 Postman 以進行媒體服務 REST API 呼叫](media-rest-apis-with-postman.md)」教學課程會使用此定義。
+本文內有 **Postman** 集合的定義，集合內有呼叫 Azure 媒體服務 REST API 的分組 HTTP 要求。 如需有關如何設定 **Postman** 讓它可以用來呼叫媒體服務 REST API 的詳細資訊，請參閱[設定 Postman 以進行媒體服務 REST API 呼叫](media-rest-apis-with-postman.md)教學課程。
 
 ```
 {

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/16/2018
+ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 8b0ff2c100878e568e0a4c67e79864006512bd78
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 資料管理員解決方案概觀
 
@@ -56,9 +56,9 @@ StorSimple 資料管理員適用於下列 7 個區域：
 
 不過，您可以使用 StorSimple 資料管理員在下列區域轉換資料。 
 
-![資料的適用區域](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
+![資料的適用區域](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions-m.png)
 
-這組區域較大，因為任何上述區域中的資源部署都能夠在下列區域中啟動轉換程序。 因此，只要您的資料位於這 26 個區域中的任何一個，您就可以使用此服務來轉換資料。
+這組區域較大，因為任何上述區域中的資源部署都能夠在下列區域中啟動轉換程序。 因此，只要您的資料位於這 19 個區域中的任何一個，您就可以使用此服務來轉換資料。
 
 
 ## <a name="choosing-a-region"></a>選擇區域

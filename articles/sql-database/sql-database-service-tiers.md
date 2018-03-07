@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: carlrab
-ms.openlocfilehash: c0dc3181d3cd5c642dfca1c0f6031b83726478c0
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>何謂 Azure SQL Database 服務層？
 
@@ -35,8 +35,8 @@ ms.lasthandoff: 02/14/2018
 |執行時間 SLA|99.99%|99.99%|99.99%|預覽時，N/A|
 |備份保留期|7 天|35 天|35 天|
 |CPU|低|低、中、高|中、高|
-|IO 輸送量|低  | 中 | 量級高於標準|
-|IO 延遲|高於進階|高於進階|低於基本和標準|
+|IO 輸送量 (大約) |每一 DTU 2.5 IOPS  | 每一 DTU 2.5 IOPS | 每一 DTU 48 IOPS|
+|IO 延遲 (大約)|5 毫秒 (讀取)，10 毫秒 (寫入)|5 毫秒 (讀取)，10 毫秒 (寫入)|2 毫秒 (讀取/寫入)|
 |資料行存放區索引和記憶體內部 OLTP|N/A|N/A|支援|
 |||||
 

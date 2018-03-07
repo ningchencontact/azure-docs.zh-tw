@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/20/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f2f71372211dcc9db34beb3fa3fd788920f8bd45
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
 Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 Azure Stack 服務和可能租用戶 VM 的外部可存取公用 IP 位址。 在 Azure Stack 部署期間，這些 Azure Stack 公用基礎結構端點需要具有適當 DNS 名稱的 PKI 憑證。 本文提供以下相關資訊：
@@ -27,16 +27,18 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 - 部署 Azure Stack 時需要哪些憑證
 - 取得符合這些規格之憑證的程序
 - 如何在部署期間準備、驗證及使用這些憑證
+
 > [!NOTE]
 > 在部署期間，您必須將憑證複製到符合您要部署識別提供者 (Azure AD 或 AD FS) 的部署資料夾。 如果您將單一憑證使用於所有端點，您必須將該憑證檔案複製到下表所述的每個部署資料夾。 資料夾結構已預先建置於部署虛擬機器中且位於：C:\CloudDeployment\Setup\Certificates。 
 
 ## <a name="certificate-requirements"></a>憑證需求
 下列清單描述部署 Azure Stack 時所需的憑證需求： 
 - 憑證必須由內部憑證授權單位或公用憑證授權單位發出。 如果使用公用憑證授權單位，它必須包含在基礎作業系統映像中成為 Microsoft 信任根授權單位方案的一部分。 您可以在這裡找到完整清單：https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- 憑證可以是單一萬用字元憑證，其中涵蓋主體別名 (SAN) 欄位中的所有命名空間。 或者，您可以針對需要憑證的端點 (例如儲存體和 Key Vault)，使用採用萬用字元的個別憑證。 
+- 憑證可以是單一萬用字元憑證，其中涵蓋主體別名 (SAN) 欄位中的所有命名空間。 或者，您可以針對需要憑證的端點 (例如 acs、金鑰保存庫)，使用採用萬用字元的個別憑證。 
 - 憑證簽章演算法不能是 SHA1，因為它必須更強大。 
 - 憑證格式必須是 PFX，因為安裝 Azure Stack 時需要公用與私密金鑰。 
 - 憑證 pfx 檔案的 [金鑰使用方法] 欄位中必須有 [數位簽章] 和 [KeyEncipherment] 值。
+- 憑證 pfx 檔案的 [增強金鑰使用方法] 欄位中必須有 [伺服器驗證 (1.3.6.1.5.5.7.3.1)] 和 [用戶端驗證 (1.3.6.1.5.5.7.3.2)]。
 - 部署時，所有憑證 pfx 檔案的密碼都必須相同
 - 確定所有憑證的 [主體名稱] 和 [主體別名] 都必須符合本文中所述的規格，以免部署失敗。
 

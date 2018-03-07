@@ -4,13 +4,13 @@ description: "概括介紹 Azure Migrate 服務的已知問題以及常見錯誤
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 12/12/2017
+ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/12/2017
 
 **收集器無法使用我從入口網站複製的專案識別碼和金鑰連線到專案。**
 
-請確定已複製並貼上正確的資訊。 若要進行疑難排解，請安裝 Microsoft Monitoring Agent (MMA)，如下所示：
+請確定已複製並貼上正確的資訊。 若要疑難排解，請安裝 Microsoft Monitoring Agent (MMA) 並確認 MMA 是否可以連線至專案，如下所示：
 
 1. 在收集器虛擬機器上，下載 [MMA](https://go.microsoft.com/fwlink/?LinkId=828603)。
 2. 若要開始安裝，請按兩下下載的檔案。
@@ -69,9 +69,9 @@ ms.lasthandoff: 12/12/2017
 
 **問題** | 修正
 --- | ---
-不支援的開機類型 | 執行移轉之前，請變更為 BIOS。
+不支援的開機類型 | Azure 不支援具有 EFI 開機類型的 VM。 建議您在執行移轉之前，將開機類型轉換成 BIOS。 <br/><br/>您可以使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) 進行這類 Vm 的移轉，因為它會在移轉期間將 VM 的開機類型轉換成 BIOS。
 磁碟計數超過限制 | 移轉之前從機器移除未使用的磁碟。
-磁碟大小超過限制 | 在移轉前將磁碟壓縮為小於 4 TB。 
+磁碟大小超過限制 | Azure 支援大小最大 4 TB 的磁碟。 在移轉前將磁碟壓縮為小於 4 TB。 
 指定的位置沒有磁碟可用 | 在移轉之前，請確定磁碟已在目標位置。
 沒有磁碟可當作指定的備援 | 磁碟應該使用評估設定 (預設為 LRS) 中定義的備援儲存體類型。
 由於發生內部錯誤，因此無法判斷磁碟適合性 | 嘗試建立群組的新評估。 
@@ -83,12 +83,15 @@ ms.lasthandoff: 12/12/2017
 由於發生內部錯誤，因此無法判斷一個或多個網路介面卡的適用性。 | 嘗試建立群組的新評估。
 找不到所需儲存體效能的虛擬機器。 | 機器需要的儲存體效能 (IOPS/輸送量) 超出 Azure VM 支援。 在移轉之前，降低機器的儲存體需求。
 找不到所需網路效能的虛擬機器。 | 機器需要的網路效能 (傳入/傳出) 超出 Azure VM 支援。 減少機器的網路需求。 
-找不到指定定價層的虛擬機器。 | 檢查定價層設定。 
+指定定價層中找不到虛擬機器。 | 如果定價層設定為「標準」，請考慮在移轉至 Azure 之前，先降級虛擬機器。 如果調整大小層為「基本」，請考慮將評估的定價層變更為「標準」。 
 找不到指定位置的虛擬機器。 | 在移轉之前，使用不同的目標位置。
-Linux OS 支援問題 | 對於這些支援的[作業系統](../virtual-machines/linux/endorsed-distros.md)，請確定您執行的是 64 位元版本。
-Windows 作業系統支援問題 | 請確定您執行支援的作業系統。 [深入了解](concepts-assessment-calculation.md#azure-suitability-analysis)
-作業系統不明。 | 請檢查 vCenter 中指定的作業系統正確，並重複進行探索程序。
-需要 Visual Studio 訂用帳戶。 | Visual Studio (MSDN) 訂用帳戶只支援 Windows 用戶端作業系統。
+作業系統不明 | 虛擬機器的作業系統在 vCenter Server 中指定為「其他」，因此，Azure Migrate 無法識別虛擬機器的 Azure 移轉整備程度。 請在移轉電腦之前，先確認 Azure [支援](https://aka.ms/azureoslist)該電腦內執行的作業系統。
+有條件地支援 Windows 作業系統 | 作業系統已超過結束支援日期，且需要 [Azure 中的支援](https://aka.ms/WSosstatement)的自訂支援合約 (CSA)，請考慮在移轉至 Azure 之前升級作業系統。
+不支援的 Windows 作業系統 | Azure 僅支援[選取的 Windows 作業系統版本](https://aka.ms/WSosstatement)，請考慮在移轉至 Azure 之前升級電腦作業系統。 
+有條件地背書 Linux 作業系統 | Azure 僅支援[選取的 Linux 作業系統版本](../virtual-machines/linux/endorsed-distros.md)，請考慮在移轉至 Azure 之前升級電腦作業系統。
+未背書的 Linux 作業系統 | 電腦可能會在 Azure 中開機，但是 Azure 未提供作業系統支援，請考慮在移轉至 Azure 之前，將作業系統升級至[背書的 Linux 版本](../virtual-machines/linux/endorsed-distros.md)
+不支援的作業系統位元 | 32 位元作業系統的虛擬機器可能會在 Azure 中開機，但建議在移轉至 Azure 之前，將虛擬機器的作業系統從 32 位元升級到 64 位元。
+需要 Visual Studio 訂用帳戶。 | 電腦中執行的 Windows 用戶端作業系統，僅在 Visual Studio 訂用帳戶中支援。
 
 
 ## <a name="collect-logs"></a>收集記錄

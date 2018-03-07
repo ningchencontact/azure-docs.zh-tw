@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>管理及設定您的裝置
 
@@ -42,11 +42,11 @@ Contoso 已排序新的機制，延伸其中一個設備來增加輸出。 當�
 
 ## <a name="add-a-simulated-device"></a>新增模擬裝置
 
-瀏覽至解決方案中的 [裝置] 頁面，然後選擇 [新增裝置]。 在 [新增裝置] 面板中，選擇 [模擬]：
+瀏覽至解決方案中的 [裝置] 頁面，然後選擇 [+ 新增裝置]。 在 [新增裝置] 面板中，選擇 [模擬]：
 
 ![佈建模擬的裝置](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-將要佈建的裝置數目設定保留為 **1**。 選擇 [故障引擎] 作為 [裝置型號]，然後選擇 [套用] 以建立模擬的裝置：
+將要佈建的裝置數目設定保留為 **1**。 選擇 [故障引擎] 裝置型號，然後選擇 [套用]以建立模擬裝置：
 
 ![佈建模擬的引擎裝置](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
