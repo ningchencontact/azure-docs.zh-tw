@@ -3,7 +3,7 @@ title: "教學課程：使用 Visual Studio 建立具有複製活動的管線 | 
 description: "在本教學課程中，您會使用 Visual Studio，建立具有複製活動的 Azure Data Factory 管線。"
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: linda33wj
 manager: jhubbard
 editor: monicar
 ms.assetid: 1751185b-ce0a-4ab2-a9c3-e37b4d149ca3
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4f517a4be012f88d9b7a5e19042ce22493cfe5f3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a26403383c21d089cfca5bbdb23a9c73fe505ba2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>教學課程：使用 Visual Studio 建立具有複製活動的管線
 > [!div class="op_single_selector"]
@@ -97,7 +97,7 @@ Azure SQL 連結服務可將 Azure SQL Database 連結到資料處理站。 從 
 2. 在 [新增新項目] 對話方塊中，從清單選取 [Azure 儲存體連結服務]，然後按一下 [新增]。 
    
     ![新的連結服務](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png)
-3. 使用 Azure 儲存體帳戶的名稱及其金鑰來取代 `<accountname>` 和 `<accountkey>`\*。 
+3. 使用 Azure 儲存體帳戶的名稱及其金鑰來取代 `<accountname>` 和 `<accountkey>`。 
    
     ![Azure 儲存體連結服務](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)
 4. 儲存 **AzureStorageLinkedService1.json** 檔案。

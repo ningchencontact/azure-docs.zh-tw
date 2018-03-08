@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 98517b546fe5a00ad17d8478e94bc78a012c2de8
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f88a9a732099f2bd63f46d3f45e5ff96f7441f03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 傳遞點播內容入門
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -95,6 +95,7 @@ ms.lasthandoff: 01/05/2018
 > [!NOTE]
 > 在您新增本文稍後定義知所有函式的定義以前，將會出現編譯錯誤。
 
+```csharp
     class Program
     {
         // Read values from the App.config file.
@@ -145,7 +146,7 @@ ms.lasthandoff: 01/05/2018
             Console.ReadLine();
         }
         }
-    
+```
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>建立新資產並上傳視訊檔案
 
@@ -167,6 +168,7 @@ ms.lasthandoff: 01/05/2018
 
 將下列方法新增至 Program 類別。
 
+```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
     {
         IAsset inputAsset = _context.Assets.CreateFromFile(
@@ -181,7 +183,7 @@ ms.lasthandoff: 01/05/2018
 
         return inputAsset;
     }
-
+```
 
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>將來源檔案編碼為一組調適性位元速率 MP4 檔案
 將資產內嵌到媒體服務之後，可以先將媒體編碼、轉碼多工處理、加上浮水印等，再傳遞給用戶端。 這些活動會針對多個背景角色執行個體排定和執行，以確保高效能與可用性。 這些活動稱為作業，每個作業包含對資產檔案執行實際工作的不可部分完成的工作。
@@ -196,6 +198,7 @@ ms.lasthandoff: 01/05/2018
 
 將下列方法新增至 Program 類別。
 
+```csharp
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
     {
 
@@ -229,6 +232,7 @@ ms.lasthandoff: 01/05/2018
 
         return outputAsset;
     }
+```
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>發佈資產並取得串流和漸進式下載 URL。
 
@@ -261,6 +265,7 @@ Media Services .NET SDK 延伸模組提供便利的協助程式方法，來傳�
 
 將下列方法新增至 Program 類別。
 
+```csharp
     static public void PublishAssetGetURLs(IAsset asset)
     {
         // Publish the output asset by creating an Origin locator for adaptive streaming,
@@ -325,6 +330,7 @@ Media Services .NET SDK 延伸模組提供便利的協助程式方法，來傳�
 
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
+```
 
 ## <a name="test-by-playing-your-content"></a>播放您的內容以進行測試
 

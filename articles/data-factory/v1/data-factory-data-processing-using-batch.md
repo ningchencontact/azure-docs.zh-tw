@@ -3,7 +3,7 @@ title: "使用 Data Factory 和 Batch 來處理大型資料集 | Microsoft Docs"
 description: "說明如何使用 Azure Batch 的平行處理功能來處理 Azure Data Factory 管線中的大量資料。"
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af2c12cac5846ae1c4bc693bacaf72ab327fb87f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3b886babe07a0bd1fa725286b5471055fc626dc1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>使用 Data Factory 和 Batch 來處理大型資料集
 > [!NOTE]
@@ -170,8 +170,8 @@ public IDictionary<string, string> Execute(
 * 此方法會採用四個參數：
 
   * **linkedServices**。 此參數是一個可列舉的已連結服務清單，這些服務會將輸入/輸出資料來源 (例如 Blob 儲存體) 連結到資料處理站。 在此範例中，只有一個類型為「Azure 儲存體」的已連結服務，同時用於輸入和輸出。
-  * **datasets**。 此參數是可列舉的資料集清單。 您可以使用這個參數取得輸入和輸出資料集定義的位置和結構描述。
-  * **activity**。 此參數代表目前的計算實體。 在此例中為 Batch 服務。
+  * **資料集**。 此參數是可列舉的資料集清單。 您可以使用這個參數取得輸入和輸出資料集定義的位置和結構描述。
+  * **活動**。 此參數代表目前的計算實體。 在此例中為 Batch 服務。
   * **logger**。 您可以使用記錄器來撰寫會呈現為管線之「使用者」記錄的偵錯註解。
 * 此方法會傳回未來可用來將自訂活動鏈結在一起的字典。 目前尚未實作此功能，因此只會從方法傳回空的字典。
 
@@ -558,7 +558,7 @@ test custom activity Microsoft test custom activity Microsoft
 
 3. 將**帳戶名稱**取代成您儲存體帳戶的名稱。 將**帳戶金鑰**取代成儲存體帳戶的存取金鑰。 若要了解如何取得儲存體存取金鑰，請參閱[檢視、複製和重新產生儲存體存取金鑰](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)。
 
-4. 選取命令列上的 [部署] 以部署已連結的服務。
+4. 選取命令列上的 [部署] 以部署連結服務。
 
    ![部署](./media/data-factory-data-processing-using-batch/image8.png)
 
@@ -593,7 +593,7 @@ test custom activity Microsoft test custom activity Microsoft
    
    e. 指定作業系統系列設定的 **StorageLinkedService** for the **StorageLinkedService** 。 您已在前述步驟中建立此連結服務。 此儲存體會做為檔案和記錄檔的預備區域。
 
-3. 選取命令列上的 [部署] 以部署已連結的服務。
+3. 選取命令列上的 [部署] 以部署連結服務。
 
 #### <a name="step-3-create-datasets"></a>步驟 3：建立資料集
 在此步驟中，您會建立資料集來代表輸入和輸出資料。
@@ -798,7 +798,7 @@ test custom activity Microsoft test custom activity Microsoft
    * **PackageFile** 設定為 **customactivitycontainer/MyDotNetActivity.zip**。 其格式為 \<containerforthezip\>/\<nameofthezip.zip\>。
    * 自訂活動會採用 **InputDataset** 做為輸入和 **OutputDataset** 做為輸出。
    * 自訂活動的 **linkedServiceName** 屬性會指向 **AzureBatchLinkedService**，這可讓 Data Factory 知道自訂活動必須在 Batch 上執行。
-   * **concurrency** 設定很重要。 如果您使用預設值 1，則即使 Batch 集區中有兩個以上的計算節點，系統仍會逐一處理配量。 因此，您將無法利用 Batch 的平行處理功能。 如果您將 **concurrency** 設定為更大的值 (例如 2)，即表示可以同時處理兩個配量 (對應至 Batch 中的兩個工作)。 在此情況下，會同時運用 Batch 集區中的兩個 VM。 請適當地設定 concurrency 屬性。
+   * **並行** 設定很重要。 如果您使用預設值 1，則即使 Batch 集區中有兩個以上的計算節點，系統仍會逐一處理配量。 因此，您將無法利用 Batch 的平行處理功能。 如果您將 **concurrency** 設定為更大的值 (例如 2)，即表示可以同時處理兩個配量 (對應至 Batch 中的兩個工作)。 在此情況下，會同時運用 Batch 集區中的兩個 VM。 請適當地設定 concurrency 屬性。
    * 根據預設，無論何時，一個工作 (配量) 都只會在一個 VM 上執行。 Batch 集區的 [每個 VM 的工作數上限] 預設是設定為 1。 為了符合先決條件，您在建立集區時已將此屬性設定為 2。 因此，可以在 VM 上同時執行兩個資料處理站配量。
     - **isPaused** 屬性預設是設定為 false。 在此範例中，管線會立即執行，因為配量已在過去開始。 您可以將此屬性設定為 **true** 以暫停管線，然後將其設定回 **false** 以重新啟動。
     -   **start** 和 **end** 時間相差 5 小時。 配量的產生頻率是每小時一次，因此管線會產生 5 個配量。
@@ -877,7 +877,7 @@ Data Factory 服務會在 Batch 中建立一個名為 `adf-poolname:job-xxx` 的
 
 ![Batch 作業工作](media/data-factory-data-processing-using-batch/data-factory-batch-job-tasks.png)
 
-### <a name="debug-the-pipeline"></a>對管線進行偵錯
+### <a name="debug-the-pipeline"></a>偵錯管線
 偵錯包含幾個基本技巧。
 
 1. 如果輸入配量不是設定為 [就緒]，請確認輸入資料夾結構正確，並且輸入資料夾中有 file.txt。
@@ -927,7 +927,7 @@ Data Factory 服務會在 Batch 中建立一個名為 `adf-poolname:job-xxx` 的
 
     有一個較簡單的因應措施，但並非最佳做法。 您可以建立一個具有連接字串設定的 SQL Database 已連結服務。 接著，建立一個使用該已連結服務的資料集，然後將資料集以虛擬輸入資料集的形式鏈結至自訂 .NET 活動。 接著，您便可以在自訂活動程式碼中存取連結服務的連接字串。 這樣應該可以在執行階段正常運作。  
 
-#### <a name="extend-the-sample"></a>延伸範例
+#### <a name="extend-the-sample"></a>擴充範例
 您可以延伸這個範例來深入了解 Data Factory 和 Batch 功能。 例如，若要處理不同時間範圍的配量，請執行下列步驟：
 
 1. 在 `inputfolder` 中新增下列子資料夾：2015-11-16-05、2015-11-16-06、201-11-16-07、2011-11-16-08 及 2015-11-16-09。 將輸入檔案放在這些資料夾中。 將管線的結束時間從 `2015-11-16T05:00:00Z` 變更為 `2015-11-16T10:00:00Z`。 在 [圖表] 檢視中，按兩下 [InputDataset]，並確認輸入配量已就緒。 按兩下 [OutputDataset] 以查看輸出配量的狀態。 如果它們的狀態為 [就緒]，則請查看輸出檔案的輸出資料夾。

@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 10/26/2017
 ms.author: juliako
-ms.openlocfilehash: bbfe7fedb1d5216b8a159faa9543ade74176181f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cba1e58478f4bbdffb61566e53aa0b86138b7fc6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>開始在 Azure 媒體服務上使用 Java 用戶端 SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -66,6 +66,7 @@ ms.lasthandoff: 12/08/2017
 
 此程式碼還需要用到儲存在本機的視訊檔案。 您必須編輯程式碼，以上傳您自己的本機檔案。
 
+```java
     import java.io.*;
     import java.net.URI;
     import java.security.NoSuchAlgorithmException;
@@ -298,7 +299,7 @@ ms.lasthandoff: 12/08/2017
             }
         }
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

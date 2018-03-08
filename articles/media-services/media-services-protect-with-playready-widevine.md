@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 54b9c38d1122d898dd584a189b9ea2e3405dc6f5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 91461af20cdb189ab23671fee0f3dea182ec0bb1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>使用 PlayReady 和/或 Widevine 動態一般加密
 
@@ -135,6 +135,7 @@ ms.lasthandoff: 01/10/2018
 ## <a name="get-a-test-token"></a>取得測試權杖
 根據用於金鑰授權原則的權杖限制取得測試權杖。
 
+```csharp
     // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
@@ -145,7 +146,7 @@ ms.lasthandoff: 01/10/2018
     //so you have to add it in front of the token string.
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
-
+```
 
 您可以使用 [Azure 媒體服務播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)來測試您的串流。
 
@@ -155,8 +156,10 @@ ms.lasthandoff: 01/10/2018
 
 2. 將下列項目新增至 app.config 檔案中定義的 **appSettings**：
 
+```xml
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
+```
 
 ## <a name="example"></a>範例
 
@@ -171,7 +174,7 @@ ms.lasthandoff: 01/10/2018
 
 請務必更新變數，以指向您的輸入檔案所在的資料夾。
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;
