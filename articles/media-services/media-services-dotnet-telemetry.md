@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 1f8e22dc5e277407860b7ed31409caed15be59cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 362773bbefa754fc90aa4dbd471889245b4b6cf5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>使用 .NET 設定 Azure 媒體服務遙測
 
@@ -42,19 +42,23 @@ ms.lasthandoff: 12/11/2017
 - 取得媒體服務帳戶附加之儲存體帳戶的認證。 
 - 建立 **EndPointType** 設定為 **AzureTable** 且 endPontAddress 指向儲存體資料表的通知端點。
 
+```csharp
         INotificationEndPoint notificationEndPoint = 
                       _context.NotificationEndPoints.Create("monitoring", 
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
+```
 
 - 針對要監視的服務建立監視組態設定。 系統最多只允許一個監視組態設定。 
-  
+
+```csharp
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
             {
                 new ComponentMonitoringSetting(MonitoringComponent.Channel, MonitoringLevel.Normal),
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
+```
 
 ## <a name="consuming-telemetry-information"></a>取用遙測資訊
 
@@ -66,13 +70,15 @@ ms.lasthandoff: 12/11/2017
 
 2. 將下列項目新增至 app.config 檔案中定義的 **appSettings**：
 
-    <add key="StorageAccountName" value="storage_name" />
+    ```xml
+        <add key="StorageAccountName" value="storage_name" />
+    ```
  
 ## <a name="example"></a>範例  
     
 下列範例示範如何為指定的 AMS 帳戶啟用遙測，以及如何使用 Azure 媒體服務 .NET SDK 查詢度量。  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

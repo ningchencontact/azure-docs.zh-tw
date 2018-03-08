@@ -15,11 +15,11 @@ ms.devlang: JavaScript
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: 376348c3af0ff97162f1b2ed865a5edd47f52546
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 33ef17f1556822c78783cc56b8ea7867eef2ec71
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="send-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>使用 Azure 通知中樞將推播通知傳送至 Chrome 應用程式
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -71,7 +71,7 @@ ms.lasthandoff: 02/27/2018
         ![Azure 通知中樞 - Google (GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
 ## <a id="connect-app"></a>將您的 Chrome 應用程式連接到通知中樞
-現在已將您的通知中樞設定成使用 GCM，而且您已擁有可用來註冊應用程式以接收和傳送推播通知的連接字串。 LK
+現在已將您的通知中樞設定成使用 GCM，而且您已擁有可用來註冊應用程式以接收和傳送推播通知的連接字串。
 
 ### <a name="create-a-new-chrome-app"></a>建立新的 Chrome 應用程式
 下列範例以 [Chrome 應用程式 GCM 範例]為基礎，並使用建議的方式建立 Chrome 應用程式。 這一節特別說明 Azure 通知中樞專用的步驟。 

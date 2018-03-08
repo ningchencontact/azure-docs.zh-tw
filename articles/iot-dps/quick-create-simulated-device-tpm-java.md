@@ -12,18 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: e0e50cdb987f2632d11753940327d1a88be4f3ab
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 99cf221b08fc613c000dda4e5cc4855634091f55
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>使用適用於 Azure IoT 中樞裝置佈建服務的 Java 裝置 SDK 來建立及佈建模擬 TPM 裝置
-> [!div class="op_single_selector"]
-> * [C](quick-create-simulated-device.md)
-> * [Java](quick-create-simulated-device-tpm-java.md)
-> * [C#](quick-create-simulated-device-tpm-csharp.md)
-> * [Python](quick-create-simulated-device-tpm-python.md)
+
+[!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
 這些步驟顯示如何在執行 Windows 作業系統的開發電腦上建立模擬裝置、執行 Windows TPM 模擬器作為裝置的[硬體安全性模組 (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)，並使用程式碼範例來連線模擬裝置與裝置佈建服務和 IoT 中樞。 
 

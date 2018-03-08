@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>在 Azure Active Directory 中針對動態群組成員資格建立以屬性為基礎的規則
 在 Azure Active Directory (Azure AD) 中，您可以建立進階規則，以對群組啟用更複雜的屬性型動態成員資格。 本文將詳細說明用以建立適用於使用者或裝置之動態成員資格規則的屬性和語法。

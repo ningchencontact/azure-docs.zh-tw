@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bb8ad6d9defcbaef255065b20a9a9b542e74d73d
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>部署 Azure Container Service (AKS) 叢集
 
@@ -49,59 +49,6 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 ```
 
 幾分鐘之後，部署就會完成，並以 JSON 格式傳回 AKS 部署的相關資訊。
-
-```azurecli
-{
-  "additionalProperties": {},
-  "agentPoolProfiles": [
-    {
-      "additionalProperties": {},
-      "count": 1,
-      "dnsPrefix": null,
-      "fqdn": null,
-      "name": "nodepool1",
-      "osDiskSizeGb": null,
-      "osType": "Linux",
-      "ports": null,
-      "storageProfile": "ManagedDisks",
-      "vmSize": "Standard_DS1_v2",
-      "vnetSubnetId": null
-    }
-    ...
-```
-
-## <a name="getting-information-about-your-cluster"></a>取得叢集的相關資訊
-
-部署您的叢集後，您就能夠使用 `az aks show` 來查詢您的叢集並擷取重要資訊。 在叢集上執行更複雜的作業時，此資料可以作為參數。 例如，如果您想要在叢集中執行之 Linux 設定檔的相關資訊，則可執行下列命令。
-
-```azurecli
-az aks show --name myAKSCluster --resource-group myResourceGroup --query "linuxProfile"
-
-{
-  "additionalProperties": {},
-  "adminUsername": "azureuser",
-  "ssh": {
-    "additionalProperties": {},
-    "publicKeys": [
-      {
-        "additionalProperties": {},
-        "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADA...
-      }
-    ]
-  }
-}
-```
-
-這會顯示管理使用者和 SSH 公開金鑰的相關資訊。 您也可以將 JSON 屬性附加至您的查詢字串 (如下所示)，以執行更詳細的查詢。
-
-```azurecli
-az aks show -n myakscluster  -g my-group --query "{name:agentPoolProfiles[0].name, nodeCount:agentPoolProfiles[0].count}"
-{
-  "name": "nodepool1",
-  "nodeCount": 1
-}
-```
-這對於快速存取有關已部署叢集的資料很有幫助。 在[這裡](http://jmespath.org/tutorial.html)深入了解 JMESPath 查詢。
 
 ## <a name="install-the-kubectl-cli"></a>安裝 kubectl CLI
 
@@ -143,19 +90,19 @@ k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.9
 首先，取得針對 AKS 設定之服務主體的識別碼。 更新資源群組名稱和 AKS 叢集名稱，以符合您的環境。
 
 ```azurecli
-$CLIENT_ID = $(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
 ```
 
 取得 ACR 登錄資源識別碼。將登錄名稱更新為您的 ACR 登錄名稱，以及將資源群組更新為 ACR 登錄所在的資源群組。
 
 ```azurecli
-$ACR_ID = $(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 建立角色指派，以授與適當的存取權。
 
 ```azurecli
-az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
+az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 ```
 
 ## <a name="next-steps"></a>後續步驟

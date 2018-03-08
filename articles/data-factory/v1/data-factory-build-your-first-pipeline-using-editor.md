@@ -3,9 +3,9 @@ title: "建置您的第一個 Data Factory (Azure 入口網站) | Microsoft Docs
 description: "在本教學課程中，您會使用 Azure 入口網站中的 Data Factory 編輯器，建立 Azure Data Factory 管線範例。"
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 995abf497e7267434b5e87132d30183e3c293af3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c4fe0e01936ebc131b10f011b98e9d0c1782179b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站建置您的第一個資料處理站
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/23/2018
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 選取 [新增] > [資料 + 分析] > [Data Factory]。
+2. 選取 [新增] > [資料 + 分析] > [資料處理站]。
 
    ![建立刀鋒視窗](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 01/23/2018
 
    ![部署 Data Factory 狀態](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 
-10. 建立資料處理站之後，您會看到 [Data Factory] 頁面，當中會顯示資料處理站的內容。     
+10. 建立資料處理站之後，您會看到 [資料處理站] 頁面，當中會顯示資料處理站的內容。     
 
     ![Data Factory 刀鋒視窗](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 01/23/2018
 在此步驟中，您會將您的 Azure 儲存體帳戶和隨選 HDInsight 叢集連結到您的資料處理站。 儲存體帳戶會保留此範例中管線的輸入和輸出資料。 HDInsight 連結服務是用來執行此範例中管線活動所指定的 Hive 指令碼。 找出您案例中使用哪些[資料存放區](data-factory-data-movement-activities.md)/[計算服務](data-factory-compute-linked-services.md)。 然後藉由建立連結服務，將這些服務連結至資料處理站。  
 
 ### <a name="create-a-storage-linked-service"></a>建立儲存體連結服務
-在此步驟中，您會將儲存體帳戶連結至您的資料處理站。 在本教學課程中，您會使用相同的儲存體帳戶來存放輸入/輸出資料及 HQL 指令碼檔案。
+在此步驟中，您會將儲存體帳戶連結至資料處理站。 在本教學課程中，您會使用相同的儲存體帳戶來存放輸入/輸出資料及 HQL 指令碼檔案。
 
 1. 在 **GetStartedDF** 的 [資料處理站] 刀鋒視窗中，選取 [製作和部署]。 您會看到 [Data Factory 編輯器]。
 
