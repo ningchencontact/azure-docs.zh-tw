@@ -3,9 +3,9 @@ title: "將資料從 Blob 儲存體複製到 SQL Database - Azure | Microsoft Do
 description: "本教學課程向您說明如何使用 Azure Data Factory 管線中的複製活動，將資料從 Blob 儲存體複製到 SQL Database。"
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: 
+editor: 
 ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 41ead775c8ce1919d8c3813b58c8a4d648c8bc64
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3135c8bf6316125a164c06630bc7607a92621b26
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>教學課程：使用 Data Factory 將資料從 Blob 儲存體複製到 SQL Database
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ ms.lasthandoff: 01/23/2018
 您需要有 Azure 儲存體帳戶的帳戶名稱和帳戶金鑰，才能進行這個教學課程。 記下 Azure 儲存體帳戶的**帳戶名稱**和**帳戶金鑰**。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下左側功能表中的 [更多服務]，然後選取 [儲存體帳戶]。
+2. 按一下左側功能表中的 [所有服務]，然後選取 [儲存體帳戶]。
 
     ![瀏覽 - 儲存體帳戶](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. 在 [儲存體帳戶] 刀鋒視窗中，選取您想要在本教學課程中使用的 [Azure 儲存體帳戶]。
@@ -70,7 +70,7 @@ ms.lasthandoff: 01/23/2018
 ## <a name="collect-sql-server-database-user-names"></a>收集 SQL Server、資料庫、使用者名稱
 您需要有 Azure SQL 伺服器、資料庫和使用者的名稱，才能進行這個教學課程。 記下 Azure SQL Database 的**伺服器**、**資料庫**和**使用者**名稱。
 
-1. 在 **Azure 入口網站**中，按一下左邊的 [更多服務]，然後選取 [SQL Database]。
+1. 在 **Azure 入口網站**中，按一下左側的 [所有服務]，然後選取 [SQL 資料庫]。
 2. 在 [SQL Database] 刀鋒視窗中，選取您想要在本教學課程中使用的**資料庫**。 記下 **資料庫名稱**。  
 3. 在 [SQL Database] 刀鋒視窗中，按一下 [設定] 下的 [屬性]。
 4. 記下 [伺服器名稱] 和 [伺服器系統管理員登入] 的值。
@@ -79,7 +79,7 @@ ms.lasthandoff: 01/23/2018
 ## <a name="allow-azure-services-to-access-sql-server"></a>允許 Azure 服務存取 SQL Server
 確定**開啟** Azure SQL 伺服器的 [允許存取 Azure 服務] 設定，讓 Data Factory 服務可以存取您的 Azure SQL 伺服器。 若要確認並開啟此設定，請執行下列步驟：
 
-1. 按一下左邊的 [更多服務] 中樞，然後按一下 [SQL Server]。
+1. 按一下左側的 [所有服務] 中樞，然後按一下 [SQL 伺服器]。
 2. 選取您的伺服器，然後按一下 [設定] 下的 [防火牆]。
 3. 在 [防火牆設定] 刀鋒視窗中，對 [允許存取 Azure 服務] 按一下 [開啟]。
 4. 按一下 **X**，關閉所有刀鋒視窗。

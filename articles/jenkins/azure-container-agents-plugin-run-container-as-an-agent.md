@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 557b21340a0ba4e5381d7505b14a172aa3478b84
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>使用 Jenkins 和 Azure 容器執行個體在 Azure 中建置專案
 
@@ -30,7 +30,7 @@ Azure 容器執行個體可讓您快速啟動及執行，不需要佈建虛擬�
 > * 安裝及設定適用於 Jenkins 的 Azure 容器代理程式外掛程式
 > * 使用 Azure 容器執行個體來建置 [Spring PetClinic 範例應用程式](https://github.com/spring-projects/spring-petclinic) \(英文\)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - **Azure 訂用帳戶**：若要深入了解 Azure 購買選項，請參閱[如何購買 Azure](https://azure.microsoft.com/pricing/purchase-options/) 或[免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。
 

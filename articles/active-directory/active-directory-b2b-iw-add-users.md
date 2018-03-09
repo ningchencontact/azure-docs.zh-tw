@@ -3,7 +3,7 @@ title: "將 B2B 共同作業使用者新增為資訊工作者 - Azure Active Dir
 description: "B2B 共同作業可讓資訊工作者將其組織的使用者新增到 Azure AD 進行存取 | Microsoft Docs"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: curtand
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
-ms.author: sasubram
-ms.openlocfilehash: e02f23c055af24b42fd41394b26a4df827cb0fc8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 37660311d74bd6230dd6c229e4160e4d68d467a3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>資訊工作者如何將 B2B 共同作業使用者新增到 Azure Active Directory?
 

@@ -13,40 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>如何使用 Azure Active Directory 與 API 管理保護 Web API 後端
-下列視訊示範如何使用 OAuth 2.0 通訊協定搭配 Azure Active Directory 與 API 管理建置 Web API 後端並加以保護。  本文提供概觀以及視訊中步驟的其他資訊。 這段 24 分鐘的視訊示範如何：
 
-* 使用 AAD 建置 Web API 後端以及保護安全 - 從 1:30 開始
-* 將 API 匯入 API 管理 - 從 7:10 開始
-* 設定開發人員入口網站呼叫 API - 從 9:09 開始
-* 設定桌面應用程式呼叫 API - 從 18:08 開始
-* 設定 JWT 驗證原則來預先授權要求 - 從 20:47 開始
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
+本主題示範如何使用 OAuth 2.0 通訊協定搭配 Azure Active Directory 與 API 管理建置 Web API 後端並加以保護。  
 
 ## <a name="create-an-azure-ad-directory"></a>建立 Azure AD 目錄
-若要使用 Azure Active Directory 保護您的 Web API 後端，您必須先具備 AAD 租用戶。 在這段視訊中，使用名為 **APIMDemo** 的租用戶。 若要建立 AAD 租用戶，請登入 [Azure 傳統入口網站](https://manage.windowsazure.com)，按一下 [新增] -> [應用程式服務] -> [Active Directory] -> [目錄] -> [自訂建立]。 
+若要使用 Azure Active Directory 保護您的 Web API 後端，您必須先具備 AAD 租用戶。 若要建立 AAD 租用戶，請登入 [Azure 傳統入口網站](https://manage.windowsazure.com)，按一下 [新增] -> [應用程式服務] -> [Active Directory] -> [目錄] -> [自訂建立]。 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-此範例會一同建立名為 **APIMDemo** 的目錄與名為 **DemoAPIM.onmicrosoft.com** 的預設網域。在整段視訊中都會使用這個目錄。
+此範例會一同建立名為 **APIMDemo** 的目錄與名為 **DemoAPIM.onmicrosoft.com** 的預設網域。 
 
 ![Azure Active Directory][api-management-create-aad]
 
 ## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>建立由 Azure Active Directory 保護的 Web API 服務
-在此步驟中，Web API 後端會使用 Visual Studio 2013 建立。 這個步驟的視訊從 1:30 開始。 若要在 Visual Studio 中建立 Web API 後端專案，請按一下 [檔案] -> [新增] -> [專案]，然後從 [Web] 範本清單中選擇 [ASP.NET Web 應用程式]。 在此影片中，專案的名稱為 **APIMAADDemo**。 按一下 [確定]  以建立專案。 
+在此步驟中，Web API 後端會使用 Visual Studio 2013 建立。 若要在 Visual Studio 中建立 Web API 後端專案，請按一下 [檔案] -> [新增] -> [專案]，然後從 [Web] 範本清單中選擇 [ASP.NET Web 應用程式]。 
 
 ![Visual Studio][api-management-new-web-app]
 
-從 [選取範本清單] 按一下 [Web API] 來建立 Web API 專案。 若要設定 Azure Directory 驗證，請按一下 [變更驗證] 。
+從 [選取範本清單] 按一下 [Web API] 來建立 Web API 專案。 若要設定 Azure 目錄驗證，請按一下 [變更驗證]。
 
 ![新增專案][api-management-new-project]
 
@@ -75,7 +66,6 @@ ms.lasthandoff: 02/09/2018
 按一下 [確定]  設定 Web 應用程式和建立專案。
 
 ## <a name="add-the-code-to-the-web-api-project"></a>將程式碼加入 Web API 專案
-視訊中的下一個步驟會將程式碼加入 Web API 專案。 這個步驟從 4:35 開始。
 
 此範例中的 Web API 使用模型和控制器實作基本的計算機服務。 若要新增服務的模型，請以滑鼠右鍵按一下 [方案總管] 中的 [模型]，然後選擇 [新增][類別]。 將類別命名為 `CalcInput`，然後按一下 [新增]。
 
@@ -161,14 +151,13 @@ public class CalcController : ApiController
 按下 **F6** 來建置和驗證方案。
 
 ## <a name="publish-the-project-to-azure"></a>將專案發佈到 Azure
-在此步驟中，Visual Studio 專案會發佈到 Azure。 這個步驟的視訊從 5:45 開始。
 
 若要將專案發佈到 Azure，請以滑鼠右鍵按一下 Visual Studio 中的 [APIMAADDemo] 專案，然後選擇 [發佈]。 保留 [發佈 Web] 對話方塊中的預設值，然後按一下 [發佈]。
 
 ![Web 發佈][api-management-web-publish]
 
 ## <a name="grant-permissions-to-the-azure-ad-backend-service-application"></a>授與權限給 Azure AD 後端服務應用程式
-設定和發佈您的 Web API 專案時，您的 Azure AD 目錄中會建立一個新的應用程式用於後端服務。 這個步驟會授與權限給 Web API 後端，從視訊的 6:13 開始。
+設定和發佈您的 Web API 專案時，您的 Azure AD 目錄中會建立一個新的應用程式用於後端服務。
 
 ![Application][api-management-aad-backend-app]
 
@@ -192,7 +181,7 @@ API 經由 API 發佈者入口網站進行設定，您可以透過 Azure 入口�
 
 您可以將運算 [手動加入 API](api-management-howto-add-operations.md)，也可以匯入運算。 在這段視訊中從 6:40 開始，運算會以 Swagger 格式匯入。
 
-以下列內容建立名為 `calcapi.json` 的檔案，然後將檔案儲存到您的電腦。 確定 `host` 屬性指向您的 Web API 後端。 在此範例中使用 `"host": "apimaaddemo.azurewebsites.net"` 。
+以下列內容建立名為 `calcapi.json` 的檔案，然後將檔案儲存到您的電腦。 確定 `host` 屬性指向您的 Web API 後端。 在此範例中使用 `"host": "apimaaddemo.azurewebsites.net"`。
 
 ```json
 {
@@ -352,7 +341,7 @@ API 經由 API 發佈者入口網站進行設定，您可以透過 Azure 入口�
 匯入 API 之後，API 的摘要頁面隨即會顯示在發行者入口網站中。
 
 ## <a name="call-the-api-unsuccessfully-from-the-developer-portal"></a>從開發人員入口網站無法成功呼叫 API
-現在，API 已經匯入 API 管理，但是還無法從開發人員入口網站成功呼叫，因為使用 Azure AD 驗證保護後端服務。 這會從視訊的 7:40 開始使用下列步驟示範。
+現在，API 已經匯入 API 管理，但是還無法從開發人員入口網站成功呼叫，因為使用 Azure AD 驗證保護後端服務。 
 
 從發佈者入口網站的右上角，按一下 [開發人員入口網站]  。
 
@@ -373,9 +362,9 @@ API 經由 API 發佈者入口網站進行設定，您可以透過 Azure 入口�
 因為後端 API 受到 Azure Active Directory 的保護，所以要求未獲授權。 在成功呼叫 API 之前，必須先使用 OAuth 2.0 設定開發人員入口網站以授權開發人員。 下列各節將說明這個程序。
 
 ## <a name="register-the-developer-portal-as-an-aad-application"></a>將開發人員入口網站註冊為 AAD 應用程式
-使用 OAuth 2.0 設定開發人員入口網站來授權開發人員的第一個步驟是將開發人員入口網站註冊為 AAD 應用程式。 這會從視訊的 8:27 開始示範。
+使用 OAuth 2.0 設定開發人員入口網站來授權開發人員的第一個步驟是將開發人員入口網站註冊為 AAD 應用程式。 
 
-這段視訊第一個步驟是瀏覽到 Azure AD 租用戶，在此範例中是 **APIMDemo**，然後瀏覽到 [應用程式] 索引標籤。
+瀏覽至 Azure AD 租用戶。 在此範例中，選取 **APIMDemo**，然後瀏覽至 [應用程式] 索引標籤。
 
 ![新增應用程式][api-management-aad-new-application-devportal]
 
@@ -387,14 +376,14 @@ API 經由 API 發佈者入口網站進行設定，您可以透過 Azure 入口�
 
 ![新增應用程式][api-management-aad-new-application-devportal-1]
 
-對 [登入 URL] 輸入您 API 管理服務的 URL，並且附加 `/signin`。 在此範例中使用 `https://contoso5.portal.azure-api.net/signin` 。
+對 [登入 URL] 輸入您 API 管理服務的 URL，並且附加 `/signin`。 在此範例中使用 `https://contoso5.portal.azure-api.net/signin`。
 
 對 [應用程式識別碼 URL] 輸入您 API 管理服務的 URL，並且附加一些唯一字元。 這些字元可以是任何想要的字元，在此範例中使用 `https://contoso5.portal.azure-api.net/dp`。 設定想要的 [應用程式屬性] 之後，按一下核取記號以建立應用程式。
 
 ![新增應用程式][api-management-aad-new-application-devportal-2]
 
 ## <a name="configure-an-api-management-oauth-20-authorization-server"></a>設定 API 管理 OAuth 2.0 授權伺服器
-下一步是在 API 管理中設定 OAuth 2.0 授權伺服器。 這個步驟會從視訊的 9:43 開始示範。
+下一步是在 API 管理中設定 OAuth 2.0 授權伺服器。 
 
 從左側的 [API 管理] 功能表按一下 [安全性]，然後依序按一下 [OAuth 2.0] 和 [新增授權伺服器]。
 
@@ -466,7 +455,7 @@ API 經由 API 發佈者入口網站進行設定，您可以透過 Azure 入口�
 ![新增權限][api-management-aad-add-delegated-permissions]
 
 ## <a name="enable-oauth-20-user-authorization-for-the-calculator-api"></a>啟用計算機 API 的 OAuth 2.0 使用者授權
-現在已經設定好 OAuth 2.0 伺服器，您可以在安全性設定中為您的 API 指定此伺服器。 這個步驟會從視訊的 14:30 開始示範。
+現在已經設定好 OAuth 2.0 伺服器，您可以在安全性設定中為您的 API 指定此伺服器。 
 
 按一下左側功能表中的 [API]，然後按一下 [計算機] 來檢視和設定其設定。
 
@@ -477,7 +466,7 @@ API 經由 API 發佈者入口網站進行設定，您可以透過 Azure 入口�
 ![計算機 API][api-management-enable-aad-calculator]
 
 ## <a name="successfully-call-the-calculator-api-from-the-developer-portal"></a>從開發人員入口網站成功呼叫計算機 API
-現在已經在 API 上設定好 OAuth 2.0 授權，就可以從開發人員中心成功呼叫其運算。 這個步驟會從視訊的 15:00 開始示範。
+現在已經在 API 上設定好 OAuth 2.0 授權，就可以從開發人員中心成功呼叫其運算。 
 
 瀏覽回到開發人員入口網站中計算機服務的 [相加兩個整數] 運算，然後按一下 [試試看]。 請注意，在 [授權]  區段中的新項目對應到您剛才加入的授權伺服器。
 
@@ -492,10 +481,12 @@ API 經由 API 發佈者入口網站進行設定，您可以透過 Azure 入口�
 ![計算機 API][api-management-devportal-response]
 
 ## <a name="configure-a-desktop-application-to-call-the-api"></a>設定桌面應用程式呼叫 API
-視訊中的下一個程序從 16:30 開始，設定簡單的桌面應用程式呼叫 API。 第一個步驟是在 Azure AD 中註冊桌面應用程式，並且讓它能夠存取目錄和後端服務。 在 18:25 處示範桌面應用程式呼叫計算機 API 的運算。
+
+設定簡單的桌面應用程式呼叫 API。 第一個步驟是在 Azure AD 中註冊桌面應用程式，並且讓它能夠存取目錄和後端服務。 
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>設定 JWT 驗證原則來預先授權要求
-最後的程序從視訊的 20:48 開始，示範如何使用 [驗證 JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) 原則，藉由驗證每個傳入要求的存取權杖來預先授權要求。 如果要求沒有經過「驗證 JWT」原則驗證，要求就會被 API 管理封鎖而不會傳入後端。
+
+使用[驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT) 原則，藉由驗證每個傳入要求的存取權杖來預先授權要求。 如果要求沒有經過「驗證 JWT」原則驗證，要求就會被 API 管理封鎖而不會傳入後端。
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -508,7 +499,7 @@ API 經由 API 發佈者入口網站進行設定，您可以透過 Azure 入口�
 </validate-jwt>
 ```
 
-如需設定和使用此原則的另一個示範，請觀賞 [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ，向前快轉到 13:50。 向前快轉到 15:00 可看到在原則編輯器中設定的原則，再到 18:50 可以看到一個示範，從開發人員入口網站 (使用和不使用必要的授權權杖) 呼叫運算。
+如需詳細資訊，請參閱 [雲端報導第 177 集：更多 API 管理功能](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ，並向前快轉到 13:50。 向前快轉到 15:00 可看到在原則編輯器中設定的原則，再到 18:50 可以看到一個示範，從開發人員入口網站 (使用和不使用必要的授權權杖) 呼叫運算。
 
 ## <a name="next-steps"></a>後續步驟
 * 查看更多有關 API 管理的 [視訊](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 。

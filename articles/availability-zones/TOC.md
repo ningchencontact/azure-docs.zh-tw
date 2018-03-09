@@ -33,6 +33,9 @@
 #### [使用 PowerShell 在可用性區域中建立公用 IP 位址](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [使用 CLI 在可用性區域中建立公用 IP 位址](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### SQL Database
+#### [使用 SQL Database 的可用性區域](../sql-database/sql-database-high-availability.md#availability-zones)
+
 ### 儲存體
 #### [區域備援儲存體](../storage/common/storage-redundancy.md#zone-redundant-storage)
 

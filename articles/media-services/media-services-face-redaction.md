@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 73d2f7135e85b829b1ecbd9eb0264024df36244a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>使用 Azure 媒體分析修訂臉部
 ## <a name="overview"></a>概觀
@@ -57,6 +57,7 @@ ms.lasthandoff: 12/11/2017
 
 #### <a name="output-example"></a>輸出範例：
 
+```json
     {
       "version": 1,
       "timescale": 24000,
@@ -103,6 +104,7 @@ ms.lasthandoff: 12/11/2017
             ],
 
     … truncated
+```
 
 ### <a name="redact-mode"></a>修訂模式
 工作流程的第二個階段會接受必須結合成單一資產的較大量輸入。
@@ -138,7 +140,9 @@ Example foo_IDList.txt
 
 ### <a name="example-json"></a>範例 JSON：
 
+```json
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+```
 
 #### <a name="low"></a>低
 
@@ -172,8 +176,16 @@ Example foo_IDList.txt
 
 1. 建立資產並將媒體檔案上傳到資產。
 2. 根據包含下列 JSON 預設值的組態檔案，建立具有臉部修訂工作的作業： 
-   
-        {'version':'1.0', 'options': {'mode':'combined'}}
+
+    ```json
+            {
+                'version':'1.0',
+                'options': {
+                    'mode':'combined'
+                }
+            }
+    ```
+
 3. 下載輸出 JSON 檔案。 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
@@ -182,7 +194,7 @@ Example foo_IDList.txt
 
 #### <a name="example"></a>範例
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

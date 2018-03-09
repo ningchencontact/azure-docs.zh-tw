@@ -64,6 +64,10 @@
 ### [檔案壓縮](cdn-troubleshoot-compression.md)
 
 # 參考
+##  [規則引擎參考](cdn-rules-engine-reference.md)
+### [規則引擎條件運算式](cdn-rules-engine-reference-conditional-expressions.md)
+### [規則引擎比對條件](cdn-rules-engine-reference-match-conditions.md)
+### [規則引擎功能](cdn-rules-engine-reference-features.md)
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
@@ -71,10 +75,6 @@
 ## [REST](/rest/api/cdn/)
 
 # 資源
-##  [規則引擎參考](cdn-rules-engine-reference.md)
-### [規則引擎條件式運算式](cdn-rules-engine-reference-conditional-expressions.md)
-### [規則引擎功能](cdn-rules-engine-reference-features.md)
-### [規則引擎比對條件](cdn-rules-engine-reference-match-conditions.md)
 ## [Azure CDN POP 位置](cdn-pop-locations.md)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)

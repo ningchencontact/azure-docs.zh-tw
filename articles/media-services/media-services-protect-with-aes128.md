@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 013c14c00096c9958a732d1f0eaacc9248f57da9
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 2d1a635c1e2bde140df19f8c26f6ae5a6978eff5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 動態加密和金鑰傳遞服務
 > [!div class="op_single_selector"]
@@ -126,6 +126,7 @@ ms.lasthandoff: 01/05/2018
 ## <a name="get-a-test-token"></a>取得測試權杖
 根據用於金鑰授權原則的權杖限制取得測試權杖。
 
+```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate = 
@@ -136,6 +137,7 @@ ms.lasthandoff: 01/05/2018
     //so you have to add it in front of the token string. 
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+```
 
 您可以使用 [Azure 媒體服務播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)來測試您的串流。
 
@@ -145,6 +147,7 @@ ms.lasthandoff: 01/05/2018
 ### <a name="manifest-files"></a>資訊清單檔案
 用戶端必須從資訊清單檔案擷取 URL (其中也包含內容金鑰識別碼 [kid]) 值。 用戶端接著會嘗試從金鑰傳遞服務取得加密金鑰。 用戶端也必須擷取 IV 值，並使用它來進行串流解密。 下列程式碼片段說明 Smooth Streaming 資訊清單的 <Protection> 元素：
 
+```xml
     <Protection>
       <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
         <ContentProtection xmlns:sea="urn:mpeg:dash:schema:sea:2012" schemeIdUri="urn:mpeg:dash:sea:2012">
@@ -156,6 +159,7 @@ ms.lasthandoff: 01/05/2018
         </ContentProtection>
       </ProtectionHeader>
     </Protection>
+```
 
 在 HLS 的案例中，根資訊清單會分成區段檔案。 
 
@@ -191,6 +195,7 @@ ms.lasthandoff: 01/05/2018
 
 下列程式碼展示如何使用金鑰傳遞 URI (擷取自資訊清單) 和權杖，將要求傳送至媒體服務金鑰傳遞服務。 (本文未說明如何從 STS 取得 SWT。)
 
+```csharp
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
     {
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(keyDeliveryUri);
@@ -230,6 +235,7 @@ ms.lasthandoff: 01/05/2018
         Array.Copy(buffer, key, length);
         return key;
     }
+```
 
 ## <a name="protect-your-content-with-aes-128-by-using-net"></a>使用 .NET 透過 AES-128 保護內容
 
@@ -239,8 +245,10 @@ ms.lasthandoff: 01/05/2018
 
 2. 將下列元素新增至 app.config 檔案中定義的 appSettings：
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ### <a id="example"></a>範例
 
@@ -251,7 +259,9 @@ ms.lasthandoff: 01/05/2018
 
 請務必更新變數，以指向您的輸入檔案所在的資料夾。
 
+```csharp
     [!code-csharp[Main](../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
+```
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -3,9 +3,9 @@ title: "從 Azure Data Factory 叫用 Spark 程式 | Microsoft Docs"
 description: "了解如何從 Azure Data Factory 使用 MapReduce 活動來叫用 Spark 程式。"
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f03c3b6e275c0bc97df9e687a20acf45956664d2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>從 Azure Data Factory 叫用 Spark 程式管線
 
@@ -155,7 +155,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 ### <a name="create-the-output-dataset"></a>建立輸出資料集
 輸出資料集是驅動排程 (每小時、每天) 的因子。 因此，即使管線中的 Spark 活動並不會產生任何輸出，您仍然必須為該活動指定輸出資料集。 為活動指定輸入資料集是選擇性的。
 
-1. 在「Data Factory 編輯器」中，選取 [更多] > [新增資料集] > [Azure Blob 儲存體]。
+1. 在 Data Factory 編輯器中，選取 [更多] > [新增資料集] > [Azure Blob 儲存體]。
 
 2. 複製下列程式碼片段並貼到 [Draft-1] 視窗。 JSON 程式碼片段會定義名為 **OutputDataset** 的資料集。 此外，指定將結果儲存在名為 **adfspark** 的 Blob 容器及名為 **pyFiles/output** 的資料夾中。 如先前所述，此資料集是一個虛擬資料集。 此範例中的 Spark 程式不會產生任何輸出。 **availability** 區段指定每日產生一次輸出資料集。 
 
@@ -186,7 +186,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 ### <a name="create-a-pipeline"></a>建立管線
 在此步驟中，您會建立含有 HDInsightSpark 活動的管線。 目前，輸出資料集是驅動排程的因子，因此即使活動並不會產生任何輸出，您仍然必須建立輸出資料集。 如果活動沒有任何輸入，您可以略過建立輸入資料集。 因此，在此範例中不會指定任何輸入資料集。
 
-1. 在「Data Factory 編輯器」中，選取 [更多] > [新增管線]。
+1. 在 Data Factory 編輯器中，選取 [更多] > [新增管線]。
 
 2. 使用下列指令碼取代 Draft-1 視窗中的指令碼：
 
@@ -218,13 +218,13 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
     ```
     請注意下列幾點：
 
-    a. **type** 屬性會設定為 **HDInsightSpark**。
+    a. **type** 屬性會設為 **HDInsightSpark**。
 
     b. **rootPath** 屬性會設定為 **adfspark\\pyFiles**，其中 adfspark 是 Blob 容器，而 pyFiles 是該容器中的檔案資料夾。 在此範例中，Blob 儲存體是與 Spark 叢集關聯的儲存體。 您可以將檔案上傳至不同的儲存體帳戶。 如果您這麼做，請建立一個儲存體已連結服務，以將該儲存體帳戶連結至資料處理站。 然後，將連結服務的名稱指定為 **sparkJobLinkedService** 屬性的值。 如需有關此屬性和 Spark 活動所支援之其他屬性的詳細資訊，請參閱 [Spark 活動屬性](#spark-activity-properties)。
 
     c. **entryFilePath** 會設定為 **test.py**，也就是 Python 檔案。
 
-    d. **getDebugInfo** 屬性會設定為 **Always**，表示永遠產生記錄檔 (不論成功或失敗)。
+    d. **getDebugInfo** 屬性會設為 **Always**，表示永遠產生記錄檔 (不論成功或失敗)。
 
     > [!IMPORTANT]
     > 建議您在生產環境中不要將這個屬性設定為 `Always`，除非您要針對問題進行疑難排解。

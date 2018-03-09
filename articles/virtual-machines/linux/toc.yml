@@ -203,8 +203,6 @@
           href: maintenance-notifications.md
         - name: 減輕風險的理論式執行
           href: mitigate-se.md
-        - name: 加速維護常見問題
-          href: accelerated-maintenance.md
         - name: 排定的事件
           href: scheduled-events.md
         - name: 監視中繼資料

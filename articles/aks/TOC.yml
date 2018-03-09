@@ -47,9 +47,13 @@
           href: delete-cluster.md
     - name: 設定資料磁碟區
       items:
-        - name: Azure 磁碟
+        - name: Kubernetes 磁碟區 - 磁碟
+          href: azure-disk-volume.md
+        - name: Kubernetes 磁碟區 - 檔案
+          href: azure-files-volume.md
+        - name: 永久磁碟區 - 磁碟
           href: azure-disks-dynamic-pv.md
-        - name: Azure 檔案
+        - name: 永久磁碟區 - 檔案
           href: azure-files-dynamic-pv.md
     - name: 設定網路功能
       items:
@@ -73,6 +77,8 @@
           href: integrate-azure.md
         - name: Jenkins 持續部署
           href: jenkins-continuous-deployment.md
+        - name: 使用 OpenFaaS with AKS
+          href: openfaas.md
     - name: Kubernetes 基本概念
       items:
         - name: 使用 Kubernetes 儀表板

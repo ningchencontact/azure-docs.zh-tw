@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fd4c28c2317356cbc6e3fd4d46a10509c029d530
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>使用 EventFlow 的事件彙總與集合
 
@@ -32,12 +32,12 @@ EventFlow 二進位檔是以一組 NuGet 套件的形式提供。 若要將 Even
 
 您會看到一份各種各樣套件的清單，標記為「輸入」和「輸出」。 EventFlow 支援各種不同的記錄提供者和分析器。 視應用程式記錄檔的來源和目的地而定，裝載 EventFlow 的服務應該包含適當的套件。 除了核心 ServiceFabric 套件，您還需要設定至少一個輸入和輸出。 例如，您可以新增下列套件，將 EventSource 事件傳送至 Application Insights：
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource` 從服務的 EventSource 類別以及從標準 EventSources (例如 *Microsoft-ServiceFabric-Services* 和 *Microsoft-ServiceFabric-Actors*) 擷取資料
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights` (我們將把記錄檔傳送給 Azure Application Insights 資源)
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` 從服務的 EventSource 類別以及從標準 EventSources (例如 *Microsoft-ServiceFabric-Services* 和 *Microsoft-ServiceFabric-Actors*) 擷取資料
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (我們將把記錄檔傳送給 Azure Application Insights 資源)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric` (允許從 Service Fabric 服務設定將 EventFlow 管線初始化，並以 Service Fabric 健康情況報告的形式傳送診斷資料來回報任何問題)
 
 >[!NOTE]
->`Microsoft.Diagnostics.EventFlow.Input.EventSource` 套件會要求服務專案的目標必須是 .NET Framework 4.6 或更新版本。 安裝此套件之前，請先確定您已在專案屬性中設定適當的目標架構。
+>`Microsoft.Diagnostics.EventFlow.Inputs.EventSource` 套件會要求服務專案的目標必須是 .NET Framework 4.6 或更新版本。 安裝此套件之前，請先確定您已在專案屬性中設定適當的目標架構。
 
 安裝好所有套件之後，下一個步驟就是設定及啟用服務中的 EventFlow。
 

@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 08426b6142dd125a5981d65635ecc55336cb3d15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 245e2e1ca52e7d3c5bd22d5f2569e3e8d7ae6671
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell 限制
 
@@ -33,7 +33,6 @@ Azure Cloud Shell 具有下列已知限制：
 * 在掛接的儲存體中，只會保存 `clouddrive` 目錄內的修改。 在 Bash 中，也會保存 `$Home` 目錄。
 * 只能從您的[已指派區域](persisting-shell-storage.md#mount-a-new-clouddrive)內掛接 Azure 檔案共用。
   * 在 Bash 中，會執行 `env` 來尋找設定為 `ACC_LOCATION` 的區域。
-* Azure 檔案只支援本機備援儲存體和異地備援儲存體帳戶。
 
 ### <a name="browser-support"></a>瀏覽器支援
 
@@ -57,16 +56,9 @@ Cloud Shell 主要用於互動式的使用案例。 因此，任何長時間執�
 
 權限設定為沒有 sudo 存取權的一般使用者。 不會保存 `$Home` 目錄之外的任何安裝。
 
-### <a name="clouddrive-smb-limited-permissions"></a>Clouddrive SMB 有限權限
-`clouddrive` 目錄內的某些命令 (例如 `git clone`) 沒有適當的權限，因此無法讀取/寫入某些檔案。 如果您遇到此問題，請從 `$Home` 目錄再試一次，因為此目錄沒有 SMB 限制。
-
 ### <a name="editing-bashrc"></a>編輯 .bashrc
 
 編輯 .bashrc 時請小心，這麼做可能會導致 Cloud Shell 發生未預期的錯誤。
-
-### <a name="bashhistory"></a>.bash_history
-
-Bash 命令的歷程記錄可能因為 Cloud Shell 工作階段中斷或並行工作階段而出現不一致的情況。
 
 ## <a name="powershell-limitations"></a>PowerShell 限制
 
@@ -76,7 +68,7 @@ Bash 命令的歷程記錄可能因為 Cloud Shell 工作階段中斷或並行�
 
 ### <a name="no-home-directory-persistence"></a>沒有 $Home 目錄持續性
 
-在 PowerShell 工作階段之間不會保存任何應用程式 (例如：git、vim 和其他項目) 寫入至 `$Home` 的資料。 如需因應措施，[請參閱這裡](troubleshooting.md#powershell-resolutions)。
+在 PowerShell 工作階段之間不會保存任何應用程式 (例如：git、vim 和其他項目) 寫入至 `$Home` 的資料。 如需因應措施，[請參閱這裡](troubleshooting.md#powershell-troubleshooting)。
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>從 Azure 磁碟機建立時的預設檔案位置：
 

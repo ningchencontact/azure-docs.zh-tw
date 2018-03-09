@@ -11,23 +11,19 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 02/12/2018
+ms.date: 03/02/2018
 ms.author: carlrab
 ms.workload: Active
 ms.topic: article
-ms.openlocfilehash: f1f74949a472818bc82b462a4679e6549a5bb9a3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 917b5cdd82b44c1993eebd16634257d5a6518c96
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL Database
 
 SQL Database 彈性集區是簡單、符合成本效益的解決方案，可用來管理及調整使用需求變化不定且無法預測的多個資料庫。 彈性集區中的資料庫位於單一 Azure SQL Database 伺服器上，並以固定價格共用固定數量的資源 ([彈性資料庫交易單位](sql-database-what-is-a-dtu.md) (eDTU))。 Azure SQL Database 中的彈性集區可讓 SaaS 開發人員將一組資料庫的價格效能最佳化在規定的預算內，同時為每個資料庫提供效能彈性。 
-
-> [!NOTE]
-> 彈性集區已在所有 Azure 區域中正式運作 (GA)，但印度西部除外，此區域目前提供預覽版。 我們將儘速在此區域提供彈性集區的 GA。
->
 
 ## <a name="what-are-sql-elastic-pools"></a>SQL 彈性集區是什麼？ 
 

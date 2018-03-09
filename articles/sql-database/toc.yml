@@ -45,12 +45,14 @@
       href: sql-database-design-first-database.md
     - name: 1 - 使用 .NET 設計 DB
       href: sql-database-design-first-database-csharp.md
-    - name: 2 - 移轉 SQL Server DB
+    - name: 2 - 移轉至 SQL Server DB
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - 保護您的 SQL DB
       href: sql-database-security-tutorial.md
     - name: 4 - 實作異地分散式資料庫
       href: sql-database-implement-geo-distributed-database.md
+    - name: 5 - 建立受控執行個體
+      href: sql-database-managed-instance-tutorial-portal.md
 - name: 範例
   items:
     - name: 程式碼範例
@@ -61,26 +63,26 @@
       href: sql-database-powershell-samples.md
 - name: 概念
   items:
-    - name: 資料庫服務
-      items:
-        - name: 伺服器和資料庫
-          href: sql-database-servers-databases.md
-        - name: 服務層
-          href: sql-database-service-tiers.md
-        - name: 資源限制
-          href: sql-database-resource-limits.md
-        - name: 單一資料庫
-          href: sql-database-single-database-resources.md
-        - name: 彈性集區
-          href: sql-database-elastic-pool.md
-        - name: 連線架構
-          href: sql-database-connectivity-architecture.md
-        - name: DTU 和 eDTU
-          href: sql-database-what-is-a-dtu.md
-        - name: DTU 基準測試
-          href: sql-database-benchmark-overview.md
-        - name: SQL Server 常用功能
-          href: sql-database-features.md
+    - name: 伺服器和資料庫
+      href: sql-database-servers-databases.md
+    - name: 受控執行個體
+      href: sql-database-managed-instance.md
+    - name: 服務層
+      href: sql-database-service-tiers.md
+    - name: 資源限制
+      href: sql-database-resource-limits.md
+    - name: 單一資料庫
+      href: sql-database-single-database-resources.md
+    - name: 彈性集區
+      href: sql-database-elastic-pool.md
+    - name: 連線架構
+      href: sql-database-connectivity-architecture.md
+    - name: DTU 和 eDTU
+      href: sql-database-what-is-a-dtu.md
+    - name: DTU 基準測試
+      href: sql-database-benchmark-overview.md
+    - name: SQL Server 常用功能
+      href: sql-database-features.md
     - name: 高可用性
       href: sql-database-high-availability.md
     - name: 安全性
@@ -101,8 +103,10 @@
           href: sql-database-ssms-mfa-authentication.md
         - name: 稽核
           href: sql-database-auditing.md
-        - name: 威脅偵測
+        - name: 威脅偵測 - SQL Database
           href: sql-database-threat-detection.md
+        - name: 威脅偵測 - 受控執行個體
+          href: sql-database-managed-instance-threat-detection.md
         - name: 資料表稽核與 TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: 動態資料遮罩
@@ -137,11 +141,15 @@
           href: sql-database-disaster-recovery-drills.md
     - name: 移轉至 SQL Database
       items:
-        - name: 概觀
+        - name: 移轉至 SQL Database
           href: sql-database-cloud-migrate.md
-        - name: T-SQL 變更
+        - name: 移轉至受控執行個體
+          href: sql-database-managed-instance-migrate.md
+        - name: SQL Database T-SQL 詳細資料
           href: sql-database-transact-sql-information.md
-        - name: 移轉後管理資料庫
+        - name: 受控執行個體 T-SQL 詳細資料
+          href: sql-database-managed-instance-transact-sql-information.md
+        - name: 移轉後管理 SQL Database
           href: sql-database-manage-after-migration.md
     - name: 載入與移動資料
       items:
@@ -265,6 +273,16 @@
           href: sql-database-elastic-query-horizontal-partitioning.md
         - name: 對不同的結構描述執行跨資料表查詢
           href: sql-database-elastic-query-vertical-partitioning.md
+    - name: 受控執行個體
+      items:
+        - name: VNET 組態
+          href: sql-database-managed-instance-vnet-configuration.md
+        - name: 自訂 DNS
+          href: sql-database-managed-instance-custom-dns.md
+        - name: 連線應用程式
+          href: sql-database-managed-instance-connect-app.md
+        - name: 同步網路組態
+          href: sql-database-managed-instance-sync-network-configuration.md
     - name: 安全性
       items:
         - name: 設定 Azure AD 驗證
@@ -472,4 +490,4 @@
     - name: 架構中心
       href: /azure/architecture/
     - name: 客戶案例
-      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
+      href: 'https://customers.microsoft.com/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

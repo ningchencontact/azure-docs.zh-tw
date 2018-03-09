@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5741a484dcda05e3143b5f896ddee2e8591dabee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a16745fc21d03f81ca6140ace54f84468749364
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>使用 Azure 媒體分析偵測臉部和情緒
 ## <a name="overview"></a>概觀
@@ -64,12 +64,14 @@ ms.lasthandoff: 12/11/2017
 ### <a name="task-configuration-preset"></a>工作設定 (預設)
 以 **Azure 媒體臉部偵測器**建立工作時，您必須指定設定預設值。 下列設定預設值僅適用於臉部偵測。
 
+```json
     {
       "version":"1.0",
       "options":{
           "TrackingMode": "Fast"
       }
     }
+```
 
 #### <a name="attribute-descriptions"></a>屬性描述
 | 屬性名稱 | 說明 |
@@ -79,6 +81,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="json-output"></a>JSON 輸出
 下列為 JSON 輸出受到截斷的範例。
 
+```json
     {
     "version": 1,
     "timescale": 30000,
@@ -123,8 +126,8 @@ ms.lasthandoff: 12/11/2017
                 "height": 0.151389
             }
             ],
+```
 
-        . . . 
 
 ## <a name="emotion-detection-input-and-output-example"></a>情緒偵測輸入和輸出範例
 ### <a name="input-video"></a>輸入影片
@@ -133,6 +136,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="task-configuration-preset"></a>工作設定 (預設)
 以 **Azure 媒體臉部偵測器**建立工作時，您必須指定設定預設值。 下列設定預設值指定以情緒偵測為基礎建立 JSON。
 
+```json
     {
       "version": "1.0",
       "options": {
@@ -141,6 +145,7 @@ ms.lasthandoff: 12/11/2017
         "aggregateEmotionIntervalMs": "342"
       }
     }
+```
 
 
 #### <a name="attribute-descriptions"></a>屬性描述
@@ -161,6 +166,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="json-output"></a>JSON 輸出
 彙總情緒的 JSON 輸出 (已截斷)：
 
+```json
     {
      "version": 1,
      "timescale": 30000,
@@ -311,6 +317,7 @@ ms.lasthandoff: 12/11/2017
                  "anger": 0,
                  "disgust": 0,
                  "fear": 0,
+```
 
 ## <a name="limitations"></a>限制
 * 支援的輸入影片格式包括 MP4、MOV 及 WMV。
@@ -324,10 +331,12 @@ ms.lasthandoff: 12/11/2017
 
 1. 建立資產並將媒體檔案上傳到資產。
 2. 根據包含下列 JSON 預設值的組態檔，建立帶有臉部偵測工作的作業： 
-   
-        {
-            "version": "1.0"
-        }
+
+    ```json
+            {
+                "version": "1.0"
+            }
+    ```
 3. 下載輸出 JSON 檔案。 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
@@ -336,7 +345,7 @@ ms.lasthandoff: 12/11/2017
 
 #### <a name="example"></a>範例
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

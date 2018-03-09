@@ -62,6 +62,7 @@
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Azure 資訊安全中心整合](application-gateway-integration-security-center.md)
 ## [合併負載平衡服務](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [設定端點對端點 SSL](application-gateway-end-to-end-ssl-powershell.md)
 ## 疑難排解
 ### [對應用程式閘道中閘道的錯誤進行疑難排解](application-gateway-troubleshooting-502.md)
 ### [診斷記錄與計量](application-gateway-diagnostics.md)
@@ -85,7 +86,7 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [定價](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [價格](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)

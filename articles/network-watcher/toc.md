@@ -73,6 +73,7 @@
 ### [使用開放原始碼視覺化流量模式](network-watcher-using-open-source-tools.md)
 ## 分析 NSG 流量記錄
 ### [讀取 NSG 流量記錄](network-watcher-read-nsg-flow-logs.md)
+### [使用流量分析](traffic-analytics.md)
 ### [使用 Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [使用彈性集區](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [使用 Grafana](network-watcher-nsg-grafana.md)
@@ -95,7 +96,7 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [價格](https://azure.microsoft.com/pricing/details/network-watcher/)
+## [定價](https://azure.microsoft.com/pricing/details/network-watcher/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=network-watcher)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)
