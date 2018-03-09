@@ -3,13 +3,14 @@ layout: HubPage
 hide_bc: 
 title: "Microsoft Azure 文件"
 description: "了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。"
+ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 7a702ec2bb3ccff0766ee70f3efd00e9caa7dbba
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 88b49cb3f16ec8980c480e7a553e0798be7a6f0f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -158,6 +159,9 @@ ms.lasthandoff: 03/05/2018
                                                     <li>
                                                         <a class="barLink" href="/javascript/azure/">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/go/azure/"> Go</a>
                                                     </li>
                                                 </ul></td></tr></table>
                                                <h4>應用程式模型</h4>
@@ -638,12 +642,6 @@ ms.lasthandoff: 03/05/2018
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/recommendations/overview">
-                                                <img src="media/index/API_Recommendations.svg" alt="" />
-                                                <p>建議</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/cognitive-services/academic-knowledge/home">
                                                 <img src="media/index/API_Know_Academic.svg" alt="" />
                                                 <p>學術知識 API</p>
@@ -680,7 +678,7 @@ ms.lasthandoff: 03/05/2018
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/translator/translator-info-overview">
+                                            <a href="/azure/cognitive-services/translator/">
                                                 <img src="media/index/API_TranslatorText.svg" alt="" />
                                                 <p>Translator Text API</p>
                                             </a>
@@ -692,7 +690,7 @@ ms.lasthandoff: 03/05/2018
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/Bing-news-Search/search-the-web">
+                                            <a href="/azure/cognitive-services/bing-news-search/">
                                                 <img src="media/index/API_Bing_News_Search.svg" alt="" />
                                                 <p>Bing 新聞</p>
                                             </a>
@@ -2704,19 +2702,10 @@ ms.lasthandoff: 03/05/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview"><img src="media/index/API_Custom_Decision_Service.svg" alt="" /><span>自訂決策服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/entitylinking/home"><img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" /><span>實體連結&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/kes/overview"><img src="media/index/API_KnowledgeExploration.svg" alt="" /><span>知識探索服務 (KES)&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
-                                                            </li>
-                                                            <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="media/index/API_QnAMaker.svg" alt="" /><span>QnAMaker&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Recommendations.svg" alt="" /><span>建議&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/academic-knowledge/home"><img src="media/index/API_Know_Academic.svg" alt="" /><span>學術知識&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -2732,7 +2721,7 @@ ms.lasthandoff: 03/05/2018
                                                         <h3>Search</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing 新聞</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing 新聞搜尋</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Bing 影片搜尋</a>
@@ -3985,6 +3974,29 @@ ms.lasthandoff: 03/05/2018
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="/go/azure/">取得 Go SDK</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="/go/azure/azure-sdk-go-qs-vm">開始使用</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">參考</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
                                                     <img src="media/index/azure_dev-6.svg" alt="" />
                                                 </div>
                                             </div>
@@ -4021,7 +4033,7 @@ ms.lasthandoff: 03/05/2018
                                                 <h3>
 Azure CLI 2.0 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/overview">開始使用</a>
+                                                    <a href="/cli/azure">開始使用</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/install-azure-cli">下載 Azure CLI 2.0</a>

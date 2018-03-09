@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7273e51342f4e9fc68a8b3d3b145d119b4eab122
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f497954f82e209c1547fca0943169d53f4ab517a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>建立會產生 fMP4 區塊的編碼工作
 
@@ -25,10 +25,11 @@ ms.lasthandoff: 12/11/2017
 
 本文章說明如何建立會產生分散的 MP4 (fMP4) 區塊，而不是 ISO MP4 檔案的編碼工作。 若要產生 fMP4 區塊，請使用**媒體編碼器標準**或**媒體編碼器高階工作流程**編碼器來建立編碼工作，並且指定 **AssetFormatOption.AdaptiveStreaming** 選項，如本程式碼片段所示︰  
     
+```csharp
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
             options: AssetCreationOptions.None, 
             formatOption: AssetFormatOption.AdaptiveStreaming);
-
+```
 
 ## <a id="encoding_with_dotnet"></a>使用媒體服務 .NET SDK 進行編碼
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 12/11/2017
 
 #### <a name="example"></a>範例
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;

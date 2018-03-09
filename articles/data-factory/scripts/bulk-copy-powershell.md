@@ -2,7 +2,7 @@
 title: "PowerShell 指令碼：使用 Azure Data Factory 來大量複製資料 | Microsoft Docs"
 description: "這個 PowerShell 指令碼示範如何使用 Azure Data Factory，將資料從來源資料存放區大量複製到目的地資料存放區。"
 services: data-factory
-author: spelluru
+author: linda33wj
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
-ms.author: spelluru
-ms.openlocfilehash: c8044d70a7c793d865884223081433e49f014f7b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: jingwang
+ms.openlocfilehash: f8a66f3daab9b57723f67a60fa195e53333f3b8d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>PowerShell 指令碼 - 使用 Azure Data Factory 來大量複製多個資料表
 

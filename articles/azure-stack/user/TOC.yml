@@ -47,6 +47,8 @@
               href: azure-stack-vm-sizes.md
             - name: 管理虛擬機器磁碟
               href: azure-stack-manage-vm-disks.md
+            - name: 保護 VM
+              href: azure-stack-manage-vm-backup.md
         - name: 儲存體
           items:
             - name: 概觀

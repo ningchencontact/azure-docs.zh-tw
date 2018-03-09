@@ -28,7 +28,8 @@
 ### [網路安全性群組](virtual-networks-nsg.md)
 
 ## 部署
-### [虛擬網路](virtual-networks-create-vnet-arm-pportal.md)
+### 虛擬網路
+#### [Azure 入口網站](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [範本](virtual-networks-create-vnet-arm-template-click.md)
@@ -43,17 +44,20 @@
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
-### 使用者定義的路由
-#### [Azure 入口網站](create-user-defined-route-portal.md)
-#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
+### 路由表
+#### [Azure 入口網站](tutorial-create-route-table-portal.md)
+#### [Azure PowerShell](tutorial-create-route-table-powershell.md)
+#### [Azure CLI](tutorial-create-route-table-cli.md)
 #### [範本](virtual-network-create-udr-arm-template.md)
 #### 傳統
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [Azure CLI](virtual-network-create-udr-classic-cli.md)
 
 ### 虛擬網路對等互連
-#### [相同的部署模型 - 相同的訂用帳戶](virtual-network-create-peering.md)
+#### 相同部署模型 - 相同訂用帳戶
+##### [Azure 入口網站](tutorial-connect-virtual-networks-portal.md)
+##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
+##### [Azure CLI](tutorial-connect-virtual-networks-cli.md)
 #### [相同的部署模型 - 不同的訂用帳戶](create-peering-different-subscriptions.md)
 #### [不同的部署模型 - 相同的訂用帳戶](create-peering-different-deployment-models.md)
 #### [不同的部署模型 - 不同的訂用帳戶](create-peering-different-deployment-models-subscriptions.md)

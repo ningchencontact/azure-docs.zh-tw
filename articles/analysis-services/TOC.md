@@ -20,6 +20,10 @@
 ## [備份與還原](analysis-services-backup.md)
 ## [使用 REST API 重新整理](analysis-services-async-refresh.md)
 ## [設定擴充](analysis-services-scale-out.md)
+## 自動化管理工作
+### [建立服務主體 - Azure 入口網站](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [建立服務主體 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [將服務主體加入伺服器管理員角色](analysis-services-addservprinc-admins.md)
 ## 伺服器管理
 ### [設定伺服器名稱別名](analysis-services-server-alias.md)
 ### [管理伺服器](analysis-services-manage.md)

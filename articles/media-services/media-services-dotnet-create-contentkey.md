@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 3280a6fcde59bae360da7cb9fea4bb649f984e43
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8700370dfb577cca95327caa923e2ef893165735
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-contentkeys-with-net"></a>使用 .NET 建立 ContentKeys
 > [!div class="op_single_selector"]
@@ -43,6 +43,7 @@ ms.lasthandoff: 12/21/2017
 ## <a name="contentkeytype"></a>ContentKeyType
 您在建立內容金鑰時必須設定的其中一個值就是內容金鑰類型。 選擇下列值之一。 
 
+```csharp
     public enum ContentKeyType
     {
         /// <summary>
@@ -66,10 +67,12 @@ ms.lasthandoff: 12/21/2017
         /// </summary>
         EnvelopeEncryption = 4
     }
+```
 
 ## <a id="envelope_contentkey"></a>建立信封類型 ContentKey
 下列程式碼片段會建立信封加密類型的內容金鑰。 然後建立金鑰與所指定資產的關聯。
 
+```csharp
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
     {
         // Create envelope encryption content key
@@ -101,12 +104,13 @@ ms.lasthandoff: 12/21/2017
 call
 
     IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
-
+```
 
 
 ## <a id="common_contentkey"></a>建立一般類型 ContentKey
 下列程式碼片段會建立一般加密類型的內容金鑰。 然後建立金鑰與所指定資產的關聯。
 
+```csharp
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
     {
         // Create common encryption content key
@@ -140,7 +144,7 @@ call
 call
 
     IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
-
+```
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

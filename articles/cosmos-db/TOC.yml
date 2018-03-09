@@ -260,6 +260,8 @@
               href: mongodb-mongoose.md
             - name: 使用讀取喜好設定
               href: mongodb-readpreference.md
+            - name: 編製索引
+              href: mongodb-indexing.md
             - name: MongoDB 功能支援
               href: mongodb-feature-support.md
             - name: Angular 教學課程系列

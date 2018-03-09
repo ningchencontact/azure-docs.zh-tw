@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health 常見問題集
 本文會回答有關 Azure Active Directory (Azure AD) Connect Health 的常見問題 (FAQ)。 這些常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -128,12 +128,7 @@ Health 代理程式會因為下列可能原因而無法註冊：
 
 **問︰我收到有關「Health 服務資料不是最新狀態」的警示。我該如何進行解決這個問題？**
 
-當 Azure AD Connect Health 在過去 2 小時沒有從伺服器收到所有資料點，就會產生此警示。 有很多原因都可能導致引發此警示。
-
-* 因為防火牆封鎖流量，代理程式無法與所需端點通訊。 在 Web 應用程式 Proxy 伺服器上尤其常見。 請確定您已允許針對所需端點和連接埠的輸出通訊。 如需詳細資訊，請參閱[需求](active-directory-aadconnect-health-agent-install.md#requirements)一節。
-* 輸出通訊會在網路層遇到 SSL 檢查。 這會導致代理程式所使用的憑證遭到檢查伺服器/實體所取代，而無法將資料上傳至 Azure AD Connect Health 服務。
-* 您可以使用代理程式內建的連線命令。 [閱讀更多資訊](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service)。
-* 代理程式也支援透過未經驗證之 HTTP Proxy 的輸出連線。 [閱讀更多資訊](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy)。
+當 Azure AD Connect Health 在過去 2 小時沒有從伺服器收到所有資料點，就會產生此警示。 [閱讀更多資訊](active-directory-aadconnect-health-data-freshness.md)。
 
 ## <a name="operations-questions"></a>操作問題
 **問︰是否需要在 Web 應用程式 Proxy 伺服器上啟用稽核？**

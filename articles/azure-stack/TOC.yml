@@ -10,6 +10,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: 整合的系統版本資訊
           items:
+            - name: 1802 更新
+              href: azure-stack-update-1802.md
             - name: 1712 更新
               href: azure-stack-update-1712.md
             - name: 1711 更新
@@ -133,14 +135,18 @@
           href: azure-stack-monitor-health.md
         - name: 管理網路資源
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: 管理儲存體資源
-          href: azure-stack-manage-storage-accounts.md
-        - name: 管理儲存體容量
-          href: azure-stack-manage-storage-shares.md
         - name: 管理 Windows Azure 套件 VM
           href: azure-stack-manage-windows-azure-pack.md
         - name: 啟動及停止 Azure Stack
           href: azure-stack-start-and-stop.md
+        - name: 管理容量
+          items:
+            - name: 管理儲存體資源
+              href: azure-stack-manage-storage-accounts.md
+            - name: 管理儲存體容量
+              href: azure-stack-manage-storage-shares.md
+            - name: 管理 Azure Stack 的實際儲存體容量
+              href: azure-stack-manage-storage-physical-capacity.md
         - name: 更換硬體
           items:
             - name: 節點動作
@@ -230,6 +236,10 @@
               href: azure-stack-app-service-deploy.md
             - name: 離線部署 App Service
               href: azure-stack-app-service-deploy-offline.md
+            - name: 更新 App Service 資源提供者
+              href: azure-stack-app-service-update.md
+            - name: 離線更新 App Service 資源提供者
+              href: azure-stack-app-service-update-offline.md
             - name: 新增更多 Web 背景工作角色
               href: azure-stack-app-service-add-worker-roles.md
             - name: 設定部署來源

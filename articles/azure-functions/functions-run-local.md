@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: c1a9310d0a09d714f1d58f29e5683097c9dc6b90
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>撰寫 Azure Functions 並在本機進行測試
 
@@ -35,14 +35,6 @@ ms.lasthandoff: 02/01/2018
 
 >[!NOTE]  
 > 您必須[安裝 NodeJS](https://docs.npmjs.com/getting-started/installing-node) (內含 npm)，再安裝任一版本。 針對 2.x 版的工具，只支援 Node.js 8.5 和更新版本。 
-
-### <a name="version-1x-runtime"></a>1.x 版執行階段
-
-工具的原始版本會使用 Functions 1.x 執行階段。 這個版本使用 .NET Framework，並且只有在 Windows 電腦上才予以支援。 使用下列命令來安裝 1.x 版工具：
-
-```bash
-npm install -g azure-functions-core-tools
-```
 
 ### <a name="version-2x-runtime"></a>2.x 版執行階段
 
@@ -69,6 +61,14 @@ sudo npm install -g azure-functions-core-tools@core
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+### <a name="version-1x-runtime"></a>1.x 版執行階段
+
+工具的原始版本會使用 Functions 1.x 執行階段。 這個版本使用 .NET Framework，並且只有在 Windows 電腦上才予以支援。 使用下列命令來安裝 1.x 版工具：
+
+```bash
+npm install -g azure-functions-core-tools
 ```
 
 ## <a name="run-azure-functions-core-tools"></a>執行 Azure Functions Core Tools
@@ -105,6 +105,14 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 若要建立不含本機 Git 存放庫的專案，請使用 `--no-source-control [-n]` 選項。
+
+## <a name="register-extensions"></a>註冊延伸模組
+
+在 2.x 版的 Azure Functions 執行階段中，您必須明確註冊您在函式應用程式中使用的[繫結延伸模組](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) \(英文\)。 
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+如需詳細資訊，請參閱 [Azure Functions 觸發程序和繫結概念](functions-triggers-bindings.md#register-binding-extensions)。
 
 ## <a name="local-settings-file"></a>本機設定檔
 
@@ -232,6 +240,9 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 func host start --debug vscode
 ```
 
+> [!IMPORTANT]
+> 偵錯僅支援 Node.js 8.x。 不支援 Node.js 9.x。 
+
 然後，在 Visual Studio Code 的 [偵錯] 檢視中，選取 [連結至 Azure Functions]。 您可以附加中斷點、檢查變數及逐步執行程式碼。
 
 ![使用 Visual Studio Code 進行 JavaScript 偵錯](./media/functions-run-local/vscode-javascript-debugging.png)
@@ -308,6 +319,10 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 ```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
+
+### <a name="viewing-log-files-locally"></a>在本機檢視記錄檔
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a>發佈至 Azure
 

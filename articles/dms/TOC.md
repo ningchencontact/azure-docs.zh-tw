@@ -6,6 +6,7 @@
 
 # 教學課程
 ## [將 SQL Server 移轉至 Azure SQL DB](tutorial-sql-server-to-azure-sql.md)
+## [將 SQL Server 移轉至 Azure SQL DB 受控執行個體](tutorial-sql-server-to-managed-instance.md)
 
 # 使用說明指南
 ## [使用 PowerShell 來移轉 SQL Server](howto-sql-server-to-azure-sql-powershell.md)
@@ -19,4 +20,4 @@
 ## [必要條件概觀](pre-reqs.md)
 ## [常見問題集](faq.md)
 ## [服務更新](https://azure.microsoft.com/en-us/updates/?product=database-migration)
-
+## [適用於 Azure SQL DB 受控執行個體移轉的網路拓撲](resource-network-topologies.md)
