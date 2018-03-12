@@ -1,10 +1,27 @@
+---
+title: "包含檔案"
+description: "包含檔案"
+services: biztalk-services
+author: MandiOhlinger
+ms.service: biztalk-services
+ms.topic: include
+ms.date: 11/09/2017
+ms.author: mandia
+ms.custom: include file
+ms.openlocfilehash: 81e053c8258d24177d5c7ea499595c4dd4a3b0f0
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/05/2018
+---
 > [!IMPORTANT]
-> Microsoft Azure BizTalk 服務 (MABS) 已屆汰換時間，將會由 Azure Logic Apps 來取代。 如果您目前使用 MABS，則[從使用 BizTalk 服務改為使用 Logic Apps](../articles/logic-apps/logic-apps-move-from-mabs.md) 會指導您如何將整合解決方案改為使用 Logic Apps。 
+> Microsoft Azure BizTalk 服務 (MABS) 已屆汰換時間，將會由 Azure Logic Apps 來取代。
+> 如果您目前使用 MABS，請檢閱以下文章，引導您如何將整合解決方案移轉至 Logic Apps：[從 BizTalk 服務移至 Logic Apps](../articles/logic-apps/logic-apps-move-from-mabs.md) 
 > 
-> 如果您從未使用過 Logic Apps，建議您先閱讀以下內容︰ 
+> 如果您還不熟悉 Logic Apps，請嘗試從這裡開始： 
 > 
-> - [什麼是 Logic Apps](../articles/logic-apps/logic-apps-what-are-logic-apps.md)  
+> * [什麼是 Azure Logic Apps？](../articles/logic-apps/logic-apps-overview.md)  
 > 
-> - [建立第一個邏輯應用程式](../articles/logic-apps/logic-apps-create-a-logic-app.md)，或使用[預先建置的範本](../articles/logic-apps/logic-apps-use-logic-app-templates.md)來快速上手  
+> * [建立第一個邏輯應用程式](../articles/logic-apps/quickstart-create-first-logic-app-workflow.md)，或利用[預先建置的範本](../articles/logic-apps/logic-apps-use-logic-app-templates.md)快速上手。
 > 
-> - [檢視可在邏輯應用程式中使用的所有可用連接器](../articles/connectors/apis-list.md)
+> * [檢閱所有可用的連接器](../articles/connectors/apis-list.md)，您可在邏輯應用程式中使用它們。

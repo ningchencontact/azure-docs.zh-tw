@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/01/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 5cd8d4045764b753c5fdd81ade98d69c72709881
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87f7157f8ab826553d8fb638b9f28d5594f68ed6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遙測
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-Azure Stack 系統資料或遙測會透過「已連線使用者體驗」自動上傳至 Microsoft。 從 Azure Stack 遙測收集的資料主要由 Microsoft 小組用來改善我們的客戶體驗，以及進行安全性、健康情況、品質和效能分析。
+Azure Stack 系統資料或遙測會透過「已連線使用者體驗」自動上傳至 Microsoft。 Microsoft 小組主要會使用從 Azure Stack 遙測收集的資料來改善客戶體驗，以及進行安全性、健康情況、品質和效能分析。
 
 遙測為 Azure Stack 運算子，可以提供寶貴的企業部署深入解析，並提供有助於形塑未來 Azure Stack 版本的資訊。
 
@@ -38,11 +38,11 @@ Azure Stack 遙測是以 Windows Server 2016「已連線使用者體驗與遙測
 > 若要支援遙測資料流程，必須在您的網路中開放連接埠 443 (HTTPS)。 「已連線使用者體驗與遙測」元件會連線到 Microsoft 資料管理服務 (位於 https://v10.vortex-win.data.microsoft.com )。「已連線使用者體驗與遙測」元件也會連線到 https://settings-win.data.microsoft.com 來下載組態資訊。
 
 ## <a name="privacy-considerations"></a>隱私權考量
-ETW 服務會將遙測資料傳送回到受保護的雲端儲存體。 最小權限原則會支配遙測資料的存取權。 只有具備有效商務需求的 Microsoft 人員，才能夠存取遙測資料。 Microsoft 不會與第三方共用客戶個人資料，但客戶自行決定或基於 [Azure Stack 隱私權聲明](http://windows.microsoft.com/windows/preview-privacy-statement)中所述的有限用途除外。 我們會與 OEM 和夥伴共用商務報告，其中包含匿名的彙總遙測資訊。 內部 Microsoft 小組 (包括隱私權、法務及資料管理利害關係人) 會進行資料共用決策。
+ETW 服務會將遙測資料傳送回到受保護的雲端儲存體。 最小權限原則會支配遙測資料的存取權。 只有具備有效商務需求的 Microsoft 人員，才能夠存取遙測資料。 Microsoft 不會與第三方共用客戶個人資料，但客戶自行決定或基於 [Microsoft 隱私權聲明](https://privacy.microsoft.com/PrivacyStatement)中所述的有限用途除外。 我們會與 OEM 和夥伴共用商務報告，其中包含匿名的彙總遙測資訊。 內部 Microsoft 小組 (包括隱私權、法務及資料管理利害關係人) 會進行資料共用決策。
 
-Microsoft 相信並實踐資訊最小化。 我們努力只蒐集我們需要的資訊，而且只有在提供服務所需或進行分析時才會加以儲存。 許多有關 Azure Stack 系統和 Azure 服務運作方式的資訊會在六個月內刪除。 摘要或彙總資料將會保留更長一段時間。
+Microsoft 相信並實踐資訊最小化。 我們努力以只收集所需的資訊為目標，而且只有在提供服務所需或進行分析時才會加以儲存。 許多有關 Azure Stack 系統和 Azure 服務運作方式的資訊會在六個月內刪除。 摘要或彙總資料將會保留更長一段時間。
 
-我們了解客戶資訊的隱私權和安全性都非常重要。  我們採用了體貼且完善的方法，透過 Azure Stack 保護客戶隱私權和客戶資料。 IT 系統管理員有控制項可隨時自訂功能和隱私權設定。 我們對於透明度和信任的承諾很清楚：
+我們了解客戶資訊的隱私權和安全性都很重要。  我們採用了體貼且完善的方法，透過 Azure Stack 保護客戶隱私權和客戶資料。 IT 系統管理員有控制項可隨時自訂功能和隱私權設定。 我們對於透明度和信任的承諾很清楚：
 - 我們對客戶公開我們所蒐集的資料類型。
 - 我們會掌控企業客戶—他們可以自訂自己的隱私權設定。
 - 我們將客戶隱私權和安全性放在第一位。
@@ -59,7 +59,7 @@ Microsoft 不打算蒐集敏感資訊，例如信用卡號碼、使用者名稱�
 範例包括：用戶端的容器、儲存體使用量，以及與 Azure Stack 角色相關聯的網路組態。 我們也會使用深入解析來推動某些管理和監視解決方案的改善和智能運用。  這可協助客戶診斷品質問題，並藉由進行較少 Microsoft 支援呼叫來節省金錢。
 
 ## <a name="manage-telemetry-collection"></a>管理遙測收集
-我們不建議您在組織中關閉遙測，因為遙測可提供推動產品功能和穩定性改進的資料。 不過，我們承認在某些情況下，這可能是必要的。 
+不建議在組織中關閉遙測，因為遙測可提供推動產品功能和穩定性改進的資料。 不過，我們承認在某些情況下，這可能是必要的。 
 
 在這些情況下，您可以使用部署前的登錄設定或使用部署後的遙測端點，設定傳送給 Microsoft 的遙測層級。
 
@@ -92,7 +92,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
  - 儲存體屬性，例如磁碟機數目、類型和大小。
 - **遙測功能**，包括已上傳事件、已卸除事件的百分比，以及最後上傳時間。
 - **品質相關資訊**，可協助 Microsoft 初步了解 Azure Stack 的執行情況。 範例是特定硬體組態上的重大警示計數。
-- **相容性資料**有助於讓您了解系統和虛擬機器上已安裝哪些資源提供者，並找出潛在的相容性問題。
+- **相容性資料有助於讓您了解系統和虛擬機器上已安裝哪些資源提供者，並找出潛在的相容性問題。
 
 **2 (增強)**。 額外深入解析，包括：作業系統和其他 Azure Stack 服務的使用方式、執行方式、進階可靠性資料，以及來自 [基本] 和 [安全性] 層級的資料。 
 
@@ -101,7 +101,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 > [!NOTE]
 > 預設遙測層級值為 2 (增強)。
 
-請注意，關閉 Windows 和 Azure Stack 遙測也會停用 SQL 遙測。 如需有關 Windows Server 遙測設定含意的詳細資訊，請參考 [Windows 遙測白皮書](https://aka.ms/winservtelemetry)。 
+關閉 Windows 和 Azure Stack 遙測也會停用 SQL 遙測。 如需有關 Windows Server 遙測設定含意的詳細資訊，請參考 [Windows 遙測白皮書](https://aka.ms/winservtelemetry)。 
 
 > [!IMPORTANT]
 > 這些遙測層級只適用於 Microsoft Azure Stack 元件。 Azure Stack 硬體夥伴在硬體生命週期主機中執行的非 Microsoft 軟體元件和服務，可能會與這些遙測層級之外的雲端服務通訊。 您應該與 Azure Stack 硬體解決方案提供者合作，了解其遙測原則，以及如何選擇加入或退出。 

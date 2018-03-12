@@ -1,305 +1,210 @@
 ---
-title: "Azure App Service 中的 Node.js API 應用程式 | Microsoft Docs"
-description: "了解如何建立 Node.js RESTful API，並將其部署至 Azure App Service 中的 API 應用程式。"
+title: "Azure App Service 中具有 CORS 支援的 RESTful API | Microsoft Docs"
+description: "了解 Azure App Service 如何協助您裝載具有 CORS 支援的 RESTful API。"
 services: app-service\api
-documentationcenter: node
-author: bradygaster
-manager: erikre
+documentationcenter: dotnet
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
-ms.service: app-service-api
+ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 06/13/2017
-ms.author: rachelap
+ms.date: 02/28/2018
+ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 81d08e047a3689d110195f2325b52c6c0457e644
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 7420e92bc929808f074e9be00dfbcb7d8476654a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>建置 Node.js RESTful API 並將它部署至 Azure 中的 API 應用程式
+# <a name="host-a-restful-api-with-cors-in-azure-app-service"></a>在 Azure App Service 中裝載具有 CORS 支援的 RESTful API
 
-本快速入門示範如何在 Azure 上使用 [Swagger](http://swagger.io/) 定義並將其部署在 Azure 上，建立以 Node.js [Express](http://expressjs.com/) 撰寫的 REST API。 您可使用命令列工具建立應用程式、使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 設定資源，以及使用 Git 部署應用程式。  當您完成後，您必須在 Azure 上執行工作範例 REST API。
+[Azure App Service](app-service-web-overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 此外，App Service 有 RESTful API 的內建[跨原始資源共用 (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) 支援。 本教學課程示範如何將 ASP.NET Core API 應用程式部署至具有 CORS 支援的 App Service。 您可使用命令列工具來設定應用程式，以及使用 Git 部署應用程式。 
 
-## <a name="prerequisites"></a>先決條件
+在本教學課程中，您了解如何：
 
-* [Git](https://git-scm.com/)
-* [ 安裝 Node.js 和 NPM](https://nodejs.org/)
+> [!div class="checklist"]
+> * 使用 Azure CLI 建立 App Service 資源
+> * 使用 Git 將 RESTful API 部署到 Azure
+> * 啟用 App Service CORS 支援
+
+您可以在 macOS、Linux、Windows 上依照本教學課程中的步驟進行。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>先決條件
 
-如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+若要完成本教學課程：
 
-## <a name="prepare-your-environment"></a>準備您的環境
+* [安裝 Git](https://git-scm.com/)。
+* [安裝 .NET Core](https://www.microsoft.com/net/core/)。
 
-1. 在終端機視窗中執行下列命令，將範例複製到本機電腦。
+## <a name="create-local-aspnet-core-app"></a>建立本機 ASP.NET Core 應用程式
 
-    ```bash
-    git clone https://github.com/Azure-Samples/app-service-api-node-contact-list
-    ```
+在此步驟中，您要設定本機 ASP.NET Core 專案。 App Service 會對以其他語言撰寫的 API 支援相同的工作流程。
 
-2. 變更為包含範例程式碼的目錄。
+### <a name="clone-the-sample-application"></a>複製範例應用程式
 
-    ```bash
-    cd app-service-api-node-contact-list
-    ```
+在終端機視窗中，使用 `cd` 移至工作目錄。  
 
-3. 在本機電腦上安裝 [Swaggerize](https://www.npmjs.com/package/swaggerize-express)。 Swaggerize 是一種工具，可從 Swagger 定義為您的 REST API 產生 Node.js 程式碼。
-
-    ```bash
-    npm install -g yo
-    npm install -g generator-swaggerize
-    ```
-
-## <a name="generate-nodejs-code"></a>產生 Node.js 程式碼 
-
-在教學課程的這一節當中，會建立 API 開發工作流程的模型，以供您在其中先建立 Swagger 中繼資料，再以此建立 (自動產生) API 伺服器程式碼的結構。 
-
-將目錄變更為 change 資料夾，然後執行 `yo swaggerize`。 Swaggerize 可從 api.json 中的 Swagger 定義，為您的 API 建立 Node.js 專案。
+執行下列命令來複製範例存放庫。 
 
 ```bash
-cd start
-yo swaggerize --apiPath api.json --framework express
+git clone https://github.com/Azure-Samples/dotnet-core-api
 ```
 
-當 Swaggerize 要求提供專案名稱時，請使用 ContactList。
-   
-   ```bash
-   Swaggerize Generator
-   Tell us a bit about your application
-   ? What would you like to call this project: ContactList
-   ? Your name: Francis Totten
-   ? Your github user name: fabfrank
-   ? Your email: frank@fabrikam.net
-   ```
-   
-## <a name="customize-the-project-code"></a>自訂專案程式碼
+此存放庫包含根據下列教學課程建立的應用程式：[使用 Swagger 的 ASP.NET Core Web API 說明頁面](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio)。 它會使用 Swagger 產生器來提供 [Swagger UI](https://swagger.io/swagger-ui/)和 Swagger JSON 端點。
 
-1. 將 lib 資料夾複製到 `yo swaggerize` 所建立的 ContactList 資料夾，然後將目錄變更為 ContactList。
+### <a name="run-the-application"></a>執行應用程式
 
-    ```bash
-    cp -r lib ContactList/
-    cd ContactList
-    ```
+執行下列命令以安裝必要的套件、執行資料庫移轉，然後啟動應用程式。
 
-2. 安裝 `jsonpath` 和 `swaggerize-ui` NPM 模組。 
+```bash
+cd dotnet-core-api
+dotnet restore
+dotnet run
+```
 
-    ```bash
-    npm install --save jsonpath swaggerize-ui
-    ```
+在瀏覽器中瀏覽至 `http://localhost:5000/swagger` 以使用 Swagger UI 播放。
 
-3. 以下列程式碼取代 handlers/contacts.js 中的程式碼： 
-    ```javascript
-    'use strict';
+![在本機執行的 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/local-run.png)
 
-    var repository = require('../lib/contactRepository');
+瀏覽至 `http://localhost:5000/api/todo` 並查看 ToDo JSON 項目清單。
 
-    module.exports = {
-        get: function contacts_get(req, res) {
-            res.json(repository.all())
-        }
-    };
-    ```
-    此程式碼會使用 lib/contactRepository.js 所提供的 lib/contacts.json 中儲存的 JSON 資料。 新的 contacts.js 程式碼會傳回存放庫中的所有連絡人作為 JSON 酬載。 
+瀏覽至 `http://localhost:5000` 並使用瀏覽器應用程式播放。 稍後，您會將瀏覽器應用程式指向 App Service 中的遠端 API，以測試 CORS 功能。 瀏覽器應用程式的程式碼位於存放庫的 wwwroot 目錄中。
 
-4. 以下列程式碼取代 **handlers/contacts/{id}.js** 檔案中的程式碼：
+如需隨時停止 ASP.NET Core，請在終端機上按下 `Ctrl+C`。
 
-    ```javascript
-    'use strict';
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-    var repository = require('../../lib/contactRepository');
+## <a name="deploy-app-to-azure"></a>將應用程式部署到 Azure
 
-    module.exports = {
-        get: function contacts_get(req, res) {
-            res.json(repository.get(req.params['id']));
-        }    
-    };
-    ```
+在此步驟中，您會將與 SQL Database 連線的 .NET Core 應用程式部署至 App Service。
 
-    此程式碼可讓您使用路徑變數，只傳回具有指定之識別碼的連絡人。
+### <a name="configure-local-git-deployment"></a>設定本機 git 部署
 
-5. 以下列程式碼取代 **server.js** 中的程式碼：
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-    ```javascript
-    'use strict';
+### <a name="create-a-resource-group"></a>建立資源群組
 
-    var port = process.env.PORT || 8000; 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
-    var http = require('http');
-    var express = require('express');
-    var bodyParser = require('body-parser');
-    var swaggerize = require('swaggerize-express');
-    var swaggerUi = require('swaggerize-ui'); 
-    var path = require('path');
-    var fs = require("fs");
-    
-    fs.existsSync = fs.existsSync || require('path').existsSync;
+### <a name="create-an-app-service-plan"></a>建立應用程式服務方案
 
-    var app = express();
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-    var server = http.createServer(app);
+### <a name="create-a-web-app"></a>建立 Web 應用程式
 
-    app.use(bodyParser.json());
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
-    app.use(swaggerize({
-        api: path.resolve('./config/swagger.json'),
-        handlers: path.resolve('./handlers'),
-        docspath: '/swagger' 
-    }));
+### <a name="push-to-azure-from-git"></a>從 Git 推送至 Azure
 
-    // change four
-    app.use('/docs', swaggerUi({
-        docs: '/swagger'  
-    }));
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-    server.listen(port, function () { 
-    });
-    ```   
+```bash
+Counting objects: 98, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (92/92), done.
+Writing objects: 100% (98/98), 524.98 KiB | 5.58 MiB/s, done.
+Total 98 (delta 8), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: .
+remote: Updating submodules.
+remote: Preparing deployment for commit id '0c497633b8'.
+remote: Generating deployment script.
+remote: Project file path: ./DotNetCoreSqlDb.csproj
+remote: Generated deployment script files
+remote: Running deployment command...
+remote: Handling ASP.NET Core Web Application deployment.
+remote: .
+remote: .
+remote: .
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+remote: App container will begin restart within 10 seconds.
+To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+ * [new branch]      master -> master
+```
 
-    此程式碼會進行一些小變更，讓它能與 Azure App Service 搭配運作，並為您的 API 公開互動式 Web 介面。
+### <a name="browse-to-the-azure-web-app"></a>瀏覽至 Azure Web 應用程式
 
-### <a name="test-the-api-locally"></a>在本機測試 API
+在瀏覽器中瀏覽至 `http://<app_name>.azurewebsites.net/swagger` 並使用 Swagger UI 播放。
 
-1. 啟動 Node.js 應用程式
-    ```bash
-    npm start
-    ```
-    
-2. 瀏覽至 http://localhost:8000/contacts 以檢視整份連絡人清單的 JSON。
-   
-   ```json
-    {
-        "id": 1,
-        "name": "Barney Poland",
-        "email": "barney@contoso.com"
-    },
-    {
-        "id": 2,
-        "name": "Lacy Barrera",
-        "email": "lacy@contoso.com"
-    },
-    {
-        "id": 3,
-        "name": "Lora Riggs",
-        "email": "lora@contoso.com"
-    }
-   ```
+![在 Azure App Service 中執行的 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-run.png)
 
-3. 瀏覽至 http://localhost:8000/contacts/2 以檢視 `id` 為 2 的連絡人。
-   
-    ```json
-    { 
-        "id": 2,
-        "name": "Lacy Barrera",
-        "email": "lacy@contoso.com"
-    }
-    ```
+瀏覽至 `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` 以查看您已部署 API 的 swagger.json。
 
-4. 使用 Swagger Web 介面 (位於 http://localhost:8000/docs) 測試 API。
-   
-    ![Swagger Web 介面](media/app-service-web-tutorial-rest-api/swagger-ui.png)
+瀏覽至 `http://<app_name>.azurewebsites.net/api/todo` 以查看您已部署的 API 是否能運作。
 
-## <a id="createapiapp"></a> 建立 API 應用程式
+## <a name="add-cors-functionality"></a>新增 CORS 功能
 
-在本節中，您會使用 Azure CLI 2.0 建立資源，以在 Azure App Service 上裝載 API。 
+接著，您會在 App Service 中為 API 啟用內建 CORS 支援。
 
-1.  使用 [az login](/cli/azure/?view=azure-cli-latest#az_login) 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+### <a name="test-cors-in-sample-app"></a>在範例應用程式中測試 CORS
 
-    ```azurecli-interactive
-    az login
-    ```
+在您的本機存放庫中，開啟 wwwroot/index.html。
 
-2. 如果您有多個 Azure 訂用帳戶，請將預設訂用帳戶變更為所需的訂用帳戶。
+在第 51 行中，將 `apiEndpoint` 變數設定為已部署 API 的 URL (`http://<app_name>.azurewebsites.net`)。 以您在 App Service 中的應用程式名稱取代 _\<appname>_。
 
-    ````azurecli-interactive
-    az account set --subscription <name or id>
-    ````
+在您的本機終端機視窗中，再次執行範例應用程式。
 
-3. [!INCLUDE [Create resource group](../../includes/app-service-api-create-resource-group.md)] 
+```bash
+dotnet run
+```
 
-4. [!INCLUDE [Create app service plan](../../includes/app-service-api-create-app-service-plan.md)]
+瀏覽至位於 `http://localhost:5000` 的瀏覽器應用程式。 在瀏覽器中開啟 [開發人員工具] 視窗 (在適用於 Windows 的 Chrome 中按 `Ctrl`+`Shift`+`i`)，並檢查 [主控台] 索引標籤。您現在會看到錯誤訊息：`No 'Access-Control-Allow-Origin' header is present on the requested resource`。
 
-5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
+![瀏覽器用戶端中的 CORS 錯誤](./media/app-service-web-tutorial-rest-api/cors-error.png)
 
+因為瀏覽器應用程式 (`http://localhost:5000`) 與遠端資源 (`http://<app_name>.azurewebsites.net`) 之間的網域不相符，加上 App Service 中您的 API 並未傳送 `Access-Control-Allow-Origin` 標頭的這個事實，以致瀏覽器無法將跨網域內容載入瀏覽器應用程式中。
 
-## <a name="deploy-the-api-with-git"></a>使用 Git 部署 API
+在生產環境中，瀏覽器應用程式會有公用 URL (而非 localhost URL)，但是對 localhost URL 啟用 CORS 的方式與公用 URL 相同。
 
-將認可從本機 Git 存放庫推送至 Azure App Service，以將您的程式碼部署到 API 應用程式。
+### <a name="enable-cors"></a>啟用 CORS 
 
-1. [!INCLUDE [Configure your deployment credentials](../../includes/configure-deployment-user-no-h.md)] 
-
-2. 在 *ContactList* 目錄中初始化新的存放庫。 
-
-    ```bash
-    git init .
-    ```
-
-3. 排除 npm 在本教學課程的先前步驟中從 Git 建立的 *node_modules* 目錄。 在目前的目錄中建立新的 `.gitignore` 檔案，並在檔案中任意新的一行上新增下列文字。
-
-    ```
-    node_modules/
-    ```
-    使用 `git status` 確認忽略 `node_modules` 資料夾。
-    
-4. 將下列各行新增至 `package.json`。 Swaggerize 所產生的程式碼未指定 Node.js 引擎的版本。 沒有版本規格，Azure 會使用預設 `0.10.18` 版本，而此版本與產生的程式碼不相容。
-
-    ```javascript
-    "engines": {
-        "node": "~0.10.22"
-    },
-    ```
-
-5. 認可對存放庫所做的變更。
-    ```bash
-    git add .
-    git commit -m "initial version"
-    ```
-
-6. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
- 
-## <a name="test-the-api--in-azure"></a>在 Azure 中測試 API
-
-1. 將瀏覽器開啟至 http://app_name.azurewebsites.net/contacts。 您會看到傳回的 JSON 與您稍早在本教學課程中於本機所做的要求相同。
-
-   ```json
-   {
-       "id": 1,
-       "name": "Barney Poland",
-       "email": "barney@contoso.com"
-   },
-   {
-       "id": 2,
-       "name": "Lacy Barrera",
-       "email": "lacy@contoso.com"
-   },
-   {
-       "id": 3,
-       "name": "Lora Riggs",
-       "email": "lora@contoso.com"
-   }
-   ```
-
-2. 在瀏覽器中移至 `http://app_name.azurewebsites.net/docs` 端點，試試在 Azure 上執行的 Swagger UI。
-
-    ![Swagger Ii](media/app-service-web-tutorial-rest-api/swagger-azure-ui.png)
-
-    現在只要將認可推送至 Azure Git 存放庫，即可將範例 API 的更新部署至 Azure。
-
-## <a name="clean-up"></a>清除
-
-若要移除在本快速入門中建立的資源，請執行下列 Azure CLI 命令︰
+在 Cloud Shell 中，使用 [`az resource update`](/cli/azure/resource#az_resource_update) 命令，對您的用戶端 URL 啟用 CORS。 取代 _&lt;appname>_ 預留位置。
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
 ```
 
-## <a name="next-step"></a>後續步驟 
+您可以在 `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`) 中設定多個用戶端 URL。 您也可以使用 `"['*']"` 來啟用所有的用戶端 URL。
+
+### <a name="test-cors-again"></a>再次測試 CORS
+
+重新整理位於 `http://localhost:5000` 的瀏覽器應用程式。 [主控台] 視窗中的錯誤訊息現已消失，而且您可看到來自已部署 API 的資料並與其互動。 您的遠端 API 現在對在本機執行的瀏覽器應用程式支援 CORS。 
+
+![瀏覽器用戶端中的 CORS 成功](./media/app-service-web-tutorial-rest-api/cors-success.png)
+
+恭喜，您正在 Azure App Service 中執行具有 CORS 支援的 API。
+
+## <a name="app-service-cors-vs-your-cors"></a>App Service CORS 與您的 CORS
+
+您可使用自己的 CORS 公用程式，而不是使用 App Service CORS，以獲得更大彈性。 例如，您可以針對不同的路由或方法，指定不同的允許來源。 因為 App Service CORS 可讓您針對所有的 API 路由和方法指定一組可接受的來源，所以您可使用自己的 CORS 程式碼。 在[啟用跨源要求 (CORS)](/aspnet/core/security/cors)中了解 ASP.NET Core 如何執行此作業。
+
+> [!NOTE]
+> 請勿嘗試同時使用 App Service CORS 與您自己的 CORS 程式碼。 一起使用時，App Service CORS 具有優先權，而您自己的 CORS 程式碼沒有任何作用。
+>
+>
+
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
+<a name="next"></a>
+## <a name="next-steps"></a>後續步驟
+
+您已了解如何︰
+
+> [!div class="checklist"]
+> * 使用 Azure CLI 建立 App Service 資源
+> * 使用 Git 將 RESTful API 部署到 Azure
+> * 啟用 App Service CORS 支援
+
+前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至 Web 應用程式。
+
 > [!div class="nextstepaction"]
 > [將現有的自訂 DNS 名稱對應至 Azure Web Apps](app-service-web-tutorial-custom-domain.md)
-

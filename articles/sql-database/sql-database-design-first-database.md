@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 5c5402c89091b84cd3b49815d892c9fa0d59e22a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 52ec8afa693e6ac3c8c73f070f748a01116ec68f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="design-your-first-azure-sql-database"></a>設計您的第一個 Azure SQL Database
 
@@ -139,7 +139,7 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
 在 Azure 入口網站中取得 Azure SQL Database 伺服器的完整伺服器名稱。 透過 SQL Server Management Studio，您可使用此完整伺服器名稱連接到您的伺服器。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從左側功能表中選取 [SQL Database]，按一下 [SQL Database]頁面上您的資料庫。 
+2. 從左側功能表中選取 [SQL Database]，按一下 [SQL Database] 頁面上您的資料庫。 
 3. 在 Azure 入口網站中您資料庫的 [基本資訊] 窗格中，找到後複製 [伺服器名稱]。
 
    ![連線資訊](./media/sql-database-get-started-portal/server-name.png)

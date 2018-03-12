@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 2/22/2018
-ms.openlocfilehash: 186a7b5632c1680e80e087e8f855eaacf3448207
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 33ced510dc9579248b75fb21520d55bd747a6a5c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>快速入門：安裝並開始使用 Azure Machine Learning 服務
 Azure Machine Learning 服務 (預覽) 是整合式端對端的資料科學和進階分析解決方案。 它可以協助專業資料科學家以雲端規模準備資料、開發測試及部署模型。
@@ -29,7 +29,9 @@ Azure Machine Learning 服務 (預覽) 是整合式端對端的資料科學和�
 * 存取命令列介面 (CLI)
 
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+Azure Machine Learning 服務是 Microsoft Azure 產品組合的一部分，因此需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+
+此外，您必須具備適當的權限，才能建立「資源群組」、「虛擬機器」等資產。 
 
 <a name="prerequisites"></a>您可以在下列作業系統上安裝 Azure Machine Learning Workbench 應用程式：
 - Windows 10 或 Windows Server 2016
@@ -63,7 +65,7 @@ Azure Machine Learning 服務 (預覽) 是整合式端對端的資料科學和�
    位置 | _最接近使用者的區域_ | 選擇最接近您的使用者與資料資源的位置。
    基座數目 | 2 | 輸入基座數目。 了解[基座如何影響定價](https://azure.microsoft.com/pricing/details/machine-learning/)。<br/><br/>在本快速入門中，您只需要兩個基座。 您可以視需要在 Azure 入口網站中可以新增或移除基座。
    儲存體帳戶 | _唯一的名稱_ | 選取 [建立新的]，並且提供名稱以建立 [Azure 儲存體帳戶](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal)。 或者，選取 [使用現有的] ，然後從下拉式清單選取現有的儲存體帳戶。 需要儲存體帳戶，並且是用來儲存專案構件並執行歷程記錄資料。 
-   測試帳戶的工作區 | IrisGarden | 提供此帳戶的工作區名稱。 這個名稱長度應介於 2 到 32 個字元之間。 應該只包含英數字元及虛線 (-) 字元。 此工作區包含您建立、管理及發行實驗所需的工具。
+   測試帳戶的工作區 | IrisGarden<br/>(教學課程中使用的名稱) | 提供此帳戶的工作區名稱。 這個名稱長度應介於 2 到 32 個字元之間。 應該只包含英數字元及虛線 (-) 字元。 此工作區包含您建立、管理及發行實驗所需的工具。
    指派工作區的擁有者 | _您的帳戶_ | 選取您自己的帳戶作為工作區擁有者。
    建立模型管理帳戶 | **檢查** |立即建立模型管理帳戶，當您想要將您的模型當作即時 Web 服務部署及管理時，即可使用此資源。 <br/><br/>隨為選擇性，但建議您在與測試帳戶的同時建立模型管理帳戶。
    帳戶名稱 | _唯一的名稱_ | 選擇可識別您模型管理員帳戶的唯一名稱。 您可以使用您自己的名稱，或最能識別測試的部門或專案名稱。 這個名稱長度應介於 2 到 32 個字元之間。 應該只包含英數字元及虛線 (-) 字元。 
@@ -144,7 +146,7 @@ Azure Machine Learning Workbench 適用於 Windows 或 macOS。 請查看[支援
    專案名稱 | myIris |輸入可識別您帳戶的唯一名稱。 您可以使用您自己的名稱，或最能識別測試的部門或專案名稱。 這個名稱長度應介於 2 到 32 個字元之間。 應該只包含英數字元及虛線 (-) 字元。 
    專案目錄 | c:\Temp\ | 指定要在其中建立專案的目錄。
    專案描述 | _保留空白_ | 適合用於描述專案的選擇性欄位。
-   Visualstudio.com |_保留空白_ | 選擇性欄位。 專案可在 Visual Studio Team Services 上選擇性地與 Git 存放庫相關聯，以便進行原始檔控制和共同作業。 [了解如何進行設定](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo)。 
+   Visualstudio.com |_保留空白_ | 選擇性標題。 專案可在 Visual Studio Team Services 上選擇性地與 Git 存放庫相關聯，以便進行原始檔控制和共同作業。 [了解如何進行設定](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo)。 
    工作區 | IrisGarden (如果存在的話) | 選擇您在 Azure 入口網站中針對測試帳戶建立的工作區。 <br/>如果您已遵循快速入門，您應該有名稱為 IrisGarden 的工作區。 如果沒有，請選取您建立測試帳戶時所建立的工作區，或任何您想使用的其他工作區。
    專案範本 | 分類鳶尾花 | 範本包含您可用來瀏覽產品的指令碼和資料。 此範本包含您在本快速入門及此文件網站中的其他教學課程中需要使用的指令碼和資料。 
 

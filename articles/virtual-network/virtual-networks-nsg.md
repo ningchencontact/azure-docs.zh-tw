@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 726799e5d885f144d6e24ab88aaa022f95f0bdd8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>使用網路安全性群組來篩選網路流量
 
@@ -66,7 +66,7 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 預設標籤是系統提供的識別項，用來解決 IP 位址的類別。 您可以在任何規則的**來源位址首碼**和**目的地位址首碼**屬性使用預設標籤。 有三個您可使用的預設標籤：
 
 * **VirtualNetwork** (Resource Manager) (適用於傳統部署的 **VIRTUAL_NETWORK**)：這個標籤包含虛擬網路位址空間 (在 Azure 中定義的 CIDR 範圍)、所有已連線的內部部署位址空間以及已連線的 Azure VNet (區域網路)。
-* **AzureLoadBalancer** (Resource Manager) (適用於傳統部署的 **AZURE_LOADBALANCER**)：這個標籤代表 Azure 基礎結構的負載平衡器。 此標籤會轉譯成做為 Azure 健康狀態探查來源的 Azure 資料中心 IP。
+* **AzureLoadBalancer** (Resource Manager) (適用於傳統部署的 **AZURE_LOADBALANCER**)：這個標籤代表 Azure 基礎結構的負載平衡器。 此標籤會轉譯成為 Azure Load Balancer 之健康狀態探查來源的 Azure 資料中心 IP。
 * **Internet** (Resource Manager) (適用於傳統部署的 **INTERNET**)：這個標籤代表虛擬網路以外且可以透過公用網際網路進行存取的 IP 位址空間。 此範圍也包括 [Azure 擁有的公用 IP 空間](https://www.microsoft.com/download/details.aspx?id=41653)。
 
 ### <a name="default-rules"></a>預設規則
@@ -75,7 +75,7 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 預設規則可允許及不允許流量，如下所示︰
 - 虛擬網路中的流量起始和結束同時允許輸入和輸出方向。
 - **網際網路︰**允許輸出流量，但會封鎖輸入流量。
-- **負載平衡器︰**允許 Azure 的負載平衡器探查 VM 和角色執行個體的健康狀態。 如果您不使用負載平衡的集合，則可以覆寫此規則。
+- **負載平衡器︰**允許 Azure 的負載平衡器探查 VM 和角色執行個體的健康狀態。 如果您覆寫此規則，Azure Load Balancer 健康狀態探查將會失敗，因而對您的服務造成影響。
 
 **輸入預設規則**
 
@@ -163,7 +163,8 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 ### <a name="load-balancers"></a>負載平衡器
 * 針對每個工作負載所使用的每個負載平衡器，考慮負載平衡和網路位址轉譯 (NAT) 規則。 NAT 規則會繫結至包含 NIC (Resource Manager) 或 VM/雲端服務角色執行個體 (傳統) 的後端集區。 請考慮為每個後端集區建立 NSG，僅允許透過負載平衡器中實作的規則對應的流量。 為每個後端集區建立 NSG 可保證直接進入後端集區 (而不會透過負載平衡器) 傳遞的流量也會受到篩選。
 * 在傳統部署中，您會建立端點，該端點可將負載平衡器上的連接埠對應至您的 VM 或角色執行個體上的連接埠。 您也可以透過 Resource Manager 建立自己個別對外公開的負載平衡器。 連入流量的目的地連接埠是 VM 或角色執行個體中的實際通訊埠，而不是負載平衡器所公開的連接埠。 連線至 VM 的來源連接埠和位址是在網際網路中遠端電腦上的連接埠和位址，而不是負載平衡器所公開的連接埠和位址。
-* 當您建立 NSG 來篩選透過內部負載平衡器 (ILB) 的流量時，套用的來源連接埠和位址範圍是來自原始電腦，而不是負載平衡器。 目的地連接埠和位址範圍屬於目的地電腦，而不是負載平衡器。
+* 當您建立 NSG 來篩選透過 Azure Load Balancer 的流量時，套用的來源連接埠和位址範圍是來自原始電腦，而不是負載平衡器前端。 目的地連接埠和位址範圍屬於目的地電腦，而不是負載平衡器前端。
+* 如果您封鎖 AzureLoadBalancer 標籤，則來自 Azure Load Balancer 的健康狀態探查將會失敗，進而影響您的服務。
 
 ### <a name="other"></a>其他
 * 不支援將端點式存取控制清單 (ACL) 和 NSG 用於相同的 VM 執行個體。 如果您想要使用 NSG 且已經擁有就地端點 ACL，請先移除端點 ACL。 如需如何移除端點 ACL 的詳細資訊，請參閱[管理端點 ACL](virtual-networks-acl-powershell.md)一文。
@@ -229,7 +230,7 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 | Allow-Inbound-HTTP-Internet | 允許 | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
-> 前一個規則的來源位址範圍是**網際網路**，而不是負載平衡器的虛擬 IP 位址。 來源連接埠是 *，而不是 500001。 負載平衡器的 NAT 規則與 NSG 全性規則不同。 NSG 安全性規則永遠與流量的原始來源和最終目的地相關，而**不是**兩者之間的負載平衡器。 
+> 前一個規則的來源位址範圍是**網際網路**，而不是負載平衡器的虛擬 IP 位址。 來源連接埠是 *，而不是 500001。 負載平衡器的 NAT 規則與 NSG 全性規則不同。 NSG 安全性規則永遠與流量的原始來源和最終目的地相關，而**不是**兩者之間的負載平衡器。 Azure Load Balancer 一律會保留來源 IP 位址和連接埠。
 > 
 > 
 

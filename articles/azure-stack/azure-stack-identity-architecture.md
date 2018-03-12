@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 0f3e28f7726afab02211902b5ba2e478ae8065df
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7f2ec78da38f3c97fde810fb8fc965cfbb6fda08
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack 的身分識別架構
 在您選擇要搭配 Azure Stack 使用的身分識別提供者之前，請先了解 Azure Active Directory (Azure AD) 與 Active Directory Federated Services (AD FS) 之間選項的重要差異。 
@@ -86,7 +86,7 @@ ms.lasthandoff: 02/24/2018
 
   若要與您的 AD 互動，圖形 API 需要您的 AD 中具有 AD 唯讀權限的使用者認證。 
   - 內建 AD FS 是以 Server 2016 為基礎。 
-  - 您的 AD FS 和 AD 必須以 Server 2012 或更早版本為基礎。 
+  - 您的 AD FS 和 AD 必須以 Server 2012 或更早版本為基礎。  
   
   AD 與內建 AD FS 之間的互動不限於 OpenID Connect，並可使用任何相互支援的通訊協定。  
   - 使用者帳戶是在內部部署 AD 中進行建立和管理。

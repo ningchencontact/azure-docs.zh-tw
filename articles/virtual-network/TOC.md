@@ -64,11 +64,6 @@
 
 ### [虛擬網路服務端點](virtual-network-service-endpoints-configure.md)
 
-### 公用 IP 位址 - 可用性區域
-#### [Azure 入口網站](create-public-ip-availability-zone-portal.md)
-#### [Azure CLI](create-public-ip-availability-zone-cli.md)
-#### [PowerShell](create-public-ip-availability-zone-powershell.md)
-
 ### 虛擬機器
 #### [虛擬機器網路輸送量](virtual-machine-network-throughput.md)
 #### 建立具有靜態公用 IP 位址的 VM
@@ -152,7 +147,7 @@
 ##### [Azure PowerShell](virtual-networks-acl-powershell.md)
 
 ## 管理
-### [虛擬網路](virtual-network-manage-network.md)
+### [虛擬網路](manage-virtual-network.md)
 #### [子網路](virtual-network-manage-subnet.md)
 #### [對等互連](virtual-network-manage-peering.md)
 #### 傳統
@@ -210,7 +205,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
 ## [網路部落格](http://azure.microsoft.com/blog/topics/networking)
 ## [網路論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [價格](https://azure.microsoft.com/pricing/details/virtual-network)
+## [定價](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [網路資源提供者](resource-groups-networking.md)

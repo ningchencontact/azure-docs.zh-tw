@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/16/2017
+ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8bbb06fd511321a67e01772caeaa316ddb6e2a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c53007530fe80f03cefbf138193cfad4b0e8292a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -171,13 +171,9 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 
 ### <a name="size-of-the-compute-nodes"></a>計算節點的大小
 
-**雲端服務組態** 計算節點大小會列於 [雲端服務的大小](../cloud-services/cloud-services-sizes-specs.md)。 Batch 支援 `ExtraSmall`、`STANDARD_A1_V2` 和 `STANDARD_A2_V2` 以外的所有雲端服務大小。
+當您建立 Azure Batch 集區時，您可以從幾乎所有的 VM 系列及 Azure 中可用的大小進行選擇。 Azure 針對不同的工作負載提供各種 VM 大小，包括特製化的 [HPC](../virtual-machines/linux/sizes-hpc.md)或[已啟用的 GPU](../virtual-machines/linux/sizes-gpu.md) VM 大小。 
 
-[虛擬機器組態] 計算節點大小列於 [Azure 中的虛擬機器大小](../virtual-machines/linux/sizes.md) (Linux) 和 [Azure 中的虛擬機器大小](../virtual-machines/windows/sizes.md) (Windows)。 除了 `STANDARD_A0` 和進階儲存體的大小 (`STANDARD_GS`、`STANDARD_DS` 和 `STANDARD_DSV2` 系列) 以外，Batch 支援所有的 Azure VM 大小。
-
-選取計算節點大小時，請考量將於節點上執行之應用程式的特性和需求。 應用程式是否為多執行緒以及需要使用多少記憶體之類的層面，有助於決定最適合且具成本效益的節點大小。 在選取節點大小時，通常會假設每次在節點上執行一項工作。 不過，在作業執行期間可能會有多項工作 (因而有多個應用程式執行個體) 在計算節點上[以平行方式執行](batch-parallel-node-tasks.md)。 在此情況下，通常會選擇較大的節點大小，以因應增加的平行工作執行需求。 如需詳細資訊，請參閱[工作排程原則](#task-scheduling-policy)。
-
-集區中所有節點的大小相同。 如果您打算執行具有不同系統需求和/或負載層級的應用程式，建議使用不同的集區。
+如需詳細資訊，請參閱[為 Azure Batch 集區中的運算節點選擇 VM 大小](batch-pool-vm-sizes.md)。
 
 ### <a name="scaling-policy"></a>調整原則
 

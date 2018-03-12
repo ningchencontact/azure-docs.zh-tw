@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: 7e5e33ee2a7b53f3ffbd27992f6b604358db49bb
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 7eeb3b01ddaea56b1e11fc37bbeba7d3f328772d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-design-your-first-azure-database-for-postgresql-using-azure-cli"></a>教學課程：使用 Azure CLI 來設計您第一個適用於 PostgreSQL 的 Azure 資料庫 
 在本教學課程中，您將使用 Azure CLI (命令列介面) 及其他公用程式來學習如何：
@@ -50,6 +50,25 @@ az group create --name myresourcegroup --location westus
 ```azurecli-interactive
 az extension add --name rdbms
 ``` 
+
+檢查您是否已安裝正確的擴充功能版本。 
+```azurecli-interactive
+az extension list
+```
+
+傳回 JSON 應該包括下列項目： 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.3"
+}
+```
+
+如果未傳回 0.0.3 版，請執行下列命令來更新擴充功能： 
+```azurecli-interactive
+az extension update --name rdbms
+```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>建立適用於 PostgreSQL 的 Azure 資料庫伺服器
 使用 [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) 命令來建立[適用於 PostgreSQL 的 Azure 資料庫伺服器](overview.md)。 一個伺服器會包含一組以群組方式管理的資料庫。 

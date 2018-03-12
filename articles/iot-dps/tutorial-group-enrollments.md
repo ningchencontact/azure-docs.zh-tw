@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 14e5e7613fd5df650625cf8997d569b754ceb689
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 2f1ae92c05e02dffa22fb2c64c6c076a0adfc176
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Java 裝置和服務 SDK 以及註冊群組來建立及佈建模擬 X.509 裝置
 
@@ -39,9 +39,7 @@ ms.lasthandoff: 01/20/2018
     > 此步驟需要 [OpenSSL](https://www.openssl.org/)，您可以從來源加以建置並安裝，或從[第三方](https://wiki.openssl.org/index.php/Binaries) (例如[這個](https://sourceforge.net/projects/openssl/)) 加以下載並安裝。 如果您已建立_根_、_中繼_和_裝置_憑證，您可以略過此步驟。
     >
 
-1. 建立註冊群組資訊：
-
-    1. 執行**步驟 1** 和**步驟 2**，建立您的_根_和_中繼_憑證。
+    1. 執行前兩個步驟，以建立您的_根_和_中繼_憑證。
 
     1. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟您的佈建服務。
 
@@ -56,16 +54,16 @@ ms.lasthandoff: 01/20/2018
 
         1. 選取新建立的憑證：
             - 按一下 [產生驗證碼]。 複製已產生的程式碼。
-            - 執行**步驟 3**。 輸入_驗證碼_，或按一下滑鼠右鍵，在您執行中的 PowerShell 視窗中貼上。  按 **Enter** 鍵。
+            - 執行驗證步驟。 輸入_驗證碼_，或按一下滑鼠右鍵，在您執行中的 PowerShell 視窗中貼上。  按 **Enter** 鍵。
             - 在 Azure 入口網站中選取新建立的 **_verifyCert4.pem_** 檔案。 按一下 [確認]。
 
             ![驗證憑證](./media/tutorial-group-enrollments/validate-certificate.png)
 
-1. 執行**步驟 4** 和**步驟 5** 建立您的裝置憑證和清除資源，以完成作業。
+    1. 執行這些步驟來建立您的裝置憑證和清除資源，以完成作業。
 
-> [!NOTE]
-> 建立裝置憑證時，請務必在您的裝置名稱中使用小寫英數字元和連字號。
->
+    > [!NOTE]
+    > 建立裝置憑證時，請務必在您的裝置名稱中使用小寫英數字元和連字號。
+    >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>建立裝置註冊項目

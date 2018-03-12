@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 03/01/2018
 ms.author: jgao
-ms.openlocfilehash: 1dbad36b7420791e70066263a566f1820823ad27
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: baad137a6f982df987faf95d7c7c595698e8e399
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>在 Azure HDInsight 中建立 Apache Spark 叢集
 
@@ -47,8 +47,8 @@ ms.lasthandoff: 01/19/2018
     * **資源群組**：建立資源群組，或選取現有的資源群組。 資源群組用來管理專案的 Azure 資源。
     * **位置**：選取資源群組的位置。 此範本會使用這個位置，用於建立叢集以及預設叢集儲存體。
     * **ClusterName**：輸入您想要建立的 HDInsight 叢集名稱。
-    * 叢集登入名稱和密碼：預設登入名稱是 admin。
-    * **SSH 使用者名稱和密碼**。
+    * 叢集登入名稱和密碼：預設登入名稱是 admin。選擇叢集登入的密碼。
+    * **SSH 使用者名稱和密碼**。 選擇 SSH 使用者的密碼。
 
 3. 選取 [我同意上方所述的條款及條件]，選取 [釘選到儀表板]，然後按一下 [購買]。 您可以看到標題為 [進行範本部署] 的新圖格。 大約需要 20 分鐘的時間來建立叢集。
 
@@ -103,16 +103,17 @@ Spark SQL 支援 SQL 和 HiveQL 查詢語言。 其功能包括 Python、Scala �
 
     ![HDInsight Spark 中的 Hive 查詢](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "HDInsight Spark 中的 Hive 查詢")
 
-2. 當核心準備就緒時，將以下程式碼貼入空白儲存格，然後按 **SHIFT + ENTER** 鍵以執行此程式碼。 依預設，輸出應列出叢集上可用的 `hivesampletable`。
+2. 當核心準備就緒時，將以下程式碼貼入空白儲存格，然後按 **SHIFT + ENTER** 鍵以執行此程式碼。 此命令會列出叢集上的 Hive 資料表：
 
     ```PySpark
     %%sql
     SHOW TABLES
     ```
+    當您使用 Jupyter Notebook 搭配 HDInsight Spark 叢集時，您可取得預設的 `sqlContext`，用來執行使用 Spark SQL 的 Hive 查詢。 `%%sql` 會告知 Jupyter Notebook 使用預設的 `sqlContext` 來執行 Hive 查詢。 此查詢會擷取 Hive 資料表 (**hivesampletable**) 中的前 10 個資料列，依預設所有 HDInsight 叢集均隨附該資料表。 大約需要 30 秒才能取得結果。 輸出看起來如下： 
 
     ![HDInsight Spark 中的 Hive 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "HDInsight Spark 中的 Hive 查詢")
 
-    當您使用 Jupyter Notebook 搭配 HDInsight Spark 叢集時，您可取得預設的 `sqlContext`，用來執行使用 Spark SQL 的 Hive 查詢。 `%%sql` 會告知 Jupyter Notebook 使用預設的 `sqlContext` 來執行 Hive 查詢。 此查詢會擷取 Hive 資料表 (**hivesampletable**) 中的前 10 個資料列，依預設所有 HDInsight 叢集均隨附該資料表。 如需有關 `%%sql` magic 和預設內容的詳細資訊，請參閱 [HDInsight 叢集可用的 Jupyter 核心](apache-spark-jupyter-notebook-kernels.md)。
+    如需有關 `%%sql` magic 和預設內容的詳細資訊，請參閱 [HDInsight 叢集可用的 Jupyter 核心](apache-spark-jupyter-notebook-kernels.md)。
 
     每當您在 Jupyter 中執行查詢時，網頁瀏覽器視窗標題將會顯示 Notebook 標題和 **(忙碌)** 狀態。 您也會在右上角的 **PySpark** 文字旁看到一個實心圓。
     

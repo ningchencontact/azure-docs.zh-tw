@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 03/01/2018
 ms.author: jgao
-ms.openlocfilehash: a96612e09e51db8941a7828f8fe9cb7bbced837d
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 11c0a583ab671b27a5c5a65c4bb36032a8582466
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop 教學課程：開始在 HDInsight 中使用 Hadoop
 
-了解如何在 HDInsight 中建立 [Hadoop](http://hadoop.apache.org/) 叢集，以及如何在 HDInsight 中執行 Hive 作業。 [Apache Hive](https://hive.apache.org/) 是 Hadoop 生態系統中最受歡迎的元件。 HDInsight 目前隨附 [7 個不同的叢集類型](apache-hadoop-introduction.md#overview)。 每種叢集類型都支援一組不同的元件。 所有叢集類型都支援 Hive。 如需 HDInsight 中支援的元件清單，請參閱 [HDInsight 在 Hadoop 叢集版本中提供的新功能](../hdinsight-component-versioning.md)  
+了解如何在 HDInsight 中建立 [Hadoop](http://hadoop.apache.org/) 叢集，以及如何在 HDInsight 中執行 Hive 作業。 [Apache Hive](https://hive.apache.org/) 是 Hadoop 生態系統中最受歡迎的元件。 HDInsight 目前隨附 [7 個不同的叢集類型](./apache-hadoop-introduction.md#cluster-types-in-hdinsight)。 每種叢集類型都支援一組不同的元件。 所有叢集類型都支援 Hive。 如需 HDInsight 中支援的元件清單，請參閱 [HDInsight 在 Hadoop 叢集版本中提供的新功能](../hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -45,16 +45,16 @@ ms.lasthandoff: 02/14/2018
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. 輸入或選取下列值：
-   
-    ![入口網站上 HDInsight Linux 開始使用的 Resource Manager 範本](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "使用 Azure 入口網站和資源群組管理員範本在 HDInsigut 中部署 Hadoop 叢集")。
-   
+
     * **訂用帳戶**：選取您的 Azure 訂用帳戶。
     * **資源群組**：建立資源群組，或選取現有的資源群組。  資源群組是 Azure 元件的容器。  在此案例中，資源群組包含 HDInsight 叢集和相依的 Azure 儲存體帳戶。 
     * **位置**：選取您要建立叢集的 Azure 位置。  選擇靠近您的位置，以獲得最佳效能。 
     * **叢集類型**：請為本教學課程選取 [hadoop]。
     * **叢集名稱**：請輸入 Hadoop 叢集的名稱。 由於 HDInsight 中的所有叢集共用相同的 DNS 命名空間，因此這個名稱必須是唯一的。 名稱最多可包含 59 個字元，而這些字元可以是字母、數字和連字號。 請注意，名稱的第一個和最後一個字元不可以是連字號。
-    * **叢集登入名稱和密碼**：預設登入名稱是 **admin**。
-    * **SSH 使用者名稱和密碼**：預設使用者名稱是 **sshuser**。  您可以將它重新命名。 
+    * **叢集登入名稱和密碼**：預設登入名稱是 **admin**。密碼長度至少必須為 10 個字元，且必須包含至少一個數字、一個大寫字母及一個小寫字母、一個非英數字元 (除了字元 ' " ` \)。 
+    * **SSH 使用者名稱和密碼**：預設使用者名稱是 **sshuser**。  您可以將 SSH 使用者名稱重新命名。  SSH 使用者密碼與叢集登入密碼具有相同的需求。   
+   
+    ![入口網站上 HDInsight Linux 開始使用的 Resource Manager 範本](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "使用 Azure 入口網站和資源群組管理員範本在 HDInsigut 中部署 Hadoop 叢集")。
      
     某些屬性已硬式編碼在範本中。  您可以從範本設定這些值。
     
@@ -124,9 +124,11 @@ ms.lasthandoff: 02/14/2018
 
 **刪除叢集和/或預設儲存體帳戶**
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 從入口網站儀表板，按一下具有您建立叢集時所用資源群組名稱的圖格。
-3. 按一下 [刪除資源群組] 以刪除包含叢集和預設儲存體帳戶的資源群組，或按一下 [資源] 圖格上的叢集名稱，然後按一下 [刪除]。 請注意，刪除資源群組會刪除儲存體帳戶。 如果您想要保留儲存體帳戶，請選擇只刪除叢集。
+1. 回到瀏覽器索引標籤，您可在其中存取 Azure 入口網站。 您應該位於叢集的 [概觀] 頁面上。 如果您只想要刪除該叢集，但保留預設儲存體帳戶，則可按一下 [刪除]：
+
+    ![HDInsight 刪除叢集](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "刪除 HDInsight 叢集")
+1. 按一下右側的資源群組名稱 (在上一個螢幕擷取畫面中反白顯示) 以開啟資源群組頁面。
+2. 按一下 [刪除資源群組] 以刪除包含叢集和預設儲存體帳戶的資源群組，或按一下 [資源] 圖格上的叢集名稱，然後按一下 [刪除]。 請注意，刪除資源群組會刪除儲存體帳戶。 如果您想要保留儲存體帳戶，請選擇只刪除叢集。
 
 ## <a name="troubleshoot"></a>疑難排解
 
