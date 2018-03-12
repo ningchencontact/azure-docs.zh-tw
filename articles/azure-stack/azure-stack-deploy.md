@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/02/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 03682e7f5867360cc3d854f0dff2bc5d1c1c9619
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure Stack 部署先決條件
 
 適用於：Azure Stack 開發套件
 
-部署 [Azure Stack 開發套件](azure-stack-poc.md)之前，請先確定您的電腦符合下列需求：
+在部署 [Azure Stack 開發套件 (ASDK)](azure-stack-poc.md) 之前，請確定您的開發套件主機電腦符合本文中所述的需求。
 
+> [!NOTE]
+> ASDK 必須安裝在實體主機電腦上。 不支援在 Azure VM 上安裝 ASDK。
 
 ## <a name="hardware"></a>硬體
 | 元件 | 最小值 | 建議 |
@@ -83,7 +85,7 @@ ms.lasthandoff: 12/13/2017
 ### <a name="azure-active-directory-accounts"></a>Azure Active Directory 帳戶
 若要使用 Azure AD 帳戶來部署 Azure Stack，您必須在執行部署 PowerShell 指令碼之前，先備妥 Azure AD 帳戶。 這個帳戶會成為 Azure AD 租用戶的「全域系統管理員」。 它可用來為與 Azure Active Directory 和「圖形 API」互動的所有 Azure Stack 服務佈建及委派應用程式和服務主體。 它也用來作為預設提供者訂用帳戶 (您可以稍後變更此訂用帳戶) 的擁有者。 您可以使用這個帳戶來登入 Azure Stack 系統的系統管理員入口網站。
 
-1. 建立至少是一個 Azure AD 之目錄系統管理員的 Azure AD 帳戶。 如果您已經有一個這樣的帳戶，則可以使用該帳戶。 否則，您可以到下列網址免費建立一個帳戶：[http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (如果在中國，請改為前往 <http://go.microsoft.com/fwlink/?LinkID=717821>)。 如果您打算稍後[向 Azure 註冊 Azure Stack](azure-stack-register.md)，則也必須在這個新建立的帳戶中有一個訂用帳戶。
+1. 建立至少是一個 Azure AD 之目錄系統管理員的 Azure AD 帳戶。 如果您已經有一個這樣的帳戶，則可以使用該帳戶。 否則，您可以到下列網址免費建立一個帳戶：[http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (中國用戶請改為前往 <http://go.microsoft.com/fwlink/?LinkID=717821>)。 如果您打算稍後[向 Azure 註冊 Azure Stack](azure-stack-register.md)，則也必須在這個新建立的帳戶中有一個訂用帳戶。
    
     儲存這些認證，以供在[部署開發套件](azure-stack-run-powershell-script.md)的步驟 6 中使用。 這個「服務管理員」帳戶可以設定和管理資源雲端、使用者帳戶、租用戶方案、配額及價格。 在此入口網站中，這些管理員可以建立網站雲端、虛擬機器私人雲端、建立方案，以及管理使用者訂用帳戶。
 2. 至少[建立](azure-stack-add-new-user-aad.md)一個帳戶，以便您能夠以租用戶身分登入開發套件。
@@ -127,4 +129,3 @@ Azure Stack 需要能夠直接或透過 Transparent Proxy 存取網際網路。 
 [下載 Azure Stack 開發套件部署套件](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [部署 Azure Stack 開發套件](azure-stack-run-powershell-script.md)
-

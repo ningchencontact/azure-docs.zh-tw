@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 9b6dfec6465482efcbf55d0441e44a0278f44a22
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5f57edb33770acd7a97287d5cfd650b7fe8366f4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-file-sync-agent-release-notes"></a>Azure 檔案同步代理程式版本資訊
 Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
@@ -30,11 +30,25 @@ Azure 檔案同步支援下列版本：
 
 | 代理程式版本號碼 | 發行日期 | 支援期限 |
 |----------------------|--------------|------------------|
+| 2.1.0.0 | 2018-02-28 | 目前版本 |
 | 2.0.11.0 | 2018-02-08 | 目前版本 |
 | 1.1.0.0 | 2017-09-26 | 2018-07-30 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-2100"></a>代理程式版本 2.1.0.0
+下列版本資訊適用於在 2018 年 2 月 28 日發行的代理程式版本 2.1.0。 這些資訊會附加於以下的 2.0.11.0 版本資訊中。
+
+此每月更新中納入的特定變更包括：
+- 改善叢集容錯移轉處理。
+- 改善階層式檔案的處理方式，變得更加可靠。
+- 允許代理程式安裝在已新增至 2008R2 網域環境的網域控制站機器上。
+- 修正在包含許多檔案的伺服器上產生過多診斷的問題。
+- 改善工作階段失敗的錯誤處理。
+- 改善檔案傳輸問題的錯誤處理。
+- 將要執行雲端階層處理 (若已在伺服器端點上啟用) 的預設間隔變更為一小時。 
+- 暫時阻止將 Azure 檔案同步 (儲存體同步服務) 資源移至新的 Azure 訂用帳戶
 
 ## <a name="agent-version-20110"></a>代理程式版本 2.0.11.0
 下列版本資訊適用於在 2018 年 2 月 9 日發行的代理程式版本 2.0.11.0。 

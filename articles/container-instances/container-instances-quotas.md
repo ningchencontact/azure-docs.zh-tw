@@ -6,13 +6,13 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 01/11/2018
+ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: baf93d4a2a4ba1e05bbf558d0c056fa3aa833fef
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 008b07402cb0b937174488982cac64811baa5d5d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Azure Container Instances 的配額和區域可用性
 
@@ -28,10 +28,14 @@ ms.lasthandoff: 01/12/2018
 
 | 位置 | 作業系統 | CPU | 記憶體 (GB) |
 | -------- | -- | :---: | :-----------: |
-| 西歐、美國西部、美國東部、東南亞 | Linux | 4 | 14 |
-| 西歐、美國西部、美國東部、東南亞  | Windows | 4 | 14 |
+| 西歐、美國西部、美國東部 | Linux | 4 | 14 |
+| 東南亞  | Linux | 1 | 1.5 |
+| 西歐、美國西部、美國東部 | Windows | 4 | 14 |
+| 東南亞  | Windows | 2 | 3.5 |
 
 在這些資源限制下建立的容器執行個體都會受限於部署地區的可用性。 地區負載過重時，您在部署執行個體時可能會失敗。 若要減少這類的部署失敗，請嘗試部署 CPU 和記憶體設定較低階的執行個體，或過一段時間再部署。
+
+在 [aka.ms/aci/feedback](https://aka.ms/aci/feedback) 讓小組知道其他必要的區域或增加的 CPU/記憶體限制。
 
 如需有關為容器執行個體部署疑難排解的詳細資訊，請參閱[為 Azure Container Instances 的部署問題疑難排解](container-instances-troubleshooting.md)。
 

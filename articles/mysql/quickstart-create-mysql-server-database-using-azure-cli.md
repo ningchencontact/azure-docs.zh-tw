@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: a2efce07dac65eb8af59e6bc1bd5a51bfc62d69e
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2cd867f09550f922479955b885f10ff329715c1c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 建立 Azure Database for MySQL 伺服器
 本快速入門說明如何使用 Azure CLI，在大約 5 分鐘內於 Azure 資源群組中建立 Azure Database for MySQL 伺服器。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
@@ -45,6 +45,25 @@ az group create --name myresourcegroup --location westus
 ```azurecli-interactive
 az extension add --name rdbms
 ``` 
+
+檢查您是否已安裝正確的擴充功能版本。 
+```azurecli-interactive
+az extension list
+```
+
+傳回 JSON 應該包括下列項目： 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.3"
+}
+```
+
+如果未傳回 0.0.3 版，請執行下列命令來更新擴充功能： 
+```azurecli-interactive
+az extension update --name rdbms
+```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>建立適用於 MySQL 的 Azure 資料庫伺服器
 使用 **[az mysql server create](/cli/azure/mysql/server#az_mysql_server_create)** 命令來建立「適用於 MySQL 的 Azure 資料庫」伺服器。 一部伺服器可以管理多個資料庫。 一般而言，每個專案或每個使用者會使用個別的資料庫。
@@ -201,7 +220,7 @@ mysql>
 az group delete --name myresourcegroup
 ```
 
-若您只想要刪除一個新建立的伺服器，則可執行 [az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete) 命令。
+若您只想要刪除新建立的伺服器，則可執行 **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)** 命令。
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```

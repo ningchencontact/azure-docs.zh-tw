@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: edb48cd8de9b1f7357c40cea73fa4b9a422cb8fa
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 38ad8a15fcc4077926e735e01f877a4ee66718ef
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-xamarinios-apps"></a>開始使用適用於 Xamarin.iOS 應用程式的 Azure 通知中樞
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -205,7 +205,7 @@ ms.lasthandoff: 01/02/2018
 12. 在您的裝置上執行應用程式。
 
 ## <a name="sending-test-push-notifications"></a>傳送測試用的推播通知
-您可以在 [Azure 入口網站] 中，使用 [測試傳送] 選項測試應用程式能否接收通知。 此測試會對裝置傳送測試用的推播通知。
+您可以在 [Azure 入口網站]中，使用 [測試傳送] 選項測試應用程式能否接收通知。 此測試會對裝置傳送測試用的推播通知。
 
 ![Azure 入口網站 - 測試傳送][30]
 
@@ -255,4 +255,4 @@ ms.lasthandoff: 01/02/2018
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
-[Azure 入口網站]: https://portal.azure.com
+[HttpTrigger Nodejs 函數]: https://portal.azure.com

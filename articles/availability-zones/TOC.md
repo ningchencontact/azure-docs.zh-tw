@@ -28,10 +28,7 @@
 #### [使用 PowerShell 建立區域備援負載平衡器標準](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [使用 CLI 建立區域備援公用負載平衡器標準](../load-balancer/load-balancer-get-started-internet-az-cli.md)
 
-### 公用 IP 位址
-#### [使用 Azure 入口網站在可用性區域中建立公用 IP 位址](../virtual-network/create-public-ip-availability-zone-portal.md)
-#### [使用 PowerShell 在可用性區域中建立公用 IP 位址](../virtual-network/create-public-ip-availability-zone-powershell.md)
-#### [使用 CLI 在可用性區域中建立公用 IP 位址](../virtual-network/create-public-ip-availability-zone-cli.md)
+### [公用 IP 位址](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Database
 #### [使用 SQL Database 的可用性區域](../sql-database/sql-database-high-availability.md#availability-zones)

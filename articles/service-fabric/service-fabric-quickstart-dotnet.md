@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/25/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ea0d32674aa770b5f25b0b62eb69007f3fd6bf5c
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5187aadf686a49f6d78fc4f5c2b2c42487e56c13
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>快速入門：在 Azure 中建立 .NET Service Fabric 應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -94,9 +94,9 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 在 Visual Studio 中偵錯應用程式時，您會使用本機 Service Fabric 開發叢集。 您可以根據自己的情況選擇調整偵錯體驗。 在這個應用程式中，我們會使用可靠的字典，將資料儲存在後端服務中。 當您停止偵錯工具時，Visual Studio 預設會移除應用程式。 移除應用程式也會導致移除後端服務中的資料。 若要保存偵錯工作階段之間的資料，您可以在 Visual Studio 中，將 [應用程式偵錯模式] 當做 [投票] 專案上的屬性來變更。
 
 若要查看對程式碼的影響，請完成下列步驟：
-1. 開啟 **/VotingWeb/Controllers/VotesController.cs** 檔案，並在 Web API 的 **Put** 方法 (第 47 行) 中設定中斷點 - 您可以在 Visual Studio 的方案總管中搜尋此檔案。
+1. 開啟 **/VotingWeb/Controllers/VotesController.cs** 檔案，並在 Web API 的 **Put** 方法 (第 69 行) 中設定中斷點 - 您可以在 Visual Studio 的方案總管中搜尋此檔案。
 
-2. 開啟 **/VotingData/Controllers/VoteDataController.cs** 檔案，並在這個 Web API 的 **Put** 方法 (第 50 行) 中設定中斷點。
+2. 開啟 **/VotingData/Controllers/VoteDataController.cs** 檔案，並在這個 Web API 的 **Put** 方法 (第 54 行) 中設定中斷點。
 
 3. 返回到瀏覽器，並按一下投票選項或新增投票選項。 您到達 Web 前端之 API 控制器的第一個中斷點。
     - 瀏覽器中的 JavaScript 會在此位置，將要求傳送至前端服務中的 Web API 控制器。

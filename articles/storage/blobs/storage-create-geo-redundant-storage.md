@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>使用 Azure 儲存體讓應用程式資料具有高可用性
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 02/22/2018
    | ------------ | ------------------ | ------------------------------------------------- |
    | **名稱** | mystorageaccount | 用於儲存體帳戶的唯一值 |
    | **部署模型** | Resource Manager  | Resource Manager 含有最新的功能。|
-   | **帳戶類型** | 一般用途 | 如需帳戶類型的詳細資訊，請參閱[儲存體帳戶的類型](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **帳戶類型** | StorageV2 | 如需帳戶類型的詳細資訊，請參閱[儲存體帳戶的類型](../common/storage-introduction.md#types-of-storage-accounts) |
    | **效能** | 標準 | 標準便足供此案例範例使用。 |
    | **複寫**| 讀取權限異地備援儲存體 (RA-GRS) | 這是讓範例起作用的必要項目。 |
    |**需要安全傳輸** | 已停用| 此案例不需要安全傳輸。 |
@@ -77,7 +77,7 @@ ms.lasthandoff: 02/22/2018
    |**ResourceGroup** | myResourceGroup |如需有效的資源群組名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 |
    |**位置** | 美國東部 | 選擇位置。 |
 
-![建立儲存體帳戶](media/storage-create-geo-redundant-storage/figure1.png)
+![建立儲存體帳戶](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>下載範例
 

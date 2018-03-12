@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: d966a1ce5f30531668c05e68bfe709057c6dee35
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e4ad361df8a37d4a82c1bc50c6fb134a1ad5159
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Java 裝置 SDK 來建立及佈建模擬 X.509 裝置
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -76,6 +76,9 @@ ms.lasthandoff: 02/09/2018
 
         1. 針對_您是否要輸入驗證碼_，輸入 ，並保持程式開啟，以供稍後在快速入門中使用。 請注意_用戶端憑證_、_用戶端憑證私密金鑰_、_簽章者憑證_和_根憑證_的值。
 
+        > [!NOTE]
+        > 上述 `Root Cert` 只適用於在主控台輸出中建立的憑證，而不能用來簽署其他用戶端憑證。 如果您需要一組更強固的測試憑證，請參閱[管理 CA 憑證範例](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)。
+        >
 
 ## <a name="create-a-device-enrollment-entry"></a>建立裝置註冊項目
 
@@ -189,7 +192,7 @@ ms.lasthandoff: 02/09/2018
             String rootPem = "<Your Root Certificate here>";
                 
             signerCertificates.add(intermediatePem);
-            signerCertificates.add(root);
+            signerCertificates.add(rootPem);
             ```
     
             - 您可以使用下列格式來包含您的憑證：

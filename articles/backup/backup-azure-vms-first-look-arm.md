@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdaf1349ddf623e2634360e891d959105c504093
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6cd6e9ba575a0efe6e612a2185076d5a6c189525
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>將 Azure 虛擬機器備份到復原服務保存庫
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 02/28/2018
 
   ![啟用備份精靈](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-  如果沒有復原服務保存庫，或您想要使用新的保存庫，請按一下 [新建]，並提供新保存庫的名稱。 新保存庫已在與虛擬機器相同的資源群組和相同位置中建立。 如果您想要使用不同的值建立復原服務保存庫，請參閱如何[建立復原服務保存庫](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm)一節。
+  如果沒有復原服務保存庫，或您想要使用新的保存庫，請按一下 [新建]，並提供新保存庫的名稱。 已在與虛擬機器相同的資源群組和相同區域中建立新的保存庫。 如果您想要使用不同的值建立復原服務保存庫，請參閱如何[建立復原服務保存庫](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm)一節。
 
 6. 若要檢視備份原則的詳細資料，請按一下 [備份原則]。
 
@@ -124,7 +124,7 @@ ms.lasthandoff: 02/28/2018
 復原服務保存庫是一個實體，會儲存歷來建立的所有備份和復原點。 復原服務保存庫也包含套用至受保護 VM 的備份原則。
 
 > [!NOTE]
-> 備份 VM 是本機程序。 您無法將某個位置的 VM 備份到另一個位置的復原服務保存庫。 因此，對於每個具有要備份之 VM 的 Azure 位置，該位置至少必須有一個復原服務保存庫。
+> 備份 VM 是本機程序。 您無法將某個區域的 VM 備份到另一個區域的復原服務保存庫。 因此，若 Azure 區域具有要備份的 VM，該區域至少必須有一個復原服務保存庫。
 >
 >
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 02/28/2018
 7. 按一下 [位置]  以選取保存庫的地理區域。 此選項會決定您的備份資料要傳送到哪個地理區域。
 
   > [!IMPORTANT]
-  > 如果您不確定 VM 的所在位置，請關閉保存庫建立對話方塊，並移至入口網站的虛擬機器清單。 如果您在多個區域中有虛擬機器，請在每個區域中建立復原服務保存庫。 請先在第一個位置建立保存庫，再進入下一個位置。 儲存備份資料時，不需要指定儲存體帳戶，復原服務保存庫和「Azure 備份」服務會自動處理儲存體。
+  > 如果您不確定 VM 的所在區域，請關閉保存庫建立對話方塊，並移至入口網站的虛擬機器清單。 如果您在多個區域中有虛擬機器，請在每個區域中建立復原服務保存庫。 請先在第一個區域建立保存庫，再進入下一個區域。 儲存備份資料時，不需要指定儲存體帳戶，復原服務保存庫和「Azure 備份」服務會自動處理儲存體。
   >
 
 8. 按一下 [復原服務保存庫] 刀鋒視窗底部的 [建立]。

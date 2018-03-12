@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: ff0c468179ef7b71151b64426bf2e6701d5032fe
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9ee3eddda53052c47f2cecff80f971f5eadac414
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>建立 Azure Cosmos DB 所觸發的函式
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 01/11/2018
     | ------------ | ---------------- | ------------------------------------------ |
     | **識別碼** | 資料庫名稱 | Azure Cosmos DB 資料庫的唯一識別碼  |
     | **API** | SQL (DocumentDB) | 本主題使用文件資料庫 API。  |
-    | **訂用帳戶** | Azure 訂閱 | Azure 訂閱  |
+    | **訂用帳戶** | Azure 訂閱 | 位於新建立的 Cosmos DB 帳戶下的訂用帳戶。  |
     | **資源群組** | myResourceGroup |  使用含有您的函式應用程式的現有資源群組。 |
     | **位置**  | WestEurope | 選取您的函式應用程式或其他使用已儲存文件的應用程式附近的位置。  |
 

@@ -88,9 +88,9 @@
 
 
 ## [虛擬網路](azure-operations-guide.md#azure-virtual-network)
-### [使用 Azure 入口網站建立虛擬網路](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [使用 Azure PowerShell 建立虛擬網路](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [使用 Azure CLI 建立虛擬網路](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [使用 Azure 入口網站建立虛擬網路](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [使用 Azure PowerShell 建立虛擬網路](../../virtual-network/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [使用 Azure CLI 建立虛擬網路](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [使用網路安全性群組來篩選網路流量](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### 虛擬網路教學課程
 #### [負載平衡的 VM](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

@@ -11,18 +11,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 03/01/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: f7ec8872849ad7881fb46bca5831c2985d003c13
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0112e5bf53f24150708b9c03440cd6183601f069
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
 
 此快速入門會說明如何建立 Azure Databricks 工作區，以及該工作區內的 Apache Spark 叢集。 最後，您會了解如何在 Databricks 叢集上執行 Spark 作業。 如需 Azure Databricks 的詳細資訊，請參閱[何謂 Azure Databricks？](what-is-azure-databricks.md)
+
+如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -62,7 +64,8 @@ ms.lasthandoff: 02/21/2018
     ![在 Azure 上建立 Databricks Spark 叢集](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "在 Azure 上建立 Databricks Spark 叢集")
 
     * 輸入叢集的名稱。
-    * 請確定您有選取 [在活動 ___ 分鐘後終止] 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
+    * 針對本文，使用 **4.0 搶鮮版 (Beta)** 執行階段建立叢集。 
+    * 請確定您選取 [在活動 ___ 分鐘後終止] 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
     * 接受所有其他預設值。 
     * 按一下 [建立叢集]。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
 
@@ -70,7 +73,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="run-a-spark-sql-job"></a>執行 Spark SQL 作業
 
-開始本節之前，您必須先完成下列各項作業：
+開始本節之前，您必須先完成下列必要條件：
 
 * [建立 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。 
 * [從 GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 下載 JSON 檔案範例。 
@@ -88,11 +91,27 @@ ms.lasthandoff: 02/21/2018
 
     按一下頁面底部的 [新增] 。
 
-3. 在下列程式碼片段中，將 `{YOUR STORAGE ACCOUNT NAME}` 取代為您建立的 Azure 儲存體帳戶名稱，並將 `{YOUR STORAGE ACCOUNT ACCESS KEY}` 取代為儲存體帳戶存取金鑰。 在 Notebook 的空白資料格中貼上程式碼片段，然後按下 SHIFT + ENTER 鍵以執行此程式碼資料格。 這個程式碼片段會將 Notebook 設定為從 Azure Blob 儲存體讀取資料。
+3. 在此步驟中，讓 Azure 儲存體帳戶與 Databricks Spark 叢集產生關聯。 有兩種方式可以完成這項作業，將 Azure 儲存體帳戶掛接至 Databricks Filesystem (DBFS)，或直接從您建立的應用程式存取 Azure 儲存體帳戶。  
 
-       spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
-    
-    如需如何擷取儲存體帳戶金鑰的指示，請參閱[管理儲存體存取金鑰](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
+    > [!IMPORTANT]
+    >本文使用**掛接儲存體與 DBFS 的方法**。 這個方法可確保已掛接的儲存體與叢集檔案系統本身相關聯。 因此，任何存取叢集的應用程式也能使用相關聯的儲存體。 直接存取方法受限於您用來設定存取權的應用程式。
+    >
+    > 若要使用掛接方法，您必須使用 Databricks 執行階段版本 **4.0 搶鮮版 (Beta)** 建立 Spark 叢集，也就是您在本文中所選。
+
+    在下列程式碼片段中，將 `{YOUR CONTAINER NAME}`、`{YOUR STORAGE ACCOUNT NAME}` 和 `{YOUR STORAGE ACCOUNT ACCESS KEY}` 取代為您的 Azure 儲存體帳戶適用的值。 在 Notebook 的空白資料格中貼上程式碼片段，然後按下 SHIFT + ENTER 鍵以執行此程式碼資料格。
+
+    * **掛接儲存體帳戶與 DBFS (建議)**。 在此程式碼片段中，Azure 儲存體帳戶路徑會掛接至 `/mnt/mypath`。 因此，在您用來存取 Azure 儲存體帳戶的所有未來，您不需要授與的完整路徑。 您正好可以使用 `/mnt/mypath`。
+
+          dbutils.fs.mount(
+            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
+            mountPoint = "/mnt/mypath",
+            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
+
+    * **直接存取儲存體帳戶**
+
+          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+
+    如需如何擷取儲存體帳戶金鑰的指示，請參閱[管理儲存體存取金鑰](../storage/common/storage-create-storage-account.md#manage-your-storage-account)。
 
     > [!NOTE]
     > 您也可以在 Azure Databricks 上搭配使用 Azure Data Lake Store 與 Spark 叢集。 如需指示，請參閱[搭配使用 Data Lake Store 與 Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084)。
@@ -101,10 +120,11 @@ ms.lasthandoff: 02/21/2018
 
     ```sql
     %sql 
-    CREATE TEMPORARY TABLE radio_sample_data
+    DROP TABLE IF EXISTS radio_sample_data
+    CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/small_radio_json.json"
+     path "/mnt/mypath/small_radio_json.json"
     )
     ```
 

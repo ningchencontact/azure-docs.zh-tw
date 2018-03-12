@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ac57996e7dced5ef0f0a993889bfc13b1d064167
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9501f3c8fa1abb6bcbfee086c542139596ab5504
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>使用 Azure LBS 尋找不同行進模式的路線
 
@@ -209,9 +209,10 @@ ms.lasthandoff: 02/21/2018
     ```
     此程式碼片段會建立 [XMLHttpRequest](https://xhr.spec.whatwg.org/)，並新增事件處理常式以剖析傳入的回應。 若是成功的回應，它會建立所傳回路線的座標陣列，並將它新增至地圖的 `truckRouteLayerName` 圖層。 
     
-    此程式碼片段也會將查詢傳送至路線規劃服務，以針對您的帳戶金鑰，取得指定起點和終點的路線。 下列選用參數用來表示重型卡車的路線：- `travelMode=truck` 參數會將行進模式指定為「卡車」。 其他支援的行進模式為「計程車」、「巴士」、「箱形車」、「摩托車」 和預設的「汽車」。
-        - `vehicleWidth`、`vehicleHeight` 和 `vehicleLength` 參數可指定車輛的尺寸 (以公尺為單位)，而且只會針對行進模式「卡車」進行考量。
-        - `vehicleLoadType` 會將貨物歸類為危險，並限制在某些道路上運送。 這目前也只會針對「卡車」模式進行考量。
+    此程式碼片段也會將查詢傳送至路線規劃服務，以針對您的帳戶金鑰，取得指定起點和終點的路線。 下列選用參數用來表示重型卡車的路線：
+   - `travelMode=truck` 參數會將行進模式指定為「卡車」。 其他支援的行進模式為「計程車」、「巴士」、「箱形車」、「摩托車」 和預設的「汽車」。
+   - `vehicleWidth`、`vehicleHeight` 和 `vehicleLength` 參數可指定車輛的尺寸 (以公尺為單位)，而且只會將「卡車」行進模式納入考量。
+   - `vehicleLoadType` 會將貨物歸類為危險，並限制在某些道路上運送。 這目前也只會針對「卡車」模式進行考量。
 
 2. 新增下列 JavaScript 程式碼，以使用路線規劃服務取得汽車的路線：
 
