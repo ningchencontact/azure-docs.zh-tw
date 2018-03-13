@@ -41,7 +41,7 @@
 ### [Twitter 情緒分析](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [即時詐欺偵測](stream-analytics-real-time-fraud-detection.md)
 ### [在 IoT Edge 上執行作業](stream-analytics-edge.md) 
-### [執行 Javascript UDA](stream-analytics-javascript-user-defined-aggregates.md)
+### [執行 JavaScript UDA](stream-analytics-javascript-user-defined-aggregates.md)
 ### [高頻率交易](stream-analytics-high-frequency-trading.md)
 ### [執行 Azure Functions](stream-analytics-with-azure-functions.md)
 
@@ -93,7 +93,7 @@
 ## [影片](https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest)
 ## [意見反應論壇](http://feedback.azure.com/forums/270577-azure-stream-analytics)
 ## [論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
-## [定價](https://azure.microsoft.com/pricing/details/stream-analytics/)
+## [價格](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [版本資訊](stream-analytics-release-notes.md)
 ## [服務更新](https://azure.microsoft.com/updates/?product=stream-analytics)
