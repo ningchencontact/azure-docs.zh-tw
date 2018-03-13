@@ -234,7 +234,10 @@
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (服務管理)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media/mediaservice)  
+## [REST](/rest/api/media/mediaservice)
+## 規格
+### [即時內嵌 - 分散式 MP4 即時內嵌規格](media-services-fmp4-live-ingest-overview.md)
+### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
 
 # 資源
 ## [Azure 媒體服務社群](media-services-community.md)

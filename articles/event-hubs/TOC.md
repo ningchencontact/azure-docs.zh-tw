@@ -27,6 +27,7 @@
 ### [驗證和安全性模型概觀](event-hubs-authentication-and-security-model-overview.md)
 ### [可用性和一致性](event-hubs-availability-and-consistency.md)
 ### [自動調整輸送量單位](event-hubs-auto-inflate.md)
+### [整合 Apache Spark 與事件中樞](event-hubs-spark-connector.md)
 ## 開發
 ### [使用 .NET Framework 傳送事件](event-hubs-dotnet-framework-getstarted-send.md)
 ### [使用 .NET Framework 接收事件](event-hubs-dotnet-framework-getstarted-receive-eph.md)
@@ -64,7 +65,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [程式碼範例](event-hubs-samples.md)
 ## [學習路徑](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
-## [價格](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [定價](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)

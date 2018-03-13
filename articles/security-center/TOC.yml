@@ -114,6 +114,12 @@
       items:
         - name: 連線的解決方案
           href: security-center-partner-solutions.md
+        - name: 探索到的解決方案
+          href: 'security-center-partner-integration.md#discovered-solutions'
+        - name: 連線外部解決方案
+          href: quick-security-solutions.md
+        - name: 連線應用程式閘道
+          href: security-center-connect-application-gateway.md
         - name: 連線 Microsoft ATA
           href: security-center-ata-integration.md
         - name: 連線 Azure AD Identity Protection

@@ -42,6 +42,7 @@
 
 ## 使用 MXChip IoT DevKit
 ### [使用 Azure 認知服務翻譯語音訊息](iot-hub-arduino-iot-devkit-az3166-translator.md)
+### [使用 Azure Functions 擷取 Twitter 訊息](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 
 # 使用說明指南
 ## 規劃

@@ -87,6 +87,8 @@
       items:
         - name: SSH 節點存取
           href: aks-ssh.md
+        - name: 取得 kubelet 記錄
+          href: kubelet-logs.md
 - name: 參考
   items:
     - name: Azure CLI

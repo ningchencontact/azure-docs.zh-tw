@@ -290,9 +290,10 @@
 ### [管理員角色](active-directory-assign-admin-roles-azure-portal.md)
 #### [將管理員角色指派給使用者](active-directory-users-assign-role-azure-portal.md)
 #### [比較成員和來賓使用者的權限](users-default-permissions.md)
+### [保護特殊權限存取](admin-roles-best-practices.md) 
+### [建立緊急存取管理帳戶](active-directory-admin-manage-emergency-access-accounts.md)
 ### [管理單位](active-directory-administrative-units-management.md)
 ### [設定權杖存留期](active-directory-configurable-token-lifetimes.md)
-### [管理緊急存取管理帳戶](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## 存取權檢閱
 ### [存取權檢閱概觀](active-directory-azure-ad-controls-access-reviews-overview.md)

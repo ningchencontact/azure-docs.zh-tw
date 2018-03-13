@@ -119,6 +119,8 @@
               href: azure-stack-deploy-template-powershell.md
             - name: 透過 Visual Studio 部署
               href: azure-stack-deploy-template-visual-studio.md
+    - name: 啟用雲端服務提供者
+      href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: 參考
   items:
     - name: Azure Stack PowerShell

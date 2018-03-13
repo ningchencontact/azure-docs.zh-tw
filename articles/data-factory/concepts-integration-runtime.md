@@ -13,19 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7308c8754198ea3e7533b8a9c378cfaac1b5bbd2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 18792d8dc8b232ad048db2440c5b52428c50f92e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory 中的整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可跨不同網路環境提供下列資料整合功能：
 
 - **資料移動**：在公用網路中的資料存放區與私人網路 (內部部署或虛擬私人網路) 中的資料存放區之間移動資料。 它支援內建的連接器、格式轉換、資料行對應，以及高效能和可調式資料傳輸。
 - **活動分派**：分派和監視在 Azure HDInsight、Azure Machine Learning、Azure SQL Database、SQL Server 等各種計算服務上執行的轉換活動。
-- 
-            **SSIS 套件執行**：在受控 Azure 計算環境中，以原生方式執行 SQL Server Integration Services (SSIS) 套件。
+- **SSIS 套件執行**：在受控 Azure 計算環境中，以原生方式執行 SQL Server Integration Services (SSIS) 套件。
 
 
 > [!NOTE]
@@ -124,7 +123,7 @@ Azure-SSIS IR 是一個完全受控的 Azure VM 叢集，專門用來執行您�
 ![使用哪一個 IR](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>整合執行階段位置
-Data Factory 位置中儲存資料處理站的中繼資料，也是觸發管道的源頭。 目前支援的 Data Factory 位置為：美國東部、美國東部 2 和西歐。 不過，Data Factory 可以存取其他 Azure 區域的資料存放區和計算資料，以在資料存放區之間移動資料或使用計算服務處理資料。 此行為是透過多個區域通用的 IR 來達成，可確保資料合規性、效率，並降低網路輸出成本。
+Data Factory 位置中儲存資料處理站的中繼資料，也是觸發管道的源頭。 目前支援 Data Factory 的地區包括：美國東部、美國東部 2、東南亞以及西歐。 不過，Data Factory 可以存取其他 Azure 區域的資料存放區和計算資料，以在資料存放區之間移動資料或使用計算服務處理資料。 此行為是透過多個區域通用的 IR 來達成，可確保資料合規性、效率，並降低網路輸出成本。
 
 「IR 位置」定義其後端計算的位置，基本上還會定義執行資料移動、活動分派和 SSIS 套件執行的位置。 IR 位置及其所屬的資料處理站位置可能不同。 下圖顯示 Data Factory 及其整合執行階段的位置設定：
 
@@ -177,7 +176,7 @@ Data Factory 會使用相同地理位置中最接近接收之區域中的 Azure 
 用來執行資料移動時，自我裝載 IR 會從來源取出資料，並寫入目的地。
 
 ### <a name="azure-ssis-ir"></a>Azure-SSIS IR
-為了在擷取、轉換和下載 (ETL) 工作流程中達到高效能，務必選取正確的 Azure-SSIS IR 位置。  最初有兩個位置可供預覽 (美國東部和北歐)。
+為了在擷取、轉換和下載 (ETL) 工作流程中達到高效能，務必選取正確的 Azure-SSIS IR 位置。  共有六個地區一開始可供預覽 (美國東部、美國東部 2、美國中部、澳大利亞東部、北歐和西歐)。
 
 - Azure-SSIS IR 的位置並不需要與資料處理站的位置相同，但應該與您自己的 Azure SQL Database/受控執行個體 (私人預覽中) 伺服器 (要裝載 SSISDB) 的位置相同。 如此一來，您的 Azure-SSIS 整合執行階段就可以輕易存取 SSISDB，而不會在不同的位置之間產生過多流量。
 - 如果您沒有現有的 Azure SQL Database/受控執行個體 (私人預覽) 伺服器來裝載 SSISDB，但有內部部署資料來源/目的地，您應該在已連線至內部部署網路之 VNet 的相同位置中，建立新的 Azure SQL Database/受控執行個體 (私人預覽) 伺服器。  如此一來，您就可以使用新的 Azure SQL Database/受控執行個體 (私人預覽) 伺服器並加入該 VNet，以建立 Azure-SSIS IR，全部都在相同的位置中，能儘量避免在不同位置之間移動資料。
