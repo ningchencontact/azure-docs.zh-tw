@@ -66,6 +66,7 @@
 ### [建立新的模擬裝置](iot-suite-remote-monitoring-test.md)
 ### [自訂解決方案](iot-suite-remote-monitoring-customize.md)
 ### [使用 CLI 進行部署](iot-suite-remote-monitoring-deploy-cli.md)
+### [本機部署](iot-suite-remote-monitoring-deploy-local.md)
 ### 連線實體裝置
 #### [Windows 上的 C](iot-suite-connecting-devices.md)
 #### [Linux 上的 C](iot-suite-connecting-devices-linux.md)
