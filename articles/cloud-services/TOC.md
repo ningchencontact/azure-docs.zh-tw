@@ -36,6 +36,7 @@
 ### 設定遠端桌面
 #### [入口網站](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## 部署
 ### [在入口網站中建立和部署雲端服務](cloud-services-how-to-create-deploy-portal.md)
