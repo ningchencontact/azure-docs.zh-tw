@@ -15,10 +15,10 @@ ms.workload:
 ms.date: 02/22/2018
 ms.author: nisoneji
 ms.openlocfilehash: 27b38eafd9ab5da11d66ede4d446a4952e30c534
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>安裝 Linux 主要目標伺服器
 您可以在將虛擬機器容錯移轉至 Azure 之後，將虛擬機器容錯回復至內部部署網站。 若要進行容錯回復，您需要在從 Azure 到內部部署網站的過程中重新保護虛擬機器。 針對此程序，您需要內部部署的主要目標伺服器以接收流量。 

@@ -3,21 +3,21 @@ title: "重新設定 Azure-SSIS 整合執行階段 | Microsoft Docs"
 description: "了解如何在佈建 Azure Data Factory 中的 Azure SSIS 整合執行階段後重新設定。"
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: 
+editor: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
-ms.openlocfilehash: f1745df7bafc4b5fa6f04cbfbc81a7a70a233d23
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: douglasl
+ms.openlocfilehash: 752640552a7af307bb54f3c0e4bc7fa0f3009d48
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-an-azure-ssis-integration-runtime"></a>管理 Azure-SSIS 整合執行階段
 [建立 Azure SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)文章向您示範如何使用 Azure Data Factory 建立 Azure-SSIS 整合執行階段 (IR)。 本文提供關於重新設定現有 Azure-SSIS 整合執行階段的資訊。  

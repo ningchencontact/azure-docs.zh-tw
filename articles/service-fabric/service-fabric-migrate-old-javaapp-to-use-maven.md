@@ -9,16 +9,16 @@ editor:
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: 229a2cd7c0bb355006349e80b12b0142de6b5cda
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 7eac05c859440e868e1a207f0ba0d1bdf41e6e6b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>更新先前的 Java Service Fabric 應用程式，以從 Maven 擷取 Java 程式庫
 我們最近已將 Service Fabric Java 二進位檔從 Service Fabric Java SDK 移至 Maven 主機。 您現在可以使用 **mavencentral** 擷取最新的 Service Fabric Java 相依性。 本快速入門可協助您更新要與以 Maven 為基礎的組建相容的現有 Java 應用程式，您稍早使用 Yeoman 範本或 Eclipse 建立這些應用程式，以便搭配 Service Fabric Java SDK 使用。

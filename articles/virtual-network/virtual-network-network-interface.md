@@ -4,7 +4,7 @@ description: "了解何謂網路介面，以及要如何建立網路介面、變
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: da29ecaaa0f694be3e96baebfd80c09069d7c4a8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>建立、變更或刪除網路介面
 
@@ -30,12 +30,12 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="before-you-begin"></a>開始之前
 
-在完成本文任一節的任何步驟之前，請先完成下列工作︰
+在完成本文任一節的步驟之前，請先完成下列工作︰
 
-- 檢閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文，以了解網路介面的限制。
-- 使用 Azure 帳戶來登入 Azure [入口網站](https://portal.azure.com)、Azure 命令列介面 (CLI) 或 Azure PowerShell。 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
-- 如果您使用 PowerShell 命令來完成本文中的工作，請[安裝和設定 Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json)。 請確定您已安裝最新版的 Azure PowerShell commandlet。 若要取得 PowerShell 命令的說明 (包含範例)，請輸入 `get-help <command> -full`。
-- 如果您使用 Azure 命令列介面 (CLI) 命令來完成本文中的工作，請[安裝和設定 Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)。 請確定您已安裝最新版的 Azure CLI。 若要取得 CLI 命令的說明，請輸入 `az <command> --help`。 您可以不安裝 CLI 及其必要條件，而是改用 Azure Cloud Shell。 Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網站內執行。 它具有預先安裝和設定的 Azure CLI，可與您的帳戶搭配使用。 若要使用 Cloud Shell，請按一下[入口網站](https://portal.azure.com)頂端的 Cloud Shell (**> _**) 按鈕。
+- 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
+- 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.2.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+- 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.26 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
 ## <a name="create-a-network-interface"></a>建立網路介面
 
@@ -163,7 +163,7 @@ IP 轉送讓網路介面連接的虛擬機器能夠：
 
 ## <a name="delete-a-network-interface"></a>刪除網路介面
 
-只要網路介面未連接至虛擬機器，您便可將它刪除。 如果網路介面已連接至虛擬機器，您必須先讓虛擬機器進入已停止 (已解除配置) 狀態，接著在網路介面與虛擬機器中斷連結後，才能將它刪除。 若要讓網路介面與虛擬機器中斷連結，請完成[新增或移除網路介面](virtual-network-network-interface-vm.md)一文之[讓網路介面與虛擬機器中斷連結](virtual-network-network-interface-vm.md#vm-remove-nic)一節中的步驟。 刪除虛擬機器會中斷連結所有已連接的網路介面，但不會刪除網路介面。
+只要網路介面未連接至虛擬機器，您便可將它刪除。 如果網路介面已連接至虛擬機器，您必須先讓虛擬機器進入已停止 (已解除配置) 狀態，接著在網路介面與虛擬機器中斷連結後，才能將它刪除。 若要讓網路介面與虛擬機器中斷連結，請完成[新增或移除網路介面](virtual-network-network-interface-vm.md)一文之[讓網路介面與虛擬機器中斷連結](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm)一節中的步驟。 刪除虛擬機器會中斷連結所有已連接的網路介面，但不會刪除網路介面。
 
 1. 使用具備您訂用帳戶網路參與者角色 (最低) 權限的帳戶登入 [Azure 入口網站](https://portal.azure.com)。 請閱讀 [Azure 角色型存取控制的內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，深入了解如何將角色和權限指派給帳戶。
 2. 在 Azure 入口網站頂端包含「搜尋資源」文字的方塊中，輸入「網路介面」。 當「網路介面」出現於搜尋結果時，按一下它。

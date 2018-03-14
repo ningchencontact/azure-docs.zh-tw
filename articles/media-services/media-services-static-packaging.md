@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 33fb0a18ea3e5bfec044a216c8e6a78942e3af40
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: de6cbf954f175777407432845ece24ac49198e46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>使用 Azure Media Packager 完成靜態封裝工作
 > [!NOTE]
@@ -58,6 +58,7 @@ ms.lasthandoff: 12/07/2017
 
 若要使用媒體服務封裝器驗證您的 MP4 檔案，您必須自行建立資訊清單 (.ism) 檔案，並將其與來源檔案一併上傳至媒體服務帳戶中。 以下是由媒體編碼器標準所產生的 .ism 檔案範例。 檔案名稱區分大小寫。 此外，請務必使用 UTF-8 編碼 .ism 檔案中的文字。
 
+```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
     <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
       <head>
@@ -76,11 +77,13 @@ ms.lasthandoff: 12/07/2017
         </switch>
       </body>
     </smil>
+```
 
 取得調適型位元速率 MP4 集後，您便可以利用動態封裝。 動態封裝可讓您在指定通訊協定中傳遞資料流，無須進一步封裝。 如需詳細資訊，請參閱 [動態封裝](media-services-dynamic-packaging-overview.md)。
 
 下列程式碼範例會使用 Azure Media Services.NET SDK 延伸模組。  請務必更新指向資料夾 (您可在其中找到輸入的 MP4 檔案與 .ism 檔案) 的程式碼。 此外，也請更新指向 MediaPackager_ValidateTask.xml 檔案位置的程式碼。 此 XML 檔案定義於 [Azure Media Packager 的工作預設](http://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 一文中。
 
+```csharp
     using Microsoft.WindowsAzure.MediaServices.Client;
     using System;
     using System.Collections.Generic;
@@ -244,6 +247,7 @@ ms.lasthandoff: 12/07/2017
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-your-smooth-and-mpeg-dash-with-playready"></a>搭配 PlayReady 使用靜態加密保護 Smooth 和 MPEG DASH
 如果您要使用 PlayReady 來保護內容，則可以選擇使用 [動態加密](media-services-protect-with-playready-widevine.md) (建議選項)，或者使用靜態加密 (如本節所述)。
@@ -263,6 +267,7 @@ ms.lasthandoff: 12/07/2017
 
 此範例會定義可用來動態更新 MediaEncryptor_PlayReadyProtection.xml 檔案的 UpdatePlayReadyConfigurationXMLFile 方法。 如果您有可用的金鑰種子，可以使用 CommonEncryption.GeneratePlayReadyContentKey 方法產生以 keySeedValue 和 KeyId 值為基礎的內容金鑰。
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -694,6 +699,7 @@ ms.lasthandoff: 12/07/2017
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-aes-128"></a>搭配 AES-128 使用靜態加密保護 HLSv3
 如果您要使用 AES 128 將 HLS 加密，可選擇使用動態加密 (建議選項) 或靜態加密 (如本節所示)。 如果您決定使用動態加密，請參閱 [使用 AES 128 動態加密和金鑰傳遞服務](media-services-protect-with-aes128.md)。
@@ -707,6 +713,7 @@ ms.lasthandoff: 12/07/2017
 
 本節中的範例會將夾層檔案 (本例中為 MP4) 編碼為多位元速率 MP4 檔案，然後將 MP4 封裝為 Smooth Streaming。 接著，該範例會將 Smooth Streaming 封裝為 HTTP Live Streaming (HLS)，該格式使用進階加密標準 (AES) 128 位元串流加密進行加密。 請務必更新下列指向資料夾 (您可在其中找到輸入的 MP4 檔案) 的程式碼。 此外，也請更新指向 MediaPackager_MP4ToSmooth.xml 和 MediaPackager_SmoothToHLS.xml 檔案位置的程式碼。 您可以在 [Azure Media Packager 的工作預設](http://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 一文中找到這些檔案的定義。
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -975,6 +982,7 @@ ms.lasthandoff: 12/07/2017
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-playready"></a>搭配 PlayReady 使用靜態加密保護 HLSv3
 如果您要使用 PlayReady 來保護內容，則可以選擇使用 [動態加密](media-services-protect-with-playready-widevine.md) (建議選項)，或者使用靜態加密 (如本節所述)。
@@ -990,6 +998,7 @@ ms.lasthandoff: 12/07/2017
 
 請務必更新下列指向資料夾 (您可在其中找到輸入的 MP4 檔案) 的程式碼。 此外，也請更新指向 MediaPackager_MP4ToSmooth.xml、MediaPackager_SmoothToHLS.xml 和 MediaEncryptor_PlayReadyProtection.xml 檔案位置的程式碼。 MediaPackager_MP4ToSmooth.xml 和 MediaPackager_SmoothToHLS.xml 定義於 [Azure Media Packager 的工作預設](http://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 中，而 MediaEncryptor_PlayReadyProtection.xml 則定義於 [Azure Media Encryptor 的工作預設](http://msdn.microsoft.com/library/azure/hh973610.aspx) \(英文\) 一文中。
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -1452,6 +1461,7 @@ ms.lasthandoff: 12/07/2017
 
         }
     }
+```
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

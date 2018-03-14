@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fd8f89bc842b33576dc0f85ab606dfe3628480ed
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>使用媒體服務 .NET SDK 管理資產和相關的實體
 > [!div class="op_single_selector"]
@@ -39,6 +39,7 @@ ms.lasthandoff: 12/21/2017
 ## <a name="get-an-asset-reference"></a>取得資產參考
 常見的工作是在媒體服務中取得現有資產的參考。 下列程式碼範例顯示如何根據資產識別碼，從伺服器內容物件的資產集合取得資產參考。下列程式碼範例會使用 Linq 查詢來取得現有 IAsset 物件的參考。
 
+```csharp
     static IAsset GetAsset(string assetId)
     {
         // Use a LINQ Select query to get an asset.
@@ -51,10 +52,12 @@ ms.lasthandoff: 12/21/2017
 
         return asset;
     }
+```
 
 ## <a name="list-all-assets"></a>列出所有資產
 當您在儲存體中的資產數目增加時，最好能將資產列出。 下列程式碼範例顯示如何在伺服器內容物件上逐一查看「資產」集合。 使用各個資產時，程式碼範例也會將它的某些屬性值寫入主控台。 例如，每個資產可以包含多個媒體檔案。 程式碼範例會寫出與每個資產相關聯的所有檔案。
 
+```csharp
     static void ListAssets()
     {
         string waitMessage = "Building the list. This may take a few "
@@ -90,6 +93,7 @@ ms.lasthandoff: 12/21/2017
         // Display output in console.
         Console.Write(builder.ToString());
     }
+```
 
 ## <a name="get-a-job-reference"></a>取得工作參考
 
@@ -97,6 +101,7 @@ ms.lasthandoff: 12/21/2017
 
 您可能需要在開始長時間執行編碼作業時，取得作業參考，並且需要檢查執行緒上的作業狀態。 在這種情況下，當此方法從執行緒傳回時，您需要擷取作業的重新整理的參考。
 
+```csharp
     static IJob GetJob(string jobId)
     {
         // Use a Linq select query to get an updated 
@@ -110,12 +115,14 @@ ms.lasthandoff: 12/21/2017
 
         return job;
     }
+```
 
 ## <a name="list-jobs-and-assets"></a>列出工作和資產
 重要的相關工作是在媒體服務中列出資產及其相關聯的工作。 下列程式碼範例會示範如何列出每個 IJob 物件，然後它會針對每個工作，顯示作業的相關屬性、所有相關工作、所有輸入資產，以及所有輸出資產。 此範例中的程式碼可用於許多其他工作。 例如，如果您想要從您先前執行的一或多個編碼工作列出輸出資產，此程式碼會示範如何存取輸出資產。 當您有輸出資產的參考時，可以透過下載或提供 URL，將內容傳遞給其他使用者或應用程式。 
 
 如需傳遞資產之選項的詳細資訊，請參閱 [使用 Media Services SDK for .NET 傳遞資產](media-services-deliver-streaming-content.md)。
 
+```csharp
     // List all jobs on the server, and for each job, also list 
     // all tasks, all input assets, all output assets.
 
@@ -190,12 +197,14 @@ ms.lasthandoff: 12/21/2017
         // Display output in console.
         Console.Write(builder.ToString());
     }
+```
 
 ## <a name="list-all-access-policies"></a>列出所有存取原則
 在媒體服務中，您可以定義資產或其檔案的存取原則。 存取原則會定義檔案或資產 (存取的類型和持續時間) 的權限。 在您的媒體服務程式碼中，通常會藉由建立 IAccessPolicy 物件，然後將其與現有資產產生關聯，來定義存取原則。 然後您會建立 ILocator 物件，這可讓您直接存取媒體服務中的資產。 本文件系列隨附的 Visual Studio 專案包含數個程式碼範例，示範如何建立及指派存取原則和定位器給資產。
 
 下列程式碼範例顯示如何列出伺服器上的所有存取原則，並顯示每個相關聯的權限的類型。 檢視存取原則的另一個實用方式，是列出伺服器上的所有 ILocator 物件，然後針對每個定位器，您可以使用其 AccessPolicy 屬性列出其相關聯的存取原則。
 
+```csharp
     static void ListAllPolicies()
     {
         foreach (IAccessPolicy policy in _context.AccessPolicies)
@@ -208,6 +217,7 @@ ms.lasthandoff: 12/21/2017
 
         }
     }
+```
     
 ## <a name="limit-access-policies"></a>限制存取原則 
 
@@ -216,6 +226,7 @@ ms.lasthandoff: 12/21/2017
 
 例如，您可以使用只會在您應用程式中執行一次的下列程式碼來建立一組標準的原則。 您可以記錄識別碼至記錄檔以供稍後使用︰
 
+```csharp
     double year = 365.25;
     double week = 7;
     IAccessPolicy policyYear = _context.AccessPolicies.Create("One Year", TimeSpan.FromDays(year), AccessPermissions.Read);
@@ -225,9 +236,11 @@ ms.lasthandoff: 12/21/2017
     Console.WriteLine("One year policy ID is: " + policyYear.Id);
     Console.WriteLine("100 year policy ID is: " + policy100Year.Id);
     Console.WriteLine("One week policy ID is: " + policyWeek.Id);
+```
 
 然後，您可以使用您程式碼中的現有識別碼，就像這樣︰
 
+```csharp
     const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
 
 
@@ -247,6 +260,7 @@ ms.lasthandoff: 12/21/2017
         policy1Year,
         DateTime.UtcNow.AddMinutes(-5));
     Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
+```
 
 ## <a name="list-all-locators"></a>列出所有定位器
 定位器是 URL，提供存取資產的直接路徑，以及由定位器相關聯的存取原則所定義之對於資產的權限。 每個資產在其定位器屬性上可以有與其相關聯的 ILocator 物件的集合。 伺服器內容也有定位器集合，其中包含所有定位器。
@@ -255,6 +269,7 @@ ms.lasthandoff: 12/21/2017
 
 請注意，資產的定位器路徑只是資產的基底 URL。 若要建立使用者或應用程式可以瀏覽之個別檔案的直接路徑，您的程式碼必須將特定檔案路徑加入至定位器路徑。 如需如何執行此動作的詳細資訊，請參閱 [使用 Media Services SDK for .NET 傳遞資產](media-services-deliver-streaming-content.md)主題。
 
+```csharp
     static void ListAllLocators()
     {
         foreach (ILocator locator in _context.Locators)
@@ -272,12 +287,14 @@ ms.lasthandoff: 12/21/2017
             Console.WriteLine("");
         }
     }
+```
 
 ## <a name="enumerating-through-large-collections-of-entities"></a>透過實體的大型集合列舉
 查詢項目時，有一次最多傳回 1000 個實體的限制，因為公用 REST v2 有 1000 個查詢結果數目的限制。 透過實體的大型集合列舉時您需要使用 Skip 和 Take。 
 
 下列函式會對「媒體服務帳戶」中提供的所有工作進行迴圈。 媒體服務會傳回工作集合中的 1000 個工作。 此函式利用 Skip 和 Take 來確保已列舉所有工作 (以免您帳戶中的工作超過 1000 個)。
 
+```csharp
     static void ProcessJobs()
     {
         try
@@ -313,10 +330,12 @@ ms.lasthandoff: 12/21/2017
             Console.WriteLine(ex.Message);
         }
     }
+```
 
 ## <a name="delete-an-asset"></a>刪除資產
 下列範例會刪除資產。
 
+```csharp
     static void DeleteAsset( IAsset asset)
     {
         // delete the asset
@@ -327,12 +346,14 @@ ms.lasthandoff: 12/21/2017
             Console.WriteLine("Deleted the Asset");
 
     }
+```
 
 ## <a name="delete-a-job"></a>刪除工作
 若要刪除工作，您必須檢查工作的狀態，如 State 屬性所示。 可以刪除已完成或已取消的工作，而其他某些狀態，例如已佇列、已排程或處理中的工作，必須先取消，然後才能刪除。
 
 下列程式碼範例示範刪除工作的方法，方法是檢查工作狀態，然後於狀態為已完成或已取消時刪除工作。 此程式碼相依於本主題中的前一節，以取得工作的參考：取得工作參考。
 
+```csharp
     static void DeleteJob(string jobId)
     {
         bool jobDeleted = false;
@@ -377,11 +398,13 @@ ms.lasthandoff: 12/21/2017
 
         }
     }
+```
 
 
 ## <a name="delete-an-access-policy"></a>刪除存取原則
 下列程式碼範例顯示如何根據原則識別碼，取得存取原則的參考，然後刪除原則。
 
+```csharp
     static void DeleteAccessPolicy(string existingPolicyId)
     {
         // To delete a specific access policy, get a reference to the policy.  
@@ -395,7 +418,7 @@ ms.lasthandoff: 12/21/2017
         policy.Delete();
 
     }
-
+```
 
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑

@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: f15875610e2035c6f4c10c36e19c02f3e045b3ea
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="how-to-use-perfinsights"></a>如何使用 PerfInsights 
 
@@ -293,7 +293,7 @@ Diskspd I/O 工作負載測試 (OS 磁碟 [寫入] 和集區磁碟 [讀取/寫�
 
 檢閱所有重大和重要結果的建議和連結。 了解這些結果如何影響效能，以及效能最佳化組態的最佳做法。
 
-### <a name="storage-tab"></a>儲存體索引標籤
+### <a name="storage-tab"></a>[儲存體] 索引標籤
 
 **結果**區段會顯示有關儲存體的各種結果與建議。
 
@@ -307,7 +307,7 @@ Diskspd I/O 工作負載測試 (OS 磁碟 [寫入] 和集區磁碟 [讀取/寫�
 
 ![磁碟區索引標籤的螢幕擷取畫面](media/how-to-use-perfInsights/volumetab.png)
 
-### <a name="sql-tab"></a>SQL 索引標籤
+### <a name="sql-tab"></a>[SQL] 索引標籤
 
 如果目標 VM 裝載任何 SQL Server 執行個體，您將在報表中看到名為 **SQL** 的其他索引標籤：
 
@@ -323,7 +323,7 @@ Diskspd I/O 工作負載測試 (OS 磁碟 [寫入] 和集區磁碟 [讀取/寫�
 
 SQL Server 的特定執行個體索引標籤包含一般區段，其中顯示所選執行個體的基本資訊。 這些索引標籤也包含進階資訊的其他區段，包括設定、組態和使用者選項。
 
-### <a name="diagnostic-tab"></a>診斷索引標籤
+### <a name="diagnostic-tab"></a>[診斷] 索引標籤
 [診斷] 索引標籤包含 PerfInsights 執行期間電腦上的最上層 CPU、磁碟和記憶體取用相關資訊。 您也可以找到以下相關資訊：可能缺少系統的重大修補程式、工作清單和重要系統事件。 
 
 ## <a name="references-to-the-external-tools-used"></a>所用外部工具的參考

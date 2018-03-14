@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/18/2018
 ms.author: anoopkv
 ms.openlocfilehash: 80426b076481aaf2001644498da8cdce6f0311ab
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>管理 VMware VM 的設定伺服器
 
@@ -84,13 +84,13 @@ ms.lasthandoff: 02/23/2018
 - 如果您執行 9.7、9.8、9.9 或 9.10，就可以直接升級至 9.11。
 - 如果您執行 9.6 或更早版本，而且想要升級至 9.11，則在升級到 9.11 之前，必須先升級到 版本 9.7。
 
-用來升級至設定伺服器所有版本的更新彙總連結，可以在 [wiki 更新分頁](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)取得。
+用來升級至組態伺服器所有版本的更新彙總連結，可以在 [wiki 更新頁面](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)取得。
 
 升級伺服器，如下所示：
 
-1. 將更新安裝程式下載到設定伺服器上。
-2. 按兩下安裝程式以執行。
-3. 安裝程式會偵測電腦上執行的目前版本。
+1. 將更新安裝程式檔案下載到組態伺服器上。
+2. 按兩下以執行安裝程式。
+3. 安裝程式會偵測機器上執行的目前版本。
 4. 選取 [確定] 以確認，並執行升級。 
 
 
