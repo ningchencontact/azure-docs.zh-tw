@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2018
+ms.date: 03/01/2018
 ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: 028a3f4411e6984b70e0f98c5cf3284e5be1c3b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.reviewer: calebb
+ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的位置條件 
 
@@ -120,9 +120,12 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 條件式存取原則的評估時機： 
 
-- 使用者初次登入時 
+- 使用者初次登入 Web 應用程式、行動或桌面應用程式。 
 
-- Azure AD 會為已設定條件式存取的雲端應用程式發出權杖。 
+- 使用新式驗證的行動或桌面應用程式使用重新整理權杖來取得新的存取權杖。 預設是一小時一次。 
+
+這表示對於使用新式驗證的行動和桌面應用程式來說，系統會在變更網域位置的一小時內偵測到位置變更。 對於不使用新式驗證的行動和桌面應用程式，此原則會套用至每個權杖要求。 要求頻率會隨應用程式而異。 同樣地，針對 Web 應用程式，此原則會在初始登入時套用，且適用於 Web 應用程式工作階段的存留期。 由於跨應用程式之工作階段存留期的差異，所以原則評估之間的時間也會不同。 每次應用程式要求新的登入權杖時，就會套用此原則。
+
 
 根據預設，Azure AD 每小時會發出一個權杖。 在移出公司網路後，一小時內就會使用新式驗證針對應用程式強制執行原則。
 

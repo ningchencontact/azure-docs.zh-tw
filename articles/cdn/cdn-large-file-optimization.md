@@ -1,5 +1,5 @@
 ---
-title: "透過 Azure 內容傳遞網路的大型檔案下載最佳化"
+title: "透過 Azure CDN 的大型檔案下載最佳化"
 description: "深度解說大型檔案下載最佳化"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e6266fdaaac6a1a1a5d3a5595c10f79fd9f01a7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>透過 Azure 內容傳遞網路的大型檔案下載最佳化
+# <a name="large-file-download-optimization-via-azure-cdn"></a>透過 Azure CDN 的大型檔案下載最佳化
 
 透過網際網路傳遞的內容檔案大小，由於功能增強、圖形改善和媒體內容更豐富，而持續成長。 這種成長是由許多因素所驅動，包括：寬頻滲透、大型廉價存放裝置、高畫質影片普遍增加，以及連線至網際網路的裝置 (IoT) 等。 快速且有效的大型檔案傳遞機制，對於確保順暢且愉悅的取用者體驗極為重要。
 

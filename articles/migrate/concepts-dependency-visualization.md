@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-visualization"></a>相依性視覺效果
 
@@ -34,6 +34,19 @@ Azure Migrate 的相依性視覺效果可建立用於移轉評估的群組，藉
 若要使用相依性視覺效果，您需要在待分析的每個內部部署機器上，下載及安裝代理程式。  
 
 ## <a name="do-i-need-to-pay-for-it"></a>我需要支付多少費用？
+
+不須額外費用即可使用 Azure Migrate。 使用 Azure Migrate 的相依性視覺效果功能時，需要服務對應。 在建立 Azure Migrate 專案時，Azure Migrate 會自動代替您建立新的 Log Analytics 工作區。
+
+> [!NOTE]
+> 相依性視覺效果功能會透過 Log Analytics 工作區使用服務對應。 Azure Migrate 於 2018 年 2 月 28 日 宣告正式運作，現在可以免費使用該功能。 您必須建立新的專案，才能使用免費的工作區。 在正式運作之前存在的工作區仍需收費，因此建議您移至新的專案。
+
+1. 在此 Log Analytics 工作區內使用服務對應以外的任何解決方案，將會產生標準 Log Analytics 費用。 
+2. 為了支援不需額外成本的移轉案例，自 Azure Migrate 專案建立算起的前 180 天，服務對應解決方案將不會產生任何費用，而 180 天則適用標準收費方式。
+3. 只有在建立專案的過程中建立工作區，才可免費使用。
+
+當您將代理程式註冊至工作區時，請使用專案在安裝代理程式步驟頁面上提供的識別碼和金鑰。 您無法使用現有的工作區並將它與 Azure Migrate 專案產生關聯。
+
+刪除 Azure Migrate 專案時，工作區不會隨之刪除。 在專案刪除後，服務對應就無法免費使用，系統會根據 Log Analytics 工作區的付費層向每個節點收取費用。
 
 [在此](https://azure.microsoft.com/pricing/details/azure-migrate/)深入了解 Azure Migrate 定價。 
 

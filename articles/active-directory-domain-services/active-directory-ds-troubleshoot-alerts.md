@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2f2ebb1dcc8bed86348389d6a5a7c274194efde0
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 針對警示進行疑難排解
 本文提供的疑難排解指引，適用於受控網域上可能會遇到的任何警示。
@@ -34,6 +34,13 @@ ms.lasthandoff: 02/09/2018
 | AADDS102 | *Azure AD 目錄中已刪除要讓 Azure AD Domain Services 正常運作所需的服務主體。此設定會影響 Microsoft 監視、管理、修補及同步處理受控網域的能力。* | [遺失服務主體](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *您於其中啟用 Azure AD Domain Services 之虛擬網路的 IP 位址範圍位於公用 IP 範圍中。Azure AD Domain Services 必須在具有私人 IP 位址範圍的虛擬網路中啟用。此設定會影響 Microsoft 的監視、管理、修補及同步處理受控網域等功能。* | [位址位於公用 IP 範圍中](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft 無法觸達此受控網域的網域控制站。如果虛擬網路上設定的網路安全性群組 (NSG) 封鎖受控網域的存取，就可能發生這種情況。另一個可能的原因，是使用者定義的路由封鎖了來自網際網路的連入流量。* | [網路錯誤](active-directory-ds-troubleshoot-nsg.md) |
+| AADDS500 | *受控網域最後與 {0} 上的 Azure AD 同步。使用者可能無法登入受控網域，或者群組成員資格可能無法與 Azure AD 同步。* | [有一陣子未發生同步處理](#aadds500-synchronization-has-not-completed-in-a-while) |
+| AADDS501 | *受控網域最後備份於 XX 上。* | [有一陣子未進行備份](#aadds501-a-backup-has-not-been-taken-in-a-while) |
+| AADDS502 | 受控網域的安全 LDAP 憑證將於 XX 到期。 | [安全 LDAP 憑證即將到期](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS503 | *受控網域已擱置，因為與此網域相關聯的 Azure 訂用帳戶不在作用中。* | [因為停用的訂用帳戶而造成擱置](#aadds503-suspension-due-to-disabled-subscription) |
+| AADDS504 | 受控網域因為無效的組態而造成擱置。此服務已無法針對受控網域管理、修補或更新網域控制站很長一段時間。 | [因為無效的組態而造成擱置](#aadds504-suspension-due-to-an-invalid-configuration) |
+
+
 
 ## <a name="aadds100-missing-directory"></a>AADDS100：遺失目錄
 **警示訊息：**
@@ -75,7 +82,7 @@ ms.lasthandoff: 02/09/2018
 
 開始之前，請先閱讀[這篇文章](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces)中的**私人 IP v4 位址空間**一節。
 
-在虛擬網路內，電腦可以針對所在 IP 位址範圍與為子網路設定之 IP 位址範圍相同的 Azure 資源提出要求。 不過，由於虛擬網路已針對此範圍做設定，因此將會在虛擬網路內路由傳送這些要求，而不會抵達所要的 Web 資源。 這可能導致 Azure AD Domain Services 發生無法預設測的錯誤。
+在虛擬網路內，電腦可以針對所在 IP 位址範圍與為子網路設定之 IP 位址範圍相同的 Azure 資源提出要求。 不過，由於虛擬網路已針對此範圍做設定，因此將會在虛擬網路內路由傳送這些要求，而不會抵達所要的 Web 資源。 此組太可能導致 Azure AD Domain Services 發生無法預設測的錯誤。
 
 **如果您擁有虛擬網路中所設定的網際網路 IP 位址範圍，便可以忽略此警示。不過，在有此設定的情況下，Azure AD Domain Services 無法承諾達成 [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)]，因為這會導致無法預測的錯誤。**
 
@@ -93,6 +100,47 @@ ms.lasthandoff: 02/09/2018
 4. 若要將虛擬機器的網域加入新的網域，請遵循[本指南](active-directory-ds-admin-guide-join-windows-vm-portal.md)。
 8. 若要確保解決警示，請在兩小時內檢查您網域的健康情況。
 
+## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500：同步處理有一陣子未完成
+
+**警示訊息：**
+
+受控網域最後與 {0} 上的 Azure AD 同步。使用者可能無法登入受控網域，或者群組成員資格可能無法與 Azure AD 同步。
+
+**補救：**
+
+[檢查您的網域健康狀態](active-directory-ds-check-health.md)是否有任何警示，其可能表示受控網域的組態有問題。 有時候，您的組態問題可能會妨礙 Microsoft 同步處理受控網域的能力。 如果您能夠解決任何警示，請等候兩小時並回頭查看是否已完成同步處理。
+
+
+## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501：有一陣子未進行備份
+
+**警示訊息：**
+
+受控網域最後備份於 XX 上。
+
+**補救：**
+
+[檢查您的網域健康狀態](active-directory-ds-check-health.md)是否有任何警示，其可能表示受控網域的組態有問題。 有時候，您的組態問題可能會妨礙 Microsoft 同步處理受控網域的能力。 如果您能夠解決任何警示，請等候兩小時並回頭查看是否已完成同步處理。
+
+
+## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503：因為停用的訂用帳戶而造成擱置
+
+**警示訊息：**
+
+*受控網域已擱置，因為與此網域相關聯的 Azure 訂用帳戶不在作用中。*
+
+**補救：**
+
+若要還原服務，[請更新與受控網域相關聯的 Azure 訂用帳戶](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable)。
+
+## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504：因為無效的組態而造成擱置
+
+**警示訊息：**
+
+受控網域因為無效的組態而造成擱置。此服務已無法針對受控網域管理、修補或更新網域控制站很長一段時間。
+
+**補救：**
+
+[檢查您的網域健康狀態](active-directory-ds-check-health.md)是否有任何警示，其可能表示受控網域的組態有問題。 如果您可以解決任何警示，請這麼做。 之後，請連絡支援人員以重新啟用您的訂用帳戶。
 
 ## <a name="contact-us"></a>與我們連絡
 請連絡 Azure Active Directory Domain Services 產品小組， [分享意見或尋求支援](active-directory-ds-contact-us.md)。

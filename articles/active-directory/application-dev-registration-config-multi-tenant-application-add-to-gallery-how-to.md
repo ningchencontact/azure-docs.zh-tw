@@ -1,40 +1,49 @@
 ---
-title: "如何將多租用戶應用程式新增至 Azure AD 應用程式庫 | Microsoft Docs"
-description: "說明如何在 Azure AD 應用程式庫中列出自訂開發的多租用戶應用程式"
+title: "將多租用戶應用程式新增至 Azure AD 應用程式庫 | Microsoft Docs"
+description: "說明如何在 Azure AD 應用程式庫中列出自訂開發的多租用戶應用程式。"
 services: active-directory
-documentationcenter: 
-author: ajamess
-manager: mtillman
-ms.assetid: 
+documentationCenter: na
+author: jeevansd
+manager: femila
+ms.assetid: 92c1651a-675d-42c8-b337-f78e7dbcc40d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 969273d1bc0750685a0b2010670915f4183ac8ed
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 02/16/2018
+ms.author: jeedes
+ms.openlocfilehash: 82f7abbe5814f9b154b6888d5b599e7706eb879b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="how-to-add-a-multi-tenant-application-to-the-azure-ad-application-gallery"></a>如何將多租用戶應用程式新增至 Azure AD 應用程式庫
+# <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>將多租用戶應用程式新增至 Azure AD 應用程式庫
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>什麼是 Azure AD 應用程式庫？
 
-Azure AD 應用程式庫是在數百萬 Azure Active Directory 客戶面前，讓您的應用程式脫穎而出的絕佳方法，以擴大該應用程式在市集的影響力和曝光率。 下列步驟說明如何在 Azure AD 應用程式庫中列出您的應用程式。
+Azure Active Directory (Azure AD) 是雲端式識別服務。 [Azure AD 應用程式庫](https://azure.microsoft.com/marketplace/active-directory/all/)位於 Azure Marketplace 應用程式存放區，所有應用程式連接器都會在此處發佈以供進行單一登入和使用者佈建。 使用 Azure AD 作為識別提供者的客戶可找到在此發佈的不同 SaaS 應用程式連接器。 IT 系統管理員可從應用程式庫新增連接器，然後設定並使用這些連接器進行單一登入和佈建。 Azure AD 支援以所有主要的同盟通訊協定進行單一登入，包括 SAML 2.0、OpenID Connect、OAuth 及 WS-Fed。 
 
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>如果您的應用程式支援 SAML 或 OpenIDConnect
 如果您有想要列在 Azure AD 應用程式庫中的多租用戶應用程式，您必須先確定該應用程式支援下列其中一種單一登入技術：
 
-1. **OpenID Connect** - 直接整合 Azure AD，使用 OpenID Connect 進行驗證，使用 Azure AD 同意 API 進行設定。 如果您是剛開始整合，而您的應用程式不支援 SAML，這是建議的模式。
-2. **SAML** – 您的應用程式已能夠使用 SAML 通訊協定設定協力廠商識別提供者。
+- **OpenID Connect**：若要列出您的應用程式，請在 Azure AD 中建立多租用戶應用程式，然後為您的應用程式實作 [Azure AD 同意架構](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework)。 將登入要求傳送給通用端點，以便讓所有客戶都可以向該應用程式表示同意。 您可以根據租用戶識別碼和在權杖中收到的使用者 UPN 來控制使用者存取權。 使用[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing)中所述的程序，提交此應用程式。
 
-如果您的應用程式支援這其中一種單一登入模式，而且您想要在 Azure AD 應用程式庫列出您的多租用戶應用程式，即可依照本文件後續內容中的步驟執行。 若要即刻開始使用，請將電子郵件傳送至 **waadpartners@microsoft.com** 。
+- **SAML**：如果您的應用程式支援 SAML 2.0，此應用程式即可列在資源庫中。 依照[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing)中的指示操作。
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>如果您的應用程式不支援 SAML 或 OpenIDConnect
-即使您的應用程式不支援這其中一種模式，我們仍然可以使用密碼單一登入技術，將它整合到我們的資源庫。 如果您想要探索此選項，您可以將電子郵件傳送至 **waadpartners@microsoft.com**。
+不支援 SAML 或 OpenIDConnect 的應用程式仍可透過密碼單一登入技術整合到應用程式庫中。
+
+密碼單一登入也稱為密碼儲存庫存，可讓您管理使用者對不支援身分識別同盟之 Web 應用程式的存取和密碼。 如果有數個使用者需要共用單一帳戶 (例如共用組織的社交媒體應用程式帳戶)，這也很有用處。 
+
+如果您想要利用這項技術列出您的應用程式：
+1. 建立一個具有可設定[密碼單一登入](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis)之 HTML 登入頁面的 Web 應用程式。 
+2. 如[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing)所述提交要求。
+
+## <a name="escalations"></a>呈報
+
+若要呈報任何事項，請傳送電子郵件至 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)，我們會儘快回覆。
 
 ## <a name="next-steps"></a>後續步驟
-[如何在 Azure Active Directory 應用程式庫中列出您的應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)
+了解如何[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)。

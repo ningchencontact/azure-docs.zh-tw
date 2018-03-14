@@ -1,7 +1,7 @@
 ---
-title: "使用 JSON 定義工作流程 - Azure Logic Apps | Microsoft Docs"
-description: "如何以 JSON 撰寫 Logic Apps 的工作流程定義"
-author: jeffhollan
+title: "使用 JSON 依邏輯應用程式定義建置 - Azure Logic Apps | Microsoft Docs"
+description: "使用日期函式新增參數、處理字串、建立參數對應以及取得資料"
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,197 +13,202 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
-ms.date: 03/29/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 7dde5bc4733af1aba34199f332379d2faf566725
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.date: 01/31/2018
+ms.author: LADocs; estfan
+ms.openlocfilehash: d05f7e34cbe670db6733c199e3420c810c304a84
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="create-workflow-definitions-for-logic-apps-using-json"></a>使用 JSON 建立邏輯應用程式的工作流程定義
+# <a name="build-on-your-logic-app-definition-with-json"></a>使用 JSON 依邏輯應用程式定義建置
 
-您可以使用簡單、宣告式的 JSON 語言建立 [Azure Logic Apps](logic-apps-overview.md) 的工作流程定義。 如果您還沒有這麼做，請先檢閱[如何使用邏輯應用程式設計工具建立第一個邏輯應用程式](quickstart-create-first-logic-app-workflow.md)。 此外，請參閱[工作流程定義語言的完整參考](http://aka.ms/logicappsdocs)。
+若要使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 執行更進階的工作，您可以使用程式碼檢視來編輯使用簡單宣告式 JSON 語言的邏輯應用程式定義。 如果您還沒有這麼做，請先檢閱[如何建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 此外，請參閱[工作流程定義語言的完整參考](http://aka.ms/logicappsdocs)。
 
-## <a name="repeat-steps-over-a-list"></a>對清單重複執行步驟
+> [!NOTE]
+> 只有您在程式碼檢視中處理邏輯應用程式的定義時，才可使用某些 Azure Logic Apps 功能 (如參數)。 參數可讓您在整個邏輯應用程式中重複使用值。 例如，如果您需想在數個動作中使用同一個電子郵件地址，請將該電子郵件地址定義為參數。
 
-若要逐一查看有多達 10,000 個項目的陣列，並針對每個項目執行動作，請使用 [foreach 類型](logic-apps-loops-and-scopes.md)。
+## <a name="view-and-edit-your-logic-app-definitions-in-json"></a>在 JSON 中檢視和編輯您的邏輯應用程式定義
 
-## <a name="handle-failures-if-something-goes-wrong"></a>若發生錯誤時會處理失敗
+1. 登入 [Azure 入口網站](https://portal.azure.com "Azure 入口網站")。
 
-通常，您想要包括*補救步驟* — 如果*且唯有*當一或多個呼叫失敗時執行的一些邏輯。 此範例會從各種地方取得資料，但如果呼叫失敗，我們想要在某處 POST 訊息，方便稍後追蹤該失敗。：  
+2. 在左側功能表中，選擇 [更多服務]。 在 [企業整合] 底下選擇 [Logic Apps]。 選取您的邏輯應用程式。
 
+3. 從邏輯應用程式功能表的 [開發工具] 底下，選擇 [邏輯應用程式程式碼檢視]。
+
+   [程式碼檢視] 視窗隨即開啟，並顯示您的邏輯應用程式定義。
+
+## <a name="parameters"></a>參數
+
+參數可讓您在整個邏輯應用程式中重複使用值，且適用於取代您可能經常變更的值。 例如，如果您想要在多個位置中使用同一個電子郵件地址，您應將該電子郵件地址定義為參數。 
+
+當您必須在不同的環境中覆寫參數時，參數也很有用。深入了解[用於部署的參數](#deployment-parameters)和 [Azure Logic Apps 文件的 REST API](https://docs.microsoft.com/rest/api/logic)。
+
+> [!NOTE]
+> 參數僅適用於程式碼檢視。
+
+在[第一個範例邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)中，您所建立的工作流程會在網站的 RSS 摘要中出現新文章時傳送電子郵件。 摘要的 URL 為硬式編碼，因此這個範例會示範如何將查詢值取代為參數，進而更輕鬆地變更摘要的 URL。
+
+1. 在程式碼檢視中，尋找 `parameters : {}` 物件，並新增 `currentFeedUrl` 物件：
+
+   ``` json
+     "currentFeedUrl" : {
+      "type" : "string",
+            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+   }
+   ```
+
+2. 在 `When_a_feed-item_is_published` 動作中，尋找 `queries` 區段，然後以 `"feedUrl": "#@{parameters('currentFeedUrl')}"` 取代查詢值。 
+
+   **之前**
+   ``` json
+   }
+      "queries": {
+          "feedUrl": "https://s.ch9.ms/Feeds/RSS"
+       }
+   },   
+   ```
+
+   **之後**
+   ``` json
+   }
+      "queries": {
+          "feedUrl": "#@{parameters('currentFeedUrl')}"
+       }
+   },   
+   ```
+
+   若要加入兩或多個字串，您也可以使用 `concat` 函式。 
+   例如，`"@concat('#',parameters('currentFeedUrl'))"` 的運作方式與上述範例相同。
+
+3.  完成之後，請選擇 [儲存]。 
+
+現在您可以透過 `currentFeedURL` 物件傳遞不同的 URL，藉以變更網站的 RSS 摘要。
+
+<a name="deployment-parameters"></a>
+
+## <a name="deployment-parameters-for-different-environments"></a>不同環境的部署參數
+
+通常，部署生命週期具有開發、預備及生產的環境。 例如，您可以在所有這些環境中使用相同的邏輯應用程式定義，但使用不同的資料庫。 同樣地，建議您在不同的區域使用相同的定義，以發揮高可用性，但希望每個邏輯應用程式執行個體使用該區域的資料庫。 
+
+> [!NOTE] 
+> 這種情況與在執行階段採用參數不同，您反而應該使用 `trigger()` 函式。
+
+以下是基本定義：
+
+``` json
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "uri": {
+            "type": "string"
+        }
+    },
+    "triggers": {
+        "request": {
+          "type": "request",
+          "kind": "http"
+        }
+    },
+    "actions": {
+        "readData": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@parameters('uri')"
+            }
+        }
+    },
+    "outputs": {}
+}
 ```
+在邏輯應用程式的實際 `PUT` 要求中，您可以提供參數 `uri`。 在每個環境中，您可以提供不同的值給 `connection` 參數。 因為預設值不存在，邏輯應用程式承載需要此參數︰
+
+``` json
+{
+    "properties": {},
+        "definition": {
+          /// Use the definition from above here
+        },
+        "parameters": {
+            "connection": {
+                "value": "https://my.connection.that.is.per.enviornment"
+            }
+        }
+    },
+    "location": "westus"
+}
+``` 
+
+若要深入了解，請參閱 [Azure Logic Apps 文件的 REST API](https://docs.microsoft.com/rest/api/logic/)。
+
+## <a name="process-strings-with-functions"></a>使用函式處理字串
+
+Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公司名稱從訂單傳遞至另一個系統。 不過，您不確定字元編碼的正確處理方式。 您可以在這個字串上執行 base64 編碼，但若要避免在 URL 中逸出，您可改為取代數個字元。 此外，公司名稱只需要一個子字串，因為不會用到前五個字元。 
+
+``` json
 {
   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {},
+  "parameters": {
+    "order": {
+      "defaultValue": {
+        "quantity": 10,
+        "id": "myorder1",
+        "companyName": "NAME=Contoso"
+      },
+      "type": "Object"
+    }
+  },
   "triggers": {
-    "Request": {
-      "type": "request",
-      "kind": "http"
-    }
-  },
-  "actions": {
-    "readData": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      }
-    },
-    "postToErrorMessageQueue": {
-      "type": "ApiConnection",
-      "inputs": "...",
-      "runAfter": {
-        "readData": [
-          "Failed"
-        ]
-      }
-    }
-  },
-  "outputs": {}
-}
-```
-
-若要指定 `postToErrorMessageQueue` 僅在 `readData` 已 `Failed` 之後才會執行，使用 `runAfter` 屬性，例如，指定可能值的清單，以便 `runAfter` 可能是 `["Succeeded", "Failed"]`。
-
-最後，因為此範例現在會處理錯誤，我們不再將執行結果標示為 `Failed`。 因為我們在此範例中新增處理此失敗的步驟，執行結果為 `Succeeded`，雖然其中一個步驟 `Failed`。
-
-## <a name="execute-two-or-more-steps-in-parallel"></a>平行執行兩個以上步驟
-
-若要平行執行多個動作，`runAfter` 屬性在執行階段必須相同。 
-
-```
-{
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "triggers": {
-    "Request": {
-      "kind": "http",
-      "type": "Request"
-    }
-  },
-  "actions": {
-    "readData": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      }
-    },
-    "branch1": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    },
-    "branch2": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    }
-  },
-  "outputs": {}
-}
-```
-
-在此範例中，`branch1` 和 `branch2` 設定為在 `readData` 之後執行。 如此一來，這兩個分支會以平行方式執行。 兩個分支的時間戳記完全相同。
-
-![平行](media/logic-apps-author-definitions/parallel.png)
-
-## <a name="join-two-parallel-branches"></a>聯結兩個平行分支
-
-透過先前範例中的方式在 `runAfter` 屬性新增項目，即可聯結設定為平行執行的兩個動作。
-
-```
-{
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-04-01-preview/workflowdefinition.json#",
-  "actions": {
-    "readData": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {}
-    },
-    "branch1": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    },
-    "branch2": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    },
-    "join": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "branch1": [
-          "Succeeded"
-        ],
-        "branch2": [
-          "Succeeded"
-        ]
-      }
-    }
-  },
-  "parameters": {},
-  "triggers": {
-    "Request": {
+    "request": {
       "type": "Request",
-      "kind": "Http",
+      "kind": "Http"
+    }
+  },
+  "actions": {
+    "order": {
+      "type": "Http",
       "inputs": {
-        "schema": {}
+        "method": "GET",
+        "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
       }
     }
   },
-  "contentVersion": "1.0.0.0",
   "outputs": {}
 }
 ```
 
-![平行](media/logic-apps-author-definitions/join.png)
+下列步驟說明此範例從內部到外部處理這個字串的方式：
 
-## <a name="map-list-items-to-a-different-configuration"></a>將清單項目對應至不同的組態
-
-接下來，假設我們想要根據屬性的值取得不同的內容。 我們可以建立值與目的地的對應做為參數：  
-
+``` 
+"uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
+
+1. 取得公司名稱的 [`length()`](../logic-apps/logic-apps-workflow-definition-language.md)，以便取得字元總數。
+
+2. 若要取得較短的字串，請減去 `5`。
+
+3. 現在可取得 [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md)。 從索引 `5` 開始，並移至字串的其餘部分。
+
+4. 將這個子字串轉換成 [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) 字串。
+
+5. 現在以 `-` 字元 [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) 所有 `+` 字元。
+
+6. 最後，以 `_` 字元 [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) 所有 `/` 字元。
+
+## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>將清單項目對應到屬性值，然後使用對應作為參數
+
+若要根據屬性值取得不同的結果，您可以建立可比對每個屬性值與結果的對應，然後使用該對應作為參數。 
+
+例如，此工作流程會將某些類別定義為參數，以及定義可比對這些類別與特定 URL 的對應。 首先，工作流程會取得文章清單。 接著，工作流程會使用此對應來尋找符合每篇文章之類別的 URL。
+
+*   [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md) 函式會檢查類別是否符合已定義的知名類別。
+
+*   取得相符的類別之後，此範例會使用方括號來提取對應中的項目：`parameters[...]`
+
+``` json
 {
   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
   "contentVersion": "1.0.0.0",
@@ -271,21 +276,29 @@ ms.lasthandoff: 01/19/2018
 }
 ```
 
-在此情況下，我們先取得文章清單。 根據已定義為參數的類別，第二個步驟會使用對應查詢 URL 來取得內容。
+## <a name="get-data-with-date-functions"></a>使用 Date 函式取得資料
 
-這裡要注意的某些時間︰ 
+若要從原生不支援「觸發程序」的資料來源取得資料，您可改為使用 Date 函式來處理時間和日期。 例如，這個運算式會尋找這個工作流程從內部到外部的步驟需要花費多少時間：
 
-*   [ `intersection()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) 函式會檢查類別是否符合其中一個已知的定義類別。
-
-*   在取得類別後，我們可以使用方括號從對應提取項目：`parameters[...]`
-
-## <a name="process-strings"></a>處理序字串
-
-您可以使用不同的函式來操作字串。 例如，假設我們有想要傳遞到系統上的字串，但我們並不十分熟悉字元編碼的正確處理。 一種作法是以 base64 將此字串編碼。 不過，為了避免在 URL 中逸出，我們要取代幾個字元。 
-
-我們也想要訂單名稱的子字串，因為不會用到前五個字元。
-
+``` json
+"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
+
+1. 從 `order` 動作，擷取 `startTime`。 
+2. 使用 `utcNow()` 取得目前時間。
+3. 減去一秒：
+
+   [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
+
+   您可以使用其他的時間單位，例如 `minutes` 或 `hours`。 
+
+3. 現在，您可以比較這兩個值。 
+
+   如果第一個值小於第二個值，則自從訂單最初提交以來已超過一秒。
+
+若要將日期格式化，您可以使用字串格式器。 例如，若要取得 RFC1123，請使用 [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md)。 深入了解[日期格式化](../logic-apps/logic-apps-workflow-definition-language.md)。
+
+``` json
 {
   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
   "contentVersion": "1.0.0.0",
@@ -293,58 +306,7 @@ ms.lasthandoff: 01/19/2018
     "order": {
       "defaultValue": {
         "quantity": 10,
-        "id": "myorder1",
-        "orderer": "NAME=Contoso"
-      },
-      "type": "Object"
-    }
-  },
-  "triggers": {
-    "request": {
-      "type": "request",
-      "kind": "http"
-    }
-  },
-  "actions": {
-    "order": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
-      }
-    }
-  },
-  "outputs": {}
-}
-```
-
-使用從內到外︰
-
-1. 取得訂購者名稱的 [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length)，以便我們傳回字元總數。
-
-2. 減 5，因為我們要較短的字串。
-
-3. 實際取得 [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring)。 我們從索引 `5` 開始，並取得字串的其餘部分。
-
-4. 將這個子字串轉換成 [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) 字串。
-
-5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) 所有 `+` 字元換成 `-` 字元。
-
-6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) 所有 `/` 字元換成 `_` 字元。
-
-## <a name="work-with-date-times"></a>使用日期時間
-
-日期時間很有用，特別是在嘗試從不支援的觸發程序的資料來源提取資料時。 您也可以使用日期時間算出各步驟花費的時間。
-
-```
-{
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "order": {
-      "defaultValue": {
-        "quantity": 10,
-        "id": "myorder1"
+        "id": "myorder-id"
       },
       "type": "Object"
     }
@@ -386,67 +348,13 @@ ms.lasthandoff: 01/19/2018
 }
 ```
 
-在此範例中，我們從前一個步驟擷取 `startTime`。 然後我們會取得目前的時間，並減去一秒︰
 
-[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) 
+## <a name="next-steps"></a>後續步驟
 
-您可以使用其他的時間單位，例如 `minutes` 或 `hours`。 最後，我們可以比較這兩個值。 如果第一個值小於第二個值，則自從訂單最初提交以來已超過一秒。
-
-若要格式化日期，我們可以使用字串格式子。 例如，若要取得 RFC1123，我們使用 [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow)。 若要深入了解日期格式設定，請參閱[工作流程定義語言](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow)。
-
-## <a name="deployment-parameters-for-different-environments"></a>不同環境的部署參數
-
-通常，部署生命週期中會有開發環境、預備環境及生產環境。 例如，您可以在所有這些環境中使用相同的定義，但使用不同的資料庫。 同樣地，您可能想要跨不同的區域使用相同的定義，以發揮高可用性，但希望每個邏輯應用程式執行個體與該區域資料庫互動。
-這種情況與在執行階段採用參數不同，相反地，您應該如先前範例所示使用 `trigger()` 函式。
-
-您可以從基本定義開始，如下範例所示：
-
-```
-{
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "uri": {
-            "type": "string"
-        }
-    },
-    "triggers": {
-        "request": {
-          "type": "request",
-          "kind": "http"
-        }
-    },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('uri')"
-            }
-        }
-    },
-    "outputs": {}
-}
-```
-
-在邏輯應用程式的實際 `PUT` 要求中，您可以提供參數 `uri`。 因為預設值不存在，邏輯應用程式承載需要此參數︰
-
-```
-{
-    "properties": {},
-        "definition": {
-          // Use the definition from above here
-        },
-        "parameters": {
-            "connection": {
-                "value": "https://my.connection.that.is.per.enviornment"
-            }
-        }
-    },
-    "location": "westus"
-}
-``` 
-
-在每個環境中，您可以提供不同的值給 `connection` 參數。 
-
-如需有關建立及管理邏輯應用程式的所有可用選項，請參閱 [REST API 文件](https://msdn.microsoft.com/library/azure/mt643787.aspx)。 
+* [根據條件 (條件陳述式) 執行步驟](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [根據不同的值 (Switch 陳述式) 執行步驟](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [執行並重複步驟 (迴圈)](../logic-apps/logic-apps-control-flow-loops.md)
+* [執行或合併平行步驟 (分支)](../logic-apps/logic-apps-control-flow-branches.md)
+* [根據分組的動作狀態執行步驟 (範圍)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* 深入了解 [Azure Logic Apps 的工作流程定義語言結構描述](../logic-apps/logic-apps-workflow-definition-language.md)
+* 深入了解 [Azure Logic Apps 的工作流程動作和觸發程序](../logic-apps/logic-apps-workflow-actions-triggers.md)

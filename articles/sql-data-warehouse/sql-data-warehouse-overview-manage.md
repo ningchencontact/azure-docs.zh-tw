@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>管理 Azure SQL 資料倉儲中的資料庫
 SQL 資料倉儲會自動化管理您的資料庫的各個層面。 例如，若要調整效能，您只需要調整並支付適當等級的計算資源，然後讓 SQL 資料倉儲執行相應放大和調整回來的所有工作。
@@ -47,7 +47,7 @@ SQL 資料倉儲會自動化管理您的資料庫的各個層面。 例如，若
 ### <a name="sql-server-data-tools-in-visual-studio"></a>Visual Studio 中的 SQL Server Data Tools
 Visual Studio 中的 [SQL Server Data Tools][SQL Server Data Tools] (SSDT) 可讓您連接、管理及開發資料庫。 如果您是熟悉 Visual Studio 或其他整合式開發環境 (IDE) 的應用程式開發人員，請嘗試使用 Visual Studio 中的 SSDT。
 
-SSDT 包含的 SQL Server 物件總管，可讓您針對 SQL 資料倉儲資料庫視覺化、連接和執行指令碼。 若要快速連線至 SQL 資料倉儲，只需在 Azure 入口網站檢視資料庫的詳細資料時，按一下命令列中的 [在 Visual Studio 中開啟] 按鈕即可。  
+SSDT 包含的 SQL Server 物件總管，可讓您針對 SQL 資料倉儲資料庫視覺化、連線和執行指令碼。 若要快速連線至 SQL 資料倉儲，只需在 Azure 入口網站檢視資料庫的詳細資料時，按一下命令列中的 [在 Visual Studio 中開啟] 按鈕即可。  
 
 若要開始使用 Visual Studio 中的 SSDT，請參閱[使用 Visual Studio 來查詢 Azure SQL 資料倉儲][Query Azure SQL Data Warehouse with Visual Studio]。
 
@@ -84,7 +84,7 @@ DMV 是管理 SQL 資料倉儲的要素。 入口網站上幾乎所有的資訊�
 
 若要了解如何管理安全性，請前往[安全性概觀][Security overview]。
 
-## <a name="backup-and-restore"></a>備份與還原
+## <a name="back-up-and-restore"></a>備份與還原
 對生產環境資料庫來說，擁有可靠的資料備份是不可或缺的一部分。 「SQL 資料倉儲」會自動定期備份您的作用中資料庫來維護您的資料安全。 這些備份可讓您從已損毀資料或不小心卸除資料或資料庫的情況下復原。  若要了解資料備份排程、保留原則及如何還原資料庫，請參閱[從快照還原][Restore from snapshot]。
 
 ## <a name="next-steps"></a>後續步驟
@@ -100,10 +100,10 @@ DMV 是管理 SQL 資料倉儲的要素。 入口網站上幾乎所有的資訊�
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Pause compute]: pause-and-resume-compute-portal.md#pause-compute
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
-[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[調整效能]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Resume compute]: pause-and-resume-compute-portal.md#resume-compute
+[調整效能]: quickstart-scale-compute-portal.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

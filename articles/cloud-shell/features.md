@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: a2c5348ea2ea02917472c1c3ae3bb518364c6848
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 31c7c17b4604532eb513597db5db68a64ae10c93
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell 中 Bash 的功能和工具
 
@@ -37,7 +37,7 @@ Cloud Shell 中的 Bash 會安全地自動驗證 Azure CLI 2.0 的帳戶存取�
 
 ### <a name="ssh-into-azure-linux-virtual-machines"></a>SSH 到 Azure Linux 虛擬機器
 
-從 Azure CLI 2.0 建立 Linux VM 可以建立預設 SSH 金鑰，並將它放在您的 `$Home` 目錄中。 將 SSH 金鑰放在 `$Home` 中，會直接從 Cloud Shell 啟用與 Azure Linux VM 的直接 SSH 連線。 金鑰會保留在檔案共用的 acc_<user>.img 中，在使用或共用檔案共用或索引鍵的存取權時，請使用最佳做法。
+從 Azure CLI 2.0 建立 Linux VM 可以建立預設 SSH 金鑰，並將它放在您的 `$Home` 目錄中。 將 SSH 金鑰放在 `$Home` 中，會直接從 Cloud Shell 啟用與 Azure Linux VM 的 SSH 連線。 金鑰會保留在檔案共用的 acc_<user>.img 中，在使用或共用檔案共用或索引鍵的存取權時，請使用最佳做法。
 
 ### <a name="home-persistence-across-sessions"></a>工作階段之間的 $Home 持續性
 
@@ -47,6 +47,10 @@ Cloud Shell 中的 Bash 會安全地自動驗證 Azure CLI 2.0 的帳戶存取�
 在工作階段之間不會保存 `$Home` 外面的檔案和電腦狀態。
 
 [深入了解在 Cloud Shell 中的 Bash 保存檔案。](persisting-shell-storage.md)
+
+### <a name="deep-integration-with-open-source-tooling"></a>與開放原始碼工具深度整合
+
+Cloud Shell 中的 Bash 包含預先設定的驗證可用於開放原始碼工具，例如 Terraform 和 Ansible。 從範例逐步解說開始試試看。
 
 ## <a name="tools"></a>工具
 
@@ -66,9 +70,9 @@ Cloud Shell 中的 Bash 會安全地自動驗證 Azure CLI 2.0 的帳戶存取�
 |語言   |版本   |
 |---|---|
 |.NET       |2.0.0       |
-|Go         |1.7        |
+|Go         |1.9        |
 |Java       |1.8        |
-|Node.js    |6.9.4      |
+|Node.js    |8.9.4      |
 |PowerShell |[6.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 和 3.5 (預設)|
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 7d86d5e8547d977c07cfbb0597b74382172a8472
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 儲存體模擬器進行開發和測試
 
@@ -43,6 +43,14 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 儲存體模擬器與 Azure 儲存體服務的功能有所差異。 如需有關這些差異的詳細資訊，請參閱本文稍後的[儲存體模擬器和 Azure 儲存體之間的差異](#differences-between-the-storage-emulator-and-azure-storage)一節。
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>啟動及初始化儲存體模擬器
+
+### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[在 Docker 執行 Azure 儲存體模擬器](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
+```
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
+```
+
+### <a name="using-sdk"></a>使用 SDK
+
 啟動 Azure 儲存體模擬器：
 1. 選取 [開始] 按鈕或按下 [Windows] 鍵。
 1. 開始輸入 `Azure Storage Emulator`。

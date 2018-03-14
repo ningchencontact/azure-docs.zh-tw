@@ -3,32 +3,30 @@ title: "Azure Stack 資料中心整合 - 發佈端點"
 description: "了解如何在您的資料中心內發佈 Azure Stack 端點"
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8dec686b9ccf87009a23cedf6023f15b84a0f155
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 資料中心整合 - 發佈端點
-
-「適用於：Azure Stack 整合系統」
-
-Azure Stack 會為其基礎結構角色設定各種端點 (VIP - 虛擬 IP 位址)。 這些 VIP 是從公用 IP 位址集區配置的。 針對每個 VIP，都會藉由軟體定義網路層中的存取控制清單 (ACL) 來提供保護。 ACL 也用於各個實體交換器 (TOR 和 BMC) 來進一步強化解決方案。 系統會針對在部署階段所指定外部 DNS 區域中的每個端點，都建立一個 DNS 項目。
+Azure Stack 會為其基礎結構角色設定虛擬 IP 位址 (VIP)。 這些 VIP 是從公用 IP 位址集區配置的。 針對每個 VIP，都會藉由軟體定義網路層中的存取控制清單 (ACL) 來提供保護。 ACL 也用於各個實體交換器 (TOR 和 BMC) 來進一步強化解決方案。 系統會針對在部署階段所指定外部 DNS 區域中的每個端點，都建立一個 DNS 項目。
 
 
 以下架構圖顯示各種不同的網路層和 ACL：
 
-![架構圖](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![結構化圖片](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ## <a name="ports-and-protocols-inbound"></a>連接埠和通訊協定 (輸入)
 
-下表列出將 Azure Stack 端點發佈到外部網路時所需的基礎結構 VIP。 此清單顯示每個端點、所需的連接埠，以及通訊協定。 其他資源提供者 (例如 SQL 資源提供者等) 所需的端點則涵蓋在特定資源提供者部署文件中。
+將 Azure Stack 端點發佈到外部網路時需有一組基礎結構 VIP。 「端點 (VIP)」資料表會顯示每個端點、所需的連接埠以及通訊協定。 請參閱特定資源提供者部署文件，了解需要其他資源提供者 (例如 SQL 資源提供者等) 的端點。
 
 此處並未列出內部基礎結構 VIP，因為它們並非發佈 Azure Stack 所需的 VIP。
 
@@ -52,7 +50,11 @@ Azure Stack 會為其基礎結構角色設定各種端點 (VIP - 虛擬 IP 位�
 |儲存體資料表|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |儲存體 Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |SQL 資源提供者|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|MySQL 資源提供者|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
+|MySQL 資源提供者|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|App Service 方案|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
+|  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP、UDP|21、1021、10001-101000 (FTP)<br>990 (FTPS)|
 
 ## <a name="ports-and-urls-outbound"></a>連接埠和 URL (輸出)
 
@@ -69,4 +71,5 @@ Azure Stack 僅支援 Transparent Proxy 伺服器。 在 Transparent Proxy 上�
 
 
 ## <a name="next-steps"></a>後續步驟
+
 [Azure Stack PKI 需求](azure-stack-pki-certs.md)

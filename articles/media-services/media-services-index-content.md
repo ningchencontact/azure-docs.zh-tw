@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: adsolank;juliako;johndeu
-ms.openlocfilehash: f75be3280ffd869339972859c028a178ec728480
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9893372fe00cf1a6b15f9b358b64d77ee5d34872
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>使用 Azure Media Indexer 編輯媒體檔案索引
 Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。 您可以處理一份媒體檔或是批次處理多個媒體檔案。  
 
 > [!IMPORTANT]
-> 在編製內容索引時，請務必使用語音非常清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。 適當內容的一些範例有：錄製的會議、演講或簡報。 下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
+> 在編製內容索引時，請務必使用語音清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。 適當內容的一些範例有：錄製的會議、演講或簡報。 下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
 > 
 > 
 
@@ -38,7 +38,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
   
     如需詳細資訊，請參閱 [搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)。
 
-本主題示範如何建立索引工作來**建立資產的索引**和**建立多個檔案的索引**。
+本文示範如何建立索引作業來**建立資產的索引**和**建立多個檔案的索引**。
 
 如需最新的 Azure Media Indexer 更新，請參閱 [媒體服務部落格](#preset)。
 
@@ -52,8 +52,9 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 ## <a name="index-an-asset"></a>編製資產索引
 下列方法會將媒體檔案上傳為資產，並建立工作來編製資產索引。
 
-請注意，如果未指定組態檔案，將會使用所有預設設定編製媒體檔案的索引。
+如果未指定組態檔案，則會使用所有預設設定編製媒體檔案的索引。
 
+```csharp
     static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
     {
         // Create an asset and upload the input media file to storage.
@@ -140,11 +141,13 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 
         return processor;
     }  
+```
+
 <!-- __ -->
 ### <a id="output_files"></a>輸出檔案
-索引工作預設會產生下列輸出檔案。 檔案會儲存在第一個輸出資產。
+索引工作預設會產生下列輸出檔案。 檔案會儲存在第一個輸出資產中。
 
-當有多個輸入媒體檔案時，索引子會產生工作輸出的資訊清單檔，名為 'JobResult.txt'。 針對每個輸入媒體檔案，系統會把所產生的 AIB、SAMI、TTML、WebVTT 及關鍵字檔案循序編號，並使用「別名」來命名。
+當有多個輸入媒體檔案時，索引子會產生作業輸出的資訊清單檔，名為 'JobResult.txt'。 針對每個輸入媒體檔案，系統會把所產生的 AIB、SAMI、TTML、WebVTT 及關鍵字檔案循序編號，並使用「別名」來命名。
 
 | 檔案名稱 | 說明 |
 | --- | --- |
@@ -153,13 +156,14 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 | **InputFileName.kw.xml<br/>InputFileName.info** |關鍵字與資訊檔案。 <br/><br/>關鍵字檔案是 XML 檔案，其中包含從語音內容擷取的關鍵字，以及關鍵字的頻率和位移資訊。 <br/><br/>資訊檔案是純文字檔案，包含每個已辨識字詞的細微資訊。 第一行是特殊行並包含可辨識分數。 後續每一行皆是下列資料的清單 (以 tab 鍵分隔)：開始時間、結束時間、文字/片語、信賴值。 時間是以秒為單位，信賴值則是以 0-1 的數字標示。 <br/><br/>範例行："1.20    1.45    word    0.67" <br/><br/>這些檔案的用途眾多，例如執行語音分析，或是公開到搜尋引擎 (例如 Bing、Google 或 Microsoft SharePoint) 來讓媒體檔案更容易被找到，或甚至用來放送更多相關的廣告。 |
 | **JobResult.txt** |包含下列資訊的輸出資訊清單 (只會在編製多個檔案的索引時顯示)：<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
 
-如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。 如需詳細資訊，請參閱 [錯誤碼](#error_codes)。
+如果不是所有輸入媒體檔案都成功編製索引，則索引作業會失敗，錯誤碼為 4000。 如需詳細資訊，請參閱 [錯誤碼](#error_codes)。
 
 ## <a name="index-multiple-files"></a>編製多個檔案的索引
 下列方法會將多個媒體檔案上傳為資產，並建立工作來批次編製這些檔案的索引。
 
-會建立 .lst 副檔名的資訊清單檔，並上傳到資產。 資訊清單檔案包含所有資產檔案的清單。 如需詳細資訊，請參閱 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/library/dn783454.aspx)。
+會建立 ".lst" 副檔名的資訊清單檔，並上傳到資產。 資訊清單檔案包含所有資產檔案的清單。 如需詳細資訊，請參閱 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/library/dn783454.aspx)。
 
+```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
     {
         // Create an asset and upload to storage.
@@ -232,6 +236,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 
         return asset;
     }
+```
 
 ### <a name="partially-succeeded-job"></a>部分成功的工作
 如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。 如需詳細資訊，請參閱 [錯誤碼](#error_codes)。

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2d7ef0d4b2669b774b1d218d244052083e883517
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>將 Azure 裝載 API 匯出至 PowerApps 和 Microsoft Flow
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 同樣地，想要在組織內廣泛公開 API 的開發人員，可以讓應用程式和流程建置者使用他們的 API。 本主題說明如何匯出以 [Azure Functions](../azure-functions/functions-overview.md) 或 [Azure App Service](../app-service/app-service-web-overview.md)API。 匯出的 API 能成為「自訂連接器」，它在 PowerApps and Microsoft Flow just 中的使用方法就像內建連接器一樣。
 
 ## <a name="create-and-export-an-api-definition"></a>建立及匯出 API 定義
-在匯出 API 之前，您必須使用 OpenAPI 定義 (前身為 [Swagger](http://swagger.io/) 檔案) 描述 API。 此定義包含有關 API 中可以使用哪些作業，以及應該如何結構化 API 之要求和回應資料的資訊。 PowerApps 和 Microsoft Flow 可以為任何 OpenAPI 2.0 定義建立自訂連接器。 Azure Functions 和 Azure App Service 有內建支援，可供建立、裝載及管理 OpenAPI 定義。 如需詳細資訊，請參閱[在 Azure Web Apps 中建立 RESTful API](../app-service/app-service-web-tutorial-rest-api.md)。
+在匯出 API 之前，您必須使用 OpenAPI 定義 (前身為 [Swagger](http://swagger.io/) 檔案) 描述 API。 此定義包含有關 API 中可以使用哪些作業，以及應該如何結構化 API 之要求和回應資料的資訊。 PowerApps 和 Microsoft Flow 可以為任何 OpenAPI 2.0 定義建立自訂連接器。 Azure Functions 和 Azure App Service 有內建支援，可供建立、裝載及管理 OpenAPI 定義。 如需詳細資訊，請參閱[在 Azure App Service 中裝載具有 CORS 支援的 RESTful API](../app-service/app-service-web-tutorial-rest-api.md)。
 
 > [!NOTE]
 > 您也可以不使用 OpenAPI 定義在 PowerApps 和 Microsoft Flow 中建置自訂連接器。 如需詳細資訊，請參閱[註冊及使用自訂連接器 (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) 和[註冊及使用自訂連接器 (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/)。

@@ -1,18 +1,22 @@
 ---
-title: "在 Azure Stack 中提供虛擬機器擴展集"
-description: "了解雲端系統管理員如何可以將虛擬機器擴展新增至 Azure Stack Marketplace"
+title: "在 Azure Stack 中提供虛擬機器擴展集 | Microsoft Docs"
+description: "了解雲端操作員如何可以將虛擬機器擴展新增至 Azure Stack Marketplace"
 services: azure-stack
-author: anjayajodha
+author: brenduns
+manager: femila
+editor: 
+ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
-ms.author: anajod
+ms.date: 02/28/2018
+ms.author: brenduns
+ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 31aeb963bdf4fd32712bc6f29f64060ec1c77cb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb8ac5435b7a5c6deb9d4571696c79b2ed15c93a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器擴展集
 
@@ -20,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 虛擬機器擴展集是 Azure Stack 計算資源。 您可以使用它們來部署和管理一組相同的虛擬機器。 由於所有虛擬機器具有相同的設定，擴展集不需要預先佈建虛擬機器。 您可以更輕鬆地針對大量計算、巨量資料和容器化工作負載，建置大規模服務。
 
-本主題會引導您完成讓擴展集可在 Azure Stack Marketplace 中使用的程序。 完成此程序之後，您的使用者可以將虛擬機器擴展集新增至其訂用帳戶。
+本文引導您完成讓擴展集可在 Azure Stack Marketplace 中使用的程序。 完成此程序之後，您的使用者可以將虛擬機器擴展集新增至其訂用帳戶。
 
 Azure Stack 上的虛擬機器擴展集就像是 Azure 上的虛擬機器擴展集。 如需詳細資訊，請參閱下列視訊：
 * [Mark Russinovich 講述 Azure 擴展集](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
@@ -77,7 +81,7 @@ Add-AzsVMSSGalleryItem -Location $Location
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> 資源庫項目可能不會立即移除。 您可能需要重新整理入口網站數次，它才會從 Marketplace 中移除。
+> 資源庫項目可能不會立即移除。 您可能需要重新整理入口網站數次，項目才會顯示已從 Marketplace 中移除。
 
 
 ## <a name="next-steps"></a>後續步驟

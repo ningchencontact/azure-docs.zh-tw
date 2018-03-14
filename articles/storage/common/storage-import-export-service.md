@@ -3,22 +3,16 @@ title: "使用 Azure 匯入/匯出將資料傳入和傳出 Azure 儲存體 | Mic
 description: "了解如何在 Azure 入口網站中建立匯入和匯出作業，以將資料傳入和傳出 Azure 儲存體。"
 author: muralikk
 manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 668f53f2-f5a4-48b5-9369-88ec5ea05eb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Microsoft Azure 匯入/匯出服務將資料傳入 Azure 儲存體
 在本文中，我們會提供使用 Azure 匯入/匯出服務的逐步指示，藉由將磁碟機運送到 Azure 資料中心，安全地將大量資料傳入 Azure Blob 儲存體和 Azure 檔案服務。 這項服務也能用來將資料從 Azure 儲存體傳輸到硬碟，然後運送到您的內部部署網站。 單一內部 SATA 磁碟機的資料可匯入到 Azure Blob 儲存體或 Azure 檔案服務。 
@@ -31,25 +25,34 @@ ms.lasthandoff: 02/21/2018
 如果磁碟上的資料是要匯入到 Azure 儲存體，請遵循下列步驟。
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>步驟 1：使用 WAImportExport 工具準備磁碟機，並產生日誌檔案。
 
-1.  識別要匯入到 Azure 儲存體的資料。 這可能是本機伺服器或網路共用上的目錄和獨立檔案。
+1.  識別要匯入到 Azure 儲存體的資料。 您可以匯入本機伺服器或網路共用上的目錄和獨立檔案。
 2.  根據資料的大小總計，採購所需的 2.5 英吋 SSD 或 2.5 英吋/3.5 英吋 SATA II/III 硬碟機數目。
 3.  直接使用 SATA 或外接式 USB 轉接器，將硬碟連結到 Windows 電腦。
-4.  在每個硬碟上建立單一 NTFS 磁碟區，並為磁碟區指派磁碟機代號。 沒有裝載點。
-5.  若要在 Windows 電腦上啟用加密，請在 NTFS 磁碟區上啟用 BitLocker 加密。 請使用 https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx \(英文\) 上的指示。
-6.  使用複製與貼上、拖曳和置放，或是 Robocopy 或任何類似的工具，完整地將資料複製到這些已加密的單一 NTFS 磁碟區。
+1.  在每個硬碟上建立單一 NTFS 磁碟區，並為磁碟區指派磁碟機代號。 沒有裝載點。
+2.  若要在 Windows 電腦上啟用加密，請在 NTFS 磁碟區上啟用 BitLocker 加密。 請使用 https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx \(英文\) 上的指示。
+3.  使用複製與貼上、拖曳和置放，或是 Robocopy 或任何類似的工具，完整地將資料複製到這些已加密的單一 NTFS 磁碟區。
 7.  從 https://www.microsoft.com/en-us/download/details.aspx?id=42659 \(英文\) 下載 WAImportExport V1
 8.  將檔案解壓縮至預設資料夾 waimportexportv1。 例如，C:\WaImportExportV1  
 9.  以系統管理員身分執行並開啟 PowerShell 或命令列，然後將目錄變更為解壓縮後的資料夾。 例如，cd C:\WaImportExportV1
-10. 將下列命令列複製到「記事本」，然後編輯以建立命令列。
-  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
+10. 將下列命令列複製到文字編輯器，然後編輯以建立命令列：
+
+    ```
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ```
     
-    /j: 參數是稱為日誌檔案 (具有 .jrn 副檔名) 的檔案名稱。 日誌檔案是針對每個磁碟機所產生，因此建議使用磁碟機序號作為日誌檔案的名稱。
-    /sk: 參數是 Azure 儲存體帳戶金鑰。 /t: 參數是要寄送之磁碟的磁碟機代號。 例如，D。/bk: 參數是磁碟機的 BitLocker 金鑰。/srcdir: 參數是要寄送之磁碟的磁碟機代號，其後要緊接著 :\。 例如，D:\。
-    /dstdir: 參數是資料所要匯入的 Azure 儲存體容器名稱。
-    /skipwrite 
-    
-11. 針對每個需要寄送的磁碟重複步驟 10。
-12. 每次執行命令列時，都會使用 /j: 參數提供的日誌檔案名稱來建立日誌檔案。
+    下表說明這些命令列選項：
+
+    |選項  |說明  |
+    |---------|---------|
+    |/j:     |日誌檔案的名稱 (具有 .jrn 副檔名)。 每個磁碟機都會產生日誌檔案。 建議使用磁碟序號作為日誌檔案名稱。         |
+    |/sk:     |Azure 儲存體帳戶金鑰。         |
+    |/t:     |要寄送之磁碟的磁碟機代號。 例如，磁碟機 `D`。         |
+    |/bk:     |磁碟機的 BitLocker 金鑰。         |
+    |/srcdir:     |要寄送之磁碟的磁碟機代號，其後緊接著 `:\`。 例如：`D:\`。         |
+    |/dstdir:     |Azure 儲存體中目的地容器的名稱         |
+
+1. 針對每個需要寄送的磁碟重複步驟 10。
+2. 每次執行命令列時，都會使用 /j: 參數提供的日誌檔案名稱來建立日誌檔案。
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>步驟 2：在 Azure 入口網站上建立匯入作業。
 
@@ -88,6 +91,11 @@ FedEx、UPS 或 DHL 均可將包裹寄送至 Azure DC。
 
 ### <a name="storage-account"></a>儲存體帳戶
 您必須有現有的 Azure 訂用帳戶以及一或多個儲存體帳戶，才能使用匯入/匯出服務。 Azure 匯入/匯出功能僅支援傳統、Blob 儲存體帳戶，和一般用途 v1 儲存體帳戶。 每項工作都只能從僅只一個儲存體帳戶收送資料。 換句話說，單一匯入/匯出作業不能跨越多個儲存體帳戶。 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)(英文)。
+
+> [!IMPORTANT] 
+> Azure 匯入/匯出服務不支援已啟用[虛擬網路服務端點](../../virtual-network/virtual-network-service-endpoints-overview.md)功能的儲存體帳戶。 
+> 
+> 
 
 ### <a name="data-types"></a>資料類型
 您可以使用 Azure 匯入/匯出服務，將資料複製到**區塊** Blob、**分頁** Blob 或**檔案**。 相反地，您只能使用此服務從 Azure 儲存體匯出**區塊** Blob、**分頁** Blob 或**附加** Blob。 服務僅支援將 Azure 檔案服務匯入到 Azure 儲存體。 目前不支援匯出 Azure 檔案服務。

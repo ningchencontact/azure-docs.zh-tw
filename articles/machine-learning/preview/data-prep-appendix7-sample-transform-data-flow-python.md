@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 8146c2a41a2b8fc241131a42ec74227795867609
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: aa213a3b1a8949f0fca5e4bbb7ec5a6a775ae6ec
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>自訂資料流程轉換的範例 (Python) 
 功能表中的轉換名稱是**轉換資料流程 (指令碼)**。 閱讀本附錄之前，請先參閱 [Python 擴充性概觀](data-prep-python-extensibility-overview.md)。
@@ -42,8 +42,8 @@ ms.lasthandoff: 02/03/2018
 
 ## <a name="transform-data-flow"></a>轉換資料流程
 ### <a name="fill-down"></a>向下填滿 
-向下填滿需要兩個轉換。 其採用如下所示的資料：
 
+向下填滿需要兩個轉換。 假設資料看起來如下表所示：
 
 |State         |City       |
 |--------------|-----------|
@@ -58,16 +58,17 @@ ms.lasthandoff: 02/03/2018
 |              |San Antonio|
 |              |Houston    |
 
-首先，建立包含下列程式碼的「新增資料行 (指令碼)」轉換：
+1. 建立使用下列程式碼的「新增資料行 (指令碼)」轉換：
 ```python
     row['State'] if len(row['State']) > 0 else None
 ```
-現在建立包含下列程式碼的「轉換資料流程 (指令碼)」轉換：
+
+2. 建立包含下列程式碼的「轉換資料流程 (指令碼)」轉換：
 ```python
     df = df.fillna( method='pad')
 ```
 
-資料現在如下所示：
+資料現在如下表所示：
 
 |State         |newState         |City       |
 |--------------|--------------|-----------|

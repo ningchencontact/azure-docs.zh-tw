@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: da589905babd20b46ea7bc0baba753415b3b5d5b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2e829ae90aa0366964f96b3c43f88503c7f3e894
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>關於 Azure 備份服務的問題
 本文提供 Azure 備份元件的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 按一下 [註解] \(位於右側)，即可詢問 Azure 備份的相關問題。 註解會出現於文末。 需有 Livefyre 帳戶才能使用註解。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="recovery-services-vault"></a>復原服務保存庫
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>每個 Azure 訂用帳戶中可以建立的保存庫數目是否有任何限制？ <br/>
-是。 自 2016 年 9 月起，您可以為每個訂用帳戶建立 25 個復原服務。 您可以為每個訂用帳戶的 Azure 備份支援區域，最多建立 25 個復原服務保存庫。 如果您需要其他保存庫，請建立其他訂用帳戶。
+是。 從 2018 年 1 月起，您可以為每個訂用帳戶的 Azure 備份支援區域，最多建立 25 個復原服務保存庫。 如果您需要其他保存庫，請建立其他訂用帳戶。
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>針對每個保存庫註冊的伺服器/電腦具有數目限制嗎？ <br/>
 每個保存庫可以註冊最多 200 部 Azure 虛擬機器。 如果您使用的是 MAB 代理程式，則每個保存庫可以註冊最多 50 個 MAB 代理程式。 而且您可以將 50 部 MAB 伺服器/DPM 伺服器註冊至保存庫。

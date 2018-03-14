@@ -4,20 +4,20 @@ description: "了解如何設定 Azure Active Directory 與 Slack 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 02/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 67d95b48520cd990428447dc775d9af22528c0f0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>教學課程：Azure Active Directory 與 Slack 整合
 
@@ -121,6 +121,9 @@ Slack 與 Azure AD 整合提供下列優點：
     
     ![設定單一登入](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
+    > [!NOTE] 
+    > 如果使用者有使用 Office365 指派的**電子郵件地址**，則只會填入該地址，否則**電子郵件地址**宣告不會出現在 SAML 權杖中。
+
 5. 在 [單一登入] 對話方塊內的 [使用者屬性] 區段中，選取 [user.mail] 當作 [使用者識別碼]，並在下表顯示的每個列上執行下列步驟：
     
     | 屬性名稱 | 屬性值 |
@@ -137,8 +140,10 @@ Slack 與 Azure AD 整合提供下列優點：
     a. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
     
     b. 在 [值] 清單中，選取該資料列所顯示的屬性值。
+
+    c. 讓 [命名空間] 保持空白。
     
-    c. 按一下 [確定] 
+    d. 按一下 [確定] 
 
 6. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 

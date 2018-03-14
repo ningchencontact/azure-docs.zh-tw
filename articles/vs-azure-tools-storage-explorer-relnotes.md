@@ -14,25 +14,144 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 0e5523e297979a89ffd4b4ed51c8476fb1354419
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure 儲存體總管 (預覽) 版本資訊
 
-本文包含 Microsoft Azure 儲存體總管 0.9.4 (預覽) 和先前版本的版本資訊。
+本文包含 Microsoft Azure 儲存體總管 0.9.6 (預覽) 和先前版本的版本資訊。
 
 [Microsoft Azure 儲存體總管 (預覽)](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立 App，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
 
-## <a name="version-094--093"></a>0.9.4/0.9.3 版
+## <a name="version-096"></a>0.9.6 版
+02/28/2018
+
+### <a name="download-azure-storage-explorer-096-preview"></a>下載 Azure 儲存體總管 0.9.6 (預覽)
+- [適用於 Windows 的 Azure 儲存體總管 0.9.6 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Azure 儲存體總管 0.9.6 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Azure 儲存體總管 0.9.6 (預覽)](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="fixes"></a>修正
+* 導致預期的 blob/檔案無法列在編輯器中的問題。 已修正此問題。
+* 導致快照集檢視之間的切換無法正確顯示項目的問題。 已修正此問題。
+
+### <a name="known-issues"></a>已知問題
+* 儲存體總管不支援 ADFS 帳戶。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>舊版
+
+* [0.9.5 版](#version-095)
+* [0.9.4 和 0.9.3 版](#version-094-and-093)
+* [0.9.2 版](#version-092)
+* [0.9.1 和 0.9.0 版](#version-091-and-090)
+* [0.8.16 版](#version-0816)
+* [版本 0.8.14](#version-0814)
+* [0.8.13 版](#version-0813)
+* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
+* [0.8.9 和 0.8.8 版](#version-089-and-088)
+* [0.8.7 版](#version-087)
+* [0.8.6 版](#version-086)
+* [0.8.5 版](#version-085)
+* [0.8.4 版](#version-084)
+* [0.8.3 版](#version-083)
+* [0.8.2 版](#version-082)
+* [0.8.0 版](#version-080)
+* [0.7.20160509.0 版](#version-07201605090)
+* [0.7.20160325.0 版](#version-07201603250)
+* [0.7.20160129.1 版](#version-07201601291)
+* [0.7.20160105.0 版](#version-07201601050)
+* [0.7.20151116.0 版](#version-07201511160)
+
+## <a name="version-095"></a>0.9.5 版
+02/06/2018
+
+### <a name="download-azure-storage-explorer-095-preview"></a>下載 Azure 儲存體總管 0.9.5 (預覽)
+- [適用於 Windows 的 Azure 儲存體總管 0.9.5 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Azure 儲存體總管 0.9.5 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Azure 儲存體總管 0.9.5 (預覽)](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>新增
+
+* 檔案共用快照集的支援：
+    * 建立和管理檔案共用的快照集。
+    * 在瀏覽時輕易地在檔案共用快照集之間切換檢視。
+    * 還原檔案的先前版本。
+* Azure Data Lake Store 的預覽支援：
+    * 連線到跨多個帳戶的 ADLS 資源。
+    * 使用 ADL URI 連線並共用 ADLS 資源。
+    * 以遞迴方式執行基本的檔案/資料夾作業。
+    * 將個別資料夾釘選到快速存取。
+    * 顯示資料夾統計資料。
+
+### <a name="fixes"></a>修正
+* 啟動效能改進。
+* 各種 Bug 修正。
+
+### <a name="known-issues"></a>已知問題
+* 儲存體總管不支援 ADFS 帳戶。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="version-094-and-093"></a>0.9.4 和 0.9.3 版
 01/21/2018
 
 ### <a name="download-azure-storage-explorer-094-preview"></a>下載 Azure 儲存體總管 0.9.4 (預覽)
-- [適用於 Windows 的 Azure 儲存體總管 0.9.4 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 Azure 儲存體總管 0.9.4 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 Azure 儲存體總管 0.9.4 (預覽)](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [下載適用於 Windows 的 Azure 儲存體總管 0.9.4 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [下載適用於 Mac 的 Azure 儲存體總管 0.9.4 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [下載適用於 Linux 的 Azure 儲存體總管 0.9.4 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>新增
 * 在下列情況下，將會重新使用您的現有儲存體總管視窗：
@@ -78,13 +197,6 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="version-092"></a>0.9.2 版
 11/01/2017
-
-### <a name="download-azure-storage-explorer-092-preview"></a>下載 Microsoft Azure 儲存體總管 0.9.2 (預覽)
-* [下載適用於 Windows 的 Azure 儲存體總管 0.9.2 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [下載適用於 Mac 的 Azure 儲存體總管 0.9.2 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [下載適用於 Linux 的 Azure 儲存體總管 0.9.2 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809308)
-
-
 
 ### <a name="hotfixes"></a>Hotfix
 * 端視當地時區而定，編輯資料表實體的 Edm.DateTime 值時，可能出現未預期的資料變更。 編輯器目前使用純文字方塊，對於 Edm.DateTime 值提供精確、一致的控制。
@@ -145,33 +257,7 @@ ms.lasthandoff: 01/23/2018
     sudo apt-get install libgconf-2-4
     ```
 
-
-
-
-
-
-## <a name="previous-releases"></a>舊版
-
-* [0.9.1/0.9.0 版](#version-091)
-* [0.8.16 版](#version-0816)
-* [版本 0.8.14](#version-0814)
-* [0.8.13 版](#version-0813)
-* [0.8.12 / 0.8.11 / 0.8.10 版](#version-0812--0811--0810)
-* [0.8.9 / 0.8.8 版](#version-089--088)
-* [0.8.7 版](#version-087)
-* [0.8.6 版](#version-086)
-* [0.8.5 版](#version-085)
-* [0.8.4 版](#version-084)
-* [0.8.3 版](#version-083)
-* [0.8.2 版](#version-082)
-* [0.8.0 版](#version-080)
-* [0.7.20160509.0 版](#version-07201605090)
-* [0.7.20160325.0 版](#version-07201603250)
-* [0.7.20160129.1 版](#version-07201601291)
-* [0.7.20160105.0 版](#version-07201601050)
-* [0.7.20151116.0 版](#version-07201511160)
-
-## <a name="version-091--090-preview"></a>0.9.1/0.9.0 版 (預覽)
+## <a name="version-091-and-090"></a>0.9.1 和 0.9.0 版
 10/20/2017
 ### <a name="new"></a>新增
 * Azure Cosmos DB 預覽支援：
@@ -327,7 +413,7 @@ ms.lasthandoff: 01/23/2018
     ```
 
 
-### <a name="version-0812--0811--0810"></a>0.8.12 / 0.8.11 / 0.8.10 版
+### <a name="version-0812-and-0811-and-0810"></a>0.8.12、0.8.11 和 0.8.10 版
 04/07/2017
 
 #### <a name="new"></a>新增
@@ -370,7 +456,7 @@ ms.lasthandoff: 01/23/2018
     ```
 
 
-### <a name="version-089--088"></a>0.8.9 / 0.8.8 版
+### <a name="version-089-and-088"></a>0.8.9 和 0.8.8 版
 02/23/2017
 
 >[!VIDEO https://www.youtube.com/embed/R6gonK3cYAc?ecver=1]

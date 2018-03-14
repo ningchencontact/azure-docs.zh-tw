@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: c2728545aeb202bdd216e00fd4a7e464e483b1da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>使用 Azure 成本管理啟動 Azure 訂用帳戶與帳戶
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 02/01/2018
 
 ### <a name="update-a-subscription"></a>更新訂用帳戶
 
-1. 如果您想要在 [帳戶管理] 中更新 Azure 成本管理中已存在的「未啟動」訂用帳戶，請按一下 [租用戶 GUID] 右側的編輯鉛筆符號。
+1. 如果您想要在 [帳戶管理] 中更新 Azure 成本管理中已存在的_未啟動_訂用帳戶，請按一下父代 [租用戶 GUID] 右側的編輯鉛筆符號。 訂用帳戶會分組歸類在一個父代租用戶之下，因此請避免個別啟用訂用帳戶。
     ![重新探索訂用帳戶](./media/activate-subs-accounts/existing-sub.png)
 2. 如有必要，請輸入租用戶識別碼。 如果您不知道您的租用戶識別碼，請使用下列步驟來尋找它：
     1. 登入 [Azure 入口網站](https://portal.azure.com)。
@@ -86,7 +86,7 @@ ms.lasthandoff: 02/01/2018
 
 - 在「設定 Azure 成本管理」精靈中顯示的「指定的 API 金鑰不是最上層的註冊金鑰」。
 - 在 Enterprise 合約入口網站中顯示的「直接註冊 – 否」。
-- 在 Azure 成本管理入口網站中顯示的「找不到過去 30 天的使用方式資料。請連絡您的經銷商以確定您的 Azure 帳戶已啟用標記」。
+- 在 Cloudyn 入口網站中顯示的*找不到過去 30 天的使用方式資料。*請連絡您的經銷商以確定您的 Azure 帳戶已啟用標記」。
 
 前面的訊息指出您透過轉銷商或雲端解決方案提供者購買了 Azure Enterprise 合約。 您的轉銷商或雲端解決方案提供者必須為您的 Azure 帳戶啟用「標記」，您才能在 Azure 成本管理中檢視資料。
 

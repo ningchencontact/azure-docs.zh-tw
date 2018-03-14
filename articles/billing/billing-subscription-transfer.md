@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的擁有權轉移給另一個帳戶
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/22/2017
 
 > [!IMPORTANT]
 > 
-> 我們目前不支援移轉免費試用版或 [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) 訂閱。 如需因應措施，請參閱[將資源移動到新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md)。
+> 如果您將訂用帳戶轉移至新的 Azure AD 租用戶，[角色型存取控制 (RBAC)](../active-directory/role-based-access-control-what-is.md) 中的所有角色指派會從來源租用戶中永久刪除，而且不會移轉至目標租用戶。
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>轉移 Azure 訂用帳戶的擁有權
 
@@ -49,7 +49,12 @@ ms.lasthandoff: 12/22/2017
    ![Azure 帳戶的訂用帳戶索引標籤](./media/billing-subscription-transfer/image1.png)
 1. 指定接受者。
 
+   > [!IMPORTANT]
+   > 
+   > 如果您將訂用帳戶轉移至新的 Azure AD 租用戶，[角色型存取控制 (RBAC)](../active-directory/role-based-access-control-what-is.md) 中的所有角色指派會從來源租用戶中永久刪除，而且不會移轉至目標租用戶。
+
    ![移轉訂用帳戶對話方塊](./media/billing-subscription-transfer/image2.PNG)
+
 1. 接受者會自動收到含有接受連結的電子郵件。
 
    ![給接受者的訂用帳戶移轉電子郵件](./media/billing-subscription-transfer/image3.png)
@@ -80,7 +85,7 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="whats-supported"></a>支援的項目：
 
-下表中的優惠和訂閱類型可採用自助式訂閱移轉。 若要移轉[贊助](https://azure.microsoft.com/offers/ms-azr-0036p/)或支援方案等其他訂閱，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+下表中的優惠和訂閱類型可採用自助式訂閱移轉。 您目前無法移轉免費試用版或 [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) 訂閱。 如需因應措施，請參閱[將資源移動到新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md)。 若要移轉[贊助](https://azure.microsoft.com/offers/ms-azr-0036p/)或支援方案等其他訂閱，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 
 | 優惠名稱                                                                             | 優惠號碼 |
 |----------------------------------------------------------------------------------------|--------------|

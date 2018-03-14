@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 310bea356ac611a92d9e3899da5d4fb19c50e94e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 277ed277b14886d386e097e0ce4bef8add5d4ba1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-deployment-sources"></a>設定部署來源
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨選部署。 這項功能讓應用程式開發人員直接從其原始檔控制儲存機制進行部署。 如果使用者要設定 App Service 以連線至其儲存機制，雲端操作員必須先設定 Azure App Service on Azure Stack 與原始檔控制提供者之間的整合。  
 
-除了本機 Git 外，也支援下列原始檔控制提供者︰
+除了本機 Git 外，也支援下列原始檔控制提供者：
 
 * GitHub
 * BitBucket
@@ -94,7 +94,8 @@ Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨�
 2. 在 [我的應用程式] 下，按一下 [新增應用程式]。
 ![OneDrive 應用程式][10]
 3. 為新的應用程式註冊輸入**名稱**，輸入 **Azure Stack 上的 App Service**，然後按一下 [建立應用程式]
-4. 下一個畫面會列出新應用程式的屬性。 記錄**應用程式識別碼**。![OneDrive 應用程式屬性][11]
+4. 下一個畫面會列出新應用程式的屬性。 記錄 [應用程式識別碼]。
+![OneDrive 應用程式屬性][11]
 5. 在 [應用程式密碼] 下，按一下 [產生新密碼]。 請記下**產生的新密碼**。 這是您的應用程式密碼，並且當您在這個階段按一下 [確定] 之後，就無法擷取此密碼。
 6. 在 [平台] 下，按一下 [新增平台]，然後選取 [網站]。
 7. 輸入 [重新導向 URI]。  在預設的 Azure Stack 部署中，重新導向 URI 的形式為 https://portal.local.azurestack.external/tokenauthorize ，如果您在不同的網域下執行，請以您的網域取代 azurestack.local ![OneDrive 應用程式 - 新增 Web 平台][12]

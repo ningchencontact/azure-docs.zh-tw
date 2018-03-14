@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: c6c47d1f9776f9e45711d8139661255dcd44c2a1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f80de47f8e9ba326fc224a8bc09f8029b5afd1ca
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - 針對安全 LDAP 設定進行疑難排解
 
@@ -51,6 +51,16 @@ ms.lasthandoff: 02/09/2018
 > [!TIP]
 > 連接埠 636 不是 Azure AD Domain Services 順暢執行所需的唯一規則。 若要深入了解，請瀏覽[網路指導方針](active-directory-ds-networking.md)或[針對 NSG 設定進行疑難排解](active-directory-ds-troubleshoot-nsg.md)文章。
 >
+
+## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502：安全 LDAP 憑證過期
+
+**警示訊息：**
+
+受控網域的安全 LDAP 憑證將於 XX 到期。
+
+**補救：**
+
+依照[設定安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md) 一文中所述的步驟，建立新的安全 LDAP 憑證。
 
 ## <a name="contact-us"></a>與我們連絡
 請連絡 Azure Active Directory Domain Services 產品小組， [分享意見或尋求支援](active-directory-ds-contact-us.md)。

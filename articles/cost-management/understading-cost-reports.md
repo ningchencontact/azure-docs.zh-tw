@@ -1,24 +1,24 @@
 ---
-title: "了解 Azure 成本管理的成本報告 | Microsoft Docs"
-description: "本文可協助您了解 Cloudyn 報告基本結構和功能。"
+title: "在 Azure 成本管理中了解成本管理報告 | Microsoft Docs"
+description: "本文可協助您了解 Cloudyn 成本管理報告的基本結構和功能。"
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="understanding-cost-reports"></a>了解成本報告
+# <a name="understanding-cost-management-reports"></a>了解成本管理報告
 
-本文可協助您了解 Cloudyn 報告基本結構和功能。 大部分 Cloudyn 報告是直覺式的，並且具有一致的外觀及操作。 閱讀完本文之後，就做好了使用所有報告的準備。 各種不同的報告提供了許多標準功能，讓您可以輕鬆瀏覽報告。 報告可自訂，而且可以選取數個選項來計算和呈現結果。
+本文可協助您了解 Cloudyn 成本管理報告的基本結構和功能。 大部分 Cloudyn 報告是直覺式的，並且具有一致的外觀及操作。 閱讀完本文之後，就做好了使用所有成本管理報告的準備。 各種不同的報告提供了許多標準功能，讓您可以輕鬆瀏覽報告。 報告可自訂，而且可以選取數個選項來計算和呈現結果。
 
 ## <a name="report-fields-and-options"></a>報告欄位和選項
 
@@ -131,6 +131,27 @@ ms.lasthandoff: 02/01/2018
 14. **動作**
 
     使用動作儲存、匯出或排定報告。
+
+## <a name="save-and-schedule-reports"></a>儲存和排程報表
+
+建立報告之後，您可加以儲存供日後使用。 在 [我的工具] > [我的報告] 中可取得已儲存的報告。 如果您變更現有的報告並加以儲存，該報告就會儲存為新版本。 或者，您可以將它儲存為新報告。
+
+### <a name="save-a-report-to-the-cloudyn-portal"></a>將報告儲存到 Cloudyn 入口網站
+
+檢視任何報告時，請按一下 [動作]，然後選取 [儲存至我的報告]。 為報告命名，然後新增自己的 URL 或使用自動建立的 URL。 您可以選擇性地與您組織中的其他人公開**共用**報告，或也可以與您的實體共用它。 如果您不共用報告，它仍為個人報告，只有您可以檢視。 儲存報告。
+
+
+### <a name="save-a-report-to-cloud-provider-storage"></a>將報告儲存至雲端提供者儲存體
+
+若要將報告儲存至雲端服務提供者，您必須已經設定儲存體帳戶。 檢視任何報告時，請按一下 [動作]，然後選取 [排程報告]。 為報告命名，然後新增自己的 URL 或使用自動建立的 URL。 選取 [儲存至儲存體]，然後選取儲存體帳戶或新增儲存體帳戶。 輸入要附加至報告檔案名稱的前置詞。 選取 CSV 或 JSON 檔案格式，然後儲存報告。
+
+### <a name="schedule-a-report"></a>排程報告
+
+您可以依照排定間隔執行報告，並可將它們傳送至收件者清單或雲端服務提供者儲存體帳戶。 檢視任何報告時，請按一下 [動作]，然後選取 [排程報告]。 您可以透過電子郵件傳送報告並儲存至儲存體帳戶。 在 [排程] 之下，選取間隔 (每日、每週或每月)。 針對每週和每月，選取要傳遞的日期並選取時間。 儲存排程報表。 如果您選取 Excel 報告格式，則報告會以附件形式傳送。 當您選取電子郵件內容格式時，以圖表格式顯示的報告結果會以圖形形式傳遞。
+
+### <a name="export-a-report-as-a-csv-file"></a>將報告匯出為 CSV 檔案
+
+檢視任何報告時，請按一下 [動作]，然後選取 [匯出所有報告資料]。 此時會出現一個快顯視窗並已下載 CSV 檔案。
 
 ## <a name="next-steps"></a>後續步驟
 

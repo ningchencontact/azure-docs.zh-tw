@@ -14,13 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 46cdd8523117e1100e7ce2a29ade9eb2dc0afe75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Durable Functions 中的具狀態單次個體 - 計數器範例
+
+> [!NOTE]
+> 我們正在重寫此範例。 程式碼片段已移除，並由針對新範例所撰寫的新文章加以取代。
 
 具狀態單次個體是長時間執行 (可能是永久) 的協調器函式，可以儲存狀態，並由其他函式叫用和查詢。 具狀態單次個體類似於分散式計算中的[執行者模型](https://en.wikipedia.org/wiki/Actor_model)。
 
@@ -55,11 +58,11 @@ Durable Functions 就能輕鬆實作這種情節，因為協調流程執行個�
 
 function.json 檔案：
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+<!-- [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)] -->
 
 run.csx 檔案：
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)] -->
 
 ### <a name="precompiled-c"></a>先行編譯 C# 
 
@@ -67,7 +70,7 @@ run.csx 檔案：
 
 以下是實作協調器函式的程式碼：
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)] -->
 
 ### <a name="explanation-of-the-code"></a>程式碼的說明
 

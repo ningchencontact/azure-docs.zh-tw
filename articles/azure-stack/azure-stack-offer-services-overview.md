@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 7a0fe4e02cf7a5feee90c3a0bf5596b44d5f9038
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e2b98391bab5806b59d8a16ec7dc24295a0d224
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Azure Stack 中的服務供應項目概觀
 
@@ -44,5 +44,5 @@ ms.lasthandoff: 02/21/2018
 **委派的提供者**：您可將在您的環境中建立產品的能力授與其他人。 例如，如果您是服務提供者，您可以將此能力[委派](azure-stack-delegated-provider.md)給您的轉售商。 或者，如果您是組織，您可以委派給其他部門/分公司。
 
 ## <a name="next-steps"></a>後續步驟
-[深入瞭解產品、方案、配額和訂用帳戶](azure-stack-plan-offer-quota-overview.md)
+[在 Azure Stack 中建立優惠](azure-stack-create-offer.md)
 

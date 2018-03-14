@@ -2,7 +2,7 @@
 title: "限制和設定 - Azure Logic Apps | Microsoft Docs"
 description: "適用於 Azure Logic Apps 的服務限制和設定值"
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: jeffhollan
 manager: anneta
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps 限制和設定
 
@@ -28,13 +28,13 @@ ms.lasthandoff: 02/09/2018
 
 ### <a name="http-request-limits"></a>HTTP 要求限制
 
-這些限制適用於單一 HTTP 要求或連接器呼叫。
+以下是單一 HTTP 要求或連接器呼叫的限制：
 
 #### <a name="timeout"></a>逾時
 
 | Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
-| 要求逾時 | 120 秒 | [非同步模式](../logic-apps/logic-apps-create-api-app.md)或 [Until 迴圈](logic-apps-loops-and-scopes.md)可以視需要抵銷 |
+| 要求逾時 | 120 秒 | [非同步模式](../logic-apps/logic-apps-create-api-app.md)或 [Until 迴圈](logic-apps-control-flow-loops.md)可以視需要抵銷 | 
 |||| 
 
 #### <a name="message-size"></a>訊息大小
@@ -56,7 +56,7 @@ ms.lasthandoff: 02/09/2018
 
 ### <a name="run-duration-and-retention"></a>執行持續時間和保留期
 
-這些限制適用於單一邏輯應用程式執行。
+以下是單一邏輯應用程式執行的限制：
 
 | Name | 限制 | 
 | ---- | ----- | 
@@ -66,11 +66,11 @@ ms.lasthandoff: 02/09/2018
 | 最大循環間隔 | 500 天 | 
 ||| 
 
-若要在您的正常處理流程中超出執行持續時間或儲存體保留期的限制，請[與產品小組連絡](mailto://logicappsemail@microsoft.com)，以便協助滿足您的需求。
+若要在您的正常處理流程中超出執行持續時間或儲存體保留期的限制，請[與 Logic Apps 小組連絡](mailto://logicappsemail@microsoft.com)，讓其協助您達到需求。
 
 ### <a name="looping-and-debatching-limits"></a>迴圈和解除批次處理限制
 
-這些限制適用於單一邏輯應用程式執行。
+以下是單一邏輯應用程式執行的限制：
 
 | Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
@@ -82,22 +82,22 @@ ms.lasthandoff: 02/09/2018
 
 ### <a name="throughput-limits"></a>輸送量限制
 
-這些限制適用於單一邏輯應用程式資源。
+以下是單一邏輯應用程式執行個體的限制：
 
 | Name | 限制 | 注意 | 
 | ----- | ----- | ----- | 
-| 每 5 分鐘的動作執行 | 100,000 |<p>限制可以藉由在 `High Througput` 模式中執行邏輯應用程式，增加到 300000。 可以藉由將工作流程資源之 `runtimeConfiguration` 底下的 `operationOptions` 屬性設為 `OptimizedForHighThroughput`，來設定高輸送量模式。 <p>請注意，高輸送量模式為預覽狀態。 此外，工作負載也可以視需要分配到多個應用程式。 | 
+| 每 5 分鐘的動作執行 | 100,000 | 若要將限制增加到 300,000，您可以在 `High Througput` 模式執行邏輯應用程式。 若要設定高輸送量模式，請在工作流程資源的 `runtimeConfiguration` 底下，將 `operationOptions` 屬性設定為 `OptimizedForHighThroughput`。 <p>**注意**：高輸送量模式為預覽狀態。 此外，您可以視需要將工作負載分散到多個應用程式。 | 
 | 動作並行撥出電話 | ~2,500 | 視需要減少並行要求數目或縮短持續時間。 | 
 | 執行階段端點：並行連入呼叫 |~1,000 | 視需要減少並行要求數目或縮短持續時間。 | 
 | 執行階段端點：每隔 5 分鐘讀取一次呼叫  | 60,000 | 可以視需要將工作負載分散到多個應用程式。 | 
 | 執行階段端點：每隔 5 分鐘叫用一次呼叫| 45,000 |可以視需要將工作負載分散到多個應用程式。 | 
 |||| 
 
-若要在正常處理中超出這些限制，或執行可能超出這些限制的負載測試，請[與產品小組連絡](mailto://logicappsemail@microsoft.com)，以便協助滿足您的需求。
+若要在正常處理中超出這些限制，或執行可能超出這些限制的負載測試，請[與 Logic Apps 小組連絡](mailto://logicappsemail@microsoft.com)，讓其協助您達到需求。
 
 ### <a name="logic-app-definition-limits"></a>邏輯應用程式定義限制
 
-這些限制適用於單一邏輯應用程式定義。
+以下是單一邏輯應用程式定義的限制：
 
 | Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/09/2018
 
 ### <a name="integration-account-limits"></a>整合帳戶限制
 
-這些限制適用於您可以新增到整合帳戶中的成品。
+以下是可以新增到整合帳戶之成品的限制。
 
 | Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
@@ -148,7 +148,7 @@ ms.lasthandoff: 02/09/2018
 | Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 合約 | 10 | | 
-| 其他成品類型 | 25 |成品類型包含合作夥伴、結構描述、憑證及對應。 各類型所擁有的成品數量可達到最大上限。 | 
+| 其他成品類型 | 25 | 成品類型包含合作夥伴、結構描述、憑證及對應。 各類型所擁有的成品數量可達到最大上限。 | 
 |||| 
 
 #### <a name="standard-pricing-tier"></a>標準定價層
@@ -160,7 +160,7 @@ ms.lasthandoff: 02/09/2018
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>B2B 通訊協定 (AS2、X12、EDIFACT) 訊息大小
 
-這些限制適用於 B2B 通訊協定。
+以下是適用於 B2B 通訊協定的限制：
 
 | Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 

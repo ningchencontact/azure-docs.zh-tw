@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>如何設定混合式 Azure Active Directory 已加入的裝置
 
@@ -33,6 +33,8 @@ ms.lasthandoff: 01/16/2018
 開始在您的環境中設定混合式 Azure AD 已加入裝置之前，您應該先熟悉支援的案例和條件約束。  
 
 如果您使用的是[系統準備工具 (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10))，請確定您用來建立映像的 Windows 安裝版本尚未註冊 Azure AD。
+
+一旦以下所述的組態步驟完成，所有已加入網域且執行 Windows 10 年度更新版和 Windows Server 2016 的裝置會在裝置重新啟動或使用者登入時自動向 Azure AD 註冊。 如果不喜歡這個自動註冊行為或如果想要受控制的導入，請先遵循以下＜控制部署與導入＞一節中的指示，選擇性地啟用或停用自動導入，再遵循其他設定步驟。  
 
 為了改善說明的可讀性，本主題使用下列詞彙︰ 
 
@@ -566,7 +568,8 @@ Azure AD Connect：
    > [!NOTE]
    > 此「群組原則」範本已從舊版 [群組原則管理] 主控台重新命名。 如果您使用舊版的主控台，請移至 `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`。 
 
-7. 選取 [已啟用]，然後按一下 [套用]。
+7. 選取 [已啟用]，然後按一下 [套用]。 如果您想要讓原則阻止此群組原則所控制的裝置自動向 Azure AD 註冊，您必須選取 [停用]。
+
 8. 按一下 [SERVICEPRINCIPAL] 。
 9. 將群組原則物件連結到您選擇的位置。 例如，您可以將它連結到特定組織單位。 也可以將它連結到會自動加入 Azure AD 的特定電腦安全性群組。 若要為貴組織中所有已加入網域的 Windows 10 和 Windows Server 2016 電腦設定此原則，請將「群組原則」物件連結至網域。
 

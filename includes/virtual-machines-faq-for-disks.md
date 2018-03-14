@@ -141,7 +141,7 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 
 **在透過 Azure 受 Azure Site Recovery (ASR) 保護的 Azure VM 上移轉至 Azure 複寫是否有任何影響？**
 
-是。 ASR Azure 對 Azure 的保護不支援具有受控磁碟的 VM。 它在 Q1 CY2018 底會受到支援。 
+是。 目前，適用於 VM 且使用受控磁碟的 ASR Azure 至 Azure 保護，只以公開預覽服務的型態提供。
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 移轉至受控磁碟？**
 

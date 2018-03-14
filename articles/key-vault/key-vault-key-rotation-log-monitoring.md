@@ -12,17 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 03/01/2018
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>使用端對端金鑰輪替和稽核設定 Azure 金鑰保存庫
 ## <a name="introduction"></a>簡介
 在建立金鑰保存庫之後，您可以開始使用該保存庫來儲存金鑰和密碼。 應用程式不再需要保存金鑰或密碼，而是視需要從金鑰保存庫要求取得。 這可讓您更新金鑰和密碼，而不會影響應用程式的行為，讓您有各種可能方式來管理金鑰和密碼。
+
+>[!IMPORTANT]
+> 本文中的範例僅供說明之用。 不適用於生產環境。 
 
 本文逐步解說使用 Azure 金鑰保存庫來儲存密碼的範例，在此案例中就是應用程式所存取的 Azure 儲存體帳戶金鑰。 文中也會示範如何實作該儲存體帳戶金鑰的排程輪替。 最後，本文會逐步示範如何監視金鑰保存庫稽核記錄檔，並在提出未預期的要求時發出警示。
 

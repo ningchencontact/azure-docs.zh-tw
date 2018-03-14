@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: 3df59ec172b037daaeed9e3eb69ffb990d70d8a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a240bf5b7ed5e7780b90f438d2e336ee79f0b3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>從邏輯應用程式工作流程部署和呼叫自訂 API
 
@@ -39,13 +39,13 @@ ms.lasthandoff: 10/11/2017
 
    ![您自訂 API 的 OpenAPI 檔案連結](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. 在 [API] 下，選擇 [CORS]。 將 [允許的來源] 的 CORS 原則 設定為 **'*'** (全部允許)。
+3. 在 [API] 下，選擇 [CORS]。 將 [允許的來源] 的 CORS 原則設定為 **'*'** (全部允許)。
 
    此設定允許來自 Logic App Designer 的要求。
 
    ![允許來自 Logic App Designer 對您自訂 API 的要求](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
-如需詳細資訊，請參閱[建置 Node.js RESTful API](../app-service/app-service-web-tutorial-rest-api.md)。
+如需詳細資訊，請參閱[在 Azure App Service 中裝載具有 CORS 支援的 RESTful API](../app-service/app-service-web-tutorial-rest-api.md)。
 
 ## <a name="call-your-custom-api-from-logic-app-workflows"></a>從邏輯應用程式工作流程呼叫自訂 API
 

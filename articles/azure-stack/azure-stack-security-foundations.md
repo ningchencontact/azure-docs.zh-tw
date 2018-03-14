@@ -3,8 +3,8 @@ title: "了解 Azure Stack 安全性控制措施 | Microsoft Docs"
 description: "身為服務管理員，您應了解適用於 Azure Stack 的安全性控制措施"
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 106fcf7b0edc095a52e82d58ad48a73084b65d1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基礎結構安全性狀態
 
@@ -31,10 +31,10 @@ ms.lasthandoff: 10/11/2017
 ## <a name="security-approach"></a>安全性方法
 Azure Stack 的安全性狀態是針對防禦新式威脅而設計的，且建置方式符合主要規範標準的需求。 因此，Azure Stack 基礎結構的安全性狀態是建立在兩個主要前提上：
 
- - **假想缺口。** 我們從假設系統已經被入侵的情況出發，將焦點放在「偵測及限制缺口影響」與僅嘗試防止攻擊之比較。 
- - **預設強化。**  因為基礎結構會在定義完善的硬體和軟體上執行，所以我們會針對通常留給客戶實作的安全性功能進行「啟用、設定及驗證」。
+ - **假想缺口。** 從假設系統已經被入侵的情況出發，將焦點放在「偵測及限制缺口影響」與僅嘗試防止攻擊之比較。 
+ - **預設強化。**  因為基礎結構會在定義完善的硬體和軟體上執行，所以會針對留給客戶實作的安全性功能進行「啟用、設定及驗證」。
 
-由於 Microsoft 是以整合系統的形式提供 Azure Stack，因此會由 Microsoft 定義 Azure Stack 基礎結構的安全性狀態。  就像在 Azure 中一樣，租用戶需負責定義其租用戶工作負載的安全性狀態。 本文件提供有關 Azure Stack 基礎結構之安全性狀態的基礎知識。
+由於 Microsoft 是以整合系統的形式提供 Azure Stack，因此會由 Microsoft 定義 Azure Stack 基礎結構的安全性狀態。 就像在 Azure 中一樣，租用戶需負責定義其租用戶工作負載的安全性狀態。 本文件提供有關 Azure Stack 基礎結構之安全性狀態的基礎知識。
 
 ## <a name="data-at-rest-encryption"></a>待用資料加密
 所有 Azure Stack 基礎結構和租用戶待用資料都會以 Bitlocker 加密。 此加密可為 Azure Stack 儲存體元件實際遺失或遭竊的情況提供防護。 
@@ -71,7 +71,7 @@ Azure Stack 中的管理是透過使用三個進入點來控制的，每個進�
 3. 針對特定的低階作業 (例如資料中心整合或支援案例)，Azure Stack 公開了一個稱為[具特殊權限的端點](azure-stack-privileged-endpoint.md)的 PowerShell 端點。 這個端點只公開一組已加入白名單中的 Cmdlet，並且經常受到稽核。
 
 ## <a name="network-controls"></a>網路控制措施
-Azure Stack 基礎結構隨附多層的網路「存取控制清單」(ACL)。  ACL 可防止使用者對基礎結構元件進行未經授權的存取，並將基礎結構通訊僅限於其運作所需的路徑。 
+Azure Stack 基礎結構隨附多層的網路「存取控制清單」(ACL)。 ACL 可防止使用者對基礎結構元件進行未經授權的存取，並將基礎結構通訊僅限於其運作所需的路徑。 
 
 網路 ACL 會在三個層級強制執行：
 1.  機架頂端 (Top of Rack) 交換器

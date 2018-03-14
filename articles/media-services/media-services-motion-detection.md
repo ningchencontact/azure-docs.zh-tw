@@ -13,17 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: dd422308ed728ed4e8bc35daee3bd50f0f02aaac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c391101c82868eb3c9cc92dc55c920fdbd5f4e8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>使用 Azure 媒體分析偵測動作
 ## <a name="overview"></a>概觀
 **Azure 媒體動作偵測器** 媒體處理器 (MP) 能讓您在冗長且平淡的影片中，有效識別出感興趣的區段。 動作偵測可以用來在靜態攝影機資料上識別影片中有動作發生的區段。 它會產生 JSON 檔案，其中包含具有時間戳記的中繼資料，以及發生事件的週框區域。
 
-如果將此技術用於監視器的影片輸出，它將能把動作分類為相關事件及誤判情況 (例如陰影或光源變更)。 這能讓您在不用檢視無止境的不相關事件之下，便能從攝影機輸出產生安全性警示，並從時間相當長的監視影片中擷取感興趣的片段。
+如果將此技術用於監視器的影片輸出，它將能把動作分類為相關事件及誤判情況 (例如陰影或光源變更)。 這能讓您在不用檢視無止境的不相關事件之下，便能從攝影機輸出產生安全性警示，並從長時間的監視影片中擷取感興趣的片段。
 
 **Azure 媒體動作偵測器** MP 目前為預覽功能。
 
@@ -47,6 +47,8 @@ ms.lasthandoff: 12/11/2017
 | detectionZones |偵測區域的陣列︰<br/>- 偵測區域是 3 個或更多個點的陣列<br/>- 點是介於 0 到 1 之間的 x 和 y 座標。 |描述要使用的多邊形偵測區域清單。<br/>結果會使用區域為識別碼報告，第一個為 'id':0 |涵蓋整個畫面的單一區域。 |
 
 ### <a name="json-example"></a>JSON 範例
+
+```json
     {
       "version": "1.0",
       "options": {
@@ -74,10 +76,10 @@ ms.lasthandoff: 12/11/2017
         ]
       }
     }
-
+```
 
 ## <a name="motion-detector-output-files"></a>動作偵測器輸出檔案
-動作偵測工作會在輸出資產中傳回 JSON 檔案，該檔案會在影片中描述動作警示及類別。 檔案將包含在影片中所偵測到動作之時間和持續時間的資訊。
+動作偵測作業會在輸出資產中傳回 JSON 檔案，該檔案會在影片中描述動作警示及類別。 檔案包含在影片中所偵測到動作之時間和持續時間的資訊。
 
 動作偵測器 API 會在物件於固定背景的影片 (例如監視影片) 中移動時提供指示器。 動作偵測器已針對降低誤判 (例如光源和陰影變化) 進行調整。 目前演算法的限制包括夜視影片、半透明物件及小型物件。
 
@@ -107,8 +109,9 @@ ms.lasthandoff: 12/11/2017
 | 括號 [] |每個括號皆代表事件中的單一間隔。 如果間隔顯示空白括號，便代表沒有偵測到動作。 |
 | 位置 |這是位在事件下的新項目，它能列出動作的發生位置。 它比偵測區域更明確。 |
 
-以下是 JSON 輸出範例
+下列 JSON 範例顯示輸出：
 
+```json
     {
       "version": 2,
       "timescale": 23976,
@@ -150,8 +153,8 @@ ms.lasthandoff: 12/11/2017
                 "regionId": 0
               }
             ],
+```
 
-    …
 ## <a name="limitations"></a>限制
 * 支援的輸入影片格式包括 MP4、MOV 及 WMV。
 * 動作偵測已針對固定背景的影片最佳化。 演算法會專注在降低誤判之上，例如光源變化和陰影。
@@ -164,33 +167,36 @@ ms.lasthandoff: 12/11/2017
 1. 建立資產並將媒體檔案上傳到資產。
 2. 根據包含下列 JSON 預設值的設定檔案，建立執行影片動作偵測工作的作業： 
    
-        {
-          "Version": "1.0",
-          "Options": {
-            "SensitivityLevel": "medium",
-            "FrameSamplingValue": 1,
-            "DetectLightChange": "False",
-            "MergeTimeThreshold":
-            "00:00:02",
-            "DetectionZones": [
-              [
-                {"x": 0, "y": 0},
-                {"x": 0.5, "y": 0},
-                {"x": 0, "y": 1}
-               ],
-              [
-                {"x": 0.3, "y": 0.3},
-                {"x": 0.55, "y": 0.3},
-                {"x": 0.8, "y": 0.3},
-                {"x": 0.8, "y": 0.55},
-                {"x": 0.8, "y": 0.8},
-                {"x": 0.55, "y": 0.8},
-                {"x": 0.3, "y": 0.8},
-                {"x": 0.3, "y": 0.55}
-              ]
-            ]
-          }
-        }
+    ```json
+            {
+            "Version": "1.0",
+            "Options": {
+                "SensitivityLevel": "medium",
+                "FrameSamplingValue": 1,
+                "DetectLightChange": "False",
+                "MergeTimeThreshold":
+                "00:00:02",
+                "DetectionZones": [
+                [
+                    {"x": 0, "y": 0},
+                    {"x": 0.5, "y": 0},
+                    {"x": 0, "y": 1}
+                ],
+                [
+                    {"x": 0.3, "y": 0.3},
+                    {"x": 0.55, "y": 0.3},
+                    {"x": 0.8, "y": 0.3},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.8, "y": 0.8},
+                    {"x": 0.55, "y": 0.8},
+                    {"x": 0.3, "y": 0.8},
+                    {"x": 0.3, "y": 0.55}
+                ]
+                ]
+            }
+            }
+    ```
+
 3. 下載輸出 JSON 檔案。 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
@@ -199,7 +205,7 @@ ms.lasthandoff: 12/11/2017
 
 #### <a name="example"></a>範例
 
-```
+```csharp
 
 using System;
 using System.Configuration;

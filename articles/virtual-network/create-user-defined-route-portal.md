@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
 ms.openlocfilehash: 0319029277091611673f15c94604604850cbfcbe
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>建立使用者定義的路由 - Azure 入口網站
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 11/11/2017
     - 在頁面頂端的 [搜尋資源] 方塊上，輸入 *myVm-Nva*。
     - 當 myVm-Nva 出現在搜尋結果中時，按一下 [myVm-Nva]。
     - 按一下左側 [設定] 底下的 [網路]。
-    - 在 [myVm-Nva - 網路介面] 底下，按一下網路介面的名稱。 名稱是 **myvm-nva***X*，其中 *X* 是入口網站所指派的編號。
+    - 在 [myVm-Nva - 網路介面] 底下，按一下網路介面的名稱。 名稱是 **myvm-nva***X*，其中 X 是入口網站所指派的編號。
     - 在網路介面中，按一下 [設定] 底下的 [IP 組態]，如下圖所示：
 
         ![網路介面設定](./media/create-user-defined-route/network-interface-settings.png)

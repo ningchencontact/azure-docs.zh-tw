@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2017
 ms.author: juliako
-ms.openlocfilehash: ec8c1da633374ba684f6a0a895c542ee76ef73b8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f688c8f28b1dfd9a54e4dc39120851c144bbeffe
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>使用 .NET 將檔案上傳至媒體服務帳戶
 > [!div class="op_single_selector"]
@@ -37,32 +37,32 @@ ms.lasthandoff: 12/21/2017
 > 
 > * 建置串流內容的 URL (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) 時，媒體服務會使用 IAssetFile.Name 屬性的值。基於這個理由，不允許 percent-encoding。 **Name** 屬性的值不能有下列任何[百分比編碼保留字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 而且，副檔名只能有一個 '.'。
 > * 名稱長度不應超過 260 個字元。
-> * 對於在媒體服務處理檔案，支援的檔案大小有上限。 請參閱[此](media-services-quotas-and-limitations.md)主題，以取得有關檔案大小限制的詳細資料。
-> * 對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱[此主題](media-services-dotnet-manage-entities.md#limit-access-policies)。
+> * 對於在媒體服務處理檔案，支援的檔案大小有上限。 請參閱[這篇](media-services-quotas-and-limitations.md)文章，以取得有關檔案大小限制的詳細資料。
+> * 對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱[本篇文章](media-services-dotnet-manage-entities.md#limit-access-policies)。
 > 
 
-建立資產時，您可以指定下列加密選項。 
+建立資產時，您可以指定下列加密選項：
 
-* **None** - 不使用加密。 這是預設值。 請注意，使用這個選項時您的內容在傳輸中或在儲存體中不受保護。
-  如果您計劃使用漸進式下載傳遞 MP4，請使用此選項。 
+* **None** - 不使用加密。 這是預設值。 使用此選項時，您的內容在傳輸或儲存體中靜止時不會受到保護。
+  如果您計劃使用漸進式下載傳遞 MP4，請使用此選項： 
 * **CommonEncryption** - 如果您上傳的內容已經受到一般加密或 PlayReady DRM (例如，受到 PlayReady DRM 保護的 Smooth Streaming) 的加密保護，請使用此選項。
 * **EnvelopeEncrypted** - 如果您上傳以 AES 加密的 HLS，請使用此選項。 請注意，檔案必須已由 Transform Manager 編碼和加密。
 * **StorageEncrypted** - 使用 AES-256 位元加密對您的內容進行本機加密，接著上傳到已靜止加密儲存的 Azure 儲存體。 以儲存體加密保護的資產會自動解除加密並在編碼前放置在加密的檔案系統中，並且會在上傳為新輸出資產之前選擇性地重新編碼。 儲存體加密的主要使用案例是讓您可以使用強式加密來保護磁碟中靜止的高品質輸入媒體檔。
   
     媒體服務可為您的資產提供磁碟上的儲存體加密，而不是在線上加密，例如數位版權管理員 (DRM)。
   
-    如果您的資產是儲存體加密，必須設定資產傳遞原則。 如需詳細資訊，請參閱 [設定資產傳遞原則](media-services-dotnet-configure-asset-delivery-policy.md)。
+    如果您的資產是儲存體加密，必須設定資產傳遞原則。 如需詳細資訊，請參閱[設定資產傳遞原則](media-services-dotnet-configure-asset-delivery-policy.md)。
 
 如果您指定使用 **CommonEncrypted** 選項或 **EnvelopeEncypted** 選項加密資產，則需要建立資產與 **ContentKey** 的關聯。 如需詳細資訊，請參閱 [如何建立 ContentKey](media-services-dotnet-create-contentkey.md)。 
 
 如果您指定使用 **StorageEncrypted** 選項來加密資產，則 Media Services SDK for .NET 會建立資產的 **StorateEncrypted** 和 **ContentKey**。
 
-本主題顯示如何使用 Media Services .NET SDK 以及 Media Services .NET SDK 延伸模組，以將檔案上傳到媒體服務資產。
+本文顯示如何使用 Media Services .NET SDK 以及 Media Services .NET SDK 擴充功能，以將檔案上傳到媒體服務資產。
 
 ## <a name="upload-a-single-file-with-media-services-net-sdk"></a>使用媒體服務 .NET SDK 上傳單一檔案
-以下範例程式碼會使用 .NET SDK 來上傳一個檔案。 AccessPolicy 與定位器會由所上傳的函式建立並終結。 
+以下程式碼使用 .NET 來上傳一個檔案。 AccessPolicy 與定位器會由所上傳的函式建立並終結。 
 
-
+```csharp
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
         {
             if (!File.Exists(singleFilePath))
@@ -83,6 +83,7 @@ ms.lasthandoff: 12/21/2017
 
             return inputAsset;
         }
+```
 
 
 ## <a name="upload-multiple-files-with-media-services-net-sdk"></a>使用媒體服務 .NET SDK 上傳多個檔案
@@ -93,7 +94,7 @@ ms.lasthandoff: 12/21/2017
 * 使用上一個步驟中所定義的 CreateEmptyAsset 方法，來建立空白資產。
 * 建立 **AccessPolicy** 執行個體，以定義存取資產所需的權限和規定期間。
 * 建立可用來存取資產的 **Locator** 執行個體。
-* 建立 **BlobTransferClient** 執行個體。 此類型代表在 Azure Blob 上作業的用戶端。 在此範例中，我們會使用用戶端來監視上傳進度。 
+* 建立 **BlobTransferClient** 執行個體。 此類型代表在 Azure Blob 上作業的用戶端。 在此範例中，用戶端會監視上傳進度。 
 * 逐一列舉所指定目錄中的檔案，並建立每個檔案的 **AssetFile** 執行個體。
 * 使用 **UploadAsync** 方法，將檔案上傳到媒體服務。 
 
@@ -102,6 +103,7 @@ ms.lasthandoff: 12/21/2017
 > 
 > 
 
+```csharp
         static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
         {
             var assetName = "UploadMultipleFiles_" + DateTime.UtcNow.ToString();
@@ -157,10 +159,10 @@ ms.lasthandoff: 12/21/2017
             Console.WriteLine("{0}% upload competed for {1}.", e.ProgressPercentage, e.LocalFile);
         }
     }
+```
 
 
-
-上傳大量資產時，請考慮下列項目。
+上傳大量資產時，請考慮下列項目：
 
 * 為每個執行緒建立新的 **CloudMediaContext** 物件。 **CloudMediaContext** 類別不具備執行緒安全。
 * 將 NumberOfConcurrentTransfers 從預設值 2 增加為較高的值 (例如 5)。 設定此屬性會影響所有 **CloudMediaContext**執行個體。 
@@ -169,29 +171,36 @@ ms.lasthandoff: 12/21/2017
 ## <a id="ingest_in_bulk"></a>使用媒體服務 .NET SDK 大量擷取資產
 上傳大型資產檔案可能會在建立資產期間造成瓶頸。 大量內嵌資產或「大量內嵌」包含透過上傳程序來解除結合資產建立。 若要使用大量內嵌方式，請建立可描述資產及其相關檔案的資訊清單 (IngestManifest)。 然後使用您選擇的上傳方法，將相關的檔案上傳至資訊清單的 Blob 容器。 Microsoft Azure 媒體服務會監看與資訊清單相關聯的 Blob 容器。 將檔案上傳至 Blob 容器之後，Microsoft Azure 媒體服務會根據資訊清單 (IngestManifestAsset) 中的資產組態來完成資產建立。
 
-若要建立新的 IngestManifest，請呼叫 CloudMediaContext 上 IngestManifests 集合所公開的 Create 方法。 此方法會使用您提供的資訊清單名稱來建立新的 IngestManifest。
+若要建立新的 IngestManifest，請呼叫 CloudMediaContext 上 IngestManifests 集合所公開的 Create 方法。 此方法使用您提供的資訊清單名稱來建立新的 IngestManifest。
 
+```csharp
     IIngestManifest manifest = context.IngestManifests.Create(name);
+```
 
-建立將與大量 IngestManifest 相關聯的資產。 對資產設定想要的加密選項，以進行大量內嵌。
+建立會與大量 IngestManifest 相關聯的資產。 對資產設定想要的加密選項，以進行大量內嵌。
 
+```csharp
     // Create the assets that will be associated with this bulk ingest manifest
     IAsset destAsset1 = _context.Assets.Create(name + "_asset_1", AssetCreationOptions.None);
     IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
+```
 
 IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進行大量內嵌。 它也會建立構成每個資產之 AssetFile 的關聯。 若要建立 IngestManifestAsset，請在伺服器內容上使用 Create 方法。
 
 下列範例示範如何新增兩個新的 IngestManifestAsset，以建立先前建立之兩個資產與大量內嵌資訊清單的關聯。 每個 IngestManifestAsset 也會關聯在大量內嵌期間針對每個資產所上傳的一組檔案。  
 
+```csharp
     string filename1 = _singleInputMp4Path;
     string filename2 = _primaryFilePath;
     string filename3 = _singleInputFilePath;
 
     IIngestManifestAsset bulkAsset1 =  manifest.IngestManifestAssets.Create(destAsset1, new[] { filename1 });
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
+```
 
 您可以使用任何高速用戶端應用程式，而高速用戶端應用程式可以將資產檔案上傳至 IngestManifest 之 **IIngestManifest.BlobStorageUriForUpload** 屬性所提供的 Blob 儲存體容器 URI。 一個著名的高速上傳服務是 [Aspera On Demand for Azure Application](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6)。 您也可以撰寫程式碼來上傳資產檔案 (如下列程式碼範例所示)。
 
+```csharp
     static void UploadBlobFile(string destBlobURI, string filename)
     {
         Task copytask = new Task(() =>
@@ -214,18 +223,21 @@ IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進�
 
         copytask.Start();
     }
+```
 
-下列程式碼範例顯示上傳本主題中所用範例之資產檔案的程式碼。
+下列程式碼範例顯示上傳本文中所用範例之資產檔案的程式碼：
 
+```csharp
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename1);
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename2);
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename3);
-
+```
 
 輪詢 **IngestManifest** 的 Statistics 屬性，即可判斷與 **IngestManifest** 相關聯之所有資產的大量內嵌進度。 若要更新進度資訊，每次輪詢 Statistics 屬性時，都必須使用新的 **CloudMediaContext** 。
 
 下列範例示範如何依 **Id**輪詢 IngestManifest。
 
+```csharp
     static void MonitorBulkManifest(string manifestID)
     {
        bool bContinue = true;
@@ -257,12 +269,13 @@ IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進�
              bContinue = false;
        }
     }
-
+```
 
 
 ## <a name="upload-files-using-net-sdk-extensions"></a>使用 .NET SDK 延伸模組上傳檔案
-下列範例顯示如何使用 .NET SDK 延伸模組上傳單一檔案。 在此情況下，會使用 **CreateFromFile** 方法，但也會提供非同步版本 (**CreateFromFileAsync**)。 **CreateFromFile** 方法可讓您指定檔案名稱、加密選項和回呼，以報告檔案的上傳進度。
+下列範例顯示如何使用 .NET SDK 擴充功能上傳單一檔案。 在此情況下，會使用 **CreateFromFile** 方法，但也會提供非同步版本 (**CreateFromFileAsync**)。 **CreateFromFile** 方法可讓您指定檔案名稱、加密選項和回呼，以報告檔案的上傳進度。
 
+```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
     {
         IAsset inputAsset = _context.Assets.CreateFromFile(
@@ -277,10 +290,13 @@ IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進�
 
         return inputAsset;
     }
+```
 
 下列範例會呼叫 UploadFile 函數，並指定儲存體加密做為資產建立選項。  
 
+```csharp
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
+```
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -295,7 +311,7 @@ IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進�
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>後續步驟
-您已將資產上傳至媒體服務，現在請移至 [如何取得媒體處理器][How to Get a Media Processor]主題。
+您已將資產上傳至媒體服務，現在請移至 [如何取得媒體處理器][How to Get a Media Processor]一文。
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
 
