@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux 或 Mac 裝置 - 預覽
 
@@ -21,7 +21,7 @@ Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本�
 
 如果您沒有使用中的 Azure 訂用帳戶，請在開始前建立[免費帳戶][lnk-account]。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本快速入門會以物聯網裝置的形式使用您的電腦或虛擬機器。 若要將您的機器轉換為 IoT Edge 裝置，需要下列服務：
 
@@ -70,22 +70,22 @@ Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本�
 IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其包含兩個模組。 首先，IoT Edge 代理程式可協助進行部署及監視 IoT Edge 裝置上的模組。 第二，IoT Edge 中樞會管理 IoT Edge 裝置上的模組通訊，以及裝置與 IoT 中樞之間的通訊。 
 
 在您要執行 IoT Edge 裝置的電腦上，下載 IoT Edge 控制指令碼：
-```cmd
+```bash
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 使用上一節中的 IoT Edge 裝置連接字串來設定執行階段：
-```cmd
+```bash
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 啟動執行階段：
-```cmd
+```bash
 sudo iotedgectl start
 ```
 
 檢查 Docker 以確認 IoT Edge 代理程式是否正作為模組執行中：
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -101,7 +101,7 @@ sudo docker ps
 
 在執行模擬裝置的電腦上再次開啟命令提示字元。 確認從雲端部署的模組正在 IoT Edge 裝置上執行：
 
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -109,7 +109,7 @@ sudo docker ps
 
 檢視從 tempSensor 模組傳送至雲端的訊息：
 
-```cmd
+```bash
 sudo docker logs -f tempSensor
 ```
 
@@ -118,6 +118,12 @@ sudo docker logs -f tempSensor
 您也可以使用 [IoT 中樞總管工具][lnk-iothub-explorer]，檢視裝置正在傳送的遙測資料。 
 
 ## <a name="clean-up-resources"></a>清除資源
+
+如果您想要移除您建立的模擬裝置，以及針對每個模組啟動的 Docker 容器，請使用下列命令： 
+
+```bash
+sudo iotedgectl uninstall
+```
 
 當您不再需要您所建立的 IoT 中樞時，可以使用 [az iot hub delete][lnk-delete] 命令來移除資源及任何與其相關聯的裝置：
 

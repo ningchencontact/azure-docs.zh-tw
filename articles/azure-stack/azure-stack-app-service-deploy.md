@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: d4394463be02d067b8228099acd30a0421ce4be9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570ef0b782e073220af8bc7299cc4ad388d47136
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>將 App Service 資源提供者新增到 Azure Stack
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
@@ -70,7 +70,7 @@ ms.lasthandoff: 02/21/2018
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image03.png)
 
-7. 輸入檔案共用的資訊，然後按 [下一步]。 檔案共用的位址必須使用檔案伺服器的完整網域名稱 (例如 \\\appservicefileserver.local.cloudapp.azurestack.external\websites) 或 IP 位址 (例如 \\\10.0.0.1\websites)。
+7. 輸入檔案共用的資訊，然後按 [下一步]。 檔案共用的位址必須使用檔案伺服器的完整網域名稱或是 IP 位址。 例如，\\\appservicefileserver.local.cloudapp.azurestack.external\websites 或 \\\10.0.0.1\websites。
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image04.png)
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 02/21/2018
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image05.png)
 
-9. 對於三個憑證檔案方塊的每一個，按一下 [瀏覽] 並瀏覽至適當的憑證檔案。 您必須提供每個憑證的密碼。 這些憑證是您在[建立必要的憑證步驟](azure-stack-app-service-deploy.md#create-the-required-certificates)中建立的憑證。 輸入所有資訊之後，按 [下一步]。
+9. 對於三個憑證檔案方塊的每一個，按一下 [瀏覽] 並瀏覽至適當的憑證檔案。 您要提供每個憑證的密碼。 這些憑證是您在[建立必要的憑證步驟](azure-stack-app-service-deploy.md#create-the-required-certificates)中建立的憑證。 輸入所有資訊之後，按 [下一步]。
 
     | Box | 憑證檔案名稱範例 |
     | --- | --- |

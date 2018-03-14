@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: klam; LADocs
+ms.openlocfilehash: de4f4ee086fbf3799fcac1f1b008d9237b5e7a09
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程
 
@@ -30,12 +30,12 @@ ms.lasthandoff: 10/11/2017
 
 * [要求](../connectors/connectors-native-reqres.md)
 
-* [API 連線 Webhook](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
+* [API 連線 Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > 雖然我們的範例使用 [要求] 觸發程序，但是您可以使用任何列出的 HTTP 觸發程序，而且所有的原則都會同樣地套用到其他觸發程序類型。
+   > 雖然這些範例使用 [要求] 觸發程序，但是您可以使用任何列出的 HTTP 觸發程序，而且所有的原則都會同樣地套用到其他觸發程序類型。
 
 ## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>設定邏輯應用程式的 HTTP 端點
 
@@ -166,6 +166,7 @@ ms.lasthandoff: 10/11/2017
     `Hello 123456`
 
 <a name="generated-tokens"></a>
+
 ### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>從 JSON 結構描述產生邏輯應用程式的權杖
 
 在 [要求] 觸發程序中提供 JSON 結構描述時，邏輯應用程式設計工具會產生該結構描述中屬性的權杖。 您接著可以使用這些權杖，透過邏輯應用程式工作流程來傳遞資料。
@@ -205,6 +206,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="call-or-trigger-logic-apps-through-http-endpoints"></a>透過 HTTP 端點呼叫或觸發邏輯應用程式
 
 建立 HTTP 端點之後，您可以透過完整 URL 的 `POST` 方法來觸發邏輯應用程式。 邏輯應用程式具有直接存取端點的內建支援。
+
+> [!NOTE] 
+> 若要隨時手動執行邏輯應用程式，請在邏輯應用程式設計工具或邏輯應用程式程式碼檢視工具列上選擇 [執行]。
 
 ## <a name="reference-content-from-an-incoming-request"></a>參考來自傳入要求的內容
 

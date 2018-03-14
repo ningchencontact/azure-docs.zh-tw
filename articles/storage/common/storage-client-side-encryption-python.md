@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: bf6696cfdfe9fc18dd2f000162a4e787a7ca6e21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c925b41d1654bd5c9b40438c4b6b9f402ec4bac2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Microsoft Azure 儲存體的用戶端 Python 加密
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -106,6 +106,10 @@ ms.lasthandoff: 10/11/2017
 請注意，實體會在使用批次的加密原則插入批次中時受到加密 (實體在使用 tableservice 的加密原則認可批次時將不會受到加密)。
 
 ### <a name="queries"></a>查詢
+> [!NOTE]
+> 因為實體已加密，所以無法執行依加密屬性篩選的查詢。  如果您嘗試這麼做，結果會不正確，因為服務會嘗試比較加密資料與未加密資料。
+> 
+>
 若要執行查詢作業，您必須指定一個能夠解析結果集中的所有金鑰的金鑰解析程式。 如果查詢結果中包含的實體無法解析成提供者，用戶端程式庫會擲回錯誤。 針對執行伺服器端投影的任何查詢，用戶端程式庫會依預設將特殊加密中繼資料屬性 (\_ClientEncryptionMetadata1 和 \_ClientEncryptionMetadata2) 加入選取的資料行。
 
 > [!IMPORTANT]

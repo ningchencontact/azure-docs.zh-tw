@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: 8f98fd7773acb960ae79e743663aceb216f217c4
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure Load Balancer Standard 概觀 (預覽)
 
@@ -466,6 +466,7 @@ Load Balancer Standard SKU 是根據所設定的規則和處理的資料收費�
 - 在「可用性區域」的內容中，區域性「公用 IP」位址無法從一個區域移到另一個區域。
 - 目前不支援 [Azure 監視器警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。
 - 入口網站尚未支援擴充的預覽區域。  請使用範本、Azure CLI 2.0 或 PowerShell 等用戶端工具來避開此問題。
+- 不支援移動訂用帳戶作業。
 
 
 ## <a name="next-steps"></a>後續步驟

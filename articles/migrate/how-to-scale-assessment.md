@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>探索及評定大型 VMware 環境
 
@@ -30,22 +30,24 @@ ms.lasthandoff: 02/27/2018
 | **實體** | **機器限制** |
 | ---------- | ----------------- |
 | 隨附此逐步解說的專案    | 1,500              | 
-| 探索  | 1,000              |
-| 評量 | 400               |
+| 探索  | 1,500              |
+| 評量 | 1,500               |
 
-- 如果要探索及評定的機器少於 400 部，您需要一個專案和一次探索。 根據您的需求，您可以在單一評定中評定所有機器，或將機器分割成多次評定。 
-- 如果您要探索的機器介於 400 到 1000 部，您需要一個執行一次探索的專案。 但是，您需要多次評定來評定這些機器，因為單一評定最多可支援 400 部機器。
-- 如果您有 1001 到 1500 部機器，您需要一個執行兩次探索的專案。
-- 如果您的機器數量超過 1500 部，您需要根據需求建立多個專案及執行多次探索。 例如︰
-    - 如果您有 3000 部機器，可以設定兩個執行兩次探索的專案，或三個執行一次探索的專案。
-    - 如果您有 5000 部機器，可以設定四個專案：三個探索 1500 部機器的專案，再加上一個探索 500 部機器的專案。 您也可以設定五個分別執行一次探索的專案。 
+<!-- 
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
+- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
+- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
+    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## <a name="plan-multiple-discoveries"></a>規劃多次探索
 
 您可以使用相同的 Azure Migrate 收集器，對一或多個專案進行多次探索。 請記住下列規劃考量：
  
 - 當您使用 Azure Migrate 收集器進行探索時，可以將探索範圍設定為 vCenter Server 資料夾、資料中心、叢集或主機。
-- 若要執行一次以上的探索，請在 vCenter Server 中確認您要探索的虛擬機器是位於支援 1000 部機器限制的資料夾、資料中心、叢集或主機內。
+- 若要執行一次以上的探索，請在 vCenter Server 中確認您要探索的虛擬機器是位於支援 1500 部機器限制的資料夾、資料中心、叢集或主機內。
 - 基於評定目的，我們建議您將相依的機器保留在同個專案和同次評定內。 在 vCenter Server 中，確認相依的機器位在同一個資料夾、資料中心或叢集內，以供評定。
 
 
@@ -83,6 +85,14 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此虛�
 
    使用方式範例：```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. 確定所產生的雜湊符合下列設定。
+
+    若為 OVA 1.0.9.5 版
+
+    **演算法** | **雜湊值**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
 
     若為 OVA 1.0.9.2 版
 

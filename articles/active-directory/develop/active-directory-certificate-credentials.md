@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 9267a7d2b27930fbcd0aa70ec9e2ddc62b6b0b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>適用於應用程式驗證的憑證認證
 
-Azure Active Directory 可讓應用程式使用自己的認證進行驗證，例如，在 OAuth 2.0 用戶端認證授與流程和代理者流程中。
+Azure Active Directory 可讓應用程式使用自己的認證進行驗證，例如，在 OAuth 2.0 用戶端認證授與流程 ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md) 和代理者流程 ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)) 中。
 可用的認證形式之一，便是以應用程式擁有的憑證所簽署的 JSON Web 權杖 (JWT) 判斷提示。
 
 ## <a name="format-of-the-assertion"></a>判斷提示的格式
@@ -41,7 +41,7 @@ Azure Active Directory 可讓應用程式使用自己的認證進行驗證，例
 
 | 參數 |  備註 |
 | --- | --- | --- |
-| `aud` | 對象︰應該是 **https://login.microsoftonline.com/*租用戶 ID*/oauth2/權杖** |
+| `aud` | 對象︰應該是 **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | 到期日：權杖到期的日期。 時間會表示為從 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 到權杖有效時間到期的秒數。|
 | `iss` | 簽發者︰應該是 client_id (用戶端服務的應用程式識別碼) |
 | `jti` | GUID：JWT ID |

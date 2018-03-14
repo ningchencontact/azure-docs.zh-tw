@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的要求單位
 現在可供使用︰Azure Cosmos DB [要求單位計算機 (英文)](https://www.documentdb.com/capacityplanner)。 深入了解 [預估您的輸送量需求](request-units.md#estimating-throughput-needs)。
@@ -44,7 +44,7 @@ Azure Cosmos DB 支援數種 API 以執行各種不同的作業，從簡單地�
 ## <a name="request-units-and-request-charges"></a>要求單位和要求費用
 Azure Cosmos DB 藉由「保留」資源以滿足應用程式的輸送量需求，來提供快速且可預測的效能。  因為應用程式會隨著時間載入和存取模式變化，所以 Azure Cosmos DB 可讓您輕鬆地增加或減少應用程式可用的保留輸送量。
 
-有了 Azure Cosmos DB，保留的輸送量是根據每秒處理的要求單位來指定。 您可以將要求單位想像為輸送量貨幣，因此您每秒可「保留」  保證可供應用程式使用的要求單位數量。  Azure Cosmos DB 中的每個作業 (寫入文件、執行查詢、更新文件) 都會耗用 CPU、記憶體和 IOPS。  也就是說，每個作業都會產生「要求費用」，這是以「要求單位」來表示。  了解影響要求單位費用的因素，以及您應用程式的輸送量需求，可讓您儘可能以最符合經濟效益的方式來執行應用程式。 [查詢總管] 也是測試查詢核心的絕佳工具。
+有了 Azure Cosmos DB，保留的輸送量是根據每秒處理的要求單位來指定。 您可以將要求單位想像為輸送量貨幣，因此您每秒可「保留」  保證可供應用程式使用的要求單位數量。  Azure Cosmos DB 中的每個作業 (寫入文件、執行查詢、更新文件) 都會耗用 CPU、記憶體和 IOPS。  也就是說，每個作業都會產生「要求費用」，這是以「要求單位」來表示。  了解影響要求單位費用的因素，以及您應用程式的輸送量需求，可讓您儘可能以最符合經濟效益的方式來執行應用程式。 Azure 入口網站中的 [資料總管] 也是測試查詢核心的絕佳工具。
 
 我們建議從觀看 Aravind Ramachandran 說明使用 Azure Cosmos DB 的要求單位和可預測效能的下列影片來開始。
 
@@ -92,6 +92,10 @@ await client.ReplaceOfferAsync(offer);
 ```
 
 當您變更輸送量時，不會影響容器的可用性。 新保留的輸送量通常會在套用新輸送量的數秒內於生效。
+
+## <a name="throughput-isolation-in-globally-distributed-databases"></a>輸送量隔離是分散在世界各地的資料庫
+
+當您將資料庫複寫至多個區域後，Azure Cosmos DB 會提供輸送量隔離，以確保一個區域的 RU 使用量不會影響另一個地區的 RU 使用量。 例如，如果您將資料寫入至一個區域，並從另一個區域讀取資料，則用於在區域 A 執行寫入作業的 RU 不會取自用於在區域 B 執行讀取作業的 RU。RU 不會分割於您已部署的區域中。 複製資料庫的每個區域都已佈建充分的 RU 數量。 如需全域複寫的詳細資訊，請參閱[如何使用 Azure Cosmos DB 在全域散發資料](distribute-data-globally.md)。
 
 ## <a name="request-unit-considerations"></a>要求單位的考量
 在估計要保留給 Azure Cosmos DB 容器的要求單位數量時，請務必考量下列變數：
@@ -190,9 +194,7 @@ await client.ReplaceOfferAsync(offer);
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>使用 Azure Cosmos DB 要求費用回應標頭
-Azure Cosmos DB 服務的每個回應都會包括自訂標頭 (`x-ms-request-charge`)，其中包含要求所耗用的要求單位。 此標頭也可以透過 Azure Cosmos DB SDK 進行存取。 在 .NET SDK 中，RequestCharge 是 ResourceResponse 物件的屬性。  針對查詢，Azure 入口網站中的 Azure Cosmos DB 查詢總管會提供已執行查詢的要求費用資訊。
-
-![在查詢總管中檢查 RU 費用][1]
+Azure Cosmos DB 服務的每個回應都會包括自訂標頭 (`x-ms-request-charge`)，其中包含要求所耗用的要求單位。 此標頭也可以透過 Azure Cosmos DB SDK 進行存取。 在 .NET SDK 中，RequestCharge 是 ResourceResponse 物件的屬性。  針對查詢，Azure 入口網站中的 Azure Cosmos DB 資料總管會提供已執行查詢的要求費用資訊。
 
 將此銘記於心，有一個估計應用程式所需之保留輸送量的方法是，記錄與根據應用程式所使用之代表性項目執行一般作業相關聯的要求單位費用，然後估計您預期每秒執行的作業數目。  此外，請務必測量並包含一般查詢和 Azure Cosmos DB 指令碼使用方式。
 
@@ -211,7 +213,7 @@ Azure Cosmos DB 服務的每個回應都會包括自訂標頭 (`x-ms-request-cha
 6. 根據您預期每秒執行的作業估計數目，來計算必要的要求單位數。
 
 ## <a id="GetLastRequestStatistics"></a>使用 API for MongoDB 的 GetLastRequestStatistics 命令
-API for Mongodb 支援自訂命令 *getLastRequestStatistics*，可擷取指定之作業的要求費用。
+MongoDB API 支援自訂命令 getLastRequestStatistics，可擷取指定之作業的要求費用。
 
 例如，在 Mongo 殼層中，執行您想要驗證要求費用的作業。
 ```
@@ -237,10 +239,10 @@ API for Mongodb 支援自訂命令 *getLastRequestStatistics*，可擷取指定�
 > 
 > 
 
-## <a name="use-api-for-mongodbs-portal-metrics"></a>使用 API for MongoDB 的入口網站計量
-若要準確估計 API for MongoDB 資料庫的要求單位費用，最簡單的方法就是使用 [Azure 入口網站](https://portal.azure.com)計量。 利用 [要求數目] 和 [要求費用] 圖表，您可以估計每個作業耗用多少要求單位，以及它們彼此之間相對耗用多少要求單位。
+## <a name="use-mongodb-api-portal-metrics"></a>使用 MongoDB API 入口網站計量
+若要準確估計 MongoDB API 資料庫的要求單位費用，最簡單的方法就是使用 [Azure 入口網站](https://portal.azure.com)計量。 利用 [要求數目] 和 [要求費用] 圖表，您可以估計每個作業耗用多少要求單位，以及它們彼此之間相對耗用多少要求單位。
 
-![API for MongoDB 入口網站計量][6]
+![MongoDB API 入口網站計量][6]
 
 ## <a name="a-request-unit-estimation-example"></a>要求單位估計範例
 請考量下列 ~1 KB 的文件：
@@ -345,8 +347,8 @@ API for Mongodb 支援自訂命令 *getLastRequestStatistics*，可擷取指定�
 
 如果您有多個用戶端會以高於要求速率的方式累積運作，則預設的重試行為可能會不敷使用，而用戶端將擲回 DocumentClientException (狀態碼 429) 到應用程式。 在這類情況下，您可以考慮處理應用程式錯誤處理常式中的重試行為和邏輯，或為容器提高保留的輸送量。
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> 超過 API for MongoDB 中保留的輸送量限制
-如果應用程式超過集合已佈建的要求單位，則會受到節流控制，直到速率降到保留的等級以下。 節流發生時，後端會提前結束要求，並傳回 16500 錯誤碼 -「太多要求」。 根據預設，在傳回「太多要求」錯誤碼之前，API for MongoDB 會自動重試最多 10 次。 如果您收到很多「太多要求」錯誤碼，您可以考慮在應用程式的錯誤處理常式中新增重試行為，或[提高集合的保留輸送量](set-throughput.md)。
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> 超過 MongoDB API 中保留的輸送量限制
+如果應用程式超過集合已佈建的要求單位，則會受到節流控制，直到速率降到保留的等級以下。 節流發生時，後端會提前結束要求，並傳回 16500 錯誤碼 -「太多要求」。 根據預設，在傳回「太多要求」錯誤碼之前，MongoDB API 會自動重試最多 10 次。 如果您收到很多「太多要求」錯誤碼，您可以考慮在應用程式的錯誤處理常式中新增重試行為，或[提高集合的保留輸送量](set-throughput.md)。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解透過 Azure Cosmos DB 資料庫保留輸送量的方式，請探索下列資源：
@@ -358,7 +360,6 @@ API for Mongodb 支援自訂命令 *getLastRequestStatistics*，可擷取指定�
 
 若要開始使用 Azure Cosmos DB 的相關規模和效能測試，請參閱 [Azure Cosmos DB 的相關效能和規模測試](performance-testing.md)。
 
-[1]: ./media/request-units/queryexplorer.png 
 [2]: ./media/request-units/RUEstimatorUpload.png
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png

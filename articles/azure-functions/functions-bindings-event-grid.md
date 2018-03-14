@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: e1d623c831a912598db72ccd0242cf827c88ee6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions 的 Event Grid 觸發程序
 
@@ -318,7 +318,7 @@ RequestBin 不適用於高輸送量的用途。 如果您一次推送多個事�
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-`functionName` 參數必須是方法名稱，而不是 `FunctionName` 屬性中指定的名稱。 因此，如果您在專案中有多個函式，則其方法名稱對本機測試 Event Grid 觸發程序而言必須是唯一的 (並非全都命名為 `Run`)。
+`functionName` 參數必須是 `FunctionName` 屬性中指定的名稱。
 
 下列螢幕擷取畫面顯示 Postman 中的標頭和要求本文：
 
@@ -379,7 +379,7 @@ Event Grid 不會以特殊方式處理 ngrok URL，因此，在訂用帳戶建�
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-`functionName` 參數必須是方法名稱，而不是 `FunctionName` 屬性中指定的名稱。 因此，如果您在專案中有多個函式，則其方法名稱對本機測試 Event Grid 觸發程序而言必須是唯一的 (並非全都命名為 `Run`)。
+`functionName` 參數必須是 `FunctionName` 屬性中指定的名稱。
 
 以下是使用 Azure CLI 的範例：
 

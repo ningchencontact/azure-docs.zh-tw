@@ -1,7 +1,22 @@
+---
+title: "包含檔案"
+description: "包含檔案"
+services: virtual-machines-windows
+author: dlepow
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 03/01/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 506c2a4cf675a347dc4c45c9ccf8bce95de2f6fc
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/05/2018
+---
 ## <a name="supported-operating-systems-and-drivers"></a>支援的作業系統和驅動程式
 
-
-### <a name="nc-ncv2-and-nd-instances---nvidia-tesla-drivers"></a>NC、NCv2 及 ND 執行個體 - NVIDIA Tesla 驅動程式
+### <a name="nc-ncv2-ncv3-and-nd-series---nvidia-tesla-drivers"></a>NC、NCv2、NCv3 和 ND 系列 - NVIDIA Tesla 驅動程式
 
 | 作業系統 | 驅動程式 |
 | -------- |------------- |
@@ -12,7 +27,7 @@
 > 發行當時的 Tesla 驅動程式下載連結。 如需最新的驅動程式，請瀏覽 [NVIDIA](http://www.nvidia.com/) 網站。
 >
 
-### <a name="nv-instances---nvidia-grid-drivers"></a>NV 執行個體 - NVIDIA GRID 驅動程式
+### <a name="nv-series---nvidia-grid-drivers"></a>NV 系列 - NVIDIA GRID 驅動程式
 
 | 作業系統 | 驅動程式 |
 | -------- |------------- |

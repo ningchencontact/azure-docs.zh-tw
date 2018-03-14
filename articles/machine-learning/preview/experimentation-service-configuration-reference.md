@@ -5,16 +5,16 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 00e98ff07d144db791fcf074699614f1e664634b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning 測試服務組態檔
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/23/2018
 ## <a name="condadependenciesyml"></a>conda_dependencies.yml
 這個檔案是 [conda 環境檔案](https://conda.io/docs/using/envs.html#create-environment-file-by-hand)，會指定 Python 執行階段版本和您程式碼所依據的套件。 當 Azure ML Workbench 在 Docker 容器或 HDInsight 叢集中執行指令碼時，它會建立 [conda 環境](https://conda.io/docs/using/envs.html)以供您的指令碼執行。 
 
-在此檔案中，您可以指定指令碼執行所需的 Python 套件。 Azure ML 測試服務會根據您的相依性清單在 Docker 映像中建立 conda 環境。 執行引擎所必須可觸達這裡的套件清單。 因此，套件必須列在通道中，如下所示：
+在此檔案中，您可以指定指令碼執行所需的 Python 套件。 Azure ML 測試服務會根據您的相依性清單建立 conda 環境。 執行引擎必須可透過下列通道觸達這裡所列的套件：
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
@@ -43,7 +43,7 @@ ms.lasthandoff: 02/23/2018
 * 執行引擎可觸達的其他項目
 
 >[!NOTE]
->在 HDInsight 叢集上執行時，Azure ML Workbench 會建立僅針對您執行的 conda 環境。 這可讓不同的使用者在相同個叢集上的不同 Python 環境中執行。  
+>在 HDInsight 叢集上執行時，Azure ML Workbench 會針對您特定的執行建立 conda 環境。 這可讓不同的使用者在相同個叢集上的不同 Python 環境中執行。  
 
 以下範例是典型的 **conda_dependencies.yml** 檔案。
 ```yaml
@@ -68,13 +68,13 @@ dependencies:
      - C:\temp\my_private_python_pkg.whl
 ```
 
-Azure ML Workbench 不需重建即可使用相同的 conda 環境，只要 **conda_dependencies.yml** 保持不變。 不過，如果這個檔案中發生任何變更，就會導致 Docker 映像重建。
+Azure ML Workbench 不需重建即可使用相同的 conda 環境，只要 **conda_dependencies.yml** 保持相同。 如果您的相依性改變，它將會重建您的環境。
 
 >[!NOTE]
 >如果您針對_本機_計算內容執行目標，就**不會**使用 **conda_dependencies.yml** 檔案。 必須手動安裝您本機 Azure ML Workbench Python 環境的套件相依性。
 
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
-當您提交必須安裝的 PySpark 指令碼和 Spark 套件時，這個檔案會指定 Spark 應用程式名稱。 您也可以指定任何公開 Maven 存放庫，以及可以在這些 Maven 存放庫中找到的 Spark 套件。
+當您提交必須安裝的 PySpark 指令碼和 Spark 套件時，這個檔案會指定 Spark 應用程式名稱。 您也可以指定公開 Maven 存放庫，以及可以在這些 Maven 存放庫中找到的 Spark 套件。
 
 下列是一個範例：
 
@@ -103,13 +103,13 @@ packages:
 ```
 
 >[!NOTE]
->諸如大小、核心等叢集微調參數應該移入 spark_dependecies.yml file 中的「組態」一節 
+>諸如背景工作大小及核心等叢集微調參數都應該移入 spark_dependecies.yml 檔案中的「組態」一節 
 
 >[!NOTE]
->如果您在 Python 環境中執行指令碼，就會忽略 spark_dependencies.yml 檔案。 僅在您針對 Spark (在 Docker 或 HDInsight 叢集上) 執行時才會有作用。
+>如果您在 Python 環境中執行指令碼，就會忽略 spark_dependencies.yml 檔案。 僅在您針對 Spark (在 Docker 或 HDInsight 叢集上) 執行時才會使用。
 
 ## <a name="run-configuration"></a>回合組態
-若要指定特定的回合組態，需要一組檔案。 它們通常是使用 CLI 命令所產生的。 但是，也可以複製現有的、加以重新命名並且編輯。
+若要指定特定回合組態，您需要 .compute 檔案和 .runconfig 檔案。 這些通常是使用 CLI 命令所產生的。 您也可以複製現有檔案、加以重新命名並且編輯。
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
@@ -125,10 +125,11 @@ $ az ml computetarget attach cluster -n <compute target name> -a <IP address or 
 > 回合組態檔的_本機_或 _docker_ 是任意名稱。 當您為方便起見而建立空白專案時，Azure ML Workbench 會新增這兩個回合組態。 您可以將專案範本隨附的 "<run configuration name>.runconfig" 檔案重新命名，或使用任何您需要的名稱建立新的檔案。
 
 ### <a name="compute-target-namecompute"></a>\<計算目標名稱>.compute
-_\<compute target name>.compute_ 檔案會指定用於計算目標的連線和組態資訊。 它是成對的名稱和數值清單。 以下是支援的設定。
+_\<compute target name>.compute_ 檔案會指定用於計算目標的連線和組態資訊。 它是成對的名稱和數值清單。 以下是支援的設定：
 
 **類型**：計算環境的類型。 支援的值包括：
   - local
+  - remote
   - docker
   - remotedocker
   - 叢集
@@ -146,6 +147,8 @@ _\<compute target name>.compute_ 檔案會指定用於計算目標的連線和�
 **nvidiaDocker**：相對於一般 _docker_ 命令是啟動 Docker 映像，當此旗標設定為 _true_ 時，會告訴 Azure ML 測試服務使用 _nvidia docker_ 命令。 _Nvidia docker_ 引擎可讓 Docker 容器存取 GPU 硬體。 如果您需要在 Docker 容器中執行 GPU 執行，就必須進行設定。 僅 Linux 主機支援 _nvidia-docker_。 例如，Azure 中以 Linux 為基礎的 DSVM 會隨附 _nvidia-docker_。 目前在 Windows 上不支援 _nvidia-docker_。
 
 **nativeSharedDirectory**：此屬性會指定基礎目錄 (例如：_~/.azureml/share/_)，可供檔案儲存，以在相同計算目標的執行上進行共用。 如果在 Docker 容器上執行時使用這個設定，_sharedVolumes_ 必須設定為 true。 否則，執行就會失敗。
+
+**userManagedEnvironment**：此屬性會指定此計算目標是由使用者直接管理或是透過實驗服務管理。  
 
 ### <a name="run-configuration-namerunconfig"></a>\<回合組態名稱>.runconfig
 _\<run configuration name>.runconfig_ 會指定 Azure ML 測試執行行為。 您可以設定諸如追蹤執行歷程記錄等執行行為，或是要與其他許多人共同使用的計算目標。 回合組態檔的名稱可用來填入 Azure ML Workbench 桌面應用程式中的執行內容下拉式清單。
@@ -189,7 +192,7 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **DataSourceSettings**：這個組態區段會指定資料來源設定。 在本節中，使用者會指定要作為執行一部分的特定資料來源的現有資料範例。 
 
-下列組態集會指定名為 "MySample" 的範例要用於名為 "MyDataSource" 的資料來源
+下列組態設定會指定名為 "MySample" 的範例要用於名為 "MyDataSource" 的資料來源
 ```
 DataSourceSettings:
     MyDataSource.dsource:

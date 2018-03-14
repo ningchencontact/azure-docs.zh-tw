@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.openlocfilehash: bf6cf780867f9ecf5c5be93dc28fe3e00a0c3f82
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b89071048594e1e11efb321da3d0b48005824b46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>監視、診斷與疑難排解 Microsoft Azure 儲存體
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -66,10 +66,11 @@ ms.lasthandoff: 02/14/2018
   * [用戶端收到 HTTP 409 (衝突) 訊息]
   * [度量顯示低 PercentSuccess，或是分析記錄項目內含具有 ClientOtherErrors 交易狀態的作業項目]
   * [容量度量顯示非預期的儲存體容量使用增加]
-  * [附加大量 VHD 的虛擬機器，出現非預期的重新開機情況]
   * [您的問題起因於使用儲存體模擬器進行開發或測試]
   * [安裝 Azure SDK for .NET 時發生問題]
   * [您的儲存體服務出現其他問題]
+  * [針對 Windows 虛擬機器上的 VHD 進行疑難排解](../../virtual-machines/windows/troubleshoot-vhds.md)   
+  * [針對 Linux 虛擬機器上的 VHD 進行疑難排解](../../virtual-machines/linux/troubleshoot-vhds.md)
   * [使用 Windows 針對 Azure 檔案服務問題進行疑難排解](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [使用 Linux 針對 Azure 檔案服務問題進行疑難排解](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [附錄]
@@ -124,12 +125,12 @@ ms.lasthandoff: 02/14/2018
 本小節剩下部分說明您應該監視的度量項目及這麼做的原因。
 
 ### <a name="monitoring-service-health"></a>監視服務健康情況
-您可以使用 [Azure 入口網站](https://portal.azure.com)來檢視全球所有 Azure 區域中儲存體服務 (及其他 Azure 服務) 的健康情況。 藉此可以立即瞭解，不受您控制的問題所影響的區域，是否也涵蓋了您為應用程式使用儲存體服務區域。
+您可以使用 [Azure 入口網站](https://portal.azure.com)來檢視全球所有 Azure 區域中儲存體服務 (及其他 Azure 服務) 的健康情況。 監視可讓您立即瞭解，不受您控制的問題所影響的區域，是否也涵蓋了您為應用程式使用儲存體服務區域。
 
 [Azure 入口網站](https://portal.azure.com)也可以針對會影響各種 Azure 服務的事件提供通知。
 注意：此項資訊之前會隨著歷程資料一起顯示在 [Azure 服務儀表板](http://status.azure.com)上。
 
-雖然 [Azure 入口網站](https://portal.azure.com)會從 Azure 資料中心內收集健康情況資訊 (從內到外的監視)，但是您也可以考慮採用從外到內的監視方式，從多個位置定期存取 Azure 裝載的 Web 應用程式，來產生綜合性的處理。 [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) 與 Application Insights for Visual Studio Team Services 所提供的各項服務，都是此由外到內的監視方式範例之一。 如需 Application Insights for Visual Studio Team Services 的詳細資訊，請參閱[附錄 5：使用 Application Insights for Visual Studio Team Services 監視](#appendix-5)。
+雖然 [Azure 入口網站](https://portal.azure.com)會從 Azure 資料中心內收集健康情況資訊 (從內到外的監視)，但是您也可以考慮採用從外到內的監視方式，從多個位置定期存取 Azure 裝載的 Web 應用程式，來產生綜合性的處理。 [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) 與 Application Insights for Visual Studio Team Services 所提供的各項服務，都是此監視方式的範例。 如需 Application Insights for Visual Studio Team Services 的詳細資訊，請參閱[附錄 5：使用 Application Insights for Visual Studio Team Services 監視](#appendix-5)。
 
 ### <a name="monitoring-capacity"></a>監視容量
 儲存體度量只會儲存 Blob 服務的容量度量，這是因為 Blob 通常佔已儲存的資料最大宗 (寫入期間無法使用儲存體度量來監視資料表與佇列的容量)。 如果您為 Blob 服務啟用監視功能的話，可以在 **$MetricsCapacityBlob** 資料表中找到這項資料。 儲存體度量每天會記錄這項資料一次，而您可以使用 **RowKey** 的值來判斷資料列是否包含與使用者資料 (值 **data**) 或分析資料 (值 **analytics**) 相關聯的實體。 每一個儲存的實體都含有使用的儲存體容量相關資訊 (以位元組數測量的 **Capacity**)，以及儲存體帳戶中使用的目前容器編號 (**ContainerCount**) 及 Blob (**ObjectCount**)。 如需 **$MetricsCapacityBlob** 資料表中儲存的容量度量詳細資訊，請參閱 [儲存體分析度量資料表結構描述](http://msdn.microsoft.com/library/azure/hh343264.aspx)。
@@ -181,7 +182,7 @@ ms.lasthandoff: 02/14/2018
 以下章節概述當您對這四個類別分別進行問題診斷與疑難排解時，應該遵循的步驟。 本指南稍後的「[疑難排解指引]」一節深入說明您可能會碰到的一些常見問題。
 
 ### <a name="service-health-issues"></a>服務健康情況問題
-服務健康情況問題通常是您無法掌控的部分。 [Azure 入口網站](https://portal.azure.com)會提供有關 Azure 服務 (包括儲存體服務) 之任何持續出現的問題相關資訊。 若您在建立儲存體帳戶時選擇使用「讀取存取異地備援備援儲存體」，則當主要位置無法提供您的資料時，您的應用程式會暫時切換到次要位置的唯讀副本。 若要這麼做，您的應用程式必須要能切換使用主要與次要儲存位置，並能在降低功能模式下使用唯讀資料。 Azure 儲存體用戶端程式庫可讓您定義重試原則，當無法從主要儲存體讀取資料時，才能嘗試從次要儲存體讀取資料。 您的應用程式還需要了解次要位置的資料最終會與主要位置的資料維持一致。 如需詳細資訊，請參閱部落格文章 [Azure 儲存體備援選項與讀取存取異地備援儲存體](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)。
+服務健康情況問題通常是您無法掌控的部分。 [Azure 入口網站](https://portal.azure.com)會提供有關 Azure 服務 (包括儲存體服務) 之任何持續出現的問題相關資訊。 若您在建立儲存體帳戶時選擇使用「讀取存取異地備援備援儲存體」，則當主要位置無法提供您的資料時，您的應用程式會暫時切換到次要位置的唯讀副本。 若要從次要位置讀取，您的應用程式必須要能切換使用主要與次要儲存位置，並能在降低功能模式下使用唯讀資料。 Azure 儲存體用戶端程式庫可讓您定義重試原則，當無法從主要儲存體讀取資料時，才能嘗試從次要儲存體讀取資料。 您的應用程式還需要了解次要位置的資料最終會與主要位置的資料維持一致。 如需詳細資訊，請參閱部落格文章 [Azure 儲存體備援選項與讀取存取異地備援儲存體](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)。
 
 ### <a name="performance-issues"></a>效能問題
 應用程式效能是很主觀的問題，尤其是從使用者觀點來看。 因此，我們需要一套基準度量來協助您識別出現效能問題的位置。 從用戶端應用程式觀點來看，許多因素都會影響 Azure 儲存體服務的效能。 這些因素可能會影響儲存體服務、用戶端或是網路基礎結構，因此我們有必要制訂策略來找出效能問題的源頭。
@@ -245,7 +246,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 * 在伺服器端的儲存體記錄中，用戶端要求用戶端要求識別碼會顯示在用戶端要求用戶端要求識別碼資料行。
 
 > [!NOTE]
-> 多個要求可以共用同一個用戶端要求識別碼，這是因為用戶端可以指派此值 (雖然儲存體用戶端程式庫會自動指派新的值)。 如果重試來自用戶端，則所有嘗試都共用相同的用戶端要求識別碼。 如果批次是從用戶端傳送，則該批次具有單一用戶端要求識別碼。
+> 多個要求可以共用同一個用戶端要求識別碼，這是因為用戶端可以指派此值 (雖然儲存體用戶端程式庫會自動指派新的值)。 當用戶端重試時，則所有嘗試都會共用相同的用戶端要求識別碼。 如果批次是從用戶端傳送，則該批次具有單一用戶端要求識別碼。
 > 
 > 
 
@@ -298,7 +299,7 @@ catch (StorageException storageException)
 ```
 
 ### <a name="timestamps"></a>時間戳記
-您也可以使用時間戳記找到相關的記錄項目，但是要注意任何可能存在用戶端與伺服器之間的時鐘誤差。 您應該依據用戶端上的時間戳記，搜尋前後誤差 15 分鐘之內相符的伺服器端記錄項目。 請記住，針對內含度量的 Blob 所產生的 Blob 中繼資料，代表儲存在 Blob 中的度量時間範圍，當您在同一分鐘或小時內擁有太多度量 Blob 時，這項資料相當有用。
+您也可以使用時間戳記找到相關的記錄項目，但是要注意任何可能存在用戶端與伺服器之間的時鐘誤差。 依據用戶端上的時間戳記，搜尋前後誤差 15 分鐘之內相符的伺服器端記錄項目。 請記住，針對內含度量的 Blob 所產生的 Blob 中繼資料，代表儲存在 Blob 中的度量時間範圍。 如果您在同一分鐘或小時內擁有太多度量 Blob，此時間範圍相當有用。
 
 ## <a name="troubleshooting-guidance"></a>疑難排解指引
 本小節將在您使用 Azure 儲存體服務時，協助您針對應用程式可能會碰到的一些常見問題進行診斷與疑難排解。 請使用下列清單，找到與您的特定問題相關的資訊。
@@ -351,7 +352,7 @@ catch (StorageException storageException)
 
 ![][4]
 
-請注意，儲存體服務只會計算成功要求的度量 **AverageE2ELatency**，不像 **AverageServerLatency** 會將用戶端用來傳送資料與接收儲存體服務認可所需的時間納入計算。 因此，**AverageE2ELatency** 與 **AverageServerLatency** 之間的差異可能是因為用戶端應用程式回應速度太慢，或是其他網路狀況所引起。
+儲存體服務只會計算成功要求的度量 **AverageE2ELatency**，不像 **AverageServerLatency** 會將用戶端用來傳送資料與接收儲存體服務認可所需的時間納入計算。 因此，**AverageE2ELatency** 與 **AverageServerLatency** 之間的差異可能是因為用戶端應用程式回應速度太慢，或是其他網路狀況所引起。
 
 > [!NOTE]
 > 您也可以在儲存體記錄資料中，檢視個別儲存體作業的 **E2ELatency** 與 **ServerLatency**。
@@ -361,7 +362,7 @@ catch (StorageException storageException)
 #### <a name="investigating-client-performance-issues"></a>調查用戶端效能問題
 用戶端回應速度較慢的可能原因包括可用的連線或執行緒數量有限或資源 (例如 CPU、記憶體或網路頻寬) 不足。 您可以試著將用戶端程式碼修改得更有效率 (例如對儲存體服務使用非同步呼叫) 或是使用較大型的虛擬機器 (核心數量增加，記憶體容量加大) 來解決這個問題。
 
-對於資料表和佇列服務，Nagle 演算法也可能導致相較於 **AverageServerLatency** 的高 **AverageE2ELatency**。如需詳細資訊，請參閱 [Nagle 演算法不適用於小型要求 (英文)](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) 一文。 您可以在 **System.Net** 命名空間中使用 **ServicePointManager** 類別，來停用程式碼中的 Nagle 演算法。 由於這麼做會影響已經開啟的連線，因此在對應用程式裡的資料表或佇列服務進行任何呼叫之前，請先完成這個動作。 以下範例來自背景工作角色裡的 **Application_Start** 方法。
+對於資料表和佇列服務，Nagle 演算法也可能導致相較於 **AverageServerLatency** 的高 **AverageE2ELatency**。如需詳細資訊，請參閱 [Nagle 演算法不適用於小型要求](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx)一文。 您可以在 **System.Net** 命名空間中使用 **ServicePointManager** 類別，來停用程式碼中的 Nagle 演算法。 由於這麼做會影響已經開啟的連線，因此在對應用程式裡的資料表或佇列服務進行任何呼叫之前，請先完成這個動作。 以下範例來自背景工作角色裡的 **Application_Start** 方法。
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -385,7 +386,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 用戶端延遲傳送要求的可能原因之一，是可用的連線或執行緒數量有限。
 
-您應該同時檢查用戶端是否執行多次的重試，並調查是否真是如此。 若要判斷用戶端是否正在執行多次的重試，您可以：
+同時檢查用戶端是否執行多次的重試，並調查此種狀況的原因。 若要判斷用戶端是否正在執行多次的重試，您可以：
 
 * 檢查 Storage Analytics 記錄檔。 如果發生多次重試，您會看到多個作業使用相同的用戶端要求 ID，但使用不同的伺服器要求 ID。
 * 檢查用戶端記錄檔。 詳細資訊記錄會指出已發生的重試。
@@ -398,7 +399,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 如需使用 Microsoft Message Analyzer 對網路問題進行疑難排解的詳細資訊，請參閱[附錄 3：使用 Microsoft Message Analyzer 擷取網路流量]。
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>度量顯示高 AverageServerLatency
-當 Blob 下載要求出現高 **AverageServerLatency** 的時候，請使用儲存體記錄功能來查看同一個 Blob (或是 Blob 集合) 是否重複出現要求。 在 Blob 上傳要求中，您應該調查用戶端所使用的區塊大小 (例如，小於 64K 的區塊大小，可能導致額外的負荷，除非讀取的區塊流量也小於 64K)，以及是否有多個用戶端同時間上傳區塊給同一個 Blob。 您也應該查看每分鐘度量，確認是否有要求數量突然增加而導致超出每秒延展性目標的情況：另請參閱[度量顯示 PercentTimeoutError 增加]。
+當 Blob 下載要求出現高 **AverageServerLatency** 的時候，請使用儲存體記錄功能來查看同一個 Blob (或是 Blob 集合) 是否重複出現要求。 在 Blob 上傳要求中，您應該調查用戶端所使用的區塊大小 (例如，小於 64 K 的區塊大小，可能導致額外的負荷，除非讀取的區塊流量也小於 64 K)，以及是否有多個用戶端同時間上傳區塊給同一個 Blob。 您也應該查看每分鐘度量，確認是否有要求數量突然增加而導致超出每秒延展性目標的情況：另請參閱[度量顯示 PercentTimeoutError 增加]。
 
 當同一個 Blob 或 Blob 集合不斷收到重複的要求，而且 Blob 下載要求出現高 **AverageServerLatency** 時，您應該考慮使用 Azure 快取或是 Azure 內容傳遞網路 (CDN) 快取處理這些 Blob。 關於上傳要求，您可以使用較大的區塊大小來改善輸送量。 關於資料表查詢，您也可以對執行相同查詢操作，且資料不會經常變動的用戶端，實作用戶端快取處理。
 
@@ -415,11 +416,11 @@ queueServicePoint.UseNagleAlgorithm = false;
 * 確認應用程式成功新增下列訊息至佇列。 檢查該應用程式在成功之前沒有多次重試 **AddMessage** 方法。 儲存體用戶端程式庫記錄會顯示儲存體作業的重複嘗試情況。
 * 請確認負責將訊息新增至佇列的背景工作角色，以及負責從佇列讀取訊息的背景工作角色之間，沒有出現會讓人覺得處理出現延遲的時鐘誤差。
 * 檢查負責從佇列讀取訊息的背景工作角色是否失敗。 如果佇列用戶端呼叫 **GetMessage** 方法，但卻無法藉由認可來回應，該訊息會隱藏在佇列中，直到 **invisibilityTimeout** 期間到期為止。 此時，訊息才會再次可供處理。
-* 檢查佇列長度在一段時間之後是否又增加了。 當您沒有足夠的背景工作來處理其他背景工作放在佇列上的所有訊息時，就會出現這個情況。 您應該同時檢查度量，查看刪除要求是否失敗，以及訊息上是否有解除佇列計數，後者可能代表刪除訊息的嘗試一再失敗。
+* 檢查佇列長度在一段時間之後是否又增加了。 當您沒有足夠的背景工作來處理其他背景工作放在佇列上的所有訊息時，就會出現這個情況。 同時檢查度量，查看刪除要求是否失敗，以及訊息上是否有解除佇列計數，後者可能代表刪除訊息的嘗試一再失敗。
 * 檢查儲存體記錄中，是否有任何佇列作業在超出慣常的期間內，產生超出預期的 **E2ELatency** 與 **ServerLatency** 值。
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>度量顯示 PercentThrottlingError 增加
-當超出儲存體服務的延展性目標時，會出現節流錯誤。 儲存體服務這麼做是為了確保沒有任何用戶端或是租用戶可犧牲其他服務來使用這項服務。 如需儲存體帳戶之延展性目標及儲存體帳戶內資料分割之效能目標的詳細資訊，請參閱 [Azure 儲存體延展性與效能目標](storage-scalability-targets.md)。
+當超出儲存體服務的延展性目標時，會出現節流錯誤。 儲存體服務節流是為了確保沒有任何用戶端或是租用戶可犧牲其他服務來使用這項服務。 如需儲存體帳戶之延展性目標及儲存體帳戶內資料分割之效能目標的詳細資訊，請參閱 [Azure 儲存體延展性與效能目標](storage-scalability-targets.md)。
 
 如果 **PercentThrottlingError** 度量顯示失敗的要求百分比增加且出現節流錯誤時，您應該調查下列其中一個情況：
 
@@ -429,7 +430,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 **PercentThrottlingError** 的增加通常會伴隨著儲存體要求數量增加一起發生，或是當您第一次對應用程式進行負載測試時。 當儲存體作業出現「503 伺服器忙碌」或是「500 作業逾時」狀態訊息時，用戶端也會明顯出現這個情況。
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>PercentThrottlingError 的暫時性增加
-如果應用程式中與高活動期間同時發生的 **PercentThrottlingError** 值突然增加，則您應該在用戶端中針對重試作業實作指數型 (而非線性) 撤退策略：這會減少資料分割上的即時負載，協助應用程式緩和突然增加的流量。 如需有關如何使用「儲存體用戶端程式庫」實作重試原則的詳細資訊，請參閱 [Microsoft.WindowsAzure.Storage.RetryPolicies 命名空間](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx)。
+如果應用程式中與高活動期間同時發生的 **PercentThrottlingError** 值突然增加，則您會在用戶端中針對重試作業實作指數型 (而非線性) 輪詢策略。 輪詢重試會減少資料分割上的即時負載，協助應用程式緩和突然增加的流量。 如需有關如何使用「儲存體用戶端程式庫」實作重試原則的詳細資訊，請參閱 [Microsoft.WindowsAzure.Storage.RetryPolicies 命名空間](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx)。
 
 > [!NOTE]
 > **PercentThrottlingError** 值的突然增加也可能與應用程式的大量活動期間非同時發生：最可能的原因是儲存體服務移動資料分割以改善負載平衡。
@@ -437,7 +438,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 > 
 
 #### <a name="permanent-increase-in-PercentThrottlingError"></a>PercentThrottlingError 錯誤中的永久性增加
-如果發現 **PercentThrottlingError** 值持續維持在高點，而且交易量也不斷地攀升，或是當您初次在應用程式上執行負載測試，您需要評估應用程式使用儲存體分割的方式，及其是否接近儲存體帳戶的延展性目標。 舉例來說，當您發現某個佇列 (作為單一資料分割納入計算) 出現節流錯誤，那麼您應該考慮採用額外的佇列，將所有交易分散到多個分割。 如果您發現某個資料表出現節流錯誤，您需要考慮採用不同的資料分割結構描述，並使用範圍較大的資料分割索引鍵，將所有交易分散到多個資料分割。 此問題的常見原因出在結尾附加/開頭附加的反模式，在此模式下您可以選取日期作為資料分割索引鍵，然後特定日期的所有資料就會寫入單一資料分割中：在負載情況下，這項作業會導致寫入瓶頸。 您應該考慮採用不同的資料分割設計，或是評估使用 Blob 儲存體是否會更好。 您應該同時檢查節流錯誤是否因為大量湧入流量而引起，並調查如何緩和要求模式。
+如果發現 **PercentThrottlingError** 值持續維持在高點，而且交易量也不斷地攀升，或是當您初次在應用程式上執行負載測試，您需要評估應用程式使用儲存體分割的方式，及其是否接近儲存體帳戶的延展性目標。 舉例來說，當您發現某個佇列 (作為單一資料分割納入計算) 出現節流錯誤，那麼您應該考慮採用額外的佇列，將所有交易分散到多個分割。 如果您發現某個資料表出現節流錯誤，您需要考慮採用不同的資料分割結構描述，並使用範圍較大的資料分割索引鍵，將所有交易分散到多個資料分割。 此問題的常見原因出在結尾附加/開頭附加的反模式，在此模式下您可以選取日期作為資料分割索引鍵，然後特定日期的所有資料就會寫入單一資料分割中：在負載情況下，這項作業會導致寫入瓶頸。 請考慮採用不同的資料分割設計，或是評估使用 Blob 儲存體是否會更好。 同時檢查節流錯誤是否因為大量湧入流量而引起，並調查如何緩和要求模式。
 
 如果您將所有交易分散到多個資料分割，您必須同時注意儲存體帳戶所設定的延展性限制。 舉例來說，當您使用 10 個佇列，而每個佇列每秒鐘最多可處理 2,000 個 1KB 大小的訊息時，儲存體帳戶的總體限制將為每秒鐘 20,000 則訊息。 當您每秒鐘需要處理超過 20,000 個實體時，請考慮使用多個儲存體帳戶。 請同時注意，您的要求與實體大小會對儲存體服務何時節流您的用戶端產生影響：如果您有較大型的要求與實體，則會較優先進行節流。
 
@@ -465,7 +466,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 ### <a name="metrics-show-an-increase-in-PercentNetworkError"></a>度量顯示 PercentNetworkError 增加
 您的度量顯示其中一個儲存體服務的 **PercentNetworkError** 有增加情況。 **PercentNetworkError** 度量是下列度量的彙總：**NetworkError**、**AnonymousNetworkError** 及 **SASNetworkError**。 當儲存體服務在用戶端進行儲存體要求時偵測到網路錯誤，就會發生這類情況。
 
-此錯誤最常見的原因，就是用戶端在儲存體服務逾時之前就中斷連線。 您應該調查用戶端裡的程式碼，了解用戶端何時及為何與儲存體服務中斷連線。 您還可以使用 Wireshark、Microsoft Message Analyzer 或是 Tcping 調查來自用戶端的網路連線問題。 這些工具如 [附錄]所述。
+此錯誤最常見的原因，就是用戶端在儲存體服務逾時之前就中斷連線。 請調查用戶端裡的程式碼，了解用戶端何時及為何與儲存體服務中斷連線。 您還可以使用 Wireshark、Microsoft Message Analyzer 或是 Tcping 調查來自用戶端的網路連線問題。 這些工具如 [附錄]所述。
 
 ### <a name="the-client-is-receiving-403-messages"></a>用戶端收到 HTTP 403 (禁止) 訊息
 如果您的用戶端應用程式擲回 HTTP 403 (禁止) 錯誤，則可能是因為用戶端在傳送儲存體要求時使用過期的共用存取簽章 (SAS) (但也可能是時鐘誤差、無效的金鑰與空白標頭引起)。 如果原因出在 SAS 金鑰過期，那麼您將無法在伺服器端的儲存體記錄資料中看到任何項目。 下列資料表以儲存體用戶端程式庫所產生的用戶端記錄為例，說明此問題的原因：
@@ -475,7 +476,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 | Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab-… |從主要位置開始作業 (依據位置模式 PrimaryOnly)。 |
 | Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |開始將要求同步至 https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14  |
 | Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |等候回應。 |
-| Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止... |
+| Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止。 |
 | Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |收到回應。 狀態碼 = 403，要求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = . |
 | Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |作業期間擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止... |
 | Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |檢查是否應該重試作業。 重試計數 = 0，HTTP 狀態碼 = 403，例外狀況 = 遠端伺服器傳回錯誤：(403) 禁止. |
@@ -485,11 +486,11 @@ queueServicePoint.UseNagleAlgorithm = false;
 在此案例中，您應該調查 SAS 權杖為何在用戶端將權杖傳送給伺服器之前到期：
 
 * 一般來說，當您為用戶端建立要使用的 SAS，不應該立即設定開始時間。 如果使用目前時間來產生 SAS 的主機，以及儲存體服務之間出現些微的時鐘誤差，則儲存體服務有可能收到尚未生效的 SAS。
-* 您不應該設定極短暫的 SAS 到期時間。 再說一次，產生 SAS 的主機，以及儲存體服務之間出現些微的時鐘誤差時，會導致 SAS 明顯比預期時間早到期。
+* 請勿設定極短暫的 SAS 到期時間。 再說一次，產生 SAS 的主機，以及儲存體服務之間出現些微的時鐘誤差時，會導致 SAS 明顯比預期時間早到期。
 * SAS 金鑰中的版本參數 (例如 **sv=2015-04-05**) 是否與您所使用的儲存體用戶端程式庫版本相符。 建議您一律使用最新版的 [儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)。
-* 如果您重新產生儲存體存取金鑰，會讓任何現有的 SAS 權杖失效。 如果您產生的 SAS 權杖，內含很長的到期時間以便用戶端應用程式快取處理，則可能會出現問題。
+* 如果您重新產生儲存體存取金鑰，則所有現有的 SAS 權杖都會失效。 如果您產生的 SAS 權杖內含很長的到期時間，以便用戶端應用程式快取處理，則可能會發生此問題。
 
-如果您是使用儲存體用戶端程式庫來產生 SAS 權杖，則您可以輕易地建立有效的權杖。 不過，如果是使用「儲存體 REST API」並且是手動建構 SAS 權杖，您應該仔細閱讀 [使用共用存取簽章委派存取](http://msdn.microsoft.com/library/azure/ee395415.aspx)主題。
+如果您是使用儲存體用戶端程式庫來產生 SAS 權杖，則您可以輕易地建立有效的權杖。 不過，如果是使用儲存體 REST API 並手動建構 SAS 權杖，請參閱[使用共用存取簽章委派存取](http://msdn.microsoft.com/library/azure/ee395415.aspx)。
 
 ### <a name="the-client-is-receiving-404-messages"></a>用戶端收到 HTTP 404 (找不到) 訊息
 當用戶端應用程式接收來自伺服器的 HTTP 404 (找不到) 訊息時，表示用戶端嘗試使用的物件 (例如，實體、資料表、Blob、容器或佇列) 並不存在儲存體服務中。 這種情況有數種可能的原因，例如：
@@ -557,7 +558,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 | de8b1c3c-... |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(404) 找不到. |
 | e2d06d78-... |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(409) 衝突. |
 
-在此範例中，記錄顯示用戶端正將來自 **UploadFromStream** 方法的要求 (de8b1c3c-...) 穿插到來自 **CreateIfNotExists** 方法 (要求 ID e2d06d78…) 的要求；而這種現象是因為用戶端應用程式正以非同步方式叫用這些方法所致。 您應該修改用戶端裡的非同步程式碼，確保該程式碼在嘗試將任何資料上傳至容器的 Blob 之前，先建立該容器。 理想的情況是，您應該事先建立所有容器。
+在此範例中，記錄顯示用戶端正將來自 **UploadFromStream** 方法的要求 (de8b1c3c-...) 穿插到來自 **CreateIfNotExists** 方法 (要求 ID e2d06d78…) 的要求。這種穿插現象是因為用戶端應用程式正以非同步方式叫用這些方法所致。 請修改用戶端裡的非同步程式碼，確保該程式碼在嘗試將任何資料上傳至容器的 Blob 之前，先建立該容器。 理想的情況是，您應該事先建立所有容器。
 
 #### <a name="SAS-authorization-issue"></a>共用存取簽章 (SAS) 授權問題
 如果用戶端應用程式嘗試使用的 SAS 金鑰並未包含作業的必要權限，則儲存體服務會將 HTTP 404 (找不到) 訊息傳回給用戶端。 這時，您會在度量當中同時看到非零的 **SASAuthorizationError** 值。
@@ -574,11 +575,11 @@ queueServicePoint.UseNagleAlgorithm = false;
 | 服務類型       | Blob                         |
 | 要求 URL        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
-| 要求 ID 標頭  | a1f348d5-8032-4912-93ef-b393e5252a3b |
+| 要求識別碼標頭  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | 用戶端要求 ID  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
 
-您應該調查為何您的用戶端應用程式會嘗試執行無執行權限的作業。
+調查為何您的用戶端應用程式會嘗試執行無執行權限的作業。
 
 #### <a name="JavaScript-code-does-not-have-permission"></a>用戶端 JavaScript 程式碼沒有存取該物件的權限
 如果您使用的是 JavaScript 用戶端，而儲存體服務傳回 HTTP 404 訊息，則請在瀏覽器中檢查下列 JavaScript 錯誤：
@@ -618,7 +619,7 @@ client.SetServiceProperties(sp);
 #### <a name="network-failure"></a>網路失敗
 在某些情況中，遺失網路封包可能導致儲存體服務將 HTTP 404 訊息傳回給用戶端。 舉例來說，當您的用戶端應用程式正在刪除資料表服務中的某個實體，您看到該用戶端正從資料表服務擲回一個回報「HTTP 404 (找不到)」狀態訊息的儲存體例外。 當您調查資料表儲存體服務中的資料表時，會看到該服務已依要求刪除該實體。
 
-用戶端中的例外狀況詳細資料會包括表格服務為要求指派的要求 ID (7e84f12d...)：您可以使用這項資訊，藉由搜尋記錄檔中的 **request-id-header** 資料行，在伺服器端儲存體記錄中尋找要求詳細資料。 您也可以使用度量，判定此類失敗情況何時發生，然後依據度量記錄此錯誤的時間搜尋記錄檔。 此記錄項目顯示刪除作業失敗，並顯示「HTTP (404) 用戶端其他錯誤」的狀態訊息。 同一個記錄項目同時包含了用戶端在 **client-request-id** 資料欄中所產生的要求 ID (813ea74f…)。
+用戶端中的例外狀況詳細資料會包括表格服務為要求指派的要求識別碼 (7e84f12d...)：您可以使用這項資訊，藉由搜尋記錄檔中的 **request-id-header** 資料行，在伺服器端儲存體記錄中尋找要求詳細資料。 您也可以使用度量，判定此類失敗情況何時發生，然後依據度量記錄此錯誤的時間搜尋記錄檔。 此記錄項目顯示刪除作業失敗，並顯示「HTTP (404) 用戶端其他錯誤」的狀態訊息。 同一個記錄項目同時包含了用戶端在 **client-request-id** 資料欄中所產生的要求識別碼 (813ea74f…)。
 
 伺服器端記錄還包含帶有相同 **client-request-id** 值的另一個項目 (813ea74f…)，這個值是來自同一個實體與同一個用戶端順利完成的刪除作業所產生。 此順利完成的刪除作業會在刪除要求失敗之前很快地發生。
 
@@ -627,7 +628,7 @@ client.SetServiceProperties(sp);
 如果這個問題經常發生，您應該調查為何用戶端無法收到來自資料表服務的認可。 如果此問題是間歇性發生，您應該捕捉「HTTP (404) 找不到」錯誤並記錄在用戶端裡，但同時允許用戶端繼續作業。
 
 ### <a name="the-client-is-receiving-409-messages"></a>用戶端收到 HTTP 409 (衝突) 訊息
-下表顯示來自伺服器端記錄檔的兩項用戶端作業摘要：**DeleteIfExists** 隨後緊接使用相同 Blob 容器名稱的 **CreateIfNotExists**。 請注意，每個用戶端作業都會導致兩個要求傳送至伺服器，首先傳送的 **GetContainerProperties** 要求會檢查該容器是否存在，緊接著會傳送 **DeleteContainer** 或 **CreateContainer** 要求。
+下表顯示來自伺服器端記錄檔的兩項用戶端作業摘要：**DeleteIfExists** 隨後緊接使用相同 Blob 容器名稱的 **CreateIfNotExists**。 每個用戶端作業都會導致兩個要求傳送至伺服器，首先傳送的 **GetContainerProperties** 要求會檢查該容器是否存在，緊接著會傳送 **DeleteContainer** 或 **CreateContainer** 要求。
 
 | Timestamp | 作業 | 結果 | 容器名稱 | 用戶端要求 ID |
 | --- | --- | --- | --- | --- |
@@ -654,12 +655,6 @@ client.SetServiceProperties(sp);
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>容量度量顯示非預期的儲存體容量使用增加
 如果您發現儲存體帳戶裡突然出現非預期的容量改變，可以先查看可用性度量來調查原因。舉例來說，刪除要求的失敗次數一旦增加，可能會造成您所使用的 Blob 儲存體數量增加，這是因為您認為應該可以釋放一些空間的特定應用程式清除作業沒有如預期發揮作用所致 (例如，因為用於釋放空間的 SAS 權杖已經過期)。
 
-### <a name="you-are-experiencing-unexpected-reboots"></a>附加大量 VHD 的 Azure 虛擬機器出現非預期的重新開機情況
-當 Azure 虛擬機器 (VM) 裡有大量的附加 VHD 位於同一個儲存體帳戶內時，您可能會超出個別儲存體帳戶的延展性目標，導致 VM 作業失敗。 您應該檢查儲存體帳戶的每分鐘度量 (**TotalRequests**/**TotalIngress**/**TotalEgress**)，查看是否有超出儲存體帳戶延展性目標的流量暴增情況。 請參閱「[度量顯示 PercentThrottlingError 增加]」一節，取得如何判斷儲存體帳戶是否發生節流作業的協助。
-
-一般來說，VHD 每次來自虛擬機器的個別流量輸入或輸出，都會在底層的分頁 Blob 上轉換為 **Get Page** 或 **Put Page** 作業。 因此，您可以在環境中使用預估的 IOPS，依據應用程式的特定行為調節單一儲存體帳戶中應該具備的 VHD 數量。 我們不建議單一儲存體帳戶內具備超過 40 的磁碟。 如需儲存體帳戶目前延展性目標的詳細資訊，尤其是您所使用之儲存體帳戶類型的要求率總計和頻寬總計，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)。
-如果您超過儲存體帳戶的延展性目標，則應該將 VHD 放在多個不同儲存體帳戶，以減少每個個別帳戶中的活動。
-
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>您的問題起因於使用儲存體模擬器進行開發或測試
 通常您會在開發與測試期間使用儲存體模擬器，來迴避 Azure 儲存體帳戶的要求。 以下列出您在使用儲存體模擬器時，常見的問題：
 
@@ -682,7 +677,7 @@ client.SetServiceProperties(sp);
 #### <a name="storage-emulator-requires-administrative-privileges"></a>執行儲存體模擬器需要系統管理員權限
 當您執行儲存體模擬器時，系統會提示您輸入系統管理員認證。 這種情況只會在您首次初始化儲存體模擬器時才會發生。 一旦儲存體模擬器初始化完畢後，您就不需要具備系統管理員權限才能再次執行。
 
-如需詳細資訊，請參閱 [使用 Azure 儲存體模擬器進行開發和測試](storage-use-emulator.md)。 請注意，您也可以在 Visual Studio 中初始化儲存體模擬器，而這也需要系統管理員權限。
+如需詳細資訊，請參閱 [使用 Azure 儲存體模擬器進行開發和測試](storage-use-emulator.md)。 您也可以在 Visual Studio 中初始化儲存體模擬器，而這也需要系統管理員權限。
 
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>安裝 Azure SDK for .NET 時發生問題
 當您嘗試安裝 SDK 時，系統在您的本機電腦上安裝儲存體模擬器時失敗。 安裝記錄內含下列其中一則訊息：
@@ -755,7 +750,7 @@ WireShark 會反白顯示任何存在 **packetlist** 視窗的錯誤。 您也�
 
 ![][7]
 
-您也可以選擇應用程式層所顯示的 TCP 資料，方法是以滑鼠右鍵按一下 TCP 資料，然後選取 [Follow TCP Stream] \(追蹤 TCP 資料流\)。 當您不使用擷取篩選器而擷取到傾印時，這個方法會特別有用。 如需詳細資訊，請參閱 [追蹤 TCP 串流](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)。
+您也可以選擇應用程式層所顯示的 TCP 資料，方法是以滑鼠右鍵按一下 TCP 資料，然後選取 [Follow TCP Stream] \(追蹤 TCP 資料流\)。 當您不使用擷取篩選器而擷取到傾印時，這個方法很有用。 如需詳細資訊，請參閱 [追蹤 TCP 串流](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)。
 
 ![][8]
 
@@ -813,7 +808,7 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 您也可以在效能與可用性監視作業中，使用 Visual Studio Online 的「Application Insights」功能。 這項工具可以：
 
 * 確保您的 Web 服務可用且迅速回應。 無論您的應用程式是網站或是使用 Web 服務的裝置應用程式，此工具都可以每幾分鐘從全球各地測試您的 URL，然後讓您知道是否有問題。
-* 快速診斷 Web 服務中的任何效能問題或例外。 了解 CPU 或其他資源是否過度使用，從例外中取得堆疊追蹤資料，並且輕鬆地搜尋記錄追蹤項目。 當應用程式的效能低於可接受的範圍，我們可以傳送一封電子郵件給您。 我們可以同時監視 .NET 與 Java Web 服務。
+* 快速診斷 Web 服務中的任何效能問題或例外。 了解 CPU 或其他資源是否過度使用，從例外中取得堆疊追蹤資料，並且輕鬆地搜尋記錄追蹤項目。 當應用程式的效能低於可接受的範圍，Microsoft 可以傳送一封電子郵件給您。 我們可以同時監視 .NET 與 Java Web 服務。
 
 您可以在[什麼是 Application Insights](../../application-insights/app-insights-overview.md) 中找到詳細資訊。
 
@@ -863,7 +858,6 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 
 [度量顯示低 PercentSuccess，或是分析記錄項目內含具有 ClientOtherErrors 交易狀態的作業項目]: #metrics-show-low-percent-success
 [容量度量顯示非預期的儲存體容量使用增加]: #capacity-metrics-show-an-unexpected-increase
-[附加大量 VHD 的虛擬機器，出現非預期的重新開機情況]: #you-are-experiencing-unexpected-reboots
 [您的問題起因於使用儲存體模擬器進行開發或測試]: #your-issue-arises-from-using-the-storage-emulator
 [儲存體模擬器裡的功能 "X" 未能發揮作用]: #feature-X-is-not-working
 [使用儲存體模擬器時，發生「其中一個 HTTP 標頭的值格式不正確」錯誤]: #error-HTTP-header-not-correct-format

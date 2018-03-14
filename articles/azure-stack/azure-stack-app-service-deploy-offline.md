@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 89571468e7f74f45bc1b679737f634fa0c76fa07
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c42aaabd27afeb9e7fdd0b9add3de62a2d00eeaf
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>將 App Service 資源提供者新增至中斷連線且受 AD FS 保護的 Azure Stack 環境
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
@@ -83,7 +83,7 @@ ms.lasthandoff: 02/21/2018
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image03.png)
 
-8. 輸入檔案共用的資訊，然後按 [下一步]。 檔案共用的位址必須使用檔案伺服器的完整網域名稱 (例如 \\\appservicefileserver.local.cloudapp.azurestack.external\websites) 或 IP 位址 (例如 \\\10.0.0.1\websites)。
+8. 輸入檔案共用的資訊，然後按 [下一步]。 檔案共用的位址必須使用檔案伺服器的完整網域名稱或是 IP 位址。 例如，\\\appservicefileserver.local.cloudapp.azurestack.external\websites 或 \\\10.0.0.1\websites。
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image04.png)
 

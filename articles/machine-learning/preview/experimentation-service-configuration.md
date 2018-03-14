@@ -5,16 +5,16 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f93c74d0c2f66e6a5001289efca07f074e3d3c5a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>設定 Azure Machine Learning 測試服務
 
@@ -27,9 +27,10 @@ Azure Machine Learning 測試服務可讓資料科學家使用 Azure Machine Lea
 
 您可以在以下位置執行指令碼： 
 
-* Workbench 安裝在本機電腦上的 Python (3.5.2) 環境。
+* Workbench 安裝在本機電腦上的 Python (3.5.2) 環境
 * 本機電腦上 Docker 容器內部的 Conda Python 環境
-* 遠端 Linux 電腦上 Docker 容器內部的 Conda Python 環境。 例如，[Azure 上以 Ubuntu 作為基礎的 DSVM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
+* 遠端 Linux 機器上由您擁有及管理的 Python 環境
+* 遠端 Linux 電腦上 Docker 容器內部的 Conda Python 環境。 例如，[Azure 上以 Ubuntu 為基礎的 DSVM] (https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * Azure 上的 [HDInsight for Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/)
 
 >[!IMPORTANT]
@@ -47,6 +48,7 @@ CLI 中的 _az ml computetarget attach_ 命令可讓您建立能用於執行中�
 支援的計算節點包括：
 * Workbench 安裝在電腦上的本機 Python (3.5.2) 環境。
 * 電腦上的本機 Docker
+* 遠端 Linux-Ubuntu VM 上由使用者管理的 Python 環境。 例如，[Azure 上以 Ubuntu 作為基礎的 DSVM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * Linux Ubuntu VM 上的遠端 Docker。 例如，[Azure 上以 Ubuntu 作為基礎的 DSVM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * Azure 上的 [HDInsight for Spark 叢集](https://azure.microsoft.com/services/hdinsight/apache-spark/)
 
@@ -75,8 +77,8 @@ Workbench 中的回合組態也可讓您指定環境變數。 您可以指定環
 
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+    "EXAMPLE_ENV_VAR1": "Example Value1"
+    "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 可以在您的程式碼中存取這些環境變數。 例如，此 Phyton 程式碼片段會列印名為 "EXAMPLE_ENV_VAR1" 的環境變數
@@ -101,7 +103,7 @@ _**下圖顯示初始實驗執行的高階流程。**_
 這個命令會啟動終端機視窗，您可以在其中輸入命令，以在目前的專案資料夾中執行指令碼。 此終端機視窗是使用 Workbench 所安裝的 Python 3.5.2 環境設定。
 
 >[!NOTE]
-> 當您從命令視窗中執行任何 _az ml_ 命令時，需要針對 Azure 進行驗證。 CLI 會使用獨立的驗證快取，然後是桌面應用程式，因此登入 Workbench 並不表示已在 CLI 環境中進行驗證。 如需進行驗證，請依照下列步驟執行。 驗證權杖會在本機快取一段時間，讓您只在權杖過期時，才需要重複這些步驟。 當權杖到期或您看到驗證錯誤時，請執行下列命令：
+> 當您從命令視窗中執行任何 _az ml_ 命令時，需要針對 Azure 進行驗證。 CLI 會使用獨立的驗證快取，然後是桌面應用程式，因此登入 Workbench 並不表示已在 CLI 環境中進行驗證。 若要驗證，請使用下列步驟。 驗證權杖會在本機快取一段時間，讓您只在權杖過期時，才需要重複這些步驟。 當權杖到期或您看到驗證錯誤時，請執行下列命令：
 
 ```
 # to authenticate 
@@ -124,7 +126,7 @@ $ az account show
 ## <a name="running-scripts-and-experiments"></a>執行指令碼和實驗
 您可以透過 Workbench，使用 _az ml experiment submit_ 命令在各種計算目標上執行您的 Python 和 PySpark 指令碼。 此命令需要回合組態定義。 
 
-當您建立計算目標時，Workbench 會建立對應的 .runconfig 檔案，但您可以使用 _az ml runconfiguration  create_ 命令來建立其他的回合組態。 您也可以手動編輯回合組態檔。
+當您建立計算目標時，Workbench 會建立對應的 runconfig 檔案，但您可以使用 _az ml runconfiguration  create_ 命令來建立其他的回合組態。 您也可以手動編輯回合組態檔。
 
 回合組態會在 Workbench 中顯示作為測試執行體驗的一部分。 
 
@@ -213,9 +215,50 @@ $ az ml experiment submit -c remotevm myscript.py
 >[!TIP]
 >如果您要避免第一次執行建置 Docker 映像時所造成的延遲，在執行您的指令碼之前，可以使用下列命令準備計算目標。 az ml experiment prepare -c remotedocker
 
-
 _**Python 指令碼的遠端 VM 執行概觀：**_
 ![](media/experimentation-service-configuration/remote-vm-run.png)
+
+## <a name="running-a-script-on-a-remote-vm-targeting-user-managed-environments"></a>在由遠端 VM 鎖定且由使用者管理的環境上執行指令碼
+測試服務也支援在使用者自己的 Python 環境 (在遠端 Ubuntu 虛擬機器內) 上執行指令碼。 這可讓您管理自己的執行環境，並且仍然可以使用 Azure Machine Learning 的功能。 
+
+請遵循下列步驟，在您自己的環境中執行指令碼。
+* 透過安裝相依性來準備遠端 Ubuntu VM 或 DSVM 上的 Python 環境。
+* 使用下列命令來安裝 Azure Machine Learning 需求。
+
+```
+pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+
+>[!TIP]
+>在某些情況下，您可能需要在 sudo 模式下執行此命令 (視您的權限而定)。 
+```
+sudo pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+ 
+* 針對遠端 VM 執行上由使用者管理的回合，使用下列命令來建立計算目標定義和回合組態。
+```
+az ml computetarget attach remote --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
+```
+>[!NOTE]
+>這會將 .compute 組態檔中的 "userManagedEnvironment" 參數設定為 true。
+
+* 在 .Compute 檔案中設定 Python 執行階段可執行檔的位置。 您應該參考 Python 可執行檔的完整路徑。 
+```
+pythonLocation: python3
+```
+
+一旦您設定計算目標後，可以使用下列命令來執行指令碼。
+```
+$ az ml experiment submit -c remotevm myscript.py
+```
+
+>[!NOTE]
+> 當您在 DSVM 上執行時，您應該使用下列命令
+
+如果您想直接在 DSVM 的全域 Python 環境上執行，請執行此命令。
+```
+sudo /anaconda/envs/py35/bin/pip install <package>
+```
 
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>在 HDInsight 叢集上執行指令碼

@@ -9,21 +9,21 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 5ebc44d0ef6200baeacf4f1f8c4371e2d1eed9db
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cdfb5458b020e9d3a3f33cecbeb0ee7b9a48909d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="linkedin-integration-for-office-applications"></a>Office 應用程式的 LinkedIn 整合
 本文會說明如何限制在 Azure Active Directory (Azure AD) 中要為其提供 LinkedIn 整合的使用者。 LinkedIn 整合在新增至租用戶時會依預設啟用，讓使用者能在其某些 Microsoft 應用程式內存取公用 LinkedIn 資料。 每個使用者都可以獨立地選擇將其公司或學校帳戶連結到其 LinkedIn 帳戶。
 
 > [!IMPORTANT]
-> LinkedIn 整合不會同時部署至所有 Azure AD 租用戶。 LinkedIn 整合在部署到您的 Azure 租用戶之後，便會依預設啟用。 LinkedIn 整合無法供 go-local、sovereign 和 government 租用戶使用。 
+> LinkedIn 整合不會同時部署至所有 Azure AD 租用戶。 LinkedIn 整合在部署到您的 Azure 租用戶之後，便會依預設啟用。 LinkedIn 整合無法供 go-local、sovereign 和 government 租用戶使用。 如需首度發行資訊的最新檢視，請參閱 [Office 365 藍圖](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc)頁面。
 
 ## <a name="linkedin-integration-from-the-user-perspective"></a>使用者觀點的 LinkedIn 整合
 當組織中的使用者將其 LinkedIn 帳戶連結至其公司或學校帳戶時，即表示[他們允許 LinkedIn 提供資料](https://www.linkedin.com/help/linkedin/answer/84077)給組織所提供的 Microsoft 應用程式和服務使用。 [使用者可以中斷與帳戶的連結](https://www.linkedin.com/help/linkedin/answer/85097)，從而移除 LinkedIn 與 Microsoft 共用資料的權限。 LinkedIn 整合會使用公開可用的 LinkedIn 設定檔資訊。 [使用者可以控制自有 LinkedIn 設定檔的檢視方式](https://www.linkedin.com/help/linkedin/answer/83)，方法是使用 LinkedIn 隱私權設定 (包括是否可以在 Microsoft 應用程式中檢視其設定檔)。
@@ -37,8 +37,8 @@ Azure AD 中預設會啟用企業版的 LinkedIn 整合。 啟用 LinkedIn 整�
 ### <a name="enable-or-disable-linkedin-integration-for-your-organization-in-the-azure-portal"></a>在 Azure 入口網站中為組織啟用或停用 LinkedIn 整合
 
 1. 使用具有 Azure AD 租用戶全域管理員身分的帳戶來登入 [Azure Active Directory 系統管理中心](https://aad.portal.azure.com/)。
-2. 選取 [使用者和群組]。
-3. 在 [使用者和群組] 刀鋒視窗上，選取 [使用者設定]。
+2. 選取 [使用者]。
+3. 在 [使用者] 刀鋒視窗上，選取 [使用者設定]。
 4. 在 [LinkedIn 整合] 底下，選取 [是] 來啟用 LinkedIn 整合，或選取 [否] 來予以停用。
    ![啟用 LinkedIn 整合](./media/linkedin-integration/LinkedIn-integration.PNG)
 

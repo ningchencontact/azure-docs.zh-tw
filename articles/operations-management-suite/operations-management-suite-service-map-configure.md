@@ -1,6 +1,6 @@
 ---
-title: "設定 Operations Management Suite 中的服務對應 | Microsoft Docs"
-description: "服務對應是一個 Operations Management Suite 解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文會詳細說明如何在環境中部署服務對應並將它用於各種案例。"
+title: "在 Azure 中設定服務對應 | Microsoft Docs"
+description: "服務對應是 Azure 中的一個解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文會詳細說明如何在環境中部署服務對應並將它用於各種案例。"
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: e23173fb6708104c39071145595e4eec3454ee76
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 66023a501360a8d73f88e2fe9682c1bf8f207a07
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="configure-service-map-in-operations-management-suite"></a>設定 Operations Management Suite 中的服務對應
+# <a name="configure-service-map-in-azure"></a>在 Azure 中設定服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
 
-本文說明設定服務對應與啟用代理程式的詳細資料。 如需使用服務對應的相關資訊，請參閱[在 Operations Management Suite 中使用服務對應解決方案](operations-management-suite-service-map.md)。
+本文說明設定服務對應與啟用代理程式的詳細資料。 如需使用服務對應的相關資訊，請參閱[在 Azure 中使用服務對應解決方案](operations-management-suite-service-map.md)。
 
 ## <a name="dependency-agent-downloads"></a>相依性代理程式下載
 | 檔案 | 作業系統 | 版本 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.2 | E0888727125FA4E4ECACFB4B2633284C014933EE0CC2F7A9F93F36AEDBD6C2C4  |
 
 
 ## <a name="connected-sources"></a>連接的來源
-服務對應會從 Microsoft 相依性代理程式取得它的資料。 「相依性代理程式」有賴於 OMS 代理程式，以連線至 Operations Management Suite。 這表示，伺服器必須先安裝並設定 OMS 代理程式，然後才能安裝相依性代理程式。 下表描述服務對應解決方案支援的連線來源。
+服務對應會從 Microsoft 相依性代理程式取得它的資料。 相依性代理程式相依於連線到 Log Analytics 的 OMS 代理程式。 這表示，伺服器必須先安裝並設定 OMS 代理程式，然後才能安裝相依性代理程式。 下表描述服務對應解決方案支援的連線來源。
 
 | 連線的來源 | 支援 | 說明 |
 |:--|:--|:--|
 | Windows 代理程式 | yes | 服務對應會分析並收集來自 Windows 代理程式電腦的資料。 <br><br>除了 [OMS 代理程式](../log-analytics/log-analytics-windows-agent.md)外，Windows 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
 | Linux 代理程式 | yes | 服務對應會分析並收集來自 Linux 代理程式電腦的資料。 <br><br>除了 [OMS 代理程式](../log-analytics/log-analytics-linux-agents.md)外，Linux 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
-| System Center Operations Manager 管理群組 | yes | 服務對應會在連線的 [System Center Operations Manager 管理群組](../log-analytics/log-analytics-om-agents.md)中，分析並收集來自 Windows 和 Linux 代理程式的資料。 <br><br>System Center Operations Manager 代理程式電腦必須直接連線到 Operations Management Suite。 資料會從管理群組轉送至 Operations Management Suite 存放庫。|
+| System Center Operations Manager 管理群組 | yes | 服務對應會在連線的 [System Center Operations Manager 管理群組](../log-analytics/log-analytics-om-agents.md)中，分析並收集來自 Windows 和 Linux 代理程式的資料。 <br><br>System Center Operations Manager 代理程式電腦必須直接連線到 Log Analytics。 資料會從管理群組轉送至 Log Analytics 工作區。|
 | Azure 儲存體帳戶 | 否 | 服務對應會收集來自代理程式電腦的資料，因此不會從 Azure 儲存體收集資料。 |
 
 服務對應僅支援 64 位元平台。
 
-在 Windows 中，System Center Operations Manager 和 Operations Management Suite 都使用 Microsoft Monitoring Agent (MMA) 來收集和傳送監視資料。 (視內容而定，此代理程式可稱為 System Center Operations Manager 代理程式、OMS 代理程式、Log Analytics 代理程式、MMA 或直接代理程式)。System Center Operations Manager 和 Operations Management Suite 提供不同的內建 MMA 版本。 這些版本可以各自向 System Center Operations Manager 或 Operations Management Suite 報告，或同時向兩者報告。  
+在 Windows 上，System Center Operations Manager 和 Log Analytics 會使用 Microsoft Monitoring Agent (MMA) 來收集和傳送監視資料。 (視內容而定，此代理程式可稱為 System Center Operations Manager 代理程式、OMS 代理程式、Log Analytics 代理程式、MMA 或直接代理程式)。System Center Operations Manager 和 Log Analytics 提供的預設 MMA 版本不同。 這些版本可以各自向 System Center Operations Manager 或 Log Analytics 報告，或同時向兩者報告。  
 
-在 Linux 上，適用於 Linux 的 OMS 代理程式會收集監視資料並傳送給 Operations Management Suite。 在具有 OMS 直接代理程式的伺服器上，或在透過 System Center Operations Manager 管理群組連結至 Operations Management Suite 的伺服器上，您可以使用服務對應。  
+在 Linux 上，適用於 Linux 的 OMS 代理程式會收集監視資料並傳送給 Log Analytics。 您可以在具有 OMS 直接代理程式的伺服器上，或在透過 System Center Operations Manager 管理群組連結至 Log Analytics 的伺服器上使用服務對應。  
 
-在本文中，所有代理程式 (無論 Linux 或 Windows、無論是連線到 System Center Operations Manager 管理群組或直接連線到 Operations Management Suite) 一律稱為「OMS 代理程式」。 只有在內容需要時，我們才會使用代理程式特定的部署名稱。
+在本文中，我們對將所有代理程式 (無論 Linux 或 Windows、無論是連線到 System Center Operations Manager 管理群組或直接連線到 Log Analytics) 稱為「OMS 代理程式」。 只有在內容需要時，我們才會使用代理程式特定的部署名稱。
 
-服務對應代理程式本身不會傳輸任何資料，因此不需要變更防火牆或連接埠。 服務對應的資料一律會由 OMS 代理程式 (直接或透過 OMS 閘道) 傳輸給 Operations Management Suite。
+服務對應代理程式本身不會傳輸任何資料，因此不需要變更防火牆或連接埠。 服務對應中的資料一律會由 OMS 代理程式 (直接或透過 OMS 閘道) 傳輸給 Log Analytics。
 
 ![服務對應代理程式](media/oms-service-map/agents.png)
 
-如果您是管理群組連線到 Operations Management Suite 的 System Center Operations Manager 客戶：
+如果您是管理群組連線到 Log Analytics 的 System Center Operations Manager 客戶：
 
-- 如果您的 System Center Operations Manager 代理程式可透過網際網路連線到 Operations Management Suite，就不需要額外的設定。  
-- 如果您的 System Center Operations Manager 代理程式無法透過網際網路存取 Operations Management Suite，就必須設定 OMS 閘道以搭配 System Center Operations Manager 使用。
+- 當您的 System Center Operations Manager 代理程式可透過網際網路連線到 Log Analytics 時，就不需要額外的設定。  
+- 如果您的 System Center Operations Manager 代理程式無法透過網際網路存取 Log Analytics 時，就必須設定 OMS 閘道以搭配 System Center Operations Manager 使用。
   
-如果您使用 OMS 直接代理程式，則需要將 OMS 代理程式本身設定為連線至 Operations Management Suite 或 OMS 閘道。 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=52666)下載 OMS 閘道。
+如果您使用 OMS 直接代理程式，您需要將 OMS 代理程式本身設定為連線到 Log Analytics 或 OMS 閘道。 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=52666)下載 OMS 閘道。
 
 ### <a name="management-packs"></a>管理組件
-在 Operations Management Suite 工作區中啟動服務對應時，會將 300 KB 的管理組件傳送至該工作區中的所有 Windows 伺服器。 如果您是在[連線的管理群組](../log-analytics/log-analytics-om-agents.md)中使用 System Center Operations Manager 代理程式，則會從 System Center Operations Manager 來部署服務對應管理組件。 如果代理程式是直接連線，Operations Management Suite 會提供管理組件。
+在 Log Analytics 工作區中啟動服務對應時，會將 300 KB 的管理組件傳送至該工作區中的所有 Windows 伺服器。 如果您是在[連線的管理群組](../log-analytics/log-analytics-om-agents.md)中使用 System Center Operations Manager 代理程式，則會從 System Center Operations Manager 來部署服務對應管理組件。 如果代理程式是直接連線，Log Analytics 會提供管理組件。
 
 管理組件名稱為 Microsoft.IntelligencePacks.ApplicationDependencyMonitor。 它會寫入至 %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\。 管理組件所使用的資料來源是 %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll。
 
@@ -147,7 +147,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.1"
+$version = "9.3"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -180,7 +180,7 @@ ForEach-Object {
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
     "type": "DependencyAgentWindows",
-    "typeHandlerVersion": "9.1",
+    "typeHandlerVersion": "9.3",
     "autoUpgradeMinorVersion": true
 }
 
@@ -235,7 +235,7 @@ sudo rpm -e dependency-agent
 ```
 Ubuntu：
 ```
-sudo dpkg --purge dependency-agent
+sudo apt -y purge dependency-agent
 ```
 ## <a name="troubleshooting"></a>疑難排解
 如果您在安裝或執行服務對應時遇到任何問題，本節內容可以提供協助。 如果您仍然無法解決問題，請連絡 Microsoft 支援服務。
@@ -267,11 +267,11 @@ Microsoft 相依性代理程式建置於 Microsoft Visual Studio 執行階段程
 
 * 您是否屬於 [Operations Management Suite/Log Analytics 的免費定價層](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)？ 免費方案允許最多五個唯一的服務對應伺服器。 任何後續伺服器則不會顯示在服務對應中，即使先前五個伺服器不會再傳送資料。
 
-* 您的伺服器是否將記錄和效能資料傳送到 Operations Management Suite？ 移至 [記錄搜尋]，然後為您的電腦執行下列查詢︰ 
+* 您的伺服器是否將記錄和效能資料傳送到 Log Analytics？ 移至 [記錄搜尋]，然後為您的電腦執行下列查詢︰ 
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  您是否在結果中取得各種事件？ 是否為最新的資料？ 如果是，表示 OMS 代理程式運作正常，並且可與 Operations Management Suite 服務進行通訊。 如果不是，請檢查您伺服器上的 OMS 代理程式︰[適用於 Windows 的 OMS 代理程式疑難排解](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)或[適用於 Linux 的 OMS 代理程式疑難排解](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md) \(英文\)。
+  您是否在結果中取得各種事件？ 是否為最新的資料？ 如果是，OMS 代理程式運作正常，並且與 Log Analytics 進行通訊。 如果不是，請檢查您伺服器上的 OMS 代理程式︰[適用於 Windows 的 OMS 代理程式疑難排解](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)或[適用於 Linux 的 OMS 代理程式疑難排解](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md) \(英文\)。
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>伺服器顯示在服務對應中，但是沒有任何處理序
 如果在服務對應中看到您的伺服器，但是沒有處理序或連線資料，則表示相依性代理程式已安裝且正在執行，但未載入核心驅動程式。 
@@ -350,8 +350,8 @@ Microsoft 相依性代理程式建置於 Microsoft Visual Studio 執行階段程
 
 | 作業系統版本 | 核心版本 |
 |:--|:--|
-| 16.04 | 4.4.0-103<br>4.11.0-1016 |
-| 14.04 | 3.13.0-137<br>4.4.0-103 |
+| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
+| 14.04 | 3.13.\*<br>4.4.\* |
 
 ### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 搭載 Unbreakable Enterprise Kernel
 #### <a name="oracle-linux-6"></a>Oracle Linux 6

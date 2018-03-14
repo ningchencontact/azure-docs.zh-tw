@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 入口網站中管理函數應用程式 
 
@@ -119,7 +119,7 @@ Functions 支援「取用」主控方案和 App Service 主控方案。 如需�
 
 | | |
 |-|-|
-| ![Azure 入口網站中的函數應用程式 API Swagger](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions 支援 Swagger，可讓用戶端更容易使用 HTTP 觸發的函數。 如需有關如何使用 Swagger 建立 API 定義的詳細資訊，請瀏覽[在 Azure 中開始使用 API Apps 和 Swagger](../app-service/app-service-web-tutorial-rest-api.md)。 您也可以使用 Functions Proxy 來為多個函數定義一個單一的 API 介面。 如需詳細資訊，請參閱[使用 Azure Functions Proxy](functions-proxies.md)。 |
+| ![Azure 入口網站中的函數應用程式 API Swagger](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions 支援 Swagger，可讓用戶端更容易使用 HTTP 觸發的函數。 如需有關如何使用 Swagger 建立 API 定義的詳細資訊，請瀏覽[在 Azure App Service 中裝載具有 CORS 支援的 RESTful API](../app-service/app-service-web-tutorial-rest-api.md)。 您也可以使用 Functions Proxy 來為多個函數定義一個單一的 API 介面。 如需詳細資訊，請參閱[使用 Azure Functions Proxy](functions-proxies.md)。 |
 
 ![設定函數應用程式的 API](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 

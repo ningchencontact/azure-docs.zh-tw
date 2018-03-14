@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 3c752573be7c07f800b0dce3d12d4dabd7328922
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2fd4c91a8151067c0e9cc9000c158e48cb2cd8a5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>以儲存體加密來加密您的內容
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/08/2017
 * 建立內容金鑰。
 * 建立資產。 建立資產時，請將 AssetCreationOption 設為 StorageEncryption。
   
-     加密的資產必須與內容金鑰相關聯。
+     加密的資產會與內容金鑰相關聯。
 * 將內容金鑰連結到資產。  
 * 在 AssetFile 實體上設定加密相關的參數。
 
@@ -44,60 +44,62 @@ ms.lasthandoff: 12/08/2017
 如需連線至 AMS API 的詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
 ## <a name="storage-encryption-overview"></a>儲存體加密概觀
-AMS 儲存體加密會將 **AES-CTR** 模式加密套用至整個檔案。  AES CTR 模式是可加密任意長度資料且不需填補的區塊編碼器。 其作業方式是使用 AES 演算法加密計數器區塊，並且對要加密或解密資料的 AES 輸出進行 XOR 處理。  所使用計數器區塊的建構方式是將 InitializationVector 的值複製到計數器值的位元組 0 到 7，而且計數器值的位元組 8 到 15 設定為零。 在 16 位元組的計數器區塊中，位元組 8 到 15 (即最低位元組) 是用作簡單 64 位元不帶正負號的整數，而且每個後續處理的資料區塊都會加一，並會保持網路位元組順序。 如果此整數達到最大值 (0xFFFFFFFFFFFFFFFF)，則增加它時會將區塊計數器重設為零 (位元組 8 到 15)，而不影響計數器的其他 64 位元 (即位元組 0 到 7)。   為了維護 AES CTR 模式加密的安全性，對每個檔案而言，每個內容金鑰的指定金鑰識別碼應該為唯一，而且檔案的長度應該小於 2^64 個區塊。  這是為了確保計數器值絕不會與指定的索引鍵重複使用。 如需 CTR 模式的詳細資訊，請參閱 [此 Wiki 頁面](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (Wiki 文章使用 "Nonce" 這個字，而非 "InitializationVector")。
+AMS 儲存體加密會將 **AES-CTR** 模式加密套用至整個檔案。  AES CTR 模式是可加密任意長度資料且不需填補的區塊編碼器。 其作業方式是使用 AES 演算法加密計數器區塊，並且對要加密或解密資料的 AES 輸出進行 XOR 處理。  所使用計數器區塊的建構方式是將 InitializationVector 的值複製到計數器值的位元組 0 到 7，而且計數器值的位元組 8 到 15 設定為零。 在 16 位元組的計數器區塊中，位元組 8 到 15 (即最低位元組) 是用作簡單 64 位元不帶正負號的整數，而且每個後續處理的資料區塊都會加一，並會保持網路位元組順序。 如果此整數達到最大值 (0xFFFFFFFFFFFFFFFF)，則增加它時會將區塊計數器重設為零 (位元組 8 到 15)，而不影響計數器的其他 64 位元 (即位元組 0 到 7)。   為了維護 AES CTR 模式加密的安全性，對每個檔案而言，每個內容金鑰的指定金鑰識別碼應該為唯一，而且檔案的長度應該小於 2^64 個區塊。  此唯一值是為了確保計數器值絕不會與指定的索引鍵重複使用。 如需 CTR 模式的詳細資訊，請參閱 [此 Wiki 頁面](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (Wiki 文章使用 "Nonce" 這個字，而非 "InitializationVector")。
 
 使用 **儲存體加密** ，使用 AES-256 位元加密對您的純文字內容進行本機加密，然後將其上傳到已靜止加密儲存的 Azure 儲存體。 使用儲存體加密保護的資產會在編碼之前自動解除加密並放在加密的檔案系統中，並且選擇性地在上傳為新的輸出資產之前重新加密。 儲存體加密的主要使用案例是，讓您可以使用強式加密來保護磁碟中靜止的高品質輸入媒體檔。
 
 若要傳遞儲存體加密資產，您必須設定資產的傳遞原則，讓媒體服務知道您的內容傳遞方式。 串流處理資產之前，串流伺服器會移除儲存體加密，並使用指定的傳遞原則來串流處理您的內容 (例如，AES、一般加密或不加密)。
 
 ## <a name="create-contentkeys-used-for-encryption"></a>建立要用於加密的 ContentKey
-加密的資產必須與儲存體加密金鑰相關聯。 您必須先建立要用於加密的內容金鑰，再建立資產檔案。 本節說明如何建立內容金鑰。
+加密的資產必須與儲存體加密金鑰相關聯。 先建立要用於加密的內容金鑰，再建立資產檔案。 本節說明如何建立內容金鑰。
 
-以下是產生您將與要加密資產相關聯的內容金鑰的一般步驟。 
+以下是產生要與要加密資產相關聯之內容金鑰的一般步驟。 
 
 1. 對於儲存體加密，請隨機產生 32 個位元組的 AES 金鑰。 
    
-    這是您資產的內容金鑰，這表示與該資產相關聯的所有檔案都必須在解密期間使用相同的內容金鑰。 
+    32 個位元組的 AES 金鑰是您資產的內容金鑰，這表示與該資產相關聯的所有檔案都必須在解密期間使用相同的內容金鑰。 
 2. 呼叫 [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) 和 [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) 方法，以取得用來將內容金鑰加密時必須使用的正確 X.509 憑證。
 3. 使用 X.509 憑證的公開金鑰將您的內容金鑰加密。 
    
    媒體服務 .NET SDK 會使用 RSA 和 OAEP 來執行加密作業。  您可以在 [EncryptSymmetricKeyData 函式](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)中查看 .NET 範例。
 4. 建立使用金鑰識別碼和內容金鑰計算的總和檢查碼值。 下列 .NET 範例會使用金鑰識別碼和明文內容金鑰的 GUID 部分計算總和檢查碼。
 
-        public static string CalculateChecksum(byte[] contentKey, Guid keyId)
-        {
-            const int ChecksumLength = 8;
-            const int KeyIdLength = 16;
-
-            byte[] encryptedKeyId = null;
-
-            // Checksum is computed by AES-ECB encrypting the KID
-            // with the content key.
-            using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+    ```csharp
+            public static string CalculateChecksum(byte[] contentKey, Guid keyId)
             {
-                rijndael.Mode = CipherMode.ECB;
-                rijndael.Key = contentKey;
-                rijndael.Padding = PaddingMode.None;
+                const int ChecksumLength = 8;
+                const int KeyIdLength = 16;
 
-                ICryptoTransform encryptor = rijndael.CreateEncryptor();
-                encryptedKeyId = new byte[KeyIdLength];
-                encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+                byte[] encryptedKeyId = null;
+
+                // Checksum is computed by AES-ECB encrypting the KID
+                // with the content key.
+                using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+                {
+                    rijndael.Mode = CipherMode.ECB;
+                    rijndael.Key = contentKey;
+                    rijndael.Padding = PaddingMode.None;
+
+                    ICryptoTransform encryptor = rijndael.CreateEncryptor();
+                    encryptedKeyId = new byte[KeyIdLength];
+                    encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+                }
+
+                byte[] retVal = new byte[ChecksumLength];
+                Array.Copy(encryptedKeyId, retVal, ChecksumLength);
+
+                return Convert.ToBase64String(retVal);
             }
+    ```
 
-            byte[] retVal = new byte[ChecksumLength];
-            Array.Copy(encryptedKeyId, retVal, ChecksumLength);
-
-            return Convert.ToBase64String(retVal);
-        }
-
-1. 用您在先前步驟中收到的 **EncryptedContentKey** (轉換為 base64 編碼的字串)、**ProtectionKeyId**、**ProtectionKeyType**、**ContentKeyType** 和 **Checksum** 值建立內容金鑰。
+5. 用您在先前步驟中收到的 **EncryptedContentKey** (轉換為 base64 編碼的字串)、**ProtectionKeyId**、**ProtectionKeyType**、**ContentKeyType** 和 **Checksum** 值建立內容金鑰。
 
     對於儲存體加密，要求本文中應該包含下列屬性。
 
     要求本文屬性    | 說明
     ---|---
-    id | 我們使用下列格式自行產生的 ContentKey 識別碼："nb:kid:UUID:<NEW GUID>"。
-    ContentKeyType | 這是針對此內容金鑰以整數表示的內容金鑰類型。 我們會傳遞值 1 來進行儲存體加密。
+    id | 使用下列格式產生 ContentKey 識別碼："nb:kid:UUID:<NEW GUID>"。
+    ContentKeyType | 內容金鑰類型是可定義索引鍵的整數。 若為儲存體加密格式，此值為 1。
     EncryptedContentKey | 我們會建立新的內容金鑰值，其為 256 位元 (32 位元組) 的值。 此金鑰是藉由針對 GetProtectionKeyId 與 GetProtectionKey 方法執行 HTTP GET 要求，使用我們從 Microsoft Azure 媒體服務擷取的儲存體加密 X.509 憑證來加密的。 範例請參閱下列 .NET 程式碼︰[這裡](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)定義的 **EncryptSymmetricKeyData**方法。
     ProtectionKeyId | 這是適用於儲存體加密 X.509 憑證的保護金鑰識別碼，可用來加密我們的內容金鑰。
     ProtectionKeyType | 這是適用於保護金鑰的加密類型，可用來將內容金鑰加密。 針對本文範例，此值為 StorageEncryption(1)。
@@ -172,7 +174,7 @@ AMS 儲存體加密會將 **AES-CTR** 模式加密套用至整個檔案。  AES 
 ### <a name="create-the-content-key"></a>建立內容金鑰
 在擷取 X.509 憑證並使用其公開金鑰將內容金鑰加密之後，建立 **ContentKey** 實體並據以設定其屬性值。
 
-建立內容金鑰時必須設定的其中一個值是類型。 若為儲存體加密，值會是 '1'。 
+建立內容金鑰時必須設定的其中一個值是類型。 使用儲存體加密時，此值應設定為 '1'。 
 
 下列範例示範如何建立 **ContentKey** 且針對儲存體加密設定 **ContentKeyType** ("1")，**ProtectionKeyType** 則設定為 "0"，表示保護金鑰識別碼是 X.509 憑證指紋。  
 
@@ -242,7 +244,7 @@ AMS 儲存體加密會將 **AES-CTR** 模式加密套用至整個檔案。  AES 
 
 **HTTP 回應**
 
-如果成功，則會傳回下列內容：
+如果成功，則會傳回下列回應：
 
     HTP/1.1 201 Created
     Cache-Control: no-cache
@@ -294,7 +296,7 @@ AMS 儲存體加密會將 **AES-CTR** 模式加密套用至整個檔案。  AES 
 ## <a name="create-an-assetfile"></a>建立 AssetFile
 [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) 實體代表儲存在 blob 容器中的視訊或音訊檔案。 資產檔案一律會與資產相關聯，而資產可包含一或多個資產檔案。 如果資產檔案物件並未與 blob 容器中的數位檔案相關聯，媒體服務編碼器工作將會失敗。
 
-請注意， **AssetFile** 執行個體和實際的媒體檔案是兩個不同的物件。 AssetFile 執行個體包含媒體檔案的相關中繼資料，而媒體檔案包含實際的媒體內容。
+**AssetFile** 執行個體和實際媒體檔是兩個不同的物件。 AssetFile 執行個體包含媒體檔案的相關中繼資料，而媒體檔案包含實際的媒體內容。
 
 當您將數位媒體檔案上傳至 Blob 容器之後，您將使用 **MERGE** HTTP 要求，以媒體檔案的相關資訊來更新 AssetFile (未顯示在本文章中)。 
 

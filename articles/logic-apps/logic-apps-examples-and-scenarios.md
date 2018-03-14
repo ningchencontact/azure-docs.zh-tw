@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
-ms.date: 09/13/2017
+ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps 的常見情節、範例、教學課程和逐步解說
 
@@ -63,14 +63,15 @@ ms.lasthandoff: 01/19/2018
 * [使用 Webhook 回應外部事件和動作](../logic-apps/logic-apps-create-api-app.md)
 * [呼叫、觸發或巢狀處理具有 HTTP 要求同步回應的工作流程](../logic-apps/logic-apps-http-endpoint.md)
 * [教學課程︰使用 Logic Apps 和 Power BI 在幾分鐘內建置具有 AI 技術的社交儀表板](http://aka.ms/logicappsdemo)
-* [教學課程︰回應 Twilio SMS Webhook 並傳送文字回應](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+* [影片︰回應 Twilio SMS Webhook 並傳送文字回應](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>控制流程、錯誤處理和記錄功能
 
 邏輯應用程式包含豐富的功能，可用於處理進階控制流程，例如條件、開關、迴圈和範圍。 若要確保解決方案的彈性，您也可以在工作流程中實作錯誤和例外狀況處理。 針對工作流程執行狀態的通知和診斷記錄，Azure Logic Apps 也提供了監視和警示。
 
-* [在邏輯應用程式中使用迴圈和批次處理陣列和集合中的項目](../logic-apps/logic-apps-loops-and-scopes.md)
-* [使用 switch 陳述式來執行不同動作](../logic-apps/logic-apps-switch-case.md)
+* 執行以[條件陳述式](../logic-apps/logic-apps-control-flow-conditional-statement.md)和 [Switch 陳述式](../logic-apps/logic-apps-control-flow-switch-statement.md)為基礎的不同動作
+* [使用迴圈重複執行步驟或處理陣列和集合中的項目](../logic-apps/logic-apps-control-flow-loops.md)
+* [將動作與範圍群組在一起](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [在工作流程中撰寫錯誤和例外狀況處理](../logic-apps/logic-apps-exception-handling.md)
 * [使用案例︰醫療保健公司如何使用邏輯應用程式的例外狀況處理來處理 HL7 FHIR 工作流程](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [開啟現有 Logic Apps 的監視、記錄和警示](../logic-apps/logic-apps-monitor-your-logic-apps.md)
@@ -98,15 +99,22 @@ ms.lasthandoff: 01/19/2018
 
 * [使用 Azure 無伺服器建立即時社交儀表板](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [從邏輯應用程式呼叫 Azure Functions](../logic-apps/logic-apps-azure-functions.md)
-* [案例：使用 Azure Functions 觸發邏輯應用程式](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [教學課程：使用 Azure Functions 觸發邏輯應用程式](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [教學課程：使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [教學課程：建立與 Azure Logic Apps 和 Microsoft 認知服務整合的函式來分析 Twitter 推文情感](../azure-functions/functions-twitter-email.md)
+* [教學課程：搭配連線 IoT 中樞和信箱的 Azure Logic Apps 進行 IoT 遠端監視和通知](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [部落格︰從邏輯應用程式呼叫 SOAP 端點](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>端對端案例
 
-* [白皮書：使用 Azure 服務 (例如 Logic Apps) 進行企業整合端對端案例管理](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+* [白皮書：使用 Azure 服務 (例如 Logic Apps) 進行端對端案例管理整合](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+
+## <a name="customer-stories"></a>客戶案例
+
+了解 Azure Logic Apps 以及其他 Azure 服務和 Microsoft 產品如何協助[這些公司](https://aka.ms/logic-apps-customer-stories)提升其靈活度，並藉由簡化、組織、自動化及協調複雜的程序，專注於其核心業務。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用工作流程定義語言撰寫工作流程定義](../logic-apps/logic-apps-author-definitions.md)
+* [使用 JSON 依邏輯應用程式定義建置](../logic-apps/logic-apps-author-definitions.md)
 * [處理邏輯應用程式中的錯誤和例外狀況](../logic-apps/logic-apps-exception-handling.md)
-* [提交有關我們該如何改善 Azure Logic Apps 的評論、問題、意見或建議](https://feedback.azure.com/forums/287593-logic-apps)
+* [提交有關改善 Azure Logic Apps 的評論、問題、意見或建議](https://feedback.azure.com/forums/287593-logic-apps)

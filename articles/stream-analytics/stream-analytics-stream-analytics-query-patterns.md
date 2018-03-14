@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: samacha
-ms.openlocfilehash: 6ac5d3ab2a4df63c429f8478e392d84ac0ea6fd7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: cb0a948416983f33a4ca8d9211a3a114ba011685
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>一般串流分析使用模式的查詢範例
 ## <a name="introduction"></a>簡介
@@ -504,6 +504,81 @@ GROUP BY
 
 
 **說明**：此查詢會每隔 5 秒產生事件，並且會輸出之前收到的最後一個事件。 [跳動視窗](https://msdn.microsoft.com/library/dn835041.aspx "跳動視窗 - Azure 串流分析")持續時間會決定查詢回溯到多久之前以找出最新的事件 (在此範例中為 300 秒)。
+
+
+## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>查詢範例：將相同串流中的兩個事件類型相互關聯
+**描述**：我們有時需要根據特定時間範圍內發生的多種事件類型來產生警示。
+例如，在家用烤爐的 IoT 案例中，我們希望在風扇溫度低於 40 且過去 3 分鐘的最大功率低於 10 時發出警示。
+
+**輸入**：
+
+| 分析 | deviceId | sensorName | value |
+| --- | --- | --- | --- |
+| "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
+| "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:02:00" | "Oven1" | "temp" |100 |
+| "2018-01-01T16:02:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:03:00" | "Oven1" | "temp" |70 |
+| "2018-01-01T16:03:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:04:00" | "Oven1" | "temp" |50 |
+| "2018-01-01T16:04:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:05:00" | "Oven1" | "temp" |30 |
+| "2018-01-01T16:05:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:06:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:06:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:07:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:07:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:08:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:08:00" | "Oven1" | "power" |8 |
+
+**輸出**：
+
+| eventTime | deviceId | temp | alertMessage | maxPowerDuringLast3mins |
+| --- | --- | --- | --- | --- | 
+| "2018-01-01T16:05:00" | "Oven1" |30 | "Short circuit heating elements" |15 |
+| "2018-01-01T16:06:00" | "Oven1" |20 | "Short circuit heating elements" |15 |
+| "2018-01-01T16:07:00" | "Oven1" |20 | "Short circuit heating elements" |15 |
+
+**解決方案**：
+
+````
+WITH max_power_during_last_3_mins AS (
+    SELECT 
+        System.TimeStamp AS windowTime,
+        deviceId,
+        max(value) as maxPower
+    FROM
+        input TIMESTAMP BY t
+    WHERE 
+        sensorName = 'power' 
+    GROUP BY 
+        deviceId, 
+        SlidingWindow(minute, 3) 
+)
+
+SELECT 
+    t1.t AS eventTime,
+    t1.deviceId, 
+    t1.value AS temp,
+    'Short circuit heating elements' as alertMessage,
+    t2.maxPower AS maxPowerDuringLast3mins
+    
+INTO resultsr
+
+FROM input t1 TIMESTAMP BY t
+JOIN max_power_during_last_3_mins t2
+    ON t1.deviceId = t2.deviceId 
+    AND t1.t = t2.windowTime
+    AND DATEDIFF(minute,t1,t2) between 0 and 3
+    
+WHERE
+    t1.sensorName = 'temp'
+    AND t1.value <= 40
+    AND t2.maxPower > 10
+````
+
+**說明**：第一個查詢 `max_power_during_last_3_mins` 會使用[滑動時間範圍](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics)來尋找過去 3 分鐘內每個裝置的功率感應器最大值。 系統會將第二個查詢加入第一個查詢，以找出目前事件最近相關時間範圍內的功率值。 然後，假如條件符合，就會針對裝置產生警示。
+
 
 ## <a name="get-help"></a>取得說明
 如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。

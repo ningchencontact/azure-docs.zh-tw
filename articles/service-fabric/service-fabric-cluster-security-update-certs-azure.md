@@ -1,24 +1,8 @@
----
-title: "管理 Azure Service Fabric 叢集中的憑證 | Microsoft Docs"
-description: "說明如何在 Service Fabric 叢集新增新的憑證、變換憑證及移除憑證。"
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: timlt
-editor: 
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/09/2017
-ms.author: chackdan
-ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+-- 標題：管理 Azure Service Fabric 叢集中的憑證 | Microsoft Docs 描述：說明如何在 Service Fabric 叢集新增新的憑證、變換憑證及移除憑證。
+services: service-fabric documentationcenter: .net author: ChackDan manager: timlt editor: ''
+
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
+
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>新增或移除 Azure 中 Service Fabric 叢集的憑證
 建議您熟悉 Service Fabric 使用 X.509 憑證的方式，以及熟悉[叢集安全性案例](service-fabric-cluster-security.md)。 您必須瞭解什麼是叢集憑證及其用途，方可繼續進行後續作業。
@@ -49,6 +33,8 @@ ms.lasthandoff: 10/11/2017
 如果您的目的是移除標示為主要的憑證，則您需要先將它與次要憑證交換，然後再於升級完成後刪除次要憑證。
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>使用 Resource Manager Powershell 來新增次要憑證
+> [!UPDATE] 我們現在有更好而且更容易的方式，可使用 [Add-AzureRmServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate?view=azurermps-5.3.0) 來新增次要憑證。 如果您使用 Add-AzureRmServiceFabricClusterCertificate，則不需要遵循本節中的其餘步驟。
+
 
 這些步驟是假設您已熟悉 Resource Manager 的運作方式，並已使用 Resource Manager 範本至少部署一個 Service Fabric 叢集，而且已讓您使用的範本將叢集設定妥當。 此外亦假設您可輕鬆自如地使用 JSON。
 

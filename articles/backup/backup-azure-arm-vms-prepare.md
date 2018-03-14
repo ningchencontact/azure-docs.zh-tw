@@ -13,26 +13,24 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/21/2017
+ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>準備環境以備份 Resource Manager 部署的虛擬機器
 
-本文提供的步驟可讓您備妥環境，以備份 Azure Resource Manager 部署的虛擬機器 (VM)。 程序中展示的步驟使用 Azure 入口網站。  
-
-Azure 備份服務提供兩種類型的保存庫來保護您的 VM：備份保存庫和復原服務保存庫。 備份保存庫有助於保護透過傳統部署模型部署的 VM。 復原服務保存庫有助於保護「傳統部署與 Resource Manager 部署的 VM」。 如果您想保護 Resource Manager 部署的 VM，則必須使用復原服務保存庫。
+本文提供的步驟可讓您備妥環境，以備份 Azure Resource Manager 部署的虛擬機器 (VM)。 程序中展示的步驟使用 Azure 入口網站。 將虛擬機器備份資料儲存在復原服務保存庫。 保存庫會為傳統和資源管理員部署的虛擬機器保留備份資料。
 
 > [!NOTE]
 > Azure 有兩種用來建立和使用資源的部署模型： [Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。
 
-在保護或備份 Resource Manager 部署的虛擬機器之前，請確認以下必要條件是否存在：
+在保護 (或備份) 資源管理員部署的虛擬機器之前，請確認以下必要條件是否存在：
 
-* 在與 VM 相同的位置中建立復原服務保存庫 (或識別現有的復原服務保存庫)。
+* 在與 VM 相同的區域中建立復原服務保存庫 (或識別現有的復原服務保存庫)。
 * 選取案例、定義備份原則及定義要保護的項目。
 * 檢查虛擬機器上的 VM 代理程式安裝。
 * 檢查網路連線能力。
@@ -44,7 +42,7 @@ Azure 備份服務提供兩種類型的保存庫來保護您的 VM：備份保�
  * **Linux**：Azure 備份支援 [Azure 所背書的散發套件清單](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，但 CoreOS Linux 除外。 
  
     > [!NOTE] 
-    > 只要虛擬機器上有 VM 代理程式並可支援 Python，其他「自備 Linux」散發套件即可運作。 不過，我們不會為這些備份散發套件背書。
+    > 只要虛擬機器上有 VM 代理程式並可支援 Python，其他「自備 Linux」散發套件即可運作。 不過，不支援這些散發套件。
  * **Windows Server**：不支援比 Windows Server 2008 R2 更舊的版本。
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>備份和還原 VM 時的限制
@@ -58,12 +56,13 @@ Azure 備份服務提供兩種類型的保存庫來保護您的 VM：備份保�
   >
 
 * 不支援備份具有保留的 IP 且沒有已定義之端點的虛擬機器。
-* 不支援備份僅透過 BitLocker 加密金鑰 (BEK) 加密的 VM。 不支援備份透過 Linux 統一金鑰設定 (LUKS) 加密所加密的 Linux VM。
+* 不支援備份透過 Linux 統一金鑰設定 (LUKS) 加密所加密的 Linux VM。
 * 我們不建議備份包含叢集共用磁碟區 (CSV) 或向外延展檔案伺服器設定的 VM。 其需要涉及在快照集工作期間，叢集設定中包含的所有 VM。 Azure 備份無法保持 VM 間的一致性。 
 * 備份資料不包含連結至 VM 的網路掛接磁碟機。
 * 不支援在還原期間取代現有的虛擬機器。 如果您嘗試在 VM 存在時還原 VM，還原作業將會失敗。
 * 不支援跨區域備份和還原。
-* 目前不支援在套用網路規則的儲存體帳戶中，使用非受控磁碟備份與還原虛擬機器。 在設定備份時，請確定儲存體帳戶的「防火牆和虛擬網路」設定允許從「所有網路」存取。
+* 不支援在套用網路規則的儲存體帳戶中，使用非受控磁碟備份與還原虛擬機器。 
+* 在設定備份時，請確定**防火牆和虛擬網路**儲存體帳戶設定允許從「所有網路」存取。
 * 您可以在 Azure 的所有公開區域中備份虛擬機器。 (請參閱支援地區的[檢查清單](https://azure.microsoft.com/regions/#services)。)如果您尋找的區域目前不受支援，在建立保存庫期間，該區域就不會顯示在下拉式清單中。
 * 只有透過 PowerShell 才支援還原屬於多網域控制站 (DC) 組態的 DC VM。 若要深入了解，請參閱[還原多 DC 網域控制站](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)。
 * 僅支援透過 PowerShell 還原具有以下特殊網路組態的虛擬機器。 完成還原作業之後，透過 UI 中還原工作流程所建立的 VM 將不會具有這些網路設定。 若要深入了解，請參閱 [還原具有特殊網路組態的 VM](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)。
@@ -106,7 +105,7 @@ Azure 備份服務提供兩種類型的保存庫來保護您的 VM：備份保�
 現在您已建立好保存庫，接下來要了解如何設定儲存體複寫。
 
 ## <a name="set-storage-replication"></a>設定儲存體複寫
-儲存體複寫選項有異地備援儲存體和本地備援儲存體可供您選擇。 根據預設，保存庫具有異地備援儲存體。 如果這是您的主要備份，請讓選項繼續設定為異地備援儲存體。 如果您想要更便宜但不持久的選項，請選擇本地備援儲存體。
+儲存體複寫選項有異地備援儲存體和本地備援儲存體可供您選擇。 根據預設，保存庫具有異地備援儲存體。 針對您的主要備份，請讓選項繼續設定為異地備援儲存體。 如果您想要更便宜但不持久的選項，請選擇本地備援儲存體。
 
 若要編輯儲存體複寫設定︰
 
@@ -126,9 +125,7 @@ Azure 備份服務提供兩種類型的保存庫來保護您的 VM：備份保�
 選擇好保存庫的儲存體選項後，就可以開始建立 VM 與保存庫的關聯。 若要開始關聯，請探索及註冊 Azure 虛擬機器。
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>選取備份目標、設定原則及定義要保護的項目
-在向保存庫註冊 VM 前，請先執行探索程序，以確保能夠識別任何新增至訂用帳戶的新虛擬機器。 此程序會在 Azure 中查詢訂用帳戶中的虛擬機器清單，以及雲端服務名稱和區域等資訊。 
-
-在 Azure 入口網站中，「案例」是指您要放入復原服務保存庫中的項目。 「原則」是復原點擷取頻率和時間的排程。 原則也會包含復原點的保留範圍。
+在向復原服務保存庫註冊虛擬網路前，請先執行探索程序，以識別任何新增至訂用帳戶的新虛擬機器。 探索程序會向 Azure 查詢訂用帳戶中的虛擬機器清單。 如果找不到新的虛擬機器，則入口網站會顯示雲端服務名稱和相關聯的區域。 在 Azure 入口網站中，「案例」是指您要輸入復原服務保存庫中的項目。 「原則」是復原點擷取頻率和時間的排程。 原則也會包含復原點的保留範圍。
 
 1. 如果您已開啟復原服務保存庫，請繼續步驟 2。 如果您並未開啟復原服務保存庫，請開啟 [Azure 入口網站](https://portal.azure.com/)。 在 [中樞] 功能表上，選取 [更多服務]。
 
@@ -170,7 +167,7 @@ Azure 備份服務提供兩種類型的保存庫來保護您的 VM：備份保�
 
    ![[選取虛擬機器] 窗格](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-   選取的虛擬機器便會接受驗證。 如果沒看到應該要有的虛擬機器，請確認其位於和復原服務保存庫相同的 Azure 位置，且沒有在其他保存庫中受到保護。 保存庫儀表板會顯示復原服務保存庫的位置。
+   選取的虛擬機器便會接受驗證。 如果沒看到應該要有的虛擬機器，請確認虛擬機器是否位於和復原服務保存庫相同的 Azure 區域。 如果您仍然沒有看到虛擬機器，請檢查其是否已受到另一個保存庫保護。 保存庫儀表板會顯示復原服務保存庫所在的區域。
 
 6. 現在您已定義保存庫的所有設定，接下來在 [備份] 窗格上選取 [啟用備份]。 此步驟會將原則部署到保存庫和 VM。 但不會建立虛擬機器的初始復原點。
 

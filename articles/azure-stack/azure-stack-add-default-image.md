@@ -144,10 +144,10 @@ ms.lasthandoff: 02/09/2018
 | 參數 | 必要 | 範例 | 說明 |
 |-----|-----|------|---- |
 |ISOPath|yes| N:\ISO\en_windows_16_x64_dvd | 所下載 Windows Server 2016 ISO 的完整路徑。|
-|Net35|否| True | 在 Windows Server 2016 映像上安裝 .NET 3.5 執行階段。 此值預設會設定為 **true**。|
-|版本|否| 完整 |  指定 [核心]、[完整]，或 [兩者] 的 Windows Server 2016 映像。 此值預設會設定為 **Full**。|
-|VHDSizeInMB|否| 40,960 | 設定要新增到您 Azure Stack 環境之 VHD 映像的大小 (單位為 MB)。 此值預設會設定為 40,960 MB。|
-|CreateGalleryItem|否| True | 指定是否應該為 Windows Server 2016 映像建立 Marketplace 項目。 此值預設會設定為 **true**。|
+|Net35|否| True | 此參數值指定是否會在 Windows Server 2016 映像檔中安裝 .NET 3.5 執行階段。 預設值為 **true**。|
+|版本|否| 完整 |  此參數值指定採用 [核心]、[完整]，或 [兩者] 的 Windows Server 2016 映像檔。 預設值為 **Full**。|
+|VHDSizeInMB|否| 40,960 | 設定要新增到您 Azure Stack 環境之 VHD 映像的大小 (單位為 MB)。 預設值為 40,960 MB。|
+|CreateGalleryItem|否| True | 此參數值指定是否要建立 Windows Server 2016 映像檔 Marketplace 項目。 預設值為 **true**。|
 |location |否 | D:\ | 指定 Windows Server 2016 映像檔發行目的地的位置。|
 |IncludeLatestCU|否| False | 將最新 Windows Server 2016 累積更新套用至新的 VHD 虛擬硬碟當中。 請檢查指令碼，以確保它是指向最新的更新，或使用下面兩個選項其中之一。 |
 |CUUri |否 | https://yourupdateserver/winservupdate2016 | 設定從特定的 URI 執行 Windows Server 2016 累積更新。 |

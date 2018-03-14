@@ -1,5 +1,5 @@
 ---
-title: "透過 Azure 內容傳遞網路的媒體串流處理最佳化"
+title: "透過 Azure CDN 的媒體串流處理最佳化"
 description: "將串流媒體檔案最佳化以便傳遞順暢"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c953baad9ca5def916800e6abe7032b4572def5a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>透過 Azure 內容傳遞網路的媒體串流處理最佳化 
+# <a name="media-streaming-optimization-via-azure-cdn"></a>透過 Azure CDN 的媒體串流處理最佳化 
  
 網際網路使用高畫質影片的日益頻繁，造成有效率傳遞大型檔案的困難。 客戶期待在世界各地的各種網路和用戶端上順暢播放點播視訊或即時影片資產。 快速且有效的媒體串流檔案傳遞機制，對於確保順暢且愉悅的取用者體驗極為重要。  
 
@@ -28,13 +28,13 @@ ms.lasthandoff: 10/11/2017
 
 串流的要求模式也帶來一些新挑戰。 當熱門的即時串流，或點播視訊發佈新的片段時，同一時間可能有數千到數百萬個檢視者要求資料流。 在此情況下，智慧要求彙總極為重要，因為在尚未快取資產時，它不會讓原始伺服器超過負荷。
  
-Akamai 的 Azure 內容傳遞網路現在提供一項功能，可將串流處理媒體資產有效傳遞給全球的使用者。 此功能會減少延遲，因為它可以降低來源伺服器上的負載。 使用標準 Akamai 定價層可取得這項功能。 
+**Akamai 的 Azure CDN**提供一項功能，可將串流媒體資產有效傳遞給全球的使用者。 此功能會減少延遲，因為它可以降低來源伺服器上的負載。 使用標準 Akamai 定價層可取得這項功能。 
 
-Verizon 的 Azure 內容傳遞網路會直接使用一般 Web 傳遞最佳化類型來傳遞串流處理媒體內容。
+**Verizon 的 Azure CDN** 會直接以「一般 Web 傳遞」最佳化類型傳遞串流媒體。
  
-## <a name="configure-an-endpoint-to-optimize-media-streaming-in-the-azure-content-delivery-network-from-akamai"></a>在 Akamai 的 Azure 內容傳遞網路中，設定端點以最佳化媒體串流處理。
+## <a name="configure-an-endpoint-to-optimize-media-streaming"></a>設定端點以最佳化媒體串流處理
  
-您可以設定您的內容傳遞網路 (CDN) 端點，以最佳化透過 Azure 入口網站傳遞大型檔案。 使用 REST API 或任何用戶端 SDK 也都能達到相同目的。 下列步驟示範透過 Azure 入口網站的程序：
+您可以設定您的內容傳遞網路 (CDN) 端點，以最佳化透過 Azure 入口網站傳遞大型檔案。 使用 REST API 或任何用戶端 SDK 也都能達到相同目的。 下列步驟示範 **Akamai 的 Azure CDN** 設定檔透過 Azure 入口網站執行的程序：
 
 1. 若要新增新的端點，請在 [CDN 設定檔] 頁面上選取 [端點]。
   
@@ -46,16 +46,15 @@ Verizon 的 Azure 內容傳遞網路會直接使用一般 Web 傳遞最佳化類
  
 建立端點後，最佳化就會套用到符合特定準則的所有檔案。 下一節會說明此程序。 
  
-## <a name="media-streaming-optimizations-for-the-azure-content-delivery-network-from-akamai"></a>來自 Akamai 的 Azure 內容傳遞網路的媒體串流處理最佳化
+## <a name="media-streaming-optimizations-for-azure-cdn-from-akamai"></a>Azure CDN from Akamai 的媒體串流最佳化
  
-來自 Akamai 的媒體串流處理最佳化，適合使用媒體片段傳遞處理即時或點播視訊串流的媒體。 此程序不同於透過漸進式下載或使用位元組範圍要求的單一大型資產傳輸。 如需該樣式的媒體傳遞相關資訊，請查看[大型檔案最佳化](cdn-large-file-optimization.md)。
-
+**Akamai 的 Azure CDN** 媒體串流處理最佳化，適合使用媒體片段傳遞處理即時或點播視訊串流媒體。 此程序不同於透過漸進式下載或使用位元組範圍要求的單一大型資產傳輸。 如需該樣式的媒體傳遞相關資訊，請查看[大型檔案最佳化](cdn-large-file-optimization.md)。
 
 一般媒體傳遞或點播視訊媒體傳遞最佳化類型，會使用 CDN 與後端最佳化以更快傳遞媒體資產。 它們也會使用媒體資產組態，此組態是以經過一段時間學習的最佳作法為基礎。
 
 ### <a name="caching"></a>快取
 
-如果 Akamai 的 Azure 內容傳遞網路偵測到資產是串流資訊清單或片段，它會使用與一般 Web 傳遞不同的快取到期時間。 (請參閱下表中的完整清單。)如往常一樣接受從來源傳送的 cache-control 或 Expires 標頭。 如果資產不是媒體資產，就會使用一般 Web 傳遞的逾期時間快取。
+如果 **Akamai 的 Azure CDN** 偵測到資產是串流資訊清單或片段，它會使用與一般 Web 傳遞不同的快取到期時間。 (請參閱下表中的完整清單。)如往常一樣接受從來源傳送的 cache-control 或 Expires 標頭。 如果資產不是媒體資產，就會使用一般 Web 傳遞的逾期時間快取。
 
 當許多使用者要求還不存在的片段時，短的負快取時間對來源卸載就很有用。 例如該秒無法從原始伺服器取得封包的即時串流。 較長的快取間隔也有助於卸載原始伺服器的要求，因為通常不會修改影片內容。
  
@@ -82,13 +81,13 @@ Verizon 的 Azure 內容傳遞網路會直接使用一般 Web 傳遞最佳化類
 Apple HLS | m3u8、m3u、m3ub、key、ts、aac
 Adobe HDS | f4m、f4x、drmmeta、bootstrap、f4f、<br>Seg-Frag URL 結構 <br> (matching regex: ^(/.*)Seq(\d+)-Frag(\d+)
 DASH | mpd、dash、divx、ismv、m4s、m4v、mp4、mp4v、 <br> sidx、webm、mp4a、m4a、isma
-Smooth Streaming | /manifest/,/QualityLevels/Fragments/
+Smooth Streaming | /manifest/, /QualityLevels/Fragments/
   
 
  
-## <a name="media-streaming-optimizations-for-the-azure-content-delivery-network-from-verizon"></a>Verizon 的 Azure 內容傳遞網路的媒體串流處理最佳化
+## <a name="media-streaming-optimizations-for-azure-cdn-from-verizon"></a>Azure CDN from Verizon 的媒體串流最佳化
 
-Verizon 的 Azure 內容傳遞網路會直接使用一般 Web 傳遞最佳化類型來傳遞串流處理媒體資產。 CDN 有一些功能預設可直接協助傳遞媒體資產。
+**Verizon 的 Azure CDN** 會直接使用一般 Web 傳遞最佳化類型來傳遞串流媒體資產。 CDN 有一些功能預設可直接協助傳遞媒體資產。
 
 ### <a name="partial-cache-sharing"></a>部分快取共用
 

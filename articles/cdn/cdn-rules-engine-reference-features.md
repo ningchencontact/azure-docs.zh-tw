@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 858bc1dd2880583a3283522a01c9a48679b76296
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN 規則引擎功能
 本本會針對 Azure 內容傳遞網路 (CDN) [規則引擎](cdn-rules-engine.md)列出可用功能的詳細說明。
@@ -49,10 +49,10 @@ Name | 目的
 [頻寬節流設定](#bandwidth-throttling) | 針對 Edge Server 所提供的回應進行頻寬節流設定。
 [略過快取](#bypass-cache) | 判斷要求是否應略過快取。
 [Cache-Control 標頭處理](#cache-control-header-treatment) | 當 [外部最大壽命] 功能為作用中時，透過 Edge Server 來控制 `Cache-Control` 標頭的產生。
-[快取索引鍵查詢字串](#cache-key-query-string) | 判斷快取索引鍵是否將包含或排除與要求相關聯的佇列字串參數。
+[快取索引鍵查詢字串](#cache-key-query-string) | 判斷快取索引鍵會包含或排除與要求相關聯的佇列字串參數。
 [快取索引鍵重寫](#cache-key-rewrite) | 重寫與要求相關聯的快取索引鍵。
 [完成快取填滿](#complete-cache-fill) | 判斷在要求於 Edge Server 上產生部分快取遺失時會發生什麼事。
-[壓縮檔案類型](#compress-file-types) | 定義將在伺服器上壓縮的檔案格式。
+[壓縮檔案類型](#compress-file-types) | 定義將在伺服器上壓縮的檔案之檔案格式。
 [預設的內部最大壽命](#default-internal-max-age) | 判斷 Edge Server 到原始伺服器快取重新驗證之間的預設最大壽命間隔。
 [Expires 標頭處理](#expires-header-treatment) | 當 [外部最大壽命] 功能為作用中時，透過 Edge Server 來控制 `Expires` 標頭的產生。
 [外部最大壽命](#external-max-age) | 判斷瀏覽器到 Edge Server 快取重新驗證之間的最大壽命間隔。
@@ -63,7 +63,7 @@ Name | 目的
 [忽略無法滿足的範圍](#ignore-unsatisfiable-ranges) | 判斷在要求產生「416 無法滿足的要求範圍」狀態代碼時傳回給用戶端的要求。
 [內部最大過時](#internal-max-stale) | 控制當 Edge Server 無法使用原始伺服器重新驗證快取的資產時，從 Edge Server 所提供的快取資產可能會經歷多長的標準到期時間。
 [部分快取共用](#partial-cache-sharing) | 判斷要求是否可以產生部分快取的內容。
-[預先驗證快取的內容](#prevalidate-cached-content) | 在快取內容的 TTL 到期之前，判斷其是否適用進行早期重新驗證。
+[預先驗證快取的內容](#prevalidate-cached-content) | 在快取內容的 TTL 到期之前，判斷其是否適合進行早期重新驗證。
 [重新整理零位元組的快取檔案](#refresh-zero-byte-cache-files) | 判斷如何透過 Edge Server 來處理 HTTP 用戶端對於 0 位元組快取資產的要求。
 [設定可快取的狀態碼](#set-cacheable-status-codes) | 定義一組可產生快取內容的狀態碼。
 [發生錯誤時傳遞過時的內容](#stale-content-delivery-on-error) | 判斷在快取重新驗證期間發生錯誤時，或者在接收到來自客戶原始伺服器的要求內容時，是否要傳遞到期的快取內容。
@@ -83,7 +83,7 @@ Name | 目的
 
 Name | 目的
 -----|--------
-[Age 回應標頭](#age-response-header) | 判斷 Age 回應標頭是否將包含於傳送到要求者的回應中。
+[Age 回應標頭](#age-response-header) | 判斷 Age 回應標頭是否包含於傳送給要求者的回應中。
 [偵錯快取回應標頭](#debug-cache-response-headers) | 判斷回應是否會包含於 X-EC-Debug 回應標頭中，其會在快取原則上提供要求資產的相關資訊。
 [修改用戶端要求標頭](#modify-client-request-header) | 覆寫、附加或刪除要求的標頭。
 [修改用戶端回應標頭](#modify-client-response-header) | 覆寫、附加或刪除回應的標頭。
@@ -96,8 +96,8 @@ Name | 目的
 
 Name | 目的
 -----|--------
-[自訂記錄欄位 1](#custom-log-field-1) | 判斷將指派給原始記錄檔中自訂記錄欄位的格式和內容。
-[記錄查詢字串](#log-query-string) | 判斷查詢字串以及 URL 是否將一起儲存於存取記錄中。
+[自訂記錄欄位 1](#custom-log-field-1) | 判斷要指派給原始記錄檔中自訂記錄欄位的格式和內容。
+[記錄查詢字串](#log-query-string) | 判斷查詢字串以及 URL 是否會一起儲存於存取記錄中。
 
 
 <!---
@@ -151,7 +151,7 @@ If the desired site does not appear in the list, then you should edit its config
 Name | 目的
 -----|--------
 [最大 Keep-Alive 要求數目](#maximum-keep-alive-requests) | 判斷在關閉 Keep-Alive 連線之前，適用於該連線的最大要求數目。
-[Proxy 特殊標頭](#proxy-special-headers) | 定義將從 Edge Server 轉送到原始伺服器之 CDN 特定的要求標頭組。
+[Proxy 特殊標頭](#proxy-special-headers) | 定義要從 Edge Server 轉送到原始伺服器之 CDN 特定的要求標頭組。
 
 
 ## <a name="specialty-features"></a>特性功能
@@ -195,14 +195,14 @@ Name | 目的
 
 ---
 ### <a name="bandwidth-parameters"></a>頻寬參數
-**目的：**判斷是否會使用頻寬節流設定參數 (例如 ec_rate 和 ec_prebuf)。
+**目的：**判斷是否使用頻寬節流參數 (例如 ec_rate 和 ec_prebuf)。
 
-頻寬節流設定參數會判斷是否要將用戶端要求的資料傳輸速率限制為自訂的速率。
+頻寬節流參數會判斷是否要將用戶端要求的資料傳輸速率限制為自訂的速率。
 
 值|結果
 --|--
 已啟用|允許 Edge Server 接受頻寬節流設定要求。
-已停用|導致 Edge Server 忽略頻寬節流設定參數。 通常將會提供要求的內容 (亦即，不需頻寬節流設定)。
+已停用|導致 Edge Server 忽略頻寬節流設定參數。 通常會提供要求的內容 (亦即，不需頻寬節流)。
 
 **預設行為：**已啟用。
  
@@ -269,7 +269,7 @@ Prebuf 秒|將此選項設定為 Edge Server 在進行頻寬節流設定之前�
 ### <a name="cacheable-request-body-size"></a>可快取的要求主體大小
 **目的：**定義用以判斷是否可快取 POST 回應的臨界值。
 
-此臨界值是藉由指定要求主體大小上限來決定。 系統將不會快取包含較大要求主體的要求。
+此臨界值是藉由指定要求主體大小上限來決定。 系統不會快取包含較大要求主體的要求。
 
 重要資訊：
 
@@ -308,23 +308,23 @@ Prebuf 秒|將此選項設定為 Edge Server 在進行頻寬節流設定之前�
 
 ---
 ### <a name="cache-key-query-string"></a>快取索引鍵查詢字串
-**目的：**判斷快取索引鍵是否將包含或排除與要求相關聯的查詢字串參數。
+**目的：**判斷快取索引鍵會包含或排除與要求相關聯的佇列字串參數。
 
 重要資訊：
 
-- 指定一或多個查詢字串參數名稱。 每個參數名稱都應以單一空格分隔。
-- 此功能會判斷是否要在快取索引鍵中包含查詢字串參數或從中排除。 以下提供每個選項的其他資訊。
+- 指定一或多個查詢字串參數名稱。 以單一空格分隔每個參數名稱。
+- 此功能會判斷要在快取索引鍵中包含查詢字串參數或從中排除。 下表提供每個選項的其他資訊。
 
 類型|說明
 --|--
- 包含|  指出應該在快取索引鍵中包含每個指定的參數。 系統將針對每個要求產生唯一的快取索引鍵，其中包含此功能中所定義之查詢字串參數的唯一值。 
- 全部包含  |指出將針對每個包含唯一查詢字串的資產要求建立唯一的快取索引鍵。 通常不建議使用此類型的組態，因為它可能會導致一小部分的快取命中數。 這將會增加原始伺服器上的負載，因為它必須為更多要求提供服務。 這個組態會複製 [查詢字串快取] 頁面上名為「unique-cache」的快取行為。 
- 排除 | 指出只會從快取索引鍵中排除指定的參數。 所有的其他查詢字串參數都將包含於快取索引鍵中。 
- 全部排除  |指出將從快取索引鍵中排除所有查詢字串參數。 這個組態會複製 [查詢字串快取] 頁面上名為「standard-cache」的預設快取行為。 
+ 包含|  指出應該在快取索引鍵中包含每個指定的參數。 系統會針對每個要求產生唯一的快取索引鍵，其中包含此功能中所定義之查詢字串參數的唯一值。 
+ 全部包含  |指出會針對每個包含唯一查詢字串的資產要求建立唯一的快取索引鍵。 通常不建議使用此類型的設定，因為它可能會導致一小部分的快取命中數。 快取命中數過低會使原始伺服器的負載增加，因為它必須提供更多的要求。 這個組態會複製 [查詢字串快取] 頁面上名為「unique-cache」的快取行為。 
+ 排除 | 指出只會從快取索引鍵中排除指定的參數。 所有的其他查詢字串參數都會包含於快取索引鍵中。 
+ 全部排除  |指出會從快取索引鍵中排除所有查詢字串參數。 此組態會複製 [查詢字串快取] 頁面上的 "standard-cache" 預設快取行為。  
 
-HTTP 規則引擎的強大功能可讓您自訂實作查詢字串快取的行為。 例如，您可以指定查詢字串快取只會在特定位置或檔案類型上執行。
+規則引擎可讓您自訂實作查詢字串快取的方式。 例如，您可以指定只在特定位置或檔案類型上執行查詢字串快取。
 
-如果您想要複製 [查詢字串快取] 頁面上名為「no-cache」的查詢字串快取行為，則您必須建立規則，其中包含 [URL 查詢萬用字元] 比對條件和 [略過快取] 功能。 [URL 查詢萬用字元] 比對條件應設為星號 (*)。
+若要複製 [查詢字串快取] 頁面上的 "no-cache" 查詢字串快取行為，請建立規則，其中包含 [URL 查詢萬用字元] 比對條件和 [略過快取] 功能。 將 [URL 查詢萬用字元] 比對條件設為星號 (*)。
 
 #### <a name="sample-scenarios"></a>範例案例
 
@@ -383,13 +383,13 @@ HTTP 規則引擎的強大功能可讓您自訂實作查詢字串快取的行為
 ### <a name="cache-key-rewrite"></a>快取索引鍵重寫
 **目的：**重寫與要求相關聯的快取索引鍵。
 
-快取索引鍵是基於快取目的識別資產的相對路徑。 換句話說，伺服器將根據資產的路徑 (如其快取索引鍵所定義) 來檢查它的快取版本。
+快取索引鍵是基於快取目的識別資產的相對路徑。 換句話說，伺服器會根據資產的路徑 (如其快取索引鍵所定義) 來檢查它的快取版本。
 
 藉由定義兩個下列選項來設定此功能：
 
 選項|說明
 --|--
-原始路徑| 定義將重寫快取索引鍵之快取類型的相對路徑。 相對路徑可藉由選取基底原始路徑，然後定義規則運算式模式來定義。
+原始路徑| 定義將重寫快取索引鍵之要求類型的相對路徑。 相對路徑可藉由選取基底原始路徑，然後定義規則運算式模式來定義。
 新路徑|定義新快取索引鍵的相對路徑。 相對路徑可藉由選取基底原始路徑，然後定義規則運算式模式來定義。 此相對路徑可使用 HTTP 變數來動態建構
 **預設行為︰**要求的快取索引鍵是依要求 URI 來判斷。
 
@@ -422,7 +422,7 @@ HTTP 規則引擎的強大功能可讓您自訂實作查詢字串快取的行為
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
 --->
-部分快取遺失通常發生於使用者中止下載之後，或發生於只要求使用 HTTP 範圍要求的資產。 對於使用者通常不會完整下載的大型資產 (例如，影片) 而言，此功能非常實用。 因此，HTTP 大型平台上預設會啟用此功能。 所有其他平台上則會加以停用。
+部分快取遺失通常發生於使用者中止下載之後，或發生於只要求使用 HTTP 範圍要求的資產。 對於通常不會完整下載的大型資產 (例如，影片) 而言，此功能非常實用。 因此，HTTP 大型平台上預設會啟用此功能。 所有其他平台上則會加以停用。
 
 針對 HTTP 大型平台保留預設組態，因為它可減少客戶原始伺服器上的負載，並提高客戶下載內容的速度。
 
@@ -431,7 +431,7 @@ This feature is not available for the ADN platform. The typical traffic on this 
 值|結果
 --|--
 已啟用|還原預設行為。 預設行為是強制 Edge Server 從原始伺服器起始資產的背景擷取。 在那之後，資產將位於 Edge Server 的本機快取中。
-已停用|防止 Edge Server 執行資產的背景擷取。 這表示來自該地區中該資產的下一個要求將導致 Edge Server 向客戶原始伺服器要求它。
+已停用|防止 Edge Server 執行資產的背景擷取。 結果是來自該區域中該資產的下一個要求會導致 Edge Server 向客戶原始伺服器要求它。
 
 **預設行為：**已啟用。
 
@@ -441,7 +441,7 @@ This feature is not available for the ADN platform. The typical traffic on this 
 
 ---
 ### <a name="compress-file-types"></a>壓縮檔案類型
-**目的：**定義將在伺服器上壓縮的檔案格式。
+**目的：**定義將在伺服器上壓縮的檔案之檔案格式。
 
 您可以使用檔案格式的網際網路媒體類型 (例如，內容類型) 來指定檔案格式。 網際網路媒體類型是與平台無關的中繼資料，讓伺服器能夠識別特定資產的檔案格式。 以下提供常用的網際網路媒體類型清單。
 
@@ -455,10 +455,10 @@ application/javascript|Javascript
 重要資訊：
 
 - 使用單一空格來分隔每個網際網路媒體類型，藉以指定多個類型。 
-- 此功能將只會壓縮大小小於 1 MB 的資產。 伺服器將不會壓縮較大型的資產。
-- 諸如影片、視訊和音訊媒體資產 (例如，JPG、MP3、MP4 等) 的特定類型內容均已壓縮。 這些類型資產上的額外壓縮將不會顯著降低檔案大小。 因此，建議您不要在這些類型的資產上啟用壓縮。
+- 此功能只會壓縮大小小於 1 MB 的資產。 伺服器不會壓縮較大型的資產。
+- 諸如影片、視訊和音訊媒體資產 (例如，JPG、MP3、MP4 等) 的特定類型內容均已壓縮。 因為這些資產類型的額外壓縮不會大幅降低檔案大小，建議您不要在這些類型的資產上啟用壓縮。
 - 不支援萬用字元 (例如星號)。
-- 將此功能新增至規則之前，請確定會針對將套用此規則的平台，在 [壓縮] 頁面上設定 [壓縮已停用] 選項。
+- 將此功能新增至規則之前，請確定會針對套用此規則的平台，在 [壓縮] 頁面上設定 [壓縮已停用] 選項。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -470,9 +470,9 @@ application/javascript|Javascript
 
 此自訂欄位可讓您判斷哪些要求和回應標頭值會儲存於記錄檔中。
 
-根據預設，自訂記錄欄位稱為「x-ec_custom-1」。 不過，您可以從 [未經處理記錄設定] 頁面自訂此欄位的名稱。
+根據預設，自訂記錄欄位稱為「x-ec_custom-1」。 您可以從 [未經處理記錄設定] 頁面自訂此欄位的名稱。
 
-您應該用來指定要求和回應標頭格式設定的定義如下。
+用於指定要求和回應標頭的格式定義如下：
 
 標頭類型|格式|範例
 -|-|-
@@ -482,9 +482,9 @@ application/javascript|Javascript
 重要資訊：
 
 - 自訂記錄欄位可包含標頭欄位和純文字的任意組合。
-- 此欄位的有效字元包括下列各項：英數字元 (0-9、a-z 和 A-Z)、連字號、冒號、分號、單引號、逗號、句號、底線、等號、括弧、中括弧和空格。 只有在用於指定標頭欄位時，才能使用百分比符號和大括弧。
+- 此欄位的有效字元如下：英數字元 (0-9、a-z 和 A-Z)、連字號、冒號、分號、單引號、逗號、句號、底線、等號、括弧、中括弧和空格。 只有在用於指定標頭欄位時，才能使用百分比符號和大括弧。
 - 每個指定標頭欄位的拼字都必須符合所需的要求/回應標頭名稱。
-- 如果您想要指定多個標頭，則建議您使用分隔符號來表示每個標頭。 例如，您可以針對每個標頭使用縮寫。 範例語法如下所示。
+- 如果您需要指定多個標頭，請使用分隔符號來表示每個標頭。 例如，您可以針對每個標頭使用縮寫：
     - AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o 
 
 **預設值：** -
@@ -495,7 +495,7 @@ application/javascript|Javascript
 
 ---
 ### <a name="debug-cache-response-headers"></a>偵錯快取回應標頭
-**目的：**判斷回應是否會包含 X-EC-Debug 回應標頭，其可在快取原則上提供要求資產的相關資訊。
+**目的：**判斷回應是否會包含 X-EC-Debug 回應標頭，其可在快取原則上提供所要求資產的相關資訊。
 
 符合下列兩種情況時，將會在回應中包含偵錯快取回應標頭：
 
@@ -981,7 +981,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 [標頭名稱] 選項會定義儲存用戶端 IP 位址的自訂要求標頭名稱。
 
-此功能讓客戶原始伺服器能夠透過自訂要求標頭找出用戶端 IP 位址。 如果是從快取提供要求，則不會將用戶端的 IP 位址告知原始伺服器。 因此，建議將此功能與 ADN 或不會快取的資產搭配使用。
+此功能讓客戶原始伺服器能夠透過自訂要求標頭找出用戶端 IP 位址。 如果是從快取提供要求，則不會將用戶端的 IP 位址告知原始伺服器。 因此，建議將此功能使用於不會快取的資產。
 
 請確定指定的標頭名稱不符合下列任一個名稱：
 
@@ -1248,8 +1248,8 @@ WWW-Authenticate 標頭只適用於 401 回應碼。
 </br>
 
 ## <a name="next-steps"></a>後續步驟
-* [規則引擎參考 (英文)](cdn-rules-engine-reference.md)
-* [規則引擎條件式運算式 (英文)](cdn-rules-engine-reference-conditional-expressions.md)
-* [規則引擎比對條件 (英文)](cdn-rules-engine-reference-match-conditions.md)
-* [使用規則引擎覆寫預設的 HTTP 行為](cdn-rules-engine.md)
+* [規則引擎參考](cdn-rules-engine-reference.md)
+* [規則引擎條件運算式](cdn-rules-engine-reference-conditional-expressions.md)
+* [規則引擎比對條件](cdn-rules-engine-reference-match-conditions.md)
+* [使用規則引擎覆寫 HTTP 行為](cdn-rules-engine.md)
 * [Azure CDN 概觀](cdn-overview.md)

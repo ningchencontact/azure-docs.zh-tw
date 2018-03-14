@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: e6eacdb437d28eb733da522280cb2c7d8c24d9ba
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8efc0bff4764a7265a5f1bcdd995979af0b22234
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>建立、變更或刪除公用 IP 位址
 
@@ -29,21 +29,20 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="before-you-begin"></a>開始之前
 
-在完成本文任一節的任何步驟之前，請先完成下列工作︰
+在完成本文任一節的步驟之前，請先完成下列工作︰
 
-- 檢閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文，以了解公用 IP 位址的限制。
-- 使用 Azure 帳戶來登入 Azure [入口網站](https://portal.azure.com)、Azure 命令列介面 (CLI) 或 Azure PowerShell。 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
-- 如果您使用 PowerShell 命令來完成本文中的工作，請[安裝和設定 Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json)。 請確定您已安裝最新版的 Azure PowerShell commandlet。 若要取得 PowerShell 命令的說明 (包含範例)，請輸入 `get-help <command> -full`。
-- 如果您使用 Azure 命令列介面 (CLI) 命令來完成本文中的工作，請[安裝和設定 Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)。 請確定您已安裝最新版的 Azure CLI。 若要取得 CLI 命令的說明，請輸入 `az <command> --help`。 您可以不安裝 CLI 及其必要條件，而是改用 Azure Cloud Shell。 Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網站內執行。 它具有預先安裝和設定的 Azure CLI，可與您的帳戶搭配使用。 若要使用 Cloud Shell，請按一下[入口網站](https://portal.azure.com)頂端的 Cloud Shell (**> _**) 按鈕。
+- 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
+- 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.2.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+- 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.26 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
 公用 IP 位址需要少許費用。 若要檢視價格，請閱讀 [IP 位址價格](https://azure.microsoft.com/pricing/details/ip-addresses)頁面。 
 
 ## <a name="create-a-public-ip-address"></a>建立公用 IP 位址
 
-1. 使用具備您訂用帳戶網路參與者角色 (最低) 權限的帳戶登入 [Azure 入口網站](https://portal.azure.com)。 請閱讀 [Azure 角色型存取控制的內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，深入了解如何將角色和權限指派給帳戶。
-2. 在 Azure 入口網站頂端包含「搜尋資源」文字的方塊中，輸入「公用 ip 位址」。 當「公用 IP 位址」出現於搜尋結果時，按一下它。
-3. 在顯示的 [公用 IP 位址] 刀鋒視窗中按一下 [+ 新增]。
-4. 在顯示的 [建立公用 IP 位址] 刀鋒視窗中輸入或選取下列設定的值，然後按一下 [建立]：
+1. 在 Azure 入口網站頂端包含「搜尋資源」文字的方塊中，輸入「公用 ip 位址」。 當「公用 IP 位址」出現於搜尋結果時，按一下它。
+2. 在顯示的 [公用 IP 位址] 刀鋒視窗中按一下 [+ 新增]。
+3. 在顯示的 [建立公用 IP 位址] 刀鋒視窗中輸入或選取下列設定的值，然後按一下 [建立]：
 
     |設定|必要？|詳細資料|
     |---|---|---|
@@ -73,10 +72,9 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>檢視、變更公用 IP 位址的設定，或刪除公用 IP 位址
 
-1. 使用具備您訂用帳戶網路參與者角色 (最低) 權限的帳戶登入 [Azure 入口網站](https://portal.azure.com)。 請閱讀 [Azure 角色型存取控制的內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，深入了解如何將角色和權限指派給帳戶。
-2. 在 Azure 入口網站頂端包含「搜尋資源」文字的方塊中，輸入「公用 ip 位址」。 當「公用 IP 位址」出現於搜尋結果時，按一下它。
-3. 在顯示的 [公用 IP 位址] 刀鋒視窗中，按一下您要檢視、變更設定，或刪除的公用 IP 位址名稱。
-4. 在針對公用 IP 位址顯示的刀鋒視窗中，根據您要檢視、刪除或變更公用 IP 位址，完成下列其中一個選項。
+1. 在 Azure 入口網站頂端包含「搜尋資源」文字的方塊中，輸入「公用 ip 位址」。 當「公用 IP 位址」出現於搜尋結果時，按一下它。
+2. 在顯示的 [公用 IP 位址] 刀鋒視窗中，按一下您要檢視、變更設定，或刪除的公用 IP 位址名稱。
+3. 在針對公用 IP 位址顯示的刀鋒視窗中，根據您要檢視、刪除或變更公用 IP 位址，完成下列其中一個選項。
     - **檢視**：刀鋒視窗的 [概觀] 區段會顯示公用 IP 位址的主要設定，例如和該位址關聯的網路介面 (如果位址與網路介面關聯)。 入口網站不會顯示位址版本 (IPv4 或 IPv6)。 若要檢視版本資訊，請使用 PowerShell 或 CLI 命令來檢視公用 IP 位址。 如果 IP 位址版本是 IPv6 時，指派的位址不會顯示在入口網站、PowerShell 或 CLI 。 
     - **刪除**：若要刪除公用 IP 位址，請在刀鋒視窗的 [概觀] 區段中按一下 [刪除]。 如果位址目前與 IP 組態相關聯，則無法加以刪除。 如果位址目前與組態相關聯，請按一下 [解除關聯] 來解除位址與 IP 組態的關聯。
     - **變更**：按一下 [組態]。 使用[建立公用 IP 位址](#create-a-public-ip-address)一節中步驟 4 的資訊來變更設定。 若要將 IPv4 位址的指派從靜態變更為動態，您必須先解除公用 IPv4 位址與相關聯 IP 組態的關聯。 您可以接著將指派方法變更為動態，然後按一下 [關聯] 讓 IP 位址與相同 IP 組態、不同組態建立關聯，您也可以讓它解除關聯。 若要解除公用 IP 位址的關聯，請在 [概觀] 區段中，按一下 [解除關聯]。
@@ -98,16 +96,12 @@ ms.lasthandoff: 02/09/2018
 
 您必須先註冊預覽版，才可以建立標準 SKU 公用 IP 位址。 請完成下列步驟以註冊預覽版：
 
-1. 安裝並設定 Azure [PowerShell](/powershell/azure/install-azurerm-ps)。
-2. 執行 `Get-Module -ListAvailable AzureRM` 命令以查看您安裝之 AzureRM 模組的版本。 您必須安裝 4.4.0 版或更高版本。 如果您未安裝，可以從 [PowerShell 資源庫](https://www.powershellgallery.com/packages/AzureRM)安裝最新版本。
-3. 使用 `login-azurermaccount` 命令登入 Azure。
-4. 請輸入下列命令以註冊預覽版：
+1. 從 PowerShell 輸入下列命令以註冊預覽版：
    
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
     ```
-
-5. 藉由輸入下列命令，確認您已註冊預覽版︰
+2. 藉由輸入下列命令，確認您已註冊預覽版︰
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network

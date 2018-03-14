@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 03/02/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 整合式系統的一般資料中心整合考量
 如果您對 Azure Stack 整合式系統有興趣，您應瞭解一些有關部署的重大規劃考量，及系統如何融入您的資料中心。 本文提供這些考量的高階概觀，協助您為 Azure Stack 多節點系統做出重要的基礎結構決策。 與您的 OEM 硬體廠商一起將 Azure Stack 部署到您的資料中心時，瞭解這些考量有所助益。  
@@ -30,6 +30,15 @@ ms.lasthandoff: 02/09/2018
 若要部署 Azure Stack，您必須在部署開始之前，先將規劃資訊提供給解決方案提供者，才能讓程序快速且順暢地進行。 所需的資訊涵蓋網路功能、安全性和身分識別資訊，以及許多可能需要很多不同領域和決策制定者相關知識的重要決策。 因此，您必須與組織中多個小組的人員交涉，以確保您在部署開始前已備妥所有必要資訊。 在收集此資訊時，與您的硬體廠商洽談可能有所幫助，因為他們可能會提供有助於進行決策的建議。
 
 在研究並收集必要資訊時，您可能必須對網路環境進行一些部署前的設定變更。 這可能包括保留 Azure Stack 解決方案的 IP 位址空間，設定您的路由器、交換器和防火牆，以便為新的 Azure Stack 解決方案交換器連線預作準備。 確定目前有主題領域專家可協助您進行規劃。
+
+## <a name="capacity-planning-considerations"></a>容量規劃考量
+評估是否要取得 Azure Stack 解決方案時，選擇硬體組態是必要的，因為這直接影響到 Azure Stack 解決方案的整體容量。 其中包括 CPU、記憶體密度、儲存體組態和整體解決方案規模 (例如伺服器的數目) 等典型選項。 不同於傳統的虛擬化解決方案，簡單地計算這些元件不適用於決定可用的容量。 第一個原因是 Azure Stack 的架構是解決方案本身就裝載基礎結構或管理元件。 第二個原因是解決方案的部分容量會為支援恢復功能而保留；透過將租用戶工作負載中斷情形降到最低的方式，來更新解決方案的軟體。 
+
+[Azure Stack 容量規劃工具試算表](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)可透過兩個方法協助您在規劃容量方面作出適當的決定：透過選取硬體供應項目和嘗試符合資源組合，或透過定義 Azure Stack 要執行的工作負載，來檢視可支援的可用硬體 SKU。 最後，此試算表是用來協助決定 Azure Stack 規劃和組態等相關項目的指南。 
+
+不適合用試算表取代您自己的調查與分析。  Microsoft 對於試算表內所提供的資訊不做任何明示或暗示的聲明或保證。
+
+
 
 ## <a name="management-considerations"></a>管理考量
 Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構。 會套用網路存取控制清單 (ACL) 來封鎖所有未經授權的連入流量，及基礎結構元件之間所有不必要的通訊。 這會使得未經授權的使用者難以存取系統。

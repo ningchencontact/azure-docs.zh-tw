@@ -13,82 +13,95 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9f2a4acdd0a2b29bc1485f62c0049f0065cbf711
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
-Azure Analysis Services 伺服器支援連線到您組織中的雲端和內部部署資料來源。 其他支援的資料來源持續新增。 請經常回來查看。 
 
-目前支援下列資料來源：
+在 Visual Studio 「取得資料」或「匯入精靈」中顯示的資料來源和連接器，也會在 Azure Analysis Services 和 SQL Server Analysis Services 中顯示。 不過，這不表示 Azure Analysis Services 支援所有顯示的資料來源和連接器。 您可以連線的資料來源類型取決於多個因素，例如模型相容性層級、可用的資料連接器、驗證類型、提供者，以及內部部署資料閘道支援。 
 
-| 雲端  |
-|---|
-| Azure Blob 儲存體*  |
-| 連接字串  |
-| Azure 資料倉儲 |
+## <a name="azure-data-sources"></a>Azure 資料來源
 
+|資料來源  |記憶體內  |DirectQuery  |
+|---------|---------|---------|
+|連接字串     |   yes      |    yes      |
+|Azure SQL 資料倉儲     |   yes      |   yes       |
+|Azure Blob 儲存體*     |   yes       |    否      |
+|Azure 表格儲存體*    |   yes       |    否      |
+|Azure Cosmos DB (搶鮮版 (Beta))*     |  yes        |  否        |
+|Azure Data Lake Store*     |   yes       |    否      |
+|Azure HDInsight HDFS*     |     yes     |   否       |
+|Azure HDInsight Spark (搶鮮版 (Beta))*     |   yes       |   否       |
+|適用於 MySQL 的 Azure 資料庫 (預覽)*     |   yes       |   否      |
+|適用於 PostgreSQL 的 Azure 資料庫 (預覽)*     | yes         |  否       |
+||||
 
-| 內部部署  |   |   |   |
-|---|---|---|---|
-| Access 資料庫  | 資料夾* | Oracle 資料庫  | Teradata 資料庫 |
-| Active Directory*  | JSON 文件*  | Postgre SQL 資料庫*  |XML 表格* |
-| Analysis Services  | Lines from binary*  | SAP HANA*  |
-| 分析平台系統  | MySQL Database  | SAP Business Warehouse*  | |
-| Dynamics CRM*  | OData 摘要*  | SharePoint*  |
-| Excel 活頁簿  | ODBC 查詢  | SQL Database  |
-| Exchange*  | OLE DB  | Sybase 資料庫  |
+\* 僅限表格式 1400 模型。
 
-\* 僅限表格式 1400 模型。 
+**提供者**   
+連線至 Azure 資料來源的記憶體內部和 DirectQuery 模型會使用 .NET Framework Data Provider for SQL Server。
 
-> [!IMPORTANT]
-> 連線到內部部署資料來源需要在您環境中的電腦上安裝[內部部署資料閘道](analysis-services-gateway.md)。
+## <a name="on-premises-data-sources"></a>內部部署資料來源
 
-## <a name="data-providers"></a>資料提供者
+從 Azure AS 伺服器連線至內部部署資料來源需要內部部署閘道。 使用閘道時，需要 64 位元的提供者。
 
-Azure Analysis Services 中的資料模型連線至某些資料來源時，可能需要不同的資料提供者。 在某些情況下，使用原生提供者 (例如 SQL Server Native Client (SQLNCLI11)) 連接到資料來源的表格式模型可能會傳回錯誤。
+### <a name="in-memory-and-directquery"></a>記憶體內部和 DirectQuery
 
-針對與雲端資料來源 (例如 Azure SQL Database) 連線的資料模型，如果您使用 SQLOLEDB 以外的原生提供者，可能會看見以下的錯誤訊息：**“The provider 'SQLNCLI11.1' is not registered”** (尚未註冊提供者 'SQLNCLI11.1')。 或者，當您有 DirectQuery 模型與內部部署資料來源連線時，如果您使用原生提供者，可能會看見錯誤訊息：**“Error creating OLE DB row set.Incorrect syntax near 'LIMIT'”** (建立 OLE DB 列集時發生錯誤。'LIMIT' 附近的語法錯誤)。
-
-與雲端或內部部署中的資料來源連線時，In-Memory 或 DirectQuery 資料模型支援下列資料來源提供者：
-
-### <a name="cloud"></a>雲端
-| **資料來源** | **In-memory** | **DirectQuery** |
+|資料來源 | 記憶體內部提供者 | DirectQuery 提供者 |
 |  --- | --- | --- |
-| Azure SQL 資料倉儲 |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server |
-| 連接字串 |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
+| SQL Server |SQL Server Native Client 11.0、Microsoft OLE DB Provider for SQL Server、.NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
+| SQL Server 資料倉儲 |SQL Server Native Client 11.0、Microsoft OLE DB Provider for SQL Server、.NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
+| Oracle |Microsoft OLE DB Provider for Oracle、Oracle Data Provider for .NET |Oracle Data Provider for .NET | |
+| Teradata |OLE DB Provider for Teradata、Teradata Data Provider for .NET |Teradata Data Provider for .NET | |
+| | | |
 
-### <a name="on-premises-via-gateway"></a>內部部署 (透過閘道)
-|**資料來源** | **In-memory** | **DirectQuery** |
-|  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0 |.NET Framework Data Provider for SQL Server |
-| SQL Server |Microsoft OLE DB Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
-| SQL Server |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
-| Oracle |Microsoft OLE DB Provider for Oracle |Oracle Data Provider for .NET | |
-| Oracle |Oracle Data Provider for .NET |Oracle Data Provider for .NET | |
-| Teradata |Teradata 的 OLE DB 提供者 |Teradata Data Provider for .NET | |
-| Teradata |Teradata Data Provider for .NET |Teradata Data Provider for .NET | |
-| 分析平台系統 |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
+### <a name="in-memory-only"></a>僅限記憶體內部
 
-> [!NOTE]
-> 使用內部部署閘道時，請確定已安裝 64 位元提供者。
-> 
-> 
+|資料來源  |  
+|---------|---------|
+|Access 資料庫     |  
+|Active Directory*     |  
+|Analysis Services     |  
+|分析平台系統     |  
+|Dynamics CRM*     |  
+|Excel 活頁簿     |  
+|Exchange*     |  
+|資料夾*     | 
+|JSON 文件*     |  
+|Lines from binary*     | 
+|MySQL Database     | 
+|OData 摘要*     |  
+|ODBC 查詢     | 
+|OLE DB     |   
+|Postgre SQL 資料庫*    | 
+|SAP HANA*    |  
+|SAP Business Warehouse*    |  
+|SharePoint*     |   
+|Sybase 資料庫     |  
+|XML 表格*    |  
+|||
+ 
+\* 僅限表格式 1400 模型。
+
+## <a name="specifying-a-different-provider"></a>指定不同提供者
+
+Azure Analysis Services 中的資料模型連線至某些資料來源時，可能需要不同的資料提供者。 在某些情況下，使用原生提供者 (例如 SQL Server Native Client (SQLNCLI11)) 連接到資料來源的表格式模型可能會傳回錯誤。 如果使用 SQLOLEDB 以外的原生提供者，您可能會看到錯誤訊息：**未註冊 'SQLNCLI11.1' 提供者**。 或者，如果您的 DirectQuery 模型已與內部部署資料來源連線，而您使用了原生提供者，則可能會看見錯誤訊息：**Error creating OLE DB row set.Incorrect syntax near 'LIMIT'”** (建立 OLE DB 列集時發生錯誤。'LIMIT' 附近的語法錯誤)。
 
 將內部部署 SQL Server Analysis Services 表格式模型移轉至 Azure Analysis Services 時，可能需要變更提供者。
 
-**提供資料來源提供者**
+**指定提供者**
 
 1. 在 SSDT > **Tabular Model Explorer** (表格式模型總管)  >  [資料來源] 中，以滑鼠右鍵按一下資料來源連線，然後按一下 [編輯資料來源]。
 2. 在 [編輯連線] 中按一下 [進階]，以開啟 [進階屬性] 視窗。
 3. 在[設定進階屬性]  >  [提供者] 中，然後選取適當的提供者。
 
 ## <a name="impersonation"></a>模擬
-在某些情況下，可能需要指定不同的模擬帳戶。 模擬帳戶可以在 SSDT 或 SSMS 中指定。
+在某些情況下，可能需要指定不同的模擬帳戶。 模擬帳戶可以在 Visual Studio SSDT (SSDT) 或 SSMS 中指定。
 
 對於內部部署資料來源：
 
@@ -100,6 +113,6 @@ Azure Analysis Services 中的資料模型連線至某些資料來源時，可�
 * 如果使用 SQL 驗證，模擬應為服務帳戶。
 
 ## <a name="next-steps"></a>後續步驟
-如果您有內部部署資料來源，請務必安裝 [內部部署閘道](analysis-services-gateway.md)。   
-若要深入了解在 SSDT 或 SSMS 中管理您伺服器的相關資訊，請參閱[管理您的伺服器](analysis-services-manage.md)。
+[內部部署閘道](analysis-services-gateway.md)   
+[管理您的伺服器](analysis-services-manage.md)   
 

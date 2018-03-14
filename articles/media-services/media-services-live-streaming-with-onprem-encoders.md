@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>使用會建立多位元速率串流的內部部署編碼器執行即時串流
 ## <a name="overview"></a>概觀
@@ -209,6 +209,10 @@ ms.lasthandoff: 11/15/2017
 以下是其他與通道和相關元件應用有關的注意事項：
 
 * 每當您重新設定即時編碼器，請呼叫通道上的 **重設** 方法。 重設通道之前，您必須停止程式。 重設通道之後，請重新啟動程式。
+
+  > [!NOTE]
+  > 當您重新啟動程式時，您需要將它與新資產產生關聯並建立新的定位器。 
+  
 * 只有當通道處於**執行中**的狀態，且通道上的所有程式皆已停止時，才能停止通道。
 * 依預設，您最多只能在媒體服務帳戶中新增 5 個通道。 如需詳細資訊，請參閱 [配額和限制](media-services-quotas-and-limitations.md)。
 * 只有當您的通道處於 **執行中** 狀態時，才會向您計費。 如需詳細資訊，請參閱[通道狀態和帳單寄送](media-services-live-streaming-with-onprem-encoders.md#states)一節。

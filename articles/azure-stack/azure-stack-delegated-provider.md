@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 06690d5251954b204b28928b3fe670669000aa7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 287bc04660664facbe99d2cb80ae6c92e41c4111
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="delegate-offers-in-azure-stack"></a>在 Azure Stack 中委派優惠
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-身為 Azure Stack 操作員，您往往會想要了解如何讓其他人負責建立供應項目和註冊使用者。 例如，如果您是服務提供者，或許會想要請轉銷商註冊客戶並代表您管理客戶。 或者，如果您是公司內中央 IT 群組的一員，或許您會想要讓子公司在不需要您介入的情況下註冊使用者。
+身為 Azure Stack 操作員，您往往會想要了解如何讓其他人負責建立供應項目和註冊使用者。 例如，如果您是服務提供者，或許需要請轉銷商註冊客戶並代表您管理客戶。 或者，如果您是公司內中央 IT 群組的一員，或許您會想要讓子公司在不需要您介入的情況下註冊使用者。
 
 委派可協助您進行這些工作，讓您可以接觸和管理超過您可以直接接觸和管理的使用者數量。 下圖顯示一個層級的委派，但 Azure Stack 支援多個層級。 委派的提供者 (DP) 可以依次委派給其他提供者，最多五個層級。
 
@@ -58,7 +58,7 @@ Azure Stack 操作員可以藉由使用委派功能，將供應項目和使用�
 
 ## <a name="set-up-roles"></a>設定角色
 
-若要查看工作的委派提供者，除了您的 Azure Stack 操作員帳戶，您需要額外的 Azure AD 帳戶。 如果您沒有帳戶，請建立兩個帳戶。 帳戶可以屬於任何 Azure AD 使用者。 我們將它們稱為委派的提供者和使用者。
+若要查看工作的委派提供者，除了您的 Azure Stack 操作員帳戶，您需要額外的 Azure AD 帳戶。 如果您沒有這兩個帳戶，請加以建立。 這些帳戶可以屬於任何 Azure AD 使用者，而且可稱為委派的提供者和使用者。
 
 | **角色** | **組織的權限** |
 | --- | --- |
@@ -71,9 +71,9 @@ Azure Stack 操作員可以藉由使用委派功能，將供應項目和使用�
 2. 建立可讓使用者成為委派提供者的供應項目：
    
    a.  [建立方案](azure-stack-create-plan.md)。
-       此方案應該僅包含訂閱服務。 在本文章中，我們會使用名為 **PlanForDelegation** 的方案。
+       此方案應該僅包含訂閱服務。 本文使用名為 **PlanForDelegation** 的方案。
    
-   b.  根據此方案[建立供應項目](azure-stack-create-offer.md)。 在本文章中，我們會使用名為 **OfferToDP** 的供應項目。
+   b.  根據此方案[建立供應項目](azure-stack-create-offer.md)。 本文使用名為 **OfferToDP** 的供應項目。
    
    c.  在供應項目建立完成後，請將委派的提供者新增為此供應項目的訂閱者。 方法是選取 [訂用帳戶] > [新增] > [新增租用戶訂用帳戶]。
    
@@ -86,9 +86,9 @@ Azure Stack 操作員可以藉由使用委派功能，將供應項目和使用�
 
 ## <a name="azure-stack-operator-creates-the-delegated-offer"></a>Azure Stack 操作員建立委派的供應項目
 
-您現在已建立您的委派提供者。 下一個步驟是建立您要委派以及您的客戶將會使用的方案和供應項目。 建議您完全依照要客戶看見它的方式定義此供應項目，因為委派的提供者將無法變更方案和它所包含的配額。
+您現在已建立您的委派提供者。 下一個步驟是建立您要委派以及您的客戶將會使用的方案和供應項目。 建議您完全依照要客戶看見它的方式定義此供應項目，因為委派的提供者無法變更方案和它所包含的配額。
 
-1. 身為 Azure Stack 操作員，請根據它[建立方案](azure-stack-create-plan.md)和[供應項目](azure-stack-create-offer.md)。 在本文章中，我們會使用名為 **DelegatedOffer** 的供應項目。
+1. 身為 Azure Stack 操作員，請根據它[建立方案](azure-stack-create-plan.md)和[供應項目](azure-stack-create-offer.md)。 本文使用名為 **DelegatedOffer** 的供應項目。
    
    > [!NOTE]
    > 此供應項目不必是公用。 但您也可以選擇讓其成為公用狀態。 不過在大部分情況下，您只會想讓委派的提供者有其存取權。 在如下列步驟所述委派私用供應項目後，委派的提供者即擁有其存取權。
@@ -104,14 +104,14 @@ Azure Stack 操作員可以藉由使用委派功能，將供應項目和使用�
 
 ## <a name="delegated-provider-customizes-the-offer"></a>委派的提供者會自訂供應項目
 
-以委派的提供者身分登入使用者入口網站。 然後，以委派的供應項目做為範本建立新的供應項目。
+以委派的提供者身分登入使用者入口網站，然後使用委派的供應項目作為範本來建立新的供應項目。
 
 1. 選取 [新增] > [租用戶供應項目 + 方案] > [供應項目]。
 
     ![建立新的供應項目](media/azure-stack-delegated-provider/image5.png)
 
 
-1. 將名稱指派給供應項目。 這裡我們選擇 **ResellerOffer**。 選取要做為基礎的委派供應項目，然後選取 [建立]。
+1. 將名稱指派給供應項目。 本文使用 **ResellerOffer**。 選取要做為基礎的委派供應項目，然後選取 [建立]。
    
    ![指派名稱](media/azure-stack-delegated-provider/image6.png)
 
@@ -122,7 +122,7 @@ Azure Stack 操作員可以藉由使用委派功能，將供應項目和使用�
 
 2. 委派的提供者會透過自己的入口網站 URL 公開這些供應項目。 這些供應項目只會透過委派入口網站顯示。 若要尋找並變更此 URL：
    
-    a.  選取 [瀏覽] > [更多服務] >  [訂用帳戶]。 然後選取委派的提供者的訂用帳戶。 在我們的案例中為 [DPSubscription] > [屬性]。
+    a.  選取 [瀏覽] > [更多服務] > [訂用帳戶]。 然後選取委派的提供者的訂用帳戶。 例如，[DPSubscription] > [屬性]。
    
     b.  將入口網站 URL 複製到不同的位置，例如：記事本。
    
@@ -134,7 +134,7 @@ Azure Stack 操作員可以藉由使用委派功能，將供應項目和使用�
 1. 在新瀏覽器視窗中，移至您在上一個步驟中儲存的委派入口網站 URL。 以使用者身分登入入口網站。 
    
    >[!NOTE]
-   > 對此步驟使用委派的入口網站。 否則，委派的供應項目會不可見。
+   >除非您使用委派的入口網站，否則無法看見委派的供應項目。 
 
 2. 在儀表板中，選取 [取得訂用帳戶]。 您會看到只有委派的提供者所建立的委派供應項目才會呈現給使用者：
 

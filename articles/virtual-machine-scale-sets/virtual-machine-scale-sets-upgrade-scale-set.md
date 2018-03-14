@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 836d56012afa9e5d5bdec35d85c37dd4b0b788ce
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: cdd1015f63e80b7ec51565c18f3440ce1828fb03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>修改虛擬機器擴展集
 本文說明如何修改現有的擴展集。 這包括如何變更擴展集的設定、如何變更在擴展集上執行之應用程式的設定、如何管理可用性等。
@@ -255,7 +255,7 @@ CLI：`az vmss update-instances -g {resourceGroupName} -n {vmScaleSetName} --ins
 > Service Fabric 叢集只能使用「自動」模式，但處理更新的方式不同。 如需有關 Service Fabric 更新的詳細資訊，請參閱 [Service Fabric 文件](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade)。
 
 >[!NOTE]
-> 有一種全域擴展集屬性修改並不遵守升級原則。 這些就是對擴展集「OS 設定檔」(例如系統管理員使用者名稱和密碼) 所做的變更。 這些變更只會套用至變更擴展集模型之後建立的 VM。 若要將現有的 VM 更新至最新狀態，您必須為每個現有的 VM 執行「重新安裝映像」作業。 您可以透過下列方式執行這個重新安裝映像作業：
+> 有一種全域擴展集屬性修改並不遵守升級原則。 這些就是對擴展集「OS 設定檔」(例如系統管理員使用者名稱和密碼) 所做的變更。 這些屬性只能在 API 版本 2017-12-01 或更新版本中變更。 這些變更只會套用至變更擴展集模型之後建立的 VM。 若要將現有的 VM 更新至最新狀態，您必須為每個現有的 VM 執行「重新安裝映像」作業。 您可以透過下列方式執行這個重新安裝映像作業：
 
 REST API：`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (如需詳細資訊，請參閱 [REST API 文件](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage) \(英文\))
 

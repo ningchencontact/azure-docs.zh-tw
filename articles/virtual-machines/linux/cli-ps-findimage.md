@@ -4,7 +4,7 @@ description: "了解如何使用 Azure CLI 來判斷發行者、優惠、SKU 和
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
@@ -13,31 +13,21 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/24/2017
+ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79eb69b83e4ffc0a4ad7c2631ce4d1306a1e335c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c65ebbc8a61c13b96364dadde45bd4bca828e337
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Marketplace 中尋找 Linux VM 映像
-本主題描述如何在 Azure Marketplace 中使用 Azure CLI 2.0 尋找 Windows VM 映像。 您可以使用此資訊，在建立 Linux VM 時指定 Marketplace 映像。
+本主題描述如何在 Azure Marketplace 中使用 Azure CLI 2.0 尋找 Windows VM 映像。 當您使用 CLI、Resource Manager 範本或其他工具以程式設計方式建立 VM 時，使用此資訊來指定 Marketplace 映像。
 
 請確定您[已安裝](/cli/azure/install-az-cli2)最新的 Azure CLI 2.0 並登入 Azure 帳戶 (`az login`)。
 
-## <a name="terminology"></a>術語
-
-您可以根據階層，在 CLI 和其他 Azure 工具中找到 Marketplace 映像：
-
-* **發行者** - 建立映像的組織。 範例：Canonical
-* **供應項目** - 發行者所建立的一組相關映像。 範例：Ubuntu Server
-* **SKU** - 供應項目執行個體，例如發佈的主要版本。 範例：16.04-LTS
-* **版本** - 映像 SKU 的版本號碼。 指定映像時，您可以使用 "latest" 來取代版本號碼，這會選取發佈的最新版本。
-
-若要指定 Marketplace 映像，您通常會使用映像 *URN*。 URN 會結合這些值，並以冒號 (:) 字元分隔：發行者:供應項目:SKU:版本。 
-
+[!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
 ## <a name="list-popular-images"></a>列出常用的映像
 
@@ -47,7 +37,7 @@ ms.lasthandoff: 02/09/2018
 az vm image list --output table
 ```
 
-輸出會包含 URN ([Urn] 欄中的值)，可用來指定映像。 使用其中一個常用 Marketplace 映像建立 VM 時，您也可以指定 URN 別名，例如 *UbuntuLTS*。
+輸出會包含映像 URN ([Urn] 欄中的值)。 使用其中一個常用 Marketplace 映像建立 VM 時，您也可以指定 UrnAlias，例如 UbuntuLTS 的縮短格式。
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -104,9 +94,9 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201708040        
 
 使用 `--location`、`--publisher` 和 `--sku` 選項套用類似的篩選條件。 您甚至可以執行篩選的部份相符，例如搜尋 `--offer Deb` 以尋找所有 Debian 映像。
 
-如果您未使用 `--location` 選項指定特定的位置，依預設就會傳回 `westus` 的值。 (執行 `az configure --defaults location=<location>` 以設定不同的預設位置。)
+如果您未使用 `--location` 選項指定特定的位置，就會傳回預設位置的值。 (執行 `az configure --defaults location=<location>` 以設定不同的預設位置。)
 
-例如，下列命令會列出 `westeurope` 中所有的 Debian 8 個 SKU：
+例如，下列命令會列出西歐位置中所有的 Debian 8 個 SKU：
 
 ```azurecli
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
@@ -140,6 +130,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 2. 針對指定的發行者，列出其提供項目。
 3. 針對指定的提供項目，列出其 SKU。
 
+然後，對於選取的 SKU，您可以選擇要部署的版本。
 
 例如，下列命令會列出美國西部位置中的映像發行者：
 
@@ -166,7 +157,7 @@ westus      activeeon
 westus      adatao
 ...
 ```
-使用這項資訊從特定的發行者尋找優惠。 例如，如果 Canonical 是美國西部位置的映像發行者，執行 `azure vm image list-offers` 可找到其供應項目。 傳遞位置和發行者，如下列範例所示：
+使用這項資訊從特定的發行者尋找優惠。 例如，如果 Canonical 是位於美國西部的映像發行者，執行 `azure vm image list-offers` 可找到其供應項目。 傳遞位置和發行者，如下列範例所示：
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -185,7 +176,7 @@ westus      Ubuntu_Core
 westus      Ubuntu_Snappy_Core
 westus      Ubuntu_Snappy_Core_Docker
 ```
-您看到在美國西部區域中，Canonical 在 Azure 上發佈 **UbuntuServer** 優惠。 但是，是什麼 SKU？ 若要取得這些值，請執行 `azure vm image list-skus`並設定您探索到的位置、發行者和優惠：
+您看到在美國西部區域中，Canonical 在 Azure 上發佈 *UbuntuServer* 優惠。 但是，是什麼 SKU？ 若要取得這些值，請執行 `azure vm image list-skus` 並設定您探索到的位置、發行者和功能項目：
 
 ```azurecli
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
@@ -219,7 +210,7 @@ westus      17.04-DAILY
 westus      17.10-DAILY
 ```
 
-最後，使用 `az vm image list` 命令來尋找您需要的 SKU 特定版本，例如，**16.04-LTS**：
+最後，使用 `az vm image list` 命令來尋找您需要的 SKU 特定版本，例如，*16.04-LTS*：
 
 ```azurecli
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
@@ -256,5 +247,100 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708110  16.04.201708110
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
+
+現在，您可以記下 URN 值，精確地選擇想要使用的映像。 當您使用 [az vm create](/cli/azure/vm#az_vm_create) 命令建立 VM 時，請傳遞此值與 `--image` 參數。 請記住，您可以使用 "latest" 來取代 URN 中的版本號碼。 此版本一律為最新的映像版本。 
+
+如果您使用 Resource Manager 範本來部署 VM，請在 `imageReference` 屬性中個別設定映像參數。 請參閱[範本參考](/azure/templates/microsoft.compute/virtualmachines)。
+
+[!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
+
+### <a name="view-plan-properties"></a>檢視方案屬性
+若要檢視映像的購買方案資訊，請執行 [az vm image show](/cli/azure/image#az_image_show) 命令。 如果輸出中的 `plan` 屬性不是 `null`，此映像具有您必須在以程式設計方式部署之前接受的條款。
+
+例如，Canonical Ubuntu Server 16.04 LTS 映像沒有其他條款，因為 `plan` 資訊為 `null`：
+
+```azurecli
+az vm image show --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --version 16.04.201801260
+```
+
+輸出：
+
+```
+{
+  "dataDiskImages": [],
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/16.04.201801260",
+  "location": "westus",
+  "name": "16.04.201801260",
+  "osDiskImage": {
+    "operatingSystem": "Linux"
+  },
+  "plan": null,
+  "tags": null
+}
+```
+
+針對 RabbitMQ Certified by Bitnami 映像執行類似的命令會顯示下列 `plan` 屬性：`name`、`product` 和 `publisher`。 (某些映像也有 `promotion code` 屬性。)若要部署此映像，請參閱下列各節，以接受條款並啟用以程式設計方式部署。
+
+```azurecli
+az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1801130730
+```
+輸出：
+
+```
+{
+  "dataDiskImages": [],
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1801130730",
+  "location": "westus",
+  "name": "3.7.1801130730",
+  "osDiskImage": {
+    "operatingSystem": "Linux"
+  },
+  "plan": {
+    "name": "rabbitmq",
+    "product": "rabbitmq",
+    "publisher": "bitnami"
+  },
+  "tags": null
+}
+```
+
+### <a name="accept-the-terms"></a>接受條款
+若要檢視並接受授權條款，請使用 [az vm image accept-terms](/cli/azure/vm/image?#az_vm_image_accept_terms) 命令。 當您接受條款時，您會在訂用帳戶中啟用以程式設計方式部署。 您只需針對映像的每個訂用帳戶接受一次條款。 例如︰
+
+```azurecli
+az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
+``` 
+
+輸出會包含授權條款的 `licenseTextLink`，並指出 `accepted` 的值為 `true`：
+
+```
+{
+  "accepted": true,
+  "additionalProperties": {},
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.MarketplaceOrdering/offertypes/bitnami/offers/rabbitmq/plans/rabbitmq",
+  "licenseTextLink": "https://storelegalterms.blob.core.windows.net/legalterms/3E5ED_legalterms_BITNAMI%253a24RABBITMQ%253a24RABBITMQ%253a24IGRT7HHPIFOBV3IQYJHEN2O2FGUVXXZ3WUYIMEIVF3KCUNJ7GTVXNNM23I567GBMNDWRFOY4WXJPN5PUYXNKB2QLAKCHP4IE5GO3B2I.txt",
+  "name": "rabbitmq",
+  "plan": "rabbitmq",
+  "privacyPolicyLink": "https://bitnami.com/privacy",
+  "product": "rabbitmq",
+  "publisher": "bitnami",
+  "retrieveDatetime": "2018-02-22T04:06:28.7641907Z",
+  "signature": "WVIEA3LAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNKLNLWI",
+  "type": "Microsoft.MarketplaceOrdering/offertypes"
+}
+```
+
+### <a name="deploy-using-purchase-plan-parameters"></a>使用購買方案的參數進行部署
+接受映像的條款之後，您可以在訂用帳戶中部署 VM。 若要使用 `az vm create` 命令來部署映像，除了映像的 URN 之外，請提供購買方案的參數。 例如，若要使用 RabbitMQ Certified by Bitnami 映像部署 VM：
+
+```azurecli
+az group create --name myResourceGroupVM --location westus
+
+az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
+
+```
+
+
+
 ## <a name="next-steps"></a>後續步驟
-現在，您可以記下 URN 值，精確地選擇想要使用的映像。 當您使用 [az vm create](/cli/azure/vm#az_vm_create) 命令建立 VM 時，請傳遞此值與 `--image` 參數。 請記住，您可以使用 "latest" 來取代 URN 中的版本號碼。 此版本一律為發佈的最新版本。 若要使用 URN 資訊來快速建立虛擬機器，請參閱[使用 Azure CLI 來建立和管理 Linux VM](tutorial-manage-vm.md)。
+若要使用映像資訊來快速建立虛擬機器，請參閱[使用 Azure CLI 來建立和管理 Linux VM](tutorial-manage-vm.md)。

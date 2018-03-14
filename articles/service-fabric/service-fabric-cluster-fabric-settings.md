@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自訂 Service Fabric 叢集設定和網狀架構升級原則
 本文件將告訴您如何為 Service Fabric 叢集自訂各種網狀架構設定和網狀架構升級原則。 您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來進行自訂。
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 下列步驟說明如何將新設定 *MaxDiskQuotaInMB* 新增至 *Diagnostics* 區段。
 
 1. 移至 https://resources.azure.com
-2. 透過展開 [訂用帳戶] -> [資源群組] -> [Microsoft.ServiceFabric] -> \<您的叢集名稱>，來瀏覽至您的訂用帳戶
+2. 瀏覽至您的訂用帳戶，方法為展開 [訂用帳戶] -> **\<您的訂用帳戶>** -> **resourceGroups** -> **\<您的資源群組>** -> [提供者] -> **Microsoft.ServiceFabric** -> [叢集] -> **\<您的叢集名稱>**
 3. 選取右上角的 [讀取/寫入]。
 4. 選取 [編輯]，並更新 `fabricSettings` JSON 元素，然後新增元素：
 
@@ -385,6 +385,7 @@ ms.lasthandoff: 02/11/2018
 |CommonName2Ntlmx509StoreLocation|字串，預設值為 L"LocalMachine"| 靜態|使用 NTLM 驗證時，用來在 CommonName2NtlmPasswordSecret 上產生 HMAC 之 X509 憑證的存放區位置 |
 |CommonName2Ntlmx509StoreName|字串，預設值為 L"MY"|靜態| 使用 NTLM 驗證時，用來在 CommonName2NtlmPasswordSecret 上產生 HMAC 之 X509 憑證的存放區名稱 |
 |CommonName2Ntlmx509CommonName|字串，預設值為 L""|靜態|使用 NTLM 驗證時，用來在 CommonName2NtlmPasswordSecret 上產生 HMAC 的 X509 憑證通用名稱 |
+|GenerateV1CommonNameAccount| 布林值，預設值為 TRUE|靜態|指定是否要透過使用者名稱 V1 產生演算法來產生帳戶。 從 Service Fabric 6.1 版開始，一律會建立具有 v2 產生的帳戶。 需要 V1 帳戶，才能升級自/至不支援 V2 產生 (6.1 之前) 的版本。|
 
 ### <a name="section-name-imagestoreservice"></a>區段名稱︰ImageStoreService
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
