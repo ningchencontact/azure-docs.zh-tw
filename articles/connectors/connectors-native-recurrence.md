@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>使用邏輯應用程式排程定期執行的工作和工作流程
+# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>使用 Azure Logic Apps 建立並排程定期執行的工作
 
 若要排程定期執行的工作、動作、工作負載或程序，您可以先使用**排程 - 重複**[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)，建立邏輯應用程式工作流程。 使用此觸發程序，您可以設定開始重複的日期和時間，以及執行工作的重複排程，例如下列範例等等：
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="json-example"></a>JSON 範例
 
-以下是範例重複觸發程序定義：
+以下是範例[重複觸發程序定義](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger)：
 
 ``` json
 {

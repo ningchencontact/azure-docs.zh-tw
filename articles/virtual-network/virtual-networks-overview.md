@@ -13,21 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 3/1/2018
 ms.author: jdial
-ms.openlocfilehash: 892aa03bd058b50fc4868a225dfe602624ff19ef
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fadc1994cd930df36387a5bfb302c00d66f74fad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="azure-virtual-network"></a>Azure 虛擬網路
+# <a name="what-is-azure-virtual-network"></a>什麼是 Azure 虛擬網路？
 
-「Microsoft Azure 虛擬網路」服務可讓 Azure 資源在虛擬網路中安全地互相進行通訊。 虛擬網路是專屬於您訂用帳戶的 Azure 雲端邏輯隔離。 您可以將虛擬網路連接到其他虛擬網路，或連接到內部部署網路。 下圖顯示 Azure 虛擬網路服務的各項功能︰
+Azure 虛擬網路可讓各種 Azure 資源互相通訊，也可與網路通訊。 在 Azure 雲端中，虛擬網路會將您與其他人的資源 Azure 相互隔離。 您可以將虛擬網路連接到其他虛擬網路，或連接到內部部署網路。 
 
-![網路圖表](./media/virtual-networks-overview/virtual-network-overview.png)
-
-若要深入了解下列 Azure 虛擬網路功能，請按一下各項功能︰
+Azure 虛擬網路提供下列各項功能：
 - **[隔離︰](#isolation)**虛擬網路會彼此隔離。 您可以為使用相同 CIDR (例如，10.0.0.0/0) 位址區塊的開發、測試和生產環境建立個別的虛擬網路。 相反地，您可以建立多個使用不同 CIDR 位址區塊的虛擬網路並將這些網路連接在一起。 您可以將虛擬網路分成多個子網路。 Azure 會為部署在虛擬網路中的資源提供內部名稱解析。 必要時，您可以將虛擬機器設定成使用您自己的 DNS 伺服器，而不使用 Azure 內部名稱解析。
 - **[網際網路通訊︰](#internet)**根據預設，資源 (例如部署在虛擬網路中的虛擬機器) 預設可以存取網際網路。 您也可以視需要啟用特定資源的輸入存取。
 - **[Azure 資源通訊：](#within-vnet)**部署在虛擬網路中的 Azure 資源即使是部署在不同的子網路中，也可以使用私人 IP 位址互相進行通訊。 Azure 會在子網路、已連線的虛擬網路及內部部署網路之間，提供預設的路由，因此您無須設定及管理路由。 如有需要，您可以自訂 Azure 的路由。
@@ -41,12 +39,12 @@ ms.lasthandoff: 02/09/2018
 您可以在每個 Azure [訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)和 Azure [區域](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region)內實作多個虛擬網路。 每個虛擬網路都與其他虛擬網路隔離。 對於每個虛擬網路，您可以：
 - 使用公用和私人 (RFC 1918) 位址指定自訂私人 IP 位址空間。 Azure 會從您指派的位址空間，將私人 IP 位址指派給虛擬網路中的資源。
 - 將虛擬網路分成一或多個子網路，並將虛擬網路位址空間的一部分配置給每個子網路。
-- 使用 Azure 提供的名稱解析，或指定您自己的 DNS 伺服器，以供虛擬網路中的資源使用。 若要深入了解虛擬網路中的名稱解析，請閱讀[虛擬機器中資源的名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)一文。
+- 使用 Azure 提供的名稱解析，或指定您自己的 DNS 伺服器，以供虛擬網路中的資源使用。 若要深入了解虛擬網路中的名稱解析，請參閱[虛擬機器中資源的名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 ## <a name = "internet"></a>網際網路通訊
-虛擬網路中的所有資源都能向網際網路進行輸出通訊。 根據預設，資源的私人 IP 位址會進行來源網路位址轉譯 (SNAT)，成為 Azure 基礎結構選取的公用 IP 位址。 若要深入了解輸出網際網路連線能力，請閱讀[了解 Azure 中的輸出連線](..\load-balancer\load-balancer-outbound-connections.md)一文。 若要避免輸出的網際網路連線，您可以實作自訂路由或流量篩選。
+虛擬網路中的所有資源都能向網際網路進行輸出通訊。 根據預設，資源的私人 IP 位址會進行來源網路位址轉譯 (SNAT)，成為 Azure 基礎結構選取的公用 IP 位址。 若要深入了解輸出網際網路連線能力，請參閱[了解 Azure 中的輸出連線](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 若要避免輸出的網際網路連線，您可以實作自訂路由或流量篩選。
 
-若要進行從網際網路通對 Azure 資源的輸入通訊，或進行對網際網路的輸出通訊 (未經 SNAT)，則必須指派公用 IP 位址給資源。 若要深入了解公用 IP 位址，請閱讀[公用 IP 位址](virtual-network-public-ip-address.md)一文。
+若要進行從網際網路通對 Azure 資源的輸入通訊，或進行對網際網路的輸出通訊 (未經 SNAT)，則必須指派公用 IP 位址給資源。 若要深入了解公用 IP 位址，請參閱[公用 IP 位址](virtual-network-public-ip-address.md)。
 
 ## <a name="within-vnet"></a>Azure 資源之間的安全通訊
 
@@ -58,7 +56,7 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="connect-vnets"></a>連線虛擬網路
 
-您可以讓虛擬網路彼此連線，以便虛擬網路中的資源能夠使用虛擬網路對等互連彼此通訊。 不同虛擬網路中的資源之間的通訊頻寬和延遲均會相同，就像是同一個虛擬網路中的資源一樣。 若要深入了解對等互連，請閱讀[虛擬網路對等互連](virtual-network-peering-overview.md)文章。
+您可以讓虛擬網路彼此連線，以便虛擬網路中的資源能夠使用虛擬網路對等互連彼此通訊。 不同虛擬網路中的資源之間的通訊頻寬和延遲均會相同，就像是同一個虛擬網路中的資源一樣。 若要深入了解對等互連，請參閱[虛擬網路對等互連](virtual-network-peering-overview.md)。
 
 ## <a name="connect-on-premises"></a>連線到內部部署網路
 
@@ -77,19 +75,12 @@ ms.lasthandoff: 02/09/2018
 ## <a name="routing"></a>路由網路流量
 
 根據預設，Azure 會建立路由表，讓已連線至任何虛擬網路中任何子網路的資源能夠互相進行通訊，以及與網際網路進行通訊。 您可以實作下列一個或兩個選項，覆寫 Azure 所建立的預設路由︰
-- **使用者定義的路由︰**您可以建立自訂路由表，其中的路由可控制每個子網路的流量會路由傳送至的位置。 若要深入了解使用者定義的路由，請參閱[使用者定義的路由](virtual-networks-udr-overview.md#user-defined)。
+- **路由資料表︰**您可以建立自訂路由表，其中的路由可控制每個子網路的流量會路由傳送至的位置。 若要了解有關自訂路由的詳細資訊，請參閱[自訂路由](virtual-networks-udr-overview.md#user-defined)。
 - **BGP 路由︰**如果您使用 Azure VPN 閘道或 ExpressRoute 連線將虛擬網路連線至內部部署網路，則可將 BGP 路由傳播至虛擬網路。
-
-## <a name="pricing"></a>價格
-
-虛擬網路、子網路、路由表或網路安全性群組均免費。 輸出網際網路頻寬使用量、公用 IP 位址、虛擬網路對等互連、VPN 閘道和 ExpressRoute 都有各自的價格結構。 如需詳細資訊，請檢視[虛擬網路](https://azure.microsoft.com/pricing/details/virtual-network)、[VPN 閘道](https://azure.microsoft.com/pricing/details/vpn-gateway)和 [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) 價格頁面。
-
-## <a name="faq"></a>常見問題集
-
-若要檢閱 Azure 虛擬網路相關常見問題的解答，請參閱[虛擬網路常見問題集](virtual-networks-faq.md)一文。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 完成[建立第一個虛擬網路](quick-create-portal.md)中的步驟，以建立第一個虛擬網路，並將一些虛擬機器部署到該網路中。
-- 完成[設定點對站連線](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)中的步驟，以建立對虛擬網路的點對站連線。
-- 深入了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+現在您已經大致了解 Azure 虛擬網路的概觀。 建立虛擬網路並將部分 Azure 虛擬機器部署到其中，了解如何利用 Azure 虛擬網路的部分功能。
+
+> [!div class="nextstepaction"]
+> [建立虛擬網路](quick-create-portal.md)
