@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 39782bd687c9c1b50699c05e61e57d9c767a8d32
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e215b21c8010bce6fb2a6ac540ba925f4c1a79a2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>動態加密：設定內容金鑰授權原則
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/21/2017
 Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 這項限制可用於測試用途。
 
 下列範例會建立開放式授權原則，並將它新增至內容金鑰：
-
+```csharp
     static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
     {
         // Create ContentKeyAuthorizationPolicy with Open restrictions
@@ -92,14 +92,14 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
     }
-
+```
 
 ### <a name="token-restriction"></a>權杖限制
 本節描述如何建立內容金鑰授權原則，然後建立它與內容金鑰的關聯。 授權原則描述必須符合哪些授權需求，以判斷使用者是否有權接收金鑰。 例如，驗證金鑰清單是否包含簽署權杖用的金鑰？
 
 若要設定權杖限制選項，您需要使用 XML 來描述權杖的授權需求。 權杖限制設定 XML 必須符合下列 XML 結構描述：
-
-#### <a name="token-restriction-schema"></a>權杖限制結構描述
+```csharp
+#### Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -146,12 +146,12 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
       </xs:complexType>
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
-
+```
 設定權杖限制的原則時，您必須指定主要驗證金鑰、簽發者和對象參數。 主要驗證金鑰包含簽署權杖用的金鑰。 簽發者為發行權杖的 STS。 對象 (有時稱為範圍) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
 
 使用 Media Services SDK for .NET 時，您可以使用 TokenRestrictionTemplate 類別來產生限制權杖。
 下列範例會建立具有 token 限制的授權原則。 在此範例中，用戶端必須提出權杖，權杖中包含簽署金鑰 (VerificationKey)、權杖簽發者和必要的宣告。
-
+```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
         string tokenTemplateString = GenerateTokenRequirements();
@@ -205,10 +205,10 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
 
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
-
+```
 #### <a name="test-token"></a>測試權杖
 若要取得根據用於金鑰授權原則之權杖限制的測試權杖，請執行下列動作：
-
+```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
@@ -224,7 +224,7 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
     Console.WriteLine();
-
+```
 
 ## <a name="playready-dynamic-encryption"></a>PlayReady 動態加密。
 您可以使用媒體服務來設定您要 PlayReady DRM 執行階段在使用者嘗試播放受保護內容時強制執行的權限和限制。 
@@ -238,6 +238,7 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
 
 下列範例會建立開放式授權原則，並將它新增至內容金鑰：
 
+```csharp
     static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
     {
 
@@ -274,10 +275,12 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
         contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
         contentKey = contentKey.UpdateAsync().Result;
     }
+```
 
 ### <a name="token-restriction"></a>權杖限制
 若要設定權杖限制選項，您需要使用 XML 來描述權杖的授權需求。 權杖限制設定 XML 必須符合[權杖限制結構描述](#token-restriction-schema)一節中所述的 XML 結構描述。
 
+```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
         string tokenTemplateString = GenerateTokenRequirements();
@@ -383,20 +386,25 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
 
         return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
     }
-
+```
 
 若要取得根據用於金鑰授權原則之權杖限制的測試權杖，請參閱[測試權杖](#test-token)一節。 
 
 ## <a id="types"></a>當您定義 ContentKeyAuthorizationPolicy 時使用的類型
 ### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+
+```csharp
     public enum ContentKeyRestrictionType
     {
         Open = 0,
         TokenRestricted = 1,
         IPRestricted = 2,
     }
+```
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+
+```csharp 
     public enum ContentKeyDeliveryType
     {
       None = 0,
@@ -404,14 +412,18 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
       BaselineHttp = 2,
       Widevine = 3
     }
+```
 
 ### <a id="TokenType"></a>TokenType
+
+```csharp
     public enum TokenType
     {
         Undefined = 0,
         SWT = 1,
         JWT = 2,
     }
+```
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

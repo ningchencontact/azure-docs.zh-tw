@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 5c1d4eb0825d132037cc3a20a17c1f417578d35d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: fbb6fc15663570d9b9470fc7d4de3c8eb30de9d9
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure 中虛擬機器的 Cloud-init 支援
 本文說明針對 [cloud-init](https://cloudinit.readthedocs.io) 存在的支援，以便在 Azure 中佈建時，設定虛擬機器 (VM) 或虛擬機器擴展集 (VMSS)。 一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。  
@@ -64,7 +64,7 @@ az group create --name myResourceGroup --location eastus
 #cloud-config
 package_upgrade: true
 packages:
-  -httpd
+  - httpd
 ```
 按下 `ctrl-X` 以結束檔案、輸入 `y` 以儲存檔案，然後按下 `enter` 以在結束時確認檔案名稱。
 

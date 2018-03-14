@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 075daadae42340dfc9c7510a8010e337210e6e01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c78a4d2d3a1b0f84d488e7358c875c9708ac6107
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>使用 Azure Media Indexer 2 Preview 編製媒體檔案索引
 ## <a name="overview"></a>概觀
@@ -56,6 +56,7 @@ ms.lasthandoff: 12/11/2017
 
 下列 JSON 會設定可用的參數。
 
+```json
     {
       "version":"1.0",
       "Features":
@@ -69,6 +70,7 @@ ms.lasthandoff: 12/11/2017
            "Type":"SpReco"
         }]
     }
+```
 
 ## <a name="supported-languages"></a>支援的語言
 Azure Media Indexer 2 Preview 支援下列語言的語音轉文字 (在工作設定中指定語言名稱時，請使用以括號括住的 4 字元程式碼，如下所示)：
@@ -96,20 +98,23 @@ Azure Media Indexer 2 Preview 支援下列語言的語音轉文字 (在工作設
 
 1. 建立資產並將媒體檔案上傳到資產。
 2. 根據包含下列 JSON 預設值的設定檔，建立具有索引編製工作的作業：
-   
-        {
-          "version":"1.0",
-          "Features":
-            [
-               {
-               "Options": {
-                    "Formats":["WebVtt","ttml"],
-                    "Language":"enUs",
-                    "Type":"RecoOptions"
-               },
-               "Type":"SpReco"
-            }]
-        }
+
+    ```json
+            {
+            "version":"1.0",
+            "Features":
+                [
+                {
+                "Options": {
+                        "Formats":["WebVtt","ttml"],
+                        "Language":"enUs",
+                        "Type":"RecoOptions"
+                },
+                "Type":"SpReco"
+                }]
+            }
+    ```
+    
 3. 下載輸出檔案。 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
@@ -118,7 +123,7 @@ Azure Media Indexer 2 Preview 支援下列語言的語音轉文字 (在工作設
 
 #### <a name="example"></a>範例
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

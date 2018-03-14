@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: anoopkv
 ms.openlocfilehash: 7210a6d754f2c13c915955f2b401d19f3a55649e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>安裝行動服務 (VMware 或實體至 Azure)
 Azure Site Recovery 行動服務會擷取電腦上的資料寫入，然後將它們轉送至處理伺服器。 將行動服務部署至您要複寫至 Azure 的每部電腦 (VMware VM 或實體伺服器)。 您可以使用下列方法，將行動服務部署至您要保護的伺服器：

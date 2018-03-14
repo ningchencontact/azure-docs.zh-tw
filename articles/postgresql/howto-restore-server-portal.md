@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: f7ea0cafe6427e59a07c28a9d0c6e48e0d96d8cd
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 7607a3e60eec39de61c785b8ff75a9f11fa02d0c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>如何使用 Azure 入口網站，在適用於 PostgreSQL 的 Azure 資料庫中備份和還原伺服器
 
@@ -71,22 +71,6 @@ ms.lasthandoff: 02/28/2018
 
 >[!Note]
 >所選時間點上的現有伺服器與時間點還原所建立的新伺服器，具有相同且有效的伺服器管理員登入名稱和密碼。 您可以從新伺服器的 [概觀] 頁面變更密碼。
-
-## <a name="geo-restore"></a>異地還原
-如果您已將伺服器設定為使用異地備援備份，則可以從現有伺服器的備份建立新的伺服器。 您可以在任何可使用「適用於 PostgreSQL 的 Azure 資料庫」的區域中建立這個新伺服器。  
-
-1. 選取入口網站左上角的 [新增] 按鈕 (+)。 選取 [資料庫] > [Azure Database for PostgreSQL]。
-
-   !["Azure Database for PostgreSQL" 選項](./media/howto-restore-server-portal/1-create-database.png)
-
-2. 在表單的 [選取來源] 下拉式清單中，選擇 [備份]。 這個動作會載入已啟用異地備援備份的伺服器清單。 選取其中一個備份來作為新伺服器的來源。
-   ![選取來源：備份和異地備援備份清單](./media/howto-restore-server-portal/2-georestore.png)
-
-3. 根據您的需要填寫表單的其餘部分。 您可以選取任何**位置**。 選好位置之後，您可以選取 [定價層]。 根據預設，系統會顯示要作為還原來源的現有伺服器參數。 您可以按一下 [確定]，不進行任何變更地繼承這些設定。 或者，您可以變更**計算世代** (如果適用於您選擇的區域)、**虛擬核心**數目、**備份保留期限**及**備份備援選項**。 還原期間不支援變更**定價層** (基本、一般用途或記憶體最佳化) 或**儲存體**大小。
-
->[!Note]
->還原啟動時的現有伺服器與異地還原所建立的新伺服器，具有相同且有效的伺服器管理員登入名稱和密碼。 您可以從新伺服器的 [概觀] 頁面變更密碼。
-
 
 ## <a name="next-steps"></a>後續步驟
 - 深入了解服務的[備份](concepts-backup.md)。

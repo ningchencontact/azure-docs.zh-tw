@@ -4,19 +4,19 @@ description: "本文章說明為您的 Web 服務建立 Docker 映像的步驟�
 services: machine-learning
 author: chhavib
 ms.author: chhavib
-manager: neerajkh
+manager: hjerez
 editor: jasonwhowell
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 134971e4a663baefa4e1051f087038d3debcb969
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f7f9cbd34d84f89d6ce193daf79531617c97ddd3
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning 模型管理帳戶 API 參考
 

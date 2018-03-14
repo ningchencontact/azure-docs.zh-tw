@@ -13,11 +13,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5a6e1b5bc377d3fc4ad47fdfb37da4853c3bb827
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c94f59eaa079677223083339f111cf73b13632e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>將現有的 blob 複製到媒體服務資產
 本文章說明如何使用 [Azure 媒體服務 .NET SDK 延伸模組](https://github.com/Azure/azure-sdk-for-media-services-extensions/)將 Blob 從儲存體帳戶複製到新的 Azure 媒體服務 (AMS) 資產。
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/11/2017
 1. 設定您的開發環境，如[使用 .NET 進行媒體服務開發](media-services-dotnet-how-to-use.md)中所述。 
 2. 將 appSettings 區段新增至 .config 檔中，並根據媒體服務帳戶、目的地儲存體帳戶及來源資產識別碼將值更新。  
 
-```   
+```xml
 <appSettings>
     <add key="AMSSourceAADTenantDomain" value="tenant"/>
     <add key="AMSSourceRESTAPIEndpoint" value="endpoint"/>
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/11/2017
 
 下列程式碼使用延伸模組 **IAsset.Copy**方法，將來源資產中的所有檔案都複製到使用單個延伸模組的目的地資產。
 
-```
+```csharp
 using System;
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System.Linq;
@@ -167,7 +167,7 @@ namespace CopyExistingBlobsIntoAsset
 1. 設定您的開發環境，如[使用 .NET 進行媒體服務開發](media-services-dotnet-how-to-use.md)中所述。 
 2. 將 appSettings 區段新增至 .config 檔案，並根據您的來源儲存體和目的地 AMS 帳戶將值更新。
 
-```
+```xml
 <appSettings>
     <add key="SourceStorageAccountName" value="name" />
     <add key="SourceStorageAccountKey" value="key" />
@@ -189,7 +189,7 @@ namespace CopyExistingBlobsIntoAsset
 >[!NOTE]
 >對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱[本篇文章](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;
@@ -371,6 +371,7 @@ namespace CopyExistingBlobsIntoAsset
     }
 }
 ```
+
 ## <a name="next-steps"></a>後續步驟
 
 您現在可以將上傳的資產編碼。 如需詳細資訊，請參閱 [為資產編碼](media-services-portal-encode.md)。
