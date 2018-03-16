@@ -136,7 +136,7 @@ ms.lasthandoff: 02/28/2018
 ## <a name="examples-recurrence-schedules"></a>範例：週期排程
 下列範例顯示各種循環排程。 該範例著重於 schedule 物件和其子元素。
 
-排程假設 **interval** 設定為 1\.。 此範例也會假設 **schedule** 中值的 **frequency** 值是正確的。 例如，在 **schedule** 中具有 **monthDays** 修改的情況下，您無法將 **frequency** 設為 "day" 。 我們稍早在文章中已描述這些限制。
+排程假設 **interval** 設定為 1\. 此範例也會假設 **schedule** 中值的 **frequency** 值是正確的。 例如，在 **schedule** 中具有 **monthDays** 修改的情況下，您無法將 **frequency** 設為 "day" 。 我們稍早在文章中已描述這些限制。
 
 | 範例 | 說明 |
 |:--- |:--- |
