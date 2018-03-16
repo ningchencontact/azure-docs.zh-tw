@@ -14,23 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/31/2017
 ms.author: kraigb
-ms.openlocfilehash: 75dcc603327b50718b279f3ce055663ec0bc2596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbd11777c86a19d2b6b8e5125e467d2413b5d736
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="accessing-azure-virtual-machines-from-server-explorer"></a>從伺服器總管存取 Azure 虛擬機器
-藉由使用 Visual Studio 中的 [伺服器總管]，您可以顯示 Azure 主控的虛擬機器相關資訊。
 
-## <a name="accessing-virtual-machines-in-server-explorer"></a>在 [伺服器總管] 中存取 Azure 虛擬機器
 如果您有 Azure 主控的虛擬機器，您可以在 [伺服器總管] 中存取它們。 您必須先登入您的 Azure 訂用帳戶，才能檢視您的行動服務。 若要登入，請在 [伺服器總管] 中開啟 [Azure] 節點的捷徑功能表，並選擇 [連線到 Microsoft Azure] 。
 
-### <a name="to-get-information-about-your-virtual-machines"></a>取得虛擬機器的相關資訊
 1. 在 Cloud Explorer 中選擇虛擬機器，然後選擇 F4 鍵以顯示其屬性視窗。
-   
+
     下表顯示可以使用的屬性，但他們全部都是唯讀。 若要加以變更，請使用 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
-   
+
    | 屬性 | 說明 |
    | --- | --- |
    | DNS 名稱 |包含虛擬機器網際網路位址的 URL。 |
@@ -41,14 +38,10 @@ ms.lasthandoff: 10/11/2017
    | SubscriptionID |Azure 帳戶的訂用帳戶識別碼。 您可以透過檢視訂用帳戶的屬性，在 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)上顯示這項資訊。 |
 2. 選擇端點節點，然後檢視 [屬性]  視窗。
 3. 下表說明可用的端點屬性，但他們全部都是唯讀。 若要新增或編輯虛擬機器的端點，請使用 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。 
-   
+
    | 屬性 | 說明 |
    | --- | --- |
    | Name |端點的識別碼 |
    | 私人連接埠 |網路內部存取應用程式的連接埠。 |
    | 通訊協定 |此端點的傳輸層所使用的通訊協定：TCP 或 UDP。 |
    | 公用連接埠 |提供公用存取應用程式使用的通訊埠。 |
-
-## <a name="next-steps"></a>後續步驟
-若要深入了解 Visual Studio 中的 Azure 角色使用方式，請參閱 [搭配使用遠端桌面與 Azure 角色](vs-azure-tools-remote-desktop-roles.md)。
-

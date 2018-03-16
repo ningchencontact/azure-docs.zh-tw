@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/05/2018
 ms.author: v-daljep
-ms.openlocfilehash: a1b10c1a12d9a9215022cc77615901a0e4d144f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 611c30639b5fb36bb08ebd3e73c90f8aa2bd09d4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>針對自動調整的電子郵件通知
 
 SQL Database 的調整建議是由 Azure SQL Database [自動調整](sql-database-automatic-tuning.md)產生。 這個解決方案會持續監視並分析 SQL Database 的工作負載，針對與建立索引、刪除索引和最佳化查詢執行計畫相關的個別資料庫提供自訂的調整建議。
 
-您可以在 [Azure 入口網站](sql-database-advisor-portal.md)中檢視使用 [REST API](https://docs.microsoft.com/en-us/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) 呼叫或使用 [T-SQL](https://azure.microsoft.com/en-us/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) 和 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) 命令擷取的 SQL Database 自動調整建議。 本文使用 PowerShell 指令碼來擷取自動調整建議。
+您可以在 [Azure 入口網站](sql-database-advisor-portal.md)中檢視使用 [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) 呼叫或使用 [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) 和 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) 命令擷取的 SQL Database 自動調整建議。 本文使用 PowerShell 指令碼來擷取自動調整建議。
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>對自動調整建議的電子郵件通知進行自動化
 
@@ -34,7 +34,7 @@ SQL Database 的調整建議是由 Azure SQL Database [自動調整](sql-databas
 
 ## <a name="create-azure-automation-account"></a>建立 Azure 自動化帳戶
 
-要使用 Azure 自動化，第一步是建立自動化帳戶，並設定要用於執行 PowerShell 指令碼的 Azure 資源。 若要深入了解 Azure 自動化和其功能，請參閱[開始使用 Azure 自動化](https://docs.microsoft.com/en-us/azure/automation/automation-offering-get-started)。
+要使用 Azure 自動化，第一步是建立自動化帳戶，並設定要用於執行 PowerShell 指令碼的 Azure 資源。 若要深入了解 Azure 自動化和其功能，請參閱[開始使用 Azure 自動化](https://docs.microsoft.com/azure/automation/automation-offering-get-started)。
 
 遵循下列步驟，以透過從 Marketplace 選取和設定自動化應用程式的方法來建立 Azure 自動化帳戶：
 
@@ -47,7 +47,7 @@ SQL Database 的調整建議是由 Azure SQL Database [自動調整](sql-databas
 
 - 進入 [建立自動化帳戶] 窗格後，按一下 [建立]
 - 填入所需的資訊：輸入此自動化帳戶的名稱，選取要用於執行 PowerShell 指令碼的 Azure 訂用帳戶識別碼和 Azure 資源
-- 針對 [建立 Azure 執行身分帳戶] 選項，選取 [是] 以設定 Azure 自動化協助執行 PowerShell 指令碼時所使用的帳戶類型。 若要深入了解帳戶類型，請參閱[執行身分帳戶](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account)
+- 針對 [建立 Azure 執行身分帳戶] 選項，選取 [是] 以設定 Azure 自動化協助執行 PowerShell 指令碼時所使用的帳戶類型。 若要深入了解帳戶類型，請參閱[執行身分帳戶](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
 - 按一下 [建立] 以結束建立自動化帳戶
 
 > [!TIP]
@@ -58,7 +58,7 @@ SQL Database 的調整建議是由 Azure SQL Database [自動調整](sql-databas
 
 ## <a name="update-azure-automation-modules"></a>更新 Azure 自動化模組
 
-擷取自動調整建議的 PowerShell 指令碼會使用 [Get AzureRmResource](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Get-AzureRmResource) 和 [Get AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) 命令，因此必須將 Azure 模組更新到第 4 版及更新版本。
+擷取自動調整建議的 PowerShell 指令碼會使用 [Get AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmResource) 和 [Get AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) 命令，因此必須將 Azure 模組更新到第 4 版及更新版本。
 
 遵循下列步驟來更新 Azure PowerShell 模組：
 
@@ -195,7 +195,7 @@ Write-Output $table
 2. **Azure 自動化 - 取得工作輸出**：用來擷取所執行 PowerShell 指令碼的輸出
 3. **Office 365 Outlook – 傳送電子郵件**：用來傳送電子郵件。 電子郵件會使用建立流程之人員的 Office 365 帳戶傳送。
 
-若要深入了解 Microsoft Flow 功能，請參閱[開始使用 Microsoft Flow](https://docs.microsoft.com/en-us/flow/getting-started)。
+若要深入了解 Microsoft Flow 功能，請參閱[開始使用 Microsoft Flow](https://docs.microsoft.com/flow/getting-started)。
 
 此步驟的先決條件是註冊 [Microsoft Flow](https://flow.microsoft.com) 帳戶並登入。 一旦進入解決方案，請遵循下列步驟來設定**新的流程**：
 

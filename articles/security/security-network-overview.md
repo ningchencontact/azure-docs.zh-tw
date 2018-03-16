@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: d3ce4d5c6766c41fe32164ebfe623ea8c06b58f9
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: e477ce9a5f9f35d88a6faeb68ee4e0403f64c030
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-network-security-overview"></a>Azure 網路安全性概觀
 Microsoft Azure 包括強大網路基礎結構以支援您的應用程式和服務連線需求。 在 Azure 的資源之間、內部部署與 Azure 託管資源之間，以及到網際網路和 Azure 與來自網際網路和 Azure，可能會有網路連線。
@@ -218,7 +218,7 @@ Azure 網路支援下列安全遠端存取案例︰
 深入了解：
 
 * [虛擬網路概觀](../virtual-network/virtual-networks-overview.md)
-* [管理虛擬網路 (VNet) 所使用的 DNS 伺服器](../virtual-network/virtual-network-manage-network.md#dns-servers)
+* [管理虛擬網路 (VNet) 所使用的 DNS 伺服器](../virtual-network/manage-virtual-network.md#change-dns-servers)
 
 對於外部 DNS 解析，您有兩個選項︰
 

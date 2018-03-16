@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ec6d8d5327ec6d5ebb92e125cb4c52a7a929c0e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>建立有多個子網路的虛擬網路 (傳統)
 
 > [!IMPORTANT]
-> Azure 有二種建立和處理資源的[不同部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)：Resource Manager 和傳統模型。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議透過 [Resource Manager](virtual-networks-create-vnet-arm-pportal.md) 部署模型建立最新的虛擬網路。
+> Azure 有二種建立和處理資源的[不同部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)：Resource Manager 和傳統模型。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議透過 [Resource Manager](quick-create-portal.md) 部署模型建立最新的虛擬網路。
 
 本教學課程可供了解如何建立具有不同公用和私人子網路的基本 Azure 虛擬網路 (傳統)。 您可以在子網路中建立 Azure 資源，像是虛擬網路、雲端服務。 在虛擬網路 (傳統) 中建立的資源可以互相通訊，也可以和連線到虛擬網路之其他網路中的資源通訊。
 
-深入了解所有[虛擬網路](virtual-network-manage-network.md)和[子網路](virtual-network-manage-subnet.md)設定。
+深入了解所有[虛擬網路](manage-virtual-network.md)和[子網路](virtual-network-manage-subnet.md)設定。
 
 > [!WARNING]
 > 當[訂用帳戶停用](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit)時，Azure 會立即刪除虛擬網路 (傳統)。 系統會刪除虛擬網路 (傳統),不論虛擬網路中是否有資源存在。 如果您稍後重新啟用訂用帳戶，就必須重新建立虛擬網路中存在的資源。
@@ -161,7 +161,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要了解所有虛擬網路和子網路的設定，請參閱[管理虛擬網路](virtual-network-manage-network.md)和[管理虛擬網路子網路](virtual-network-manage-subnet.md)。 您有各種選項可在生產環境中使用虛擬網路和子網路，以便符合不同的需求。
+- 若要了解所有虛擬網路和子網路的設定，請參閱[管理虛擬網路](manage-virtual-network.md)和[管理虛擬網路子網路](virtual-network-manage-subnet.md)。 您有各種選項可在生產環境中使用虛擬網路和子網路，以便符合不同的需求。
 - 若要篩選輸入和輸出的子網路流量，請對子網路建立和套用[網路安全性群組](virtual-networks-nsg.md)。
 - 建立 [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器，然後將它連線至現有的虛擬網路。
 - 若要將同一個 Azure 位置中的兩個虛擬網路連線，請在兩個虛擬網路之間建立[虛擬網路對等互連](create-peering-different-deployment-models.md)。 您可以對等互連虛擬網路 (Resource Manager) 與虛擬網路 (傳統)，但無法對等互連兩個虛擬網路 (傳統)。

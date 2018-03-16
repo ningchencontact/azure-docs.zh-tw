@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e96003de4a0dd4a5d8b060bb5883e51291827316
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>在 HDInsight 上將 Sqoop 與 Hadoop 搭配使用
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -118,7 +118,7 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
   > 
   > 
   
-  * 若要建立和設定虛擬網路，請參閱[使用 Azure 入口網站建立虛擬網路](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)。
+  * 若要建立和設定虛擬網路，請參閱[使用 Azure 入口網站建立虛擬網路](../../virtual-network/quick-create-portal.md)。
     
     * 在您的資料中心裡使用 SQL Server 時，必須將虛擬網路設定為「站對站」或「點對站」。
       

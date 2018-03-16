@@ -2,25 +2,20 @@
 title: "Azure Site Recovery 中的容錯回復 | Microsoft Docs"
 description: "本文概述使用 Azure Site Recovery 服務容錯回復至內部部署時要考慮之各種類型的容錯回復和警告。"
 services: site-recovery
-documentationcenter: 
 author: rajani-janaki-ram
 manager: guaravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 03/05/2018
 ms.author: rajanki
-ms.openlocfilehash: 07dc05c0bd89e69b6bfcff7577919494647efed0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 372a7867b47960338d7a1bf7e646fb9fffbe72e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-failback"></a>容錯回復的概觀
+
 當您容錯移轉至 Azure 之後，您可以容錯回復至內部部署網站。 有兩種不同類型的容錯回復能與 Azure Site Recovery 搭配使用： 
 
 - 容錯回復至原始位置 
@@ -55,5 +50,5 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-依照步驟執行[容錯回復作業](site-recovery-how-to-failback-azure-to-vmware.md)。
+依照步驟執行[容錯回復作業](vmware-azure-failback.md)。
 

@@ -6,7 +6,7 @@ ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.cus
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 用戶端應用程式的 SQL 錯誤碼：資料庫連線錯誤和其他問題
 
-本文列出 SQL Database 用戶端應用程式的 SQL 錯誤碼，包括資料庫連線錯誤、暫時性錯誤、資源管理錯誤、資料庫副本問題、彈性集區，以及其他錯誤。 大多數分類是專門針對 Azure SQL Database，並不適用 Microsoft SQL Server。 另請參閱[系統錯誤訊息](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx)。
+本文列出 SQL Database 用戶端應用程式的 SQL 錯誤碼，包括資料庫連線錯誤、暫時性錯誤、資源管理錯誤、資料庫副本問題、彈性集區，以及其他錯誤。 大多數分類是專門針對 Azure SQL Database，並不適用 Microsoft SQL Server。 另請參閱[系統錯誤訊息](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx)。
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>資料庫連線錯誤、暫時性錯誤，以及其他暫時的錯誤
 下表涵蓋您的應用程式嘗試存取 SQL Database 可能發生之連線遺失錯誤和其他暫時性錯誤的 SQL 錯誤碼。 如需連線到 Azure SQL Database 的快速入門教學課程，請參閱 [連線到 Azure SQL Database](sql-database-libraries.md)。

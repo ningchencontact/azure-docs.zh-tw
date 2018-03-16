@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 495ed6daf0d73d89a4bc572f6bccf294cee7decb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e8d21aad23782f22b93baf12ce58d1aed4dd5dee
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>使用 Azure CLI 為虛擬機器設定使用者指派的受控服務識別 (MSI)
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/03/2018
 若要執行本教學課程中的 CLI 指令碼範例，您有兩個選項：
 
 - 透過 Azure 入口網站或是每個程式碼區塊右上角的 [試試看] 按鈕，使用 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)。
-- 如果您需要使用本機的 CLI 主控台，請[安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 或更新版本)。 然後使用 [az login](/cli/azure/#az_login) 登入 Azure。 使用與 Azure 訂用帳戶相關聯的帳戶，而您要以此帳戶部署使用者指派的 MSI 和虛擬機器：
+- 如果您需要使用本機的 CLI 主控台，請[安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 或更新版本)。 然後使用 [az login](/cli/azure/reference-index#az_login) 登入 Azure。 使用與 Azure 訂用帳戶相關聯的帳戶，而您要以此帳戶部署使用者指派的 MSI 和虛擬機器：
 
    ```azurecli
    az login
@@ -119,8 +119,7 @@ ms.lasthandoff: 02/03/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-- 
-            [受控服務識別概觀](msi-overview.md)
+- [受控服務識別概觀](msi-overview.md)
 - 如需完整的 Azure VM 建立快速入門，請參閱： 
 
   - [使用 CLI 建立 Windows 虛擬機器](~/articles/virtual-machines/windows/quick-create-cli.md)  

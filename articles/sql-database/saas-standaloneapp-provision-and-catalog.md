@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dd43ede94d6f219f3b551091fc6e4b59f56386d1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>使用每一租用戶一個應用程式 SaaS 模式，佈建新租用戶及編目
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/22/2018
     * 本教學課程使用 Wingtip Tickets SaaS 範例 SaaS 應用程式，並已針對每一租用戶一個獨立應用程式模式進行調整。
 
 ## <a name="standalone-application-per-tenant-pattern"></a>每一租用戶一個獨立應用程式模式
-每一租用戶一個獨立應用程式模式，是幾個多租用戶 SaaS 應用程式模式的其中之一。  在這個模式中，每個租用戶都有一個已佈建的應用程式。 應用程式包含應用程式層級元件和 SQL 資料庫。  每個租用戶應用程式都能部署到廠商的訂用帳戶中。  Azure 另提供[受控應用程式方案](https://docs.microsoft.com/en-us/azure/managed-applications/overview)，將應用程式部署於租用戶的訂用帳戶中，再由廠商代為控管。 
+每一租用戶一個獨立應用程式模式，是幾個多租用戶 SaaS 應用程式模式的其中之一。  在這個模式中，每個租用戶都有一個已佈建的應用程式。 應用程式包含應用程式層級元件和 SQL 資料庫。  每個租用戶應用程式都能部署到廠商的訂用帳戶中。  Azure 另提供[受控應用程式方案](https://docs.microsoft.com/azure/managed-applications/overview)，將應用程式部署於租用戶的訂用帳戶中，再由廠商代為控管。 
 
    ![每一租用戶一個應用程式模式](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/22/2018
 租用戶目錄能保存租用戶識別碼與租用戶資料庫之間的對應，允許將識別碼解析為伺服器和資料庫名稱。  在 Wingtip SaaS 應用程式中，租用戶識別碼採用租用戶名稱雜湊的形式加以計算，不過您也可以使用其他機制。  雖然獨立應用程式不需要目錄來管理連線，不過目錄能針對一組租用戶資料庫界定採取動作時的範圍。 舉例來說，彈性查詢能使用目錄來決定一組資料庫，界定要將跨租用戶報告的查詢要散發到哪些資料庫。
 
 ## <a name="elastic-database-client-library"></a>彈性資料庫用戶端程式庫
-在 Wingtip SaaS 範例應用程式中，目錄的實作乃使用[彈性資料庫用戶端程式庫](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library) (EDCL) 的分區管理功能。  此程式庫可讓應用程式建立、管理及使用資料庫中所儲存的分區對應。 在 Wingtip Tickets 範例中，目錄會儲存在「租用戶目錄」資料庫中。  分區能讓租用戶索引鍵與儲存租用戶資料的分區 (資料庫) 相對應。  EDCL 函式負責管理儲存在「租用戶目錄」資料庫表格中的「全域分區對應」，以及儲存在每個分區中的「本機分區對應」。
+在 Wingtip SaaS 範例應用程式中，目錄的實作乃使用[彈性資料庫用戶端程式庫](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL) 的分區管理功能。  此程式庫可讓應用程式建立、管理及使用資料庫中所儲存的分區對應。 在 Wingtip Tickets 範例中，目錄會儲存在「租用戶目錄」資料庫中。  分區能讓租用戶索引鍵與儲存租用戶資料的分區 (資料庫) 相對應。  EDCL 函式負責管理儲存在「租用戶目錄」資料庫表格中的「全域分區對應」，以及儲存在每個分區中的「本機分區對應」。
 
 您可以從應用程式或 PowerShell 指令碼叫用 EDCL 函式來建立及管理分區對應中的項目， 也可以使用其他 EDCL 函式來擷取分區集合，或讓特定租用戶索引鍵與正確的資料庫連線。 
     
@@ -69,7 +69,7 @@ Azure Resource Manager 範本可用來部署及設定應用程式、建立租用
 ## <a name="prerequisites"></a>先決條件
 若要完成本教學課程，請確定已完成下列必要條件： 
 * 已安裝 Azure PowerShell。 如需詳細資料，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* 已部署三個範例租用戶應用程式。 若要在五分鐘內完成這些應用程式的部署，請參閱[部署及探索 Wingtip Tickets SaaS 獨立應用程式模式](https://docs.microsoft.com/en-us/azure/sql-database/saas-standaloneapp-get-started-deploy)。
+* 已部署三個範例租用戶應用程式。 若要在五分鐘內完成這些應用程式的部署，請參閱[部署及探索 Wingtip Tickets SaaS 獨立應用程式模式](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy)。
 
 ## <a name="provision-the-catalog"></a>佈建目錄
 在這項工作中，您將了解如何佈建用來註冊所有租用戶資料庫的目錄。 您將： 
@@ -149,4 +149,4 @@ Azure Resource Manager 範本可用來部署及設定應用程式、建立租用
 > * 關於組成應用程式的伺服器和資料庫。
 > * 如何刪除範例資源以停止相關計費。
 
-對於各種使用每一租用戶一個資料庫版本之 [Wingtip Tickets SaaS 應用程式](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview)的跨租用戶案例，您可以探索如何使用目錄來提供支援。  
+對於各種使用每一租用戶一個資料庫版本之 [Wingtip Tickets SaaS 應用程式](https://docs.microsoft.com/azure/sql-database/saas-dbpertenant-wingtip-app-overview)的跨租用戶案例，您可以探索如何使用目錄來提供支援。  

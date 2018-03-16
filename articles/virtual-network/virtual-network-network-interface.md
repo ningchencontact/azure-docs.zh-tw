@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6c3fb08a43bce6193aa0094992616a290129bac8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>建立、變更或刪除網路介面
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/05/2018
 
 ## <a name="create-a-network-interface"></a>建立網路介面
 
-在使用 Azure 入口網站建立虛擬機器時，入口網站會以預設設定為您建立一個網路介面。 如果您想要指定所有網路介面設定，可以使用自訂設定建立網路介面，並在建立虛擬機器時將該網路介面連接到虛擬機器 (使用 PowerShell 或 Azure CLI)。 您也可以建立網路介面，並將它新增至現有的虛擬機器 (使用 PowerShell 或 Azure CLI)。 若要深入了解如何使用現有的網路介面建立虛擬機器，或如何新增或移除現有虛擬機器的網路介面，請閱讀[新增或移除網路介面](virtual-network-network-interface-vm.md)一文。 在建立網路介面之前，用來建立網路介面的相同位置和訂用帳戶中必須已有既存的[虛擬網路](virtual-networks-create-vnet-arm-pportal.md)。
+在使用 Azure 入口網站建立虛擬機器時，入口網站會以預設設定為您建立一個網路介面。 如果您想要指定所有網路介面設定，可以使用自訂設定建立網路介面，並在建立虛擬機器時將該網路介面連接到虛擬機器 (使用 PowerShell 或 Azure CLI)。 您也可以建立網路介面，並將它新增至現有的虛擬機器 (使用 PowerShell 或 Azure CLI)。 若要深入了解如何使用現有的網路介面建立虛擬機器，或如何新增或移除現有虛擬機器的網路介面，請閱讀[新增或移除網路介面](virtual-network-network-interface-vm.md)一文。 在建立網路介面之前，用來建立網路介面的相同位置和訂用帳戶中必須已有既存的[虛擬網路](manage-virtual-network.md#create-a-virtual-network)。
 
 1. 使用具備您訂用帳戶網路參與者角色 (最低) 權限的帳戶登入 [Azure 入口網站](https://portal.azure.com)。 請閱讀 [Azure 角色型存取控制的內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，深入了解如何將角色和權限指派給帳戶。
 2. 在 Azure 入口網站頂端包含「搜尋資源」文字的方塊中，輸入「網路介面」。 當「網路介面」出現於搜尋結果時，按一下它。

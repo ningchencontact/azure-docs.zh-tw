@@ -2,23 +2,17 @@
 title: "Site Recovery 中的容錯移轉 | Microsoft Docs"
 description: "Azure Site Recovery 可協調虛擬機器和實體伺服器的複寫、容錯移轉及復原作業。 了解如何容錯移轉到 Azure 或次要資料中心。"
 services: site-recovery
-documentationcenter: 
-author: prateek9us
-manager: gauravd
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/25/2017
-ms.author: pratshar
-ms.openlocfilehash: afdab6e5ee5ae3bb8bc553afd93ff8f1ee18147f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 03/09/2018
+ms.author: ponatara
+ms.openlocfilehash: f7a60cd82508629ad3cf46882564aa68995ba3e6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="failover-in-site-recovery"></a>Site Recovery 中的容錯移轉
 本文說明如何容錯移轉 Site Recovery 所保護的虛擬機器和實體伺服器。
@@ -96,18 +90,18 @@ ms.lasthandoff: 02/14/2018
 在某些情況下，虛擬機器的容錯移轉會需要其他中繼步驟，通常會費時大約 8 到 10 分鐘才能完成。 在下列情況中，容錯移轉所花費的時間會比平常更久：
 
 * VMware 虛擬機器使用的行動服務版本早於 9.8 版
-* 實體伺服器 
+* 實體伺服器
 * VMware Linux 虛擬機器
 * 如同實體伺服器般受到保護的 Hyper-V 虛擬機器
-* 沒有以下驅動程式作為開機驅動程式的 VMware 虛擬機器 
-    * storvsc 
-    * vmbus 
-    * storflt 
-    * intelide 
+* 沒有以下驅動程式作為開機驅動程式的 VMware 虛擬機器
+    * storvsc
+    * vmbus
+    * storflt
+    * intelide
     * atapi
 * 沒有啟用 DHCP 服務的 VMware 虛擬機器，無論其是否正在使用 DHCP 或靜態 IP 位址
 
-在其他所有情況下則不需要此中繼步驟，且容錯移轉所花費的時間較少。 
+在其他所有情況下則不需要此中繼步驟，且容錯移轉所花費的時間較少。
 
 
 
@@ -118,7 +112,7 @@ ms.lasthandoff: 02/14/2018
 
 ## <a name="post-failover-considerations"></a>容錯移轉後的考量
 容錯移轉之後，您可能要考慮下列建議：
-### <a name="retaining-drive-letter-after-failover"></a>在容錯移轉之後保留磁碟機代號 
+### <a name="retaining-drive-letter-after-failover"></a>在容錯移轉之後保留磁碟機代號
 若要在容錯移轉後保留虛擬機器上的磁碟機代號，您可以將虛擬機器的 [SAN 原則] 設定為 [OnlineAll]。 [閱讀更多資訊](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure)。
 
 
@@ -126,8 +120,8 @@ ms.lasthandoff: 02/14/2018
 ## <a name="next-steps"></a>後續步驟
 
 > [!WARNING]
-> 當您容錯移轉虛擬機器之後，而且內部部署資料中心可用時，您應該重新針對內部部署資料中心進行 VMware 虛擬機器的[**重新保護**](site-recovery-how-to-reprotect.md)。
+> 當您容錯移轉虛擬機器之後，而且內部部署資料中心可用時，您應該重新針對內部部署資料中心進行 VMware 虛擬機器的[**重新保護**](vmware-azure-reprotect.md)。
 
-使用[**計劃性容錯移轉**](site-recovery-failback-from-azure-to-hyper-v.md)選項，將 Hyper-v 虛擬機器從 Azure **容錯回復**回到內部部署。
+使用[**計劃性容錯移轉**](hyper-v-azure-failback.md)選項，將 Hyper-v 虛擬機器從 Azure **容錯回復**回到內部部署。
 
 如果您已將 Hyper-v 虛擬機器容錯回復至 VMM 伺服器所管理的另一個內部部署資料中心，而且主要資料中心可用，請使用 [反向複寫] 選項，開始複寫回到主要資料中心。

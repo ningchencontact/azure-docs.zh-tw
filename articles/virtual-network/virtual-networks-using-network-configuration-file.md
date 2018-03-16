@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bb75b8bd1d525f3104fb517cb4a09b2e33caaca
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>使用網路組態檔來設定虛擬網路 (傳統)
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>建立或修改網路組態檔
 
-網路組態檔是 XML 檔案 (使用 PowerShell 時) 或 json 檔案 (使用 Azure CLI 時)。 您可以在任何文字或 XML/json 編輯器中編輯檔案。 [網路組態檔結構描述設定](https://msdn.microsoft.com/library/azure/jj157100.aspx)一文包含所有設定的詳細資料。 如需設定的其他說明，請參閱[檢視虛擬網路與設定](virtual-network-manage-network.md#view-vnet)。 您對檔案進行的變更：
+網路組態檔是 XML 檔案 (使用 PowerShell 時) 或 json 檔案 (使用 Azure CLI 時)。 您可以在任何文字或 XML/json 編輯器中編輯檔案。 [網路組態檔結構描述設定](https://msdn.microsoft.com/library/azure/jj157100.aspx)一文包含所有設定的詳細資料。 如需設定的其他說明，請參閱[檢視虛擬網路與設定](manage-virtual-network.md#view-virtual-networks-and-settings)。 您對檔案進行的變更：
 
 - 必須符合結構描述，否則匯入網路組態檔將會失敗。
 - 會覆寫您訂用帳戶的任何現有網路設定，因此在進行修改時請特別小心。 例如，參考以下範例網路組態檔。 假設原始檔案包含兩個 **VirtualNetworkSite** 執行個體，而您變更了原始檔案，如範例所示。 匯入檔案時，Azure 會刪除您在檔案中移除之 **VirtualNetworkSite** 執行個體的虛擬網路。 這種簡化的情況假設虛擬網路中沒有資源，因為如果有，將無法刪除虛擬網路，且匯入將會失敗。
