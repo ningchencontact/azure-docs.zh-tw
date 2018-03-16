@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c80bddfe1896b0b99319ef007c25718b5a754005
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="scaling-media-processing-overview"></a>調整媒體處理概觀
 此頁面提供調整媒體處理的方式及原因的概觀。 
@@ -44,8 +44,6 @@ ms.lasthandoff: 12/21/2017
 
 * 保留單元用於平行化所有媒體處理，包括使用 Azure 媒體索引器的索引工作。  不過，與編碼不同，索引工作的處理速度不會因為使用較快的保留單元而變快。
 * 如果使用共用的集區，也就是沒有任何保留單元，則編碼工作會和 S1 RU 有相同的效能。 不過，您的工作在已排入佇列的狀態下可以花費的時間沒有上限，而且在任何時候，最多只會執行一個工作。
-* 下列資料中心不提供 **S2** 保留單元類型：巴西南部和印度西部。
-* 下列資料中心不提供 **S3** 保留單元類型：印度西部。
 
 ## <a name="billing"></a>計費
 

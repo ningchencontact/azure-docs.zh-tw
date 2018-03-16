@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: dce374d85ef32fe1fbfc88502780fa2ad7a5eae4
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery 部署規劃工具報告
 產生的 Microsoft Excel 報告包含下列工作表：
@@ -132,16 +132,16 @@ ms.lasthandoff: 01/08/2018
 ![成本估計摘要](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
 
 當您使用 Azure Site Recovery 在 Azure 中保護所有相容 VM 時，此摘要可協助您了解您需要支付的儲存體、計算、網路和授權成本。 成本是針對相容的 VM，而不是針對所有已分析的 VM 計算。  
- 
+
 您可以檢視每月或每年的成本。 深入了解[支援的目標區域](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions)和[支援的貨幣](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)。
 
 **依元件的成本** DR 總成本分成四個元件：計算、儲存體、網路和 Azure Site Recovery 授權成本。 此成本是根據在複寫期間和在 DR 演練時產生的耗用量來計算，其中涵蓋計算、儲存體 (進階和標準)、在內部部署網站與 Azure 之間設定的 ExpressRoute/VPN，以及 Azure Site Recovery 授權。
 
-**依狀態的成本** 災害復原 (DR) 的總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。 
+**依狀態的成本** 災害復原 (DR) 的總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
-**複寫成本**：在複寫期間產生的成本。 其中涵蓋儲存體、網路和 Azure Site Recovery 授權的成本。 
+**複寫成本**：在複寫期間產生的成本。 其中涵蓋儲存體、網路和 Azure Site Recovery 授權的成本。
 
-**DR 演練成本**：在測試容錯移轉期間產生的成本。 Azure Site Recovery 會在測試容錯移轉期間啟動 VM。 DR 演練成本涵蓋執行 VM 的計算和儲存成本。 
+**DR 演練成本**：在測試容錯移轉期間產生的成本。 Azure Site Recovery 會在測試容錯移轉期間啟動 VM。 DR 演練成本涵蓋執行 VM 的計算和儲存成本。
 
 **每月/年的 Azure 儲存成本** 它會顯示將會針對複寫及 DR 演練的進階和標準儲存體產生的總儲存成本。
 您可以在[成本估計](site-recovery-vmware-deployment-planner-cost-estimation.md)工作表中檢視每個 VM 的詳細成本分析。
@@ -266,7 +266,7 @@ ms.lasthandoff: 01/08/2018
 
 **開機類型**︰VM 的開機類型。 可以是 BIOS 或 EFI。  Azure Site Recovery 目前支援 Windows Server EFI VM (Windows Server 2012、2012 R2 和 2016)，前提是開機磁碟中的磁碟分割數目小於 4 個，而且開機磁區大小為 512 個位元組。 若要保護 EFI VM，Azure Site Recovery 行動服務版本必須是 9.13 或更新版本。 EFI VM 僅支援容錯移轉。 不支援容錯回復。
 
-**OS 類型**：這是 VM 的 OS 類型。 根據在建立 VM 時從 VMware vSphere 所選的範本，可以是 Windows 或 Linux 或其他類型。 
+**OS 類型**：這是 VM 的 OS 類型。 根據在建立 VM 時從 VMware vSphere 所選的範本，可以是 Windows 或 Linux 或其他類型。
 
 ## <a name="azure-site-recovery-limits"></a>Azure Site Recovery 限制
 下表提供 Azure Site Recovery 限制。 上述限制是以我們的測試為基礎，但無法涵蓋所有可能的應用程式 I/O 組合。 實際的結果會隨著您的應用程式 I/O 混合而有所不同。 為了獲得最佳結果，即使在部署規劃之後，仍一律建議發出測試容錯移轉來執行廣泛的應用程式測試，以了解應用程式真正的效能情況。
@@ -282,15 +282,15 @@ ms.lasthandoff: 01/08/2018
 
 **來源資料變換** | **最大限制**
 ---|---
-每個 VM 的平均資料變換| 25 MB/秒 
+每個 VM 的平均資料變換| 25 MB/秒
 VM 上所有磁碟的尖峰資料變換 | 54 MB/秒
-處理序伺服器支援的每日資料變換上限 | 2 TB 
+處理序伺服器支援的每日資料變換上限 | 2 TB
 
 以上是採用 30% I/O 重疊時的平均數字。 Site Recovery 能夠處理更高的輸送量 (以重疊比為基礎)、較大的寫入大小和實際工作負載 I/O 行為。 先前數字採用大約五分鐘的典型積壓。 也就是說，資料上傳之後，便會進行處理並在五分鐘內建立復原點。
 
 
 ## <a name="cost-estimation"></a>成本估計
-深入了解[成本估計](site-recovery-vmware-deployment-planner-cost-estimation.md)。 
+深入了解[成本估計](site-recovery-vmware-deployment-planner-cost-estimation.md)。
 
 
 ## <a name="next-steps"></a>後續步驟

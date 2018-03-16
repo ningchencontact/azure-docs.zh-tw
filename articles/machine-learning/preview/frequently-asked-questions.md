@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 46d026802668fd77ae184b374439ca78cf51393d
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 86ef8acf46cef2b057596d8224c6c29f3a0f534d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 常見問題集
 
@@ -79,8 +79,7 @@ Workbench 目標包含並支援 MMLSpark 0.8 版，此版本與 Apache Spark 2.1
 
 模型是已升階來進行模型管理之測試執行回合的輸出。 在裝載帳戶中註冊的模型會計入您的方案中，包括透過重新訓練或版本反覆運算更新的模型。
 
-
-            **什麼是「受控模型」？**
+**什麼是「受控模型」？**
 
 模型是訓練程序的輸出，也是機器學習演算法在訓練資料上的應用。 「模型管理」可讓您將模型部署成 Web 服務、管理各種模型版本，以及監視其效能和計量。 「受控」模型是已向「Azure Machine Learning 模型管理」帳戶註冊的模型。 舉例來說，想像一個您嘗試預測銷售額的情況。 在測試階段，您會使用不同的資料集或演算法來產生許多模型。 您已產生四個具有不同精確度的模型，但選擇只註冊精確度最高的模型。 這個註冊的模型會成為您的第一個受控模型。
  
@@ -128,7 +127,7 @@ Azure Machine Learning Workbench 是為專業資料科學人員建置的隨附�
 
 **是否支援命令列功能？**
 
-是，Azure Machine Learning 提供完整的 CLI 介面。 Machine Learning CLI 預設會隨 Azure Machine Learning Workbench 一起安裝。 它也隨附於 Azure 上的「Linux 資料科學」虛擬機器，並且將整合至 [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+是，Azure Machine Learning 提供完整的 CLI 介面。 Machine Learning CLI 預設會隨 Azure Machine Learning Workbench 一起安裝。 它也隨附於 Azure 上的「Linux 資料科學」虛擬機器，並且將整合至 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 
 
 **我是否可以將 Jupyter Notebook 與 Workbench 搭配使用？**

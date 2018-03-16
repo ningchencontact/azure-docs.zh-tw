@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
@@ -98,7 +98,7 @@ Diagnostics Source 中的[活動指南](https://github.com/dotnet/corefx/blob/ma
 
 ASP.NET Core 2.0 支援擷取 Http 標頭和啟動新的活動。 
 
-`System.Net.HttpClient` 起始版本 `<fill in>` 支援自動插入相互關聯 Http 標頭及追蹤 http 呼叫作為 Activity。
+`System.Net.HttpClient` 起始版本 `4.1.0` 支援自動插入相互關聯 Http 標頭及追蹤 http 呼叫作為 Activity。
 
 ASP.NET Classic 有新的 Http 模組 [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/)。 此模組會使用 DiagnosticsSource 來實作遙測相互關聯。 它會根據傳入的要求標頭來啟動活動。 還會將不同要求處理階段的遙測相互關聯。 即使是當 IIS 處理的每個階段在不同管理執行緒上執行時也一樣。
 

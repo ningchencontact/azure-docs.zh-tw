@@ -16,10 +16,10 @@ ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 281ce23d7fdb1a94bcc7389f3326d45a9b4e99b5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-ad-java-web-app-getting-started"></a>Azure AD Java Web 應用程式快速入門
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -44,7 +44,7 @@ Azure Active Directory (Azure AD) 只需幾行的程式碼便可提供單一登�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頂端列中，按一下您的帳戶名稱。 在 [目錄] 清單下，選取您要註冊應用程式的 Active Directory 租用戶。
-3. 按一下左側窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
+3. 按一下左窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選取 [新增]。
 5. 遵照提示建立 **Web 應用程式和/或 Web API**。
   * [名稱] 可向使用者描述該應用程式。

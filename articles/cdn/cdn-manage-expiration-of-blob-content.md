@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: f5609f98de7ce6967dd1ff502e88d798741384df
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bafb04a1a19c4436d8f6c1c21700e9463334b3de
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>管理 Azure 內容傳遞網路中 Azure Blob 儲存體的期限
 > [!div class="op_single_selector"]
@@ -159,7 +159,7 @@ class Program
 ![Azure 儲存體總管屬性](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Azure 命令列介面
-透過 [Azure 命令列介面](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI)，您可以從命令列管理 Azure Blob 資源。 若要在使用 Azure CLI 上傳 Blob 時設定 Cache-Control 標頭，請使用 `-p` 參數來設定 *cacheControl* 屬性。 下列範例顯示如何將 TTL 設定為一小時 (3600 秒)：
+透過 [Azure 命令列介面](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) (CLI)，您可以從命令列管理 Azure Blob 資源。 若要在使用 Azure CLI 上傳 Blob 時設定 Cache-Control 標頭，請使用 `-p` 參數來設定 *cacheControl* 屬性。 下列範例顯示如何將 TTL 設定為一小時 (3600 秒)：
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4d47b5426da5d857085991767faa5fb227476408
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>部署和管理 Azure 中的 StorSimple 雲端設備 (Update 3 和更新版本)
 
@@ -78,7 +78,7 @@ StorSimple 雲端設備是純軟體的 StorSimple 版本，在 Microsoft Azure �
 佈建雲端設備之前，您需要在 Azure 環境中做好下列準備：
 
 * 請確定您的資料中心已部署和執行 StorSimple 8000 系列實體裝置 (模型 8100 或 8600)。 使用與您意圖建立 StorSimple 雲端設備相同的 StorSimple 裝置管理員服務註冊此裝置。
-* 針對雲端設備，[在 Azure 中設定虛擬網路](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)。 如果使用進階儲存體，您必須在支援進階儲存體的 Azure 區域中建立虛擬網路。 進階儲存體區域是對應到[依區域的 Azure 服務清單](https://azure.microsoft.com/regions/services/)中，磁碟儲存體資料列的區域。
+* 針對雲端設備，[在 Azure 中設定虛擬網路](../virtual-network/manage-virtual-network.md#create-a-virtual-network)。 如果使用進階儲存體，您必須在支援進階儲存體的 Azure 區域中建立虛擬網路。 進階儲存體區域是對應到[依區域的 Azure 服務清單](https://azure.microsoft.com/regions/services/)中，磁碟儲存體資料列的區域。
 * 建議您使用 Azure 提供的預設 DNS 伺服器，而非指定您自己的 DNS 伺服器名稱。 如果您的 DNS 伺服器名稱無效，或者如果 DNS 伺服器無法正確解析 IP 位址，則建立雲端設備將會失敗。
 * 點對站及站對站都是選用的，但並非必要。 如有需要，您可以針對更進階的案例設定這些選項。
 * 您可以將 [Azure 虛擬機器](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (主機伺服器) 建立在可使用由雲端設備公開之磁碟區的虛擬網路中。 這些伺服器必須符合下列需求：

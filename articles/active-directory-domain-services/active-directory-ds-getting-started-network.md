@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 7c84ac3318bbd63129b04711c62dc441b9d35285
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 858adf2b0a0431078561a6f0edf80860927f8233
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站啟用 Azure Active Directory Domain Services
 
@@ -39,8 +39,7 @@ ms.lasthandoff: 02/09/2018
 3. 選擇應該在其中啟用 Azure AD Domain Services 的虛擬網路。 您可以選取現有的虛擬網路或建立新的虛擬網路。
 
   > [!TIP]
-  > 
-            **啟用 Azure AD Domain Services 後，無法將受控網域移至不同的虛擬網路。** 挑選要啟用受控網域的適當虛擬網路。 建立受控網域之後，您無法在未刪除受控網域的情況下，將其移動至不同的虛擬網路。 在繼續之前，建議您檢閱 [Azure Active Directory Domain Services 的網路考量](active-directory-ds-networking.md)。  
+  > **啟用 Azure AD Domain Services 後，無法將受控網域移至不同的虛擬網路。** 挑選要啟用受控網域的適當虛擬網路。 建立受控網域之後，您無法在未刪除受控網域的情況下，將其移動至不同的虛擬網路。 在繼續之前，建議您檢閱 [Azure Active Directory Domain Services 的網路考量](active-directory-ds-networking.md)。  
   >
 
 4. **建立虛擬網路：**若要建立新的虛擬網路，請按一下 [新建]。 強烈建議針對 Azure AD Domain Services 使用專用子網路。 例如，建立具有名稱 'DomainServices' 的子網路，讓其他系統管理員容易了解子網路內部署的內容。 完成後，按一下 [確定]。
@@ -50,7 +49,7 @@ ms.lasthandoff: 02/09/2018
   > [!WARNING]
   > 請務必挑選私人 IP 位址空間內的位址空間。 不是您所擁有的 IP 位址位於公用位址空間中會導致 Azure AD 網域服務內發生錯誤。
 
-5. **現有的虛擬網路：**如果您計畫挑選現有的虛擬網路，[使用虛擬網路延伸模組建立專用子網路](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)，然後挑選該子網路。 按一下 [虛擬網路] 以選取現有的虛擬網路。 按一下 [子網路] 以挑選現有虛擬網路中的專用子網路，在其中啟用新的受控網域。 完成後，按一下 [確定]。
+5. **現有的虛擬網路：**如果您計畫挑選現有的虛擬網路，[使用虛擬網路延伸模組建立專用子網路](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)，然後挑選該子網路。 按一下 [虛擬網路] 以選取現有的虛擬網路。 按一下 [子網路] 以挑選現有虛擬網路中的專用子網路，在其中啟用新的受控網域。 完成後，按一下 [確定]。
 
     ![挑選虛擬網路內的子網路](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 

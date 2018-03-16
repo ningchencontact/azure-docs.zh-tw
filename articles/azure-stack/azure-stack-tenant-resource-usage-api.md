@@ -3,8 +3,8 @@ title: "租用戶資源使用情況 API | Microsoft Docs"
 description: "資源使用情況 API (用以擷取 Azure Stack 使用情況資訊) 的參考。"
 services: azure-stack
 documentationcenter: 
-author: AlfredoPizzirani
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: b9d7c7ee-e906-4978-92a3-a2c52df16c36
 ms.service: azure-stack
@@ -12,15 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2016
-ms.author: alfredop
-ms.openlocfilehash: f2eaf1c766d6c86741cf0fd561c131eacb34d782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: bc0b9993119342f07c28ed0384c11ae0f15bc439
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tenant-resource-usage-api"></a>租用戶資源使用情況 API
+
 租用戶可以使用租用戶 API 來檢視租用戶的資源使用量資料。 此 API 與 Azure 使用情況 API (目前處於私人預覽狀態) 一致。
 
 您可以像在 Azure 中一樣，使用 Windows PowerShell Cmdlet **Get-UsageAggregates** 取得使用量資料。
@@ -83,6 +85,7 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 | *instanceData* |執行個體詳細資料的機碼值組 (新格式)：<br>  *resourceUri*：完整資源識別碼，包含資源群組和執行個體名稱 <br>  *location*：此服務執行所在的區域 <br>  *tags*：使用者指定的資源標記 <br>  *additionalInfo*：更多關於所取用資源的詳細資料 (例如，作業系統版本或映像類型) |
 | *quantity* |此時間範圍內發生的資源取用數量 |
 | *meterId* |所取用資源的唯一識別碼 ( *ResourceID*) |
+
 
 ## <a name="next-steps"></a>後續步驟
 [提供者資源使用狀況 API](azure-stack-provider-resource-api.md)

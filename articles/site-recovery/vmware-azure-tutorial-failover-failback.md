@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dec4beef44e4086e1b41e3c20bea6585db385c9c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 618e2bb7ef124883af2d73264e01922ad2329d12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>將複寫的 VMware VM 和實體伺服器容錯移轉及容錯回復至 Azure
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="verify-vm-properties"></a>驗證 VM 屬性
 
-驗證 VM 屬性，並確定 VM 符合 [Azure 需求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
+驗證 VM 屬性，並確定 VM 符合 [Azure 需求](vmware-physical-azure-support-matrix.md#replicated-machines)。
 
 1. 在 [受保護的項目] 中，按一下 [複寫的項目] > VM。
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 02/28/2018
 
 - 基於測試目的，如果您有 Azure ExpressRoute 連線，您可以使用在組態伺服器上自動安裝的內部部署處理序伺服器。
 - 如果您有 VPN 連線，或正在生產環境中執行容錯回復，則必須將 Azure VM 設定為以 Azure 為基礎的處理序伺服器進行容錯回復。
-- 若要在 Azure 中設定處理序伺服器，請依照[本文](site-recovery-vmware-setup-azure-ps-resource-manager.md)中的指示操作。
+- 若要在 Azure 中設定處理序伺服器，請依照[本文](vmware-azure-set-up-process-server-azure.md)中的指示操作。
 
 ## <a name="configure-the-master-target-server"></a>設定主要目標伺服器
 
