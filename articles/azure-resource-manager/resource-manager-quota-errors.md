@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/27/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d2cc760bf516e8ee96629886120a1bb092932a82
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>解決資源配額的錯誤
 
@@ -47,9 +47,9 @@ please delete some resources of this type before creating a new one.
 配額在每個資源群組、訂用帳戶、帳戶和其他範圍套用。 例如，您的訂用帳戶可能設定為要限制區域的核心數目。 如果您嘗試部署超過允許核心數目的虛擬機器，您會收到錯誤訊息指出已超過配額。
 如需完整的配額資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](../azure-subscription-service-limits.md)。
 
-## <a name="solution"></a>解決方法
+## <a name="troubleshooting"></a>疑難排解
 
-### <a name="solution-1"></a>解決方案 1
+### <a name="azure-cli"></a>Azure CLI
 
 針對 Azure CLI，使用 `az vm list-usage` 命令以找出虛擬機器配額。
 
@@ -73,7 +73,7 @@ az vm list-usage --location "South Central US"
 ]
 ```
 
-### <a name="solution-2"></a>解決方案 2
+### <a name="powershell"></a>PowerShell
 
 針對 PowerShell，使用 **Get-AzureRmVMUsage** 命令以找出虛擬機器配額。
 
@@ -91,7 +91,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-### <a name="solution-3"></a>解決方案 3
+## <a name="solution"></a>解決方法
 
 若要要求增加配額，請移至入口網站並提出支援問題。 請在支援問題中，要求提高您要部署的區域的配額。
 

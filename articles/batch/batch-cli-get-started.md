@@ -15,17 +15,17 @@ ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11fad18c7b51625a29c58058aebd412cbf8cffdd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e27d7f75dd3d0391f45805f4424248c8eac483c7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 資源
 
 Azure CLI 2.0 是管理 Azure 資源的 Azure 新命令列體驗。 它可以用於 macOS、Linux 和 Windows。 Azure CLI 2.0 已針對從命令列管理 Azure 資源進行最佳化。 您可以使用 Azure CLI 來管理 Azure Batch 帳戶，以及管理集區、作業和工作等資源。 許多使用 Batch API、Azure 入口網站和 Batch PowerShell Cmdlet 執行的工作，也都可以使用 Azure CLI 來撰寫指令碼。
 
-本文概述如何使用搭配 [Azure CLI 2.0 版](https://docs.microsoft.com/cli/azure/overview) 與 Batch。 如需搭配使用 CLI 與 Azure 的概觀，請參閱[開始使用 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。
+本文概述如何使用搭配 [Azure CLI 2.0 版](https://docs.microsoft.com/cli/azure) 與 Batch。 如需搭配使用 CLI 與 Azure 的概觀，請參閱[開始使用 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。
 
 Microsoft 建議使用最新版的 Azure CLI (即 2.0 版)。 如需 2.0 版的詳細資訊，請參閱 [Azure Command Line 2.0 現已正式上市](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/)。
 
@@ -69,7 +69,7 @@ Microsoft 建議使用最新版的 Azure CLI (即 2.0 版)。 如需 2.0 版的�
 1. [以互動方式登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in)。 當您自行從命令列執行 Azure CLI 命令時以互動方式登入。
 2. [使用服務主體來登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal)。 當您從指令碼或應用程式執行 Azure CLI 命令時，使用服務主體來登入。
 
-基於本文的目的，我們會示範如何以互動方式登入 Azure。 在命令列上輸入 [az login](https://docs.microsoft.com/cli/azure/#az_login)：
+基於本文的目的，我們會示範如何以互動方式登入 Azure。 在命令列上輸入 [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login)：
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -178,7 +178,7 @@ az batch task list --job-id job001
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
+* 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure)。
 * 如需 Batch 資源的詳細資訊，請參閱[適用於開發人員的 Azure Batch 概觀](batch-api-basics.md)。
 * 如需有關使用 Batch 範本，在不需要撰寫程式碼的情況下來建立集區、作業和工作的詳細資訊，請參閱[使用 Azure Batch CLI 範本和檔案傳輸 (預覽)](batch-cli-templates.md)。
 

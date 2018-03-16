@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>使用 Azure Site Recovery 保護 Active Directory 和 DNS
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/28/2018
 
 大部分的應用程式都需要網域控制站或 DNS 伺服器才能運作。 因此，在應用程式容錯移轉之前，您必須在要用於測試容錯移轉的隔離網路中建立網域控制站。 為此，最簡單的方法是使用 Site Recovery 來複寫裝載網域控制站或 DNS 的虛擬機器。 然後，在執行應用程式復原計劃的測試容錯移轉前，您應先執行網域控制站虛擬機器的測試容錯移轉。 以下是做法：
 
-1. 使用 Site Recovery [複寫](site-recovery-replicate-vmware-to-azure.md)裝載網域控制站或 DNS 的虛擬機器。
+1. 使用 Site Recovery [複寫](vmware-azure-tutorial.md)裝載網域控制站或 DNS 的虛擬機器。
 2. 建立隔離的網路。 在 Azure 中建立的任何虛擬網路，依預設都會與其他網路隔離。 建議您對此網路使用您的生產網路所使用的相同 IP 範圍。 請勿在此網路上啟用網站對網站連線能力。
 3. 提供隔離網路中 DNS IP 位址。 請使用您想要讓 DNS 虛擬機器取得的 IP 位址。 如果您要複寫至 Azure，請提供用於容錯移轉之虛擬機器的 IP 位址。 若要輸入 IP 位址，請在複寫虛擬機器的 [計算和網路] 設定中選取 [目標 IP] 設定。
 

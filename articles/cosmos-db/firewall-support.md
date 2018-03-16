@@ -55,12 +55,12 @@ ms.lasthandoff: 01/03/2018
 |中國|139.217.8.252|
 |US Gov|52.244.48.71|
 
-若要允許存取 Azure 入口網站，請從 Azure 入口網站，將 Azure 入口網站中的 [允許存取 Azure 入口網站] 值設定為 [開啟]([啟用 IP 存取控制] 值必須設為 [開啟] 以檢視和變更 [允許存取 Azure 入口網站] 值)。
+若要允許存取 Azure 入口網站，請從 Azure 入口網站，將 Azure 入口網站中的 [允許存取 Azure 入口網站] 值設定為 [開啟]\([啟用 IP 存取控制] 值必須設為 [開啟] 以檢視和變更 [允許存取 Azure 入口網站] 值)。
 
 ![顯示如何允許存取 Azure 入口網站的螢幕擷取畫面](./media/firewall-support/enable-azure-portal.png)
 
 ## <a name="connections-from-other-azure-paas-services"></a>來自其他 Azure PaaS 服務的連線 
-在 Azure 中，Azure 串流分析、Azure Functions 和 Azure App Service 之類的 PaaS 服務會與 Azure Cosmos DB 搭配使用。 若要允許從這些服務存取 Azure Cosmos DB 資料庫帳戶，由於它們的 IP 位址尚無法得知，請以程式設計方式將 IP 位址 0.0.0.0 加入到與您的 Azure Cosmos DB 資料庫帳戶相關聯之允許的 IP 位址清單，或將 Azure 入口網站中的 [允許存取 Azure 服務] 值設為 [開啟] ([啟用 IP 存取控制] 值必須設為 [開啟] 以檢視和變更 [允許存取 Azure 服務] 值)。 這可確保 Azure PaaS 服務能夠存取 Azure Cosmos DB 帳戶。 
+在 Azure 中，Azure 串流分析、Azure Functions 和 Azure App Service 之類的 PaaS 服務會與 Azure Cosmos DB 搭配使用。 若要允許從這些服務存取 Azure Cosmos DB 資料庫帳戶，由於它們的 IP 位址尚無法得知，請以程式設計方式將 IP 位址 0.0.0.0 加入到與您的 Azure Cosmos DB 資料庫帳戶相關聯之允許的 IP 位址清單，或將 Azure 入口網站中的 [允許存取 Azure 服務] 值設為 [開啟] \([啟用 IP 存取控制] 值必須設為 [開啟] 以檢視和變更 [允許存取 Azure 服務] 值)。 這可確保 Azure PaaS 服務能夠存取 Azure Cosmos DB 帳戶。 
 
 ![顯示如何在 Azure 入口網站中開啟 [防火牆] 頁面的螢幕擷取畫面](./media/firewall-support/enable-azure-services.png)
 

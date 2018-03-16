@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 35632cc93c9a0650b45220ba84b4983679de3d9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>使用 Azure 入口網站建立網際網路面向的負載平衡器
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/21/2018
 ## <a name="set-up-a-load-balancer-in-azure-portal"></a>在 Azure 入口網站設定負載平衡器
 
 > [!IMPORTANT]
-> 此範例假設您擁有稱為 **myVNet**的虛擬網路。 請參閱 [建立虛擬網路](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 以便進行此作業。 此範例也假設您有一個稱為 **LB-Subnet-BE** 的子網路 (位於 **myVNet** 內) 以及兩個分別稱為 **web1** 和 **web2** 的 VM (位於 **myVNet** 中稱為 **myAvailSet** 的相同可用性設定組內)。 請參閱 [此連結](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 以建立 VM。
+> 此範例假設您擁有稱為 **myVNet**的虛擬網路。 請參閱 [建立虛擬網路](../virtual-network/manage-virtual-network.md#create-a-virtual-network) 以便進行此作業。 此範例也假設您有一個稱為 **LB-Subnet-BE** 的子網路 (位於 **myVNet** 內) 以及兩個分別稱為 **web1** 和 **web2** 的 VM (位於 **myVNet** 中稱為 **myAvailSet** 的相同可用性設定組內)。 請參閱 [此連結](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 以建立 VM。
 
 1. 透過瀏覽器瀏覽至 Azure 入口網站 [http://portal.azure.com](http://portal.azure.com) ，並使用您的 Azure 帳戶登入。
 2. 在畫面的左上方，選取 [建立資源] > [網路] > [負載平衡器]。

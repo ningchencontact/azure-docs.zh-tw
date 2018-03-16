@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>使用 Azure AD 驗證搭配 REST 存取 Azure 媒體服務 API
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 01/03/2018
 
 |設定|範例|說明|
 |---|-------|-----|
-|Azure Active Directory 租用戶網域|microsoft.onmicrosoft.com|Azure AD 即安全權杖服務 (STS) 端點是使用下列格式建立：https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token。 Azure AD 會核發存取資源所需的 JWT (存取權杖)。|
+|Azure Active Directory 租用戶網域|microsoft.onmicrosoft.com|Azure AD 即 Secure Token Service (STS) 端點會透過以下格式建立：https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD 會核發存取資源所需的 JWT (存取權杖)。|
 |REST API 端點|https://amshelloworld.restv2.westus.media.azure.net/api/|您的應用程式中發出之所有媒體服務 REST API 呼叫，都是針對此端點。|
 |用戶端識別碼 (應用程式識別碼)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 應用程式 (用戶端) 識別碼。 需要用戶端識別碼，才能取得存取權杖。 |
 |用戶端密碼|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 應用程式金鑰 (用戶端秘密)。 需要用戶端秘密，才能取得存取權杖。|
@@ -159,7 +159,7 @@ ms.lasthandoff: 01/03/2018
 
 1. 開啟 **Postman**。
 2. 選取 [GET] 。
-3. 貼上 REST API 端點 (例如，https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+3. 貼上 REST API 端點 (例如 https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. 選取 [授權] 索引標籤。 
 5. 選取 [持有人權杖]。
 6. 將上一節中建立的權杖貼上。

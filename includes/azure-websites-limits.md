@@ -1,4 +1,4 @@
-| 資源 | 免費 | 共用 (預覽) | 基本 | 標準 | 高階 (預覽)</th> |
+| 資源 | 免費 | 共用 (預覽) | 基本 | 標準 | 進階 </th> |
 | --- | --- | --- | --- | --- | --- |
 | 每個 [App Service 方案](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup>的 [Web、Mobile 或 API Apps](https://azure.microsoft.com/services/app-service/) |10 |100 |無限制<sup>2</sup> |無限制<sup>2</sup> |無限制<sup>2</sup> |
 | 每個 [App Service 方案](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup>的[邏輯應用程式](https://azure.microsoft.com/services/app-service/logic/) |10 |10 |10 |每個核心 20 個 |每個核心 20 個 |

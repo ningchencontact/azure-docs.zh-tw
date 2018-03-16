@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: c78d2646471e40d60972cf91cb5bbd351f71a66c
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 9c4032191738703b71319c05bce4f6bbbc61b44b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>使用 Azure CLI 取得受控資源群組中的資源並調整 VM 大小
 
@@ -46,4 +46,4 @@ ms.lasthandoff: 10/30/2017
 ## <a name="next-steps"></a>後續步驟
 
 * 如需受控應用程式的簡介，請參閱 [Azure 受控應用程式概觀](../overview.md)。
-* 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
+* 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure)。

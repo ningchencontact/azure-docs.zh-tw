@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 03/05/2018
 ms.author: sethm
-ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a581b7039a3631b7f1dc35816175242f892bd7dd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-hubs-samples"></a>事件中樞範例 
 
@@ -61,10 +61,6 @@ ms.lasthandoff: 02/03/2018
 
 [相應放大事件處理](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)範例示範如何使用 [Event Processor Host](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) 來分散事件中樞資料流耗用量的工作負載。 它示範如何實作 **EventProcessor** 和 **EventProcessorFactory** 物件，以管理事件資料流。 
 
-### <a name="pull-web-data-into-an-event-hub"></a>將 Web 資料提取到事件中樞 
-
-[從 Web 匯入資料](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb)範例示範如何從公用摘要 (例如交通部的交通資訊摘要) 提取資料並將資料推送到事件中樞。
-
 ## <a name="next-steps"></a>後續步驟
 
 請造訪下列連結深入了解 .NET Framework 版本︰
@@ -75,5 +71,5 @@ ms.lasthandoff: 02/03/2018
 您可以參閱下列文章，深入了解事件中樞：
 
 - [事件中心概觀](event-hubs-what-is-event-hubs.md)
-- [建立事件中樞](event-hubs-create.md)
+- [事件中樞功能](event-hubs-features.md)
 - [事件中樞常見問題集](event-hubs-faq.md)

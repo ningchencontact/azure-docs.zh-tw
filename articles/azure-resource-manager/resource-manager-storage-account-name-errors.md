@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc045827fbd38054a334ff22eb30e0db6a31bac8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c266e1073722733ec8b7353c6fdddc3ae341ab20
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>解決儲存體帳戶名稱的錯誤
 
@@ -48,16 +48,12 @@ Message=The storage account named mystorage is already taken.
 
 ## <a name="solution"></a>解決方法
 
-### <a name="solution-1"></a>解決方案 1
-
 請確定儲存體帳戶名稱是唯一的。 您可以將您的命名慣例與 [uniqueString](resource-group-template-functions-string.md#uniquestring) 函式的結果串連，以建立一個唯一名稱。
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 "type": "Microsoft.Storage/storageAccounts",
 ```
-
-### <a name="solution-2"></a>解決方案 2
 
 請確定您的儲存體帳戶名稱不超過 24 個字元。 [uniqueString](resource-group-template-functions-string.md#uniquestring) 函式會傳回 13 個字元。 如果您要對 **uniqueString** 結果串連前置詞或後置詞，請提供 11 個字元以下的值。
 
@@ -73,7 +69,5 @@ Message=The storage account named mystorage is already taken.
     }
 }
 ```
-
-### <a name="solution-3"></a>解決方案 3
 
 請確定您的儲存體帳戶名稱不包含任何大寫字母或特殊字元。

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e2f988fd62753e1ebed702728dee7ede65c72c4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 96206482195cdcbd06ee2dafdc551f7b1f81d319
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理資源
 
-[!include[Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="understand-scope"></a>了解範圍
 
-[!include[Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
 在本文中，您會將所有的管理設定套用到資源群，讓您可以在完成後輕易地移除這些設定。
 
@@ -45,17 +45,17 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="role-based-access-control"></a>角色型存取控制
 
-[!include[Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
+[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
 
 ### <a name="assign-a-role"></a>指派角色
 
-在本文中，您會部署虛擬機器以及和其相關的虛擬網路。 為了管理虛擬機器解決方案，有三個特定資源的角色可提供您經常需要的存取：
+在本文中，您會部署虛擬機器以及和其相關的虛擬網路。 為了管理虛擬機器解決方案，有三個資源專屬角色可提供您經常需要的存取權：
 
 * [虛擬機器參與者](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
 * [網路參與者](../active-directory/role-based-access-built-in-roles.md#network-contributor)
 * [儲存體帳戶參與者](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
 
-相較於將角色指派給個別使用者，通常為需要執行類似動作的使用者[建立 Azure Active Directory 群組](../active-directory/active-directory-groups-create-azure-portal.md)更加容易。 然後，將該群組指派給適當的角色。 一言以蔽之，您要建立沒有成員的 Azure Active Directory 群組。 您仍然可以指派此群組給範圍內的角色。 
+相較於將角色指派給個別使用者，為需要執行類似動作的使用者[建立 Azure Active Directory 群組](../active-directory/active-directory-groups-create-azure-portal.md)通常會更加容易。 然後，將該群組指派給適當的角色。 一言以蔽之，您要建立沒有成員的 Azure Active Directory 群組。 您仍然可以指派此群組給範圍內的角色。 
 
 下列範例會建立群組，並將其指派給資源群組中的「虛擬機器參與者」角色。 若要執行 `New-AzureAdGroup` 命令，您必須使用 [Azure Cloud Shell](/azure/cloud-shell/overview) 或[下載 Azure AD PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD/)。
 
@@ -73,7 +73,7 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 ## <a name="azure-policies"></a>Azure 原則
 
-[!include[Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>套用原則
 
@@ -83,7 +83,7 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
-您會看到現有的原則定義。 原則分為**內建**和**自訂**兩種。 查看定義，尋找符合您想要指派的條件。 在本文中，您指派的原則要：
+您會看到現有的原則定義。 原則類型不是**內建**就是**自訂**。 查看定義，尋找符合您要指派之條件的定義。 在本文中，您指派的原則要：
 
 * 限制所有資源的位置
 * 限制虛擬機器的 SKU
@@ -114,7 +114,7 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 
 ## <a name="deploy-the-virtual-machine"></a>部署虛擬機器
 
-您已指派角色和原則，現在可以開始部署您的解決方案。 預設大小是 Standard_DS1_v2，也就是允許的 SKU 其中一個。 執行此步驟時，系統會提示您輸入認證。 您輸入的值會設定為虛擬機器的使用者名稱和密碼。
+您已指派角色和原則，現在可以開始部署您的解決方案。 預設大小是 Standard_DS1_v2，也就是所允許之 SKU 的其中一個。 執行此步驟時，系統會提示您輸入認證。 您輸入的值會設定為虛擬機器的使用者名稱和密碼。
 
 ```azurepowershell-interactive
 New-AzureRmVm -ResourceGroupName "myResourceGroup" `
@@ -131,7 +131,7 @@ New-AzureRmVm -ResourceGroupName "myResourceGroup" `
 
 ## <a name="lock-resources"></a>鎖定資源
 
-[!include[Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
+[!INCLUDE [Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
 
 ### <a name="lock-a-resource"></a>鎖定資源
 
@@ -150,15 +150,15 @@ New-AzureRmResourceLock -LockLevel CanNotDelete `
   -ResourceGroupName myResourceGroup
 ```
 
-只有當您明確移除鎖定後，才能刪除虛擬機器。 此步驟將在[清除資源](#clean-up-resources)中描述。
+只有當您明確移除鎖定後，才能刪除虛擬機器。 [清除資源](#clean-up-resources)中會說明該步驟。
 
 ## <a name="tag-resources"></a>標記資源
 
-[!include[Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
+[!INCLUDE [Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
 
 ### <a name="tag-resources"></a>標記資源
 
-[!include[Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
+[!INCLUDE [Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
 
 若要將標記套用至虛擬機器，請使用：
 

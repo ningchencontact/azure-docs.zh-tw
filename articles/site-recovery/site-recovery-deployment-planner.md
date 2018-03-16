@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7e3e0cebbb1ae0c7c63de586f458814f5dc6f202
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 77e76e5f9960f8a7c54ebcb82321784be5c1aa99
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware 到 Azure 的 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery 部署規劃工具使用者指南。
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/09/2018
 **相容性評估**
 
 * 以磁碟數目、磁碟大小、IOPS、變換、開機類型 (EFI/BIOS) 和作業系統版本為基礎的 VM 合適性評估
- 
+
 **網路頻寬需求與 RPO 評估**
 
 * 差異複寫所需的預估網路頻寬
@@ -93,13 +93,16 @@ ms.lasthandoff: 02/09/2018
 >
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>下載部署規劃工具並解壓縮
-1. 下載最新版的 [Site Recovery 部署規劃工具](https://aka.ms/asr-deployment-planner)。 此工具封裝在 .zip 資料夾中。 目前的工具版本僅支援 VMware 到 Azure 案例。
+1. 下載最新版的 [Site Recovery 部署規劃工具](https://aka.ms/asr-deployment-planner)。
+此工具封裝在 .zip 資料夾中。 目前的工具版本僅支援 VMware 到 Azure 案例。
 
-2. 從您要執行工具的位置，將 .zip 資料夾複製到 Windows Server。 如果伺服器可存取網路以連線到保存要剖析之 VM 的 vCenter Server/vSphere ESXi 主機，您可以從 Windows Server 2012 R2 執行此工具。 不過，我們建議您在硬體設定符合[組態伺服器調整大小方針](https://aka.ms/asr-v2a-on-prem-components)的伺服器上執行此工具。 如果您已在內部部署環境部署 Site Recovery 元件，請從組態伺服器執行此工具。
+2. 從您要執行工具的位置，將 .zip 資料夾複製到 Windows Server。
+如果伺服器可存取網路以連線到保存要剖析之 VM 的 vCenter Server/vSphere ESXi 主機，您可以從 Windows Server 2012 R2 執行此工具。 不過，我們建議您在硬體設定符合[組態伺服器調整大小方針](https://aka.ms/asr-v2a-on-prem-components)的伺服器上執行此工具。 如果您已在內部部署環境部署 Site Recovery 元件，請從組態伺服器執行此工具。
 
     我們建議執行此工具的伺服器具有與組態伺服器 (具備內建處理序伺服器) 相同的硬體組態。 這種組態可確保工具報告的達成輸送量符合 Site Recovery 在複寫期間可達到的實際輸送量。 輸送量計算取決於伺服器可用的網路頻寬和伺服器的硬體組態 (CPU、儲存體等等)。 如果您從任何其他伺服器執行此工具，則會計算從該伺服器至 Azure 的輸送量。 此外，因為該伺服器的硬體組態可能會與組態伺服器不同，因為工具報告的達成輸送量可能不正確。
 
-3. 將 .zip 資料夾解壓縮。 此資料夾包含多個檔案和子資料夾。 可執行檔是父資料夾中的 ASRDeploymentPlanner.exe。
+3. 將 .zip 資料夾解壓縮。
+此資料夾包含多個檔案和子資料夾。 可執行檔是父資料夾中的 ASRDeploymentPlanner.exe。
 
     範例：將 .zip 檔案複製到 E:\ 磁碟機並將它解壓縮。
     E:\ASR Deployment Planner_v2.1zip

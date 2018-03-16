@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 01/22/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2049de0adfd4be164cda69ca85782c528aeaf55c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 092e0681b0491fc1c54c19e234aafdac6d428fd1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>建立連線至 Azure Cosmos DB 的 Azure 函式
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/09/2018
 
 | 命令 | 注意 |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/#az_login) | 登入 Azure。 |
+| [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) | 登入 Azure。 |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 指定位置建立資源群組 |
 | [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account) | 建立儲存體帳戶 |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | 建立新的函式應用程式 |
@@ -55,7 +55,7 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
+如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure)。
 
 您可以在 [Azure Functions 文件](../functions-cli-samples.md)中找到其他 Azure Functions CLI 指令碼範例。
 

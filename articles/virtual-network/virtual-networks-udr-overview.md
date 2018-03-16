@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
 
@@ -45,7 +45,7 @@ Azure 會自動建立系統路由，並將路由指派給虛擬網路中的每�
 
 上表列出的下一個躍點類型，代表 Azure 如何路由上述位址首碼指定的流量。 下一個躍點類型的說明如下：
 
-- **虛擬網路**：在虛擬網路[位址空間](virtual-network-manage-network.md#add-address-spaces)內的位址範圍間路由流量。 Azure 建立路由所用的位址首碼，會與每個虛擬網路位址空間中定義的位址範圍相對應。 如果虛擬網路位址空間有多個定義的位址範圍，則 Azure 會為每個位址範圍建立個別路由。 Azure 會使用針對每個位址範圍建立的路由，來自動路由子網路之間的流量。 您不需要為 Azure 定義閘道來路由子網路之間的流量。 雖然虛擬網路包含子網路，而且每個子網路都有定義的位址範圍，但 Azure 不會為子網路位址範圍建立預設路由，因為每一個子網路位址範圍都在虛擬網路位址空間的位址範圍內。
+- **虛擬網路**：在虛擬網路[位址空間](manage-virtual-network.md#add-or-remove-an-address-range)內的位址範圍間路由流量。 Azure 建立路由所用的位址首碼，會與每個虛擬網路位址空間中定義的位址範圍相對應。 如果虛擬網路位址空間有多個定義的位址範圍，則 Azure 會為每個位址範圍建立個別路由。 Azure 會使用針對每個位址範圍建立的路由，來自動路由子網路之間的流量。 您不需要為 Azure 定義閘道來路由子網路之間的流量。 雖然虛擬網路包含子網路，而且每個子網路都有定義的位址範圍，但 Azure 不會為子網路位址範圍建立預設路由，因為每一個子網路位址範圍都在虛擬網路位址空間的位址範圍內。
 
 - **網際網路**：將位址首碼所指定的流量路由到網際網路。 系統預設路由會指定 0.0.0.0/0 位址首碼。 如果您不覆寫 Azure 的預設路由，Azure 會將所有不是由虛擬網路內位址範圍指定的流量路由至網際網路，但有一個例外。 如果目的地位址適用於 Azure 的其中一個服務，Azure 會透過 Azure 的骨幹網路直接將流量路由至該服務，而不是將流量路由至網際網路。 不論虛擬網路存在哪一個 Azure 區域，或 Azure 服務執行個體部署在哪一個 Azure 區域，Azure 服務之間的流量都不會周遊網際網路。 您可以使用[自訂路由](#custom-routes)，來覆寫位址首碼為 0.0.0.0/0 的 Azure 預設系統路由。
 
@@ -250,7 +250,7 @@ Subnet2 的路由表包含所有 Azure 建立的預設路由和選擇性 VNet �
 
 ## <a name="next-steps"></a>後續步驟
 
-- [使用路由和網路虛擬設備建立使用者定義路由表](create-user-defined-route-portal.md)
+- [使用路由和網路虛擬設備建立使用者定義路由表](tutorial-create-route-table-portal.md)
 - [設定適用於 Azure VPN 閘道的 BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [搭配使用 ExpressRoute 與 BGP](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [檢視子網路的所有路由](virtual-network-routes-troubleshoot-portal.md)。 使用者定義路由表只會顯示使用者定義路由，而不會顯示子網路的預設和 BGP 路由。 檢視所有路由會顯示子網路 (內含網路介面) 的預設、BGP 及使用者定義路由。

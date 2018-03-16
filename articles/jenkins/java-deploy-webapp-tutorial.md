@@ -11,11 +11,11 @@ ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins, devcenter
-ms.openlocfilehash: 40d7e822b586e6f6b4addcd7d4e107eda9f4ab11
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2606acba341d4cfbc16314048e134fa30ff8606
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>使用 Jenkins 設定 Azure App Service 的持續整合和部署
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/03/2017
 
 * 設定含 JDK 的 [Jenkins](https://jenkins.io/) 和 Maven 工具。 如果您沒有 Jenkins 系統，請立即從 [Jenkins 解決方案範本](/azure/jenkins/install-jenkins-solution-template)在 Azure 中建立一個。
 * [GitHub](https://github.com) 帳戶。
-* [Azure CLI 2.0](/cli/azure/overview)，從本機命令列或在 [Azure Cloud Shell](/azure/cloud-shell/overview) 中
+* [Azure CLI 2.0](/cli/azure)，從本機命令列或在 [Azure Cloud Shell](/azure/cloud-shell/overview) 中
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

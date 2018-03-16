@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 3eab1878c2a5f6b1d031ef3208e30a4df19dc41e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9e93dc14a4729011f74c5eafe94528608b89116f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>根據容器名稱前置詞來刪除容器
 
@@ -55,6 +55,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](/cli/azure/overview)。
+如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](/cli/azure)。
 
 在[適用於 Azure 儲存體的 Azure CLI 範例](../blobs/storage-samples-blobs-cli.md)中，提供了其他儲存體 CLI 指令碼範例。

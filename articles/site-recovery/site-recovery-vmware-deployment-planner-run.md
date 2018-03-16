@@ -12,20 +12,20 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9aedd5561397c78622a43f39f423c618000a2a33
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 87e124b1dc14ad34d1d790d463ce1f5ded18f74b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>針對 VMware 到 Azure 執行 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery Deployment Planner 使用者指南。
 
 
 ## <a name="modes-of-running-deployment-planner"></a>執行部署規劃工具的模式
-您可以在下列任何模式中執行命令列工具 (ASRDeploymentPlanner.exe)： 
+您可以在下列任何模式中執行命令列工具 (ASRDeploymentPlanner.exe)：
 
 1.  [分析](#profile-vmware-vms)
 2.  [報告產生](#generate-report)
@@ -49,8 +49,8 @@ ms.lasthandoff: 01/16/2018
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
 4. 如果 Connect-VIServer 無法辨識為 Cmdlet 名稱，您可能需要執行下列命令。
- 
-            Add-PSSnapin VMware.VimAutomation.Core 
+
+            Add-PSSnapin VMware.VimAutomation.Core
 
 5. 若要取得 vCenter Server/vSphere ESXi 主機的所有 VM 名稱並將此清單儲存在 .txt 檔案中，請執行此處所列的兩個命令。
 以您的輸入取代 &lsaquo;server name&rsaquo;、&lsaquo;user name&rsaquo;、&lsaquo;password&rsaquo;、&lsaquo;outputfile.txt&rsaquo;。
@@ -101,7 +101,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-使用預設設定，來分析假設 1500 個 VM，建立兩個 VMList.txt 檔案。 其中一個包含 1000 個 VM 和另一個包含 500 個 VM 的清單。 執行兩個 ASR 部署規劃工具的執行個體，其中一個包含 VMList1.txt，另一個包含 VMList2.txt。 您可以使用相同的目錄路徑來儲存兩個 VMList VM 的已分析資料。 
+使用預設設定，來分析假設 1500 個 VM，建立兩個 VMList.txt 檔案。 其中一個包含 1000 個 VM 和另一個包含 500 個 VM 的清單。 執行兩個 ASR 部署規劃工具的執行個體，其中一個包含 VMList1.txt，另一個包含 VMList2.txt。 您可以使用相同的目錄路徑來儲存兩個 VMList VM 的已分析資料。
 
 我們已經看到，作業會以硬體設定 (特別是執行工具從而產生報告之伺服器的 RAM 大小) 作為基礎，可能會因記憶體不足而發生失敗。 如果您的硬體良好，可以將 MaxVMsSupported 變更為任何較高的值。  
 
@@ -293,4 +293,3 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 ## <a name="next-steps"></a>後續步驟
 * [分析已產生的報告](site-recovery-vmware-deployment-planner-analyze-report.md)。
-

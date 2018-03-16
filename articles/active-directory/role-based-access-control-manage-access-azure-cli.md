@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 5c099a7fd8848c2934603ec9b2db8947885226f9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6c9df11e528601d94cb72a8e3ef0868dc7781e12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>使用 Azure 命令列介面管理角色型存取控制
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/22/2018
 
 您必須具備以下先決條件，才能使用 Azure CLI 來管理 RBAC：
 
-* [Azure CLI 2.0](/cli/azure/overview). 您可以透過 [Azure Cloud Shell](../cloud-shell/overview.md) 在瀏覽器中使用，或者在 macOS、Linux 和 Windows 中[安裝](/cli/azure/install-azure-cli)並從命令列中執行。
+* [Azure CLI 2.0](/cli/azure). 您可以透過 [Azure Cloud Shell](../cloud-shell/overview.md) 在瀏覽器中使用，或者在 macOS、Linux 和 Windows 中[安裝](/cli/azure/install-azure-cli)並從命令列中執行。
 
 ## <a name="list-roles"></a>列出角色
 

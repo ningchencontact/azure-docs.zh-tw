@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 61f84233b90cb3c82ed928d59ad2a090f7eb50b7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>在 Azure 虛擬機器上部署 Windows Server Active Directory 的指導方針
 本文說明 Windows Server Active Directory 網域服務 (ADDS) 和 Active Directory Federation Services (ADFS) 的內部部署與在 Microsoft Azure 虛擬機器上面部署之間的差異。
@@ -51,7 +51,7 @@ ms.lasthandoff: 03/05/2018
 
 我們建議您同時檢閱涵蓋下列主題的教學課程、指南及影片︰
 
-* [在 Azure 入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+* [在 Azure 入口網站中設定純雲端虛擬網路](../virtual-network/quick-create-portal.md)
 * [在 Azure 入口網站中設定站對站 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [在 Azure 虛擬網路上安裝新的 Active Directory 樹系](active-directory-new-forest-virtual-machine.md)
 * [在 Azure 中安裝複本 Active Directory 網域控制站](active-directory-install-replica-active-directory-domain-controller.md)
