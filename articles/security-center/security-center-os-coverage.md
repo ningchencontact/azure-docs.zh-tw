@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/15/2018
 ms.author: terrylan
 ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Azure 資訊安全中心支援的平台
 針對使用傳統與 Resource Manager 部署模型建立的虛擬機器 (VM) 與電腦，提供安全性狀態監視和建議。

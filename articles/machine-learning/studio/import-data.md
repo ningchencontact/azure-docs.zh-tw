@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: garye;bradsev
 ms.openlocfilehash: eb22f516f298df9396ca809acaa9c8cb62589c2a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>從各種資料來源將訓練資料匯入 Azure Machine Learning Studio
 若要在 Machine Learning Studio 中使用您自己的資料來開發和訓練預測性分析方案，您可以： 

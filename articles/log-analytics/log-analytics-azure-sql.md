@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 624c861db9bb318c368cef04965da0a73dd028d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fb7fd0be8b131ee098689b06c34c4e7c333801e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>使用 Azure SQL Database (預覽) 監視 Log Analytics 中的 Azure SQL Database
 
@@ -103,7 +103,7 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 選取任何磚，以便在特定的檢視方塊中開啟向下鑽研報表。 一旦選取檢視方塊，向下鑽研報表隨即開啟。
 
-![Azure SQL 分析逾時](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
+![Azure SQL 分析逾時](./media/log-analytics-azure-sql/azure-sql-sol-metrics.png)
 
 每個檢視方塊都會提供訂用帳戶、伺服器、彈性集區和資料庫層級的摘要。 此外，每個檢視方塊都會在右側顯示檢視方塊專屬的報表。 從清單中選取訂用帳戶、伺服器、集區或資料庫可繼續往下鑽研。
 
@@ -148,13 +148,19 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 Azure SQL Database 上的高 DTU
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 Azure SQL Database 彈性集區上的高 DTU
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 您可以針對 Azure SQL Database 和彈性集區，使用這些警示型查詢發出特定閾值警示。 若要設定 Log Analytics 工作區的警示：
@@ -167,7 +173,7 @@ AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "
 4. 執行其中一個範例查詢。
 5. 在記錄搜尋中，按一下 [警示]。  
 ![在搜尋中建立警示](./media/log-analytics-azure-sql/create-alert01.png)
-6. 在 [新增警示規則] 頁面上，設定您要的適當屬性和特定臨界值，然後按一下 [儲存]。  
+6. 在 [新增警示規則] 頁面上，設定您要的適當屬性和特定臨界值，然後按一下 [儲存]。 
 ![新增警示規則](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>後續步驟

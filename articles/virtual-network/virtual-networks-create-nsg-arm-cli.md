@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb99f121a1ddf079008ed97edde71b067d6b5edb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4827fabf1d8cde366dda8b3a782a2fefe01db8d5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-cli"></a>使用 Azure CLI 建立網路安全性群組
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/09/2018
 
 若要根據上述案例建立名為 *NSG-FrontEnd* 的 NSG，請依照下列步驟執行。
 
-1. 安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) (若您尚未這麼做)，並使用 [az login](/cli/azure/#az_login) 來登入 Azure 帳戶。 
+1. 安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) (若您尚未這麼做)，並使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。 
 
 2. 使用 [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) 命令建立 NSG。 
 

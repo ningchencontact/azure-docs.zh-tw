@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 0dc19abcf010f5c0bc50534941e7b80a9665869e
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 8fa7496c3489a0a3e5ee6d829bbeef0f0ccdf315
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>建立、變更或刪除虛擬網路對等互連
 
-了解如何建立、變更或刪除虛擬網路對等互連。 虛擬網路對等互連可以讓您透過 Azure 骨幹網路來連線虛擬網路。 對等互連建立好之後，系統仍會將虛擬網路視為獨立資源來進行管理。 如果您不熟悉虛擬網路對等互連，建議您閱讀[虛擬網路對等互連概觀](virtual-network-peering-overview.md)，並先完成[建立虛擬網路對等互連教學課程](virtual-network-create-peering.md)，再完成本文中的工作。
+了解如何建立、變更或刪除虛擬網路對等互連。 虛擬網路對等互連可以讓您透過 Azure 骨幹網路來連線虛擬網路。 對等互連建立好之後，系統仍會將虛擬網路視為獨立資源來進行管理。 如果您不熟悉虛擬網路對等互連，建議您閱讀[虛擬網路對等互連概觀](virtual-network-peering-overview.md)，並先完成[建立虛擬網路對等互連教學課程](tutorial-connect-virtual-networks-portal.md)，再完成本文中的工作。
 
-在一般情況下，可以為相同地區中的虛擬網路建立對等互連。 讓不同區域中的虛擬網路進行對等互連的功能目前為預覽版。 如需了解有哪些可用的區域，請參閱[虛擬網路更新](https://azure.microsoft.com/en-us/updates/?product=virtual-network)。 您必須[註冊訂用帳戶才能使用預覽版](virtual-network-create-peering.md)。
+在一般情況下，可以為相同地區中的虛擬網路建立對等互連。 讓不同區域中的虛擬網路進行對等互連的功能目前為預覽版。 如需了解有哪些可用的區域，請參閱[虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)。 您必須[註冊訂用帳戶才能使用預覽版](tutorial-connect-virtual-networks-powershell.md#register)。
 
 > [!WARNING]
 > 與公開上市版相比，預覽版建立之虛擬網路對等互連的可用性和可靠性較低。 虛擬網路對等互連的功能可能有限，而且可能只有部分 Azure 區域能進行對等互連。 如需此功能可用性和狀態的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network) 頁面。
@@ -54,9 +54,9 @@ ms.lasthandoff: 02/11/2018
 6. <a name="add-peering"></a>輸入或選取下列設定的值：
     - **名稱︰**對等互連的名稱必須是虛擬網路中的唯一名稱。
     - **虛擬網路部署模型：**選取您想要對等互連之虛擬網路是透過哪個部署模型所部署的。
-    - **我知道資源識別碼：**如果您有權讀取所要對等互連的虛擬網路，請讓此核取方塊保持未選取狀態。 如果您無權讀取所要對等互連的虛擬網路或訂用帳戶，請核取此方塊。 針對在核取方塊時所出現的 [資源識別碼] 方塊，輸入您想要對等互連之虛擬網路的完整資源識別碼。 您必須輸入此虛擬網路所在 Azure [區域](https://azure.microsoft.com/regions)中虛擬網路的資源識別碼。 如果要選取其他地區中的虛擬網路，[請註冊訂用帳戶以獲得預覽版。](virtual-network-create-peering.md) 完整資源識別碼的格式類似 /subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>。 您可以檢視虛擬網路的屬性，以取得虛擬網路的資源識別碼。 若要了解如何檢視虛擬網路的屬性，請參閱＜[管理虛擬網路](virtual-network-manage-network.md#view-vnet)＞。
+    - **我知道資源識別碼：**如果您有權讀取所要對等互連的虛擬網路，請讓此核取方塊保持未選取狀態。 如果您無權讀取所要對等互連的虛擬網路或訂用帳戶，請核取此方塊。 針對在核取方塊時所出現的 [資源識別碼] 方塊，輸入您想要對等互連之虛擬網路的完整資源識別碼。 您必須輸入此虛擬網路所在 Azure [區域](https://azure.microsoft.com/regions)中虛擬網路的資源識別碼。 如果要選取其他地區中的虛擬網路，[請註冊訂用帳戶以獲得預覽版。](tutorial-connect-virtual-networks-portal.md) 完整資源識別碼的格式類似 /subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>。 您可以檢視虛擬網路的屬性，以取得虛擬網路的資源識別碼。 若要了解如何檢視虛擬網路的屬性，請參閱＜[管理虛擬網路](manage-virtual-network.md#view-virtual-networks-and-settings)＞。
     - **訂用帳戶：**選取您想要對等互連之虛擬網路的[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)。 視帳戶有權讀取的訂用帳戶而定，系統會列出一或多個訂用帳戶。 如果您已核取 [資源識別碼] 核取方塊，則無法使用這項設定。
-    - **虛擬網路：**選取您想要對等互連的虛擬網路。 您可以選取透過任一 Azure 部署模型建立的虛擬網路。 如果要選取其他地區中的虛擬網路，[請註冊訂用帳戶以獲得預覽版。](virtual-network-create-peering.md) 您必須有權讀取虛擬網路，該虛擬網路才會顯示在清單中。 如果虛擬網路雖有列出卻呈現灰色，原因可能是該虛擬網路的位址空間與此虛擬網路的位址空間重疊。 如果虛擬網路的位址空間重疊，您就無法讓這些位址空間對等互連。 如果您已核取 [資源識別碼] 核取方塊，則無法使用這項設定。
+    - **虛擬網路：**選取您想要對等互連的虛擬網路。 您可以選取透過任一 Azure 部署模型建立的虛擬網路。 如果要選取其他地區中的虛擬網路，[請註冊訂用帳戶以獲得預覽版。](tutorial-connect-virtual-networks-portal.md) 您必須有權讀取虛擬網路，該虛擬網路才會顯示在清單中。 如果虛擬網路雖有列出卻呈現灰色，原因可能是該虛擬網路的位址空間與此虛擬網路的位址空間重疊。 如果虛擬網路的位址空間重疊，您就無法讓這些位址空間對等互連。 如果您已核取 [資源識別碼] 核取方塊，則無法使用這項設定。
     - **允許虛擬網路存取：**如果您想要讓兩個虛擬網路能夠彼此通訊，請選取 [啟用] \(預設值)。 讓虛擬網路能夠彼此通訊，會讓連線到任一虛擬網路的資源能夠以相同的頻寬和延遲彼此通訊，彷彿這些資源是連線到相同的虛擬網路。 兩個虛擬網路中的資源之間所進行的所有通訊都是透過 Azure 私人網路來完成。 網路安全性群組的 **VirtualNetwork** 預設標記包含虛擬網路和對等互連的虛擬網路。 若要深入了解網路安全性群組的預設標記，請閱讀[網路安全性群組概觀](virtual-networks-nsg.md#default-tags)一文。  如果您不想讓流量流到對等互連的虛擬網路，請選取 [停用]。 如果您已讓某個虛擬網路與另一個虛擬網路對等互連，但偶爾想要停用這兩個虛擬網路之間的流量流動，您可以選取 [停用]。 您可能會發現啟用/停用功能比起先刪除再重新建立對等互連更為方便。 此設定停用時，對等互連的虛擬網路之間不會有流量流動。
     - **允許轉寄的流量：**若要允許虛擬網路中網路虛擬設備 (不是源自虛擬網路)「所轉送的」流量透過對等互連流向此虛擬網路，請選取此方塊。 例如，假設有三個虛擬網路，分別名為 Spoke1、Spoke2 及 Hub。 每個支點 (Spoke) 虛擬網路與中樞 (Hub) 虛擬網路之間都有對等互連，但支點虛擬網路之間並沒有對等互連。 在中樞虛擬網路中已部署一個網路虛擬設備，並且在每個支點虛擬網路都套用了使用者定義的路由，可透過該網路虛擬設備來路由傳送子網路之間的流量。 如果未選取此核取方塊來允許每個支點虛擬網路與中樞虛擬網路之間進行對等互連，流量就不會在支點虛擬網路之間傳送，因為中樞會轉送虛擬網路之間的流量。 啟用這項功能雖能允許轉送的流量通過對等互連，卻不會建立任何使用者定義的路由或網路虛擬設備。 使用者定義的路由和網路虛擬設備是另外建立的。 了解[使用者定義的路由](virtual-networks-udr-overview.md#user-defined)。 如果透過「Azure VPN 閘道」在虛擬網路之間轉送流量，您就無須檢查此設定。
     - **允許閘道傳輸：**如果您有連結到此虛擬網路的虛擬網路閘道，且想要讓來自對等互連虛擬網路的流量能夠流經閘道，請核取此方塊。 例如，此虛擬網路可能會透過虛擬網路閘道連結到內部部署網路。 此閘道可以是 ExpressRoute 或 VPN 閘道。 核取此方塊可允許來自對等互連虛擬網路的流量，流經連結到此虛擬網路的閘道，再流向內部部署網路。 如果您核取此方塊，對等互連的虛擬網路將無法設定閘道。 在設定從其他虛擬網路到這個虛擬網路的對等互連時，在對等互連的虛擬網路上必須選取 [使用遠端閘道] 核取方塊。 如果您讓此方塊保持未核取狀態 (此為預設值)，來自對等互連虛擬網路的流量仍會流到此虛擬網路，但無法流經連結到此虛擬網路的虛擬網路閘道。 
@@ -83,7 +83,7 @@ ms.lasthandoff: 02/11/2018
  
 |Azure 部署模型  | 訂用帳戶  |
 |---------|---------|
-|兩者皆使用 Resource Manager |[相同](virtual-network-create-peering.md)|
+|兩者皆使用 Resource Manager |[相同](tutorial-connect-virtual-networks-portal.md)|
 | |[不同](create-peering-different-subscriptions.md)|
 |一個使用 Resource Manager、一個使用傳統部署模型     |[相同](create-peering-different-deployment-models.md)|
 | |[不同](create-peering-different-deployment-models-subscriptions.md)|
@@ -129,7 +129,7 @@ Azure CLI：[az network vnet peering list](/cli/azure/network/vnet/peering#az_ne
 ## <a name="requirements-and-constraints"></a>需求和限制 
 
 - 要建立對等互連的虛擬網路必須有非重疊的 IP 位址空間。
-- 一旦虛擬網路與另一個虛擬網路對等互連，您便無法在虛擬網路中新增或刪除位址範圍。 若要新增或移除位址範圍，請刪除對等互連，新增或移除位址範圍，然後重新建立對等互連。 若要在虛擬網路新增或移除位址範圍，請參閱[管理虛擬網路](virtual-network-manage-network.md)。
+- 一旦虛擬網路與另一個虛擬網路對等互連，您便無法在虛擬網路中新增或刪除位址範圍。 若要新增或移除位址範圍，請刪除對等互連，新增或移除位址範圍，然後重新建立對等互連。 若要在虛擬網路新增或移除位址範圍，請參閱[管理虛擬網路](manage-virtual-network.md)。
 - 您可以將透過 Resource Manager 所部署的兩個虛擬網路對等互連，或將透過 Resource Manager 所部署的虛擬網路與透過傳統部署模型所部署的虛擬網路對等互連。 您無法將兩個透過傳統部署模型所建立的虛擬網路對等互連。 如果您不熟悉 Azure 部署模型，請閱讀[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。 您可以使用 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)，將兩個透過傳統部署模型建立的虛擬網路加以連線。
 - 將兩個透過 Resource Manager 所建立的虛擬網路對等互連時，您必須為對等互連中的每個虛擬網路設定對等互連。 
     - *已起始：*從第一個虛擬網路建立對等互連來連線到第二個虛擬網路，對等互連狀態為 [已起始]。 

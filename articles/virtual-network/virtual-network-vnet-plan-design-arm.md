@@ -4,7 +4,7 @@ description: "了解如何根據您的隔離、連線和位置需求，在 Azure
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>規劃和設計 Azure 虛擬網路
-建立要實驗的 VNet 很簡單，但關鍵在於，您會隨著時間部署多個 Vnet，以支援您的組織的生產需求。 經過一些規劃和設計，您就能夠部署 Vnet 且更有效率地連接您所需的資源。 如果您不熟悉 VNet，建議您先[了解 Vnet](virtual-networks-overview.md) 及[如何部署](virtual-networks-create-vnet-arm-pportal.md) Vnet，再繼續執行。
+建立要實驗的 VNet 很簡單，但關鍵在於，您會隨著時間部署多個 Vnet，以支援您的組織的生產需求。 經過一些規劃和設計，您就能夠部署 Vnet 且更有效率地連接您所需的資源。 如果您不熟悉 VNet，建議您先[了解 Vnet](virtual-networks-overview.md) 及[如何部署](quick-create-portal.md) Vnet，再繼續執行。
 
 ## <a name="plan"></a>規劃
 徹底了解 Azure 訂用帳戶、區域和網路資源是成功的關鍵。 您可以使用以下的考量事項清單做為起點。 一旦了解這些考量，您即可定義網路設計需求。

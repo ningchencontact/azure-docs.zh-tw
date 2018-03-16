@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: bfeefde53aa2b3645934f068d580c0714714dd69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c2645be73c4b6e34d194d6b2444a700e3900d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>規劃使用 Site Recovery 保護 Hyper-V VM 的容量
 
-[Hyper-V 到 Azure 部署的 Azure Site Recovery 部署規劃工具](site-recovery-hyper-v-deployment-planner.md)的新增強版本現已推出。 它會取代舊版工具。 使用新版工具進行部署規劃。 此工具提供下列指導方針：
+[適用於 Hyper-V 對 Azure 部署的 Azure Site Recovery 部署規劃工具](site-recovery-hyper-v-deployment-planner.md)的新增強版本現已可用。 它會取代舊版工具。 使用新版工具進行部署規劃。
+此工具提供下列指導方針：
 
 * 以磁碟數目、磁碟大小、IOPS、變換和數個 VM 特性為基礎的 VM 適用性評估
 * 網路頻寬需求與 RPO 評估
@@ -45,7 +46,7 @@ Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recover
 
 * 收集您的環境的資訊，包括 VM、每個 VM 的磁碟、每個磁碟的儲存體。
 * 識別複寫資料的每日變更 (流失) 率。 請下載 [Hyper-V 容量規劃工具](https://www.microsoft.com/download/details.aspx?id=39057)來取得變更率。 [深入了解](site-recovery-capacity-planning-for-hyper-v-replication.md) 此工具。 我們建議您執行此工具一週以上的時間來擷取平均值。
-   
+
 
 ## <a name="run-the-quick-planner"></a>執行快速規劃
 1. 下載 [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) 並開啟。 您需要執行巨集。 出現提示時，選擇啟用編輯與內容。
@@ -58,7 +59,7 @@ Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recover
 
    a. 在 [選取您的案例] 中，選擇 [Hyper-V 到 Azure] 或 [VMware/實體到 Azure]。
 
-   b. 在 [平均每日資料變更率 (%)] 中，輸入使用 [Hyper-V 容量規劃工具](site-recovery-capacity-planning-for-hyper-v-replication.md)或 [Site Recovery 部署規劃工具](./site-recovery-deployment-planner.md)收集的資訊。 
+   b. 在 [平均每日資料變更率 (%)] 中，輸入使用 [Hyper-V 容量規劃工具](site-recovery-capacity-planning-for-hyper-v-replication.md)或 [Site Recovery 部署規劃工具](./site-recovery-deployment-planner.md)收集的資訊。
 
    c. 將 Hyper-V VM 複寫到 Azure 時，不使用 [壓縮] 設定。 如需壓縮，請使用第三方設備，例如 Riverbed。
 
@@ -147,7 +148,7 @@ Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recover
 ### <a name="submit-data-in-capacity-planner"></a>提交 Capacity Planner 中的資料
 1. 當您開啟 [Capacity Planner]  工作表時，它會根據您指定的設定填入。 「工作負載」這個字出現在 [基礎輸入來源] 儲存格，以顯示輸入 [工作負載限定性條件] 工作表。
 
-2. 如果您想要進行變更，您必須修改 [工作負載限定性條件] 工作表。 然後再次選取 [將資料提交至規劃工具]。 
+2. 如果您想要進行變更，您必須修改 [工作負載限定性條件] 工作表。 然後再次選取 [將資料提交至規劃工具]。
 
    ![容量規劃](./media/site-recovery-capacity-planner/capacity-planner.png)
 

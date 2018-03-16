@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0efb8b80bc98931f33991dc67f8f4aa1953bb491
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解
 
@@ -129,7 +129,7 @@ SQL Database 上的資源通常稱為 [DTU 資源](https://docs.microsoft.com/az
 
 此問題的最簡單且最安全緩和方式就是讓交易簡短，以及減少最耗用資源之查詢的鎖定使用量。 您可以將大型的作業批次分成較小的作業。 理想的做法是儘可能提升查詢效率，以減少查詢鎖定使用量。 請減少大型掃描，因為它們會增加死結的機率，並對整體資料庫效能帶來負面影響。 針對已識別為會造成鎖定的查詢，您可以建立新的索引，或是將資料行新增至現有索引中來避免資料表掃描。 
 
-如需更多建議，請參閱[如何解決 SQL Server 中鎖定擴大所造成的鎖定問題](https://support.microsoft.com/en-us/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in) (英文)。
+如需更多建議，請參閱[如何解決 SQL Server 中鎖定擴大所造成的鎖定問題](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in) (英文)。
 
 ## <a name="increased-maxdop"></a>MAXDOP 增加
 
@@ -289,7 +289,7 @@ SQL 資料庫會判斷出查詢執行成本最低的查詢執行計畫。 隨著
 
 診斷記錄會輸出最近所進行且與過去七天的工作負載行為相比，導致效能降低的資料庫範圍設定變更。 您可以還原對先前值的設定變更。 您也可以逐值調整，直到取得所需的效能層級。 您可以從具有滿意效能的類似資料庫複製資料庫範圍設定值。 如果無法針對效能進行疑難排解，請還原成預設的 SQL Database 預設值，然後嘗試從此基準開始進行微調。
 
-如有關將資料庫範圍設定最佳化，以及變更設定之 T-SQL 語法的詳細資料，請參閱[變更資料庫範圍設定 (Transact-SQL)](https://msdn.microsoft.com/en-us/library/mt629158.aspx) \(機器翻譯\)。
+如有關將資料庫範圍設定最佳化，以及變更設定之 T-SQL 語法的詳細資料，請參閱[變更資料庫範圍設定 (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx) \(機器翻譯\)。
 
 ## <a name="slow-client"></a>用戶端執行速度太慢
 

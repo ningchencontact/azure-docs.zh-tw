@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 90510520e5f6bbfa8aea4026d7437a4a4881984f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7747092d5613a40fa0aff09cfbdfb9b786b37954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>設定及使用 Log Analytics (OMS) 搭配多租用戶 Azure SQL Database SaaS 應用程式
 
@@ -132,7 +132,7 @@ Log Analytics 是需要設定的個別服務。 Log Analytics 會收集記錄分
 
 Log Analytics 和 OMS 中的監視和警示是以工作區中的資料查詢為基礎，不同於 Azure 入口網站中每個資源上定義的警示。 由於警示是以查詢為基礎，因此您可以定義可查看所有資料庫的單一警示，而不是為每個資料庫定義一個警示。 查詢只會受限於工作區中可用的資料。
 
-如需有關使用 OMS 查詢並設定警示的詳細資訊，請參閱[在 Log Analytics 中使用警示規則](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts-creating)。
+如需有關使用 OMS 查詢並設定警示的詳細資訊，請參閱[在 Log Analytics 中使用警示規則](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating)。
 
 SQL Database 的 Log Analytics 需根據工作區中的資料量付費。 在本教學課程中，您建立了一個免費工作區，其每天的限制為 500 MB。 一旦達到該限制，工作區就不會再新增資料。
 

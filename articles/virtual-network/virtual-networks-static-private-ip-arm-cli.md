@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c936518c3cc431bb74dcdfe7f967687d3dc71e42
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a9fe7020719079e11150c62068650aa6ca17b056
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>使用 Azure CLI 設定虛擬機器的私人 IP 位址
 
@@ -35,13 +35,13 @@ ms.lasthandoff: 02/09/2018
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> 下列範例 Azure CLI 命令預期現有的簡單環境。 如果您想要執行如本文件中所顯示的命令，請先建置 [建立 vnet](virtual-networks-create-vnet-arm-cli.md)中所說明的測試環境。
+> 下列範例 Azure CLI 命令預期現有的簡單環境。 如果您想要執行如本文件中所顯示的命令，請先建置 [建立 vnet](quick-create-cli.md)中所說明的測試環境。
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>建立 VM 時指定靜態私人 IP 位址
 
 若要在名為 *TestVNet* 之 VNet 的 *FrontEnd* 子網路中建立名為 *DNS01* 的 VM，且其靜態私人 IP 為 *192.168.1.101*，請完成下列步驟：
 
-1. 安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) (若您尚未這麼做)，並使用 [az login](/cli/azure/#az_login) 來登入 Azure 帳戶。 
+1. 安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) (若您尚未這麼做)，並使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。 
 
 2. 使用 [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) 命令來建立 VM 的公用 IP。 輸出後顯示的清單可說明所使用的參數。
 

@@ -18,11 +18,11 @@ ms.author: Joe.Sack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: b65236fb2d11473d626ee2602237ed4a49380702
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ee1d847e04e1f1fa0472d8702c7022d622b9fe0f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的資料庫
 
@@ -260,7 +260,7 @@ SQL Database 會使用的一些智慧技術可讓它自動處理特定類別的�
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>如何同步處理 SQL Database 與 SQL Server 之間的資料？
 您有幾種方式來達到此目的： 
 - **[資料同步](sql-database-sync-data.md)** - 此功能可協助您在多個內部部署 SQL Server 資料庫與 SQL Database 之間雙向同步處理資料。 若要與內部部署 SQL Server 資料庫同步，您需要在本機電腦上安裝並設定同步處理代理程式，以及開放輸出 TCP 連接埠 1433。
-- **[交易複寫](https://azure.microsoft.com/en-us/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** - 利用交易複寫，您可以從內部部署將您的資料同步處理到 Azure SQL DB，以內部部署作為發行者和 Azure SQL DB 作為訂閱者。 目前僅支援此安裝程式。 如需有關如何將資料從內部部署移轉到 Azure SQL 且具有最少停機時間的詳細資訊，請參閱：[使用交易複寫](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[交易複寫](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** - 利用交易複寫，您可以從內部部署將您的資料同步處理到 Azure SQL DB，以內部部署作為發行者和 Azure SQL DB 作為訂閱者。 目前僅支援此安裝程式。 如需有關如何將資料從內部部署移轉到 Azure SQL 且具有最少停機時間的詳細資訊，請參閱：[使用交易複寫](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>後續步驟
 了解 [SQL Database](sql-database-technical-overview.md)。

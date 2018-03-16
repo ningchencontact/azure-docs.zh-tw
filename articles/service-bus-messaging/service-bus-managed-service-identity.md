@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 6965e80cf10b732d4d0a8fb78447f188c133979d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="managed-service-identity-preview"></a>受控服務識別 (預覽)
 
@@ -62,17 +62,17 @@ Web 應用程式的受控服務識別現在具有服務匯流排命名空間的�
 
 ### <a name="run-the-app"></a>執行應用程式
 
-現在修改您建立之 ASP.NET 應用程式的預設分頁。 您也可以使用來自[這個 GitHub 存放庫](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity)的 Web 應用程式程式碼。 
+現在修改您建立之 ASP.NET 應用程式的預設分頁。 您也可以使用來自[這個 GitHub 存放庫](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity)的 Web 應用程式程式碼。
 
 Default.aspx 頁面是您的登陸頁面。 您可以在 Default.aspx.cs 檔案中找到程式碼。 結果是最小的 Web 應用程式，具有數個項目欄位，以及具有連線到服務匯流排的 [傳送] 和 [接收] 按鈕，以傳送或接收訊息。
 
-請注意 [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 物件如何初始化。 並非使用共用存取權杖 (SAS) 權杖提供者，程式碼會使用 `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)` 呼叫建立受控服務識別的權杖提供者。 因此，不會保留及使用密碼。 受控服務識別內容到服務匯流排的流程以及授權交握，是由權杖提供者自動處理，這是比使用 SAS 還要簡單的模型。
+請注意 [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 物件如何初始化。 並非使用共用存取權杖 (SAS) 權杖提供者，程式碼會使用 `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` 呼叫建立受控服務識別的權杖提供者。 因此，不會保留及使用密碼。 受控服務識別內容到服務匯流排的流程以及授權交握，是由權杖提供者自動處理，這是比使用 SAS 還要簡單的模型。
 
 一旦您進行這些變更，發行並執行應用程式。 取得正確發行資料的簡單方法是下載然後在 Visual Studio 中匯入發行設定檔：
 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
-若要傳送或接收訊息，請輸入命名空間名稱和您建立之實體的名稱，然後按一下 [傳送] 或 [接收]。 
+若要傳送或接收訊息，請輸入命名空間名稱和您建立之實體的名稱，然後按一下 [傳送] 或 [接收]。
  
 請注意，受控服務識別只適用於 Azure 環境中，以及您在其中設定它的 App Service 部署。 另外請注意，受控服務識別目前不會使用 App Service 部署位置。
 

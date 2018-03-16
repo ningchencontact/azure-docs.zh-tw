@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 2fceb97e836db1c1f7a15d375a534a9187d3f2d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f41bfec3c9f950893b69c90a86c2e4a254b72a8b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 來建立完整的 Linux 虛擬機器
 若要在 Azure 中快速建立虛擬機器 (VM)，您可以使用單一的 Azure CLI 命令，此命令會使用預設值來建立任何必要的支援資源。 系統會自動建立虛擬網路、公用 IP 位址及網路安全性群組規則等資源。 若要在生產環境使用案例中對您的環境進行更多控制，您可以預先建立這些資源，然後再將 VM 新增到這些資源中。 本文將引導您了解如何建立 VM 及逐一建立每個支援資源。
 
-請確定您已安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#az_login) 登入 Azure 帳戶。
+請確定您已安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/reference-index#az_login) 登入 Azure 帳戶。
 
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myVnet* 和 *myVM*。
 
@@ -35,7 +35,7 @@ Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 您
 az group create --name myResourceGroup --location eastus
 ```
 
-Azure CLI 命令的輸出預設是採用 JSON (JavaScript 物件標記法) 格式。 舉例來說，若要將預設輸出變更為清單或資料表，請使用 [az configure --output](/cli/azure/#az_configure)。 您也可以將 `--output` 新增到任何命令，以輸出格式進行一次變更。 下列範例顯示來自 `az group create` 命令的 JSON 輸出：
+Azure CLI 命令的輸出預設是採用 JSON (JavaScript 物件標記法) 格式。 舉例來說，若要將預設輸出變更為清單或資料表，請使用 [az configure --output](/cli/azure/reference-index#az_configure)。 您也可以將 `--output` 新增到任何命令，以輸出格式進行一次變更。 下列範例顯示來自 `az group create` 命令的 JSON 輸出：
 
 ```json                       
 {

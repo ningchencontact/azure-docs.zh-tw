@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
 ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 診斷擴充功能監視計量與記錄
 

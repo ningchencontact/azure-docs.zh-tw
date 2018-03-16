@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d4c8dc8083fbffc46e94673230241075b763b444
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>設定內部部署實體伺服器至 Azure 的災害復原
 
@@ -32,8 +32,8 @@ ms.lasthandoff: 02/28/2018
 若要完成本教學課程：
 
 - 請確定您了解[情節架構和元件](physical-azure-architecture.md)。
-- 檢閱所有元件的[支援需求](site-recovery-support-matrix-to-azure.md)。
-- 請確定您想要複寫的伺服器符合 [Azure VM 需求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
+- 檢閱所有元件的[支援需求](vmware-physical-secondary-support-matrix.md)。
+- 請確定您想要複寫的伺服器符合 [Azure VM 需求](vmware-physical-secondary-support-matrix.md#replicated-vm-support)。
 - 準備 Azure。 您需要 Azure 訂用帳戶、Azure 虛擬網路及儲存體帳戶。
 - 準備帳戶以自動在您要複寫的每個伺服器上安裝行動服務。
 

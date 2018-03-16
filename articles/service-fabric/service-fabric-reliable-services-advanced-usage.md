@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 694d75807d978ece6296b945bf348f08688d3b5d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 48504f258b13a7ff5f4c91db2d9de09269e92424
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="advanced-usage-of-the-reliable-services-programming-model"></a>可靠服務程式設計模型的進階用法
 Azure Service Fabric 可簡化撰寫和管理可靠的無狀態與具狀態服務。 本指南會討論到 Reliable Services 的進階用法，以在您的服務中取得更多控制權和彈性。 在閱讀這份指南之前，請您先熟悉＜ [可靠的服務程式設計模型](service-fabric-reliable-services-introduction.md)＞。
@@ -40,11 +40,6 @@ Azure Service Fabric 可簡化撰寫和管理可靠的無狀態與具狀態服�
 * `void OnAbort() - C# / void onAbort() - Java` 正要強制關閉無狀態服務執行個體時，會呼叫 OnAbort。 這個一般會在於節點上偵測到永久錯誤，或因內部失敗而 Service Fabric 無法可靠地管理服務執行個體生命週期時呼叫。
 
 ## <a name="stateful-service-replica-lifecycle"></a>具狀態服務複本生命週期
-
-> [!NOTE]
-> Java 中尚未支援具狀態 Reliable Services。
->
->
 
 具狀態服務複本的生命週期比無狀態服務執行個體更為複雜。 除了開啟、關閉和中止事件，具狀態服務複本會在其生命週期內經歷角色變更。 當具狀態服務複本變更角色時，會觸發 `OnChangeRoleAsync` 事件︰
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 4a913e188dd40b0306be375b016b9e8a3739ed72
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>雲端運算和 Microsoft Azure 簡介
 
@@ -491,19 +491,19 @@ Azure 網路有不同的使用案例。
 
 **入口網站**
 
-使用 Azure 入口網站部署 Azure 虛擬網路時，只需要有作用中的 Azure 訂用帳戶和網頁瀏覽器存取權。 您可以將新的虛擬網路部署到新的或現有的資源群組。 當您要從入口網站建立新的虛擬機器時，您可以選取現有的虛擬網路或建立一個新的。 如需詳細資訊，請參閱[使用 Azure 入口網站建立虛擬網路](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)。
+使用 Azure 入口網站部署 Azure 虛擬網路時，只需要有作用中的 Azure 訂用帳戶和網頁瀏覽器存取權。 您可以將新的虛擬網路部署到新的或現有的資源群組。 當您要從入口網站建立新的虛擬機器時，您可以選取現有的虛擬網路或建立一個新的。 如需詳細資訊，請參閱[使用 Azure 入口網站建立虛擬網路](../../virtual-network/quick-create-portal.md)。
 
 除了從 Azure 入口網站部署 Azure 虛擬網路，您也可以從入口網站部署 Azure Resource Manager 範本。 這會部署和設定如範本中定義的所有資源，包括任何虛擬網路資源。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure 入口網站來部署資源](../../azure-resource-manager/resource-group-template-deploy-portal.md)。
 
 **PowerShell**
 
-使用 PowerShell 部署 Azure 虛擬網路，可讓儲存體帳戶達到完全部署自動化。 如需詳細資訊，請參閱[使用 PowerShell 建立虛擬網路](../../virtual-network/virtual-networks-create-vnet-arm-ps.md)。
+使用 PowerShell 部署 Azure 虛擬網路，可讓儲存體帳戶達到完全部署自動化。 如需詳細資訊，請參閱[使用 PowerShell 建立虛擬網路](../../virtual-network/quick-create-powershell.md)。
 
 除了個別部署 Azure 資源，您可以使用 Azure PowerShell 模組來部署 Azure Resource Manager 範本。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/resource-group-template-deploy.md)。
 
 **命令列介面 (CLI)**
 
-如同 PowerShell 模組，Azure 命令列介面提供部署自動化功能，並可使用於 Windows、OS X 或 Linux 系統。 您可以使用 Azure CLI **network vnet create** 命令來建立虛擬網路。 如需詳細資訊，請參閱[使用 Azure CLI 建立虛擬網路](../../virtual-network/virtual-networks-create-vnet-arm-cli.md)。
+如同 PowerShell 模組，Azure 命令列介面提供部署自動化功能，並可使用於 Windows、OS X 或 Linux 系統。 您可以使用 Azure CLI **network vnet create** 命令來建立虛擬網路。 如需詳細資訊，請參閱[使用 Azure CLI 建立虛擬網路](../../virtual-network/quick-create-cli.md)。
 
 同樣地，您可以使用 Azure CLI 來部署 Azure Resource Manager 範本。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure CLI 來部署資源](../../azure-resource-manager/resource-group-template-deploy-cli.md)。
 

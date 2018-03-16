@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 28d772df384e620c7e82812adfa2bfa148401132
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>針對 Azure 虛擬機器容錯移轉保留 IP 位址
 
@@ -88,7 +88,7 @@ VPN 閘道會利用公用 IP 位址與閘道躍點來建立連線。 如果您�
 
 此功能目前處於公開預覽狀態，且正在擴充至更多支援的區域。此功能可在不需使用任何公開的網際網路或額外躍點的情況下，提供直接的 VM 對 VM 連線。
 
-如需詳細資訊，請參閱[對等互連文件](../virtual-network/virtual-network-create-peering.md#register)和[價格](https://azure.microsoft.com/en-us/pricing/details/virtual-network/)。
+如需詳細資訊，請參閱[對等互連文件](../virtual-network/tutorial-connect-virtual-networks-portal.md#register)和[價格](https://azure.microsoft.com/pricing/details/virtual-network/)。
 
 ## <a name="on-premises-to-azure-connectivity"></a>內部部署對 Azure 連線能力
 

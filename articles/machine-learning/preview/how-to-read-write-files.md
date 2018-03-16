@@ -5,16 +5,16 @@ services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f5c75b95d9019c15bb402313ce7407fa9abb81d4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>保存變更和處理大型檔案
 利用 Azure Machine Learning 測試服務，您可以設定各種不同的執行目標。 某些目標屬於本機，例如本機電腦或本機電腦上的 Docker 容器。 其他則是遠端，例如在遠端電腦或在 HDInsight 叢集上的 Docker 容器。 如需詳細資訊，請參閱 [Azure Machine Learning 實驗執行服務概觀](experimentation-service-configuration.md)。 

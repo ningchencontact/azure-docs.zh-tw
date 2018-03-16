@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 4a10df360249b4b0b28ecbe4762bbb165ef9bb8d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b87d187eadff98ba84aa6478c2d233f2ec1c203c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>如何將 Linux VM 上的虛擬磁碟加密
 如需強化虛擬機器 (VM) 安全性與合規性，可以將虛擬磁碟和 VM 本身加密。 VM 會使用 Azure 金鑰保存庫中受保護的密碼編譯金鑰進行加密。 您可控制這些密碼編譯金鑰，並可稽核其使用情況。 本文詳細說明如何使用 Azure CLI 2.0 將 Linux VM 上的虛擬磁碟加密。 您也可以使用 [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 來執行這些步驟。
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="quick-commands"></a>快速命令
 如果您需要快速完成工作，下列章節詳細說明將 VM 上的虛擬磁碟加密的基本命令。 每個步驟的詳細資訊和內容可在文件其他地方找到，[從這裡開始](#overview-of-disk-encryption)。
 
-您需要安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/#az_login) 來登入 Azure 帳戶。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包括 *myResourceGroup*、*myKey* 及 *myVM*。
+您需要安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包括 *myResourceGroup*、*myKey* 及 *myVM*。
 
 首先，使用 [az provider register](/cli/azure/provider#az_provider_register) 啟用您的 Azure 訂用帳戶中的 Azure Key Vault 提供者，以及使用 [az group create](/cli/azure/group#az_group_create) 建立資源群組。 下列範例會在 *eastus* 位置建立名為 *myResourceGroup* 的資源群組：
 
@@ -158,7 +158,7 @@ Linux VM 上的待用虛擬磁碟會使用 [dm-crypt](https://wikipedia.org/wiki
 
 
 ## <a name="create-azure-key-vault-and-keys"></a>建立 Azure Key Vault 和金鑰
-您需要安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/#az_login) 來登入 Azure 帳戶。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包括 *myResourceGroup*、*myKey* 及 *myVM*。
+您需要安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包括 *myResourceGroup*、*myKey* 及 *myVM*。
 
 建立 Azure 金鑰保存庫的第一個步驟是儲存您的密碼編譯金鑰。 Azure 金鑰保存庫儲存可讓您安全地在應用程式和服務中實作的金鑰和密碼 (Secret 或 Password)。 如需虛擬磁碟加密，您可使用金鑰保存庫來儲存用來加密或解密虛擬磁碟的密碼編譯金鑰。
 
@@ -209,7 +209,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 ```
 
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>建立虛擬機器
 使用 [az vm create](/cli/azure/vm#az_vm_create) 建立要加密的 VM 並連結 5GB 資料磁碟。 只有某些 Marketplace 映像支援磁碟加密。 下列範例會使用 *CentOS 7.2n* 映像來建立名為 *myVM* 的 VM︰
 
 ```azurecli

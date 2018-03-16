@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 209e657678b7f300f13fc16181a14d8ef422466d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>如何使用 Reliable Services 通訊 API
 「Azure Service Fabric 即平台」完全不受服務間的通訊影響。 所有通訊協定和堆疊 (從 UDP 到 HTTP) 都可接受。 它是由服務開發人員選擇服務應有的通訊方式。 Reliable Services 應用程式架構會提供內建的通訊堆疊以及 API，讓您可用來建置自訂通訊元件。
@@ -76,10 +76,13 @@ public class MyStatelessService extends StatelessService {
 
 對於具狀態服務：
 
-> [!NOTE]
-> Java 中尚未支援具狀態 Reliable Services。
->
->
+```java
+    @Override
+    protected List<ServiceReplicaListener> createServiceReplicaListeners() {
+        ...
+    }
+    ...
+```
 
 ```csharp
 class MyStatefulService : StatefulService

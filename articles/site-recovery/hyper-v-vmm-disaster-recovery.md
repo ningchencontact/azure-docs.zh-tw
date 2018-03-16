@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: bf6d7c8b831e670db9fff28218c8f36391a73c9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13dcc0794c1d89bd27c79cbe6636397da4f008f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>設定從 Hyper-V VM 到次要內部部署網站的災害復原
 
@@ -33,9 +33,8 @@ ms.lasthandoff: 02/21/2018
 若要完成此案例：
 
 - 檢閱[案例架構和元件](hyper-v-vmm-architecture.md)。
-- 檢閱所有元件的[支援需求](site-recovery-support-matrix-to-sec-site.md)。
-- 請確定 VMM 伺服器和 Hyper-V 主機符合[支援需求](site-recovery-support-matrix-to-sec-site.md)。
-- 檢查您要複寫的 VM 符合[複寫的機器支援](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions)。
+- 請確定 VMM 伺服器和 Hyper-V 主機符合[支援需求](hyper-v-vmm-secondary-support-matrix.md)。
+- 檢查您要複寫的 VM 符合[複寫的機器支援](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support)。
 - 準備 VMM 伺服器以進行網路對應。
 
 ### <a name="prepare-for-network-mapping"></a>準備網路對應

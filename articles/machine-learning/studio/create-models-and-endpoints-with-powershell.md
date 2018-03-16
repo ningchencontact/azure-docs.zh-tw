@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: garye;haining
-ms.openlocfilehash: 44551908c31151e7d8945a3c7c03303b17d8f059
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.author: haining
+ms.openlocfilehash: 4a4c1c417dabf32aa3a23fef22078ada0d01d9fa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>使用 PowerShell，從一個實驗中建立許多機器學習服務模型和 Web 服務端點
 以下是一個常見的機器學習服務問題︰您想要建立許多模型，這些模型具有相同的訓練工作流程，且使用相同的演算法。 但您想要以不同的訓練資料集作為輸入。 本文說明如何在 Azure Machine Learning Studio 中只使用單一實驗來大規模完成這項工作。

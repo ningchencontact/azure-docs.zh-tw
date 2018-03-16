@@ -3,16 +3,16 @@ title: "如何使用 Azure LBS (預覽) 搜尋地址 | Microsoft Docs"
 description: "了解如何使用 Azure LBS (預覽) 搜尋地址"
 services: location-based-services
 keywords: "請勿在未諮詢 SEO 之前新增或編輯關鍵字。"
-author: philmea
-ms.author: philmea
+author: kgremban
+ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>如何使用 Azure LBS (預覽) 尋找地址
 搜尋服務是一組 RESTful 的 API，針對要搜尋地址、位置、感興趣點、商務清單及其他地理資訊的開發人員所設計。 搜尋服務會將經緯度指派給特定地址、交叉街道、地理功能或感景點 (POI)。 搜尋服務 API 所傳回的緯度與經度值可用來作為其他 Azure LBS (例如路由和流量 API) 中的參數。

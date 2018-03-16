@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 467428462260596f21ba59f49e3c48b5fc2526b6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 178f4d6dab5c87c9c53ab87c4a3b1edcfa61c221
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>在 Azure 中開發 OpenShift 的一般必要條件
 
@@ -52,7 +52,7 @@ OpenShift 安裝是使用 Ansible 腳本。 Ansible 使用安全殼層 (SSH) 連
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure 
-使用 [az login](/cli/azure/#az_login) 命令來登入 Azure 訂用帳戶並遵循畫面上的指示進行，或按一下 [試用] 來使用 Cloud Shell。
+使用 [az login](/cli/azure/reference-index#az_login) 命令來登入 Azure 訂用帳戶並遵循畫面上的指示進行，或按一下 [試用] 來使用 Cloud Shell。
 
 ```azurecli 
 az login

@@ -6,13 +6,13 @@ author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: cba28ada79ea806ead4ae9165abba2dc4e04f001
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1a27dfd61850d9dfa1f232eacf7f09d66202cafe
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-blob-snapshot"></a>建立 Blob 快照集
 
@@ -31,8 +31,6 @@ Blob 可包含任意數目的快照集。 系統會保存快照集，直到您�
 任何與基底 Blob 相關聯的租用不會影響快照集。 您無法取得快照集上的租用。
 
 VHD 檔案是用來儲存 VM 磁碟目前的資訊和狀態。 您可以從 VM 內卸離磁碟或關閉 VM，然後製作其 VHD 檔案的快照集。 稍後您可以使用快照集檔案來擷取該時間點的 VHD 檔案，並重新建立 VM。
-
-如果 blob 所在的儲存體帳戶啟用儲存體服務加密 (SSE) 時，任何該 blob 製作的快照集將會在待用時加密。
 
 ## <a name="create-a-snapshot"></a>建立快照集
 下列程式碼範例會示範如何使用 [Azure Storage Client Library for.NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 建立快照集。 此範例會在建立快照集時為其指定其他中繼資料。

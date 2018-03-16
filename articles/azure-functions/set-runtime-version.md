@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: c87455f43c6e580c52b3f772a1cbe0c1ac9c9f5b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fc84642050f4b7acfa2e3c5b4518135d6a97171
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>如何設定 Azure Functions 執行階段目標版本
 
@@ -74,7 +74,7 @@ az functionapp config appsettings set --name <function_app> \
 ```
 在此程式碼中，以您的函式應用程式名稱取代 `<function_app>`。 還要以函式應用程式的資源群組名稱取代 `<my_resource_group>`。 以 1.x 執行階段的有效版本或 2.0 版的 `beta` 取代 `<version>`。 
 
-您可以選擇上述程式碼範例中的 [試試看]，從 [Azure Cloud Shell](../cloud-shell/overview.md) 執行此命令。 在執行 [az login](/cli/azure#az_login) 登入之後，您也可以使用[本機 Azure CLI](/cli/azure/install-azure-cli) 來執行此命令。
+您可以選擇上述程式碼範例中的 [試試看]，從 [Azure Cloud Shell](../cloud-shell/overview.md) 執行此命令。 在執行 [az login](/cli/azure/reference-index#az_login) 登入之後，您也可以使用[本機 Azure CLI](/cli/azure/install-azure-cli) 來執行此命令。
 
 ## <a name="next-steps"></a>後續步驟
 

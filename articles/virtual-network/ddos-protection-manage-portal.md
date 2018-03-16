@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6a5ab1ba44197c0103e1e7d353a116dc01dfc163
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>使用 Azure 入口網站管理 Azure DDoS Protection Standard
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/19/2018
 1. 登入 Azure 入口網站，網址是 http://portal.azure.com/。如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 2. 按一下 Azure 入口網站左上角的 [建立資源]。
 3. 選取 [網絡]，然後選取 [虛擬網路]。
-4. 使用您所選擇的設定建立虛擬網路。 如需有關建立虛擬網路的詳細資訊，請參閱[建立虛擬網路](virtual-networks-create-vnet-arm-pportal.md)。 在 [DDoS Protection] 之下，按一下 [已啟用]，然後按一下 [建立]。 如果您未看到 **DDoS 保護**，可能是因為並未對於功能註冊您的訂用帳戶。 您必須先完成[註冊](http://aka.ms/ddosprotection)，並收到已對於該功能啟用您訂用帳戶的通知，**DDoS 保護**才會出現。
+4. 使用您所選擇的設定建立虛擬網路。 如需有關建立虛擬網路的詳細資訊，請參閱[建立虛擬網路](manage-virtual-network.md#create-a-virtual-network)。 在 [DDoS Protection] 之下，按一下 [已啟用]，然後按一下 [建立]。 如果您未看到 **DDoS 保護**，可能是因為並未對於功能註冊您的訂用帳戶。 您必須先完成[註冊](http://aka.ms/ddosprotection)，並收到已對於該功能啟用您訂用帳戶的通知，**DDoS 保護**才會出現。
 
     ![建立虛擬網路](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye;raymondl
-ms.openlocfilehash: 93e75a2864d9aef266b16f8dd7dcc3411b24864b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: raymondl
+ms.openlocfilehash: f7efa647fa6afc247509cd4a52066c0459f75ca3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>使用 Web 應用程式範本取用 Azure Machine Learning Web 服務
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/01/2018
 
 之後，您可以使用 REST API 來存取可實際運作的模型。
 
-有數種方法可以取用 REST API 和存取 Web 服務。 例如，您可以使用當您部署 Web 服務時為您產生的範例程式碼，在 C#、R 或 Python 中撰寫應用程式 (您可以在 [Machine Learning Web 服務入口網站](https://services.azureml.net/quickstart) \(英文\) 或 Machine Learning Studio 中的 Web 服務儀表板中找到範例程式碼)。或者，您可以同時使用為您建立的範例 Microsoft Excel 活頁簿。
+有數種方法可以使用 REST API 和存取 Web 服務。 例如，您可以使用當您部署 Web 服務時為您產生的範例程式碼，在 C#、R 或 Python 中撰寫應用程式 (您可以在 [Machine Learning Web 服務入口網站](https://services.azureml.net/quickstart) \(英文\) 或 Machine Learning Studio 中的 Web 服務儀表板中找到範例程式碼)。或者，您可以同時使用為您建立的範例 Microsoft Excel 活頁簿。
 
 但是，存取 Web 服務最快速、最簡單的方式是透過可在 [Azure Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/) 中找到的 Web 應用程式範本。
 
@@ -79,7 +79,7 @@ Azure Marketplace 中可用的 Web 應用程式範本可以建立自訂的 Web �
    
    * 為您的 Web 應用程式提供唯一名稱。 Web 應用程式名稱將會是此名稱加上 **.azurewebsites.net**。 範例是 **http://carprediction.azurewebsites.net**。
    * 選擇 Azure 訂用帳戶及您的 Web 服務在其下執行的服務。
-   * 選取 [建立]。
+   * 選取 [建立] 。
      
    ![建立 Web 應用程式][image5]
 
@@ -91,7 +91,7 @@ Azure Marketplace 中可用的 Web 應用程式範本可以建立自訂的 Web �
 6. Web 應用程式以目前 Web 服務設定顯示其 [Web 應用程式組態]  頁面。 您可以在這裡變更 Web 應用程式所使用的設定。
    
    > [!NOTE]
-   > 變更這裡的設定只會變更此 Web 應用程式的設定。 不會變更您的 Web 服務的預設設定。 例如，如果您變更這裡的 [描述] 文字，並不會變更在 Machine Learning Studio 中 Web 服務儀表板上顯示的描述。
+   > 變更此處的設定只會變更此 Web 應用程式的設定。 不會變更您的 Web 服務的預設設定。 例如，如果您變更這裡的 [描述] 文字，並不會變更在 Machine Learning Studio 中 Web 服務儀表板上顯示的描述。
    > 
    > 
    

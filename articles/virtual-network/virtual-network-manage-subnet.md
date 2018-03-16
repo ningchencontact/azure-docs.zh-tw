@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f8b60a27e760ae74c7f068844fad1ae0d4324366
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 902c0eee88f0de8a20b9c8bf9c0dae6e3c3a7d79
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>加入、變更或刪除虛擬網路子網路
 
-了解如何加入、變更或刪除虛擬網路子網路。 如果您不熟悉虛擬網路，建議在加入、變更或刪除子網路之前，先閱讀 [Azure 虛擬網路概觀](virtual-networks-overview.md)和[建立、變更或刪除虛擬網路](virtual-network-manage-network.md)。 所有部署到虛擬網路的 Azure 資源都會部署到虛擬網路內的子網路。
+了解如何加入、變更或刪除虛擬網路子網路。 如果您不熟悉虛擬網路，建議在加入、變更或刪除子網路之前，先閱讀 [Azure 虛擬網路概觀](virtual-networks-overview.md)和[建立、變更或刪除虛擬網路](manage-virtual-network.md)。 所有部署到虛擬網路的 Azure 資源都會部署到虛擬網路內的子網路。
  
 ## <a name="before-you-begin"></a>開始之前
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/11/2018
     - **名稱**：此名稱必須是虛擬網路中的唯一名稱。
     - **位址範圍**：此範圍必須是虛擬網路位址空間內的唯一範圍。 此範圍不能與虛擬網路內的其他子網路位址範圍重疊。 位址空間必須以「無類別網域間路由選擇」(CIDR) 標記法來指定。 例如，在位址空間為 10.0.0.0/16 的虛擬網路中，您可以定義 10.0.0.0/24 的子網路位址空間。 您可以指定的最小範圍是 /29，此範圍可提供八個 IP 位址供子網路使用。 為了符合通訊協定的規定，Azure 會保留每個子網路中的第一個和最後一個位址。 Azure 還會保留三個位址供 Azure 服務使用。 因此，以 /29 位址範圍所定義的子網路會在子網路中產生三個可用的 IP 位址。 如果您打算將虛擬網路連線至 VPN 閘道，則必須建立一個閘道子網路。 深入了解[閘道子網路位址範圍的具體考量](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 若符合特定條件，您可以在子網路加入後變更其位址範圍。 若要了解如何變更子網路的位址範圍，請參閱[變更子網路設定](#change-subnet-settings)。
     - **網路安全性群組**：您可以將零個或一個現有網路安全性群組與子網路建立關聯，以篩選子網路的輸入和輸出網路流量。 網路安全性群組必須與虛擬網路位於相同的訂用帳戶和位置當中。 深入了解[網路安全性群組](security-overview.md)與[如何建立網路安全性群組](virtual-networks-create-nsg-arm-pportal.md)。
-    - **路由表︰**您可以將零個或一個現有路由表和子網路建立關聯，以控制路由至其他網路的網路流量。 路由表必須與虛擬網路位於相同的訂用帳戶和位置當中。 深入了解 [Azure 路由](virtual-networks-udr-overview.md)與[如何建立路由表](create-user-defined-route-portal.md)
+    - **路由表︰**您可以將零個或一個現有路由表和子網路建立關聯，以控制路由至其他網路的網路流量。 路由表必須與虛擬網路位於相同的訂用帳戶和位置當中。 深入了解 [Azure 路由](virtual-networks-udr-overview.md)與[如何建立路由表](tutorial-create-route-table-portal.md)
     - **服務端點：**您可為子網路啟用零個或多個服務端點。 若要啟用服務的服務端點，請選取服務或從 [服務] 清單中選取您想要啟用服務端點的服務。 若要移除服務端點，請取消選取您想要移除其服務端點的服務。 若要深入了解服務端點，請參閱[虛擬網路服務端點概觀](virtual-network-service-endpoints-overview.md)。 一旦您啟用服務的服務端點，您也必須為以服務建立的資源啟用子網路的網路存取權。 例如，如果您啟用 *Microsoft.Storage* 的服務端點，您也必須對想要授與網路存取權的所有 Azure 儲存體帳戶啟用網路存取權。 如需如何為已啟用服務端點的子網路啟用網路存取權的詳細資訊，請參閱您啟用其服務端點之個別服務的服務文件。
 6. 若要在所選虛擬網路中新增子網路，請選取 [確定]。
 

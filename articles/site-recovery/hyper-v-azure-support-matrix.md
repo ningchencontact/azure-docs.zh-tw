@@ -3,15 +3,16 @@ title: "Hyper-V 複寫至 Azure 的支援矩陣 | Microsoft Docs"
 description: "摘要說明使用 Azure Site recovery 將 Hyper-V 複寫至 Azure 的支援元件和需求"
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: 58d54c1e0e6aa88878b45400b9211396f5d1b9d5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 81983b9287a6b8073724f0cd973929f4b4677d4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V 複寫至 Azure 的支援矩陣
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 02/22/2018
  **元件** | **詳細資料**
 --- | ---
 VM 設定 | 複寫到 Azure 的 VM 必須符合 [Azure 需求](#failed-over-azure-vm-requirements)。
-客體作業系統 | 任何 [Azure 支援的](https://technet.microsoft.com/library/cc794868.aspx)客體 OS。<br/><br/> 不支援 Windows Server 2016 Nano Server。
+客體作業系統 | [Azure 支援的](https://technet.microsoft.com/library/cc794868.aspx) \(英文\) 的任何客體 OS。<br/><br/> 不支援 Windows Server 2016 Nano Server。
 
 
 

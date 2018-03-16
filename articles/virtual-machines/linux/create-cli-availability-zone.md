@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e31eb02fda7ade027225c428c5b15804ebc6f182
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>使用 Azure CLI 在可用性區域中建立 Linux 虛擬機器
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/09/2018
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-請確定您已安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#az_login) 登入 Azure 帳戶。
+請確定您已安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/reference-index#az_login) 登入 Azure 帳戶。
 
 
 ## <a name="check-vm-sku-availability"></a>檢查 VM SKU 可用性
@@ -71,7 +71,7 @@ az group create --name myResourceGroupVM --location eastus2
 
 在建立或修改 VM 時，會指定資源群組，在本文的整個過程中都可以看到此操作。
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>建立虛擬機器
 
 使用 [az vm create](/cli/azure/vm#az_vm_create) 命令建立虛擬機器。 
 

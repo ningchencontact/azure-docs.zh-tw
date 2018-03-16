@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: 3192c67938fe118e79aa68ee6194e76f21d65d98
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8305a354588875926cab52a55d99d3a29bcfb509
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure 流量管理員搭配 Azure Site Recovery
 
@@ -49,11 +44,11 @@ Azure 流量管理員可讓您控制流量分散到應用程式端點的方式�
 
 根據商業需求，**公司 A** 可以選擇較高或較低的[探查頻率](../traffic-manager/traffic-manager-monitoring.md)來執行災害事件發生時在內部部署與 Azure 之間的切換，並確保使用者可以有最短的停機時間。
 
-在災害獲得抑制後，**公司 A** 即可使用 Azure Site Recovery 從 Azure 容錯回復至其內部部署環境 ([VMware](site-recovery-how-to-failback-azure-to-vmware.md) 或 [Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md))。 此時，當流量管理員偵測到**主要**端點恢復良好的狀況時，將會自動在其 DNS 回應中使用**主要**端點。
+在災害獲得抑制後，**公司 A** 即可使用 Azure Site Recovery 從 Azure 容錯回復至其內部部署環境 ([VMware](vmware-azure-failback.md) 或 [Hyper-V](hyper-v-azure-failback.md))。 此時，當流量管理員偵測到**主要**端點恢復良好的狀況時，將會自動在其 DNS 回應中使用**主要**端點。
 
 ## <a name="on-premises-to-azure-migration"></a>從內部部署移轉至 Azure
 
-除了災害復原以外，Azure Site Recovery 也可讓您[移轉至 Azure](site-recovery-migrate-to-azure.md)。 客戶可使用 Azure Site Recovery 強大的測試容錯移轉功能來評估 Azure 上的應用程式效能，而不會影響其內部部署環境。 此外，當客戶準備好要移轉時，他們可以選擇同時移轉整個工作負載，或選擇在移轉後逐漸調整。
+除了災害復原以外，Azure Site Recovery 也可讓您[移轉至 Azure](migrate-overview.md)。 客戶可使用 Azure Site Recovery 強大的測試容錯移轉功能來評估 Azure 上的應用程式效能，而不會影響其內部部署環境。 此外，當客戶準備好要移轉時，他們可以選擇同時移轉整個工作負載，或選擇在移轉後逐漸調整。
 
 Azure 流量管理員的[加權](../traffic-manager/traffic-manager-configure-weighted-routing-method.md)路由方法可用來將部分傳入的流量導向至 Azure，並將大部分的流量導向至內部部署環境。 這種方法有助於評估調整效能，因為您可以在越來越多的工作負載移轉至 Azure 時，持續增加指派給 Azure 的加權。
 

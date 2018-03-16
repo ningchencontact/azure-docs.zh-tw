@@ -12,13 +12,13 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4802215f903eb196afbf05637ad5e38dbbbc09a3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>將 Azure 自動化 Runbook 新增至復原方案
 在本文中，我們說明如何將 Azure Site Recovery 與 Azure 自動化整合在一起，以協助您擴充復原方案。 復原方案可以協調使用 Site Recovery 保護的 VM 復原。 復原方案可複寫至次要雲端，也可以複寫至 Azure。 復原方案也有助於讓復原「保持一致精確」、「可重複執行」及「自動化」。 如果您將 VM 容錯移轉至 Azure，與 Azure 自動化的整合可擴充復原方案。 您可以使用它來執行 Runbook，以提供功能強大的自動化工作。
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/29/2018
 
     ![以滑鼠右鍵按一下 [群組 1: 開始] 並新增後續動作](media/site-recovery-runbook-automation-new/customize-rp.png)
 
-3. 按一下 [Choose a script] \(選擇指令碼)。
+3. 按一下 [Choose a script] (選擇指令碼)。
 
 4. 在 [更新動作] 刀鋒視窗中，將指令碼命名為 **Hello World**。
 
@@ -193,7 +193,7 @@ workflow AddPublicIPAndNSG {
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>使用複雜變數來儲存詳細資訊
 
-假設您想要一個用來在特定 VM 上開啟公用 IP 的指令碼。 在另一個案例中，您可能想要將不同的 NSG 套用至不同的 VM (並非所有 VM)。 您可以讓指令碼可重複使用於任何復原方案。 每個復原方案可以有任意數目的 VM。 例如，SharePoint 復原有兩個前端。 基本企業營運 (LOB) 應用程式只有一個前端。 您無法為每個復原方案建立個別變數。 
+假設您想要一個用來在特定 VM 上開啟公用 IP 的指令碼。 在另一個案例中，您可能想要將不同的 NSG 套用至不同的 VM (並非所有 VM)。 您可以讓指令碼可重複使用於任何復原方案。 每個復原方案可以有任意數目的 VM。 例如，SharePoint 復原有兩個前端。 基本企業營運 (LOB) 應用程式只有一個前端。 您無法為每個復原方案建立個別變數。
 
 在下列範例中，我們使用新的技術，並在 Azure 自動化帳戶資產中建立[複雜變數](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396)。 您可以藉由指定多個值來執行這項作業。 您必須使用 Azure PowerShell 來完成下列步驟：
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: da4f72e61607dcad7314a2fe65324da4635752c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 的資料探索與分類
 資料探索與分類 (目前處於預覽階段) 提供內建於 Azure SQL Database 的進階功能，可用於**探索**、**分類**、**標記** & **保護**資料庫中的敏感性資料。
@@ -95,12 +95,12 @@ ms.lasthandoff: 02/11/2018
 
 資訊保護範例的重要層面是能夠監視對敏感性資料的存取。
 
-我們已強化 [Azure SQL Database 稽核](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing)，並在稽核記錄中包含新欄位 *data_sensitivity_information*，其中會記錄查詢所傳回之實際資料的敏感度分類 (標籤)。
+我們已強化 [Azure SQL Database 稽核](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)，並在稽核記錄中包含新欄位 *data_sensitivity_information*，其中會記錄查詢所傳回之實際資料的敏感度分類 (標籤)。
 
 ![瀏覽窗格][11]
 
 ## <a id="subheading-4"></a>後續步驟
-請考慮設定 [Azure SQL Database 稽核](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing)，以監視和稽核對已分類敏感性資料的存取。
+請考慮設定 [Azure SQL Database 稽核](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)，以監視和稽核對已分類敏感性資料的存取。
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

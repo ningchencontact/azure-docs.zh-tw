@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 複寫多層式 Dynamics AX 應用程式
 
@@ -57,7 +57,7 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>使用 Site Recovery 讓 Dynamics AX 應用程式可以災害復原
 ### <a name="protect-your-dynamics-ax-application"></a>保護 Dynamics AX 應用程式
-為了做到完整的應用程式複寫與復原，Dynamics AX 的每個元件都需要受到保護。 
+為了做到完整的應用程式複寫與復原，Dynamics AX 的每個元件都需要受到保護。
 
 ### <a name="1-set-up-active-directory-and-dns-replication"></a>1.設定 Active Directory 和 DNS 複寫
 
@@ -137,7 +137,7 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 ### <a name="perform-a-test-failover"></a>執行測試容錯移轉
 
-如需測試容錯移轉期間 Active Directory 專屬的詳細資訊，請參閱＜Active Directory 災害復原解決方案＞附屬指南。 
+如需測試容錯移轉期間 Active Directory 專屬的詳細資訊，請參閱＜Active Directory 災害復原解決方案＞附屬指南。
 
 如需測試容錯移轉期間 SQL Server 專屬的詳細資訊，請參閱[以 SQL Server 及 Azure Site Recovery 複寫應用程式](site-recovery-sql.md)。
 
