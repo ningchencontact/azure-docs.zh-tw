@@ -380,7 +380,6 @@
             - name: 佈建租用戶
               href: saas-standaloneapp-provision-and-catalog.md
         - name: 每一租用戶一個資料庫
-          href: saas-dbpertenant-wingtip-app-overview.md
           items:
             - name: 教學課程簡介
               href: saas-dbpertenant-wingtip-app-overview.md
