@@ -37,6 +37,8 @@
       href: container-instances-using-azure-container-registry.md
     - name: 執行容器化工作
       href: container-instances-restart-policy.md
+    - name: 設定環境變數
+      href: container-instances-environment-variables.md
     - name: 針對部署進行疑難排解
       href: container-instances-troubleshooting.md
     - name: 設定資料磁碟區

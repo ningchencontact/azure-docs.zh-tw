@@ -236,5 +236,3 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: 影片
       href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
-    - name: 從即時聊天取得協助
-      href: live-chat.md

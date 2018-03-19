@@ -151,10 +151,6 @@
           href: security-center-events-dashboard.md
         - name: Search
           href: security-center-search.md
-    - name: Azure 記錄整合
-      href: security-center-integrating-alerts-with-log-integration.md
-    - name: 將資料匯出至 SIEM
-      href: security-center-export-data-to-siem.md
     - name: 案例
       items:
         - name: 事件回應

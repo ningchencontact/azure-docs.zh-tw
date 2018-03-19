@@ -221,7 +221,7 @@
 ##### [遠端桌面](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
 #### [疑難排解](active-directory-application-proxy-troubleshoot.md)
 
 
@@ -390,7 +390,7 @@
 ## [Azure 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [價格](https://azure.microsoft.com/pricing/details/active-directory/)
+## [定價](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

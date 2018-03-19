@@ -50,7 +50,7 @@
     - name: 記錄搜尋
       items:
         - name: 記錄檔搜尋概觀
-          href: log-analytics-log-search-new.md
+          href: log-analytics-log-search.md
         - name: 記錄搜尋入口網站
           href: log-analytics-log-search-portals.md
 - name: 使用說明指南
@@ -117,20 +117,6 @@
           href: log-analytics-flow-tutorial.md
         - name: 記錄檔搜尋 API
           href: 'https://dev.loganalytics.io/'
-    - name: 舊版的記錄搜尋
-      items:
-        - name: 記錄檔搜尋概觀
-          href: log-analytics-log-searches.md
-        - name: 搜尋參考
-          href: log-analytics-search-reference.md
-          items:
-            - name: 規則運算式
-              href: log-analytics-log-searches-regex.md
-        - name: 記錄檔搜尋 API
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
     - name: 分析資料
       items:
         - name: 儀表板
