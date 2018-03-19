@@ -28,11 +28,6 @@
 ### [網路安全性群組](virtual-networks-nsg.md)
 
 ## 部署
-### 虛擬網路
-#### [Azure 入口網站](virtual-networks-create-vnet-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
-#### [範本](virtual-networks-create-vnet-arm-template-click.md)
 
 ### 網路安全性群組
 #### [Azure 入口網站](virtual-networks-create-nsg-arm-pportal.md)
@@ -205,7 +200,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
 ## [網路部落格](http://azure.microsoft.com/blog/topics/networking)
 ## [網路論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [定價](https://azure.microsoft.com/pricing/details/virtual-network)
+## [價格](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [網路資源提供者](resource-groups-networking.md)
