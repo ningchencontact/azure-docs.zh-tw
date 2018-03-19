@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3cc667286e9c643f31d9c704a8a2dfac18312bb3
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ade9eca4b16e4864ec4e9d7bc6977c1e8322daa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建模擬 TPM 裝置
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 03/05/2018
     > 以下範例會使用 `azure-iot-provisioning-device-http` 和 `azure-iot-device-mqtt` 傳輸。
     > 
 
-    您可以在 **registereddevice** 資料夾中，於命令提示字元執行下列命令，一次安裝所有項目：
+    您可以在 **registerdevice** 資料夾中，於命令提示字元執行下列命令，一次安裝所有套件：
 
         ```cmd/sh
         npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
@@ -126,7 +126,7 @@ ms.lasthandoff: 03/05/2018
     node ExtractDevice.js
     ```
 
-1. 輸出視窗會顯示裝置註冊所需的 [簽署金鑰] 和 [登錄識別碼]。 請記下這些值。 
+1. 輸出視窗會顯示裝置註冊所需的 **_簽署金鑰_** 和 **_登錄識別碼_**。 請記下這些值。 
 
 
 ## <a name="create-a-device-entry"></a>建立裝置項目
