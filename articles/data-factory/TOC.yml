@@ -76,10 +76,16 @@
               href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - 轉換雲端中的資料
       items:
-        - name: 使用者介面 (UI)
-          href: tutorial-transform-data-spark-portal.md
-        - name: Azure PowerShell
-          href: tutorial-transform-data-spark-powershell.md
+        - name: HDInsight Spark
+          items:
+            - name: 使用者介面 (UI)
+              href: tutorial-transform-data-spark-portal.md
+            - name: Azure PowerShell
+              href: tutorial-transform-data-spark-powershell.md
+        - name: Databricks Notebook
+          items:
+            - name: 使用者介面 (UI)
+              href: transform-data-using-databricks-notebook.md
     - name: 7 - 轉換虛擬網路中的資料
       items:
         - name: 使用者介面 (UI)
@@ -291,7 +297,7 @@
         - name: Data Lake U-SQL 活動
           href: transform-data-using-data-lake-analytics.md
         - name: Databricks Notebook 活動
-          href: transform-data-using-databricks-notebook.md
+          href: transform-data-databricks-notebook.md
         - name: 自訂活動
           href: transform-data-using-dotnet-custom-activity.md
         - name: 計算連結服務

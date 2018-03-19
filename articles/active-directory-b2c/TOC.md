@@ -61,6 +61,7 @@
 ## [自訂語言](active-directory-b2c-reference-language-customization.md)
 ## [使用報告 API](active-directory-b2c-reference-usage-reporting-api.md)
 ## [移轉使用者](active-directory-b2c-user-migration.md)
+## [移轉社交身分識別](active-directory-b2c-social-migration.md)
 
 # 身分識別體驗架構
 ## [自訂原則](active-directory-b2c-overview-custom.md)
@@ -118,7 +119,7 @@
 ## [Azure AD B2C 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [常見問題集](active-directory-b2c-faqs.md)
-## [價格](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [定價](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)

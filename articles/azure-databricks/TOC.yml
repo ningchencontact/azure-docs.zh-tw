@@ -9,6 +9,10 @@
   items:
     - name: 建立 Databricks 工作區
       href: quickstart-create-databricks-workspace-portal.md
+- name: 教學課程
+  items:
+    - name: 使用事件中樞串流事件
+      href: databricks-stream-from-eventhubs.md
 - name: 使用說明指南
   items:
     - name: 與 Excel、R 和 Python 連線

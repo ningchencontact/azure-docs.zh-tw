@@ -79,6 +79,8 @@
           href: jenkins-continuous-deployment.md
         - name: 使用 OpenFaaS with AKS
           href: openfaas.md
+        - name: 在 AKS 上執行 Spark 作業
+          href: spark-job.md
     - name: Kubernetes 基本概念
       items:
         - name: 使用 Kubernetes 儀表板

@@ -26,9 +26,9 @@
 #### [Intel Edison with Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Intel Edison with C](iot-hub-intel-edison-kit-c-get-started.md)
 
-#### [Adafruit Feather HUZZAH ESP8266 with Arduino IDE](iot-hub-arduino-huzzah-esp8266-get-started.md)
-#### [Sparkfun ESP8266 Thing Dev with Arduino IDE](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
-#### [Adafruit Feather M0 with Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+#### [Adafruit Feather HUZZAH ESP8266 with Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Sparkfun ESP8266 Thing Dev with Arduino](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Adafruit Feather M0 with Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 ## 擴充的 IoT 案例
 ### [透過 iothub-explorer 管理雲端裝置傳訊](iot-hub-explorer-cloud-device-messaging.md)

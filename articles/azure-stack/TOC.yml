@@ -232,14 +232,22 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: 開始之前
               href: azure-stack-app-service-before-you-get-started.md
+            - name: 如何跨容錯網域，在 Azure Stack 上轉散發 Azure App Service
+              href: azure-stack-app-service-fault-domain-update.md
             - name: 部署 App Service 資源提供者
               href: azure-stack-app-service-deploy.md
             - name: 離線部署 App Service
               href: azure-stack-app-service-deploy-offline.md
+            - name: 更新 App Service
+              href: azure-stack-app-service-update.md
+            - name: 離線更新 App Service
+              href: azure-stack-app-service-update-offline.md
             - name: 新增更多 Web 背景工作角色
               href: azure-stack-app-service-add-worker-roles.md
             - name: 設定部署來源
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: App Service 更新 1 版本資訊
+              href: azure-stack-app-service-release-notes-update-one.md
         - name: 植入 Marketplace
           items:
             - name: Marketplace 概觀

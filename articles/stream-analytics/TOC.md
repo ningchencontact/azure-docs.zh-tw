@@ -64,6 +64,7 @@
 ## Visual Studio 工具
 ### [安裝工具](stream-analytics-tools-for-visual-studio-install.md)
 ### [開發雲端作業](stream-analytics-tools-for-visual-studio.md)
+### [開發 Edge 作業](stream-analytics-tools-for-visual-studio-edge-jobs.md)
 ### [設定 CI/CD 管線](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## 疑難排解

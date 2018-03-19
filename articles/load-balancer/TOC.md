@@ -11,6 +11,7 @@
 ## [IPv6 支援](load-balancer-ipv6-overview.md)
 ## [多個 VIP](load-balancer-multivip-overview.md)
 ## [了解輸出連線](load-balancer-outbound-connections.md)
+## [標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)
 
 # 開始使用
 
@@ -49,6 +50,7 @@
 ### [針對 Azure Load Balancer 的問題進行疑難排解](load-balancer-troubleshoot.md)
 
 ## 傳統部署模型文章
+### [輸出連線 (傳統)](load-balancer-outbound-connections-classic.md)
 ### [設定雲端服務的內部 Load Balancer](load-balancer-get-started-ilb-classic-cloud.md)
 #### [設定雲端服務的內部 Load Balancer (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [設定雲端服務的內部 Load Balancer (CLI)](load-balancer-get-started-ilb-classic-cli.md)
@@ -78,6 +80,6 @@
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
-## [定價](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [價格](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=load-balancer)

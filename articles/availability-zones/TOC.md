@@ -24,6 +24,7 @@
 
 ### 負載平衡器
 #### [何謂負載平衡器？](../load-balancer/load-balancer-standard-overview.md)
+#### [Load Balancer 標準和可用性區域](../load-balancer/load-balancer-standard-availability-zones.md)
 #### [使用 Azure 入口網站建立區域備援公用負載平衡器標準](../load-balancer/load-balancer-get-started-internet-az-portal.md)
 #### [使用 PowerShell 建立區域備援負載平衡器標準](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [使用 CLI 建立區域備援公用負載平衡器標準](../load-balancer/load-balancer-get-started-internet-az-cli.md)
