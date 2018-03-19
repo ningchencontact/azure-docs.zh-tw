@@ -1,6 +1,6 @@
 ---
-title: "Cloudyn 的 Azure 成本管理概觀 | Microsoft Docs"
-description: "Cloudyn 的 Azure 成本管理是多雲端成本管理解決方案，可協助您使用 Azure 和其他雲端資源。"
+title: "Azure 成本管理概觀 | Microsoft Docs"
+description: "Azure 成本管理是多雲端成本管理解決方案，可協助您使用 Azure 和其他雲端資源。"
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -10,17 +10,17 @@ ms.topic: overview
 ms.service: cost-management
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f09bb135d4521325ab3e3e12af2f69d862434b75
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e2f12a989eb275e645c8b3bde3494928c5cbdb47
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-cost-management"></a>什麼是 Azure 成本管理？
 
-針對您的 Azure 資源及包含 AWS 和 Google 在內的其他雲端服務提供者，Cloudyn 的 Azure 成本管理可讓您追蹤雲端使用量和費用。 淺顯易懂的儀表板報告有助於成本配置和回報 (showback)/計費 (chargeback)。 「成本管理」可以識別未充分使用的資源，以便您管理及調整，藉此最佳化雲端消費。
+由 Cloudyn (Microsoft 子公司) 授權的 Azure 成本管理，可讓您針對 Azure 資源及包含 AWS 和 Google 在內的其他雲端服務提供者，追蹤雲端使用量和費用。 淺顯易懂的儀表板報告有助於成本配置和回報 (showback)/計費 (chargeback)。 「成本管理」可以識別未充分使用的資源，以便您管理及調整，藉此最佳化雲端消費。
 
-若要觀看簡介影片，請看 [Cloudyn 提供的 Azure 成本管理簡介](https://youtu.be/NWIRny6Wpsk)。
+若要觀看簡介影片，請觀看 [Azure 成本管理簡介](https://youtu.be/NWIRny6Wpsk)。
 
 ## <a name="monitor-usage-and-spending"></a>監視使用量和消費
 

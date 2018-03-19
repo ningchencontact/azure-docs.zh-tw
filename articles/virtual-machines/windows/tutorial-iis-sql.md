@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ad84d6e8f74fa184ac2359ff7f08e6c8143d419a
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ac6038f7600d6eb4c8d021998f9cfc40bd369332
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>在 Azure 中安裝 SQL&#92;IIS&#92;.NET 堆疊
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/28/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-本教學課程需要 AzureRM.Compute 模組 4.3.1 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM.Compute` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 AzureRM.Compute 模組版本 4.3.1 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM.Compute` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
 ## <a name="create-a-iis-vm"></a>建立 IIS VM 
 

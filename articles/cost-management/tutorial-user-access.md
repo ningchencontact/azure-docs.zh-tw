@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>教學課程：指派成本管理資料的存取權
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/28/2018
 
 ![新增具有使用者存取權的使用者](.\media\tutorial-user-access\new-user-access.png)
 
-若要觀看有關新增使用者的教學課程影片，請看[將使用者新增至 Cloudyn 的 Azure 成本管理](https://youtu.be/Nzn7GLahx30)。
+若要觀看有關新增使用者的教學課程影片，請看[將使用者新增至 Azure 成本管理](https://youtu.be/Nzn7GLahx30)。
 
 ## <a name="create-entities"></a>管理實體
 
@@ -75,9 +75,9 @@ ms.lasthandoff: 02/28/2018
 在完成時 [儲存] 實體。
 
 
-若要觀看建立成本實體階層的教學課程影片，請參閱[在 Cloudyn 提供的 Azure 成本管理中建立成本實體階層](https://youtu.be/dAd9G7u0FmU)。
+若要觀看建立成本實體階層的教學課程影片，請參閱[在 Azure 成本管理中建立成本實體階層](https://youtu.be/dAd9G7u0FmU)。
 
-如果您是 Azure Enterprise 合約使用者，請看[使用 Cloudyn 的 Azure 成本管理連線至 Azure Resource Manager](https://youtu.be/oCIwvfBB6kk) 中有關將帳戶和訂用帳戶與實體建立關聯的教學課程影片。
+如果您是 Azure Enterprise 合約使用者，請看[使用 Azure 成本管理連線至 Azure Resource Manager](https://youtu.be/oCIwvfBB6kk) 中有關將帳戶和訂用帳戶與實體建立關聯的教學課程影片。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: f7dc5e2df95a64685a8b70d25e839c371d4fc2de
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 2ac15e4da411efa6f018a3e3fb620023bc8964cc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>執行 Azure 的災害復原演練
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="verify-vm-properties"></a>驗證 VM 屬性
 
-執行測試容錯移轉之前，請先驗證 VM 屬性，並確定 VM 遵守 [Azure 需求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
+執行測試容錯移轉之前，請先驗證 VM 屬性，並確定 Hyper-V VM[hyper-v-azure-support-matrix.md#replicated-vms]、[VMware VM 或實體伺服器](vmware-physical-azure-support-matrix.md#replicated-machines)符合 Azure 需求。
 
-1. 在 [受保護的項目] 中，按一下 [複寫的項目] > [VM]。
+1. 在 [受保護的項目] 中，按一下 [複寫的項目] > VM。
 2. 在 [複寫的項目] 窗格中，將會呈現 VM 資訊、健康情況狀態，以及最新可用復原點的摘要。 如需檢視詳細資訊，請按一下 [屬性]。
 3. 在 [計算與網路] 中，您可以修改 Azure 的名稱、資源群組、目標大小、[可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)，及管理磁碟設定。
    
@@ -66,4 +66,4 @@ ms.lasthandoff: 01/02/2018
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [在內部部署 VMware VM 執行容錯移轉和容錯回復](tutorial-vmware-to-azure-failover-failback.md)。
+> [在內部部署 VMware VM 執行容錯移轉和容錯回復](vmware-azure-tutorial-failover-failback.md)。

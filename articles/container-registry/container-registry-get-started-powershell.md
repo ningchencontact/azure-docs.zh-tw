@@ -6,18 +6,18 @@ author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 02/12/2018
+ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 80b5055dee35cd6efe62ee949c05aef386a3ba14
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 2bae45955cf3c2b157acce2544b1f35fbddd0170
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>使用 PowerShell 建立 Azure Container Registry
 
-Azure Container Registry 是用於儲存私用 Docker 容器映像的受控 Docker 容器登錄服務。 本指南詳述如何使用 PowerShell 建立 Azure Container Registry 執行個體。
+Azure Container Registry 是用於儲存私用 Docker 容器映像的受控 Docker 容器登錄服務。 本指南詳述如何使用 PowerShell 建立 Azure Container Registry 執行個體、將容器映像推送到登錄中，最後將容器從登錄部署至 Azure 容器執行個體 (ACI)。
 
 本快速入門需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
@@ -59,7 +59,7 @@ $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 
 接著，使用 [docker login][docker-login] 命令登入 ACR 執行個體。
 
-```bash
+```powershell
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
@@ -69,31 +69,61 @@ docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 
 若要推送映像到 Azure Container Registry，您必須先有映像。 如有需要，請執行下列命令，以從 Docker Hub 提取預先建立的映像。
 
-```bash
+```powershell
 docker pull microsoft/aci-helloworld
 ```
 
-映像必須加上 ACR 登入伺服器名稱。 執行 [Get AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) 命令，以傳回 ACR 執行個體的登入伺服器名稱。
+映像必須加上 ACR 登入伺服器名稱。 使用 [docker tag][docker-tag] 命令來執行這項操作。 
 
 ```powershell
-Get-AzureRmContainerRegistry | Select Loginserver
+$image = $registry.LoginServer + "/aci-helloworld:v1"
+docker tag microsoft/aci-helloworld $image
 ```
 
-使用 [docker tag][docker-tag] 命令來標記映像。 將 *acrLoginServer* 取代為 ACR 執行個體的登入伺服器名稱。
+最後，使用 [docker push][docker-push] 將映像推送到 ACR。
 
-```bash
-docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
+```powershell
+docker push $image
 ```
 
-最後，使用 [docker push][docker-push] 將映像推送至 ACR 執行個體。 將 *acrLoginServer* 取代為 ACR 執行個體的登入伺服器名稱。
+## <a name="deploy-image-to-aci"></a>將映像部署至 ACI
+若要在 Azure 容器執行個體 (ACI) 中將映像部署為容器執行個體，請先將登錄認證轉換為 PSCredential。
 
-```bash
-docker push <acrLoginServer>/aci-helloworld:v1
+```powershell
+$secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
+$pscred = New-Object System.Management.Automation.PSCredential($creds.Username, $secpasswd)
 ```
+
+若要從容器登錄部署包含 1 個 CPU 核心和 1 GB 記憶體的容器映像，請執行下列命令：
+
+```powershell
+New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name mycontainer -Image $image -Cpu 1 -MemoryInGB 1 -IpAddressType public -Port 80 -RegistryCredential $pscred
+```
+
+您應會從 Azure Resource Manager 得到首次回應，其中包含容器的詳細資料。 若要監視容器的狀態以及查看它何時執行，請重複 [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] 命令。 此作業所需的時間應該不到一分鐘。
+
+```powershell
+(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
+```
+
+範例輸出：`Succeeded`
+
+## <a name="view-the-application"></a>檢視應用程式
+成功部署至 ACI 之後，請使用 [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] 命令來擷取容器的公用 IP 位址：
+
+```powershell
+(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).IpAddress
+```
+
+範例輸出：`"13.72.74.222"`
+
+若要查看執行中的應用程式，請在您慣用的瀏覽器中瀏覽至該公用 IP 位址。 您應該會看到類似下面的畫面：
+
+![瀏覽器中的 Hello World 應用程式][qs-portal-15]
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若不再需要，您可以使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令來移除資源群組、ACR 執行個體和所有容器映像。
+若不再需要，您可以使用 [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] 命令來移除資源群組、Azure Container Registry 及所有的 Azure 容器執行個體。
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -101,7 +131,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您使用 Azure CLI 建立了 Azure Container Registry。 如果您想要使用 Azure Container Registry 搭配 Azure 容器執行特體，請繼續進行 Azure 容器執行個體教學課程。
+在本快速入門中，您已使用 Azure CLI 建立 Azure Container Registry，並在 Azure 容器執行個體中啟動其執行個體。 請繼續進行 Azure 容器執行個體教學課程，以深入了解 ACI。
 
 > [!div class="nextstepaction"]
 > [Azure 容器執行個體教學課程](../container-instances/container-instances-tutorial-prepare-app.md)
@@ -113,3 +143,10 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
+
+<!-- Links - internal -->
+[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
+[Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
+
+<!-- IMAGES> -->
+[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png

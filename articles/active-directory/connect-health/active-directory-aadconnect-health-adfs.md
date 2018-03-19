@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f363119ae75a1adb5a01d584de70fba0f3852dfc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>使用 Azure AD Connect Health 監視 AD FS
 下列文件適用於使用 Azure AD Connect Health 來監視 AD FS 基礎結構。 如需使用 Azure AD Connect Health 來監視 Azure AD Connect (同步處理) 的詳細資訊，請參閱 [使用適用於同步處理的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)。此外，如需使用 Azure AD Connect Health 來監視 Active Directory 網域服務的詳細資訊，請參閱 [在 AD DS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adds.md)。
@@ -115,9 +115,12 @@ Azure AD Connect Health for ADFS 會提供一份報告，內容有關因為使�
 | 上次失敗 IP |顯示最後一個不正確要求的用戶端 IP 位址。 |
 
 > [!NOTE]
-> 此報告會每隔 12 小時以該段時間內收集的新資訊自動進行更新。 因此，報告中不包含過去 2 小時內的登入嘗試。
+> 此報告會每隔 12 小時以該段時間內收集的新資訊自動進行更新。 因此，報告中不包含過去 12 小時內的登入嘗試。
 >
 >
+
+### <a name="risky-ip-report"></a>具風險的 IP 報告 
+即將推出預覽版本。
 
 ## <a name="related-links"></a>相關連結
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

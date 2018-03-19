@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>使用網路安全性群組來篩選網路流量
 
 網路安全性群組 (NSG) 包含安全性規則的清單，可允許或拒絕已連線至 Azure 虛擬網路 (VNet) 之資源的網路流量。 NSG 可以與子網路、個別 VM (傳統) 或已連結至 VM (Resource Manager) 的個別網路介面 (NIC) 建立關聯。 當 NSG 與子網路相關聯時，系統會將規則套用至已連線至子網路的所有資源。 建立 NSG 與 VM 或 NIC 的關聯也可以進一步限制流量。
-
+ 
 > [!NOTE]
 > Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../resource-manager-deployment-model.md)。 本文將說明如何使用這兩個模型，但 Microsoft 建議大多數新的部署請使用 Resource Manager 模型。
 
@@ -98,7 +98,7 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 
 * **VM (僅限傳統)：**安全性規則會套用至 VM 的所有流量 (雙向)。 
 * **NIC (僅限 Resource Manager)：**安全性規則會套用至 NSG 相關聯之 NIC 的所有流量 (雙向)。 在多重 NIC 的 VM 中，您可以將不同 (或相同) 的 NSG 個別套用至每個 NIC。 
-* **子網路 (Resource Manager 和傳統)：**安全性規則會套用至連線至 VNet 之任何資源的任何流量 (雙向)。
+* **子網路 (Resource Manager 和傳統)：**安全性規則會套用至連線至子網路之任何資源的任何流量 (雙向)。
 
 您可以將不同的 NSG 與 VM (或 NIC，依部署模型而定) 進行關聯，也可與 NIC 或 VM 連線的子網域進行關聯。 安全性規則會依每個 NSG 中的優先順序，以下列順序套用到流量：
 

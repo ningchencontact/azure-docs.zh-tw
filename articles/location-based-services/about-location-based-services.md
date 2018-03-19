@@ -3,23 +3,27 @@ title: "Azure LBS 概觀 | Microsoft Docs"
 description: "Azure LBS (預覽) 簡介"
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
-ms.date: 02/05/2017
+author: kgremban
+ms.author: kgremban
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91df49aa3f522ea765698a1d64ed2686606f71f3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Azure LBS (預覽) 簡介
 Azure LBS 是地理空間服務的組合，內含地圖、搜尋、路線規劃、路況和時區的服務 API。 符合 Azure OneAPI 規範的服務組合可讓您使用熟悉的開發人員工具，快速開發和調整解決方案，進而將位置資訊整合到 Azure 解決方案中。 Azure LBS 可提供各產業的開發人員強大的地理空間功能，另納入最新的地圖資料，可提供 Web 和行動裝置應用程式的地理空間內容。 Azure LBS 是符合 Azure One API 規範的 REST API 集合，附有網頁型 JavaScript 控制項可讓開發作業變得超級容易、有彈性且可在多個媒介中轉移。 
+
+下列影片將介紹 Azure LBS。
+
+<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 Azure LBS 包含五項主要服務，可支持需要地理內容的 Azure 應用程式。 以下將詳細說明每項服務。
 
@@ -64,6 +68,16 @@ Azure LBS 包含五項主要服務，可支持需要地理內容的 Azure 應用
 Azure LBS 是為了行動性而建置，可以增強跨平台應用程式的功能，因為此程式設計模型無從驗證並透過 REST API 支援 JSON 輸出。 此外，Azure LBS 使用簡單的程式設計模型提供方便的 JavaScript 地圖控制項，以便快速輕鬆開發 Web 和行動裝置應用程式。 
 
 Azure LBS 使用以金鑰為基礎的驗證配置，所以存取服務時需瀏覽至 [Azure 入口網站](http://portal.azure.com)並建立 Azure LBS 帳戶。 您的帳戶隨附預先為您產生的兩個金鑰。 在 Azure LBS 的要求中使用任一個金鑰，開始將這些位置功能直接整合到您的應用程式中。
+
+## <a name="unsupported-regions"></a>不支援的區域
+下列國家/地區目前無法使用我們的 API。 請查看您目前的 IP 位址，並確認 IP 位址的位置不在下列未受支援的國家/地區中。
+
+* 阿根廷
+* 中國
+* 印度
+* 摩洛哥
+* 巴基斯坦
+* 南韓
 
 ## <a name="relationship-with-bing-maps"></a>與 Bing 地圖的關聯性
 本文件中描述的 Azure LBS 與 Bing 地圖提供的服務有所不同。  雖然兩者共用許多相同的功能，但是這兩項服務不同而且也不相關。  Azure 內這項新服務的可用性不會對 Bing 地圖產品供應項目或藍圖造成影響，它們是個別管理的。

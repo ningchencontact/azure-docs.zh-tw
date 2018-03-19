@@ -1,6 +1,6 @@
 ---
 title: "使用 CSP 合作夥伴資訊向 Azure 成本管理進行註冊 | Microsoft Docs"
-description: "使用您的 CSP 合作夥伴資訊向 Cloudyn 的 Azure 成本管理進行註冊。"
+description: "使用您的 CSP 合作夥伴資訊向 Azure 成本管理進行註冊。"
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 0e5e247182335b88f109aa6624a40bc782975b97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>註冊 CSP 合作夥伴計劃並檢視成本資料
 
-身為 CSP 合作夥伴，您可以向 Cloudyn 的 Azure 成本管理進行註冊。 註冊將可提供 Cloudyn 入口網站的存取權。 本快速入門詳細說明建立 Cloudyn 試用訂用帳戶並登入 Cloudyn 入口網站所需的註冊程序。 它也會示範如何立即開始檢視成本資料。
+如果您是 CSP 合作夥伴，可以向 Azure 成本管理進行註冊。 註冊將可提供 Cloudyn 入口網站的存取權。 本快速入門詳細說明建立 Cloudyn 試用訂用帳戶並登入 Cloudyn 入口網站所需的註冊程序。 它也會示範如何立即開始檢視成本資料。
 
 
 >[!NOTE]
@@ -71,7 +71,7 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-在此快速入門中，您使用 CSP 訂用帳戶資訊向「成本管理」進行註冊。 您也登入了 Cloudyn 入口網站，並開始檢視成本資料。 若要深入了解 Cloudyn 的 Azure 成本管理，請繼續進行「成本管理」的教學課程。
+在此快速入門中，您使用 CSP 訂用帳戶資訊向「成本管理」進行註冊。 您也登入了 Cloudyn 入口網站，並開始檢視成本資料。 若要深入了解 Azure 成本管理，請繼續進行成本管理的教學課程。
 
 > [!div class="nextstepaction"]
 > [檢閱使用量和成本](./tutorial-review-usage.md)

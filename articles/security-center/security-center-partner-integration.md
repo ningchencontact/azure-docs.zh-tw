@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/08/2018
 ms.author: yurid
-ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>在 Azure 資訊安全中心整合安全性解決方案
 這份文件可協助您管理已連線到 Azure 資訊安全中心的安全性解決方案，並且新增新的項目。
@@ -63,7 +63,15 @@ ms.lasthandoff: 11/22/2017
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>管理整合式 Azure 安全性解決方案和其他資料來源
 
-部署之後，您可以檢視整合式 Azure 安全性解決方案的健康情況相關資訊，並且執行基本管理工作。 您也可以連線其他類型的安全性資料來源，例如常見事件格式 (CEF) 的 Azure Active Directory Identity Protection 警示和防火牆記錄。 在資訊安全中心儀表板上，選取安全性解決方案。
+1. 登入 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)。
+
+2. 在 [Microsoft Azure] 功能表中，選取 [資訊安全中心]。 [資訊安全中心 - 概觀] 隨即開啟。
+
+  ![資訊安全中心概觀](./media/security-center-partner-integration/overview.png)
+
+3. 在 [概觀] 底下，選取 [安全性解決方案]。
+
+在 [安全性解決方案] 之下，您可以檢視整合式 Azure 安全性解決方案的健康情況相關資訊，並且執行基本管理工作。 您也可以連線其他類型的安全性資料來源，例如常見事件格式 (CEF) 的 Azure Active Directory Identity Protection 警示和防火牆記錄。
 
 ### <a name="connected-solutions"></a>連線的解決方案
 
@@ -71,13 +79,22 @@ ms.lasthandoff: 11/22/2017
 
 ![連線的解決方案](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
+如需詳細資訊，請參閱[管理已連線的合作夥伴解決方案](security-center-partner-solutions.md)。
+
 ### <a name="discovered-solutions"></a>探索到的解決方案
 
-[探索到的解決方案] 區段會顯示已透過 Azure 新增的所有解決方案。 它也會顯示資訊安全中心建議應該連線的所有解決方案。
+資訊安全中心會自動探索在 Azure 中執行但未連線到資訊安全中心的安全性解決方案，並且在 [搜索到的解決方案] 區段中顯示解決方案。 這包括 Azure 解決方案，例如 [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)，以及在合作夥伴解決方案。
+
+> [!NOTE]
+> 搜索到的解決方案功能適用於資訊安全中心的標準層。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。
+>
+>
+
+選取解決方案下方的 [連線] 來與資訊安全中心整合，並可收到安全性警示通知。
 
 ![探索到的解決方案](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-資訊安全中心會自動探索在 Azure 中執行的其他安全性解決方案。 這包括 Azure 解決方案，例如 [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)，以及在 Azure 中執行的合作夥伴解決方案。 若要將這些解決方案與資訊安全中心整合，請選取 [連線]。
+資訊安全中心也會探索訂用帳戶中能夠轉寄通用事件格式 (CEF) 記錄的已部署解決方案。 了解如何[將安全性解決方案連線](quick-security-solutions.md) 到資訊安全中心，而該解決方案會使用 CEF 記錄。
 
 ### <a name="add-data-sources"></a>新增資料來源
 
@@ -90,7 +107,6 @@ ms.lasthandoff: 11/22/2017
 
 在本文中，您已了解如何在資訊安全中心中整合夥伴解決方案。 如要深入了解資訊安全中心，請參閱下列文章：
 
-* [資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md)
 * [將 Microsoft Advanced Threat Analytics 連線至 Azure 資訊安全中心](security-center-ata-integration.md)
 * [將 Azure Active Directory Identity Protection 連線至 Azure 資訊安全中心](security-center-aadip-integration.md)
 * [資訊安全中心的安全性健康情況監視](security-center-monitoring.md)。 了解如何監視 Azure 資源的健全狀況。

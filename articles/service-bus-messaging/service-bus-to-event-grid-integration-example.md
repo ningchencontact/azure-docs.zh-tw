@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 2a4d17673340d145de9a3514f920c74f7eebf6b6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3819a274696762861fbe76a9684b8495f1724f6a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-examples"></a>Azure 服務匯流排與 Azure Event Grid 的整合範例
 
@@ -118,7 +118,7 @@ public class GridEvent
 
 ## <a name="connect-function-and-namespace-via-event-grid"></a>透過 Event Grid 連線函式和命名空間
 
-下一個步驟是將函式與服務匯流排命名空間繫結在一起。 在此範例中，使用 Azure 入口網站。 請參閱 [概念](service-bus-to-event-grid-integration-concept.md 頁面，以了解如何使用 PowerShell 或 Azure CLI 來達成相同目的。
+下一個步驟是將函式與服務匯流排命名空間繫結在一起。 在此範例中，使用 Azure 入口網站。 請參閱[概念](service-bus-to-event-grid-integration-concept.md)頁面，以了解如何使用 PowerShell 或 Azure CLI 來達成相同目的。
 
 若要建立新的 Azure Event Grid 訂用帳戶，請在 Azure 入口網站中瀏覽至您的命名空間並選取 [Event Grid] 刀鋒視窗。 按一下 [+ 事件訂用帳戶]。
 

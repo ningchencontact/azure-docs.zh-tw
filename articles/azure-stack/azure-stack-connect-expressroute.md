@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 8ec733c01b19f01951d0b53265daaef32c3afe73
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 544fc1bcc9212fd38938d58447f5050df2a08796
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>使用 ExpressRoute 將 Azure Stack 連線至 Azure
 
@@ -273,7 +273,7 @@ Azure Stack 開發套件是獨立的，而且與部署實體主機的網路隔�
 3. 使用 10.100.0.0/16 位址範圍建立輪輻 VNet 和子網路。
 
 
-如需有關在 Azure 中建立虛擬網路的詳細資訊，請參閱[建立有多個子網路的虛擬網路](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)。
+如需有關在 Azure 中建立虛擬網路的詳細資訊，請參閱[建立虛擬網路](../virtual-network/manage-virtual-network.md#create-a-virtual-network)。
 
 ### <a name="configure-an-expressroute-circuit"></a>設定 ExpressRoute 線路
 

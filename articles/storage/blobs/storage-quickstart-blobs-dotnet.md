@@ -7,31 +7,46 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/01/2018
 ms.author: tamram
-ms.openlocfilehash: 265691ff189c628156f234083645a4b2ca4b637b
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8d1f09a39e865500aa8e4d093473d4989f134c3d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>快速入門：使用 .NET 上傳、下載及列出 Blob
 
 在本快速入門中，您會了解如何使用適用於 Azure 儲存體的 .NET 用戶端程式庫來上傳、下載及列出容器中的區塊 Blob。
 
-## <a name="prerequisites"></a>先決條件
-
-若要完成本快速入門：
-
-* 安裝適用於 [Linux](/dotnet/core/linux-prerequisites?tabs=netcore2x) 或 [Windows](/dotnet/core/windows-prerequisites?tabs=netcore2x) 的 .NET Core 2.0
-
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+## <a name="prerequisites"></a>先決條件
+
+若要完成本快速入門，首先在 [Azure 入口網站](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)中建立 Azure 儲存體帳戶。 如需建立帳戶的協助，請參閱[建立儲存體帳戶](../common/storage-quickstart-create-account.md)。
+
+接下來，請下載並安裝您的作業系統適用的 .NET Core 2.0。 您也可以選擇安裝編輯器來搭配您的作業系統使用。
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+- 安裝 [.NET Core for Windows](https://www.microsoft.com/net/download/windows/build) 
+- 選擇性安裝 [Visual Studio for Windows](https://www.visualstudio.com/) 
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+- 安裝 [.NET Core for Linux](https://www.microsoft.com/net/download/linux/build)
+- 選擇性安裝 [Visual Studio Code](https://www.visualstudio.com/) 和 [C# 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+- 安裝 [.NET Core for macOS](https://www.microsoft.com/net/download/macos/build).
+- 選擇性安裝 [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+
+---
 
 ## <a name="download-the-sample-application"></a>下載範例應用程式
 
-本快速入門使用的範例應用程式是基本的主控台應用程式。 
+本快速入門使用的範例應用程式是基本的主控台應用程式。 您可探索 [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart) 上的範例應用程式。
 
 使用 [git](https://git-scm.com/) 將應用程式的複本下載至您的開發環境。 
 
@@ -43,22 +58,35 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 
 ## <a name="configure-your-storage-connection-string"></a>設定儲存體連接字串
 
-在應用程式，您必須提供儲存體帳戶的連接字串。 建議您在執行應用程式的本機電腦上，將此連接字串儲存在環境變數內。 請根據您的作業系統，遵循以下其中一個範例來建立環境變數。  將 \<yourconnectionstring\> 取代為您實際的連接字串。
+若要執行應用程式，您必須提供儲存體帳戶的連接字串。 您可以在執行應用程式的本機電腦上，將此連接字串儲存在環境變數內。 請根據您的作業系統，使用以下其中一個命令來建立環境變數。 將 `<yourconnectionstring>` 取代為實際連接字串。
 
-### <a name="linux"></a>Linux
-
-```bash
-export storageconnectionstring=<yourconnectionstring>
-```
-### <a name="windows"></a>Windows
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```cmd
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export storageconnectionstring=<yourconnectionstring>
+```
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+編輯 .bash_profile，然後新增環境變數：
+
+```
+export STORAGE_CONNECTION_STRING=
+```
+
+新增環境變數之後，請登出後再次登入，讓變更生效。 或者，您可以從您的終端機輸入 "source .bash_profile"。
+
+---
+
 ## <a name="run-the-sample"></a>執行範例
 
-此範例會在 [我的文件] 中建立測試檔案、將它上傳至 Blob 儲存體、列出容器中的 Blob，然後以新名稱下載該檔案，以便比較新舊檔案。 
+這個範例會在本機 **MyDocuments** 資料夾中建立測試檔案，並將它上傳到 Blob 儲存體。 這個範例會接著列出容器中的 Blob，並下載具有新名稱的檔案，您便可比較舊檔案和新檔案。 
 
 瀏覽至您的應用程式目錄，並使用 `dotnet run` 命令執行應用程式。
 
@@ -79,56 +107,62 @@ The program has completed successfully.
 Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
 ```
 
-當您按任意鍵繼續時，它會刪除儲存體容器和檔案。 在繼續之前，請檢查 MyDocuments 找出這兩個檔案。 您可以開啟它們，並查看它們是否相同。 複製主控台視窗的 Blob URL，將它貼至瀏覽器以檢視 Blob 儲存體中的檔案內容。
-
-您也可以使用 [Azure 儲存體總管](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 之類的工具來檢視 Blob 儲存體中的檔案。 Azure 儲存體總管是免費的跨平台工具，可讓您存取儲存體帳戶資訊。 
+當您按 **Enter** 鍵時，應用程式會刪除儲存體容器和檔案。 在刪除之前，請檢查 **MyDocuments** 資料夾，找出這兩個檔案。 您可以開啟它們，並觀察它們是否相同。 複製主控台視窗中的 Blob URL，將它貼至瀏覽器以檢視 Blob 的內容。
 
 確認檔案之後，請按任一鍵以完成示範並刪除測試檔案。 現在您已知道這個範例的工作內容，請開啟 Program.cs 檔案中查看程式碼。 
 
 ## <a name="understand-the-sample-code"></a>了解範例程式碼
 
-接下來，我們將透過範例程式碼來了解其運作方式。
+接下來，探索範例程式碼來了解其運作方式。
 
-### <a name="get-references-to-the-storage-objects"></a>取得儲存體物件的參考
+### <a name="try-parsing-the-connection-string"></a>嘗試剖析連接字串
 
-第一件事是建立用來存取和管理 Blob 儲存體的物件參考。 這些物件互為建置基礎，各自都是由清單中的下一個物件所使用。
-
-* 建立指向儲存體帳戶之 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?view=azure-dotnet) 物件的執行個體。
-
-* 建立 [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet) 物件的執行個體，它會指向您儲存體帳戶中的 Blob 服務。
-
-* 建立 [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet) 物件的執行個體，它代表您要存取的容器。 容器是用來組織 Blob，就像在電腦上用資料夾組織檔案一樣。
-
-只要您有 [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)，就可以建立 [CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet) 物件的執行個體，指向您感興趣的特定 Blob 並執行上傳、下載、複製等等作業。
-
-> [!IMPORTANT]
-> 容器名稱必須是小寫字母。 如需有關容器和 Blob 名稱的詳細資訊，請參閱[命名和參考容器、Blob 及中繼資料](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
-
-在本節中，您要建立物件的執行個體、建立新的容器，然後設定容器上的權限，以便公開 Blob 並使用 URL 即可存取。 容器名為 **quickstartblobs**。
-
-因為我們需要在每次執行範例時建立新的容器，所以此範例會使用 [CreateIfNotExists](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexists?view=azure-dotnet)。 在整個應用程式都使用相同容器的生產環境中，最好只呼叫一次 **CreateIfNotExists**。 或者，若要事先建立容器，以便您不需要在程式碼中加以建立。
+此範例進行的第一件事就是檢查環境變數是否包含可剖析的連接字串，以建立指向儲存體帳戶的 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) 物件。 若要檢查連接字串是否有效，請使用[TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) 方法。 如果 **TryParse** 成功，它會初始化 storageAccount 變數並傳回 **true**。
 
 ```csharp
-// Load the connection string for use with the application. The storage connection string is stored
+// Retrieve the connection string for use with the application. The storage connection string is stored
 // in an environment variable on the machine running the application called storageconnectionstring.
 // If the environment variable is created after the application is launched in a console or with Visual
 // Studio, the shell needs to be closed and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
-if (storageConnectionString == null)
+string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring", EnvironmentVariableTarget.User);
+
+// Check whether the connection string can be parsed.
+if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
+    // If the connection string is valid, proceed with operations against Blob storage here.
+    ...
+}
+else
+{
+    // Otherwise, let the user know that they need to define the environment variable.
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add a environment variable name 'storageconnectionstring' with the actual storage " +
+        "Add a environment variable named 'storageconnectionstring' with your storage " +
         "connection string as a value.");
+    Console.WriteLine("Press any key to exit the sample application.");
+    Console.ReadLine();
 }
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
+```
 
-// Create the CloudBlobClient that is used to call the Blob Service for that storage account.
+### <a name="create-the-container-and-set-permissions"></a>建立容器並設定權限
+
+接下來，此範例會建立容器並設定其權限，讓容器中的任何 blob 都是公用的。 如果 blob 是公用的，任何用戶端都可以匿名方式存取它。
+
+若要建立容器，請先建立 [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient) 物件的執行個體，其指向您儲存體帳戶中的 Blob 儲存體。 接下來，建立 [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer) 物件的執行個體，然後建立容器。 
+
+在此情況下，此範例會呼叫 [CreateAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync) 方法來建立容器。 容器名稱會附加 GUID 值，以確保它是唯一的。 在生產環境中，通常偏好使用 [CreateIfNotExistsAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexistsasync) 方法來建立容器 (僅限容器不存在時)，以避免發生命名衝突。
+
+> [!IMPORTANT]
+> 容器名稱必須是小寫字母。 如需為容器和 Blob 命名的詳細資訊，請參閱[命名和參考容器、Blob 及中繼資料](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
+
+
+```csharp
+// Create the CloudBlobClient that represents the Blob storage endpoint for the storage account.
 CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
-// Create a container called 'quickstartblobs'. 
+// Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique. 
 cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
-await cloudBlobContainer.CreateIfNotExistsAsync();
+await cloudBlobContainer.CreateAsync();
 
 // Set the permissions so the blobs are public. 
 BlobContainerPermissions permissions = new BlobContainerPermissions
@@ -140,14 +174,10 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### <a name="upload-blobs-to-the-container"></a>將 Blob 上傳到容器
 
-Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 最常使用的是區塊 Blob，這也是本快速入門中所使用的。
-
-若要將檔案上傳至 Blob，請取得目標容器中的 Blob 參考。 取得 Blob 參考之後，即可使用 [CloudBlockBlob.UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync) 將資料上傳給它。 如果沒有 Blob，此作業會建立 Blob，如已存在，則予以覆寫。
-
-範例程式碼會建立用於上傳和下載的本機檔案，將要上傳的檔案以 **localFileName** 中的 Blob 名稱儲存為 **fileAndPath**。 下列範例會將檔案上傳到名為 **quickstartblobs** 的容器。
+接下來，此範例會將本機檔案上載至區塊 blob。 此程式碼範例會藉由在前一節建立的容器上呼叫 [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference) 方法，以取得 **CloudBlockBlob** 物件的參考。 然後藉由呼叫 [UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync) 方法，將所選的檔案上傳到 blob。 如果 Blob 不存在，此方法會建立 Blob，若已存在，則會加以覆寫。 
 
 ```csharp
-// Create a file in MyDocuments to test the upload and download.
+// Create a file in your local MyDocuments folder to upload to a blob.
 string localPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 string localFileName = "QuickStart_" + Guid.NewGuid().ToString() + ".txt";
 sourceFile = Path.Combine(localPath, localFileName);
@@ -157,21 +187,17 @@ File.WriteAllText(sourceFile, "Hello, World!");
 Console.WriteLine("Temp file = {0}", sourceFile);
 Console.WriteLine("Uploading to Blob storage as blob '{0}'", localFileName);
 
-// Get a reference to the location where the blob is going to go, then upload the file.
-// Upload the file you created, use localFileName for the blob name.
+// Get a reference to the blob address, then upload the file to the blob.
+// Use the value of localFileName for the blob name.
 CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(localFileName);
 await cloudBlockBlob.UploadFromFileAsync(sourceFile);
 ```
 
-有數個上傳方法可以搭配 Blob 儲存體使用。 例如，如果有記憶體資料流，則您可以使用 UploadFromStreamAsync 方法，而不是 UploadFromFileAsync 方法。
-
-區塊 Blob 可以是任何類型的文字或二進位檔案。 分頁 Blob 主要用於備份 IaaS VM 所用的 VHD 檔案。 附加 Blob 是用於記錄，例如當您想要寫入檔案，並繼續新增更多資訊時。 儲存在 Blob 儲存體中的大部分物件都是區塊 Blob。
-
 ### <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-您可以使用 [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync) 來取得容器中的檔案清單。 下列程式碼會擷取 Blob 的清單，透過它們執行迴圈，顯示找到的 Blob URI。 您可以複製命令視窗中的 URI，將它貼入至瀏覽器來檢視檔案。
+此範例會使用 [ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync) 方法列出容器中的 blob。 在此範例中，只有一個 blob 新增至容器，所以清單作業只會傳回一個 blob。
 
-如果容器中有 5,000 個或更少的 Blob，呼叫一次 ListBlobsSegmentedAsync 即可擷取所有的 Blob 名稱。 如果容器中有 5000 個以上的 Blob，服務會以 5000 為一組擷取清單，直到擷取所有的 Blob 名稱。 因此第一次呼叫此 API 時，它會傳回第一組的 5000 個 Blob 名稱和接續權杖。 第二次，您要提供權杖，服務會擷取下一組的 Blob 名稱，一直反復到接續權杖為 null 為止，這表示已擷取所有的 Blob 名稱。
+如果單一呼叫中有太多 blob 要傳回 (根據預設，超過 5000 個)，則 **ListBlobsSegmentedAsync** 方法會傳回總結果集區段和接續 Token。 若要擷取 blob 的下一個區段，您可提供前一次呼叫傳回的接續 Token 等等，直到接續 Token 是 null 為止。 Null 接續 Token 表示已擷取所有的 blob。 此範例程式碼會示範如何使用接續 Token 來達到最佳做法。
 
 ```csharp
 // List the blobs in the container.
@@ -180,27 +206,24 @@ BlobContinuationToken blobContinuationToken = null;
 do
 {
     var results = await cloudBlobContainer.ListBlobsSegmentedAsync(null, blobContinuationToken);
+    // Get the value of the continuation token returned by the listing call.
     blobContinuationToken = results.ContinuationToken;
     foreach (IListBlobItem item in results.Results)
     {
         Console.WriteLine(item.Uri);
     }
     blobContinuationToken = results.ContinuationToken;
-} while (blobContinuationToken != null);
+} while (blobContinuationToken != null); // Loop while the continuation token is not null. 
 
 ```
 
 ### <a name="download-blobs"></a>下載 Blob
 
-使用 [CloudBlob.DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync) 將 Blob 下載到本機磁碟。
-
-下列程式碼會下載上一節中上傳的 Blob，將 "_DOWNLOADED" 尾碼新增至 Blob 名稱，以便您在本機磁碟上看到這兩個檔案。
+接下來，此範例會使用 [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync) 方法，將先前建立的 blob 下載至本機檔案系統。 此範例程式碼會將 "_DOWNLOADED" 後置字元新增至 blob 名稱，您便可在本機檔案系統中看到這兩個檔案。
 
 ```csharp
-// Download blob. In most cases, you would have to retrieve the reference
-//   to cloudBlockBlob here. However, we created that reference earlier, and 
-//   haven't changed the blob we're interested in, so we can reuse it. 
-// First, add a _DOWNLOADED before the .txt so you can see both files in MyDocuments.
+// Download the blob to a local file, using the reference created earlier. 
+// Append the string "_DOWNLOADED" before the .txt extension so that you can see both files in MyDocuments.
 destinationFile = sourceFile.Replace(".txt", "_DOWNLOADED.txt");
 Console.WriteLine("Downloading blob to {0}", destinationFile);
 await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);  
@@ -208,7 +231,7 @@ await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
 
 ### <a name="clean-up-resources"></a>清除資源
 
-如果不再需要本快速入門中上傳的 Blob，您可以使用 [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync) 刪除整個容器。 如果不再需要所建立的檔案，請一併刪除。
+此範例會藉由使用 [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync) 刪除整個容器，以清除它所建立的資源。 您也可以視需要刪除本機檔案。
 
 ```csharp
 Console.WriteLine("Press the 'Enter' key to delete the sample files, example container, and exit the application.");
@@ -224,13 +247,29 @@ File.Delete(sourceFile);
 File.Delete(destinationFile);
 ```
 
+## <a name="resources-for-developing-net-applications-with-blobs"></a>可供使用 Blob 開發 .NET 應用程式的資源
+
+請參閱以下可供使用 Blob 儲存體進行 .NET 開發的額外資源：
+
+### <a name="binaries-and-source-code"></a>二進位檔和原始程式碼
+
+- 針對最新版的 [Storage .NET 用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)下載 NuGet 套件。 
+- 在 GitHub 上檢視[儲存體 .NET 用戶端程式庫原始程式碼](https://github.com/Azure/azure-storage-net)。
+
+### <a name="client-library-reference-and-samples"></a>用戶端程式庫參考和範例
+
+- 如需用戶端程式庫的詳細資訊，請參閱[儲存體 .NET API 參考](https://docs.microsoft.com/dotnet/api/overview/azure/storage)。
+- 探索使用儲存體 .NET 用戶端程式庫所撰寫的 [Blob 儲存體範例](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)。
+
 ## <a name="next-steps"></a>後續步驟
 
-在此快速入門中，您已了解如何使用 .NET 在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。 若要深入瞭解 Blob 儲存體的用法，請繼續閱讀 Blob 儲存體使用說明。
+在本快速入門中，您已了解如何使用 .NET 上傳、下載及列出 Blob。 
+
+若要了解如何建立可將映像上傳至 Blob 儲存體的 Web 應用程式，請繼續進行[使用 Azure 儲存體在雲端上傳影像資料](storage-upload-process-images.md)。
 
 > [!div class="nextstepaction"]
 > [Blob 儲存體作業操作說明](storage-dotnet-how-to-use-blobs.md)
 
-如需可供您下載並執行的其他 Azure 儲存體程式碼範例，請參閱[使用 .NET 的 Azure 儲存體範例](../common/storage-samples-dotnet.md)清單。
-
-如需儲存體總管和 Blob 的詳細資訊，請參閱[使用儲存體總管管理 Azure Blob 儲存體資源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+- 若要深入了解 .NET Core，請參閱[在 10 分鐘內開始使用 .NET](https://www.microsoft.com/net/learn/get-started/)。
+- 若要探索您可以從 Visual Studio for Windows 部署的範例應用程式，請參閱[使用 Azure Blob 儲存體的 .NET 相片圖庫 Web 應用程式範例](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)。
+ 

@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3f61f0bf8234e747ae38146d1a5ea030e3163fa3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 7b9f9f8295aac0920ae4726289c535aae12c4482
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
@@ -30,10 +30,10 @@ ms.lasthandoff: 12/21/2017
    docker logs <container name>
    ```
 
-* 檢視通過 Edge 中樞的訊息，以及透過執行階段容器的詳細記錄來收集裝置屬性更新的見解。
+* 檢視通過 Edge 中樞的訊息，以及透過執行階段容器的詳細記錄來收集裝置屬性更新的見解。 如果您遵循快速入門文章，建議您新增 "--auto-cert-gen-force-no-passwords" 選項。
 
    ```cmd
-   iotedgectl setup --runtime-log-level DEBUG
+   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
    ```
 
 * 如果您遇到連線問題，請檢查您的邊緣裝置環境變數，例如您的裝置連接字串：
@@ -56,7 +56,7 @@ Edge 代理程式會啟動並成功執行約一分鐘，然後停止。 記錄�
 
 Edge 代理程式記錄的範例：
 
-```
+```output
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
 2017-11-28 18:46:19 [INF] - Version - 1.0.7516610 (03c94f85d0833a861a43c669842f0817924911d5) 
 2017-11-28 18:46:19 [INF] - Edge agent attempting to connect to IoT Hub via AMQP... 
@@ -75,7 +75,7 @@ IoT Edge 執行階段會為每個模組設定要在其中通訊的網路。 在 
 
 Edge 中樞無法啟動，且將下列訊息輸出至記錄： 
 
-```
+```output
 One or more errors occurred. 
 (Docker API responded with status code=InternalServerError, response=
 {\"message\":\"driver failed programming external connectivity on endpoint edgeHub (6a82e5e994bab5187939049684fb64efe07606d2bb8a4cc5655b2a9bad5f8c80): 
@@ -96,6 +96,23 @@ Edge 代理程式沒有存取模組映像的權限。
 
 ### <a name="resolution"></a>解決方案
 再次嘗試執行 `iotedgectl login` 命令。
+
+## <a name="iotedgectl-cant-find-docker"></a>iotedgectl 找不到 Docker
+iotedgectl 無法執行設定或啟動命令，且將下列訊息輸出至記錄：
+```output
+File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
+  info = self._client.info()
+File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
+  return self.api.info(*args, **kwargs)
+File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
+  return self._result(self._get(self._url("/info")), True)
+```
+
+### <a name="root-cause"></a>根本原因
+iotedgectl 找不到 Docker，但這是必要項目。
+
+### <a name="resolution"></a>解決方案
+安裝 Docker，確定它正在執行，然後重試。
 
 ## <a name="next-steps"></a>後續步驟
 您在 IoT Edge 平台中發現到錯誤嗎？ 請[提交問題](https://github.com/Azure/iot-edge/issues)，讓我們可以持續進行改善。 

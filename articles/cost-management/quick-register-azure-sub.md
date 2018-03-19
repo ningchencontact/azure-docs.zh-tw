@@ -1,6 +1,6 @@
 ---
 title: "向 Azure 成本管理註冊您的 Azure 訂用帳戶 | Microsoft Docs"
-description: "使用您的 Azure 訂用帳戶向 Cloudyn 的 Azure 成本管理進行註冊。"
+description: "使用您的 Azure 訂用帳戶向 Azure 成本管理進行註冊。"
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 666919e37ffa3bb039fc9387737b8e6c3789311a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b7c1fee3276d98b6b7c611a09133804c1253384a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>註冊個人 Azure 訂用帳戶並檢視成本資料
 
-使用您的 Azure 訂用帳戶向 Cloudyn 的 Azure 成本管理進行註冊。 註冊將可提供 Cloudyn 入口網站的存取權。 本快速入門詳細說明建立 Cloudyn 試用訂用帳戶並登入 Cloudyn 入口網站所需的註冊程序。 它也會示範如何立即開始檢視成本資料。
+您可使用您的 Azure 訂用帳戶向 Azure 成本管理進行註冊。 註冊將可提供 Cloudyn 入口網站的存取權。 本快速入門詳細說明建立 Cloudyn 試用訂用帳戶並登入 Cloudyn 入口網站所需的註冊程序。 它也會示範如何立即開始檢視成本資料。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
@@ -40,13 +40,13 @@ ms.lasthandoff: 02/01/2018
 9. 按一下 [移至 Cloudyn] 以開啟 Cloudyn 入口網站，然後就會在 [帳戶管理] 頁面上看見您的 Azure 訂用帳戶資訊。  
     ![帳戶管理](./media/quick-register-azure-sub/accounts-mgt.png)
 
-若要觀看有關註冊 Azure 訂用帳戶的教學課程影片，請看[使用 Cloudyn 的 Azure 成本管理尋找您的 Directory GUID 和費率識別碼](https://youtu.be/PaRjnyaNGMI)。
+若要觀看有關註冊 Azure 訂用帳戶的教學課程影片，請觀看[使用 Azure 成本管理尋找您的 Directory GUID 和費率識別碼](https://youtu.be/PaRjnyaNGMI)。
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-在此快速入門中，您使用 Azure 訂用帳戶資訊向「成本管理」進行註冊。 您也登入了 Cloudyn 入口網站，並開始檢視成本資料。 若要深入了解 Cloudyn 的 Azure 成本管理，請繼續進行「成本管理」的教學課程。
+在此快速入門中，您使用 Azure 訂用帳戶資訊向「成本管理」進行註冊。 您也登入了 Cloudyn 入口網站，並開始檢視成本資料。 若要深入了解 Azure 成本管理，請繼續進行成本管理的教學課程。
 
 > [!div class="nextstepaction"]
 > [檢閱使用量和成本](./tutorial-review-usage.md)

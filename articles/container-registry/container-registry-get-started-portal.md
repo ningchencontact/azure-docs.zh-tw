@@ -6,18 +6,18 @@ author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/06/2017
+ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 1a4c5b365b93b30987ff6541aba762cbf8a4b7a5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: db112f7f8f486093509a86f9781c30133925c25f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>使用 Azure 入口網站建立容器登錄庫
 
-Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其中儲存並管理私人 Docker 容器映像。 在本快速入門中，您會使用 Azure 入口網站建立容器登錄。
+Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其中儲存並管理私人 Docker 容器映像。 在本快速入門中，您將使用 Azure 入口網站建立容器登錄、將容器映像推送到登錄中，最後將容器從登錄部署至 Azure 容器執行個體 (ACI)。
 
 若要完成此快速入門，您必須在本機上有 Docker 帳戶。 Docker 提供可輕鬆在 [Mac][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系統上設定 Docker 的套件。
 
@@ -73,13 +73,13 @@ docker pull microsoft/aci-helloworld
 
 在將映像推送至您的登錄之前，必須使用 ACR 登入伺服器名稱來標記映像。 使用 [docker tag][docker-tag] 命令來標記映像。 將登入伺服器取代為您先前記錄的登入伺服器名稱。
 
-```
+```bash
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
 最後，使用 [docker push][docker-push] 將映像推送到 ACR 執行個體。 將登入伺服器取代為 ACR 執行個體的登入伺服器名稱。
 
-```
+```bash
 docker push <login server>/aci-helloworld:v1
 ```
 
@@ -104,15 +104,43 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 
 ![在 Azure 入口網站中建立容器登錄][qs-portal-09]
 
+## <a name="deploy-image-to-aci"></a>將映像部署至 ACI
+
+為了從登錄部署到執行個體，我們必須瀏覽至存放庫 (aci-helloworld)，然後按一下 v1 旁邊的省略符號。
+
+![從入口網站啟動 Azure 容器執行個體][qs-portal-10]
+
+將會出現操作功能表，請選取 [執行執行個體]：
+
+![啟動 ACI 操作功能表][qs-portal-11]
+
+填入 [容器名稱]，確定已選取正確的訂用帳戶，選取現有的 [資源群組] "myResourceGroup"，然後按一下 [確定] 以啟動 Azure容器執行個體。
+
+![啟動 ACI 部署選項][qs-portal-12]
+
+當部署開始時，系統會在入口網站儀表板上放置一個圖格，以指出部署進度。 部署完成時，此圖格會更新以顯示新的 **mycontainer** 容器群組。
+
+![ACI 部署狀態][qs-portal-13]
+
+選取 mycontainer 容器群組以顯示容器群組屬性。 記下容器群組的 [IP 位址]，以及容器的 [狀態]。
+
+![ACI 容器詳細資料][qs-portal-14]
+
+## <a name="view-the-application"></a>檢視應用程式
+
+一旦容器處於 [執行中] 狀態，請使用您喜愛的瀏覽器瀏覽至您在上一個步驟中記下的 IP 位址，以顯示應用程式。
+
+![瀏覽器中的 Hello World 應用程式][qs-portal-15]
+
 ## <a name="clean-up-resources"></a>清除資源
 
-不再需要時，請刪除 **myResourceGroup** 資源群組。 這麼做會將資源群組、ACR 執行個體，以及所有容器映像刪除。
+若要清除資源，請在入口網站中瀏覽至 **myResourceGroup** 資源群組。 載入資源群組後，請按一下 [刪除資源群組] 來移除資源群組、Azure Container Registry 及所有的 Azure 容器執行個體。
 
 ![在 Azure 入口網站中建立容器登錄][qs-portal-08]
 
 ## <a name="next-steps"></a>後續步驟
 
-在此快速入門中，您使用 Azure 入口網站建立了 Azure Container Registry。 如果您想要使用 Azure Container Registry 搭配 Azure 容器執行特體，請繼續進行 Azure 容器執行個體教學課程。
+在本快速入門中，您已使用 Azure CLI 建立 Azure Container Registry，以及透過 Azure 容器執行個體啟動其執行個體。 請繼續進行 Azure 容器執行個體教學課程，以深入了解 ACI。
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances 教學課程][container-instances-tutorial-prepare-app]
@@ -127,6 +155,12 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+[qs-portal-10]: ./media/container-registry-get-started-portal/qs-portal-10.png
+[qs-portal-11]: ./media/container-registry-get-started-portal/qs-portal-11.png
+[qs-portal-12]: ./media/container-registry-get-started-portal/qs-portal-12.png
+[qs-portal-13]: ./media/container-registry-get-started-portal/qs-portal-13.png
+[qs-portal-14]: ./media/container-registry-get-started-portal/qs-portal-14.png
+[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

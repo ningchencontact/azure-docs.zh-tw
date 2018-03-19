@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>教學課程：檢閱使用量和成本
 
-Cloudyn 的 Azure 成本管理顯示使用量和成本，讓您可以追蹤趨勢、偵測效率不足的情況並建立警示。 所有使用量和成本資料都會顯示在 Cloudyn 儀表板和報表中。 本教學課程中的範例將引導您使用儀表板和報表來檢閱使用量和成本。 在本教學課程中，您了解如何：
+Azure 成本管理會顯示使用量和成本，讓您可以追蹤趨勢、偵測效率不足的情況並建立警示。 所有使用量和成本資料都會顯示在 Cloudyn 儀表板和報表中。 本教學課程中的範例將引導您使用儀表板和報表來檢閱使用量和成本。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 追蹤使用量和成本趨勢
@@ -57,7 +57,7 @@ Cloudyn 的 Azure 成本管理顯示使用量和成本，讓您可以追蹤趨�
 
 在此範例中，您清楚看到 Azure 儲存體成本自 2017年 8 月 31 日起會降低，而其他 Azure 服務的消費則持平。 造成消費降低的原因為何？ 在此範例中，有些員工休假而未使用儲存體服務。
 
-若要觀看有關追蹤使用量和成本趨勢的教學指導影片，請參閱[使用 Cloudyn 的 Azure 成本管理分析您的雲端計費資料與時間](https://youtu.be/7LsVPHglM0g)。
+若要觀看有關追蹤使用量和成本趨勢的教學指導影片，請參閱[使用 Azure 成本管理分析您的雲端計費資料與時間](https://youtu.be/7LsVPHglM0g)。
 
 ## <a name="detect-usage-inefficiencies"></a>偵測使用效率不足的情況
 
@@ -81,7 +81,7 @@ Cloudyn 的 Azure 成本管理顯示使用量和成本，讓您可以追蹤趨�
 
 ![候選項目清單](./media/tutorial-review-usage/sizing03.png)
 
-若要觀看有關偵測使用效益不彰情形的教學指導影片，請參閱[在 Cloudyn 的 Azure 成本管理中最佳化 VM 大小](https://youtu.be/1xaZBNmV704)。
+若要觀看有關偵測使用效益不彰情形的教學指導影片，請參閱[在 Azure 成本管理中最佳化 VM 大小](https://youtu.be/1xaZBNmV704)。
 
 ## <a name="create-alerts-for-unusual-spending"></a>針對不尋常的消費建立警示
 

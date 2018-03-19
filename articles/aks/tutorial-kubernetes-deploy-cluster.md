@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d02229739e3f358e4a6510dfbb0585939e947f9c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>部署 Azure Container Service (AKS) 叢集
 
@@ -85,7 +85,7 @@ k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.9
 
 ## <a name="configure-acr-authentication"></a>設定 ACR 驗證
 
-您必須設定 AKS 叢集與 ACR 登錄之間的驗證。 這牽涉到授與 ACS 身分識別從 ACR 登錄提取映像的適當權限。
+您必須設定 AKS 叢集與 ACR 登錄之間的驗證。 這牽涉到授與 AKS 身分識別從 ACR 登錄提取映像的適當權限。
 
 首先，取得針對 AKS 設定之服務主體的識別碼。 更新資源群組名稱和 AKS 叢集名稱，以符合您的環境。
 
