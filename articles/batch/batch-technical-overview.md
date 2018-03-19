@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d6a0355874e9fc98e551a2a05c776109c916d90a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-batch"></a>什麼是 Azure Batch？
 
@@ -85,7 +85,7 @@ Batch 的一個常見案例涉及在一組計算節點上相應放大本質平�
 
 請記住，這只是使用 Batch 的一種方式，此案例只說明其部分功能。 例如，您可以在每個計算節點上[平行執行多項工作](batch-parallel-node-tasks.md)。 或者，使用[作業的準備與完成工作](batch-job-prep-release.md)為您的作業準備節點，並在之後加以清除。 
 
-請參閱[適用於開發人員的 Batch 功能概觀](batch-api-basics.md)，以取得有關集區、節點、作業和工作的詳細資訊，以及在建置 Batch 應用程式時可使用的許多 API 功能。 
+請參閱[適用於開發人員的 Batch 功能概觀](batch-api-basics.md)，以取得有關集區、節點、作業和工作的詳細資訊，以及在建置 Batch 應用程式時可使用的許多 API 功能。 另請參閱最新的 [Batch 服務更新](https://azure.microsoft.com/updates/?product=batch)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -5,17 +5,17 @@ services: machine-learning
 author: hning86
 ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 12cba3d4acf0e6018cea6e76df9208bcf380d976
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 3/7/2018
+ms.openlocfilehash: caddfff329d0e8f4c4007386b377ea56a51249a5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>教學課程：分類鳶尾花第 1 部分 - 準備資料
 
@@ -60,8 +60,8 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    專案名稱 | myIris |輸入可識別您帳戶的唯一名稱。 您可以使用您自己的名稱，或最能識別測試的部門或專案名稱。 這個名稱長度應介於 2 到 32 個字元之間。 應該只包含英數字元及虛線 (-) 字元。 
    專案目錄 | c:\Temp\ | 指定要在其中建立專案的目錄。
    專案描述 | _保留空白_ | 適合用於描述專案的選擇性欄位。
-   Visualstudio.com |_保留空白_ | 選擇性欄位。 您可以在 Visual Studio Team Services 上讓專案與 Git 存放庫相關聯，以便進行原始檔控制和共同作業。 [了解如何進行設定](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo)。 
-   工作區 | IrisGarden (如果存在的話) | 選擇您在 Azure 入口網站中針對測試帳戶建立的工作區。 <br/>如果您已遵循快速入門，您應該有名稱為 IrisGarden 的工作區。 如果沒有，請選取您建立測試帳戶時所建立的工作區，或任何您想使用的其他工作區。
+   Visualstudio.com GIT 存放庫 URL |_保留空白_ | 選擇性欄位。 您可以在 Visual Studio Team Services 上讓專案與 Git 存放庫相關聯，以便進行原始檔控制和共同作業。 [了解如何進行設定](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo)。 
+   選取的工作區 | IrisGarden (如果存在的話) | 選擇您在 Azure 入口網站中針對測試帳戶建立的工作區。 <br/>如果您已遵循快速入門，您應該有名稱為 IrisGarden 的工作區。 如果沒有，請選取您建立測試帳戶時所建立的工作區，或任何您想使用的其他工作區。
    專案範本 | 分類鳶尾花 | 範本包含您可用來瀏覽產品的指令碼和資料。 此範本包含您在本快速入門及此文件網站中的其他教學課程中需要使用的指令碼和資料。 
 
    ![新增專案](media/tutorial-classifying-iris/new_project.png)
@@ -77,7 +77,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
 此資料準備套件稍後可遞交給執行階段，例如 local-C#/CoreCLR、Scala/Spark 或 Scala/HDI。 
 
-1. 選取資料夾圖示，即可開啟檔案檢視，然後選取 **iris.csv** 來開啟該檔案。  
+1. 選取資料夾圖示，即可開啟 [檔案] 檢視，然後選取 **iris.csv** 來開啟該檔案。
 
    此檔案包含具有 5 個資料行和 50 個資料列的資料表。 四個資料行是數值特徵資料行。 第五個資料行是字串目標資料行。 所有資料行都沒有標頭名稱。
 
@@ -86,32 +86,29 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    >[!NOTE]
    > 請勿在您的專案資料夾中包含資料檔案，特別是當檔案大小很大時。 因為 **iris.csv**，資料檔案很小，因此包含在此範本中以供示範。 如需詳細資訊，請參閱[如何讀取及寫入大型資料檔案](how-to-read-write-files.md)。
 
-2. 在 [資料檢視] 中，按一下加號 (**+**) 來新增新的資料來源。 [新增資料來源] 頁面隨即開啟。 
+2. 在 [資料檢視] 中，選取加號 (**+**) 來新增新的資料來源。 [新增資料來源] 頁面隨即開啟。 
 
    ![Azure Machine Learning Workbench 中的資料檢視](media/tutorial-classifying-iris/data_view.png)
 
-3. 選取 [文字檔] \(*.csv、.json、.txt 等)，然後按 [下一步]。
+3. 選取 [文字檔] **(\*.csv、\*.json、\*.txt 等)**，然後按 [下一步]。
    ![Azure Machine Learning Workbench 中的資料來源](media/tutorial-classifying-iris/data-source.png)
-   
 
-4. 瀏覽至檔案 **iris.csv**，然後按 [下一步]。  
+4. 瀏覽至 **iris.csv** 檔案，然後按一下 [完成]。 這會使用參數的預設值，例如分隔符號和資料類型。
 
    >[!IMPORTANT]
    >針對此練習，請確定您從目前的專案目錄內選取 **iris.csv** 檔案。 否則，接下來的步驟可能會失敗。
  
    ![選取鳶尾花](media/tutorial-classifying-iris/select_iris_csv.png)
    
-5. 保留預設值，然後按一下 [完成]。
-
-6. 名為 **iris-1.dsource** 的新檔案隨即建立。 由於範例專案中隨附未編號的 **iris.dsource** 檔案，因此會以 "-1" 為檔案指定唯一的名稱。  
+5. 名為 **iris-1.dsource** 的新檔案隨即建立。 由於範例專案中隨附未編號的 **iris.dsource** 檔案，因此會以 "-1" 為檔案指定唯一的名稱。  
 
    檔案隨即開啟，並且顯示資料。 從 **Column1** 至 **Column5** 的一系列資料行標題，會自動新增到此資料集。 捲動到底部，並注意資料集的最後一個資料列是空的。 資料列是空的，因為 CSV 檔案中有額外的分行符號。
 
    ![鳶尾花資料檢視](media/tutorial-classifying-iris/iris_data_view.png)
 
-1. 選取 [計量] 按鈕。 會產生長條圖並顯示在螢幕上。
+1. 選取 [計量] 按鈕。 隨即產生並顯示長條圖。
 
-   選取 [資料] 按鈕，即可切換回到資料檢視。 
+   選取 [資料] 按鈕，即可切換回到資料檢視。
    
    ![鳶尾花資料檢視](media/tutorial-classifying-iris/iris_data_view_metrics.png)
 
@@ -121,7 +118,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
 8. 選取 [準備] 按鈕，開始建立資料準備套件。 [準備] 對話方塊隨即開啟。 
 
-   根據預設，此範例專案包含 **iris.dprep** 資料準備檔案。 
+   此範例專案包含預設選取的 **iris.dprep** 資料準備檔案。 
 
    ![鳶尾花資料檢視](media/tutorial-classifying-iris/prepare.png)
 
@@ -129,7 +126,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    ![鳶尾花資料檢視](media/tutorial-classifying-iris/prepare_new.png)
 
-1. 輸入新的值作為套件名稱、使用 **iris-1**，然後選取 [確定]。
+1. 輸入新的值作為套件名稱 (使用 **iris-1**)，然後選取 [確定]。
 
    名為 **iris-1.dprep** 的新資料準備套件隨即建立，並在資料準備編輯器中開啟。
 
@@ -148,7 +145,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    1. 按一下滑鼠右鍵加以選取。 
    1. 從下拉式功能表中選取 [值計數]。 
 
-   [偵測器] 窗格會在資料下方開啟。 此時會出現有四個橫條的長條圖。 目標資料行有三個相異值：**Iris_virginica**、**Iris_versicolor**、**Iris-setosa** 和 **(null)** 值。
+   [偵測器] 窗格會在資料下方開啟。 此時會出現有四個橫條的長條圖。 目標資料行有四個相異值：**Iris-virginica**、**Iris-versicolor**、**Iris-setosa** 和 **(null)** 值。
 
    ![選取值計數](media/tutorial-classifying-iris/value_count.png)
 
@@ -160,11 +157,11 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    ![篩選掉 null](media/tutorial-classifying-iris/filter_out2.png)
 
-1. 請注意 [步驟] 窗格中詳述的個別資料準備步驟。 當您將資料行重新命名並篩選 null 值資料列時，每個動作都會記錄為資料準備步驟。 您可以編輯個別的步驟，以調整設定、重新排列步驟，並移除步驟。
+1. 請注意 [步驟] 窗格中詳述的個別資料準備步驟。 當您將資料行重新命名並篩選 null 值資料列時，每個動作都會記錄為資料準備步驟。 您可以編輯個別的步驟，以調整其設定、重新排列步驟，並移除步驟。
 
    ![步驟](media/tutorial-classifying-iris/steps.png)
 
-1. 關閉資料準備編輯器。 在包含圖形圖示的 **iris-1** 索引標籤上，選取 x 圖示以關閉索引標籤。您的工作會自動儲存到顯示在 [資料準備] 標題之下的 **iris-1.dprep** 檔案中。
+1. 關閉資料準備編輯器。 在包含圖形圖示的 **iris-1** 索引標籤上，選取 **x** 圖示以關閉索引標籤。您的工作會自動儲存到顯示在 [資料準備] 標題之下的 **iris-1.dprep** 檔案中。
 
    ![關閉](media/tutorial-classifying-iris/close.png)
 
@@ -197,8 +194,8 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    df.head(10)
    ```
 
-   根據執行此程式碼所在的內容，`df` 代表資料框架的種類。 
-   + 在 Python 執行階段上執行時，會使用 [pandas 資料框架](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html)。
+   視執行此程式碼所在的內容而定，`df` 代表不同種類的 DataFrame：
+   + 在 Python 執行階段上執行時，會使用 [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html)。
    + 在 Spark 內容中執行時，則會使用 [Spark 資料框架](https://spark.apache.org/docs/latest/sql-programming-guide.html)。 
    
    若要深入了解如何在 Azure Machine Learning Workbench 中準備資料，請參閱[開始進行資料準備](data-prep-getting-started.md)指南。

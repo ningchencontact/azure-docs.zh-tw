@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 238964540bffaf8d05148c587462256ce20d87f4
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>教學課程：使用 Azure 成本管理來管理成本
 
-在 Cloudyn 的 Azure 成本管理中，您會透過以標記為基礎來配置成本的方式，來管理成本並產生回報報表。 成本配置的程序會將成本指派給已使用的雲端資源。 當所有的資源都搭配標記完成分類之後，成本便會被完全配置。 在成本完成配置之後，您可以透過儀表板和報表為使用者提供回報或退款。 不過，當您開始使用成本管理時，有許多資源可能會被取消標記或是無法標記。
+在 Azure 成本管理中，您會透過根據標記配置成本的方式，來管理成本並產生回報報告。 成本配置的程序會將成本指派給已使用的雲端資源。 當所有的資源都搭配標記完成分類之後，成本便會被完全配置。 在成本完成配置之後，您可以透過儀表板和報表為使用者提供回報或退款。 不過，當您開始使用成本管理時，有許多資源可能會被取消標記或是無法標記。
 
 例如，您可能會想要取得工程成本上的補償。 您必須能根據資源成本，向工程團隊顯示您所需的特定金額。 您可以向他們顯示包含所有標記為*工程*之已使用資源的報表。
 

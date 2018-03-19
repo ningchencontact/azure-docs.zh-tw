@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 01/21/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-experiment: 
-ms.openlocfilehash: 82f87447a2176dffd55dcf71155c389398f7d64c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c1f7c1a12aea8336b71d6e3eb47037d193841ddb
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 入口網站中建立您的第一個函式
 
@@ -33,7 +32,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/overview/
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-以您的 Azure 帳戶登入 Azure 入口網站 (位於 <http://portal.azure.com>)。
+使用您的 Azure 帳戶登入 Azure 入口網站 (<http://portal.azure.com>)。
 
 ## <a name="create-a-function-app"></a>建立函數應用程式
 

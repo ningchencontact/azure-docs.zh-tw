@@ -3,7 +3,7 @@ title: "管理 Azure Stack 儲存體帳戶 | Microsoft Docs"
 description: "了解如何尋找、管理、復原及回收 Azure Stack 儲存體帳戶"
 services: azure-stack
 documentationcenter: 
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: 
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 4/6/2017
-ms.author: brenduns
+ms.date: 02/22/2018
+ms.author: mabrigg
 ms.reviewer: anirudha
-ms.openlocfilehash: 3ef9a66095d0ed5fc865dc3c22961f9f7bdcedd9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 395cd113e21bf747c796ff28026f552f30656b47
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>在 Azure Stack 中管理儲存體帳戶
 了解如何在 Azure Stack 中管理儲存體帳戶，以便根據業務需求來尋找、復原及回收儲存體容量。
@@ -29,13 +29,13 @@ ms.lasthandoff: 02/21/2018
 
 1. 在網際網路瀏覽器中，瀏覽至 https://adminportal.local.azurestack.external。
 2. 以雲端操作員身分 (使用您在部署期間所提供的認證)，登入 Azure Stack 系統管理入口網站
-3. 在預設儀表板上，尋找 [區域管理] 清單，然後按一下您想要探索的區域。 例如 **(local**)。
+3. 在預設儀表板上，尋找 [區域管理] 清單，然後按一下您想要探索的區域，例如 **(local**)。
    
    ![](media/azure-stack-manage-storage-accounts/image1.png)
 4. 從 [資源提供者] 清單中選取 [儲存體]。
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. 現在，在儲存體資源提供者系統管理員刀鋒視窗中，向下捲動至 [儲存體帳戶] 索引標籤，然後按一下它。
+5. 現在，在儲存體資源提供者系統管理員窗格中，向下捲動至 [儲存體帳戶] 索引標籤，然後按一下。
    
    ![](media/azure-stack-manage-storage-accounts/image3.png)
    
@@ -52,34 +52,34 @@ ms.lasthandoff: 02/21/2018
 
 **篩選帳戶：**
 
-1. 按一下刀鋒視窗頂端的 [篩選]。
-2. 在 [篩選] 刀鋒視窗上，您可以指定 [帳戶名稱]、[訂用帳戶識別碼] 或 [狀態]，以微調要顯示的儲存體帳戶清單。 請適當地指定。
+1. 按一下窗格頂端的 [篩選]。
+2. 在 [篩選] 窗格上，您可以指定 [帳戶名稱]、[訂用帳戶識別碼] 或 [狀態]，以微調要顯示的儲存體帳戶清單。 請適當地指定。
 3. 按一下 [更新] 。 清單應該會隨著重新整理。
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
 4. 若要重設篩選：按一下 [篩選]、清除選取項目，然後更新。
 
-[搜尋] 文字方塊 (在儲存體帳戶清單刀鋒視窗的頂端) 可讓您反白顯示帳戶清單中選取的文字。 如果無法輕易地取得完整名稱或識別碼，這真的很方便。
+[搜尋] 文字方塊 (在儲存體帳戶清單窗格的頂端) 可讓您醒目提示帳戶清單中選取的文字。 如果無法輕易地取得完整名稱或識別碼，您可以使用此種方式。
 
 您可以在這裡使用任意文字，以協助找出您想看到的帳戶。
 
 ![](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>查看帳戶詳細資料
-一旦找到您想檢視的帳戶之後，可以按一下特定的帳戶，以檢視特定的詳細資料。 新刀鋒視窗隨即開啟，其中包含帳戶詳細資料，例如：帳戶類型、建立時間、位置等等。
+一旦找到您想檢視的帳戶之後，可以按一下特定的帳戶，以檢視特定的詳細資料。 新窗格隨即開啟，其中包含帳戶詳細資料，例如：帳戶類型、建立時間、位置等等。
 
 ![](media/azure-stack-manage-storage-accounts/image7.png)
 
 ## <a name="recover-a-deleted-account"></a>復原已刪除的帳戶
 有時候，您必須復原已刪除的帳戶。
 
-在 Azure Stack 中，有一個非常簡單的方式可以執行此作業：
+在 Azure Stack 中，有一個很簡單的方式可以執行此作業：
 
 1. 瀏覽至儲存體帳戶清單。 如需詳細資訊，請參閱本主題中的[尋找儲存體帳戶](#find)。
 2. 在清單中找出該特定帳戶。 您可能需要篩選。
 3. 請檢查帳戶的 [狀態]。 它應該指出 [已刪除]。
-4. 按一下可開啟 [帳戶詳細資料] 刀鋒視窗的帳戶。
-5. 在這個刀鋒視窗的頂端，找出 [復原] 按鈕，然後按一下它。
+4. 按一下可開啟 [帳戶詳細資料] 窗格的帳戶。
+5. 在這個窗格的頂端，找出 [復原] 按鈕，然後按一下它。
 6. 按一下 [ **是** ] 以確認。
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
@@ -93,10 +93,10 @@ ms.lasthandoff: 02/21/2018
 ### <a name="some-gotchas"></a>注意事項
 * 已刪除的帳戶顯示 [不再保留] 狀態。
   
-  這表示已刪除的帳戶已超出保留期限，可能無法復原。
+  超出保留期表示已刪除的帳戶已超出保留期限，可能無法復原。
 * 已刪除的帳戶未顯示在帳戶清單中。
   
-  這可能表示已刪除的帳戶已經被記憶體回收。 在此情況下，便無法復原該帳戶。 請參閱本主題中的[回收容量](#reclaim)。
+  如果已刪除的帳戶已經被記憶體回收，您的帳戶就不會顯示在帳戶清單中。 在此情況下，便無法復原該帳戶。 請參閱本主題中的[回收容量](#reclaim)。
 
 ## <a name="set-the-retention-period"></a>設定保留期限
 保留期限設定可讓雲端操作員指定時間間隔天數 (介於 0 到 9999 天)，在此期間，任何已刪除的帳戶都可能復原。 預設保留期限設定為 15 天。 將值設定為 "0" 表示立即不保留任何已刪除的帳戶，並標示供定期記憶體回收。
@@ -107,7 +107,7 @@ ms.lasthandoff: 02/21/2018
 2. 以雲端操作員身分 (使用您在部署期間所提供的認證)，登入 Azure Stack 系統管理入口網站
 3. 在預設儀表板上，尋找 [區域管理] 清單，然後按一下您想要探索的區域，例如 **(local**)。
 4. 從 [資源提供者] 清單中選取 [儲存體]。
-5. 按一下頂端的 [設定]，開啟 [設定] 刀鋒視窗。
+5. 按一下頂端的 [設定]，開啟 [設定] 窗格。
 6. 按一下 [設定]，然後編輯保留期限值。
 
    設定天數，然後加以儲存。
@@ -122,8 +122,8 @@ ms.lasthandoff: 02/21/2018
 您可以使用入口網站或 PowerShell 來回收容量。
 
 **使用入口網站回收容量：**
-1. 瀏覽至儲存體帳戶刀鋒視窗。 請參閱[尋找儲存體帳戶](#find)。
-2. 按一下刀鋒視窗頂端的 [回收空間]。
+1. 瀏覽至 [儲存體帳戶] 窗格。 請參閱[尋找儲存體帳戶](#find)。
+2. 按一下窗格頂端的 [回收空間]。
 3. 讀取訊息，然後按一下 [確定]。
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
@@ -148,11 +148,11 @@ ms.lasthandoff: 02/21/2018
         Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
 
 
-如需詳細資訊，請參閱 [Azure Stack PowerShell 文件](https://msdn.microsoft.com/library/mt637964.aspx) \(英文\)。
+如需詳細資訊，請參閱 [Azure Stack PowerShell 文件](https://msdn.microsoft.com/library/mt637964.aspx)。
  
 
 ## <a name="migrate-a-container"></a>移轉容器
-由於租用戶的儲存體用量不平均，因此雲端操作員可能會發現其中一個或多個基礎租用戶共用所使用的空間比其他租用戶更多。 如果發生這種情況，雲端操作員可以嘗試將部分 Blob 容器手動移轉至另一個共用，為使用量較大的共用釋放一些空間。 
+由於租用戶的儲存體用量不平均，因此雲端操作員可能會發現其中一或多個基礎租用戶共用所使用的空間比其他租用戶更多。 如果發生這種情況，雲端操作員可以嘗試將部分 Blob 容器手動移轉至另一個共用，為使用量較大的共用釋放一些空間。 
 
 您必須使用 PowerShell 來移轉容器。
 > [!NOTE]
@@ -187,7 +187,7 @@ ms.lasthandoff: 02/21/2018
     `$destinationshares`
 
     ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. 開始進行容器移轉。請注意，這是非同步實作，因此可以循環處理共用中的所有容器，並使用傳回的工作識別碼來追蹤狀態。
+6. 開始進行容器移轉。請注意，這是非同步實作，因此可以循環處理共用中的所有容器，並使用傳回的作業識別碼來追蹤狀態。
 
     `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
 
@@ -197,7 +197,7 @@ ms.lasthandoff: 02/21/2018
    $jobId
    d1d5277f-6b8d-4923-9db3-8bb00fa61b65
    ```
-7. 依工作識別碼檢查移轉工作的狀態。當容器移轉完成時，MigrationStatus 會設定為 「已完成」。
+7. 依作業識別碼檢查移轉作業的狀態。 當容器移轉完成時，MigrationStatus 會設定為 [已完成]。
 
     `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 

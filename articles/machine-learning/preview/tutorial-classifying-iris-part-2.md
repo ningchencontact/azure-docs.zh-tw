@@ -5,17 +5,17 @@ services: machine-learning
 author: hning86
 ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 9a1613e2137e178d00a24f9f5b3c802f8a894b15
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 3/7/2018
+ms.openlocfilehash: 3e7f1b25757dc627f0f42a34c1a42b2d421c06c9
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-classify-iris-part-2---build-a-model"></a>教學課程：分類鳶尾花第 2 部分 - 建置模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
@@ -66,13 +66,13 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    - 使用 [scikit-learn](http://scikit-learn.org/stable/index.html) 機器學習程式庫來建置羅吉斯迴歸模型。 
 
-   - 將模型序列化，方法為將 [pickle](https://docs.python.org/2/library/pickle.html) 程式庫插入 `outputs` 資料夾中的檔案。 然後，指令碼會將其載入，並將它還原序列化回到記憶體。
+   - 將模型序列化，方法為在 `outputs` 資料夾的檔案中使用 [pickle](https://docs.python.org/3/library/pickle.html) 程式庫。 然後，指令碼會將其載入，並將它還原序列化回到記憶體。
 
    - 使用已還原序列化的模型來對新記錄進行預測。 
 
    - 繪製兩個圖表、混淆矩陣和多級接收者作業特性 (ROC) 曲線，方法為使用 [matplotlib](https://matplotlib.org/) 程式庫，然後將它們儲存在 `outputs` 資料夾中。
 
-   - 會使用整個 `run_logger` 物件來記錄正規化速率並將精確度制定到記錄內。 會在執行歷程記錄中自動繪製記錄。
+   - 系統會使用整個 `run_logger` 物件來記錄正規化速率並將精確度制定到記錄內。 而且會在執行歷程記錄中自動繪製這些值。
 
 
 ## <a name="execute-irissklearnpy-script-in-a-local-environment"></a>在本機環境中執行 iris_sklearn.py 指令碼
@@ -92,30 +92,31 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
 3. 返回 Workbench 應用程式視窗。 
 
-4. 在 **iris_sklearn.py** 索引標籤頂端的工具列中，選取以開啟 [儲存] 圖示旁的下拉式功能表，然後選取 [回合組態]。 選取 **local** 作為執行環境，然後輸入 `iris_sklearn.py` 作為要執行的指令碼。
+4. 在 [iris_sklearn.py] 索引標籤頂端的工具列中，選取 **local** 作為執行環境，以及選取 `iris_sklearn.py` 作為要執行的指令碼。
 
-5. 接下來，移至工具列的右邊，然後在 [引數] 欄位中輸入 `0.01`。 
+5. 接下來，移至工具列的右邊，然後在 [引數] 欄位中輸入 `0.01`。 這個值對應於羅吉斯迴歸模型的正則化速率。
 
    ![執行控制](media/tutorial-classifying-iris/run_control.png)
 
 6. 選取 [執行] 按鈕。 立即會排定作業。 作業會列在 Workbench 視窗右邊的 [作業] 窗格。 
 
-7. 在幾分鐘之後，作業的狀態會從**提交中**轉換為**執行中**，然後變成**已完成**。
+7. 在幾分鐘之後，作業的狀態會從 [提交中] 轉換為 [執行中]，最後變成 [已完成]。
 
    ![執行 sklearn](media/tutorial-classifying-iris/run_sklearn.png)
 
-8. 選取 [作業] 窗格的作業狀態文字中的 [已完成]。 快顯視窗隨即會開啟，並顯示執行中指令碼的標準輸出 (stdout) 文字。 若要關閉 stdout 文字，請選取快顯視窗上右上方的 [關閉] \(**x**) 按鈕。
+8. 選取 [作業] 窗格的作業狀態文字中的 [已完成]。 快顯視窗隨即會開啟，並顯示執行的標準輸出 (stdout) 文字。 若要關閉 stdout 文字，請選取快顯視窗上右上方的 [關閉] \(**x**) 按鈕。
 
 9. 在 [作業] 窗格的相同作業狀態中，選取 [已完成] 狀態和開始時間正上方的藍色文字 **iris_sklearn.py [n]** (_n_ 是執行編號)。 [執行屬性] 視窗隨即開啟，並顯示下列該特定執行的資訊：
    - [執行屬性] 資訊
-   - **輸出**檔案
+   - **輸出**
+   - **計量**
    - **視覺效果**，若有的話
    - **記錄檔** 
 
    執行完成時，快顯視窗會顯示下列結果：
 
    >[!NOTE]
-   >因為我們稍早已對定型集引入了一些隨機化項目，確切的結果可能與如下所示的有所不同。
+   >因為我們稍早已對定型集引入了一些隨機化項目，您的結果可能與如下所示的有所不同。
 
    ```text
    Python version: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
@@ -148,9 +149,9 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
 10. 關閉 [執行屬性] 索引標籤，然後返回 **iris_sklearn.py** 索引標籤。 
 
-11. 重複額外的執行。 
+11. 針對其他執行重複進行。 
 
-    在範圍從 `0.001` 至 `10` 的 [引數] 欄位中輸入一系列中的不同數值。 選取 [執行] 來執行程式碼數次。 您每次變更的引數值會在程式碼中傳送至羅吉斯迴歸演算法，且每次產生不同的結果。
+    在範圍從 `0.001` 至 `10` 的 [引數] 欄位中輸入一系列的值。 選取 [執行] 來執行程式碼數次。 您每次變更的引數值會在程式碼中傳送至羅吉斯迴歸模型，每次產生不同的結果。
 
 ## <a name="review-the-run-history-in-detail"></a>檢閱詳細的執行歷程記錄
 在 Azure Machine Learning Workbench 中，每個指令碼執行都會以執行歷程記錄的形式擷取。 如果您開啟 [執行] 檢視，就可以檢視特定指令碼的執行歷程記錄。
@@ -175,16 +176,16 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
 ## <a name="execute-scripts-in-the-local-docker-environment"></a>在本機 Docker 環境中執行指令碼
 
-利用 Machine Learning，您就可輕鬆地設定額外的執行環境，例如 Docker，並在這些環境中執行指令碼。 
+您可以輕鬆地設定額外的執行環境，例如 Docker，並在這些環境中執行指令碼。 
 
 >[!IMPORTANT]
->若要完成此步驟，您必須在本機上安裝並啟動 Docker 引擎。 如需詳細資訊，請參閱 Docker 安裝指示。
+>若要完成此步驟，您必須在本機上安裝並啟動 Docker 引擎。 如需詳細資訊，請參閱 [Docker 安裝指示](https://docs.docker.com/install/)。
 
 1. 在左邊窗格上，選取**資料夾**圖示，即可開啟您專案的 [檔案] 清單。 展開 `aml_config` 資料夾。 
 
-2. 有預先設定的數個環境，例如 **docker-python**、**docker-spark** 和 **local**。 
+2. 有預先設定的數個環境：**docker-python**、**docker-spark** 和 **local**。 
 
-   每個環境有兩個檔案，例如 `docker-python.compute` 和 `docker-python.runconfig`。 開啟每一個檔案，可看到某些選項可以在文字編輯器中設定。  
+   每個環境都有兩個檔案，例如 `docker.compute` (適用於 **docker-python** 與 **docker-spark**) 和 `docker-python.runconfig`。 開啟每一個檔案，可看到某些選項可以在文字編輯器中設定。  
 
    若要進行清理，請選取任何所開啟文字編輯器之索引標籤上的 [關閉] \(**x**) 索引標籤。
 
@@ -198,7 +199,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
 4. 請觀察，會啟動一個新的作業。 它會出現在 Workbench 視窗右邊的 [作業] 窗格。
 
-   當您第一次對 Docker 執行時，需要多幾分鐘的時間才能完成。 
+   當您第一次對 Docker 執行時，此作業需要多幾分鐘的時間才能完成。 
 
    在幕後，Azure Machine Learning Workbench 會建置新的 Docker 檔案。 
    新的檔案會參考 `docker.compute` 檔案中指定的基礎 Docker 映像，以及 Python 套件在 `conda_dependencies.yml` 檔案中指定的相依性。 
@@ -213,11 +214,11 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    最後，您應該會看到與目標為 **local** 時完全相同的結果。
 
-5. 現在讓我們來試試 Spark。 Docker 基礎映像包含預先安裝和設定的 Spark 執行個體。 因為這個執行個體，您可以在其中執行 PySpark 指令碼。 這是開發和測試您的 Spark 程式的簡單方式，而不需自己花費時間安裝和設定 Spark。 
+5. 現在讓我們來試試 Spark。 Docker 基礎映像包含預先安裝和設定的 Spark 執行個體，您可將其用於執行 PySpark 指令碼。 這是開發和測試 Spark 程式的簡單方式，而不需自己花費時間安裝和設定 Spark。 
 
    開啟 `iris_spark.py` 檔案。 此指令碼會載入 `iris.csv` 資料檔案，並使用來自 Spark Machine Learning 程式庫的羅吉斯迴歸演算法，以分類鳶尾花資料集。 現在將執行環境變更為 **docker-spark**，以及將指令碼變更為 **iris_spark.py**，然後再次執行。 因為必須在 Docker 容器內建立並啟動 Spark 工作階段，此程序可能需要較長的時間。 您也可以看到 stdout 與 `iris_spark.py` 的 stdout 不同。
 
-6. 多進行幾次執行，並使用不同的引數播放。 
+6. 多啟動幾次執行，並使用不同的引數播放。 
 
 7. 開啟 `iris_spark.py` 檔案來查看使用 Spark Machine Learning 程式庫建置的簡單羅吉斯迴歸模型。 
 
@@ -242,7 +243,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    az account list -o table
    
    REM sets the current Azure subscription to the one you want to use
-   az account set -s <subscriptionId>
+   az account set -s <SubscriptionId>
    
    REM verifies that your current subscription is set correctly
    az account show
@@ -269,6 +270,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    REM executes iris_spark.py in the local Docker container Spark environment
    az ml experiment submit -c docker-spark .\iris_spark.py 0.1
    ```
+
 6. 在 Workbench 中，選取左邊窗格上的**資料夾**圖示來列出專案檔案，然後開啟名為 **run.py** 的 Python 指令碼。 
 
    此指令碼適合用於透過各種正則化速率的迴圈。 以此比率執行實驗多次。 此指令碼會以 `10.0` 的正規化速率 (非常大的數字) 來啟動 `iris_sklearn.py` 作業。 接著，指令碼會在下列回合中將比率縮減為一半，並依此類推，直到比率不小於 `0.005` 為止。 
@@ -283,22 +285,22 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
        reg = reg / 2
    ```
 
-   若要開啟 **run.py** 指令碼，請從命令列執行下列命令：
+   若要執行 **run.py** 指令碼，請從命令列執行下列命令：
 
    ```cmd
    REM submits iris_sklearn.py multiple times with different regularization rates
    python run.py
    ```
 
-   當 `run.py` 完成時，您會在 Workbench 的執行歷程記錄清單檢視中看到圖表。
+   當 `run.py` 完成時，您可以在 Workbench 的執行歷程記錄清單檢視中看到不同計量的圖表。
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>在遠端電腦上的 Docker 容器中執行
-若要在遠端 Linux 電腦上的 Docker 容器中執行指令碼，您需要具備該遠端電腦的 SSH 存取 (使用者名稱和密碼)。 此外，該遠端電腦必須安裝並執行 Docker 引擎。 取得這類 Linux 電腦最簡單的方式，是在 Azure 上建立以 Ubuntu 為基礎的資料科學虛擬機器 (DSVM)。 深入了解[如何建立要在 Azure ML Workbench 中使用的 Ubuntu DSVM](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal)。
+若要在遠端 Linux 電腦上的 Docker 容器中執行指令碼，您需要具備該遠端電腦的 SSH 存取 (使用者名稱和密碼)。 此外，該電腦必須安裝並執行 Docker 引擎。 取得這類 Linux 電腦最簡單的方式，是在 Azure 上建立以 Ubuntu 為基礎的資料科學虛擬機器 (DSVM)。 深入了解[如何建立要在 Azure ML Workbench 中使用的 Ubuntu DSVM](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal)。
 
 >[!NOTE] 
 >不支援以 CentOS 為基礎的 DSVM。
 
-1. 建立 VM 後，如果您產生一組 `.runconfig` 和 `.compute` 檔案，就可以附加 VM 作為執行環境。 使用下列命令來產生檔案。 讓我們將新的環境命名為 `myvm`。
+1. 建立 VM 後，產生一組 `.runconfig` 和 `.compute` 檔案，即可附加 VM 作為執行環境。 使用下列命令來產生檔案。 讓我們將新的環境命名為 `myvm`。
  
    ```azurecli
    REM creates an myvm compute target
@@ -306,7 +308,10 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    ```
    
    >[!NOTE]
-   >IP 位址也可以是可公開定址的完整網域名稱 (FQDN)，例如 `vm-name.southcentralus.cloudapp.azure.com`。 絕佳的做法是將 FQDN 新增到您的 DSVM，並在該位置而非 IP 位址使用。 這種做法是個不錯的主意，因為您可能會在某個時間點關閉 VM 來節省成本。 此外，下次您啟動 VM 時，IP 位址可能已變更。
+   >IP 位址也可以是可公開定址的完整網域名稱 (FQDN)，例如 `vm-name.southcentralus.cloudapp.azure.com`。 絕佳的做法是將 FQDN 新增到您的 DSVM，並使用它來代替 IP 位址。 這種做法是個不錯的主意，因為您可能會在某個時間點關閉 VM 來節省成本。 此外，下次您啟動 VM 時，IP 位址可能已變更。
+
+   >[!NOTE]
+   >除了使用者名稱和密碼驗證，您可以使用 `--private-key-file` 及 (選擇性) `--private-key-passphrase` 選項來指定私密金鑰和對應的複雜密碼 (如果有的話)。
 
    接下來，執行下列命令在 VM 中建構 Docker 映像，以準備好執行指令碼：
    
@@ -315,17 +320,17 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    az ml experiment prepare -c myvm
    ```
    >[!NOTE]
-   >您也可以將 `myvm.runconfig` 中 `PrepareEnvironment` 的值從預設的 `false` 變更為 `true`。 此變更將會自動準備第一次執行 Docker 容器。
+   >您也可以將 `myvm.runconfig` 中 `PrepareEnvironment` 的值從預設值 `false` 變更為 `true`。 此變更會在第一次執行時自動準備 Docker 容器。
 
-2. 編輯在 `aml_config` 下產生的 `myvm.runconfig` 檔案，並將架構從預設的 `PySpark` 變更為 `Python`：
+2. 編輯在 `aml_config` 下產生的 `myvm.runconfig` 檔案，並將架構從預設值 `PySpark` 變更為 `Python`：
 
    ```yaml
-   "Framework": "Python"
+   Framework: Python
    ```
    >[!NOTE]
-   >如果您將架構設定保留為 PySpark，也應該適用。 但是，如果實際上不需要 Spark 工作階段來執行 Python 指令碼，則效率會較為不佳。
+   >雖然 PySpark 應該也能運作，但如果實際上不需要 Spark 工作階段來執行 Python 指令碼，則使用 Python 會有效率。
 
-3. 發出如同您先前在 CLI 視窗中的相同命令，但這次的目標是 _myvm_：
+3. 發出如同您先前在 CLI 視窗中執行的相同命令，但這次使用 _myvm_ 目標：
    ```azurecli
    REM executes iris_sklearn.py in a remote Docker container
    az ml experiment submit -c myvm iris_sklearn.py
@@ -334,11 +339,11 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
 4. 讓我們在容器中試試看使用 Spark。 開啟檔案總管。 如果您熟悉基本的檔案操作命令，則也可以從 CLI 視窗執行此動作。 建立一份 `myvm.runconfig` 檔案並將其命名為 `myvm-spark.runconfig`。 編輯新檔案，將 `Framework` 設定從 `Python` 變更為 `PySpark`：
    ```yaml
-   "Framework": "PySpark"
+   Framework: PySpark
    ```
-   不要對 `myvm.compute` 檔案進行任何變更。 會將相同 VM 上的相同 Docker 映像用於 Spark 執行。 在新 `myvm-spark.runconfig` 中，`target` 欄位會透過其名稱 `myvm` 指向相同的 `myvm.compute` 檔案。
+   不要對 `myvm.compute` 檔案進行任何變更。 會將相同 VM 上的相同 Docker 映像用於 Spark 執行。 在新 `myvm-spark.runconfig` 中，`Target` 欄位會透過其名稱 `myvm` 指向相同的 `myvm.compute` 檔案。
 
-5. 輸入下列命令以在遠端 Docker 容器的 Spark 執行個體中加以執行：
+5. 輸入下列命令，以在遠端 Docker 容器內執行的 Spark 執行個體中執行 **iris_spark.py** 指令碼：
    ```azureli
    REM executes iris_spark.py in a Spark instance on a remote Docker container
    az ml experiment submit -c myvm-spark .\iris_spark.py
@@ -365,7 +370,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    >[!NOTE]
    >`username` 是叢集 SSH 使用者名稱。 如果您沒有在 HDInsight 設定期間變更它，預設值是 `sshuser`。 值不是 `admin`，它是其他使用者在設定期間建立，用來啟用對叢集管理網站的存取。 
 
-2. 執行下列命令，指令碼即會在 HDInsight 叢集中執行：
+2. 執行下列命令，以在 HDInsight 叢集中執行 **iris_spark.py** 指令碼：
 
    ```azurecli
    REM executes iris_spark on the HDInsight cluster
@@ -374,7 +379,6 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    >[!NOTE]
    >針對遠端 HDInsight 叢集執行時，您也可以在 `https://<cluster_name>.azurehdinsight.net/yarnui` 使用 `admin` 使用者帳戶檢視 Yet Another Resource Negotiator (YARN) 作業執行的詳細資料。
-
 
 ## <a name="clean-up-resources"></a>清除資源
 

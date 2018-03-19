@@ -9,13 +9,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/29/2018
+ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: ec0731534da2543d48bedc575bf882b790fa136b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f1256e2fefe1ad3d37403f37804888ab9dcf6e99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>將 AD FS 內部部署應用程式移轉至 Azure AD 
 
@@ -166,7 +166,7 @@ SAML 2.0 應用程式可以透過 Azure AD 應用程式資源庫來與 Azure AD 
 - 權杖功能中的宣告
     - 將內部部署群組名稱發行為宣告
     - 來自 Azure AD 以外存放區的宣告
-    - 複雜宣告發行轉換規則 (如需支援的宣告對應相關資訊，請參閱本文件)
+    - 複雜宣告發行轉換規則 (如需支援的宣告對應相關資訊，請參閱這份[文件](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)和這份[文件](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization))
     - 將目錄擴充發行為宣告
     - NameID 格式的自訂規格
     - 多重值屬性的發行

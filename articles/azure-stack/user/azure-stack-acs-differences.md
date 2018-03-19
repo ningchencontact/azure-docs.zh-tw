@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 02/21/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 1dc099fa234e217b682c88f2214fe271c916eec2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 7c4f030018f388302c3b60a41086bbd97c86513d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 儲存體：差異與考量
 
@@ -33,15 +33,17 @@ ms.lasthandoff: 11/09/2017
 | 功能 | Azure (全域) | Azure Stack |
 | --- | --- | --- |
 |檔案儲存體|支援雲端式 SMB 檔案共用|尚不支援
-|待用資料的 Azure 儲存體服務加密|256 位元 AES 加密|尚不支援
-|儲存體帳戶類型|一般用途和 Azure Blob 儲存體帳戶|僅一般用途
-|複寫選項|本地備援儲存體、異地備援儲存體、讀取權限異地備援儲存體，以及區域備援儲存體|本地備援儲存體
-|進階儲存體|完全支援|可佈建，但無效能限制或保證
-|受控磁碟|支援進階和標準|尚不支援
+|待用資料的 Azure 儲存體服務加密|256 位元 AES 加密|BitLocker 128 位元 AES 加密
+|儲存體帳戶類型|一般用途和 Azure Blob 儲存體帳戶|僅限一般用途。
+|複寫選項|本地備援儲存體、異地備援儲存體、讀取權限異地備援儲存體，以及區域備援儲存體|本地備援儲存體。
+|進階儲存體|完全支援|可佈建，但無效能限制或保證。
+|受控磁碟|支援進階和標準|尚不支援。
 |Blob 名稱|1,024 個字元 (2,048 個位元組)|880 個字元 (1,760 個位元組)
-|區塊 Blob 大小上限|4.75 TB (100 MB X 50,000 個區塊)|50,000 x 4 MB (約為 195 GB)
-|分頁 blob 快照集複製|不支援對連結至執行中 VM 的 Azure 非受控 VM 進行備份|尚不支援
-|分頁 Blob 增量快照複製|支援進階和標準 Azure 分頁 Blob|尚不支援
+|區塊 Blob 大小上限|4.75 TB (100 MB X 50,000 個區塊)|適用於 1802 更新或更新版本的 4.75 TB (100 MB x 50,000 個區塊)。 適用於舊版的 50,000 X 4 MB (大約 195 GB)。
+|分頁 blob 快照集複製|不支援對連結至執行中 VM 的 Azure 非受控 VM 進行備份|尚不支援。
+|分頁 Blob 增量快照複製|支援進階和標準 Azure 分頁 Blob|尚不支援。
+|Blob 儲存體的儲存層|經常性存取、非經常性存取和封存儲存層。|尚不支援。
+Blob 儲存體的虛刪除|預覽|尚不支援。
 |分頁 Blob 大小上限|8 TB|1 TB
 |分頁 Blob 分頁大小|512 個位元組|4 KB
 |資料表分割區索引鍵和資料列索引鍵大小|1,024 個字元 (2,048 個位元組)|400 個字元 (800 個位元組)
@@ -54,8 +56,38 @@ ms.lasthandoff: 11/09/2017
 ## <a name="api-version"></a>API 版本
 使用「Azure Stack 儲存體」時支援下列版本：
 
-* Azure 儲存體資料服務：[2015-04-05 REST API 版本](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
-* Azure 儲存體管理服務：[2015-05-01-preview、2015-06-15 及 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN) 
+Azure 儲存體服務 API：
+
+1802 更新或更新版本：
+ - [2017-04-17](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08 ](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+
+舊版：
+ - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+
+
+Azure 儲存體服務管理 API：
+
+ - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+
+## <a name="sdk-versions"></a>SDK 版本
+
+使用 Azure Stack 儲存體時支援下列用戶端程式庫：
+
+| 用戶端程式庫 | Azure Stack 支援的版本 | 連結                                                                                                                                                                                                                                                                                                                                     | 端點規格       |
+|----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| .NET           | 從 6.2.0 到 8.7.0.          | Nuget 套件：<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>GitHub 版本：<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | app.config 檔案              |
+| Java           | 從 4.1.0 到 6.1.0           | Maven 套件：<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>GitHub 版本：<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | 連接字串設定      |
+| Node.js        | 從 1.1.0 到 2.7.0           | NPM 連結：<br>https://www.npmjs.com/package/azure-storage<br>(例如：執行 "npm install azure-storage@2.7.0")<br> <br>GitHub 版本：<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | 服務執行個體宣告 |
+| C++            | 從 2.4.0 到 3.1.0           | Nuget 套件：<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub 版本：<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | 連接字串設定      |
+| PHP            | 從 0.15.0 到 1.0.0          | GitHub 版本：<br>https://github.com/Azure/azure-storage-php/releases<br> <br>透過編輯器安裝 (請參閱下面的詳細資料)                                                                                                                                                                                                                  | 連接字串設定      |
+| Python         | 從 0.30.0 到 1.0.0          | GitHub 版本：<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | 服務執行個體宣告 |
+| Ruby           | 從 0.12.1 從 1.0.1          | RubyGems 套件：<br>一般：<br>https://rubygems.org/gems/azure-storage-common/<br>Blob：https://rubygems.org/gems/azure-storage-blob/<br>佇列：https://rubygems.org/gems/azure-storage-queue/<br>資料表：https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub 版本：<br>https://github.com/Azure/azure-storage-ruby/releases | 連接字串設定      |
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,18 +1,18 @@
 ---
-title: "關於 Azure Site Recovery？ | Microsoft Docs"
+title: "關於 Azure Site Recovery | Microsoft Docs"
 description: "提供 Azure Site Recovery 服務的概觀，並摘要說明部署案例。"
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 01/07/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4cc5d849630114577709f8373d08f0ce659e7e65
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 57b191a5dbdea487a0105c6af2866cdc037864e2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="about-site-recovery"></a>關於 Site Recovery
 
@@ -57,8 +57,8 @@ Site Recovery 可以管理複寫：
 --- | ---
 **複寫案例** | 將 Azure VM 從一個 Azure 區域複寫至另一個 Azure 區域。<br/><br/>  將內部部署 VMware VM、Hyper-V VM、實體伺服器 (Windows 和 Linux) 複寫至 Azure。<br/><br/> 將 System Center VMM 管理的內部部署 VMware VM、Hyper-V VM 和實體伺服器複寫至次要站台。
 **區域** | 檢閱 Site Recovery 的[支援區域](https://azure.microsoft.com/regions/services/)。 |
-**複寫的機器** | 檢閱 [Azure VM](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)、[內部部署 VM](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) 和[實體伺服器](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)的複寫需求。
-**VMware 伺服器/主機** | 您想要複寫的 VMware VM 可以位於[支援的 vSphere 主機/vCenter 伺服器](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)。
+**複寫的機器** | 檢閱 [Azure VM](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions) 複寫、[內部部署 VM 和實體伺服器](vmware-physical-azure-support-matrix.md#replicated-machines)及[內部部署 Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 的複寫需求。
+**VMware 伺服器/主機** | 您想要複寫的 VMware VM 可以位於[支援的主機和虛擬伺服器](vmware-physical-azure-support-matrix.md)。
 **工作負載** | 您可以複寫在支援複寫之機器上執行的所有工作負載。 此外，Site Recovery 小組已經針對[應用程式數目](site-recovery-workload.md#workload-summary)執行應用程式專屬測試。
 
 

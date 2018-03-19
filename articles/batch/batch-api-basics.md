@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c53007530fe80f03cefbf138193cfad4b0e8292a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b0a18f975530d2a291e529308ee53d6d48a68e42
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/05/2018
 不論您正在開發可發出直接 [REST API][batch_rest_api] 呼叫的分散式計算應用程式或服務，或是正在使用其中一個 [Batch SDK](batch-apis-tools.md#azure-accounts-for-batch-development)，您都會使用本文所討論的眾多資源和功能。
 
 > [!TIP]
-> 如需更高層級的 Batch 服務簡介，請參閱 [Azure Batch 的基本概念](batch-technical-overview.md)。
+> 如需更高層級的 Batch 服務簡介，請參閱 [Azure Batch 的基本概念](batch-technical-overview.md)。 另請參閱最新的 [Batch 服務更新](https://azure.microsoft.com/updates/?product=batch)。
 >
 >
 
