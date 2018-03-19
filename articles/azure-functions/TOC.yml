@@ -175,10 +175,12 @@
           href: durable-functions-sequence.md
         - name: 展開傳送/收合傳送
           href: durable-functions-cloud-backup.md
-        - name: 可設定狀態的 Singleton
-          href: durable-functions-counter.md
+        - name: 監視器
+          href: durable-functions-monitor.md
         - name: 與使用者互動
           href: durable-functions-phone-verification.md
+        - name: 單元測試
+          href: durable-functions-unit-testing.md
 - name: 參考
   items:
     - name: 繫結

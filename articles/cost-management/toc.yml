@@ -21,7 +21,9 @@
       href: tutorial-forecast-spending.md
     - name: 3 - 管理成本
       href: tutorial-manage-costs.md
-    - name: 4 - 控制資料的存取
+    - name: 4 - 最佳化保留的執行個體
+      href: tutorial-optimize-reserved-instances.md
+    - name: 5 - 資料存取控制
       href: tutorial-user-access.md
 - name: 概念
   items:

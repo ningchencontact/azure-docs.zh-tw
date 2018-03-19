@@ -1,4 +1,4 @@
-- name: Jenkins on Azure 文件
+- name: Azure 上的 Jenkins
   href: index.yml
 - name: 概觀
   items:
@@ -46,7 +46,7 @@
 - name: 範例
   items:
     - name: 範例作業和指令碼
-      href: 'https://github.com/Azure/azure-devops-utils/tree/master/jenkins'
+      href: 'https://github.com/azure/jenkins'
 - name: 資源
   items:
     - name: 外掛程式
@@ -75,3 +75,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Jenkins 首頁
       href: 'https://jenkins.io/'
+    - name: Jenkins 架構
+      href: /azure/architecture/reference-architectures/jenkins/
+      maintainContext: true

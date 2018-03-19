@@ -39,6 +39,7 @@
 #### [使用 Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [使用大型擴展集](virtual-machine-scale-sets-placement-groups.md)
 ### [將擴展集範本轉換為使用受控磁碟](virtual-machine-scale-sets-convert-template-to-md.md)
+### [使用低優先順序](virtual-machine-scale-sets-use-low-priority.md)
 
 ## 管理
 ### 一般管理工作

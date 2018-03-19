@@ -67,6 +67,8 @@
       items:
         - name: 複寫至 Azure
           items:
+            - name: VMware 到 Azure 的常見問題
+              href: vmware-azure-common-questions.md
             - name: VMware/實體至 Azure 支援矩陣
               href: vmware-physical-azure-support-matrix.md
             - name: VMware 至 Azure 架構
@@ -77,6 +79,8 @@
               href: vmware-azure-multi-tenant-overview.md
             - name: 關於行動服務
               href: vmware-azure-install-mobility-service.md
+            - name: 容錯回復位置選項
+              href: concepts-types-of-failback.md
         - name: 複寫至次要網站
           items:
             - name: VMware/實體至次要網站支援矩陣
@@ -117,7 +121,7 @@
               href: azure-to-azure-about-networking.md
             - name: 準備 Azure VM 災害復原中的網路對應功能
               href: azure-to-azure-network-mapping.md
-            - name: 設定 Azure VM 容錯移轉之後的 IP 位址
+            - name: 設定容錯移轉的 IP 位址
               href: site-recovery-retain-ip-azure-vm-failover.md
         - name: 災害復原
           items:
@@ -139,7 +143,7 @@
           items:
             - name: 管理內部部署至 Azure 複寫的網路介面
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: 設定容錯移轉至 Azure 之後的 IP 位址
+            - name: 設定容錯移轉的 IP 位址
               href: concepts-on-premises-to-azure-networking.md
         - name: 容量規劃
           items:
@@ -241,7 +245,7 @@
           items:
             - name: 管理內部部署至 Azure 複寫的網路介面
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: 設定容錯移轉至 Azure 之後的 IP 位址
+            - name: 設定容錯移轉的 IP 位址
               href: concepts-on-premises-to-azure-networking.md
         - name: 容量規劃
           items:
@@ -255,8 +259,6 @@
                   href: hyper-v-deployment-planner-analyze-report.md
                 - name: 分析成本預估報告
                   href: hyper-v-deployment-planner-cost-estimation.md
-            - name: 針對將 Hyper-V 複寫至次要網站的效能級別測試
-              href: hyper-v-vmm-performance-results.md
         - name: 災害復原
           items:
             - name: 使用 PowerShell 設定 Hyper-V 至 Azure 的複寫 (不使用 VMM)
@@ -295,12 +297,14 @@
           href: hyper-v-vmm-powershell-resource-manager.md
         - name: 執行 Hyper-V 虛擬機器至次要網站的災害復原演練
           href: hyper-v-vmm-test-failover.md
-        - name: 設定容錯移轉至次要網站之後的 IP 位址
+        - name: 設定容錯移轉的 IP 位址
           href: hyper-v-vmm-networking.md
         - name: 將 VMM 指令碼加入復原方案
           href: hyper-v-vmm-recovery-script.md
         - name: 在內部部署網站之間執行容錯移轉和容錯回復
           href: hyper-v-vmm-failover-failback.md
+        - name: 針對將 Hyper-V 複寫至次要網站的效能級別測試
+          href: hyper-v-vmm-performance-results.md
     - name: 複寫應用程式
       items:
         - name: Active Directory 和 DNS

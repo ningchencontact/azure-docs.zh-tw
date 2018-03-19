@@ -62,6 +62,8 @@
           href: module-development.md
         - name: 撰寫
           href: module-composition.md
+        - name: Edge 代理程式和中樞屬性
+          href: module-edgeagent-edgehub.md
     - name: IoT Edge 執行階段
       href: iot-edge-runtime.md
     - name: 部署

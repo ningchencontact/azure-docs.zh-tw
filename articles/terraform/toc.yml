@@ -15,6 +15,8 @@
       maintainContext: true
 - name: 教學課程
   items:
+    - name: 建立已啟用 MSI 的 Terraform 虛擬機器
+      href: terraform-vm-msi.md
     - name: 以 Terraform 模組建立 VM 叢集
       href: terraform-create-vm-cluster-module.md
     - name: 以 Terraform 和 HCL 建立 VM 叢集

@@ -27,6 +27,8 @@
       href: overview-general-concepts.md
 - name: 使用說明指南
   items:
+    - name: 上層 CLI 工作
+      href: cli-for-azure-machine-learning.md
     - name: 使用 Workbench
       items:
         - name: 使用 Python IDE

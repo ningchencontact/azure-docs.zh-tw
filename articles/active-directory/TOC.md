@@ -190,11 +190,10 @@
 #### [關於使用者自動佈建的報告](active-directory-saas-provisioning-reporting.md)
 #### [針對使用者佈建進行疑難排解](active-directory-application-provisioning-content-map.md)
 
-
-
 ### [透過 App Proxy 遠端存取應用程式](active-directory-application-proxy-get-started.md)
 #### 開始使用
 ##### [啟用應用程式 Proxy](active-directory-application-proxy-enable.md)
+##### [GDPR 支援](active-directory-application-proxy-gdpr.md)
 ##### [發佈應用程式](application-proxy-publish-azure-portal.md)
 ##### [自訂網域](active-directory-application-proxy-custom-domains.md)
 #### [單一登入](application-proxy-sso-overview.md)
@@ -390,7 +389,7 @@
 ## [Azure 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [定價](https://azure.microsoft.com/pricing/details/active-directory/)
+## [價格](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

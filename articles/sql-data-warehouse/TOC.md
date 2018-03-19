@@ -18,7 +18,7 @@
 
 
 # 教學課程
-## [1 - 從 Blob 載入資料](load-data-from-azure-blob-storage-using-polybase.md)
+## [1 - 載入 WideWorldImporters](load-data-wideworldimportersdw.md)
 
 # 概念
 ## 服務功能
@@ -52,11 +52,12 @@
 ### [SQL Database 彈性查詢](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
-## 監視與微調
-### [工作負載管理](resource-classes-for-workload-management.md)
+## 查詢效能
+### [資源類別](resource-classes-for-workload-management.md)
 ### [資料行存放區壓縮](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [監視](sql-data-warehouse-manage-monitor.md)
-### [疑難排解](sql-data-warehouse-troubleshoot.md)
+
+## [監視](sql-data-warehouse-manage-monitor.md)
+
 
 ## 開發資料倉儲
 ### [概觀](sql-data-warehouse-overview-develop.md)
@@ -88,6 +89,8 @@
 #### [變數指派](sql-data-warehouse-develop-variable-assignment.md)
 #### [檢視](sql-data-warehouse-develop-views.md)
 
+## [疑難排解](sql-data-warehouse-troubleshoot.md)
+
 # 使用說明指南
 ## 服務功能
 ### [還原資料倉儲 - 入口網站](sql-data-warehouse-restore-database-portal.md)
@@ -101,6 +104,7 @@
 
 
 ## 載入與移動資料
+### [紐約計程車資料](load-data-from-azure-blob-storage-using-polybase.md)
 ### [Contoso 公用資料](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
@@ -137,7 +141,7 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=databases)
 ## [論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
-## [價格](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [定價](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [功能要求](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
