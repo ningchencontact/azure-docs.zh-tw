@@ -1,23 +1,23 @@
 ---
-title: "教學課程：Azure Active Directory 與 People 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 People 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 People 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 People 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 7c9b6202-11dd-4bb6-a679-8fb0a7a0ef4e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 03/06/2017
 ms.author: jeedes
-ms.openlocfilehash: cf3c633aec5fd55d3525c0e010e1aca68407ef33
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a76701e23771efa79ef39ebd6deb29cec8acaa8a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>教學課程：Azure Active Directory 與 People 整合
 
@@ -110,14 +110,14 @@ People 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-people-tutorial/tutorial_people_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<company name>.peoplehr.com/`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<company name>.peoplehr.net`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://www.peoplehr.com`
+    b. 在 [識別碼] 文字方塊中，輸入 URL：`https://www.peoplehr.com`
 
     c. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
-
-    > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 請連絡 [People 用戶端支援小組](mailto:customerservices@peoplehr.com)以取得這些值。
+    
+    > [!NOTE]
+    > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [People 用戶端支援小組](mailto:customerservices@peoplehr.com)以取得這些值。 
 
 5. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 

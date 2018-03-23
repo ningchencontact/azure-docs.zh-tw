@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 支援條款 | Microsoft Docs"
-description: "說明 StorSimple 8000 系列企業儲存體客戶的支援選項。"
+title: StorSimple 支援條款 | Microsoft Docs
+description: 說明 StorSimple 8000 系列企業儲存體客戶的支援選項。
 services: storsimple
 documentationcenter: NA
 author: GabiSocoteanu
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -114,13 +114,13 @@ StorSimple 8000 系列儲存體陣列支援是根據 StorSimple 陣列的購買�
 |:---------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **標準版支援** <br></br> [CWZ-00023] <br></br>*AzureStorSimple ShrdSvr ALNG SubsVL MVL StdSpprt*<br><br><br><br><br>                         |已包括。<br><br><br><br><br><br><br><br><br><br><br><br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<ul> <li>提供給初次購買的客戶至下一個 EA 週年止。<li> 客戶必須在後續幾年購買支援，因為如果沒有作用中的 StorSimple 支援合約，就無法分派任何替換硬體組件。<br>   <br><br><br><br><br><br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | **進階版*** **支援** <br></br> [CWZ-00024] <br></br> *AzureStorSimple ShrdSvr ALNG SubsVL MVL PremSpprt* <br><br><br><br><br><br>                         | 由於訂閱已自動涵蓋標準版支援，請參閱標準版至進階版升級。      <br><br><br><br><br><br><br><br><br> <br><br><br>                                                                                                                                                                                                                                                                                                                                                                                                                    | <ul> <li>Microsoft Premier 支援合約所涵蓋的客戶應該參閱標準版至進階版升級。 <li>若客戶並為獲得 Microsoft Premier 合約的涵蓋但希望擁有進階版 StorSimple 支援，應該在續訂時購買此 SKU。<br><br><br><br><br><br><br><br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **標準版至進階版****升級 <br></br> [CWZ- 00025] <br></br> *AzureStorSimple ShrdSvr ALNG SubsVL MVL Spprt- StepuptoPrem* <br><br><br><br><br><br><br><br><br>| 在購買 StorSimple 時，Microsoft Premier 支援合約涵蓋的客戶會自動免費升級至進階版 StorSimple 支援，這段期間，Premier 支援仍涵蓋這些客戶。  如果客戶之後獲得頂級支援，則可以透過 SSSupOps@microsoft.com 要求獲得免費的 StorSimple 支援升級。 <br></br>非 Premier 客戶若還在 Enterprise 合約 (EA) 期間，可隨時購買 StorSimple 標準版至進階版升級 SKU [CWZ-00025]。<br><br><br><br><br><br><br><br> | <ul><li> Microsoft Premier 支援合約所涵蓋的客戶可以購買標準版支援 SKU [CWZ-00023]，StorSimple 標準版支援合約將會在 Premier 支援涵蓋期間自動升級，且不收取額外費用。 <li> 如果客戶之後獲得頂級支援，則可以透過 SSSupOps@microsoft.com 要求獲得免費的 StorSimple 支援升級。 <li> StorSimple 標準版支援涵蓋的非 Premier 客戶可在 Enterprise 合約 (EA) 期間，隨時購買進階版升級 SKU [CWZ-00025]。 客戶在隔年續訂支援合約時，應該直接購買進階版支援 SKU [CWZ-00024]，而不是僅購買升級 SKU [CWZ-00025]。<br><br> |
+| **標準版至進階版**\*\*升級 <br></br> [CWZ- 00025] <br></br> *AzureStorSimple ShrdSvr ALNG SubsVL MVL Spprt- StepuptoPrem* <br><br><br><br><br><br><br><br><br>| 在購買 StorSimple 時，Microsoft Premier 支援合約涵蓋的客戶會自動免費升級至進階版 StorSimple 支援，這段期間，Premier 支援仍涵蓋這些客戶。  如果客戶之後獲得頂級支援，則可以透過 SSSupOps@microsoft.com 要求獲得免費的 StorSimple 支援升級。 <br></br>非 Premier 客戶若還在 Enterprise 合約 (EA) 期間，可隨時購買 StorSimple 標準版至進階版升級 SKU [CWZ-00025]。<br><br><br><br><br><br><br><br> | <ul><li> Microsoft Premier 支援合約所涵蓋的客戶可以購買標準版支援 SKU [CWZ-00023]，StorSimple 標準版支援合約將會在 Premier 支援涵蓋期間自動升級，且不收取額外費用。 <li> 如果客戶之後獲得頂級支援，則可以透過 SSSupOps@microsoft.com 要求獲得免費的 StorSimple 支援升級。 <li> StorSimple 標準版支援涵蓋的非 Premier 客戶可在 Enterprise 合約 (EA) 期間，隨時購買進階版升級 SKU [CWZ-00025]。 客戶在隔年續訂支援合約時，應該直接購買進階版支援 SKU [CWZ-00024]，而不是僅購買升級 SKU [CWZ-00025]。<br><br> |
 
 
 
 *<text> * 進階版涵蓋範圍並非在所有地區皆適用。購買 StorSimple 進階版支援之前，請先透過 SSSupOps@microsoft.com 連絡 Microsoft 以了解地理涵蓋範圍。*
 
-***StorSimple 設備必須部署在 Premier 支援所涵蓋的客戶所在地區，以便有資格免費升級至進階版 StorSimple 支援。*
+**\*StorSimple 設備必須部署在 Premier 支援所涵蓋的客戶所在地區，以便有資格免費升級至進階版 StorSimple 支援。*
 
 
 ASAP+ 客戶可以切換到包含標準版支援的訂閱模式。 如果針對訂用帳戶價格使用 StorSimple 定價計算機有任何問題，請連絡 SSSupOps@microsoft.com。 切換只是從 ASAP+ 到訂閱的一種方式。

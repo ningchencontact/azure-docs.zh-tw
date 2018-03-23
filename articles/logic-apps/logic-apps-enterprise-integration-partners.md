@@ -1,11 +1,11 @@
 ---
-title: "建立企業對企業 (B2B) 訊息的夥伴 - Azure Logic Apps | Microsoft Docs"
-description: "了解如何新增夥伴至您的整合帳戶，以搭配企業整合套件與 Logic Apps"
+title: 建立企業對企業 (B2B) 訊息的夥伴 - Azure Logic Apps | Microsoft Docs
+description: 了解如何新增夥伴至您的整合帳戶，以搭配企業整合套件與 Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89066ba062c2b243136a03a52144fd99ae87eddc
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 17f15c49e0f8137d5f11c57fa600588cda791c28
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>新增或更新工作流程中企業對企業協議中的夥伴
 

@@ -1,32 +1,31 @@
 ---
-title: "在 Azure 入口網站中多重要素驗證報告的參考 | Microsoft Docs"
-description: "在 Azure 入口網站中多重要素驗證報告的參考資訊"
+title: 在 Azure 入口網站中多重要素驗證報告的參考 | Microsoft Docs
+description: 在 Azure 入口網站中多重要素驗證報告的參考資訊
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 03/16/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cb4ef0e361cb3495a03e5a7ed49d9a84a54dbdc3
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: e92d1383f3179f03194b460e0467314c137fd9e2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="reference-for-multi-factor-authentication-reporting-in-the-azure-portal"></a>在 Azure 入口網站中多重要素驗證報告的參考
 
 透過 [Azure 入口網站](https://portal.azure.com)中的 [Azure Active Directory (Azure AD) 報告](active-directory-reporting-azure-portal.md)，您可以取得判斷您的環境執行狀況所需的資訊。
 
-
-            [登入活動報告](active-directory-reporting-activity-sign-ins.md)提供您受控應用程式使用方式和使用者登入活動的相關資訊，包括多重要素驗證 (MFA) 使用方式的相關資訊。 
+[登入活動報告](active-directory-reporting-activity-sign-ins.md)提供您受控應用程式使用方式和使用者登入活動的相關資訊，包括多重要素驗證 (MFA) 使用方式的相關資訊。 
 
 MFA 資料可讓您深入了解 MFA 如何在您的組織中運作。 它可讓您回答問題，例如： 
 
@@ -96,17 +95,9 @@ MFA 的登入活動報告可讓您存取下列資訊：
 
     - 因為在權杖中宣告而滿足 
 
-    - 因為在權杖中宣告而滿足 
-
-    - 因為在權杖中宣告而滿足 
-
-    - 因為在權杖中宣告而滿足 
-
     - 因為外部提供者提供的宣告而滿足 
 
     - 因為強式驗證而滿足 
-
-    - 因為運用的流程是 Windows 訊息代理程式登入流程而略過 
 
     - 因為運用的流程是 Windows 訊息代理程式登入流程而略過 
 

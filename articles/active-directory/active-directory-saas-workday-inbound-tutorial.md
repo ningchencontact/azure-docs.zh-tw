@@ -1,6 +1,6 @@
 ---
-title: "教學課程︰以 Azure Active Directory 設定 Workday 來自動佈建使用者 | Microsoft Docs"
-description: "了解如何使用 Workday 做為 Active Directory 和 Azure Active Directory 身分識別資料的來源。"
+title: 教學課程︰以 Azure Active Directory 設定 Workday 來自動佈建使用者 | Microsoft Docs
+description: 了解如何使用 Workday 做為 Active Directory 和 Azure Active Directory 身分識別資料的來源。
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程︰設定 Workday 來自動佈建使用者
 
@@ -249,7 +249,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
    * **系統管理員密碼 –** 輸入 Workday 整合系統帳戶的密碼
 
-   * **租用戶 URL –** 輸入租用戶 Workday Web 服務端點的 URL。 其應該類似於：https://wd3-impl-services1.workday.com/ccx/service/contoso4，其中請將 contoso4 取代為正確的租用戶名稱，並將 wd3-impl 取代為正確的環境字串。
+   * **租用戶 URL –** 輸入租用戶 Workday Web 服務端點的 URL。 這應該看起來像這樣：https://wd3-impl-services1.workday.com/ccx/service/contoso4，其中會以您的正確租用戶名稱取代 contoso4，以正確的環境字串取代 wd3-impl。
 
    * **Active Directory 樹系 -** Get-ADForest powershell commandlet 所傳回 Active Directory 樹系的「名稱」。 此字串通常類似於：*contoso.com*
 
@@ -426,8 +426,8 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 1. 開啟 **Services.msc**，並停止 **Microsoft Azure AD 連線佈建代理程式**服務。
 2. 移至代理程式安裝資料夾 (例如：C:\Program Files\Microsoft Azure AD Connect Provisioning Agent)。
 3. 在文字編輯器中開啟 **SyncAgnt.exe.config**。
-4. 以 **https://eu.manage.hub.syncfabric.windowsazure.com/Management** 取代 https://manage.hub.syncfabric.windowsazure.com/Management
-5. 以 **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning** 取代 https://provision.hub.syncfabric.windowsazure.com/Provisioning
+4. 將 https://manage.hub.syncfabric.windowsazure.com/Management 取代成 **https://eu.manage.hub.syncfabric.windowsazure.com/Management**
+5. 將 https://provision.hub.syncfabric.windowsazure.com/Provisioning 取代成 **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
 6. 儲存 **SyncAgnt.exe.config** 檔案。
 7. 開啟 **Services.msc**，並啟動 **Microsoft Azure AD 連線佈建代理程式**服務。
 
@@ -504,7 +504,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
    * **系統管理員密碼 –** 輸入 Workday 整合系統帳戶的密碼
 
-   * **租用戶 URL –** 輸入租用戶 Workday Web 服務端點的 URL。 其應該類似於：https://wd3-impl-services1.workday.com/ccx/service/contoso4，其中請將 contoso4 取代為正確的租用戶名稱，並將 wd3-impl 取代為正確的環境字串。 如果不知道此 URL，請與您的 Workday 整合夥伴或支援代表合作，來判斷要使用的正確 URL。
+   * **租用戶 URL –** 輸入租用戶 Workday Web 服務端點的 URL。 這應該看起來像這樣：https://wd3-impl-services1.workday.com/ccx/service/contoso4，其中會以您的正確租用戶名稱取代 contoso4，以正確的環境字串取代 wd3-impl。 如果不知道此 URL，請與您的 Workday 整合夥伴或支援代表合作，來判斷要使用的正確 URL。
 
    * **電子郵件通知 –** 輸入您的電子郵件地址，然後勾選 [發生失敗時傳送電子郵件] 核取方塊。
 
@@ -609,7 +609,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
    * **系統管理員密碼 –** 輸入 Workday 整合系統帳戶的密碼
 
-   * **租用戶 URL –** 輸入租用戶 Workday Web 服務端點的 URL。 其應該類似於：https://wd3-impl-services1.workday.com/ccx/service/contoso4，其中請將 contoso4 取代為正確的租用戶名稱，並將 wd3-impl 取代為正確的環境字串 (如有必要)。
+   * **租用戶 URL –** 輸入租用戶 Workday Web 服務端點的 URL。 這應該看起來像這樣：https://wd3-impl-services1.workday.com/ccx/service/contoso4，其中會以您的正確租用戶名稱取代 contoso4，以正確的環境字串取代 wd3-impl (如有必要)。
 
    * **電子郵件通知 –** 輸入您的電子郵件地址，然後勾選 [發生失敗時傳送電子郵件] 核取方塊。
 
@@ -768,12 +768,27 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
 
 * 已解決之前位於歐盟的 Azure AD 租用戶上並未出現稽核記錄的問題。 不過，位於歐盟的 Azure AD 租用戶需要進行其他代理程式設定。 欲知詳情，請參閱[第 3 部分：設定內部部署同步代理程式](#Part 3: Configure the on-premises synchronization agent)
 
+## <a name="gdpr-compliance"></a>GDPR 合規性
 
-## <a name="additional-resources"></a>其他資源
-* [教學課程：設定 Workday 與 Azure Active Directory 之間的單一登入](active-directory-saas-workday-tutorial.md)
-* [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+[一般資料保護規定 (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) 是歐盟 (EU) 所制定的資料保護和隱私權法律。 GDPR 會針對提供商品和服務給 EU 居民，或收集和分析 EU 居民相關資料的公司、政府機關、非營利組織及其他組織，強制施行規則。 
+
+Azure AD 佈建服務連同其餘 Microsoft 服務和功能都符合 GDPR 規範。 若要深入了解 Microsoft 的 GDPR 案例，請參閱[服務條款](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)。
+
+不過，由於適用於 Active Directory 的 Workday 佈建解決方案會要求在已加入網域的伺服器上安裝同步處理代理程式，因此您將必須監視一些事件，才能也保持符合 GDPR 規範。
+ 
+代理程式會在 **Windows 事件記錄檔**中建立記錄檔，其中可能包含個人識別資訊。
+
+有兩種方式可讓您保持符合 GDPR 規範：
+
+1. 在收到要求時，擷取使用者的資料，然後從 Windows 事件記錄檔中移除該使用者的資料。 
+2. 將來自 AADSyncAgent 處理序之 Windows 事件記錄檔的保留期維持在 48 小時以內
+
+如需有關如何設定 Windows 事件記錄檔之資料保留期的資訊，請參閱[事件記錄檔的設定](https://technet.microsoft.com/en-us/library/cc952132.aspx) \(英文\)。 如需有關 Windows 事件記錄檔的一般資訊，請參閱[這篇文章](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx)。
+
 
 ## <a name="next-steps"></a>後續步驟
 
 * [瞭解如何針對佈建活動檢閱記錄和取得報告](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
+* [了解如何設定 Workday 與 Azure Active Directory 之間的單一登入](active-directory-saas-workday-tutorial.md)
+* [了解如何將其他 SaaS 應用程式與 Azure Active Directory 整合](active-directory-saas-tutorial-list.md)
+

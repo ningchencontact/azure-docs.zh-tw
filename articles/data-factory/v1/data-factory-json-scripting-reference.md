@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory - JSON 指令碼參考 | Microsoft Docs"
-description: "提供 Data Factory 實體的 JSON 結構描述。"
+title: Azure Data Factory - JSON 指令碼參考 | Microsoft Docs
+description: 提供 Data Factory 實體的 JSON 結構描述。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -3325,8 +3325,8 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 #### <a name="sample-folder-path-definitions"></a>範例資料夾路徑定義 
 | 案例 | 連結服務定義中的主機 | 資料集定義中的 folderPath |
 | --- | --- | --- |
-| 資料管理閘道電腦上的本機資料夾︰ <br/><br/>範例：D:\\\* 或 D:\folder\subfolder\\* |D:\\\\ (適用於資料管理閘道 2.0 和更新版本) <br/><br/> localhost (適用於比資料管理閘道 2.0 更早的版本) |.\\\\ 或 folder\\\\subfolder (適用於資料管理閘道 2.0 和更新版本) <br/><br/>D:\\\\ 或 D:\\\\folder\\\\subfolder (適用低於閘道 2.0 的版本) |
-| 遠端共用資料夾︰ <br/><br/>範例︰\\\\myserver\\share\\\* 或 \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ 或 folder\\\\subfolder |
+| 資料管理閘道電腦上的本機資料夾︰ <br/><br/>範例：D:\\\* 或 D:\folder\subfolder\\\* |D:\\\\ (適用於資料管理閘道 2.0 和更新版本) <br/><br/> localhost (適用於比資料管理閘道 2.0 更早的版本) |.\\\\ 或 folder\\\\subfolder (適用於資料管理閘道 2.0 和更新版本) <br/><br/>D:\\\\ 或 D:\\\\folder\\\\subfolder (適用低於閘道 2.0 的版本) |
+| 遠端共用資料夾︰ <br/><br/>範例︰\\\\myserver\\share\\\* 或 \\\\myserver\\share\\folder\\subfolder\\\* |\\\\\\\\myserver\\\\share |.\\\\ 或 folder\\\\subfolder |
 
 
 #### <a name="example-using-username-and-password-in-plain-text"></a>範例：使用純文字的使用者名稱和密碼

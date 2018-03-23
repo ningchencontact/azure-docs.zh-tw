@@ -1,11 +1,11 @@
 ---
-title: "安裝應用程式 Proxy 代理程式連接器時遇到問題 | Microsoft Docs"
-description: "如何針對在安裝應用程式 Proxy 代理程式連接器時可能遇到的問題進行疑難排解"
+title: 安裝應用程式 Proxy 代理程式連接器時遇到問題 | Microsoft Docs
+description: 如何針對在安裝應用程式 Proxy 代理程式連接器時可能遇到的問題進行疑難排解
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>安裝應用程式 Proxy 代理程式連接器時遇到問題
 
@@ -37,11 +37,11 @@ Microsoft AAD 應用程式 Proxy 連接器是內部網域元件，它會使用�
 
 **目標：**確認連接器電腦可以連線到 AAD 應用程式 Proxy 註冊端點以及 Microsoft 登入頁面。
 
-1.  開啟瀏覽器並前往下列網頁：<https://aadap-portcheck.connectorporttest.msappproxy.net>，確認透過連接埠 80 和 443 與美國中部與美國東部資料中心的連線是正常的。
+1.  開啟瀏覽器並前往下列網頁：<https://aadap-portcheck.connectorporttest.msappproxy.net>，確認可透過連接埠 80 和 443 與美國中部與美國東部資料中心進行連線。
 
 2.  如果有任何連接埠未成功 (沒有綠色勾選記號)，請確認防火牆或後端 Proxy 是否已正確定義 \*.msappproxy.net 與連接埠 80 和 443。
 
-3.  開啟瀏覽器 (其他索引標籤)，並移至下列網頁：<https://login.microsoftonline.com>，確定您可以登入該頁面。
+3.  開啟瀏覽器 (個別索引標籤) 並前往下列網頁：<https://login.microsoftonline.com>，確定您可以登入該頁面。
 
 ## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>確認電腦和後端元件支援應用程式 Prxoy 信任憑證
 
@@ -64,7 +64,7 @@ Microsoft AAD 應用程式 Proxy 連接器是內部網域元件，它會使用�
 
 **確認認證是否正確：**
 
-連線到 <https://login.microsoftonline.com> 並使用相同的認證。 確定登入成功。 您可以檢查使用者角色，方法是移至 [Azure Active Directory] -&gt; [使用者和群組] -&gt; [所有使用者]。 
+連線至 <https://login.microsoftonline.com> 並使用相同的認證。 確定登入成功。 您可以檢查使用者角色，方法是移至 [Azure Active Directory] -&gt; [使用者和群組] -&gt; [所有使用者]。 
 
 選取您的使用者帳戶，然後在產生的功能表中選取 [目錄角色]。 確認所選取的角色為 [全域管理員]。 如果您無法存取這些步驟上的任何頁面，您就不是全域管理員。
 

@@ -1,12 +1,12 @@
 ---
-title: "如何在 Microsoft Azure 中使用 PerfInsights | Microsoft Docs"
-description: "了解如何使用 PerfInsights 針對 Windows VM 效能問題進行疑難排解。"
+title: 如何在 Microsoft Azure 中使用 PerfInsights | Microsoft Docs
+description: 了解如何使用 PerfInsights 針對 Windows VM 效能問題進行疑難排解。
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f15875610e2035c6f4c10c36e19c02f3e045b3ea
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: ee8334cbe9256b7a5ecd5e96afa2f15d6389afa8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="how-to-use-perfinsights"></a>如何使用 PerfInsights 
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) 是自動化指令碼，可收集有用的診斷資訊。 也會執行 I/O 壓力負載，並提供分析報告以協助針對 Azure 中的 Windows 虛擬機器效能問題進行疑難排解。 藉由安裝 [Azure 效能診斷 VM 擴充功能](performance-diagnostics-vm-extension.md)，您可以在虛擬機器上將它當作獨立指令碼執行，或直接從入口網站執行。
+[PerfInsights](http://aka.ms/perfinsightsdownload) \(英文\) 是一種自助診斷工具，此工具會收集和分析診斷資料，並提供報表來協助進行 Azure 中 Windows 虛擬機器效能問題的疑難排解。 您可以在虛擬機器上將 PerfInsights 當作獨立工具執行，或藉由安裝 [Azure 效能診斷 VM 擴充功能](performance-diagnostics-vm-extension.md)來從入口網站直接執行它。
 
-如果您遇到虛擬機器的效能問題，請在連絡支援人員之前，先執行這個指令碼。
+如果您遇到虛擬機器的效能問題，在連絡支援人員之前，請先執行這個工具。
 
 ## <a name="supported-troubleshooting-scenarios"></a>支援的疑難排解案例
 
@@ -42,8 +42,6 @@ PerfInsights 可以收集並分析多種資訊。 下列幾節會說明常見案
 
 -   目前正在系統上執行之所有應用程式的工作清單
 
--   虛擬機器的 msinfo32 所建立的資訊檔案
-
 -   Microsoft SQL Server 資料庫組態設定 (如果 VM 被識別為執行 SQL Server 的伺服器)
 
 -   儲存體可靠性計數器
@@ -55,7 +53,7 @@ PerfInsights 可以收集並分析多種資訊。 下列幾節會說明常見案
 這是被動的資訊集合，應該不會影響系統。 
 
 >[!Note]
->下列每一個案例都會自動包含此案例。
+>下列每一個案例都會自動包含此案例：
 
 ### <a name="benchmarking"></a>效能評定
 
@@ -67,15 +65,7 @@ PerfInsights 可以收集並分析多種資訊。 下列幾節會說明常見案
 
 ### <a name="slow-vm-analysis"></a>慢速虛擬機器分析 
 
-此案例會使用 Generalcounters.txt 檔案中指定的計數器來執行[效能計數器](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx)追蹤。 如果 VM 被識別為執行 SQL Server 的伺服器，它會執行效能計數器追蹤。 其使用在 Sqlcounters.txt 檔案中找到的計數器來達成，也包含效能診斷資料。
-
-### <a name="slow-vm-analysis-and-benchmarking"></a>慢速虛擬機器分析和效能評定
-
-此案例會執行[效能計數器](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx)追蹤，後面接著 [Diskspd](https://github.com/Microsoft/diskspd) 基準測試。 
-
-> [!Note]
-> 此案例會影響系統，所以不應該在實際的生產系統上執行。 如有必要，請在專用的維護視窗中執行此案例，以免發生任何問題。 因追蹤或基準測試所增加的工作負載，可能會對 VM 的效能造成負面影響。
->
+此案例會使用於 RuleEngineConfig.json 檔案中指定的計數器來執行[效能計數器](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) \(英文\) 追蹤。 如果將 VM 識別為執行 SQL Server 的伺服器，就會執行效能計數器追蹤。 它會使用可在 RuleEngineConfig.json 檔案中找到的計數器來執行此動作。 此案例也會包含效能診斷資料。
 
 ### <a name="azure-files-analysis"></a>Azure 檔案分析 
 
@@ -101,40 +91,40 @@ PerfInsights 可以收集並分析多種資訊。 下列幾節會說明常見案
 
 ### <a name="custom-slow-vm-analysis"></a>自訂慢速虛擬機器分析 
 
-當您執行自訂慢速 VM 分析時，您可選取要平行執行的追蹤。 您可以視需要全部執行 (效能計數器、Xperf、網路和 StorPort)。 如已選取，此工具會在完成追蹤之後，執行 Diskspd 基準測試。 
+當您執行自訂慢速 VM 分析時，您可選取要平行執行的追蹤。 您可以視需要全部執行 (效能計數器、Xperf、網路和 StorPort)。  
 
 > [!Note]
 > 此案例會影響系統，所以不應該在實際的生產系統上執行。 如有必要，請在專用的維護視窗中執行此案例，以免發生任何問題。 因追蹤或基準測試所增加的工作負載，可能會對 VM 的效能造成負面影響。
 >
 
-## <a name="what-kind-of-information-is-collected-by-the-script"></a>指令碼收集何種資訊？
+## <a name="what-kind-of-information-is-collected-by-perfinsights"></a>PerfInsights 收集何種資訊？
 
 收集的資訊包括 Windows VM、磁碟或儲存集區設定、效能計數器、記錄和各種追蹤。 這取決於您所使用的效能案例。 下表提供詳細資料：
 
 |收集的資料                              |  |  | 效能測試案例 |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | 收集基本組態 | 效能評定 | 慢速虛擬機器分析 | 慢速虛擬機器分析和效能評定 | Azure 檔案分析 | 自訂慢速虛擬機器分析 |
-| 來自事件記錄的資訊      | yes                        | yes                                | yes                      | yes                            | yes                  | yes                  |
-| 系統資訊               | yes                        | yes                                | yes                      | yes                            | yes                  | yes                  |
-| 磁碟區對應                       | yes                        | yes                                | yes                      | yes                            | yes                  | yes                  |
-| 磁碟對應                         | yes                        | yes                                | yes                      | yes                            | yes                  | yes                  |
-| 正在執行的工作                    | yes                        | yes                                | yes                      | yes                            | yes                  | yes                  |
-| 儲存體可靠性計數器     | yes                        | yes                                | yes                      | yes                            | yes                  | yes                  |
-| 儲存體資訊              | yes                        | yes                                | yes                      | yes                            | yes                  | yes                  |
-| Fsutil 輸出                    | yes                        | yes                                | yes                      | yes                            | yes                  | yes                  |
-| 篩選器驅動程式資訊               | yes                        | yes                                | yes                      | yes                            | yes                  | yes                  |
-| Netstat 輸出                   | yes                        | yes                                | yes                      | yes                            | yes                  | yes                  |
-| 網路組態            | yes                        | yes                                | yes                      | yes                            | yes                  | yes                  |
-| 防火牆設定           | yes                        | yes                                | yes                      | yes                            | yes                  | yes                  |
-| SQL Server 設定         | yes                        | yes                                | yes                      | yes                            | yes                  | yes                  |
-| 效能診斷追蹤 * | yes                        | yes                                | yes                      |                                | yes                  | yes                  |
-| 效能計數器追蹤 **     |                            |                                    |                          |                                |                      | yes                  |
-| SMB 計數器追蹤 **             |                            |                                    |                          |                                | yes                  |                      |
-| SQL Server 計數器追蹤 **      |                            |                                    |                          |                                |                      | yes                  |
-| XPerf 追蹤                      |                            |                                    |                          |                                |                      | yes                  |
-| StorPort 追蹤                   |                            |                                    |                          |                                |                      | yes                  |
-| 網路追蹤                    |                            |                                    |                          |                                | yes                  | yes                  |
-| Diskspd 基準追蹤 ***      |                            | yes                                |                          | yes                            |                      |                      |
+|                               | 收集基本組態 | 效能評定 | 慢速虛擬機器分析 | Azure 檔案分析 | 自訂慢速虛擬機器分析 |
+| 來自事件記錄的資訊       | yes                        | yes                                | yes                      | yes                  | yes                  |
+| 系統資訊                | yes                        | yes                                | yes                      | yes                  | yes                  |
+| 磁碟區對應                        | yes                        | yes                                | yes                      | yes                  | yes                  |
+| 磁碟對應                          | yes                        | yes                                | yes                      | yes                  | yes                  |
+| 正在執行的工作                     | yes                        | yes                                | yes                      | yes                  | yes                  |
+| 儲存體可靠性計數器      | yes                        | yes                                | yes                      | yes                  | yes                  |
+| 儲存體資訊               | yes                        | yes                                | yes                      | yes                  | yes                  |
+| Fsutil 輸出                     | yes                        | yes                                | yes                      | yes                  | yes                  |
+| 篩選器驅動程式資訊                | yes                        | yes                                | yes                      | yes                  | yes                  |
+| Netstat 輸出                    | yes                        | yes                                | yes                      | yes                  | yes                  |
+| 網路組態             | yes                        | yes                                | yes                      | yes                  | yes                  |
+| 防火牆設定            | yes                        | yes                                | yes                      | yes                  | yes                  |
+| SQL Server 設定          | yes                        | yes                                | yes                      | yes                  | yes                  |
+| 效能診斷追蹤 *  | yes                        | yes                                | yes                      | yes                  | yes                  |
+| 效能計數器追蹤 **      |                            |                                    | yes                      |                      | yes                  |
+| SMB 計數器追蹤 **              |                            |                                    |                          | yes                  |                      |
+| SQL Server 計數器追蹤 **       |                            |                                    | yes                      |                      | yes                  |
+| XPerf 追蹤                       |                            |                                    |                          |                      | yes                  |
+| StorPort 追蹤                    |                            |                                    |                          |                      | yes                  |
+| 網路追蹤                     |                            |                                    |                          | yes                  | yes                  |
+| Diskspd 基準追蹤 ***       |                            | yes                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>效能診斷追蹤 (*)
@@ -168,116 +158,87 @@ PerfInsights 可以收集並分析多種資訊。 下列幾節會說明常見案
 ### <a name="diskspd-benchmark-trace-"></a>Diskspd 基準追蹤 (***)
 Diskspd I/O 工作負載測試 (OS 磁碟 [寫入] 和集區磁碟 [讀取/寫入])
 
-## <a name="run-the-perfinsights-script-on-your-vm"></a>在 VM 上執行 PerfInsights 指令碼
+## <a name="run-the-perfinsights-tool-on-your-vm"></a>在 VM 上執行 PerfInsights 工具
 
-### <a name="what-do-i-have-to-know-before-i-run-the-script"></a>執行指令碼之前應該知道什麼？ 
+### <a name="what-do-i-have-to-know-before-i-run-the-tool"></a>執行此工具之前應該知道什麼？ 
 
-#### <a name="script-requirements"></a>指令碼需求
+#### <a name="tool-requirements"></a>工具需求
 
--  此指令碼必須在發生效能問題的 VM 上執行。 
+-  此工具必須在發生效能問題的 VM 上執行。 
 
 -  支援下列作業系統：Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2 和 Windows Server 2016；Windows 8.1 和 Windows 10。
 
-#### <a name="possible-problems-when-you-run-the-script-on-production-vms"></a>當您在生產 VM 上執行指令碼時可能發生的問題
+#### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>當您在生產 VM 上執行工具時可能發生的問題
 
--  對於設定為使用 Xperf 或 Diskspd 的任何基準案例或「自訂慢速虛擬機器分析」案例，指令碼可能會對虛擬機器效能產生不良的影響。 您不得在生產環境中執行這些案例。
+-  對於設定為使用 Xperf 或 Diskspd 的基準案例或「自訂慢速 VM 分析」案例，此工具可能會對 VM 效能產生不良的影響。 這些案例不應在生產環境中執行。
 
--  對於設定為使用 Diskspd 的任何基準案例或「自訂慢速虛擬機器分析」案例，請確定 I/O 工作負載不受其他背景活動干擾。
+-  對於設定為使用 Diskspd 的基準案例或「自訂慢速 VM 分析」案例，請確定 I/O 工作負載不受其他背景活動干擾。
 
--  根據預設，指令碼會使用暫存磁碟機收集資料。 如果追蹤長時間保持啟用，則收集的資料量會有所影響。 這會降低暫存磁碟的可用空間，從而影響依賴此磁碟機的任何應用程式。
+-  根據預設，工具會使用暫存磁碟機來收集資料。 如果追蹤長時間保持啟用，則收集的資料量會有所影響。 這會降低暫存磁碟的可用空間，從而影響依賴此磁碟機的任何應用程式。
 
 ### <a name="how-do-i-run-perfinsights"></a>如何執行 PerfInsights？ 
 
-藉由安裝 [Azure 效能診斷 VM 擴充功能](performance-diagnostics-vm-extension.md)，您可以在虛擬機器上執行 PerfInsights。 也可以將它當作獨立的指令碼執行。 
+藉由安裝 [Azure 效能診斷 VM 擴充功能](performance-diagnostics-vm-extension.md)，您可以在虛擬機器上執行 PerfInsights。 您也可以將它當作獨立的工具執行。 
 
 **從 Azure 入口網站安裝及執行 PerfInsights**
 
 如需此選項的詳細資訊，請參閱[安裝 Azure 效能診斷 VM 擴充功能](performance-diagnostics-vm-extension.md#install-the-extension)。  
 
-**在獨立模式中執行 PerfInsights 指令碼**
+**在獨立模式中執行 PerfInsights**
 
-若要執行 PerfInsights 指令碼，請遵循下列步驟：
+若要執行 PerfInsights 工具，請遵循下列步驟：
 
 
 1. 下載 [PerfInsights.zip](http://aka.ms/perfinsightsdownload)。
 
-2. 解除封鎖 PerfInsights.zip 檔案。 若要這樣做，請以滑鼠右鍵按一下 PerfInsights.zip 檔案，然後選取 [屬性]。 在 [一般] 索引標籤上，選取 [解除封鎖]，然後選取 [確定]。 如此可確保指令碼在執行時不會出現任何額外的安全性提示。  
+2. 解除封鎖 PerfInsights.zip 檔案。 若要這樣做，請以滑鼠右鍵按一下 PerfInsights.zip 檔案，然後選取 [屬性]。 在 [一般] 索引標籤上，選取 [解除封鎖]，然後選取 [確定]。 如此可確保工具執行時不會出現任何額外的安全性提示。  
 
     ![PerfInsights 屬性的螢幕擷取畫面 (已醒目提示 [解除封鎖])](media/how-to-use-perfInsights/unlock-file.png)
 
-3.  將 PerfInsights.zip 檔案解壓縮至暫存磁碟機 (根據預設，這通常為 D 磁碟機)。 壓縮的檔案應該包含下列檔案和資料夾：
+3.  將 PerfInsights.zip 檔案解壓縮至暫存磁碟機 (根據預設，這通常為 D 磁碟機)。 
 
-    ![zip 資料夾中的檔案螢幕擷取畫面](media/how-to-use-perfInsights/file-folder.png)
-
-4.  以系統管理員身分開啟 Windows PowerShell，然後執行 PerfInsights.ps1 指令碼。
+4.  以系統管理員身分開啟 Windows 命令提示字元，然後執行 PerfInsights.exe 來檢視可用的命令列參數。
 
     ```
-    cd <the path of PerfInsights folder >
-    Powershell.exe -ExecutionPolicy UnRestricted -NoProfile -File .\\PerfInsights.ps1
+    cd <the path of PerfInsights folder>
+    PerfInsights
     ```
-
-    您可能必須輸入 "y"，確認您想要變更執行原則。
-
-    在 [注意事項與同意] 對話方塊中，您可以選擇與 Microsoft 支援服務共用診斷資訊。 您也必須同意授權合約才能繼續。 確認選項後，選取 [執行指令碼]。
-
-    ![[注意事項與同意] 對話方塊的螢幕擷取畫面](media/how-to-use-perfInsights/disclaimer.png)
-
-5.  如可用，請在執行指令碼時，提交案例編號。 然後選取 [確定]。
+    ![PerfInsights 命令列輸出的螢幕擷取畫面](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
     
-    ![支援識別碼對話方塊的螢幕擷取畫面](media/how-to-use-perfInsights/enter-support-number.png)
+    執行 PerfInsights 案例的基本語法如下：
+    
+    ```
+    PerfInsights /run <ScenarioName> [AdditionalOptions]
+    ```
 
-6.  選取暫存磁碟機。 指令碼可以自動偵測磁碟機的磁碟機代號。 如果在這個階段發生任何問題，系統可能會提示您選取磁碟機 (預設磁碟機 D)。 產生的記錄會儲存在 log\_collection 資料夾。 在您輸入或接受磁碟機代號後，請選取 [確定]。
+    您可以使用下列範例來執行為時 5 分鐘的慢速 VM 案例：
+    
+    ```
+    PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
 
-    ![暫存磁碟機對話方塊的螢幕擷取畫面](media/how-to-use-perfInsights/enter-drive.png)
+    您可以使用下列範例來搭配 Xperf 和效能計數器追蹤執行為時 5 分鐘的自訂案例：
+    
+    ```
+    PerfInsights /run custom xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
 
-7.  從提供的清單中選取疑難排解案例。
+    您可以使用 **/list** 命令，來查詢所有可用的案例和選項：
+    
+    ```
+    PerfInsights /list
+    ```
 
-       ![疑難排解案例清單的螢幕擷取畫面](media/how-to-use-perfInsights/select-scenarios.png)
+    >[!Note]
+    >執行案例之前，PerfInsights 會提示使用者同意共用診斷資訊並同意 EULA。 使用 **/AcceptDisclaimerAndShareDiagnostics** 選項以略過這些提示。 
+    >
+    >如果您擁有 Microsoft 的作用中支援票證，並正在依照協助您之支援工程師的要求執行 PerfInsights，請務必使用 **/sr** 選項來提供支援票證號碼。
+    >
+    >根據預設，PerfInsights 會嘗試將自己更新為最新版本 (如果可以的話)。 使用 **/SkipAutoUpdate** 或 **/sau** 參數以略過自動更新。  
+    >
+    >如果未指定持續時間參數 **/d**，PerfInsights 會在您執行 vmslow、Azure 檔案和自訂案例時提示您重新產生問題。 
 
-您也可以執行 PerfInsights 不顯示 UI。 下列命令會執行「慢速虛擬機器分析」疑難排解案例 (不顯示 UI)。 它會提示您同意與步驟 4 中所述的相同免責聲明和授權條款。
-
-        powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
-
-如果您希望以無訊息模式執行 PerfInsights，請使用 **-AcceptDisclaimerAndShareDiagnostics** 參數。 例如，使用下列命令：
-
-        powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30 -AcceptDisclaimerAndShareDiagnostics"
-
-### <a name="how-do-i-troubleshoot-issues-while-running-the-script"></a>如何在執行指令碼時針對問題進行疑難排解？
-
-如果指令碼異常終止，您可以執行指令碼搭配 cleanup 參數，以回到一致狀態，如下所示：
-
-    powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -Cleanup"
-
-如果暫存磁碟機在自動偵測期間發生任何問題，系統可能會提示您選取磁碟機 (預設磁碟機 D)。
-
-![暫存磁碟機對話方塊的螢幕擷取畫面](media/how-to-use-perfInsights/enter-drive.png)
-
-指令碼會解除安裝公用程式工具，並移除暫存資料夾。
-
-### <a name="troubleshoot-other-script-issues"></a>針對其他指令碼問題進行疑難排解 
-
-如果在執行指令碼時發生任何問題，請按 Ctrl+C 中斷指令碼。 如果在嘗試幾次之後指令碼仍持續失敗，請在啟動時使用 "-Debug" 參數選項，在偵錯模式中執行指令碼。
-
-失敗發生之後，請複製完整的 PowerShell 主控台輸出，將它傳送給協助您疑難排解問題的 Microsoft 支援專員。
-
-### <a name="how-do-i-run-the-script-in-custom-slow-vm-analysis-mode"></a>如何在「自訂慢速虛擬機器分析」模式中執行指令碼？
-
-藉由選取 [自訂慢速虛擬機器分析]，您可以平行啟用數個追蹤 (以使用 Shift 鍵選取多項追蹤)：
-
-![案例清單的螢幕擷取畫面](media/how-to-use-perfInsights/select-scenario.png)
-
-當您選取效能計數器追蹤、XPerf 追蹤、網路追蹤或 Storport 追蹤案例時，請遵循後續對話方塊中的指示。 嘗試重現啟動追蹤之後的低效能問題。
-
-您可透過下列對話方塊啟動追蹤：
-
-![[啟動效能計數器追蹤] 對話方塊的螢幕擷取畫面](media/how-to-use-perfInsights/start-trace-message.png)
-
-若要停止追蹤，您必須確認第二個對話方塊中的命令。
-
-![[停止效能計數器追蹤] 對話方塊的螢幕擷取畫面](media/how-to-use-perfInsights/stop-trace-message.png)
-![[停止所有追蹤] 對話方塊的螢幕擷取畫面](media/how-to-use-perfInsights/ok-trace-message.png)
-
-當追蹤或作業都完成之後，D:\\log\_collection (或暫存磁碟機) 中會出現一個新檔案。 檔案名稱為 **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip。** 您可以將此檔案傳送給支援專員進行分析。
+當追蹤或作業都完成之後，D:\\log\_collection (或暫存磁碟機) 中會出現一個新檔案。 檔案名稱為 **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip。** 您可以將此檔案傳送給支援專員進行分析，或開啟 zip 檔案內的報表來檢閱結果和建議。
 
 ## <a name="review-the-diagnostics-report"></a>檢閱診斷報告
 

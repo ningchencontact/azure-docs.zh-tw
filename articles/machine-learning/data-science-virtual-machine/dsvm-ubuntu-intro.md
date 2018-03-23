@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 上佈建 Linux (Ubuntu) 資料科學虛擬機器 | Microsoft Docs"
-description: "在 Azure 上設定和建立 Linux (Ubuntu) 適用的資料科學虛擬機器以進行分析和機器學習服務。"
+title: 在 Azure 上佈建 Linux (Ubuntu) 資料科學虛擬機器 | Microsoft Docs
+description: 在 Azure 上設定和建立 Linux (Ubuntu) 適用的資料科學虛擬機器以進行分析和機器學習服務。
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 557eab702175b1741cdcde62045947f2c031fbcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
@@ -214,8 +214,8 @@ Python 3.5 安裝於 */anaconda/envs/py35/bin*上。
 
 若要安裝其他的 Python 程式庫，您需要在 sudo 底下執行 ```conda``` 或 ````pip```` 命令，並提供 Python 套件管理員的完整路徑 (conda 或 pip) 以安裝到正確的 Python 環境。 例如︰
 
-    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
 
 
 ### <a name="jupyter-notebook"></a>Jupyter 筆記本

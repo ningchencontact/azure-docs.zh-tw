@@ -1,24 +1,20 @@
 ---
-title: "開始使用 Azure 自動化 | Microsoft Docs"
-description: "本文提供 Azure 自動化服務的概觀。 它會檢閱為了讓供應項目在 Azure Marketplace 上架所準備的設計和實作詳細資料。"
+title: 開始使用 Azure 自動化
+description: 本文提供 Azure 自動化服務的概觀。 它會檢閱為了讓供應項目在 Azure Marketplace 上架所準備的設計和實作詳細資料。
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/31/2017
-ms.author: magoedte
-ms.openlocfilehash: d6ee5c35ce9866f6106c7b5dbc51599b666c3eb1
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: dab404178b45828732e137835213046cedaf0d03
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="get-started-with-azure-automation"></a>開始使用 Azure 自動化
 
@@ -71,13 +67,13 @@ Azure 自動化是軟體即服務 (SaaS) 應用程式，提供可擴充和可靠
 若要建立或更新自動化帳戶，以及完成本文中所述的工作，您必須具有下列權限：   
  
 * 若要建立自動化帳戶，必須將您的 Azure Active Directory (Azure AD) 使用者帳戶新增至權限相當於 **Microsoft.Automation** 資源「擁有者」角色的角色。 如需詳細資訊，請參閱 [Azure 自動化中的角色型存取控制](automation-role-based-access-control.md)。  
-* 在 Azure 入口網站的 [Azure Active Directory] > [管理] > [應用程式註冊] 下方，如果將 [應用程式註冊] 設為 [是]，則 Azure AD 租用戶中的非系統管理使用者就能[註冊 Active Directory 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions)。 如果將 [應用程式註冊] 設為 [否]，則執行此動作的使用者必須是 Azure AD 中的全域管理員。 
+* 在 Azure 入口網站的 [Azure Active Directory] > [管理] > [應用程式註冊] 下方，如果將 [應用程式註冊] 設為 [是]，則 Azure AD 租用戶中的非管理使用者就能[註冊 Active Directory 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions)。 如果將 [應用程式註冊] 設為 [否]，則執行此動作的使用者必須是 Azure AD 中的全域管理員。 
 
-若您在新增至訂用帳戶的全域管理員/共同管理員角色之前，並非訂用帳戶 Active Directory 執行個體的成員，系統會將您以來賓身分新增至 Active Directory。 在此案例中，您會在 [新增自動化帳戶] 頁面中看到此訊息：「您無權建立」。 
+若您在加入至訂用帳戶的全域管理員/共同管理員角色之前，並非訂用帳戶 Active Directory 執行個體的成員，系統會將您以來賓身分加入至 Active Directory。 在此案例中，您會在 [新增自動化帳戶] 頁面中看到此訊息：「您無權建立」。 
 
-如果先將使用者新增至全域管理員/共同管理員角色，您可以先從訂用帳戶的 Active Directory 執行個體中移除它們，然後將它們重新新增至 Active Directory 中完整的使用者角色。
+如果先將使用者加入至全域管理員/共同管理員角色，您可以從訂用帳戶的 Active Directory 執行個體中移除他們，然後將他們重新加入至 Active Directory 中的完整使用者角色。
 
-若要確認使用者角色：
+驗證使用者角色：
 1. 在 Azure 入口網站中，移至 [Azure Active Directory] 窗格。
 2. 選取 [使用者和群組]。
 3. 選取 [所有使用者]。 

@@ -1,12 +1,12 @@
 ---
-title: "在 Azure Functions 中使用 Proxy | Microsoft Docs"
-description: "如何使用 Azure Functions Proxy 的概觀"
+title: 在 Azure Functions 中使用 Proxy | Microsoft Docs
+description: 如何使用 Azure Functions Proxy 的概觀
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions Proxy
 
@@ -106,7 +106,7 @@ Proxy 的設定不需要是靜態。 您可以將它設定為使用來自原始�
 
 ## <a name="debugProxies"></a>針對 Proxy 進行疑難排解
 
-將旗標 `"debug":true` 新增至您 `proxy.json` 中的任何 proxy 即可啟用偵錯記錄。 記錄會儲存於 `D:\home\LogFiles\Application\Proxies\DetailedTrace`，且可透過進階工具 (kudu) 進行存取。 任何 HTTP 回應也都會包含具有 URL 的 `Proxy-Trace-Location` 標頭以存取記錄檔。
+將旗標 `"debug":true` 新增至您 `proxies.json` 中的任何 proxy 即可啟用偵錯記錄。 記錄會儲存於 `D:\home\LogFiles\Application\Proxies\DetailedTrace`，且可透過進階工具 (kudu) 進行存取。 任何 HTTP 回應也都會包含具有 URL 的 `Proxy-Trace-Location` 標頭以存取記錄檔。
 
 您可以新增設定為 `true` 的 `Proxy-Trace-Enabled` 標頭，以偵錯用戶端中的 Proxy。 這也會記錄檔案系統的追蹤，並在回應中傳回追蹤 URL 作為標頭。
 
@@ -114,7 +114,7 @@ Proxy 的設定不需要是靜態。 您可以將它設定為使用來自原始�
 
 基於安全性理由，建議您不要允許任何人呼叫您的服務以產生追蹤。 若沒有您的登入認證，它們就無法存取追蹤內容，但產生追蹤會耗用資源，並且會公開您在使用 Functions Proxy。
 
-將 `"debug":false` 新增至您 `proxy.json` 中的任何特定 Proxy 以完全停用追蹤。
+將 `"debug":false` 新增至您 `proxies.json` 中的任何特定 Proxy 以完全停用追蹤。
 
 ## <a name="advanced-configuration"></a>進階組態
 

@@ -1,23 +1,23 @@
 ---
-title: "Azure 資源提供者註冊錯誤 | Microsoft Docs"
-description: "描述如何解決 Azure 資源提供者註冊錯誤。"
+title: Azure 資源提供者註冊錯誤 | Microsoft Docs
+description: 描述如何解決 Azure 資源提供者註冊錯誤。
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d6a99917e732a3439a31cafa5608348694014054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303b3ae0ee7b4baeda974d2b3c62fefa0a68796f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>解決資源提供者註冊的錯誤
 
@@ -40,6 +40,8 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
+錯誤訊息應可提供給您支援的位置和 API 版本建議。 您可以將您的範本變更為其中一個建議的值。 Azure 入口網站或正在使用的命令列介面會自動註冊大部分的提供者；但並非全部。 如果您未曾使用特定的資源提供者，您可能需要註冊該提供者。
+
 ## <a name="cause"></a>原因
 
 您會因為下列三個原因其中一個而收到此錯誤︰
@@ -48,11 +50,7 @@ Message: The subscription is not registered to use namespace {resource-provider-
 1. 此資源類型不支援 API 版本
 1. 此資源類型不支援位置
 
-## <a name="solution"></a>解決方法
-
-錯誤訊息應可提供給您支援的位置和 API 版本建議。 您可以將您的範本變更為其中一個建議的值。 Azure 入口網站或正在使用的命令列介面會自動註冊大部分的提供者；但並非全部。 如果您未曾使用特定的資源提供者，您可能需要註冊該提供者。 您可以透過 PowerShell 或 Azure CLI，深入探索資源提供者。
-
-### <a name="solution-1"></a>解決方案 1
+## <a name="solution-1---powershell"></a>解決方案 1：PowerShell
 
 針對 PowerShell，請使用 **Get-AzureRmResourceProvider** 來查看您的註冊狀態。
 
@@ -78,9 +76,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
-### <a name="solution-2"></a>解決方案 2
-
-**Azure CLI**
+## <a name="solution-2---azure-cli"></a>解決方案 2：Azure CLI
 
 若要查看是否已註冊該提供者，請使用 `az provider list` 命令。
 
@@ -100,7 +96,7 @@ az provider register --namespace Microsoft.Cdn
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-### <a name="solution-3"></a>解決方案 3
+## <a name="solution-3---azure-portal"></a>解決方案 3：Azure 入口網站
 
 您可以看到註冊狀態，並透過入口網站註冊資源提供者命名空間。
 

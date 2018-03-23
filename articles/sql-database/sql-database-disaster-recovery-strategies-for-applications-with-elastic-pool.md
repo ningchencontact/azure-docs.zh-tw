@@ -1,8 +1,8 @@
 ---
-title: "設計災害復原解決方案 - Azure SQL Database | Microsoft Docs"
-description: "了解如何選擇正確的容錯移轉模式來設計災害復原的雲端解決方案。"
+title: 設計災害復原解決方案 - Azure SQL Database | Microsoft Docs
+description: 了解如何選擇正確的容錯移轉模式來設計災害復原的雲端解決方案。
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: anosov1960
 manager: jhubbard
 editor: monicar
@@ -12,15 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
+ms.workload: Inactive
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.workload: Inactive
-ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b2a8f897130c2bf21321366a727ce2e2ae9d1d99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>使用 SQL Database 彈性集區之應用程式的災害復原策略
 多年來，我們已了解雲端服務不是萬無一失的作法，災難性事件還是會發生。 SQL Database 提供許多功能，以在這些事件發生時提供應用程式的商務持續性。 [彈性集區](sql-database-elastic-pool.md)和單一資料庫支援相同類型的災害復原功能。 本文說明利用這些 SQL Database 商務持續性功能之彈性集區的數種 DR 策略。
@@ -30,6 +30,9 @@ ms.lasthandoff: 12/14/2017
 <i>現代化雲端型 Web 應用程式會為每位使用者佈建一個 SQL Database。ISV 有許多客戶，因此會使用多個資料庫 (稱為租用戶資料庫)。因為租用戶資料庫通常會有無法預測的活動模式，所以 ISV 會使用彈性集區，在一段時間之後，讓資料庫成本預測性變高。彈性集區也可在使用者活動尖峰時簡化效能管理。除了租用戶資料庫之外，應用程式也會使用數個資料庫來管理使用者設定檔、安全性、收集使用模式等。個別租用戶的可用性不會影響整個應用程式的可用性。不過，管理資料庫的可用性和效能對應用程式函數而言十分重要，而且，如果管理資料庫離線，整個應用程式也會離線。</i>  
 
 本文會討論涵蓋各種案例 (從成本導向創業應用程式以至具有嚴格可用性需求的應用程式) 的 DR 策略。
+
+> [!NOTE]
+> 如果您目前使用「進階」資料庫和集區，您可以將它們轉換成區域備援部署設定 (目前為預覽版) 來使它們具備區域中斷復原能力。 請參閱[區域備援資料庫](sql-database-high-availability.md)。
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>案例 1. 成本導向創業
 <i>我想要創業，而且成本極為有限。我想要簡化應用程式的部署和管理，而且我可以為個別客戶提供受限的 SLA。但是我想要確保整個應用程式絕不會離線。</i>

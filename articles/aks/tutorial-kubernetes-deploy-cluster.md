@@ -1,6 +1,6 @@
 ---
-title: "Azure 上的 Kubernetes 教學課程 - 部署叢集"
-description: "AKS 教學課程 - 部署叢集"
+title: Azure 上的 Kubernetes 教學課程 - 部署叢集
+description: AKS 教學課程 - 部署叢集
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d02229739e3f358e4a6510dfbb0585939e947f9c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6ea26a2d4214c41faa5d63b7c72667955a43d6a2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>部署 Azure Container Service (AKS) 叢集
 
@@ -96,7 +96,7 @@ CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --q
 取得 ACR 登錄資源識別碼。將登錄名稱更新為您的 ACR 登錄名稱，以及將資源群組更新為 ACR 登錄所在的資源群組。
 
 ```azurecli
-ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 建立角色指派，以授與適當的存取權。

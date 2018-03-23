@@ -1,18 +1,18 @@
 ---
-title: "移除伺服器與停用保護 | Microsoft Docs"
-description: "本文說明如何取消註冊 Site Recovery 保存庫中的伺服器，並停用虛擬機器和實體伺服器的保護。"
+title: 移除伺服器與停用保護 | Microsoft Docs
+description: 本文說明如何取消註冊 Site Recovery 保存庫中的伺服器，並停用虛擬機器和實體伺服器的保護。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: raynew
-ms.openlocfilehash: b26766ec26cc5afd82ec86c21e52d2737512fe8a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 16a5eaac1138d328f81cfa7d50f8705da867e352
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="remove-servers-and-disable-protection"></a>移除伺服器並停用保護
 
@@ -24,8 +24,8 @@ ms.lasthandoff: 02/09/2018
 如果您將 VMware VM 或 Windows/Linux 實體伺服器複寫到 Azure，您可以將未連線的組態伺服器從保存庫取消註冊，方法如下：
 
 1. [停用虛擬機器的保護](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)。
-2. [取消關聯](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy)並[刪除](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy)所有複寫原則
-3. [刪除組態伺服器](site-recovery-vmware-to-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
+2. [取消關聯或刪除](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy)複寫原則。
+3. [刪除組態伺服器](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
 
 ## <a name="unregister-a-vmm-server"></a>取消註冊 VMM 伺服器
 

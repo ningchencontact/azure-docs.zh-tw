@@ -1,29 +1,29 @@
 ---
-title: "使用 Azure 資訊安全中心保護個人資料 | Microsoft Docs"
-description: "使用 Azure 資訊安全中心保護個人資料"
+title: 使用 Azure 資訊安全中心保護個人資料 | Microsoft Docs
+description: 使用資訊安全中心保護個人資料。 這可能會在致力於符合一般資料保護規定 (GDPR) 時用到
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 3a941389713a4d3dbffbbfe8a717409927d85c6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 118752a030a1c300306aa3e05571bb9b624a2c20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-from-breaches-and-attacks-azure-security-center"></a>保護個人資料免受入侵和攻擊：Azure 資訊安全中心
 
-本文將協助您了解如何使用 Azure 資訊安全中心，來保護個人資料免受入侵和攻擊。
+本文將協助您了解如何使用 Azure 資訊安全中心，來保護個人資料免受入侵和攻擊。 在您致力於符合一般資料保護規定 (GDPR) 時，此處所含的資訊將可提供協助。
 
 ## <a name="scenario"></a>案例 
 

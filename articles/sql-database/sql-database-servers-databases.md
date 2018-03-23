@@ -1,55 +1,44 @@
 ---
-title: "建立和管理 Azure SQL Server 與 SQL Database | Microsoft Docs"
-description: "深入了解 Azure SQL Database 伺服器和資料庫的概念，以及關於建立和管理伺服器和資料庫。"
+title: 建立和管理 Azure SQL Server 與 SQL Database | Microsoft Docs
+description: 深入了解 Azure SQL Database 伺服器和資料庫的概念，以及關於建立和管理伺服器和資料庫。
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 469db4f3faf12cbd778f18b7bc74ec6b86b412c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 0e2dabc5cc0b816f2623fce5f8fb09a7004039c7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>建立和管理 Azure SQL Database 伺服器與資料庫
 
-Azure SQL Database 是在 Microsoft Azure 中在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md) 內建立的一種受控資料庫，且[針對不同工作負載定義好一組運算和儲存資源](sql-database-service-tiers.md)。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。 
+SQL Database 提供三種類型的資料庫：
 
-## <a name="an-azure-sql-database-can-be-a-single-pooled-or-partitioned-database"></a>Azure SQL Database 可以是單一、集區或分割的資料庫
+- 建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內的單一資料庫，此資源群組具有一組已定義的[計算和儲存體資源來用於不同工作負載](sql-database-service-tiers.md)。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。
+- 建立成 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內[資料庫集區](sql-database-elastic-pool.md)成員的資料庫，此資源群組具有一組已定義的[計算和儲存體資源來用於不同工作負載](sql-database-service-tiers.md)，這些工作負載為集區內的所有資料庫所共用。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。
+- 建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內的 [SQL Server 執行個體](sql-database-managed-instance.md)，此資源群組具有一組可供該伺服器執行個體上所有資料庫使用的已定義計算和儲存體資源。 受控執行個體同時包含系統和使用者資料庫。 「受控執行個體」的設計目的是要讓資料庫可原封不動轉移至完全受控的 PaaS，而不必重新設計應用程式。 「受控執行個體」針對內部部署 SQL Server 程式設計模型提供高相容性，並支援大多數 SQL Server 功能及隨附的工具與服務。  
 
-Azure SQL Database 可以是：
+Microsoft Azure SQL Database 支援表格式資料流 (TDS) 通訊協定用戶端 7.3 版或更新版本，且只允許使用加密的 TCP/IP 連線。
 
-- [單一資料庫](sql-database-single-database-resources.md)包含其自有資源集
-- [彈性集區](sql-database-elastic-pool.md)的一部分，共用一個資源集
-- [分區化資料庫向外延展集](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling)的一部分，可以是單一或集區資料庫
-- 參與[多租用戶 SaaS 設計模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)的資料庫集一部分，其資料庫可以是單一值或集區資料庫 (或兩者) 
-
-> [!TIP]
-> 如需有效的資料庫名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。 
->
- 
-- Microsoft Azure SQL Database 使用的預設資料庫定序是 **SQL_LATIN1_GENERAL_CP1_CI_AS**，其中 **LATIN1_GENERAL** 是英文 (美國)，**CP1** 是代碼頁 1252，**CI** 不區分大小寫，**AS** 區分重音。 如需如何設定定序的詳細資訊，請參閱＜ [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx)＞。
-- Microsoft Azure SQL Database 支援表格式資料流 (TDS) 通訊協定用戶端 7.3 版或更新版本。
-- 僅允許 TCP/IP 連線。
+> [!IMPORTANT]
+> 「SQL Database 受控執行個體」(目前為公開預覽版) 提供單一的「一般用途」服務層。 如需詳細資訊，請參閱 [SQL Database 受控執行個體](sql-database-managed-instance.md)。 本文的其餘部分不適用於「受控執行個體」。
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>什麼是 Azure SQL 邏輯伺服器？
 
-邏輯伺服器做為多個資料庫的中央管理點，包括[彈性集區](sql-database-elastic-pool.md)[登入](sql-database-manage-logins.md)、[防火牆規則](sql-database-firewall-configure.md)、[稽核規則](sql-database-auditing.md)、[威脅偵測原則](sql-database-threat-detection.md)和[容錯移轉群組](sql-database-geo-replication-overview.md)。 邏輯伺服器可以位於與其資源群組不同的區域中。 邏輯伺服器必須先存在，才能建立 Azure SQL Database。 伺服器上所有的資料庫都會在與邏輯伺服器相同的區域內建立。 
+邏輯伺服器可作為多個或單一[集區](sql-database-elastic-pool.md)資料庫、[登入](sql-database-manage-logins.md)、[防火牆規則](sql-database-firewall-configure.md)、[稽核規則](sql-database-auditing.md)、[威脅偵測原則](sql-database-threat-detection.md)及[容錯移轉群組](sql-database-geo-replication-overview.md)的中央管理點。 邏輯伺服器可以位於與其資源群組不同的區域中。 邏輯伺服器必須先存在，才能建立 Azure SQL Database。 伺服器上所有的資料庫都會在與邏輯伺服器相同的區域內建立。
 
-
-> [!IMPORTANT]
-> 在 SQL Database 中，伺服器是邏輯建構，不同於您可能已熟悉運用在內部部署世界中的 SQL Server 執行個體。 具體來說，SQL Database 服務對於其邏輯伺服器相關之資料庫位置不提供任何保證，且不公開任何執行個體層級存取權或功能。
-> 
+邏輯伺服器是一個邏輯建構，不同於您可能已熟悉運用在內部部署世界中的 SQL Server 執行個體。 具體來說，SQL Database 服務對於其邏輯伺服器相關之資料庫位置不提供任何保證，且不公開任何執行個體層級存取權或功能。 對比之下，「SQL Database 受控執行個體」中的伺服器則類似於您可能已熟悉運用在內部部署世界中的 SQL Server 執行個體。
 
 當您建立邏輯伺服器時，提供的伺服器登入帳戶和密碼必須擁有該伺服器上 master 資料庫的系統管理權限，以及在該伺服器上建立之所有資料庫的系統管理權限。 這個初始帳戶是 SQL 登入帳戶。 Azure SQL Database 支援 SQL 驗證和 Azure Active Directory 驗證來進行驗證。 如需登入和驗證的相關資訊，請參閱[管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)。 不支援 Windows 驗證。 
 
@@ -74,6 +63,7 @@ Azure 資料庫邏輯伺服器：
 - 內含資源上啟用功能的版本控制範圍 
 - 伺服器層級主體登入可以管理伺服器上的所有資料庫
 - 可以包含類似內部部署之 SQL Server 執行個體中的登入，其在伺服器上一或多個資料庫被授與存取，且可以授與有限的系統管理權限。 如需詳細資訊，請參閱[登入](sql-database-manage-logins.md)。
+- 在邏輯伺服器上建立之所有使用者資料庫的預設定序是 `SQL_LATIN1_GENERAL_CP1_CI_AS`，其中 `LATIN1_GENERAL` 是英文 (美國)、`CP1` 是字碼頁 1252、`CI` 是不區分大小寫，以及 `AS` 是區分腔調字。
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Azure SQL Database 受 SQL Database 防火牆保護
 
@@ -96,6 +86,8 @@ Azure 資料庫邏輯伺服器：
 > [!IMPORTANT]
 > 如需選取資料庫定價層的資訊，請參閱[服務層](sql-database-service-tiers.md)。
 >
+
+若要建立「受控執行個體」，請參閱[建立受控執行個體](sql-database-managed-instance-tutorial-portal.md)
 
 ### <a name="manage-an-existing-sql-server"></a>管理現有的 SQL Server
 
@@ -140,7 +132,7 @@ Azure 資料庫邏輯伺服器：
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>使用 Azure CLI 管理 Azure SQL 伺服器、資料庫和防火牆
 
-若要使用 [Azure CLI](/cli/azure/overview) 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 [Azure CLI SQL Database](/cli/azure/sql/db) 命令。 使用 [Cloud Shell](/azure/cloud-shell/overview) 在您的瀏覽器中執行 CLI，或在 macOS、Linux 或 Windows 中[安裝](/cli/azure/install-azure-cli)。 如需建立和管理彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
+若要使用 [Azure CLI](/cli/azure) 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 [Azure CLI SQL Database](/cli/azure/sql/db) 命令。 使用 [Cloud Shell](/azure/cloud-shell/overview) 在您的瀏覽器中執行 CLI，或在 macOS、Linux 或 Windows 中[安裝](/cli/azure/install-azure-cli)。 如需建立和管理彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
 
 | Cmdlet | 說明 |
 | --- | --- |
@@ -196,7 +188,7 @@ Azure 資料庫邏輯伺服器：
 
 
 > [!TIP]
-> 如需在 Microsoft Windows 上使用 SQL Server Management Studio 的快速入門教學課程，請參閱 [Azure SQL Database：使用 SQL Server Management Studio 連接及查詢資料](sql-database-connect-query-ssms.md)。 如需在 macOS、Linux 或 Windows 上使用 Visual Studio Code 的快速入門教學課程，請參閱 [Azure SQL Database：使用 Visual Studio Code 連接及查詢資料](sql-database-connect-query-vscode.md)。
+> 如需在 Microsoft Windows 上使用 SQL Server Management Studio 的快速入門教學課程，請參閱 [Azure SQL Database：使用 SQL Server Management Studio 連線及查詢資料](sql-database-connect-query-ssms.md)。 如需在 macOS、Linux 或 Windows 上使用 Visual Studio Code 的快速入門教學課程，請參閱 [Azure SQL Database：使用 Visual Studio Code 連線及查詢資料](sql-database-connect-query-vscode.md)。
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>使用 REST API 管理 Azure SQL 伺服器、資料庫和防火牆
 
@@ -226,7 +218,5 @@ Azure 資料庫邏輯伺服器：
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解使用彈性集區的共用資料庫，請參閱[彈性集區](sql-database-elastic-pool.md)。
-- 如需了解 Azure SQL Database 服務的相關資訊，請參閱[什麼是 SQL Database？](sql-database-technical-overview.md)。
 - 若要深入了解如何將 SQL Server 資料庫移轉至 Azure，請參閱[移轉至 Azure SQL Database](sql-database-cloud-migrate.md)。
 - 如需支援功能的相關資訊，請參閱「[功能](sql-database-features.md)」。

@@ -1,12 +1,12 @@
 ---
-title: "將 Windows 系統狀態備份至 Azure | Microsoft Docs"
-description: "了解如何將 Windows Server 和/或 Windows 電腦的系統狀態備份至 Azure。"
+title: 將 Windows 系統狀態備份至 Azure | Microsoft Docs
+description: 了解如何將 Windows Server 和/或 Windows 電腦的系統狀態備份至 Azure。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: carmonm
-editor: 
-keywords: "如何備份; 如何備份; 備份檔案和資料夾"
+editor: ''
+keywords: 如何備份; 如何備份; 備份檔案和資料夾
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: e7dce94e56a8b51dd1c47e306aeb1d11d0dfb45c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: df2565be7c543be061c3297f4d87aeae5eae4b8e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>在 Resource Manager 部署中備份 Windows 系統狀態
 本文說明如何將 Windows Server 的系統狀態備份至 Azure。 本文中的教學課程是要讓您逐步了解基本概念。
@@ -138,6 +138,8 @@ ms.lasthandoff: 02/21/2018
 > [!NOTE]
 > 保存庫認證只能儲存至您要使用代理程式的 Windows Server 的本機位置。 
 >
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="install-and-register-the-agent"></a>安裝和註冊代理程式
 

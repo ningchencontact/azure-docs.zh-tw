@@ -1,29 +1,29 @@
 ---
-title: "使用 Azure 身分識別和存取控制來保護個人資料 | Microsoft Docs"
-description: "使用 Azure 身分識別和存取控制來協助您保護您的個人資料"
+title: 使用 Azure 身分識別和存取控制來保護個人資料 | Microsoft Docs
+description: Azure 身分識別和存取控制可協助您保護個人資料，並且在符合一般資料保護規定 (GDPR) 時可能很有助益
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: ''
+ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory 和 Multi-factor Authentication：使用身分識別和存取控制來保護個人資料
 
-本文提供的資訊和程序，可供您使用 Azure Active Directory 和 Multi-factor Authentication 安全性功能和服務來保護個人資料。
+本文提供的資訊和程序，可供您使用 Azure Active Directory 和 Multi-factor Authentication 安全性功能和服務來保護個人資料。 本文中所包含的資訊在您致力於符合一般資料保護規定 (GDPR) 時可能很有助益。
 
 ## <a name="scenario"></a>案例
 

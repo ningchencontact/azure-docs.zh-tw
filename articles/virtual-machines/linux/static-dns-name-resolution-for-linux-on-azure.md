@@ -1,13 +1,13 @@
 ---
-title: "搭配 Azure CLI 2.0 使用內部 DNS 進行 VM 名稱解析 | Microsoft Docs"
-description: "如何搭配 Azure CLI 2.0 在 Azure 上建立虛擬網路介面卡並使用內部 DNS 進行 VM 名稱解析"
+title: 搭配 Azure CLI 2.0 使用內部 DNS 進行 VM 名稱解析 | Microsoft Docs
+description: 如何搭配 Azure CLI 2.0 在 Azure 上建立虛擬網路介面卡並使用內部 DNS 進行 VM 名稱解析
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: fd85ab12a552f83a407dfeeca7ee455dcf731989
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bb7234b6b046963a6b3a649cc521655b88cd9875
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>在 Azure 上建立虛擬網路介面卡並使用內部 DNS 進行 VM 名稱解析
 本文說明如何搭配 Azure CLI 2.0，使用虛擬網路介面卡 (VNic) 和 DNS 標籤名稱來設定 Linux VM 的靜態內部 DNS 名稱。 您也可以使用 [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 來執行這些步驟。 靜態 DNS 名稱是用於永久基礎結構服務，例如 Jenkins 組建伺服器，它用於這份文件或 Git 伺服器。
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/09/2018
 * [SSH 公開金鑰和私密金鑰檔案](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>快速命令
-如果您需要快速完成工作，接下來這一節將詳細說明所需的命令。 每個步驟的詳細資訊和內容可在文件其他地方找到，從[這裡](#detailed-walkthrough)開始。 若要執行這些步驟，您需要安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/#az_login) 來登入 Azure 帳戶。
+如果您需要快速完成工作，接下來這一節將詳細說明所需的命令。 每個步驟的詳細資訊和內容可在文件其他地方找到，從[這裡](#detailed-walkthrough)開始。 若要執行這些步驟，您需要安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。
 
 先決條件︰資源群組、虛擬網路與子網路、具有 SSH 輸入的網路安全性群組。
 
@@ -76,7 +76,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-the-virtual-network"></a>建立虛擬網路
 
-下一步是建置要在其中啟動 VM 的虛擬網路。 在本逐步解說中，此虛擬網路包含一個子網路。 如需有關 Azure 虛擬網路的詳細資訊，請參閱[使用 Azure CLI 建立虛擬網路](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
+下一步是建置要在其中啟動 VM 的虛擬網路。 在本逐步解說中，此虛擬網路包含一個子網路。 如需 Azure 虛擬網路的詳細資訊，請參閱[建立虛擬網路](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)。 
 
 使用 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) 建立虛擬網路。 下列範例會建立名為 `myVnet` 的虛擬網路和名為 `mySubnet` 的子網路：
 

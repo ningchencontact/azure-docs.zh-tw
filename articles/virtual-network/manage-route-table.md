@@ -1,13 +1,13 @@
 ---
-title: "建立、變更或刪除 Azure 路由表 | Microsoft Docs"
-description: "了解如何建立、變更或刪除路由表。"
+title: 建立、變更或刪除 Azure 路由表 | Microsoft Docs
+description: 了解如何建立、變更或刪除路由表。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7edc73f337a72c24fd24d94468ee590b75dfa7df
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>建立、變更或刪除路由表
 
-Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路之間的流量。 如果您想要變更任何 Azure 的預設路由，您可藉由建立路由表來執行此動作。 如果您不熟悉 Azure 路由，建議您先閱讀[路由概觀](virtual-networks-udr-overview.md)並完成[使用路由表路由傳送網路流量](create-user-defined-route-portal.md)教學課程，再完成這篇文章中的工作。
+Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路之間的流量。 如果您想要變更任何 Azure 的預設路由，您可藉由建立路由表來執行此動作。 如果您不熟悉 Azure 路由，建議您先閱讀[路由概觀](virtual-networks-udr-overview.md)並完成[使用路由表路由傳送網路流量](tutorial-create-route-table-portal.md)教學課程，再完成這篇文章中的工作。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -38,7 +38,7 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 
 每個 Azure 位置和訂用帳戶可以建立的路由表數目有所限制。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
-1. 在入口網站的左上角，選取 [+ 新增]。
+1. 在入口網站的左上角，選取 [+ 建立資源]。
 2. 選取 [網路]，然後選取 [路由表]。
 3. 輸入路由表的 [名稱]，選取您的 [訂用帳戶]，建立新的 [資源群組] 或選取現有的資源群組，選取 [位置]，然後選取 [建立]。 [停用 BGP 路由傳播] 選項可防止透過 BGP 將內部部署路由傳播至 Azure 虛擬網路。 如果虛擬網路並未連線至 Azure 網路閘道 (VPN 或 ExpressRoute)，請讓選項維持在 [已停用]。 
 

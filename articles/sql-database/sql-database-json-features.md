@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL Database JSON 功能 | Microsoft Docs"
-description: "Azure SQL Database 可讓您剖析、查詢及格式化採用「JavaScript 物件標記法」(JSON) 的資料。"
+title: Azure SQL Database JSON 功能 | Microsoft Docs
+description: Azure SQL Database 可讓您剖析、查詢及格式化採用「JavaScript 物件標記法」(JSON) 的資料。
 services: sql-database
-documentationcenter: 
 author: jovanpop-msft
-manager: jhubbard
-editor: 
-ms.assetid: 55860105-2f5f-4b10-87a0-99faa32b5653
+manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.devlang: NA
 ms.date: 11/15/2016
 ms.author: jovanpop
-ms.workload: On Demand
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 8877b0bb779501df003ce11d66d9625c2f99e9ce
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 353a1cc99f122c773f0a005a20f04391236ad913
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>開始使用 Azure SQL Database 中的 JSON 功能
 Azure SQL Database 可讓您剖析及查詢以「JavaScript 物件標記法」 [(JSON)](http://www.json.org/) 格式表示的資料，然後將您的關聯式資料匯出成 JSON 文字。

@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 中的宣告對應 (公開預覽) | Microsoft Docs"
-description: "此頁面說明 Azure Active Directory 宣告對應。"
+title: Azure Active Directory 中的宣告對應 (公開預覽) | Microsoft Docs
+description: 此頁面說明 Azure Active Directory 宣告對應。
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory 中的宣告對應 (公開預覽)
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/11/2018
 - 選擇或變更特定宣告中所發出的資料來源。
 
 >[!NOTE]
->這項功能目前為公開預覽版。 您應做好將任何變更還原或移除的準備。 公用預覽版期間功能可用於任何 Azure Active Directory (Azure AD) 訂用帳戶。 不過，當功能正式推出時，功能的某些層面可能需要 Azure Active Directory Premium 訂用帳戶。
+>這項功能目前為公開預覽版。 您應做好將任何變更還原或移除的準備。 公用預覽版期間功能可用於任何 Azure Active Directory (Azure AD) 訂用帳戶。 不過，當功能正式推出時，功能的某些層面可能需要 Azure Active Directory Premium 訂用帳戶。 此功能支援為 WS-Fed、SAML、OAuth 及 OpenID Connect 通訊協定設定宣告對應原則。
 
 ## <a name="claims-mapping-policy-type"></a>宣告對應原則類型
 在 Azure AD 中，**原則**物件代表個別應用程式或組織中的所有應用程式上強制執行的一組規則。 每個類型的原則都具有包含一組屬性的獨特結構，這些屬性會接著套用至它們已被指派的物件。

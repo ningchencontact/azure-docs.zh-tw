@@ -1,25 +1,19 @@
 ---
-title: "監視 XTP 記憶體內儲存體 | Microsoft Docs"
-description: "估計和監視 XTP 記憶體內儲存體使用量、容量；解決容量錯誤 41823"
+title: 監視 XTP 記憶體內儲存體 | Microsoft Docs
+description: 估計和監視 XTP 記憶體內儲存體使用量、容量；解決容量錯誤 41823
 services: sql-database
-documentationcenter: 
 author: jodebrui
-manager: jhubbard
-editor: 
-ms.assetid: b617308e-692c-4938-8fa2-070034a3ecef
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: 1e7088e80cc86e3c7cf8ae8ea180d797de613e71
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c1adc6e98f7d101a6e5f3227f44b0035d9b9d157
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>監視記憶體內部 OLTP 儲存體
 使用 [記憶體內部 OLTP](sql-database-in-memory.md)時，記憶體最佳化資料表中的資料和資料表變數位於記憶體內部 OLTP 儲存體中。 每個進階服務層都有最大的記憶體內部 OLTP 儲存體大小，如[單一資料庫資源限制](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels)與[彈性集區資源限制](sql-database-resource-limits.md#elastic-pool-change-storage-size)所說明。 一旦超過此限制，插入和更新作業就可能會開始失敗，並出現錯誤 41823 (適用於獨立資料庫) 和錯誤 41840 (適用於彈性集區)。 屆時您需要將資料刪除以回收記憶體，或將資料庫的效能層級升級。

@@ -1,26 +1,20 @@
 ---
-title: "多租用戶 SaaS 模式 - Azure SQL Database | Microsoft Docs"
-description: "了解在 Azure 雲端環境中執行之多租用戶軟體即服務 (SaaS) 資料庫應用程式的需求和通用資料架構模式。"
+title: 多租用戶 SaaS 模式 - Azure SQL Database | Microsoft Docs
+description: 了解在 Azure 雲端環境中執行之多租用戶軟體即服務 (SaaS) 資料庫應用程式的需求和通用資料架構模式。
 keywords: SQL Database Azure
 services: sql-database
-documentationcenter: 
 author: billgib
 manager: craigg
-editor: MightyPen,srinia
-ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ac4eceb2265850b18682b38141f24b18ca0f9b4b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>多租用戶 SaaS 資料庫租用模式
 

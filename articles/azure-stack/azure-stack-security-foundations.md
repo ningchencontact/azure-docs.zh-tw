@@ -1,24 +1,24 @@
 ---
-title: "了解 Azure Stack 安全性控制措施 | Microsoft Docs"
-description: "身為服務管理員，您應了解適用於 Azure Stack 的安全性控制措施"
+title: 了解 Azure Stack 安全性控制措施 | Microsoft Docs
+description: 身為服務管理員，您應了解適用於 Azure Stack 的安全性控制措施
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c1d92f8f2ed9e8ab504afc65bab861e1f7bb3689
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基礎結構安全性狀態
 
@@ -31,8 +31,12 @@ ms.lasthandoff: 03/02/2018
 ## <a name="security-approach"></a>安全性方法
 Azure Stack 的安全性狀態是針對防禦新式威脅而設計的，且建置方式符合主要規範標準的需求。 因此，Azure Stack 基礎結構的安全性狀態是建立在兩個主要前提上：
 
- - **假想缺口。** 從假設系統已經被入侵的情況出發，將焦點放在「偵測及限制缺口影響」與僅嘗試防止攻擊之比較。 
- - **預設強化。**  因為基礎結構會在定義完善的硬體和軟體上執行，所以會針對留給客戶實作的安全性功能進行「啟用、設定及驗證」。
+ - **假想缺口。**  
+從假設系統已經被入侵的情況出發，將焦點放在「偵測及限制缺口影響」與僅嘗試防止攻擊之比較。 
+ - **預設強化。**  
+因為基礎結構會在定義完善的硬體和軟體上執行，所以我們預設會「啟用、設定及驗證所有安全性功能」。
+
+
 
 由於 Microsoft 是以整合系統的形式提供 Azure Stack，因此會由 Microsoft 定義 Azure Stack 基礎結構的安全性狀態。 就像在 Azure 中一樣，租用戶需負責定義其租用戶工作負載的安全性狀態。 本文件提供有關 Azure Stack 基礎結構之安全性狀態的基礎知識。
 

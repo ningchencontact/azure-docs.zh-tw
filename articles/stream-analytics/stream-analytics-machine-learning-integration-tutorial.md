@@ -1,10 +1,10 @@
 ---
-title: "Azure 串流分析和 Azure Machine Learning 整合 | Microsoft Docs"
-description: "如何在串流分析工作中使用使用者定義的函數和機器學習服務"
-keywords: 
-documentationcenter: 
+title: Azure 串流分析和 Azure Machine Learning 整合 | Microsoft Docs
+description: 如何在串流分析工作中使用使用者定義的函數和機器學習服務
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/06/2017
-ms.author: samacha
-ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/01/2018
+ms.author: sngun
+ms.openlocfilehash: 10d514aeb50dcd24f28ed879875b23b25578cebb
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>使用 Azure 串流分析和 Azure Machine Learning 執行情感分析
 本文說明如何快速設定簡單的 Azure 串流分析工作與 Azure Machine Learning 整合。 您要使用 Cortana 智慧資源庫的機器學習服務情感分析模型，來分析串流文字資料並即時判斷情感分數。 使用 Cortana Intelligence Suite 可讓您完成這項工作，而不需擔心建立情感分析模型的複雜性。
@@ -57,9 +57,7 @@ ms.lasthandoff: 02/21/2018
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>建立儲存體容器並上傳 CSV 輸入檔
 在此步驟中，您可以使用任何 CSV 檔案，例如從 GitHub 取得的檔案。
 
-1. 在 Azure 入口網站中，按一下 [建立資源]&gt;[儲存體]&gt;[儲存體帳戶]。
-
-   ![建立新的儲存體帳戶](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
+1. 在 Azure 入口網站中，按一下 [建立資源] > [儲存體] > [儲存體帳戶]。
 
 2. 提供名稱 (在範例中為 `samldemo`)。 名稱只能使用小寫字母和數字，而且在整個 Azure 中必須是唯一的。 
 
@@ -81,9 +79,7 @@ ms.lasthandoff: 02/21/2018
 
     ![容器的 [上傳] 按鈕](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
-8. 在 [上傳 Blob] 刀鋒視窗中，指定您在此教學課程想要使用的 CSV 檔案。 對於 [Blob 類型]，選取 [區塊 Blob]，將區塊大小設為 4 MB，這對本教學課程已經足夠。
-
-    ![上傳 Blob 檔案](./media/stream-analytics-machine-learning-integration-tutorial/create-sa4.png)
+8. 在 [上傳 Blob] 刀鋒視窗中，上傳您稍早下載的 **sampleinput.csv** 檔案。 對於 [Blob 類型]，選取 [區塊 Blob]，將區塊大小設為 4 MB，這對本教學課程已經足夠。
 
 9. 按一下刀鋒視窗底部的 [上傳] 按鈕。
 
@@ -130,8 +126,6 @@ ms.lasthandoff: 02/21/2018
 
 2. 按一下 [建立資源] > [物聯網] > [串流分析作業]。 
 
-   ![使用新串流分析工作的 Azure 入口網站路徑](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
-   
 3. 命名工作 `azure-sa-ml-demo`、指定訂用帳戶、指定現有的資源群組或建立一個新的資源群組，並選取工作的位置。
 
    ![指定新串流分析工作的設定](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
@@ -140,46 +134,43 @@ ms.lasthandoff: 02/21/2018
 ### <a name="configure-the-job-input"></a>設定工作輸入
 工作會從您稍早上傳到 Blob 儲存體的 CSV 檔案取得輸入。
 
-1. 工作建立之後，請在工作刀鋒視窗的 [工作拓撲] 下，按一下 [輸入] 方塊。  
+1. 作業建立之後，在作業刀鋒視窗的 [作業拓撲] 下，按一下 [輸入] 選項。    
+
+2. 在 [輸入] 刀鋒視窗中，按一下 [新增資料流輸入] >[Blob 儲存體]。
+
+3. 使用下列值填寫 [Blob 儲存體] 刀鋒視窗：
+
    
-   ![在串流分析工作刀鋒視窗中的 [輸入] 方塊](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input.png)  
+   |欄位  |值  |
+   |---------|---------|
+   |**輸入別名** | 使用名稱 `datainput`，並選取 [從您的訂用帳戶選取 Blob 儲存體]       |
+   |**儲存體帳戶**  |  選取您稍早建立的儲存體帳戶。  |
+   |**容器**  | 選取您稍早建立的容器 (`azuresamldemoblob`)        |
+   |**事件序列化格式**  |  選取 [CSV]       |
 
-2. 在 [輸入] 刀鋒視窗中，按一下 [+ 新增]。
+   ![新工作輸入的設定](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-   ![將輸入新增至串流分析工作的 [新增] 按鈕](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input-button.png)  
-
-3. 使用下列值填寫 [新的輸入] 刀鋒視窗：
-
-    * **輸入別名**：使用名稱 `datainput`。
-    * **來源類型**：選取 [資料流]。
-    * **來源**：選取 [Blob 儲存體]。
-    * **匯入選項**：選取 [從目前的訂用帳戶使用 Blob 儲存體]。 
-    * **儲存體帳戶**。 選取您稍早建立的儲存體帳戶。
-    * **容器**。 選取您稍早建立的容器 (`azuresamldemoblob`)。
-    * **事件序列化格式**。 選取 [CSV]。
-
-    ![新工作輸入的設定](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
-
-4. 按一下頁面底部的 [新增] 。
+4. 按一下 [檔案] 。
 
 ### <a name="configure-the-job-output"></a>設定工作輸出
 工作會將結果傳送至取得輸入的相同 Blob 儲存體。 
 
-1. 在工作刀鋒視窗的 [工作拓撲] 下，按一下 [輸出] 方塊。  
-  
-   ![建立串流分析作業的新輸出](./media/stream-analytics-machine-learning-integration-tutorial/create-output.png)  
+1. 在作業刀鋒視窗的 [作業拓撲] 下，按一下 [輸出] 選項。  
 
-2. 在 [輸出] 刀鋒視窗中，按一下 [+ 新增]，然後使用別名 `datamloutput` 新增輸出。 
+2. 在 [輸出] 刀鋒視窗中，按一下 [新增] >[Blob 儲存體]，然後使用別名 `datamloutput` 新增輸出。 
 
-3. 對於 [接收器]，選取 [Blob 儲存體]。 然後使用與您用於 Blob 儲存體之輸入相同的值填入輸出設定的其餘部分：
+3. 使用下列值填寫 [Blob 儲存體] 刀鋒視窗：
 
-    * **儲存體帳戶**。 選取您稍早建立的儲存體帳戶。
-    * **容器**。 選取您稍早建立的容器 (`azuresamldemoblob`)。
-    * **事件序列化格式**。 選取 [CSV]。
+   |欄位  |值  |
+   |---------|---------|
+   |**輸出別名** | 使用名稱 `datainput`，並選取 [從您的訂用帳戶選取 Blob 儲存體]       |
+   |**儲存體帳戶**  |  選取您稍早建立的儲存體帳戶。  |
+   |**容器**  | 選取您稍早建立的容器 (`azuresamldemoblob`)        |
+   |**事件序列化格式**  |  選取 [CSV]       |
 
    ![新工作輸出的設定](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
 
-4. 按一下頁面底部的 [新增] 。   
+4. 按一下 [檔案] 。   
 
 
 ### <a name="add-the-machine-learning-function"></a>新增機器學習服務函數 
@@ -189,22 +180,19 @@ ms.lasthandoff: 02/21/2018
 
 1. 請確定您有稍早下載的 Web 服務 URL 和 API 金鑰 (在 Excel 活頁簿中)。
 
-2. 回到工作概觀刀鋒視窗。
+2. 瀏覽至您的作業刀鋒視窗 > [函式] > [+ 新增] > [AzureML]
 
-3. 在 [設定] 下，選取 [函數]，然後按一下 [+ 新增]。
+3. 使用下列值填寫 [Azure Machine Learning 函式] 刀鋒視窗：
 
-   ![將函數新增至串流分析工作](./media/stream-analytics-machine-learning-integration-tutorial/create-function1.png) 
-
-4. 輸入 `sentiment` 作為函數別名，並使用下列值填入刀鋒視窗的其餘部分：
-
-    * **函數類型**：選取 [Azure ML]。
-    * **匯入選項**：選取 [從不同的訂用帳戶匯入]。 這可讓您有機會輸入 URL 和金鑰。
-    * **URL**：貼上 Web 服務 URL。
-    * **金鑰**：貼上 API 金鑰。
+   |欄位  |值  |
+   |---------|---------|
+   | **函式別名** | 使用名稱 `sentiment` 並選取 [手動提供 Azure Machine Learning 函式設定]，讓您能夠選擇輸入 URL 和金鑰。      |
+   | **URL**| 貼上 Web 服務 URL。|
+   |**金鑰** | 貼上 API 金鑰。 |
   
-    ![將機器學習服務函數新增至串流分析工作的設定](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![將機器學習服務函數新增至串流分析工作的設定](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
-5. 按一下頁面底部的 [新增] 。
+4. 按一下 [檔案] 。
 
 ### <a name="create-a-query-to-transform-the-data"></a>建立查詢來轉換資料
 
@@ -213,8 +201,6 @@ ms.lasthandoff: 02/21/2018
 1. 回到工作概觀刀鋒視窗。
 
 2.  在 [工作拓撲] 下，按一下 [查詢] 方塊。
-
-    ![建立串流分析工作的查詢](./media/stream-analytics-machine-learning-integration-tutorial/create-query.png)  
 
 3. 輸入下列查詢：
 
@@ -241,8 +227,6 @@ ms.lasthandoff: 02/21/2018
 1. 回到工作概觀刀鋒視窗。
 
 2. 按一下刀鋒視窗頂端的 [啟動]。
-
-    ![建立串流分析工作的查詢](./media/stream-analytics-machine-learning-integration-tutorial/start-job.png)  
 
 3. 在 [啟動工作] 中，選取 [自訂]，然後選取您將 CSV 檔上傳至 Blob 儲存體的前一天。 完成後，按一下 [啟動]。  
 

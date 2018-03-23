@@ -1,8 +1,8 @@
 ---
-title: "什麼是 Azure Active Directory 中的存取面板？ | Microsoft Docs"
-description: "了解如何使用各種存取面板 (網頁瀏覽器、Android 應用程式、iPhone 和 iPad 應用程式) 存取 SaaS 應用程式。"
+title: 什麼是 Azure Active Directory 中的存取面板？ | Microsoft Docs
+description: 了解如何使用各種存取面板 (網頁瀏覽器、Android 應用程式、iPhone 和 iPad 應用程式) 存取 SaaS 應用程式。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9069cb0b46ddc1155c64bd63a7fcd8a685abbad
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-access-panel"></a>什麼是存取面板？
 
@@ -67,6 +67,9 @@ ms.lasthandoff: 01/29/2018
 ## <a name="web-browser-requirements"></a>網頁瀏覽器需求
 
 存取面板至少需要有支援 JavaScript 且啟用 CSS 的瀏覽器。 若要透過密碼型單一登入 (SSO) 登入應用程式，您必須在瀏覽器中安裝存取面板擴充功能。 當您選取已設定密碼型 SSO 的應用程式時，系統就會自動下載此擴充功能。
+
+安裝程式是架構特定的。 如果您按一下下載連結，將只會取得適用於您目前執行之 OS 架構的安裝程式。 如果您是應用程式部署管理員，請務必從 64 位元和 32 位元裝置瀏覽下載連結，以取得這兩種安裝程式。
+
 
 存取面板延伸模組是目前可用於：
 - **Edge**：在 Windows 10 Anniversary Edition 或更新版本上。 

@@ -1,25 +1,19 @@
 ---
-title: "安裝彈性資料庫工作 | Microsoft Docs"
-description: "逐步解說如何安裝彈性工作功能。"
+title: 安裝彈性資料庫工作 | Microsoft Docs
+description: 逐步解說如何安裝彈性工作功能。
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: ddove
-editor: 
-ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: 7e5258e0ccb88c8e2f3fe3277f69444ae5424cd0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>安裝彈性資料庫工作概觀
 您可以經由 PowerShell 或透過 Azure 入口網站安裝[**彈性資料庫工作**](sql-database-elastic-jobs-overview.md)。只有在安裝 PowerShell 套件的情況下，您才能取得可使用 PowerShell API 來建立和管理工作的存取權。 此外，PowerShell API 目前比入口網站提供更多的功能。

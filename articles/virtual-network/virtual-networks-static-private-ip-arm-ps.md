@@ -1,6 +1,6 @@
 ---
-title: "設定 VM 的私人 IP 位址 - Azure PowerShell | Microsoft Docs"
-description: "了解如何使用 PowerShell 設定虛擬機器的私人 IP 位址。"
+title: 設定 VM 的私人 IP 位址 - Azure PowerShell | Microsoft Docs
+description: 了解如何使用 PowerShell 設定虛擬機器的私人 IP 位址。
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2810190897c44c944912ef3325b1f40479aa3078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8727318c9dff79b795b473caf7b778272134726c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>使用 PowerShell 設定虛擬機器的私人 IP 位址
 
@@ -32,7 +32,7 @@ Azure 有兩個部署模型：Azure Resource Manager 和傳統。 Microsoft 建�
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-以下的範例 PowerShell 命令會預期已根據上述案例建立簡單的環境。 如果您想要執行如本文件中所顯示的命令，請先建置 [建立 vnet](virtual-networks-create-vnet-arm-ps.md)中所說明的測試環境。
+以下的範例 PowerShell 命令會預期已根據上述案例建立簡單的環境。 如果您想要執行如本文件中所示的命令，請先建置[建立虛擬網路](quick-create-powershell.md)中所述的測試環境。
 
 ## <a name="create-a-vm-with-a-static-private-ip-address"></a>建立具有靜態私人 IP 位址的 VM
 若要在名為 TestVNet 之 VNet 的FrontEnd子網路中建立名為 DNS01 且其靜態私人 IP 為 192.168.1.101 的 VM，請遵循下列步驟：

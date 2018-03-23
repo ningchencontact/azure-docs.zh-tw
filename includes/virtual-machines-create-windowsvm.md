@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: d4075f644ed1ce42479e35544f0e1442488f78eb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/16/2018
+---
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 從左上角開始，按一下 [建立資源] > **[計算]** > [Windows Server 2016 Datacenter]。

@@ -1,8 +1,8 @@
 ---
-title: "Microsoft Authenticator 應用程式說明與支援 | Microsoft Docs"
-description: "提供關於 Microsoft 驗證應用程式與 Azure Multi-Factor Authentication 的常見問題與答案清單。"
+title: Microsoft Authenticator 應用程式說明與支援 | Microsoft Docs
+description: 提供關於 Microsoft 驗證應用程式與 Azure Multi-Factor Authentication 的常見問題與答案清單。
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: barlan
+ms.date: 03/08/2018
+ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: aa3c6bb9196a17ae41c05458533f73f3ec315bd8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 應用程式常見問題集
 
@@ -28,6 +28,14 @@ ms.lasthandoff: 01/29/2018
 Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式，當您使用 Azure Multi-Factor Authentication 時，建議使用此應用程式。 Microsoft Authenticator 應用程式適用於 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
+
+### <a name="what-data-does-the-authenticator-store-on-my-behalf-and-how-can-i-delete-it"></a>Authenticator 會為我儲存何種資料，而我該如何刪除它？
+
+Microsoft Authenticator 會儲存當您新增帳戶時所建立的帳戶資訊。 當您使用 Authenticator 時，即會基於偵錯目的建立診斷記錄，並儲存可協助 Microsoft 診斷所發生之任何未預期問題的實用資料。 您可以開啟 [說明] > [傳送記錄] > [檢視記錄] 來存取記錄資料。
+
+您可以藉由刪除帳戶磚來刪除資料。 這將會刪除應用程式正在使用的所有帳戶資訊 (包含記錄在內)。 
+
+如需 Microsoft 如何使用您資料的詳細資訊，請造訪：https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
 
 ### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>應用程式中的程式碼有什麼作用？ 為什麼數字持續倒數計時？
 

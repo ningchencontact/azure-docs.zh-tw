@@ -1,17 +1,17 @@
 ---
-title: "Azure Migrate 中的收集器設備 | Microsoft Docs"
-description: "提供收集器設備的概觀及其設定方式。"
+title: Azure Migrate 中的收集器設備 | Microsoft Docs
+description: 提供收集器設備的概觀及其設定方式。
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: fcf6d2bf13af785eae26ff60035a4754f6ec702e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="collector-appliance"></a>收集器設備
 
@@ -23,9 +23,23 @@ ms.lasthandoff: 03/02/2018
 
 Azure Migrate 收集器是輕量型設備，可用來探索您的內部部署 vCenter 環境。 此設備會探索內部部署 VMware 機器，並將其相關中繼資料傳送至 Azure Migrate 服務。
 
-收集器設備是您可以從 Azure Migrate 專案下載的 OVF。 它會將包含 4 個核心、8 GB RAM 和一個 80 GB 磁碟的 VMware 虛擬機器具現化。 設備的作業系統是 Windows Server 2012 R2 (64 位元)
+收集器設備是您可以從 Azure Migrate 專案下載的 OVF。 它會將包含 4 個核心、8 GB RAM 和一個 80 GB 磁碟的 VMware 虛擬機器具現化。 設備的作業系統是 Windows Server 2012 R2 (64 位元)。
 
 您可以依照下列步驟來建立收集器 - [如何建立收集器 VM](tutorial-assessment-vmware.md#create-the-collector-vm)。
+
+## <a name="collector-communication-diagram"></a>收集器通訊圖表
+
+![收集器通訊圖表](./media/tutorial-assessment-vmware/portdiagram.PNG)
+
+
+| 元件      | 通訊對象   | 所需的連接埠                            | 原因                                   |
+| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
+| 收集器      | Azure Migrate 服務 | TCP 443                                  | 收集器應該能夠透過 SSL 連接埠 443 來與服務通訊 |
+| 收集器      | vCenter Server        | 預設值 443                             | 收集器應該能夠與 vCenter Server 通訊。 它預設會透過 443 與 vCenter 連線。 如果 vCenter 接聽不同的連接埠，則該連接埠應該作為收集器上的傳出連接埠 |
+| 收集器      | RDP|   | TCP 3389 | 使您可以透過 RDP 連線到收集器電腦 |
+
+
+
 
 
 ## <a name="collector-pre-requisites"></a>收集器的必要條件
@@ -158,6 +172,32 @@ Azure Migrate 收集器服務應在機器上執行。 此服務會在機器開�
 收集器只會探索機器資料，並將資料傳送至專案。 專案可能需要額外的時間，探索到的資料才會顯示在入口網站中，而您才能開始建立評量。
 
 根據所選範圍中的虛擬機器數目，最多需花費 15 分鐘才能將靜態中繼資料傳送至專案。 一旦中繼資料可用於入口網站，您就可以在入口網站中看到機器清單並開始建立群組。 直到收集作業完成且專案處理資料後，才能建立評量。 收集作業在收集器上完成後，根據所選範圍中的虛擬機器數目，最多可能需要一小時，才能在入口網站取得效能資料。
+
+## <a name="how-to-upgrade-collector"></a>如何升級收集器
+
+您可以在不需再次下載 OVA 的情況下，將收集器升級為最新版本。
+
+1. 下載最新的[升級套件](https://aka.ms/migrate/col/latestupgrade)。
+2. 若要確保下載的 Hotfix 是安全的，請開啟系統管理員命令視窗並執行下列命令來產生 ZIP 檔案的雜湊。 產生的雜湊應該符合針對特定版本所述的雜湊：
+
+    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    
+    (使用範例：C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+3. 將 ZIP 檔案複製到 Azure Migrate 收集器虛擬機器 (收集器設備)。
+4. 以滑鼠右鍵按一下 ZIP 檔案並選取 [全部解壓縮]。
+5. 以滑鼠右鍵按一下 Setup.ps1 並選取 [使用 PowerShell 執行]，然後遵循螢幕上的指示安裝更新。
+
+### <a name="list-of-updates"></a>更新清單
+
+#### <a name="upgrade-to-version-1095"></a>升級為 1.0.9.5 版
+
+若要升級為 1.0.9.5 版，請下載[套件](https://aka.ms/migrate/col/upgrade_9_5)
+
+**演算法** | **雜湊值**
+--- | ---
+MD5 | d969ebf3bdacc3952df0310d8891ffdf
+SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
+SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>後續步驟
 

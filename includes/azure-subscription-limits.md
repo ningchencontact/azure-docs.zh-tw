@@ -8,8 +8,8 @@
 | 每一訂用帳戶的 SQL Database 伺服器 |6 |150 |
 | 每一訂閱的 DNS 伺服器 |9 |100 |
 | 每一訂用帳戶的保留 IP |20 |100 |
-| 每一訂用帳戶託管服務的憑證 |400 |400 |
-| [同質群組](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md)  |256 |256 |
+| 每一訂用帳戶託管服務的憑證 |199 |199 |
+| 每一訂用帳戶[同質群組](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) |256 |256 |
 
 
 <sup>1</sup>雖然只使用部分核心，在計算核心限制時，仍會將超小型執行個體視為一個核心。

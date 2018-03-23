@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Active Directory 中使用 SCIM 自動佈建應用程式 | Microsoft Docs"
-description: "Azure Active Directory 會利用 SCIM 通訊協定規格中定義的介面，自動佈建使用者和群組到 Web 服務前端的任何應用程式或身分識別存放區"
+title: 在 Azure Active Directory 中使用 SCIM 自動佈建應用程式 | Microsoft Docs
+description: Azure Active Directory 會利用 SCIM 通訊協定規格中定義的介面，自動佈建使用者和群組到 Web 服務前端的任何應用程式或身分識別存放區
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -685,7 +685,7 @@ Azure Active Directory 可以佈建兩種類型的資源至 SCIM Web 服務。  
 ## <a name="group-provisioning-and-de-provisioning"></a>群組佈建和取消佈建
 下圖顯示 Azure AD 會傳送至 SCIM 服務的訊息，以管理群組在其他身分識別存放區中的生命週期。  這些訊息與使用者的訊息不同，有下列三個方面： 
 
-* 群組資源的結構描述會識別為 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group。  
+* 群組資源的結構描述會識別為 `http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group`。  
 * 擷取群組的要求會規定將成員屬性從回應要求中提供的任何資源中排除。  
 * 要求判斷參考屬性是否具有特定值，會是有關成員屬性的要求。  
 

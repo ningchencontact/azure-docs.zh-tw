@@ -1,11 +1,11 @@
 ---
-title: "將 SQL Server 資料庫移轉至 VM 上的 SQL Server | Microsoft Docs"
-description: "深入了解如何將內部部署使用者資料庫移轉到 Azure 虛擬機器中的 SQL Server。"
+title: 將 SQL Server 資料庫移轉至 VM 上的 SQL Server | Microsoft Docs
+description: 深入了解如何將內部部署使用者資料庫移轉到 Azure 虛擬機器中的 SQL Server。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jroth
-ms.openlocfilehash: 23538e933c8d1c2165cec1bdf1e9db28e0065801
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 64245a968eca94518d2e4238b4bc5c93c952563a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>將 SQL Server 資料庫移轉至 Azure VM 中的 SQL Server
 
@@ -96,6 +96,9 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="next-steps"></a>後續步驟
 如需在 Azure 虛擬機器上執行 SQL Server 的詳細資訊，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-windows-sql-server-iaas-overview.md)。
+
+> [!TIP]
+> 如果您有 SQL Server 虛擬機器的相關問題，請參閱[常見問題集](virtual-machines-windows-sql-server-iaas-faq.md)。
 
 如需從擷取的映像建立 Azure SQL Server 虛擬機器的指示，請參閱 CSS SQL Server 工程師部落格上的[從擷取之映像複製 Azure SQL 虛擬機器的秘訣和竅門](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/)。
 

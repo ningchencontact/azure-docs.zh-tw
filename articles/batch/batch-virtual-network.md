@@ -1,6 +1,6 @@
 ---
-title: "在虛擬網路中佈建 Azure Batch 集區 | Microsoft Docs"
-description: "您可以在虛擬網路中建立 Batch 集區，以便計算節點可以與網路中的其他 VM (例如，檔案伺服器) 安全地通訊。"
+title: 在虛擬網路中佈建 Azure Batch 集區 | Microsoft Docs
+description: 您可以在虛擬網路中建立 Batch 集區，以便計算節點可以與網路中的其他 VM (例如，檔案伺服器) 安全地通訊。
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: danlep
-ms.openlocfilehash: 626319a458575d255af4c4f8de93fca542b48890
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5a06ad5086a42bb00147e085227f3c71c357544e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>在虛擬網路中建立 Azure Batch 集區
 
@@ -32,7 +32,7 @@ Azure Batch 集區有設定可讓計算節點彼此通訊，以便 (舉例來說
 
 * **驗證**。 若要使用 Azure VNet，Batch 用戶端 API 必須使用 Azure Active Directory (AD) 驗證。 Azure Batch 對於 Azure AD 的支援記載於[使用 Active Directory 驗證 Batch 服務解決方案](batch-aad-auth.md)中。 
 
-* **Azure VNet**。 若要事先準備具有一個或多個子網路的 VNet，您可以使用 Azure 入口網站、Azure PowerShell、Azure 命令列介面 (CLI) 或其他方法。 若要建立以 Azure Resource Manager 為基礎的 VNet，請參閱[建立有多個子網路的虛擬網路](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)。 若要建立傳統 VNet，請參閱[建立有多個子網路的虛擬網路 (傳統)](../virtual-network/create-virtual-network-classic.md)。
+* **Azure VNet**。 若要事先準備具有一個或多個子網路的 VNet，您可以使用 Azure 入口網站、Azure PowerShell、Azure 命令列介面 (CLI) 或其他方法。 若要建立以 Azure Resource Manager 為基礎的 VNet，請參閱[建立虛擬網路](../virtual-network/manage-virtual-network.md#create-a-virtual-network)。 若要建立傳統 VNet，請參閱[建立有多個子網路的虛擬網路 (傳統)](../virtual-network/create-virtual-network-classic.md)。
 
 ### <a name="vnet-requirements"></a>VNet 需求
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
@@ -70,4 +70,4 @@ Azure Batch 集區有設定可讓計算節點彼此通訊，以便 (舉例來說
 ## <a name="next-steps"></a>後續步驟
 
 - 如需 Batch 的深入概觀，請參閱[使用 Batch 開發大規模的平行計算解決方案](batch-api-basics.md)。
-- 如需有關建立使用者定義路由的詳細資訊，請參閱[建立使用者定義的路由 - Azure 入口網站](../virtual-network/create-user-defined-route-portal.md)。
+- 如需有關建立使用者定義路由的詳細資訊，請參閱[建立使用者定義的路由 - Azure 入口網站](../virtual-network/tutorial-create-route-table-portal.md)。

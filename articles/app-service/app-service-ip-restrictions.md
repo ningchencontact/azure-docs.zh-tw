@@ -1,11 +1,11 @@
 ---
-title: "Azure App Service IP 限制 | Microsoft Docs"
-description: "如何搭配使用 IP 限制和 Azure App Service"
+title: Azure App Service IP 限制 | Microsoft Docs
+description: 如何搭配使用 IP 限制和 Azure App Service
 author: btardif
 manager: stefsch
-editor: 
+editor: ''
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.service: app-service-web
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: byvinyal
-ms.openlocfilehash: 551f34436dfeac14bb6e8676dd7c9b10d30a3af3
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 72416cfcd05767b223cc92ac28bd0e736516ddf6
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Azure App Service 靜態 IP 限制 #
 
@@ -32,7 +32,7 @@ IP 限制會在指派給應用程式的同一個 App Service 方案執行個體�
 
 若要將 IP 限制規則新增至應用程式，請使用功能表來開啟 [網路] > [IP 限制]，然後按一下 [設定 IP 限制]
 
-![IP 限制] (media/app-service-ip-restrictions/ip-restrictions.png)
+![IP 限制](media/app-service-ip-restrictions/ip-restrictions.png)  
 
 從這裡，您可以檢閱針對應用程式定義的 IP 限制規則清單。
 

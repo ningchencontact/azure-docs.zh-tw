@@ -1,26 +1,20 @@
 ---
-title: "使用 Azure Site Recovery 複寫多層式 IIS 型 Web 應用程式 | Microsoft Docs"
-description: "了解如何使用 Azure Site Recovery 複寫 IIS Web 伺服陣列虛擬機器。"
+title: 使用 Azure Site Recovery 複寫多層式 IIS 型 Web 應用程式 | Microsoft Docs
+description: 了解如何使用 Azure Site Recovery 複寫 IIS Web 伺服陣列虛擬機器。
 services: site-recovery
-documentationcenter: 
 author: nsoneji
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1ed0184ac76b5fb3e607458559327da5e8fe90c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>使用 Site Recovery 複寫多層式 IIS 型 Web 應用程式
+# <a name="replicate-a-multi-tier-iis-based-web-application"></a>複寫多層式 IIS 型 Web 應用程式
 
 應用程式軟體是組織中商務產能的引擎。 各種 web 應用程式可在組織提供不同的用途。 對組織而言，有些應用程式 (例如用於薪資處理的應用程式、財務應用程式及客戶面向的網站) 可能極為重要。 若要避免降低生產力，組織務必能夠持續啟動並執行這些應用程式。 更重要的是，讓這些應用程式一直處於可用狀態，有助於防止組織的品牌或形象受損。
 
@@ -36,7 +30,7 @@ ms.lasthandoff: 02/24/2018
 
 在開始之前，請確定您了解如何執行下列工作：
 
-* [將虛擬機器複寫至 Azure](site-recovery-vmware-to-azure.md)
+* [將虛擬機器複寫至 Azure](vmware-azure-tutorial.md)
 * [設計復原網路](site-recovery-network-design.md)
 * [執行測試容錯移轉至 Azure](site-recovery-test-failover-to-azure.md)
 * [執行容錯移轉到 Azure](site-recovery-failover.md)
@@ -75,7 +69,7 @@ Azure|NA|yes
 
 若要開始將所有 IIS Web 伺服陣列虛擬機器複寫至 Azure，請遵循[在 Site Recovery 中測試容錯移轉到 Azure](site-recovery-test-failover-to-azure.md)中的指引。
 
-如果您使用靜態 IP 位址，您可以指定您想要虛擬機器使用的 IP 位址。 若要設定 IP 位址，請移至 [計算和網路設定] > [**目標 IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties)。
+如果您使用靜態 IP 位址，您可以指定您想要虛擬機器使用的 IP 位址。 若要設定 IP 位址，請移至 [計算和網路] 設定 > [目標 IP]。
 
 ![顯示如何在 Site Recovery 計算和網路窗格中設定目標 IP 的螢幕擷取畫面](./media/site-recovery-active-directory/dns-target-ip.png)
 

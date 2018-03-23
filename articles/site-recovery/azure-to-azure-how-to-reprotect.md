@@ -1,18 +1,18 @@
 ---
-title: "使用 Azure Site Recovery 重新保護已容錯移轉回到主要 Azure 區域的 Azure VM | Microsoft Docs"
-description: "說明在從主要區域進行容錯移轉之後，如何使用 Azure Site Recovery，在次要區域中重新保護 Azure VM。"
+title: 使用 Azure Site Recovery 重新保護已容錯移轉回到主要 Azure 區域的 Azure VM | Microsoft Docs
+description: 說明在從主要區域進行容錯移轉之後，如何使用 Azure Site Recovery，在次要區域中重新保護 Azure VM。
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: d24376c57c468a562fc6d6dd52b4e9b01b53c3da
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>重新保護已容錯移轉到主要區域的 Azure VM
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/13/2018
 - 當重新保護完成且 VM 正在複寫之後，您就能將它們從次要區域容錯移轉到主要區域。
 
 > [!WARNING]
-> 如果您已經將機器從主要區域[移轉](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)到次要區域、已將 VM 移至另一個資源群組或已刪除 Azure VM，則無法重新保護該 VM 或對其進行容錯回復。
+> 如果您已經將機器從主要區域[移轉](migrate-overview.md#what-do-we-mean-by-migration)到次要區域、已將 VM 移至另一個資源群組或已刪除 Azure VM，則無法重新保護該 VM 或對其進行容錯回復。
 
 
 ## <a name="prerequisites"></a>先決條件

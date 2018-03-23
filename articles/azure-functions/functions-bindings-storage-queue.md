@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions 的 Azure 佇列儲存體繫結"
-description: "了解如何在 Azure Functions 中使用 Azure 佇列儲存體觸發程序和輸出繫結。"
+title: Azure Functions 的 Azure 佇列儲存體繫結
+description: 了解如何在 Azure Functions 中使用 Azure 佇列儲存體觸發程序和輸出繫結。
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"
+editor: ''
+tags: ''
+keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b139fbadb03ae2893331e763bc49b249c0dd05d7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
 
-下列範例所示範的是使用繫結之 function.json 檔案和 [C# 指令碼 (.csx)](functions-reference-csharp.md) 中的 Blob 觸發程序繫結。 此函式會輪詢 `myqueue-items` 佇列，並在每次處理佇列項目時寫入記錄。
+下列範例示範的是 *function.json* 檔案中的佇列觸發程序繫結，以及使用該繫結的 [C# 指令碼 (.csx)](functions-reference-csharp.md) 程式碼。 此函式會輪詢 `myqueue-items` 佇列，並在每次處理佇列項目時寫入記錄。
 
 以下是 *function.json* 檔案：
 
@@ -112,7 +112,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 ### <a name="trigger---javascript-example"></a>觸發程序 - JavaScript 範例
 
-下列範例示範的是使用繫結之 *function.json* 檔案，以及 [JavaScript 函式](functions-reference-node.md)中的 Blob 觸發程序繫結。 此函式會輪詢 `myqueue-items` 佇列，並在每次處理佇列項目時寫入記錄。
+下列範例示範的是 *function.json* 檔案中的佇列觸發程序繫結，以及使用該繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會輪詢 `myqueue-items` 佇列，並在每次處理佇列項目時寫入記錄。
 
 以下是 *function.json* 檔案：
 
@@ -223,9 +223,9 @@ module.exports = function (context) {
 
 ## <a name="trigger---usage"></a>觸發程序 - 使用方式
  
-在 C# 和 C# 指令碼中，使用方法參數 (例如 `Stream paramName`) 來存取 Blob 資料。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以繫結至下列任何類型：
+在 C# 和 C# 指令碼中，使用方法參數 (例如 `string paramName`) 來存取訊息資料。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以繫結至下列任何類型：
 
-* POCO 物件 - Functions 執行階段會將 JSON 承載還原序列化為 POCO 物件。 
+* 物件：Functions 執行階段會將 JSON 裝載還原序列化為程式碼中所定義之任意類別的執行個體。 
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -302,7 +302,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>輸出 - C# 指令碼範例
 
-下列範例所示範的是使用繫結之 function.json 檔案和 [C# 指令碼 (.csx)](functions-reference-csharp.md) 中的 Blob 觸發程序繫結。 此函式會針對每個收到的 HTTP 要求，使用 POCO 承載建立佇列項目。
+下列範例示範的是 *function.json* 檔案中的 HTTP 觸發程序繫結，以及使用該繫結的 [C# 指令碼 (.csx)](functions-reference-csharp.md) 程式碼。 此函式會針對每個收到的 HTTP 要求，使用 **CustomQueueMessage** 物件承載來建立佇列項目。
 
 以下是 *function.json* 檔案：
 
@@ -353,17 +353,17 @@ public static CustomQueueMessage Run(CustomQueueMessage input, TraceWriter log)
 ```cs
 public static void Run(
     CustomQueueMessage input, 
-    ICollector<CustomQueueMessage> myQueueItem, 
+    ICollector<CustomQueueMessage> myQueueItems, 
     TraceWriter log)
 {
-    myQueueItem.Add(input);
-    myQueueItem.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
+    myQueueItems.Add(input);
+    myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
 }
 ```
 
 ### <a name="output---javascript-example"></a>輸出 - JavaScript 範例
 
-下列範例示範的是使用繫結之 *function.json* 檔案，以及 [JavaScript 函式](functions-reference-node.md)中的 Blob 觸發程序繫結。 此函式會針對每個收到的 HTTP 要求建立佇列項目。
+下列範例示範的是 *function.json* 檔案中的 HTTP 觸發程序繫結，以及使用該繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會針對每個收到的 HTTP 要求建立佇列項目。
 
 以下是 *function.json* 檔案：
 
@@ -459,7 +459,7 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
  
 在 C# 和 C# 指令碼中，藉由使用方法參數 (例如 `out T paramName`) 寫入單一佇列訊息。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以使用方法傳回類型，而不是 `out` 參數，而且 `T` 可以是下列類型之一：
 
-* 可序列化為 JSON 的 POCO
+* 可序列化為 JSON 的物件
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 

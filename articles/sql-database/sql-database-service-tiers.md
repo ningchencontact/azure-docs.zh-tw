@@ -1,12 +1,12 @@
 ---
-title: "Azure SQL Database 服務 | Microsoft Docs"
-description: "深入了解單一和集區資料庫的服務層，以提供效能層級和儲存體大小。"
-keywords: 
+title: Azure SQL Database 服務 | Microsoft Docs
+description: 深入了解單一和集區資料庫的服務層，以提供效能層級和儲存體大小。
+keywords: ''
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.custom: DBs & servers
@@ -14,17 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/26/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ebfd44098a81b4a9d8863623458460ceb25f0d5d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>何謂 Azure SQL Database 服務層？
 
-[Azure SQL Database](sql-database-technical-overview.md) 為[單一資料庫](sql-database-single-database-resources.md)與[彈性集區](sql-database-elastic-pool.md)提供**基本**、**標準**和**進階**服務層。 服務層主要是以一系列的效能層級和儲存體大小選項以及價格區分。  所有服務層皆提供變更效能層級和儲存體大小的彈性。  單一資料庫和彈性集區會根據服務層、效能層級和儲存體大小，以每小時的方式計費。   
+[Azure SQL Database](sql-database-technical-overview.md) 為[單一資料庫](sql-database-single-database-resources.md)與[彈性集區](sql-database-elastic-pool.md)提供**基本**、**標準**和**進階**服務層。 SQL Database 為 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md#managed-instance-service-tier)提供一個「一般用途」服務層。 服務層主要是以一系列的效能層級和儲存體大小選項以及價格區分。  所有服務層皆提供變更效能層級和儲存體大小的彈性。  單一資料庫和彈性集區會根據服務層、效能層級和儲存體大小，以每小時的方式計費。   
+
+> [!IMPORTANT]
+> 「SQL Database 受控執行個體」(目前為公開預覽版) 提供單一的一般用途服務層。 如需詳細資訊，請參閱 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)。 本文的其餘部分不適用於「受控執行個體」。
 
 ## <a name="choosing-a-service-tier"></a>選擇服務層
 

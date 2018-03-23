@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN 規則引擎比對條件 | Microsoft Docs"
-description: "Azure 內容傳遞網路規則引擎比對條件的參考文件。"
+title: Azure CDN 規則引擎比對條件 | Microsoft Docs
+description: Azure 內容傳遞網路規則引擎比對條件的參考文件。
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -737,7 +737,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
     
 - 使用單一空格來分隔每個 URL 路徑，藉以指定多個 URL 路徑。
 
-   例如：/marketing/asset.* /sales/*.htm
+   例如： /marketing/asset.\* /sales/\*.htm
 
 - 會忽略 URL 中的查詢字串。
     
@@ -753,11 +753,11 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 
 值                   | 相對於    | 結果 
 ------------------------|----------------|-------
-*/test.html */test.php  | 根或原點 | 要求此模式比對任何資料夾中名為 "test.html" 或 "test.php" 的資產。
+\*/test.html \*/test.php  | 根或原點 | 要求此模式比對任何資料夾中名為 "test.html" 或 "test.php" 的資產。
 /80ABCD/origin/text/*   | 根           | 要求的資產符合下列準則時，會比對此模式： <br />- 必須位於名為 "origin" 的客戶原點。 <br />- 相對路徑必須以名為 "text" 的資料夾為開頭。 也就是所要求的資產可以位於 "text" 資料夾中，或是位於該資料夾的其中一個遞迴子資料夾中。
 /css/ /js/          | 根或原點 | 此模式會依所有包含 css 或 js 資料夾的 CDN 或邊緣 CNAME URL 進行比對。
 *.jpg *.gif *.png       | 根或原點 | 此模式會依所有以 .jpg、.gif 或 .png 結尾的 CDN 或邊緣 CNAME URL 進行比對。 指定此模式的替代方式是使用 [URL 路徑副檔名比對條件](#url-path-extension)。
-/images/* /media/*      | 來源         | 此模式會依相對路徑開頭為「映像」或「媒體」資料夾的 CDN 或邊緣 CNAME URL 進行比對。 <br />- CDN URL：http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/images/sales/event1.png<br />- 範例邊緣 CNAME URL：http:\//cdn.mydomain.com/images/sales/event1.png
+/images/\* /media/\*      | 來源         | 此模式會依相對路徑開頭為「映像」或「媒體」資料夾的 CDN 或邊緣 CNAME URL 進行比對。 <br />- CDN URL：http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/images/sales/event1.png<br />- 範例邊緣 CNAME URL：http:\//cdn.mydomain.com/images/sales/event1.png
 
 [回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
 

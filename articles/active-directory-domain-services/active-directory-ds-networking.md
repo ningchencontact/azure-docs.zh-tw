@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Domain Services︰網路指導方針 | Microsoft Docs"
-description: "Azure Active Directory Domain Services 的網路考量"
+title: Azure AD Domain Services︰網路指導方針 | Microsoft Docs
+description: Azure Active Directory Domain Services 的網路考量
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 網域服務的網路考量
 ## <a name="how-to-select-an-azure-virtual-network"></a>如何選取 Azure 虛擬網路
@@ -53,6 +53,7 @@ ms.lasthandoff: 01/18/2018
 * 請勿將 NSG 套用至受控網域的專用子網路。 如果您必須將 NSG 套用至專用子網路，請確保**不會封鎖服務及管理您的網域所需的連接埠**。
 * 請勿過度限制受控網域的專用子網路內可用的 IP 位址數目。 此限制會使服務無法將兩個網域控制站提供給受控網域使用。
 * **請勿在虛擬網路的閘道子網路中啟用 Azure AD 網域服務**。
+* 請勿封鎖來自已啟用您受控網域之子網路的對外存取。
 
 > [!WARNING]
 > 當您讓 NSG 與已啟用 Azure AD 網域服務的子網路產生關聯時，可能會中斷 Microsoft 服務及管理網域的功能。 此外，Azure AD 租用戶與受控網域之間的同步處理已中斷。 **SLA 不適用於已套用 NSG 的部署，因為 NSG 會阻止 Azure AD 網域服務更新和管理您的網域。**
@@ -89,6 +90,8 @@ ms.lasthandoff: 01/18/2018
 * 用來啟用受控網域的安全 LDAP 存取 (透過網際網路)。
 * 透過您的 NSG 開啟此連接埠是選擇性選項。 僅在您啟用網際網路上的安全 LDAP 存取時，開啟該連接埠。
 * 您可以限制只有預期透過安全 LDAP 進行連線的來源 IP 位址，可以有此連接埠的對內存取權。
+
+**對外存取** AAD Domain Services 需要對外存取各種其他 Azure 服務，才能管理、備份及監視您的受控網域。 請勿封鎖來自已啟用您受控網域之專用子網路的對外存取。
 
 
 ## <a name="network-security-groups"></a>網路安全性群組

@@ -1,19 +1,19 @@
 ---
-title: "為 Azure Container Service (AKS) 叢集設定輸入"
-description: "在 Azure Container Service (AKS) 叢集中安裝及設定 NGINX 輸入控制器。"
+title: 為 Azure Container Service (AKS) 叢集設定輸入
+description: 在 Azure Container Service (AKS) 叢集中安裝及設定 NGINX 輸入控制器。
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/21/2018
+ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c25a0171bd412050a7c94e9b077436cd1ebe893b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 908910b44a9de28f184906dd4e904e651fe034ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>Azure Container Service (AKS) 上的 HTTPS 輸入
 
@@ -24,6 +24,14 @@ ms.lasthandoff: 03/02/2018
 ## <a name="install-an-ingress-controller"></a>安裝輸入控制器
 
 使用 Helm 安裝 NGINX 輸入控制器。 如需詳細的部署資訊，請參閱 NGINX 輸入控制器[文件][nginx-ingress]。 
+
+更新圖表存放庫。
+
+```console
+helm repo update
+```
+
+安裝 NGINX 輸入控制器。
 
 ```
 helm install stable/nginx-ingress
@@ -128,7 +136,7 @@ metadata:
   name: hello-world-ingress
   annotations:
     kubernetes.io/tls-acme: "true"
-    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
   - hosts:

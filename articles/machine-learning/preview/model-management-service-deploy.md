@@ -1,25 +1,20 @@
 ---
-title: "Azure Machine Learning 模型管理 Web 服務部署 | Microsoft Docs"
-description: "本文件說明與使用 Azure Machine Learning 模型管理來部署機器學習服務模型有關的步驟。"
+title: Azure Machine Learning 模型管理 Web 服務部署 | Microsoft Docs
+description: 本文件說明與使用 Azure Machine Learning 模型管理來部署機器學習服務模型有關的步驟。
 services: machine-learning
-author: raymondl
-ms.author: raymondl, aashishb
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-<<<<<<< HEAD
-ms.openlocfilehash: 9fbdb190e7c745000b358451c1a6e3058cb861fd
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-=======
-ms.openlocfilehash: 965e33f3c7d050dca8f6c4e92d75cb7c7a8fa60d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
->>>>>>> a5b079a4107028b330b83565afd4402701751155
+ms.openlocfilehash: 7b481fb3287b8ee2c22e5f25f8cf1935eed05428
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>將機器學習服務模型部署為 Web 服務
 
@@ -69,20 +64,20 @@ from azureml.api.realtime.services import generate_schema
 
 ```python
 inputs = {"input_array": SampleDefinition(DataTypes.NUMPY, yourinputarray)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 下列範例使用 Spark 資料框架：
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.SPARK, yourinputdataframe)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
 下列範例使用 PANDAS 資料框架：
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
 ### <a name="3-create-a-scorepy-file"></a>3.建立 score.py 檔案
@@ -141,7 +136,7 @@ az ml model register --model [path to model file] --name [model name]
 下列命令可協助建立模型的資訊清單，
 
 ```
-az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]
+az ml manifest create --manifest-name [your new manifest name] -f [path to score file] -r [runtime for the image, e.g. spark-py]
 ```
 您可以在上面所示的命令中使用 `--model-id` 或 `-i` 引數，將先前註冊的模型新增至資訊清單中。 另外搭配 -i 引數就可以指定多個模型。
 

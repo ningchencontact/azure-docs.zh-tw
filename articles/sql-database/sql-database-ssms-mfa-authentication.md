@@ -1,26 +1,20 @@
 ---
 title: Multi-Factor Authentication - Azure SQL | Microsoft Docs
-description: "Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通用驗證」，從 SQL Server Management Studio (SSMS) 連線。"
+description: Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通用驗證」，從 SQL Server Management Studio (SSMS) 連線。
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: GithubMirek
-manager: johammer
-editor: 
-tags: 
-ms.assetid: fbd6e644-0520-439c-8304-2e4fb6d6eb91
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 09/29/2017
 ms.author: mireks
-ms.openlocfilehash: 3fd6532fb3dc6af9b3ccdac37201552ad0475e7b
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 3a950ac837b543cbcbfd4ae43cf4b9ebeb537cd5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)
 Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通用驗證」 ，從 SQL Server Management Studio (SSMS) 連線。 

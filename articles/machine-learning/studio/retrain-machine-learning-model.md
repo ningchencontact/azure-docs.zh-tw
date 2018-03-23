@@ -1,11 +1,12 @@
 ---
-title: "重新訓練機器學習模型 | Microsoft Docs"
-description: "了解如何在 Azure Machine Learning 中重新定型模型，以及使用新定型的模型來更新 Web 服務。"
+title: 重新訓練機器學習模型 | Microsoft Docs
+description: 了解如何在 Azure Machine Learning 中重新定型模型，以及使用新定型的模型來更新 Web 服務。
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: raymondl
-editor: 
+documentationcenter: ''
+author: serinakaye
+ms.author: serinak
+manager: mwinkle
+editor: ''
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
 ms.service: machine-learning
 ms.workload: data-services
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: 614517c5b9a54fc11cf0b8f8b6e298b9aec5cf76
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 65c5e86e47528aab36972507b7ee8324040b9beb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="retrain-a-machine-learning-model"></a>重新定型機器學習服務模型
 在 Azure Machine Learning 中進行機器學習服務模型的實作程序時，需要定型並儲存您的模型。 接著，使用它來建立預測性 Web 服務。 接著才能在網站、儀表板及行動應用程式取用 Web 服務。 

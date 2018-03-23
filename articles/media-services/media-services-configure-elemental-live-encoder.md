@@ -1,11 +1,11 @@
 ---
-title: "設定 Elemental Live 編碼器來傳送單一位元速率的即時串流 | Microsoft Docs"
-description: "本主題會示範如何設定 Elemental Live 編碼器，藉此將單一位元速率的即時串流傳送到 AMS 通道，其已針對即時編碼而啟用。"
+title: 設定 Elemental Live 編碼器來傳送單一位元速率的即時串流 | Microsoft Docs
+description: 本主題會示範如何設定 Elemental Live 編碼器，藉此將單一位元速率的即時串流傳送到 AMS 通道，其已針對即時編碼而啟用。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: cenkdin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 9c6bf6a9-6273-4fdd-9477-f0e565280b5b
 ms.service: media-services
 ms.workload: media
@@ -129,7 +129,7 @@ ms.lasthandoff: 12/21/2017
     ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental14.png)
 
     如需額外的備援，請對次要輸入 URL 重複這些步驟，方法是為 UDP/TS 串流建立個別的「輸出」索引標籤。
-3. 按一下 [建立] (如果已建立新事件) 或 [更新] (如果是編輯原有的事件)，然後繼續啟動編碼器。
+3. 按一下 [建立] \(如果已建立新事件) 或 [更新] \(如果是編輯原有的事件)，然後繼續啟動編碼器。
 
 > [!IMPORTANT]
 > 按一下 Elemental Live Web 介面上的 [開始] 之前，您**必須**確保頻道已就緒。

@@ -1,8 +1,8 @@
 ---
-title: "使用適用於 Visual Studio 的 Azure 串流分析工具 | Microsoft Docs"
-description: "開始使用適用於 Visual Studio 的 Azure 串流分析工具"
+title: 使用適用於 Visual Studio 的 Azure 串流分析工具 | Microsoft Docs
+description: 開始使用適用於 Visual Studio 的 Azure 串流分析工具
 keywords: visual studio
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
 author: su-jie
 manager: jhubbard
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 03/05/2018
 ms.author: sujie
-ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 71e7247226f9432b3f9590ca87ac33883ea576ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>使用適用於 Visual Studio 的 Azure 串流分析工具
 適用於 Visual Studio 的 Azure 串流分析工具現已正式推出。 這些工具為「串流分析」的使用者提供更豐富的疑難排解體驗，而且能撰寫複雜查詢，甚至在本機撰寫查詢。 您也能將串流分析工作匯出到 Visual Studio 專案中。
 
 ## <a name="introduction"></a>簡介
-在本教學課程中，您將學習如何使用適用於 Visual Studio 的串流分析工具來建立、撰寫、在本機測試、管理及偵錯 Azure 串流分析作業。 
+在本教學課程中，您將學習如何使用適用於 Visual Studio 的串流分析工具來建立、撰寫、在本機測試、管理及偵錯 Azure 串流分析作業。 當您建立作業之後，可以使用 CI/CD Nuget 套件來將持續整合和部署程序設定至 Azure，若要深入了解，請參閱[使用串流分析 VS 工具設定 CI/CD 管線](stream-analytics-tools-for-visual-studio-cicd.md)一文。
 
 完成本教學課程之後，您將能夠：
 

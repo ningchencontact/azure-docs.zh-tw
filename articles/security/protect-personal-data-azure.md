@@ -1,29 +1,29 @@
 ---
-title: "在 Microsoft Azure 中保護個人資料 | Microsoft Docs"
-description: "此系列文章的第一篇文章是協助您使用 Azure 來保護個人資料"
+title: 在 Microsoft Azure 中保護個人資料 | Microsoft Docs
+description: 本文應可協助您使用 Azure 來保護個人資料，並符合一般資料保護規定 (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 4dbdb2dc11bdc515fb3856dd45203868122c7726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 741fb17be315faacef6483cbaaa565136622cb45
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-in-microsoft-azure"></a>在 Microsoft Azure 中保護個人資料
 
-本文介紹一系列文章，以協助您使用 Azure 安全性技術和服務來保護個人資料。 這是許多公司和業界合規性和治理計劃的重要需求。 本文將包含案例、問題陳述和公司目標。
+本文介紹一系列文章，以協助您使用 Azure 安全性技術和服務來保護個人資料。 這是許多公司和業界合規性和治理計劃的重要需求。 例如，您可以使用這系列文章中提供的資訊來符合一般資料保護規定 (GDPR)。 本文將包含案例、問題陳述和公司目標。
 
 ## <a name="scenario-and-problem-statement"></a>案例與問題陳述
 

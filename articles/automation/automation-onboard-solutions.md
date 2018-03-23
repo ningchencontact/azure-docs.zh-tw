@@ -1,25 +1,21 @@
 ---
-title: "將更新與變更追蹤解決方案上線至 Azure 自動化 | Microsoft Docs"
-description: "了解如何將更新與變更追蹤解決方案上線至 Azure 自動化。"
+title: 將更新與變更追蹤解決方案上線至 Azure 自動化
+description: 了解如何將更新與變更追蹤解決方案上線至 Azure 自動化。
 services: automation
-documentationcenter: 
-author: eamonoreilly
-manager: 
-editor: 
-ms.assetid: edae1156-2dc7-4dab-9e5c-bf253d3971d0
 ms.service: automation
+author: eamonoreilly
+ms.author: eamono
+manager: carmonm
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/28/2018
-ms.author: eamono
+ms.date: 03/16/2018
 ms.custom: mvc
-ms.openlocfilehash: 4c97cda2f16c769d0510b6a661bd03b20f488b62
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: cde701672034b3c0edc46f1439488bcf53704df2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>將更新與變更追蹤解決方案上線至 Azure 自動化
 
@@ -86,7 +82,7 @@ ms.lasthandoff: 02/28/2018
    ![啟用虛擬機器的更新解決方案](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> 如果您沒有等待其他解決方案完成，在啟用下一個解決方案時，您會收到內容如下的訊息：此虛擬機器或不同虛擬機器上正在安裝另一個解決方案。安裝完成時，即可使用 [啟用] 按鈕，然後您就可以要求在這部虛擬機器上安裝解決方案。
+> 如果您沒有等待其他解決方案完成，在啟用下一個解決方案時，您會收到內容如下的訊息：此虛擬機器或不同虛擬機器上正在安裝另一個解決方案。安裝完成時，即可使用 [啟用] 按鈕，然後您就可以要求在這部虛擬機器上安裝解決方案。*
 
 ## <a name="install-and-update-modules"></a>安裝和更新模組
 

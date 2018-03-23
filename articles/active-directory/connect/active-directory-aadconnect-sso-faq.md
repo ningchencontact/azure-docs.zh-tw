@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect：無縫單一登入 - 常見問題集 | Microsoft Docs"
-description: "Azure Active Directory 無縫單一登入常見問題集的答案。"
+title: Azure AD Connect：無縫單一登入 - 常見問題集 | Microsoft Docs
+description: Azure Active Directory 無縫單一登入常見問題集的答案。
 services: active-directory
-keywords: "何謂 Azure AD Connect、安裝 Active Directory、Azure AD、SSO、單一登入的必要元件"
-documentationcenter: 
+keywords: 何謂 Azure AD Connect、安裝 Active Directory、Azure AD、SSO、單一登入的必要元件
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 15155ecaf17ae309a218bb1f51a4757e5338f64c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 無縫單一登入：常見問題集
 
@@ -38,7 +38,16 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>哪些應用程式利用無縫 SSO 的 `domain_hint` 或 `login_hint` 參數功能？
 
-我們正在編譯可傳送這些參數以及未傳送這些參數的應用程式清單。 如果您有感興趣的應用程式，請在 comments 區段中讓我們知道。
+下列是一個不完整的應用程式清單，這些應用程式會將這些參數傳送給 Azure AD，因此可使用「無縫 SSO」提供使用者一個無訊息的登入體驗：
+
+| 應用程式名稱 | 要使用的應用程式 URL |
+| -- | -- |
+| 存取面板 | myapps.microsoft.com/contoso.com |
+| 網路版 Outlook | outlook.office365.com/contoso.com |
+
+在上表中，請以您的網域名稱取代 "contoso.com"，以連至您租用戶的正確應用程式 URL。
+
+如果您有其他感興趣的應用程式，請在註解區段中告訴我們。
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>無縫 SSO 支援 `Alternate ID` 作為使用者名稱，而不是 `userPrincipalName`？
 

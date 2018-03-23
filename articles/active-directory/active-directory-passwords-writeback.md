@@ -1,26 +1,26 @@
 ---
-title: "Azure AD SSPR 與密碼回寫 | Microsoft Docs"
-description: "使用 Azure AD 和 Azure AD Connect 將密碼回寫到內部部署目錄"
+title: Azure AD SSPR 與密碼回寫 | Microsoft Docs
+description: 使用 Azure AD 和 Azure AD Connect 將密碼回寫到內部部署目錄
 services: active-directory
-keywords: "Active directory 密碼管理, 密碼管理, Azure AD 自助式密碼重設"
-documentationcenter: 
+keywords: Active directory 密碼管理, 密碼管理, Azure AD 自助式密碼重設
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b4a14d3c79f93988eeac1525da09cf70dc2de634
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: bcb7074a6d590a08ad683c8746156245bc60c5e8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="password-writeback-overview"></a>密碼回寫概觀
 
@@ -31,6 +31,7 @@ ms.lasthandoff: 01/12/2018
 * **提供零延遲的意見反應**：密碼回寫是一項同步作業。 如果使用者的密碼不符合原則，或因為任何原因而無法重設或變更，他們會立即收到通知。
 * **針對使用 Active Directory 同盟服務 (AD FS) 或其他同盟技術的使用者支援密碼重設**：使用密碼回寫時，只要將同盟使用者帳戶同步處理到您的 Azure AD 租用戶，他們就能夠從雲端管理自己的內部部署 Active Directory 密碼。
 * **針對使用[密碼雜湊同步處理](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)的使用者支援密碼重設**：當密碼重設服務偵測到同步處理的使用者帳戶已啟用密碼雜湊同步處理功能時，我們會同時重設此帳戶的內部部署密碼和雲端密碼。
+* **針對使用傳遞驗證的使用者支援密碼重設**：使用密碼回寫時，只要將「傳遞驗證」帳戶同步至您的 Azure AD 租用戶，他們就能夠從雲端管理自己的內部部署 Active Directory 密碼。
 * **支援從存取面板和 Office 365 變更密碼**：當同盟或已同步處理密碼的使用者變更其已過期或尚未過期的密碼時，我們會將這些密碼回寫到您的本機 Active Directory 環境。
 * **支援在管理員從 Azure 入口網站重設密碼時將密碼回寫**：每當管理員在 [Azure 入口網站](https://portal.azure.com)中重設使用者密碼時，如果該使用者為同盟或已同步處理密碼的使用者，我們也會在本機 Active Directory 中設定管理員所選取的密碼。 Office 管理入口網站目前不支援此功能。
 * **強制執行您的內部部署 Active Directory 密碼原則**：當使用者重設其密碼時，我們會確保該密碼符合您的內部部署 Active Directory 原則，然後才認可至該目錄。 這項檢閱包括檢查歷程記錄、複雜度、有效期、密碼篩選，以及您在本機 Active Directory 中已定義的任何其他密碼限制。

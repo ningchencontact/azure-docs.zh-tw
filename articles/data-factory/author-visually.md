@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Factory 中的視覺化撰寫 | Microsoft Docs"
-description: "了解如何使用 Azure Data Factory 中的視覺化撰寫"
+title: Azure Data Factory 中的視覺化撰寫 | Microsoft Docs
+description: 了解如何使用 Azure Data Factory 中的視覺化撰寫
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 81b97bb6b6abb5431bedd4efec5f807fa577c4e4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 209afba99ac2b43c252d93c32930908ec1f957f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory 中的視覺化撰寫
 Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰寫及部署資料處理站的資源，而不必編寫任何程式碼。 您可以將活動拖放到管線畫布上、執行測試回合、反覆進行偵錯，以及部署和監視管線回合。 使用 UX 來執行視覺化撰寫的方法有兩種：
@@ -39,6 +39,9 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 
 ## <a name="author-with-vsts-git-integration"></a>使用 VSTS Git 整合來撰寫
 使用 VSTS Git 整合所進行的視覺化撰寫，會對資料處理站管線上的工作支援原始檔控制和共同作業功能。 您可以將資料處理站與 VSTS Git 帳戶存放庫建立關聯，以進行原始檔控制、共同作業及版本設定等工作。 一個 VSTS Git 帳戶可以有多個存放庫，但一個 VSTS Git 存放庫只能與一個資料處理站建立關聯。 如果您沒有 VSTS 帳戶或存放庫，請遵循[這些指示](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)來建立您的資源。
+
+> [!NOTE]
+> Data Factory 管線無法存取儲存於 VSTS Git 存放庫中的檔案。 因此，您無法在 VSTS Git 存放庫中儲存由 Data Factory 管線活動所使用的檔案，例如資料檔案和指令碼檔案。
 
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>設定搭配 Azure Data Factory 的 VSTS Git 存放庫
 您可以透過兩種方法設定搭配資料處理站的 VSTS GIT 存放庫。

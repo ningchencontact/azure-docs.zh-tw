@@ -1,11 +1,11 @@
 ---
-title: "如何委派使用者註冊和產品訂閱"
-description: "了解如何在 Azure API Management 中將使用者註冊和產品訂閱委派給第三方。"
+title: 如何委派使用者註冊和產品訂閱
+description: 了解如何在 Azure API Management 中將使用者註冊和產品訂閱委派給第三方。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派使用者註冊和產品訂閱
 委派可讓您使用現有的網站來處理開發人員登入/註冊和產品訂閱，而非使用開發人員入口網站中的內建功能。 這樣可讓您的網站擁有使用者資料，並以自訂方式來執行這些步驟的驗證。
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/28/2018
 
 1. 接收下列形式的要求：
    
-   > http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}
+   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL：來源網頁}&salt={字串}&sig={字串}*
    > 
    > 
    
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/28/2018
 
 1. 接收下列形式的要求：
    
-   > http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}
+   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product：要訂閱的產品}&userId={提出要求的使用者}&salt={字串}&sig={字串}*
    > 
    > 
    

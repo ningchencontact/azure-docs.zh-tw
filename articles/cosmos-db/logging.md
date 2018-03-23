@@ -1,24 +1,24 @@
 ---
-title: "Azure Cosmos DB 診斷記錄 | Microsoft Docs"
-description: "使用本教學課程來協助您開始使用 Azure Cosmos DB 記錄。"
+title: Azure Cosmos DB 診斷記錄 | Microsoft Docs
+description: 使用本教學課程來協助您開始使用 Azure Cosmos DB 記錄。
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/07/2018
 ms.author: mimig
-ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f647387b4e80c36339a456b8e9a2cfade7ac8102
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 診斷記錄
 
@@ -31,6 +31,13 @@ ms.lasthandoff: 02/22/2018
 下圖顯示可用的不同種類 Azure 記錄。
 
 ![不同種類的 Azure 記錄](./media/logging/azurelogging.png)
+
+在上圖中，**計算資源**代表您可以存取其「客體 OS」的 Azure 資源。 例如，「Azure 虛擬機器」、「虛擬機器」擴展集、Azure Container Service 等皆被視為計算資源。 計算資源會產生「活動記錄」、「診斷記錄」及「應用程式記錄」。 若要深入了解，請參閱 [Azure 監視 – 計算資源](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset)一文。
+
+**非計算資源**係指您無法存取基礎 OS 並直接使用資源的資源。 例如，「網路安全性群組」、Logic Apps 等。**Cosmos DB** 是非計算資源。 您可以在「活動記錄」中檢視非計算資源的記錄，或藉由在入口網站中啟用 [診斷記錄] 選項來檢視這些記錄。 若要深入了解，請參閱 [Azure 監視 – 非計算資源](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else)一文。
+
+「活動記錄」會記錄 Cosmos DB 之訂用帳戶層級的作業，記錄的作業包括像是 ListKeys、Write DatabaseAccounts 等。 「診斷記錄」提供更細微的記錄功能，並可讓您記錄 DataPlaneRequests (Create、Read、Query.. ) 和 MongoRequests。
+
 
 針對我們的討論，著重於 Azure 活動、Azure 診斷和計量。 那麼這三個記錄之間的差異為何？ 
 

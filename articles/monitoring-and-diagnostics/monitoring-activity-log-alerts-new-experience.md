@@ -1,9 +1,9 @@
 ---
-title: "建立活動記錄警示並使用 Azure 監視器中的新警示 (預覽) 體驗來管理 | Microsoft Docs"
-description: "本文提供的資訊說明如何從 Azure 監視器下的 [警示 (預覽)] 索引標籤建立活動記錄警示。 本文詳細說明此功能的新使用者經驗。"
+title: 建立活動記錄警示並使用 Azure 監視器中的新警示 (預覽) 體驗來管理 | Microsoft Docs
+description: 本文提供的資訊說明如何從 Azure 監視器下的 [警示 (預覽)] 索引標籤建立活動記錄警示。 本文詳細說明此功能的新使用者經驗。
 author: JYOTHIRMAISURI
 manager: vvithal
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: 
-ms.openlocfilehash: afdd82617c47f0dee22c229feba87bdf79b90a69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: a7553e4155df0d4ee49b798f44ca636dc7ecdcd2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>使用新的警示 (預覽) 體驗建立活動記錄警示
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 02/09/2018
 
         ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
-4. 在 [定義警示規則] 下，提供下列詳細資料：
+4. 在 [定義警示規則詳細資料] 下，提供下列詳細資料：
 
     - **警示規則名稱**：新警示規則的名稱
     - **描述**︰新警示規則描述

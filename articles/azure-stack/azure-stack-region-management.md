@@ -1,24 +1,25 @@
 ---
-title: "Azure Stack 中的區域管理 | Microsoft Docs"
-description: "Azure Stack 中的區域管理概觀。"
+title: Azure Stack 中的區域管理 | Microsoft Docs
+description: Azure Stack 中的區域管理概觀。
 services: azure-stack
-documentationcenter: 
-author: efemmano
-manager: dsavage
-editor: 
+documentationcenter: ''
+author: brenduns
+manager: femila
+editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: efemmano
-ms.openlocfilehash: d1310f0cb9a820366ab8712a782785e955a24134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/27/2018
+ms.author: brenduns
+ms.reviewer: efemmano
+ms.openlocfilehash: 0a19490ce276eec9a46bc0ea4343e3449a9dc93c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="region-management-in-azure-stack"></a>Azure Stack 中的區域管理
 
@@ -41,19 +42,13 @@ Azure Stack 具有一組可用於 [區域管理] 磚的區域管理功能。 Azu
 
 2. **警示**。 此磚會列出全系統警示，並提供每個警示的詳細資料。
 
-3. **更新**。 在此磚中，您可以檢視 Azure Stack 基礎結構的目前版本。
+3. **更新**。 在此圖格中，您可以檢視 Azure Stack 基礎結構的目前版本、可用的更新，以及更新記錄。 您也可以更新您的整合式系統。
 
-4. **資源提供者**。 資源提供者是可讓您管理執行 Azure Stack 時所需元件所提供之租用戶功能的位置。 每個資源提供者皆隨附系統管理體驗。 這項體驗可能包含特定提供者的警示、度量以及其他資源提供者專屬的管理功能。
- 
-5. **基礎結構角色**。 基礎結構角色是執行 Azure Stack 時所需的元件。 僅報告警示的基礎結構角色會列出。 您可以按一下角色來檢視與特定角色相關聯的警示，以及此角色執行所在的角色執行個體。 儘管包含啟動、重新啟動，或關閉基礎結構角色執行個體的功能，請**勿**在開發套件環境中執行這項操作。 這些選項僅專為每個基礎結構角色具有多個角色執行個體的多節點環境而設計。 重新啟動開發套件中的角色執行個體 (特別是 AzS-Xrp01) 會導致系統不穩定。
+4. **資源提供者**。 資源提供者是可讓您管理使用者功能的位置，這些功能是由執行 Azure Stack 時所需的元件所提供。 每個資源提供者皆隨附系統管理體驗。 這項體驗可能包含特定提供者的警示、度量以及其他資源提供者專屬的管理功能。
+
+5. **基礎結構角色**。 基礎結構角色是執行 Azure Stack 時所需的元件。 僅報告警示的基礎結構角色會列出。 您可以按一下角色來檢視與特定角色相關聯的警示，以及此角色執行所在的角色執行個體。
 
 ## <a name="next-steps"></a>後續步驟
 [在 Azure Stack 中監視健康情況和警示](azure-stack-monitor-health.md)
 
 [在 Azure Stack 中管理更新](azure-stack-updates.md)
-
-
-
-
-
-

@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect：傳遞驗證 - 智慧鎖定 | Microsoft Docs"
-description: "本文說明 Azure Active Directory (Azure AD) 傳遞驗證如何保護您的內部部署帳戶不受雲端的暴力密碼破解攻擊所威脅"
+title: Azure AD Connect：傳遞驗證 - 智慧鎖定 | Microsoft Docs
+description: 本文說明 Azure Active Directory (Azure AD) 傳遞驗證如何保護您的內部部署帳戶不受雲端的暴力密碼破解攻擊所威脅
 services: active-directory
-keywords: "Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入"
-documentationcenter: 
+keywords: Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9477d47824213d7ea15bcf6c6b615a220bae2e48
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Azure Active Directory 傳遞驗證：智慧鎖定
 
 ## <a name="overview"></a>概觀
 
-Azure Active Directory (Azure AD) 可防範暴力密碼破解攻擊，並防止正版使用者遭到鎖定而無法使用其 Office 365 和 SaaS 應用程式。 當您使用傳遞驗證來作為登入方法時，系統便支援這項稱為*智慧鎖定*的功能。 依預設會為所有租用戶啟用智慧鎖定，且此功能會持續保護您的使用者帳戶。
+Azure Active Directory (Azure AD) 可防範暴力密碼破解攻擊，並防止正版使用者遭到鎖定而無法使用其 Office 365 和 SaaS 應用程式。 當您使用傳遞驗證來作為登入方法時，系統便支援這項稱為*智慧鎖定*的功能。 預設會為所有租用戶 (而不僅限於使用「傳遞驗證」的租用戶) 啟用 Smart Lock，而此功能會持續保護您的使用者帳戶。
 
 智慧鎖定會追蹤失敗的登入嘗試。 在超過特定的*鎖定閾值*後，它會啟動*鎖定持續時間*。 在鎖定持續時間內，智慧鎖定會拒絕來自攻擊者的任何登入嘗試。 如果攻擊者持續攻擊，則在鎖定持續時間結束後，後續的失敗登入嘗試將會導致更久的鎖定持續期間。
 

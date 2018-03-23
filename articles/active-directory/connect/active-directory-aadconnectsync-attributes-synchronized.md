@@ -1,24 +1,24 @@
 ---
-title: "Azure AD Connect 所同步處理的屬性 | Microsoft Docs"
-description: "列出要同步處理至 Azure Active Directory 的屬性。"
+title: Azure AD Connect 所同步處理的屬性 | Microsoft Docs
+description: 列出要同步處理至 Azure Active Directory 的屬性。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/05/2018
 ms.author: billmath
-ms.openlocfilehash: 1d935b73e1087d5ad858bdbee9af68dd1cf5cd1e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3c1c080c1198fd75916a119d4bb08c8db50a05d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步處理：將屬性同步處理至 Azure Active Directory
 本主題列出 Azure AD Connect 同步處理所同步處理的屬性。  
@@ -421,17 +421,17 @@ ms.lasthandoff: 01/18/2018
 ## <a name="exchange-hybrid-writeback"></a>Exchange 混合回寫
 當您選擇啟用「Exchange 混合」 時，系統會將這些屬性從 Azure AD 寫回到內部部署 Active Directory。 根據您的 Exchange 版本有可能會同步處理較少的屬性。
 
-| 屬性名稱 | User | 連絡人 | 群組 | 註解 |
-| --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |衍生自 Azure AD 中的 cloudAnchor。 這個屬性是 Exchange 2016 和 Windows Server 2016 AD 中的新屬性。 |
-| msExchArchiveStatus |X | | |線上封存：可讓客戶封存郵件。 |
-| msExchBlockedSendersHash |X | | |篩選：從用戶端回寫內部部署篩選及線上安全和已封鎖的寄件者資料。 |
-| msExchSafeRecipientsHash |X | | |篩選：從用戶端回寫內部部署篩選及線上安全和已封鎖的寄件者資料。 |
-| msExchSafeSendersHash |X | | |篩選：從用戶端回寫內部部署篩選及線上安全和已封鎖的寄件者資料。 |
-| msExchUCVoiceMailSettings |X | | |啟用整合通訊 (UM) - 線上語音信箱：供 Microsoft Lync Server 整合用來向 Lync Server 內部部署表示使用者在線上服務中有語音信箱。 |
-| msExchUserHoldPolicies |X | | |訴訟資料暫留：啟用雲端服務來識別哪些使用者正處於訴訟資料暫留狀態。 |
-| proxyAddresses |X |X |X |只會插入 Exchange Online 的 x500 位址。 |
-| publicDelegates |X | | |將 Exchange Online 信箱的 SendOnBehalfTo 權限授與使用內部部署 Exchange 信箱的使用者。 需要 Azure AD Connect 1.1.552.0 組建版本或更新版本。 |
+| 屬性名稱 (Connect UI) |屬性名稱 (內部部署 AD) | User | 連絡人 | 群組 | 註解 |
+| --- |:---:|:---:|:---:| --- |---|
+| msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |衍生自 Azure AD 中的 cloudAnchor。 這個屬性是 Exchange 2016 和 Windows Server 2016 AD 中的新屬性。 |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |線上封存：可讓客戶封存郵件。 |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |篩選：從用戶端回寫內部部署篩選及線上安全和已封鎖的寄件者資料。 |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |篩選：從用戶端回寫內部部署篩選及線上安全和已封鎖的寄件者資料。 |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |篩選：從用戶端回寫內部部署篩選及線上安全和已封鎖的寄件者資料。 |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |啟用整合通訊 (UM) - 線上語音信箱：供 Microsoft Lync Server 整合用來向 Lync Server 內部部署表示使用者在線上服務中有語音信箱。 |
+| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |訴訟資料暫留：啟用雲端服務來識別哪些使用者正處於訴訟資料暫留狀態。 |
+| proxyAddresses| proxyAddresses |X |X |X |只會插入 Exchange Online 的 x500 位址。 |
+| publicDelegates| ms-Exch-Public-Delegates  |X | | |將 Exchange Online 信箱的 SendOnBehalfTo 權限授與使用內部部署 Exchange 信箱的使用者。 需要 Azure AD Connect 1.1.552.0 組建版本或更新版本。 |
 
 ## <a name="exchange-mail-public-folder"></a>Exchange 郵件公用資料夾
 當您選擇啟用 [Exchange 郵件公用資料夾] 時，系統會將內部部署 Active Directory 的這些屬性同步到 Azure AD。

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中套用更新 | Microsoft Docs"
-description: "了解如何為 Azure Stack 整合系統匯入及安裝 Microsoft 更新套件。"
+title: 在 Azure Stack 中套用更新 | Microsoft Docs
+description: 了解如何為 Azure Stack 整合系統匯入及安裝 Microsoft 更新套件。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 10e82c13dc2bb8461fb628435484a3a6e1877aa8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中套用更新
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 12/11/2017
  
     ![顯示要在哪裡上傳每個套件檔案](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. 針對 *PackageName*.bin 和 Metadata.xml 檔案重複步驟 6 和 7。 
+8. 針對 *PackageName*.bin 和 Metadata.xml 檔案重複步驟 6 和 7。 請勿匯入 Supplemental Notice.txt 檔案 (如果包含)。
 9. 完成時，您可以檢閱通知 (入口網站右上角中的鈴鐺圖示)。 通知應該會指出已完成上傳。 
 10. 瀏覽回儀表板上的 [更新] 圖格。 此圖格應該會指出有可用的更新。 按一下此圖格即可檢視新加入的更新套件。
 11. 若要安裝更新，請選取標示為 [就緒] 的套件，然後在該套件上按一下滑鼠右鍵並選取 [立即更新]，或按一下靠近頂端的 [立即更新] 動作。

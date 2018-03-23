@@ -1,24 +1,19 @@
 ---
-title: "跨相應放大雲端資料庫報告 (水平分割) | Microsoft Docs"
-description: "使用跨資料庫的資料庫查詢，建立跨資料庫的報告。"
+title: 跨相應放大雲端資料庫報告 (水平分割) | Microsoft Docs
+description: 使用跨資料庫的資料庫查詢，建立跨資料庫的報告。
 services: sql-database
-documentationcenter: 
 manager: jhubbard
 author: MladjoA
-ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: mlandzic
-ms.openlocfilehash: 996ad1d47ece592dcf03a6eb8ed1c1916ceba374
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 29f1291f5c5d6023ca7bcd47fc2c0d9b69fd39fa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>跨相應放大雲端資料庫報告 (預覽)
 您可以使用 [彈性查詢](sql-database-elastic-query-overview.md)，從單一連接點的多個 Azure SQL Database 建立報告。 資料庫必須水平分割 (也稱為「分區化」)。

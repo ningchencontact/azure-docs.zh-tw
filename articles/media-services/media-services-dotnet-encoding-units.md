@@ -1,11 +1,11 @@
 ---
-title: "藉由新增編碼單元來調整媒體處理的規模 - Azure | Microsoft Docs"
-description: "了解如何使用 .NET 新增編碼單元"
+title: 藉由新增編碼單元來調整媒體處理的規模 - Azure | Microsoft Docs
+description: 了解如何使用 .NET 新增編碼單元
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 9274e2807beeb0fd517ba1e848cfc26db1c57655
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 89203a9499b3624faf41b63f4ea6e7bd29f3f0c9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>如何使用 .NET SDK 調整編碼
 > [!div class="op_single_selector"]
@@ -53,7 +53,8 @@ ms.lasthandoff: 01/13/2018
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ## <a name="opening-a-support-ticket"></a>建立支援票證
-依預設，每一個媒體服務帳戶可調整為最多 25 個編碼保留單元和 5 個隨選串流保留單元。 您可以建立支援票證來要求更高的限制。
+
+依預設，每一個媒體服務帳戶可調整為最多 10 個 S2 或 S3 媒體保留單位 (MRU) 或是 25 個 S1 MRU，以及 5 個隨選串流保留單位。 您可以建立支援票證來要求更高的限制。
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

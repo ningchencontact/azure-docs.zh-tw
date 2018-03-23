@@ -1,8 +1,8 @@
 ---
-title: "將 Azure 資源移至新的訂用帳戶或資源群組 | Microsoft Docs"
-description: "使用 Azure Resource Manager 將資源移到新的資源群組或訂用帳戶。"
+title: 將 Azure 資源移至新的訂用帳戶或資源群組 | Microsoft Docs
+description: 使用 Azure Resource Manager 將資源移到新的資源群組或訂用帳戶。
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 03/05/2018
 * 將資源移至新的 Azure 帳戶 (和 Azure Active Directory 租用戶)，而且需要上一節中指示的說明。
 * 移動傳統資源，但有限制的問題。
 
-## <a name="services-that-enable-move"></a>啟用移動的服務
+## <a name="services-that-can-be-moved"></a>可以移動的服務
 
 啟用移動到新資源群組與訂用帳戶的服務有：
 
@@ -149,7 +149,7 @@ ms.lasthandoff: 03/05/2018
 * 虛擬網路 - 請參閱[虛擬網路限制](#virtual-networks-limitations)
 * VPN 閘道
 
-## <a name="services-that-do-not-enable-move"></a>不啟用移動的服務
+## <a name="services-that-cannot-be-moved"></a>無法移動的服務
 
 目前不啟用移動資源的服務有：
 

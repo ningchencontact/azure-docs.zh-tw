@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions C# 開發人員參考"
-description: "了解如何使用 C# 開發 Azure Functions。"
+title: Azure Functions C# 開發人員參考
+description: 了解如何使用 C# 開發 Azure Functions。
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構"
+editor: ''
+tags: ''
+keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 9e9aa8a36d363ce28d61c5ba3cfe758520a626cf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 70c4d6276970a781517fe49ec47e9b2ddb884c78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 開發人員參考
 
@@ -134,7 +134,50 @@ public static class BindingExpressionsExample
 }
 ```
 
-*function.json* 檔案產生是由 NuGet 套件 [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) 執行。 原始程式碼位於 GitHub 存放庫 [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk)。
+### <a name="microsoftnetsdkfunctions-nuget-package"></a>Microsoft.NET.Sdk.Functions NuGet 套件
+
+*function.json* 檔案產生是由 NuGet 套件 [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) 執行。 
+
+Functions 執行階段的 1.x 版和 2.x 版都是使用同一個套件。 1.x 專案與 2.x 專案可依目標架構來區分。 以下是 *.csproj* 檔案的相關部分，顯示不同的目標架構和相同的 `Sdk` 套件：
+
+**Functions 1.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+**Functions 2.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netstandard2.0</TargetFramework>
+  <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+在 `Sdk` 套件相依性中的是觸發程序和繫結。 1.x 專案會參考 1.x 觸發程序和繫結，因為那些項目會將目標設為 .NET Framework，而 2.x 觸發程序和繫結則會將目標設為 .NET Core。
+
+`Sdk` 套件也會相依於 [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json) \(英文\)，並間接相依於 [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage) \(英文\)。 這些相依性可確保您的專案會使用能夠搭配專案所設為目標之 Functions 執行階段版本運作的套件版本。 例如，`Newtonsoft.Json` 含有適用於 .NET Framework 4.6.1 的 11 版，但目標為 .NET Framework 4.6.1 的 Functions 執行階段只能與 `Newtonsoft.Json` 9.0.1 相容。 因此，您在該專案中的函式程式碼也必須使用 `Newtonsoft.Json` 9.0.1。
+
+適用於 `Microsoft.NET.Sdk.Functions` 的原始程式碼位於 GitHub 存放庫 [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk) \(英文\)。
+
+### <a name="runtime-version"></a>執行階段版本
+
+Visual Studio 會使用 [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) 來執行 Functions 專案。 Core Tools 是適用於 Functions 執行階段的命令列介面。
+
+如果您使用 npm 安裝 Core Tools，那就不會影響 Visual Studio 所使用的 Core Tools 版本。 對於 Functions 執行階段 1.x 版，Visual Studio 會在 *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* 中儲存 Core Tools 版本，並使用儲存於該處的最新版本。 對於 Functions 2.x，Core Tools 會隨附於 **Azure Functions 與 Web 工作工具**擴充功能中。 對於 1.x 和 2.x，您可以在執行 Functions 專案時，於主控台輸出中查看使用的是哪個版本：
+
+```terminal
+[3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
+```
 
 ## <a name="supported-types-for-bindings"></a>支援的繫結類型
 

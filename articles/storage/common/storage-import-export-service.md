@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure 匯入/匯出將資料傳入和傳出 Azure 儲存體 | Microsoft Docs"
-description: "了解如何在 Azure 入口網站中建立匯入和匯出作業，以將資料傳入和傳出 Azure 儲存體。"
+title: 使用 Azure 匯入/匯出將資料傳入和傳出 Azure 儲存體 | Microsoft Docs
+description: 了解如何在 Azure 入口網站中建立匯入和匯出作業，以將資料傳入和傳出 Azure 儲存體。
 author: muralikk
 manager: syadav
 services: storage
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Microsoft Azure 匯入/匯出服務將資料傳入 Azure 儲存體
 在本文中，我們會提供使用 Azure 匯入/匯出服務的逐步指示，藉由將磁碟機運送到 Azure 資料中心，安全地將大量資料傳入 Azure Blob 儲存體和 Azure 檔案服務。 這項服務也能用來將資料從 Azure 儲存體傳輸到硬碟，然後運送到您的內部部署網站。 單一內部 SATA 磁碟機的資料可匯入到 Azure Blob 儲存體或 Azure 檔案服務。 
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/02/2018
     |/sk:     |Azure 儲存體帳戶金鑰。         |
     |/t:     |要寄送之磁碟的磁碟機代號。 例如，磁碟機 `D`。         |
     |/bk:     |磁碟機的 BitLocker 金鑰。         |
-    |/srcdir:     |要寄送之磁碟的磁碟機代號，其後緊接著 `:\`。 例如：`D:\`。         |
+    |/srcdir:     |要寄送之磁碟的磁碟機代號，其後緊接著 `:\`。 例如： `D:\`。         |
     |/dstdir:     |Azure 儲存體中目的地容器的名稱         |
 
 1. 針對每個需要寄送的磁碟重複步驟 10。
@@ -294,7 +294,7 @@ Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製
 | N/A | 不屬於任何工作的磁碟機在另一個工作中送達資料中心。 | 磁碟機會標示為額外的磁碟機，並會在與原始包裹相關聯的工作完成時寄回給客戶。 |
 
 ### <a name="time-to-process-job"></a>處理工作的時間
-處理匯入/匯出作業所需的時間量，會根據不同的因素而有所差異，例如運送時間、作業類型、複製的資料類型及大小，以及所提供磁碟的大小。 匯入/匯出服務沒有 SLA，但收到磁碟之後，服務會努力在 7 到 10 天內完成複製。 您可以使用 REST API 更仔細地追蹤工作進度。 在列出工作作業中有一個完成百分比的參數，它可以指出複製進度。 如果您需要對完成一項時間緊迫的匯入/匯出工作的預估，請連絡我們。
+處理匯入/匯出作業所需的時間長短會根據一些因素而有所不同，例如運送時間、資料中心的負載、作業類型和所複製資料的大小，以及作業中的磁碟數量。 匯入/匯出服務沒有 SLA，但在收到磁碟之後，服務會努力在 7 到 10 天內完成複製。 除了 Azure 入口網站上所公佈的狀態之外，也可使用 REST API 來追蹤作業進度。 在「列出作業」作業 API 呼叫中的完成百分比參數會提供複製進度百分比。
 
 ### <a name="pricing"></a>價格
 **磁碟機處理費用**

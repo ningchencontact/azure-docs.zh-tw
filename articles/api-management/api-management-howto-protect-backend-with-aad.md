@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Active Directory 與 API 管理保護 Web API 後端 | Microsoft Docs"
-description: "了解如何使用 Azure Active Directory 與 API 管理保護 Web API 後端。"
+title: 使用 Azure Active Directory 與 API 管理保護 Web API 後端 | Microsoft Docs
+description: 了解如何使用 Azure Active Directory 與 API 管理保護 Web API 後端。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b7fc48412799aea0c4bba971102b4912dbb18e05
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>如何使用 Azure Active Directory 與 API 管理保護 Web API 後端
 
@@ -179,7 +179,7 @@ API 經由 API 發佈者入口網站進行設定，您可以透過 Azure 入口�
 
 ![發行者入口網站][api-management-management-console]
 
-您可以將運算 [手動加入 API](api-management-howto-add-operations.md)，也可以匯入運算。 在這段視訊中從 6:40 開始，運算會以 Swagger 格式匯入。
+您可以將運算 [手動加入 API](api-management-howto-add-operations.md)，也可以匯入運算。
 
 以下列內容建立名為 `calcapi.json` 的檔案，然後將檔案儲存到您的電腦。 確定 `host` 屬性指向您的 Web API 後端。 在此範例中使用 `"host": "apimaaddemo.azurewebsites.net"`。
 

@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Migrate 分組機器以進行評量 | Microsoft Docs"
-description: "說明如何在使用 Azure Migrate 服務進行評量之前先分組機器。"
+title: 使用 Azure Migrate 分組機器以進行評量 | Microsoft Docs
+description: 說明如何在使用 Azure Migrate 服務進行評量之前先分組機器。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.devlang: na
@@ -20,7 +20,7 @@ ms.lasthandoff: 12/19/2017
 
 ## <a name="create-a-group"></a>建立群組
 
-1. 在 Azure Migrate 專案的 [概觀] 中，在 [管理] 下按一下 [群組] **** >[+ 群組] ****，並指定群組名稱。
+1. 在 Azure Migrate 專案的 **概觀** 中，在 [管理] 下按一下  **群組** > **+ 群組** ，並指定群組名稱。
 2. 將一台或多台機器新增至群組，並按一下 [建立] ****。 
 3. 您可以選擇性地選取此項目，為群組執行新的評量。 
 

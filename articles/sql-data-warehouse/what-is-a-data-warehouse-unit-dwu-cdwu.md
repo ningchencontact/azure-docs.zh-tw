@@ -1,25 +1,24 @@
 ---
-title: "什麼是 Azure SQL 資料倉儲中的資料倉儲單位 (DWU、cDWU)？ | Microsoft Docs"
-description: "Azure SQL 資料倉儲中的效能相應放大功能。 藉由調整 DWU、cDWU 以相應放大，或暫停和繼續計算資源來節省成本。"
+title: 什麼是 Azure SQL 資料倉儲中的資料倉儲單位 (DWU、cDWU)？ | Microsoft Docs
+description: Azure SQL 資料倉儲中的效能相應放大功能。 藉由調整 DWU、cDWU 以相應放大，或暫停和繼續計算資源來節省成本。
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
-ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 11/10/2017
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: 02998c48dcab5d3ed191b168665c9e47bbfbd232
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: f634bdde2c71f7563df11f686d7ce217311df81d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>資料倉儲單位 (DWU) 和計算資料倉儲單位 (cDWU)
 說明適用於 Azure SQL 資料倉儲的資料倉儲單位 (DWU) 和計算資料倉儲單位 (cDWU)。 包含選擇理想的資料倉儲單位數，以及如何變更其數目的建議。 
@@ -201,7 +200,7 @@ AND       major_resource_id = 'MySQLDW'
 [Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
 [Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
 
-[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload and concurrency management]: ./resource-classes-for-workload-management.md
 [Table design overview]: ./sql-data-warehouse-tables-overview.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Table indexing]: ./sql-data-warehouse-tables-index.md

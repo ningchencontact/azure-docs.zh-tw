@@ -1,17 +1,36 @@
-
-
-
-**上次文件更新**：太平洋標準時間 1 月 22 日下午 3:00。
+---
+title: 包含檔案
+description: 包含檔案
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: bf4adf075842effeb26aa5a600c09f7bd1866264
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/16/2018
+---
+**上次文件更新**：3 月 6 日上午 10:00 PST。
 
 最近揭露的[新 CPU 漏洞類別](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)也稱為推測性執行旁路攻擊，讓許多客戶不知所措。  
 
 執行 Azure 的基礎結構，以及將客戶的工作負載互相隔離這方面已受到保護。  這表示在 Azure 上執行的其他客戶無法使用這些漏洞來攻擊您的應用程式。
 
 > [!NOTE] 
-> Azure 在 2018 年 1 月 3 日宣佈的風險降低措施，並未受到 Intel 最近發佈的[更新指引](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) \(英文\) 所影響。 我們不會因為這些新資訊而針對客戶的VM 實施額外維護活動。
+> 在 2018 年 2 月下旬，Intel Corporation 針對其微碼版本狀態發佈了更新的[微碼修訂指引](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf)，以改善穩定性並降低最近由 [Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html) 所揭露的弱點風險。 Azure 在 [2018 年 1 月 3 日](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/)實施的緩和措施不會受到 Intel 的微碼更新影響。 Microsoft 已經實施強大的緩和措施，以保護 Azure 客戶免於遭受其他 Azure 租用戶的危害。  
 >
-> 當我們收到硬體廠商的微碼更新時，便會繼續更新這些最佳做法。 請回來查看更新的指引。
+> Intel 的微碼可解決 Spectre Variant 2 ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715))，以防禦在 Azure 上的 VM 內執行共用或未受信任工作負載的情況下才適用的攻擊。 我們的工程師會測試穩定性，以將微碼的效能影響降至最低，然後才會將它提供給 Azure 客戶使用。  因為很少客戶會在其 VM 內執行未受信任的工作負載，所以大部分客戶都不需要在此功能發行後立即啟用。 
 >
+> 此頁面會隨時更新並提供更多資訊。  
+
+
+
+
+
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>讓您的作業系統維持最新狀態
 
@@ -43,7 +62,7 @@
 
 
 ### <a name="windows"></a>Windows 
-如果您是使用 Windows，而且裝載未受信任的程式碼，您應該也會啟用名為核心虛擬位址 (KVA) 的遮蔽功能；此功能可針對推測性執行旁路攻擊漏洞提供額外的防護措施。 依預設此功能為關閉，若啟用可能會影響效能。 請遵循 [Windows 伺服器 KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 啟用伺服器保護中的指示。 如果您執行的是 Azure 雲端服務，請確認您正在執行 WA-GUEST-OS-5.15_201801-01 或 WA-GUEST-OS-4.50_201801-01 (於 1 月 10 日起可用) 並透過啟動工作啟用登錄機碼。
+如果您是使用 Windows，而且裝載未受信任的程式碼，您應該也會啟用名為核心虛擬位址 (KVA) 的遮蔽功能；此功能可針對推測性執行旁路攻擊漏洞提供額外的防護措施。 依預設此功能為關閉，若啟用可能會影響效能。 請遵循 [Windows 伺服器 KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 啟用伺服器保護中的指示。 如果您執行的是 Azure 雲端服務，請確認您正在執行 WA-GUEST-OS-5.15_201801-01 或 WA-GUEST-OS-4.50_201801-01 (於2018 年 1 月 10 日起可用) 並透過啟動工作啟用登錄機碼。
 
 
 ### <a name="linux"></a>Linux

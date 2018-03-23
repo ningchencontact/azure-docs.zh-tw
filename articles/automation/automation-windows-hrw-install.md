@@ -1,24 +1,18 @@
 ---
-title: "Azure 自動化 Windows 混合式 Runbook 背景工作角色 | Microsoft Docs"
-description: "本文提供有關安裝 Azure 自動化混合式 Runbook 背景工作角色的資訊，它可讓您在本機資料中心或雲端環境內以 Windows 為基礎的電腦上，執行 Runbook。"
+title: Azure 自動化 Windows 混合式 Runbook 背景工作
+description: 本文提供有關安裝 Azure 自動化混合式 Runbook 背景工作角色的資訊，它可讓您在本機資料中心或雲端環境內以 Windows 為基礎的電腦上，執行 Runbook。
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: 
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/07/2017
-ms.author: magoedte
-ms.openlocfilehash: 4232634f57f9650a35c40ee769cbeb0a3e009dfb
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+manager: carmonm
+ms.openlocfilehash: c03b124e21603056219a6ff6458469b4ecd60969
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>如何部署 Windows 混合式 Runbook 背景工作角色
 

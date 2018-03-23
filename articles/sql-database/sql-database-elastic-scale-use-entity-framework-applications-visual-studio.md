@@ -1,25 +1,19 @@
 ---
-title: "搭配使用彈性資料庫用戶端程式庫與 Entity Framework | Microsoft Docs"
-description: "使用彈性資料庫用戶端程式庫與和 Entity Framework 來編寫資料庫"
+title: 搭配使用彈性資料庫用戶端程式庫與 Entity Framework | Microsoft Docs
+description: 使用彈性資料庫用戶端程式庫與和 Entity Framework 來編寫資料庫
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: torsteng
-ms.openlocfilehash: 1fc61657419f1f4581c5c67639d7bc2e4b0d509f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 5f215c6c6f65804785e35ae1b3ec9cce24e2a976
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>搭配使用彈性資料庫用戶端程式庫與 Entity Framework
 這份文件說明 Entity Framework 應用程式為了要與 [彈性資料庫工具](sql-database-elastic-scale-introduction.md)整合所需做的變更。 重點將著重於使用 Entity Framework **Code First** 方法來編寫[分區對應管理](sql-database-elastic-scale-shard-map-management.md)和[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)。 這整份文件是以 EF 的 [Code First - 新的資料庫](http://msdn.microsoft.com/data/jj193542.aspx)教學課程作為執行範例。 本文所附的範例程式碼取自於 Visual Studio 程式碼範例中的彈性資料庫工具範例集。

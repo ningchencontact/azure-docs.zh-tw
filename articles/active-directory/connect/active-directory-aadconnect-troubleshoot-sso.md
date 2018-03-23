@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory Connect：針對無縫單一登入進行疑難排解 | Microsoft Docs"
-description: "本主題說明如何針對 Azure Active Directory 無縫單一登入進行疑難排解"
+title: Azure Active Directory Connect：針對無縫單一登入進行疑難排解 | Microsoft Docs
+description: 本主題說明如何針對 Azure Active Directory 無縫單一登入進行疑難排解
 services: active-directory
-keywords: "何謂 Azure AD Connect、安裝 Active Directory、Azure AD、SSO、單一登入的必要元件"
-documentationcenter: 
+keywords: 何謂 Azure AD Connect、安裝 Active Directory、Azure AD、SSO、單一登入的必要元件
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,36 +12,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>針對 Azure Active Directory 無縫單一登入進行疑難排解
 
 這篇文章可協助您尋找有關 Azure Active Directory (Azure AD) 無縫單一登入 (無縫 SSO) 常見問題的疑難排解資訊。
 
-## <a name="known-problems"></a>已知的問題
+## <a name="known-issues"></a>已知問題
 
 - 在某些情況下，啟用無縫 SSO 最久可能需要 30 分鐘。
 - 如果您在租用戶上將「無縫 SSO」停用再重新啟用，使用者將必須等到他們的已快取 Kerberos 票證到期 (有效期通常為 10 小時) 之後，才能使用單一登入體驗。
 - 不支援 Edge 瀏覽器。
-- 啟動 Office 用戶端 (尤其是在共用的電腦情節中) 會導致使用者收到額外的登入輸入。 使用者必須經常輸入其使用者名稱，而不是密碼。
 - 如果無縫 SSO 成功，使用者就沒有機會選取 [讓我保持登入]。 由於這個行為，SharePoint 和 OneDrive 對應情節無法運作。
+- 版本低於 16.0.8730.xxxx 的 Office 用戶端不支援使用「無縫 SSO」進行非互動式登入。 在這些用戶端上，使用者必須輸入其使用者名稱 (但不需輸入密碼) 來進行登入。
 - 在 Firefox 的私用瀏覽模式中，無法使用無縫 SSO。
 - Internet Explorer 在開啟「增強保護」模式時也無法使用無縫 SSO。
 - iOS 和 Android 上的行動瀏覽器無法使用無縫 SSO。
 - 如果您正在同步處理 30 個或更多的 Active Directory 樹系，便無法透過 Azure AD Connect 啟用無縫 SSO。 您可以在租用戶上[手動啟用](#manual-reset-of-azure-ad-seamless-sso)此功能，以解決這個問題。
-- 將 Azure AD 服務 URL (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) 新增至「信任的網站」區域而非「本機內部網路」區域，*以阻止使用者登入*。
+- 將 Azure AD 服務 URL (https://autologon.microsoftazuread-sso.com) 新增至「信任的網站區域」而非「近端內部網路區域」會「阻止使用者登入」。
+- 針對您 Active Directory 設定中的 Kerberos 停用 **RC4_HMAC_MD5** 加密類型會中斷「無縫 SSO」。 在您的「群組原則管理編輯器」工具中，請確定在 [電腦設定] -> [Windows 設定] -> [安全性設定] -> [本機原則] -> [安全性選項] -> [網路安全性: 設定 Kerberos 允許的加密類型] 底下，[RC4_HMAC_MD5] 的原則值為 [已啟用]。
 
-## <a name="check-the-status-of-the-feature"></a>檢查功能的狀態
+## <a name="check-status-of-feature"></a>檢查功能的狀態
 
 確認您租用戶端的無縫 SSO 功能仍為 [已啟用]。 您可以前往 [Azure Active Directory 管理中心](https://aad.portal.azure.com/)的 [Azure AD Connect] 窗格來檢查狀態。
 
 ![Azure Active Directory 管理中心：Azure AD Connect 窗格](./media/active-directory-aadconnect-sso/sso10.png)
+
+一路按一下來查看已針對「無縫 SSO」啟用的所有 AD 樹系。
+
+![Azure Active Directory 管理中心：無縫 SSO 窗格](./media/active-directory-aadconnect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Azure Active Directory 管理中心上的登入失敗原因 (需要 Premium 授權)
 
@@ -70,7 +75,7 @@ ms.lasthandoff: 01/05/2018
 
 - 請務必在 Azure AD Connect 上已啟用無縫 SSO 功能。 如果您無法啟用此功能 (例如，因為連接埠已封鎖)，請確定您已完成所有[必要條件](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites)。
 - 如果您已在租用戶上同時啟用 [Azure AD 聯結](../active-directory-azureadjoin-overview.md)和「無縫 SSO」，請確定問題不是出在「Azure AD 聯結」上。 如果裝置既已向 Azure AD 註冊也加入網域，則來自「Azure AD 聯結」的 SSO 優先順序會高於「無縫 SSO」。 使用來自「Azure AD 聯結」的 SSO 時，使用者會看到指出「已連線到 Windows」的登入圖格。
-- 確認這兩個 Azure AD URL (https://autologon.microsoftazuread-sso.com 和 https://aadg.windows.net.nsatc.net) 都屬於使用者的內部網路區域設定。
+- 確定 Azure AD URL (https://autologon.microsoftazuread-sso.com) 是使用者內部網路區域設定的一部分。
 - 確定公司裝置已加入 Active Directory 網域。
 - 確定使用者已透過 Active Directory 網域帳戶登入裝置。
 - 確定使用者帳戶是來自已設定無縫 SSO 的 Active Directory 樹系。

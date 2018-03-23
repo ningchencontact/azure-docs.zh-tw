@@ -1,132 +1,125 @@
 ---
-title: "在 Azure 中建立虛擬網路 - 入口網站 | Microsoft Docs"
-description: "快速了解如何使用 Azure 入口網站來建立虛擬網路。 虛擬網路可讓許多類型的 Azure 資源互相進行私密通訊。"
+title: 建立 Azure 虛擬網路 - 入口網站 | Microsoft Docs
+description: 快速了解如何使用 Azure 入口網站來建立虛擬網路。 虛擬網路可讓 Azure 資源 (例如虛擬機器) 彼此及與網際網路進行私密通訊。
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 01/25/2018
+ms.date: 03/09/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: b1dbe96b9f522474cd2eeb2b63f3429f9ea4d8ed
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.custom: ''
+ms.openlocfilehash: c8f2cbe6b7377772e019a4ff90f91355ba0815ae
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-portal"></a>使用 Azure 入口網站建立虛擬網路
 
-在本文中，您將了解如何建立虛擬網路。 建立虛擬網路之後，您需將兩部虛擬機器部署到虛擬網路中，以在兩者間測試私人網路通訊。
+虛擬網路可讓 Azure 資源 (例如虛擬機器 (VM)) 彼此及與網際網路進行私密通訊。 在本文中，您將了解如何建立虛擬網路。 建立虛擬網路之後，您需將兩個 VM 部署至虛擬網路中。 接著，您需從網際網路連線至其中一個 VM，然後在兩個 VM 之間進行私密通訊。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="log-in-to-azure"></a>登入 Azure 
 
-登入 Azure 入口網站，網址是 http://portal.azure.com/。
+登入 Azure 入口網站，網址是 https://portal.azure.com。
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-1. 選取 Azure 入口網站左上角的 [+ 新增]。
-
+1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
 2. 選取 [網絡]，然後選取 [虛擬網路]。
+3. 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]：
 
-3. 如下圖所示，針對 [名稱] 輸入 *myVirtualNetwork*、針對 [資源群組] 輸入 *myResourceGroup*、選取 [位置] 和您的 [訂用帳戶]、接受其餘的預設值，然後選取 [建立]。 
+    |設定|值|
+    |---|---|
+    |Name|myVirtualNetwork|
+    |訂用帳戶| 選取您的訂用帳戶。|
+    |資源群組| 選取 [新建]，然後輸入 *myResourceGroup*。|
+    |位置| 選取 [美國東部]。|
 
-    ![輸入虛擬網路的相關基本資訊](./media/quick-create-portal/virtual-network.png)
+    ![輸入虛擬網路的相關基本資訊](./media/quick-create-portal/create-virtual-network.png)
 
-    [位址空間] 需以 CIDR 標記法指定。 虛擬網路會包含零個或多個子網路。 預設子網路**位址範圍** 10.0.0.0/24 會使用虛擬網路的整個位址範圍，因此，使用預設的位址空間和範圍時，無法在虛擬網路中建立另一個子網路。 指定的位址範圍包括 IP 位址 10.0.0.0-10.0.0.254。 不過，只有 10.0.0.4-10.0.0.254 可供使用，因為 Azure 會保留每個子網路中的前四個位址 (0-3) 和最後一個位址。 可用的 IP 位址會指派給部署在虛擬網路內的資源。
+## <a name="create-virtual-machines"></a>建立虛擬機器
 
-## <a name="test-network-communication"></a>測試網路通訊
+在虛擬網路內建立兩個 VM：
 
-虛擬網路可讓數種類型的 Azure 資源互相進行私密通訊。 其中一種您可以部署到虛擬網路中的資源類型是虛擬機器。 在虛擬網路中建立兩部虛擬機器，以便您可以在稍後步驟中驗證它們之間的私密通訊。
+### <a name="create-the-first-vm"></a>建立第一個 VM
 
-### <a name="create-virtual-machines"></a>建立虛擬機器
-
-1. 選取 Azure 入口網站左上角的 [新增] 按鈕。
-
+1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
 2. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。
+3. 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [確定]：
 
-3. 依照下圖所示，輸入虛擬機器資訊。 您輸入的 [使用者名稱] 和 [密碼] 會在稍後的步驟中用來登入虛擬機器。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。 選取你的 [訂用帳戶]，選擇使用現有的 [myResourceGroup] 資源群組，並確定所選 [位置] 與您建立虛擬機器的位置相同。 完成時選取 [確定]。
+    |設定|值|
+    |---|---|
+    |Name|myVm1|
+    |使用者名稱| 輸入您選擇的使用者名稱。|
+    |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
+    |訂用帳戶| 選取您的訂用帳戶。|
+    |資源群組| 選取 [使用現有項目]，然後選取 [myResourceGroup]。|
+    |位置| 選取 [美國東部]|
 
-    ![輸入虛擬機器的相關基本資訊](./media/quick-create-portal/virtual-machine-basics.png)
+    ![虛擬機器基本資訊](./media/quick-create-portal/virtual-machine-basics.png)
 
-4. 選取虛擬機器的大小，然後選取 [選取]。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 為您顯示的大小可能與以下範例不同： 
+4. 選取 VM 的大小，然後選取 [選取]。
+5. 在 [設定] 底下，接受所有預設值，然後選取 [確定]。
 
-    ![選取虛擬機器的大小](./media/quick-create-portal/virtual-machine-size.png)
+    ![虛擬機器設定](./media/quick-create-portal/virtual-machine-settings.png)
 
-5. 在 [設定] 底下，應該已經針對 [虛擬網路] 選取 [myVirtualNetwork]，如果沒有，請選取 [虛擬網路]，然後選取 [myVirtualNetwork]。 針對 [子網路]保留選取 [default]，然後選取 [確定]。
+6. 在 [摘要] 的 [建立] 底下，選取 [建立] 來開始部署 VM。 部署 VM 需要幾分鐘的時間。 
 
-    ![選取虛擬網路](./media/quick-create-portal/virtual-machine-network-settings.png)
+### <a name="create-the-second-vm"></a>建立第二個 VM
 
-6. 在 [摘要] 頁面上，選取 [建立] 來開始進行虛擬機器部署。 
+再次完成步驟 1-6，但在步驟 3 中，將 VM 命名為 *myVm2*。
 
-7. 建立虛擬機器需要幾分鐘的時間。 建立之後，虛擬機器會釘選到 Azure 入口網站儀表板上，並且會自動開啟虛擬機器摘要。 選取 [網路功能]。
+## <a name="connect-to-a-vm-from-the-internet"></a>從網際網路連線至 VM
 
-    ![虛擬機器網路資訊](./media/quick-create-portal/virtual-machine-networking.png)
+1. 建立 *myVm1* 之後，與其連線。 在 Azure 入口網站頂端，輸入 *myVm1*。 當 **myVm1** 出現在搜尋結果中時，選取它。 選取 [連線]  按鈕。
 
-    您會看到 [私人 IP] 位址為 *10.0.0.4*。 在步驟 5 中，您已在 [設定] 底下選取 [myVirtualNetwork] 虛擬網路，並針對 [子網路] 接受名為 *default* 的子網路。 當您[建立虛擬網路](#create-a-virtual-network)時，針對子網路 [位址範圍] 接受了預設值 10.0.0.0/24。 Azure 的 DHCP 伺服器會將您所選子網路的第一個可用位址指派給虛擬機器。 由於 Azure 會保留每個子網路的前四個位址 (0-3)，因此子網路的第一個可用 IP 位址是 10.0.0.4。
-
-    指派的**公用 IP** 位址與指派給虛擬機器的位址不同。 Azure 預設會為每部虛擬機器指派一個公用、可透過網際網路路由傳送的 IP 位址。 將會從[指派給每個 Azure 區域的位址集區](https://www.microsoft.com/download/details.aspx?id=41653) \(英文\) 指派公用 IP 位址給虛擬機器。 雖然 Azure 知道哪個公用 IP 位址已指派給虛擬機器，但在虛擬機器中執行的作業系統並不會察覺指派給它的任何公用 IP 位址。
-
-8. 再次完成步驟 1-7，但在步驟 3 中，將虛擬機器命名為 *myVm2*。 
-
-9. 建立虛擬機器之後，如您在步驟 7 中所做的一樣，選取 [網路功能]。 您會看到 [私人 IP] 位址為 *10.0.0.5*。 由於 Azure 先前已將子網路中第一個可用的位址 *10.0.0.4* 指派給 *myVm1* 虛擬機器，因此它將 *10.0.0.5* 指派給 *myVm2* 虛擬機器，因為這是子網路中下一個可用的位址。
-
-### <a name="connect-to-a-virtual-machine"></a>連接到虛擬機器
-
-1. 從遠端連線至 *myVm1*虛擬機器。 在 Azure 入口網站頂端，輸入 *myVm1*。 當 **myVm1** 出現在搜尋結果中時，選取它。 選取 [連線]  按鈕。
-
-    ![虛擬機器概觀](./media/quick-create-portal/virtual-machine-overview.png)
+    ![連接到虛擬機器](./media/quick-create-portal/connect-to-virtual-machine.png)
 
 2. 在選取 [連線] 按鈕之後，將會建立一個「遠端桌面通訊協定」(.rdp) 檔案並下載至您的電腦。  
+3. 開啟所下載的 rdp 檔案。 如果出現提示，請選取 [連接]。 輸入您在建立 VM 時指定的使用者名稱和密碼。 您可能需要選取 [其他選擇]，然後選取 [使用不同的帳戶]，以指定您在建立 VM 時輸入的認證。 
+4. 選取 [確定] 。
+5. 您可能會在登入過程中收到憑證警告。 如果您收到警告，請選取 [是] 或 [繼續] 以繼續進行連線。
 
-3. 開啟所下載的 rdp 檔案。 如果出現提示，請選取 [連接]。 輸入您在建立虛擬機器時指定的使用者名稱和密碼，然後選取 [確定]。 您可能會在登入過程中收到憑證警告。 選取 [是] 或 [繼續] 以繼續進行連線。
+## <a name="communicate-privately-between-vms"></a>在 VM 之間進行私密通訊
 
-### <a name="validate-communication"></a>驗證通訊
+1. 從 PowerShell，輸入 `ping myvm2`。 Ping 會失敗，因為 Ping 使用網際網路控制訊息通訊協定 (ICMP)，而 Windows 防火牆預設並不允許 ICMP 通過。
+2. 若要允許 *myVm2* 在稍後的步驟中對 *myVm1* 執行 Ping，請從 PowerShell 輸入下列命令，這會允許連入的 ICMP 通過 Windows 防火牆：
 
-嘗試針對 Windows 虛擬機器執行 Ping 會失敗，因為預設不允許 Ping 穿過 Windows 防火牆。 若要允許針對 *myVm1* 執行 Ping，請從命令提示字元中輸入下列命令：
+    ```powershell
+    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    ```
 
-```
-netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-```
+3. 關閉對 *myVm1* 的遠端桌面連線。 
 
-若要驗證與 *myVm2* 的通訊，請從 *myVm1* 虛擬機器上的命令提示字元中輸入下列命令。 請提供您建立虛擬機器時所使用的認證，然後完成連線：
+4. 再次完成[從網際網路連線至 VM](#connect-to-a-vm-from-the-internet) 中的步驟，但連線至 *myVm2*。 從命令提示字元，輸入 `ping myvm1`。
 
-```
-mstsc /v:myVm2
-```
+    您會從 *myVm1* 收到回覆，因為您在先前的步驟中允許 ICMP 通過 *myVm1* VM 上的 Windows 防火牆。
 
-遠端桌面連線成功，因為兩部虛擬機器都已從 *default* 子網路獲指派私人 IP 位址，並且預設穿過 Windows 防火牆開啟了遠端桌面。 您能夠依據主機名稱連線至 *myVm2*，因為 Azure 會自動為虛擬網路內的所有主機提供 DNS 名稱解析。 在命令提示字元中，從 myVm2 針對 myVm1 執行 Ping。
-
-```
-ping myvm1
-```
-
-Ping 執行成功，因為您在上一個步驟中允許它穿過 *myVm1* 虛擬機器上的 Windows 防火牆。 若要確認對網際網路的輸出通訊，請輸入下列命令：
-
-```
-ping bing.com
-```
-
-您會從 bing.com 收到四個回覆。根據預設，虛擬網路中的所有虛擬機器都能對網際網路進行輸出通訊。 
-
-結束遠端桌面工作階段。
+5. 關閉對 *myVm2* 的遠端桌面連線。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當不再需要資源群組時，請將資源群組及其所有內容刪除。 在 Azure 入口網站頂端，輸入 *myResourceGroup*。 當 **myResourceGroup** 出現在搜尋結果中時，選取它。 選取 [刪除] 。
+當不再需要資源群組時，請將資源群組及其包含的所有資源刪除：
+
+1. 在入口網站頂端的 [搜尋] 方塊中，輸入 myResourceGroup。 當您在搜尋結果中看到 myResourceGroup 時，請加以選取。
+2. 選取 [刪除資源群組]。
+3. 針對 [輸入資源群組名稱:] 輸入 myResourceGroup，然後選取 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已部署含有一個子網路的預設虛擬網路。 若要了解如何建立含有多個子網路的自訂虛擬網路，請繼續進行建立自訂虛擬網路的教學課程。
+在本文中，您已建立一個預設的虛擬網路和兩個 VM。 您已從網際網路連線至其中一個 VM，然後在該 VM 與另一個 VM 之間進行私密通訊。 若要深入了解虛擬網路設定，請參閱[管理虛擬網路](manage-virtual-network.md)。
+
+Azure 預設會允許虛擬機器之間進行不受限制的私密通訊，但只允許從網際網路到 Windows VM 連入遠端桌面連線。 若要了解如何允許或限制進出 VM 的不同類型網路通訊，請前進到下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [建立自訂虛擬網路](virtual-networks-create-vnet-arm-pportal.md#portal)
+> [篩選網路流量](virtual-networks-create-nsg-arm-pportal.md)

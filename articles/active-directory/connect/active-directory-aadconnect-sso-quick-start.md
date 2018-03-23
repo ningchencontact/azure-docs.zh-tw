@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect：無縫單一登入 - 快速入門 | Microsoft Docs"
-description: "本文描述如何開始使用 Azure Active Directory 無縫單一登入"
+title: Azure AD Connect：無縫單一登入 - 快速入門 | Microsoft Docs
+description: 本文描述如何開始使用 Azure Active Directory 無縫單一登入
 services: active-directory
-keywords: "何謂 Azure AD Connect、安裝 Active Directory、Azure AD、SSO、單一登入的必要元件"
-documentationcenter: 
+keywords: 何謂 Azure AD Connect、安裝 Active Directory、Azure AD、SSO、單一登入的必要元件
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
 ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/24/2018
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>為什麼需要修改使用者的內部網路區域設定？
 
-瀏覽器預設會自動從指定的 URL 計算正確的區域 (網際網路或內部網路)。 例如，"http://contoso/" 會對應到內部網路區域，而 "http://intranet.contoso.com/" 會對應到網際網路區域 (因為 URL 包含句點)。 除非將 URL 明確地新增至瀏覽器的內部網路區域，否則瀏覽器不會將 Kerberos 票證傳送給雲端端點 (例如 Azure AD URL)。
+瀏覽器預設會自動從指定的 URL 計算正確的區域 (網際網路或內部網路)。 例如，"http://contoso/" 會對應到內部網路區域，而 "http://intranet.contoso.com/" 則會對應到網際網路區域 (因為 URL 包含句點)。 除非將 URL 明確地新增至瀏覽器的內部網路區域，否則瀏覽器不會將 Kerberos 票證傳送給雲端端點 (例如 Azure AD URL)。
 
 ### <a name="detailed-steps"></a>詳細步驟
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/24/2018
 
     結果如下所示：
 
-    值︰https://autologon.microsoftazuread-sso.com
+    值: https://autologon.microsoftazuread-sso.com
   
     Data 1
 

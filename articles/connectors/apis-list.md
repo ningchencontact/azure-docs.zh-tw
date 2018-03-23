@@ -1,11 +1,11 @@
 ---
-title: "適用於 Azure Logic Apps 的連接器 | Microsoft Docs"
-description: "從所有可用的 Microsoft 連接器中進行選擇，以建置和建立邏輯應用程式"
+title: 適用於 Azure Logic Apps 的連接器 | Microsoft Docs
+description: 從所有可用的 Microsoft 連接器中進行選擇，以建置和建立邏輯應用程式
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: estfan; ladocs
+ms.openlocfilehash: f140f1a3d751b5d83b139edde931a6193334b6ee
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connectors-list"></a>連接器清單
 若要尋找每個連接器的 Swagger 說明加上任何連接器限制所定義的觸發程序和動作，請參閱[連接器詳細資料](/connectors/)。
@@ -28,8 +28,7 @@ ms.lasthandoff: 02/01/2018
 
 **內建動作**：Logic Apps 引擎本身提供內建動作，以便與端點通訊並執行工作。 例如，您可以使用這些動作來呼叫 HTTP 端點、Azure Functions 和 Azure API 管理作業，以及使用資料作業和變數來處理訊息。
 
-
-            **受控連接器**：建立 Logic Apps 服務主控和管理的 API 連線，以針對各種服務提供 API 存取。 受控連接器可分為下列類別：
+**受控連接器**：建立 Logic Apps 服務主控和管理的 API 連線，以針對各種服務提供 API 存取。 受控連接器可分為下列類別：
 
 * **標準連接器**︰當您使用邏輯應用程式時自動取得和納入。 例如：服務匯流排、Power BI、OneDrive 等等。
 

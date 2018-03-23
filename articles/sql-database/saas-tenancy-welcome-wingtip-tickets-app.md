@@ -1,25 +1,20 @@
 ---
-title: "歡迎使用 Wingtips 應用程式 - Azure SQL Database | Microsoft Docs"
-description: "了解雲端環境中 Azure SQL Database 的資料庫租用模型和相關範例 Wingtips SaaS 應用程式。"
+title: 歡迎使用 Wingtips 應用程式 - Azure SQL Database | Microsoft Docs
+description: 了解雲端環境中 Azure SQL Database 的資料庫租用模型和相關範例 Wingtips SaaS 應用程式。
 keywords: SQL Database Azure
 services: sql-database
-documentationcenter: 
 author: billgib
 manager: craigg
-editor: MightyPen
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 3f1a8bf6a0f05308f643f24dd4db7400c49b9e14
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: bb69a03333ed9dcdba1456d053c0080be5ba4d10
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 應用程式
 
@@ -77,7 +72,7 @@ ms.lasthandoff: 02/22/2018
 
 <!-- Image references. -->
 
-[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "三種租用模式"。
+[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "三種租用模式。"
 
 <!-- Docs.ms.com references. -->
 

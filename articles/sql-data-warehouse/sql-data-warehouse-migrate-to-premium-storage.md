@@ -1,11 +1,11 @@
 ---
-title: "將您現有的 Azure 資料倉儲移轉到進階儲存體 | Microsoft Docs"
-description: "將現有資料倉儲移轉到進階儲存體的指示"
+title: 將您現有的 Azure 資料倉儲移轉到進階儲存體 | Microsoft Docs
+description: 將現有資料倉儲移轉到進階儲存體的指示
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-ms.date: 11/29/2016
+ms.date: 03/15/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 751f553c277cec579327771beb2f3256664452b1
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 3b43bc17b7f9cf80a9520c5c573be3a48d82e4e7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>將您的資料倉儲移轉到進階儲存體
 Azure SQL 資料倉儲最新引進了[進階儲存體，以獲得更高的效能可預測性][premium storage for greater performance predictability]。 現在可以將目前在標準儲存體上的現有資料倉儲移轉至進階儲存體。 您可以利用自動移轉，或如果您想要控制何時要移轉 (未包含某些停機時間)，您可以自行完成移轉。
@@ -31,13 +31,13 @@ Azure SQL 資料倉儲最新引進了[進階儲存體，以獲得更高的效能
 
 | **區域** | **在此日期前建立的資料倉儲** |
 |:--- |:--- |
-| 澳洲東部 |尚未提供進階儲存體 |
+| 澳洲東部 |2018 年 1 月 1 日 |
 | 中國東部 |2016 年 11 月 1 日 |
 | 中國北部 |2016 年 11 月 1 日 |
 | 德國中部 |2016 年 11 月 1 日 |
 | 德國東北部 |2016 年 11 月 1 日 |
-| 印度西部 |尚未提供進階儲存體 |
-| 日本西部 |尚未提供進階儲存體 |
+| 印度西部 |2018 年 2 月 1 日 |
+| 日本西部 |2018 年 2 月 1 日 |
 | 美國中北部 |2016 年 11 月 10 日 |
 
 ## <a name="automatic-migration-details"></a>自動移轉詳細資料
@@ -69,14 +69,14 @@ Microsoft 會採取下列步驟來完成移轉 (這些不需要您採取任何�
 
 | **區域** | **預估開始日期** | **預估結束日期** |
 |:--- |:--- |:--- |
-| 澳洲東部 |尚未決定 |尚未決定 |
-| 中國東部 |2017 年 1 月 9 日 |2017 年 1 月 13 日 |
-| 中國北部 |2017 年 1 月 9 日 |2017 年 1 月 13 日 |
-| 德國中部 |2017 年 1 月 9 日 |2017 年 1 月 13 日 |
-| 德國東北部 |2017 年 1 月 9 日 |2017 年 1 月 13 日 |
-| 印度西部 |尚未決定 |尚未決定 |
-| 日本西部 |尚未決定 |尚未決定 |
-| 美國中北部 |2017 年 1 月 9 日 |2017 年 1 月 13 日 |
+| 澳洲東部 |2018 年 3 月 19 日 |2018 年 3 月 20 日 |
+| 中國東部 |已經移轉 |已經移轉 |
+| 中國北部 |已經移轉 |已經移轉 |
+| 德國中部 |已經移轉 |已經移轉 |
+| 德國東北部 |已經移轉 |已經移轉 |
+| 印度西部 |2018 年 3 月 19 日 |2018 年 3 月 20 日 |
+| 日本西部 |2018 年 3 月 19 日 |2018 年 3 月 20 日 |
+| 美國中北部 |已經移轉 |已經移轉 |
 
 ## <a name="self-migration-to-premium-storage"></a>自行移轉至進階儲存體
 如果您要控制發生停機的時間，您可以使用下列步驟，將標準儲存體上的現有資料倉儲移轉至進階儲存體。 如果您選擇此選項，必須在自動移轉於該區域中開始之前完成自我移轉。 這可確保您避免任何自動移轉造成衝突的風險 (請參閱[自動移轉排程][automatic migration schedule])。
@@ -84,11 +84,14 @@ Microsoft 會採取下列步驟來完成移轉 (這些不需要您採取任何�
 ### <a name="self-migration-instructions"></a>自行移轉指示
 若要自行移轉您的資料倉儲，請使用備份和還原功能。 每個資料倉儲每 TB 的儲存體預計需要約一小時的時間來進行移轉作業的還原部分。 如果您要在移轉完成後保留相同的名稱，請遵循[在移轉期間內重新命名的步驟][steps to rename during migration]。
 
-1. [暫停][Pause] 資料倉儲。 這會進行自動備份。
+1. [暫停][Pause] 資料倉儲。 
 2. 從最新的快照集[還原][Restore]。
 3. 刪除標準儲存體上的現有資料倉儲。 **如果您無法執行此步驟，您需支付這兩個資料倉儲的費用。**
 
 > [!NOTE]
+>
+> 還原您的資料倉儲時，請確認可用之最新還原點的發生時間是在您資料倉儲暫停之後。
+>
 > 下列設定不會在移轉過程中沿用：
 >
 > * 在資料庫層級稽核必須重新啟用。
@@ -105,60 +108,13 @@ Microsoft 會採取下列步驟來完成移轉 (這些不需要您採取任何�
    ```
    ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
    ```
-2. [暫停][Pause] "MyDW_BeforeMigration"。 這會進行自動備份。
+2. [暫停][Pause] "MyDW_BeforeMigration"。 
 3. 從您最近使用的快照集搭配過去的名稱 (例如，"MyDW") 來[還原][Restore]新的資料庫。
 4. 刪除 "MyDW_BeforeMigration"。 **如果您無法執行此步驟，您需支付這兩個資料倉儲的費用。**
 
 
 ## <a name="next-steps"></a>後續步驟
 除了變更為進階儲存體，您也會增加資料倉儲基礎架構中的資料庫 blob 檔案數目。 為獲得此變更的最佳效益，請使用下列指令碼來重建叢集資料行存放區索引。 此指令碼是藉由強制將某些現有資料移至其他 Blob 來運作。 如果您不採取任何動作，隨著您將更多的資料載入資料表中，資料會在一段時間後自然重新分配。
-
-**必要條件：**
-
-- 資料倉儲應以 1,000 個資料倉儲單位或更多數量來執行 (請參閱[調整計算能力][scale compute power])。
-- 執行指令碼的使用者應具有 [mediumrc 角色][mediumrc role]或更高權限。 若要將使用者新增至此角色，請執行下列作業︰````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
-
-````sql
--------------------------------------------------------------------------------
--- Step 1: Create table to control index rebuild
--- Run as user in mediumrc or higher
---------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
-as select
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
-from
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
-go
-
---------------------------------------------------------------------------------
--- Step 2: Execute index rebuilds. If script fails, the below can be re-run to restart where last left off.
--- Run as user in mediumrc or higher
---------------------------------------------------------------------------------
-
-declare @nbr_statements int = (select count(*) from sql_statements)
-declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
-end;
-go
--------------------------------------------------------------------------------
--- Step 3: Clean up table created in Step 1
---------------------------------------------------------------------------------
-drop table sql_statements;
-go
-````
 
 如果您遇到任何關於資料倉儲的問題，請[建立支援票證][create a support ticket]和參考「移轉至進階儲存體」做為可能的原因。
 
@@ -174,7 +130,7 @@ go
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
 [scale compute power]: quickstart-scale-compute-portal.md
-[mediumrc role]: sql-data-warehouse-develop-concurrency.md
+[mediumrc role]: resource-classes-for-workload-management.md
 
 <!--MSDN references-->
 

@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure Data Factory 從 MongoDB 複製資料 | Microsoft Docs"
-description: "了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 MongoDB 複製到支援的接收資料存放區。"
+title: 使用 Azure Data Factory 從 MongoDB 複製資料 | Microsoft Docs
+description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 MongoDB 複製到支援的接收資料存放區。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c924640feffea4cbe0372cabc937656d2ec41c7d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b12477b855dad28976989e694888667fd0cb6b20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="prerequisites"></a>先決條件
 
-若要從不可公開存取的 MongoDB 資料庫複製資料，您必須設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。 Integration Runtime 提供內建的 MongoDB 驅動程式，因此從 MongoDB 複製資料或將資料複製到該處時，您不需要手動安裝任何驅動程式。
+若要從不可公開存取的 MongoDB 資料庫複製資料，您必須設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。 Integration Runtime 提供內建的 MongoDB 驅動程式，因此從 MongoDB 複製資料時，您不需要手動安裝任何驅動程式。
 
 ## <a name="getting-started"></a>開始使用
 

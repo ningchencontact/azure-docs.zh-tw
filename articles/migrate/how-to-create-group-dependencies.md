@@ -1,6 +1,6 @@
 ---
-title: "在 Azure Migrate 中使用群組相依性對應調整評量群組 | Microsoft Docs"
-description: "說明如何在 Azure Migrate 服務中使用群組相依性對應調整評量。"
+title: 在 Azure Migrate 中使用群組相依性對應調整評量群組 | Microsoft Docs
+description: 說明如何在 Azure Migrate 服務中使用群組相依性對應調整評量。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
@@ -60,8 +60,8 @@ ms.lasthandoff: 03/13/2018
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>根據相依性視覺效果調整群組
 一旦您已在群組的所有機器上安裝代理程式，您可以將群組的相依性視覺化，並按照下列步驟進行調整。
 
-1. 在 Azure Migrate 專案中的 [管理] 下方，按一下 [群組] ****，然後選取群組。
-2. 在群組頁面中，按一下 [檢視相依性] ****，即會開啟群組相依性對應。
+1. 在 Azure Migrate 專案中的 **管理** 下方，按一下  **群組**，然後選取群組。
+2. 在群組頁面中，按一下  **[檢視相依性]**， 即會開啟群組相依性對應。
 3. 群組的相依性對應會顯示下列詳細資料：
     - 至/從屬於群組的所有機器之輸入 (用戶端) 和輸出 (伺服器) TCP 連線
         - 未安裝 MMA 和相依性代理程式的相依機器會依連接埠號碼分組

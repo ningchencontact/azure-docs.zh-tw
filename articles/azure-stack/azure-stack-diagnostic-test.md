@@ -1,6 +1,6 @@
 ---
-title: "在 Azure Stack 中執行驗證測試 | Microsoft Docs"
-description: "如何在 Azure Stack 中收集記錄檔以進行診斷"
+title: 在 Azure Stack 中執行驗證測試 | Microsoft Docs
+description: 如何在 Azure Stack 中收集記錄檔以進行診斷
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: 53ef19628b40c4a008143c867c9e7867ac91854d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>執行 Azure Stack 的驗證測試
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
  
 您可以驗證 Azure Stack 的狀態。 如有任何問題，請連絡 Microsoft 客戶服務支援。 支援人員會要求您從管理節點執行 Test-AzureStack。 驗證測試會將失敗區域隔離出來。 支援人員才可分析詳細的記錄、將焦點放在發生錯誤的區域，並與您一起解決問題。
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 01/12/2018
 | ServiceAdminCredentials | PSCredential    | 否       | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | 否       | FALSE   |
 | AdminCredential         | PSCredential    | 否       | NA      |
-| StorageConnectionString | 字串          | 否       | NA      |
+<!-- | StorageConnectionString | 字串          | 否       | NA      | 1802 中不支援 -->
 | 列出                    | SwitchParameter | 否       | FALSE   |
 | 略過                  | 字串          | 否       | NA      |
 | 包含                 | 字串          | 否       | NA      |

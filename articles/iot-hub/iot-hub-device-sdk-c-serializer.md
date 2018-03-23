@@ -1,11 +1,11 @@
 ---
-title: "適用於 C 的 Azure IoT 裝置 SDK - 序列化程式 | Microsoft Docs"
-description: "如何使用適用於 C 的 Azure IoT 裝置 SDK 中的 Serializer 程式庫，以建立與 IoT 中樞通訊的裝置應用程式。"
+title: 適用於 C 的 Azure IoT 裝置 SDK - 序列化程式 | Microsoft Docs
+description: 如何使用適用於 C 的 Azure IoT 裝置 SDK 中的 Serializer 程式庫，以建立與 IoT 中樞通訊的裝置應用程式。
 services: iot-hub
-documentationcenter: 
-author: olivierbloch
+documentationcenter: ''
+author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
 ms.service: iot-hub
 ms.devlang: cpp
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
-ms.author: obloch
-ms.openlocfilehash: d8b9e147b68d16c6c166e92cbabf5b5b63e23e8d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: yizhon
+ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>適用於 C 的 Azure IoT 裝置 SDK - 深入了解序列化程式
 本系列的[第一篇文章](iot-hub-device-sdk-c-intro.md)介紹了「適用於 C 的 Azure IoT 裝置 SDK」。下一篇文章提供 [**IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md) 的更詳細描述。 本文將提供「序列化程式」  程式庫這個最後元件的更詳細描述，來完成 SDK 的涵蓋範圍。

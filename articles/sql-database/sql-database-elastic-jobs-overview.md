@@ -1,25 +1,20 @@
 ---
-title: "管理相應放大的雲端資料庫 | Microsoft Docs"
-description: "使用彈性資料庫工作服務，跨資料庫群組執行指令碼。"
+title: 管理相應放大的雲端資料庫 | Microsoft Docs
+description: 使用彈性資料庫工作服務，跨資料庫群組執行指令碼。
 metakeywords: azure sql database elastic databases
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 6fa47cf2-1162-4534-a206-6e2d95b78580
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: f709cd38a690ba666ca290cc029caa2ce4f9dff0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 1f0e022eb98619b22f7e62e0602d36ba821def22
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>管理相應放大的雲端資料庫
 若要管理相應放大的共用資料庫，**彈性資料庫作業**功能 (預覽) 可讓您在一組資料庫中可靠地執行 TRANSACT-SQL (T-SQL) 指令碼，其中包括：

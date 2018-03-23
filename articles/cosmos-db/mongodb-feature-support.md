@@ -1,11 +1,11 @@
 ---
-title: "適用於 MongoDB 的 Azure Cosmos DB 功能支援 | Microsoft Docs"
-description: "了解 Azure Cosmos DB MongoDB API 為 MongoDB 3.4 提供的功能支援。"
+title: 適用於 MongoDB 的 Azure Cosmos DB 功能支援 | Microsoft Docs
+description: 了解 Azure Cosmos DB MongoDB API 為 MongoDB 3.4 提供的功能支援。
 services: cosmos-db
 author: alekseys
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9f1b6359d9fb58ad66b4d314f2bb14da34b98613
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB 功能和語法的 MongoDB API 支援
 
@@ -235,7 +235,7 @@ $regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|  | -
 
 在 $regex 查詢中，左側錨點運算式允許索引搜尋。 不過，使用 'i' 修飾詞 (不區分大小寫) 和 'm' 修飾詞 (多行) 會在所有運算式中造成集合掃描。
 當需要包含 '$' 或 '|' 時，最好先建立兩個 (或以上) regex 查詢。 例如，假設原始查詢如下：```find({x:{$regex: /^abc$/})```，則必須修改為：```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```。
-第一個部分會使用索引來僅限搜尋以 ^abc 開頭的文件，而第二個部分會比對完整項目。 垂直線運算子 '|' 會作為 "or" 函式使用 - 查詢 ```find({x:{$regex: /^abc|^def/})``` 會比對的文件是其中欄位 'x' 中的值以 "abc" 或 "def" 開頭。 若要利用索引，則建議將查詢分成兩個以 $or 運算子聯結的不同查詢：```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```。
+第一個部分會使用索引來僅限搜尋以 ^abc 開頭的文件，而第二個部分會比對完整項目。 垂直線運算子 '|' 的作用如同 "or" 函式 - ```find({x:{$regex: /^abc|^def/})``` 查詢會比對 'x' 欄位值以 "abc" 或 "def" 開頭的文件。 若要利用索引，則建議將查詢分成兩個以 $or 運算子聯結的不同查詢：```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```。
 
 ### <a name="update-operators"></a>更新運算子
 

@@ -1,11 +1,11 @@
 ---
-title: "整合外部監視解決方案與 Azure Stack | Microsoft Docs"
-description: "了解如何將 Azure Stack 與您的資料中心的外部監視解決方案整合。"
+title: 整合外部監視解決方案與 Azure Stack | Microsoft Docs
+description: 了解如何將 Azure Stack 與您的資料中心的外部監視解決方案整合。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -16,10 +16,10 @@ ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>整合外部監視解決方案與 Azure Stack
 
@@ -145,7 +145,7 @@ Nagios 監視外掛程式隨著協力廠商 Cloudbase 解決方案開發，其�
 
 |引數  |說明  |
 |---------|---------|
-|armendpoint     |  您的 Azure Stack 環境的 Azure Resource Manager 端點，採用格式：https://adminmanagement.{RegionName}.{External FQDN}。 例如，如果外部 FQDN 是 *azurestack.external*，而區域名稱為 *local*，那麼 Resource Manager 端點為 https://adminmanagement.local.azurestack.external。       |
+|armendpoint     |  您的 Azure Stack 環境的 Azure Resource Manager 端點，採用格式：https://adminmanagement.{RegionName}.{External FQDN}。 例如，如果外部 FQDN 是 *azurestack.external*，而區域名稱是 *local*，那麼 Resource Manager 端點就是 https://adminmanagement.local.azurestack.external。       |
 |subid     |   正在進行呼叫之使用者的訂用帳戶識別碼。 您僅可以透過具有預設提供者訂用帳戶權限的使用者來使用此 API 進行查詢。      |
 |RegionName     |    Azure Stack 部署的區域名稱。     |
 |api-version     |  用來提出此要求的通訊協定版本。 您必須使用 2016-05-01。      |
@@ -248,7 +248,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |引數  |說明  |
 |---------|---------|
-|*armendpoint*     |   您的 Azure Stack 環境的 Resource Manager 端點，採用格式：https://adminmanagement.{RegionName}.{External FQDN}。 例如，如果外部 FQDN 是 *azurestack.external*，而區域名稱為 *local*，那麼 Resource Manager 端點為 https://adminmanagement.local.azurestack.external。      |
+|*armendpoint*     |   您的 Azure Stack 環境的 Resource Manager 端點，採用格式：https://adminmanagement.{RegionName}.{External FQDN}。 例如，如果外部 FQDN 是 *azurestack.external*，而區域名稱是 *local*，那麼 Resource Manager 端點就是 https://adminmanagement.local.azurestack.external。      |
 |*subid*     |    正在進行呼叫之使用者的訂用帳戶識別碼。 您僅可以透過具有預設提供者訂用帳戶權限的使用者來使用此 API 進行查詢。     |
 |*RegionName*     |   Azure Stack 部署的區域名稱。      |
 |*api-version*     |    用來提出此要求的通訊協定版本。 您必須使用 2016-05-01。     |
@@ -393,7 +393,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 
 |引數  |說明  |
 |---------|---------|
-|*armendpoint*     |    您的 Azure Stack 環境的 Resource Manager 端點，採用格式：https://adminmanagement.{RegionName}.{External FQDN}。 例如，如果外部 FQDN 是 azurestack.external，而區域名稱為 local，那麼 Resource Manager 端點為 https://adminmanagement.local.azurestack.external。     |
+|*armendpoint*     |    您的 Azure Stack 環境的 Resource Manager 端點，採用格式：https://adminmanagement.{RegionName}.{External FQDN}。 例如，如果外部 FQDN 是 azurestack.external，而區域名稱是 local，那麼 Resource Manager 端點就是 https://adminmanagement.local.azurestack.external。     |
 |*subid*     |     正在進行呼叫之使用者的訂用帳戶識別碼。 您僅可以透過具有預設提供者訂用帳戶權限的使用者來使用此 API 進行查詢。    |
 |*RegionName*     |     Azure Stack 部署的區域名稱。    |
 |*api-version*     |   用來提出此要求的通訊協定版本。 您必須使用 2016-05-01。      |
@@ -462,7 +462,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |引數  |說明  |
 |---------|---------|
-|*armendpoint*     |    您的 Azure Stack 環境的 Resource Manager 端點，採用格式：https://adminmanagement.{RegionName}.{External FQDN}。 例如，如果外部 FQDN 是 azurestack.external，而區域名稱為 local，那麼 Resource Manager 端點為 https://adminmanagement.local.azurestack.external。     |
+|*armendpoint*     |    您的 Azure Stack 環境的 Resource Manager 端點，採用格式：https://adminmanagement.{RegionName}.{External FQDN}。 例如，如果外部 FQDN 是 azurestack.external，而區域名稱是 local，那麼 Resource Manager 端點就是 https://adminmanagement.local.azurestack.external。     |
 |*subid*     |正在進行呼叫之使用者的訂用帳戶識別碼。 您僅可以透過具有預設提供者訂用帳戶權限的使用者來使用此 API 進行查詢。         |
 |*RegionName*     |  Azure Stack 部署的區域名稱。       |
 |*api-version*     |  用來提出此要求的通訊協定版本。 您必須使用 2016-05-01。       |

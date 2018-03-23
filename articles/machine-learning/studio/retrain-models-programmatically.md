@@ -1,10 +1,11 @@
 ---
-title: "以程式設計方式重新訓練機器學習服務模型 | Microsoft Docs"
-description: "了解如何在 Azure Machine Learning 中以程式設計方式重新定型模型，以及使用新定型的模型來更新 Web 服務。"
+title: 以程式設計方式重新訓練機器學習服務模型 | Microsoft Docs
+description: 了解如何在 Azure Machine Learning 中以程式設計方式重新定型模型，以及使用新定型的模型來更新 Web 服務。
 services: machine-learning
-documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+documentationcenter: ''
+author: serinakaye
+ms.author: serinak
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: d228021564cdfe5c898c67cce0038b3ec36d014b
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a986d8c500eb994af81ad535568fbbd8364f4244
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>以程式設計方式重新定型機器學習服務模型
 在此逐步解說中，您將學習如何以程式設計方式使用 C# 和 Machine Learning 批次執行服務來重新訓練 Azure Machine Learning Web 服務。

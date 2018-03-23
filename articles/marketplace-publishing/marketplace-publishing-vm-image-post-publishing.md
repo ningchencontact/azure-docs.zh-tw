@@ -1,11 +1,11 @@
 ---
-title: "管理 Azure Marketplace 上的虛擬機器映像 | Microsoft Docs"
-description: "如何在初始發佈後管理 Azure Marketplace 上的虛擬機器映像的詳細指南"
+title: 管理 Azure Marketplace 上的虛擬機器映像 | Microsoft Docs
+description: 如何在初始發佈後管理 Azure Marketplace 上的虛擬機器映像的詳細指南
 services: Azure Marketplace
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
-ms.author: hascipio;
-ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin;
+ms.openlocfilehash: 19f60de4a6c651885da7ff1fb7612a77f3d0c8f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>關於 Azure Marketplace 中的虛擬機器優惠的後期製作指南
 本文說明如何更新 Azure Marketplace 中已上線的虛擬機器供應項目。 它會引導您進行將一或多個新 SKU 新增至現有供應項目的程序。 同時引導您進行從 Marketplace 移除上線虛擬機器供應項目或 SKU 的程序。

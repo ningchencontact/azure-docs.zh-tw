@@ -1,8 +1,8 @@
 ---
-title: "Azure Databricks：常見問題與說明 | Microsoft Docs"
-description: "取得有關 Azure Databricks 的常見問題解答和疑難排解資訊。"
+title: Azure Databricks：常見問題與說明 | Microsoft Docs
+description: 取得有關 Azure Databricks 的常見問題解答和疑難排解資訊。
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.openlocfilehash: 5da6ffc346cc0e7f0f83bf4a4c33600b668a17ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>關於 Azure Databricks 的常見問題
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/01/2018
 
 #### <a name="error-message"></a>錯誤訊息
 
-「此訂用帳戶未註冊為可以使用命名空間 'Microsoft.Databricks'。 如需了解如何註冊訂用帳戶，請參閱 https://aka.ms/rps-not-found。 (錯誤碼：MissingSubscriptionRegistration)」
+「此訂用帳戶未註冊為可以使用命名空間 'Microsoft.Databricks'。 請參閱 https://aka.ms/rps-not-found 以了解如何註冊訂用帳戶。 (錯誤碼：MissingSubscriptionRegistration)」
 
 #### <a name="solution"></a>解決方法
 
@@ -101,7 +101,7 @@ Databricks 叢集會在每個節點上使用一個公用 IP 位址。 如果您�
 #### <a name="error-message"></a>錯誤訊息
 
 「雲端提供者啟動失敗：設定叢集時發生雲端提供者錯誤。 如需詳細資訊，請參閱 Databricks 指南。
-Azure 錯誤碼：MissingSubscriptionRegistration Azure 錯誤訊息：訂用帳戶未註冊為使用命名空間 'Microsoft.Compute'。 如需了解如何註冊訂用帳戶，請參閱 https://aka.ms/rps-not-found。」
+Azure 錯誤碼：MissingSubscriptionRegistration Azure 錯誤訊息：訂用帳戶未註冊為使用命名空間 'Microsoft.Compute'。 請參閱 https://aka.ms/rps-not-found 以了解如何註冊訂用帳戶。」
 
 #### <a name="solution"></a>解決方法
 

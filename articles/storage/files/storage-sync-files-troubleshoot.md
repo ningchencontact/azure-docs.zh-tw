@@ -1,8 +1,8 @@
 ---
-title: "針對 Azure 檔案同步 (預覽) 進行疑難排解 | Microsoft Docs"
-description: "針對 Azure 檔案同步常見問題進行疑難排解。"
+title: 針對 Azure 檔案同步 (預覽) 進行疑難排解 | Microsoft Docs
+description: 針對 Azure 檔案同步常見問題進行疑難排解。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>針對 Azure 檔案同步 (預覽) 進行移難排解
 使用 Azure 檔案同步 (預覽版)，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -51,7 +51,7 @@ StorageSyncAgent.msi /l*v Installer.log
 若要解決此問題，請將 PDC 角色轉移到另一個執行 Windows Server 2012R2 或更新版本的網域控制站，然後安裝同步代理程式。
 
 <a id="agent-installation-websitename-failure"></a>**代理程式安裝失敗，並出現下列錯誤：「儲存體同步代理程式精靈提前結束」**  
-如果 IIS 網站的預設名稱有所變更，就會發生此問題。 若要解決此問題，請將 IIS 預設網站重新命名為 "Default Web Site"，然後重試安裝。 代理程式的未來更新中會修正此問題。 
+當代理程式為 1.x 版且如果 IIS 網站預設名稱有所變更時，就會發生此問題。 若要解決此問題，請使用版本為 2.0.11 以上的代理程式。
 
 <a id="server-registration-missing"></a>**伺服器未列在 Azure 入口網站的 [已註冊的伺服器] 下**  
 如果伺服器未列在儲存體同步服務的 [已註冊的伺服器] 下：

@@ -1,27 +1,20 @@
 ---
-title: "Azure SQL Database 的 DNS 別名 | Microsoft Docs"
-description: "您的應用程式可以連線到 Azure SQL Database 伺服器名稱的別名。 同時，您可以隨時變更別名所指向的 SQL Database，以便進行測試等等。"
+title: Azure SQL Database 的 DNS 別名 | Microsoft Docs
+description: 您的應用程式可以連線到 Azure SQL Database 伺服器名稱的別名。 同時，您可以隨時變更別名所指向的 SQL Database，以便進行測試等等。
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: DNS alias
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: 
 ms.date: 02/05/2018
 ms.reviewer: genemi;ayolubek
 ms.author: dmalik
-ms.openlocfilehash: b216bd933f9096f46aee2b719394f9df65adc769
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c2a2bce3b385bd5700bf327f283289cf4d94b057
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database 的 DNS 別名
 

@@ -1,11 +1,11 @@
 ---
-title: "如何讓 AppSource 取得 Azure Active Directory (AD) 認證 | Microsoft Docs"
-description: "有關如何讓應用程式 AppSource 取得 Azure Active Directory 認證的詳細資料。"
+title: 如何讓 AppSource 取得 Azure Active Directory (AD) 認證 | Microsoft Docs
+description: 有關如何讓應用程式 AppSource 取得 Azure Active Directory 認證的詳細資料。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: andretms
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>如何讓 AppSource 取得 Azure Active Directory 認證
 [Microsoft AppSource](https://appsource.microsoft.com/) 是企業用戶探索、嘗試，及管理企業營運 SaaS 應用程式 (獨立 SaaS 和現有 Microsoft SaaS 產品的附加元件) 的目的地。
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/11/2017
 
 若要在您的應用程式上啟用多重租用：
 - 在 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 的應用程式註冊資訊中，將 `Multi-Tenanted` 屬性設為 `Yes` (依預設，Azure 入口網站中建立的應用程式會設為*單一租用戶*)
-- 更新您的程式碼，以傳送要求至 '`common`' 端點 (將來自 *https://login.microsoftonline.com/{yourtenant}* 的端點更新為 *https://login.microsoftonline.com/common*)
+- 將您的程式碼更新成將要求傳送給 '`common`' 端點 (將端點從 *https://login.microsoftonline.com/{yourtenant}* 更新成 *https://login.microsoftonline.com/common*)
 - 在特定平台上 (例如 ASP.NET)，您還需要更新程式碼，以接受多個簽發者
 
 如需多重租用的詳細資訊，請參閱：[如何使用多租用戶應用程式模式登入任何 Azure Active Directory (AD) 使用者](./active-directory-devhowto-multi-tenant-overview.md)。

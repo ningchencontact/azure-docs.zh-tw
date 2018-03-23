@@ -1,32 +1,31 @@
 ---
-title: "Azure 使用加密來保護個人待用資料 | Microsoft Docs"
-description: "本文是一系列文章中的一篇，可協助您使用 Azure 來保護個人資料"
+title: Azure 使用加密來保護個人待用資料 | Microsoft Docs
+description: 當您致力於符合像是一般資料保護規定 (GDPR) 的企業或政府需求時，可能會用到本文。
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.custom: ''
+ms.openlocfilehash: 37da3d91df4be871d6647b6290768ea4999a5010
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Azure 加密技術：使用加密保護個人待用資料
 
 本文可協助您了解及使用 Azure 加密技術來保護待用資料。
 
-待用資料加密是保護敏感性或個人資料，以及符合合規性和資料隱私權需求之最佳做法不可或缺的一部分。
-靜態加密旨在防止攻擊者存取未加密的資料，方法是確保資料在磁碟上時就已加密。
+待用資料加密是保護敏感性或個人資料，以及符合合規性和資料隱私權需求之最佳做法不可或缺的一部分。 靜態加密旨在防止攻擊者存取未加密的資料，方法是確保資料在磁碟上時就已加密。 您可以使用本文中所包含的資訊來符合一般資料保護規定 (GDPR)。
 
 ## <a name="scenario"></a>案例 
 

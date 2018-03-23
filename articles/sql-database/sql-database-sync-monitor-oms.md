@@ -1,6 +1,6 @@
 ---
-title: "使用 OMS Log Analytics 監視 Azure SQL 資料同步 | Microsoft Docs"
-description: "了解如何使用 OMS Log Analytics 來監視 Azure SQL 資料同步"
+title: 使用 OMS Log Analytics 監視 Azure SQL 資料同步 | Microsoft Docs
+description: 了解如何使用 OMS Log Analytics 來監視 Azure SQL 資料同步
 services: sql-database
 ms.date: 11/07/2017
 ms.topic: article
@@ -8,11 +8,12 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 8683b3aec569f210529c1188cbbf514f7956b340
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: data-sync
+ms.openlocfilehash: 423614227b16ad6cfa6dadfab1c5f2b93c5bbe62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>使用 OMS Log Analytics 監視 SQL 資料同步 (預覽) 
 
@@ -92,7 +93,7 @@ ms.lasthandoff: 02/21/2018
 
     2.  同步群組資訊。
 
-    3.  OMS 資訊。 在 OMS 入口網站 | 設定 | 連接的來源，尋找這項資訊。 如需將資料傳送到 Log Analytics 的詳細資訊，請參閱[使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (公開預覽狀態)](../log-analytics/log-analytics-data-collector-api.md)。
+    3.  OMS 資訊。 在 OMS 入口網站 | 設定 | 連接的來源，尋找這項資訊。 如需有關將資料傳送給 Log Analytics 的詳細資訊，請參閱[使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (預覽)](../log-analytics/log-analytics-data-collector-api.md)。
 
 11. 在 [測試] 窗格中執行 Runbook。 檢查並確定已順利完成。
 

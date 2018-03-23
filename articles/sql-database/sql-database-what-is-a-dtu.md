@@ -1,26 +1,20 @@
 ---
-title: "SQL Database：DTU 是什麼？ | Microsoft Docs"
-description: "了解 Azure SQL Database 交易單元是什麼。"
-keywords: "資料庫選項, 資料庫效能"
+title: SQL Database：DTU 是什麼？ | Microsoft Docs
+description: 了解 Azure SQL Database 交易單元是什麼。
+keywords: 資料庫選項, 資料庫效能
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: CarlRabeler
-ms.assetid: 89e3e9ce-2eeb-4949-b40f-6fc3bf520538
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
 ms.date: 04/14/2017
 ms.author: carlrab
-ms.openlocfilehash: 4ab447cd2ad71a787e4d6bb6052299cec52d73d0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9d13541444f487ad6afb9f59c6c6ac646091d42c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>資料庫交易單位 (DTU) 和彈性資料庫交易單位 (eDTU)
 本文說明資料庫交易單位 (DTU) 和彈性資料庫交易單位 (eDTU)，以及當您達到 DTU 或 eDTU 上限時會發生什麼狀況。  

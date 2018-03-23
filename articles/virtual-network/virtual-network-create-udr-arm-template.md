@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中控制路由和虛擬設備 - 範本 | Microsoft Docs"
-description: "深入了解如何使用 Azure Resource Manager 範本控制路由和虛擬應用裝置。"
+title: 在 Azure 中控制路由和虛擬設備 - 範本 | Microsoft Docs
+description: 深入了解如何使用 Azure Resource Manager 範本控制路由和虛擬應用裝置。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 832c7831-d0e9-449b-b39c-9a09ba051531
 ms.service: virtual-network
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>使用範本建立使用者定義的路由 (UDR)
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [Azure CLI](tutorial-create-route-table-cli.md)
 > * [範本](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (傳統)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (傳統)](virtual-network-create-udr-classic-cli.md)
@@ -75,7 +75,7 @@ ms.lasthandoff: 12/21/2017
 
 請注意，在範本中已對後端 NSG 和後端子網路完成相同作業。
 
-您也需要確定 **FW1** VM 已在將用來接收和轉送封包的 NIC 上的 IP 轉送屬性啟用。 下一節根據上述案例，顯示 azuredeploy-nsg-udr.json 檔案中 FW1 的 NIC 的定義。
+您也需要確定 **FW1** VM 已在將用來接收和轉送封包的 NIC 上的 IP 轉送屬性啟用。 以下區段根據上述案例顯示 azuredeploy-nsg-udr.json 檔案中 FW1 的 NIC 定義。
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -112,7 +112,7 @@ ms.lasthandoff: 12/21/2017
     }
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>使用按一下即部署來部署範本
-公用儲存機制中可用的範例範本會使用一個包含預設值的參數檔案，這些預設值可用來產生上述案例。 若要使用「按一下即部署」來部署此範本，請依循[此連結](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR)，按一下 [部署至 Azure]，視情況取代預設參數值，再依循入口網站中的指示。
+公用存放庫中可用的範例範本會使用一個包含預設值的參數檔案，這些預設值可用來產生先前所述的案例。 若要使用「按一下即部署」來部署此範本，請依循[此連結](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR)，按一下 [部署至 Azure]，視情況取代預設參數值，再依循入口網站中的指示。
 
 1. 如果您從未用過 Azure PowerShell，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) ，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
 2. 執行下列命令以建立資源群組：
@@ -173,7 +173,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>使用 Azure CLI 部署範本
 
-若要使用 Azure CLI 部署 ARM 範本，請完成下列步驟：
+若要使用 Azure CLI 來部署 Azure Resource Manager 範本，請完成下列步驟：
 
 1. 如果您從未使用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](../cli-install-nodejs.md) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
 2. 執行下列命令切換至 Resource Manager 模式：
@@ -182,11 +182,11 @@ ms.lasthandoff: 12/21/2017
     azure config mode arm
     ```
 
-    此為上述命令的預期輸出內容：
+    以下是上述命令的預期輸出：
 
         info:    New mode is arm
 
-3. 從您的瀏覽器瀏覽至 **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**，將 json 檔案的內容複製並貼到您電腦上的新檔案中。 在此案例中，您會將以下的值複製到名為 **c:\udr\azuredeploy.parameters.json** 的檔案。
+3. 從您的瀏覽器瀏覽至 **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**，將 json 檔案的內容複製並貼到您電腦上的新檔案中。 針對此案例，請將下列值複製到名為 **c:\udr\azuredeploy.parameters.json**的檔案。
 
     ```json
         {
@@ -206,7 +206,7 @@ ms.lasthandoff: 12/21/2017
         }
     ```
 
-4. 執行下列命令，以使用先前下載並修改的範本和參數檔案，部署新的 VNet：
+4. 執行下列命令，以使用先前下載並修改的範本和參數檔案來部署新的 VNet：
 
     ```azurecli
     azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
@@ -404,5 +404,5 @@ ms.lasthandoff: 12/21/2017
             info:    group show command OK
 
 > [!TIP]
-> 如果沒看到所有資源，請執行 `azure group deployment show` 命令，以確保部署的佈建狀態為 [成功]。
+> 如果沒看到所有資源，請執行 `azure group deployment show` 命令，以確保部署的佈建狀態為 *Succeeded*。
 > 

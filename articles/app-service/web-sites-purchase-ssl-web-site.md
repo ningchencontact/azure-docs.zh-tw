@@ -1,6 +1,6 @@
 ---
-title: "購買及設定您的 Azure App Service 的 SSL 憑證 | Microsoft Docs"
-description: "了解如何購買 App Service 憑證並將它繫結至您的 App Service 應用程式"
+title: 購買及設定您的 Azure App Service 的 SSL 憑證 | Microsoft Docs
+description: 了解如何購買 App Service 憑證並將它繫結至您的 App Service 應用程式
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
 ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>購買並設定您的 Azure App Service 的 SSL 憑證
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="step-1---log-in-to-azure"></a>步驟 1 - 登入 Azure
 
-登入 Azure 入口網站，網址是 http://portal.azure.com
+在 http://portal.azure.com 上登入 Azure 入口網站
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>步驟 2 - 訂購 SSL 憑證
 

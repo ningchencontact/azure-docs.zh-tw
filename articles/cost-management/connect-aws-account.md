@@ -1,20 +1,20 @@
 ---
-title: "將 Amazon Web Services 帳戶連線到 Azure 成本管理 | Microsoft Docs"
-description: "連線 Amazon Web Services 帳戶以在「成本管理」報表中檢視成本和使用方式資料。"
+title: 將 Amazon Web Services 帳戶連線到 Azure 成本管理 | Microsoft Docs
+description: 連線 Amazon Web Services 帳戶以在「成本管理」報表中檢視成本和使用方式資料。
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/08/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: a82d803b51859f809ca5a39ce177697a1f66a008
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: 4a0280420132aad9f1e0b17d5998ec225bb0eaa1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-an-amazon-web-services-account"></a>連線 Amazon Web Services 帳戶
 
@@ -100,4 +100,4 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解 Cloudyn 的 Azure 成本管理，請繼續進行「成本管理」的[檢閱使用方式和成本](tutorial-review-usage.md)教學課程。
+- 若要深入了解 Azure 成本管理，請繼續進行「成本管理」的[檢閱使用量和成本](tutorial-review-usage.md)教學課程。

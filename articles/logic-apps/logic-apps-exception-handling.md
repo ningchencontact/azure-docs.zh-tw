@@ -1,24 +1,24 @@
 ---
-title: "Azure 中 Logic Apps 的錯誤和例外狀況處理 | Microsoft Docs"
-description: "Logic Apps 中的錯誤和例外狀況處理模式。"
+title: Azure 中 Logic Apps 的錯誤和例外狀況處理 | Microsoft Docs
+description: Logic Apps 中的錯誤和例外狀況處理模式。
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: dereklee
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 91819d0fba30dd2ada981435fa13b8ae0a7fcc45
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 2ae4f0ae9782ada23089d364e8a1700144ef5ff7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>處理 Logic Apps 中的錯誤和例外狀況
 
@@ -280,8 +280,6 @@ ms.lasthandoff: 03/05/2018
 
 * [看看客戶如何使用 Azure Logic Apps 建置錯誤處理](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [尋找其他 Logic Apps 範例和案例](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [了解如何建立邏輯應用程式的自動化部署](../logic-apps/logic-apps-create-deploy-template.md)
-* [使用 Visual Studio 建置和部署邏輯應用程式](logic-apps-deploy-from-vs.md)
 
 <!-- References -->
 [retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9

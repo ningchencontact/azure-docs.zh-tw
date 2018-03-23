@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect Health 版本歷程記錄"
-description: "本文件說明 Azure AD Connect Health 的版本和已包含在這些版本中的功能。"
+title: Azure AD Connect Health 版本歷程記錄
+description: 本文件說明 Azure AD Connect Health 的版本和已包含在這些版本中的功能。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,14 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: b43eb5e78b70f38226e3e8cb53d1530d348c7c20
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: edc1771153581e73398e8df25e70660f9f85ceba
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health︰版本發行歷程記錄
 Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Connect Health。 本文列出已發行的版本和功能。
+
+## <a name="march-2018"></a>2018 年 3 月
+**代理程式更新：**
+
+*   適用於 AD DS 的 Azure AD Connect Health 代理程式 (3.0.176.0 版)
+  1. 代理程式可用性改善 
+  2. Bug 修正和一般改善
+*   適用於 AD FS 的 Azure AD Connect Health 代理程式 (3.0.176.0 版)
+  1. 代理程式可用性改善 
+  2. Bug 修正和一般改善
+* 適用於同步處理的 Azure AD Connect Health 代理程式 (3.0.176.0 版)
+  1. 代理程式可用性改善 
+  2. Bug 修正和一般改善
 
 ## <a name="december-2017"></a>2017 年 12 月
 **代理程式更新：**

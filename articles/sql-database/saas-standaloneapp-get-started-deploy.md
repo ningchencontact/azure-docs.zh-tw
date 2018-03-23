@@ -1,26 +1,20 @@
 ---
-title: "多租用戶 SaaS 教學課程 - Azure SQL Database | Microsoft Docs"
-description: "部署及探索使用 Azure SQL Database 的獨立單一租用戶 SaaS 應用程式。"
+title: 多租用戶 SaaS 教學課程 - Azure SQL Database | Microsoft Docs
+description: 部署及探索使用 Azure SQL Database 的獨立單一租用戶 SaaS 應用程式。
 keywords: SQL Database Azure
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: fbc63cebe8c1456f5eb34666d15f4e00fd55fe5b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e30f096a9f02214839550c2dc143ab665e1cd85c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>部署及探索使用 Azure SQL Database 的獨立單一租用戶應用程式
 

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 入口網站管理裝置 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站來管理裝置。"
+title: 使用 Azure 入口網站管理裝置 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站來管理裝置。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1e0d40b996e181a606d16d26633f890b9169ecbb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85447809cbc803c13ad731b5328e94a1b03abba8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>使用 Azure 入口網站管理裝置
 
@@ -112,6 +112,7 @@ Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使�
 
 ![所有裝置](./media/device-management-azure-portal/51.png)
 
+就某些 iOS 裝置而言，包含單引號的裝置名稱可能會使用看起來像單引號的不同字元。 因此，搜尋這類裝置有點棘手 - 如果您沒有看到正確的搜尋結果，請確定搜尋字串包含相符的單引號字元。
 
 ## <a name="device-management-tasks"></a>裝置管理工作
 

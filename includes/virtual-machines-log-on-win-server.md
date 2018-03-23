@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 100e0457627a04414ad2f0780a346933b11f4376
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/16/2018
+---
 1. 按一下 [連接]  建立並下載 [遠端桌面通訊協定] 檔案 (.rdp file)。 按一下 [開啟]  使用這個檔案。
 2. 您會收到警告，表示 `.rdp` 來自未知的發行者。 這是正常現象。 在 [遠端桌面] 視窗中按一下 [連接]  以繼續。
    

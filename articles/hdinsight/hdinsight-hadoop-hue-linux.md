@@ -1,9 +1,9 @@
 ---
-title: "在 HDInsight Linux 叢集上使用 Hue 與 Hadoop - Azure | Microsoft Docs"
-description: "了解如何在 HDInsight 叢集上安裝 Hue，並且使用通道將要求路由至 Hue。 使用 Hue 瀏覽儲存體並執行 Hive 或 Pig。"
+title: 在 HDInsight Linux 叢集上使用 Hue 與 Hadoop - Azure | Microsoft Docs
+description: 了解如何在 HDInsight 叢集上安裝 Hue，並且使用通道將要求路由至 Hue。 使用 Hue 瀏覽儲存體並執行 Hive 或 Pig。
 keywords: Hue hadoop
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 5cef5e72af8a8b7c007b688b029f875e89d163ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Hue
 
@@ -42,13 +42,13 @@ ms.lasthandoff: 12/11/2017
 > [!WARNING]
 > 透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務將協助釐清與解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
 >
 >
 
 ## <a name="install-hue-using-script-actions"></a>使用指令碼動作安裝 Hue
 
-用來在以 Linux 為基礎的 HDInsight 叢集上安裝色調的指令碼，可於 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh 取得。您可以使用這個指令碼在叢集上安裝色調，並以 Azure 儲存體 Blob (WASB) 或 Azure Data Lake Store 做為預設儲存體。
+您可以從 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh \(英文\) 取得可在 Linux 型 HDInsight 叢集上安裝 Hue 的指令碼。您可以使用這個指令碼在叢集上安裝色調，並以 Azure 儲存體 Blob (WASB) 或 Azure Data Lake Store 做為預設儲存體。
 
 本節提供如何在使用 Azure 入口網站佈建叢集時使用指令碼的指示。
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 12/11/2017
     ![提供 Hue 的指令碼動作參數](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "提供 Hue 的指令碼動作參數")
 
    * **名稱**：輸入指令碼動作的易記名稱。
-   * **SCRIPT URI**：https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+   * **指令碼 URI**：https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
    * **HEAD**：勾選此選項
    * **背景工作角色**：將此選項保留空白。
    * **ZOOKEEPER**：將此選項保留空白。

@@ -1,24 +1,18 @@
 ---
-title: "Azure 自動化中的 Runbook 執行 | Microsoft Docs"
-description: "描述如何處理 Azure 自動化中的 Runbook 的詳細資料。"
+title: Azure 自動化中的 Runbook 執行
+description: 描述如何處理 Azure 自動化中的 Runbook 的詳細資料。
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: d10c8ce2-2c0b-4ea7-ba3c-d20e09b2c9ca
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/15/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: a443071aee3e0f845de4387322d2866157a9fe87
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+manager: carmonm
+ms.openlocfilehash: edfd317e7d3f7595f656c6c24ad65f3d87fea14c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure 自動化中的 Runbook 執行
 當您在 Azure 自動化中啟動 Runbook 時即會建立一個工作。 工作是 Runbook 的單一執行個體。 會指派 Azure 自動化背景工作，以執行每項工作。 雖然背景工作是由多個 Azure 帳戶共用，來自不同自動化帳戶的工作會彼此隔離。 您無法控制哪個背景工作要為您的作業要求提供服務。 單一 Runbook 一次可以執行多個工作。  來自相同自動化帳戶的作業執行環境可重複使用。 當您在 Azure 入口網站中檢視 Runbook 清單時，它會列出已針對每個 Runbook 啟動之所有作業的狀態。 您可以檢視每一個 Runbook工作的清單，以追蹤每個 Runbook 的狀態。 如需不同作業狀態的說明，請參閱[作業狀態](#job-statuses)。

@@ -1,23 +1,20 @@
 ---
-title: "SQL Database 多租用戶應用程式指引 - Wingtip SaaS | Microsoft Docs"
-description: "提供使用 Azure SQL Database、Wingtip Tickets SaaS 範例之範例多租用戶應用程式的安裝和執行步驟及指引。"
+title: SQL Database 多租用戶應用程式指引 - Wingtip SaaS | Microsoft Docs
+description: 提供使用 Azure SQL Database、Wingtip Tickets SaaS 範例之範例多租用戶應用程式的安裝和執行步驟及指引。
 keywords: SQL Database Azure
 services: sql-database
 author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: genemi
-ms.openlocfilehash: ebf1c4948816746fa02b867d1ea66afc64b882b0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 0bdb91fc9eb2fa23f8cf1e3f69206a89a93ceaee
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>使用 Wingtip Tickets 範例 SaaS 應用程式的一般指導方針
 

@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure Data Factory 從 Google BigQuery 複製資料 (搶鮮版 (Beta)) | Microsoft Docs"
-description: "了解如何使用資料處理站管線中的複製活動，將資料從 Google BigQuery 複製到支援的接收資料存放區。"
+title: 使用 Azure Data Factory 從 Google BigQuery 複製資料 | Microsoft Docs
+description: 了解如何使用資料處理站管線中的複製活動，將資料從 Google BigQuery 複製到支援的接收資料存放區。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,21 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 35f61f6bd38b59a2df0613ba2506d047c1daeaaa
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 955de6cf4b17f1df1e545ccc196856c7c898edfe
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>使用 Azure Data Factory 從 Google BigQuery 複製資料 (搶鮮版 (Beta))
+# <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Google BigQuery 複製資料
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Google BigQuery 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用已正式運作的第 1 版 Data Factory 服務，請參閱[第 1 版中的複製活動](v1/data-factory-data-movement-activities.md)。
-
-> [!IMPORTANT]
-> 此連接器目前為搶鮮版 (Beta)。 您可以親身體驗並提供意見反應。 請勿在生產環境中使用它。
 
 ## <a name="supported-capabilities"></a>支援的功能
 

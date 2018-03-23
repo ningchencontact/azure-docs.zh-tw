@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 入口網站中建立 Service Fabric 叢集 | Microsoft Docs"
-description: "本文說明如何使用 Azure 入口網站和 Azure 金鑰保存庫在 Azure 中建立安全的 Service Fabric 叢集。"
+title: 在 Azure 入口網站中建立 Service Fabric 叢集 | Microsoft Docs
+description: 本文說明如何使用 Azure 入口網站和 Azure 金鑰保存庫在 Azure 中建立安全的 Service Fabric 叢集。
 services: service-fabric
 documentationcenter: .net
 author: chackdan

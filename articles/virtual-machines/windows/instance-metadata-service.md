@@ -1,11 +1,11 @@
 ---
-title: "Azure 執行個體中繼資料服務 | Microsoft Docs"
-description: "RESTful 介面，用以取得 Windows VM 的計算、網路和近期維護事件的相關資訊。"
+title: Azure 執行個體中繼資料服務 | Microsoft Docs
+description: RESTful 介面，用以取得 Windows VM 的計算、網路和近期維護事件的相關資訊。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: harijayms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: f0a706a5a7724788d62479d1570fffac07ce6d54
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8b9e79a2be26cf279abe0d29db1738b695622e9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -32,14 +32,14 @@ Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https:
 > 這項服務已在所有 Azure 區域中**正式推出**。  它會定期接收更新，以公開有關虛擬機器執行個體的新資訊。 此頁面會反映最新的[資料類別](#instance-metadata-data-categories)。
 
 ## <a name="service-availability"></a>服務可用性
-這項服務可於所有正式推出的 Azure 區域中使用。 並非所有的 API 版本都能在所有 Azure 區域使用。
+這項服務可於正式推出的 Azure 區域中使用。 並非所有的 API 版本都能在所有 Azure 區域使用。
 
 區域                                        | 可用性？                                 | 支援的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
-[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出   | 2017-04-02、2017-08-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02
-[Azure China](https://www.azure.cn/)                                                           | 正式推出 | 2017-04-02
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02
+[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出   | 2017-04-02、2017-08-01、2017-12-01 (這個版本無法在 UK 區域中使用)
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02、2017-08-01
+[Azure China](https://www.azure.cn/)                                                           | 正式推出 | 2017-04-02、2017-08-01
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02、2017-08-01
 
 當有服務更新和/或提供新支援的版本時，此表格便會更新
 
@@ -48,7 +48,7 @@ Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https:
 ## <a name="usage"></a>使用量
 
 ### <a name="versioning"></a>版本控制
-執行個體中繼資料服務已建立版本。 版本是必要項目，且全域 Azure 上目前的版本為 `2017-08-01`。 目前支援的版本為 (2017-04-02、2017-08-01)
+執行個體中繼資料服務已建立版本。 版本是必要項目，且全域 Azure 上目前的版本為 `2017-12-01`。 目前支援的版本為 (2017-04-02、2017-08-01、2017-12-01)
 
 > [!NOTE] 
 > 先前排定事件的預覽版支援作為 API 版本的 {latest}。 此格式將不再受到支援且之後會遭到取代。
@@ -157,7 +157,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **要求**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
 ```
 
 **回應**
@@ -182,7 +182,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
     "tags": "",
     "version": "16.04.201708030",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmSize": "Standard_D1"
+    "vmScaleSetName": "",
+    "vmSize": "Standard_D1",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -296,13 +298,15 @@ subscriptionId | 虛擬機器的 Azure 訂用帳戶 | 2017-08-01
 tags | 虛擬機器的[標籤](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
 resourceGroupName | 虛擬機器的[資源群組](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
 placementGroupId | 虛擬機器擴展集的[放置群組](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
+vmScaleSetName | 您虛擬機器擴展集的[虛擬機器擴展集名稱] (../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
+區域 | 您虛擬機器的[可用性區域](../../availability-zones/az-overview.md) | 2017-12-01 
 ipv4/privateIpAddress | VM 的本機 IPv4 位址 | 2017-04-02
 ipv4/publicIpAddress | VM 的公用 IPv4 位址 | 2017-04-02
 subnet/address | VM 的子網路位址 | 2017-04-02 
 subnet/prefix | 子網路首碼，範例 24 | 2017-04-02 
 ipv6/ipAddress | VM 的本機 IPv6 位址 | 2017-04-02 
 macAddress | VM mac 位址 | 2017-04-02 
-scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-03-01
+scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-08-01
 
 ## <a name="example-scenarios-for-usage"></a>使用方式的範例案例  
 
@@ -325,6 +329,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>容器的位置，資料分割基礎容錯/更新網域 
 
 對於特定案例，不同資料複本的放置相當重要。 例如 [HDFS 複本放置](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)，或透過 [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) 的容器放置，您需要知道 VM 執行所在的 `platformFaultDomain` 和 `platformUpdateDomain`。
+您也可以利用適用於執行個體的[可用性區域](../../availability-zones/az-overview.md)來做出這些決定。
 您可以直接透過執行個體中繼資料服務查詢此資料。
 
 **要求**

@@ -1,20 +1,20 @@
 ---
-title: "將 Google Cloud Platform 帳戶連線到 Azure 成本管理 | Microsoft Docs"
-description: "連線 Google Cloud Platform 帳戶以在「成本管理」報表中檢視成本和使用方式資料。"
+title: 將 Google Cloud Platform 帳戶連線到 Azure 成本管理 | Microsoft Docs
+description: 連線 Google Cloud Platform 帳戶以在「成本管理」報表中檢視成本和使用方式資料。
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/05/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 81a38f471ee1f2f8064a956eca121fd0e6feb235
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: 8f8c157be0a369817099afa211015ba7587017e3
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>連線 Google Cloud Platform 帳戶
 
@@ -73,4 +73,4 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解 Cloudyn 的 Azure 成本管理，請繼續進行「成本管理」的[檢閱使用方式和成本](./tutorial-review-usage.md)教學課程。
+- 若要深入了解 Azure 成本管理，請繼續進行成本管理的[檢閱使用量和成本](./tutorial-review-usage.md)教學課程。

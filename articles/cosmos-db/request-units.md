@@ -1,11 +1,11 @@
 ---
-title: "要求單位和預估輸送量 - Azure Cosmos DB | Microsoft Docs"
-description: "了解如何在 Azure Cosmos DB 中了解、指定及預估要求單位需求。"
+title: 要求單位和預估輸送量 - Azure Cosmos DB | Microsoft Docs
+description: 了解如何在 Azure Cosmos DB 中了解、指定及預估要求單位需求。
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的要求單位
 現在可供使用︰Azure Cosmos DB [要求單位計算機 (英文)](https://www.documentdb.com/capacityplanner)。 深入了解 [預估您的輸送量需求](request-units.md#estimating-throughput-needs)。
@@ -35,9 +35,9 @@ Azure Cosmos DB 支援數種 API 以執行各種不同的作業，從簡單地�
 閱讀本文後，您將能夠回答下列問題：  
 
 * 什麼是要求單位和要求費用？
-* 如何指定集合的要求單位容量？
+* 如何指定容器的要求單位容量？
 * 如何估計應用程式的要求單位需求？
-* 如果超過集合的要求單位容量，會發生什麼事？
+* 如果超出容器的要求單位容量，會發生什麼情況？
 
 由於 Azure Cosmos DB 是一個多模型資料庫，因此請務必注意，本文會參考文件 API 的集合/文件、圖形 API 的圖形/節點，以及資料表 API 的資料表/實體。 本文會將集合、圖形或資料表的概念視為容器，以及將文件、節點或實體視為項目。
 
@@ -53,14 +53,14 @@ Azure Cosmos DB 藉由「保留」資源以滿足應用程式的輸送量需求�
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中指定要求單位容量
-開始新的集合、資料表或圖表時，您可以指定想要保留給每秒要求單位數 (每秒 RU)。 Azure Cosmos DB 會根據佈建的輸送量，配置實體資料分割來裝載您的集合，並隨著資料成長分割/再平衡所有資料分割的資料。
+開始新的容器時，您需指定所要保留的每秒要求單位數 (每秒 RU)。 Azure Cosmos DB 會根據所佈建的輸送量，配置實體分割區來裝載您的容器，並隨著輸送量的成長來跨分割區分割/重新平衡資料。
 
-Azure Cosmos DB 容器可以建立為固定或無限制。 固定大小的容器具有上限為 10 GB 和 10,000 RU/秒的輸送量。 若要建立無限制的容器，您必須指定最小輸送量 1,000 RU/秒和[分割區索引鍵](partition-data.md)。 由於您的資料可能必須分散在多個分割區，因此必須挑選基數高 (100 個到數百萬個相異值) 的分割區索引鍵。 藉由選取具有許多相異值的分割區索引鍵，您便可確保 Azure Cosmos DB 可以一致地調整您的集合/資料表/圖形和要求。 
+Azure Cosmos DB 容器可以建立為固定或無限制。 固定大小的容器具有上限為 10 GB 和 10,000 RU/秒的輸送量。 若要建立無限制的容器，您必須指定最小輸送量 1,000 RU/秒和[分割區索引鍵](partition-data.md)。 由於您的資料可能必須分散在多個分割區，因此必須挑選基數高 (100 個到數百萬個相異值) 的分割區索引鍵。 藉由選取具有許多相異值的分割區索引鍵，您便可確保 Azure Cosmos DB 可以一致地調整您的容器/資料表/圖表和要求。 
 
 > [!NOTE]
 > 資料分割索引鍵是一種邏輯界限，而不是實體界限。 因此，您不需要限制不同資料分割索引鍵值的數目。 事實上，最好能擁有較多不同的資料分割索引鍵值，Azure Cosmos DB 才有更多的負載平衡選項。
 
-以下的程式碼片段使用 .NET SDK 建立包含每秒 3,000 個要求單位的集合：
+以下程式碼片段會使用 .NET SDK 來建立一個具有每秒 3,000 個要求單位的容器：
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -75,7 +75,7 @@ await client.CreateDocumentCollectionAsync(
 
 Azure Cosmos DB 會在輸送量的保留模型上運作。 也就是說，您需要針對所「保留」的輸送量支付費用，而不論該輸送量中有多少數量是主動「使用」的。 當您應用程式的負載、資料及使用方式模式變更時，您可以透過 SDK 或使用 [Azure 入口網站](https://portal.azure.com)，輕鬆地相應增加和減少保留 RU 的數量。
 
-每個集合/資料表/圖表會對應至 Azure Cosmos DB 中的 `Offer` 資源，其具有佈建輸送量的相關中繼資料。 藉由查閱容器的對應 offer 資源，然後使用新的輸送量值加以更新，即可變更已配置的輸送量。 以下的程式碼片段使用 .NET SDK 將集合的輸送量變更為每秒 5,000 個要求單位：
+每個容器都會對應至 Azure Cosmos DB 中的一個 `Offer` 資源，其中有所佈建輸送量的相關中繼資料。 藉由查閱容器的對應 offer 資源，然後使用新的輸送量值加以更新，即可變更已配置的輸送量。 以下程式碼片段會使用 .NET SDK 將容器的輸送量變更為每秒 5,000 個要求單位：
 
 ```csharp
 // Fetch the resource to be updated
@@ -334,10 +334,10 @@ MongoDB API 支援自訂命令 getLastRequestStatistics，可擷取指定之作�
 | 依食物群組選取 |10 |700 |
 | 選取前 10 個 |15 |總共 150 個 |
 
-在此情況下，您會預期平均輸送量需求為 1,275 RU/秒。  如果四捨五入至最接近 100 的數目，您就會針對此應用程式的集合佈建 1,300 RU/秒。
+在此情況下，您會預期平均輸送量需求為 1,275 RU/秒。  如果四捨五入至最接近 100 的數目，您就會針對此應用程式的容器佈建 1,300 RU/秒。
 
 ## <a id="RequestRateTooLarge"></a> 超過 Azure Cosmos DB 中保留的輸送量限制
-您應該記得，如果預算是空的，要求單位耗用量是以每秒的速率來評估。 應用程式若超過容器已佈建的要求單位速率，對該集合發出的要求就會受到節流控制，直到該速率降到預留的層級以下。 當節流發生時，伺服器會使用 RequestRateTooLargeException (HTTP 狀態碼 429) 來提前結束要求，並傳回 x-ms-retry-after-ms 標頭，以指出使用者重新嘗試要求之前必須等候的時間量 (毫秒)。
+您應該記得，如果預算是空的，要求單位耗用量是以每秒的速率來評估。 應用程式若超過已為容器佈建的要求單位速率，對該容器發出的要求就會受到節流控制，直到速率降到保留的層級以下為止。 當節流發生時，伺服器會使用 RequestRateTooLargeException (HTTP 狀態碼 429) 來提前結束要求，並傳回 x-ms-retry-after-ms 標頭，以指出使用者重新嘗試要求之前必須等候的時間量 (毫秒)。
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
@@ -348,7 +348,7 @@ MongoDB API 支援自訂命令 getLastRequestStatistics，可擷取指定之作�
 如果您有多個用戶端會以高於要求速率的方式累積運作，則預設的重試行為可能會不敷使用，而用戶端將擲回 DocumentClientException (狀態碼 429) 到應用程式。 在這類情況下，您可以考慮處理應用程式錯誤處理常式中的重試行為和邏輯，或為容器提高保留的輸送量。
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> 超過 MongoDB API 中保留的輸送量限制
-如果應用程式超過集合已佈建的要求單位，則會受到節流控制，直到速率降到保留的等級以下。 節流發生時，後端會提前結束要求，並傳回 16500 錯誤碼 -「太多要求」。 根據預設，在傳回「太多要求」錯誤碼之前，MongoDB API 會自動重試最多 10 次。 如果您收到很多「太多要求」錯誤碼，您可以考慮在應用程式的錯誤處理常式中新增重試行為，或[提高集合的保留輸送量](set-throughput.md)。
+應用程式若超過已為容器佈建的要求單位，就會受到節流控制，直到速率降到保留的層級以下為止。 節流發生時，後端會提前結束要求，並傳回 16500 錯誤碼 -「太多要求」。 根據預設，在傳回「太多要求」錯誤碼之前，MongoDB API 會自動重試最多 10 次。 如果您收到很多「太多要求」錯誤碼，您可以考慮在應用程式的錯誤處理常式中新增重試行為，或[提高容器的保留輸送量](set-throughput.md)。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解透過 Azure Cosmos DB 資料庫保留輸送量的方式，請探索下列資源：

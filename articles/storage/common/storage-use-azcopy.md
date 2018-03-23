@@ -1,8 +1,8 @@
 ---
-title: "使用 AzCopy on Windows 複製或移動資料到 Azure 儲存體 | Microsoft Docs"
-description: "使用 AzCopy on Windows 公用程式來從 Blob、資料表和檔案內容移動或來回複製資料。 從本機檔案複製資料到 Azure 儲存體，或在儲存體帳戶內或之間複製資料。 輕鬆地將資料移轉至 Azure 儲存體。"
+title: 使用 AzCopy on Windows 複製或移動資料到 Azure 儲存體 | Microsoft Docs
+description: 使用 AzCopy on Windows 公用程式來從 Blob、資料表和檔案內容移動或來回複製資料。 從本機檔案複製資料到 Azure 儲存體，或在儲存體帳戶內或之間複製資料。 輕鬆地將資料移轉至 Azure 儲存體。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 AzCopy on Windows 傳送資料
 AzCopy 是個命令列公用程式，專為使用針對最佳效能而設計的簡單命令來將資料複製到/複製出 Microsoft Azure Blob、檔案和表格儲存體所設計。 您可以在檔案系統和儲存體帳戶之間，或者儲存體帳戶之間複製資料。  
@@ -56,7 +56,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfo
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>從次要地區下載單一 Blob
 
 ```azcopy
-AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
 請注意，您必須啟用讀取權限異地備援儲存體，才能存取次要地區。
@@ -106,7 +106,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfo
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-首碼會套用到虛擬目錄，虛擬目錄會構成第一部分的 Blob 名稱。 在上述範例中，虛擬目錄不符合指定的首碼，所以不會被下載。 此外，如果未指定選項 `\S` ，則 AzCopy 不會下載任何 Blob。
+首碼會套用到虛擬目錄，虛擬目錄會構成第一部分的 Blob 名稱。 在上述範例中，虛擬目錄不符合指定的首碼，所以不會被下載。 此外，如果未指定選項 `/S` ，則 AzCopy 不會下載任何 Blob。
 
 ### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>將匯出檔案的最後修改時間設定為與來源 Blob 相同的最後修改時間
 
@@ -616,7 +616,7 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 
 * 如需 AzCopy 的詳細命令列說明： `AzCopy /?`
 * 如需任何 AzCopy 參數的詳細說明： `AzCopy /?:SourceKey`
-* 如需命令列範例： `AzCopy /?:Samples`
+* 如需命令列範例： `AzCopy /?:Sample`
 
 ### <a name="sourcesource"></a>/Source:"source"
 

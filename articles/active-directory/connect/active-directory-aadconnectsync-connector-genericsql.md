@@ -1,11 +1,11 @@
 ---
-title: "一般 SQL 連接器 | Microsoft Docs"
-description: "本文說明如何設定 Microsoft 的一般 SQL 連接器。"
+title: 一般 SQL 連接器 | Microsoft Docs
+description: 本文說明如何設定 Microsoft 的一般 SQL 連接器。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: bhu
-editor: 
+editor: ''
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: billmath
-ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ac8aff7e302a255efb86606416131ecf8088137
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>一般 SQL 連接器技術參考
 本文說明一般 SQL 連接器。 本文適用於下列產品：
@@ -152,7 +152,7 @@ ms.lasthandoff: 03/06/2018
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
 >[!IMPORTANT]
- 自 2017 年 5 月起，“*” (也稱為「任何選項」) 已變更，以支援匯入與匯出流程。 如果您想要使用此選項，您的多重值資料表/檢視應該有包含物件類型的屬性。
+ 自 2017 年 5 月起，“\*” (也稱為「任何選項」) 已變更為支援匯入與匯出流程。 如果您想要使用此選項，您的多重值資料表/檢視應該有包含物件類型的屬性。
 
 ![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
 

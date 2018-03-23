@@ -1,8 +1,8 @@
 ---
-title: "常見問題集 - Azure Active Directory Domain Services | Microsoft Docs"
-description: "關於「Azure Active Directory 網域服務」的常見問題集"
+title: 常見問題集 - Azure Active Directory Domain Services | Microsoft Docs
+description: 關於「Azure Active Directory 網域服務」的常見問題集
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 1963931f30808e861445c9555a04f933514239c3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1cfd0570315d5a1c6587ade164edf0a837453406
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services：常見問題集 (FAQ)
 此頁面會回答有關 Azure Active Directory Domain Services 的常見問題。 請隨時回來查看最新消息。
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/11/2018
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>是否可以在 Azure CSP (雲端方案提供者) 訂用帳戶中啟用 Azure AD Domain Services？
 是。 了解如何啟用 [Azure CSP 訂用帳戶中的 Azure AD 網域服務](active-directory-ds-csp.md)。
 
-### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>我可以在同盟 Azure AD 目錄中啟用 Azure AD Domain Services 嗎？ 我使用 ADFS 來驗證使用者存取 Office 365，且不會將密碼雜湊同步至 Azure AD。 我可以針對此目錄啟用 Azure AD Domain Services 嗎？
+### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>我可以在同盟 Azure AD 目錄中啟用 Azure AD Domain Services 嗎？ 我不要將密碼雜湊同步至 Azure AD。 我可以針對此目錄啟用 Azure AD Domain Services 嗎？
 編號 Azure AD Domain Services 需要存取使用者帳戶的密碼雜湊，以透過 NTLM 或 Kerberos 驗證使用者。 在同盟目錄中，密碼雜湊不是儲存在 Azure AD 目錄中。 因此，Azure AD Domain Services 不適用於此類 Azure AD 目錄。
 
 ### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>我可以在訂用帳戶內的多個虛擬網路中使用 Azure AD 網域服務嗎？
@@ -53,6 +53,9 @@ ms.lasthandoff: 01/11/2018
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>可以將網域控制站新增至 Azure AD 網域服務的受控網域嗎？
 編號 Azure Active Directory Domain Services 所提供的網域是受控網域。 您不需要佈建、設定或管理此網域的網域控制站 - Microsoft 會以服務形式提供這些管理活動。 因此，您無法為受控網域新增其他網域控制站 (讀寫或唯讀)。
+
+### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>受邀到我目錄的來賓使用者是否可以使用 Azure AD Domain Services？
+否。 透過使用 [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) 邀請流程來邀請到您 Azure AD 目錄的來賓使用者會同步至您的 Azure AD Domain Services 受控網域。 不過，這些使用者的密碼不會儲存在您的 Azure AD 目錄中。 因此，Azure AD Domain Services 無法將這些使用者的 NTLM 和 Kerberos 雜湊同步至您的受控網域。 如此一來，這類使用者便無法登入受控網域，或將電腦加入到受控網域中。
 
 ## <a name="administration-and-operations"></a>管理和作業
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>我可以使用遠端桌面連線到我的受控網域的網域控制站嗎？
@@ -75,6 +78,9 @@ ms.lasthandoff: 01/11/2018
 
 ### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>是否可以在受控網域中修改或新增 DNS 記錄？
 是。 「AAD DC 系統管理員」群組的成員會被授與「DNS 系統管理」權限，以在受控網域中修改 DNS 記錄。 他們可以在加入受控網域且執行 Windows Server 的電腦上，使用 DNS 管理員主控台管理 DNS。 若要使用 DNS 管理員主控台，請安裝 DNS 伺服器工具，這是伺服器上的「遠端伺服器管理工具」選擇性功能的一部分。 如需 [管理、監視及疑難排解 DNS 的公用程式](https://technet.microsoft.com/library/cc753579.aspx) 詳細資訊，可在 TechNet 上取得。
+
+### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>受控網域上的密碼存留期原則為何？
+Azure AD Domain Services 受控網域上的預設密碼存留期為 90 天。 此密碼存留期不會與 Azure AD 中設定的密碼存留期同步。 因此，您可能會遇到使用者的密碼在您的受控網域中到期，但在 Azure AD 中卻仍然有效的情況。 在這種情況下，使用者必須變更他們在 Azure AD 中的密碼，而新密碼將會同步至您的受控網域。 此外，使用者帳戶的 'password-does-not-expire' 和 'user-must-change-password-at-next-logon' 屬性也不會同步至您的受控網域。
 
 ## <a name="billing-and-availability"></a>計費與可用性
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Azure AD 網域服務是付費服務嗎？

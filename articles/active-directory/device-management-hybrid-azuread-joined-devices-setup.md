@@ -1,11 +1,11 @@
 ---
-title: "如何設定混合式 Azure Active Directory 已加入的裝置 | Microsoft Docs"
-description: "了解如何設定混合式 Azure Active Directory 已加入的裝置。"
+title: 如何設定混合式 Azure Active Directory 已加入的裝置 | Microsoft Docs
+description: 了解如何設定混合式 Azure Active Directory 已加入的裝置。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>如何設定混合式 Azure Active Directory 已加入的裝置
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/05/2018
 
 如果您使用的是[系統準備工具 (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10))，請確定您用來建立映像的 Windows 安裝版本尚未註冊 Azure AD。
 
-一旦以下所述的組態步驟完成，所有已加入網域且執行 Windows 10 年度更新版和 Windows Server 2016 的裝置會在裝置重新啟動或使用者登入時自動向 Azure AD 註冊。 如果不喜歡這個自動註冊行為或如果想要受控制的導入，請先遵循以下＜控制部署與導入＞一節中的指示，選擇性地啟用或停用自動導入，再遵循其他設定步驟。  
+一旦以下所述的組態步驟完成，所有已加入網域且執行 Windows 10 年度更新版和 Windows Server 2016 的裝置會在裝置重新啟動或使用者登入時自動向 Azure AD 註冊。 **如果不喜歡這個自動註冊行為或想要控制導入**，請先依照下面＜步驟 4：控制部署與導入＞一節中的指示，選擇性地啟用或停用自動導入，再依照其他設定步驟進行操作。  
 
 為了改善說明的可讀性，本主題使用下列詞彙︰ 
 
@@ -542,7 +542,7 @@ Azure AD Connect：
 
 ### <a name="remarks"></a>備註
 
-- 您可以使用「群組原則」物件來控制已加入網域之 Windows 10 和 Windows Server 2016 電腦的自動註冊導入。
+- 您可以使用「群組原則」物件來控制已加入網域之 Windows 10 和 Windows Server 2016 電腦的自動註冊導入。 **如果您不想讓這些裝置自動向 Azure AD 註冊或想要控制註冊**，則您必須先在所有這些裝置導入停用自動註冊的群組原則，再開始進行設定步驟。 在完成設定之後，並已為測試做好準備時，您必須僅在測試裝置上導入啟用自動註冊的群組原則，然後在於您選擇的所有其他裝置上導入該原則。
 
 - **只有**已設定導入群組原則物件的情況下，Windows 10 2015 年 11 月更新才會自動加入 Azure AD。
 

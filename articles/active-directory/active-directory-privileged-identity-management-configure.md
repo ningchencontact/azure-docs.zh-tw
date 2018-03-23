@@ -1,32 +1,40 @@
 ---
-title: "設定 Azure AD Privileged Identity Management | Microsoft Docs"
-description: "本主題說明何謂 Azure AD Privileged Identity Management，以及如何使用 PIM 改善雲端安全性。"
+title: 設定 Azure AD Privileged Identity Management | Microsoft Docs
+description: 本主題說明何謂 Azure AD Privileged Identity Management，以及如何使用 PIM 改善雲端安全性。
 services: active-directory
-documentationcenter: 
-author: barclayn
+documentationcenter: ''
+author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
-ms.author: barclayn
+ms.date: 03/07/2018
+ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 94855cf102764532fa0a6718541beffe93230fd1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>什麼是 Azure AD Privileged Identity Management？
 
 您可以利用 Azure Active Directory (AD) Privileged Identity Management 來管理、控制和監視組織內的存取行為。 這包括存取 Azure AD、Azure 資源 (預覽) 和其他 Microsoft 線上服務 (如 Office 365 或 Microsoft Intune) 中的資源。
 
 > [!NOTE]
-> 當您將 Azure Active Directory 的 Premium P2 版本授權給系統管理員時，Privileged Identity Management 可供您的整個組織使用。 如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+> 當您為租用戶啟用 Privileged Identity Management 時，每個與此服務互動或從此服務受益的使用者都必須具備有效 Azure AD Premium P2 或 Enterprise Mobility + Security E5 的付費或試用授權。 範例包括在符合下列條件之群組中的使用者：
+>
+>- 指派給「特殊權限角色管理員」角色 
+>- 指派成符合可透過 PIM 管理的其他目錄角色資格 
+>- 能夠在 PIM 中核准/拒絕要求 
+>- 指派給具有「及時」或「直接」(時間型) 指派的 Azure 資源角色  
+>- 指派給存取檢閱
+>
+>如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
 組織想要將能夠存取安全資訊或資源的人數降到最低，因為這樣可以降低惡意使用者取得該存取權，或者授權使用者無意中影響到敏感資源的機率。  不過，使用者仍然需要在 Azure AD、Azure、Office 365 或 SaaS 應用程式中執行特殊權限作業。 組織可以提供使用者特殊權限以存取 Azure 資源，如訂用帳戶和 Azure AD。 需要針對這些使用者使用其系統管理權限的方式進行監督。 Azure AD Privileged Identity Management 可協助減少過多、不必要或誤用的存取權限風險。
 

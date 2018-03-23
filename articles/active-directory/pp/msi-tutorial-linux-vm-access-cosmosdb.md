@@ -1,11 +1,11 @@
 ---
-title: "使用 Linux VM 上使用者指派的受控服務識別 (MSI) 來存取 Azure Cosmos DB"
-description: "本教學課程引導您使用 Linux VM 上使用者所指派的受控服務識別 (MSI) 來存取 Azure Cosmos DB 的程序。"
+title: 使用 Linux VM 上使用者指派的受控服務識別 (MSI) 來存取 Azure Cosmos DB
+description: 本教學課程引導您使用 Linux VM 上使用者所指派的受控服務識別 (MSI) 來存取 Azure Cosmos DB 的程序。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/14/2018
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2c0c3597999e80af86f079385653d94ddfcab245
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dbb5e9e8f9accd618599010ab2bbb4a8760e534f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-cosmos-db"></a>使用 Linux VM 上使用者指派的受控服務識別 (MSI) 來存取 Azure Cosmos DB 
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Linux 虛擬機器
 
@@ -158,10 +158,10 @@ az role assignment create --assignee <MSI PRINCIPALID> --role '<ROLE NAME>' --sc
 3. 接下來，系統會提示您輸入建立 Linux VM 時新增的 [密碼]。 您應該可以順利登入。  
 4. 使用 CURL 取得 Azure Resource Manager 的存取權杖。  
 
-    存取權杖的 CURL 要求和回應如下。  將 <CLIENT ID> 取代為您的使用者指派之 MSI 的 clientId 值：
+    存取權杖的 CURL 要求和回應如下。  將 <CLIENT ID> 取代為您的使用者指派之 MSI 的 clientId 值： 
     
     ```bash
-    curl 'http://localhost:50342/oauth2/token?resource=https://management.azure.com/&client_id=<CLIENT ID>' -H "Metadata:true"
+    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>" 
     ```
     
     > [!NOTE]

@@ -1,8 +1,8 @@
 ---
-title: "在 Azure Data Factory 中建立自我裝載整合執行階段 | Microsoft Docs"
-description: "了解如何在 Azure Data Factory 中建立自我裝載整合執行階段，它可讓資料處理站存取私人網路中的資料存放區。"
+title: 在 Azure Data Factory 中建立自我裝載整合執行階段 | Microsoft Docs
+description: 了解如何在 Azure Data Factory 中建立自我裝載整合執行階段，它可讓資料處理站存取私人網路中的資料存放區。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
 manager: jhubbard
 editor: monicar
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3f1b55f2752821de447e6c03bcbf79f01d9f8264
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>如何建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -65,6 +65,7 @@ ms.lasthandoff: 01/23/2018
 - 自我裝載整合執行階段必須用於支援 Azure 虛擬網路內的資料整合。
 - 即使您使用 **ExpressRoute**，也應該將資料來源視為內部部署資料來源 (亦即在防火牆後面)。 請使用自我裝載整合執行階段來建立服務與資料來源之間的連線。
 - 即使資料儲存在雲端中的 **Azure IaaS 虛擬機器**上，您也必須使用自我裝載整合執行階段。
+- Windows 伺服器若啟用了符合 FIPS 規範的加密，則在安裝於伺服器上的自我裝載 Integration Runtime 中，工作可能會失敗。 若要解決此問題，請在伺服器上停用符合 FIPS 規範的加密。 若要停用符合 FIPS 規範的加密，請將下列登錄值從 1 (已啟用) 變更為 0 (已停用)：`HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`。
 
 ## <a name="prerequisites"></a>先決條件
 

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中建立和使用 Linux VM 的 SSH 金鑰組 | Microsoft Docs"
-description: "如何在 Azure 中建立和使用 Linux VM 的 SSH 公開和私密金鑰組，以改善驗證程序的安全性。"
+title: 在 Azure 中建立和使用 Linux VM 的 SSH 金鑰組 | Microsoft Docs
+description: 如何在 Azure 中建立和使用 Linux VM 的 SSH 公開和私密金鑰組，以改善驗證程序的安全性。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
 ms.service: virtual-machines-linux
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: a37bfa01343527a60193d893c7913e4e9c50d210
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ecd3a01ee5591cb09140edb1b1290ff2d4510200
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>如何在 Azure 中建立和使用 Linux VM 的 SSH 公開和私密金鑰組
 您可以利用安全殼層 (SSH) 金鑰組，在 Azure 上建立使用 SSH 金鑰來進行驗證的虛擬機器 (VM)，進而免除登入密碼的需求。 本文說明如何快速產生和使用 Linux VM 的 SSH 通訊協定第 2 版 RSA 公開和私密金鑰檔案組。 您可以使用 Azure Cloud Shell、macOS 或 Linux 主機或 Windows Subsystem for Linux，完成這些步驟。 如需詳細步驟和其他範例，請參閱[建立 SSH 金鑰組和憑證的詳細步驟](create-ssh-keys-detailed.md)。
 
 ## <a name="create-an-ssh-key-pair"></a>建立 SSH 金鑰組
-使用 `ssh-keygen` 命令可建立會預設建立在 `~/.ssh` 目錄中的 SSH 公開和私密金鑰檔案，但您可以在出現提示時指定不同位置和額外的複雜密碼 (用來存取私密金鑰檔案的密碼)。 從 Bash 殼層執行下列命令，並輸入您自己的資訊來回應提示。
+使用 `ssh-keygen` 命令來建立 SSH 公開和私密金鑰檔案，這些檔案預設建立於 `~/.ssh` 目錄中。 出現提示時，您可以指定不同位置和其他複雜密碼 (存取私密金鑰檔案的密碼)。 如果有 SSH 金鑰組存在於目前的位置，系統將會覆寫它們。
 
 ```bash
 ssh-keygen -t rsa -b 2048

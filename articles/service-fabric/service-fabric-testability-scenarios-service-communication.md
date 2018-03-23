@@ -1,11 +1,11 @@
 ---
-title: "Testability：服務通訊 | Microsoft Docs"
-description: "服務之間的通訊是整合 Service Fabric 應用程式的重要環節。 本文討論設計考量及測試技巧。"
+title: Testability：服務通訊 | Microsoft Docs
+description: 服務之間的通訊是整合 Service Fabric 應用程式的重要環節。 本文討論設計考量及測試技巧。
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4c6b53673dd4c79ce435c1593e7d08c7dd4a1cb0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c87b5d82b6eef2b1d28a3280cc2fa07c28084f90
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric Testability 案例：服務通訊
 微服務及服務導向的架構樣式會在 Azure Service Fabric 中自然出現。 在這些類型的分散式架構中，元件化的微服務應用程式通常是由需要彼此通訊的多個服務所組成。 即使在最簡單的情況下，您通常至少會有一個無狀態網路服務及一個可設定狀態的資料儲存服務需要相互通訊。
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/04/2017
    
     ```powershell
    
-    PS > Restart-ServiceFabricNode -NodeName Node_1
+    PS > Stop-ServiceFabricNode -NodeName Node_1
    
     ```
 

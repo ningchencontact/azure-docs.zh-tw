@@ -1,11 +1,11 @@
 ---
-title: "工作流程定義語言結構描述 - Azure Logic Apps | Microsoft Docs"
-description: "根據 Azure Logic Apps 的工作流程定義結構描述來定義工作流程"
+title: 工作流程定義語言結構描述 - Azure Logic Apps | Microsoft Docs
+description: 根據 Azure Logic Apps 的工作流程定義結構描述來定義工作流程
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
 ms.workload: integration
@@ -126,14 +126,14 @@ ms.lasthandoff: 03/08/2018
 > [!NOTE]
 > 某些運算式可能會從執行開始時不存在的執行階段動作中取得其值。 您可以使用**函式**來協助擷取這些值。  
   
-運算式可以出現在 JSON 字串值中的任何一處，並一律產生另一個 JSON 值。 當 JSON 值已經確定是運算式時，藉由移除 @ 符號來擷取運算式的主體。 如果需要的常值字串開頭為 @，字串必須使用 @@ 逸出。 下列範例顯示如何評估運算式。  
+運算式可以出現在 JSON 字串值中的任何一處，並一律產生另一個 JSON 值。 當 JSON 值已經確定是運算式時，藉由移除 \@ 符號來擷取運算式的主體。 如果需要的常值字串開頭為 \@，字串必須使用 \@@ 逸出。 下列範例顯示如何評估運算式。  
   
 |JSON 值|結果|  
 |----------------|------------|  
 |"parameters"|傳回字元 'parameters'。|  
 |"parameters[1]"|傳回字元 'parameters[1]'。|  
-|"@@"|傳回包含 '@' 的 1 個字元字串。|  
-|" @"|傳回包含 '@' 的 2 個字元字串。|  
+|\"\@\@\"|傳回包含 \'\@\' 的 1 個字元字串。|  
+|\" \@\"|傳回包含 \'\@\' 的 2 個字元字串。|  
   
 使用「字串插補」，運算式也可以出現在字串內，其中運算式會包含在 `@{ ... }` 內。 例如︰ <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
@@ -142,12 +142,12 @@ ms.lasthandoff: 03/08/2018
 |JSON 值|結果|  
 |----------------|------------|  
 |"@parameters('myString')"|傳回 `sampleString` 做為字串。|  
-|"@{parameters('myString')}"|傳回 `sampleString` 做為字串。|  
+|\"\@{parameters('myString')}"|傳回 `sampleString` 做為字串。|  
 |"@parameters('myNumber')"|傳回 `42` 做為「編號」。|  
-|"@{parameters('myNumber')}"|傳回 `42` 做為「字串」。|  
-|"Answer is: @{parameters('myNumber')}"|傳回字串 `Answer is: 42`。|  
+|\"\@{parameters('myNumber')}"|傳回 `42` 做為「字串」。|  
+|"Answer is: \@{parameters('myNumber')}"|傳回字串 `Answer is: 42`。|  
 |"@concat('Answer is: ', string(parameters('myNumber')))"|傳回字串 `Answer is: 42`|  
-|"Answer is: @@{parameters('myNumber')}"|傳回字串 `Answer is: @{parameters('myNumber')}`。|  
+|"Answer is: \@\@{parameters('myNumber')}"|傳回字串 `Answer is: @{parameters('myNumber')}`。|  
   
 ## <a name="operators"></a>運算子  
 

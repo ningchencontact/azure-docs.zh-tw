@@ -1,6 +1,6 @@
 ---
-title: "Azure AD UserPrincipalName 填入"
-description: "下列文件說明 UserPrincipalName 屬性的填入方式。"
+title: Azure AD UserPrincipalName 填入
+description: 下列文件說明 UserPrincipalName 屬性的填入方式。
 author: billmath
 ms.author: billmath
 ms.date: 02/02/2018

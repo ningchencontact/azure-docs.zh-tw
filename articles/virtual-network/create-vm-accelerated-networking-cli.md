@@ -1,13 +1,13 @@
 ---
-title: "使用加速網路來建立 Azure 虛擬機器 | Microsoft Docs"
-description: "了解如何使用加速網路建立 Linux 虛擬機器。"
+title: 使用加速網路來建立 Azure 虛擬機器 | Microsoft Docs
+description: 了解如何使用加速網路建立 Linux 虛擬機器。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 82a0a336e8315d7fe9862e22e47a6847f94bfcb1
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.custom: ''
+ms.openlocfilehash: 5c09ffe6867972e772334ae7ae1dd655cdac431f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>使用加速網路建立 Linux 虛擬機器
 
 > [!IMPORTANT] 
-> 必須使用已啟用的加速網路建立虛擬機器。 無法在現有的虛擬機器上啟用此功能。 您可以依照下列步驟來啟用加速網路：
+> 必須使用已啟用的加速網路建立虛擬機器。 無法在現有的虛擬機器上啟用此功能。 請完成下列步驟來啟用「加速的網路」：
 >   1. 刪除虛擬機器。
 >   2. 使用已啟用的加速網路重新建立虛擬機器。
 >
@@ -66,9 +66,11 @@ ms.lasthandoff: 02/23/2018
 * **VM 建立：**啟用加速網路的 NIC 只能在 VM 建立之後附加至 VM。 NIC 無法附加至現有的 VM。 如果將 VM 新增至現有的可用性設定組，可用性設定組中的所有 VM 必須也已啟用加速網路。
 * **僅透過 Azure Resource Manager 進行部署：**無法透過加速網路部署虛擬機器 (傳統)。
 
+雖然本文提供使用 Azure CLI 來建立具有加速網路之虛擬機器的步驟，但您也可以[使用 Azure 入口網站來建立具有加速網路的虛擬機器](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 在入口網站中使用支援的作業系統和 VM 大小來建立虛擬機器時，請在 [設定] 下的 [加速的網路] 底下，選取 [已啟用]。 建立虛擬機器之後，您必須完成[確認加速網路已確實啟用](#confirm-that-accelerated-networking-is-enabled)中的指示動作。
+
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-請安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#az_login) 來登入 Azure 帳戶。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myNic* 和 *myVm*。
+請安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myNic* 和 *myVm*。
 
 使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組。 下列範例會在 *centralus* 位置建立名為 *myResourceGroup* 的資源群組：
 

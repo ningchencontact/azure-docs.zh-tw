@@ -1,13 +1,13 @@
 ---
-title: "Azure 上適用於資料科學虛擬機器的語言 | Microsoft Docs"
-description: "Azure 上適用於資料科學虛擬機器的語言"
-keywords: "資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學"
+title: Azure 上適用於資料科學虛擬機器的語言 | Microsoft Docs
+description: Azure 上適用於資料科學虛擬機器的語言
+keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,29 +15,99 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 2f2125e739b738847e03ce429d65801969611685
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb36f79d6af66dfaceb63730d59713ab9da7c89e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>資料科學虛擬機器上所支援的語言 
 
 資料科學虛擬機器 (DSVM) 具有數種預先建置的語言及開發工具，可用來建置您的 AI 應用程式。 以下為幾個較主要的項目。 
 
-## <a name="python"></a>Python
+## <a name="python-windows-server-2016-edition"></a>Python (Windows Server 2016 版)
+
+|    |           |
+| ------------- | ------------- |
+| 支援的語言版本 | 2.7 和 3.6 |
+| 支援的 DSVM 版本      | Windows Server 2016     |
+| 它是如何在 DSVM 上設定/安裝的？  | 系統會建立兩個全域 `conda` 環境。 <br /> *  位於 `/anaconda/` 的 `root` 環境是 Python 3.6。 <br/> *  位於 `/anaconda/envs/python2` 的 `python2` 環境是 Python 2.7       |
+| 範例的連結      | 已包含適用於 Python 的範例 Jupyter 筆記本     |
+| DSVM 上的相關工具      | PySpark、R、Julia      |
+
+> [!NOTE]
+> 在 2018 年 3 月之前建立的 Windows Server 2016 包含 Python 3.5 和 Python 2.7。 此外，Python 2.7 是 conda **root** 環境，而 **py35** 則是 Python 3.5 環境。 
+
+### <a name="how-to-use--run-it"></a>如何使用/執行它？    
+
+* 於命令提示字元中執行
+
+開啟命令提示字元，並根據您所要執行的 Python 版本執行下列命令。 
+
+```
+# To run Python 2.7
+activate python2
+python --version
+
+# To run Python 3.6
+activate 
+python --version
+
+```
+* 在 IDE 中使用
+
+使用安裝於 Visual Studio Community 版本的「適用於 Visual Studio 的 Python 工具」(PTVS)。 Python 3.6 是 PTVS 中預設唯一會自動設定的環境。 
+
+> [!NOTE]
+> 若要將 PTVS 指向 Python 2.7，您必須在 PTVS 中建立自訂環境。 若要在 Visual Studio Community 版本中設定此環境路徑，請瀏覽至 [工具] -> [Python 工具] -> [Python 環境]，然後按一下 [+ 自訂]。 然後將位置設定為 `c:\anaconda\envs\python2`，並按一下 [自動偵測]。 
+
+* 在 Jupyter 中使用
+
+開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 3.6 將核心類型選擇為 [Python [Conda Root]]，並針對 Python 2.7 環境將核心類型選擇為 [Python [Conda env:python2]]。 
+
+* 安裝 Python 套件
+
+DSVM 上的預設 Python 環境為全域環境，可由所有使用者讀取。 但只有系統管理員可以寫入/安裝全域套件。 若要將套件安裝至全域環境，請以系統管理員身分使用 `activate` 命令來啟動至 root 或 python2 環境。 接著，您便可以使用如 `conda` 或 `pip` 等套件管理員來安裝或更新套件。 
+
+## <a name="python-linux-and-windows-server-2012-edition"></a>Python (Linux 和 Windows Server 2012 版)
 
 |    |           |
 | ------------- | ------------- |
 | 支援的語言版本 | 2.7 和 3.5 |
-| 支援的 DSVM 版本      | Linux、Windows     |
+| 支援的 DSVM 版本      | Linux、Windows Server 2012    |
 | 它是如何在 DSVM 上設定/安裝的？  | 系統會建立兩個全域 `conda` 環境。 <br /> * 位於 `/anaconda/` 的 `root` 環境是 Python 2.7。 <br/> * 位於 `/anaconda/envs/py35` 的 `py35` 環境是 Python 3.5       |
 | 範例的連結      | 已包含適用於 Python 的範例 Jupyter 筆記本     |
 | DSVM 上的相關工具      | PySpark、R、Julia      |
 ### <a name="how-to-use--run-it"></a>如何使用/執行它？    
 
-**Windows**：
+**Linux**
+* 在終端機中執行
 
+開啟終端機，並根據您所要執行的 Python 版本執行下列命令。 
+
+```
+# To run Python 2.7
+source activate 
+python --version
+
+# To run Python 3.5
+source activate py35
+python --version
+
+```
+* 在 IDE 中使用
+
+使用安裝於 Visual Studio Community 版本的 PyCharm。 
+
+* 在 Jupyter 中使用
+
+開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 2.7 將核心類型選擇為 [Python [Conda Root]]，並針對 Python 3.5 環境將核心類型選擇為 [Python [Conda env:py35]]。 
+
+* 安裝 Python 套件
+
+DSVM 上的預設 Python 環境為全域環境，可由所有使用者讀取。 但只有系統管理員可以寫入/安裝全域套件。 若要將套件安裝置全域環境，請以系統管理員或具有 sudo 權限的使用者身分使用 `source activate` 命令來啟動至 root 或 py35 環境。 接著，您便可以使用如 `conda` 或 `pip` 等套件管理員來安裝或更新套件。 
+
+**Windows 2012**
 * 於命令提示字元中執行
 
 開啟命令提示字元，並根據您所要執行的 Python 版本執行下列命令。 
@@ -66,42 +136,13 @@ python --version
 
 DSVM 上的預設 Python 環境為全域環境，可由所有使用者讀取。 但只有系統管理員可以寫入/安裝全域套件。 若要將套件安裝置全域環境，請以系統管理員身分使用 `activate` 命令來啟動至 root 或 py35 環境。 接著，您便可以使用如 `conda` 或 `pip` 等套件管理員來安裝或更新套件。 
 
-
-**Linux**：
-
-* 在終端機中執行
-
-開啟終端機，並根據您所要執行的 Python 版本執行下列命令。 
-
-```
-# To run Python 2.7
-source activate 
-python --version
-
-# To run Python 3.5
-source activate py35
-python --version
-
-```
-* 在 IDE 中使用
-
-使用安裝於 Visual Studio Community 版本的 PyCharm。 
-
-* 在 Jupyter 中使用
-
-開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 2.7 將核心類型選擇為 [Python [Conda Root]]，並針對 Python 3.5 環境將核心類型選擇為 [Python [Conda env:py35]]。 
-
-* 安裝 Python 套件
-
-DSVM 上的預設 Python 環境為全域環境，可由所有使用者讀取。 但只有系統管理員可以寫入/安裝全域套件。 若要將套件安裝置全域環境，請以系統管理員或具有 sudo 權限的使用者身分使用 `source activate` 命令來啟動至 root 或 py35 環境。 接著，您便可以使用如 `conda` 或 `pip` 等套件管理員來安裝或更新套件。 
-
 ## <a name="r"></a>R
 
 |    |           |
 | ------------- | ------------- |
 | 支援的語言版本 | Microsoft R Open 3.x (與 CRAN-R 100% 相容)<br /> Microsoft R Server 9.x Developer 版本 (可擴充且符合企業需求的 R 平台)|
 | 支援的 DSVM 版本      | Linux、Windows     |
-| 它是如何在 DSVM 上設定/安裝的？  | Windows：`C:\Program Files\Microsoft\R Server\R_SERVER` <br />Linux：` /usr/lib64/microsoft-r/3.3/lib64/R`    |
+| 它是如何在 DSVM 上設定/安裝的？  | Windows：`C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux：` /usr/lib64/microsoft-r/3.3/lib64/R`    |
 | 範例的連結      | 已包含適用於 R 的範例 Jupyter 筆記本     |
 | DSVM 上的相關工具      | SparkR、Python、Julia      |
 ### <a name="how-to-use--run-it"></a>如何使用/執行它？    
@@ -147,7 +188,7 @@ R 是安裝在 DSVM 上可由所有使用者讀取的全域環境中。 但只�
 
 |    |           |
 | ------------- | ------------- |
-| 支援的語言版本 | 0.5 |
+| 支援的語言版本 | 0.6 |
 | 支援的 DSVM 版本      | Linux、Windows     |
 | 它是如何在 DSVM 上設定/安裝的？  | Windows：安裝於 `C:\JuliaPro-VERSION`<br /> Linux：安裝於 `/opt/JuliaPro-VERSION`    |
 | 範例的連結      | 已包含適用於 Julia 的範例 Jupyter 筆記本     |

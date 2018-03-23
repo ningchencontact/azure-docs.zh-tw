@@ -1,25 +1,19 @@
 ---
-title: "如何解除安裝彈性資料庫工作工具"
-description: "了解如何使用 Azure 入口網站或 PowerShell 解除安裝彈性資料庫工作元件。"
+title: 如何解除安裝彈性資料庫工作工具
+description: 了解如何使用 Azure 入口網站或 PowerShell 解除安裝彈性資料庫工作元件。
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: bfc9d820-edbd-4fca-bfbf-1f339cfcc448
+manager: craigg
+author: stevestein
 ms.service: sql-database
-ms.workload: Inactive
 ms.custom: scale out apps
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 5e665ee8cc9efacbd31111dc0458ad6096e457c0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: e6a86a3571301f6fa2a356714721daa141e696bf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>解除安裝彈性資料庫工作元件
 **彈性資料庫工作**元件可以使用 Azure 入口網站或 PowerShell 加以解除安裝。

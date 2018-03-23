@@ -1,25 +1,20 @@
 ---
-title: "Azure SQL Database 計量和診斷記錄 | Microsoft Docs"
-description: "了解如何設定 Azure SQL Database ，以儲存資源使用量、連線及查詢執行統計資料。"
+title: Azure SQL Database 計量和診斷記錄 | Microsoft Docs
+description: 了解如何設定 Azure SQL Database ，以儲存資源使用量、連線及查詢執行統計資料。
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: veljko-msft
-manager: jhubbard
-editor: 
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 2d0a2d5966c8c99e7d71d97d4819d58a1474c2fe
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄 
 Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
@@ -52,8 +47,8 @@ Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics)：包含關於查詢執行階段統計資料的資訊，例如 CPU 使用率和查詢持續時間。
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics)：包含關於查詢所等候內容的查詢等候統計資料的資訊，例如 CPU、LOG 和 LOCKING。
 - [錯誤](sql-database-metrics-diag-logging.md#errors-dataset)：包含關於此資料庫上所發生 SQL 錯誤的資訊。
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset)：包含和資料庫花費在不同等候類型的等候時間長度有關的資訊。
-- [逾時](sql-database-metrics-diag-logging.md#timeouts-dataset)：包含有關資料庫上發生之逾時的資訊。
+- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset)：包含和資料庫花費在不同等候類型的等候時間長度有關的資訊。
+- [逾時](sql-database-metrics-diag-logging.md#time-outs-dataset)：包含有關資料庫上發生之逾時的資訊。
 - [封鎖](sql-database-metrics-diag-logging.md#blockings-dataset)：包含有關資料庫上所發生事件的資訊。
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset)：包含 Intelligent Insights。 [深入了解 Intelligent Insights](sql-database-intelligent-insights.md)。
 
@@ -257,7 +252,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="download-metrics-and-logs-from-storage"></a>從儲存體下載計量和記錄
 
-了解如何[從儲存體下載計量和診斷記錄](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)。
+了解如何[從儲存體下載計量和診斷記錄](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application)。
 
 ## <a name="metrics-and-logs-available"></a>可用的計量和記錄檔
 
@@ -478,4 +473,4 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 * [Azure 事件中樞是什麼？](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-若要深入了解儲存體，請參閱如何[從儲存體下載計量和診斷記錄](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)。
+若要深入了解儲存體，請參閱如何[從儲存體下載計量和診斷記錄](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application)。

@@ -1,4 +1,19 @@
-
+---
+title: 包含檔案
+description: 包含檔案
+services: virtual-machines
+author: zivraf
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: zivr
+ms.custom: include file
+ms.openlocfilehash: 9666a8fde808981dd798ff712b96a7c620c9003a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>在入口網站中檢視排定維護的 VM
 
 一旦排定了計劃的一波維護，並傳送通知，您就可以觀察受到即將到來之一波維護影響的虛擬機器清單。 

@@ -1,29 +1,36 @@
 ---
-title: "有效地管理 Azure 虛擬機器上 SQL Server 的成本 | Microsoft Docs"
-description: "提供選擇正確 SQL Server 虛擬機器定價模型的最佳做法。"
+title: 有效地管理 Azure 虛擬機器上 SQL Server 的成本 | Microsoft Docs
+description: 提供選擇正確 SQL Server 虛擬機器定價模型的最佳做法。
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/17/2017
+ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定價指導方針
 
-本文章提供 Azure 中 SQL Server 虛擬機器的定價指導方針。 影響成本的選項有數個，而挑選平衡成本和業務需求的正確映像相當重要。
+本文提供 Azure 中 [SQL Server 虛擬機器](virtual-machines-windows-sql-server-iaas-overview.md)的定價指導方針。 影響成本的選項有數個，而挑選平衡成本和業務需求的正確映像相當重要。
+
+> [!TIP]
+> 如果您只需了解特定 SQL Server 版本與虛擬機器大小組合的成本預估，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/virtual-machines/windows)。 從 [OS/軟體] 清單選取您的作業系統和 SQL Server 版本。
+>
+> ![VM 定價頁面上的 UI](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
+>
+> 或者，使用[定價計算機](https://azure.microsoft.com/pricing/#explore-cost)來新增和設定虛擬機器。 
 
 ## <a name="free-licensed-sql-server-editions"></a>免費授權的 SQL Server 版本
 
@@ -56,7 +63,7 @@ ms.lasthandoff: 02/21/2018
 
 ### <a name="pay-per-usage"></a>依使用量付費
 
-**依使用量支付 SQL Server 授權費用**意謂著執行 Azure VM 的每分鐘費用都包含 SQL Server 授權的費用。 您可以在 [Azure VM 定價頁面](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard)查看不同 SQL Server 版本 (Web、Standard、Enterprise) 的定價。 所有 SQL Server 版本 (2012 SP3 到 2017) 的費用都相同。 一般就 SQL Server 授權而言，每分鐘的授權費用會取決於 VM 核心數量。
+**依使用量支付 SQL Server 授權費用**意謂著執行 Azure VM 的每分鐘費用都包含 SQL Server 授權的費用。 您可以在 [Azure VM 定價頁面](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)查看不同 SQL Server 版本 (Web、Standard、Enterprise) 的定價。 所有 SQL Server 版本 (2012 SP3 到 2017) 的費用都相同。 一般就 SQL Server 授權而言，每分鐘的授權費用會取決於 VM 核心數量。
 
 針對下列情況，建議採用依使用量支付 SQL Server 授權費用：
 
@@ -147,6 +154,6 @@ SQL Server 的授權成本與核心數目直接相關。 選擇符合預期的 C
 
 如需一般的 Azure 定價指導方針，請參閱[使用 Azure 計費與成本管理避免非預期的成本](../../../billing/billing-getting-started.md)。
 
-如需最新的「虛擬機器」定價 (包括 SQL Server)，請參閱 [Azure VM 定價頁面](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard)。
+如需最新的「虛擬機器」定價 (包括 SQL Server)，請參閱 [Azure VM 定價頁面](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)。
 
 深入了解 [SQL Server Windows VM](virtual-machines-windows-sql-server-iaas-overview.md) 和 [SQL Server Linux VM](../../linux/sql/sql-server-linux-virtual-machines-overview.md) 的 SQL Server 虛擬機器。

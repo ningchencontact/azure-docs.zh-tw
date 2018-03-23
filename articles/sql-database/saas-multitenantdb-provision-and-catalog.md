@@ -1,27 +1,21 @@
 ---
-title: "SaaS 多租用戶 Azure 中的佈建 | Microsoft Docs"
-description: "了解如何在 Azure SQL Database 多租用戶 SaaS 應用程式中佈建及編目新租用戶"
+title: SaaS 多租用戶 Azure 中的佈建 | Microsoft Docs
+description: 了解如何在 Azure SQL Database 多租用戶 SaaS 應用程式中佈建及編目新租用戶
 keywords: SQL Database Azure
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: MightyPen
 ms.reviewer: billgib;andrela;genemi
-ms.assetid: 
 ms.service: sql-database
 ms.custom: saas apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: billgib
-ms.openlocfilehash: 42bbb6131aa71520410b22af4d74e99a63fe81cf
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: fb2f2bcbbc8b7f0b0012c4e7baf4a274671d4af0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>使用分區化多租用 Azure SQL 資料庫在 SaaS 應用程式中對新的租用戶進行佈建及編目
 
@@ -79,7 +73,7 @@ ms.lasthandoff: 12/20/2017
 在租用戶佈建期間，可從應用程式或 PowerShell 指令碼使用 EDCL 函式來建立分區對應中的項目。 稍後可使用 EDCL 函式來連線到正確的資料庫。 EDCL 會快取連線資訊，以將對目錄資料庫的流量降到最低，並加快連線處理的速度。
 
 > [!IMPORTANT]
-> 請勿透過直接存取來編輯目錄資料庫中的資料！ 不支援直接更新，因其會導致資料損毀的高風險。 而是只會使用 EDCL API 來編輯對應資料。
+> 請勿透過直接存取來編輯目錄資料庫中的資料！ 不支援直接更新，因其會導致資料損毀的高風險。 請改為僅使用 EDCL API 編輯對應資料。
 
 ## <a name="tenant-provisioning-pattern"></a>租用戶佈建模式
 
@@ -129,7 +123,7 @@ ms.lasthandoff: 12/20/2017
 
 #### <a name="prerequisites"></a>先決條件
 
-若要完成本教學課程，請確定已完成下列先決條件：
+若要完成本教學課程，請確定已完成下列必要條件：
 
 - 已安裝 Azure PowerShell。 如需詳細資料，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
@@ -154,7 +148,7 @@ ms.lasthandoff: 12/20/2017
 - **將租用戶的名稱新增至目錄延伸模組資料表**：將場地名稱新增至目錄中的租用戶資料表。  這個新增項目說明如何擴充目錄資料庫，以支援其他應用程式特定的資料。
 - **開啟新租用戶的事件頁面**：*Bushwillow Blues* 事件頁面隨即在瀏覽器中開啟。
 
-   ![事件](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
+   ![活動](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
 #### <a name="debugger-steps"></a>偵錯工具步驟
 
@@ -177,7 +171,7 @@ ms.lasthandoff: 12/20/2017
 
 5. 使用 [偵錯] 功能表選項、**F10** 和 **F11** 追蹤指令碼的執行，可以跳過或進入呼叫的函式。
 
-如需對 PowerShell 指令碼進行偵錯的詳細資訊，請參閱[使用 PowerShell 指令碼及對其進行偵錯的祕訣](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)。
+如需對 PowerShell 指令碼進行偵錯的詳細資訊，請參閱[使用 PowerShell 指令碼及對其進行偵錯的祕訣](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise) \(英文\)。
 
 ## <a name="provision-a-tenant-in-its-own-database"></a>在它「自己」的資料庫中佈建租用戶
 
@@ -194,7 +188,7 @@ ms.lasthandoff: 12/20/2017
 - **將租用戶名稱新增至目錄**：將場地名稱新增至目錄中的租用戶延伸模組資料表。
 - **開啟新租用戶的事件頁面**：*Sequoia Soccer* 事件頁面隨即在瀏覽器中開啟。
 
-   ![事件](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
+   ![活動](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 
 #### <a name="debugger-steps"></a>偵錯工具步驟
 
@@ -281,5 +275,5 @@ ms.lasthandoff: 12/20/2017
 > * 佈建一批額外的租用戶
 > * 逐步了解佈建租用戶和將它們註冊到目錄的細節
 
-嘗試[效能監視教學課程](saas-multitenantdb-performance-monitoring.md)。
+試用[效能監視教學課程](saas-multitenantdb-performance-monitoring.md)。
 

@@ -1,20 +1,20 @@
 ---
-title: "在 Azure 成本管理中使用成本管理報告 | Microsoft Docs"
-description: "本文說明如何在 Cloudyn 入口網站中使用各種成本管理報告。"
+title: 在 Azure 成本管理中使用成本管理報告 | Microsoft Docs
+description: 本文說明如何在 Cloudyn 入口網站中使用各種成本管理報告。
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.custom: ''
+ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cost-management-reports"></a>使用成本管理報告
 
@@ -152,7 +152,7 @@ Cloudyn 可確保配置會套用帳戶親和性來保留每個連結帳戶的完
 3. 新增群組。
 4. 選擇您先前建立的成本模型。
 5. 選取實際成本或分攤的成本。
-6. 選擇是否要套用配置規則來檢視未經處理的計費資料，還是要透過 Cloudyn 檢視重新計算成本。
+6. 選擇是要套用配置規則來檢視未經處理的帳單資料檢視，還是要套用至重新計算的成本檢視。
 
 報告的範例如下。
 

@@ -1,28 +1,28 @@
 ---
-title: "向 Azure 註冊 Azure Stack 整合式系統 | Microsoft Docs"
-description: "說明多節點 Azure Stack Azure 連線部署的 Azure 註冊程序。"
+title: 向 Azure 註冊 Azure Stack 整合式系統 | Microsoft Docs
+description: 說明多節點 Azure Stack Azure 連線部署的 Azure 註冊程序。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d5b77bb43c48bd286708ca96699b20be0f761baa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 27bd44f936e19890526c0834e14084647dcec086
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
-您可以向 Azure 註冊 Azure Stack，以便從 Azure 下載市集項目，以及設定向 Microsoft 回報商務資料的功能。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務。 您可以在註冊時所使用的訂用帳戶下看到這項資訊。
+您可以向 Azure 註冊 Azure Stack，以便從 Azure 下載市集項目，以及設定向 Microsoft 回報商務資料的功能。 註冊 Azure Stack 之後，使用情況會回報給 Azure Commerce。 您可以在註冊時所使用的訂用帳戶下看到這項資訊。
 
 > [!IMPORTANT]
 > 如果您選擇使用時付費計費模型，則必須註冊。 否則，您將違反 Azure Stack 部署的授權條款，因為未報告使用量。
@@ -54,6 +54,7 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 cd \
 
 # Download the tools archive.
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip

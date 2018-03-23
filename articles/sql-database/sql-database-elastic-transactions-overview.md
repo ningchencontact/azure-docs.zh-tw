@@ -1,8 +1,8 @@
 ---
-title: "跨雲端資料庫的分散式交易"
-description: "Azure SQL Database 的彈性資料庫交易概觀"
+title: 跨雲端資料庫的分散式交易
+description: Azure SQL Database 的彈性資料庫交易概觀
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: torsteng
 manager: jhubbard
 editor: torsteng
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 012fc38075285b898599517f3e6ed5a3c9eb854d
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4441cdef3bc97aab35451720753e437e24702fd9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>跨雲端資料庫的分散式交易
 Azure SQL Database (SQL DB) 的彈性資料庫交易可讓您在 SQL DB 中跨多個資料庫執行交易。 SQL DB 的彈性資料庫交易適用於使用 ADO .NET 的 .NET 應用程式，而且與以往熟悉使用 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 類別的程式設計經驗整合。 如要取得程式庫，請參閱 [.NET Framework 4.6.1 (Web 安裝程式)](https://www.microsoft.com/download/details.aspx?id=49981)。
@@ -133,9 +133,9 @@ Azure 會提供數個供應項目，以裝載 .NET 應用程式。 如需不同�
 
 這些 DMV 特別有用：
 
-* **sys.dm\_tran\_active\_transactions**：列出目前使用中的交易及其狀態。 UOW (工作單位) 資料行可以識別屬於相同分散式交易的不同子交易。 相同分散式交易內的所有交易具有相同的 UOW 值。 如需詳細資訊，請參閱 [DMV 文件](https://msdn.microsoft.com/library/ms174302.aspx) 。
-* **sys.dm\_tran\_database\_transactions**：提供交易的其他相關資訊，例如交易在記錄檔中的位置。 如需詳細資訊，請參閱 [DMV 文件](https://msdn.microsoft.com/library/ms186957.aspx) 。
-* **sys.dm\_tran\_locks**：提供目前進行中交易所持有的鎖定相關資訊。 如需詳細資訊，請參閱 [DMV 文件](https://msdn.microsoft.com/library/ms190345.aspx) 。
+* **sys.dm\_tran\_active\_transactions**：列出目前使用中的交易及其狀態。 UOW (工作單位) 資料行可以識別屬於相同分散式交易的不同子交易。 相同分散式交易內的所有交易具有相同的 UOW 值。 如需詳細資訊，請參閱 [DMV 文件](https://msdn.microsoft.com/library/ms174302.aspx) \(機器翻譯\)。
+* **sys.dm\_tran\_database\_transactions**：提供交易的其他相關資訊，例如交易在記錄檔中的位置。 如需詳細資訊，請參閱 [DMV 文件](https://msdn.microsoft.com/library/ms186957.aspx) \(機器翻譯\)。
+* **sys.dm\_tran\_locks**：提供目前進行中交易所持有的鎖定相關資訊。 如需詳細資訊，請參閱 [DMV 文件](https://msdn.microsoft.com/library/ms190345.aspx) \(機器翻譯\)。
 
 ## <a name="limitations"></a>限制
 SQL DB 中的彈性資料庫交易目前有下列限制：

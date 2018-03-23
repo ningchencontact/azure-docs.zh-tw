@@ -1,8 +1,8 @@
 ---
-title: "使用 Linux VM 上使用者指派的 MSI 存取 Azure 儲存體"
-description: "本教學課程引導您使用 Linux VM 上使用者所指派的受控服務識別 (MSI) 來存取 Azure 儲存體的程序。"
+title: 使用 Linux VM 上使用者指派的 MSI 存取 Azure 儲存體
+description: 本教學課程引導您使用 Linux VM 上使用者所指派的受控服務識別 (MSI) 來存取 Azure 儲存體的程序。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: arluca
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1d8641fef3a60ffcde6d0a4ac7e30d4e6cd3b169
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 5ae0e4e8149772d79190ee196cdd1c1bef344681
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>使用 Linux VM 上使用者指派的受控服務識別 (MSI) 來存取 Azure 儲存體
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/03/2018
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Linux 虛擬機器
 
@@ -167,9 +167,9 @@ az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "
 3. 在終端機視窗中，使用 CURL 向本機 MSI 端點提出要求，來取得 Azure 儲存體的存取權杖。
 
    用來取得存取權杖的 CURL 要求，則如以下範例所示。 請務必將 `<CLIENT ID>` 更改為[建立使用者指派的 MSI](#create-a-user-assigned-msi)時，`az identity create` 命令所傳回的 `clientId` 屬性：
-
+   
    ```bash
-   curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fstorage.azure.com/&client_id=<CLIENT ID>"
+   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fstorage.azure.com/&client_id=<MSI CLIENT ID>" 
    ```
 
    > [!NOTE]

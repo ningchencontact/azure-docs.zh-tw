@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Database 記憶體內部技術 | Microsoft Docs"
-description: "SQL Database 記憶體內部技術大幅提升交易和分析工作負載的效能。"
+title: Azure SQL Database 記憶體內部技術 | Microsoft Docs
+description: SQL Database 記憶體內部技術大幅提升交易和分析工作負載的效能。
 services: sql-database
-documentationCenter: 
+documentationCenter: ''
 author: jodebrui
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
 ms.service: sql-database
 ms.custom: develop databases
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 98b4a0b4bcb271a68880359b1bb04655cae8d003
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>使用 SQL Database 中的記憶體內部技術將效能最佳化
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/13/2017
 - 由於使用記憶體內部 OLTP，[Quorum Business Solutions 能使其工作負載倍增，同時將 DTU 提高 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)。
     - DTU 表示「資料庫輸送量單位」，其中包含對資源耗用的測量。
 - 下列影片以範例工作負載示範資源耗用量的重大改進︰[Azure SQL Database 影片中的記憶體內部 OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)。
-    - 如需詳細資訊，請參閱部落格文章︰[Azure SQL Database 中的記憶體 OLTP 部落格文章](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
+    - 如需詳細資訊，請參閱部落格文章︰[Azure SQL Database 中的記憶體內 OLTP 部落格文章](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) \(英文\)
 
 記憶體內部技術適用於高階定價層的所有資料庫，包括高階彈性集區中的資料庫。
 

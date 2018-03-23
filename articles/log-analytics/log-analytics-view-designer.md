@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Log Analytics 中建立檢視以分析資料 | Microsoft Docs"
-description: "藉由使用 Log Analytics 中的檢視設計工具，您可以建立在 Azure 入口網站中顯示並包含 Log Analytics 工作區中各種資料視覺效果的自訂檢視。 本文包含檢視設計工具的概觀，並提供建立和編輯自訂檢視的程序。"
+title: 在 Azure Log Analytics 中建立檢視以分析資料 | Microsoft Docs
+description: 藉由使用 Log Analytics 中的檢視設計工具，您可以建立在 Azure 入口網站中顯示並包含 Log Analytics 工作區中各種資料視覺效果的自訂檢視。 本文包含檢視設計工具的概觀，並提供建立和編輯自訂檢視的程序。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: 08d0e557f03f771901c9ac92fb080e74e5966452
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>在 Log Analytics 中使用檢視設計工具來建立自訂檢視
 藉由使用 [Azure Log Analytics](log-analytics-overview.md) 中的檢視設計工具，您可以在 Azure 入口網站中建立能協助您將 Log Analytics 工作區中的資料視覺化的各種自訂檢視。 本文提供檢視設計工具的概觀以及建立和編輯自訂檢視的程序。
@@ -28,8 +28,6 @@ ms.lasthandoff: 02/21/2018
 * [圖格參考](log-analytics-view-designer-tiles.md)：提供您的自訂檢視中每個可用圖格設定的參考指南。
 * [視覺效果組件參考](log-analytics-view-designer-parts.md)：提供自訂檢視中可用的視覺效果組件設定的參考指南。
 
->[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則所有檢視中的查詢必須以[新的查詢語言](https://go.microsoft.com/fwlink/?linkid=856078)撰寫。 在工作區升級之前建立的任何檢視都會自動轉換。
 
 ## <a name="concepts"></a>概念
 檢視會顯示在 Azure 入口網站中 Log Analytics 工作區的 [概觀] 分頁上。 每個自訂檢視中的圖格會依字母順序顯示，同時顯示相同工作區安裝之解決方案的圖格。

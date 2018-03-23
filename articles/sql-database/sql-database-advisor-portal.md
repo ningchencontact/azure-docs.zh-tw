@@ -1,8 +1,8 @@
 ---
-title: "套用效能建議 - Azure SQL Database |Microsoft Docs"
-description: "使用 Azure 入口網站以找出可最佳化 Azure SQL Database 的效能建議。"
+title: 套用效能建議 - Azure SQL Database |Microsoft Docs
+description: 使用 Azure 入口網站以找出可最佳化 Azure SQL Database 的效能建議。
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: stevestein
 manager: jhubbard
 editor: monicar
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>尋找和套用效能建議
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 02/21/2018
 > Azure SQL Database 必須至少監視活動一整天，才能找出一些建議。 相較於隨機蹦出的零星活動，一致的查詢模式更有利於 Azure SQL Database 最佳化。 如果 [效能建議]  頁面中目前沒有可用的建議，該頁面會提供訊息說明原因。
 > 
 
-您也可以檢視歷程記錄作業的狀態。 選取建議或狀態來查看其詳細資料。
+您也可以檢視歷程記錄作業的狀態。 選取建議或狀態來查看其詳細資訊。
 
 以下是 Azure 入口網站中「建立索引」建議的範例。
 
@@ -130,7 +130,7 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 | 還原 |已套用建立但被認為無助於效能，正在自動還原。 |
 | 已還原 |已還原建議。 |
 
-按一下清單中正在處理的建議以查看其詳細資料：
+按一下清單中正在處理的建議以查看其詳細資訊：
 
 ![建議的索引](./media/sql-database-advisor-portal/operations.png)
 

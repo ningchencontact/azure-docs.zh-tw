@@ -1,25 +1,19 @@
 ---
-title: "與 Azure SQL Database 的資料相依路由 | Microsoft Docs"
-description: "如何在 .NET 應用程式中將 ShardMapManager 類別用於資料相依路由 (Azure SQL Database 中的分區化資料庫的一項功能)"
+title: 與 Azure SQL Database 的資料相依路由 | Microsoft Docs
+description: 如何在 .NET 應用程式中將 ShardMapManager 類別用於資料相依路由 (Azure SQL Database 中的分區化資料庫的一項功能)
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: cad09e15-5561-4448-aa18-b38f54cda004
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: ddove
-ms.openlocfilehash: 2add03568f1d111010cdfb49d850d33cdab8e21b
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.author: sstein
+ms.openlocfilehash: 5685c1e1c502b5f3700fb1c4487778d38ff19d1e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="data-dependent-routing"></a>資料相依路由
 **資料相依路由** 是可使用查詢中的資料，將要求路由至適當的資料庫。 這是使用分區化資料庫時的一種基本模式。 要求內容也可能會用於路由要求，特別是如果分區化索引鍵不是查詢的一部分。 在使用資料相依路由的應用程式中，每個特定的查詢或交易會限制每個要求只能存取單一資料庫。 針對 Azure SQL Database Elastic 工具，此路由會使用 **ShardMapManager**  ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) 類別來完成。

@@ -1,26 +1,20 @@
 ---
-title: "使用 Azure SQL Database 在多租用戶應用程式中佈建新的租用戶 | Microsoft Docs"
-description: "了解如何在 Azure SQL Database 多租用戶 SaaS 應用程式中佈建及編目新租用戶"
+title: 使用 Azure SQL Database 在多租用戶應用程式中佈建新的租用戶 | Microsoft Docs
+description: 了解如何在 Azure SQL Database 多租用戶 SaaS 應用程式中佈建及編目新租用戶
 keywords: SQL Database Azure
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 79b3743054f73914c6755a3c9b102b613b1944f2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 21f0bca3a16164ead4e0990842a968fd9b95c33f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>了解如何佈建新的租用戶並在目錄中註冊它們
 
@@ -99,8 +93,8 @@ SaaS 應用程式以外，目錄可以啟用資料庫工具。  在每一租用�
 
 以下並非要明確遵循的步驟，而是您在進行指令碼偵錯時逐步執行之工作流程的說明：
 
-1. 將包含用於登入之函式的 **SubscriptionManagement.psm1** 模組匯入到 Azure，並選取您正在使用的 Azure 訂用帳戶。
 1. 匯入對[分區管理](sql-database-elastic-scale-shard-map-management.md)函式提供類別目錄和租用戶層級抽象概念的 **CatalogAndDatabaseManagement.psm1** 模組。 此模組包含大部分的編目模式且值得探討。
+1. 將包含用於登入之函式的 **SubscriptionManagement.psm1** 模組匯入到 Azure，並選取您正在使用的 Azure 訂用帳戶。
 1. **取得設定詳細資料**。 逐步執行 Get-Configuration (使用 F11) 並查看指定應用程式設定的方式。 資源名稱和其他應用程式特定值是在這裡定義的，但在您熟悉指令碼之前，請勿變更這些值。
 1. **取得類別目錄物件**。 逐步執行 Get-Catalog，其會撰寫並傳回較高層級指令碼中使用的目錄物件。  此函式會使用從 **AzureShardManagement.psm1** 匯入的分區管理函式。 目錄物件是由下列元素組成：
    * $catalogServerFullyQualifiedName 是使用標準主幹加上您的 [使用者] 名稱來建構：catalog-\<user\>.database.windows.net。

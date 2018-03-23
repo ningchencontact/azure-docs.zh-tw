@@ -1,13 +1,13 @@
 ---
-title: "使用 Azure CLI 建立具有區域備援公用 IP 位址前端的公用 Load Balancer Standard | Microsoft Docs"
-description: "了解如何使用 Azure CLI 建立具有區域備援公用 IP 位址前端的公用 Load Balancer Standard"
+title: 使用 Azure CLI 建立具有區域備援公用 IP 位址前端的公用 Load Balancer Standard | Microsoft Docs
+description: 了解如何使用 Azure CLI 建立具有區域備援公用 IP 位址前端的公用 Load Balancer Standard
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: 180cf891611f148a1b9acd112fbcddab8eb54de3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 725e1717110ebfe52e2b45ab0c45edc36055704f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>使用 Azure CLI 建立具有區域備援前端的公用 Load Balancer Standard
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/01/2018
 
 在選取 Load Balancer 前端公用 IP 位址的區域或區域備援選項之前，您必須先完成[註冊可用性區域預覽版](https://docs.microsoft.com/azure/availability-zones/az-overview)中的步驟。
 
-請確定您已安裝最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 並使用 [az login](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#az_login) 登入 Azure 帳戶。
+請確定您已安裝最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 並使用 [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login) \(英文\) 登入 Azure 帳戶。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -87,7 +87,7 @@ az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalan
 ```
 
 ## <a name="next-steps"></a>後續步驟
-- 了解如何[在可用性區域中建立公用 IP](../virtual-network/create-public-ip-availability-zone-cli.md)
+- 了解如何[在可用性區域中建立公用 IP](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 中可設定的權杖存留期 | Microsoft Docs"
-description: "了解如何設定 Azure AD 所簽發的權杖存留期。"
+title: Azure Active Directory 中可設定的權杖存留期 | Microsoft Docs
+description: 了解如何設定 Azure AD 所簽發的權杖存留期。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory 中可設定的權杖存留期 (公開預覽版)
 您可以指定 Azure Active Directory (Azure AD) 所簽發的權杖存留期。 不論是針對組織中所有的應用程式、針對多租用戶 (多組織) 應用程式，還是針對組織中特定的服務主體，都可以設定權杖存留期。
@@ -34,6 +34,11 @@ ms.lasthandoff: 02/21/2018
 
 您可以為您的組織指定原則做為預設原則。 只要此原則不被優先順序更高的原則覆寫，就會套用至組織中的任何應用程式。 您也可以將原則指派給特定應用程式。 優先順序會因原則類型而異。
 
+> [!NOTE]
+> SharePoint Online 不支援可設定的權杖存留期原則。  即使您能夠透過 PowerShell 建立此原則，SharePoint Online 也不會認可此原則。 請參閱 [SharePoint Online 部落格](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) \(英文\)，以深入了解如何設定閒置工作階段逾時。
+>* SharePoint Online 存取權杖的預設存留期為 1 小時。 
+>* SharePoint Online 重新整理權杖的預設最長非作用中時間為 90 天。
+>
 
 ## <a name="token-types"></a>權杖類型
 

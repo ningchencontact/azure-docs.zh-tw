@@ -1,24 +1,24 @@
 ---
-title: "向 Azure 回報 Azure Stack 使用情況資料 | Microsoft Docs"
-description: "了解如何在 Azure Stack 中設定使用情況資料報告。"
+title: 向 Azure 回報 Azure Stack 使用情況資料 | Microsoft Docs
+description: 了解如何在 Azure Stack 中設定使用情況資料報告。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 2A397C83-1A6C-4290-B0EF-FDC34EE290CD
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: mabrigg;AlfredoPizzirani
-ms.openlocfilehash: 451e8c604e48d9cfc42284f2413fa5ed4fea03bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 回報 Azure Stack 使用情況資料 
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="set-up-usage-data-reporting"></a>設定使用情況資料報告
 
-若要設定使用情況資料報告，您必須[向 Azure 註冊您的 Azure Stack 執行個體](azure-stack-register.md)。 註冊程序進行期間會設定 Azure Stack 的 Azure Bridge 元件，以將 Azure Stack 連線到 Azure 並傳送使用情況資料。 下列情況資料會從 Azure Stack 傳送到 Azure：
+若要設定使用情況資料報告，您必須[向 Azure 註冊您的 Azure Stack 執行個體](azure-stack-register.md)。 在註冊過程中，會設定 Azure Stack 的 Azure Bridge 元件，此元件會將 Azure Stack 連線到 Azure 並傳送使用量資料。 下列情況資料會從 Azure Stack 傳送到 Azure：
 
 - **計量識別碼**：所取用之資源的唯一識別碼。
 - **數量** – 資源使用量。
@@ -108,3 +108,4 @@ ms.lasthandoff: 12/11/2017
 * [提供者使用量 API](azure-stack-provider-resource-api.md)  
 * [租用戶使用量 API](azure-stack-tenant-resource-usage-api.md)
 * [使用狀況常見問題集](azure-stack-usage-related-faq.md)
+* [以雲端服務提供者身分管理使用量和計費](azure-stack-add-manage-billing-as-a-csp.md)

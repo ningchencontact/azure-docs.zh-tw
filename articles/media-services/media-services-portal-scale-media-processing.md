@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 入口網站調整媒體處理 | Microsoft Docs"
-description: "本教學課程將逐步引導您完成使用 Azure 入口網站調整媒體處理的步驟。"
+title: 使用 Azure 入口網站調整媒體處理 | Microsoft Docs
+description: 本教學課程將逐步引導您完成使用 Azure 入口網站調整媒體處理的步驟。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: d2312803a4471e207d3696ca8350a86e3c4761e6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f65ba489d70a3844169780c4680fcc43b3064b54
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="change-the-reserved-unit-type"></a>變更保留單元類型
 > [!div class="op_single_selector"]
@@ -54,11 +54,10 @@ ms.lasthandoff: 12/21/2017
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取您的 Azure 媒體服務帳戶。
 2. 在 [設定] 視窗中，選取 [媒體保留單元]。
    
-    若要變更所選取保留單元類型的保留單元數目，請使用 [媒體保留單元]  滑桿。
+    若要變更所選取保留單元類型的保留單元數目，請使用畫面頂端的 [媒體保留單元] 滑桿。
    
-    若要變更 **保留單元類型**，請按 [S1]、[S2] 或 [S3]。
+    若要變更 [保留單元類型]，按一下 [保留媒體處理器的速度] 列。 然後，選取您需要的定價層：S1、 S2 或 S3。
    
-    ![Processors page](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 3. 按 [儲存] 以儲存您的變更。
    
     新的保留單元會在您按 [儲存] 後配置。

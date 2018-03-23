@@ -1,25 +1,25 @@
 ---
-title: "資料科學虛擬機器的資料平台 - Azure | Microsoft Docs"
-description: "資料科學虛擬機器的資料平台。"
-keywords: "資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學"
+title: 資料科學虛擬機器的資料平台 - Azure | Microsoft Docs
+description: 資料科學虛擬機器的資料平台。
+keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 9b8beb51c555c6125fa3b0abbad892d627a180b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/16/2018
+ms.author: gokuma;
+ms.openlocfilehash: 921ccf67e5e0320e742066186b7929643536424f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-platforms"></a>資料平台
 

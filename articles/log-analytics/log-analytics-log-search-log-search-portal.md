@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Log Analytics 中使用記錄搜尋入口網站 | Microsoft Docs"
-description: "本文包含一篇教學課程，說明如何使用記錄搜尋入口網站來建立記錄搜尋，以及分析儲存在 Log Analytics 工作區的資料。  教學課程包含執行一些簡單查詢以傳回不同類型的資料並分析結果。"
+title: 在 Azure Log Analytics 中使用記錄搜尋入口網站 | Microsoft Docs
+description: 本文包含一篇教學課程，說明如何使用記錄搜尋入口網站來建立記錄搜尋，以及分析儲存在 Log Analytics 工作區的資料。  教學課程包含執行一些簡單查詢以傳回不同類型的資料並分析結果。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 37213012e817f0fae21a47a4334a519bbbca206b
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>在 Azure Log Analytics 中使用記錄搜尋入口網站來建立記錄搜尋
 
@@ -98,7 +98,7 @@ Syslog | where (SeverityLevel == "err")
 
 ![篩選功能表](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 
-您可以選取記錄功能表中的 [分組依據] 選項，在單一屬性上群組結果。  這會將[摘要](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator)運算子新增到查詢中，可在圖表中顯示結果。  您可以群組一個以上的屬性，但需要直接編輯查詢。  選取**電腦**屬性旁的記錄功能表，並選取 [依「電腦」分組]。  
+您可以選取記錄功能表中的 [分組依據] 選項，在單一屬性上群組結果。  這會將[摘要](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator)運算子新增到查詢中，可在圖表中顯示結果。  您可以群組一個以上的屬性，但需要直接編輯查詢。  選取**電腦**屬性旁的記錄功能表，並選取 [Group by 'Computer'] \(依「電腦」分組\)。  
 
 ![依電腦分組](media/log-analytics-log-search-log-search-portal/log-search-portal-10.png)
 

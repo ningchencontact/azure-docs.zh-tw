@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure SQL Database 設計高可用性服務 | Microsoft Docs"
-description: "了解使用 Azure SQL Database 對高可用性服務的應用程式設計。"
-keywords: "cloud disaster recovery,disaster recovery solutions,app data backup,geo-replication,business continuity planning,雲端災害復原,災害復原方案,應用程式資料備份,異地複寫,商務持續性計劃"
+title: 使用 Azure SQL Database 設計高可用性服務 | Microsoft Docs
+description: 了解使用 Azure SQL Database 對高可用性服務的應用程式設計。
+keywords: cloud disaster recovery,disaster recovery solutions,app data backup,geo-replication,business continuity planning,雲端災害復原,災害復原方案,應用程式資料備份,異地複寫,商務持續性計劃
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: anosov1960
 manager: jhubbard
 editor: monicar
@@ -13,19 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
 ms.workload: On Demand
+ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: aa6a032a9d42038502cf074ef8aeff8e2e8b0b31
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>使用 Azure SQL Database 設計高可用性服務
 
 在 Azure SQL Database 上建置和部署高可用性服務時，您可以使用[容錯移轉群組和主動式異地複寫](sql-database-geo-replication-overview.md)來為區域性中斷和嚴重的故障提供恢復能力。 它也可讓次要資料庫快速復原。 在本文中，我們將著重於常見的應用程式模式，並討論每個選項的優缺點。 如需主動式異地複寫與彈性集區的相關資訊，請參閱[彈性集區災害復原策略](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)。
+
+> [!NOTE]
+> 如果您目前使用「進階」資料庫和集區，您可以將它們轉換成區域備援部署設定 (目前為預覽版) 來使它們具備區域中斷復原能力。 請參閱[區域備援資料庫](sql-database-high-availability.md)。  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>情節 1：使用兩個 Azure 區域以獲得最少停機時間的業務持續性
 在此情節中，應用程式具有下列特性： 
@@ -47,8 +50,7 @@ ms.lasthandoff: 12/14/2017
 在主要區域中斷之後，SQL Database 服務會偵測到主要資料庫無法存取，並以自動容錯移轉原則的參數作為基礎，觸發容錯移轉至次要區域 (1)。 根據您的應用程式 SLA，可以在中斷偵測和容錯移轉本身之間設定可控制時間的寬限期。 流量管理員可能會在容錯移轉群組觸發資料庫之前，起始端點容錯移轉。 在此情況下，web 應用程式無法立即重新連線至資料庫。 但是，資料庫容錯移轉一旦完成，重新連線就會自動成功。 當失敗的區域還原並再度上線時，舊的主要區域會自動重新連線作為新的次要區域。 下圖說明容錯移轉後的設定。
  
 > [!NOTE]
-> 在容錯移轉之後認可的所有交易會在重新連線時遺失。 容錯移轉完成之後，區域 B 中的應用程式就能夠重新連線，然後重新開始處理使用者要求。 Web 應用程式與主要資料庫現在都位於區域 B，且仍維持共置。 
-n>
+> 在容錯移轉之後認可的所有交易會在重新連線時遺失。 容錯移轉完成之後，區域 B 中的應用程式就能夠重新連線，然後重新開始處理使用者要求。 Web 應用程式與主要資料庫現在都位於區域 B，且仍維持共置。 n>
 
 ![案例 1. 容錯移轉之後的設定](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 

@@ -1,28 +1,33 @@
 ---
-title: "在 Azure Stack 上部署 App Service 之前 | Microsoft Docs"
-description: "在 Azure Stack 上部署 App Service 之前必須完成的步驟"
+title: 在 Azure Stack 上部署 App Service 之前 | Microsoft Docs
+description: 在 Azure Stack 上部署 App Service 之前必須完成的步驟
 services: azure-stack
-documentationcenter: 
-author: brenduns
-manager: femila
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: apwestgarth
+manager: stefsch
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: brenduns
-ms.reviewer: anwestg
-ms.openlocfilehash: 27f0255c023382a14368915b0d19a49d133154d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/09/2018
+ms.author: anwestg
+ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>開始使用 Azure Stack 上的 App Service 之前
+
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+
+> [!IMPORTANT]
+> 在部署 Azure App Service 之前，請先將 1802 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
+>
+>
 
 在 Azure Stack 上部署 Azure App Service 之前，您必須完成本文章中的必要條件。
 
@@ -40,14 +45,22 @@ ms.lasthandoff: 02/21/2018
    - 模組
      - GraphAPI.psm1
 
-## <a name="prepare-for-high-availability"></a>準備提供高可用性
+## <a name="high-availability"></a>高可用性
 
-Azure Stack 上的 Azure App Service 目前無法提供高可用性，因為 Azure Stack 僅會將工負載部署至一個容錯網域中。
+由於 1802 版 Azure Stack 的緣故 (此版本新增了對容錯網域的支援)，Azure Stack 上新的 Azure App Service 部署將會散發至各個容錯網域並提供容錯移轉。  針對 Azure Stack 上現有的 Azure App Service 部署 (部署時間在 1802 更新發行之前)，請參閱文件 (azure-stack-app-service-fault-domain-update.md) 以了解如何重新平衡部署。
 
-若要讓 Azure Stack 上的 Azure App Service 準備好提供高可用性，請在 [高可用性] 配置中部署必要的檔案伺服器和 SQL Server 執行個體。 若 Azure Stack 支援多個容錯網域，我們會提供如何在高可用性配置中啟用 Azure Stack 上的 Azure App Service 的方法。
-
+此外，若要讓 Azure Stack 上的 Azure App Service 能夠提供高可用性，請在高可用性設定中部署必要的檔案伺服器和 SQL Server 執行個體。 
 
 ## <a name="get-certificates"></a>取得憑證
+
+### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>適用於 Azure Stack 的 Azure Resource Manager 根憑證
+
+在於可連線至「Azure Stack 整合式系統」或「Azure Stack 開發套件主機」上具特殊權限端點的電腦上，以 azurestack\CloudAdmin 身分執行的 PowerShell 工作階段中，從您解壓縮協助程式指令碼的資料夾執行 Get-AzureStackRootCert.ps1 指令碼。 此指令碼會在與 App Service 建立憑證時所需之指令碼相同的資料夾中建立根憑證。
+
+| Get-AzureStackRootCert.ps1 參數 | 必要或選用 | 預設值 | 說明 |
+| --- | --- | --- | --- |
+| PrivilegedEndpoint | 必要 | AzS-ERCS01 | 特殊權限的端點 |
+| CloudAdminCredential | 必要 | AzureStack\CloudAdmin | Azure Stack 雲端管理的網域帳戶認證 |
 
 ### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Azure Stack 開發套件所需的憑證
 
@@ -56,9 +69,9 @@ Azure Stack 上的 Azure App Service 目前無法提供高可用性，因為 Azu
 | 檔案名稱 | 使用 |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | App Service 預設 SSL 憑證 |
-| Api.appservice.local.azurestack.external.pfx | App Service API SSL 憑證 |
+| api.appservice.local.azurestack.external.pfx | App Service API SSL 憑證 |
 | ftp.appservice.local.azurestack.external.pfx | App Service 發行者 SSL 憑證 |
-| Sso.appservice.local.azurestack.external.pfx | App Service 身分識別應用程式憑證 |
+| sso.appservice.local.azurestack.external.pfx | App Service 身分識別應用程式憑證 |
 
 在 Azure Stack 開發套件主機上執行指令碼，並確定您是以 azurestack\CloudAdmin 身分執行 PowerShell：
 
@@ -74,18 +87,19 @@ Azure Stack 上的 Azure App Service 目前無法提供高可用性，因為 Azu
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack 的實際執行部署所需的憑證
 
-若要在生產環境中操作資源提供者，您必須提供下列四個憑證。
+若要在生產環境中操作資源提供者，您必須提供下列四個憑證：
 
 #### <a name="default-domain-certificate"></a>預設網域憑證
 
 預設網域憑證放在「前端」角色。 對 Azure App Service 要求使用萬用字元或預設網域的使用者應用程式會使用此憑證。 憑證也用於原始檔控制作業 (Kudu)。
 
-憑證必須是 .pfx 格式，而且應該是雙主體的萬用字元憑證。 這使得一個憑證即可同時涵蓋用於原始檔控制作業的預設網域和 SCM 端點。
+憑證的格式必須是 .pfx，而且應該是三主體的萬用字元憑證。 這使得一個憑證即可同時涵蓋用於原始檔控制作業的預設網域和 SCM 端點。
 
 | 格式 | 範例 |
 | --- | --- |
 | \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
-| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
+| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
+| \*.sso.appservice.<region>.<DomainName>.<extension> | \*.sso.appservice.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>API 憑證
 
@@ -101,11 +115,12 @@ API 憑證位於管理角色中。 資源提供者會使用它來協助保護 AP
 
 | 格式 | 範例 |
 | --- | --- |
-| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
+| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>身分識別憑證
 
 身分識別應用程式的憑證可讓：
+
 - Azure Active Directory (Azure AD) 或 Active Directory 同盟服務 (AD FS) 目錄、Azure Stack 和 App Service 之間整合，以支援與計算資源提供者的整合。
 - Azure App Service on Azure Stack 中進階開發人員工具的單一登入案例。
 
@@ -115,15 +130,19 @@ API 憑證位於管理角色中。 資源提供者會使用它來協助保護 AP
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>適用於 Azure Stack 的 Azure Resource Manager 根憑證
+## <a name="virtual-network"></a>虛擬網路
 
-在以 azurestack\CloudAdmin 身分執行的 PowerShell 工作階段中，從您解壓縮協助程式指令碼所在的資料夾執行 Get-AzureStackRootCert.ps1 指令碼。 此指令碼會在與 App Service 所需之建立憑證指令碼相同的資料夾中建立四個憑證。
+Azure Stack 上的 Azure App Service 可讓您將資源提供者部署至現有的虛擬網路，否則 App Service 會在部署時建立一個虛擬網路。  使用現有的虛擬網路可讓您使用內部 IP 來連線至 Azure Stack 上 Azure App Service 所需的檔案伺服器和 SQL Server。  在於 Azure Stack 上安裝 Azure App Service 之前，您必須為虛擬網路設定下列位址範圍和子網路：
 
-| Get-AzureStackRootCert.ps1 參數 | 必要或選用 | 預設值 | 說明 |
-| --- | --- | --- | --- |
-| PrivelegedEndpoint | 必要 | AzS-ERCS01 | 特殊權限的端點 |
-| CloudAdminCredential | 必要 | AzureStack\CloudAdmin | Azure Stack 雲端管理的網域帳戶認證 |
+虛擬網路 - /16
 
+子網路
+
+* ControllersSubnet /24
+* ManagementServersSubnet /24
+* FrontEndsSubnet /24
+* PublishersSubnet /24
+* WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>準備檔案伺服器
 
@@ -131,8 +150,11 @@ Azure App Service 需要使用檔案伺服器。 在實際執行的部署中，�
 
 若是只部署 Azure Stack 開發套件，您可以使用[範例 Azure Resource Manager 部署範本](https://aka.ms/appsvconmasdkfstemplate)來部署已設定的單一節點檔案伺服器。 單一節點檔案伺服器會位於工作群組中。
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>在 Active Directory 中佈建群組和帳戶
+>[!IMPORTANT]
+> 如果您選擇在現有的虛擬網路中部署 App Service，則應該將「檔案伺服器」部署至與 App Service 不同的子網路。
+>
 
+### <a name="provision-groups-and-accounts-in-active-directory"></a>在 Active Directory 中佈建群組和帳戶
 
 1. 建立下列 Active Directory 全域安全性群組：
    - FileShareOwners
@@ -216,6 +238,7 @@ net localgroup Administrators FileShareOwners /add
 在檔案伺服器上或容錯移轉叢集節點 (目前的叢集資源擁有者) 的提高權限命令提示字元中，執行下列命令。 以環境特有的值取代斜體的值。
 
 #### <a name="active-directory"></a>Active Directory
+
 ```DOS
 set DOMAIN=<DOMAIN>
 set WEBSITES_FOLDER=C:\WebSites
@@ -228,6 +251,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### <a name="workgroup"></a>工作群組
+
 ```DOS
 set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
@@ -250,15 +274,21 @@ Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從�
 
 針對任何 SQL Server 角色，您可以使用預設執行個體或具名執行個體。 如果您使用具名執行個體，請務必手動啟動 SQL Server Browser 服務並開啟連接埠 1434。
 
+>[!IMPORTANT]
+> 如果您選擇在現有的虛擬網路中部署 App Service，則應該將 SQL Server 部署至與 App Service 和「檔案伺服器」不同的子網路。
+>
+
 ## <a name="create-an-azure-active-directory-application"></a>建立 Azure Active Directory 應用程式
 
 設定 Azure AD 服務主體，以支援下列項目：
-- 背景工作層上的虛擬機器擴展集整合
-- 對 Azure Functions 入口網站和進階開發人員工具使用 SSO
+
+- 背景工作層上的虛擬機器擴展集整合。
+- 對 Azure Functions 入口網站和進階開發人員工具使用 SSO。
 
 這些步驟只適用於 Azure AD 保護的 Azure Stack 環境。
 
 系統管理員必須設定 SSO 來執行下列動作：
+
 - 啟用 App Service (Kudu) 內的進階開發人員工具。
 - 讓 Azure Functions 入口網站體驗可供使用。
 
@@ -276,7 +306,8 @@ Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從�
 10. 選取 [應用程式註冊]。
 11. 搜尋步驟 7 傳回的應用程式識別碼。 隨即列出 App Service 應用程式。
 12. 選取清單中的 [應用程式]。
-13. 選取 [必要權限] > [授與權限] > [是]。
+13. 按一下 [設定] 。
+14. 選取 [必要權限] > [授與權限] > [是]。
 
 | Create-AADIdentityApp.ps1 的參數 | 必要或選用 | 預設值 | 說明 |
 | --- | --- | --- | --- |
@@ -290,10 +321,12 @@ Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從�
 ## <a name="create-an-active-directory-federation-services-application"></a>建立 Active Directory 同盟服務應用程式
 
 對於受到 AD FS 保護的 Azure Stack 環境，您必須設定 AD FS 服務主體，以支援下列項目：
-- 背景工作層上的虛擬機器擴展集整合
-- 對 Azure Functions 入口網站和進階開發人員工具使用 SSO
+
+- 背景工作層上的虛擬機器擴展集整合。
+- 對 Azure Functions 入口網站和進階開發人員工具使用 SSO。
 
 系統管理員必須設定 SSO 來執行下列動作：
+
 - 針對背景工作層上的虛擬機器擴展集整合設定服務主體。
 - 啟用 App Service (Kudu) 內的進階開發人員工具。
 - 讓 Azure Functions 入口網站體驗可供使用。
@@ -303,9 +336,9 @@ Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從�
 1. 以 azurestack\AzureStackAdmin 身分開啟 PowerShell 執行個體。
 2. 移至您在[先決條件步驟](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)中下載並解壓縮的指令碼位置。
 3. [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
-4.  執行 **Create-ADFSIdentityApp.ps1** 指令碼。
-5.  在 [認證] 視窗中，輸入您的 AD FS 雲端管理帳戶和密碼。 選取 [確定] 。
-6.  提供[稍早建立之憑證](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 **sso.appservice.local.azurestack.external.pfx**。
+4. 執行 **Create-ADFSIdentityApp.ps1** 指令碼。
+5. 在 [認證] 視窗中，輸入您的 AD FS 雲端管理帳戶和密碼。 選取 [確定] 。
+6. 提供[稍早建立之憑證](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 **sso.appservice.local.azurestack.external.pfx**。
 
 | Create-ADFSIdentityApp.ps1 的參數 | 必要或選用 | 預設值 | 說明 |
 | --- | --- | --- | --- |
@@ -314,7 +347,6 @@ Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從�
 | CloudAdminCredential | 必要 | Null | Azure Stack 雲端管理的網域帳戶認證。 例如，Azurestack\CloudAdmin。 |
 | CertificateFilePath | 必要 | Null | 識別應用程式憑證 PFX 檔案的路徑。 |
 | CertificatePassword | 必要 | Null | 協助保護憑證私密金鑰的密碼。 |
-
 
 ## <a name="next-steps"></a>後續步驟
 

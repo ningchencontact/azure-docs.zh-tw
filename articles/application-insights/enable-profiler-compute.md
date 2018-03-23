@@ -1,8 +1,8 @@
 ---
-title: "針對裝載於 Azure 雲端服務資源上的應用程式啟用 Application Insights Profiler | Microsoft Docs"
-description: "了解如何在 Azure 雲端服務中執行的應用程式上設定 Application Insights Profiler。"
+title: 針對裝載於 Azure 雲端服務資源上的應用程式啟用 Application Insights Profiler | Microsoft Docs
+description: 了解如何在 Azure 雲端服務中執行的應用程式上設定 Application Insights Profiler。
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: ramach-msft
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 278d8241ddd67b6df64b7280d4a17c6d3152f223
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>針對 Azure VM、Service Fabric 和 Azure 雲端服務啟用 Application Insights Profiler
 
@@ -46,8 +46,7 @@ ms.lasthandoff: 03/05/2018
 
    ![檢測金鑰的位置](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. 若要為 Profiler 完成 Application Insights 執行個體的設定，請完成[啟用 Profiler](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler) 中所述的程序。  
-    您不需要連結 Web 應用程式，因為步驟僅適用於應用程式服務資源。 請確定您已於 [設定 Profiler] 窗格中啟用 Profiler。
+3. 若要為 Profiler 完成 Application Insights 執行個體的設定，請完成 [啟用 Profiler] 中所述的程序。 您不需要連結 Web 應用程式，因為步驟僅適用於應用程式服務資源。 請確定您已於 [設定 Profiler] 窗格中啟用 Profiler。
 
 
 ## <a name="set-up-the-application-source-code"></a>設定應用程式原始程式碼
@@ -157,6 +156,8 @@ ms.lasthandoff: 03/05/2018
 
       如需將診斷擴充功能新增至部署範本的詳細資訊，請參閱[使用 Windows VM 和 Azure Resource Manager 範本的監視和診斷](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
+> [!TIP]
+> 針對虛擬機器，上述 json 型步驟的替代方式是，在 Azure 入口網站中瀏覽至 [虛擬機器] > [診斷設定] > [接收] > 將診斷資料傳送到 Application Insights 設為 [啟用]，然後選取 Application Insights 帳戶或特定 ikey。
 
 ### <a name="azure-cloud-services"></a>Azure 雲端服務
 
@@ -196,7 +197,7 @@ ms.lasthandoff: 03/05/2018
 
 1. 部署修改過的環境部署定義。  
 
-   若要套用修改，通常會牽涉到透過 PowerShell Cmdlet 或 Visual Studio 發佈的完整範本部署或雲端服務。  
+   若要套用修改，通常會牽涉到完整範本部署或透過 PowerShell Cmdlet 或 Visual Studio 的雲端服務型發佈。  
 
    以下是只會觸及 Azure 診斷擴充功能之現有虛擬機器的替代方法：  
 

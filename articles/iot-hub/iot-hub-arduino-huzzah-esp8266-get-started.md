@@ -1,12 +1,12 @@
 ---
-title: "ESP8266 連線到雲端 - 將 Feather HUZZAH ESP8266 連線到 Azure IoT 中樞 | Microsoft Docs"
-description: "了解如何設定及連線 Adafruit Feather HUZZAH ESP8266 和 Azure IoT 中樞，在本教學課程中將資料傳送到 Azure 雲端平台。"
+title: ESP8266 連線到雲端 - 將 Feather HUZZAH ESP8266 連線到 Azure IoT 中樞 | Microsoft Docs
+description: 了解如何設定及連線 Adafruit Feather HUZZAH ESP8266 和 Azure IoT 中樞，在本教學課程中將資料傳送到 Azure 雲端平台。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.assetid: c505aacf-89a8-40ed-a853-493b75bec524
 ms.service: iot-hub
 ms.devlang: arduino
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: xshi
-ms.openlocfilehash: 6a450579c848fe6030a328ddf410f139baae2324
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8f0397797d8f4c3349afcdfb02de071a6593c72
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>將 Adafruit Feather HUZZAH ESP8266 連線到位於雲端的 Azure IoT 中樞
 
@@ -60,7 +60,10 @@ ms.lasthandoff: 10/11/2017
 * 執行 Windows 或 Ubuntu 的 Mac 或 PC。
 * 供 Feather HUZZAH ESP8266 連線到的無線網路。
 * 用來下載組態工具的網際網路連線。
-* [Arduino IDE](https://www.arduino.cc/en/main/software) 1.6.8 版或更新版本。 舊版無法與 AzureIoT 程式庫搭配運作。
+* [適用於 Arduino 的 Visual Studio Code 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino) \(英文\)。
+
+> [!Note]
+> 適用於 Arduino 的 Visual Studio Code 擴充功能所使用的 Arduino IDE 版本必須是 1.6.8 版或更新版本。 舊版無法與 AzureIoT 程式庫搭配運作。
 
 如果您沒有感應器，下列項目可供選用。 您也可以選擇使用模擬的感應器資料。
 
@@ -77,7 +80,7 @@ ms.lasthandoff: 10/11/2017
 
 使用麵包板和跳線來進行連接，如下所示。 如果您沒有感應器，請略過本節，因為您可以改為使用模擬的感應器資料。
 
-![連接參考](media/iot-hub-arduino-huzzah-esp8266-get-started/15_connections_on_breadboard.png)
+![連接參考](media/iot-hub-arduino-huzzah-esp8266-get-started/17_connections_on_breadboard.png)
 
 
 針對感應器針腳，請使用下列接線方式：
@@ -149,33 +152,41 @@ ms.lasthandoff: 10/11/2017
    git clone https://github.com/Azure-Samples/iot-hub-feather-huzzah-client-app.git
    ```
 
-在 Arduino IDE 中安裝 Feather HUZZAH ESP8266 的套件：
+在 Visual Studio Code 中安裝適用於 Feather HUZZAH ESP8266 的套件：
 
 1. 開啟範例應用程式儲存所在的資料夾。
-1. 在 Arduino IDE 中開啟應用程式資料夾中的 app.ino 檔案。
+1. 在 Visual Studio Code 中，開啟應用程式資料夾中的 app.ino 檔案。
 
-   ![在 Arduino IDE 中開啟範例應用程式](media/iot-hub-arduino-huzzah-esp8266-get-started/10_arduino-ide-open-sample-app.png)
+   ![在 Visual Studio Code 中開啟範例應用程式](media/iot-hub-arduino-huzzah-esp8266-get-started/10_vscode-open-sample-app.png)
 
-1. 在 Arduino IDE 中，按一下 [檔案] > [喜好設定]。
-1. 在 [喜好設定] 對話方塊中，按一下 [其他電路板管理員 URL] 方塊旁的圖示。
-1. 在快顯視窗中，輸入下列 URL，然後按一下 [確定]。
+1. 在 Visual Studio Code 中，輸入 `F1`。
+1. 輸入 **Arduino**，然後選取 [Arduino: 面板管理員]。
+1. 在 [Arduino 面板管理員] 索引標籤中，按一下 [其他 URL]。
 
-   `http://arduino.esp8266.com/stable/package_esp8266com_index.json`
+   ![VS Code Arduino 面板管理員](media/iot-hub-arduino-huzzah-esp8266-get-started/11_vscode-arduino-board-manager.png)
 
-   ![在 Arduino IDE 中指向套件 URL](media/iot-hub-arduino-huzzah-esp8266-get-started/11_arduino-ide-package-url.png)
+1. 在 [使用者設定] 視窗中，複製下列內容並貼至檔案結尾
 
-1. 在 [喜好設定] 對話方塊中，按一下 [確定]。
-1. 按一下 [工具] > [電路板] > [電路板管理員]，然後搜尋 esp8266。
+   `"arduino.additionalUrls": "http://arduino.esp8266.com/stable/package_esp8266com_index.json"`
+
+   ![在 VS Code 中設定 Arduino 套件 URL](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
+
+1. 儲存檔案並關閉 [使用者設定] 索引標籤。
+1. 按一下 [重新整理套件索引]。 重新整理完成之後，搜尋 **esp8266**。
+1. 針對 esp8266 按一下 [安裝] 按鈕。
 
    [電路板管理員] 指出已安裝的 ESP8266 版本為 2.2.0 版或更新版本。
 
-   ![已安裝 esp8266 套件](media/iot-hub-arduino-huzzah-esp8266-get-started/12_arduino-ide-esp8266-installed.png)
+   ![已安裝 esp8266 套件](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
-1. 按一下 [工具] > [電路板] > [Adafruit HUZZAH ESP8266]。
+1. 輸入 `F1`，然後輸入 **Arduino** 並選取 [Arduino: 面板設定]。
+1. 按一下 [選取的面板:] 的方塊並輸入 **esp8266**，然後選取 [Adafruit HUZZAH ESP8266 (esp8266)]。
+
+   ![選取 esp8266 面板](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
 ### <a name="install-necessary-libraries"></a>安裝必要的程式庫
 
-1. 在 Arduino IDE 中，按一下 [草圖] > [包含程式庫] > [管理程式庫]。
+1. 在 Visual Studio Code 中，輸入 `F1`，然後輸入 **Arduino** 並選取 [Arduino: 程式庫管理員]。
 1. 逐一搜尋下列程式庫名稱。 對於找到的每個程式庫，按一下 [安裝]。
    * `AzureIoTHub`
    * `AzureIoTUtility`
@@ -193,20 +204,20 @@ ms.lasthandoff: 10/11/2017
    ```c
    define SIMULATED_DATA true
    ```
-   ![設定範例應用程式以使用模擬資料](media/iot-hub-arduino-huzzah-esp8266-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
+   ![設定範例應用程式以使用模擬資料](media/iot-hub-arduino-huzzah-esp8266-get-started/15_vscode-configure-app-use-simulated-data.png)
 
-1. 使用 `Control-s` 儲存檔案。
+1. 儲存檔案。
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>將範例應用程式部署至 Feather HUZZAH ESP8266
 
-1. 在 Arduino IDE 中，按一下 [工具] > [連接埠]，然後按一下 Feather HUZZAH ESP8266 的序列埠。
-1. 按一下 [草圖] > [上傳]，以建置範例應用程式並將其部署至 Feather HUZZAH ESP8266。
+1. 在 Visual Studio Code 中，按一下狀態列上的 [<Select Serial Port>]，然後按一下 Feather HUZZAH ESP8266 的序列埠。
+1. 輸入 `F1`，然後輸入 **Arduino** 並選取 [Arduino: 上傳]，以建置範例應用程式並將其部署至 Feather HUZZAH ESP8266。
 
 ### <a name="enter-your-credentials"></a>輸入認證
 
 上傳程序成功完成後，請遵循這些步驟來輸入認證：
 
-1. 在 Arduino IDE 中，按一下 [工具] > [序列監視器]。
+1. 開啟 Arduino IDE，按一下 [Tools] \(工具\) > [Serial Monitor] \(序列監視器\)。
 1. 在 [序列監視器] 視窗中，請注意右下角的兩個下拉式清單。
 1. 在左邊的下拉式清單中選取 [無行尾結束符號]。
 1. 在右邊的下拉式清單中選取 [115200 傳輸速率]。
@@ -222,7 +233,7 @@ ms.lasthandoff: 10/11/2017
 
 如果您在 [序列監視器] 視窗看到下列輸出，並在 Feather HUZZAH ESP8266 上看到閃爍的 LED，則表示範例應用程式已成功執行。
 
-![Arduino IDE 中的最終輸出](media/iot-hub-arduino-huzzah-esp8266-get-started/14_arduino-ide-final-output.png)
+![Arduino IDE 中的最終輸出](media/iot-hub-arduino-huzzah-esp8266-get-started/16_arduino-ide-final-output.png)
 
 ## <a name="next-steps"></a>後續步驟
 

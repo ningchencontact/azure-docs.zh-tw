@@ -1,25 +1,24 @@
 ---
-title: "改善資料行存放區索引效能 - Azure SQL 資料倉儲 | Microsoft Docs"
-description: "減少記憶體需求或增加可用的記憶體，以最大化壓縮到每個資料列群組之資料行存放區索引的資料列數目。"
+title: 改善資料行存放區索引效能 - Azure SQL 資料倉儲 | Microsoft Docs
+description: 減少記憶體需求或增加可用的記憶體，以最大化壓縮到每個資料列群組之資料行存放區索引的資料列數目。
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/23/2017
+ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 6640ed8958f6b05c015fb6c61d07aeea95b18022
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 74e641f9da418d678bdbef0c69f9f59ccee32303
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>最大化資料行存放區的資料列群組品質
 
@@ -140,9 +139,9 @@ OPTION (MAXDOP 1);
 DWU 大小和使用者資源類別會共同判斷有多少記憶體可供使用者查詢。 若要增加負載查詢的記憶體授權，您可以增加 DWU 數目或增加資源類別。
 
 - 若要增加 DWU，請參閱[如何調整效能？](quickstart-scale-compute-portal.md)
-- 若要變更查詢的資源類別，請參閱[變更使用者資源類別的範例](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example)。
+- 若要變更查詢的資源類別，請參閱[變更使用者資源類別的範例](resource-classes-for-workload-management.md#assigning-resource-classes)。
 
-例如，在 DWU 100 上，smallrc 資源類別中的使用者每個散發可以使用 100 MB 的記憶體。 如需詳細資訊，請參閱 [SQL 資料倉儲中的並行存取](sql-data-warehouse-develop-concurrency.md)。
+例如，在 DWU 100 上，smallrc 資源類別中的使用者每個散發可以使用 100 MB 的記憶體。 如需詳細資訊，請參閱 [SQL 資料倉儲中的並行存取](resource-classes-for-workload-management.md)。
 
 假設您決定您需要 700 MB 的記憶體，以取得高品質的資料列群組大小。 下列範例會示範如何使用足夠的記憶體執行載入查詢。
 

@@ -1,18 +1,18 @@
 ---
-title: "Azure Site Recovery：常見問題集 | Microsoft Docs"
-description: "本文討論 Azure Site Recovery 的相關熱門問題。"
+title: Azure Site Recovery：常見問題集 | Microsoft Docs
+description: 本文討論 Azure Site Recovery 的相關熱門問題。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: 1a7d57c1f1f84e7ce3b931c2911ae7394b066f8d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5d1010a65a112b97124a8d7d46caceb3d61e2cac
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常見問題集 (FAQ)
 本文包含有關 Azure Site Recovery 的常見問題集。 如果您在閱讀本文後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
@@ -55,14 +55,14 @@ Site Recovery 可協調並自動執行區域、內部部署虛擬機器和實體
 是。 您可以將 VMM 雲端 Hyper-V 伺服器中的 VM 複寫至 Azure，或是在同一部伺服器上的 VMM 雲端之間進行複寫。 若要在內部部署環境之間進行複寫，建議您在主要站台與次要站台都要有 VMM 伺服器。  
 
 ### <a name="what-physical-servers-can-i-protect"></a>我可以保護哪些實體伺服器？
-您可以將執行 Windows 和 Linux 的實體伺服器複寫至 Azure 或次要站台。 [了解](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) 作業系統需求。  不論是將實體伺服器複寫至 Azure 還是次要站台，都適用相同的需求。
+您可以將執行 Windows 和 Linux 的實體伺服器複寫至 Azure 或次要站台。 了解[複寫至 Azure](vmware-physical-azure-support-matrix.md#replicated-machines) 和[複寫至次要網站](vmware-physical-secondary-support-matrix.md#replicated-vm-support)的需求。
 
 
 請注意，如果您的內部部署伺服器當機，實體伺服器將會在 Azure 中以 VM 的身分執行。 目前不支援針對內部部署實體伺服器進行容錯回復。 針對受實體保護的機器，您只能針對 VMware 虛擬機器進行容錯回復。
 
 ### <a name="what-vmware-vms-can-i-protect"></a>我可以保護哪些 VMware VM？
 
-若要保護 VMware VM，您需要一個 vSphere Hypervisor 以及幾個執行 VMware 工具的虛擬機器。 此外，建議您擁有 VMware vCenter 伺服器以便管理 Hypervisor。 [深入了解](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)將 VMware 伺服器和 VM 複寫至 Azure 或次要站台的確切需求。
+若要保護 VMware VM，您需要一個 vSphere Hypervisor 以及幾個執行 VMware 工具的虛擬機器。 此外，建議您擁有 VMware vCenter 伺服器以便管理 Hypervisor。 深入了解[複寫至 Azure](vmware-physical-azure-support-matrix.md#replicated-machines) 或[複寫至次要網站](vmware-physical-secondary-support-matrix.md#replicated-vm-support)的需求。
 
 
 ### <a name="can-i-manage-disaster-recovery-for-my-branch-offices-with-site-recovery"></a>我可以使用 Site Recovery 來管理分公司的災害復原嗎？
@@ -93,7 +93,7 @@ Azure Site Recovery 會透過公用端點，將資料複製到 Azure 儲存體�
 是的，ExpressRoute 可用來將虛擬機器複寫至 Azure。 Azure Site Recovery 會透過公用端點，將資料複製到 Azure 儲存體帳戶。 您必須設定[公用對等](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)以使用 Site Recovery 複寫的 ExpressRoute。 在虛擬機器容錯移轉到 Azure 虛擬網路之後，您可以 Azure 虛擬網路使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)安裝來存取這些虛擬機器。
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>將虛擬機器複寫至 Azure 有任何先決條件嗎？
-您想要複寫至 Azure 的虛擬機器應該要符合 [Azure 需求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
+您想要複寫至 Azure 的 [VMware VM](vmware-physical-azure-support-matrix.md#replicated-machines) 和 [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 應該符合 Azure 需求。
 
 您的 Azure 使用者帳戶必須具有特定[權限](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)，才能將新的虛擬機器複寫至 Azure。
 
@@ -106,8 +106,9 @@ Azure Site Recovery 會透過公用端點，將資料複製到 Azure 儲存體�
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>我是否可以透過 SDK 自動化 Site Recovery 案例？
 是。 您可以使用 Rest API、PowerShell 或 Azure SDK 將 Site Recovery 的工作流程自動化。 針對使用 PowerShell 來部署 Site Recovery，目前支援的案例包括︰
 
-* [將 VMM 雲端中的 Hyper-V VM 複寫至 Azure PowerShell Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-* [將不使用 VMM 的 Hyper-V VM 複寫至 Azure PowerShell Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+* [將 VMM 雲端中的 Hyper-V VM 複寫至 Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
+* [將不使用 VMM 的 Hyper-V VM 複寫至 Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
+* [使用 PowerShell Resource Manager 將 VMware 複寫至 Azure](vmware-azure-disaster-recovery-powershell.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>如果要複寫至 Azure，我需要哪一種儲存體帳戶？
 您需要 LRS 或 GRS 儲存體帳戶。 我們建議使用 GRS，以便在發生區域性停電或無法復原主要區域時，能夠恢復資料。 此帳戶必須位於與復原服務保存庫相同的區域中。 當您在 Azure 入口網站部署 Site Recovery 時，進階儲存體支援 VMware VM、Hyper-V VM 和實體伺服器複寫。
@@ -123,7 +124,7 @@ Azure Site Recovery 會透過公用端點，將資料複製到 Azure 儲存體�
 不支援此做法。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中提出這項功能的要求。
 
 ### <a name="can-i-exclude-specific-disks-from-replication"></a>我可以從複寫中排除特定的磁碟嗎？
-如果您是使用 Azure 入口網站[複寫 VMware VM 和 Hyper-V VM](site-recovery-exclude-disk.md) 至 Azure，就支援此做法。
+如果您使用 Azure 入口網站來將 VMware VM 和 Hyper-V VM 複寫至 Azure，就支援此做法。
 
 ### <a name="can-i-replicate-virtual-machines-with-dynamic-disks"></a>我可以使用動態磁碟來複寫虛擬機器嗎？
 複寫 Hyper-V 虛擬機器時，支援使用動態磁碟。 將 VMware VM 和實體機器複寫至 Azure 時，也支援使用這些磁碟。 作業系統磁碟必須是基本磁碟。

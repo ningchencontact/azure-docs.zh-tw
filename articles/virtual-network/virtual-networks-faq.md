@@ -1,6 +1,6 @@
 ---
-title: "Azure 虛擬網路常見問題 | Microsoft Docs"
-description: "Microsoft Azure 虛擬網路的常見問題解答。"
+title: Azure 虛擬網路常見問題 | Microsoft Docs
+description: Microsoft Azure 虛擬網路的常見問題解答。
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
-ms.openlocfilehash: 8800dc59306c349daba8f4d9703e0c713eed06ec
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a5b4bac9e0d8bc10defaff251557129a70d8a022
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -57,7 +57,7 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。 它是專屬�
 [RFC 1918](http://tools.ietf.org/html/rfc1918) 中定義的任何 IP 位址範圍。 例如：10.0.0.0/16。
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>我可以在 VNet 擁有公用 IP 位址嗎？
-是。 如需有關公用 IP 位址範圍的詳細資訊，請參閱[建立虛擬網路](virtual-network-manage-network.md#create-a-virtual-network)。 您無法直接從網際網路存取公用 IP 位址。
+是。 如需有關公用 IP 位址範圍的詳細資訊，請參閱[建立虛擬網路](manage-virtual-network.md#create-a-virtual-network)。 您無法直接從網際網路存取公用 IP 位址。
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>我的 VNet 中的子網路數目是否有限制？
 是。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)。 子網路位址空間不能互相重疊。
@@ -151,7 +151,7 @@ VNet 中的前 100 個雲端服務具有使用 Azure 所提供 DNS 進行跨租�
 編號 您不能保留私人 IP 位址。 如果有可用的私人 IP 位址，則會由 DHCP 伺服器指派至虛擬機器或角色執行個體。 該虛擬機器可能不是您想要指派私人 IP 位址的目的地。 不過，您可以將已建立虛擬機器的私人 IP 位址變更為任何可用的私人 IP 位址。
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>VNet 中的私人 IP 位址會根據 VM 進行變更嗎？
-這要看狀況。 如果虛擬機器是透過 Resource Manager 所部署的就不會，不論 IP 位址是使用靜態還是動態配置方法指派都是如此。 如果虛擬機器是透過傳統部署模型所部署的，當虛擬機器在處於已停止 (已解除配置) 狀態之後又啟動，動態 IP 位址會變更。 當虛擬機器遭到刪除時，位址會從透過任一種部署模型所部署的虛擬機器中釋放出來。
+這要看狀況。 如果是透過 Resource Manager 來部署 VM，不論 IP 位址是使用靜態還是動態配置方法指派的，都不會變更。 如果虛擬機器是透過傳統部署模型所部署的，當虛擬機器在處於已停止 (已解除配置) 狀態之後又啟動，動態 IP 位址會變更。 當虛擬機器遭到刪除時，位址會從透過任一種部署模型所部署的虛擬機器中釋放出來。
 
 ### <a name="can-i-manually-assign-ip-addresses-to-nics-within-the-vm-operating-system"></a>我可以在 VM 作業系統中將 IP 位址手動指派至 NIC 嗎？
 是，但是除非必要 (例如，在指派多個 IP 位址給虛擬機器時)，否則不建議這麼做。 如需詳細資訊，請參閱[將多個 IP 位址新增至虛擬機器](virtual-network-multiple-ip-addresses-portal.md#os-config)。 如果指派給 Azure NIC (連結至虛擬機器) 的 IP 位址變更，且虛擬機器作業系統中的 IP 位址不同，您就會失去與虛擬機器的連線。
@@ -218,6 +218,6 @@ VNet 會與另一個 VNet，以及其他裝載於 Azure 基礎結構中的服務
 
 ### <a name="is-there-tooling-support-for-vnets"></a>是否有工具支援 VNet？
 是。 深入了解如何使用：
-- Azure 入口網站來透過 [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) 與 [傳統](virtual-networks-create-vnet-classic-pportal.md)部署模型部署 VNet。
+- Azure 入口網站來透過 [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) 與 [傳統](virtual-networks-create-vnet-classic-pportal.md)部署模型部署 VNet。
 - PowerShell 來透過 [Resource Manager](/powershell/module/azurerm.network)與[傳統](/powershell/module/azure/?view=azuresmps-3.7.0)部署模型管理 VNet。
 - Azure 命令列介面 (CLI)，來部署與管理透過 [Resource Manager](/cli/azure/network/vnet) 與[傳統](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources)部署模型所部署的 VNet。  

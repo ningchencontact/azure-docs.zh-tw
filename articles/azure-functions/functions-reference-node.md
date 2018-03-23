@@ -1,26 +1,26 @@
 ---
-title: "適用於 Azure Functions 的 JavaScript 開發人員參考 | Microsoft Docs"
-description: "了解如何使用 JavaScript 開發函式。"
+title: 適用於 Azure Functions 的 JavaScript 開發人員參考 | Microsoft Docs
+description: 了解如何使用 JavaScript 開發函式。
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構"
+editor: ''
+tags: ''
+keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: functions
 ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: f613e480f6699b323c18402f01873e565768f10f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -265,7 +265,15 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
     ```  
 
 ## <a name="node-version-and-package-management"></a>Node 版本和套件管理
-Node 版本目前鎖定在 `6.5.0`。 我們正在調查加入更多版本並允許設定的支援。
+
+下表顯示 Functions 執行階段每個主要版本所使用的 Node.js 版本：
+
+| Functions 版本 | Node.js 版本 | 
+|---|---|
+| 1.x | 6.11.2 (由執行階段鎖定) |
+| 2.x  |>=8.4.0，建議使用目前的 LTS 8.9.4。 使用 WEBSITE_DEFAULT_NODE_VERSION [應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)來設定版本。|
+
+您可以藉由從任何函式列印 `process.version`，來查看執行階段目前正在使用的版本。
 
 下列步驟可讓您在函式應用程式中納入套件︰ 
 

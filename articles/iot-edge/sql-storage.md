@@ -1,19 +1,19 @@
 ---
-title: "Azure IoT Edge SQL 模組 | Microsoft Docs"
-description: "使用 Microsoft SQL 模組在邊緣儲存資料，並使用 Azure Functions 來設定資料格式。"
+title: Azure IoT Edge SQL 模組 | Microsoft Docs
+description: 使用 Microsoft SQL 模組在邊緣儲存資料，並使用 Azure Functions 來設定資料格式。
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b66a699e4c58662cadd799cf6aec83b9d34b7e6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>使用 SQL Server 資料庫在邊緣儲存資料
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/22/2018
 
 ## <a name="deploy-a-sql-server-container"></a>部署 SQL Server 容器
 
-在本節中，您會將 MS-SQL 資料庫新增到模擬的 IoT Edge 裝置。 請使用適用於 [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) 和 [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/) 的 SQL Server 2017 Docker 容器映像。 
+在本節中，您會將 MS-SQL 資料庫新增到模擬的 IoT Edge 裝置。 使用 SQL Server 2017 Docker 容器映像，其有以 [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) \(英文\) 容器及 [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/) \(英文\) 容器的形式提供。 
 
 ### <a name="deploy-sql-server-2017"></a>部署 SQL Server 2017
 
@@ -100,14 +100,14 @@ ms.lasthandoff: 02/22/2018
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}"
       ```
 
    * Linux：
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"MSSQL_SA_PASSWORD=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "/var/opt/mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
 4. 儲存檔案。 
@@ -125,31 +125,31 @@ ms.lasthandoff: 02/22/2018
 
 在命令列工具中連線到您的資料庫： 
 
-* Windows
+* Windows 容器
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Linux 容器
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 開啟 SQL 命令工具： 
 
-* Windows
+* Windows 容器
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Linux 容器
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
 建立您的資料庫： 
 
-* Windows
+* Windows 容器
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/22/2018
    GO
    ```
 
-* Linux
+* Linux 容器
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -302,24 +302,24 @@ IoT Edge 也可以透過 Docker 解析容器名稱的 DNS，因此您不需要�
 
 在命令列工具中連線到您的資料庫： 
 
-* Windows
+* Windows 容器
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Linux 容器
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 開啟 SQL 命令工具： 
 
-* Windows
+* Windows 容器
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Linux 容器
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
@@ -327,7 +327,7 @@ IoT Edge 也可以透過 Docker 解析容器名稱的 DNS，因此您不需要�
 檢視您的資料： 
 
    ```sql
-   Select * FROM MeasurementsDB.dbo.TemperatureMeasurements
+   SELECT * FROM MeasurementsDB.dbo.TemperatureMeasurements
    GO
    ```
 

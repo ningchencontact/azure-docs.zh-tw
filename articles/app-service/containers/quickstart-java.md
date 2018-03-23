@@ -1,11 +1,11 @@
 ---
-title: "在 Linux 上的 Azure App Service 中建立 Java Web 應用程式"
-description: "短短幾分鐘內在 Linux 上的 Azure App Service 中部署第一個 Java Hello World。"
+title: 在 Linux 上的 Azure App Service 中建立 Java Web 應用程式
+description: 短短幾分鐘內在 Linux 上的 Azure App Service 中部署第一個 Java Hello World。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: msangapu
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 46c97ae5bd6f53857f0b7df12462102a03e8e857
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2c37151c09c7b180993056532c07ff081f576b83
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="preview-create-a-java-web-app-in-app-service-on-linux"></a>預覽：在 Linux 上的 App Service 中建立 Java Web 應用程式
 
@@ -50,19 +50,7 @@ Linux 上的 App Service 目前提供一項預覽功能來支援 Java web 應用
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-
-## <a name="create-a-resource-group"></a>建立資源群組
-
-在 Cloud Shell 中，使用 [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) 命令來建立資源群組。 下列範例會在「西歐」位置建立名為 myResourceGroup 的資源群組。 若要查看支援 App Service 的所有位置，請執行 [`az appservice list-locations`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) 命令。
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West US"
-```
-
-您通常會在附近的區域中建立資源群組和資源。 
-
-當命令完成時，JSON 輸出會顯示資源群組屬性。
-
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 

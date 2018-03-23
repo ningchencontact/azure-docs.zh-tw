@@ -1,11 +1,11 @@
 ---
-title: "交叉部署 Azure 連線的 VPN 閘道設定 | Microsoft Docs"
-description: "了解 Azure 虛擬網路閘道的 VPN 閘道設定。"
+title: 交叉部署 Azure 連線的 VPN 閘道設定 | Microsoft Docs
+description: 了解 Azure 虛擬網路閘道的 VPN 閘道設定。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
 ms.service: vpn-gateway
@@ -13,19 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 03/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: d265c72cfc02710afb630f3b8258602c936d1ebc
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e4f02e2b001b6821e732cead660aa0b758f1133e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>關於 VPN 閘道組態設定
 
 VPN 閘道是一種虛擬網路閘道，可透過公用連線在您的虛擬網路和內部部署位置之間傳送加密流量。 您也可以使用 VPN 閘道，透過 Azure 骨幹，在虛擬網路之間傳送流量。
 
 VPN 閘道連線依賴多個資源的設定，每一個都包含可設定的設定值。 本文各節討論在 Resource Manager 部署模型中所建立之虛擬網路 VPN 閘道相關的資源和設定。 您可以在[關於 VPN 閘道](vpn-gateway-about-vpngateways.md) 一文中找到每個連線解決方案的描述和拓撲圖。
+
+>[!NOTE]
+> 本文中的值適用於使用 -GatewayType 'Vpn' 的虛擬網路閘道。 這就是為什麼要將它們稱為 VPN 閘道的原因。 如需適用於 -GatewayType 'ExpressRoute' 的值，請參閱 [ExpressRoute 的虛擬網路閘道](../expressroute/expressroute-about-virtual-network-gateways.md)。 ExpressRoute 閘道的值與您針對 VPN 閘道使用的值不同。
+>
+>
 
 ## <a name="gwtype"></a>閘道類型
 

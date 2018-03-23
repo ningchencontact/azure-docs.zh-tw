@@ -1,13 +1,13 @@
 ---
-title: "設定 Azure ExpressRoute 線路的網路效能監控 | Microsoft Docs"
-description: "設定 Azure ExpressRoute 線路的雲端式網路監視。"
+title: 設定 Azure ExpressRoute 線路的網路效能監控 | Microsoft Docs
+description: 設定 Azure ExpressRoute 線路的雲端式網路監視。
 documentationcenter: na
 services: expressroute
 author: ajaycode
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 4f3edb6879ff256b1b50a1437fe349084fe7de41
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 36cd2f106c39f1a6bdcb6ee33b96209974a06336
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>設定 ExpressRoute 的網路效能監控
 
@@ -102,10 +102,7 @@ ms.lasthandoff: 02/23/2018
 
 1. 移至資源的 [網路效能監控設定] 頁面中 [一般設定] 索引標籤。 從 [安裝 OMS Agent] 區段中按一下對應至您伺服器處理器的代理程式，並下載安裝檔案。
 
-  >[!NOTE]
-  >代理程式必須安裝於 Windows Server (2008 SP1 或更新版本) 上。 不支援使用 Windows 桌面版 OS 和 Linux OS 監視 ExpressRoute 線路。 
-  >
-  >
+ 
 2. 接著，將 [工作區識別碼] 和 [主要金鑰] 複製到 [記事本]。
 3. 從 [使用 TCP 通訊協定設定 OMS Agent 以供監視] 區段中，下載 Powershell 指令碼。 此 PowerShell 指令碼將協助您開啟 TCP 交易的相關防火牆連接埠。
 
@@ -114,6 +111,16 @@ ms.lasthandoff: 02/23/2018
 ### <a name="installagent"></a>2.2：在每部監視伺服器上安裝監視代理程式 (在您要監視的每個 VNET 上)
 
 基於備援的因素，建議您在 ExpressRoute 連線的每一端 (亦即內部部署、Azure VNET) 安裝至少兩個代理程式。 使用下列步驟來安裝代理程式：
+  
+  >[!NOTE]
+  >代理程式必須安裝於 Windows Server (2008 SP1 或更新版本) 上。 不支援使用 Windows 桌面版 OS 和 Linux OS 監視 ExpressRoute 線路。 
+  >
+  >
+  
+  >[!NOTE]
+  >SCOM 代理程式可能無法一致性地偵測到它們是否裝載於 Azure 中。  建議您不要在 Azure VNET 中使用 SCOM 代理程式來監視 ExpressRoute。
+  >
+  >
 
 1. 執行**安裝程式**，以在您想要用於監視 ExpressRoute 的每部伺服器上安裝代理程式。 您用來進行監視的伺服器可以是 VM 或內部部署伺服器，而且必須能夠存取網際網路。 您必須至少在內部部署環境安裝一個代理程式，以及在 Azure 中您需要監視的每個網路區段安裝一個代理程式。
 2. 在 [歡迎] 頁面中按 [下一步]。

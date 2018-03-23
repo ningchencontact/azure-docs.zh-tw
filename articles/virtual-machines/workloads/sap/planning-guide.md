@@ -1,13 +1,13 @@
 ---
-title: "SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南 | Microsoft Docs"
-description: "SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南"
+title: SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南 | Microsoft Docs
+description: SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf9f676b48f25ae2d8949dbdba8b4792b05c67f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -294,7 +294,7 @@ ms.lasthandoff: 02/01/2018
 [virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics-windows]:../../windows/multiple-nics.md
 [virtual-networks-multiple-nics-linux]:../../linux/multiple-nics.md
@@ -366,7 +366,7 @@ Microsoft Azure 是 Microsoft 所推出的雲端服務平台，可提供各式�
 * [SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
 
 > [!IMPORTANT]
-> 文件中會儘可能使用參考的《SAP 安裝指南》連結 (如需參考 InstGuide-01，請參閱 <http://service.sap.com/instguides>)。 由於本文只涵蓋 Microsoft Azure 虛擬機器中所安裝之 SAP NetWeaver 系統的特定工作，因此如需必要條件和安裝程序，請務必仔細閱讀 SAP NetWeaver 安裝指南。
+> 文件中會儘可能使用參考《SAP 安裝指南》的連結 (如需參考 InstGuide-01，請參閱 <http://service.sap.com/instguides> \(英文\))。 由於本文只涵蓋 Microsoft Azure 虛擬機器中所安裝之 SAP NetWeaver 系統的特定工作，因此如需必要條件和安裝程序，請務必仔細閱讀 SAP NetWeaver 安裝指南。
 >
 >
 
@@ -471,7 +471,7 @@ SAP 常被視為企業內最常見的關鍵任務應用程式。 這些應用程
 >
 
 ### <a name="supported-os-and-database-releases"></a>支援的 OS 和資料庫版本
-* 下列文章列出「Azure 虛擬機器服務」支援的 Microsoft 伺服器軟體：<http://support.microsoft.com/kb/2721672>。
+* 這篇文章列出 Azure 虛擬機器服務支援的 Microsoft 伺服器軟體：<http://support.microsoft.com/kb/2721672>。
 * 「Azure 虛擬機器服務」搭配 SAP 軟體支援的作業系統版本和資料庫版本記載於 SAP 附註 [1928533]。
 * 「Azure 虛擬機器服務」支援的 SAP 應用程式和版本記載於 SAP 附註 [1928533]。
 * 在 SAP 案例中，只支援將 64 位元映像當做 Azure 中的客體 VM 來執行。 這也表示只支援 64 位元 SAP 應用程式和資料庫。
@@ -513,7 +513,7 @@ Azure 平台可減少預先採購技術和基礎結構的需求。 它提供隨�
 >
 
 ### <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Azure 區域
-Microsoft 允許將虛擬機器部署到所謂的「Azure 區域」。 Azure 區域可以是位置很近的一或多個資料中心。 針對全球大多數地緣政治區域，Microsoft 至少有兩個 Azure 區域。 例如，在歐洲，有一個「北歐」和一個「西歐」Azure 區域。 一個地緣政治區域中的兩個 Azure 區域之間會相隔足夠的距離，以確保天然或技術性災害不會同時影響相同地緣政治區域中的兩個 Azure 區域。 由於 Microsoft 在全球不同的地緣政治區域中穩定地擴展新的 Azure 區域，因此這些區域的數目呈現穩定成長，截至 2015 年 12 月為止已達 20 個 Azure 區域，至今已宣告更多區域。 身為客戶，您可以將 SAP 系統部署到所有區域，包括中國的兩個 Azure 區域。 如需有關 Azure 區域的目前最新資訊，請參閱下列網站：<https://azure.microsoft.com/regions/>
+Microsoft 允許將虛擬機器部署到所謂的「Azure 區域」。 Azure 區域可以是位置很近的一或多個資料中心。 針對全球大多數地緣政治區域，Microsoft 至少有兩個 Azure 區域。 例如，在歐洲，有一個「北歐」和一個「西歐」Azure 區域。 一個地緣政治區域中的兩個 Azure 區域之間會相隔足夠的距離，以確保天然或技術性災害不會同時影響相同地緣政治區域中的兩個 Azure 區域。 由於 Microsoft 在全球不同的地緣政治區域中穩定地擴展新的 Azure 區域，因此這些區域的數目呈現穩定成長，截至 2015 年 12 月為止已達 20 個 Azure 區域，至今已宣告更多區域。 身為客戶，您可以將 SAP 系統部署到所有區域，包括中國的兩個 Azure 區域。 如需有關 Azure 區域的目前最新資訊，請參閱這個網站：<https://azure.microsoft.com/regions/>
 
 ### <a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>Microsoft Azure 虛擬機器概念
 Microsoft Azure 提供基礎結構即服務 (IaaS) 解決方案來裝載虛擬機器，並提供與內部部署虛擬化解決方案類似的功能。 您可以透過 Azure 入口網站、PowerShell 或 CLI 來建立虛擬機器，這也會提供部署和管理功能。
@@ -593,7 +593,7 @@ Microsoft Azure 儲存體提供永續性儲存體，以及 SAN 儲存體上看�
 * 區域備援儲存體可將三個映像散佈到相同 Azure 區域內的不同資料中心。
 * 預設備援層級是異地備援，會將內容以非同步方式複寫到裝載於相同地緣政治區域中另一個 Azure 區域的另外三個資料映像。
 
-除了本文之外，另請參閱有關不同備援選項的表格：<https://azure.microsoft.com/pricing/details/storage/>
+另請參閱位於這篇文章頂端有關不同備援選項的表格：<https://azure.microsoft.com/pricing/details/storage/>
 
 如需 Azure 儲存體的詳細資訊，請參閱：
 
@@ -631,7 +631,7 @@ Azure 標準儲存體帳戶上所儲存磁碟的收費依據包括儲存的實�
 
 如果您正在查看[這篇文章 (Linux)][virtual-machines-sizes-linux] 和[這篇文章 (Windows)][virtual-machines-sizes-windows] 中有關 DS 系列 VM 的部分，將會發現在 VM 層級的細微性上，「進階儲存體」磁碟有資料量限制。 不同的 DS 系列或 GS 系列 VM 對可掛接的資料磁碟數目也會有不同的限制。 這些限制也會記載於上述文章。 但基本上，這表示如果您將 32 x P30 磁碟掛接到單一 DS14 VM，便不會取得 32 x P30 磁碟的最大輸送量。 相反地，如文章所述，VM 層級的最大輸送量會限制資料輸送量。
 
-如需有關進階儲存體的詳細資訊，請參閱：<http://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
+如需進階儲存體的詳細資訊，請參閱：<http://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2> \(英文\)
 
 #### <a name="c55b2c6e-3ca1-4476-be16-16c81927550f"></a>受控磁碟
 受控磁碟是 Azure Resource Manager 的新資源類型，可用來取代儲存在 Azure 儲存體帳戶的 VHD。 受控磁碟會針對所連接的虛擬機器，自動配合其可用性設定組，因此提高了虛擬機器和虛擬機器上所執行服務的可用性。 如需詳細資訊，請參閱[概觀文章](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)。
@@ -661,7 +661,7 @@ Microsoft Azure 會提供網路基礎結構，可對應至我們想要透過 SAP
 * 客戶內部部署網路與 Azure 網路之間的跨單位連線能力
 * Azure 網站之間的跨 Azure 區域或資料中心連線能力
 
-如需詳細資訊，請參閱這裡：<https://azure.microsoft.com/documentation/services/virtual-network/>
+如需詳細資訊，請參閱：<https://azure.microsoft.com/documentation/services/virtual-network/>
 
 在 Azure 中設定名稱和 IP 解析有許多可能的方法。 在本文中，僅限雲端案例需要使用 Azure DNS 的預設值 (相較於定義自己的 DNS 服務)。 此外，還可使用新的 Azure DNS 服務，而不是使用您自己的 DNS 伺服器。 如需詳細資訊，請參閱[這篇文章][virtual-networks-manage-dns-in-vnet]和[這個頁面](https://azure.microsoft.com/services/dns/)。
 
@@ -727,7 +727,7 @@ Azure 現在也可讓您為一個 Azure 訂用帳戶建立「多站台 VPN」連
 [comment]: <> (MShermannd TODO 找不到 ARM 文件連結)
 
 #### <a name="vnet-to-vnet-connection"></a>VNet 對 VNet 連線
-使用多網站 VPN 時，您必須在每個區域中設定不同的 Azure 虛擬網路。 不過，您通常必須讓不同區域中的軟體元件能夠彼此通訊。 在理想情況下，此通訊應該從一個 Azure 區域路由傳送至內部部署，再由此路由傳送至其他 Azure 區域。 簡而言之，Azure 可讓您設定從某個區域中的一個 Azure 虛擬網路到裝載於另一個區域中之另一個 Azure 虛擬網路的連線。 此功能稱為 VNet 對 VNet 連線。 如需有關此功能的詳細資訊，請參閱這裡：<https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>。
+使用多網站 VPN 時，您必須在每個區域中設定不同的 Azure 虛擬網路。 不過，您通常必須讓不同區域中的軟體元件能夠彼此通訊。 在理想情況下，此通訊應該從一個 Azure 區域路由傳送至內部部署，再由此路由傳送至其他 Azure 區域。 簡而言之，Azure 可讓您設定從某個區域中的一個 Azure 虛擬網路到裝載於另一個區域中之另一個 Azure 虛擬網路的連線。 此功能稱為 VNet 對 VNet 連線。 如需此功能的更多詳細資料，請參閱：<https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>。
 
 #### <a name="private-connection-to-azure-expressroute"></a>與 Azure ExpressRoute 的私人連線
 Microsoft Azure ExpressRoute 可在 Azure 資料中心與客戶的內部部署基礎結構或共置環境中的基礎結構之間建立私人連線。 ExpressRoute 是由各種 MPLS (封包交換式) VPN 提供者或其他網路服務提供者所提供。 ExpressRoute 連線不會經過公用網際網路。 相較於網際網路一般連線，ExpressRoute 連線提供更高安全性、透過多個平行循環提高可靠性、更快速度以及更低延遲。
@@ -746,7 +746,7 @@ Microsoft Azure ExpressRoute 可在 Azure 資料中心與客戶的內部部署�
 #### <a name="forced-tunneling-in-case-of-cross-premises"></a>跨單位時的強制通道
 針對透過站對站、點對站或 ExpressRoute 加入內部部署網域的 VM，您也必須確定為這些 VM 中的所有使用者部署網際網路 Proxy 設定。 根據預設，在這些 VM 中執行的軟體或使用瀏覽器存取網際網路的使用者不會經過公司 Proxy，而是會透過 Azure 直接連線到網際網路。 但即使是 Proxy 設定也無法 100% 解決將流量引導通過公司 Proxy 的問題，因為檢查 Proxy 的責任在於軟體和服務。 如果在 VM 中執行的軟體未執行該項作業，或是由系統管理員管理設定，則前往網際網路的流量可能會透過 Azure 直接再次繞道至網際網路。
 
-若要避免此問題，您可以在內部部署與 Azure 之間設定具有站對站連線能力的強制通道。 如需「強制通道」功能的詳細說明，請參閱這裡 <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
+若要避免此問題，您可以在內部部署與 Azure 之間設定具有站對站連線能力的強制通道。 已於下列網頁發佈強制通道功能的詳細描述：<https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
 
 ExpressRoute 強制通道會透過 ExpressRoute BGP 對等互連工作階段廣告預設路由的客戶進行啟用。
 
@@ -774,9 +774,9 @@ ExpressRoute 強制通道會透過 ExpressRoute BGP 對等互連工作階段廣�
 
 ![決定能否將 SAP 部署在 Azure 的決策樹][planning-guide-figure-700]
 
-**步驟 1**︰若要開始著手進行，最重要的資訊就是所指定 SAP 系統的 SAPS 需求。 您必須將 SAPS 需求分為 DBMS 部分和 SAP 應用程式部分，即使 SAP 系統已在 2 層組態中內部部署亦然。 若是現有的系統，通常可根據現有的 SAP 基準來判斷或評估與使用中硬體相關的 SAPS。 結果可以在這裡找到︰<http://global.sap.com/campaigns/benchmark/index.epx>。
+**步驟 1**︰若要開始著手進行，最重要的資訊就是所指定 SAP 系統的 SAPS 需求。 您必須將 SAPS 需求分為 DBMS 部分和 SAP 應用程式部分，即使 SAP 系統已在 2 層組態中內部部署亦然。 若是現有的系統，通常可根據現有的 SAP 基準來判斷或評估與使用中硬體相關的 SAPS。 您可以在下列網頁找到結果：<http://global.sap.com/campaigns/benchmark/index.epx> \(英文\)。
 若是新部署的 SAP 系統，您應該已經完成調整大小練習，而能判斷系統的 SAPS 需求。
-關於 Azure 上的 SAP 大小調整，另請參閱這個部落格和附加的文件：<http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+另請參閱此部落格及附加文件，以了解如何在 Azure 上調整 SAP 大小：<http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx> \(英文\)
 
 **步驟 2**︰若為現有的系統，應該測量 DBMS 伺服器上的每秒 I/O 量和 I/O 作業數。 若為新規劃的系統，新系統的調整大小練習也應該讓您大致了解 DBMS 端的 I/O 需求。 如果不確定，您最終還是需要進行概念證明。
 
@@ -823,14 +823,14 @@ Windows PowerShell 是強大且可擴充的架構，客戶已廣泛採用此架�
 
 根據客戶到目前為止的體驗，PowerShell (PS) 確實是可部署 VM 及建立 VM 部署之自訂步驟的更強大工具。 在 Azure 中執行 SAP 執行個體的所有客戶使用 PS Cmdlet 來支援他們在 Azure 入口網站中執行的管理工作，或甚至單獨使用 PS Cmdlet 來管理他們在 Azure 中的部署。 由於 Azure 特定的 Cmdlet 與超過 2000 個 Windows 相關 Cmdlet 共用相同的命名慣例，因此 Windows 系統管理員可輕鬆地利用這些 Cmdlet。
 
-請參閱以下的範例︰<http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
+請參閱以下範例：<http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx> \(英文\)
 
 [comment]: <> (MShermannd TODO 描述測試時的新 CLI 命令)
 您只能透過 PowerShell 或 CLI 來部署 Azure Monitoring Extension for SAP (請參閱本文件的[適用於 SAP 的 Azure 監視解決方案][planning-guide-9.1]一章)。 因此，在 Azure 中部署或管理 SAP NetWeaver 系統時，請務必安裝及設定 PowerShell 或 CLI。  
 
-隨著 Azure 提供更多功能，也會新增 PS Cmdlet，而需要更新 Cmdlet。 因此，您每個月至少要檢查一次「Azure 下載」網站 <https://azure.microsoft.com/downloads/> 是否有新的 Cmdlet 版本。 新版本會覆蓋舊版本進行安裝。
+隨著 Azure 提供更多功能，也會新增 PS Cmdlet，而需要更新 Cmdlet。 因此，您每個月至少要檢查一次 Azure 下載網站 <https://azure.microsoft.com/downloads/>，以確認是否有新的 Cmdlet 版本。 新版本會覆蓋舊版本進行安裝。
 
-如需 Azure 相關 PowerShell 命令的一般清單，請按一下這裡︰<https://docs.microsoft.com/powershell/azure/overview>。
+如需 Azure 相關 PowerShell 命令的一般清單，請檢查這裡：<https://docs.microsoft.com/powershell/azure/overview>。
 
 ### <a name="management-via-microsoft-azure-cli-commands"></a>透過 Microsoft Azure CLI 命令管理
 如果客戶使用 Linux 並想要管理 Azure 資源，則可能不適合使用 Powershell。 Microsoft 提供 Azure CLI 作為替代方案。
@@ -859,7 +859,7 @@ Microsoft Azure 提供多種方法來部署 VM 和相關聯的磁碟。 因此�
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> 如需詳細資訊，請參閱：<https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> Windows 設定 (例如 Windows SID 和主機名稱) 必須透過 sysprep 命令在內部部署 VM 抽象化/一般化。
+> 如需更多詳細資料，請參閱：<https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed>。Windows 設定 (例如 Windows SID 和主機名稱) 必須透過 sysprep 命令，在內部部署 VM 上進行抽象化/一般化。
 >
 >
 > ![Linux][Logo_Linux] Linux
@@ -954,7 +954,7 @@ Microsoft Azure 提供多種方法來部署 VM 和相關聯的磁碟。 因此�
 ### <a name="transferring-vms-and-vhds-between-on-premises-to-azure"></a>在內部部署與 Azure 之間傳輸 VM 和 VHD
 因為無法透過 Azure 入口網站將 VM 映像和磁碟上傳至 Azure，所以您必須使用 Azure PowerShell Cmdlet 或 CLI。 您也可以使用 ’AzCopy’ 工具。 此工具可在內部部署與 Azure 之間 (雙向) 複製 VHD。 它也可以在 Azure 區域之間複製 VHD。 如需了解如何下載及使用 AzCopy，請參閱[這份文件][storage-use-azcopy]。
 
-第三個替代方案是使用各種協力廠商 GUI 導向的工具。 不過，請確定這些工具支援 Azure 分頁 Blob。 基於本文的目的，我們需要使用 Azure 分頁 Blob 存放區 (差異如下所示：<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>)。 此外，Azure 所提供的工具可有效率地壓縮必須上傳的 VM 和 VHD。 這點很重要，因為此壓縮效率可縮短上傳時間 (也會因上傳的網際網路連結來自內部部署設施和目標 Azure 部署區域而異)。 您可以合理假設將 VM 或 VHD 從歐洲位置上傳至美國 Azure 資料中心，比將相同的 VM/VHD 上傳至歐洲 Azure 資料中心需要更長的時間。
+第三個替代方案是使用各種協力廠商 GUI 導向的工具。 不過，請確定這些工具支援 Azure 分頁 Blob。 基於我們的目的，我們需要使用 Azure 分頁 Blob 存放區 (下列網頁會說明其中的差異：<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs> \(英文\))。 此外，Azure 所提供的工具可有效率地壓縮必須上傳的 VM 和 VHD。 這點很重要，因為此壓縮效率可縮短上傳時間 (也會因上傳的網際網路連結來自內部部署設施和目標 Azure 部署區域而異)。 您可以合理假設將 VM 或 VHD 從歐洲位置上傳至美國 Azure 資料中心，比將相同的 VM/VHD 上傳至歐洲 Azure 資料中心需要更長的時間。
 
 #### <a name="a43e40e6-1acc-4633-9816-8f095d5a7b6a"></a>將 VHD 從內部部署環境上傳至 Azure
 若要從內部部署網路上傳現有的 VM 或 VHD，這類 VM 或 VHD 必須符合本文件的[準備使用非一般化磁碟將 VM 從內部部署環境移至 Azure][planning-guide-5.2.1]一章中所列的需求。
@@ -967,12 +967,12 @@ Microsoft Azure 提供多種方法來部署 VM 和相關聯的磁碟。 因此�
 **Powershell**
 
 * 使用 *Login-AzureRmAccount* 登入您的訂用帳戶
-* 使用 *Set-AzureRmContext* 和參數 SubscriptionId 或 SubscriptionName 來設定您內容的訂用帳戶 - 請參閱 <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
-* 使用 *Add-AzureRmVhd* 將 VHD 上傳至 Azure 儲存體帳戶 - 請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
-* (選擇性) 使用 *New-AzureRmDisk* 從 VHD 建立受控磁碟 - 請參閱<https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
-* 使用 *Set-AzureRmVMOSDisk* 將新 VM 組態的作業系統磁碟設定為 VHD 或受控磁碟 - 請參閱<https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk>
-* 從 VM 組態，以建立新的 VM*新增 AzureRmVM* -請參閱<https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
-* 將資料磁碟加入至新的 VM 與*新增 AzureRmVMDataDisk* - 請參閱<https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk>
+* 使用 *Set-AzureRmContext* 和參數 SubscriptionId 或 SubscriptionName 來設定您內容的訂用帳戶；請參閱 <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext> \(英文\)
+* 使用 *Add-AzureRmVhd* 將 VHD 上傳到 Azure 儲存體帳戶；請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd> \(英文\)
+* (選擇性) 使用 *New-AzureRMDisk* 從 VHD 建立受控磁碟；請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk> \(英文\)
+* 使用 *Set-AzureRmVMOSDisk* 將新 VM 設定的 OS 磁碟設定為 VHD 或受控磁碟；請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk> \(英文\)
+* 使用 *New-AzureRmVM* 從 VM 設定建立新的 VM；請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm> \(英文\)
+* 使用 *Add-AzureRmVMDataDisk* 將資料磁碟加入至新的 VM；請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk> \(英文\)
 
 **Azure CLI 2.0**
 
@@ -994,13 +994,13 @@ Microsoft Azure 提供多種方法來部署 VM 和相關聯的磁碟。 因此�
 
 * 在 Windows 上使用 *sysprep* 或在 Linux 上使用 *waagent -deprovision* 以將您的 VM 一般化 - 請參閱 [Sysprep 技術參考](https://technet.microsoft.com/library/cc766049.aspx) (適用於 Windows) 或[如何擷取 Linux 虛擬機器來作為 Resource Manager 範本使用][capture-image-linux-step-2-create-vm-image] (適用於 Linux)
 * 使用 *Login-AzureRmAccount* 登入您的訂用帳戶
-* 使用 *Set-AzureRmContext* 和參數 SubscriptionId 或 SubscriptionName 來設定您內容的訂用帳戶 - 請參閱 <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
-* 使用 *Add-AzureRmVhd* 將 VHD 上傳至 Azure 儲存體帳戶 - 請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
-* (選擇性) 使用 *New-AzureRmImage* 從 VHD 建立受控磁碟映像 - 請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>
+* 使用 *Set-AzureRmContext* 和參數 SubscriptionId 或 SubscriptionName 來設定您內容的訂用帳戶；請參閱 <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext> \(英文\)
+* 使用 *Add-AzureRmVhd* 將 VHD 上傳到 Azure 儲存體帳戶；請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd> \(英文\)
+* (選擇性) 使用 *New-AzureRmImage* 從 VHD 建立受控磁碟映像；請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage> \(英文\)
 * 將新 VM 設定的 OS 磁碟設定為
-  * VHD (使用 *Set-AzureRmVMOSDisk -SourceImageUri -CreateOption fromImage*) - 請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk>
-  * 受控磁碟映像 *Set-AzureRmVMSourceImage* - 請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage>
-* 從 VM 組態，以建立新的 VM*新增 AzureRmVM* -請參閱<https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
+  * VHD (使用 *Set-AzureRmVMOSDisk -SourceImageUri -CreateOption fromImage*)；請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk> \(英文\)
+  * 受控磁碟映像 *Set-AzureRmVMSourceImage*；請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage> \(英文\)
+* 使用 *New-AzureRmVM* 從 VM 設定建立新的 VM；請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm> \(英文\)
 
 **Azure CLI 2.0**
 
@@ -1049,7 +1049,7 @@ Azure 基礎結構即服務不只可以單向上傳 VHD 和 SAP 系統， 您也
   Save-AzureRmVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
   ```
 
-  如需 Save-AzureRmVhd Cmdlet 的詳細資訊，請參閱以下 <https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvhd>。
+  如需 Save-AzureRmVhd Cmdlet 的更多詳細資料，請參閱 <https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvhd> \(英文\)。
 
 #### <a name="cli-20"></a>CLI 2.0
   * 下載受控磁碟  
@@ -1155,8 +1155,8 @@ az vm disk attach --disk <new disk name or managed disk id> --resource-group <re
 
 PS Cmdlet 邏輯的基本流程如下所示︰
 
-* 使用 *New-AzureStorageContext* 來建立「來源」儲存體帳戶的儲存體帳戶內容 - 請參閱 <https://msdn.microsoft.com/library/dn806380.aspx>
-* 使用 *New-AzureStorageContext* 來建立「目標」儲存體帳戶的儲存體帳戶內容 - 請參閱 <https://msdn.microsoft.com/library/dn806380.aspx>
+* 使用 *New-AzureStorageContext* 建立**來源**儲存體帳戶的儲存體帳戶內容；請參閱 <https://msdn.microsoft.com/library/dn806380.aspx>
+* 使用 *New-AzureStorageContext* 建立**目標**儲存體帳戶的儲存體帳戶內容；請參閱 <https://msdn.microsoft.com/library/dn806380.aspx>
 * 如下開始複製
 
 ```powershell
@@ -1331,7 +1331,7 @@ Azure 異地複寫可在 VM 中的每個 VHD 上本機運作，而且不會依�
 請參閱[這篇文章][virtual-machines-azure-resource-manager-architecture]所述之傳統模型與 ARM 之間的架構差異。
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-for-cloud-only-scenario"></a>在僅限雲端案例中，設定 SAP 系統和 SAP GUI 連線能力
-請參閱下列文章，其中對此主題有詳細的說明︰<http://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+請參閱這篇文章，其中描述與本主題相關的詳細資料：<http://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx> \(英文\)
 
 #### <a name="changing-firewall-settings-within-vm"></a>變更 VM 中的防火牆設定
 您可能必須在虛擬機器上設定防火牆，以允許 SAP 系統的輸入流量。
@@ -1637,7 +1637,7 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 
 **) sid = SAP 系統 ID
 
-如需不同 SAP 產品或 SAP 產品所提供的服務所需之連接埠的詳細資訊，請參閱 <http://scn.sap.com/docs/DOC-17124>。
+如需不同 SAP 產品或 SAP 產品所提供之服務所需的連接埠詳細資訊，請參閱 <http://scn.sap.com/docs/DOC-17124> \(英文\)。
 透過這篇文章，您應該能夠在 VPN 裝置中，開啟特定 SAP 產品和案例所需的專用連接埠。
 
 在此情況下部署 VM 時，其他安全性措施可能還包括建立[網路安全性群組][virtual-networks-nsg]來定義存取規則。
@@ -1694,8 +1694,8 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 >
 > 以下是有關在 Linux 中設定網路印表機，或包含在 Linux 中列印之相關章節的一些文件範例。 只要 VM 是 VPN 的一部分，就會以在 Azure Linux VM 中的相同方式來運作︰
 >
-> * SLES <https://en.opensuse.org/SDB:Printing_via_SMB_(Samba)_Share_or_Windows_Share>
-> * RHEL 或 Oracle Linux <https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sec-Printer_Configuration.html#s1-printing-smb-printer>
+> * SLES <https://en.opensuse.org/SDB:Printing_via_SMB_(Samba)_Share_or_Windows_Share> \(英文\)
+> * RHEL 或 Oracle Linux <https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sec-Printer_Configuration.html#s1-printing-smb-printer> \(英文\)
 >
 >
 
@@ -1706,7 +1706,7 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> 使用 Windows 列印的更多詳細資料，請參閱：<http://technet.microsoft.com/library/jj590748.aspx>。
+> 如需使用 Windows 進行列印的更多詳細資料，請參閱：<http://technet.microsoft.com/library/jj590748.aspx> \(英文\)。
 >
 >
 
@@ -1744,11 +1744,11 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 
 在站對站連線的跨單位案例中，內部部署與 Azure 之間的延遲時間可能仍然很長。 如果我們遵循傳輸物件通過開發和測試系統到生產環境的順序，並考慮將傳輸或支援封裝套用至不同的系統，請了解根據中央傳輸目錄的位置，部分系統將會遇到讀取或寫入中央傳輸目錄的延遲很高的情況。 此情況類似於 SAP 環境組態，其中不同的系統會散佈到不同的資料中心，而且這些資料中心彼此距離很遠。
 
-為了解決此延遲問題，並讓系統快速地從傳輸目錄讀取或寫入傳輸目錄，您可以設定兩個 STMS 傳輸網域 (一個用於內部部署，一個用於 Azure 中的系統)，並連結傳輸網域。 請參閱下列文件，其中說明 SAP TMS 中此概念背後的原則：<http://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm>。
+為了解決此延遲問題，並讓系統快速地從傳輸目錄讀取或寫入傳輸目錄，您可以設定兩個 STMS 傳輸網域 (一個用於內部部署，一個用於 Azure 中的系統)，並連結傳輸網域。 請檢查這份文件，其中說明 SAP TMS 中此概念背後的原則：<http://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm> \(英文\)。
 
 作法：
 
-* 使用交易 STMS 在每個位置 (內部部署和 Azure) 設定傳輸網域 <http://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
+* 使用交易 STMS 來設定每個位置 (內部部署和 Azure) 上的傳輸網域 <http://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm> \(英文\)
 * 使用網域連結來連結網域，並確認兩個網域之間的連結。
   <http://help.sap.com/saphelp_nw73ehp1/helpdata/en/a3/139838280c4f18e10000009b38f8cf/content.htm>
 * 將組態分散到連結的系統。
@@ -1804,7 +1804,7 @@ Azure 中的 SAP 執行個體必須能夠存取公司內部的檔案共用。 �
 
 有些客戶的特殊部署案例會直接向網際網路公開 SAP 企業版入口網站，而且虛擬機器主機會透過站對站 VPN 通道或 ExpressRoute 連線到公司網路。 在此案例中，您必須確定特定連接埠已開啟，並且未遭到防火牆或網路安全性群組封鎖。 當您想要在僅限雲端案例中，從內部部署連線到 SAP Java 執行個體時，則必須套用相同的機制。
 
-初始入口網站 URI 為 http(s):`<Portalserver`>:5XX00/irj，其中連接埠是由 50000 加上 (系統編號 × 100) 來形成。 100). SAP 系統 00 的預設入口網站 URI 為 `<dns name`>.`<azure region`>.Cloudapp.azure.com:PublicPort/irj。 如需詳細資訊，請參閱 <http://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>。
+初始入口網站 URI 為 http(s):`<Portalserver`>:5XX00/irj，其中連接埠是由 50000 加上 (系統編號 × 100) 來形成。 100). SAP 系統 00 的預設入口網站 URI 為 `<dns name`>.`<azure region`>.Cloudapp.azure.com:PublicPort/irj。 如需更多詳細資料，請參閱 <http://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm> \(英文\)。
 
 ![端點組態][planning-guide-figure-2800]
 
@@ -1830,10 +1830,10 @@ Azure 中之 SAP 高可用性的相關討論可分為兩個部分：
 
 以及如何與 Azure 基礎結構 HA 結合。
 
-Azure 中的 SAP 高可用性與內部部署實體或虛擬環境中的 SAP 高可用性相較下，有一些差異。 下列來自 SAP 的文件說明 Windows 虛擬環境中的標準「SAP 高可用性」組態︰<http://scn.sap.com/docs/DOC-44415>。 不同於 Windows，Linux 沒有整合 sapinst 的 SAP-HA 組態。 如需有關 Linux 之內部部署 SAP HA 的詳細資訊，請參閱︰<http://scn.sap.com/docs/DOC-8541>。
+Azure 中的 SAP 高可用性與內部部署實體或虛擬環境中的 SAP 高可用性相較下，有一些差異。 下列來自 SAP 的文件說明 Windows 虛擬環境中的標準 SAP 高可用性設定︰<http://scn.sap.com/docs/DOC-44415> \(英文\)。 不同於 Windows，Linux 沒有整合 sapinst 的 SAP-HA 組態。 如需有關 Linux 之 SAP HA 內部部署的詳細資訊，請參閱︰<http://scn.sap.com/docs/DOC-8541> \(英文\)。
 
 ### <a name="azure-infrastructure-high-availability"></a>Azure 基礎結構高可用性
-目前 99.9% 都是單一 VM SLA。 若要了解單一 VM 可用性可能有的樣貌，您可以直接建立不同可用 Azure SLA 的乘積︰<https://azure.microsoft.com/support/legal/sla/>。
+目前 99.9% 都是單一 VM SLA。 若要了解單一 VM 可用性可能有的樣貌，您只需建置不同可用 Azure SLA 的乘積：<https://azure.microsoft.com/support/legal/sla/>。
 
 計算基礎是每個月 30 天 (或 43200 分鐘)。 因此，0.05% 停機時間會對應至 21.6 分鐘。 像往常一樣，不同服務的可用性會以下列方式相乘︰
 
@@ -1849,14 +1849,14 @@ Azure 中的 SAP 高可用性與內部部署實體或虛擬環境中的 SAP 高�
 * 規劃的維護事件 是由 Microsoft 對基礎 Azure 平台進行的定期更新，為虛擬機器在其中執行的平台基礎結構改善整體可靠性、效能和安全性。
 * 未規劃的維護事件會在虛擬機器中的硬體或實體基礎結構產生某些方面的錯誤時發生。 這可能包含本機網路錯誤、本機磁碟錯誤，或其他機架層級的錯誤。 Azure 平台會在偵測到此類錯誤時，自動從裝載虛擬機器且狀況不良的實體伺服器，將虛擬機器移轉至狀況良好的實體伺服器。 這類事件非常稀少，但可能會導致虛擬機器重新啟動。
 
-如需更多詳細資訊，請參閱這份文件︰<http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+如需更多詳細資料，請參閱這份文件：<http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### <a name="azure-storage-redundancy"></a>Azure 儲存體備援
 Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久性及高可用性，即使在面對暫時性的硬體故障時，仍可滿足 Azure 儲存體 SLA。
 
 由於 Azure 儲存體預設會保留三個資料映像，因此不需要跨多個 Azure 磁碟的 RAID5 或 RAID1。
 
-如需更多詳細資訊，請參閱這篇文章︰<http://azure.microsoft.com/documentation/articles/storage-redundancy/>
+如需更多詳細資料，請參閱這篇文章：<http://azure.microsoft.com/documentation/articles/storage-redundancy/>
 
 #### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>使用 Azure 基礎結構 VM 重新啟動達到 SAP 應用程式的更高可用性
 如果您決定不使用 Windows Server 容錯移轉叢集 (WSFC) 或 Linux 上的 Pacemaker (目前僅支援 SLES 12 及更新版本)，則會使用 Azure VM 重新啟動來保護 SAP 系統，以防止 Azure 實體伺服器基礎結構和整體基礎 Azure 平台發生規劃和未規劃的停機。
@@ -1912,7 +1912,7 @@ Azure 縮放單位內的 Azure 可用性設定組可使用不限數目的容錯�
 
 ![Azure 中 SAP 應用程式伺服器的 HA][planning-guide-figure-3000]
 
-如需更多詳細資訊，請參閱這份文件︰<http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+如需更多詳細資料，請參閱這份文件：<http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### <a name="high-availability-for-the-sap-ascs-instance-on-windows"></a>Windows 上 SAP (A)SCS 執行個體的高可用性
 Windows Server 容錯移轉叢集 (WSFC) 是常用來保護 SAP (A)SCS 執行個體的解決方案。 它也會以「HA 安裝」的形式整合到 sapinst。 Azure 基礎結構目前無法提供功能，以與內部部署相同的方式來設定必要的 Windows Server 容錯移轉叢集。
@@ -1941,7 +1941,7 @@ SIOS DataKeeper 解決方案提供共用磁碟叢集資源給 Windows 容錯移�
 #### <a name="end-to-end-high-availability-for-the-complete-sap-system"></a>完整 SAP 系統的端對端高可用性
 以下是 Azure 中完整 SAP NetWeaver HA 架構的兩個範例 - 一個用於 Windows，一個用於 Linux。
 
-僅限非受控磁碟：當您部署許多 SAP 系統，而且所部署的 VM 數目將超過每個訂用帳戶的「儲存體帳戶」數目上限時，可能必須對以下所述的概念稍作取捨。 在此情況下，VM 的 VHD 必須結合到一個儲存體帳戶。 您通常會結合不同 SAP 系統之 SAP 應用程式層 VM 的 VHD 來達成目的。  我們也會將不同 SAP 系統之不同 DBMS VM 的不同 VHD 結合到一個 Azure 儲存體帳戶。 因此，請記住「Azure 儲存體帳戶」的 IOPS 限制 (<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>)
+僅限非受控磁碟：當您部署許多 SAP 系統，而且所部署的 VM 數目將超過每個訂用帳戶的「儲存體帳戶」數目上限時，可能必須對以下所述的概念稍作取捨。 在此情況下，VM 的 VHD 必須結合到一個儲存體帳戶。 您通常會結合不同 SAP 系統之 SAP 應用程式層 VM 的 VHD 來達成目的。  我們也會將不同 SAP 系統之不同 DBMS VM 的不同 VHD 結合到一個 Azure 儲存體帳戶。 因此請記住 Azure 儲存體帳戶的 IOPS 限制 (<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>)
 
 
 ##### <a name="windowslogowindows-ha-on-windows"></a>![Windows][Logo_Windows] Windows 上的 HA
@@ -1997,10 +1997,10 @@ SAP 提供可在啟動 VM 內的 OS 之後立即啟動 SAP 執行個體的功能
 根據所選擇的 SAP 組態 (2 層或 3 層)，可能需要進行備份。 您必須備份 VM 本身的內容及資料庫。 DBMS 相關的備份必須使用資料庫方法來進行。 如需不同資料庫的詳細說明，請參閱 [DBMS 指南][dbms-guide]。 另一方面，SAP 資料可如本節所述進行離線備份 (同時包含資料庫內容)，或是如下一節所述進行線上備份。
 
 離線備份基本上需要透過 Azure 入口網站關閉 VM，並將基底 VM 磁碟及所有連接的磁碟複製到 VM。 這會保留 VM 及其相關聯磁碟的某個時間點映像。 建議將備份複製到不同的 Azure 儲存體帳戶。 因此，本文件的[在 Azure 儲存體帳戶之間複製磁碟][planning-guide-5.4.2]一章所述的程序會適用。
-除了透過 Azure 入口網站關機之外，使用者也可以如以下所述，透過 Powershell 或 CLI 來執行這項作業︰<https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
+除了使用 Azure 入口網站進行關機之外，也可以透過 Powershell 或 CLI 來執行此動作，如下列網頁所述：<https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
 
 還原該狀態需要刪除基底 VM 及基底 VM 的原始磁碟和已掛接的磁碟、將儲存的磁碟複製回原始儲存體帳戶，或受控磁碟的資源群組，然後重新部署此系統。
-下列文章示範如何使用 Powershell 來編寫此程序的指令碼︰<http://www.westerndevs.com/azure-snapshots/>
+這篇文章示範如何使用 Powershell 來編寫此程序的指令碼︰<http://www.westerndevs.com/azure-snapshots/> \(英文\)
 
 請務必安裝新的 SAP 授權，因為如上所述還原 VM 備份會建立新的硬體金鑰。
 
@@ -2014,23 +2014,23 @@ SAP 系統內的其他 VM 可以使用 Azure 虛擬機器備份功能進行備�
 >
 > ![Windows][Logo_Windows] Windows
 >
-> 理論上，如果 DBMS 系統支援 Windows VSS (磁碟區陰影複製服務 <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>)，例如就像 SQL Server 一樣，則也可以用一致的方式備份執行資料庫的 VM。
+> 理論上，如果 DBMS 系統以例如和 SQL Server 相同的方式支援 Windows VSS (磁碟區陰影複製服務 <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx> \(英文\))，則也可以使用一致的方式來備份執行資料庫的 VM。
 > 不過請注意，您無法根據 Azure VM 備份還原時間點來還原資料庫。 因此，建議使用 DBMS 功能執行資料庫的備份，而不是依賴 Azure VM 備份。
 >
-> 若要熟悉「Azure 虛擬機器備份」，請從這裡開始著手：<https://docs.microsoft.com/azure/backup/backup-azure-vms>。
+> 若要熟悉 Azure 虛擬機器備份，請從這裡開始：<https://docs.microsoft.com/azure/backup/backup-azure-vms>。
 >
 > 您也可以混合使用安裝在 Azure VM 中的 Microsoft Data Protection Manager 及 Azure 備份，來備份/還原資料庫。 如需詳細資訊，請參閱：<https://docs.microsoft.com/azure/backup/backup-azure-dpm-introduction>。  
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Windows VSS 在 Linux 中沒有對等用法。 因此，您只能進行檔案一致備份，而無法進行應用程式一致備份。 SAP DBMS 備份應該使用 DBMS 功能來進行。 例如，您可以如以下所述，使用 tar 來儲存包含 SAP 相關資料的檔案系統︰<http://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
+> Windows VSS 在 Linux 中沒有對等用法。 因此，您只能進行檔案一致備份，而無法進行應用程式一致備份。 SAP DBMS 備份應該使用 DBMS 功能來進行。 包括 SAP 相關資料的檔案系統，可以透過如下列網頁所述的方式，使用 tar 來進行儲存：<http://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm> \(英文\)
 >
 >
 
 ### <a name="azure-as-dr-site-for-production-sap-landscapes"></a>Azure 作為 SAP 生產環境的 DR 網站
 從 2014 年中開始，以 Hyper-V、System Center 和 Azure 為主的各種元件延伸模組，可使用 Azure 作為在內部部署執行並以 Hyper-V 為基礎之 VM 的 DR 站台。
 
-如需詳細說明如何部署此解決方案的部落格，請參閱︰<http://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>。
+如需詳細說明如何部署此解決方案的部落格，請參閱：<http://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx> \(英文\)。
 
 ## <a name="summary"></a>總結
 Azure 中 SAP 系統的高可用性重點如下：

@@ -1,6 +1,6 @@
 ---
-title: "如何設定 Azure Redis 快取 | Microsoft Docs"
-description: "了解 Azure Redis 快取的預設 Redis 組態，以及了解如何設定您的 Azure Redis 快取執行個體"
+title: 如何設定 Azure Redis 快取 | Microsoft Docs
+description: 了解 Azure Redis 快取的預設 Redis 組態，以及了解如何設定您的 Azure Redis 快取執行個體
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>如何設定 Azure Redis 快取
-本主題描述如何檢視並更新您的 Azure Redis 快取執行個體的組態，並涵蓋 Azure Redis 快取執行個體的預設 Redis 伺服器組態。
+本主題說明適用於您 Azure Redis 快取執行個體的設定。 本主題也會涵蓋適用於 Azure Redis 快取執行個體的預設 Redis 伺服器設定。
 
 > [!NOTE]
 > 如需設定及使用進階快取功能的詳細資訊，請參閱[如何設定持續性](cache-how-to-premium-persistence.md)、[如何設定叢集](cache-how-to-premium-clustering.md)，以及[如何設定虛擬網路支援](cache-how-to-premium-vnet.md)。
@@ -79,7 +79,7 @@ ms.lasthandoff: 01/19/2018
 
 ### <a name="access-control-iam"></a>存取控制 (IAM)
 
-[存取控制 (IAM)]  區段會在 Azure 入口網站中提供角色型存取控制 (RBAC) 支援，協助組織輕鬆且準確地滿足其存取管理需求。 如需詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../active-directory/role-based-access-control-configure.md)。
+**存取控制 (IAM)** 區段提供 Azure 入口網站中對於角色型存取控制 (RBAC) 的支援。 此設定可協助組織簡單而精準地符合其存取管理需求。 如需詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../active-directory/role-based-access-control-configure.md)。
 
 ### <a name="tags"></a>標記
 
@@ -136,7 +136,7 @@ ms.lasthandoff: 01/19/2018
 
 [Maxmemory 原則] 設定快取的收回原則，並讓您從下列收回原則中選擇：
 
-* `volatile-lru` - 這是預設值。
+* `volatile-lru`：這是預設的收回原則。
 * `allkeys-lru`
 * `volatile-random`
 * `allkeys-random`
@@ -147,9 +147,9 @@ ms.lasthandoff: 01/19/2018
 
 **maxmemory-reserved** 設定會設定保留給非快取作業 (例如容錯移轉期間的複寫) 的記憶體量 (MB)。 設定此值可讓您在負載變動時具有更一致的 Redis 伺服器體驗。 對於頻繁寫入的工作負載，此值應該設定為更高的值。 當記憶體保留給這類作業時，無法用於儲存快取的資料。
 
-[maxfragmentationmemory-reserved] 設定會以 MB 為單位設定保留的記憶體數量，以容納過於分散的記憶體。 設定此值可讓您在快取已滿或接近全滿，且片段比率也很高時，有更為一致的 Redis 伺服器體驗。 當記憶體保留給這類作業時，無法用於儲存快取的資料。
+[maxfragmentationmemory-reserved] 設定會以 MB 為單位設定保留的記憶體數量，以容納過於分散的記憶體。 設定此值可讓您在快取已滿或接近全滿，且片段比率很高時，擁有更為一致的 Redis 伺服器體驗。 當記憶體保留給這類作業時，無法用於儲存快取的資料。
 
-選擇新的記憶體保留值 (**maxmemory-reserved** 或 **maxfragmentationmemory-reserved**) 時，需要考慮的一件事是，這項變更對已有大量資料在執行的快取會有怎麼樣的影響。 例如，如果您的快取是 53 GB 而資料為 49 GB，則將保留值變更為 8 GB，會將系統的最大可用記憶體降至 45 GB。 如果目前的 `used_memory` 或 `used_memory_rss` 值高於 45 GB 的新限制，則等 `used_memory` 和 `used_memory_rss` 都低於 45 GB 後，系統必須收回資料。 收回會增加伺服器負載並讓記憶體過於分散。 如需快取計量的詳細資訊，例如 `used_memory` 和 `used_memory_rss`，請參閱[可用計量和報告間隔](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)。
+選擇新的記憶體保留值 (**maxmemory-reserved** 或 **maxfragmentationmemory-reserved**) 時，需要考慮的一件事是，這項變更對已有大量資料在執行的快取會有怎麼樣的影響。 例如，如果您有容量為 53 GB 的快取，而其中有 49 GB 的資料，則將保留值變更為 8 GB，此變更會將系統的最大可用記憶體降至 45 GB。 如果目前的 `used_memory` 或 `used_memory_rss` 值高於 45 GB 的新限制，則等 `used_memory` 和 `used_memory_rss` 都低於 45 GB 後，系統必須收回資料。 收回會增加伺服器負載並讓記憶體過於分散。 如需快取計量的詳細資訊，例如 `used_memory` 和 `used_memory_rss`，請參閱[可用計量和報告間隔](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)。
 
 > [!IMPORTANT]
 > 只有標準和高階快取提供 **maxmemory-reserved** 和 **maxfragmentationmemory-reserved** 設定。
@@ -269,7 +269,9 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 
 ### <a name="firewall"></a>防火牆
 
-按一下 [防火牆]，檢視並設定進階 Azure Redis 快取的防火牆規則。
+防火牆規則設定適用於所有 Azure Redis 快取層。
+
+按一下 [防火牆] 以檢視和設定快取的防火牆規則。
 
 ![防火牆](./media/cache-configure/redis-firewall-rules.png)
 
@@ -383,10 +385,10 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 
 
 ## <a name="default-redis-server-configuration"></a>預設 Redis 伺服器組態
-新的 Azure Redis 快取執行個體是以下列的預設 Redis 組態值設定。
+新的 Azure Redis 快取執行個體會以下列預設 Redis 設定值來設定：
 
 > [!NOTE]
-> 您無法使用 `StackExchange.Redis.IServer.ConfigSet` 方法變更本區段中的設定。 如果在本區段中利用其中一個命令呼叫此方法，則會擲回如下的例外狀況：  
+> 您無法使用 `StackExchange.Redis.IServer.ConfigSet` 方法變更本區段中的設定。 如果使用本區段中的其中一個命令來呼叫此方法，則會擲回類似下列範例的例外狀況：  
 > 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 > 
@@ -397,7 +399,7 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 | 設定 | 預設值 | 說明 |
 | --- | --- | --- |
 | `databases` |16 |資料庫的預設數目為 16，但是您可以根據定價層設定不同的數字。<sup>1</sup> 預設資料庫為 DB 0，您可以根據每個連線使用 `connection.GetDatabase(dbid)` 選取一個不同的資料庫，其中 `dbid` 是介於 `0` 與 `databases - 1` 之間的數字。 |
-| `maxclients` |取決於定價層<sup>2</sup> |這是允許同時連線的用戶端數目上限。 一旦達到限制，Redis 會關閉所有新的連線，並傳送「達到用戶端的數目上限」錯誤。 |
+| `maxclients` |取決於定價層<sup>2</sup> |此值是允許同時連線的用戶端數目上限。 一旦達到限制，Redis 會關閉所有新的連線，並傳送「達到用戶端的數目上限」錯誤。 |
 | `maxmemory-policy` |`volatile-lru` |maxmemory 原則可設定當達到 `maxmemory` (建立快取時所選取之快取提供項目的大小) 時 Redis 將如何選取要移除的具目。 Azure Redis 快取的預設設定為 `volatile-lru`，其會移除使用 LRU 演算法設定到期日的金鑰。 此設定可以在 Azure 入口網站中設定。 如需詳細資訊，請參閱[記憶體原則](#memory-policies)。 |
 | `maxmemory-samples` |3 |為了節省記憶體，LRU 和最小 TTL 演算法是近似的演算法而不是精確的演算法。 依預設 Redis 將檢查三個金鑰，並挑選最近較少使用的金鑰。 |
 | `lua-time-limit` |5,000 |Lua 指令碼的最大執行時間 (以毫秒為單位)。 如果已到達最大執行時間，Redis 會記錄指令碼在最大允許的時間之後仍在執行中，並開始回覆查詢發生錯誤。 |
@@ -472,7 +474,7 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 如需 Redis 命令的詳細資訊，請參閱 [http://redis.io/commands](http://redis.io/commands)。
 
 ## <a name="redis-console"></a>Redis 主控台
-您可以使用 [Redis 主控台] \(適用於 Azure 入口網站中的所有快取層) 安全地發出命令給 Azure Redis 快取執行個體。
+您可以使用 [Redis 主控台] (適用於 Azure 入口網站中的所有快取層) 安全地發出命令給 Azure Redis 快取執行個體。
 
 > [!IMPORTANT]
 > - Redis 主控台不使用 [VNET](cache-how-to-premium-vnet.md)。 如果您的快取是 VNET 的一部分，只有在 VNET 中的用戶端可以存取快取。 由於 Redis 主控台在您的本機瀏覽器 (位於 VNET 之外) 中執行，因此無法連接到您的快取。
@@ -495,7 +497,7 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 
 ![Redis 主控台](./media/cache-configure/redis-console-premium-cluster.png)
 
-如果您嘗試存取儲存在與連線分區不同分區中的金鑰，您會收到類似下列的錯誤訊息。
+如果您嘗試存取儲存在與已連線的分區不同分區中的金鑰，您會收到類似下列訊息的錯誤訊息：
 
 ```
 shard1>get myKey

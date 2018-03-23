@@ -1,20 +1,20 @@
 ---
-title: "啟動 Azure 訂用帳戶與帳戶 | Microsoft Docs"
-description: "使用新的和現有帳戶的 Azure Resource Manager API 來啟用存取，並解決常見的帳戶問題。"
+title: 啟動 Azure 訂用帳戶與帳戶 | Microsoft Docs
+description: 使用新的和現有帳戶的 Azure Resource Manager API 來啟用存取，並解決常見的帳戶問題。
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: ''
+ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>使用 Azure 成本管理啟動 Azure 訂用帳戶與帳戶
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 03/02/2018
 
     如果您沒有看到一個或多個訂用帳戶的綠色核取記號符號，這表示您沒有為訂用帳戶建立讀取器應用程式 (CloudynCollector) 的權限。 具有較高訂用帳戶權限的使用者必須重複此程序。
 
-請觀看引導程序的[使用 Cloudyn 的 Azure 成本管理連線至 Azure Resource Manager](https://youtu.be/oCIwvfBB6kk) 影片。
+請觀看引導整個程序的[使用 Azure 成本管理連線至 Azure Resource Manager](https://youtu.be/oCIwvfBB6kk) \(英文\) 影片。
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 

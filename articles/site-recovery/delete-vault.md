@@ -1,24 +1,19 @@
 ---
-title: "刪除 Site Recovery 保存庫"
-description: "瞭解如何根據 Site Recovery 案例刪除 Azure Site Recovery 保存庫。"
+title: 刪除 Site Recovery 保存庫
+description: 瞭解如何根據 Site Recovery 案例刪除 Azure Site Recovery 保存庫。
 service: site-recovery
-documentationcenter: 
 author: rajani-janaki-ram
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 4cb5c387319b9659b16f0c98dc38cb79d72987e2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 89ab1e7c8b2fa0f4014ecfa0e677b398e601e6fa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>刪除 Site Recovery 保存庫
 相依性會阻擋您刪除 Azure Site Recovery 保存庫。 您需要採取的動作隨 Site Recovery 案例而異：VMware 到 Azure、HYPER-V (附與不附 System Center Virtual Machine Manager) 到 Azure，以及 Azure 備份。 若要刪除 Azure 備份使用的保存庫，請參閱[刪除 Azure 中的備份保存庫](../backup/backup-azure-delete-vault.md)。
@@ -32,11 +27,11 @@ ms.lasthandoff: 02/24/2018
 
 1. 依照[停用 VMware 保護](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)中的步驟刪除所有受保護的 VM。
 
-2. 依照[刪除複寫原則](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy)。中的步驟刪除所有複寫原則。
+2. 依照[刪除複寫原則](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy)。中的步驟刪除所有複寫原則。
 
-3. 依照[刪除 vCenter](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery) 中的步驟刪除 vCenter 的參考。
+3. 依照[刪除 vCenter Server](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) 中的步驟刪除 vCenter 的參考。
 
-4. 依照[解除委任的組態伺服器](site-recovery-vmware-to-azure-manage-configuration-server.md##delete-or-unregister-a-configuration-server)中的步驟刪除組態伺服器。
+4. 依照[解除委任的組態伺服器](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)中的步驟刪除組態伺服器。
 
 5. 刪除保存庫。
 

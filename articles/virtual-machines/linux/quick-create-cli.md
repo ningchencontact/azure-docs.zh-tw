@@ -1,26 +1,26 @@
 ---
-title: "Azure 快速入門 - 建立 VM CLI | Microsoft Docs"
-description: "快速了解如何使用 Azure CLI 建立虛擬機器。"
+title: Azure 快速入門 - 建立 VM CLI | Microsoft Docs
+description: 快速了解如何使用 Azure CLI 建立虛擬機器。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/13/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 07f73c90b3974943dc55df64df595ca590580d52
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 71310111ef0766b878a8a9572f4803320b65b705
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 建立 Linux 虛擬機器
 
@@ -42,7 +42,7 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>建立虛擬機器
 
 使用 [az vm create](/cli/azure/vm#az_vm_create) 命令來建立 VM。 
 

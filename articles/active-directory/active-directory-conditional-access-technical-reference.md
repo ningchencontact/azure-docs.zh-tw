@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory 條件式存取設定參考 | Microsoft Docs"
-description: "取得 Azure Active Directory 條件式存取原則中所支援設定的概觀。"
+title: Azure Active Directory 條件式存取設定參考 | Microsoft Docs
+description: 取得 Azure Active Directory 條件式存取原則中所支援設定的概觀。
 services: active-directory.
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
@@ -136,9 +136,19 @@ ms.lasthandoff: 02/09/2018
 | macOS                  | Chrome、Safari                      | ![勾選][1] |
 
 
-> [!NOTE]
-> 如需 Chrome 支援，您必須使用 Windows 10 Creators Update (1703 版) 或更新版本。<br>
-> 您可以安裝[這個擴充功能](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)。
+
+#### <a name="chrome-support"></a>Chrome 支援
+
+如需 **Windows 10 Creators Update (1703 版)** 或更新版本中的 Chrome 支援，請安裝[這個擴充功能](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)。
+
+如需 **Windows 8.1 和 7** 中的 Chrome 支援，請建立下列登錄機碼：
+
+|    |    |
+|--- | ---|
+|Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|Name | 1 |
+|類型 | REG_SZ (字串) |
+|資料 | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 這些瀏覽器支援裝置驗證，因此可以根據原則來識別和驗證裝置。 如果瀏覽器在私用模式中執行，裝置檢查將會失敗。 
 
@@ -183,6 +193,10 @@ ms.lasthandoff: 02/09/2018
 此設定適用於下列用戶端應用程式：
 
 
+- Microsoft Intune 受控瀏覽器
+- Microsoft PowerBI
+- Microsoft Invoicing
+- Microsoft Launcher
 - Microsoft Azure 資訊保護
 - Microsoft Excel
 - Microsoft Kaizala 

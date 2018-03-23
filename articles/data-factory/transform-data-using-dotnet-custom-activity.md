@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 資料處理站管線中使用自訂活動"
-description: "了解如何建立自訂活動，並在 Azure 資料處理站管線中使用這些活動。"
+title: 在 Azure 資料處理站管線中使用自訂活動
+description: 了解如何建立自訂活動，並在 Azure 資料處理站管線中使用這些活動。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 4b9714bc456ad28d9dd46742ca16f52e68c61399
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6aaeaaacdc9ee67ebbed3ea3090455dde2357c3d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -298,22 +298,22 @@ namespace SampleApp
   > - activity.json、linkedServices.json 和 datasets.json 會儲存在 Batch 工作的執行階段資料夾。 針對此範例，activity.json、linkedServices.json 和 datasets.json 會儲存在 "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" 路徑。 您必須視需要個別加以清除。 
   > - 針對已連結的服務使用自我裝載整合執行階段，機密資訊 (例如金鑰或密碼) 就會由自我裝載整合執行階段加密，以確保認證保留在客戶定義的私人網路環境中。 某些機密欄位由您的自訂應用程式以這樣的方式參考時，可能會遺失。 視需要在 extendedProperties 中使用 SecureString，而不是使用已連結的服務參考。 
 
-## <a name="difference-between-custom-activity-in-azure-data-factory-version-2-and-custom-dotnet-activity-in-azure-data-factory-version-1"></a>Azure Data Factory 第 2 版中的自訂活動和 Azure Data Factory 第 1 版中的 (自訂) DotNet 活動之間的差異
+## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a>比較 V2 自訂活動和第 1 版 (自訂) DotNet 活動
 
-  在 Azure Data Factory 第 1 版中，您必須實作 (自訂) DotNet 活動的程式碼，做法是建立一個 .NET 類別庫專案，其中有會實作 IDotNetActivity 介面 Execute 方法的類別。 (自訂) DotNet 活動 JSON 承載中的已連結的服務、資料集、擴充的屬性，會以強型別物件傳遞至執行方法。 如需詳細資訊，請參閱[第 1 版中的 (自訂) DotNet](v1/data-factory-use-custom-activities.md)。 因為這個實作，您的自訂程式碼需要以 .Net Framework 4.5.2 撰寫，並在以 Windows 為基礎的 Azure Batch 集區節點上執行。 
+  在 Azure Data Factory 第 1 版中，您必須藉由建立一個 .NET 類別庫專案，其中含有實作 `IDotNetActivity` 介面之 `Execute` 方法的類別，來實作 (自訂) DotNet 活動。 (自訂) DotNet 活動之 JSON 承載中的已連結服務、資料集及擴充屬性，都會以強型別物件的形式傳遞至執行方法。 如需第 1 版行為的詳細資料，請參閱[第 1 版中的 (自訂) DotNet](v1/data-factory-use-custom-activities.md)。 基於此實作，您的第 1 版 DotNet 活動程式碼必須將目標設為 .Net Framework 4.5.2。 第 1 版 DotNet 活動也必須在 Windows 型 Azure Batch 集區節點上執行。 
 
-  在 Azure Data Factory V2 自訂活動中，您不需要實作 .Net 介面。 您現在可以直接執行命令、指令碼，以及執行您自己的自訂程式碼 (已編譯為可執行檔)。 做法是一併指定 Command 屬性與 folderPath 屬性。 自訂活動會在 folderpath 中上傳可執行檔和相依性，並為您執行命令。 
+  在 Azure Data Factory V2 自訂活動中，您不需要實作 .Net 介面。 您現在可以在將之編譯為可執行檔的情況下，直接執行命令、指令碼，以及自己的自訂程式碼。 若要設定此實作，您需要一併指定 `Command` 屬性和 `folderPath` 屬性。 自訂活動會將可執行檔及其相依性上傳至 `folderpath`，並為您執行命令。 
 
-  自訂活動 JSON 承載中定義的已連結的服務、資料集 (在 referenceObjects 中定義)、擴充的屬性，可以 JSON 檔案的形式由您的可執行檔存取。 您可以使用 JSON 序列化程式存取所需的屬性，如之前的 SampleApp.exe 程式碼範例中所示。 
+  定義於 Data Factory V2 自訂活動之 JSON 承載中的已連結服務、資料集(定義於 referenceObjects) 及擴充屬性，可以 JSON 檔案的形式由可執行檔加以存取。 您可以使用 JSON 序列化程式存取所需的屬性，如之前的 SampleApp.exe 程式碼範例中所示。 
 
-  由於 Azure Data Factory V2 自訂活動中新引進的改變，您可以使用您慣用的語言自由撰寫自訂程式碼邏輯，然後在 Azure Batch 支援的 Windows 和 Linux 作業系統上執行。 
+  利用 Data Factory V2 自訂活動中所引進的變更，您可以使用慣用語言來撰寫自訂程式碼邏輯，然後在 Azure Batch 支援的 Windows 和 Linux 作業系統上執行它。 
 
-  下表說明 Data Factory 第 2 版自訂活動和 Data Factory 第 1 版 (自訂) DotNet 活動之間的差異： 
+  下表說明 Data Factory V2 自訂活動和 Data Factory 第 1 版 (自訂) DotNet 活動之間的差異： 
 
 
 |差異      |第 2 版自訂活動      | 第 1 版 (自訂) DotNet 活動      |
 | ---- | ---- | ---- |
-|定義自訂邏輯的方式      |執行任何可執行檔 (現有的可執行檔或實作您自己的可執行檔)      |實作 .Net DLL      |
+|定義自訂邏輯的方式      |提供可執行檔      |實作 .Net DLL      |
 |自訂邏輯的執行環境      |Windows 或 Linux      |Windows (.Net Framework 4.5.2)      |
 |執行指令碼      |支援直接執行指令碼 (例如，Windows VM 上的 "cmd /c echo hello world")      |要求在 .Net DLL 中實作      |
 |需要資料集      |選用      |需要資料集來鏈結活動並傳遞資訊      |
@@ -322,16 +322,16 @@ namespace SampleApp
 |記錄      |直接寫入 STDOUT      |實作 .Net DLL 中的記錄器      |
 
 
-  如果您的現有 .Net 程式碼是針對第 1 版 (自訂) DotNet 活動撰寫，您需要依據下列的高階指導方針修改程式碼，才能將其用於第 2 版自訂活動：  
+  如果您的現有 .Net 程式碼是針對第 1 版 (自訂) DotNet 活動所撰寫，您需要為其修改程式碼，才能與第 2 版自訂活動搭配使用。 遵循下列高階指導方針來更新程式碼：  
 
    - 將專案由 .Net 類別庫變更為主控台應用程式。 
-   - 以 Main 方法啟動應用程式，不必再使用 IDotNetActivity 介面的 Execute 方法。 
-   - 以 JSON 序列化程式讀取和剖析已連結的服務、資料集和活動 (而不是強型別物件)，並將所需屬性的值傳遞給您的主要自訂程式碼邏輯。 請參閱之前的 SampleApp.exe 程式碼作為範例。 
-   - 不再支援記錄器物件，可執行檔的輸出可以列印到主控台，並儲存到 stdout.txt。 
+   - 使用 `Main` 方法啟動您的應用程式。 已不再需要 `IDotNetActivity` 介面的 `Execute` 方法。 
+   - 使用 JSON 序列化程式來讀取和剖析已連結的服務、資料集和活動，而不是作為強型別物件。 將必要屬性的值傳遞給您主要的自訂程式碼邏輯。 請參閱之前的 SampleApp.exe 程式碼作為範例。 
+   - 不再支援記錄器物件。 您可以將可執行檔的輸出列印到主控台並儲存至 stdout.txt。 
    - 不再需要 Microsoft.Azure.Management.DataFactories NuGet 套件。 
-   - 編譯您的程式碼、將可執行檔和相依性上傳至 Azure 儲存體，並在 folderPath 屬性中定義路徑。 
+   - 編譯您的程式碼，將可執行檔及其相依性上傳至 Azure 儲存體，並在 `folderPath` 屬性中定義路徑。 
 
-如需如何將 Data Factory 第 1 版文件[在 Azure Data Factory 管線中使用自訂活動](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)中所述的完整 DLL 和管線範例重新撰寫為 Data Factory 第 2 版自訂活動樣式的完整範例。 請參閱 [Data Factory 第 2 版自訂活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample) (英文)。 
+如需如何將 Data Factory 第 1 版文章[在 Azure Data Factory 管線中使用自訂活動](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)中所述的端對端 DLL 和管線範例重新撰寫為 Data Factory V2 自訂活動的完整範例，請參閱 [Data Factory 第 2 版自訂活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample) \(英文\)。 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch 的自動調整
 您也可以建立具有 **自動調整** 功能的 Azure Batch 集區。 例如，您可以用 0 專用 VM 和依據暫止工作數目自動調整的公式，建立 Azure Batch 集區。 

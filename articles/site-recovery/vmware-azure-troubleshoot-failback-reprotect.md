@@ -1,25 +1,25 @@
 ---
-title: "對使用 Azure Site Recovery 從 Azure VM 容錯回復至內部部署 VMware 期間發生的失敗進行疑難排解 | Microsoft Docs"
-description: "本文說明對使用 Azure Site Recovery 從 Azure 容錯回復至 VMware 期間發生的常見容錯回復和重新保護錯誤進行疑難排解的方式。"
+title: 對使用 Azure Site Recovery 從 Azure VM 容錯回復至內部部署 VMware 期間發生的失敗進行疑難排解 | Microsoft Docs
+description: 本文說明對使用 Azure Site Recovery 從 Azure 容錯回復至 VMware 期間發生的常見容錯回復和重新保護錯誤進行疑難排解的方式。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/09/2018
 ms.author: rajanaki
-ms.openlocfilehash: 9b1156884a78eb7d68dc9680765b3c1436c0606a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6dcecce78de3caaefb40cb3fe4853d5d550163b4
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>針對從 Azure 到 VMware 的容錯回復進行疑難排解
 
 本文說明如何排解您在使用 [Azure Site Recovery](site-recovery-overview.md) 執行容錯移轉後從 Azure VM 容錯回復至內部部署 VMware 基礎結構時可能遇到的問題。
 
-容錯回復基本上涉及兩個主要步驟。 容錯移轉之後，您必須重新保護移轉至內部部署的 Azure VM，使其能夠開始進行複寫。 第二個步驟是從 Azure 執行容錯移轉，以容錯回復到您的內部部署網站。 
+容錯回復基本上涉及兩個主要步驟。 容錯移轉之後，您必須重新保護移轉至內部部署的 Azure VM，使其能夠開始進行複寫。 第二個步驟是從 Azure 執行容錯移轉，以容錯回復到您的內部部署網站。
 
 ## <a name="troubleshoot-reprotection-errors"></a>對重新保護錯誤進行疑難排解
 
@@ -31,29 +31,29 @@ ms.lasthandoff: 02/28/2018
 
 此錯誤的發生條件如下：
 
-1. Azure VM 無法連線到內部部署組態伺服器。 無法探索到 VM 並將其註冊至組態伺服器。 
+1. Azure VM 無法連線到內部部署組態伺服器。 無法探索到 VM 並將其註冊至組態伺服器。
 2. 在容錯移轉之後，InMage Scout 應用程式服務未執行於 Azure VM 上。 必須有此服務，才能與內部部署組態伺服器進行通訊。
 
 若要解決此問題︰
 
-1. 確認 Azure VM 網路允許 Azure VM 與內部部署組態設定伺服器進行通訊。 若要這樣做，請將站對站 VPN 設為您的內部部署資料中心，或是使用 Azure VM 之虛擬網路上的私人對等互連來設定 ExpressRoute 連線。 
+1. 確認 Azure VM 網路允許 Azure VM 與內部部署組態設定伺服器進行通訊。 若要這樣做，請將站對站 VPN 設為您的內部部署資料中心，或是使用 Azure VM 之虛擬網路上的私人對等互連來設定 ExpressRoute 連線。
 2. 如果 VM 可與內部部署組態伺服器進行通訊，請登入 VM 並檢查 'InMage Scout Application Service'。 如果您發現該服務未執行，請以手動方式啟動服務，並確認服務啟動類型設為 [自動]。
 
 ### <a name="error-code-78052"></a>錯誤碼 78052
 
-***無法為虛擬機器完成保護。**
+**無法為虛擬機器完成保護。**
 
 在您要容錯回復的主要目標伺服器上已有同名的 VM 存在，就可能發生此錯誤。
 
 若要解決此問題，請執行下列動作：
-1. 在不同的主機上選取不同的主要目標伺服器，使重新保護可在不同的主機上建立機器，而其中的名稱不會衝突。 
+1. 在不同的主機上選取不同的主要目標伺服器，使重新保護可在不同的主機上建立機器，而其中的名稱不會衝突。
 2. 您也可以將主要目標 vMotion 到不同的主機，而其中的名稱不會發生衝突。 如果現有的 VM 是偏離機器，您可以將其重新命名，以在相同的 ESXi 主機上建立新的 VM。
 
 ### <a name="error-code-78093"></a>錯誤碼 78093
 
 **VM 未執行，處於停止回應狀態或無法存取。**
 
-若要重新保護已容錯移轉的 VM，必須執行 Azure VM。 如此，行動服務就會向組態伺服器內部部署進行註冊，並可與流程伺服器通訊，開始進行複寫。 如果電腦在不正確的網路上或未執行 (停止回應狀態或關機)，組態伺服器就無法聯繫 VM 上的行動服務以開始執行重新保護。 
+若要重新保護已容錯移轉的 VM，必須執行 Azure VM。 如此，行動服務就會向組態伺服器內部部署進行註冊，並可與流程伺服器通訊，開始進行複寫。 如果電腦在不正確的網路上或未執行 (停止回應狀態或關機)，組態伺服器就無法聯繫 VM 上的行動服務以開始執行重新保護。
 
 1. 請重新啟動 VM，讓它能夠開始通訊回內部部署。
 2. 啟動 Azure 虛擬機器之後，重新啟動重新保護作業
@@ -62,7 +62,7 @@ ms.lasthandoff: 02/28/2018
 
 **無法從 ESXi 主機存取資料存放區。**
 
-請參閱[主要目標先決條件](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server)和[支援的資料存放區](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback)，以進行容錯回復。
+查看容錯回復的[主要目標必要條件和支援的資料存放區](vmware-azure-reprotect.md#deploy-a-separate-master-target-server)。
 
 
 ## <a name="troubleshoot-failback-errors"></a>對容錯回復錯誤進行疑難排解

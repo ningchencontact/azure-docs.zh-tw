@@ -1,25 +1,25 @@
 ---
-title: "針對常見的 Azure 部署錯誤進行疑難排解 | Microsoft Docs"
-description: "說明如何解決使用 Azure Resource Manager 將資源部署至 Azure 時的常見錯誤。"
+title: 針對常見的 Azure 部署錯誤進行疑難排解 | Microsoft Docs
+description: 說明如何解決使用 Azure Resource Manager 將資源部署至 Azure 時的常見錯誤。
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
 editor: tysonn
-keywords: "部署錯誤, azure 部署, 部署至 azure"
+keywords: 部署錯誤, azure 部署, 部署至 azure
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
@@ -37,6 +37,7 @@ ms.lasthandoff: 12/20/2017
 | BadRequest | 您傳送的部署值不符合資源管理員的預期。 請查看內部狀態訊息，以取得疑難排解的說明。 | [範本參考](/azure/templates/)和[支援位置](resource-manager-templates-resources.md#location) |
 | 衝突 | 您要求的作業在資源的目前狀態下不允許。 例如，只有在建立 VM 時或解除配置 VM 之後，才可調整磁碟大小。 | |
 | DeploymentActive | 等候此資源群組的並行部署完成。 | |
+| DeploymentFailed | DeploymentFailed 錯誤是一般錯誤，不會提供您解決錯誤所需的詳細資料。 尋找錯誤碼的錯誤詳細資料，以提供更多資訊。 | [尋找錯誤碼](#find-error-code) |
 | DnsRecordInUse | DNS 記錄名稱必須是唯一的。 請提供不同的名稱，或是修改現有的記錄。 | |
 | ImageNotFound | 檢查 VM 映像設定。 |  |
 | InUseSubnetCannotBeDeleted | 當您嘗試更新資源時，可能會遇到這個錯誤，但是藉由刪除和建立資源即可處理要求。 請務必指定所有不變的值。 | [更新資源](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -44,7 +45,7 @@ ms.lasthandoff: 12/20/2017
 | InvalidContentLink | 您最有可能嘗試連結至無法使用的巢狀範本。 再次確認您為巢狀範本提供的 URI。 如果儲存體帳戶中已有範本，請確定 URI 可存取。 您可能需要傳送 SAS 權杖。 | [連結的範本](resource-group-linked-templates.md) |
 | InvalidParameter | 您為資源提供的其中一個值與預期值不相符。 此錯誤的原因可能是許多不同情況。 例如，密碼強度不足，或 blob 名稱不正確。 請檢查錯誤訊息，以判斷哪個值需要修正。 | |
 | InvalidRequestContent | 您的部署值包含未預期的值，或遺漏必要值。 請確認您的資源類型值。 | [範本參考](/azure/templates/) |
-| InvalidRequestFormat | 執行部署時啟用偵錯記錄，並且確認要求的內容。 | [偵錯記錄](resource-manager-troubleshoot-tips.md#enable-debug-logging) |
+| InvalidRequestFormat | 執行部署時啟用偵錯記錄，並且確認要求的內容。 | [偵錯記錄](#enable-debug-logging) |
 | InvalidResourceNamespace | 請檢查您在 **type** 屬性中指定的資源命名空間。 | [範本參考](/azure/templates/) |
 | InvalidResourceReference | 資源不存在或未正確地參考。 檢查是否需要新增相依性。 確認您使用 **reference** 函式包括案例的必要參數。 | [解析相依性](resource-manager-not-found-errors.md) |
 | InvalidResourceType | 請檢查您在 **type** 屬性中指定的資源類型。 | [範本參考](/azure/templates/) |
@@ -75,7 +76,124 @@ ms.lasthandoff: 12/20/2017
 
 ## <a name="find-error-code"></a>尋找錯誤碼
 
-當您在部署期間遇到錯誤時，資源管理員會傳回錯誤碼。 您可以透過入口網站、PowerShell 或 Azure CLI 查看錯誤訊息。 外部錯誤訊息可能過於普遍而無法進行疑難排解。 尋找包含有關錯誤之詳細資訊的內部訊息。 如需詳細資訊，請參閱[判斷錯誤碼](resource-manager-troubleshoot-tips.md#determine-error-code)。
+您可能會收到兩種錯誤類型︰
+
+* 驗證錯誤
+* 部署錯誤
+
+驗證錯誤來自可在部署之前判斷的情況。 其中包含您範本中的語法錯誤，或者嘗試部署會超出您訂用帳戶配額的資源。 部署程序期間出現的情況下會發生驗證錯誤。 其中包括嘗試存取以平行方式部署的資源。
+
+這兩種錯誤類型都會傳回錯誤碼，以供您針對部署進行疑難排解。 這兩種錯誤類型都會出現在[活動記錄](resource-group-audit.md)中。 不過，驗證錯誤不會出現在部署歷程記錄中，因為部署永遠不會啟動。
+
+### <a name="validation-errors"></a>驗證錯誤
+
+透過入口網站進行部署時，您在提交值之後看到驗證錯誤。
+
+![顯示入口網站驗證錯誤](./media/resource-manager-common-deployment-errors/validation-error.png)
+
+選取訊息以取得詳細資訊。 在下圖中，您會看到 **InvalidTemplateDeployment** 錯誤，以及指出某個原則封鎖了部署的訊息。
+
+![顯示驗證詳細資料](./media/resource-manager-common-deployment-errors/validation-details.png)
+
+### <a name="deployment-errors"></a>部署錯誤
+
+當作業通過驗證，但在部署期間失敗時，您會在通知中看見錯誤。 選取通知。
+
+![通知錯誤](./media/resource-manager-common-deployment-errors/notification.png)
+
+您會看到更多與部署相關的詳細資料。 選取選項來尋找與錯誤相關的詳細資訊。
+
+![部署失敗](./media/resource-manager-common-deployment-errors/deployment-failed.png)
+
+您會看到錯誤訊息和錯誤碼。 請注意，有兩個錯誤碼。 第一個錯誤碼 (**DeploymentFailed**) 是一般錯誤，不會提供您解決錯誤所需的詳細資料。 第二個錯誤碼 (**StorageAccountNotFound**) 會提供您需要的詳細資料。 
+
+![錯誤詳細資料](./media/resource-manager-common-deployment-errors/error-details.png)
+
+## <a name="enable-debug-logging"></a>啟用偵錯記錄
+
+有時您需要更多關於要求和回應的資訊，以了解哪裡出了錯。 使用 PowerShell 或 Azure CLI，您可以要求在部署期間記錄其他資訊。
+
+- PowerShell
+
+   在 PowerShell 中，將 **DeploymentDebugLogLevel** 參數設定為 [All]、[ResponseContent] 或 [RequestContent]。
+
+  ```powershell
+  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+  ```
+
+   檢查具有下列 Cmdlet 的要求內容︰
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+  ```
+
+   或者，具有下列項目的回應內容︰
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+  ```
+
+   此資訊可協助您判斷範本中的值是否會正確設定。
+
+- Azure CLI
+
+   使用下列命令檢查部署作業︰
+
+  ```azurecli
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
+  ```
+
+- 巢狀範本
+
+   若要記錄巢狀範本的偵錯資訊，請使用 **debugSetting** 項目。
+
+  ```json
+  {
+      "apiVersion": "2016-09-01",
+      "name": "nestedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+              "uri": "{template-uri}",
+              "contentVersion": "1.0.0.0"
+          },
+          "debugSetting": {
+             "detailLevel": "requestContent, responseContent"
+          }
+      }
+  }
+  ```
+
+## <a name="create-a-troubleshooting-template"></a>建立疑難排解範本
+
+在某些情況下，針對範本進行疑難排解的最簡單方式是測試其組件。 您可以建立簡化範本，以便專注於您認為是錯誤成因的組件。 例如，假設您在參考資源時收到錯誤。 不需要處理整個範本，而是建立一個會傳回可能造成問題之組件的範本。 它可協助您判斷是否傳入正確的參數、正確地使用範本函式，以及取得所預期的資源。
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+        "type": "string"
+    },
+    "storageResourceGroup": {
+        "type": "string"
+    }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "exampleOutput": {
+        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+        "type" : "object"
+    }
+  }
+}
+```
+
+或者，假設您遇到您認為與未正確設定之相依性有關的部署錯誤。 將其細分為簡化範本以測試您的範本。 首先，建立可部署單一資源 (例如 SQL Server) 的範本。 當您確定已正確定義該資源時，加入依存該資源的資源 (例如 SQL Database)。 當您正確定義這兩個資源時，加入其他相依的資源 (例如稽核原則)。 在每個測試部署之間，刪除資源群組以確保您充分測試相依性。
+
 
 ## <a name="next-steps"></a>後續步驟
 * 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](resource-group-audit.md)。

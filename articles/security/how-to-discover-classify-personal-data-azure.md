@@ -1,29 +1,29 @@
 ---
-title: "在 Microsoft Azure 中探索、識別並分類個人資料 | Microsoft Docs"
-description: "深入了解搜尋、分類、探索及識別資料"
+title: 在 Microsoft Azure 中探索、識別並分類個人資料 | Microsoft Docs
+description: 搜尋、分類、探索及識別 Azure 中的資料，可協助您符合一般資料保護規定 (GDPR)
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 21308faf5d3efd3908eccab4f37acb0cfccdcb8e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>在 Microsoft Azure 中探索、識別並分類個人資料
 
-本文提供指導方針，說明如何在數個 Azure 工具和服務中探索、識別和分類個人資料，包括使用 Azure 資料目錄、Azure Active Directory、SQL Database、Azure HDInsight 中適用於 Hadoop 叢集的 Power Query、Azure 資訊保護、Azure 搜尋服務，以及適用於 Azure Cosmos DB 的 SQL 查詢。
+本文提供指導方針，說明如何在數個 Azure 工具和服務中探索、識別和分類個人資料，包括使用 Azure 資料目錄、Azure Active Directory、SQL Database、Azure HDInsight 中適用於 Hadoop 叢集的 Power Query、Azure 資訊保護、Azure 搜尋服務，以及適用於 Azure Cosmos DB 的 SQL 查詢。 這些工具和程序可用來符合一般資料保護規定 (GDPR)
 
 ## <a name="scenario-problem-statement-and-goal"></a>情節、問題陳述和目標
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/21/2018
 
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
 
-2. 選取 [所有服務]，在文字方塊中輸入**使用者和群組**，然後選取 **Enter**。
+2. 選取 [所有服務]，在文字方塊中輸入**使用者和群組**，然後選取 **Enter** 鍵。
 
    ![如何找出使用者設定檔和工作資訊](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
@@ -114,7 +114,7 @@ New-AzureRmSQLDatabase -ResourceGroupName $resourcegroupname `
 >[!Note]
 Windows 系統管理員通常會使用 PowerShell，但有些則偏好使用 Azure CLI。
 
-### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>如何在 Azure 入口網站中搜尋 SQL Database 中的個人資料？**
+### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>如何在 Azure 入口網站中搜尋 SQL Database 中的個人資料？
 
 您可以使用 Azure 入口網站內部的內建查詢編輯器工具來搜尋個人資料。 您要使用 SQL Server 系統管理員登入和密碼來登入工具，然後輸入查詢。
 

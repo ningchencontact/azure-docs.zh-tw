@@ -1,24 +1,24 @@
 ---
-title: "使用 .NET SDK 設定資產傳遞原則 | Microsoft Docs"
-description: "本主題說明如何使用 Azure 媒體服務 .NET SDK 設定不同的資產傳遞原則。"
+title: 使用 .NET SDK 設定資產傳遞原則 | Microsoft Docs
+description: 本主題說明如何使用 Azure 媒體服務 .NET SDK 設定不同的資產傳遞原則。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Mingfeiy
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3ec46f58-6cbb-4d49-bac6-1fd01a5a456b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/13/2017
-ms.author: juliako;mingfeiy
-ms.openlocfilehash: 515467fefe9b318900ed64979d950b0ab783fd4a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 03/05/2018
+ms.author: juliako
+ms.openlocfilehash: 8fe78d2d8cef1ee5484bcdcd83b00afe8e5b30ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>使用 .NET SDK 設定資產傳遞原則
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -32,7 +32,6 @@ ms.lasthandoff: 03/02/2018
 >建立 AMS 帳戶時，會將**預設**串流端點新增至處於 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。 
 >
 >此外，為了能夠使用動態封裝和動態加密功能，您的資產必須包含一組調適性位元速率 MP4 或調適性位元速率 Smooth Streaming 檔案。
-
 
 您可以將不同的原則套用至相同的資產。 例如，您可以將 PlayReady 加密套用到 Smooth Streaming，將 AES 信封加密套用到 MPEG DASH 和 HLS。 傳遞原則中未定義的任何通訊協定 (例如，您加入單一原則，它只有指定 HLS 做為通訊協定) 將會遭到封鎖無法串流。 例外情形是當您完全未定義資產傳遞原則時。 那麼，將允許所有通訊協定，不受阻礙。
 
@@ -54,9 +53,8 @@ MPEG DASH
 
 {串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=mpd-time-csf)
 
-
 ## <a name="considerations"></a>考量
-* 當資產的 OnDemand (串流) 定位器仍存在時，您無法刪除與該資產關聯的 AssetDeliveryPolicy。 建議刪除原則之前，先將該原則從資產移除。
+* 刪除 AssetDeliveryPolicy 之前，您應該刪除所有與資產相關聯的串流定位器。 如有需要，您稍後可以使用新的 AssetDeliveryPolicy 來建立新的串流定位器。
 * 未設定資產傳遞原則時，將無法於儲存空間已加密的資產建立串流定位器。  如果資產的儲存空間未加密，系統會讓您建立定位器，並直接串流資產而不使用資產傳遞原則。
 * 您可以有多個資產傳遞原則與一個資產關聯，但只能指定一種方法處理特定的 AssetDeliveryProtocol。  這表示如果您嘗試連結二個指定 AssetDeliveryProtocol.SmoothStreaming 通訊協定的傳遞原則時將會導致錯誤，因為當用戶端發出 Smooth Streaming 要求時，系統會不知道要套用哪一個原則。
 * 如果您有包含現有串流定位器的資產，則您無法將新原則連接到該資產 (您可以解除現有原則與資產的連結，或更新與資產關聯的傳遞原則)。  您必須先移除串流定位器，調整原則，然後重新建立串流定位器。  重新建立串流定位器時，您可以使用同一個 locatorId，但必須確定不會對用戶端造成問題，因為原始或下游 CDN 可能會快取內容。

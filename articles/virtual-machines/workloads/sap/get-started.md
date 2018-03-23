@@ -1,27 +1,27 @@
 ---
-title: "開始在 Azure VM 上使用 SAP | Microsoft Docs"
-description: "了解在 Microsoft Azure 中的虛擬機器 (VM) 上執行的 SAP 解決方案"
+title: 開始在 Azure VM 上使用 SAP | Microsoft Docs
+description: 了解在 Microsoft Azure 中的虛擬機器 (VM) 上執行的 SAP 解決方案
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/02/2018
+ms.date: 03/05/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a0dcb941db5038b7c904c9eaa8599c5a1dc6e83
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 729fbd93566115499a6044f79a714232cdbc2f64
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>使用 Azure 來裝載和執行 SAP 工作負載案例
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -227,7 +227,7 @@ ms.lasthandoff: 01/03/2018
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
-[sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
+[sap-pam]:https://support.sap.com/pam (SAP 產品可用性對照表)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
@@ -279,7 +279,7 @@ ms.lasthandoff: 01/03/2018
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
@@ -298,7 +298,7 @@ ms.lasthandoff: 01/03/2018
 
 除了在 Azure 上裝載具有不同 DBMS 的 SAP NetWeaver 案例外，您還可以在 Azure 上裝載其他不同的 SAP 工作負載案例，例如 SAP BI。 關於在 Azure 原生虛擬機器上部署 SAP NetWeaver 的文件，可於＜Azure 虛擬機器上的 SAP NetWeaver＞一節中找到。
 
-Azure 擁有原生的 Azure 虛擬機器供應項目，這些供應項目的 CPU 和記憶體資源大小會日益增長，以應付運用 SAP HANA 的 SAP 工作負載。 如需有關此主題的詳細資訊，請查閱＜Azure 虛擬機器上的 SAP HANA＞一節內的文件。
+Azure 擁有原生的 Azure 虛擬機器供應項目，這些供應項目的 CPU 和記憶體資源大小會日益增長，以應付運用 SAP HANA 的 SAP 工作負載。 如需這方面的詳細資訊，請查閱文件中＜Azure 虛擬機器上的 SAP HANA＞一節底下的內容。
 
 Azure for SAP HANA 是獨一無二的供應項目，可讓 Azure 在競爭中顯得與眾不同。 為了讓涉及 SAP HANA 並裝載更嚴苛之記憶體和 CPU 資源的 SAP 案例能夠成真，Azure 可讓您使用客戶專用的裸機硬體來執行 SAP HANA 部署，以便應付最多需要 20 TB (可相應放大為 60 TB) 記憶體的 S/4HANA 或其他 SAP HANA 工作負載。 SAP HANA on Azure (大型執行個體) 的此一獨特 Azure 解決方案可讓您在專用的裸機硬體 (在原生 Azure 虛擬機器上裝載了 SAP 應用程式層或工作負載中介軟體層) 上執行 SAP HANA。 此解決方案記載於＜SAP HANA on Azure (大型執行個體)＞一節中的多份文件。   
 
@@ -310,7 +310,7 @@ Azure for SAP HANA 是獨一無二的供應項目，可讓 Azure 在競爭中顯
 ### <a name="overview-and-architecture-of-sap-hana-on-azure-large-instances"></a>SAP HANA on Azure (大型執行個體) 的概觀與架構
 標題：SAP HANA on Azure (大型執行個體) 的概觀與架構
 
-摘要：本《架構與技術部署指南》提供可協助您在 Azure 中的新 SAP HANA on Azure (大型執行個體) 上部署 SAP 的資訊。 它不是涵蓋 SAP 解決方案特定設定的完整指南，但是是您在初始部署和持續進行的作業中相當實用的資訊。 不應該取代與 SAP HANA 安裝相關的 SAP 文件 (或許多涵蓋該主題的＜SAP 支援附註＞)。 它提供概觀，並提供安裝 SAP HANA on Azure (大型執行個體) 的其他詳細資料。
+摘要：本《架構與技術部署指南》提供可協助您在 Azure 中的新 SAP HANA on Azure (大型執行個體) 上部署 SAP 的資訊。 它不是涵蓋 SAP 解決方案特定設定的完整指南，但是是您在初始部署和持續進行的作業中相當實用的資訊。 不應該取代與 SAP HANA 安裝相關的 SAP 文件 (或是涵蓋該方面的許多＜SAP 支援附註＞)。 它提供概觀，並提供安裝 SAP HANA on Azure (大型執行個體) 的其他詳細資料。
 
 更新日期：2017 年 10 月
 
@@ -337,7 +337,7 @@ Azure for SAP HANA 是獨一無二的供應項目，可讓 Azure 在競爭中顯
 ### <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>SAP HANA on Azure (大型執行個體) 的高可用性和災害復原
 標題：SAP HANA on Azure (大型執行個體) 的高可用性和災害復原
 
-摘要︰高可用性 (HA) 和災害復原 (DR) 對於執行關鍵任務 SAP HANA on Azure (大型執行個體) 伺服器是非常重要的層面。 它匯入以使用 SAP、您的系統整合者和/或 Microsoft 以正確架構，並為您實作正確的 HA/DR 策略。 您必須考量您的環境特定的復原點目標 (RPO) 和復原時間目標 (RTO) 等重要考量。  本文件說明啟用您慣用層級 HA 和 DR 的選項。
+摘要：高可用性 (HA) 和災害復原 (DR) 對執行具任務關鍵性的 SAP HANA on Azure (大型執行個體) 伺服器來說，是相當重要的層面。 它匯入以使用 SAP、您的系統整合者和/或 Microsoft 以正確架構，並為您實作正確的 HA/DR 策略。 您必須考量您的環境特定的復原點目標 (RPO) 和復原時間目標 (RTO) 等重要考量。  本文件說明啟用您慣用層級 HA 和 DR 的選項。
 
 更新日期：2017 年 10 月
 
@@ -434,7 +434,7 @@ Azure for SAP HANA 是獨一無二的供應項目，可讓 Azure 在競爭中顯
 ### <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>規劃和實作
 標題：SAP NetWeaver 的 Azure 虛擬機器規劃和實作
 
-摘要：如果您考慮在 Azure 虛擬機器中執行 SAP NetWeaver，那麼請將此文件當作入門指南。 此規劃和實作指南會協助您評估是否可將現有或已規劃的 SAP NetWeaver 架構系統部署到 Azure 虛擬機器環境。 其內容涵蓋多個 SAP NetWeaver 部署案例，並包含 Azure 特有的 SAP 組態。 本白皮書列出並描述若要執行混合式 SAP 環境，SAP/Azure 端所需的所有必要設定資訊。 另外也會說明為確保 IaaS 上的 SAP NetWeaver 架構系統擁有高可用性，您所能採取的措施。
+摘要：如果您考慮在 Azure 虛擬機器中執行 SAP NetWeaver，那麼請將此文件當作入門指南。 此規劃和實作指南會協助您評估是否可將現有或已規劃的 SAP NetWeaver 架構系統部署到 Azure 虛擬機器環境。 其內容涵蓋多個 SAP NetWeaver 部署案例，並包含 Azure 特有的 SAP 組態。 本白皮書列出並描述若要執行混合式 SAP 環境，於 SAP/Azure 端所需的所有必要設定資訊。 另外也會說明為確保 IaaS 上的 SAP NetWeaver 架構系統擁有高可用性，您所能採取的措施。
 
 更新日期：2017 年 6 月
 

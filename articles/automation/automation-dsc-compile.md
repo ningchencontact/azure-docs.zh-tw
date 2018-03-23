@@ -1,6 +1,6 @@
 ---
-title: "編譯 Azure 自動化 DSC 中的組態 | Microsoft Docs"
-description: "此文章說明如何針對 Azure 自動化編譯期望狀態設定 (DSC) 組態。"
+title: 編譯 Azure 自動化 DSC 中的組態 | Microsoft Docs
+description: 此文章說明如何針對 Azure 自動化編譯期望狀態設定 (DSC) 組態。
 services: automation
 documentationcenter: na
 author: georgewallace
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 03/02/2018
 ms.author: magoedte; gwallace
-ms.openlocfilehash: b267f64a836851e1142475568556eebf74adf2dd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 3ba9200023b71e6f1e69ee4c54d5c90efe1bc954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>編譯 Azure 自動化 DSC 中的組態
 
@@ -249,6 +249,7 @@ Azure 自動化 DSC 組態和 Runbook 中的資產參考是相同的。 如需�
 ```powershell
 Configuration CredentialSample
 {
+    Import-DscResource -ModuleName PSDesiredStateConfiguration
     $Cred = Get-AutomationPSCredential "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
@@ -283,6 +284,9 @@ $ConfigData = @{
 
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 ```
+
+> [!NOTE]
+> 完成編譯時，您可能會收到錯誤，指出：**並未匯入 'Microsoft.PowerShell.Management' 模組，因為已經匯入 'Microsoft.PowerShell.Management' 嵌入式管理單元。** 請放心忽略這項警告。
 
 ## <a name="importing-node-configurations"></a>匯入節點組態
 

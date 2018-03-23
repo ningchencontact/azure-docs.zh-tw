@@ -1,25 +1,19 @@
 ---
-title: "在彈性資料庫用戶端程式庫中管理認證 | Microsoft Docs"
-description: "如何設定彈性資料庫應用程式的正確認證層級 (管理員到唯讀)"
+title: 在彈性資料庫用戶端程式庫中管理認證 | Microsoft Docs
+description: 如何設定彈性資料庫應用程式的正確認證層級 (管理員到唯讀)
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 72e0edaf-795e-4856-84a5-6594f735fb7e
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: ddove
-ms.openlocfilehash: 0f266f3be8bf8c1699b3b19bea96c83d32f1bd69
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: sstein
+ms.openlocfilehash: 26d83779b218f8c936c020d63651861f45bafa2f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>用來存取彈性資料庫用戶端程式庫的認證
 [彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)使用三種不同的認證存取[分區對應管理員](sql-database-elastic-scale-shard-map-management.md)。 視需要使用盡可能低的存取層級認證。

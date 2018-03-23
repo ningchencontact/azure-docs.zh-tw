@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure 虛擬資料中心 | Microsoft Docs"
-description: "了解如何在 Azure 中建置虛擬資料中心"
+title: Microsoft Azure 虛擬資料中心：網路觀點 | Microsoft Docs
+description: 了解如何在 Azure 中建置虛擬資料中心
 services: networking
 author: tracsman
 manager: rossort
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
-ms.openlocfilehash: 7dcc6b77bde8b8a7b485525105c1a07c53301f8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4693d91fe81ce55c6faa6610ea19219ac5cfcb5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="microsoft-azure-virtual-data-center"></a>Microsoft Azure 虛擬資料中心
+# <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Microsoft Azure 虛擬資料中心：網路觀點
 **Microsoft Azure**：移動更為快速、節省成本、在內部部署環境整合應用程式和資料
 
 ## <a name="overview"></a>概觀

@@ -1,12 +1,12 @@
 ---
-title: "針對 Azure 備份失敗：無法使用客體代理程式狀態進行疑難排解 | Microsoft Docs"
-description: "與代理程式、延伸模組及磁碟相關之 Azure 備份失敗的徵狀、原因和解決方案。"
+title: 針對 Azure 備份失敗：無法使用客體代理程式狀態進行疑難排解 | Microsoft Docs
+description: 與代理程式、延伸模組及磁碟相關之 Azure 備份失敗的徵狀、原因和解決方案。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
-keywords: "Azure 備份; VM 代理程式; 網路連線;"
+editor: ''
+keywords: Azure 備份; VM 代理程式; 網路連線;
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: c205023b025a477ee05ddcbfc536573f31426167
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題
 
@@ -30,9 +30,6 @@ ms.lasthandoff: 02/01/2018
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM 代理程式無法與 Azure 備份通訊
 
 錯誤訊息：「VM 代理程式無法與 Azure 備份通訊」
-
-> [!NOTE]
-> 如果 Azure Linux VM 備份因為這個錯誤而失敗 (於 2018 年 1 月 4 日開始)，請在 VM 中執行下列命令，然後重試備份：`sudo rm -f /var/lib/waagent/*.[0-9]*.xml`
 
 在註冊及排程備份服務的 VM 之後，備份就會藉由與 VM 代理程式通訊以取得時間點快照集，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 若未觸發快照集，備份可能會失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：
 
@@ -58,9 +55,8 @@ ms.lasthandoff: 02/01/2018
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：  
 **原因 1︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **原因 2︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
-**原因 3：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**  
-**原因 4：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**原因 5︰[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**原因 3：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**原因 4︰[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>備份因為 VM 代理程式沒有回應而失敗
 
@@ -168,7 +164,7 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
 如果我們需要 waagent 的詳細資訊記錄，請遵循下列步驟：
 
 1. 在 /etc/waagent.conf 檔案中，找出下一行︰**Enable verbose logging (y|n)**
-2. 將 **Logs.Verbose** 值從 n 變更為 y。
+2. 將 **Logs.Verbose** 值從 *n* 變更為 *y*。
 3. 儲存變更，然後完成本節前面所述的步驟來重新啟動 waagent。
 
 ###  <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>無法擷取快照集狀態或無法取得快照集
@@ -179,7 +175,6 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 | 原因 | 解決方法 |
 | --- | --- |
-| VM 已設定 SQL Server 備份。 | 根據預設，VM 備份會在 Windows VM 上執行磁碟區陰影複製服務 (VSS) 完整備份。 在執行以 SQL Server 為基礎的伺服器並設定了 SQL Server 備份的 VM 上，可能會發生快照集延遲執行。<br><br>如果您因為快照集問題而遇到備份失敗，請設定下列登錄機碼：<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | 因為遠端桌面通訊協定 (RDP) 中的 VM 關機，而導致報告的 VM 狀態不正確。 | 如果您關閉 RDP 中的 VM，請檢查入口網站，以判斷 VM 狀態是否正確。 如果不正確，可使用 VM 儀表板上的 [關閉] 選項來關閉入口網站中的 VM。 |
 | VM 無法從 DHCP 取得主機或網狀架構位址。 | 必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。 如果 VM 無法從 DHCP 回應 245 取得主機或網狀架構位址，則無法下載或執行任何延伸模組。 如果您需要靜態私人 IP 位址，請透過平台進行設定。 VM 內的 DHCP 選項應保持啟用。 如需詳細資訊，請參閱[設定靜態內部私人 IP 位址](../virtual-network/virtual-networks-reserved-private-ip.md)。 |
 
@@ -188,18 +183,13 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 #### <a name="solution"></a>解決方法
 
-**Windows 客體：**確認 iaasvmprovider 服務已啟用，而且啟動類型為「自動」。 如果服務不是以此方式設定，請啟用該服務以判斷下一次備份是否成功。
-
-**Linux 客體：**確認 VMSnapshot for Linux (備份所使用的延伸模組) 的最新版本是 1.0.91.0。<br>
-
-
-如果還是無法更新或載入備份延伸模組，請將延伸模組解除安裝來強制重新載入 VMSnapshot 擴充功能。 下一次備份嘗試會重新載入解除安裝。
+將擴充功能解除安裝，以強制重新載入 VMSnapshot 擴充功能。 下一次備份嘗試會重新載入解除安裝。
 
 若要將解除安裝解除安裝：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，移至發生備份失敗的 VM。
 2. 選取 [Settings] \(設定) 。
-3. 選取 [解除安裝]。
+3. 選取 [擴充功能]。
 4. 選取 [Vmsnapshot 解除安裝]。
 5. 選取 [解除安裝]。
 

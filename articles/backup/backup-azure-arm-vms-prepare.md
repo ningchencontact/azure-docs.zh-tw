@@ -1,12 +1,12 @@
 ---
-title: "Azure 備份：準備備份虛擬機器 | Microsoft Docs"
-description: "確認在 Azure 中備份虛擬機器的環境已準備就緒。"
+title: Azure 備份：準備備份虛擬機器 | Microsoft Docs
+description: 確認在 Azure 中備份虛擬機器的環境已準備就緒。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "備份；備份；"
+editor: ''
+keywords: 備份；備份；
 ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>準備環境以備份 Resource Manager 部署的虛擬機器
 
@@ -49,12 +49,6 @@ ms.lasthandoff: 03/05/2018
 準備環境之前，請務必先了解下列限制：
 
 * 不支援備份具有 16 個以上資料磁碟的虛擬機器。
-* 不支援備份資料磁碟大小超過 1023 GB 的虛擬機器。
-
-  > [!NOTE]
-  > 我們有私人預覽，可支援磁碟大小超過 1 TB 的虛擬機器的備份作業。 如需詳細資訊，請參閱[適用於大型磁碟虛擬機器備份支援的私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)。
-  >
-
 * 不支援備份具有保留的 IP 且沒有已定義之端點的虛擬機器。
 * 不支援備份透過 Linux 統一金鑰設定 (LUKS) 加密所加密的 Linux VM。
 * 我們不建議備份包含叢集共用磁碟區 (CSV) 或向外延展檔案伺服器設定的 VM。 其需要涉及在快照集工作期間，叢集設定中包含的所有 VM。 Azure 備份無法保持 VM 間的一致性。 

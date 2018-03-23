@@ -1,11 +1,11 @@
 ---
-title: "監視 Azure 虛擬機器的備份警示 | Microsoft Docs"
-description: "監視來自 Azure 虛擬機器備份作業的事件與警示。 根據警示傳送電子郵件。"
+title: 監視 Azure 虛擬機器的備份警示 | Microsoft Docs
+description: 監視來自 Azure 虛擬機器備份作業的事件與警示。 根據警示傳送電子郵件。
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: fed32015-2db2-44f8-b204-d89f6fd1bea2
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: 0f92d63d6eabe48bfac444b79bc10e090df239ca
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fbdce5c244d733a2978d473f01c8d875cbeaa65e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>監視 Azure 虛擬機器備份的警示
 警示是來自已達到或超過事件閾值之服務的回應。 了解何時出現問題，可能對於維持低商務成本很重要。 警示通常不會依照排程發生，因此在警示發生之後盡早得知將會有所幫助。 例如，當備份或還原作業失敗時，警示會在失敗後五分鐘內發生。 在保存庫儀表板中，[備份警示] 圖格會顯示嚴重和警告層級的事件。 在 [備份警示] 設定中，您可以檢視所有事件。 但是，如果在您處理不同問題時發生警示，您該怎麼辦？ 如果您不知道何時發生警示，可能會有點不便，或可能危及資料。 若要確定正確的人員會留意警示 (當它發生時)，請設定服務以透過電子郵件傳送警示通知。 如需設定電子郵件通知的詳細資訊，請參閱 [設定通知](backup-azure-monitor-vms.md#configure-notifications)。
 
 ## <a name="how-do-i-find-information-about-the-alerts"></a>如何找到警示的相關資訊？
-若要檢視擲回警示的事件相關資訊，您必須開啟 [備份警示] 刀鋒視窗。 開啟 [備份警示] 刀鋒視窗的方法有兩種︰從保存庫儀表板中的 [備份警示] 圖格，或從 [警示和事件] 刀鋒視窗。
+若要檢視擲回警示的事件相關資訊，您必須開啟 [備份警示] 區段。 開啟 [備份警示] 區段的方法有兩種︰從保存庫儀表板中的 [備份警示] 圖格，或從 [警示和事件] 區段。
 
 若要從 [備份警示] 圖格開啟 [備份警示] 刀鋒視窗︰
 
@@ -32,16 +32,16 @@ ms.lasthandoff: 02/24/2018
 
     ![備份警示圖格](./media/backup-azure-monitor-vms/backup-alerts-tile.png)
 
-若要從 [警示和事件] 刀鋒視窗開啟 [備份警示] 刀鋒視窗︰
+從 [警示和事件] 區段開啟 [備份警示] 刀鋒視窗：
 
 1. 在保存庫儀表板中，按一下 [所有設定] 。 ![所有設定按鈕](./media/backup-azure-monitor-vms/all-settings-button.png)
 2. 在 [設定] 刀鋒視窗上，按一下 [警示和事件]。 ![警示和事件按鈕](./media/backup-azure-monitor-vms/alerts-and-events-button.png)
 3. 在 [警示與事件] 刀鋒視窗上，按一下 [備份警示]。 ![備份警示按鈕](./media/backup-azure-monitor-vms/backup-alerts.png)
 
-    [備份警示]  刀鋒視窗會開啟並顯示篩選後的警示。
+    [備份警示] 區段會開啟並顯示篩選後的警示。
 
     ![備份警示圖格](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
-4. 若要檢視特定警示的詳細資訊，請從事件清單中按一下警示，以開啟其 [詳細資料]  刀鋒視窗。
+4. 若要檢視特定警示的詳細資訊，請從事件清單中按一下警示，以開啟它的 [詳細資料] 區段。
 
     ![事件詳細資料](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
@@ -56,10 +56,10 @@ ms.lasthandoff: 02/24/2018
 
     ![備份警示功能表](./media/backup-azure-monitor-vms/backup-alerts-menu.png)
 
-    [設定通知] 刀鋒視窗隨即開啟。
+    [設定通知] 區段隨即開啟。
 
     ![設定通知刀鋒視窗](./media/backup-azure-monitor-vms/configure-notifications.png)
-2. 在 [設定通知] 刀鋒視窗上，針對 [電子郵件通知]，按一下 [開啟] 。
+2. 在 [設定通知] 區段上，針對電子郵件通知按一下 [開啟]。
 
     [收件者] 和 [嚴重性] 對話方塊旁邊有星號，因為該資訊是必要的。 提供至少一個電子郵件地址，然後選取至少一個嚴重性。
 3. 在 [收件者 (電子郵件)]  對話方塊中，輸入接收通知者的電子郵件地址。 使用格式︰username@domainname.com。用分號分 (;) 分隔多個電子郵件位址。
@@ -82,135 +82,53 @@ ms.lasthandoff: 02/24/2018
 * 備份作業會觸發然後失敗，且另一個備份作業正在進行中。
 * 啟用 Resource Manager 功能之 VM 的排程備份作業會啟動，但 VM 將不再存在。
 
-## <a name="customize-your-view-of-events"></a>自訂事件的檢視
-[稽核記錄檔]  設定隨附一組預先定義的篩選器和資料行，以顯示作業事件資訊。 您可以自訂檢視，因此當 [事件]  刀鋒視窗開啟時，它會顯示您所需的資訊。
+## <a name="using-activity-logs-to-get-notifications-for-successful-backups"></a>使用活動記錄來取得成功備份的通知
 
-1. 在[保存庫儀表板](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard)中，瀏覽並按一下 [稽核記錄檔]，以開啟 [事件] 刀鋒視窗。
+如果您想要在備份成功之後收到通知，您可以使用建置於保存庫之[活動記錄](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)上的警示。
 
-    ![稽核記錄](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
+### <a name="login-into-azure-portal"></a>登入 Azure 入口網站
+登入 Azure 入口網站並移至相關的 Azure 復原服務保存庫，然後按一下屬性中的 [活動記錄] 區段。
 
-    開啟的 [事件]  刀鋒視窗會顯示針對目前保存庫而篩選的作業事件。
+### <a name="identify-appropriate-log"></a>識別適當的記錄
 
-    ![稽核記錄檔篩選器](./media/backup-azure-monitor-vms/audit-logs-filter.png)
+套用下圖中顯示的篩選，以確認您是否正在接收成功備份的活動記錄。 據此變更時間範圍以檢視記錄。
 
-    此刀鋒視窗會顯示過去一週發生的嚴重、錯誤、警告和資訊事件清單。 時間範圍是在 [篩選] 中設定的預設值。 [事件]  刀鋒視窗也會顯示橫條圖來追蹤事件發生的時間。 如果您不想看到橫條圖，請在 [事件] 功能表中按一下 [隱藏圖表] 以關閉圖表。 [事件] 的預設檢視會顯示 [作業]、[層級]、[狀態]、[資源] 和 [時間] 資訊。 如需公開其他事件屬性的相關資訊，請參閱 [展開事件資訊](backup-azure-monitor-vms.md#view-additional-event-attributes)一節。
-2. 如需作業事件的其他資訊，請在 [作業]  資料行中，按一下作業事件以開啟其刀鋒視窗。 此刀鋒視窗包含事件的詳細資訊。 事件會依其相互關聯識別碼以及在時間範圍內發生的事件清單分組。
+![活動記錄檔](./media/backup-azure-monitor-vms/activity-logs-identify.png)
 
-    ![Operation Details](./media/backup-azure-monitor-vms/audit-logs-details-window.png)
-3. 若要檢視特定事件的詳細資訊，請從事件清單中按一下事件，以開啟其 [詳細資料]  刀鋒視窗。
+您可以按一下 [JSON] 區段來取得更多詳細資料，並將它複製並貼至文字編輯器加以檢視。 它應該會顯示保存庫詳細資料和觸發活動記錄的項目 (也就是備份項目)。
 
-    ![事件詳細資料](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
+然後按一下 [新增活動記錄警示] 來產生所有這類記錄的警示。
 
-    事件層級資訊隨著資訊越多而越詳細。 如果您想查看有關每個事件的這麼多資訊，而且想要將這麼多詳細資料加入至 [事件]  刀鋒視窗，請參閱 [展開事件資訊](backup-azure-monitor-vms.md#view-additional-event-attributes)一節。
+### <a name="add-activity-log-alert"></a>新增活動記錄警示
 
-## <a name="customize-the-event-filter"></a>自訂事件篩選器
-使用 [篩選]  進行調整，或選擇特定刀鋒視窗中顯示的資訊。 若要篩選事件資訊︰
+按一下 [新增活動記錄警示] 將會為您顯示如下的畫面
 
-1. 在[保存庫儀表板](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard)中，瀏覽並按一下 [稽核記錄檔]，以開啟 [事件] 刀鋒視窗。
+![活動記錄警示](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png)
+    
+訂用帳戶與資源群組均會用來儲存警示。 準則將會預先填入。 確定所有值都與您的需求相關。
 
-    ![稽核記錄](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
+如果是成功備份，就會將 [等級] 標示為 [資訊]，並將 [狀態] 標示為 [成功]。
 
-    開啟的 [事件]  刀鋒視窗會顯示針對目前保存庫而篩選的作業事件。
+如果您選取上方的 [資源]，則在記錄到該資源或保存庫的活動記錄時，將會產生警示。 如果您想要將規則套用到所有保存庫，請將 [資源] 保留空白。
 
-    ![稽核記錄檔篩選器](./media/backup-azure-monitor-vms/audit-logs-filter.png)
-2. 在 [事件] 功能表上，按一下 [篩選] 以開啟該刀鋒視窗。
+### <a name="define-action-on-alert-firing"></a>定義警示引發的動作
 
-    ![開放篩選刀鋒視窗](./media/backup-azure-monitor-vms/audit-logs-filter-button.png)
-3. 在 [篩選] 刀鋒視窗上，調整 [層級]、[時間範圍] 和 [呼叫者] 篩選器。 其他篩選器已設定為提供復原服務保存庫的目前資訊，所以無法使用。
+使用 [動作群組] 來定義產生警示時的動作。 您可以按一下 [動作類型] 來深入了解可用的動作，例如，電子郵件/SMS/與 ITSM 整合等等。
 
-    ![稽核記錄檔查詢詳細資料](./media/backup-azure-monitor-vms/filter-blade.png)
+![活動記錄動作群組](./media/backup-azure-monitor-vms/activity-logs-alerts-action-group.png)
 
-    您可以指定事件的 **層級** ︰嚴重、錯誤、警告或資訊。 您可以選擇任何事件層級組合，但必須選取至少一個層級。 開啟或關閉層級。 [時間範圍]  篩選器可讓您指定時間長度來擷取事件。 如果您使用自訂的時間範圍，您可以設定開始和結束時間。
-4. 當您準備好使用篩選器來查詢作業記錄時，請按一下 [更新] 。 結果會顯示在 [事件]  刀鋒視窗中。
 
-    ![Operation Details](./media/backup-azure-monitor-vms/edited-list-of-events.png)
-
-### <a name="view-additional-event-attributes"></a>檢視其他事件屬性
-使用 [資料行] 按鈕，您可以讓其他事件屬性出現在 [事件] 刀鋒視窗上的清單中。 事件的預設清單會顯示 [作業]、[層級]、[狀態]、[資源] 和 [時間] 資訊。 若要啟用其他屬性︰
-
-1. 在 [事件] 刀鋒視窗上，按一下 [資料行]。
-
-    ![開啟資料行](./media/backup-azure-monitor-vms/audi-logs-column-button.png)
-
-    [選擇資料行]  刀鋒視窗隨即開啟。
-
-    ![資料行刀鋒視窗](./media/backup-azure-monitor-vms/columns-blade.png)
-2. 若要選取屬性，請按一下核取方塊。 屬性核取方塊可進行開啟和關閉切換。
-3. 按一下 [重設] 以在 [事件] 刀鋒視窗中重設屬性清單。 從清單中新增或移除屬性之後，使用 [重設]  來檢視新的事件屬性清單。
-4. 按一下 [更新]  以更新事件屬性的資料。 下表提供每個屬性的相關資訊。
-
-| 資料行名稱 | 說明 |
-| --- | --- |
-| 作業 |作業的名稱 |
-| 層級 |作業的層級，其值可以是︰資訊、警告、錯誤或嚴重 |
-| 狀態 |作業的描述性狀態 |
-| 資源 |可識別資源的 URI；也稱為資源識別碼 |
-| 時間 |事件發生時的時間 (從目前時間開始測量) |
-| 呼叫者 |何者或何物呼叫或觸發事件；可以是系統或使用者 |
-| Timestamp |觸發事件時的時間 |
-| 資源群組 |相關聯的資源群組 |
-| 資源類型 |Resource Manager 所使用的內部資源類型 |
-| 訂用帳戶識別碼 |相關聯的訂用帳戶識別碼 |
-| 類別 |事件的類別 |
-| 相互關連識別碼 |相關事件的通用識別碼 |
-
-## <a name="use-powershell-to-customize-alerts"></a>使用 PowerShell 自訂警示
-您可以在入口網站取得作業的自訂警示通知。 若要取得這些作業，請在作業記錄事件中定義以 PowerShell 為基礎的警示規則。 使用 PowerShell 1.3.0 版或更新版本 。
-
-若要定義自訂通知以警示備份失敗，請使用如同下列指令碼的命令：
-
-```
-PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
-PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.RecoveryServices/recoveryServicesVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/Microsoft.RecoveryServices/vaults/trinadhVault -Actions $actionEmail
-```
-
-**ResourceId** ︰您可以從稽核記錄檔中取得 ResourceId。 ResourceId 是作業記錄檔的 [資源] 資料行中提供的 URL。
-
-**OperationName**：OperationName 的格式為 "Microsoft.RecoveryServices/recoveryServicesVault/*EventName*"，其中 *EventName* 可以是：<br/>
-
-* 註冊 <br/>
-* Unregister  <br/>
-* ConfigureProtection  <br/>
-* Backup  <br/>
-* Restore <br/>
-* StopProtection  <br/>
-* DeleteBackupData  <br/>
-* CreateProtectionPolicy  <br/>
-* DeleteProtectionPolicy  <br/>
-* UpdateProtectionPolicy  <br/>
-
-**Status** ：支援的值為 [已開始]、[成功] 或 [失敗]。
-
-**ResourceGroup** ︰這是資源所屬的資源群組。 您可以將 [資源群組] 資料行加入至產生的記錄檔。 資源群組是其中一個可用的事件資訊類型。
-
-**Name** ：警示規則的名稱。
-
-**CustomEmail** ：指定您要傳送警示通知的自訂電子郵件地址
-
-**SendToServiceOwners** ：此選項會將警示通知傳送給訂用帳戶的所有系統管理員和共同管理員。 它可以用於 **New-AzureRmAlertRuleEmail** Cmdlet 中
+當您按一下 [確定] 之後，系統將會產生活動記錄警示，而針對成功備份所記錄的後續活動記錄將會引發如動作群組中所定義的動作。
 
 ### <a name="limitations-on-alerts"></a>警示的限制
 以事件為基礎的警示受到下列限制：
 
 1. 在復原服務保存庫中的所有虛擬機器上觸發警示。 您無法針對復原服務保存庫中的部份虛擬機器自訂警示。
-2. 這項功能處於預覽狀態。 [深入了解](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
-3. "alerts-noreply@mail.windowsazure.com" 會傳送警示。 目前您無法修改電子郵件寄件者。
+2. "alerts-noreply@mail.windowsazure.com" 會傳送警示。 目前您無法修改電子郵件寄件者。
 
 ## <a name="next-steps"></a>後續步驟
-事件記錄檔會啟用備份作業的絕佳事後剖析和稽核支援。 系統會記錄下列作業：
+如需從復原點重新建立虛擬機器的詳細資訊，請參閱 [還原 Azure VM](backup-azure-arm-restore-vms.md)。
 
-* Register 
-* Unregister 
-* 設定保護
-* 備份 (排程和隨選備份兩者)
-* Restore 
-* 停止保護
-* 刪除備份資料
-* Add policy
-* 刪除原則
-* 更新原則
-* 取消工作
+如需保護虛擬機器的詳細資訊，請參閱 [搶先目睹︰將 VM 備份至復原服務保存庫](backup-azure-vms-first-look-arm.md)。 
 
-如需各項 Azure 服務的事件、作業和稽核記錄檔的廣泛說明，請參閱[檢視事件和稽核記錄檔](../monitoring-and-diagnostics/insights-debugging-with-events.md)一文。
-
-如需從復原點重新建立虛擬機器的詳細資訊，請參閱 [還原 Azure VM](backup-azure-arm-restore-vms.md)。 如需保護虛擬機器的詳細資訊，請參閱 [搶先目睹︰將 VM 備份至復原服務保存庫](backup-azure-vms-first-look-arm.md)。 深入了解 [管理 Azure 虛擬機器備份](backup-azure-manage-vms.md)一文中 VM 備份的管理工作。
+在[管理 Azure 虛擬機器備份](backup-azure-manage-vms.md)一文中，深入了解 VM 備份的管理工作。

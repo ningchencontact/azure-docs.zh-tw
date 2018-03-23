@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric 修補程式協調流程應用程式 | Microsoft Docs"
-description: "在 Service Fabric 叢集上將作業系統修補自動化的應用程式。"
+title: Azure Service Fabric 修補程式協調流程應用程式 | Microsoft Docs
+description: 在 Service Fabric 叢集上將作業系統修補自動化的應用程式。
 services: service-fabric
 documentationcenter: .net
 author: novino
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/16/2018
+ms.date: 3/07/2018
 ms.author: nachandr
-ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 43a0675b1613e7bcf338537c1203de7df9a02fc4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Windows 作業系統
 
@@ -136,7 +136,9 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="download-the-app-package"></a>下載安裝套件
 
-從[下載連結](https://go.microsoft.com/fwlink/P/?linkid=849590)下載應用程式。
+應用程式和安裝指令碼可以從[封存連結](https://go.microsoft.com/fwlink/?linkid=869566)下載。
+
+Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://go.microsoft.com/fwlink/?linkid=869567)下載。 這對於 [Azure Resource Manager 型應用程式部署](service-fabric-application-arm-resource.md)非常有用。
 
 ## <a name="configure-the-app"></a>設定應用程式
 
@@ -361,8 +363,12 @@ A. 某些產品更新只會出現在其各自的更新/修補歷程記錄中。 
 ### <a name="version-111"></a>1.1.1 版
 - 修正 SetupEntryPoint of NodeAgentService 中的錯誤，該錯誤導致無法安裝 NodeAgentNTService。
 
-### <a name="version-120-latest"></a>1.2.0 版 (最新)
+### <a name="version-120"></a>版本 1.2.0
 
 - 關於系統重新啟動工作流程的錯誤修正。
 - 由於準備修復工作期間健康情況檢查未如預期般發生，而在 RM 工作建立時進行的錯誤修正。
 - 將 Windows 服務 POANodeSvc 的啟動模式從自動變更為延遲自動。
+
+### <a name="version-121-latest"></a>版本 1.2.1 (最新版)
+
+- 縮小叢集範圍工作流程中的錯誤修正。 針對屬於不存在節點的 POA 修復工作，導入了記憶體回收邏輯。

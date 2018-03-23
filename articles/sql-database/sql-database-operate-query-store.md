@@ -1,26 +1,19 @@
 ---
-title: "操作 Azure SQL Database 中的查詢存放區"
-description: "了解如何操作 Azure SQL Database 中的查詢存放區"
-keywords: 
+title: 操作 Azure SQL Database 中的查詢存放區
+description: 了解如何操作 Azure SQL Database 中的查詢存放區
 services: sql-database
-documentationcenter: 
 author: bonova
-manager: jhubbard
-editor: 
-ms.assetid: 0cccf6bd-1327-44f7-a6f9-8eff0c210463
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: sqldb-performance
-ms.workload: Inactive
 ms.date: 11/08/2016
 ms.author: bonova
-ms.openlocfilehash: e57f1c51ef5c551f3b2e5d0f0a51a1f462b6c1af
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f0c3780f6efe87437742af7c1b8f6a3e6d0ee243
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>操作 Azure SQL Database 中的查詢存放區
 Azure 中的查詢資料存放區是完全受控的資料庫功能，可持續收集及呈現有關所有查詢的詳細歷程記錄資訊。 您可以將查詢存放區視為類似於飛航資料記錄器，可大幅簡化雲端選項與內部部署客戶的查詢效能疑難排解。 這篇文章說明在 Azure 中操作查詢存放區的特定層面。 您可以使用此預先收集的查詢資料，快速地診斷並解決效能問題，因此能夠花更多時間專注於業務上。 

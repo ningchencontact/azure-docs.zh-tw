@@ -1,11 +1,11 @@
 ---
-title: "Azure Log Analytics 中的記錄搜尋 | Microsoft Docs"
-description: "您需要記錄搜尋以便從 Log Analytics 擷取任何資料。  本文說明新的記錄搜尋在 Log Analytics 中的使用方式，並且提供在建立之前需要了解的概念。"
+title: Azure Log Analytics 中的記錄搜尋 | Microsoft Docs
+description: 您需要記錄搜尋以便從 Log Analytics 擷取任何資料。  本文說明新的記錄搜尋在 Log Analytics 中的使用方式，並且提供在建立之前需要了解的概念。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.author: bwren
 ms.openlocfilehash: 5f040d1480433ccf4c0b2b22c0cf1e25a7151d74
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>了解 Log Analytics 中的記錄搜尋
 

@@ -1,31 +1,29 @@
 ---
-title: "在 Azure 中使用加密功能來保護傳輸中的個人資料 | Microsoft Docs"
-description: "在 Azure 中使用加密功能來保護個人資料"
+title: 在 Azure 中使用加密功能來保護傳輸中的個人資料 | Microsoft Docs
+description: 使用 Azure 加密來保護個人資料的相關資訊，在致力於符合一般資料保護規定 (GDPR) 時很有助益。
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 461ddfda796bfe6639e27f6c4cd53e82b4e397d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 6975358d40206a497a53de16731d16ef374db905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>Azure 加密技術：使用加密功能來保護傳輸中的個人資料
 
-本文可協助您了解及使用 Azure 加密技術來保護傳輸中的資料。 
-
-保護個人資料於網路周遊時的隱私權，是多層式深度防禦安全性策略中不可或缺的一部分。 傳輸中的加密功能是為了讓攔截傳輸的攻擊者無法檢視或使用資料。
+本文可協助您了解及使用 Azure 加密技術來保護傳輸中的資料。 保護個人資料於網路周遊時的隱私權，是多層式深度防禦安全性策略中不可或缺的一部分。 傳輸中的加密功能是為了讓攔截傳輸的攻擊者無法檢視或使用資料。 本文中所包含的資訊在組織致力於符合一般資料保護規定 (GDPR) 時可能很有助益。
 
 ## <a name="scenario"></a>案例
 

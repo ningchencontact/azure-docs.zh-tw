@@ -1,11 +1,11 @@
 ---
-title: "在 VMware 中佈建 StorSimple Virtual Array | Microsoft Docs"
-description: "部署 StorSimple Virtual Array 的第二個教學課程，內容為如何在 VMware 中佈建虛擬裝置。"
+title: 在 VMware 中佈建 StorSimple Virtual Array | Microsoft Docs
+description: 部署 StorSimple Virtual Array 的第二個教學課程，內容為如何在 VMware 中佈建虛擬裝置。
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: be737550aa1cff22bc413ee8ce243f8d8588f6a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>部署 StorSimple Virtual Array：在 VMware 中佈建
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -127,7 +127,7 @@ ms.lasthandoff: 11/14/2017
 17. 在 [儲存體]  頁面上，選取您要用來佈建虛擬機器的資料存放區。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
-18. 在 [虛擬機器版本] 頁面上，選取 [虛擬機器版本: 8]。 支援第 8 版到第 11 版。
+18. 在 [虛擬機器版本] 頁面上，選取 [虛擬機器版本: 8]。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
 19. 在 [客體作業系統] 頁面上，將 [客體作業系統] 選取為 [Windows]。 而對於 [版本]，請從下拉式清單中選取 [Microsoft Windows Server 2012 (64 位元)]。

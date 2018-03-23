@@ -1,116 +1,127 @@
 ---
-title: "本機 Git 部署至 Azure App Service"
-description: "了解如何啟用本機 Git 部署至 Azure App Service。"
+title: 本機 Git 部署至 Azure App Service
+description: 了解如何啟用本機 Git 部署至 Azure App Service。
 services: app-service
-documentationcenter: 
-author: dariagrigoriu
+documentationcenter: ''
+author: cephalin
 manager: cfowler
-editor: mollybos
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2016
-ms.author: dariagrigoriu
-ms.openlocfilehash: 948c54a2e9be2260d0a7d2cce31b67ffbbd23d03
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.date: 03/05/2018
+ms.author: dariagrigoriu;cephalin
+ms.openlocfilehash: 4cbe26055bdbf906223a327ab8cf94bebe9e7998
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>本機 Git 部署至 Azure App Service
 
-本教學課程會示範如何將應用程式從本機電腦上的 Git 儲存機制部署到 [Azure Web Apps](app-service-web-overview.md)。 App Service 支援使用這個方法和 [Azure 入口網站]的 [本機 Git] 部署選項。
+本使用說明指南示範如何將程式碼從本機電腦上的 Git 存放庫部署到 [Azure App Service](app-service-web-overview.md)。
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>先決條件
 
-若要完成本教學課程，您需要：
+遵循本使用說明指南中的步驟：
 
-* Git。 您可以在 [這裡](http://www.git-scm.com/downloads)下載安裝二進位檔。
-* Git 基本知識。
-* Microsoft Azure 帳戶。 如果您沒有這類帳戶，可以[註冊免費試用版](https://azure.microsoft.com/pricing/free-trial)，或是[啟用自己的 Visual Studio 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)。
+* [安裝 Git](http://www.git-scm.com/downloads)。
+* 使用您想要部署的程式碼維護本機 Git 存放庫。
+
+若要範例存放庫以跟著執行，請在您的本機終端機視窗中執行下列命令：
+
+```bash
+git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
+```
+
+## <a name="prepare-your-repository"></a>準備您的存放庫
+
+確定您的存放庫根目錄含有專案中的正確檔案。
+
+| 執行階段 | 根目錄檔案 |
+|-|-|
+| ASP.NET (僅限 Windows) | _*.sln_、_*.csproj_ 或 _default.aspx_ |
+| ASP.NET Core | _*.sln_ 或 _*.csproj_ |
+| PHP | _index.php_ |
+| Ruby (僅限 Linux) | _Gemfile_ |
+| Node.js | 含啟動指令碼的 _server.js_、_app.js_, 或 _package.json_ |
+| Python (僅限 Windows) | _\*.py_、_requirements.txt_ 或 _runtime.txt_ |
+| HTML | _default.htm_、_default.html_、_default.asp_、_index.htm_、_index.html_ 或 _iisstart.htm_ |
+| WebJobs | _App\_Data/jobs/continuous_ (適用於持續的 WebJobs) 或 _App\_Data/jobs/triggered_ (適用於觸發的 WebJobs) 底下的 _\<job_name>/run.\<extension>_。 如需詳細資訊，請參閱 [Kudu WebJobs 文件](https://github.com/projectkudu/kudu/wiki/WebJobs) \(英文\)。 |
+| Functions | 請參閱 [Azure Functions 的持續部署](../azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements)。 |
+
+若要自訂部署，您可以在存放庫根目錄中包含 _.deployment_ 檔案。 如需詳細資訊，請參閱[自訂部署](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) \(英文\) 和[自訂部署指令碼](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) \(英文\)。
 
 > [!NOTE]
-> 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service](https://azure.microsoft.com/try/app-service/)，即可在 App Service 中立即建立短期的入門應用程式。 不需要信用卡；無需承諾。
+> 請務必對您想要部署的所有變更執行 `git commit`。
+>
 >
 
-## <a name="Step1"></a>步驟 1：建立本機儲存機制
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-請執行下列工作以建立新的 Git 儲存機制。
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user.md)]
 
-1. 啟動命令列工具，例如 **Git Bash** (Windows) 或 **Bash** (Unix Shell)。 在 OS X 系統上，您可以透過**終端機**應用程式來存取命令列。
-1. 瀏覽至部署內容所在的目錄。
-1. 使用下列命令來初始化新的 Git 儲存機制：
+## <a name="enable-git-for-your-app"></a>為應用程式啟用 Git
 
-  ```bash
-  git init
-  ```
+若要為現有的 App Service 應用程式啟用 Git 部署，請在 Cloud Shell 中執行 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git)。
 
-## <a name="Step2"></a>步驟 2︰認可內容
+```azurecli-interactive
+az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
+```
 
-App Service 支援以各種程式設計語言建立的應用程式。
+若要改為建立已啟用 Git 的應用程式，請在 Cloud Shell 中搭配 `--deployment-local-git` 參數執行 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create)。
 
-1. 如果您的儲存機制尚未包含內容，請新增靜態的 .html 檔案，如下所示；或者略過此步驟：
-   * 使用文字編輯器，在 Git 儲存機制的根目錄建立新檔案 **index.html** 。
-   * 在 index.html 檔案中加入下列文字內容並加以儲存：*Hello Git!*
-1. 從命令列，驗證您位在 Git 儲存機制的根目錄下。 然後使用下列命令將檔案加入儲存機制中：
+```azurecli-interactive
+az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
+```
 
-        git add -A 
-1. 接著，使用下列命令來認可對儲存機制的變更：
+`az webapp create` 命令應可提供類似下列輸出的內容：
 
-        git commit -m "Hello Azure App Service"
+```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
 
-## <a name="Step3"></a>步驟 3︰啟用 App Service 應用程式儲存機制
+## <a name="deploy-your-project"></a>部署專案
 
-執行下列步驟以啟用 App Service 應用程式的 Git 儲存機制。
+回到「本機終端視窗」，將 Azure 遠端新增至本機 Git 存放庫。 使用從[為應用程式啟用 Git](#enable-git-for-you-app) 中取得的 Git 遠端 URL 來取代 _\<url>_。
 
-1. 登入 [Azure 入口網站]。
-1. 在 App Service 應用程式的檢視中，按一下 [設定] > [部署來源]。 依序按一下 [選擇來源]、[本機 Git 儲存機制] 以及 [確定]。
+```bash
+git remote add azure <url>
+```
 
-    ![本機 Git 儲存機制](./media/app-service-deploy-local-git/local_git_selection.png)
+推送到 Azure 遠端，使用下列命令來部署您的應用程式。 當系統提示輸入密碼時，務必輸入您在[設定部署使用者](#configure-a-deployment-user)中建立的密碼，而不是您用來登入 Azure 入口網站的密碼。
 
-1. 如果這是您第一次在 Azure 中設定儲存機制，就需要為它建立登入認證。 您會使用這些認證來登入 Azure 儲存機制，並推送來自您本機 Git 儲存機制的變更。 從 Web 應用程式的檢視中，按一下 [設定] > [部署認證]，然後設定您的部署使用者名稱和密碼。 完成後，按一下 [儲存] 。
+```bash
+git push azure master
+```
 
-    ![](./media/app-service-deploy-local-git/deployment_credentials.png)
+您可能會在輸出中看到執行階段特定的自動化，例如適用於 ASP.NET 的 MSBuild、適用於 Node.js 的 `npm install`，以及適用於 Python 的 `pip install`。 
 
-## <a name="Step4"></a>步驟 4：部署專案
+部署完成之後，您在 Azure 入口網站中的應用程式現在應該會在 [部署選項] 頁面中有您 `git push` 的記錄。
 
-使用下列步驟，使用本機 Git 將應用程式發佈至 App Service。
+![](./media/app-service-deploy-local-git/deployment_history.png)
 
-1. 在 Azure 入口網站上的 Web 應用程式檢視中，按一下 [Git URL] 的 [設定] > [屬性]。
+瀏覽至您的應用程式以確認已部署內容。
 
-    ![](./media/app-service-deploy-local-git/git_url.png)
+## <a name="troubleshooting"></a>疑難排解
 
-    **Git URL** 是從本機儲存機制部署的遠端參考。 您會在下一個步驟中使用此 URL。
-1. 使用命令列來驗證您位於本機 Git 儲存機制的根目錄。
-1. 使用 `git remote` 加入從步驟 1 的 **Git URL** 中所列的遠端參考。 您的命令大致如下：
-
-    ```bash
-    git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git
-    ```
-
-   > [!NOTE]
-   > **remote** 命令會將指定的參考新增至遠端儲存機制。 在此範例中，它會為您 Web 應用程式的儲存機制建立名為 'azure' 的參考。
-   >
-
-1. 使用您建立的新 **azure** 遠端將您的內容推送至 App Service。
-
-    ```bash
-    git push azure master
-    ```
-
-    系統會提示您輸入在 Azure 入口網站中重設部署認證時所建立的密碼。 輸入密碼 (請注意，當您輸入密碼時，Gitbash 不會對主控台回應星號)。 
-1. 回到 Azure 入口網站中的應用程式。 最近推送的記錄項目應該會顯示在 [部署]  檢視中。
-
-    ![](./media/app-service-deploy-local-git/deployment_history.png)
-
-1. 按一下 Web 應用程式頁面頂端的 [瀏覽]  按鈕，確認已部署內容。
-
-## <a name="Step5"></a>疑難排解
-
-使用 Git 發佈至 Azure 的 App Service 應用程式時，下列是經常會遇到的錯誤或問題：
+以下是使用 Git 發佈至 Azure 中的 App Service 應用程式時，會遇到的常見錯誤或問題：
 
 ---
 **徵狀**：`Unable to access '[siteURL]': Failed to connect to [scmAddress]`
@@ -122,16 +133,16 @@ App Service 支援以各種程式設計語言建立的應用程式。
 ---
 **徵狀**：`Couldn't resolve host 'hostname'`
 
-**原因**：如果建立 'azure' 遠端時所輸入的位址資訊不正確，便有可能發生此錯誤。
+**原因**：如果建立 'azure' 遠端時所輸入的位址資訊不正確，就會發生這個錯誤。
 
 **解決方式**：使用 `git remote -v` 命令，列出所有遠端以及相關聯的 URL。 驗證 'azure' 遠端的 URL 是否正確。 如有需要，移除此遠端並使用正確的 URL 重新建立。
 
 ---
 **徵狀**：`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
-**原因**：如果您因為 `git push` 而未指定分支，或如果您未在 `.gitconfig` 中設定 `push.default` 值，就會發生此錯誤。
+**原因**：如果您在 `git push` 期間未指定分支，或未在 `.gitconfig` 中設定 `push.default` 值，就會發生這個錯誤。
 
-**解決方式**：指定主要分支，重新執行推送操作。 例如︰
+**解決方式**：再次執行 `git push`，指定主分支。 例如︰
 
 ```bash
 git push azure master
@@ -140,9 +151,9 @@ git push azure master
 ---
 **徵狀**：`src refspec [branchname] does not match any.`
 
-**原因**：如果您嘗試在 'azure' 遠端上推送至除了主要以外的分支，便有可能發生此錯誤。
+**原因**：如果您嘗試在 'azure' 遠端上推送至主分支以外的分支，就會發生這個錯誤。
 
-**解決方式**：指定主要分支，重新執行推送操作。 例如︰
+**解決方式**：再次執行 `git push`，指定主分支。 例如︰
 
 ```bash
 git push azure master
@@ -151,7 +162,7 @@ git push azure master
 ---
 **徵狀**：`RPC failed; result=22, HTTP code = 5xx.`
 
-**原因**︰如果您嘗試透過 HTTPS 推送大型 Git 儲存機制，可能會發生此錯誤。
+**原因**︰如果您嘗試透過 HTTPS 推送大型 Git 存放庫，就會發生這個錯誤。
 
 **解決方式**︰變更本機電腦上的 Git 組態以加大 postBuffer
 
@@ -162,9 +173,9 @@ git config --global http.postBuffer 524288000
 ---
 **徵狀**：`Error - Changes committed to remote repository but your web app not updated.`
 
-**原因**：如果您打算部署包含 package.json 檔案的 Node.js 應用程式，但該檔案指出需要額外的模組，便有可能發生此錯誤。
+**原因**：如果您部署包含會指出需要額外模組之 _package.json_ 檔案的 Node.js 應用程式，就會發生這個錯誤。
 
-**解決方式**︰其他包含 'npm ERR!' 的訊息 在發生此錯誤之前應該就有記錄，可提供關於此失敗的更多資訊。 下列是此錯誤的已知原因及其對應的 'npm ERR!' message:
+**解決方式**︰其他包含 'npm ERR!' 的訊息 在發生這個錯誤之前應該就已記錄，並可提供關於此失敗的更多資訊。 下列是此錯誤的已知原因及其對應的 'npm ERR!' message:
 
 * **格式錯誤的 package.json 檔案**：npm ERR! 無法讀取相依性。
 * **原生模組沒有適用於 Windows 的二進位檔發佈**：
@@ -176,17 +187,5 @@ git config --global http.postBuffer 524288000
 
 ## <a name="additional-resources"></a>其他資源
 
-* [Git 文件](http://git-scm.com/documentation)
 * [專案 Kudu 文件](https://github.com/projectkudu/kudu/wiki)
 * [持續部署至 Azure App Service](app-service-continuous-deployment.md)
-* [如何使用適用於 Azure 的 PowerShell](/powershell/azure/overview)
-* [如何使用 Azure 命令列介面](../cli-install-nodejs.md)
-
-[Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
-[Azure 入口網站]: https://portal.azure.com
-[Git website]: http://git-scm.com
-[Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Azure Command-Line Interface]: https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/
-
-[Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
-[Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

@@ -1,25 +1,25 @@
 ---
-title: "開發人員適用的 Azure Active Directory | Microsoft Docs"
-description: "Azure Active Directory 開發人員指南中的所有指引和參考文章的清單。"
+title: 開發人員適用的 Azure Active Directory | Microsoft Docs
+description: Azure Active Directory 開發人員指南中的所有指引和參考文章的清單。
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6190f64633034bb5fc28a1caf7ffa6c09215ef1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Azure AD 開發人員指南中的文章
 以下是 Azure Active Directory 開發人員指南涵蓋之所有主題的清單。
@@ -43,6 +43,7 @@ ms.lasthandoff: 12/11/2017
 | [Office 365 賣方儀表板](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | 如何在 O365 賣方儀表板上發佈應用程式 |
 | [Visual Studio 已連線的服務](vs-active-directory-dotnet-getting-started.md)                                               | 如何在 Visual Studio 中使用 Azure AD 與 MVC 專案的整合 |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | 如何使用 ADFS 來與內部部署 Active Directory 整合 |
+| [處理適用於 ADAL 的最佳做法時發生錯誤](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | 如何建置具彈性的錯誤處理並啟用記錄功能 |
 
 ## <a name="reference"></a>參考
 這些文章提供 REST 和驗證程式庫 API、通訊協定、錯誤、程式碼範例和端點的基礎。

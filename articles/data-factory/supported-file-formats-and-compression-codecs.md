@@ -1,19 +1,19 @@
 ---
-title: "Azure Data Factory 中支援的檔案格式 | Microsoft Docs"
-description: "本主題描述 Azure Data Factory 中以檔案為基礎的連接器所支援的檔案格式和壓縮碼。"
+title: Azure Data Factory 中支援的檔案格式 | Microsoft Docs
+description: 本主題描述 Azure Data Factory 中以檔案為基礎的連接器所支援的檔案格式和壓縮碼。
 author: linda33wj
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 03/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 26f29355f53a586ea21551831f48ddf8898d3c9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
@@ -436,7 +436,7 @@ ms.lasthandoff: 11/22/2017
 ```
 
 > [!IMPORTANT]
-> 如果您不會在內部部署與雲端資料存放區之間複製 ORC 檔案 **as-is** ，您需要在閘道機器上安裝 JRE 8 (Java 執行階段環境)。 64 位元閘道需要 64 位元 JRE，而 32 位元閘道需要 32 位元 JRE。 您可以從 [這裡](http://go.microsoft.com/fwlink/?LinkId=808605)找到這兩個版本。 請選擇適當的版本。
+> 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 ORC 檔案，就需要在 IR 機器上安裝 JRE 8 (Java 執行階段環境)。 64 位元 IR 需要 64 位元 JRE。 您可以從 [這裡](http://go.microsoft.com/fwlink/?LinkId=808605)找到這兩個版本。
 >
 
 請注意下列幾點：
@@ -456,7 +456,7 @@ ms.lasthandoff: 11/22/2017
 ```
 
 > [!IMPORTANT]
-> 如果您不是在內部部署與雲端資料存放區之間 **以原狀直接** 複製 Parquet 檔案，您需要在閘道機器上安裝 JRE 8 (Java 執行階段環境)。 64 位元閘道需要 64 位元 JRE，而 32 位元閘道需要 32 位元 JRE。 您可以從 [這裡](http://go.microsoft.com/fwlink/?LinkId=808605)找到這兩個版本。 請選擇適當的版本。
+> 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 Parquet 檔案，就需要在 IR 機器上安裝 JRE 8 (Java 執行階段環境)。 64 位元 IR 需要 64 位元 JRE。 您可以從 [這裡](http://go.microsoft.com/fwlink/?LinkId=808605)找到這兩個版本。
 >
 
 請注意下列幾點：

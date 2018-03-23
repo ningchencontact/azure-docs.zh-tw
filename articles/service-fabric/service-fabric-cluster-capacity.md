@@ -1,11 +1,11 @@
 ---
-title: "規劃 Service Fabric 叢集容量 | Microsoft Docs"
-description: "Service Fabric 叢集容量規劃考量。 Nodetypes、Operations、持久性和可靠性層級"
+title: 規劃 Service Fabric 叢集容量 | Microsoft Docs
+description: Service Fabric 叢集容量規劃考量。 Nodetypes、Operations、持久性和可靠性層級
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 叢集容量規劃考量
 對於任何生產部署而言，容量規劃都是一個很重要的步驟。 以下是一些您在該程序中必須考量的項目。
@@ -88,10 +88,11 @@ ms.lasthandoff: 01/05/2018
  
 1. 將您的虛擬機器擴展集部署至其他相關 Azure 資源的速度，可能會因來自您叢集中或是基礎結構層級的問題，而造成延遲、逾時，或是完全封鎖。 
 2. 因 Azure 基礎結構作業期間的自動化節點停用，而增加[複本生命週期事件](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (例如主要交換) 的數目。
+3. 當 Azure 平台軟體更新或硬體維護活動正在進行時，使節點停止服務一段期間。 您可能會在這些活動期間看到含有正在停用/已停用狀態的節點。 這會暫時減少叢集的容量，但應該不會影響叢集或應用程式的可用性。
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>使用 Silver 或 Gold 持久性層級的建議時機
 
-針對所有裝載您預期會經常進行相應縮小 (減少 VM 執行個體計數)，且偏好延遲部署作業以簡化相應縮小作業之具狀態服務的節點類型，請使用 Silver 或 Gold 持久性。 相應放大案例 (新增 VM 執行個體) 並不會影響您對耐久性層級的選擇，只有相應縮小才會。
+針對所有裝載您預期會經常進行相應縮小 (減少 VM 執行個體計數)，且偏好延遲部署作業並減少容量以簡化相應縮小作業之具狀態服務的節點類型，使用 Silver 或 Gold 持久性。 相應放大案例 (新增 VM 執行個體) 並不會影響您對耐久性層級的選擇，只有相應縮小才會。
 
 ### <a name="changing-durability-levels"></a>變更持久性層級
 - 持久性層級為 Silver 或 Gold 的節點類型無法降級為 Bronze。

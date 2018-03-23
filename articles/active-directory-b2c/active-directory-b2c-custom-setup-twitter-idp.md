@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory B2C：使用自訂原則新增 Twitter 作為 OAuth1 識別提供者"
-description: "透過 OAuth1 通訊協定使用 Twitter 作為識別提供者"
+title: Azure Active Directory B2C：使用自訂原則新增 Twitter 作為 OAuth1 識別提供者
+description: 透過 OAuth1 通訊協定使用 Twitter 作為識別提供者
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: yoelhor
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
 ms.openlocfilehash: 629e0bbaa7c62ef5d381085588c6a99c203c41cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則新增 Twitter 作為 OAuth1 識別提供者
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -39,9 +39,9 @@ ms.lasthandoff: 12/11/2017
  
     a. 針對新的應用程式輸入 [名稱]和 [說明]。 
 
-    b. 在 [網站] 方塊中，貼上 **https://login.microsoftonline.com**。 
+    b. 在 [Website] \(網站\) 方塊中，貼上 **https://login.microsoftonline.com**。 
 
-    c. 在 [回呼 URL] 方塊中，貼上**https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 {*tenant*}。 請確實使用 HTTPS 配置。 
+    c. 在 [Callback URL] \(回呼 URL\) 方塊中，貼上 **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 {*tenant*}。 請確實使用 HTTPS 配置。 
 
     d. 在頁面底部，請閱讀並接受條款，然後選取 [建立 Twitter 應用程式] 。
 

@@ -1,11 +1,11 @@
 ---
-title: "將虛擬網路連結到 ExpressRoute 線路：PowerShell：傳統：Azure | Microsoft Docs"
-description: "本文提供以下內容的概觀：如何使用傳統部署模型和 PowerShell 將虛擬網路 (VNet) 連結到 ExpressRoute 線路。"
+title: 將虛擬網路連結到 ExpressRoute 線路：PowerShell：傳統：Azure | Microsoft Docs
+description: 本文提供以下內容的概觀：如何使用傳統部署模型和 PowerShell 將虛擬網路 (VNet) 連結到 ExpressRoute 線路。
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 9b53fd72-9b6b-4844-80b9-4e1d54fd0c17
 ms.service: expressroute
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 03/08/2018
 ms.author: ganesr
-ms.openlocfilehash: 8df8a4c6ff0897c821e13248e0494b17e1a4992d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2f0fed77a676bc46e8daa9c41efd533dffe72d8b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 將虛擬網路連接到 ExpressRoute 線路 (傳統)
 > [!div class="op_single_selector"]
@@ -48,6 +48,8 @@ ms.lasthandoff: 12/21/2017
    * 您必須有已建立且完整佈建的虛擬網路和虛擬網路閘道。 請遵循指示 [設定 ExpressRoute 的虛擬網路](expressroute-howto-vnet-portal-classic.md)。
 
 您最多可以將 10 個虛擬網路連結至 ExpressRoute 電路。 所有的虛擬網路都必須位於同一個地理區域。 如果您已啟用 ExpressRoute 高階附加元件，則可將更大量的虛擬網路連結到您的 ExpressRoute 電路，或是連結其他地理區域的虛擬網路。 如需高階附加元件的詳細資訊，請參閱 [常見問題集](expressroute-faqs.md) 。
+
+單一 VNet 最多可連結到四個 ExpressRoute 線路。 使用下列程序來建立您要連線之每個 ExpressRoute 線路的新連結。 ExpressRoute 線路可以位於相同的訂用帳戶、不同的訂用帳戶或兩者的混合。
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>將相同訂用帳戶中的虛擬網路連接到線路
 您可以使用下列 Cmdlet，將虛擬網路連結到 ExpressRoute 線路。 執行 Cmdlet 之前，請確定您已建立虛擬網路閘道，並準備好進行連結。

@@ -1,11 +1,11 @@
 ---
-title: "雲端服務和管理憑證 | Microsoft Docs"
-description: "了解如何建立憑證並搭配 Microsoft Azure 使用"
+title: 雲端服務和管理憑證 | Microsoft Docs
+description: 了解如何建立憑證並搭配 Microsoft Azure 使用
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc70d00d-899b-4771-855f-44574dc4bfc6
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 4032a429901c675436cb5e7fb04aa5645925fa30
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6a1e4f5316cc0321c1409f9e48daeae6ee483bf6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 雲端服務的憑證概觀
 在 Azure 中，憑證用於雲端服務 ([服務憑證](#what-are-service-certificates)) 與驗證管理 API ([管理憑證](#what-are-management-certificates))。 本主題提供兩種憑證類型的一般概觀、如何[建立](#create)這些憑證類型，以及如何將其[部署](#deploy)到 Azure。
@@ -47,8 +47,6 @@ Azure 所使用的憑證可以包含私密或公開金鑰。 憑證具有指紋�
 
 ### <a name="limitations"></a>限制
 每個訂用帳戶有 100 個管理憑證的限制。 此外，在特定服務管理員的使用者識別碼底下的所有訂用帳戶也有 100 個管理憑證的限制。 如果帳戶系統管理員的使用者識別碼已經用來加入 100 個管理憑證，而且還需要有更多憑證，您可以新增共同管理員來加入其他憑證。 
-
-加入超過 100 個憑證之前，請查看您是否可以重複使用現有的憑證。 使用共同管理員會對您的憑證管理程序增加可能不必要的複雜性。
 
 <a name="create"></a>
 ## <a name="create-a-new-self-signed-certificate"></a>建立新的自我簽署憑證

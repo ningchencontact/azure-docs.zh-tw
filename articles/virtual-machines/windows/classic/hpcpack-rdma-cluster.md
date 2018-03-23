@@ -1,11 +1,11 @@
 ---
-title: "設定 Windows RDMA 叢集以執行 MPI 應用程式 | Microsoft Docs"
-description: "了解如何建立具有 H16r、H16mr、A8 或 A9 大小之 VM 的 Windows HPC Pack 叢集，以使用 Azure RDMA 網路來執行 MPI 應用程式。"
+title: 設定 Windows RDMA 叢集以執行 MPI 應用程式 | Microsoft Docs
+description: 了解如何建立具有 H16r、H16mr、A8 或 A9 大小之 VM 的 Windows HPC Pack 叢集，以使用 Azure RDMA 網路來執行 MPI 應用程式。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 7d9f5bc8-012f-48dd-b290-db81c7592215
 ms.service: virtual-machines-windows
@@ -13,28 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/01/2017
+ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 19be1d693fe13af0f6c1ab0cb6f7bc829b9fad5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 437c475735ec3823de51c5f9e996a5303fe9cfa7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>使用 HPC Pack 設定 Windows RDMA 叢集以執行 MPI 應用程式
-使用 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 和[高效能運算 VM 大小](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)在 Azure 中設定 Windows RDMA 叢集，以執行平行訊息傳遞介面 (MPI) 應用程式。 當您在 HPC Pack 叢集中設定了支援 RDMA 的 Windows Server 型節點時，MPI 應用程式會在 Azure 中透過以遠端直接記憶體存取 (RDMA) 技術為基礎的低延遲、高輸送量網路，有效率地進行通訊。
+使用 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) \(英文\) 和[支援 RDMA 的 HPC VM 大小](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances)在 Azure 中設定 Windows RDMA 叢集，以執行平行訊息傳遞介面 (MPI) 應用程式。 當您在 HPC Pack 叢集中設定了支援 RDMA 的 Windows Server 型節點時，MPI 應用程式會在 Azure 中透過以遠端直接記憶體存取 (RDMA) 技術為基礎的低延遲、高輸送量網路，有效率地進行通訊。
 
 如果您想要在存取 Azure RDMA 網路的 Linux VM 上執行 MPI 工作負載，請參閱 [設定 Linux RDMA 叢集以執行 MPI 應用程式](../../linux/classic/rdma-cluster.md)。
 
 ## <a name="hpc-pack-cluster-deployment-options"></a>HPC Pack 叢集部署選項
 Microsoft HPC Pack 是免費提供的工具，可在內部部署環境中或 Azure 中建立 HPC 叢集來執行 Windows 或 Linux HPC 應用程式。 HPC Pack 包含 Windows 訊息傳遞介面 (MS-MPI) 之 Microsoft 實作的執行階段環境。 與支援 RDMA 且執行支援之 Windows Server 作業系統的執行個體搭配使用時，HPC Pack 可提供一個有效率的選項來執行存取 Azure RDMA 網路的 Windows MPI 應用程式。 
 
-本文介紹兩個案例，並連結到使用 Microsoft HPC Pack 來設定 Windows RDMA 叢集的詳細指導方針。 
+本文介紹兩個案例，並提供使用 Microsoft HPC Pack 2012 R2 設定 Windows RDMA 叢集之詳細指導方針的連結。 
 
 * 案例 1. 部署計算密集型背景工作角色執行個體 (PaaS)
 * 案例 2. 在大量運算 VM 中部署運算節點 (IaaS)
-
-如需搭配 Windows 使用計算密集型執行個體的一般必要條件，請參閱[高效能運算 VM 大小](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>案例 1︰部署計算密集型背景工作角色執行個體 (PaaS)
 從現有的 HPC Pack 叢集，在執行於雲端服務 (PaaS) 的 Azure 背景工作角色執行個體 (Azure 節點) 中新增額外的運算資源。 此功能也稱為使用 HPC Pack「將暴增的工作負載移至 Azure」，可支援多種大小的背景工作角色執行個體。 新增 Azure 節點時，指定其中一個支援 RDMA 的大小。
@@ -51,13 +49,14 @@ Microsoft HPC Pack 是免費提供的工具，可在內部部署環境中或 Azu
 ### <a name="steps"></a>步驟
 1. **部署及設定 HPC Pack 2012 R2 前端節點**
    
-    從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=49922)下載最新的 HPC Pack 安裝套件。 如需 Azure 高載部署準備工作的需求和指示，請參閱[使用 Microsoft HPC Pack 將暴增的工作負載移至 Azure 背景工作執行個體](https://technet.microsoft.com/library/gg481749.aspx)。
+    從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=49922)下載 HPC Pack 安裝套件。 如需 Azure 高載部署準備工作的需求和指示，請參閱[使用 Microsoft HPC Pack 將暴增的工作負載移至 Azure 背景工作執行個體](https://technet.microsoft.com/library/gg481749.aspx)。
 2. **在 Azure 訂用帳戶中設定管理憑證**
    
     設定憑證以保護前端節點與 Azure 之間的連線。 如需相關選項和程序，請參閱 [為 HPC Pack 設定 Azure 管理憑證的案例](http://technet.microsoft.com/library/gg481759.aspx)。 針對測試部署，HPC Pack 會安裝可快速上傳至您的 Azure 訂用帳戶的預設 Microsoft HPC Azure 管理憑證。
 3. **建立新的雲端服務和儲存體帳戶**
    
-    使用 Azure 入口網站來建立雲端服務和儲存體帳戶，在可使用支援 RDMA 之執行個體的區域中進行部署。
+    使用 Azure 入口網站，建立適用於部署的雲端服務 (傳統) 和儲存體帳戶 (傳統)。 在有提供您想要使用之 H 系列、A8 或 A9 大小的區域中建立這些資源。 請參閱[不同區域的 Azure 產品](https://azure.microsoft.com/regions/services/)。
+
 4. **建立 Azure 節點範本**
    
     使用 [HPC 叢集管理員] 中的 [建立節點範本精靈]。 如需相關步驟，請參閱「使用 Microsoft HPC Pack 部署 Azure 節點的步驟」中的 [建立 Azure 節點範本](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) 。
@@ -91,19 +90,20 @@ Microsoft HPC Pack 是免費提供的工具，可在內部部署環境中或 Azu
 ### <a name="steps"></a>步驟
 1. **在用戶端電腦上執行 HPC Pack IaaS 部署指令碼，以建立叢集前端節點和運算節點 VM**
    
-    從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=49922)下載 HPC Pack IaaS 部署指令碼套件。
+    從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=44949)下載 HPC Pack IaaS 部署指令碼套件。
    
     若要進行用戶端電腦的準備工作，請建立指令碼組態檔並執行指令碼；請參閱 [使用 HPC Pack IaaS 部署指令碼建立 HPC 叢集](hpcpack-cluster-powershell-script.md)。 
    
-    若要部署支援 RDMA 的計算節點，請注意下列其他考量：
+    如需部署支援 RDMA 計算節點的考量，請參閱[高效能運算 VM 大小](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances)並注意以下內容：
    
-   * **虛擬網路**：指定一個新的虛擬網路，此網路位於有提供您想要使用的支援 RDMA 之執行個體大小的區域中。
-   * **Windows Server 作業系統**：若要支援 RDMA 連線能力，請為計算節點 VM 指定 Windows Server 2012 R2 或 Windows Server 2012 作業系統。
-   * **雲端服務**：建議您將前端節點部署在一個雲端服務中，而將計算節點部署在另一個雲端服務中。
+   * **虛擬網路**：在有提供您想要使用之 H 系列、A8 或 A9 大小的區域中指定新的虛擬網路。 請參閱[不同區域的 Azure 產品](https://azure.microsoft.com/regions/services/)。
+
+   * **Windows Server 作業系統**：若要支援 RDMA 連線能力，請為計算節點 VM 指定可相容的 Windows Server 作業系統 (例如 Windows Server 2012 R2)。
+   * **雲端服務**：由於指令碼使用傳統部署模型，因此會使用 Azure 雲端服務 (設定檔中的 `ServiceName` 設定) 來部署叢集 VM。 建議您將前端節點部署在一個雲端服務中，並將計算節點部署在另一個雲端服務中。 
    * **前端節點大小**：在此案例中，請考慮至少使用 A4 大小 (超大) 的前端節點。
    * **HpcVmDrivers 延伸模組**：當您使用 Windows Server 作業系統部署 A8 或 A9 大小的計算節點時，部署指令碼會自動安裝 Azure VM 代理程式和 HpcVmDrivers 延伸模組。 HpcVmDrivers 會在運算節點 VM 上安裝驅動程式，使其可以連接到 RDMA 網路。 在支援 RDMA 的 H 系列 VM 上，您必須手動安裝 HpcVmDrivers 擴充功能。 請參閱[高效能運算 VM 大小](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
    * **叢集網路組態**：部署指令碼會自動以「拓撲 5」(所有節點在企業網路上) 設定 HPC Pack 叢集。 VM 中的所有 HPC Pack 叢集部署都需要此拓撲。 後續請勿變更此叢集網路拓撲。
-2. **讓運算節點上線執行工作**
+1. **讓運算節點上線執行工作**
    
     選取節點，然後使用 [HPC 叢集管理員] 中的 [上線]  動作。 節點已備妥而可執行工作。
 3. **將工作提交至叢集**

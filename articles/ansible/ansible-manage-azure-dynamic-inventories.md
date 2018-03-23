@@ -1,21 +1,21 @@
 ---
-title: "使用 Ansible 來管理 Azure 動態清查"
-description: "了解如何使用 Ansible 來管理 Azure 動態清查"
+title: 使用 Ansible 來管理 Azure 動態清查
+description: 了解如何使用 Ansible 來管理 Azure 動態清查
 ms.service: ansible
-keywords: "ansible, azure, devops, bash, cloudshell, 動態清查"
+keywords: ansible, azure, devops, bash, cloudshell, 動態清查
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
 ms.date: 01/14/2018
 ms.topic: article
-ms.openlocfilehash: 8753d039582abdf22f105bf7f139a35c224e7c59
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 799be6d2bb521de38af952376bf8ee14a18846de
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>使用 Ansible 來管理 Azure 動態清查
-您可以使用 Ansible 從各種來源 (包括如 Azure 等雲端來源) 將清查資訊提取至動態清查。 在本文中，您使用 [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) 來設定 Ansible Azure 動態清查，並在其中建立兩個虛擬機器，請標記其中一部虛擬機器，並在已標記的虛擬機器上安裝 Nginx。
+您可以使用 Ansible 從各種來源 (包括如 Azure 等雲端來源) 將清查資訊提取至動態清查。 在本文中，您使用 [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) 來設定 Ansible Azure 動態清查，並在其中建立兩部虛擬機器、標記其中一部虛擬機器，然後在已標記的虛擬機器上安裝 Nginx。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -59,11 +59,11 @@ ms.lasthandoff: 01/29/2018
 輸入下列 [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag) 命令來標記具有 `nginx` 金鑰的虛擬機器 `ansible-inventory-test-vm1`：
 
 ```azurecli-interactive
-az resource tag --tags nginx --id /subscriptions/&lt;YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
+az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
 ## <a name="generate-a-dynamic-inventory"></a>產生動態清查
-一旦您定義虛擬機器 (並標記) 後，就可以產生動態清查。 Ansible 提供名為 [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) 的 Python 指令碼，會向 Azure Resource Manager 提出 API 要求，以產生您 Azure 資源的動態清單。 下列步驟將引導您使用 `azure_rm.py` 指令碼，以連線到您的兩個測試 Azure 虛擬機器：
+一旦您定義虛擬機器 (並標記) 後，就可以產生動態清查。 Ansible 提供名為 [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) 的 Python 指令碼，會向 Azure Resource Manager 提出 API 要求，以產生您 Azure 資源的動態清單。 下列步驟將引導您使用 `azure_rm.py` 指令碼，以連線到您的兩部測試 Azure 虛擬機器：
 
 1. 使用 GNU `wget` 命令來取出 `azure_rm.py` 指令碼：
 

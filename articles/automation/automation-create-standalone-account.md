@@ -1,24 +1,20 @@
 ---
-title: "建立獨立的 Azure 自動化帳戶 | Microsoft Docs"
-description: "本文會逐步引導您在 Azure 自動化中建立、測試和使用範例安全性主體驗證。"
+title: 建立獨立的 Azure 自動化帳戶
+description: 本文會逐步引導您在 Azure 自動化中建立、測試和使用範例安全性主體驗證。
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
-ms.date: 08/18/2017
-ms.author: magoedte
-ms.openlocfilehash: 4a6946f34babfd63a2b9a12818761c6d6c74bc15
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 5ea3d1af6f8bb4a6c0ef45560d8707afc58f61b1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>建立獨立的 Azure 自動化帳戶
 本文示範如何在 Azure 入口網站中建立 Azure 自動化帳戶。 您可以使用入口網站自動化帳戶來評估和了解自動化，而不需使用額外的管理解決方案或與 Operations Management Suite (OMS) 中的 Azure Log Analytics 整合。 您可以新增那些管理解決方案，或與 Log Analytics 整合，以便在未來的任何時間點進一步監視 Runbook 作業。 
@@ -41,7 +37,7 @@ ms.lasthandoff: 01/24/2018
 * 若要建立自動化帳戶，必須將您的 Azure AD 使用者帳戶加入至權限相當於 **Microsoft自動化**資源之擁有者角色的角色。 如需詳細資訊，請參閱 [Azure 自動化中的角色型存取控制](automation-role-based-access-control.md)。  
 * 在 Azure 入口網站的 [Azure Active Directory] > [管理] > [應用程式註冊] 下方，如果將 [應用程式註冊] 設為 [是]，則 Azure AD 租用戶中的非管理使用者就能[註冊 Active Directory 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions)。 如果將 [應用程式註冊] 設為 [否]，則執行此動作的使用者必須是 Azure AD 中的全域管理員。 
 
-若您在加入至訂用帳戶的全域管理員/共同管理員角色之前，並非訂用帳戶 Active Directory 執行個體的成員，系統會將您以來賓身分加入至 Active Directory。 在此案例中，您會在 [加入自動化帳戶] 頁面上看到此訊息：「您沒有建立的權限」。 
+若您在加入至訂用帳戶的全域管理員/共同管理員角色之前，並非訂用帳戶 Active Directory 執行個體的成員，系統會將您以來賓身分加入至 Active Directory。 在此案例中，您會在 [新增自動化帳戶] 頁面中看到此訊息：「您無權建立」。 
 
 如果先將使用者加入至全域管理員/共同管理員角色，您可以從訂用帳戶的 Active Directory 執行個體中移除他們，然後將他們重新加入至 Active Directory 中的完整使用者角色。
 

@@ -1,24 +1,24 @@
 ---
-title: "Azure AD Connect：必要條件與硬體 | Microsoft Docs"
-description: "本主題描述 Azure AD Connect 的必要條件和硬體需求。"
+title: Azure AD Connect：必要條件與硬體 | Microsoft Docs
+description: 本主題描述 Azure AD Connect 的必要條件和硬體需求。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/09/2018
 ms.author: billmath
-ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d6d6eadf0ae8996b019a0564715f843913101944
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的必要條件
 本主題描述 Azure AD Connect 的必要條件和硬體需求。
@@ -31,6 +31,7 @@ ms.lasthandoff: 02/23/2018
   * 您也可以使用 [Azure 入口網站](https://portal.azure.com)。 此入口網站不需要 Azure AD 授權。
 * [新增並驗證](../active-directory-domains-add-azure-portal.md) 您計畫使用於 Azure AD 中的網域。 例如，如果您計畫讓使用者使用 contoso.com，請確定此網域已經過驗證，而且您不是只使用 contoso.onmicrosoft.com 預設網域。
 * Azure AD 租用戶預設允許 5 萬個物件。 當您驗證網域後，此限額會增加到 30 萬個物件。 如果您在 Azure AD 中需要更多的物件，您必須洽詢支援人員以增加此限額。 如果您需要 50 萬個以上的物件，您需要如 Office 365、Azure AD Basic、Azure AD Premium 或 Enterprise Mobility + Security 等授權。
+* ADSyncPrep 是一個 PowerShell 指令碼模組，此模組所提供的函式可用來準備適用於 Azure AD Connect 的 Active Directory 環境。  ADSyncPrep 需要 [Azure AD Microsoft Online v1.1 PowerShell 模組](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)。  第 2 版將無法運作。  您可以使用 `Install-Module` Cmdlet 來安裝此模組。  如需詳細資訊，請參閱所提供的連結。
 
 ### <a name="prepare-your-on-premises-data"></a>準備您的內部部署資料
 * 在同步至 Azure AD 和 Office 365 之前，使用 [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) 來識別目錄中如重複項目和格式問題等的錯誤。

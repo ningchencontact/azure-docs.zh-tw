@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB：.NET 變更摘要處理器 API、SDK 和資源 | Microsoft Docs"
-description: "了解「變更摘要處理器 API 和 SDK」的所有相關資訊，包括發行日期、停用日期，以及「.NET 變更摘要處理器 SDK」每個版本之間的變更。"
+title: Azure Cosmos DB：.NET 變更摘要處理器 API、SDK 和資源 | Microsoft Docs
+description: 了解「變更摘要處理器 API 和 SDK」的所有相關資訊，包括發行日期、停用日期，以及「.NET 變更摘要處理器 SDK」每個版本之間的變更。
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 03/07/2018
 ms.author: maquaran
-ms.openlocfilehash: 962ad3aca82e34fa22da925a274a1e82e2086e03
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e53cf67bc6e03a5f45de5ad4e23ff91624874f4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -43,6 +43,11 @@ ms.lasthandoff: 03/02/2018
 |**目前支援的架構**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+* 穩定性改進。
+* 支援手動檢查點。
+* 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 版和更新版本相容。
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * 新增 .NET Standard 2.0 的支援。 套件現在支援 `netstandard2.0` 和 `net451` Framework Moniker。
@@ -72,6 +77,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.3.0](#1.3.0) |2018 年 3 月 7 日 |--- |
 | [1.2.0](#1.2.0) |2017 年 10 月 31 日 |--- |
 | [1.1.1](#1.1.1) |2017 年 8 月 29 日 |--- |
 | [1.1.0](#1.1.0) |2017 年 8 月 13 日 |--- |

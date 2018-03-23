@@ -1,12 +1,12 @@
 ---
-title: "新增 Bing 搜尋連接器邏輯應用程式 | Microsoft Docs"
-description: "搭配 REST API 參數來使用 Bing 搜尋連接器的概觀"
-services: 
-suite: 
-documentationcenter: 
-author: MandiOhlinger
+title: 新增 Bing 搜尋連接器邏輯應用程式 | Microsoft Docs
+description: 搭配 REST API 參數來使用 Bing 搜尋連接器的概觀
+services: ''
+suite: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: a7f530e8-1573-4612-8899-c9c84aa2de6d
 ms.service: multiple
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: e420c837f9635b2386ca3b52bef487864d1aa2c1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 6d8199d5e9232816a26df24d091f4b3caf8bc49a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-bing-search-connector"></a>開始使用 Bing 搜尋連接器
 連線到 Bing 搜尋來搜尋新聞、搜尋影片等等。 您可以利用 Bing 搜尋來： 
@@ -36,4 +36,3 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="more-connectors"></a>其他連接器
 返回 [API 清單](apis-list.md)。
-

@@ -1,11 +1,11 @@
 ---
-title: "登入針對同盟單一登入設定之非資源庫應用程式的問題 | Microsoft Docs"
-description: "當登入使用 Azure AD 針對 SAML 型同盟單一登入設定之應用程式時，您可能會碰到特定問題的指引"
+title: 登入針對同盟單一登入設定之非資源庫應用程式的問題 | Microsoft Docs
+description: 當登入使用 Azure AD 針對 SAML 型同盟單一登入設定之應用程式時，您可能會碰到特定問題的指引
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cfd4e478850783983caa3042cbbb2b096a576292
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>登入針對同盟單一登入設定之非資源庫應用程式的問題
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="application-not-found-in-directory"></a>在目錄中找不到應用程式
 
-*錯誤 AADSTS70001：目錄中找不到識別碼為 ‘https://contoso.com’ 的應用程式*。
+*錯誤 AADSTS70001：在目錄中找不到識別碼為 ‘https://contoso.com’ 的應用程式*。
 
 **可能的原因**
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>回覆位址不符合為應用程式設定的回覆位址。 
 
-*Error AADSTS50011：回覆位址 ‘https://contoso.com’ 不符合為應用程式設定的回覆位址* 
+*錯誤 AADSTS50011：回覆位址 ‘https://contoso.com’ 不符合為應用程式設定的回覆位址* 
 
 **可能的原因** 
 

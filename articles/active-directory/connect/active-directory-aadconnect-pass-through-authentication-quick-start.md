@@ -1,9 +1,9 @@
 ---
-title: "Azure AD 傳遞驗證 - 快速入門 | Microsoft Docs"
-description: "本文說明如何開始使用 Azure Active Directory (Azure AD) 傳遞驗證。"
+title: Azure AD 傳遞驗證 - 快速入門 | Microsoft Docs
+description: 本文說明如何開始使用 Azure Active Directory (Azure AD) 傳遞驗證。
 services: active-directory
-keywords: "Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入"
-documentationcenter: 
+keywords: Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: 1da7c064030501b5c6547b65c091b1a50da93899
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 傳遞驗證：快速入門
 
@@ -116,20 +116,38 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 
 ## <a name="step-5-ensure-high-availability"></a>步驟 5：確保高可用性
 
-如果您打算在生產環境中部署傳遞驗證，您應該安裝獨立驗證代理程式。 在執行 Azure AD Connect 和第一個驗證代理程式「以外」的伺服器上，安裝這第二個驗證代理程式。 此設定可提供高可用性來滿足登入要求。 請依照下列指示來部署獨立驗證代理程式：
+如果您打算在生產環境中部署「傳遞驗證」，您應該至少再多安裝一個獨立「驗證代理程式」。 請在執行 Azure AD Connect「以外」的伺服器上安裝這些「驗證代理程式」。 此設定可提供高可用性來滿足使用者登入要求。
 
-1. 下載最新版本的驗證代理程式 (1.5.193.0 或更新版本)。 使用租用戶的全域管理員認證來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。
+請依照下列指示來下載「驗證代理程式」軟體：
+
+1. 若要下載最新版「驗證代理程式」(1.5.193.0 版或更新版本)，請使用您租用戶的全域管理員認證來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。
 2. 在左窗格中，選取 [Azure Active Directory]。
 3. 依序選取 [Azure AD Connect]、[傳遞驗證] 及 [下載代理程式]。
 4. 選取 [接受條款並下載] 按鈕。
-5. 執行在上個步驟中下載的可執行檔，安裝最新版本的驗證代理程式。 出現提示時，提供租用戶的全域管理員認證。
 
 ![Azure Active Directory 管理中心：下載驗證代理程式按鈕](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Azure Active Directory 管理中心：下載代理程式窗格](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->您也可以下載 [Azure Active Directory 驗證代理程式](https://aka.ms/getauthagent)。 請確定在安裝_之前_，檢閱並接受驗證代理程式的[服務條款](https://aka.ms/authagenteula)。
+>您也可以直接從[這裡](https://aka.ms/getauthagent)下載「驗證代理程式」軟體。 請在安裝「驗證代理程式」_之前_，先檢閱並接受「驗證代理程式」的[服務條款](https://aka.ms/authagenteula) \(英文\)。
+
+部署獨立「驗證代理程式」的方式有兩種：
+
+第一種，您可以直接執行所下載的「驗證代理程式」可執行檔，並在出現提示時提供您租用戶的全域管理員認證，以互動方式進行部署。
+
+第二種，您可以建立並執行自動部署指令碼。 當您想要一次部署多個「驗證代理程式」，或是在未啟用使用者介面或您無法使用「遠端桌面」來存取的 Windows 伺服器上安裝「驗證代理程式」時，這會相當有用。 以下是有關如何使用此方法的指示：
+
+1. 執行下列命令來安裝「驗證代理程式」：`AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`。
+2. 您可以使用 Windows PowerShell 來向我們的服務註冊「驗證代理程式」。 建立 PowerShell 認證物件 `$cred`，其中含有租用戶的全域管理員使用者名稱和密碼。 執行下列命令，取代 *\<使用者名稱\>*和*\<密碼\>*：
+   
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+3. 移至 **C:\Program Files\Microsoft Azure AD Connect 驗證代理程式**，然後使用您建立的 `$cred` 物件來執行下列指令碼：
+   
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>後續步驟
 - [智慧鎖定](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)：了解如何在租用戶中設定智慧鎖定功能以保護使用者帳戶。

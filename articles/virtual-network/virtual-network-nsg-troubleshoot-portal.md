@@ -1,11 +1,11 @@
 ---
-title: "為網路安全性群組疑難排解 - 入口網站 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站對 Azure Resource Manager 部署模型中的網路安全性群組進行疑難排解。"
+title: 為網路安全性群組疑難排解 - 入口網站 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站對 Azure Resource Manager 部署模型中的網路安全性群組進行疑難排解。
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 ms.openlocfilehash: 5998aa0e0b281ead859c24d792c3e175e3cca899
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>使用 Azure 入口網站為網路安全性群組疑難排解
 > [!div class="op_single_selector"]
-> * [HttpTrigger Nodejs 函數](virtual-network-nsg-troubleshoot-portal.md)
+> * [Azure 入口網站](virtual-network-nsg-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 > 
 > 
@@ -46,7 +46,7 @@ NSG 可讓您控制流入和流出虛擬機器 (VM) 的流量類型。 您可對
 
 您可以從 VM 本身檢視 NIC 上完整的有效安全性規則清單。 如果您有權限，也可以從有效規則的刀鋒視窗新增、修改和刪除 NIC 和子網路的 NSG 規則。
 
-1. 使用 Azure 帳戶登入 Azure 入口網站，網址是 https://portal.azure.com。 您的帳戶必須獲指派網路介面的 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 作業。 若要了解如何將作業指派給帳戶，請參閱[建立 Azure 角色型存取控制的自訂角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)。
+1. 使用 Azure 帳戶來登入 Azure 入口網站，網址為 https://portal.azure.com。 您的帳戶必須獲指派網路介面的 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 作業。 若要了解如何將作業指派給帳戶，請參閱[建立 Azure 角色型存取控制的自訂角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)。
 2. 按一下 [所有服務]，然後在出現的清單中按一下 [虛擬機器]。
 3. 從出現的清單中選取要進行疑難排解的 VM，此時會出現一個有選項的 VM 刀鋒視窗。
 4. 按一下 [診斷並解決問題]，然後選取常見的問題。 例如選取了 [我無法連接到我的 Windows VM]  。 
@@ -95,7 +95,7 @@ NSG 可讓您控制流入和流出虛擬機器 (VM) 的流量類型。 您可對
 ### <a name="nic"></a>檢視網路介面的有效安全性規則
 如果您 VM 的流量流程因特定 NIC 而受到影響，可以完成下列步驟從網路介面內容檢視 NIC 的有效規則完整清單︰
 
-1. 登入 Azure 入口網站，位址是 https://portal.azure.com。
+1. 在 https://portal.azure.com 登入 Azure 入口網站。
 2. 按一下 [所有服務]，然後在出現的清單中按一下 [網路介面]。
 3. 選取某個網路介面。 在下圖中選取了名為 *VM1-NIC1* 的 NIC。
    
@@ -112,7 +112,7 @@ NSG 可讓您控制流入和流出虛擬機器 (VM) 的流量類型。 您可對
 ## <a name="nsg"></a>檢視網路安全性群組 (NSG) 的有效安全性規則
 修改 NSG 規則時，可以檢閱特定 VM 上新增規則的影響。 您可以檢視套用指定 NSG 之所有 NIC 的完整有效安全性規則清單，而不必從指定的 NSG 刀鋒視窗切換內容。 若要對 NSG 中的有效規則進行疑難排解，請完成下列步驟︰
 
-1. 登入 Azure 入口網站，位址是 https://portal.azure.com。
+1. 在 https://portal.azure.com 登入 Azure 入口網站。
 2. 按一下 [所有服務]，然後在出現的清單中按一下 [網路安全性群組]。
 3. 選取某個 NSG。 在下圖中選取了名為 VM1-nsg 的 NSG。
    

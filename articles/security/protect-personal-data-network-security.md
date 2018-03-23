@@ -1,29 +1,29 @@
 ---
-title: "使用 Azure 網路安全性功能來保護個人資料 | Microsoft Docs"
-description: "使用 Azure 網路安全性功能來保護個人資料"
+title: 使用 Azure 網路安全性功能來保護個人資料 | Microsoft Docs
+description: 使用 Azure 網路安全性功能來保護個人資料。 這可能會用來符合一般資料保護規定 (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 54aeb22a501e248105931df341d23e524448155a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>使用網路安全性功能來保護個人資料：Azure 應用程式閘道和網路安全性群組
 
-本文提供的資訊和程序可協助您使用 Azure 應用程式閘道和網路安全性群組來保護個人資料。
+本文提供的資訊和程序可協助您使用 Azure 應用程式閘道和網路安全性群組來保護個人資料。 在您致力於符合一般資料保護規定 (GDPR) 時，此資訊可能很有助益。
 
 在多層式安全性策略中用來保護個人資料隱私權的重要元素，就是防禦 SQL 插入或跨網站指令碼等常見的弱點惡意探索。 讓您的 Azure 虛擬網路避開不必要的網路流量，有助於防止潛在的敏感性資料外洩，而 Microsoft Azure 提供工具來協助您的資料抵禦攻擊者。
 

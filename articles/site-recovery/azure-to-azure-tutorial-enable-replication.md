@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Site Recovery 設定 Azure VM 到次要 Azure 區域的災害復原 (預覽)"
-description: "了解如何使用 Azure Site Recovery 服務，設定 Azure VM 到不同 Azure 區域的災害復原。"
+title: 使用 Azure Site Recovery 設定 Azure VM 到次要 Azure 區域的災害復原 (預覽)
+description: 了解如何使用 Azure Site Recovery 服務，設定 Azure VM 到不同 Azure 區域的災害復原。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/11/2017
+ms.date: 03/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ed604209a8db4f2b39d433eb9596064da6104145
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 47d9a1e8aecde8ba0f01034f1d172c3fbd87ccfe
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>設定 Azure VM 到次要 Azure 區域的災害復原 (預覽)
 
@@ -164,7 +164,7 @@ Site Recovery 會設定目標區域的預設設定和複寫原則。 您可以�
   在容錯移轉時，複寫群組中的所有機器都會共用當機時保持一致和應用程式一致復原點。 啟用多部 VM 一致性可能會影響工作負載的效能，應該只用於機器正在執行相同工作負載，且您需要多部機器之間具有一致性的情況。
 
 > [!IMPORTANT]
-  如果您啟用多部 VM 一致性，則複寫群組中的機器會透過連接埠 20004 彼此通訊。 請確定並沒有防火牆應用裝置封鎖了 VM 之間透過連接埠 20004 進行的內部通訊。 如果您想要讓 Linux VM 成為複寫群組的一部分，請確定連接埠 20004 的輸出流量已根據特定 Linux 版本的指引手動開啟。
+  如果您啟用多部 VM 一致性，則複寫群組中的機器會透過連接埠 20004 彼此通訊。 請確定並沒有防火牆應用裝置封鎖了 VM 之間透過連接埠 20004 進行的內部通訊。 如果您想要讓 Linux VM 成為複寫群組的一部分，請確定已根據特定 Linux 版本的指引手動開啟連接埠 20004上 的輸出流量。
 
 ### <a name="track-replication-status"></a>追蹤複寫狀態
 

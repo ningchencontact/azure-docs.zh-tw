@@ -1,11 +1,11 @@
 ---
-title: "範例 Azure 基礎結構逐步解說 | Microsoft Docs"
-description: "了解適合用來在 Azure 中部署範例基礎結構的關鍵設計和實作指導方針。"
-documentationcenter: 
+title: 範例 Azure 基礎結構逐步解說 | Microsoft Docs
+description: 了解適合用來在 Azure 中部署範例基礎結構的關鍵設計和實作指導方針。
+documentationcenter: ''
 services: virtual-machines-windows
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c3f47739f28e0b0b2a24fcea61b055071cba7d5
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c532657951d6d0241a5d8d25a56bb237ad481567
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>適用於 Windows VM 的範例 Azure 基礎結構逐步解說
 本文將逐步解說建置範例應用程式基礎結構的方法。 我們會詳述設計簡單線上商店基礎結構的方式，此線上商店能將所有命名慣例、可用性設定組、虛擬網路及負載平衡器的指導方針和決定集合在一起，並實際部署您的虛擬機器 (VM)。
@@ -61,7 +61,7 @@ Adventure Works Cycles 想要在 Azure 中建置一個線上商店，該商店�
 Adventure Works Cycles 正在使用名稱為 Adventure Works Enterprise Subscription 的企業訂用帳戶，來提供這個 IT 工作負載的計費。
 
 ## <a name="storage"></a>儲存體
-Adventure Works Cycles 決定他們應該使用 Azure 受控磁碟。 建立 VM 時，會使用這兩個可用儲存體的儲存層：
+Adventure Works Cycles 決定他們應該使用 Azure 受控磁碟。 建立 VM 時，會同時使用這兩個可用的儲存層：
 
 * **標準儲存體**，適用於 Web 伺服器、應用程式伺服器，以及網域控制站及其資料磁碟。
 * **進階儲存體**，適用於 SQL Server VM 及其資料磁碟。

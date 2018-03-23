@@ -1,9 +1,9 @@
 ---
-title: "透過 Azure 入口網站管理 Azure Cosmos DB 帳戶 | Microsoft Docs"
-description: "了解如何透過 Azure 入口網站管理 Azure Cosmos DB 帳戶。 尋找使用 Azure 入口網站來檢視、複製、刪除和存取帳戶的指南。"
-keywords: "Azure 入口網站, azure, Microsoft azure"
+title: 透過 Azure 入口網站管理 Azure Cosmos DB 帳戶 | Microsoft Docs
+description: 了解如何透過 Azure 入口網站管理 Azure Cosmos DB 帳戶。 尋找使用 Azure 入口網站來檢視、複製、刪除和存取帳戶的指南。
+keywords: Azure 入口網站, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: kirillg
 manager: jhubbard
 editor: cgronlun
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/11/2017
 
 1. 更新應用程式程式碼中的存取金鑰，以參考 Azure Cosmos DB 帳戶的次要存取金鑰。
 2. 重新產生 Azure Cosmos DB 帳戶的主要存取金鑰。 在 [Azure 入口網站](https://portal.azure.com/)中，存取您的 Azure Cosmos DB 帳戶。
-3. 在 [Azure Cosmos DB 帳戶] 頁面中，按一下 [金鑰] (若為 MongoDB 帳戶，則按一下 [連接字串])。
+3. 在 [Azure Cosmos DB 帳戶] 頁面中，按一下 [金鑰] \(若為 MongoDB 帳戶，則按一下 [連接字串])。
 4. 在 [金鑰]/[連接字串] 頁面中，按一下 [重新產生] 按鈕，然後按一下 [確定] 以確認要產生新的金鑰。
     ![重新產生存取金鑰](./media/manage-account/regenerate-keys.png)
 5. 一旦確認新的金鑰可供使用後 (重新產生後約五分鐘)，更新應用程式程式碼中的存取金鑰，以參考新的主要存取金鑰。
@@ -81,7 +81,7 @@ ms.lasthandoff: 12/11/2017
 若要擷取連接字串，請執行下列操作： 
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，存取您的 Azure Cosmos DB 帳戶。
-2. 在 [資源] 功能表中，按一下 [金鑰] (若為 MongoDB API 帳戶，則按一下 [連接字串])。
+2. 在 [資源] 功能表中，按一下 [金鑰] \(若為 MongoDB API 帳戶，則按一下 [連接字串])。
 3. 按一下 [主要連接字串] 或 [次要連接字串] 方塊旁邊的 [複製] 按鈕。 
 
 如果您要在 [Azure Cosmos DB 資料庫移轉工具](import-data.md)中使用連接字串，請在連接字串結尾加上資料庫名稱。 `AccountEndpoint=< >;AccountKey=< >;Database=< >`。

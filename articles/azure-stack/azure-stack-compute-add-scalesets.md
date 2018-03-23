@@ -1,22 +1,22 @@
 ---
-title: "在 Azure Stack 中提供虛擬機器擴展集 | Microsoft Docs"
-description: "了解雲端操作員如何可以將虛擬機器擴展新增至 Azure Stack Marketplace"
+title: 在 Azure Stack 中提供虛擬機器擴展集 | Microsoft Docs
+description: 了解雲端操作員如何可以將虛擬機器擴展新增至 Azure Stack Marketplace
 services: azure-stack
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/13/2018
 ms.author: brenduns
 ms.reviewer: anajod
-keywords: 
-ms.openlocfilehash: cb8ac5435b7a5c6deb9d4571696c79b2ed15c93a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+keywords: ''
+ms.openlocfilehash: a4c854bdd659a05f032f5ee232074bc38ff677ef
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器擴展集
 
@@ -67,7 +67,6 @@ $Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
 
 $AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
 $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
-Select-AzureRmProfile -Profile $AzsEnvContext
 
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 

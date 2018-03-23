@@ -1,25 +1,21 @@
 ---
-title: "部署使用 Azure SQL Database 的分區化多租用戶 SaaS 應用程式 | Microsoft Docs"
-description: "部署及探索分區化 Wingtip SaaS 多租用戶資料庫應用程式，其使用 Azure SQL Database 示範 SaaS 模式。"
+title: 部署使用 Azure SQL Database 的分區化多租用戶 SaaS 應用程式 | Microsoft Docs
+description: 部署及探索分區化 Wingtip SaaS 多租用戶資料庫應用程式，其使用 Azure SQL Database 示範 SaaS 模式。
 keywords: SQL Database Azure
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: billgib;anjangsh
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: 3bbfdccd020f5efc7510d9688ea38f5e1af4ebde
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 82983c8926bdf3c7256c529448e5b4f3b2c2381c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>部署及探索使用 Azure SQL Database 的分區化多租用戶應用程式
 
@@ -59,9 +55,9 @@ ms.lasthandoff: 02/22/2018
 
 #### <a name="plan-the-names"></a>計劃名稱
 
-在本節的步驟中，您將提供使用者 值來確保資源名稱是全域唯一，且為資源群組的名稱，該群組包含部署應用程式時建立的所有資源。 假設使用者的姓名為 Ann Finley，我們建議：
-- 使用者：**af1** (姓名首字母縮寫加一個數字。*如果您並非首次部署應用程式，請使用另一個值 (例如 af2))。*
-- 資源群組：**wingtip-dpt-af1** (wingtip-dpt 表示這是每一租用戶一個資料庫應用程式。*加上使用者名稱 af1，會使資源群組名稱與其中各項資源的名稱產生相互關聯)。*
+在本節的步驟中，您將提供使用者值來確保資源名稱是全域唯一，且為資源群組的名稱，該群組包含部署應用程式時建立的所有資源。 假設使用者的姓名為 Ann Finley，我們建議使用以下名稱：
+- 使用者：**af1** (姓名首字母縮寫加一個數字。如果您非首次部署應用程式，請使用另一個值 (例如 af2))。
+- 資源群組：**wingtip-dpt-af1** (wingtip-dpt 表示這是每一租用戶一個資料庫應用程式。 加上使用者名稱 af1，會使資源群組名稱與其中各項資源的名稱相互關聯)。
 
 現在請選擇您的名稱，然後將它們寫下來。 
 

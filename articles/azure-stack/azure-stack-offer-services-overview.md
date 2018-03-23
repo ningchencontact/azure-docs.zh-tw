@@ -1,25 +1,25 @@
 ---
-title: "在 Azure Stack 中提供服務 | Microsoft Docs"
-description: "作為雲端操作員，您可以向使用者提供服務。"
+title: 在 Azure Stack 中提供服務 | Microsoft Docs
+description: 作為雲端操作員，您可以向使用者提供服務。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 03/05/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 7e2b98391bab5806b59d8a16ec7dc24295a0d224
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.reviewer: ''
+ms.openlocfilehash: 5b117a9b174f5d2419ff596cc90436e4b9d21645
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Azure Stack 中的服務供應項目概觀
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/02/2018
 
 [Microsoft Azure Stack](azure-stack-poc.md) 是一個混合式雲端平台，可讓您從資料中心提供服務。 作為服務提供者，您可以提供服務給租用戶。 在企業或政府機構中，您可以提供內部部署服務給您的員工。 您可以傳遞的服務包括、但不限於：
 
-- 平台即服務 (PaaS) 服務，例如應用程式服務、行動應用程式、API Apps、API 函式、SQL、MySQL。
+- 「平台即服務」(PaaS) 服務，例如應用程式服務、API Apps、API 函式、SQL、MySQL。
 
 您甚至可以結合服務，針對不同的使用者整合和建置複雜的解決方案。
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/02/2018
 
 **試用產品**：您可以使用試用產品來吸引新使用者，接著升級到其他服務。 若要建立試用產品，請建立小型的[基本方案](azure-stack-plan-offer-quota-overview.md#base-plan)與選用的大附加元件方案。
 
-**容量規劃**：您可能會擔心使用者擷取大量資源，然後阻礙系統的所有使用者使用。 若要協助改善效能，您可以[設定方案與配額](azure-stack-plan-offer-quota-overview.md#plans)來規劃使用方式。
+**容量規劃**：您可能會擔心有使用者擷取大量資源，而妨礙所有使用者使用系統。 若要協助改善效能，您可以[設定方案與配額](azure-stack-plan-offer-quota-overview.md#plans)來規劃使用方式。
 
 **委派的提供者**：您可將在您的環境中建立產品的能力授與其他人。 例如，如果您是服務提供者，您可以將此能力[委派](azure-stack-delegated-provider.md)給您的轉售商。 或者，如果您是組織，您可以委派給其他部門/分公司。
 

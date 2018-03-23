@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 中建置 Docker Python 和 PostgreSQL Web 應用程式 | Microsoft Docs"
-description: "了解如何取得在 Azure 中運作的 Docker Python 應用程式，並連線至 PostgreSQL 資料庫。"
+title: 在 Azure 中建置 Docker Python 和 PostgreSQL Web 應用程式 | Microsoft Docs
+description: 了解如何取得在 Azure 中運作的 Docker Python 應用程式，並連線至 PostgreSQL 資料庫。
 services: app-service\web
 documentationcenter: python
 author: berndverst
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: c77b7c965f43dc9c4f76683aabeb6ff9c9d3a1c9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 70cdbaa10d5e4ba39d4f378e05ae606a577ade99
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>在 Azure 中建置 Docker Python 和 PostgreSQL Web 應用程式
 
@@ -130,7 +130,7 @@ Flask 範例應用程式會將使用者資料儲存於資料庫中。 如果您�
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>建立適用於 PostgreSQL 的 Azure 資料庫伺服器
 

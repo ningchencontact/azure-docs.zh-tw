@@ -1,11 +1,11 @@
 ---
-title: "使用 OMS 閘道連線電腦 | Microsoft Docs"
-description: "將您裝置與受 Operations Manager 監視的電腦與 OMS 閘道連線，以在它們沒有網際網路存取時傳送資料給 Azure 自動化和 Log Analytics 服務。"
+title: 使用 OMS 閘道連線電腦 | Microsoft Docs
+description: 將您裝置與受 Operations Manager 監視的電腦與 OMS 閘道連線，以在它們沒有網際網路存取時傳送資料給 Azure 自動化和 Log Analytics 服務。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: magoedte
-ms.openlocfilehash: daf3cc236ef04ae27731e023d35cfe2aa82fc70a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 10422af5a57fc4da77958f15af5b2db61c023e40
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>在無網際網路存取下使用 OMS 閘道連線電腦
 本文件說明如何在直接連線或 Operations Manager 監視的電腦沒有網際網路存取時，設定使用 OMS 閘道與 Azure 自動化和 Log Analytics 的通訊。  OMS 閘道是使用 HTTP CONNECT 命令支援 HTTP 通道的 HTTP 正向 Proxy，可以代表這些電腦收集資料並傳送給 Azure 自動化和 Log Analytics 服務。  

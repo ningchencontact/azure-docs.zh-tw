@@ -1,11 +1,12 @@
 ---
-title: "使用 PowerShell 重新訓練新的 Azure Machine Learning Web 服務 | Microsoft Docs"
-description: "了解如何使用 Machine Learning Management PowerShell Cmdlet 在 Azure Machine Learning 中以程式設計方式重新訓練模型，以及使用新訓練的模型來更新 Web 服務。"
+title: 使用 PowerShell 重新訓練新的 Azure Machine Learning Web 服務 | Microsoft Docs
+description: 了解如何使用 Machine Learning Management PowerShell Cmdlet 在 Azure Machine Learning 中以程式設計方式重新訓練模型，以及使用新訓練的模型來更新 Web 服務。
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: raymondlaghaeian
-editor: 
+documentationcenter: ''
+author: aashishb
+ms.author: aashishb
+manager: hjerez
+editor: ''
 ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
 ms.service: machine-learning
 ms.workload: data-services
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.author: raymondl
-ms.openlocfilehash: 2a9302502594fa23d7bde1a71e7b096bc4152e59
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c260c15438afe6140fce92d8d3ce15b60867ec81
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>使用 Machine Learning Management PowerShell Cmdlet 重新訓練以 Resource Manager 為基礎的新 Web 服務
 當您重新訓練新的 Web 服務時，可以更新預測性 Web 服務定義以參考新的訓練模型。  

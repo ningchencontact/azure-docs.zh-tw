@@ -1,24 +1,24 @@
 ---
-title: "Azure Site Recovery 可以保護哪些工作負載？ | Microsoft Docs"
-description: "描述可以透過 Azure Site Recovery 服務使用災害復原來保護的工作負載。"
+title: Azure Site Recovery 可以保護哪些工作負載？ | Microsoft Docs
+description: 描述可以透過 Azure Site Recovery 服務使用災害復原來保護的工作負載。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
 manager: cfreeman
-editor: 
+editor: ''
 ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 3/16/2018
 ms.author: raynew
-ms.openlocfilehash: 03d311f84a4b9bc5f3a4c3c488ee7c84b1ef49ad
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 3b138546ffb1cb6d5bec0aaf2bb11510ab399933
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery 可以保護哪些工作負載？
 
@@ -110,10 +110,9 @@ Azure Site Recovery 可協助保護您的 Dynamics AX ERP 解決方案，方法�
 
 | **RDS** |**將 Azure VM 複寫至 Azure** | **將 Hyper-V VM 複寫至次要網站** | **將 Hyper-V VM 複寫至 Azure** | **將 VMware VM 複寫到次要網站** | **將 VMware VM 複寫到 Azure** | **將實體伺服器複寫到次要網站** | **將實體伺服器複寫到 Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **集區化虛擬桌面 (非受控)** |否|是 |否 |是 |否 |是 |否 |
-| 
-            **集區化虛擬桌面 (受控但不含 UPD)** |否|是 |否 |是 |否 |是 |否 |
-| **遠端應用程式和桌面工作階段 (不含 UPD)** |是|是 |是 |是 |是 |是 |是 |
+| **集區化虛擬桌面 (非受控)** |否|yes |否 |yes |否 |yes |否 |
+| **集區化虛擬桌面 (受控但不含 UPD)** |否|yes |否 |yes |否 |yes |否 |
+| **遠端應用程式和桌面工作階段 (不含 UPD)** |yes|yes |yes |yes |yes |yes |yes |
 
 [使用 Azure Site Recovery 設定適用於 RDS 的災害復原](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure)。
 

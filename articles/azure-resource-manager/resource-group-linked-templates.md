@@ -1,6 +1,6 @@
 ---
-title: "連結 Azure 部署的範本 | Microsoft Docs"
-description: "描述如何在「Azure 資源管理員」範本中使用連結的範本，以建立模組化範本方案。 示範如何傳遞參數值、指定參數檔案，以及動態建立 URL。"
+title: 連結 Azure 部署的範本 | Microsoft Docs
+description: 描述如何在「Azure 資源管理員」範本中使用連結的範本，以建立模組化範本方案。 示範如何傳遞參數值、指定參數檔案，以及動態建立 URL。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 38d4281dfadaefdf331e493745363e8b4152209d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c9a7fc0025e6f4f2b793f0616b4bc41c22c2a498
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 資源時使用連結和巢狀的範本
 
@@ -27,8 +27,6 @@ ms.lasthandoff: 01/23/2018
 若為小型至中型的解決方案，單一範本會比較容易了解和維護。 您能夠在單一檔案中看到所有的資源和值。 若為進階案例，連結的範本可讓您將解決方案細分成目標元件，並重複使用範本。
 
 在使用連結的範本時，您會建立主要範本以在部署期間接收參數值。 主要範本包含所有連結的範本，並且會視需要將值傳遞至這些範本。
-
-![連結的範本](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
 ## <a name="link-or-nest-a-template"></a>連結或巢狀範本
 

@@ -1,11 +1,11 @@
 ---
-title: "如何使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store"
-description: "本教學課程示範如何使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store。"
+title: 如何使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store
+description: 本教學課程示範如何使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 742b76e17b7ad00a70b0d18895c0b59ebe044d47
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Windows 虛擬機器
 
@@ -100,7 +100,7 @@ Azure Data Lake Store 原生支援 Azure AD 驗證，因此可以直接接受使
 1. 在入口網站中，瀏覽至 [虛擬機器] 並移至您的 Windows VM，在 [概觀] 中按一下 [連線]。
 2. 輸入您建立 Windows VM 時新增的**使用者名稱**和**密碼**。 
 3. 現在您已經建立虛擬機器的**遠端桌面連線**，請在遠端工作階段中開啟 **PowerShell**。 
-4. 使用 PowerShell 的 `Invoke-WebRequest`，向本機 MSI 端點提出要求取得 Azure Data Lake Store 的存取權杖。  Data Lake Store 的資源識別項是 "https://datalake.azure.net/"。  Data Lake 會對資源識別碼執行完全相符的比對，因此結尾的斜線很重要。
+4. 使用 PowerShell 的 `Invoke-WebRequest`，向本機 MSI 端點提出要求取得 Azure Data Lake Store 的存取權杖。  Data Lake Store 的資源識別碼是 "https://datalake.azure.net/"。  Data Lake 會對資源識別碼執行完全相符的比對，因此結尾的斜線很重要。
 
    ```powershell
    $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://datalake.azure.net/"} -Headers @{Metadata="true"}

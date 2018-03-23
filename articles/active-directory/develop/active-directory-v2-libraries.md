@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory v2.0 驗證程式庫 | Microsoft Docs"
-description: "對 Azure Active Directory v2.0 端點而言，相容的用戶端程式庫和伺服器中介軟體程式庫清單，以及相關的文件庫/來源/範例連結。"
+title: Azure Active Directory v2.0 驗證程式庫 | Microsoft Docs
+description: 對 Azure Active Directory v2.0 端點而言，相容的用戶端程式庫和伺服器中介軟體程式庫清單，以及相關的文件庫/來源/範例連結。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a1e2c4db54ca81325751ed85b26b904174e94078
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60abada0a6683ee5cc8118c37336fe67cd51b2f0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 驗證程式庫
 [Azure Active Directory (Azure AD) v2.0 端點](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare)支援業界標準 OAuth 2.0 和 OpenID Connect 1.0 通訊協定。 您可以使用 Microsoft 和其他廠商提供的各種程式庫搭配 v2.0 端點。
@@ -27,9 +27,9 @@ ms.lasthandoff: 12/11/2017
 在建置使用 v2.0 端點的應用程式時，建議您使用通訊協定網域專家遵循安全性開發生命週期 (SDL) 方法 (例如 [Microsoft 遵循的方法][Microsoft-SDL]) 所撰寫的程式庫。 如果您決定手工撰寫通訊協定的支援，建議您遵循 SDL 方法並仔細觀察各通訊協定的標準規格中的安全性考量。
 
 > [!NOTE]
-> 在尋找 Azure AD v1.0 程式庫 (ADAL) 嗎？ 請參閱 [ADAL 程式庫指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)。 
-> 
-> 
+> 在尋找 Azure AD v1.0 程式庫 (ADAL) 嗎？ 請參閱 [ADAL 程式庫指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)。
+>
+>
 
 ## <a name="types-of-libraries"></a>程式庫類型
 Azure AD v2.0 端點適用於兩種程式庫類型︰
@@ -78,13 +78,8 @@ Azure AD v2.0 端點適用於兩種程式庫類型︰
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[原生應用程式範例](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[原生應用程式範例](active-directory-v2-devquickstarts-ios.md) |
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
-
-## <a name="compatible-server-middleware-libraries"></a>相容的伺服器中介軟體程式庫
-| 平台 | 程式庫名稱 | 測試的版本 | 原始程式碼 | 範例 |
-|:---:|:---:|:---:|:---:|:---:|
 | Java | [Scribe Java scribejava](https://github.com/scribejava/scribejava) | [3.2.0 版](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
 | PHP | [PHP League oauth2-client](https://github.com/thephpleague/oauth2-client) | [1.4.2 版](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
-| Python-Flask |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |[Web 應用程式](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 
 ## <a name="related-content"></a>相關內容

@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 SCC LifeCycle 整合 | Microsoft Docs"
-description: "了解如何使用 SCC LifeCycle 搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！"
+title: 教學課程：Azure Active Directory 與 SCC LifeCycle 整合 | Microsoft Docs
+description: 了解如何使用 SCC LifeCycle 搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 943698311d10b479879fd92d2482d827650e2b0c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>教學課程：Azure Active Directory 與 SCC LifeCycle 整合
 本教學課程的目的是要示範 Azure 與 SCC LifeCycle 的整合。  
@@ -75,7 +75,7 @@ ms.lasthandoff: 01/05/2018
 2. 在 [要如何讓使用者登入 SCC LifeCycle] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按 [下一步]。
    
     ![設定單一登入](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "設定單一登入")
-3. 在 [設定應用程式 URL] 頁面的 [登入 URL] 文字方塊中，使用下列模式輸入使用者用來登入 SCC LifeCycle 應用程式的 URL："https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx"，然後按 [下一步]。
+3. 在 [設定應用程式 URL] 頁面的 [登入 URL] 文字方塊中，使用下列模式來輸入使用者用來登入 SCC LifeCycle 應用程式的 URL： "*https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*"，然後按 [下一步]。
    
     ![設定應用程式 URL](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "設定應用程式 URL")
 4. 在 [設定在 SCC LifeCycle 單一登入] 頁面上，按一下 [下載中繼資料]，然後將中繼資料檔儲存在您的本機電腦上。

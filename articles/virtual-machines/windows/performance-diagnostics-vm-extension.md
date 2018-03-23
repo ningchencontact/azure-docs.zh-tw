@@ -1,12 +1,12 @@
 ---
-title: "適用於 Windows 的 Azure 效能診斷 VM 擴充功能 |Microsoft Docs"
-description: "介紹適用於 Windows 的 Azure 效能診斷 VM 擴充功能。"
+title: 適用於 Windows 的 Azure 效能診斷 VM 擴充功能 |Microsoft Docs
+description: 介紹適用於 Windows 的 Azure 效能診斷 VM 擴充功能。
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 5a7dc313f1d6453562e4d5a11ceca03e4459b043
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>適用於 Windows 的 Azure 效能診斷 VM 擴充功能
 
@@ -29,7 +29,7 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 此擴充功能可安裝於 Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2 及 Windows Server 2016。 它也可以安裝於 Windows 8.1 和 Windows 10。
 
 ## <a name="extension-schema"></a>擴充功能結構描述
-下列 JSON 會顯示 Azure 效能診斷 VM 擴充功能的結構描述。 此擴充功能需要儲存體帳戶的名稱與金鑰，才能儲存診斷輸出與報告。 這些都是機密值，並應該儲存在受保護的設定組態內。 Azure VM 擴充功能保護的設定資料會經過加密，只會在目標虛擬機器上解密。 請注意，**storageAccountName** 和 **storageAccountKey** 須區分大小寫。 其他必要的參數會列在下一節中。
+下列 JSON 會顯示 Azure 效能診斷 VM 擴充功能的結構描述。 此擴充功能需要儲存體帳戶的名稱與金鑰，才能儲存診斷輸出與報告。 這些都是機密值。 儲存體帳戶金鑰應該儲存在受保護的設定組態內。 Azure VM 擴充功能保護的設定資料會經過加密，只會在目標虛擬機器上解密。 請注意，**storageAccountName** 和 **storageAccountKey** 須區分大小寫。 其他必要的參數會列在下一節中。
 
 ```JSON
     {
@@ -43,19 +43,19 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
 ```
@@ -75,12 +75,13 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 |xperfTrace|x|啟用 XPerf 追蹤的選項。 有效值為 **x** 或空值。 如果您不想要擷取此追蹤，請將值保持空白即可。
 |storPortTrace|s|啟用 StorPort 追蹤的選項。 有效值為 **s** 或空值。 如果您不想要擷取此追蹤，請將值保持空白即可。
 |srNumber|123452016365929|支援票證號碼 (若可用)。 如果您沒有此值，請保持空白。
+|requestTimeUtc|2017-09-28T22:08:53.736Z|目前的日期時間 (UTC)。 如果您使用入口網站來安裝此擴充功能，就不需提供此值。
 |storageAccountName|mystorageaccount|要儲存診斷記錄和結果的儲存體帳戶名稱。
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|儲存體帳戶的金鑰。
 
 ## <a name="install-the-extension"></a>安裝擴充功能
 
-請遵循下列步驟以在 Windows 虛擬機器上安裝擴充功能：
+遵循下列指示以在 Windows 虛擬機器上安裝擴充功能：
 
 1. 登入 [Azure 入口網站](http://portal.azure.com)。
 2. 選取您要安裝此擴充功能的虛擬機器。
@@ -182,19 +183,19 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {            
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
   ]
@@ -202,13 +203,13 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 ````
 
 ## <a name="powershell-deployment"></a>PowerShell 部署
-`Set-AzureRmVMExtension` 命令可用來將 Azure 效能診斷 VM 擴充功能部署到現有的虛擬機器。 執行命令之前，請將公用和私人組態儲存在 PowerShell 雜湊表中。
+`Set-AzureRmVMExtension` 命令可用來將 Azure 效能診斷 VM 擴充功能部署到現有的虛擬機器。
 
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
+$PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -218,7 +219,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS `
+    -Location WestUS
 ````
 
 ## <a name="information-on-the-data-captured"></a>所擷取資料的詳細資訊

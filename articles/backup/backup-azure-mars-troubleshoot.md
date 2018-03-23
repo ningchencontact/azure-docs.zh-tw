@@ -1,11 +1,11 @@
 ---
-title: "針對 Azure 備份代理程式進行疑難排解 | Microsoft Docs"
-description: "針對 Azure 備份代理程式的安裝和註冊進行疑難排解"
+title: 針對 Azure 備份代理程式進行疑難排解 | Microsoft Docs
+description: 針對 Azure 備份代理程式的安裝和註冊進行疑難排解
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: saurse;markgal;
-ms.openlocfilehash: 52a32d61dd69110ace560fd1e52389140f322678
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f7f4ac328c4e35f52bcc9708faf96d06189dd9ac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>針對 Azure 備份代理程式的設定和註冊問題進行疑難排解
 ## <a name="recommended-steps"></a>建議的步驟
 請參閱下列表格中的建議動作，以解決您可能在設定或註冊 Azure 備份代理程式期間遇到的錯誤。
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="invalid-vault-credentials-provided-the-file-is-either-corrupted-or-does-not-have-the-latest-credentials-associated-with-recovery-service"></a>提供的保存庫認證無效。 檔案已損毀或沒有與復原服務關聯的最新認證。
 | 錯誤詳細資料 | 可能的原因 | 建議動作 |

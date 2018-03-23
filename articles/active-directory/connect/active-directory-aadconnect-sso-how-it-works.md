@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect：無縫單一登入 - 運作方式 | Microsoft Docs"
-description: "本文描述 Azure Active Directory 無縫單一登入功能的運作方式。"
+title: Azure AD Connect：無縫單一登入 - 運作方式 | Microsoft Docs
+description: 本文描述 Azure Active Directory 無縫單一登入功能的運作方式。
 services: active-directory
-keywords: "何謂 Azure AD Connect、安裝 Active Directory、Azure AD、SSO、單一登入的必要元件"
-documentationcenter: 
+keywords: 何謂 Azure AD Connect、安裝 Active Directory、Azure AD、SSO、單一登入的必要元件
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,23 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 02/15/2018
 ms.author: billmath
-ms.openlocfilehash: 0a28cd9016588d266670aa5a7fcbdd854d7ebce0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9d17a4038f2171b74c8ba1dbc21e8335e6893691
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory 無縫單一登入：技術性深入探討
 
 本文提供 Azure Active Directory 無縫單一登入 (無縫 SSO) 功能運作方式的技術詳細資料。
 
-## <a name="how-does-seamless-sso-work"></a>順暢 SSO 如何運作？
+## <a name="how-does-seamless-sso-work"></a>無縫 SSO 如何運作？
 
-本節有兩個部分：
-1. 無縫 SSO 功能的設定。
-2. 單一使用者登入交易如何與無縫 SSO 搭配運作。
+本節包含三個相關部分：
+1. 「無縫 SSO」功能的設定。
+2. 網頁瀏覽器上的單一使用者登入交易如何與「無縫 SSO」搭配運作。
+3. 原生用戶端上的單一使用者登入交易如何與「無縫 SSO」搭配運作。
 
 ### <a name="how-does-set-up-work"></a>設定如何運作？
 
@@ -43,30 +44,52 @@ ms.lasthandoff: 12/11/2017
 >[!IMPORTANT]
 >強烈建議您至少每隔 30 天變換一次 `AZUREADSSOACC` 電腦帳戶的 [Kerberos 解密金鑰](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)。
 
-### <a name="how-does-sign-in-with-seamless-sso-work"></a>使用無縫 SSO 登入的運作方式？
+設定完成之後，無縫 SSO 登入的運作方式與其他任何使用整合式 Windows 驗證 (IWA) 的登入相同。
 
-設定完成之後，無縫 SSO 登入的運作方式與其他任何使用整合式 Windows 驗證 (IWA) 的登入相同。 流程如下︰
+### <a name="how-does-sign-in-on-a-web-browser-with-seamless-sso-work"></a>網頁瀏覽器上的登入如何與無縫 SSO 搭配運作？
 
-1. 使用者嘗試從公司網路內加入網域的公司裝置存取應用程式 (例如 Outlook Web App - https://outlook.office365.com/owa/)。
+網頁瀏覽器上的登入流程如下：
+
+1. 使用者嘗試從公司網路內已加入網域的公司裝置存取 Web 應用程式 (例如 Outlook Web 應用程式 - https://outlook.office365.com/owa/)。
 2. 如果使用者尚未登入，則會將使用者重新導向至 Azure AD 登入頁面。
+3. 使用者將他們的使用者名稱鍵入 Azure AD 登入頁面中。
 
   >[!NOTE]
-  >如果 Azure AD 登入要求包含 `domain_hint` (識別您的租用戶；例如 contoso.onmicrosoft.com) 或 `login_hint` (識別使用者；例如 user@contoso.onmicrosoft.com 或 user@contoso.com) 參數，則會跳過步驟 2。
+  >針對[某些應用程式](./active-directory-aadconnect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso)，會略過步驟 2 和 3。
 
-3. 使用者將他們的使用者名稱鍵入 Azure AD 登入頁面中。
 4. 在背景中使用 JavaScript 時，Azure AD 會透過 401 未授權回應來挑戰瀏覽器，以提供 Kerberos 票證。
 5. 瀏覽器接著會從 Active Directory 要求 `AZUREADSSOACC` 電腦帳戶 (代表 Azure AD) 的票證。
 6. Active Directory 會找出該電腦帳戶，並將 Kerberos 票證傳回給瀏覽器 (使用電腦帳戶的祕密加密)。
-7. 瀏覽器會將它需要的 Kerberos 票證從 Active Directory 轉送到 Azure AD (在其中一個[先前新增至瀏覽器內部網路區域設定的 Azure AD URL](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature) 上)。
+7. 瀏覽器會將它從 Active Directory 取得的 Kerberos 票證轉送給 Azure AD。
 8. Azure AD 會解密 Kerberos 票證，其中包含使用先前共用的金鑰登入公司裝置之使用者的身分識別。
 9. 評估之後，Azure AD 會將權杖傳回給應用程式，或要求使用者執行其他證明，例如 Multi-Factor Authentication。
 10. 如果使用者登入成功，則使用者可以存取應用程式。
 
 下圖說明所有元件和相關步驟。
 
-![順暢單一登入](./media/active-directory-aadconnect-sso/sso2.png)
+![無縫單一登入 - Web 應用程式流程](./media/active-directory-aadconnect-sso/sso2.png)
 
 無縫 SSO 是靈活變換的功能，這表示如果失敗，登入體驗會改回其一般行為； 也就是，使用者必須輸入密碼才能登入。
+
+### <a name="how-does-sign-in-on-a-native-client-with-seamless-sso-work"></a>原生用戶端上的登入如何與無縫 SSO 搭配運作？
+
+原生用戶端上的登入流程如下：
+
+1. 使用者嘗試從公司網路內已加入網域的公司裝置存取原生應用程式 (例如 Outlook 用戶端)。
+2. 如果使用者尚未登入，原生應用程式就會從裝置的 Windows 工作階段擷取使用者的使用者名稱。
+3. 應用程式會將使用者名稱傳送給 Azure AD，然後擷取您租用戶的 WS-Trust MEX 端點。
+4. 應用程式會接著查詢 WS-Trust MEX 端點，以了解是否有可用的整合式驗證端點。
+5. 如果步驟 4 成功，就會發出 Kerberos 查問。
+6. 如果應用程式能夠擷取 Kerberos 票證，它就會將票證向上轉送至 Azure AD 的整合式驗證端點。
+7. Azure AD 會將 Kerberos 票證解密並加以驗證。
+8. Azure AD 會將使用者登入，然後向應用程式發出 SAML 權杖。
+9. 應用程式會接著向 Azure AD 的 OAuth2 權杖端點提交該 SAML 權杖。
+10. Azure AD 會驗證該 SAML 權杖，然後向應用程式發出所指定資源的存取權杖和重新整理權杖，以及一個識別碼權杖。
+11. 使用者會取得應用程式資源的存取權。
+
+下圖說明所有元件和相關步驟。
+
+![無縫單一登入 - 原生應用程式流程](./media/active-directory-aadconnect-sso/sso14.png)
 
 ## <a name="next-steps"></a>後續步驟
 

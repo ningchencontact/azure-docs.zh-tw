@@ -1,11 +1,11 @@
 ---
-title: "Azure 備份︰從 Azure VM 備份復原檔案和資料夾 | Microsoft Docs"
-description: "從 Azure 虛擬機器的復原點復原檔案"
+title: Azure 備份︰從 Azure VM 備份復原檔案和資料夾 | Microsoft Docs
+description: 從 Azure 虛擬機器的復原點復原檔案
 services: backup
 documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
-keywords: "項目層級復原；從 Azure VM 備份檔案復原；從 Azure VM 中還原檔案"
+keywords: 項目層級復原；從 Azure VM 備份檔案復原；從 Azure VM 中還原檔案
 ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
 ms.service: backup
 ms.devlang: na
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
 Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱還原點) 來還原 [Azure VM 和磁碟](./backup-azure-arm-restore-vms.md)。 本文說明如何從 Azure VM 備份來復原檔案和資料夾。 只有使用 Resource Manager 模型部署且受復原服務保存庫保護的 Azure VM，才能還原檔案和資料夾。
 
 > [!Note]
+> 這項功能適用於使用 Resource Manager 模型部署且受復原服務保存庫保護的 Azure VM。
 > 不支援從加密 VM 備份的檔案復原。
 >
 

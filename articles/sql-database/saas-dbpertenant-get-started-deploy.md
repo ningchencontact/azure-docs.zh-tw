@@ -1,26 +1,20 @@
 ---
-title: "每一租用戶一個資料庫 SaaS 教學課程 - Azure SQL Database | Microsoft Docs"
-description: "部署及探索 Wingtip Tickets SaaS 多租用戶應用程式，其使用 Azure SQL Database 示範每一租用戶一個資料庫和其他 SaaS 模式。"
+title: 每一租用戶一個資料庫 SaaS 教學課程 - Azure SQL Database | Microsoft Docs
+description: 部署及探索 Wingtip Tickets SaaS 多租用戶應用程式，其使用 Azure SQL Database 示範每一租用戶一個資料庫和其他 SaaS 模式。
 keywords: SQL Database Azure
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: genemi
-ms.openlocfilehash: cbe8a04abbf2dada7cc43e57e823c3a41bf83fe7
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8aa4c8691093779bd8febee80fca88efad93dc00
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>使用 Azure SQL Database，部署及探索使用 每一租用戶一個資料庫模式的多租用戶 SaaS 應用程式
 
@@ -46,11 +40,11 @@ ms.lasthandoff: 02/22/2018
 
 若要完成本教學課程，請確定已完成下列必要條件：
 
-* 已安裝 Azure PowerShell。 如需詳細資訊，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
+* 已安裝 Azure PowerShell。 如需詳細資料，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 
 ## <a name="deploy-the-wingtip-tickets-saas-application"></a>部署 Wingtip Tickets SaaS 應用程式
 
-#### <a name="plan-the-names"></a>命名
+#### <a name="plan-the-names"></a>計劃名稱
 
 在本節的步驟中，您將提供使用者值來確保資源名稱是全域唯一，且為資源群組的名稱，該群組包含部署應用程式時建立的所有資源。 假設使用者的姓名為 Ann Finley，我們建議使用以下名稱：
 - 使用者：**af1** (姓名首字母縮寫加一個數字。如果您非首次部署應用程式，請使用另一個值 (例如 af2))。
@@ -78,7 +72,7 @@ ms.lasthandoff: 02/22/2018
     - 按一下以同意條款和條件。
     - 按一下 [購買]。
 
-1. 按一下 [通知] (搜尋方塊右側的鈴鐺圖示) 來監視部署狀態。 部署 Wingtip Tickets SaaS 應用程式大約需要五分鐘。
+1. 按一下 [通知] \(搜尋方塊右側的鈴鐺圖示) 來監視部署狀態。 部署 Wingtip Tickets SaaS 應用程式大約需要五分鐘。
 
    ![部署成功](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 

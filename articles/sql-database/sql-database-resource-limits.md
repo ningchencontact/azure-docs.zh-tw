@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Database 資源限制 | Microsoft Docs"
-description: "此頁面描述一些 Azure SQL Database 常見的資源限制。"
+title: Azure SQL Database 資源限制 | Microsoft Docs
+description: 此頁面描述一些 Azure SQL Database 常見的資源限制。
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
 ms.custom: DBs & servers
@@ -13,25 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-<<<<<<< HEAD
-ms.date: 02/12/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 47f42c10a791caa8ab20401574fb853ad3e4f0e9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: eea4362e33ff2587758601758db463ffa82382b3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
-=======
-ms.date: 02/27/2018
-ms.author: carlrab
-ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
->>>>>>> a5b079a4107028b330b83565afd4402701751155
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL Database 資源限制
+
+> [!IMPORTANT]
+> 如需了解「Azure SQL Database 受控執行個體」的資源限制，請參閱 [SQL Database 受控執行個體](sql-database-managed-instance.md#managed-instance-service-tier)。
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>單一資料庫：儲存體大小與效能層級
 
@@ -89,7 +82,6 @@ ms.lasthandoff: 02/28/2018
 
 > [!NOTE]
 > 根據 DTU 和服務層，彈性集區中個別資料庫的資源限制通常與集區外部之單一資料庫的資源限制相同。 例如，S2 資料庫的並行背景工作數上限是 120 個背景工作。 因此，如果集區中每個資料庫的最大 DTU 是 50 DTU (這相當於 S2)，標準集區中的資料庫最大並行背景工作數上限也會是 120 個背景工作。
->
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 

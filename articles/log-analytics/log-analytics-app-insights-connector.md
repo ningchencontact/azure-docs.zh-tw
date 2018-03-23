@@ -1,11 +1,11 @@
 ---
-title: "檢視 Azure Application Insights 應用程式資料 | Microsoft Docs"
-description: "您可以使用 Applications Insights Connector 解決方案來診斷效能問題，以及了解使用者如何使用 Application Insights 監視您的應用程式。"
+title: 檢視 Azure Application Insights 應用程式資料 | Microsoft Docs
+description: 您可以使用 Applications Insights Connector 解決方案來診斷效能問題，以及了解使用者如何使用 Application Insights 監視您的應用程式。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector 管理解決方案 (預覽)
 
@@ -64,7 +64,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 要牢記在心的其他幾點：
 
 - 您只可以將 Application Insights 應用程式連結至一個 Log Analytics 工作區。
-- 您只可以將[標準或進階 Application Insights 資源](https://azure.microsoft.com/pricing/details/application-insights)連結至 Log Analytics。 不過，您可以使用 Log Analytics 的免費層。
+- 您只可以將 [Basic 或 Enterprise Application Insights 資源](https://azure.microsoft.com/pricing/details/application-insights)連結至 Log Analytics。 不過，您可以使用 Log Analytics 的免費層。
 
 ## <a name="management-packs"></a>管理組件
 

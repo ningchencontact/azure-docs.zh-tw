@@ -1,12 +1,12 @@
 ---
-title: "在 Visual Studio 中建置無伺服器應用程式 | Microsoft Docs"
-description: "根據本指南，在 Visual Studio 中開始打造您的第一個無伺服器應用程式，包括建立、部署和管理應用程式。"
-keywords: 
+title: 在 Visual Studio 中建置無伺服器應用程式 | Microsoft Docs
+description: 根據本指南，在 Visual Studio 中開始打造您的第一個無伺服器應用程式，包括建立、部署和管理應用程式。
+keywords: ''
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 3672beda8a502e5fe2c8182076a8edef7ee9ebf6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3cd509a0073e45bf910e9a74a279d678ff03b63
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>在 Visual Studio 中使用 Logic Apps 和 Functions 建置邏輯應用程式
 
@@ -86,7 +86,7 @@ Azure 中是在資源群組內管理資源。  資源群組是資源的邏輯群
 ## <a name="next-steps"></a>後續步驟
 
 * [了解如何建置無伺服器社交儀表板](logic-apps-scenario-social-serverless.md)
-* [從 Visual Studio Cloud Explorer 管理邏輯應用程式](logic-apps-manage-from-vs.md)
+* [從 Visual Studio Cloud Explorer 管理邏輯應用程式](manage-logic-apps-with-visual-studio.md)
 * [邏輯應用程式工作流程定義語言](logic-apps-workflow-definition-language.md)
 
 <!-- Image references -->

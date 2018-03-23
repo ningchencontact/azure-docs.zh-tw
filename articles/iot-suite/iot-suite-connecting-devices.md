@@ -1,25 +1,25 @@
 ---
-title: "以 C 將 Windows 裝置佈建到遠端監視 - Azure | Microsoft Docs"
-description: "描述如何在 Windows 上使用已寫入 C 的應用程式，將裝置連接至 Azure IoT Suite 預先設定遠端監視方案。"
-services: 
+title: 以 C 將 Windows 裝置佈建到遠端監視 - Azure | Microsoft Docs
+description: 描述如何在 Windows 上使用已寫入 C 的應用程式，將裝置連接至 Azure IoT Suite 預先設定遠端監視方案。
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 34e39a58-2434-482c-b3fa-29438a0c05e8
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: a6453c8d84b7025f1f510db5e675cde8685c23ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 83d0427a3ba8c634699608c38ab22efb1f275e52
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>將裝置連接至遠端監視預先設定方案 (Windows)
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 12/13/2017
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
     > [!NOTE]
@@ -117,7 +117,7 @@ ms.lasthandoff: 12/13/2017
     }
     ```
 
-1. 依序選擇 [建置] 和 [建置方案] 以建置裝置應用程式。 忽略關於 **gmtime** 函式的警告。
+1. 依序選擇 [建置] 和 [建置方案] 以建置裝置應用程式。
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 [RMDevice] 專案，並選擇 [偵錯]，然後選擇 [開始新執行個體] 來執行範例。 主控台會將訊息顯示為：
 

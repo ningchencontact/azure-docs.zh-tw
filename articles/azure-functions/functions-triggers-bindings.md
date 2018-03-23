@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions 中的觸發程序和繫結"
-description: "了解如何在 Azure Functions 中使用觸發程序和繫結，將您的程式碼執行連接到線上事件和雲端服務。"
+title: Azure Functions 中的觸發程序和繫結
+description: 了解如何在 Azure Functions 中使用觸發程序和繫結，將您的程式碼執行連接到線上事件和雲端服務。
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構"
+editor: ''
+tags: ''
+keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 觸發程序和繫結概念
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 02/27/2018
 + [在本機使用 Azure Functions Core Tools](#local-development-azure-functions-core-tools)
 + [在 Azure 入口網站中](#azure-portal-development) 
 
-2.x 版中有一組核心繫結並未提供作為延伸模組。 您不需要註冊下列觸發程序和繫結的延伸模組：HTTP、計時器和 Azure 儲存體。 
+2.x 版中有一組核心繫結並未提供來作為擴充功能。 您不需要註冊下列觸發程序和繫結的延伸模組：HTTP、計時器和 Azure 儲存體。 
 
 如需如何設定函式應用程式以使用 Functions 執行階段 2.x 版的相關資訊，請參閱[如何設定 Azure Functions 執行階段目標版本](set-runtime-version.md)。 Functions 執行階段 2.x 版目前為預覽狀態。 
 

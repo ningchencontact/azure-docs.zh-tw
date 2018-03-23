@@ -1,26 +1,21 @@
 ---
-title: "在多租用戶應用程式中管理 Azure SQL Database 結構描述 | Microsoft Docs"
-description: "在使用 Azure SQL Database 的多租用戶應用程式中，管理多租用戶的結構描述"
+title: 在多租用戶應用程式中管理 Azure SQL Database 結構描述 | Microsoft Docs
+description: 在使用 Azure SQL Database 的多租用戶應用程式中，管理多租用戶的結構描述
 keywords: SQL Database Azure
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 0303da917ecb03ca27e0444afb56f49766b70029
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 474b7842c8295be0dd30c2c03b92dc68ce40630d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>在使用分區化多租用戶 SQL 資料庫的 SaaS 應用程式中管理結構描述
 

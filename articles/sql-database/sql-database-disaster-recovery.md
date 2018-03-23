@@ -1,32 +1,27 @@
 ---
-title: "SQL Database 災害復原 | Microsoft Docs"
-description: "了解如何使用 Azure SQL Database 的作用中異地複寫和異地還原功能，從區域資料中心中斷或失敗情況復原資料庫。"
+title: SQL Database 災害復原 | Microsoft Docs
+description: 了解如何使用 Azure SQL Database 的作用中異地複寫和異地還原功能，從區域資料中心中斷或失敗情況復原資料庫。
 services: sql-database
-documentationcenter: 
 author: anosov1960
 manager: jhubbard
-editor: monicar
-ms.assetid: 4800960e-3f9d-40ce-9e55-fb7f2784c067
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
-ms.date: 12/13/2017
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 224c0b9f12595ec6cdc65e3d397fb62dba504d06
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: e9ec0a0a602965561b77619123588db57c59993c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>還原 Azure SQL Database 或容錯移轉到次要資料庫
 Azure SQL Database 提供下列功能，以從中斷復原：
 
 * [作用中異地複寫和容錯移轉群組](sql-database-geo-replication-overview.md)
 * [異地還原](sql-database-recovery-using-backups.md#point-in-time-restore)
+* [區域備援資料庫](sql-database-high-availability.md)
 
 若要了解商務持續性案例，以及支援這些案例的功能，請參閱 [商務持續性](sql-database-business-continuity.md)。
 
@@ -36,11 +31,11 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 ### <a name="prepare-for-the-event-of-an-outage"></a>準備中斷事件
 如果要使用容錯移轉群組或異地備援備份成功復原到另一個資料區域，您必須準備一台伺服器，以便在另一個資料中心中斷時成為新的主要伺服器，以及將定義好的步驟寫成文件並經過測試，以確保順利復原。 這些準備步驟包括︰
 
-* 識別在另一個區域中要成為新主要伺服器的邏輯伺服器。 如果是異地還原，這通常會是在資料庫所在區域的[配對區域](../best-practices-availability-paired-regions.md)中的伺服器。 在地理還原作業期間，這可避免額外的流量成本。
+* 識別在另一個區域中要成為新主要伺服器的邏輯伺服器。 就異地還原而言，這通常是在您資料庫所在區域之[配對區域](../best-practices-availability-paired-regions.md)中的伺服器。 這可避免在異地還原作業期間發生額外的流量成本。
 * 識別並選擇性地定義所需的伺服器層級防火牆規則，讓使用者可以存取新的主要資料庫。
 * 決定要如何重新導向使用者至新的主要伺服器，例如變更連接字串或變更 DNS 項目。
 * 識別並選擇性地建立登入，新主要伺服器的 master 資料庫中必須有這些登入，並確保這些登入在 master 資料庫中有適當的權限 (如果有的話)。 如需詳細資訊，請參閱 [災害復原後的 SQL Database 安全性](sql-database-geo-replication-security-config.md)
-* 識別需要更新的警示規則以對應至新的主要資料庫。
+* 識別需要更新成對應至新主要資料庫的警示規則。
 * 將目前主要資料庫上的稽核設定整理成文件
 * 執行 [災害復原演練](sql-database-disaster-recovery-drills.md)。 若要模擬異地還原中斷，您可以刪除或重新命名來源資料庫，讓應用程式連線失敗。 若要使用容錯移轉群組模擬中斷，您可以停用 Web 應用程式或連線到資料庫的的虛擬機器，或是容錯移轉資料庫，讓應用程式連線失敗。
 
@@ -58,10 +53,10 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 使用 [取得可復原資料庫](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) 以取得異地複寫的最近還原點。
 
 ## <a name="wait-for-service-recovery"></a>等候服務復原
-Azure 團隊會努力儘快還原服務可用性，但需視根本原因而言，有可能需要數小時或數天的時間。  如果您的應用程式可以容忍長時間停機，您可以等待復原完成。 在此情況下，您不需要採取任何動作。 您可以在 [Azure 服務健康狀態儀表板](https://azure.microsoft.com/status/)上看見目前的服務狀態。 在區域復原後，您應用程式的可用性將會還原。
+Azure 團隊會努力儘快還原服務可用性，但需視根本原因而言，有可能需要數小時或數天的時間。  如果您的應用程式可以容忍長時間停機，您可以等待復原完成。 在此情況下，您不需要採取任何動作。 您可以在 [Azure 服務健康狀態儀表板](https://azure.microsoft.com/status/)上看見目前的服務狀態。 在復原區域之後，就會還原您應用程式的可用性。
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>容錯移轉至容錯移轉群組中異地複寫的次要伺服器
-如果您應用程式的停機可能會導致商務責任，您應該使用容錯移轉群組。 這可讓應用程式在發生中斷時，快速還原不同區域的可用性。 了解如何[設定容錯移轉群組](sql-database-geo-replication-portal.md)。
+如果您應用程式的停機情況可能造成業務責任，您應該使用容錯移轉群組。 這可讓應用程式在發生中斷時，在不同的區域中快速還原可用性。 了解如何[設定容錯移轉群組](sql-database-geo-replication-portal.md)。
 
 若要還原資料庫的可用性，您必須使用其中一種支援的方法，開始容錯移轉到次要伺服器。
 
@@ -77,7 +72,7 @@ Azure 團隊會努力儘快還原服務可用性，但需視根本原因而言�
 如果您使用異地復原來從中斷復原，您必須確定已正確設定新資料庫的連接，才能繼續執行正常的應用程式功能。 以下工作檢查清單可協助您準備產生復原的資料庫。
 
 ### <a name="update-connection-strings"></a>更新連接字串
-因為復原的資料庫將位於不同的伺服器，所以您必須更新應用程式的連接字串以指向該伺服器。
+因為復原的資料庫會位於不同的伺服器，所以您必須更新應用程式的連接字串以指向該伺服器。
 
 如需變更連接字串的詳細資訊，請參閱 [連線庫](sql-database-libraries.md)的適當開發語言。
 

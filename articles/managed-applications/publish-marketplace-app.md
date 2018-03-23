@@ -1,6 +1,6 @@
 ---
-title: "Marketplace 中 Azure 受控應用程式 | Microsoft Docs"
-description: "描述可透過 Marketplace 取得的 Azure 受控應用程式。"
+title: Marketplace 中 Azure 受控應用程式 | Microsoft Docs
+description: 描述可透過 Marketplace 取得的 Azure 受控應用程式。
 services: azure-resource-manager
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 61815098a4935983f19b3dcea6e001230aee4771
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace 中 Azure 受控應用程式
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/19/2018
 
 1. 建立 Microsoft ID - 使用屬於貴公司網域，但不屬於單一個人的電子郵件地址，建立您的 Microsoft 帳戶。 此電子郵件地址用於 Microsoft 開發人員中心和雲端合作夥伴入口網站。 如需詳細資訊，請參閱 [Azure Marketplace 發行者指南](https://aka.ms/sellerguide)。
 1. 提交 [Azure Marketplace 提名表單](https://aka.ms/ampnomination) - 針對**您想要發行的解決方案？**，選取 [受控應用程式]。 一旦提交表單，Marketplace 上架小組會檢閱應用程式並驗證要求。 核准程序可能需要一到三天。 您的提名核准時，您會收到促銷代碼，以撤銷開發人員中心的註冊費用。 如果您**未**完成 Marketplace 提名表單，系統會要求您支付 $99 的註冊費用。
-1. 在[開發人員中心](https://developer.microsoft.com)註冊 - Microsoft 會驗證您的組織是有效的法律實體，具有註冊所在國家/地區的有效統一編號。 核准程序可能需要 5 到 10 天。 若要避免註冊費用，使用您在提名程序電子郵件中收到的促銷代碼。 如需詳細資訊，請參閱 [Azure Marketplace 發行者指南](https://aka.ms/sellerguide)。
+1. 在[開發人員中心](http://dev.windows.com/registration?accountprogram=azure)註冊 - Microsoft 會驗證您的組織是有效的法律實體，具有註冊所在國家/地區的有效統一編號。 核准程序可能需要 5 到 10 天。 若要避免註冊費用，使用您在提名程序電子郵件中收到的促銷代碼。 如需詳細資訊，請參閱 [Azure Marketplace 發行者指南](https://aka.ms/sellerguide)。
 1. 登入[雲端合作夥伴入口網站](https://cloudpartner.azure.com) - 在發行者設定檔中，將您的開發人員中心帳戶與 Marketplace 發行者設定檔產生關聯。 如需詳細資訊，請參閱 [Azure Marketplace 發行者指南](https://aka.ms/sellerguide)。
 
 ## <a name="create-a-new-azure-application-offer"></a>建立新的 Azure 應用程式供應項目
@@ -92,9 +92,8 @@ SKU 會顯示在 Marketplace 中的父供應項目底下。 它會在 Azure 入�
    * **標題**：輸入此 SKU 的標題。 此標題顯示在此項目的資源庫中。
    * **摘要**：輸入此 SKU 的簡短摘要。 此文字會出現在標題底下。
    * **描述**：提供有關 SKU 的詳細描述。
-   * **SKU 類型**：允許的值包括 *[受控應用程式]* 和 *[解決方案範本]* 。 此案例中，選取 [受控應用程式]。
-   * 
-            **國家/地區可用性**：選取可使用受控應用程式的國家/地區。
+   * **SKU 類型**：允許的值包括 [受控應用程式] 和 [解決方案範本]。 此案例中，選取 [受控應用程式]。
+   * **國家/地區可用性**：選取可使用受控應用程式的國家/地區。
    * **價格**：提供應用程式的管理價格。 先選取可用的國家，再設定價格。
 
 1. 新增套件。 填寫下列表單上的 [套件詳細資料] 區段：

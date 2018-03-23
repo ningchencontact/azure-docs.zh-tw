@@ -1,6 +1,6 @@
 ---
-title: "開始使用裝置模擬解決方案 - Azure | Microsoft Docs"
-description: "IoT 套件模擬方案是一種工具，可用來協助開發和測試 IoT 解決方案。 模擬服務是一個獨立的供應項目，可以與其他預先設定的解決方案一起使用，或搭配您自己的自訂解決方案使用。"
+title: 開始使用裝置模擬解決方案 - Azure | Microsoft Docs
+description: IoT 套件模擬方案是一種工具，可用來協助開發和測試 IoT 解決方案。 模擬服務是一個獨立的供應項目，可以與其他預先設定的解決方案一起使用，或搭配您自己的自訂解決方案使用。
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 25b9d1c7debe0d98a87b7d0b47dea6ab6f36c8af
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2a9a6f3387b7f9fb4e3896fc55a06ac4a902ad24
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="device-simulation-walkthrough"></a>裝置模擬逐步解說
 
@@ -35,7 +35,7 @@ Azure IoT 裝置模擬是一種工具，可用來協助開發和測試 IoT 解�
 
 若要完成本教學課程，您需要在 Azure 訂用帳戶中有一個已部署的 Azure IoT 裝置模擬執行個體。
 
-如果您尚未部署裝置模擬，您應該先完成[部署 Azure IoT 裝置模擬](iot-suite-device-simulation-explore.md)教學課程。
+如果您尚未部署裝置模擬，您應該先完成[部署 Azure IoT 裝置模擬](iot-suite-device-simulation-deploy.md)教學課程。
 
 ## <a name="configuring-device-simulation"></a>設定裝置模擬
 
@@ -76,10 +76,10 @@ Azure IoT 裝置模擬是一種工具，可用來協助開發和測試 IoT 解�
 | 裝置型號 | 感應器 | 單位 | 遙測頻率
 | -------------| ------ | -----| --------------------|
 | Chiller | 溼度 | % | 5 秒 |
-| | 壓力 | psig | 5 秒 |
+| | pressure | psig | 5 秒 |
 | | 溫度 | F | 5 秒 |
 | 電梯 | 樓層 | | 5 秒 |
-| | 震動 | 公釐 | 5 秒 |
+| | 震動 | mm | 5 秒 |
 | | 溫度 | F | 5 秒 |
 | 卡車 | 緯度 | | 3 秒 |
 | | 經度 | | 3 秒 |
@@ -96,7 +96,7 @@ Azure IoT 裝置模擬是一種工具，可用來協助開發和測試 IoT 解�
 
 自訂感應器具有下列屬性：
 
-| 欄位 | 描述 |
+| 欄位 | 說明 |
 | ----- | ----------- |
 | 感應器名稱 | 易記的感應器名稱，例如**溫度**或**速度**。 |
 | 行為 | 行為可讓遙測資料根據不同的訊息而變化，以模擬真實世界的資料。 **遞增**可在傳送的每個訊息中將其值加 1 (從最小值開始)。 一旦符合最大值，就會再從最小值開始。 **遞減**的運作方式與**遞增**相同，但是為倒數。 **隨機**行為會產生一個介於最小值到最大值之間的隨機值。 |

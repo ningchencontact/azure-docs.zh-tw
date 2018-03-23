@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions 的 Event Grid 觸發程序"
-description: "了解如何在 Azure Functions 中處理 Event Grid 事件。"
+title: Azure Functions 的 Event Grid 觸發程序
+description: 了解如何在 Azure Functions 中處理 Event Grid 事件。
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a1ffd9311f6ff171502efe64557463abc49ad636
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions 的 Event Grid 觸發程序
 
@@ -33,6 +33,16 @@ Event Grid 是一項 Azure 服務，會傳送 HTTP 要求通知您「發行者�
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## <a name="packages"></a>封裝
+
+[Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 套件中提供 Event Grid 觸發程序。 套件的原始程式碼位於 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension) GitHub 存放庫中。
+
+此套件用於 [C# 類別庫開發](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code)和 [Functions v2 繫結擴充功能註冊](functions-triggers-bindings.md#local-development-azure-functions-core-tools)。
+
+<!--
+If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
+-->
+
 ## <a name="example"></a>範例
 
 請參閱 Event Grid 觸發程序的語言特定範例：
@@ -45,24 +55,58 @@ Event Grid 是一項 Azure 服務，會傳送 HTTP 要求通知您「發行者�
 
 ### <a name="c-example"></a>C# 範例
 
-以下是 [C# 函式](functions-dotnet-class-library.md)的範例，該函式記錄了所有事件和所有事件特定資料通用的部分欄位。
+下列範例顯示繫結至 `JObject` 的 [C# 函式](functions-dotnet-class-library.md)：
 
 ```cs
-[FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEvent, TraceWriter log)
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace Company.Function
 {
-    log.Info("C# Event Grid function processed a request.");
-    log.Info($"Subject: {eventGridEvent.Subject}");
-    log.Info($"Time: {eventGridEvent.EventTime}");
-    log.Info($"Data: {eventGridEvent.Data.ToString()}");
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, TraceWriter log)
+        {
+            log.Info(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
 }
 ```
 
-`EventGridTrigger` 屬性定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) 中。
+<!--
+The following example shows a [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTest")]
+            public static void EventGridTest([EventGridTrigger] Microsoft.Azure.EventGrid.Models.EventGridEvent eventGridEvent, TraceWriter log)
+        {
+            log.Info("C# Event Grid function processed a request.");
+            log.Info($"Subject: {eventGridEvent.Subject}");
+            log.Info($"Time: {eventGridEvent.EventTime}");
+            log.Info($"Data: {eventGridEvent.Data.ToString()}");
+        }
+    }
+}
+```
+-->
+
+如需詳細資訊，請參閱[套件](#packages)、[屬性](#attributes)、[設定](#configuration)和[用法](#usage)。
 
 ### <a name="c-script-example"></a>C# 指令碼範例
 
-下列範例示範 function.json 檔案中的觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 該函式記錄了所有事件和所有事件特定資料通用的部分欄位。
+下列範例示範 function.json 檔案中的觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -79,12 +123,30 @@ public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEven
 }
 ```
 
-以下是 C# 指令碼程式碼：
+以下是繫結至 `JObject` 的 C# 指令碼：
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
+
+<!--
+Here's C# script code that binds to `EventGridEvent`:
 
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.Azure.WebJobs.Extensions.EventGrid"
+#r "Microsoft.Azure.EventGrid"
+
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+Using Microsoft.Azure.EventGrid.Models;
 
 public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 {
@@ -94,10 +156,13 @@ public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
     log.Info($"Data: {eventGridEvent.Data.ToString()}");
 }
 ```
+-->
+
+如需詳細資訊，請參閱[套件](#packages)、[屬性](#attributes)、[設定](#configuration)和[用法](#usage)。
 
 ### <a name="javascript-example"></a>JavaScript 範例
 
-下列範例示範的是使用繫結之 function.json 檔案，以及 [JavaScript 函式](functions-reference-node.md)中的觸發程序繫結。 該函式記錄了所有事件和所有事件特定資料通用的部分欄位。
+下列範例示範的是使用繫結之 function.json 檔案，以及 [JavaScript 函式](functions-reference-node.md)中的觸發程序繫結。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -128,13 +193,13 @@ module.exports = function (context, eventGridEvent) {
      
 ## <a name="attributes"></a>屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) 屬性，此屬性定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) 屬性。
 
 以下是方法簽章中的 `EventGridTrigger` 屬性：
 
 ```csharp
 [FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEvent, TraceWriter log)
+public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, TraceWriter log)
 {
     ...
 }
@@ -154,7 +219,11 @@ public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEven
 
 ## <a name="usage"></a>使用量
 
-針對 C# 和 F# 函式，請將觸發程序輸入的類型宣告為 `EventGridEvent` 或自訂類型。 對於自訂類型，Functions 執行階段會嘗試剖析事件 JSON 以設定物件屬性。
+使用 C# 和 F# 函式時，可以在 Event Grid 觸發程序使用下列參數類型：
+
+* `JObject`
+* `string`
+* `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent` - 定義所有事件類型通用之欄位的屬性。 **此類型已被取代**，但是取代它的類型尚未發佈至 NuGet。
 
 對於 JavaScript 函式，由 *function.json* `name` 屬性命名的參數會參考事件物件。
 
@@ -315,7 +384,7 @@ RequestBin 不適用於高輸送量的用途。 如果您一次推送多個事�
 * 使用下列模式，發佈到 Event Grid 觸發程序函式的 URL：
 
 ```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
 
 `functionName` 參數必須是 `FunctionName` 屬性中指定的名稱。
@@ -376,7 +445,7 @@ Event Grid 不會以特殊方式處理 ngrok URL，因此，在訂用帳戶建�
 建立您想要測試的 Event Grid 訂用帳戶類型，並使用下列模式為其提供您的 ngrok 端點：
 
 ```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
 
 `functionName` 參數必須是 `FunctionName` 屬性中指定的名稱。

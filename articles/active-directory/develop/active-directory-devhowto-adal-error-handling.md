@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法"
-description: "提供適用於 ADAL 用戶端應用程式的錯誤處理指引和最佳做法。"
+title: Azure Active Directory 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法
+description: 提供適用於 ADAL 用戶端應用程式的錯誤處理指引和最佳做法。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
 ms.author: bryanla
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
-ms.custom: 
-ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.date: 02/27/2017
+ms.custom: ''
+ms.openlocfilehash: 2b4c945f5707c158c76c8edbd233d1a8b034111f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法
 
@@ -479,6 +479,9 @@ catch (AdalException e) {
 
 ## <a name="error-and-logging-reference"></a>錯誤和記錄參考
 
+### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>記錄個人識別資訊 (PII) 與組織識別資訊 (OII)
+根據預設，ADAL 記錄不會擷取或記錄任何 PII 或 OII。 文件庫可讓應用程式開發人員透過記錄器類別的 setter 來開啟此選項。 藉由開啟 PII 或 OII，應用程式會負責安全無虞地處理高敏感性資料，並遵守所有法規需求。
+
 ### <a name="net"></a>.NET
 
 #### <a name="adal-library-errors"></a>ADAL 程式庫錯誤
@@ -487,7 +490,7 @@ catch (AdalException e) {
 
 #### <a name="guidance-for-error-logging-code"></a>錯誤記錄程式碼的指引
 
-ADAL.NET 記錄會因所使用的平台而有所不同。 請參閱[記錄文件](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet#diagnostics)，以了解如何啟用記錄功能的程式碼。
+ADAL.NET 記錄會因所使用的平台而有所不同。 請參閱[記錄 wiki](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net)，以了解如何啟用記錄功能的程式碼。
 
 ### <a name="android"></a>Android
 
@@ -497,14 +500,9 @@ ADAL.NET 記錄會因所使用的平台而有所不同。 請參閱[記錄文件
 
 #### <a name="operating-system-errors"></a>作業系統錯誤
 
-Android OS 錯誤會透過 ADAL 中的 AuthenticationException 公開，並可識別為 "SERVER_INVALID_REQUEST"，而且可以透過錯誤描述進一步細分。 應用程式可能會選擇顯示 UI 的兩則重要訊息如下：
+Android OS 錯誤會透過 ADAL 中的 AuthenticationException 公開，並可識別為 "SERVER_INVALID_REQUEST"，而且可以透過錯誤描述進一步細分。 
 
-- SSL 錯誤 
-  - [終端使用者使用 Chrome 53](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue)
-  - [憑證鏈結中有標示為另外下載的憑證 (使用者需要連絡 IT 系統管理員)](https://vkbexternal.partners.extranet.microsoft.com/VKBWebService/ViewContent.aspx?scid=KB;EN-US;3203929)
-  - 裝置不信任根 CA。 請連絡 IT 系統管理員。 
-- 網路相關錯誤 
-  - [可能與 SSL 憑證驗證相關的網路問題](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue)，可嘗試一次重試
+如需常見錯誤的完整清單，以及應用程式或終端使用者遇到這些錯誤時所要採取的步驟，請參閱 [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki)。 
 
 #### <a name="guidance-for-error-logging-code"></a>錯誤記錄程式碼的指引
 
@@ -521,6 +519,15 @@ Logger.getInstance().setExternalLogger(new ILogger() {
 
 // 2. Set the log level
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
+
+// By default, the `Logger` does not capture any PII or OII
+
+// PII or OII will be logged
+Logger.getInstance().setEnablePII(true);
+
+// To STOP logging PII or OII, use the following setter
+Logger.getInstance().setEnablePII(false);
+
 
 // 3. Send logs to logcat.
 adb logcat > "C:\logmsg\logfile.txt";

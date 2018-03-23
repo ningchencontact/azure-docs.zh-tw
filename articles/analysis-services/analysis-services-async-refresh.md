@@ -1,25 +1,25 @@
 ---
-title: "非同步重新整理 Azure Analysis Services 模型 | Microsoft Docs"
-description: "了解如何使用 REST API 撰寫非同步重新整理的程式碼。"
+title: 非同步重新整理 Azure Analysis Services 模型 | Microsoft Docs
+description: 了解如何使用 REST API 撰寫非同步重新整理的程式碼。
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 進行非同步重新整理
 使用任何支援 REST 呼叫的程式設計語言，您可以對 Azure Analysis Services 表格式模型執行非同步的資料重新整理作業。 這包括相應放大查詢的唯讀複本同步處理。 
@@ -67,8 +67,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 所有呼叫必須使用授權標頭中的有效 Azure Active Directory (OAuth 2) 權杖進行驗證，而且必須符合下列需求：
 
 - 權杖必須是使用者權杖或應用程式服務主體。
-- 使用者或應用程式必須具有對伺服器或模型足夠的權限，才能執行要求的呼叫。 權限層級由模型中的角色或伺服器上的系統管理員群組決定。
 - 權杖的對象必須正確設定為 `https://*.asazure.windows.net`。
+- 使用者或應用程式必須具有對伺服器或模型足夠的權限，才能執行要求的呼叫。 權限層級由模型中的角色或伺服器上的系統管理員群組決定。
+
+    > [!IMPORTANT]
+    > 現階段，需要**伺服器管理員**角色的權限。
 
 ## <a name="post-refreshes"></a>POST /refreshes
 

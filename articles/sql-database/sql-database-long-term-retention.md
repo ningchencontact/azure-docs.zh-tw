@@ -1,26 +1,19 @@
 ---
-title: "儲存多達 10 年的 Azure SQL Database 備份 | Microsoft Docs"
-description: "了解 Azure SQL Database 如何支援多達 10 年的儲存備份。"
-keywords: 
+title: 儲存多達 10 年的 Azure SQL Database 備份 | Microsoft Docs
+description: 了解 Azure SQL Database 如何支援多達 10 年的儲存備份。
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: 
-ms.assetid: 66fdb8b8-5903-4d3a-802e-af08d204566e
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 12/22/2016
 ms.author: sashan
-ms.openlocfilehash: e44c92c3f37b3f1e3397d1c8cdb8c8f6d0f9942e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2f31e89fce2746e57d6a670aef949d0d534af4c1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>儲存多達 10 年的 Azure SQL Database 備份
 許多應用程式具有法規、相容性或其他商務用途，需要您保留 Azure SQL Database [自動備份](sql-database-automated-backups.md)所提供超過 7-35 天的資料庫備份。 使用長期備份保留功能可讓您將 SQL Database 備份儲存在 Azure 復原服務保存庫中多達 10 年。 每個保存庫最多可以儲存 1000 個資料庫。 您接著可以選取資料庫中的任何備份以將其還原為新的保存庫。

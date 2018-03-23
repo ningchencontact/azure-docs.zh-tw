@@ -1,11 +1,11 @@
 ---
-title: "Microsoft 驗證器電話登入 - Azure 與 Microsoft 帳戶 | Microsoft Docs"
-description: "使用您的電話來登入您的 Microsoft 帳戶，而不是輸入您的密碼。 本文回答有關這項功能的常見問題集。"
+title: Microsoft 驗證器電話登入 - Azure 與 Microsoft 帳戶 | Microsoft Docs
+description: 使用您的電話來登入您的 Microsoft 帳戶，而不是輸入您的密碼。 本文回答有關這項功能的常見問題集。
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.openlocfilehash: 86cf6ba2f2ec86a609b4ec60cc143b07d9e542b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>使用您的電話而不是您的密碼登入
 
@@ -72,7 +72,7 @@ Microsoft 驗證器應用程式可協助您保持帳戶安全，方法為在您�
 
 ### <a name="what-if-i-lose-my-phone-or-dont-have-it-with-me-how-can-i-access-my-account"></a>如果我遺失電話或沒有攜帶電話，要如何存取我的帳號？  
 
-您隨時可以按一下登入頁面上的 [改為使用密碼] 切換回使用您的密碼。 請記住，如果您使用兩步驟驗證，您仍需要第二個方法來驗證您的登入。 這就是為什麼我們強烈建議您先確認您的帳戶具有額外、最新的安全性資訊。 您可以在 https://account.live.com/proofs/manage 管理您的安全性資訊。
+您隨時可以按一下登入頁面上的 [改為使用密碼] 切換回使用您的密碼。 請記住，如果您使用兩步驟驗證，您仍需要第二個方法來驗證您的登入。 這就是為什麼我們強烈建議您先確認您的帳戶具有額外、最新的安全性資訊。 您可以在 https://account.live.com/proofs/manage 上管理安全性資訊。
  
 ### <a name="how-do-i-stop-using-this-feature-and-go-back-to-entering-my-password"></a>如何停止使用此功能並返回輸入我的密碼？
 

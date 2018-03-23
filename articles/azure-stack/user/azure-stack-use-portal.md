@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Stack 入口網站 | Microsoft Docs"
-description: "了解如何存取和使用 Azure Stack 中的使用者入口網站。"
+title: 使用 Azure Stack 入口網站 | Microsoft Docs
+description: 了解如何存取和使用 Azure Stack 中的使用者入口網站。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
 ms.service: azure-stack
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 7c34d7a225be63da95f664525b0366ff89b28838
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>使用 Azure Stack 入口網站
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 您的 Azure Stack 操作員 (服務提供者或您組織中的系統管理員) 將會告訴您正確的 URL 來存取入口網站。 
 
 - 就整合系統而言，URL 會因操作員的區域和外部網域名稱而有所不同，格式將會是 https://portal.&lt;*區域*&gt;.&lt;*FQDN*&gt;。
-- 如果您使用的是「Azure Stack 開發套件」，則入口網站位址會是 https://portal.local.azurestack.external。
+- 如果您使用「Azure Stack 開發套件」，則入口網站位址為 https://portal.local.azurestack.external。
 
 ![Azure Stack 使用者入口網站的螢幕擷取畫面](media/azure-stack-use-portal/UserPortal.png)
 

@@ -1,26 +1,26 @@
 ---
-title: "使用 Azure CLI 來建立和管理 Linux VM | Microsoft Docs"
-description: "教學課程 - 使用 Azure CLI 來建立和管理 Linux VM"
+title: 使用 Azure CLI 來建立和管理 Linux VM | Microsoft Docs
+description: 教學課程 - 使用 Azure CLI 來建立和管理 Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2e9324cbe7ae683a472ecc0ee93329773886f88
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e7dab67b46a2853e9585c88c8e4d4263f844c3b2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>使用 Azure CLI 來建立和管理 Linux VM
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroupVM --location eastus
 
 在建立或修改 VM 時，會指定資源群組，在本教學課程的整個過程中可以看到此操作。
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>建立虛擬機器
 
 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 命令建立虛擬機器。 
 

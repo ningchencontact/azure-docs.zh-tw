@@ -1,6 +1,6 @@
 ---
-title: "設定 VM 的私人 IP 位址 - Azure 入口網站 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站設定虛擬機器的私人 IP 位址。"
+title: 設定 VM 的私人 IP 位址 - Azure 入口網站 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站設定虛擬機器的私人 IP 位址。
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2679c7cb75c438402f3ab64c3e14c964cb8a85d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d551758277373995a6f92e1a25a59d170464fe5e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>使用 Azure 入口網站設定虛擬機器的私人 IP 位址
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/21/2018
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-下列範例步驟預期已經建立簡單的環境。 如果您想要執行如本文件中所顯示的步驟，請先建置 [建立 vnet](virtual-networks-create-vnet-arm-pportal.md)中所說明的測試環境。
+下列範例步驟預期已經建立簡單的環境。 如果您想要執行如本文件中所示的步驟，請先建置[建立虛擬網路](quick-create-portal.md)中所述的測試環境。
 
 ## <a name="how-to-create-a-vm-for-testing-static-private-ip-addresses"></a>如何建立用來測試靜態私人 IP 位址的 VM
 您無法在資源管理員部署模式中建立 VM 期間，使用 Azure 入口網站設定靜態私人 IP 位址。 您必須先建立 VM，才能將其私人 IP 設定為靜態。

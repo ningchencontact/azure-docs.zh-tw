@@ -1,11 +1,11 @@
 ---
-title: "SAP HANA on Azure (大型執行個體) 的基礎結構和連線 | Microsoft Docs"
-description: "設定必要的連線基礎結構以使用 SAP HANA on Azure (大型執行個體)。"
+title: SAP HANA on Azure (大型執行個體) 的基礎結構和連線 | Microsoft Docs
+description: 設定必要的連線基礎結構以使用 SAP HANA on Azure (大型執行個體)。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Azure 上 SAP HANA (大型執行個體) 的基礎結構和連接 
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 11/01/2017
 >[!Note]
 >您必須使用 Azure Resource Manager 部署模型來為「HANA 大型執行個體」建立 Azure VNet。 HANA 大型執行個體解決方案不支援舊版的 Azure 部署模型 (通常稱為傳統部署模型)。
 
-您可以使用 Azure 入口網站、PowerShell、Azure 範本或 Azure CLI 來建立 VNet (請參閱[使用 Azure 入口網站建立虛擬網路](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json))。 在下例中，我們將探討透過 Azure 入口網站建立的 VNet。
+您可以使用 Azure 入口網站、PowerShell、Azure 範本或 Azure CLI 來建立 VNet (請參閱[使用 Azure 入口網站建立虛擬網路](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network))。 在下例中，我們將探討透過 Azure 入口網站建立的 VNet。
 
 如果要透過 Azure 入口網站來探討 Azure VNet 的定義，讓我們來研究一下其中的某些定義，以及這些定義與我們列出的不同 IP 位址範圍如何關聯。 當我們提到**位址空間**時，指的是 Azure VNet 獲允許使用的位址空間。 此位址空間也是 VNet 用來傳播 BGP 路由的位址範圍。 您可以在下列位置看到此「位址空間」：
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 11/01/2017
 - **VNet 閘道子網路 IP 位址範圍︰**根據您打算使用的功能，建議的大小為︰
    - 強效 ExpressRoute 閘道：/26 位址區塊 - 類型 II 類別的 SKU
    - 與使用高效能 ExpressRoute 閘道 (或更小) 的 VPN 和 ExpressRoute 共存：/27 位址區塊
-   - 所有其他情況：/28 位址區塊。 此位址範圍必須是「VNet 位址空間」值中所使用值的一部分。 此位址範圍必須是您需要提交給 Microsoft 之「Azure VNet 位址空間」值中所使用值的一部分。 如何取得此 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一個目前網路內未使用的 IP 位址範圍。 
+   - 所有其他情況：/28 位址區塊。 此位址範圍必須是「VNet 位址空間」值中所使用之值的一部分。 此位址範圍必須是您需要提交給 Microsoft 之「Azure VNet 位址空間」值中所使用值的一部分。 如何取得此 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一個目前網路內未使用的 IP 位址範圍。 
 
 - **ER-P2P 連線的位址範圍：**這是您 SAP HANA 大型執行個體 ExpressRoute (ER) P2P 連線的 IP 範圍。 此 IP 位址範圍必須是 /29 CIDR IP 位址範圍。 此範圍「不得」與您的內部部署或其他 Azure IP 位址範圍重疊。 此 IP 位址可用來設定從 Azure VNet ExpressRoute 閘道到 SAP HANA 大型執行個體伺服器的 ER 連線。 如何取得此 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一個目前網路內未使用的 IP 位址範圍。 **此範圍是要求初始部署時，需要提交給 Microsoft 的 IP 位址範圍**
   
@@ -250,7 +250,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 
 在此情況下，建議您將新的 IP 位址範圍新增到 VNet 位址空間中作為新的範圍，而不要產生新的彙總範圍。 不論是哪一種情況，您都必須向 Microsoft 提交這項變更，以允許從該新 IP 位址範圍連線到您用戶端中的「HANA 大型執行個體」單位。 您可以開啟 Azure 支援要求，以新增新的 VNet 位址空間。 收到確認之後，請執行後續步驟。
 
-若要從 Azure 入口網站建立額外的子網路，請參閱[使用 Azure 入口網站建立虛擬網路](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)一文，若要從 PowerShell 建立，則請參閱[使用 PowerShell 建立虛擬網路](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+若要從 Azure 入口網站建立額外的子網路，請參閱[使用 Azure 入口網站建立虛擬網路](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)一文，若要從 PowerShell 建立，則請參閱[使用 PowerShell 建立虛擬網路](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)。
 
 ## <a name="adding-vnets"></a>新增 VNet
 
@@ -277,15 +277,13 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 
 若要移除 VNet 子網路，您可以使用 Azure 入口網站、PowerShell 或 CLI。 如果您的 Azure VNet IP 位址範圍/Azure VNet 位址空間是一個彙總的範圍，後續就沒有需要追蹤 Microsoft 的事項。 唯一的例外是，VNet 仍然會傳播包含已刪除之子網路的 BGP 路由位址空間。 如果您將 Azure VNet IP 位址範圍/Azure VNet 位址空間定義成多個 IP 位址範圍，而其中一個已指派給已刪除的子網路，則您應該從「VNet 位址空間」中刪除該範圍，並接著通知「SAP HANA on Azure 服務管理」將它從允許 SAP HANA on Azure (大型執行個體) 進行通訊的範圍中移除。
 
-雖然尚未有關於移除子網路的特定、專用 Azure.com 指導方針，但移除子網路的程序就是新增子網路的相反程序。 如需建立子網路的詳細資訊，請參閱[使用 Azure 入口網站建立虛擬網路](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)一文。
+若要刪除子網路，請參閱[刪除子網路](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet)以取得建立子網路的詳細資訊。
 
 ## <a name="deleting-a-vnet"></a>刪除 VNet
 
-刪除 VNet 時，您可以使用 Azure 入口網站、PowerShell 或 CLI。 「SAP HANA on Azure 服務管理」會移除 SAP HANA on Azure (大型執行個體) ExpressRoute 線路上的現有授權，並移除用來與「HANA 大型執行個體」通訊的 Azure VNet IP 位址範圍/Azure VNet 位址空間。
+若要刪除虛擬網路，請參閱[刪除虛擬網路](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network)。 「SAP HANA on Azure 服務管理」會移除 SAP HANA on Azure (大型執行個體) ExpressRoute 線路上的現有授權，並移除用來與「HANA 大型執行個體」通訊的 Azure VNet IP 位址範圍/Azure VNet 位址空間。
 
 移除 VNet 之後，請開啟 Azure 支援要求來提供要移除的 IP 位址空間範圍。
-
-雖然尚未有關於移除 VNet 的特定、專用 Azure.com 指導方針，但移除 VNet 的程序就是新增 VNet (已在上面敘述) 的相反程序。 如需有關建立 VNet 的詳細資訊，請參閱[使用 Azure 入口網站建立虛擬網路](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)一文和[使用 PowerShell 入口網站建立虛擬網路](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)一文。
 
 為了確保移除所有項目，請刪除下列項目：
 

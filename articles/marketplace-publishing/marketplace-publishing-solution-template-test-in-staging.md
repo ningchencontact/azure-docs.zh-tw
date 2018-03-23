@@ -1,11 +1,11 @@
 ---
-title: "針對 Marketplace 測試您的解決方案範本供應項目 | Microsoft Docs"
-description: "了解如何針對 Azure Marketplace 測試您的解決方案範本供應項目。"
+title: 針對 Marketplace 測試您的解決方案範本供應項目 | Microsoft Docs
+description: 了解如何針對 Azure Marketplace 測試您的解決方案範本供應項目。
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: ef8f9b5e-b98c-49f3-913f-cdf772c14c12
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2015
-ms.author: hascipio; v-divte
-ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: e789d0996e72c935ed9d5f456f9868b73d5ef4ee
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>在預備環境中測試您的解決方案範本供應項目
 預備環境代表將您的供應項目部署在私人的「沙箱」中，您可以在推送到生產環境之前在沙箱中測試與驗證其功能。 供應項目會出現在預備環境中，就如同客戶已部署該項目一樣。 您的供應項目必須經過認證才能推送至預備環境。

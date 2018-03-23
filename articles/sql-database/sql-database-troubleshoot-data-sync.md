@@ -1,6 +1,6 @@
 ---
-title: "針對 Azure SQL 資料同步 (預覽) 進行疑難排解 | Microsoft Docs"
-description: "了解如何對使用 Azure SQL 資料同步 (預覽) 的常見問題進行疑難排解。"
+title: 針對 Azure SQL 資料同步 (預覽) 進行疑難排解 | Microsoft Docs
+description: 了解如何對使用 Azure SQL 資料同步 (預覽) 的常見問題進行疑難排解。
 services: sql-database
 ms.date: 11/13/2017
 ms.topic: article
@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 50cabbaa584671e52c1ea7efbd2ad990b8438272
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: c174f5120ba2e5bf8018cce0f0e34c1fc3f8eb3f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>針對 SQL 資料同步 (預覽) 的問題進行疑難排解
 
@@ -135,7 +135,7 @@ SQL 資料同步 (預覽) 佈建程序對於具有相同名稱但位在不同結
 
 當您嘗試使用用戶端代理程式時，您得到下列訊息：
 
-「同步處理失敗並發生例外狀況。嘗試將參數 www.microsoft.com/.../05:GetBatchInfoResult 還原序列化時發生錯誤。 如需詳細資料，請參閱 InnerException。
+「同步處理失敗並發生例外狀況。嘗試將參數 www.microsoft.com/.../05:GetBatchInfoResult 還原序列化時發生錯誤。 如需詳細資訊，請參閱 InnerException。」
 
 「內部例外狀況訊息：類型 'microsoft.synchronization.changebatch ' 不是有效的集合類型，因為它沒有預設建構函式。」
 

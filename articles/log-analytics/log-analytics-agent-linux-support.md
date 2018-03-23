@@ -1,48 +1,48 @@
 ---
-title: "針對 Azure Log Analytics Linux 代理程式 進行疑難排解 | Microsoft Docs"
-description: "說明 Log Analytics Linux 代理程式最常見問題的徵兆、原因和解決方法。"
+title: 針對 Azure Log Analytics Linux 代理程式 進行疑難排解 | Microsoft Docs
+description: 說明 Log Analytics Linux 代理程式最常見問題的徵兆、原因和解決方法。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 895a77a66f50b4c5217ec7d672f6441b85bf1856
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 80d7e39b284554ebfa8cac4488e1663b3e3648e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>如何針對適用於 Log Analytics 之 Linux 代理程式的問題進行疑難排解
 
 此文章提供的說明可協助您針對適用於 Log Analytics 之 Linux 代理程式的錯誤進行疑難排解，並建議可解決問題的解決方法。
 
-## <a name="issue-unable-to-connect-through-proxy-to-log-analytics"></a>問題︰無法透過 Proxy 連線至 Log Analytics
+## <a name="issue-unable-to-connect-through-proxy-to-log-analytics"></a>問題︰ 無法透過 Proxy 連線至 Log Analytics
 
 ### <a name="probable-causes"></a>可能的原因
 * 上架期間指定的 Proxy 不正確
 * Log Analytics 和 Azure 自動化服務端點未列在資料中心的白名單中 
 
 ### <a name="resolutions"></a>解決方式
-1. 使用下列命令搭配已啟用的 `-v` 選項，以便透過 OMS Agent for Linux 重新上架至 Log Analytics 服務。 這可讓透過 Proxy 連線到 OMS 服務的代理程式產生詳細資訊輸出。 
+1. 使用下列命令搭配已啟用的 `-v` 選項，以便透過 OMS Agent for Linux 重新上架至 Log Analytics 服務。 這可讓透過 Proxy 連接到 OMS 服務的代理程式產生詳細資訊輸出。 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. 檢閱[更新 Proxy 設定](log-analytics-agent-manage.md#update-proxy-settings)一節以驗證您是否已正確設定代理程式透過 Proxy 伺服器通訊。    
 * 再次檢查以確認下列 Log Analytics 服務端點已列在白名單中：
 
-    |代理程式資源| 連接埠 |  
-    |------|---------|  
-    |*.ods.opinsights.azure.com | 連接埠 443|   
-    |*.oms.opinsights.azure.com | 連接埠 443|   
-    |ods.systemcenteradvisor.com | 連接埠 443|   
-    |*.blob.core.windows.net/ | 連接埠 443|   
+    |代理程式資源| 連接埠 | 方向 |
+    |------|---------|----------|  
+    |*.ods.opinsights.azure.com | 連接埠 443| 輸入和輸出 |  
+    |*.oms.opinsights.azure.com | 連接埠 443| 輸入和輸出 |  
+    |*.blob.core.windows.net | 連接埠 443| 輸入和輸出 |  
+    |*.azure-automation.net | 連接埠 443| 輸入和輸出 | 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>問題：您在嘗試上架時收到 403 錯誤
 

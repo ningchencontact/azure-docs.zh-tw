@@ -1,12 +1,12 @@
 ---
-title: "使用加速網路來建立 Azure 虛擬機器 | Microsoft Docs"
-description: "了解如何使用加速網路建立 Linux 虛擬機器。"
+title: 使用加速網路來建立 Azure 虛擬機器 | Microsoft Docs
+description: 了解如何使用加速網路建立 Linux 虛擬機器。
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: jdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: f4908963e0650be9b12b745f6868a1ba6ad933e4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: c0017b8759a1f01b010172be562ed869d1d51a25
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>建立使用加速網路的 Windows 虛擬機器
 
 > [!IMPORTANT] 
-> 必須使用已啟用的加速網路建立虛擬機器。 無法在現有的虛擬機器上啟用此功能。 您可以依照下列步驟來啟用加速網路
+> 必須使用已啟用的加速網路建立虛擬機器。 無法在現有的虛擬機器上啟用此功能。 請完成下列步驟來啟用加速的網路：
 >   1. 刪除虛擬機器
 >   2. 使用已啟用的加速網路重新建立虛擬機器
 >
@@ -60,6 +60,8 @@ Windows：Microsoft Windows Server 2012 R2 Datacenter 和 Windows Server 2016。
 * **網路介面建立︰**您只能對新的 NIC 啟用加速網路。 無法對現有 NIC 來啟用。
 * **VM 建立：**啟用加速網路的 NIC 只能在 VM 建立之後附加至 VM。 NIC 無法附加至現有的 VM。 如果將 VM 新增至現有的可用性設定組，可用性設定組中的所有 VM 必須也已啟用加速網路。
 * **僅透過 Azure Resource Manager 進行部署：**無法透過加速網路部署虛擬機器 (傳統)。
+
+雖然本文提供使用 Azure PowerShell 來建立具有加速網路之虛擬機器的步驟，但您也可以[使用 Azure 入口網站來建立具有加速網路的虛擬機器](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 在入口網站中使用支援的作業系統和 VM 大小來建立虛擬機器時，請在 [設定] 下的 [加速的網路] 底下，選取 [已啟用]。 建立虛擬機器之後，您必須完成[確認作業系統中已安裝驅動程式](#confirm-the-driver-is-installed-in-the-operating-system)中的指示動作。
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 

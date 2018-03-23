@@ -1,11 +1,11 @@
 ---
-title: "如何使用 PowerShell 來建立 X.509 憑證 | Microsoft Docs"
-description: "如何使用 PowerShell 在本機建立 X.509 憑證，然後在您 Azure IoT 中樞內的模擬環境中啟用 X.509 憑證型安全性。"
+title: 如何使用 PowerShell 來建立 X.509 憑證 | Microsoft Docs
+description: 如何使用 PowerShell 在本機建立 X.509 憑證，然後在您 Azure IoT 中樞內的模擬環境中啟用 X.509 憑證型安全性。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dsk-2015
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/10/2017
 ms.author: dkshir
 ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>可管理 CA 簽署之 X.509 憑證的 PowerShell 指令碼
 
@@ -279,7 +279,7 @@ ms.lasthandoff: 12/19/2017
 
 ## <a name="clean-up-certificates"></a>清除憑證
 
-在您的開始列或**設定**應用程式中，搜尋並選取 [管理電腦憑證]。 移除 **Azure IoT CA TestOnly*** 發行的任何憑證。 這些憑證應存在於下列三個位置： 
+在您的開始列或**設定**應用程式中，搜尋並選取 [管理電腦憑證]。 移除由 **Azure IoT CA TestOnly*** 發行的任何憑證。 這些憑證應存在於下列三個位置： 
 
 * 憑證 - 本機電腦 > 個人 > 憑證
 * 憑證 - 本機電腦 > 受信任的根憑證授權單位 > 憑證

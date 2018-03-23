@@ -1,25 +1,19 @@
 ---
-title: "Azure 自動化中的角色型存取控制 | Microsoft Docs"
-description: "角色型存取控制 (RBAC) 可以啟用對 Azure 資源的存取權管理。 本文說明如何在 Azure 自動化中設定 RBAC。"
+title: Azure 自動化中的角色型存取控制
+description: 角色型存取控制 (RBAC) 可以啟用對 Azure 資源的存取權管理。 本文說明如何在 Azure 自動化中設定 RBAC。
+keywords: 自動化 rbac, 角色型存取控制, azure rbac
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-keywords: "自動化 rbac, 角色型存取控制, azure rbac"
-ms.assetid: 04b5625e-0ee8-4b5b-85cd-7734c1b3d4a3
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/05/2018
-ms.author: magoedte;sngun
-ms.openlocfilehash: 753c06ec4a20650f779b68e11e1d6d6fd27a0141
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+manager: carmonm
+ms.openlocfilehash: 9fb77f3b435491b5ac5b16327d6ce74f90664a79
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自動化中的角色型存取控制
 
@@ -39,7 +33,7 @@ ms.lasthandoff: 02/09/2018
 | Log Analytics 參與者 | 「Log Analytics 參與者」角色可讓您讀取所有監視資料和編輯監視設定。 編輯監視設定包括將 VM 延伸模組新增至 VM、讀取儲存體帳戶金鑰以便能夠設定從 Azure 儲存體收集記錄、建立及設定「自動化」帳戶、新增解決方案，以及設定所有 Azure 資源上的 Azure 診斷。|
 | Log Analytics 讀者 | 「Log Analytics 讀者」角色可讓您檢視和搜尋所有監視資料，以及檢視監視設定。 這包括檢視所有 Azure 資源上的 Azure 診斷設定。 |
 | 監視參與者 | 「監視參與者」角色可讓您讀取所有監視資料和更新監視設定。|
-| 監視讀者 | 「監視讀者」角色可讓您讀取所有監視資料。 |
+| 監視讀取器 | 「監視讀者」角色可讓您讀取所有監視資料。 |
 | 使用者存取系統管理員 |使用者存取系統管理員角色可讓您管理 Azure 自動化帳戶的使用者存取。 |
 
 ## <a name="role-permissions"></a>角色權限
@@ -183,7 +177,7 @@ ms.lasthandoff: 02/09/2018
 |Microsoft.Support/*|建立和管理支援票證。|
 |Microsoft.WorkloadMonitor/workloads/*|管理「工作負載」。|
 
-### <a name="monitoring-reader"></a>監視讀者
+### <a name="monitoring-reader"></a>監視讀取器
 
 「監視讀者」可以讀取所有監視資料。 下表說明針對此角色授與的權限：
 

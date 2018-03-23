@@ -1,24 +1,24 @@
 ---
-title: "將 Microsoft Advanced Threat Analytics 連線至 Azure 資訊安全中心 | Microsoft Docs"
-description: "了解 Azure 資訊安全中心如何與 Microsoft Advanced Threat Analytics 整合。"
+title: 將 Microsoft Advanced Threat Analytics 連線至 Azure 資訊安全中心 | Microsoft Docs
+description: 了解 Azure 資訊安全中心如何與 Microsoft Advanced Threat Analytics 整合。
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: e1b9e598af3b55c1d9591e5c1e529a80ae3319ca
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 02e14315018f6586644eb560894785e6b6eb022e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>將 Microsoft Advanced Threat Analytics 連線至 Azure 資訊安全中心
 本文件可協助您設定 Microsoft Advanced Threat Analytics 與 Azure 資訊安全中心之間的整合。
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/14/2017
 12. 在 ATA 中心安裝此代理程式。 在安裝期間，確定選取 [將代理程式連線至 Azure Log Analytics (OMS)] 選項，並在要求時，提供*工作區識別碼*和*主索引鍵*。
 
 
-一旦完成安裝，整合即算完成，而且您將能夠在 [安全性警示] 和 [搜尋] 中看到從 ATA 傳送到資訊安全中心的新警示。 解決方案會出現在 [安全性解決方案]頁面的 [連線的解決方案] 之下。 
+一旦完成安裝之後，整合即算完成，而且您將能夠在 [搜尋] 結果中看到從 ATA 傳送到資訊安全中心的新警示。 解決方案會出現在 [安全性解決方案]頁面的 [連線的解決方案] 之下。 
 
 ## <a name="next-steps"></a>後續步驟
 在本文件中，您已了解如何將 Microsoft ATA 連線至資訊安全中心。 如要深入了解資訊安全中心，請參閱下列文章：

@@ -1,11 +1,11 @@
 ---
-title: "如何使用存取控制 (Java) | Microsoft Docs"
-description: "了解如何在 Azure 中利用 Java 來開發及使用存取控制。"
+title: 如何使用存取控制 (Java) | Microsoft Docs
+description: 了解如何在 Azure 中利用 Java 來開發及使用存取控制。
 services: active-directory
 documentationcenter: java
 author: rmcmurray
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
 ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者
 本指南說明如何在 Azure Toolkit for Eclipse 內使用 Azure 存取控制服務 (ACS)。 如需 ACS 的詳細資訊，請參閱 [後續步驟](#next_steps) 一節。
@@ -78,7 +78,7 @@ Azure ACS 是以宣告式身分識別為原則來打造，後者是為內部部�
 若要完成本指南中的工作，您需要有下列項目：
 
 * Java Developer Kit (JDK) 1.6 版或更新版本。
-* Eclipse IDE for Java EE Developers (Indigo 或更新版本)。 這可透過 <http://www.eclipse.org/downloads/> 下載。 
+* Eclipse IDE for Java EE Developers (Indigo 或更新版本)。 您可以從 <http://www.eclipse.org/downloads/> 下載此項目。 
 * Java 型 Web 伺服器或應用程式伺服器的散發套件，例如 Apache Tomcat、GlassFish、JBoss Application Server 或 Jetty。
 * Azure 訂用帳戶，可從 <http://www.microsoft.com/windowsazure/offers/> 取得。
 * Azure Toolkit for Eclipse，2014 年 4 月版本或更新版本。 如需詳細資訊，請參閱 [安裝 Azure Toolkit for Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx)。
@@ -205,7 +205,7 @@ Azure 即會建立並啟動命名空間。 等到新命名空間的狀態變成 
 4. 按一下 [完成] 。
 5. 按一下 [Run in Azure Emulator]  按鈕。
 6. 在計算模擬器中啟動 Java Web 應用程式後，請關閉瀏覽器的所有執行個體 (以便任何目前瀏覽器工作階段不會干擾 ACS 登入測試)。
-7. 在瀏覽器中開啟 <http://localhost:8080/MyACSHelloWorld/> 來執行應用程式 (或如果您已核取 [Require HTTPS connections] \(需要 HTTPS 連線)，則請開啟 <https://localhost:8080/MyACSHelloWorld/>)。 系統應該提示您進行 Windows Live ID 登入，然後應該將您帶至為信賴憑證者應用程式指定的傳回 URL。
+7. 在瀏覽器中開啟 <http://localhost:8080/MyACSHelloWorld/>來執行應用程式 (或如果您已選取 [Require HTTPS connections] \(需要 HTTPS 連線\)，則請開啟 <https://localhost:8080/MyACSHelloWorld/>)。 系統應該提示您進行 Windows Live ID 登入，然後應該將您帶至為信賴憑證者應用程式指定的傳回 URL。
 8. 當完成了檢視應用程式時，請按一下 [Reset Azure Emulator]  按鈕。
 
 ## <a name="deploy-to-azure"></a>部署至 Azure

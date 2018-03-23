@@ -1,11 +1,11 @@
 ---
-title: "針對無法啟動的角色進行疑難排解 | Microsoft Docs"
-description: "以下是雲端服務角色無法啟動的一些常見原因。 此外也提供這些問題的解決方案。"
+title: 針對無法啟動的角色進行疑難排解 | Microsoft Docs
+description: 以下是雲端服務角色無法啟動的一些常見原因。 此外也提供這些問題的解決方案。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 36966151b616a14e429807feb63df93503e7b249
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>對無法啟動的雲端服務角色進行疑難排解
 以下是與無法啟動的 Azure 雲端服務角色相關的一些常見問題和解決方案。
@@ -62,7 +62,7 @@ ms.lasthandoff: 12/07/2017
 您可以使用遠端桌面存取角色，並從遠端檢視更完整的錯誤資訊。 使用下列步驟，可使用遠端桌面檢視錯誤：
 
 1. 確定已安裝 Azure SDK 1.3 或更新版本。
-2. 在使用 Visual Studio 部署解決方案期間，請選擇 [設定遠端桌面連線]。 如需設定遠端桌面連線的詳細資訊，請參閱 [搭配使用遠端桌面與 Azure 角色](../vs-azure-tools-remote-desktop-roles.md)。
+2. 在使用 Visual Studio 部署解決方案期間，啟用「遠端桌面」。 如需詳細資訊，請參閱[使用 Visual Studio 啟用 Azure 雲端服務中角色的遠端桌面連線](cloud-services-role-enable-remote-desktop-visual-studio.md)。
 3. 在 Microsoft Azure 入口網站中，一旦執行個體的狀態顯示為 [就緒]，即可遠端存取執行個體。 如需透過雲端服務使用遠端桌面的詳細資訊，請參閱[角色執行個體的遠端存取](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances)。
 5. 使用在遠端桌面設定期間指定的認證登入虛擬機器。
 6. 開啟命令視窗。

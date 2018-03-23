@@ -1,8 +1,8 @@
 ---
-title: "威脅偵測 - Azure SQL Database | Microsoft Docs"
-description: "威脅偵測會偵測異常資料庫活動，指出資料庫有潛在的安全性威脅。"
+title: 威脅偵測 - Azure SQL Database | Microsoft Docs
+description: 威脅偵測會偵測異常資料庫活動，指出資料庫有潛在的安全性威脅。
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: rmatchoro
 manager: shaik
 editor: v-romcal
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: 889f65a796aee20d7902964b8c47af46dd9149cb
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sql-database-threat-detection"></a>SQL Database 威脅偵測
 
@@ -30,7 +30,7 @@ SQL 威脅偵測提供新的一層安全性，在發生異常活動時會提供�
 
 例如，SQL 插入式攻擊是網際網路上常見的 Web 應用程式安全性問題之一，用於攻擊資料導向應用程式。 攻擊者利用應用程式弱點將惡意的 SQL 陳述式插入應用程式輸入欄位，破壞或修改資料庫中的資料。
 
-SQL 威脅偵測整合了警示與 [Azure 資訊安全中心](https://azure.microsoft.com/en-us/services/security-center/)。每部受保護 SQL Database 伺服器的收費與 Azure 資訊安全中心標準層相同，全部是每月每個節點 $15，其中每部受保護的 SQL Database 伺服務各會計為一個節點。  
+SQL 威脅偵測整合了警示與 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)。每部受保護 SQL Database 伺服器的收費與 Azure 資訊安全中心標準層相同，全部是每月每個節點 $15，其中每部受保護的 SQL Database 伺服務各會計為一個節點。  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>使用 Azure 入口網站為資料庫設定威脅偵測
 1. 啟動 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
@@ -54,13 +54,13 @@ SQL 威脅偵測整合了警示與 [Azure 資訊安全中心](https://azure.micr
    電子郵件會提供可疑安全性事件的相關資訊，包括異常活動的性質、資料庫名稱、伺服器名稱、應用程式名稱和事件時間。 此外，該電子郵件還會提供可能原因和建議動作的相關資訊，以協助您調查和減輕資料庫的潛在威脅。<br/>
      
     ![瀏覽窗格][4]
-2. 電子郵件警示包含 SQL 稽核記錄的直接連結。 按一下此連結會啟動 Azure 入口網站，並開啟可疑活動發生時間前後的 SQL 稽核記錄。 按一下稽核記錄可檢視可疑資料庫活動的詳細資料，讓您輕鬆找出遭到執行的 SQL 陳述式 (存取的人、動作和時間)，以及判斷該事件屬於正當或是惡意 (例如SQL 插入式攻擊的應用程式弱點遭到利用或有人破壞機密資料等)。<br/>
+2. 電子郵件警示包含 SQL 稽核記錄的直接連結。 按一下此連結會啟動 Azure 入口網站，並開啟可疑活動發生時間前後的 SQL 稽核記錄。 按一下稽核記錄可檢視可疑資料庫活動的詳細資料，讓您輕鬆找出已執行的 SQL 陳述式 (存取者、所執行的動作及時間)，並判斷該事件為正當還是惡意 (例如 SQL 插入的應用程式弱點遭到利用、有人入侵敏感性資料等)。<br/>
    ![導覽窗格][5]
 
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>在 Azure 入口網站中探索資料庫的威脅偵測警示
 
-SQL Database 威脅偵測將自有的警示與 [Azure 資訊安全中心](https://azure.microsoft.com/en-us/services/security-center/)整合。 在 Azure 入口網站中，資料庫頁面內的 SQL 動態安全性圖格會追蹤威脅 (作用中) 的狀態。 
+SQL Database 威脅偵測將自有的警示與 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)整合。 在 Azure 入口網站中，資料庫頁面內的 SQL 動態安全性圖格會追蹤威脅 (作用中) 的狀態。 
 
    ![瀏覽窗格][6]
    
@@ -75,10 +75,10 @@ SQL Database 威脅偵測將自有的警示與 [Azure 資訊安全中心](https:
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入了解威脅偵測，請造訪 [Azure 部落格](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* 若要深入了解威脅偵測，請造訪 [Azure 部落格](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * 深入了解 [Azure SQL Database 稽核](sql-database-auditing.md)
 * 深入了解 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* 如需有關價格的詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
+* 如需有關價格的詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)  
 * 如需 PowerShell 指令碼範例，請參閱[使用 PowerShell 設定稽核與威脅偵測](scripts/sql-database-auditing-and-threat-detection-powershell.md)
 
 

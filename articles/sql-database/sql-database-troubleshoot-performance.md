@@ -1,26 +1,21 @@
 ---
-title: "監視和效能微調 - Azure SQL Database | Microsoft Docs"
-description: "透過評估和改進來調整 Azure SQL Database 效能的秘訣。"
+title: 監視和效能微調 - Azure SQL Database | Microsoft Docs
+description: 透過評估和改進來調整 Azure SQL Database 效能的秘訣。
 services: sql-database
-documentationcenter: 
 author: v-shysun
-manager: felixwu
-editor: 
-keywords: "sql 效能調整，資料庫效能調整，sql 效能調整秘訣，sql 資料庫效能調整"
-ms.assetid: eb7b3f66-3b33-4e1b-84fb-424a928a6672
+manager: craigg
+editor: ''
+keywords: sql 效能調整，資料庫效能調整，sql 效能調整秘訣，sql 資料庫效能調整
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: v-shysun
-ms.openlocfilehash: 1791c56f86ee1997177daa95638c4f14068f8115
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 273a80134975fb9aa4d40b132c1403cc27246371
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitoring-and-performance-tuning"></a>監視和效能微調
 

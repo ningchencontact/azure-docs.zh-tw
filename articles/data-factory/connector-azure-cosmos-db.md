@@ -1,8 +1,8 @@
 ---
-title: "使用 Data Factory 將資料複製到 Azure Cosmos DB 或從該處複製資料 | Microsoft Docs"
-description: "了解如何使用 Data Factory 將資料從支援的來源資料存放區複製到 Azure Cosmos DB，或從 Cosmos DB 複製到支援的接收存放區。"
+title: 使用 Data Factory 將資料複製到 Azure Cosmos DB 或從該處複製資料 | Microsoft Docs
+description: 了解如何使用 Data Factory 將資料從支援的來源資料存放區複製到 Azure Cosmos DB，或從 Cosmos DB 複製到支援的接收存放區。
 services: data-factory, cosmosdb
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c791f335bfa9ec6073eb83149068571ceb253f82
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b54aba19ecb92867bc817cbbb921f4e6537ef70c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Cosmos DB 或從該處複製資料
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 02/09/2018
 
 ### <a name="azure-cosmos-db-as-sink"></a>Azure Cosmos DB 作為接收器
 
-若要從 Azure Cosmos DB 複製資料，請將複製活動中的接收器類型設定為 **DocumentDbCollectionSink**。 複製活動的 **source** 區段支援下列屬性：
+若要將資料複製到 Azure Cosmos DB，請將複製活動中的接收類型設定為 **DocumentDbCollectionSink**。 複製活動的 **source** 區段支援下列屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |

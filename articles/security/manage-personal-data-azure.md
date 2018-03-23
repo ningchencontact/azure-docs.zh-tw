@@ -1,28 +1,28 @@
 ---
-title: "在 Microsoft Azure 中管理個人資料 | Microsoft Docs"
-description: "指導如何在 Azure Active Directory 與 Azure SQL Database 更正、更新、刪除與匯出個人資料"
+title: 在 Microsoft Azure 中管理個人資料 | Microsoft Docs
+description: 如何在 Azure Active Directory 和 Azure SQL Database 中修正、更新、刪除及匯出個人資料，以協助您符合一般資料保護規定 (GDPR)
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 51dca8955745b40a9126b142ea15e707fe58bc72
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 41c0cc4eb3697aa79abeabddc98a84598ce4ea50
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>在 Microsoft Azure 中管理個人資料
 
-本文指導如何在 Azure Active Directory 與 Azure SQL Database 更正、更新、刪除與匯出個人資料。
+本文指導如何在 Azure Active Directory 和 Azure SQL Database 中修正、更新、刪除及匯出個人資料，以符合一般資料保護規定 (GDPR)。
 
 ## <a name="scenario"></a>案例
 

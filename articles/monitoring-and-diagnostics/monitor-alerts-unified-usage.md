@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure 監視器建立、檢視及管理警示 - 警示 (預覽) | Microsoft Docs"
-description: "使用最新且統一的 Azure 警示體驗從一個位置撰寫、檢視及管理計量和記錄警示規則。"
+title: 使用 Azure 監視器建立、檢視及管理警示 - 警示 (預覽) | Microsoft Docs
+description: 使用最新且統一的 Azure 警示體驗從一個位置撰寫、檢視及管理計量和記錄警示規則。
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>使用 Azure 監視器建立、檢視及管理警示 - 警示 (預覽)
 
@@ -65,13 +65,13 @@ Azure 警示 (預覽) 也會提供所有警示規則的統一檢視，並且可�
 
     > 統一的警示 (預覽) 也支援活動記錄警示。 [深入了解](monitoring-activity-log-alerts-new-experience.md)。
 
-5. 計量警示：請確認**資源類型**是所選的平台或監視服務 (不是 Log Analytics)，選取適當的**資源**後，按一下 [完成] 按鈕以返回「建立警示」。 接著使用 [新增準則] 按鈕，從訊號選項清單中選擇特定的訊號和其監視服務，以及所列出的類型 (可供稍早選取的資源使用)。
+5. 計量警示：請確認已選取 [資源類型] 且訊號類型為 [計量]，然後在選擇適當的 [資源] 後，按一下 [完成] 按鈕以返回「建立警示」。 接著使用 [新增準則] 按鈕，從訊號選項清單中選擇特定的訊號和其監視服務，以及所列出的類型 (可供稍早選取的資源使用)。
 
     ![選取資源](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
     > [!NOTE]
 
-    > 為快速警示引進的新計量功能，只會包含在平台服務中作為計量的訊號類型中
+    >  所有支援[近乎即時警示](monitoring-near-real-time-metric-alerts.md)的資源在列出時，其監視服務為 [平台]，且訊號類型為 [計量]
 
 6. 計量警示：一旦選取訊號後，即可指定警示的邏輯。 您可以使用 [顯示記錄] 來顯示訊號的記錄資料以供參考，並包含選調整時間範圍的選項 (從過去六小時到過去一週)。 當視覺效果就緒後，您就可以從所示的條件、彙總和閾值 (最後選取) 選項來選取**警示邏輯**。 如邏輯預覽所示，條件會與訊號記錄一起顯示視覺效果中，以指出觸發警示的時間。 最後，從 [期間] 選項中選擇警示尋找指定條件的持續時間，以及從 [頻率] 中選取警示的執行頻率。
 
@@ -81,7 +81,7 @@ Azure 警示 (預覽) 也會提供所有警示規則的統一檢視，並且可�
 
     ![設定多維度計量的訊號邏輯](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. 記錄警示確認 [資料類型]是分析來源 (例如 Log Analytics 或 Application Insights)，然後在選擇適當的 [資源] 後，按一下 [完成]。 接著使用 [新增準則] 按鈕，檢視資源可用的訊號選項清單，然後從訊號清單中選取所選記錄監視服務 (例如 *Log Analytics* 或 *Application Insights*) 的 [自訂記錄搜尋] 選項。
+8. 記錄警示：請確認 [資源類型] 是分析來源 (例如「Log Analytics」或「Application Insights」) 且訊號類型為 [記錄]，然後在選擇適當的 [資源] 後，按一下 [完成]。 接著使用 [新增準則] 按鈕，檢視資源可用的訊號選項清單，然後從訊號清單中選取所選記錄監視服務 (例如 *Log Analytics* 或 *Application Insights*) 的 [自訂記錄搜尋] 選項。
 
    ![選取資源 - 自訂記錄搜尋](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
@@ -121,8 +121,8 @@ Azure 警示 (預覽) 也會提供所有警示規則的統一檢視，並且可�
 
     針對**記錄警示**，有一些額外的功能可用來覆寫預設的動作：
 
-    - **電子郵件通知**：覆寫透過動作群組傳送的電子郵件主旨。 您無法修改郵件的內文。
-    - **包含自訂 Json 承載**：覆寫動作群組所使用的 Webhook Json，改用自訂承載取代預設承載。 如需有關 Webhook 格式的詳細資訊，請參閱[記錄警示的 Webhook 動作](monitor-alerts-unified-log-webhook.md)
+    - **電子郵件通知**：覆寫透過「動作群組」傳送之電子郵件中的「電子郵件主旨」；如果前述的「動作群組」中存在一或多個電子郵件動作。 您無法修改電子郵件的本文，且此欄位**不是**用於電子郵件地址。
+    - **包括自訂 JSON 承載**：覆寫「動作群組」所使用的 Webhook JSON；如果前述的「動作群組」中存在一或多個 Webhook 動作。 使用者可以指定要用於相關聯動作群組中設定之所有 Webhook 的 JSON 格式；如需有關 Webhook 格式的詳細資訊，請參閱[記錄警示的 Webhook 動作](monitor-alerts-unified-log-webhook.md)。 系統會提供 [測試 Webhook] 選項來檢查格式，且目的地會使用範例 JSON 來處理這個選項，此選項如標示所示僅供**測試**之用。
 
         ![記錄警示的動作覆寫](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 

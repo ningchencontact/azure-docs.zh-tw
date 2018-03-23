@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中啟用多重租用 | Microsoft Docs"
-description: "了解如何在 Azure Stack 中支援多重 Azure Active Directory 目錄"
+title: 在 Azure Stack 中啟用多重租用 | Microsoft Docs
+description: 了解如何在 Azure Stack 中支援多重 Azure Active Directory 目錄
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
 ms.openlocfilehash: 66689d80cbee0be36b3e8c9951a43d0d43fa01be
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>在 Azure Stack 中啟用多重租用
 
@@ -89,9 +89,9 @@ Register-AzSWithMyDirectoryTenant `
  -Verbose 
 ````
 ## <a name="direct-users-to-sign-in"></a>將使用者導向登入
-現在，您和 Mary 已完成將 Mary 目錄加入的逐步執行，Mary 可以將 Fabrikam 使用者導向登入。  Fabrikam 使用者 (亦即具有 fabrikam.onmicrosoft.com 尾碼的使用者) 將透過瀏覽 https://portal.local.azurestack.external 登入。  
+現在，您和 Mary 已完成將 Mary 目錄加入的逐步執行，Mary 可以將 Fabrikam 使用者導向登入。  Fabrikam 使用者 (亦即尾碼為 fabrikam.onmicrosoft.com 的使用者) 可藉由瀏覽 https://portal.local.azurestack.external 來進行登入。  
 
-Mary 將會就任何在 Fabrikam 目錄中的[外部主體](../active-directory/active-directory-understanding-resource-access.md) (亦即在 Fabrikam 目錄中但不具有 fabrikam.onmicrosoft.com 尾碼的使用者) 導向使用 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com 登入。如果他們不使用此 URL，則會傳送至其預設的目錄 (Fabrikam)，並收到說明他們管理員尚未同意的錯誤。
+Mary 會將 Fabrikam 目錄中的任何[外部主體](../active-directory/active-directory-understanding-resource-access.md) (亦即在 Fabrikam 目錄中但尾碼不是 fabrikam.onmicrosoft.com 的使用者) 導向使用 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com 來進行登入。如果他們不使用此 URL，則會傳送至其預設的目錄 (Fabrikam)，並收到說明他們管理員尚未同意的錯誤。
 
 ## <a name="next-steps"></a>後續步驟
 

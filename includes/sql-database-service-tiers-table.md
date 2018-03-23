@@ -52,6 +52,7 @@ sql-database-single-database-resources.md
 | 並行工作階段數上限 | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
+
 > [!IMPORTANT]
 > \* 大於內含儲存體數量的儲存體大小尚在預覽中，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
 >
@@ -59,3 +60,4 @@ sql-database-single-database-resources.md
 > 
 >\*\* 標準中起始數量為 200 DTU 以上的每個資料庫 DTU 上限目前為預覽版。
 >
+

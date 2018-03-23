@@ -1,11 +1,11 @@
 ---
-title: "Azure 執行個體中繼資料服務 | Microsoft Docs"
-description: "RESTful 介面，用以取得 Linux VM 的計算、網路和近期維護事件的相關資訊。"
+title: Azure 執行個體中繼資料服務 | Microsoft Docs
+description: RESTful 介面，用以取得 Linux VM 的計算、網路和近期維護事件的相關資訊。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: harijayms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 9222fcebd51ff13e797f40f3fdb0ddaa955d2611
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: a291aaf8456fd800edcf5a2df5d68c386d9f87c1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -26,20 +26,20 @@ ms.lasthandoff: 02/23/2018
 Azure 執行個體中繼資料服務提供執行可用於管理和設定虛擬機器之虛擬機器執行個體的相關資訊。
 這包括 SKU、網路組態及近期維護事件等資訊。 如需可用資訊類型的詳細資訊，請參閱[中繼資料類別](#instance-metadata-data-categories)。
 
-Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/)建立之所有 IaaS VM 可存取的 REST 端點。 端點可以在已知的非可路由 IP 位址 (`169.254.169.254`) 取得，該位址只能從 VM 內存取。
+Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) \(英文\) 建立之 IaaS VM 可存取的 REST 端點。 端點可以在已知的非可路由 IP 位址 (`169.254.169.254`) 取得，該位址只能從 VM 內存取。
 
 > [!IMPORTANT]
-> 這項服務已在所有 Azure 區域中**正式推出**。  它會定期接收更新，以公開有關虛擬機器執行個體的新資訊。 此頁面會反映最新的[資料類別](#instance-metadata-data-categories)。
+> 這項服務已在 Azure 區域中**正式推出**。  它會定期接收更新，以公開有關虛擬機器執行個體的新資訊。 此頁面會反映最新的[資料類別](#instance-metadata-data-categories)。
 
 ## <a name="service-availability"></a>服務可用性
-這項服務可於所有正式推出的 Azure 區域中使用。 並非所有的 API 版本都能在所有 Azure 區域使用。
+這項服務可於正式推出的 Azure 區域中使用。 並非所有的 API 版本都能在所有 Azure 區域使用。
 
 區域                                        | 可用性？                                 | 支援的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
-[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出   | 2017-04-02、2017-08-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02
-[Azure China](https://www.azure.cn/)                                                           | 正式推出 | 2017-04-02
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02
+[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出   | 2017-04-02、2017-08-01、2017-12-01 (這個版本無法在 UK 區域中使用)
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02、2017-08-01
+[Azure China](https://www.azure.cn/)                                                           | 正式推出 | 2017-04-02、2017-08-01
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02、2017-08-01
 
 當有服務更新和/或提供新支援的版本時，此表格便會更新
 
@@ -48,12 +48,12 @@ Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https:
 ## <a name="usage"></a>使用量
 
 ### <a name="versioning"></a>版本控制
-執行個體中繼資料服務已建立版本。 版本是必要項目，且全域 Azure 上目前的版本為 `2017-08-01`。 目前支援的版本為 (2017-04-02、2017-08-01)
+執行個體中繼資料服務已建立版本。 版本是必要項目，且全域 Azure 上目前的版本為 `2017-12-01`。 目前支援的版本為 (2017-04-02、2017-08-01、2017-12-01)
 
 > [!NOTE] 
 > 先前排定事件的預覽版支援作為 API 版本的 {latest}。 此格式將不再受到支援且之後會遭到取代。
 
-當我們新增較新版本時，如果您的指令碼對於特定資料格式有相依性，則因為相容性，仍然可以存取較舊版本。 不過，請注意在服務正式推出後，可能就無法使用先前的預覽版本 (2017-03-01)。
+新增較新版本時，如果您的指令碼對於特定資料格式有相依性，則因為相容性而仍可存取較舊版本。 不過，在服務正式推出後，可能就無法使用先前的預覽版本 (2017-03-01)。
 
 ### <a name="using-headers"></a>使用標頭
 查詢中繼資料執行個體服務時，您必須提供 `Metadata: true` 標頭以免不小心重新導向要求。
@@ -62,8 +62,8 @@ Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https:
 
 執行個體中繼資料適用於使用 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 建立/管理的執行中 VM。 使用下列要求，存取虛擬機器執行個體的所有資料類別：
 
-```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
 > [!NOTE] 
@@ -80,15 +80,15 @@ API | 預設資料格式 | 其他格式
 
 若要存取非預設的回應格式，請指定要求的格式作為要求中的 querystring 參數。 例如：
 
-```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 ### <a name="security"></a>安全性
 執行個體中繼資料服務端點只能從非可路由 IP 位址上的執行中虛擬機器執行個體內存取。 此外，服務會拒絕任何具有 `X-Forwarded-For` 標頭的要求。
-我們也需要要求包含 `Metadata: true` 標頭，以確認直接想要實際要求，而不是非預期重新導向的一部分。 
+要求也必須包含 `Metadata: true` 標頭，以確認直接預期實際要求，而不是非預期重新導向的一部分。 
 
-### <a name="error"></a>錯誤
+### <a name="error"></a>Error
 如果找不到資料元素或要求的格式錯誤，則執行個體中繼資料服務會傳回標準 HTTP 錯誤。 例如：
 
 HTTP 狀態碼 | 原因
@@ -109,7 +109,7 @@ HTTP 狀態碼 | 原因
 
 **要求**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
@@ -118,7 +118,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 > [!NOTE] 
 > 回應是 JSON 字串。 下列範例回應均列印清晰，很容易閱讀。
 
-```
+```json
 {
   "interface": [
     {
@@ -148,16 +148,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 
 #### <a name="retrieving-public-ip-address"></a>擷取公用 IP 位址
 
-```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="retrieving-all-metadata-for-an-instance"></a>擷取執行個體的所有中繼資料
 
 **要求**
 
-```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
 ```
 
 **回應**
@@ -165,7 +165,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > [!NOTE] 
 > 回應是 JSON 字串。 下列範例回應均列印清晰，很容易閱讀。
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -182,7 +182,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
     "tags": "",
     "version": "16.04.201708030",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmSize": "Standard_D1"
+    "vmScaleSetName": "",
+    "vmSize": "Standard_D1",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -217,14 +219,14 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 可以透過 Powershell 公用程式 `curl` 在 Windows 中擷取執行個體中繼資料： 
 
-```
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
+```bash
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
 或透過 `Invoke-RestMethod` Cmdlet：
     
-```
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
 ```
 
 **回應**
@@ -232,7 +234,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 > [!NOTE] 
 > 回應是 JSON 字串。 下列範例回應均列印清晰，很容易閱讀。
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -296,13 +298,15 @@ subscriptionId | 虛擬機器的 Azure 訂用帳戶 | 2017-08-01
 tags | 虛擬機器的[標籤](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
 resourceGroupName | 虛擬機器的[資源群組](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
 placementGroupId | 虛擬機器擴展集的[放置群組](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
+vmScaleSetName | 您虛擬機器擴展集的[虛擬機器擴展集名稱] (../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
+區域 | 您虛擬機器的[可用性區域](../../availability-zones/az-overview.md) | 2017-12-01 
 ipv4/privateIpAddress | VM 的本機 IPv4 位址 | 2017-04-02
 ipv4/publicIpAddress | VM 的公用 IPv4 位址 | 2017-04-02
 subnet/address | VM 的子網路位址 | 2017-04-02 
 subnet/prefix | 子網路首碼，範例 24 | 2017-04-02 
 ipv6/ipAddress | VM 的本機 IPv6 位址 | 2017-04-02 
 macAddress | VM mac 位址 | 2017-04-02 
-scheduledevents | 請參閱 [scheduledevents](scheduled-events.md) | 2017-03-01
+scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-08-01
 
 ## <a name="example-scenarios-for-usage"></a>使用方式的範例案例  
 
@@ -312,8 +316,8 @@ scheduledevents | 請參閱 [scheduledevents](scheduled-events.md) | 2017-03-01
 
 **要求**
 
-```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 **回應**
@@ -325,12 +329,12 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>容器的位置，資料分割基礎容錯/更新網域 
 
 對於特定案例，不同資料複本的放置相當重要。 例如 [HDFS 複本放置](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)，或透過 [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) 的容器放置，您需要知道 VM 執行所在的 `platformFaultDomain` 和 `platformUpdateDomain`。
-您可以直接透過執行個體中繼資料服務查詢此資料。
+您也可以利用適用於執行個體的[可用性區域](../../availability-zones/az-overview.md)來做出這些決定。 您可以直接透過執行個體中繼資料服務查詢此資料。
 
 **要求**
 
-```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text" 
 ```
 
 **回應**
@@ -345,8 +349,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 
 **要求**
 
-```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-08-01"
 ```
 
 **回應**
@@ -354,7 +358,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 > [!NOTE] 
 > 回應是 JSON 字串。 下列範例回應均列印清晰，很容易閱讀。
 
-```
+```json
 {
   "compute": {
     "location": "CentralUS",
@@ -393,7 +397,7 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 1. 我收到錯誤 `400 Bad Request, Required metadata header not specified`。 這代表什麼？
    * 執行個體中繼資料服務需要在要求中傳遞標頭 `Metadata: true`。 在 REST 呼叫中傳遞此標頭可允許存取執行個體中繼資料服務。 
 2. 為什麼我沒有收到我的 VM 計算資訊？
-   * 目前執行個體中繼資料服務僅支援使用 Azure Resource Manager 建立的執行個體。 未來，我們可能會新增雲端服務 VM 支援。
+   * 目前執行個體中繼資料服務僅支援使用 Azure Resource Manager 建立的執行個體。 未來可能會新增雲端服務 VM 的支援。
 3. 我在一陣子之後回過頭來透過 Azure Resource Manager 建立我的虛擬機器。 為什麼我看不到計算中繼資料資訊？
    * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/resource-group-using-tags.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
 4. 我看不到針對 2017-08-01 這個新版本所填入的所有資料
@@ -405,10 +409,11 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 7. 這是否適用於虛擬機器擴展集執行個體？
    * 是，中繼資料服務適用於擴展集執行個體。 
 8. 如何取得服務支援？
-   * 若要取得服務支援，請在 Azure 入口網站中針對您無法在長時間重試後取得中繼資料回應的 虛擬機器建立支援要求。 
+   * 若要取得服務支援，請在 Azure 入口網站中針對您無法在長時間重試後取得中繼資料回應的 VM 建立支援問題。 
 
    ![執行個體中繼資料支援](./media/instance-metadata-service/InstanceMetadata-support.png)
     
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[排程的事件](scheduled-events.md)。
+- 深入了解[排程的事件](scheduled-events.md)
+

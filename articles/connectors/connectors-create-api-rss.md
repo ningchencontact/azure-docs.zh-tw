@@ -1,11 +1,11 @@
 ---
-title: "Azure Logic Apps 中的 RSS 連接器 | Microsoft Docs"
-description: "使用 Azure App Service 建立邏輯應用程式。 RSS 連接器可讓使用者發佈和擷取摘要項目。 它也可讓使用者在新項目發佈到摘要中時觸發作業。"
+title: Azure Logic Apps 中的 RSS 連接器 | Microsoft Docs
+description: 使用 Azure App Service 建立邏輯應用程式。 RSS 連接器可讓使用者發佈和擷取摘要項目。 它也可讓使用者在新項目發佈到摘要中時觸發作業。
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: fca2b9983e70b754e3b4cb736023c47c598bedfc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 493ee8a961e5d5a57c6276868a55b524dec28018
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-rss-connector"></a>開始使用 RSS 連接器
 RSS 是用來發佈經常更新之內容 (像是部落格文章和新聞標題) 的熱門 Web 同步發佈格式。  許多內容發佈者都提供可讓使用者訂閱的 RSS 摘要。  請使用 RSS 連接器以在 RSS 摘要中發佈了新項目時擷取摘要資訊和觸發流程。

@@ -1,24 +1,19 @@
 ---
-title: "在向外延展的雲端資料庫之間移動資料 | Microsoft Docs"
-description: "說明如何使用彈性資料庫 API 透過自我託管服務操作分區和移動資料。"
+title: 在向外延展的雲端資料庫之間移動資料 | Microsoft Docs
+description: 說明如何使用彈性資料庫 API 透過自我託管服務操作分區和移動資料。
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 328989c4fc1f9a404d4c048eb148a95e9105bdf5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 9e2b231ad2e9fc5ab07532daef44da9870cef4ae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在向外延展的雲端資料庫之間移動資料
 如果您是軟體服務開發人員，您的應用程式突然出現巨量需求，您需要因應這種成長。 所以，您加入了更多的資料庫 (分區)。 您該如何將資料重新發佈到新的資料庫，卻不打斷資料的完整性？ 使用 **分割合併工具** 將資料從受條件約束的資料庫移到新的資料庫。  

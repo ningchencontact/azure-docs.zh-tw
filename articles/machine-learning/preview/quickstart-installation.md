@@ -1,21 +1,21 @@
 ---
-title: "Azure Machine Learning 服務的安裝快速入門 | Microsoft Docs"
-description: "在本快速入門中，您可以了解如何建立 Azure Machine Learning 資源，以及如何安裝並開始使用 Azure Machine Learning Workbench。"
+title: Azure Machine Learning 服務的安裝快速入門 | Microsoft Docs
+description: 在本快速入門中，您可以了解如何建立 Azure Machine Learning 資源，以及如何安裝並開始使用 Azure Machine Learning Workbench。
 services: machine-learning
 author: hning86
-ms.author: haining, raymondl, chhavib, j-martens
+ms.author: chhavib
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: ac206d7fdcf6aba1e0ab83f84d8c583d085a36fa
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c760901b108d8aaeb990f0e726adc7f139a5163a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>快速入門：安裝並開始使用 Azure Machine Learning 服務
 Azure Machine Learning 服務 (預覽) 是整合式端對端的資料科學和進階分析解決方案。 它可以協助專業資料科學家以雲端規模準備資料、開發測試及部署模型。

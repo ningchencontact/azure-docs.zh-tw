@@ -1,16 +1,16 @@
 ---
-title: "為 Azure Migrate 問題進行疑難排解 | Microsoft Docs"
-description: "概括介紹 Azure Migrate 服務的已知問題以及常見錯誤的疑難排解訣竅。"
+title: 為 Azure Migrate 問題進行疑難排解 | Microsoft Docs
+description: 概括介紹 Azure Migrate 服務的已知問題以及常見錯誤的疑難排解訣竅。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: e1e7a1a57f780ef477379dfb1ceaead0c8654970
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
@@ -126,5 +126,23 @@ ms.lasthandoff: 02/23/2018
 7. 關閉 Developer Tools。
  
 
+## <a name="vcenter-errors"></a>vCenter 錯誤
 
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>發生 Error UnhandledException Internal 錯誤: System.IO.FileNotFoundException
+
+這是收集器 1.0.9.5 以下版本所出現的問題。 如果您是使用收集器 1.0.9.2 版或 pre-GA 版本 (例如 1.0.8.59)，就會遇到這個問題。 請遵循[這裡提供的論壇連結以取得詳細的解答](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate)。
+
+[升級收集器來修正這個問題](https://aka.ms/migrate/col/checkforupdates)。
+
+### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
+
+因為發生錯誤，無法連線到 vCenter Server "Servername.com:9443"：https://Servername.com:9443/sdk 沒有接聽端點可以接受該訊息。
+
+當收集器機器無法解析指定的 vCenter Server 名稱，或指定的連接埠錯誤時，就會發生這種情況。 根據預設，如果未指定連接埠，收集器就會嘗試連線到連接埠號碼 443。
+
+1. 嘗試從收集器機器 Ping Servername.com。
+2. 如果步驟 1 失敗，請嘗試透過 IP 位址連線到 vCenter Server。
+3. 識別連線至 vCenter 的正確連接埠號碼。
+4. 最後，請檢查 vCenter 伺服器是否啟動且正在執行。
+ 
 

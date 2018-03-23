@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 193003cef0aed464596e913c0df86e6123292b9f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/16/2018
+---
 為提升虛擬機器之主機基礎結構的可靠性、效能和安全性，Azure 會定期執行更新。 這些更新的範圍，從在主控環境 (像是作業系統、Hypervisor 和各種在主機上部署的代理程式) 中修補軟體元件、升級網路元件，以至硬體解除委任。 這些更新大多數都會在不影響託管虛擬機器的情況下執行。 不過，更新在某些情況下確實會造成影響：
 
 - 如果維護不需要重新開機，Azure 會在主機更新時使用就地移轉來暫停 VM。

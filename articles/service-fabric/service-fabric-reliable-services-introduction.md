@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric Reliable Services 程式設計模型概觀 | Microsoft Docs"
-description: "深入了解 Service Fabric 可靠的服務的程式設計模型，並開始撰寫自己的服務。"
+title: Service Fabric Reliable Services 程式設計模型概觀 | Microsoft Docs
+description: 深入了解 Service Fabric 可靠的服務的程式設計模型，並開始撰寫自己的服務。
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reliable-services-overview"></a>Reliable Services 概觀
 Azure Service Fabric 可簡化撰寫和管理無狀態與具狀態的 Reliable Services。 本主題涵蓋︰
@@ -34,7 +34,7 @@ Service Fabric 透過 [Service Fabric 應用程式管理](service-fabric-deploy-
 ## <a name="what-are-reliable-services"></a>什麼是 Reliable Services？
 Reliable Service 提供您簡易、功能強大、最高階的程式設計模型，以協助您針對應用程式的重要項目進行表達。 使用 Reliable Services 程式設計模型，您會得到：
 
-* 存取其餘的 Service Fabric 程式設計 API。 不同於模型化為[來賓可執行檔](service-fabric-deploy-existing-app.md)的 Service Fabric 服務，Reliable Services 會直接使用其餘的 Service Fabric API。 如此可讓服務︰
+* 存取其餘的 Service Fabric 程式設計 API。 不同於模型化為[來賓可執行檔](service-fabric-guest-executables-introduction.md)的 Service Fabric 服務，Reliable Services 會直接使用其餘的 Service Fabric API。 如此可讓服務︰
   * 查詢系統
   * 報告有關叢集中之實體的健全狀況
   * 接收有關設定和程式碼變更的通知

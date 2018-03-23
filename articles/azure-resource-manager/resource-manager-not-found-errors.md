@@ -1,31 +1,31 @@
 ---
-title: "找不到 Azure 資源錯誤 | Microsoft Docs"
-description: "描述如何在找不到資源時解決錯誤。"
+title: 找不到 Azure 資源錯誤 | Microsoft Docs
+description: 描述如何在找不到資源時解決錯誤。
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: c76c965c43ca8217faa9488c01975ce09a21daaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6844c1c2938873b0a74fe66e846dc733a4bd6ff7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>解決找不到 Azure 資源的錯誤
 
-本文描述在部署期間找不到資源時可能會遇到的錯誤。 
+本文描述在部署期間找不到資源時可能會遇到的錯誤。
 
 ## <a name="symptom"></a>徵狀
 
-當您的範本包含的資源名稱無法解析時，您會收到類似以下的錯誤：
+當範本包含無法解析的資源名稱時，您會收到類似以下的錯誤：
 
 ```
 Code=NotFound;
@@ -42,13 +42,11 @@ group {resource group name} was not found.
 
 ## <a name="cause"></a>原因
 
-資源管理員需要擷取資源的屬性，但是無法識別您的訂用帳戶中的資源。
+Resource Manager 需要擷取資源的屬性，但是無法識別您訂用帳戶中的資源。
 
-## <a name="solution"></a>解決方法
+## <a name="solution-1---set-dependencies"></a>解決方案 1：設定相依性
 
-### <a name="solution-1"></a>解決方案 1
-
-如果您嘗試在範本中部署遺漏的資源，請檢查是否需要新增相依性。 如果可能，Resource Manager 會以平行方式建立資源，將部署最佳化。 如果一個資源必須在另一個資源之後部署，您就必須在範本中使用 **dependsOn** 元素來建立與該另一個資源的相依性。 例如，在部署 Web 應用程式時，App Service 方案必須存在。 如果您沒有指定該 Web 應用程式相依於 App Service 方案，Resource Manager 會同時建立這兩個資源。 您收到錯誤訊息，指出找不到 App Service 方案的資源，因為嘗試在 Web 應用程式上設定屬性時它尚未存在。 您會設定 Web 應用程式的相依性，以避免此錯誤。
+如果您正嘗試在範本中部署遺漏的資源，請檢查是否需要新增相依性。 如果可能，Resource Manager 會以平行方式建立資源，將部署最佳化。 如果一個資源必須在另一個資源之後部署，您就必須在範本中使用 **dependsOn** 元素。 例如，在部署 Web 應用程式時，App Service 方案必須存在。 如果您未指定 Web 應用程式相依於 App Service 方案，Resource Manager 就會同時建立這兩個資源。 您會收到錯誤，指出找不到 App Service 方案資源，因為嘗試在 Web 應用程式上設定屬性時它尚未存在。 您會設定 Web 應用程式的相依性，以避免此錯誤。
 
 ```json
 {
@@ -61,9 +59,27 @@ group {resource group name} was not found.
 }
 ```
 
-如需針對相依性錯誤進行疑難排解的建議，請參閱[檢查部署順序](resource-manager-troubleshoot-tips.md#check-deployment-sequence)。
+但是，您要避免設定不需要的相依性。 當您有不必要的相依性時，您會阻止不互相相依的資源以平行方式部署，而延長部署的時間。 此外，您可以建立封鎖部署的循環相依性。 在同一個範本中部署參考的資源時，[reference](resource-group-template-functions-resource.md#reference) 函式會於該資源上建立隱含的相依性。 因此，您的相依性可能會比 **dependsOn** 屬性中指定的相依性還多。 [resourceId](resource-group-template-functions-resource.md#resourceid) 函式不會建立隱含的相依性或驗證資源存在。
 
-### <a name="solution-2"></a>解決方案 2
+當您遇到相依性問題時，您需要深入了解資源部署的順序。 若要檢視部署作業的順序︰
+
+1. 選取資源群組的部署歷程記錄。
+
+   ![選取部署歷程記錄](./media/resource-manager-not-found-errors/select-deployment.png)
+
+2. 從歷程記錄中選取部署，然後選取 [事件]。
+
+   ![選取部署事件](./media/resource-manager-not-found-errors/select-deployment-events.png)
+
+3. 檢查每個資源的事件順序。 注意每個作業的狀態。 例如，下列映像顯示平行部署的三個儲存體帳戶。 請注意，三個儲存體帳戶會同時啟動。
+
+   ![平行部署](./media/resource-manager-not-found-errors/deployment-events-parallel.png)
+
+   下一個映像顯示非平行部署的三個儲存體帳戶。 第二個儲存體帳戶相依於第一個儲存體帳戶，而第三個儲存體帳戶相依於第二個儲存體帳戶。 第一個儲存體帳戶會在下一個儲存體帳戶啟動之前啟動、接受及完成。
+
+   ![連續部署](./media/resource-manager-not-found-errors/deployment-events-sequence.png)
+
+## <a name="solution-2---get-resource-from-different-resource-group"></a>解決方案 2：從不同的資源群組取得資源
 
 當資源存在於與部署目標不同的資源群組時，使用 [resourceId 函式](resource-group-template-functions-resource.md#resourceid)以取得資源的完整名稱。
 
@@ -74,7 +90,7 @@ group {resource group name} was not found.
 }
 ```
 
-### <a name="solution-3"></a>解決方案 3
+## <a name="solution-3---check-reference-function"></a>解決方案 3：檢查參考函式
 
 尋找包含 [reference](resource-group-template-functions-resource.md#reference) 函式的運算式。 您提供的值會根據資源是否位於相同範本、資源群組及訂用帳戶而有所不同。 再次確認您為案例提供必要的參數值。 如果資源位於不同資源群組中，請提供完整資源識別碼。 例如，若要參考另一個資源群組的儲存體帳戶，請使用：
 

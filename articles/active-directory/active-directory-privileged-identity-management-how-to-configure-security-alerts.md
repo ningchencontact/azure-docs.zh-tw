@@ -1,11 +1,11 @@
 ---
-title: "如何設定安全性警示 | Microsoft Docs"
-description: "了解如何為 Azure Privileged Identity Management 擴充功能設定安全性警示。"
+title: 如何設定安全性警示 | Microsoft Docs
+description: 了解如何為 Azure Privileged Identity Management 擴充功能設定安全性警示。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4e0c911a-36c6-42a0-8f79-a01c03d2d04f
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 52a03624b8e3841f559caef564712ff74a614365
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8037942cb3700f8e46d3be24b5fed04004333335
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management：如何設定安全性警示
 ## <a name="security-alerts"></a>安全性警示
@@ -27,13 +27,18 @@ ms.lasthandoff: 12/11/2017
 
 ![PIM 儀表板安全性警示 - 螢幕擷取畫面][1]
 
-| 警示 | 觸發程序 | 建議 |
-| --- | --- | --- |
-| **在 PIM 外指派角色** |在 PIM 介面外將系統管理員永久指派給了某個角色。 |請檢閱新的角色指派。 由於其他服務只能指派永久系統管理員，因此請視需要將它變更成合格指派。 |
-| **啟用角色的次數太頻繁** |在設定所允許的時間內，重複啟用相同角色的次數過多。 |請連絡使用者以了解他們啟用角色這麼多次的原因。 可能是時間限制太短以致於他們無法完成其工作，或可能是他們使用指令碼來自動啟用角色。 |
-| **角色不需要多重要素驗證來進行啟用** |設定中有一些未啟用 MFA 功能的角色。 |針對特殊權限最高的角色，我們要求必須啟用 MFA，但強烈建議您針對所有角色的啟用都啟用 MFA。 |
-| **系統管理員未使用其特殊權限角色** |有合格的系統管理員最近尚未啟用其角色。 |請開始存取權檢閱，以判斷出不再需要存取權的使用者。 |
-| **全域管理員太多** |全域管理員的數目超過建議的數目。 |如果您有大量的全域管理員，使用者可能會取得超過其所需的權限。 請將使用者移至特殊權限較低的角色，或將部分使用者設為符合該角色資格，而不是永久指派。 |
+| 警示 | 嚴重性 | 觸發程序 | 建議 |
+| --- | --- | --- | --- |
+| **在 PIM 外指派角色** |高 |在 PIM 介面外將特殊權限角色指派給了使用者。 |檢閱清單中的使用者，然後將在 PIM 外指派給他們的特殊權限角色解除指派。 |
+| **啟用角色的次數太頻繁** |中 |在設定所允許的時間內，重複啟用相同角色的次數過多。 |請連絡使用者以了解他們啟用角色這麼多次的原因。 可能是時間限制太短以致於他們無法完成其工作，或可能是他們使用指令碼來自動啟用角色。 請確定為他們角色設定的啟用持續時間夠長，足以讓他們執行其工作。 |
+| **角色不需要多重要素驗證來進行啟用** |中 |設定中有一些未啟用 MFA 功能的角色。 |針對特殊權限最高的角色，我們要求必須啟用 MFA，但強烈建議您針對所有角色的啟用都啟用 MFA。 |
+| **使用者未使用其特殊權限角色** |低 |有合格的系統管理員最近尚未啟用其角色。 |請開始存取權檢閱，以判斷出不再需要存取權的使用者。 |
+| **全域管理員太多** |低 |全域管理員的數目超過建議的數目。 |如果您有大量的全域管理員，使用者可能會取得超過其所需的權限。 請將使用者移至特殊權限較低的角色，或將部分使用者設為符合該角色資格，而不是永久指派。 |
+
+### <a name="severity"></a>嚴重性
+* **高**：因為發生原則違規而需要立即採取行動。 
+* **中**：不需要立即採取行動，但表示可能發生原則違規。
+* **低**：不需要立即採取行動，但建議進行原則變更。
 
 ## <a name="configure-security-alert-settings"></a>設定安全性警示設定
 您可以在 PIM 中自訂一些安全性警示，以便配合您的環境和安全性目標。 請依照下列步驟來前往 [設定] 刀鋒視窗︰

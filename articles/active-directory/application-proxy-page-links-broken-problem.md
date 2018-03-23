@@ -1,11 +1,11 @@
 ---
-title: "頁面上的連結對 Application Proxy 應用程式沒有作用 | Microsoft Docs"
-description: "如何為已與 Azure AD 整合之 Application Proxy 應用程式上的中斷連結問題疑難排解"
+title: 頁面上的連結對 Application Proxy 應用程式沒有作用 | Microsoft Docs
+description: 如何為已與 Azure AD 整合之 Application Proxy 應用程式上的中斷連結問題疑難排解
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 17f2afb0aaf3b899784a504b77f33a1284f0a232
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>頁面上的連結對 Application Proxy 應用程式沒有作用
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/11/2017
 
 3.  如果這些選項皆不可行，您可以加入執行轉譯/重新撰寫 URL 的新功能預覽。 透過此選項，存在於您應用程式 HTML 內文中的內部 URL 或連結會被轉譯或「對應」至已發佈的外部 App Proxy URL。 此選項僅適用於 HTML 語法或 CSS 中的連結，如果您的連結是透過 JS 產生，則沒有幫助。 
 
-因此，我們強烈建議使用[自訂網域](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains)解決方案 (若適用的話)。 如果您想要加入預覽，請將含 applicationId 的電子郵件傳送至 <aadapfeedback@microsoft.com>。
+因此，我們強烈建議使用[自訂網域](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains)解決方案 (若適用的話)。 如果您想要加入預覽，請將含有 applicationId 的電子郵件傳送給 <aadapfeedback@microsoft.com>。
 
 ## <a name="next-steps"></a>後續步驟
 [使用現有的內部部署 Proxy 伺服器](application-proxy-working-with-proxy-servers.md)

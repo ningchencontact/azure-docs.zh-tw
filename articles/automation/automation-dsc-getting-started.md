@@ -1,24 +1,20 @@
 ---
-title: "開始使用 Azure 自動化 DSC | Microsoft Docs"
-description: "Azure 自動化預期狀態設定 (DSC) 中最常見工作的說明和範例"
+title: 開始使用 Azure 自動化 DSC
+description: Azure 自動化預期狀態設定 (DSC) 中最常見工作的說明和範例
 services: automation
-documentationcenter: na
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: a3816593-70a3-403b-9a43-d5555fd2cee2
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: na
-ms.date: 11/21/2016
-ms.author: magoedte;gwallace
-ms.openlocfilehash: ff23b4f5022597763728ccf301966c34c5423b34
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: e6e4df6fce783e7b4cc33d7f3c26136680ceb44f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>開始使用 Azure 自動化 DSC
 本文說明如何使用 Azure 自動化預期狀態設定 (DSC) 來執行最常見的工作，例如建立、匯入和編譯組態、將要管理的機器上線，以及檢視報告。 如需何謂 Azure 自動化 DSC 的概觀，請參閱 [Azure 自動化 DSC 概觀](automation-dsc-overview.md)。 如需 DSC 文件，請參閱 [Windows PowerShell 預期狀態設定概觀](https://msdn.microsoft.com/PowerShell/dsc/overview)。
