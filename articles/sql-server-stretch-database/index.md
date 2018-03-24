@@ -1,24 +1,24 @@
 ---
-title: "Azure SQL Server Stretch Database 文件 - 教學課程和 API 參考 | Microsoft Docs"
-description: "了解如何使用 SQL Server Stretch Database，在無需變更佇列或應用程式的情況下安全地將原始資料移轉至 Azure。 教學課程和其他文件。"
+title: Azure SQL Server Stretch Database 文件 - 教學課程和 API 參考 | Microsoft Docs
+description: 了解如何使用 SQL Server Stretch Database，在無需變更佇列或應用程式的情況下安全地將原始資料移轉至 Azure。 教學課程和其他文件。
 services: sql-server-stretch-database
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-server-stretch-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: cbdd210f2fe46228daa8c138815826df2b3b0fd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d40cd906abbee8b1d33f9e67c1940918ba4acb28
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="sql-server-stretch-database-documentation"></a>SQL Server Stretch Database 文件
+# <a name="sql-server-stretch-database-documentation"></a>SQL Server Stretch Database 文件
 
 了解如何使用 SQL Server Stretch Database 明確地將原始資料安全地移轉到 Azure 雲端。 教學課程及其他文件可協助您搭配不常使用的資料來設定資料庫可用性以節省成本，無需變更現有的佇列或應用程式。
 

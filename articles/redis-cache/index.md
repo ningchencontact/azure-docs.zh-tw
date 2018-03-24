@@ -1,24 +1,24 @@
 ---
-title: "Azure Redis Cache 文件 - 教學課程和 API 參考 | Microsoft Docs"
-description: "了解如何使用 Azure Redis 快取 (安全的資料快取和訊息代理程式)，讓應用程式快速存取資料。 教學課程、API 參考等等。"
+title: Azure Redis Cache 文件 - 教學課程和 API 參考 | Microsoft Docs
+description: 了解如何使用 Azure Redis 快取 (安全的資料快取和訊息代理程式)，讓應用程式快速存取資料。 教學課程、API 參考等等。
 services: redis-cache
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: redis-cache
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 6528d900ba3641189f8000db8d2535c9b215d148
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b772df55f8862330da9e557b9bf2ed11b9e2347
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="redis-cache-documentation"></a>Redis 快取文件
+# <a name="redis-cache-documentation"></a>Redis 快取文件
 
 了解如何使用 Azure Redis 快取 (安全的資料快取和訊息代理程式)，為應用程式提供高輸送量且低延遲的資料存取。 教學課程、API 參考和其他文件會示範如何從 Azure 上的任何應用程式使用 Redis 快取。
 

@@ -28,7 +28,7 @@
 - name: 概念
   items:
     - name: 了解成本報告
-      href: understading-cost-reports.md
+      href: understanding-cost-reports.md
 - name: 使用說明指南
   items:
     - name: 啟動 Azure 訂用帳戶與帳戶

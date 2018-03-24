@@ -1,24 +1,24 @@
 ---
-title: "Azure Resource Manager 文件 - 教學課程和 API 參考 | Microsoft Docs"
-description: "了解如何使用 Resource Manager，以群組方式部署和管理解決方案資源，並建立可供一致和重複資源部署的範本。"
+title: Azure Resource Manager 文件 - 教學課程和 API 參考 | Microsoft Docs
+description: 了解如何使用 Resource Manager，以群組方式部署和管理解決方案資源，並建立可供一致和重複資源部署的範本。
 services: azure-resource-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ab6725298c9e9c496d2e20b4e68ff72af1432bb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 471ed43d5eec54a138262b7c4c89802020683fdc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-resource-manager-documentation"></a>Azure Resource Manager 文件
+# <a name="azure-resource-manager-documentation"></a>Azure Resource Manager 文件
 
 了解如何使用 Resource Manager，以群組方式部署、監視和管理解決方案資源。 教學課程、API 參考和其他文件會示範如何設定資源群組，並建立可供一致和重複資源部署的範本。
 

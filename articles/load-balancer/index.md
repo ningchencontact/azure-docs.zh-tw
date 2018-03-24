@@ -1,24 +1,24 @@
 ---
-title: "Azure Load Balancer 文件 - 教學課程和 API 參考 | Microsoft Docs"
-description: "了解如何將負載平衡器使用於應用程式的網路效能。 管理虛擬機器和雲端資源以及跨單位虛擬網路的流量。"
+title: Azure Load Balancer 文件 - 教學課程和 API 參考 | Microsoft Docs
+description: 了解如何將負載平衡器使用於應用程式的網路效能。 管理虛擬機器和雲端資源以及跨單位虛擬網路的流量。
 services: load-balancer
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 169ca89ccd80e5a70f3e9ab07b3c34358c154be7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4642b0108343b417dc09bbc5978b6a18a58d39a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="load-balancer-documentation"></a>負載平衡器文件
+# <a name="load-balancer-documentation"></a>負載平衡器文件
 
 了解如何設定負載平衡器，為您的應用程式提供高可用性和網路效能。 文件會示範如何對虛擬機器和雲端資源以及跨單位虛擬網路的流量進行負載平衡。
 

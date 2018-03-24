@@ -97,8 +97,6 @@
           href: apache-spark-structured-streaming-overview.md
         - name: 在 YARN 中建立高可用性的 Spark 串流作業
           href: apache-spark-streaming-high-availability.md
-        - name: 使用事件中樞進行結構化串流
-          href: apache-spark-eventhub-structured-streaming.md
         - name: 搭配 Kafka 使用結構化串流
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true

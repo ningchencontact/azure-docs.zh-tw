@@ -6,8 +6,6 @@
       href: apache-domain-joined-introduction.md
     - name: 「已加入網域的叢集」的規劃
       href: apache-domain-joined-architecture.md
-    - name: 設定已加入網域的沙箱環境
-      href: apache-domain-joined-configure.md
     - name: 使用 Azure AD DS 設定已加入網域的叢集
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: 將 Azure AD 使用者同步處理至 HDInsight 叢集
