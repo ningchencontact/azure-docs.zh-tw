@@ -75,10 +75,12 @@
 ## [REST](/rest/api/cdn/)
 
 # 資源
-## [Azure CDN POP 位置](cdn-pop-locations.md)
+## Azure CDN POP 位置
+### [依地區的 POP 位置](cdn-pop-locations.md)
+### [依縮寫的 POP 位置](cdn-pop-abbreviations.md)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
-## [價格](https://azure.microsoft.com/pricing/details/cdn/)
+## [定價](https://azure.microsoft.com/pricing/details/cdn/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)

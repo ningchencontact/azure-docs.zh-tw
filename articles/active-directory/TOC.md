@@ -77,7 +77,8 @@
 ## [管理群組和成員](active-directory-manage-groups.md)
 ### 管理群組
 #### [Azure 入口網站](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell Azure Resource Manager 模型](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell 傳統部署模型](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [管理群組成員](active-directory-groups-members-azure-portal.md)
 ### [管理群組擁有者](active-directory-accessmanagement-managing-group-owners.md)
 ### [管理群組成員資格](active-directory-groups-membership-azure-portal.md)
@@ -94,9 +95,8 @@
 ### [檢視全部群組](active-directory-groups-view-azure-portal.md)
 ### [新增 SaaS 應用程式的群組存取權](active-directory-accessmanagement-group-saasapps.md)
 ### [還原已刪除的 Office 365 群組](active-directory-groups-restore-azure-portal.md)
-### 管理群組設定
-#### [Azure 入口網站](active-directory-groups-settings-azure-portal.md)
-#### [Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### [管理群組設定](active-directory-groups-settings-azure-portal.md)
+
 ### 建立進階規則
 #### [Azure 入口網站](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [設定自助式群組](active-directory-accessmanagement-self-service-group-management.md)
@@ -215,12 +215,12 @@
 ##### [自訂首頁](application-proxy-office365-app-launcher.md)
 ##### [翻譯內嵌連結](application-proxy-link-translation.md)
 ##### [萬用字元應用程式](active-directory-application-proxy-wildcard.md)
-
+##### [Azure AD 應用程式 Proxy 和 Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### 發佈逐步解說
 ##### [遠端桌面](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
+#### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [疑難排解](active-directory-application-proxy-troubleshoot.md)
 
 
@@ -389,7 +389,7 @@
 ## [Azure 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [價格](https://azure.microsoft.com/pricing/details/active-directory/)
+## [定價](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

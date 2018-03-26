@@ -7,18 +7,40 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 建立 Databricks 工作區
+    - name: 建立 Databricks 工作區 - 入口網站
       href: quickstart-create-databricks-workspace-portal.md
+    - name: 建立 Databricks 工作區 - Resource Manager 範本
+      href: quickstart-create-databricks-workspace-resource-manager-template.md
 - name: 教學課程
   items:
-    - name: 使用事件中樞串流事件
+    - name: 執行 ETL 作業
+      href: databricks-extract-load-sql-data-warehouse.md
+    - name: 使用事件中樞串流資料
       href: databricks-stream-from-eventhubs.md
+    - name: 使用認知服務進行情感分析
+      href: databricks-sentiment-analysis-cognitive-services.md
+    - name: 串流 HDInsight Kafka 的資料
+      href: 'https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html'
 - name: 使用說明指南
   items:
+    - name: 建立 Spark 叢集
+      href: 'https://docs.azuredatabricks.net/user-guide/clusters/index.html'
+    - name: 使用 Notebook
+      href: 'https://docs.azuredatabricks.net/user-guide/notebooks/index.html'
+    - name: 執行 Spark 作業
+      href: 'https://docs.azuredatabricks.net/user-guide/jobs.html'
+    - name: 連接到資料來源
+      href: databricks-connect-to-data-sources.md
     - name: 與 Excel、R 和 Python 連線
       href: connect-databricks-excel-python-r.md
     - name: 在 Azure Cloud Shell 中使用 Databricks CLI
       href: databricks-cli-from-azure-cloud-shell.md
+    - name: 使用 BI 工具
+      href: 'https://docs.azuredatabricks.net/user-guide/bi/index.html'
+- name: 參考
+  items:
+    - name: REST API
+      href: /rest/api/databricks
 - name: 資源
   items:
     - name: 常見問題

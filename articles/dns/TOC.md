@@ -7,6 +7,8 @@
 ## [使用 Azure DNS 委派 DNS](dns-domain-delegation.md)
 ## [DNS 常見問題](dns-faq.md)
 ## [使用私人 DNS 區域](private-dns-overview.md)
+## [私人 DNS 案例](private-dns-scenarios.md)
+
 
 # 開始使用
 
@@ -17,6 +19,7 @@
 
 ## 建立私人 DNS 區域和記錄
 ### [PowerShell](private-dns-getstarted-powershell.md)
+### [Azure CLI](private-dns-getstarted-cli.md)
 ## [將您的網域委派給 Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [建立 Web 應用程式的自訂 DNS 記錄](dns-web-sites-custom-domain.md)
 
@@ -70,6 +73,6 @@
 ## [功能要求](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [網路部落格](http://azure.microsoft.com/blog/topics/networking)
-## [價格](https://azure.microsoft.com/pricing/details/dns/)
+## [定價](https://azure.microsoft.com/pricing/details/dns/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=dns)

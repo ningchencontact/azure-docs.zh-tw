@@ -237,6 +237,7 @@
 ## [REST](/rest/api/media/mediaservice)
 ## 規格
 ### [即時內嵌 - 分散式 MP4 即時內嵌規格](media-services-fmp4-live-ingest-overview.md)
+### [即時內嵌 - 即時資料流中的已逾時中繼資料訊號](media-services-specifications-live-timed-metadata.md)
 ### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
 
 # 資源

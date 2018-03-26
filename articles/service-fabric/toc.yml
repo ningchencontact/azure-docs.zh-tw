@@ -131,6 +131,8 @@
           items:
             - name: 架構
               href: service-fabric-reliable-actors-platform.md
+            - name: 實作服務層級功能
+              href: service-fabric-reliable-actors-using.md
             - name: 生命週期與記憶體回收
               href: service-fabric-reliable-actors-lifecycle.md
             - name: 狀態管理
@@ -389,7 +391,15 @@
               href: service-fabric-reliable-services-backup-restore.md
         - name: 建置 Reliable Actors 服務
           items:
-            - name: 傳送通知
+            - name: 存取、儲存及移除動作項目狀態
+              href: service-fabric-reliable-actors-access-save-remove-state.md
+            - name: 列舉動作項目
+              href: service-fabric-reliable-actors-enumerate.md
+            - name: 刪除動作項目與其狀態
+              href: service-fabric-reliable-actors-delete-actors.md
+            - name: 備份與還原動作項目
+              href: service-fabric-reliable-actors-backup-and-restore.md
+            - name: 傳送動作項目通知
               href: service-fabric-reliable-actors-events.md
             - name: 設定計時器和提醒
               href: service-fabric-reliable-actors-timers-reminders.md

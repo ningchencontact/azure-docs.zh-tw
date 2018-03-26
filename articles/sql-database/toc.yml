@@ -19,6 +19,8 @@
       items:
         - name: SSMS
           href: sql-database-connect-query-ssms.md
+        - name: SQL Operations Studio
+          href: 'https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json'
         - name: Azure 入口網站
           href: sql-database-connect-query-portal.md
         - name: VS 程式碼
@@ -101,8 +103,10 @@
           href: sql-database-manage-logins.md
         - name: 多因素驗證
           href: sql-database-ssms-mfa-authentication.md
-        - name: 稽核
+        - name: 稽核 - SQL Database
           href: sql-database-auditing.md
+        - name: 稽核 - 受控執行個體
+          href: sql-database-managed-instance-auditing.md
         - name: 威脅偵測 - SQL Database
           href: sql-database-threat-detection.md
         - name: 威脅偵測 - 受控執行個體

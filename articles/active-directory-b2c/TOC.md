@@ -91,7 +91,8 @@
 #### [密碼複雜度](active-directory-b2c-reference-password-complexity-custom.md)
 #### [密碼變更](active-directory-b2c-reference-password-change-custom.md)
 #### [啟用讓我保持登入](active-directory-b2c-reference-kmsi-custom.md)
-### 疑難排解
+### 疑難排解和事件記錄
+#### [使用 Application Insights 分析自訂事件](active-directory-b2c-custom-guide-eventlogger-appins.md)
 #### [使用 Application Insights 收集記錄](active-directory-b2c-troubleshoot-custom.md)
 ## 參考
 ### [版本資訊](active-directory-b2c-developer-notes-custom.md)
@@ -119,7 +120,7 @@
 ## [Azure AD B2C 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [常見問題集](active-directory-b2c-faqs.md)
-## [定價](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [價格](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)

@@ -77,11 +77,15 @@
           href: search-performance-optimization.md
     - name: 安全性
       items:
-        - name: 資料和作業安全性
+        - name: 安全性概觀
           href: search-security-overview.md
-        - name: 使用身分識別篩選條件獲得保障
+        - name: 服務金鑰管理
+          href: search-security-api-keys.md
+        - name: 角色型管理存取
+          href: search-security-rbac.md
+        - name: 安全性篩選條件
           href: search-security-trimming-for-azure-search.md
-        - name: 使用 Active Directory 獲得保障
+        - name: AAD 身分識別的篩選條件
           href: search-security-trimming-for-azure-search-with-aad.md
     - name: 開發
       items:

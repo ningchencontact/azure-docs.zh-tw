@@ -1,16 +1,16 @@
 ---
 layout: HubPage
-hide_bc: 
-title: "Microsoft Azure 文件"
-description: "了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。"
+hide_bc: ''
+title: Microsoft Azure 文件
+description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 6d188cc25d858cc2d07fc49450d6b2d4a4a04c09
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f344bf3062add621dc7d0a4cb6f7ed37e6d28d57
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -142,23 +142,28 @@ ms.lasthandoff: 03/16/2018
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
-                                                            <img src="media/index/logo_NET.svg" alt=""> .NET</a>
+                                                            <img src="media/index/logo_NET.svg" alt="">
+.NET</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/python/azure/">
-                                                            <img src="media/index/logo_python.svg" alt=""> Python</a>
+                                                            <img src="media/index/logo_python.svg" alt="">
+Python</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/java/azure/">
-                                                            <img src="media/index/logo_java.svg" alt=""> Java</a>
+                                                            <img src="media/index/logo_java.svg" alt="">
+Java</a>
                                                     </li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
-                                                            <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
+                                                            <img src="media/index/logo_PHP.svg" alt="">
+PHP</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/javascript/azure/">
-                                                            <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
+                                                            <img src="media/index/logo_nodejs.svg" alt="">
+Node.js</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/go/azure/"> Go</a>
@@ -202,6 +207,8 @@ ms.lasthandoff: 03/16/2018
                                                     <li><a class="barLink" href="/azure/machine-learning/">機器學習服務</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">電腦視覺 API</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">臉部 API</a></li>
+                                                    <li><a class="barLink" href="/bot-framework/">Azure Bot 服務</a></li>
+                                                    <li><a class="barLink" href="/azure/cognitive-services/luis/">LUIS</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -217,11 +224,13 @@ ms.lasthandoff: 03/16/2018
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/cli/azure">
-                                                            <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI </a>
+                                                            <img src="media/index/azure_dev-7.svg" alt="">
+Azure CLI </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/powershell/azure/overview">
-                                                            <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell </a>
+                                                            <img src="media/index/azure_dev-8.svg" alt="">
+Azure PowerShell </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -238,15 +247,18 @@ ms.lasthandoff: 03/16/2018
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt=""> 部署至 Azure </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+部署至 Azure </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/jenkins">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_jenkins.svg" alt=""> Jenkins </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_jenkins.svg" alt="">
+Jenkins </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/terraform">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_terraform.svg" alt=""> Terraform </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_terraform.svg" alt="">
+Terraform </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -2612,13 +2624,13 @@ ms.lasthandoff: 03/16/2018
                                                         <h3>視覺</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/computer-vision/">電腦視覺<img src="media/index/API_Computer_Vision.svg" alt="" /></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/computer-vision/"><img src="media/index/API_Computer_Vision.svg" alt="" />電腦視覺</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="media/index/API_Content_Moderator.svg" alt="" />內容仲裁</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="media/index/API_Custom_Vision.svg" alt="" /><span>自訂辨識服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="media/index/API_Custom_Vision.svg" alt="" /><span>自訂視覺服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/emotion/home"><img src="media/index/API_Emotion.svg" alt="" /><span>表情 API&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
@@ -2649,7 +2661,7 @@ ms.lasthandoff: 03/16/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="media/index/API_Custom_Speech.svg" alt="" /><span>自訂語音服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="media/index/API_Speaker_Recognition.svg" alt="" /><span>說話者辨識&nbsp;預覽<sup style="font-size:70%">預覽</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="media/index/API_Speaker_Recognition.svg" alt="" /><span>說話者辨識&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="https://docs.microsofttranslator.com/speech-translate.html"><img src="media/index/API_TranslatorSpeech.svg" alt="" />Translator Speech</a>
@@ -2671,7 +2683,7 @@ ms.lasthandoff: 03/16/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Bing 拼字檢查</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>語言理解 (LUIS)</span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Language Understanding (LUIS)</span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>語言分析&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
@@ -2680,7 +2692,7 @@ ms.lasthandoff: 03/16/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="media/index/API_TextAnalytics.svg" alt="" />文字分析</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/API_TranslatorText.svg" alt="" />翻譯文字</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/API_TranslatorText.svg" alt="" />Translator Text</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="media/index/API_WebLanguageModel.svg" alt="" /><span>Web 語言模型&nbsp;<sup style="font-size:70%">預覽</sup></span></a>

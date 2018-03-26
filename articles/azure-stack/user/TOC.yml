@@ -131,6 +131,8 @@
   items:
     - name: Azure Stack 操作員文件
       href: /azure/azure-stack/
+    - name: ASDK 文件
+      href: /azure/azure-stack/asdk/
 - name: 資源
   items:
     - name: Azure Stack 藍圖

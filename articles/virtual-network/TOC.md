@@ -57,7 +57,10 @@
 #### [不同的部署模型 - 相同的訂用帳戶](create-peering-different-deployment-models.md)
 #### [不同的部署模型 - 不同的訂用帳戶](create-peering-different-deployment-models-subscriptions.md)
 
-### [虛擬網路服務端點](virtual-network-service-endpoints-configure.md)
+### 虛擬網路服務端點
+#### [Azure 入口網站](tutorial-restrict-network-access-to-resources.md)
+#### [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md)
+#### [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md)
 
 ### 虛擬機器
 #### [虛擬機器網路輸送量](virtual-machine-network-throughput.md)
@@ -177,8 +180,12 @@
 ### [VM 至 VM 連線問題](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 ### [設定 PTR 以進行 SMTP Banner 檢查](create-ptr-for-smtp-service.md)
 
+## 範例指令碼
+### [Azure CLI](cli-samples.md)
+### [Azure PowerShell](powershell-samples.md)
+
 # 參考
-## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
+## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (傳統)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)

@@ -103,6 +103,8 @@
               href: hyper-v-vmm-architecture.md
     - name: 應用程式災害復原
       href: site-recovery-workload.md
+    - name: 關於復原方案
+      href: recovery-plan-overview.md
     - name: 關於移轉
       href: migrate-overview.md
     - name: 關於站台復原的角色型存取控制
@@ -273,6 +275,12 @@
           items:
             - name: 執行 Azure 的災害復原演練
               href: site-recovery-test-failover-to-azure.md
+            - name: 設定復原計畫
+              href: site-recovery-create-recovery-plans.md
+            - name: 將 VMM 指令碼加入復原方案
+              href: hyper-v-vmm-recovery-script.md
+            - name: 將 Runbook 新增至復原方案
+              href: site-recovery-runbook-automation.md
             - name: 執行容錯移轉到 Azure
               href: site-recovery-failover.md
             - name: 從 Azure 容錯回復至 Hyper-V
