@@ -1,6 +1,6 @@
 ---
-title: "Azure 快速入門 - 使用 PHP 在 Azure Blob 儲存體之間傳送物件 | Microsoft Docs"
-description: "快速了解使用 PHP 在 Azure Blob 儲存體之間傳送物件"
+title: Azure 快速入門 - 使用 PHP 在 Azure Blob 儲存體之間傳送物件 | Microsoft Docs
+description: 快速了解使用 PHP 在 Azure Blob 儲存體之間傳送物件
 services: storage
 author: roygara
 manager: jeconnoc
@@ -8,13 +8,13 @@ ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 474c03921369035cd7334fdddd9806f8f90b7d58
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4adad6fe3da16653bbd654a3e93e14f9e68b7c90
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>使用 PHP 在 Azure Blob 儲存體之間傳送物件
 在本快速入門中，您會了解如何使用 PHP 在 Azure Blob 儲存體容器中上傳、下載及列出區塊 Blob。 
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/12/2018
 
 若要完成本快速入門： 
 * 安裝 [PHP](http://php.net/downloads.php)
-* 安裝 [Azure SDK for PHP](https://github.com/Azure/azure-storage-php)
+* 安裝 [Azure Storage SDK for PHP](https://github.com/Azure/azure-storage-php)
 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
@@ -196,6 +196,13 @@ Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 最常使用的�
     echo "<br />";
     unlink($fileToUpload);   
 ```
+
+## <a name="resources-for-developing-php-applications-with-blobs"></a>可供使用 Blob 開發 PHP 應用程式的資源
+
+請參閱以下可供使用 Blob 儲存體進行 PHP 開發的額外資源：
+
+- 檢視、下載及安裝 GitHub 上適用於 Azure 儲存體的 [PHP 用戶端程式庫原始程式碼](https://github.com/Azure/azure-storage-php)。
+- 探索使用 PHP 用戶端程式庫所撰寫的 [Blob 儲存體範例](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=php&term=blob)。
 
 ## <a name="next-steps"></a>後續步驟
  

@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 指令碼範例 - 建立 Web 應用程式並從本機 Git 存放庫部署程式碼 | Microsoft Docs"
-description: "Azure PowerShell 指令碼範例 - 建立 Web 應用程式並從本機 Git 存放庫部署程式碼"
+title: Azure PowerShell 指令碼範例 - 建立 Web 應用程式並從本機 Git 存放庫部署程式碼 | Microsoft Docs
+description: Azure PowerShell 指令碼範例 - 建立 Web 應用程式並從本機 Git 存放庫部署程式碼
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
 ms.service: app-service-web
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c54dcd1869af0c5f3aac69bbd20d23b79ca669cf
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6846d9d25fb4b6b884e39676f8dbaa6c2899436b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>建立 Web 應用程式並從本機 Git 存放庫部署程式碼
 
 此範例指令碼會在 App Service 中建立 Web 應用程式及其相關資源，然後從本機 Git 存放庫中部署 Web 應用程式程式碼。
 
-您可以視需要使用 [Azure PowerShell 指南](/powershell/azure/overview) \(英文\) 中的指示來安裝 Azure PowerShell，然後執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。 此外，應用程式程式碼必須認可到本機 Git 儲存機制。
+您可以視需要使用 [Azure PowerShell 指南](/powershell/azure/overview) 中的指示以更新為最新的 Azure PowerShell，然後執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。 此外，應用程式程式碼必須認可到本機 Git 儲存機制。
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/18/2017
 在執行過指令碼範例之後，您可以使用下列命令來移除資源群組、Web 應用程式和所有相關資源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzureRmResourceGroup -Name $webappname -Force
 ```
 
 ## <a name="script-explanation"></a>指令碼說明
@@ -45,11 +45,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 | 命令 | 注意 |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 |
-| [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | 建立 App Service 方案。 |
-| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | 建立 Web 應用程式。 |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | 修改資源群組中的資源。 |
-| [Get-AzureRmWebAppPublishingProfile](/powershell/module/azurerm.websites/get-azurermwebapppublishingprofile) | 取得 Web 應用程式的發行設定檔。 |
+| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | 建立具有必要資源群組和 App Service 群組的 Web 應用程式。 如果目前的目錄包含 Git 存放庫，也要新增 `azure` 遠端。 |
 
 ## <a name="next-steps"></a>後續步驟
 

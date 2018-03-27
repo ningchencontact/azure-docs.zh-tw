@@ -1,20 +1,20 @@
 ---
-title: "Azure 原則概觀 | Microsoft Docs"
-description: "Azure 原則是 Azure 中的一個服務，您可以在 Azure 環境中用來建立、指派和管理原則定義。"
+title: Azure 原則概觀 | Microsoft Docs
+description: Azure 原則是 Azure 中的一個服務，您可以在 Azure 環境中用來建立、指派和管理原則定義。
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders; nini
-ms.date: 01/17/2018
+ms.date: 03/14/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bb6f08e8e6252233c51c47c63ca0aec4636247dd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 72b3e46e4755d50589eeefeeb0478ab9af49e97b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-azure-policy"></a>什麼是 Azure 原則？
 
@@ -30,6 +30,9 @@ Azure 原則是 Azure 中的一個服務，您可以用來建立、指派和管�
 
 - 可定義原則的 `Microsoft.Authorization/policydefinitions/write` 權限。
 - 可指派原則的 `Microsoft.Authorization/policyassignments/write` 權限。
+- 可定義方案的 `Microsoft.Authorization/policySetDefinitions/write` 權限。
+- 可指派方案的 `Microsoft.Authorization/policyassignments/write` 權限。
+
 
 這些權限不包括在**參與者**角色中。
 

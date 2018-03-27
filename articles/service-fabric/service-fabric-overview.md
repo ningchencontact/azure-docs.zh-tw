@@ -1,6 +1,6 @@
 ---
-title: "Azure 上的 Service Fabric 概觀 | Microsoft Docs"
-description: "組成多個微服務以提供調整和恢復功能的 Service Fabric 概觀。 Service Fabric 是一種分散式系統平台，用來建置可調整、可靠且輕鬆管理的雲端應用程式。"
+title: Azure 上的 Service Fabric 概觀 | Microsoft Docs
+description: 組成多個微服務以提供調整和恢復功能的 Service Fabric 概觀。 Service Fabric 是一種分散式系統平台，用來建置可調整、可靠且輕鬆管理的雲端應用程式。
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -15,18 +15,17 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: aab15e6981e4f5f3c69ea6a85995fd2db69ff8b8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d5bd75dfff87e73fa4104901c1c0ac0989b1e3bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概觀
 Azure Service Fabric 是一個分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務與容器。 Service Fabric 也解決了開發及管理雲端原生應用程式時所面臨的重大挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，專注於實作關鍵且嚴格要求之可調整、可信賴且可管理的工作負載。 Service Fabric 代表新一代的平台，可用於建置及管理這些在容器中執行的企業級、第一層雲端級別應用程式。
 
-此短片將介紹 Service Fabric 和微服務：<center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
-<img src="./media/service-fabric-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+此短片將介紹 Service Fabric 和微服務：
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="applications-composed-of-microservices"></a>由微服務組成的應用程式 
 Service Fabric 可讓您建置及管理由微服務組成的應用程式，這類應用程式可調整且可靠，並以高密度方式在共用的機器集區 (稱為叢集) 上執行。 它提供精密、輕量的執行階段，可建置在容器中執行之分散式、可調整的無狀態和具狀態微服務。 此外，還提供完整的應用程式管理功能，可佈建、部署、監視、升級/修補及刪除已部署的應用程式，包括容器化服務。
@@ -42,7 +41,7 @@ Service Fabric 為由微服務組成的應用程式，提供完整的執行階�
 如需有關微服務方法的詳細資訊，請閱讀 [為何要用微服務方式建置應用程式？](service-fabric-overview-microservices.md)
 
 ## <a name="container-deployment-and-orchestration"></a>容器部署和協調流程
-Service Fabric 是將微服務部署至整個機器叢集的 Microsoft [容器協調者](service-fabric-cluster-resource-manager-introduction.md)。 微服務的開發方式有許多種，從使用 [Service Fabric 程式設計模型](service-fabric-choose-framework.md)、[ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)，到部署[您選擇的任何程式碼](service-fabric-deploy-existing-app.md)，應有盡有。 重要的是，您可以在相同應用程式中同時混合容器中的服務和處理序中的服務。 如果您只是想要[部署和管理容器](service-fabric-containers-overview.md)，則 Service Fabric 作為容器協調者是一個最佳選擇。
+Service Fabric 是將微服務部署至整個機器叢集的 Microsoft [容器協調者](service-fabric-cluster-resource-manager-introduction.md)。 微服務的開發方式有許多種，從使用 [Service Fabric 程式設計模型](service-fabric-choose-framework.md)、[ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)，到部署[您選擇的任何程式碼](service-fabric-guest-executables-introduction.md)，應有盡有。 重要的是，您可以在相同應用程式中同時混合容器中的服務和處理序中的服務。 如果您只是想要[部署和管理容器](service-fabric-containers-overview.md)，則 Service Fabric 作為容器協調者是一個最佳選擇。
 
 ## <a name="any-os-any-cloud"></a>任何 OS、任何雲端
 Service Fabric 可在任何環境執行。 您可以在許多環境 (包括 Azure 或內部部署、Windows Server 上或 Linux 上) 建立 Service Fabric 的叢集。 您甚至可以在其他公用雲端上建立叢集。 此外，SDK 中的開發環境與生產環境「完全相同」，不涉及任何模擬器。 換句話說，在本機開發叢集上執行的項目，也會部署到其他環境中的叢集。

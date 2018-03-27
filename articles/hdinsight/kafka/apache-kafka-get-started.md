@@ -1,25 +1,25 @@
 ---
-title: "開始使用 Apache Kafka - Azure HDInsight | Microsoft Docs"
-description: "了解如何在 Azure HDInsight 上建立 Apache Kafka 叢集。 了解如何建立主題、訂閱者和取用者。"
+title: 開始使用 Apache Kafka - Azure HDInsight | Microsoft Docs
+description: 了解如何在 Azure HDInsight 上建立 Apache Kafka 叢集。 了解如何建立主題、訂閱者和取用者。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
+ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: e00ab06a26d60dd5beca11362df58f35812491d9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 27e6472480dac104de799ebf0e7579a7987f6c4c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>開始使用 Apache Kafka on HDInsight
 
@@ -39,6 +39,15 @@ ms.lasthandoff: 02/22/2018
 
     * **叢集名稱**︰HDInsight 叢集的名稱。 此名稱必須是唯一的。
     * **訂用帳戶**：選取要使用的訂用帳戶。
+    * **叢集類型**：選取此項目，然後在 [叢集組態] 中設定下列值︰
+
+        * **叢集類型**：Kafka
+        * **版本**：Kafka 0.10.0 (HDI 3.6)
+
+        使用 [選取] 按鈕來儲存叢集類型設定。
+
+        ![選取叢集類型](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
+
     * **叢集登入使用者名稱**和**叢集登入密碼**：透過 HTTPS 存取叢集時使用的登入資訊。 您會使用這些認證來存取例如 Ambari Web UI 或 REST API 等服務。
     * **安全殼層 (SSH) 使用者名稱**：透過 SSH 存取叢集時使用的登入資訊。 依預設，密碼要與叢集登入密碼相同。
     * **資源群組**：在其中建立叢集的資源群組。
@@ -49,24 +58,15 @@ ms.lasthandoff: 02/22/2018
    
  ![選取訂用帳戶](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. 選取 [叢集類型]，然後在 [叢集組態] 中設定下列值︰
-   
-    * **叢集類型**：Kafka
-    * **版本**：Kafka 0.10.0 (HDI 3.6)
+3. 使用 [下一步] 按鈕來完成基本設定。
 
-    最後，使用 [選取] 按鈕來儲存設定。
-     
- ![選取叢集類型](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
-
-4. 選取叢集類型之後，請使用 [選取] 按鈕來設定叢集類型。 接下來，使用 [下一步] 按鈕來完成基本組態。
-
-5. 從 [儲存體]，選取或建立儲存體帳戶。 本文件的步驟是將其他欄位保留為預設值。 使用 [下一步] 按鈕以儲存儲存體組態。
+4. 從 [儲存體]，選取或建立儲存體帳戶。 本文件的步驟是將其他欄位保留為預設值。 使用 [下一步] 按鈕以儲存儲存體組態。
 
     ![設定 HDInsight 的儲存體帳戶](./media/apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. 從 [應用程式 (選擇性)]，選取 [下一步] 以繼續。 這個範例不需要任何應用程式。
+5. 從 [應用程式 (選擇性)]，選取 [下一步] 以繼續。 這個範例不需要任何應用程式。
 
-7. 從 [叢集大小]，選取 [下一步] 以繼續。
+6. 從 [叢集大小]，選取 [下一步] 以繼續。
 
     > [!WARNING]
     > 若要保證 Kafka 在 HDInsight 上的可用性，您的叢集必須包含至少三個背景工作角色節點。 如需詳細資訊，請參閱[資料高可用性](#data-high-availability)一節。
@@ -76,9 +76,9 @@ ms.lasthandoff: 02/22/2018
     > [!IMPORTANT]
     > [每個背景工作角色節點的磁碟數] 項目會設定 HDInsight 上 Kafka 的延展性。 HDInsight 上的 Kafka 會在叢集中使用虛擬機器的本機磁碟。 Kafka 的 I/O 非常大量，因此會使用 [Azure 受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)來提供高輸送量，並提供每個節點更多儲存空間。 受控磁碟的類型可以是__標準__ (HDD) 或__進階__ (SSD)。 進階磁碟會與 DS 和 GS 系列搭配使用。 所有其他的 VM 類型是使用標準磁碟。
 
-8. 從 [進階設定]，選取 [下一步] 以繼續。
+7. 從 [進階設定]，選取 [下一步] 以繼續。
 
-9. 從 [摘要] 檢閱叢集組態。 使用 [編輯] 連結來變更所有不正確的設定。 最後，使用 [建立] 按鈕來建立叢集。
+8. 從 [摘要] 檢閱叢集組態。 使用 [編輯] 連結來變更所有不正確的設定。 最後，使用 [建立] 按鈕來建立叢集。
    
     ![叢集組態摘要](./media/apache-kafka-get-started/hdinsight-configuration-summary.png)
    

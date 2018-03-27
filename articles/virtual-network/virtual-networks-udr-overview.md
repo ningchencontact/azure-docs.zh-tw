@@ -1,12 +1,12 @@
 ---
-title: "Azure 虛擬網路流量路由 | Microsoft Docs"
-description: "了解 Azure 如何路由虛擬網路流量，以及您可以如何自訂 Azure 的路由。"
+title: Azure 虛擬網路流量路由 | Microsoft Docs
+description: 了解 Azure 如何路由虛擬網路流量，以及您可以如何自訂 Azure 的路由。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: 9afaa7d34665f5c8ef4c4c819fe3b7e995bd71d3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
 
@@ -132,6 +132,9 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
 1. 使用者定義路由
 2. BGP 路由
 3. 系統路由
+
+> [!NOTE]
+> 即使 BGP 路由是更為專用的路由，系統仍會慣用與虛擬網路、虛擬網路對等互連或虛擬網路服務端點相關之流量的系統路由。
 
 例如，路由表包含下列路由：
 

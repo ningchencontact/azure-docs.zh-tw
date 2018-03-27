@@ -1,11 +1,11 @@
 ---
-title: "如何將現有的 Azure 訂用帳戶新增至您的 Azure AD 目錄 | Microsoft Docs"
-description: "如何將現有的訂用帳戶新增至您的 Azure AD 目錄"
+title: 如何將現有的 Azure 訂用帳戶新增至您的 Azure AD 目錄 | Microsoft Docs
+description: 如何將現有的訂用帳戶新增至您的 Azure AD 目錄
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory
 
@@ -34,6 +34,7 @@ ms.lasthandoff: 01/06/2018
 
 * 您必須使用具有訂用帳戶之 RBAC 擁有者存取權的帳戶登入。
 * 您用於登入的帳戶必須同時存在於與訂用帳戶相關聯的目前目錄中和您想要將訂用帳戶新增至的目錄中。 若要深入了解如何取得其他目錄的存取權，請參閱 [Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者](active-directory-b2b-admin-add-users.md)
+* 這項功能不適用於 CSP (MS-AZR-0145P、MS-AZR-0146P、MS-AZR-159P) 和 Microsoft Imagine (MS-AZR-0144P) 訂用帳戶。
 
 ## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>將現有的訂用帳戶關聯至您的 Azure AD 目錄
 

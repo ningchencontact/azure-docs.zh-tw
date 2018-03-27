@@ -1,21 +1,21 @@
 ---
-title: "快速入門 - 使用 Azure 入口網站建立您的第一個 Azure Container Instances 容器"
-description: "部署和開始使用 Azure Container Instances"
+title: 快速入門 - 使用 Azure 入口網站建立您的第一個 Azure Container Instances 容器
+description: 在本快速入門中，您會使用 Azure 入口網站在 Azure Container Instances 中部署容器
 services: container-instances
 author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 03/19/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 63f22544276da07ec98e779cc524879603655db6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 18238c94ba9acff15497a666a63b65b95779d4ac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-your-first-container-in-azure-container-instances"></a>在 Azure Container Instances 中建立您的第一個容器
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>快速入門：在 Azure Container Instances 中建立您的第一個容器
 
 Azure Container Instances 可讓您輕鬆地在 Azure 中建立和管理容器。 在本快速入門中，您會在 Azure 中建立容器，並使用公用 IP 位址向網際網路公開此容器。在本快速入門中，您會在 Azure 中建立容器，並使用公用 IP 位址向網際網路公開此容器。 這項作業是使用 Azure 入口網站來完成。 只要按幾下，您就能在瀏覽器中看到下列結果：
 
@@ -23,7 +23,7 @@ Azure Container Instances 可讓您輕鬆地在 Azure 中建立和管理容器�
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，網址是 http://portal.azure.com/。
+在 http://portal.azure.com 上登入 Azure 入口網站。
 
 ## <a name="create-a-container-instance"></a>建立容器執行個體
 

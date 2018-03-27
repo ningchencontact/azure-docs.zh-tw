@@ -1,6 +1,6 @@
 ---
-title: "建立及使用內部負載平衡器與 Azure App Service Environment"
-description: "如何建立及使用隔離網際網路之 Azure App Service Environment 的詳細資料"
+title: 建立及使用內部負載平衡器與 Azure App Service Environment
+description: 如何建立及使用隔離網際網路之 Azure App Service Environment 的詳細資料
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>建立及使用內部負載平衡器與 App Service Environment #
 
@@ -139,7 +139,7 @@ ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您需要管理�
 
 如果您想要建立自我簽署憑證，可以使用這裡的 PowerShell命令。 務必使用您的 ILB ASE 網域名稱，而不是 internal.contoso.com： 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
+    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
     
     $certThumbprint = "cert:\localMachine\my\" +$certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
@@ -174,9 +174,9 @@ ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您需要管理�
 
     b. 若要測試 Web 部署發佈或存取進階主控台，建立 mytestapp.scm.ilbase.com 的記錄。
 
-7. 在該 VM 上使用瀏覽器並移至 http://mytestapp.ilbase.com 。(或移至任何名稱含您的網域的 Web 應用程式。)
+7. 在該 VM 上使用瀏覽器並移至 http://mytestapp.ilbase.com。(或移至任何名稱含您的網域的 Web 應用程式。)
 
-8. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com  。如果您使用自我簽署憑證，就必須接受安全性不足。
+8. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。如果您使用自我簽署憑證，就必須接受安全性不足。
 
     您的 ILB IP 位址列在 [IP 位址] 底下。 此清單中也有外部 VIP 使用的 IP 位址以及用於輸入管理流量的 IP 位址。
 

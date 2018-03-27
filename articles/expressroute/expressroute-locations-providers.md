@@ -1,24 +1,24 @@
 ---
-title: "位置和連線提供者︰Azure ExpressRoute | Microsoft Docs"
-description: "本文提供提供服務所在位置以及如何連線到 Azure 區域的詳細概觀。 依位置排序。"
+title: 位置和連線提供者︰Azure ExpressRoute | Microsoft Docs
+description: 本文提供提供服務所在位置以及如何連線到 Azure 區域的詳細概觀。 依位置排序。
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: pareshmu
-ms.openlocfilehash: b626ebae8032902bae168460eeede00dfdc7dfc2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 277bde74283f847c915cc5e91e92bad50d401021
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 03/12/2018
 | **倫敦** |AT&T NetBond、British Telecom、Colt、Equinix、InterCloud、Internet Solutions - Cloud Connect、Interxion、Jisc、Level 3 Communications、Megaport、MTN、NTT Communications、Orange、Tata Communications、Telecity Group、Telehouse - KDDI、Telenor、Verizon、Vodafone、Zayo |
 | **洛杉磯** |CoreSite、Equinix、Megaport、NTT、Zayo |
 | **墨爾本** |AARNet、Equinix、Megaport、NEXTDC、Telstra Corporation |
-| **邁阿密** |C3ntro+、Megaport、Neutrona Networks |
+| **邁阿密** |C3ntro+、Equinix、Megaport、Neutrona Networks |
 | **蒙特婁** |Bell Canada、Cologix、Telus、Zayo |
 | **孟買** |Airtel+、Global CloudXchange (GCX)、Sify、Tata Communications |
 | **紐約** |Coresite、Equinix、Level 3 Communications、Megaport、Zayo |

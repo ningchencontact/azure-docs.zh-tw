@@ -1,24 +1,21 @@
 ---
-title: "Azure 入口網站：建立 SQL Database 受控執行個體 | Microsoft Docs"
-description: "在 VNet 中建立 Azure SQL Database 受控執行個體，並使用 SSMS 來還原 Wide World Importers 資料庫備份。"
-keywords: "SQL Database 教學課程, 建立 SQL Database 受控執行個體"
+title: Azure 入口網站：建立 SQL Database 受控執行個體 | Microsoft Docs
+description: 在 VNet 中建立 Azure SQL Database 受控執行個體，並使用 SSMS 來還原 Wide World Importers 資料庫備份。
+keywords: SQL Database 教學課程, 建立 SQL Database 受控執行個體
 services: sql-database
 author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-manager: cguyer
-ms.openlocfilehash: 0d6261392dfdab0d48cb0c524d1fcf416c85d72c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: craigg
+ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>在 Azure 入口網站中建立 Azure SQL Database 受控執行個體
 
@@ -26,6 +23,9 @@ ms.lasthandoff: 03/12/2018
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
+> [!IMPORTANT]
+> 如需受控執行個體目前可用的區域清單，請參閱[使用 Azure SQL Database 受控執行個體將資料庫移轉到完全受控的服務](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)。
+ 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
 登入 [Azure 入口網站](https://portal.azure.com/#create/Microsoft.SQLManagedInstance)。
@@ -56,7 +56,7 @@ ms.lasthandoff: 03/12/2018
 下列步驟說明如何建立新的 [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) 虛擬網路 (VNet)，以供您的受控執行個體使用。 如需 VPN 組態的詳細資訊，請參閱[受控執行個體 VNet 組態](sql-database-managed-instance-vnet-configuration.md)。
 
 1. 按一下 Azure 入口網站左上角的 [建立資源]。
-2. 尋找然後按一下 [虛擬網路]，確認 [Resource Manager] 已選取作為部署模式，然後按一下 [建立]。
+2. 尋找而後按一下 [虛擬網路]，確認已選取 [資源管理員] 作為部署模式，然後按一下 [建立]。
 
    ![虛擬網路 - 建立](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 03/12/2018
 下列步驟顯示如何建立 0.0.0.0/0 下一個躍點網際網路路由。
 
 1. 按一下 Azure 入口網站左上角的 [建立資源]。
-2. 尋找而後按一下 [路由表]，然後在路由表頁面上按一下 [建立]。 
+2. 尋找而後按一下 [路由表]，然後在 [路由表] 頁面上按一下 [建立]。 
 
    ![路由表 - 建立](./media/sql-database-managed-instance-tutorial/route-table-create.png)
 
@@ -284,7 +284,7 @@ ms.lasthandoff: 03/12/2018
     ![Internet Explorer 增強式安全性組態](./media/sql-database-managed-instance-tutorial/internet-explorer-security-configuration.png)  
 4. 從工作列開啟 [Internet Explorer]。
 5. 選取 [使用建議的安全性和相容性設定]，然後按一下 [確定] 以完成 Internet Explorer 11 的設定。
-6. 在 URL 網址方塊中輸入 https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms，然後按一下 **Enter**。 
+6. 在 URL 位址方塊中輸入 https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms，然後按一下 **Enter**。 
 7. 下載最新版的 SQL Server Management Studio，然後在出現提示時按一下 [執行]。
 8. 出現提示時，按一下 [安裝] 開始進行安裝。
 9. 當安裝完成時，按一下 [關閉]。
@@ -299,7 +299,7 @@ ms.lasthandoff: 03/12/2018
 
 使用下列步驟來下載 Wide World Importers - 標準備份檔案。
 
-使用 Internet Explorer，在 URL 網址方塊中輸入 https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak，然後在出現提示時按一下 [儲存] 將此檔案儲存在 [下載] 資料夾中。
+使用 Internet Explorer，在 URL 位址方塊中輸入 https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak，然後在出現提示時，按一下 [儲存] 將此檔案儲存在 [下載] 資料夾中。
 
 ## <a name="create-azure-storage-account-and-upload-backup-file"></a>建立 Azure 儲存體帳戶及上傳備份檔案
 

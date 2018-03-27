@@ -1,19 +1,19 @@
 ---
-title: "Azure 快速入門 - 使用 .NET 上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs"
-description: "在本快速入門中，您會建立儲存體帳戶和容器。 然後，使用 .NET 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。"
+title: Azure 快速入門 - 使用 .NET 上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs
+description: 在本快速入門中，您會建立儲存體帳戶和容器。 然後，使用 .NET 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: 8d1f09a39e865500aa8e4d093473d4989f134c3d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 716e61840f4bfb5a68a995683e67dae0b43d3854
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>快速入門：使用 .NET 上傳、下載及列出 Blob
 
@@ -253,13 +253,13 @@ File.Delete(destinationFile);
 
 ### <a name="binaries-and-source-code"></a>二進位檔和原始程式碼
 
-- 針對最新版的 [Storage .NET 用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)下載 NuGet 套件。 
-- 在 GitHub 上檢視[儲存體 .NET 用戶端程式庫原始程式碼](https://github.com/Azure/azure-storage-net)。
+- 針對 Azure 儲存體最新版的 [.NET 用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)下載 NuGet 套件。 
+- 在 GitHub 上檢視 [.NET 用戶端程式庫原始程式碼](https://github.com/Azure/azure-storage-net)。
 
 ### <a name="client-library-reference-and-samples"></a>用戶端程式庫參考和範例
 
-- 如需用戶端程式庫的詳細資訊，請參閱[儲存體 .NET API 參考](https://docs.microsoft.com/dotnet/api/overview/azure/storage)。
-- 探索使用儲存體 .NET 用戶端程式庫所撰寫的 [Blob 儲存體範例](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)。
+- 如需 .NET 用戶端程式庫的詳細資訊，請參閱 [.NET API 參考](https://docs.microsoft.com/dotnet/api/overview/azure/storage)。
+- 探索使用 .NET 用戶端程式庫所撰寫的 [Blob 儲存體範例](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)。
 
 ## <a name="next-steps"></a>後續步驟
 

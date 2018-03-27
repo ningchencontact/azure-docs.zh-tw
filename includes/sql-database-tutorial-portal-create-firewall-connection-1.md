@@ -47,7 +47,7 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](../article
    > [!IMPORTANT]
    > \* 大於內含儲存體數量的儲存體大小尚在預覽中，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
    >
-   >\* 在進階層中，超過 1 TB 的儲存體目前在下列區域為可用狀態：澳大利亞東部、澳大利亞東南部、加拿大中部、加拿大東部、法國中部、德國中部、日本東部、韓國中部、美國中南部、東南亞、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 請參閱 [P11-P15 目前限制](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+   >\* 在進階層中，超過 1 TB 的儲存體目前在下列區域為可用狀態：加拿大中部、加拿大東部、法國中部、德國中部、日本東部、韓國中部、美國中南部、東南亞、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 請參閱 [P11-P15 目前限制](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
    > 
 
 9. 在選取伺服器層、DTU 數目和儲存體數量之後，按一下 [套用]。  

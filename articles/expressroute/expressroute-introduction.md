@@ -1,24 +1,24 @@
 ---
-title: "ExpressRoute 概觀：透過私人連線將內部部署網路延伸至 Azure | Microsoft Docs"
-description: "此「ExpressRoute 技術概觀」說明 ExpressRoute 連線如何透過私人連線，將內部部署網路延伸至 Azure。"
+title: ExpressRoute 概觀：透過私人連線將內部部署網路延伸至 Azure | Microsoft Docs
+description: 此「ExpressRoute 技術概觀」說明 ExpressRoute 連線如何透過私人連線，將內部部署網路延伸至 Azure。
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: e5584eee07121fa4644e09e23e3ba6b59fdd5a6e
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 75d69669945d31fbc9876d0c1e709b37f96aee6d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 概欟
 Microsoft Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部部署網路延伸至 Microsoft 雲端。 透過 ExpressRoute，您可以建立 Microsoft 雲端服務的連線，例如 Microsoft Azure、Office 365 和 Dynamics 365。
@@ -45,10 +45,9 @@ Microsoft Azure ExpressRoute 可讓您透過連線提供者所提供的私人連
 Microsoft 採用業界標準動態路由通訊協定 (BGP)，在您的內部部署網路、Azure 中的執行個體和 Microsoft 公用位址之間交換路由。  我們會針對不同的流量設定檔，與您的網路建立多個 BGP 工作階段。 如需詳細資訊，請參閱 [ExpressRoute 線路和路由網域](expressroute-circuit-peerings.md) 一文。
 
 ### <a name="redundancy"></a>備援性
-每個 ExpressRoute 線路有兩條連線，從連線提供者 / 您的網路邊緣連接到兩個 Microsoft Enterprise 邊緣路由器 (MSEE) 。 Microsoft 需要有來自連線提供者/您這端的雙重 BGP 連線 – 每個連線皆各自連線至每個 MSEE。 您可以選擇不要在您這端部署備援裝置 / 乙太網路線路。 不過，連線提供者會使用備援裝置，確保以備援方式將您的連線交給 Microsoft。 備援第 3 層連線組態是我們的 [SLA](https://azure.microsoft.com/support/legal/sla/) 生效的條件。
+每個 ExpressRoute 線路有兩條連線，從連線提供者 / 您的網路邊緣連接到兩個 Microsoft Enterprise 邊緣路由器 (MSEE)。 Microsoft 需要有來自連線提供者 / 您這端的雙重 BGP 連線 – 每個連線皆各自連線至每個 MSEE。 您可以選擇不要在您這端部署備援裝置 / 乙太網路線路。 不過，連線提供者會使用備援裝置，確保以備援方式將您的連線交給 Microsoft。 備援第 3 層連線組態是我們的 [SLA](https://azure.microsoft.com/support/legal/sla/) 生效的條件。
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>連線到 Microsoft 雲端服務
-[!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 透過 ExpressRoute 連線可存取下列服務：
 
@@ -56,18 +55,22 @@ Microsoft 採用業界標準動態路由通訊協定 (BGP)，在您的內部部�
 * Microsoft Office 365 服務
 * Microsoft Dynamics 365
 
-您可以瀏覽 [ExpressRoute 常見問題集](expressroute-faqs.md) 頁面，取得透過 ExpressRoute 所支援的服務的詳細清單。
+> [!NOTE]
+> [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+> 
+
+如需透過 ExpressRoute 所支援的詳細服務清單，請瀏覽 [ExpressRoute 常見問題集](expressroute-faqs.md)頁面。 
 
 ### <a name="connectivity-to-all-regions-within-a-geopolitical-region"></a>連線到地理政治區域內的所有區域
 您可以在我們的其中一個 [對等位置](expressroute-locations.md) 中連接到 Microsoft，就能夠存取地理政治區域內的所有區域。 
 
-例如，如果您在阿姆斯特丹透過 ExpressRoute 連線至 Microsoft，您就能夠存取在北歐和西歐託管的所有 Microsoft 雲端服務。 如需地理政治地區、相關聯的 Microsoft 雲端區域和對應的 ExpressRoute 對等位置的概觀，請參閱 [ExpressRoute 合作夥伴和對等位置](expressroute-locations.md)一文。
+例如，如果您在阿姆斯特丹透過 ExpressRoute 連線至 Microsoft，您就能夠存取在北歐和西歐託管的所有 Microsoft 雲端服務。 如需地理政治地區、相關聯的 Microsoft 雲端區域以及對應的 ExpressRoute 對等互連位置之概觀，請參閱 [ExpressRoute 合作夥伴和對等互連位置](expressroute-locations.md)一文。
 
 ### <a name="global-connectivity-with-expressroute-premium-add-on"></a>使用 ExpressRoute Premium 附加元件從全球連線
 您可以啟用 ExpressRoute Premium 附加功能，將連線能力延伸到跨越地理政治的界限。 例如，如果您在阿姆斯特丹透過 ExpressRoute 連接到 Microsoft，您就能夠存取全球所有區域裝載的所有 Microsoft 雲端服務 (不包括國家雲端)。 就像存取北歐和西歐區域一樣，您也可以存取部署在南美洲或澳大利亞的服務。
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>豐富的連線合作夥伴生態系統
-ExpressRoute 的連線提供者和 SI 合作夥伴生態系統持續成長茁壯。 如需最新資訊，請參閱 [ExpressRoute 提供者和位置](expressroute-locations.md) 一文。
+ExpressRoute 的連線提供者和 SI 合作夥伴生態系統持續成長茁壯。 如需最新資訊，請參閱 [ExpressRoute 提供者和位置](expressroute-locations.md)一文。
 
 ### <a name="connectivity-to-national-clouds"></a>連線到國家雲端
 Microsoft 為特殊的地理政治地區和客戶群提供隔離的雲端環境。 如需國家雲端和提供者的清單，請參閱 [ExpressRoute 提供者和位置](expressroute-locations.md) 頁面。

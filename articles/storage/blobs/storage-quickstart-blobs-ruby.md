@@ -1,19 +1,19 @@
 ---
-title: "Azure 快速入門 - 使用 Ruby 上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs"
-description: "在本快速入門中，您會建立儲存體帳戶和容器。 然後，使用 Ruby 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。"
+title: Azure 快速入門 - 使用 Ruby 上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs
+description: 在本快速入門中，您會建立儲存體帳戶和容器。 然後，使用 Ruby 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: seguler
-ms.openlocfilehash: df885849e879317be6379767a09dd30a93687902
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fa92875fe859e7d1364267d6157f7a706d9eb8df
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>快速入門：使用 Ruby 上傳、下載及列出 Blob
 
@@ -177,6 +177,12 @@ blob_client.delete_container(container_name)
 File.delete(full_path_to_file)
 File.delete(full_path_to_file2)    
 ```
+## <a name="resources-for-developing-ruby-applications-with-blobs"></a>可供使用 Blob 開發 Ruby 應用程式的資源
+
+請參閱以下可供使用 Blob 儲存體進行 Ruby 開發的額外資源：
+
+- 檢視及下載 GitHub 上適用於 Azure 儲存體的 [Ruby 用戶端程式庫原始程式碼](https://github.com/Azure/azure-storage-ruby)。
+- 探索使用 Ruby 用戶端程式庫所撰寫的 [Blob 儲存體範例](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=ruby&term=blob)。
 
 ## <a name="next-steps"></a>後續步驟
  

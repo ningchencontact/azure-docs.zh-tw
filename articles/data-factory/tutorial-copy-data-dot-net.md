@@ -1,8 +1,8 @@
 ---
-title: "將資料從 Azure Blob 儲存體複製到 SQL Database | Microsoft Docs"
-description: "本教學課程提供逐步指示，將資料從 Azure Blob 儲存體複製到 Azure SQL Database。"
+title: 將資料從 Azure Blob 儲存體複製到 SQL Database | Microsoft Docs
+description: 本教學課程提供逐步指示，將資料從 Azure Blob 儲存體複製到 Azure SQL Database。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 0747ba79529bc2f12f1c5d74cbfcb7b62a62baa8
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 86ceb395a6605b77b1f8594dbf153ac800b501b9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Blob 複製到 Azure SQL Database
 在本教學課程中，您會建立 Data Factory 管道，將資料從 Azure Blob 儲存體複製到 Azure SQL Database。 本教學課程中的設定模式從以檔案為基礎的資料存放區複製到關聯式資料存放區。 如需支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -109,7 +109,7 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="create-a-data-factory-client"></a>建立資料處理站用戶端
 
-1. 開啟 **Program.cs**，加入下列陳述式以新增命名空間的參考。
+1. 開啟 **Program.cs**，併入下列陳述式以將參考新增至命名空間。
 
     ```csharp
     using System;
@@ -120,8 +120,9 @@ ms.lasthandoff: 01/23/2018
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-
-2. Add the following code to the **Main** method that sets variables. Replace place-holders with your own values. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+    ```
+    
+2. 將下列程式碼新增至 **Main** 方法，以設定變數。 將預留位置取代為您自己的值。 目前，Data Factory V2 只允許您在美國東部、美國東部 2 和西歐區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
     ```csharp
     // Set variables
@@ -151,7 +152,7 @@ ms.lasthandoff: 01/23/2018
     string pipelineName = "Adfv2TutorialBlobToSqlCopy";
     ```
 
-3. 將下列程式碼新增至 **Main** 方法，以建立 **DataPipelineManagementClient** 類別的執行個體。 您會使用此物件來建立資料處理站、連結服務、資料集和管道。 您也可以使用此物件來監視管線執行的詳細資料。
+3. 將下列程式碼新增至 **Main** 方法，以建立 **DataFactoryManagementClient** 類別的執行個體。 您會使用此物件來建立資料處理站、連結服務、資料集和管道。 您也可以使用此物件來監視管線執行的詳細資料。
 
     ```csharp
     // Authenticate and create a data factory management client

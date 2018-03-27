@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 複製資料工具複製資料 | Microsoft Docs"
-description: "建立 Azure 資料處理站，然後使用「複製資料」工具將資料從 Azure Blob 儲存體中的一個資料夾複製到另一個資料夾。"
+title: 使用 Azure 複製資料工具複製資料 | Microsoft Docs
+description: 建立 Azure 資料處理站，然後使用「複製資料」工具將資料從 Azure Blob 儲存體中的某個位置複製到另一個位置。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/16/2018
 ms.author: jingwang
-ms.openlocfilehash: aa9cdba4f4e891d5321eb8af6349d8b141faee03
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: d09422f31a2dda5e14fb891fa07f65fdcceb72c1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>使用複製資料工具複製資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -58,7 +58,7 @@ ms.lasthandoff: 01/25/2018
 
 6. 選取 [釘選到儀表板]。     
 7. 選取 [建立] 。
-8. 在儀表板上，您會看到下列處於 [正在部署 Data Factory] 狀態的圖格︰ 
+8. 在儀表板上，您會看到 [正在部署 Data Factory] 狀態的下列圖格︰ 
 
     ![[部署 Data Factory] 圖格](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
 9. 建立完成之後，您會看到 [Data Factory] 頁面。 選取 [編寫與監視] 圖格，以在個別的索引標籤上啟動 Azure Data Factory 使用者介面 (UI) 應用程式。

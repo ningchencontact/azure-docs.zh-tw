@@ -1,8 +1,8 @@
 ---
-title: "在 Azure Data Factory 管道中分支 | Microsoft Docs"
-description: "了解如何將活動分支和鏈結來控制 Azure Data Factory 中的資料流程。"
+title: 在 Azure Data Factory 管道中分支 | Microsoft Docs
+description: 了解如何將活動分支和鏈結來控制 Azure Data Factory 中的資料流程。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 00b377b8ed7454c64d146a2de1867eca8ab1fb67
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 在本教學課程中，您會建立 Data Factory 管道來展示部分的控制流程功能。 這個管道只是簡單地從 Azure Blob 儲存體中的一個容器複製到相同儲存體帳戶中的另一個容器。 如果複製活動成功，管線會在成功電子郵件中傳送成功複製作業的詳細資料 (例如寫入的資料量)。 如果複製活動失敗，管線會在失敗電子郵件中傳送複製失敗的詳細資料 (例如錯誤訊息)。 在整個教學課程中，您會看到如何傳遞參數。
@@ -309,7 +309,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 3. 在 [管線執行] 視窗中，執行下列步驟： 
 
     1. 輸入 **adftutorial/dummy/input** 作為 **sourceBlobContainer** 參數。 請確定 adftutorial 容器中不存在 dummy 資料夾。 
-    2. 輸入 **adftutorial/dummy/inputt** 作為 **sourceBlobContainer** 參數。 
+    2. 輸入 **adftutorial/dummy/output** 作為 **sourceBlobContainer** 參數。 
     3. 輸入**接收者**的**電子郵件地址**。 
     4. 按一下 [完成] 。
 

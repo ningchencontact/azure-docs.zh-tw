@@ -1,26 +1,26 @@
 ---
-title: "Azure 快速入門 - 建立 VM 入口網站 | Microsoft Docs"
-description: "Azure 快速入門 - 建立 VM 入口網站"
+title: Azure 快速入門 - 建立 VM 入口網站 | Microsoft Docs
+description: Azure 快速入門 - 建立 VM 入口網站
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/11/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a9a2e2ace4c4b6867e5d8b318c5d80a9df124ecc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d4bd596257b7430a03ec81a0f378286fda8cbace
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>使用 Azure 入口網站建立 Linux 虛擬機器
 
@@ -42,9 +42,9 @@ ssh-keygen -t rsa -b 2048
 
 ## <a name="log-in-to-azure"></a>登入 Azure 
 
-登入 Azure 入口網站，網址是 http://portal.azure.com/。
+在 http://portal.azure.com 上登入 Azure 入口網站。
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>建立虛擬機器
 
 1. 按一下 Azure 入口網站左上角的 [建立資源]。
 

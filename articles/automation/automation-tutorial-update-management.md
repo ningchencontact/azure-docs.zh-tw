@@ -1,25 +1,18 @@
 ---
-title: "管理 Azure Windows VM 的更新和修補程式 | Microsoft Docs"
-description: "本文章提供概觀，說明如何使用 Azure 自動化 - 更新管理來管理您 Azure Windows VM 的更新和修補程式。"
+title: 管理 Azure Windows VM 的更新和修補程式
+description: 本文章提供概觀，說明如何使用 Azure 自動化 - 更新管理來管理您 Azure Windows VM 的更新和修補程式。
 services: automation
-documentationcenter: 
 author: zjalexander
-manager: jwhit
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 614b5bd7a2663c3b61f511dcc6b6a49218ac439a
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: bded1621dc56a6e621408e567ce39a3107bec7c9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>使用 Azure 自動化來管理 Windows 更新
 
@@ -46,7 +39,7 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，網址是 http://portal.azure.com/。
+在 http://portal.azure.com 上登入 Azure 入口網站。
 
 ## <a name="enable-update-management"></a>啟用更新管理
 

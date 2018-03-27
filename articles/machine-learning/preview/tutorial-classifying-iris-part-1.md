@@ -1,6 +1,6 @@
 ---
-title: "在 Azure Machine Learning 服務 (預覽) 中針對分類鳶尾花教學課程準備資料 | Microsoft Docs"
-description: "這個完整的教學課程會示範如何使用 Azure Machine Learning 服務 (預覽) 端對端。 這是第一個部分，會討論資料準備工作。"
+title: 在 Azure Machine Learning 服務 (預覽) 中針對分類鳶尾花教學課程準備資料 | Microsoft Docs
+description: 這個完整的教學課程會示範如何使用 Azure Machine Learning 服務 (預覽) 端對端。 這是第一個部分，會討論資料準備工作。
 services: machine-learning
 author: hning86
 ms.author: haining, j-martens
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
-ms.openlocfilehash: caddfff329d0e8f4c4007386b377ea56a51249a5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 16aa3e88217094c259a0dccbe3c52431682ea2e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>教學課程：分類鳶尾花第 1 部分 - 準備資料
+# <a name="tutorial-1-classify-iris---preparing-the-data"></a>教學課程 1：分類鳶尾花 - 準備資料
 
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家以雲端規模準備資料、開發測試以及部署模型。
 

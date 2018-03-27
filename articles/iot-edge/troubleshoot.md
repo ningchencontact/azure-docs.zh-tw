@@ -1,8 +1,8 @@
 ---
-title: "對 Azure IoT Edge 進行移難排解 | Microsoft Docs"
-description: "解決 Azure IoT Edge 的常見問題及了解其疑難排解技術"
+title: 對 Azure IoT Edge 進行移難排解 | Microsoft Docs
+description: 解決 Azure IoT Edge 的常見問題及了解其疑難排解技術
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7b9f9f8295aac0920ae4726289c535aae12c4482
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d6dd0d46d909acfbfc04a23be74a571953ce660
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
@@ -30,10 +30,16 @@ ms.lasthandoff: 03/08/2018
    docker logs <container name>
    ```
 
-* 檢視通過 Edge 中樞的訊息，以及透過執行階段容器的詳細記錄來收集裝置屬性更新的見解。 如果您遵循快速入門文章，建議您新增 "--auto-cert-gen-force-no-passwords" 選項。
+* 檢視通過 Edge 中樞的訊息，以及透過執行階段容器的詳細記錄來收集裝置屬性更新的見解。
 
    ```cmd
    iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
+   ```
+   
+* 從 iotedgectl 命令檢視詳細資訊記錄：
+
+   ```cmd
+   iotedgectl --verbose DEBUG <command>
    ```
 
 * 如果您遇到連線問題，請檢查您的邊緣裝置環境變數，例如您的裝置連接字串：

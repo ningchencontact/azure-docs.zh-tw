@@ -1,10 +1,14 @@
-**請參閱下列連結以取得組態資訊︰**
+**若要下載 VPN 裝置組態指令碼：**
+
+根據您所擁有的 VPN 裝置，您或許可以下載 VPN 裝置組態指令碼。 如需詳細資訊，請參閱[下載 VPN 裝置組態指令碼](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md)。
+
+**請參閱下列連結以取得其他組態資訊︰**
 
 - 如需有關相容的 VPN 裝置資訊，請參閱[ VPN 裝置](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md)。
 
 - 請在設定 VPN 裝置之前，檢查您要使用的 VPN 裝置是否有任何[已知裝置相容性問題](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known)。
 
-- 如需裝置組態設定的連結，請參閱[已經驗證的 VPN 裝置](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)。 會以最佳方式來提供裝置組態連結。 最好一律洽詢您的裝置製造商以取得最新的組態資訊。 我們提供的清單會顯示已完成測試的版本。 如果您的 OS 不在清單中，版本仍然可能相容。 請洽詢您的裝置製造商，以驗證您 VPN 裝置的 OS 版本相容。
+- 如需裝置組態設定的連結，請參閱[已經驗證的 VPN 裝置](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)。 會以最佳方式來提供裝置組態連結。 最好一律洽詢您的裝置製造商以取得最新的組態資訊。 該清單會顯示已完成測試的版本。 如果您的 OS 不在清單中，版本仍然可能相容。 請洽詢您的裝置製造商，以驗證您 VPN 裝置的 OS 版本相容。
 
 - 如需 VPN 裝置組態的概觀，請參閱[第三方 VPN 裝置組態的概觀](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md)。
 

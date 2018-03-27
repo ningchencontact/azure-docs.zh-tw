@@ -1,25 +1,24 @@
 ---
-title: "Azure SQL 資料倉儲最佳作法 | Microsoft Docs"
-description: "開發 Azure SQL 資料倉儲的解決方案時應該知道的建議和最佳作法。 這些可協助您成功。"
+title: Azure SQL 資料倉儲最佳作法 | Microsoft Docs
+description: 開發 Azure SQL 資料倉儲的解決方案時應該知道的建議和最佳作法。 這些可協助您成功。
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 02/20/2018
+ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 50d02b657ec3063b0ca4078844563b4ba7932f37
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 53ad9f654c498f562d66de461a2a489895d0a46b
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲最佳做法
 這篇文章集合許多讓您從 Azure SQL 資料倉儲獲得最佳效能的最佳做法。  文章中有些基本概念很容易說明，有些概念則更進階，我們在文中只做概述。  這篇文章的目的是要提供您一些基本指引，以及讓您對建立資料倉儲時需注意的重要領域有所認知。  每一節都會介紹一個概念，並提供您哪裡可以閱讀深度討論的詳細文章。
@@ -89,12 +88,12 @@ SQL 資料倉儲支援透過數種工具 (包括 Azure Data Factory、PolyBase�
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>使用較大的資源類別來改善查詢效能
 SQL 資料倉儲會使用資源群組，做為將記憶體配置給查詢的一種方式。  根據預設，所有使用者都會被指派小型資源類別，此類別授予每個散發 100 MB 的記憶體。  因為永遠會有 60 個散發，每個散發有至少 100 MB，整個系統的總記憶體配置為 6000 MB 或是剛好接近 6 GB。  有些查詢，像是大型聯結或載入叢集資料行存放區資料表，將受益於較大的記憶體配置。  有些查詢，像是純掃描，則沒有任何好處。  另一方面，使用較大的資源類別會影響並行存取，因此您將所有的使用者移到大型資源類別之前，要先將這一點列入考慮。
 
-另請參閱[並行存取和工作負載管理][Concurrency and workload management]
+另請參閱[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)
 
 ## <a name="use-smaller-resource-class-to-increase-concurrency"></a>使用較小的資源類別來增加並行存取
 如果您注意到使用者查詢似乎長時間延遲，可能是您的使用者在較大資源類別中執行，佔用大量的並行存取位置，而導致其他查詢排入佇列。  若要確認使用者的查詢是否被排入佇列，請執行 `SELECT * FROM sys.dm_pdw_waits` 看看是否會傳回任何資料列。
 
-另請參閱[並行存取和工作負載管理][Concurrency and workload management]、[sys.dm_pdw_waits][sys.dm_pdw_waits]
+另請參閱[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)、[sys.dm_pdw_waits][sys.dm_pdw_waits]
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>使用 DMV 對查詢進行監視和最佳化
 SQL 資料倉儲有數個 DMV 可用來監視查詢的執行。  下列的監視相關文章會逐步解說如何查看執行中查詢的詳細資料。  若要在這些 DMV 中快速找到查詢，可在您的查詢中使用 LABEL 選項。
@@ -112,7 +111,6 @@ SQL 資料倉儲有數個 DMV 可用來監視查詢的執行。  下列的監視
 
 <!--Article references-->
 [Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
 [Table overview]: ./sql-data-warehouse-tables-overview.md
 [Table data types]: ./sql-data-warehouse-tables-data-types.md

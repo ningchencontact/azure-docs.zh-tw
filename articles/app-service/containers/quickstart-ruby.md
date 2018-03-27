@@ -1,12 +1,12 @@
 ---
-title: "建立 Ruby 應用程式並部署至 Linux 上的 App Service | Microsoft Docs"
-description: "了解如何使用 Linux 上的 App Service 來建立 Ruby 應用程式。"
+title: 建立 Ruby 應用程式並部署至 Linux 上的 App Service | Microsoft Docs
+description: 了解如何使用 Linux 上的 App Service 來建立 Ruby 應用程式。
 keywords: azure app service, linux, oss
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: SyntaxC4
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: db3086724c22e485e2a9a69c36a990fc5b8016a9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6668f02bb7ac9588e1bb11b3848d0a3e25cbed67
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立 Ruby 應用程式
 
@@ -58,7 +58,7 @@ rails server
 
 ## <a name="modify-app-to-display-welcome-message"></a>修改應用程式以顯示歡迎使用訊息
 
-修改應用程式，使其顯示歡迎使用訊息。 首先，您必須設定路由，請修改 *~/workspace/ruby-docs-hello-world/config/routes.rb* 檔案，加入名稱為 `hello` 的路由。
+修改應用程式，使其顯示歡迎使用訊息。 首先，您必須設定路由，請修改 ~/workspace/ruby-docs-hello-world/config/routes.rb 檔案以納入名稱為 `hello` 的路由。
 
   ```ruby
   Rails.application.routes.draw do
@@ -88,37 +88,23 @@ rails server
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>在 Azure 上建立 Ruby Web 應用程式
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
-需要以資源群組納入 Web 應用程式所需的資產。 若要建立資源群組，請使用 [`az group create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 命令。
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-```azurecli-interactive
-az group create --location westeurope --name myResourceGroup
-```
+## <a name="create-a-web-app"></a>建立 Web 應用程式
 
-使用 [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 命令，建立 Web 應用程式的應用程式服務方案。
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
-```
-
-接下來，發出 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 命令以建立使用新建服務方案的 Web 應用程式。 請注意，執行階段設定為 `ruby|2.3`。 別忘了以唯一的應用程式名稱取代 `<app name>`。
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
---runtime "ruby|2.3" --deployment-local-git
-```
-
-命令的輸出會顯示新建立的 Web 應用程式和部署 URL 的資訊。 看起來應該如下所示： 請複製 URL，以便稍後在本教學課程中使用。
+瀏覽至網站以查看您使用內建映像新建立的 Web 應用程式。 以您的 Web 應用程式名稱取代 _&lt;app name>_。
 
 ```bash
-https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
+http://<app_name>.azurewebsites.net
 ```
 
-建立 Web 應用程式後，[概觀] 頁面即可供檢視。 瀏覽到該頁面。 隨即出現下列啟動顯示畫面：
+新的 Web 應用程式看起來應該像這樣：
 
 ![啟動顯示畫面](./media/quickstart-ruby/splash-page.png)
-
 
 ## <a name="deploy-your-application"></a>部署應用程式
 

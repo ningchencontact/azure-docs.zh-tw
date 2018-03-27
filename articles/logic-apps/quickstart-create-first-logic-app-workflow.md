@@ -1,12 +1,12 @@
 ---
-title: "建立第一個自動化工作流程 - Azure Logic Apps | Microsoft Docs"
-description: "本快速入門針對整合系統和雲端服務的系統整合和企業應用程式整合 (EAI) 案例，說明如何使用 Azure Logic Apps 自動執行第一個工作流程。"
+title: 建立第一個自動化工作流程 - Azure Logic Apps | Microsoft Docs
+description: 本快速入門針對整合系統和雲端服務的系統整合和企業應用程式整合 (EAI) 案例，說明如何使用 Azure Logic Apps 自動執行第一個工作流程。
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-keywords: "工作流程, 雲端服務, 系統整合, 企業應用程式整合, EAI"
-documentationcenter: 
+keywords: 工作流程, 雲端服務, 系統整合, 企業應用程式整合, EAI
+documentationcenter: ''
 ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>快速入門：建立第一個邏輯應用程式工作流程 - Azure 入口網站
 
@@ -60,6 +60,8 @@ ms.lasthandoff: 02/21/2018
    ![選擇空白邏輯應用程式範本](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 接下來，新增可在新的 RSS 摘要項目出現時引發的[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)。 每個邏輯應用程式都必須使用觸發程序啟動，而該觸發程序會在特定事件發生或符合特定條件時引發。 每次引發觸發程序時，Logic Apps 引擎會建立邏輯應用程式執行個體，啟動並執行您的工作流程。
+
+<a name="add-rss-trigger"></a>
 
 ## <a name="check-rss-feed-with-a-trigger"></a>使用觸發程序檢查 RSS 摘要
 
@@ -144,7 +146,7 @@ ms.lasthandoff: 02/21/2018
       ![新增電子郵件內文的內容](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
       | 設定 | 說明 | 
-      | ----- | ----------- | 
+      | ------- | ----------- | 
       | **摘要標題** | 項目的標題 | 
       | **摘要發佈時間** | 項目的發佈日期和時間 | 
       | **主要摘要連結** | 項目的 URL | 
@@ -156,15 +158,16 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="run-your-logic-app"></a>執行邏輯應用程式
 
-若要手動啟動邏輯應用程式，在設計工具工具列上，選擇 [執行]。 或者，等候邏輯應用程式依照您指定的排程 (每分鐘) 執行。 如果 RSS 摘要有新的項目，邏輯應用程式會針對每個新的項目傳送電子郵件。 但如果摘要沒有新項目，則邏輯應用程式會略過引發觸發程序，並等候下一個間隔再檢查一次。 
+若要手動啟動邏輯應用程式，在設計工具工具列上，選擇 [執行]。 或者，等候邏輯應用程式依照您指定的排程 (每分鐘) 檢查 RSS 摘要。 如果 RSS 摘要有新的項目，邏輯應用程式會針對每個新的項目傳送電子郵件。 否則，邏輯應用程式會等到下一個間隔，再檢查一次。 
 
-例如，以下是此邏輯應用程式傳送的範例電子郵件：
+例如，以下是此邏輯應用程式傳送的範例電子郵件。 如果您沒有得到任何電子郵件，請檢查垃圾郵件資料夾。
 
 ![針對新 RSS 摘要項目傳送的電子郵件](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-若未收到任何電子郵件，請檢查電子郵件的垃圾郵件資料夾。 您的垃圾電子郵件篩選器可能會重新導向這類郵件。 
+技術上，當觸發程序檢查 RSS 摘要並尋找新項目時，觸發程序會引發，而 Logic Apps 引擎會建立邏輯應用程式工作流程的執行個體，以在工作流程中執行動作。
+如果觸發程序找不到新項目，觸發程序並不會引發，而且會「略過」具現化工作流程。
 
-恭喜，您已經建立並執行您的第一個邏輯應用程式。
+恭喜，您現在已透過 Azure 入口網站成功建置並執行您的第一個邏輯應用程式！
 
 ## <a name="clean-up-resources"></a>清除資源
 

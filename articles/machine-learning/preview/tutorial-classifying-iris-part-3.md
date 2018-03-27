@@ -1,23 +1,23 @@
 ---
-title: "部署 Azure Machine Learning 服務 (預覽) 的模型教學課程 | Microsoft Docs"
-description: "這個完整的教學課程會示範如何使用 Azure Machine Learning 服務 (預覽) 端對端。 這是第三部分，會討論部署模型。"
+title: 部署 Azure Machine Learning 服務的模型教學課程
+description: 這個完整的教學課程會示範如何使用 Azure Machine Learning 服務端對端。 這是第三部分，會討論部署模型。
 services: machine-learning
-author: raymondl
-ms.author: raymondl, j-martens, aashishb
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
-ms.openlocfilehash: 13ddc0ef8c7eac86e6cd7abb684ce35ae18fba84
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.date: 3/13/2018
+ms.openlocfilehash: 87d1e605bfd7603e4e07f6b427033fe2c1d2b83e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>教學課程：分類鳶尾花第 3 部分：部署模型
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>教學課程 3：分類鳶尾花：部署模型
 Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家使用。 資料科學家可用來以雲端規模準備資料、開發測試及部署模型。
 
 本教學課程是**三部分系列的第三部分**。 在本教學課程中，您可使用 Machine Learning (預覽) 來：
@@ -30,17 +30,15 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 > * 執行即時 Web 服務。
 > * 檢查輸出 Blob 資料。 
 
-本教學課程使用不受時間影響的[鳶尾花資料集](https://en.wikipedia.org/wiki/iris_flower_data_set)。 螢幕擷取畫面是 Windows 專屬，但是 Mac OS 體驗幾乎完全相同。
-
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+本教學課程使用不受時間影響的[鳶尾花資料集](https://en.wikipedia.org/wiki/Iris_flower_data_set)。 
 
 ## <a name="prerequisites"></a>先決條件
-完成本教學課程系列的前兩個部分：
 
-   * 遵循[資料準備教學課程](tutorial-classifying-iris-part-1.md)來建立 Machine Learning 資源，並安裝 Azure Machine Learning Workbench 應用程式。
-   * 遵循[建置模型教學課程](tutorial-classifying-iris-part-2.md)，在 Machine Learning 中建置羅吉斯迴歸模型。
-
-您需要在本機安裝並執行 Docker 引擎。 或者，您可以在 Azure 中部署至 Azure 容器服務叢集。
+若要完成本教學課程，您需要：
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+- 如本[快速入門](quickstart-installation.md)所述安裝的測試帳戶和 Azure Machine Learning Workbench。
+- [教學課程第 2 部分](tutorial-classifying-iris-part-2.md)中的分類模型
+- 在本機安裝並執行的 Docker 引擎
 
 ## <a name="download-the-model-pickle-file"></a>下載模型序列化檔案
 在教學課程的前一個部分中，**iris_sklearn.py** 指令碼是在 Machine Learning Workbench 本機執行。 此動作會使用受歡迎的 Python 物件序列化套件 [pickle](https://docs.python.org/3/library/pickle.html) 來序列化羅吉斯迴歸模型。 
@@ -91,7 +89,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
 4. 若要取得結構描述檔案，請執行指令碼。 選取命令列中的 **local** 環境和 **score_iris.py** 指令碼，然後選取 [執行]。 
 
-5. 此指令碼會在 **Outputs**區段中建立 JSON 檔案，它會擷取模型所需的輸入資料結構描述。
+   此指令碼會在 **Outputs**區段中建立 JSON 檔案，它會擷取模型所需的輸入資料結構描述。
 
 6. 請注意 [專案儀表板] 窗格右邊的 [作業] 窗格。 等候最新的 **score_iris.py** 作業顯示綠色 [已完成] 狀態。 然後選取最新作業執行的超連結 **score_iris.py**，以查看執行詳細資料。 
 
@@ -128,7 +126,10 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 您可以對開發和測試使用_本機模式_。 Docker 引擎必須在本機執行，才能完成將模型作業化的下列步驟。 您可以在每個命令的結尾處使用 `-h` 旗標，以顯示對應的說明訊息。
 
 >[!NOTE]
->如果您沒有本機 Docker 引擎，仍可藉由在 Azure 中建立叢集以供部署來繼續進行。 只是請務必在本教學課程之後刪除該叢集，使得您不會產生持續性的費用。
+>如果您的本機沒有 Docker 引擎，仍可以透過在 Azure 中建立叢集用於部署繼續進行。 您可以保留叢集以便重複使用，或在本教學課程之後刪除該叢集，使得您不會產生持續性的費用。
+
+>[!NOTE]
+>在本機部署的 Web 服務不會顯示在 Azure 入口網站的服務清單中。 它們會在本機電腦上的 Docker 中執行。
 
 1. 開啟命令列介面 (CLI)。
    在 Machine Learning Workbench 應用程式的 [檔案] 功能表上，選取 [開啟命令提示字元]。

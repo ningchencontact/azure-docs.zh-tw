@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 虛擬網路中使用 Hive 轉換資料 | Microsoft Docs"
-description: "本教學課程提供逐步指示，說明如何使用 Azure Data Factory 中的 Hive 活動來轉換資料。"
+title: 在 Azure 虛擬網路中使用 Hive 轉換資料 | Microsoft Docs
+description: 本教學課程提供逐步指示，說明如何使用 Azure Data Factory 中的 Hive 活動來轉換資料。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: a7575549225d47e5266ca7e1778c3e61835de1cc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8711d7ed1d02f0960ef00c1cf5053e97aa00ad5c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
 在本教學課程中，您會使用 Azure 入口網站建立 Data Factory 管線，以在 Azure 虛擬網路 (VNet) 中的 HDInsight 叢集上，使用 Hive 活動來轉換資料。 您會在本教學課程中執行下列步驟：
@@ -114,7 +114,7 @@ ms.lasthandoff: 02/09/2018
 2. 在 [Integration Runtime 設定] 視窗中，選取 [執行資料移動，並分派活動到外部計算] 選項，然後按一下 [下一步]。 
 
    ![選取執行資料移動和分派活動選項](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-perform-data-movement-compute-option.png)
-3. 選取 [公用網路]，然後按一下 [下一步]。
+3. 選取 [私人網路]，然後按 [下一步]。
     
    ![選取私人網路](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
 4. 輸入 **MySelfHostedIR** 作為 [名稱]，然後按一下 [下一步]。 

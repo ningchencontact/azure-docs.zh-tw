@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure Application Insights 診斷效能問題 | Microsoft Docs"
-description: "使用 Azure Application Insights 來尋找並診斷應用程式效能問題的教學課程。"
+title: 使用 Azure Application Insights 診斷效能問題 | Microsoft Docs
+description: 使用 Azure Application Insights 來尋找並診斷應用程式效能問題的教學課程。
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/18/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 26f5acf369dd80d7877ab760806e0e08a49cfe6d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>使用 Azure Application Insights 尋找並診斷效能問題
 
@@ -38,10 +38,10 @@ Azure Application Insights 會從您的應用程式收集遙測，以協助分�
 - [啟用應用程式的 Application Insights Profiler](app-insights-profiler.md#installation)。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
-登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。
+在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站。
 
 ## <a name="identify-slow-server-operations"></a>識別緩慢的伺服器作業
-Application Insights 會收集您應用程式中不同作業的效能詳細資料。  藉由識別持續時間最長的作業，您可以診斷潛在的問題，或為進行中的開發設定最適合的目標，以改善應用程式的整體效能。
+Application Insights 會收集您應用程式中不同作業的效能詳細資料。 藉由識別持續時間最長的作業，您可以診斷潛在的問題，或為進行中的開發設定最適合的目標，以改善應用程式的整體效能。
 
 1. 選取 [Application Insights]，然後選取您的訂用帳戶。  
 1. 若要開啟 [效能] 面板，選取 [調查] 功能表下方的 [效能]，或按一下 [伺服器回應時間] 圖形。

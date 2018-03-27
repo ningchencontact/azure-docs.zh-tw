@@ -1,19 +1,19 @@
 ---
-title: "Azure 快速入門 - 使用 Python 上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs"
-description: "在本快速入門中，您會建立儲存體帳戶和容器。 然後，使用 Python 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。"
+title: Azure 快速入門 - 使用 Python 上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs
+description: 在本快速入門中，您會建立儲存體帳戶和容器。 然後，使用 Python 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: a82ec92449730a784e7cd36d7f364a9a4516c15f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d4c489bc41a9c04b15e2ee28b944edc1f15ef81c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>快速入門：使用 Python 上傳、下載及列出 Blob
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 02/24/2018
 
 若要完成本快速入門： 
 * 安裝 [Python](https://www.python.org/downloads/)
-* 下載並安裝 [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)。 
+* 下載並安裝 [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md)。 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -160,6 +160,18 @@ block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)
 ```
+## <a name="resources-for-developing-python-applications-with-blobs"></a>可供使用 Blob 開發 Python 應用程式的資源
+
+請參閱以下可供使用 Blob 儲存體進行 Python 開發的額外資源：
+
+### <a name="binaries-and-source-code"></a>二進位檔和原始程式碼
+
+- 檢視、下載及安裝 GitHub 上適用於 Azure 儲存體的 [Python 用戶端程式庫原始程式碼](https://github.com/Azure/azure-storage-python)。
+
+### <a name="client-library-reference-and-samples"></a>用戶端程式庫參考和範例
+
+- 如需 Python 用戶端程式庫的詳細資訊，請參閱 [Python API 參考](https://docs.microsoft.com/python/api/overview/azure/storage)。
+- 探索使用 Python 用戶端程式庫所撰寫的 [Blob 儲存體範例](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob)。
 
 ## <a name="next-steps"></a>後續步驟
  
@@ -168,5 +180,4 @@ os.remove(full_path_to_file2)
 > [!div class="nextstepaction"]
 > [Blob 儲存體作業操作說明](./storage-python-how-to-use-blob-storage.md)
  
-
 如需儲存體總管和 Blob 的詳細資訊，請參閱[使用儲存體總管管理 Azure Blob 儲存體資源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。

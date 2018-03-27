@@ -1,19 +1,19 @@
 ---
-title: "準備內部部署 VMware 伺服器以進行 VMware VM 至 Azure 的災害復原| Microsoft Docs"
-description: "了解如何準備內部部署 VMware 伺服器，以使用 Azure Site Recovery 服務來進行 Azure 的災害復原。"
+title: 準備內部部署 VMware 伺服器以進行 VMware VM 至 Azure 的災害復原| Microsoft Docs
+description: 了解如何準備內部部署 VMware 伺服器，以使用 Azure Site Recovery 服務來進行 Azure 的災害復原。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>準備內部部署 VMware 伺服器以進行 Azure 的災害復原
 
@@ -59,34 +59,16 @@ Site Recovery 需要存取 VMware 伺服器才能：
 3. 若要在 Linux VM 上安裝，請在來源 Linux 伺服器上準備根帳戶。
 
 
-## <a name="check-vmware-server-requirements"></a>檢查 VMware 伺服器需求
+## <a name="check-vmware-requirements"></a>檢查 VMware 需求
 
-確定 VMware 伺服器符合下列需求。
+確定 VMware 伺服器和 VM 符合下列需求。
 
-**元件** | **需求**
---- | ---
-**vCenter Server** | vCenter 6.5、6.0 或 5.5
-**vSphere 主機** | vSphere 6.5、6.0、5.5
+1. [檢查](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers) VMware 伺服器需求。
+2. 針對 Linux，[檢查](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)檔案系統和儲存體需求。 
+3. 檢查內部部署[網路](vmware-physical-azure-support-matrix.md#network)和[儲存體](vmware-physical-azure-support-matrix.md#storage)支援。 
+4. 檢查在容錯移轉之後，[Azure 網路](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)、[儲存體](vmware-physical-azure-support-matrix.md#azure-storage)和[計算](vmware-physical-azure-support-matrix.md#azure-compute)支援的項目。
+5. 您複寫到 Azure 的內部部署 VM 必須符合 [Azure VM 需求](vmware-physical-azure-support-matrix.md#azure-vm-requirements)。
 
-## <a name="check-vmware-vm-requirements"></a>檢查 VMware VM 需求
-
-確定 VM 符合下表摘要說明的 Azure 需求。
-
-**VM 需求** | **詳細資料**
---- | ---
-**作業系統磁碟大小** | 最多 2048 GB。
-**作業系統磁碟計數** | 1
-**資料磁碟計數** | 64 或以下
-**資料磁碟 VHD 大小** | 最多 4095 GB
-**網路介面卡** | 支援多個介面卡
-**共用 VHD** | 不支援
-**FC 磁碟** | 不支援
-**硬碟格式** | VHD 或 VHDX。<br/><br/> 雖然 Azure 目前不支援 VHDX，但 Site Recovery 會在您容錯移轉至 Azure 時，自動將 VHDX 轉換為 VHD。 當您容錯回復到內部部署時，VM 仍會繼續使用 VHDX 格式。
-**Bitlocker** | 不支援。 先停用再啟用 VM 的複寫功能。
-**VM 名稱** | 介於 1 到 63 個字元。<br/><br/> 只能使用字母、數字和連字號。 VM 名稱必須以字母或數字為開頭或結尾。
-**VM type** | 第 1 代 - Linux 或 Windows<br/><br/>第 2 代 - 僅限 Windows
-
-VM 必須執行支援的作業系統。 如需支援版本的完整清單，請參閱 [VMware 和實體伺服器支援矩陣](vmware-physical-azure-support-matrix.md#replicated-machines)。
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>準備在容錯移轉後連接到 Azure VM
 

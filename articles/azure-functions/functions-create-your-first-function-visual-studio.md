@@ -1,27 +1,27 @@
 ---
-title: "使用 Visual Studio 在 Azure 中建立第一個函式 | Microsoft Docs"
-description: "使用 Azure Functions Tools for Visual Studio，建立簡單 HTTP 觸發函式並發行至 Azure。"
+title: 使用 Visual Studio 在 Azure 中建立第一個函式 | Microsoft Docs
+description: 使用 Azure Functions Tools for Visual Studio，建立簡單 HTTP 觸發函式並發行至 Azure。
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 函式, 事件處理, 計算, 無伺服器架構"
+editor: ''
+tags: ''
+keywords: azure functions, 函式, 事件處理, 計算, 無伺服器架構
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 03/13/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fa17a021526a728c6fabc9607b1d00f5521cbb21
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9b43ec7106c70b7d9b326208043d2fe874fb7e20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 建立第一個函式
 
@@ -37,11 +37,13 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/overview/
 
 若要完成本教學課程：
 
-* 安裝 [Visual Studio 2017 15.4 版](https://www.visualstudio.com/vs/)或更新版本，包括 **Azure 開發**工作負載。
+* 安裝 [Visual Studio 2017 15.5 版](https://www.visualstudio.com/vs/)或更新版本，包括 **Azure 開發**工作負載。
 
     ![安裝包含 Azure 開發工作負載的 Visual Studio 2017](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-* 確定您已更新為最新版的 Azure Functions 和 WebJobs 工具。 在 [擴充功能和更新] 中的 [更新] > [Visual Studio Marketplace] 之下執行此作業。
+    如果您已安裝 Visual Studio，請確定您已安裝所有擱置的更新。 
+
+* 如果您已隨著 Visual Studio 2017 15.4 或更早版本安裝 Azure 開發工作負載，您可能也需要[更新您的 Azure Functions 工具](functions-develop-vs.md#check-your-tools-version)。 
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

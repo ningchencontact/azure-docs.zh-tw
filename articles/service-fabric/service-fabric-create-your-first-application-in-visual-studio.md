@@ -1,6 +1,6 @@
 ---
-title: "使用 C# 建立 Azure Service Fabric 可靠服務"
-description: "使用 Visual Studio，建立、部署和偵錯以 Azure Service Fabric 為建置基礎的 Reliable Services 應用程式。"
+title: 使用 C# 建立 Azure Service Fabric 可靠服務
+description: 使用 Visual Studio，建立、部署和偵錯以 Azure Service Fabric 為建置基礎的 Reliable Services 應用程式。
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/19/2018
+ms.date: 03/14/2018
 ms.author: ryanwi
-ms.openlocfilehash: 43f77a1a2e1bbe28bb646aa23c28c253c20e8dda
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 858e322fd7e516f756aa209be92745efa6cf75f7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>建立第一個 C# Service Fabric 具狀態 Reliable Services 應用程式
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/02/2018
 
    ![Visual Studio 中的 [新增專案] 對話方塊][1]
 
-5. 您可以從下一個對話方塊建立任何類型的 Service Fabric 應用程式。 在本快速入門中，選擇 [具狀態服務]。
+5. 您可以從下一個對話方塊建立任何類型的 Service Fabric 應用程式。 在本快速入門中，選擇 [.Net Core 2.0] > [具狀態服務]。
 
 6. 將服務命名為 **MyStatefulService**。 然後選取 [確定]。
 
