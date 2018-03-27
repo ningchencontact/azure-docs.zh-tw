@@ -1,25 +1,25 @@
 ---
-title: "傳統 Azure 虛擬網路閘道 SKU | Microsoft Docs"
-description: "舊式虛擬網路閘道 SKU。"
+title: 舊版 Azure 虛擬網路 VPN 閘道 SKU | Microsoft Docs
+description: 如何使用舊的虛擬網路閘道 SKU；基本、標準和高效能。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: d5127c7fa512bad49817fa4c8edf3a16ca2f7d60
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 4feecb9c1e91e1bc6c66a610c092e7bf894886e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>使用虛擬網路閘道 SKU (舊版 SKU)
 
@@ -37,33 +37,27 @@ ms.lasthandoff: 11/01/2017
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="resize"></a>調整閘道的大小 (變更閘道 SKU)
+## <a name="resize"></a>調整閘道大小
 
-您可以調整相同 SKU 系列內的閘道 SKU 大小。 例如，如果您有標準 SKU，則可以調整為高效能 SKU。 您無法調整舊 SKU 與新 SKU 系列之間的 VPN 閘道大小。 例如，您不能從標準 SKU 變成 VpnGw2 SKU。
+您可以將相同 SKU 系列內的閘道大小調整為閘道 SKU。 例如，如果您有標準 SKU，則可以調整為高效能 SKU。 但是，您無法調整舊 SKU 與新 SKU 系列之間的 VPN 閘道大小。 例如，您不能從標準 SKU 變成 VpnGw2 SKU；也不能從標準 SKU 變成 VpnGw1。
 
->[!IMPORTANT]
->當您調整閘道大小時，閘道調整大小之際，會有 20-30 分鐘的停機時間。
->
->
-
-若要調整傳統部署模型的閘道 SKU 大小，請使用下列命令：
+若要調整傳統部署模型的閘道大小，請使用下列命令：
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
-若要調整資源管理員部署模型的閘道 SKU 大小，請使用下列命令：
+若要使用 PowerShell 調整資源管理員部署模型的閘道大小，請使用下列命令：
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+您也可以在 Azure 入口網站中調整閘道。
 
-## <a name="migrate"></a>移轉到新的閘道 SKU
+## <a name="change"></a>變更為新的閘道 SKU
 
-如果您使用的是資源管理員部署模型，則可以移轉到新的閘道 SKU。 如果您使用的是傳統部署模型，則無法移轉到新的 SKU，而必須改為繼續使用舊版 SKU。
-
-[!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
+[!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

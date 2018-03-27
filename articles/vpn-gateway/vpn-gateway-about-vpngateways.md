@@ -1,11 +1,11 @@
 ---
-title: "VPN 閘道概觀︰對 Azure 虛擬網路建立跨單位 VPN 連接 | Microsoft Docs"
-description: "本文說明何謂 VPN 閘道，以及示範如何透過網際網路使用 VPN 連線來連線至 Azure 虛擬網路。 其中包含基本連接設定的圖表。"
+title: VPN 閘道概觀︰對 Azure 虛擬網路建立跨單位 VPN 連接 | Microsoft Docs
+description: 本文說明何謂 VPN 閘道，以及示範如何透過網際網路使用 VPN 連線來連線至 Azure 虛擬網路。 其中包含基本連接設定的圖表。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/16/2018
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dadddeaac2a7856f8e249db981b018de070e1f3f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ef6d61e9dfc7c30910d897478f07dabc14136b48
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-vpn-gateway"></a>關於 VPN 閘道
 
@@ -53,12 +53,15 @@ VPN 閘道連線需仰賴多個具有特定設定的資源。 大部分的資源
 
 下表可以協助您為您的解決方案決定最佳的連線選項。
 
-[!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
-
+[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## <a name="gwsku"></a>閘道 SKU
 
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+建立虛擬網路閘道時，您必須指定想要使用的閘道 SKU。 根據工作負載、輸送量、功能和 SLA 的類型，選取符合您需求的 SKU。 如需閘道 SKU 的詳細資訊，包括支援功能、實際執行環境和開發測試和設定步驟，請參閱[閘道 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
+
+### <a name="benchmark"></a>依通道、連線和輸送量區分的閘道 SKU
+
+[!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## <a name="diagrams"></a>連線拓撲圖表
 
@@ -86,7 +89,7 @@ VPN 閘道連線需仰賴多個具有特定設定的資源。 大部分的資源
 
 ### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>站對站和多網站的部署模型和方法
 
-[!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
+[!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 ## <a name="P2S"></a>點對站 (透過 IKEv2 或 SSTP 的 VPN)
 
