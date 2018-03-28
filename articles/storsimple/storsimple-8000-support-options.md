@@ -120,7 +120,7 @@ StorSimple 8000 系列儲存體陣列支援是根據 StorSimple 陣列的購買�
 
 *<text> * 進階版涵蓋範圍並非在所有地區皆適用。購買 StorSimple 進階版支援之前，請先透過 SSSupOps@microsoft.com 連絡 Microsoft 以了解地理涵蓋範圍。*
 
-**\*\*StorSimple 設備必須部署在 Premier 支援所涵蓋的客戶所在地區，以便有資格免費升級至進階版 StorSimple 支援。
+** *StorSimple 設備必須部署在 Premier 支援所涵蓋的客戶所在地區，以便有資格免費升級至進階版 StorSimple 支援。*
 
 
 ASAP+ 客戶可以切換到包含標準版支援的訂閱模式。 如果針對訂用帳戶價格使用 StorSimple 定價計算機有任何問題，請連絡 SSSupOps@microsoft.com。 切換只是從 ASAP+ 到訂閱的一種方式。
