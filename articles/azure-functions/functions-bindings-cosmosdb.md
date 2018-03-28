@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 5d90b2cd977522eab267c8c86a35e47bc61248a8
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: eb6008b73bfd15ec193e728fc9007af5c2d25c67
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Azure Cosmos DB 繫結
 
@@ -29,6 +29,12 @@ ms.lasthandoff: 03/09/2018
 > 這個繫結最初命名為 DocumentDB。 在 Functions 1.x 版中，只有觸發程序已重新命名為 Cosmos DB；輸入繫結、輸出繫結和 NuGet 套件則保留 DocumentDB 名稱。 在 [Functions 2.x 版](functions-versions.md)中，繫結和套件也已重新命名為 Cosmos DB。 本文使用 1.x 的名稱。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>封裝
+
+[Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet 套件中提供 Functions 1.x 版的 Cosmos DB 繫結。 Functions 2.x 的套件為 [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)。 繫結的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) GitHub 存放庫中。
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="trigger"></a>觸發程序
 
@@ -130,7 +136,7 @@ Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-d
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) 屬性。
 
 屬性的建構函式可接受資料庫名稱和集合名稱。 如需這些設定及其他您可以設定之屬性的相關資訊，請參閱[觸發程序 - 組態](#trigger---configuration)。 以下是方法簽章中的 `CosmosDBTrigger` 屬性範例：
 
@@ -458,7 +464,7 @@ Azure Cosmos DB 輸入繫結會擷取一或多個 Azure Cosmos DB 文件，並�
 
 ## <a name="input---attributes"></a>輸入 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) 屬性。
 
 屬性的建構函式可接受資料庫名稱和集合名稱。 如需這些設定及其他您可以設定之屬性的相關資訊，請參閱[下列組態區段](#input---configuration)。 
 
@@ -718,9 +724,9 @@ Azure Cosmos DB 輸出繫結可讓您將新的文件寫入 Azure Cosmos DB 資�
 
 ## <a name="output---attributes"></a>輸出 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) 屬性。
 
-屬性的建構函式可接受資料庫名稱和集合名稱。 如需這些設定及其他您可以設定之屬性的相關資訊，請參閱[輸出 - 組態](#output---configuration)。 以下是方法簽章中的 `CosmosDB` 屬性範例：
+屬性的建構函式可接受資料庫名稱和集合名稱。 如需這些設定及其他您可以設定之屬性的相關資訊，請參閱[輸出 - 組態](#output---configuration)。 以下是方法簽章中的 `DocumentDB` 屬性範例：
 
 ```csharp
     [FunctionName("QueueToDocDB")]        
@@ -736,7 +742,7 @@ Azure Cosmos DB 輸出繫結可讓您將新的文件寫入 Azure Cosmos DB 資�
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
-下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `CosmosDB` 屬性。
+下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `DocumentDB` 屬性。
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|

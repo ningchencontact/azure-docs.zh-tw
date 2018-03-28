@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 0231dc8336bb2442099984947897e5005767a8f5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
@@ -178,7 +178,7 @@ Azure AD Identity Protection 是一種以演算法為基礎的監視和報告工
 
 安全分數可指出您所使用的 Office 365 服務 (例如 OneDrive、SharePoint 和 Exchange)，然後查看您的設定和活動，並將其與 Microsoft 所建立的基準比較。 您的得分將會以您與最佳安全性實作的相符程度為準。 任何人只要具有 Office 365 商務進階版或企業版訂用帳戶的管理員權限 (全域管理員或自訂系統管理員角色)，即可在 [https://securescore.office.com](https://securescore.office.com/) 存取安全分數。
 
-#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office365"></a>檢閱 Office 365 安全性與合規性指南 (如果使用 Office365)
+#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>檢閱 Office 365 安全性與合規性指引 (如果使用 Office 365)
 
 [安全性與合規性計劃](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57)概略說明了 Office 365 客戶應如何設定 Office 365 及使用其他 EMS 功能的方法。 接著，請檢閱如何[保護 Office 365 中的資料和服務存取](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e)的步驟 3-6，以及如何[監視 Office 365 中的安全性和合規性](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6)的指南。
 
@@ -201,7 +201,7 @@ Azure AD Identity Protection 是一種以演算法為基礎的監視和報告工
 
 使用企業版入口網站和 Azure 入口網站，識別您的組織中裝載生產應用程式的訂用帳戶。 
 
-#### <a name="remove-microsoft-ccounts-from-admin-roles"></a>從管理員角色移除 Microsoft 帳戶
+#### <a name="remove-microsoft-accounts-from-admin-roles"></a>從管理員角色移除 Microsoft 帳戶
 
 來自其他程式 (例如 Xbox、Live 和 Outlook) 的 Microsoft 帳戶，不應作為組織訂用帳戶的系統管理員帳戶。 請從所有 Microsoft 帳戶中移除管理員狀態，並取代為 Active Directory (例如 chris@contoso.com) 工作或學校帳戶。
 
@@ -227,7 +227,7 @@ Azure AD Identity Protection 是一種以演算法為基礎的監視和報告工
 
 #### <a name="complete-an-access-review-of-users-in-administrator-roles"></a>在系統管理員角色中完成使用者的存取權檢閱
 
-有愈來愈多的公司使用者透過雲端服務取得特殊權限存取，這可能會導致未受管理的平台隨之增加。 其中包括將成為 Office365 全域管理員的使用者、Azure 訂用帳戶系統管理員，以及可在 VM 中或透過 SaaS 應用程式進行管理員存取的使用者。 此時，組織應讓所有員工 (尤其是管理員) 以不具特殊權限的使用者身分處理日常業務交易，而僅在必要時才採用管理員權限。 在初次採用管理員角色後具備此角色的使用者數目可能會增加，因此應完成存取權檢閱，以識別並確認每個適合啟動管理員權限的使用者。 
+有愈來愈多的公司使用者透過雲端服務取得特殊權限存取，這可能會導致未受管理的平台隨之增加。 其中包括將成為 Office 365 全域管理員的使用者、Azure 訂用帳戶系統管理員，以及可對 VM 或透過 SaaS 應用程式進行管理員存取的使用者。 此時，組織應讓所有員工 (尤其是管理員) 以不具特殊權限的使用者身分處理日常業務交易，而僅在必要時才採用管理員權限。 在初次採用管理員角色後具備此角色的使用者數目可能會增加，因此應完成存取權檢閱，以識別並確認每個適合啟動管理員權限的使用者。 
 
 執行下列動作：
 
@@ -318,7 +318,6 @@ MCAS 可讓您調查檔案，並根據 Azure 資訊保護分類標籤設定原�
 * 盡可能降低風險，並將威脅防護和原則強制執行自動化
 
 Cloud App Security SIEM 代理程式可整合 Cloud App Security 與您的 SIEM 伺服器，讓您集中監視 Office 365 警示和活動。 它會在您的伺服器上執行，並從 Cloud App Security 提取警示和活動，再將其串流至 SIEM 伺服器。 如需詳細資訊，請參閱 [SIEM 整合](https://docs.microsoft.com/cloud-app-security/siem)。
-
 
 ## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>階段 4：繼續建置防禦機制以達到更為主動的安全性狀態
 
@@ -438,16 +437,16 @@ Cloud App Security SIEM 代理程式可整合 Cloud App Security 與您的 SIEM 
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Microsoft 信任中心 (產品安全性)](https://www.microsoft.com/trustcenter/security) – Microsoft 雲端產品和服務的安全性功能
+* [Microsoft 信任中心 (產品安全性)](https://www.microsoft.com/en-us/trustcenter/security) – Microsoft 雲端產品和服務的安全性功能
 
-* [Microsoft 信任中心 - 合規性](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – Microsoft 針對雲端服務提供的一組完整的合規性供應項目
+* [Microsoft 信任中心 - 合規性](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – Microsoft 針對雲端服務提供的一組完整的合規性供應項目
 
-* [如何執行風險評定的指引](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - 管理 Microsoft 雲端服務的安全性與合規性需求
+* [如何執行風險評定的指引](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) - 管理 Microsoft 雲端服務的安全性與合規性需求
 
 ### <a name="other-ms-online-services"></a>其他 MS Online Services 
 
-* [Microsoft Intune 安全性](https://www.microsoft.com/trustcenter/security/intune-security) – Intune 可從雲端提供行動裝置管理、行動應用程式管理，和電腦管理能力。
+* [Microsoft Intune 安全性](https://www.microsoft.com/en-us/trustcenter/security/intune-security) – Intune 可從雲端提供行動裝置管理、行動應用程式管理，和電腦管理能力。
 
-* [Microsoft Dynamics 365 安全性](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365 是 Microsoft 雲端式解決方案，可統合客戶關係管理 (CRM) 與企業資源規劃 (ERP) 功能。
+* [Microsoft Dynamics 365 安全性](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) – Dynamics 365 是 Microsoft 雲端式解決方案，可統合客戶關係管理 (CRM) 與企業資源規劃 (ERP) 功能。
 
  

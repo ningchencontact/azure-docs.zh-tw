@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程︰設定 Workday 來自動佈建使用者
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/13/2018
 
 * **將電子郵件地址回寫至 Workday** - Azure AD 使用者佈建服務可以將選取的 Azure AD 使用者屬性回寫至 Workday，例如電子郵件地址。
 
-### <a name="scenarios-covered"></a>涵蓋的案例
+### <a name="what-human-resources-scenarios-does-it-cover"></a>它涵蓋了哪些人力資源案例？
 
 Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，可讓下列人力資源和身分識別生命週期管理案例的自動化：
 
@@ -46,6 +46,20 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 * **員工離職** - 在 Workday 中將員工設定為離職時，系統會在 Active Directory、Azure Active Directory、Office 365 (選擇性) 和 [Azure AD 支援的其他 SaaS 應用程式](active-directory-saas-app-provisioning.md)中自動停用其使用者帳戶。
 
 * **重新雇用員工** - 在 Workday 中重新雇用員工時，系統會自動重新啟用其舊帳戶或將其重新佈建 (取決於您的喜好設定) 至 Active Directory、Azure Active Directory、Office 365 (選擇性) 和 [Azure AD 支援的其他 SaaS 應用程式](active-directory-saas-app-provisioning.md)。
+
+### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>誰最適合使用此使用者佈建解決方案？
+
+這個新的 Workday 的使用者佈建解決方案目前處於公開預覽狀態，最適合用於：
+
+* 需要以預先建置的雲端式解決方案進行 Workday 使用者佈建的組織
+
+* 需要直接將使用者從 Workday 佈建到 Active Directory 或 Azure Active Directory 的組織
+
+* 需要使用從 Workday HCM 模組取得的資料來佈建使用者的組織 (請參閱 [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)) 
+
+* 需要僅根據在 Workday HCM 模組中偵測到的變更資訊聯結、移動及保留使用者，使其同步至一或多個 Active Directory 樹系、網域和 OU 的組織 (請參閱 [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
+
+* 使用 Office 365 處理電子郵件的組織
 
 
 ## <a name="planning-your-solution"></a>規劃您的解決方案
@@ -62,7 +76,6 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 * 佈建至 Active Directory 的使用者，需要執行 Windows Service 2012 或更新版本的已加入網域伺服器，才能裝載[內部部署同步代理程式](https://go.microsoft.com/fwlink/?linkid=847801)
 * 可在 Active Directory 與 Azure AD 之間同步處理的 [Azure AD Connect](connect/active-directory-aadconnect.md)
 
-
 ### <a name="solution-architecture"></a>方案架構
 
 Azure AD 提供一組豐富的佈建連接器，協助您解決從 Workday 到 Active Directory、Azure AD、SaaS 應用程式等產品的佈建和身分識別生命週期管理。 您將使用的功能和設定解決方案的方法將會視組織環境和需求而有所不同。 您的第一步便是評估組織中存在且已部署下列項目的數量：
@@ -74,6 +87,7 @@ Azure AD 提供一組豐富的佈建連接器，協助您解決從 Workday 到 A
 * 是否需要將任何使用者佈建至 Active Directory 和 Azure Active Directory (例如「混合式」使用者)？
 * 是否需要將任何使用者佈建至 Azure Active Directory，但不需要將其佈建至 Active Directory (例如「僅限雲端」使用者)？
 * 是否需要將使用者電子郵件地址寫回至 Workday？
+
 
 找到這些問題的答案之後，您便可以依照下列指導來計劃 Workday 佈建部署。
 
@@ -144,7 +158,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
    
     ![建立安全性群組](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "建立安全性群組")
 2. 完成**建立安全性群組**工作。  
-3. 從 [租用安全性群組類型] 下拉式清單選取 [整合系統安全性群組—未受限制]。
+3. 從 [租用安全性群組類型] 下拉式清單中，選取 [整合系統安全性群組 (未受限制)]。
 4. 建立安全性群組以供明確新增使用者。 
    
     ![建立安全性群組](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "建立安全性群組")
@@ -164,21 +178,11 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
     ![系統安全性群組](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "系統安全性群組")  
 
 ### <a name="configure-security-group-options"></a>設定安全性群組選項
-在此步驟中，您會授與下列網域安全性原則所保護之背景工作資料的網域安全性原則權限：
-
-
-| 作業 | 網域安全性原則 |
-| ---------- | ---------- | 
-| Get 和 Put |  外部帳戶佈建 |
-| Get 和 Put | 人員資料：公用人員報告 |
-| Get 和 Put | 人員資料：所有職位 |
-| Get 和 Put | 人員資料：目前人員配置資訊 |
-| Get 和 Put | 人員資料：人員個人檔案的職稱 |
-| View 和 Modify | 人員資料：公司電子郵件 |
+在此步驟中，您會為安全性群組授與背景工作資料的網域安全性原則權限。
 
 **設定安全性群組選項：**
 
-1. 在搜尋方塊中輸入 domain security policies，然後按一下 [功能區域的網域安全性原則]。  
+1. 在搜尋方塊中輸入 **Domain Security Policies**，然後按一下 [功能區域的網域安全性原則]。  
    
     ![網域安全性原則](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "網域安全性原則")  
 2. 搜尋 system 並選取 [系統]  功能區域。  按一下 [SERVICEPRINCIPAL] 。  
@@ -190,23 +194,17 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 4. 按一下 [編輯權限]，然後在 [編輯權限]對話 畫面上，將新的安全性群組新增到具有 **Get** 和 **Put** 整合權限的群組清單中。 
    
     ![編輯權限](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "編輯權限")  
-5. 重複上述步驟 1，以返回選取功能區域的畫面，這次改為搜尋 staffing，然後選取 [人員配置] 功能區域，再按一下 [確定]。
+    
+5. 針對其餘的這些各個安全性原則重複前述的步驟 1-4：
+
+| 作業 | 網域安全性原則 |
+| ---------- | ---------- | 
+| Get 和 Put | 人員資料：公用人員報告 |
+| Get 和 Put | 背景工作資料：工作連絡人資訊 |
+| 取得 | 人員資料：所有職位 |
+| 取得 | 人員資料：目前人員配置資訊 |
+| 取得 | 人員資料：人員個人檔案的職稱 |
    
-    ![網域安全性原則](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "網域安全性原則")  
-6. 在 [人員配置] 功能區域的安全性原則清單中，展開 [人員資料：人員配置]，並對其餘的各安全性原則重複上述步驟 4：
-
-   * 人員資料：公用人員報告
-   * 人員資料：所有職位
-   * 人員資料：目前人員配置資訊
-   * 人員資料：人員個人檔案的職稱
-   
-7. 重複上述步驟 1，以返回選取功能區域的畫面，這次改為搜尋 **Contact Information**，然後選取 [人員配置] 功能區域，再按一下 [確定]。
-
-8.  在 [人員配置] 功能區域的安全性原則清單中，展開 [人員資料：公司連絡資訊]，並對下列安全性原則重複上述步驟 4：
-
-    * 人員資料：公司電子郵件
-
-    ![網域安全性原則](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "網域安全性原則")  
     
 ### <a name="activate-security-policy-changes"></a>啟用安全性原則變更
 
@@ -225,6 +223,41 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>設定將使用者從 Workday 佈建至 Active Directory
 請遵循下列指示來設定將使用者帳戶從 Workday 佈建至需要進行佈建的每個 Active Directory 樹系。
 
+### <a name="planning"></a>規劃
+
+在設定對 Active Directory 樹系的使用者佈建之前，請考量下列問題。 這些問題的答案將會決定您的篩選範圍和屬性對應必須如何設定。 
+
+* **Workday 中的哪些使用者需要佈建到此 Active Directory 樹系？**
+
+   * *範例：Workday "Company" 屬性包含 "Contoso" 值，且 "Worker_Type" 屬性包含 "Regular" 的使用者*
+
+* **使用者如何路由到不同的組織單位 (OU) 中？**
+
+   * *範例：使用者路由到對應於辦公室所在地點的 OU，如 Workday "Municipality" 和 "Country_Region_Reference" 屬性所定義*
+
+* **下列屬性應如何填入 Active Directory 中？**
+
+   * 一般名稱 (cn)
+      * *範例：使用 Workday User_ID 值，如人力資源所設定*
+      
+   * 員工識別碼 (employeeId)
+      * *範例：使用 Workday Worker_ID 值*
+      
+   * SAM 帳戶名稱 (sAMAccountName)
+      * *範例：使用 Workday User_ID 值，透過 Azure AD 佈建運算式進行篩選以移除不合法的字元*
+      
+   * 使用者主體名稱 (userPrincipalName)
+      * *範例：使用 Workday User_ID 值，並使用 Azure AD 佈建運算式附加網域名稱*
+
+* **如何在 Workday 與 Active Directory 之間比對使用者？**
+
+  * *範例：具有特定 Workday "Worker_ID" 值的使用者與 "employeeID" 具有相同值的 Active Directory 使用者相比對。如果在 Active Directory 中找不到 Worker_ID 值，則建立新的使用者。*
+  
+* **Active Directory 樹系是否已包含比對邏輯運作所需的使用者識別碼？**
+
+  * *範例：如果這是新的 Workday 部署，強烈建議您為 Active Directory 預先填入正確的 Workday Worker_ID 值 (或選擇的唯一識別碼值)，讓比對邏輯越簡單越好。*
+    
+    
 ### <a name="part-1-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>第 1 部分：新增佈建連接器應用程式和建立 Workday 連接
 
 **若要設定 Workday 至 Active Directory 佈建：**
@@ -320,39 +353,38 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 **下列為 Workday 與 Active Directory 之間的一些範例屬性對應，以及一些常用運算式**
 
--   對應至 parentDistinguishedName AD 屬性的運算式可用於根據一或多個 Workday 來源屬性，將使用者佈建至特定 OU。 此範例會根據使用者在 Workday 中的城市資料，將其置於不同的 OU。
+-   對應至 parentDistinguishedName 屬性的運算式可用來根據一或多個 Workday 來源屬性，將使用者佈建至不同的 OU。 此處的範例會根據使用者的所在城市將使用者放在不同 OU 中。
 
--   對應至 userPrincipalName AD 屬性的運算式會建立 firstName.LastName@contoso.com 的 UPN。其也會取代不合法的特殊字元。
+-   Active Directory 中的 userPrincipalName 屬性會藉由串連 Workday 使用者識別碼和網域尾碼來產生
 
--   [此為有關撰寫運算式的文件](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+-   [此為有關撰寫運算式的文件](active-directory-saas-writing-expressions-for-attribute-mappings.md)。 其中包含說明如何移除特殊字元的範例。
 
   
 | WORKDAY 屬性 | ACTIVE DIRECTORY 屬性 |  比對識別碼？ | 建立/更新 |
 | ---------- | ---------- | ---------- | ---------- |
-|  **WorkerID**  |  EmployeeID | **是** | 僅於建立時寫入 | 
-|  **Municipality**   |   l   |     | 建立 + 更新 |
-|  **Company**         | company   |     |  建立 + 更新 |
-|  **CountryReferenceTwoLetter**      |   co |     |   建立 + 更新 |
-| **CountryReferenceTwoLetter**    |  c  |     |         建立 + 更新 |
-| **SupervisoryOrganization**  | department  |     |  建立 + 更新 |
-|  **PreferredNameData**  |  displayName |     |   建立 + 更新 |
-| **EmployeeID**    |  cn    |   |   僅於建立時寫入 |
-| **Fax**      | facsimileTelephoneNumber     |     |    建立 + 更新 |
-| **名字**   | givenName       |     |    建立 + 更新 |
+| **WorkerID**  |  EmployeeID | **是** | 僅於建立時寫入 | 
+| **UserID**    |  cn    |   |   僅於建立時寫入 |
+| **Join("@",[UserID], "contoso.com")**   | userPrincipalName     |     | 僅於建立時寫入 
+| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         僅於建立時寫入 |
 | **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | 建立 + 更新 |
-| **Mobile**  |    mobile       |     |       建立 + 更新 |
-| **EmailAddress**    | mail    |     |     建立 + 更新 |
+| **名字**   | givenName       |     |    建立 + 更新 |
+| **姓氏**   |   sn   |     |  建立 + 更新 |
+| **PreferredNameData**  |  displayName |     |   建立 + 更新 |
+| **Company**         | company   |     |  建立 + 更新 |
+| **SupervisoryOrganization**  | department  |     |  建立 + 更新 |
 | **ManagerReference**   | manager  |     |  建立 + 更新 |
+| **BusinessTitle**   |  title     |     |  建立 + 更新 | 
+| **AddressLineData**    |  streetAddress  |     |   建立 + 更新 |
+| **Municipality**   |   l   |     | 建立 + 更新 |
+| **CountryReferenceTwoLetter**      |   co |     |   建立 + 更新 |
+| **CountryReferenceTwoLetter**    |  c  |     |         建立 + 更新 |
+| **CountryRegionReference** |  st     |     | 建立 + 更新 |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  建立 + 更新 |
 | **PostalCode**  |   postalCode  |     | 建立 + 更新 |
-| **LocalReference** |  preferredLanguage  |     |  建立 + 更新 |
-| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         僅於建立時寫入 |
-| **姓氏**   |   sn   |     |  建立 + 更新 |
-| **CountryRegionReference** |  st     |     | 建立 + 更新 |
-| **AddressLineData**    |  streetAddress  |     |   建立 + 更新 |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | 建立 + 更新 |
-| **BusinessTitle**   |  title     |     |  建立 + 更新 |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | 僅於建立時寫入                                                   
+| **Fax**      | facsimileTelephoneNumber     |     |    建立 + 更新 |
+| **Mobile**  |    mobile       |     |       建立 + 更新 |
+| **LocalReference** |  preferredLanguage  |     |  建立 + 更新 |                                               
 | **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  建立 + 更新 |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>第 3 部分：設定內部部署同步代理程式
@@ -696,6 +728,7 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
             <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
             <wd:Include_Photo>true</wd:Include_Photo>
             <wd:Include_User_Account>true</wd:Include_User_Account>
+            <wd:Include_Roles>true</wd:Include_Roles>
           </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>

@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 主控模型 | Microsoft Docs"
-description: "說明已部署之 Servic Fabric 的複本 (或執行個體) 與服務主機處理序之間的關聯性。"
+title: Azure Service Fabric 主控模型 | Microsoft Docs
+description: 說明已部署之 Servic Fabric 的複本 (或執行個體) 與服務主機處理序之間的關聯性。
 services: service-fabric
 documentationcenter: .net
 author: harahma
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: ecc9038cf895ddaeb06dd0e4e9852d5ef4a4513a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 0206a9a486e3511834a23b3cc3f20f236a1cc261
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-hosting-model"></a>Service Fabric 主控模型
 本文提供 Service Fabric 所提供之應用程式主控模型的概觀，並說明「共用處理程序」與「專屬處理序」模型之間的差異。 本文說明已部署之應用程式在 Service Fabric 節點上看起來的樣子，以及服務的複本 (或執行個體) 與服務主機處理序之間的關聯性。
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/25/2017
 > - *CodePackage* 會被視為等同於註冊 *ServiceType* 並裝載該 *ServiceType* 之服務複本的 *ServiceHost* 處理序。
 >
 
-為了了解主控模型，我們將逐步解說範例。 假設我們有一個 *ApplicationType* 'MyAppType'，其 *ServiceType* 為 'MyServiceType' 並且是由 *ServicePackage* 'MyServicePackage' 所提供，而此 ServicePackage 具有一個會在執行時註冊 *ServiceType* 'MyServiceType' 的 *CodePackage* 'MyCodePackage'。
+為了了解主控模型，我們將逐步解說範例。 假設我們有 ApplicationType 'MyAppType'，其具有 ServiceType 'MyServiceType'。  'MyServiceType' 是由 ServicePackage 'MyServicePackage' 提供，它具有 CodePackage 'MyCodePackage'。 'MyCodePackage' 會在執行時註冊 ServiceType 'MyServiceType'。
 
 假設我們有一個含有 3 個節點的叢集，並且建立一個類型為 'MyAppType' 的「應用程式」**fabric:/App1**。 在這個「應用程式」**fabric:/App1** 中，我們會建立一個類型為 'MyServiceType' 的服務 **fabric:/App1/ServiceA**，此服務具有 2 個分割區 (即 **P1** & **P2**) 且每一分割區有 3 個複本。 下圖顯示此應用程式最後部署在節點上時的檢視。
 
@@ -38,19 +38,19 @@ ms.lasthandoff: 10/25/2017
 ![已部署之應用程式的節點檢視][node-view-one]
 </center>
 
-Service Fabric 啟用了 'MyServicePackage'，而 'MyServicePackage' 則啟動了裝載來自兩個分割區 (即 **P1** & **P2**) 之複本的 'MyCodePackage'。 請注意，此叢集內的所有節點都具有相同檢視，因為我們所選擇的每一分割區複本數目等於此叢集內的節點數目。 讓我們在應用程式 **fabric:/App1** 中建立另一個服務 **fabric:/App1/ServiceB**，此服務具有 1 個分割區 (即 **P3**) 且每一分割區有 3 個複本。 下圖顯示節點上的新檢視：
+Service Fabric 啟動了 'MyServicePackage'，而 'MyServicePackage' 則啟動了裝載來自兩個分割區之複本的 'MyCodePackage'。  例如，**P1** & **P2**。 此叢集內的所有節點都具有相同檢視，因為我們所選擇的每一分割區複本數目等於此叢集內的節點數目。 讓我們在應用程式 **fabric:/App1** 中建立另一個服務 **fabric:/App1/ServiceB**，此服務具有 1 個分割區 (即 **P3**) 且每一分割區有 3 個複本。 下圖顯示節點上的新檢視：
 
 <center>
 ![已部署之應用程式的節點檢視][node-view-two]
 </center>
 
-如我們所見，Service Fabric 在現有的 'MyServicePackage' 啟用項中，放置了服務 **fabric:/App1/ServiceB** 之分割區 **P3** 的新複本。 現在，讓我們建立另一個 'MyAppType' 類型的「應用程式」**fabric:/App2**，並在 **fabric:/App2** 中建立服務 **fabric:/App2/ServiceA**，此服務具有 2 個分割區 (即 **P4** & **P5**) 且每一分割區有 3 個複本。 下圖顯示新的節點檢視：
+如我們所見，Service Fabric 在現有的 'MyServicePackage' 啟用項中，放置了服務 **fabric:/App1/ServiceB** 之分割區 **P3** 的新複本。 現在建立另一個 'MyAppType' 類型的「應用程式」**fabric:/App2**。 在 **fabric:/App2** 內建立服務 **fabric:/App2/ServiceA**，它具有 2 個分割區 (即 **P4** & **P5**) 且每一分割區有 3 個複本。 下圖顯示新的節點檢視：
 
 <center>
 ![已部署之應用程式的節點檢視][node-view-three]
 </center>
 
-這次 Service Fabric 啟用了一份新的 'MyServicePackage'，這個 'MyServicePackage' 會啟動一份新的 'MyCodePackage'，而來自服務 **fabric:/App2/ServiceA** 之兩個分割區 (即 **P4** & **P5**) 的複本則會放在這份新的 'MyCodePackage' 中。
+Service Fabric 會啟動 'MyServicePackage' 的新複本，而這會啟動 'MyCodePackage' 的新複本。 **fabric:/App2/ServiceA** 服務的兩個分割區複本 (例如，**P4** & **P5**)，會位於這個新複本 'MyCodePackage'。
 
 ## <a name="shared-process-model"></a>共用處理序模型
 上面所見即為 Service Fabric 提供的預設主控模型，並且稱為「共用處理序」模型。 在此模型中，針對指定的「應用程式」，在一個「節點」上只會啟用一份指定的 *ServicePackage* (這會啟動其包含的所有 *CodePackage*)，而指定的 *ServiceType* 之所有服務的所有複本則會放在註冊該 *ServiceType* 的 *CodePackage* 中。 換句話說，指定的 *ServiceType* 之節點上所有服務的所有複本都會共用相同的處理序。
@@ -58,7 +58,7 @@ Service Fabric 啟用了 'MyServicePackage'，而 'MyServicePackage' 則啟動�
 ## <a name="exclusive-process-model"></a>專屬處理序模型
 Service Fabric 所提供的另一個主控模型是「專屬處理序」模型。 在此模型中，在指定的「節點」上，為了放置每個複本，Service Fabric 會啟用一份新的 *ServicePackage* (這會啟動其包含的所有 *CodePackage*)，而複本則會放在註冊複本所屬服務之 *ServiceType* 的 *CodePackage* 中。 換句話說，每個複本都存在於自己的專屬處理序中。 
 
-從 Service Fabric 5.6 版開始即支援此模型。 您可以在建立服務時 (使用 [PowerShell][p1]、[REST][r1] 或 [FabricClient][c1]) 將 **ServicePackageActivationMode** 指定為 'ExclusiveProcess' 來選擇「專屬處理序」模型。
+從 Service Fabric 5.6 版開始即支援此模型。 您可以在建立服務時 (使用 [PowerShell][p1]、[REST][r1] 或 [FabricClient][c1])，將 **ServicePackageActivationMode** 指定為 'ExclusiveProcess' 來選擇「專屬處理序」模型。
 
 ```powershell
 PS C:\>New-ServiceFabricService -ApplicationName "fabric:/App1" -ServiceName "fabric:/App1/ServiceA" -ServiceTypeName "MyServiceType" -Stateless -PartitionSchemeSingleton -InstanceCount -1 -ServicePackageActivationMode "ExclusiveProcess"
@@ -90,7 +90,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
   </Service>
 </DefaultServices>
 ```
-繼續進行上述範例，讓我們在應用程式 **fabric:/App1** 中建立另一個服務 **fabric:/App1/ServiceC**，此服務有 2 個分割區 (即 **P6** & **P7**) 且每一分割區有 3 個複本，並且 **ServicePackageActivationMode** 已設定為 'ExclusiveProcess'。 下圖顯示節點上的新檢視：
+接續前面的範例，讓我們在應用程式 **fabric:/App1** 中建立另一個服務 **fabric:/App1/ServiceC**，此服務有 2 個分割區 (即 **P6** & **P7**) 且每一分割區有 3 個複本，並且 **ServicePackageActivationMode** 已設定為 'ExclusiveProcess'。 下圖顯示節點上的新檢視：
 
 <center>
 ![已部署之應用程式的節點檢視][node-view-four]
@@ -103,32 +103,32 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 > [!NOTE]
 >- **共用處理序**主控模型會與等於 **SharedProcess** 的 **ServicePackageActivationMode** 對應。 這是預設的主控模型，在建立服務時不須指定 **ServicePackageActivationMode**。
 >
->- **專屬處理序**主控模型會與等於 **ExclusiveProcess** 的 **ServicePackageActivationMode** 對應，在建立服務時必須明確指定。 
+>- **專屬處理序**主控模型會與設為 **ExclusiveProcess** 的 **ServicePackageActivationMode** 對應，在建立服務時必須明確指定。 
 >
 >- 您可以透過查詢[服務描述][p2]並查看 **ServicePackageActivationMode** 的值，來得知服務的主控模型。
 >
 >
 
 ## <a name="working-with-deployed-service-package"></a>使用已部署的服務套件
-節點上一份作用中的 *ServicePackage* 稱為[已部署的服務套件][p3]。 如先前所述，使用「專屬處理序」模型來建立服務時，就指定的「應用程式」而言，同一個 *ServicePackage* 可能會有多個已部署的服務套件。 執行已部署之服務套件的特定作業 (例如[回報已部署之服務套件的健康情況][p4]或[重新啟動已部署之服務套件的程式碼套件][p5]等) 時，必須提供 **ServicePackageActivationId** 來識別特定的已部署服務套件。
+節點上一份作用中的 *ServicePackage* 稱為[已部署的服務套件][p3]。 如先前所述，使用「專屬處理序」模型來建立服務時，就指定的「應用程式」而言，同一個 *ServicePackage* 可能會有多個已部署的服務套件。 執行已部署之服務套件的特定作業 (例如[回報已部署之服務套件的健康情況][p4]或[重新啟動已部署之服務套件的程式碼套件][p5]) 時，必須提供 **ServicePackageActivationId** 來識別特定的已部署服務套件。
 
- 您可以查詢節點上[已部署的服務套件][p3]清單，來取得已部署之服務套件的 **ServicePackageActivationId**。 查詢節點上的[已部署的服務類型][p6]、[已部署的複本][p7]及[已部署的程式碼套件][p8]時，查詢結果也會包含父代已部署服務套件的 **ServicePackageActivationId**。
+您可以查詢節點上[已部署的服務套件][p3]清單，來取得已部署之服務套件的 **ServicePackageActivationId**。 查詢節點上的[已部署的服務類型][p6]、[已部署的複本][p7]及[已部署的程式碼套件][p8]時，查詢結果也會包含父代已部署服務套件的 **ServicePackageActivationId**。
 
 > [!NOTE]
 >- 在「共用處理序」主控模型下，於指定的「節點」上，針對指定的「應用程式」，只會啟用一份 *ServicePackage*。 其 **ServicePackageActivationId** 會等於「空字串」，在執行已部署之服務套件的相關作業時不須指定。 
 >
-> - 在「專屬處理序」主控模型下，於指定的「節點」上，針對指定的「應用程式」，會有一或多份作用中的 *ServicePackage*。 每個啟動項都有一個「非空白」的 **ServicePackageActivationId**，在執行已部署之服務套件的相關作業時必須加以指定。 
+> - 在「專屬處理序」主控模型下，於指定的「節點」上，針對指定的「應用程式」，會有一或多份作用中的 *ServicePackage*。 每個啟動項都有一個「非空白」的 **ServicePackageActivationId**，在執行已部署之服務套件的相關作業時指定。 
 >
 > - 如果省略 **ServicePackageActivationId**，它會預設為「空字串」。 如果有在「共用處理序」模型下啟用的已部署服務套件存在，系統就會在該套件上執行作業，否則作業將會失敗。
 >
-> - 不建議執行一次查詢並快取 **ServicePackageActivationId**，因為這是動態產生的，可能因各種原因而有所變更。 在執行需要 **ServicePackageActivationId** 的作業之前，您應該先查詢節點上[已部署的服務套件][p3]清單，然後使用來自查詢結果的 **ServicePackageActivationId** 來執行原先的作業。
+> - 請勿執行一次查詢並快取 **ServicePackageActivationId**，因為這是動態產生的，可能因各種原因而有所變更。 在執行需要 **ServicePackageActivationId** 的作業之前，您應該先查詢節點上[已部署的服務套件][p3]清單，然後使用來自查詢結果的 **ServicePackageActivationId** 來執行原先的作業。
 >
 >
 
 ## <a name="guest-executable-and-container-applications"></a>客體可執行檔和容器應用程式
-Service Fabric 會將[客體可執行檔][a2]和[容器][a3]應用程式視為獨立的無狀態服務，亦即 *ServiceHost* (一個處理序或容器) 中沒有任何 Service Fabric 執行階段。 由於這些服務是獨立的，因此每一 *ServiceHost* 的複本數並不適用於這些服務。 與這些服務搭配使用的最常見組態是 [InstanceCount][c2] 等於 -1 的單一分割區 (亦即在叢集的每個節點上都會執行一份服務程式碼)。 
+Service Fabric 會將[客體可執行檔][a2]和[容器][a3]應用程式視為獨立的無狀態服務，亦即 ServiceHost (一個處理序或容器) 中沒有任何 Service Fabric 執行階段。 由於這些服務是獨立的，因此每一 *ServiceHost* 的複本數並不適用於這些服務。 與這些服務搭配使用的最常見組態是 [InstanceCount][c2] 等於 -1 的單一分割區 (亦即在叢集的每個節點上都會執行一份服務程式碼)。 
 
-這些服務的預設 **ServicePackageActivationMode** 是 **SharedProcess**，在此情況下，Service Fabric 會針對指定的「應用程式」在一個「節點」上啟用一份 *ServicePackage*，這意謂著一個「節點」上只會執行一份服務程式碼。 當您建立多個 *ServiceType* 類型 (在 *ServiceManifest* 中指定) 的服務 (*Service1* 到 *ServiceN*) 時，或當您的服務具有多個分割區時，如果您想要讓多份服務程式碼在「節點」上執行，您應該在建立服務時，將 **ServicePackageActivationMode** 指定為 **ExclusiveProcess**。
+這些服務的預設 **ServicePackageActivationMode** 是 **SharedProcess**，在此情況下，Service Fabric 會針對指定的「應用程式」在一個「節點」上啟用一份 *ServicePackage*。  這意謂著一個「節點」上只會執行一份服務程式碼。 當您建立多個 *ServiceType* 類型 (在 *ServiceManifest* 中指定) 的服務 (*Service1* 到 *ServiceN*) 時，或當您的服務具有多個分割區時，如果您想要讓多份服務程式碼在「節點」上執行，您應該在建立服務時，將 **ServicePackageActivationMode** 指定為 **ExclusiveProcess**。
 
 ## <a name="changing-hosting-model-of-an-existing-service"></a>變更現有服務的主控模型
 目前不支援透過升級或更新機制 (或在應用程式資訊清單的預設服務規格中)，將現有服務的主控模型從「共用處理序」變更為「專屬處理序」，反之亦然。 在未來的版本中將會新增此功能。
@@ -136,7 +136,7 @@ Service Fabric 會將[客體可執行檔][a2]和[容器][a3]應用程式視為�
 ## <a name="choosing-between-shared-process-and-exclusive-process-model"></a>在共用處理序與專屬處理序模型之間做選擇
 這兩個主控模型各有其優缺點，使用者必須評估哪一個模型最符合其需求。 「共用處理序」模型可提升 OS 資源的使用率，因為產生的處理序較少、同一個處理序中的多個複本可以共用連接埠等。不過，如果其中一個複本發生錯誤而必須關閉服務主機，就會影響到該相同處理序中的所有其他複本。
 
- 「專屬處理序」模型會讓每個複本處於自己的處理序中，而可提供較佳的隔離，發生問題的複本將不會影響到其他複本。 這適用於通訊協定不支援連接埠共用的情況。 它可協助在複本層級套用資源管理。 另一方面，「專屬處理序」會取用較多的 OS 資源，因為它會為節點上的每個複本都產生一個處理序。
+ 「專屬處理序」模型會讓每個複本處於自己的處理序中，而可提供較佳的隔離，發生問題的複本將不會影響到其他複本。 這適用於通訊協定不支援連接埠共用的情況。 它可協助在複本層級套用資源管理。 不過，「專屬處理序」會取用較多的 OS 資源，因為它會為節點上的每個複本都產生一個處理序。
 
 ## <a name="exclusive-process-model-and-application-model-considerations"></a>專屬處理序眉型和應用程式模型考量
 在 Service Fabric 中，建議的應用程式模型建立方式是維持每一 *ServicePackage* 一個 *ServiceType*，這個模型適用於大多數應用程式。 
@@ -149,15 +149,15 @@ Service Fabric 會將[客體可執行檔][a2]和[容器][a3]應用程式視為�
 
 「專屬處理序」主控模型與每一 *ServicePackage* 有多個 *ServiceType* 的應用程式模型並不相同。 這是因為每一 *ServicePackage* 多個 *ServiceType* 的設計是用來提高複本間的資源共用，以及提高每一處理序的複本密度。 這項設計與「專屬處理序」的設計目的相反。
 
-思考一下每一 *ServicePackage* 有多個 *ServiceType* 的案例，其中是由不同的 *CodePackage* 註冊每個 *ServiceType*。 假設我們有一個 *ServicePackage* 'MultiTypeServicePackge'，其中包含兩個 *CodePackage*：
+思考一下每一 *ServicePackage* 有多個 *ServiceType* 的案例，其中是由不同的 *CodePackage* 註冊每個 *ServiceType*。 假設我們有一個 ServicePackage 'MultiTypeServicePackge'，其中包含兩個 CodePackage：
 
-- 註冊 *ServiceType* 'MyServiceTypeA' 的 'MyCodePackageA'。
-- 註冊 *ServiceType* 'MyServiceTypeB' 的 'MyCodePackageB'。
+- 'MyCodePackageA'，它會註冊 ServiceType 'MyServiceTypeA'。
+- 'MyCodePackageB'，它會註冊 ServiceType 'MyServiceTypeB'。
 
 現在，假設我們建立一個「應用程式」**fabric:/SpecialApp**，並使用「專屬處理序」模型在 **fabric:/SpecialApp** 中建立下列兩個服務：
 
-- 'MyServiceTypeA' 類型的服務 **fabric:/SpecialApp/ServiceA**，此服務有兩個分割區 (即 **P1** 和 **P2**) 且每一分割區有 3 個複本。
-- 'MyServiceTypeB' 類型的服務 **fabric:/SpecialApp/ServiceB**，此服務有兩個分割區 (即 **P3** 和 **P4**) 且每一分割區有 3 個複本。
+- 'MyServiceTypeA' 類型的服務 **fabric:/SpecialApp/ServiceA**，此服務有 2 個分割區 (即 **P1** 和 **P2**) 且每一分割區有 3 個複本。
+- 'MyServiceTypeB' 類型的服務 **fabric:/SpecialApp/ServiceB**，此服務有 2 個分割區 (即 **P3** 和 **P4**) 且每一分割區有 3 個複本。
 
 在指定的節點上，這兩個服務將各有兩個複本。 由於我們已使用「專屬處理序」模型來建立這些服務，因此 Service Fabric 會為每個複本建立一份新的 'MyServicePackge'。 每個 'MultiTypeServicePackge' 啟用項都會啟動一份 'MyCodePackageA' 和 'MyCodePackageB'。 不過，'MyCodePackageA' 或 'MyCodePackageB' 只有其中之一會裝載作為 'MultiTypeServicePackge' 啟用對象的複本。 下圖顯示節點檢視：
 
@@ -165,15 +165,15 @@ Service Fabric 會將[客體可執行檔][a2]和[容器][a3]應用程式視為�
 ![已部署之應用程式的節點檢視][node-view-five]
 </center>
 
- 如我們所見，在服務 **fabric:/SpecialApp/ServiceA** 分割區 **P1** 之複本的 'MultiTypeServicePackge' 啟用項中，是由 'MyCodePackageA' 裝載複本，而 'MyCodePackageB' 則只是已啟動並在執行中。 同樣地，在服務 **fabric:/SpecialApp/ServiceB** 分割區 **P3** 之複本的 'MultiTypeServicePackge' 啟用項中，是由 'MyCodePackageB' 裝載複本，而 'MyCodePackageA' 則只是已啟動並在執行中。 因此，每一 *ServicePackage* 的 *CodePackage* (註冊不同的 *ServiceType*) 數目越多，備援資源的使用量就越高。 
+在服務 **fabric:/SpecialApp/ServiceA** 分割區 **P1** 之複本的 'MultiTypeServicePackge' 啟用項中，是由 'MyCodePackageA' 裝載複本，而 'MyCodePackageB' 則是已啟動並在執行中。 同樣地，在服務 **fabric:/SpecialApp/ServiceB** 分割區 **P3** 之複本的 'MultiTypeServicePackge' 啟用項中，是由 'MyCodePackageB' 裝載複本，而 'MyCodePackageA' 則只是已啟動並在執行中。 因此，每一 *ServicePackage* 的 *CodePackage* (註冊不同的 *ServiceType*) 數目越多，備援資源的使用量就越高。 
  
- 另一方便，如果我們使用「共用處理序」來建立服務 **fabric:/SpecialApp/ServiceA** 和 **fabric:/SpecialApp/ServiceB**，則 Service Fabric 將只會為「應用程式」**fabric:/SpecialApp** 啟用一份 'MultiTypeServicePackge' (如我們先前所見)。 'MyCodePackageA' 將會裝載服務 **fabric:/SpecialApp/ServiceA** (或更精確地說，是 'MyServiceTypeA' 類型的任何服務) 的所有複本，而 'MyCodePackageB' 則會裝載服務 **fabric:/SpecialApp/ServiceB** (或更精確地說，是 'MyServiceTypeB' 類型的任何服務) 的所有複本。 下圖顯示此設定中的節點檢視： 
+ 不過，如果我們使用「共用處理序」來建立服務 **fabric:/SpecialApp/ServiceA** 和 **fabric:/SpecialApp/ServiceB**，則 Service Fabric 將只會為「應用程式」**fabric:/SpecialApp** 啟用一份 'MultiTypeServicePackge' (如我們先前所見)。 'MyCodePackageA' 會裝載服務 **fabric:/SpecialApp/ServiceA** 的所有複本 (或者更準確來說，是 'MyServiceTypeA' 類型的任何服務)。 'MyCodePackageB' 會裝載服務 **fabric:/SpecialApp/ServiceB** 的所有複本 (或者更準確來說，是 'MyServiceTypeB' 類型的任何服務)。 下圖顯示此設定中的節點檢視： 
 
 <center>
 ![已部署之應用程式的節點檢視][node-view-six]
 </center>
 
-在上述範例中，您可能會認為如果 'MyCodePackageA' 既註冊 'MyServiceTypeA' 也註冊 'MyServiceTypeB'，而沒有 'MyCodePackageB' 存在，就不會執行備援的 *CodePackage*。 這個想法是正確的，不過，如先前所述，此應用程式模型與「專屬處理序」主控模型並不相同。 如果目標是要將每個複本放在其自己的專用處理序中，就不需要從同一個 *CodePackage* 註冊兩個 *ServiceType*，將每個 *ServiceType* 放在其自己的 *ServicePacakge* 才是較自然的選擇。
+在上述範例中，您可能會認為如果 'MyCodePackageA' 既註冊 'MyServiceTypeA' 也註冊 'MyServiceTypeB'，而沒有 'MyCodePackageB' 存在，就不會執行備援的 CodePackage。 這個想法是正確的，不過，如先前所述， 此應用程式模型與「專屬處理序」主控模型並不相同。 如果目標是要將每個複本放在其自己的專用處理序中，就不需要從同一個 CodePackage 註冊兩個 ServiceType。 將每個 ServiceType 放在其自己的 ServicePacakge 才是較自然的選擇。
 
 ## <a name="next-steps"></a>後續步驟
 [對應用程式進行封裝][a4]並使它準備好進行部署。
@@ -190,7 +190,7 @@ Service Fabric 會將[客體可執行檔][a2]和[容器][a3]應用程式視為�
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [a1]: service-fabric-application-model.md
-[a2]: service-fabric-deploy-existing-app.md
+[a2]: service-fabric-guest-executables-introduction.md
 [a3]: service-fabric-containers-overview.md
 [a4]: service-fabric-package-apps.md
 [a5]: service-fabric-deploy-remove-applications.md

@@ -1,11 +1,11 @@
 ---
-title: "管理 Azure Service Fabric 叢集中的憑證 | Microsoft Docs"
-description: "說明如何在 Service Fabric 叢集新增新的憑證、變換憑證及移除憑證。"
+title: 管理 Azure Service Fabric 叢集中的憑證 | Microsoft Docs
+description: 說明如何在 Service Fabric 叢集新增新的憑證、變換憑證及移除憑證。
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: chackdan
-ms.openlocfilehash: 68654bd9b14857661b627bf6d6b1dfe2483019a4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 65ade0f2526bf444c2205c74cce0e20be540998d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>新增或移除 Azure 中 Service Fabric 叢集的憑證
 建議您熟悉 Service Fabric 使用 X.509 憑證的方式，以及熟悉[叢集安全性案例](service-fabric-cluster-security.md)。 您必須瞭解什麼是叢集憑證及其用途，方可繼續進行後續作業。
@@ -26,31 +26,28 @@ ms.lasthandoff: 03/08/2018
 當您在叢集建立期間設定憑證安全性時，除了用戶端憑證之外，Service Fabric 還可讓您指定兩個叢集憑證：主要與次要。 請參閱[透過入口網站建立 Azure 叢集](service-fabric-cluster-creation-via-portal.md)或[透過 Azure Resource Manager 建立 Azure 叢集](service-fabric-cluster-creation-via-arm.md)，以詳細了解如何在建立這些叢集時進行叢集設定。 如果您在建立時僅指定一個叢集憑證，該憑證就會作為主要憑證。 在叢集建立完成後，您可新增憑證做為次要憑證。
 
 > [!NOTE]
-> 針對安全叢集，您一律必須至少部署一個有效 (未撤銷或過期) 的叢集憑證 (主要或次要)，否則叢集將停止運作。 在所有有效憑證到達到期日的 90 天前，系統會針對節點產生警告追蹤與警告健康狀態事件。 目前並無 Service Fabric 針對此主題送出的電子郵件或其他任何通知。 
+> 針對安全叢集，您一律必須至少部署一個有效 (未撤銷或過期) 的叢集憑證 (主要或次要)，否則叢集將停止運作。 在所有有效憑證到達到期日的 90 天前，系統會針對節點產生警告追蹤與警告健康狀態事件。 目前並無 Service Fabric 針對此文章送出的電子郵件或其他任何通知。 
 > 
 > 
 
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>使用入口網站來新增次要叢集憑證
-
-您無法透過 Azure 入口網站新增次要叢集憑證。 必須使用 Azure PowerShell 來執行該操作。 本文件稍後會簡要說明此程序。
+您無法透過 Azure 入口網站使用 Azure PowerShell 新增次要叢集憑證。 本文件稍後會簡要說明此程序。
 
 ## <a name="swap-the-cluster-certificates-using-the-portal"></a>使用入口網站來交換叢集憑證
-
-在成功部署次要叢集憑證之後，如果您想要將主要憑證與次要憑證交換，則請瀏覽至 [安全性] 刀鋒視窗，然後從操作功能表中選取 [與主要憑證交換] 選項，以將次要憑證與主要憑證交換。
+在成功部署次要叢集憑證之後，如果您想要將主要憑證與次要憑證交換，則請瀏覽至 [安全性] 區段，然後從操作功能表中選取 [與主要憑證交換] 選項，以將次要憑證與主要憑證交換。
 
 ![交換憑證][Delete_Swap_Cert]
 
 ## <a name="remove-a-cluster-certificate-using-the-portal"></a>使用入口網站來移除叢集憑證
-
 針對安全叢集，您一律必須至少部署一個有效 (未撤銷或過期) 的憑證 (主要或次要)，否則叢集將停止運作。
 
-若要移除次要憑證，使其不用於叢集安全性，請瀏覽至 [安全性] 刀鋒視窗，然後從次要憑證上的操作功能表中選取 [刪除] 選項。
+若要移除次要憑證，使其不用於叢集安全性，請瀏覽至 [安全性] 區段，然後從次要憑證上的操作功能表中選取 [刪除] 選項。
 
 如果您的目的是移除標示為主要的憑證，則您需要先將它與次要憑證交換，然後再於升級完成後刪除次要憑證。
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>使用 Resource Manager Powershell 來新增次要憑證
-> [!UPDATE] 我們現在有更好而且更容易的方式，可使用 [Add-AzureRmServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate?view=azurermps-5.3.0) 來新增次要憑證。 如果您使用 Add-AzureRmServiceFabricClusterCertificate，則不需要遵循本節中的其餘步驟。
-
+> [!TIP]
+> 現在有更好而且更容易的方式，可使用 [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) Cmdlet 來新增次要憑證。 您不需要遵循本節中的其餘步驟。  此外，您也不需要原本在使用 [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) Cmdlet 時用來建立及部署叢集的範本。
 
 這些步驟是假設您已熟悉 Resource Manager 的運作方式，並已使用 Resource Manager 範本至少部署一個 Service Fabric 叢集，而且已讓您使用的範本將叢集設定妥當。 此外亦假設您可輕鬆自如地使用 JSON。
 
@@ -65,126 +62,119 @@ ms.lasthandoff: 03/08/2018
 
 **務必依照所有步驟操作**
 
-**步驟 1：**開啟您用來部署叢集的 Resource Manager 範本。 (如果您已從上述儲存機制下載該範例，則請使用 5-VM-1-NodeTypes-Secure_Step1.JSON 來部署一個安全的叢集，然後開啟該範本)。
+1. 開啟您用來部署叢集的 Resource Manager 範本。 (如果您已從上述存放庫下載該範例，則請使用 5-VM-1-NodeTypes-Secure_Step1.JSON 來部署一個安全的叢集，然後開啟該範本)。
 
-**步驟 2：**將類型為 "string" 的**兩個新參數** "secCertificateThumbprint" 和 "secCertificateUrlValue" 新增到您範本的參數區段。 您可以複製下列程式碼片段並新增到範本中。 視您的範本來源而定，這些有可能已經定義好，如果是這樣，請移至下一個步驟。 
+2. 將類型為 "string" 的**兩個新參數** "secCertificateThumbprint" 和 "secCertificateUrlValue" 新增到您範本的參數區段。 您可以複製下列程式碼片段並新增到範本中。 視您的範本來源而定，這些有可能已經定義好，如果是這樣，請移至下一個步驟。 
  
-```JSON
-   "secCertificateThumbprint": {
-      "type": "string",
-      "metadata": {
-        "description": "Certificate Thumbprint"
-      }
-    },
-    "secCertificateUrlValue": {
-      "type": "string",
-      "metadata": {
-        "description": "Refers to the location URL in your key vault where the certificate was uploaded, it is should be in the format of https://<name of the vault>.vault.azure.net:443/secrets/<exact location>"
-      }
-    },
+    ```json
+       "secCertificateThumbprint": {
+          "type": "string",
+          "metadata": {
+            "description": "Certificate Thumbprint"
+          }
+        },
+        "secCertificateUrlValue": {
+          "type": "string",
+          "metadata": {
+            "description": "Refers to the location URL in your key vault where the certificate was uploaded, it is should be in the format of https://<name of the vault>.vault.azure.net:443/secrets/<exact location>"
+          }
+        },
+    
+    ```
 
-```
-
-**步驟 3：**對 **Microsoft.ServiceFabric/clusters** 資源進行變更 - 找出您範本中的 "Microsoft.ServiceFabric/clusters" 資源定義。 在該定義的屬性底下，您會發現「憑證」JSON 標籤，看起來應該會像以下 JSON 程式碼片段：
-
+3. 對 **Microsoft.ServiceFabric/clusters** 資源進行變更 - 找出您範本中的 "Microsoft.ServiceFabric/clusters" 資源定義。 在該定義的屬性底下，您會發現「憑證」JSON 標籤，看起來應該會像以下 JSON 程式碼片段：
    
-```JSON
-      "properties": {
-        "certificate": {
-          "thumbprint": "[parameters('certificateThumbprint')]",
-          "x509StoreName": "[parameters('certificateStoreValue')]"
-     }
-``` 
+    ```JSON
+          "properties": {
+            "certificate": {
+              "thumbprint": "[parameters('certificateThumbprint')]",
+              "x509StoreName": "[parameters('certificateStoreValue')]"
+         }
+    ``` 
 
-加入新標籤「thumbprintSecondary」，並為它提供值「[parameters('secCertificateThumbprint')]」。  
+    加入新標籤「thumbprintSecondary」，並為它提供值「[parameters('secCertificateThumbprint')]」。  
 
-資源定義現在看起來應該像下面這樣 (視您的範本來源而定，可能不會與下面的程式碼片段完全相同)。 
+    資源定義現在看起來應該像下面這樣 (視您的範本來源而定，可能不會與下面的程式碼片段完全相同)。 
 
-```JSON
-      "properties": {
-        "certificate": {
-          "thumbprint": "[parameters('certificateThumbprint')]",
-          "thumbprintSecondary": "[parameters('secCertificateThumbprint')]",
-          "x509StoreName": "[parameters('certificateStoreValue')]"
-     }
-``` 
+    ```JSON
+          "properties": {
+            "certificate": {
+              "thumbprint": "[parameters('certificateThumbprint')]",
+              "thumbprintSecondary": "[parameters('secCertificateThumbprint')]",
+              "x509StoreName": "[parameters('certificateStoreValue')]"
+         }
+    ``` 
 
-如果您想要「變換憑證」，請將新憑證指定為主要憑證，並將目前的主要憑證移轉為次要憑證。 這可讓您透過單一部署步驟，就將目前的主要憑證變換成新憑證。
+    如果您想要「變換憑證」，請將新憑證指定為主要憑證，並將目前的主要憑證移轉為次要憑證。 這可讓您透過單一部署步驟，就將目前的主要憑證變換成新憑證。
+    
+    ```JSON
+          "properties": {
+            "certificate": {
+              "thumbprint": "[parameters('secCertificateThumbprint')]",
+              "thumbprintSecondary": "[parameters('certificateThumbprint')]",
+              "x509StoreName": "[parameters('certificateStoreValue')]"
+         }
+    ``` 
 
-```JSON
-      "properties": {
-        "certificate": {
-          "thumbprint": "[parameters('secCertificateThumbprint')]",
-          "thumbprintSecondary": "[parameters('certificateThumbprint')]",
-          "x509StoreName": "[parameters('certificateStoreValue')]"
-     }
-``` 
+4. 對**所有** **Microsoft.Compute/virtualMachineScaleSets** 資源定義進行變更 - 找出 Microsoft.Compute/virtualMachineScaleSets 資源定義。 捲動到 "virtualMachineProfile" 底下的 "publisher": "Microsoft.Azure.ServiceFabric"。
 
+    在 Service Fabric 發行者設定中，您應該會看到像這樣的畫面。
+    
+    ![Json_Pub_Setting1][Json_Pub_Setting1]
+    
+    請將新憑證項目新增到其中
+    
+    ```json
+                   "certificateSecondary": {
+                        "thumbprint": "[parameters('secCertificateThumbprint')]",
+                        "x509StoreName": "[parameters('certificateStoreValue')]"
+                        }
+                      },
+    
+    ```
 
-**步驟 4：**對**所有** **Microsoft.Compute/virtualMachineScaleSets** 資源定義進行變更 - 找出 Microsoft.Compute/virtualMachineScaleSets 資源定義。 捲動到 "virtualMachineProfile" 底下的 "publisher": "Microsoft.Azure.ServiceFabric"。
+    屬性現在應該看起來像這樣
+    
+    ![Json_Pub_Setting2][Json_Pub_Setting2]
+    
+    如果您想要「變換憑證」，請將新憑證指定為主要憑證，並將目前的主要憑證移轉為次要憑證。 這可讓您在單一部署步驟中，將目前的憑證變換為新憑證。     
 
-在 Service Fabric 發行者設定中，您應該會看到像這樣的畫面。
+    ```json
+                   "certificate": {
+                       "thumbprint": "[parameters('secCertificateThumbprint')]",
+                       "x509StoreName": "[parameters('certificateStoreValue')]"
+                         },
+                   "certificateSecondary": {
+                        "thumbprint": "[parameters('certificateThumbprint')]",
+                        "x509StoreName": "[parameters('certificateStoreValue')]"
+                        }
+                      },
+    ```
 
-![Json_Pub_Setting1][Json_Pub_Setting1]
+    屬性現在應該看起來像這樣    
+    ![Json_Pub_Setting3][Json_Pub_Setting3]
 
-請將新憑證項目新增到其中
+5. 對**所有** **Microsoft.Compute/virtualMachineScaleSets** 資源定義進行變更 - 找出 Microsoft.Compute/virtualMachineScaleSets 資源定義。 捲動到 "OSProfile" 底下的 "vaultCertificates":。 您應該會看到類似下面的畫面。
 
-```JSON
-               "certificateSecondary": {
-                    "thumbprint": "[parameters('secCertificateThumbprint')]",
-                    "x509StoreName": "[parameters('certificateStoreValue')]"
-                    }
-                  },
-
-```
-
-屬性現在應該看起來像這樣
-
-![Json_Pub_Setting2][Json_Pub_Setting2]
-
-如果您想要「變換憑證」，請將新憑證指定為主要憑證，並將目前的主要憑證移轉為次要憑證。 這可讓您在單一部署步驟中，將目前的憑證變換為新憑證。 
-
-
-```JSON
-               "certificate": {
-                   "thumbprint": "[parameters('secCertificateThumbprint')]",
-                   "x509StoreName": "[parameters('certificateStoreValue')]"
-                     },
-               "certificateSecondary": {
-                    "thumbprint": "[parameters('certificateThumbprint')]",
-                    "x509StoreName": "[parameters('certificateStoreValue')]"
-                    }
-                  },
-
-```
-屬性現在應該看起來像這樣
-
-![Json_Pub_Setting3][Json_Pub_Setting3]
-
-
-**步驟 5：**對「所有」**Microsoft.Compute/virtualMachineScaleSets** 資源定義進行變更 - 找出 Microsoft.Compute/virtualMachineScaleSets 資源定義。 捲動到 "OSProfile" 底下的 "vaultCertificates":。 您應該會看到類似下面的畫面。
-
-
-![Json_Pub_Setting4][Json_Pub_Setting4]
-
-請將 secCertificateUrlValue 新增到其中。 請使用下列程式碼片段：
-
-```Json
-                  {
-                    "certificateStore": "[parameters('certificateStoreValue')]",
-                    "certificateUrl": "[parameters('secCertificateUrlValue')]"
-                  }
-
-```
-產生的 Json 現在應該看起來像這樣。
-![Json_Pub_Setting5][Json_Pub_Setting5]
+    ![Json_Pub_Setting4][Json_Pub_Setting4]
+    
+    請將 secCertificateUrlValue 新增到其中。 請使用下列程式碼片段：
+    
+    ```json
+                      {
+                        "certificateStore": "[parameters('certificateStoreValue')]",
+                        "certificateUrl": "[parameters('secCertificateUrlValue')]"
+                      }
+    
+    ```
+    產生的 Json 現在應該看起來像這樣。
+    ![Json_Pub_Setting5][Json_Pub_Setting5]
 
 
 > [!NOTE]
-> 請確定您已針對範本中的所有 Nodetypes/Microsoft.Compute/virtualMachineScaleSets 資源定義重複步驟 4 和 5。 如果您遺漏其中一個，憑證就不會安裝在該 VMSS 上，而您的叢集中將會有無法預測的結果，包括叢集停止運作 (如果您最終沒有任何可供叢集用於安全性的有效憑證)。 因此，在進一步進行之前，請先仔細檢查。
+> 請確定您已針對範本中的所有 Nodetypes/Microsoft.Compute/virtualMachineScaleSets 資源定義重複步驟 4 和 5。 如果您遺漏其中一個，憑證就不會安裝在該虛擬機器擴展集上，而您的叢集中將會有無法預測的結果，包括叢集停止運作 (如果您最終沒有任何可供叢集用於安全性的有效憑證)。 因此，在進一步進行之前，請先仔細檢查。
 > 
 > 
-
 
 ### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>編輯您的範本檔案，以反映先前加入的新參數
 如果您是依循來自 [git 儲存機制](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample)的範例進行操作，則可以開始在範例 5-VM-1-NodeTypes-Secure.paramters_Step2.JSON 中進行變更 
@@ -273,7 +263,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="deploying-application-certificates-to-the-cluster"></a>將應用程式憑證部署到叢集。
 
-您可以使用與上述步驟 5 中所述的相同步驟，將憑證從 Key Vault 部署到節點。 您只需定義和使用不同的參數即可。
+您可以使用與上述步驟 5 中所述的相同步驟，將憑證從金鑰保存庫部署到節點。 您只需定義和使用不同的參數即可。
 
 
 ## <a name="adding-or-removing-client-certificates"></a>新增或移除用戶端憑證
@@ -287,17 +277,15 @@ Get-ServiceFabricClusterHealth
 
 ### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>透過入口網站新增用戶端憑證 - 系統管理員或唯讀
 
-1. 瀏覽至 [安全性] 刀鋒視窗，然後選取 [安全性] 刀鋒視窗頂端的 [+ 驗證] 按鈕。
-2. 在 [新增驗證] 刀鋒視窗上，選擇 [驗證類型] - [唯讀用戶端] 或 [系統管理員用戶端]
+1. 瀏覽至 [安全性] 區段，然後選取 [安全性] 區段頂端的 [+ 驗證] 按鈕。
+2. 在 [新增驗證] 區段上，選擇 [驗證類型] - [唯讀用戶端] 或 [系統管理員用戶端]
 3. 現在選擇 [驗證方法]。 這會對 Service Fabric 指出其是否應該使用主體名稱或指紋來查詢此憑證。 一般而言，使用主體名稱授權方法不是很好的安全性做法。 
 
 ![新增用戶端憑證][Add_Client_Cert]
 
 ### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>使用入口網站來刪除用戶端憑證 - 系統管理員或唯讀
 
-若要移除次要憑證，使其不用於叢集安全性，請瀏覽至 [安全性] 刀鋒視窗，然後從特定憑證上的操作功能表中選取 [刪除] 選項。
-
-
+若要移除次要憑證，使其不用於叢集安全性，請瀏覽至 [安全性] 區段，然後從特定憑證上的操作功能表中選取 [刪除] 選項。
 
 ## <a name="next-steps"></a>後續步驟
 如需有關叢集管理的詳細資訊，請參閱下列文件︰

@@ -9,11 +9,11 @@ ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 792e754b84f1dc03a32780ed94d274c833be68f5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>使用 SQL Server 資料庫在邊緣儲存資料
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 03/08/2018
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "localhost:5000/filterfunction:latest",
+              "image": "<docker registry address>/filterfunction:latest",
               "createOptions": "{}"
             }
           },
@@ -94,7 +94,12 @@ ms.lasthandoff: 03/08/2018
         }
    ```
 
-3. 根據您所執行的作業系統，使用下列程式碼更新 SQL 模組的設定： 
+3. 使用在已完成的＜[將 Azure Function 部署為 IoT Edge 模組 - 預覽](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)＞教學課程中填入的位址取代 `<docker registry address>`
+
+   >[!NOTE]
+   >容器登錄位址與您從登錄複製的登入伺服器相同。 其格式應該是 `<your container registry name>.azurecr.io`
+
+4. 根據您所執行的作業系統，使用下列程式碼更新 SQL 模組的設定： 
 
    * Windows:
 
@@ -110,11 +115,11 @@ ms.lasthandoff: 03/08/2018
       "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-4. 儲存檔案。 
-5. 在 VS Code 命令選擇區中，選取 [Edge: 建立 Edge 裝置的部署]。 
-6. 選取 IoT Edge 裝置識別碼。
-7. 選取您所更新的 `deployment.json` 檔案。 在輸出視窗中，您可以看到部署的對應輸出。 
-8. 若要啟動 Edge 執行階段，請在命令選擇區中選取 [Edge: 啟動 Edge]。
+5. 儲存檔案。 
+6. 在 VS Code 命令選擇區中，選取 [Edge: 建立 Edge 裝置的部署]。 
+7. 選取 IoT Edge 裝置識別碼。
+8. 選取您所更新的 `deployment.json` 檔案。 在輸出視窗中，您可以看到部署的對應輸出。 
+9. 若要啟動 Edge 執行階段，請在命令選擇區中選取 [Edge: 啟動 Edge]。
 
 >[!TIP]
 >每當您在生產環境中建立了 SQL Server 容器時，就應該[變更預設的系統管理員密碼](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password)。

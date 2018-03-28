@@ -1,11 +1,11 @@
 ---
-title: "在您的 Logic Apps 中新增 OneDrive 連接器 | Microsoft Docs"
-description: "搭配 REST API 參數來使用 OneDrive 連接器的概觀"
+title: 在您的 Logic Apps 中新增 OneDrive 連接器 | Microsoft Docs
+description: 搭配 REST API 參數來使用 OneDrive 連接器的概觀
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 47a8582a-1b1a-4fc3-beb5-97c60c4306fe
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: e988ae22a3d6e47591c37ad0b4c9f781d523bcc8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 15b88baf21ead5a6b9506c47ca9930d5088b8787
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>開始使用 OneDrive 連接器
 連線到 OneDrive 來管理您的檔案，包括上傳檔案、取得、刪除檔案等等。 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/19/2018
 * 使用觸發程序，在 OneDrive 內有檔案建立或更新時，啟動工作流程。
 * 使用動作來建立檔案、刪除檔案等等。 例如，當收到有附件的新 Office 365 電子郵件時 (觸發程序)，在 OneDrive 建立新的檔案 (動作)。
 
-本主題說明如何在邏輯應用程式中使用 OneDrive 連接器，並且也列出觸發程序和動作。
+本文說明如何在邏輯應用程式中使用 OneDrive 連接器，並且也列出觸發程序和動作。
 
 若要深入瞭解 Logic Apps，請參閱[什麼是邏輯應用程式](../logic-apps/logic-apps-overview.md)以及[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 01/19/2018
    
     ![](./media/connectors-create-api-onedrive/sample-folder.png)
    
-    如果系統提示您登入，則輸入登入詳細資料來建立連線。 本主題中的[建立連線](connectors-create-api-onedrive.md#create-the-connection)一節會列出步驟。 
+    如果系統提示您登入，則輸入登入詳細資料來建立連線。 本文中的[建立連線](connectors-create-api-onedrive.md#create-the-connection)一節會列出步驟。 
    
    > [!NOTE]
    > 在此範例中，當所選資料夾中的檔案更新時，邏輯應用程式便會執行。 若要查看此觸發程序的結果，請新增另一個動作，以傳送電子郵件給您。 例如，新增 Office 365 Outlook「傳送電子郵件」動作，以在檔案更新時傳送電子郵件給您。 
@@ -76,7 +76,7 @@ ms.lasthandoff: 01/19/2018
    
     ![](./media/connectors-create-api-onedrive/sample-action.png)
    
-    如果系統提示您輸入連線資訊，請輸入詳細資料以建立連線。 本主題的[建立連線](connectors-create-api-onedrive.md#create-the-connection)一節會說明這些屬性。 
+    如果系統提示您輸入連線資訊，請輸入詳細資料以建立連線。 本文的[建立連線](connectors-create-api-onedrive.md#create-the-connection)一節會說明這些屬性。 
    
    > [!NOTE]
    > 在此範例中，我們會在 OneDrive 資料夾建立新檔案。 您可以使用另一個觸發程序的輸出以建立 OneDrive 檔案。 例如，新增 Office 365 Outlook「新的電子郵件送達時」觸發程序。 然後新增 OneDrive「建立檔案」動作，使用 ForEach 內的 [附件] 和 [內容類型] 欄位在 OneDrive 中建立新檔案。 

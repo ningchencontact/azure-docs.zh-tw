@@ -2,24 +2,18 @@
 title: 建立和管理 Azure SQL Server 與 SQL Database | Microsoft Docs
 description: 深入了解 Azure SQL Database 伺服器和資料庫的概念，以及關於建立和管理伺服器和資料庫。
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-ms.assetid: ''
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 0e2dabc5cc0b816f2623fce5f8fb09a7004039c7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>建立和管理 Azure SQL Database 伺服器與資料庫
 
@@ -27,7 +21,7 @@ SQL Database 提供三種類型的資料庫：
 
 - 建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內的單一資料庫，此資源群組具有一組已定義的[計算和儲存體資源來用於不同工作負載](sql-database-service-tiers.md)。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。
 - 建立成 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內[資料庫集區](sql-database-elastic-pool.md)成員的資料庫，此資源群組具有一組已定義的[計算和儲存體資源來用於不同工作負載](sql-database-service-tiers.md)，這些工作負載為集區內的所有資料庫所共用。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。
-- 建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內的 [SQL Server 執行個體](sql-database-managed-instance.md)，此資源群組具有一組可供該伺服器執行個體上所有資料庫使用的已定義計算和儲存體資源。 受控執行個體同時包含系統和使用者資料庫。 「受控執行個體」的設計目的是要讓資料庫可原封不動轉移至完全受控的 PaaS，而不必重新設計應用程式。 「受控執行個體」針對內部部署 SQL Server 程式設計模型提供高相容性，並支援大多數 SQL Server 功能及隨附的工具與服務。  
+- 建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內的 [SQL Server 執行個體](sql-database-managed-instance.md) (受控執行個體)，此資源群組具有一組已定義計算和儲存體資源，可供該伺服器執行個體上所有的資料庫使用。 受控執行個體同時包含系統和使用者資料庫。 「受控執行個體」的設計目的是要讓資料庫可原封不動轉移至完全受控的 PaaS，而不必重新設計應用程式。 「受控執行個體」針對內部部署 SQL Server 程式設計模型提供高相容性，並支援大多數 SQL Server 功能及隨附的工具與服務。  
 
 Microsoft Azure SQL Database 支援表格式資料流 (TDS) 通訊協定用戶端 7.3 版或更新版本，且只允許使用加密的 TCP/IP 連線。
 
@@ -146,7 +140,7 @@ Azure 資料庫邏輯伺服器：
 |[az group create](/cli/azure/group#az_group_create)|建立資源群組|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|建立伺服器|
 |[az sql server list](/cli/azure/sql/server#az_sql_server_list)|列出伺服器|
-|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|傳回伺服器使用方式|
+|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|傳回伺服器使用方式|
 |[az sql server show](/cli/azure/sql/server#az_sql_server_show)|取得伺服器|
 |[az sql server update](/cli/azure/sql/server#az_sql_server_update)|更新伺服器|
 |[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|刪除伺服器|
@@ -202,7 +196,6 @@ Azure 資料庫邏輯伺服器：
 |[伺服器 - 清單](/rest/api/sql/servers/list)|傳回伺服器的清單。|
 |[伺服器 - 依資源群組列示](/rest/api/sql/servers/listbyresourcegroup)|傳回資源群組中的伺服器清單。|
 |[伺服器 - 更新](/rest/api/sql/servers/update)|更新現有伺服器。|
-|[伺服器 - SQL](/rest/api/sql/servers%20-%20sql)|判斷是否可以建立具有特定名稱的資源。|
 |[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)|建立新的資料庫或更新現有資料庫。|
 |[資料庫 - 取得](/rest/api/sql/databases/get)|取得資料庫。|
 |[資料庫 - 依彈性集區取得](/rest/api/sql/databases/getbyelasticpool)|取得彈性集區內的資料庫。|

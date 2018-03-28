@@ -1,9 +1,9 @@
 ---
-title: "使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight | Microsoft Docs"
-description: "了解如何安裝和使用 Data Lake Tools for Visual Studio 來連線到 Azure HDInsight 中的 Hadoop 叢集，然後執行 Hive 查詢。"
-keywords: "hadoop 工具,hive 查詢,visual studio,visual studio hadoop"
+title: 使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight | Microsoft Docs
+description: 了解如何安裝和使用 Data Lake Tools for Visual Studio 來連線到 Azure HDInsight 中的 Hadoop 叢集，然後執行 Hive 查詢。
+keywords: hadoop 工具,hive 查詢,visual studio,visual studio hadoop
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -61,7 +61,7 @@ ms.lasthandoff: 03/12/2018
 
 1. 開啟 Visual Studio。
 2. 在 [工具] 功能表上，選取 [擴充功能和更新]。
-3. 展開 [更新]，然後選取 [Azure Data Lake and Stream Analytics Tools] (若已安裝)。
+3. 展開 [更新]，然後選取 [Azure Data Lake and Stream Analytics Tools] \(若已安裝)。
 
 > [!NOTE]
 >

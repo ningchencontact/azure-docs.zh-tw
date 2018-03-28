@@ -1,13 +1,13 @@
 ---
-title: "適用於 Azure Functions 的 Mobile Apps 繫結"
-description: "了解如何在 Azure Functions 中使用 Azure Mobile Apps 繫結。"
+title: 適用於 Azure Functions 的 Mobile Apps 繫結
+description: 了解如何在 Azure Functions 中使用 Azure Mobile Apps 繫結。
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"
+editor: ''
+tags: ''
+keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c5fb7bdd88691c9aeab6b348507901c34502b28b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Mobile Apps 繫結 
 
@@ -28,6 +28,12 @@ ms.lasthandoff: 01/02/2018
 Mobile Apps 繫結可讓您讀取和更新行動裝置應用程式中的資料表。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>封裝
+
+[Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 套件中提供 Mobile Apps 繫結。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) GitHub 存放庫中。
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="input"></a>輸入
 
@@ -128,7 +134,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>輸入 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，請使用 [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) 屬性。
 
 如需您可以設定之屬性內容的相關資訊，請參閱[下列組態區段](#input---configuration)。
 
@@ -274,7 +280,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>輸出 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，請使用 [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) 屬性。
 
 如需可設定的屬性內容相關資訊，請參閱[輸出 - 組態](#output---configuration)。 以下是方法簽章中的 `MobileTable` 屬性範例：
 

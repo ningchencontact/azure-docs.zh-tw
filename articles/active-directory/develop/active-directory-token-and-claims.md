@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure AD 支援的不同權杖和宣告類型 | Microsoft Docs"
-description: "可供了解及評估 Azure Active Directory (AAD) 所簽發之 SAML 2.0 和 JSON Web Token (JWT) 權杖中的宣告的指南。"
+title: 了解 Azure AD 支援的不同權杖和宣告類型 | Microsoft Docs
+description: 可供了解及評估 Azure Active Directory (AAD) 所簽發之 SAML 2.0 和 JSON Web Token (JWT) 權杖中的宣告的指南。
 documentationcenter: na
-author: dstrockis
+author: hpsin
 services: active-directory
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3104b47d7ff8585142674b0ee545012f1e291ddd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ca8a34c0a29ffad21e6384feac055d7a292311a5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 權杖參考
 Azure Active Directory (Azure AD) 會在處理每個驗證流程時發出數種安全性權杖。 本文件說明每種權杖的格式、安全性特性和內容。
@@ -90,13 +90,13 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 重新整理權杖屬於多資源權杖。  也就是說，在一個資源的權杖要求期間收到的重新整理權杖可以兌換完全不同資源的存取權杖。 若要這樣做，請在目標資源的要求中設定 `resource` 參數。
 
-重新整理權杖對您的應用程式完全不透明。 它們屬於長效權杖，但不得將您的應用程式撰寫成預期重新整理權杖將持續任何一段時間。  重新整理權杖可能會因為各種原因而隨時失效。  讓您的應用程式知道重新整理權杖是否有效的唯一方式，就是對 Azure AD 權杖端點提出權杖要求以嘗試兌換。
+重新整理權杖對您的應用程式完全不透明。 它們屬於長效權杖，但不得將您的應用程式撰寫成預期重新整理權杖將持續任何一段時間。  重新整理權杖可能會因為各種原因而隨時失效 - 如要了解這些原因，請參閱[權杖撤銷](#token-revocation)。  讓您的應用程式知道重新整理權杖是否有效的唯一方式，就是對 Azure AD 權杖端點提出權杖要求以嘗試兌換。
 
 當您兌換重新整理權杖做為新的存取權杖時，您會在權杖回應中收到新的重新整理權杖。  您應儲存新簽發的重新整理權杖，並取代您使用於要求中的重新整理權杖。  這將保證您的重新整理權杖盡可能長期保持有效。
 
 ## <a name="validating-tokens"></a>驗證權杖
 
-若要驗證 id_token 或 access_token，您的應用程式應該驗證權杖的簽章和宣告。 為了驗證存取權杖，您的應用程式也應該驗證簽發者、受眾及簽署權杖。 這些都需要對 OpenID 探索文件中的值進行驗證。 例如，租用戶獨立版的文件，位於 [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration)。 Azure AD 中介軟體已內建驗證存取權杖的功能，您可以瀏覽我們的[範例](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples)，以找到您所選擇語言的範例。 如需如何明確地驗證 JWT 權杖的詳細資訊，請參閱[手動 JWT 驗證範例 (manual JWT validation sample)](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)。  
+若要驗證 id_token 或 access_token，您的應用程式應該驗證權杖的簽章和宣告。 為了驗證存取權杖，您的應用程式也應該驗證簽發者、受眾及簽署權杖。 這些都需要對 OpenID 探索文件中的值進行驗證。 例如，租用戶獨立版的文件位於 [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration)。 Azure AD 中介軟體已內建驗證存取權杖的功能，您可以瀏覽我們的[範例](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples)，以找到您所選擇語言的範例。 如需如何明確地驗證 JWT 權杖的詳細資訊，請參閱[手動 JWT 驗證範例 (manual JWT validation sample)](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)。  
 
 我們提供的程式庫和程式碼範例會示範如何輕鬆地處理權杖驗證 - 想要了解基礎程序的使用者可以參閱以下資訊。  另外還有多個協力廠商開放原始碼程式庫可用於 JWT 驗證 - 幾乎每個平台和語言都有至少一個選項。 如需有關 Azure AD 驗證程式庫和程式碼範例的詳細資訊，請參閱 [Azure AD 驗證程式庫](active-directory-authentication-libraries.md)。
 
@@ -146,6 +146,24 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 * 不勝枚舉...
 
 如需您的應用程式應對 ID 權杖執行的完整宣告驗證清單，請參閱 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)。 先前的 [id_token 一節](#id-tokens)包含這些宣告的預期值的詳細資料。
+
+## <a name="token-revocation"></a>權杖撤銷
+
+重新整理權杖可能會因為各種原因而隨時失效或撤銷。  這主要可分成兩大類：逾時和撤銷。 
+* 權杖逾時
+  * MaxInactiveTime：如果未在 MaxInactiveTime 所指定的時間內使用重新整理權杖，重新整理權杖將不再有效。 
+  * MaxSessionAge：如果 MaxAgeSessionMultiFactor 或 MaxAgeSessionSingleFactor 設為其預設值 (直到撤銷為止) 以外的值，則在 MaxAgeSession* 中設定的時間經過之後，將必須重新驗證。  
+  * 範例：
+    * 租用戶的 MaxInactiveTime 為 5 天，而使用者去渡假一週，因此 AAD 已有 7 天未看見來自該使用者的新權杖要求。  下次使用者要求新的權杖時，將會發現其重新整理權杖已被撤銷，且必須重新輸入其認證。 
+    * 某個敏感的應用程式將 MaxAgeSessionSingleFactor 設為 1 天。  如果使用者在星期一登入，到星期二 (經過 25 小時之後)，他們將必須重新驗證。  
+* 撤銷
+  * 自發性密碼變更：如果使用者變更其密碼，他們可能必須在某些應用程式重新驗證，端視取得權杖的方式而定。  請參閱下列附註以了解例外狀況。 
+  * 自發性密碼變更：如果系統管理員強制使用者變更其密碼或加以重設，使用者的權杖若是使用其密碼取得的，則會失效。  請參閱下列附註以了解例外狀況。 
+  * 安全性漏洞：發生安全性漏洞 (例如，密碼的內部部署儲存區遭到入侵) 時，管理員可以撤銷目前已發出的所有重新整理權杖。  這會強制所有使用者進行重新驗證。 
+
+注意： 
+
+如果是使用驗證的非密碼方法 (Windows Hello、驗證器應用程式、臉部或指紋之類的生物識別技術) 取得權杖，則變更使用者的密碼將不會強制使用者進行重新驗證 (但會強制其驗證器應用程式重新驗證)。  這是因為他們選擇的驗證輸入 (例如臉部) 並未變更，因此可以再次使用進行重新驗證。
 
 ## <a name="sample-tokens"></a>權杖範例
 

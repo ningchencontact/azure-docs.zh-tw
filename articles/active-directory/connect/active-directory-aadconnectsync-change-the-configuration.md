@@ -1,24 +1,24 @@
 ---
-title: "Azure AD Connect 同步：在 Azure AD Connect 同步中進行組態變更 | Microsoft Docs"
-description: "逐步解說如何對 Azure AD Connect 同步處理中的組態進行變更。"
+title: Azure AD Connect 同步：在 Azure AD Connect 同步中進行組態變更 | Microsoft Docs
+description: 逐步解說如何對 Azure AD Connect 同步處理中的組態進行變更。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 03/16/2018
 ms.author: billmath
-ms.openlocfilehash: e97d3e3e35ee87864c5d38e75e08e62088e25fdb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 06c715cf5dbf039334adfde8b3111d9bfcb86568
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步處理：變更預設組態
 本文的目的在於逐步解說如何對 Azure Active Directory (Azure AD) Connect 同步處理中的預設組態進行變更。其中提供一些常見案例的步驟。 具備此知識，您應該能夠根據自己的商務規則對自己的組態進行簡單的變更。
@@ -245,7 +245,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
  1. 移至 Synchronization Service Manager 中的 [連接器] 索引標籤。
  2. 以滑鼠右鍵按一下 [Azure AD 連接器]，然後選取 [屬性]。
  3. 在彈出的對話方塊中，移至 [選取屬性] 索引標籤。
- 4. 確定您已在屬性清單中勾選 PreferredDataLocation 屬性。
+ 4. 確定您已在屬性清單中勾選 UserType 屬性。
  5. 按一下 [確定] 來進行儲存。
 
 ![在 Azure AD 連接器結構描述中新增來源屬性](./media/active-directory-aadconnectsync-change-the-configuration/usertype2.png)
@@ -293,7 +293,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 ![建立輸入同步處理規則](./media/active-directory-aadconnectsync-change-the-configuration/usertype3.png)
 
 ### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>步驟 5：建立輸出同步處理規則，以將屬性值傳輸到 Azure AD
-輸出同步處理規則允許屬性值從 metaverse 傳輸到 Azure AD 中的 PreferredDataLocation 屬性︰
+輸出同步處理規則允許屬性值從 metaverse 傳輸到 Azure AD 中的 UserType 屬性︰
 
 1. 移至 [同步處理規則編輯器]。
 2. 將搜尋篩選條件的 [方向] 設定為 [輸出]。

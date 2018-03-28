@@ -1,8 +1,8 @@
 ---
-title: "建立及上傳 Red Hat Enterprise Linux VHD 以在 Azure 中使用 | Microsoft Docs"
-description: "了解如何建立及上傳包含 Red Hat Linux 作業系統的 Azure 虛擬硬碟 (VHD)。"
+title: 建立及上傳 Red Hat Enterprise Linux VHD 以在 Azure 中使用 | Microsoft Docs
+description: 了解如何建立及上傳包含 Red Hat Linux 作業系統的 Azure 虛擬硬碟 (VHD)。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
 manager: timlt
 editor: tysonn
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 9769b3968f841334aebdc4a371ecd59e64d5ebc2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 2c48f95306ddce5d51100e869cc4ac80a4b55c20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>準備適用於 Azure 的 Red Hat 型虛擬機器
 在本文中，您將學習如何準備 Red Hat Enterprise Linux (RHEL) 虛擬機器以在 Azure 中使用。 本文涵蓋的 RHEL 版本為 6.7 和 7.1。 本文章所述之準備作業使用 Hyper-V、核心為基礎之虛擬機器 (KVM) 及 VMware 等 Hypervisor。 如需參加 Red Hat 雲端存取方案之資格需求的詳細資訊，請參閱 [Red Hat 雲端存取網站](http://www.redhat.com/en/technologies/cloud-computing/cloud-access)與[在 Azure 上執行 RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure)。
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/22/2018
 * 需要掛接通用磁碟格式 (UDF) 檔案系統的核心支援。 在 Azure 上第一次開機時，連結至客體的 UDF 格式媒體會將佈建組態傳遞至 Linux 虛擬機器。 Azure Linux 代理程式必須能夠掛接 UDF 檔案系統，才能讀取其組態並佈建虛擬機器。
 * 2.6.37 以前的 Linux 核心版本在具有較大虛擬機器大小的 Hyper-V 上不支援非統一記憶體存取 (NUMA)。 這個問題主要會影響使用上游 Red Hat 2.6.32 kernel 的較舊散發套件，RHEL 6.6 (kernel-2.6.32-504) 已加以修正。 執行 2.6.37 以前自訂核心或 2.6.32-504 以前 RHEL 核心的系統必須在 grub.conf 的核心命令列上設定 `numa=off` 開機參數。 如需詳細資訊，請參閱 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
 * 請勿在作業系統磁碟上設定交換磁碟分割。 您可以設定 Linux 代理程式在暫存資源磁碟上建立交換檔。  在下列步驟中可以找到與此有關的詳細資訊。
-* 所有 VHD 的大小都必須是 1 MB 的倍數。
+* Azure 上的所有 VHD 必須具有與 1 MB 對應的虛擬大小。 從未經處理的磁碟轉換成 VHD 時，您必須確定未經處理的磁碟大小在轉換前是 1 MB 的倍數。 如需更多詳細資料，請參閱以下步驟。 另請參閱 [Linux 安裝注意事項](create-upload-generic.md#general-linux-installation-notes)以取得詳細資訊。
 
 ### <a name="prepare-a-rhel-6-virtual-machine-from-hyper-v-manager"></a>從 Hyper-V 管理員準備 RHEL 6 虛擬機器
 
@@ -344,7 +344,7 @@ ms.lasthandoff: 01/22/2018
 19. 將 qcow2 映像轉換成 VHD 格式。
 
 > [!NOTE]
-> qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考︰https://bugs.launchpad.net/qemu/+bug/1490611。
+> qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考：https://bugs.launchpad.net/qemu/+bug/1490611。
 >
 
 
@@ -493,7 +493,7 @@ ms.lasthandoff: 01/22/2018
 19. 將 qcow2 映像轉換成 VHD 格式。
 
 > [!NOTE]
-> qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考︰https://bugs.launchpad.net/qemu/+bug/1490611。
+> qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考：https://bugs.launchpad.net/qemu/+bug/1490611。
 >
 
 
@@ -620,7 +620,7 @@ ms.lasthandoff: 01/22/2018
 15. 關閉虛擬機器，然後將 VMDK 檔案轉換成 .vhd 檔案。
 
 > [!NOTE]
-> qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考︰https://bugs.launchpad.net/qemu/+bug/1490611。
+> qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考：https://bugs.launchpad.net/qemu/+bug/1490611。
 >
 
 
@@ -734,7 +734,7 @@ ms.lasthandoff: 01/22/2018
 14. 關閉虛擬機器，然後將 VMDK 檔案轉換成 VHD 格式。
 
 > [!NOTE]
-> qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考︰https://bugs.launchpad.net/qemu/+bug/1490611。
+> qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考：https://bugs.launchpad.net/qemu/+bug/1490611。
 >
 
 

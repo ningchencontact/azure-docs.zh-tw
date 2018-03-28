@@ -13,45 +13,57 @@ ms.devlang: azurecli
 ms.topic: ''
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: ac0c1033546758a77b43298a5fa8cba5f5204650
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0962a917186277a34abbda17b8fea87bcf4ad1e9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>使用 Azure 入口網站以虛擬網路對等互連連線虛擬網路
 
-您可以使用虛擬網路對等互連，讓虛擬網路彼此連線。 一旦虛擬網路對等互連，兩個虛擬網路中的資源就可以彼此通訊，且通訊時會有相同的延遲和頻寬，彷彿這些資源是位於相同的虛擬網路中。 本文涵蓋建立和對等互連兩個虛擬網路。 您會了解如何：
+您可以使用虛擬網路對等互連，讓虛擬網路彼此連線。 一旦虛擬網路對等互連，兩個虛擬網路中的資源就可以彼此通訊，且通訊時會有相同的延遲和頻寬，彷彿這些資源是位於相同的虛擬網路中。 在本文中，您將了解：
 
 > [!div class="checklist"]
 > * 建立兩個虛擬網路
-> * 建立虛擬網路之間的對等互連
-> * 測試對等互連
+> * 使用虛擬網路對等互連連線兩個虛擬網路
+> * 將虛擬機器 (VM) 部署到每個虛擬網路
+> * 虛擬機器之間的通訊
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="log-in-to-azure"></a>登入 Azure 
 
-登入 Azure 入口網站，網址是 http://portal.azure.com/。
+在 https://portal.azure.com 上登入 Azure 入口網站。
 
 ## <a name="create-virtual-networks"></a>建立虛擬網路
 
 1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
 2. 選取 [網絡]，然後選取 [虛擬網路]。
-3. 如下圖所示，針對 [名稱] 輸入 myVirtualNetwork1、針對 [位址空間] 輸入 10.0.0.0/16、針對 [資源群組] 輸入 **myResourceGroup**、針對子網路 [名稱] 輸入 Subnet1、針對子網路 [位址範圍] 輸入 10.0.0.0/24、選取 [位置] 和您的 [訂用帳戶]、接受其餘的預設值，然後選取 [建立]：
+3. 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]：
 
-    ![建立虛擬網路](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
+    |設定|值|
+    |---|---|
+    |Name|myVirtualNetwork1|
+    |位址空間|10.0.0.0/16|
+    |訂用帳戶| 選取您的訂用帳戶。|
+    |資源群組| 選取 [新建]，然後輸入 *myResourceGroup*。|
+    |位置| 選取 [美國東部]。|
+    |子網路名稱|Subnet1|
+    |子網路位址範圍|10.0.0.0/24|
+
+      ![建立虛擬網路](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
 
 4. 以下列變更再次完成步驟 1-3：
-    - **名稱**：myVirtualNetwork2
-    - **資源群組**：選取 [使用現有的] 然後選取 [myResourceGroup]。
-    - **位址空間**：*10.1.0.0/16*
-    - **子網路位址範圍**：10.1.0.0/24
 
-    myVirtualNetwork2 虛擬網路的位址前置詞不會與 myVirtualNetwork1 虛擬網路的位址首碼重疊。 您無法對等互連具有重疊位址空間的虛擬網路。
+    |設定|值|
+    |---|---|
+    |Name|myVirtualNetwork2|
+    |位址空間|10.1.0.0/16|
+    |資源群組| 選取 [使用現有的]，然後選取 [myResourceGroup]。|
+    |子網路位址範圍|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>對等互連虛擬網路
 
@@ -60,7 +72,13 @@ ms.lasthandoff: 03/08/2018
 
     ![建立對等互連](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
-3. 輸入或選取下圖中顯示的資訊，然後選取 [確定]。 若要選取 myVirtualNetwork2 虛擬網路，請選取 [虛擬網路]，然後選取 [myVirtualNetwork2]。
+3. 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [確定]。
+
+    |設定|值|
+    |---|---|
+    |Name|myVirtualNetwork1-myVirtualNetwork2|
+    |訂用帳戶| 選取您的訂用帳戶。|
+    |虛擬網路|myVirtualNetwork2 - 若要選取 myVirtualNetwork2 虛擬網路，請選取 [虛擬網路]，然後選取 [myVirtualNetwork2]。|
 
     ![對等互連設定](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
@@ -70,50 +88,56 @@ ms.lasthandoff: 03/08/2018
 
     如果您沒有看到狀態，請重新整理瀏覽器。
 
-4. 搜尋 myVirtualNetwork2 虛擬網路。 當它在搜尋結果中傳回時，加以選取。
-5. 以下列變更再次完成步驟 1-3，然後選取 [確定]：
-    - **名稱**：myVirtualNetwork2-myVirtualNetwork1
-    - **虛擬網路**：myVirtualNetwork1
+4. 在 Azure 入口網站頂端的 [搜尋] 方塊中，開始輸入 MyVirtualNetwork2。 當搜尋結果中出現 **myVirtualNetwork2** 時加以選取。
+5. 以下列變更再次完成步驟 2-3，然後選取 [確定]：
+
+    |設定|值|
+    |---|---|
+    |Name|myVirtualNetwork2-myVirtualNetwork1|
+    |虛擬網路|myVirtualNetwork1|
 
     「對等互連狀態」是「已連線」。 Azure 也會將 myVirtualNetwork2-myVirtualNetwork1 對等互連的對等互連狀態從「已啟動」變更為「已連線」。 在兩個虛擬網路的對等互連狀態變為「已連線」之後，您才能成功建立虛擬網路對等互連。 
 
-對等互連介於兩個虛擬網路之間，但不可轉移。 所以舉例來說，如果您也想要將 myVirtualNetwork2 對等互連至 myVirtualNetwork3，您必須在虛擬網路 myVirtualNetwork2 與 myVirtualNetwork3 之間建立額外的對等互連。 雖然 myVirtualNetwork1 已與 myVirtualNetwork2 對等互連，但是如果 myVirtualNetwork1 也與 myVirtualNetwork3 對等互連，則 myVirtualNetwork1 內的資源只能存取 myVirtualNetwork3 中的資源。 
+## <a name="create-virtual-machines"></a>建立虛擬機器
 
-在對等互連生產環境虛擬網路之前，建議您徹底熟悉[對等互連概觀](virtual-network-peering-overview.md)、[管理對等互連](virtual-network-manage-peering.md)以及[虛擬網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 雖然本文說明相同訂用帳戶和位置中兩個虛擬網路之間的對等互連，您也可以對等互連[不同區域](#register)和[不同 Azure 訂用帳戶](create-peering-different-subscriptions.md#portal)中的虛擬網路。 您也可以使用對等互連來建立[中樞和輪輻網路設計](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)。
+在每個虛擬網路中建立虛擬機器，以便您可以在稍後的步驟中於彼此之間通訊。
 
-## <a name="test-peering"></a>測試對等互連
-
-若要測試不同虛擬網路中虛擬機器之間透過對等互連的網路通訊，請將虛擬機器部署到每個子網路，然後在虛擬機器之間進行通訊。 
-
-### <a name="create-virtual-machines"></a>建立虛擬機器
-
-在每個虛擬網路中建立虛擬機器，以便您可以在稍後步驟中驗證其間的通訊。
-
-### <a name="create-virtual-machines"></a>建立虛擬機器
+### <a name="create-the-first-vm"></a>建立第一個 VM
 
 1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
 2. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。 您可以選取不同的作業系統，但是其餘步驟假設您選取的是 **Windows Server 2016 Datacenter**。 
-3. 針對 [基本] 選取或輸入下列資訊，然後選取 [確定]︰
-    - **名稱**：myVm1
-    - **資源群組**：選取 [使用現有的] 然後選取 [myResourceGroup]。
-    - **位置**：選取 [美國東部]。
+3. 針對 [基本資料] 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]：
 
-    您輸入的 [使用者名稱] 和 [密碼] 會在稍後的步驟中使用到。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。 所選取的 [位置] 和 [訂用帳戶] 必須與虛擬網路所在的位置和訂用帳戶相同。 您不需要選取虛擬網路建立所在的相同資源群組，但是本文會選取相同的資源群組。
+    |設定|值|
+    |---|---|
+    |Name|myVm1|
+    |使用者名稱| 輸入您選擇的使用者名稱。|
+    |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
+    |資源群組| 選取 [使用現有的]，然後選取 [myResourceGroup]。|
+    |位置| 選取 [美國東部]。|
 4. 在 [選擇大小] 底下選取虛擬機器大小。
-5. 針對 [設定] 選取或輸入下列資訊，然後選取 [確定]︰
-    - **虛擬網路**：確定已選取 [myVirtualNetwork1]。 若未選取，請選取 [虛擬網路]，然後在 [選擇虛擬網路] 底下選取 [myVirtualNetwork1]。
-    - **子網路**：確定已選取 [Subnet1]。 若未選取，請選取 [子網路]，然後在 [選擇子網路] 底下選取 [Subnet1]，如下圖所示：
+5. 針對 [設定] 選取下列值，然後選取 [確定]：
+    |設定|值|
+    |---|---|
+    |虛擬網路| myVirtualNetwork1 - 若未選取，請選取 [虛擬網路]，然後在 [選擇虛擬網路] 底下選取 [myVirtualNetwork1]。|
+    |子網路| Subnet1 - 若未選取，請選取 [子網路]，然後在 [選擇子網路] 底下選取 [Subnet1]。|
     
-        ![虛擬機器設定](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
+    ![虛擬機器設定](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
  
-6. 在 [摘要] 中的 [建立] 底下，選取 [建立] 來開始虛擬機器部署。
-7. 再次完成步驟 1-6，但是針對虛擬機器的 [名稱] 輸入 myVm2，然後針對 [虛擬網路] 選取 [myVirtualNetwork2]。
+6. 在 [摘要] 的 [建立] 底下，選取 [建立] 來開始部署虛擬機器。
 
-Azure 會指派 10.0.0.4 作為 myVm1 虛擬機器的私人 IP 位址，並且將 10.1.0.4 指派給 myVm2 虛擬機器，因為它們分別是 myVirtualNetwork1 和 myVirtualNetwork2 虛擬機器的 Subnet1 中第一個可用的位址。
+### <a name="create-the-second-vm"></a>建立第二個 VM
 
-建立虛擬機器需要幾分鐘的時間。 請等到這兩個虛擬機器都已建立，再繼續進行其餘步驟。
+以下列變更再次完成步驟 1-6：
 
-### <a name="test-virtual-machine-communication"></a>測試虛擬機器通訊
+|設定|值|
+|---|---|
+|Name | myVm2|
+|虛擬網路 | myVirtualNetwork2|
+
+可能需要數分鐘才會建立虛擬機器。 請等到這兩個虛擬機器都已建立，再繼續進行其餘步驟。
+
+## <a name="communicate-between-vms"></a>虛擬機器之間的通訊
 
 1. 在入口網站頂端的 [搜尋] 方塊中，開始輸入 myVm1。 當 **myVm1** 出現在搜尋結果中時，選取它。
 2. 藉由選取 [連線] 來建立與 myVm1 虛擬機器的遠端桌面連線，如下圖所示：
@@ -123,13 +147,13 @@ Azure 會指派 10.0.0.4 作為 myVm1 虛擬機器的私人 IP 位址，並且�
 3. 若要連線至虛擬機器，請開啟所下載的 RDP 檔案。 如果出現提示，請選取 [連接]。
 4. 輸入您在建立虛擬機器時指定的使用者名稱和密碼 (您可能需要選取 [更多選擇]，然後選取 [使用不同的帳戶] 以指定您在建立虛擬機器時輸入的認證)，然後選取 [確定]。
 5. 您可能會在登入過程中收到憑證警告。 選取 [是] 以繼續進行連線。
-6. 稍後的步驟會使用 ping 從 myVmWeb 虛擬機器與 myVm2 虛擬機器通訊。 ping 會使用 ICMP，但 ICMP 依預設不得通過 Windows 防火牆。 從命令提示字元中輸入下列命令，讓 ICMP 通過 Windows 防火牆：
+6. 稍後的步驟會使用 ping 從 myVm1 虛擬機器與 myVm2 虛擬機器通訊。 Ping 會使用網際網路控制訊息通訊協定 (ICMP)，它在通過 Windows 防火牆時預設會遭到拒絕。 在 myVm1 虛擬機器上，讓網際網路控制訊息通訊協定 (ICMP) 通過 Windows 防火牆，您就可以在稍後的步驟中使用 PowerShell 從 myVm2 針對此虛擬機器進行 Ping 操作：
 
+    ```powershell
+    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
-    netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-    ```
-
-    雖然本文使用 Ping 進行測試，但不建議在生產環境部署中允許 ICMP 通過 Windows 防火牆。
+    
+    雖然本文使用 Ping 在虛擬機器之間進行通訊，但不建議在生產環境部署中允許 ICMP 通過 Windows 防火牆。
 
 7. 若要連線至 myVm2 虛擬機器，請在 myVm1 虛擬機器上從命令提示字元輸入下列命令：
 
@@ -143,8 +167,6 @@ Azure 會指派 10.0.0.4 作為 myVm1 虛擬機器的私人 IP 位址，並且�
     ping 10.0.0.4
     ```
     
-    您會收到四個回覆。 如果您依據虛擬機器的名稱 (myVm1) 而不是其 IP 位址來進行 ping，則 ping 會失敗，因為 myVm1 是未知的主機名稱。 Azure 的預設名稱解析可以在相同虛擬網路中的虛擬機器之間運作，但是無法在不同虛擬網路中的虛擬機器之間運作。 若要跨虛擬網路間解析名稱，您必須[部署自己的 DNS 伺服器](virtual-networks-name-resolution-for-vms-and-role-instances.md)或使用 [Azure DNS 私人網域](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-
 9. 同時中斷與 myVm1 和 myVm2 的 RDP 工作階段。
 
 ## <a name="clean-up-resources"></a>清除資源
@@ -161,7 +183,7 @@ Azure 會指派 10.0.0.4 作為 myVm1 虛擬機器的私人 IP 位址，並且�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解如何使用虛擬網路對等互連來連線兩個網路。
+在本文中，您已了解如何使用虛擬網路對等互連來連線相同 Azure 位置中的兩個網路。 您也可以對等互連[不同區域](#register)、[不同 Azure 訂用帳戶](create-peering-different-subscriptions.md#portal)中的虛擬網路，而且您可以使用對等互連建立[中樞和輪輻網路設計](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)。 在對等互連生產環境虛擬網路之前，建議您徹底熟悉[對等互連概觀](virtual-network-peering-overview.md)、[管理對等互連](virtual-network-manage-peering.md)以及[虛擬網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 
 
 繼續透過 VPN 將自己的電腦連線到虛擬網路，並且與虛擬網路中或已對等互連虛擬網路中的資源進行互動。
 

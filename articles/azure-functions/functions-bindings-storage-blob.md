@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions 的 Azure Blob 儲存體繫結"
-description: "瞭解如何在 Azure Functions 中使用「Azure Blob 儲存體」觸發程序和繫結。"
+title: Azure Functions 的 Azure Blob 儲存體繫結
+description: 瞭解如何在 Azure Functions 中使用「Azure Blob 儲存體」觸發程序和繫結。
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"
+editor: ''
+tags: ''
+keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 6ef2719a100ff65d69caa8d05ccfee23851adbcb
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
@@ -33,6 +33,12 @@ ms.lasthandoff: 03/02/2018
 
 > [!NOTE]
 > Blob 觸發程序不支援[僅限 Blob 的儲存體帳戶](../storage/common/storage-create-storage-account.md#blob-storage-accounts)。 Blob 儲存體觸發程序需要一般用途的儲存體帳戶。 對於輸入和輸出繫結，您可以使用僅限 Blob 的儲存體帳戶。
+
+## <a name="packages"></a>封裝
+
+[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 套件中提供 Blob 儲存體繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub 存放庫中。
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>觸發程序
 
@@ -152,7 +158,7 @@ module.exports = function(context) {
 
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用下列屬性以設定 Blob 觸發程序：
 
-* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs)，定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中
+* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs)
 
   該屬性的建構函式採用路徑字串，指示要監看的容器以及可選的 [Blob 名稱模式](#trigger---blob-name-patterns)。 以下是範例：
 
@@ -180,7 +186,7 @@ module.exports = function(context) {
 
   如需完整範例，請參閱[觸發程序 - C# 範例](#trigger---c-example)。
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)，定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   提供另一種方式來指定要使用的儲存體帳戶。 建構函式採用的是內含儲存體連接字串的應用程式設定名稱。 屬性可以套用在參數、方法或類別層級。 下列範例所示範的是類別層級與方法層級：
 
@@ -472,7 +478,7 @@ module.exports = function(context) {
 
 ## <a name="input---attributes"></a>輸入 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)。
 
 屬性的建構函式會採用 Blob 路徑和指示讀取或寫入的 `FileAccess` 參數，如下列範例所示：
 
@@ -684,7 +690,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>輸出 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)。
 
 屬性的建構函式會採用 Blob 路徑和指示讀取或寫入的 `FileAccess` 參數，如下列範例所示：
 

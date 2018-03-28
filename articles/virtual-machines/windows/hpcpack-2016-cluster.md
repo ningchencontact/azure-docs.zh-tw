@@ -1,11 +1,11 @@
 ---
-title: "Azure 中的 HPC Pack 2016 叢集 | Microsoft Docs"
-description: "了解如何在 Azure 中部署 HPC Pack 2016 叢集"
+title: Azure 中的 HPC Pack 2016 叢集 | Microsoft Docs
+description: 了解如何在 Azure 中部署 HPC Pack 2016 叢集
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3dde6a68-e4a6-4054-8b67-d6a90fdc5e3f
 ms.service: virtual-machines-windows
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 12/15/2016
+ms.date: 03/09/2018
 ms.author: danlep
-ms.openlocfilehash: 88d1f4e29f38ba1a6bef57c2da43bee205575eee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c26dd85d896445e19efb9906d953fd535fc1fb5c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>在 Azure 中部署 HPC Pack 2016 叢集
 
-遵循本文中的步驟，在 Azure 虛擬機器中部署 [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) 叢集。 HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 免費 HPC 解決方案，並支援各種 HPC 工作負載。
+遵循本文中的步驟，在 Azure 虛擬機器中部署 [Microsoft HPC Pack 2016 更新 1](https://technet.microsoft.com/library/cc514029) 叢集。 HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 免費 HPC 解決方案，並支援各種 HPC 工作負載。
 
-使用其中一種 [Azure Resource Manager 範本](https://github.com/MsHpcPack/HPCPack2016) 部署 HPC Pack 2016 叢集。 您可以選擇多種叢集拓撲，當中包含不同數目的叢集前端節點，與 Linux 或 Windows 運算節點。
+使用其中一種 [Azure Resource Manager 範本](https://github.com/MsHpcPack/HPCPack2016) 部署 HPC Pack 2016 叢集。 您可以選擇多種叢集拓撲，當中包含不同數目的叢集前端節點和計算節點類型。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -37,7 +37,7 @@ Microsoft HPC Pack 2016 叢集需要個人資訊交換 (PFX) 憑證來保護 HPC
 * 金鑰使用方法包含數位簽章和金鑰加密
 * 增強金鑰使用方法包含用戶端驗證和伺服器驗證
 
-如果您還沒有符合這些需求的憑證，可以從憑證授權單位要求憑證。 或者，您可以根據您用來執行命令的作業系統，使用下列命令產生自我簽署的憑證，並以私密金鑰匯出 PFX 格式的憑證。
+如果您還沒有符合這些需求的憑證，可以從憑證授權單位要求憑證。 或者，根據您用來執行命令的作業系統，使用下列命令產生自我簽署的憑證。 然後，以私密金鑰將憑證匯出為受密碼保護的 PFX 檔案。
 
 * **Windows 10 或 Windows Server 2016**，執行內建 **New-SelfSignedCertificate** PowerShell cmdlet，如下所示︰
 
@@ -52,11 +52,13 @@ Microsoft HPC Pack 2016 叢集需要個人資訊交換 (PFX) 憑證來保護 HPC
     New-SelfSignedCertificateEx -Subject "CN=HPC Pack 2016 Communication" -KeySpec Exchange -KeyUsage "DigitalSignature,KeyEncipherment" -EnhancedKeyUsage "Server Authentication","Client Authentication" -StoreLocation CurrentUser -Exportable -NotAfter (Get-Date).AddYears(5)
     ```
 
+在「目前使用者」存放區中建立憑證之後，使用憑證嵌入式管理單元以私密金鑰將憑證匯出為受密碼保護的 PFX 檔案。 您也可以使用 [Export-Pfxcertificate](/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps) PowerShell Cmdlet 來匯出憑證。
+
 ### <a name="upload-certificate-to-an-azure-key-vault"></a>將憑證上傳至 Azure 金鑰保存庫
 
-在部署 HPC 叢集之前，將憑證上傳至 [Azure 金鑰保存庫](../../key-vault/index.md)做為密碼，並記錄下列資訊以在部署期間使用︰**保存庫名稱**、**保存庫資源群組**、**憑證 URL** 及**憑證指紋**。
+在部署 HPC 叢集之前，將 PFX 憑證上傳至 [Azure 金鑰保存庫](../../key-vault/index.md)作為秘密，並記錄下列資訊以在部署期間使用︰**保存庫名稱**、**保存庫資源群組**、**憑證 URL** 及**憑證指紋**。
 
-以下為上傳憑證的範例 PowerShell 指令碼。 如需將憑證上傳至 Azure 金鑰保存庫的詳細資訊，請參閱[開始使用 Azure 金鑰保存庫](../../key-vault/key-vault-get-started.md)。
+PowerShell 指令碼範例會用來上傳憑證、建立金鑰保存庫及產生後續的必要資訊。 如需將憑證上傳至 Azure 金鑰保存庫的詳細資訊，請參閱[開始使用 Azure 金鑰保存庫](../../key-vault/key-vault-get-started.md)。
 
 ```powershell
 #Give the following values
@@ -108,12 +110,11 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 
 ## <a name="supported-topologies"></a>支援的拓撲
 
-選取其中一種 [Azure Resource Manager 範本](https://github.com/MsHpcPack/HPCPack2016) 部署 HPC Pack 2016 叢集。 以下是三個受支援叢集拓撲的高層架構。 高可用性拓撲包含多個叢集前端節點。
+選取其中一種 [Azure Resource Manager 範本](https://github.com/MsHpcPack/HPCPack2016) 部署 HPC Pack 2016 叢集。 以下是三個叢集拓撲範例的高階架構。 高可用性拓撲包含多個叢集前端節點。
 
 1. 包含 Active Directory 網域的高可用性叢集
 
     ![AD 網域中的 HA 叢集](./media/hpcpack-2016-cluster/haad.png)
-
 
 
 2. 不包含 Active Directory 網域的高可用性叢集
@@ -131,7 +132,7 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 
 ### <a name="step-1-select-the-subscription-location-and-resource-group"></a>步驟 1︰選取訂用帳戶、位置和資源群組
 
-**訂用帳戶**和**位置**必須與您上傳 PFX 憑證 (請參閱必要條件) 時所指定的相同。 建議您建立部署的**資源群組**。
+**訂用帳戶**和**位置**必須與您上傳 PFX 憑證 (請參閱必要條件) 時所指定的相同。 建議您為部署建立不同的**資源群組**。
 
 ### <a name="step-2-specify-the-parameter-settings"></a>步驟 2︰指定參數設定
 
@@ -139,19 +140,21 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 
 指定您在必要條件中記錄之下列參數的值︰**保存庫名稱**、**保存庫資源群組**、**憑證 URL** 和 **憑證指紋**。
 
-### <a name="step-3-review-legal-terms-and-create"></a>步驟 3. 檢閱法律條款並建立
-按一下 [檢閱法律條款] 檢閱條款。 如果您同意，請按一下 [購買]，然後按一下 [建立] 以開始部署。
+### <a name="step-3-review-terms-and-create"></a>步驟 3. 檢閱條款並建立
+檢閱與範本相關聯的條款和條件。 如果您同意，按一下 [購買] 以啟動部署。
+
+根據叢集拓撲而定，部署需要 30 分鐘或更長時間才能完成。
 
 ## <a name="connect-to-the-cluster"></a>連接到叢集
 1. 部署 HPC Pack 叢集之後，請移至 [Azure 入口網站](https://portal.azure.com)。 按一下 [資源群組]，並尋找已在當中部署叢集的資源群組。 您可以找到前端節點虛擬機器。
 
     ![入口網站中的叢集前端節點](./media/hpcpack-2016-cluster/clusterhns.png)
 
-2. 按一個前端節點 (在高可用性叢集中，按一下任一個前端節點)。 在 [基本資訊] 中，您可以找到叢集的公用 IP 位址或完整 DNS 名稱。
+2. 按一個前端節點 (在高可用性叢集中，按一下任一個前端節點)。 在 [概觀] 中，您可以找到叢集的公用 IP 位址或完整 DNS 名稱。
 
     ![叢集連線設定](./media/hpcpack-2016-cluster/clusterconnect.png)
 
-3. 按一下 [連接]，使用遠端桌面搭配您指定的系統管理員使用者名稱登入任何前端節點。 如果您部署的叢集在 Active Directory 網域中，使用者名稱是表單 <privateDomainName>\<adminUsername > (例如，hpc.local\hpcadmin)。
+3. 按一下 [連接]，使用遠端桌面搭配您指定的系統管理員使用者名稱登入任何前端節點。 如果您部署的叢集在 Active Directory 網域中，使用者名稱是表單 \<privateDomainName>\\\<adminUsername> (例如，hpc.local\hpcadmin)。
 
 ## <a name="next-steps"></a>後續步驟
 * 將工作提交至叢集。 請參閱 [提交工作至 Azure 中 HPC Pack 叢集的 HPC](hpcpack-cluster-submit-jobs.md) 和 [使用 Azure Active Directory 管理 Azure 中的 HPC Pack 2016 叢集](hpcpack-cluster-active-directory.md)。

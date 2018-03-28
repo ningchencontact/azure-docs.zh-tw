@@ -1,11 +1,11 @@
 ---
-title: "如何使用使用者指派的受控服務識別來取得虛擬機器上的存取權杖。"
-description: "使用來自 Azure 虛擬機器的使用者指派 MSI，取得 OAuth 存取權杖的逐步指示和範例。"
+title: 如何使用使用者指派的受控服務識別來取得虛擬機器上的存取權杖。
+description: 使用來自 Azure 虛擬機器的使用者指派 MSI，取得 OAuth 存取權杖的逐步指示和範例。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a9513a59ec4540c6d63236519873c6e1e177b65a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>取得虛擬機器使用者指派之受控服務識別 (MSI) 的存取權杖
 
@@ -26,9 +26,7 @@ ms.lasthandoff: 02/03/2018
 本文提供各種取得權杖的程式碼和指令碼，以及處理權杖到期和 HTTP 錯誤等重要主題的指引。
 
 ## <a name="prerequisites"></a>先決條件
-
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
-
 如果您打算使用本文中的 Azure PowerShell 範例，請務必安裝最新版的 [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM)。
 
 > [!IMPORTANT]
@@ -48,21 +46,28 @@ ms.lasthandoff: 02/03/2018
 
 ## <a name="get-a-token-using-http"></a>使用 HTTP 取得權杖 
 
-取得存取權杖的基本介面是以 REST 為基礎，如此可讓用戶端應用程式在可執行 HTTP REST 呼叫的虛擬機器上執行時，可以對其進行存取。 這類似於 Azure AD 的程式設計模型，但用戶端會在虛擬機器上使用 localhost 端點 (對比 Azure AD 端點)。
+取得存取權杖的基本介面是以 REST 為基礎，如此可讓用戶端應用程式在可執行 HTTP REST 呼叫的虛擬機器上執行時，可以對其進行存取。 這類似於 Azure AD 的程式設計模型，但用戶端會使用虛擬機器上的端點 (對比於 Azure AD 端點)。
 
-範例要求：
+使用執行個體中繼資料服務 (IMDS) 端點的範例要求：
 
 ```
-GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1
-Metadata: true
+GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
+```
+
+使用 MSI VM 延伸模組端點 (即將被取代) 的範例要求：
+
+```
+GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
 ```
 
 | 元素 | 說明 |
 | ------- | ----------- |
 | `GET` | HTTP 指令動詞，指出您想要擷取端點中的資料。 在此案例中是 OAuth 存取權杖。 | 
-| `http://localhost:50342/oauth2/token` | MSI 端點，其中 50342 是預設連接埠且可設定。 |
-| `resource` | 查詢字串參數，指出目標資源的應用程式識別碼 URI。 也會出現在所核發權杖的 `aud` (對象) 宣告中。 此範例會要求權杖來存取 Azure Resource Manager，其中就包含應用程式識別碼 URI https://management.azure.com/。 |
-| `client_id` | 查詢字串參數，表示代表使用者指派 MSI 之服務主體的用戶端識別碼 (也稱為應用程式識別碼)。 在建立使用者指派的 MSI 期間，這個值會在 `clientId` 屬性中傳回。 此範例會要求用戶端識別碼 "712eac09-e943-418 c-9be6-9fd5c91078bl" 的權杖。 |
+| `http://169.254.169.254/metadata/identity/oauth2/token` | 執行個體中繼資料服務的 MSI 端點。 |
+| `http://localhost:50342/oauth2/token` | VM 延伸模組的 MSI 端點，其中 50342 是預設連接埠，且可設定。 |
+| `api-version`  | 一個查詢字串參數，指出 IMDS 端點的 API 版本。  |
+| `resource` | 查詢字串參數，指出目標資源的應用程式識別碼 URI。 也會出現在所核發權杖的 `aud` (對象) 宣告中。 此範例會要求用來存取 Azure Resource Manager 的權杖，其中包含應用程式識別碼 URI https://management.azure.com/。 |
+| `client_id` |  一個*選用*查詢字串參數，指出代表使用者指派 MSI 之服務主體的用戶端識別碼 (也稱為應用程式識別碼)。 如果您使用系統指派的 MSI，就不需要此參數。 在建立使用者指派的 MSI 期間，這個值會在 `clientId` 屬性中傳回。 此範例會要求用戶端識別碼 "712eac09-e943-418 c-9be6-9fd5c91078bl" 的權杖。 |
 | `Metadata` | HTTP 要求標頭欄位，MSI 需此元素以減輕伺服器端偽造要求 (SSRF) 攻擊。 此值必須設定為 "true" (全部小寫)。
 
 範例回應：
@@ -94,6 +99,16 @@ Content-Type: application/json
 ## <a name="get-a-token-using-curl"></a>使用 CURL 取得權杖
 
 務必以使用者指派 MSI 之服務主體的用戶端識別碼 (也稱為應用程式識別碼)，取代 `client_id` 參數的 <MSI CLIENT ID> 值。 在建立使用者指派的 MSI 期間，這個值會在 `clientId` 屬性中傳回。
+  
+使用執行個體中繼資料服務 (IMDS) 端點的範例要求：
+
+   ```bash
+   response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>")
+   access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+   echo The MSI access token is $access_token
+   ```
+   
+使用 MSI VM 延伸模組端點 (即將被取代) 的範例要求：
 
    ```bash
    response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
@@ -104,7 +119,7 @@ Content-Type: application/json
    範例回應：
 
    ```bash
-   user@vmLinux:~$ response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl" -H Metadata:true -s)
+   user@vmLinux:~$ response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl")
    user@vmLinux:~$ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
    user@vmLinux:~$ echo The MSI access token is $access_token
    The MSI access token is eyJ0eXAiOiJKV1QiLCJhbGciO...
@@ -112,7 +127,7 @@ Content-Type: application/json
 
 ## <a name="handling-token-expiration"></a>處理權杖到期
 
-本機 MSI 子系統會快取權杖。 因此，您可以視需要呼叫它，而只有在下列情況，線上呼叫 Azure AD 才會有結果：
+MSI 子系統會快取權杖。 因此，您可以視需要呼叫它，而只有在下列情況，線上呼叫 Azure AD 才會有結果：
 - 由於快取中沒有權杖而發生快取遺漏
 - 權杖已過期
 
@@ -142,7 +157,7 @@ MSI 端點會透過 HTTP 回應訊息標頭的狀態碼欄位 (如 4xx 或 5xx �
 | ----------- | ----- | ----------------- | -------- |
 | 400 不正確的要求 | invalid_resource | AADSTS50001：在名為 \<TENANT-ID\> 的租用戶中找不到名為 \<URI\> 的應用程式。 如果租用戶的系統管理員尚未安裝此應用程式或租用戶中的任何使用者尚未同意使用此應用程式，也可能會發生此錯誤。 您可能會將驗證要求傳送至錯誤的租用戶。\ | (僅限 Linux) |
 | 400 不正確的要求 | bad_request_102 | 未指定必要的中繼資料標頭 | 要求中遺漏 `Metadata` 要求標頭欄位，或欄位的格式不正確。 值必須指定為 `true` (全部小寫)。 如需相關範例，請參閱[使用 HTTP 取得權杖](#get-a-token-using-http)一節中的「範例要求」。|
-| 401 未經授權 | unknown_source | 未知的來源 *\<URI\>* | 請確認 HTTP GET 要求 URI 的格式正確。 `scheme:host/resource-path` 部分必須指定為 `http://localhost:50342/oauth2/token`。 如需相關範例，請參閱[使用 HTTP 取得權杖](#get-a-token-using-http)一節中的「範例要求」。|
+| 401 未經授權 | unknown_source | 未知的來源 *\<URI\>* | 請確認 HTTP GET 要求 URI 的格式正確。 `scheme:host/resource-path` 部分必須指定為 `http://169.254.169.254/metadata/identity/oath2/token` 或 `http://localhost:50342/oauth2/token`。 如需相關範例，請參閱[使用 HTTP 取得權杖](#get-a-token-using-http)一節中的「範例要求」。|
 |           | invalid_request | 要求遺漏必要參數、包含無效參數值、多次包含某個參數或格式不正確。 |  |
 |           | unauthorized_client | 用戶端無權使用此方法要求存取權杖。 | 因為要求並未使用本機回送呼叫延伸模組，或是所在的虛擬機器沒有正確設定 MSI。 如果您需要設定虛擬機器的協助，請參閱[使用 Azure 入口網站設定虛擬機器受控服務識別 (MSI)](msi-qs-configure-portal-windows-vm.md)。 |
 |           | access_denied | 資源擁有者或授權伺服器已拒絕要求。 |  |

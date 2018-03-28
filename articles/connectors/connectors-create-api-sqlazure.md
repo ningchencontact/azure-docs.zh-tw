@@ -1,11 +1,11 @@
 ---
-title: "在您的 Logic Apps 中新增 Azure SQL Database 連接器 | Microsoft Docs"
-description: "搭配 REST API 參數來使用 Azure SQL Database 連接器的概觀"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: 在您的 Logic Apps 中新增 Azure SQL Database 連接器 | Microsoft Docs
+description: 搭配 REST API 參數來使用 Azure SQL Database 連接器的概觀
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d8a319d0-e4df-40cf-88f0-29a6158c898c
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: def2b65f009c377233c45356f8fa661b86d73f51
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 4313ead0c31ab2e72238701d58dc2f321f116fa6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>開始使用 Azure SQL Database 連接器
 使用 Azure SQL Database 連接器，為組織建立工作流程來管理資料表中的資料。 
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/19/2018
 * 藉由在客戶資料庫中新增新客戶或在訂單資料庫中更新訂單，以建置工作流程。
 * 使用動作來取得一列資料、插入新的資料列，甚至加以刪除。 例如，當有記錄在 Dynamics CRM Online 中建立時 (觸發程序)，則在 Azure SQL Database 插入資料列 (動作)。 
 
-本主題說明如何在邏輯應用程式中使用 SQL Database 連接器，並且也列出動作。
+本文說明如何在邏輯應用程式中使用 SQL Database 連接器，並且也列出動作。
 
 若要深入瞭解 Logic Apps，請參閱[什麼是邏輯應用程式](../logic-apps/logic-apps-overview.md)以及[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
@@ -54,11 +54,11 @@ ms.lasthandoff: 01/19/2018
 3. 在文字方塊中，輸入「sql」以取得所有可用動作的清單。
    
     ![](./media/connectors-create-api-sqlazure/sql-1.png) 
-4. 在我們的範例中，選擇 [SQL Server - 取得資料列]。 如果連線已存在，則選取下拉式清單中的 [資料表名稱]，然後輸入想要傳回的 [資料列識別碼]。
+4. 在此範例中，選擇 [SQL Server - 取得資料列]。 如果連線已存在，則選取下拉式清單中的 [資料表名稱]，然後輸入想要傳回的 [資料列識別碼]。
    
     ![](./media/connectors-create-api-sqlazure/sample-table.png)
    
-    如果系統提示您輸入連線資訊，請輸入詳細資料以建立連線。 本主題的[建立連線](connectors-create-api-sqlazure.md#create-the-connection)一節會說明這些屬性。 
+    如果系統提示您輸入連線資訊，請輸入詳細資料以建立連線。 本文的[建立連線](connectors-create-api-sqlazure.md#create-the-connection)一節會說明這些屬性。 
    
    > [!NOTE]
    > 在此範例中，我們會從資料表傳回資料列。 若要查看此資料列中的資料，請新增另一個動作，以使用資料表中的欄位建立檔案。 例如，新增 OneDrive 動作，使用 [FirstName] 和 [LastName] 欄位在雲端儲存體帳戶中建立新檔案。 
@@ -71,5 +71,5 @@ ms.lasthandoff: 01/19/2018
 檢視 Swagger 中定義的任何觸發程序和動作，另請參閱[連接器詳細資料](/connectors/sql/)的所有限制。 
 
 ## <a name="next-steps"></a>後續步驟
-[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 請到我們的 [API 清單](apis-list.md)探索 Logic Apps 中其他可用的連接器。
+[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 請在 [API 清單](apis-list.md)上瀏覽 Logic Apps 中其他可用的連接器。
 

@@ -1,6 +1,6 @@
 ---
-title: "為 Azure Stack 建立服務主體 | Microsoft Docs"
-description: "描述如何建立可以與 Azure Resource Manager 中的角色型存取控制搭配使用來管理資源存取權的新服務主體。"
+title: 為 Azure Stack 建立服務主體 | Microsoft Docs
+description: 描述如何建立可以與 Azure Resource Manager 中的角色型存取控制搭配使用來管理資源存取權的新服務主體。
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2018
+ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b7028a92b93f29af10c5e4bc9ab4f671ca23961
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>為 Azure Stack 提供應用程式存取
 
@@ -51,14 +51,14 @@ ms.lasthandoff: 03/02/2018
 您已建立應用程式的服務主體。
 
 ### <a name="get-credentials"></a>取得認證
-以程式設計方式登入時，您會使用應用程式的識別碼和驗證金鑰。 若要取得這些值，請使用下列步驟︰
+以程式設計方式登入時，使用您應用程式的識別碼，而針對 Web 應用程式 / API，則使用驗證金鑰。 若要取得這些值，請使用下列步驟︰
 
 1. 在 Active Directory 中，從 [應用程式註冊]選取您的應用程式。
 
 2. 複製 [應用程式識別碼] 並儲存在您的應用程式碼中。 [範例應用程式](#sample-applications) 區段中的應用程式會參考此值作為用戶端識別碼。
 
      ![用戶端識別碼](./media/azure-stack-create-service-principal/image12.png)
-3. 若要產生驗證金鑰，請選取 [金鑰]。
+3. 若要產生 Web 應用程式 / API 的驗證金鑰，請選取 [設定] > [金鑰]。 
 
 4. 提供金鑰的描述和金鑰的持續時間。 完成時，選取 [儲存]。
 

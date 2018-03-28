@@ -1,113 +1,135 @@
 ---
-title: "連線到 Azure AD 時對 WebApi 專案所做的變更 | Microsoft Docs"
-description: "說明當您使用 Visual Studio 來連線到 Azure AD 時，您的 WebApi 專案會發生什麼狀況"
+title: 連線至 Azure AD 時對 WebAPI 專案所做的變更 | Microsoft Docs
+description: 說明當您使用 Visual Studio 連線至 Azure AD 時，您的 WebAPI 專案會發生什麼狀況
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
-manager: mtillman
-editor: 
+manager: ghogen
+editor: ''
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.service: active-directory
 ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 03/12/2018
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 8a0f6e1838bcc550829c0da92dc224e1df859e9c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 140f555d28c4d5a923b9c255d8e61d7aea9bb23f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>我的 WebApi 專案發生什麼狀況 (Visual Studio Azure Active Directory 已連接服務)
+# <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>我的 WebAPI 專案 (Visual Studio Azure Active Directory 連線服務) 發生什麼狀況
+
 > [!div class="op_single_selector"]
-> * [開始使用](vs-active-directory-webapi-getting-started.md)
-> * [發生什麼情形](vs-active-directory-webapi-what-happened.md)
-> 
-> 
+> - [開始使用](vs-active-directory-webapi-getting-started.md)
+> - [發生什麼情形](vs-active-directory-webapi-what-happened.md)
 
-## <a name="references-have-been-added"></a>已加入參考
-### <a name="nuget-package-references"></a>NuGet 封裝參考
-* `Microsoft.Owin`
-* `Microsoft.Owin.Host.SystemWeb`
-* `Microsoft.Owin.Security`
-* `Microsoft.Owin.Security.ActiveDirectory`
-* `Microsoft.Owin.Security.Jwt`
-* `Microsoft.Owin.Security.OAuth`
-* `Owin`
-* `System.IdentityModel.Tokens.Jwt`
+本文說明在[使用 Visual Studio 新增 Azure Active Directory 連線服務](vs-active-directory-add-connected-service.md)時，對 ASP.NET WebAPI、ASP.NET 單頁應用程式和 ASP.NET Azure API 專案會進行哪些明確的變更。 本文也適用於 Visual Studio 2015 中的 ASP.NET Azure 行動服務專案。
 
-### <a name="net-references"></a>.NET 參考
-* `Microsoft.Owin`
-* `Microsoft.Owin.Host.SystemWeb`
-* `Microsoft.Owin.Security`
-* `Microsoft.Owin.Security.ActiveDirectory`
-* `Microsoft.Owin.Security.Jwt`
-* `Microsoft.Owin.Security.OAuth`
-* `Owin`
-* `System.IdentityModel.Tokens.Jwt`
+如需使用連線服務的相關資訊，請參閱[開始使用](vs-active-directory-webapi-getting-started.md)。
 
-## <a name="code-changes"></a>程式碼變更
-### <a name="code-files-were-added-to-your-project"></a>程式碼檔案加入至專案
-驗證啟動類別 **App_Start/Startup.Auth.cs** 加入至內含 Azure AD 驗證之啟動邏輯的專案。
+## <a name="added-references"></a>新增的參考
 
-### <a name="startup-code-was-added-to-your-project"></a>啟動程式碼已加入至專案
-如果專案中已有啟動類別，則已更新 **Configuration`ConfigureAuth(app)` 方法來包含** 的呼叫。 否則已將啟動類別加入至專案。
+會影響專案檔 *.NET 參考和 `packages.config` (NuGet 參考)。
 
-### <a name="your-appconfig-or-webconfig-file-has-new-configuration-values"></a>app.config 或 web.config 檔案有新的組態值。
-已加入下列組態項目。
+| 類型 | 參考 |
+| --- | --- |
+| .NET; NuGet | Microsoft.Owin |
+| .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
+| .NET; NuGet | Microsoft.Owin.Security |
+| .NET; NuGet | Microsoft.Owin.Security.ActiveDirectory |
+| .NET; NuGet | Microsoft.Owin.Security.Jwt |
+| .NET; NuGet | Microsoft.Owin.Security.OAuth |
+| .NET; NuGet | Owin |
+| .NET; NuGet | System.IdentityModel.Tokens.Jwt |
 
-```
+您選取了 [讀取目錄資料] 選項時的其他參考：
+
+| 類型 | 參考 |
+| --- | --- |
+| .NET; NuGet | EntityFramework |
+| .NET        | EntityFramework.SqlServer (僅限 Visual Studio 2015) |
+| .NET; NuGet | Microsoft.Azure.ActiveDirectory.GraphClient |
+| .NET; NuGet | Microsoft.Data.Edm |
+| .NET; NuGet | Microsoft.Data.OData |
+| .NET; NuGet | Microsoft.Data.Services.Client |
+| .NET; NuGet | Microsoft.IdentityModel.Clients.ActiveDirectory |
+| .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms<br>(僅限 Visual Studio 2015) |
+| .NET; NuGet | System.Spatial |
+
+下列參考已移除 (僅限 ASP.NET 4 專案，如同在 Visual Studio 2015 中)：
+
+| 類型 | 參考 |
+| --- | --- |
+| .NET; NuGet | Microsoft.AspNet.Identity.Core |
+| .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
+| .NET; NuGet | Microsoft.AspNet.Identity.Owin |
+
+## <a name="project-file-changes"></a>專案檔變更
+
+- 將屬性 `IISExpressSSLPort` 設為相異數字。
+- 如果您選取了 [讀取目錄資料] 選項，請將屬性 `WebProject_DirectoryAccessLevelKey` 設為 0。
+- 將 `IISUrl` 設為 `https://localhost:<port>/`，其中，`<port>` 符合 `IISExpressSSLPort` 值。
+
+## <a name="webconfig-or-appconfig-changes"></a>web.config 或 app.config 的變更
+
+- 已新增下列組態項目：
+
+    ```xml
     <appSettings>
-            <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
-            <add key="ida:Tenant" value="Your selected Azure AD Tenant" />
-            <add key="ida:Audience" value="The App ID Uri from the wizard" />
-    </appSettings>`
-```
+        <add key="ida:ClientId" value="<ClientId from the new Azure AD app>" />
+        <add key="ida:Tenant" value="<your selected Azure domain>" />
+        <add key="ida:Audience" value="<your selected domain + / + project name>" />
+    </appSettings>
+    ```
 
-### <a name="an-azure-ad-app-was-created"></a>已建立 Azure AD 應用程式
-在您於精靈中選取的目錄中建立 Azure AD 應用程式。
+- 僅限 Visual Studio 2017：也在 `<appSettings>`" 下新增了下列項目
 
-[深入了解 Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+    ```xml
+    <add key="ida:MetadataAddress" value="<domain URL + /federationmetadata/2007-06/federationmetadata.xml>" />
+    ```
 
-## <a name="if-i-checked-disable-individual-user-accounts-authentication-what-additional-changes-were-made-to-my-project"></a>如果我核取了 [ *停用個別使用者帳戶驗證*]，我的專案會有什麼其他變更？
-NuGet 封裝參考會被移除，檔案也會移除並加以備份。 根據您的專案狀態，您可能必須手動移除其他參考或檔案，或修改為適當的程式碼。
+- 已在 `System.IdentityModel.Tokens.Jwt` 的 `<runtime><assemblyBinding>` 節點下新增 `<dependentAssembly>` 元素。
 
-### <a name="nuget-package-references-removed-for-those-present"></a>移除的 NuGet 封裝參考 (如果存在)
-* `Microsoft.AspNet.Identity.Core`
-* `Microsoft.AspNet.Identity.EntityFramework`
-* `Microsoft.AspNet.Identity.Owin`
+- 如果您選取了 [讀取目錄資料] 選項，則會在 `<appSettings>` 下新增下列組態項目：
 
-### <a name="code-files-backed-up-and-removed-for-those-present"></a>備份和移除的程式碼檔案 (如果存在)
-下列每個檔案都會備份，並且從專案中移除。 備份檔案位於專案目錄根目錄的「備份」資料夾。
+    ```xml
+    <add key="ida:Password" value="<Your Azure AD app's new password>" />
+    ```
 
-* `App_Start\IdentityConfig.cs`
-* `Controllers\AccountController.cs`
-* `Controllers\ManageController.cs`
-* `Models\IdentityModels.cs`
-* `Providers\ApplicationOAuthProvider.cs`
+## <a name="code-changes-and-additions"></a>程式碼變更和新增
 
-### <a name="code-files-backed-up-for-those-present"></a>備份的程式碼檔案 (如果存在)
-下列每個檔案會在取代之前備份。 備份檔案位於專案目錄根目錄的「備份」資料夾。
+- 已將 `[Authorize]` 屬性新增至 `Controllers/ValueController.cs` 和任何其他現有的控制器。
 
-* `Startup.cs`
-* `App_Start\Startup.Auth.cs`
+- 已新增驗證啟動類別 `App_Start/Startup.Auth.cs` (內含 Azure AD 驗證的啟動邏輯)，或對其進行相應的修改。 如果您選取了 [讀取目錄資料] 選項，此檔案也會包含用來接收 OAuth 驗證碼和交換存取權杖的程式碼。
 
-## <a name="if-i-checked-read-directory-data-what-additional-changes-were-made-to-my-project"></a>如果我核取了 [ *讀取目錄資料*]，我的專案會有什麼其他變更？
-### <a name="additional-changes-were-made-to-your-appconfig-or-webconfig"></a>app.config 或 web.config 已進行其他變更
-已加入下列其他組態項目。
+- (僅限具有 ASP.NET 4 應用程式的 Visual Studio 2015) 已移除 `App_Start/IdentityConfig.cs`，並新增 `Controllers/AccountController.cs`、`Models/IdentityModel.cs` 和 `Providers/ApplicationAuthProvider.cs`。
 
-```
-    <appSettings>
-        <add key="ida:Password" value="Your Azure AD App's new password" />
-    </appSettings>`
-```
+- 已新增 `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) 或 `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015)，內含 Visual Studio 用來追蹤連線服務新增情形的資訊。
 
-### <a name="your-azure-active-directory-app-was-updated"></a>Azure Active Directory 應用程式已更新
-Azure Active Directory 應用程式已更新為包含「讀取目錄資料」權限，並已建立其他的金鑰做為 `web.config` 檔案中的 ida:Password。
+### <a name="file-backup-visual-studio-2015"></a>檔案備份 (Visual Studio 2015)
+
+在新增連線服務時，Visual Studio 2015 會備份已變更和移除的檔案。 所有受影響的檔案都會儲存在資料夾 `Backup/AzureAD` 中。 Visual Studio 2017 並不會建立備份。
+
+- `Startup.cs`
+- `App_Start\IdentityConfig.cs`
+- `App_Start\Startup.Auth.cs`
+- `Controllers\AccountController.cs`
+- `Controllers\ManageController.cs`
+- `Models\IdentityModels.cs`
+- `Models\ApplicationOAuthProvider.cs`
+
+## <a name="changes-on-azure"></a>Azure 上的變更
+
+- 已在您於新增連線服務時選取的網域中建立 Azure AD 應用程式。
+- 已更新應用程式，以在選取了 [讀取目錄資料] 選項時包含「讀取目錄資料」權限。
+
+[深入了解 Azure Active Directory](https://azure.microsoft.com/services/active-directory/)。
 
 ## <a name="next-steps"></a>後續步驟
-- [深入了解 Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
+- [Azure Active Directory 的驗證案例](active-directory-authentication-scenarios.md)
+- [將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式](guidedsetups/active-directory-aspnetwebapp-v1.md)

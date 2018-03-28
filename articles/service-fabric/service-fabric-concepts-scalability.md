@@ -1,11 +1,11 @@
 ---
-title: "Service Fabric 服務的延展性 | Microsoft Docs"
-description: "描述如何調整 Service Fabric 服務"
+title: Service Fabric 服務的延展性 | Microsoft Docs
+description: 描述如何調整 Service Fabric 服務
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 6dc89bda31af35e4c7eb0f2255db301b39ac05eb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aeda1184610398c0445238ea2e7ccbea866ed418
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="scaling-in-service-fabric"></a>Service Fabric 中的縮放比例
-Azure Service Fabric 可管理叢集節點上的服務、分割區和複本，讓您輕鬆建置可調整的應用程式。 在相同硬體上執行許多工作負載時，會獲得最大資源使用量，還可以針對您選擇調整工作負載的方式提供彈性。 
+Azure Service Fabric 可管理叢集節點上的服務、分割區和複本，讓您輕鬆建置可調整的應用程式。 在相同硬體上執行許多工作負載時，會獲得最大資源使用量，還可以針對您選擇調整工作負載的方式提供彈性。 這個 Channel 9 影片說明如何建置可調整的微服務應用程式：
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T116/player]
 
 Service Fabric 的縮放比例會以數種不同的方式來完成：
 

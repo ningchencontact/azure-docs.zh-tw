@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Microsoft Azure 匯入/匯出服務將資料傳入 Azure 儲存體
 在本文中，我們會提供使用 Azure 匯入/匯出服務的逐步指示，藉由將磁碟機運送到 Azure 資料中心，安全地將大量資料傳入 Azure Blob 儲存體和 Azure 檔案服務。 這項服務也能用來將資料從 Azure 儲存體傳輸到硬碟，然後運送到您的內部部署網站。 單一內部 SATA 磁碟機的資料可匯入到 Azure Blob 儲存體或 Azure 檔案服務。 
@@ -29,15 +29,15 @@ ms.lasthandoff: 03/12/2018
 2.  根據資料的大小總計，採購所需的 2.5 英吋 SSD 或 2.5 英吋/3.5 英吋 SATA II/III 硬碟機數目。
 3.  直接使用 SATA 或外接式 USB 轉接器，將硬碟連結到 Windows 電腦。
 1.  在每個硬碟上建立單一 NTFS 磁碟區，並為磁碟區指派磁碟機代號。 沒有裝載點。
-2.  若要在 Windows 電腦上啟用加密，請在 NTFS 磁碟區上啟用 BitLocker 加密。 請使用 https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx \(英文\) 上的指示。
+2.  若要在 Windows 電腦上啟用加密，請在 NTFS 磁碟區上啟用 BitLocker 加密。 使用 https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx 上的指示。
 3.  使用複製與貼上、拖曳和置放，或是 Robocopy 或任何類似的工具，完整地將資料複製到這些已加密的單一 NTFS 磁碟區。
-7.  從 https://www.microsoft.com/en-us/download/details.aspx?id=42659 \(英文\) 下載 WAImportExport V1
+7.  從 https://www.microsoft.com/en-us/download/details.aspx?id=42659 下載 WAImportExport V1
 8.  將檔案解壓縮至預設資料夾 waimportexportv1。 例如，C:\WaImportExportV1  
 9.  以系統管理員身分執行並開啟 PowerShell 或命令列，然後將目錄變更為解壓縮後的資料夾。 例如，cd C:\WaImportExportV1
 10. 將下列命令列複製到文字編輯器，然後編輯以建立命令列：
 
     ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
     ```
     
     下表說明這些命令列選項：
@@ -47,10 +47,10 @@ ms.lasthandoff: 03/12/2018
     |/j:     |日誌檔案的名稱 (具有 .jrn 副檔名)。 每個磁碟機都會產生日誌檔案。 建議使用磁碟序號作為日誌檔案名稱。         |
     |/sk:     |Azure 儲存體帳戶金鑰。         |
     |/t:     |要寄送之磁碟的磁碟機代號。 例如，磁碟機 `D`。         |
-    |/bk:     |磁碟機的 BitLocker 金鑰。         |
+    |/bk:     |磁碟機的 BitLocker 金鑰。 其數字密碼來自 ` manage-bde -protectors -get D: ` 的輸出      |
     |/srcdir:     |要寄送之磁碟的磁碟機代號，其後緊接著 `:\`。 例如： `D:\`。         |
     |/dstdir:     |Azure 儲存體中目的地容器的名稱         |
-
+    |/skipwrite：     |表示沒有需要複製的新資料，且即將準備磁碟上現有資料的選項         |
 1. 針對每個需要寄送的磁碟重複步驟 10。
 2. 每次執行命令列時，都會使用 /j: 參數提供的日誌檔案名稱來建立日誌檔案。
 

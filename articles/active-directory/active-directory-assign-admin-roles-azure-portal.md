@@ -1,25 +1,25 @@
 ---
-title: "在 Azure Active Directory 中指派系統管理員角色 | Microsoft Docs"
-description: "系統管理員角色可以新增使用者、指派系統管理角色、重設使用者密碼、管理使用者授權或管理網域。 獲指派管理員角色的使用者對於貴公司訂閱的所有雲端服務，具有相同的權限。"
+title: 在 Azure Active Directory 中指派系統管理員角色 | Microsoft Docs
+description: 系統管理員角色可以新增使用者、指派系統管理角色、重設使用者密碼、管理使用者授權或管理網域。 獲指派管理員角色的使用者對於貴公司訂閱的所有雲端服務，具有相同的權限。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8ba4787852902f194deb3eee27ff9f0fc28fa5aa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中指派系統管理員角色
 
@@ -61,9 +61,9 @@ ms.lasthandoff: 02/14/2018
   >
   >
 
-* **來賓邀請者**︰當「可邀請成員」使用者設定設為 [否] 時，此角色中的使用者可管理 Azure Active Directory B2B 來賓使用者邀請。 在[關於 Azure AD B2B 共同作業預覽](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)中查看 B2B 共同作業的詳細資訊。 這不包含任何其他權限。
+* **來賓邀請者**︰當「可邀請成員」使用者設定設為 [否] 時，此角色中的使用者可管理 Azure Active Directory B2B 來賓使用者邀請。 在[關於 Azure AD B2B 共同作業](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)中查看 B2B 共同作業的詳細資訊。 這不包含任何其他權限。
 
-* **資訊保護系統管理員 (預覽)**：具備此角色的使用者只在「Azure 資訊保護」服務上具有使用者權限。 他們並未取得「Identity Protection 中心」、Privileged Identity Management、「監視 Office 365 服務健康狀況」及「Office 365 安全與規範中心」上的使用者權限。 他們可以設定「Azure 資訊保護」原則的標籤、管理保護範本，以及啟用保護。
+* **資訊保護系統管理員**：具備此角色的使用者只在「Azure 資訊保護」服務上具有使用者權限。 他們並未取得「Identity Protection 中心」、Privileged Identity Management、「監視 Office 365 服務健康狀況」及「Office 365 安全與規範中心」上的使用者權限。 他們可以設定「Azure 資訊保護」原則的標籤、管理保護範本，以及啟用保護。
 
 * **Intune 服務管理員**︰在有 Microsoft Intune Online 服務時，具備此角色的使用者在該服務內會具有全域權限。 此外，此角色包含管理使用者和裝置的能力，可相關聯原則以及建立和管理群組。
 
@@ -127,7 +127,7 @@ ms.lasthandoff: 02/14/2018
 | --- | --- |
 | <p>檢視公司與使用者資訊</p><p>建立 Office 支援票證</p><p>只能變更使用者及其他技術支援中心管理員的密碼</p>|<p>執行 Office 產品的計費和購買作業</p><p>建立和管理使用者檢視</p><p>建立、編輯和刪除使用者與群組，以及管理使用者授權</p><p>管理網域</p><p>管理公司資訊</p><p>將系統管理角色委派給其他人</p><p>使用目錄同步作業</p><p>檢視報告</p>|
 
-### <a name="information-protection-administrator-preview"></a>資訊保護系統管理員 (預覽)
+### <a name="information-protection-administrator"></a>資訊保護管理員
 在 | 可以執行
 -------- | ---------
 Azure 資訊保護 | <li>在全域和有範圍的原則中設定標籤和設定<li>設定及管理保護範本<li>啟用或停用保護--

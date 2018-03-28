@@ -1,23 +1,20 @@
 ---
-title: 編譯 Azure 自動化 DSC 中的組態 | Microsoft Docs
+title: 編譯 Azure 自動化 DSC 中的組態
 description: 此文章說明如何針對 Azure 自動化編譯期望狀態設定 (DSC) 組態。
 services: automation
-documentationcenter: na
-author: georgewallace
-manager: carmonm
-ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: na
-ms.date: 03/02/2018
-ms.author: magoedte; gwallace
-ms.openlocfilehash: 3ba9200023b71e6f1e69ee4c54d5c90efe1bc954
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 2df9512a70f8299ad9282894c0ae0805d05473bd
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>編譯 Azure 自動化 DSC 中的組態
 
@@ -299,7 +296,7 @@ DSC 代理程式會在受控節點上本機驗證簽署的節點組態，確保�
 > [!NOTE]
 > 節點組態檔不得大於 1 MB，才能匯入到 Azure 自動化。
 
-如需了解如何簽署節點組態，請參閱 https://msdn.microsoft.com/en-us/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module。
+您可以在 https://msdn.microsoft.com/en-us/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module 了解如何簽署節點組態。
 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>在 Azure 入口網站中匯入節點組態
 

@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Confluence SAML SSO by Microsoft 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Confluence SAML SSO by Microsoft 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Confluence SAML SSO by Microsoft 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Confluence SAML SSO by Microsoft 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 4151811a74fc0e58f6171e11d77e070f3cb40f95
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5b81ca4f5a9f30b2882d86639ca9386e7bbc09e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>教學課程：Azure Active Directory 與 Confluence SAML SSO by Microsoft 整合
 
@@ -200,6 +200,8 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
     i. 按一下 [儲存] 按鈕以儲存設定。
 
+    > [!NOTE]
+    > 如需有關安裝和疑難排解的詳細資訊，請瀏覽 [MS Confluence SSO 連接器管理指南](ms-confluence-jira-plugin-adminguide.md)，另外也有[常見問題集](ms-confluence-jira-plugin-faq.md)可協助您
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

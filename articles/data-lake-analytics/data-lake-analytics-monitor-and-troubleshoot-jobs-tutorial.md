@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 入口網站疑難排解 Azure Data Lake Analytics作業 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站疑難排解資料湖分析作業。 "
+title: 使用 Azure 入口網站疑難排解 Azure Data Lake Analytics作業 | Microsoft Docs
+description: '了解如何使用 Azure 入口網站疑難排解資料湖分析作業。 '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: saveenr
+ms.openlocfilehash: f6168997c449be5354bd223c516d4f929a1bf894
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>使用 Azure 入口網站疑難排解 Azure 資料湖分析作業
-了解如何使用 Azure 入口網站疑難排解資料湖分析作業。
+# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>使用 Azure 入口網站對 Azure Data Lake Analytics 作業進行疑難排解
+了解如何使用 Azure 入口網站對 Data Lake Analytics 作業進行疑難排解。
 
-在本教學課程中，將會建立一個來源檔案遺失的問題，並使用 Azure 入口網站疑難排解問題。
+在本教學課程中，您將會建立一個來源檔案遺失的問題，並使用 Azure 入口網站來排解問題。
 
 ## <a name="submit-a-data-lake-analytics-job"></a>提交資料湖分析作業
 
@@ -62,7 +62,7 @@ OUTPUT @searchlog
 3. 按一下 [ **工作管理** ] 磚以檢視工作。 工作分類成 [執行中]、[已排入序列] 和 [結束]。 您應該會在 [ **結束** ] 區段中看到失敗的工作。 該工作應該列在清單中的首位。 如果有很多工作，您可以按一下 [ **篩選** ] 來協助您找出工作。
 
     ![Azure 資料湖分析篩選作業](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
-4. 按一下清單中的失敗工作，會以新的刀鋒視窗開啟工作詳細資料：
+4. 按一下清單中的失敗工作，以開啟工作詳細資料：
 
     ![Azure 資料湖分析失敗作業](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
@@ -73,7 +73,7 @@ OUTPUT @searchlog
 
     它會告訴您找不到來源資料夾。
 6. 按一下 [ **重複的指令碼**]。
-7. 將 **FROM** 路徑更新成下方路徑：
+7. 將 **FROM** 路徑更新為：
 
     "/Samples/Data/SearchLog.tsv"
 8. 按一下 [ **提交作業**]。

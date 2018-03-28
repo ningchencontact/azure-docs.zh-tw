@@ -1,27 +1,20 @@
 ---
-title: "Azure SQL Database 的虛擬網路服務端點和規則 | Microsoft Docs"
-description: "將子網路標示為虛擬網路服務端點。 然後將端點標示為虛擬網路規則，以列在 Azure SQL Database 的 ACL 中。 您的 SQL Database 將會接受來自子網路上所有虛擬機器和其他節點的通訊。"
+title: Azure SQL Database 的虛擬網路服務端點和規則 | Microsoft Docs
+description: 將子網路標示為虛擬網路服務端點。 然後將端點標示為虛擬網路規則，以列在 Azure SQL Database 的 ACL 中。 您的 SQL Database 將會接受來自子網路上所有虛擬機器和其他節點的通訊。
 services: sql-database
-documentationcenter: 
+ms.service: sql-database
 author: MightyPen
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
-ms.service: sql-database
 ms.custom: VNet Service endpoints
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 02/20/2018
+ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: c1bb1698723af60544b89f4b3168c44a32d31afd
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>對 Azure SQL Database 使用虛擬網路服務端點和規則
 
@@ -237,6 +230,12 @@ Blob 稽核會將稽核記錄推送到您自己的儲存體帳戶。 如果這�
 
 PowerShell 指令碼也可以建立虛擬網路規則。 重要的 Cmdlet **New-AzureRmSqlServerVirtualNetworkRule**。 如有興趣，請參閱[使用 PowerShell 建立 Azure SQL Database 的虛擬網路服務端點和規則][sql-db-vnet-service-endpoint-rule-powershell-md-52d]。
 
+#### <a name="rest-api-alternative"></a>REST API 替代方案
+
+SQL VNet 動作的 PowerShell cmdlet 會在內部呼叫 REST API。 您可以直接呼叫 REST API。
+
+- [虛擬網路規則：作業][rest-api-virtual-network-rules-operations-862r]
+
 #### <a name="prerequisites"></a>先決條件
 
 您必須已有一個子網路是以 Azure SQL Database 相關的特定虛擬網路服務端點「類型名稱」所標記。
@@ -296,6 +295,8 @@ Azure SQL Database 的虛擬網路規則功能，已於 2017 年 9 月底推出�
 ## <a name="next-steps"></a>後續步驟
 
 - [使用 PowerShell 建立 Azure SQL Database 的虛擬網路服務端點和虛擬網路規則][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [虛擬網路規則：的作業][rest-api-virtual-network-rules-operations-862r] (使用 REST API)
+
 
 
 <!-- Link references, to images. -->
@@ -336,6 +337,7 @@ Azure SQL Database 的虛擬網路規則功能，已於 2017 年 9 月底推出�
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 
+[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
 
 
 

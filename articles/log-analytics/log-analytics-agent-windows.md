@@ -1,24 +1,24 @@
 ---
-title: "將 Windows 電腦連接到 Azure Log Analytics | Microsoft Docs"
-description: "本文說明如何使用 Microsoft Monitoring Agent (MMA) 將其他雲端中託管的 Windows 電腦或內部部署電腦連線至 Log Analytics。"
+title: 將 Windows 電腦連接到 Azure Log Analytics | Microsoft Docs
+description: 本文說明如何使用 Microsoft Monitoring Agent (MMA) 將其他雲端中託管的 Windows 電腦或內部部署電腦連線至 Log Analytics。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 3bb023cfd94c7b87550d692101d30f922de80bf9
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 778810001952daf9ac63a7f1f880b05234549965
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>將 Windows 電腦連接到 Azure 中的 Log Analytics 服務
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 02/24/2018
 完成時，[Microsoft 監視代理程式] 會出現在 [控制台] 中。 若要確認它有向 Log Analytics 報告，請檢閱[確認代理程式能夠連線到 Log Analytics](#verify-agent-connectivity-to-log-analytics)。 
 
 ## <a name="install-the-agent-using-the-command-line"></a>使用命令列安裝代理程式
-為代理程式下載的檔案是使用 IExpress 建立的獨立安裝套件。  套件中包含代理程式的安裝程式和支援檔案，這些檔案需要先解壓縮，才能使用命令列正確安裝，如下列範例所示。    
+為代理程式下載的檔案是獨立安裝套件。  套件中包含代理程式的安裝程式和支援檔案，這些檔案需要先解壓縮，才能使用命令列正確安裝，如下列範例所示。    
 
 >[!NOTE]
 >如果您想要升級代理程式，您需要使用 Log Analytics 指令碼 API。 如需更多資訊，請參閱[管理和維護適用於 Windows 和 Linux 的 Log Analytics 代理程式](log-analytics-agent-manage.md)。
@@ -72,6 +72,7 @@ ms.lasthandoff: 02/24/2018
 
 |MMA 專屬選項                   |注意         |
 |---------------------------------------|--------------|
+| NOAPM=1                               | 選擇性參數。 安裝代理程式但不包括 .NET 應用程式效能監控。|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = 將代理程式設定為向工作區報告                |
 |OPINSIGHTS_WORKSPACE_ID                | 要新增之工作區的工作區識別碼 (guid)                    |
 |OPINSIGHTS_WORKSPACE_KEY               | 用來向工作區進行初始驗證的工作區金鑰 |
@@ -80,7 +81,7 @@ ms.lasthandoff: 02/24/2018
 |OPINSIGHTS_PROXY_USERNAME               | 要存取已驗證 Proxy 的使用者名稱 |
 |OPINSIGHTS_PROXY_PASSWORD               | 要存取已驗證 Proxy 的密碼 |
 
-1. 若要解壓縮代理程式安裝檔案，請從提升權限的命令提示字元執行 `extract MMASetup-<platform>.exe`，它會提示檔案解壓縮的路徑。  或者，您可以傳遞 `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>` 引數來指定路徑。  如需 IExpress 支援的命令列參數詳細資訊，請參閱 [IExpress 的命令列參數](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages)，然後更新範例以符合您的需求。
+1. 若要解壓縮代理程式安裝檔案，請從提升權限的命令提示字元執行 `MMASetup-<platform>.exe /c`，它會提示檔案解壓縮的路徑。  或者，您可以傳遞 `MMASetup-<platform>.exe /c /t:<Path>` 引數來指定路徑。  
 2. 若要以無訊息方式安裝代理程式，並設定它向 Azure 商業雲端中的工作區報告，在您解壓縮安裝檔案的資料夾中輸入： 
    
      ```dos
@@ -99,8 +100,8 @@ ms.lasthandoff: 02/24/2018
 
 以下範例會安裝 64 位元代理程式，可由 `URI` 值識別。 您也可以取代 URI 值改為使用 32 位元版本。 這兩個版本的 URI 分別是︰
 
-- Windows 64 位元代理程式 - https://go.microsoft.com/fwlink/?LinkId=828603
-- Windows 32 位元代理程式 - https://go.microsoft.com/fwlink/?LinkId=828604
+- Windows 64 位元代理程式：https://go.microsoft.com/fwlink/?LinkId=828603
+- Windows 32 位元代理程式：https://go.microsoft.com/fwlink/?LinkId=828604
 
 
 >[!NOTE]
@@ -108,9 +109,9 @@ ms.lasthandoff: 02/24/2018
 
 代理程式套件的 32 位元和 64 位元版本具有不同的產品代碼，新發行的版本也都會有唯一代碼值。  產品代碼是唯一識別碼，為應用程式或產品的主要識別，在 Windows 安裝程式中以 **ProductCode** 屬性表示。  **MMAgent.ps1** 指令碼中的 `ProductId value` 必須符合 32 位元或 64 位元代理程式安裝程式套件的產品代碼。
 
-若要直接從代理程式安裝套件擷取產品代碼，您可以使用[適用於 Windows Installer 開發人員的 Windows SDK 元件](https://msdn.microsoft.com/library/windows/desktop/aa370834%27v=vs.85%28.aspx) (Windows 軟體開發套件的元件之一) 中的 Orca.exe，或依循 Microsoft Valuable Professional (MVP) 撰寫的[範例指令碼](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/)使用 PowerShell。
+若要直接從代理程式安裝套件擷取產品代碼，您可以使用[適用於 Windows Installer 開發人員的 Windows SDK 元件](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) (Windows 軟體開發套件的元件之一) 中的 Orca.exe，或依循 Microsoft Valuable Professional (MVP) 撰寫的[範例指令碼](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/)使用 PowerShell。  針對任一方法，您都必須先從 MMASetup 安裝套件擷取 **MOMagent.msi** 檔案。  這在前面[使用命令列安裝代理程式](#install-the-agent-using-the-command-line)一節底下的第一個步驟中有所敘述。  
 
-1. 從 [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) 將 xPSDesiredStateConfiguration DSC 模組匯入 Azure 自動化。  
+1. 將 xPSDesiredStateConfiguration DSC 模組從 [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) 匯入 Azure 自動化。  
 2.  建立 Azure 自動化的 *OPSINSIGHTS_WS_ID* 和 *OPSINSIGHTS_WS_KEY* 變數資產。 將 OPSINSIGHTS_WS_ID 設定為您的 Log Analytics 工作區識別碼，將 OPSINSIGHTS_WS_KEY 設定為您的工作區主索引鍵。
 3.  複製指令碼，並將其儲存為 MMAgent.ps1
 

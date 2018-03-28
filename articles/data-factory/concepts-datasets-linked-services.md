@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Factory 中的資料集和已連結的服務 | Microsoft Docs"
-description: "了解 Data Factory 中的資料集和已連結的服務。 已連結的服務會將計算/資料存放區連結至資料處理站。 資料集代表輸入/輸出資料。"
+title: Azure Data Factory 中的資料集和已連結的服務 | Microsoft Docs
+description: 了解 Data Factory 中的資料集和已連結的服務。 已連結的服務會將計算/資料存放區連結至資料處理站。 資料集代表輸入/輸出資料。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 98d58b97457cc64954094d7e8d8b4defca7e05ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Azure Data Factory 中的資料集和已連結的服務 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,31 +184,37 @@ typeProperties | 每個類型 (例如：Azure Blob、Azure SQL 資料表) 的類
 }
 ```
 ## <a name="dataset-structure"></a>資料集結構
-**structure** 區段是選擇性區段。 它可透過包含資料行之名稱和資料類型的集合，定義資料集的結構描述。 您可以使用 structure 區段來提供類型資訊，此資訊會用來轉換類型並將資料行從來源對應到目的地。 在下列範例中，資料集有三個資料行︰timestamp、projectname 及 pageviews。 它們的類型分別是 String、String 及 Decimal。
-
-```json
-[
-    { "name": "timestamp", "type": "String"},
-    { "name": "projectname", "type": "String"},
-    { "name": "pageviews", "type": "Decimal"}
-]
-```
+**structure** 區段是選擇性區段。 它可透過包含資料行之名稱和資料類型的集合，定義資料集的結構描述。 您可以使用 structure 區段來提供類型資訊，此資訊會用來轉換類型並將資料行從來源對應到目的地。
 
 structure 中的每個資料行都包含下列屬性︰
 
 屬性 | 說明 | 必要
 -------- | ----------- | --------
 name | 資料行的名稱。 | yes
-type | 資料行的資料類型。 | 否
+type | 資料行的資料類型。 Data Factory 支援將下列過渡期資料類型當作允許的值：**Int16、Int32、Int64、Single、Double、Decimal、Byte[]、Boolean、String、Guid、Datetime、Datetimeoffset 及 Timespan** | 否
 culture | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的 .NET 型文化特性。 預設值為 `en-us`。 | 否
-format | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的格式字串。 | 否
+format | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的格式字串。 有關如何格式化日期時間的資訊，請參閱[自訂日期和時間格式字串](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings)。 | 否
 
-下列方針可協助您判斷何時要包括 structure 資訊，以及在 **structure** 區段中要包含哪些資訊。
+### <a name="example"></a>範例
+在下列範例中，假設來源 Blob 資料是 CSV 格式，而且包含三個資料行：userid、name 和 lastlogindate。 這些是含有自訂日期時間格式 (使用法文縮寫星期幾名稱) 的 Int64、String 和 Datetime 類型。
 
-- **針對結構化資料來源**，請只有在您想要將來源資料行對應到接收資料行且其名稱不相同時，才指定 structure 區段。 這類結構化資料來源會將資料結構描述和類型資訊與資料本身儲存在一起。 結構化資料來源的範例包括 SQL Server、Oracle 及 Azure SQL Database。<br/><br/>由於結構化資料來源已經有可用的類型資訊，因此當您包含 structure 區段時，便不應包含類型資訊。
-- **針對在讀取時驗證結構描述 (schema on read) 的資料來源 (具體而言即 Blob 儲存體)**，您可以選擇儲存資料，而不將任何結構描述或類型資訊與資料儲存在一起。 針對這些類型的資料來源，當您想要將來源資料行與接收資料行對應時，請包含 structure。 當資料集是複製活動的輸入，並且來源資料集的資料類型應該轉換成接收器的原生類型時，也請包含 structure。<br/><br/> Data Factory 支援下列用來在結構中提供類型資訊的值：`Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan`。 
+請依下列方式，定義 Blob 資料集結構及資料行的類型定義：
 
-從[結構描述和類型對應]( copy-activity-schema-and-type-mapping.md)深入了解資料處理站如何將來源資料對應至接收，以及何時該指定結構資訊。
+```json
+"structure":
+[
+    { "name": "userid", "type": "Int64"},
+    { "name": "name", "type": "String"},
+    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+]
+```
+
+### <a name="guidance"></a>指引
+
+下列指引可協助您了解何時要包括 structure 資訊，以及在 **structure** 區段中要包含哪些資訊。 從[結構描述和類型對應](copy-activity-schema-and-type-mapping.md)深入了解資料處理站如何將來源資料對應至接收，以及何時該指定結構資訊。
+
+- **針對強式結構描述的資料來源**，請只有在您想要將來源資料行對應到接收資料行且其名稱不相同時，才指定 structure 區段。 這類結構化資料來源會將資料結構描述和類型資訊與資料本身儲存在一起。 結構化資料來源的範例包括 SQL Server、Oracle 及 Azure SQL Database。<br/><br/>由於結構化資料來源已經有可用的類型資訊，因此當您包含 structure 區段時，便不應包含類型資訊。
+- **針對無/弱式結構描述的資料來源，例如 Blob 儲存體中的文字檔案**，請在資料集是複製活動的輸入，並且來源資料集的資料類型應該轉換成接收器的原生類型時，包含 structure。 並且也在您想要將來源資料行與接收資料行對應時，包含 structure。
 
 ## <a name="create-datasets"></a>建立資料集
 您可以使用下列其中一個工具或 SDK 來建立資料集：[.NET API](quickstart-create-data-factory-dot-net.md)、[PowerShell](quickstart-create-data-factory-powershell.md)、[REST API](quickstart-create-data-factory-rest-api.md)、Azure Resource Manager 範本及 Azure 入口網站

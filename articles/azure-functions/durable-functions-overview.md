@@ -1,12 +1,12 @@
 ---
-title: "Durable Functions 概觀 - Azure (預覽)"
-description: "Azure Functions 的 Durable Functions 擴充簡介。"
+title: Durable Functions 概觀 - Azure (預覽)
+description: Azure Functions 的 Durable Functions 擴充簡介。
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Durable Functions 概觀 (預覽)
 
@@ -153,44 +153,43 @@ public static async Task<HttpResponseMessage> Run(
 
 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` 參數是來自 `orchestrationClient` 輸出繫結 (此繫結是 Durable Functions 擴充功能的一部分) 的值。 它可提供方法來啟動、終止、和查詢新的或現有的協調器函式執行個體，以及對其傳送事件。 在上述範例中，HTTP 所觸發的函式會從傳入 URL 取得 `functionName` 值，並將該值傳遞到 [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)。 這個繫結 API 接著會傳回回應，回應中包含了 `Location` 標頭和其他有關執行個體的資訊，以在稍後用來查詢已啟動之執行個體的狀態或將該執行個體終止。
 
-## <a name="pattern-4-stateful-singletons"></a>模式 #4：具狀態 Singleton
+## <a name="pattern-4-monitoring"></a>模式 #4：監視
 
-大部分函式都有明確的開始和結束，而不會直接與外部事件來源互動。 不過，協調流程所支援的[具狀態 Singleton](durable-functions-singletons.md) 模式則可讓協調流程的行為類似分散式運算中的可靠[動作項目](https://en.wikipedia.org/wiki/Actor_model)。
+監視模式是指工作流程中的彈性「週期性」程序，例如，輪詢直到符合特定條件。 一般計時器觸發程序可以解決簡單的案例，例如定期清除作業，但其間隔是靜態的，且管理執行個體存留期會變得很複雜。 Durable Functions 可提供彈性的循環間隔、工作存留期管理，而且能夠從單一協調流程建立多個監視流程。
 
-下圖所說明的函式，會在處理從外部來源所接收的事件時，於無限迴圈中執行。
+範例會反轉先前的非同步 HTTP API 案例。 長期執行的監視器會取用外部端點並等候狀態變更，而不會公開端點，以供外部用戶端監視長期執行的作業。
 
-![具狀態 Singleton 圖表](media/durable-functions-overview/stateful-singleton.png)
+![監視器圖表](media/durable-functions-overview/monitor.png)
 
-Durable Functions 雖非動作項目模型的實作，但協調器函式的確具有許多相同的執行階段特性。 例如，它們會長時間執行 (可能永無止盡)、具狀態、可靠、具單一執行緒、位置透明，且可全域定址。 這會讓協調器函式適用於「動作項目」之類的案例。
-
-一般函式並無狀態，因此不適合用來實作具狀態 Singleton 模式。 不過，Durable Functions 擴充功能可讓具狀態 Singleton 模式的實作變得相對簡單。 下列程式碼是簡單的協調器函式，可實作計數器。
+使用 Durable Functions，只需幾行程式碼即可建立觀察任意端點的多個監視器。 監視器可以在某些條件符合時結束執行，或是由 [DurableOrchestrationClient](durable-functions-instance-management.md) 終止，而且其等候間隔可根據某些條件變更 (也就是指數輪詢)。下列程式碼會實作基本的監視器。
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
 {
-    int counterState = ctx.GetInput<int>();
-
-    string operation = await ctx.WaitForExternalEvent<string>("operation");
-    if (operation == "incr")
+    int jobId = ctx.GetInput<int>();
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
+    
+    while (ctx.CurrentUtcDateTime < expiryTime) 
     {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
+        var jobStatus = await ctx.CallActivityAsync<string>("GetJobStatus", jobId);
+        if (jobStatus == "Completed")
+        {
+            // Perform action when condition met
+            await ctx.CallActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        var nextCheck = ctx.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await ctx.CreateTimer(nextCheck, CancellationToken.None);
     }
 
-    ctx.ContinueAsNew(counterState);
+    // Perform further work here, or let the orchestration end
 }
 ```
 
-您可能會將此程式碼描述為「外部協調流程」&mdash;也就是說，一旦開始就永不結束。 它會執行下列步驟：
-
-* 在 `counterState` 中輸入值來開始。
-* 無限期地等候稱為 `operation` 的訊息。
-* 執行某些邏輯以更新其本機狀態。
-* 呼叫 `ctx.ContinueAsNew` 以自行「重新啟動」。
-* 再次無限期地等候下一次作業。
+收到要求時，系統會針對該作業識別碼建立新的協調流程執行個體。 執行個體會輪詢狀態，直到符合條件且迴圈結束為止。 長期計時器可用來控制輪詢間隔。 接著可執行進一步作業，否則協調流程可能會結束。 當 `ctx.CurrentUtcDateTime` 超過 `expiryTime` 時，監視器會結束。
 
 ## <a name="pattern-5-human-interaction"></a>模式 #5：人為互動
 

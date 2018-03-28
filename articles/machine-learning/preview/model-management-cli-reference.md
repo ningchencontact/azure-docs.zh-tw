@@ -1,9 +1,9 @@
 ---
-title: "Azure Machine Learning 模型管理命令列介面參考 | Microsoft Docs"
-description: "Azure Machine Learning 模型管理命令列介面參考。"
+title: Azure Machine Learning 模型管理命令列介面參考 | Microsoft Docs
+description: Azure Machine Learning 模型管理命令列介面參考。
 services: machine-learning
-author: raymondl
-ms.author: raymondl, aashishb
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 219c61d1842369caadaf8e85dcb039242c37ef6c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 27361c5b92a8748a026d457875fadfc1f3529076
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="model-management-command-line-interface-reference"></a>模型管理命令列介面參考
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 02/23/2018
 
 **建立模型管理帳戶**
 
-使用下列命令建立模型管理帳戶。 系統會使用此帳戶來向您收費。
+使用下列命令，建立模型管理帳戶以便計費：
 
 `az ml account modelmanagement create --location [Azure region e.g. eastus2] --name [new account name] --resource-group [resource group name to store the account in]`
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/23/2018
 
 `az ml env setup [-c] --location [location of environment resources] --name[name of environment]`
 
-這會使用儲存體帳戶、ACR 登錄以及訂用帳戶中所建立的 App Insights 服務來初始化 Azure Machine Learning 環境。 如果未指定任何旗標，則系統預設會將環境初始化為只進行本機部署 (沒有 ACS)。 如果您需要調整服務，請指定 `--cluster` (或 `-c`) 旗標以建立 ACS 叢集。
+這個命令會使用儲存體帳戶、ACR 登錄，以及訂用帳戶中所建立的 App Insights 服務來初始化 Azure Machine Learning 環境。 如果未指定任何旗標，則系統預設會將環境初始化為只進行本機部署 (沒有 ACS)。 如果您需要調整服務，請指定 `--cluster` (或 `-c`) 旗標以建立 ACS 叢集。
 
 命令詳細資料：
 
@@ -89,12 +89,12 @@ ms.lasthandoff: 02/23/2018
     --cluster -c                   : Flag to provision ACS cluster. Off by default; specify this to force an ACS cluster deployment.
     --key-pem                      : Path to .pem file with certificate key.
     --master-count -m              : Number of master nodes to provision in the ACS cluster. Acceptable values: 1, 3, 5. Default: 1.
-    --resource-group -g            : Resource group in which to create compute resource. Will be created if it does not exist.
-                                     If not provided, resource group will be created with 'rg' appended to 'name.'.
+    --resource-group -g            : Resource group in which to create compute resource. Is created if it does not exist.
+                                     If not provided, resource group is created with 'rg' appended to 'name.'.
     --service-principal-app-id -a  : App ID of service principal to use for configuring ML compute.
     --service-principal-password -p: Password associated with service principal.
     --storage -s                   : ARM ID of storage account to associate with this environment.
-    --yes -y                       : Flag to answer 'yes' to any prompts. Command will fail if user is not logged in.
+    --yes -y                       : Flag to answer 'yes' to any prompts. Command fails if user is not logged in.
 
 全域引數
 ```
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/23/2018
 
 **建立資訊清單**
 
-建立模型的資訊清單檔。 
+下列命令會建立模型的資訊清單檔。 
 
 `az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]`
 
@@ -289,7 +289,7 @@ ms.lasthandoff: 02/23/2018
 
 請注意用來連結相依性的 `-d` 旗標：如果您傳遞尚未捆搭 (zip、tar 等) 之目錄的名稱，則該目錄會自動進行 tar 處理並傳遞，隨後再於另一端自動解除捆搭。 
 
-如果您傳入已捆搭的目錄，我們會將該目錄視為檔案，並原封不動地進行傳遞。 該目錄將不會自動解除捆搭；您應該在程式碼中處理這個程序。
+如果您傳入已捆搭的目錄，系統會將該目錄視為檔案，並原封不動地進行傳遞。 該目錄將會自動解除捆搭；您應該在程式碼中處理這個程序。
 
 **取得服務詳細資料**
 

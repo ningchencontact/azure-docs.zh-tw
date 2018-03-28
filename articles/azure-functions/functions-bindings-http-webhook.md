@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions HTTP 和 Webhook 繫結"
-description: "了解如何在 Azure Functions 中使用 HTTP 和 Webhook 觸發程序與繫結。"
+title: Azure Functions HTTP 和 Webhook 繫結
+description: 了解如何在 Azure Functions 中使用 HTTP 和 Webhook 觸發程序與繫結。
 services: functions
 documentationcenter: na
 author: mattchenderson
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 函數, 事件處理, webhook, 動態計算, 無伺服器架構, HTTP, API, REST"
+editor: ''
+tags: ''
+keywords: azure functions, 函數, 事件處理, webhook, 動態計算, 無伺服器架構, HTTP, API, REST
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: a46177183035a53128c5341a3ce4c63dbc3a7497
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 和 Webhook 繫結
 
@@ -30,6 +30,12 @@ ms.lasthandoff: 02/13/2018
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+## <a name="packages"></a>封裝
+
+[Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 套件中提供 HTTP 繫結。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 存放庫中。
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>觸發程序
 
@@ -361,7 +367,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs)屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http)。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) 屬性。
 
 您可以設定授權層級和屬性建構參數中可允許的 HTTP 方法，並有 webhook 類型和路由範本的內容。 如需這些設定的詳細資訊，請參閱[觸發程序 - 組態](#trigger---configuration)。 以下是方法簽章中的 `HttpTrigger` 屬性：
 

@@ -1,24 +1,18 @@
 ---
-title: Azure 自動化中的變數資產 | Microsoft Docs
+title: Azure 自動化中的變數資產
 description: 變數資產是可用於 Azure 自動化中所有 Runbook 和 DSC 設定的值。  這篇文章說明變數的詳細資料，以及如何以文字式和圖形化編寫形式加以使用。
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/07/2018
-ms.author: magoedte;bwren
-ms.openlocfilehash: 2ed4cf16615a0ca1789b789a635de564af568eb9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: carmonm
+ms.openlocfilehash: 7c36fce380712da6572e9512a05af9c23c4152a2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自動化中的變數資產
 
@@ -34,8 +28,8 @@ ms.lasthandoff: 03/09/2018
 
 建立變數時，您可以指定將其加密儲存。 變數加密時，會安全地儲存在 Azure 自動化中，而且無法透過隨附於 Azure PowerShell 模組的 [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) Cmdlet 擷取其值。 可以擷取加密值的唯一方法是從 Runbook 或 DSC 設定中的 **Get-AutomationVariable** 活動。
 
-> [!NOTE]
-> Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一索引鍵儲存在 Azure 自動化中。 這個索引鍵是由主要憑證加密，並且儲存在 Azure 自動化中。 儲存安全資產之前，會使用主要憑證解密自動化帳戶的金鑰，然後用來加密資產。
+>[!NOTE]
+>Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一金鑰儲存在 Azure 自動化中。 金鑰會儲存在 Key Vault 中。 在儲存安全資產之前，系統會從 Key Vault 載入金鑰，並用來加密資產。
 
 ## <a name="variable-types"></a>變數型別
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b383a081141d2fde90cfc574ec4b9ffb16940158
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>針對 Azure Active Directory 無縫單一登入進行疑難排解
 
@@ -34,8 +34,9 @@ ms.lasthandoff: 03/08/2018
 - 在 Firefox 的私用瀏覽模式中，無法使用無縫 SSO。
 - Internet Explorer 在開啟「增強保護」模式時也無法使用無縫 SSO。
 - iOS 和 Android 上的行動瀏覽器無法使用無縫 SSO。
+- 如果使用者是 Active Directory 中過多群組的成員之一，該使用者的 Kerberos 票證可能會太大而無法處理，並且會導致無縫式 SSO 失敗。 Azure AD HTTPS 要求可以有大小上限為 16KB 的標頭；Kerberos 票證必須遠小於該數字，以容納其他 Azure AD 成品，例如 Cookie。 建議您降低使用者的群組成員資格，然後再試一次。
 - 如果您正在同步處理 30 個或更多的 Active Directory 樹系，便無法透過 Azure AD Connect 啟用無縫 SSO。 您可以在租用戶上[手動啟用](#manual-reset-of-azure-ad-seamless-sso)此功能，以解決這個問題。
-- 將 Azure AD 服務 URL (https://autologon.microsoftazuread-sso.com) 新增至「信任的網站區域」而非「近端內部網路區域」會「阻止使用者登入」。
+- 將 Azure AD 服務 URL (https://autologon.microsoftazuread-sso.com)) 新增至「信任的網站區域」而非「近端內部網路區域」，會「阻止使用者登入」。
 - 針對您 Active Directory 設定中的 Kerberos 停用 **RC4_HMAC_MD5** 加密類型會中斷「無縫 SSO」。 在您的「群組原則管理編輯器」工具中，請確定在 [電腦設定] -> [Windows 設定] -> [安全性設定] -> [本機原則] -> [安全性選項] -> [網路安全性: 設定 Kerberos 允許的加密類型] 底下，[RC4_HMAC_MD5] 的原則值為 [已啟用]。
 
 ## <a name="check-status-of-feature"></a>檢查功能的狀態
@@ -75,7 +76,7 @@ ms.lasthandoff: 03/08/2018
 
 - 請務必在 Azure AD Connect 上已啟用無縫 SSO 功能。 如果您無法啟用此功能 (例如，因為連接埠已封鎖)，請確定您已完成所有[必要條件](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites)。
 - 如果您已在租用戶上同時啟用 [Azure AD 聯結](../active-directory-azureadjoin-overview.md)和「無縫 SSO」，請確定問題不是出在「Azure AD 聯結」上。 如果裝置既已向 Azure AD 註冊也加入網域，則來自「Azure AD 聯結」的 SSO 優先順序會高於「無縫 SSO」。 使用來自「Azure AD 聯結」的 SSO 時，使用者會看到指出「已連線到 Windows」的登入圖格。
-- 確定 Azure AD URL (https://autologon.microsoftazuread-sso.com) 是使用者內部網路區域設定的一部分。
+- 確定 Azure AD URL (https://autologon.microsoftazuread-sso.com)) 是使用者內部網路區域設定的一部分。
 - 確定公司裝置已加入 Active Directory 網域。
 - 確定使用者已透過 Active Directory 網域帳戶登入裝置。
 - 確定使用者帳戶是來自已設定無縫 SSO 的 Active Directory 樹系。

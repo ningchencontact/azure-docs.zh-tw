@@ -1,25 +1,25 @@
 ---
-title: "Azure Stack 整合式系統的網路整合考量 | Microsoft Docs"
-description: "了解您可以執行哪些工作，來為資料中心網路與多節點 Azure Stack 的整合做規劃。"
+title: Azure Stack 整合式系統的網路整合考量 | Microsoft Docs
+description: 了解您可以執行哪些工作，來為資料中心網路與多節點 Azure Stack 的整合做規劃。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="network-connectivity"></a>網路連線
 本文提供 Azure Stack 網路基礎架構資訊，可協助您決定如何以最佳方式將 Azure Stack 整合至現有的網路環境。 
@@ -53,7 +53,9 @@ Azure Stack 的網路基礎結構包含交換器上設定的數個邏輯網路�
 ![邏輯網路圖表和交換器連線](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>BMC 網路
-此網路專門用來將所有基礎板管理控制器 (也稱為服務處理器，例如 iDRAC、iLO、iBMC 等) 連線至管理網路。 如果 (HLH) 硬體生命週期主機存在，它會位在此網路上，並可提供用於維護和/或監視硬體的 OEM 專用軟體。 
+此網路專門用來將所有基礎板管理控制器 (也稱為服務處理器，例如 iDRAC、iLO、iBMC 等) 連線至管理網路。 如果硬體生命週期主機 (HLH) 存在，它會位在此網路上，並可提供用於維護或監視硬體的 OEM 專用軟體。 
+
+HLH 也會裝載部署 VM (DVM)。 DVM 會在 Azure Stack 部署期間使用，並且在部署完成時移除。 在已連線的部署案例中，DVM 需要網際網路存取權才能測試、驗證及存取多個元件。 這些元件可以在公司網路的內部和外部，例如 NTP、DNS 和 Azure。 如需有關連線需求的詳細資訊，請參閱 [Azure Stack 防火牆整合中的 NAT 區段](azure-stack-firewall.md#network-address-translation)。 
 
 ### <a name="private-network"></a>私人網路
 此 /24 (254 個主機 IP) 網路由 Azure Stack 區域所私有 (不擴充到超出 Azure Stack 區域的界限交換器裝置)，而且分成兩個子網路：

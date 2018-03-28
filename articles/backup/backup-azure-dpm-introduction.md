@@ -1,12 +1,12 @@
 ---
-title: "使用 DPM 將工作負載備份至 Azure 入口網站 | Microsoft Docs"
-description: "使用 Azure 備份服務來備份 DPM 伺服器的簡介"
+title: 使用 DPM 將工作負載備份至 Azure 入口網站 | Microsoft Docs
+description: 使用 Azure 備份服務來備份 DPM 伺服器的簡介
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: adigan
 manager: nkolli
-editor: 
-keywords: "System Center Data Protection Manager, Data Protection Manager, DPM 備份"
+editor: ''
+keywords: System Center Data Protection Manager, Data Protection Manager, DPM 備份
 ms.assetid: c8c322cf-f5eb-422c-a34c-04a4801bfec7
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0e547a5991c0ce00344eff6d6b77edb0e34bd62c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>準備使用 DPM 將工作負載備份到 Azure
 > [!div class="op_single_selector"]
@@ -43,27 +43,29 @@ ms.lasthandoff: 12/21/2017
 [System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) 會備份檔案和應用程式資料。 如需所支援工作負載的詳細資訊，請參閱[這裡](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix)。 備份到 DPM 的資料可以儲存在磁帶、磁碟上，或使用 Microsoft Azure 備份來備份到 Azure。 DPM 與 Azure 備份的互動方式如下：
 
 * **DPM 部署為實體伺服器或內部部署虛擬機器** — 如果 DPM 部署為實體伺服器或內部部署 Hyper-V 虛擬機器，除了備份到磁碟和磁帶上，您還可以將資料備份到復原服務保存庫。
-* **DPM 部署為 Azure 虛擬機器** — 從 System Center 2012 R2 Update 3 開始，DPM 可以部署為 Azure 虛擬機器。 如果 DPM 部署為 Azure 虛擬機器，您可以將資料備份到連接至 DPM Azure 虛擬機器的 Azure 磁碟，或者您也可以將資料備份到復原服務保存庫以卸載資料儲存體。
+* **DPM 部署為 Azure 虛擬機器** — 從 System Center 2012 R2 Update 3 開始，您可以在 Azure 虛擬機器上部署 DPM。 如果 DPM 部署為 Azure 虛擬機器，您可以將資料備份到連結至 VM 的 Azure 磁碟，或者將資料備份到復原服務保存庫以卸載資料儲存體。
 
-## <a name="why-backup-from-dpm-to-azure"></a>為什麼要從 DPM 備份到 Azure？
-使用 Azure 備份來備份 DPM 伺服器的商業利益包括：
+## <a name="why-back-up-dpm-to-azure"></a>為何要將 DPM 備份至 Azure？
+將 DPM 伺服器備份至 Azure 的商業優勢包括：
 
-* 在內部部署 DPM 部署中，您可以使用 Azure 來替代長期的磁帶部署。
-* 在 Azure 的 DPM 部署中，Azure 備份可讓您卸載 Azure 磁碟中的儲存體，並在復原服務保存庫中儲存較舊的資料，而將較新的資料儲存在磁碟上以進行擴充。
+* 在內部部署 DPM 部署中，使用 Azure 來替代長期的磁帶部署。
+* 若要在 Azure 中於 VM 上部署 DPM，請從 Azure 磁碟卸載儲存體。 在您的復原服務保存庫中儲存較舊的資料，可讓您將新資料儲存至磁碟，進而相應增加業務。
 
 ## <a name="prerequisites"></a>先決條件
 如下所示讓 Azure 備份做好備份 DPM 資料的準備：
 
 1. **建立復原服務保存庫** — 在 Azure 入口網站中建立保存庫。
 2. **下載保存庫認證** — 下載用來向復原服務保存庫註冊 DPM 伺服器的認證。
-3. **安裝 Azure 備份代理程式** — 從 Azure 備份，在每一部 DPM 伺服器上安裝代理程式。
-4. **註冊伺服器** — 向 [復原服務保存庫] 註冊 DPM 伺服器。
+3. **安裝 Azure 備份代理程式** — 在每部 DPM 伺服器上安裝代理程式。
+4. **註冊伺服器** — 向復原服務保存庫註冊 DPM 伺服器。
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="key-definitions"></a>關鍵定義
 以下是適用於 DPM 之 Azure 備份的某些關鍵定義：
 
 1. **保存庫認證** — 需要有保存庫認證才能對機器進行驗證，以便將備份資料傳送至 Azure 備份服務中的已識別保存庫。 認證可從保存庫下載下來，有效時間為 48 小時。
-2. **複雜密碼** — 複雜密碼可用來加密雲端備份。 請將檔案儲存在安全的位置，在復原作業期間需要該檔案。
+2. **複雜密碼** — 複雜密碼可用來加密雲端備份。 請將檔案儲存在安全的位置，因為在復原作業期間需要該檔案。
 3. **安全性 PIN 碼** — 如果您已啟用保存庫的[安全性設定](https://docs.microsoft.com/azure/backup/backup-azure-security-feature)，則需要安全性 PIN 碼才能執行重要的備份作業。 這個多重要素驗證可多一道安全性。 
 4. **復原資料夾** — 它是雲端復原期間要將備份從雲端暫時下載到之位置的慣用語。 其大小約等於您想要平行復原之備份項目的大小。
 
@@ -81,7 +83,7 @@ ms.lasthandoff: 12/21/2017
 
     ![建立復原服務保存庫的步驟 2](./media/backup-azure-dpm-introduction/rs-vault-menu.png)
 
-    [復原服務保存庫] 刀鋒視窗隨即開啟，並提示您提供 [名稱]、[訂用帳戶]、[資源群組] 和 [位置]。
+    [復原服務保存庫] 功能表隨即開啟，並提示您提供 [名稱]、[訂用帳戶]、[資源群組] 和 [位置]。
 
     ![建立復原服務保存庫的步驟 5](./media/backup-azure-dpm-introduction/rs-vault-attributes.png)
 4. 在 [名稱] 中，輸入易記名稱來識別保存庫。 必須是 Azure 訂用帳戶中唯一的名稱。 輸入包含 2 到 50 個字元的名稱。 該名稱必須以字母開頭，而且只可以包含字母、數字和連字號。
@@ -96,8 +98,8 @@ ms.lasthandoff: 12/21/2017
 
 若要編輯儲存體複寫設定︰
 
-1. 選取保存庫以開啟保存庫儀表板和 [設定] 刀鋒視窗。 如果 [設定] 刀鋒視窗未開啟，請按一下保存庫儀表板中的 [所有設定]。
-2. 在 [設定] 刀鋒視窗上按一下 [備份基礎結構]  >  [備份設定]，開啟 [備份設定] 刀鋒視窗。 在 [備份設定]  刀鋒視窗上，選擇保存庫的儲存體複寫選項。
+1. 選取保存庫以開啟保存庫儀表板和 [設定] 功能表。 如果 [設定] 功能表未開啟，請按一下保存庫儀表板中的 [所有設定]。
+2. 在 [設定] 功能表上按一下 [備份基礎結構] > [備份組態]，開啟 [備份組態] 功能表。 在 [備份組態]  功能表上，選擇保存庫的儲存體複寫選項。
 
     ![備份保存庫的清單](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -112,9 +114,9 @@ ms.lasthandoff: 12/21/2017
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 開啟要註冊 DPM 機器的復原服務保存庫。
-3. 根據預設，[設定] 刀鋒視窗隨即會開啟。 如果該刀鋒視窗未開啟，請在保存庫儀表板上按一下 [設定]  ，以開啟 [設定] 刀鋒視窗。 在 [設定] 刀鋒視窗中，按一下 [屬性] 。
+3. 根據預設，[設定] 功能表隨即會開啟。 如果該功能表未開啟，請在保存庫儀表板上按一下 [設定]，以開啟 [設定] 功能表。 在 [設定] 功能表中，按一下 [屬性]。
 
-    ![開啟 [保存庫] 刀鋒視窗](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![開啟保存庫功能表](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 4. 在 [屬性] 頁面中，按一下 [備份認證] 下方的 [下載]。 入口網站會產生可供下載的保存庫認證檔。
 
     ![下載](./media/backup-azure-dpm-introduction/vault-credentials.png)
@@ -130,9 +132,9 @@ ms.lasthandoff: 12/21/2017
 建立 Azure 備份保存庫之後，您的每部 Windows 電腦 (Windows Server、Windows 用戶端、System Center Data Protection Manager 伺服器，或 Azure 備份伺服器電腦) 上應該安裝代理程式，以便讓您將資料和應用程式備份至 Azure。
 
 1. 開啟要註冊 DPM 機器的復原服務保存庫。
-2. 根據預設，[設定] 刀鋒視窗隨即會開啟。 如果該刀鋒視窗未開啟，請按一下 [設定]  以開啟 [設定] 刀鋒視窗。 在 [設定] 刀鋒視窗中，按一下 [屬性] 。
+2. 根據預設，[設定] 功能表隨即會開啟。 如果該刀鋒視窗未開啟，請按一下 [設定] 以開啟 [設定] 功能表。 在 [設定] 功能表中，按一下 [屬性]。
 
-    ![開啟 [保存庫] 刀鋒視窗](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![開啟保存庫功能表](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. 在 [設定] 頁面中，按一下 [Azure 備份代理程式] 下方的 [下載]。
 
     ![下載](./media/backup-azure-dpm-introduction/azure-backup-agent.png)

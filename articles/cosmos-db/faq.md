@@ -1,25 +1,25 @@
 ---
-title: "Azure Cosmos DB 常見問題集 | Microsoft Docs"
-description: "取得關於 Azure Cosmos DB (一種全域散發的多模型資料庫服務) 之常見問題集的解答。 了解產能、效能層級和調整。"
-keywords: "資料庫問題, 常見問題集, Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
+title: Azure Cosmos DB 常見問題集 | Microsoft Docs
+description: 取得關於 Azure Cosmos DB (一種全域散發的多模型資料庫服務) 之常見問題集的解答。 了解產能、效能層級和調整。
+keywords: 資料庫問題, 常見問題集, Database questions, frequently asked questions, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: ac0088478701a1796380daa74602569800c1522e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 466abbffd250685baf886b7fc7cc772ee9e327f2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
@@ -211,6 +211,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 * 目前不支援 CORS
 * 資料表名稱在 Azure 資料表儲存體中不區分大小寫，但在 Azure Cosmos DB 資料表 API 中則有區分
 * 部分 Azure Cosmos DB 用於編碼資訊 (例如二進位欄位) 的內部格式，目前不如預期地有效率。 因此這會對資料大小造成非預期的限制。 例如，目前無法使用資料表實體的完整 1 Meg 來儲存二進位資料，因為編碼方式增加了資料的大小。
+* 目前不支援實體屬性名稱 “Id”
 
 就 REST API 來說，Azure Cosmos DB 資料表 API 並不支援某些端點/查詢選項：
 | REST 方法 | REST 端點/查詢選項 | 文件 URL | 說明 |
@@ -282,7 +283,7 @@ DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>如何將現有的 Azure 資料表儲存體應用程式移轉到這個供應項目？
 [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) 和 [Azure Cosmos DB 資料移轉工具](import-data.md)皆有受到支援。
 
-### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>假設我一開始就有 *n* GB 的資料，而我的資料將隨著時間過去成長為 1 TB，我該如何針對此服務完成儲存體大小的擴充？ 
+### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>假設我一開始就有 n GB 的資料，而我的資料將隨著時間過去成長為 1 TB，我該如何針對此服務完成儲存體大小的擴充？ 
 Azure Cosmos DB 的設計乃藉由使用水平調整提供無限制的儲存體。 這項服務能監視並有效地增加您的儲存體。 
 
 ### <a name="how-do-i-monitor-the-table-api-offering"></a>如何監視資料表 API 供應項目？

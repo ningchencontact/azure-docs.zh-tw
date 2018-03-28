@@ -1,6 +1,6 @@
 ---
-title: "已知問題和疑難排解指南 | Microsoft Docs"
-description: "已知問題清單和協助疑難排解的指南"
+title: 已知問題和疑難排解指南 | Microsoft Docs
+description: 已知問題清單和協助疑難排解的指南
 services: machine-learning
 author: svankam
 ms.author: svankam
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 62207fa20c4660d1e828053ee73953cb68af1b9d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 已知問題和疑難排解指南 
 本文可協助您尋找和修正使用 Azure Machine Learning Workbench 應用程式過程中遇到的錯誤與失敗。 
@@ -102,7 +102,7 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
    - 移除資料夾 `C:\Users\<Username>\AppData\Local\amlworkbench`
    - 移除指令碼 `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - 移除可啟動上述指令碼的桌面捷徑
-   - 下載安裝程式 https://aka.ms/azureml-wb-msi 並重新安裝。
+   - 下載安裝程式 https://aka.ms/azureml-wb-msi 並且重新安裝。
 
 ## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>在登入後卡在「正在檢查測試帳戶」畫面
 登入之後，Workbench 應用程式可能會卡在空白畫面，並會顯示「正在檢查測試帳戶」訊息及旋轉的滾輪。 若要解決此問題，請採取下列步驟：
@@ -203,11 +203,14 @@ $ docker system prune -a
 或者，您可以展開作業系統磁碟，但不必碰觸 Docker 引擎組態。 以下說明[如何展開作業系統磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks)。
 
 ```azure-cli
-#Deallocate VM (stopping will not work)
+# Deallocate VM (stopping will not work)
 $ az vm deallocate --resource-group myResourceGroup  --name myVM
 
-# Update Disc Size
-$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+# Get VM's Disc Name
+az disk list --resource-group myResourceGroup --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+
+# Update Disc Size using above name
+$ az disk update --resource-group myResourceGroup --name myVMdisc --size-gb 250
     
 # Start VM    
 $ az vm start --resource-group myResourceGroup  --name myVM

@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory v2.0 權杖參考 | Microsoft Docs"
-description: "Azure AD v2.0 端點所發出之權杖和宣告的類型"
+title: Azure Active Directory v2.0 權杖參考 | Microsoft Docs
+description: Azure AD v2.0 端點所發出之權杖和宣告的類型
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 權杖參考
 Azure Active Directory (Azure AD) v2.0 端點會在每個[驗證流程](active-directory-v2-flows.md)中發出數種安全性權杖。 本參考文件說明每種權杖的格式、安全性特性及內容。
@@ -86,7 +86,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 
 若要在權杖回應中接收重新整理權杖，您的應用程式必須要求並獲得 `offline_acesss` 範圍。 若要深入了解 `offline_access` 範圍，請參閱[同意和範圍](active-directory-v2-scopes.md)一文。
 
-重新整理權杖對您的應用程式來說，一律是完全不透明的。 它們是由 Azure AD v2.0 端點所簽發，只能由 v2.0 端點檢查和解譯。 它們屬於長效權杖，但不得將您的應用程式撰寫成預期重新整理權杖將持續任何一段時間。 重新整理權杖可能會因為各種原因而隨時失效。 讓您的應用程式知道重新整理權杖是否有效的唯一方式，就是對 v2.0 端點提出權杖要求以嘗試兌換。
+重新整理權杖對您的應用程式來說，一律是完全不透明的。 它們是由 Azure AD v2.0 端點所簽發，只能由 v2.0 端點檢查和解譯。 它們屬於長效權杖，但不得將您的應用程式撰寫成預期重新整理權杖將持續任何一段時間。 重新整理權杖可能會因為各種原因而隨時失效 - 如需詳細資訊，請參閱[權杖撤銷](active-directory-token-and-claims.md#token-revocation)。 讓您的應用程式知道重新整理權杖是否有效的唯一方式，就是對 v2.0 端點提出權杖要求以嘗試兌換。
 
 當您以重新整理權杖兌換新的存取權杖 (而且如果您的應用程式已獲得 `offline_access` 範圍) 時，您會在權杖回應中收到新的重新整理權杖。 請儲存新簽發的重新整理權杖，以取代您在要求中使用的重新整理權杖。 這可保證您的重新整理權杖儘可能長期保持有效。
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.author: danis
-ms.openlocfilehash: 5497c0151117c26e66e9669ed8da1ab7f9506b5a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5174e599f12314a657d142304ffec18fbff847b1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>適用於 Linux 的 OMS 虛擬機器擴充功能
 
@@ -43,10 +43,11 @@ Log Analytics 可提供雲端和內部部署資產的監視、警示和警示補
 | SUSE Linux Enterprise Server | 11 和 12 |
 
 ### <a name="agent-and-vm-extension-version"></a>代理程式和 VM 擴充功能版本
-下表提供每個版本之 OMS VM 擴充功能和 OMS 代理程式套件組合的版本對應。 隨附 OMS 代理程式套件組合版本的版本資訊連結。  
+下表提供每個版本之 OMS VM 擴充功能和 OMS 代理程式套件組合的版本對應。 隨附 OMS 代理程式套件組合版本的版本資訊連結。 版本資訊包含錯誤修正和適用於指定代理程式版本的新功能詳細資料。  
 
 | OMS Linux VM 擴充功能版本 | OMS 代理程式套件組合版本 | 
 |--------------------------------|--------------------------|
+| 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
 | 1.4.58.7 | [14.2-125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
 | 1.4.56.5 | [1.4.2-124](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-124)|

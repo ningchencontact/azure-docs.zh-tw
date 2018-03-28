@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e65371396b91c1dc97f504bac8b969093f5c518
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
@@ -164,24 +164,25 @@ ms.lasthandoff: 03/09/2018
 這項設定會影響從下列行動裝置應用程式和桌面用戶端進行的存取嘗試： 
 
 
-|用戶端應用程式|目標服務|平台|
-|---|---|---|
-|Azure 遠端應用程式|Azure 遠端應用程式服務|Windows 10、Windows 8.1、Windows 7、iOS、Android 和 Mac OS X|
-|Dynamics CRM 應用程式|Dynamics CRM|Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
-|[電子郵件]/[行事曆]/[人員] 應用程式、Outlook 2016、Outlook 2013 (使用新式驗證)|Office 365 Exchange Online|Windows 10|
-|應用程式的 MFA 和位置原則。 不支援裝置型原則。 |任何 My Apps 應用程式服務|Android 和 iOS|
-|Microsoft Teams Services - 這會控制支援 Microsoft Teams 及其所有用戶端應用程式的所有服務 - Windows 桌面、iOS、Android、WP 和 Web 用戶端|Microsoft Teams|Windows 10、Windows 8.1、Windows 7、iOS、Android 及 macOS |
-|Office 2016 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1、Windows 7|
-|Office 2016 應用程式、通用 Office 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))、預計未來提供的 Office Groups 支援、預計未來提供的 SharePoint 應用程式支援|Office 365 SharePoint Online|Windows 10|
-|macOS 版 Office 2016 (僅限 Word、Excel、PowerPoint、OneNote)。 未來規劃支援商務用 OneDrive|Office 365 SharePoint Online|Mac OS X|
-|Office 行動應用程式|Office 365 SharePoint Online|Android、iOS|
-|Office Yammer 應用程式|Office 365 Yammer|Windows 10、iOS、Android|
-|Outlook 2016 (macOS 版 Office)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016、Outlook 2013 (已啟用新式驗證)、商務用 Skype (採用新式驗證)|Office 365 Exchange Online|Windows 8.1、Windows 7|
-|Outlook 行動應用程式|Office 365 Exchange Online|Android、iOS|
-|PowerBI 應用程式|PowerBI service|Windows 10、Windows 8.1、Windows 7 及 iOS|
-|商務用 Skype|Office 365 Exchange Online|Android、iOS |
-|Visual Studio Team Services 應用程式|Visual Studio Team Services|Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
+| 用戶端應用程式| 目標服務| 平台 |
+| --- | --- | --- |
+| Azure 遠端應用程式| Azure 遠端應用程式服務| Windows 10、Windows 8.1、Windows 7、iOS、Android 和 Mac OS X|
+| Dynamics CRM 應用程式| Dynamics CRM| Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
+| [電子郵件]/[行事曆]/[人員] 應用程式、Outlook 2016、Outlook 2013 (使用新式驗證)| Office 365 Exchange Online| Windows 10|
+| 應用程式的 MFA 和位置原則。 不支援裝置型原則。| 任何 My Apps 應用程式服務| Android 和 iOS|
+| Microsoft Teams Services - 這會控制支援 Microsoft Teams 及其所有用戶端應用程式的所有服務 - Windows 桌面、iOS、Android、WP 和 Web 用戶端| Microsoft Teams| Windows 10、Windows 8.1、Windows 7、iOS、Android 及 macOS|
+| Office 2016 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1、Windows 7|
+| Office 2016 應用程式、通用 Office 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))、預計未來提供的 Office Groups 支援、預計未來提供的 SharePoint 應用程式支援| Office 365 SharePoint Online| Windows 10|
+| macOS 版 Office 2016 (僅限 Word、Excel、PowerPoint、OneNote)。 未來規劃支援商務用 OneDrive| Office 365 SharePoint Online| Mac OS X|
+| Office 行動應用程式| Office 365 SharePoint Online| Android、iOS|
+| Office Yammer 應用程式| Office 365 Yammer| Windows 10、iOS、Android|
+| Outlook 2016 (macOS 版 Office)| Office 365 Exchange Online| Mac OS X|
+| Outlook 2016、Outlook 2013 (已啟用新式驗證)、商務用 Skype (採用新式驗證)| Office 365 Exchange Online| Windows 8.1、Windows 7|
+| Outlook 行動應用程式| Office 365 Exchange Online| Android、iOS|
+| PowerBI 應用程式| PowerBI service| Windows 10、Windows 8.1、Windows 7、Android 和 iOS|
+| 商務用 Skype| Office 365 Exchange Online| Android、iOS|
+| Visual Studio Team Services 應用程式| Visual Studio Team Services| Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
+
 
 
 ## <a name="approved-client-app-requirement"></a>核准的用戶端應用程式需求 
@@ -221,10 +222,6 @@ ms.lasthandoff: 03/09/2018
 - **需要經過核准的用戶端應用程式**需求：
 
     - 僅支援[裝置平台條件](#device-platforms-condition)適用的 iOS 和 Android。
-
-    - 不支援[用戶端應用程式條件](#supported-browsers)適用的 [瀏覽器] 選項。
-    
-    - 選取[用戶端應用程式條件](#supported-mobile-apps-and-desktop-clients)適用的 [行動裝置應用程式和桌面應用程式] 選項時，取代該選項。
 
 
 ## <a name="next-steps"></a>後續步驟

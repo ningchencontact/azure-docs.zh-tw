@@ -1,25 +1,19 @@
 ---
-title: "開始使用 Azure SQL 資料庫稽核 | Microsoft Docs"
-description: "使用 Azure SQL Database 稽核來將資料庫事件追蹤至稽核記錄。"
+title: 開始使用 Azure SQL 資料庫稽核 | Microsoft Docs
+description: 使用 Azure SQL Database 稽核來將資料庫事件追蹤至稽核記錄。
 services: sql-database
-documentationcenter: 
 author: giladm
-manager: jhubbard
-editor: giladm
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 0994bdc7e6c86e10f7002649830fc59ad3d1a045
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0339dc2ecc93fb9ec260ede9d3f2e9b7b1419b08
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核也具備下列功能：

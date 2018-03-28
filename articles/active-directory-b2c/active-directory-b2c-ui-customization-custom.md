@@ -1,8 +1,8 @@
 ---
-title: "使用自訂原則來自訂 UI - Azure AD B2C | Microsoft Docs"
-description: "了解如何在 Azure AD B2C 中使用自訂原則時自訂使用者介面 (UI)。"
+title: 使用自訂原則來自訂 UI - Azure AD B2C | Microsoft Docs
+description: 了解如何在 Azure AD B2C 中使用自訂原則時自訂使用者介面 (UI)。
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: saeedakhter-msft
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C︰在自訂原則中設定 UI 自訂
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 12/11/2017
 
 執行下列作業來驗證您已準備就緒：
 
-1. 移至 [test-cors.org](http://test-cors.org/) 網站，然後在 [遠端 URL] 方塊中貼上 URL。
+1. 移至 [www.test-cors.org](http://www.test-cors.org/) 網站，然後在 [遠端 URL] 方塊中貼上 URL。
 2. 按一下 [傳送要求]。  
     如果您收到錯誤，請確定您的 [CORS 設定](#configure-cors)正確無誤。 您也可能需要清除瀏覽器快取，或按 Ctrl+Shift+P 來開啟 InPrivate 瀏覽工作階段。
 

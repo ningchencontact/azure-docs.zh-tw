@@ -1,24 +1,18 @@
 ---
-title: "Azure 自動化中的原始檔控制整合 | Microsoft Docs"
-description: "本文說明在 Azure 自動化中與 GitHub 的原始檔控制整合。"
+title: Azure 自動化中的原始檔控制整合
+description: 本文說明在 Azure 自動化中與 GitHub 的原始檔控制整合。
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 224d7375-9887-44dd-b137-06ffe396a4b4
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte;sngun
-ms.openlocfilehash: 15e69105d4171c63b4ccef0b072bccf49a2e9ceb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+manager: carmonm
+ms.openlocfilehash: 96b4f38ea990edcb23ae792d40651672a921a7c7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自動化中的原始檔控制整合
 原始檔控制整合可讓您將自動化帳戶中的 Runbook 關聯至 GitHub 原始檔控制儲存機制。 原始檔控制可讓您輕鬆地與小組共同作業、追蹤變更，以及回復至舊版的 Runbook。 例如，原始檔控制可讓您將原始檔控制中的不同分支同步處理至您的開發、測試或生產自動化帳戶，以輕鬆地將已在開發環境中測試過的程式碼提升至生產自動化帳戶。

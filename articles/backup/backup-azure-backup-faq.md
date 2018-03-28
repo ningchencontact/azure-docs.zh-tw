@@ -1,12 +1,12 @@
 ---
-title: "Azure 備份常見問題集 | Microsoft Docs"
-description: "有關以下常見問題的解答：包括復原服務保存庫、可以備份的項目、其運作方式、加密和限制等 Azure 備份功能。 "
+title: Azure 備份常見問題集 | Microsoft Docs
+description: '有關以下常見問題的解答：包括復原服務保存庫、可以備份的項目、其運作方式、加密和限制等 Azure 備份功能。 '
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "備份和災害復原; 備份服務"
+editor: ''
+keywords: 備份和災害復原; 備份服務
 ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 2e829ae90aa0366964f96b3c43f88503c7f3e894
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 39e7c95f236f53d7b7c4de0e5b792debe5c0c6f6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>關於 Azure 備份服務的問題
 本文提供 Azure 備份元件的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 按一下 [註解] \(位於右側)，即可詢問 Azure 備份的相關問題。 註解會出現於文末。 需有 Livefyre 帳戶才能使用註解。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -132,8 +132,7 @@ Azure 備份支援下列作業系統清單來備份：使用 Azure 備份伺服�
 | Microsoft Exchange |在要備份的 Exchange Server 中所有 Exchange 資料庫的總和 |
 | BMR/系統狀態 |在要備份的電腦上 BMR 或系統狀態的每個個別複本 |
 
-在 Azure VM 備份中，每個 VM 最多可以有 16 個資料磁碟，而每個資料磁碟的大小為 1024 GB 或更少。 <br>
-我們有[私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0) \(英文\)，支援最多 4 TB 的磁碟。 
+在 Azure VM 備份中，每個 VM 最多可以有 16 個資料磁碟，而每個資料磁碟的大小為 4095GB 或更少。 <br>
 
 ## <a name="retention-policy-and-recovery-points"></a>保留原則和復原點
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>DPM 和 Windows Server/用戶端 (亦即在不含 DPM 的 Windows Server 上) 的保留原則是否具有差異？<br/>

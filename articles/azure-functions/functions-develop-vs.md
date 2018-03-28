@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 03/13/2018
 ms.author: glenga
-ms.openlocfilehash: 26df11bb010414ba979077c45d01e66f17f6b12e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dddb35ea2ba1c02f78234fe33cdb832e9aacbff5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
 
@@ -38,9 +38,13 @@ Azure Functions Tools 提供下列優點：
 
 ## <a name="prerequisites"></a>先決條件
 
-[Visual Studio 2017 15.4 版](https://www.visualstudio.com/vs/) 與更新版本的 Azure 開發工作負載中包含了 Azure Functions 工具。 請確認您的 Visual Studio 2017 安裝中包含了 **Azure 開發**工作負載：
+[Visual Studio 2017 15.5 版](https://www.visualstudio.com/vs/) 與更新版本的 Azure 開發工作負載中包含了 Azure Functions 工具。 請確認您的 Visual Studio 2017 安裝中包含了 **Azure 開發**工作負載：
 
 ![安裝包含 Azure 開發工作負載的 Visual Studio 2017](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+請確定您的 Visual Studio 是最新的，且您使用的是[最新版本](#check-your-tools-version)的 Azure Functions 工具。
+
+### <a name="other-requirements"></a>其他需求
 
 若要建立及部署函數，您也需要：
 
@@ -48,11 +52,33 @@ Azure Functions Tools 提供下列優點：
 
 * Azure 儲存體帳戶。 若要建立儲存體帳戶，請參閱[儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
 
+### <a name="check-your-tools-version"></a>檢查您的工具版本
+
+1. 在 [工具] 功能表中，選擇 [擴充功能和更新]。 展開 [已安裝] > [工具]，然後選擇 [Azure Functions 與 Web 工作工具]。
+
+    ![驗證 Functions 工具版本](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
+
+2. 記下已安裝的**版本**。 您可以比較此版本[版本資訊中](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md)所列的最新版本。 
+
+3. 如果您的版本較舊，請依照下一節中的說明在 Visual Studio 中更新您的工具。
+
+### <a name="update-your-tools"></a>更新您的工具
+
+1. 在 [延伸模組和更新] 對話方塊中，展開 [更新] > [Visual Studio Marketplace]，選擇 [Azure Functions 與 Web 工作工具]，然後選取 [更新]。
+
+    ![更新 Functions 工具版本](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
+
+2. 下載工具更新之後，請關閉 Visual Studio，以使用 VSIX 安裝程式觸發工具更新。
+
+3. 在安裝程式中選擇 [確定] 以啟動，然後選擇 [修改] 以更新工具。 
+
+4. 更新完成後，請選擇 [關閉] 並重新啟動 Visual Studio。
+
 ## <a name="create-an-azure-functions-project"></a>建立 Azure Functions 專案 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-專案範本會建立 C# 專案，安裝 `Microsoft.NET.Sdk.Functions` NuGet 套件，並設定目標架構。 Functions 1.x 的目標為 .NET Framework，而 Functions 2.x 的目標則為 .NET Standard。 新專案包含下列檔案：
+專案範本會建立 C# 專案，安裝 `Microsoft.NET.Sdk.Functions` NuGet 套件，並設定目標架構。 Functions 1.x 的目標為 .NET Framework，而 Functions 2.x 的目標則為 .NET Standard。 新專案含有下列檔案：
 
 * **host.json**：讓您設定 Functions 主機。 這些設定同時適用於在本機執行及在 Azure 中執行。 如需詳細資訊，請參閱 [host.json 參考](functions-host-json.md)。
     

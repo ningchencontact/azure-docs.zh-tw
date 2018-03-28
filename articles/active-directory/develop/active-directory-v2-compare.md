@@ -1,11 +1,11 @@
 ---
-title: "Azure AD v2.0 端點中有哪些差異？ | Microsoft Docs"
-description: "原始的 Azure AD 和 v2.0 端點之間的比較。"
+title: Azure AD v2.0 端點中有哪些差異？ | Microsoft Docs
+description: 原始的 Azure AD 和 v2.0 端點之間的比較。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 502bfa128422a029878513d6aa4533718bdddbb5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>V2.0 端點有哪些差異？
 如果您熟悉 Azure Active Directory 或過去已整合 app 與 Azure AD，v2.0 端點中可能會有一些您預期不到的差異。  本文件集結了這些差異，讓您得以瞭解。

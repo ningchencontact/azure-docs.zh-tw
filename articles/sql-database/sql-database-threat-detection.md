@@ -2,23 +2,18 @@
 title: 威脅偵測 - Azure SQL Database | Microsoft Docs
 description: 威脅偵測會偵測異常資料庫活動，指出資料庫有潛在的安全性威脅。
 services: sql-database
-documentationcenter: ''
 author: rmatchoro
-manager: shaik
-editor: v-romcal
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4cb31eef4ba4b85ea28a58bb9b947b4e07cb0b58
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database-threat-detection"></a>SQL Database 威脅偵測
 
@@ -33,7 +28,7 @@ SQL 威脅偵測提供新的一層安全性，在發生異常活動時會提供�
 SQL 威脅偵測整合了警示與 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)。每部受保護 SQL Database 伺服器的收費與 Azure 資訊安全中心標準層相同，全部是每月每個節點 $15，其中每部受保護的 SQL Database 伺服務各會計為一個節點。  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>使用 Azure 入口網站為資料庫設定威脅偵測
-1. 啟動 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+1. 在 [https://portal.azure.com](https://portal.azure.com) 上啟動 Azure 入口網站。
 2. 瀏覽至您要監視的 SQL Database 組態頁面。 在 [設定] 頁面中，選取 [稽核和威脅偵測]。 
     ![導覽窗格][1]
 3. 在 [稽核與威脅偵測] 設定頁面中，[開啟] 稽核，這會顯示威脅偵測設定。

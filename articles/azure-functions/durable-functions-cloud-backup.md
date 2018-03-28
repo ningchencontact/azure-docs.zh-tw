@@ -1,12 +1,12 @@
 ---
-title: "Durable Functions 中的展開傳送/收合傳送情節 - Azure"
-description: "了解如何在 Azure Functions 的 Durable Functions 擴充中實作展開傳送/收合傳送情節。"
+title: Durable Functions 中的展開傳送/收合傳送情節 - Azure
+description: 了解如何在 Azure Functions 的 Durable Functions 擴充中實作展開傳送/收合傳送情節。
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Durable Functions 中的展開傳送/收合傳送情節 - 雲端備份範例
 
@@ -158,7 +158,7 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>後續步驟
 
-此範例已說明如何實作展開傳送/收合傳送模式。 下一個範例會示範如何在[永久協調流程](durable-functions-eternal-orchestrations.md)中實作[具狀態單次個體](durable-functions-singletons.md)模式。
+此範例已說明如何實作展開傳送/收合傳送模式。 下一個範例示範如何使用[長期計時器](durable-functions-timers.md)來實作監視模式。
 
 > [!div class="nextstepaction"]
-> [執行具狀態單次個體範例](durable-functions-counter.md)
+> [執行監視範例](durable-functions-monitor.md)

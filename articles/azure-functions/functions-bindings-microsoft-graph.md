@@ -1,21 +1,21 @@
 ---
-title: "適用於 Azure Functions 的 Microsoft Graph 繫結"
-description: "了解如何在 Azure Functions 中使用 Microsoft Graph 觸發程序和繫結。"
+title: 適用於 Azure Functions 的 Microsoft Graph 繫結
+description: 了解如何在 Azure Functions 中使用 Microsoft Graph 觸發程序和繫結。
 services: functions
 author: mattchenderson
 manager: cfowler
-editor: 
+editor: ''
 ms.service: functions
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 346fd26696480b6226c5e836e9876685fb408f96
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d774f0ca644793235a8c423b052b559d26e289c4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Microsoft Graph 繫結
 
@@ -33,7 +33,13 @@ Microsoft Graph 擴充功能會提供下列繫結：
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note]
-> Microsoft Graph 繫結目前處於預覽階段。
+> Microsoft Graph 繫結目前處於 Azure Functions 2.x 版的預覽階段。 Functions 1.x 版不加以支援。
+
+## <a name="packages"></a>封裝
+
+[Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/) NuGet 套件中提供驗證權杖輸入繫結。 [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) 套件中提供其他 Microsoft Graph 繫結。 套件的原始程式碼位於 [azure-functions-microsoftgraph-extension](https://github.com/Azure/azure-functions-microsoftgraph-extension/) GitHub 存放庫中。
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="setting-up-the-extensions"></a>設定擴充功能
 
@@ -54,9 +60,7 @@ Microsoft Graph 繫結可透過_繫結擴充功能_提供。 繫結擴充功能�
 > [!Note] 
 > 入口網站安裝程序在取用方案上可能需要 10 分鐘。
 
-如果您是使用 Visual Studio，可以安裝這些 NuGet 套件來取得擴充功能：
-- [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)
-- [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/)
+如果您使用 Visual Studio，可以安裝[本文先前所列的 NuGet 套件](#packages)來取得擴充功能。
 
 ### <a name="configuring-authentication--authorization"></a>設定驗證/授權
 
@@ -199,7 +203,7 @@ module.exports = function (context, req) {
 
 ### <a name="auth-token---attributes"></a>驗證權杖 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs) 屬性。
 
 ### <a name="auth-token---configuration"></a>驗證權杖 - 設定
 
@@ -332,7 +336,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-input---attributes"></a>Excel 輸入 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) 屬性。
 
 ### <a name="excel-input---configuration"></a>Excel 輸入 - 設定
 
@@ -492,7 +496,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-output---attributes"></a>Excel 輸出 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) 屬性。
 
 ### <a name="excel-output---configuration"></a>Excel 輸出 - 設定
 
@@ -636,7 +640,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-input---attributes"></a>檔案輸入 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) 屬性。
 
 ### <a name="file-input---configuration"></a>檔案輸入 - 設定
 
@@ -781,7 +785,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-output---attributes"></a>檔案輸出 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) 屬性。
 
 ### <a name="file-output---configuration"></a>檔案輸出 - 設定
 
@@ -930,7 +934,7 @@ module.exports = function (context, req) {
 
 ### <a name="outlook-output---attributes"></a>Outlook 輸出 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs) 屬性。
 
 ### <a name="outlook-output---configuration"></a>Outlook 輸出 - 設定
 
@@ -1071,7 +1075,7 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---attributes"></a>Webhook 觸發程序 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) 屬性。
 
 ### <a name="webhook-trigger---configuration"></a>Webhook 觸發程式 - 設定
 
@@ -1222,7 +1226,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---attributes"></a>Webhook 輸入 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) 屬性。
 
 ### <a name="webhook-input---configuration"></a>Webhook 輸入 - 設定
 
@@ -1362,7 +1366,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---attributes"></a>Webhook 輸出 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) 屬性，它定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) 屬性。
 
 ### <a name="webhook-output---configuration"></a>Webhook 輸出 - 設定
 

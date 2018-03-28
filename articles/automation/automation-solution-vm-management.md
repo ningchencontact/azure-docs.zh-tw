@@ -1,24 +1,18 @@
 ---
-title: "「停機期間啟動/停止 VM」解決方案 (預覽) | Microsoft Docs"
-description: "此虛擬機器管理解決方案會依照排程啟動和停止 Azure Resource Manager 虛擬機器，並從 Log Analytics 主動監視。"
+title: 「停機期間啟動/停止 VM」解決方案 (預覽)
+description: 此虛擬機器管理解決方案會依照排程啟動和停止 Azure Resource Manager 虛擬機器，並從 Log Analytics 主動監視。
 services: automation
-documentationCenter: 
-authors: eslesar
-manager: carmonm
-editor: 
-ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 12/18/2017
-ms.author: magoedte
-ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+manager: carmonm
+ms.openlocfilehash: ec15859a92527c4e084075b40d3439d7a19fea1a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案 (預覽)
 

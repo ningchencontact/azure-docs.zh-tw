@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 中建立及上傳 Linux VHD"
-description: "了解如何建立及上傳包含 Linux 作業系統的 Azure 虛擬硬碟 (VHD)。"
+title: 在 Azure 中建立及上傳 Linux VHD
+description: 了解如何建立及上傳包含 Linux 作業系統的 Azure 虛擬硬碟 (VHD)。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
 manager: timlt
 editor: tysonn
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 631557e0ad712827bb3375c4f152c0e2185fda18
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b06144e6ad3df1626022edd856e14d6c47494336
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>非背書散發套件的資訊
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -50,7 +50,7 @@ ms.lasthandoff: 03/08/2018
 * 需要掛接 UDF 檔案系統的核心支援。 在 Azure 上第一次開機時，佈建組態會透過連接客體的 UDF 格式媒體傳遞至 Linux VM。 Azure Linux 代理程式必須能夠掛接 UDF 檔案系統讀取其組態並佈建 VM。
 * Linux Kernel 2.6.37 以下的版本不支援較大 VM 大小 Hyper-V 上的NUMA。 這個問題主要會影響使用上游 Red Hat 2.6.32 kernel 的較舊散發套件，RHEL 6.6 (kernel-2.6.32-504) 已加以修正。 執行的自訂核心是 2.6.37 以前版本的系統，或 2.6.32-504 以前以 RHEL 為基礎的核心必須在 grub.conf 的核心命令列上設定開機參數 `numa=off`。 如需詳細資訊，請參閱 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
 * 請勿在作業系統磁碟上設定交換磁碟分割。 您可以設定 Linux 代理程式在暫存資源磁碟上建立交換檔。  您可以在以下步驟中找到與此有關的詳細資訊。
-* 所有 VHD 的大小都必須是 1 MB 的倍數。
+* Azure 上的所有 VHD 必須具有與 1 MB 對應的虛擬大小。 從未經處理的磁碟轉換成 VHD 時，您必須確定未經處理的磁碟大小在轉換前是 1 MB 的倍數。 如需更多詳細資料，請參閱以下步驟。
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>安裝不含 Hyper-V 的核心模組
 Azure 在 Hyper-V Hypervisor 上執行，因此 Linux 會要求必須安裝某些核心模組，才能在 Azure 中執行。 如果您的 VM 建立在 Hyper-V 外部，Linux 安裝程式在初始 Ramdisk (initrd 或 initramfs) 中可能不包含 Hyper-V 的驅動程式，除非它偵測到所執行的環境是 Hyper-V 環境。 使用不同的虛擬化系統 (例如 Virtualbox、KVM 等) 來準備您的 Linux 映像時，您可能需要重新建置 initrd，以確保在初始 ramdisk 上至少有 `hv_vmbus` 和 `hv_storvsc` 核心模組可以使用。  目前至少已知在以上游 Red Hat 散發套件為基礎的系統上有此問題。
@@ -75,7 +75,7 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。  一般而�
 若要解決這個問題，您可以使用 Hyper-V 管理員主控台或 [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell Cmdlet 調整 VM 的大小。  如果您不在 Windows 環境中執行，建議使用 qemu-img 來轉換 VHD (如果需要) 及調整其大小。
 
 > [!NOTE]
-> qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考︰https://bugs.launchpad.net/qemu/+bug/1490611。
+> qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考：https://bugs.launchpad.net/qemu/+bug/1490611。
 > 
 > 
 

@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions 的通知中樞繫結"
-description: "了解如何在 Azure Functions 中使用「Azure 通知中樞」繫結。"
+title: Azure Functions 的通知中樞繫結
+description: 了解如何在 Azure Functions 中使用「Azure 通知中樞」繫結。
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"
+editor: ''
+tags: ''
+keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 6be75035247f05995949734cd4f4f0d934e30685
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 292c8295cbc2705c12365a20cee0e80b6da639a5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions 的通知中樞輸出繫結
 
@@ -28,6 +28,12 @@ ms.lasthandoff: 02/09/2018
 必須為您要使用的平台通知服務 (PNS) 設定 Azure 通知中樞。 若要了解如何在用戶端應用程式中收到通知中樞的推播通知，請參閱[開始使用通知中心](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)，並從靠近頁面頂端的下拉式清單中選取目標用戶端平台。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>封裝
+
+[Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet 套件中提供通知中樞繫結。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/) GitHub 存放庫中。
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example---template"></a>範例 - 範本
 
@@ -266,7 +272,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## <a name="attributes"></a>屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，請使用 [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) 中。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) 屬性。
 
 屬性的建構函式參數和屬性會在[組態](#configuration)一節中加以敘述。
 

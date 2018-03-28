@@ -1,10 +1,10 @@
 ---
-title: "教學課程：Azure Active Directory 與 Clear Review 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Clear Review 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Clear Review 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Clear Review 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 03/12/2018
 ms.author: jeedes
-ms.openlocfilehash: e999e375d11f5d2a4657b360cf774ae10c28b0e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1e7bd01c9c0f79a2cf96d7fd38dba57c4a407960
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>教學課程：Azure Active Directory 與 Clear Review 整合
 
@@ -108,9 +108,9 @@ Clear Review 與 Azure AD 整合提供下列優點：
 
     ![Clear Review 網域與 URL 單一登入資訊](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<customer name>.clearreview.com/sso/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<customer name>.clearreview.com/sso/metadata/`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<customer>.clearreview.com/sso/acs/`
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<customer name>.clearreview.com/sso/acs/`
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
@@ -119,31 +119,36 @@ Clear Review 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，使用下列格式輸入 URL︰`https://<customer name>.clearreview.com`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Clear Review 支援小組](https://clearreview.com/contact/)以取得這些值。
+    > 這些都不是真正的值。 請使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [Clear Review 支援小組](https://clearreview.com/contact/)以取得這些值。
 
-5. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+5. Clear Review 應用程式需要 [名稱識別碼] 宣告中有唯一的使用者識別碼值。 您應將使用者識別碼值對應至 **user.mail**。
+
+    ![屬性區段](./media/active-directory-saas-clearreview-tutorial/attribute.png)
+
+
+6. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_certificate.png)
 
-6. 按一下 [儲存]  按鈕。
+7. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-clearreview-tutorial/tutorial_general_400.png)
 
-7. 在 [Clear Review 設定] 區段中，按一下 [設定 Clear Review] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+8. 在 [Clear Review 設定] 區段中，按一下 [設定 Clear Review] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
     ![Clear Review 設定](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_configure.png) 
 
-8. 若要設定 **Clear Review** 端的單一登入，使用系統管理員認證開啟 **Clear Review** 入口網站。
+9. 若要設定 **Clear Review** 端的單一登入，使用系統管理員認證開啟 **Clear Review** 入口網站。
 
-9. 選取左側導覽中的 [管理]。
+10. 選取左側導覽中的 [管理]。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-10. 選取頁面底部的 [變更]。
+11. 選取頁面底部的 [變更]。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
-11. 在 [單一登入設定] 頁面上執行下列步驟。
+12. 在 [單一登入設定] 頁面上執行下列步驟。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
@@ -155,7 +160,7 @@ Clear Review 與 Azure AD 整合提供下列優點：
 
     d. 在記事本中開啟下載的憑證，在 [x.509 憑證] 文字方塊中貼上其內容。   
 
-12. 按一下 [檔案] 。
+13. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -253,4 +258,3 @@ Clear Review 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_203.png
-

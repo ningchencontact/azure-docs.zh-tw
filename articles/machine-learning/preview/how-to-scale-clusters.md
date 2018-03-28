@@ -1,9 +1,9 @@
 ---
-title: "如何調整 Machine Learning 的 Azure Container Service 叢集大小 | Microsoft Docs"
-description: "調整 ACS 叢集 - 自動縮放比例和靜態縮放比例；調整叢集中的節點數目"
+title: 如何調整 Machine Learning 的 Azure Container Service 叢集大小 | Microsoft Docs
+description: 調整 ACS 叢集 - 自動縮放比例和靜態縮放比例；調整叢集中的節點數目
 services: machine-learning
-author: raymondl
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 690068edf749a2c79d328337618d94936520d501
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 58709b5a5b060552e1bc349a6f720d3f45348ba0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>調整叢集以管理 web 服務輸送量
 

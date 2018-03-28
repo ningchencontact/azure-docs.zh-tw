@@ -1,24 +1,20 @@
 ---
-title: "使用 Jenkins 和 Azure 容器執行個體在 Azure 中建置專案"
-description: "了解如何使用適用於 Jenkins 的 Azure 容器代理程式外掛程式，在 Azure 中搭配 Azure 容器執行個體建置專案"
-services: multiple
-documentationcenter: 
+title: 使用 Jenkins 和 Azure 容器執行個體在 Azure 中建置專案
+description: 了解如何使用適用於 Jenkins 的 Azure 容器代理程式外掛程式，在 Azure 中搭配 Azure 容器執行個體建置專案
 author: tomarcher
 manager: rloutlaw
-editor: 
 ms.service: multiple
+ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: tarcher
-ms.custom: jenkins
-ms.openlocfilehash: 557b21340a0ba4e5381d7505b14a172aa3478b84
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: Jenkins
+ms.openlocfilehash: a18136afc096f8315310fae134d3f683994b6d0a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>使用 Jenkins 和 Azure 容器執行個體在 Azure 中建置專案
 
@@ -72,6 +68,11 @@ Jenkins 支援由 Jenkins 伺服器將工作委派給一或多個代理程式的
 1. 選取 [ **儲存**]。
 
 ## <a name="update-jenkins-to-allow-java-network-launch-protocol-jnlp"></a>更新 Jenkins 以允許 Java Network Launch Protocol (JNLP)
+
+> [!NOTE]
+> 本教學課程說明如何設定 JNLP 代理程式。 從 0.4.x 版開始，[Jenkins Azure Container 代理程式外掛程式](https://plugins.jenkins.io/azure-container-agents)也支援 SSH。
+>
+>
 
 Jenkins 代理程式是透過 Java Network Launch Protocol (JNLP) 與 Jenkins 伺服器連線。 本節說明如何指定 JNLP 代理程式與 Jenkins 伺服器通訊時所要使用的連接埠。
 

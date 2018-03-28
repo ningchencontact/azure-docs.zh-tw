@@ -1,11 +1,11 @@
 ---
-title: "建立和註冊發佈者帳戶 | Microsoft Docs"
-description: "關於建立 Microsoft 開發人員帳戶的指示，經過核准後即可在 Azure Marketplace 上銷售各種優惠類型。"
+title: 建立和註冊發佈者帳戶 | Microsoft Docs
+description: 關於建立 Microsoft 開發人員帳戶的指示，經過核准後即可在 Azure Marketplace 上銷售各種優惠類型。
 services: Azure Marketplace
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: hascipio
-ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>建立 Microsoft 開發人員帳戶
 本文將逐步引導您完成要成為 Azure Marketplace 核准的 Microsoft 開發人員所必須執行的帳戶建立和註冊程序。
@@ -81,7 +81,7 @@ Microsoft 開發人員中心用於註冊一次公司資訊。 註冊者必須是
 
 ### <a name="register-your-company-account"></a>註冊您的公司帳戶
 1. 開啟新的 Internet Explorer InPrivate 或 Chrome Incognito 瀏覽工作階段，確定您未登入個人帳戶。
-2. 移至 [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) ，將自己註冊為開發人員中心的賣方。 在您繼續之前，請先閱讀下列重要事項。
+2. 移至 [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) 以將您自己註冊為開發人員中心的賣方。 在您繼續之前，請先閱讀下列重要事項。
 
    > [!IMPORTANT]
    > 確定將在開發人員中心註冊的電子郵件識別碼或通訊群組清單 (為了不受限於個人使用，建議使用通訊群組清單) 已註冊為 Microsoft 帳戶。 如果還未註冊為 Microsoft 帳戶，請使用此 [連結](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1)註冊。 此外，**不得使用隸屬於 Microsoft 公司網域 (亦即 @microsoft.com) 的任何電子郵件識別碼**在開發人員中心註冊。
@@ -126,8 +126,8 @@ Microsoft 開發人員中心用於註冊一次公司資訊。 註冊者必須是
 9. 輸入您的付款資訊以支付您的帳戶。 如果您有涵蓋註冊成本的促銷代碼，您可以在此處輸入。 否則，請提供您的信用卡資訊 (或受支援市場的 PayPal)。 當您完成時，按一下 [下一步] 以移至 [檢閱] 畫面。
 
     ![繪圖](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
-10. 檢閱您的帳戶資訊，並確認所有項目都正確。 然後，閱讀並接受[Microsoft Azure Marketplace 發佈者合約](http://go.microsoft.com/fwlink/?LinkID=699560)的條款和條件。 勾選方塊以表示您已閱讀並接受這些條款。
-11. 按一下 **完成** 以確認您的註冊。 我們會傳送一則確認訊息到您的電子郵件地址。
+10. 檢閱您的帳戶資訊，並確認所有項目都正確。 然後，閱讀並接受「Microsoft Azure Marketplace 發佈者合約」 [](http://go.microsoft.com/fwlink/?LinkID=699560)的條款和條件。 勾選方塊以表示您已閱讀並接受這些條款。
+11. 按一下 [完成]  以確認您的註冊。 我們會傳送一則確認訊息到您的電子郵件地址。
 12. 如果您只打算發佈免費供應項目，按一下 [移至 Azure Marketplace 發佈入口網站]  即可跳到第 3 節， [在發佈入口網站中註冊您的帳戶](#3-register-your-account-in-the-publishing-portal)。
 
 如果您打算發佈商業供應項目 (例如採每小時計費模式的虛擬機器供應項目)，按一下 [更新您的帳戶資訊]  ，您必須在該處填寫開發人員中心帳戶的稅務和銀行資訊。

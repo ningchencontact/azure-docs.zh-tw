@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 1f4bd0d81d16997a9d627f918d77cb8e770a5b53
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>了解 VM 重新開機 - 維護與停機時間
 有三種情況可能會導致 Azure 中的虛擬機器受到影響：未規劃的硬體維護、未預期的停機時間以及規劃的維護。
 
@@ -15,7 +31,7 @@
 
 * [針對備援在可用性設定組中設定多部虛擬機器]
 * [將受控磁碟使用於可用性設定組中的 VM]
-* [使用排程事件主動回應 VM 影響事] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [使用排程的事件主動回應受 VM 影響的事件] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [將每個應用程式層設定至不同的可用性設定組中]
 * [將負載平衡器與可用性設定組結合]
 * [使用可用性區域來防禦資料中心層級的失敗]

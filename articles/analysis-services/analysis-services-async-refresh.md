@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 進行非同步重新整理
 使用任何支援 REST 呼叫的程式設計語言，您可以對 Azure Analysis Services 表格式模型執行非同步的資料重新整理作業。 這包括相應放大查詢的唯讀複本同步處理。 
@@ -36,7 +36,7 @@ Azure Analysis Services 的 REST API 可讓資料重新整理作業以非同步�
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-例如，名為 AdventureWorks 的模型，在名為 myserver 的伺服器上，位於 West US Azure 地區，則伺服器名稱是：
+例如，名為 AdventureWorks 的模型，在名為 myserver 的伺服器上，位於 West US Azure 區域。 伺服器名稱是：
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -48,7 +48,7 @@ asazure://westus.asazure.windows.net/myserver
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/ 
 ```
 
-藉由使用基底 URL，可以根據下列順序附加資源和作業： 
+藉由使用基底 URL，可以根據下列參數附加資源和作業： 
 
 ![非同步重新整理](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
@@ -56,7 +56,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/
 - 任何以 **()** 結尾的項目是函式。
 - 任何其他項目是資源/物件。
 
-例如，您可以對重新整理集合使用 POST 動詞以執行重新整理作業，就像這樣：
+例如，您可以對重新整理集合使用 POST 動詞以執行重新整理作業：
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
@@ -71,7 +71,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 - 使用者或應用程式必須具有對伺服器或模型足夠的權限，才能執行要求的呼叫。 權限層級由模型中的角色或伺服器上的系統管理員群組決定。
 
     > [!IMPORTANT]
-    > 現階段，需要**伺服器管理員**角色的權限。
+    > 現階段需要**伺服器管理員**角色權限。
 
 ## <a name="post-refreshes"></a>POST /refreshes
 
@@ -104,9 +104,9 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 |Name  |類型  |說明  |預設值  |
 |---------|---------|---------|---------|
-|類型     |  例舉       |  要執行的處理類型。 Type 對應 TMSL 的 [refresh 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic、add、defragment。       |   automatic      |
+|類型     |  例舉       |  要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic、add、defragment。       |   automatic      |
 |CommitMode     |  例舉       |  決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |
-|MaxParallelism     |   int      |  這個值決定了可以平行執行處理命令的執行緒數目上限。 這與 MaxParallelism 屬性對應，後者可以在 TMSL 的 [sequence 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl)中設定或使用其他方法設定。       | 10        |
+|MaxParallelism     |   int      |  這個值決定了可以平行執行處理命令的執行緒數目上限。 此值與 MaxParallelism 屬性對應，後者可以在 TMSL 的 [sequence 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl)中設定，或使用其他方法設定。       | 10        |
 |RetryCount    |    int     |   表示作業失敗之前重試的次數。      |     0    |
 |物件     |   陣列      |   要處理的物件陣列。 每個物件包含：「資料表」(處理整份資料表時)，或「資料表」和「分割區」(處理資料分割時)。 如未指定物件，會重新整理整個模型。 |   處理整個模型      |
 
@@ -188,7 +188,7 @@ CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要�
 }
 ```
 
-syncstate 的值：
+`syncstate` 的值：
 
 - 0：複寫。 資料庫檔案會被複寫到目標資料夾。
 - 1：重新序列化。 只有唯讀伺服器執行個體上的資料庫會被序列化。
@@ -228,7 +228,7 @@ syncstate 的值：
 
     ![新增 API 存取權](./media/analysis-services-async-refresh/aas-async-add.png)
 
-5.  在 [選取 API] 的搜尋方塊中輸入 **SQL Server Analysis Services**，然後選取 [Azure Analysis Services (SQL Server Analysis Services Azure)]。
+5.  在 [選取 API] 的搜尋方塊中輸入 **Azure Analysis Services**，然後加以選取。
 
     ![選取 API](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
@@ -242,7 +242,7 @@ syncstate 的值：
 
 #### <a name="service-principal"></a>服務主體
 
-請參閱部落格文章[使用 PowerShell 自動化 Azure Analysis Services 的服務主體](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/)，了解如何設定服務主體，並指派 Azure Analysis Services 中的必要權限。 當您完成部落格文章中描述的步驟之後，完成下列額外步驟：
+如需關於如何在 Azure 中設定服務主體及指派必要權限的詳細資訊，請參閱[建立服務主體 - Azure 入口網站](../azure-resource-manager/resource-group-create-service-principal-portal.md)和[將服務主體新增至伺服器管理員角色](analysis-services-addservprinc-admins.md)。 完成這些步驟後，請完成下列額外步驟：
 
 1.  在程式碼範例中，找到 **string authority = …**，將 **common** 取代為貴組織的租用戶識別碼。
 2.  註解/取消註解，以便使用 ClientCredential 類別來具現化認證物件。 請確定目前存取 \<App ID> 和 \<App Key> 值的方式很安全，或為服務主體使用憑證型驗證。

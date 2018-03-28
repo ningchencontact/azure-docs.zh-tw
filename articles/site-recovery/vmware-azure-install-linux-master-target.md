@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: b7292514e72476f38e9a0572b201be8468f0030a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>安裝 Linux 主要目標伺服器
 您可以在將虛擬機器容錯移轉至 Azure 之後，將虛擬機器容錯回復至內部部署網站。 若要進行容錯回復，您需要在從 Azure 到內部部署網站的過程中重新保護虛擬機器。 針對此程序，您需要內部部署的主要目標伺服器以接收流量。 
@@ -41,7 +41,7 @@ ms.lasthandoff: 03/08/2018
 
 建立符合下列大小配置準則的主要目標：
 - **RAM**：6 GB 或更多
-- **OS 磁碟大小**：100 GB 或更多 (以安裝 CentOS6.6)
+- **OS 磁碟大小**：100 GB 或更多 (以安裝 OS)
 - **用於保留磁碟機的額外磁碟大小**：1 TB
 - **CPU 核心**：4 核心或更多
 
@@ -112,24 +112,31 @@ ms.lasthandoff: 03/08/2018
 
 1.  選取 [Yes] \(是\) 以將變更寫入至磁碟，然後選取 **Enter**。
 
-1.  在設定 Proxy 選取項目中，選取預設選項，選取 [Continue] \(繼續\)，然後選取 **Enter**。
+    ![選取預設選項](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-     ![選取預設選項](./media/vmware-azure-install-linux-master-target/image17.png)
+1.  在設定 Proxy 選取項目中，選取預設選項，選取 [Continue] \(繼續\)，然後選取 **Enter**。
+     
+     ![選取如何管理升級](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  在管理系統上升級的選取項目中，選取 [No automatic updates] \(沒有自動更新\) 選項，然後選取 **Enter**。
 
-     ![選取如何管理升級](./media/vmware-azure-install-linux-master-target/image18.png)
+     ![選取如何管理升級](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > 由於 Azure Site Recovery 主要目標伺服器需要非常特定版本的 Ubuntu，因此您需要確認已停用虛擬機器核心升級。 如果啟用，任何一般升級都將導致主要目標伺服器故障。 請確定您選取 [No automatic updates]\(不自動更新\) 選項。
 
 1.  選取預設選項。 如果您想要使用 openSSH 進行 SSH 連線，請選取 [OpenSSH server]\(OpenSSH 伺服器\) 選項，然後選取 [Continue]\(繼續\)。
 
-    ![選取軟體](./media/vmware-azure-install-linux-master-target/image19.png)
+    ![選取軟體](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
 1. 在安裝 GRUB 開機載入器的選取項目中，選取 [Yes] \(是\)，然後選取 **Enter**。
+     
+    ![GRUB 開機安裝程式](./media/vmware-azure-install-linux-master-target/image20.png)
+
 
 1. 針對開機載入器安裝選取適當的裝置 (最好是 **/dev/sda**)，然後選取 **Enter**。
+     
+    ![選取適當的裝置](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. 選取 [Continue] \(繼續\)，然後選取 **Enter** 以完成安裝。
 
@@ -154,7 +161,7 @@ ms.lasthandoff: 03/08/2018
 
 4. 在左窗格中，選取 [進階]  >  [一般]，然後選取畫面右下方的 [組態參數] 按鈕。
 
-    ![[選項] 索引標籤](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![開啟組態參數](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
     [組態參數] 選項在機器執行時無法使用。 若要啟用此索引標籤，請關閉虛擬機器。
 
@@ -168,7 +175,7 @@ ms.lasthandoff: 03/08/2018
 
     - 在名稱欄位中新增 **disk.EnableUUID**，然後將值設定為 [TRUE]。
 
-    ![檢查 disk.EnableUUID 是否已存在](./media/vmware-azure-install-linux-master-target/image21.png)
+    ![檢查 disk.EnableUUID 是否已存在](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>停用核心升級
 
@@ -244,7 +251,7 @@ Azure Site Recovery 主要目標伺服器需要特定版本的 Ubuntu，因此�
     
     `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
     
-    ![在磁碟機上建立檔案系統](./media/vmware-azure-install-linux-master-target/media/image23.png)
+    ![在磁碟機上建立檔案系統](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. 建立檔案系統之後，掛接保留磁碟。
 
@@ -252,7 +259,6 @@ Azure Site Recovery 主要目標伺服器需要特定版本的 Ubuntu，因此�
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-    ![掛接保留磁碟](./media/vmware-azure-install-linux-master-target/image24.png)
 
 5. 建立 **fstab** 項目，以便在每次啟動系統時掛接保留磁碟機。
     

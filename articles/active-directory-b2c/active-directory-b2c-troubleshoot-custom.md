@@ -1,8 +1,8 @@
 ---
-title: "用以針對自訂原則進行疑難排解的 Application Insights - Azure AD B2C | Microsoft Docs"
-description: "如何設定 Application Insights 以追蹤自訂原則的執行"
+title: 用以針對自訂原則進行疑難排解的 Application Insights - Azure AD B2C | Microsoft Docs
+description: 如何設定 Application Insights 以追蹤自訂原則的執行
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: saeedakhter-msft
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: 65a39479b4d4b86d569501636e4a0678b052d426
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4f71380917a5a29497da9831791cd9f86ec4c8ca
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C︰收集記錄
 
@@ -97,7 +97,7 @@ Azure AD B2C 支援將資料傳送至 Application Insights 的功能。  Applica
 | 查詢 | 說明 |
 |---------------------|--------------------|
 traces | 查看 Azure AD B2C 產生的所有記錄 |
-traces \| where timestamp > ago(1d) | 查看 Azure AD B2C 在最後一天產生的所有記錄
+追蹤 \|，其中的時間戳記 > ago(1d) | 查看 Azure AD B2C 在最後一天產生的所有記錄
 
 此項目可能很長。  請將它匯出至 CSV 以仔細查看。
 
@@ -105,6 +105,8 @@ traces \| where timestamp > ago(1d) | 查看 Azure AD B2C 在最後一天產生�
 
 >[!NOTE]
 >該社群已開發了使用者旅程圖檢視器，可協助身分識別開發人員。  此檢視器不受 Microsoft 支援，僅依原狀提供使用。  它會讀取您的 Application Insights 執行個體，並提供結構良好的使用者旅程圖事件檢視。  請取得原始碼，並將它部署在您自己的解決方案中。
+
+從 Application Insights 讀取事件的檢視器版本位於[這裡](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
 
 >[!NOTE]
 >目前，此處所述的詳細活動記錄**僅**針對協助開發自訂原則所設計。 請勿在生產環境中使用開發模式。  記錄會收集往返識別提供者在開發期間所傳送的所有宣告。  如果在生產環境中使用，開發人員會負責他們自己的 App Insights 記錄中收集的 PII (私人識別資訊)。  只有當原則位於**開發模式**時，才會收集這些詳細的記錄。

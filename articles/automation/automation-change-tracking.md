@@ -1,27 +1,23 @@
 ---
-title: "使用 Azure 自動化追蹤變更 | Microsoft Docs"
-description: "「變更追蹤」解決方案可協助您識別您環境中發生的軟體及 Windows 服務變更。"
+title: 使用 Azure 自動化追蹤變更
+description: 「變更追蹤」解決方案可協助您識別您環境中發生的軟體及 Windows 服務變更。
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
 ms.service: automation
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79c5f354c3e63856474e46e2b6928af829604e15
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 06034a87d6015a057c01c2bc87ae4db9fba1269a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的軟體變更
+# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
 本文將協助您使用變更追蹤解決方案，輕鬆地找出您環境中的變更。 此解決方案會追蹤 Windows 與 Linux 軟體、Windows 和 Linux 檔案、Windows 登錄機碼、Windows 服務以及 Linux 精靈的變更。 識別組態變更可協助您找出操作問題。
 
@@ -68,7 +64,7 @@ ms.lasthandoff: 02/28/2018
 
 使用下列步驟，設定要在 Windows 電腦上追蹤的檔案：
 
-1. 從您的自動化帳戶中，選取 [組態管理] 下的 [變更追蹤]。 按一下 [編輯設定] \(齒輪符號)。
+1. 從您的自動化帳戶中，選取 [組態管理] 下的 [變更追蹤]。 按一下 [編輯設定] (齒輪符號)。
 2. 在 [變更追蹤] 頁面上選取 [Windows 檔案]，然後按一下 [+ 新增]，以新增要追蹤的新檔案。
 3. 在 [為變更追蹤新增 Windows 檔案] 上，輸入要追蹤之檔案的資訊，然後按一下 [儲存]
 
@@ -83,7 +79,7 @@ ms.lasthandoff: 02/28/2018
 
 使用下列步驟，設定要在 Windows 電腦上追蹤的登錄機碼：
 
-1. 從您的自動化帳戶中，選取 [組態管理] 下的 [變更追蹤]。 按一下 [編輯設定] \(齒輪符號)。
+1. 從您的自動化帳戶中，選取 [組態管理] 下的 [變更追蹤]。 按一下 [編輯設定] (齒輪符號)。
 2. 在 [變更追蹤] 頁面上選取 [Windows 登錄]，然後按一下 [+ 新增]，以新增要追蹤的新登錄機碼。
 3. 在 [為變更追蹤新增 Windows 登錄] 上，輸入要追蹤之機碼的資訊，然後按一下 [儲存]。
 

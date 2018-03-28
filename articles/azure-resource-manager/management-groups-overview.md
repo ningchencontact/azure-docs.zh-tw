@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure 管理群組來組織資源 | Microsoft Docs"
-description: "了解管理群組及如何使用它們。"
+title: 使用 Azure 管理群組來組織資源 | Microsoft Docs
+description: 了解管理群組及如何使用它們。
 author: rthorn17
 manager: rithorn
-editor: 
+editor: ''
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源 
 
-如果您有多個訂用帳戶，您可以將它們組織到名為「管理群組」的容器中，以協助您管理所有訂用帳戶的存取、原則和合規性。 無論具有何種類型的訂用帳戶，管理群組都可為您提供企業級的大規模管理功能。  
+如果貴組織有多個訂用帳戶，您可能需要一個方法來有效率地管理這些訂用帳戶的存取、原則和相容性。 Azure 管理群組會提供上述訂用帳戶的範圍層級。 您要將訂用帳戶整理到稱為「管理群組」的容器中，並將治理條件套用至管理群組。 管理群組內的所有訂用帳戶都會自動繼承套用到管理群組的條件。 無論具有何種類型的訂用帳戶，管理群組都可為您提供企業級的大規模管理功能。
 
 管理群組功能目前提供公開預覽版。 若要開始使用管理群組，請登入 [Azure 入口網站](https://portal.azure.com)，並在 [所有服務] 區段中搜尋 [管理群組]。 
 

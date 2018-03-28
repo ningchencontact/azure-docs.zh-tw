@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a7e45d6bccfd8113157eba63d311b6609bf35aaa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>建立、變更或刪除路由表
 
@@ -40,7 +40,7 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 
 1. 在入口網站的左上角，選取 [+ 建立資源]。
 2. 選取 [網路]，然後選取 [路由表]。
-3. 輸入路由表的 [名稱]，選取您的 [訂用帳戶]，建立新的 [資源群組] 或選取現有的資源群組，選取 [位置]，然後選取 [建立]。 [停用 BGP 路由傳播] 選項可防止透過 BGP 將內部部署路由傳播至 Azure 虛擬網路。 如果虛擬網路並未連線至 Azure 網路閘道 (VPN 或 ExpressRoute)，請讓選項維持在 [已停用]。 
+3. 輸入路由表的 [名稱]，選取您的 [訂用帳戶]，建立新的 [資源群組] 或選取現有的資源群組，選取 [位置]，然後選取 [建立]。 [停用 BGP 路由傳播] 選項會防止內部部署路由透過 BGP 傳播到任何子網路 (路由表與它相關聯) 中的網路介面。 如果虛擬網路並未連線至 Azure 網路閘道 (VPN 或 ExpressRoute)，請讓選項維持在 [已停用]。
 
 **命令**
 

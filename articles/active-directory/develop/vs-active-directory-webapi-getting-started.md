@@ -1,36 +1,41 @@
 ---
-title: "開始使用 Visual Studio WebApi 專案中的 Azure AD | Microsoft Docs"
-description: "使用 Visual Studio 已連接服務連接 Azure AD 或建立 Azure AD 後，如何在 WebApi 專案中開始使用 Azure Active Directory"
+title: 開始使用 Visual Studio WebApi 專案中的 Azure AD | Microsoft Docs
+description: 使用 Visual Studio 已連接服務連接 Azure AD 或建立 Azure AD 後，如何在 WebApi 專案中開始使用 Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
-manager: mtillman
-editor: 
+manager: ghogen
+editor: ''
 ms.assetid: bf1eb32d-25cd-4abf-8679-2ead299fedaa
 ms.service: active-directory
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2017
+ms.date: 03/12/2018
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 3d510c193ab8c7e65340275017cb2dcd4c76def0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a5953a8ae4ef3fc221c984cc7520422251ef2c82
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="get-started-with-azure-active-directory-and-visual-studio-connected-services-webapi-projects"></a>開始使用 Azure Active Directory 和 Visual Studio 已連接服務 (WebApi 專案)
+# <a name="get-started-with-azure-active-directory-webapi-projects"></a>開始使用 Azure Active Directory (WebApi 專案)
+
 > [!div class="op_single_selector"]
-> * [開始使用](vs-active-directory-webapi-getting-started.md)
-> * [發生什麼情形](vs-active-directory-webapi-what-happened.md)
-> 
-> 
+> - [開始使用](vs-active-directory-webapi-getting-started.md)
+> - [發生什麼情形](vs-active-directory-webapi-what-happened.md)
+
+本文提供您在透過 Visual Studio 的 [專案] > [連線服務] 命令將 Active Directory 新增至 ASP.NET WebAPI 專案之後所需的其他指引。 如果您尚未將服務新增至專案，您可以隨時執行此動作。
+
+請參閱[我的 WebApI 專案發生什麼情形？](vs-active-directory-webapi-what-happened.md)，了解您的專案在新增連線服務時所做的變更。
 
 ## <a name="requiring-authentication-to-access-controllers"></a>存取控制器之前需要驗證
-專案中的所有控制器都加上 **Authorize** 屬性做裝飾。 此屬性要求使用者必須經過驗證，才能存取這些控制器所定義的 API。 若要允許以匿名方式存取控制器，請從控制器中移除此屬性。 如果您要以更精確地設定權限，請將此屬性套用至每一個需要授權的方法，而非套用至控制器類別。
+
+專案中的所有控制器都會加上 `[Authorize]` 屬性作為裝飾。 此屬性要求使用者必須經過驗證，才能存取這些控制器所定義的 API。 若要允許以匿名方式存取控制器，請從控制器中移除此屬性。 如果您要以更精確地設定權限，請將此屬性套用至每一個需要授權的方法，而非套用至控制器類別。
 
 ## <a name="next-steps"></a>後續步驟
-[深入了解 Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
+- [Azure Active Directory 的驗證案例](active-directory-authentication-scenarios.md)
+- [將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式](guidedsetups/active-directory-aspnetwebapp-v1.md)

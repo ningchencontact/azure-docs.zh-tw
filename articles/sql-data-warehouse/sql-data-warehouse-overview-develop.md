@@ -1,31 +1,30 @@
 ---
-title: "在 Azure 中開發資料倉儲的資源 | Microsoft Docs"
-description: "SQL 資料倉儲的開發概念、設計決策、建議和程式碼撰寫技巧。"
+title: 在 Azure 中開發資料倉儲的資源 | Microsoft Docs
+description: SQL 資料倉儲的開發概念、設計決策、建議和程式碼撰寫技巧。
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: barbkess
-editor: 
-ms.assetid: 996e3afc-c21c-4e21-b9df-997f953f6dfd
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: develop
-ms.date: 10/31/2016
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: b85a4f09e561e429aa5bf46ec680014487fb40c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 329217faaf865052b79a1d44200cc3c788702046
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL 資料倉儲的設計決策和程式碼撰寫技術
-若要進一步瞭解 SQL 資料倉儲的重要的設計決策、建議和程式碼撰寫技術，請參閱這些開發文章。
+若要進一步了解 SQL 資料倉儲的重要的設計決策、建議和程式碼撰寫技術，請參閱這些開發文章。
 
 ## <a name="key-design-decisions"></a>主要的設計決策
-下列文章的重點在於使用 SQL 資料倉儲開發分散式資料倉儲時，必須了瞭解的一些重要概念和設計決策：
+下列文章醒目提示使用 SQL 資料倉儲開發分散式資料倉儲的概念和設計決策：
 
 * [連線][connections]
 * [並行][concurrency]
@@ -50,12 +49,12 @@ ms.lasthandoff: 10/11/2017
 * [變數指派][variable assignment]
 
 ## <a name="next-steps"></a>後續步驟
-仔細閱讀開發文章之後，請查看 [Transact-SQL 參考資料][Transact-SQL reference]頁面，以取得 SQL 資料倉儲支援的語法的詳細資料。
+如需更多的參考資訊，請參閱 SQL 資料倉儲的 [Transact-SQL 參考][][Transact-SQL reference] 頁面。
 
 <!--Image references-->
 
 <!--Article references-->
-[concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[concurrency]: ./resource-classes-for-workload-management.md
 [connections]: ./sql-data-warehouse-connect-overview.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [dynamic SQL]: ./sql-data-warehouse-develop-dynamic-sql.md

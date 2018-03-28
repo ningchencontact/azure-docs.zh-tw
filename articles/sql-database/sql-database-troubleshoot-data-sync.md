@@ -8,11 +8,12 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: c174f5120ba2e5bf8018cce0f0e34c1fc3f8eb3f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.custom: data-sync
+ms.openlocfilehash: a24e16abd78a89d6143c00fc08a3ef91d7dd8202
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>針對 SQL 資料同步 (預覽) 的問題進行疑難排解
 
@@ -239,7 +240,7 @@ SQL 資料同步 (預覽) 用戶端代理程式不會儲存認證，因此發生
 
 -   SQL 資料同步 (預覽) Windows 服務正在執行。  
 -   SQL 資料同步 (預覽) Preview Windows 服務的服務帳戶具有網路存取權。    
--   用戶端代理程式能夠連絡 Locator Service。 確認下列登錄機碼具有 https://locator.sync.azure.com/LocatorServiceApi.svc 值：  
+-   用戶端代理程式能夠連絡 Locator Service。 請檢查下列登錄機碼是否具有 https://locator.sync.azure.com/LocatorServiceApi.svc: 值  
     -   在 x86 電腦上：`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
     -   在 x64 電腦上：`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
 

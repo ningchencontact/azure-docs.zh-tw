@@ -1,8 +1,8 @@
 ---
-title: "適用於車輛健全狀況與駕駛習慣的 Power BI 儀表板 - Azure | Microsoft Docs"
-description: "使用 Cortana Intelligence 具備的強大功能，取得關於車輛健全狀態與駕駛習慣的即時預測情資。"
+title: 適用於車輛健全狀況與駕駛習慣的 Power BI 儀表板 - Azure | Microsoft Docs
+description: 使用 Cortana Intelligence 具備的強大功能，取得關於車輛健全狀態與駕駛習慣的即時預測情資。
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 626987ec0648f9e770499b4a48bc4ca2d175d2b4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>車輛遙測分析方案範本 Power BI 儀表板安裝指示
 此功能表連結至此腳本的章節： 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/01/2017
 * **Azure HDInsight** 可大規模轉換資料。
 * **Azure Data Factory** 可執行批次處理管線的協調流程、排程、資源管理及監控工作。
 
-**Power BI** 為此解決方案提供具備即時資料與預測性分析視覺效果等豐富功能的儀表板。 
+**Power BI** 為此解決方案提供具備資料與預測性分析視覺效果等豐富功能的儀表板。 
 
 此方案使用兩種不同的資料來源：
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 12/01/2017
 * 需要維修的車輛
 * 車輛健全狀況統計資料
 
-您可以設定上述這三種即時報告，或在任何階段後停止。 您接著可以進入下一節，盡如如何設定批次報告。 建議您建立上述三份報表，以將解決方案即時路徑的完整深入解析視覺化。  
+您可以設定上述這三種報告，或在任何階段後停止。 您接著可以進入下一節，盡如如何設定批次報告。 建議您建立上述三份報表，以將解決方案即時路徑的完整深入解析視覺化。  
 
 ### <a name="vehicles-in-operation-report"></a>行駛中的車輛報告
 1. 按兩下 [第 1 頁]，重新命名為**行駛中的車輛**。
@@ -160,7 +160,7 @@ ms.lasthandoff: 12/01/2017
 
     ![儀表板與視覺效果](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
 
-您已成功設定「行駛中的車輛」即時報告。 您可以建立下一份即時報告，或可以在此停止並設定儀表板。 
+您已成功設定「行駛中的車輛」報告。 您可以建立下一份即時報告，或可以在此停止並設定儀表板。 
 
 ### <a name="vehicles-requiring-maintenance-report"></a>需要維修的車輛報告
 
@@ -198,7 +198,7 @@ ms.lasthandoff: 12/01/2017
 
 6. 在 [欄位] 索引標籤上，將 **Model** 拖曳至 [軸] 區域。 將 **vin** 拖曳至 [值] 區域。 然後，依 [vin 的計數] 排序視覺效果。 將圖表 [標題] 變更為**需要維修的車輛 (依車型)**。 
 
-7. 在 [視覺效果] 索引標籤的 [欄位] ![欄位](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) 區段上，將 **vin** 拖曳至 [色彩飽和度]。
+7. 在 [視覺效果] 索引標籤的 [欄位] ![欄位圖像](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) 區段上，將 **vin** 拖曳至 [色彩飽和度]。
 
     ![色彩飽和度](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)  
 
@@ -333,7 +333,7 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="set-up-the-power-bi-batch-processing-dashboard"></a>設定 Power BI 批次處理儀表板
 > [!NOTE]
-> 端對端批次處理管線大約需要兩小時 (從成功完成部署開始算起) 的時間才能完成執行並處理一年份的已產生資料。 請等處理完成後再繼續進行下列步驟。 
+> 端對端批次處理管線大約需要兩小時 (從成功完成部署開始算起) 的時間才能完成執行並處理一年份的已產生資料。 請等處理完成後再繼續進行下列步驟：
 > 
 > 
 

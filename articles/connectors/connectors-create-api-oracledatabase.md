@@ -1,25 +1,25 @@
 ---
-title: "在您的 Azure Logic Apps 中新增 Oracle Database 連接器 | Microsoft Docs"
-description: "在邏輯應用程式中使用 Oracle Database 連接器"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: 在您的 Azure Logic Apps 中新增 Oracle Database 連接器 | Microsoft Docs
+description: 在邏輯應用程式中使用 Oracle Database 連接器
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 57931b6c2f96debeb9ab7f1a3b6700f23e7d2a7e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>開始使用 Oracle Database 連接器
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/19/2018
 * 藉由在客戶資料庫中新增新客戶或在訂單資料庫中更新訂單，以建置工作流程。
 * 使用動作來取得一列資料、插入新的資料列，甚至加以刪除。 例如，在 Dynamics CRM Online 中建立記錄時 (觸發程序)，就會在 Oracle Database 中插入資料列 (動作)。 
 
-本主題說明如何在邏輯應用程式中使用 Oracle Database 連接器。
+本文說明如何在邏輯應用程式中使用 Oracle Database 連接器。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/19/2018
   [適用於 Windows x64 的 64 位元 ODAC 12c 版本 4 (12.1.0.2.4)](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
-    > 若未安裝 Oracle 用戶端，當您嘗試建立或使用連線時會發生錯誤。 請參閱本主題中常見的錯誤。
+    > 若未安裝 Oracle 用戶端，當您嘗試建立或使用連線時會發生錯誤。 請參閱本文中常見的錯誤。
 
 
 ## <a name="add-the-connector"></a>新增連接器
@@ -104,7 +104,7 @@ ms.lasthandoff: 01/19/2018
 
 **風險降低**：確保您的閘道在安裝的內部部署機器中執行，且可連線至網際網路。  我們建議不要在可能關閉或休眠的電腦上安裝閘道。 您也可以重新啟動內部部署資料閘道服務 (PBIEgwService)。
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-please-visit-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**錯誤**：使用的提供者已被取代：'System.Data.OracleClient requires Oracle 用戶端軟體版本 8.1.7 或更高版本。'。 請造訪 [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) 以安裝正式的提供者。
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**錯誤**：使用的提供者已被取代：'System.Data.OracleClient requires Oracle 用戶端軟體版本 8.1.7 或更高版本。'。 請參閱 [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) 來安裝官方提供者。
 
 **原因**：Oracle 用戶端 SDK 並未安裝在內部部署資料閘道執行的機器上。  
 
@@ -134,4 +134,4 @@ ms.lasthandoff: 01/19/2018
 
 
 ## <a name="next-steps"></a>後續步驟
-[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)，並到我們的 [API 清單](apis-list.md)探索 Logic Apps 中其他可用的連接器。
+[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)，並到 [API 清單](apis-list.md)探索 Logic Apps 中其他可用的連接器。

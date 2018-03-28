@@ -1,19 +1,19 @@
 ---
-title: "Azure IoT Edge C# 模組 | Microsoft Docs"
-description: "使用 C# 程式碼建立 IoT Edge 模組並將它部署到邊緣裝置"
+title: Azure IoT Edge C# 模組 | Microsoft Docs
+description: 使用 C# 程式碼建立 IoT Edge 模組並將它部署到邊緣裝置
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
-ms.author: v-jamebr
-ms.date: 11/15/2017
+ms.author: kgremban
+ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fd46bb662af72ece799bb545d06d76f9e54ee62c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 605f0cfe34e4fda14030bb38686095882846c7c0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>開發 C# IoT Edge 模組並部署到您的模擬裝置 - 預覽
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/09/2018
 3. 選取 [建立] 。
 4. 建立容器登錄之後，請瀏覽至它並選取 [存取金鑰]。 
 5. 將 [管理使用者] 切換為 [啟用]。
-6. 複製 [登入伺服器]、[使用者名稱] 及 [密碼] 的值。 您在本教學課程後續的內容中將會用到這些值。 
+6. 複製 [登入伺服器]、[使用者名稱] 及 [密碼] 的值。 稍後您在本教學課程中，將 Docker 映像發佈到您的登錄，或將登錄認證新增至 Edge 執行階段時，將會用到這些值。 
 
 ## <a name="create-an-iot-edge-module-project"></a>建立 IoT Edge 模組專案
 下列步驟會示範如何 使用 Visual Studio Code 和 Azure IoT Edge 擴充功能，來建立以 .NET core 2.0 為基礎的 IoT Edge 模組。
@@ -227,15 +227,14 @@ ms.lasthandoff: 02/09/2018
 2. 以滑鼠右鍵按一下 [Dockerfile] 檔案，然後按一下 [建置 IoT Edge 模組的 Docker 映像]。 
 3. 在 [選取資料夾] 視窗中，瀏覽至或是輸入 `./bin/Debug/netcoreapp2.0/publish`。 按一下 [選取資料夾為 EXE_DIR]。
 4. 在 VS Code 視窗頂端的快顯文字方塊中，輸入映像名稱。 例如：`<your container registry address>/filtermodule:latest`。 容器登錄位址與您從登錄複製的登入伺服器相同。 其格式應該是 `<your container registry name>.azurecr.io`。
-5. 透過在 VS Code 整合式終端機中輸入下列命令來登入 Docker： 
+5. 使用您在建立 Azure 容器登錄時從中複製的使用者名稱、密碼及登入伺服器，來登入 Docker。 在 VS Code 整合式終端機中，輸入下列命令： 
      
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
-   使用您在建立 Azure 容器登錄時從中複製的使用者名稱、密碼及登入伺服器。
 
-3. 將映像推送到您的 Docker 存放庫。 選取 [檢視] > [命令選擇區]，然後搜尋 [Edge: 推送 IoT Edge 模組 Docker 映像] 功能表命令。 在 VS Code 視窗頂端的快顯文字方塊中，輸入映像名稱。 使用您在步驟 4 中使用的相同映像名稱。
+6. 將映像推送至容器登錄。 選取 [檢視] > [命令選擇區]，然後搜尋 [Edge: 推送 IoT Edge 模組 Docker 映像] 功能表命令。 在 VS Code 視窗頂端的快顯文字方塊中，輸入映像名稱。 使用您在步驟 4 中使用的相同映像名稱。
+7. 若要在 Azure 入口網站中檢視您的映像，請瀏覽至您的 Azure 容器登錄，然後選取 [存放庫]。 您應該會看到列出的 **filtermodule**。
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>將登錄認證新增至 Edge 執行階段
 在執行 Edge 裝置的電腦上，將登錄的認證新增至 Edge 執行階段。 這些認證會將提取容器的存取權提供給執行階段。 

@@ -1,32 +1,26 @@
 ---
-title: "相應放大 Azure SQL Database | Microsoft Docs"
-description: "如何使用彈性資料庫用戶端程式庫 ShardMapManager"
+title: 相應放大 Azure SQL Database | Microsoft Docs
+description: 如何使用彈性資料庫用戶端程式庫 ShardMapManager
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 0e9d647a-9ba9-4875-aa22-662d01283439
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
-ms.author: ddove
-ms.openlocfilehash: fe4c8b7b2a9d199c85faf11fcd35382d586fc009
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 03/16/2018
+ms.author: sstein
+ms.openlocfilehash: cf8d4427cddbe6368ac265fe9ecc0f408f7fb1fb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>使用分區對應管理員相應放大資料庫
 若要在 SQL Azure 上輕鬆地相應放大資料庫，請使用分區對應管理員。 分區對應管理員是特殊的資料庫，負責維護分區集中所有分區 (資料庫) 的全域對應資訊。 此中繼資料可讓應用程式根據 **分區化索引鍵**的值，連線到正確的資料庫。 此外，分區集中的每個分區都包含可追蹤本機分區資料的對應 (稱為 **shardlet**)。 
 
 ![分區對應管理](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-了解這些對應建構的方式，是分區對應管理的基本。 使用可在[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)中找到的 ShardMapManager 類別 ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) 來管理分區對應，即可達成。  
+了解這些對應建構的方式，是分區對應管理的基本。 使用可在[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)中找到的 ShardMapManager 類別 ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) 來管理分區對應，即可達成。  
 
 ## <a name="shard-maps-and-shard-mappings"></a>分區對應和分區對應方式
 對於每個分區，您必須選取要建立的分區對應類型。 請依據資料庫結構進行選擇︰ 
@@ -102,7 +96,7 @@ Elastic Scale 支援下列類型作為分區化索引鍵：
 
 **請注意：**對於每個應用程式網域，**ShardMapManager** 應該只具現化一次 (在應用程式的初始化程式碼內)。 如果在相同的應用程式網域中建立 ShardMapManager 的其他執行個體，將會導致應用程式的記憶體和 CPU 使用率增加。 **ShardMapManager** 可以包含任意數目的分區對應。 雖然單一分區對應可能足夠用於許多應用程式，但有時幾組不同的資料庫會用於不同的結構描述或做為特殊用途；在這些情況下，最好使用多個分區對應。 
 
-在這段程式碼中，應用程式會以 TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)) 方法嘗試開啟現有的 **ShardMapManager**。  如果代表全域 **ShardMapManager** (GSM) 的物件尚不存在資料庫內，用戶端程式庫會使用 CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) 方法在其中建立這些物件。
+在這段程式碼中，應用程式會以 TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) 方法嘗試開啟現有的 **ShardMapManager**。 如果代表全域 **ShardMapManager** (GSM) 的物件尚不存在資料庫內，用戶端程式庫會使用 CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) 方法在其中建立這些物件。
 
 ```Java
 // Try to get a reference to the Shard Map Manager in the shardMapManager database.

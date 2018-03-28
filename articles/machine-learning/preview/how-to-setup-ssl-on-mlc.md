@@ -1,6 +1,6 @@
 ---
-title: "在 Azure Machine Learning 計算 (MLC) 叢集上啟用 SSL | Microsoft Docs"
-description: "取得在 Azure Machine Learning 計算 (MLC) 叢集上設定評分呼叫 SSL 的指示"
+title: 在 Azure Machine Learning 計算 (MLC) 叢集上啟用 SSL | Microsoft Docs
+description: 取得在 Azure Machine Learning 計算 (MLC) 叢集上設定評分呼叫 SSL 的指示
 services: machine-learning
 author: SerinaKaye
 ms.author: serinak
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: b76fe7c0caa4a9aca76a9a3f50d1fced0ab67cba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 444803eeb77e79a8bfe3271ddf27bd428042c875
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>在 Azure Machine Learning 計算 (MLC) 叢集上啟用 SSL 
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/08/2018
 
 完成先決條件之後，您會有兩個檔案：
 
-* 憑證檔案，例如 `cert.pem`
+* 憑證檔案，例如 `cert.pem`。 請確定該檔案具有完整的信任鏈結。
 * 金鑰檔案，例如 `key.pem`
 
 
@@ -55,7 +55,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>對應 CNAME 與 IP 位址
 
-在您於必要條件中選取的 CNAME 與即時前端 (FE) 的 IP 位址之間建立對應。 若要探索 FE 的 IP 位址，請執行下列命令。 輸出會顯示名為 "publicIpAddress" 的欄位，其中包含即時叢集前端的 IP 位址。 請參閱 DNS 提供者的指示來設定 CNAME 記錄。
+在您於必要條件中選取的 CNAME 與即時前端 (FE) 的 IP 位址之間建立對應。 若要探索 FE 的 IP 位址，請執行下列命令。 輸出會顯示名為 "publicIpAddress" 的欄位，其中包含即時叢集前端的 IP 位址。 請參閱您 DNS 提供者的指示，設定從 FQDN (用於 CNAME) 到公用 IP 位址的記錄。
 
 
 

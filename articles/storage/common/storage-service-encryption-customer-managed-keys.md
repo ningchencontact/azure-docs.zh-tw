@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: b40858640d10e5661be420976520774bd50837cb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>使用 Azure Key Vault 中客戶管理的金鑰進行儲存體服務加密
 
@@ -81,6 +81,7 @@ SSE 預設會使用 Microsoft 管理的金鑰。 您可以使用 [Azure 入口�
 
     ![顯示 [透過輸入金鑰 URI 來加密] 選項的入口網站螢幕擷取畫面](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
+
 #### <a name="specify-a-key-from-a-key-vault"></a>從金鑰保存庫指定金鑰 
 
 若要從金鑰保存庫指定您的金鑰，請依照下列步驟進行操作：
@@ -96,6 +97,17 @@ SSE 預設會使用 Microsoft 管理的金鑰。 您可以使用 [Azure 入口�
 ![顯示金鑰保存庫存取遭拒的入口網站螢幕擷取畫面](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
 您也可以透過 Azure 入口網站來授與存取權，方法是瀏覽至 Azure 入口網站中的 Azure Key Vault，然後將存取權授與儲存體帳戶。
+
+
+您可以使用下列 PowerShell 命令，讓上述索引鍵與現有儲存體帳戶產生關聯：
+```powershell
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
+Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+```
+
 
 ### <a name="step-5-copy-data-to-storage-account"></a>步驟 5︰將資料複製到儲存體帳戶
 
@@ -113,7 +125,7 @@ SSE 預設會使用 Microsoft 管理的金鑰。 您可以使用 [Azure 入口�
 
 **問：是否可以使用 Azure PowerShell 和 Azure CLI 來建立新的儲存體帳戶並啟用搭配客戶管理金鑰的 SSE？**
 
-答：是。
+答： 會。
 
 **問：如果搭配 SSE 使用客戶管理的金鑰，Azure 儲存體的成本會增加多少？**
 

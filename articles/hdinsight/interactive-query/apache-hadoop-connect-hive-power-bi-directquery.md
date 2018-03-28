@@ -1,26 +1,26 @@
 ---
-title: "在 Azure HDInsight 中使用 Power BI 將互動式查詢 Hive 資料視覺化 | Microsoft Docs"
-description: "了解如何使用 Microsoft Power BI 將 Azure HDInsight 所處理的互動式查詢 Hive 資料視覺化。"
-keywords: "hdinsight,hadoop,hive,互動式查詢,互動式 hive,LLAP,directquery"
+title: 在 Azure HDInsight 中使用 Power BI 將互動式查詢 Hive 資料視覺化 | Microsoft Docs
+description: 了解如何使用 Microsoft Power BI 將 Azure HDInsight 所處理的互動式查詢 Hive 資料視覺化。
+keywords: hdinsight,hadoop,hive,互動式查詢,互動式 hive,LLAP,directquery
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/14/2018
 ms.author: jgao
-ms.openlocfilehash: 290e600b7be4a6f9fb57afa50bb771e42e6a0624
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: c74e02ea32a5aacf1a5208c0e194a25b0b6bcb48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>在 Azure HDInsight 中使用直接查詢藉由 Microsoft Power BI 將互動式查詢 Hive 資料視覺化
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/04/2018
 
 ![HDInsight Power BI 地圖報告](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
-若要了解如何使用 ODBC 來連線到 Hive，請參閱[在 Azure HDInsight 中使用 ODBC 藉由 Microsoft Power BI 將 Hive 資料視覺化](../hadoop/apache-hadoop-connect-hive-power-bi.md)。 
+您可以利用 [Hive ODBC 驅動程式](../hadoop/apache-hadoop-connect-hive-power-bi.md)，透過 Power BI Desktop 中的一般 ODBC 連接器執行匯入作業。 不過，BI 工作負載如果具有 Hive 查詢引擎的非互動式本質，則不建議使用此方式。 為發揮其效能，[HDInsight 互動式查詢連接器](./apache-hadoop-connect-hive-power-bi-directquery.md)和 [HDInsight Spark 連接器](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect)會是較好的選擇。
 
 ## <a name="prerequisites"></a>先決條件
 在閱讀本文之前，您必須有下列各項：

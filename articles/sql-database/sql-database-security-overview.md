@@ -2,25 +2,19 @@
 title: Azure SQL Database 安全性概觀 | Microsoft Docs
 description: 了解 Azure SQL Database 和 SQL Server 的 安全性，包含雲端和 SQL Server 內部部署之間的差異。
 services: sql-database
-documentationcenter: ''
 author: giladm
-manager: shaik
+manager: craigg
 ms.reviewer: carlrab
-editor: ''
-ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
-ms.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1dc34f021fa6482c65cce0e922951ae329987c43
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-your-sql-database"></a>保護您的 SQL Database
 
@@ -62,7 +56,6 @@ SQL Database 使用防火牆規則、要求使用者證明其身分的驗證機�
 
 ### <a name="authentication"></a>驗證
 SQL Database 驗證是指連線到資料庫時如何證明身分識別。 SQL Database 支援兩種驗證類型：
-
 * **SQL 驗證**，其需要使用者名稱和密碼。 當您為資料庫建立邏輯伺服器時，採取使用者名稱和密碼指定了「伺服器管理員」登入。 使用這些認證，您就可以使用資料庫擁有者或 "dbo" 的身分驗證該伺服器上的任何資料庫。 
 * **Azure Active Directory 驗證**，它會使用由 Azure Active Directory 管理的身分識別，並支援受控和整合的網域。 [盡可能](https://msdn.microsoft.com/library/ms144284.aspx)使用 Active Directory 驗證 (整合式安全性)。 如果您想要使用 Azure Active Directory 驗證，就必須建立另一個名為「Azure AD 管理員」的伺服器管理員，其能夠管理 Azure AD 使用者和群組。 此管理員也可以執行一般伺服器管理員可執行的所有作業。 如需如何建立 Azure AD 管理員以啟用 Azure Active Directory 驗證的逐步解說，請參閱 [使用 Azure Active Directory 驗證連線到 SQL Database](sql-database-aad-authentication.md) 。
 
@@ -86,6 +79,21 @@ SQL Database 稽核會將資料庫事件記錄到 Azure 儲存體帳戶中的稽
  
 ## <a name="compliance"></a>法規遵循
 除了上述可協助您的應用程式符合各種安全性需求的特色和功能之外，Azure SQL Database 也定期參與稽核，並且經過認證符合許多法規標準。 如需詳細資訊，請參閱 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/)，您可以在當中找到 [SQL Database 法規認證](https://azure.microsoft.com/support/trust-center/services/)的最新清單。
+
+
+## <a name="security-management"></a>安全性管理
+
+SQL Database 使用 [SQL 弱點評量](sql-vulnerability-assessment.md)來提供資料庫掃描和集中式的安全性儀表板，協助您管理資料安全性。
+
+**弱點評量**：[SQL 弱點評量](sql-vulnerability-assessment.md) (目前為預覽狀態) 是容易設定的 Azure SQL Database 內建工具，可協助您探索、追蹤及修復潛在的資料庫弱點。 此評量會在您的資料庫上執行弱點掃描並產生報表，讓您掌握您的安全性狀態，其中還包括解決安全性問題和增強資料庫安全性的可採取動作。 您可以針對權限組態、功能組態及資料庫組態設定可接受的基準，為您的環境自訂評量報告。 這可協助您：
+
+- 符合需要資料庫掃描報告的合規性需求。 
+
+- 符合資料隱私權標準。 
+
+- 監視難以追蹤變更的動態資料庫環境。
+
+如需詳細資訊，請參閱 [SQL 弱點評量](sql-vulnerability-assessment.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

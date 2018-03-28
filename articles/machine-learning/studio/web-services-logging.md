@@ -1,10 +1,11 @@
 ---
-title: "Machine Learning Web 服務的記錄 | Microsoft Docs"
-description: "了解如何為 Machine Learning Web 服務啟用記錄。 記錄提供可協助疑難排解 API 的其他資訊。"
+title: Machine Learning Web 服務的記錄 | Microsoft Docs
+description: 了解如何為 Machine Learning Web 服務啟用記錄。 記錄提供可協助疑難排解 API 的其他資訊。
 services: machine-learning
-documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+documentationcenter: ''
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: 31497bcae5889590a2261b716574ec4eae21852d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e04ef638c46ef0f3b40fd56d27ba3673565bdc7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>為 Machine Learning Web 服務啟用記錄
 本文件提供 Machine Learning Web 服務記錄功能的相關資訊。 記錄會提供其他資訊，而不只是錯誤碼和訊息而已，可協助您針對 Machine Learning API 的呼叫進行疑難排解。  
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 從 [Azure Machine Learning Web 服務](https://services.azureml.net)入口網站啟用記錄。 
 
-1. 登入 Azure Machine Learning Web 服務入口網站 [https://services.azureml.net](https://services.azureml.net)。 對於傳統 Web 服務，您也可以在 Machine Learning Studio 中的 Machine Learning Web 服務頁面上按一下 [新的 Web 服務體驗]，以進入入口網站。
+1. 登入 Azure Machine Learning Web 服務入口網站，網址為 [https://services.azureml.net](https://services.azureml.net)。 對於傳統 Web 服務，您也可以在 Machine Learning Studio 中的 Machine Learning Web 服務頁面上按一下 [新的 Web 服務體驗]，以進入入口網站。
 
    ![新的 Web 服務體驗連結](./media/web-services-logging/new-web-services-experience-link.png)
 

@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 03/12/2018
 * HDInsight 叢集 - 請參閱 [HDInsight 限制](#hdinsight-limitations)
 * IoT 中樞
 * Key Vault
-* 負載平衡器
+* Load Balancer - 請參閱 [Load Balancer 限制](#lb-limitations)
 * Logic Apps
 * Machine Learning
 * 媒體服務
@@ -132,6 +132,7 @@ ms.lasthandoff: 03/12/2018
 * Operational Insights
 * Operations Management
 * Power BI
+* 公用 IP - 請參閱[公用 IP 限制](#pip-limitations)
 * Redis 快取
 * 排程器
 * Search
@@ -161,8 +162,10 @@ ms.lasthandoff: 03/12/2018
 * ExpressRoute
 * DevTest Labs - 已啟用移動至相同訂用帳戶中新資源群組的功能，但未啟用跨訂用帳戶之間的移動。
 * Dynamics LCS
+* Load Balancer - 請參閱 [Load Balancer 限制](#lb-limitations)
 * 受控應用程式
 * 受控磁碟 - 請參閱[虛擬機器限制](#virtual-machines-limitations)
+* 公用 IP - 請參閱[公用 IP 限制](#pip-limitations)
 * 復原服務保存庫 - 也不會移動與「復原服務」保存庫關聯的「計算」、「網路」及「儲存體」資源，請參閱 [復原服務限制](#recovery-services-limitations)。
 * 安全性
 * StorSimple 裝置管理員
@@ -320,6 +323,16 @@ ms.lasthandoff: 03/12/2018
 
 您不能同時移動放在不同區域的多個搜尋資源。
 在這種情況下，您需要分別移動它們。
+
+## <a name="lb-limitations"></a> Load Balancer 限制
+
+可以移動基本 SKU Load Balancer。
+不能移動標準 SKU Load Balancer。
+
+## <a name="pip-limitations"></a> 公用 IP 限制
+
+可以移動基本 SKU 公用 IP。
+不能移動標準 SKU 公用 IP。
 
 ## <a name="use-portal"></a>使用入口網站
 

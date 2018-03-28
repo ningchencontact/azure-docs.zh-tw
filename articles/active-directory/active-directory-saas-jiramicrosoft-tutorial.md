@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與適用於 JIRA 的 Microsoft Azure Active Directory 單一登入整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與適用於 JIRA 的 Microsoft Azure Active Directory 單一登入之間的單一登入。"
+title: 教學課程：Azure Active Directory 與適用於 JIRA 的 Microsoft Azure Active Directory 單一登入整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與適用於 JIRA 的 Microsoft Azure Active Directory 單一登入之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 710aa59fb3cc69cb1f5a20389eca13b1be93d223
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ceb36b78b72c45e9af59724d1f1c79789ef24b24
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira"></a>教學課程：Azure Active Directory 與適用於 JIRA 的 Microsoft Azure Active Directory 單一登入整合
 
@@ -61,6 +61,7 @@ ms.lasthandoff: 01/29/2018
 
 *   JIRA 核心和軟體：6.0 至 7.2.0
 *   JIRA Service Desk 3.0 到 3.2
+*   JIRA 也支援 5.2。 如需詳細資訊，請按一下[適用於 JIRA 5.2 的 Microsoft Azure Active Directory 單一登入](./active-directory-saas-jira52microsoft-tutorial.md)
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
@@ -160,7 +161,7 @@ ms.lasthandoff: 01/29/2018
     
     ![設定單一登入](.\media\active-directory-saas-msaadssojira-tutorial\addon1.png)
 
-8. 從 [Microsoft 下載中心](https://www.microsoft.com/en-us/download/details.aspx?id=56506)下載外掛程式。 使用 [上傳附加元件] 功能表來手動上傳 Microsoft 所提供的外掛程式。
+8. 從 [Microsoft 下載中心](https://www.microsoft.com/en-us/download/details.aspx?id=56506)下載外掛程式。 使用 [上傳附加元件] 功能表來手動上傳 Microsoft 所提供的外掛程式。 外掛程式下載受到 [Microsoft 服務合約](https://www.microsoft.com/en-us/servicesagreement/)的規範。
 
     ![設定單一登入](.\media\active-directory-saas-msaadssojira-tutorial\addon12.png)
 
@@ -195,6 +196,9 @@ ms.lasthandoff: 01/29/2018
     h. 如果您想要在使用者登出 JIRA 時登出 Azure AD，請勾選 [啟用單一登出]。 
 
     i. 按一下 [儲存] 按鈕以儲存設定。
+
+    > [!NOTE]
+    > 如需有關安裝和疑難排解的詳細資訊，請瀏覽 [MS JIRA SSO 連接器管理指南](ms-confluence-jira-plugin-adminguide.md)，另外也有[常見問題集](ms-confluence-jira-plugin-faq.md)可協助您
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

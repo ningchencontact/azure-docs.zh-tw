@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions 的 Azure 事件中樞繫結"
-description: "了解如何在 Azure Functions 中使用 Azure 事件中樞繫結。"
+title: Azure Functions 的 Azure 事件中樞繫結
+description: 了解如何在 Azure Functions 中使用 Azure 事件中樞繫結。
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"
+editor: ''
+tags: ''
+keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.service: functions
 ms.devlang: multiple
@@ -16,17 +16,23 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 084d3e4244bc6f19797fadab93265291494cf066
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 87a7d25e1095fe1511c86dc56375c02f06f51b73
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中樞繫結
 
 本文說明如何針對 Azure Functions 使用 [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)繫結。 Azure Functions 支援事件中樞的觸發程序和輸出繫結。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>封裝
+
+[Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 套件中提供事件中樞繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/) GitHub 存放庫中。
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="trigger"></a>觸發程序
 
@@ -199,7 +205,7 @@ module.exports = function (context, myEventHubMessage) {
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，請使用在 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) \(英文\) 中定義的 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) \(英文\) 屬性。
+在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) 屬性。
 
 此屬性的建構函式接受事件中樞的名稱、取用者群組的名稱，以及包含連接字串的應用程式設定名稱。 如需這些設定的詳細資訊，請參閱[觸發程序組態](#trigger---configuration)一節。 以下是 `EventHubTriggerAttribute` 屬性範例：
 
@@ -371,7 +377,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>輸出 - 屬性
 
-對於 [C# 類別庫](functions-dotnet-class-library.md)，請使用在 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) \(英文\) 中定義的 [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) \(英文\) 屬性。
+對於 [C# 類別庫](functions-dotnet-class-library.md)，請使用 [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) 屬性。
 
 此屬性的建構函式接受事件中樞的名稱，以及包含連接字串的應用程式設定名稱。 如需這些設定的詳細資訊，請參閱[輸入 - 組態](#output---configuration)一節。 以下是 `EventHub` 屬性範例：
 

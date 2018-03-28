@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a1ffd9311f6ff171502efe64557463abc49ad636
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5039798d76017d93b77d724b2e6bca6712af0370
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions 的 Event Grid 觸發程序
 
@@ -37,11 +37,11 @@ Event Grid 是一項 Azure 服務，會傳送 HTTP 要求通知您「發行者�
 
 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 套件中提供 Event Grid 觸發程序。 套件的原始程式碼位於 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension) GitHub 存放庫中。
 
-此套件用於 [C# 類別庫開發](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code)和 [Functions v2 繫結擴充功能註冊](functions-triggers-bindings.md#local-development-azure-functions-core-tools)。
-
 <!--
 If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
 -->
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>範例
 
@@ -348,7 +348,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 
 ### <a name="create-a-requestbin-endpoint"></a>建立 RequestBin 端點
 
-RequestBin 是一種可接受 HTTP 要求並為您顯示要求本文的開放原始碼工具。 Azure Event Grid 會以特殊方式處理 http://requestb.in URL。 為了簡化測試，Event Grid 會將事件傳送至 RequestBin URL，而不需要正確回應訂用帳戶驗證要求。 其他兩種測試工具也會以相同方式處理：http://webhookinbox.com and http://hookbin.com。
+RequestBin 是一種可接受 HTTP 要求並為您顯示要求本文的開放原始碼工具。 Azure Event Grid 會以特殊方式處理 http://requestb.in URL。 為了簡化測試，Event Grid 會將事件傳送至 RequestBin URL，而不需要正確回應訂用帳戶驗證要求。 其他兩種測試工具也會以相同方式處理：http://webhookinbox.com 和 http://hookbin.com。
 
 RequestBin 不適用於高輸送量的用途。 如果您一次推送多個事件，則可能看不到工具中的所有事件。
 

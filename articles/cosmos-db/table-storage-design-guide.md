@@ -1,6 +1,6 @@
 ---
-title: "Azure 儲存體資料表設計指南 | Microsoft Docs"
-description: "在 Azure 資料表儲存體中設計可擴充且高效能的資料表"
+title: Azure 儲存體資料表設計指南 | Microsoft Docs
+description: 在 Azure 資料表儲存體中設計可擴充且高效能的資料表
 services: cosmos-db
 documentationcenter: na
 author: mimig1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: a5511b8b2e76c6c651a8e05bda1322293601c92c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: fadb81e16a6c641ca15efb4f910a51de4fe7c997
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 儲存體資料表設計指南：設計可調整且效用佳的資料表
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -232,7 +232,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 * [使用異質性實體類型](#working-with-heterogeneous-entity-types)  
 
 ### <a name="choosing-an-appropriate-partitionkey"></a>選擇適當的 PartitionKey
-您選擇的 **PartitionKey** 應兼顧 EGT 的啟用 (以確保一致性) 和將實體分散到多個資料分割 (以確保可調整的解決方案) 的需求。  
+您選擇的 **PartitionKey** 應兼顧 EGT 的啟用 (以確保一致性) 和將實體分散到多個分割區 (以確保可調整的解決方案) 的需求。  
 
 就一個極端而言，您可以在單一磁碟分割儲存您的實體，但這可能會限制方案的延展性，且會妨礙資料表服務的負載平衡要求。 就另一個極端而言，您可以為每個資料分割儲存一個實體以達到高擴充性，並且讓資料表服務可進行負載平衡要求，但這會讓您無法使用實體群組交易。  
 
@@ -261,7 +261,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 
 * [內部資料分割次要索引模式](#intra-partition-secondary-index-pattern) - 為每個實體儲存多個複本且使用不同 RowKey 值 (在相同的資料分割內)，透過使用不同的 RowKey 值，就能快速且有效率的查閱和替代排序次序。  
 * [間資料分割次要索引模式](#inter-partition-secondary-index-pattern) - 在個別資料分割或個別資料表中為每個實體儲存多個複本且使用不同 RowKey 值，透過使用不同的 RowKey 值，就能快速且有效率的查閱和替代排序次序。
-* [記錄結尾模式](#log-tail-pattern) - 透過使用以反向的日期和時間順序排序的 **RowKey** 值，擷取最近新增到分割區的 *n* 個實體。  
+* [記錄結尾模式](#log-tail-pattern) - 使用以反向的日期和時間順序排序的 *RowKey* 值，擷取最近加入資料分割的 **n** 個實體。  
 
 ## <a name="design-for-data-modification"></a>資料修改的設計
 本節著重於最佳化插入、更新和刪除的設計考量。 在某些情況下，您必須在查詢最佳化的設計與資料修改最佳化的設計之間評估取捨，如同您在設計關聯式資料庫時一般 (雖然在關聯式資料庫中用來管理設計取捨的方法有所不同)。 [資料表設計模式](#table-design-patterns) 一節會說明資料表服務的一些詳細設計模式，並強調說明一些相關取捨。 在實務上，您會發現許多針對查詢實體而最佳化的設計也適用於修改實體。  
@@ -296,7 +296,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 [資料表設計模式](#table-design-patterns) 一節中的下列模式可因應如何在有效查詢的設計與有效資料修改的設計之間進行取捨：  
 
 * [複合索引鍵模式](#compound-key-pattern) - 使用複合 **RowKey** 值，讓用戶端可透過單點查詢來查閱相關資料。  
-* [記錄結尾模式](#log-tail-pattern) - 透過使用以反向的日期和時間順序排序的 **RowKey** 值，擷取最近新增到分割區的 *n* 個實體。  
+* [記錄結尾模式](#log-tail-pattern) - 使用以反向的日期和時間順序排序的 *RowKey* 值，擷取最近加入資料分割的 **n** 個實體。  
 
 ## <a name="encrypting-table-data"></a>加密資料表的資料
 .NET Azure 儲存體用戶端程式庫支援在插入和取代作業時進行字串實體屬性的加密。 加密的字串儲存在服務上作為二進位屬性，且解密後會轉換回字串。    
@@ -718,10 +718,10 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 * [最終一致的交易模式](#eventually-consistent-transactions-pattern)  
 
 ### <a name="log-tail-pattern"></a>記錄結尾模式
-透過使用以反向的日期和時間順序排序的 **RowKey** 值，擷取最近加入分割區的 *n* 個實體。  
+使用以反向的日期和時間順序排序的 *RowKey* 值，擷取最近加入資料分割的 **n** 個實體。  
 
 #### <a name="context-and-problem"></a>內容和問題
-常見的需求是要能夠擷取最近建立的實體，例如員工最近提交的費用請款。 資料表查詢支援 **$top** 查詢作業，可從集合中傳回前 *n* 個實體：並沒有對等的查詢作業可傳回集合中最後 n 個實體。  
+常見的需求是要能夠擷取最近建立的實體，例如員工最近提交的費用請款。 資料表查詢支援 **$top** 查詢作業，以從某個集合中傳回前 *n* 個實體：沒有對等的查詢作業可傳回某個集合中的最後 n 個實體。  
 
 #### <a name="solution"></a>解決方法
 儲存使用可自然以反向的日期/時間順序排序的 **RowKey** 的實體，使最新的項目一律排在資料表中的首位。  

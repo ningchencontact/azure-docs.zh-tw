@@ -1,13 +1,13 @@
 ---
-title: "自助式密碼重設常見問題集 - Azure Active Directory"
-description: "有關 Azure AD 自助式密碼重設的常見問題集。"
+title: 自助式密碼重設常見問題集 - Azure Active Directory
+description: 有關 Azure AD 自助式密碼重設的常見問題集。
 services: active-directory
-keywords: "Active directory 密碼管理, 密碼管理, Azure AD 自助式密碼重設"
-documentationcenter: 
+keywords: Active directory 密碼管理, 密碼管理, Azure AD 自助式密碼重設
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>密碼管理常見問題集
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 02/22/2018
 
 * **問：我的使用者是否可以註冊自己的密碼重設資料？**
 
-  > **答：** 是。 只要已啟用密碼重設功能且使用者已獲得授權，他們就可以前往密碼重設註冊入口網站 (https://aka.ms/ssprsetup) 來註冊其驗證資訊。 使用者也可以透過「存取面板」(http://myapps.microsoft.com) 註冊。 若要透過「存取面板」註冊，使用者必須選取其個人資料圖片，請選取 [設定檔]，然後選取 [註冊密碼重設] 選項。
+  > **答：** 是。 只要已啟用密碼重設功能且使用者已獲得授權，他們就可以前往密碼重設註冊入口網站 (https://aka.ms/ssprsetup)) 註冊其驗證資訊。 使用者也可以透過「存取面板」(http://myapps.microsoft.com)) 進行註冊。 若要透過「存取面板」註冊，使用者必須選取其個人資料圖片，請選取 [設定檔]，然後選取 [註冊密碼重設] 選項。
   >
   >
 * **問：如果針對群組啟用密碼重設，之後又決定針對所有人啟用，我的使用者需要重新註冊嗎？**
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/22/2018
   >
 * **問：密碼回寫適用於哪些類型的帳戶？**
 
-  > **答：**密碼回寫適用於同盟和已同步處理密碼雜湊的使用者。
+  > **答：**密碼回寫適用於從內部部署 Active Directory 同步處理至 Azure AD 的使用者帳戶，包括同盟、密碼雜湊同步處理和傳遞驗證使用者。
   >
   >
 * **問：密碼回寫是否會強制執行我的網域密碼原則？**

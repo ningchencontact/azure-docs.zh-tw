@@ -1,10 +1,10 @@
 ---
-title: "在串流分析中使用參考資料和查閱資料表 | Microsoft Docs"
-description: "在串流分析查詢中使用參考資料"
-keywords: "查閱資料表, 參考資料"
+title: 在串流分析中使用參考資料和查閱資料表 | Microsoft Docs
+description: 在串流分析查詢中使用參考資料
+keywords: 查閱資料表, 參考資料
 services: stream-analytics
-documentationcenter: 
-author: samacha
+documentationcenter: ''
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 438ec565f3c6e06ab7ec92cf1bbfbdde88f99b6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f7366b4b7d78add47ebab4a6fc72717107814f1f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>在串流分析的輸入串流中使用參考資料或查詢資料表
 參考資料 (也稱為查詢資料表) 基本上是靜態或不常變更的有限資料集，可用來執行查閱或與資料流相互關聯。 若要使用 Azure 串流分析作業中的參考資料，您通常會在查詢中使用[參考資料聯結](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 串流分析會使用 Azure Blob 儲存體做為參考資料的儲存層，且可和 Azure Data Factory 參考資料一起轉換和/或複製到來自 [任意數目的雲端架構和內部部署資料存放區](../data-factory/copy-activity-overview.md)的 Azure Blob 儲存體，做為參考資料。 參考資料會依 Blob 名稱中指定之日期/時間的遞增順序，以 Blob 序列的形式建立模型 (在輸入組態中定義)。 它「只」支援使用比序列中最後一個 Blob 指定之日期/時間「大」的日期/時間來新增到序列的結尾。
@@ -95,7 +95,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="tips-on-refreshing-your-reference-data"></a>重新整理參考資料的秘訣
 1. 覆寫參考資料 Blob 並不會造成「串流分析」重新載入 Blob，並且在某些情況下，它可能會造成工作失敗。 若要變更參考資料，建議的方式是藉由使用工作輸入中定義的相同容器和路徑格式，並使用比序列中最後一個 Blob 指定之日期/時間「大」  的日期/時間，加入新的 Blob。
 2. 參考資料 Blob **不是**依 Blob 的「上次修改日期」時間排序，而是只依 Blob 名稱中使用 {date} 和 {time} 替代來指定的時間和日期排序。
-3. 在一些情況下，作業必須回到之前的時間，因此參照資料不得被更改或刪除。
+3. 若要避免必須列出大量 Blob，請考慮刪除再也不會進行處理且非常舊的 Blob。 請注意，ASA 在某些案例 (例如重新啟動) 中可能需要重新處理很少數舊的 Blob。
 
 ## <a name="get-help"></a>取得說明
 如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

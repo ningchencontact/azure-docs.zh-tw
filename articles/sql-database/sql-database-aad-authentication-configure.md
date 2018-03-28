@@ -3,17 +3,17 @@ title: 設定 Azure Active Directory 驗證 - SQL | Microsoft Docs
 description: 了解在設定 Azure AD 之後，如何使用「Azure Active Directory 驗證」來連線至 SQL Database、「受控執行個體」及「SQL 資料倉儲」。
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 00b5be9863e2bff9e5b82845f99d6829e1bcdf13
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e8decbe2c8ed4bed6cfb71308510d031fc242faa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>搭配 SQL Database、受控執行個體或 SQL 資料倉儲來設定及管理 Azure Active Directory 驗證
 
@@ -193,7 +193,7 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 ## <a name="configure-your-client-computers"></a>設定用戶端電腦
 在您的應用程式或使用者使用 Azure AD 身分識別連接到 Azure SQL Database 或 Azure SQL 資料倉儲的所有用戶端電腦上，您必須安裝下列軟體：
 
-* 從 [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx)安裝 .NET Framework 4.6 或更新版本。
+* 從 [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx) 安裝 .NET Framework 4.6 或更新版本。
 * 從下載中心的**Microsoft Active Directory Authentication Library for Microsoft SQL Server**，可以下載多種語言 (x86 和 amd64) 的 Azure Active Directory Authentication Library for SQL Server ( [ADALSQL.DLL](http://www.microsoft.com/download/details.aspx?id=48742))。
 
 您可以符合這些需求，方法如下︰

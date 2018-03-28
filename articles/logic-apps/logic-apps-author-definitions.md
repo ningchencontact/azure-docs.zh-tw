@@ -1,42 +1,63 @@
 ---
-title: "使用 JSON 依邏輯應用程式定義建置 - Azure Logic Apps | Microsoft Docs"
-description: "使用日期函式新增參數、處理字串、建立參數對應以及取得資料"
+title: 建立、編輯或擴充邏輯應用程式定義的 JSON - Azure Logic Apps | Microsoft Docs
+description: 以 JSON 撰寫和自訂邏輯應用程式定義
 author: ecfan
-manager: anneta
-editor: 
+manager: SyntaxC4
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
+ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.custom: H1Hack27Feb2017
-ms.date: 01/31/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: d05f7e34cbe670db6733c199e3420c810c304a84
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 01/01/2018
+ms.author: estfan; LADocs
+ms.openlocfilehash: bde275eb75c97da2a99109484b46b599a5b2f871
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="build-on-your-logic-app-definition-with-json"></a>使用 JSON 依邏輯應用程式定義建置
+# <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>建立、編輯或自訂邏輯應用程式定義的 JSON
 
-若要使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 執行更進階的工作，您可以使用程式碼檢視來編輯使用簡單宣告式 JSON 語言的邏輯應用程式定義。 如果您還沒有這麼做，請先檢閱[如何建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 此外，請參閱[工作流程定義語言的完整參考](http://aka.ms/logicappsdocs)。
+當您在 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 中使用自動化工作流程建立企業整合解決方案時，基礎邏輯應用程式定義會針對其描述和驗證，使用簡單的宣告式 JavaScript 物件標記法 (JSON) 及[工作流程定義語言 (WDL) 結構描述](../logic-apps/logic-apps-workflow-definition-language.md)。 這些格式讓邏輯應用程式定義更容易閱讀及了解，且無須很多程式碼方面的知識。 如果您想要自動化邏輯應用程式的建立及部署，您可以將邏輯應用程式定義納入 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md#template-deployment)中的 [Azure 資源](../azure-resource-manager/resource-group-overview.md)。 然後您可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp)、[Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 或 [Azure Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/) 來建立、管理及部署邏輯應用程式。
+
+若要以 JSON 編寫邏輯應用程式定義，可以在 Azure 入口網站或 Visual Studio 中開啟程式碼檢視編輯器，或將定義複製到任何您想要的編輯器中。 如果您還不熟悉邏輯應用程式，請先檢閱[如何建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 > [!NOTE]
-> 只有您在程式碼檢視中處理邏輯應用程式的定義時，才可使用某些 Azure Logic Apps 功能 (如參數)。 參數可讓您在整個邏輯應用程式中重複使用值。 例如，如果您需想在數個動作中使用同一個電子郵件地址，請將該電子郵件地址定義為參數。
+> 有些 Azure Logic Apps 功能只支援 JSON，不支援 Logic Apps 設計工具，例如在邏輯應用程式定義中定義參數和多個觸發程序。 因此針對這些工作，您必須使用程式碼檢視或其他編輯器。
 
-## <a name="view-and-edit-your-logic-app-definitions-in-json"></a>在 JSON 中檢視和編輯您的邏輯應用程式定義
+## <a name="edit-json---azure-portal"></a>編輯 JSON - Azure 入口網站
 
-1. 登入 [Azure 入口網站](https://portal.azure.com "Azure 入口網站")。
+1. 登入 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>。
 
-2. 在左側功能表中，選擇 [更多服務]。 在 [企業整合] 底下選擇 [Logic Apps]。 選取您的邏輯應用程式。
+2. 在左側功能表中，選擇 [所有服務]。 在搜尋方塊中尋找「邏輯應用程式」，然後從結果中選取您的邏輯應用程式。
 
-3. 從邏輯應用程式功能表的 [開發工具] 底下，選擇 [邏輯應用程式程式碼檢視]。
+3. 在邏輯應用程式功能表的 [開發工具] 底下，選取 [邏輯應用程式程式碼檢視]。
 
-   [程式碼檢視] 視窗隨即開啟，並顯示您的邏輯應用程式定義。
+   程式碼檢視編輯器隨即開啟，並以 JSON 格式顯示您的邏輯應用程式定義。
+
+## <a name="edit-json---visual-studio"></a>編輯 JSON - Visual Studio
+
+在 Visual Studio 中編寫邏輯應用程式定義之前，請先確定您已經[安裝必要的工具](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites)。 若要使用 Visual Studio 建立邏輯應用程式，請檢閱[快速入門：使用 Azure Logic Apps 自動化工作和程序 - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
+
+在 Visual Studio 中，您可以開啟直接從 Azure 入口網站建立或部署的邏輯應用程式，或開啟 Visual Studio 中以 Azure Resource Manager 專案形式建立或部署的邏輯應用程式。
+
+1. 開啟包含邏輯應用程式的 Visual Studio 解決方案或 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)專案。
+
+2. 尋找並開啟邏輯應用程式的定義，根據預設，該定義在 [Resource Manager 範本](../azure-resource-manager/resource-group-overview.md#template-deployment)中會以 **LogicApp.json** 的名稱顯示。 您可以使用及自訂此範本，以部署至不同的環境。
+
+3. 開啟邏輯應用程式定義和範本的捷徑功能表。 選取 [以邏輯應用程式設計工具開啟]。
+
+   ![開啟 Visual Studio 解決方案中的邏輯應用程式](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+4. 在設計工具底部，選擇 [程式碼檢視]。 
+
+   程式碼檢視編輯器隨即開啟，並以 JSON 格式顯示您的邏輯應用程式定義。
+
+5. 若要返回設計工具檢視，請在程式碼檢視編輯器的底部，選擇 [設計]。
 
 ## <a name="parameters"></a>參數
 

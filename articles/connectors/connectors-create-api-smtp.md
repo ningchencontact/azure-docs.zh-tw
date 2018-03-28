@@ -1,11 +1,11 @@
 ---
-title: "Azure Logic Apps 中的 SMTP 連接器 | Microsoft Docs"
-description: "使用 Azure App Service 建立邏輯應用程式。 連接到 SMTP 以傳送電子郵件。"
+title: Azure Logic Apps 中的 SMTP 連接器 | Microsoft Docs
+description: 使用 Azure App Service 建立邏輯應用程式。 連接到 SMTP 以傳送電子郵件。
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 6544a8e81a1c84fbd09e60b3f06c5fd308a18dcf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 9bf7c9b7c3e775ab03b071d13d792f4b2d8fb3e3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-smtp-connector"></a>開始使用 SMTP 連接器
 連接到 SMTP 以傳送電子郵件。
@@ -37,13 +37,13 @@ ms.lasthandoff: 01/19/2018
 ## <a name="use-an-smtp-trigger"></a>使用 SMTP 觸發程序
 觸發程序是可用來啟動邏輯應用程式中所定義之工作流程的事件。 [深入了解觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)。
 
-在此範例中，由於 SMTP 沒有自己的觸發程序，因此我們將使用 **Salesforce - 當物件建立時**觸發程序。 當 Salesforce 中有新的物件建立時，觸發程序就會啟動。 在範例中，我們會設定使其每次在 Salesforce 中建立新的潛在客戶時，系統會透過 SMTP 連接器執行*傳送電子郵件*的動作，並附帶已建立新潛在客戶的通知。
+在此範例中，SMTP 沒有自己的觸發程序。 因此，使用「**SalesForce - 當物件建立時**」觸發程序。 當 Salesforce 中有新的物件建立時，觸發程序就會啟動。 在此範例中，我們會設定使其每次在 Salesforce 中建立新的潛在客戶時，系統會使用 SMTP 連接器執行*傳送電子郵件*的動作，並附帶已建立新潛在客戶的通知。
 
 1. 在邏輯應用程式設計工具的搜尋方塊中輸入 *salesforce*，然後選取 [Salesforce - 當建立物件時] 觸發程序。  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 2. [當建立物件時]  控制項隨即顯示。
    ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. 選取 [物件類型] 然後從清單的物件中選取 [潛在客戶]。 在此步驟中，您會指出您要建立一個觸發程序，此觸發程序將在每次 Salesforce 中有建立新潛在客戶的情況時，通知您的邏輯應用程式。  
+3. 選取 [物件類型] 然後從清單的物件中選取 [潛在客戶]。 在此步驟中，您將建立一個觸發程序，此觸發程序將在每次 Salesforce 中有建立新潛在客戶的情況時，通知您的邏輯應用程式。  
    ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 4. 觸發程序已建立。  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/19/2018
 ## <a name="use-an-smtp-action"></a>使用 SMTP 動作
 動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)。
 
-現在已新增觸發程序之後，請遵循下列步驟新增 Salesforce 中有新的潛在客戶建立時會發生的 SMTP 動作。
+現在已新增觸發程序之後，請使用下列步驟新增 Salesforce 中有新的潛在客戶建立時會發生的 SMTP 動作。
 
 1. 選取 [+ 新的步驟]，來新增您想要在建立新的潛在客戶時採取的動作。  
    ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  

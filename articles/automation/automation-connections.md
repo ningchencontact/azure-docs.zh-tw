@@ -1,24 +1,20 @@
 ---
-title: "Azure 自動化中的連接資產 |Microsoft Docs"
-description: "Azure 自動化中的連接資產包含從 Runbook 或 DSC 設定連接到外部服務或應用程式所需的資訊。 這篇文章說明連接的詳細資料，以及如何以文字和圖形化編寫形式加以使用。"
+title: Azure 自動化中的連接資產
+description: Azure 自動化中的連接資產包含從 Runbook 或 DSC 設定連接到外部服務或應用程式所需的資訊。 這篇文章說明連接的詳細資料，以及如何以文字和圖形化編寫形式加以使用。
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/13/2017
-ms.author: magoedte; bwren
-ms.openlocfilehash: c1e56f00e46dc3d04f6ac3bb42df6c1935c5c8b0
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 547ec5a7de7a58e591a2ea44b8e54804ca41974c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自動化中的連接資產
 
@@ -26,8 +22,8 @@ ms.lasthandoff: 01/08/2018
 
 建立連接時，您必須指定 *連接類型*。 連接類型是定義一組屬性的範本。 連接會定義在其連接類型中定義的每一個屬性的值。 如果整合模組包含連線類型，且已匯入您的自動化帳戶，連線類型是在整合模組中加入 Azure 自動化或使用 [Azure 自動化 API](http://msdn.microsoft.com/library/azure/mt163818.aspx)建立。 否則，您必須建立中繼資料檔案來指定自動化連線類型。  如需有關於此的進一步資訊，請參閱[整合模組](automation-integration-modules.md)。  
 
->[!NOTE] 
->Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一索引鍵儲存在 Azure 自動化中。 這個索引鍵是由主要憑證加密，並且儲存在 Azure 自動化中。 儲存安全資產之前，會使用主要憑證解密自動化帳戶的金鑰，然後用來加密資產。
+>[!NOTE]
+>Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一金鑰儲存在 Azure 自動化中。 金鑰會儲存在 Key Vault 中。 在儲存安全資產之前，系統會從 Key Vault 載入金鑰，並用來加密資產。
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell Cmdlet
 

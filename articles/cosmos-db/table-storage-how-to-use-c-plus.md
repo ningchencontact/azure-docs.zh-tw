@@ -1,6 +1,6 @@
 ---
-title: "如何搭配 C++ 使用 Azure 資料表儲存體 | Microsoft Docs"
-description: "使用 Azure 表格儲存體 (NoSQL 資料存放區) 將結構化的資料儲存在雲端。"
+title: 如何搭配 C++ 使用 Azure 表格儲存體和 Azure Cosmos DB | Microsoft Docs
+description: 使用 Azure 表格儲存體 (NoSQL 資料存放區) 將結構化的資料儲存在雲端。
 services: cosmos-db
 documentationcenter: .net
 author: mimig1
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/12/2018
 ms.author: mimig
-ms.openlocfilehash: a71098583af8722f2e191e0e665ac87ebd30f355
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 69d56c79320931419ff8d71373ec578af2dec921
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="how-to-use-azure-table-storage-with-c"></a>如何搭配 C++ 使用 Azure 資料表儲存體
+# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>如何搭配 C++ 使用 Azure 表格儲存體和 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>概觀
-本指南將示範如何使用 Azure 資料表儲存體服務執行一般案例。 這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 所涵蓋的案例包括**建立和刪除資料表**，以及**使用資料表實體**。
+本指南將示範如何使用 Azure 表格儲存體服務或 Azure Cosmos DB 資料表 API 執行一般案例。 這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 所涵蓋的案例包括**建立和刪除資料表**，以及**使用資料表實體**。
 
 > [!NOTE]
 > 本指南以 Azure Storage Client Library for C++ 1.0.0 版和更新版本為對象。 建議的版本是 Storage Client Library 2.2.0，可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp/) 取得。
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/01/2018
   
      Install-Package wastorage
 
-## <a name="configure-your-application-to-access-table-storage"></a>設定您的應用程式來存取資料表儲存體
+## <a name="configure-access-to-the-table-client-library"></a>設定資料表用戶端程式庫的存取權
 在您要使用 Azure 儲存體 API 來存取資料表的 C++ 檔案頂端，加入下列 include 陳述式：  
 
 ```cpp
@@ -54,13 +54,24 @@ ms.lasthandoff: 02/01/2018
 #include <was/table.h>
 ```
 
+Azure 儲存體用戶端或 Cosmos DB 用戶端會使用連接字串來儲存端點與認證，以存取資料管理服務。 執行用戶端應用程式時，您必須提供正確格式的儲存體連接字串或 Azure Cosmos DB 連接字串。
+
 ## <a name="set-up-an-azure-storage-connection-string"></a>設定 Azure 儲存體連接字串
-Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。 執行用戶端應用程式時，您必須提供下列格式的儲存體連接字串。 使用您的儲存體帳戶名稱和儲存體存取金鑰，來輸入 [Azure 入口網站](https://portal.azure.com)中所列的儲存體帳戶的 AccountName 和 AccountKey 值。 如需有關儲存體帳戶和存取金鑰的資訊，請參閱 [關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)。 本範例將示範如何宣告靜態欄位來存放連接字串：  
+ 使用您儲存體帳戶的名稱和存取金鑰，來輸入 [Azure 入口網站](https://portal.azure.com)中所列的儲存體帳戶的 AccountName 和 AccountKey 值。 如需有關儲存體帳戶和存取金鑰的資訊，請參閱[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)。 本範例將示範如何宣告靜態欄位來存放 Azure 儲存體連接字串：  
 
 ```cpp
-// Define the connection string with your values.
+// Define the Storage connection string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
+
+## <a name="set-up-an-azure-cosmos-db-connection-string"></a>設定 Azure Cosmos DB 連接字串
+針對「帳戶名稱」、「主要金鑰」和「端點」值，請使用 [Azure 入口網站](https://portal.azure.com)中所列的 Azure Cosmos DB 帳戶名稱、您的主要金鑰和端點。 本範例將示範如何宣告靜態欄位來存放 Azure Cosmos DB 連接字串：
+
+```cpp
+// Define the Azure Cosmos DB connection string with your values.
+const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_cosmos_db_account;AccountKey=your_cosmos_db_account_key;TableEndpoint=your_cosmos_db_endpoint"));
+```
+
 
 若要在本機 Windows 電腦中測試您的應用程式，可以使用隨 [Azure SDK](https://azure.microsoft.com/downloads/) 一起安裝的 Azure [儲存體模擬器](../storage/common/storage-use-emulator.md)。 儲存體模擬器是一個公用程式，可模擬本機開發電腦上的 Azure Blob、佇列和表格服務。 下列範例示範如何宣告靜態欄位以便將連接字串存放到本機儲存體模擬器中：  
 
@@ -74,7 +85,7 @@ const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;
 下列範例假設您已經使用這兩個方法之一來取得儲存體連接字串。  
 
 ## <a name="retrieve-your-connection-string"></a>擷取連接字串
-您可以使用 **cloud_storage_account** 類別來代表儲存體帳戶資訊。 若要從儲存體連接字串擷取儲存體帳戶資訊，您可以使用 parse 方法。
+您可以使用 **cloud_storage_account** 類別來代表儲存體帳戶資訊。 若要從儲存體連接字串擷取儲存體帳戶資訊，您可以使用 **parse** 方法。
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -198,6 +209,9 @@ std::vector<azure::storage::table_result> results = table.execute_batch(batch_op
 ## <a name="retrieve-all-entities-in-a-partition"></a>擷取資料分割中的所有實體
 若要向資料表查詢資料分割中的所有實體，請使用 **table_query** 物件。 下列程式碼範例會指定篩選器來篩選出資料分割索引鍵為 'Smith' 的實體。 此範例會將查詢結果中每個實體的欄位列印至主控台。  
 
+> [!NOTE]
+> 在 Azure Cosmos DB 中，C++ 目前不支援這些方法。
+
 ```cpp
 // Retrieve the storage account from the connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -232,6 +246,9 @@ for (; it != end_of_results; ++it)
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>擷取資料分割中某個範圍的實體
 如果您不想要查詢資料分割中的所有實體，可結合資料分割索引鍵篩選器與資料列索引鍵篩選器來指定範圍。 下列程式碼範例會使用兩個篩選器來取得資料分割 'Smith' 中，資料列索引鍵 (名字) 是以字母 'E' 前之字母為開頭的所有實體，然後會列印查詢結果。  
+
+> [!NOTE]
+> 在 Azure Cosmos DB 中，C++ 目前不支援這些方法。
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -436,23 +453,30 @@ azure::storage::cloud_table_client table_client = storage_account.create_cloud_t
 // Create a cloud table object for the table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
-azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
-azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
-
-// Create an operation to delete the entity.
-azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
-
-// Submit the delete operation to the Table service.
-azure::storage::table_result delete_result = table.execute(delete_operation);
+// Delete the table if it exists
+if (table.delete_table_if_exists())
+    {
+        std::cout << "Table deleted!";
+    }
+    else
+    {
+        std::cout << "Table didn't exist";
+    }
 ```
 
-## <a name="next-steps"></a>後續步驟
-了解資料表儲存體的基礎概念之後，請依照下列連結深入了解 Azure 儲存體：  
+## <a name="troubleshooting"></a>疑難排解
+* Visual Studio 2017 Community 版本中的建置錯誤
 
+  如果您的專案因為包含 storage_account.h 和 table.h 檔案而發生建置錯誤，請移除 **/permissive-** 編譯器參數。 
+  - 在**方案總管**中，於您的專案上按一下滑鼠右鍵，然後選取 [屬性]。
+  - 在 [屬性頁] 對話方塊方塊中，依序展開 [組態屬性] 和 [C/C++]，然後選取 [語言]。
+  - 將 [一致性模式] 設定為 [否]。
+   
+## <a name="next-steps"></a>後續步驟
+請遵循下列連結，以深入了解 Azure Cosmos DB 中的 Azure 儲存體和資料表 API： 
+
+* [資料表 API 簡介](table-introduction.md)
 * [Microsoft Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個免費的獨立應用程式，可讓您在 Windows、MacOS 和 Linux 上以視覺化方式處理 Azure 儲存體資料。
-* [如何使用 C++ 的 Blob 儲存體](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [如何使用 C++ 的佇列儲存體](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
 * [以 C++ 列出 Azure 儲存體資源](../storage/common/storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ 參考資料](http://azure.github.io/azure-storage-cpp)
 * [Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)

@@ -1,11 +1,11 @@
 ---
-title: "將監視和診斷新增到 Azure 虛擬機器 | Microsoft Docs"
-description: "使用 Azure Resource Manager 範本以建立具有 Azure 診斷擴充功能的新 Windows 虛擬機器。"
+title: 將監視和診斷新增到 Azure 虛擬機器 | Microsoft Docs
+description: 使用 Azure Resource Manager 範本以建立具有 Azure 診斷擴充功能的新 Windows 虛擬機器。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: sbtron
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3ea1687e7fb6cc7af00e03b85fb48b0d7911275
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: e205352ebf4eaf89627c268d78b69bb2d49c3f3e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>使用 Windows VM 和 Azure Resource Manager 範本的監視和診斷
 Azure 診斷擴充功能會在以 Windows 為基礎的 Azure 虛擬機器上提供監視和診斷功能。 您可以將擴充功能納入為 Azure Resource Manager 範本的一部分，在虛擬機器上啟用這些功能。 請參閱 [使用 VM 延伸模組編寫 Azure 資源管理員範本](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) ，以取得將任何延伸模組納入為虛擬機器範本一部分的詳細資訊。 本文描述如何將 Azure 診斷延伸模組新增至 Windows 虛擬機器範本。  
@@ -152,7 +152,7 @@ Azure 診斷擴充功能會在以 Windows 為基礎的 Azure 虛擬機器上提�
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 ```
 
-*PT1H* 及 *PT1M* 的 MetricAggregation 值表示超過一分鐘的彙總及超過一小時的彙總。
+PT1M 及 PT1H 的 MetricAggregation 值分別表示超過一分鐘的彙總及超過一小時的彙總。
 
 ## <a name="wadmetrics-tables-in-storage"></a>儲存體中的 WADMetrics 資料表
 上述的度量組態將會在您的診斷儲存體帳戶中產生具有下列命名慣例的資料表：

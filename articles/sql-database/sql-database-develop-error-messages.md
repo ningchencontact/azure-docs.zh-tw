@@ -1,8 +1,20 @@
- ---
-標題：SQL 錯誤碼 - 資料庫連線錯誤 | Microsoft Docs 說明：了解 SQL Database 用戶端應用程式的 SQL 錯誤碼，例如常見的資料庫連線錯誤、資料庫副本問題，以及一般錯誤。 ' 關鍵字：sql error code,access sql,database connection error,sql error codes services: sql-database documentationcenter: '' author: stevestein manager: jhubbard editor: ''
-
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: develop apps ms.workload: "Active" ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 09/28/2017 ms.author: sstein
-
+---
+title: SQL 錯誤碼 - 資料庫連線錯誤 | Microsoft Docs
+description: '了解 SQL Database 用戶端應用程式的 SQL 錯誤碼，例如常見的資料庫連線錯誤、資料庫副本問題，以及一般錯誤。 '
+keywords: sql error code,access sql,database connection error,sql error codes,sql 錯誤碼,存取 sql,資料庫連線錯誤,sql 錯誤碼
+services: sql-database
+author: stevestein
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: article
+ms.date: 09/28/2017
+ms.author: sstein
+ms.openlocfilehash: 5031ab1ec8c7b42c65fb35e47c32d10ff2898501
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 用戶端應用程式的 SQL 錯誤碼：資料庫連線錯誤和其他問題
 
@@ -78,8 +90,8 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 
 | 錯誤碼 | 嚴重性 | 說明 |
 | ---:| ---:|:--- |
-| 10928 |20 |資源識別碼：%d。 資料庫的 %s 限制是 %d，且已達到。 如需詳細資訊，請參閱 [http://go。microsoft。com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。<br/><br/>資源識別碼可指出已達到限制的資源。 對於背景工作執行緒，資源識別碼 = 1。 對於工作階段，資源識別碼 = 2。<br/><br/>如需有關此錯誤以及其解決方法的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-service-tiers.md)。 |
-| 10929 |20 |資源識別碼：%d。 %s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。 但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。 如需詳細資訊，請參閱 [http://go。microsoft。com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。 或者，請稍後再試一次。<br/><br/>資源識別碼可指出已達到限制的資源。 對於背景工作執行緒，資源識別碼 = 1。 對於工作階段，資源識別碼 = 2。<br/><br/>如需有關此錯誤以及其解決方法的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-service-tiers.md)。 |
+| 10928 |20 |資源識別碼：%d。 資料庫的 %s 限制是 %d，且已達到。 如需詳細資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。<br/><br/>資源識別碼可指出已達到限制的資源。 對於背景工作執行緒，資源識別碼 = 1。 對於工作階段，資源識別碼 = 2。<br/><br/>如需有關此錯誤以及其解決方法的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-service-tiers.md)。 |
+| 10929 |20 |資源識別碼：%d。 %s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。 但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。 如需詳細資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。 或者，請稍後再試一次。<br/><br/>資源識別碼可指出已達到限制的資源。 對於背景工作執行緒，資源識別碼 = 1。 對於工作階段，資源識別碼 = 2。<br/><br/>如需有關此錯誤以及其解決方法的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-service-tiers.md)。 |
 | 40544 |20 |資料庫已達到大小配額。 資料分割或刪除資料、卸除索引，或參閱可能解決方式的文件。 |
 | 40549 |16 |工作階段已終止，因為您有長時間執行的交易。 請嘗試縮短您的交易時間。 |
 | 40550 |16 |工作階段已終止，因為它取得太多鎖定。 嘗試在單一交易中讀取或修改較少的資料列。 |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5323fe505adfd9b3495dd85ce41d6f141125184b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>開始使用 Azure Stack 上的 App Service 之前
 
@@ -47,9 +47,9 @@ ms.lasthandoff: 03/12/2018
 
 ## <a name="high-availability"></a>高可用性
 
-由於 1802 版 Azure Stack 的緣故 (此版本新增了對容錯網域的支援)，Azure Stack 上新的 Azure App Service 部署將會散發至各個容錯網域並提供容錯移轉。  針對 Azure Stack 上現有的 Azure App Service 部署 (部署時間在 1802 更新發行之前)，請參閱文件 (azure-stack-app-service-fault-domain-update.md) 以了解如何重新平衡部署。
+由於 1802 版 Azure Stack 的緣故 (此版本新增了對容錯網域的支援)，Azure Stack 上新的 Azure App Service 部署將會散發至各個容錯網域並提供容錯移轉。  針對 Azure App Service on Azure Stack 部署 (部署時間在 1802 更新發行之前)，請參閱[文件](azure-stack-app-service-fault-domain-update.md)以了解如何重新平衡部署。
 
-此外，若要讓 Azure Stack 上的 Azure App Service 能夠提供高可用性，請在高可用性設定中部署必要的檔案伺服器和 SQL Server 執行個體。 
+此外，若要讓 Azure App Service on Azure Stack 能夠提供高可用性，請在高可用性設定中部署必要的檔案伺服器和 SQL Server 執行個體。 
 
 ## <a name="get-certificates"></a>取得憑證
 

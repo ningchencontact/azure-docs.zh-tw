@@ -1,24 +1,24 @@
 ---
-title: "使用 C# 建立您的第一個動作項目型 Azure 微服務 | Microsoft Docs"
-description: "本教學課程將引導您使用 Service Fabric Reliable Actors，建立、偵錯及部署簡易動作項目型服務的步驟。"
+title: 使用 C# 建立您的第一個動作項目型 Azure 微服務 | Microsoft Docs
+description: 本教學課程將引導您使用 Service Fabric Reliable Actors，建立、偵錯及部署簡易動作項目型服務的步驟。
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/20/2017
+ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 20786522a9a25d84a32a53e5e111b4b542501287
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="getting-started-with-reliable-actors"></a>開始使用 Reliable Actors
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/21/2017
 
 ![適用於 Visual Studio 的 Service Fabric 工具 - 新專案][1]
 
-在下一個對話方塊中，選擇 [動作項目服務] 並輸入服務的名稱。
+在下一個對話方塊中，選擇 [.Net Core 2.0] 底下的 [動作項目服務] 並輸入服務的名稱。
 
 ![Service Fabric 專案範本][5]
 

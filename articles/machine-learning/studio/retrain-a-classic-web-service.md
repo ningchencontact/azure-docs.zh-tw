@@ -1,11 +1,12 @@
 ---
-title: "重新訓練傳統 Web 服務 | Microsoft Docs"
-description: "了解如何在 Azure Machine Learning 中以程式設計方式重新定型模型，以及使用新定型的模型來更新 Web 服務。"
+title: 重新訓練傳統 Web 服務 | Microsoft Docs
+description: 了解如何在 Azure Machine Learning 中以程式設計方式重新定型模型，以及使用新定型的模型來更新 Web 服務。
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: raymondlaghaeian
-editor: 
+documentationcenter: ''
+author: aashishb
+ms.author: aashishb
+manager: hjerez
+editor: ''
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
 ms.workload: data-services
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: a0ec3191448362f8bf98ca6b5133d173735046ed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7adc5995b830d049c8dd6412415bd5987e60fe08
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>重新訓練傳統 Web 服務
 您部署的預測性 Web 服務是預設評分端點。 預設端點會與原始定型和計分實驗同步，因此無法取代預設端點的定型模型。 若要重新訓練 Web 服務，必須在 Web 服務新增新端點。 
@@ -68,7 +68,7 @@ ms.lasthandoff: 02/09/2018
 2. 按一下 [更新資源] 連結。
 3. 複製 PATCH 要求的 POST URL。 例如︰
    
-     修補程式 URL：https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
+     修補 URL：https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
 您現在可以使用定型模型來更新您先前建立的評分端點。
 

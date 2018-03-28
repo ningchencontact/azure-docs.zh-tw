@@ -1,12 +1,12 @@
 ---
-title: "長期函式中的人為互動和逾時 - Azure"
-description: "了解如何處理 Azure Functions 之長期函式延伸模組中的人為互動和逾時。"
+title: 長期函式中的人為互動和逾時 - Azure
+description: 了解如何處理 Azure Functions 之長期函式延伸模組中的人為互動和逾時。
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1763c63b37c5e6b326c3623dc058974f718ac990
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>長期函式中的人為互動 - 電話驗證範例
 
@@ -33,23 +33,15 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="scenario-overview"></a>案例概觀
 
-電話驗證是用來驗證您應用程式的使用者不是濫發垃圾郵件者，而且確實是他們所聲稱的人。 多重要素驗證是保護使用者帳戶免於駭客入侵的常見使用案例。 實作您自己的電話驗證的挑戰，是它需要與真人的**可設定狀態互動**。 使用者通常會提供一些代碼 (例如，4 位數數字)，並且必須在**合理的時間量**之內回應。
+電話驗證是用來驗證您應用程式的使用者不是濫發垃圾郵件者，而且確實是他們所聲稱的人。 多重要素驗證是保護使用者帳戶免於駭客入侵的常見使用案例。 實作您自己的電話驗證的挑戰，是它需要與真人的**可設定狀態互動**。 終端使用者通常會提供一些代碼 (例如，4 位數數字)，並且必須在**合理的時間量**之內回應。
 
 一般而言，Azure Functions 是無狀態 (如同其他平台上的其他許多雲端端點)，所以這些互動類型會明確牽涉到在外部的資料庫或其他某些永續性存放區中管理狀態。 此外，互動必須細分成可以協調在一起的多個函式。 例如，您需要至少一個函式以決定程式碼、保存在某處，以及將它傳送到使用者的電話。 而且您還需要至少一個其他的函式，以接收來自使用者的回應，並且以某種方式將其對應回原始函式呼叫，以進行程式碼驗證。 逾時也是確保安全性的重要層面。 很快就會變得相當複雜。
 
-當您使用長期函式時，此案例的複雜性就會大幅減少。 如同您在這個範例所見，協調器函式可以非常輕鬆地管理可設定狀態互動，不需要涉及任何外部資料存放區。 因為協調器函式是「長期」的，所以這些互動流量也非常可靠。
+當您使用長期函式時，此案例的複雜性就會大幅減少。 如同您在這個範例所見，協調器函式可以輕鬆地管理可設定狀態互動，不需要涉及任何外部資料存放區。 因為協調器函式是「長期」的，所以這些互動流量也非常可靠。
 
 ## <a name="configuring-twilio-integration"></a>設定 Twilio 整合
 
-這個範例牽涉到使用 [Twilio](https://www.twilio.com/) 服務來將 SMS 訊息傳送至行動電話。 Azure Functions 已透過 [Twilio 繫結](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio)支援 Twilio，範例會使用該功能。
-
-首先您需要的是 Twilio 帳戶。 您可以在下列位置免費建立一個帳戶：https://www.twilio.com/try-twilio。 一旦您擁有帳戶，將下列三個**應用程式設定**新增至您的函式應用程式。
-
-| 應用程式設定名稱 | 值說明 |
-| - | - |
-| **TwilioAccountSid**  | Twilio 帳戶的 SID |
-| **TwilioAuthToken**   | Twilio 帳戶的驗證權杖 |
-| **TwilioPhoneNumber** | 與您的 Twilio 帳戶相關聯的電話號碼。 這是用來傳送 SMS 訊息。 |
+[!INCLUDE [functions-twilio-integration](../../includes/functions-twilio-integration.md)]
 
 ## <a name="the-functions"></a>函式
 
@@ -99,7 +91,7 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="run-the-sample"></a>執行範例
 
-使用範例中所包含的 HTTP 觸發函式，您可以透過傳送下列 HTTP POST 要求來啟動協調流程。
+使用範例中所包含的 HTTP 觸發函式，您可以透過傳送下列 HTTP POST 要求來啟動協調流程：
 
 ```
 POST http://{host}/orchestrators/E4_SmsPhoneVerification

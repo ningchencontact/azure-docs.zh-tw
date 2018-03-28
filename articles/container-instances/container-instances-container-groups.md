@@ -1,19 +1,19 @@
 ---
-title: "Azure Container Instances 容器群組"
-description: "了解容器群組在 Azure Container Instances 中的運作方式"
+title: Azure Container Instances 容器群組
+description: 了解容器群組在 Azure Container Instances 中的運作方式
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 6f7f0d9aea86594140c302e6d12e6528e802b9e7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances 中的容器群組
 
@@ -23,19 +23,24 @@ ms.lasthandoff: 01/05/2018
 
 容器群組是容器的集合，這些容器會排程在相同的主機電腦上。 容器群組中的容器會共用生命週期、區域網路和存放磁碟區。 容器群組類似於 [Kubernetes][kubernetes-pod] 和 [DC/OS][dcos-pod] 中的 pod 概念。
 
-下圖舉例說明包含多個容器的容器群組。
+下圖舉例說明包含多個容器的容器群組：
 
 ![容器群組圖表][container-groups-example]
 
 此範例群組容器：
 
 * 已排程在單一主機電腦上。
+* 受指派 DNS 名稱標籤。
 * 會公開單一的公用 IP 位址，以及一個公開的連接埠。
 * 包括兩個容器。 一個容器接聽連接埠 80，另一個容器接聽連接埠 5000。
 * 包含兩個 Azure 檔案共用作為磁碟區掛接，且每個容器會在本機掛接其中一個共用。
 
 > [!NOTE]
 > 多容器群組目前僅限於 Linux 容器。 雖然我們致力於將所有功能帶入 Windows 容器，但是您可以在 [Azure 容器執行個體配額和區域可用性](container-instances-quotas.md)中找到目前的平台差異。
+
+### <a name="deployment"></a>部署
+
+**容器群組**的最小資源配置為 1 個 vCPU 和 1 GB 記憶體。 您可以使用小於 1 個 vCPU 和 1 GB 記憶體來佈建個別的**容器**。 在容器群組內，您可以在以容器群組層級建立的限制內，將資源散發自訂為多個容器。 例如，各自包含 0.5 個 vCPU 的兩個容器位於配置 1 個 vCPU 的容器群組內。
 
 ### <a name="networking"></a>網路
 
@@ -47,7 +52,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="common-scenarios"></a>常見案例
 
-如果您想要將單一功能的工作分割成少量的容器映像，以便由不同小組來提供並讓這些映像具有不同的資源需求，則多個容器的群組會很實用。
+如果您想要將單一功能性工作分割成少量的容器映像，多個容器的群組會很實用。 然後，這些映像就可以由不同小組傳遞，且具有個別的資源需求。
 
 使用範例可能包括：
 

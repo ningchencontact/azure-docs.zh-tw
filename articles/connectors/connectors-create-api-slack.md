@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Logic Apps 中使用 Slack 連接器 | Microsoft Docs"
-description: "連接至 Logic Apps 中的 Slack"
+title: 在 Azure Logic Apps 中使用 Slack 連接器 | Microsoft Docs
+description: 連接至 Logic Apps 中的 Slack
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 04ea4508495b227d6ace4a3105f283c474c51d14
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 73c512c70f1c135bd791d93cecc42bd6f4c06b3d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>開始使用 Slack 連接器
 Slack 是團隊通訊工具，能把您團隊的通訊都集中在一個地方，讓您不但在何處都可使用，還能搜尋各項記錄。 
@@ -33,7 +33,7 @@ Slack 是團隊通訊工具，能把您團隊的通訊都集中在一個地方�
 | --- | --- | --- |
 | token |yes |提供 Slack 的認證 |
 
-請遵循下列步驟登入 Slack，並在邏輯應用程式中完成 Slack **連線** 設定：
+使用下列步驟登入 Slack，並在邏輯應用程式中完成 Slack **連線** 設定：
 
 1. 選取 [週期] 
 2. 選取 [頻率] 並輸入 [間隔]
@@ -47,9 +47,9 @@ Slack 是團隊通訊工具，能把您團隊的通訊都集中在一個地方�
    ![設定 Slack][3]  
 8. 您將會重新導向至組織的登入頁面。 **授權** Slack 與邏輯應用程式互動：      
    ![設定 Slack][5] 
-9. 驗證完成後，您會被重新導向至邏輯應用程式，設定 [Slack - 取得所有訊息]  區段後，即可完成動作。 加入其他所需的觸發和動作。  
+9. 驗證完成後，您會被重新導向至邏輯應用程式，設定 [Slack - 取得所有訊息] 區段後，即可完成作業。 加入其他所需的觸發和動作。  
    ![設定 Slack][6]
-10. 選取上方功能表列的 [儲存]  來儲存您的工作。
+10. 選取功能表 (位於上方) 的 [儲存] 來儲存您的工作。
 
 ## <a name="connector-specific-details"></a>連接器特定的詳細資料
 

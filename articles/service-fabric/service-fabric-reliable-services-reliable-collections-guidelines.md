@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 中 Reliable Collection 的指導方針與建議 | Microsoft Docs"
-description: "使用 Service Fabric Reliable Collection 的指導方針與建議"
+title: Azure Service Fabric 中 Reliable Collection 的指導方針與建議 | Microsoft Docs
+description: 使用 Service Fabric Reliable Collection 的指導方針與建議
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric 中 Reliable Collection 的指導方針與建議
 本節提供使用 Reliable State Manager 和 Reliable Collection 的指導方針。 目標是要協助使用者避開常見的陷阱。
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 指導方針會編排成簡單的建議，前面再加上「請」、「請考慮」、「請避免」或「請不要」字詞。
 
 * 請不要修改讀取作業所傳回自訂類型的物件 (例如 `TryPeekAsync` 或 `TryGetValueAsync`)。 可靠的集合就像並行的集合一樣，會傳回物件參考而不是複本。
-* 請不要在未經修改之前，就深層複製傳回的自訂類型物件。 因為結構和內建類型都是傳值，因此您不需要在其上執行深層複製。
+* 請不要在未經修改之前，就深層複製傳回的自訂類型物件。 由於結構和內建類型都是傳值 (pass-by-value)，因此您不需要在其上執行深層複製，除非其包含您想要修改的參考類型欄位或屬性。
 * 請不要針對逾時使用 `TimeSpan.MaxValue` 。 逾時應該用來偵測死結。
 * 在認可、中止或處置交易之後，請勿使用該交易。
 * 請不要在其所建立的交易範圍之外使用列舉。

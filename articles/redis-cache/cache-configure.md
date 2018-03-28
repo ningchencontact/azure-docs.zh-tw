@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>如何設定 Azure Redis 快取
 本主題說明適用於您 Azure Redis 快取執行個體的設定。 本主題也會涵蓋適用於 Azure Redis 快取執行個體的預設 Redis 伺服器設定。
@@ -279,8 +279,6 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 
 > [!IMPORTANT]
 > 一律允許來自 Azure Redis 快取監視系統的連線，即使設定了防火牆規則也一樣。
-> 
-> 防火牆規則僅適用於進階層快取。
 > 
 > 
 

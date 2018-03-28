@@ -1,24 +1,18 @@
 ---
-title: "在 Azure 中更新管理解決方案 | Microsoft Docs"
-description: "本文旨在協助您了解，如何使用這個方案管理 Windows 和 Linux 電腦的更新。"
+title: Azure 中的更新管理解決方案
+description: 本文旨在協助您了解，如何使用這個方案管理 Windows 和 Linux 電腦的更新。
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 202c75366477ae3445f607f75d08faf0335de79f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 

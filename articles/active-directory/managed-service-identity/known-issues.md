@@ -1,24 +1,24 @@
 ---
-title: "受控服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)"
-description: "受控服務識別已知問題 (Azure Active Directory)"
+title: 受控服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)
+description: 受控服務識別已知問題 (Azure Active Directory)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: bd931b220c417f91b47278c82707d38de5c7f65e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>受控服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)
 
@@ -37,6 +37,10 @@ ms.lasthandoff: 03/08/2018
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>MSI 可搭配 Directory Authentication Library (ADAL) 或 Microsoft Authentication Library (MSAL) 使用嗎？
 
 不行，MSI 未尚未與 ADAL 或 MSAL 整合。 如需使用 MSI REST 端點取得 MSI 權杖的詳細資訊，請參閱[如何使用 Azure VM 受控服務識別 (MSI) 取得權杖](how-to-use-vm-token.md)。
+
+### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>什麼是受控服務身分識別的安全性界限？
+
+身分識別的安全性界限，是指身分識別所連結到的資源。 例如，虛擬機器 MSI 安全性界限就是虛擬機器。 在該 VM 上執行的任何程式碼，都能呼叫 MSI 端點並要求權杖。 它是與支援 MSI 其他資源類似的體驗。
 
 ### <a name="what-are-the-supported-linux-distributions"></a>支援的 Linux 散發套件有哪些？
 

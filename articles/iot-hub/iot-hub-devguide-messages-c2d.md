@@ -1,23 +1,23 @@
 ---
-title: "了解 Azure IoT 中樞的雲端到裝置傳訊 | Microsoft Docs"
-description: "開發人員指南 - 如何使用 IoT 中樞的雲端到裝置傳訊。 包含訊息生命週期和設定選項的相關資訊。"
+title: 了解 Azure IoT 中樞的雲端到裝置傳訊 | Microsoft Docs
+description: 開發人員指南 - 如何使用 IoT 中樞的雲端到裝置傳訊。 包含訊息生命週期和設定選項的相關資訊。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d265d35c7d5a394afa0e59f40ff1a5741e0ec35c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>從 IoT 中樞傳送雲端到裝置訊息
 
@@ -81,11 +81,11 @@ IoT 中樞上的**最大傳遞計數**屬性會決定訊息可以在**已加入�
 
 如果 **Ack** 是 **full**，而且您沒有收到意見反應訊息，這表示該意見反應訊息已過期。 服務無法得知原始訊息發生了什麼事。 實際上，服務應該確保它可以在回饋到期之前對其進行處理。 最長到期時間是兩天，因此如果服務發生失敗，您會有充裕的時間可以讓服務再次執行。
 
-如[端點][lnk-endpoints]中所述，IoT 中樞會透過面向服務的端點 (**/messages/servicebound/feedback**) 利用訊息來傳遞意見反應。 接收意見反應的語意與雲端到裝置訊息的接收語意相同，並且具有相同的[訊息生命週期][lnk-lifecycle]。 可能的話，訊息意見反應會放入單一訊息中，其格式如下：
+如[端點][lnk-endpoints]中所述，IoT 中樞會透過面向服務的端點 (**/messages/servicebound/feedback**) 利用訊息來傳遞意見反應。 接收意見反應的語意與雲端到裝置訊息的接收語意相同。 可能的話，訊息意見反應會放入單一訊息中，其格式如下：
 
 | 屬性     | 說明 |
 | ------------ | ----------- |
-| EnqueuedTime | 指出訊息建立時間的時間戳記。 |
+| EnqueuedTime | 時間戳記，指出中樞收到意見反應訊息的時間。 |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -93,7 +93,7 @@ IoT 中樞上的**最大傳遞計數**屬性會決定訊息可以在**已加入�
 
 | 屬性           | 說明 |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | 指出訊息的結果出現時的時間戳記。 例如，完成已裝置或訊息已到期。 |
+| EnqueuedTimeUtc    | 指出訊息的結果出現時的時間戳記。 例如，中樞收到意見反應訊息或原始訊息已過期。 |
 | OriginalMessageId  | 此意見反應資訊相關之雲端到裝置訊息的 **MessageId**。 |
 | StatusCode         | 必要字串。 用於 IoT 中樞所產生的回饋訊息中。 <br/> 「成功」 <br/> 「已過期」 <br/> 「DeliveryCountExceeded」 <br/> 「已拒絕」 <br/> 「已清除」 |
 | 說明        | **StatusCode**的字串值。 |

@@ -1,11 +1,11 @@
 ---
-title: "在您的 Logic Apps 中新增 Office 365 Outlook 連接器 | Microsoft Docs"
-description: "建立具有 Office 365 連接器的邏輯應用程式來啟用與 Office 365 的互動。 例如：建立、編輯和更新連絡人及行事曆項目。"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: 在您的 Logic Apps 中新增 Office 365 Outlook 連接器 | Microsoft Docs
+description: 建立具有 Office 365 連接器的邏輯應用程式來啟用與 Office 365 的互動。 例如：建立、編輯和更新連絡人及行事曆項目。
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: b2f6cc2c-bba2-493a-b0ba-841785462a80
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 51b8e3de639b5cce954547adb77ff13b79ad6747
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: ea0b2f657f808bb6ba4bf427497955b9e520c669
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>開始使用 Office 365 Outlook 連接器
 Office 365 Outlook 連接器能夠與 Office 365 中的 Outlook 互動。 使用此連接器來建立、編輯和更新連絡人和行事曆項目，也可取得、傳送及回覆電子郵件。
@@ -30,7 +30,7 @@ Office 365 Outlook 連接器能夠與 Office 365 中的 Outlook 互動。 使用
 * 使用觸發程序，在有新的電子郵件時、行事曆項目更新時等情況啟動您的工作流程。
 * 使用傳送電子郵件、建立新的行事曆事件等等的動作。 例如，當 Salesforce 中有新的物件時，傳送電子郵件給您的 Office 365 Outlook (動作)。 
 
-本主題說明如何在邏輯應用程式中使用 Office 365 Outlook 連接器，並且也列出觸發程序和動作。
+本文說明如何在邏輯應用程式中使用 Office 365 Outlook 連接器，並且也列出觸發程序和動作。
 
 > [!NOTE]
 > 這個版本的文章適用於 Logic Apps 公開上市版本 (GA)。

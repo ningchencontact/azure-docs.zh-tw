@@ -1,11 +1,11 @@
 ---
-title: "準備和測試優惠以部署至 Azure Marketplace | Microsoft Docs"
-description: "將供應項目部署至 Azure Marketplace 之前，關於提供行銷內容、設定價格方案和測試供應項目的詳細指示。"
+title: 準備和測試優惠以部署至 Azure Marketplace | Microsoft Docs
+description: 將供應項目部署至 Azure Marketplace 之前，關於提供行銷內容、設定價格方案和測試供應項目的詳細指示。
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
-ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5bec9ac89487a824b9de9209547f0b96fa5fe678
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>使用行銷內容完成供應項目建立程序
 在發佈程序的這個步驟中，您需要在 Azure Marketplace 中提供特定的行銷內容，以及關於您的優惠和 (或) SKU 的詳細資料。 例如，您將提供產品的描述、公司標誌、價目表、方案的詳細資料，以及其他將您的優惠和 (或) SKU 推送至預備環境的必要資訊。 此資訊會做為 Azure 入口網站中的行銷內容。 您將在[發佈入口網站][link-pubportal]中開始進行此程序。
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="step-1-provide-marketplace-marketing-content"></a>步驟 1：提供 Marketplace 行銷內容
 **英文是預設值，並且是唯一支援的語言。** 請確定欄位中提供的所有資訊都是英文。 在您進入預備環境之前，所有資訊皆可隨時編輯。
 
-1. 移至發佈入口網站 [https://publish.windowsazure.com](https://publish.windowsazure.com)。
+1. 移至發佈入口網站：[https://publish.windowsazure.com](https://publish.windowsazure.com)。
 2. 在左側功能表上，按一下 [行銷]  索引標籤。
 3. 在主面板中，按一下 [英文 (美國)]  按鈕。
    

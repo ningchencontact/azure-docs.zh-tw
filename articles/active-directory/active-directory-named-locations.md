@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory 中的具名位置 | Microsoft Docs"
-description: "了解具名位置是什麼及如何設定。"
+title: 在 Azure Active Directory 中設定具名位置 | Microsoft Docs
+description: 了解如何設定具名位置。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3b7bd6f4bea111815f647af09ebaa868696b25bc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="named-locations-in-azure-active-directory"></a>Azure Active Directory 中的具名位置
+# <a name="configure-named-locations-in-azure-active-directory"></a>在 Azure Active Directory 中設定具名位置
 
 您可以使用具名位置，標記組織中受信任的 IP 位址範圍。 Azure Active Directory 會在下列動作的內容中使用具名位置：
 
@@ -89,22 +89,14 @@ ms.lasthandoff: 02/09/2018
 
 
 
-## <a name="what-you-should-know"></a>您應該知道的事情
-
-**大量更新**：當您建立或更新具名位置時，您可以上傳或下載包含 IP 範圍的 CSV 檔案來進行大量更新。 透過上傳，會將檔案中的 IP 位址新增到清單中，而不是覆寫清單。
-
-![上傳和下載連結](./media/active-directory-named-locations/09.png)
-
-
-**限制**：您最多可以定義 60 個具名位置，每個位置皆指派一個 IP 範圍。 如果您只設定一個具名位置，則最多可以為該位置定義 500 個 IP 範圍。
-
-
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解：
+如需詳細資訊，請參閱
 
-- 有關**風險事件**，請參閱 [Azure Active Directory 風險事件](active-directory-reporting-risk-events.md)。
+- [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)。
 
-- 有關**條件式存取**，請參閱 [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)。
+- [Azure Active Directory 條件式存取中的位置條件](active-directory-conditional-access-locations.md)
 
-- 有關**具風險的登入報告**，請參閱 [Azure Active Directory 入口網站中有風險的登入報告](active-directory-reporting-security-risky-sign-ins.md)。  
+- [Azure Active Directory 風險事件](active-directory-reporting-risk-events.md)。
+
+- [Azure Active Directory 入口網站中有風險的登入報告](active-directory-reporting-security-risky-sign-ins.md)。  

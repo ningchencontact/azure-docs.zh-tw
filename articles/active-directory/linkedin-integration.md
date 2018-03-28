@@ -1,48 +1,59 @@
 ---
-title: "在 Azure Active Directory 中為 Office 應用程式啟用或停用 LinkedIn 整合| Microsoft Docs"
-description: "說明如何在 Azure Active Directory 中為 Microsoft 應用程式啟用或停用 LinkedIn 整合"
+title: 在 Azure Active Directory 中啟用 Microsoft 應用程式和服務的 LinkedIn 連線 | Microsoft Docs
+description: 說明如何在 Azure Active Directory 中為 Microsoft 應用程式啟用或停用 LinkedIn 帳戶連線
 services: active-directory
 author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: cdfb5458b020e9d3a3f33cecbeb0ee7b9a48909d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="linkedin-integration-for-office-applications"></a>Office 應用程式的 LinkedIn 整合
-本文會說明如何限制在 Azure Active Directory (Azure AD) 中要為其提供 LinkedIn 整合的使用者。 LinkedIn 整合在新增至租用戶時會依預設啟用，讓使用者能在其某些 Microsoft 應用程式內存取公用 LinkedIn 資料。 每個使用者都可以獨立地選擇將其公司或學校帳戶連結到其 LinkedIn 帳戶。
+# <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Microsoft 應用程式和服務的 LinkedIn 帳戶連線
+在本文中，您可以了解如何在 Azure Active Directory (Azure AD) 系統管理中心管理您租用戶的 LinkedIn 帳戶連線。 
 
 > [!IMPORTANT]
-> LinkedIn 整合不會同時部署至所有 Azure AD 租用戶。 LinkedIn 整合在部署到您的 Azure 租用戶之後，便會依預設啟用。 LinkedIn 整合無法供 go-local、sovereign 和 government 租用戶使用。 如需首度發行資訊的最新檢視，請參閱 [Office 365 藍圖](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc)頁面。
+> LinkedIn 帳戶連線功能即將推出以供 Azure AD 租用戶使用。 當它推出以供您的租用戶使用時，預設會加以啟用。 它不適用於美國政府客戶，以及將 Exchange Online 信箱裝載於澳洲、加拿大、中國、法國、德國、印度、韓國、英國、日本和南非的組織。 即將推出這些信箱位置的支援。  如需首度發行資訊的最新檢視，請參閱 [Office 365 藍圖](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc)頁面。
 
-## <a name="linkedin-integration-from-the-user-perspective"></a>使用者觀點的 LinkedIn 整合
-當組織中的使用者將其 LinkedIn 帳戶連結至其公司或學校帳戶時，即表示[他們允許 LinkedIn 提供資料](https://www.linkedin.com/help/linkedin/answer/84077)給組織所提供的 Microsoft 應用程式和服務使用。 [使用者可以中斷與帳戶的連結](https://www.linkedin.com/help/linkedin/answer/85097)，從而移除 LinkedIn 與 Microsoft 共用資料的權限。 LinkedIn 整合會使用公開可用的 LinkedIn 設定檔資訊。 [使用者可以控制自有 LinkedIn 設定檔的檢視方式](https://www.linkedin.com/help/linkedin/answer/83)，方法是使用 LinkedIn 隱私權設定 (包括是否可以在 Microsoft 應用程式中檢視其設定檔)。
+## <a name="how-linkedin-account-connections-appear-to-the-user"></a>對使用者顯示 LinkedIn 帳戶連線的方式
+LinkedIn 帳戶連線可讓使用者看到其某些 Microsoft 應用程式內的公用 LinkedIn 設定檔資訊。 您租用戶中的使用者可以選擇連線其 LinkedIn 和 Microsoft 公司或學校帳戶，以查看其他 LinkedIn 設定檔資訊。 如需詳細資訊，請參閱 [Microsoft 應用程式和服務中的 LinkedIn 資訊與功能](https://go.microsoft.com/fwlink/?linkid=850740)。
+
+當貴組織中的使用者連線其 LinkedIn 和 Microsoft 公司或學校帳戶時，有兩個選項可用： 
+* 賦予在兩個帳戶之間共用資料的權限。 這表示它們為其 LinkedIn 帳戶賦予與 Microsoft 公司或學校帳戶共用資料的權限，並為 Microsoft 公司或學校帳戶賦予與其 LinkedIn 帳戶共用資料的權限。 與 LinkedIn 共用的資料會離開線上服務。 
+* 賦予只能將其 LinkedIn 帳戶的資料與 Microsoft 公司和學校帳戶共用的權限
+
+如需有關在使用者的 LinkedIn 與 Microsoft 公司或學校帳戶之間共用之資料的詳細資訊，請參閱[公司或學校 Microsoft 應用程式中的 LinkedIn](https://www.linkedin.com/help/linkedin/answer/84077)。 
+* [使用者可以將帳戶中斷連線](https://www.linkedin.com/help/linkedin/answer/85097)並隨時移除資料共用權限。 
+* [使用者可以控制自有 LinkedIn 設定檔的檢視方式](https://www.linkedin.com/help/linkedin/answer/83)，包括是否可以在 Microsoft 應用程式中檢視其設定檔。
 
 ## <a name="privacy-considerations"></a>隱私權考量
-在 Azure AD 中啟用 LinkedIn 整合可讓 Microsoft 應用程式和服務存取使用者的某些 LinkedIn 資訊。 若要深入了解在 Azure AD 中啟用 LinkedIn 整合時的隱私權考量，請閱讀 [Microsoft 隱私權聲明](https://privacy.microsoft.com/privacystatement/)。 
+啟用 LinkedIn 帳戶連線可讓 Microsoft 應用程式和服務存取使用者的某些 LinkedIn 資訊。 若要深入了解在 Azure AD 中啟用 LinkedIn 帳戶連線時的隱私權考量，請閱讀 [Microsoft 隱私權聲明](https://privacy.microsoft.com/privacystatement/)。 
 
-## <a name="manage-linkedin-integration"></a>管理 LinkedIn 整合
-Azure AD 中預設會啟用企業版的 LinkedIn 整合。 啟用 LinkedIn 整合可讓組織中的所有使用者在 Microsoft 服務內使用 LinkedIn 功能，例如在 Outlook 中檢視 LinkedIn 設定檔。 停用 LinkedIn 整合則會從 Microsoft 應用程式和服務移除 LinkedIn 功能，並停止透過 Microsoft 服務在 LinkedIn 與組織之間共用資料。
+## <a name="manage-linkedin-account-connections"></a>管理 LinkedIn 帳戶連線
+預設會針對整個租用戶開啟 LinkedIn 帳戶連線功能。 您可以選擇停用整個租用戶的 LinkedIn 帳戶連線，或是針對您租用戶中所選的使用者啟用 LinkedIn 帳戶連線。 
 
-### <a name="enable-or-disable-linkedin-integration-for-your-organization-in-the-azure-portal"></a>在 Azure 入口網站中為組織啟用或停用 LinkedIn 整合
+### <a name="enable-or-disable-linkedin-account-connection-for-your-tenant-in-the-azure-portal"></a>在 Azure 入口網站中為租用戶啟用或停用 LinkedIn 帳戶連線
 
 1. 使用具有 Azure AD 租用戶全域管理員身分的帳戶來登入 [Azure Active Directory 系統管理中心](https://aad.portal.azure.com/)。
 2. 選取 [使用者]。
 3. 在 [使用者] 刀鋒視窗上，選取 [使用者設定]。
-4. 在 [LinkedIn 整合] 底下，選取 [是] 來啟用 LinkedIn 整合，或選取 [否] 來予以停用。
-   ![啟用 LinkedIn 整合](./media/linkedin-integration/LinkedIn-integration.PNG)
+4. 在 [LinkedIn 帳戶連線] 之下：
+  * 選取 [是] 可啟用您租用戶中所有使用者的 LinkedIn 帳戶連線
+  * 選取 [已選取] 只啟用所選租用戶使用者的 LinkedIn 帳戶連線
+  * 選取 [否] 可停用所有使用者的 LinkedIn 帳戶連線 ![啟用 LinkedIn 帳戶連線](./media/linkedin-integration/LinkedIn-integration.png)
+5. 當您完成時，選取 [儲存] 會儲存您的設定。
 
-### <a name="enable-or-disable-linkedin-integration-for-your-organizations-office-2016-apps-using-group-policy"></a>使用群組原則為組織的 Office 2016 應用程式啟用或停用 LinkedIn 整合
+### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>使用群組原則為組織的 Office 2016 應用程式啟用或停用 LinkedIn 帳戶連線
 
 1. 下載 [Office 2016 系統管理範本檔案 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
 2. 解壓縮 **ADMX** 檔案，並將其複製到**中央存放庫**。
@@ -60,6 +71,6 @@ Azure AD 中預設會啟用企業版的 LinkedIn 整合。 啟用 LinkedIn 整�
 * [LinkedIn 說明中心](https://www.linkedin.com/help/linkedin)
 
 ## <a name="next-steps"></a>後續步驟
-使用下列連結在 Azure 入口網站中查看您目前的 LinkedIn 整合設定：
+使用下列連結，在 Azure 入口網站中查看您目前的 LinkedIn 帳戶連線設定：
 
-[設定 LinkedIn 整合](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 
+[設定 LinkedIn 帳戶連線](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 

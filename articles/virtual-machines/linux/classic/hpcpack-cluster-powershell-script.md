@@ -1,11 +1,11 @@
 ---
-title: "用來部署 Linux HPC 叢集的 PowerShell 指令碼 | Microsoft Docs"
-description: "執行 PowerShell 指令碼，以在 Azure 虛擬機器中部署 Linux HPC Pack 2012 R2 叢集"
+title: 用來部署 Linux HPC 叢集的 PowerShell 指令碼 | Microsoft Docs
+description: 執行 PowerShell 指令碼，以在 Azure 虛擬機器中部署 Linux HPC Pack 2012 R2 叢集
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 73041960-58d3-4ecf-9540-d7e1a612c467
 ms.service: virtual-machines-linux
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: c15dc66718a855e22f8109448cb8c8a23787b9bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 477859db8c884714d9b5140483d300ebfe6c116a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-linux-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>使用 HPC Pack IaaS 部署指令碼建立 Linux 高效能運算 (HPC) 叢集
-執行 HPC Pack IaaS 部署 PowerShell 指令碼，以在 Azure 虛擬機器中為 Linux 工作負載部署完整的 HPC Pack 2012 R2 叢集。 叢集是由加入 Active Directory、且執行 Windows Server 和 Microsoft HPC Pack 的前端節點，以及執行其中一個 HPC Pack 所支援的 Linux 散發套件的計算節點所組成。 如果您想要在 Azure 中為 Windows 工作負載部署 HPC Pack 叢集，請參閱[使用 HPC Pack IaaS 部署指令碼建立 Windows HPC 叢集](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。 您也可以使用 Azure 資源管理員範本來部署 HPC Pack 叢集。 如需範例，請參閱 [使用 Linux 計算節點建立 HPC 叢集](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)。
-
+執行 HPC Pack IaaS 部署 PowerShell 指令碼，以在 Azure 虛擬機器中為 Linux 工作負載部署完整的 HPC Pack 2012 R2 叢集。 叢集是由加入 Active Directory、且執行 Windows Server 和 Microsoft HPC Pack 的前端節點，以及執行其中一個 HPC Pack 所支援的 Linux 散發套件的計算節點所組成。 如果您想要在 Azure 中為 Windows 工作負載部署 HPC Pack 叢集，請參閱[使用 HPC Pack IaaS 部署指令碼建立 Windows HPC 叢集](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 > [!IMPORTANT] 
 > 本文中所述的 PowerShell 指令碼會使用傳統部署模型，在 Azure 中建立 Microsoft HPC Pack 2012 R2 叢集。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
-> 此外，本文中所述的指令碼不支援 HPC Pack 2016。
+> 此外，本文中所述的指令碼不支援 HPC Pack 2016。 如需適用於 HPC Pack 2012 R2 和 HPC Pack 2016 之 Resource Manager 範本的詳細資訊，請參閱 [Azure 中的 HPC Pack 叢集部署選項](../hpcpack-cluster-options.md)。
+
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 

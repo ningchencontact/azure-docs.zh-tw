@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4201395085dd72eb92b774eaed5980737b2e5de0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>將 Azure Machine Learning 部署為 IoT Edge 模組 - 預覽
 
@@ -41,12 +41,16 @@ ms.lasthandoff: 03/08/2018
 
 在執行 Azure ML 模組管理的電腦上，從 GitHub 上的 Azure ML IoT Toolkit 下載並儲存 [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) 和 [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl)。 這些檔案會定義您將會部署到 IoT Edge 裝置的定型機器學習模型。 
 
-使用定型模型以建立可以部署到 IoT Edge 裝置的容器。
+使用定型模型以建立可以部署到 IoT Edge 裝置的容器。 使用下列命令，您可以：
+
+   * 註冊您的模組。
+   * 建立資訊清單。
+   * 建立名為 machinelearningmodule 的 Docker 容器映像。
+   * 將映像部署至您的 Azure Container Service (AKS) 叢集。
 
 ```cmd
 az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
 ```
-服務名稱 (在此範例中為 machinelearningmodule)，會變成 docker 容器映像的名稱。
 
 ### <a name="view-the-container-repository"></a>檢視容器存放庫
 

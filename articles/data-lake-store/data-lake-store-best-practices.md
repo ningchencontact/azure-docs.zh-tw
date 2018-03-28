@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure Data Lake Store 的最佳做法 | Microsoft Docs"
-description: "了解將 Azure Data Lake Store 用在擷取、資料安全性和效能方面的最佳做法"
+title: 使用 Azure Data Lake Store 的最佳做法 | Microsoft Docs
+description: 了解將 Azure Data Lake Store 用在擷取、資料安全性和效能方面的最佳做法
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
 editor: cgronlun
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: d3a0dd70a03f97a9b6bfb243eda7cbd470b0c239
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Azure 資料湖存放區概觀
+# <a name="best-practices-for-using-azure-data-lake-store"></a>使用 Azure Data Lake Store 的最佳做法
 在本文中，您會了解使用 Azure Data Lake Store 的最佳做法和考量。 本文提供 Data Lake Store 的安全性、效能、恢復功能及監視作業等相關資訊。 尚未使用 Data Lake Store 之前，若要在 Azure HDInsight 這類服務中處理如此龐大的資料，過程會十分繁瑣。 您必須將資料分給多個 Blob 儲存體帳戶，才能達到該規模的 PB 儲存量和最佳效能。 Data Lake Store 能突破大小和效能等大部分的硬性限制。 不過，為了讓您可取得 Data Lake Store 的最佳效能，本文中仍包含了一些考量。 
 
 ## <a name="security-considerations"></a>安全性考量
@@ -65,7 +65,7 @@ Data Lake Store 中的 POSIX 權限和稽核會在處理大量小型檔案時，
 * 加快複製/複寫的速度
 * 更新 Data Lake Store POSIX 權限時處理的檔案更少 
 
-視服務和工作負載使用的資料而定，可考慮的合適檔案大小為 256 MB 到 1 GB，最理想的情況是不要低於 100 MB，或超過 2 GB。。 如果檔案大小無法在置入 Data Lake Store 時進行批次處理，您可以個別執行壓縮作業，將這些檔案結合成較大的檔案。 如需有關檔案大小及如何在 Data Lake Store 中組織資料的詳細資訊和建議，請參閱[建構您的資料集](data-lake-store-performance-tuning-guidance.md#structure-your-data-set)。 
+視服務和工作負載使用的資料而定，可考慮的合適檔案大小為 256 MB 到 1 GB，最理想的情況是不要低於 100 MB，或超過 2 GB。 如果檔案大小無法在置入 Data Lake Store 時進行批次處理，您可以個別執行壓縮作業，將這些檔案結合成較大的檔案。 如需有關檔案大小及如何在 Data Lake Store 中組織資料的詳細資訊和建議，請參閱[建構您的資料集](data-lake-store-performance-tuning-guidance.md#structure-your-data-set)。 
 
 ### <a name="large-file-sizes-and-potential-performance-impact"></a>大型檔案大小和潛在的效能影響 
 
@@ -139,7 +139,7 @@ Data Lake Store 提供詳細的診斷記錄和稽核。 Data Lake Store 在 Azur
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-設定好此項目並重新啟動節點後，Data Lake Store 診斷資料就會寫入節點上的 YARN 記錄 (/tmp/<user>/yarn.log)，並可監視錯誤或節流 (HTTP 429 錯誤代碼) 等重要的詳細資訊。 此相同資訊也可以在 OMS 中監視，或在記錄送達的任何位置上監視 (透過 Data Lake Store 帳戶的 [[診斷](data-lake-store-diagnostic-logs.md)] 刀鋒視窗)。 建議您至少開啟用戶端記錄，或利用 Data Lake Store 的記錄傳送選項，來提供作業可見性並且使偵錯更容易進行。
+設定好屬性並重新啟動節點後，Data Lake Store 診斷資料就會寫入節點上的 YARN 記錄 (/tmp/<user>/yarn.log)，並可監視錯誤或節流 (HTTP 429 錯誤代碼) 等重要的詳細資訊。 此相同資訊也可以在 OMS 中監視，或在記錄送達的任何位置上監視 (透過 Data Lake Store 帳戶的 [[診斷](data-lake-store-diagnostic-logs.md)] 刀鋒視窗)。 建議您至少開啟用戶端記錄，或利用 Data Lake Store 的記錄傳送選項，來提供作業可見性並且使偵錯更容易進行。
 
 ### <a name="run-synthetic-transactions"></a>執行綜合交易 
 
@@ -155,7 +155,7 @@ Data Lake Store 提供詳細的診斷記錄和稽核。 Data Lake Store 在 Azur
 
     {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/ 
 
-例如，為英國境內的飛機引擎置入遙測資料可能如下所示： 
+例如，為英國境內的飛機引擎置入遙測資料可能如以下結構所示： 
 
     UK/Planes/BA1293/Engine1/2017/08/11/12/ 
 
@@ -163,7 +163,7 @@ Data Lake Store 提供詳細的診斷記錄和稽核。 Data Lake Store 在 Azur
 
 ### <a name="batch-jobs-structure"></a>批次作業結構 
 
-簡單來說，批次處理中常用的方法是將資料置入 "in" 資料夾。 然後，資料處理好後，將新的資料放入 "out" 資料夾，以供下游程序使用。 這有時會出現在需要對個別檔案進行處理的作業上，而且可能不需要大量平行處理大型資料集。 如同上述建議的 IoT 結構，好的目錄結構都使用區域和內容這類事項 (例如，組織、產品/生產者) 作為父層級資料夾。 這有助於保護跨組織資料，以及更有效率地管理工作負載中的資料。 此外，請考慮在結構中使用日期和時間，可在處理時具有較佳的組織性、可篩選的搜尋、安全性及自動化。 日期結構的細微性層級取決於資料上傳或處理的間隔，例如每小時、每天或甚至是每個月。 
+簡單來說，批次處理中常用的方法是將資料置入 "in" 資料夾。 然後，資料處理好後，將新的資料放入 "out" 資料夾，以供下游程序使用。 此目錄結構有時會出現在需要對個別檔案進行處理的作業上，而且可能不需要大量平行處理大型資料集。 如同上述建議的 IoT 結構，好的目錄結構都使用區域和內容這類事項 (例如，組織、產品/生產者) 作為父層級資料夾。 此結構有助於保護跨組織資料，以及更有效率地管理工作負載中的資料。 此外，請考慮在結構中使用日期和時間，可在處理時具有較佳的組織性、可篩選的搜尋、安全性及自動化。 日期結構的細微性層級取決於資料上傳或處理的間隔，例如每小時、每天或甚至是每個月。 
 
 有時後，檔案處理會因為資料損毀或未預期的格式而不成功。 在這種情況下，目錄結構可能就需要 **/bad** 資料夾的功用，才能將檔案移至該資料夾並進行進一步檢查。 批次作業可能也會處理這些「不良」檔案的報告或通知，以進行手動介入。 請參考下列的範本結構： 
 
@@ -171,7 +171,7 @@ Data Lake Store 提供詳細的診斷記錄和稽核。 Data Lake Store 在 Azur
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/ 
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/ 
 
-例如，一間行銷公司每天從他們位於北美洲的客戶接收消費者更新的資料擷取，而處理前和處理後的資料可能會看起來像這樣： 
+例如，一間行銷公司每天從他們位於北美洲的客戶接收消費者更新的資料擷取。 而處理前和處理後的資料可能會看起來像以下程式碼片段： 
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv 
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv 

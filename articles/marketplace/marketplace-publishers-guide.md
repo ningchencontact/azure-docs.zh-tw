@@ -1,24 +1,24 @@
 ---
-title: "Azure Marketplace 和 AppSource 發行者指南"
-description: "Azure Marketplace 新發行者的逐步指南與發行檢查清單"
+title: Azure Marketplace 和 AppSource 發行者指南
+description: Azure Marketplace 新發行者的逐步指南與發行檢查清單
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 和 AppSource 發行者指南
 
@@ -51,7 +51,7 @@ Azure Marketplace 和 AppSource 是與 Microsoft 共同舉辦上市活動的跳�
 
 ## <a name="what-are-azure-marketplace-and-appsource"></a>什麼是 Azure Marketplace 和 AppSource？
 
-Microsoft 提供兩個不同的市集店面，可讓合作夥伴列出供應項目、啟用試用版，以及直接和 Microsoft 的客戶與生態系統交易：[Azure Marketplace] (https://azuremarketplace.microsoft.com) 與 [AppSource] (https://appsource.microsoft.com)。 這些店面可讓客戶尋找、試用及購買應用程式與服務，促進數位轉型，以及藉由多加存取 Microsoft 的客戶與合作夥伴生態系統，協助發行者拓展業務。
+Microsoft 提供兩個不同的市集店面，可讓合作夥伴列出供應項目、啟用試用版，以及直接和 Microsoft 的客戶與生態系統交易：[Azure Marketplace] (https://azuremarketplace.microsoft.com)) 與 [AppSource] (https://appsource.microsoft.com))。 這些店面可讓客戶尋找、試用及購買應用程式與服務，促進數位轉型，以及藉由多加存取 Microsoft 的客戶與合作夥伴生態系統，協助發行者拓展業務。
  
 市集店面是專為目標對象與 Microsoft 雲端產品提供，協助客戶找到所需。 每個店面都提供專屬的發行選項，有助於讓發行投資發揮最大效用，摘要說明於下表：
 
@@ -238,7 +238,7 @@ Microsoft 客戶有時會使用 Enterprise 合約 (EA) 來支付 Microsoft 產�
 
 |**需求**  |**詳細資料**  |**發行選項**  |
 |---------|---------|---------|
-|**參與原則**    | [在這裡] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/) 檢閱 Azure Marketplace 參與原則。       | 清單、試用版、交易        |
+|**參與原則**    | 在 [這裡] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/) 檢閱 Azure Marketplace 參與原則。       | 清單、試用版、交易        |
 |**與 Microsoft 整合**    | Azure Marketplace 供應項目應利用或擴充計算、網路或儲存體等 Microsoft Azure 服務，並對應至現有的 Azure Marketplace 類別，例如資料庫、安全性、網路。[在這裡](https://azuremarketplace.microsoft.com/marketplace/apps)找到完整清單。        | 清單、試用版、交易        |
 |**目標對象**    | Azure Marketplace 供應項目必須專為 IT 專業人員、雲端開發人員或其他技術客戶角色提供。       |  清單、試用版、交易 
 |**潛在客戶管理**    | 若要收到來自 Marketplace 的潛在客戶，您必須啟用 CRM (Marketo、Microsoft Dynamics 或 Salesforce) 才能接受潛在客戶資料。        |   清單、試用版、交易      |
@@ -260,7 +260,7 @@ Microsoft 客戶有時會使用 Enterprise 合約 (EA) 來支付 Microsoft 產�
 |**需求**  |**詳細資料** |**發行選項**  |
 |---------|---------|---------|
 |**計費和計量**    |  虛擬機器必須支援自備授權或依使用量每月計費。       |    交易    |
-|**Azure 相容的虛擬硬碟 (VHD)**     |   虛擬機器必須建置在 [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) 或 [Linux] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) 上    |   交易      |
+|**Azure 相容的虛擬硬碟 (VHD)**     |   虛擬機器必須內建在 [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) 或 [Linux] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   交易      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>諮詢服務發行特有的必要條件
 
@@ -268,12 +268,12 @@ Microsoft 客戶有時會使用 Enterprise 合約 (EA) 來支付 Microsoft 產�
 |**需求** |**詳細資料**  |**發行選項**  |
 |---------|---------|---------|
 |**服務供應項目特性**     | 諮詢服務必須以固定範圍、固定期間、固定參與價格 (或費用) 提供，主要為售前導向，以單一客戶為限並於現場執行        |    列出     |
-|**諮詢服務的合作夥伴需求**    |   **僅限 AppSource。**  Dynamics 365 for Customer Engagement  [銀級或金級雲端客戶關係管理專長認證](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency)。 Dynamics 365 for Finance 與 Operations Enterprise 版：銀級或金級 [企業資源規劃] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) 專長認證，而且過去 12 個月內在雲端作業方面的營收至少達到美金 $2.5 萬元。 Dynamics 365 for Finance 與 Operations、Business 版：至少作為一位客戶的[雲端服務提供者 (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) 或[列冊數位合作夥伴 (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record)。 Power BI：符合 [解決方案合作夥伴](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf) 準則。 PowerApps：有 [合作夥伴展示工具] (https://powerapps.microsoft.com/en-us/partner-showcase/) 解決方案 |    列出     |
+|**諮詢服務的合作夥伴需求**    |   **僅限 AppSource。**  Dynamics 365 for Customer Engagement  [銀級或金級雲端客戶關係管理專長認證](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency)。 Dynamics 365 for Finance 與 Operations Enterprise 版：銀級或金級 [企業資源規劃] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency)) 專長認證，而且過去 12 個月內在雲端作業方面的營收至少達到美金 $2.5 萬元。 Dynamics 365 for Finance 與 Operations、Business 版：至少作為一位客戶的[雲端服務提供者 (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) 或[列冊數位合作夥伴 (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record)。 Power BI：符合 [解決方案合作夥伴](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf) 準則。 PowerApps：有 [合作夥伴展示工具] (https://powerapps.microsoft.com/en-us/partner-showcase/) 解決方案 |    列出     |
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>使用 Azure Active Directory 啟用試用版
 Azure Active Directory (AAD) 是一種雲端識別服務，可使用以下業界標準通訊協定以 Microsoft 公司或學校帳戶進行驗證：OAuth 與 OpenID Connect。 [在這裡](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features)深入了解 AAD。 
 
-Microsoft 可使用 AAD 來驗證所有 Marketplace 使用者，因此已驗證的使用者點選試用版清單並重新導向至試用版環境時，您可以將使用者直接佈建置至試用版，而不需要額外的登入步驟。 [您的應用程式在驗證期間從 AAD 收到的權杖] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) 包括可用以在應用程式中建立使用者帳戶的寶貴使用者資訊，讓您將佈建體驗自動化並增加轉換的可能性。 
+Microsoft 可使用 AAD 來驗證所有 Marketplace 使用者，因此已驗證的使用者點選試用版清單並重新導向至試用版環境時，您可以將使用者直接佈建置至試用版，而不需要額外的登入步驟。 [您的應用程式在驗證期間從 AAD 收到的權杖] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens)) 包括可用以在應用程式中建立使用者帳戶的寶貴使用者資訊，讓您將佈建體驗自動化並增加轉換的可能性。 
 
 使用 AAD 以對應用程式或試用版啟用單鍵驗證：
 
@@ -295,7 +295,7 @@ Microsoft 可使用 AAD 來驗證所有 Marketplace 使用者，因此已驗證�
 如果您是 AAD 同盟 SSO 新手
 
 - 在 Azure 入口網站註冊您的應用程式
-- 使用 [OpenID Connect] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 或 [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code) 開發以 AAD 進行 SSO
+- 使用 [OpenID Connect] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 或 [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code) 以 AAD 開發 SSO
 - 啟用 AAD 中的多租用戶支援功能以獲得「單鍵」試用版體驗
 - [在這裡深入了解](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified)
 
@@ -303,7 +303,7 @@ Microsoft 可使用 AAD 來驗證所有 Marketplace 使用者，因此已驗證�
 
 單一租用戶應用程式有多個選項：
 
-- 使用 [Azure B2B] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) 將使用者新增為目錄的來賓使用者
+- 使用 [Azure B2B] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) 將使用者新增至目錄作為來賓使用者
 - 透過「與我連絡」為客戶手動佈建試用版
 - 開發每個客戶的「試用產品」
 - 建置使用 SSO 的多租用戶範例示範應用程式
@@ -521,7 +521,7 @@ Amp-testdrive@microsoft.com |   提供試用產品的上架存取權。 美國�
 
 建議您在 **@outlook.com** 網域中建立新的電子郵件地址。 請遵循下列步驟：
 
-1. 前往 [https://signup.live.com/signup](https://signup.live.com/signup)，然後選取 [取得新的電子郵件地址]
+1. 移至 [https://signup.live.com/signup](https://signup.live.com/signup) 並且選取 [取得新的電子郵件地址]
 
 
 2. 建立新的電子郵件地址，然後輸入密碼。 這會在 outlook.com 服務中建立新的 Microsoft ID 和電子郵件信箱。 請繼續進行註冊程序，直到完成建立帳戶。
@@ -538,7 +538,7 @@ Amp-testdrive@microsoft.com |   提供試用產品的上架存取權。 美國�
 ### <a name="instructions-on-how-to-register-in-the-development-center"></a>如何在 Development Center 中註冊的指示
 
 1. 開啟新的 Internet Explorer InPrivate 或 Chrome Incognito 瀏覽工作階段，確定您未登入個人帳戶。
-2. 移至 [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) ，將自己註冊為開發人員中心的賣方。 在您繼續之前，請先閱讀下列重要事項。
+2. 移至 [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) 以將您自己註冊為開發人員中心的賣方。 在您繼續之前，請先閱讀下列重要事項。
 
    ![開發人員中心電子郵件](./media/marketplace-publishers-guide/registerdevcenteremail.png)
 
@@ -614,7 +614,7 @@ Amp-testdrive@microsoft.com |   提供試用產品的上架存取權。 美國�
 
 如果在開發人員中心註冊時發生問題，請記錄支援票證，如下所示：
 
-1. 前往支援連結 https://developer.microsoft.com/windows/support
+1. 移至支援連結 https://developer.microsoft.com/windows/support
 2. 在 [與我們連絡] 區段中，按一下 [提交事件] 按鈕，如以下螢幕擷取畫面所示。
 3. 針對 [問題類型] 選擇 [開發人員中心協助]，針對 [類別] 選擇 [發行和管理應用程式]。 然後按一下 [開始撰寫電子郵件] 按鈕。
 

@@ -1,24 +1,18 @@
 ---
-title: "自動化 Amazon Web Services 中 VM 的部署 | Microsoft Docs"
-description: "本文示範如何使用 Azure 自動化來自動化 Amazon Web 服務 VM 的建立"
+title: 在 Amazon Web Services 中自動部署 VM
+description: 本文示範如何使用 Azure 自動化來自動化 Amazon Web 服務 VM 的建立
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/29/2017
-ms.author: tiandert; bwren
-ms.openlocfilehash: ba86789a9571c4b09a0224e6c41497f091968ef8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+manager: carmonm
+ms.openlocfilehash: 371510bf335bda2e2475e6ba3f5f74ee2117d9a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure 自動化案例 - 佈建 AWS 虛擬機器
 在本文中，您將了解如何利用「Azure 自動化」在 Amazon Web Service (AWS) 訂用帳戶中佈建虛擬機器，並為該 VM 提供一個特定名稱 (AWS 稱之為為 VM 「加上標籤」)。

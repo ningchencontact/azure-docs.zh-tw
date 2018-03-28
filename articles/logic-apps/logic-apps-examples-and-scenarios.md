@@ -1,11 +1,11 @@
 ---
-title: "範例和常見案例 - Azure Logic Apps | Microsoft Docs"
-description: "透過範例、情節、教學課程和逐步解說深入了解 Logic Apps"
+title: 範例和常見案例 - Azure Logic Apps | Microsoft Docs
+description: 透過範例、情節、教學課程和逐步解說深入了解 Logic Apps
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 02690284e5487dba8e5fb5d973958f944bfa339f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps 的常見情節、範例、教學課程和逐步解說
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 03/05/2018
 
 您可以完全透過 Visual Studio、Visual Studio Team Services 或其他任何原始檔控制和自動化建置工具，來開發及部署邏輯應用程式。 為了支援將工作流程與相依連線部署在資源範本中的功能，邏輯應用程式使用 Azure 資源部署範本。 Visual Studio 工具會自動產生這些範本，您可以將其簽入原始檔控制以便控制版本。
 
-* [在 Visual Studio 中建置和部署 Logic Apps](../logic-apps/logic-apps-deploy-from-vs.md)
+* [使用 Visual Studio 建立和部署邏輯應用程式](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [開啟現有 Logic Apps 的監視、記錄和警示](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [建立自動部署範本](../logic-apps/logic-apps-create-deploy-template.md)
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 03/05/2018
 
 * [工作流程運算式在邏輯應用程式中的運作方式](../logic-apps/logic-apps-author-definitions.md)
 * [處理非 JSON 內容類型](../logic-apps/logic-apps-content-type.md)，例如 `application/xml`、`application/octet-stream` 和 `multipart/formdata`
-* [參考：Azure Logic Apps 工作流程定義語言](http://aka.ms/logicappsdocs)
+* [Azure Logic Apps 的工作流程定義語言結構描述](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>其他整合和功能
 

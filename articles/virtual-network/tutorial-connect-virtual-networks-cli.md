@@ -13,29 +13,30 @@ ms.devlang: azurecli
 ms.topic: ''
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: df56f2e3e13f80e7ce2c2b6c9cffeac3d03776e5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bbf2e757e2d9ad76c59394ba0138a61fd4029d15
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>使用 Azure CLI 以虛擬網路對等互連連線虛擬網路
 
-您可以使用虛擬網路對等互連，讓虛擬網路彼此連線。 一旦虛擬網路對等互連，兩個虛擬網路中的資源就可以彼此通訊，且通訊時會有相同的延遲和頻寬，彷彿這些資源是位於相同的虛擬網路中。 本文涵蓋建立和對等互連兩個虛擬網路。 您會了解如何：
+您可以使用虛擬網路對等互連，讓虛擬網路彼此連線。 一旦虛擬網路對等互連，兩個虛擬網路中的資源就可以彼此通訊，且通訊時會有相同的延遲和頻寬，彷彿這些資源是位於相同的虛擬網路中。 在本文中，您將了解：
 
 > [!div class="checklist"]
 > * 建立兩個虛擬網路
-> * 建立虛擬網路之間的對等互連
-> * 測試對等互連
+> * 使用虛擬網路對等互連連線兩個虛擬網路
+> * 將虛擬機器 (VM) 部署到每個虛擬網路
+> * 虛擬機器之間的通訊
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.4 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.28 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
 
 ## <a name="create-virtual-networks"></a>建立虛擬網路
 
@@ -56,7 +57,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-建立名為 myVirtualNetwork2 的虛擬網路，其位址首碼為 10.1.0.0/16。 此位址前置詞不會與 myVirtualNetwork1 虛擬網路的位址首碼重疊。 您無法對等互連具有重疊位址首碼的虛擬網路。
+建立名為 myVirtualNetwork2 的虛擬網路，其位址首碼為 10.1.0.0/16：
 
 ```azurecli-interactive 
 az network vnet create \
@@ -120,17 +121,13 @@ az network vnet peering show \
 
 兩個虛擬網路之對等互連的 **PeeringState** 都是「已連線」之前，其中一個虛擬網路中的資源無法與另一個虛擬網路中的資源通訊。 
 
-對等互連介於兩個虛擬網路之間，但不可轉移。 所以舉例來說，如果您也想要將 myVirtualNetwork2 對等互連至 myVirtualNetwork3，您必須在虛擬網路 myVirtualNetwork2 與 myVirtualNetwork3 之間建立額外的對等互連。 雖然 myVirtualNetwork1 已與 myVirtualNetwork2 對等互連，但是如果 myVirtualNetwork1 也與 myVirtualNetwork3 對等互連，則 myVirtualNetwork1 內的資源只能存取 myVirtualNetwork3 中的資源。 
+## <a name="create-virtual-machines"></a>建立虛擬機器
 
-在對等互連生產環境虛擬網路之前，建議您徹底熟悉[對等互連概觀](virtual-network-peering-overview.md)、[管理對等互連](virtual-network-manage-peering.md)以及[虛擬網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 雖然本文說明相同訂用帳戶和位置中兩個虛擬網路之間的對等互連，您也可以對等互連[不同區域](#register)和[不同 Azure 訂用帳戶](create-peering-different-subscriptions.md#cli)中的虛擬網路。 您也可以使用對等互連來建立[中樞和輪輻網路設計](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)。
+在每個虛擬網路中建立虛擬機器，以便您可以在稍後的步驟中於彼此之間通訊。
 
-## <a name="test-peering"></a>測試對等互連
+### <a name="create-the-first-vm"></a>建立第一個 VM
 
-若要測試不同虛擬網路中虛擬機器之間透過對等互連的網路通訊，請將虛擬機器部署到每個子網路，然後在虛擬機器之間進行通訊。 
-
-### <a name="create-virtual-machines"></a>建立虛擬機器
-
-使用 [az vm create](/cli/azure/vm#az_vm_create) 建立虛擬機器。 下列範例會在 myVirtualNetwork1 虛擬網路中建立名為 myVm1 的虛擬機器。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。 `--no-wait` 選項會在背景建立虛擬機器，因此您可以繼續進行下一步。
+使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM。 下列範例會在 myVirtualNetwork1 虛擬網路中建立名為 myVm1 的虛擬機器。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。 `--no-wait` 選項會在背景建立虛擬機器，以便您繼續進行下一步。
 
 ```azurecli-interactive
 az vm create \
@@ -143,7 +140,7 @@ az vm create \
   --no-wait
 ```
 
-Azure 會自動將 10.0.0.4 指派為虛擬機器的私人 IP 位址，因為 10.0.0.4 是 myVirtualNetwork1 的 Subnet1 中第一個可用的 IP 位址。 
+### <a name="create-the-second-vm"></a>建立第二個 VM
 
 在 myVirtualNetwork2 虛擬網路中建立虛擬機器。
 
@@ -157,7 +154,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-建立虛擬機器需要幾分鐘的時間。 建立虛擬機器之後，Azure CLI 會顯示類似以下範例的資訊： 
+建立 VM 需要幾分鐘的時間。 建立虛擬機器之後，Azure CLI 會顯示類似下列範例的資訊： 
 
 ```azurecli 
 {
@@ -172,25 +169,25 @@ az vm create \
 }
 ```
 
-在輸出範例中，您會看到 **privateIpAddress** 是 10.1.0.4。 Azure DHCP 會自動將 10.1.0.4 指派給虛擬機器，因為這是 myVirtualNetwork2 的 Subnet1 中第一個可用的位址。 請記下 **publicIpAddress**。 這個位址可在稍後的步驟中，用來從網際網路存取虛擬機器。
+請記下 **publicIpAddress**。 這個位址可在稍後的步驟中，用來從網際網路存取虛擬機器。
 
-### <a name="test-virtual-machine-communication"></a>測試虛擬機器通訊
+## <a name="communicate-between-vms"></a>虛擬機器之間的通訊
 
-請使用下列命令來建立與 *myVm2* 虛擬機器的 SSH 工作階段。 以虛擬機器的公用 IP 位址取代 `<publicIpAddress>` 位址。 在上述範例中，公用 IP 位址是 13.90.242.231。
+使用下列命令來對 myVm2 虛擬機器建立 SSH 工作階段。 以虛擬機器的公用 IP 位址取代 `<publicIpAddress>`。 在上述範例中，公用 IP 位址是 13.90.242.231。
 
 ```bash 
 ssh <publicIpAddress>
 ```
 
-Ping myVirtualNetwork1 中的虛擬機器。
+針對 myVirtualNetwork1 中的虛擬機器執行 Ping 操作。
 
 ```bash 
 ping 10.0.0.4 -c 4
 ```
 
-您會收到四個回覆。 如果您依據虛擬機器的名稱 (myVm1) 而不是其 IP 位址來進行 ping，則 ping 會失敗，因為 myVm1 是未知的主機名稱。 Azure 的預設名稱解析可以在相同虛擬網路中的虛擬機器之間運作，但是無法在不同虛擬網路中的虛擬機器之間運作。 若要跨虛擬網路間解析名稱，您必須[部署自己的 DNS 伺服器](virtual-networks-name-resolution-for-vms-and-role-instances.md)或使用 [Azure DNS 私人網域](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+您會收到四個回覆。 
 
-關閉 myVm2 虛擬機器的 SSH 工作階段。 
+關閉對 myVm2 虛擬機器的 SSH 工作階段。 
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -221,9 +218,9 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解如何使用虛擬網路對等互連來連線兩個網路。 您可以透過 VPN [將自己的電腦連線到虛擬網路](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，並且與虛擬網路中或已對等互連虛擬網路中的資源進行互動。
+在本文中，您已了解如何使用虛擬網路對等互連來連線兩個網路。 在本文中，您已了解如何使用虛擬網路對等互連來連線相同 Azure 位置中的兩個網路。 您也可以對等互連[不同區域](#register)、[不同 Azure 訂用帳戶](create-peering-different-subscriptions.md#portal)中的虛擬網路，而且您可以使用對等互連建立[中樞和輪輻網路設計](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)。 在對等互連生產環境虛擬網路之前，建議您徹底熟悉[對等互連概觀](virtual-network-peering-overview.md)、[管理對等互連](virtual-network-manage-peering.md)以及[虛擬網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
-繼續進行可重複使用指令碼的指令碼範例，以完成虛擬網路文章中涵蓋的許多工作。
+您可以透過 VPN [將自己的電腦連線到虛擬網路](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，並且與虛擬網路中或已對等互連虛擬網路中的資源進行互動。 繼續進行可重複使用指令碼的指令碼範例，以完成虛擬網路文章中涵蓋的許多工作。
 
 > [!div class="nextstepaction"]
 > [虛擬網路指令碼範例](../networking/cli-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

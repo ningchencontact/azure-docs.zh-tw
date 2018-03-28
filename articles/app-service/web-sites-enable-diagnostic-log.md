@@ -1,6 +1,6 @@
 ---
-title: "在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。"
-description: "了解如何啟用診斷記錄，並在您的應用程式中加入診斷工具，以及如何存取 Azure 所記錄的資訊。"
+title: 在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。
+description: 了解如何啟用診斷記錄，並在您的應用程式中加入診斷工具，以及如何存取 Azure 所記錄的資訊。
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a5ac6c02e28c19346abae9e5ea3dba9af4022dde
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e82bbff908ea5499765edc71e52caa573c816a62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。
 ## <a name="overview"></a>概觀
@@ -97,7 +97,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 * **失敗要求追蹤** - /LogFiles/W3SVC#########/。 此資料夾內含有一個 XSL 檔案和一或多個 XML 檔案。 請確保將 XSL 檔案下載至 XML 檔案所在的相同目錄，因為 XSL 檔案可提供格式化功能，讓您在 Internet Explorer 中檢視時能夠篩選 XML 檔案內容。
 * **詳細錯誤記錄** - /LogFiles/DetailedErrors/。 此資料夾包含一或多個 .htm 檔案，內含已經發生的任何 HTTP 錯誤之詳細資訊。
 * **Web 伺服器記錄** - /LogFiles/http/RawLogs。 此資料夾包含一或多個運用 [W3C 擴充記錄檔格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)來格式化的文字檔案。
-* **部署記錄** - /LogFiles/Git。 此資料夾包含由內部部署處理序所產生，且可供 Azure Web 應用程式運用的記錄，以及適用於 Git 部署的記錄。
+* **部署記錄** - /LogFiles/Git。 此資料夾包含由內部部署處理序所產生，且可供 Azure Web 應用程式運用的記錄，以及適用於 Git 部署的記錄。 您也可以在 D:\home\site\deployments 下找到部署記錄。
 
 ### <a name="ftp"></a>FTP
 

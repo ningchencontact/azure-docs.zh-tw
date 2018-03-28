@@ -1,26 +1,21 @@
 ---
-title: "在多租用戶 SaaS 應用程式中還原 Azure SQL Database | Microsoft Docs"
-description: "了解如何在不小心刪除資料之後還原單一租用戶 SQL Database"
+title: 在多租用戶 SaaS 應用程式中還原 Azure SQL Database | Microsoft Docs
+description: 了解如何在不小心刪除資料之後還原單一租用戶 SQL Database
 keywords: SQL Database Azure
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: billgib;sstein
-ms.openlocfilehash: 46471073f88247510f45d6c4152afa43be6e1aaa
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: sstein
+ms.reviewer: billgib
+ms.openlocfilehash: 7ae8bcb6172d9f9d56c531e149635434057fc2af
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>使用每一租用戶一個資料庫的 SaaS 應用程式還原單一租用戶
 
@@ -69,7 +64,7 @@ ms.lasthandoff: 02/22/2018
 
 ### <a name="open-the-events-app-to-review-the-current-events"></a>開啟事件應用程式以檢閱目前的事件
 
-1. 開啟 *[事件中樞]* \(http://events.wtp.&lt;user&gt;.trafficmanager.net)，然後按一下 **[Contoso Concert Hall]**：
+1. 開啟 [事件中樞] (http://events.wtp.&lt;user&gt;.trafficmanager.net)，然後按一下 [Contoso Concert Hall]：
 
    ![事件中樞](media/saas-dbpertenant-restore-single-tenant/events-hub.png)
 
