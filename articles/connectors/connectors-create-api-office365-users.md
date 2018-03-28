@@ -1,11 +1,11 @@
 ---
-title: "在 Logic Apps 中新增 Office 365 使用者連接器 | Microsoft Docs"
-description: "搭配 REST API 參數來使用 Office 365 使用者連接器的概觀"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: 在 Logic Apps 中新增 Office 365 使用者連接器 | Microsoft Docs
+description: 搭配 REST API 參數來使用 Office 365 使用者連接器的概觀
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: b2146481-9105-4f56-b4c2-7ae340cb922f
 ms.service: multiple
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 2e7827e32a03b6f6af46f5bc65f0ed74f3065f86
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 3d281bcb8e1d0ba4d1eb0b636bdd618340399898
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>開始使用 Office 365 使用者連接器
 連接至 Office 365 使用者，以取得設定檔、搜尋使用者等等。 您可以利用 Office 365 使用者來：
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/19/2018
 > 
 > 
 
-連線建立之後，您需要輸入 Office 365 使用者屬性，像是使用者識別碼。 本主題的＜REST API 參考＞  一節說明這些屬性。
+連線建立之後，您需要輸入 Office 365 使用者屬性，像是使用者識別碼。 本文的 **REST API 參考**一節說明這些屬性。
 
 ## <a name="connector-specific-details"></a>連接器特定的詳細資料
 

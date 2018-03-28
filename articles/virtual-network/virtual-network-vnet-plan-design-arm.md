@@ -1,6 +1,6 @@
 ---
-title: "Azure 虛擬網路 (VNet) 規劃與設計指南 | Microsoft Docs"
-description: "了解如何根據您的隔離、連線和位置需求，在 Azure 中規劃及設計虛擬網路。"
+title: Azure 虛擬網路 (VNet) 規劃與設計指南 | Microsoft Docs
+description: 了解如何根據您的隔離、連線和位置需求，在 Azure 中規劃及設計虛擬網路。
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>規劃和設計 Azure 虛擬網路
 建立要實驗的 VNet 很簡單，但關鍵在於，您會隨著時間部署多個 Vnet，以支援您的組織的生產需求。 經過一些規劃和設計，您就能夠部署 Vnet 且更有效率地連接您所需的資源。 如果您不熟悉 VNet，建議您先[了解 Vnet](virtual-networks-overview.md) 及[如何部署](quick-create-portal.md) Vnet，再繼續執行。
@@ -248,7 +248,7 @@ VNET 包含下列屬性：
 根據上述需求，您可以將網路小組的使用者加入至每個訂用帳戶中的內建 **網路參與者** 角色，並且為每個訂用帳戶中的應用程式開發人員建立自訂角色，並賦予他們將 VM 加入至現有子網路的權限。
 
 ## <a name="next-steps"></a>後續步驟
-* [部署虛擬網路](virtual-networks-create-vnet-arm-template-click.md) 。
+* [部署虛擬網路](quick-create-portal.md)。
 * 了解如何使 IaaS VM [負載平衡](../load-balancer/load-balancer-overview.md)及[管理多個 Azure 區域的路由傳送](../traffic-manager/traffic-manager-overview.md)。
-* 深入了解 [NSG，以及如何規劃和設計](virtual-networks-nsg.md) NSG 方案。
+* 深入了解[網路安全性群組](security-overview.md)和 NSG 解決方案。
 * 深入了解您的 [跨單位和 VNet 連線選項](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)。

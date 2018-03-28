@@ -1,18 +1,18 @@
 ---
-title: "Azure Event Grid 安全性與驗證"
-description: "說明 Azure Event Grid 與其概念。"
+title: Azure Event Grid 安全性與驗證
+description: 說明 Azure Event Grid 與其概念。
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
@@ -24,9 +24,9 @@ Azure Event Grid 有三種驗證方法：
 
 ## <a name="webhook-event-delivery"></a>WebHook 事件傳遞
 
-Webhook 是即時從 Azure Event Grid 接收事件的眾多方法之一。 每次一有準備好傳遞的新事件，Event Grid Webhook 就會對設定的 HTTP 端點傳送 HTTP 要求，在本文內夾帶事件。
+Webhook 是從 Azure Event Grid 接收事件的眾多方法之一。 當新的事件準備好時，Event Grid Webhook 就會對設定的 HTTP 端點傳送 HTTP 要求，在本文內夾帶事件。
 
-當您使用 Event Grid 註冊自己的 WebHook 端點時，Event Grid 會將帶有簡單驗證碼的 POST 要求傳送給您，藉以證明端點的所有權。 您的應用程式需要回傳驗證碼作為回應。 Event Grid 不會將未經驗證的事件傳遞至 WebHook 端點。
+當您使用 Event Grid 註冊自己的 WebHook 端點時，Event Grid 會將帶有簡單驗證碼的 POST 要求傳送給您，以證明端點的所有權。 您的應用程式需要回傳驗證碼作為回應。 Event Grid 不會將未經驗證的事件傳遞至 WebHook 端點。
 
 ### <a name="validation-details"></a>驗證詳細資料
 
@@ -34,6 +34,7 @@ Webhook 是即時從 Azure Event Grid 接收事件的眾多方法之一。 每�
 * 事件包含標頭值 "Aeg-Event-Type: SubscriptionValidation"。
 * 此事件主體之結構描述與其他 Event Grid 事件相同。
 * 此事件資料包含一個 "validationCode" 屬性與一個隨機產生的字串。 例如，"validationCode: acb13…"。
+* 此陣列只包含驗證事件。 在您回應驗證程式碼之後，其他事件會在不同的要求中傳送。
 
 下列範例顯示 SubscriptionValidationEvent 的範例：
 
@@ -52,7 +53,7 @@ Webhook 是即時從 Azure Event Grid 接收事件的眾多方法之一。 每�
 }]
 ```
 
-為了證明端點擁有權，請在 validationResponse 內容中回應驗證代碼，如下列範例所示：
+如需證明端點擁有權，請在 validationResponse 內容中回應驗證代碼，如下列範例所示：
 
 ```json
 {
@@ -69,7 +70,7 @@ Webhook 是即時從 Azure Event Grid 接收事件的眾多方法之一。 每�
 
 ## <a name="event-subscription"></a>事件訂閱
 
-要訂閱事件，您必須擁有所需資源的 **Microsoft.EventGrid/EventSubscriptions/Write** 授權。 因為您要在該資源的範圍下寫入新的訂閱，所以需要授權。 端看您訂閱的是系統主題或自訂主題，所需資源會有所不同。 本節會說明這兩種類型。
+要訂閱事件，您必須擁有所需資源的 **Microsoft.EventGrid/EventSubscriptions/Write** 授權。 因為您要在該資源的範圍下寫入新的訂用帳戶，所以需要授權。 依您訂閱的是系統主題或自訂主題而定，所需資源會有所不同。 本節會說明這兩種類型。
 
 ### <a name="system-topics-azure-service-publishers"></a>系統主題 (Azure 服務發行者)
 
@@ -79,7 +80,7 @@ Webhook 是即時從 Azure Event Grid 接收事件的眾多方法之一。 每�
 
 ### <a name="custom-topics"></a>自訂主題
 
-若您訂閱的是自訂主題，您需要取得在 Event Grid 主題範圍下寫入新事件訂閱的權限。 資源的格式為：`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+若是自訂主題，您需要取得在 Event Grid 主題範圍下寫入新事件訂用帳戶的權限。 資源的格式為：`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
 舉例來說，若要訂閱名為**mytopic** 之自訂主題，您需要 Microsoft.EventGrid/EventSubscriptions/Write 授予您此權限：`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
@@ -103,7 +104,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 Event Grid 的 SAS 權杖包含資源、過期時間及簽章。 SAS 權杖的格式為：`r={resource}&e={expiration}&s={signature}`。
 
-這裡的 resource 是您傳送事件之目標主題的路徑。 以下為一個有效資源路徑的例子：`https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+這裡的資源是您傳送事件之目標 Event Grid 主題的路徑。 以下為一個有效資源路徑的例子：`https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 簽章由您從金鑰產生。
 
@@ -140,7 +141,7 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Management Access Control
 
-Azure Event Grid 讓您能控制給予不同使用者進行各種管理作業的存取層級，這些作業包含列出事件訂閱、建立新訂閱及產生金鑰等等。 Event Grid 會利用 Azure 的 Role Based Access Check (RBAC)。
+Azure Event Grid 讓您能控制給予不同使用者進行各種管理作業的存取層級，這些作業包含列出事件訂閱、建立新訂閱及產生金鑰等等。 Event Grid 會使用 Azure 的角色型存取檢查 (RBAC)。
 
 ### <a name="operation-types"></a>作業類型
 

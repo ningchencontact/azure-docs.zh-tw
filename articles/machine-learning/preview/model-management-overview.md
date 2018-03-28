@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning 模型管理的概念性概觀 | Microsoft Docs"
-description: "本文件說明 Azure Machine Learning 的模型管理概念。"
+title: Azure Machine Learning 模型管理的概念性概觀 | Microsoft Docs
+description: 本文件說明 Azure Machine Learning 的模型管理概念。
 services: machine-learning
 author: nk773
 ms.author: padou
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 931dfae740996325cc62071a861e81ef5f67548b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 89f95753248f74c7f6cb9ca1f680a01b07dd43d1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-model-management"></a>Azure Machine Learning 模型管理
 
@@ -99,27 +99,27 @@ Azure Machine Learning 模型管理會提供 API 供您重新訓練模型。 您
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## <a name="frequently-asked-questions-faq"></a>常見問題集 (FAQ) 
-- 支援何種資料類型？ 是否可以直接傳遞 NumPy 陣列來作為 Web 服務的輸入？
+- **支援何種資料類型？是否可以直接傳遞 NumPy 陣列來作為 Web 服務的輸入？**
 
    如果您要提供使用 generate_schema SDK 所建立的結構描述檔案，則可以傳遞 NumPy 和 (或) Pandas DF。 您也可以傳遞任何能夠以 JSON 進行序列化的輸入。 您也可以利用二進位編碼字串的形式來傳遞映像。
 
-- Web 服務是否支援多個輸入或是否會剖析不同的輸入？ 
+- **Web 服務是否支援多個輸入或是否會剖析不同的輸入？**
 
    是，您可以將封裝在一個 JSON 要求中的多個輸入作為字典。 每個輸入會對應至一個唯一的字典索引鍵。
 
-- 由 Web 服務要求所啟用的呼叫是屬於封鎖呼叫還是非同步呼叫？
+- **由 Web 服務要求所啟用的呼叫是屬於封鎖呼叫還是非同步呼叫？**
 
    如果服務是在 CLI 或 API 執行期間使用即時選項所建立的，則屬於封鎖/同步呼叫。 服務應該要快到彷彿是即時的。 不過，您可以在用戶端使用非同步的 HTTP 程式庫來呼叫服務以避免用戶端執行緒遭到封鎖。
 
-- Web 服務可以同時處理多少要求？
+- **Web 服務可以同時處理多少要求？**
 
    視叢集和 Web 服務的規模而定。 您可以將服務相應放大到複本的 100 倍，然後它就可以同時處理許多要求。 您也可以設定每個複本的最大並行要求數量，以增加服務的輸送量。
 
-- Web 服務可以將多少要求排入佇列？
+- **Web 服務可以將多少要求排入佇列？**
 
    數量是可以設定的。 根據預設，它會設定為每個單一複本最多 10 個，但您可以予以增加/減少以符合應用程式的需求。 一般而言，增加排入佇列之要求的數目會增加服務輸送量，但在百分位數較高時會讓延遲時間變嚴重。 若要讓延遲保持一致，您可以將佇列設定為較低的值 (1-5)，並增加用來處理輸送量的複本數目。 您也可以開啟自動調整功能，讓系統根據負載情形自動調整複本數目。 
 
-- 可以將同一個機器或叢集用於多個 Web 服務端點嗎？
+- **可以將同一個機器或叢集用於多個 Web 服務端點嗎？**
 
    當然。 同一個叢集上可以執行 100 倍的服務/端點。 
 

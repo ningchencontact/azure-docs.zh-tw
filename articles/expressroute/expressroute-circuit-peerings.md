@@ -1,24 +1,24 @@
 ---
-title: "Azure ExpressRoute 線路和路由網域 | Microsoft Docs"
-description: "此頁面提供 ExpressRoute 線路和路由網域的概觀。"
+title: Azure ExpressRoute 線路和路由網域 | Microsoft Docs
+description: 此頁面提供 ExpressRoute 線路和路由網域的概觀。
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
+ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: c8f3c0e87a052b327e9949acd3e7db1d28c1eb46
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute 線路和路由網域
  您必須訂購 *ExpressRoute 線路* ，才能將內部部署基礎結構透過連線提供者連接到 Microsoft。 下圖所示的是 WAN 與 Microsoft 之間連線的邏輯表示法。
@@ -60,12 +60,12 @@ ExpressRoute 線路有多個相關聯的路由網域：Azure 公用、Azure 私�
 
 您可以在您的網路內定義自訂路由篩選條件，以便僅取用所需的路由。 如需路由組態的詳細資訊，請參閱 [路由](expressroute-routing.md) 頁面。 
 
-如需有關透過公用對等路由網域支援的服務的詳細資訊，請參閱 [常見問題集頁面](expressroute-faqs.md) 。 
+如需有關透過公用對等路由網域支援的服務詳細資訊，請參閱[常見問題集](expressroute-faqs.md)。
 
 ### <a name="microsoft-peering"></a>Microsoft 對等互連
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-與其他所有 Microsoft 線上服務 (Office 365、Dynamics 365 及 Azure PaaS 服務) 的連線將會透過 Microsoft 對等互連進行。 我們會透過 Microsoft 對等路由網域啟用 WAN 與 Microsoft 雲端服務之間的雙向連線。 您只能透過您或連線提供者所擁有的公用 IP 位址連線到 Microsoft 雲端服務，且必須遵守所有已定義的規則。 如需詳細資訊，請參閱 [ExpressRoute 必要條件](expressroute-prerequisites.md) 。
+與 Microsoft 線上服務 (Office 365、Dynamics 365 及 Azure PaaS 服務) 的連線將會透過 Microsoft 對等互連進行。 我們會透過 Microsoft 對等路由網域啟用 WAN 與 Microsoft 雲端服務之間的雙向連線。 您只能透過您或連線提供者所擁有的公用 IP 位址連線到 Microsoft 雲端服務，且必須遵守所有已定義的規則。 如需詳細資訊，請參閱 [ExpressRoute 必要條件](expressroute-prerequisites.md)頁面。
 
 如需支援的服務、費用和組態的詳細資訊，請參閱 [常見問題集頁面](expressroute-faqs.md) 。 如需有關提供 Microsoft 對等支援的連線提供者清單的詳細資訊，請參閱 [ExpressRoute 位置](expressroute-locations.md) 頁面。
 

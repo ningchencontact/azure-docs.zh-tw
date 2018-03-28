@@ -1,11 +1,11 @@
 ---
-title: "應用程式的商標指導方針 | Microsoft Docs"
-description: "Azure Active Directory 開發人員導向資源的完整指南"
+title: 應用程式的商標指導方針 | Microsoft Docs
+description: Azure Active Directory 開發人員導向資源的完整指南
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.openlocfilehash: 51adb13e15312130841c065f5678209508457559
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5ce970913d767dbf6b13381cf18c1f7b05d252f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="branding-guidelines-for-applications"></a>應用程式的商標指導方針
-本主題討論使用 Azure Active Directory (Azure AD) 開發應用程式時，您應該使用的商標指導方針。 當客戶想要使用其工作或學校帳戶 (在 Azure AD 中管理) 或其個人帳戶來註冊和登入您的應用程式時，這些指導方針可協助引導客戶。
+本文討論您在使用 Azure Active Directory (Azure AD) 開發應用程式時所應使用的商標指導方針。 當客戶想要使用其工作或學校帳戶 (在 Azure AD 中管理) 或其個人帳戶來註冊和登入您的應用程式時，這些指導方針可協助引導客戶。
 
 ## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>個人帳戶與 Microsoft 提供的工作或學校帳戶的比較
 Microsoft 管理兩種類型的使用者帳戶：
@@ -51,13 +51,13 @@ Microsoft 不會在 Azure 或 Active Directory 品牌名稱上公開使用者，
 ## <a name="visual-guidance-for-app-acquisition"></a>取得應用程式的視覺化導引
 [取得應用程式] 連結必須將使用者重新導向 Azure AD 授與存取權 (授權) 頁面，讓組織的系統管理員可授權您的應用程式來存取由 Microsoft 管理的組織資料。 [整合應用程式與 Azure Active Directory](active-directory-integrating-applications.md) 一文中詳細討論存取權的要求方式。
 
-系統管理員同意您的應用程式之後，他們可以選擇將它加入使用者的 Office 365 應用程式啟動器體驗 (可從非正式管道和 [https://portal.office.com/myapps](https://portal.office.com/myapps)存取)。 如果您想要宣傳這項功能，您可以使用「將此應用程式加入至您的組織」之類的詞彙，並顯示如下的按鈕：
+系統管理員同意您的應用程式之後，他們可以選擇將其新增至使用者的 Office 365 應用程式啟動器體驗 (可從非正式管道和 [https://portal.office.com/myapps](https://portal.office.com/myapps) 存取)。 如果您想要宣傳這項功能，您可以使用「將此應用程式加入至您的組織」之類的詞彙，並顯示如下的按鈕：
 
 ![應用程式類型和案例](./media/active-directory-branding-guidelines/add-to-my-org.png)
 
 不過，我們建議您撰寫說明文字，而不要依賴按鈕。 例如︰
 
-> 如果您已經使用 Office 365 或 Microsoft 的其他商務服務，您便可以直接授權 <your_app_name> 存取您的組織資料。這可讓使用者利用其現有的工作帳戶存取 <your_app_name>。
+> *如果您已經使用 Office 365 或 Microsoft 的其他商務服務，您可以為 <your_app_name> 授與對您組織資料的存取權。*這可讓使用者利用其現有的工作帳戶存取 <your_app_name>。
 > 
 > 
 
@@ -77,14 +77,16 @@ Microsoft 不會在 Azure 或 Active Directory 品牌名稱上公開使用者，
 
 ![應用程式類型和案例](./media/active-directory-branding-guidelines/sign-in-dark.png)
 
-## <a name="branding-dos-and-donts"></a>商標的建議與禁忌
-**建議** 將「工作或學校帳戶」與「使用 Microsoft 登入」按鈕結合使用，以提供更多說明協助使用者了解是否可使用它。 **禁止** 使用「企業帳戶」、「商務帳戶」或「公司帳戶」之類的其他詞彙。
+若要下載使用這些影像並在您的應用程式中使用，請以滑鼠右鍵按一下您要使用的影像，並將其儲存到電腦。 
 
-**禁止** 使用 "Office 365 ID" 或 "Azure ID"。 Office 365 也是 Microsoft 提供的消費型產品名稱，並不使用 Azure AD 進行驗證。
+## <a name="branding-dos-and-donts"></a>商標的建議與禁忌
+**建議**將「工作或學校帳戶」與「使用 Microsoft 登入」按鈕結合使用，以提供更多說明協助使用者了解是否可使用它。 **禁止** 使用「企業帳戶」、「商務帳戶」或「公司帳戶」之類的其他詞彙。
+
+**禁止**使用 "Office 365 ID" 或 "Azure ID"。 Office 365 也是 Microsoft 提供的消費型產品名稱，並不使用 Azure AD 進行驗證。
 
 **禁止** 改變 Microsoft 標誌。
 
-**禁止** 在 Azure 或 Active Directory 品牌上公開使用者。 不過，對於開發人員、IT 專業人員和系統管理員，則可以使用這些詞彙。
+**禁止**在 Azure 或 Active Directory 品牌上公開使用者。 不過，對於開發人員、IT 專業人員和系統管理員，則可以使用這些詞彙。
 
 ## <a name="navigation-dos-and-donts"></a>導覽的建議與禁忌
 **建議** 提供方法讓使用者登出並切換至另一個使用者帳戶。 雖然大部分的人只有一個 Microsoft/Facebook/Google/Twitter 個人帳戶，但往往與多個組織相關聯。 我們即將支援多重登入使用者。

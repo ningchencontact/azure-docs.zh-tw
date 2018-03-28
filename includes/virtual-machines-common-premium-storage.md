@@ -57,10 +57,12 @@ Azure 提供兩種建立 VM 進階儲存體磁碟的方法：
 
     進階儲存體帳戶僅支援本地備援儲存體作為複寫選項。 本地備援儲存體會在單一區域內保留三份資料副本。 針對區域性災害復原，您必須使用 [Azure 備份](../articles/backup/backup-introduction-to-azure-backup.md)來備份位於不同區域的 VM 磁碟。 您也必須使用異地備援儲存體 (GRS) 帳戶作為備份保存庫。 
 
-    Azure 會使用儲存體帳戶作為非受控磁碟的容器。 當您建立具有非受控磁碟的 Azure DS 系列、DSv2 系列、GS 系列或 Fs 系列 VM，並選取進階儲存體帳戶時，您的作業系統和資料磁碟會儲存在該儲存體帳戶中。
+    Azure 會使用儲存體帳戶作為非受控磁碟的容器。 當您建立的 Azure VM 支援採用非受控磁碟的進階儲存體，而且您選取進階儲存體帳戶時，您的作業系統和資料磁碟會儲存在該儲存體帳戶中。
 
 ## <a name="supported-vms"></a>支援的 VM
-進階儲存體支援 DS 系列、DSv2 系列、GS 系列、Ls 系列、Fs 系列和 B 系列 VM。 這些 VM 類型可搭配標準和進階儲存體磁碟使用。 您不能將進階儲存體磁碟與不能和進階儲存體相容的 VM 系列搭配使用。
+
+進階儲存體支援 B 系列、DS 系列、DSv2 系列、DSv3 系列、GS 系列、Ls 系列、M 系列、Fs 系列 VM。 這些 VM 類型可搭配標準和進階儲存體磁碟使用。 您不能將進階儲存體磁碟與不能和進階儲存體相容的 VM 系列搭配使用。
+
 
 如需 Azure 中的 VM 類型和大小資訊 (適用於 Windows)，請參閱 [Windows VM 大小](../articles/virtual-machines/windows/sizes.md)。 如需 Azure 中的 VM 類型和大小資訊 (適用於 Linux)，請參閱 [ VM 大小](../articles/virtual-machines/linux/sizes.md)。
 

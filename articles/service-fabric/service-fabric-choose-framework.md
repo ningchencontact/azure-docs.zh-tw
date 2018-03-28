@@ -1,9 +1,9 @@
 ---
-title: "Service Fabric 程式撰寫模型概觀 | Microsoft Docs"
-description: "Service Fabric 提供兩種架構來建置服務：動作項目架構和服務架構。 它們在簡化與控制中提供不同的取捨。"
+title: Service Fabric 程式撰寫模型概觀 | Microsoft Docs
+description: Service Fabric 提供兩種架構來建置服務：動作項目架構和服務架構。 它們在簡化與控制中提供不同的取捨。
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: vturecek
 manager: timlt
 editor: vturecek
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: a68db62f87bca5c641db310823588df6fb74f75e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6c4503b3e05f7d78f64a161f620b1fbd6cd38ab1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Service Fabric 程式設計模型概觀
 Service Fabric 提供多種撰寫和管理服務的方式。 服務可選擇使用 Service Fabric API 以善加運用平台的功能和應用程式架構。 服務也可以是以任何語言撰寫的任何已編譯可執行程式，或是在 Service Fabric 叢集所裝載之容器中執行的程式碼。
 
 ## <a name="guest-executables"></a>客體可執行檔
-[客體可執行檔](service-fabric-deploy-existing-app.md)是可在應用程式中作為服務執行的現有任意可執行檔 (以任何語言撰寫)。 客體可執行檔不直接呼叫 Service Fabric SDK API。 不過，它們仍然受惠於功能和平台提供項目，例如透過呼叫 Service Fabric 公開的 REST API 使用探索服務、自訂健康情況和負載報告。 它們也具備完整的應用程式生命週期支援。
+[客體可執行檔](service-fabric-guest-executables-introduction.md)是可在應用程式中作為服務執行的現有任意可執行檔 (以任何語言撰寫)。 客體可執行檔不直接呼叫 Service Fabric SDK API。 不過，它們仍然受惠於功能和平台提供項目，例如透過呼叫 Service Fabric 公開的 REST API 使用探索服務、自訂健康情況和負載報告。 它們也具備完整的應用程式生命週期支援。
 
 部署您的第一個 [來賓可執行的應用程式](service-fabric-deploy-existing-app.md)，開始使用來賓可執行檔。
 
@@ -50,7 +50,7 @@ ASP.NET Core 是新的開放原始碼和跨平台架構，可建置現代化雲�
 ## <a name="reliable-actors"></a>Reliable Actors
 Reliable Actor 架構是建置在 Reliable Services 最上層的應用程式架構，其根據動作項目設計模式來實作 Virtual Actor 模式。 Reliable Actor 架構使用獨立的計算單位，和以單一執行緒方式執行稱為動作項目的狀態。 Reliable Actor 架構提供動作項目的內建通訊和預先設定狀態持續性和相應放大組態。
 
-Reliable Actors 本身是建置在 Reliable Services 上的應用程式架構，與 Service Fabric 平台完全整合，得益於平台提供的完整功能集。
+由於 Reliable Actors 本身是建置在 Reliable Services 上的應用程式架構，因此與 Service Fabric 平台完全整合，並可得益於平台提供的完整功能集。
 
 [深入了解 Reliable Actors](service-fabric-reliable-actors-introduction.md) 或從[撰寫第一項 Reliable Actor 服務](service-fabric-reliable-actors-get-started.md)開始
 

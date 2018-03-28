@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 中的憑證認證 | Microsoft Docs"
-description: "本文討論如何註冊和使用憑證認證來進行應用程式驗證"
+title: Azure AD 中的憑證認證 | Microsoft Docs
+description: 本文討論如何註冊和使用憑證認證來進行應用程式驗證
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>適用於應用程式驗證的憑證認證
 
@@ -32,7 +32,7 @@ Azure Active Directory 可讓應用程式使用自己的認證進行驗證，例
 #### <a name="header"></a>頁首
 
 | 參數 |  備註 |
-| --- | --- | --- |
+| --- | --- |
 | `alg` | 應該是 **RS256** |
 | `typ` | 應該是 **JWT** |
 | `x5t` | 應該是 X.509 憑證 SHA-1 憑證指紋 |
@@ -40,7 +40,7 @@ Azure Active Directory 可讓應用程式使用自己的認證進行驗證，例
 #### <a name="claims-payload"></a>宣告 (承載)
 
 | 參數 |  備註 |
-| --- | --- | --- |
+| --- | --- |
 | `aud` | 對象︰應該是 **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | 到期日：權杖到期的日期。 時間會表示為從 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 到權杖有效時間到期的秒數。|
 | `iss` | 簽發者︰應該是 client_id (用戶端服務的應用程式識別碼) |
@@ -49,9 +49,11 @@ Azure Active Directory 可讓應用程式使用自己的認證進行驗證，例
 | `sub` | 主旨：對於 `iss`，應該是 client_id (用戶端服務的應用程式識別碼) |
 
 #### <a name="signature"></a>簽章
+
 簽章是使用 [JSON Web 權杖 RFC7519 規格](https://tools.ietf.org/html/rfc7519) 中所述的憑證計算的
 
 ### <a name="example-of-a-decoded-jwt-assertion"></a>已解碼的 JWT 判斷提示範例
+
 ```
 {
   "alg": "RS256",
@@ -73,6 +75,7 @@ Azure Active Directory 可讓應用程式使用自己的認證進行驗證，例
 ```
 
 ### <a name="example-of-an-encoded-jwt-assertion"></a>已編碼的 JWT 判斷提示範例
+
 下列字串是已編碼判斷提示的範例。 如果您仔細看，會發現三個以點 (.) 分隔的區段。
 第一個區段編碼標頭，第二個區段編碼承載，而最後區段則是使用前兩個區段的內容的憑證所計算的簽章。
 ```
@@ -81,14 +84,17 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 ### <a name="register-your-certificate-with-azure-ad"></a>使用 Azure AD 註冊您的憑證
+
 若要在 Azure AD 中將憑證認證與用戶端應用程式相關聯，您必須編輯應用程式資訊清單。
 擁有憑證之後，您必須計算︰
+
 - `$base64Thumbprint`，它是憑證雜湊的 base64 編碼
 - `$base64Value`，它是憑證未經處理資料的 base64 編碼
 
-您也必須提供 GUID 來識別應用程式資訊清單中的金鑰 (`$keyId`)
+您也必須提供 GUID 來識別應用程式資訊清單中的金鑰 (`$keyId`)。
 
 在適用於用戶端應用程式的 Azure 應用程式註冊中，開啟應用程式資訊清單，然後使用下列結構描述，利用您新的憑證資訊來取代 *keyCredentials* 屬性：
+
 ```
 "keyCredentials": [
     {

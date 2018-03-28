@@ -1,28 +1,27 @@
 ---
-title: "使用 DMV 監視工作負載 | Microsoft Docs"
-description: "了解如何使用 DMV 監視工作負載。"
+title: 使用 DMV 監視工作負載 | Microsoft Docs
+description: 了解如何使用 DMV 監視工作負載。
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
-ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/14/2017
+ms.date: 03/15/2018
 ms.author: joeyong;barbkess;kevin
-ms.openlocfilehash: 1895e9c6174dfb05212991040cc265b8cb6e0651
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e25a1f8d807fa317e8ce246fd49de034182af96
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>使用 DMV 監視工作負載
-本文說明如何使用動態管理檢視 (DMV)，在 Azure SQL 資料倉儲中監視工作負載及調查查詢執行。
+本文說明如何使用動態管理檢視 (DMV) 來監視您的工作負載。 這包括調查 Azure SQL 資料倉儲中的查詢執行。
 
 ## <a name="permissions"></a>權限
 若要查詢此文章中的 DMV，您需要「檢視資料庫狀態」或「控制」權限。 通常授與「檢視資料庫狀態」是慣用的權限，因為它較具限制性。
@@ -72,7 +71,7 @@ WHERE   [label] = 'My Query';
 
 從前述的查詢結果中，記下您想要調查之查詢的 **要求 ID** 。
 
- 狀態的查詢會因為並行限制而進入佇列。 這些查詢也會顯示在 sys.dm_pdw_waits 等候查詢中，類型為 UserConcurrencyResourceType。 如需並行限制的詳細資料，請參閱[並行和工作負載管理][Concurrency and workload management]。 查詢也會因其他原因 (例如物件鎖定) 而等候。  如果您的查詢正在等候資源，請參閱本文稍後的[檢查正在等候資源的查詢][Investigating queries waiting for resources]。
+ 狀態的查詢會因為並行限制而進入佇列。 這些查詢也會顯示在 sys.dm_pdw_waits 等候查詢中，類型為 UserConcurrencyResourceType。 如需有關並行限制的資訊，請參閱[效能層級](performance-tiers.md)或[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)。 查詢也會因其他原因 (例如物件鎖定) 而等候。  如果您的查詢正在等候資源，請參閱本文稍後的[檢查正在等候資源的查詢][Investigating queries waiting for resources]。
 
 若要簡化在 sys.dm_pdw_exec_requests 資料表中查閱查詢的方式，請使用 [LABEL][LABEL] 來將可在 sys.dm_pdw_exec_requests 檢視中查閱的註解指派給您的查詢。
 
@@ -135,7 +134,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * 檢查 *total_elapsed_time* 資料行，查看是否有特定散發，在資料移動上比其他散發用了更多時間。
-* 如果是長時間執行的散發，請檢查 *rows_processed* 資料行，查看從該散發移動的資料列數是否遠多過其他散發。 若是如此，這可能表示基礎資料的扭曲。
+* 如果是長時間執行的散發，請檢查 *rows_processed* 資料行，查看從該散發移動的資料列數是否遠多過其他散發。 若是如此，這個結果可能表示基礎資料的扭曲。
 
 如果查詢正在執行，可以使用 [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN]，針對特定散發內目前正在執行的 SQL 步驟，從 SQL Server 計畫快取擷取 SQL Server 預估計畫。
 
@@ -174,9 +173,9 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 如果查詢正在主動等候另一個查詢的資源，則狀態會是 **AcquireResources**。  如果查詢具有全部的所需資源，則狀態會是 **Granted**。
 
 ## <a name="monitor-tempdb"></a>監視 tempdb
-高 tempdb 使用量是效能緩慢及記憶體不足問題的根本原因。 如果您在查詢執行期間發現 tempdb 達到其上限，請考慮調整您的資料倉儲。 以下描述如何識別每個節點上每個查詢的 tempdb 使用量。 
+高 tempdb 使用量是效能緩慢及記憶體不足問題的根本原因。 如果您在查詢執行期間發現 tempdb 達到其上限，請考慮調整您的資料倉儲。 以下資訊描述如何識別每個節點上每個查詢的 tempdb 使用量。 
 
-建立下列檢視，以針對 sys.dm_pdw_sql_requests 建立適當節點識別碼的關聯。 這可讓您運用其他傳遞 DMV，並將這些資料表與 sys.dm_pdw_sql_requests 聯結。
+建立下列檢視，以針對 sys.dm_pdw_sql_requests 建立適當節點識別碼的關聯。 擁有節點識別碼可讓您使用其他傳遞 DMV，並將這些資料表與 sys.dm_pdw_sql_requests 聯結。
 
 ```sql
 -- sys.dm_pdw_sql_requests with the correct node id
@@ -200,7 +199,7 @@ CREATE VIEW sql_requests AS
 FROM sys.pdw_distributions AS d
 RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
 ```
-執行下列查詢可監視 tempdb：
+若要監視 tempdb，請執行下列查詢：
 
 ```sql
 -- Monitor tempdb
@@ -284,8 +283,8 @@ GROUP BY t.pdw_node_id, nod.[type]
 ```
 
 ## <a name="next-steps"></a>後續步驟
-請參閱[系統檢視][System views]以取得 DMV 的詳細資訊。
-請參閱 [SQL 資料倉儲最佳做法][SQL Data Warehouse best practices]以取得最佳做法的詳細資訊
+如需 DMV 的詳細資訊，請參閱[系統檢視][System views]。
+
 
 <!--Image references-->
 
@@ -294,7 +293,6 @@ GROUP BY t.pdw_node_id, nod.[type]
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->

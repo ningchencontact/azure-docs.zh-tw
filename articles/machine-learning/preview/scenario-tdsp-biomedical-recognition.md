@@ -1,12 +1,12 @@
 ---
-title: "生物醫學實體辨識 - Team Data Science Process - Azure Machine Learning | Microsoft Docs"
-description: "在 Azure Machine Learning Workbench 中使用生物醫學實體辨識深度學習的 Team Data Science Process 專案快速入門。"
+title: 生物醫學實體辨識 - Team Data Science Process - Azure Machine Learning | Microsoft Docs
+description: 在 Azure Machine Learning Workbench 中使用生物醫學實體辨識深度學習的 Team Data Science Process 專案快速入門。
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4e8450cc20718185a3cea02bf8fbb6b97dd91ddb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>使用 Team Data Science Process (TDSP) 範本的生物醫學實體辨識
 
@@ -32,17 +32,17 @@ ms.lasthandoff: 12/18/2017
 
 4. 示範 Azure Machine Learning Workbench 中的下列功能：
 
-    * [Team Data Science Process (TDSP) 結構和範本](how-to-use-tdsp-in-azure-ml.md)的具現化。
+    * [Team Data Science Process (TDSP) 結構和範本](how-to-use-tdsp-in-azure-ml.md)的具現化
     * 自動化管理專案相依性，包括下載和安裝
-    * 在不同計算環境上執行 Python 指令碼。
-    * 執行 Python 指令碼的歷程記錄追蹤。
-    * 在使用 HDInsight Spark 2.1 叢集的遠端 Spark 計算內容上執行作業。
-    * 在 Azure 上的遠端 GPU VM 中執行作業。
-    * 輕易將深度學習模型運算化成為 Azure Container Service (ACS) 上的 Web 服務。
+    * 在不同計算環境上執行 Python 指令碼
+    * 執行 Python 指令碼的歷程記錄追蹤
+    * 在使用 HDInsight Spark 2.1 叢集的遠端 Spark 計算內容上執行作業
+    * 在 Azure 上的遠端 GPU VM 中執行作業
+    * 輕易將深度學習模型運算化作為 Azure Container Service (ACS) 上的 Web 服務
 
 ## <a name="use-case-overview"></a>使用案例概觀
 生物醫學具名實體辨識是複雜生物醫學 NLP 工作的重要步驟，例如： 
-* 從電子醫療或健;康記錄中擷取提及具名實體的部分，例如疾病、藥物、化學藥品和徵狀。
+* 從電子醫療或健康記錄中擷取提及具名實體的部分，例如疾病、藥物、化學藥品和徵狀。
 * 藥物探索
 * 了解不同實體類型之間的互動，例如藥物交互作用、藥物-疾病關係和基因-蛋白質關係。
 
@@ -266,7 +266,7 @@ Vanilla RNN 實際上會遇到[梯度消失問題](https://en.wikipedia.org/wiki
 
 * Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013a. Efficient estimation of word representations in vector space. In Proceedings of ICLR.
 * Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. 2013b. Distributed representations of words and phrases and their compositionality. In Proceedings of NIPS, pages 3111–3119.
-* Billy Chiu, Gamal Crichton, Anna Korhonen and Sampo Pyysalo. 2016. [How to Train Good Word Embeddings for Biomedical NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf), In Proceedings of the 15th Workshop on Biomedical Natural Language Processing, pages 166–174.
+* Billy Chiu, Gamal Crichton, Anna Korhonen, and Sampo Pyysalo. 2016. [How to Train Good Word Embeddings for Biomedical NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf), In Proceedings of the fifteenth Workshop on Biomedical Natural Language Processing, pages 166–174.
 * [Vector Representations of Words](https://www.tensorflow.org/tutorials/word2vec)
 * [遞迴式類神經網路模型](https://www.tensorflow.org/tutorials/recurrent)
 * [Problems encountered with Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/)

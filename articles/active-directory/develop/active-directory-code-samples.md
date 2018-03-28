@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 程式碼範例 | Microsoft Docs"
-description: "依案例的組織的 Azure Active Directory 程式碼範例的索引。"
+title: Azure Active Directory 程式碼範例 | Microsoft Docs
+description: 依案例的組織的 Azure Active Directory 程式碼範例的索引。
 services: active-directory
 documentationcenter: dev-center-name
 author: msmbaldwin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.openlocfilehash: 5f47f03594e64281b55161edb1c391ed0be83a73
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 130d26828acd5394756c47f22217272338cc33e6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-code-samples"></a>Azure Active Directory 程式碼範例
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -38,6 +38,7 @@ ms.lasthandoff: 02/28/2018
 | C#/.NET |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) |使用 OpenID Connect (ASP.Net OpenID Connect OWIN 中介軟體) 驗證來自 Azure AD 租用戶的使用者。 |
 | C#/.NET |[WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect) |多租用戶 .NET MVC Web 應用程式，其使用 OpenID Connect (ASP.Net OpenID Connect OWIN 中介軟體) 驗證來自多個 Azure AD 租用戶的使用者。 |
 | C#/.NET |[WebApp-WSFederation-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) |使用 WS-Federation (ASP.Net WS-Federation OWIN 中介軟體) 驗證來自 Azure AD 租用戶的使用者。 |
+| C#/.NET Core |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) |使用 OpenID Connect 讓使用者透過 ASP.NET Core OpenID Connect 中介軟體從單一 Azure Active Directory (Azure AD) 租用戶登入的 .NET MVC Web 應用程式。 |
 
 ## <a name="single-page-application-spa"></a>單一頁面應用程式 (SPA)
 這個範例示範如何撰寫使用 Azure AD 保護的單一頁面應用程式。  

@@ -11,7 +11,7 @@
 
 <sup>1</sup>同時包括標準和進階儲存體帳戶。 如果您需要超過 200 個儲存體帳戶，請透過 [Azure 支援](https://azure.microsoft.com/support/faq/)提出要求。 Azure 儲存體團隊將會檢閱您的商務案例，而且可以核准多達 250 個儲存體帳戶。 
 
-<sup>2</sup> 若要取得標準儲存體帳戶，才能成長超越容量、輸入/輸出和要求速率方面的公告限制，請透過 [Azure 支援](https://azure.microsoft.com/support/faq/)提出要求。 Azure 儲存體團隊會檢閱要求，並可能依照個案核准較高的限制。
+<sup>2</sup> 若需要儲存體帳戶的延伸限制，請連絡 [Azure 支援](https://azure.microsoft.com/support/faq/)。 Azure 儲存體團隊會檢閱要求，並可能依照個案核准較高的限制。 一般用途與 Blob 儲存體帳戶都可依照要求支援更高的容量、輸入/輸出和要求率。 如需 Blob 儲存體帳戶的最新最大值，請參閱[宣佈較大型、較大規模的儲存體帳戶](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)。
 
 <sup>3</sup>只受限於帳戶的輸入/輸出限制。 *輸入*是指傳送至某個儲存體帳戶的所有資料 (要求)。 *輸出* 是指從某個儲存體帳戶接收的所有資料 (回應)。  
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning 2017 預覽版常見問題集 | Microsoft Docs"
-description: "本文包含 Azure Machine Learning 預覽版功能的常見問題集與解答"
+title: Azure Machine Learning 2017 預覽版常見問題集 | Microsoft Docs
+description: 本文包含 Azure Machine Learning 預覽版功能的常見問題集與解答
 services: machine-learning
 author: serinakaye
 ms.author: serinak
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 86ef8acf46cef2b057596d8224c6c29f3a0f534d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6146e1ce98144a05bef2ca29705f451aa3f5fb50
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 常見問題集
 
@@ -32,7 +32,7 @@ Azure Machine Learning 是一個完全受控的 Azure 服務，可讓您建立�
 
 **需要哪些其他 Azure 服務？**
 
-為了完整體驗 Azure Machine Learning 的所有功能，Azure Machine Learnign 將使用 Visual Studio VSTS 帳戶、「Azure Blob 儲存體」、Azure Container Registry、「資料科學 VM」或 HDInsight 計算，以及 Azure Container Service。
+Azure Blob 儲存體和 Azure Container Registry 會由 Azure Machine Learning 使用。 此外，您必須佈建運算資源，例如資料科學 VM 或 HDInsight 叢集。 部署您的 Web 服務時也需要運算和裝載，例如 [Azure Container Service](https://docs.microsoft.com/azure/aks)。
 
 **Azure Machine Learning 與 SQL Server 2017 中的 Microsoft Machine Learning 服務如何相關？**   
 
@@ -46,7 +46,7 @@ SQL Server 2017 中的「Machine Learning 服務」是一個可延伸、可調�
 
 MMLSpark 提供適用於 Apache Spark 的深層學習和資料科學工具，強調生產力、容易測試及最先進的演算法。 MMLSpark 提供「Spark 機器學習服務」管線與 Microsoft Cognitive Toolkit 和 OpenCV 的整合。 您可以為影像和文字資料建立強大、具備高度靈活調整能力的預測和分析模型。 MMLSpark 是以開放原始碼授權的形式提供，並且包含在 AML Workbench 中作為一組可取用的模型和演算法。 如需有關 MMLSpark 的詳細資訊，請瀏覽我們的產品文件。 
 
-**新工具和服務支援哪些 Spark 版本？上方區段**
+**新工具和服務支援哪些 Spark 版本？**
 
 Workbench 目標包含並支援 MMLSpark 0.8 版，此版本與 Apache Spark 2.1 相容。 您也可以選擇在 Linux 虛擬機器上使用支援 GPU 的 MMLSpark 0.8 Docker 映像。
 
@@ -119,7 +119,7 @@ Azure Machine Learning Workbench 是為專業資料科學人員建置的隨附�
 
 **Workbench 是否是一種 IDE？**
 
-編號 Machine Learning Workbench 已設計為常用 IDE (例如 Jupyter Notebook、Visual Studio Code 及 PyCharm) 的隨附應用程式，但它不是功能完整的 IDE。 Machine Learning Workbench 提供一些基本的文字編輯功能，但不支援偵錯、IntelliSense 及其他常用的 IDE 功能。 建議您使用慣用的 IDE 來進行程式碼開發、編輯及偵錯。 
+編號 Machine Learning Workbench 已設計為常用 IDE (例如 Jupyter Notebook、Visual Studio Code 及 PyCharm) 的隨附應用程式，但它不是功能完整的 IDE。 Machine Learning Workbench 提供一些基本的文字編輯功能，但不支援偵錯、IntelliSense 及其他常用的 IDE 功能。 建議您使用慣用的 IDE 來進行程式碼開發、編輯及偵錯。 您也可以嘗試使用 [Visual Studio Code Tools for AI](https://www.visualstudio.com/downloads/ai-tools-vscode)。
 
 **使用 Azure Machine Learning Workbench 是否需要付費？**
 

@@ -2,19 +2,18 @@
 title: Azure SQL Database 功能比較 | Microsoft Docs
 description: 本文會將 Azure SQL Database 的功能與「受控執行個體」彼此及與 SQL Server 做比較。
 services: sql-database
-documentationcenter: ''
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: jovanpop
-manager: cguyer
-ms.openlocfilehash: 34aafdc377acf0b67674dbac2e67237440ed1420
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+manager: craigg
+ms.openlocfilehash: 4c50adeef0d6e811af6e144aa7351d9b65c1bd76
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比較：Azure SQL Database 與 SQL Server 
 
@@ -52,7 +51,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [自主使用者](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | yes | yes |
 | [控制流程語言關鍵字](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | yes | yes |
 | [跨資料庫查詢](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 - 請參閱[彈性查詢](sql-database-elastic-query-overview.md) | 是，再加上[彈性查詢](sql-database-elastic-query-overview.md) |
-| [跨資料庫交易]((https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine)) | 否 | yes |
+| [跨資料庫交易](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 | yes |
 | [資料指標](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | yes |yes | 
 | [資料壓縮](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | yes |yes |
 | [Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | 否 | yes |

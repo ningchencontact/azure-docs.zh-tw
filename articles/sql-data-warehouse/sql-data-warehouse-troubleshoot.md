@@ -1,25 +1,24 @@
 ---
-title: "針對 Azure SQL 資料倉儲問題進行疑難排解 | Microsoft Docs"
-description: "針對 Azure SQL 資料倉儲問題進行疑難排解。"
+title: 針對 Azure SQL 資料倉儲問題進行疑難排解 | Microsoft Docs
+description: 針對 Azure SQL 資料倉儲問題進行疑難排解。
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/30/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: 48318397f9c5e463c82320ad9d7c23a1a62af77e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0829d448e8b925d0dcc032ed143d8fff42ab1b69
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>針對 Azure SQL 資料倉儲問題進行疑難排解
 本主題列出我們從客戶聽來的一些較常見的疑難排解問題。
@@ -27,9 +26,9 @@ ms.lasthandoff: 12/18/2017
 ## <a name="connecting"></a>連接
 | 問題 | 解決方案 |
 |:--- |:--- |
-| 使用者 'NT AUTHORITY\ANONYMOUS LOGON' 登入失敗。 (Microsoft SQL Server，錯誤：18456) |當 AAD 使用者嘗試連線到主要資料庫，但主要資料庫中沒有使用者時，就會發生此錯誤。  若要修正此問題，請在連線時指定您想要連接的 SQL 資料倉儲，或將使用者新增到主要資料庫。  如需詳細資訊，請參閱[安全性概觀][Security overview]一文。 |
-| 伺服器主體 "MyUserName" 在目前的資訊安全內容下無法存取「主要」資料庫。 無法開啟使用者預設資料庫。 登入失敗。 使用者 'MyUserName' 登入失敗。 (Microsoft SQL Server，錯誤：916) |當 AAD 使用者嘗試連線到主要資料庫，但主要資料庫中沒有使用者時，就會發生此錯誤。  若要修正此問題，請在連線時指定您想要連接的 SQL 資料倉儲，或將使用者新增到主要資料庫。  如需詳細資訊，請參閱[安全性概觀][Security overview]一文。 |
-| CTAIP 錯誤 |若已在 SQL Server Master 資料庫上建立登入，但未在 SQL 資料倉儲資料庫上建立，則會發生這個錯誤。  如果您遇到這個錯誤，請查看[安全性概觀][Security overview]一文。  這篇文章說明如何在主要資料庫上建立登入和使用者，接著如何在 SQL 資料倉儲資料庫上建立使用者。 |
+| 使用者 'NT AUTHORITY\ANONYMOUS LOGON' 登入失敗。 (Microsoft SQL Server，錯誤：18456) |當 AAD 使用者嘗試連線到主要資料庫，但主要資料庫中沒有使用者時，就會發生此錯誤。  若要修正此問題，請在連線時間指定您需要連線的 SQL 資料倉儲，或將使用者新增到 master 資料庫。  如需詳細資訊，請參閱[安全性概觀][Security overview]一文。 |
+| 伺服器主體 "MyUserName" 在目前的資訊安全內容下無法存取「主要」資料庫。 無法開啟使用者預設資料庫。 登入失敗。 使用者 'MyUserName' 登入失敗。 (Microsoft SQL Server，錯誤：916) |當 AAD 使用者嘗試連線到主要資料庫，但主要資料庫中沒有使用者時，就會發生此錯誤。  若要修正此問題，請在連線時間指定您需要連線的 SQL 資料倉儲，或將使用者新增到 master 資料庫。  如需詳細資訊，請參閱[安全性概觀][Security overview]一文。 |
+| CTAIP 錯誤 |若已在 SQL Server Master 資料庫上建立登入，但未在 SQL 資料倉儲資料庫上建立，則會發生這個錯誤。  如果您遇到這個錯誤，請查看[安全性概觀][Security overview]一文。  本文說明如何在 master 資料庫上建立登入和使用者，接著如何在 SQL 資料倉儲資料庫上建立使用者。 |
 | 遭到防火牆封鎖 |為確保只有已知的 IP 位址擁有資料庫的存取權限，Azure SQL 資料庫受到伺服器及資料庫層級的防火牆所保護。 防火牆預設將會受到保護，因此您在可以連線之前，必須明確啟用單一 IP 位址或位址範圍。  若要設定防火牆的存取，請遵循[佈建指示][Provisioning instructions]中[設定用戶端 IP 的伺服器防火牆存取][Configure server firewall access for your client IP]的步驟。 |
 | 無法與工具或驅動程式連線 |SQL 資料倉儲建議使用 [SSMS][SSMS]、[適用於 Visual Studio 的 SSDT][SSDT for Visual Studio] 或 [sqlcmd][sqlcmd] 來查詢您的資料。 如需驅動程式和連接到 SQL 資料倉儲的詳細資訊，請參閱 [Azure SQL 資料倉儲的驅動程式][Drivers for Azure SQL Data Warehouse]和[連接到 Azure SQL 資料倉儲][Connect to Azure SQL Data Warehouse]文章。 |
 
@@ -74,7 +73,7 @@ ms.lasthandoff: 12/18/2017
 | UDF 不支援 SELECT 陳述式 |這是 UDF 目前的限制。  關於我們支援的語法，請參閱 [CREATE FUNCTION][CREATE FUNCTION]。 |
 
 ## <a name="next-steps"></a>後續步驟
-如果您找不到解決上述問題的方法，以下是一些您可以嘗試的其他資源。
+如需更多尋找問題解決方案的協助，以下是您可以嘗試的其他資源。
 
 * [部落格]
 * [功能要求]
@@ -113,7 +112,7 @@ ms.lasthandoff: 12/18/2017
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
 [UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements

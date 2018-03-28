@@ -1,18 +1,18 @@
 ---
-title: "Azure 傳訊服務比較"
-description: "比較 Azure Event Grid、事件中樞，以及服務匯流排。 建議針對不同案例挑選服務。"
+title: Azure 傳訊服務比較
+description: 比較 Azure Event Grid、事件中樞，以及服務匯流排。 建議針對不同案例挑選服務。
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 30bbe7442cac96a1dcf6959cac2abedd61454a29
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>在傳遞訊息的 Azure 服務之間進行選擇
 
@@ -30,18 +30,22 @@ Azure 提供三種服務，協助在整個解決方案中傳遞事件訊息。 �
 
 ### <a name="event"></a>Event
 
-事件是動作或狀態變更的輕量級通知。 事件資料包含發生事件的資訊，但沒有觸發該事件的資料。 例如，事件會通知訂閱者檔案已建立。 通知中可能包含關於檔案的一般資訊，但不包含檔案本身。 一般而言，事件會觸發事件處理常式，以即時採取行動。
+事件是狀況或狀態變更的輕量級通知。 事件發行者不會預期事件的處理方式。 事件取用者會決定要如何處理通知。 事件可以是離散單位或系列的一部分。
+
+離散事件會報告狀態變更並可採取動作。 若要採取下一個步驟，取用者只需要知道發生狀況。 事件資料包含發生事件的資訊，但沒有觸發該事件的資料。 例如，事件會通知取用者檔案已建立。 通知中可能包含關於檔案的一般資訊，但不包含檔案本身。 離散事件非常適合需要調整的無伺服器解決方案。
+
+系列事件會報告狀況且可進行分析。 事件會依時間排序且相互關聯。 取用者需要循序的事件系列，才能分析所發生的狀況。
 
 ### <a name="message"></a>訊息
 
-訊息是由待取用或儲存在其他地方的服務所產生的未經處理資料。 此訊息包含觸發訊息管線的資料。 這種訊息五花八門，從電子商務訂單到使用者遙測都有可能。 與事件通知不同的是，訊息的發行者可能會期望得到回應。 舉例而言，有個訊息包含未經處理資料，但預期系統的下一部分會從該資料建立一個檔案。
+訊息是由待取用或儲存在其他地方的服務所產生的未經處理資料。 此訊息包含觸發訊息管線的資料。 訊息的發行者會預期取用者處理訊息的方式。 兩端之間有合約存在。 例如，發行者會傳送包含未經處理資料的訊息，並預期取用者從該資料建立檔案並且在工作完成時傳送回應。
 
 ## <a name="comparison-of-services"></a>服務比較
 
 | 服務 | 目的 | 類型 | 使用時機 |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | 回應式程式設計 | 事件發佈 | 回應狀態變更 |
-| 事件中樞 | 巨量資料管線 | 事件串流 | 遙測和分散式資料流 |
+| Event Grid | 回應式程式設計 | 事件散發 (離散) | 回應狀態變更 |
+| 事件中樞 | 巨量資料管線 | 事件串流 (系列) | 遙測和分散式資料流 |
 | 服務匯流排 | 高價值的企業傳訊 | 訊息 | 訂單處理和財務交易 |
 
 ### <a name="event-grid"></a>Event Grid

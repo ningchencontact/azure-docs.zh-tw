@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory 中的 Web 活動 | Microsoft Docs"
-description: "了解如何使用 Web 活動 (Data Factory 支援的其中一個控制流程活動) 從管線叫用 REST 端點。"
+title: Azure Data Factory 中的 Web 活動 | Microsoft Docs
+description: 了解如何使用 Web 活動 (Data Factory 支援的其中一個控制流程活動) 從管線叫用 REST 端點。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 04b542bf1f77b75c1c92b147b578df630b86d0ac
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 510f9ac95245580cb7f2f51487b5aeacc2a4825c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Web 活動
 使用 Web 活動可以從 Data Factory 管線呼叫自訂的 REST 端點。 您可以傳遞資料集和連結服務，以供活動取用和存取。 
@@ -69,7 +69,7 @@ ms.lasthandoff: 01/23/2018
 name | Web 活動的名稱 | 字串 | yes
 type | 必須設定為 **WebActivity**。 | 字串 | yes
 method | 目標端點的 Rest API 方法。 | 字串。 <br/><br/>支援的類型："GET"、"POST"、"PUT" | yes
-url | 目標端點和路徑 | 字串 (或含有字串之 resultType 的運算式) | yes
+url | 目標端點和路徑 | 字串 (或含有字串之 resultType 的運算式)。 如果活動未在 1 分鐘內收到來自端點的回應，就會發生逾時並出現錯誤。 | yes
 headers | 傳送至要求的標頭。 例如，若要對要求設定語言和類型︰`"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`。 | 字串 (或含有字串之 resultType 的運算式) | 是，Content-type 標頭是必要的。 `"headers":{ "Content-Type":"application/json"}`
 body | 代表傳送至端點的承載。 POST/PUT 方法的必要項。  | 字串 (或含有字串之 resultType 的運算式)。 <br/><br/>請在[要求乘載結構描述](#request-payload-schema)一節中查看要求乘載的結構描述。 | 否
 驗證 | 呼叫端點所使用的驗證方法。 支援的類型為「基本」或 ClientCertificate。 如需詳細資訊，請參閱[驗證](#authentication)一節。 如果不需要驗證，請排除這個屬性。 | 字串 (或含有字串之 resultType 的運算式) | 否
@@ -77,7 +77,7 @@ body | 代表傳送至端點的承載。 POST/PUT 方法的必要項。  | 字�
 linkedServices | 傳遞至端點的連結服務清單。 | 連結服務參考的陣列。 可以是空陣列。 | yes
 
 > [!NOTE]
-> Web 活動叫用的 REST 端點必須傳回 JSON 類型的回應。
+> Web 活動叫用的 REST 端點必須傳回 JSON 類型的回應。 如果活動未在 1 分鐘內收到來自端點的回應，就會發生逾時並出現錯誤。
 
 ## <a name="authentication"></a>驗證
 

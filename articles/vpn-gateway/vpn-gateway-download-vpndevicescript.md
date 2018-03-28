@@ -1,11 +1,11 @@
 ---
-title: "下載 S2S VPN 連線的 VPN 裝置設定指令碼：Azure Resource Manager | Microsoft Docs"
-description: "本文將逐步引導您使用 Azure Resource Manager 來下載 VPN 裝置設定指令碼，以便利用 Azure VPN 閘道進行 S2S VPN 連線。"
+title: 下載 S2S VPN 連線的 VPN 裝置設定指令碼：Azure Resource Manager | Microsoft Docs
+description: 本文將逐步引導您使用 Azure Resource Manager 來下載 VPN 裝置設定指令碼，以便利用 Azure VPN 閘道進行 S2S VPN 連線。
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2018
 ms.author: yushwang
-ms.openlocfilehash: ebff881cdaa7dd3e14fa1687588408cd9a911553
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2ec428bc5d2cdfb376db3c27b9899014c7ffa2af
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>下載可供進行 S2S VPN 連線的 VPN 裝置設定指令碼
 
@@ -103,4 +103,4 @@ Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connectio
 
 ## <a name="next-steps"></a>後續步驟
 
-一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 請參閱 [建立網站的虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 以取得相關步驟。
+繼續設定您的[站對站連線](vpn-gateway-howto-site-to-site-resource-manager-portal.md)。

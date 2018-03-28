@@ -1,25 +1,25 @@
 ---
-title: "載入 - Azure Data Lake Store 到 SQL 資料倉儲 | Microsoft Docs"
-description: "了解如何使用 PolyBase 外部資料表將資料從 Azure Data Lake Store 載入到 Azure SQL 資料倉儲。"
+title: 載入 - Azure Data Lake Store 到 SQL 資料倉儲 | Microsoft Docs
+description: 了解如何使用 PolyBase 外部資料表將資料從 Azure Data Lake Store 載入到 Azure SQL 資料倉儲。
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 12/14/2017
+ms.date: 3/14/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: a2a7d15eb51374b828d1d641e0e6754115f7aaf6
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: f8cd293236255e227f80a42e78d25aebd8789bdd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>將資料從 Azure Data Lake Store 載入到 SQL 資料倉儲
 本文件說明使用 PolyBase 將資料從 Azure Data Lake Store (ADLS) 載入到 SQL 資料倉儲時需要執行的所有步驟。
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/15/2017
 
 在本教學課程中，您將了解如何：
 
-1. 建立要從 Azure Data Lake Store 載入的外部資料庫物件。
+1. 建立需要從 Azure Data Lake Store 載入的資料庫物件。
 2. 連接到 Azure Data Lake Store 目錄。
 3. 將資料載入到 Azure SQL 資料倉儲。
 
@@ -42,9 +42,9 @@ ms.lasthandoff: 12/15/2017
 
 * SQL Server Management Studio 或 SQL Server Data Tools，用來下載 SSMS 和連接，請參閱[查詢 SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
-* 一個 Azure SQL 資料倉儲，若要建立，請依照下列連結中的指示執行：https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision_
+* Azure SQL 資料倉儲，請遵循 https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision 來加以建立
 
-* Azure Data Lake Store，若要建立，請依照下列連結中的指示執行：https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
+* An Azure Data Lake Store，請遵循 https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal 來加以建立
 
 
 ###  <a name="create-a-credential"></a>建立認證
@@ -82,7 +82,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>建立外部資料來源
-使用此 [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] 命令以儲存資料的位置。 若要在 Azure 入口網站尋找 ADL URI，請瀏覽至您的 Azure Data Lake Store，然後查看「基本資訊」面板。
+使用此 [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] 命令以儲存資料的位置。 
 
 ```sql
 -- C: Create an external data source
@@ -99,8 +99,8 @@ WITH (
 ```
 
 ## <a name="configure-data-format"></a>設定資料格式
-若要從 ADLS 匯入資料，您需要指定外部檔案格式。 這個命令有特定的格式選項，用以描述您的資料。
-請查閱我們的 T-SQL 文件，以取得 [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] 的完整清單
+若要從 ADLS 匯入資料，您需要指定外部檔案格式。 此物件會定義在 ADLS 中寫入檔案的方式。
+如需完整清單，請查閱我們的 T-SQL 文件＜[CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]＞
 
 ```sql
 -- D: Create an external file format
@@ -155,9 +155,9 @@ WITH
 外部資料表是強型別。 這表示內嵌的每個資料列都必須滿足資料表結構描述定義。
 如果資料列不符合結構描述定義，載入時就會拒絕該資料列。
 
-REJECT_TYPE 和 REJECT_VALUE 選項可讓您定義最終的資料表中必須出現多少資料列或多少百分比的資料。在載入期間，如果達到拒絕值，則載入會失敗。 資料列遭拒最常見的原因是結構描述定義不相符。 例如，如果檔案中的資料是字串，卻對資料行指定不正確的整數結構描述，則會無法載入每個資料列。
+REJECT_TYPE 和 REJECT_VALUE 選項可讓您定義最終的資料表中必須出現多少資料列或多少百分比的資料。 在載入期間，如果達到拒絕值，載入即失敗。 資料列遭拒最常見的原因是結構描述定義不相符。 例如，如果檔案中的資料是字串，卻對資料行指定不正確的整數結構描述，則會無法載入每個資料列。
 
- Azure Data Lake Store 使用角色型存取控制 (RBAC) 來控制資料存取。 這表示服務主體必須具有在位置參數中所定義之目錄，以及最終目錄和檔案之子系的讀取權限。 這可讓 PolyBase 驗證及載入讀取該資料。 
+ Azure Data Lake Store 使用角色型存取控制 (RBAC) 來控制資料存取。 這表示服務主體必須具有在位置參數中所定義之目錄，以及最終目錄和檔案之子系的讀取權限。 這可讓 PolyBase 驗證及載入該資料。 
 
 ## <a name="load-the-data"></a>載入資料
 若要從 Azure Data Lake Store 載入資料，請使用 [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 陳述式。 
@@ -201,7 +201,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 您已成功將資料載入到 Azure SQL 資料倉儲。 太棒了！
 
 ## <a name="next-steps"></a>後續步驟
-載入資料是開發使用 SQL 資料倉儲之資料倉儲解決方案的第一步。 請查看我們在[資料表](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview)和 [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md) 上提供的開發資源。
+載入資料是開發使用 SQL 資料倉儲之資料倉儲解決方案的第一步。 請查看我們在[資料表](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview)和 [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops) 上提供的開發資源。
 
 
 <!--Image references-->

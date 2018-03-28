@@ -1,24 +1,24 @@
 ---
-title: "使用 Azure Marketplace 拓展業務"
-description: "Azure Marketplace 新發行者的逐步指南與發行檢查清單"
+title: 使用 Azure Marketplace 拓展業務
+description: Azure Marketplace 新發行者的逐步指南與發行檢查清單
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 51cc413d61e4951f28e9247efcee934af23572e5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 85baba61d5603539641f45f7ab1d722ca98514ad
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>使用 Azure Marketplace 拓展業務
 
@@ -129,7 +129,8 @@ ms.lasthandoff: 03/02/2018
 >[!NOTE]
 >One Commercial Partner Catalog (OCP 目錄) 是 Microsoft 合作夥伴網路中的成員權益。 
 
-![Marketplace GTM 權益](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
+[Marketplace GTM 權益](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
+
 
 如需支援，請瀏覽 [Microsoft Go To Market](https://www.microsoftgotomarket.com)。 您可以在該網站上找到可推廣業務的範本、Web 內容、訓練及工具。
 

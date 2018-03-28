@@ -1,11 +1,11 @@
 ---
-title: "在 SQL 資料倉儲中分割資料表 | Microsoft Docs"
-description: "開始在 Azure SQL 資料倉儲中分割資料表。"
+title: 在 SQL 資料倉儲中分割資料表 | Microsoft Docs
+description: 開始在 Azure SQL 資料倉儲中分割資料表。
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
+editor: ''
 ms.assetid: 6cef870c-114f-470c-af10-02300c58885d
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 12/06/2017
 ms.author: barbkess
-ms.openlocfilehash: a28cb1f8a2e48332b344566620dc49b29d9d3c99
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f94bc3770fbd7e707194032cb99c67b09f8a0618
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>在 SQL 資料倉儲中分割資料表
 > [!div class="op_single_selector"]
@@ -47,12 +47,12 @@ SQL 資料倉儲中資料分割的主要優點是藉由使用分割區刪除、�
 資料分割也可用來改善查詢效能。  針對資料分割資料套用篩選的查詢可以限制只掃描合格的資料分割。 這種篩選方法可以避免掃描完整的資料表，而只掃描較小的資料子集。 引進叢集資料行存放區索引後，述詞消除效能優勢比較沒有幫助，但在某些情況下，對查詢有所益處。  例如，如果使用銷售日期欄位將銷售事實資料表分割成 36 個月，以銷售日期進行篩選的查詢便可略過不符合篩選條件的分割區。
 
 ## <a name="partition-sizing-guidance"></a>磁碟分割大小調整指引
-雖然資料分割可用來改善某些案例的效能，但是在某些情況下，建立具有 **太多** 資料分割的資料表可能會降低效能。  叢集資料行存放區資料表尤其堪慮。  若要讓資料分割有所助益，務必要了解使用資料分割的時機，以及要建立的分割區數目。  多少資料分割才算太多並無硬性規定，這取決於您的資料以及您同時載入多少資料分割。  成功的資料分割配置通常會有數十至數百個資料分割，而不會高達數千個。
+雖然資料分割可用來改善某些案例的效能，但是在某些情況下，建立具有 **太多** 資料分割的資料表可能會降低效能。  叢集資料行存放區資料表尤其堪慮。  若要讓資料分割有所助益，務必要了解使用資料分割的時機，以及要建立的分割區數目。  多少分割區才算太多並無硬性規定，這取決於您的資料以及您同時載入多少分割區。  成功的資料分割配置通常會有數十至數百個資料分割，而不會高達數千個。
 
-在**叢集資料行存放區**資料表上建立分割區時，請務必考慮每個分割區各有多少個資料列。  為了讓叢集資料行存放區資料表達到最佳壓縮和效能，每個散發與分割區都需要至少 100 萬個資料列。  建立分割區之前，SQL 資料倉儲已將每個資料表分割成 60 個分散式資料庫。  除了散發以外，任何加入至資料表的資料分割都是在幕後建立。  依據此範例，如果銷售事實資料表包含 36 個月的分割區，並假設 SQL 資料倉儲有 60 個散發，則銷售事實資料表每個月應包含 6 千萬個資料列，或是在填入所有月份時包含 21 億個資料列。  如果資料表包含的資料列遠少於每個分割區建議的最小資料列數，請考慮使用較少的分割區，以增加每個分割區的資料列數目。  另請參閱[索引][Index]一文，其中包含可在 SQL 資料倉儲執行的查詢，以評估叢集資料行存放區索引的品質。
+在**叢集資料行存放區**資料表上建立分割區時，請務必考慮每個分割區各有多少個資料列。  為了讓叢集資料行存放區資料表達到最佳壓縮和效能，每個散發與分割區都需要至少 100 萬個資料列。  建立分割區之前，SQL 資料倉儲已將每個資料表分割成 60 個分散式資料庫。  除了散發以外，任何加入至資料表的資料分割都是在幕後建立。  依據此範例，如果銷售事實資料表包含 36 個月的分割區，並假設 SQL 資料倉儲有 60 個散發，則銷售事實資料表每個月應包含 6 千萬個資料列，或是在填入所有月份時包含 21 億個資料列。  如果資料表包含的資料列少於每個分割區建議的最小資料列數，請考慮使用較少的分割區，以增加每個分割區的資料列數目。  另請參閱[索引][Index]一文，其中包含可在 SQL 資料倉儲執行的查詢，以評估叢集資料行存放區索引的品質。
 
 ## <a name="syntax-difference-from-sql-server"></a>與 SQL Server 的語法差異
-SQL 資料倉儲引進簡化的分割區定義方法，其與 SQL Server 稍有不同。  資料分割函式和配置不會如同在 SQL Server 中一樣，使用於 SQL 資料倉儲。  相反地，您只需要識別已分割的資料行和邊界點。  雖然資料分割的語法與 SQL Server 稍有不同，但基本概念是一樣的。  SQL Server 和 SQL 資料倉儲支援每個資料表一個分割資料行，它可以是遠距資料分割。  若要深入了解資料分割，請參閱[分割資料表和索引][Partitioned Tables and Indexes]。
+SQL 資料倉儲引進一個方法，可定義比 SQL Server 更簡單的分割區。  資料分割函式和配置不會如同在 SQL Server 中一樣，使用於 SQL 資料倉儲。  相反地，您只需要識別已分割的資料行和邊界點。  雖然資料分割的語法與 SQL Server 稍有不同，但基本概念是一樣的。  SQL Server 和 SQL 資料倉儲支援每個資料表一個分割資料行，它可以是遠距資料分割。  若要深入了解資料分割，請參閱[分割資料表和索引][Partitioned Tables and Indexes]。
 
 SQL 資料倉儲分割 [CREATE TABLE][CREATE TABLE] 陳述式的下列範例，會依據 OrderDateKey 資料行分割 FactInternetSales 資料表︰
 
@@ -125,7 +125,7 @@ GROUP BY    s.[name]
 ## <a name="workload-management"></a>工作負載管理
 要納入資料表分割決策的最後一項資訊是[工作負載管理][workload management]。  SQL 資料倉儲中的工作負載管理主要是記憶體和並行存取管理。  在 SQL 資料倉儲中，由資源類別控管在查詢執行期間配置給每個散發的最大記憶體。  在理想的情況下，會考量建置叢集資料行存放區索引的記憶體需求等其他因素，以調整您的分割區大小。  配置更多記憶體給叢集資料行存放區索引時，即可獲得極大的好處。  因此，您會想要確定重建資料分割索引不會耗盡記憶體。 從預設角色 smallrc 切換到其他角色 (例如 largerc)，即可增加您的查詢可用的記憶體數量。
 
-查詢資源管理員動態管理檢視，即可取得每個散發的記憶體配置資訊。 事實上，記憶體授與會小於下列數據。 不過，這會提供指導方針，以便在針對資料管理作業調整分割大小時使用。  盡量避免將分割大小調整超過超大型資源類別所提供的記憶體授與。 如果分割成長超過此數據，您就會冒著記憶體壓力的風險，進而導致比較不理想的壓縮。
+查詢 Resource Governor 動態管理檢視，即可取得每個散發的記憶體配置資訊。 事實上，記憶體授與會小於下列查詢的結果。 不過，此查詢會提供指導方針，以便在針對資料管理作業調整分割區大小時使用。  盡量避免將分割大小調整超過超大型資源類別所提供的記憶體授與。 如果分割區成長超過此數據，您就會冒著記憶體壓力的風險，進而導致比較不理想的壓縮。
 
 ```sql
 SELECT  rp.[name]                                AS [pool_name]
@@ -146,12 +146,12 @@ AND     rp.[name]    = 'SloDWPool'
 ## <a name="partition-switching"></a>分割切換
 SQL 資料倉儲支援資料分割、合併和切換。 這些功能是使用 [ALTER TABLE][ALTER TABLE] 陳述式執行。
 
-若要切換兩個資料表間的分割，您必須確定分割對齊其各自的界限，而且資料表定義相符。 檢查條件約束不適用於強制資料表中的值範圍，來源資料表必須包含與目標資料表相同的分割界限。 如果情況不是如此，則分割切換將會失敗，因為分割中繼資料不會同步處理。
+若要切換兩個資料表間的分割區，您必須確定分割區對齊其各自的界限，而且資料表定義相符。 因為檢查條件約束不適用於強制資料表中的值範圍，來源資料表必須包含與目標資料表相同的分割區界限。 如果分割區界限不同，則分割區切換將會失敗，因為分割區中繼資料不會同步處理。
 
 ### <a name="how-to-split-a-partition-that-contains-data"></a>如何分割包含資料的分割
-使用 `CTAS` 陳述式是分割已含資料之分割的最有效方法。 如果分割資料表是叢集式資料行存放區，則資料表分割必須空的，才可加以分割。
+使用 `CTAS` 陳述式是分割已含資料之分割的最有效方法。 如果資料分割資料表是叢集式資料行存放區，則資料表分割區必須是空的，才可加以分割。
 
-下列範例顯示每個分割包含一個資料列的分割資料行存放區資料表：
+下列範例會建立分割的資料行存放區資料表。 它會在每個分割區中插入一個資料列：
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -185,11 +185,11 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 ```
 
 > [!NOTE]
-> 藉由建立統計資料物件，我們確定資料表中繼資料更加精確。 如果我們省略了建立統計資料，SQL 資料倉儲將會使用預設值。 如需統計資料的詳細資訊，請檢閱[統計資料][statistics]。
+> 藉由建立統計資料物件，資料表中繼資料會更加精確。 如果您省略了統計資料，SQL 資料倉儲將會使用預設值。 如需統計資料的詳細資訊，請檢閱[統計資料][statistics]。
 > 
 > 
 
-我們可以接著使用 `sys.partitions` 目錄檢視，查詢資料列計數：
+下列查詢會使用 `sys.partitions` 目錄檢視來尋找資料列計數：
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -206,7 +206,7 @@ WHERE t.[name] = 'FactInternetSales'
 ;
 ```
 
-如果我們嘗試分割此資料表，我們會收到錯誤：
+下列分割命令收到錯誤訊息：
 
 ```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
@@ -214,7 +214,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 訊息 35346、層級 15、狀態 1、行 44：ALTER PARTITION 陳述式的 SPLIT 子句失敗，因為分割不是空的。  只有在資料表上存在資料行存放區索引時，才可以分割空的分割。 請考慮在發出 ALTER PARTITION 陳述式前停用資料行存放區索引，然後在 ALTER PARTITION 完成後重建資料行存放區索引。
 
-不過，我們可以使用 `CTAS` 建立新資料表以保存資料。
+不過，您可以使用 `CTAS` 建立新資料表以保存資料。
 
 ```sql
 CREATE TABLE dbo.FactInternetSales_20000101
@@ -232,7 +232,7 @@ WHERE   1=2
 ;
 ```
 
-分割界限已對齊，所以允許切換。 這會讓來源資料表有空白分割可供我們接著分割。
+分割區界限已對齊，所以允許切換。 這會讓來源資料表有空白分割區可供您接著分割。
 
 ```sql
 ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
@@ -240,7 +240,7 @@ ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-接下來只需使用 `CTAS` 將我們的資料對齊新的分割界限，並將我們的資料切換回到主資料表
+接下來只需使用 `CTAS` 將資料對齊新的分割區界限，然後將我們的資料切換回到主資料表。
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
@@ -261,14 +261,14 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
 
-完成資料移動後，最好能重新整理目標資料表上的統計資料，確保統計資料可在其各自的分割中精確地反映出資料的新散發：
+一旦您完成資料移動後，最好先在目標資料表上重新整理統計資料。 更新統計資料可確保統計資料正確反映其各自分割區中的新資料散發。
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="table-partitioning-source-control"></a>資料表分割原始檔控制
-若要避免您的資料表定義在您的原始檔控制系統中 **失效** ，您可以考慮下列方法：
+若要避免您的資料表定義在您的原始檔控制系統中**失效**，您可以考慮下列方法：
 
 1. 將資料表建立為分割資料表，但沒有分割值
 
@@ -362,7 +362,7 @@ DROP TABLE #partitions;
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[workload management]: ./sql-data-warehouse-develop-concurrency.md
+[workload management]: ./resource-classes-for-workload-management.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!-- MSDN Articles -->

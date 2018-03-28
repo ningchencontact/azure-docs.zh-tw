@@ -1,11 +1,11 @@
 ---
-title: "Azure Logic Apps 中的 Wunderlist 連接器 | Microsoft Docs"
-description: "建立 Wunderlist 連線，並使用此連線在 Logic Apps 中建置工作流程。"
+title: Azure Logic Apps 中的 Wunderlist 連接器 | Microsoft Docs
+description: 建立 Wunderlist 連線，並使用此連線在 Logic Apps 中建置工作流程。
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
 ms.service: logic-apps
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 3657955ca4280fecd3a0fb1ea64b90e0a5c5c765
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 4d1ae30724faa59dcdeffd21be9c67d280d574f6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>開始使用 Wunderlist 連接器
-Wunderlist 提供待辦事項清單和工作管理員，協助使用者完成其工作。  無論是與親愛的人共用購物清單、處理專案，還是計劃假期，Wunderlist 都能讓您輕鬆擷取、共用及完成待辦事項。 Wunderlist 立即同步處理您的電話、平板電腦及電腦，讓您可在任何地方存取工作。
+Wunderlist 是可協助使用者完成其工作的待辦事項清單和工作管理員。  無論是與他人共用購物清單、處理專案，還是計劃假期，Wunderlist 都能讓您輕鬆擷取、共用及完成清單項目。 Wunderlist 立即同步處理您的電話、平板電腦及電腦，讓您可在任何地方存取工作。
 
 立即開始建立邏輯應用程式，請參閱[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 

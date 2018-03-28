@@ -1,10 +1,10 @@
 ---
-title: "Azure Service Fabric 環境變數 | Microsoft Docs"
-description: "Service Fabric 環境變數的參考文件"
+title: Azure Service Fabric 環境變數 | Microsoft Docs
+description: Service Fabric 環境變數的參考文件
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: a4bf082f5bd5a57bb5eb7641a25176e3a06503a3
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a9faefb43b9d5da81dddef8f326a3867b32842f7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric 環境變數
 
@@ -36,7 +36,7 @@ Service Fabric 具有針對每個服務執行個體所設定的內建環境變�
 | Fabric_NodeId                                | 節點識別碼 (執行處理序的節點)                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | IP 或節點的 FQDN，如叢集資訊清單檔所指定。 | localhost 或 10.0.0.1                                                |
 | Fabric_NodeName                              | 節點名稱 (執行處理序的節點)                          | _Node_0                                                              |
-| Fabric_ServiceName                           | 服務名稱 (如果服務裝載於 ExclusiveProcess 模式中)  | MyService                                               |
+| Fabric_ServiceName                           | 服務名稱 (如果服務裝載於 ExclusiveProcess 模式中)。 只有在您使用 ServicePackageActivationMode ExclusiveProcess 建立服務時，才能使用此變數值。  | MyService                                               |
 | Fabric_ServicePackageActivationId            | ServicePackageActivationId                                         | GUID                                                               |
 | Fabric_ServicePackageName                    | 處理序所屬的服務套件名稱                     | Web1Pkg                                                              |
 

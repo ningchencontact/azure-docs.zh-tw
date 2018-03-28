@@ -1,24 +1,24 @@
 ---
-title: "使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務 | Microsoft Docs"
-description: "了解如何使用索引子將資料從 Azure SQL Database 提取至 Azure 搜尋服務索引。"
+title: 使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務 | Microsoft Docs
+description: 了解如何使用索引子將資料從 Azure SQL Database 提取至 Azure 搜尋服務索引。
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: e9bbf352-dfff-4872-9b17-b1351aae519f
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/13/2017
+ms.date: 08/12/2018
 ms.author: eugenesh
-ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 5f85b81e894cba7354fb146d6e9a1aa987be7dc5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務
 
@@ -57,6 +57,9 @@ ms.lasthandoff: 01/09/2018
 | 資料類型是可相容的 | Azure 搜尋服務索引中支援大部分但並非所有的 SQL 類型。 如需清單，請參閱[對應資料類型](#TypeMapping)。 |
 | 不需要即時同步處理資料 | 索引子最多可以每隔五分鐘重新編製資料表的索引。 若您經常變更資料，且變更需要在幾秒或幾分鐘內反映到索引中，我們建議您使用 [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) 或 [.NET SDK](search-import-data-dotnet.md)，直接推送更新的資料列。 |
 | 累加式編製索引是可行的 | 若您擁有大量資料集且計畫按照排程執行索引子，Azure 搜尋服務必須能夠有效識別新增、變更或刪除的資料列。 如果您會視需要 (而非排程) 編製索引，或要編製索引的資料列少於 100,000 個，則僅允許進行非累加的編製索引。 如需詳細資訊，請參閱下列的[擷取變更及刪除的資料列](#CaptureChangedRows)。 |
+
+> [!NOTE] 
+> Azure 搜尋服務僅支援 SQL Server 驗證。 如果您需要 Azure Active Directory 密碼驗證的支援，請針對這個 [UserVoice 建議](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica)進行投票。
 
 ## <a name="create-an-azure-sql-indexer"></a>建立 Azure SQL 索引子
 

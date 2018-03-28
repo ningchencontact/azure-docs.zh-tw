@@ -1,9 +1,9 @@
 ---
-title: "Azure 監視器合作夥伴整合 | Microsoft Docs"
-description: "了解 Azure Monitor 的監視合作夥伴以及如何存取與合作夥伴進行整合的文件。"
+title: Azure 監視器合作夥伴整合 | Microsoft Docs
+description: 了解 Azure Monitor 的監視合作夥伴以及如何存取與合作夥伴進行整合的文件。
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 01ee13ac-66fc-4edc-8b0c-32f69b986a26
@@ -12,22 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/16/2017
+ms.date: 3/15/2018
 ms.author: johnkem
-ms.openlocfilehash: abd5ef0ffbaaa78ae4c968fdd208916825d0398a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 44315b88d55d370c8200952dc2ff9d64d64cf524
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 監視器合作夥伴整合
 | 合作夥伴 |  |  |
 | --- | --- | --- |
 | [![合作夥伴標誌][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![合作夥伴標誌][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![合作夥伴標誌][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![合作夥伴標誌][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![合作夥伴標誌][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
-| [![合作夥伴標誌][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![合作夥伴標誌][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![合作夥伴標誌][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
-| [![合作夥伴標誌][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![合作夥伴標誌][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![合作夥伴標誌][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor]  |
-| [![合作夥伴標誌][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![合作夥伴標誌][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
+| [**Botmetric**][botmetric-anchor] | [![合作夥伴標誌][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![合作夥伴標誌][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] |
+| [![][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![合作夥伴標誌][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![合作夥伴標誌][datadog-logo]<br/>**Datadog**][datadog-anchor] |
+| [![合作夥伴標誌][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![合作夥伴標誌][grafana-logo]<br/>**Grafana**][grafana-anchor] | [![合作夥伴標誌][logicmonitor-logo]<br/>**Logic Monitor**][logicmonitor-anchor] |
+| [![合作夥伴標誌][moogsoft-logo]<br/>**Moogsoft**][moogsoft-anchor] | [![合作夥伴標誌][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![合作夥伴標誌][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
+| [![合作夥伴標誌][qradar-logo]<br/>**QRadar**][qradar-anchor] | [![合作夥伴標誌][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![合作夥伴標誌][signalfx-logo]<br/>**SignalFx**][signalfx-anchor] |
+| [![合作夥伴標誌][signl4-logo]<br/>**SIGNL4**][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] | [![合作夥伴標誌][splunk-logo]<br/>**Splunk**][splunk-anchor] |
+| [![合作夥伴標誌][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | [![合作夥伴標誌][turbonomic-logo]<br/>**Turbonomic**][turbonomic-anchor] | |
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
 Alert Logic Log Manager 會收集 VM、應用程式和 Azure 平台記錄檔以進行安全分析和保留。 它也會透過 Azure 監視器 API 收集 Azure 活動記錄。 這項資訊用於偵測 malfeasance 及符合法務遵循需求。
@@ -43,6 +46,10 @@ AppDynamics 應用程式效能管理 (APM) 可讓應用程式擁有者快速針�
 您可以對 Azure 監視器警示建立 JIRA 票證。
 
 [請移至文件。][atlassian-doc]
+
+## <a name="botmetric"></a>Botmetric
+
+[深入了解。][botmetric-doc]
 
 ## <a name="circonus"></a>Circonus
 Circonus 是針對內部部署或 SaaS 部署建置的微服務監視和分析平台。 其以 API 為主的完整自動化平台比其監視的系統更具擴充性和且更可靠。 Circonus 是針對 DevOps 需求所開發，能提供以百分位數為基礎的警示、圖表、儀表板及讓商業最佳化的機器學習智慧。 Circonus 會即時監視 Microsoft Azure 雲端資源和其應用程式。 您可以使用 Circonus 來收集並追蹤您需要針對資源和應用程式測量之變數的計量。 您可以使用 Circonus 來查看整個系統，了解 Azure 的資源使用量、應用程式效能和操作健康情況。
@@ -74,6 +81,28 @@ Dynatrace OneAgent 會透過 Azure 延伸模組機制來與 Azure VM 和應用�
 
 [請移至文件。][dynatrace-doc]
 
+## <a name="grafana"></a>Grafana
+Grafana 是開放原始碼應用程式，可讓您以視覺化方式檢視時間序列計量資料。
+
+[請移至文件。][grafana-doc]
+
+## <a name="logic-monitor"></a>Logic Monitor
+LogicMonitor® 是領先業界的 SaaS 型效能監視平台，適用於複雜的 IT 基礎結構。 LogicMonitor 涵蓋了上千種技術，可在基礎結構和應用程式效能上提供更細微的可見度。 LM Cloud 的全面性 Azure 監視功能可讓使用者將 Azure 雲端、內部部署和混合式雲端資源的效能相互關聯，且全部都只在一個平台上執行。 自動化資源探索、內建監視範本、預先設定的警示閾值，以及可自訂的儀表板，結合起來可以為 IT 提供成功所需的速度、彈性和可見度。
+
+[請移至文件。][logicmonitor-doc]
+
+## <a name="moogsoft"></a>Moogsoft
+Moogsoft AIOps 會加速敏捷的商務轉換。
+
+Microsoft Azure 自動化與控制工具為 Azure 中部署的應用程式和微服務狀態提供了即時視窗，並且可協助協調診斷和 Runbook，以便更快速補救。
+其他第三方工具提供內部部署應用程式和基礎結構狀態的視窗。
+
+Moogsoft AIOps 會自動化補救事件工作流程，而不需要變更現有的程序和組織結構。 
+
+Moogsoft AIOps 在您的 Azure 不動產中執行，並且整合混合式網狀架構之間的監視和自動化工具，可主動且提早地偵測影響事件的應用程式、以動態方式協調適當的資源以讓它們感知情況，並且減少補救的平均時間，以及降低客戶體驗上的不良影響。 
+
+[請移至文件。][moogsoft-doc]
+
 ## <a name="opsgenie"></a>OpsGenie
 OpsGenie 作為由 Azure 所產生警示發送器。 OpsGenie 會根據待命排程和呈報，決定要通知的適當人員。 它可以使用電子郵件、簡訊 (SMS)、電話通話或推播通知來通知他們。 Azure 會產生偵測到之問題的警示。 OpsGenie 可確保適當人員正在處理此問題。
 
@@ -84,10 +113,27 @@ PagerDuty 是業界領先的事件管理解決方案，針對 Azure 度量警示
 
 [請移至文件。][pagerduty-doc]
 
+## <a name="qradar"></a>QRadar
+Microsoft Azure DSM 與 Microsoft Azure 事件中樞通訊協定均可從 [IBM 支援網站](http://www.ibm.com/support)下載。 您可以[從這裡深入了解與 Azure 的整合][qradar-doc]。
+
 ## <a name="sciencelogic"></a>ScienceLogic
 ScienceLogic 提供新一代 IT 服務保證平台，可在任何位置管理任何技術。 ScienceLogic 可以為簡化管理 IT 資源、服務和應用程式的工作提供級別、安全性、自動化和恢復功能。 ScienceLogic 平台會使用 Azure API 做為 Microsoft Azure 的介面。 ScienceLogic 可讓您即時掌握您的 Azure 服務和資源。 您就能在某個項目無法運作時得知，並且更快修正。 您也可以與其他雲端和資料中心系統和服務管理 Azure。
 
 [深入了解。][sciencelogic-doc]
+
+## <a name="signalfx"></a>SignalFx
+SignalFx 是即時營運智慧中的翹楚，適用於資料導向的 DevOps。 此服務會探索並且收集雲端中每個元件的計量，取代傳統的點工具 (point tool) 並提供對於現今動態環境的即時可見度。 利用可大幅調整的 SignalFx 平台，SaaS 平台已針對容器和微服務型架構進行最佳化，並在所有大小的組織之間提供功能強大視覺效果、主動警示以及共同作業分級功能。 SignalFx 可直接與 Azure 監視器整合，也可透過開放原始碼連接器 (例如 Telegraf、statsD) 進行整合，加以集結後便可提供適用於 Azure 的最佳儀表板、分析和警示。
+
+[請移至文件。][signalfx-doc]
+
+## <a name="signl4"></a>SIGNL4
+SIGNL4 (適用於營運小組的行動警示 app) 是可適時將重要警示從 Azure 監視器路由傳送給正確人員的最快方式 (透過推送、簡訊或語音通話隨處傳送)。 SIGNL4 會管理您小組的待命班表和輪班，並追蹤警示的傳遞和擁有權，然後視需要進行升級。 讓小組間的作業完全透明。 使用超級簡單的 REST Webhook SIGNL4，可以很輕鬆地與任何 Azure 服務連線。 使用 SIGNL4，您會看到回應速度比電子郵件通知和手動警示快了最多 10 倍。
+
+[請移至文件。][signl4-doc]
+
+## <a name="solarwinds"></a>SolarWinds
+
+[深入了解。][solarwinds-doc]
 
 ## <a name="azure-monitor-add-on-for-splunk"></a>Splunk 適用的 Azure 監視器附加元件
 Splunk 適用的 Azure 監視器附加元件的下載位置：[Splunkbase](https://splunkbase.splunk.com/app/3534/)。
@@ -99,6 +145,12 @@ Sumo Logic 是安全、雲端原生的電腦資料分析服務，能橫跨整個
 
 [深入了解。][sumologic-doc]
 
+## <a name="turbonomic"></a>Turbonomic
+Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，為混合式雲端傳遞工作負載自動化。 Turbonomic 可透過持續最佳化 Azure 資產，確保應用程式可一直取得實現其 SLA 所需的資源，藉此協助組織在使用資產上具有彈性，而且只需透過 IaaS 和 PaaS 層的計算、儲存體和網路就可完成。 組織可模擬移轉、適切調整工作負載及淘汰資料中心資源，以負責地準時移轉至 Azure，而且在不超支預算的情況下還同時保有效能與合規性。 Turbonomicu 由 API 驅動，在 Azure 與內部部署以無代理程式 VM 的形式執行。
+
+[深入了解。][turbonomic-doc]
+
+
 ## <a name="next-steps"></a>後續步驟
 * [深入了解 Azure 監視器](monitoring-overview.md)
 * [使用 REST API 存取計量](monitoring-rest-api-walkthrough.md)
@@ -109,17 +161,26 @@ Sumo Logic 是安全、雲端原生的電腦資料分析服務，能橫跨整個
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
 [appdynamics-anchor]: #appdynamics "AppDynamics"
 [atlassian-anchor]: #atlassian-jira "Atlassian"
+[botmetric-anchor]: #botmetric "Botmetric"
 [circonus-anchor]: #circonus "Circonus"
 [cloudhealth-anchor]: #cloudhealth "CloudHealth"
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
 [cloudyn-anchor]: #cloudyn "Cloudyn"
 [datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
+[grafana-anchor]: #grafana "Grafana"
+[logicmonitor-anchor]: #logic-monitor "Logic Monitor"
+[moogsoft-anchor]: #moogsoft "Moogsoft"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
+[qradar-anchor]: #qradar "QRadar"
 [sciencelogic-anchor]: #sciencelogic "ScienceLogic"
+[signalfx-anchor]: #signalfx "SignalFx"
+[signl4-anchor]: #signl4 "SIGNL4"
+[solarwinds-anchor]: #solarwinds "SolarWinds"
 [splunk-anchor]: #azure-monitor-add-on-for-splunk "Splunk"
 [sumologic-anchor]: #sumo-logic "Sumo Logic"
+[turbonomic-anchor]: #turbonomic "Turbonomic"
 
 <!--Icon references-->
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png
@@ -131,24 +192,40 @@ Sumo Logic 是安全、雲端原生的電腦資料分析服務，能橫跨整個
 [cloudyn-logo]: ./media/partner-logos/cloudyn.png
 [datadog-logo]: ./media/partner-logos/datadog.png
 [dynatrace-logo]: ./media/partner-logos/dynatrace.png
+[grafana-logo]: ./media/partner-logos/grafana.png
+[logicmonitor-logo]: ./media/partner-logos/logicmonitor.png
+[moogsoft-logo]: ./media/partner-logos/moogsoft.png
 [opsgenie-logo]: ./media/partner-logos/opsgenie.png
 [pagerduty-logo]: ./media/partner-logos/pagerduty.png
+[qradar-logo]: ./media/partner-logos/qradar.png
 [sciencelogic-logo]: ./media/partner-logos/sciencelogic.png
+[signalfx-logo]: ./media/partner-logos/signalfx.png
+[signl4-logo]: ./media/partner-logos/signl4.png
 [splunk-logo]: ./media/partner-logos/splunk.png
 [sumologic-logo]: ./media/partner-logos/sumologic.png
+[turbonomic-logo]: ./media/partner-logos/turbonomic.png
 
 <!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic 文件。"
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics 文件。"
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
+[botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric 簡介。"
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix 簡介。"
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn 簡介。"
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog 文件。"
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace 文件。"
+[grafana-doc]: ./monitor-send-to-grafana.md "Azure 監視器 Grafana 整合。"
+[logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Logic Monitor 文件。"
+[moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft 文件。"
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie 文件。"
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty 文件。"
+[qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "QRadar 文件。"
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic 文件。"
+[signalfx-doc]: https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure "SignalFx 文件。"
+[signl4-doc]: https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/ "SIGNL4 文件。"
+[solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "SolarWinds 文件。"
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk 文件。"
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic 文件。"
+[turbonomic-doc]: https://turbonomic.com/solutions/technologies/azure-cloud/ "Turbonomic 簡介。"

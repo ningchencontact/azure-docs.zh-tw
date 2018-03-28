@@ -1,30 +1,27 @@
 ---
-title: "使用 PowerShell 執行 Azure 資料表儲存體作業 | Microsoft Docs"
-description: "使用 PowerShell 執行 Azure 資料表儲存體作業"
+title: 使用 PowerShell 執行 Azure 資料表儲存體作業 | Microsoft Docs
+description: 使用 PowerShell 執行 Azure 資料表儲存體作業
 services: cosmos-db
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 03/14/2018
 ms.author: robinsh
-ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c09809e9cf513dbb9420f675bbf431c176f740bd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 執行 Azure 資料表儲存體作業 
-
->[!NOTE]
->Azure Cosmos DB 資料表 API 提供資料表儲存體的高階功能，例如周全的全域發佈、低延遲讀取和寫入、自動次要索引，以及專用的輸送量。 在大部分情況下，本文中的 PowerShell 命令同時適用於 Azure Cosmos DB 資料表 API 和 Azure 資料表儲存體，但本文旨在說明 Azure 資料表儲存體。 如果您使用的是 Azure Cosmos DB 資料表 API，請參閱[使用 Azure PowerShell 執行 Azure Cosmos DB 資料表 API 作業](table-powershell.md)。
->
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 Azure 資料表儲存體是 NoSQL 資料存放區，您可以用來儲存和查詢龐大的結構化、非關聯式資料集。 服務的主要元件是資料表、實體和屬性。 資料表是一組實體。 實體是一組屬性。 每個實體最多可有 252 個屬性，也就是所有的名稱/值組。 本文假設您已熟悉 Azure 資料表儲存體服務概念。 如需詳細資訊，請參閱[了解表格服務資料模型](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)和[以 .NET 開始使用 Azure 資料表儲存體](table-storage-how-to-use-dotnet.md)。
 
@@ -38,7 +35,7 @@ Azure 資料表儲存體是 NoSQL 資料存放區，您可以用來儲存和查�
 > * 刪除資料表實體
 > * 刪除資料表
 
-本做法文章示範如何在新的資源群組中建立新的儲存體帳戶，以便在完成時輕鬆地將它移除。 如果您想要使用現有的儲存體帳戶，則可以改為那麼做。
+本做法文章示範如何在新的資源群組中建立新的 Azure 儲存體帳戶，以便在完成時輕鬆地將它移除。 如果您想要使用現有的儲存體帳戶，則可以改為那麼做。
 
 這些範例需要 Azure PowerShell 模組 4.4.0 版或更新版本。 在 PowerShell 視窗中，執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果未顯示任何項目，或者您必須升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 
 
@@ -105,7 +102,7 @@ New-AzureStorageTable –Name $tableName –Context $ctx
 使用 [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable) 來擷取儲存體帳戶中的資料表清單。
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Context $ctx | select Name
+Get-AzureStorageTable –Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>擷取特定資料表的參考

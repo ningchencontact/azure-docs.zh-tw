@@ -1,25 +1,25 @@
 ---
-title: "Azure Linux VM 大小 - HPC | Microsoft Docs"
-description: "列出 Azure 中可用的不同 Linux 高效能運算虛擬機器大小。 列出 vCPU 數目、資料磁碟和 NIC 的相關資訊，以及此服務中各種大小之儲存體輸送量和網路頻寬的相關資訊。"
+title: Azure Linux VM 大小 - HPC | Microsoft Docs
+description: 列出 Azure 中可用的不同 Linux 高效能運算虛擬機器大小。 列出 vCPU 數目、資料磁碟和 NIC 的相關資訊，以及此服務中各種大小之儲存體輸送量和網路頻寬的相關資訊。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: cdfd09d90be9696dacc151e138920944c8bbd2c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5f867140981649b73bf6d0bc13eca539c7dc2209
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>高效能運算的虛擬機器大小
 
@@ -29,12 +29,11 @@ ms.lasthandoff: 02/09/2018
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
-## <a name="rdma-capable-instances"></a>支援 RDMA 的執行個體
-計算密集型執行個體 (H16r、H16mr、NC24r、A8 與 A9) 的子集，包含用於遠端直接記憶體存取 (RDMA) 連線的網路介面。 這是可供其他 VM 大小使用之標準 Azure 網路介面的額外界面。 
-  
-這個介面允許支援 RDMA 的執行個體透過 InfiniBand 網路進行通訊，針對 H16r、H16mr 與 NC24r 虛擬機器以 FDR 速率運作，以及針對 A8 與 A9 虛擬機器以 QDR 速率運作。 這些 RDMA 功能只能可以提高在 Intel MPI 5.x 下執行之訊息傳遞介面 (MPI) 應用程式的延展性和效能。 Intel MPI 執行階段程式庫的較新版本 (2017 和 2018) 與 Azure RDMA 驅動程式不相容。
 
-在相同的可用性設定組 (如果您使用 Azure Resource Manager 部署模型) 或相同的雲端服務 (如果您使用傳統部署模型) 中部署支援 RDMA 的 VM。 使支援 RDMA 的 Linux VM 得以存取 Azure RDMA 網路的其他需求如下。
+### <a name="mpi"></a>MPI 
+
+只支援 Intel MPI 5.x 版本。 Intel MPI 執行階段程式庫的較新版本 (2017 和 2018) 與 Azure Linux RDMA 驅動程式不相容。
+
 
 ### <a name="distributions"></a>散發
  
@@ -50,7 +49,7 @@ ms.lasthandoff: 02/09/2018
   sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
   ```
     
-* **CentOS 型 HPC**：CentOS 型 7.3 HPC、CentOS 型 7.1 HPC、CentOS 型 6.8 HPC 或 CentOS 型 6.5 HPC (對於 H 系列，建議使用 7.1 版或更新版本)。 已在 VM 上安裝 RDMA 驅動程式和 Intel MPI 5.1。  
+* **以 CentOS 為基礎的 HPC** - 以 CentOS 為基礎的 6.5 HPC 或更新版本 (針對 H 系列，建議使用 7.1 版或更新版本)。 已在 VM 上安裝 RDMA 驅動程式和 Intel MPI 5.1。  
  
   > [!NOTE]
   > 在 CentOS 型 HPC 映像上， **yum** 組態檔中已停用核心更新。 這是因為 Linux RDMA 驅動程式以 RPM 封裝散發，如果更新核心，驅動程式更新可能無法運作。
@@ -63,7 +62,8 @@ ms.lasthandoff: 02/09/2018
 ### <a name="network-topology-considerations"></a>網路拓撲考量
 * 在 Azure 中具備 RDMA 功能的 Linux VM 上，Eth1 會保留給 RDMA 網路流量使用。 請勿變更任何 Eth1 設定或參考到此網路之組態檔中的任何資訊。 Eth0 會保留給一般 Azure 網路流量。
 
-* 在 Azure 中，不支援透過 InfiniBand (IB) 的 IP。 僅支援透過 IB 的 RDMA。
+* Azure 中的 RDMA 網路會保留位址空間 172.16.0.0/16。 
+
 
 ## <a name="using-hpc-pack"></a>使用 HPC Pack
 [HPC Pack](https://technet.microsoft.com/library/jj899572.aspx)是 Microsoft 的免費 HPC 叢集和作業管理解決方案，提供您一個搭配 Linux 使用計算密集型執行個體的選項。 HPC Pack 的最新版本支援讓數個 Linux 散發套件在部署於 Azure VM 中、由 Windows Server 前端節點管理的計算節點上執行。 搭配支援 RDMA 且執行 Intel MPI 的 Linux 計算節點時，HPC Pack 可以排定及執行存取 RDMA 網路的 Linux MPI 應用程式。 請參閱[開始在 Azure 中的 HPC Pack 叢集使用 Linux 計算節點](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。

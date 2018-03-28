@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: a291aaf8456fd800edcf5a2df5d68c386d9f87c1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5c65157d1fdb0effd272437cc92c305ca4d1a510
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -36,7 +36,7 @@ Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https:
 
 區域                                        | 可用性？                                 | 支援的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
-[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出   | 2017-04-02、2017-08-01、2017-12-01 (這個版本無法在 UK 區域中使用)
+[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出   | 2017-04-02, 2017-08-01, 2017-12-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02、2017-08-01
 [Azure China](https://www.azure.cn/)                                                           | 正式推出 | 2017-04-02、2017-08-01
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02、2017-08-01
@@ -405,7 +405,7 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 5. 我為何收到錯誤 `500 Internal Server Error`？
    * 請根據指數型輪詢系統重試您的要求。 若問題持續發生，請連絡 Azure 支援。
 6. 我要在哪裡共用其他問題/註解？
-   * 請在 http://feedback.azure.com 上傳送您的註解。
+   * 在 http://feedback.azure.com 上傳送您的註解。
 7. 這是否適用於虛擬機器擴展集執行個體？
    * 是，中繼資料服務適用於擴展集執行個體。 
 8. 如何取得服務支援？

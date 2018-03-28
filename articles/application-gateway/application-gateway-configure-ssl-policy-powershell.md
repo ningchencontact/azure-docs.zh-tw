@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 應用程式閘道上設定 SSL 原則 - PowerShell | Microsoft Docs"
-description: "本分頁提供在 Azure 應用程式閘道上設定 SSL 原則的指示"
+title: 在 Azure 應用程式閘道上設定 SSL 原則 - PowerShell | Microsoft Docs
+description: 本分頁提供在 Azure 應用程式閘道上設定 SSL 原則的指示
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: fa192ca1ee0dc5ee7190b6c63b64297c7406291d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>在應用程式閘道上設定 SSL 原則版本和加密套件
 
@@ -75,7 +75,7 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>列出預先定義的 SSL 原則
 
-應用程式閘道隨附 3 個可用的預先定義原則。 `Get-AzureRmApplicationGatewaySslPredefinedPolicy` Cmdlet 會擷取這些原則。 每個原則都有不同的通訊協定版本與已啟用的加密套件。 這些預先定義的原則可以用來快速地在應用程式閘道上設定 SSL 原則。 根據預設，如果未定義特定 SSL 原則，則會選取 **AppGwSslPolicy20170401**。
+應用程式閘道隨附 3 個可用的預先定義原則。 `Get-AzureRmApplicationGatewaySslPredefinedPolicy` Cmdlet 會擷取這些原則。 每個原則都有不同的通訊協定版本與已啟用的加密套件。 這些預先定義的原則可以用來快速地在應用程式閘道上設定 SSL 原則。 根據預設，如果未定義特定的 SSL 原則，則會選取 **AppGwSslPolicy20150501**。
 
 以下是執行 `Get-AzureRmApplicationGatewaySslPredefinedPolicy` 的範例。
 

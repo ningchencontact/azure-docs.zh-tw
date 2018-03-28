@@ -1,13 +1,13 @@
 ---
-title: "關於 Log Analytics 中的網路監視 | Microsoft Docs"
-description: "可管理跨雲端、內部部署和混合式環境之網路的網路監視解決方案 (包括 NPM) 概觀。"
+title: 關於 Log Analytics 中的網路監視 | Microsoft Docs
+description: 可管理跨雲端、內部部署和混合式環境之網路的網路監視解決方案 (包括 NPM) 概觀。
 services: monitoring-and-diagnostics
 documentationcenter: na
 author: agummadi
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 6d93821b59e1f69a48c3d5eeda96dad2edddb188
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="network-monitoring-solutions"></a>網路監視解決方案 
 
@@ -33,6 +33,8 @@ Azure 提供許多可監視網路資產的解決方案。 Azure 擁有的解決�
 * 多個資料中心和分公司
 * 任務關鍵性多層應用程式/微服務
 * 使用者位置和 Web 架構應用程式 (HTTP/HTTPS) 
+
+效能監視器、ExpressRoute 監視器及服務端點監視器都是 NPM 內的監視功能，如下所述。
 
 ## <a name="performance-monitor"></a>效能監視器
 
@@ -82,6 +84,37 @@ Expressroute 的 NPM 提供對於私用對等連線的全面性 ExpressRoute 監
 
 * [設定網路效能監控來監視服務端點](https://aka.ms/applicationconnectivitymonitorguide)
 * [部落格文章](https://aka.ms/svcendptmonitor)
+
+## <a name="traffic-analytics"></a>流量分析
+流量分析是一項雲端式解決方案，可顯示雲端網路上的使用者和應用程式活動。 系統會分析 NSG 流量記錄，讓您深入了解：
+
+* 您網路中 Azure 與網際網路、公用雲端區域、VNET 及子網路之間的流量
+* 您網路上的應用程式和通訊協定，而不需要 Sniffer 或專用的流量收集器設備
+* 發言最多者、通訊流量高的應用程式、雲端中的 VM 對話、流量作用區
+* 跨 VNET 的流量來源和目的地，關鍵業務服務和應用程式之間的相互關係
+* 安全性 – 惡意流量、對網際網路開放的連接埠、嘗試存取網際網路的應用程式或 VM...
+* 容量使用率 - 透過監視 VPN 閘道和其他服務的使用率趨勢，協助您避免過度佈建或使用率過低的問題
+
+流量分析會為您提供可採取動作的資訊，從而協助您稽核貴組織的網路活動、保護應用程式和資料、將工作負載效能最佳化並保持符合規範。
+
+![顯示跨區域流量的地理資訊地圖](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+
+相關連結：
+* [部落格文章](https://aka.ms/trafficanalytics)、[文件](https://aka.ms/trafficanalyticsdocs)、[常見問題集](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+
+## <a name="dns-analytics"></a>DNS 分析
+此解決方案針對 DNS 系統管理員所建置，可收集、分析 DNS 記錄並且相互關聯，以提供安全性、作業和效能相關的深入解析。  其部分功能如下：
+
+* 識別嘗試解析惡意網域的用戶端
+* 識別過時的資源記錄
+* 顯示經常查詢的網域名稱和 Talkative DNS 用戶端
+* 顯示 DNS 伺服器上的要求負載
+* 監視動態 DNS 註冊失敗
+
+![DNS 分析儀表板](./media/network-monitoring-overview/dns-analytics-overview.png) 
+
+相關連結：
+* [部落格文章](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/)、[文件](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
 ## <a name="next-steps"></a>後續步驟
 

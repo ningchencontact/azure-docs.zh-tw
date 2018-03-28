@@ -1,25 +1,25 @@
 ---
-title: "Azure Stack 可用的 Azure Marketplace 項目清單 | Microsoft Docs"
-description: "這些 Azure Marketplace 項目可用於 Azure Stack。"
+title: Azure Stack 可用的 Azure Marketplace 項目清單 | Microsoft Docs
+description: 這些 Azure Marketplace 項目可用於 Azure Stack。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/09/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: c82ee87b341de4e85e2eab566f7a3c6fcffdace1
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: ae269c532773862e99884d84a05235cb904d13d4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 可用的 Azure Marketplace 項目
 
@@ -36,9 +36,11 @@ ms.lasthandoff: 02/28/2018
 |![](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>請將此更新下載到附隨版的 PowerShell DSC 擴充功能中。</b> | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 反惡意程式碼軟體擴充功能](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| 適用於 Azure 的 Microsoft Antimalware 是一個針對應用程式和租用戶環境所提供的單一代理程式解決方案，其設計可於無人為介入的情況下在背景中執行。 | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | 適用於 Linux 虛擬機器的 Docker 擴充功能。 | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ VM Access for Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>請將此更新下載到附隨版的 VMAccess for Linux 擴充功能中。如果您打算使用 Debian Linux VM，這一點很重要。</b> | Microsoft | Linux |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ VM Access for Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>請將此更新下載到附隨版的 VMAccess for Linux 擴充功能中。如果您打算使用 Debian Linux VM，這個更新很重要。</b> | Microsoft | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [適用於 Linux 的 Acronis Backup 擴充功能](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | 適用於 Microsoft Azure 的 Acronis Backup 擴充功能，是 Acronis Backup 資料保護產品系列的一部分。 | Acronis International GmbH. | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [適用於 Windows 的 Acronis Backup 擴充功能](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | 適用於 Microsoft Azure 的 Acronis Backup 擴充功能，是 Acronis Backup 資料保護產品系列的一部分。 | Acronis International GmbH. | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cloudlink.png) | [適用於 Linux 的 CloudLink SecureVM 擴充功能](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | 輕鬆而有自信地控制、監視及加密 VM。 | Dell EMC | Linux |
+| ![](media/azure-stack-marketplace-azure-items/cloudlink.png) | [適用於 Windows 的 CloudLink SecureVM 擴充功能](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | 輕鬆而有自信地控制、監視及加密 VM。 | Dell EMC | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft 虛擬機器映像和解決方案範本
 
@@ -204,8 +206,12 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine Sales CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.x2enginesalescrm) | 小型的行銷、銷售與客戶服務應用程式。 | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | 可建立動態網站的 CMS 和 Web 入口網站程式。 | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | 開放原始碼的 CRM 系統：具有行動性、社交性且已遊戲化。 | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 應用程式安全性控制中心](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | 集中管理多個 Barracuda Web 應用程式防火牆 (WAF)。 | Barracuda Networks, Inc. |
+| ![](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 電子郵件安全性閘道](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | 電子郵件安全性閘道可用來防止輸入電子郵件所夾帶的威脅。 | Barracuda Networks, Inc. |
+| ![](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Web 應用程式防火牆 (WAF)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | 抵禦自動化和鎖定目標攻擊的安全性與 DDoS 保護。 | Barracuda Networks, Inc. |
 | ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [檢查點 vSEC 安全性管理](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | 檢查點 vSEC 提供進階、多層式威脅防護，可保護客戶 Azure 中的資產免於惡意程式碼和複雜威脅的攻擊。 <b>下載兩個 Check Point vSEC 市集項目。</b> | Check Point |
 | ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | 使用 Chef Automate (連續自動化平台) 進行建置、部署及管理。 <b>下載兩個 Chef 市集項目</b> | Chef Software, Inc |
+| ![](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | 輕鬆而有自信地控制、監視及加密 VM。 <b>下載所有 CloudLink SecureVM 項目。<b> | Dell EMC |
 | ![](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) 沙箱](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | 由 HDP 2.5 所提供的 100% 開放原始碼平台，適用於 Hadoop、Spark、Storm、HBase、Kafka、Hive、Ambari。 | Hortonworks |
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster 負載平衡器 ADC 內容切換](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 第 4-7 層應用程式傳遞控制器 (ADC) 負載平衡器、內容切換和流量管理員。 | KEMP Technologies Inc. |
 | ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybird AWS S3 相容 - 社群版](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | 橫跨公用和內部部署容量資源的 S3 相容存體服務。 | NooBaa |

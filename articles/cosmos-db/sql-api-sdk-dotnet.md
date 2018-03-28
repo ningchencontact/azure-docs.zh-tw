@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB：SQL .NET API、SDK 和資源 | Microsoft Docs"
-description: "全面了解 SQL .NET API 和 SDK，包括發行日期、停用日期及 Azure Cosmos DB .NET SDK 每個版本之間的變更。"
+title: Azure Cosmos DB：SQL .NET API、SDK 和資源 | Microsoft Docs
+description: 全面了解 SQL .NET API 和 SDK，包括發行日期、停用日期及 Azure Cosmos DB .NET SDK 每個版本之間的變更。
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 825b2657cc6aa7b4e116f44020767beff911b1fc
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5dd2fb353246120f58840914e8a4e5527d7a4486
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK for SQL API：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -54,6 +54,11 @@ ms.lasthandoff: 03/12/2018
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
+### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
+
+* 修正跨分割區 Order By 查詢在邊角案例中的 KeyNotFoundException。
+* 修正在 LINQ 查詢的 select 子句中，JsonPropery 屬性未被接受的錯誤 (bug)。
+
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * 修正會在競爭情形下發生的錯誤，其是在使用工作階段一致性層級時，導致間歇發生「Microsoft.Azure.Documents.NotFoundException: 讀取工作階段不適用於輸入工作階段權杖」錯誤。
@@ -290,6 +295,8 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.21.1](#1.20.1) |2018 年 3 月 9 日 |--- |
+| [1.20.2](#1.20.1) |2018 年 2 月 21 日 |--- |
 | [1.20.1](#1.20.1) |2018 年 2 月 5 日 |--- |
 | [1.19.1](#1.19.1) |2017 年 11 月 16 日 |--- |
 | [1.19.0](#1.19.0) |2017 年 11 月 10 日 |--- |

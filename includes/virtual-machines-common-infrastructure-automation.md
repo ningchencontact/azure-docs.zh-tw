@@ -14,7 +14,7 @@
 
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) 是設定管理、建立 VM 或應用程式部署的自動化引擎。 Ansible 會使用無代理程式的模型，通常是使用 SSH 金鑰來驗證及管理目標電腦。 設定工作會在 Runbook 中加以定義，並使用幾個可用的 Ansible 模組來執行特定的工作。 如需詳細資訊，請參閱 [Ansible 的運作方式](https://www.ansible.com/how-ansible-works)。
+[Ansible](https://www.ansible.com/) 是設定管理、建立 VM 或應用程式部署的自動化引擎。 Ansible 會使用無代理程式的模型，通常是使用 SSH 金鑰來驗證及管理目標電腦。 設定工作會定義在劇本中，並有幾個可用來執行特定工作的 Ansible 模組。 如需詳細資訊，請參閱 [Ansible 的運作方式](https://www.ansible.com/how-ansible-works)。
 
 了解如何：
 
@@ -103,7 +103,7 @@ DSC 設定會定義要在電腦上安裝的項目，以及設定主機的方式�
 
 
 ## <a name="azure-automation"></a>Azure 自動化
-[Azure 自動化](https://azure.microsoft.com/services/automation/)會使用 Runbook，在您的目標 VM 上處理一組工作。 Azure 自動化是用來管理現有的 VM，而非建立基礎結構。 Azure 自動化可以跨 Linux 和 Windows VM 執行，以及使用混合式 Runbook 背景工作角色的內部部署虛擬或實體機器。 Runbook 可以儲存在原始檔控制存放庫 (例如 GitHub) 中。 接著，這些 Runbook 就可以手動方式或依定義的排程執行。
+[Azure 自動化](https://azure.microsoft.com/services/automation/)會使用 Runbook，在您的目標 VM 上處理一組工作。 Azure 自動化是用來管理現有的 VM，而非建立基礎結構。 Azure 自動化可以在 Linux 和 Windows VM 上執行，以及在具有混合式 Runbook 背景工作角色的內部部署虛擬或實體機器上執行。 Runbook 可以儲存在原始檔控制存放庫 (例如 GitHub) 中。 接著，這些 Runbook 就可以手動方式或依定義的排程執行。
 
 Azure 自動化也會提供預期狀態設定 (DSC) 服務，可讓您建立一組指定 VM 之設定方式的定義。 然後，DSC 會確保已套用所需的設定，且 VM 保持一致。 Azure 自動化 DSC 會在 Windows 和 Linux 電腦上執行。
 

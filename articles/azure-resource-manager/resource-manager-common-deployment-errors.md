@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f251fe11c43dc4b3f29c70f937f5bfcb6af6c44e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
@@ -38,6 +38,7 @@ ms.lasthandoff: 03/12/2018
 | 衝突 | 您要求的作業在資源的目前狀態下不允許。 例如，只有在建立 VM 時或解除配置 VM 之後，才可調整磁碟大小。 | |
 | DeploymentActive | 等候此資源群組的並行部署完成。 | |
 | DeploymentFailed | DeploymentFailed 錯誤是一般錯誤，不會提供您解決錯誤所需的詳細資料。 尋找錯誤碼的錯誤詳細資料，以提供更多資訊。 | [尋找錯誤碼](#find-error-code) |
+| DeploymentQuotaExceeded | 如果每個資源群組的部署達到 800 個數量限制，請從歷程記錄中刪除不再需要的部署。 您可以使用 [az group deployment delete](/cli/azure/group/deployment#az_group_deployment_delete) (Azure CLI) 或 [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) (PowerShell) 以從歷程記錄中刪除項目。 從部署歷程記錄中刪除項目時，並不會影響部署資源。 | |
 | DnsRecordInUse | DNS 記錄名稱必須是唯一的。 請提供不同的名稱，或是修改現有的記錄。 | |
 | ImageNotFound | 檢查 VM 映像設定。 |  |
 | InUseSubnetCannotBeDeleted | 當您嘗試更新資源時，可能會遇到這個錯誤，但是藉由刪除和建立資源即可處理要求。 請務必指定所有不變的值。 | [更新資源](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,10 +50,13 @@ ms.lasthandoff: 03/12/2018
 | InvalidResourceNamespace | 請檢查您在 **type** 屬性中指定的資源命名空間。 | [範本參考](/azure/templates/) |
 | InvalidResourceReference | 資源不存在或未正確地參考。 檢查是否需要新增相依性。 確認您使用 **reference** 函式包括案例的必要參數。 | [解析相依性](resource-manager-not-found-errors.md) |
 | InvalidResourceType | 請檢查您在 **type** 屬性中指定的資源類型。 | [範本參考](/azure/templates/) |
+| InvalidSubscriptionRegistrationState | 向資源提供者註冊訂用帳戶。 | [解析註冊](resource-manager-register-provider-errors.md) |
 | InvalidTemplate | 請檢查錯誤的範本語法。 | [解析無效的範本](resource-manager-invalid-template-errors.md) |
+| InvalidTemplateCircularDependency | 移除不必要的相依性。 | [解析循環相依性](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | 檢查您的帳戶是否屬於與部署所在之資源群組相同的租用戶。 | |
 | LinkedInvalidPropertyId | 資源的資源識別碼未正確地解析。 請檢查您為資源識別碼提供所有必要值，包含訂用帳戶識別碼、資源群組名稱、資源類型、父代資源名稱 (如有需要) 和資源名稱。 | |
 | LocationRequired | 提供資源的位置。 | [設定位置](resource-manager-templates-resources.md#location) |
+| MismatchingResourceSegments | 請確定巢狀資源的名稱和類型都有正確的區段數目。 | [解析資源區段](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | 檢查資源提供者註冊狀態和支援的位置。 | [解析註冊](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | 向資源提供者註冊訂用帳戶。 | [解析註冊](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | 檢查資源提供者註冊狀態。 | [解析註冊](resource-manager-register-provider-errors.md) |
@@ -73,6 +77,8 @@ ms.lasthandoff: 03/12/2018
 | StorageAccountAlreadyTaken | 提供儲存體帳戶的唯一名稱。 | [解析儲存體帳戶名稱](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | 檢查您嘗試使用的訂用帳戶、資源群組和儲存體帳戶名稱。 | |
 | SubnetsNotInSameVnet | 虛擬機器只能有一個虛擬網路。 在部署多個 NIC 時，請確定它們屬於相同的虛擬網路。 | [多個 NIC](../virtual-machines/windows/multiple-nics.md) |
+| TemplateResourceCircularDependency | 移除不必要的相依性。 | [解析循環相依性](resource-manager-invalid-template-errors.md#circular-dependency) |
+| TooManyTargetResourceGroups | 減少單一部署的資源群組數目。 | [跨資源群組部署](resource-manager-cross-resource-group-deployment.md) |
 
 ## <a name="find-error-code"></a>尋找錯誤碼
 

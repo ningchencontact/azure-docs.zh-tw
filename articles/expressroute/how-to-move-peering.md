@@ -1,25 +1,25 @@
 ---
-title: "將 Azure ExpressRoute 上的公用對等互連移至 Microsoft 對等互連 | Microsoft Docs"
-description: "本文會示範在 ExpressRoute 中將公用對等互連移至 Microsoft 對等互連的步驟。"
+title: 將 Azure ExpressRoute 上的公用對等互連移至 Microsoft 對等互連 | Microsoft Docs
+description: 本文會示範在 ExpressRoute 中將公用對等互連移至 Microsoft 對等互連的步驟。
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4fd0f1cbba36957ae5ecc1b7436d1f1734a3ef79
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 02d7c3f587a4cbfb11fc3b6863f75ca30b4d6c51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>將公用互連移至 Microsoft 對等互連
 
@@ -73,6 +73,10 @@ ExpressRoute 支援使用 Microsoft 對等互連與路由篩選進行 Azure PaaS
   * [刪除使用 Azure 入口網站的 Azure 公用對等互連](expressroute-howto-routing-portal-resource-manager.md#deletepublic)
   * [刪除使用 Azure PowerShell 的 Azure 公用對等互連](expressroute-howto-routing-arm.md#deletepublic)
   * [刪除使用 CLI 的 Azure 公用對等互連](howto-routing-cli.md#deletepublic)
+  
+## <a name="view"></a>5.檢視對等互連
+  
+在 Azure 入口網站中，您可以看到所有 ExpressRoute 線路和對等互連的清單。 如需詳細資訊，請參閱[檢視 Microsoft 對等互連的詳細資料](expressroute-howto-routing-portal-resource-manager.md#getmsft)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Stack 中虛擬機器的差異與考量 | Microsoft Docs"
-description: "了解使用 Azure Stack 中虛擬機器時的差異與考量。"
+title: Azure Stack 中虛擬機器的差異與考量 | Microsoft Docs
+description: 了解使用 Azure Stack 中虛擬機器時的差異與考量。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure Stack 中虛擬機器的考量
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/27/2018
 | 虛擬機器網路 | 指派給租用戶虛擬機器的公用 IP 位址可透過網際網路存取。<br><br><br>Azure 虛擬機器有固定的 DNS 名稱 | 指派給租用戶虛擬機器的公用 IP 位址時，只能在「Azure Stack 開發套件」環境內存取。 使用者必須能夠透過 [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) 或 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 存取「Azure Stack 開發套件」，才能連線到在 Azure Stack 中建立的虛擬機器。<br><br>在特定 Azure Stack 執行個體內建立之虛擬機器的 DNS 名稱會以雲端系統管理員所設定的值為基礎。 |
 | 虛擬機器儲存體 | 支援[受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)。 | Azure Stack 尚未支援受控磁碟。 |
 | API 版本 | Azure 一律會有所有虛擬機器功能的最新 API 版本。 | Azure Stack 支援特定的 Azure 服務及這些服務的特定 API 版本。 若要檢視支援的 API 版本清單，請參考此文章的 [API 版本](#api-versions)一節。 |
-|虛擬機器可用性設定組|多個容錯網域 (每一區域 2 或 3 個)<br>多個更新網域<br>受控磁碟支援|單一容錯網域<br>單一更新網域<br>無受控磁碟支援|
+|虛擬機器可用性設定組|多個容錯網域 (每一區域 2 或 3 個)<br>多個更新網域<br>受控磁碟支援|多個容錯網域 (每一區域 2 或 3 個)<br>多個更新網域 (最多 20 個)<br>無受控磁碟支援|
 |虛擬機器擴展集|支援自動調整|不支援自動調整。<br>使用入口網站、Resource Manager 範本或 PowerShell 將更多執行個體新增到擴展集。
 
 ## <a name="virtual-machine-sizes"></a>虛擬機器大小

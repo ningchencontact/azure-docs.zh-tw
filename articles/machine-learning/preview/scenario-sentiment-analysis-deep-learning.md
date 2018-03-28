@@ -1,12 +1,12 @@
 ---
-title: "在 Azure Machine Learning 中使用深度學習來進行情感分析 | Microsoft Docs"
-description: "如何在 Azure ML Workbench 中使用深度學習來進行情感分析。"
+title: 在 Azure Machine Learning 中使用深度學習來進行情感分析 | Microsoft Docs
+description: 如何在 Azure ML Workbench 中使用深度學習來進行情感分析。
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: miprasad
 manager: kristin.tolle
 editor: miprasad
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ead8edcefa8705af82f4b223512a671c1245718a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>在 Azure Machine Learning 中使用深度學習來進行情感分析
 
 在自然語言處理的領域中，情感分析是眾所周知的工作。 在提供一組文字後，此工作的目的是要判斷該文字的情感。 此解決方案的目標是使用 Deep Learning 從電影評論來預測觀點。
 
-此解決方案位於 https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
+解決方案位於 https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 
 ## <a name="link-to-the-gallery-github-repository"></a>連結至資源庫 GitHub 存放庫
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 02/01/2018
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
 | 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | 'SentimentExtraction.py' |
-| 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
+| 3 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
 
 ## <a name="conclusion"></a>結論
 

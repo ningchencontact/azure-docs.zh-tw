@@ -104,7 +104,7 @@ Get-AzureStorageTableRowByColumnName -table $storageTable `
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter "(userid eq '1')"
+    -customFilter "(userid eq 1)"
 ```
 
 此查詢會擷取一筆記錄。
@@ -118,7 +118,7 @@ Get-AzureStorageTableRowByCustomFilter `
 
 ### <a name="updating-entities"></a>更新實體 
 
-更新實體有三個步驟。 首先，擷取要變更的實體。 第二，進行變更。 第三，使用 **Update-AzureStorageTableRow** 認可變更。
+更新實體有三個步驟。 首先，取出要變更的實體。 第二，進行變更。 第三，使用 **Update-AzureStorageTableRow** 認可變更。
 
 更新使用者名稱 = 'Jessie' 的實體，讓使用者名稱 = 'Jessie2'。 此範例也顯示了另一種使用 .NET 類型建立自訂篩選條件的方法。 
 
@@ -177,10 +177,10 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>刪除資料表中的所有實體 
 
-若要刪除資料表中的所有實體，請擷取它們，並使用管線將它們傳遞到 remove Cmdlet。 
+若要刪除資料表中的所有實體，請將它們取出，並使用管線將它們傳遞到 remove Cmdlet。 
 
 ```powershell
-# Get all rows and pipe it into the remove cmdlet.
+# Get all rows and pipe the result into the remove cmdlet.
 Get-AzureStorageTableRowAll `
     -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
 

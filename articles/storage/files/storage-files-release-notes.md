@@ -1,24 +1,18 @@
 ---
-title: "Azure 檔案同步代理程式 (預覽) 版本資訊 | Microsoft Docs"
-description: "Azure 檔案同步代理程式 (預覽) 版本資訊"
+title: Azure 檔案同步代理程式 (預覽) 版本資訊 | Microsoft Docs
+description: Azure 檔案同步代理程式 (預覽) 版本資訊。
 services: storage
-documentationcenter: 
 author: wmgries
-manager: klaasl
-editor: tamram
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/08/2017
+ms.topic: article
+ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: fabfb02a199744c63c3a2191589fd450cfdd0304
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b42287580078b4391ddbc5b8ff2835131c64236d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Azure 檔案同步代理程式 (預覽) 版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -28,14 +22,25 @@ Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服�
 ## <a name="supported-versions"></a>支援的版本
 Azure 檔案同步代理程式支援下列版本：
 
-| 版本 | 發行日期 | 支援結束日期 |
-|---------|--------------|------------------|
-| 2.1.0.0 | 2018 年 2 月 28 日 | 目前版本 |
-| 2.0.11.0 | 2018 年 2 月 8 日 | 目前版本 |
-| 1.1.0.0 | 2017 年 11 月 26 日 | 2018 年 7 月 30 日 |
+| 里程碑 | 代理程式版本號碼 | 發行日期 | 狀態 |
+|----|----------------------|--------------|------------------|
+| 三月更新彙總套件 | 2.2.0.0 | 2018 年 3 月 12 日 | 支援 (建議的版本) |
+| 二月更新彙總套件 | 2.1.0.0 | 2018 年 2 月 28 日 | 支援 |
+| 重新整理 1 | 2.0.11.0 | 2018 年 2 月 8 日 | 支援 |
+| 一月更新彙總套件 | 1.4.0.0 | 2018 年 1 月 8 日 | 支援到 2018 年 5 月 8 日<sup>1</sup> 為止 |
+| 十一月更新彙總套件 | 1.3.0.0 | 2017 年 11 月 30 日 | 支援到 2018 年 5 月 8 日<sup>1</sup> 為止 |
+| 十二月更新彙總套件 | 1.2.0.0 | 2017 年 10 月 31 日 | 支援到 2018 年 5 月 8 日為止<sup>1</sup> |
+| 初始預覽版本 | 1.1.0.0 | 2017 年 11 月 26 日 | 支援到 2018 年 5 月 8 日為止<sup>1</sup> |
+
+\[1\]：預覽期間的Azure 檔案同步代理程式版本會刻意地不遵循更新原則。 更新原則會在 Azure 檔案同步宣告上市之後，從第一個代理程式版本開始強制執行。
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-2200"></a>代理程式版本 2.2.0.0
+下列版本資訊適用於 Azure 檔案同步代理程式版本 2.2.0.0 (在 2018 年 3 月 12 日發行)。  這些版本資訊會新增到版本 2.1.0.0 和 2.0.11.0 上所列的版本資訊
+
+某些客戶在安裝 v2.1.0.0 時，可能會因為未停止 FileSyncSvc 而失敗。 此更新修正這個問題。
 
 ## <a name="agent-version-2100"></a>代理程式版本 2.1.0.0
 下列版本資訊適用於在 2018 年 2 月 28 日發行的 Azure 檔案同步代理程式 2.1.0.0 版。 這些是針對版本 2.0.11.0 所列的版本資訊以外的版本資訊。

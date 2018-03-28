@@ -1,12 +1,12 @@
 ---
-title: "深入了解 Azure Service Fabric | Microsoft Docs"
-description: "了解 Azure Service Fabric 的核心概念和主要領域。 提供 Service Fabric 及如何建立微服務的延伸概觀。"
+title: 深入了解 Azure Service Fabric | Microsoft Docs
+description: 了解 Azure Service Fabric 的核心概念和主要領域。 提供 Service Fabric 及如何建立微服務的延伸概觀。
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 9360d29eb30171651b0bcc688fe7884614b50cf4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e9d0691876a417fe8665bed2d712d643a4364120
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>您想要了解 Service Fabric 嗎？
 Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。  Service Fabric 有相當大的介面區，不過，要了解的方面很多。  本文提供 Service Fabric 的概述，並描述核心概念、程式設計模型、應用程式生命週期、測試、叢集及健康情況監視。 如需相關簡介及了解如何使用 Service Fabric 來建立微服務，請參閱[概觀](service-fabric-overview.md)和[什麼是微服務？](service-fabric-overview-microservices.md)。 本文並未包含完整的內容清單，但有連結到 Service Fabric 每個領域的概觀與入門文章。 
@@ -98,7 +98,7 @@ Service Fabric 與 [ASP.NET Core](service-fabric-reliable-services-communication
 - 在 Reliable Service 內部執行。 這可與 Service Fabric 執行階段更緊密整合，並可允許具狀態 ASP.NET Core 服務。
 
 ### <a name="guest-executables"></a>客體可執行檔
-[客體可執行檔](service-fabric-deploy-existing-app.md)是以任何語言所撰寫，且與其他服務一同裝載於 Service Fabric 叢集的現有任意可執行檔。 客體可執行檔未直接與 Service Fabric API 整合。 不過，它們仍然受惠於功能和平台提供項目，例如自訂健康情況和負載報告，以及透過呼叫 REST API 來探索服務。 它們也具備完整的應用程式生命週期支援。 
+[客體可執行檔](service-fabric-guest-executables-introduction.md)是以任何語言所撰寫，且與其他服務一同裝載於 Service Fabric 叢集的現有任意可執行檔。 客體可執行檔未直接與 Service Fabric API 整合。 不過，它們仍然受惠於功能和平台提供項目，例如自訂健康情況和負載報告，以及透過呼叫 REST API 來探索服務。 它們也具備完整的應用程式生命週期支援。 
 
 ## <a name="application-lifecycle"></a>應用程式生命週期
 如同其他平台，Service Fabric 上的應用程式通常會經歷下列階段：設計、開發、測試、部署、升級、維護和移除。 從開發到部署、到每日管理、維護，以及最終的解除委任，Service Fabric 為雲端應用程式的完整應用程式生命週期提供第一等的支援。 服務模型可以啟用數個不同的角色，在應用程式生命週期中獨立參與。 [Service Fabric 應用程式生命週期](service-fabric-application-lifecycle.md)說明 API 的概觀，以及不同的角色如何在 Service Fabric 應用程式生命週期的各個階段使用 API。 
@@ -138,7 +138,7 @@ Service Fabric 與 [ASP.NET Core](service-fabric-reliable-services-communication
 
 您可透過 [Azure 入口網站](service-fabric-cluster-creation-via-portal.md)、[範本](service-fabric-cluster-creation-via-arm.md)或 [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md)，在 Azure 上建立叢集。
 
-Linux 上的 Service Fabric 可讓您如同在 Windows 上一樣，在 Linux 上建置、部署和管理可用性高、可大幅調整的應用程式。 Service Fabric 架構 (Reliable Services 和 Reliable Actors) 除了可在 C# (.NET Core) 中使用，也可在 Linux 上的 Java 中使用。 您也可以使用任何語言或架構來建置 [來賓可執行檔服務](service-fabric-deploy-existing-app.md) 。 也支援協調 Docker 容器。 Docker 容器可以執行使用 Service Fabric 架構的來賓可執行檔或原生 Service Fabric 服務。 如需詳細資訊，請參閱 [Linux 上的 Service Fabric](service-fabric-deploy-anywhere.md)。
+Linux 上的 Service Fabric 可讓您如同在 Windows 上一樣，在 Linux 上建置、部署和管理可用性高、可大幅調整的應用程式。 Service Fabric 架構 (Reliable Services 和 Reliable Actors) 除了可在 C# (.NET Core) 中使用，也可在 Linux 上的 Java 中使用。 您也可以使用任何語言或架構來建置 [來賓可執行檔服務](service-fabric-guest-executables-introduction.md) 。 也支援協調 Docker 容器。 Docker 容器可以執行使用 Service Fabric 架構的來賓可執行檔或原生 Service Fabric 服務。 如需詳細資訊，請參閱 [Linux 上的 Service Fabric](service-fabric-deploy-anywhere.md)。
 
 有一些 Windows 上支援的功能，在 Linux 上未提供。 若要深入了解詳細資訊，請參閱 [Linux 與 Windows 上的 Service Fabric 差異](service-fabric-linux-windows-differences.md)。
 
@@ -167,7 +167,7 @@ Service Fabric 提供安裝套件，可讓您在內部部署環境或任何雲�
 
 Service Fabric 叢集是由您所擁有，但由 Microsoft 部分管理的資源。 Microsoft 負責修補基礎 OS，以及在叢集上執行網狀架構升級。 您可以設定您的叢集 (當 Microsoft 發行新版本時) 接收自動網狀架構升級，或選擇選取您需要的受支援網狀架構版本。 您可透過 Azure 入口網站或 Resource Manager，設定網狀架構和組態升級。 如需詳細資訊，請參閱[升級 Service Fabric 叢集](service-fabric-cluster-upgrade.md)。 
 
-獨立叢集是由您完全擁有的資源。 由您負責修補基礎 OS 和起始網狀架構升級。 若您的叢集可連線至 [https://www.microsoft.com/download](https://www.microsoft.com/download)，則您可將叢集設為自動下載和佈建新的 Service Fabric 執行階段封裝。 接著您即會起始升級。 若您的叢集無法存取 [https://www.microsoft.com/download](https://www.microsoft.com/download)，則您可透過連線至網際網路的電腦下載新執行階段封裝，然後再起始升級。 如需詳細資訊，請參閱[升級獨立 Service Fabric 叢集](service-fabric-cluster-upgrade-windows-server.md)。
+獨立叢集是由您完全擁有的資源。 由您負責修補基礎 OS 和起始網狀架構升級。 若您的叢集可連線至 [https://www.microsoft.com/download](https://www.microsoft.com/download)，則您可將叢集設為自動下載和佈建新的 Service Fabric 執行階段套件。 接著您即會起始升級。 若您的叢集無法存取 [https://www.microsoft.com/download](https://www.microsoft.com/download)，則您可透過連線至網際網路的電腦下載新執行階段套件，然後再起始升級。 如需詳細資訊，請參閱[升級獨立 Service Fabric 叢集](service-fabric-cluster-upgrade-windows-server.md)。
 
 ## <a name="health-monitoring"></a>健康狀況監視
 Service Fabric 引入了[健康狀態模型](service-fabric-health-introduction.md)，主要用於在特定實體 (例如叢集節點和服務複本) 上標示狀況不良的叢集和應用程式條件。 健康狀態模型使用健康狀態報告程式 (系統元件及看門狗)。 目標為輕易迅速的診斷並修復問題。 服務撰寫者必須預先考量健康狀態以及如何[設計健康狀態報告](service-fabric-report-health.md#design-health-reporting)等相關層面。 任何可能會影響到健康狀態的條件都需加以回報，尤其是如果它有助標示出接近根目錄的問題。 一旦在生產階段大規模啟動並執行服務，健康狀態資訊將可有效減少偵錯和調查工作所需的時間和心力。

@@ -1,8 +1,8 @@
 ---
-title: "在 Azure Active Directory 中撰寫屬性對應的運算式 | Microsoft Docs"
-description: "了解在 Azure Active Directory 中自動化佈建 SaaS 應用程式物件的期間，如何使用運算式對應將屬性值轉換成可接受的格式。"
+title: 在 Azure Active Directory 中撰寫屬性對應的運算式 | Microsoft Docs
+description: 了解在 Azure Active Directory 中自動化佈建 SaaS 應用程式物件的期間，如何使用運算式對應將屬性值轉換成可接受的格式。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>在 Azure Active Directory 中撰寫屬性對應的運算式
 當您設定佈建到 SaaS 應用程式時，您可以指定的其中一種屬性對應類型是運算式對應。 您必須撰寫類似指令碼的運算式，以便讓您將使用者的資料轉換成 SaaS 應用程式更能接受的格式。
@@ -62,7 +62,7 @@ ms.lasthandoff: 01/16/2018
 | Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要 |字串 |通常為 source 物件的屬性名稱。 |
-| **inputFormat** |必要 |字串 |source 值的預期格式。 如需支援的格式，請參閱 [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)。 |
+| **inputFormat** |必要 |字串 |source 值的預期格式。 如需支援的格式，請參閱[http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)。 |
 | **outputFormat** |必要 |字串 |輸出日期的格式。 |
 
 - - -
@@ -108,7 +108,7 @@ ms.lasthandoff: 01/16/2018
 
 - - -
 ### <a name="replace"></a>Replace
-**函式：**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**函式：**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **說明：**<br>
 取代字串內的值。 根據提供的參數而以不同的方式運作：
@@ -119,13 +119,13 @@ ms.lasthandoff: 01/16/2018
 * 提供 **oldValue** 和 **template** 時：
   
   * 以 **source** 值取代 **template** 中所有的 **oldValue** 項目
-* 提供 **oldValueRegexPattern**、**oldValueRegexGroupName**、**replacementValue** 時：
+* 提供 **regexPattern**、**regexGroupName**、**replacementValue** 時：
   
   * 以 replacementValue 取代 source 字串中符合 oldValueRegexPattern 的所有值
-* 提供 **oldValueRegexPattern**、**oldValueRegexGroupName**、**replacementPropertyName** 時：
+* 提供 **regexPattern**、**regexGroupName**、**replacementPropertyName** 時：
   
-  * 如果 **source** 有值，則傳回 **source**
-  * 如果 **source** 沒有值，則使用 **oldValueRegexPattern** 和 **oldValueRegexGroupName** 從有 **replacementPropertyName** 的屬性擷取取代值。 結果會傳回取代值
+  * 如果 **source** 沒有值，則傳回 **source**
+  * 如果 **source** 有值，則使用 **regexPattern** 和 **regexGroupName** 從有 **replacementPropertyName** 的屬性擷取取代值。 結果會傳回取代值
 
 **參數：**<br> 
 
@@ -213,6 +213,17 @@ ms.lasthandoff: 01/16/2018
 * **輸入** (givenName)："John"
 * **輸入** (surname)："Doe"
 * **輸出**："JohDoe"
+
+### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>從字串中移除變音符號，然後轉換成小寫
+您必須從字串中移除特殊字元，並將大寫字元轉換成小寫。
+
+**運算式：** <br>
+`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+
+**範例輸入/輸出：** <br>
+
+* **輸入** (givenName)："Zoë"
+* **輸出**："zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>以特定格式將日期輸出為字串
 您想要以特定格式傳送日期到 SaaS 應用程式。 <br>

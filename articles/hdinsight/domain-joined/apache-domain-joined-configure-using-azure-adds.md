@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集 - Azure | Microsoft Docs"
-description: "了解如何使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集"
+title: 使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集 - Azure | Microsoft Docs
+description: 了解如何使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: jhubbard
 editor: cgronlun
-tags: 
+tags: ''
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集
 
@@ -56,6 +56,9 @@ ms.lasthandoff: 02/21/2018
 - **組織單位**︰HDInsight 叢集要搭配使用的組織單位 (OU) 的辨別名稱。 例如：OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com。如果此 OU 不存在，HDInsight 叢集會嘗試建立此 OU。 
 - **LDAPS URL**：例如 ldaps://contoso.onmicrosoft.com:636。
 - **存取使用者群組**︰您要將其使用者同步至叢集的安全性群組。 例如，HiveUsers。 如果要指定多個使用者群組，以逗號 (,) 分隔它們。
+ 
+> [!NOTE]
+> 因為 Apache Zeppelin 會使用網域名稱來驗證管理服務帳戶，所以服務帳戶「必須」具有與其 UPN 尾碼相同的網域名稱，Apache Zeppelin 才能正常運作。
  
 以下螢幕擷取畫面顯示 Azure 入口網站上中的設定：
 
