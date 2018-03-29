@@ -1,6 +1,6 @@
 ---
-title: "監視負載平衡器的作業、事件和計數器 | Microsoft Docs"
-description: "了解如何啟用 Azure 負載平衡器的警示事件和探查健全狀況狀態記錄"
+title: 監視負載平衡器的作業、事件和計數器 | Microsoft Docs
+description: 了解如何啟用 Azure 負載平衡器的警示事件和探查健全狀況狀態記錄
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: dabf4bcae957559978e731636bb13554f1a68b73
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Azure 負載平衡器的記錄檔分析
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+>[!NOTE] 
+>Azure Load Balancer 支援兩種不同類型：基本和標準。 本文討論基本 Load Balancer。 如需標準 Load Balancer 的詳細資訊，請參閱[標準 Load Balancer 概觀](load-balancer-standard-overview.md)。
 
 您可以在 Azure 中使用不同類型的記錄檔來管理和疑難排解負載平衡器。 透過入口網站可以存取其中一些記錄檔。 從 Azure Blob 儲存體可以擷取所有記錄，並且在不同的工具中進行檢視 (例如 Excel 和 PowerBI)。 您可以從下列清單進一步了解不同類型的記錄檔。
 

@@ -1,11 +1,12 @@
 ---
-title: "複製其他人的資料科學範例 - Azure Machine Learning | Microsoft Docs"
-description: "資料科學的商業秘密：讓其他人為您工作。 從 Azure AI 資源庫取得機器學習服務範例。"
-keywords: "資料科學範例, 機器學習範例, 叢集演算法, 叢集演算法範例"
+title: 複製其他人的資料科學範例 - Azure Machine Learning | Microsoft Docs
+description: 資料科學的商業秘密：讓其他人為您工作。 從 Azure AI 資源庫取得機器學習服務範例。
+keywords: 資料科學範例, 機器學習範例, 叢集演算法, 叢集演算法範例
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.author: cgronlun
-ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 764e7c61b5ef023608767dfe78f3aa76e4463f05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>複製其他人的工作進行資料科學
 ## <a name="video-5-data-science-for-beginners-series"></a>影片 5：適用於初學者的資料科學系列

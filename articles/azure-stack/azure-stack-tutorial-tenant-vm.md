@@ -1,31 +1,28 @@
 ---
-title: "將虛擬機器提供給您的 Azure Stack 使用者| Microsoft Docs"
-description: "此教學課程說明如何將虛擬機器提供給 Azure Stack"
+title: 將虛擬機器提供給您的 Azure Stack 使用者| Microsoft Docs
+description: 此教學課程說明如何將虛擬機器提供給 Azure Stack
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>將虛擬機器提供給您的 Azure Stack 使用者
-
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
-
 身為 Azure Stack 雲端系統管理員，您可以建立供應項目，以供您的使用者 (有時稱為租用戶) 訂閱。 利用其訂用帳戶，使用者可以接著取用 Azure Stack 服務。
 
 此文章說明如何建立供應項目並進行測試。 針對測試，您將必須以使用者身分登入入口網站，訂閱該供應項目，然後使用訂用帳戶建立虛擬機器。
@@ -116,8 +113,8 @@ ms.lasthandoff: 02/22/2018
    現在您能以使用者身分登入到入口網站，以訂閱供應項目。
 
    a. 以使用者身分登入使用者入口網站，並按一下 [Get a Subscription]\(取得訂用帳戶\)。
-   - 整合系統的 URL 會由於操作員的地區和外部網域名稱而有所不同，格式為 https://portal.&lt;地區&gt;.&lt;FQDN&gt;。
-   - 如果您使用 Azure Stack 開發套件，入口網站位址是 https://portal.local.azurestack.external。
+   - 就整合系統而言，URL 會因操作員的區域和外部網域名稱而有所不同，格式將會是 https://portal.&lt;*區域*&gt;.&lt;*FQDN*&gt;。
+   - 如果您使用「Azure Stack 開發套件」，則入口網站位址為 https://portal.local.azurestack.external。
 
    ![取得訂用帳戶](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
@@ -135,7 +132,7 @@ ms.lasthandoff: 02/22/2018
 
    a. 以使用者身分登入使用者入口網站。
       - 就整合系統而言，URL 會因操作員的區域和外部網域名稱而有所不同，格式將會是 https://portal.&lt;*區域*&gt;.&lt;*FQDN*&gt;。
-   - 如果您使用 Azure Stack 開發套件，入口網站位址是 https://portal.local.azurestack.external。
+   - 如果您使用「Azure Stack 開發套件」，則入口網站位址為 https://portal.local.azurestack.external。
 
    b.  在儀表板上，按一下 [新增] > **[計算]** > **[Windows Server 2016 Datacenter 評估版]**，然後按一下 [建立]。
 

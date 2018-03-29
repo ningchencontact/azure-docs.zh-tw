@@ -1,10 +1,10 @@
 ---
-title: "如何參數化 Azure Service Fabric 中的設定檔 | Microsoft Docs"
-description: "示範如何參數化 Service Fabric 中的設定檔"
+title: 如何參數化 Azure Service Fabric 中的設定檔 | Microsoft Docs
+description: 示範如何參數化 Service Fabric 中的設定檔
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: 1e7d59ecb231440711b8ed3dc0b27a2b105890c4
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 14fbdf27b8735bb3f2dc91ce0891711e9aaf2af3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>如何參數化 Service Fabric 中的設定檔
 
@@ -71,8 +71,6 @@ ms.lasthandoff: 01/16/2018
 > 在您新增 ConfigOverride 的情況下，Service Fabric 一律會選擇應用程式資訊清單中所指定的應用程式參數或預設值。
 >
 >
-
-使用 Cloud.xml 發行設定檔從 Visual Studio 發行您的應用程式時，您的服務會設定為使用連接埠 80。 如果部署應用程式未指定 MyWebAPI_PortNumber 參數，則服務會使用連接埠 8080。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解這篇文章所討論的某些核心概念，請參閱[管理多個環境發行項的應用程式](service-fabric-manage-multiple-environment-app-configuration.md)。

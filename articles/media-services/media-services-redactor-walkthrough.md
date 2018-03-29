@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 媒體分析修訂臉部逐步解說 | Microsoft Docs"
-description: "本主題逐步說明如何使用 Azure 媒體服務總管 (AMSE) 和 Azure 媒體修訂器視覺化檢視 (開放原始碼工具) 來執行完整的修訂工作流程。"
+title: 使用 Azure 媒體分析修訂臉部逐步解說 | Microsoft Docs
+description: 本主題逐步說明如何使用 Azure 媒體服務總管 (AMSE) 和 Azure 媒體修訂器視覺化檢視 (開放原始碼工具) 來執行完整的修訂工作流程。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 0bd385ba78028a722c52cdf1508f3348ff90f05f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>使用 Azure 媒體分析修訂臉部逐步解說
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 
 ![臉部修訂](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
-###<a name="second-pass--redact-mode"></a>第二階段 – 修訂模式
+### <a name="second-pass--redact-mode"></a>第二階段 – 修訂模式
 
 1. 將原始的視訊資產上傳至第一階段中的輸出，並設為主要資產。 
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
 
     ![臉部修訂](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
-##<a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure 媒體修訂器視覺化檢視開放原始碼工具
+## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure 媒體修訂器視覺化檢視開放原始碼工具
 
 開放原始碼[視覺化檢視工具](https://github.com/Microsoft/azure-media-redactor-visualizer)旨在協助剛開始註解格式操作的開發人員剖析和使用輸出。
 

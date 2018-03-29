@@ -10,15 +10,15 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: fa263a4b6f41e2b31328f46b8d1341d0d74c9a85
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-cost-management-reports"></a>使用成本管理報告
 
-本文說明如何在 Cloudyn 入口網站中使用各種成本管理報告。 大部分 Cloudyn 報告是直覺式的，並且具有一致的外觀及操作。 如需有關 Cloudyn 報告的概觀，請參閱[了解成本報告](understading-cost-reports.md)。 本文也描述各種選項和大部分報告中使用的欄位。
+本文說明如何在 Cloudyn 入口網站中使用各種成本管理報告。 大部分 Cloudyn 報告是直覺式的，並且具有一致的外觀及操作。 如需有關 Cloudyn 報告的概觀，請參閱[了解成本報告](understanding-cost-reports.md)。 本文也描述各種選項和大部分報告中使用的欄位。
 
 ## <a name="cost-analysis-reports"></a>成本分析報告
 

@@ -1,24 +1,19 @@
 ---
-title: "業務持續性和災害復原 (BCDR)：Azure 配對的區域 | Microsoft Docs"
-description: "了解 Azure 區域配對，以確保當資料中心發生故障時應用程式可復原。"
+title: 業務持續性和災害復原 (BCDR)：Azure 配對的區域 | Microsoft Docs
+description: 了解 Azure 區域配對，以確保當資料中心發生故障時應用程式可復原。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: 
-ms.assetid: c2d0a21c-2564-4d42-991a-bc31723f61a4
-ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
+manager: carmonm
+ms.service: multiple
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: raynew
-ms.openlocfilehash: 394f353837433e241e4da6f4accdb5eaa24bae46
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 660ced47b48e981b65c6b9390809e345be8eda2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>業務持續性和災害復原 (BCDR)：Azure 配對的區域
 
@@ -58,10 +53,10 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 
 表 1 - Azure 區域配對對應表
 
-- > (1) 印度西部不同，原因是該區域只會以單一方向與另一個區域配對。 印度西部的次要地區是印度南部，但印度南部的次要區域是印度中部。
-- > (2) 巴西南部與其他區域的不同點在於，其與自身地理位置以外的區域配對。 巴西南部的次要地區是美國中南部，但是美國中南部的次要地區並不是巴西南部。
-- > (3) 美國愛荷華州政府的次要區域是美國維吉尼亞州政府，但美國維吉尼亞州政府的次要區域不是美國愛荷華州政府。
-- > (4) 美國維吉尼亞州政府的次要區域是美國德克薩斯州政府，但美國德克薩斯州政府的次要區域不是美國維吉尼亞州政府。
+- (1) 印度西部不同，原因是該區域只會以單一方向與另一個區域配對。 印度西部的次要地區是印度南部，但印度南部的次要區域是印度中部。
+- (2) 巴西南部與其他區域的不同點在於，其與自身地理位置以外的區域配對。 巴西南部的次要地區是美國中南部，但是美國中南部的次要地區並不是巴西南部。
+- (3) 美國愛荷華州政府的次要區域是美國維吉尼亞州政府，但美國維吉尼亞州政府的次要區域不是美國愛荷華州政府。
+- (4) 美國維吉尼亞州政府的次要區域是美國德克薩斯州政府，但美國德克薩斯州政府的次要區域不是美國維吉尼亞州政府。
 
 
 我們建議您複寫跨區域配對的工作負載，以善用 Azure 的隔離與可用性原則。 例如，預定的 Azure 系統更新會跨配對區域循序部署 (並非同時)。 這表示即使面臨罕見的更新錯誤事件，兩個區域也不會同時受到影響。 此外，若遭遇少見的廣泛中斷事件，就能至少優先復原所有配對中的其中一個區域。

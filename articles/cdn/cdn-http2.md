@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN 中的 HTTP/2 支援 | Microsoft Docs"
-description: "了解 HTTP/2 和 CDN 支援。"
+title: Azure CDN 中的 HTTP/2 支援 | Microsoft Docs
+description: 了解 HTTP/2 和 CDN 支援。
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: lichard
 manager: erikre
-editor: 
+editor: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: 4f8dd685c3ae89535217d7a17a01c5129ca7e6e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a58ab1165f3886484fb695170100422c2f1b0486
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="http2-support-in-azure-cdn"></a>Azure CDN 中的 HTTP/2 支援
 
 HTTP/2 是 HTTP/1.1 的重大修訂版。 它提供更快的 Web 效能、更短的回應時間和改善的使用者體驗，但保留常用的 HTTP 方法、狀態碼和語意。 雖然 HTTP/2 是設計來搭配 HTTP 和 HTTPS，但許多用戶端 Web 瀏覽器僅支援透過 TLS 使用 HTTP/2。
 
-###<a name="http2-benefits"></a>HTTP/2 的優點
+### <a name="http2-benefits"></a>HTTP/2 的優點
 
 HTTP/2 的優點包括︰
 
@@ -40,7 +40,7 @@ HTTP/2 的優點包括︰
     資料流相依性可讓用戶端向伺服器表示哪個資源最優先。
 
 
-##<a name="http2-browser-support"></a>HTTP/2 瀏覽器支援
+## <a name="http2-browser-support"></a>HTTP/2 瀏覽器支援
 
 所有主要瀏覽器都已在其目前的版本中實作 HTTP/2 支援。 不支援的瀏覽器會自動降回 HTTP/1.1。
 
@@ -52,11 +52,11 @@ HTTP/2 的優點包括︰
 |Opera| 32|
 |Safari| 9|
 
-##<a name="enabling-http2-support-in-azure-cdn"></a>啟用 Azure CDN 中的 HTTP/2 支援
+## <a name="enabling-http2-support-in-azure-cdn"></a>啟用 Azure CDN 中的 HTTP/2 支援
 
 目前，**Akamai 的 Azure CDN** 和 **Verizon 的 Azure CDN** 設定檔已支援 HTTP/2。 客戶不需要採取任何動作。
 
-##<a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 
 若要了解 HTTP/2 在實務上的優點，請參閱 [Akamai 的這個示範](https://http2.akamai.com/demo)。
 

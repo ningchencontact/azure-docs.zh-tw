@@ -1,5 +1,5 @@
 ---
-title: "Azure 中的網路安全性概念和需求 | Microsoft Docs"
+title: Azure 中的網路安全性概念和需求 | Microsoft Docs
 description: " 本文可讓您更容易了解 Microsoft Azure 必須在網路安全性區域中提供的資訊。 我們提供核心網路安全性概念和需求的基本說明，以及 Azure 必須在所有這些區域中提供之資訊的相關資訊。 "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: e477ce9a5f9f35d88a6faeb68ee4e0403f64c030
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e32cd1f4267b9ae0825fbb34ed00e25dd1b63b5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-network-security-overview"></a>Azure 網路安全性概觀
 Microsoft Azure 包括強大網路基礎結構以支援您的應用程式和服務連線需求。 在 Azure 的資源之間、內部部署與 Azure 託管資源之間，以及到網際網路和 Azure 與來自網際網路和 Azure，可能會有網路連線。
@@ -252,11 +252,11 @@ DMZ 設計和 DMZ 部署決策有許多變化，而在決定要使用 DMZ 時，
 ### <a name="azure-network-watcher"></a>Azure 網路監看員
 Azure 網路監看員包含大量功能，可協助您進行疑難排解，還提供一套全新的工具來協助識別安全性問題。
 
-[安全性群組檢視](/network-watcher/network-watcher-security-group-view-overview.md)可為虛擬機器的稽核與安全性合規性提供協助，並可以用來以程式設計方式執行稽核，將由貴組織所定義的基準原則，與您每個 VM 的有效規則進行比較。 這可以協助您識別所有設定漂移。
+[安全性群組檢視](../network-watcher/network-watcher-security-group-view-overview.md)可為虛擬機器的稽核與安全性合規性提供協助，並可以用來以程式設計方式執行稽核，將由貴組織所定義的基準原則，與您每個 VM 的有效規則進行比較。 這可以協助您識別所有設定漂移。
 
-[封包擷取](/network-watcher/network-watcher-packet-capture-overview.md)可讓您擷取傳送至虛擬機器，或是自虛擬機器傳送的網路流量。 除了讓您收集網路統計資料，以及對應用程式問題進行疑難排解之外，封包擷取在調查網路入侵上，也能提供非常寶貴的協助。 您可以搭配 Azure Functions 使用此功能，來開始針對特定 Azure 警示進行網路擷取。
+[封包擷取](../network-watcher/network-watcher-packet-capture-overview.md)可讓您擷取傳送至虛擬機器，或是自虛擬機器傳送的網路流量。 除了讓您收集網路統計資料，以及對應用程式問題進行疑難排解之外，封包擷取在調查網路入侵上，也能提供非常寶貴的協助。 您可以搭配 Azure Functions 使用此功能，來開始針對特定 Azure 警示進行網路擷取。
 
-如需 Azure 網路監看員的詳細資訊，以及如何開始在實驗室中測試部分功能，請參閱 [Azure 網路監看員監視概觀](/network-watcher/network-watcher-monitoring-overview.md)
+如需 Azure 網路監看員的詳細資訊，以及如何開始在實驗室中測試部分功能，請參閱 [Azure 網路監看員監視概觀](../network-watcher/network-watcher-monitoring-overview.md)
 
 >[!NOTE]
 Azure 網路監看員目前仍為公開預覽，因此可能沒有與正式發行版本服務相同層級的可用性和可靠性。 可能不支援特定功能、可能有限制的功能，且可能無法在所有 Azure 位置提供使用。 如需此服務可用性和狀態的最新通知，請查看 [Azure 更新頁面](https://azure.microsoft.com/updates/?product=network-watcher)

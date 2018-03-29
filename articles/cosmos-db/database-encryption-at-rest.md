@@ -1,11 +1,11 @@
 ---
-title: "資料庫待用加密：Azure Cosmos DB | Microsoft Docs"
-description: "了解 Azure Cosmos DB 如何提供所有資料的預設加密。"
+title: 資料庫待用加密：Azure Cosmos DB | Microsoft Docs
+description: 了解 Azure Cosmos DB 如何提供所有資料的預設加密。
 services: cosmos-db
 author: voellm
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: df793fb0511d1289b927caad200eb8252f2b64e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB 資料庫待用加密
 
@@ -53,7 +53,6 @@ Cosmos DB 是一種 PaaS 服務，使用起來非常容易。 由於儲存在 Co
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>問︰我是否可以使用自己的加密金鑰？
 答：Cosmos DB 是一種 PaaS 服務，我們也很努力地讓這個服務容易使用。 我們注意到會詢問此問題的使用者，通常是想詢問有關符合如 PCI-DSS 等合規性需求的 Proxy 問題。 建置這項功能時，我們已與合規性稽核人員合作，以確保使用 Cosmos DB 的客戶能夠在不需要自行管理金鑰的情況下滿足他們的需求。
-因此，我們目前不提供讓使用者自行管理金鑰的選項。
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>問：有哪些區域已開啟加密？
 答：所有的 Azure Cosmos DB 區域皆已針對所有使用者資料開啟加密。

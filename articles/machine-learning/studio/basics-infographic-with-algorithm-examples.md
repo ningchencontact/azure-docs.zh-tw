@@ -1,11 +1,12 @@
 ---
-title: "資訊圖︰機器學習服務基本概念 - 演算法範例 | Microsoft Docs"
-description: "機器學習服務基本概念的簡易概觀包含演算法範例。 可下載的資訊圖涵蓋大部分的機器學習服務問題。"
-keywords: "機器學習服務基本概念,演算法範例,初學者的機器學習服務,機器學習服務問題,常用的演算法,演算法資訊圖"
+title: 資訊圖︰機器學習服務基本概念 - 演算法範例 | Microsoft Docs
+description: 機器學習服務基本概念的簡易概觀包含演算法範例。 可下載的資訊圖涵蓋大部分的機器學習服務問題。
+keywords: 機器學習服務基本概念,演算法範例,初學者的機器學習服務,機器學習服務問題,常用的演算法,演算法資訊圖
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 8c392740eb0c06b7a3c47e07e5beb667b17117ae
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 4f07defd3df3a7933a69463729240d856f6282d4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>可下載的資訊圖︰機器學習服務基本概念和演算法範例
 下載這個機器學習服務基本概念的簡易資訊圖概觀，以了解用來回答機器學習服務常見問題的常用演算法。 演算法範例可協助機器學習服務初學者了解適用的演算法及其用途。

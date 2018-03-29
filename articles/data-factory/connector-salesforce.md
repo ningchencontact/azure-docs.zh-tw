@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce | Microsoft Docs"
-description: "了解如何使用資料存放區管線中的複製活動，將資料從 Salesforce 複製到支援的接收資料存放區，或是從支援的接收資料存放區複製到 Salesforce。"
+title: 使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce | Microsoft Docs
+description: 了解如何使用資料存放區管線中的複製活動，將資料從 Salesforce 複製到支援的接收資料存放區，或是從支援的接收資料存放區複製到 Salesforce。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 3d48f1f3df7b626ec33b07b6275581821453f626
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e6440bfd3297ee68cd4ff79c8654b5f97cba077e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

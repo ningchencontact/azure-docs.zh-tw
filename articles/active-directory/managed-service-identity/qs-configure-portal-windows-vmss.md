@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 入口網站在 Azure 虛擬機器擴展集上設定 MSI"
-description: "使用 Azure 入口網站在 Azure VMSS 上設定「受控服務身分識別 (MSI)」的逐步指示。"
+title: 使用 Azure 入口網站在 Azure 虛擬機器擴展集上設定 MSI
+description: 使用 Azure 入口網站在 Azure VMSS 上設定「受控服務身分識別 (MSI)」的逐步指示。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4d308d9cdc0405ee0041c877f5678647343631ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d9b493203a78aebdfadef15cf53d9cc023bb66f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-an-azure-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>使用 Azure 入口網站設定 Azure 虛擬機器擴展集的受控服務身分識別 (MSI)
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/08/2018
 
 從本文編寫完成後，不支援在 Azure 入口網站中建立虛擬機器擴展集期間啟用 MSI。 相反地，請參閱下列建立 Azure 虛擬機器擴展集的快速入門文件，先建立 Azure 虛擬機器擴展集：
 
-- [在 Azure 入口網站建立虛擬機器擴展集](../../virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal.md)  
+- [在 Azure 入口網站建立虛擬機器擴展集](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
 然後進入下一節，取得在虛擬機器擴展集上啟用 MSI 的詳細資料。
 

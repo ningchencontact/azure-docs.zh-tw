@@ -1,11 +1,11 @@
 ---
-title: "Azure 資訊安全中心整備藍圖 | Microsoft Docs"
-description: "本文件提供進一步了解 Azure 資訊安全中心的整備藍圖。"
+title: Azure 資訊安全中心整備藍圖 | Microsoft Docs
+description: 本文件提供進一步了解 Azure 資訊安全中心的整備藍圖。
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: ndicola
-editor: 
+editor: ''
 ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: 7a6717f4a9ec0594ccd6b326520d0e0ab620739a
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 0de8dda6f88f31208c3fe7d560a461fea46a67e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure 資訊安全中心整備藍圖
 本文件提供的整備藍圖將協助您開始使用 Azure 資訊安全中心。
@@ -116,7 +116,7 @@ Azure VM 可以利用資訊安全中心的進階雲端防禦功能。 這些功�
 * [PaaS 建議](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [合規性](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
 
-##<a name="community-resources"></a>社群資源
+## <a name="community-resources"></a>社群資源
 
 * [資訊安全中心 UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
 * [資訊安全中心社群論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSecurityCenter)

@@ -1,10 +1,10 @@
 ---
-title: "Azure Data Factory 服務識別 | Microsoft Docs"
-description: "了解 Azure Data Factory 中的資料處理站服務識別。"
+title: Azure Data Factory 服務識別 | Microsoft Docs
+description: 了解 Azure Data Factory 中的資料處理站服務識別。
 services: data-factory
 author: linda33wj
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: aad93abd6e7bdf75e6f3b4fcd02b433a1d301ebc
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 06e07d566afe64b55470f73e232cf45feccd47fb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory 服務識別
 
@@ -171,7 +171,6 @@ Type                  : ServicePrincipal
 請參閱下列介紹何時及如何使用資料處理站服務識別的相關主題：
 
 - [在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)
-- 
-            [使用受控服務識別驗證，複製資料從/至 Azure Data Lake Store](connector-azure-data-lake-store.md)
+- [使用受控服務識別驗證，複製資料從/至 Azure Data Lake Store](connector-azure-data-lake-store.md)
 
 如需有關資料處理站身分識別所依據之「受管理服務識別」的背景，請參閱 [MSI 概觀](~/articles/active-directory/msi-overview.md)。 

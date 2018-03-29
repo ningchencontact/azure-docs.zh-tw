@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: dfc75a64e8bd28d7aba9984e5a1d5720330f1da3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>所有的 Azure VPN 閘道 SKU 上是否都支援 BGP？
 否，Azure **VpnGw1****VpnGw2****VpnGw3****Standard** 和 **HighPerformance** VPN 閘道支援 BGP。 **基本** SKU。
 
@@ -72,4 +88,3 @@ Azure 區域網路閘道會指定內部部署網路的起始位址首碼。 若�
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>我應該將什麼加入我的 BGP 對等互連工作階段的內部部署 VPN 裝置？
 您應該在指向 IPsec S2S VPN 通道的 VPN 裝置上加入 Azure BGP 對等互連 IP 位址的主機路由。 例如，如果 Azure VPN 對等互連 IP 是「10.12.255.30」，您應該加入 VPN 裝置上具有比對 IPsec 通道介面的躍點介面的「10.12.255.30」主機路由。
-

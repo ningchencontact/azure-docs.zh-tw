@@ -1,24 +1,21 @@
 ---
-title: "GitHub 身分識別提供者設定 - Azure AD B2C | Microsoft Docs"
-description: "在受 Azure Active Directory B2C 保護的應用程式中，針對具有 GitHub 帳戶的客戶提供註冊和登入。"
+title: GitHub 身分識別提供者設定 - Azure AD B2C | Microsoft Docs
+description: 在受 Azure Active Directory B2C 保護的應用程式中，針對具有 GitHub 帳戶的客戶提供註冊和登入。
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
-manager: krassk
-editor: parakhj
-ms.assetid: 5518e135-36b3-4f86-9a01-be25f021ed22
+documentationcenter: ''
+author: davidmu
+manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
-ms.author: parja
-ms.openlocfilehash: e827bea257309f6d6dda1af4e68ccda5a26d30ef
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: davidmu
+ms.openlocfilehash: 17ec4ebd8406f56c431666340ca8834c5ccf9670
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-github-accounts"></a>Azure Active Directory B2C：針對具有 GitHub 帳戶的取用者提供註冊和登入
 

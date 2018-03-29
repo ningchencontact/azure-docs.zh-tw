@@ -1,10 +1,10 @@
 ---
-title: "了解活動記錄警示中使用的 Webhook 結構描述 | Microsoft Docs"
-description: "深入了解活動記錄警示啟動時，張貼至 Webhook URL 的 JSON 結構描述。"
+title: 了解活動記錄警示中使用的 Webhook 結構描述 | Microsoft Docs
+description: 深入了解活動記錄警示啟動時，張貼至 Webhook URL 的 JSON 結構描述。
 author: johnkemnetz
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: f71714774d7ad54d7eb2132e8c20c87f972157ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活動記錄警示的 Webhook
 在定義動作群組的過程中，您可以設定 Webhook 端點以接收活動記錄警示通知。 您可以使用 Webhook 將這些通知路由到其他系統，以進行後置處理或自訂動作。 本文會說明 HTTP POST 至 Webhook 的承載資料樣貌。
@@ -31,7 +31,7 @@ Webhook 可以選擇使用以權杖作為基礎的授權來進行驗證。 Webho
 ## <a name="payload-schema"></a>承載結構描述
 POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activityLog.eventSource 欄位而有所不同。
 
-###<a name="common"></a>一般
+### <a name="common"></a>一般
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -58,7 +58,7 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
     }
 }
 ```
-###<a name="administrative"></a>管理
+### <a name="administrative"></a>管理
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -85,7 +85,7 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 }
 
 ```
-###<a name="servicehealth"></a>服務健康狀況
+### <a name="servicehealth"></a>服務健康狀況
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",

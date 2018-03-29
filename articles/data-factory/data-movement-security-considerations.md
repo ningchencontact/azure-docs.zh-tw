@@ -4,8 +4,8 @@ description: 說明 Azure Data Factory 中資料移動服務用來協助保護�
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c8215ab4a1759efef3c2c13a5ac44f6944b53d7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 56602e269a441f9541314424190da04be2c4add5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>在 Azure Data Factory 中資料移動的安全性考量
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,9 +49,10 @@ Azure Data Factory 除了用於雲端資料存放區的連結服務認證 (會�
 - **混合式案例**：在此案例中，您的來源或目的地是位於防火牆後方或在內部部署公司網路內。 或者，資料存放區是在私人網路或虛擬網路 (最常見的來源) ，而且無法公開存取。 裝載在虛擬機器上的資料庫伺服器也屬於此案例的涵蓋範圍。
 
 ## <a name="cloud-scenarios"></a>雲端案例
-### <a name="secure-data-store-credentials"></a>保護資料存放區認證
-- **在 Azure Data Factory 受控存放區中儲存加密的認證**。 Data Factory 可透過使用受 Microsoft 管理的憑證來加密資料存放區認證，為這些認證提供保護。 這些憑證每隔兩年會輪替一次 (包括憑證更新和憑證移轉)。 這些已加密的認證會安全地儲存在受 Azure Data Factory 管理服務管理的 Azure 儲存體帳戶中。 如需有關「Azure 儲存體」安全性的詳細資訊，請參閱 [Azure 儲存體安全性概觀](../security/security-storage-overview.md)。
 
+### <a name="securing-data-store-credentials"></a>保護資料存放區認證
+
+- **在 Azure Data Factory 受控存放區中儲存加密的認證**。 Data Factory 可透過使用受 Microsoft 管理的憑證來加密資料存放區認證，為這些認證提供保護。 這些憑證每隔兩年會輪替一次 (包括憑證更新和憑證移轉)。 這些已加密的認證會安全地儲存在受 Azure Data Factory 管理服務管理的 Azure 儲存體帳戶中。 如需有關「Azure 儲存體」安全性的詳細資訊，請參閱 [Azure 儲存體安全性概觀](../security/security-storage-overview.md)。
 - **在 Azure Key Vault 中儲存認證**。 您也可以在 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 中儲存資料存放區的認證。 Data Factory 會在活動執行期間擷取認證。 如需詳細資訊，請參閱 [在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)。
 
 ### <a name="data-encryption-in-transit"></a>傳輸中資料加密
@@ -144,7 +145,7 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 
 | 網域名稱                  | 輸出連接埠 | 說明                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443、80        | 必須提供此資訊，自我裝載整合執行階段才能連線到 Data Factory 中的資料移動服務。 |
+| `*.servicebus.windows.net`    | 443            | 必須提供此資訊，自我裝載整合執行階段才能連線到 Data Factory 中的資料移動服務。 |
 | `*.core.windows.net`          | 443            | 當您使用[分段複製](copy-activity-performance.md#staged-copy)功能時，可供自我裝載整合執行階段用來連線到 Azure 儲存體帳戶。 |
 | `*.frontend.clouddatahub.net` | 443            | 必須提供此資訊，自我裝載整合執行階段才能連線到 Data Factory 服務。 |
 | `*.database.windows.net`      | 1433           | (選擇性) 當您在 Azure SQL Database 或 Azure SQL 資料倉儲來回複製時，需要提供此資訊。 若要在不開啟連接埠 1433 的情況下，將資料複製到 Azure SQL Database 或 Azure SQL 資料倉儲，請使用分段複製功能。 |

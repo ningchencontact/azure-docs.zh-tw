@@ -1,11 +1,11 @@
 ---
-title: "Azure Log Analytics 檢視中的篩選 | Microsoft Docs"
-description: "Log Analytics 檢視中的篩選可讓使用者依特定屬性的值篩選檢視中的資料，而不需修改檢視本身。  本文說明如何使用篩選，以及如何在自訂檢視中新增篩選。"
+title: Azure Log Analytics 檢視中的篩選 | Microsoft Docs
+description: Log Analytics 檢視中的篩選可讓使用者依特定屬性的值篩選檢視中的資料，而不需修改檢視本身。  本文說明如何使用篩選，以及如何在自訂檢視中新增篩選。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: bwren
 ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="filters-in-log-analytics-views"></a>Log Analytics 檢視中的篩選
 [Log Analytics 檢視](log-analytics-view-designer.md)中的**篩選**可讓使用者依特定屬性的值篩選檢視中的資料，而不需修改檢視本身。  例如，您可以允許檢視的使用者篩選檢視，只顯示來自某個特定電腦或一組電腦的資料。  您可以在單一檢視上建立多個篩選，以允許使用者依多個屬性進行篩選。  本文說明如何使用篩選，以及如何在自訂檢視中新增篩選。

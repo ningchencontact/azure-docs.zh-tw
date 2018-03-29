@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 864952554b04d8d6bc14aad92d168298e554710e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 入口網站在 Azure 中建立 Service Fabric 叢集
 > [!div class="op_single_selector"]
@@ -131,7 +131,7 @@ ms.lasthandoff: 02/21/2018
 
 為了讓您輕鬆設定安全的測試叢集，我們已提供 [基本] 選項。 如果您已擁有憑證，並且已將憑證上傳至金鑰保存庫 (且已啟用金鑰保存庫以供部署)，則請使用 [自訂] 選項
 
-#####<a name="basic-option"></a>基本選項
+##### <a name="basic-option"></a>基本選項
 請遵循畫面指示新增或重複使用現有的金鑰保存庫，並新增憑證。 新增憑證為同步的程序，所以您必須等待憑證建立完成。
 
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 02/21/2018
 
 ![CreateKeyVault4]
 
-#####<a name="custom-option"></a>自訂選項
+##### <a name="custom-option"></a>自訂選項
 如果您已在 [基本] 選項中執行步驟，請跳過本節。
 
 ![SecurityCustomOption]

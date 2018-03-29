@@ -1,10 +1,10 @@
 ---
-title: "PowerShell 指令碼：使用 Azure Data Factory 以累加方式載入資料 | Microsoft Docs"
-description: "這個 PowerShell 指令碼示範如何使用 Azure Data Factory，以累加方式將資料從 Azure SQL Database 複製到「Azure Blob 儲存體」。"
+title: PowerShell 指令碼：使用 Azure Data Factory 以累加方式載入資料 | Microsoft Docs
+description: 這個 PowerShell 指令碼示範如何使用 Azure Data Factory，以累加方式將資料從 Azure SQL Database 複製到「Azure Blob 儲存體」。
 services: data-factory
 author: linda33wj
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: daa7368de4b6f063f6e461909dd69eb1d79e7d62
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8bfe41f0d8cb8af3ace0164831ef527f6c4700e0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>PowerShell 指令碼 - 使用 Azure Data Factory 以累加方式載入資料
 這個範例 PowerShell 指令碼會在初次將資料從來源完整複製到接收器之後，只將來源資料存放區中新的或已更新的記錄，載入到接收資料存放區。  

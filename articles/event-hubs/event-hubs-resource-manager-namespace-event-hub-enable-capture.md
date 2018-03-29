@@ -1,11 +1,11 @@
 ---
-title: "使用範本來建立 Azure 事件中樞命名空間並啟用擷取 | Microsoft Docs"
-description: "使用 Azure Resource Manager 範本建立含有一個事件中樞的 Azure 事件中樞命名空間並啟用擷取"
+title: 使用範本來建立 Azure 事件中樞命名空間並啟用擷取 | Microsoft Docs
+description: 使用 Azure Resource Manager 範本建立含有一個事件中樞的 Azure 事件中樞命名空間並啟用擷取
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8bdda6a2-5ff1-45e3-b696-c553768f1090
 ms.service: event-hubs
 ms.devlang: tbd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c241b8c38aab355729cd1bea318e70e85cf4ff1f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>使用範本來建立含有事件中樞的命名空間並啟用擷取
 
@@ -177,7 +177,7 @@ ms.lasthandoff: 02/01/2018
 }
 ```
 
-###<a name="capturenameformat"></a>captureNameFormat
+### <a name="capturenameformat"></a>captureNameFormat
 
 事件中樞擷取功能用來寫入 Avro 檔案的名稱格式。 請注意，擷取名稱格式必須包含 `{Namespace}`、`{EventHub}`、`{PartitionId}`、`{Year}`、`{Month}`、`{Day}`、`{Hour}`、`{Minute}` 和 `{Second}` 欄位。 這些欄位可以依任何順序排列 (不論是否有分隔符號)。
  
@@ -236,7 +236,7 @@ ms.lasthandoff: 02/01/2018
 
 如果您選擇 Azure Data Lake Store 作為目的地，請使用下列參數。 您必須在您想要擷取事件的 Data Lake Store 路徑上設定權限。 若要設定權限，請參閱[本文](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account)。
 
-###<a name="subscriptionid"></a>subscriptionId
+### <a name="subscriptionid"></a>subscriptionId
 
 事件中樞命名空間和 Azure Data Lake Store 的訂用帳戶 ID。 這兩個資源都必須屬於同一個訂用帳戶識別碼。
 
@@ -249,7 +249,7 @@ ms.lasthandoff: 02/01/2018
  }
 ```
 
-###<a name="datalakeaccountname"></a>dataLakeAccountName
+### <a name="datalakeaccountname"></a>dataLakeAccountName
 
 已擷取事件的 Azure Data Lake Store 名稱。
 
@@ -262,7 +262,7 @@ ms.lasthandoff: 02/01/2018
 }
 ```
 
-###<a name="datalakefolderpath"></a>dataLakeFolderPath
+### <a name="datalakefolderpath"></a>dataLakeFolderPath
 
 已擷取事件的目的地資料夾路徑。 這是 Data Lake Store 中的資料夾，而事件會在擷取作業期間推送至該資料夾。 若要在此資料夾上設定權限，請參閱[使用 Azure Data Lake Store 從事件中樞擷取資料](../data-lake-store/data-lake-store-archive-eventhub-capture.md)。
 

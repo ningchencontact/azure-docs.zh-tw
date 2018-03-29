@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 06706450d8af6f571f002789815290f75da9623d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d531bb40421716bf9fb3c253a3e76207b2806912
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-openfaas-on-aks"></a>在 AKS 上使用 OpenFaaS
 
@@ -230,7 +230,7 @@ curl -s http://52.186.64.52:8080/function/cosmos-query
 
 ![替代文字](media/container-service-serverless/OpenFaaSUI.png)
 
-# <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 
 OpenFaas 的預設部署需要鎖定 OpenFaaS 閘道和函式。 [Alex Ellis 部落格文章](https://blog.alexellis.io/lock-down-openfaas/)中有更詳細的安全組態選項說明。 
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL 資料倉儲備份 - 快照集、異地備援 | Microsoft Docs"
-description: "了解 SQL 資料倉儲內建資料庫備份，它可以讓您將 Azure SQL 資料倉儲還原到還原點或不同的地理區域。"
+title: Azure SQL 資料倉儲備份 - 快照集、異地備援 | Microsoft Docs
+description: 了解 SQL 資料倉儲內建資料庫備份，它可以讓您將 Azure SQL 資料倉儲還原到還原點或不同的地理區域。
 services: sql-data-warehouse
-documentationcenter: 
+documentationcenter: ''
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>SQL 資料倉儲中的備份與還原
 本文說明 SQL 資料倉儲中備份的詳細資訊。 使用資料倉儲備份來將資料庫快照集還原到主要區域，或者將異地備份還原到您的地理配對區域。 

@@ -238,12 +238,12 @@
 ## 規格
 ### [即時內嵌 - 分散式 MP4 即時內嵌規格](media-services-fmp4-live-ingest-overview.md)
 ### [即時內嵌 - 即時資料流中的已逾時中繼資料訊號](media-services-specifications-live-timed-metadata.md)
-### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
+### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-amendment-hevc.md)
 
 # 資源
 ## [Azure 媒體服務社群](media-services-community.md)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=web-mobile)
-## [價格](https://azure.microsoft.com/pricing/details/media-services/)
+## [定價](https://azure.microsoft.com/pricing/details/media-services/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [版本資訊](media-services-release-notes.md)
 ## [影片](https://azure.microsoft.com/resources/videos/index/?services=media-services)

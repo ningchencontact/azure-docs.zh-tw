@@ -1,11 +1,11 @@
 ---
-title: "資料類型指南 - Azure SQL 資料倉儲 | Microsoft Docs"
-description: "定義與 SQL 資料倉儲相容的資料類型之建議。"
+title: 資料類型指南 - Azure SQL 資料倉儲 | Microsoft Docs
+description: 定義與 SQL 資料倉儲相容的資料類型之建議。
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
+editor: ''
 ms.assetid: d4a1f0a3-ba9f-44b9-95f6-16a4f30746d6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 03/17/2018
 ms.author: barbkess
-ms.openlocfilehash: 2bde5da8593c559e2afb33c9c4842695dc273ac3
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: dcdcb6eddf35fe3ec4754353452c68cd3e24f907
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>定義 SQL 資料倉儲中資料表資料類型的指引
 使用這些建議來定義與 SQL 資料倉儲相容的資料表資料類型。 除了相容性之外，將資料類型的大小最小化可改善查詢效能。

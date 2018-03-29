@@ -1,11 +1,11 @@
 ---
-title: "Windows 虛擬機器概觀 | Microsoft Docs"
-description: "了解在 Azure 中建立及管理 Windows 虛擬機器。"
+title: Windows 虛擬機器概觀 | Microsoft Docs
+description: 了解在 Azure 中建立及管理 Windows 虛擬機器。
 services: virtual-machines-windows
-documentationcenter: 
-author: davidmu1
-manager: timlt
-editor: tysonn
+documentationcenter: ''
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e33186b189394172cba6cf550c01954db941c19
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6ab964760ea06c2e82d0c9f69f89fe62dec8ceac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虛擬機器概觀
 
@@ -145,7 +145,7 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 ### <a name="manage-availability"></a>管理可用性
 請務必了解如何[確保應用程式的高可用性](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 此組態需要建立多個 VM 以確保至少有一個 VM 正在執行。
 
-為了讓您的部署符合 99.95 的 VM 服務等級協定資格，您必須部署兩個或更多在[可用性設定組](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)內執行工作負載的 VM。 此組態可確保您的 VM 會分散多個容錯網域，且部署至具有不同維護期間的主機。 完整 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) 說明保證的 Azure 整體可用性。
+為了讓您的部署符合 99.95 的 VM 服務等級協定資格，您必須部署兩個或更多在[可用性設定組](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)內執行工作負載的 VM。 此組態可確保您的 VM 會分散多個容錯網域，且部署至具有不同維護期間的主機。 完整 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 說明保證的 Azure 整體可用性。
 
 ### <a name="back-up-the-vm"></a>備份 VM
 [復原服務保存庫](../../backup/backup-introduction-to-azure-backup.md)可用來保護 Azure 備份和 Azure Site Recovery 服務中的資料和資產。 您可以使用復原服務保存庫，[使用 PowerShell 部署和管理 Resource Manager 部署之 VM 的備份](../../backup/backup-azure-vms-automation.md)。 

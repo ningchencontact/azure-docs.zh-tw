@@ -1,12 +1,13 @@
 ---
-title: "如何選擇機器學習演算法 | Microsoft Docs"
-description: "如何在叢集、分類或迴歸實驗中選擇適用於經過指導和未經指導之學習的 Azure Machine Learning 演算法。"
+title: 如何選擇機器學習演算法 | Microsoft Docs
+description: 如何在叢集、分類或迴歸實驗中選擇適用於經過指導和未經指導之學習的 Azure Machine Learning 演算法。
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: pakalra
+ms.author: pakalra
+manager: cgronlun
 editor: cgronlun
-tags: 
+tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.devlang: na
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>如何選擇 Microsoft Azure Machine Learning 的演算法
 「我該使用何種機器學習演算法？ 」的答案永遠都是「視情況。 」 這可視資料的大小、品質和本質而定。 也可取決於您想用這個答案來做些什麼。 或是取決於演算法的數學運算如何針對您正在使用的電腦轉譯成指令。 而這又需視您有多少時間。 即使經驗最豐富的資料科學家，在沒有嘗試之前，也無法確認哪一個演算法效果會最好。
@@ -187,7 +187,7 @@ ms.lasthandoff: 01/08/2018
 
 ***典型的支援向量機器類別界限，會將分隔兩個類別的邊界最大化***
 
-另一個 Microsoft Research 的產品 [雙類別本機深度 SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) 是 SVM 的非線性變體，能夠保留線性版本中大部分的速度和記憶體效率。 當線性方法的答案不夠精確時，就非常適合使用它。 開發人員藉由將問題分成一堆小型線性 SVM 問題，讓它能保持快速。 請閱讀[完整說明](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) ，其中有如何完成這個技巧的詳細資料。
+另一個 Microsoft Research 的產品 [雙類別本機深度 SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) 是 SVM 的非線性變體，能夠保留線性版本中大部分的速度和記憶體效率。 當線性方法的答案不夠精確時，就非常適合使用它。 開發人員藉由將問題分成一堆小型線性 SVM 問題，讓它能保持快速。 請閱讀[完整說明](http://proceedings.mlr.press/v28/jose13.html) ，其中有如何完成這個技巧的詳細資料。
 
 使用聰明的非線性 SVM 延伸模組 (即 [單一類別 SVM](https://msdn.microsoft.com/library/azure/dn913103.aspx) )，可繪製出緊密圍繞整個資料集的界限。 這適合用於異常偵測。 任何遠超出該界限外的新資料點，其異常程度都值得特別注意。
 

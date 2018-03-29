@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: f93a7c2fe75a643553a4dd5a8ccfcea975b336bb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/23/2018
+---
 1. 在入口網站頁面的左側，按一下 **+** 並且在搜尋中輸入「虛擬網路閘道」。 在 [結果] 中，找出並按一下 [虛擬網路閘道]。
 2. 在 [虛擬網路閘道] 頁面的底部，按一下 [建立]。 這會開啟 [建立虛擬網路閘道] 頁面。
 

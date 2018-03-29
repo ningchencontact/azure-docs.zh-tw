@@ -1,11 +1,10 @@
 ---
-title: "複製活動的效能及微調指南 | Microsoft Docs"
-description: "了解當您使用複製活動時，Azure Data Factory 中的資料移動效能會受到哪些主要因素的影響。"
+title: 複製活動的效能及微調指南 | Microsoft Docs
+description: 了解當您使用複製活動時，Azure Data Factory 中的資料移動效能會受到哪些主要因素的影響。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2bec612b1d67eceb0e62b28524b98e852d31ad0f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e8cb5df31a87f72c9947f78c25a41b74399b3727
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
 > [!NOTE]

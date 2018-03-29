@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory 中資料移動的安全性考量 | Microsoft Docs"
-description: "了解如何在 Azure Data Factory 中保護資料移動。"
+title: Azure Data Factory 中資料移動的安全性考量 | Microsoft Docs
+description: 了解如何在 Azure Data Factory 中保護資料移動。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c2b6c494a9c4d0dac37315520b8d7b962f3490b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 資料移動的安全性考量
 
@@ -48,7 +47,7 @@ Azure Data Factory 本身除了用於雲端資料存放區的已連結服務認�
 - **混合式案例**- 在此案例中，您的來源或目的地是在防火牆之後或在內部部署的公司網路內，或是資料存放區位於私人網路/虛擬網路中 (最常見的是來源) 而不可公開存取。 裝載在虛擬機器上的資料庫伺服器也屬於此案例的涵蓋範圍。
 
 ## <a name="cloud-scenarios"></a>雲端案例
-###<a name="securing-data-store-credentials"></a>保護資料存放區認證
+### <a name="securing-data-store-credentials"></a>保護資料存放區認證
 Azure Data Factory 可透過使用「受 Microsoft 管理的憑證」來「加密」資料存放區認證，為這些認證提供保護。 這些憑證每隔「兩年」會輪替一次 (包括憑證更新和憑證移轉)。 這些已加密的認證會安全地儲存在「受 Azure Data Factory 管理服務管理的 Azure 儲存體」中。 如需有關「Azure 儲存體」安全性的詳細資訊，請參閱 [Azure 儲存體安全性概觀](../../security/security-storage-overview.md)。
 
 ### <a name="data-encryption-in-transit"></a>傳輸中資料加密

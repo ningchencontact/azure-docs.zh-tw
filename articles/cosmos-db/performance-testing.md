@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB 規模和效能測試 | Microsoft Docs"
-description: "了解使用 Azure Cosmos DB 來執行規模和效能測試"
-keywords: "效能測試"
+title: Azure Cosmos DB 規模和效能測試 | Microsoft Docs
+description: 了解使用 Azure Cosmos DB 來執行規模和效能測試
+keywords: 效能測試
 services: cosmos-db
 author: arramac
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 36665c0c26dad4e3b667b341b63c5859ece7605b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Azure Cosmos DB 的效能和規模測試
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 效能和規模測試是應用程式開發過程中的關鍵步驟。 對許多應用程式而言，資料庫層在整體效能和延展性上有很大的影響。 因此，它是效能測試的重要元素。 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 就是專門為彈性化規模和可預測效能而建置。 這些功能完全符合應用程式需要高效能資料庫層的要求。 
 

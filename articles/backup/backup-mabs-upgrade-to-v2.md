@@ -1,12 +1,12 @@
 ---
-title: "安裝 Azure 備份伺服器 v2 | Microsoft Docs"
-description: "Azure 備份伺服器 v2 可提供您經過強化的備份功能，讓您保護 VM、檔案和資料夾以及工作負載等項目。 了解如何安裝或升級為 Azure 備份伺服器 v2。"
+title: 安裝 Azure 備份伺服器 v2 | Microsoft Docs
+description: Azure 備份伺服器 v2 可提供您經過強化的備份功能，讓您保護 VM、檔案和資料夾以及工作負載等項目。 了解如何安裝或升級為 Azure 備份伺服器 v2。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-backup-server-v2"></a>安裝 Azure 備份伺服器 v2
 
@@ -36,7 +36,7 @@ Azure 備份伺服器可協助保護您的虛擬機器 (VM)、工作負載以及
 ## <a name="upgrade-backup-server-to-v2"></a>將備份伺服器升級為 v2
 若要從備份伺服器 v1 升級為備份伺服器 v2，請確定您的安裝具有所需更新：
 
-- 在受保護的伺服器上[更新保護代理程式](backup-mabs-upgrade-to-v2.md#update-the-dpm-protection-agent)。
+- 在受保護的伺服器上[更新保護代理程式](backup-mabs-upgrade-to-v2.md#update-the-data-protection-manager-protection-agent)。
 - 將 Windows Server 2012 R2 升級為 Windows Server 2016。
 - 在所有生產伺服器上升級 Azure 備份伺服器遠端系統管理員。
 - 確定備份已設定為繼續執行而不要重新啟動生產伺服器。

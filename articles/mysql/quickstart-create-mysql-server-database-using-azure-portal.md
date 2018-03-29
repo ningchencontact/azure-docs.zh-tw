@@ -1,6 +1,6 @@
 ---
-title: "快速入門：建立適用於 MySQL 的 Azure 資料庫伺服器 - Azure 入口網站"
-description: "本文逐步引導您使用 Azure 入口網站在五分鐘內快速建立範例 Azure Database for MySQL 伺服器。"
+title: 快速入門：建立適用於 MySQL 的 Azure 資料庫伺服器 - Azure 入口網站
+description: 本文逐步引導您使用 Azure 入口網站在五分鐘內快速建立範例 Azure Database for MySQL 伺服器。
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 925ea8f365c4a7e987809cb56dfbfbb638b103fd
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 8740da198036e9b628c633b97a02fb4963db9879
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>使用 Azure 入口網站建立 Azure Database for MySQL 伺服器
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/28/2018
     伺服器管理員登入 | myadmin | 當您連線至伺服器時所要使用的登入帳戶。 系統管理員登入名稱不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
     密碼 | 您的選擇 | 為伺服器管理帳戶提供新密碼。 此密碼必須包含 8 到 128 個字元。 您的密碼必須包含下列三個類別的字元：英文大寫字母、英文小寫字母、數字 (0-9) 和非英數字元 (!、$、#、% 等等)。
     確認密碼 | 您的選擇| 確認管理帳戶密碼。
-    位置 | 最接近使用者的區域| 選擇最靠近您的使用者或其他 Azure 應用程式的位置。
+    位置 | *最接近使用者的區域*| 選擇最靠近您的使用者或其他 Azure 應用程式的位置。
     版本 | *最新版本*| 最新版本 (除非您有需要另一個版本的特定需求)。
     定價層 | **一般用途**、**Gen 4**、**2 個虛擬核心**、**5GB**、**7 天**、**異地備援** | 新伺服器的計算、儲存體和備份組態。 選取 [定價層]。 接下來，選取 [一般用途] 索引標籤。Gen 4、2 個虛擬核心、5 GB 和 7 天是**計算世代**、**虛擬核心**、**儲存體**和**備份保留期限**。 您可以讓這些滑桿保留原狀。 若要啟用異地備援儲存體中的伺服器備份，請從 [備份備援選項] 中選取 [異地備援]。 若要儲存此定價層選取項目，請選取 [確定]。 下方螢幕擷取畫面會擷取這些選取項目。
   

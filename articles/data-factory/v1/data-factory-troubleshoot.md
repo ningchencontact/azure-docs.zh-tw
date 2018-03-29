@@ -1,11 +1,10 @@
 ---
-title: "Azure 資料處理站的疑難排解"
-description: "了解如何使用 Azure Data Factory 進行問題的疑難排解。"
+title: Azure 資料處理站的疑難排解
+description: 了解如何使用 Azure Data Factory 進行問題的疑難排解。
 services: data-factory
-documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+documentationcenter: ''
+author: douglaslMS
+manager: craigg
 ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: d65787c0db2b4e6c7c7d30d69dc77fe25b1ae8d9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4cf77a2267cd2a49a873c1a1c742dc4205cad29a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>資料處理站的疑難排解
 > [!NOTE]
@@ -66,7 +65,7 @@ ms.lasthandoff: 01/23/2018
 ### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>問題：輸入配量永遠處於 Waiting 狀態
 配量可能因各種原因而處於**等候中**狀態。 其中一個常見的原因是 **external** 屬性未設定為 **true**。 在 Azure Data Factory 範圍外產生的任何資料集，都應該標示 **external** 屬性。 此屬性可指出資料為外部資料，並未受到 Data Factory 內的任何管線支持。 一旦資料在個別的存放區可用，資料配量就會標示為 [就緒]。
 
-關於 **external** 屬性的用法，請參閱下列範例。 當您將 external 設定為 true 時，可以視需要指定 **externalData** \*。
+關於 **external** 屬性的用法，請參閱下列範例。 當您將 external 設定為 true 時，可以視需要指定 **externalData***。
 
 如需此屬性的詳細資訊，請參閱 [資料集](data-factory-create-datasets.md) 文章。
 

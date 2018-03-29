@@ -1,11 +1,10 @@
 ---
-title: "在 Azure Data Factory 中建立 Azure-SSIS 整合執行階段 | Microsoft Docs"
-description: "了解如何建立 Azure SSIS 整合執行階段，以在 Azure 雲端中執行 SSIS 封裝。"
+title: 在 Azure Data Factory 中建立 Azure-SSIS 整合執行階段 | Microsoft Docs
+description: 了解如何建立 Azure SSIS 整合執行階段，以在 Azure 雲端中執行 SSIS 封裝。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: dc4c690633d14163eddfa70e8417a645f95a0861
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中建立 Azure-SSIS 整合執行階段
 本文提供在 Azure Data Factory 中佈建 Azure-SSIS Integration Runtime 的步驟。 接著，您可以使用 SQL Server Data Tools (SSDT) 或 SQL Server Management Studio (SSMS)，將 SQL Server Integration Services (SSIS) 套件部署到 Azure 上的此執行階段。
@@ -45,8 +44,7 @@ ms.lasthandoff: 02/28/2018
 ## <a name="prerequisites"></a>先決條件
 
 - **Azure 訂用帳戶**。 如果您沒有訂用帳戶，則可以建立[免費試用](http://azure.microsoft.com/pricing/free-trial/)帳戶。
-- 
-            **Azure SQL Database 伺服器**或 **SQL Server 受控執行個體 (私人預覽) (延伸的私人預覽)**。 如果您還沒有資料庫伺服器，請在 Azure 入口網站中建立一個，然後再開始。 此伺服器裝載 SSIS 目錄資料庫 (SSISDB)。 建議於整合執行階段所在的相同 Azure 區域中建立資料庫伺服器。 此設定可讓整合執行階段將執行記錄寫入 SSISDB，而不需要跨 Azure 區域。 記下您的 Azure SQL 伺服器定價層。 如需 Azure SQL Database 支援的定價層清單，請參閱 [SQL Database 資源限制](../sql-database/sql-database-resource-limits.md)。
+- **Azure SQL Database 伺服器**或 **SQL Server 受控執行個體 (私人預覽) (延伸的私人預覽)**。 如果您還沒有資料庫伺服器，請在 Azure 入口網站中建立一個，然後再開始。 此伺服器裝載 SSIS 目錄資料庫 (SSISDB)。 建議於整合執行階段所在的相同 Azure 區域中建立資料庫伺服器。 此設定可讓整合執行階段將執行記錄寫入 SSISDB，而不需要跨 Azure 區域。 記下您的 Azure SQL 伺服器定價層。 如需 Azure SQL Database 支援的定價層清單，請參閱 [SQL Database 資源限制](../sql-database/sql-database-resource-limits.md)。
 
     請確認您的 Azure SQL Database 伺服器或 SQL Server 受控執行個體 (延伸私人預覽) 並無 SSIS 目錄 (SSIDB 資料庫)。 Azure-SSIS IR 的佈建不支援使用現有的 SSIS 目錄。
 - **傳統或 Azure Resource Manager 虛擬網路 (VNet) (選擇性)**。 如果至少有下列一個條件成立，則您必須具備 Azure 虛擬網路 (VNet)：

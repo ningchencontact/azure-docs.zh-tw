@@ -1,6 +1,6 @@
 ---
-title: "sprint 0 2017 年 10 月的 Azure ML Workbench 版本資訊"
-description: "本文件詳述 Azure ML 的 sprint 0 版本更新"
+title: sprint 0 2017 年 10 月的 Azure ML Workbench 版本資訊
+description: 本文件詳述 Azure ML 的 sprint 0 版本更新
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 10/12/2017
 ms.openlocfilehash: 37e0a4461e8a0de631a6194a1eb8cc16b610954f
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="sprint-0---october-2017"></a>Sprint 0 - 2017 年 10 月 
 

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Active Directory 中管理企業應用程式的單一登入 | Microsoft Docs"
-description: "從 Azure Active Directory 應用程式庫管理公司內企業應用程式的單一登入設定"
+title: 在 Azure Active Directory 中管理企業應用程式的單一登入 | Microsoft Docs
+description: 從 Azure Active Directory 應用程式庫管理公司內企業應用程式的單一登入設定
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: markvi
 ms.reviewer: asmalser
-ms.openlocfilehash: bb9c2e1fdf392e234e6c72e0728ab04d2fd88a81
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 45141551c502c89311ab7e43b53af50450d8babd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>管理企業應用程式的單一登入
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 03/08/2018
 
 ![連結型登入][5]
 
-##<a name="feedback"></a>意見反應
+## <a name="feedback"></a>意見反應
 
 我們希望您喜歡使用改進後的 Azure AD 經驗。 請繼續提供意見反應！ 請將您的意見反應和改進想法張貼在我們的[意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal)的**管理員入口網站**區段中。  我們每天都很期待發展酷炫的新功能，並依照您的指導來塑造和定義我們接下來所要發展的項目。
 

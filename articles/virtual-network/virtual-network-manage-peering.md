@@ -1,13 +1,13 @@
 ---
-title: "建立、變更或刪除 Azure 虛擬網路對等互連 | Microsoft Docs"
-description: "了解如何建立、變更或刪除虛擬網路對等互連。"
+title: 建立、變更或刪除 Azure 虛擬網路對等互連 | Microsoft Docs
+description: 了解如何建立、變更或刪除虛擬網路對等互連。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 8fa7496c3489a0a3e5ee6d829bbeef0f0ccdf315
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f42a23a8d4e6a90f104c97d4a1cbdef5343e585e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>建立、變更或刪除虛擬網路對等互連
 
@@ -140,7 +140,7 @@ Azure CLI：[az network vnet peering list](/cli/azure/network/vnet/peering#az_ne
     - VirtualNetwork2 & VirtualNetwork3
 
   則 VirtualNetwork1 與 VirtualNetwork3 之間並無法透過 VirtualNetwork2 而建立對等互連。 如果您想要在 VirtualNetwork1 和 VirtualNetwork3 之間建立虛擬網路對等互連，就必須在 VirtualNetwork1 和 VirtualNetwork3 之間建立對等互連。
-- 您無法使用預設的 Azure 名稱解析在對等互連的虛擬網路中解析名稱。 若要在其他虛擬網路中解析名稱，您必須使用自訂 DNS 伺服器。 若要了解如何設定自有 DNS 伺服器，請閱讀[使用專屬 DNS 伺服器的名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)一文。
+- 您無法使用預設的 Azure 名稱解析在對等互連的虛擬網路中解析名稱。 若要在其他虛擬網路中解析名稱，您必須使用自訂 DNS 伺服器。 若要了解如何設定自有 DNS 伺服器，請閱讀[使用專屬 DNS 伺服器的名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)一文。
 - 對等互連的兩個虛擬網路中的資源可彼此通訊，且通訊時會有相同的頻寬和延遲，彷彿這些資源是位於相同的虛擬網路中。 不過，每個虛擬機器大小各有其網路頻寬上限。 若要深入了解不同虛擬機器大小的網路頻寬上限，請閱讀 [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器大小文章。
 - 您可以將透過 Resource Manager 所部署的虛擬網路 (不論位於相同或不同訂用帳戶中) 對等互連。
 - 您可以將透過不同部署模型所部署的虛擬網路 (且位於相同或不同訂用帳戶中) 對等互連。 

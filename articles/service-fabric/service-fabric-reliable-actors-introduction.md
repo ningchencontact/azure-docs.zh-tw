@@ -1,11 +1,11 @@
 ---
-title: "Service Fabric Reliable Actors 概觀 | Microsoft Docs"
-description: "Service Fabric Reliable Actors 程式設計模型簡介。"
+title: Service Fabric Reliable Actors 概觀 | Microsoft Docs
+description: Service Fabric Reliable Actors 程式設計模型簡介。
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 640e051a909b1b9457b20cbd507b418342297c6e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6a13ced8b1c49239d1ad5fb96775f43de9c3943e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actor 簡介
 Reliable Actors 是以 [Virtual Actor](http://research.microsoft.com/en-us/projects/orleans/) 模式為基礎的 Service Fabric 應用程式架構。 Reliable Actors API 提供單一執行緒的程式設計模型，此模型立基於 Service Fabric 所提供的延展性和可靠性保證上。
@@ -40,7 +40,7 @@ Service Fabric Reliable Actors 是動作項目設計模式的實作。 如同任
 
 每個動作項目都會定義為動作項目類型的執行個體，與 .NET 物件是 .NET 類型的執行個體的方式完全相同。 例如，有的動作項目類型會實作計算機的功能，而該類型會有許多動作項目分散到叢集的各種節點上。 每一個這類的動作項目都有唯一的動作項目識別碼識別。
 
-### <a name="actor-lifetime"></a>動作項目生命週期
+## <a name="actor-lifetime"></a>動作項目生命週期
 Service Fabric 動作項目是虛擬的，也就是說，其生命週期不會繫結至其記憶體內部表示法。 因此，不需要明確地進行建立或終結。 Reliable Actors 執行階段會在第一次接收到動作項目識別碼的要求時自動啟動該動作項目。 如果動作項目有一段時間未使用，則 Reliable Actors 執行階段會對記憶體內部物件進行記憶體回收。 它也會維護稍後重新啟動動作項目所需的存在知識。 如需詳細資訊，請參閱 [動作項目生命週期與記憶體回收](service-fabric-reliable-actors-lifecycle.md)。
 
 此虛擬動作項目存留期抽象概念會傳達一些警告做為虛擬動作項目模型的結果，而事實上，Reliable Actors 有時會偏離此模型。
@@ -49,7 +49,7 @@ Service Fabric 動作項目是虛擬的，也就是說，其生命週期不會�
 * 針對動作項目識別碼呼叫任何動作項目方法都會啟動該動作項目。 基於這個理由，動作項目類型會透過執行階段隱含地呼叫其建構函式。 因此，用戶端程式碼無法將參數傳遞給動作項目類型的建構函式，雖然可能會由服務本身將參數傳遞給動作項目的建構函式。 結果就是，如果動作項目需要來自用戶端的初始化參數，動作項目可能就會依照在其上呼叫其他方法的時間，以部分初始化的狀態來建構。 沒有任何單一進入點可從用戶端啟動動作項目。
 * 雖然 Reliable Actors 會以隱含方式建立動作項目物件，但您還是無法明確地刪除動作項目及其狀態。
 
-### <a name="distribution-and-failover"></a>散佈和容錯移轉
+## <a name="distribution-and-failover"></a>散佈和容錯移轉
 為了提供延展性和可靠性，Service Fabric 將動作項目散佈於整個叢集，並視需要讓動作項目從失敗的節點自動移轉到狀況良好的節點。 這是 [已資料分割的具狀態可靠服務](service-fabric-concepts-partitioning.md)上的一個抽象概念。 散佈、延展性、可靠性及自動容錯移轉全都是憑藉動作項目正在名為「動作項目服務」 的具狀態可靠服務內執行的事實來提供。
 
 動作項目會散佈在動作項目服務的分割區上，而這些分割區會散佈到 Service Fabric 叢集中的節點上。 每個服務分割區都會包含一組動作項目。 Service Fabric 會管理服務分割區的散佈和容錯移轉。
@@ -67,12 +67,12 @@ Service Fabric 動作項目是虛擬的，也就是說，其生命週期不會�
 
 如需如何分割動作項目服務的詳細資訊，請參閱 [動作項目的分割概念](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)。
 
-### <a name="actor-communication"></a>動作項目通訊
+## <a name="actor-communication"></a>動作項目通訊
 定義動作項目互動的介面是實作該介面的動作項目所共用的介面，而用戶端會透過同一個介面取得動作項目的 Proxy。 因為此介面是用來以非同步方式叫用動作項目方法，所以介面上的每個方法都必須傳回工作。
 
 方法引動過程及其回應最終會導致叢集中的網路要求，如此一來，引數與其所傳回之工作的結果類型必須可由平台序列化。 特別是，它們必須是 [資料合約序列化](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)。
 
-#### <a name="the-actor-proxy"></a>動作項目 Proxy
+### <a name="the-actor-proxy"></a>動作項目 Proxy
 Reliable Actors 用戶端 API 能夠在動作項目執行個體與動作項目用戶端之間提供通訊。 為了與動作項目通訊，用戶端會建立一個動作項目 Proxy 物件來實作動作項目介面。 用戶端會叫用 Proxy 物件上的方法來與動作項目互動。 動作項目 Proxy 可用於用戶端對動作項目以及動作項目對動作項目的通訊。
 
 ```csharp
@@ -105,7 +105,7 @@ myActor.DoWorkAsync().get();
 * 最好進行訊息傳遞。
 * 動作項目可能收到來自相同用戶端的重複訊息。
 
-### <a name="concurrency"></a>並行
+## <a name="concurrency"></a>並行
 Reliable Actors 執行階段會提供簡單的回合式存取模型來存取動作項目方法。 這表示動作項目物件代碼內永遠只能有一個執行緒為使用中。 回合式存取會大幅簡化並行系統，因為不需要使用同步機制來進行資料存取。 這也表示系統必須針對每個動作項目執行個體的單一執行緒存取本質的特殊考量來設計。
 
 * 單一動作項目執行個體無法一次處理一個以上的要求。 如果預期動作項目執行個體要處理並行要求，可能就會遇到輸送量瓶頸。
@@ -113,7 +113,7 @@ Reliable Actors 執行階段會提供簡單的回合式存取模型來存取動�
 
 ![Reliable Actors 通訊][3]
 
-#### <a name="turn-based-access"></a>回合式存取
+### <a name="turn-based-access"></a>回合式存取
 一個回合包含完整執行動作項目方法以回應其他動作項目或用戶端的要求，或完整執行 [計時器/提醒](service-fabric-reliable-actors-timers-reminders.md) 回呼。 即使這些方法和回呼非同步，但動作項目執行階段並不使其交錯。 必須完整完成一個回合，才能允許進行下一回合。 換句話說，計時器/提醒回呼目前正在執行的動作項目方法或計時器/提醒回呼必須完整完成，才能對方法或回呼進行新的呼叫。 如果已從方法或回呼傳回執行，且方法或回呼傳回的工作已完成，則會將方法或回呼視為已完成。 值得強調的是，即使是在不同的方法、計時器與回呼之間，仍會遵守回合式並行。
 
 動作項目執行階段會藉由在某回合的開頭取得一個各動作項目鎖定，然後在回合結束時釋放該鎖定，來強制回合式並行。 因此，回合式並行會依各個動作項目強制執行，不會在動作項目之間強制執行。 動作項目方法和計時器/提醒回撥可代表不同的動作項目同時執行。
@@ -136,10 +136,10 @@ Reliable Actors 執行階段會提供簡單的回合式存取模型來存取動�
 * 代表 ActorId1 執行 Method1 與代表 ActorId2 執行重疊。 這是因為回合式並行只會在動作項目內強制執行，不會在動作項目間強制執行。
 * 在某些方法/回呼執行中，方法/回呼傳回的 `Task`(C#)/`CompletableFuture`(Java) 會在方法傳回後完成。 在某些其他執行中，已在方法/回呼傳回的時間前完成非同步作業。 在這兩種情況下，只有在方法/回呼傳回且完成非同步作業後，才會釋放各個動作項目鎖定。
 
-#### <a name="reentrancy"></a>重新進入
+### <a name="reentrancy"></a>重新進入
 動作項目執行階段依預設允許重新進入。 這表示如果 Actor A 的動作項目方法在 Actor B 上呼叫某一個方法，然後反過來在 Actor A 上呼叫另一個方法，則允許執行該方法。 這是因為該方法是同一個邏輯呼叫鏈結內容的一部分。 所有的計時器與提醒呼叫的開頭都是新的邏輯呼叫內容。 如需詳細資訊，請參閱 [Reliable Actors 重新進入](service-fabric-reliable-actors-reentrancy.md) 。
 
-#### <a name="scope-of-concurrency-guarantees"></a>並行保證的範圍
+### <a name="scope-of-concurrency-guarantees"></a>並行保證的範圍
 動作項目執行階段在控制叫用這些方法的狀況下，提供這些並行保證。 例如，動作項目執行階段會對為回應用戶端要求而進行的方法叫用，以及對計時器與提醒回呼提供這些保證。 然而，如果動作項目程式碼在動作項目執行階段提供的機制之外直接叫用這些方法，則執行階段無法提供任何並行保證。 例如，如果在某個與動作項目方法所傳回的工作不相關聯的工作內容中叫用方法，則執行階段無法提供並行保證。 如果從動作項目自行建立的執行緒叫用方法，則執行階段也無法提供並行保證。 因此，若要執行背景作業，動作項目應使用遵守回合式並行的 [動作項目計時器和動作項目提醒](service-fabric-reliable-actors-timers-reminders.md) 。
 
 ## <a name="next-steps"></a>後續步驟

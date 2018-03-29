@@ -1,11 +1,11 @@
 ---
-title: "Azure Stack 服務原則 | Microsoft Docs"
-description: "深入了解 Azure Stack 服務原則，以及如何將整合的系統保持在支援的狀態。"
+title: Azure Stack 服務原則 | Microsoft Docs
+description: 深入了解 Azure Stack 服務原則，以及如何將整合的系統保持在支援的狀態。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
 ms.service: azure-stack
 ms.workload: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 13155349775e71e777e868b6cd311d2e8683706d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f495ca12e7cdb1bf61f09bd2d4a8a21654745d8a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服務原則
-
-*適用於：Azure Stack 整合系統*
-
 本文說明 Azure Stack 整合系統的服務原則，以及必須如何做才能將狀態保持在支援的狀態。 
 
 ## <a name="update-package-types"></a>更新封裝類型

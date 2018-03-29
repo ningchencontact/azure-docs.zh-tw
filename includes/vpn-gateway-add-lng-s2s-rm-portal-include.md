@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 0270fa207b782d2d89f2408a380b766f58fa05cb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/23/2018
+---
 1. 在入口網站中，從 [所有資源]，按一下 [+新增]。 
 2. 在 [一切] 頁面搜尋方塊中，輸入**區域網路閘道**，然後按一下以搜尋。 這會傳回清單。 按一下 [區域網路閘道] 以開啟頁面，然後按一下 [建立] 開啟 [建立區域網路閘道] 頁面。
 

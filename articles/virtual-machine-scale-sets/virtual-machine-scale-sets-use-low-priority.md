@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: memccror
-ms.openlocfilehash: 9e4970ecc538caab537281931b89bfd57d994cfa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f25e4d1e3906a610e7c60e348f872a78d7db8fd3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>擴展集中的低優先順序 VM (預覽)
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="use-the-azure-cli-20"></a>使用 Azure CLI 2.0
 
-建立使用低優先順序 VM 之擴展集的程序，與[使用者入門文章](virtual-machine-scale-sets-create-cli.md)中所述的程序相同。 只要在 CLI 呼叫中新增 '--priority' 參數，並將它設定為 Low，如下列範例所示：
+建立使用低優先順序 VM 之擴展集的程序，與[使用者入門文章](quick-create-cli.md)中所述的程序相同。 只要在 CLI 呼叫中新增 '--priority' 參數，並將它設定為 Low，如下列範例所示：
 
 ```azurecli
 az vmss create \
@@ -63,7 +63,7 @@ az vmss create \
 
 ## <a name="use-azure-powershell"></a>使用 Azure PowerShell
 
-建立使用低優先順序 VM 之擴展集的程序，與[使用者入門文章](virtual-machine-scale-sets-create-powershell.md)中所述的程序相同。
+建立使用低優先順序 VM 之擴展集的程序，與[使用者入門文章](quick-create-powershell.md)中所述的程序相同。
 只要在 [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) 中新增 '-priority' 參數，並將它設定為 Low，如下列範例所示：
 
 ```powershell
@@ -77,7 +77,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 ## <a name="use-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本
 
-建立使用低優先順序 VM 之擴展集的程序，與 [Linux](virtual-machine-scale-sets-create-template-linux.md) 或 [Windows](virtual-machine-scale-sets-create-template-windows.md) 的使用者入門文章中所述的程序相同。 將 'priority' 屬性新增至範本中的 Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile 資源類型，並指定其值為 Low。 請務必使用 2017-10-30-preview API 版本或更高版本。 
+建立使用低優先順序 VM 之擴展集的程序，與 [Linux](quick-create-template-linux.md) 或 [Windows](quick-create-template-windows.md) 的使用者入門文章中所述的程序相同。 將 'priority' 屬性新增至範本中的 Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile 資源類型，並指定其值為 Low。 請務必使用 2017-10-30-preview API 版本或更高版本。 
 
 為了要將收回原則設定為刪除，請新增 'evictionPolicy' 參數，並將它設定為 delete (刪除)。
 

@@ -1,6 +1,6 @@
 ---
-title: "適用於 PostgreSQL 的 Azure 資料庫中的限制"
-description: "本文描述適用於 PostgreSQL 的 Azure 資料庫中的限制，例如連線數量和儲存引擎選項。"
+title: 適用於 PostgreSQL 的 Azure 資料庫中的限制
+description: 本文描述適用於 PostgreSQL 的 Azure 資料庫中的限制，例如連線數量和儲存引擎選項。
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -8,15 +8,15 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ba05308039e9743dd207333476e61a45c0ca166a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的限制
-適用於 PostgreSQL 的 Azure 資料庫服務目前為公開預覽狀態。 下列各節說明資料庫服務中的容量和功能限制。
+下列各節說明資料庫服務中的容量和功能限制。
 
 ## <a name="pricing-tier-maximums"></a>定價層上限
 適用於 PostgreSQL 的 Azure 資料庫具有多個您在建立伺服器時可從中選擇的定價層。 如需詳細資訊，請參閱[適用於 PostgreSQL 的 Azure 資料庫定價層](concepts-pricing-tiers.md)。  
@@ -43,7 +43,6 @@ ms.lasthandoff: 02/28/2018
 |記憶體最佳化| Gen 5| 4| 250|
 |記憶體最佳化| Gen 5| 8| 480|
 |記憶體最佳化| Gen 5| 16| 950|
-|記憶體最佳化| Gen 5| 32| 1900|
 
 當連線超過限制時，則可能會收到下列錯誤：
 > 嚴重錯誤︰很抱歉，已經有太多用戶端

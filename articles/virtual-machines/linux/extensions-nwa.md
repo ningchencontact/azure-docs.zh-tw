@@ -1,11 +1,11 @@
 ---
-title: "適用於 Linux 的 Azure 網路監看員代理程式虛擬機器擴充功能 | Microsoft Docs"
-description: "使用虛擬機器擴充功能在 Linux 虛擬機器上部署網路監看員代理程式。"
+title: 適用於 Linux 的 Azure 網路監看員代理程式虛擬機器擴充功能 | Microsoft Docs
+description: 使用虛擬機器擴充功能在 Linux 虛擬機器上部署網路監看員代理程式。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dennisg
 manager: amku
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
 ms.service: virtual-machines-linux
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: fd160fc8cfc2e79ffa9492bb0ef4556bec5820d0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a51566148eec88f707b524346afc59606196e4da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>適用於 Linux 的網路監看員代理程式虛擬機器擴充功能
 
 ## <a name="overview"></a>概觀
 
-[Azure 網路監看員](https://review.docs.microsoft.com/azure/network-watcher/)是網路效能的監視、診斷和分析服務，可讓您監視 Azure 網路。 Azure 虛擬機器上網路監看員的某些功能必須要有網路監看員代理程式虛擬機器擴充功能。 這包括擷取隨選網路流量和其他進階功能。
+[Azure 網路監看員](https://docs.microsoft.com/azure/network-watcher/)是網路效能的監視、診斷和分析服務，可讓您監視 Azure 網路。 Azure 虛擬機器上網路監看員的某些功能必須要有網路監看員代理程式虛擬機器擴充功能。 這包括擷取隨選網路流量和其他進階功能。
 
 本文件會詳述適用於 Linux 的網路監看員代理程式虛擬機器擴充功能所支援的平台和部署選項。
 

@@ -41,8 +41,8 @@
           href: what-is-a-data-warehouse-unit-dwu-cdwu.md
         - name: 向外縮放、暫停、繼續
           href: sql-data-warehouse-manage-compute-overview.md
-        - name: 資料倉儲備份
-          href: sql-data-warehouse-backups.md
+        - name: 備份與還原
+          href: backup-and-restore.md
         - name: 稽核
           href: sql-data-warehouse-auditing-overview.md
         - name: 容量限制

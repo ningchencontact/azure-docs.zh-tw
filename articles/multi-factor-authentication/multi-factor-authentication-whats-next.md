@@ -1,8 +1,8 @@
 ---
-title: "設定 Azure Multi-Factor Authentication | Microsoft Docs"
-description: "本文說明如何針對報告、詐騙警示、單次許可、自訂語音訊息、快取、信任的 IP 及應用程式密碼，設定 Azure Multi-Factor Authentication 設定。"
+title: 設定 Azure Multi-Factor Authentication | Microsoft Docs
+description: 本文說明如何針對報告、詐騙警示、單次許可、自訂語音訊息、快取、信任的 IP 及應用程式密碼，設定 Azure Multi-Factor Authentication 設定。
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4421b995e69e115fbb6c7379af79aaef537aed0d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
-既然您已啟動並執行 Azure Multi-Factor Authentication，本文將協助您進行管理。 本文涵蓋各種主題，協助您充分發揮 Azure Multi-Factor Authentication 的功效。 並非所有[版本的 Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need) 均提供這些功能。
+既然您已啟動並執行 Azure Multi-Factor Authentication，本文將協助您進行管理。 本文涵蓋各種主題，協助您充分發揮 Azure Multi-Factor Authentication 的功效。 並非所有[版本的 Azure Multi-Factor Authentication](multi-factor-authentication-get-started.md#what-features-do-i-need) 均提供這些功能。
 
 | 功能 | 說明 | 
 |:--- |:--- |
@@ -43,7 +43,7 @@ ms.lasthandoff: 01/04/2018
 ### <a name="block-a-user"></a>封鎖使用者
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 瀏覽至 **Azure Active Directory** > **MFA Server** > **封鎖/解除封鎖使用者**。
+2. 瀏覽至 [Azure Active Directory] > [MFA Server] > [封鎖/解除封鎖使用者]。
 3. 選取 [新增] 以封鎖使用者。
 4. 選取 [複寫群組]。 輸入 **username<span></span>@domain.com** 作為已封鎖使用者的使用者名稱。在 [原因] 欄位中輸入註解。
 5. 選取 [新增] 以完成封鎖使用者。

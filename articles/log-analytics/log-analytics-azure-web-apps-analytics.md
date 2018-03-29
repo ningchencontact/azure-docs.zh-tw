@@ -1,24 +1,24 @@
 ---
-title: "檢視 Azure Web Apps 分析資料 | Microsoft Docs"
-description: "您可以使用 Azure Web Apps 分析解決方案在所有 Azure Web 應用程式資源之間收集不同的計量，以深入了解 Azure Web 應用程式。"
+title: 檢視 Azure Web Apps 分析資料 | Microsoft Docs
+description: 您可以使用 Azure Web Apps 分析解決方案在所有 Azure Web 應用程式資源之間收集不同的計量，以深入了解 Azure Web 應用程式。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b70b626ca618fbfb7cbe25a4fcbc9aae797ce157
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>檢視所有 Azure Web 應用程式資源之間的計量分析資料
 
@@ -90,19 +90,18 @@ Azure Web Apps 分析解決方案會從 Azure 收集兩組計量：
 
 按一下 [Azure Web Apps 分析] 圖格開啟 [Azure Web Apps 分析] 儀表板。 此儀表板包含下表中的刀鋒視窗。 每個刀鋒視窗會針對所指定的範圍與時間範圍，列出最多 10 個符合該刀鋒視窗準則的項目。 您可以按一下刀鋒視窗底部的 [查看全部]，或按一下刀鋒視窗標頭，以執行記錄搜尋來傳回所有記錄。
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | 欄 | 說明 |
 | --- | --- |
 | Azure Web Apps |   |
-| Web Apps 要求趨勢 | 針對您已選取的日期範圍顯示 Web Apps 要求趨勢的折線圖，並顯示前十名 Web 要求清單。 按一下折線圖可執行記錄搜尋，以搜尋 <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>按一下 Web 要求項目可執行記錄搜尋，以搜尋所要求的 Web 要求計量趨勢。 |
-| Web Apps 回應時間 | 針對您所選取的日期範圍，顯示 Web Apps 回應時間的折線圖。 另外也顯示前十名 Web Apps 回應時間清單。 按一下該圖表可執行記錄搜尋，以搜尋 <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> 按一下某個 Web 應用程式可執行記錄搜尋，以傳回該 Web 應用程式的回應時間。 |
-| Web Apps 流量 | 顯示 Web Apps 流量 (MB) 的折線圖，並列出 Web Apps 流量排行榜。 按一下該圖表可執行記錄搜尋，以搜尋 <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> 它會顯示過去一分鐘有流量的所有 Web Apps。 按一下某個 Web 應用程式可執行記錄搜尋，以顯示針對該 Web 應用程式收到與傳送的位元組數。 |
+| Web Apps 要求趨勢 | 針對您已選取的日期範圍顯示 Web Apps 要求趨勢的折線圖，並顯示前十名 Web 要求清單。 按一下折線圖可執行記錄搜尋，以搜尋 <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "Requests" or MetricName startswith_cs "Http") &#124; summarize AggregatedValue = avg(Average) by MetricName, bin(TimeGenerated, 1h)</code> <br>按一下 Web 要求項目可執行記錄搜尋，以搜尋所要求的 Web 要求計量趨勢。 |
+| Web Apps 回應時間 | 針對您所選取的日期範圍，顯示 Web Apps 回應時間的折線圖。 另外也顯示前十名 Web Apps 回應時間清單。 按一下該圖表可執行記錄搜尋，以搜尋 <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and MetricName == "AverageResponseTime" &#124; summarize AggregatedValue = avg(Average) by Resource, bin(TimeGenerated, 1h)</code><br> 按一下某個 Web 應用程式可執行記錄搜尋，以傳回該 Web 應用程式的回應時間。 |
+| Web Apps 流量 | 顯示 Web Apps 流量 (MB) 的折線圖，並列出 Web Apps 流量排行榜。 按一下該圖表可執行記錄搜尋，以搜尋 <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "BytesSent" or MetricName == "BytesReceived") &#124; summarize AggregatedValue = sum(Average) by Resource, bin(TimeGenerated, 1h)</code><br> 它會顯示過去一分鐘有流量的所有 Web Apps。 按一下某個 Web 應用程式可執行記錄搜尋，以顯示針對該 Web 應用程式收到與傳送的位元組數。 |
 | Azure App Service 方案 |   |
-| CPU 使用率 &gt; 80% 的 App Service 方案 | 顯示 CPU 使用率大於 80% 的 App Service 方案總數，並依 CPU 使用率列出前 10 名 App Service 方案。 按一下總數區可執行記錄搜尋，以搜尋 <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> 它會顯示 App Service 方案清單及其平均 CPU 使用率。 按一下某個 App Service 方案可執行記錄搜尋，以顯示平均 CPU 使用率。 |
-| 記憶體使用率 &gt; 80% 的 App Service 方案 | 顯示記憶體使用率大於 80% 的 App Service 方案總數，並依記憶體使用率列出前 10 名 App Service 方案。 按一下總數區可執行記錄搜尋，以搜尋 <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> 它會顯示 App Service 方案清單及其平均記憶體使用率。 按一下某個 App Service 方案可執行記錄搜尋，以顯示其平均記憶體使用率。 |
+| CPU 使用率 &gt; 80% 的 App Service 方案 | 顯示 CPU 使用率大於 80% 的 App Service 方案總數，並依 CPU 使用率列出前 10 名 App Service 方案。 按一下總數區可執行記錄搜尋，以搜尋 <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "CpuPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> 它會顯示 App Service 方案清單及其平均 CPU 使用率。 按一下某個 App Service 方案可執行記錄搜尋，以顯示平均 CPU 使用率。 |
+| 記憶體使用率 &gt; 80% 的 App Service 方案 | 顯示記憶體使用率大於 80% 的 App Service 方案總數，並依記憶體使用率列出前 10 名 App Service 方案。 按一下總數區可執行記錄搜尋，以搜尋 <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "MemoryPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> 它會顯示 App Service 方案清單及其平均記憶體使用率。 按一下某個 App Service 方案可執行記錄搜尋，以顯示其平均記憶體使用率。 |
 | Azure Web Apps 活動記錄 |   |
-| Azure Web Apps 活動稽核 | 顯示有[活動記錄](log-analytics-activity.md)的 Web Apps 總數，並列出前 10 名的活動記錄作業。 按一下總數區可執行記錄搜尋，以搜尋 <code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> 它會顯示活動記錄作業清單。 按一下活動記錄作業可記錄搜尋，以列出作業記錄。 |
+| Azure Web Apps 活動稽核 | 顯示有[活動記錄](log-analytics-activity.md)的 Web Apps 總數，並列出前 10 名的活動記錄作業。 按一下總數區可執行記錄搜尋，以搜尋 <code>AzureActivity #124; where ResourceProvider == "Azure Web Sites" #124; summarize AggregatedValue = count() by OperationName</code><br> 它會顯示活動記錄作業清單。 按一下活動記錄作業可記錄搜尋，以列出作業記錄。 |
 
 
 

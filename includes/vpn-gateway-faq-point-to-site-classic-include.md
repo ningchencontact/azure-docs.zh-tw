@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: b8a785293c4e555b547c4b002f5ef5906a7633c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/23/2018
+---
 這個常見問題集適用於使用傳統部署模型的 P2S 連線。
 
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>可以使用哪些用戶端作業系統來搭配點對站台？

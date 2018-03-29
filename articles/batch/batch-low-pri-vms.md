@@ -1,6 +1,6 @@
 ---
-title: "在符合成本效益的低優先順序 VM 上執行 Azure Batch 工作負載 | Microsoft Docs"
-description: "了解如何佈建低優先順序的 VM，降低 Azure Batch 工作負載的成本。"
+title: 在符合成本效益的低優先順序 VM 上執行 Azure Batch 工作負載 | Microsoft Docs
+description: 了解如何佈建低優先順序的 VM，降低 Azure Batch 工作負載的成本。
 services: batch
 author: mscurrell
 manager: timlt
@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68240e29429b4c6321e8627b62ad65ce7ecb468e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>使用低優先順序的 VM 搭配 Batch
 
@@ -26,12 +26,6 @@ Azure Batch 提供低優先順序的虛擬機器 (VM)，可降低 Batch 工作�
 使用低優先順序 VM 的代價是，這些 VM 可能無法用於配置，或可能隨時會有高優先順序的 VM 先佔，視可用容量而定。 基於這個理由，低優先順序的 VM 最適合特定類型的工作負載。 低優先順序的 VM 是用於批次和非同步處理的工作負載，這種工作負載的作業完成時間很有彈性，且工作會分散於許多 VM。
  
 低優先順序的 VM 比起專用的 VM，能以大幅降低的價格提供。 如需定價詳細資料，請參閱 [Batch 定價](https://azure.microsoft.com/pricing/details/batch/)。
-
-
-> [!IMPORTANT]
-> 低優先順序的 VM 目前僅供在 Batch 中執行的工作負載使用。 
->
->
 
 ## <a name="use-cases-for-low-priority-vms"></a>低優先順序 VM 的使用案例
 

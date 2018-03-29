@@ -1,13 +1,13 @@
 ---
-title: "建立使用可用性區域的 Azure 擴展集 (預覽) | Microsoft Docs"
-description: "了解如何建立使用可用性區域的 Azure 虛擬機器擴展集，以提升系統中斷時的備援能力"
+title: 建立使用可用性區域的 Azure 擴展集 (預覽) | Microsoft Docs
+description: 了解如何建立使用可用性區域的 Azure 虛擬機器擴展集，以提升系統中斷時的備援能力
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8b497af8bc7e3060e184dd6a029b23ccb2d2bbfb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>建立使用可用性區域的虛擬機器擴展集 (預覽)
 如要保護虛擬機器擴展集，使其免於資料中心層級的失敗，您可以建立跨可用性區域的擴展集。 支援可用性區域的 Azure 區域至少會有三個不同的區域，每個區域都有自己的獨立電源、網路和冷卻系統。 如需詳細資訊，請參閱[可用性區域概觀](../availability-zones/az-overview.md)。
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/21/2018
 
 
 ## <a name="use-the-azure-portal"></a>使用 Azure 入口網站
-建立使用可用性區域之擴展集的流程，與[使用者入門文章](virtual-machine-scale-sets-create-portal.md)中所述的流程相同。 請確定您已[註冊可用性區域預覽](http://aka.ms/azenroll)。 當您選取支援的 Azure 區域時，您就可以在其中一個可用區域中建立擴展集，如下列範例所示：
+建立使用可用性區域之擴展集的流程，與[使用者入門文章](quick-create-portal.md)中所述的流程相同。 請確定您已[註冊可用性區域預覽](http://aka.ms/azenroll)。 當您選取支援的 Azure 區域時，您就可以在其中一個可用區域中建立擴展集，如下列範例所示：
 
 ![在單一可用性區域中建立擴展集](media/virtual-machine-scale-sets-use-availability-zones/create-portal-single-az.png)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/21/2018
 
 
 ## <a name="use-the-azure-cli-20"></a>使用 Azure CLI 2.0
-建立使用可用性區域之擴展集的流程，與[使用者入門文章](virtual-machine-scale-sets-create-cli.md)中所述的流程相同。 若要使用可用性區域，您必須在支援的 Azure 區域中建立擴展集，並且已[註冊可用性區域預覽](http://aka.ms/azenroll)。
+建立使用可用性區域之擴展集的流程，與[使用者入門文章](quick-create-cli.md)中所述的流程相同。 若要使用可用性區域，您必須在支援的 Azure 區域中建立擴展集，並且已[註冊可用性區域預覽](http://aka.ms/azenroll)。
 
 將 `--zones` 參數新增至 [az vmss create](/cli/azure/vmss#az_vmss_create) 命令，並指定要使用的區域 (例如區域 1、2 或 3)。 下列範例會在區域 1 中建立名為 myScaleSet 的單一區域擴展集：
 
@@ -114,7 +114,7 @@ az vmss create \
 
 
 ## <a name="use-azure-powershell"></a>使用 Azure PowerShell
-建立使用可用性區域之擴展集的流程，與[使用者入門文章](virtual-machine-scale-sets-create-powershell.md)中所述的流程相同。 若要使用可用性區域，您必須在支援的 Azure 區域中建立擴展集，並且已[註冊可用性區域預覽](http://aka.ms/azenroll)。 將 `-Zone` 參數新增至 [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) 命令，並指定要使用的區域 (例如區域 1、2 或 3)。 
+建立使用可用性區域之擴展集的流程，與[使用者入門文章](quick-create-powershell.md)中所述的流程相同。 若要使用可用性區域，您必須在支援的 Azure 區域中建立擴展集，並且已[註冊可用性區域預覽](http://aka.ms/azenroll)。 將 `-Zone` 參數新增至 [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) 命令，並指定要使用的區域 (例如區域 1、2 或 3)。 
 
 下列範例會在「美國東部 2」區域 1 中，建立名為 vmssConfig 的單一區域擴展集設定：
 
@@ -178,7 +178,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 
 ## <a name="use-azure-resource-manager-templates"></a>使用 Azure 資源管理員範本
-建立使用可用性區域之擴展集的流程，與 [Linux](virtual-machine-scale-sets-create-template-linux.md) 或 [Windows](virtual-machine-scale-sets-create-template-windows.md) 的使用者入門文章中所述的流程相同。 若要使用可用性區域，您必須在支援的 Azure 區域中建立擴展集，並且已[註冊可用性區域預覽](http://aka.ms/azenroll)。 將 `zones` 屬性新增至範本中的 Microsoft.Compute/virtualMachineScaleSets 資源類型，並指定要使用的區域 (例如區域 1、2 或 3)。
+建立使用可用性區域之擴展集的流程，與 [Linux](quick-create-template-linux.md) 或 [Windows](quick-create-template-windows.md) 的使用者入門文章中所述的流程相同。 若要使用可用性區域，您必須在支援的 Azure 區域中建立擴展集，並且已[註冊可用性區域預覽](http://aka.ms/azenroll)。 將 `zones` 屬性新增至範本中的 Microsoft.Compute/virtualMachineScaleSets 資源類型，並指定要使用的區域 (例如區域 1、2 或 3)。
 
 下列範例會在「美國東部 2」區域 1 中建立名為 myScaleSet 的 Linux 單一區域擴展集：
 

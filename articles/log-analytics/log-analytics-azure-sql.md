@@ -1,11 +1,11 @@
 ---
-title: "Log Analytics 中的 Azure SQL Analytics 解決方案 | Microsoft Docs"
-description: "Azure SQL Analytics 解決方案可協助您管理 Azure SQL Database。"
+title: Log Analytics 中的 Azure SQL Analytics 解決方案 | Microsoft Docs
+description: Azure SQL Analytics 解決方案可協助您管理 Azure SQL Database。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 5fb7fd0be8b131ee098689b06c34c4e7c333801e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>使用 Azure SQL Database (預覽) 監視 Log Analytics 中的 Azure SQL Database
 
@@ -87,10 +87,6 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## <a name="using-the-solution"></a>使用解決方案
 
->[!NOTE]
-> 請升級 Log Analytics 以取得最新版的 Azure SQL 分析。
->
-
 當您將解決方案新增至您的工作區時，Azure SQL 分析圖格會新增至您的工作區，而且會顯示在 [概觀] 中。 圖格會顯示 Azure SQL Database 和解決方案所連接之 Azure SQL 彈性集區的數目。
 
 ![Azure SQL 分析圖格](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
@@ -141,8 +137,6 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 ### <a name="analyze-data-and-create-alerts"></a>分析資料並建立警示
 
 您可以使用來自 Azure SQL Database 資源的資料，輕鬆建立警示。 以下是您可用於警示的一些實用[記錄搜尋](log-analytics-log-searches.md)查詢：
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 
 Azure SQL Database 上的高 DTU

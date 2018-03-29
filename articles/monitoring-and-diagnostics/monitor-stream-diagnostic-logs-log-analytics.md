@@ -1,12 +1,12 @@
 ---
-title: "將 Azure 診斷記錄檔串流至 Log Analytics | Microsoft Docs"
-description: "了解如何將 Azure 診斷記錄串流至 Log Analytics 命名空間。"
+title: 將 Azure 診斷記錄檔串流至 Log Analytics | Microsoft Docs
+description: 了解如何將 Azure 診斷記錄串流至 Log Analytics 命名空間。
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: johnkem
-ms.openlocfilehash: 9440bd7f872914887c1f6e50f08a3c273536fcf8
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 517ce3547f471dd1b40c79b2f087b02ad7f51b85
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>將 Azure 診斷記錄檔串流至 Log Analytics
 您可以使用入口網站、PowerShell Cmdlet 或 Azure CLI，以近乎即時的方式將 **[Azure 診斷記錄](monitoring-overview-of-diagnostic-logs.md)**串流至 Azure Log Analytics。
@@ -40,21 +40,21 @@ Log Analytics 工作區並不一定要與發出記錄檔的資源位於相同的
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>使用入口網站串流診斷記錄
 1. 在入口網站中，瀏覽至 Azure 監視器，然後按一下 [診斷設定]
 
-    ![Azure 監視器的監視區段](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
+    ![Azure 監視器的監視區段](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
 
 2. 選擇性地依資源群組或資源類型篩選清單，然後按一下您要設定診斷設定的資源。
 
 3. 如果您選取的資源上沒有任何設定，系統會提示您建立設定。 按一下「開啟診斷」。
 
-   ![新增診斷設定 - 無現有的設定](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-none.png)
+   ![新增診斷設定 - 無現有的設定](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
 
    如果資源上已有設定，您將會看此資源上已設定的設定清單。 按一下「新增診斷設定」。
 
-   ![新增診斷設定 - 現有的設定](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
+   ![新增診斷設定 - 現有的設定](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
 
 3. 為您的設定提供名稱，並選取 [傳送至 Log Analytics] 核取方塊，然後選取 Log Analytics 工作區。
    
-   ![新增診斷設定 - 現有的設定](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
+   ![新增診斷設定 - 現有的設定](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
 
 4. 按一下 [檔案] 。
 

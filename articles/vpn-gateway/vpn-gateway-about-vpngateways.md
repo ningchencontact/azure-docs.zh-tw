@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: ef6d61e9dfc7c30910d897478f07dabc14136b48
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 405af7d1191e8ea3c0ba1c526f0c5a526aef795b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-vpn-gateway"></a>關於 VPN 閘道
 
@@ -77,7 +77,7 @@ VPN 閘道連線需仰賴多個具有特定設定的資源。 大部分的資源
 
 ### <a name="S2S"></a>站對站
 
-網站間 (S2S) VPN 閘道連線是透過 IPsec/IKE (IKEv1 或 IKEv2) VPN 通道建立的連線。 S2S 連線可以用於跨單位與混合式組態。 S2S 連線需要位於內部部署的 VPN 裝置，其具有指派的公用 IP 位址且不是位於 NAT 後方。 如需選取 VPN 裝置的資訊，請參閱 [VPN 閘道常見問題集 - VPN 裝置](/vpn-gateway-vpn-faq.md#s2s)。
+網站間 (S2S) VPN 閘道連線是透過 IPsec/IKE (IKEv1 或 IKEv2) VPN 通道建立的連線。 S2S 連線可以用於跨單位與混合式組態。 S2S 連線需要位於內部部署的 VPN 裝置，其具有指派的公用 IP 位址且不是位於 NAT 後方。 如需選取 VPN 裝置的資訊，請參閱 [VPN 閘道常見問題集 - VPN 裝置](vpn-gateway-vpn-faq.md#s2s)。
 
 ![Azure VPN 閘道站對站連接範例](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 

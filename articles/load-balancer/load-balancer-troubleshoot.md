@@ -1,12 +1,12 @@
 ---
-title: "針對 Azure Load Balancer 進行疑難排解 | Microsoft Docs"
-description: "針對 Azure Load Balancer 的已知問題進行疑難排解"
+title: 針對 Azure Load Balancer 進行疑難排解 | Microsoft Docs
+description: 針對 Azure Load Balancer 的已知問題進行疑難排解
 services: load-balancer
 documentationcenter: na
 author: RamanDhillon
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: bc059221656a695bb43af0dca06df941ca77c73d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>針對 Azure Load Balancer 進行疑難排解
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 3. 如果連接埠狀態未列為 **LISTENING**，請設定適當的連接埠。 
 4. 或者，選取其他已列為 **LISTENING** 的連接埠，並據此更新負載平衡器組態。              
 
-###<a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>原因 3：防火牆或網路安全性群組封鎖負載平衡器後端集區 VM 上的連接埠  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>原因 3：防火牆或網路安全性群組封鎖負載平衡器後端集區 VM 上的連接埠  
 如果 VM 上的防火牆封鎖探查連接埠，或者子網路或 VM 上已設定一或多個網路安全性群組不允許探查連接埠，VM 就無法回應健康狀態探查。          
 
 **驗證和解決方式**

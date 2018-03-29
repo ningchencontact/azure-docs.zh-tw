@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions 的最佳作法 | Microsoft Docs"
-description: "了解 Azure Functions 的最佳作法與模式。"
+title: Azure Functions 的最佳作法 | Microsoft Docs
+description: 了解 Azure Functions 的最佳作法與模式。
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 模式, 最佳作法, 函數, 事件處理, webhook, 動態計算, 無伺服器架構"
+editor: ''
+tags: ''
+keywords: azure functions, 模式, 最佳作法, 函數, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: functions
 ms.devlang: multiple
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8088a8a83bcaefce17ac2756360a46119c8eb27
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 19ca9d70f769a19556d131d1d131f1bc9d107ef0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>將 Azure Functions 效能和可靠性最佳化
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 01/19/2018
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>儘可能分批接收訊息
 
-某些觸發程序 (如事件中樞) 能夠在單一引動過程中接收一批訊息。  分批處理訊息的效能比較好。  如 [host.json 參考文件](functions-host-json.md)所述，您可以在 `functions.json` 檔案中設定批次大小上限。
+某些觸發程序 (如事件中樞) 能夠在單一引動過程中接收一批訊息。  分批處理訊息的效能比較好。  如 [host.json 參考文件](functions-host-json.md)所述，您可以在 `host.json` 檔案中設定批次大小上限。
 
 若為 C# 函式，您可以將類型變更為強型別陣列。  例如，方法簽章可能是 `EventData[] sensorEvent`，而不是 `EventData sensorEvent`。  若為其他語言，您必須在 `function.json` 中將基數屬性明確設定為 `many`，才能啟用批次處理 ([如這裡所示](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10))。
 

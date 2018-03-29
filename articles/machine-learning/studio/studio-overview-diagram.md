@@ -1,11 +1,12 @@
 ---
-title: "Machine Learning Studio 功能的概觀圖 | Microsoft Docs"
-description: "Azure Machine Learning Studio 功能的可列印圖表，會示範如何使用 Studio 開發預測性分析實驗，並使其在 Azure 雲端中運作。"
-keywords: "machine learning studio,概觀圖表,下載"
+title: Machine Learning Studio 功能的概觀圖 | Microsoft Docs
+description: Azure Machine Learning Studio 功能的可列印圖表，會示範如何使用 Studio 開發預測性分析實驗，並使其在 Azure 雲端中運作。
+keywords: machine learning studio,概觀圖表,下載
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 5b302c6c-41fd-4551-a4ae-0f5b450e1e6b
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/04/2017
-ms.author: haining;garye
-ms.openlocfilehash: f4e53fa46a6b7f8811e4fee67b1466786b81cdc9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 55a2355bb0d29f60f96264e3e030835ba4d86427
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Azure Machine Learning Studio 功能的概觀圖
 **Microsoft Azure Machine Learning Studio 功能概觀** 圖表提供一些概觀，讓您了解如何使用 Machine Learning Studio 開發預測性分析模型，並使其在 Azure 雲端中運作。

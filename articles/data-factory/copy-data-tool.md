@@ -1,21 +1,21 @@
 ---
-title: "複製資料工具 - Azure Data Factory | Microsoft Docs"
-description: "提供有關 Azure Data Factory UI 中複製資料工具的資訊"
+title: 複製資料工具 - Azure Data Factory | Microsoft Docs
+description: 提供有關 Azure Data Factory UI 中複製資料工具的資訊
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2fb25dcc0de4ebb1d025101670a9edfe3fe2bea9
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: b82ee060ff3f25e7a92c85114d457ecb349159b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory 中的複製資料工具
 Azure Data Factory「複製資料」工具把將資料內嵌到 Data Lake 的程序 (通常是端對端資料整合案例中的第一步) 簡化並最佳化。  它可節省時間，尤其是當您第一次使用 Azure Data Factory 從資料來源內嵌資料的時候。 使用此工具的一些優點包括：

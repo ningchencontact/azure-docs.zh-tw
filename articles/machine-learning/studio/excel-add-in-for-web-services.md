@@ -1,12 +1,12 @@
 ---
-title: "適用於 Machine Learning Web 服務的 Excel 增益集 | Microsoft Docs"
-description: "如何在 Excel 中直接使用 Azure Machine Learning Web 服務，而不需要撰寫任何程式碼。"
+title: 適用於 Machine Learning Web 服務的 Excel 增益集 | Microsoft Docs
+description: 如何在 Excel 中直接使用 Azure Machine Learning Web 服務，而不需要撰寫任何程式碼。
 services: machine-learning
-documentationcenter: 
-author: tedway
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
-tags: 
 ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
 ms.devlang: na
@@ -14,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.author: tedway;garye
-ms.openlocfilehash: cec26a5ccd4620dd0dabc92f4655f5fdfaf62e20
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 6610777ff4ad3a04f9d0d5b47f402aea7db59d9b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="excel-add-in-for-azure-machine-learning-web-services"></a>適用於 Azure Machine Learning Web 服務的 Excel 增益集
 Excel 可以讓您直接輕鬆呼叫 Web 服務，而不需要撰寫任何程式碼。

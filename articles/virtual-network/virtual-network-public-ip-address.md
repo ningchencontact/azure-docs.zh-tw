@@ -1,11 +1,11 @@
 ---
-title: "建立、變更或刪除 Azure 公用 IP 位置 | Microsoft Docs"
-description: "了解如何建立、變更或刪除公用 IP 位址。"
+title: 建立、變更或刪除 Azure 公用 IP 位置 | Microsoft Docs
+description: 了解如何建立、變更或刪除公用 IP 位址。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8efc0bff4764a7265a5f1bcdd995979af0b22234
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c36a3451dabbb0d08e5e475e0eec14f861bd41ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>建立、變更或刪除公用 IP 位址
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 03/05/2018
 
     |設定|必要？|詳細資料|
     |---|---|---|
-    |SKU|yes|在 SKU 推出之前所建立的公用 IP 位址全都是**基本** SKU 的公用 IP 位址。  建立公用 IP 位址之後，即無法變更 SKU。 獨立虛擬機器、可用性設定組內的虛擬機器，或虛擬機器擴展集，可以使用基本或標準 SKU。  不允許混用可用性設定組或擴展集內虛擬機器之間的 SKU。 **基本** SKU：如果您要在支援可用性區域的區域中建立公用 IP 位址，**可用性區域**設定依預設會設為「無」。 您可以選擇選取可用性區域，以確保您公用 IP 位址的特定區域。 **標準** SKU：標準 SKU 公用 IP 可與虛擬機器或負載平衡器前端建立關聯。 如果您要在支援可用性區域的區域中建立公用 IP 位址，**可用性區域**設定依預設會設為「區域備援」。 如需可用性區域的詳細資訊，請參閱**可用性區域**設定。 如果您要將位址與標準負載平衡器建立關聯，則需要標準 SKU。 若要深入了解標準負載平衡器，請參閱 [Azure 負載平衡器標準 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 標準 SKU 目前為預覽版本。 在建立標準 SKU 的公用 IP 位址之前，您必須先完成[註冊標準 SKU 預覽版](#register-for-the-standard-sku-preview)中的步驟，並在受支援的位置 (區域) 建立公用 IP 位址。 如需支援位置的清單，請參閱[區域可用性](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability)，並監看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面以取得其他區域支援。 當您將標準 SKU 的公用 IP 位址指派給虛擬機器的網路介面時，必須使用[網路安全性群組](security-overview.md#network-security-groups)明確地允許預定的流量。 在建立和關聯網路安全性群組並明確地允許所要流量前，與資源進行的通訊都會失敗。|
+    |SKU|yes|在 SKU 推出之前所建立的公用 IP 位址全都是**基本** SKU 的公用 IP 位址。  建立公用 IP 位址之後，即無法變更 SKU。 獨立虛擬機器、可用性設定組內的虛擬機器，或虛擬機器擴展集，可以使用基本或標準 SKU。  不允許混用可用性設定組或擴展集內虛擬機器之間的 SKU。 **基本** SKU：如果您要在支援可用性區域的區域中建立公用 IP 位址，**可用性區域**設定依預設會設為「無」。 您可以選擇選取可用性區域，以確保您公用 IP 位址的特定區域。 **標準** SKU：標準 SKU 公用 IP 可與虛擬機器或負載平衡器前端建立關聯。 如果您要在支援可用性區域的區域中建立公用 IP 位址，**可用性區域**設定依預設會設為「區域備援」。 如需可用性區域的詳細資訊，請參閱**可用性區域**設定。 如果您要將位址與標準負載平衡器建立關聯，則需要標準 SKU。 若要深入了解標準負載平衡器，請參閱 [Azure 負載平衡器標準 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 當您將標準 SKU 的公用 IP 位址指派給虛擬機器的網路介面時，必須使用[網路安全性群組](security-overview.md#network-security-groups)明確地允許預定的流量。 在建立和關聯網路安全性群組並明確地允許所要流量前，與資源進行的通訊都會失敗。|
     |Name|yes|名稱必須是您選取的資源群組中唯一的名稱。|
     |IP 版本|yes| 選取 IPv4 或 IPv6。 公用的 IPv4 位址可指派給數個 Azure 資源，而 IPv6 公用 IP 位址只可指派給網際網路面向的負載平衡器。 負載平衡器可將 IPv6 的流量負載分散到 Azure 虛擬機器。 深入了解[將 IPv6 流量負載分散到虛擬機器](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 如果您選取**標準 SKU**，則無法選擇 *IPv6*。 使用**標準 SKU** 時，您只能建立 IPv4 位址。|
     |IP 位址指派|yes|**動態︰**只有在公用 IP 位址與連接至虛擬機器的網路介面建立關聯，而且該虛擬機器第一次啟動之後，才會指派動態位址。 如果網路介面連接的虛擬機器已停止 (已解除配置)，則可變更動態位址。 如果虛擬機器已重新啟動或停止 (但未解除配置)，則位址維持不變。 **靜態︰**建立公用 IP 位址時會指派靜態位址。 即使虛擬機器處於已停止 (已解除配置) 狀態，靜態位址也不會變更。 只有在刪除網路介面後才會釋出位址。 您可以在建立網路介面後變更指派方法。 如果您選取 *IPv6* 作為 **IP 版本**，則指派方法為「動態」。 如果您為 **SKU** 選取*標準*，則指派方法為「靜態」。|
@@ -88,24 +88,6 @@ ms.lasthandoff: 03/05/2018
 |---|---|
 |CLI|[az network public-ip-list](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_list) 可列出公用 IP 位址、[az network public-ip-show](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_show) 可顯示設定；[az network public-ip update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_update) 可進行更新；[az network public-ip delete](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_delete) 可進行刪除|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) 可擷取公用 IP 位址物件並檢視其設定、[Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) 可更新設定；[Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) 可進行刪除|
-
-## <a name="register-for-the-standard-sku-preview"></a>註冊標準 SKU 預覽版
-
-> [!NOTE]
-> 預覽版本的功能可能沒有與正式發行版本功能相同層級的可用性和可靠性。 不支援預覽功能、可能有受限的功能，以及可能無法在所有 Azure 位置提供使用。 
-
-您必須先註冊預覽版，才可以建立標準 SKU 公用 IP 位址。 請完成下列步驟以註冊預覽版：
-
-1. 從 PowerShell 輸入下列命令以註冊預覽版：
-   
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-2. 藉由輸入下列命令，確認您已註冊預覽版︰
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
 
 ## <a name="next-steps"></a>後續步驟
 請在建立下列 Azure 資源時，指派公用 IP 位址︰

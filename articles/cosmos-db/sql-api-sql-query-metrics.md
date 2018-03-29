@@ -1,9 +1,9 @@
 ---
-title: "適用於 Azure Cosmos DB SQL API 的 SQL 查詢計量 | Microsoft Docs"
-description: "了解如何檢測和偵錯 Azure Cosmos DB 要求的 SQL 查詢效能。"
-keywords: "sql 語法, sql 查詢, sql 查詢, json 查詢語言, 資料庫概念和 sql 查詢, 彙總函式"
+title: 適用於 Azure Cosmos DB SQL API 的 SQL 查詢計量 | Microsoft Docs
+description: 了解如何檢測和偵錯 Azure Cosmos DB 要求的 SQL 查詢效能。
+keywords: sql 語法, sql 查詢, sql 查詢, json 查詢語言, 資料庫概念和 sql 查詢, 彙總函式
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: monicar
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: a2a42fd65ba4344f703ca423dc451802f3f0ac76
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: a92d2ed1686765a54812ff82066bc30c1d48848d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 調整查詢效能
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB 提供一個[適用於查詢資料的 SQL API](sql-api-sql-query.md)，而不需結構描述或次要索引。 本文可為開發人員提供下列資訊：
 

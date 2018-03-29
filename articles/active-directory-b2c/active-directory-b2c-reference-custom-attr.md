@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C：自訂屬性 | Microsoft Docs"
-description: "如何在 Azure Active Directory B2C 中使用自訂屬性收集取用者相關資訊"
+title: Azure Active Directory B2C：自訂屬性 | Microsoft Docs
+description: 如何在 Azure Active Directory B2C 中使用自訂屬性收集取用者相關資訊
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 055ffb0a-197b-4716-8dad-1fd8a01e174f
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 3e2c8b3ab223cf269129d7723c37d98c24f0653c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: davidmu
+ms.openlocfilehash: 6f285c10b7d8ff92c8568c42b6a78dc4ea9bcc74
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C：使用自訂屬性收集您的取用者的相關資訊
 您的 Azure Active Directory (Azure AD) B2C 目錄隨附一組內建資訊 (屬性)：名字、姓氏、城市、郵遞區號及其他屬性。 不過，每個取用者面向應用程式對於向取用者收集的屬性，皆有獨特需求。 Azure AD B2C 可讓您擴充目錄儲存在每個取用者帳戶上的屬性組合。 您可以在 [Azure 入口網站](https://portal.azure.com/) 上建立自訂屬性，然後如下方所示，將這些屬性用於您的註冊原則中。 您也可以使用 [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)讀取和寫入這些屬性。

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 854ec70c897b6a561fdec056228f82ccec3ae16c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector 管理解決方案 (預覽)
 
@@ -88,12 +88,12 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 | **資料行** | **說明** |
 | --- | --- |
-| 應用程式 - 應用程式的數目 | 顯示 [應用程式] 資源中的應用程式數目。 也會列出應用程式名稱以及各自的應用程式記錄計數。 按一下此數字可執行記錄搜尋，以搜尋 <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  按一下應用程式名稱，可執行應用程式的記錄搜尋，以顯示每個主機的應用程式記錄、各遙測類型的記錄，以及各類型的所有資料 (以最後一天為基礎)。 |
-| 資料量 - 傳送資料的主機 | 顯示傳送資料的電腦主機數目。 也會列出電腦主機和每部主機的記錄計數。 按一下此數字可執行記錄搜尋，以搜尋 <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> 按一下電腦名稱，可執行主機的記錄搜尋，以顯示每個主機的應用程式記錄、各遙測類型的記錄，以及各類型的所有資料 (以最後一天為基礎)。 |
-| 可用性 – Webtest 結果 | 顯示 Web 測試結果的環圈圖，指出成功或失敗。 按一下該圖表可執行記錄搜尋，以搜尋 <code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code> <br><br> 結果會顯示所有測試的通過和失敗數目。 它會顯示過去一分鐘有流量的所有 Web Apps。 按一下應用程式名稱，以檢視可顯示失敗 Web 測試詳細資料的記錄搜尋。 |
-| 伺服器要求 – 每小時的要求 | 顯示各種應用程式每小時的伺服器要求折線圖。 將滑鼠移至圖表中的一條線上，可查看在某個時間點接收最多要求的前 3 個應用程式。 也會顯示在所選期間內接收要求的應用程式清單和要求數目。 <br><br>按一下圖表可執行記錄搜尋，以搜尋 <code>Type=ApplicationInsights TelemetryType=Request &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> 結果會顯示各種應用程式每小時的伺服器要求折線圖。 <br><br> 按一下清單中的應用程式可執行記錄搜尋，以搜尋 <code>Type=ApplicationInsights  ApplicationName=yourapplicationname  TelemetryType=Request</code> 結果會顯示要求清單、不同時間和要求期間的要求圖表，以及要求回應碼的清單。   |
-| 失敗 – 每小時失敗的要求 | 顯示每小時失敗的應用程式要求折線圖。 將滑鼠移至圖表上，可查看在某個時間點具有最多失敗要求的前 3 個應用程式。 也會顯示詳列失敗要求數目的應用程式清單。 按一下圖表可執行記錄搜尋，以搜尋 <code>Type=ApplicationInsights TelemetryType=Request  RequestSuccess = false &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> 結果會顯示更詳細的失敗應用程式要求折線圖。 <br><br>按一下清單中的項目可執行記錄搜尋，以搜尋 <code>Type=ApplicationInsights ApplicationName=yourapplicationname TelemetryType=Request  RequestSuccess=false</code> 結果會顯示失敗的要求、不同時間和要求期間的失敗要求圖表，以及失敗要求回應碼的清單。 |
-| 例外狀況 – 每小時的例外狀況 | 顯示每小時的例外狀況折線圖。 將滑鼠移至圖表上，可查看在某個時間點具有最多例外狀況的前 3 個應用程式。 也會顯示詳列例外狀況數目的應用程式清單。 按一下圖表可執行記錄搜尋，以搜尋 <code>Type=ApplicationInsights TelemetryType=Exception &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> 結果會顯示更詳細的例外狀況折線圖。 <br><br>按一下清單中的項目可執行記錄搜尋，以搜尋 <code>Type=ApplicationInsights  ApplicationName=yourapplicationname TelemetryType=Exception</code> 結果會顯示例外狀況清單、不同時間的例外狀況和失敗要求圖表，以及例外狀況類型的清單。  |
+| 應用程式 - 應用程式的數目 | 顯示 [應用程式] 資源中的應用程式數目。 也會列出應用程式名稱以及各自的應用程式記錄計數。 按一下此數字可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  按一下應用程式名稱，可執行應用程式的記錄搜尋，以顯示每個主機的應用程式記錄、各遙測類型的記錄，以及各類型的所有資料 (以最後一天為基礎)。 |
+| 資料量 - 傳送資料的主機 | 顯示傳送資料的電腦主機數目。 也會列出電腦主機和每部主機的記錄計數。 按一下此數字可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> 按一下電腦名稱，可執行主機的記錄搜尋，以顯示每個主機的應用程式記錄、各遙測類型的記錄，以及各類型的所有資料 (以最後一天為基礎)。 |
+| 可用性 – Webtest 結果 | 顯示 Web 測試結果的環圈圖，指出成功或失敗。 按一下該圖表可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> 結果會顯示所有測試的通過和失敗數目。 它會顯示過去一分鐘有流量的所有 Web Apps。 按一下應用程式名稱，以檢視可顯示失敗 Web 測試詳細資料的記錄搜尋。 |
+| 伺服器要求 – 每小時的要求 | 顯示各種應用程式每小時的伺服器要求折線圖。 將滑鼠移至圖表中的一條線上，可查看在某個時間點接收最多要求的前 3 個應用程式。 也會顯示在所選期間內接收要求的應用程式清單和要求數目。 <br><br>按一下圖表可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> 結果會顯示各種應用程式每小時的伺服器要求折線圖。 <br><br> 按一下清單中的應用程式可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> 結果會顯示要求清單、不同時間和要求期間的要求圖表，以及要求回應碼的清單。   |
+| 失敗 – 每小時失敗的要求 | 顯示每小時失敗的應用程式要求折線圖。 將滑鼠移至圖表上，可查看在某個時間點具有最多失敗要求的前 3 個應用程式。 也會顯示詳列失敗要求數目的應用程式清單。 按一下圖表可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> 結果會顯示更詳細的失敗應用程式要求折線圖。 <br><br>按一下清單中的項目可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> 結果會顯示失敗的要求、不同時間和要求期間的失敗要求圖表，以及失敗要求回應碼的清單。 |
+| 例外狀況 – 每小時的例外狀況 | 顯示每小時的例外狀況折線圖。 將滑鼠移至圖表上，可查看在某個時間點具有最多例外狀況的前 3 個應用程式。 也會顯示詳列例外狀況數目的應用程式清單。 按一下圖表可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> 結果會顯示更詳細的例外狀況折線圖。 <br><br>按一下清單中的項目可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> 結果會顯示例外狀況清單、不同時間的例外狀況和失敗要求圖表，以及例外狀況類型的清單。  |
 
 ### <a name="view-the-application-insights-perspective-with-log-search"></a>透過記錄搜尋來檢視 Application Insights 檢視方塊
 
@@ -145,7 +145,7 @@ Application Insights 提供*[取樣更正](../application-insights/app-insights-
 在記錄搜尋查詢中取樣更正的範例如下：
 
 ```
-Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
+ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by TelemetryType
 ```
 
 [取樣計數] 欄位會存在所有項目中，並且顯示項目所代表的資料點數目。 如果您開啟 Application Insights 應用程式的取樣功能，[取樣計數] 會大於 1。 若要計算應用程式所產生的實際項目數，請加總 [取樣計數] 欄位。

@@ -1,22 +1,21 @@
 ---
-title: "Azure Active Directory B2C：使用方式報告 API 範例和定義 | Microsoft Docs"
-description: "取得關於 Azure AD B2C 租用戶使用者、驗證及多重要素驗證之報告的相關指南和範例"
+title: Azure Active Directory B2C：使用方式報告 API 範例和定義 | Microsoft Docs
+description: 取得關於 Azure AD B2C 租用戶使用者、驗證及多重要素驗證之報告的相關指南和範例
 services: active-directory-b2c
 documentationcenter: dev-center-name
-author: rojasja
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: joroja
-ms.openlocfilehash: 6014301a026d60775634138cbdfe56bfa625508f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 3470f45683ea508dfe338c313a5307eb6c1164d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>透過報告 API 存取 Azure AD B2C 中的使用報告
 

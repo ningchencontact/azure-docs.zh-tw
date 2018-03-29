@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Data Factory (搶鮮版 (Beta)) 從 QuickBooks 複製資料 | Microsoft Docs"
-description: "了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 QuickBooks 複製到支援的接收資料存放區。"
+title: 使用 Azure Data Factory (搶鮮版 (Beta)) 從 QuickBooks 複製資料 | Microsoft Docs
+description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 QuickBooks 複製到支援的接收資料存放區。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9151647e29251b627db605d1f1c6c5809bd67269
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6185f8a8b0f60b6e3dc6f4bda2bceabd1dd4f058
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-quickbooks-using-azure-data-factory-beta"></a>使用 Azure Data Factory (搶鮮版 (Beta)) 從 QuickBooks 複製資料
 

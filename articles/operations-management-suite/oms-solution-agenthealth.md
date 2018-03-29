@@ -1,24 +1,24 @@
 ---
-title: "OMS 中的代理程式健全狀況解決方案 | Microsoft Docs"
-description: "本文旨在協助您了解如何使用這個解決方案來監視直接向 OMS 或 System Center Operations Manager 回報之代理程式的健全狀況。"
+title: OMS 中的代理程式健全狀況解決方案 | Microsoft Docs
+description: 本文旨在協助您了解如何使用這個解決方案來監視直接向 OMS 或 System Center Operations Manager 回報之代理程式的健全狀況。
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d7eb1550a21e66d4ae4cc4932b30a90956c60d1e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>OMS 中的代理程式健全狀況解決方案
 對於直接向 OMS 工作區或連線到 OMS 之 System Center Operations Manager 管理群組回報的所有代理程式，OMS 中的代理程式健全狀況解決方案可協助您了解哪些代理程式沒有回應且正在提交作業資料。  您可以也追蹤已部署的代理程式數目，其散佈地區，並執行其他查詢，以留意 Azure、其他雲端環境或內部部署中部署之代理程式的散佈情形。    
@@ -98,25 +98,6 @@ ms.lasthandoff: 01/03/2018
 下表提供此解決方案所收集之記錄的記錄搜尋範例。
 
 | 查詢 | 說明 |
-| --- | --- |
-| Type=Heartbeat &#124; distinct Computer |代理程式總數 |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |過去 24 小時內沒有回應的代理程式計數 |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |過去 15 分鐘內沒有回應的代理程式計數 |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |在線上的電腦 (過去 24 小時內) |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |在過去 30 分鐘內離線的代理程式總數 (針對過去 24 小時) |
-| Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |依 OSType 取得一段時間內的代理程式數目趨勢|
-| Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |依 OS 類型分配 |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by Version |依代理程式版本分配 |
-| Type=Heartbeat&#124;measure count() by Category |依代理程式類別分配 |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by ManagementGroupName | 依管理群組分配 |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by RemoteIPCountry |代理程式的地理位置 |
-| Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |已安裝的 OMS 閘道數目 |
-
-
->[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](../log-analytics/log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
->
->| 查詢 | 說明 |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |代理程式總數 |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |過去 24 小時內沒有回應的代理程式計數 |
@@ -130,6 +111,9 @@ ms.lasthandoff: 01/03/2018
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by ManagementGroupName | 依管理群組分配 |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |代理程式的地理位置 |
 | Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |已安裝的 OMS 閘道數目 |
+
+
+
 
 ## <a name="next-steps"></a>後續步驟
 

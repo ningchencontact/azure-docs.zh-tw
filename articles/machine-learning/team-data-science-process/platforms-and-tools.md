@@ -1,23 +1,23 @@
 ---
-title: "資料科學 Team 專案的平台和工具 - Azure  | Microsoft Docs"
-description: "逐項列出及討論可以讓企業對 Team 資料科學程序進行標準化的資料和分析資源。"
-documentationcenter: 
+title: 資料科學 Team 專案的平台和工具 - Azure  | Microsoft Docs
+description: 逐項列出及討論可以讓企業對 Team 資料科學程序進行標準化的資料和分析資源。
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: bradsev
+ms.openlocfilehash: 404e3dd106edf82f4f22e4c6a17987bd0bc51f65
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>資料科學 Team 專案的平台和工具
 

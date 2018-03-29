@@ -1,11 +1,12 @@
 ---
-title: "從機器學習服務範例建立實驗 - Azure | Microsoft Docs"
-description: "了解如何透過 Azure AI 資源庫和 Azure Machine Learning 使用範例機器學習服務實驗來建立新的實驗。"
-keywords: "機器學習服務範例, 範例實驗, 機器學習服務範例, AI 範例"
+title: 從機器學習服務範例建立實驗 - Azure | Microsoft Docs
+description: 了解如何透過 Azure AI 資源庫和 Azure Machine Learning 使用範例機器學習服務實驗來建立新的實驗。
+keywords: 機器學習服務範例, 範例實驗, 機器學習服務範例, AI 範例
 services: machine-learning
-documentationcenter: 
-author: cjgronlund
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/05/2018
-ms.author: cgronlun
-ms.openlocfilehash: 9ea19f137acb23d3527315aae2624c746e138545
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 7cb5c869e4523333ce0651559632070e5a19163c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>從 Azure AI 資源庫中的工作範例建立機器學習服務實驗
 

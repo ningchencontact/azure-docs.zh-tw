@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C：使用用戶端憑證保護您的 RESTful 服務"
-description: "使用用戶端憑證在您的 Azure AD B2C 中保護您的自訂 REST API 宣告交換"
+title: Azure Active Directory B2C：使用用戶端憑證保護您的 RESTful 服務
+description: 使用用戶端憑證在您的 Azure AD B2C 中保護您的自訂 REST API 宣告交換
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/25/2017
-ms.author: yoelh
-ms.openlocfilehash: 582aadd35821779e307ac285804e3b7fe5c24abd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: f1b9ef9a78715c08c5361e4bab6a31384c5c98d3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>使用用戶端憑證保護您的 RESTful 服務
 在相關的文章中，您可以[建立 RESTful 服務](active-directory-b2c-custom-rest-api-netfw.md)，與 Azure Active Directory B2C (Azure AD B2C) 互動。

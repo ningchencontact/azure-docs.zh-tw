@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory：常見問題集 | Microsoft Docs"
-description: "獲得 Azure Data Factory 常見問題的解答。"
+title: Azure Data Factory：常見問題集 | Microsoft Docs
+description: 獲得 Azure Data Factory 常見問題的解答。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8c240e1a654c80c34f6b612d9126058e5d67c4c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory 常見問題集
 本文適用於第 2 版的 Azure Data Factory 服務。 本文提供 Data Factory 常見問題集的解答。  
@@ -89,8 +88,7 @@ Azure Data Factory 第 2 版是以原始 Azure Data Factory 資料移動和轉�
 
 - **資料移動**：在公用網路中的資料存放區與私人網路 (內部部署或虛擬私人網路) 中的資料存放區之間移動資料。 它支援內建的連接器、格式轉換、資料行對應，以及高效能和可調式資料轉送。
 - **分派活動**：分派和監視在 Azure HDInsight、Azure Machine Learning、Azure SQL Database、SQL Server 等各種計算服務上執行的轉換活動。
-- 
-            **執行 SSIS 封裝**：在受控 Azure 計算環境中原生執行 SSIS 封裝。
+- **執行 SSIS 封裝**：在受控 Azure 計算環境中原生執行 SSIS 封裝。
 
 您可視需要部署一或多個整合執行階段執行個體，以移動和轉換資料。 整合執行階段可以在 Azure 公用網路中執行，或是在私人網路 (內部部署、Azure 虛擬網路或 Amazon Web Services 虛擬私人雲端 [VPC]) 中執行。 
 

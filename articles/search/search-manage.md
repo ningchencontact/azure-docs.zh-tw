@@ -1,11 +1,11 @@
 ---
-title: "Azure 入口網站中 Azure 搜尋服務的服務管理"
-description: "使用 Azure 入口網站來管理 Azure 搜尋服務 (Microsoft Azure 上的雲端託管搜尋服務)。"
+title: Azure 入口網站中 Azure 搜尋服務的服務管理
+description: 使用 Azure 入口網站來管理 Azure 搜尋服務 (Microsoft Azure 上的雲端託管搜尋服務)。
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d19683291e001c3c3f2a7bfc5c203b5121a8a418
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 入口網站中 Azure 搜尋服務的服務管理
 > [!div class="op_single_selector"]
@@ -44,26 +44,12 @@ Azure 搜尋服務是完全受控、以雲端為基礎的搜尋服務，用來�
 ## <a name="administrator-rights"></a>系統管理員權限
 Azure 訂用帳戶管理員或共同管理員可以佈建或解除委任服務本身。
 
-在服務中，任何有服務 URL 和系統管理 API 金鑰存取權的人員，都有服務的讀寫存取權限。 讀寫存取權限提供新增、刪除或修改伺服器物件的能力，這些物件包含 API 金鑰、索引、索引子、資料來源、排程，以及透過 [RBAC 定義的角色](#rbac)實作的角色指派。
+在服務中，任何有服務 URL 和系統管理 API 金鑰存取權的人員，都有服務的讀寫存取權限。 讀寫存取權限提供新增、刪除或修改伺服器物件的能力，這些物件包含 API 金鑰、索引、索引子、資料來源、排程，以及透過 [RBAC 定義的角色](search-security-rbac.md)實作的角色指派。
 
-與 Azure 搜尋服務互動的所有使用者皆屬於下列模式之一︰讀寫存取服務 (系統管理員權限) 或唯讀存取服務 (查詢權限)。 如需詳細資訊，請參閱[管理 API 金鑰](#manage-keys)。
+與 Azure 搜尋服務互動的所有使用者皆屬於下列模式之一︰讀寫存取服務 (系統管理員權限) 或唯讀存取服務 (查詢權限)。 如需詳細資訊，請參閱[管理 API 金鑰](search-security-api-keys.md)。
 
 <a id="sys-info"></a>
 
-## <a name="set-rbac-roles-for-administrative-access"></a>設定系統管理存取權的 RBAC 角色
-Azure 特別為透過入口網站或 Resource Manager API 管理的所有服務提供[全域角色型授權模型](../active-directory/role-based-access-control-configure.md)。 「擁有者」、「參與者」和「讀取者」角色可針對指派給各角色的 Active Directory 使用者、群組和安全性主體，決定服務管理層級。 
-
-針對 Azure 搜尋服務，RBAC 權限會決定下列管理工作︰
-
-| 角色 | Task |
-| --- | --- |
-| 擁有者 |建立或刪除服務或服務上的任何物件，包括 api 索引鍵、索引、索引子、索引子資料來源和索引子排程。<p>檢視服務狀態，包括計數和儲存體大小。<p>新增或刪除角色成員資格 (只有「擁有者」可以管理角色成員資格)。<p>訂用帳戶管理員和服務擁有者在擁有者角色具有自動成員資格。 |
-| 參與者 |與「擁有者」相同層級的存取權，減去 RBAC 角色管理。 例如，參與者可以檢視和重新產生 `api-key`，但不能修改角色成員資格。 |
-| 讀取者 |檢視服務狀態及查詢金鑰。 這個角色的成員無法變更服務組態，也無法檢視管理金鑰。 |
-
-角色不會授與服務端點的存取權限。 搜尋服務作業 (例如索引管理、索引母體擴展，以及搜尋資料查詢) 可透過 api-key 而非角色來控制。 如需詳細資訊，請參閱[什麼是角色存取控制](../active-directory/role-based-access-control-what-is.md)中的「管理授權與資料作業」。
-
-<a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>記錄與系統資訊
 Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服務的記錄檔。 在基本層以上，Microsoft 會監視所有 Azure 搜尋服務以達到服務等級協定 (SLA) 的 99.9%可用性。 如果服務很慢或要求輸送量低於 SLA 閾值，支援團隊會檢閱他們可用的記錄檔並解決問題。
 
@@ -72,38 +58,6 @@ Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服�
 * 在入口網站中、在服務儀表板上、透過通知、屬性和狀態訊息。
 * 使用 [PowerShell](search-manage-powershell.md) 或 [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) 來[取得服務屬性](https://docs.microsoft.com/rest/api/searchmanagement/services)，或索引資源使用狀況的狀態。
 * 如先前所述，透過[搜尋流量分析](search-traffic-analytics.md)。
-
-<a id="manage-keys"></a>
-
-## <a name="manage-api-keys"></a>管理 API 金鑰
-搜尋服務的所有要求需要專為您的服務而產生的 API 金鑰。 此 API 金鑰是驗證存取您搜尋服務端點的唯一機制。 
-
-API 金鑰是由隨機產生的數字和字母所組成的字串。 您可以透過 [RBAC 權限](#rbac)來刪除或讀取金鑰，但無法以使用者定義的密碼取代金鑰。 
-
-存取搜尋服務的金鑰有兩種類型：
-
-* 管理員 (適用於服務的任何讀寫作業)
-* 查詢 (適用於唯讀作業，例如針對索引的查詢)
-
-與當佈建服務時會建立管理員 API 金鑰。 有兩個管理員金鑰，指定為主要和次要以將它們保持在各自的位置，但事實上，它們是可互換。 每個服務有兩個管理員金鑰，以便您在轉換其中一個時不會無法存取您的服務。 您可以重新產生任何一種管理員金鑰，但您無法增加管理員金鑰的總數量。 每個搜尋服務最多有 2 個管理員金鑰。
-
-查詢金鑰是專為直接呼叫搜尋的用戶端應用程式所設計。 您最多可以建立 50 個查詢金鑰。 在應用程式程式碼中，您可以指定搜尋 URL 和查詢 API 金鑰以允許唯讀存取服務。 應用程式程式碼也會指定應用程式所使用的索引。 端點、可供唯讀存取的 API 金鑰以及目標索引共同定義來自用戶端應用程式連接的範圍和存取層級。
-
-若要取得或重新產生 API 金鑰，請開啟服務儀表板。 按一下 [金鑰] 以滑動開啟金鑰管理頁面。 重新產生或建立金鑰的命令位於頁面頂端。 依預設，只會建立管理員金鑰。 查詢 API 金鑰必須以手動方式建立。
-
- ![][9]
-
-<a id="rbac"></a>
-
-## <a name="secure-api-keys"></a>保護 API 金鑰
-藉由限制透過入口網站或 Resource Manager 介面 (PowerShell 或命令列介面) 的存取來確保金鑰安全性。 如前所述，訂用帳戶系統管理員可以檢視及重新產生所有的 API 金鑰。 為以防萬一，請檢閱角色指派以了解誰具有管理員金鑰存取權。
-
-1. 在服務儀表板中，按一下 [存取] 圖示以滑動開啟 [使用者] 刀鋒視窗。
-   ![][7]
-2. 在 [使用者] 中，檢閱現有的角色指派。 如預期，訂用帳戶管理員已經透過擁有者角色具有服務的完整存取權。
-3. 若要進一步鑽研，按一下 [訂用帳戶管理員] ，然後展開角色指派清單以查看誰在您的搜尋服務上具有共同系統管理權限。
-
-檢視存取權限的另一個方法是按一下 [使用者] 刀鋒視窗上的 [角色]。 這麼做會顯示可用的角色以及使用者數目或指派給每個角色的群組數目。
 
 <a id="sub-5"></a>
 
@@ -184,9 +138,6 @@ API 金鑰是由隨機產生的數字和字母所組成的字串。 您可以透
 另一個建議是觀看先前小節所提及的影片。 影片涵蓋在本節中所提及技術的詳細資訊。
 
 <!--Image references-->
-[7]: ./media/search-manage/rbac-icon.png
-[8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
-[9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 

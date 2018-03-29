@@ -1,12 +1,12 @@
 ---
-title: "開始使用 Azure 建議程式 | Microsoft Docs"
-description: "開始使用 Azure 建議程式。"
+title: 開始使用 Azure 建議程式 | Microsoft Docs
+description: 開始使用 Azure 建議程式。
 services: advisor
 documentationcenter: NA
 author: manbeenkohli
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cd64515beabec43a5209d62dccf2b55b21702c16
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>開始使用 Advisor
 
@@ -35,10 +35,7 @@ ms.lasthandoff: 02/24/2018
 
 4. Advisor 儀表板會顯示所有選取之訂用帳戶的建議摘要。  您可以使用訂用帳戶篩選下拉式清單，選擇您想要顯示建議的訂用帳戶。
 
-5. 若要取得特定類別的建議，請按一下下列其中一個索引標籤：[高可用性]、[安全性]、[效能] 或 [成本]。
- 
-> [!NOTE]
-> 若要搭配某個訂用帳戶使用 Azure Advisor，訂用帳戶「擁有者」必須啟動 Advisor 儀表板。  此動作會向 Advisor 註冊訂用帳戶。  之後，任何訂用帳戶「擁有者」、「參與者」或「讀取者」便都可以存取該訂用帳戶的 Advisor 建議。  
+5. 若要取得特定類別的建議，請按一下下列其中一個索引標籤：[高可用性]、[安全性]、[效能] 或 [成本]。 
 
   ![Azure 建議程式儀表板](./media/advisor-overview/advisor-dashboard.png)
 

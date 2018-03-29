@@ -9,10 +9,10 @@ ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
 ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName 填入
 
@@ -35,7 +35,7 @@ UserPrincipalName 屬性值是使用者帳戶的 Azure AD 使用者名稱。
 UserPrincipalName 是依據網際網路標準 [RFC 822](http://www.ietf.org/rfc/rfc0822.txt) 所定義的一個屬性，可作為使用者的網際網路樣式登入名稱。 
 
 ### <a name="upn-format"></a>UPN 格式
-UPN 是由 UPN 前置詞 (使用者帳戶名稱) 和 UPN 尾碼 (DNS 網域名稱) 所組成。 前置詞會使用 "\@\" 符號與尾碼連結。 例如，"someone@example.com"。 在目錄樹系的所有安全性主體物件之間，UPN 必須是唯一的。 
+UPN 是由 UPN 前置詞 (使用者帳戶名稱) 和 UPN 尾碼 (DNS 網域名稱) 所組成。 前置詞會使用 "@" 符號與尾碼連結。 例如，"someone@example.com"。 在目錄樹系的所有安全性主體物件之間，UPN 必須是唯一的。 
 
 ## <a name="upn-in-azure-ad"></a>Azure AD 中的 UPN 
 Azure AD 會使用 UPN 來允許使用者登入。  使用者所能使用的 UPN 取決於網域是否已驗證。  如果網域已驗證，則系統會允許具有該尾碼的使用者登入 Azure AD。  
@@ -67,7 +67,7 @@ Azure AD Connect 會同步處理屬性。  在安裝期間，您可以檢視已�
 使用者物件在第一次同步處理至 Azure AD 租用戶時，Azure AD 會以給定的順序檢查下列項目，然後將 MailNickName 屬性值設定為現有的第一個項目：
 
 - 內部部署 mailNickName 屬性
-- 主要 SMTP 位址的首碼
+- 主要 SMTP 位址的前置詞
 - 內部部署 mail 屬性的前置詞
 - 內部部署 UserPrincipalName 屬性/替代登入識別碼的前置詞
 - 次要 SMTP 位址的首碼

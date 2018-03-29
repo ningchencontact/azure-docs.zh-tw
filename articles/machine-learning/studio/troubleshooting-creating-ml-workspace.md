@@ -1,10 +1,11 @@
 ---
-title: "疑難排解：建立及連接至機器學習工作區 | Microsoft Docs"
-description: "建立及連接 Azure Machine Learning 工作區之常見問題的解決方法"
+title: 疑難排解：建立及連接至機器學習工作區 | Microsoft Docs
+description: 建立及連接 Azure Machine Learning 工作區之常見問題的解決方法
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 1a8aec4b-35f9-44e8-9570-2575b8979ab1
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: cdccd4ce7b87f47d21578076653bde901748188b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c265b14a88e993512811de365f1ba51f7ba6028
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>疑難排解指南：建立及連接至機器學習服務工作區
 本指南針對一些在設定 Azure Machine Learning 工作區時常發生的問題，提供解決方案。

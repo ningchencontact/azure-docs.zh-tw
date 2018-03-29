@@ -1,11 +1,12 @@
 ---
-title: "5 個資料科學問題 - 適用於初學者的資料科學 - Azure Machine Learning | Microsoft Docs"
-description: "「適用於初學者的資料科學」會運用 5 支短片教導基本概念，首先為「資料科學可以回答的 5 個問題」。 來自 Azure Machine Learning。"
-keywords: "進行資料科學, 資料科學初學者, 適用於初學者的資料科學, 資料科學基本概念, 資料科學問題, 資料科學影片, 資料科學簡介"
+title: 5 個資料科學問題 - 適用於初學者的資料科學 - Azure Machine Learning | Microsoft Docs
+description: 「適用於初學者的資料科學」會運用 5 支短片教導基本概念，首先為「資料科學可以回答的 5 個問題」。 來自 Azure Machine Learning。
+keywords: 進行資料科學, 資料科學初學者, 適用於初學者的資料科學, 資料科學基本概念, 資料科學問題, 資料科學影片, 資料科學簡介
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 0482a680999e58b8be45334c9ae620b6b37ac273
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 494c8293a1dbfccbfe2df1e2f48f770edb6452dc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>適用於初學者的資料科學影片 1：資料科學可以回答的 5 個問題
 從頂尖資料科學家所提供之「適用於初學者的資料科學」的五個簡短影片中快速認識資料科學。 無論您是對從事資料科學有興趣，或您是和資料科學家一起工作，這些影片都能為您提供基本但很有用的知識。

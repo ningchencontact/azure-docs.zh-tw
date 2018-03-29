@@ -1,12 +1,12 @@
 ---
-title: "Azure 虛擬網路服務端點 | Microsoft Docs"
-description: "了解如何使用服務端點，啟用對虛擬網路中的 Azure 資源直接存取。"
+title: Azure 虛擬網路服務端點 | Microsoft Docs
+description: 了解如何使用服務端點，啟用對虛擬網路中的 Azure 資源直接存取。
 services: virtual-network
 documentationcenter: na
 author: anithaa
 manager: narayan
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2018
 ms.author: anithaa
-ms.custom: 
-ms.openlocfilehash: aa1ac804c9cd623e5fb03c97a38f9352ac8a42ad
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: dbcb1d87fafe085d6232fa621fbd9e211fa4174d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何[設定虛擬網路服務端點](virtual-network-service-endpoints-configure.md)
+- 了解如何[設定虛擬網路服務端點](tutorial-restrict-network-access-to-resources.md)
 - 了解如何[將 Azure 儲存體帳戶放到虛擬網路保護](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - 了解如何[將 Azure SQL Database 放到虛擬網路保護](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - 了解[虛擬網路中的 Azure 服務整合](virtual-network-for-azure-services.md)

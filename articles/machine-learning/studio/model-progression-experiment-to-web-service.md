@@ -1,10 +1,11 @@
 ---
-title: "Azure Machine Learning 模型如何變成 Web 服務 | Microsoft Docs"
-description: "機制的概觀，說明 Azure Machine Learning 模型如何從開發實驗進展為實際運作的 Web 服務。"
+title: Azure Machine Learning 模型如何變成 Web 服務 | Microsoft Docs
+description: 機制的概觀，說明 Azure Machine Learning 模型如何從開發實驗進展為實際運作的 Web 服務。
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: 383f0a466f92a230e49c3d1e96d306a0b7d67da2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f36c8cf68c707e4472fd1779044a64e7f9f4c004
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning 模型如何從實驗進展為實際運作的 Web 服務
 Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行、測試及反覆運算代表預測性分析模型的***實驗***。 有各種可用的模組可以︰

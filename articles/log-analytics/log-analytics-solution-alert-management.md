@@ -1,8 +1,8 @@
 ---
-title: "Azure Log Analytics 中的警示管理方案 | Microsoft Docs"
-description: "Log Analytics 中的警示管理方案可協助您分析環境中的所有警示。  除了合併 Log Analytics 內產生的警示，此方案還會將連線的 System Center Operations Manager 管理群組中的警示匯入到 Log Analytics。"
+title: Azure Log Analytics 中的警示管理方案 | Microsoft Docs
+description: Log Analytics 中的警示管理方案可協助您分析環境中的所有警示。  除了合併 Log Analytics 內產生的警示，此方案還會將連線的 System Center Operations Manager 管理群組中的警示匯入到 Log Analytics。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics 中的警示管理方案
 
@@ -109,20 +109,6 @@ ms.lasthandoff: 01/22/2018
 下表提供此解決方案所收集的警示記錄的記錄搜尋範例： 
 
 | 查詢 | 說明 |
-|:--- |:--- |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR |過去 24 小時期間引發的重大警示 |
-| Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR |過去 24 小時期間引發的警告警示 |
-| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName |來源和過去 24 小時期間引發的作用中警示 |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR AlertState!=Closed |過去 24 小時期間引發的重大且仍在作用中的警示 |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed |過去 24 小時期間引發但現在已關閉的警示 |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity |過去 1 天期間引發的警示 (依嚴重性分組) |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc |過去 1 天期間引發的警示 (依重複計數值排序) |
-
-
->[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下：
->
->| 查詢 | 說明 |
 |:---|:---|
 | Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) |過去 24 小時期間引發的重大警示 |
 | Alert &#124; where AlertSeverity == "warning" and TimeRaised > ago(24h) |過去 24 小時期間引發的警告警示 |
@@ -131,6 +117,7 @@ ms.lasthandoff: 01/22/2018
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(24h) and AlertState == "Closed" |過去 24 小時期間引發但現在已關閉的警示 |
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; summarize Count = count() by AlertSeverity |過去 1 天期間引發的警示 (依嚴重性分組) |
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; sort by RepeatCount desc |過去 1 天期間引發的警示 (依重複計數值排序) |
+
 
 
 ## <a name="next-steps"></a>後續步驟

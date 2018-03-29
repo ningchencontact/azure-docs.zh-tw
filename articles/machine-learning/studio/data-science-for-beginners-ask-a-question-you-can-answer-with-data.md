@@ -1,11 +1,12 @@
 ---
-title: "詢問資料可回答的問題 - 資料科學問題 - Azure Machine Learning | Microsoft Docs"
-description: "了解如何在「適用於初學者的資料科學」影片 3 中制訂明確的資料科學問題。 包含分類和迴歸問題的比較。"
-keywords: "資料科學問題, 資料科學問題, 制訂問題, 迴歸問題, 分類問題, 明確的問題"
+title: 詢問資料可回答的問題 - 資料科學問題 - Azure Machine Learning | Microsoft Docs
+description: 了解如何在「適用於初學者的資料科學」影片 3 中制訂明確的資料科學問題。 包含分類和迴歸問題的比較。
+keywords: 資料科學問題, 資料科學問題, 制訂問題, 迴歸問題, 分類問題, 明確的問題
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 2f3d8d5c2e7cf1ebc88dc1ff1d7d03bf85383884
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 225414082c447016cdfdfd1a9e5dbe5e5fbcfaec
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>詢問您可以使用資料回答的問題
 ## <a name="video-3-data-science-for-beginners-series"></a>影片 3：適用於初學者的資料科學系列

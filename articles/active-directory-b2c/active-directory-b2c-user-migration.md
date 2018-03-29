@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C：使用者移轉方法"
-description: "討論有關使用圖形 API (以及選擇性地使用 Azure AD B2C 自訂原則) 來進行使用者移轉的核心概念和進階概念。"
+title: Azure Active Directory B2C：使用者移轉方法
+description: 討論有關使用圖形 API (以及選擇性地使用 Azure AD B2C 自訂原則) 來進行使用者移轉的核心概念和進階概念。
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: be80ea534be6de4fad2b072cf531669f45eda527
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C：使用者移轉
 當您將識別提供者移轉到 Azure Active Directory B2C (Azure AD B2C) 時，可能也需要移轉使用者帳戶。 本文說明如何將任何識別提供者的現有使用者帳戶移轉至 Azure AD B2C。 本文並非是為了做出規定，而是要說明幾種方法的其中兩種。 每種方法是否適合則屬開發人員的責任。

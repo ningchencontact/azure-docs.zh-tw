@@ -1,11 +1,11 @@
 ---
-title: "開始使用 Azure 資料表儲存體和 Visual Studio 已連線的服務 (ASP.NET) | Microsoft Docs"
-description: "在使用 Visual Studio 已連線的服務連接到儲存體帳戶之後，如何在 Visual Studio ASP.NET 專案中開始使用 Azure 資料表儲存體"
+title: 開始使用 Azure 資料表儲存體和 Visual Studio 已連線的服務 (ASP.NET) | Microsoft Docs
+description: 在使用 Visual Studio 已連線的服務連接到儲存體帳戶之後，如何在 Visual Studio ASP.NET 專案中開始使用 Azure 資料表儲存體
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.service: storage
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: kraigb
-ms.openlocfilehash: 32a57e77bf6fe3cff88b9d6772ede9e6669ec75f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646ff3a12d1b28f99376ea67af25f1b6858d675a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>開始使用 Azure 資料表儲存體和 Visual Studio 已連線的服務 (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -29,7 +29,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
 
 本教學課程說明如何使用 Azure 表格儲存體實體撰寫一些常見案例的 ASP.NET 程式碼。 這些案例包括建立資料表，以及新增、查詢和刪除資料表實體。 
 
-##<a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>先決條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)

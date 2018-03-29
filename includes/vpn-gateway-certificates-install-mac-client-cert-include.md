@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: c75d123fec9cbc98a532f4a38887cfd2fc88feda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/23/2018
+---
 安裝用戶端憑證時，您需要匯出用戶端憑證時所建立的密碼。
 
 1. 找到 .pfx 憑證檔，並將它複製到 Mac。 您可以透過幾種方式將憑證放到 Mac 上，例如，您可以用電子郵件傳送憑證檔。

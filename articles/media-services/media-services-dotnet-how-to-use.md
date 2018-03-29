@@ -1,11 +1,11 @@
 ---
-title: "如何使用 .NET 設定用於媒體服務開發的電腦"
-description: "了解將 Media Services SDK for .NET 用於媒體服務的必要條件。 同時了解如何建立 Visual Studio 應用程式。"
+title: 如何使用 .NET 設定用於媒體服務開發的電腦
+description: 了解將 Media Services SDK for .NET 用於媒體服務的必要條件。 同時了解如何建立 Visual Studio 應用程式。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 532306427ba13aca70c50d47a33bb7edeac71720
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b5daa2198d76534e5756684e0482d59c047d634f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 進行媒體服務開發
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -130,7 +130,7 @@ ms.lasthandoff: 03/02/2018
             }
  ```
 
-##<a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 
 現在[您可以連接到 AMS API](media-services-use-aad-auth-to-access-ams-api.md)並開始[開發](media-services-dotnet-get-started.md)。
 

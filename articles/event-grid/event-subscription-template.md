@@ -1,6 +1,6 @@
 ---
-title: "使用範本的 Azure Event Grid 訂用帳戶"
-description: "使用 Resource Manager 範本建立 Event Grid 訂用帳戶。"
+title: 使用範本的 Azure Event Grid 訂用帳戶
+description: 使用 Resource Manager 範本建立 Event Grid 訂用帳戶。
 services: event-grid
 author: tfitzmac
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
 ms.openlocfilehash: ee0b2c228ae4ea53c0ee9794529aa190334ceed9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-resource-manager-template-for-event-grid-subscription"></a>針對 Event Grid 訂用帳戶使用 Resource Manager 範本
 

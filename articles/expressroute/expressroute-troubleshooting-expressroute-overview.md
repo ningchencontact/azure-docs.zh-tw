@@ -1,12 +1,12 @@
 ---
-title: "確認連線：Azure ExpressRoute 疑難排解指南 | Microsoft Docs"
-description: "此頁面提供 ExpressRoute 路線的端對端連線確認和疑難排解的指示。"
+title: 確認連線：Azure ExpressRoute 疑難排解指南 | Microsoft Docs
+description: 此頁面提供 ExpressRoute 路線的端對端連線確認和疑難排解的指示。
 documentationcenter: na
 services: expressroute
 author: rambk
 manager: tracsman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 74b6589a7e06570d978dfe40c5f5bf140e092cc6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5d01f2e402e4b793274761703ec3ca1ea3ff8164
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>確認 ExpressRoute 連線
 ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路擴充至 Microsoft 雲端，涉及三個不同的網路區域：
@@ -68,7 +68,7 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
 
 未來將加入更多確認和檢查，請每個月回來查看！
 
-##<a name="validate-circuit-provisioning-and-state"></a>確認路線的佈建和狀態
+## <a name="validate-circuit-provisioning-and-state"></a>確認路線的佈建和狀態
 不論是何種連線模型，皆必須建立 ExpressRoute 路線，系統才會為佈建的路線產生服務機碼。 佈建 ExpressRoute 路線會在 PE-MSEE (4) 和 MSEE (5) 之間建立備援的第 2 層連線。 如需有關如何建立、修改、佈建、確認 ExpressRoute 路線的詳細資訊，請參閱[建立和修改 ExpressRoute 路線][CreateCircuit]一文。
 
 >[!TIP]
@@ -76,7 +76,7 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
 >
 >
 
-###<a name="verification-via-the-azure-portal"></a>透過 Azure 入口網站進行確認
+### <a name="verification-via-the-azure-portal"></a>透過 Azure 入口網站進行確認
 在 Azure 入口網站中，選取功能表左欄中的 ![2][2]，然後選取 ExpressRoute 路線，便可以檢查 ExpressRoute 路線狀態。 選取 [所有資源] 底下列出的 ExpressRoute 路線，會開啟 ExpressRoute 路線刀鋒視窗。 在刀鋒視窗的 ![3][3] 區段中，會列出ExpressRoute 的基本資料，如以下螢幕擷取畫面所示︰
 
 ![4][4]    
@@ -90,7 +90,7 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
 >
 >
 
-###<a name="verification-via-powershell"></a>透過 PowerShell 進行確認
+### <a name="verification-via-powershell"></a>透過 PowerShell 進行確認
 若要列出資源群組中的所有 ExpressRoute 路線，使用下列命令：
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
@@ -139,7 +139,7 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
 >
 >
 
-###<a name="verification-via-powershell-classic"></a>透過 PowerShell (傳統) 進行確認
+### <a name="verification-via-powershell-classic"></a>透過 PowerShell (傳統) 進行確認
 若要列出訂用帳戶下的所有 ExpressRoute 路線，使用下列命令：
 
     Get-AzureDedicatedCircuit
@@ -167,10 +167,10 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
 >
 >
 
-##<a name="validate-peering-configuration"></a>確認對等互連組態
+## <a name="validate-peering-configuration"></a>確認對等互連組態
 服務提供者已完成 ExpressRoute 路之線佈建後，可以透過 MSEE-PR (4) 和 MSEE (5) 之間的 ExpressRoute 路線建立路由組態。 每個 ExpressRoute 線路可以啟用一、二或三個路由內容︰Azure 私人對等互連 (送至 Azure 中私人虛擬網路的流量)、Azure 公用對等互連 (送至 Azure 中公用 IP 位址的流量) 及 Microsoft 對等互連 (送至 Office 365 和 Dynamics 365 的流量)。 如需有關如何建立及修改路由組態的詳細資訊，請參閱[建立和修改 ExpressRoute 路線的路由][CreatePeering]一文。
 
-###<a name="verification-via-the-azure-portal"></a>透過 Azure 入口網站進行確認
+### <a name="verification-via-the-azure-portal"></a>透過 Azure 入口網站進行確認
 
 >[!NOTE]
 >如果第 3 層是由服務提供者所提供，且對等互連在入口網站中為空白，請使用入口網站上的 [重新整理] 按鈕將循環組態重新整理。 此作業將套用在您線路上的正確路由組態。 
@@ -188,7 +188,7 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
 >
 >
 
-###<a name="verification-via-powershell"></a>透過 PowerShell 進行確認
+### <a name="verification-via-powershell"></a>透過 PowerShell 進行確認
 若要取得 Azure 私人對等互連的組態詳細資料，使用下列命令︰
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
@@ -364,7 +364,7 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
 
     Route Table Info:
 
-##<a name="check-the-traffic-statistics"></a>檢查流量統計資料
+## <a name="check-the-traffic-statistics"></a>檢查流量統計資料
 若要取得對等互連內容的主要和次要路徑的合併流量統計資料，包括進和出的位元組，使用下列命令︰
 
     Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private

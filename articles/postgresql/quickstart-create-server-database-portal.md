@@ -1,6 +1,6 @@
 ---
-title: "快速入門 - 使用 Azure 入口網站建立適用於 PostgreSQL 的 Azure 資料庫伺服器"
-description: "本快速入門指南說明如何使用 Azure 入口網站使用者介面，建立及管理 Azure Database for PostgreSQL 伺服器。"
+title: 快速入門 - 使用 Azure 入口網站建立適用於 PostgreSQL 的 Azure 資料庫伺服器
+description: 本快速入門指南說明如何使用 Azure 入口網站使用者介面，建立及管理 Azure Database for PostgreSQL 伺服器。
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 83bdc6eba35f0deaaf541f2042854764ae513fb9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: c1acb568598184974b65d666075032e74aa49eb3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立適用於 PostgreSQL 的 Azure 資料庫伺服器
 

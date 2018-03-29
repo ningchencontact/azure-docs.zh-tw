@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C：自助式密碼重設 | Microsoft Docs"
-description: "此主題示範如何在 Azure Active Directory B2C 中為您的取用者設定自助式密碼重設"
+title: Azure Active Directory B2C：自助式密碼重設 | Microsoft Docs
+description: 此主題示範如何在 Azure Active Directory B2C 中為您的取用者設定自助式密碼重設
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: curtand
-ms.assetid: c87ed86e-1520-42b1-8c31-46cd44ed5310
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: c0a10869477647820828b22b6291522be255844d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: davidmu
+ms.openlocfilehash: f38473989f90bfe6d35bffb17a02a892ad08cf5e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C：為您的取用者設定自助式密碼重設
 自助式密碼重設功能可讓您的取用者 (已註冊本機帳戶的使用者) 自行重設自己的密碼。 這可大幅減輕支援人員的負擔，特別是在您的應用程式具有數百萬名定期使用的取用者時更是如此。 目前僅支援使用已驗證的電子郵件地址做為復原方法。 我們將在未來新增其他復原方法 (例如已驗證的電話號碼、安全性問題等)。

@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Domain Services：比較 Azure AD Domain Services 與 DIY 網域控制器 | Microsoft Docs"
-description: "比較 Azure Active Directory Domain Services 與 DIY 網域控制器"
+title: Azure AD Domain Services：比較 Azure AD Domain Services 與 DIY 網域控制器 | Microsoft Docs
+description: 比較 Azure Active Directory Domain Services 與 DIY 網域控制器
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
 ms.openlocfilehash: c384046d280e03de5a808d245dd273fdf7b44549
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>如何判斷 Azure AD 網域服務是否適合您的使用案例
 Azure AD Domain Services 可讓您在 Azure 基礎結構服務中部署工作負載，而不必擔心要在 Azure 中維護您的身分識別基礎結構。 此受控服務不同於您自行部署及管理的典型 Windows Server Active Directory 部署。 服務容易部署，並且提供自動化的健康情況監視和修復。 我們持續不斷地提升該服務，以新增常見部署案例的支援。

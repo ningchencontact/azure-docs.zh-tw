@@ -1,24 +1,24 @@
 ---
-title: "Azure Log Analytics 記錄搜尋中的電腦群組 | Microsoft Docs"
-description: "Log Analytics 中的電腦群組可讓您將記錄檔搜尋範圍限於一組特定的電腦。  這篇文章說明可用來建立電腦群組的不同方法，以及如何將它們用在記錄檔搜尋中。"
+title: Azure Log Analytics 記錄搜尋中的電腦群組 | Microsoft Docs
+description: Log Analytics 中的電腦群組可讓您將記錄檔搜尋範圍限於一組特定的電腦。  這篇文章說明可用來建立電腦群組的不同方法，以及如何將它們用在記錄檔搜尋中。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Log Analytics 記錄檔搜尋中的電腦群組
 
@@ -66,12 +66,6 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
 5. 提供電腦群組的每一個屬性的值。 
 
 
->[!NOTE]
-> 如果您的工作區仍在使用[舊版 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則您可以使用相同的程序來建立電腦群組，但是您必須使用舊版查詢語言的語法。
-
-
-### <a name="log-search-api"></a>記錄檔搜尋 API
-以記錄檔搜尋 API 建立的電腦群組，與以記錄檔搜尋建立的搜尋相同。  如需使用記錄檔搜尋 API 建立電腦群組的詳細資料，請參閱 [Log Analytics 記錄檔搜尋 REST API 中的電腦群組](log-analytics-log-search-api.md#computer-groups)。
 
 ### <a name="active-directory"></a>Active Directory
 當您設定匯入 Log Analytics 來匯入 Active Directory 群組成員資格時，它會分析已加入網域且裝有 OMS 代理程式的任何電腦的群組成員資格。  針對 Active Directory 中的每個安全性群組，Log Analytics 中會建立一個電腦群組，而每一部電腦會新增至對應到它們所屬安全性群組的電腦群組。  此成員資格持續地每 4 小時更新一次。  
@@ -129,18 +123,6 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
   UpdateSummary | where Computer in (ADComputers)
   ```
 
-
-
-  
-
->[!NOTE]
-> 如果您的工作區仍在使用[舊版 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，您可以使用下列語法在記錄搜尋中參考電腦群組。  指定 **Category** 是選擇性的，只有當您在不同類別中有相同名稱的電腦群組時，才需要指定。 
->
->    `$ComputerGroups[Category: Name]`
->
->在記錄搜尋中，電腦群組通常搭配 **IN** 子句一起使用，如下列範例所示：
->
->    `Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]`
 
 
 

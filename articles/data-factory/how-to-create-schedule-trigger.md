@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Data Factory 中建立排程觸發程序 | Microsoft Docs"
-description: "了解如何在 Azure Data Factory 中建立依排程執行管線的處發程序。"
+title: 在 Azure Data Factory 中建立排程觸發程序 | Microsoft Docs
+description: 了解如何在 Azure Data Factory 中建立依排程執行管線的處發程序。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 51e2dddbe66ca372d89fc8efeb24bdab9fe6a442
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 6466d6cb535bbe0042d7c4c3e828e576e23d5d07
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>建立依排程執行管線的觸發程序
 本文提供有關排程觸發程序的資訊，以及建立、啟動和監視排程觸發程序的步驟。 如需了解其他類型的觸發程序，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md)。
@@ -306,20 +306,20 @@ ms.lasthandoff: 01/24/2018
 ```
 
 > [!IMPORTANT]
->  **parameters** 屬性是 **pipelines** 元素的必要屬性。 如果您的管線未採用任何參數，您就必須針對 **parameters** 屬性包含一個空的 JSON 定義。
+>  **parameters** 屬性是 **pipelines** 元素的必要屬性。 如果您的管線未採用任何參數，您就必須為 **parameters** 屬性加入一個空的 JSON 定義。
 
 
 ### <a name="schema-overview"></a>結構描述概觀
-下表提供與觸發程序之週期和排程相關的主要結構描述元素的概要概觀：
+下表提供與觸發程序之週期和排程相關的主要結構描述元素概觀：
 
 | JSON 屬性 | 說明 |
 |:--- |:--- |
-| **startTime** | 日期時間值。 在簡單的排程中，**startTime** 屬性的值會套用至第一個發生項目。 在複雜的排程中，觸發程序會在到了指定的 **startTime** 值才啟動。 |
+| **startTime** | 日期時間值。 在簡易排程中，**startTime** 屬性的值會套用至第一個發生項目。 在複雜的排程中，觸發程序會在到了指定的 **startTime** 值才啟動。 |
 | **endTime** | 觸發程序的結束日期和時間。 觸發程序在指定的結束日期和時間之後便不再執行。 此屬性的值不可以是過去的時間。 這是選用屬性。 |
-| **timeZone** | 時區。 目前只支援 UTC 時區。 |
+| **timeZone** | 時區。 目前僅支援 UTC 時區。 |
 | **recurrence** | 指定觸發程序之週期規則的 recurrence 物件。 recurrence 物件支援 **frequency**、**interval**、**endTime**、**count** 及 **schedule** 元素。 定義 recurrence 物件時，必須一併定義 **frequency** 元素。 其他 recurrence 物件元素則為選用元素。 |
 | **frequency** | 觸發程序重複執行時的頻率單位。 支援的值包括 "minute"、"hour"、"day"、"week" 及 "month"。 |
-| **interval** | 代表 **frequency**值之間隔的整數值，用來決定觸發程序執行的頻率。 例如，如果 **interval** 為 3，而 **frequency** 為 "week"，觸發程序就會每隔 3 週重複執行一次。 |
+| **interval** | 代表 **frequency** 值之間隔的整數值，用來決定觸發程序執行的頻率。 例如，如果 **interval** 為 3，而 **frequency** 為 "week"，觸發程序就會每隔 3 週重複執行一次。 |
 | **schedule** | 觸發程序的週期排程。 具有指定之 **frequency** 值的觸發程序會根據週期排程來改變其週期。 **schedule** 屬性會根據分鐘、小時、星期幾、月日及週數來修改週期。
 
 
@@ -334,18 +334,18 @@ ms.lasthandoff: 01/24/2018
 | **schedule** | Object | 否 | None | Schedule 物件 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime 屬性
-下表說明 **startTime** 屬性如何控制觸發程序回合：
+下表說明 **startTime** 屬性如何控制觸發程序執行：
 
 | startTime 值 | 週期性無排程 | 週期性有排程 |
 |:--- |:--- |:--- |
 | 開始時間已過去 | 計算開始時間之後的第一個未來執行時間，並在該時間執行。<br/><br/>根據從上次執行時間算出的時間來執行後續的執行作業。<br/><br/>請參閱本表後面的範例。 | 觸發程序會在「到了」指定的開始時間才啟動。 第一次執行是根據從開始時間算出的排程。<br/><br/>根據週期排程執行後續的執行作業。 |
 | 開始時間在未來或現在 | 在指定的開始時間執行一次。<br/><br/>根據從上次執行時間算出的時間來執行後續的執行作業。 | 觸發程序會在「到了」指定的開始時間才啟動。 第一次執行是根據從開始時間算出的排程。<br/><br/>根據週期排程執行後續的執行作業。 |
 
-我們來看看一個範例：當開始時間在過去、具有週期性但無排程時，會發生什麼情況。 假設目前時間是 `2017-04-08 13:00`開始時間是 `2017-04-07 14:00`，而週期是每隔兩天。 (定義 **recurrence** 值的方式是將 **frequency** 屬性設定為 "day"，並將 **interval**屬性設定為 2)。請注意，**startTime** 值是過去的時間，發生在目前時間之前。
+我們來看看一個範例：當開始時間在過去、具有週期性但無排程時，會發生什麼情況。 假設目前時間是 `2017-04-08 13:00`，開始時間是 `2017-04-07 14:00`，而週期是每隔兩天。 (定義 **recurrence** 值的方式是將 **frequency** 屬性設定為 "day"，並將 **interval**屬性設定為 2)。請注意，**startTime** 值是過去的時間，發生在目前時間之前。
 
 根據這些條件，第一次執行是在 `2017-04-09 at 14:00`。 排程器引擎會從開始時間計算執行週期。 過去的任何執行個體都會遭到捨棄。 引擎會使用下一個在未來發生的執行個體。 在此案例中，開始時間是 `2017-04-07 at 2:00pm`，因此下一個執行個體是在該時間的兩天後，亦即 `2017-04-09 at 2:00pm`。
 
-即使 **startTime** 值為 `2017-04-05 14:00` 或 `2017-04-01 14:00`，第一次執行時間仍然相同。 在第一次執行之後，就會使用排程來算出後續的執行時間。 因此，後續的執行依序會發生在 `2017-04-11 at 2:00pm``2017-04-13 at 2:00pm``2017-04-15 at 2:00pm`，依此類推。
+即使 **startTime** 值為 `2017-04-05 14:00` 或 `2017-04-01 14:00`，第一次執行時間仍然相同。 在第一次執行之後，就會使用排程來算出後續的執行時間。 因此，後續的執行依序會發生在 `2017-04-11 at 2:00pm`、`2017-04-13 at 2:00pm`、`2017-04-15 at 2:00pm`，依此類推。
 
 最後，當未在觸發程序的排程中設定小時或分鐘時，將會使用第一次執行的小時或分鐘作為預設值。
 
@@ -356,7 +356,7 @@ ms.lasthandoff: 01/24/2018
 
 指定多個 **schedule** 元素時，評估順序會從最大到最小排程設定。 評估會從週數開始，然後依序是月日、星期幾、小時，最後是分鐘。
 
-下表詳細說明 **schedule**元素：
+下表詳細說明 **schedule** 元素：
 
 
 | JSON 元素 | 說明 | 有效值 |
@@ -364,7 +364,7 @@ ms.lasthandoff: 01/24/2018
 | **minutes** | 一小時內觸發程序執行的分鐘數。 | <ul><li>整數 </li><li>一連串整數</li></ul>
 | **hours** | 一天內觸發程序執行的小時數。 | <ul><li>整數 </li><li>一連串整數</li></ul> |
 | **weekDays** | 觸發程序在一週中的執行日。 此值只能與 weekly 頻率搭配指定。 | <ul><li>Monday、Tuesday、Wednesday、Thursday、Friday、Saturday、Sunday</li><li>日期值陣列 (最大陣列大小為 7)</li><li>日值不區分大小寫</li></ul> |
-| **monthlyOccurrences** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 | <ul><li>**monthlyOccurence** 物件的陣列︰`{ "day": day,  "occurrence": occurence }`。</li><li>**day**屬性是觸發程序在一週中的執行日。 例如，**day** 值為 `{Sunday}` 的 **monthlyOccurrences** 屬性意謂著月份中的每個星期日。 **day** 屬性為必要屬性。</li><li>**occurrence** 屬性係指所指定的 **day** 在月份中出現的位置。 例如，**day** 和 **occurrence** 值為 `{Sunday, -1}` 的 **monthlyOccurrences** 屬性意謂著月份中的最後一個星期日。 **occurrence** 屬性為選用屬性。</li></ul> |
+| **monthlyOccurrences** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 | <ul><li>**monthlyOccurence** 物件的陣列︰`{ "day": day,  "occurrence": occurence }`。</li><li>**day** 屬性是觸發程序在一週中的執行日。 例如，**day** 值為 `{Sunday}` 的 **monthlyOccurrences** 屬性意謂著月份中的每個星期日。 **day** 屬性為必要屬性。</li><li>**occurrence** 屬性係指所指定的 **day** 在月份中出現的位置。 例如，**day** 和 **occurrence** 值為 `{Sunday, -1}` 的 **monthlyOccurrences** 屬性意謂著月份中的最後一個星期日。 **occurrence** 屬性為選用屬性。</li></ul> |
 | **monthDays** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 | <ul><li><= -1 和 >= -31 的任何值</li><li>>= 1 和 <= 31 任何值</li><li>值的陣列</li></ul> |
 
 

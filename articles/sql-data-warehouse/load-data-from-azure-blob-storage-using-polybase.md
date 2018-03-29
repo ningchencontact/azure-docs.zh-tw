@@ -1,31 +1,31 @@
 ---
-title: "教學課程：Polybase 資料載入 - 從 Azure 儲存體 Blob 到 Azure SQL 資料倉儲 | Microsoft Docs"
-description: "本教學課程使用 Azure 入口網站和 SQL Server Management Studio，將紐約計程車資料從 Azure blob 儲存體載入 Azure SQL 資料倉儲中。"
+title: 教學課程：Polybase 資料載入 - 從 Azure 儲存體 Blob 到 Azure SQL 資料倉儲 | Microsoft Docs
+description: 本教學課程使用 Azure 入口網站和 SQL Server Management Studio，將紐約計程車資料從 Azure blob 儲存體載入 Azure SQL 資料倉儲中。
 services: sql-data-warehouse
-documentationcenter: 
+documentationcenter: ''
 author: ckarst
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-data-warehouse
 ms.custom: mvc,develop data warehouses
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 11/17/2017
+ms.date: 03/16/2018
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: 4bb9b4a01d3efb90486e34d2b0eb5cfeef66e50c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 77e1666a5c8cc51495f2058ff76b2b99a3212db0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>教學課程：使用 PolyBase 將資料從 Azure Blob 儲存體載入 SQL 資料倉儲中
 
-PolyBase 是將資料放入 SQL 資料倉儲的標準載入技術。 本教學課程中，您可以使用 PolyBase 將紐約計程車資料從 Azure blob 儲存體載入 Azure SQL 資料倉儲中。 本教學課程是使用 [Azure 入口網站](https://portal.azure.com)和 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS)： 
+PolyBase 是將資料放入 SQL 資料倉儲的標準載入技術。 本教學課程中，您可以使用 PolyBase 將紐約計程車資料從 Azure blob 儲存體載入 Azure SQL 資料倉儲中。 本教學課程是使用 [Azure 入口網站](https://portal.azure.com)和 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)： 
 
 > [!div class="checklist"]
 > * 在 Azure 入口網站中建立資料倉儲
@@ -41,7 +41,7 @@ PolyBase 是將資料放入 SQL 資料倉儲的標準載入技術。 本教學�
 
 ## <a name="before-you-begin"></a>開始之前
 
-開始本教學課程之前，請下載並安裝最新版的 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS)。
+開始本教學課程之前，請下載並安裝最新版的 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。
 
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
@@ -91,7 +91,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](performance-tiers.m
     ![設定效能](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. 按一下 [套用]。
-9. 在 [SQL 資料倉儲] 頁面上，針對空白資料庫選取 [定序]。 本教學課程使用預設值。 如需定序的詳細資訊，請參閱[定序](/sql/t-sql/statements/collations.md)。
+9. 在 [SQL 資料倉儲] 頁面上，針對空白資料庫選取 [定序]。 本教學課程使用預設值。 如需定序的詳細資訊，請參閱[定序](/sql/t-sql/statements/collations)。
 
 11. 您現在已完成 SQL Database 表單，請按一下 [建立] 來佈建資料庫。 佈建需要幾分鐘的時間。 
 
@@ -146,7 +146,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 ## <a name="connect-to-the-server-as-server-admin"></a>以伺服器系統管理員身分連線到伺服器
 
-本節使用 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) 建立對 Azure SQL Server 的連線。
+本節使用 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 建立對 Azure SQL Server 的連線。
 
 1. 開啟 SQL Server Management Studio。
 
@@ -221,7 +221,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 ## <a name="create-external-tables-for-the-sample-data"></a>為範例資料建立外部資料表
 
-您已準備好開始將資料載入新資料倉儲的程序。 本教學課程會示範如何使用 [Polybase](/sql/relational-databases/polybase/polybase-guide.md)從 Azure 儲存體 blob 載入紐約市計程車資料。 如需日後參考，要了解如何將您的資料置於 Azure blob 儲存體，或直接從您的來源將資料載入 SQL 資料倉儲，請參閱[載入概觀](sql-data-warehouse-overview-load.md)。
+您已準備好開始將資料載入新資料倉儲的程序。 本教學課程會示範如何使用 [Polybase](/sql/relational-databases/polybase/polybase-guide)從 Azure 儲存體 blob 載入紐約市計程車資料。 如需日後參考，要了解如何將您的資料置於 Azure blob 儲存體，或直接從您的來源將資料載入 SQL 資料倉儲，請參閱[載入概觀](sql-data-warehouse-overview-load.md)。
 
 執行下列 SQL 指令碼可指定您要載入之資料的相關資訊。 這項資訊包括資料所在位置、資料內容的格式，以及資料的資料表定義。 
 
@@ -237,7 +237,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     CREATE MASTER KEY;
     ```
 
-4. 執行下列 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) 陳述式來定義 Azure blob 的位置。 這是外部計程車資料的位置。  若要執行您已附加到查詢視窗中的命令，請反白顯示您需要執行的命令，然後按一下 [執行]。
+4. 執行下列 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 陳述式來定義 Azure blob 的位置。 這是外部計程車資料的位置。  若要執行您已附加到查詢視窗中的命令，請反白顯示您需要執行的命令，然後按一下 [執行]。
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -248,7 +248,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     );
     ```
 
-5. 執行下列 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) T-SQL 陳述式來指定格式的特性和外部資料檔案的選項。 這個陳述式會指定外部資料儲存為文字，並以管道 ('|') 字元來分隔值。 外部檔案是以 Gzip 壓縮。 
+5. 執行下列 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) T-SQL 陳述式來指定格式的特性和外部資料檔案的選項。 這個陳述式會指定外部資料儲存為文字，並以管道 ('|') 字元來分隔值。 外部檔案是以 Gzip 壓縮。 
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -273,7 +273,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     );
     ```
 
-6.  執行下列 [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) 陳述式可建立外部檔案格式的結構描述。 結構描述會提供一種方式，讓您組織即將建立的外部資料表。
+6.  執行下列 [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) 陳述式可建立外部檔案格式的結構描述。 結構描述會提供一種方式，讓您組織即將建立的外部資料表。
 
     ```sql
     CREATE SCHEMA ext;
@@ -456,7 +456,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 > 本教學課程會將資料直接載入最終資料表。 在生產環境中，您通常會使用 CREATE TABLE AS SELECT 來載入暫存資料表。 當資料位於暫存資料表時，您可以執行任何必要的轉換。 若要將暫存資料表中的資料附加至生產資料表，您可以使用 INSERT...SELECT 陳述式。 如需詳細資訊，請參閱[將資料插入生產資料表中](guidance-for-loading-data.md#inserting-data-into-a-production-table)。
 > 
 
-指令碼會使用 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL 陳述式，將資料從 Azure 儲存體 Blob 載入資料倉儲中的新資料表。 CTAS 會以 select 陳述式的結果作為基礎，建立新的資料表。 新的資料表擁有和 select 陳述式結果相同的資料行和資料類型。 當 select 陳述式從外部資料表選取時，SQL 資料倉儲會將資料匯入資料倉儲中的關聯式資料表。 
+指令碼會使用 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 陳述式，將資料從 Azure 儲存體 Blob 載入資料倉儲中的新資料表。 CTAS 會以 select 陳述式的結果作為基礎，建立新的資料表。 新的資料表擁有和 select 陳述式結果相同的資料行和資料類型。 當 select 陳述式從外部資料表選取時，SQL 資料倉儲會將資料匯入資料倉儲中的關聯式資料表。 
 
 1. 執行下列指令碼，將資料載入資料倉儲中的新資料表。
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中樞裝置身分識別的匯入匯出 | Microsoft Docs"
-description: "如何使用 Azure IoT 服務 SDK 對身分識別登錄執行大量作業，以匯入和匯出裝置身分識別。 匯入作業可讓您建立、更新和刪除大量裝置身分識別。"
+title: Azure IoT 中樞裝置身分識別的匯入匯出 | Microsoft Docs
+description: 如何使用 Azure IoT 服務 SDK 對身分識別登錄執行大量作業，以匯入和匯出裝置身分識別。 匯入作業可讓您建立、更新和刪除大量裝置身分識別。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 74645f3fdece14790311592a0fdd4ce6570a5bae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>管理大量的 IoT 中樞裝置身分識別
 
@@ -193,9 +193,6 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
   }
 }
 ```
-
-> [!NOTE]
-> 您也可以使用 **RegistryManager** 類別的 **GetDevicesAsync** 方法，來擷取裝置清單。 不過，這個方法有所傳回的裝置物件數目最多只能有 1000 個的上限。 **GetDevicesAsync** 方法的預期使用案例適用於開發案例，其目的是要協助偵錯，因此不建議用於生產工作負載。
 
 ## <a name="import-devices"></a>匯入裝置
 

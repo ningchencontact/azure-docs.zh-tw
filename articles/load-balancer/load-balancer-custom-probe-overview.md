@@ -15,15 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/8/2018
 ms.author: kumud
-ms.openlocfilehash: be0359889f48f2fe16104f2bee5d1c85ab883b34
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0aab72fdf48589a72707ae87f90af11f65f35088
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="understand-load-balancer-probes"></a>了解 Load Balancer 探查
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer 會使用健康情況探查，來決定哪一個後端集區執行個體應該接收新流程。 當健康情況探查失敗時，Load Balancer 就會停止將新流程傳送到個別狀況不良的執行個體，而該執行個體上的現有流程不會受到影響。  當所有後端集區執行個體探查失敗時，所有現有流程都將在後端集區中的所有執行個體上逾時。
 

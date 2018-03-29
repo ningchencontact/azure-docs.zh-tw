@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: b2a96aad793d956b3ea3de06fba74bcf68e50786
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/23/2018
+---
 您可以使用透過企業解決方案產生的根憑證 (建議)，也可以產生自我簽署憑證。 建立根憑證之後，請將公開憑證資料 (不是私密金鑰) 匯出為 Base-64 編碼的 X.509.cer 檔案，並將公開憑證資料上傳至 Azure。
 
 * **企業憑證：**如果您是使用企業解決方案，則可以使用現有的憑證鏈結。 取得您想要使用的根憑證 .cer 檔案。

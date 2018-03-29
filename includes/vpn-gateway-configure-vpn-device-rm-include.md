@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/23/2018
+---
 **若要下載 VPN 裝置組態指令碼：**
 
 根據您所擁有的 VPN 裝置，您或許可以下載 VPN 裝置組態指令碼。 如需詳細資訊，請參閱[下載 VPN 裝置組態指令碼](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md)。

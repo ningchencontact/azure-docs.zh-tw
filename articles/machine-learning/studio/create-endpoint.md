@@ -1,10 +1,11 @@
 ---
-title: "在 Machine Learning 中建立 Web 服務端點 | Microsoft Docs"
-description: "在 Azure Machine Learning 中建立 Web 服務端點"
+title: 在 Machine Learning 中建立 Web 服務端點 | Microsoft Docs
+description: 在 Azure Machine Learning 中建立 Web 服務端點
 services: machine-learning
-documentationcenter: 
-author: hiteshmadan
-manager: padou
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.author: himad
-ms.openlocfilehash: 6de83042779a1a4edae57499f108dcddc9d68309
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: fac284e9f0c852306d99733a879fc13c85f07768
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="creating-endpoints"></a>建立端點
 > [!NOTE]

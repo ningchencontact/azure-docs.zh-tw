@@ -1,26 +1,20 @@
 ---
-title: "針對常見的 Azure 自動化問題進行疑難排解 | Microsoft Docs"
-description: "本文提供相關資訊，以便針對常見 Azure 自動化錯誤進行疑難排解和修正。"
+title: 針對常見的 Azure 自動化問題進行疑難排解 | Microsoft Docs
+description: 本文提供相關資訊，以便針對常見 Azure 自動化錯誤進行疑難排解和修正。
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-tags: top-support-issue
-keywords: "自動化錯誤, 疑難排解, 問題"
-ms.assetid: 5f3cfe61-70b0-4e9c-b892-d02daaeee07d
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/22/2017
-ms.author: sngun; v-reagie
-ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+manager: carmonm
+tags: top-support-issue
+keywords: 自動化錯誤, 疑難排解, 問題
+ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>針對 Azure 自動化中的常見問題進行疑難排解 
 本文提供針對您在 Azure 自動化中可能遇到的一些常見錯誤進行疑難排解的協助，並且建議可能的解決方法。

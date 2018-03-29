@@ -1,25 +1,25 @@
 ---
-title: "Azure IT 操作員快速入門指南 | Microsoft Docs"
-description: "Azure IT 操作人員快速入門指南"
-services: 
-documentationcenter: 
+title: Azure IT 操作員快速入門指南 | Microsoft Docs
+description: Azure IT 操作人員快速入門指南
+services: ''
+documentationcenter: ''
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
-ms.devlang: 
-ms.topic: 
-ms.tgt_pltfrm: 
+ms.devlang: ''
+ms.topic: ''
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0be60fff3d49ff39691f19cb1013e023f9f984e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>雲端運算和 Microsoft Azure 簡介
 
@@ -148,7 +148,7 @@ Azure 是在全球各地許多地區正式推出的全域雲端平台。 當您�
 ### <a name="azure-portal"></a>Azure 入口網站
 
 
-Azure 入口網站是一種 Web 應用程式，可用來建立、管理和移除 Azure 資源和服務。 Azure 入口網站位於 https://portal.azure.com。它包含用於管理 Azure 資源的可自訂儀表板和工具。 它也提供帳單和訂用帳戶資訊。 如需詳細資訊，請參閱 [Microsoft Azure 入口網站概觀](https://azure.microsoft.com/documentation/articles/azure-portal-overview/)和[透過入口網站管理 Azure 資源](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)。
+Azure 入口網站是一種 Web 應用程式，可用來建立、管理和移除 Azure 資源和服務。 Azure入口網站位於 https://portal.azure.com。它包含用於管理 Azure 資源的可自訂儀表板和工具。 它也提供帳單和訂用帳戶資訊。 如需詳細資訊，請參閱 [Microsoft Azure 入口網站概觀](https://azure.microsoft.com/documentation/articles/azure-portal-overview/)和[透過入口網站管理 Azure 資源](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)。
 
 ### <a name="resources"></a>資源
 
@@ -485,7 +485,7 @@ Azure 網路有不同的使用案例。
 
 由於 Azure 虛擬網路會連線到您的內部部署網路，所以跨單位虛擬網路必須使用您組織所用位址空間的唯一部分。 與為不同的公司位置指派特定 IP 子網路相同，Azure 會隨著您擴充網路而成為另一個位置。
 
-###<a name="deploying-a-virtual-network"></a>部署虛擬網路
+### <a name="deploying-a-virtual-network"></a>部署虛擬網路
 
 有數個選項可供部署虛擬網路。
 

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e1f4cfb74d83cb23631e5a16a6e6f2dba98027ef
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7b8fe61731a9412c61152bc58e55deebb611d011
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>安裝 Azure Stack 開發套件 (ASDK)
 [準備 ASDK 主機電腦](asdk-prepare-host.md)後，可以使用本文中的下列步驟將 ASDK 部署到 CloudBuilder.vhdx 映像。
@@ -55,8 +55,10 @@ ms.lasthandoff: 03/17/2018
     - **DHCP** (預設值)：虛擬機器會從 DHCP 伺服器取得 IP 網路組態。
     - **靜態**：只有當 DHCP 無法為 Azure Stack 指派有效的 IP 位址來存取網際網路時，才使用此選項。 **指定靜態 IP 位址 時，必須以 CIDR 格式 (例如，10.0.0.5/24) 一併指定子網路遮罩長度**。
     - 輸入有效的**時間伺服器 IP** 位址。 此必填欄位會設定開發套件所要使用的時間伺服器。 此參數必須以有效的時間伺服器 IP 位址形式提供。 不支援伺服器名稱。
+
       > [!TIP]
       > 若要尋找時間伺服器 IP 位址，請造訪 [pool.ntp.org](http:\\pool.ntp.org) 或 ping time.windows.com。 
+
     - **(選擇性)** 您可以設定下列值：
         - **VLAN 識別碼**：設定 VLAN 識別碼。 只有當主機與 AzS-BGPNAT01 必須設定 VLAN 識別碼來存取實體網路 (以及網際網路) 時，才使用此選項。 
         - **DNS 轉寄站**：DNS 伺服器會在 Azure Stack 部署期間建立。 若要允許解決方案內的電腦解析戳記以外的名稱，請提供您現有架構 DNS 伺服器。 戳記內的 DNS 伺服器會將未知的名稱解析要求轉送至這部伺服器。
@@ -88,10 +90,10 @@ ms.lasthandoff: 03/17/2018
 
 若部署因某些原因失敗，您可以從頭[重新部署](asdk-redeploy.md)或使用下列 PowerShell 命令，在已提升權限的相同 PowerShell 視窗中，從最後一個成功的步驟重新開始部署：
 
-    ```powershell
-    cd C:\CloudDeployment\Setup
-    .\InstallAzureStackPOC.ps1 -Rerun
-    ```
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ## <a name="next-steps"></a>後續步驟
 [部署後的組態](asdk-post-deploy.md)

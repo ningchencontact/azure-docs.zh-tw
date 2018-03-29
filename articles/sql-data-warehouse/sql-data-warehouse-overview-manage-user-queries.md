@@ -15,10 +15,10 @@ ms.custom: performance
 ms.date: 03/15/2018
 ms.author: joeyong;barbkess
 ms.openlocfilehash: 23b5edd559fd4b97554df4547d5ac16742d00a9f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>監視 Azure SQL 資料倉儲中的使用者查詢
 監視 SQL 資料倉儲中使用者查詢之考量、最佳做法及工作的概觀。

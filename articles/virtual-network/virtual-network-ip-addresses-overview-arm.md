@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中的 IP 位址類型 | Microsoft Docs"
-description: "了解 Azure 中的公用和私人 IP 位址。"
+title: 在 Azure 中的 IP 位址類型 | Microsoft Docs
+description: 了解 Azure 中的公用和私人 IP 位址。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: a5cda1b5ecb686c9b03da27bdbca42ddc1a74f54
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 位址類型及配置方法
 
@@ -68,13 +68,10 @@ ms.lasthandoff: 12/05/2017
 
 - 只會使用靜態配置方法來指派。
 - 會指派給網路介面或標準的網際網路對應負載平衡器。 如需 Azure 負載平衡器 SKU 的詳細資訊，請參閱 [Azure 負載平衡器的標準 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-- 預設具有區域備援功能。 可以建立為區域型，並保證在特定可用性區域中。  若要深入了解可用性區域，請參閱[可用性區域概觀](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+- 預設具有區域備援功能。 可以建立為區域型，並保證在特定可用性區域中。 若要深入了解可用性區域，請參閱[可用性區域概觀](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
  
 > [!NOTE]
-> 當您將標準 SKU 的公用 IP 位址指派給虛擬機器的網路介面時，您必須使用[網路安全性群組](security-overview.md#network-security-groups)明確地允許預定的流量。  在建立和關聯網路安全性群組並明確地允許所要流量前，與資源進行的通訊都會失敗。
-
-標準 SKU 目前為預覽版本。 在建立標準 SKU 的公用 IP 位址之前，您必須先註冊預覽版本，並在受支援的位置建立該位址。 若要註冊預覽版本，請參閱[註冊標準 SKU 預覽版本](virtual-network-public-ip-address.md#register-for-the-standard-sku-preview)。 如需支援位置 (區域) 清單，請參閱[區域可用性](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability)並監看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面以取得其他區域支援。
-
+> 當您將標準 SKU 的公用 IP 位址指派給虛擬機器的網路介面時，您必須使用[網路安全性群組](security-overview.md#network-security-groups)明確地允許預定的流量。 在建立和關聯網路安全性群組並明確地允許所要流量前，與資源進行的通訊都會失敗。
 
 ### <a name="allocation-method"></a>配置方法
 
