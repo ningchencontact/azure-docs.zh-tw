@@ -1,20 +1,20 @@
 ---
-title: "使用 AzCopy 將內部部署資料移轉至 Azure 儲存體 | Microsoft Docs"
-description: "使用 AzCopy 從 blob、資料表以及檔案內容，來回移轉資料或複製資料。 輕鬆地將資料從您的本機儲存體移轉至 Azure 儲存體。"
+title: 使用 AzCopy 將內部部署資料移轉至 Azure 儲存體 | Microsoft Docs
+description: 使用 AzCopy 從 blob、資料表以及檔案內容，來回移轉資料或複製資料。 輕鬆地將資料從您的本機儲存體移轉至 Azure 儲存體。
 services: storage
-author: ruthogunnnaike
+author: roygara
 manager: jeconnoc
 ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
-ms.author: v-ruogun
-ms.openlocfilehash: 3dbfb935ac0b134e127a5dccb7bc76716c688e8a
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.author: rogarana
+ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>使用 AzCopy 將內部部署資料移轉至雲端儲存體
 
@@ -33,7 +33,7 @@ AzCopy 是命令列工具，可使用簡單的命令從 Azure Blob 儲存體、A
 > * 基於測試目的修改資料。
 > * 建立排程工作或 cron 作業來識別要上傳的新檔案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，請下載 [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) 或 [Windows](http://aka.ms/downloadazcopy) 上最新版本的 AzCopy。 
 

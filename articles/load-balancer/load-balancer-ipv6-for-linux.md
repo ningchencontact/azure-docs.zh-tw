@@ -1,12 +1,12 @@
 ---
-title: "設定 Linux VM 的 DHCPv6 | Microsoft Docs"
-description: "如何設定 Linux VM 的 DHCPv6。"
+title: 設定 Linux VM 的 DHCPv6 | Microsoft Docs
+description: 如何設定 Linux VM 的 DHCPv6。
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
-keywords: "ipv6, azure load balancer, 雙重堆疊, 公用 ip, 原生 ipv6, 行動, iot"
+editor: ''
+keywords: ipv6, azure load balancer, 雙重堆疊, 公用 ip, 原生 ipv6, 行動, iot
 ms.assetid: b32719b6-00e8-4cd0-ba7f-e60e8146084b
 ms.service: load-balancer
 ms.devlang: na
@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: b46c2107dcfda5f02407e08daf08bd42d722dfda
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6248ed2f55fb5bbcc2061af6ce1dedf2bd31ccad
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>設定 Linux VM 的 DHCPv6
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Marketplace 中的一些 Linux 虛擬機器映像沒有預設的動態主機設定通訊協定版本 6 (DHCPv6) 設定。 若要支援 IPv6，在您使用的 Linux OS 散發套件中必須設定 DHCPv6。 各種 Linux 發行套件會以各種不同的方式設定 DHCPv6，因為它們使用不同的套件。
 

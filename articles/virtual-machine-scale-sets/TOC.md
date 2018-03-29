@@ -1,15 +1,38 @@
-# [虛擬機器擴展集文件](index.md)
+# [虛擬機器擴展集文件](index.yml)
 
 # 概觀
-## [什麼是虛擬機器擴展集？](virtual-machine-scale-sets-overview.md)
+## [什麼是虛擬機器擴展集？](overview.md)
 
-# 開始使用
-## [在 Azure 入口網站中建立](virtual-machine-scale-sets-create-portal.md)
-## [使用 Azure CLI 2.0 建立](virtual-machine-scale-sets-create-cli.md)
-## [使用 Azure PowerShell 建立](virtual-machine-scale-sets-create-powershell.md)
+# 快速入門
+## [在 Azure 入口網站中建立](quick-create-portal.md)
+## [使用 Azure CLI 2.0 建立](quick-create-cli.md)
+## [使用 Azure PowerShell 建立](quick-create-powershell.md)
 ## 使用範本建立
-### [Linux 擴展集](virtual-machine-scale-sets-create-template-linux.md)
-### [Windows 擴展集](virtual-machine-scale-sets-create-template-windows.md)
+### [Linux 擴展集](quick-create-template-linux.md)
+### [Windows 擴展集](quick-create-template-windows.md)
+
+# 教學課程
+## 1 - 建立/管理擴展集
+### [Azure CLI 2.0](tutorial-create-and-manage-cli.md)
+### [Azure PowerShell](tutorial-create-and-manage-powershell.md)
+## 2 - 使用資料磁碟
+### [Azure CLI 2.0](tutorial-use-disks-cli.md)
+### [Azure PowerShell](tutorial-use-disks-powershell.md)
+## 3 - 使用自訂的 VM 映像
+### [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+### [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+## 4 - 將應用程式部署到擴展集
+### [Azure CLI 2.0](tutorial-install-apps-cli.md)
+### [Azure PowerShell](tutorial-install-apps-powershell.md)
+### [範本](tutorial-install-apps-template.md)
+## 5 - 自動調整擴展集
+### [Azure CLI 2.0](tutorial-autoscale-cli.md)
+### [Azure PowerShell](tutorial-autoscale-powershell.md)
+### [範本](tutorial-autoscale-template.md)
+
+# 範例
+## [Azure CLI 2.0](cli-samples.md)
+## [PowerShell](powershell-samples.md)
 
 # 作法
 
@@ -25,12 +48,9 @@
 
 ## 部署
 ### [使用 Visual Studio 建立](virtual-machine-scale-sets-vs-create.md)
-### [搭配受控磁碟的擴展集](virtual-machine-scale-sets-managed-disks.md)
 ### [使用可用性區域](virtual-machine-scale-sets-use-availability-zones.md)
 ### [自動調整擴展集](virtual-machine-scale-sets-autoscale-overview.md)
 #### [使用 Azure 入口網站](virtual-machine-scale-sets-autoscale-portal.md)
-#### [使用 Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
-#### [使用 Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 #### [進階自動調整](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [應用程式擴展集](virtual-machine-scale-sets-deploy-app.md)
 ### [使用資料磁碟搭配擴展集](virtual-machine-scale-sets-attached-disks.md)

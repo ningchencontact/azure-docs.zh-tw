@@ -1,10 +1,11 @@
 ---
-title: "步驟 5：部署 Machine Learning Web 服務 | Microsoft Docs"
-description: "開發預測解決方案逐步解說的步驟 5：在 Machine Learning Studio 中將預測實驗部署為 Web 服務。"
+title: 步驟 5：部署 Machine Learning Web 服務 | Microsoft Docs
+description: 開發預測解決方案逐步解說的步驟 5：在 Machine Learning Studio 中將預測實驗部署為 Web 服務。
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 416a6d1c151fae01a00d00282ab9118e7391fbb7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>逐步解說步驟 5：部署 Azure Machine Learning Web 服務
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)
@@ -106,7 +106,7 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 > 
 > 
 
-最後一次執行實驗 (按一下 **執行**)。如果要確認模型仍然有效，請按一下 [評分模型][score-model]模組的輸出結果，並選取 **檢視結果**。 您可以看到原始資料出現，也會看到信用風險值 ("Scored Labels") 和評分機率值 ("Scored Probabilities")。 
+最後一次執行實驗 (按一下 **執行**)。如果要確認模型仍然有效，請按一下 [評分模型][score-model]模組的輸出結果，並選取 [檢視結果]。 您可以看到原始資料出現，也會看到信用風險值 ("Scored Labels") 和評分機率值 ("Scored Probabilities")。 
 
 ## <a name="deploy-the-web-service"></a>部署 Web 服務
 您可以將實驗部署為傳統 Web 服務或架構在 Azure Resource Manager 上的新式 Web 服務。

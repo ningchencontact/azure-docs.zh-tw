@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect：使用者登入 | Microsoft Docs"
-description: "適用於自訂設定的 Azure AD Connect 使用者登入。"
+title: Azure AD Connect：使用者登入 | Microsoft Docs
+description: 適用於自訂設定的 Azure AD Connect 使用者登入。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 使用者登入選項
 Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的密碼來登入雲端和內部部署資源。 本文說明每個身分識別模型的主要概念，以協助您選擇要用於登入 Azure AD 的身分識別。
 
 如果您已熟悉 Azure AD 身分識別模型，而想要深入了解特定的方法，請參閱適當的連結：
 
-* 使用[無縫單一登入 (SSO)](active-directory-aadconnect-sso.md) 進行[密碼雜湊同步處理](#password-synchronization)
+* 使用[無縫單一登入 (SSO)](active-directory-aadconnect-sso.md) 進行[密碼雜湊同步處理](#password-hash-synchronization)
 * 使用[無縫單一登入 (SSO)](active-directory-aadconnect-sso.md) 進行[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)
 * [同盟 SSO (搭配 Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
@@ -54,7 +54,7 @@ Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的�
 
 ![密碼雜湊同步處理](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-如需詳細資訊，請參閱[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)一文。
+如需詳細資訊，請參閱[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)一文。
 
 ### <a name="pass-through-authentication"></a>傳遞驗證
 使用傳遞驗證時，會向內部部署 Active Directory 控制器驗證使用者的密碼。 密碼不以任何形式存在於 Azure AD 中。 這可允許在進行雲端服務驗證的期間評估內部部署原則，例如登入時數限制。

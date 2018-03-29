@@ -13,9 +13,9 @@
       href: quick-setup-auto-provision.md
     - name: 設定自動佈建 - 範本
       href: quick-setup-auto-provision-rm.md
-    - name: 建立模擬裝置
+    - name: 自動佈建模擬裝置
       items:
-        - name: TPM
+        - name: TPM 證明
           items:
             - name: C
               href: quick-create-simulated-device.md
@@ -27,7 +27,7 @@
               href: quick-create-simulated-device-tpm-node.md
             - name: Python
               href: quick-create-simulated-device-tpm-python.md
-        - name: X.509
+        - name: X.509 證明
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
@@ -39,9 +39,9 @@
               href: quick-create-simulated-device-x509-node.md
             - name: Python
               href: quick-create-simulated-device-x509-python.md
-    - name: 註冊裝置
+    - name: 使用佈建服務 API 註冊裝置
       items:
-        - name: TPM
+        - name: TPM 證明
           items:
             - name: Java
               href: quick-enroll-device-tpm-java.md
@@ -51,7 +51,7 @@
               href: quick-enroll-device-tpm-node.md
             - name: Python
               href: quick-enroll-device-tpm-python.md
-        - name: X.509
+        - name: X.509 證明
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
@@ -79,12 +79,14 @@
       href: tutorial-group-enrollments.md
 - name: 概念
   items:
-    - name: 裝置概念
+    - name: 自動佈建
+      href: concepts-auto-provisioning.md
+    - name: 裝置
       href: concepts-device.md
-    - name: 服務概念
-      href: concepts-service.md
-    - name: 安全性概念
+    - name: 安全性
       href: concepts-security.md
+    - name: 服務
+      href: concepts-service.md
 - name: 使用說明指南
   items:
     - name: 管理裝置註冊

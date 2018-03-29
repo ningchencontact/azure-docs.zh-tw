@@ -77,8 +77,8 @@
 ## [管理群組和成員](active-directory-manage-groups.md)
 ### 管理群組
 #### [Azure 入口網站](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell Azure Resource Manager 模型](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure PowerShell 傳統部署模型](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline (v1)](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [管理群組成員](active-directory-groups-members-azure-portal.md)
 ### [管理群組擁有者](active-directory-accessmanagement-managing-group-owners.md)
 ### [管理群組成員資格](active-directory-groups-membership-azure-portal.md)

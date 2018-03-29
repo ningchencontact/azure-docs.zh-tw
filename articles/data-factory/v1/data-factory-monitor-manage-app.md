@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5aae5057cccdf8dfbe2a42a39da5b9e70b9166f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f5ca5544a217d66d334ff468d2308af1836c7de8
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>使用監視及管理應用程式，以監視和管理 Azure Data Factory 管線
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/23/2018
 > [!NOTE]
 > 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[在第 2 版中監視和管理 Data Factory 管線](../monitor-visually.md)。
 
-本文說明如何使用監視及管理應用程式來監視、管理與偵錯您的 Data Factory 管線。 同時也會提供如何建立警示以取得失敗通知的詳細資訊。 您可以藉由觀賞下列影片開始使用應用程式：
+本文說明如何使用監視及管理應用程式來監視、管理與偵錯您的 Data Factory 管線。 您可以藉由觀賞下列影片開始使用應用程式：
 
 > [!NOTE]
 > 影片中顯示的使用者介面可能不完全符合您在入口網站中看到的使用者介面。 它比較舊，但是概念相同。 
@@ -296,42 +296,3 @@ Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data F
 您可以使用 Ctrl 鍵，以多重選取兩個以上的管線。 您可以使用命令列按鈕 (在下圖以紅色矩形反白顯示) 來暫停/繼續這些管線。
 
 ![命令列上的暫停/繼續](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
-
-## <a name="create-alerts"></a>建立警示
-[警示] 頁面可讓您建立警示，以及檢視/編輯/刪除現有的警示。 您也可以停用/啟用警示。 若要查看 [警示] 頁面，請按一下 [警示] 索引標籤。
-
-![[警示] 索引標籤](./media/data-factory-monitor-manage-app/AlertsTab.png)
-
-### <a name="to-create-an-alert"></a>如何建立警示
-1. 按一下 [新增警示]  來新增警示。 此時您會看到 [詳細資料] 頁面。
-
-    ![建立警示：[詳細資料] 頁面](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-2. 指定警示的**名稱**和**說明**，然後按 [下一步]。 您應該會看到 [篩選]  頁面。
-
-    ![建立警示：[篩選器] 頁面](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-3. 選取您想要建立 Data Factory 服務警示的**事件**、**狀態**和**子狀態** (選擇性)，然後按 [下一步]。 您應該會看到 [收件者]  頁面。
-
-    ![建立警示：[收件者] 頁面](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-4. 選取 [電子郵件訂用帳戶管理員] 選項並/或輸入**其他管理員的電子郵件**，然後按一下 [完成]。 此時您應該會看到警示清單。
-
-    ![警示清單](./media/data-factory-monitor-manage-app/AlertsList.png)
-
-請在 [警示] 清單中，使用與警示相關聯的按鈕來編輯/刪除/停用/啟用警示。
-
-### <a name="eventstatussubstatus"></a>事件/狀態/子狀態
-下列資料表提供可用事件和狀態 (及子狀態) 的清單。
-
-| 事件名稱 | 狀態 | 子狀態 |
-| --- | --- | --- |
-| 活動執行已開始 |已啟動 |啟動中 |
-| 活動執行已結束 |Succeeded |Succeeded |
-| 活動執行已結束 |Failed |資源配置失敗<br/><br/>執行失敗<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned |
-| 已開始建立隨選 HDI 叢集 |已啟動 |-|
-| 已成功建立隨選 HDI 叢集 |Succeeded |-|
-| 已刪除隨選 HDI 叢集 |Succeeded |-|
-
-### <a name="to-edit-delete-or-disable-an-alert"></a>編輯、刪除或停用警示
-
-使用下列按鈕 (以紅色反白顯示) 來編輯、刪除或停用警示。
-
-![警示按鈕](./media/data-factory-monitor-manage-app/AlertButtons.png)

@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: a39e4ec68af70b7d189ac450f880a12b5397e4c4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1cbd29b480c80c93f750b97d47ccb3c09c984942
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立 PHP Web 應用程式
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/16/2018
 
 [Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門教學課程會說明如何將 PHP 應用程式部署至 Linux 上的 Azure App Service。 您將會在 Cloud Shell 中使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)，透過內建映像建立 Web 應用程式，並使用 Git 將 PHP 程式碼部署至 Web 應用程式。
 
-![在 Azure 中執行的範例應用程式]](media/quickstart-php/hello-world-in-browser.png)
+![在 Azure 中執行的範例應用程式](media/quickstart-php/hello-world-in-browser.png)
 
 您可以使用 Mac、Windows 或 Linux 機器，依照本文中的步驟操作。
 

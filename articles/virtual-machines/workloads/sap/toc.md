@@ -40,7 +40,7 @@
 ### Azure 基礎結構準備
 #### [Windows 和適用於 (A)SCS 執行個體的共用磁碟](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows 和適用於 (A)SCS 執行個體的檔案共用](sap-high-availability-infrastructure-wsfc-file-share.md)
-#### [SUSE Linux 和適用於 (A)SCS 執行個體](high-availability-guide-suse.md)
+#### [SLES 中 Azure VM 上的 NFS 高可用性](high-availability-guide-suse-nfs.md)
 #### [Pacemaker on SLES](high-availability-guide-suse-pacemaker.md)
 ### SAP 安裝
 #### [Windows 和適用於 (A)SCS 執行個體的共用磁碟](sap-high-availability-installation-wsfc-shared-disk.md)

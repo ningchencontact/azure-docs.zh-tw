@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect：帳戶與權限 | Microsoft 文件"
-description: "本主題描述使用和建立的帳戶以及所需的權限。"
+title: Azure AD Connect：帳戶與權限 | Microsoft 文件
+description: 本主題描述使用和建立的帳戶以及所需的權限。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ae8e9f46923928853c0c63e8c50f4e95b915e277
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶與權限
 Azure AD Connect 安裝精靈提供兩個不同的路徑：
@@ -121,8 +121,7 @@ Azure AD Connect 1.1.524.0 版和更新版本有選項可讓 Azure AD Connect �
 | 帳戶類型 | 安裝選項 | 說明 |
 | --- | --- | --- |
 | [虛擬服務帳戶](#virtual-service-account) | 快速和自訂，2017 年 4 月和更新版本 | 這個選項適用於所有快速安裝，但網域控制站上的安裝除外。 若為自訂安裝，除非您使用其他選項，否則這是預設選項。 |
-| 
-            [群組受控服務帳戶](#group-managed-service-account) | 自訂，2017 年 4 月和更新版本 | 如果您使用遠端 SQL Server，我們建議使用群組受控服務帳戶。 |
+| [群組受控服務帳戶](#group-managed-service-account) | 自訂，2017 年 4 月和更新版本 | 如果您使用遠端 SQL Server，我們建議使用群組受控服務帳戶。 |
 | [使用者帳戶](#user-account) | 快速和自訂，2017 年 4 月和更新版本 | 只有在 Windows Server 2008 和網域控制站上安裝時，才會在安裝期間建立前面加上 AAD_ 的使用者帳戶。 |
 | [使用者帳戶](#user-account) | 快速和自訂，2017 年 3 月和更早版本 | 在安裝期間，系統會建立本機帳戶，並於帳戶前面加上 AAD_。 而在使用自訂安裝時，您則可以指定另一個帳戶。 |
 

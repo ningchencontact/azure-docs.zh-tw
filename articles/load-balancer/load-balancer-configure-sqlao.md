@@ -1,6 +1,6 @@
 ---
-title: "設定負載平衡器使用 SQL Server Always On | Microsoft Docs"
-description: "設定負載平衡器使用 SQL Always On，以及了解如何使用 PowerShell 來建立 SQL Server 實作的負載平衡器"
+title: 設定負載平衡器使用 SQL Server Always On | Microsoft Docs
+description: 設定負載平衡器使用 SQL Always On，以及了解如何使用 PowerShell 來建立 SQL Server 實作的負載平衡器
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5e890f8314c8f191dbfa6c6818d810b91d0e829d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a0c2345b47b9103ac6a7ae998f13a12332e3907e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-a-load-balancer-for-sql-server-always-on"></a>設定負載平衡器使用 SQL Server Always On
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 SQL Server Always On 可用性群組現在可以使用內部負載平衡器執行。 可用性群組是 SQL Server 針對高可用性和災難復原的旗艦解決方案。 不論組態中的複本數目為何，可用性群組接聽程式可讓用戶端應用程式順暢地連接到主要複本。
 

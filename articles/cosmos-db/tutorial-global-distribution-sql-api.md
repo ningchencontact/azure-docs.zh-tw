@@ -1,9 +1,9 @@
 ---
-title: "適用於 SQL API 的 Azure Cosmos DB 全域散發教學課程 | Microsoft Docs"
-description: "了解如何使用 SQL API 來設定 Azure Cosmos DB 全域散發。"
+title: 適用於 SQL API 的 Azure Cosmos DB 全域散發教學課程 | Microsoft Docs
+description: 了解如何使用 SQL API 來設定 Azure Cosmos DB 全域散發。
 services: cosmos-db
-keywords: "全域散發"
-documentationcenter: 
+keywords: 全域散發
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
@@ -15,15 +15,13 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 0cee55673c8abca29b7e389fa4fd62a48566904b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 58cfa4f8898febf6d0bbe4c5a7a1dad4fcc6c854
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>如何使用 SQL API 來設定 Azure Cosmos DB 全域散發
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 在本文中，我們會說明如何使用 Azure 入口網站來設定 Azure Cosmos DB 全域散發，然後使用 SQL API 來進行連線。
 

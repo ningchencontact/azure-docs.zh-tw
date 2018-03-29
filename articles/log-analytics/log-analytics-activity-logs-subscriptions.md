@@ -1,11 +1,11 @@
 ---
-title: "跨訂用帳戶將 Azure 活動記錄收集到 Log Analytics | Microsoft Docs"
-description: "使用事件中樞和 Logic Apps 收集來自 Azure 活動記錄的資料，並將它傳送至不同租用戶中的 Azure Log Analytics 工作區。"
+title: 跨訂用帳戶將 Azure 活動記錄收集到 Log Analytics | Microsoft Docs
+description: 使用事件中樞和 Logic Apps 收集來自 Azure 活動記錄的資料，並將它傳送至不同租用戶中的 Azure Log Analytics 工作區。
 services: log-analytics, logic-apps, event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 89c62563b9772fa07d63a24b4aa20857b0143f85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>跨訂用帳戶將 Azure 活動記錄收集到 Log Analytics
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 02/21/2018
 - Log Analytics 工作區識別碼
 - Log Analytics 共用金鑰
 
-若要取得事件中樞名稱和連接字串，請遵循[檢查事件中樞命名空間權限並尋找連接字串](../connectors/connectors-create-api-azure-event-hubs.md#check-event-hubs-namespace-permissions-and-find-the-connection-string)中的步驟。
+若要取得事件中樞名稱和連接字串，請遵循[檢查事件中樞命名空間權限並尋找連接字串](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs)中的步驟。
 
 
 ### <a name="create-a-new-blank-logic-app"></a>建立新的空白邏輯應用程式

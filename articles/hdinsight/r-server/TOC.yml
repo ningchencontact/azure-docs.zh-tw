@@ -21,6 +21,10 @@
   items:
     - name: 使用 R 伺服器
       items:
+        - name: 管理 R 伺服器叢集
+          href: r-server-hdinsight-manage.md
+        - name: 讓 R 伺服器叢集能夠運作
+          href: r-server-operationalize.md
         - name: 儲存體選項
           href: r-server-storage.md
         - name: 計算內容

@@ -19,12 +19,16 @@
       href: tutorial-simulate-device-windows.md
     - name: '開發 C# 模組'
       href: tutorial-csharp-module.md
+    - name: 開發 Python 模組
+      href: tutorial-python-module.md
     - name: 部署 Azure 串流分析
       href: tutorial-deploy-stream-analytics.md
     - name: 部署 Azure Machine Learning
       href: tutorial-deploy-machine-learning.md
     - name: 部署 Azure Functions
       href: tutorial-deploy-function.md
+    - name: 在 VS Code 中使用多個模組
+      href: tutorial-multiple-modules-in-vscode.md
 - name: 使用說明指南
   items:
     - name: 建立閘道

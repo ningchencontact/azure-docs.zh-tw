@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步服務功能與組態 | Microsoft Docs"
-description: "描述 Azure AD Connect 同步處理服務的服務端功能。"
+title: Azure AD Connect 同步服務功能與組態 | Microsoft Docs
+description: 描述 Azure AD Connect 同步處理服務的服務端功能。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b716e553f7c4c11f6d566b43d771217fdf4b3a93
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 534e4e6d8b6ea2bfc059383e3e55c0352678ee04
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 同步處理服務功能
 Azure AD connect 同步處理功能有兩個元件：
@@ -56,7 +56,7 @@ Azure AD connect 同步處理功能有兩個元件：
 | DeviceWriteback |[Azure AD Connect：啟用裝置回寫](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect 同步處理：目錄擴充](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |如果屬性是另一個物件的複本，即會將該屬性隔離，而不會在匯出期間導致整個物件失敗。 |
-| PasswordSync |[使用 Azure AD Connect 同步處理實作密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md) |
+| PasswordSync |[使用 Azure AD Connect 同步處理實作密碼同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
 | UnifiedGroupWriteback |[預覽：群組回寫](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |目前不支援。 |
 

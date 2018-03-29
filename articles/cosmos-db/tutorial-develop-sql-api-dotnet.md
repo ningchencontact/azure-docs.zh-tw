@@ -1,30 +1,28 @@
 ---
-title: "Azure Cosmos DB：使用 .NET 搭配 SQL API 進行開發 | Microsoft Docs"
-description: "了解如何使用 .NET 搭配 Azure Cosmos DB 的 SQL API 進行開發"
+title: Azure Cosmos DB：使用 .NET 搭配 SQL API 進行開發 | Microsoft Docs
+description: 了解如何使用 .NET 搭配 Azure Cosmos DB 的 SQL API 進行開發
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: e37a0993567b6cec7ed6a91e6dad1f2e2c097198
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 7fca9f184097ed50ace665cde0c5ef8fb180feda
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配 SQL API 進行開發
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 

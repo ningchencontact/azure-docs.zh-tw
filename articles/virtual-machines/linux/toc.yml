@@ -419,6 +419,8 @@
           href: extensions-nwa.md
         - name: VMAccess 延伸模組
           href: using-vmaccess-extension.md
+        - name: 限制延伸模組安裝
+          href: extensions-rmpolicy-howto-cli.md
     - name: 移轉 VM
       items:
         - name: 移轉 AWS 和內部部署 VM
@@ -458,6 +460,8 @@
           href: understand-vm-reboot.md
         - name: 開機診斷
           href: boot-diagnostics.md
+        - name: 序列主控台
+          href: serial-console.md
         - name: 應用程式存取
           href: troubleshoot-app-connection.md
         - name: 配置失敗

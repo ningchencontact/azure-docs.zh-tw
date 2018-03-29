@@ -351,6 +351,8 @@
           href: extensions-diagnostics-template.md
         - name: 網路監看員代理程式
           href: extensions-nwa.md
+        - name: 限制延伸模組安裝
+          href: extensions-rmpolicy-howto-ps.md
     - name: 移轉 VM
       items:
         - name: 移轉 AWS 和內部部署 VM
@@ -396,6 +398,8 @@
           href: reset-network-interface.md
         - name: 開機診斷
           href: boot-diagnostics.md
+        - name: 序列主控台
+          href: serial-console.md
         - name: 建立 VM
           href: troubleshoot-deployment-new-vm.md
         - name: 部署問題

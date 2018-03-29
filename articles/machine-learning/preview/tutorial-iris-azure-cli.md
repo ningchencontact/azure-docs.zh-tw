@@ -1,9 +1,9 @@
 ---
-title: "Azure Machine Learning 預覽功能的教學課程文章 - 命令列介面  | Microsoft Docs"
-description: "此教學課程逐步解說從命令列介面完成 Iris 分類端對端所需的所有步驟。"
+title: Azure Machine Learning 預覽功能的教學課程文章 - 命令列介面  | Microsoft Docs
+description: 此教學課程逐步解說從命令列介面完成 Iris 分類端對端所需的所有步驟。
 services: machine-learning
 author: ahgyger
-ms.author: ahgyger, ritbhat
+ms.author: ahgyger
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: ad81cd02ba0c46cbe58de7071d2164aaefea6514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 2d7965c0028e8f2e82db2e3ddd4eed6e20f4f443
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>教學課程：使用命令列介面分類 Iris
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。

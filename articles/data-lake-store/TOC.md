@@ -9,7 +9,6 @@
 
 # 開始使用
 ## [使用入口網站](data-lake-store-get-started-portal.md)
-## [在儲存體總管中使用 Data Lake Store](data-lake-store-in-storage-explorer.md)
 ## [使用 PowerShell](data-lake-store-get-started-powershell.md)
 ## [使用 Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 
@@ -17,7 +16,7 @@
 # 作法
 ## 載入和移動資料
 ### [使用 Azure Data Factory](../data-factory/load-azure-data-lake-store.md)
-### [在儲存體總管中使用 Data Lake Store](data-lake-store-in-storage-explorer.md)
+### [使用儲存體總管](data-lake-store-in-storage-explorer.md)
 ### [使用 AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [使用 DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [使用 Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -99,7 +98,7 @@
 ## [Data Lake Store Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [在 UserVoice 上提供意見反應](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [價格](https://azure.microsoft.com/pricing/details/data-lake-store/)
+## [定價](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Stack Overflow 論壇](http://stackoverflow.com/questions/tagged/azure-data-lake)

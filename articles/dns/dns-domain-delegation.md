@@ -1,6 +1,6 @@
 ---
-title: "Azure DNS 委派概觀 | Microsoft Docs"
-description: "了解如何變更網域委派及使用 Azure DNS 名稱伺服器提供網域主機代管。"
+title: Azure DNS 委派概觀 | Microsoft Docs
+description: 了解如何變更網域委派及使用 Azure DNS 名稱伺服器提供網域主機代管。
 services: dns
 documentationcenter: na
 author: KumudD
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: 4ba615a1fc607392fa1a2a910b4674cfbcf51da1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: fc79999d240baf18ccf5923908c98791c4e7e7bb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>使用 Azure DNS 的 DNS 區域委派
 
@@ -42,7 +42,7 @@ Azure DNS 可讓您裝載 DNS 區域，並在 Azure 中管理網域的 DNS 記�
 * *授權* DNS 伺服器裝載 DNS 區域。 它只會回答這些區域中的 DNS 記錄查詢。
 * *遞迴* DNS 伺服器不裝載 DNS 區域。 它會呼叫授權 DNS 伺服器來收集所需的資料，以回答所有 DNS 查詢。
 
-Azure DNS 提供具權威性的 DNS 服務。  它不提供遞迴 DNS 服務。 Azure 中的雲端服務和 VM 會自動設定為使用在 Azure 的基礎結構中個別提供的遞迴 DNS 服務。 如需如何變更這些 DNS 設定的詳細資訊，請參閱 [Azure 中的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)。
+Azure DNS 提供具權威性的 DNS 服務。  它不提供遞迴 DNS 服務。 Azure 中的雲端服務和 VM 會自動設定為使用在 Azure 的基礎結構中個別提供的遞迴 DNS 服務。 如需如何變更這些 DNS 設定的詳細資訊，請參閱 [Azure 中的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
 
 電腦或行動裝置中的 DNS 用戶端，通常會呼叫遞迴 DNS 伺服器，以執行用戶端應用程式需要的任何 DNS 查詢。
 
