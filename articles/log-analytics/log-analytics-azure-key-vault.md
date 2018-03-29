@@ -1,11 +1,11 @@
 ---
-title: "Log Analytics 中的 Azure 金鑰保存庫解決方案 | Microsoft Docs"
-description: "您可以使用 Log Analytics 中的 Azure 金鑰保存庫解決方案來檢閱 Azure 金鑰保存庫記錄檔。"
+title: Log Analytics 中的 Azure 金鑰保存庫解決方案 | Microsoft Docs
+description: 您可以使用 Log Analytics 中的 Azure 金鑰保存庫解決方案來檢閱 Azure 金鑰保存庫記錄檔。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c4b16ec11d1990de687014c5385314f0e0c602a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log Analytics 中的 Azure Key Vault 分析解決方案
 
@@ -137,7 +137,7 @@ Azure 金鑰保存庫解決方案會分析從 Azure 診斷的 [AuditEvent 記錄
 2. 使用[從方案庫新增 Log Analytics 解決方案](log-analytics-add-solutions.md)中所述的程序，啟用 Azure Key Vault 解決方案
 3. 更新任何已儲存的查詢、儀表板或警示，以使用新的資料類型
   + 類型從 KeyVaults 變更為 AzureDiagnostics。 您可以使用 ResourceType 篩選 Key Vault 記錄。
-  - 與其使用 `Type=KeyVaults`，請改用 `Type=AzureDiagnostics ResourceType=VAULTS`
+  - 與其使用 `KeyVaults`，請改用 `AzureDiagnostics | where ResourceType'=="VAULTS"`
   + 欄位：(欄位名稱區分大小寫)
   - 針對任何名稱尾碼有 \_s、\_d 或 \_g 的欄位，請將第一個字元變更為小寫
   - 針對任何名稱尾碼有 \_o 的欄位，資料會根據巢狀欄位名稱分割為個別欄位。 例如，呼叫端的 UPN 會儲存在欄位 `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`

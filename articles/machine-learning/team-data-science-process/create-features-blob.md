@@ -1,8 +1,8 @@
 ---
-title: "使用 Panda 建立 Azure blob 儲存體資料功能 | Microsoft Docs"
-description: "如何使用 Panda Python 封裝對儲存在 Azure blob 容器的資料建立功能。"
+title: 使用 Panda 建立 Azure blob 儲存體資料功能 | Microsoft Docs
+description: 如何使用 Panda Python 封裝對儲存在 Azure blob 容器的資料建立功能。
 services: machine-learning,storage
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: 7a2e64927f4afca87642fb4829166c5ec60dbc09
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: a5a4b92f04fcb4683f792263f3477ecea4d7239e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>使用 Panda 建立 Azure blob 儲存體資料功能
 本文件說明如何使用 [Pandas](http://pandas.pydata.org/) Python 封裝，對儲存在 Azure blob 容器的資料建立特徵。 概述如何將資料載入 Panda 資料框架後，接著會示範如何使用 Python 指令碼，搭配指標值和分類收納特徵，以產生分類特徵。

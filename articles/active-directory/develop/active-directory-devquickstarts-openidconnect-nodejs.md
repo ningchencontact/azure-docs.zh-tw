@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Node.js Web 應用程式快速入門 | Microsoft Docs"
-description: "了解如何建立可整合 Azure AD 以進行登入的 Node.js Express MVS Web 應用程式。"
+title: Azure AD Node.js Web 應用程式快速入門 | Microsoft Docs
+description: 了解如何建立可整合 Azure AD 以進行登入的 Node.js Express MVS Web 應用程式。
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 477056581b847693ae115f94c2f6466036add765
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js Web 應用程式快速入門
 在此我們使用 Passport 來執行下列動作：
@@ -402,7 +402,7 @@ Passport 會使用適用於它的所有策略 (Twitter、Facebook 等) 且所有
     </html>
     ```
 
-##<a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 最後，建置並執行您的應用程式。 執行 `node app.js`，然後前往 `http://localhost:3000`。
 
 使用個人的 Microsoft 帳戶或工作或學校帳戶登入，並注意 /account 清單中使用者身分識別的反映狀態。 您的 Web 應用程式現在使用業界標準的通訊協定保護，可以使用個人與工作/學校帳戶來驗證使用者。

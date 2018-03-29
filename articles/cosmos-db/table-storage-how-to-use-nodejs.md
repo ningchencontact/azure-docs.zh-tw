@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/23/2018
 ms.author: mimig
-ms.openlocfilehash: dcd729da0b9e913046da1ad5619594f5ce485bdb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc6e3ca079b4d1edefa82e06dbe63b393ab2fbb3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>如何使用 Node.js 的 Azure 資料表儲存體
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -361,8 +361,6 @@ dc.table.queryEntities(tableName,
 ```
 
 如果您檢查 `continuationToken` 物件，您會找到像是 `nextPartitionKey`、`nextRowKey` 和 `targetLocation` 的屬性，這些屬性可以用來逐一查看所有結果。
-
-GitHub 上的 [azure-storage-node 存放庫](https://github.com/Azure/azure-storage-node/tree/master/examples/samples)中也有接續範例 (continuationsample.js)。 
 
 ## <a name="work-with-shared-access-signatures"></a>使用共用存取簽章
 共用存取簽章 (SAS) 可安全地提供對資料表的細微存取權，而不必提供您的儲存體帳戶名稱或金鑰。 SAS 通常用來提供對資料的有限存取，例如允許行動應用程式查詢記錄。

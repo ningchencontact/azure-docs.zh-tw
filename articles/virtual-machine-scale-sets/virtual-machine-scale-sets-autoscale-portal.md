@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 入口網站自動調整虛擬機器擴展集 | Microsoft Docs"
-description: "如何在 Azure 入口網站中建立虛擬機器擴展集的自動調整規則"
+title: 在 Azure 入口網站自動調整虛擬機器擴展集 | Microsoft Docs
+description: 如何在 Azure 入口網站中建立虛擬機器擴展集的自動調整規則
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: e43be53817e7fa65c3d7a95cab9821126ed88831
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 984b16dae26fb6d9d33ef68ac3e8c8b658e82e08
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>如何在 Azure 入口網站中自動調整虛擬機器擴展集
 當您建立擴展集時，您會定義您想要執行的 VM 執行個體數目。 當您的應用程式需求變更時，您可以自動增加或減少 VM 執行個體數目。 自動調整的能力可讓您在整個應用程式的生命週期中，跟上客戶的需求或對應用程式效能變更做出回應。
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/21/2017
 
 
 ## <a name="prerequisites"></a>先決條件
-若要建立自動調整規則，您會需要現有的虛擬機器擴展集。 您可以使用 [Azure 入口網站](virtual-machine-scale-sets-create-portal.md)、[Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) 或 [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) 來建立擴展集。
+若要建立自動調整規則，您會需要現有的虛擬機器擴展集。 您可以使用 [Azure 入口網站](quick-create-portal.md)、[Azure PowerShell](quick-create-powershell.md) 或 [Azure CLI 2.0](quick-create-cli.md) 來建立擴展集。
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>建立自動相應放大的規則

@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric 反向 Proxy 診斷 | Microsoft Docs"
-description: "了解如何在反向 proxy 監視和診斷要求處理。"
+title: Azure Service Fabric 反向 Proxy 診斷 | Microsoft Docs
+description: 了解如何在反向 proxy 監視和診斷要求處理。
 services: service-fabric
 documentationcenter: .net
 author: kavyako
 manager: vipulm
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e645d86e4527cab1e650575c4d9a10dbd4b9de4e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>在反向 proxy 監視和診斷要求處理
 
 從 Service Fabric 5.7 版開始，反向 proxy 事件可供收集。 事件可用於兩個通道，第一個通道只有在反向 proxy 的要求處理失敗相關錯誤事件，而第二個通道包含成功和失敗要求項目的詳細資訊事件。
 
-請參閱[收集反向 proxy 事件](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events)，允許從這些通道收集本機和 Azure Service Fabric 叢集中的事件。
+請參閱[收集反向 proxy 事件](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)，允許從這些通道收集本機和 Azure Service Fabric 叢集中的事件。
 
 ## <a name="troubleshoot-using-diagnostics-logs"></a>使用診斷記錄進行疑難排解
 下列範例有關如何解釋可能看見的常見失敗記錄：

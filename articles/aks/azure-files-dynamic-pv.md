@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a5126bc4c5e7c9cd9832f33fc908e6c8b9e02b91
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 78f447c96afe7955f115de4bbd28015cd231bb53
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>包含 Azure 檔案的永續性磁碟區
 
@@ -133,6 +133,37 @@ kubectl create -f azure-pvc-files.yaml
 ```
 
 您現在已有一個 Azure 磁碟掛接在 `/mnt/azure` 目錄中的執行中 Pod。 您可以在透過 `kubectl describe pod mypod`檢查 Pod 時，查看磁碟區掛接。
+
+## <a name="mount-options"></a>掛接選項
+ 
+Kubernetes 版本之間的預設 fileMode 和 dirMode 值不同，如下表中所述。
+ 
+| version | value |
+| ---- | ---- |
+| v1.6.x、v1.7.x | 0777 |
+| v1.8.0-v1.8.5 | 0700 |
+| v1.8.6 或以上版本 | 0755 |
+| v1.9.0 | 0700 |
+| v1.9.1 或以上版本 | 0755 |
+ 
+如果您是使用 1.8.5 版或更高版本的叢集，則可以在儲存體類別物件上指定掛接選項。 下列範例會設定 `0777`。
+ 
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: azurefile
+provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+parameters:
+  skuName: Standard_LRS
+```
+ 
+如果您是使用 1.8.0-1.8.4 版的叢集，可將 `runAsUser` 值設定為 `0` 來指定資訊安全內容。 如需關於 Pod 資訊安全內容的詳細資訊，請參閱[設定資訊安全內容][kubernetes-security-context]。
 
 ## <a name="next-steps"></a>後續步驟
 

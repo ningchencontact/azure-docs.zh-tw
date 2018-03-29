@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 中企業應用程式的使用者佈建管理 |Microsoft Docs"
-description: "了解如何使用 Azure Active Directory 管理企業應用程式的使用者帳戶佈建"
+title: Azure Active Directory 中企業應用程式的使用者佈建管理 |Microsoft Docs
+description: 了解如何使用 Azure Active Directory 管理企業應用程式的使用者帳戶佈建
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bded73b4a335dc85a84691f5edabac5055f43cca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>在 Azure 入口網站中管理企業應用程式的使用者帳戶佈建
 這篇文章說明如何使用 [Azure 入口網站](https://portal.azure.com)來自動化管理使用者帳戶的佈建和解除佈建，以用於支援它的應用程式，尤其是透過 [Azure Active Directory 應用程式庫](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)的「精選」類別新增的應用程式。 如需深入了解自動化使用者佈建，請參閱 [自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)。
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/21/2018
 
 這裡提供**佈建活動報表**的連結，以提供 Azure AD 和目標應用程式之間已建立、更新、移除的所有使用者和群組的記錄檔，以及提供**佈建錯誤報表**的連結，以針對無法讀取、建立、更新或移除的使用者和群組物件提供更詳細的錯誤訊息。 
 
-##<a name="feedback"></a>意見反應
+## <a name="feedback"></a>意見反應
 
 我們希望您喜歡您的 Azure AD 經驗。 請繼續提供意見反應！ 請將您的意見反應和改進想法張貼在我們的[意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal)的**管理員入口網站**區段中。  我們每天都很期待發展酷炫的新功能，並依照您的指導來塑造和定義我們接下來所要發展的項目。
 

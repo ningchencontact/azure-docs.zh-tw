@@ -1,24 +1,24 @@
 ---
-title: "Azure Log Analytics 中的 DNS 分析解決方案 | Microsoft Docs"
-description: "在 Log Analytics 中設定並使用 DNS 分析解決方案，以收集關於 DNS 基礎結構在安全性、效能及作業方面的深入解析。"
+title: Azure Log Analytics 中的 DNS 分析解決方案 | Microsoft Docs
+description: 在 Log Analytics 中設定並使用 DNS 分析解決方案，以收集關於 DNS 基礎結構在安全性、效能及作業方面的深入解析。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 8ead058108f39eca8682eccc296760d4b756d336
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6a59cf8b9444fe7cb197501c51d10dae81acb027
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>收集搭配 DNS 分析預覽版解決方案使用 DNS 基礎結構的深入解析
 
@@ -145,7 +145,6 @@ DNS 分析可協助您︰
 
 **範例 DDI 分析查詢**。 包含最常見的搜尋查詢清單，會直接擷取未經處理的分析資料。
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![範例查詢](./media/log-analytics-dns/queries.png)
 
@@ -166,7 +165,7 @@ DNS 分析可協助您︰
 
 在 [記錄搜尋] 頁面上，您可以建立查詢。 您可以使用 facet 控制項來篩選搜尋結果。 您也可以建立進階查詢來轉換、篩選和報告結果。 使用下列查詢來開始：
 
-1. 在**搜尋查詢方塊**中，輸入 `Type=DnsEvents` 以檢視此解決方案管理的 DNS 伺服器所產生的所有 DNS 事件。 結果會列出與查閱查詢、動態註冊和設定變更相關之所有事件的記錄資料。
+1. 在**搜尋查詢方塊**中，輸入 `DnsEvents` 以檢視此解決方案管理的 DNS 伺服器所產生的所有 DNS 事件。 結果會列出與查閱查詢、動態註冊和設定變更相關之所有事件的記錄資料。
 
     ![DnsEvents 記錄搜尋](./media/log-analytics-dns/log-search-dnsevents.png)  
 
@@ -176,7 +175,7 @@ DNS 分析可協助您︰
 
     c. 若要檢視設定變更的記錄資料，請從左側 facet 控制項選取 **ConfigurationChange** 作為 **Subtype** 篩選條件。 隨即顯示列出所選時間週期之設定變更事件的資料表。
 
-2. 在**搜尋查詢方塊**中，輸入 `Type=DnsInventory` 以檢視此解決方案管理的 DNS 伺服器的所有 DNS 清查相關資料。 結果會列出 DNS 伺服器、DNS 區域和資源記錄的記錄資料。
+2. 在**搜尋查詢方塊**中，輸入 `DnsInventory` 以檢視此解決方案管理的 DNS 伺服器的所有 DNS 清查相關資料。 結果會列出 DNS 伺服器、DNS 區域和資源記錄的記錄資料。
 
     ![DnsInventory 記錄搜尋](./media/log-analytics-dns/log-search-dnsinventory.png)
 

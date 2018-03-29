@@ -1,24 +1,18 @@
 ---
-title: "管理 Azure 自動化帳戶 | Microsoft Docs"
-description: "本文說明如何管理自動化帳戶的組態，例如憑證更新、刪除和設定錯誤。"
+title: 管理 Azure 自動化帳戶
+description: 本文說明如何管理自動化帳戶的組態，例如憑證更新、刪除和設定錯誤。
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.date: 04/13/2017
-ms.author: magoedte
-ms.openlocfilehash: 56216f16ba3730d1488e45c0e7a81e87dbad6410
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.openlocfilehash: b9ccc46192950af212975304329497785b0babbd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-azure-automation-account"></a>管理 Azure 自動化帳戶
 有時您必須在自動化帳戶到期前更新憑證。 如果您認為執行身分帳戶遭到盜用，您可加以刪除並重新建立。 本節會討論如何執行這些作業。

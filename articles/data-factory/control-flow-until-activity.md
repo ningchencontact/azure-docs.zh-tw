@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory 中的 Until 活動 | Microsoft Docs"
-description: "Until 活動會以迴圈的方式執行一系列活動，直到與該活動相關聯的條件評估為 true，或是該活動逾時為止。"
+title: Azure Data Factory 中的 Until 活動 | Microsoft Docs
+description: Until 活動會以迴圈的方式執行一系列活動，直到與該活動相關聯的條件評估為 true，或是該活動逾時為止。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: da15ddd47580a37a7fdb35adfd80482b698074fd
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 14abd3f069cb5cd49265a6b27e4b1c4363a21441
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Until 活動
 Until 活動所提供的功能，與 do-until 迴圈結構在程式設計語言中提供的功能相同。 它會以迴圈的方式執行一系列活動，直到與該活動相關聯的條件評估為 true 為止。 您可以在 Data Factory 中針對 until 活動指定逾時的值。 

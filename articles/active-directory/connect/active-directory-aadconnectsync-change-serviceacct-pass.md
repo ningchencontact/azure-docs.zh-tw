@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect 同步處理︰變更 Azure AD Connect 同步處理服務帳戶 | Microsoft Docs"
-description: "本主題文件說明加密金鑰，以及如何在密碼變更後放棄它。"
+title: Azure AD Connect 同步處理︰變更 Azure AD Connect 同步處理服務帳戶 | Microsoft Docs
+description: 本主題文件說明加密金鑰，以及如何在密碼變更後放棄它。
 services: active-directory
-keywords: "Azure AD 同步處理服務帳戶, 密碼"
-documentationcenter: 
+keywords: Azure AD 同步處理服務帳戶, 密碼
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: faa6d667b514563516c23e0484437ac9572e52b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>變更 Azure AD Connect 同步處理服務帳戶密碼
 如果您變更 Azure AD Connect 同步服務帳戶密碼，「同步處理服務」將會無法正確啟動，直到您放棄加密金鑰並將 Azure AD Connect 同步服務帳戶密碼重新初始化為止。 
@@ -30,7 +30,7 @@ Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲
 
 如果您需要變更服務帳戶的密碼，您可以使用[放棄 Azure AD Connect 同步處理加密金鑰](#abandoning-the-azure-ad-connect-sync-encryption-key)中的程序來完成這項作業。  如果您基於任何原因而需要放棄加密金鑰，您也應該使用這些程序。
 
-##<a name="issues-that-arise-from-changing-the-password"></a>變更密碼而引發的問題
+## <a name="issues-that-arise-from-changing-the-password"></a>變更密碼而引發的問題
 當您在變更服務帳戶的密碼時，有兩件事必須完成。
 
 第一件事，您必須在 Windows 服務控制管理員底下變更密碼。  在此問題獲得解決之前，您會看到下列錯誤︰
@@ -43,7 +43,7 @@ Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲
 您會看到如下錯誤︰
 
 - 如果您嘗試在 Windows 服務控制管理員底下啟動同步處理服務，但此服務無法擷取加密金鑰，此啟動作業便會失敗，並出現錯誤「Windows 無法在本機電腦上啟動 Microsoft Azure AD 同步處理。 如需詳細資訊，請檢閱系統事件記錄。 如果這不是 Microsoft 服務，請連絡服務供應商，並參考服務特有的錯誤碼 **-21451857952****」。
-- Windows 事件檢視器底下的應用程式事件記錄包含**事件識別碼為 6028** 的錯誤和錯誤訊息「無法存取伺服器加密金鑰」。
+- Windows 事件檢視器底下的應用程式事件記錄包含**事件識別碼為 6028** 的錯誤和錯誤訊息「無法存取伺服器加密金鑰」。**
 
 若要確保不會收到這些錯誤，請在變更密碼時遵循[放棄 Azure AD Connect 同步處理加密金鑰](#abandoning-the-azure-ad-connect-sync-encryption-key)中的程序。
  

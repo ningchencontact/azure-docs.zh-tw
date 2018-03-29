@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C：使用 REST API 宣告交換作為驗證 | Microsoft Docs"
-description: "Azure Active Directory B2C 自訂原則的主題"
+title: Azure Active Directory B2C：使用 REST API 宣告交換作為驗證 | Microsoft Docs
+description: Azure Active Directory B2C 自訂原則的主題
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/24/2017
-ms.author: joroja
-ms.openlocfilehash: dfd33a9ecdce7b21f58660fb39a5f2d7b4ce6f43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 50968cb96a5ef2cf8fe450899e04d7856e8d4dcc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>逐步解說︰將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證
 

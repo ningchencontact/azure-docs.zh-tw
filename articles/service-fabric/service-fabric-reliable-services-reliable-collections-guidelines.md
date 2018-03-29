@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0eb6a5aab5e71c0a8ac8263e177c493a07dafc0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric 中 Reliable Collection 的指導方針與建議
 本節提供使用 Reliable State Manager 和 Reliable Collection 的指導方針。 目標是要協助使用者避開常見的陷阱。
@@ -52,7 +52,6 @@ ms.lasthandoff: 03/16/2018
 ### <a name="next-steps"></a>後續步驟
 * [使用 Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [交易和鎖定](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Reliable State Manager 與 Collection 內部](service-fabric-reliable-services-reliable-collections-internals.md)
 * 管理資料
   * [備份與還原](service-fabric-reliable-services-backup-restore.md)
   * [通知](service-fabric-reliable-services-notifications.md)

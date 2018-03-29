@@ -1,11 +1,11 @@
 ---
-title: "使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式 | Microsoft Docs"
-description: "使用 Azure Cosmos DB 建立 Xamarin iOS、Android 或 Forms 應用程式的教學課程。 Azure Cosmos DB 是快速的全球級行動應用程式雲端資料庫。"
+title: 使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式 | Microsoft Docs
+description: 使用 Azure Cosmos DB 建立 Xamarin iOS、Android 或 Forms 應用程式的教學課程。 Azure Cosmos DB 是快速的全球級行動應用程式雲端資料庫。
 services: cosmos-db
 documentationcenter: .net
 author: arramac
 manager: monicar
-editor: 
+editor: ''
 ms.assetid: ff97881a-b41a-499d-b7ab-4f394df0e153
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,15 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 34952fb1cbe5577fa00ed7799d51ba46e7173d7e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0cbe9a8463e8b471e3e4b0b4403c3a5d01ed59a0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 大部分的行動應用程式都需要將資料儲存在雲端，而 Azure Cosmos DB 正是適用於行動應用程式的雲端資料庫。 行動應用程式開發人員所需的一切盡在其中。 它是完全受控的資料庫即服務，可依需求進行調整。 無論您的使用者位於全球哪個地方，它都可以透明方式將資料送至您的應用程式。 使用 [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)，您可以讓 Xamarin 行動應用程式直接與 Azure Cosmos DB 互動，而不需要經過中介層。
 

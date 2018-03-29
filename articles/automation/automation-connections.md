@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 547ec5a7de7a58e591a2ea44b8e54804ca41974c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d319768f88a03f4736c3b69276cfb4bf82fd9100
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自動化中的連接資產
 
@@ -23,7 +21,7 @@ ms.lasthandoff: 03/17/2018
 建立連接時，您必須指定 *連接類型*。 連接類型是定義一組屬性的範本。 連接會定義在其連接類型中定義的每一個屬性的值。 如果整合模組包含連線類型，且已匯入您的自動化帳戶，連線類型是在整合模組中加入 Azure 自動化或使用 [Azure 自動化 API](http://msdn.microsoft.com/library/azure/mt163818.aspx)建立。 否則，您必須建立中繼資料檔案來指定自動化連線類型。  如需有關於此的進一步資訊，請參閱[整合模組](automation-integration-modules.md)。  
 
 >[!NOTE]
->Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一金鑰儲存在 Azure 自動化中。 金鑰會儲存在 Key Vault 中。 在儲存安全資產之前，系統會從 Key Vault 載入金鑰，並用來加密資產。
+>Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一金鑰儲存在 Azure 自動化中。 此金鑰會儲存在 Key Vault 中。 在儲存安全資產之前，系統會從 Key Vault 載入金鑰，然後用來加密資產。
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell Cmdlet
 

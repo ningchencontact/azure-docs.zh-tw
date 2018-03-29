@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 ADP 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 ADP 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 ADP 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 ADP 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 1e0a35fd76f9eb6335685f05b8936b0b5105f6b2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 038b2337ea49b769c6b19e9d50a5f0f2edd13d56
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>教學課程：Azure Active Directory 與 ADP
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 03/02/2018
 
     ![ADP 網域與 URL 單一登入資訊](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_url.png)
 
-    在 [識別碼] 文字方塊中，輸入 URL：`https://fed.adp.com/` 
+    在 [識別碼] 文字方塊中，輸入 URL：`https://fed.adp.com` 
     
 5. ADP 應用程式需要特定格式的 SAML 判斷提示，其要求您將自訂屬性對應新增至您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示上述的範例。 宣告名稱將一律為 **"PersonImmutableID"**，且其值已對應至 **employeeid**。 
 
@@ -238,10 +238,6 @@ ms.lasthandoff: 03/02/2018
  
 11. 確認測試成功時，將同盟 ADP 服務指派給個別的使用者或使用者群組 (本教學課程稍後會說明)，然後向您的員工首度發行。 
 
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
@@ -319,6 +315,8 @@ ms.lasthandoff: 03/02/2018
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 

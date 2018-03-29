@@ -1,19 +1,19 @@
 ---
-title: "快速入門 Azure IoT Edge + Linux | Microsoft Docs"
-description: "在模擬的 Edge 裝置上執行分析以試用 Azure IoT Edge"
+title: 快速入門 Azure IoT Edge + Linux | Microsoft Docs
+description: 在模擬的 Edge 裝置上執行分析以試用 Azure IoT Edge
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 750f09c91a086b22df5e7557e4b6fc6a763499e2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux 或 Mac 裝置 - 預覽
 
@@ -76,7 +76,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 使用上一節中的 IoT Edge 裝置連接字串來設定執行階段：
 ```bash
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 啟動執行階段：

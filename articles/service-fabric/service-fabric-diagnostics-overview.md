@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric 監視和診斷概觀 | Microsoft Docs"
-description: "了解如何對 Azure Service Fabric 叢集、應用程式和服務進行監視和診斷。"
+title: Azure Service Fabric 監視和診斷概觀 | Microsoft Docs
+description: 了解如何對 Azure Service Fabric 叢集、應用程式和服務進行監視和診斷。
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f784576547f0d85a825ad9dd107c6c84cd261092
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>對 Azure Service Fabric 進行監視和診斷
 
@@ -86,7 +86,7 @@ Service Fabric 平台包括健康情況模型，針對叢集中的實體狀態�
 
 ![SFX 健康情況儀表板](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-在 SFX 中除了能看到最新的健康情況報告，每個報告也可當成一個事件。 健康情況事件可透過操作通道收集 (請參閱[使用 Azure 診斷進行事件彙總](service-fabric-diagnostics-event-aggregation-wad.md#collect-health-and-load-events))，並儲存在 OMS Log Analytics 中供未來警示和查詢之用。 這有助於偵測出可能會影響您應用程式可用性的問題，所以我們建議您針對適當的失敗案例設定警示 (透過 OMS 設定自訂警示)。
+在 SFX 中除了能看到最新的健康情況報告，每個報告也可當成一個事件。 健康情況事件可透過操作通道收集 (請參閱[使用 Azure 診斷進行事件彙總](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations))，並儲存在 OMS Log Analytics 中供未來警示和查詢之用。 這有助於偵測出可能會影響您應用程式可用性的問題，所以我們建議您針對適當的失敗案例設定警示 (透過 OMS 設定自訂警示)。
 
 ## <a name="monitoring-workflow"></a>監視工作流程 
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Web 應用程式的設定常見問題集 | Microsoft Docs"
-description: "對於 Azure App Service 的 Web 應用程式功能的設定和管理問題，取得常見問題集的解答。"
+title: Azure Web 應用程式的設定常見問題集 | Microsoft Docs
+description: 對於 Azure App Service 的 Web 應用程式功能的設定和管理問題，取得常見問題集的解答。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的設定和管理常見問題集
 
@@ -251,7 +251,7 @@ Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provi
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>如何執行 App Service 應用程式的滲透測試？
 
-若要執行滲透測試，請[提交要求](https://security-forms.azure.com/penetration-testing/terms)。
+若要執行滲透測試，請[提交要求](https://portal.msrc.microsoft.com/en-us/engage/pentest)。
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>如何針對使用流量管理員的 App Service Web 應用程式設定自訂網域名稱？
 

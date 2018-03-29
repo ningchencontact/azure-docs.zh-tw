@@ -1,10 +1,10 @@
 ---
-title: "採用 Hadoop 的 Apache Sqoop - Azure HDInsight | Microsoft Docs"
-description: "了解如何使用 Apache Sqoop 在 Hadoop on HDInsight 與 Azure SQL Database 之間進行匯入和匯出。"
+title: 採用 Hadoop 的 Apache Sqoop - Azure HDInsight | Microsoft Docs
+description: 了解如何使用 Apache Sqoop 在 Hadoop on HDInsight 與 Azure SQL Database 之間進行匯入和匯出。
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 tags: azure-portal
 keywords: hadoop sqoop,sqoop
@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 03/26/2018
 ms.author: larryfr
-ms.openlocfilehash: a0a63c414bc68f5125b65e288d78fb546c376c04
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f98345c012b8507818d0218fe43bc29badf0d4c8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>使用 Apache Sqoop 在 HDInsight 與 SQL Database 的 Hadoop 間匯入及匯出資料
 
@@ -71,7 +71,7 @@ GO
 1. 使用 SSH 連接到 HDInsight 叢集。 例如，下列命令可連接至名為 `mycluster` 之叢集的主要前端節點：
 
     ```bash
-    ssh CLUSTERNAME-ssh.azurehdinsight.net
+    ssh mycluster-ssh.azurehdinsight.net
     ```
 
     如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。

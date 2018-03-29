@@ -1,20 +1,20 @@
 ---
-title: "Azure Stack 資料中心整合 - 發佈端點"
-description: "了解如何在您的資料中心內發佈 Azure Stack 端點"
+title: Azure Stack 資料中心整合 - 發佈端點
+description: 了解如何在您的資料中心內發佈 Azure Stack 端點
 services: azure-stack
 author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-keywords: 
-ms.openlocfilehash: 8dec686b9ccf87009a23cedf6023f15b84a0f155
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+keywords: ''
+ms.openlocfilehash: 694b8604949406c1c3064fd91bf1fe38f83ee946
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 資料中心整合 - 發佈端點
 Azure Stack 會為其基礎結構角色設定虛擬 IP 位址 (VIP)。 這些 VIP 是從公用 IP 位址集區配置的。 針對每個 VIP，都會藉由軟體定義網路層中的存取控制清單 (ACL) 來提供保護。 ACL 也用於各個實體交換器 (TOR 和 BMC) 來進一步強化解決方案。 系統會針對在部署階段所指定外部 DNS 區域中的每個端點，都建立一個 DNS 項目。

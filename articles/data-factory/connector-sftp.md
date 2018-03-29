@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Data Factory 從 SFTP 伺服器複製資料 | Microsoft Docs"
-description: "了解 Azure Data Factory 中的 MySQL 連接器，此連接器可讓您將資料從 SFTP 伺服器複製到所支援作為接收器的資料存放區。"
+title: 使用 Azure Data Factory 從 SFTP 伺服器複製資料 | Microsoft Docs
+description: 了解 Azure Data Factory 中的 MySQL 連接器，此連接器可讓您將資料從 SFTP 伺服器複製到所支援作為接收器的資料存放區。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 55379add493224770ca7e0e26fd607cd0a2cf892
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 917f2e3ff498641acfbdf537b71543f989b4bc16
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>使用 Azure Data Factory 從 SFTP 伺服器複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

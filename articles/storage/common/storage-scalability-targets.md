@@ -1,10 +1,10 @@
 ---
-title: "Azure 儲存體延展性和效能目標 | Microsoft Docs"
-description: "了解 Azure 儲存體的延展性和效能目標，包括標準和進階儲存體帳戶的容量、要求率以及輸入和輸出頻寬。 了解每一項 Azure 儲存體服務內分割的效能目標。"
+title: Azure 儲存體延展性和效能目標 | Microsoft Docs
+description: 了解 Azure 儲存體的延展性和效能目標，包括標準和進階儲存體帳戶的容量、要求率以及輸入和輸出頻寬。 了解每一項 Azure 儲存體服務內分割的效能目標。
 services: storage
 documentationcenter: na
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
 ms.service: storage
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/24/2017
-ms.author: tamram
-ms.openlocfilehash: f62f2020d40e473886cb679cdfe1c164b95f7114
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: rogarana
+ms.openlocfilehash: e393bb9e7615b893699caf5a931ede5803046892
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure 儲存體延展性和效能目標
 ## <a name="overview"></a>概觀

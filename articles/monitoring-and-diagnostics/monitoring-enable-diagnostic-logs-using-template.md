@@ -1,9 +1,9 @@
 ---
-title: "使用 Resource Manager 範本自動啟用診斷設定 | Microsoft Docs"
-description: "了解如何使用 Resource Manager 範本來建立診斷設定，以讓您將診斷記錄檔串流至事件中樞，或將它們儲存在儲存體帳戶中。"
+title: 使用 Resource Manager 範本自動啟用診斷設定 | Microsoft Docs
+description: 了解如何使用 Resource Manager 範本來建立診斷設定，以讓您將診斷記錄檔串流至事件中樞，或將它們儲存在儲存體帳戶中。
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: a8a88a8c-4a48-4df6-8f7e-d90634d39c57
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2018
+ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: ce61e50d5c00ef44b8eba562928d383510d4ccf4
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 80f427d5acb884be1752f470e2a9d9d04eee5518
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>使用 Resource Manager 範本在建立資源時自動啟用診斷設定
 在本文中，我們示範如何在建立資源時使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md) 設定診斷設定。 這可讓您在建立資源時，自動開始將您的診斷記錄檔和度量串流至事件中樞、將它們封存在儲存體帳戶中，或將它們傳送至 Log Analytics。
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/14/2018
     "settingName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the setting."
+        "description": "Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
       }
     },
     "storageAccountName": {
@@ -139,7 +139,7 @@ ms.lasthandoff: 02/14/2018
     "settingName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the setting."
+        "description": "Name of the setting. Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
       }
     },
     "storageAccountName": {

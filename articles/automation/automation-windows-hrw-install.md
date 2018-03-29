@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c03b124e21603056219a6ff6458469b4ecd60969
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fa74f2e2d8fb9fc9f11810a4af4978fb4b443bcc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>如何部署 Windows 混合式 Runbook 背景工作角色
 
@@ -68,7 +68,7 @@ Azure 自動化中的 Runbook 無法存取其他雲端或內部部署環境中�
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
         -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
 
-4. 系統會提示您同意安裝 **NuGet**，也會提示使用您的 Azure 認證進行驗證。<br><br> ![Execution of New-OnPremiseHybridWorker script](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
+4. 系統會提示您同意安裝 **NuGet**，也會提示使用您的 Azure 認證進行驗證。<br><br>![Execution of New-OnPremiseHybridWorker script](/media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
 5. 指令碼完成之後，[Hybrid Worker 群組] 頁面會顯示新的群組和成員數目，或如果是現有的群組，則成員數目會遞增。  您可以從 [Hybrid Worker 群組] 頁面上的清單中選取群組，然後選取 [Hybrid Worker] 圖格。  在 [Hybrid Worker] 頁面上，您會看到列出群組的每個成員。  
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 中企業應用程式管理的新功能 | Microsoft Docs"
-description: "了解 Azure Active Directory 中企業應用程式管理的新功能。"
+title: Azure Active Directory 中企業應用程式管理的新功能 | Microsoft Docs
+description: 了解 Azure Active Directory 中企業應用程式管理的新功能。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 949eae51c469205489153c271a7c20fcc843ad46
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Azure Active Directory 中企業應用程式管理的新功能 
 
@@ -147,7 +147,7 @@ Azure Active Directory (Azure AD) 有增強的企業應用程式管理工具，�
 1. 首先，您可以從應用程式的左側導覽功能表中選取 [自助式] 選項，並將 [允許使用者要求存取此應用程式？] 選項設定為 [是]。 
 2. 這可讓您設定允許誰核准此應用程式的存取權，以及哪個群組將會新增自助式使用者。 此外，如果已針對密碼單一登入設定應用程式，您也會看到另一個選項，可讓您選擇性地允許這些核准者管理指派給應用程式的密碼。
 
-##<a name="feedback"></a>意見反應
+## <a name="feedback"></a>意見反應
 
 我們希望您喜歡使用改進後的 Azure AD 經驗。 請繼續提供意見反應！ 請將您的意見反應和改進想法張貼在我們的[意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal)的**管理員入口網站**區段中。  我們每天都很期待發展酷炫的新功能，並依照您的指導來塑造和定義我們接下來所要發展的項目。
 

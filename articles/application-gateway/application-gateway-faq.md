@@ -1,6 +1,6 @@
 ---
-title: "Azure 應用程式閘道的常見問題集 | Microsoft Docs"
-description: "本頁提供 Azure 應用程式閘道相關常見問題的解答"
+title: Azure 應用程式閘道的常見問題集 | Microsoft Docs
+description: 本頁提供 Azure 應用程式閘道相關常見問題的解答
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f92af44df9863bbf48abb4afcf9b1505c843fadc
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>應用程式閘道的常見問題集
 
@@ -135,10 +135,6 @@ Azure 應用程式閘道支援 HTTP、HTTPS 和 WebSocket。
 **問：規則的處理方式為何？**
 
 規則會依其設定順序處理。 建議在基本規則前設定多站台規則，以減少流量路由傳送到不適當後端的機會，因為在評估多站台規則之前，基本規則會根據連接埠比對流量。
-
-**問：規則的處理方式為何？**
-
-規則會依其建立順序處理。 建議在基本規則前面設定多網站規則。 藉由先設定多網站接聽程式，此設定可以減少流量路由傳送到不適當後端的機會。 因為在評估多網站規則之前，基本規則會先根據連接埠比對流量，所以會發生此路由問題。
 
 **問：自訂探查的 [主機] 欄位表示什麼？**
 

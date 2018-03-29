@@ -1,8 +1,8 @@
 ---
-title: "Team Data Science Process 實務：使用 SQL 資料倉儲 | Microsoft Docs"
-description: "進階分析程序和技術實務"
+title: Team Data Science Process 實務：使用 SQL 資料倉儲 | Microsoft Docs
+description: 進階分析程序和技術實務
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: bradsev;weig
-ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: bradsev
+ms.openlocfilehash: 6566db5f186b92179df3125deaf5ad17c6f9e974
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process 實務：使用 SQL 資料倉儲
 在本教學課程中，我們將引導您使用 SQL 資料倉儲 (SQL DW)，針對可公開使用的資料集 ( [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) 資料集) 建置和部署機器學習服務模型。 所建構的二元分類模型可預測是否已針對某趟車程支付小費，並且也會討論預測支付的小費金額分佈的多元分類模型和迴歸模型。
@@ -319,7 +319,7 @@ ms.lasthandoff: 12/04/2017
 您必須決定當您有重複的來源和目的地檔案時該如何做。
 
 > [!NOTE]
-> 如果私人 Blob 儲存體帳戶中已有要從公用 Blob 儲存體複製到私人 Blob 儲存體帳戶的 .csv 檔案，AzCopy 會詢問您是否要加以覆寫。 如果不想加以覆寫，請在出現提示時輸入 **n**。 如果想要**全部**覆寫，請在出現提示時輸入 **a**。 您也可以輸入 **y** 來個別覆寫 .csv 檔案。
+> 如果私人 Blob 儲存體帳戶中已有要從公用 Blob 儲存體複製到私人 Blob 儲存體帳戶的 .csv 檔案，AzCopy 會詢問您是否要加以覆寫。 如果不想加以覆寫，在出現提示時輸入 **n** 。 如果想要**全部**覆寫，請在出現提示時輸入 **a**。 您也可以輸入 **y** 來個別覆寫 .csv 檔案。
 > 
 > 
 

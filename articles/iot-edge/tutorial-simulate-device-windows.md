@@ -1,8 +1,8 @@
 ---
-title: "在 Windows 上模擬 Azure IoT Edge | Microsoft Docs"
-description: "在 Windows 中的模擬裝置上安裝 Azure IoT Edge 執行階段及部署您的第一個模組"
+title: 在 Windows 上模擬 Azure IoT Edge | Microsoft Docs
+description: 在 Windows 中的模擬裝置上安裝 Azure IoT Edge 執行階段及部署您的第一個模組
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0207418cf71902ce9bc9d2911124d1d46889d893
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: ae974162a460289a34443879a9e78224684d94ed
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>在 Windows 中的模擬裝置上部署 Azure IoT Edge -  預覽
 
@@ -86,7 +86,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其包含兩個模
 使用上一節中的 IoT Edge 裝置連接字串來設定執行階段。
 
 ```cmd
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 啟動執行階段。

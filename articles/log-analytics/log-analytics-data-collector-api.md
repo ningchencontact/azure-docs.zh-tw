@@ -1,11 +1,11 @@
 ---
-title: "Log Analytics HTTP 資料收集器 API | Microsoft Docs"
-description: "您可以使用 Log Analytics HTTP 資料收集器 API，將 POST JSON 資料從任何可呼叫 REST API 的用戶端新增至 Log Analytics 存放庫。 本文說明如何使用此 API，並提供如何使用不同的程式設計語言來發佈資料的範例。"
+title: Log Analytics HTTP 資料收集器 API | Microsoft Docs
+description: 您可以使用 Log Analytics HTTP 資料收集器 API，將 POST JSON 資料從任何可呼叫 REST API 的用戶端新增至 Log Analytics 存放庫。 本文說明如何使用此 API，並提供如何使用不同的程式設計語言來發佈資料的範例。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5c6f2b35b48988af533612cb48da8fe79a838cf6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 167c36d2fa9bc182b6e37c0f47f838fde1ba01df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (公開預覽狀態)
 本文示範如何使用「HTTP 資料收集器 API」將資料從 REST API 用戶端傳送給 Log Analytics。  它說明如何將您指令碼或應用程式所收集的資料格式化、將其包含在要求中，以及讓 Log Analytics 授權該要求。  提供的範例適用於 PowerShell、C# 及 Python。
@@ -328,7 +328,7 @@ namespace OIAPIExample
         {
             // Create a hash for the API signature
             var datestring = DateTime.UtcNow.ToString("r");
-            var jsonBytes = Encoding.UTF8.GetBytes(message);
+            var jsonBytes = Encoding.UTF8.GetBytes(json);
             string stringToHash = "POST\n" + jsonBytes.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
             string hashedString = BuildSignature(stringToHash, sharedKey);
             string signature = "SharedKey " + customerId + ":" + hashedString;

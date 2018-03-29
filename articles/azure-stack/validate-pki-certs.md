@@ -1,25 +1,25 @@
 ---
-title: "為 Azure Stack 整合式系統部署驗證 Azure Stack 公開金鑰基礎結構憑證 | Microsoft Docs"
-description: "說明如何驗證 Azure Stack 整合式系統的 Azure Stack PKI 憑證。"
+title: 為 Azure Stack 整合式系統部署驗證 Azure Stack 公開金鑰基礎結構憑證 | Microsoft Docs
+description: 說明如何驗證 Azure Stack 整合式系統的 Azure Stack PKI 憑證。
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 86f1b889d83905abfb5ddab2e82f32922409ff5f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b38e3cc45d14645611c0cd804f2bfa66047810f0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>驗證 Azure Stack PKI 憑證
 本文中所述的 Azure Stack 憑證檢查工具是由隨附於 deploymentdata.json 檔案的 OEM 提供，以驗證[產生的 PKI 憑證](azure-stack-get-pki-certs.md)適用於預先部署。 憑證驗證應該具有足夠的時間，以進行測試並在必要時將憑證重新發出。 

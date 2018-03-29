@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Domain Services：將 CoreOS Linux VM 加入受控網域 | Microsoft Docs"
-description: "將 CoreOS Linux 虛擬機器加入 Azure AD Domain Services"
+title: Azure Active Directory Domain Services：將 CoreOS Linux VM 加入受控網域 | Microsoft Docs
+description: 將 CoreOS Linux 虛擬機器加入 Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 790ad85df0dbf68674e2b9c6254858100ddfd0fd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c7290db73645a4e1e745142f266aabc6df735df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>將 CoreOS Linux 虛擬機器加入受控網域
 本文說明如何將 Azure 中的 CoreOS Linux 虛擬機器加入 Azure AD Domain Services 受控網域。
@@ -108,8 +108,7 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 
 
 > [!NOTE]
-> 
->             **疑難排解：**如果 *adcli* 找不到受控網域：
+> **疑難排解：**如果 *adcli* 找不到受控網域：
   * 確定可從虛擬機器觸達網域 (請嘗試 ping)。
   * 檢查虛擬機器已確實部署到有提供受控網域的相同虛擬網路上。
   * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受控網域的網域控制站。
@@ -141,10 +140,9 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 
 
 ## <a name="troubleshooting-domain-join"></a>針對加入網域進行疑難排解
-請參閱 [針對加入網域進行疑難排解](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) 一文。
+請參閱 [針對加入網域進行疑難排解](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) 一文。
 
 ## <a name="related-content"></a>相關內容
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
-* 
-            [將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域](active-directory-ds-admin-guide-join-windows-vm.md)
+* [將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域](active-directory-ds-admin-guide-join-windows-vm.md)
 * [如何登入執行 Linux 的虛擬機器](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。

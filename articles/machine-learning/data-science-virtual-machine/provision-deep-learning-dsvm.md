@@ -3,7 +3,7 @@ title: 在 Azure 上佈建深入學習資料科學虛擬機器 | Microsoft Docs
 description: 在 Azure 上設定和建立深入學習資料科學虛擬機器以進行分析和機器學習。
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 75baef65b8a826009cdbaac3a260d021559504da
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4c911937226591124404c95b73b82b78e76649ea
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>在 Azure 上佈建深入學習虛擬機器 
 

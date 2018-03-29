@@ -1,13 +1,13 @@
 ---
-title: "Azure 串流分析：了解及調整串流單位 | Microsoft Docs"
-description: "了解哪些因素會影響 Azure 串流分析的效能。"
-keywords: "串流單位、查詢效能"
+title: Azure 串流分析：了解及調整串流單位 | Microsoft Docs
+description: 了解哪些因素會影響 Azure 串流分析的效能。
+keywords: 串流單位、查詢效能
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5c60b1808959c73759a78141566c5c49f0350e2f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解及調整串流單位
 
@@ -88,18 +88,18 @@ Azure 串流分析作業的其中一個獨特功能是執行具狀態的處理�
 
 在聯結中不相符的事件數目，會影響查詢的記憶體使用率。 下列查詢用來尋找能產生點擊率的廣告曝光項目︰
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks 
-    INNER JOIN, impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
 
 在此範例中，可能有大量廣告顯示，但僅有少數人會點選，而且仍然需要在時間範圍中保留所有事件。 視窗大小和事件出現率與記憶體耗用程度成正比。 
 
 若要修復這種情況，請將事件傳送到依據聯結索引鍵 (即本例中的 ID) 分割的事件中樞，透過使用 **PARTITION BY** 允許系統個別處理每個輸入分割區來向外延展查詢，如下所示︰
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks PARTITION BY PartitionId
     INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clocks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
 </code>
 
 一旦查詢已分割時，便會分散到多個節點。 如此一來，進入到每個節點的事件數目便會降低，因此也降低了聯結時間範圍內保留的狀態大小。 

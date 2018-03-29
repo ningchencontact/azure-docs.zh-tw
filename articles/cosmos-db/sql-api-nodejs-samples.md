@@ -1,7 +1,7 @@
 ---
-title: "適用於 Azure Cosmos DB 的 Node.js 範例 | Microsoft Docs"
-description: "在 GitHub 上找到適用於 Azure Cosmos DB 中一般工作 (包括 CRUD 作業) 的 Node.js 範例。"
-keywords: "Node.js 範例"
+title: 適用於 Azure Cosmos DB 的 Node.js 範例 | Microsoft Docs
+description: 在 GitHub 上找到適用於 Azure Cosmos DB 中一般工作 (包括 CRUD 作業) 的 Node.js 範例。
+keywords: Node.js 範例
 services: cosmos-db
 author: moderakh
 manager: jhubbard
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: moderakh
-ms.openlocfilehash: 1df7008b1b8bf8bac116fd41b61c6bc954cf3254
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 2c9e623c5e99834bba6cc6ccd34e7c6993e1dc94
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js 範例
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 12/18/2017
 > * [Azure 程式碼範例庫](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub 存放庫中包含可對 Azure Cosmos DB 資源執行 CRUD 作業和其他常見作業的範例解決方案。 本文提供：
 

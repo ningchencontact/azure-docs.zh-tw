@@ -1,8 +1,8 @@
 ---
-title: "資料科學特徵工程設計 | Microsoft Docs"
-description: "說明機器學習服務的資料增強程序中特性工程設計的目的，並提供其角色的範例。"
+title: 資料科學特徵工程設計 | Microsoft Docs
+description: 說明機器學習服務的資料增強程序中特性工程設計的目的，並提供其角色的範例。
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: zhangya;bradsev
-ms.openlocfilehash: 72a412c08e57491a306f405f400665e2b0d25a3c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: 70a78659bc14ce5ff9358ed11ad0af68be31bd17
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="feature-engineering-in-data-science"></a>資料科學特徵工程設計
 本文說明特徵工程設計的目的，並透過提供的範例，顯示它在機器學習服務的資料增強程序中扮演的角色。 用來說明此程序的範例是取自 Azure Machine Learning Studio。 

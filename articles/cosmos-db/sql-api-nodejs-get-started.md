@@ -1,7 +1,7 @@
 ---
-title: "適用於 Azure Cosmos DB 的 SQL API 之 Node.js 教學課程 | Microsoft Docs"
-description: "使用 SQL API 所建立的 Cosmos DB 之 Node.js 教學課程。"
-keywords: "node.js 教學課程，節點資料庫"
+title: 適用於 Azure Cosmos DB 的 SQL API 之 Node.js 教學課程 | Microsoft Docs
+description: 使用 SQL API 所建立的 Cosmos DB 之 Node.js 教學課程。
+keywords: node.js 教學課程，節點資料庫
 services: cosmos-db
 documentationcenter: node.js
 author: AndrewHoh
@@ -15,11 +15,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: anhoh
-ms.openlocfilehash: 3cfea11e70309c56f991f5d563649741c675c907
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: de1ac7cb11f3e0d9c2de6dd3e5f635a9c508b2d2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js 教學課程：使用 Azure Cosmos DB 中的 SQL API 建立 Node.js 主控台應用程式
 > [!div class="op_single_selector"]
@@ -31,8 +31,6 @@ ms.lasthandoff: 01/23/2018
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 歡迎使用 Azure Cosmos DB Node.js SDK 的 Node.js 教學課程！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。
 

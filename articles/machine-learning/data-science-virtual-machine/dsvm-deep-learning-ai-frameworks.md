@@ -1,25 +1,25 @@
 ---
-title: "深度學習和 AI 架構 - Azure | Microsoft Docs"
-description: "深度學習和 AI 架構"
-keywords: "資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學"
+title: 深度學習和 AI 架構 - Azure | Microsoft Docs
+description: 深度學習和 AI 架構
+keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: gopitk
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 89a8cde0dbb7fe7ccfbb6d068411aaf5488c532f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: gokuma
+ms.openlocfilehash: 829095c7f9b92f64fd6204481e68b2594a3a0017
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>深度學習和 AI 架構
 [資料科學虛擬機器](http://aka.ms/dsvm) \(英文\) (DSVM) 和[深度學習 VM](http://aka.ms/dsvm/deeplearning) \(英文\) 支援數種深度學習架構，可協助建置具備預測性分析及能了解影像及語言之辨識能力的人工智慧 (AI) 應用程式。 

@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Domain Services：將 CentOS VM 加入至受控網域 | Microsoft Docs"
-description: "將 CentOS Linux 虛擬機器加入至 Azure AD Domain Services"
+title: Azure Active Directory Domain Services：將 CentOS VM 加入至受控網域 | Microsoft Docs
+description: 將 CentOS Linux 虛擬機器加入至 Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 9f3b6425f3c13080985fb168f46ea1f6be5d18ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f7095e82605d12221ba7beb0c48fd3eda75a2e7b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>將 CentOS Linux 虛擬機器加入至受控網域
 本文說明如何將 Azure 中的 CentOS Linux 虛擬機器加入至 Azure AD Domain Services 受控網域。
@@ -83,7 +83,7 @@ sudo vi /etc/hosts
     ```
 
     > [!NOTE]
-    > **疑難排解：**如果 *[領域探索]* 找不到受控網域：  
+    > **疑難排解：**如果 [領域探索] 找不到受控網域：  
       * 確定可從虛擬機器觸達網域 (請嘗試 ping)。  
       * 檢查虛擬機器已確實部署到有提供受控網域的相同虛擬網路上。 
       * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受控網域的網域控制站。  
@@ -133,12 +133,11 @@ sudo vi /etc/hosts
 
 
 ## <a name="troubleshooting-domain-join"></a>針對加入網域進行疑難排解
-請參閱 [針對加入網域進行疑難排解](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) 一文。
+請參閱 [針對加入網域進行疑難排解](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) 一文。
 
 ## <a name="related-content"></a>相關內容
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
-* 
-            [將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域](active-directory-ds-admin-guide-join-windows-vm.md)
+* [將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域](active-directory-ds-admin-guide-join-windows-vm.md)
 * [如何登入執行 Linux 的虛擬機器](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 * [安裝 Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7 - Windows 整合指南](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

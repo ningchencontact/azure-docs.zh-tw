@@ -1,11 +1,11 @@
 ---
-title: "Azure 轉送常見問題集 | Microsoft Docs"
-description: "獲得一些有關 Azure 轉送常見問題的答案。"
+title: Azure 轉送常見問題集 | Microsoft Docs
+description: 獲得一些有關 Azure 轉送常見問題的答案。
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 886d2c7f-838f-4938-bd23-466662fb1c8e
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d433fb916280e98dd0f2af61728596b8566be71b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-relay-faqs"></a>Azure 轉送常見問題集
 
-本文提供 [Azure 轉送](https://azure.microsoft.com/services/service-bus/)的一些常見問題集 (FAQ) 答案。 如需一般的 Azure 價格和支援資訊，請參閱 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)。
+本文提供 [Azure 轉送](https://azure.microsoft.com/services/service-bus/)的一些常見問題集 (FAQ) 答案。 如需一般的 Azure 價格和支援資訊，請參閱 [Azure 支援常見問題集](https://azure.microsoft.com/en-in/support/faq/)。
 
 ## <a name="general-questions"></a>一般問題
 ### <a name="what-is-azure-relay"></a>什麼是 Azure 轉送？

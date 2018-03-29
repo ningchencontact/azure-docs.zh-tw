@@ -16,15 +16,13 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: cf8b0e6a06f787c5b38622e9343e893d5d7daa12
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1276fb119199b9dbb9b50bed8ac12cff0a55d2dd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB：資料移轉工具
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 本教學課程提供使用 Azure Cosmos DB 資料移轉工具的相關指示，可將資料從各種來源匯入到 Azure Cosmos DB 集合和資料表。 您可以從 JSON 檔案、CSV 檔案、SQL、MongoDB、Azure 資料表儲存體、Amazon DynamoDB 以及甚至 Azure Cosmos DB SQL API 集合來匯入，並將該資料移轉到集合和資料表以供用於 Azure Cosmos DB。 針對 SQL API 從單一分割區集合移轉到多重分割區集合時，也可以使用資料移轉工具。
 

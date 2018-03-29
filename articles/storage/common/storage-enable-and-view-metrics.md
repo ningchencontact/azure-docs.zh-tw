@@ -1,10 +1,10 @@
 ---
-title: "在 Azure 入口網站中啟用儲存體計量功能 | Microsoft Docs"
-description: "如何啟用 Blob、佇列、表格和檔案服務的儲存體度量"
+title: 在 Azure 入口網站中啟用儲存體計量功能 | Microsoft Docs
+description: 如何啟用 Blob、佇列、表格和檔案服務的儲存體度量
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
-ms.author: tamram
-ms.openlocfilehash: 8abb4f968c1fa84e03c8cc807826d3684713847a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: 0caa4eff80877ad4bf8d501a276e82922b1a84c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>啟用 Azure 儲存體計量和檢視計量資料
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]

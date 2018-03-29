@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 資訊安全中心啟用儲存體帳戶的加密 | Microsoft Docs"
-description: "本文件說明如何實作 Azure 資訊安全中心建議：**啟用 Azure 儲存體帳戶的加密**。"
+title: 在 Azure 資訊安全中心啟用儲存體帳戶的加密 | Microsoft Docs
+description: 本文件說明如何實作 Azure 資訊安全中心建議：**啟用 Azure 儲存體帳戶的加密**。
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
-ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82bb201c0b518d0b45e06a1eb25d54f60cb3e028
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>在 Azure 資訊安全中心啟用 Azure 儲存體帳戶的加密
 Azure 資訊安全中心可能建議您對待用資料啟用 Azure 儲存體服務加密。
@@ -27,7 +27,7 @@ Azure 資訊安全中心可能建議您對待用資料啟用 Azure 儲存體服�
 
 
 > [!Note]
-> 啟用加密之後，只有新的資料會加密。 儲存體帳戶中任何現有的 blob 保持未加密。 若要加密現有的 blob，請參閱[儲存體服務加密常見問題集](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest)。
+> 啟用加密之後，只有新的資料會加密。 儲存體帳戶中任何現有的 blob 保持未加密。 若要加密現有的 blob，請參閱[儲存體服務加密常見問題集](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption)。
 >
 >
 

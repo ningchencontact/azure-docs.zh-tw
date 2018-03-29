@@ -3,22 +3,19 @@ title: Azure Active Directory B2C：遷移具社交識別的使用者
 description: 討論使用圖形 API 將具社交識別的使用者移轉至 Azure AD B2C 的核心概念
 services: active-directory-b2c
 documentationcenter: ''
-author: yoelhor
-manager: joroja
+author: davidmu
+manager: mtillman
 editor: ''
-ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
-ms.date: 14/03/2018
-ms.author: yoelh
-ms.openlocfilehash: b82805f1c5d83c4d4a11c4b88fd6771c0b85f0f4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/03/2018
+ms.author: davidmu
+ms.openlocfilehash: 76ed4dac40872bf6db07b26c5805a4db62dc9dfc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C：遷移具社交識別的使用者
 當您計劃將識別提供者遷移到 Azure AD B2C 時，您可能也需要遷移具社交識別的使用者。 本文會說明如何將現有的社交識別帳戶 (例如：Facebook、LinkedIn、Microsoft 與 Google 帳戶) 遷移至 Azure AD B2C。 本文也適用於同盟身分識別，不過這些移轉較不常見。

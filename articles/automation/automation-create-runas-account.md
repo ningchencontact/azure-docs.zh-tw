@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: e7a339ae443bc61e1d2364afd8400fc436593b9f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b50c9f059d82d9378fba8db663aa2e8dce0273f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>使用執行身分帳戶更新您的自動化帳戶驗證 
 您可以從 Azure 入口網站或使用 PowerShell 來更新現有的自動化帳戶，前提是：

@@ -1,12 +1,12 @@
 ---
-title: "針對 Azure Active Directory 中的企業狀態漫遊設定進行疑難排解 | Microsoft Docs"
-description: "回答 IT 系統管理員可能會遇到的設定和應用程式資料同步處理的一些問題。"
+title: 針對 Azure Active Directory 中的企業狀態漫遊設定進行疑難排解 | Microsoft Docs
+description: 回答 IT 系統管理員可能會遇到的設定和應用程式資料同步處理的一些問題。
 services: active-directory
-keywords: "企業狀態漫遊設定, windows 雲端, 企業狀態漫遊常見問題集"
-documentationcenter: 
+keywords: 企業狀態漫遊設定, windows 雲端, 企業狀態漫遊常見問題集
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
 ms.service: active-directory
 ms.workload: identity
@@ -17,11 +17,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 8ee3b523baf562b06bd5f7d652a431e1d4553d5c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>針對 Azure Active Directory 中的企業狀態漫遊設定進行疑難排解
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 01/16/2018
 
 **可能的原因**：如果系統管理員設定 Active Directory Federation Services Multi-Factor Authentication 條件式存取原則，而裝置上的存取權杖到期，則同步處理可能會失敗。 務必使用 Microsoft Passport for Work PIN 來登入和登出，或在存取其他 Azure 服務 (例如 Office 365) 時完成 Multi-Factor Authentication。
 
-###<a name="event-viewer"></a>事件檢視器
+### <a name="event-viewer"></a>事件檢視器
 進行進階疑難排解時，可以使用「事件檢視器」來找出特定錯誤。 這些錯誤記載在下面的表格中。 您可以在 [事件檢視器] > [應用程式及服務紀錄檔] > [Microsoft] > [Windows] > [SettingSync] 底下找到事件，和身分識別有關的問題則可以透過同步處理 [Microsoft] > [Windows] > [Azure AD] 來找到。
 
 

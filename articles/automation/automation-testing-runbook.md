@@ -1,24 +1,18 @@
 ---
-title: "在 Azure 自動化中測試 Runbook | Microsoft Docs"
-description: "在 Azure 自動化中發佈 Runbook 之前，您可以先加以測試，以確保 Runbook 能夠如預期般運作。  本文說明如何測試 Runbook 及檢視其輸出。"
+title: 在 Azure 自動化中測試 Runbook
+description: 在 Azure 自動化中發佈 Runbook 之前，您可以先加以測試，以確保 Runbook 能夠如預期般運作。  本文說明如何測試 Runbook 及檢視其輸出。
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 7f7db785-52c0-4613-aa12-b02fd32a5182
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/12/2016
-ms.author: magoedte;bwren
-ms.openlocfilehash: 49e8dfa341940386f15932ec4346c8811effbf0b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+manager: carmonm
+ms.openlocfilehash: 531fffe1ed24016d47708a729a3ee7642a1db64a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>在 Azure 自動化中測試 Runbook
 當您測試 Runbook 時， [草稿版本](automation-creating-importing-runbook.md#publishing-a-runbook) 會執行，而且它執行的任何動作都會完成。 不會建立任何工作歷程記錄，但 [測試輸出] 窗格中會顯示[輸出](automation-runbook-output-and-messages.md#output-stream)與[警告和錯誤](automation-runbook-output-and-messages.md#message-streams)串流。 只有將 [$VerbosePreference 變數](automation-runbook-output-and-messages.md#preference-variables)設為 Continue，傳送給[詳細資訊串流](automation-runbook-output-and-messages.md#message-streams)的訊息才會顯示在 [輸出] 窗格中。

@@ -1,9 +1,9 @@
 ---
-title: "封存 Azure 活動記錄檔 | Microsoft Docs"
-description: "了解如何封存 Azure 活動記錄檔以在儲存體帳戶中長期保存。"
+title: 封存 Azure 活動記錄檔 | Microsoft Docs
+description: 了解如何封存 Azure 活動記錄檔以在儲存體帳戶中長期保存。
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 0b041cc6a986c6f7a11d213f03294c9716c20d04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>封存 Azure 活動記錄檔
 在本文中，我們示範如何使用 Azure 入口網站、PowerShell Cmdlet 或跨平台 CLI 封存儲存體帳戶中的 [**Azure 活動記錄檔**](monitoring-overview-activity-logs.md)。 如果您想要保留活動記錄檔超過 90 天 (而且對保留原則有完全的控制)，以便稽核、靜態分析或備份，這個選項非常有用。 如果您只需要保留事件 90 天或更短，則不需要設定封存至儲存體帳戶，因為在不啟用封存的情況下，活動記錄檔就會在 Azure 平台保留 90 天。
@@ -164,7 +164,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 > 
 
 ## <a name="next-steps"></a>後續步驟
-* [下載 blob 以供分析](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+* [下載 blob 以供分析](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [將活動記錄檔串流至事件中樞](monitoring-stream-activity-logs-event-hubs.md)
 * [深入了解活動記錄檔](monitoring-overview-activity-logs.md)
 

@@ -1,20 +1,19 @@
 ---
-title: "了解如何從 Azure 虛擬機器登入更新管理、變更追蹤和清查解決方案"
-description: "了解如何在 Azure 虛擬機器上登入屬於 Azure 自動化一部分的更新管理、變更追蹤和清查解決方案"
+title: 了解如何從 Azure 虛擬機器登入更新管理、變更追蹤和清查解決方案
+description: 了解如何在 Azure 虛擬機器上登入屬於 Azure 自動化一部分的更新管理、變更追蹤和清查解決方案
 services: automation
-keywords: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
+ms.date: 03/19/2018
 ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a850189406b394e7935763206f9e3a191b415170
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 8713447386e116b3f1ecb2754d46cc8d88d00b39
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>從 Azure 虛擬機器登入更新管理、變更追蹤和清查解決方案
 
@@ -22,7 +21,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-登入 Azure，網址是 https://portal.azure.com
+在 https://portal.azure.com 登入 Azure
 
 ## <a name="enable-the-solutions"></a>啟用解決方案
 
@@ -49,9 +48,9 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ## <a name="saved-searches"></a>已儲存的搜尋
 
-當電腦新增至更新管理或變更追蹤和清查解決方案時，它們會新增至工作區中兩個已儲存搜尋的其中一個。 這些已儲存的搜尋都是查詢，其中包含這些解決方案的目標電腦。
+當電腦新增至「更新管理」或「變更追蹤」和「清查」解決方案時，它們會被新增至工作區中兩個已儲存搜尋的其中一個。 這些已儲存的搜尋都是查詢，其中包含這些解決方案的目標電腦。
 
-瀏覽至您的工作區，並選取 [一般] 下的 [已儲存的搜尋]。 下表顯示這些解決方案所使用的兩個已儲存的搜尋：
+瀏覽至您的工作區，並選取 [一般] 下的 [已儲存的搜尋]。 下表顯示這些解決方案所使用的兩個已儲存搜尋：
 
 |Name     |類別  |Alias  |
 |---------|---------|---------|
@@ -64,7 +63,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ## <a name="next-steps"></a>後續步驟
 
-繼續進行解決方案的教學課程以了解如何加以使用。
+繼續進行解決方案的教學課程以了解如何使用。
 
 * [教學課程 - 管理 VM 的更新](automation-tutorial-update-management.md)
 

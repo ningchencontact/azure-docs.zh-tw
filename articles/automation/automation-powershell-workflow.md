@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b8d78d6dfd258fb51e7b30832b6c214c67ac0fec
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 32f991f0b0017e673828b1ceb832511e118efa92
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解適用於自動化 Runbook 的重要 Windows PowerShell 工作流程概念 
 Azure 自動化中的 Runbook 會實作為 Windows PowerShell 工作流程。  Windows PowerShell 工作流程類似於 Windows PowerShell 指令碼，但有一些顯著的差異可能會對新使用者造成混淆。  雖然本文旨在協助您使用 PowerShell 工作流程撰寫 Runbook，但是除非您需要檢查點，否則建議您使用 PowerShell 來撰寫 Runbook。  在撰寫 PowerShell 工作流程 Runbook 時有許多語法差異，而這些差異需要更多的工作來撰寫有效的工作流程。  

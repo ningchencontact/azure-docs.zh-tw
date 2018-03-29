@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 90b720c174ab5730237f27d5ebb253976a70b071
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3fb14a2ae6e820c289e7000a4876efe4b4a3b89c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB︰開始使用 SQL API 與 .NET Core
 > [!div class="op_single_selector"]
@@ -31,8 +31,6 @@ ms.lasthandoff: 03/17/2018
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 歡迎使用 .NET Core 入門之適用於 Azure Cosmos DB 的 SQL API 教學課程！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。
 
@@ -51,9 +49,6 @@ ms.lasthandoff: 03/17/2018
 沒有時間嗎？ 別擔心！ 您可以在 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)上找到完整的方案。 請跳至 [取得完整的解決方案](#GetSolution) 一節，以取得簡要指示。
 
 想要使用 SQL API 和 .NET Core SDK 建置 Xamarin iOS、Android 或 Forms 應用程式嗎？ 請參閱[使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式](mobile-apps-with-xamarin.md)。
-
-> [!NOTE]
-> 本教學課程中使用的 Azure Cosmos DB .NET Core SDK 尚未與通用 Windows 平台 (UWP) 應用程式相容。 如需可支援 UWP 應用程式的 .NET Core SDK 預覽版本，請傳送電子郵件至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)。
 
 讓我們開始吧！
 
