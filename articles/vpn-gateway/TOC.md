@@ -86,8 +86,9 @@
 ### [驗證 VNet 的 VPN 輸送量](vpn-gateway-validate-throughput-to-vnet.md)
 ### [社群建議的 VPN 或防火牆裝置設定](vpn-gateway-third-party-settings.md)
 ### [點對站連線問題](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-### [站對站連線會間歇性中斷](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
-### [無法連線至站對站連線](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+#### [點對站連線問題 - Mac OS X VPN 用戶端](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### [站對站連線問題](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [站對站連線會間歇性中斷](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [設定和驗證 VNet 或 VPN 連線](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # 參考
