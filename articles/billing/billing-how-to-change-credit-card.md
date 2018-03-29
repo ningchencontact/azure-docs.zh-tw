@@ -77,7 +77,7 @@ ms.lasthandoff: 12/23/2017
 
 停用或取消訂閱後，需要 90 天系統才會將其永久刪除。 我們在保留期間會保留您的付款方式，以防您想重新啟用訂閱。 保留期過後，系統便會完全刪除訂閱。
 
-如果您在 90 天的保留期結束後需要移除信用卡或轉帳卡，請[重新啟用訂用帳戶](billing-subscription-become-disable.md)。 如需無法重新啟用，請[連絡 Azure 支援服務](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+如果您在 90 天的保留期結束前需要移除信用卡或轉帳卡，請[重新啟用訂用帳戶](billing-subscription-become-disable.md)。 如需無法重新啟用，請[連絡 Azure 支援服務](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>為什麼我一直收到「您的登入工作階段已過期。 請按一下這裡重新登入」錯誤訊息？
 
