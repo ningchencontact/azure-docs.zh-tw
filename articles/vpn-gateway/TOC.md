@@ -6,6 +6,10 @@
 ## [訂用帳戶與服務限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # 開始使用
+## [建立路由式 VPN 閘道 - Azure 入口網站](create-routebased-vpn-gateway-portal.md)
+## [建立路由式 VPN 閘道 - PowerShell](create-routebased-vpn-gateway-powershell.md)
+
+# 概念
 ## [規劃與設計 VPN 閘道](vpn-gateway-plan-design.md)
 ## [關於 VPN 閘道設定](vpn-gateway-about-vpn-gateway-settings.md)
 ## [關於 VPN 裝置](vpn-gateway-about-vpn-devices.md)

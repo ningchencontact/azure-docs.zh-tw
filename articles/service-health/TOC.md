@@ -7,6 +7,7 @@
 # 作法
 
 ## [設定適用於服務健康情況事件的警示](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
+### [使用 Azure 入口網站檢視服務健康情況通知](../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ## [使用 Webhook 設定通知](service-health-alert-webhook-guide.md)
 ### [以 ServiceNow 設定](service-health-alert-webhook-servicenow.md)
 ### [以 PagerDuty 設定](service-health-alert-webhook-pagerduty.md)

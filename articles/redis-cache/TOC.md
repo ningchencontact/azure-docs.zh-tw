@@ -61,6 +61,6 @@
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=databases)
-## [價格](https://azure.microsoft.com/pricing/details/cache/)
+## [定價](https://azure.microsoft.com/pricing/details/cache/)
 ## [Redis 快取範例](cache-redis-samples.md)
 

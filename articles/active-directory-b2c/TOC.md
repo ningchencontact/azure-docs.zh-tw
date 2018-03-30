@@ -33,7 +33,7 @@
 ### [保護 ASP.NET API](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Node.js](active-directory-b2c-devquickstarts-api-node.md)
 ### [呼叫 .NET Web API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # 手冊
@@ -67,6 +67,7 @@
 ## [自訂原則](active-directory-b2c-overview-custom.md)
 ## 手冊
 ### [開始使用](active-directory-b2c-get-started-custom.md)
+### [入門套件](active-directory-b2c-reference-custom-policies-understanding-contents.md)
 ### 設定 OIDC/OAUTH 提供者
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft 帳戶](active-directory-b2c-custom-setup-msa-idp.md)
@@ -120,7 +121,7 @@
 ## [Azure AD B2C 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [常見問題集](active-directory-b2c-faqs.md)
-## [價格](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [定價](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)

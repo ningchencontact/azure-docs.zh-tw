@@ -39,6 +39,8 @@
       href: connect-google-account.md
     - name: 與 AWS 帳戶連線
       href: connect-aws-account.md
+    - name: 設定儲存體帳戶
+      href: storage-accounts.md
     - name: 使用成本管理報告
       href: use-reports.md
 - name: 資源

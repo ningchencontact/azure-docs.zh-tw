@@ -27,6 +27,8 @@
   items:
     - name: 使用 Azure Stack 入口網站
       href: azure-stack-use-portal.md
+    - name: 使用 Azure Stack API
+      href: azure-stack-rest-api-use.md
     - name: 安全性與法規遵循
       items:
         - name: 管理 RBAC

@@ -18,45 +18,57 @@
       href: storage-how-to-use-files-linux.md
     - name: Mac 上的掛接
       href: storage-how-to-use-files-mac.md
-    - name: 使用入口網站進行管理
+    - name: 以 Azure 入口網站管理
       href: storage-how-to-use-files-portal.md
+    - name: 以 PowerShell 管理
+      href: storage-how-to-use-files-powershell.md
+    - name: 以 Azure CLI 管理
+      href: storage-how-to-use-files-cli.md
+    - name: 以儲存體總管管理
+      href: storage-how-to-use-files-storage-explorer.md
 - name: |
     作法
   items:
-    - name: 規劃和設計
+    - name: 規劃
       items:
-        - name: 儲存體帳戶選項
+        - name: 規劃 Azure 檔案服務部署
+          href: storage-files-planning.md
+        - name: 規劃 Azure 檔案同步部署
+          href: storage-sync-files-planning.md
+        - name: 了解儲存體帳戶
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 部署 Azure 檔案
-          items:
-            - name: 規劃 Azure 檔案服務部署
-              href: storage-files-planning.md
-            - name: 如何部署 Azure 檔案服務
-              href: storage-files-deployment-guide.md
-        - name: 部署 Azure 檔案同步
-          items:
-            - name: 規劃 Azure 檔案同步部署
-              href: storage-sync-files-planning.md
-            - name: 如何部署 Azure 檔案同步
-              href: storage-sync-files-deployment-guide.md
-            - name: Azure 檔案同步 Proxy 和防火牆設定
-              href: storage-sync-files-firewall-and-proxy.md
-        - name: 關於檔案共用快照集
+        - name: 了解檔案共用快照集
           href: storage-snapshots-files.md
-        - name: 如何使用檔案共用快照集
-          href: storage-how-to-use-files-snapshots.md
-        - name: 複寫
+        - name: 儲存體備援選項
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: 擴充和效能目標
           href: storage-files-scale-targets.md
-        - name: 效能和延展性檢查清單
-          href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 並行
-          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: 災害復原指引
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Azure 檔案同步處理版本資訊
+          href: storage-files-release-notes.md
+    - name: 部署
+      items:
+        - name: 如何部署 Azure 檔案服務
+          href: storage-files-deployment-guide.md
+        - name: 如何部署 Azure 檔案同步
+          href: storage-sync-files-deployment-guide.md
+        - name: Azure 檔案同步 Proxy 和防火牆設定
+          href: storage-sync-files-firewall-and-proxy.md
+    - name: 管理
+      items:
+        - name: 向 Azure 檔案同步註冊伺服器
+          href: storage-sync-files-server-registration.md
+        - name: 新增 Azure 檔案同步伺服器端點
+          href: storage-sync-files-server-endpoint.md
+        - name: 適用於中國、政府與德國雲端的 PowerShell
+          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Azure 自動化
+          href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 開發
       items:
+        - name: 管理並行存取
+          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: .NET
           href: storage-dotnet-how-to-use-files.md
         - name: Java
@@ -73,26 +85,6 @@
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: 設定連接字串
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: 管理
-      items:
-        - name: 適用於 Azure 檔案的 PowerShell
-          href: storage-how-to-use-files-powershell.md
-        - name: 適用於 Azure 儲存體的 PowerShell
-          href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 適用於中國、政府與德國雲端的 PowerShell
-          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure CLI 2.0
-          href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure CLI 1.0
-          href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 向 Azure 檔案同步註冊伺服器
-          href: storage-sync-files-server-registration.md
-        - name: 新增 Azure 檔案同步伺服器端點
-          href: storage-sync-files-server-endpoint.md
-        - name: 搭配使用儲存體總管與 Azure 檔案儲存體
-          href: ../../vs-azure-tools-storage-explorer-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure 自動化
-          href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 安全
       items:
         - name: 安全性指南
@@ -239,5 +231,3 @@
           href: 'https://github.com/Azure/azure-storage-ruby'
         - name: iOS
           href: 'https://github.com/Azure/azure-storage-ios'
-    - name: Azure 檔案同步處理版本資訊
-      href: storage-files-release-notes.md
