@@ -197,7 +197,7 @@
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 價格
-      href: aml-services-pricing.md
+      href: aml-pricing.md
     - name: 區域可用性
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Team Data Science Process

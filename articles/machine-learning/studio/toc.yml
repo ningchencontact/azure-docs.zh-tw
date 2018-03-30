@@ -3,8 +3,6 @@
 - name: 概觀
   expanded: true
   items:
-    - name: Machine Learning 是什麼？
-      href: what-is-machine-learning.md
     - name: Machine Learning Studio
       href: what-is-ml-studio.md
     - name: ML Studio 容量
