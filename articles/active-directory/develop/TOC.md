@@ -45,7 +45,7 @@
 ### [偵錯 SAML 型 SSO](active-directory-saml-debugging.md)
 ### [單一登入 SAML 通訊協定](active-directory-single-sign-on-protocol-reference.md)
 ### [單一登出 SAML 通訊協定](active-directory-single-sign-out-protocol-reference.md)
-### [建立租用戶](active-directory-howto-tenant.md)
+## [建立租用戶](active-directory-howto-tenant.md)
 ## [商標方針](active-directory-branding-guidelines.md)
 ## 行動和桌面 SSO
 ### [在 Android 上啟用 SSO](active-directory-sso-android.md)
