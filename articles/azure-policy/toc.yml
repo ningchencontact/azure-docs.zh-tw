@@ -25,6 +25,10 @@
   items:
     - name: Azure 原則定義結構
       href: policy-definition.md
+- name: 使用說明指南
+  items:
+    - name: 以程式設計方式建立原則
+      href: policy-insights.md
 - name: 參考
   items:
     - name: Azure CLI

@@ -1,0 +1,118 @@
+- name: Redis 快取文件
+  href: index.md
+- name: 概觀
+  items:
+    - name: 為何使用 Redis 快取
+      href: 'https://azure.microsoft.com/services/cache/'
+    - name: 探索進階層功能
+      href: cache-premium-tier-intro.md
+    - name: 案例
+      items:
+        - name: 存取快取中的項目
+          href: 'cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache'
+        - name: 設定高可用性
+          href: 'https://azure.microsoft.com/pricing/details/cache/'
+        - name: 使用 SSL 安全連線
+          href: 'cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache'
+        - name: 從受控快取服務遷移
+          href: cache-migrate-to-redis.md
+        - name: 模式與作法快取指導方針
+          href: ../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json
+- name: 開始使用
+  items:
+    - name: ASP.NET
+      href: cache-web-app-howto.md
+    - name: .NET
+      href: cache-dotnet-how-to-use-azure-redis-cache.md
+    - name: 節點
+      href: cache-nodejs-get-started.md
+    - name: Java
+      href: cache-java-get-started.md
+    - name: Python
+      href: cache-python-get-started.md
+    - name: Redis 快取常見問題集
+      href: cache-faq.md
+- name: 作法
+  items:
+    - name: 規劃
+      items:
+        - name: 選擇快取層
+          href: 'cache-faq.md#what-redis-cache-offering-and-size-should-i-use'
+        - name: 利用 Redis 資料永續性來留存您的快取
+          href: cache-how-to-premium-persistence.md
+        - name: 使用虛擬網路保護快取
+          href: cache-how-to-premium-vnet.md
+        - name: 利用叢集來散發您的快取
+          href: cache-how-to-premium-clustering.md
+    - name: 自動化
+      items:
+        - name: 使用 Azure Powershell 進行部署和管理
+          href: cache-howto-manage-redis-cache-powershell.md
+        - name: 使用 Azure CLI 進行部署和管理
+          href: cli-samples.md
+        - name: 佈建 Redis 快取
+          href: cache-redis-cache-arm-provision.md
+        - name: 佈建 Web 應用程式和 Redis 快取
+          href: cache-web-app-arm-with-redis-cache-provision.md
+    - name: 與 ASP.NET 整合
+      items:
+        - name: 工作階段狀態提供者
+          href: cache-aspnet-session-state-provider.md
+        - name: 輸出快取提供者
+          href: cache-aspnet-output-cache-provider.md
+    - name: 管理
+      items:
+        - name: 在 Azure 入口網站中設定
+          href: cache-configure.md
+        - name: 設定異地複寫
+          href: cache-how-to-geo-replication.md
+        - name: 匯入/匯出資料
+          href: cache-how-to-import-export-data.md
+        - name: 重新啟動
+          href: 'cache-administration.md#reboot'
+        - name: 更新排程
+          href: 'cache-administration.md#schedule-updates'
+    - name: 監視及疑難排解
+      items:
+        - name: 在 Azure 入口網站中監視
+          href: cache-how-to-monitor.md
+        - name: 疑難排解快取問題
+          href: cache-how-to-troubleshoot.md
+        - name: 為例外狀況設定警示
+          href: 'cache-how-to-monitor.md#operations-and-alerts'
+    - name: 調整
+      items:
+        - name: 更新至不同的大小與階層
+          href: cache-how-to-scale.md
+        - name: 使用 Redis 叢集進行相應縮小/放大
+          href: cache-how-to-premium-clustering.md
+    - name: 與 Spring Boot 整合
+      items:
+        - name: 使用 Spring Boot Initializer 應用程式搭配 Redis Cache
+          href: cache-java-spring-boot-initializer-with-redis-cache.md
+- name: 參考
+  items:
+    - name: 程式碼範例
+      href: 'https://azure.microsoft.com/resources/samples/?service=redis-cache'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.rediscache
+    - name: Azure CLI 預覽
+      href: /cli/azure/redis
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.redis
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.redis._redis_cache
+    - name: Redis 用戶端
+      href: 'http://redis.io/clients'
+    - name: Redis 命令
+      href: 'http://redis.io/commands#'
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/redis/'
+- name: 資源
+  items:
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/cache/'
+    - name: Redis 快取範例
+      href: cache-redis-samples.md

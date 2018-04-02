@@ -37,8 +37,6 @@
           href: log-analytics-log-search-faq.md
     - name: Log Analytics 常見問題集
       href: log-analytics-faq.md
-    - name: 資料耗用量
-      href: log-analytics-usage.md
     - name: 資料安全性
       href: log-analytics-data-security.md
     - name: 管理存取權
@@ -156,7 +154,11 @@
         - name: 代理程式管理
           href: log-analytics-agent-manage.md
         - name: 管理工作區成本
-          href: log-analytics-manage-cost-storage.md
+          items:
+            - name: 資料磁碟區和保留期
+              href: log-analytics-manage-cost-storage.md
+            - name: 監視使用量
+              href: log-analytics-usage.md
         - name: 刪除工作區
           href: log-analytics-manage-del-workspace.md
     - name: 疑難排解

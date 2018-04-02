@@ -1,24 +1,28 @@
 ---
-title: "Azure Mobile Engagement 文件 - 教學課程和 API 參考 | Microsoft Docs"
-description: "了解如何深入解析行動應用程式使用量和即時使用者區隔，以及如何啟用內容感知的推播通知及應用程式內的傳訊功能。"
+title: Azure Mobile Engagement 文件 - 教學課程和 API 參考 | Microsoft Docs
+description: 了解如何深入解析行動應用程式使用量和即時使用者區隔，以及如何啟用內容感知的推播通知及應用程式內的傳訊功能。
 services: mobile-engagement
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: mobile-engagement
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 5f682ba16b52b9a084505b8212c4b6f043bb94c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 874b40e0e1407be9f546c5a5f57cee2d1034a840
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="mobile-engagement-documentation"></a>Mobile Engagement 文件
+
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
 
 了解如何透過 Mobile Engagement 來增加行動應用程式的使用量、保留期和獲利。 教學課程、SDK 和其他文件會示範如何深入解析應用程式使用量和即時使用者區隔，以及如何啟用內容感知的推播通知及應用程式內的傳訊功能。
 

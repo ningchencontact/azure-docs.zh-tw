@@ -8,6 +8,7 @@
 # 開始使用
 ## [建立路由式 VPN 閘道 - Azure 入口網站](create-routebased-vpn-gateway-portal.md)
 ## [建立路由式 VPN 閘道 - PowerShell](create-routebased-vpn-gateway-powershell.md)
+## [建立路由式 VPN 閘道 - CLI](create-routebased-vpn-gateway-cli.md)
 
 # 概念
 ## [規劃與設計 VPN 閘道](vpn-gateway-plan-design.md)
