@@ -15,58 +15,67 @@ ms.topic: article
 ms.date: 02/26/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 88995b1f3350fe485e28efccc93779ae0a42eb97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 15b9b0b69f3805b3e3af1d3973fd3a77bea62ab9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="near-real-time-metric-alerts-preview"></a>近乎即時計量警示 (預覽)
-Azure 監視器支援一種新的警示類型，稱為近乎即時計量警示 (預覽)。 此功能目前為公開預覽狀態。
+# <a name="use-the-newer-metric-alerts-for-azure-services-in-azure-portal"></a>在 Azure 入口網站中針對 Azure 服務使用新版計量警示
+「Azure 監視器」支援一種新的警示類型，稱為近乎即時計量警示。 
 
-近乎即時計量警示與一般計量警示在一些方面有所不同：
+近乎即時計量警示在幾個方面與[傳統計量警示](insights-alerts-portal.md)不同：
 
-- **改善延遲**：近乎即時計量警示能以小到 1 分鐘的頻率監視計量值中的變更。
+- **改善延遲**：近乎即時計量警示的執行頻率可以達到每分鐘一次。 舊版計量警示的執行頻率一律是每 5 分鐘一次。
+- **支援多維度計量**：您可以針對維度計量發出警示，以便監視計量中某個您感興趣的區段。
 - **對計量條件有更好的控制**：您可以在近乎即時計量警示中定義更豐富的警示規則。 警示支援監視計量的最大值、最小值、平均與總計值。
-- **來自記錄檔的計量**：從進入 [Log Analytics](../log-analytics/log-analytics-overview.md) 的常用記錄資料中，系統可將計量擷取至「Azure 監視器」中並以近乎即時的方式發出警示
 - **可監視多個計量的整合監視功能**：近乎即時計量警示能以單一規則監視多個計量 (目前支援最多兩個計量)。 若兩個計量在指定的時間內都達到其個別閾值，則會觸發警示。
 - **模組化通知系統**：近乎即時計量警示使用[動作群組](monitoring-action-groups.md)。 您可以使用動作群組來建立模組化動作。 您可以針對多個警示規則重複使用動作群組。
+- **來自記錄檔的計量**：從進入 [Log Analytics](../log-analytics/log-analytics-overview.md) 的常用記錄資料中，系統可將計量擷取至「Azure 監視器」中並以近乎即時的方式發出警示。
 
-> [!NOTE]
-> 近乎即時計量警示目前為公開預覽版。 來自記錄檔的計量功能為「有限」公開預覽版。 功能與使用者體驗可能會變更。
->
 
 ## <a name="metrics-and-dimensions-supported"></a>支援的計量和維度
 近乎即時計量警示支援使用維度之計量的警示。 您可以使用維度來將計量篩選到正確層級。 從 [Azure 監視器 - 計量瀏覽器 (預覽)](monitoring-metric-charts.md)，即可探索並以視覺化方式檢視所有支援的計量及適用的維度。
 
 以下是支援近乎即時計量警示的 Azure 監視器型計量資源完整清單：
 
-|計量名稱/詳細資料  |支援的維度  |
-|---------|---------|
-|Microsoft.ApiManagement/service     | yes        |
-|Microsoft.Automation/automationAccounts     |     N/A    |
-|Microsoft.Automation/automationAccounts     |   N/A      |
-|Microsoft.Cache/Redis     |    N/A     |
-|Microsoft.Compute/virtualMachines     |    N/A     |
-|Microsoft.Compute/virtualMachineScaleSets     |   N/A      |
-|Microsoft.DataFactory/factories     |   N/A      |
-|Microsoft.DBforMySQL/servers     |   N/A      |
-|Microsoft.DBforPostgreSQL/servers     |    N/A     |
-|Microsoft.EventHub/namespaces     |   N/A      |
-|Microsoft.Logic/workflows     |     N/A    |
-|Microsoft.Network/applicationGateways     |    N/A     |
-|Microsoft.Network/publicipaddresses     |  N/A       |
-|Microsoft.Search/searchServices     |   N/A      |
-|Microsoft.ServiceBus/namespaces     |  N/A       |
-|Microsoft.Storage/storageAccounts     |    yes     |
-|Microsoft.Storage/storageAccounts/services     |     yes    |
-|Microsoft.StreamAnalytics/streamingjobs     |  N/A       |
-|Microsoft.CognitiveServices/accounts     |    N/A     |
+|資源類型  |支援的維度  | 可用的計量|
+|---------|---------|----------------|
+|Microsoft.ApiManagement/service     | yes        | [API 管理](monitoring-supported-metrics.md#microsoftapimanagementservice)|
+|Microsoft.Automation/automationAccounts     |     yes   | [自動化帳戶](monitoring-supported-metrics.md#microsoftautomationautomationaccounts)|
+|Microsoft.Batch/batchAccounts | N/A| [Batch 帳戶](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
+|Microsoft.Cache/Redis     |    N/A     |[Redis 快取](monitoring-supported-metrics.md#microsoftcacheredis)|
+|Microsoft.Compute/virtualMachines     |    N/A     | [虛擬機器](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
+|Microsoft.Compute/virtualMachineScaleSets     |   N/A      |[虛擬機器擴展集](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.DataFactory/factories     |   yes     |[資料處理站 (V2)](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
+|Microsoft.DBforMySQL/servers     |   N/A      |[適用於 MySQL 的 DB](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
+|Microsoft.DBforPostgreSQL/servers     |    N/A     | [適用於 PostgreSQL 的 DB](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
+|Microsoft.EventHub/namespaces     |  yes      |[事件中樞](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
+|Microsoft.Logic/workflows     |     N/A    |[Logic Apps](monitoring-supported-metrics.md#microsoftlogicworkflows) |
+|Microsoft.Network/applicationGateways     |    N/A     | [應用程式閘道](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/publicipaddresses     |  N/A       |[公用 IP 位址](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.Search/searchServices     |   N/A      |[搜尋服務](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
+|Microsoft.ServiceBus/namespaces     |  yes       |[服務匯流排](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
+|Microsoft.Storage/storageAccounts     |    yes     | [儲存體帳戶](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|
+|Microsoft.Storage/storageAccounts/services     |     yes    | [Blob 服務](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices)、[檔案服務](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices)、[佇列服務](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices)及[資料表服務](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft.StreamAnalytics/streamingjobs     |  N/A       | [串流分析](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
+|Microsoft.CognitiveServices/accounts     |    N/A     | [認知服務](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
+|Microsoft.OperationalInsights/workspaces (預覽) | yes|[Log Analytics 工作區](#support-for-oms-logs-as-metrics-for-alerting)|
 
 
-來自記錄檔的計量目前支援下列常用的 OMS 記錄檔：
+## <a name="create-a-newer-metric-alert"></a>建立新版計量警示
+目前，您只能在 Azure 入口網站或 REST API 中建立新版計量警示。 即將支援使用 PowerShell、Azure 命令列介面 (Azure CLI) 來設定近乎即時計量警示。
+
+若要了解如何在 Azure 入口網站中建立新版計量警示，請參閱[在 Azure 入口網站中建立警示規則](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal)。
+
+## <a name="manage-newer-metric-alerts"></a>管理新版計量警示
+建立近乎即時計量警示之後，您可以使用[在 Azure 入口網站中管理您的警示](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal)中所述的步驟來管理警示。
+
+## <a name="support-for-oms-logs-as-metrics-for-alerting"></a>支援使用 OMS 記錄作為警示計量
+
+您也可以針對擷取來作為計量 (作為來自 [記錄預覽] 之 [計量] 的一部分) 的常用 OMS 記錄使用近乎即時計量警示。  
 - Windows 和 Linux 電腦的[效能計數器](../log-analytics/log-analytics-data-sources-performance-counters.md)
-- 電腦的活動訊號記錄
+- [代理程式健全狀況的活動訊號記錄](../operations-management-suite/oms-solution-agenthealth.md)
 - [更新管理](../operations-management-suite/oms-solution-update-management.md)記錄
 
 以下是支援近乎即時計量警示的 OMS 記錄檔型計量資源完整清單：
@@ -140,20 +149,11 @@ Azure 監視器支援一種新的警示類型，稱為近乎即時計量警示 (
 |    Average_Uptime |     是 - Computer、ObjectName、InstanceName、CounterPath 及 SourceSystem    |   Linux 效能計數器      |
 |    Average_Users  |     是 - Computer、ObjectName、InstanceName、CounterPath 及 SourceSystem    |   Linux 效能計數器      |
 |    Heartbeat  |     是 - Computer、OSType、Version 及 SourceComputerId    |   活動訊號記錄 |
-|    Update |     是 - Computer、Product、Classification、UpdateState、Optional 及 Approved    |   更新管理 |
+|    更新 |     是 - Computer、Product、Classification、UpdateState、Optional 及 Approved    |   更新管理 |
 
 > [!NOTE]
-> 只有在所選期間中有特定計量和/或維度的資料時，才會顯示特定計量和/或維度
+> 只有在所選期間中有特定計量和/或維度的資料時，才會顯示特定計量和/或維度。 這些計量可供在美國東部、美國中西部及西歐有工作區且已選擇加入預覽的客戶使用。 如果您想要參與此預覽，請透過[問卷](https://aka.ms/MetricLogPreview)註冊。
 
-## <a name="create-a-near-real-time-metric-alert"></a>建立近乎即時計量警示
-目前，您只能在 Azure 入口網站中建立近乎即時計量警示。 即將支援使用 PowerShell、Azure 命令列介面 (Azure CLI) 與 Azure 監視器 REST API 來設定近乎即時計量警示。
-
-近乎即時計量警示的建立體驗已移至新的**警示 (預覽)** 功能。 即使目前的警示分頁顯示**新增近乎即時計量警示**，也會將您重新導向至**警示 (預覽)** 分頁。
-
-若要了解如何建立近乎即時計量警示，請造訪[在 Azure 入口網站建立警示規則](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal)。
-
-## <a name="manage-near-real-time-metric-alerts"></a>管理近乎即時計量警示
-建立近乎即時計量警示之後，您可以使用[在 Azure 入口網站中管理您的警示](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal)中所述的步驟來管理警示。
 
 ## <a name="payload-schema"></a>承載結構描述
 
@@ -209,6 +209,6 @@ Azure 監視器支援一種新的警示類型，稱為近乎即時計量警示 (
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解新的[警示 (預覽) 體驗](monitoring-overview-unified-alerts.md)。
-* 深入了解 [Azure 警示中的記錄警示 (預覽)](monitor-alerts-unified-log.md)。
+* 深入了解新的[警示體驗](monitoring-overview-unified-alerts.md)。
+* 了解 [Azure 中的記錄警示](monitor-alerts-unified-log.md)。
 * 深入了解 [Azure 中的警示](monitoring-overview-alerts.md)。

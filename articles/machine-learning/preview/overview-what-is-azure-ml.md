@@ -1,6 +1,6 @@
 ---
 title: 什麼是 Azure Machine Learning？ | Microsoft Docs
-description: Azure Machine Learning 測試和模型管理的概觀，這是一套整合的端對端資料科學解決方案，可供專業資料科學家用來以雲端規模開發、測試及部署進階分析應用程式。
+description: 說明雲端中的機器學習服務基本概念，描述它的使用用途，並定義機器學習服務詞彙。 Azure Machine Learning 的概觀 - 這是一套整合的端對端資料科學解決方案，可供專業資料科學家用來以雲端規模開發、測試及部署進階分析應用程式。
 services: machine-learning
 author: mwinkle
 ms.author: mwinkle
@@ -9,14 +9,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: e5716e3fc519c48aaea3ec17939d11008a1b1fd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8a92f42ecee926042e9e0662f6b0bd9438024248
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="what-is-azure-machine-learning"></a>什麼是 Azure Machine Learning？
+# <a name="what-is-machine-learning"></a>什麼是機器學習服務？
 
+機器學習是一項資料科學技術，可讓電腦使用現有資料來預測未來的行為、結果和趨勢。 使用機器學習，電腦不需要明確進行程式設計就能學習。
+
+機器學習的預測可讓應用程式和裝置更聰明。 當您線上購物時，機器學習服務可根據您已經購買的產品，協助推薦其他產品。 當您的信用卡被刷過時，機器學習服務可將該筆交易與交易資料庫進行比對，協助偵測詐騙。 當您的真空吸塵器機器人清潔房間時，機器學習服務可協助它判斷作業是否完成。
+
+## <a name="what-is-azure-machine-learning"></a>什麼是 Azure Machine Learning？
 Azure Machine Learning 是整合、端對端的資料科學和進階分析解決方案。 它可讓資料科學家用來以雲端規模準備資料、開發測試及部署模型。
 
 Azure Machine Learning 的主要元件包括：
@@ -29,6 +34,7 @@ Azure Machine Learning 的主要元件包括：
 這些應用程式和服務共同協助您大幅加速資料科學專案的開發和部署。 
 
 ![Azure Machine Learning 概念](media/overview-what-is-azure-ml/aml-concepts.png)
+
 
 ## <a name="open-source-compatible"></a>開放原始碼相容
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 6f0b5cd7b981cddeda7e5630967f5f8dba18bb98
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: febe055348efb49ea1e6bc670333f435de654cfc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>整合您的內部部署目錄與 Azure Active Directory
 Azure AD Connect 會整合您的內部部署目錄與 Azure Active Directory。 這可讓您為與 Azure AD 整合之 Office 365、Azure 和 SaaS 應用程式的使用者提供通用身分識別。 本主題將引導您完成規劃、部署和作業步驟。 其中集結了與此領域相關的主題連結。
@@ -88,7 +88,7 @@ Azure AD Connect 隨附數個您可以選擇性地開啟或預設為啟用的功
 
 [篩選](active-directory-aadconnectsync-configure-filtering.md) 是在您想要限制 Azure AD 可同步處理哪些物件時使用。 預設會同步處理所有使用者、連絡人、群組和 Windows 10 電腦。 您可以根據網域、OU 或屬性變更篩選。
 
-[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md) 會將 Active Directory 中的密碼雜湊同步處理至 Azure AD。 使用者可在內部部署與雲端中使用相同的密碼，但只能在一個地方管理此密碼。 因為它使用您的內部部署 Active Directory 做為授權單位，所以您也可以使用自己的密碼原則。
+[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)會將 Active Directory 中的密碼雜湊同步處理至 Azure AD。 使用者可在內部部署與雲端中使用相同的密碼，但只能在一個地方管理此密碼。 因為它使用您的內部部署 Active Directory 做為授權單位，所以您也可以使用自己的密碼原則。
 
 [密碼回寫](../active-directory-passwords-getting-started.md) 將可讓您的使用者在雲端中變更和重設其密碼，並套用您的內部部署密碼原則。
 
@@ -102,7 +102,7 @@ Azure AD Connect 隨附數個您可以選擇性地開啟或預設為啟用的功
 |話題 |連結|  
 | --- | --- |
 |設定篩選 | [Azure AD Connect 同步處理：設定篩選](active-directory-aadconnectsync-configure-filtering.md)|
-|密碼同步處理 | [Azure AD Connect 同步處理：實作密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)|
+|密碼雜湊同步處理 | [Azure AD Connect 同步處理：實作密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
 |密碼回寫 | [開始使用密碼管理](../active-directory-passwords-getting-started.md)|
 |裝置回寫 | [在 Azure AD Connect 中啟用裝置回寫](active-directory-aadconnect-feature-device-writeback.md)|
 |防止意外刪除 | [Azure AD Connect 同步處理：防止意外刪除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|

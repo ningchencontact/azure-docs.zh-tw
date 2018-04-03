@@ -15,15 +15,15 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: e789d3c6e10399491eb055b850a590ae10aacd11
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 85a3898145f7aea5d3f668caeafb62286006230d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="web-apps-overview"></a>Web 應用程式概觀
 
-「Azure App Service Web Apps」(或簡稱 Web Apps) 是用來裝載 Web 應用程式、REST API 和行動後端的服務。 您可以使用您慣用的語言進行開發，不管是 .NET、.NET Core、Java、Ruby、Node.js、PHP 還是 Python 都可以。 您可以輕鬆地在 Windows 或 Linux VM 上執行和調整應用程式 (請參閱 [Linux 上的 App Service](containers/app-service-linux-intro.md))。 
+「Azure App Service Web Apps」(或簡稱 Web Apps) 是用來裝載 Web 應用程式、REST API 和行動後端的服務。 您可以使用您慣用的語言進行開發，不管是 .NET、.NET Core、Java、Ruby、Node.js、PHP 還是 Python 都可以。 應用程式可以在 Windows 環境中輕鬆執行及調整。 若是 Linux 環境，請參閱 [Linux 上的 App Service](containers/app-service-linux-intro.md)。 
 
 Web Apps 不只能將 Microsoft Azure 的功能新增到您的應用程式，例如安全性、負載平衡、自動調整和自動化管理。 您也可以利用它的 DevOps 功能，例如從 VSTS、GitHub、Docker Hub 和其他來源進行持續部署、套件管理、預備環境、自訂網域和 SSL 憑證。 
 

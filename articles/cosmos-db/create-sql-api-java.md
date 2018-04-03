@@ -15,17 +15,17 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: 669a11368ed6ccec041701e691323a2bb2cac56a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 99c4c15893d1318be13781558fb7ed35203bd971
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Java 和 Azure 入口網站建立文件資料庫
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可使用 Azure Cosmos DB 快速地建立和查詢受控文件、資料表及圖形資料庫。
 
-本快速入門會使用 Azure Cosmos DB 適用的 Azure 入口網站工具建立文件資料庫。 本快速入門也會說明如何使用 [SQL Java API](sql-api-sdk-java.md) 快速建立 Java 主控台應用程式。 本快速入門中的指示可運用在任何足以執行 Java 應用程式的作業系統上。 完成本快速入門，您就會熟悉如何在 UI 中或以程式設計的方式，建立和修改文件資料庫資源 (不論您偏好哪種方式)。
+本快速入門會使用 Azure Cosmos DB [SQL API](sql-api-introduction.md)適用的 Azure 入口網站工具建立文件資料庫。 本快速入門也會說明如何使用 [SQL Java API](sql-api-sdk-java.md) 快速建立 Java 主控台應用程式。 本快速入門中的指示可運用在任何足以執行 Java 應用程式的作業系統上。 完成本快速入門，您就會熟悉如何在 UI 中或以程式設計的方式，建立和修改文件資料庫資源 (不論您偏好哪種方式)。
 
 ## <a name="prerequisites"></a>先決條件
 

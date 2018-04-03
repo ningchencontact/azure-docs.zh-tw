@@ -2,7 +2,6 @@
 title: Azure AD Connect：開始使用快速設定 | Microsoft Docs
 description: 了解如何下載、安裝和執行 Azure AD Connect 的安裝精靈。
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -12,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/21/2018
+ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: 46fc01bfd7fada529ff1416e8ad46d2ea34792bd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 024736ed76e9b268e85db3ecc62b853d6c276fbf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>使用快速設定開始使用 Azure AD Connect
-當您有單一樹系拓撲和用於驗證的**密碼同步處理**時，便可使用 Azure AD Connect [快速設定](active-directory-aadconnectsync-implement-password-synchronization.md)。 **快速設定** 是預設選項，並且會用在最常部署的案例。 只要簡短地按幾下即可將內部部署目錄擴充至雲端。
+當您有單一樹系拓撲和用於驗證的**密碼雜湊同步處理**時，便可使用 Azure AD Connect [快速設定](active-directory-aadconnectsync-implement-password-hash-synchronization.md)。 **快速設定** 是預設選項，並且會用在最常部署的案例。 只要簡短地按幾下即可將內部部署目錄擴充至雲端。
 
 在開始安裝 Azure AD Connect 之前，請務必要[下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) 並完成 [Azure AD Connect：硬體和必要條件](active-directory-aadconnect-prerequisites.md)中的必要條件步驟。
 

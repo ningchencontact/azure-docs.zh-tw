@@ -15,17 +15,17 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: a5c3a0cdef488e4c4788a22976d78db72bdd55fc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bbf322b698f9237799c05f2ab85297452b7f9a10
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Java 和 Azure 入口網站建立圖形資料庫
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可使用 Azure Cosmos DB 快速地建立和查詢受控文件、資料表及圖形資料庫。 
 
-本快速入門會使用 Azure Cosmos DB 適用的 Azure 入口網站工具，建立簡易的圖形資料庫。 本快速入門也會顯示如何使用 OSS [Apache TinkerPop](http://tinkerpop.apache.org/) 驅動程式，快速建立 Java 主控台應用程式。 本快速入門中的指示可運用在任何足以執行 Java 應用程式的作業系統上。 本快速入門可讓您熟悉如何在 UI 中或以程式設計方式建立和修改圖形 (不論您偏好哪種方式)。 
+本快速入門會使用 Azure Cosmos DB 適用的 Azure 入口網站工具，建立簡易的圖形資料庫。 本快速入門也會顯示如何透過使用 OSS [Apache TinkerPop](http://tinkerpop.apache.org/) 驅動程式的[圖形 API](graph-introduction.md) 資料庫，快速建立 Java 主控台應用程式。 本快速入門中的指示可運用在任何足以執行 Java 應用程式的作業系統上。 本快速入門可讓您熟悉如何在 UI 中或以程式設計方式建立和修改圖形 (不論您偏好哪種方式)。 
 
 ## <a name="prerequisites"></a>先決條件
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
