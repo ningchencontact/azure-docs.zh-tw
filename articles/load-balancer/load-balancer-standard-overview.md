@@ -1,6 +1,6 @@
 ---
-title: Azure Load Balancer Standard 概觀 | Microsoft Docs
-description: Azure Load Balancer Standard 的功能概觀
+title: Azure 標準 Load Balancer 概觀 | Microsoft Docs
+description: Azure 標準 Load Balancer 功能概觀
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -12,61 +12,87 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 2d7fcb3ee066fa768615fbf643a0c2e1c1d28498
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d7ee74a19f806faed0bcfcfa5f1c5de3937d9f31
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-load-balancer-standard-overview-preview"></a>Azure Load Balancer Standard 概觀 (預覽)
+# <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer Standard 概觀
 
-Azure Load Balancer Standard SKU 和 Public IP Standard SKU 搭配使用，可讓您建置極為靈活可靠的架構。 使用 Load Balancer Standard 的應用程式將可利用新功能。 所有 TCP 和 UDP 應用程式的數百萬個流程都可享有低延遲、高輸送量及彈性規模的好處。
+Azure Load Balancer 可讓您調整您的應用程式，並為您的服務建立高可用性。 對於所有的 TCP 和 UDP 應用程式，Load Balancer 皆可用於輸入和輸出案例，並可提供低延遲和高輸送量，且最多可相應增加為數百萬個流程。 
+
+本文將著重於標準 Load Balancer。  如需 Azure Load Balancer 的一般概觀，請另行檢閱[負載平衡器概觀](load-balancer-overview.md)。
+
+## <a name="what-is-standard-load-balancer"></a>什麼是標準 Load Balancer？
+
+標準 Load Balancer 是適用於所有 TCP 和 UDP 應用程式的新款 Load Balancer 產品，具有比基本 Load Balancer 更豐富、更細密的功能。  雖然兩者有許多相似之處，但請務必熟悉本文所說明的差異。
+
+您可以將標準 Load Balancer 作為公用或內部 Load Balancer。 此外，虛擬機器可以連接至一個公用和一個內部 Load Balancer 資源。
+
+Load Balancer 資源的運作方式，一律以前端、規則、健康情況探查和後端集區定義來表示。  一個資源可包含多項規則。 您可以從虛擬機器的 NIC 資源指定後端集區，以將虛擬機器放入後端集區中。  在使用虛擬機器擴展集時，此參數會傳遞至網路設定檔並擴充。
+
+資源的虛擬網路範圍，是重要層面之一。  基本 Load Balancer 存在於可用性設定組的範圍內，而標準 Load Balancer 則與虛擬網路範圍完全整合，並且適用所有的虛擬網路概念。
+
+Load Balancer 資源是一種物件，而您可以在其中表示 Azure 應如何對其多租用戶基礎結構進行設計程式，以達到您想要建立的案例。  Load Balancer 資源與實際的基礎結構之間沒有直接關聯性；建立 Load Balancer 並不會建立執行個體，容量一直都在，且無須考量啟動或調整延遲的問題。 
 
 >[!NOTE]
-> Load Balancer Standard SKU 目前為預覽版。 在預覽階段，功能可能沒有與正式運作版功能相同層級的可用性和可靠性。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 針對您的生產環境服務，請使用正式運作版的 [Load Balancer Basic SKU](load-balancer-overview.md)。 若要使用[可用性區域預覽](https://aka.ms/availabilityzones) 搭配此預覽，除了要註冊 Load Balancer [Standard 預覽](#preview-sign-up) 之外，還需要[另外註冊](https://aka.ms/availabilityzones)。
+> Azure 可為您的案例提供一套受到完整管理的負載平衡解決方案。  如果您需要 TLS 終止 (「SSL 卸載」) 或每一 HTTP/HTTPS 要求的應用程式層處理，請參閱[應用程式閘道](../application-gateway/application-gateway-introduction.md)。  如果您需要全域 DNS 負載平衡，請參閱[流量管理員](../traffic-manager/traffic-manager-overview.md)。  視需要結合這些解決方案，您的端對端案例可能因而受益。
 
-## <a name="why-use-load-balancer-standard"></a>為什麼要使用 Load Balancer Standard？
+## <a name="why-use-standard-load-balancer"></a>為何要使用標準 Load Balancer？
 
-您可以將 Load Balancer Standard 用於整個虛擬資料中心範圍。 從小規模部署到既大型又複雜的多區域架構，都可以使用 Load Balancer Standard 來利用下列功能：
+您可以將標準 Load Balancer 用於各種規模的虛擬資料中心，從小規模的部署到大型且複雜的多重區域架構均適用。
 
-- 使用 Load Balancer Standard 可達到[企業級規模](#enterprisescale)。 此功能可以與虛擬網路內的任何虛擬機器 (VM) 執行個體搭配使用，最多可達 1,000 個 VM 執行個體。
+請檢閱下表，大致了解標準 Load Balancer 與基本 Load Balancer 之間的差異：
 
-- [新的診斷見解](#diagnosticinsights)可協助您了解、管理虛擬資料中心的這個重要元件，以及對其進行疑難排解。 使用「Azure 監視器」(預覽版) 來顯示、篩選用於連續資料路徑健康情況測量的新多維度計量並加以分組。 監視您的資料，從前端到 VM、端點健康情況探查 (了解是否有 TCP 連線嘗試)，再到連出連線。
+>[!NOTE]
+> 新的設計應考慮使用標準 Load Balancer。 
 
-- [網路安全性群組](#nsg)現在對於與 Load Balancer Standard SKU 或 Public IP Standard SKU 關聯的所有 VM 執行個體來說都是必要的。 網路安全性群組 (NSG) 可為您的案例提供增強的安全性。
+| | 標準 SKU | 基本 SKU |
+| --- | --- | --- |
+| 後端集區大小 | 最多 1000 個執行個體 | 最多 100 個執行個體 |
+| 後端集區端點 | 單一虛擬網路中的任何虛擬機器，包括虛擬機器混合、可用性設定組、虛擬機器擴展集。 | 單一可用性設定組或虛擬機器擴展集中的虛擬機器 |
+| 可用性區域 | 輸入和輸出的區域備援和區域性前端、輸出流程對應存活區域失敗、跨區域負載平衡 | / |
+| 診斷 | Azure 監視器、多維度計量 (包括位元組和封包計數器)、健康情況探查狀態、連線嘗試 (TCP SYN)、輸出連線的健康情況 (SNAT 成功和失敗的流程)、作用中資料平面測量 | 僅適用於公用 Load Balancer 的 Azure Log Analytics、SNAT 耗盡警示、後端集區健康情況計數 |
+| HA 連接埠 | 內部 Load Balancer | / |
+| 預設保護 | 針對公用 IP 和 Load Balancer 端點的保護預設為關閉，需使用網路安全性群組明確將流程的流量加入白名單 | 預設為開啟，網路安全性群組為選用項目 |
+| 輸出連線 | 多個具有選擇退出規則的前端。「必須」明確建立輸出案例，虛擬機器才能使用輸出連線能力。  [VNet 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)不需要輸出連線即可聯繫，且不會計入處理的資料。  任何公用 IP 位址都必須透過輸出連線來聯繫 (包括無法作為 VNet 服務端點的 Azure PaaS 服務)，且會計入處理的資料。 僅以一個內部 Load Balancer 為虛擬機器提供服務時，就無法透過預設 SNAT 進行輸出連線。 輸出 SNAT 的程式設計依傳輸通訊協定而異，以輸入負載平衡規則的通訊協定為準。 | 單一前端，有多個前端存在時會隨機選取。  僅以一個內部 Load Balancer 為虛擬機器提供服務時，會使用預設 SNAT。 |
+| 多個前端 | 輸入和輸出 | 僅輸入 |
+| 管理作業 | 大部分的作業 < 30 秒 | 通常是 60-90+ 秒 |
+| SLA | 99.99% (當資料路徑兩端的兩個虛擬機器狀況良好時) | VM SLA 中不言明 | 
+| 價格 | 根據規則數目、與資源相關聯的輸入或輸出處理資料來計費  | 不收費 |
 
-- [高可用性 (HA) 連接埠可提供高可靠性](#highreliability)和彈性規模 (針對網路虛擬設備和其他應用程式案例)。 「HA 連接埠」可將 Azure 內部負載平衡器 (ILB) 前端上所有連接埠的負載平衡至 VM 執行個體集區。
-
-- [連出連線](#outboundconnections)現在使用新的「來源網路位址轉譯」(SNAT) 連接埠配置模型，可提供更大的恢復能力和規模。
-
-- [Load Balancer Standard 搭配可用性區域](#availabilityzones)可用來建構區域備援和區域性架構。 這兩個架構都可包含跨區域負載平衡。 您不需倚賴 DNS 記錄即可達到區域備援。 單一 IP 位址預設就有區域備援。  單一 IP 位址可以連線至跨所有「可用性區域」的某個區域內某個區域網路中的任何 VM。
+請檢閱 [Load Balancer 的服務限制](https://aka.ms/lblimits)、[定價](https://aka.ms/lbpricing)和 [SLA](https://aka.ms/lbsla)。
 
 
-您可以在公開或內部組態中使用 Load Balancer Standard，以支援下列基本案例：
+### <a name="backend"></a>後端集區
 
-- 將輸入流量負載平衡至狀況良好的後端執行個體。
-- 透過連接埠將輸入流量轉送至單一後端執行個體。
-- 將輸出流量從虛擬網路內的私人 IP 位址轉譯成「公用 IP」位址。
+標準 Load Balancer 後端集區可擴充至虛擬網路中的任何虛擬機器資源。  它最多可包含 1000 個後端執行個體。  後端執行個體是 IP 組態，也就是 NIC 資源的屬性。
 
-### <a name = "enterprisescale"></a>企業級規模
+後端集區可包含獨立虛擬機器、可用性設定組或虛擬機器擴展集。  您可以混合搭配後端集區中的資源，且集區中最多可包含 150 項這些資源的任意組合。
 
- 使用 Load Balancer Standard 來設計您的高效能虛擬資料中心，以及支援任何 TCP 或 UDP 應用程式。 在後端集區中使用獨立 VM 執行個體，或最多可達 1,000 個執行個體的虛擬機器擴展集。 在完全受控的 Azure 服務上，繼續使用低轉送延遲、高輸送量效能及彈性規模，來處理數百萬個流程。
- 
-Load Balancer Standard 可以將流量轉送到某個區域內某個虛擬網路中的任何 VM 執行個體。 後端集區大小最大可達 1,000 個執行個體，其中可包含下列 VM 案例的任意組合：
+在考量如何設計您的後端集區時，您可以將最少量的個別後端集區資源作為設計原則，以進一步最佳化執行管理作業所需的時間。  在資料平面的效能或規模方面沒有任何差異。
 
-- 沒有可用性設定組的獨立 VM
-- 具有可用性設定組的獨立 VM
-- 虛擬機器擴展集 (最多可達 1,000 個執行個體)
-- 多個虛擬機器擴展集
-- VM 與虛擬機器擴展集混合
+## <a name="az"></a>可用性區域
 
-可用性設定組已不再是必要條件。 您可以選擇使用可用性設定組來獲得其提供的其他好處。
+>[!NOTE]
+> 若要搭配使用[可用性區域預覽版](https://aka.ms/availabilityzones)與標準 Load Balancer，必須要[註冊可用性區域](https://aka.ms/availabilityzones)。
 
-### <a name = "diagnosticinsights"></a>診斷見解
+標準 Load Balancer 在可使用「可用性區域」的區域中可支援較多功能。  這些功能會累加於所有標準 Standard Load Balancer 所提供的功能之上。  公用和內部標準 Load Balancer 皆可進行可用性區域設定。
 
-Load Balancer Standard 提供公用和內部 Load Balancer 設定的新多維診斷功能。 這些新計量是透過「Azure 監視器」(預覽版) 提供的，並且會利用所有相關的功能，包括與下游取用者整合的功能。
+區域性前端在部署於具有可用性區域的區域時，會依預設成為區域備援前端。   區域備援前端不受區域失敗的影響，且所有區域中的專用基礎結構會同時為其提供服務。 
+
+此外，您可以確保前端可用於特定區域。 區域性前端與個別的區域會有共同的結果，且只有單一區域中的專用基礎結構會為其提供服務。
+
+跨區域負載平衡適用於後端集區，Vnet 中的任何虛擬機器資源都可以是後端集區的一部分。
+
+請檢閱[可用性區域相關功能的詳細討論](load-balancer-standard-availability-zones.md)。
+
+### <a name="diagnostics"></a> 診斷
+
+標準 Load Balancer 可透過 Azure 監視器提供多維度計量。  這些計量可進行篩選和分組，並且可讓您深入檢視您的服務目前和過去的效能和健康情況。  此外也支援資源健康情況。  以下將簡單說明支援的診斷：
 
 | 計量 | 說明 |
 | --- | --- |
@@ -77,222 +103,74 @@ Load Balancer Standard 提供公用和內部 Load Balancer 設定的新多維診
 | 位元組計數器 | Load Balancer Standard 會回報每個前端處理的資料。|
 | 封包計數器 | Load Balancer Standard 會回報每個前端處理的封包。|
 
-### <a name = "highreliability"></a>高可靠性
+請檢閱[標準 Load Balancer 診斷的詳細討論](load-balancer-standard-diagnostics.md)。
 
-設定負載平衡規則，讓應用程式延展和變得高度可靠。 您可以設定個別連接埠的規則，或使用「HA 連接埠」來平衡所有流量，不論 TCP 或 UDP 連接埠號碼為何。  
+### <a name="haports"></a>HA 連接埠
 
-您可以使用新的「HA 連接埠」功能來開啟各種案例，包括內部 NVA 的高可用性和彈性規模。 對於那些指定個別連接埠並不實際或不符合需求的其他案例來說，此功能相當實用。 「HA 連接埠」可讓您依所需的數目指定多個執行個體，來為您提供備援和彈性規模。 您的組態不再侷限於主動/被動案例。 健康情況探查設定將流量只轉接到狀況良好的執行個體，以保護您的服務。
+標準 Load Balancer 支援新類型的規則。  
 
-NVA 廠商可以為其客戶提供完全受廠商支援、有彈性的案例。 這移除了單一失敗點的缺點，而可支援多個作用中執行個體來提供彈性規模。 您可以視設備的功能而定，將規模調整成兩個或更多個執行個體。 請連絡您的 NVA 廠商以取得這些案例的額外指引。
+您可以設定負載平衡規則，讓應用程式延展並變得高度可靠。 當您使用 HA 連接埠負載平衡規則時，標準 Load Balancer 將會在內部標準 Load Balancer 之前端 IP 位址的每個暫時連接埠上提供以流量為準的負載平衡。  對於那些指定個別連接埠並不實際或不符合需求的其他案例來說，此功能相當實用。
 
-### <a name = "availabilityzones"></a>可用性區域
+HA 連接埠負載平衡規則可讓您為虛擬網路設備和任何需要大範圍輸入連接埠的應用程式，建立主動-被動或主動-主動 n + 1 的案例。  健康情況探查可用來判斷哪個後端應接收新的流量。  您可以使用網路安全性群組來模擬連接埠範圍案例。
 
-[!INCLUDE [availability-zones-preview-statement](../../includes/availability-zones-preview-statement.md)]
+>[!IMPORTANT]
+> 如果您打算使用網路虛擬設備，請要求廠商提供相關指引以了解是否其產品是否經過 HA 連接埠的測試，並遵循其指引進行實作。 
 
-在支援的區域中使用可用性區域來提升應用程式的恢復功能。 「可用性區域」目前在特定區域中為預覽版，需要額外選擇加入。
+請檢閱 [HA 連接埠的詳細討論](load-balancer-ha-ports-overview.md)。
 
-### <a name="automatic-zone-redundancy"></a>自動區域備援
+### <a name="securebydefault"></a>預設保護
 
-您可以選擇 Load Balancer 應該針對每個應用程式提供區域備援前端還是區域性前端。 使用 Load Balancer Standard 來建立區域備援相當簡單。 單一前端 IP 位址會自動具備區域備援。 區域中的所有可用性區域會同時為區域備援前端提供服務。 系統會針對連入和連出連線建立區域備援資料路徑。 區域備援性在 Azure 中不需要多個 IP 位址和 DNS 記錄。 
-
-區域備援適用於公用或內部前端。 您內部 Load Balancer 的「公用 IP」位址和前端私人 IP 都可以具備區域備援。
-
-請使用下列指令碼，為您的內部 Load Balancer 建立區域備援「公用 IP」位址。 如果您在組態中使用現有的 Resource Manager 範本，請將 **sku** 區段新增到這些範本。
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-請使用下列指令碼，為您的內部 Load Balancer 建立區域備援前端 IP。 如果您在組態中使用現有的 Resource Manager 範本，請將 **sku** 區段新增到這些範本。
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zone_redundant_frontend",
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-如果您的「公用 IP」前端是區域備援前端，則從 VM 執行個體進行的連出連線都會自動變成區域備援連線。 此前端會受到保護而不受區域失敗影響。 您的 SNAT 連接埠配置也會不受區域失敗影響。
-
-#### <a name="cross-zone-load-balancing"></a>跨區域負載平衡
-
-跨區域負載平衡可供在後端集區的區域內使用，能夠為您的 VM 執行個體提供最大的彈性。 前端會將流程傳遞給虛擬網路中的任何 VM，不論該 VM 執行個體的「可用性區域」為何。
-
-此外，您也可以為前端和後端執行個體指定特定區域，以讓您的資料路徑和資源與特定區域搭配運作。
-
-虛擬網路和子網路永遠不會受到區域限制。 只要定義一個含有您所需 VM 執行個體的後端集區，您的組態便設定完成。
-
-#### <a name="zonal-deployments"></a>區域性部署
-
-您也可以選擇定義一個區域性前端，以讓負載平衡器前端與特定區域搭配運作。 區域性前端僅由指定的單一「可用性區域」為其提供服務。 當前端與區域性 VM 執行個體結合時，您可以讓資源與特定區域搭配運作。
-
-在特定區域中建立的「公用 IP」位址一律只存在於該區域中。 「公用 IP」位址的區域無法變更。 若要讓「公用 IP」位址能夠連結到多個區域中的資源，請改為建立區域備援「公用 IP」。
-
-請使用下列指令碼，在「可用性區域 1」中建立「公用 IP」位址。 如果您在組態中使用現有的 Resource Manager 範本，請將 **sku** 區段新增到這些範本。
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "zones": [ "1" ],
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-請使用下列指令碼，定義進入「可用性區域 1」的內部 Load Balancer 前端。
-
-如果您在組態中使用現有的 Resource Manager 範本，請將 **sku** 區段新增到這些範本。 此外，也請定義子資源前端 IP 組態中的 **zones** 屬性。
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zonal_frontend_in_az1",
-                        "zones": [ "1" ],
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-請將虛擬網路中的 VM 執行個體放到您的後端集區中，來為該集區新增跨區域負載平衡功能。
-
-Load Balancer Standard 資源一律是區域性資源，並且在支援「可用性區域」的情況下也是區域備援資源。 您可以在任何區域中部署「公用 IP」位址，或部署沒有已指派區域的內部 Load Balancer 前端。 對「可用性區域」的支援並不影響部署功能。 如果區域稍後取得「可用性區域」，先前部署的「公用 IP」或內部 Load Balancer 前端將會自動具備區域備援。 區域備援資料路徑並不代表 0% 的封包遺失率。
-
-### <a name = "nsg"></a>網路安全性群組
-
-Load Balancer Standard 和 Public IP Standard 可在虛擬網路中完整上線運作，其中需要用到「網路安全性群組」(NSG)。 NSG 使您能夠將流量加入白名單中。 您可以使用 NSG 來完全控制傳送到您部署的流量。 不再需要等候其他流量完成。
-
-將 NSG 與後端集區中 VM 執行個體的子網路或網路介面 (NIC) 建立關聯。 請將此組態與 Load Balancer Standard 搭配使用，當作為執行個體層級的「公用 IP」時，則與 Public IP Standard 搭配使用。 NSG 必須將您想要允許的流量明確加入白名單中，才能允許該流量通過。
+標準 Load Balancer 完全架構於虛擬網路上。  虛擬網路是封閉的私人網路。  由於標準 Load Balancer 和標準公用 IP 位址設計為允許從虛擬網路外部存取此虛擬網路，因此這些資源目前預設為關閉，除非您加以開啟。 這表示目前會使用網路安全性群組 (NSG) 來明確許可和放行允許的流量。  您可以在建立整個虛擬資料中心之後，透過 NSG 決定該中心可供使用的項目和時間。  如果您沒有子網路的 NSG 或虛擬機器資源的 NIC，我們將不會允許存取此資源的流量。
 
 若要深入了解 NSG 及如何將其套用至您的案例，請參閱[網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
 
-### <a name ="outboundconnections"></a>輸出連線
+### <a name="outbound"></a> 輸出連線
 
-當負載平衡器使用連接埠偽裝 SNAT 時，Load Balancer Standard 會為虛擬網路內的 VM 提供連出連線。 連接埠偽裝 SNAT 演算法可提供更佳的健全性和彈性規模。
+Load Balancer 支援輸入和輸出案例。  標準 Load Balancer 在輸出連線方面與基本 Load Balancer 有很大的不同。
 
-當公用 Load Balancer 資源與 VM 執行個體建立關聯時，系統會改寫每個連出連線來源。 來源會從虛擬網路私人 IP 位址空間改寫成負載平衡器的前端「公用 IP」位址。
+系統會使用來源網路位址轉譯 (SNAT)，將您虛擬網路上的內部、私人 IP 位址對應至 Load Balancer 前端的公用 IP 位址。
 
-當連出連線與區域備援前端搭配使用時，這些連線也會具備區域備援，而使得 SNAT 連接埠配置不受區域失敗影響。
+標準 Load Balancer 基於[更為穩健、可擴充且可預期的 SNAT 演算法](load-balancer-outbound-connections.md#snat)的目標導入了新的演算法，並且啟用了新功能、去除模糊性，以及強制執行不產生負面影響的明確設定。 必須要有這些變更，才會有新的功能。 
 
-Load Balancer Standard 中的新演算法會為每個 VM 的 NIC 預先配置 SNAT 連接埠。 將 NIC 新增到集區時，系統會依據集區大小配置 SNAT 連接埠。 下表說明 6 層後端集區大小的連接埠預先配置：
+使用標準 Load Balancer 時須注意的重要原則如下：
 
-| 集區大小 (VM 執行個體) | 預先配置的 SNAT 連接埠數目 |
-| --- | --- |
-| 1 - 50 | 1024 |
-| 51 - 100 | 512 |
-| 101 - 200 | 256 |
-| 201 - 400 | 128 |
-| 401 - 800 | 64 |
-| 801 - 1,000 | 32 |
+- Load Balancer 資源的運用端賴於完整的規則。  Azure 的所有程式設計皆衍生自該規則的設定。
+- 有多個可用的前端時，將會使用所有前端，而每個前端分別會使可用的 SNAT 連接埠數目隨之增加
+- 您可以選擇及控制是否不要讓特定前端用於輸出連線。
+- 輸出案例是明確的，且必須經由指定才會有輸出連線存在。
+- 負載平衡規則會推斷 SNAT 的程式設計方式。 負載平衡規則會隨通訊協定而不同。 SNAT 會隨通訊協定而不同，且設定應反映這一點，而非產生負面影響。
 
-SNAT 連接埠不會直接轉譯為連出連線數目。 SNAT 連接埠可以重複使用於多個唯一目的地。 如需詳細資料，請檢閱[輸出連線](load-balancer-outbound-connections.md)一文。
+#### <a name="multiple-frontends"></a>多個前端
+如果您因為預期會有或已面臨大量輸出連線需求而需要更多 SNAT 連接埠，您也可以藉由對相同的虛擬機器資源設定額外的前端、規則和後端集區，來加入增量的 SNAT 連接埠數量。
 
-如果後端集區大小增加而轉換成較高的層級，系統就會回收半數已配置的連接埠。 與已回收連接埠關聯的連線將會逾時，而必須重新建立連線。 新的連線嘗試則會立即成功。 如果後端集區大小縮減而轉換成較低的層級，可用的 SNAT 連接埠數目就會增加。 在此情況下，現有的連線將不受影響。
+#### <a name="control-which-frontend-is-used-for-outbound"></a>控制用於輸出的前端
+如果您想要將輸出連線限定為僅來自特定的前端 IP 位址，您可以選擇性地在表示輸出對應的規則中停用輸出 SNAT。
 
-Load Balancer Standard 有可依個別規則使用的額外組態選項。 當有多個前端可供使用時，您可以控制要將哪個前端用於連接埠偽裝 SNAT。
+#### <a name="control-outbound-connectivity"></a>控制輸出連線
+標準 Load Balancer 存在於虛擬網路的內容中。  虛擬網路是隔離的私人網路。  若未與公用 IP 位址有所關聯，就不會允許公用連線。  您可以存取 [VNet 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)，因為它們位於您虛擬網路內部的本機位置。  如果您想要對您虛擬網路外部的目的地建立輸出連線，您有兩個選項：
+- 將標準 SKU 公用 IP 位址作為執行個體層級的公用 IP 位址，指派給虛擬機器資源，或
+- 將虛擬機器資源放在公用標準 Load Balancer 的後端集區中。
 
-當只有 Load Balancer Standard 為 VM 執行個體提供服務時，無法使用連出 SNAT 連線。 您可以一併將 VM 執行個體指派給公用負載平衡器，來明確還原這項功能。 您也可以為每個 VM 執行個體直接指派「公用 IP」作為執行個體層級「公用 IP」。 有些作業系統和應用程式案例可能會需要這個組態選項。 
+這兩種方式都允許從虛擬網路到虛擬網路外部的輸出連線。 
 
-### <a name="port-forwarding"></a>連接埠轉送
+如果您_只有_內部標準 Load Balancer 與您虛擬機器資源所在的後端集區相關聯，則您的虛擬機器將只能存取虛擬網路資源和 [VNet 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)。  您可以依照上一段說明的步驟來建立輸出連線。
 
-Basic 和 Standard Load Balancer 可讓您設定輸入 NAT 規則，以將前端連接埠對應至個別的後端執行個體。 藉由設定這些規則，您將可以公開「遠端桌面通訊協定」端點和 SSH 端點，或是執行其他應用程式案例。
+與標準 SKU 無關聯之虛擬機器資源的輸出連線會維持原狀。
 
-Load Balancer Standard 會透過輸入 NAT 規則持續提供連接埠轉送功能。 當與區域備援前端搭配使用時，輸入 NAT 規則會具備區域備援，而不受區域失敗影響。
+請檢閱[輸出連線的詳細討論](load-balancer-outbound-connections.md)。
 
-### <a name="multiple-front-ends"></a>多個前端
+### <a name="multife"></a>多個前端
+Load Balancer 支援為多個前端使用多項規則。  標準 Load Balancer 可將此支援擴及至輸出案例。  輸出案例基本上就是與輸入負載平衡規則相反的情形。  輸入負載平衡規則也會建立輸出連線的關聯性。 標準 Load Balancer 會透過負載平衡規則使用所有與虛擬機器資源相關聯的前端。  此外，您可以透過負載平衡規則的參數來抑制輸出連線用途的負載平衡規則，而使特定前端的可用選項變成空的。
 
-當應用程式需要公開多個個別的 IP 位址 (例如 TLS 網站或「SQL AlwaysOn 可用性群組」端點) 時，您可以設定多個前端來提供設計彈性。 
+相對地，基本 Load Balancer 會隨機選取單一前端，且無法控制能夠選取哪一個。
 
-Load Balancer Standard 可在您需要在唯一 IP 位址上公開特定應用程式端點的情況下，持續提供多個前端。
+請檢閱[輸出連線的詳細討論](load-balancer-outbound-connections.md)。
 
-如需有關設定多個前端 IP 的詳細資訊，請參閱[多 IP 組態](load-balancer-multivip-overview.md)。
+### <a name="operations"></a>管理作業
 
-## <a name = "sku"></a>關於 SKU
+標準 Load Balancer 資源存在於全新的基礎結構平台上。  這可大幅提升標準 SKU 的管理作業執行速度，且每項標準 SKU 資源的管理通常都可在 30 秒內完成。  請注意，當後端集區的大小增加，變更後端集區的所需時間也會隨之增加。
 
-只有在 Azure Resource Manager 部署模型中，才會提供 SKU。 此預覽版針對 Load Balancer 和「公用 IP」資源導入兩個 SKU：Basic 和 Standard。 這些 SKU 的差異在於功能、效能特性、限制及一些內在行為。 虛擬機器可以與任一 SKU 搭配使用。 對 Load Balancer 與「公用 IP」資源兩者而言，SKU 仍然是選用屬性。 當案例定義中省略 SKU 時，組態預設會使用 Basic SKU。
-
->[!IMPORTANT]
->資源的 SKU 是不可變動的。 您無法變更現有資源的 SKU。  
-
-### <a name="load-balancer"></a>負載平衡器
-
-[現有的 Load Balancer 資源](load-balancer-overview.md)會變成 Basic SKU，並維持正式運作版狀態而不會改變。
-
-Load Balancer Standard SKU 是新的 SKU且目前為預覽版。 Microsoft.Network/loadBalancers 的 2017 年 8 月 1 日 API 版本在資源定義中新增了 **sku** 屬性：
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-Load Balancer Standard 在提供「可用性區域」的區域中會自動具備區域復原能力。 如果已經將 Load Balancer 宣告為區域性，它就不會自動具備區域復原能力。
-
-### <a name="public-ip"></a>公用 IP
-
-[現有的公用 IP 資源](../virtual-network/virtual-network-ip-addresses-overview-arm.md)會變成 Basic SKU，並維持正式運作版狀態且具備其所有功能、效能特性及限制。
-
-Public IP Standard SKU 是新的 SKU且目前為預覽版。 Microsoft.Network/publicIPAddresses 的 2017 年 8 月 1 日 API 版本在資源定義中新增了 **sku** 屬性：
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-不同於 Public IP Basic 提供多個配置方法，Public IP Standard 一律使用靜態配置。
-
-Public IP Standard 在提供「可用性區域」的區域中會自動具備區域復原能力。 如果已經將「公用 IP」宣告為區域性，它就不會自動具備區域復原能力。 區域性「公用 IP」無法從一個區域變更到另一個區域。
+您修改標準 Load Balancer 資源，以及在不同虛擬機器之間移動標準公用 IP 位址的速度，都可快上許多。
 
 ## <a name="migration-between-skus"></a>在 SKU 之間移轉
 
@@ -322,158 +200,41 @@ SKU 是不可變動的。 請依照本節中的步驟從一個資源 SKU 移到�
 >
 >只有在 Standard SKU 中才有提供「HA 連接埠」和 Standard SKU 的「診斷」。 您無法既從 Standard SKU 移轉到 Basic SKU 又同時保留這些功能。
 >
->Load Balancer 和 Public IP 資源必須使用相符的 SKU。 您無法將 Basic SKU 資源與 Standard SKU 資源混用。 您無法將 VM、「可用性設定組」中的 VM 或虛擬機器擴展集同時連結到這兩個 SKU。
+>如本文所述，基本和標準 SKU 之間有許多差異。  請確實加以了解，並做好相關準備。
 >
+>Load Balancer 和 Public IP 資源必須使用相符的 SKU。 您無法將 Basic SKU 資源與 Standard SKU 資源混用。 您無法將獨立虛擬機器、可用性設定組資源中的虛擬機器或虛擬機器擴展集資源同時連結到這兩個 SKU。
 
 ## <a name="region-availability"></a>區域可用性
 
-Load Balancer Standard 目前已在美國西部以外的所有公用雲端地區推出。
+Load Balancer Standard 目前已在所有公用雲端地區推出。
 
->[!IMPORTANT]
-> 在短暫的時間內，若要在初始推出地區 (美國東部 2、美國中部、北歐、美國中西部、西歐、東南亞) 以外的地區進行存取，需要註冊額外的訂用帳戶功能 (AllowLBPreviewWave2 與 AllowLBPreviewWave3)。  [請遵循下列步驟](#additionalpreviewregions)。 即使您先前已經註冊 AllowLBPreview，仍然請執行所有步驟。
-> 在未來幾週內將會移除此需求。
+## <a name="sla"></a>SLA
 
-## <a name="sku-service-limits-and-abilities"></a>SKU 服務限制與功能
+標準 Load Balancer 提供 99.99% SLA。  如需詳細資訊，請檢閱[標準 Load Balancer SLA](https://aka.ms/lbsla)。
 
-Azure [網路服務的服務限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)適用於每個區域和每個訂閱。 
-
-下表比較 Load Balancer Basic 與 Standard SKU 的限制和功能：
-
-| 負載平衡器 | 基本 | 標準 |
-| --- | --- | --- |
-| 後端集區大小 | 最多 100 個 | 最多 1,000 個 |
-| 後端集區界限 | 可用性設定組 | 虛擬網路、區域 |
-| 後端集區設計 | 「可用性設定組」中的 VM 、「可用性設定組」中的虛擬機器擴展集 | 虛擬網路中的任何 VM 執行個體 |
-| HA 連接埠 | 不支援 | 可用 |
-| 診斷 | 有限，僅限公用 | 可用 |
-| VIP 可用性  | 不支援 | 可用 |
-| 快速 IP 行動性 | 不支援 | 可用 |
-|可用性區域案例 | 僅限區域性 | 區域性、區域備援、跨區域負載平衡 |
-| 輸出 SNAT 演算法 | 隨選 | 預先配置 |
-| 輸出 SNAT 前端選取項目 | 無法設定、多個候選項目 | 選用設定以減少候選項目 |
-| 網路安全性群組 | 選用 NIC/子網路 | 必要 |
-
-下表比較 Public IP Basic 與 Standard SKU 的限制和功能：
-
-| 公用 IP | 基本 | 標準 |
-| --- | --- | --- |
-| 可用性區域案例 | 僅限區域性 | 區域備援 (預設)，區域性 (選用) | 
-| 快速 IP 行動性 | 不支援 | 可用 |
-| VIP 可用性 | 不支援 | 可用 |
-| Counters | 不支援 | 可用 |
-| 網路安全性群組 | 選用 NIC | 必要 |
-
-
-## <a name="preview-sign-up"></a>註冊預覽
-
-若要參與 Load Balancer Standard SKU 和所隨附 Public IP Standard SKU 的預覽，請註冊您的訂用帳戶。  註冊訂用帳戶將可讓您從 PowerShell 或 Azure CLI 2.0 存取。 若要註冊，請執行下列步驟：
-
->[!NOTE]
->註冊 Load Balancer Standard 功能最多可能需要一小時的時間才會全面生效。 如果要使用 Load Balancer Standard 搭配[可用性區域](https://aka.ms/availabilityzones)，就必須為 AZ Preview [另外註冊](https://aka.ms/availabilityzones)。
-
-<a name="additionalpreviewregions"></a>
->[!IMPORTANT]
-> 在短暫的時間內，若要在初始推出地區 (美國東部 2、美國中部、北歐、美國中西部、西歐、東南亞) 以外的地區進行存取，需要註冊額外的訂用帳戶功能 (AllowLBPreviewWave2 與 AllowLBPreviewWave3)。  下列步驟已經過修改，以便啟用額外的訂用帳戶功能。 即使您先前已經註冊 AllowLBPreview，仍然請執行所有步驟。 在未來幾週內將會移除此需求。
-
-
-### <a name="sign-up-by-using-azure-cli-20"></a>使用 Azure CLI 2.0 來進行註冊
-
-1. 向提供者註冊功能：
-
-    ```cli
-    az feature register --name AllowLBPreview --namespace Microsoft.Network
-    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
-    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
-    ```
-    
-2. 此作業最多可能需要 10 分鐘的時間才能完成。 您可以使用下列命令來檢查作業狀態：
-
-    ```cli
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
-    ```
-    
-    當功能註冊狀態針對上列每項訂用帳戶功能傳回 'Registered' 時，請繼續進行下一步。 範例：
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowLBPreview",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-4. 向資源提供者重新註冊您的訂用帳戶，以完成預覽版註冊：
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-
-### <a name="sign-up-by-using-powershell"></a>使用 PowerShell 來進行註冊
-
-1. 向提供者註冊功能：
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
-    ```
-    
-2. 此作業最多可能需要 10 分鐘的時間才能完成。 您可以使用下列命令來檢查作業狀態：
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
-    ```
-
-  當功能註冊狀態針對上列每項訂用帳戶功能傳回 'Registered' 時，請繼續進行下一步。 範例：
-
-    ```
-    FeatureName      ProviderName        RegistrationState
-    -----------      ------------        -----------------
-    AllowLBPreview   Microsoft.Network   Registered
-    ```
-    
-3. 向資源提供者重新註冊您的訂用帳戶，以完成預覽版註冊：
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
- 
 ## <a name="pricing"></a>價格
 
-Load Balancer Standard SKU 是根據所設定的規則和處理的資料收費。 在預覽版期間不會產生任何費用。 如需詳細資訊，請檢閱 [Load Balancer](https://aka.ms/lbpreviewpricing) 和[公用 IP](https://aka.ms/lbpreviewpippricing)定價頁面。
-
-客戶可繼續享有免費的 Load Balancer Basic SKU。
+標準 Load Balancer 為計費產品，根據所設定的負載平衡規則數目以及處理的所有輸入和輸出資料計算費用。 如需標準 Load Balancer 的定價資訊，請瀏覽 [Load Balancer 定價](https://aka.ms/lbpricing)頁面。
 
 ## <a name="limitations"></a>限制
 
-下列限制適用於預覽版，並且可能變更：
-
 - Load Balancer 後端執行個體目前不能位於對等互連的虛擬網路中。 所有後端執行個體都必須在相同的區域中。
 - SKU 是不可變動的。 您無法變更現有資源的 SKU。
-- 這兩個 SKU 都可以與獨立 VM、「可用性設定組」中的 VM 執行個體或虛擬機器擴展集搭配使用。 VM 組合無法與這兩個 SKU 同時搭配使用。 不允許使用混用 SKU 的組態。
-- 使用內部 Load Balancer Standard 搭配 VM 執行個體 (或「可用性設定組」的任何部分) 會停用[預設 SNAT 連出連線](load-balancer-outbound-connections.md)。 您可以將此功能還原至獨立 VM、「可用性設定組」中的 VM 執行個體，或是虛擬機器擴展集。 您也可以還原此功能以進行連出連線。 若要還原這些功能，請為同一個 VM 執行個體同時指派公用 Load Balancer Standard 或 Public IP Standard 作為執行個體層級的「公用 IP」。 指派完成之後，就會再次提供「公用 IP」位址的連接埠偽裝 SNAT。
-- 您可能必須將 VM 執行個體組成可用性設定組，才能達到完整的後端集區規模。 在單一後端集區中，最多可以放置 150 個可用性設定組和獨立 VM。
-- 不支援 IPv6。
-- 在「可用性區域」的內容中，前端不可從區域性變更為區域備援，反之亦然。 將前端建立為區域備援前端之後，它就會保持為區域備援前端。 將前端建立為區域性前端之後，它就會保持為區域性前端。
-- 在「可用性區域」的內容中，區域性「公用 IP」位址無法從一個區域移到另一個區域。
+- 獨立虛擬機器資源、可用性設定組資源或虛擬機器擴展集資源都只能參考一個 SKU，絕不會同時參考兩者。
 - 目前不支援 [Azure 監視器警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。
-- 入口網站尚未支援擴充的預覽區域。  請使用範本、Azure CLI 2.0 或 PowerShell 等用戶端工具來避開此問題。
 - 標準 SKU LB 與 PIP 資源不支援[移動訂用帳戶作業](../azure-resource-manager/resource-group-move-resources.md)。
-- 不適用於美國西部。
-
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解 [Load Balancer Basic](load-balancer-overview.md)。
+- 了解[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)
 - 深入了解[可用性區域](../availability-zones/az-overview.md)。
+- 了解[標準 Load Balancer 診斷](load-balancer-standard-diagnostics.md)。
+- 參閱[支援的多維度計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers)，以了解 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview.md)中的診斷。
+- 了解如何使用[輸出連線的 Load Balancer](load-balancer-outbound-connections.md)
+- 了解[具有 HA 連接埠負載平衡規則的標準 Load Balancer](load-balancer-ha-ports-overview.md)
+- 了解如何使用[多個前端的 Load Balancer](load-balancer-multivip-overview.md)
+- 了解[虛擬網路](../virtual-network/virtual-networks-overview.md)。
 - 深入了解[網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
+- 了解 [VNet 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)
 - 了解 Azure 中的一些其他重要[網路功能](../networking/networking-overview.md)。
-- 了解 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview.md)中[公開的計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers)。
+- 深入了解 [Load Balancer](load-balancer-overview.md)。

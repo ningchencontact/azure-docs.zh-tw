@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: bd1a2643d9faf65d664c786169c38f01767fb7e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 89469af2b1d02ef00fc347e47719956885e7f142
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -52,6 +52,10 @@ ms.lasthandoff: 03/16/2018
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
 {
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
     log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
 }
 ```
@@ -144,19 +148,19 @@ module.exports = function (context, myTimer) {
 
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)。
 
-該屬性的建構函式會採用 CRON 運算式，如下列範例所示：
+該屬性的建構函式會採用 CRON 運算式或是 `TimeSpan`。 僅當函式應用程式是在 App Service 方案中執行時，您才可以使用 `TimeSpan`。 下列範例顯示 CRON 運算式：
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
 {
-   ...
+    if (myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
 }
  ```
-
-如果您的函式應用程式在 App Service 方案 (非取用量方案) 上執行，您可以指定 `TimeSpan` 而不是 CRON 運算式。
-
-如需完整範例，請參閱 [C# 範例](#c-example)。
 
 ## <a name="configuration"></a>組態
 
@@ -167,75 +171,11 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 |**type** | n/a | 必須設定為 "timerTrigger"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設定為 "in"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | n/a | 代表函式程式碼中計時器物件的變數名稱。 | 
-|**schedule**|**ScheduleExpression**|在取用量方案中，您可以使用 CRON 運算式來定義排程。 如果您使用 App Service 方案，也可以使用 `TimeSpan` 字串。 下列各節說明 CRON 運算式。 您可以將排程運算式放在應用程式設定中，並將此屬性設定為以 **%** 符號包裝的值，如此範例所示："%NameOfAppSettingWithCRONExpression%"。 |
+|**schedule**|**ScheduleExpression**|[CRON 運算式](#cron-expressions)或 [TimeSpan](#timespan) 值。 `TimeSpan` 只能用於 App Service 方案上執行的函式應用程式。 您可以將排程運算式放在應用程式設定中，並將此屬性設定為以 **%** 符號包裝的應用程式設定名稱，如此範例所示："%NameOfAppSettingWithScheduleExpression%"。 |
+|**runOnStartup**|**RunOnStartup**|如果為 `true`，當執行階段啟動時，會叫用函式。 例如，當函式應用程式因無活動而處於閒置狀態後再甦醒時、 當函式應用程式因函式變更而重新啟動時，以及當函式應用程式相應放大時，執行階段便會啟動。因此 **runOnStartup** 應該幾乎不會設定為 `true`，因為它會使程式碼在極度無法預期的時間執行。 如果您需要觸發計時器排程之外的函式，可以使用不同的觸發程序類型來建立第二個函式，並在兩個函式之間共用程式碼。 例如，若要在部署上觸發，您可以在部署完成時，提出 HTTP 要求來[自訂部署](https://github.com/projectkudu/kudu/wiki/Customizing-deployments)以叫用第二個函式。|
+|**useMonitor**|**UseMonitor**|設定為 `true` 或 `false` 以表示是否應該監視排程。 排程監視會使排程持續進行，以協助確保即使在函式應用程式執行個體重新啟動時，排程也能正確地持續運作。 如果未明確設定，則循環間隔大於 1 分鐘的排程之預設值為 `true`。 若為每分鐘觸發超過一次的排程，預設值為 `false`。
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
-
-### <a name="cron-format"></a>CRON 格式 
-
-Azure Functions 計時器觸發程序的 [CRON 運算式](http://en.wikipedia.org/wiki/Cron#CRON_expression)包含下列六個欄位： 
-
-```
-{second} {minute} {hour} {day} {month} {day-of-week}
-```
-
->[!NOTE]   
->您在線上找到的許多 CRON 運算式會省略 `{second}` 欄位。 如果您複製其中一個運算式，請新增遺漏的 `{second}` 欄位。
-
-### <a name="cron-time-zones"></a>CRON 時區
-
-CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON 運算式以另一個時區為基礎，請為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立新的應用程式設定。 將值設定為所需的時區名稱，如 [Microsoft 時區索引](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx)中所示。 
-
-例如，*美加東部標準時間*是 UTC-05:00。 若要讓計時器觸發程序在每天上午 10:00 (美加東部標準時間) 觸發，您可以使用說明 UTC 時區的下列 CRON 運算式︰
-
-```json
-"schedule": "0 0 15 * * *",
-``` 
-
-或者，您可以為名為 `WEBSITE_TIME_ZONE` 的函式應用程式新增新的應用程式設定，並將值設為**美加東部標準時間**。  那麼，下列 CRON 運算式即可用於 EST 上午 10:00： 
-
-```json
-"schedule": "0 0 10 * * *",
-``` 
-### <a name="cron-examples"></a>CRON 範例
-
-以下是您可以在 Azure Functions 中使用於計時器觸發程序的一些 CRON 運算式範例。 
-
-若要每隔 5 分鐘觸發一次︰
-
-```json
-"schedule": "0 */5 * * * *"
-```
-
-若要在每小時開始時觸發一次︰
-
-```json
-"schedule": "0 0 * * * *",
-```
-
-若要每隔 2 小時觸發一次：
-
-```json
-"schedule": "0 0 */2 * * *",
-```
-
-若要在上午 9 點到下午 5 點之間每隔一小時觸發一次：
-
-```json
-"schedule": "0 0 9-17 * * *",
-```
-
-若要在每天上午 9:30 觸發一次：
-
-```json
-"schedule": "0 30 9 * * *",
-```
-
-若要在每個工作天上午 9:30 觸發一次：
-
-```json
-"schedule": "0 30 9 * * 1-5",
-```
 
 ## <a name="usage"></a>使用量
 
@@ -246,16 +186,91 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
     "Schedule":{
     },
     "ScheduleStatus": {
-        "Last":"2016-10-04T10:15:00.012699+00:00",
+        "Last":"2016-10-04T10:15:00+00:00",
+        "LastUpdated":"2016-10-04T10:16:00+00:00",
         "Next":"2016-10-04T10:20:00+00:00"
     },
     "IsPastDue":false
 }
 ```
 
+當目前函式引動過程晚於排程時，`IsPastDue` 屬性為 `true`。 例如，函式應用程式重新啟動可能會導致遺漏引動過程。
+
+## <a name="cron-expressions"></a>CRON 運算式 
+
+Azure Functions 計時器觸發程序的 CRON 運算式包含六個欄位： 
+
+`{second} {minute} {hour} {day} {month} {day-of-week}`
+
+每個欄位可以具備下列類型的值：
+
+|類型  |範例  |觸發時間  |
+|---------|---------|---------|
+|特定值 |<nobr>"0 5 * * * *"</nobr>|於 hh:05:00，其中 hh 是每小時 (一小時一次)|
+|所有值 (`*`)|<nobr>"0 * 5 * * *"</nobr>|於每天 5:mm:00，其中 mm 是小時中的每一分鐘 (一天 60 次)|
+|範圍 (`-` 運算子)|<nobr>"5-7 * * * * *"</nobr>|於 hh:mm:05、hh:mm:06 和 hh:mm:07，其中 hh: mm 是每小時的每一分鐘 (一分鐘 3 次)|  
+|一組值 (`,` 運算子)|<nobr>"5,8,10 * * * * *"</nobr>|於 hh:mm:05、hh:mm:08 和 hh:mm:10，其中 hh: mm 是每小時的每一分鐘 (一分鐘 3 次)|
+|間隔值 (`/` 運算子)|<nobr>"0 */5 * * * *"</nobr>|於 hh:05:00、hh:10:00、hh:15:00 以此類推，直到 hh:55:00，其中 hh 是每小時 (一小時 12 次)|
+
+### <a name="cron-examples"></a>CRON 範例
+
+以下是您可以在 Azure Functions 中使用於計時器觸發程序的一些 CRON 運算式範例。
+
+|範例|觸發時間  |
+|---------|---------|
+|"0 */5 * * * *"|每隔 5 分鐘一次|
+|"0 0 * * * *"|每小時開始時一次|
+|"0 0 */2 * * *"|每隔 2 小時一次|
+|"0 0 9-17 * * *"|上午 9 點到下午 5 點之間每隔一小時一次|
+|"0 30 9 * * *"|每天上午 9:30|
+|"0 30 9 * * 1-5"|每個工作日上午 9:30|
+
+>[!NOTE]   
+>您可以在線上找到 CRON 運算式範例，但其中大部分都會省略 `{second}` 欄位。 如果您複製其中一個運算式，請新增遺漏的 `{second}` 欄位。 通常您在該欄位中需要零，而非星號。
+
+### <a name="cron-time-zones"></a>CRON 時區
+
+CRON 運算式中的數字代表時間和日期，而非時間範圍。 例如，`hour` 欄位中的 5 代表上午 5:00，而非每隔 5 小時。
+
+CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON 運算式以另一個時區為基礎，請為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立應用程式設定。 將值設定為所需的時區名稱，如 [Microsoft 時區索引](https://technet.microsoft.com/library/cc749073)中所示。 
+
+例如，*美加東部標準時間*是 UTC-05:00。 若要讓計時器觸發程序在每天上午 10:00 (美加東部標準時間) 觸發，您可以使用說明 UTC 時區的下列 CRON 運算式︰
+
+```json
+"schedule": "0 0 15 * * *",
+``` 
+
+或者為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立應用程式設定，並將值設為**美加東部標準時間**。  然後使用下列 CRON 運算式： 
+
+```json
+"schedule": "0 0 10 * * *",
+``` 
+
+## <a name="timespan"></a>時間範圍
+
+ `TimeSpan` 只能用於 App Service 方案上執行的函式應用程式。
+
+不同於 CRON 運算式，`TimeSpan` 值會指定每個函式引動過程之間的時間間隔。 如果函式在執行時間超過指定時間間隔之後完成，計時器會立即再次叫用函式。
+
+以字串表示，當 `hh` 低於 24 時，`TimeSpan` 格式為 `hh:mm:ss`。 當前兩個數字為 24 或更高時，格式為 `dd:hh:mm`。 這裡有一些範例：
+
+|範例 |觸發時間  |
+|---------|---------|
+|"01:00:00" | 每小時        |
+|"00:01:00"|每分鐘         |
+|"24:00:00" | 每 24 天        |
+
 ## <a name="scale-out"></a>向外延展
 
-計時器觸發程序支援多個執行個體向外延展。特定計時器函式的單一執行個體會對所有執行個體執行。
+如果函式應用程式相應放大至多個執行個體，則只有計時器觸發函式的單一執行個體會在所有執行個體中執行。
+
+## <a name="function-apps-sharing-storage"></a>共用儲存體的函式應用程式
+
+如果您在多個函式應用程式中共用儲存體帳戶，請確定每個函式應用程式在 host.json 中具有不同的 `id`。 您可以省略 `id` 屬性或將每個函式應用程式的 `id` 手動設定為不同的值。 計時器觸發程序會使用儲存體鎖定，以確保當函式應用程式相應放大至多個執行個體時，只會有一個計時器執行個體。 如果兩個函式應用程式共用相同的 `id`，且每一個都是使用計時器觸發程序，則只有一個計時器會執行。
+
+## <a name="retry-behavior"></a>重試行為
+
+不同於佇列觸發程序，計時器觸發程序在函式失敗後並不會重試。 當函式失敗時，需等到排程上的下一次觸發，才會再次呼叫函式。
 
 ## <a name="next-steps"></a>後續步驟
 
