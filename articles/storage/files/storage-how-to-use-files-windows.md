@@ -1,12 +1,12 @@
 ---
-title: "掛接 Azure 檔案共用並在 Windows 中存取共用 |Microsoft 文件"
-description: "掛接 Azure 檔案共用並在 Windows 中存取共用。"
+title: 掛接 Azure 檔案共用並在 Windows 中存取共用 |Microsoft 文件
+description: 掛接 Azure 檔案共用並在 Windows 中存取共用。
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5d6d81678d1b3c63b52b34e79979d06fdc981ad0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>掛接 Azure 檔案共用並在 Windows 中存取共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中掛接。 本文將說明在 Windows 中掛接 Azure 檔案共用的三種不同方式：使用檔案總管 UI、透過 PowerShell，以及透過命令提示字元。 
@@ -50,6 +50,31 @@ ms.lasthandoff: 10/21/2017
 * **儲存體帳戶金鑰**：若要掛接 Azure 檔案共用，您需要主要 (或次要) 金鑰。 掛接目前不支援 SAS 金鑰。
 
 * **確定已開啟連接埠 445**：Azure 檔案服務會使用 SMB 通訊協定。 SMB 透過 TCP 通訊埠 445 進行通訊 - 請檢查您的防火牆不會將 TCP 通訊埠 445 從用戶端電腦封鎖。
+
+## <a name="persisting-connections-across-reboots"></a>在重新啟動期間保持連線
+### <a name="cmdkey"></a>CmdKey
+建立持續連線最簡單的方式是使用 "CmdKey" 命令列公用程式，將儲存體帳戶認證儲存到 Windows。 以下命令列範例可讓您在 VM 中保留儲存體帳戶認證：
+```
+C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
+```
+> [!Note]
+> 此處的網域名稱是 "AZURE"
+
+CmdKey 也可讓您列出其所儲存的認證：
+
+```
+C:\>cmdkey /list
+```
+輸出會如下所示：
+
+```
+Currently stored credentials:
+
+Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Type: Domain Password
+User: AZURE\<yourstorageaccountname>
+```
+一旦認證已保存，您將不再需要在連線至共用時提供認證。 相反地，您無須指定任何認證就可進行連線。
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>使用檔案總管掛接 Azure 檔案共用
 > [!Note]  

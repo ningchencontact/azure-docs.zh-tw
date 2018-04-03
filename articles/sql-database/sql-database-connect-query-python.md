@@ -8,17 +8,17 @@ ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/09/2017
+ms.date: 03/26/2018
 ms.author: carlrab
-ms.openlocfilehash: 532323a8511bc7ba8c2c322fe9f69d354691136b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f22a6d38648cf60bac09a751697e1c1d63d1db4f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>使用 Python 查詢 Azure SQL 資料庫
 
- 此快速入門示範如何使用 [Python](https://python.org) 來連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。 如需 SDK 的詳細資訊，請查看我們的[參考](https://docs.microsoft.com/python/api/overview/azure/sql)文件、pyodbc [範例](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)及 [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub 存放庫。
+ 此快速入門教學課程會示範如何使用 [Python](https://python.org) 來連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。 如需 SDK 的詳細資訊，請查看我們的[參考](https://docs.microsoft.com/python/api/overview/azure/sql)文件、pyodbc [範例](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)及 [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub 存放庫。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -51,7 +51,7 @@ database = 'your_database'
 username = 'your_username'
 password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
 cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
 row = cursor.fetchone()

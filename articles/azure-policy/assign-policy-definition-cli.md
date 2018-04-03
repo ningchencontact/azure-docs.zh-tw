@@ -9,11 +9,11 @@ ms.date: 03/13/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: f56f00aabbef2cfa86264d3e962af9a9c0bafa98
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1ff1240073e25bf406e7da6b79135264376a5b3f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>使用 Azure CLI 建立原則指派，以識別 Azure 環境中的不相容資源
 
@@ -46,7 +46,7 @@ az policy assignment create --name 'Audit Virtual Machines without Managed Disks
 - **名稱** - 原則指派的顯示名稱。 在此案例中，您會使用 Audit Virtual Machines without Managed Disks (稽核沒有受控磁碟指派的虛擬機器)。
 - **原則** – 原則定義識別碼，這是您用來建立指派的根基。 在此案例中，即為原則定義 – Audit Virtual Machines without Managed Disks (稽核沒有受控磁碟的虛擬機器)。 若要取得原則定義識別碼，請執行此命令：`az policy definition show --name 'Audit Virtual Machines without Managed Disks Assignment'`
 - **範圍** – 範圍會決定在哪些資源或資源群組上強制執行原則指派。 範圍從訂用帳戶到資源群組。 請務必將 &lt;scope&gt; 取代為您的資源群組。
-- **Sku** – 此命令會建立具有標準層的原則指派。 標準層可讓您達到大規模管理、合規性評估和補救。 目前，標準層是免費的。 未來，標準層將會收費。 發生定價變更時，我們將會公告並且在 [Azure 原則定價](https://azure.microsoft.com/pricing/details/azure-policy)提供更多詳細資料。
+- **Sku** – 此命令會建立具有標準層的原則指派。 標準層可讓您達到大規模管理、合規性評估和補救。 如需定價層的其他詳細資訊，請參閱 [Azure 原則定價](https://azure.microsoft.com/pricing/details/azure-policy)。
 
 
 ## <a name="identify-non-compliant-resources"></a>識別不相容的資源

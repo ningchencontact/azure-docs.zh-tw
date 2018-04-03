@@ -1,11 +1,11 @@
 ---
-title: "Azure 虛擬機器擴展集連結資料磁碟 | Microsoft Docs"
-description: "了解如何搭配使用連線資料磁碟與虛擬機器擴展集"
+title: Azure 虛擬機器擴展集連結資料磁碟 | Microsoft Docs
+description: 了解如何搭配使用連線資料磁碟與虛擬機器擴展集
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,52 +15,27 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 52ea7e35b941d5b1e45f39203757e4a3644cc9a5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ec11a2d66530129fb61d97681e6882b887c8654c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 虛擬機器擴展集和連結的資料磁碟
-Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)現在支援具有連線資料磁碟的虛擬機器。 您可以在使用 Azure 受控磁碟建立的擴展集儲存體設定檔中定義資料磁碟。 先前擴展集中 VM 唯一可用的直接連結儲存體選項是作業系統磁碟機和暫存磁碟機。
+若要擴充可用的儲存體，Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)支援 VM 執行個體連結資料磁碟。 您可以在擴展集建立時連結資料磁碟，或將資料磁碟連結至現有擴展集。
 
 > [!NOTE]
->  當您建立已定義連結資料磁碟的擴展集時，仍需掛接和格式化 VM 內的磁碟才能加以使用 (就如同獨立 Azure VM)。 完成此程序的方便作法是使用自訂指令碼擴充功能，該擴充功能可呼叫標準指令碼來分割及格式化 VM 上的所有資料磁碟。
+>  當您建立具有連結資料磁碟的擴展集時，仍需掛接和格式化 VM 內的磁碟才能加以使用 (就如同獨立 Azure VM)。 完成此程序的方便作法是使用「自訂指令碼擴充功能」，該擴充功能可呼叫指令碼來分割及格式化 VM 上的所有資料磁碟。 如需此操作的範例，請參閱 [Azure CLI 2.0](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks)。
 
-## <a name="create-a-scale-set-with-attached-data-disks"></a>建立具有連結資料磁碟的擴展集
-使用 [az vmss create](/cli/azure/vmss#az_vmss_create) 命令是建立具有連結磁碟之擴展集的簡便方法。 下列範例會建立 Azure 資源群組，以及由 10 部 Ubuntu VM 組成的虛擬機器擴展集，而每部 VM 各有 2 個連結資料磁碟 (分別為 50 GB 和 100 GB)。
 
-```bash
-az group create -l southcentralus -n dsktest
-az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
-```
+## <a name="create-and-manage-disks-in-a-scale-set"></a>建立及管理擴展集中的磁碟
+如需深入了解如何建立具有連結資料磁碟的擴展集、準備和格式化，或新增和移除資料磁碟，請參閱下列其中一個教學課程：
 
-[az vmss create](/cli/azure/vmss#az_vmss_create) 命令會預設某些組態值 (如果您未指定它們)。 若要查看您可覆寫的可用選項，請嘗試︰
+- [Azure CLI 2.0](tutorial-use-disks-cli.md)
+- [Azure PowerShell](tutorial-use-disks-powershell.md)
 
-```bash
-az vmss create --help
-```
+本文的其餘部分將概述特定使用案例，例如需要資料磁碟的 Service Fabric 叢集，或是將包含內容的現有資料磁碟連結至擴展集。
 
-另一種建立具有連結資料磁碟之擴展集的方法是在 Azure Resource Manager 範本中定義擴展集、在 _storageProfile_ 中包含 _dataDisks_ 區段，以及部署範本。 上述範例中的 50 GB 和 100 GB 磁碟會在下列範本範例中定義如下：
-
-```json
-"dataDisks": [
-    {
-    "lun": 1,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 50
-    },
-    {
-    "lun": 2,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 100
-    }
-]
-```
-
-您可以在此看到完整、可立即部署並已定義連結磁碟的擴展集範例︰[https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data)。
 
 ## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>使用連結的資料磁碟建立 Service Fabric 叢集
 在 Azure 中執行之 [Service Fabric](/azure/service-fabric) 叢集中的每個[節點類型](../service-fabric/service-fabric-cluster-nodetypes.md)都是由虛擬機器擴展集提供支援。  使用 Azure Resource Manager 範本，您可以將資料磁碟連結到構成 Service Fabric 叢集的擴展集。 您可使用[現有範本](https://github.com/Azure-Samples/service-fabric-cluster-templates)作為起點。 在範本中，於 Microsoft.Compute/virtualMachineScaleSets 資源的 storageProfile 中包含 dataDisks 區段並部署範本。 下列範例會連結 128 GB 資料磁碟：
@@ -115,56 +90,6 @@ az vmss create --help
 }
 ```
 
-## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>將資料磁碟新增至現有的擴展集
-> [!NOTE]
->  您只能將資料磁碟連結至使用 [Azure 受控磁碟](./virtual-machine-scale-sets-managed-disks.md)建立的擴展集。
-
-您可以使用 Azure CLI _az vmss disk attach_ 命令，將資料磁碟新增至虛擬機器擴展集。 務必指定尚未使用的 LUN。 下列 CLI 範例將 50 GB 磁碟機新增至 LUN 3︰
-
-```bash
-az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
-```
-
-下列 PowerShell 範例將 50 GB 磁碟機新增至 LUN 3︰
-
-```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName myvmssrg -VMScaleSetName myvmss
-$vmss = Add-AzureRmVmssDataDisk -VirtualMachineScaleSet $vmss -Lun 3 -Caching 'ReadWrite' -CreateOption Empty -DiskSizeGB 50 -StorageAccountType StandardLRS
-Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScaleSet $vmss
-```
-
-> [!NOTE]
-> 不同的 VM 大小對其支援的連結磁碟機數目會有不同的限制。 新增磁碟前，請檢查[虛擬機器大小特性](../virtual-machines/windows/sizes.md)。
-
-將項目新增至擴展集定義的 _storageProfile_ 中的 _dataDisks_ 屬性並套用變更，也可以新增磁碟。 若要進行測試，在 [Azure 資源總管](https://resources.azure.com/)中尋找現有的擴展集定義。 選取 [編輯] 並將新磁碟新增到資料磁碟清單，如下列範例所示：
-
-```json
-"dataDisks": [
-    {
-    "lun": 1,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 50
-    },
-    {
-    "lun": 2,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 100
-    },
-    {
-    "lun": 3,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 20
-    }          
-]
-```
-
-然後選取 _PUT_ 將變更套用到您的擴展集。 只要您使用的 VM 大小可支援兩個以上的連結資料磁碟，此範例就可行。
-
-> [!NOTE]
-> 當您變更擴展集定義時 (例如新增或移除資料磁碟)，它會套用到所有新建立的 VM，但如果 _upgradePolicy_ 屬性設定為 [自動]，則只會套用至現有的 VM。 如果該屬性設定為 [手動]，您必須以手動方式將新的模型套用至現有的 VM。 您可以在入口網站中，使用 _Update-AzureRmVmssInstance_ PowerShell 命令，或使用 _az vmss update-instances_ CLI 命令。
 
 ## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>將預先填入的資料磁碟新增至現存的擴展集 
 > 當您將磁碟新增至現存的擴展集模型時，依照設計，一律會建立空白的磁碟。 此案例也會包含擴展集所建立的新執行個體。 這是因為擴展集定義具有空的資料磁碟。 若要針對現存的擴展集模型建立預先填入的資料磁碟機，您可以選擇下列其中一個選項：
@@ -176,12 +101,6 @@ Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScale
 
 > 使用者必須擷取具有所需資料的執行個體 0 VM，然後使用映像定義的該 vhd。
 
-## <a name="removing-a-data-disk-from-a-scale-set"></a>從擴展集中移除資料磁碟
-您可以使用 Azure CLI _az vmss disk detach_ 命令，從虛擬機器擴展集中移除資料磁碟。 例如下列命令會移除在 LUN 2 定義的磁碟︰
-```bash
-az vmss disk detach -g dsktest -n dskvmss --lun 2
-```  
-同樣第，從 _storageProfile_ 中的 _dataDisks_ 屬性中移除項目並套用變更，也可以從擴展集中移除磁碟。 
 
 ## <a name="additional-notes"></a>其他注意事項
 API 版本 [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) 或更新版本的 Microsoft.Compute API 中提供 Azure 受控磁碟和擴展集連結資料磁碟的支援。

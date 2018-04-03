@@ -1,11 +1,11 @@
 ---
-title: "在 Linux 上設定開發環境 | Microsoft Docs"
-description: "在 Linux 上安裝執行階段和 SDK，並建立本機開發叢集。 完成此設定之後，您就可以開始建置應用程式。"
+title: 在 Linux 上設定開發環境 | Microsoft Docs
+description: 在 Linux 上安裝執行階段和 SDK，並建立本機開發叢集。 完成此設定之後，您就可以開始建置應用程式。
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 20239acba46996ed7ec84a2fbaf300190deebc7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c98a5e742356e24cee9e9d1414121faabac03084
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -29,6 +29,10 @@ ms.lasthandoff: 02/24/2018
 >  
 
 若要在 Linux 開發機器上部署和執行 [Azure Service Fabric 應用程式](service-fabric-application-model.md) ，請安裝執行階段和通用 SDK。 您也可以安裝 Java 和 .NET Core 開發的選擇性 SDK。
+
+> [!NOTE]
+> 不支援在適用於 Linux 的 Windows 子系統上安裝 Service Fabric 執行階段。 不過，可支援 Azure Service Fabric 命令列介面 (CLI)，讓您可管理裝載於雲端或內部部署中其他地方的 Service Fabric 實體。 如需如何安裝 CLI 的資訊，請參閱[設定 Service Fabric CLI](./service-fabric-cli.md)。
+>
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -108,6 +112,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+上述安裝程式隨附的 Service Fabric 執行階段包含下表中的套件。 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | 內含於 npm | 最新 |
+
 ## <a name="set-up-a-local-cluster"></a>設定本機叢集
   安裝完成後，您應該能夠啟動本機叢集。
 
@@ -184,7 +194,7 @@ Ubuntu
 
 2. 若要安裝 Service Fabric 外掛程式，請選取 [說明]  >  [安裝新軟體]。
 
-3. 在 [使用] 文字方塊中，輸入 **http://dl.microsoft.com/eclipse**。
+3. 在 [使用] 方塊中，輸入 **http://dl.microsoft.com/eclipse**。
 
 4. 按一下 [新增] 。
 

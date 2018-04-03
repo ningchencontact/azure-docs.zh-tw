@@ -1,26 +1,26 @@
 ---
-title: "在 Azure 中使用 Jenkins 建立開發管線 | Microsoft Docs"
-description: "了解如何在 Azure 中建立 Jenkins 虛擬機器，用於在每次程式碼認可時從 GitHub 提取資料，並建立新的 Docker 容器來執行應用程式"
+title: 在 Azure 中使用 Jenkins 建立開發管線 | Microsoft Docs
+description: 了解如何在 Azure 中建立 Jenkins 虛擬機器，用於在每次程式碼認可時從 GitHub 提取資料，並建立新的 Docker 容器來執行應用程式
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/15/2017
+ms.date: 03/27/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8a595ead7da8dfa5544903bd698bfdff40555eb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9250e40c491257b554333f4606cbf0b476d8db21
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>如何在 Azure 中的 Linux VM 上以 Jenkins、GitHub 及 Docker 建立開發基礎結構
 若要將應用程式開發的組建和測試階段自動化，可以使用持續整合和部署 (CI/CD) 管線。 在本教學課程中，您會在 Azure VM 上建立 CI/CD 管線，包括如何︰
@@ -64,7 +64,6 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
-  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
@@ -118,10 +117,13 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 現在開啟瀏覽器，前往 `http://<publicIps>:8080`。 完成初始 Jenkins 設定，如下所示︰
 
-- 輸入使用者名稱 **admin**，然後提供在上一個步驟中從 VM 取得的 *initialAdminPassword*。
-- 選取 [管理 Jenkins]，然後選取 [管理外掛程式]。
-- 選取 [可用]，然後在頂端的文字方塊中搜尋 *GitHub*。 核取 [GitHub 外掛程式] 的方塊，然後選取 [立即下載並於重新啟動後安裝]。
-- 核取 [在安裝完成且沒有任何作業執行時重新啟動 Jenkins] 的方塊，然後等候外掛程式安裝程序完成。
+- 選擇 [選取要安裝的外掛程式]
+- 在頂端的文字方塊中搜尋 *GitHub*。 核取 [GitHub] 方塊，然後選取 [安裝]
+- 建立第一位管理使用者。 輸入使用者名稱，例如 **admin**，然後提供您自己的安全密碼。 最後，輸入完整名稱和電子郵件地址。
+- 選取 [儲存並結束]
+- Jenkins 準備就緒之後，選取 [開始使用 Jenkins]
+  - 如果您開始使用 Jenkins 時，網頁瀏覽器顯示空白頁面，請重新啟動 Jenkins 服務。 從您的 SSH 工作階段輸入 `sudo service jenkins restart`，然後重新整理 Web 瀏覽器。
+- 使用您建立的使用者名稱和密碼登入 Jenkins。
 
 
 ## <a name="create-github-webhook"></a>建立 GitHub webhook
@@ -139,13 +141,13 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 
 ## <a name="create-jenkins-job"></a>建立 Jenkins 作業
-為了讓 Jenkins 回應 GitHub 中的事件，例如認可程式碼，請建立 Jenkins 作業。 
+為了讓 Jenkins 回應 GitHub 中的事件，例如認可程式碼，請建立 Jenkins 作業。 使用您自己的 GitHub 分支 URL。
 
 在您的 Jenkins 網站中，選取首頁中的 [建立新作業]︰
 
 - 輸入 HelloWorld 作為作業名稱。 選擇 [自由樣式專案]，然後選取 [確定]。
-- 在 [一般] 區段中，選取 [GitHub] 專案，然後輸入您的分支存放庫 URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world*
-- 在 [原始碼管理] 區段中，選取 [Git]，輸入您的分支存放庫 .git URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
+- 在 [一般] 區段下，選取 [GitHub 專案]，然後輸入您的分支存放庫 URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world*
+- 在 [原始碼管理] 區段中，選取 [Git]，輸入您的分支存放庫 *.git* URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - 在 [組建觸發程序] 下，選取 [GITScm 輪詢的 GitHub 勾點觸發程序]。
 - 在 [組建] 區段中，選擇 [新增組建步驟]。 選取 [執行殼層]，然後在命令視窗中輸入 `echo "Testing"`。
 - 選取作業視窗底部的 [儲存]。

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 虛擬網路中使用 Hive 轉換資料 | Microsoft Docs"
-description: "本教學課程提供逐步指示，說明如何使用 Azure Data Factory 中的 Hive 活動來轉換資料。"
+title: 在 Azure 虛擬網路中使用 Hive 轉換資料 | Microsoft Docs
+description: 本教學課程提供逐步指示，說明如何使用 Azure Data Factory 中的 Hive 活動來轉換資料。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: 04323e5f6b729cdadf5ede748a1178dfa9460cd2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fda9cab53290d7af69e243ce47df702b25d1de67
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
 在本教學課程中，您會使用 Azure PowerShell 建立 Data Factory 管道，以在 Azure 虛擬網路 (VNet) 中的 HDInsight 叢集上，使用 Hive 活動來轉換資料。 您會在本教學課程中執行下列步驟：
@@ -223,7 +223,7 @@ ms.lasthandoff: 02/01/2018
 
 - **userName**。 您在建立叢集時指定的叢集登入使用者名稱。 
 - **password**。 使用者的密碼。
-- **clusterUri**。 指定 HDInsight 叢集的 URL，格式為 https://<clustername>.azurehdinsight.net。  本文假設您可以透過網際網路存取此叢集。 例如，您可以連線至位於 `https://clustername.azurehdinsight.net` 的叢集。 這個位址使用公用閘道，但如果您已使用網路安全性群組 (NSG) 或使用者定義的路由 (UDR) 來禁止從網際網路存取，則無法使用此位址。 為了讓 Data factory 能夠將作業提交至 Azure 虛擬網路中的 HDInsight 叢集，您需要設定 Azure 虛擬網路，使得 URL 可解析成 HDInsight 所使用之閘道的私人 IP 位址。
+- **clusterUri**。 以下列格式指定 HDInsight 叢集的 URL：https://<clustername>.azurehdinsight.net。  本文假設您可以透過網際網路存取此叢集。 例如，您可以連線至位於 `https://clustername.azurehdinsight.net` 的叢集。 這個位址使用公用閘道，但如果您已使用網路安全性群組 (NSG) 或使用者定義的路由 (UDR) 來禁止從網際網路存取，則無法使用此位址。 為了讓 Data Factory 能夠將作業提交至 Azure 虛擬網路中的 HDInsight 叢集，您需要設定 Azure 虛擬網路，使得 URL 可解析成 HDInsight 所使用之閘道的私人 IP 位址。
 
   1. 從 Azure 入口網站，開啟 HDInsight 所在的虛擬網路。 開啟名稱開頭為 `nic-gateway-0` 的網路介面。 記下其私人 IP 位址。 例如，10.6.0.15。 
   2. 如果您的 Azure 虛擬網路有 DNS 伺服器，請更新 DNS 記錄，以便 HDInsight 叢集 URL `https://<clustername>.azurehdinsight.net` 可解析成 `10.6.0.15`。 這是建議的方法。 如果您的 Azure 虛擬網路中沒有 DNS 伺服器，您可以編輯所有已註冊為自我裝載整合執行階段節點之 VM 的 hosts 檔案 (C:\Windows\System32\drivers\etc)，在檔案中新增如下項目，以解決這個問題： 

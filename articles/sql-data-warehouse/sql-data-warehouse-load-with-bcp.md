@@ -1,11 +1,11 @@
 ---
-title: "使用 bcp 將資料載入 SQL 資料倉儲 | Microsoft Docs"
-description: "瞭解 bcp 是什麼及如何用於資料倉儲案例。"
+title: 使用 bcp 將資料載入 SQL 資料倉儲 | Microsoft Docs
+description: 瞭解 bcp 是什麼及如何用於資料倉儲案例。
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 01/22/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 146c6fdada651551c05b2cbcadc3e1248a40b613
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 752a2f0d7b49f9e053788b26e3df389246c72a73
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-with-bcp"></a>使用 bcp 載入資料
 
@@ -174,7 +174,7 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 > 
 
 ## <a name="next-steps"></a>後續步驟
-若要設計您的載入程序，請參閱[載入概觀](sql-data-warehouse-design-elt-data-loading)。  
+若要設計載入程序，請參閱[將資料載入 Azure SQL 資料倉儲的最佳做法](guidance-for-loading-data.md)。  
 
 
 

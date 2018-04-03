@@ -1,12 +1,12 @@
 ---
-title: "在 GitHub Webhook 所觸發的 Azure 中建立函式 | Microsoft Docs"
-description: "使用 Azure Functions 建立 GitHub Webhook 所叫用的無伺服器函式。"
+title: 在 GitHub Webhook 所觸發的 Azure 中建立函式 | Microsoft Docs
+description: 使用 Azure Functions 建立 GitHub Webhook 所叫用的無伺服器函式。
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cd446c64b8e7627db1c76d652ea1ab6f496eee65
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>建立由 GitHub Webhook 所觸發的函式
 
@@ -69,11 +69,15 @@ ms.lasthandoff: 02/27/2018
 
 1. 在 GitHub 中，瀏覽至您自己的存放庫。 您也可以使用已分歧的任何存放庫。 如果您需要讓存放庫產生分支，請使用 <https://github.com/Azure-Samples/functions-quickstart>。
 
-1. 按一下 [設定]，然後按一下 [Webhook] 和 [新增 Webhook]。
+2. 選擇 [設定] > [選項]，並確認 [功能] 下的 [問題] 已啟用。
+
+   ![啟用問題](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook.png)
+
+1. 在 [設定] 中，選擇 [Webhook] > [新增 Webhook]。
 
     ![新增 GitHub webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-1. 使用資料表中指定的設定，然後按一下 [新增 Webhook]。
+1. 使用下表中指定的設定，然後按一下 [新增 Webhook]：
 
     ![設定 webhook URL 和密碼](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 

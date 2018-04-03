@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Registry 教學課程 - 將更新的映像推送至區域部署"
-description: "將修改的 Docker 映像推送至您進行地理複寫的 Azure Container Registry，然後查看變更自動部署至多個區域中執行的 Web 應用程式。 這是三段式教學課程的第三段。"
+title: Azure Container Registry 教學課程 - 將更新的映像推送至區域部署
+description: 將修改的 Docker 映像推送至您進行地理複寫的 Azure Container Registry，然後查看變更自動部署至多個區域中執行的 Web 應用程式。 這是三段式教學課程的第三段。
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 359fdcabd579d277e40f02eba2d4603ebd9f5f1f
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f8eab93d1e6633ae4f17c5bb4836d96629d55cd4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="push-an-updated-image-to-regional-deployments"></a>將更新的映像推送至區域部署
+# <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>教學課程：將更新的映像推送至區域部署
 
 這是三段式教學課程系列的第三段。 [上一個教學課程](container-registry-tutorial-deploy-app.md)是針對兩個不同區域的 Web 應用程式部署設定地理複寫。 在本教學課程中，您要先修改應用程式，然後建立新的容器映像，再將它推送至您進行地理複寫的登錄中。 最後，您要檢視由 Azure Container Registry Webhook 在兩個 Web 應用程式執行個體中自動部署的變更。
 

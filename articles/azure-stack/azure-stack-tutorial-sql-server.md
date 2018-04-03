@@ -1,29 +1,28 @@
 ---
-title: "將 SQL 資料庫提供給您的 Azure Stack 使用者 | Microsoft Docs"
-description: "此教學課程說明如何安裝 SQL Server 資源提供者，並建立供應項目以讓 Azure Stack 使用者建立 SQL 資料庫。"
+title: 將 SQL 資料庫提供給您的 Azure Stack 使用者 | Microsoft Docs
+description: 此教學課程說明如何安裝 SQL Server 資源提供者，並建立供應項目以讓 Azure Stack 使用者建立 SQL 資料庫。
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2017
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: e9fd74fa44bb9482ee2285f4305085ee6ff2fb73
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>將 SQL 資料庫提供給您的 Azure Stack 使用者
-
 身為 Azure Stack 雲端系統管理員，您可以建立供應項目以讓您的使用者 (租用戶) 建立 SQL 資料庫，以搭配其雲端原生應用程式、網站與工作負載使用。 透過將對這些自訂隨選雲端式資料庫的存取權提供給您的使用者，您可以節省其時間與資源。 若要設定，您將必須：
 
 > [!div class="checklist"]
@@ -56,7 +55,7 @@ ms.lasthandoff: 02/22/2018
 既然您已部署 SQL Server 資源提供者並建立供應項目，您能以使用者身分登入並訂閱該供應項目，然後建立資料庫。
 
 ### <a name="subscribe-to-the-offer"></a>訂閱該供應項目
-1. 以租用戶身分登入 Azure Stack 入口網站 ( https://portal.local.azurestack.external )。
+1. 以租用戶身分登入 Azure Stack 入口網站 (https://portal.local.azurestack.external)。
 2. 按一下 [取得訂用帳戶]，然後在 [顯示名稱] 下輸入 **TestSQLServerSubscription**。
 3. 按一下 [選取服務] > [TestSQLServerOffer] > [建立]。
 4. 按一下 [更多服務] > [訂用帳戶] > [TestSQLServerSubscription] > [資源提供者]。

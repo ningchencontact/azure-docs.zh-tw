@@ -1,6 +1,6 @@
 ---
-title: "快速入門 - 使用 Azure 入口網站在 Azure 中建立私用的 Docker 登錄"
-description: "快速了解如何使用 Azure 入口網站建立私用的 Docker 容器登錄。"
+title: 快速入門 - 使用 Azure 入口網站在 Azure 中建立私用的 Docker 登錄
+description: 快速了解如何使用 Azure 入口網站建立私用的 Docker 容器登錄。
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: db112f7f8f486093509a86f9781c30133925c25f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7ea0ae9c0c071a08c9ff99587cd8c5dc8034fe69
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-a-container-registry-using-the-azure-portal"></a>使用 Azure 入口網站建立容器登錄庫
+# <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立容器登錄
 
 Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其中儲存並管理私人 Docker 容器映像。 在本快速入門中，您將使用 Azure 入口網站建立容器登錄、將容器映像推送到登錄中，最後將容器從登錄部署至 Azure 容器執行個體 (ACI)。
 
@@ -23,7 +23,7 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，網址為 https://portal.azure.com。
+在 https://portal.azure.com 登入 Azure 入口網站。
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 

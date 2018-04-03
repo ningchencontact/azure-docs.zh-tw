@@ -1,26 +1,26 @@
 ---
-title: "什麼是 Azure Stack？ | Microsoft Docs"
-description: "Azure Stack 可讓您在資料中心內執行 Azure 服務。"
+title: 什麼是 Azure Stack？ | Microsoft Docs
+description: Azure Stack 可讓您在資料中心內執行 Azure 服務。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/21/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 68d1e1752f934e61bbb60c0c934a80b564896a36
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 863c1ec562cd71af0df69ccc0547e16d02c7ee82
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-stack"></a>什麼是 Azure Stack？
 
@@ -30,15 +30,15 @@ Microsoft Azure Stack 是混合式雲端平台產品，可讓您組織的資料�
 Azure Stack 整合系統是透過 Microsoft 與[硬體合作夥伴](https://azure.microsoft.com/overview/azure-stack/integrated-systems/)的合作來提供的，可建立既具有雲端步調的創新又兼顧管理簡易性的解決方案。  由於是以硬體與軟體的整合系統形式來提供 Azure Stack，因此除了仍然會採用來自雲端的創新之外，還會提供您適度的彈性和控制。  Azure Stack 整合系統的大小範圍為 4 到 12 個節點，並且由硬體合作夥伴與 Microsoft 共同支援。  您可以使用 Azure Stack 整合系統，來為生產環境工作負載啟用新案例。    
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack 開發套件
-「Microsoft Azure Stack 開發套件」是單一節點的 Azure Stack 部署，您可以用來評估和瞭解 Azure Stack。  您也可以使用「Azure Stack 開發套件」作為開發人員環境，您可以在其中使用與 Azure 一致的 API 和工具進行開發。  「Azure Stack 開發套件」不應該用來作為生產環境。
+Microsoft [Azure Stack 開發套件 (ASDK)](.\asdk\asdk-what-is.md) 是單一節點的 Azure Stack 部署，您可以用來評估和瞭解 Azure Stack。  您也可以使用 ASDK 作為開發人員環境，您可以在其中使用與 Azure 一致的 API 和工具進行開發。 ASDK 的目的並非要在生產環境中使用。
 
-Azure Stack 開發套件有下列限制：
-* Azure Stack 開發套件會與單一 Azure Active Directory 或「Active Directory 同盟服務」識別提供者關聯。 您可以在此目錄中建立多位使用者，並對每位使用者指派訂用帳戶。
+ASDK 有下列限制：
+* ASDK 會與單一 Azure Active Directory (Azure AD) 或 Active Directory 同盟服務 (AD FS) 識別提供者相關聯。 您可以在此目錄中建立多位使用者，並對每位使用者指派訂用帳戶。
 * 因為在單一機器上部署了所有元件，所以為租用戶資源所提供的實體資源有限。 此設定不適合進行規模或效能評估。
 * 因為單一主機/NIC 的需求，所以網路功能案例會受到限制。  
 
 ## <a name="next-steps"></a>後續步驟
 [重要功能與概念](azure-stack-key-features.md)
 
-[Azure Stack：Azure 的延伸 (PDF)](https://azure.microsoft.com/en-us/resources/azure-stack-an-extension-of-azure/) \(英文\)
+[Azure Stack：Azure 的擴充 (pdf)](https://azure.microsoft.com/en-us/resources/azure-stack-an-extension-of-azure/)
 

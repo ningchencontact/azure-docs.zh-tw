@@ -1,24 +1,24 @@
 ---
-title: "適用於 Azure ExpressRoute 的路由需求 |Microsoft Docs"
-description: "此頁面提供用來設定和管理 ExpressRoute 循環路由的詳細需求。"
+title: 適用於 Azure ExpressRoute 的路由需求 |Microsoft Docs
+description: 此頁面提供用來設定和管理 ExpressRoute 循環路由的詳細需求。
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: ganesr
-editor: 
+editor: ''
 ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 87cf32c23c2b3f50057016a23212c95b706f2910
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 829646be6404f86d9f370b3a402cfc0c0c980699
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由需求
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理路由。 有些連線提供者會以受控服務形式提供路由的設定和管理。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵循下列需求：
@@ -107,7 +107,7 @@ Microsoft 對等路徑可讓您連接到不支援透過 Azure 公用對等路徑
 
 如果在前述的登錄中沒有指派前置詞和 AS 號碼給您，您必須開啟支援案例，手動驗證您的前置詞和 ASN。 支援需要文件，例如可證明允許您使用資源的授權書。
 
-Microsoft 對等互連允許使用私人 AS 號碼，但也需要進行手動驗證。
+Microsoft 對等互連允許使用私人 AS 號碼，但也需要進行手動驗證。 此外，我們會針對接收到的前置詞，移除 AS PATH 中的私用 AS 編號。 因此，您無法在 AS PATH 中附加私用 AS 編號以[影響 Microsoft 對等互連的路由](expressroute-optimize-routing.md)。 
 
 > [!IMPORTANT]
 > 透過 ExpressRoute 向 Microsoft 公告的公用 IP 位址不得向網際網路公告。 這可能會中斷其他 Microsoft 服務的連線。 不過，您的網路中伺服器用來與 Microsoft 內部 O365 端點進行通訊的公用 IP 位址可透過 ExpressRoute 公告。 
@@ -118,7 +118,7 @@ Microsoft 對等互連允許使用私人 AS 號碼，但也需要進行手動驗
 路由交換將會透過 eBGP 通訊協定。 MSEEs 與您的路由器之間會建立 EBGP 工作階段。 不一定需要驗證 BGP 工作階段。 如有必要，也可以設定 MD5 雜湊。 如需設定 BGP 工作階段的資訊，請參閱[設定路由](expressroute-howto-routing-classic.md)和[線路佈建工作流程和線路狀態](expressroute-workflows.md)。
 
 ## <a name="autonomous-system-numbers"></a>自發系統號碼
-Microsoft 會使用 AS 12076 進行 Azure 公用、Azure 私人和 Microsoft 對等互連。 我們已保留 65515 至 65520 的 ASN，以供內部使用。 同時支援 16 和 32 位元號碼。 只有 Microsoft 對等互連才需要使用公開註冊的 ASN。 私人和公用對等互連都可使用私人 ASN。
+Microsoft 會使用 AS 12076 進行 Azure 公用、Azure 私人和 Microsoft 對等互連。 我們已保留 65515 至 65520 的 ASN，以供內部使用。 同時支援 16 和 32 位元號碼。
 
 資料傳輸對稱沒有任何相關需求。 轉送與返回路徑可能會周遊不同的路由器配對。 相同的路由必須從橫跨多個屬於您的循環配對的任一端公告。 路由計量不需要完全相同。
 

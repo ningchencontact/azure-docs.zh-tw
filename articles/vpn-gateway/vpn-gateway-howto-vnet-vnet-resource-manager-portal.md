@@ -1,11 +1,11 @@
 ---
-title: "將 Azure 虛擬網路連接至另一個 VNet︰入口網站 | Microsoft Docs"
-description: "使用 Resource Manager 和 Azure 入口網站建立 VNet 間的 VPN 閘道連接。"
+title: 將 Azure 虛擬網路連接至另一個 VNet︰入口網站 | Microsoft Docs
+description: 使用 Resource Manager 和 Azure 入口網站建立 VNet 間的 VPN 閘道連接。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 03/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: a24bd41adbe26b1905f7817f5e5888e492d234f4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a95fdf078baa35eb9ca8ade462223b204be77d8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>使用 Azure 入口網站設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -127,7 +127,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="gatewaysubnet"></a>3.建立閘道子網路
-將虛擬網路連接到閘道之前，您必須先建立虛擬網路要連接的閘道子網路。 可能的話，最好使用 /28 或 /27 的 CIDR 區塊建立閘道子網路，以便提供足以容納未來其他組態需求的 IP 位址。
+建立虛擬網路的虛擬網路閘道之前，您必須先建立閘道子網路。 閘道子網路包含虛擬網路閘道所使用的 IP 位址。 可能的話，最好使用 /28 或 /27 的 CIDR 區塊建立閘道子網路，以便提供足以容納未來其他組態需求的 IP 位址。
 
 如果您要練習建立此組態，請在建立閘道子網路時參考這些[範例值](#values) 。
 

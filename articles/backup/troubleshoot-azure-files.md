@@ -1,30 +1,29 @@
 ---
-title: "針對 Azure 檔案服務備份進行疑難排解"
-description: "本文章提供在 Azure 中保護 Azure 檔案服務 (檔案共用) 時所發生之問題的相關疑難排解資訊。"
+title: 針對 Azure 檔案服務備份進行疑難排解
+description: 本文說明如何排解您在保護 Azure 檔案共用時所發生的問題。
 services: backup
 ms.service: backup
-keywords: "請勿在未諮詢 SEO 之前新增或編輯關鍵字。"
+keywords: 請勿在未諮詢 SEO 之前新增或編輯關鍵字。
 author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 3bc259245df86406e23418bac598c8b1e062d512
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c803118ccdafa8db0e8f8ddee608f60311f65e05
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>針對備份 Azure 檔案服務的問題進行疑難排解
-
 您可以使用下列表格中所列的資訊，針對使用 Azure 檔案服務備份時所發生的問題和錯誤進行疑難排解。
 
 ## <a name="preview-boundaries"></a>預覽界限
 Azure 檔案服務備份處於預覽狀態。 Azure 檔案共用不支援下列備份案例︰
-- 使用[區域備援儲存體](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) 或[讀取權限異地備援儲存體](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) 複寫功能，保護儲存體帳戶中的檔案共用。
-- 在已啟用虛擬網路的儲存體帳戶中保護檔案共用。
-- 使用 PowerShell 或 CLI 備份 Azure 檔案服務。
+- 使用[區域備援儲存體](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) 或[讀取權限異地備援儲存體](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) 複寫功能，保護儲存體帳戶中的 Azure 檔案共用。
+- 在已啟用虛擬網路的儲存體帳戶中保護 Azure 檔案共用。
+- 使用 PowerShell 或 CLI 備份 Azure 檔案共用。
 
 ### <a name="limitations"></a>限制
 - 每日排定備份上限為 1。
@@ -37,7 +36,7 @@ Azure 檔案服務備份處於預覽狀態。 Azure 檔案共用不支援下列�
 
 | 設定備份 | 因應措施或解決方案祕訣 |
 | ------------------ | ----------------------------- |
-| 找不到我的儲存體帳戶來設定 Azure 檔案共用的備份 | <ul><li>請等候探索完成。 <li>檢查是否已使用另一個復原服務保存庫來保護儲存體帳戶中的任何檔案共用。 **請注意**：只能在一個復原服務保存庫之下保護儲存體帳戶中的所有檔案共用。 <li>請確定檔案共用不是存在於任何不支援的儲存體帳戶中。|
+| 找不到可用來設定 Azure 檔案共用備份的儲存體帳戶 | <ul><li>請等候探索完成。 <li>檢查是否已使用另一個復原服務保存庫來保護儲存體帳戶中的任何檔案共用。 **請注意**：只能在一個復原服務保存庫之下保護儲存體帳戶中的所有檔案共用。 <li>請確定檔案共用不是存在於任何不支援的儲存體帳戶中。|
 | 入口網站中的錯誤陳述儲存體帳戶探索失敗。 | 如果您的訂用帳戶是夥伴 (已啟用 CSP)，請忽略此錯誤。 如果您的訂用帳戶未啟用 CSP，而且找不到儲存體帳戶，請連絡支援人員。|
 | 選取的儲存體帳戶驗證或註冊失敗。| 請重試此作業。若問題持續發生，請連絡支援人員。|
 | 無法在選取的儲存體帳戶中列出或尋找檔案共用。 | <ul><li> 確定儲存體帳戶存在於資源群組中 (而且上次在保存庫中驗證/註冊之後並未遭到刪除或移動)。<li>確定您想要保護的檔案共用尚未遭到刪除。 <li>確定儲存體帳戶是檔案共用備份支援的儲存體帳戶。<li>請檢查檔案共用是否已在相同的復原服務保存庫中受到保護。|

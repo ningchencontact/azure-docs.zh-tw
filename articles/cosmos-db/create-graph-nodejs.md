@@ -1,31 +1,31 @@
 ---
-title: "使用圖形 API 來建置 Azure Cosmos DB Node.js 應用程式 | Microsoft Docs"
-description: "提供可用來連線及查詢 Azure Cosmos DB 的 Node.js 程式碼範例。"
+title: 使用圖形 API 來建置 Azure Cosmos DB Node.js 應用程式 | Microsoft Docs
+description: 提供可用來連線及查詢 Azure Cosmos DB 的 Node.js 程式碼範例。
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: luisbosquez
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 95c0ac43e468d3655cfddc7ae0de6cefb649131d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: bba876d2530b3b1c418e18fd807cfdfbfdfc4296
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB：使用圖形 API 來建置 Node.js 應用程式
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 
-本快速入門文章會示範如何使用 Azure 入口網站建立適用於圖形 API 的 Azure Cosmos DB 帳戶、資料庫和圖形。 您會接著使用開放原始碼 [Gremlin Node.js](https://www.npmjs.com/package/gremlin) 驅動程式來建置和執行主控台應用程式。
+此快速入門示範如何使用 Azure 入口網站建立 Azure Cosmos DB [Graph API](graph-introduction.md) 帳戶、資料庫和圖形。 您會接著使用開放原始碼 [Gremlin Node.js](https://www.npmjs.com/package/gremlin) 驅動程式來建置和執行主控台應用程式。
 
 ## <a name="prerequisites"></a>先決條件
 

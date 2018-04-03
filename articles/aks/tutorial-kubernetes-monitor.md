@@ -1,6 +1,6 @@
 ---
-title: "Azure 上的 Kubernertes 教學課程 - 監視 Kubernetes"
-description: "AKS 教學課程 - 使用 Microsoft Operations Management Suite (OMS) 監視 Kubernetes"
+title: Azure 上的 Kubernertes 教學課程 - 監視 Kubernetes
+description: AKS 教學課程 - 透過 Log Analytics 監視 Kubernetes
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 227601858dbe07e6cb774a2d24878ddca05aaf56
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86ae0c5ab302c49fa58df887d9dffef6cec31708
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="monitor-azure-container-service-aks"></a>監視 Azure Container Service (AKS)
+# <a name="tutorial-monitor-azure-container-service-aks"></a>AKS 教學課程：監視 Azure Container Service (AKS)
 
 監視 Kubernetes 叢集和容器很重要，尤其在您使用多個應用程式大規模執行生產叢集時。
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 03/09/2018
 
 ![新增解決方案](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-建立新的 OMS 工作區，或選取現有的工作區。 OMS 工作區表單會引導您完成此程序。
+建立新的 Log Analytics 工作區，或選取現有的 Log Analytics 工作區。 Log Analytics 工作區表單會引導您完成此程序。
 
 在建立工作區時，選取 [釘選到儀表板] 以方便擷取。
 
-![OMS 工作區](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
+![Log Analytics 工作區](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
 完成時，選取 [確認]。 驗證完成之後，請選取 [建立] 以建立容器監視解決方案。
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 03/09/2018
 
 ## <a name="create-kubernetes-secret"></a>建立 Kubernetes 祕密
 
-使用 [kubectl create secret][kubectl-create-secret] 命令，將 OMS 工作區設定儲存在名為 `omsagent-secret` 的 Kubernetes 祕密中。 以您的 OMS 工作區識別碼更新 `WORKSPACE_ID`，並以工作區金鑰更新 `WORKSPACE_KEY`。
+使用 [kubectl create secret][kubectl-create-secret] 命令，將 Log Analytics 工作區設定儲存在名為 `omsagent-secret` 的 Kubernetes 祕密中。 以您的 Log Analytics 工作區識別碼更新 `WORKSPACE_ID`，並以工作區金鑰更新 `WORKSPACE_KEY`。
 
 ```console
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
@@ -154,7 +154,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-執行代理程式之後，OMS 需要幾分鐘的時間來擷取及處理資料。
+執行代理程式之後，Log Analytics 需要幾分鐘的時間來擷取及處理資料。
 
 ## <a name="access-monitoring-data"></a>存取監視資料
 
@@ -166,7 +166,7 @@ omsagent   3         3         3         3            3           beta.kubernete
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已使用 OMS 監視 Kubernetes 叢集。 涵蓋的工作包括：
+在本教學課程中，您已使用 Log Analytics 監視 Kubernetes 叢集。 涵蓋的工作包括：
 
 > [!div class="checklist"]
 > * 設定容器監視解決方案

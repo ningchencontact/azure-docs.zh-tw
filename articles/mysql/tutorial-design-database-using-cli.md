@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 6f77b24092a80708ba82c6d42b947c00d6a69b6d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 44c10ebc0238c34b4bee4cb75107bdf4ef5bec32
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>教學課程：使用 Azure CLI 設計適用於 MySQL 的 Azure 資料庫
 
@@ -65,11 +65,11 @@ az extension list
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.3"
+    "version": "0.0.4"
 }
 ```
 
-如果未傳回 0.0.3 版，請執行下列命令來更新擴充功能： 
+如果未傳回 0.0.4 版，請執行下列命令來更新擴充功能： 
 ```azurecli-interactive
 az extension update --name rdbms
 ```

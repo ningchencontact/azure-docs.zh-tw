@@ -1,11 +1,11 @@
 ---
-title: "Blob 的 Azure 經常性存取、非經常性存取和封存儲存體 | Microsoft Docs"
-description: "Azure 儲存體帳戶的經常性存取、非經常性存取和封存儲存體。"
+title: Blob 的 Azure 經常性存取、非經常性存取和封存儲存體 | Microsoft Docs
+description: Azure 儲存體帳戶的經常性存取、非經常性存取和封存儲存體。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kuhussai
 manager: jwillis
-editor: 
+editor: ''
 ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: 2adb301f1d047c7762a35880da6e6094a5afbd75
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c62f3a92e6199f6467556054c9f58c20b6ceba2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob 儲存體︰經常性存取、非經常性存取和封存儲存層
 
@@ -79,7 +79,7 @@ Blob 層級的階層處理可讓您使用稱為[設定 Blob 層](/rest/api/stora
 
 ### <a name="blob-level-tiering-billing"></a>Blob 層級的階層處理計費
 
-當 blob 移至存取頻率較低的階層 (經常性存取 -> 非經常性存取、經常性存取 -> 封存，或非經常性存取 -> 封存) 時，此作業會在寫入至目的地階層時計費，而且適用目的地階層的寫入作業 (每 10,000 個) 和資料寫入 (每 GB) 費用。 如果 blob 移至存取頻率較高的階層 (封存 -> 非經常性存取、封存 -> 經常性存取，或非經常性存取 -> 經常性存取)，此作業會在從來源階層讀取時計費，而且適用來源階層的讀取作業 (每 10,000 個) 和資料擷取 (每 GB) 費用。
+當 blob 移至存取頻率較低的階層 (經常性存取 -> 非經常性存取、經常性存取 -> 封存，或非經常性存取 -> 封存) 時，此作業會在寫入目的地階層時計費，且適用目的地階層的寫入作業 (每 10,000 個) 和資料寫入 (每 GB) 費用。 如果 blob 移至存取頻率較高的階層 (封存 -> 非經常性存取、封存 -> 經常性存取，或非經常性存取 -> 經常性存取)，此作業會在從來源階層讀取時計費，且適用來源階層的讀取作業 (每 10,000 個) 和資料擷取 (每 GB) 費用。
 
 如果帳戶層從經常性存取切換至非經常性存取，您需針對在 GPv2 帳戶中未設定存取層的所有 blob 支付寫入作業費用 (每 10,000 個)。 這在 Blob 儲存體帳戶中不收費。 如果您將 Blob 儲存體或 GPv2 帳戶從非經常性存取切換至經常性存取，您需支付讀取作業 (每 10,000 個) 和資料擷取 (每 GB) 費用。 可能也適用任何移出非經常性存取或封存層之 blob 的提早刪除費用。
 

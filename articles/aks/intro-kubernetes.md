@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Service for Kubernetes 簡介"
-description: "Azure Container Service for Kubernetes 可讓您輕鬆地部署和管理 Azure 上的容器型應用程式。"
+title: Azure Container Service for Kubernetes 簡介
+description: Azure Container Service for Kubernetes 可讓您輕鬆地部署和管理 Azure 上的容器型應用程式。
 services: container-service
 author: gabrtv
 manager: timlt
@@ -9,17 +9,21 @@ ms.topic: overview
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 2980d4733dcf138c3a9aa1713cff994bbf5a296c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bfa445eb11ed8be608278d0b95249372f9976ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="introduction-to-azure-container-service-aks"></a>Azure Container Service (AKS) 簡介
+# <a name="introduction-to-azure-container-service-aks-preview"></a>Azure Container Service (AKS) 預覽簡介
 
 Azure Container Service (AKS) 可讓您輕鬆建立、設定及管理虛擬機器的叢集，這些虛擬機器預先設定為執行容器化應用程式。 這樣可讓您使用現有技能，或運用大量且不斷成長的社群專業知識，在 Microsoft Azure 上部署及管理容器應用程式。
 
 藉由使用 AKS，您可以充分利用 Azure 的企業級功能，同時仍可保有應用程式在 Kubernetes 內的可攜性和 Docker 映像格式。
+
+> [!IMPORTANT]
+> Azure Container Service (AKS) 目前為**預覽**狀態。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+>
 
 ## <a name="managed-kubernetes-in-azure"></a>Azure 中受控 Kubernetes
 
@@ -37,7 +41,7 @@ AKS 可降低管理 Kubernetes 叢集的複雜性和作業負荷，因為是由 
 AKS 的目標，是要使用現今頗受客戶歡迎的開放原始碼工具和技術，提供容器主控環境。 為了這個目的，我們已公開標準 Kubernetes API 端點。 透過這些標準端點，您可以利用任何能夠與 Kubernetes 叢集通訊的軟體。 例如，您可能會選擇 [kubectl][kubectl-overview]、[helm][helm] 或 [draft][draft]。
 
 ## <a name="creating-a-kubernetes-cluster-using-azure-container-service-aks"></a>使用 Azure Container Service (AKS) 建立 Kubernetes 叢集
-若要開始使用 AKS，請使用 [Azure CLI][aks-quickstart] 或透過入口網站 (在 Marketplace 內搜尋 **Azure Container Service**) 來部署 AKS 叢集。 如果您是需要更充分控制 Azure Resource Manager 範本的進階使用者，您可以使用開放原始碼 [acs-engine][acs-engine] 專案來建立您自己的自訂 Kubernetes 叢集，並透過 `az` CLI 來部署它。
+若要開始使用 AKS，請使用 [Azure CLI][aks-quickstart] 或透過入口網站 (在 Marketplace 內搜尋 **Azure Container Service**) 來部署 AKS 叢集。 如果您是需要更充分控制 Azure Resource Manager 範本的進階使用者，可以使用開放原始碼 [acs-engine][acs-engine] 專案來建立自己的自訂 Kubernetes 叢集，並透過 `az` CLI 來部署。
 
 ### <a name="using-kubernetes"></a>使用 Kubernetes
 Kubernetes 能自動化部署、調整和管理容器化應用程式。 它包含一組豐富的功能，包括︰

@@ -3,7 +3,7 @@
 若要瀏覽至您的 APIM 執行個體，請遵循下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
-2. 選取 ![箭號](./media/api-management-navigate-to-instance/arrow.png).
+2. 選取畫面左上方的 [所有服務]。  
 3. 在搜尋方塊中，輸入 "api"。
 4. 按一下 [API 管理服務]。
 

@@ -1,6 +1,6 @@
 ---
-title: "快速入門 - Azure Kubernetes 叢集入口網站快速入門"
-description: "快速了解如何在 AKS 中使用 Azure 入口網站建立適用於 Linux 容器的 Kubernetes 叢集。"
+title: 快速入門 - Azure Kubernetes 叢集入口網站快速入門
+description: 快速了解如何在 AKS 中使用 Azure 入口網站建立適用於 Linux 容器的 Kubernetes 叢集。
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 35886217328d35229a59b9713f5bb4bf0244569a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 4aad45559d167e6c046822200c9bbb98113d463b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>部署 Azure Container Service (AKS) 叢集
+# <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>快速入門：部署 Azure Container Service (AKS) 叢集
 
 在本快速入門中，您會使用 Azure 入口網站來部署 AKS 叢集。 接著，在叢集上執行包含 Web 前端和 Redis 執行個體的多容器應用程式。 完成後，即可透過網際網路來存取應用程式。
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/27/2018
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站 (網址是 http://portal.azure.com)。
+在 http://portal.azure.com 登入 Azure 入口網站。
 
 ## <a name="create-service-principal"></a>建立服務主體
 

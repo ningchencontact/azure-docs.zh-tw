@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: e5c1a5a991284fcbeac53d2ce35be4e2634514fa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 97b14de64c4aa6bf134f2c293e4bb8b5725810d3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure 入口網站：使用 SQL 查詢編輯器進行連線並查詢資料
 
-SQL 查詢編輯器是瀏覽器查詢工具，可讓您有效率且輕鬆地在 Azure SQL Database 或 Azure SQL 資料倉儲上執行 SQL 查詢，且不需要離開 Azure 入口網站。 此快速入門會示範如何使用查詢編輯器來連線至 SQL Database，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。
+SQL 查詢編輯器是瀏覽器查詢工具，可讓您有效率且輕鬆地在 Azure SQL Database 或 Azure SQL 資料倉儲上執行 SQL 查詢，且不需要離開 Azure 入口網站。 此快速入門教學課程會示範如何使用查詢編輯器來連線至 SQL Database，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -142,19 +142,25 @@ SQL 查詢編輯器是瀏覽器查詢工具，可讓您有效率且輕鬆地在 
 
 ## <a name="query-editor-considerations"></a>查詢編輯器的考量
 
-在查詢編輯器仍處於預覽狀態時，有一些使用事項須注意：
+使用查詢編輯器時，有一些使用事項須注意：
 
 1. 在 Azure SQL Server 防火牆設定中，確定 [允許存取 Azure 服務] 選項已設為 [開啟]。 此選項會允許 SQL 查詢編輯器存取您的 SQL 資料庫和資料倉儲。
 
-2. Azure Active Directory 管理員登入不適用於啟用雙因素驗證的帳戶。
+2. 如果 SQL 伺服器位於虛擬網路中，則無法使用查詢編輯器來查詢該伺服器中的資料庫。
 
-3. 不支援使用電子郵件帳戶 (例如 outlook.com、hotmail.com、live.com、gmail.com 或 yahoo.com) 作為 Active Directory 管理員。 請務必選擇在 Azure Active Directory 原生建立的使用者，或是 Azure Active Directory 的同盟使用者
+3. 按 F5 鍵將會重新整理 [查詢編輯器] 頁面，但會遺失正在處理的查詢。 使用工具列上的 [執行] 按鈕來執行查詢。
 
-4. 查詢編輯器中尚未支援空間資料類型的查詢。 查詢空間資料行將會導致 'System.IO.FileNotFoundException' 錯誤。
+4. 查詢編輯器不支援與主要 DB 連線
 
-5. 不支援用於資料庫表格和檢視的 IntelliSense。 不過，編輯器支援已輸入名稱的自動完成功能。
+5. 查詢執行的逾時時間是 5 分鐘。
 
-6. 按 F5 鍵將會重新整理 [查詢編輯器] 頁面，但會遺失正在處理的查詢。 使用工具列上的 [執行] 按鈕來執行查詢。
+6. Azure Active Directory 管理員登入不適用於啟用雙因素驗證的帳戶。
+
+7. 不支援使用電子郵件帳戶 (例如 outlook.com、hotmail.com、live.com、gmail.com 或 yahoo.com) 作為 Active Directory 管理員。 請務必選擇在 Azure Active Directory 原生建立的使用者，或是 Azure Active Directory 的同盟使用者
+
+8. 查詢編輯器僅支援地理資料類型的圓柱形投影。
+
+9. 不支援用於資料庫表格和檢視的 IntelliSense。 不過，編輯器支援已輸入名稱的自動完成功能。
 
 
 ## <a name="next-steps"></a>後續步驟

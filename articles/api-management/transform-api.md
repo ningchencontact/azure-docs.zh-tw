@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure API 管理轉換及保護您的 API| Microsoft Docs"
-description: "了解如何使用配額和節流 (頻率限制) 原則保護您的 API。"
+title: 使用 Azure API 管理轉換及保護您的 API| Microsoft Docs
+description: 了解如何使用配額和節流 (頻率限制) 原則保護您的 API。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 772f3828d85c54e7b8bb44c857e555175b7444cc
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: fb56b8489b086b724df9f3c9179f2c3265cd05a7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-and-protect-your-api"></a>轉換及保護您的 API 
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 12/04/2017
 7. 選取 [程式碼編輯器]。
     
      ![編輯原則](./media/set-edit-policies/set-edit-policies01.png)
-9. 將游標放在 **<outbound>** 元素內部。
+9. 將游標放在 **&lt;outbound&gt;** 元素內部。
 10. 在右側視窗的 [轉換原則] 下方，按兩次 [+ 設定 HTTP 標頭] \(以插入兩個原則程式碼片段)。
 
     ![原則](./media/transform-api/transform-api.png)
@@ -111,7 +111,7 @@ ms.lasthandoff: 12/04/2017
 5. 選取畫面頂端的 [設計] 索引標籤。
 6. 在 [輸出處理] 視窗中，按一下三角形 (鉛筆旁邊)。
 7. 選取 [程式碼編輯器]。
-8. 將游標放在 **<outbound>** 元素內部。
+8. 將游標放在 **&lt;outbound&gt;** 元素內部。
 9. 在右側視窗的 [轉換原則] 下方，按一下 [+ 尋找並取代主體中的字串]。
 10. 修改您的 **<find-and-replace** 程式碼 (位於 **<outbound>** 元素中)，取代 URL 以符合您的 APIM 閘道。 例如︰
 
@@ -128,7 +128,7 @@ ms.lasthandoff: 12/04/2017
 5. 選取畫面頂端的 [設計] 索引標籤。
 6. 在 [輸入處理] 視窗中，按一下三角形 (鉛筆旁邊)。
 7. 選取 [程式碼編輯器]。
-8. 將游標放在 **<inbound>** 元素內部。
+8. 將游標放在 **&lt;inbound&gt;** 元素內部。
 9. 在右側視窗的 [存取限制原則] 下方，按一下 [+ 限制每個金鑰的呼叫速率]。
 10. 將您的 **<rate-limit-by-key** 程式碼 (位於 **<inbound>** 元素中) 修改為下列程式碼：
 

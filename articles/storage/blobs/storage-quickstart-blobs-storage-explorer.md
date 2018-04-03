@@ -1,6 +1,6 @@
 ---
-title: "Azure 快速入門 - 使用 Azure 儲存體總管上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs"
-description: "本快速入門中，您會使用 Azure 儲存體總管來建立儲存體帳戶和容器。 然後使用儲存體總管，將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。"
+title: Azure 快速入門 - 使用 Azure 儲存體總管上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs
+description: 本快速入門中，您會使用 Azure 儲存體總管來建立儲存體帳戶和容器。 然後使用儲存體總管，將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f44d42b949eae0d017e3bba218234fd1e2ead78e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>快速入門：使用 Azure 儲存體總管上傳、下載及列出 Blob
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 02/24/2018
 
 Blob 一律會上傳到容器中。 這可讓您組織 Blob 群組，就像在電腦的資料夾中組織檔案一樣。
 
-若要建立容器，請展開您在後續步驟中建立的儲存體帳戶。 選取 [Blob 容器]，然後以滑鼠右鍵按一下 [建立 Blob 容器]。 輸入 blob 容器的名稱。 請參閱[容器命名規則](storage-dotnet-how-to-use-blobs.md#create-a-container) 區段，以取得命名 blob 容器的規則和限制的清單。 完成時，按 **Enter** 可建立 blob 容器。 一旦成功建立 blob 容器後，它就會顯示在所選儲存體帳戶的 [Blob 容器]  資料夾底下。
+若要建立容器，請展開您在後續步驟中建立的儲存體帳戶。 選取 [Blob 容器]，然後以滑鼠右鍵按一下 [建立 Blob 容器]。 輸入 blob 容器的名稱。 請參閱[建立容器與設定權限](storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions)區段，以取得命名 blob 容器的規則和限制清單。 完成時，按 **Enter** 可建立 blob 容器。 一旦成功建立 blob 容器後，它就會顯示在所選儲存體帳戶的 [Blob 容器]  資料夾底下。
 
 ## <a name="upload-blobs-to-the-container"></a>將 Blob 上傳到容器
 

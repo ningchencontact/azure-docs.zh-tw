@@ -1,29 +1,27 @@
 ---
-title: "使用 Java 建立 Azure Cosmos DB 文件資料庫 | Microsoft Docs'"
-description: "提供 Java 程式碼範例，您可用來連線及查詢 Azure Cosmos DB SQL API"
+title: 使用 Java 建立 Azure Cosmos DB 文件資料庫 | Microsoft Docs'
+description: 提供 Java 程式碼範例，您可用來連線及查詢 Azure Cosmos DB SQL API
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: 85f8310235e0f5b038f2b55c94fe044d1a9d9719
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 669a11368ed6ccec041701e691323a2bb2cac56a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Java 和 Azure 入口網站建立文件資料庫
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可使用 Azure Cosmos DB 快速地建立和查詢受控文件、資料表及圖形資料庫。
 
@@ -46,7 +44,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
 
-您必須先使用 Azure Cosmos DB 建立 SQL 資料庫帳戶，才可以建立文件資料庫。
+您必須先使用 Azure Cosmos DB 建立 SQL API 帳戶，才可以建立文件資料庫。
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -63,7 +61,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
    ![在 Azure 入口網站的 [資料總管] 中建立新文件](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
   
-2. 現在將文件新增至具有下列結構的集合，然後按一下 [儲存]。
+2. 現在將文件新增至具有下列結構的集合，然後按一下 [儲存]。 使用程式碼方塊中的 [複製] 按鈕，將 json 複製到剪貼簿。
 
      ```json
      {
@@ -87,7 +85,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     ![[資料總管] 中的預設查詢為 `SELECT * FROM c`](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
 
-2. 若要變更查詢，您可按一下 [編輯篩選條件] 按鈕、新增 `ORDER BY c._ts DESC` 至查詢述詞方塊，然後再按一下 [套用篩選條件]。
+2. 停留在 [文件] 索引標籤，藉由按一下 [編輯篩選條件] 按鈕、將 `ORDER BY c._ts DESC` 新增至查詢述詞方塊，然後再按一下 [套用篩選條件] 即可變更查詢。
 
     ![新增 ORDER BY c._ts DESC 並按一下 [套用篩選]，以變更預設查詢](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
 
@@ -119,9 +117,11 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
-此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 這些程式碼片段皆是取自以下資料夾中安裝的 `Program.java` 檔案：C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-string)。 
+此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-string)。 
 
-* `DocumentClient` 初始化。 [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) 提供適用於 Azure Cosmos DB 資料庫服務的用戶端邏輯表示法。 此用戶端會用於設定和執行針對服務的要求。
+下列程式碼片段皆是取自 C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted\Program.java 檔案。
+
+* `DocumentClient` 初始化。 [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) 提供適用於 Azure Cosmos DB 資料庫服務的用戶端邏輯表示法。 此用戶端會用於設定和執行針對服務的要求。 此程式碼的 `FILLME` 部分稍後會在快速入門中更新。
 
     ```java
     this.client = new DocumentClient("https://FILLME.documents.azure.com",
@@ -231,13 +231,15 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     終端機視窗會顯示已建立 FamilyDB 資料庫的通知。 
     
-4. 按任意鍵來建立集合。 
+4. 請按任一按鍵來建立資料庫，然後按下另一個按鍵來建立集合。 
 
-5. 切換回 [資料總管]，您會看到它現在包含 FamilyDB 資料庫。
-    
-6. 在主控台視窗中繼續按按鍵，讓程式碼建立文件並執行查詢。
-    
-    在程式結束時，系統會從您帳戶刪除所有來自此應用程式的資源，因您不會產生任何費用。 
+    程式結束時會刪除所有資源，因此請切換回瀏覽器中的資料總管，您會看到資料總管中現在已包含 FamilyDB 資料庫和 FamilyCollection 集合。
+
+5. 切換至 [主控台] 視窗，然後按下任一按鍵來建立第一個文件，然後按下另一個按鍵以建立第二個文件。 然後切換回資料總管以檢視這些文件。 
+
+6. 按下任一按鍵以執行查詢，並在 [主控台] 視窗中查看輸出。 
+
+7. 您按下的下一個按鍵會刪除資源。 如果您想要保留資源，您可以在 [主控台] 視窗中按 CTRL + C 來結束程式。 否則，請按任意鍵來刪除帳戶中的資源，如此一來，您就不會產生費用。 
 
     ![主控台輸出](./media/create-sql-api-java/console-output.png)
 

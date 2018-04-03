@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 072c16a0e50a4922d44dd354b632f39b33d23cdd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/28/2018
+---
 ### <a name="supportedclientos"></a>可以使用哪些用戶端作業系統來搭配點對站？
 
 以下為支援的用戶端作業系統：
@@ -10,8 +26,8 @@
 * Windows Server 2012 R2 (僅限 64 位元)
 * Windows Server 2016 (僅限 64 位元)
 * Windows 10
-* OSX version 10.11 for Mac (El Capitan)
-* macOS version 10.12 for Mac (Sierra)
+* Mac OS X 10.11 版 (El Capitan)
+* Mac OS X 10.12 版 (Sierra)
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>在我的點對站台組態中可以有多少個 VPN 用戶端端點？
 

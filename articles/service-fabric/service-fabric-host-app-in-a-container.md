@@ -1,24 +1,24 @@
 ---
-title: "將容器中的 .NET 應用程式部署到 Azure Service Fabric | Microsoft Docs"
-description: "教導您如何在 Visual Studio 中以 Docker 容器封裝 .NET 應用程式。 然後，將這個新的「容器」應用程式部署到 Service Fabric 叢集。"
+title: 將容器中的 .NET 應用程式部署到 Azure Service Fabric | Microsoft Docs
+description: 教導您如何在 Visual Studio 中以 Docker 容器封裝 .NET 應用程式。 然後，將這個新的「容器」應用程式部署到 Service Fabric 叢集。
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 11bb34939e5fa3699973051664e85f9ef2147ff7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>將 Windows 容器中的 .NET 應用程式部署到 Azure Service Fabric
 
@@ -49,13 +49,6 @@ Service Fabric 應用程式執行於叢集，也就是一組連接網路的虛�
 現在，您已有在 Azure 中執行的 Service Fabric 叢集，因此可以建立及部署容器化應用程式。 為了開始執行我們在容器中的應用程式，我們必須在 Visual Studio 的專案中新增「Docker 支援」。 當您在應用程式中新增「Docker 支援」時，會發生兩件事。 首先，會在專案中新增一個 _Dockerfile_。 這個新檔案說明容器映像的建置方式。 其次，會在方案中加入一個新的 _docker-compose_ 專案。 這個新專案包含幾個 docker-compose 檔案， 可用來說明容器的執行方式。
 
 深入了解如何使用 [Visual Studio 容器工具][link-visualstudio-container-tools]。
-
->[!NOTE]
->如果您第一次在電腦上執行 Windows 容器映像，則 Docker CE 必須下拉適用於您容器的基底映像。 本教學課程中使用的映像為 14 GB。 請繼續並執行下列終端機命令來提取基底映像：
->```cmd
->docker pull microsoft/mssql-server-windows-developer
->docker pull microsoft/aspnet:4.6.2
->```
 
 ### <a name="add-docker-support"></a>新增 Docker 支援
 
@@ -205,7 +198,7 @@ Edge 會使用容器在內部 NAT 網路上的 IP 位址 (通常是 172.x.x.x) �
    >建立容器映像約需 15 分鐘。
    >Service Fabric 叢集的第一個部署會引發下載基底 Windows Server Core 容器映像的動作。 此下載還需要額外的 5-10 分鐘才能完成。
 
-使用您的叢集 URL 瀏覽至 Fabrikam Call Center 應用程式，例如 *http://mycluster.westeurope.cloudapp.azure.com*。
+使用您的叢集 URL 瀏覽至 Fabrikam Call Center 應用程式，例如 http://mycluster.westeurope.cloudapp.azure.com
 
 既然您已將 Fabrikam Call Center 方案容器化並進行部署，現在您就可以開啟 [Azure 入口網站][link-azure-portal]並看到應用程式在 Service Fabric 中執行。 若要試試應用程式，請開啟網頁瀏覽器並移至您 Service Fabric 叢集的 URL。
 

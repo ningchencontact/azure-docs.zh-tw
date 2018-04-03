@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 入口網站來開始使用 Data Lake Store | Microsoft Docs"
-description: "使用 Azure 入口網站來建立 Data Lake Store 帳戶，並在 Data Lake Store 中執行基本作業"
+title: 使用 Azure 入口網站來開始使用 Data Lake Store | Microsoft Docs
+description: 使用 Azure 入口網站來建立 Data Lake Store 帳戶，並在 Data Lake Store 中執行基本作業
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: c5b0f5250a08915e987a1eb5229f2c4648e660fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 91ed55e5f12c10e67653bdadfca80bd072779711
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>使用 Azure 入口網站開始使用 Azure Data Lake Store
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.lasthandoff: 02/21/2018
 ## <a name="create-an-azure-data-lake-store-account"></a>建立 Azure Data Lake Store 帳戶
 
 1. 登入新的 [Azure 入口網站](https://portal.azure.com)。
-2. 依序按一下 [建立資源]、[資料 + 儲存體] 和 [Azure Data Lake Store]。 讀取 [Azure Data Lake Store] 刀鋒視窗中的資訊，然後按一下刀鋒視窗左上角的 [建立]。
+2. 按一下 [建立資源] > [儲存體] > [Data Lake Store]。
 3. 在 [新增 Data Lake Store] 刀鋒視窗中，提供如以下螢幕擷取畫面所示的值：
    
     ![建立新的 Azure Data Lake Store 帳戶](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "建立新的 Azure Data Lake 帳戶")
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/21/2018
    * **加密設定**。 選項有三個：
      
      * **不啟用加密**。
-     * **使用由 Auzre Data Lake 管理的金鑰**。  如果您要讓 Azure Data Lake Store 管理加密金鑰。
+     * **使用由 Data Lake Store 管理的金鑰**。  如果您要讓 Azure Data Lake Store 管理加密金鑰。
      * **使用來自您自己金鑰保存庫的金鑰**。 您可以選取現有的 Azure Key Vault，或建立新的 Key Vault。 若要使用 Key Vault 中的金鑰，您必須為 Azure Data Lake Store 帳戶指派用來存取 Azure Key Vault 的權限。 如需相關指示，請參閱[指派 Azure Key Vault 的權限](#assign-permissions-to-azure-key-vault)。
        
         ![Data Lake Store 加密](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store 加密")
@@ -61,7 +61,7 @@ ms.lasthandoff: 02/21/2018
 
 4. 按一下頁面底部的 [新增] 。 如果您選擇將帳戶釘選到儀表板，您會回到儀表板，並且可以看到 Data Lake Store 帳戶的佈建進度。 一旦佈建 Data Lake Store 帳戶，帳戶刀鋒視窗就會出現。
 
-### <a name="assign-permissions-to-azure-key-vault"></a>指派 Azure Key Vault 的權限
+## <a name="assign-permissions-to-azure-key-vault"></a>指派 Azure Key Vault 的權限
 如果您使用 Azure 金鑰保存庫中的金鑰對 Data Lake Store 帳戶設定加密，您必須設定 Data Lake Store 帳戶和 Azure 金鑰保存庫帳戶之間的存取權。 請執行下列步驟來進行此作業。
 
 1. 如果您使用 Azure 金鑰保存庫中的金鑰，Data Lake Store 帳戶的刀鋒視窗上方會顯示警告。 按一下警告以開啟 [加密]。
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/21/2018
 ## <a name="createfolder"></a>在 Azure 資料湖存放區帳戶中建立資料夾
 您可以在您的 Azure Data Lake Store 帳戶下建立資料夾，用於管理與存放資料。
 
-1. 開啟您建立的 Data Lake Store 帳戶。 從左窗格按一下 [瀏覽]，按一下 [Data Lake Store]，然後從 [Data Lake Store] 刀鋒視窗中，按一下您要在其下建立資料夾的帳戶名稱。 如果您將帳戶釘選到開始面板，請按一下該帳戶磚。
+1. 開啟您建立的 Data Lake Store 帳戶。 從左窗格按一下 [所有資源]，然後從 [所有資源] 刀鋒視窗中，按一下您要在其下建立資料夾的帳戶名稱。 如果您將帳戶釘選到開始面板，請按一下該帳戶磚。
 2. 在您的 [Data Lake Store 帳戶] 刀鋒視窗中，按一下 [資料總管] 。
    
     ![在 Data Lake Store 帳戶中建立資料夾](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "在 Data Lake Store 帳戶中建立資料夾")

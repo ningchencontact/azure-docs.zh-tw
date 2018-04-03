@@ -1,33 +1,35 @@
 ---
-title: "使用 Azure Active Directory 連接 Active Directory。 | Microsoft Docs"
-description: "Azure AD Connect 會整合您的內部部署目錄與 Azure Active Directory。 這可讓您為與 Azure AD 整合的 Office 365、Azure 和 SaaS 應用程式提供通用身分識別。"
-keywords: "Azure AD Connect 簡介, Azure AD Connect 概觀, 何謂 Azure AD Connect, 安裝 active directory"
+title: 使用 Azure Active Directory 連接 Active Directory。 | Microsoft Docs
+description: Azure AD Connect 會整合您的內部部署目錄與 Azure Active Directory。 這可讓您為與 Azure AD 整合的 Office 365、Azure 和 SaaS 應用程式提供通用身分識別。
+keywords: Azure AD Connect 簡介, Azure AD Connect 概觀, 何謂 Azure AD Connect, 安裝 active directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 83654a406019c4ac3837a3e961a6de640c98f31c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 6f0b5cd7b981cddeda7e5630967f5f8dba18bb98
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>整合您的內部部署目錄與 Azure Active Directory
 Azure AD Connect 會整合您的內部部署目錄與 Azure Active Directory。 這可讓您為與 Azure AD 整合之 Office 365、Azure 和 SaaS 應用程式的使用者提供通用身分識別。 本主題將引導您完成規劃、部署和作業步驟。 其中集結了與此領域相關的主題連結。
 
 > [!IMPORTANT]
-> [Azure AD Connect 是連接內部部署目錄與 Azure AD 和 Office 365 的最佳方式。這是將 Azure AD Connect 從 Windows Azure Active Directory Sync (DirSync) 或 Azure AD Sync 升級的最佳時機，因為這些工具現在已淘汰，而且從 2017 年 4 月 13 日起不再提供支援。](active-directory-aadconnect-dirsync-deprecated.md)
+> [Azure AD Connect 是連接內部部署目錄與 Azure AD 和 Office 365 的最佳方式。這是將 Azure AD Connect 從 Windows Azure Active Directory Sync (DirSync) 或 Azure AD Sync 升級的最佳時機，因為這些工具現在已淘汰，而且從 2017 年 4 月 13 日起不再提供支援。](active-directory-aadconnect-dirsync-deprecated.md)  此外：
 > 
-> 
+> - 將使用者同步處理至 Azure AD 是**免費功能**，客戶不需具備任何付費訂用帳戶。
+>- 同步處理的使用者**不會自動獲得**「任何」授權。 系統管理員仍有授權指派的整體控制權。 
+> - Microsoft 的建議是讓 IT 系統管理員同步處理其所有使用者。 這不只可將使用者解除封鎖以存取任何 Azure AD 整合式資源，也讓 IT 系統管理員能更廣泛地查看其使用者正在存取哪些應用程式。 
 
 ![何謂 Azure AD Connect](media/active-directory-aadconnect/arch.png)
 

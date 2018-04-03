@@ -1,29 +1,29 @@
 ---
-title: "Azure PowerShell 指令碼範例 - 更新 RDP 使用者名稱和密碼 | Microsoft Docs"
-description: "Azure PowerShell 指令碼範例 - 針對特定節點類型的所有 Service Fabric 叢集節點，更新 RDP 使用者名稱和密碼。"
+title: Azure PowerShell 指令碼範例 - 更新 RDP 使用者名稱和密碼 | Microsoft Docs
+description: Azure PowerShell 指令碼範例 - 針對特定節點類型的所有 Service Fabric 叢集節點，更新 RDP 使用者名稱和密碼。
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 11/17/2017
+ms.date: 03/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 3b97cee11c9a85cbd60a05bdbdcd010a0f0a106f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: ff9cfabc4ac7b759a916ddaaeb3f4c95ceecd452
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>為叢集中的 VM 更新管理員使用者名稱和密碼
 
-Service Fabric 叢集中的每個節點類型都是一個虛擬機器擴展集。 此指令碼範例會針對特定節點類型的叢集虛擬機器，更新管理員使用者名稱和密碼。  管理員密碼是不可修改的擴展集屬性，因此請在擴展集內新增 VMAccessAgent 擴充功能。  使用者名稱和密碼的變更會套用至擴展集內的所有節點。 視需要自訂參數。
+Service Fabric 叢集中的每個[節點類型](../service-fabric-cluster-nodetypes.md)都是一個虛擬機器擴展集。 此指令碼範例會針對特定節點類型的叢集虛擬機器，更新管理員使用者名稱和密碼。  管理員密碼是不可修改的擴展集屬性，因此請在擴展集內新增 VMAccessAgent 擴充功能。  使用者名稱和密碼的變更會套用至擴展集內的所有節點。 視需要自訂參數。
 
 您可以視需要使用 [Azure PowerShell 指南 (英文)](/powershell/azure/overview) 中的指示來安裝 Azure PowerShell。 
 

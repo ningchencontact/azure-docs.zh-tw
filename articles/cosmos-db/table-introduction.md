@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB 資料表 API 簡介 | Microsoft Docs"
-description: "了解如何透過受歡迎的 OSS MongoDB API，使用 Azure Cosmos DB 來儲存及查詢大量機碼值資料 (低延遲)。"
+title: Azure Cosmos DB 資料表 API 簡介 | Microsoft Docs
+description: 了解如何透過受歡迎的 OSS MongoDB API，使用 Azure Cosmos DB 來儲存及查詢大量機碼值資料 (低延遲)。
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 7e116400f55375afe1e57abc6dadae0536cdfceb
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6a69bc74f0175a8c30607ada006ebfce9a88c5b5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 資料表 API 簡介
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/23/2018
 
 針對 Azure 資料表儲存體所撰寫的應用程式可使用資料表 API (不變更程式碼) 來移轉至 Azure Cosmos DB，並且利用進階功能。 資料表 API 具有適用於 .NET、Java、Python 和 Node.js 的用戶端 SDK。
 
-建議觀看下列影片，Aravind Ramachandran 會在影片中說明如何開始使用 Azure Cosmos DB 資料表 API：
+建議觀看下列影片，Aravind Krishna 會在影片中說明如何開始使用 Azure Cosmos DB 資料表 API：
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 

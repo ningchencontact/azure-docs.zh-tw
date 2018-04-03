@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure IoT Edge部署 Azure Function | Microsoft Docs"
-description: "將 Azure Function 作為模組部署至 Edge 裝置"
+title: 使用 Azure IoT Edge部署 Azure Function | Microsoft Docs
+description: 將 Azure Function 作為模組部署至 Edge 裝置
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: v-jamebr
@@ -10,11 +10,11 @@ ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1dfe46d307a076ae02362c4bba292602001ed915
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: a43ae8f28fc32b61fb5db985ffae98f093293798
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>將 Azure Function 部署為 IoT Edge 模組 - 預覽
 您可以使用 Azure Functions 來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您建立及部署 Azure Function，以篩選模擬 IoT Edge 裝置上的感應器資料 (模擬裝置是在＜在 [Windows][lnk-tutorial1-win] 或 [Linux][lnk-tutorial1-lin] 上的模擬裝置中部署 Azure IoT Edge＞教學課程中所建立)。 在本教學課程中，您了解如何：     
@@ -174,7 +174,7 @@ ms.lasthandoff: 12/09/2017
 1. 新增 **filterFunction** 模組。
     1. 再次選取 [新增 IoT Edge 模組]。
     2. 在 [名稱] 欄位中，輸入 `filterFunction`。
-    3. 在 [映像] 欄位中，輸入您的映像地址，例如`<docker registry address>/filterfunction:latest`。
+    3. 在 [映像 URI] 欄位中，輸入您的映像位址，例如 `<your container registry address>/filtermodule:0.0.1-amd64`。 您可以在上一節找到完整的映像位址。
     74. 按一下 [檔案] 。
 2. 按 [下一步] 。
 3. 在 [指定路由] 步驟中，將下列 JSON 複製到文字方塊。 第一個路由會透過 "input1" 端點，將訊息從溫度感應器傳輸到篩選模組。 第二個路由會將訊息從篩選模組傳輸到 IoT 中樞。 在此路由中，`$upstream` 是告知 Edge 中樞將訊息傳送至 IoT 中樞的特殊目的地。 

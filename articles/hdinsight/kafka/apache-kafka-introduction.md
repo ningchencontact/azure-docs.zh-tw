@@ -1,8 +1,8 @@
 ---
-title: "HDInsight 上的 Apache Kafka 簡介 - Azure | Microsoft Docs"
-description: "了解 HDInsight 上的 Apache Kafka：它是什麼、其用途以及到何處尋找範例和入門資訊。"
+title: HDInsight 上的 Apache Kafka 簡介 - Azure | Microsoft Docs
+description: 了解 HDInsight 上的 Apache Kafka：它是什麼、其用途以及到何處尋找範例和入門資訊。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4a4f2c6734de211cd20ee4b9f6815bdefefb25bc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>HDInsight 上的 Apache Kafka 簡介
 
@@ -31,7 +31,7 @@ Kafka on HDInsight 提供下列功能︰
 
 * __Kafka 運作時間的 99.9% 服務等級協定 (SLA)__：如需詳細資訊，請參閱 [HDInsight 的 SLA 資訊](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/)文件。
 
-* __容錯和機架感知__：Kafka 的設計使用單一維度的機架檢視，適用於某些環境。 不過，在 Azure 等環境中，一個機架會分成兩個維度 - 更新網域 (UD) 和容錯網域 (FD)。 Microsoft 提供一些工具，以確保重新平衡各 UD 和 FD 的 Kafka 資料分割和複本。 
+* __容錯__：Kafka 的設計使用單一維度的機架檢視，適用於某些環境。 不過，在 Azure 等環境中，一個機架會分成兩個維度 - 更新網域 (UD) 和容錯網域 (FD)。 Microsoft 所提供的工具可重新平衡各 UD 和 FD 的 Kafka 分割區和複本。 
 
     如需詳細資訊，請參閱[使用 HDInsight 上的 Kafka 確保高可用性](apache-kafka-high-availability.md)文件。
 

@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ea26a2d4214c41faa5d63b7c72667955a43d6a2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a28f2f3e397c33e8bd98fcee68c5a051432cb3db
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>部署 Azure Container Service (AKS) 叢集
+# <a name="tutorial-deploy-an-azure-container-service-aks-cluster"></a>教學課程：部署 Azure Container Service (AKS) 叢集
 
 Kubernetes 會提供容器化應用程式的分散式平台。 透過 AKS，可簡單又快速地佈建生產環境就緒 Kubernetes 叢集。 在本教學課程 (3/8 部分) 中，將 Kubernetes 叢集部署在 AKS 中。 完成的步驟包括：
 
@@ -24,7 +24,7 @@ Kubernetes 會提供容器化應用程式的分散式平台。 透過 AKS，可�
 > * 安裝 Kubernetes CLI (kubectl)
 > * 設定 kubectl
 
-在後續的教學課程中，會相應放大、更新 Azure Vote 應用程式，且會將 Operations Management Suite 設定為監視 Kubernetes 叢集。
+在後續的教學課程中，會將 Azure Vote 應用程式部署至叢集、並相應放大和更新，且會將 Log Analytics 設定為監視 Kubernetes 叢集。
 
 ## <a name="before-you-begin"></a>開始之前
 

@@ -1,11 +1,11 @@
 ---
-title: "Web Apps 概觀 | Microsoft Docs"
-description: "了解 Azure App Service 如何協助您開發和裝載 Web 應用程式"
+title: Web Apps 概觀 | Microsoft Docs
+description: 了解 Azure App Service 如何協助您開發和裝載 Web 應用程式
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f8510bb6b412e9af8aad30ba32bc74206c22042f
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: e789d3c6e10399491eb055b850a590ae10aacd11
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="web-apps-overview"></a>Web 應用程式概觀
 
@@ -29,17 +29,12 @@ Web Apps 不只能將 Microsoft Azure 的功能新增到您的應用程式，例
 
 在使用 App Service 時，您只需就您所使用的 Azure 計算資源支付費用。 您所使用的計算資源取決於您用來執行 Web Apps 的 _App Service 方案_。 如需詳細資訊，請參閱 [Azure Web Apps 中的 App Service 方案](azure-web-sites-web-hosting-plans-in-depth-overview.md)。
 
-下列的 5 分鐘影片將介紹 Azure App Service Web Apps。
-
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Web-Apps-with-Yochay-Kiriaty/player]
->
->
-
 ## <a name="why-use-web-apps"></a>為何要使用 Web Apps？
+
 以下是 App Service Web Apps 的一些主要功能︰
 
 * **多種語言和架構** - Web Apps 具有 ASP.NET、ASP.NET Core、Java、Ruby、Node.js、PHP 或 Python 的第一級支援。 您也可以將 [PowerShell 和其他指令碼或可執行檔](web-sites-create-web-jobs.md) 做為背景服務來執行。
-* **DevOps 最佳化** - 使用 Visual Studio Team Services、GitHub、BitBucket、Docker Hub 或 Azure Container Service 設定[持續整合和部署](app-service-continuous-deployment.md)。 透過 [測試和預備環境](web-sites-staged-publishing.md)升級更新。 使用 [Azure PowerShell](/powershell/azureps-cmdlets-docs) 或[跨平台命令列介面 (CLI)](/cli/azure/install-azure-cli)，在 Web Apps 中管理您的應用程式。
+* **DevOps 最佳化** - 使用 Visual Studio Team Services、GitHub、BitBucket、Docker Hub 或 Azure Container Registry 設定[持續整合和部署](app-service-continuous-deployment.md)。 透過 [測試和預備環境](web-sites-staged-publishing.md)升級更新。 使用 [Azure PowerShell](/powershell/azureps-cmdlets-docs) 或[跨平台命令列介面 (CLI)](/cli/azure/install-azure-cli)，在 Web Apps 中管理您的應用程式。
 * **具高可用性的全域調整** - 以手動或自動方式相應[增加](web-sites-scale.md)或[放大](../monitoring-and-diagnostics/insights-how-to-scale.md)。 在 Microsoft 的通用資料中心基礎結構中隨處裝載您的應用程式，而 App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) 會承諾高可用性。
 * **SaaS 平台和內部部署資料的連線** - 有超過 50 種適用於企業系統 (例如 SAP)、SaaS 服務 (例如 Salesforce) 和網際網路服務 (例如 Facebook) 的[連接器](../connectors/apis-list.md)可供選擇。 使用[混合式連線](../biztalk-services/integration-hybrid-connection-overview.md)和 [Azure 虛擬網路](web-sites-integrate-with-vnet.md)存取內部部署資料。
 * **安全性和法規遵循** - App Service 為 [ISO、SOC 和 PCI 相容](https://www.microsoft.com/TrustCenter/)。 可使用 [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) 或社交登入 ([Google](app-service-mobile-how-to-configure-google-authentication.md)、[Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)、[Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) 和 [Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)) 驗證使用者。 建立 [IP 位址限制](app-service-ip-restrictions.md)和[管理服務身分識別](app-service-managed-service-identity.md)。
@@ -71,4 +66,3 @@ Web Apps 不只能將 Microsoft Azure 的功能新增到您的應用程式，例
 
 > [!div class="nextstepaction"]
 > [HTML](app-service-web-get-started-html.md)
-

@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect：自訂安裝 | Microsoft Docs"
-description: "這份文件詳述了 Azure AD Connect 的自訂安裝選項。 使用下列指示，透過 Azure AD Connect 安裝 Active Directory。"
+title: Azure AD Connect：自訂安裝 | Microsoft Docs
+description: 這份文件詳述了 Azure AD Connect 的自訂安裝選項。 使用下列指示，透過 Azure AD Connect 安裝 Active Directory。
 services: active-directory
-keywords: "何謂 Azure AD Connect、安裝 Active Directory、Azure AD 的必要元件"
-documentationcenter: 
+keywords: 何謂 Azure AD Connect、安裝 Active Directory、Azure AD 的必要元件
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: ee16fe9e15e52fea482e0db34857780449c2ccb4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 680e70ce572e182aa35c736f61036415d8714ea0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>自訂 Azure AD Connect 安裝
 當您想要更多安裝選項時，可使用 Azure AD Connect **自訂設定** 。 如果您有多個樹系，或如果您想要設定未涵蓋在快速安裝中的選用功能，可使用它。 只要是[**快速安裝**](active-directory-aadconnect-get-started-express.md)選項不能滿足部署或拓撲的情況，就可使用它。
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/21/2018
 
 | 單一登入選項 | 說明 |
 | --- | --- |
-| 密碼雜湊同步處理 |使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。 使用者密碼會以密碼雜湊的形式同步至 Azure AD，並在雲端中進行驗證。 如需詳細資訊，請參閱[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。 |
+| 密碼雜湊同步處理 |使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。 使用者密碼會以密碼雜湊的形式同步至 Azure AD，並在雲端中進行驗證。 如需詳細資訊，請參閱[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)。 |
 |傳遞驗證|使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。  使用者密碼會傳遞至內部部署 Active Directory 網域控制站進行驗證。
 | 與 AD FS 同盟 |使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。  系統會將使用者重新導向至他們的內部部署 AD FS 執行個體以進行登入，並在內部部署中進行驗證。 |
 | 請勿設定 |不會安裝和設定任何使用者登入功能。 如果您已經有第三方的同盟伺服器或另一個現有的適當方案，請選擇此選項。 |
@@ -165,7 +165,7 @@ ms.lasthandoff: 02/21/2018
 | Exchange 混合部署 |Exchange 混合部署功能允許在內部部署和 Office 365 中並存 Exchange 信箱。 Azure AD Connect 會將一組特定的[屬性](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)從 Azure AD 同步處理回內部部署目錄。 |
 | Exchange 郵件公用資料夾 | 「Exchange 郵件公用資料夾」功能可讓您將擁有郵件功能的公用資料夾物件從內部部署 Active Directory 同步處理到 Azure AD。 |
 | Azure AD 應用程式和屬性篩選 |透過啟用 Azure AD 應用程式和屬性篩選，即可調整這組同步處理的屬性。 這個選項會在精靈中另外新增兩個組態頁面。 如需詳細資訊，請參閱 [Azure AD 應用程式和屬性篩選](#azure-ad-app-and-attribute-filtering)。 |
-| 密碼同步處理 |如果您選取同盟做為登入解決方案，您可以啟用此選項。 密碼同步處理可做為備份選項。 如需其他資訊，請參閱[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。 </br></br>如果您已選取傳遞驗證，則預設也會啟用此選項，確保能夠支援舊版用戶端並作為備用選項。 如需其他資訊，請參閱[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。|
+| 密碼雜湊同步處理 |如果您選取同盟做為登入解決方案，您可以啟用此選項。 密碼雜湊同步處理可作為備份選項。 如需其他資訊，請參閱[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)。 </br></br>如果您已選取傳遞驗證，則預設也會啟用此選項，確保能夠支援舊版用戶端並作為備用選項。 如需其他資訊，請參閱[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)。|
 | 密碼回寫 |透過啟用密碼回寫，在 Azure AD 中產生的密碼變更會回寫至內部部署目錄。 如需詳細資訊，請參閱[開始使用密碼管理](../active-directory-passwords-getting-started.md)。 |
 | 群組回寫 |如果您使用 [Office 365 群組]  功能，就可以在內部部署的 Active Directory 中顯示這些群組。 只有當您內部部署的 Active Directory 中已經有 Exchange 時，才能使用此選項。 如需詳細資訊，請參閱[群組回寫](active-directory-aadconnect-feature-preview.md#group-writeback)。 |
 | 裝置回寫 |在條件式存取情況下，可讓您將 Azure AD 中的裝置物件回寫到內部部署的 Active Directory。 如需詳細資訊，請參閱[在 Azure AD Connect 中啟用裝置回寫](active-directory-aadconnect-feature-device-writeback.md)。 |
@@ -276,8 +276,7 @@ ms.lasthandoff: 02/21/2018
 ### <a name="specify-the-service-account-for-the-ad-fs-service"></a>指定 AD FS 服務的服務帳戶
 AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Directory 中查閱使用者資訊。 它可支援兩種類型的服務帳戶：
 
-* 
-            **群組受控服務帳戶** ：在 Windows Server 2012 的 Active Directory 網域服務中導入。 此類型的帳戶可為 AD FS 之類的服務提供單一帳戶，而不需要定期更新帳戶密碼。 如果您在 AD FS 伺服器所屬的網域中已經有 Windows Server 2012 網域控制站，請使用此選項。
+* **群組受控服務帳戶** ：在 Windows Server 2012 的 Active Directory 網域服務中導入。 此類型的帳戶可為 AD FS 之類的服務提供單一帳戶，而不需要定期更新帳戶密碼。 如果您在 AD FS 伺服器所屬的網域中已經有 Windows Server 2012 網域控制站，請使用此選項。
 * **網域使用者帳戶** ：此類型的帳戶會要求您提供密碼，並在密碼變更或到期時定期更新密碼。 只有當您在 AD FS 伺服器所屬的網域中沒有 Windows Server 2012 網域控制站時，才能使用此選項。
 
 如果您選取了 [群組受控服務帳戶]，而這項功能從未在 Active Directory 中使用過，系統會提示您輸入企業系統管理員認證。 這些認證會用來啟動金鑰存放區，並在 Active Directory 中啟用這項功能。
@@ -339,9 +338,9 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 此外，請執行下列驗證步驟：
 
-* 驗證您可以從內部網路中已加入網域之電腦上的瀏覽器進行登入：連線到 https://myapps.microsoft.com，並使用您已登入的帳戶驗證登入。 內建的 AD DS 系統管理員帳戶未同步處理，不能用於驗證。
-* 驗證您可以從外部網路的裝置登入。 在家用電腦或行動裝置上連線到 https://myapps.microsoft.com，並提供您的認證。
-* 驗證豐富型用戶端登入。 連線到 https://testconnectivity.microsoft.com，選擇 [Office 365] 索引標籤，然後選擇 [Office 365 單一登入測試]。
+* 驗證您可以在內部網路中從已加入網域的電腦使用瀏覽器進行登入：連線至 https://myapps.microsoft.com，並使用您已登入的帳戶驗證登入。 內建的 AD DS 系統管理員帳戶未同步處理，不能用於驗證。
+* 驗證您可以從外部網路的裝置登入。 在家用電腦或行動裝置上連線至 https://myapps.microsoft.com，並提供您的認證。
+* 驗證豐富型用戶端登入。 連線至 https://testconnectivity.microsoft.com，選擇 [Office 365] 索引標籤，然後選擇 [Office 365 單一登入測試]。
 
 ## <a name="next-steps"></a>後續步驟
 安裝完成之後，請先登出 Windows 再重新登入，才能使用 Synchronization Service Manager 或同步處理規則編輯器。

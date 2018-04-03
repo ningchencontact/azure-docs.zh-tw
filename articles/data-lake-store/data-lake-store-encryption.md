@@ -1,24 +1,24 @@
 ---
-title: "Azure Data Lake Store 中的加密 | Microsoft Docs"
-description: "Azure Data Lake Store 中的加密可協助您保護資料，實作企業安全性原則，並符合合規性需求。 本文提供設計概觀，並討論實作的一些技術層面。"
+title: Azure Data Lake Store 中的加密 | Microsoft Docs
+description: Azure Data Lake Store 中的加密可協助您保護資料，實作企業安全性原則，並符合合規性需求。 本文提供設計概觀，並討論實作的一些技術層面。
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: esung22
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 53d5f413f58cea7bc8eab081d46eff2ab83e7ecb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Azure Data Lake Store 中的資料加密
 
@@ -106,7 +106,7 @@ Data Lake Store 提供兩種管理主要加密金鑰 (MEK) 的模式。 現在�
 4.  在永續性儲存體上儲存已加密的資料區塊。
 
 > [!NOTE] 
-> 基於效能考量，DEK 會在記憶體中快取一小段時間，而之後立即遭到清除。 儲存於持續性媒體時，一律會由 MEK 加密。
+> 無論在持續性媒體上或從記憶體中進行快取，儲存 DEK 時一律會以 MEK 進行加密。
 
 ## <a name="key-rotation"></a>金鑰輪替
 

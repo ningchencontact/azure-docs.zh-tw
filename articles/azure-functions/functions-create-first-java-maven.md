@@ -1,11 +1,11 @@
 ---
-title: "使用 Java 和 Maven 在 Azure 中建立第一個函式 | Microsoft Docs"
-description: "使用 Java 和 Maven 建立簡單的 HTTP 觸發函式並發佈到 Azure。"
+title: 使用 Java 和 Maven 在 Azure 中建立第一個函式 | Microsoft Docs
+description: 使用 Java 和 Maven 建立簡單的 HTTP 觸發函式並發佈到 Azure。
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "azure functions, 函式, 事件處理, 計算, 無伺服器架構"
+keywords: azure functions, 函式, 事件處理, 計算, 無伺服器架構
 ms.service: functions
 ms.devlang: java
 ms.topic: quickstart
@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c0984075cd8e372cce09ea100378dcd4e8cddabe
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 81d9d8790a750f34133f3f00dafc15c56185d7b1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>使用 Java 和 Maven 建立您的第一個函式 (預覽)
 
@@ -34,18 +34,25 @@ ms.lasthandoff: 01/05/2018
 ## <a name="prerequisites"></a>先決條件
 若要使用 Java 開發函式應用程式，您必須安裝下列項目：
 
--  [.NET Core](https://www.microsoft.com/net/core) 最新版本。
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/)第 8 版。
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org) 3.0 版或更高版本。
--  [Node.js](https://nodejs.org/download/) 8.6 版或更高版本。
+-  [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
 > JAVA_HOME 環境變數必須設定為 JDK 的安裝位置，才能完成本快速入門。
 
 ## <a name="install-the-azure-functions-core-tools"></a>安裝 Azure Functions Core Tools
 
-[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) 提供撰寫、執行和偵錯 Azure Functions 的本機開發環境。 使用隨附於 [Node.js](https://nodejs.org/) 的 [npm](https://www.npmjs.com/) 安裝工具。
+[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) 提供撰寫、執行和偵錯 Azure Functions 的本機開發環境。 
+
+若要安裝，請瀏覽[安裝](https://github.com/azure/azure-functions-core-tools#installing)區段，並尋找您所選作業系統 (Windows、Linux、Mac) 的特定指示。
+
+您也可以在安裝下列需求後，使用 [npm](https://www.npmjs.com/) (隨附於 [Node.js](https://nodejs.org/)) 來手動安裝：
+
+-  [.NET Core](https://www.microsoft.com/net/core) 最新版本。
+-  [Node.js](https://nodejs.org/download/) 8.6 版或更高版本。
+
+若要繼續以 npm 為基礎的安裝，請執行：
 
 ```
 npm install -g azure-functions-core-tools@core
@@ -185,6 +192,4 @@ Hello AzureFunctions!
 - 檢閱 [Java 函式開發人員指南](functions-reference-java.md)以了解開發 Java 函式的詳細資訊。
 - 使用 `azure-functions:add`Maven 目標，將具有不同觸發程序的其他函式新增至您的專案。
 - 使用 Visual Studio Code 在本機對函式進行偵錯。 安裝 [Java 延伸套件](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) \(英文\) 並在 Visual Studio Code 中開啟 Functions 專案，[連接偵錯工具](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations)到 5005 連接埠。 然後在編輯器中設定中斷點，當函式在本機執行時觸發函式：![在 Visual Studio Code 中對函式進行偵錯](media/functions-create-java-maven/vscode-debug.png)
-
-
-
+- 使用 Visual Studio Code 從遠端對函式進行偵錯。 請查看[撰寫無伺服器 Java 應用程式](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)文件的指示。

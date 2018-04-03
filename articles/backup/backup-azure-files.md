@@ -1,23 +1,23 @@
 ---
-title: "將 Azure 檔案備份至 Azure"
-description: "本文詳細說明如何備份及還原 Azure 檔案共用，並且說明管理工作。"
+title: 將 Azure 檔案備份至 Azure
+description: 本文詳細說明如何備份及還原 Azure 檔案共用，並且說明管理工作。
 services: backup
-keywords: "請勿在未諮詢 SEO 之前新增或編輯關鍵字。"
+keywords: 請勿在未諮詢 SEO 之前新增或編輯關鍵字。
 author: markgalioto
 ms.author: markgal
-ms.date: 2/21/2018
+ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: b9bf1582aa1c1b8878b8426f60a18282598eb2b9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ba457daca030d3219fe32177b0b5f8b5565ff544
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="back-up-azure-file-shares"></a>備份 Azure 檔案共用
+# <a name="back-up-azure-file-shares-preview"></a>備份 Azure 檔案共用 (預覽)
 
-本文詳細說明如何備份 [Azure 檔案共用](../storage/files/storage-files-introduction.md)。
+本文說明如何使用 Azure 入口網站來備份和還原 Azure 中的 [Azure 檔案共用](../storage/files/storage-files-introduction.md)。
 
 在本指南中，您將了解如何：
 > [!div class="checklist"]
@@ -30,6 +30,16 @@ ms.lasthandoff: 02/22/2018
 
 ## <a name="prerequisites"></a>先決條件
 請先確定 Azure 檔案共用存在於其中一種[支援的儲存體帳戶類型](troubleshoot-azure-files.md#preview-boundaries)中，您才可以備份 Azure 檔案共用。 一旦確認這點，您即可保護您的檔案共用。
+
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>預覽期間的 Azure 檔案共用備份限制
+Azure 檔案服務備份處於預覽狀態。 請注意預覽期間的下列限制：
+- 您無法使用[區域備援儲存體 (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) 或[讀取權限異地備援儲存體 (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) 複寫功能，來保護儲存體帳戶中的檔案共用。
+- 您無法在已啟用虛擬網路的儲存體帳戶中保護檔案共用。
+- 沒有任何 PowerShell 或 CLI 可用來保護 Azure 檔案。
+- 每天的排程備份次數上限為 1 次。
+- 每天的隨選備份次數上限為 4 次。
+- 在儲存體帳戶上使用[資源鎖定](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)，以防止在您的復原服務保存庫中意外刪除備份。
+- 請勿刪除 Azure 備份所建立的快照集。 刪除快照集可能會導致遺失復原點和/或還原失敗。 
 
 ## <a name="configuring-azure-file-shares-backup"></a>設定 Azure 檔案共用備份
 

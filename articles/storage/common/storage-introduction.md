@@ -1,6 +1,6 @@
 ---
-title: "Azure 儲存體簡介 | Microsoft Docs"
-description: "Azure 儲存體 (Microsoft 的雲端資料儲存體) 簡介。"
+title: Azure 儲存體簡介 | Microsoft Docs
+description: Azure 儲存體 (Microsoft 的雲端資料儲存體) 簡介。
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 799636d0a702407be06bbe8cebae552b34d860db
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eb68993924bff8605fc244f438a686f0142c4762
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure 儲存體簡介
 
@@ -131,7 +131,7 @@ Blob 服務可讓您提供容器與其 Blob 或特定 Blob 的公開存取權。
 
 待用的 Azure 儲存體服務加密 (SSE) 會協助您保護資料安全，以符合組織安全性和合規性承諾。 利用此功能，Azure 儲存體會自動加密資料，再保存到儲存體，以及在擷取之前解密。 以完全無感的方式處理所有加密、解密和金鑰管理。
 
-SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Resource Manager 和傳統) 以及所有 Azure 儲存體服務 (Blob、佇列、資料表和檔案) 中的資料加密。 SSE 不會影響 Azure 儲存體效能。
+SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Resource Manager 和傳統) 以及所有「Azure 儲存體」服務 (Blob、佇列、資料表和檔案) 中的資料加密。 SSE 不會影響「Azure 儲存體」效能。
 
 如需待用 SSE 加密的詳細資訊，請參閱[待用資料的 Azure 儲存體服務加密](storage-service-encryption.md)。
 

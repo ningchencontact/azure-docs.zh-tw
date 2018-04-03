@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure AD Connect Health 進行同步處理 | Microsoft Docs"
-description: "這是 Azure AD Connect Health 頁面，其中討論如何監視 Azure AD Connect 同步處理。"
+title: 使用 Azure AD Connect Health 進行同步處理 | Microsoft Docs
+description: 這是 Azure AD Connect Health 頁面，其中討論如何監視 Azure AD Connect 同步處理。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 821d4bd7e6b526ad826caf005456edf8235291b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cff8be88e23d57545a9926df366289c6ba264886
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>使用 Azure AD Connect Health 監視 Azure AD Connect 同步處理
 下列文件適用於使用 Azure AD Connect Health 來監視 Azure AD Connect (同步處理)。  如需使用 Azure AD Connect Health 來監視 AD FS 的詳細資訊，請參閱 [在 AD FS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)。 此外，如需使用 Azure AD Connect Health 來監視 Active Directory 網域服務的詳細資訊，請參閱 [在 AD DS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adds.md)。
@@ -83,11 +83,12 @@ ms.lasthandoff: 12/11/2017
 | 重複的屬性 |當 Azure AD Connect 嘗試在 Azure AD 中以一或多個重複的屬性值建立或更新物件時發生錯誤，這些屬性在租用戶中必須是唯一的，例如 proxyAddresses、UserPrincipalName。 |
 | 資料不符 |當大致相符無法比對物件時發生錯誤，導致同步處理錯誤。 |
 | 資料驗證失敗 |由於無效資料而導致錯誤，例如重要屬性 (例如 UserPrincipalName) 中有不支援的字元；在寫入 Azure AD 之前未能通過驗證的格式錯誤。 |
+| 同盟網域變更 | 當帳戶使用不同同盟網域時發生的錯誤。 |
 | 大型屬性 |當一或多個屬性大於允許的大小、長度或計數時發生錯誤。 |
 | 其他 |無法歸入上述類別的其他所有錯誤。 根據意見，此類別將會進一步分成子類別。 |
 
 ![同步處理錯誤報告摘要](./media/active-directory-aadconnect-health-sync/errorreport01.png)
-![同步處理錯誤報告類別](./media/active-directory-aadconnect-health-sync/errorreport02.png)
+![同步處理錯誤報告類別](./media/active-directory-aadconnect-health-sync/SyncErrorByTypes.PNG)
 
 ### <a name="list-of-objects-with-error-per-category"></a>依各類別之錯誤列出物件
 深入每個類別將可找到所發生的錯誤歸入該類別的物件清單。

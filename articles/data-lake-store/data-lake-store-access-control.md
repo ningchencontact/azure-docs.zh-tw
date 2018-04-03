@@ -1,8 +1,8 @@
 ---
-title: "Data Lake Store 中的存取控制概觀 | Microsoft Docs"
-description: "了解 Azure Data Lake Store 中的存取控制運作方式"
+title: Data Lake Store 中的存取控制概觀 | Microsoft Docs
+description: 了解 Azure Data Lake Store 中的存取控制運作方式
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ec0d1fa9c422dbe4958c5d5f0b7a6e093aeb32da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Azure Data Lake Store 中的存取控制
 
@@ -124,15 +124,15 @@ Azure Data Lake Store 實作的存取控制模型衍生自 HDFS，而 HDFS 又�
 
 ## <a name="viewing-permissions-in-the-azure-portal"></a>在 Azure 入口網站中檢視權限
 
-從 Data Lake Store 帳戶的 [資料總管] 刀鋒視窗，按一下 [存取] 以查看檔案或資料夾的 ACL。 按一下 [存取] 以查看 **mydatastore** 帳戶之下的**目錄**資料夾。
+從 Data Lake Store 帳戶的 [資料總管] 刀鋒視窗中，按一下 [存取] 以查看正在資料總管中檢視之檔案或資料夾的 ACL。 按一下 [存取] 以查看 **mydatastore** 帳戶之下的**目錄**資料夾。
 
 ![Data Lake Store ACL](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-在此刀鋒視窗中，最上方的區段會顯示您擁有之權限的概觀。 (在螢幕擷取畫面中，使用者是 Bob)。存取權限會顯示於其下。 接下來，從 [存取] 刀鋒視窗，按一下 [簡單檢視] 可查看更簡單的檢視。
+在此刀鋒視窗中，上方區段會顯示擁有者權限。 (在螢幕擷取畫面中，擁有使用者是 Bob)。接下來，會顯示指派的存取 ACL。 
 
 ![Data Lake Store ACL](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-按一下 [進階檢視] 以查看更進階的檢視，其中顯示預設 ACL、遮罩和超級使用者的概念。
+按一下 [進階檢視] 以查看更進階的檢視，其中顯示預設 ACL、遮罩和超級使用者的說明。  此刀鋒視窗也可讓您根據目前資料夾的權限，以遞迴方式設定子檔案和資料夾的存取與預設 ACL。
 
 ![Data Lake Store ACL](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -164,7 +164,7 @@ Azure Data Lake Store 實作的存取控制模型衍生自 HDFS，而 HDFS 又�
 * 只要擁有使用者也是目標群組的成員，請變更所擁有檔案的擁有群組。
 
 > [!NOTE]
-> 擁有使用者*無法*變更另一個所擁有檔案的擁有使用者。 只有超級使用者可以變更檔案或資料夾的擁有使用者。
+> 擁有使用者「無法」變更檔案或資料夾的擁有使用者。 只有超級使用者可以變更檔案或資料夾的擁有使用者。
 >
 >
 
@@ -177,9 +177,14 @@ Azure Data Lake Store 實作的存取控制模型衍生自 HDFS，而 HDFS 又�
 * **案例 1**：根資料夾 "/"。 建立 Data Lake Store 帳戶時，會建立這個資料夾。 在此情況下，擁有群組會設定為建立帳戶的使用者。
 * **案例 2** (其他所有案例)：建立新項目時，會從父資料夾複製擁有群組。
 
+除此之外，擁有群組的作用類似於指派給其他使用者/群組的權限。
+
 可以變更擁有群組的對象︰
 * 任何超級使用者。
 * 擁有使用者，如果擁有使用者也是目標群組的成員。
+
+> [!NOTE]
+> 擁有群組「無法」變更檔案或資料夾的 ACL。
 
 ## <a name="access-check-algorithm"></a>存取檢查演算法
 
@@ -209,7 +214,7 @@ Azure Data Lake Store 實作的存取控制模型衍生自 HDFS，而 HDFS 又�
 ![Data Lake Store ACL](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
 > [!NOTE]
-> 對於新的 Data Lake Store 帳戶，根資料夾 ("/") 的存取 ACL 和預設 ACL 的遮罩會預設為 RWX。
+> 對於新的 Data Lake Store 帳戶，根資料夾 ("/") 的存取 ACL 遮罩會預設為 RWX。
 >
 >
 
@@ -308,7 +313,7 @@ ACL 中的項目會儲存為對應於 Azure AD 中使用者的 GUID。 API 會�
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Data Lake Store 是否支援 ACL 的繼承？
 
-編號
+否，但預設 ACL 可以用來為父資料夾下新建的子檔案和資料夾設定 ACL。  
 
 ### <a name="what-is-the-difference-between-mask-and-umask"></a>遮罩與 umask 之間的差異為何？
 
@@ -317,7 +322,7 @@ ACL 中的項目會儲存為對應於 Azure AD 中使用者的 GUID。 API 會�
 | **遮罩** 屬性適用於每個檔案和資料夾。 | **umask** 是 Data Lake Store 帳戶的屬性。 因此，Data Lake Store 中只有一個 umask。    |
 | 檔案的擁有使用者或擁有群組或超級使用者都可以改變檔案或資料夾的遮罩屬性。 | 任何使用者 (甚至是超級使用者) 都不能修改 umask 屬性。 這是不能變更的常數值。|
 | 在存取檢查演算法的執行階段，會使用遮罩屬性來判斷使用者是否具有在檔案或資料夾上執行作業的權限。 遮罩的角色就是在存取檢查時建立「有效權限」。 | 存取檢查期間完全不會使用 umask。 Umask 用來決定資料夾的新子項目的存取 ACL。 |
-| 遮罩是一個 3 位元的 RWX 值，在存取檢查時會套用至具名使用者、具名群組及擁有使用者。| Umask 是一個 9 位元值，會套用至新子系的擁有使用者、擁有群組及**其他使用者**。|
+| 遮罩是一個 3 位元的 RWX 值，在存取檢查時會套用至具名使用者、擁有群組及具名群組。| Umask 是一個 9 位元值，會套用至新子系的擁有使用者、擁有群組及**其他使用者**。|
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>何處可以進一步了解 POSIX 存取控制模型？
 

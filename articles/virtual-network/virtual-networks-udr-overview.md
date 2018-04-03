@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 9afaa7d34665f5c8ef4c4c819fe3b7e995bd71d3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 34fdf45094fae8e751d6b3e5c57d5b4df2e78200
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
 
@@ -130,11 +130,9 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
 如果多個路由包含相同的位址首碼，則 Azure 會根據下列優先順序選取路由類型：
 
 1. 使用者定義路由
+2. 採用「虛擬網路」、「VNet 對等互連」或 VirtualNetworkServiceEndpoint 躍點類型的系統路由。
 2. BGP 路由
-3. 系統路由
-
-> [!NOTE]
-> 即使 BGP 路由是更為專用的路由，系統仍會慣用與虛擬網路、虛擬網路對等互連或虛擬網路服務端點相關之流量的系統路由。
+3. 採用「虛擬網路」、「VNet 對等互連」或 VirtualNetworkServiceEndpoint 以外躍點類型的系統路由。
 
 例如，路由表包含下列路由：
 

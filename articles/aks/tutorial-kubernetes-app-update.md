@@ -1,6 +1,6 @@
 ---
-title: "Azure 上的 Kubernetes 教學課程 - 更新應用程式"
-description: "AKS 教學課程 - 更新應用程式"
+title: Azure 上的 Kubernetes 教學課程 - 更新應用程式
+description: AKS 教學課程 - 更新應用程式
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 82a6b6580fbe69b11fdb8a47e2ca09c19b341bbc
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 97a7e0b8e33042739ccea9a086642d9019c15e5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="update-an-application-in-azure-container-service-aks"></a>更新 Azure Container Service (AKS) 中的應用程式
+# <a name="tutorial-update-an-application-in-azure-container-service-aks"></a>教學課程：更新 Azure Container Service (AKS) 中的應用程式
 
 在 Kubernetes 中部署應用程式之後，您可以藉由指定新的容器映像或映像版本來進行更新。 當您更新應用程式時，更新會分段進行，所以只有一部分的部署會同時更新。 此分段更新方式可讓應用程式在更新期間保持運作， 此外也能當作部署失敗時的復原機制。 
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/27/2018
 > * 將容器映像推送至 Azure Container Registry
 > * 部署已更新的容器映像
 
-在後續教學課程中，會將 Operations Management Suite 設定為監視 Kubernetes 叢集。
+在後續教學課程中，會將 Log Analytics 設定為監視 Kubernetes 叢集。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -89,7 +89,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-使用 [docker push][docker-push] 將映像上傳至您的登錄。 以您的 Azure Container Registry 登入伺服器名稱取代 `<acrLoginServer>`。
+使用 [docker push][docker-push] 將映像上傳至您的登錄。 以您的 Azure Container Registry 登入伺服器名稱取代 `<acrLoginServer>`。 如果您在推送到 ACR 登錄時發生問題，請確定已執行 [az acr login][az-acr-login] 命令。
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -164,7 +164,7 @@ kubectl get service azure-vote-front
 > * 已將容器映像推送至 Azure Container Registry
 > * 部署了已更新的應用程式
 
-請前進到下一個教學課程，了解如何利用 Operations Management Suite 監視 Kubernetes。
+請前進到下一個教學課程，了解如何利用 Log Analytics 監視 Kubernetes。
 
 > [!div class="nextstepaction"]
 > [透過 Log Analytics 監視 Kubernetes][aks-tutorial-monitor]
@@ -179,3 +179,4 @@ kubectl get service azure-vote-front
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

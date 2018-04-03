@@ -1,12 +1,12 @@
 ---
-title: "VMware 到 Azure 的 Azure Site Recovery Deployment Planner | Microsoft Docs"
-description: "這是 Azure Site Recovery Deployment Planner 使用者指南。"
+title: VMware 到 Azure 的 Azure Site Recovery Deployment Planner | Microsoft Docs
+description: 這是 Azure Site Recovery Deployment Planner 使用者指南。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 63963804b81aa57e914e18fa474963a3830d04d5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 337217e66fe4d3780af197911a0e72c6f936e411
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署規劃工具的成本估計報告  
 
@@ -110,7 +110,7 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 * 每次 DR 演練持續時間 (天) 
 * OS 類型
 * 資料備援 
-* Azure Hybrid Use Benefit
+* Azure Hybrid Benefit
 
 3.  針對 [一年中的 DR 演練次數]、[每次 DR 演練持續時間 (天)]、[資料備援] 及 [Azure Hybrid Use Benefit]，按一下 [套用到全部] 按鈕，即可將同一個值套用至表格中的所有 VM。
 
@@ -136,7 +136,7 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
 **資料備援**：可以是下列任何一項 - 本地備援儲存體 (LRS)、異地備援儲存體 (GRS) 和讀取權限異地備援儲存體 (RA-GRS)。 預設值為 LRS。 變更頂端列的類型，然後按一下 [套用到全部] 按鈕，即可根據您的儲存體帳戶來變更特定 VM 的類型，也可以將新類型套用至所有 VM。  根據您選取的資料備援價格，計算複寫的儲存成本。 
 
-**Azure Hybrid Use Benefit**：您可以將 Azure Hybrid Use Benefit 套用至 Windows VM (適用的話)。  預設值為 [是]。 按一下 [套用到全部] 按鈕，即可變更特定 VM 的設定，或更新所有 VM。
+**Azure Hybrid Benefit**：您可以將 Azure Hybrid Benefit 套用至 Windows VM (適用的話)。  預設值為 [是]。 按一下 [套用到全部] 按鈕，即可變更特定 VM 的設定，或更新所有 VM。
 
 **Azure 總耗用量**：其中包含您的 DR 的計算、儲存及 Azure Site Recovery 授權成本。 根據您的選取項目，顯示每月或每年的成本。
 

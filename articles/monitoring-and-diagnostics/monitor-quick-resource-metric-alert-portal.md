@@ -1,6 +1,6 @@
 ---
-title: "當計量值符合條件時收到通知 | Microsoft Docs"
-description: "協助使用者為邏輯應用程式建立計量的快速入門指南"
+title: 當計量值符合條件時收到通知 | Microsoft Docs
+description: 協助使用者為邏輯應用程式建立計量的快速入門指南
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>當計量值符合條件時收到通知
 
@@ -34,20 +34,20 @@ Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表
 
 2. 搜尋並選取**邏輯應用程式**。 按一下 [ **建立** ] 按鈕。
 
-3. 輸入下圖中所示的邏輯應用程式資訊。  使用預設位置。 核取 [釘選到儀表板] 選項。  完成時，按一下 [建立]。 
+3. 輸入名稱 myLogicApp 和資源群組 myResourceGroup。 使用您的訂用帳戶。  使用預設位置。 核取 [釘選到儀表板] 選項。  完成時，按一下 [建立]。 
 
-    ![在入口網站中，輸入邏輯應用程式的基本資訊](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
+    ![在入口網站中，輸入邏輯應用程式的基本資訊](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
 
 4. 邏輯應用程式應該釘選到儀表板。 按一下以瀏覽至邏輯應用程式。
 
 5. 在 [邏輯應用程式] 面板中，選取 [邏輯應用程式設計工具]
 
-     ![在入口網站面板中，在邏輯應用程式設計工具中建立週期觸發程序](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
+     ![在入口網站面板中，在邏輯應用程式設計工具中建立週期觸發程序](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
 6. 設定您的值，如下圖所示。
 
-    ![在入口網站面板中設定邏輯應用程式觸發程序](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![在入口網站面板中設定邏輯應用程式觸發程序](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
 
 7. 在設計工具中，選取 [週期] 觸發程序。
 
@@ -75,7 +75,7 @@ Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表
 
 5. 您現在應該會看到圖表繪出邏輯應用程式在過去一小時啟動執行的總次數。 如未看到任何內容，請確定從上一個步驟算起，您已等候至少 5 分鐘。 然後重新整理您的瀏覽器。 
 
-    ![繪製邏輯應用程式資源的計量圖表](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
+    ![繪製邏輯應用程式資源的計量圖表](./media/monitor-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
 ## <a name="create-a-metric-alert-for-your-logic-app"></a>建立邏輯應用程式的計量警示
 
@@ -87,7 +87,7 @@ Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表
 
 4. 最後，在 [其他系統管理員電子郵件] 中輸入您的電子郵件地址。 萬一邏輯應用程式在 5 分鐘之內執行失敗超過 10 次，此警示可確保您會收到電子郵件。
 
-    ![在入口網站面板中設定邏輯應用程式警示](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
+    ![在入口網站面板中設定邏輯應用程式警示](./media/monitor-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
 ## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>接收邏輯應用程式的計量警示通知
 1. 片刻之內，您應該會收到「Microsoft Azure 警示」的電子郵件，讓您知道警示「已啟動」。

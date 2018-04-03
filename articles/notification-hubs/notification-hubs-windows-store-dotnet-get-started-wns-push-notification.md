@@ -1,11 +1,11 @@
 ---
-title: "開始使用適用於通用 Windows 平台應用程式的 Azure 通知中樞 | Microsoft Docs"
-description: "在本教學課程中，您將了解如何使用 Azure 通知中樞，將通知推播至 Windows 通用平台應用程式。"
+title: 開始使用適用於通用 Windows 平台應用程式的 Azure 通知中樞 | Microsoft Docs
+description: 在本教學課程中，您將了解如何使用 Azure 通知中樞，將通知推播至 Windows 通用平台應用程式。
 services: notification-hubs
 documentationcenter: windows
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8464a7e48a02be39fb624322fac6c26f4c6c6806
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>開始使用適用於通用 Windows 平台應用程式的通知中樞
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 01/02/2018
    
     ![[管理 NuGet 套件] 視窗][20]
    
-    此動作會使用 [WindowsAzure.Messaging.Managed NuGet 套件](http://nuget.org/packages/WindowsAzure.Messaging)來下載、安裝並新增適用於 Windows 的 Azure 傳訊程式庫參考。
+    此動作會使用 [Microsoft.Azure.NotificationHubs NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs)來下載、安裝及新增對 Windows 適用之 Azure 通知程式庫的參考。
 
 3. 開啟 App.xaml.cs 專案檔案，並新增下列 `using` 陳述式： 
    

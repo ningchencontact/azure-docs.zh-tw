@@ -1,6 +1,6 @@
 ---
-title: "快速入門 - 使用 PowerShell 在 Azure 中建立私用的 Docker 登錄"
-description: "快速了解如何使用 PowerShell 建立私用的 Docker 容器登錄。"
+title: 快速入門 - 使用 PowerShell 在 Azure 中建立私用的 Docker 登錄
+description: 快速了解如何使用 PowerShell 建立私用的 Docker 容器登錄。
 services: container-registry
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2bae45955cf3c2b157acce2544b1f35fbddd0170
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9603ac779c7dbc640a7c24856c32f04edbac849d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-an-azure-container-registry-using-powershell"></a>使用 PowerShell 建立 Azure Container Registry
+# <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>快速入門：使用 PowerShell 建立 Azure Container Registry
 
 Azure Container Registry 是用於儲存私用 Docker 容器映像的受控 Docker 容器登錄服務。 本指南詳述如何使用 PowerShell 建立 Azure Container Registry 執行個體、將容器映像推送到登錄中，最後將容器從登錄部署至 Azure 容器執行個體 (ACI)。
 
@@ -73,7 +73,7 @@ docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 docker pull microsoft/aci-helloworld
 ```
 
-映像必須加上 ACR 登入伺服器名稱。 使用 [docker tag][docker-tag] 命令來執行這項操作。 
+映像必須加上 ACR 登入伺服器名稱。 使用 [docker tag][docker-tag] 命令來執行這項操作。
 
 ```powershell
 $image = $registry.LoginServer + "/aci-helloworld:v1"

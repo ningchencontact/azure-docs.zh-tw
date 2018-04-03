@@ -1,10 +1,14 @@
 如果您將不繼續使用此應用程式，請使用下列步驟來刪除本快速入門所建立的全部資源，這樣才不會產生任何費用：
 
-1. 在 Azure 入口網站中，選取最左邊的 [資源群組]。  
+1. 在 Azure 入口網站中選取靠左側的 [資源群組]，然後選取您所建立的群組。  
 
-   ![Azure 入口網站中的計量](./media/cosmos-db-delete-resource-group/delete-resources.png)
+    如果左側窗格已摺疊，請按一下 ![[展開] 按鈕](./media/cosmos-db-delete-resource-group/expand.png) 加以展開。
 
-2. 從資源群組的清單中，選取您所建立的資源群組，然後按一下 [刪除資源群組]。
+   ![Azure 入口網站中的計量](./media/cosmos-db-delete-resource-group/delete-resources-select.png)
 
-3. 輸入要刪除之資源群組的名稱，然後按一下 [刪除]。
+2. 在新的視窗中選取資源群組，然後按一下 [刪除資源群組]。
+
+   ![Azure 入口網站中的計量](./media/cosmos-db-delete-resource-group/delete-resources.png)   
+
+3. 在新視窗中輸入要刪除之資源群組的名稱，然後按一下 [刪除]。
 

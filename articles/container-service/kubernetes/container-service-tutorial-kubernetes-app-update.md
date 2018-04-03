@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Service 教學課程 - 更新應用程式"
-description: "Azure Container Service 教學課程 - 更新應用程式"
+title: Azure Container Service 教學課程 - 更新應用程式
+description: Azure Container Service 教學課程 - 更新應用程式
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5f22bb3ac378bc9b1ff94db486d6ea6053c64514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 87de0f23a00b035b12bac6cf655781961b1fb9e5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>在 Kubernetes 中更新應用程式
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/27/2018
 > * 將容器映像推送至 Azure Container Registry
 > * 部署已更新的容器映像
 
-在後續教學課程中，會將 Operations Management Suite 設定為監視 Kubernetes 叢集。
+在後續教學課程中，會將 Log Analytics 設定為監視 Kubernetes 叢集。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -71,7 +71,7 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>在本機測試應用程式
 
-瀏覽至 http://localhost:8080 以查看更新後的應用程式。
+瀏覽至 http://localhost:8080 以查看已更新的應用程式。
 
 ![Azure 上 Kubernetes 叢集的影像](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -166,7 +166,7 @@ kubectl get service azure-vote-front
 > * 已將容器映像推送至 Azure Container Registry
 > * 部署了已更新的應用程式
 
-請前進到下一個教學課程，了解如何利用 Operations Management Suite 監視 Kubernetes。
+請前進到下一個教學課程，了解如何利用 Log Analytics 監視 Kubernetes。
 
 > [!div class="nextstepaction"]
-> [透過 OMS 監視 Kubernetes](./container-service-tutorial-kubernetes-monitor.md)
+> [透過 Log Analytics 監視 Kubernetes](./container-service-tutorial-kubernetes-monitor.md)

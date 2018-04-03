@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Service 教學課程 - 部署應用程式"
-description: "Azure Container Service 教學課程 - 部署應用程式"
+title: Azure Container Service 教學課程 - 部署應用程式
+description: Azure Container Service 教學課程 - 部署應用程式
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 02ec97fecd4759e9f35ab313ffe2d18fa076170a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7119976ada00e10ebeadf6fcff2daf125f439c17
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="run-applications-in-kubernetes"></a>在 Kubernetes 中執行應用程式
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/27/2018
 > * 在 Kubernetes 中執行應用程式
 > * 測試應用程式
 
-在後續的教學課程中，會相應放大、更新此應用程式，且會將 Operations Management Suite 設定為監視 Kubernetes 叢集。
+在後續的教學課程中，此應用程式會相應放大、更新，且會將 Log Analytics 設定為監視 Kubernetes 叢集。
 
 本教學課程假設讀者已了解 Kubernetes 的基本概念，如需 Kubernetes 的詳細資訊，請參閱 [Kubernetes 文件](https://kubernetes.io/docs/home/)。
 

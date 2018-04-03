@@ -1,8 +1,8 @@
 ---
-title: "在使用自訂映像 (預覽版) 的 Linux 上建立函式 | Microsoft Docs"
-description: "了解如何建立在自訂 Linux 映像上執行的 Azure Functions。"
+title: 在使用自訂映像 (預覽版) 的 Linux 上建立函式 | Microsoft Docs
+description: 了解如何建立在自訂 Linux 映像上執行的 Azure Functions。
 services: functions
-keywords: 
+keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 11/15/2017
@@ -11,11 +11,11 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 4b9cb7923b177c73f83a7ac17b1022a5455c7f30
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 758906126b42c103853e0047bb19d2e96a84fae6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>在使用自訂映像 (預覽版) 的 Linux 上建立函式
 

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 入口網站建立資料處理站管線 | Microsoft Docs"
-description: "本教學課程提供逐步指示，說明如何使用 Azure 入口網站建立具有管線的資料處理站。 管線會使用複製活動將資料從 Azure Blob 儲存體複製到 SQL 資料庫。"
+title: 使用 Azure 入口網站建立資料處理站管線 | Microsoft Docs
+description: 本教學課程提供逐步指示，說明如何使用 Azure 入口網站建立具有管線的資料處理站。 管線會使用複製活動將資料從 Azure Blob 儲存體複製到 SQL 資料庫。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 116832175a4b7e4497c9005be7841cb56c1d235b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 34c78a114c1d106c400a94941aa113153383e206
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Blob 儲存體複製到 SQL 資料庫
 在本教學課程中，您會使用 Azure Data Factory 使用者介面 (UI) 建立資料處理站。 此資料處理站中的管線會將資料從 Azure Blob 儲存體複製到 SQL 資料庫。 本教學課程中的設定模式從以檔案為基礎的資料存放區複製到關聯式資料存放區。 如需支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -303,7 +303,7 @@ ms.lasthandoff: 02/09/2018
     ![顯示通知](./media/tutorial-copy-data-portal/show-notifications.png)
 
 ## <a name="configure-code-repository"></a>設定程式碼存放庫
-您可以將與資料處理站成品相關聯的程式碼發佈至 Visual Studio Team Services 程式碼存放庫。 在此步驟中，您會建立程式碼存放庫。 
+您可以將與資料處理站成品相關聯的程式碼發佈至 Visual Studio Team Services 程式碼存放庫。 在此步驟中，您會建立程式碼存放庫。  若要深入了解利用 VSTS 整合進行 visual 視覺撰寫，請參閱[利用 VSTS Git 整合撰寫](author-visually.md#author-with-vsts-git-integration)。
 
 如果您不想要使用 Visual Studio Team Services 程式碼存放庫，可以略過此步驟。 您可以比照先前的步驟，繼續發佈至 Data Factory。 
 

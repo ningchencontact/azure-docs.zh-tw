@@ -1,6 +1,6 @@
 ---
-title: "Azure 上的 Kubernetes 教學課程 - 調整應用程式"
-description: "AKS 教學課程 - 調整應用程式"
+title: Azure 上的 Kubernetes 教學課程 - 調整應用程式
+description: AKS 教學課程 - 調整應用程式
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 556f4bfb204504de55c41da9615e61d5a88c75b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5e35be84df53386398deaca19d60d4a93f53e541
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="scale-application-in-azure-container-service-aks"></a>調整 Azure Container Service (AKS) 中的應用程式
+# <a name="tutorial-scale-application-in-azure-container-service-aks"></a>教學課程：調整 Azure Container Service (AKS) 中的應用程式
 
 如果您一直都依照教學課程操作，就會在 AKS 中有一個正常運作的 Kubernetes 叢集，並已部署「Azure 投票」應用程式。
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/24/2018
 > * 手動調整 Kubernetes Pod
 > * 設定執行應用程式前端的自動調整 Pod
 
-在後續的教學課程中，會更新 Azure Vote 應用程式，且會將 Operations Management Suite 設定為監視 Kubernetes 叢集。
+在後續的教學課程中，會更新 Azure Vote 應用程式，且會將 Log Analytics 設定為監視 Kubernetes 叢集。
 
 ## <a name="before-you-begin"></a>開始之前
 

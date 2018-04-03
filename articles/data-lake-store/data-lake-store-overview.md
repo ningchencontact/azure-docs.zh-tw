@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store 概觀 | Microsoft Docs"
-description: "了解什麼是 Azure 資料湖存放區以及它對其他資料存放區提供的值"
+title: Azure Data Lake Store 概觀 | Microsoft Docs
+description: 了解什麼是 Azure 資料湖存放區以及它對其他資料存放區提供的值
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 88c44f2e47562f9992e7c6e228b9a4c917f806ba
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 111906bc9e7e85e30a879d7bacff37edb4b204ac
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-azure-data-lake-store"></a>Azure 資料湖存放區概觀
 Azure 資料湖存放區是容納巨量資料分析工作負載的企業級超大規模存放庫。 Azure 資料湖可讓您在單一位置擷取任何大小、類型和擷取速度的資料，以便進行運作和探究分析。
@@ -61,7 +61,7 @@ Azure 資料湖存放區會使用 Azure Active Directory 進行驗證，並使�
 | 功能 | 說明 |
 | --- | --- |
 | 驗證 |Azure 資料湖存放區整合了 Azure Active Directory (AAD)，可對 Azure 資料湖存放區中儲存的所有資料進行身分識別與存取管理。 由於整合的結果，Azure 資料湖受惠於所有的 AAD 功能，包括 Multi-Factor Authentication、條件式存取、角色型存取控制、應用程式使用情況監視、安全性監視和警示等。Azure 資料湖存放區支援 OAuth 2.0 通訊協定以便在 REST 介面中進行驗證。 請參閱 [Data Lake Store 驗證](data-lakes-store-authentication-using-azure-active-directory.md)|
-| 存取控制 |Azure 資料湖存放區藉由支援 WebHDFS 通訊協定所公開的 POSIX 樣式權限，以提供存取控制。 在 Data Lake Store 公開預覽 (目前版本) 中，可在根資料夾、子資料夾和個別檔案上啟用 ACL。 如需 ACL 如何在 Data Lake Store 的內容中運作的詳細資訊，請參閱 [Data Lake Store 中的存取控制](data-lake-store-access-control.md)。 |
+| 存取控制 |Azure 資料湖存放區藉由支援 WebHDFS 通訊協定所公開的 POSIX 樣式權限，以提供存取控制。 ACL 可在根資料夾、子資料夾和個別檔案上啟用。 如需 ACL 如何在 Data Lake Store 的內容中運作的詳細資訊，請參閱 [Data Lake Store 中的存取控制](data-lake-store-access-control.md)。 |
 | 加密 |Data Lake Store 也會為帳戶中儲存的資料提供加密功能。 您會在建立 Data Lake Store 帳戶時指定加密設定。 您可以選擇將資料加密，或選擇不使用加密。 如需詳細資訊，請參閱 [Data Lake Store 的加密](data-lake-store-encryption.md)。 如需如何提供加密相關設定的指示，請參閱[使用 Azure 入口網站開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md)。 |
 
 想要深入了解如何保護 Data Lake Store中的資料。 請依照下列連結執行。

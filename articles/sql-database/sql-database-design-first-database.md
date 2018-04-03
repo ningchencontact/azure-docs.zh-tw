@@ -1,21 +1,21 @@
 ---
-title: 設計您的第一個 Azure SQL Database | Microsoft Docs
-description: 了解如何在 Azure 入口網站中利用 SQL Server Management Studio 設計您的第一個 Azure SQL Database。
+title: 使用 SSMS 設計您的第一個 Azure SQL 資料庫 | Microsoft Docs
+description: 了解如何利用 SQL Server Management Studio 設計您的第一個 Azure SQL 資料庫。
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 12301d46b497b49032b1b8bdefe2056a7df143d1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 40da83c0214e3c493fdb72504753b5b59ea20b3e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="design-your-first-azure-sql-database"></a>設計您的第一個 Azure SQL Database
+# <a name="design-your-first-azure-sql-database-using-ssms"></a>使用 SSMS 設計您的第一個 Azure SQL 資料庫
 
 Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務 (DBaaS)。 在本教學課程中，您會了解如何使用 Azure 入口網站和 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)： 
 

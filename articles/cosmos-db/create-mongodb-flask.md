@@ -1,31 +1,31 @@
 ---
-title: "Azure Cosmos DB︰使用 Python 和 Azure Cosmos DB MongoDB API 建置 Flask Web 應用程式 | Microsoft Docs"
-description: "提供 Python Flask 程式碼範例，可讓您用來連線及查詢 Azure Cosmos DB MongoDB API"
+title: Azure Cosmos DB︰使用 Python 和 Azure Cosmos DB MongoDB API 建置 Flask Web 應用程式 | Microsoft Docs
+description: 提供 Python Flask 程式碼範例，可讓您用來連線及查詢 Azure Cosmos DB MongoDB API
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: hshapiro
 manager: scicoria
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro
-ms.openlocfilehash: f86c6cce82812e02f373d7307c76ace26ea3e99b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ea6920c179bfee22c0aa545ccc3d0386940205e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB：使用 MongoDB API 建置 Flask 應用程式
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。
 
-本快速入門指南會使用下列 [Flask 範例](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) \(英文\)，並示範如何使用 [Azure Cosmos DB 模擬器](/local-emulator.md) (而不是 MongoDB) 來建置簡單的待辦事項 Flask 應用程式。
+此快速入門指南會使用下列 [Flask 範例](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample)，並示範如何使用 [Azure Cosmos DB 模擬器](/local-emulator.md)和 Azure Cosmos DB [MongoDB API](mongodb-introduction.md) (而不是 MongoDB) 來建置簡單的待辦事項 Flask 應用程式。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -90,7 +90,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 3. 接著，使用 `set FLASK_APP=app.py` 來設定 Flask 應用程式的環境變數；如果您使用的是 Mac，請改為使用 `export FLASK_APP=app.py`。
 
-4. 使用 `flask run` 來執行應用程式，並瀏覽至 [http://127.0.0.1:5000/](http://127.0.0.1:5000/)。
+4. 使用 `flask run` 執行應用程式，並瀏覽至 [http://127.0.0.1:5000/](http://127.0.0.1:5000/)。
 
 5. 新增及移除工作，您將能在集合中看到那些工作的新增和變更。
 

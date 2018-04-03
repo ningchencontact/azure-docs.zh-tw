@@ -1,216 +1,266 @@
 ---
-title: "建立內部負載平衡器 - Azure CLI | Microsoft Docs"
-description: "了解如何使用 Resource Manager 的 Azure CLI 建立內部負載平衡器"
+title: 建立內部基本負載平衡器 - Azure CLI 2.0 | Microsoft Docs
+description: 了解如何使用 Azure CLI 2.0 建立內部負載平衡器
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: c7a24e92-b4da-43c0-90f2-841c1b7ce489
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/27/2017
 ms.author: kumud
-ms.openlocfilehash: 920ddecbf81296fd83606f2908e432f5327d4b7e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d90a4e74b6ad3bb95e91ad3a5327c887a87784bd
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="create-an-internal-load-balancer-by-using-the-azure-cli"></a>使用 Azure CLI 建立內部負載平衡器
+# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>使用 Azure CLI 2.0 建立內部負載平衡器以平衡 VM 的負載
 
-> [!div class="op_single_selector"]
-> * [HttpTrigger Nodejs 函數](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
-> * [範本](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+本文說明如何建立內部負載平衡器以平衡 VM 的負載。 若要測試負載平衡器，您必須部署兩個執行 Ubuntu 伺服器的虛擬機器 (VM)，以平衡 Web 應用程式的負載。
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-[!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
-
-[!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
-
-## <a name="deploy-the-solution-by-using-the-azure-cli"></a>使用 Azure CLI 來部署解釋方案
-
-下列步驟說明如何搭配 CLI 使用 Azure Resource Manager，來建立網際網路對向負載平衡器。 使用 Azure Resource Manager 時，會個別建立並設定每項資源，然後放在一起來建立一項資源。
-
-您需要建立和設定下列物件以部署負載平衡器：
-
-* **前端 IP 組態**- 包含傳入網路流量的公用 IP 位址
-* **後端位址集區**：包含網路介面 (NIC)，可使虛擬機器從負載平衡器接收網路流量
-* **負載平衡規則**：包含將負載平衡器上的公用連接埠對應至後端位址集區中連接埠的規則
-* **輸入 NAT 規則**：包含將負載平衡器上的公用連接埠對應至後端位址集區中特定虛擬機器之連接埠的規則
-* **探查**- 包含用來檢查後端位址集區中虛擬機器執行個體可用性的健全狀況探查
-
-如需詳細資料，請參閱 [Azure Resource Manager 的負載平衡器支援](load-balancer-arm.md)。
-
-## <a name="set-up-cli-to-use-resource-manager"></a>設定 CLI 以使用 Resource Manager
-
-1. 若您未安裝 Azure CLI，請參閱 [安裝和設定 Azure CLI](../cli-install-nodejs.md)。 請依照指示操作到選取 Azure 帳戶和訂用帳戶之處。
-2. 執行 **azure config mode** 命令，以切換為 Resource Manager 模式，如下所示：
-
-    ```azurecli
-    azure config mode arm
-    ```
-
-    預期的輸出：
-
-        info:    New mode is arm
-
-## <a name="create-an-internal-load-balancer-step-by-step"></a>逐步建立內部負載平衡器
-
-1. 登入 Azure。
-
-    ```azurecli
-    azure login
-    ```
-
-    出現提示時，輸入您的 Azure 認證。
-
-2. 將命令工具變更為 Azure Resource Manager 模式。
-
-    ```azurecli
-    azure config mode arm
-    ```
+如果您選擇在本機安裝和使用 CLI，在執行本教學課程時，您必須執行 Azure CLI 2.0.28 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-Azure Resource Manager 中的所有資源都會與資源群組關聯。 若尚未建立資源群組，請先建立資源群組。
+使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-```azurecli
-azure group create <resource group name> <location>
+下列範例會在 *eastus* 位置中建立名為 *myResourceGroupILB* 的資源群組：
+
+```azurecli-interactive
+  az group create \
+    --name myResourceGroupILB \
+    --location eastus
+```
+## <a name="create-a-virtual-network"></a>建立虛擬網路
+
+使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create)，在 *myResourceGroup* 中建立名為 *myVNet*、具有子網路 *mySubnet* 的虛擬網路。
+
+```azurecli-interactive
+  az network vnet create \
+    --name myVnet
+    --resource-group myResourceGroupILB \
+    --location eastus \
+    --subnet-name mySubnet
+```
+## <a name="create-basic-load-balancer"></a>建立基本負載平衡器
+
+本節將詳細說明如何建立及設定下列負載平衡器元件：
+  - 前端 IP 組態，可接收負載平衡器上的連入網路流量。
+  - 後端 IP 集區，前端集區在其中傳送負載平衡網路流量。
+  - 健康情況探查，可判斷後端 VM 執行個體的健康情況。
+  - 負載平衡器規則，可定義如何將流量分散至 VM。
+
+### <a name="create-the-load-balancer"></a>建立負載平衡器
+
+使用 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) 建立名為 **myLoadBalancer** 的公用基本負載平衡器，包含名為 **myFrontEnd** 的前端 IP 組態、名為 **myBackEndPool** 的後端集區，與私人 IP 位址 **10.0.0.7 相關聯。
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group myResourceGroupILB \
+    --name myLoadBalancer \
+    --frontend-ip-name myFrontEnd \
+    --private-ip-address 10.0.0.7 \
+    --backend-pool-name myBackEndPool \
+    --vnet-name myVnet \
+    --subnet mySubnet      
+  ```
+### <a name="create-the-health-probe"></a>建立健康情況探查
+
+健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以接收網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 使用 [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) 建立健康情況探查，以檢視虛擬機器的健康情況。 
+
+```azurecli-interactive
+  az network lb probe create \
+    --resource-group myResourceGroupILB \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80   
 ```
 
-## <a name="create-an-internal-load-balancer-set"></a>建立內部負載平衡器集
+### <a name="create-the-load-balancer-rule"></a>建立負載平衡器規則
 
-1. 建立內部負載平衡器
+負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) 建立負載平衡器規則 *myLoadBalancerRuleWeb*，用來接聽前端集區 *myFrontEndPool* 中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 *myBackEndPool* (也是使用連接埠 80)。 
 
-    在下列案例中，有一個名為 nrprg 的資源群組建立於美國東部區域。
-
-    ```azurecli
-    azure network lb create --name nrprg --location eastus
-    ```
-
-   > [!NOTE]
-   > 內部負載平衡器的所有資源 (例如虛擬網路和虛擬網路子網路) 必須位於同一個資源群組及區域。
-
-2. 建立內部負載平衡器的前端 IP 位址。
-
-    使用的 IP 位址必須位於虛擬網路的子網路範圍內。
-
-    ```azurecli
-    azure network lb frontend-ip create --resource-group nrprg --lb-name ilbset --name feilb --private-ip-address 10.0.0.7 --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet
-    ```
-
-3. 建立後端位址集區。
-
-    ```azurecli
-    azure network lb address-pool create --resource-group nrprg --lb-name ilbset --name beilb
-    ```
-
-    定義前端 IP 位址和後端位址集區之後，您可以建立負載平衡器規則、輸入 NAT 規則，以及自訂的健全狀況探查。
-
-4. 建立內部負載平衡器的負載平衡器規則。
-
-    在您依前述步驟操作之後，命令會建立負載平衡器規則，用來接聽前端集區中的連接埠 1433，以及用來將負載平衡的網路流量傳送到後端位址集區 (也是使用連接埠 1433)。
-
-    ```azurecli
-    azure network lb rule create --resource-group nrprg --lb-name ilbset --name ilbrule --protocol tcp --frontend-port 1433 --backend-port 1433 --frontend-ip-name feilb --backend-address-pool-name beilb
-    ```
-
-5. 建立輸入 NAT 規則。
-
-    輸入 NAT 規則可用來在負載平衡器中建立通往特定虛擬機器執行個體的端點。 前述步驟會建立遠端桌面的兩個 NAT 規則。
-
-    ```azurecli
-    azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule1 --protocol TCP --frontend-port 5432 --backend-port 3389
-
-    azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule2 --protocol TCP --frontend-port 5433 --backend-port 3389
-    ```
-
-6. 為負載平衡器建立健康情況探查。
-
-    健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以傳送網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。
-
-    ```azurecli
-    azure network lb probe create --resource-group nrprg --lb-name ilbset --name ilbprobe --protocol tcp --interval 300 --count 4
-    ```
-
-    > [!NOTE]
-    > Microsoft Azure 平台會對各種管理案例使用靜態、可公開路由傳送的 IPv4 位址。 IP 位址是 168.63.129.16。 此 IP 位址不應該遭到任何防火牆封鎖，因為可能會造成非預期的行為。
-    > 採用 Azure 內部負載平衡，來自負載平衡器的監視探查會使用此 IP 位址，藉此判斷虛擬機器在負載平衡集的健全狀況。 如果網路安全性群組已用來限制傳輸至內部負載平衡集中 Azure 虛擬機器的流量，或已套用至虛擬網路子網路，請確定您已新增網路安全性規則，允許來自 168.63.129.16 的流量。
-
-## <a name="create-nics"></a>建立 NIC
-
-您需要建立 NIC (或修改現有的) 並將它們關聯至 NAT 規則、負載平衡器規則和探查。
-
-1. 建立名為 lb-nic1-be 的 NIC，並將其關聯到 rdp1 NAT 規則及 beilb 後端位址集區。
-
-    ```azurecli
-    azure network nic create --resource-group nrprg --name lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" --location eastus
-    ```
-
-    預期的輸出：
-
-        info:    Executing command network nic create
-        + Looking up the network interface "lb-nic1-be"
-        + Looking up the subnet "nrpvnetsubnet"
-        + Creating network interface "lb-nic1-be"
-        + Looking up the network interface "lb-nic1-be"
-        data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
-        data:    Name                            : lb-nic1-be
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : eastus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 10.0.0.4
-        data:      Private IP Allocation Method  : Dynamic
-        data:      Subnet                        : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet
-        data:      Load balancer backend address pools
-        data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
-        data:      Load balancer inbound NAT rules:
-        data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1
-        data:
-        info:    network nic create command OK
-
-2. 建立名為 lb-nic2-be 的 NIC，並將其關聯到 rdp2 NAT 規則及 beilb 後端位址集區。
-
-    ```azurecli
-    azure network nic create --resource-group nrprg --name lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" --location eastus
-    ```
-
-3. 建立名為 DB1 的虛擬機器，並將其關聯到名為 lb-nic1-be 的 NIC。 系統會先建立名為 *web1nrp* 的儲存體帳戶，再執行下方命令：
-
-    ```azurecli
-    azure vm create --resource--resource-grouproup nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
-    ```
-    > [!IMPORTANT]
-    > 負載平衡器中的 VM 必須在相同的可用性設定組中。 使用 `azure availset create` 建立可用性設定組。
-
-4. 建立名為 DB2 的虛擬機器 (VM)，並將其關聯到名為 lb-nic2-be 的 NIC。 系統會先建立名為 *web1nrp* 的儲存體帳戶，再執行下方命令。
-
-    ```azurecli
-    azure vm create --resource--resource-grouproup nrprg --name DB2 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
-    ```
-
-## <a name="delete-a-load-balancer"></a>刪除負載平衡器
-
-若要移除負載平衡器，請使用下列命令：
-
-```azurecli
-azure network lb delete --resource-group nrprg --name ilbset
+```azurecli-interactive
+  az network lb rule create \
+    --resource-group myResourceGroupILB \
+    --lb-name myLoadBalancer \
+    --name myHTTPRule \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe  
 ```
+
+## <a name="create-servers-for-the-backend-address-pool"></a>建立後端位址集區的伺服器
+
+請先建立支援的虛擬網路資源，才可部署一些 VM 及測試您的負載平衡器。
+
+###  <a name="create-a-network-security-group"></a>建立網路安全性群組
+建立網路安全性群組，以定義虛擬網路的輸入連線。
+
+```azurecli-interactive
+  az network nsg create \
+    --resource-group myResourceGroupILB \
+    --name myNetworkSecurityGroup
+```
+
+### <a name="create-a-network-security-group-rule"></a>建立網路安全性群組規則
+
+建立網路安全性群組規則，以允許透過連接埠 80 的輸入流量。
+
+```azurecli-interactive
+  az network nsg rule create \
+    --resource-group myResourceGroupILB \
+    --nsg-name myNetworkSecurityGroup \
+    --name myNetworkSecurityGroupRuleHTTP \
+    --protocol tcp \
+    --direction inbound \
+    --source-address-prefix '*' \
+    --source-port-range '*' \
+    --destination-address-prefix '*' \
+    --destination-port-range 22 \
+    --access allow \
+    --priority 300
+```
+### <a name="create-nics"></a>建立 NIC
+
+使用 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 建立兩個網路介面，並使其與私人 IP 位址和網路安全性群組產生關聯。 
+
+```azurecli-interactive
+for i in `seq 1 2`; do
+  az network nic create \
+    --resource-group myResourceGroupILB \
+    --name myNic$i \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --network-security-group myNetworkSecurityGroup \
+    --lb-name myLoadBalancer \
+    --lb-address-pools myBackEndPool
+done
+```
+
+## <a name="create-backend-servers"></a>建立後端伺服器
+
+在此範例中，您會建立兩個虛擬機器，作為負載平衡器的後端伺服器。 若要確認已成功建立負載平衡器，您也可在虛擬機器上安裝 NGINX。
+
+### <a name="create-an-availability-set"></a>建立可用性設定組
+
+使用 [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create) 建立可用性設定組
+
+ ```azurecli-interactive
+  az vm availability-set create \
+    --resource-group myResourceGroupILB \
+    --name myAvailabilitySet
+```
+
+### <a name="create-two-virtual-machines"></a>建立兩部虛擬機器
+
+您可以使用 cloud-init 組態檔來安裝 NGINX，並在 Linux 虛擬機器上執行 'Hello World' Node.js 應用程式。 您目前的殼層中，建立名為 cloud-init.txt 的檔案，並將下列設定複製及貼到殼層中。 請確定您正確複製整個 cloud-init 檔案，特別是第一行：
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+  - path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+``` 
+ 
+使用 [az vm create](/cli/azure/vm#az_vm_create) 建立虛擬機器。
+
+ ```azurecli-interactive
+for i in `seq 1 2`; do
+  az vm create \
+    --resource-group myResourceGroupILB \
+    --name myVM$i \
+    --availability-set myAvailabilitySet \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+    done
+```
+部署 VM 可能需要幾分鐘的時間。
+
+### <a name="create-a-vm-for-testing-the-load-balancer"></a>建立用來測試負載平衡器的 VM
+
+若要測試負載平衡器，請建立虛擬機器 *myVMTest*，並將它與 *myNic3* 產生關聯。
+
+```azurecli-interactive
+ az vm create \
+    --resource-group myResourceGroupILB \
+    --name myVMTest \
+    --image win2016datacenter \
+    --admin-username azureuser \
+    --admin-password myPassword123456!
+```
+
+## <a name="test-the-internal-load-balancer"></a>測試內部負載平衡器
+
+若要測試負載平衡器，您必須先取得負載平衡器的私人 IP 位址。 接著，登入虛擬機器 myVMTest，並在其網頁瀏覽器的網址列中輸入私人 IP 位址。
+
+若要取得負載平衡器的私人 IP 位址，請使用 [az network lb show](/cli/azure/network/public-ip##az-network-lb-show)。 複製私人 IP 位址，並將其貼到您虛擬機器之網頁瀏覽器的網址列中 - *myVMTest*。
+
+```azurecli-interactive
+  az network lb show \
+    --name myLoadBalancer
+    --resource-group myResourceGroupILB
+``` 
+![測試負載平衡器](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
+
+## <a name="clean-up-resources"></a>清除資源
+
+若不再需要，您可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令來移除資源群組、負載平衡器和所有相關資源。
+
+```azurecli-interactive 
+  az group delete --name myResourceGroupILB
+```
+
 
 ## <a name="next-steps"></a>後續步驟
-
-[使用來源 IP 同質性設定負載平衡器分配模式](load-balancer-distribution-mode.md)
-
-[設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
-
+在本文中，您已建立內部基本負載平衡器、將 VM 連結至該平衡器、設定負載平衡器流量規則、健康情況探查，然後測試負載平衡器。 若要深入了解負載平衡器及其相關聯的資源，請繼續閱讀操作說明文章。

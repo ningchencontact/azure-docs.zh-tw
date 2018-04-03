@@ -1,30 +1,31 @@
 ---
-title: "Azure Blob 儲存體簡介 | Microsoft Docs"
-description: "Azure Blob 儲存體簡介"
+title: Blob 儲存體簡介 - Azure 中的物件儲存體 | Microsoft Docs
+description: Azure Blob 儲存體依設計可用來儲存大量的非結構化物件資料，例如文字或二進位資料。 您的應用程式可從 PowerShell 或 CLI Azure、透過 Azure 儲存體用戶端程式庫中的程式碼，或透過 REST 來存取 Blob 儲存體中的物件。
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: overview
-ms.date: 09/28/2017
+ms.date: 03/27/2018
 ms.author: tamram
-ms.openlocfilehash: aabc10b1c1c501e4fa0eb31835c2818cfb8942c6
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0fff0032ec2452413bcd1df3175634b14a64208f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Blob 儲存體簡介
 
-Azure Blob 儲存體是一項儲存大量非結構化物件資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。 您可以使用 Blob 儲存體向全球公開資料，或私下儲存應用程式資料。
+Azure Blob 儲存體是 Microsoft 針對資料物件推出的雲端儲存體解決方案。 Blob 儲存體可儲存大量的非結構化物件資料，例如文字或二進位資料。 使用者可從世界各地透過 HTTP 或 HTTPS 存取 Blob 儲存體中的資料。 您可以使用 Blob 儲存體向全球公開資料，或私下儲存應用程式資料。
 
 Blob 儲存體的一般用途包括：
 
 * 直接提供映像或文件給瀏覽器
 * 儲存檔案供分散式存取
 * 串流傳輸視訊和音訊
-* 儲存備份和還原、災害復原和封存資料
+* 儲存資料以用於備份和還原、災害復原和封存
 * 儲存資料供內部部署或 Azure 託管服務進行分析
+* 儲存 VHD 以用於 Azure 虛擬機器
 
 ## <a name="blob-service-concepts"></a>Blob 服務概念
 

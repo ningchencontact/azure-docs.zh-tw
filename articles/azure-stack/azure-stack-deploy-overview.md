@@ -1,40 +1,78 @@
 ---
-title: "評估 Azure Stack 開發套件 | Microsoft Docs"
-description: "了解如何部署評估用的 Azure Stack 開發套件。"
+title: 評估 Azure Stack 開發套件 | Microsoft Docs
+description: 了解如何部署評估用的 Azure Stack 開發套件。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.custom: mvc
-ms.openlocfilehash: 4ad2e0a91e2fd5023417722fc0a1a6fae93960d0
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 1deabcf64b3fbf3cbc89232c340a8882cd2591e8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-evaluate-the-azure-stack-development-kit"></a>快速入門：評估 Azure Stack 開發套件
+[Azure Stack 開發套件 (ASDK)](.\asdk\asdk-what-is.md) 是一個測試和部署環境，可供您部署以評估及示範 Azure Stack 的功能和服務。 若要開始使用 ASDK，您需要準備主機電腦硬體，然後再執行一些指令碼 (安裝須花費數小時)。 在那之後，您就可以登入系統管理員和使用者入口網站，開始使用 Azure Stack。
 
-適用於：Azure Stack 開發套件
+## <a name="prerequisites"></a>先決條件 
+安裝 ASDK前，您需要準備將裝載開發套件 (開發套件主機) 的電腦。 開發套件主機電腦必須符合硬體、軟體及網路需求。 
 
-[Azure Stack 開發套件](azure-stack-poc.md)是一個測試和部署環境，可供您部署以評估及示範 Azure Stack 的功能和服務。 若要讓它啟動並執行，您將需要準備環境硬體並執行一些指令碼 (這將需要數小時的時間)。 之後，您可以登入系統管理員和使用者入口網站，以管理 Azure Stack 和測試供應項目。 
+您也需要選擇使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為部署的識別解決方案。 
 
-1. [**規劃您的硬體、軟體及網路**](azure-stack-deploy.md)。 裝載開發套件的電腦 (開發套件主機) 必須符合硬體、軟體及網路需求。 此外，您還必須在使用 Azure Active Directory 或「Active Directory 同盟服務」之間做選擇。 開始部署之前，請務必符合這些先決條件，如此安裝程序才能順暢執行。 
+請確定開發套件主機符合最低硬體需求，且您已在開始部署之前選擇好識別解決方案，讓安裝程序可以順暢執行。 
 
-2. [**下載部署套件並解壓縮**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit)。 您可以將部署套件下載到開發套件主機或另一部電腦。 解壓縮後的部署檔案會佔用 60 GB 的可用磁碟空間，因此使用另一部電腦可協助降低開發套件主機的硬體需求。
+**[檢閱 ASDK 部署規劃考量](.\asdk\asdk-deploy-considerations.md)**
 
-3. 使用安裝程式來[**準備開發套件主機**](azure-stack-run-powershell-script.md)。 在此步驟之後，開發套件主機會開機進入 Cloudbuilder.vhdx (一個包含可開機作業系統和 Azure Stack 安裝檔的虛擬硬碟)。
+> [!TIP]
+> 安裝作業系統之後，您可以在開發套件主機電腦上使用 [Azure Stack 部署需求檢查工具](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b)，來確認您的硬體符合所有需求。
 
-4. 在開發套件主機上[**部署開發套件**](azure-stack-run-powershell-script.md)。
+## <a name="download-and-extract-the-deployment-package"></a>下載部署套件並解壓縮
+確認您的開發套件主機電腦符合安裝 ASDK 的基本需求後，下一個步驟是下載 ASDK 部署套件並解壓縮。 開發套件包括 Cloudbuilder.vhdx 檔案，這是個包含可開機作業系統和 Azure Stack 安裝檔的虛擬硬碟。
 
-5. 如果您的 Azure Stack 部署使用 Azure Active Directory，您就必須[向 Azure 註冊 Azure Stack](azure-stack-register.md)，如此您才能夠[將 Azure Marketplace 項目下載](azure-stack-download-azure-marketplace-item.md)到 Azure Stack。
+您可以將部署套件下載到開發套件主機或另一部電腦。 解壓縮後的部署檔案會佔用 60 GB 的可用磁碟空間，因此使用另一部電腦可協助降低開發套件主機的硬體需求。
 
-完成這些步驟之後，您將會擁有一個同時具有系統管理員和使用者入口網站的開發套件環境。 接著，您可以[連線並登入](azure-stack-connect-azure-stack.md)入口網站。 然後，您可以開始部署資源提供者、建立[供應項目](azure-stack-key-features.md#regions-services-plans-offers-and-subscriptions)，以及填入 Azure Stack [市集](azure-stack-marketplace.md)。
+**[下載 Azure Stack 開發套件 (ASDK) 並解壓縮](.\asdk\asdk-download.md)**
+
+## <a name="prepare-the-development-kit-host-computer"></a>準備開發套件主機電腦
+必須先備妥環境，並將系統設定為從 VHD 開機，才可以在主機電腦上安裝 ASDK。 準備好開發套件主機電腦後，它會從 CloudBuilder.vhdx 虛擬機器硬碟開機，讓您可以開始 ASDK 部署。
+
+**[準備 ASDK 主機電腦](.\asdk\asdk-prepare-host.md)**
+
+## <a name="install-the-asdk-on-the-host-computer"></a>在主機電腦上安裝 ASDK
+準備好開發套件主機電腦後，就可以將 ASDK 部署到 CloudBuilder.vhdx 映像。 要部署 ASDK，除了使用下載並執行 asdk-installer.ps1 PowerShell 指令碼所提供的圖形化使用者介面 (GUI) 以外，也可以完全從[命令列](.\asdk\asdk-deploy-powershell.md)進行部署。 
+
+> [!NOTE]
+> 或者，您也可以在主機電腦開機進入 CloudBuilder.vhdx 後，在安裝 ASDK 前，「先」設定 [Azure Stack 遙測設定](.\asdk\asdk-telemetry.md#set-telemetry-level-in-the-windows-registry)。
+
+
+**[安裝 Azure Stack 開發套件 (ASDK)](.\asdk\asdk-install.md)**
+
+## <a name="perform-post-deployment-configurations"></a>執行部署後設定
+安裝 ASDK 後，建議您進行一些安裝後的檢查，並變更一些設定。 您可以使用 test-AzureStack Cmdlet 來驗證您的安裝是否成功，還有安裝 Azure Stack PowerShell 和 GitHub 工具。 
+
+使用 Azure AD 部署之後，您必須啟用 Azure Stack 系統管理員和租用戶入口網站。 此啟用同意將所有目錄使用者的正確權限 (列在同意頁面上) 提供給 Azure Stack 入口網站和 Azure Resource Manager。
+
+您也應該重設密碼到期原則，以確保開發套件主機的密碼不會在評估期間結束前到期。
+
+> [!NOTE]
+> 或者，您也可以在「安裝 ASDK 後」，再設定 [Azure Stack 遙測設定](.\asdk\asdk-telemetry.md#enable-or-disable-telemetry-after-deployment)。
+
+**[部署 ASDK 後的工作](.\asdk\asdk-post-deploy.md)**
+
+## <a name="register-with-azure"></a>向 Azure 註冊
+您必須向 Azure 註冊 Azure Stack，如此您才能夠[將 Azure 市集項目下載到 Azure Stack](.\asdk\asdk-marketplace-item.md)。
+
+**[向 Azure 註冊 Azure Stack](.\asdk\asdk-register.md)**
+
+## <a name="next-steps"></a>後續步驟
+恭喜！ 完成這些步驟之後，您將會擁有一個具備[系統管理員](https://adminportal.local.azurestack.external)和[使用者](https://portal.local.azurestack.external)入口網站的開發套件環境。 

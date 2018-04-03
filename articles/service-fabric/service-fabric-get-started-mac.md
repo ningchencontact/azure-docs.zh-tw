@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: bf0a03ace2f6b6e6b1c845785a452d0b75f35de8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 81265dd61faee38d578a380ca392e7851662329c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上設定開發環境
 > [!div class="op_single_selector"]
@@ -44,13 +44,7 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
 ## <a name="create-a-local-container-and-set-up-service-fabric"></a>建立本機容器並設定 Service Fabric
 若要設定本機的 Docker 容器，並在容器上執行 Service Fabric 叢集，請執行下列步驟：
 
-1. 從 Docker Hub 存放庫提取 Service Fabric onebox 容器映像。 根據預設，這會提取包含最新版 Service Fabric 的映像。 如需特定版本，請造訪 [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 頁面。
-
-    ```bash
-    docker pull microsoft/service-fabric-onebox
-    ```
-
-2. 使用下列設定更新您主機上的 Docker 精靈設定，然後重新啟動 Docker 精靈： 
+1. 使用下列設定更新您主機上的 Docker 精靈設定，然後重新啟動 Docker 精靈： 
 
     ```json
     {
@@ -66,12 +60,47 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
     >
     >建議的方法是直接修改 Docker 中的精靈組態設定。 選取 [Docker 圖示]，然後選取 [喜好設定] > [精靈] > [進階]。
     >
+    >測試大型應用程式時，建議提高配置給 Docker 的資源。 選取 [Docker 圖示]，然後選取 [進階] 來調整核心數目和記憶體，即可完成此作業。
 
-3. 啟動 Service Fabric onebox 容器執行個體，然後使用您在第一個步驟中提取的映像：
+2. 在新目錄中建立一個名為 `.Dockerfile` 的檔案，以建置 Service Fabric 映像：
 
-    ```bash
-    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
+    ```dockerfile
+    FROM microsoft/service-fabric-onebox
+    WORKDIR /home/ClusterDeployer
+    RUN ./setup.sh
+    #Generate the local
+    RUN locale-gen en_US.UTF-8
+    #Set environment variables
+    ENV LANG=en_US.UTF-8
+    ENV LANGUAGE=en_US:en
+    ENV LC_ALL=en_US.UTF-8
+    EXPOSE 19080 19000 80 443
+    #Start SSH before running the cluster
+    CMD /etc/init.d/ssh start && ./run.sh
     ```
+
+    >[!NOTE]
+    >您可以調整這個檔案，以在您的容器中新增其他程式或相依性。
+    >例如，新增 `RUN apt-get install nodejs -y` 將允許以客體可執行檔形式支援 `nodejs` 應用程式。
+    
+    >[!TIP]
+    > 根據預設，這會提取包含最新版 Service Fabric 的映像。 如需特定版本，請造訪 [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 頁面。
+
+3. 若要從 `.Dockerfile` 建置可重複使用的映像，請開啟終端機並 `cd` 到直接保留的 `.Dockerfile`，然後執行：
+
+    ```bash 
+    docker build -t mysfcluster .
+    ```
+    
+    >[!NOTE]
+    >這項作業需要一些時間，但只需要執行一次。
+
+4. 您現在可以在需要時快速啟動 Service Fabric 的本機複本，方法是執行以下項目：
+
+    ```bash 
+    docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
+    ```
+
     >[!TIP]
     >為容器執行個體提供名稱，以便能以更容易辨識的方式來處理。 
     >
@@ -80,20 +109,20 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-4. 在互動式 SSH 模式中登入 Docker 容器：
+5. 叢集會在短時間內啟動，您可以使用下列命令來檢視記錄，或跳到儀表板檢視叢集健康狀態 [http://localhost:19080](http://localhost:19080)：
 
-    ```bash
-    docker exec -it sfonebox bash
+    ```bash 
+    docker logs sftestcluster
     ```
 
-5. 執行可擷取必要相依性的設定指令碼，然後在容器上啟動叢集：
 
-    ```bash
-    ./setup.sh     # Fetches and installs the dependencies required for Service Fabric to run
-    ./run.sh       # Starts the local cluster
+
+6. 當您完成，可以使用此命令來停止和清除容器：
+
+    ```bash 
+    docker rm -f sftestcluster
     ```
 
-6. 完成步驟 5 之後，從 Mac 瀏覽至 `http://localhost:19080`。 您應該會看到 Service Fabric 總管。
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>設定 Mac 上的 Service Fabric CLI (sfctl)
 

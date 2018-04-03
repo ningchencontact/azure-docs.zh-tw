@@ -20,8 +20,6 @@
 
     ![Azure Cosmos DB 的新帳戶刀鋒視窗](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
 
-4. 建立帳戶需要幾分鐘的時間。 在建立帳戶期間，入口網站會在右側顯示 [部署 Azure Cosmos DB] 圖格，您可能需要在儀表板上向右捲動以查看圖格。 另外在畫面頂端附近還會顯示一個進度列。 您可以查看任何進度區域。
+4. 建立帳戶需要幾分鐘的時間。 等候入口網站顯示 [恭喜!**已建立您的 Azure Cosmos DB 帳戶]** 頁面。
 
-    ![Azure 入口網站的 [通知] 窗格](./media/cosmos-db-create-dbaccount-graph/deploying-cosmos-db.png)
-
-    一旦建立帳戶後，[恭喜您！已建立 Azure Cosmos DB 帳戶] 頁面隨即顯示。 
+    ![Azure 入口網站的 [通知] 窗格](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-graph-created.png)

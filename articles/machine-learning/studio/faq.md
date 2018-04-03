@@ -1,11 +1,12 @@
 ---
-title: "Azure Machine Learning 常見問題集 (FAQ) | Microsoft Docs"
-description: "Azure Machine Learning 簡介：常見問題集，涵蓋計費、功能，以及適用於簡化預測性模型化之雲端服務的限制。"
-keywords: "機器學習服務簡介,建立預測模型,什麼是機器學習服務"
+title: Azure Machine Learning 常見問題集 (FAQ) | Microsoft Docs
+description: Azure Machine Learning 簡介：常見問題集，涵蓋計費、功能，以及適用於簡化預測性模型化之雲端服務的限制。
+keywords: 機器學習服務簡介,建立預測模型,什麼是機器學習服務
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: paulettm
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.author: garye
-ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ceec69ee822e118adfa3825620a31575109894ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 常見問題集：計費、功能、限制及支援
 以下是有關 Azure Machine Learning 的一些常見問題和對應解答，而 Azure Machine Learning 是適合透過 Web 服務開發預測性模型和運作方案的雲端服務。 這個常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -548,7 +548,7 @@ Machine Learning 服務是多租用戶服務。 後端實際使用的計算資�
 ### <a name="guest-access"></a>來賓存取
 **何謂 Azure 機器學習 Studio 的來賓存取？**
 
-「來賓存取」是有限制的試用經驗。 您可以在不經驗證的情況下，於 Azure Machine Learning Studio 中免費建立及執行實驗。 來賓工作階段為非持續性工作階段 (無法儲存) 且僅限 8 小時。 其他限制包括缺少 R 和 Python 支援、缺少預備 API，以及有限的資料集大小和儲存體容量。 透過比較，選擇以 Microsoft 帳戶登入的使用者享有前述 Machine Learning Studio 免費層的完整存取權，包括持續性工作區和更全面的功能。 若要選擇免費的 Machine Learning 體驗，請在 [https://studio.azureml.net](https://studio.azureml.net) 上按一下 [開始使用]，然後選取**來賓存取**或以 Microsoft 帳戶登入。
+「來賓存取」是有限制的試用經驗。 您可以在不經驗證的情況下，於 Azure Machine Learning Studio 中免費建立及執行實驗。 來賓工作階段為非持續性工作階段 (無法儲存) 且僅限 8 小時。 其他限制包括缺少 R 和 Python 支援、缺少預備 API，以及有限的資料集大小和儲存體容量。 透過比較，選擇以 Microsoft 帳戶登入的使用者享有前述 Machine Learning Studio 免費層的完整存取權，包括持續性工作區和更全面的功能。 若要選擇免費的 Machine Learning 體驗，請在 [https://studio.azureml.net](https://studio.azureml.net) 上按一下 [開始使用]，然後選取 [來賓存取] 或以 Microsoft 帳戶登入。
 
 <!-- Module References -->
 [image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/

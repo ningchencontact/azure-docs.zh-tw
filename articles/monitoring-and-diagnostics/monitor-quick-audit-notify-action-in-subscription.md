@@ -1,6 +1,6 @@
 ---
-title: "稽核和接收 Azure 訂用帳戶中關於重要動作的通知 | Microsoft Docs"
-description: "了解活動記錄中之資源管理、服務健康狀況及其他訂用帳戶活動的歷程記錄，然後使用活動記錄警示，在您的訂用帳戶中執行高權限作業時接收電子郵件通知。"
+title: 稽核和接收 Azure 訂用帳戶中關於重要動作的通知 | Microsoft Docs
+description: 了解活動記錄中之資源管理、服務健康狀況及其他訂用帳戶活動的歷程記錄，然後使用活動記錄警示，在您的訂用帳戶中執行高權限作業時接收電子郵件通知。
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b0a79f46788dc7efb588110dc50805c45c373a49
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dd04cd9c8074d49df168b32840d12901da83c834
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>稽核和接收 Azure 訂用帳戶中關於重要動作的通知
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 02/21/2018
 
 5. 在 [透過下列方式發出警示] 下方，選取 [新增] 動作群組，並提供動作群組的 [名稱] 和 [簡短名稱]。 動作群組定義啟用警示時 (準則符合新事件時) 所採取的一組動作。
 
-6. 在 [動作] 下方，藉由提供動作的 [名稱]、[動作類型] \(例如，電子郵件或簡訊) 及該特定動作類型 (例如，Webhook URL、電子郵件地址或簡訊號碼) 的 [詳細資料]，以新增一或多個動作。
+6. 在 [動作] 下方，藉由提供動作的 [名稱]、[動作類型] (例如，電子郵件、簡訊或 Webhook) 及該特定動作類型 (例如，Webhook URL、電子郵件地址或簡訊號碼) 的 [詳細資料]，以新增一或多個動作。
 
     ![在入口網站中建立網路安全性群組](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 02/21/2018
 ## <a name="test-the-activity-log-alert"></a>測試活動記錄警示
 
 > [!NOTE]
-> 活動記錄警示大約需要 10 分鐘才會變成完全啟用。 在活動記錄警示完全啟用前所發生的事件，將不會產生通知。
+> 活動記錄警示大約需要 5 分鐘才會變成完全啟用。 在活動記錄警示完全啟用前所發生的事件，將不會產生通知。
 >
 >
 

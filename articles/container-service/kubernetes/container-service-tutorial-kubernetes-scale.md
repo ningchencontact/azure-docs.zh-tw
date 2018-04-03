@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Service 教學課程 - 調整應用程式"
-description: "Azure Container Service 教學課程 - 調整應用程式"
+title: Azure Container Service 教學課程 - 調整應用程式
+description: Azure Container Service 教學課程 - 調整應用程式
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 36c5586f79cf127ec069fd3c6ef95dd073fdbdb6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ea64f9c52dc89dc8eb75a39afbb087a5127505f1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>調整 Kubernetes Pod 和 Kubernetes 基礎結構
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/01/2018
 > * 設定執行應用程式前端的自動調整 Pod
 > * 調整 Kubernetes Azure 代理程式節點
 
-在後續的教學課程中，會更新 Azure Vote 應用程式，且會將 Operations Management Suite 設定為監視 Kubernetes 叢集。
+在後續的教學課程中，會更新 Azure Vote 應用程式，且會將 Log Analytics 設定為監視 Kubernetes 叢集。
 
 ## <a name="before-you-begin"></a>開始之前
 

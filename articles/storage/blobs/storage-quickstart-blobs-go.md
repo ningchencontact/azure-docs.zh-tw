@@ -1,6 +1,6 @@
 ---
-title: "Azure 快速入門 - 使用 Go 上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs"
-description: "在本快速入門中，您會建立儲存體帳戶和容器。 然後，使用 Go 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。"
+title: Azure 快速入門 - 使用 Go 上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs
+description: 在本快速入門中，您會建立儲存體帳戶和容器。 然後，使用 Go 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 services: storage
 author: seguler
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: a30d012ea663b04028a4b0ebb2880532a596500b
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5572eaafa49200be0b2a8156dbc96bffd48be925
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>快速入門：使用 Go 上傳、下載及列出 Blob
 
@@ -211,6 +211,13 @@ containerURL.Delete(ctx, azblob.ContainerAccessConditions{})
 file.Close()
 os.Remove(fileName)
 ```
+
+## <a name="resources-for-developing-go-applications-with-blobs"></a>可供使用 Blob 開發 Go 應用程式的資源
+
+請參閱以下可供使用 Go 儲存體進行 PHP 開發的額外資源：
+
+- 檢視及安裝 GitHub 上適用於 Azure 儲存體的 [Go 用戶端程式庫原始程式碼](https://github.com/Azure/azure-storage-blob-go)。
+- 探索使用 Go 用戶端程式庫所撰寫的 [Blob 儲存體範例](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob#pkg-examples)。
 
 ## <a name="next-steps"></a>後續步驟
  
