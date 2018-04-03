@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Media Packager 完成靜態封裝工作 | Microsoft Docs"
-description: "本主題說明使用 Azure Media Packager 完成的各種工作。"
+title: 使用 Azure Media Packager 完成靜態封裝工作 | Microsoft Docs
+description: 本主題說明使用 Azure Media Packager 完成的各種工作。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0582628e-a525-4a78-90ac-9f7fc1cd909f
 ms.service: media-services
 ms.workload: media
