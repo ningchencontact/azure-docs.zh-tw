@@ -1,9 +1,9 @@
 ---
 title: 教學課程：使用 Azure Databricks 對串流資料進行情感分析 | Microsoft Docs
-description: 了解如何搭配使用 Azure Databricks 與事件中樞和認知服務 API，對即時串流資料執行情感分析。
+description: 了解如何搭配使用 Azure Databricks 與事件中樞和認知服務 API，近乎即時地對串流資料執行情感分析。
 services: azure-databricks
 documentationcenter: ''
-author: nitinme
+author: lenadroid
 manager: cgronlun
 editor: ''
 tags: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/15/2018
-ms.author: nitinme
-ms.openlocfilehash: 00456bdc4dc0e8562af9be6c827e8ab32bf03a31
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/20/2018
+ms.author: alehall
+ms.openlocfilehash: 8858df394885ae7820a4bc72458f4f1d851965e6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>教學課程：使用 Azure Databricks 對串流資料進行情感分析
 
-在本教學課程中，您會了解如何使用 Azure Databricks 對資料的即時串流執行情感分析。 您會使用 Azure 事件中樞設定即時資料擷取系統。 您會使用 Spark 事件中樞連接器將訊息從事件中樞取用到 Azure Databricks。 最後，您會使用 Microsoft 認知服務 API 來對串流資料執行情感分析。 
+在本教學課程中，您會了解如何使用 Azure Databricks 近乎即時地對資料的串流執行情感分析。 您會使用 Azure 事件中樞設定資料擷取系統。 您會使用 Spark 事件中樞連接器將訊息從事件中樞取用到 Azure Databricks。 最後，您會使用 Microsoft 認知服務 API 來對串流資料執行情感分析。
 
 本教學課程結束時，您將已從 Twitter 獲得含有 "Azure" 一詞的串流推文，並會對這些推文執行情感分析。
 
@@ -32,12 +32,12 @@ ms.lasthandoff: 03/17/2018
 
 ![Azure Databricks 與事件中樞和認知服務](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-tutorial.png "Azure Databricks 與事件中樞和認知服務")
 
-本教學課程涵蓋下列工作： 
+本教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
 > * 建立 Azure Databricks 工作區
 > * 在 Azure Databricks 中建立 Spark 叢集
-> * 建立 Twitter 應用程式以存取即時資料
+> * 建立 Twitter 應用程式來存取串流資料
 > * 在 Azure Databricks 中建立 Notebook
 > * 連結事件中樞與 Twitter API 的程式庫
 > * 建立 Microsoft 認知服務帳戶並取出存取金鑰
@@ -52,7 +52,7 @@ ms.lasthandoff: 03/17/2018
 開始本教學課程之前，請確定您符合下列需求：
 - Azure 事件中樞命名空間。
 - 命名空間內的事件中樞。
-- 用來存取事件中樞命名空間的連接字串。 連接字串的格式會類似 `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>”`。
+- 用來存取事件中樞命名空間的連接字串。 連接字串的格式會類似 `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`。
 - 事件中樞的共用存取原則名稱和原則金鑰。
 
 您可以藉由完成[建立 Azure 事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)一文中的步驟，以符合這些需求。
@@ -63,20 +63,18 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="create-an-azure-databricks-workspace"></a>建立 Azure Databricks 工作區
 
-在本節中，您會使用 Azure 入口網站建立 Azure Databricks 工作區。 
+在本節中，您會使用 Azure 入口網站建立 Azure Databricks 工作區。
 
-1. 在 Azure 入口網站中，選取 [建立資源] > [資料 + 分析] > [Azure Databricks (預覽)]。
+1. 在 Azure 入口網站中，選取 [建立資源] > [資料 + 分析] > [Azure Databricks]。
 
     ![Azure 入口網站上的 Databricks](./media/databricks-sentiment-analysis-cognitive-services/azure-databricks-on-portal.png "Azure 入口網站上的 Databricks")
-
-2. 在 [Azure Databricks (預覽)] 底下，選取 [建立]。
 
 3. 在 [Azure Databricks 服務] 底下，提供值以建立 Databricks 工作區。
 
     ![建立 Azure Databricks 工作區](./media/databricks-sentiment-analysis-cognitive-services/create-databricks-workspace.png "建立 Azure Databricks 工作區")
 
-    提供下列值： 
-     
+    提供下列值：
+
     |屬性  |說明  |
     |---------|---------|
     |**工作區名稱**     | 提供您 Databricks 工作區的名稱        |
@@ -106,16 +104,16 @@ ms.lasthandoff: 03/17/2018
     接受下列值以外的所有其他預設值：
 
     * 輸入叢集的名稱。
-    * 針對本文，使用 **4.0 搶鮮版 (Beta)** 執行階段建立叢集。 
+    * 針對本文，使用 **4.0 搶鮮版 (Beta)** 執行階段建立叢集。
     * 請確定您選取 [在活動 ___ 分鐘後終止] 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
 
     選取 [建立叢集]。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
 
 ## <a name="create-a-twitter-application"></a>建立 Twitter 應用程式
 
-若要收到推文的即時串流，您必須在 Twitter 中建立應用程式。 請依照下列步驟建立 Twitter 應用程式，並記錄要完成本教學課程所需的值。
+若要收到推文的串流，您必須在 Twitter 中建立應用程式。 請依照下列步驟建立 Twitter 應用程式，並記錄要完成本教學課程所需的值。
 
-1. 從網頁瀏覽器移至 [Twitter 應用程式管理][](http://twitter.com/app)，然後選取 [建立新的應用程式]。
+1. 從網頁瀏覽器移至 [Twitter 應用程式管理](http://twitter.com/app)，然後選取 [建立新的應用程式]。
 
     ![建立 Twitter 應用程式](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "建立 Twitter 應用程式")
 
@@ -139,7 +137,7 @@ ms.lasthandoff: 03/17/2018
 
 2. 在 [新增程式庫] 頁面上，於 [來源] 中選取 [Maven 座標]。 在 [座標] 中輸入您要新增之套件的座標。 以下是本教學課程所使用之程式庫的 Maven 座標：
 
-    * Spark 事件中樞連接器 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.0`
+    * Spark 事件中樞連接器 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
     * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
 
     ![提供 Maven 座標](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "提供 Maven 座標")
@@ -158,12 +156,12 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="get-a-cognitive-services-access-key"></a>取得認知服務存取金鑰
 
-在本教學課程中，您會使用 [Microsoft 認知服務文字分析 API](../cognitive-services/text-analytics/overview.md) 對推文的即時串流執行情感分析。 在使用 API 之前，您必須先在 Azure 上建立 Microsoft 認知服務帳戶，並擷取存取金鑰以便使用文字分析 API。
+在本教學課程中，您會使用 [Microsoft 認知服務文字分析 API](../cognitive-services/text-analytics/overview.md) 近乎即時地對推文的串流執行情感分析。 在使用 API 之前，您必須先在 Azure 上建立 Microsoft 認知服務帳戶，並擷取存取金鑰以便使用文字分析 API。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 2. 選取 [+ 建立資源]。
- 
+
 3. 在 Azure Marketplace 底下選取 [AI + 認知服務] > [文字分析 API]。
 
     ![建立認知服務帳戶](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-text-api.png "建立認知服務帳戶")
@@ -219,7 +217,7 @@ ms.lasthandoff: 03/17/2018
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
     import java.util.concurrent._
-    
+
     val namespaceName = "<EVENT HUBS NAMESPACE>"
     val eventHubName = "<EVENT HUB NAME>"
     val sasKeyName = "<POLICY NAME>"
@@ -229,51 +227,51 @@ ms.lasthandoff: 03/17/2018
                 .setEventHubName(eventHubName)
                 .setSasKeyName(sasKeyName)
                 .setSasKey(sasKey)
-    
+
     val pool = Executors.newFixedThreadPool(1)
     val eventHubClient = EventHubClient.create(connStr.toString(), pool)
-    
+
     def sendEvent(message: String) = {
       val messageData = EventData.create(message.getBytes("UTF-8"))
-      eventHubClient.get().send(messageData) 
+      eventHubClient.get().send(messageData)
       System.out.println("Sent event: " + message + "\n")
     }
-    
+
     import twitter4j._
     import twitter4j.TwitterFactory
     import twitter4j.Twitter
     import twitter4j.conf.ConfigurationBuilder
-    
+
     // Twitter configuration!
     // Replace values below with yours
-    
+
     val twitterConsumerKey = "<CONSUMER KEY>"
     val twitterConsumerSecret = "<CONSUMER SECRET>"
     val twitterOauthAccessToken = "<ACCESS TOKEN>"
     val twitterOauthTokenSecret = "<TOKEN SECRET>"
-    
+
     val cb = new ConfigurationBuilder()
       cb.setDebugEnabled(true)
       .setOAuthConsumerKey(twitterConsumerKey)
       .setOAuthConsumerSecret(twitterConsumerSecret)
       .setOAuthAccessToken(twitterOauthAccessToken)
       .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
-    
+
     val twitterFactory = new TwitterFactory(cb.build())
     val twitter = twitterFactory.getInstance()
-    
+
     // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
-    
+
     val query = new Query(" #Azure ")
     query.setCount(100)
     query.lang("en")
     var finished = false
     while (!finished) {
-      val result = twitter.search(query) 
+      val result = twitter.search(query)
       val statuses = result.getTweets()
       var lowestStatusId = Long.MaxValue
       for (status <- statuses.asScala) {
-        if(!status.isRetweet()){ 
+        if(!status.isRetweet()){
           sendEvent(status.getText())
         }
         lowestStatusId = Math.min(status.getId(), lowestStatusId)
@@ -281,24 +279,24 @@ ms.lasthandoff: 03/17/2018
       }
       query.setMaxId(lowestStatusId - 1)
     }
-    
+
     // Closing connection to the Event Hub
     eventHubClient.get().close()
 
-若要執行 Notebook，請按 **SHIFT + ENTER**。 您會看到如下列程式碼片段所示的輸出。 輸出中的每個事件都是擷取至事件中樞的即時推文。 
+若要執行 Notebook，請按 **SHIFT + ENTER**。 您會看到如下列程式碼片段所示的輸出。 輸出中的每個事件都是擷取至事件中樞的推文。
 
     Sent event: @Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence
 
     Sent event: Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
-    https://t.co/7vs7cKtvah 
+    https://t.co/7vs7cKtvah
     #cloudcomputing #Azure
-    
+
     Sent event: 4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie
-    
+
     Sent event: Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk
-    
+
     Sent event: Top 10 Tricks to #Save Money with #Azure Virtual Machines https://t.co/F2wshBXdoz #Cloud
-    
+
     ...
     ...
 
@@ -308,26 +306,26 @@ ms.lasthandoff: 03/17/2018
 
     import org.apache.spark.eventhubs._
 
-    // Build connection string with the above information 
+    // Build connection string with the above information
     val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
       .setEventHubName("<EVENT HUB NAME>")
       .build
-    
-    val customEventhubParameters = 
+
+    val customEventhubParameters =
       EventHubsConf(connectionString)
       .setMaxEventsPerTrigger(5)
-    
+
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
-    
+
     incomingStream.printSchema
-    
+
     // Sending the incoming stream into the console.
     // Data comes in batches!
     incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
 您會獲得下列輸出︰
 
-  
+
     root
      |-- body: binary (nullable = true)
      |-- offset: long (nullable = true)
@@ -335,7 +333,7 @@ ms.lasthandoff: 03/17/2018
      |-- enqueuedTime: long (nullable = true)
      |-- publisher: string (nullable = true)
      |-- partitionKey: string (nullable = true)
-   
+
     -------------------------------------------
     Batch: 0
     -------------------------------------------
@@ -343,9 +341,9 @@ ms.lasthandoff: 03/17/2018
     |body  |offset|sequenceNumber|enqueuedTime   |publisher|partitionKey|
     +------+------+--------------+---------------+---------+------------+
     |[50 75 62 6C 69 63 20 70 72 65 76 69 65 77 20 6F 66 20 4A 61 76 61 20 6F 6E 20 41 70 70 20 53 65 72 76 69 63 65 2C 20 62 75 69 6C 74 2D 69 6E 20 73 75 70 70 6F 72 74 20 66 6F 72 20 54 6F 6D 63 61 74 20 61 6E 64 20 4F 70 65 6E 4A 44 4B 0A 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 37 76 73 37 63 4B 74 76 61 68 20 0A 23 63 6C 6F 75 64 63 6F 6D 70 75 74 69 6E 67 20 23 41 7A 75 72 65]                              |0     |0             |2018-03-09 05:49:08.86 |null     |null        |
-    |[4D 69 67 72 61 74 65 20 79 6F 75 72 20 64 61 74 61 62 61 73 65 73 20 74 6F 20 61 20 66 75 6C 6C 79 20 6D 61 6E 61 67 65 64 20 73 65 72 76 69 63 65 20 77 69 74 68 20 41 7A 75 72 65 20 53 51 4C 20 44 61 74 61 62 61 73 65 20 4D 61 6E 61 67 65 64 20 49 6E 73 74 61 6E 63 65 20 7C 20 23 41 7A 75 72 65 20 7C 20 23 43 6C 6F 75 64 20 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 73 4A 48 58 4E 34 74 72 44 6B]            |168   |1             |2018-03-09 05:49:24.752|null     |null        | 
+    |[4D 69 67 72 61 74 65 20 79 6F 75 72 20 64 61 74 61 62 61 73 65 73 20 74 6F 20 61 20 66 75 6C 6C 79 20 6D 61 6E 61 67 65 64 20 73 65 72 76 69 63 65 20 77 69 74 68 20 41 7A 75 72 65 20 53 51 4C 20 44 61 74 61 62 61 73 65 20 4D 61 6E 61 67 65 64 20 49 6E 73 74 61 6E 63 65 20 7C 20 23 41 7A 75 72 65 20 7C 20 23 43 6C 6F 75 64 20 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 73 4A 48 58 4E 34 74 72 44 6B]            |168   |1             |2018-03-09 05:49:24.752|null     |null        |
     +------+------+--------------+---------------+---------+------------+
-    
+
     -------------------------------------------
     Batch: 1
     -------------------------------------------
@@ -356,19 +354,19 @@ ms.lasthandoff: 03/17/2018
 
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
-    
+
     // Event Hub message format is JSON and contains "body" field
     // Body is binary, so we cast it to string to see the actual content of the message
-    val messages = 
+    val messages =
       incomingStream
       .withColumn("Offset", $"offset".cast(LongType))
       .withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType))
       .withColumn("Timestamp", $"enqueuedTime".cast(LongType))
       .withColumn("Body", $"body".cast(StringType))
       .select("Offset", "Time (readable)", "Timestamp", "Body")
-    
+
     messages.printSchema
-    
+
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
 輸出現在會類似下列程式碼片段：
@@ -378,7 +376,7 @@ ms.lasthandoff: 03/17/2018
      |-- Time (readable): timestamp (nullable = true)
      |-- Timestamp: long (nullable = true)
      |-- Body: string (nullable = true)
-    
+
     -------------------------------------------
     Batch: 0
     -------------------------------------------
@@ -386,7 +384,7 @@ ms.lasthandoff: 03/17/2018
     |Offset|Time (readable)  |Timestamp |Body
     +------+-----------------+----------+-------+
     |0     |2018-03-09 05:49:08.86 |1520574548|Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
-    https://t.co/7vs7cKtvah 
+    https://t.co/7vs7cKtvah
     #cloudcomputing #Azure          |
     |168   |2018-03-09 05:49:24.752|1520574564|Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |
     |0     |2018-03-09 05:49:02.936|1520574542|@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|
@@ -406,12 +404,12 @@ ms.lasthandoff: 03/17/2018
 
     import java.io._
     import java.net._
-    import java.util._    
+    import java.util._
 
-    class Document(var id: String, var text: String, var language: String = "", var sentiment: Double = 0.0) extends Serializable 
+    class Document(var id: String, var text: String, var language: String = "", var sentiment: Double = 0.0) extends Serializable
 
     class Documents(var documents: List[Document] = new ArrayList[Document]()) extends Serializable {
-    
+
         def add(id: String, text: String, language: String = "") {
             documents.add (new Document(id, text, language))
         }
@@ -436,9 +434,9 @@ ms.lasthandoff: 03/17/2018
     import com.google.gson.JsonObject
     import com.google.gson.JsonParser
     import scala.util.parsing.json._
-    
+
     object SentimentDetector extends Serializable {
-      
+
       // Cognitive Services API connection settings
       val accessKey = "<PROVIDE ACCESS KEY HERE>"
       val host = "<PROVIDE HOST HERE>"
@@ -446,7 +444,7 @@ ms.lasthandoff: 03/17/2018
       val sentimentPath = "/text/analytics/v2.0/sentiment"
       val languagesUrl = new URL(host+languagesPath)
       val sentimenUrl = new URL(host+sentimentPath)
-      
+
       def getConnection(path: URL): HttpsURLConnection = {
         val connection = path.openConnection().asInstanceOf[HttpsURLConnection]
         connection.setRequestMethod("POST")
@@ -455,14 +453,14 @@ ms.lasthandoff: 03/17/2018
         connection.setDoOutput(true)
         return connection
       }
-      
+
       def prettify (json_text: String): String = {
         val parser = new JsonParser()
         val json = parser.parse(json_text).getAsJsonObject()
         val gson = new GsonBuilder().setPrettyPrinting().create()
         return gson.toJson(json)
       }
-      
+
       // Handles the call to Cognitive Services API.
       // Expects Documents as parameters and the address of the API to call.
       // Returns an instance of Documents in response.
@@ -474,7 +472,7 @@ ms.lasthandoff: 03/17/2018
         wr.write(encoded_text, 0, encoded_text.length)
         wr.flush()
         wr.close()
-    
+
         val response = new StringBuilder()
         val in = new BufferedReader(new InputStreamReader(connection.getInputStream()))
         var line = in.readLine()
@@ -485,10 +483,10 @@ ms.lasthandoff: 03/17/2018
         in.close()
         return response.toString()
       }
-      
+
       // Calls the language API for specified documents.
       // Returns a documents with language field set.
-      def getLanguage (inputDocs: Documents): Documents = { 
+      def getLanguage (inputDocs: Documents): Documents = {
         try {
           val response = processUsingApi(inputDocs, languagesUrl)
           // In case we need to log the json response somewhere
@@ -511,7 +509,7 @@ ms.lasthandoff: 03/17/2018
               case e: Exception => return new Documents()
         }
       }
-      
+
       // Calls the sentiment API for specified documents. Needs a language field to be set for each of them.
       // Returns documents with sentiment field set, taking a value in the range from 0 to 1.
       def getSentiment (inputDocs: Documents): Documents = {
@@ -535,7 +533,7 @@ ms.lasthandoff: 03/17/2018
         }
       }
     }
-    
+
     // User Defined Function for processing content of messages to return their sentiment.
     val toSentiment = udf((textContent: String) => {
       val inputDocs = new Documents()
@@ -554,7 +552,7 @@ ms.lasthandoff: 03/17/2018
 
     // Prepare a dataframe with Content and Sentiment columns
     val streamingDataFrame = incomingStream.selectExpr("cast (body as string) AS Content").withColumn("Sentiment", toSentiment($"Content"))
-    
+
     // Display the streaming data with the sentiment
     streamingDataFrame.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
@@ -571,11 +569,11 @@ ms.lasthandoff: 03/17/2018
     |Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |0.8558163642883301|
     |@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|0.5               |
     |4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie                                                    |0.5               |
-    +--------------------------------+------------------+ 
+    +--------------------------------+------------------+
 
-在 [情感] 資料行中，接近 **1** 的值表示絕佳的 Azure 體驗。 接近 **0** 的值表示使用者在使用 Microsoft Azure 時所遇到的問題。 
+在 [情感] 資料行中，接近 **1** 的值表示絕佳的 Azure 體驗。 接近 **0** 的值表示使用者在使用 Microsoft Azure 時所遇到的問題。
 
-就這麼簡單！ 您已使用 Azure Databricks 成功地將即時資料串流到 Azure 事件中樞、使用事件中樞連接器取用串流資料，然後對串流資料執行情感分析。
+就這麼簡單！ 您已使用 Azure Databricks 成功地以近乎即時的速度將資料串流到 Azure 事件中樞、使用事件中樞連接器取用串流資料，然後對串流資料執行情感分析。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -585,12 +583,12 @@ ms.lasthandoff: 03/17/2018
 
 如果您不手動終止叢集，叢集將會自動停止，但前提是您已在建立叢集時選取 [在停止活動 __ 分鐘後終止] 核取方塊。 在這種情況下，叢集將會在停止活動達指定時間後自動停止。
 
-## <a name="next-steps"></a>後續步驟 
+## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已了解如何使用 Azure Databricks 將資料串流到 Azure 事件中樞，然後從事件中樞即時讀取串流資料。 您已了解如何︰
 > [!div class="checklist"]
 > * 建立 Azure Databricks 工作區
 > * 在 Azure Databricks 中建立 Spark 叢集
-> * 建立 Twitter 應用程式以存取即時資料
+> * 建立 Twitter 應用程式來存取串流資料
 > * 在 Azure Databricks 中建立 Notebook
 > * 新增並連結事件中樞與 Twitter API 的程式庫
 > * 建立 Microsoft 認知服務帳戶並取出存取金鑰
