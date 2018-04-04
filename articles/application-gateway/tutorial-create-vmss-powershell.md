@@ -1,6 +1,6 @@
 ---
-title: "建立應用程式閘道和虛擬機器擴展集 - Azure PowerShell | Microsoft Docs"
-description: "了解如何使用 Azure PowerShell 建立應用程式閘道和虛擬機器擴展集。"
+title: 建立應用程式閘道和虛擬機器擴展集 - Azure PowerShell | Microsoft Docs
+description: 了解如何使用 Azure PowerShell 建立應用程式閘道和虛擬機器擴展集。
 services: application-gateway
 author: davidmu1
 manager: timlt

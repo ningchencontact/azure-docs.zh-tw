@@ -118,6 +118,8 @@
   items:
     - name: 以視覺化方式撰寫的資料處理站
       href: author-visually.md
+    - name: 持續整合及部署
+      href: continuous-integration-deployment.md
     - name: 複製資料
       items:
         - name: 使用複製活動複製資料

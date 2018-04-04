@@ -1,12 +1,12 @@
 ---
-title: "測試 Azure VM 網路輸送量 | Microsoft Docs"
-description: "了解如何測試 Azure 虛擬機器網路輸送量。"
+title: 測試 Azure VM 網路輸送量 | Microsoft Docs
+description: 了解如何測試 Azure 虛擬機器網路輸送量。
 services: virtual-network
 documentationcenter: na
 author: steveesp
 manager: Gerald DeGrace
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

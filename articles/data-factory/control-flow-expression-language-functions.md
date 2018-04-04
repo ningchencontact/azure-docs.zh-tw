@@ -51,7 +51,7 @@ ms.lasthandoff: 03/28/2018
 |----------------|------------|  
 |"parameters"|傳回字元 'parameters'。|  
 |"parameters[1]"|傳回字元 'parameters[1]'。|  
-|"@@"|傳回包含 \'\@\' 的 1 個字元字串。|  
+|\"\@\@\"|傳回包含 \'\@\' 的 1 個字元字串。|  
 |\" \@\"|傳回包含 \'\@\' 的 2 個字元字串。|  
   
  使用稱為「字串插補」的功能，運算式也可以出現在字串內，其中運算式會包含在 `@{ ... }` 內。 例如：`"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  

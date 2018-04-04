@@ -1,6 +1,6 @@
 ---
-title: "在 Azure DNS 中託管反向 DNS 對應區域 | Microsoft Docs"
-description: "了解如何使用 Azure DNS 為您的 IP 範圍託管反向 DNS 對應區域"
+title: 在 Azure DNS 中託管反向 DNS 對應區域 | Microsoft Docs
+description: 了解如何使用 Azure DNS 為您的 IP 範圍託管反向 DNS 對應區域
 services: dns
 documentationcenter: na
 author: jtuliani

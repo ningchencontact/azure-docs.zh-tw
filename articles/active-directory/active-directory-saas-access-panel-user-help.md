@@ -1,11 +1,11 @@
 ---
-title: "取得在 Azure Active Directory 中存取和使用 My Apps 入口網站的協助 | Microsoft Docs"
-description: "取得在存取面板中登入及執行常見工作的協助。"
+title: 取得在 Azure Active Directory 中存取和使用 My Apps 入口網站的協助 | Microsoft Docs
+description: 取得在存取面板中登入及執行常見工作的協助。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
 ms.workload: identity

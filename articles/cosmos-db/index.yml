@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/14/2018
   ms.author: mimig
-  ms.openlocfilehash: 871160c2d4e6619fe2e79d15b5098ed05e8404ec
-  ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+  ms.openlocfilehash: 95c650e24194de48084b46d41fbfdb5005faf186
+  ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 03/29/2018
+  ms.lasthandoff: 04/03/2018
 abstract:
   description: Azure Cosmos DB 是全域散發的多模型資料庫服務。 透過這些快速入門、教學課程及範例，使用常用的 API 及程式設計模型來開發文件、金鑰值、整個資料行和圖形資料庫。 並了解如何跨數個 Azure 區域複製資料並調整儲存體以外的輸送量，同時享受完整的 SLA 優點。
   aside:
@@ -112,7 +112,7 @@ sections:
     className: cardsD
     items:
     - title: SQL API
-      html: <p><a href="sql-api-sdk-dotnet">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">.NET 變更摘要</a></p><p><a href="sql-api-sdk-dotnet-core">.NET Core</a></p><p><a href="sql-api-sdk-node">Node.js</a></p><p><a href="sql-api-sdk-async-java">非同步 Java</a></p><p><a href="sql-api-sdk-java">Java</a></p><p><a href="sql-api-sdk-python">Python</a></p><p><a href="/rest/api/documentdb/">REST</a></p><p><a href="/rest/api/documentdbresourceprovider/">REST 資源提供者</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
+      html: <p><a href="sql-api-sdk-dotnet">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">.NET 變更摘要</a></p><p><a href="sql-api-sdk-dotnet-core">.NET Core</a></p><p><a href="sql-api-sdk-node">Node.js</a></p><p><a href="sql-api-sdk-async-java">非同步 Java</a></p><p><a href="sql-api-sdk-java">Java</a></p><p><a href="sql-api-sdk-python">Python</a></p><p><a href="/rest/api/cosmos-db/">REST</a></p><p><a href="/rest/api/cosmos-db-resource-provider/">REST 資源提供者</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
     - title: MongoDB API
       html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">有線通訊協定</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
     - title: 資料表 API

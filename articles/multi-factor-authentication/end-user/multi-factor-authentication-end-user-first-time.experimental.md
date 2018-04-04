@@ -1,9 +1,9 @@
 ---
-title: "為我的工作或學校帳戶設定雙步驟驗證 | Microsoft Docs"
-description: "當您的公司設定 Azure Multi-Factor Authentication 時，系統會提示您註冊雙步驟驗證。 了解如何進行設定。 "
+title: 為我的工作或學校帳戶設定雙步驟驗證 | Microsoft Docs
+description: '當您的公司設定 Azure Multi-Factor Authentication 時，系統會提示您註冊雙步驟驗證。 了解如何進行設定。 '
 services: multi-factor-authentication
-keywords: "如何使用 Azure Directory, 雲端中的 Active Directory, Active Directory 教學課程"
-documentationcenter: 
+keywords: 如何使用 Azure Directory, 雲端中的 Active Directory, Active Directory 教學課程
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi

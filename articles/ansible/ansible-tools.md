@@ -1,8 +1,8 @@
 ---
-title: "適用於使用 Ansible 搭配 Azure 的工具"
-description: "安裝並使用適用於 Ansible 搭配 Azure 的個別工具"
+title: 適用於使用 Ansible 搭配 Azure 的工具
+description: 安裝並使用適用於 Ansible 搭配 Azure 的個別工具
 ms.service: ansible
-keywords: "ansible, azure, devops, 工具, vs code, visual studio code, 擴充功能"
+keywords: ansible, azure, devops, 工具, vs code, visual studio code, 擴充功能
 author: tomarcher
 manager: routlaw
 ms.author: tarcher

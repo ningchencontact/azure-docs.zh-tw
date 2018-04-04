@@ -1,6 +1,6 @@
 ---
-title: "搭配 AKS 使用 Azure 檔案"
-description: "搭配 AKS 使用 Azure 磁碟"
+title: 搭配 AKS 使用 Azure 檔案
+description: 搭配 AKS 使用 Azure 磁碟
 services: container-service
 author: neilpeterson
 manager: timlt

@@ -1,8 +1,8 @@
 ---
-title: "適用於行動電話的 Microsoft Authenticator 應用程式 | Microsoft Docs"
-description: "了解如何升級至最新版的 Azure Authenticator。"
+title: 適用於行動電話的 Microsoft Authenticator 應用程式 | Microsoft Docs
+description: 了解如何升級至最新版的 Azure Authenticator。
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba

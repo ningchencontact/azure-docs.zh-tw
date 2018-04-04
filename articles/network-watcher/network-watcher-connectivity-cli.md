@@ -1,11 +1,11 @@
 ---
-title: "利用 Azure 網路監看員進行連線疑難排解 - Azure CLI 2.0 | Microsoft Docs"
-description: "了解如何運用 Azure CLI 2.0，來使用 Azure 網路監看員的連線疑難排解功能。"
+title: 利用 Azure 網路監看員進行連線疑難排解 - Azure CLI 2.0 | Microsoft Docs
+description: 了解如何運用 Azure CLI 2.0，來使用 Azure 網路監看員的連線疑難排解功能。
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article

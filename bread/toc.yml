@@ -150,6 +150,9 @@
         - name: 自訂辨識服務
           tocHref: /azure/cognitive-services/custom-vision-service/
           topicHref: /azure/cognitive-services/custom-vision-service/
+        - name: 表情 API
+          tocHref: /azure/cognitive-services/emotion/home
+          topicHref: /azure/cognitive-services/emotion/home
         - name: 臉部
           tocHref: /azure/cognitive-services/face/
           topicHref: /azure/cognitive-services/face/

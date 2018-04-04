@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 HR2day by Merces 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 HR2day by Merces 之間的單一登入"
+title: 教學課程：Azure Active Directory 與 HR2day by Merces 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 HR2day by Merces 之間的單一登入
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -136,7 +136,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
     
       | 屬性名稱    |   屬性值 |  
     | ------------------- | -------------------- |    
-    | ATTR_LOGINCLAIM | join([mail],"102938475Z","@" |
+    | ATTR_LOGINCLAIM | join([mail],"102938475Z",\"\@\" |
     
       a. 若要開啟 [新增屬性] 對話方塊，請選取 [新增屬性]。
 

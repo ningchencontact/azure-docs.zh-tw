@@ -1,11 +1,11 @@
 ---
-title: "不使用 Azure 代理程式重設本機 Windows 密碼 | Microsoft Docs"
-description: "在 Azure 客體代理程式未安裝或運作於 VM 的情況下，如何重設本機 Windows 使用者帳戶的密碼"
+title: 不使用 Azure 代理程式重設本機 Windows 密碼 | Microsoft Docs
+description: 在 Azure 客體代理程式未安裝或運作於 VM 的情況下，如何重設本機 Windows 使用者帳戶的密碼
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
 ms.service: virtual-machines-windows
 ms.devlang: na

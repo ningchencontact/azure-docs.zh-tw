@@ -1,13 +1,13 @@
 ---
-title: "Azure 服務的虛擬網路 | Microsoft Docs"
-description: "了解將資源部署到擬網路的優點。 虛擬網路中的資源可以彼此通訊，並且可以內部部署資源，而不會產生周遊網際網路的流量。"
+title: Azure 服務的虛擬網路 | Microsoft Docs
+description: 了解將資源部署到擬網路的優點。 虛擬網路中的資源可以彼此通訊，並且可以內部部署資源，而不會產生周遊網際網路的流量。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

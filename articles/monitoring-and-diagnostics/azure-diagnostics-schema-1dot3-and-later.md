@@ -1,12 +1,12 @@
 ---
-title: "Azure 診斷擴充功能 1.3 版和更新版本的組態結構描述 | Microsoft Docs"
-description: "適用於 Azure 診斷的結構描述 1.3 版和更新版本隨附於 Microsoft Azure SDK 2.4 版和更新版本中。"
+title: Azure 診斷擴充功能 1.3 版和更新版本的組態結構描述 | Microsoft Docs
+description: 適用於 Azure 診斷的結構描述 1.3 版和更新版本隨附於 Microsoft Azure SDK 2.4 版和更新版本中。
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na

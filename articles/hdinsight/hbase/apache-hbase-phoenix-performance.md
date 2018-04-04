@@ -1,13 +1,13 @@
 ---
-title: "Azure HDInsight 中的 Phoenix 效能| Microsoft Docs"
-description: "將 Phoenix 效能最佳化的最佳做法。"
+title: Azure HDInsight 中的 Phoenix 效能| Microsoft Docs
+description: 將 Phoenix 效能最佳化的最佳做法。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data

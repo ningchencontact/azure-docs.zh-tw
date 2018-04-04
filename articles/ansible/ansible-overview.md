@@ -1,8 +1,8 @@
 ---
-title: "使用 Ansible 搭配 Azure"
-description: "簡介使用 Ansible 自動佈建雲端、進行組態管理和應用程式部署。"
+title: 使用 Ansible 搭配 Azure
+description: 簡介使用 Ansible 自動佈建雲端、進行組態管理和應用程式部署。
 ms.service: ansible
-keywords: "ansible, azure, devops, 概觀, 雲端佈建, 組態管理, 應用程式部署, ansible 模組, ansible 腳本"
+keywords: ansible, azure, devops, 概觀, 雲端佈建, 組態管理, 應用程式部署, ansible 模組, ansible 腳本
 author: tomarcher
 manager: routlaw
 ms.author: tarcher

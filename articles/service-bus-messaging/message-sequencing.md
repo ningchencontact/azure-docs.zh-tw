@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排訊息排序和時間戳記 | Microsoft 文件"
-description: "利用時間戳記保留服務匯流排訊息序列和順序"
+title: Azure 服務匯流排訊息排序和時間戳記 | Microsoft 文件
+description: 利用時間戳記保留服務匯流排訊息序列和順序
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na

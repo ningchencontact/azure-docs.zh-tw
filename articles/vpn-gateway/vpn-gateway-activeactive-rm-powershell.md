@@ -1,11 +1,11 @@
 ---
-title: "設定 VPN 閘道的主動-主動 S2S VPN 連線：Azure Resource Manager: PowerShell | Microsoft Docs"
-description: "本文將逐步引導您使用 Azure Resource Manager 和 PowerShell 來設定與 Azure VPN 閘道的主動-主動連線。"
+title: '設定 VPN 閘道的主動-主動 S2S VPN 連線：Azure Resource Manager: PowerShell | Microsoft Docs'
+description: 本文將逐步引導您使用 Azure Resource Manager 和 PowerShell 來設定與 Azure VPN 閘道的主動-主動連線。
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway

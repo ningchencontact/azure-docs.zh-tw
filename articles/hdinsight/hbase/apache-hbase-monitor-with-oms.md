@@ -1,13 +1,13 @@
 ---
-title: "使用 Operations Management Suite (OMS) 監視 HBase - Azure HDInsight | Microsoft Docs"
-description: "搭配 Azure Log Analytics 使用 OMS 來監視 HDInsight HBase 叢集。"
+title: 使用 Operations Management Suite (OMS) 監視 HBase - Azure HDInsight | Microsoft Docs
+description: 搭配 Azure Log Analytics 使用 OMS 來監視 HDInsight HBase 叢集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data

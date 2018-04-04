@@ -1,8 +1,8 @@
 ---
-title: "整合應用程式與 Azure Active Directory"
-description: "如何在 Azure Active Directory (Azure AD) 中新增、更新或移除應用程式。"
+title: 整合應用程式與 Azure Active Directory
+description: 如何在 Azure Active Directory (Azure AD) 中新增、更新或移除應用程式。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: PatAltimore
 manager: mtillman
 editor: mbaldwin

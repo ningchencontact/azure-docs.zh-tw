@@ -1,13 +1,13 @@
 ---
-title: "安裝已發佈的應用程式 - Datameer - Azure HDInsight | Microsoft Docs"
-description: "安裝及使用 Datameer 第三方 Hadoop 應用程式。"
+title: 安裝已發佈的應用程式 - Datameer - Azure HDInsight | Microsoft Docs
+description: 安裝及使用 Datameer 第三方 Hadoop 應用程式。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na

@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure PowerShell 管理 Azure DNS 中的 DNS 記錄 | Microsoft Docs"
-description: "將網域裝載於 Azure DNS 時，在 Azure DNS 管理 DNS 記錄集和記錄。 對記錄集和記錄執行作業的所有 PowerShell 命令。"
+title: 使用 Azure PowerShell 管理 Azure DNS 中的 DNS 記錄 | Microsoft Docs
+description: 將網域裝載於 Azure DNS 時，在 Azure DNS 管理 DNS 記錄集和記錄。 對記錄集和記錄執行作業的所有 PowerShell 命令。
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/21/2017
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-若要在區域頂點 (在此案例中為 'contoso.com') 建立記錄集，請使用記錄集名稱 '@' (不包括引號)：
+若要在區域頂點 (在此案例中為 'contoso.com') 建立記錄集，請使用記錄集名稱 \'\@\' (不包括引號)：
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
@@ -118,7 +118,7 @@ New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>建立含有單一記錄的 MX 記錄集
 
-在此範例中，我們使用記錄集名稱 '@' 在區域頂點建立 MX 記錄 (在此案例中為 'contoso.com')。
+在此範例中，我們使用記錄集名稱 \'\@\' 在區域頂點建立 MX 記錄 (在此案例中為 'contoso.com')。
 
 
 ```powershell
@@ -141,7 +141,7 @@ New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -R
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>建立含有單一記錄的 SRV 記錄集
 
-建立 [SRV 記錄集](dns-zones-records.md#srv-records)時，指定記錄集名稱中的 *\_服務* 和 *\_通訊協定*。 在區域頂點建立一筆 SRV 記錄集時，不需要在記錄集名稱中包含 '@'。
+建立 [SRV 記錄集](dns-zones-records.md#srv-records)時，指定記錄集名稱中的 *\_服務* 和 *\_通訊協定*。 在區域頂點建立一筆 SRV 記錄集時，不需要在記錄集名稱中包含 \'\@\'。
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 

@@ -1,10 +1,10 @@
 ---
-title: "建立應用程式閘道 - Azure 入口網站 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站來建立應用程式閘道。"
+title: 建立應用程式閘道 - Azure 入口網站 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站來建立應用程式閘道。
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
