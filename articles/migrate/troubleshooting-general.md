@@ -4,13 +4,13 @@ description: 概括介紹 Azure Migrate 服務的已知問題以及常見錯誤�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 02/21/2018
+ms.date: 03/19/2018
 ms.author: raynew
-ms.openlocfilehash: e1e7a1a57f780ef477379dfb1ceaead0c8654970
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b2c89a980411cac02f46bc91d53620bc94fa845b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 03/08/2018
 
 如果 vCenter 伺服器上的統計資料設定層級設為小於 3，可能會發生這種情況。 在層級 3 以上，vCenter 會儲存運算、儲存體和網路的虛擬機器效能歷程記錄。 層級 3 以下的話，vCenter 不會儲存儲存體和網路資料，只會儲存 CPU 和記憶體資料。 在此情況下，Azure Migrate 的效能資料會顯示為零，而且 Azure Migrate 會根據從內部部署機器收集的中繼資料來建議磁碟和網路的規模大小。
 
-若要啟用磁碟和網路效能資料的收集功能，請將統計資料設定層級變更為 3。 然後，等待至少一天以探索並評估您的環境。 
+若要啟用磁碟和網路效能資料的收集功能，請將統計資料設定層級變更為 3。 然後，等待至少一天以探索並評估您的環境。
 
 **我已經安裝代理程式，並使用相依性視覺化建立群組。現在，在容錯移轉後，機器會顯示「安裝代理程式」動作，而不是「檢視相依性」**
 * 在已規劃或未規劃的容錯移轉後，內部部署機器都會關閉，而且對等的機器會在 Azure 中啟動。 這些機器會取得不同的 MAC 位址。 根據使用者是否選擇保留內部部署 IP 位址，這些機器可能會取得不同的 IP 位址。 如果 MAC 及 IP 位址不同，Azure Migrate 不會使內部部署機器與任何服務對應相依性資料產生關聯，而會要求使用者安裝代理程式，而不是檢視相依性。
@@ -70,28 +70,28 @@ ms.lasthandoff: 03/08/2018
 **問題** | 修正
 --- | ---
 不支援的開機類型 | Azure 不支援具有 EFI 開機類型的 VM。 建議您在執行移轉之前，將開機類型轉換成 BIOS。 <br/><br/>您可以使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) 進行這類 Vm 的移轉，因為它會在移轉期間將 VM 的開機類型轉換成 BIOS。
-磁碟計數超過限制 | 移轉之前從機器移除未使用的磁碟。
-磁碟大小超過限制 | Azure 支援大小最大 4 TB 的磁碟。 在移轉前將磁碟壓縮為小於 4 TB。 
-指定的位置沒有磁碟可用 | 在移轉之前，請確定磁碟已在目標位置。
-沒有磁碟可當作指定的備援 | 磁碟應該使用評估設定 (預設為 LRS) 中定義的備援儲存體類型。
-由於發生內部錯誤，因此無法判斷磁碟適合性 | 嘗試建立群組的新評估。 
-找不到具備所需核心和記憶體的虛擬機器 | Azure 找不到適當的虛擬機器類型。 在移轉之前，請減少內部部署電腦的記憶體和核心數目。 
-一個或多個不適合的磁碟。 | 執行移轉之前，確定內部部署磁碟是 4 TB 以下。
-一個或多個不適用的網路介面卡。 | 在移轉之前，從機器移除未使用的網路介面卡。
-由於發生內部錯誤，無法判斷虛擬機器的適合性。 | 嘗試建立群組的新評估。 
-由於發生內部錯誤，因此無法判斷一個或多個磁碟的適用性。 | 嘗試建立群組的新評估。
-由於發生內部錯誤，因此無法判斷一個或多個網路介面卡的適用性。 | 嘗試建立群組的新評估。
-找不到所需儲存體效能的虛擬機器。 | 機器需要的儲存體效能 (IOPS/輸送量) 超出 Azure VM 支援。 在移轉之前，降低機器的儲存體需求。
-找不到所需網路效能的虛擬機器。 | 機器需要的網路效能 (傳入/傳出) 超出 Azure VM 支援。 減少機器的網路需求。 
-指定定價層中找不到虛擬機器。 | 如果定價層設定為「標準」，請考慮在移轉至 Azure 之前，先降級虛擬機器。 如果調整大小層為「基本」，請考慮將評估的定價層變更為「標準」。 
-找不到指定位置的虛擬機器。 | 在移轉之前，使用不同的目標位置。
-作業系統不明 | 虛擬機器的作業系統在 vCenter Server 中指定為「其他」，因此，Azure Migrate 無法識別虛擬機器的 Azure 移轉整備程度。 請在移轉電腦之前，先確認 Azure [支援](https://aka.ms/azureoslist)該電腦內執行的作業系統。
 有條件地支援 Windows 作業系統 | 作業系統已超過結束支援日期，且需要 [Azure 中的支援](https://aka.ms/WSosstatement)的自訂支援合約 (CSA)，請考慮在移轉至 Azure 之前升級作業系統。
-不支援的 Windows 作業系統 | Azure 僅支援[選取的 Windows 作業系統版本](https://aka.ms/WSosstatement)，請考慮在移轉至 Azure 之前升級電腦作業系統。 
+不支援的 Windows 作業系統 | Azure 僅支援[選取的 Windows 作業系統版本](https://aka.ms/WSosstatement)，請考慮在移轉至 Azure 之前升級電腦作業系統。
 有條件地背書 Linux 作業系統 | Azure 僅支援[選取的 Linux 作業系統版本](../virtual-machines/linux/endorsed-distros.md)，請考慮在移轉至 Azure 之前升級電腦作業系統。
 未背書的 Linux 作業系統 | 電腦可能會在 Azure 中開機，但是 Azure 未提供作業系統支援，請考慮在移轉至 Azure 之前，將作業系統升級至[背書的 Linux 版本](../virtual-machines/linux/endorsed-distros.md)
+作業系統不明 | 虛擬機器的作業系統在 vCenter Server 中指定為「其他」，因此，Azure Migrate 無法識別虛擬機器的 Azure 移轉整備程度。 請在移轉電腦之前，先確認 Azure [支援](https://aka.ms/azureoslist)該電腦內執行的作業系統。
 不支援的作業系統位元 | 32 位元作業系統的虛擬機器可能會在 Azure 中開機，但建議在移轉至 Azure 之前，將虛擬機器的作業系統從 32 位元升級到 64 位元。
 需要 Visual Studio 訂用帳戶。 | 電腦中執行的 Windows 用戶端作業系統，僅在 Visual Studio 訂用帳戶中支援。
+找不到所需儲存體效能的虛擬機器。 | 機器需要的儲存體效能 (IOPS/輸送量) 超出 Azure VM 支援。 在移轉之前，降低機器的儲存體需求。
+找不到所需網路效能的虛擬機器。 | 機器需要的網路效能 (傳入/傳出) 超出 Azure VM 支援。 減少機器的網路需求。
+指定定價層中找不到虛擬機器。 | 如果定價層設定為「標準」，請考慮在移轉至 Azure 之前，先降級虛擬機器。 如果調整大小層為「基本」，請考慮將評估的定價層變更為「標準」。
+找不到指定位置的虛擬機器。 | 在移轉之前，使用不同的目標位置。
+一個或多個不適合的磁碟。 | 一或多個連結至 VM 的磁碟不符合 Azure 需求。 針對每個連結至 VM 的磁碟，請確保每個磁碟的大小小於 4 TB，如果不是，請先縮減磁碟大小，再移轉至 Azure。 請確保 Azure [受控虛擬機器磁碟](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits)支援每個磁碟所需的效能 (IOPS/輸送量)。   
+一個或多個不適用的網路介面卡。 | 在移轉之前，從機器移除未使用的網路介面卡。
+磁碟計數超過限制 | 移轉之前從機器移除未使用的磁碟。
+磁碟大小超過限制 | Azure 支援大小最大 4 TB 的磁碟。 在移轉前將磁碟壓縮為小於 4 TB。
+指定的位置沒有磁碟可用 | 在移轉之前，請確定磁碟已在目標位置。
+沒有磁碟可當作指定的備援 | 磁碟應該使用評估設定 (預設為 LRS) 中定義的備援儲存體類型。
+由於發生內部錯誤，因此無法判斷磁碟適合性 | 嘗試建立群組的新評估。
+找不到具備所需核心和記憶體的虛擬機器 | Azure 找不到適當的虛擬機器類型。 在移轉之前，請減少內部部署電腦的記憶體和核心數目。
+由於發生內部錯誤，無法判斷虛擬機器的適合性。 | 嘗試建立群組的新評估。
+由於發生內部錯誤，因此無法判斷一個或多個磁碟的適用性。 | 嘗試建立群組的新評估。
+由於發生內部錯誤，因此無法判斷一個或多個網路介面卡的適用性。 | 嘗試建立群組的新評估。
 
 
 ## <a name="collect-logs"></a>收集記錄
@@ -122,9 +122,9 @@ ms.lasthandoff: 03/08/2018
  - 在 Edge/IE 中，按一下 [匯出擷取流量] 圖示。 這會壓縮並匯出記錄。
 6. 瀏覽至 [主控台] 索引標籤，檢查是否有任何警告或錯誤。 若要儲存主控台記錄：
  - 在 Chrome 中，以滑鼠右鍵按一下主控台記錄的任何位置。 選取 [另存新檔]，以匯出並壓縮記錄。
- - 在 Edge/IE 中，以滑鼠右鍵按一下錯誤，然後選取 [全部複製]。 
+ - 在 Edge/IE 中，以滑鼠右鍵按一下錯誤，然後選取 [全部複製]。
 7. 關閉 Developer Tools。
- 
+
 
 ## <a name="vcenter-errors"></a>vCenter 錯誤
 
@@ -136,7 +136,7 @@ ms.lasthandoff: 03/08/2018
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 
-因為發生錯誤，無法連線到 vCenter Server "Servername.com:9443"：https://Servername.com:9443/sdk 沒有接聽端點可以接受該訊息。
+無法連線到 vCenter Server "Servername.com:9443"，因為發生錯誤：沒有任何在 https://Servername.com:9443/sdk 上進行接聽的端點可以接受該訊息。
 
 當收集器機器無法解析指定的 vCenter Server 名稱，或指定的連接埠錯誤時，就會發生這種情況。 根據預設，如果未指定連接埠，收集器就會嘗試連線到連接埠號碼 443。
 
@@ -144,5 +144,24 @@ ms.lasthandoff: 03/08/2018
 2. 如果步驟 1 失敗，請嘗試透過 IP 位址連線到 vCenter Server。
 3. 識別連線至 vCenter 的正確連接埠號碼。
 4. 最後，請檢查 vCenter 伺服器是否啟動且正在執行。
- 
 
+## <a name="collector-error-codes-and-recommended-actions"></a>收集器錯誤碼和建議的動作
+
+|           |                                |                                                                               |                                                                                                       |                                                                                                                                            | 
+|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------| 
+| 錯誤碼 | 錯誤名稱                      | 訊息                                                                       | 可能的原因                                                                                        | 建議的動作                                                                                                                          | 
+| 601       | CollectorExpired               | 收集器已過期。                                                        | 收集器已過期。                                                                                    | 請下載新版收集器，然後重試一次。                                                                                      | 
+| 751       | UnableToConnectToServer        | 因為發生錯誤 %ErrorMessage;，所以無法連線至 vCenter Server '%Name;'     | 請查看錯誤訊息，以取得詳細資料。                                                             | 請解決問題，然後再試一次。                                                                                                           | 
+| 752       | InvalidvCenterEndpoint         | 伺服器 '%Name;' 並非 vCenter Server。                                  | 請提供 vCenter Server 詳細資料。                                                                       | 請使用正確的 vCenter Server 詳細資料重試作業。                                                                                   | 
+| 753       | InvalidLoginCredentials        | 因為發生錯誤 %ErrorMessage;，所以無法連線至 vCenter Server '%Name;' | 因為登入認證無效，所以無法連線到 vCenter Server。                             | 確認提供的登入認證正確。                                                                                    | 
+| 754       | NoPerfDataAvaialable           | 沒有可用的效能資料。                                               | 檢查 vCenter Server 中的統計資料等級。 該等級必須設為 3，才可取得效能資料。 | 將統計資料等級變更為 3 (5 分鐘、30 分鐘及 2 小時的持續時間)，並於等待至少一天後再進行嘗試。                   | 
+| 756       | NullInstanceUUID               | 發現 InstanceUUID 為 null 的電腦                                  | vCenter Server 可能有不適當的物件。                                                      | 請解決問題，然後再試一次。                                                                                                           | 
+| 757       | VMNotFound                     | 找不到虛擬機器                                                  | 虛擬機器可能已刪除：%VMID;                                                                | 確定於設定 vCenter 清查範圍時所選取的虛擬機器，在探索期間存在                                      | 
+| 758       | GetPerfDataTimeout             | VCenter 要求已逾時。訊息 %Message;                                  | vCenter Server 認證不正確                                                              | 檢查 vCenter Server 認證，確認可連線到 vCenter Server。 重試作業。 若問題持續發生，請連絡支援人員。 | 
+| 759       | VmwareDllNotFound              | 找不到 VMWare.Vim DLL。                                                     | PowerCLI 未正確安裝。                                                                   | 檢查 PowerCLI 是否已安裝正確。 重試作業。 若問題持續發生，請連絡支援人員。                               | 
+| 800       | ServiceError                   | Azure Migrate 收集器服務未執行。                               | Azure Migrate 收集器服務未執行。                                                       | 使用 services.msc 啟動服務，然後重試一次該作業。                                                                             | 
+| 801       | PowerCLIError                  | VMware PowerCLI 安裝失敗。                                          | VMware PowerCLI 安裝失敗。                                                                  | 重試作業。 若問題持續發生，請手動安裝並重試一次該作業。                                                   | 
+| 802       | TimeSyncError                  | 時間未與網際網路時間伺服器同步。                            | 時間未與網際網路時間伺服器同步。                                                    | 確定電腦上的時間已依據電腦的時區校時，然後重試一次該作業。                                 | 
+| 702       | OMSInvalidProjectKey           | 指定的專案機碼無效。                                                | 指定的專案機碼無效。                                                                        | 請使用正確的專案機碼重試作業。                                                                                              | 
+| 703       | OMSHttpRequestException        | 傳送要求時發生錯誤。 訊息 %Message;                                | 請檢查專案識別碼和機碼，並確認端點可連線。                                       | 重試作業。 如果問題持續發生，請連絡 Microsoft 支援服務。                                                                     | 
+| 704       | OMSHttpRequestTimeoutException | HTTP 要求已逾時。訊息 %Message;                                     | 請檢查專案識別碼和機碼，並確認端點可連線。                                       | 重試作業。 如果問題持續發生，請連絡 Microsoft 支援服務。                                                                     | 

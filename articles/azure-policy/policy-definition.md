@@ -1,19 +1,19 @@
 ---
-title: "Azure 原則定義結構 | Microsoft Docs"
-description: "說明「Azure 原則」如何使用資源原則定義，藉由描述強制執行原則的時機及所要採取的動作，為您組織中的資源建立慣例。"
+title: Azure 原則定義結構 | Microsoft Docs
+description: 說明「Azure 原則」如何使用資源原則定義，藉由描述強制執行原則的時機及所要採取的動作，為您組織中的資源建立慣例。
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
-ms.custom: 
-ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: ''
+ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/14/2018
 * 模式
 * parameters
 * 顯示名稱
-* 說明
+* 描述
 * 原則規則
   * 邏輯評估
   * 效果
@@ -70,7 +70,9 @@ ms.lasthandoff: 02/14/2018
 * `all`：評估資源群組和所有資源類型 
 * `indexed`：只評估支援標記和位置的資源類型
 
-建議您將 **mode** 設定為 `all`。 透過入口網站使用 `all` 模式建立的所有原則定義。 如果您使用 PowerShell 或 Azure CLI，您需要指定 **mode** 參數，並將它設定為 `all`。 
+我們建議您在大部分的情況下都將 **mode** 設定為 `all`。 透過入口網站使用 `all` 模式建立的所有原則定義。 如果您是使用 PowerShell 或 Azure CLI，則需要手動指定 **mode** 參數。
+
+當建立會強制執行標籤或位置的原則時，應該使用 `indexed`。 這不是必要的，但它會防止不支援標籤和位置的資源在合規性結果中顯示為不符合規範。 唯一的例外是**資源群組**。 嘗試在資源群組上強制執行位置或標籤的原則應該將 **mode** 設定為 `all`，並明確地將 `Microsoft.Resources/subscriptions/resourceGroup` 類型設定為目標。 如需範例，請參閱[強制執行資源群組標籤](scripts/enforce-tag-rg.md)。
 
 ## <a name="parameters"></a>參數
 
@@ -126,7 +128,7 @@ ms.lasthandoff: 02/14/2018
     <condition> | <logical operator>
   },
   "then": {
-    "effect": "deny | audit | append"
+    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
   }
 }
 ```
@@ -165,16 +167,22 @@ ms.lasthandoff: 02/14/2018
 條件會評估某個**欄位**是否符合特定準則。 支援的條件如下︰
 
 * `"equals": "value"`
+* `"notEquals": "value"`
 * `"like": "value"`
+* `"notLike": "value"`
 * `"match": "value"`
+* `"notMatch": "value"`
 * `"contains": "value"`
+* `"notContains": "value"`
 * `"in": ["value1","value2"]`
+* `"notIn": ["value1","value2"]`
 * `"containsKey": "keyName"`
+* `"notContainsKey": "keyName"`
 * `"exists": "bool"`
 
-當使用 **like**條件時，您可以在值中提供萬用字元 (*)。
+當使用 **like** 和 **notLike** 條件時，您可以在值中提供萬用字元 (*)。
 
-使用**符合**條件時，請提供 `#` 來表示數字、`?` 來表示字母，以及任何其他字元來表示該實際字元。 例如，請參閱[已核准的 VM 映像](scripts/allowed-custom-images.md)。
+當使用 **match** 和 **notMatch** 條件時，請提供 `#` 來表示數字、`?` 來表示字母，以及任何其他字元來表示該實際字元。 例如，請參閱[已核准的 VM 映像](scripts/allowed-custom-images.md)。
 
 ### <a name="fields"></a>欄位
 條件是透過欄位所形成。 欄位會顯示用來描述資源狀態的資源要求裝載屬性。  
@@ -182,12 +190,28 @@ ms.lasthandoff: 02/14/2018
 支援下列欄位：
 
 * `name`
+* `fullName`
+  * 傳回資源的完整名稱，包括任何父項 (如 "myServer/myDatabase")
 * `kind`
 * `type`
 * `location`
 * `tags`
-* `tags.*`
+* `tags.tagName`
+* `tags[tagName]`
+  * 此括號語法支援包含句號的標籤名稱
 * 屬性別名 - 如需清單，請參閱[別名](#aliases)。
+
+### <a name="alternative-accessors"></a>替代存取子
+**Field** 是用於原則規則中的主要存取子。 它直接檢查正在評估的資源。 不過，原則支援另外一個存取子：**source**。
+
+```json
+"source": "action",
+"equals": "Microsoft.Compute/virtualMachines/write"
+```
+
+**Source** 只支援一個值：**action**。 Action 傳回正在評估之要求的授權動作。 授權動作公開在[活動記錄](../monitoring-and-diagnostics/monitoring-activity-log-schema.md)的 authorization 區段中。
+
+當原則在背景評估現有資源時，它會將 **action** 設定為對資源類型的 `/write` 授權動作。
 
 ### <a name="effect"></a>效果
 原則支援下列類型的效果：
@@ -212,7 +236,7 @@ ms.lasthandoff: 02/14/2018
 
 值可以是字串或 JSON 格式物件。
 
-使用 **AuditIfNotExists** 及 **DeployIfNotExists** 時，您可以評估子資源是否存在，並在該資源不存在時，套用規則及對應的效果。 例如，您可以要求針對所有虛擬網路部署網路監看員。
+使用 **AuditIfNotExists** 及 **DeployIfNotExists** 時，您可以評估相關資源是否存在，並在該資源不存在時，套用規則及對應的效果。 例如，您可以要求網路監看員針對所有虛擬網路部署。
 如需在未部署虛擬機器擴充功能時進行稽核的範例，請參閱[稽核擴充功能是否不存在](scripts/audit-ext-not-exist.md)。
 
 
@@ -222,7 +246,7 @@ ms.lasthandoff: 02/14/2018
 
 **Microsoft.Cache/Redis**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Cache/Redis/enableNonSslPort | 設定是否啟用非 SSL Redis 伺服器連接埠 (6379)。 |
 | Microsoft.Cache/Redis/shardCount | 設定要在進階叢集快取上建立的分區數目。  |
@@ -232,13 +256,13 @@ ms.lasthandoff: 02/14/2018
 
 **Microsoft.Cdn/profiles**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.CDN/profiles/sku.name | 設定定價層的名稱。 |
 
 **Microsoft.Compute/disks**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Compute/imageOffer | 設定用來建立虛擬機器的平台映像或 Marketplace 映像供應項目。 |
 | Microsoft.Compute/imagePublisher | 設定用來建立虛擬機器的平台映像或 Marketplace 映像發行者。 |
@@ -248,7 +272,7 @@ ms.lasthandoff: 02/14/2018
 
 **Microsoft.Compute/virtualMachines**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | 設定用來建立虛擬機器的映像識別碼。 |
 | Microsoft.Compute/imageOffer | 設定用來建立虛擬機器的平台映像或 Marketplace 映像供應項目。 |
@@ -266,7 +290,7 @@ ms.lasthandoff: 02/14/2018
 
 **Microsoft.Compute/virtualMachines/extensions**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Compute/virtualMachines/extensions/publisher | 設定擴充功能發行者的名稱。 |
 | Microsoft.Compute/virtualMachines/extensions/type | 設定擴充功能的類型。 |
@@ -274,7 +298,7 @@ ms.lasthandoff: 02/14/2018
 
 **Microsoft.Compute/virtualMachineScaleSets**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | 設定用來建立虛擬機器的映像識別碼。 |
 | Microsoft.Compute/imageOffer | 設定用來建立虛擬機器的平台映像或 Marketplace 映像供應項目。 |
@@ -290,26 +314,26 @@ ms.lasthandoff: 02/14/2018
 
 **Microsoft.Network/applicationGateways**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Network/applicationGateways/sku.name | 設定閘道的大小。 |
 
 **Microsoft.Network/virtualNetworkGateways**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Network/virtualNetworkGateways/gatewayType | 設定此虛擬網路閘道的類型。 |
 | Microsoft.Network/virtualNetworkGateways/sku.name | 設定閘道 SKU 名稱。 |
 
 **Microsoft.Sql/servers**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Sql/servers/version | 設定伺服器的版本。 |
 
 **Microsoft.Sql/databases**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Sql/servers/databases/edition | 設定資料庫的版本。 |
 | Microsoft.Sql/servers/databases/elasticPoolName | 設定資料庫所在彈性集區的名稱。 |
@@ -318,14 +342,14 @@ ms.lasthandoff: 02/14/2018
 
 **Microsoft.Sql/elasticpools**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | 設定資料庫彈性集區的所有共用 DTU。 |
 | servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | 設定彈性集區的版本。 |
 
 **Microsoft.Storage/storageAccounts**
 
-| Alias | 說明 |
+| Alias | 描述 |
 | ----- | ----------- |
 | Microsoft.Storage/storageAccounts/accessTier | 設定用於計費的存取層。 |
 | Microsoft.Storage/storageAccounts/accountType | 設定 SKU 名稱。 |

@@ -137,7 +137,7 @@
               href: app-insights-java-filter-telemetry.md
         - name: 警示
           items:
-            - name: Availability
+            - name: 可用性
               href: app-insights-monitor-web-app-availability.md
             - name: 計量警示
               href: app-insights-alerts.md
@@ -238,6 +238,9 @@
       items:
         - name: 管理價格與資料量
           href: app-insights-pricing.md
+          items:
+            - name: 企業方案詳細資料
+              href: app-insights-pricing-enterprise-details.md
         - name: 使用 Application Insights 的 SCOM 應用程式效能監視
           href: app-insights-scom.md
     - name: 匯出

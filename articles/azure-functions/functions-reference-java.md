@@ -1,11 +1,11 @@
 ---
-title: "適用於 Azure Functions 的 Java 開發人員參考 | Microsoft Docs"
-description: "了解如何使用 Java 開發函式。"
+title: 適用於 Azure Functions 的 Java 開發人員參考 | Microsoft Docs
+description: 了解如何使用 Java 開發函式。
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構, Java"
+keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構, Java
 ms.service: functions
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 71576e65d20d7e8cb7f5ff1c5f19c82439bb6807
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 > [!div class="op_single_selector"]
@@ -325,9 +325,33 @@ public class Function {
 }
 ```
 
+## <a name="environment-variables"></a>環境變數
+
+基於安全性考量，通常會建議從原始程式碼中抽出祕密資訊。 這可讓程式碼發佈至原始程式碼存放庫，而不會意外地將認證提供給其他開發人員。 無論是在本機上執行 Azure Functions 或將您的函式部署到 Azure，只要使用環境變數便可輕鬆達成。
+
+若要在於本機執行 Azure Functions 時輕鬆設定環境變數，您可選擇將這些變數加入到 local.settings.json 檔案中。 如果您的函式專案根目錄中沒有該檔案，請直接建立即可。 該檔案看起來應該會像這樣：
+
+```xml
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "AzureWebJobsDashboard": ""
+  }
+}
+```
+
+`values` 對應中的每個機碼/值對應會在執行階段時做為環境變數，可透過呼叫 `System.getenv("<keyname>")` 來存取，例如 `System.getenv("AzureWebJobsStorage")`。 可接受加入其他機碼/值組，而且是建議的做法。
+
+> [!NOTE]
+> 如果採取這種方式，請務必考量是否要將 local.settings.json 檔案加入存放庫忽略檔案，如此它就不會被認可。
+
+由於您的程式碼現在仰賴這些環境變數，您現在可以登入 Azure 入口網站，在函數應用程式設定中設定相同的機碼/值組，如此程式碼功能在本機測試及部署至 Azure 時都會相同。
+
 ## <a name="next-steps"></a>後續步驟
 如需詳細資訊，請參閱下列資源：
 
 * [Azure Functions 的最佳做法](functions-best-practices.md)
 * [Azure Functions 開發人員參考](functions-reference.md)
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
+* [使用 Visual Studio Code 針對 Java Azure Functions 進行遠端偵錯](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)

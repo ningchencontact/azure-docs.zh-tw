@@ -43,11 +43,12 @@
 ## 使用 MXChip IoT DevKit
 ### [使用 Azure 認知服務翻譯語音訊息](iot-hub-arduino-iot-devkit-az3166-translator.md)
 ### [使用 Azure Functions 擷取 Twitter 訊息](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+### [使用 Azure Functions 監視磁性感應器並傳送電子郵件通知](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
 # 使用說明指南
 ## 規劃
 ### [比較 IoT 中樞和事件中樞](iot-hub-compare-event-hubs.md)
-### [調整您的解決方案規模](iot-hub-scaling.md)
+### [選擇適合的層級](iot-hub-scaling.md)
 ### [高可用性和災害復原](iot-hub-ha-dr.md)
 ### [支援其他通訊協定](iot-hub-protocol-gateway.md)
 ### [比較訊息和事件路由](iot-hub-event-grid-routing-comparison.md)
@@ -147,6 +148,7 @@
 ### [監視與診斷](iot-hub-monitor-resource-health.md)
 #### [移轉至診斷設定](iot-hub-migrate-to-diagnostics-settings.md)
 #### [作業監視](iot-hub-operations-monitoring.md)
+### [升級 IoT 中樞](iot-hub-upgrade.md)
 ### [用量度量](iot-hub-metrics.md)
 ### [大量管理 IoT 裝置](iot-hub-bulk-identity-mgmt.md)
 ### [設定 IP 篩選](iot-hub-ip-filtering.md)

@@ -1,5 +1,5 @@
 ---
-title: App Service on Azure Stack 更新 1 | Microsoft Docs
+title: App Service on Azure Stack 更新 1 版本資訊 | Microsoft Docs
 description: 了解適用於 App Service on Azure Stack 更新 1 的新功能、已知問題，以及可下載更新的位置。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 0c33c8fdefbb27ba8414e58bed1b42ee7aaba88a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 538d31f5b50ee22c06ba22c78e1aa92281a3b212
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="app-service-on-azure-stack-update-one-release-notes"></a>App Service on Azure Stack 更新 1 版本資訊
+# <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service on Azure Stack 更新 1 版本資訊
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
@@ -39,7 +39,7 @@ App Service on Azure Stack 更新 1 組建編號是 **69.0.13698.9**
 ### <a name="prerequisites"></a>先決條件
 
 > [!IMPORTANT]
-> Azure App Service on Azure Stack 現在需要[三主體萬用字元憑證](azure-stack-app-service-before-you-get-started.md#get-certificates)，因為現在已改良為在 Azure App Service 中處理 Kudu 的 SSO。  新的主體是 ** *.sso.appservice.<region>.<domainname>.<extension>**
+> 新的 Azure App Service on Azure Stack 部署現在需要[三主體萬用字元憑證](azure-stack-app-service-before-you-get-started.md#get-certificates)，因為現在已改進在 Azure App Service 中處理 Kudu 之 SSO 的方式。  新的主體是 ** *.sso.appservice.<region>.<domainname>.<extension>**
 >
 >
 
@@ -51,7 +51,7 @@ Azure App Service on Azure Stack 更新 1 包含下列改良功能和修正：
 
 - **Azure App Service 的高可用性** - Azure Stack 1802 更新可以讓工作負載跨容錯網域部署。  因此 App Service 基礎結構可以容錯，因為它會跨容錯網域進行部署。  根據預設，Azure App Service 的所有新部署都會有這項功能，不過對於在套用 Azure Stack 1802 以前就完成的部署，請參閱 [App Service 容錯網域文件](azure-stack-app-service-fault-domain-update.md)
 
-- **在現有的虛擬網路中部署** - 客戶現在可以在現有的虛擬網路內部署 App Service on Azure Stack。  在現有的虛擬網路中部署可以讓客戶透過私人連接埠連線至 SQL Server 和檔案伺服器，這些項目是 Azure App Service 必須的。  在部署期間，客戶可以選取在現有的虛擬網路中部署，但是在部署之前[必須建立子網路供 App Service 使用](azure-stack-app-service-before-you-get-started.md#virtual-network)。
+- **在現有的虛擬網路中部署** - 客戶現在可以在現有的虛擬網路內部署 App Service on Azure Stack。  在現有的虛擬網路中部署可以讓客戶透過私人連接埠連線至 SQL Server 和檔案伺服器，這些項目是 Azure App Service 必須的。  在部署期間，客戶可以選取在現有的虛擬網路中部署，但是在部署之前，[必須建立要供 App Service 使用的子網路](azure-stack-app-service-before-you-get-started.md#virtual-network)。
 
 - **App Service 租用戶、系統管理員、Functions 入口網站和 Kudu 工具**的更新。  與 Azure Stack 入口網站 SDK 版本保持一致。
 
@@ -103,7 +103,13 @@ Azure App Service on Azure Stack 更新 1 包含下列改良功能和修正：
 
 ### <a name="known-issues-with-the-deployment-process"></a>關於部署程序的已知問題
 
-- Azure App Service on Azure Stack 更新 1 的部署沒有任何已知問題。
+- 憑證驗證錯誤
+
+有些客戶在於整合式系統上部署時，因為 App Service 安裝程式中的驗證過度嚴格，而導致提供憑證給安裝程式時發生問題。  App Service 安裝程式已經重新發行，客戶應該[下載已更新的安裝程式](https://aka.ms/appsvconmasinstaller)。  如果您在使用已更新的安裝程式來驗證憑證時持續發生問題，請連絡支援人員。
+
+- 從整合式系統擷取 Azure Stack 根憑證時發生問題。
+
+Get-AzureStackRootCert.ps1 發生錯誤，導致客戶在未安裝 Azure Stack 根憑證的電腦上執行該指令碼時，無法擷取該根憑證。  此指令碼現在也已重新發行，可解決此問題，客戶可[下載已更新的協助程式指令碼](https://aka.ms/appsvconmashelpers)。  如果您在使用已更新的指令碼來擷取根憑證時持續發生問題，請連絡支援人員。
 
 ### <a name="known-issues-with-the-update-process"></a>關於更新程序的已知問題
 
@@ -111,13 +117,91 @@ Azure App Service on Azure Stack 更新 1 包含下列改良功能和修正：
 
 ### <a name="known-issues-post-installation"></a>已知問題 (安裝後)
 
-- Azure App Service on Azure Stack 更新 1 的安裝沒有任何已知問題。
+- 位置交換無法運作
+
+網站位置交換功能在此版本中故障。  若要還原此功能，請完成下列步驟：
+
+1. 將 ControllersNSG 網路安全性群組修改成**允許**透過遠端桌面連線至 App Service 控制器執行個體。  將 AppService.local 取代成您部署 App Service 的資源群組名稱。
+
+    ```powershell
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+
+      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+
+      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+
+      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+        -Name $RuleConfig_Inbound_Rdp_3389.Name `
+        -Description "Inbound_Rdp_3389" `
+        -Access Allow `
+        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+
+      # Commit the changes back to NSG
+      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+      ```
+
+2. 在「Azure Stack 系統管理員」入口網站中，瀏覽至 [虛擬機器] 底下的 [CN0-VM]，然後按一下 [連線] 以開啟與控制器執行個體的遠端桌面工作階段。  使用在部署 App Service 期間指定的認證。
+3. **以系統管理員身分啟動 PowerShell**，然後執行下列指令碼
+
+    ```powershell
+        Import-Module appservice
+
+        $sm = new-object Microsoft.Web.Hosting.SiteManager
+
+        if($sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus=$true)
+        {
+          $sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus=$false
+        #  'Slot swap mode reverted'
+        }
+        
+        # Confirm new setting is false
+        $sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus
+        
+        # Commit Changes
+        $sm.CommitChanges()
+
+        Get-AppServiceServer -ServerType ManagementServer | ForEach-Object Repair-AppServiceServer
+        
+    ```
+
+4. 關閉遠端桌面工作階段。
+5. 將 ControllersNSG 網路安全性群組還原成**拒絕**透過遠端桌面連線至 App Service 控制器執行個體。  將 AppService.local 取代成您部署 App Service 的資源群組名稱。
+
+    ```powershell
+
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+
+        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+
+        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+
+        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+          -Name $RuleConfig_Inbound_Rdp_3389.Name `
+          -Description "Inbound_Rdp_3389" `
+          -Access Deny `
+          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+
+        # Commit the changes back to NSG
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>雲端管理員操作 Azure App Service on Azure Stack 時的已知問題
 
 請參閱 [Azure Stack 1802 版本資訊](azure-stack-update-1802.md)中的文件
 
-## <a name="see-also"></a>另請參閱
+## <a name="next-steps"></a>後續步驟
 
 - 如需 Azure App Service 的概觀，請參閱 [Azure App Service on Azure Stack 概觀](azure-stack-app-service-overview.md)。
 - 如需如何準備部署 App Service on Azure Stack 的詳細資訊，請參閱[開始使用 App Service on Azure Stack 之前](azure-stack-app-service-before-you-get-started.md)。

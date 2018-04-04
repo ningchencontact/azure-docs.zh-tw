@@ -1,24 +1,24 @@
 ---
-title: "使用 Windows Azure 診斷的 Azure Service Fabric 事件彙總 | Microsoft Docs"
-description: "了解如何使用 WAD 彙總及收集事件，來監視和診斷 Azure Service Fabric 叢集。"
+title: 使用 Windows Azure 診斷的 Azure Service Fabric 事件彙總 | Microsoft Docs
+description: 了解如何使用 WAD 彙總及收集事件，來監視和診斷 Azure Service Fabric 叢集。
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: 8e6c82aa60544d672bb249d589b63d55b48309fe
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 03/19/2018
+ms.author: dekapur;srrengar
+ms.openlocfilehash: ede128d23ca73dc46f2d4dc4b1dd4b1f83a2bc3f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 診斷的事件彙總和收集
 > [!div class="op_single_selector"]
@@ -170,67 +170,87 @@ ms.lasthandoff: 12/21/2017
 
 如所述修改 template.json 檔案之後，將 Resource Manager 範本重新發佈。 如果已匯出範本，執行 deploy.ps1 檔案將會重新發佈範本。 部署之後，請確認 **ProvisioningState** 為 **Succeeded**。
 
-## <a name="collect-health-and-load-events"></a>收集健康情況和負載事件
+> [!TIP]
+> 如果您要將容器部署至叢集，請讓 WAD 能夠挑選 Docker 統計資料，方法是將該設定新增至 **WadCfg > DiagnosticMonitorConfiguration** 區段。
+>
+>```json
+>"DockerSources": {
+>    "Stats": {
+>        "enabled": true,
+>        "sampleRate": "PT1M"
+>    }
+>},
+>```
 
-從 Service Fabric 5.4 版開始，健康情況和負載計量事件均可供收集。 這些事件可藉由使用健康情況或負載報告 API (例如 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 或 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx))，反映系統或程式碼所產生的事件。 這可讓您彙總及檢視一段時間的系統健康情況，以及根據健康情況或負載事件發出警示。 若要在 Visual Studio 的「診斷事件檢視器」中檢視這些事件，請將 "Microsoft-ServiceFabric:4:0x4000000000000008" 新增到 ETW 提供者清單中。
+## <a name="log-collection-configurations"></a>記錄收集設定
+來自其他通道的記錄也可供收集，以下是一些您可以在適用於 Azure 中執行之叢集的範本中進行的最常見設定。
 
-若要收集叢集中的事件，請將 Resource Manager 範本之 WadCfg 中的 `scheduledTransferKeywordFilter` 修改為 `4611686018427387912`。
+* 操作通道 - 基礎：預設啟用，由 Service Fabric 與叢集執行的高階作業，包括正在啟動之節點、正在部署之新應用程式或升級復原等的事件。如需事件清單，請參閱[操作通道事件](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-generation-operational)。
+  
+```json
+      scheduledTransferKeywordFilter: "4611686018427387904"
+  ```
+* 操作通道 - 詳細：這包括健康情況報告與負載平衡決策，再加上基礎操作通道中的所有項目。 這些事件是藉由使用健康情況或負載報告 API (例如 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 或 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx))，由系統或您的程式碼所產生的。 若要在 Visual Studio 的「診斷事件檢視器」中檢視這些事件，請將 "Microsoft-ServiceFabric:4:0x4000000000000008" 新增到 ETW 提供者清單中。
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387912",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387912"
+  ```
 
-## <a name="collect-reverse-proxy-events"></a>收集反向 proxy 事件
-
-從 Service Fabric 5.7 版開始，可透過「資料與傳訊」通道收集[反向 Proxy](service-fabric-reverseproxy.md) 事件。 
-
-反向 Proxy 僅會透過主要「資料與傳訊」通道推送錯誤事件 - 反映要求處理失敗和嚴重問題。 詳細的通道包含有關由反向 Proxy 處理之所有要求的詳細事件。 
-
-若要在 Visual Studio 的「診斷事件檢視器」中檢視錯誤事件，請將 "Microsoft-ServiceFabric:4:0x4000000000000010" 新增到 ETW 提供者清單中。 至於所有要求遙測，請將 ETW 提供者清單中的 Microsoft-ServiceFabric 項目更新為 "Microsoft-ServiceFabric:4:0x4000000000000020"。
-
-對於在 Azure 中執行的叢集：
-
-若要挑選主要「資料與傳訊」通道中的追蹤，請將 Resource Manager 範本之 WadCfg 中的 `scheduledTransferKeywordFilter` 值修改為 `4611686018427387920`。
+* 資料和傳訊通道 - 基礎：除了詳細操作通道記錄以外，在傳訊 (目前僅限 ReverseProxy) 和資料路徑中產生的重要記錄和事件。 這些事件是 ReverseProxy 和所處理要求中的要求處理失敗及其他嚴重問題。 **這是我們建議採用的完整記錄方式**。 若要在 Visual Studio 的「診斷事件檢視器」中檢視這些事件，請將 "Microsoft-ServiceFabric:4:0x4000000000000010" 新增到 ETW 提供者清單中。
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387920",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387928"
+  ```
 
-若要收集所有要求處理事件，請藉由將 Resource Manager 範本之 WadCfg 中的 `scheduledTransferKeywordFilter` 值變更為 `4611686018427387936`，開啟「資料與傳訊」- 詳細通道。
+* 資料和傳訊通道 - 詳細：詳細資訊通道，其中包含來自叢集及詳細操作通道中資料和傳訊的所有非重要記錄。 如需所有反向 Proxy 事件的詳細疑難排解，請參閱[反向 proxy 診斷指南](service-fabric-reverse-proxy-diagnostics.md)。  若要在 Visual Studio 的「診斷事件檢視器」中檢視這些事件，請將 "Microsoft-ServiceFabric:4:0x4000000000000020" 新增到 ETW 提供者清單中。
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387936",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387944"
+  ```
 
-從這個詳細通道啟用收集事件會導致快速產生大量追蹤，並且會消耗儲存體容量。 只有在絕對必要時才開啟此功能。
-如需反向 proxy 事件的詳細疑難排解，請參閱[反向 proxy 診斷指南](service-fabric-reverse-proxy-diagnostics.md)。
+>[!NOTE]
+>此通道具有非常大量的事件，允許從這個詳細通道收集事件會導致快速產生大量追蹤，而會消耗儲存體容量。 請只在絕對必要時才開啟此功能。
+
+
+若要啟用**基礎資料和傳訊通道** (我們建議採用的完整記錄方式)，您範本之 `WadCfg` 中的 `EtwManifestProviderConfiguration` 會看起來如下：
+
+```json
+  "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+          "overallQuotaInMB": "50000",
+          "EtwProviders": {
+            "EtwEventSourceProviderConfiguration": [
+              {
+                "provider": "Microsoft-ServiceFabric-Actors",
+                "scheduledTransferKeywordFilter": "1",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableActorEventTable"
+                }
+              },
+              {
+                "provider": "Microsoft-ServiceFabric-Services",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableServiceEventTable"
+                }
+              }
+            ],
+            "EtwManifestProviderConfiguration": [
+              {
+                "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricSystemEventTable"
+                }
+              }
+            ]
+          }
+        }
+      },
+```
 
 ## <a name="collect-from-new-eventsource-channels"></a>從新的 EventSource 通道收集
 

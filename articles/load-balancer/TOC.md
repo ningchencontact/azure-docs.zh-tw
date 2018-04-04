@@ -20,13 +20,19 @@
 
 # 作法
 
+## [建立區域備援公用標準 Load Balancer](load-balancer-get-started-internet-az-portal.md)
+### [建立區域備援公用標準 Load Balancer (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [建立區域備援公用標準 Load Balancer (CLI)](load-balancer-get-started-internet-az-cli.md)
+## [建立區域公用標準 Load Balancer](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+### [建立區域公用標準 Load Balancer (PowerShell)](load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+### [建立區域備援公用標準 Load Balancer (CLI)](load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+## [跨越多個可用性區域為 VM 進行負載平衡](load-balancer-standard-public-availability-zones-portal.md)
+###  [跨越多個可用性區域為 VM 進行負載平衡 (CLI)](load-balancer-standard-public-zone-redundant-cli.md)
+##  [在區域內為 VM 進行負載平衡 (CLI)](load-balancer-standard-public-zonal-cli.md)   
+## [建立基本 Load Balancer (範本)](load-balancer-get-started-internet-arm-template.md)
 ## [以 IPv6 建立公用 Load Balancer](load-balancer-ipv6-internet-ps.md)
 ### [以 IPv6 建立公用 Load Balancer (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [以 IPv6 建立公用 Load Balancer (範本)](load-balancer-ipv6-internet-template.md)
-## [建立區域備援公用 Load Balancer 標準](load-balancer-get-started-internet-az-portal.md)
-### [建立區域備援公用 Load Balancer 標準 (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [建立區域備援公用 Load Balancer 標準 (CLI)](load-balancer-get-started-internet-az-cli.md)
-## [建立基本 Load Balancer (範本)](load-balancer-get-started-internet-arm-template.md)
 ## [設定內部 Load Balancer](load-balancer-get-started-ilb-arm-portal.md)
 ### [設定內部 Load Balancer (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [設定內部 Load Balancer (CLI)](load-balancer-get-started-ilb-arm-cli.md)
@@ -75,6 +81,6 @@
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
-## [價格](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [定價](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=load-balancer)

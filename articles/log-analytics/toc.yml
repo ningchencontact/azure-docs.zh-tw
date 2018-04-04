@@ -61,6 +61,10 @@
           items:
             - name: Windows 代理程式
               href: log-analytics-agent-windows.md
+            - name: Windows 的 VM 延伸模組
+              href: ../virtual-machines/windows/extensions-oms.md
+            - name: Linux 的 VM 延伸模組
+              href: ../virtual-machines/linux/extensions-oms.md
             - name: Azure 資源
               href: log-analytics-azure-storage.md
             - name: Azure PaaS 資源

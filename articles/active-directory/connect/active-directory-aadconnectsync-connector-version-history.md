@@ -1,24 +1,24 @@
 ---
-title: "連接器版本發行歷程記錄 | Microsoft Docs"
-description: "本主題列出所有適用於 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的連接器版本"
+title: 連接器版本發行歷程記錄 | Microsoft Docs
+description: 本主題列出所有適用於 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的連接器版本
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2017
-ms.author: billmath
-ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 03/22/2018
+ms.author: davidste
+ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connector-version-release-history"></a>連接器版本發行歷程記錄
 適用於 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的連接器會經常更新。
@@ -34,9 +34,26 @@ ms.lasthandoff: 01/18/2018
 * [下載最新的連接器](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [一般 LDAP 連接器](active-directory-aadconnectsync-connector-genericldap.md) 參考文件
 * [一般 SQL 連接器](active-directory-aadconnectsync-connector-genericsql.md) 參考文件
-* [Web 服務連接器](http://go.microsoft.com/fwlink/?LinkID=226245) 參考文件
+* [Web 服務連接器](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) 參考文件
 * [PowerShell 連接器](active-directory-aadconnectsync-connector-powershell.md) 參考文件
 * [Lotus Domino 連接器](active-directory-aadconnectsync-connector-domino.md) 參考文件
+
+
+## <a name="118300"></a>1.1.830.0
+
+### <a name="fixed-issues"></a>已修正的問題：
+* 已解決 ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent (訊息：連結到系統的某個裝置失去作用) 的問題
+* 在此版本的連接器中，您將需要在 miiserver.exe.config 中將繫結重新導向從 3.3.0.0-4.1.3.0 更新成 4.1.4.0
+* 一般 Web 服務︰
+    * 已解決無法在組態工具中儲存有效 JSON 回應的問題
+* 一般 SQL：
+    * 匯出針對刪除作業一律只產生更新查詢。 已新增來產生刪除查詢
+    * 針對「差異策略」為「變更追蹤」的「差異匯入」作業，已修正為此作業取得物件的 SQL 查詢。 在這個實作的已知限制中：搭配「變更追蹤」模式的「差異匯入」不會追蹤多值屬性中的變更
+    * 針對下列情況已新增產生刪除查詢的可能性：必須刪除多值屬性的最後一個值，而此資料列除了必須刪除的值以外並未包含任何其他資料。
+    * 由 SP 實作 OUTPUT 參數時的 System.ArgumentException 處理 
+    * 導致匯出至具有 varbinary(max) 類型之欄位的不正確查詢
+    * 將 parameterList 變數初始化兩次 (在 ExportAttributes 和 GetQueryForMultiValue 函式中) 的問題
+
 
 ## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
 
@@ -80,6 +97,8 @@ ms.lasthandoff: 01/18/2018
   * Wsconfig 工具未正確地從 REST 服務方法的「範例要求」轉換 Json 陣列。 這會造成 REST 要求的 Json 陣列發生序列化問題。
   * Web 服務連接器組態工具不支援在 JSON 屬性名稱中使用空間符號 
     * 可以手動將取代模式新增至 WSConfigTool.exe.config 檔案，例如 ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+> [!NOTE]
+> JSONSpaceNamePattern 是必要索引鍵，因為您將會收到下列匯出錯誤：訊息：空白名稱不合法。 
 
 * Lotus Notes：
   * 當 [允許組織/組織單位使用自訂認證者] 選項停用時，連接器在匯出 (更新) 期間會失敗。在匯出流程之後，所有屬性都匯出至 Domino，但在匯出時，KeyNotFoundException 會傳回給 Sync。 

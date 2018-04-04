@@ -1,24 +1,24 @@
 ---
-title: "設定 Azure 內容傳遞網路自訂網域上的 HTTPS | Microsoft Docs"
-description: "了解如何在具有自訂網域的 Azure CDN 端點上啟用或停用 HTTPS。"
+title: 設定 Azure 內容傳遞網路自訂網域上的 HTTPS | Microsoft Docs
+description: 了解如何在具有自訂網域的 Azure CDN 端點上啟用或停用 HTTPS。
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 03/22/2018
 ms.author: casoper
-ms.openlocfilehash: 82de79cde208cdce1ed7cbd600f1e804ff1d45ff
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: fea7121fc67944b20b8f39007edb0c0aad86aeaa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>設定 Azure 內容傳遞網路自訂網域上的 HTTPS
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/14/2017
 
 Microsoft 支援 Azure 內容傳遞網路 (CDN) 上的自訂網域使用 HTTPS 通訊協定。 有了 HTTPS 自訂網域的支援，您可以使用自訂的網域名稱透過 SSL 傳遞安全內容，以改善資料傳送的安全性。 啟用自訂網域 HTTPS 的工作流程已簡化為一步啟用和完整憑證管理，而且不須額外費用。
 
-確保您的 Web 應用程式在傳輸資料時的隱私和資料完整性非常重要。 藉由使用 HTTPS 通訊協定，可確保您的機密資料在網際網路上傳遞時已經過加密。 它提供信任與認證，並保護您的 Web 應用程式免於攻擊。 Azure CDN 預設支援 CDN 端點上的 HTTPS。 舉例來說，當您從 Azure CDN (例如 `https://contoso.azureedge.net`) 建立 CDN 端點時，會自動啟用 HTTPS。 此外，透過自訂網域 HTTPS 支援，您也可以針對自訂網域 (例如 `https://www.contoso.com`) 啟用安全傳遞。 
+確保您的 Web 應用程式在傳輸資料時的隱私和資料完整性非常重要。 藉由使用 HTTPS 通訊協定，可確保您的機密資料在網際網路上傳遞時已經過加密。 它提供信任與認證，並保護您的 Web 應用程式免於攻擊。 Azure CDN 預設支援 CDN 端點上的 HTTPS。 舉例來說，當您從 Azure CDN (例如 https:\//contoso.azureedge.net) 建立 CDN 端點時，會自動啟用 HTTPS。 此外，藉由自訂網域 HTTPS 支援，您也可以針對自訂網域 (例如 https:\//www.contoso.com) 啟用安全傳遞。 
 
 HTTPS 功能的一些重要特色如下：
 
@@ -60,13 +60,28 @@ HTTPS 功能的一些重要特色如下：
 
 ### <a name="step-2-validate-domain"></a>步驟 2：驗證網域
 
->[!IMPORTANT] 
->必須先完成網域驗證才能在您的自訂網域上啟用 HTTPS。 您有六個工作天可以核准網域。 未在六個工作天內核准的要求將會自動遭到取消。 
-
-在您的自訂網域上啟用 HTTPS 之後，DigiCert 憑證授權單位 (CA) 會根據網域的 [WHOIS](http://whois.domaintools.com/) 註冊資訊連絡其註冊人，以驗證網域的所有權。 連絡方式為透過電子郵件地址 (預設) 或列示在 WHOIS 註冊資訊中的電話號碼。 
-
 >[!NOTE]
 >如果您具有 DNS 提供者的憑證授權單位授權 (CAA) 記錄，它必須包括 DigiCert 作為有效的 CA。 CAA 記錄可讓網域擁有者透過其 DNS 提供者，指定哪些 CA 有權為其網域發行憑證。 如果 CA 收到具有 CAA 記錄之網域的憑證訂單，而且該 CA 未列出為授權簽發者，則禁止該 CA 將憑證發行給該網域或子網域。 如需管理 CAA 記錄的相關資訊，請參閱[管理 CAA 記錄](https://support.dnsimple.com/articles/manage-caa-record/)。 有關 CAA 記錄工具，請參閱 [CAA 記錄協助程式](https://sslmate.com/caa/)。
+
+#### <a name="custom-domain-is-mapped-to-cdn-endpoint"></a>自訂網域已對應至 CDN 端點
+
+當您為端點新增自訂網域時，便已在網域註冊機構的 DNS 表格中建立 CNAME 記錄以對應至 CDN 端點主機名稱。 如果該 CNAME 記錄仍然存在且不包含 cdnverify 子網域，DigiCert 憑證授權單位 (CA) 就會使用它來驗證您自訂網域的擁有權。 
+
+您的 CNAME 記錄應該採用下列格式，其中「名稱」是您的自訂網域名稱，而「值」則是您的 CDN 端點主機名稱：
+
+| 名稱            | 類型  | 值                 |
+|-----------------|-------|-----------------------|
+| www.contoso.com | CNAME | contoso.azureedge.net |
+
+如需有關 CNAME 記錄的詳細資訊，請參閱[建立 CNAME DNS 記錄](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#step-2-create-the-cname-dns-records)。
+
+如果您的 CNAME 記錄格式正確，DigiCert 就會自動驗證您的自訂網域名稱，並將其新增至「主體別名」(SAN) 憑證。 DigitCert 不會傳送驗證電子郵件給您，因此您不需要核准您的要求。 憑證有效期限為一年，並且會在到期之前自動更新。 請繼續進行[步驟 3：等待傳播](#step-3-wait-for-propagation)。 
+
+#### <a name="cname-record-is-not-mapped-to-cdn-endpoint"></a>CNAME 記錄未對應至 CDN 端點
+
+如果您端點的 CNAME 記錄項目已不存在或包含 cdnverify 子網域，請依照此步驟中的其餘指示進行操作。
+
+在您的自訂網域上啟用 HTTPS 之後，DigiCert 憑證授權單位 (CA) 會根據網域的 [WHOIS](http://whois.domaintools.com/) 註冊資訊連絡其註冊人，以驗證網域的所有權。 連絡方式為透過電子郵件地址 (預設) 或列示在 WHOIS 註冊資訊中的電話號碼。 必須先完成網域驗證才能在您的自訂網域上啟用 HTTPS。 您有六個工作天可以核准網域。 未在六個工作天內核准的要求將會自動遭到取消。 
 
 ![WHOIS 記錄](./media/cdn-custom-ssl/whois-record.png)
 
@@ -88,11 +103,11 @@ postmaster@&lt;your-domain-name.com&gt;
 
 遵循表單上的指示；您有兩個驗證選項：
 
-- 您可以核准未來所有經相同帳戶針對同一個根網域 (例如 `contoso.com`) 的所有訂購。 如果您計劃新增相同根網域的其他自訂網域，建議使用這種方法。
+- 您可以核准未來所有經相同帳戶針對同一個根網域 (如 contoso.com) 的所有訂購。如果您計劃新增相同根網域的其他自訂網域，建議使用這種方法。
 
 - 您可以只核准這次要求使用的特定主機名稱。 後續的要求需要另外核准。
 
-核准之後，DigiCert 會將您的自訂網域名稱新增至主題別名 (SAN) 憑證。 憑證有效期限為一年，並且會在到期之前自動更新。
+核准之後，DigiCert 會將您的自訂網域名稱新增至 SAN 憑證。 憑證有效期限為一年，並且會在到期之前自動更新。
 
 ### <a name="step-3-wait-for-propagation"></a>步驟 3：等待傳播
 
@@ -102,14 +117,14 @@ postmaster@&lt;your-domain-name.com&gt;
 
 ### <a name="operation-progress"></a>作業進度
 
-下表指出啟用 HTTPS 時的作業進度。 啟用 HTTPS 之後，四個作業步驟會出現在 [自訂網域] 對話方塊中。 隨著每個步驟變成作用中狀態，其他詳細資料會在步驟進行時顯示於下方。 當步驟成功完成時，旁邊會出現綠色的核取記號。 
+下表指出啟用 HTTPS 時的作業進度。 啟用 HTTPS 之後，四個作業步驟會出現在 [自訂網域] 對話方塊中。 隨著每個步驟變成作用中狀態，其他子步驟詳細資料會在步驟進行時顯示於下方。 並非所有這些子步驟都會發生。 當步驟成功完成時，旁邊會出現綠色的核取記號。 
 
-| 作業步驟 | 作業步驟詳細資料 | 
+| 作業步驟 | 作業子步驟詳細資料 | 
 | --- | --- |
 | 1 提交要求 | 提交要求 |
 | | 正在提交您的 HTTPS 要求。 |
 | | 已成功提交您的 HTTPS 要求。 |
-| 2 網域驗證 | 我們已傳送電子郵件要求您驗證網域擁有權。 正在等候您的確認。 |
+| 2 網域驗證 | 我們已傳送電子郵件要求您驗證網域擁有權。 正在等候您的確認。 ** |
 | | 已成功驗證您的網域擁有權。 |
 | | 網域擁有權驗證要求已過期 (客戶可能未在 6 天內回應)。 您網域上的 HTTPS 將不會啟用。 * |
 | | 客戶拒絕網域擁有權驗證要求。 您網域上的 HTTPS 將不會啟用。 * |
@@ -119,6 +134,8 @@ postmaster@&lt;your-domain-name.com&gt;
 | 4 完成 | 已成功在您的網域上啟用 HTTPS。 |
 
 \* 除非發生錯誤，否則不會出現這則訊息。 
+
+\** 如果您自訂網域的 CNAME 項目直接指向 CDN 端點主機名稱，就會不出現此訊息。
 
 如果錯誤發生於提交要求之前，則會顯示下列錯誤訊息：
 
@@ -172,7 +189,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 3. *如果沒有收到 DigiCert 的驗證電子郵件該怎麼辦？*
 
-    如果您未在 24 小時內收到電子郵件，請連絡 Microsoft 支援服務。
+    如果您未在 24 小時內收到電子郵件，請連絡 Microsoft 支援服務。 如果您自訂網域的 CNAME 項目直接指向端點主機名稱 (且您未使用 cdnverify 子網域名稱)，您就不會收到網域驗證電子郵件。 驗證會自動進行。
 
 4. *SAN 憑證的安全性是否比專用憑證來得低？*
     
@@ -183,7 +200,8 @@ We encountered an unexpected error while processing your HTTPS request. Please t
     此功能目前只提供給 Verizon 的 Azure CDN。 Microsoft 正在進行相關工作，讓此功能在未來的幾個月內支援 Akamai 的 Azure CDN。
 
 6. *是否需要我的 DNS 提供者的憑證授權單位授權記錄？*
-   否，目前不需要憑證授權單位授權記錄。 不過，如果您的確有一個授權記錄，它必須包含 DigiCert 作為有效的 CA。
+
+    否，目前不需要憑證授權單位授權記錄。 不過，如果您的確有一個授權記錄，它必須包含 DigiCert 作為有效的 CA。
 
 
 ## <a name="next-steps"></a>後續步驟

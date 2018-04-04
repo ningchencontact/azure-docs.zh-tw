@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: 版本資訊
       items:
+        - name: 1803 更新
+          href: azure-stack-update-1803.md
         - name: 1802 更新
           href: azure-stack-update-1802.md
         - name: 1712 更新
           href: azure-stack-update-1712.md
         - name: 1711 更新
           href: azure-stack-update-1711.md
-        - name: 1710 更新
-          href: azure-stack-update-1710.md
 - name: 快速入門
   expanded: true
   items:
@@ -58,9 +58,9 @@
             - name: 取得 Azure Stack PKI 憑證
               href: azure-stack-get-pki-certs.md
             - name: 準備 Azure Stack PKI 憑證
-              href: prepare-pki-certs.md
+              href: azure-stack-prepare-pki-certs.md
             - name: 驗證 Azure Stack PKI 憑證
-              href: validate-pki-certs.md
+              href: azure-stack-validate-pki-certs.md
         - name: 身分識別整合
           href: azure-stack-integrate-identity.md
         - name: 外部監視

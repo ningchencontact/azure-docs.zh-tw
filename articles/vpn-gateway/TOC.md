@@ -6,9 +6,10 @@
 ## [訂用帳戶與服務限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # 開始使用
-## [建立路由式 VPN 閘道 - Azure 入口網站](create-routebased-vpn-gateway-portal.md)
-## [建立路由式 VPN 閘道 - PowerShell](create-routebased-vpn-gateway-powershell.md)
-## [建立路由式 VPN 閘道 - CLI](create-routebased-vpn-gateway-cli.md)
+## 建立路由式 VPN 閘道
+### [Azure 入口網站](create-routebased-vpn-gateway-portal.md)
+### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
+### [Azure CLI](create-routebased-vpn-gateway-cli.md)
 
 # 概念
 ## [規劃與設計 VPN 閘道](vpn-gateway-plan-design.md)
@@ -88,13 +89,16 @@
 ### [範例：Cisco ASA 裝置 (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [從傳統移轉到資源管理員](vpn-gateway-classic-resource-manager-migration.md)
 ## [疑難排解](vpn-gateway-troubleshoot.md)
-### [驗證 VNet 的 VPN 輸送量](vpn-gateway-validate-throughput-to-vnet.md)
 ### [社群建議的 VPN 或防火牆裝置設定](vpn-gateway-third-party-settings.md)
-### [點對站連線問題](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-#### [點對站連線問題 - Mac OS X VPN 用戶端](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
-### [站對站連線問題](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
-#### [站對站連線會間歇性中斷](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [設定和驗證 VNet 或 VPN 連線](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
+### [驗證 VNet 的 VPN 輸送量](vpn-gateway-validate-throughput-to-vnet.md)
+### 點對站連線問題
+#### [點對站連線問題](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+#### [點對站連線問題 - Mac OS X VPN 用戶端](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### 站對站連線問題
+#### [站對站連線問題](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [站對站連線會間歇性中斷](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+
 
 # 參考
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
@@ -115,7 +119,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
 ## [部落格](https://azure.microsoft.com/blog/topics/networking)
 ## [論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [定價](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [價格](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

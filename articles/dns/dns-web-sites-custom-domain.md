@@ -1,6 +1,6 @@
 ---
-title: "建立 Web 應用程式的自訂 DNS 記錄 | Microsoft Docs"
-description: "如何使用 Azure DNS 來建立 Web 應用程式的自訂網域 DNS 記錄。"
+title: 建立 Web 應用程式的自訂 DNS 記錄 | Microsoft Docs
+description: 如何使用 Azure DNS 來建立 Web 應用程式的自訂網域 DNS 記錄。
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -53,7 +53,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 ### <a name="step-2"></a>步驟 2
 
-使用指派的 $rs 變數，將 IPv4 值新增至先前建立的記錄集 "@"。 指派的 IPv4 值將是您 Web 應用程式的 IP 位址。
+使用指派的 $rs 變數，將 IPv4 值新增至先前建立的記錄集 \"\@\"。 指派的 IPv4 值將是您 Web 應用程式的 IP 位址。
 
 若要尋找 Web 應用程式的 IP 位址，請依照[在 Azure App Service 中設定自訂網域名稱](../app-service/app-service-web-tutorial-custom-domain.md)的步驟進行。
 

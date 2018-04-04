@@ -1,26 +1,26 @@
 ---
-title: "Azure 監視和更新 Windows 虛擬機器 | Microsoft Docs"
-description: "教學課程 - 使用 Azure PowerShell 監視和更新 Windows 虛擬機器"
+title: Azure 監視和更新 Windows 虛擬機器 | Microsoft Docs
+description: 教學課程 - 使用 Azure PowerShell 監視和更新 Windows 虛擬機器
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/04/2017
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a37aed8b3321d3518ffd73e09f5bb21266a7e577
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fdb8009e3dbca1037cae61ec8627f73190a8263d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>使用 Azure PowerShell 監視和更新 Windows 虛擬機器
 
@@ -38,15 +38,15 @@ Azure 監視器使用代理程式從 Azure VM 收集開機和效能資料，將�
 > * 管理 Windows 更新
 > * 設定進階監視
 
-本教學課程需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+本教學課程需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
 若要完成本教學課程中的範例，您目前必須具有虛擬機器。 如有需要，這個[指令碼範例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)可以為您建立一部虛擬機器。 逐步完成教學課程之後，請視需要取代資源群組、VM 名稱、位置。
 
 ## <a name="view-boot-diagnostics"></a>檢視開機診斷
 
-Windows 虛擬機器開機時，開機診斷代理程式會擷取可用於疑難排解的螢幕輸出。 此功能預設為啟用狀態。 擷取的螢幕畫面會儲存在 Azure 儲存體帳戶，這也是預設會建立的帳戶。 
+Windows 虛擬機器開機時，開機診斷代理程式會擷取可用於疑難排解的螢幕輸出。 此功能預設為啟用狀態。 擷取的螢幕畫面會儲存在 Azure 儲存體帳戶，這也是預設會建立的帳戶。
 
-您可以使用 [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) 命令取得開機診斷資料。 在下列範例中，開機診斷會下載到 *c:\* 磁碟機的根目錄。 
+您可以使用 [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) 命令取得開機診斷資料。 在下列範例中，開機診斷會下載到 *c:\* 磁碟機的根目錄。
 
 ```powershell
 Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
@@ -88,10 +88,10 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -
 
 1. 在 Azure 入口網站中，按一下 [資源群組]，選取 [myResourceGroup]，然後選取資源清單中的 [myVM]。
 2. 按一下VM 刀鋒視窗中的 [警示規則]，按一下橫跨在警示刀鋒視窗上方的 [新增計量警示]。
-4. 提供警示的 [名稱]，例如 myAlertRule。
-5. 若要在 CPU 百分比連續五分鐘超過 1.0 時觸發警示，保留所有其他已選取的預設值。
-6. (選擇性) 選取 [電子郵件的擁有者、參與者及讀者] 核取方塊以傳送電子郵件通知。 預設動作是在入口網站中顯示通知。
-7. 按一下 [確定] 按鈕。
+3. 提供警示的 [名稱]，例如 myAlertRule。
+4. 若要在 CPU 百分比連續五分鐘超過 1.0 時觸發警示，保留所有其他已選取的預設值。
+5. (選擇性) 選取 [電子郵件的擁有者、參與者及讀者] 核取方塊以傳送電子郵件通知。 預設動作是在入口網站中顯示通知。
+6. 按一下 [確定] 按鈕。
 
 ## <a name="manage-windows-updates"></a>管理 Windows 更新
 
@@ -103,44 +103,44 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -
 ### <a name="enable-update-management"></a>啟用更新管理
 
 啟用 VM 的更新管理：
- 
+
 1. 在畫面左邊，選取 [虛擬機器]。
 2. 從清單中選取 VM。
 3. 在 [VM] 畫面的 [作業] 區段中，按一下 [更新管理]。 [啟用更新管理] 畫面隨即開啟。
 
-將會執行驗證來判斷此 VM 是否已啟用更新管理。 驗證包括檢查 Log Analytics 工作區及連結的自動化帳戶，以及解決方法是否在工作區中。
+將會執行驗證來判斷此 VM 是否已啟用更新管理。
+驗證包括檢查 Log Analytics 工作區及連結的自動化帳戶，以及解決方法是否在工作區中。
 
-Log Analytics 工作區用來收集功能和服務 (例如更新管理) 所產生的資料。 工作區提供單一位置來檢閱和分析來自多個來源的資料。 若要在需要更新的 VM 上執行其他動作，Azure 自動化可讓您對 VM 執行指令碼，例如下載和套用更新。
+[Log Analytics](../../log-analytics/log-analytics-overview.md) 工作區可用來收集功能和服務 (例如更新管理) 所產生的資料。
+工作區提供單一位置來檢閱和分析來自多個來源的資料。
+若要在需要更新的 VM 上執行其他動作，Azure 自動化可讓您對 VM 執行 Runbook，例如下載和套用更新。
 
-驗證程序也會檢查 VM 是否以 Microsoft Monitoring Agent (MMA) 和混合式背景工作角色佈建。 此代理程式用來與 VM 通訊，並取得更新狀態的相關資訊。 
+驗證程序也會檢查 VM 是否以 Microsoft Monitoring Agent (MMA) 和自動化混合式 Runbook 背景工作角色佈建。
+此代理程式用來與 VM 通訊，並取得更新狀態的相關資訊。
 
-如果不符合這些必要條件，將會出現橫幅讓您選擇啟用此解決方案。
+選擇 Log Analytics 工作區和自動化帳戶，然後按一下 [啟用] 以啟用解決方案。 啟用解決方案最多需要 15 分鐘。
 
-![更新管理上架設定橫幅](./media/tutorial-monitoring/manageupdates-onboard-solution-banner.png)
-
-按一下橫幅以啟用解決方案。 如果在驗證之後遺漏下列任何必要條件，則會自動新增：
+如果在上線期間遺漏下列任何必要條件，就會自動新增：
 
 * [Log Analytics](../../log-analytics/log-analytics-overview.md) 工作區
 * [自動化](../../automation/automation-offering-get-started.md)
 * VM 上已啟用 [Hybrid Runbook 背景工作角色](../../automation/automation-hybrid-runbook-worker.md)
 
-[啟用更新管理] 畫面隨即開啟。 進行設定，然後按一下 [啟用]。
+[更新管理] 畫面隨即開啟。 設定位置、Log Analytics 工作區以及要使用的自動化帳戶，然後按一下 [啟用]。 如果欄位呈現灰色，就表示已啟用 VM 的另一個自動化解決方案，且必須使用相同的工作區和自動化帳戶。
 
 ![啟用更新管理解決方案](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
-啟用解決方案可能需要長達 15 分鐘，在這段時間，請勿關閉瀏覽器視窗。 啟用解決方案之後，有關在 VM 上遺漏更新的相關資訊會流向 Log Analytics。
-可能需要 30 分鐘到 6 小時，資料才可供分析。
+啟用解決方案可能需要 15 分鐘。 在此期間，請勿關閉瀏覽器視窗。 啟用解決方案之後，有關在 VM 上遺漏更新的相關資訊會流向 Log Analytics。 可能需要 30 分鐘到 6 小時，資料才可供分析。
 
 ### <a name="view-update-assessment"></a>檢視更新評量
 
-啟用 [更新管理] 之後，隨即會顯示 [更新管理] 畫面。 您可以在 [遺失更新] 索引標籤上看到遺失的更新清單。
+啟用 [更新管理] 之後，隨即會顯示 [更新管理] 畫面。 完成更新評估之後，您會在 [遺失更新] 索引標籤上看到遺失的更新清單。
 
  ![檢視更新狀態](./media/tutorial-monitoring/manageupdates-view-status-win.png)
 
 ### <a name="schedule-an-update-deployment"></a>排定更新部署
 
-若要安裝更新，請將部署排定在發行排程和服務時段之後。
-您可以選擇要在部署中包含的更新類型。 例如，您可以包含重大更新或安全性更新，並排除更新彙總套件。
+若要安裝更新，請將部署排定在發行排程和服務時段之後。 您可以選擇要在部署中包含的更新類型。 例如，您可以包含重大更新或安全性更新，並排除更新彙總套件。
 
 按一下 [更新管理] 畫面頂端的 [排程更新部署]，以針對 VM 來排程新的更新部署。 在 [新增更新部署] 畫面上，指定下列資訊：
 
@@ -170,12 +170,12 @@ Log Analytics 工作區用來收集功能和服務 (例如更新管理) 所產�
 
 ### <a name="view-results-of-an-update-deployment"></a>檢視更新部署的結果
 
-已排定的部署開始之後，您就可以在 [更新管理] 畫面的 [更新部署] 索引標籤上看到該部署的狀態。
+已排程的部署開始之後，您就可以在 [更新管理] 畫面的 [更新部署] 索引標籤上看到該部署的狀態。
 如果該部署目前正在執行，其狀態會顯示為 [進行中]。 當它完成時，如果成功，狀態就會變更為 [成功]。
 如果部署中的一或多個更新失敗，則狀態為 [部分失敗]。
 按一下已完成的更新部署，以查看該更新部署的儀表板。
 
-   ![特定部署的更新部署狀態儀表板](./media/tutorial-monitoring/manageupdates-view-results.png)
+![特定部署的更新部署狀態儀表板](./media/tutorial-monitoring/manageupdates-view-results.png)
 
 [更新結果] 磚包含 VM 上的更新總數和部署結果的摘要。
 右邊表格是每個更新和安裝結果的詳細解析，可能是下列其中一個值：
@@ -190,15 +190,60 @@ Log Analytics 工作區用來收集功能和服務 (例如更新管理) 所產�
 
 按一下 [錯誤]，即可查看部署所傳回之任何錯誤的詳細資訊。
 
-## <a name="advanced-monitoring"></a>進階監視 
+## <a name="monitor-changes-and-inventory"></a>監視變更和清查
 
-您可以使用 [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) (OMS) 對您的 VM 進行更進階的監視。 如果您尚未這麼做，可以註冊 Operations Management Suite 的[免費試用版](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial)。
+您可以在電腦上收集並檢視軟體、檔案、Linux 精靈、Windows 服務和 Windows 登錄機碼的清查。 追蹤您電腦的設定可協助您找出環境中的操作問題，並進一步了解您電腦的狀態。
 
-當您可以存取 OMS 入口網站時，可以在 [設定] 刀鋒視窗中找到工作區金鑰和工作區識別碼。 使用 [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) 命令將 OMS 擴充新增至 VM。 更新以下範例中的變數值，以反映您的 OMS 工作區金鑰和工作區識別碼。  
+### <a name="enable-change-and-inventory-management"></a>啟用變更和清查管理
+
+為您的 VM 啟用「變更」和「清查」管理：
+
+1. 在畫面左邊，選取 [虛擬機器]。
+2. 從清單中選取 VM。
+3. 在 VM 畫面上，按一下 [作業] 區段中的 [清查] 或 [變更追蹤]。 [啟用變更追蹤與詳細目錄] 畫面隨即開啟。
+
+設定位置、Log Analytics 工作區以及要使用的自動化帳戶，然後按一下 [啟用]。 如果欄位呈現灰色，就表示已啟用 VM 的另一個自動化解決方案，且必須使用相同的工作區和自動化帳戶。 儘管這些解決方案在功能表上是分開的，但它們是相同的解決方案。 啟用其中一個會為您的 VM 同時啟用兩個。
+
+![啟用變更與清查追蹤](./media/tutorial-monitoring/manage-inventory-enable.png)
+
+啟用解決方案之後，可能需要一些時間在 VM 上收集清查，然後才會顯示資料。
+
+### <a name="track-changes"></a>追蹤變更
+
+在您的 VM 上，選取 [作業] 底下的 [變更追蹤]。 按一下 [編輯設定]，就會顯示 [變更追蹤] 頁面。 選取您想要追蹤的設定類型，然後按一下 [+ 新增] 來進行設定。 可用的 Windows 選項包括：
+
+* Windows 登錄
+* Windows 檔案
+
+如需有關「變更追蹤」的詳細資訊，請參閱 [針對 VM 上的變更進行疑難排解](../../automation/automation-tutorial-troubleshoot-changes.md)
+
+### <a name="view-inventory"></a>檢視清查
+
+在您的 VM 上，選取 [作業] 底下的 [清查]。 在 [軟體] 索引標籤上，有一份資料表列出已找到的軟體。 每一筆軟體記錄的高階詳細資料都可在資料表中進行檢視。 這些詳細資料包括軟體名稱、版本、發行者、上次重新整理時間。
+
+![檢視清查](./media/tutorial-monitoring/inventory-view-results.png)
+
+### <a name="monitor-activity-logs-and-changes"></a>監視活動記錄和變更
+
+從您 VM 上的 [變更追蹤] 頁面，選取 [管理活動記錄連線]。 此工作會開啟 [Azure 活動記錄] 頁面。 選取 [連線] 可將變更追蹤連線 VM 的 Azure 活動記錄。
+
+此設定啟用時，瀏覽至您 VM 的 [概觀] 頁面，並選取 [停止] 來將您的 VM 停止。 出現提示時，選取 [是] 可停止 VM。 當它解除配置時，選取 [啟動] 可將您的 VM 重新啟動。
+
+將 VM 記錄停止和啟動，可在其活動記錄中記錄事件。 瀏覽回 [變更追蹤] 頁面。 選取頁面底部的 [事件] 索引標籤。 一段時間之後，就會在圖表和資料表中顯示事件。 您可以選取每一個事件來檢視該事件的相關詳細資訊。
+
+![檢視活動記錄中的變更](./media/tutorial-monitoring/manage-activitylog-view-results.png)
+
+圖表會顯示一段時間內已發生的變更。 在您新增活動記錄連線之後，頂端的線條圖表會顯示 Azure 活動記錄事件。 長條圖中的每個資料列都代表不同的可追蹤變更類型。 這些類型為 Linux 精靈、檔案、Windows 登錄機碼、軟體和 Windows 服務。 [變更] 索引標籤會以發生變更時間的遞減順序 (最新的優先)，顯示視覺效果中所顯示變更的詳細資料。
+
+## <a name="advanced-monitoring"></a>進階監視
+
+您可以使用「Azure 自動化」所提供的「更新管理」和「變更」與「清查」等解決方案，來進行更進階的 VM 監視。 [Operations Management Suite](../../automation/automation-intro.md).
+
+當您能夠存取 Log Analytics 工作區時，便可以藉由選取 [設定] 底下的 [進階設定]，找出工作區金鑰和工作區識別碼。 請使用 [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) 命令將 Microsoft Monitoring Agent 延伸模組新增至 VM。 更新以下範例中的變數值，以反映您的 Log Analytics 工作區金鑰和工作區識別碼。
 
 ```powershell
-$omsId = "<Replace with your OMS Id>"
-$omsKey = "<Replace with your OMS key>"
+$workspaceId = "<Replace with your workspace Id>"
+$key = "<Replace with your primary key>"
 
 Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
   -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
@@ -206,21 +251,22 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
   -Publisher "Microsoft.EnterpriseCloud.Monitoring" `
   -ExtensionType "MicrosoftMonitoringAgent" `
   -TypeHandlerVersion 1.0 `
-  -Settings @{"workspaceId" = $omsId} `
-  -ProtectedSettings @{"workspaceKey" = $omsKey} `
+  -Settings @{"workspaceId" = $workspaceId} `
+  -ProtectedSettings @{"workspaceKey" = $key} `
   -Location eastus
 ```
 
-幾分鐘後，您應該會在 OMS 工作區中看到新的 VM。 
+幾分鐘之後，您應該就會在 Log Analytics 工作區中看到新的 VM。
 
 ![OMS 刀鋒視窗](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>後續步驟
+
 在本教學課程中，您利用 Azure 資訊安全中心設定並檢閱 VM。 您已了解如何︰
 
 > [!div class="checklist"]
 > * 建立虛擬網路
-> * 建立資源群組和 VM 
+> * 建立資源群組和 VM
 > * 啟用 VM 上的開機診斷
 > * 檢視開機診斷
 > * 檢視主機計量

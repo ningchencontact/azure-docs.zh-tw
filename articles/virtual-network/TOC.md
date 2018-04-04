@@ -30,11 +30,11 @@
 ## 部署
 
 ### 網路安全性群組
-#### [Azure 入口網站](virtual-networks-create-nsg-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
-#### [範本](virtual-networks-create-nsg-arm-template.md)
-#### [應用程式安全性群組](create-network-security-group-preview.md)
+#### [Azure PowerShell](tutorial-filter-network-traffic.md)
+#### [Azure CLI](tutorial-filter-network-traffic-cli.md)
+#### 沒有應用程式安全性群組
+##### [Azure 入口網站](virtual-networks-create-nsg-arm-pportal.md)
+##### [範本](virtual-networks-create-nsg-arm-template.md)
 #### 傳統
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)

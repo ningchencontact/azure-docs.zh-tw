@@ -1,24 +1,24 @@
 ---
-title: "StorSimple 8000 系列安全性 |Microsoft Docs"
-description: "說明保護內部部署和雲端中之 StorSimple 服務、裝置和資料的安全性和隱私權功能。"
+title: StorSimple 8000 系列安全性 |Microsoft Docs
+description: 說明保護內部部署和雲端中之 StorSimple 服務、裝置和資料的安全性和隱私權功能。
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/23/2018
+ms.date: 03/27/2018
 ms.author: alkohli
-ms.openlocfilehash: c14927f82ca01320206ccec83216777b7d1b8708
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: ee0534ab8bc3400854ddf550df9ca2f395f8d80d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 安全性和資料保護
 
@@ -182,7 +182,7 @@ StorSimple 裝置會根據使用頻率，將資料儲存在本機階層和雲端
 
 ## <a name="protect-data-via-storage-accounts"></a>透過儲存體帳戶保護資料安全
 
-每個 Microsoft Azure 訂閱可以建立一或多個儲存體帳戶。 (儲存體帳戶會提供唯一的命名空間，以供儲存在 Azure 雲端中的資料使用)。儲存體帳戶的存取權受到與該儲存體帳戶相關聯的訂用帳戶和存取金鑰控制。
+每個 Microsoft Azure 訂用帳戶可以建立一或多個儲存體帳戶。 (儲存體帳戶會提供唯一的命名空間，以供儲存在 Azure 雲端中的資料使用)。儲存體帳戶的存取權受到與該儲存體帳戶相關聯的訂用帳戶和存取金鑰控制。
 
 建立儲存體帳戶時，Microsoft Azure 會產生兩個 512 位元儲存體存取金鑰，當 StorSimple 裝置存取儲存體帳戶時，可以使用其中一個進行驗證。 請注意，這些金鑰中只有一個會是使用中狀態。 其他金鑰會被保留，讓您可以定期輪替金鑰。 若要輪替金鑰，您必須將次要金鑰的狀態設定為使用中，然後刪除主要金鑰。 然後，您可以建立要在下一個輪替期間使用的新金鑰。 (基於安全性理由，許多資料中心需要金鑰輪替)。
 
@@ -267,6 +267,20 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 **問：** 如果政府機構向 Microsoft 索取我的資料，會發生什麼情況？
 
 **答：** 由於所有資料在服務上都已加密，而私密金鑰是與裝置存放在一起，因此政府機構必須向客戶索取資料。
+
+## <a name="gdpr-compliance"></a>GDPR 合規性
+
+[一般資料保護規定 (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) 是歐盟 (EU) 所制定的資料保護和隱私權法律。 GDPR 包含許多有關如何收集、儲存和使用個人資訊的需求。 GDPR 規則強制實行於 EU 內營運，並且收集、分析 EU 居民相關之資料的公司、政府機關和其他組織。 
+
+實體和虛擬系列的 StorSimple 裝置管理員皆符合 GDPR 規範。 有兩個主要執行個體，其中會收集個人資訊並在服務中顯示：
+
+- 警示使用者設定，其中會設定使用者的電子郵件地址。 系統管理員可以檢視與清除此資訊。 這同時適用於 StorSimple 8000 系列裝置與 StorSimple 虛擬陣列。
+ * 若要檢視及清除 StorSimple 8000 系列的設定，請遵循[檢視及管理 StorSimple 警示](storsimple-8000-manage-alerts.md#configure-alert-settings)中的步驟
+ * 若要檢視及清除 StorSimple 虛擬陣列的設定，請遵循[檢視及管理 StorSimple 警示](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)中的步驟
+- 可以存取位於共用上之資料的使用者。 顯示可存取共用資料之使用者的清單，並且可檢視。 刪除共用時，也會一併刪除此清單。 這僅適用於 StorSimple 虛擬陣列。
+ * 若要檢視可存取或刪除共用之使用者的清單，請遵循[管理 StorSimple 虛擬陣列上的共用](storsimple-virtual-array-manage-shares.md)中的步驟
+
+如需詳細資訊，請在[信任中心](https://www.microsoft.com/trustcenter)檢閱 Microsoft 隱私權原則。
 
 ## <a name="next-steps"></a>後續步驟
 

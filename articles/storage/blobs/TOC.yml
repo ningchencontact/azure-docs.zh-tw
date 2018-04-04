@@ -80,8 +80,16 @@
       items:
         - name: 儲存體帳戶選項
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 複寫
-          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 資料備援
+          items:
+            - name: 備援概觀
+              href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 本地備援儲存體
+              href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 區域備援儲存體
+              href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 異地備援儲存體
+              href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 熱、冷和封存層
           href: storage-blob-storage-tiers.md
         - name: 回應事件
@@ -301,6 +309,8 @@
               href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 匯入/匯出作業的診斷和錯誤復原
               href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 連絡支援服務以進行匯入/匯出
+          href: ../common/storage-import-export-contact-microsoft-support.md
         - name: 儲存體移轉常見問題
           href: ../common/storage-migration-faq.md
 - name: 參考

@@ -1,24 +1,24 @@
 ---
-title: "從 Kafka 到 Azure Cosmos DB 的 Apache Spark 結構化串流 - Azure HDInsight | Microsoft Docs"
-description: "了解如何使用「Apache Spark 結構化串流」從 Apache Kafka 讀取資料，然後儲存至 Azure Cosmos DB。 在此範例中，您使用 Jupyter Notebook 從 HDInsight 上的 Spark 串流資料。"
+title: 從 Kafka 到 Azure Cosmos DB 的 Apache Spark 結構化串流 - Azure HDInsight | Microsoft Docs
+description: 了解如何使用「Apache Spark 結構化串流」從 Apache Kafka 讀取資料，然後儲存至 Azure Cosmos DB。 在此範例中，您使用 Jupyter Notebook 從 HDInsight 上的 Spark 串流資料。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/16/2018
+ms.date: 03/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 55d0fb91c8a8b995a5b9369d762f5bd87cb086c9
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 7346a45cf04b50369cc7b853b985a8b0bc865493
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>搭配 Kafka 和 Azure Cosmos DB 使用 Apache Spark 結構化串流
 
@@ -29,7 +29,7 @@ Azure Cosmos DB 是全域散發的多模型資料庫。 此範例使用 SQL API 
 Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允許您進行與靜態資料批次計算相同的串流計算。 如需有關結構化串流的詳細資訊，請參閱 Apache.org 的[結構化串流程式設計手冊 [Alpha]](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) \(英文\)。
 
 > [!IMPORTANT]
-> 此範例使用 HDInsight 3.6 上的 Spark 2.1。 結構化串流在 Spark 2.1 上會視為 __alpha__。
+> 此範例使用 HDInsight 3.6 上的 Spark 2.2。
 >
 > 本文件中的步驟建立 Azure 資源群組，其中包含 HDInsight 上的 Spark 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
 >
@@ -48,9 +48,11 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 1. 使用以下按鈕，在 Azure 入口網站中登入 Azure 並開啟範本。
     
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/> </a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+    </a>
 
-    Azure Resource Manager 範本位於此專案的 GitHub 存放庫中 ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb))。
+    Azure Resource Manager 範本位於此專案的 GitHub 存放庫 ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)) 中。
 
     此範本會建立下列資源：
 
@@ -60,6 +62,9 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     * Azure 虛擬網路，其中包含 HDInsight 叢集。
 
+        > [!NOTE]
+        > 此範本建立的虛擬網路使用 10.0.0.0/16 位址空間。
+
     * Azure Cosmos DB SQL API 資料庫。
 
     > [!IMPORTANT]
@@ -67,13 +72,22 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 2. 使用下列資訊來填入 [自訂部署] 區段上的項目︰
    
-    ![HDInsight 自訂部署](./media/hdinsight-apache-spark-with-kafka/parameters.png)
+    ![HDInsight 自訂部署](./media/apache-kafka-spark-structured-streaming-cosmosdb/parameters.png)
+
+    * **訂用帳戶**：選取您的 Azure 訂用帳戶。
    
     * **資源群組**：建立群組或選取現有的群組。 此群組包含 HDInsight 叢集。
 
     * **位置**：選取在地理上靠近您的位置。
 
-    * **基底叢集名稱**︰此值會做為 Spark 和 Kafka 叢集的基底名稱。 例如，輸入 **hdi** 可建立名為 spark-hdi__ 的 Spark 叢集以及名為 **kafka-hdi** 的 Kafka 叢集。
+    * **Cosmos DB 帳戶名稱**：此值是作為 Cosmos DB 帳戶的名稱使用。
+
+    * **基底叢集名稱**︰此值會做為 Spark 和 Kafka 叢集的基底名稱。 例如，輸入 **myhdi** 以建立名為 __spark-myhdi__ 的 Spark 叢集，以及名為 **kafka-myhdi** 的 Kafka 叢集。
+
+    * **叢集版本**：HDInsight 叢集版本。
+
+        > [!IMPORTANT]
+        > 此範例使用 HDInsight 3.6 進行測試，而且可能無法用於其他叢集類型。
 
     * **叢集登入使用者名稱**：Spark 和 Kafka 叢集的系統管理員使用者名稱。
 
@@ -83,16 +97,55 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     * **SSH 密碼**：Spark 和 Kafka 叢集的 SSH 使用者密碼。
 
-3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]。
+3. 閱讀**條款及條件**，然後選取 [我同意上方所述的條款及條件]。
 
 4. 最後，核取 [釘選到儀表板]，然後選取 [購買]。 大約需要 20 分鐘的時間來建立叢集。
 
-資源建立後，系統會顯示摘要頁面。
+> [!IMPORTANT]
+> 最多需要 45 分鐘才能建立叢集、虛擬網路與 Cosmos DB 帳戶。
 
-![VNet 及叢集的資源群組資訊](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+## <a name="create-the-cosmos-db-database-and-collection"></a>建立 Cosmos DB 資料庫和集合
+
+此文件中使用的專案會將資料儲存在 Cosmos DB 中。 執行程式碼之前，您必須先在您的 Cosmos DB 執行個體中建立「資料庫」與「集合」 。 您也必須擷取用於向 Cosmos DB 驗證要求的文件端點與「索引鍵」。 
+
+執行此動作的其中一種方式是使用 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。 下列指令碼將會建立名為 `kafkadata` 的資料庫與名為 `kafkacollection` 的集合。 接著，它會傳回主索引鍵。
+
+```azurecli
+#!/bin/bash
+
+# Replace 'myresourcegroup' with the name of your resource group
+resourceGroupName='myresourcegroup'
+# Replace 'mycosmosaccount' with the name of your Cosmos DB account name
+name='mycosmosaccount'
+
+# WARNING: If you change the databaseName or collectionName
+#          then you must update the values in the Jupyter notebook
+databaseName='kafkadata'
+collectionName='kafkacollection'
+
+# Create the database
+az cosmosdb database create --name $name --db-name $databaseName --resource-group $resourceGroupName
+# Create the collection
+az cosmosdb collection create --collection-name $collectionName --name $name --db-name $databaseName --resource-group $resourceGroupName
+
+# Get the endpoint
+az cosmosdb show --name $name --resource-group $resourceGroupName --query documentEndpoint
+
+# Get the primary key
+az cosmosdb list-keys --name $name --resource-group $resourceGroupName --query primaryMasterKey
+```
+
+文件端點與主索引鍵資訊類似下列文字：
+
+```text
+# endpoint
+"https://mycosmosaccount.documents.azure.com:443/"
+# key
+"YqPXw3RP7TsJoBF5imkYR0QNA02IrreNAlkrUMkL8EW94YHs41bktBhIgWq4pqj6HCGYijQKMRkCTsSaKUO2pw=="
+```
 
 > [!IMPORTANT]
-> 請注意，HDInsight 叢集的名稱是 **spark-BASENAME** 和 **kafka-BASENAME**，其中 BASENAME 是您提供給範本的名稱。 連線到叢集時，您會在稍後步驟中使用這些名稱。
+> 儲存端點與索引鍵值，因為在 Jupyter Notebooks 中需要它們。
 
 ## <a name="get-the-kafka-brokers"></a>取得 Kafka 代理程式
 
@@ -102,22 +155,23 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 $clusterName = Read-Host -Prompt "Enter the Kafka cluster name"
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
-    -Credential $creds
+    -Credential $creds `
+    -UseBasicParsing
 $respObj = ConvertFrom-Json $resp.Content
 $brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ($brokerHosts -join ":9092,") + ":9092"
 ```
+
+> [!NOTE]
+> Bash 範例預期 `$CLUSTERNAME` 會包含 Kafka 叢集的名稱。
+>
+> 這個範例會使用 [jq](https://stedolan.github.io/jq/) 公用程式來剖析 JSON 文件中的資料。
 
 ```bash
 curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 ```
 
 出現提示時，輸入叢集登入 (admin) 帳戶的密碼
-
-> [!NOTE]
-> 這個範例預期 `$CLUSTERNAME` 會包含 Kafka 叢集的名稱。
->
-> 這個範例會使用 [jq](https://stedolan.github.io/jq/) 公用程式來剖析 JSON 文件中的資料。
 
 輸出大致如下：
 
@@ -127,7 +181,7 @@ curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUST
 
 ## <a name="get-the-notebooks"></a>取得 Notebook
 
-從 [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb) 可取得本文件中所述範例的程式碼。
+您可以在 [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb) 找到此文件中所述之範例的程式碼。
 
 ## <a name="upload-the-notebooks"></a>上傳 Notebook
 

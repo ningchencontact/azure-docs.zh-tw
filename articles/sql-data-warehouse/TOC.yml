@@ -141,13 +141,15 @@
       href: sql-data-warehouse-troubleshoot.md
 - name: 使用說明指南
   items:
-    - name: 服務功能
+    - name: 升級
+      href: upgrade-to-latest-generation.md
+    - name: Restore
       items:
-        - name: 還原資料倉儲 - 入口網站
+        - name: 入口網站
           href: sql-data-warehouse-restore-database-portal.md
-        - name: 還原資料倉儲 - PowerShell
+        - name: PowerShell
           href: sql-data-warehouse-restore-database-powershell.md
-        - name: 還原資料倉儲 - REST API
+        - name: REST API
           href: sql-data-warehouse-restore-database-rest-api.md
     - name: 安全性
       items:

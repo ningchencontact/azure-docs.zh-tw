@@ -1,3 +1,4 @@
+
 # [Azure 計費文件](index.md)
 
 # 開始使用
@@ -41,6 +42,7 @@
 ### [編輯設定檔](billing-how-to-change-azure-account-profile.md)
 ### [更新付款資訊](billing-how-to-change-credit-card.md)
 ### [依發票支付訂用帳戶費用](billing-how-to-pay-by-invoice.md)
+### [連結合作夥伴識別碼](billing-partner-admin-link-started.md)
 ## [管理保留 VM 執行個體](billing-manage-reserved-vm-instance.md)
 ## 疑難排解
 ### [註冊問題](https://support.microsoft.com/en-us/help/4042959)
