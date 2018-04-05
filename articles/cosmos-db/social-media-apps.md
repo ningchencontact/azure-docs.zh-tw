@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB 的設計模式：社交媒體應用程式 | Microsoft Docs"
-description: "了解具有 Azure Cosmos DB 與其他 Azure 服務之儲存體彈性的社交網路設計模式。"
-keywords: "社交媒體應用程式"
+title: Azure Cosmos DB 的設計模式：社交媒體應用程式 | Microsoft Docs
+description: 了解具有 Azure Cosmos DB 與其他 Azure 服務之儲存體彈性的社交網路設計模式。
+keywords: 社交媒體應用程式
 services: cosmos-db
 author: ealsur
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: d223187ab1f8338c57e6aa32903ea9b762393ab5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 跨足社交
 在當今大幅互連的社會當中，我們的生活或多或少都成為 **社交網路**的一部分。 我們會使用社交網路與朋友、同事、家人保持聯絡，有時候還可以跟擁有共同興趣的人交流這份愛好。
@@ -216,8 +216,7 @@ Azure 搜尋服務會實作[索引子](https://msdn.microsoft.com/library/azure/
 
 現在，大家一定更感興趣了吧？您一定以為要有數學的博士學位，才能從簡單的資料庫和檔案中擷取這些模式和資訊，但您錯了。
 
-
-            [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 是一項完全受控的雲端服務，其隨附於 [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx)，可讓您透過簡單的拖放介面使用演算法來建立工作流程、以 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 撰寫自己的演算法程式碼，或使用一些內建和現成的 API，例如︰[文字分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)、[內容仲裁者](https://www.microsoft.com/moderator)或[建議](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2)。
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 是一項完全受控的雲端服務，其隨附於 [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx)，可讓您透過簡單的拖放介面使用演算法來建立工作流程、以 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 撰寫自己的演算法程式碼，或使用一些內建和現成的 API，例如︰[文字分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)、[內容仲裁者](https://www.microsoft.com/moderator)或[建議](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2)。
 
 為了達成上述任一個機器學習服務案例，我們可以使用 [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) 內嵌不同來源的資訊，並使用 [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) 來處理資訊，並產生可由 Azure Machine Learning 處理的輸出。
 
@@ -230,7 +229,7 @@ Cosmos DB 預設便支援[動態分割 (英文)](https://azure.microsoft.com/blo
 
 其中值得注意的一點是，Cosmos DB 會透明地在所有資料分割上執行您的查詢 (包括[彙總 (英文)](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/))，您不需要隨資料增加而新增任何邏輯。
 
-流量最終會隨時間增長，而您的資源消耗 (以 [RU](request-units.md) (要求單位) 為單位) 也會增加。 隨著使用者數量的增長，讀取及寫入也會變得更頻繁，使用者將會建立及讀取更多內容，因此「調整輸送量」的能力極為重要。 增加 RU 非常容易，只要在 Azure 入口網站按幾下，或是[透過 API 發出命令 (英文)](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer) 即可。
+流量最終會隨時間增長，而您的資源消耗 (以 [RU](request-units.md) (要求單位) 為單位) 也會增加。 隨著使用者數量的增長，讀取及寫入也會變得更頻繁，使用者將會建立及讀取更多內容，因此「調整輸送量」的能力極為重要。 增加 RU 非常容易，只要在 Azure 入口網站按幾下，或是[透過 API 發出命令 (英文)](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer) 即可。
 
 ![相應增加及定義分割區索引鍵](./media/social-media-apps/social-media-apps-scaling.png)
 

@@ -1,12 +1,12 @@
 ---
-title: "使用 iothub-explorer 管理 Azure IoT 中樞雲端裝置傳訊 |Microsoft 文件"
-description: "了解如何在 Azure IoT 中樞，使用 iothub-explorer CLI 工具來監視裝置到雲端 (D2C) 的訊息，以及傳送雲端到裝置 (C2D) 的訊息。"
+title: 使用 iothub-explorer 管理 Azure IoT 中樞雲端裝置傳訊 |Microsoft 文件
+description: 了解如何在 Azure IoT 中樞，使用 iothub-explorer CLI 工具來監視裝置到雲端 (D2C) 的訊息，以及傳送雲端到裝置 (C2D) 的訊息。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
-keywords: "iothub explorer, 雲端裝置傳訊, iot 中樞雲端到裝置, 雲端到裝置傳訊"
+tags: ''
+keywords: iothub explorer, 雲端裝置傳訊, iot 中樞雲端到裝置, 雲端到裝置傳訊
 ms.assetid: 04521658-35d3-4503-ae48-51d6ad3c62cc
 ms.service: iot-hub
 ms.devlang: arduino
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.openlocfilehash: 30151b7bdc544bc36e959cc3528d37897198fc7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e74c08849ae2f98d3189c0cd3d340874ea085ff
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用 iothub-explorer 在裝置與 IoT 中樞之間傳送及接收訊息
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) 有數個命令可讓您更輕鬆管理 IoT 中樞。 本學課程著重於如何使用 iothub-explorer，在裝置與 IoT 中樞之間傳送及接收訊息。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="what-you-will-learn"></a>學習目標
 

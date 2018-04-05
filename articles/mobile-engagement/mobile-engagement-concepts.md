@@ -1,11 +1,11 @@
 ---
-title: "Mobile Engagement 概念 | Microsoft Docs"
-description: "Azure Mobile Engagement 概念"
+title: Mobile Engagement 概念 | Microsoft Docs
+description: Azure Mobile Engagement 概念
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8d19abd1-0a6c-4772-9fa5-5e99980ac5da
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 8450651528007b4527366b89a6ad7615169f93c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bc09de37c1b2aca35ef1ea74227df770f15baf5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-concepts"></a>Azure Mobile Engagement 概念
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 Mobile Engagement 定義所有支援平台共同的一些概念。 本文會簡短說明這些概念。
 
 如果您不熟悉 Mobile Engagement，本文會是一個不錯的起點。 也請務必閱讀您所使用平台的專屬文件，因為它會精簡本文中所述概念的更多詳細資料和範例，以及可能的限制。

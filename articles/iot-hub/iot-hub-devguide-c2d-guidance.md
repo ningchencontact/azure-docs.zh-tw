@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中樞雲端到裝置選項 | Microsoft Docs"
-description: "開發人員指南 - 針對雲端到裝置通訊，提供直接方法、裝置對應項的所需屬性或雲端到裝置訊息的使用時機指引。"
+title: Azure IoT 中樞雲端到裝置選項 | Microsoft Docs
+description: 開發人員指南 - 針對雲端到裝置通訊，提供直接方法、裝置對應項的所需屬性或雲端到裝置訊息的使用時機指引。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: dc8256022aca37823245ecb9a9326240f1c449c2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 144bd8e0a954e54cf17fb88105759d0e000454fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Cloud-to-device communications guidance
 IoT 中樞提供三個選項以便裝置應用程式對後端應用程式公開功能︰
@@ -26,6 +26,8 @@ IoT 中樞提供三個選項以便裝置應用程式對後端應用程式公開�
 * [直接方法][lnk-methods]，適用於需要立即確認結果的通訊。 直接方法通常用於裝置的互動式控制，例如開啟風扇。
 * [對應項的所需屬性][lnk-twins]，適用於可讓裝置進入特定所需狀態的長時間執行命令。 例如，將遙測傳送間隔設定為 30 分鐘。
 * [雲端到裝置訊息][lnk-c2d]，適用於對裝置應用程式的單向通知。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 以下是各種雲端到裝置通訊選項的詳細比較。
 

@@ -1,26 +1,26 @@
 ---
-title: "在 Azure 中建立由泛型 Webhook 所觸發的函式 | Microsoft Docs"
-description: "使用 Azure Functions 在 Azure 中建立 Webhook 所叫用的無伺服器函式。"
+title: 在 Azure 中建立由泛型 Webhook 所觸發的函式 | Microsoft Docs
+description: 使用 Azure Functions 在 Azure 中建立 Webhook 所叫用的無伺服器函式。
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: fafc10c0-84da-4404-b4fa-eea03c7bf2b1
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/08/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: cf86325971b607c7e1ec4b026f7df274e14c5e52
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: 83e751cc0c5b6c53d409dc61556a6bcdbed2415a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>建立由泛型 Webhook 所觸發的函式
 
@@ -33,8 +33,6 @@ Azure Functions 可讓您在無伺服器環境中執行程式碼，而不需要�
 若要完成本教學課程：
 
 + 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## <a name="create-an-azure-function-app"></a>建立 Azure 函數應用程式
 

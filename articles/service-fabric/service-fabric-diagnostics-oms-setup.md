@@ -3,7 +3,7 @@ title: Azure Service Fabric - 使用 OMS Log Analytics 設定監視 | Microsoft 
 description: 了解如何設定 Operations Management Suite 對事件進行視覺化及分析，以供監視 Azure Service Fabric 叢集。
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
-ms.author: dekapur
-ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 3/30/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>針對叢集設定 Operations Management Suite Log Analytics
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 03/16/2018
 
 使用 Resource Manager 範本部署叢集時，該範本會建立新的 OMS 工作區、將 Service Fabric 解決方案新增至此工作區，並將它設定為讀取適當儲存體資料表中的資料。
 
-您可以使用和修改[這個範例範本](https://azure.microsoft.com/resources/templates/service-fabric-oms/)以符合您的需求。 在 [Service Fabric 與 OMS 範本](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS)可取得一些範本，以提供不同選項來設定 OMS 工作區。
+您可以使用和修改[這個範例範本](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms)以符合您的需求。
 
 進行下列修改：
 1. 將以下程式碼片段新增至 template.json 檔案中定義的參數，進而將 `omsWorkspaceName` 和 `omsRegion` 新增至您的參數。 可自由將預設值設定為您覺得合適的值。 此外，在 parameters.json 檔案中新增兩個新參數，以針對資源部署定義其值：

@@ -1,12 +1,11 @@
 ---
-title: "串流分析時間範圍函式簡介 | Microsoft Docs"
-description: "深入了解串流分析中的三個時間範圍函式 (輪轉、跳動、滑動)。"
-keywords: "輪轉時間範圍、滑動時間範圍、跳動時間範圍"
-documentationcenter: 
+title: 串流分析時間範圍函式簡介 | Microsoft Docs
+description: 深入了解串流分析中的三個時間範圍函式 (輪轉、跳動、滑動)。
+keywords: 輪轉時間範圍、滑動時間範圍、跳動時間範圍
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 2a6559551f608cf435e89997392a6a0ba995c583
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 3757834ff816fffc4571aeef8c164c2230c0f7c2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>串流分析時間範圍函式簡介
 在許多即時資串流案例中，只必須對暫時時間範圍中內含的資料執行作業。 時間範圍函式的原生支援是 Azure 串流分析的重要功能，可對撰寫複雜串流處理作業中的開發人員產能造成重大影響。 串流分析可讓開發人員使用[**輪轉**](https://msdn.microsoft.com/library/dn835055.aspx)、[**跳動**](https://msdn.microsoft.com/library/dn835041.aspx)和[**滑動**](https://msdn.microsoft.com/library/dn835051.aspx)時間範圍對串流資料執行暫時作業。 值得注意的是，所有 [時間範圍](https://msdn.microsoft.com/library/dn835019.aspx) 作業都會在時間範圍 **結束** 時輸出結果。 時間範圍的輸出會是以使用的彙總函式為基礎的單一事件。 此事件會有時間範圍結束的時間戳記，所有時間範圍函式都是以固定長度定義。 最後務必注意，所有時間範圍函式都應使用於 [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx) 子句中。

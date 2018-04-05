@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 使用者介面 - 首頁"
-description: "了解如何使用 Azure Mobile Engagement 管理現有的應用程式和專案"
+title: Azure Mobile Engagement 使用者介面 - 首頁
+description: 了解如何使用 Azure Mobile Engagement 管理現有的應用程式和專案
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: aff578d2-40f6-43e4-b0ea-7d2674cb28a1
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0379e51a30927af88367fc687d8f8ce66eb827f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-your-existing-application-and-projects"></a>如何管理現有的應用程式和專案
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 本文說明 **Mobile Engagement** 入口網站的**首頁**。 使用 **Mobile Engagement** 入口網站可監視與管理您的行動應用程式。 請注意，若要開始使用入口網站，您必須先建立 **Azure Mobile Engagement** 帳戶。 
 
 若要前往首頁，請按一下頁面左上角的 **首頁** 。 若您的應用程式屬於所選集合，則會全部列於此處。 此頁面上只會顯示您應用程式的快速概觀。

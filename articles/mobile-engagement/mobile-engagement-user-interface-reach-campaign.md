@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 使用者介面 - 觸達活動"
-description: "了解如何使用 Azure Mobile Engagement 建立和管理推播通知活動。"
+title: Azure Mobile Engagement 使用者介面 - 觸達活動
+description: 了解如何使用 Azure Mobile Engagement 建立和管理推播通知活動。
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2fe124a2-a86f-4136-81ba-a9d298ec798a
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d457a8d5f68f70f6bf7a5f086b5e1d65bd1ea95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>如何建立和管理推播通知活動。
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 您可以使用 UI 的 [觸達] 區段，提供傳送推播通知所需的所有資訊，建立具有複雜公式的新推播活動。 觸達活動的選項根據四種活動類型而有所不同：通知、投票、資料推送和磚 (僅 Windows Phone)。
 
 ### <a name="option-applies-to"></a>選項適用範圍：

@@ -1,21 +1,21 @@
 ---
-title: "針對 Azure Windows 虛擬機器上的連結 VHD 進行疑難排解 | Microsoft Docs"
-description: "如何針對 Windows VM 發生未預期的重新開機等問題，或針對刪除內含連結 VHD 的儲存體帳戶時所發生的問題進行疑難排解。"
-keywords: "ssh 連線被拒, ssh 錯誤, azure ssh, ssh 連線失敗"
+title: 針對 Azure Windows 虛擬機器上的連結 VHD 進行疑難排解 | Microsoft Docs
+description: 如何針對 Windows VM 發生未預期的重新開機等問題，或針對刪除內含連結 VHD 的儲存體帳戶時所發生的問題進行疑難排解。
+keywords: ssh 連線被拒, ssh 錯誤, azure ssh, ssh 連線失敗
 services: virtual-machines-windows
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: iainfou
-ms.openlocfilehash: b4f3382a070894647aa4294fc5b0b63c98eddaab
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: rogarana
+ms.openlocfilehash: d0103d8ea608014e53f70402220b302b6da445e9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-attached-vhds-on-azure-windows-virtual-machines"></a>針對 Azure Windows 虛擬機器上的連結 VHD 進行疑難排解
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 使用者介面 - 儀表板"
-description: "了解如何使用 Azure Mobile Engagement 檢視和管理應用程式的資料圖表"
+title: Azure Mobile Engagement 使用者介面 - 儀表板
+description: 了解如何使用 Azure Mobile Engagement 檢視和管理應用程式的資料圖表
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 72d5965e-8e79-48a3-9e63-0b66b7457d3c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d941b9858b964e11308061bae9e6dbc5e2fda767
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>如何檢視和管理應用程式的資料圖表
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 UI 的 [儀表板] 區段可讓客戶藉由提供想要的確切資訊，而不是在 [分析] 區段中搜尋，來建立自訂的圖表以節省時間。 儀表板會顯示在指定的一段時間內 (小時/日/週/月/自訂)，應用程式和不同應用程式版本的 [作用中使用者計數] 趨勢。 顯示的趨勢是以過去 7 天為基礎。
 
 ### <a name="see-also"></a>另請參閱

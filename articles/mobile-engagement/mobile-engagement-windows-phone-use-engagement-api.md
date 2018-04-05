@@ -1,11 +1,11 @@
 ---
-title: "如何在 Windows Phone Silverlight 上使用 Engagement API"
-description: "如何在 Windows Phone Silverlight 上使用 Engagement API"
+title: 如何在 Windows Phone Silverlight 上使用 Engagement API
+description: 如何在 Windows Phone Silverlight 上使用 Engagement API
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ae2ba2e8-f75b-4dee-a164-a7dd65d35a23
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ec8b6c13ea052c8063dfde4321cdd286ab6cb817
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03673924ee7734fcf6f1f4f7c744616844fdc87a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-phone-silverlight"></a>如何在 Windows Phone Silverlight 上使用 Engagement API
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 此文件是 [如何在 Windows Phone Silverlight 應用程式中整合 Mobile Engagement](mobile-engagement-windows-phone-integrate-engagement.md)文件的附加說明。 它會提供關於如何使用 Engagement API 來回報您應用程式的統計資料之詳細資訊。
 
 如果您只想要 Engagement 報告應用程式的工作階段、活動、當機和技術資訊，最簡單的方式就是讓您所有的 `PhoneApplicationPage` 子類別繼承自 `EngagementPage` 類別。

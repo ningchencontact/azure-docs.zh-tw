@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 疑難排解指南 - 分析"
-description: "Azure Mobile Engagement 中分析、監視、分割，以及儀表板問題的疑難排解指南"
+title: Azure Mobile Engagement 疑難排解指南 - 分析
+description: Azure Mobile Engagement 中分析、監視、分割，以及儀表板問題的疑難排解指南
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 04a7020a-ad74-4491-be69-0bd574890029
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: e30c9ac0a8421ffcf4fc3e2548cfd7ac49701900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b19d018b83ee8b3d5848d29afff190d3dcaf3fde
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-analytics-monitoring-segmentation-and-dashboard-issues"></a>分析、監視、分割，以及儀表板問題的疑難排解指南
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 以下是您可能會遇到，有關 Azure Mobile Engagement 如何收集應用程式、裝置和使用者相關資訊的問題。
 
 ## <a name="missingdelayed-information"></a>遺漏/延遲資訊

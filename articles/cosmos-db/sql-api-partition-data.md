@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a48c1bb246e3e8659aada614d39fdc608e5bc8d8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fe78289938e752731ff2e830fb62ad210e12111e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>使用 SQL API 在 Azure Cosmos DB 進行資料分割
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 03/28/2018
 讓我們看看資料分割索引鍵選擇對於應用程式效能的影響。
 
 ## <a name="working-with-the-azure-cosmos-db-sdks"></a>使用 Azure Cosmos DB SDK
-Azure Cosmos DB 已透過 [REST API 版本 2015-12-16](/rest/api/documentdb/) 新增對自動資料分割的支援。 若要建立資料分割的容器，必須下載其中一個支援的 SDK 平台 (.NET、Node.js、Java、Python、MongoDB) 中的 SDK 1.6.0 版或更新版本。 
+Azure Cosmos DB 已透過 [REST API 版本 2015-12-16](/rest/api/cosmos-db/) 新增對自動資料分割的支援。 若要建立資料分割的容器，必須下載其中一個支援的 SDK 平台 (.NET、Node.js、Java、Python、MongoDB) 中的 SDK 1.6.0 版或更新版本。 
 
 ### <a name="creating-containers"></a>建立容器
 下列範例顯示建立容器的 .NET 程式碼片段，可儲存輸送量每秒 20,000 個要求單位的裝置遙測資料。 SDK 會設定 OfferThroughput 值 (這會接著設定 REST API 中的 `x-ms-offer-throughput` 要求標頭)。 此處我們將 `/deviceId` 設定為資料分割索引鍵。 選擇的資料分割索引鍵會與其餘的容器中繼資料 (例如名稱與編製索引原則) 一併儲存。
@@ -225,6 +225,6 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 在本文中，我們提供如何透過 SQL API 使用 Azure Cosmos DB 容器資料分割的概觀。 如需使用任一 Azure Cosmos DB API 進行資料分割之概念和最佳做法的概觀，另請參閱[資料分割與水平調整](../cosmos-db/partition-data.md)。 
 
 * 使用 Azure Cosmos DB 執行規模和效能測試。 如需範例，請參閱 [Azure Cosmos DB 的效能和規模測試](performance-testing.md)。
-* 使用 [SDK](sql-api-sdk-dotnet.md) 或 [REST API](/rest/api/documentdb/) 開始撰寫程式碼
+* 使用 [SDK](sql-api-sdk-dotnet.md) 或 [REST API](/rest/api/cosmos-db/) 開始撰寫程式碼
 * 了解 [Azure Cosmos DB 中佈建的輸送量](request-units.md)
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中樞裝置到雲端選項 | Microsoft Docs"
-description: "開發人員指南 - 針對雲端到裝置通訊，提供裝置到雲端訊息、報告屬性或檔案上傳的使用時機指引。"
+title: Azure IoT 中樞裝置到雲端選項 | Microsoft Docs
+description: 開發人員指南 - 針對雲端到裝置通訊，提供裝置到雲端訊息、報告屬性或檔案上傳的使用時機指引。
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: a9a062ebb8d6e3b37d917064209eda618d0dd308
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a870852d937732bb38f08420a07bfe696860e08b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Device-to-cloud communications guidance
 將資訊從裝置應用程式傳送到解決方案後端時，IoT 中樞會公開三個選項︰
@@ -26,6 +26,8 @@ ms.lasthandoff: 02/01/2018
 * [裝置到雲端訊息][lnk-d2c]，適用於時間序列遙測和警示。
 * [裝置對應項的回報屬性][lnk-twins]，適用於回報裝置狀態資訊，例如可用的功能、條件及長時間執行之工作流程的狀態。 例如，組態和軟體更新。
 * [檔案上傳][lnk-fileupload]，適用於間歇性連線裝置所上傳或為了節省頻寬而壓縮的媒體檔案和大型遙測批次。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 以下是各種裝置到雲端通訊選項的詳細比較。
 

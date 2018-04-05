@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement - 後端整合"
-description: "連接 Azure Mobile Engagement 與 SharePoint 後端以從 SharePoint 建立行銷活動"
+title: Azure Mobile Engagement - 後端整合
+description: 連接 Azure Mobile Engagement 與 SharePoint 後端以從 SharePoint 建立行銷活動
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 06297b43-579f-46e6-8a58-961a68f9aa09
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf530ca6dce32050487f367aa80b10bf7f20b7e7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---api-integration"></a>Azure Mobile Engagement - API 整合
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 在自動化行銷系統中，建立及啟動行銷活動也會自動發生。 針對此目的 - Azure Mobile Engagement 也可以使用 API 建立這類自動化行銷活動。 
 
 通常客戶使用 Mobile Engagement 前端介面建立公告/投票等等做為其行銷活動的一部分。 不過隨著行銷活動成熟，就需要運用後端系統 (例如任何 CRM 系統或 CMS 系統，例如 SharePoint) 中鎖定的資料，以便建立完全自動化的管線，根據從後端系統傳送的資料，在 Mobile Engagement 中動態建立行銷活動。 

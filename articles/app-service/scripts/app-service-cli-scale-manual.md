@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 指令碼範例 - 使用 Azure CLI 2.0 手動調整 Web 應用程式 | Microsoft Docs"
-description: "Azure CLI 指令碼範例 - 使用 Azure CLI 2.0 手動調整 Web 應用程式"
+title: Azure CLI 指令碼範例 - 使用 Azure CLI 2.0 手動調整 Web 應用程式 | Microsoft Docs
+description: Azure CLI 指令碼範例 - 使用 Azure CLI 2.0 手動調整 Web 應用程式
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 251d9074-8fff-4121-ad16-9eca9556ac96
 ms.service: app-service
@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e5aaa6dd960544a07d786d6ccb5747f3e7914b0a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 844250dce567bac280ae3a9a688cc8e5bc5852c9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="scale-a-web-app-manually"></a>手動調整 Web 應用程式
 
@@ -44,10 +44,10 @@ ms.lasthandoff: 03/09/2018
 
 | 命令 | 注意 |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | 建立用來存放所有資源的資源群組。 |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | 建立 App Service 方案。 |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | 建立 Azure Web 應用程式。 |
-| [`az appservice plan update`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_update) | 更新 App Service 方案的屬性。 |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | 建立用來存放所有資源的資源群組。 |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | 建立 App Service 方案。 |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | 建立 Azure Web 應用程式。 |
+| [`az appservice plan update`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-update) | 更新 App Service 方案的屬性。 |
 
 ## <a name="next-steps"></a>後續步驟
 

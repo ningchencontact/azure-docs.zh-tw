@@ -1,25 +1,25 @@
 ---
-title: "以命令列部署 Azure Stack 中的範本 | Microsoft Docs"
-description: "了解如何使用跨平台命令列介面 (CLI) 部署範本到 Azure Stack 上。"
+title: 以命令列部署 Azure Stack 中的範本 | Microsoft Docs
+description: 了解如何使用跨平台命令列介面 (CLI) 部署範本到 Azure Stack 上。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 9584177f-4af3-4834-864d-930b09ae0995
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 88e10d98a709ff967e19bfe5bfb35bbce9d2df9f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.reviewer: ''
+ms.openlocfilehash: 761e09889a230642c42697b6bc4f96dc32fe03a0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>使用命令列部署 Azure Stack 中的範本
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/22/2018
 使用命令列將 Azure Resource Manager 範本部署到 Azure Stack 開發套件。 Azure Resource Manager 範本可藉由單一協調作業，來部署和佈建應用程式的所有資源。
 
 ## <a name="before-you-begin"></a>開始之前
- - 使用 Azure CLI [安裝並連線](azure-stack-connect-cli.md)至 Azure Stack
+ - 使用 Azure CLI [安裝並連線](azure-stack-version-profiles-azurecli2.md)至 Azure Stack
  - 從 [建立儲存體帳戶範例範本](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account) 下載 *azuredeploy.json* 和 *azuredeploy.parameters.json* 檔案。
  
 ## <a name="deploy-template"></a>部署範本

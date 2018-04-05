@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 02d7c3f587a4cbfb11fc3b6863f75ca30b4d6c51
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f34fabc95d5b56edc6e37c323bebf60bd98c8b90
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>將公用互連移至 Microsoft 對等互連
 
@@ -27,8 +27,6 @@ ExpressRoute 支援使用 Microsoft 對等互連與路由篩選進行 Azure PaaS
 
 本文可協助您將公用對等設定移至 Microsoft 對等互連，不需要停機。 如需路由網域和對等互連的詳細資訊，請參閱 [ExpressRoute 線路及路由網域](expressroute-circuit-peerings.md)。
 
-> [!IMPORTANT]
-> 您必須擁有 ExpressRoute Premium 附加元件，才能使用 Microsoft 對等互連。 如需進階附加元件的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md#expressroute-premium)。
 
 ## <a name="before"></a>開始之前
 

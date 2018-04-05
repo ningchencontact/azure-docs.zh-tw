@@ -1,12 +1,12 @@
 ---
-title: "將 Windows 檔案和資料夾備份至 Azure (Resource Manager) | Microsoft Docs"
-description: "了解如何在 Resource Manager 部署中將 Windows 檔案和資料夾備份至 Azure 。"
+title: 將 Windows 檔案和資料夾備份至 Azure (Resource Manager) | Microsoft Docs
+description: 了解如何在 Resource Manager 部署中將 Windows 檔案和資料夾備份至 Azure 。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "如何備份; 如何備份; 備份檔案和資料夾"
+editor: ''
+keywords: 如何備份; 如何備份; 備份檔案和資料夾
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.openlocfilehash: bb631eff77932b6bdcf858256c47c9d7381a58c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 55f83bda1a9de9274194ec220fa9a4a5c8b7f0fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>初步了解：在 Resource Manager 部署中備份檔案和資料夾
 本文說明如何使用 Resource Manager 部署將 Windows Server (或 Windows 用戶端) 檔案和資料夾備份至 Azure。 本文中的教學課程是要讓您逐步了解基本概念。 如果您想要開始使用 Azure 備份，請閱讀本文的內容。
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/21/2018
 
     ![儲存體組態選項](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    根據預設，保存庫具有異地備援儲存體。 如果您使用 Azure 做為主要的備份儲存體端點，請繼續使用 [異地備援]。 如果您未使用 Azure 做為主要的備份儲存體端點，則選擇 [本地備援]，以減少 Azure 儲存體成本。 在此[儲存體備援概觀](../storage/common/storage-redundancy.md)中，深入了解[異地備援](../storage/common/storage-redundancy.md#geo-redundant-storage)和[本地備援](../storage/common/storage-redundancy.md#locally-redundant-storage)儲存體選項。
+    根據預設，保存庫具有異地備援儲存體。 如果您使用 Azure 做為主要的備份儲存體端點，請繼續使用 [異地備援]。 如果您未使用 Azure 做為主要的備份儲存體端點，則選擇 [本地備援]，以減少 Azure 儲存體成本。 在此[儲存體備援概觀](../storage/common/storage-redundancy.md)中，深入了解[異地備援](../storage/common/storage-redundancy-grs.md)和[本地備援](../storage/common/storage-redundancy-lrs.md)儲存體選項。
 
 現在您已建立保存庫，請設定它來備份檔案和資料夾。
 

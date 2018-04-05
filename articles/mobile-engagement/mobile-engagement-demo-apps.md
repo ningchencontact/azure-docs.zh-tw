@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 示範應用程式 | Microsoft Docs"
-description: "描述由何處下載、如何使用以及使用 Azure Mobile Engagement 示範應用程式的優點"
+title: Azure Mobile Engagement 示範應用程式 | Microsoft Docs
+description: 描述由何處下載、如何使用以及使用 Azure Mobile Engagement 示範應用程式的優點
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f624d5aa-254b-4ad0-96a3-f00e6c3a2c97
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 8381edb569e19a85c1259f7791b477cfa6e51ea3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b74afcadc52973a4d824afddc0abff6ac9f71d17
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-demo-app"></a>Azure Mobile Engagement 示範應用程式
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 我們已針對 **iOS**、**Android** 和 **Windows** 平台發行 Azure Mobile Engagement 示範應用程式，協助您找到有用的資源，並深入了解 Mobile Engagement。
 
 應用程式可協助您︰

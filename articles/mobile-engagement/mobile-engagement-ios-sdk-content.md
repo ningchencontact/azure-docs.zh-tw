@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement iOS SDK 內容"
-description: "Azure Mobile Engagement iOS SDK 的最新更新與程序"
+title: Azure Mobile Engagement iOS SDK 內容
+description: Azure Mobile Engagement iOS SDK 的最新更新與程序
 services: mobile-engagement
 documentationcenter: mobile
 author: MehrdadMzfr
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2566eeb6-be82-4d83-aaf6-ebdcb8841189
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: bdc96cd47ece6054184d167192ebec4cd4bd081c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbb783b7b1a23cc62a7e214ce90374ba8c84b5d8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="sdk-content"></a>SDK 內容
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 本文件列出並描述 SDK 封存的內容。
 
 ## <a name="engagement-sdk"></a>Engagement SDK

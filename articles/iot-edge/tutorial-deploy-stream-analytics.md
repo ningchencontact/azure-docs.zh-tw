@@ -1,19 +1,19 @@
 ---
-title: "使用 Azure IoT Edge部署 Azure 串流分析 | Microsoft Docs"
-description: "將 Azure 串流分析作為模組部署至邊緣裝置"
+title: 使用 Azure IoT Edge部署 Azure 串流分析 | Microsoft Docs
+description: 將 Azure 串流分析作為模組部署至邊緣裝置
 services: iot-edge
-keywords: 
-author: msebolt
+keywords: ''
+author: kgremban
 manager: timlt
-ms.author: v-masebo
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>將 Azure 串流分析部署為 IoT Edge 模組 - 預覽
 
@@ -36,7 +36,7 @@ Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結�
 > * 將新的 Azure 串流分析作業與其他 IoT Edge 模組連結。
 > * 將 Azure 串流分析作業部署到 IoT Edge 裝置。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * IoT 中樞。 
 * 您在快速入門中，或是有關在 [Windows][lnk-tutorial1-win] 或 [Linux][lnk-tutorial1-lin] 中的模擬裝置上部署 Azure IoT Edge 的文章中建立及設定的裝置。 您必須知道裝置連線金鑰和裝置識別碼。 

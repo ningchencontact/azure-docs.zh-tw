@@ -1,11 +1,11 @@
 ---
-title: "使用 Mobile Engagement REST API 進行驗證：手動設定"
-description: "描述如何手動設定 Mobile Engagement REST API 的驗證"
+title: 使用 Mobile Engagement REST API 進行驗證：手動設定
+description: 描述如何手動設定 Mobile Engagement REST API 的驗證
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2e79f9c9-41e4-45ac-b427-3b8338675163
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0b4a999c6778040e71f862d3a010b6635e84b26e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 0d71908b34ddf8313aa45014420c9e63a00078c9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis-manual-setup"></a>使用 Mobile Engagement REST API 進行驗證：手動設定
+# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>使用 Mobile Engagement REST API 進行驗證 - 手動設定
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 本文件是[使用 Mobile Engagement REST API 進行驗證](mobile-engagement-api-authentication.md)的附錄。 請務必先閱讀該篇文章以了解內容。 文中也會說明使用 Azure 入口網站執行 Mobile Engagement REST API 單次驗證設定的替代方法。
 
 > [!NOTE]

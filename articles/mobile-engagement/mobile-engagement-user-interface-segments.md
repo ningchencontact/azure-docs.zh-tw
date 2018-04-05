@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 使用者介面 - 使用者分佈"
-description: "了解如何使用 Azure Mobile Engagement 建立和管理使用者的使用者分佈以分辨使用模式"
+title: Azure Mobile Engagement 使用者介面 - 使用者分佈
+description: 了解如何使用 Azure Mobile Engagement 建立和管理使用者的使用者分佈以分辨使用模式
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6a4f2205-4a3c-406e-a04f-5e6f2a36653f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 087f4a1fef420abe9669f8dfe2b84c7a847ce263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53c5b1b672a0d7212a3d298c3e411a9cc6ac0807
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-segments-of-users-to-identify-usage-patterns"></a>如何建立和管理使用者的使用者分佈以分辨使用模式
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 本文說明 **Mobile Engagement** 入口網站的 [區段]索引標籤。 使用 **Mobile Engagement** 入口網站可監視與管理您的行動應用程式。
 
 UI 的 [使用者分佈] 區段可讓您根據不同的行為和分析，對您的使用者進行分佈研究，這些行為和分析可從應用程式取得，也可透過「使用者分佈 API」存取。 使用者分佈會在建立之後的 24 小時先計算一次，然後根據最新的分析資訊，每隔 24 小時重新計算一次。 計算使用者分佈之後，它會每天顯示「每天變化的歷程記錄」圖表。

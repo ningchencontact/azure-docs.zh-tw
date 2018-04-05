@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 03/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 038b2337ea49b769c6b19e9d50a5f0f2edd13d56
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6c8c920a801e223e2a8f557ffb7f820a8b6db605
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>教學課程：Azure Active Directory 與 ADP
 
@@ -196,7 +196,7 @@ ms.lasthandoff: 03/28/2018
 
     ![設定單一登入連結][4]
 
-7. 在 [單一登入] 對話方塊中，選取 [連結的登入] 作為 [模式]。 以將您的應用程式連結至 **ADP**。
+7. 在 [單一登入] 對話方塊中，選取 [連結的登入] 作為 [模式]， 以將您的應用程式連結至 **ADP**。
 
     ![已連結的單一登入](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linked.png)
 
@@ -206,27 +206,27 @@ ms.lasthandoff: 03/28/2018
                                                               
     a. 貼上您從上面 [屬性] 索引標籤 (來自主要 ADP 應用程式) 複製的 [使用者存取 URL]。
                                                              
-    b. 以下是 5 個支援不同**轉送狀態 URL**的應用程式。 您必須手動將特定應用程式的適當**轉送狀態 URL** 值附加至 [使用者存取 URL]。
+    b. 以下是 5 個支援不同**轉送狀態 URL** 的應用程式。 您必須手動將特定應用程式的適當**轉送狀態 URL** 值附加至 [使用者存取 URL]。
     
     * **ADP Workforce Now**
         
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?WFN`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
 
     * **ADP Workforce Now Enhanced Time**
         
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?EETDC2`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
     
     * **ADP Vantage HCM**
         
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
     * **ADP Enterprise HR**
 
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
 
     * **MyADP**
 
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
 
 9. **儲存** 您的變更。
 

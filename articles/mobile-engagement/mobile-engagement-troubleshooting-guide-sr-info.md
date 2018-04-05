@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 疑難排解指南 - 服務要求資訊"
-description: "支援小組要求以疑難排解 Azure Mobile Engagement 問題的服務要求資訊"
+title: Azure Mobile Engagement 疑難排解指南 - 服務要求資訊
+description: 支援小組要求以疑難排解 Azure Mobile Engagement 問題的服務要求資訊
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 28d49915-d0c2-4fac-b07a-b3e9b6b8528a
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: a4497046df74003a733d80f190e82b5e798d398e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d08ccbe6639809f16c41b3399cbe374d34c9a5bb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="service-request-sr-information"></a>服務要求 (SR) 資訊
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 當您開啟任何 Mobile Engagement 服務時，請提供下列資訊：
 
 ## <a name="ids-applicable-identifiers-related-to-your-issue"></a>識別碼：與您的問題相關的適用識別碼：

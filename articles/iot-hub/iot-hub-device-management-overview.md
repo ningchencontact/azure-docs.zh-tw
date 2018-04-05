@@ -1,11 +1,11 @@
 ---
-title: "透過 Azure IoT 中樞進行裝置管理 | Microsoft Docs"
-description: "Azure IoT 中樞的裝置管理概觀︰企業裝置生命週期及裝置管理模式，例如重新啟動、恢復出廠預設值、韌體更新、設定、裝置對應項、查詢、作業。"
+title: 透過 Azure IoT 中樞進行裝置管理 | Microsoft Docs
+description: Azure IoT 中樞的裝置管理概觀︰企業裝置生命週期及裝置管理模式，例如重新啟動、恢復出廠預設值、韌體更新、設定、裝置對應項、查詢、作業。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: bzurcher
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a367e715-55f6-4593-bd68-7863cbf0eb81
 ms.service: iot-hub
 ms.devlang: na
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 458b316ba76ff7cace56eb21eaf105233e508741
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 4fe4328314e23bbd1ace13e935f82336e1e602a9
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>IoT 中樞的裝置管理概觀
-## <a name="introduction"></a>簡介
+
 Azure IoT 中樞提供的功能和擴充性模型，可讓裝置與後端開發人員建置穩健的裝置管理解決方案。 裝置包羅萬象，從受限的感應器和單一用途的微控制器，到可路由傳送裝置群組通訊的強大閘道都是其中一份子。  此外，各產業 IoT 操作員的使用案例和需求大不相同。  儘管有此差異，IoT 中樞的裝置管理會提供一些功能、模式和程式碼程式庫，來滿足各種裝置和使用者的需求。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 建立成功企業 IoT 解決方案的關鍵在於，針對操作員該如何持續管理其裝置集合提供策略。 IoT 操作員需要簡單可靠的工具和應用程式，讓他們能夠專注於作業中更為重要的層面上。 本文提供：
 

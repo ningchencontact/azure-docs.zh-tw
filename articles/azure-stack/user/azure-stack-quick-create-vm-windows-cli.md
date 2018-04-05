@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure CLI 在 Azure Stack 上建立 Windows 虛擬機器 | Microsoft Docs"
-description: "了解如何使用 Azure CLI 在 Azure Stack 上建立 Windows VM"
+title: 使用 Azure CLI 在 Azure Stack 上建立 Windows 虛擬機器 | Microsoft Docs
+description: 了解如何使用 Azure CLI 在 Azure Stack 上建立 Windows VM
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: E26B246E-811D-44C9-9BA6-2B3CE5B62E83
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: ea972db9ce3488d9a46a7d059714c8bbe820d47d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2a4eb909c39051ce9fa2efd7e7997644d9b8b1b1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>使用 Azure CLI 在 Azure Stack 上建立 Windows 虛擬機器
 
@@ -29,7 +29,7 @@ Azure CLI 可用來從命令列建立和管理 Azure Stack 資源。 本指南�
 
 * 請確定您的 Azure Stack 操作員已將 “Windows Server 2016” 映像新增到 Azure Stack 市集。  
 
-* Azure Stack 需要特定版本的 Azure CLI，才能建立和管理資源。 如果您尚未針對 Azure Stack 設定 Azure CLI，請依照步驟來[安裝和設定 Azure CLI](azure-stack-connect-cli.md)。
+* Azure Stack 需要特定版本的 Azure CLI，才能建立和管理資源。 如果您尚未針對 Azure Stack 設定 Azure CLI，請依照步驟來[安裝和設定 Azure CLI](azure-stack-version-profiles-azurecli2.md)。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement - 重要功能"
-description: "說明 Azure Mobile Engagement 的重要功能"
+title: Azure Mobile Engagement - 重要功能
+description: 說明 Azure Mobile Engagement 的重要功能
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d98bafb6-4fd0-4cc3-8c2f-962af70c416c
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 8270a223ca31c623c1b760a64c0e4d64fb85e080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce160fbc78c7069b0114599455403e5e20771c6c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---key-features"></a>Azure Mobile Engagement - 重要功能
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 本文章提供與 Mobile Engagement 平台重要功能有關的高等級概觀。 
 
 ## <a name="general"></a>**一般**

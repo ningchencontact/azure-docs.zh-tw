@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中樞開發人員指南 | Microsoft Docs"
-description: "Azure IoT 中樞開發人員指南中討論到端點、安全性、身分識別登錄、裝置管理、直接方法、裝置對應項、檔案上傳、作業、IoT 中心查詢語言及傳訊。"
+title: Azure IoT 中樞開發人員指南 | Microsoft Docs
+description: Azure IoT 中樞開發人員指南中討論到端點、安全性、身分識別登錄、裝置管理、直接方法、裝置對應項、檔案上傳、作業、IoT 中心查詢語言及傳訊。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d534ff9d-2de5-4995-bb2d-84a02693cb2e
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 37f9da7dcc8dd527fe0bfbf2fbcc40a3ba0e8a1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 31ccf65ccd2ab4e9673900efb1de357ab450b799
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT 中樞開發人員指南
 
 Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置和一個解決方案後端進行可靠且安全的雙向通訊。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Azure IoT 中樞可提供您︰
 

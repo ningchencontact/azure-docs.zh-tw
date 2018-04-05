@@ -1,16 +1,16 @@
 ---
-title: "自訂 Azure Migrate 評估設定 | Microsoft Docs"
-description: "說明如何使用 Azure Migration Planner，設定和執行將 VMware VM 移轉至 Azure 的評估"
+title: 自訂 Azure Migrate 評估設定 | Microsoft Docs
+description: 說明如何使用 Azure Migration Planner，設定和執行將 VMware VM 移轉至 Azure 的評估
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: raynew
-ms.openlocfilehash: efb4ad59d25a0c1209e4f0f6cd406c2f0d48159c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 459a29012ec879d4d4989e51b5688b9042adc1a1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="customize-an-assessment"></a>自訂評估
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/27/2018
     **設定** | **詳細資料** | **預設值**
     --- | --- | ---
     **目標位置** | 要作為移轉目的地的 Azure 位置。<br/><br/> Azure Migrate 目前支援 30 個區域，包括澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、印度中部、美國中部、中國東部、中國北部、東亞、美國東部、德國中部、德國東北部、美國東部 2、日本東部、日本西部、韓國中部、韓國南部、美國中北部、北歐、美國中南部、東南亞、印度南部、英國南部、英國西部、美國中西部、西歐、印度西部、美國西部和美國西部 2。 |  預設位置是「美國西部 2」。
-    **儲存體備援** | Azure VM 會在移轉後使用的儲存體備援類型。 | [本地備援儲存體 (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) 是預設值。 Azure Migrate 只支援以受控磁碟為基礎的評量，而受控磁碟只支援 LRS，因此此屬性目前只有 LRS 選項。 
+    **儲存體備援** | Azure VM 會在移轉後使用的儲存體備援類型。 | [本地備援儲存體 (LRS)](../storage/common/storage-redundancy-lrs.md) 是預設值。 Azure Migrate 只支援以受控磁碟為基礎的評量，而受控磁碟只支援 LRS，因此此屬性目前只有 LRS 選項。 
     **調整大小準則** | Azure Migrate 用於為 Azure 設定適當 VM 大小的準則。 您可以執行*以效能為基礎*的大小調整或將 VM 調整為*內部部署*大小，而不必考量效能歷程記錄。 | 以效能為基礎的大小調整是預設選項。
     **效能歷程記錄** | 考量評估 VM 效能的持續時間。 當調整大小的準則為*以效能為基礎的大小調整*時，此屬性才適用。 | 預設值為一天。
     **百分位數使用率** | 要視為適當大小調整的效能取樣集百分位數值。 當調整大小的準則為*以效能為基礎的大小調整*時，此屬性才適用。  | 預設值為第 95 個百分位數。

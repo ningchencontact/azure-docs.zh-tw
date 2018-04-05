@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure CLI (az.py) 建立 IoT 中樞 | Microsoft Docs"
-description: "如何使用跨平台 Azure CLI 2.0 (az.py) 建立 Azure IoT 中樞。"
+title: 使用 Azure CLI (az.py) 建立 IoT 中樞 | Microsoft Docs
+description: 如何使用跨平台 Azure CLI 2.0 (az.py) 建立 Azure IoT 中樞。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: azurecli
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: 161089159999a4a63a39b059e69a08b7a9297445
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c89ecc31754d355d6469d54dcd45e1cc2ef106f0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 建立 IoT 中樞
 
@@ -88,7 +88,6 @@ ms.lasthandoff: 11/18/2017
 
 > [!NOTE]
 > 上一個命令會在您付費使用的 S1 定價層中建立 IoT 中樞。 如需詳細資訊，請參閱 [Azure IoT 中樞價格][lnk-iot-pricing]。
->
 >
 
 ## <a name="remove-an-iot-hub"></a>移除 IoT 中樞

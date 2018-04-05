@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure Active Directory 管理對 Azure 資源的存取"
-description: "了解如何使用 Azure Active Directory 的不同功能管理對 Azure 資源的存取。"
+title: 使用 Azure Active Directory 管理對 Azure 資源的存取
+description: 了解如何使用 Azure Active Directory 的不同功能管理對 Azure 資源的存取。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: skwan
 manager: mtillman
 editor: bryanla
@@ -42,7 +42,6 @@ Azure AD 提供下列功能來管理對 Azure 資源的存取：
 | [角色型存取控制 (RBAC)](role-based-access-control-what-is.md) | 透過指派給使用者、群組或服務主體的角色，提供更細緻的存取管理。 |
 | [RBAC 的 Privileged Identity Management](pim-azure-resource.md) | 及時指派特殊權限角色，控制高度特殊存取權。 |
 | [Azure 管理的條件式存取](conditional-access-azure-management.md) | 設定條件式存取原則，以允許或封鎖對 Azure 管理端點的存取。 |
-| 
-            [受控服務識別 (MSI)](msi-overview.md) | 為 Azure 資源 (例如虛擬機器) 提供自己的識別身分，讓您不需要將認證放在程式碼中。 |
+| [受控服務識別 (MSI)](msi-overview.md) | 為 Azure 資源 (例如虛擬機器) 提供自己的識別身分，讓您不需要將認證放在程式碼中。 |
 
  
