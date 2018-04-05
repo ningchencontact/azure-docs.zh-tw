@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 SAP HANA 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 SAP HANA 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 SAP HANA 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 SAP HANA 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -152,7 +152,7 @@ ms.lasthandoff: 12/11/2017
 
     ![[新增識別提供者] 設定](./media/active-directory-saas-saphana-tutorial/sap2.png)
 
-    b. 如果 XML 文件的內容有效，剖析程序會擷取 [一般資料] 畫面區域中的 [主旨]、[實體識別碼] 和 [簽發者] 欄位所需的資訊。 該程序也會擷取 [目的地] 畫面區域中 URL 欄位的所需資訊，例如 [基底 URL] 和 [SingleSignOn URL] **(*)** 欄位。
+    b. 如果 XML 文件的內容有效，剖析程序會擷取 [一般資料] 畫面區域中的 [主旨]、[實體識別碼] 和 [簽發者] 欄位所需的資訊。 該程序也會擷取 [目的地] 畫面區域中 URL 欄位的所需資訊，例如 [基底 URL] 和 [SingleSignOn URL] **\(*)** 欄位。
 
     ![[新增識別提供者] 設定](./media/active-directory-saas-saphana-tutorial/sap3.png)
 
@@ -222,7 +222,7 @@ SAP Hana 支援預設啟用的 Just-In-Time 佈建。
 
 3. 選取 [新增] 以新增 SAML IDP。  選取適當的 SAML IDP，然後選取 [確定]。
 
-4. 新增 [外部識別] (在此情況下為 BrittaSimon)，或選擇 [任何]。 然後選取 [確定]。
+4. 新增 [外部識別] \(在此情況下為 BrittaSimon)，或選擇 [任何]。 然後選取 [確定]。
 
     >[!Note]
     >如果未選取 [任何] 核取方塊，則 HANA 中的使用者名稱必須完全符合 UPN 中網域尾碼前面的使用者名稱。 (舉例而言，BrittaSimon@contoso.com 會在 HANA 中變成 BrittaSimon。)

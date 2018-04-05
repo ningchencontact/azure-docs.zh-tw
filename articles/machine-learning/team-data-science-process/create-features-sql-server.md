@@ -50,7 +50,7 @@ ms.lasthandoff: 03/28/2018
 > 
 > 
 
-### <a name="sql-countfeature">以計數作為基礎的功能產生</a>
+### <a name="sql-countfeature"></a>以計數作為基礎的功能產生
 本文件示範兩種產生計數功能的方法。 第一種方法會使用條件式加總，而第二種方法會使用 'where' 子句。 這些接著可與原始資料表聯結 (使用主索引鍵資料行)，以具備計數功能及原始資料。
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>

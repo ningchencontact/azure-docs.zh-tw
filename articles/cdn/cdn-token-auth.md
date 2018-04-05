@@ -1,11 +1,11 @@
 ---
-title: "使用權杖驗證保護 Azure CDN 資產 | Microsoft Docs"
-description: "了解如何使用權杖驗證來保護對 Azure CDN 資產的存取。"
+title: 使用權杖驗證保護 Azure CDN 資產 | Microsoft Docs
+description: 了解如何使用權杖驗證來保護對 Azure CDN 資產的存取。
 services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: zhangmanling
-editor: 
+editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: cdn
 ms.devlang: multiple
@@ -154,7 +154,7 @@ ms.lasthandoff: 11/21/2017
 
     5. 輸入完加密參數值之後，請從 [要加密的金鑰] 清單中選取要加密的金鑰 (如果您已建立主要金鑰和備份金鑰)。
     
-    6. 從 [加密版本] 清單中選取加密版本：版本 2 請選 [V2]，版本 3 請選 [V3] (建議選項)。 
+    6. 從 [加密版本] 清單中選取加密版本：版本 2 請選 [V2]，版本 3 請選 [V3] \(建議選項)。 
 
     7. 按一下 [加密] 來產生權杖。
 

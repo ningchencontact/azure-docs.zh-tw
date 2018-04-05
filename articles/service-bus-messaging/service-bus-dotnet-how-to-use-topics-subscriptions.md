@@ -1,12 +1,12 @@
 ---
-title: "開始使用 Azure 服務匯流排主題和訂用帳戶 | Microsoft Docs"
-description: "撰寫使用服務匯流排傳訊主題和訂用帳戶的 C# .NET Core 主控台應用程式。"
+title: 開始使用 Azure 服務匯流排主題和訂用帳戶 | Microsoft Docs
+description: 撰寫使用服務匯流排傳訊主題和訂用帳戶的 C# .NET Core 主控台應用程式。
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
@@ -52,7 +52,7 @@ ms.lasthandoff: 02/21/2018
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2.使用 Azure 入口網站建立主題
 
 1. 登入 [Azure 入口網站][azure-portal]。
-2. 在入口網站的左方瀏覽窗格中，按一下 [服務匯流排] (如果您未看見 [服務匯流排]，請按一下 [所有服務]，或按一下 [所有資源])。 按一下要在其中建立主題的命名空間。 
+2. 在入口網站的左方瀏覽窗格中，按一下 **[服務匯流排]** \(如果您未看見 **[服務匯流排]** ，請按一下 **[所有服務]** ，或按一下 **[所有資源]** )。 按一下要在其中建立主題的命名空間。 
 3. 命名空間概觀視窗隨即開啟。 按一下 [主題]：
    
     ![建立主題][createtopic1]

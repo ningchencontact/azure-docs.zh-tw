@@ -1,12 +1,12 @@
 ---
-title: "Azure 入口網站中的 Migrate 傳統原則 | Microsoft Docs"
-description: "了解如何在 Azure 入口網站中移轉傳統原則中。"
+title: Azure 入口網站中的 Migrate 傳統原則 | Microsoft Docs
+description: 了解如何在 Azure 入口網站中移轉傳統原則中。
 services: active-directory
-keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
-documentationcenter: 
+keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
+documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/12/2017
 - Intune 應用程式防護入口網站
 
 
-在 [條件式存取] 頁面中，按一下 [管理] 區段中的 [傳統原則 (預覽)][](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) 即可存取您的傳統原則。 
+在 **[條件式存取]** 頁面中，按一下 **管理** 區段中的 [**傳統原則 (預覽)**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) 即可存取您的傳統原則。 
 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/71.png)
