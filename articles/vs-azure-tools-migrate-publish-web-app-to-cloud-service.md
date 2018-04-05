@@ -75,7 +75,7 @@ ms.lasthandoff: 03/30/2018
 
 ## <a name="using-the-compute-emulator-and-starting-application-in-azure"></a>使用計算模擬器，並且在 Azure 中啟動應用程式
 
-選取 [偵錯] > [開始偵錯] (F5)，即可在連接至 Visual Studio 偵錯工具的瀏覽器中啟動所有的應用程式類型。 對於 ASP.NET 空白 Web 應用程式專案，您必須先在您的應用程式中新增 `.aspx` 網頁，並將之設定為 Web 專案的開始頁面。
+選取 [偵錯] > [開始偵錯] \(F5)，即可在連接至 Visual Studio 偵錯工具的瀏覽器中啟動所有的應用程式類型。 對於 ASP.NET 空白 Web 應用程式專案，您必須先在您的應用程式中新增 `.aspx` 網頁，並將之設定為 Web 專案的開始頁面。
 
 下表提供在 Azure 中啟動應用程式的詳細資料：
 

@@ -1,11 +1,11 @@
 ---
-title: "從範本建立工作流程 - Azure Logic Apps | Microsoft Docs"
-description: "使用邏輯應用程式範本來加快建置工作流程的速度"
+title: 從範本建立工作流程 - Azure Logic Apps | Microsoft Docs
+description: 使用邏輯應用程式範本來加快建置工作流程的速度
 author: kevinlam1
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.service: logic-apps
 ms.workload: integration
@@ -111,7 +111,7 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
 
    ![選擇 [範本]](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. 捲動到 [範本] (中間會經過簡介影片和一般觸發程序)。 選擇預先建置的範本。 例如︰
+3. 捲動到 [範本] \(中間會經過簡介影片和一般觸發程序)。 選擇預先建置的範本。 例如︰
 
    ![選擇邏輯應用程式範本](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 

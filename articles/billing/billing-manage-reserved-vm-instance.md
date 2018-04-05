@@ -1,11 +1,11 @@
 ---
-title: "管理 Azure 保留的虛擬機器執行個體 | Microsoft Docs"
-description: "了解如何變更訂用帳戶範圍，以及針對 Azure 保留的 VM 執行個體管理存取權。"
+title: 管理 Azure 保留的虛擬機器執行個體 | Microsoft Docs
+description: 了解如何變更訂用帳戶範圍，以及針對 Azure 保留的 VM 執行個體管理存取權。
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: vikramdesai01
 manager: vikramdesai01
-editor: 
+editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: article
@@ -72,7 +72,7 @@ ms.lasthandoff: 02/21/2018
 2.  選取 [所有服務]  >  [保留] 來列出您具有存取權的保留。
 3.  選取您想要將存取權委派給其他使用者的保留。
 4.  在功能表中選取 [存取控制 (IAM)]。
-5.  選取 [新增] > [角色] > [擁有者] (如果您想要給予有限的存取權，可選取不同角色)。 
+5.  選取 [新增] > [角色] > [擁有者] \(如果您想要給予有限的存取權，可選取不同角色)。 
 6. 輸入要新增為擁有者之使用者的電子郵件地址。 
 7. 選取使用者，然後選取 [儲存]。
 
