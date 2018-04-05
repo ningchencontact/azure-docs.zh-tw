@@ -1,12 +1,11 @@
 ---
-title: "串流分析 Data Lake Store 輸出 | Microsoft Docs"
-description: "在串流分析工作中，設定 Azure Data Lake Store 的驗證和授權"
-keywords: 
+title: 串流分析 Data Lake Store 輸出 | Microsoft Docs
+description: 在串流分析工作中，設定 Azure Data Lake Store 的驗證和授權
+keywords: ''
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: e2010e86e56c1ce7a98fae97a8f6f00c30b61035
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: jeanb
+ms.openlocfilehash: 802193b9f15cbc35bec32191ccc63df3329b96f9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>串流分析 Data Lake Store 輸出
 串流分析工作支援數種輸出方法，其中一個是 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。 Azure Data Lake Store 是容納巨量資料分析工作負載的企業級超大規模存放庫。 Data Lake Store 可讓您存放任何大小、類型和擷取速度的資料，以便進行運作和探究分析。

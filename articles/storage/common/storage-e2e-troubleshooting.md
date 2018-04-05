@@ -1,6 +1,6 @@
 ---
-title: "使用診斷與 Message Analyzer 進行 Azure 儲存體的疑難排解 | Microsoft Docs"
-description: "示範使用 Azure Storage Analytics、AzCopy 和 Microsoft Message Analyzer 進行端對端疑難排解的教學課程"
+title: 使用診斷與 Message Analyzer 進行 Azure 儲存體的疑難排解 | Microsoft Docs
+description: 示範使用 Azure Storage Analytics、AzCopy 和 Microsoft Message Analyzer 進行端對端疑難排解的教學課程
 services: storage
 documentationcenter: dotnet
 author: tamram
@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 324370ae18627a1985e6a40aec11ee2fa871e93b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 儲存體計量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -35,9 +35,6 @@ ms.lasthandoff: 01/24/2018
   
   * **儲存體度量** 可追蹤儲存體帳戶的交易度量和容量度量。 您可以使用度量，判斷如何根據各種不同的量值來執行您的應用程式。 如需 Storage Analytics 追蹤的度量類型詳細資訊，請參閱 [Storage Analytics 度量資料表結構描述](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) 。
   * **儲存體記錄** 可將對 Azure 儲存體服務的每項要求記錄至伺服器端記錄檔。 記錄檔可追蹤每項要求的詳細資料，包括執行的作業、作業的狀態及延遲資訊。 如需 Storage Analytics 寫入記錄檔的要求和回應資料詳細資訊，請參閱 [Storage Analytics 記錄檔格式](/rest/api/storageservices/Storage-Analytics-Log-Format) 。
-
-> [!NOTE]
-> 複寫類型為區域備援儲存體 (ZRS) 的儲存體帳戶，可支援計量或記錄。 傳統 ZRS 帳戶不支援計量或記錄。 如需 ZRS 的詳細資訊，請參閱[區域備援儲存體](storage-redundancy.md#zone-redundant-storage)。 
 
 * **Azure 入口網站**。 您可以在 [Azure 入口網站](https://portal.azure.com)中設定儲存體帳戶的計量和記錄。 您也可以檢視圖表和圖形 (其中顯示應用程式在一段時間內的執行狀況)，並設定警示，通知應用程式是否對指定的度量以超乎預期的方式執行。
   

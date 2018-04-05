@@ -1,20 +1,20 @@
 ---
-title: "有關 Microsoft Azure Linux VM 的非受控 (分頁 Blob) 和受控磁碟儲存體 | Microsoft Docs"
-description: "深入了解 Azure 中 Linux 虛擬機器之非受控 (分頁 Blob) 和受控磁碟儲存體的基本概念。"
+title: 有關 Microsoft Azure Linux VM 的非受控 (分頁 Blob) 和受控磁碟儲存體 | Microsoft Docs
+description: 深入了解 Azure 中 Linux 虛擬機器之非受控 (分頁 Blob) 和受控磁碟儲存體的基本概念。
 services: virtual-machines
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 ms.service: virtual-machines
 ms.workload: storage
 ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: iainfou
-ms.openlocfilehash: 107e332a0f8c9d5a84a74de685ca458fb29caa8b
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.author: rogarana
+ms.openlocfilehash: 3742b05bceea7aed556d06ab4460abaa08aca7d1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>有關 Azure Linux VM 的磁碟儲存體
 就像任何其他電腦，Azure 中的虛擬機器會使用磁碟做為儲存作業系統、應用程式和資料的位置。 所有 Azure 虛擬機器都至少有兩個磁碟 – Linux 作業系統磁碟和暫存磁碟。 作業系統磁碟是由映像建立，且作業系統磁碟與該映像，實際上都是儲存在 Azure 儲存體帳戶的虛擬硬碟 (VHD)。 虛擬機器也可以有一或多個資料磁碟，而這些磁碟也會儲存成 VHD。 

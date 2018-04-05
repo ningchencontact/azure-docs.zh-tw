@@ -1,11 +1,11 @@
 ---
-title: "Windows 通用 app Reach SDK 整合"
-description: "如何將 Azure Mobile Engagement Reach 與 Windows 通用 app 整合"
+title: Windows 通用 app Reach SDK 整合
+description: 如何將 Azure Mobile Engagement Reach 與 Windows 通用 app 整合
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a31ca1d6-856f-4aec-898a-07969ae5f7ec
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8472af2ac72a1976871970963851be775b19859b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Windows 通用 app Reach SDK 整合
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 依照本指南進行之前，您必須先遵循 [Windows 通用 Engagement SDK 整合](mobile-engagement-windows-store-integrate-engagement.md) 文件中所述的整合程序。
 
 ## <a name="embed-the-engagement-reach-sdk-into-your-windows-universal-project"></a>將 Engagement Reach SDK 內嵌至您的 Windows 通用專案

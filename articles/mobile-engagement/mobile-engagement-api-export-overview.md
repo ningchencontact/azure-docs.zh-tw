@@ -1,11 +1,11 @@
 ---
-title: "Mobile Engagement 匯出 API 概觀"
-description: "了解匯出使用者裝置所產生之原始資料，以運用在自己工具中的基本概念。"
+title: Mobile Engagement 匯出 API 概觀
+description: 了解匯出使用者裝置所產生之原始資料，以運用在自己工具中的基本概念。
 services: mobile-engagement
 documentationcenter: mobile
 author: kpiteira
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9380d47b-d7fa-4d4c-888f-97e6482196bb
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
 ms.author: kapiteir
-ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1dc8a34abf84be3d7f59d41c36d90c2a67e5d32
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="mobile-engagement-export-api-overview"></a>Mobile Engagement 匯出 API 概觀
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 ## <a name="introduction"></a>簡介
 在本文件中，您將了解匯出使用者裝置所產生之原始資料，以運用在自己工具中的基本概念。
 

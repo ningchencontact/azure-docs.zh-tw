@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 使用者介面 - 分析"
-description: "了解如何使用 Azure Mobile Engagement 分析應用程式的歷史資料"
+title: Azure Mobile Engagement 使用者介面 - 分析
+description: 了解如何使用 Azure Mobile Engagement 分析應用程式的歷史資料
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6b2533ac-b8ec-4e35-872c-d563895bdc0c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ad05676919d6c254d60fd010c3f589f663c4745d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fceae1ffff40fc525170121181e21726fe2bd3f7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-analyze-historical-data-about-your-application"></a>如何分析應用程式的歷史資料
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 本文說明 **Mobile Engagement** 入口網站的**分析**。 使用 **Mobile Engagement** 入口網站可監視與管理您的行動應用程式。 請注意，若要開始使用入口網站，您必須先建立 **Azure Mobile Engagement** 帳戶。
 
 UI 的 [分析] 區段根據每 24 小時更新一次的歷史資料，提供您應用程式的相關彙總資訊。 這些資訊會顯示在由折線圖/橫條圖/圓餅圖、方格和地圖所組成的各種儀表板上。 您也可以將資料下載為 .csv 檔案。 這些相同資訊大部分可從 UI 的 [監視] 區段即時取得，也可以從「分析 API」存取。

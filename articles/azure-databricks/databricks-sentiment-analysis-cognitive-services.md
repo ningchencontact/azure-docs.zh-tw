@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/20/2018
+ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: 8858df394885ae7820a4bc72458f4f1d851965e6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 889284d9c53f902b7a8443c4622e1c3015630ae0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>教學課程：使用 Azure Databricks 對串流資料進行情感分析
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 03/28/2018
 
     * 輸入叢集的名稱。
     * 針對本文，使用 **4.0 搶鮮版 (Beta)** 執行階段建立叢集。
-    * 請確定您選取 [在活動 ___ 分鐘後終止] 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
+    * 請確定您選取 **在活動 ___ 分鐘後終止** 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
 
     選取 [建立叢集]。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 03/28/2018
 
 若要收到推文的串流，您必須在 Twitter 中建立應用程式。 請依照下列步驟建立 Twitter 應用程式，並記錄要完成本教學課程所需的值。
 
-1. 從網頁瀏覽器移至 [Twitter 應用程式管理](http://twitter.com/app)，然後選取 [建立新的應用程式]。
+1. 從網頁瀏覽器移至 [Twitter 應用程式管理](http://twitter.com/app)，然後選取 **建立新的應用程式**。
 
     ![建立 Twitter 應用程式](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "建立 Twitter 應用程式")
 
@@ -395,6 +395,8 @@ ms.lasthandoff: 03/28/2018
     -------------------------------------------
     ...
     ...
+
+您現在已使用 Apache Spark 的事件中樞連接器，以近乎即時的方式將資料從 Azure 事件中樞串流至 Azure Databricks。 如需如何使用 Spark 事件中樞連接器的詳細資訊，請參閱[連接器文件](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs)。
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>對推文執行情感分析
 

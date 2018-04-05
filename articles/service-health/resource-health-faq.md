@@ -1,24 +1,24 @@
 ---
-title: "Azure 資源健康狀態常見問題集 | Microsoft Docs"
-description: "Azure 資源健康狀態的概觀"
+title: Azure 資源健康狀態常見問題集 | Microsoft Docs
+description: Azure 資源健康狀態的概觀
 services: Resource health
 documentationcenter: dev-center-name
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 07/05/2017
+ms.date: 03/27/2018
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2a0758f5db381f721120cbc1c018a491c018aa8d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-resource-health-faq"></a>Azure 資源健康狀態常見問題集
 了解 Azure 資源健康狀態相關常見問題的答案。
@@ -81,12 +81,12 @@ ms.lasthandoff: 12/18/2017
 - 德國中部
 - 德國東北部
 
-## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>資源健康狀態與服務健康狀態儀表板或 Azure 入口網站服務通知有何不同？
-資源健康狀態可提供比 Azure 服務健康情況儀表板更明確的資訊。
+## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>資源健康狀態和 Azure 狀態或服務健康狀態儀表板有何不同？
+資源健康狀態可提供比 Azure 狀態或服務健康狀態儀表板更明確的資訊。
 
-[Azure 狀態](https://status.azure.com)和入口網站服務通知會通知您影響大規模客戶 (例如 Azure 區域) 的服務問題，而資源健康狀態會公開更多僅與特定資源相關的細微事件。 例如，如果主機意外重新啟動，資源健康狀態只會警示虛擬機器在該主機上執行的客戶。
+[Azure 狀態](https://status.azure.com)和服務健康狀態儀表板會通知您影響大規模客戶 (例如 Azure 區域) 的服務問題，而資源健康狀態會公開更多僅與特定資源相關的細微事件。 例如，如果主機意外重新啟動，資源健康狀態只會警示虛擬機器在該主機上執行的客戶。
 
-請務必注意，為了讓您可完整看到影響資源的事件，資源健康狀態也會呈現諸如服務通知和服務健康狀態儀表板中發佈的事件。
+請務必注意，為了讓您可完整看到影響資源的事件，資源健康狀態也會呈現諸如服務健康狀態儀表板中發佈的事件。
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>是否需要啟動每個資源的資源健康狀態？
 否，健康情況資訊適用於可透過資源健康狀態提供的所有資源類型。 

@@ -1,11 +1,11 @@
 ---
-title: "適用於 Windows 的 OMS Azure 虛擬機器擴充功能 | Microsoft Docs"
-description: "使用虛擬機器擴充功能在 Windows 虛擬機器上部署 OMS 代理程式。"
+title: 適用於 Windows 的 OMS Azure 虛擬機器擴充功能 | Microsoft Docs
+description: 使用虛擬機器擴充功能在 Windows 虛擬機器上部署 OMS 代理程式。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: 19f116470ac7a73daea6ad03699ef53d86cfb321
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 9b090029ade1cab1d0be17f7622ecf622521fc14
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>適用於 Windows 的 OMS 虛擬機器擴充功能
 
@@ -151,7 +151,7 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS ` 
+    -Location WestUS 
 ```
 
 ## <a name="troubleshoot-and-support"></a>疑難排解與支援

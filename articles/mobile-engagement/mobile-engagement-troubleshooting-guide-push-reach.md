@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 疑難排解指南 - 推送/觸達"
-description: "Azure Mobile Engagement 中使用者互動與通知問題的疑難排解"
+title: Azure Mobile Engagement 疑難排解指南 - 推送/觸達
+description: Azure Mobile Engagement 中使用者互動與通知問題的疑難排解
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3f1886b7-1fdd-47f4-b6b0-d79f158d5ef3
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ef6f34404b97a6972fc136262920a1bdbc4117b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc94353e60288ba1acfb1855b3a7b416a03e73bc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-push-and-reach-issues"></a>推送與觸達問題的疑難排解指南
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 以下是您可能會遇到，有關 Azure Mobile Engagement 如何傳送資訊給使用者的問題。
 
 ## <a name="push-failures"></a>推送失敗

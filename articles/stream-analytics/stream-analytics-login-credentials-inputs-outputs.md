@@ -1,12 +1,11 @@
 ---
-title: "串流分析：替換輸入和輸出的登入認證 | Microsoft Docs"
-description: "了解如何更新 Azure Stream Analytics 的輸入和輸出認證。"
-keywords: "登入認證"
+title: 串流分析：替換輸入和輸出的登入認證 | Microsoft Docs
+description: 了解如何更新 Azure Stream Analytics 的輸入和輸出認證。
+keywords: 登入認證
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/11/2018
 ms.author: sngun
-ms.openlocfilehash: c1aded8fefc7b56acd2e9ff36bb2c9641665db76
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: d01e5d9f0bbfe6ca3ef8511aeb813cead3809f04
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>針對串流分析作業的輸入和輸出替換登入認證
 

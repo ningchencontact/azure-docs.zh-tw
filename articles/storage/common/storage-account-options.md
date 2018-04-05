@@ -1,6 +1,6 @@
 ---
-title: "Azure 儲存體帳戶選項 | Microsoft Docs"
-description: "了解使用 Azure 儲存體的選項。"
+title: Azure 儲存體帳戶選項 | Microsoft Docs
+description: 了解使用 Azure 儲存體的選項。
 services: storage
 author: jirwin
 manager: jwillis
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: 2c69519b865169b477950bc8fa659d5ad9081bbf
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 75d1580df5e36b2c88939fde9077c5a1948f6348
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-storage-account-options"></a>Azure 儲存體帳戶選項
 
@@ -218,7 +218,7 @@ Blob 儲存體帳戶支援與 GPv2 完全相同的區塊 Blob 功能，但僅限
 如需詳細資訊，請參閱[關於儲存體分析計量](https://msdn.microsoft.com/library/azure/hh343258.aspx)和[儲存體分析計量資料表結構描述](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Blob 儲存體帳戶會公開僅適用於儲存和存取該帳戶計量資料的表格服務端點。 區域備援儲存體 (ZRS) 帳戶支援收集計量資料，而傳統 ZRS 儲存體帳戶則不支援。 如需 ZRS 的詳細資訊，請參閱[區域備援儲存體](storage-redundancy.md#zone-redundant-storage)。 
+> Blob 儲存體帳戶會公開僅適用於儲存和存取該帳戶計量資料的表格服務端點。 
 
 若要監視 Blob 儲存體的儲存體使用情況，您必須啟用容量計量。
 啟用此度量後，系統會每日記錄儲存體帳戶的 Blob 服務容量資料，而該資料會以資料表項目形式記錄並寫入至相同儲存體帳戶內的 $MetricsCapacityBlob  資料表。

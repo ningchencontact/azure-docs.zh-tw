@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement iOS SDK Reach 整合 | Microsoft Docs"
-description: "Azure Mobile Engagement iOS SDK 的最新更新與程序"
+title: Azure Mobile Engagement iOS SDK Reach 整合 | Microsoft Docs
+description: Azure Mobile Engagement iOS SDK 的最新更新與程序
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1f5f5857-867c-40c5-9d76-675a343a0296
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: ba74e0c442ac10f096d465f989e03d2ceae8cd88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d531f5850e8f7f352774f5894285402bd4cc53e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>如何在 iOS 上整合 Engagement Reach
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 在遵循此指南之前，您必須先遵循 [如何在 iOS 上整合 Engagement](mobile-engagement-ios-integrate-engagement.md) 文件中所說明的整合程序。
 
 這份文件需要 XCode 8。 如果您實際上是仰賴 XCode 7，則可以使用 [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh)。 這個舊版本在 iOS 10 裝置上執行時有已知錯誤︰系統通知不會採取動作。 若要修正此錯誤，您必須在應用程式委派中實作已被取代的 API `application:didReceiveRemoteNotification:` ，方式如下︰

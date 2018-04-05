@@ -1,9 +1,9 @@
 ---
-title: "開始使用 Azure 監視器 | Microsoft Docs"
-description: "開始使用 Azure 監視器，深入了解資源的作業，並以資料為基礎採取動作。"
+title: 開始使用 Azure 監視器 | Microsoft Docs
+description: 開始使用 Azure 監視器，深入了解資源的作業，並以資料為基礎採取動作。
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 9c352c67aa0e9392c9e9d68822abeb27344bd8b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 69ec5392f034ffe94315c17366a9242d86c69d6d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>開始使用 Azure 監視器
-Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您可以使用 Azure 監視器來視覺化、查詢、路由、封存及針對來自 Azure 資源的度量和記錄檔採取行動。 您可以使用 Azure 入口網站、[Monitor PowerShell Cmdlet](insights-powershell-samples.md)、[跨平台 CLI](insights-cli-samples.md) 或 [Azure 監視器 REST API](https://msdn.microsoft.com/library/dn931943.aspx) 來使用此資料。 在本文中，我們會逐步解說幾個 Azure 監視器的重要元件，並使用入口網站進行示範。
+Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您可以使用 Azure 監視器來視覺化、查詢、路由、封存，以及針對來自 Azure 資源的度量和記錄檔採取其他行動。 您可以使用 Azure 入口網站、[Monitor PowerShell Cmdlet](insights-powershell-samples.md)、[跨平台 CLI](insights-cli-samples.md) 或 [Azure 監視器 REST API](https://msdn.microsoft.com/library/dn931943.aspx) 來使用此資料。 在本文中，我們會逐步解說幾個 Azure 監視器的重要元件，並使用入口網站進行示範。
 
 ## <a name="walkthrough"></a>逐步介紹
 1. 在入口網站中，瀏覽至 [所有服務] 並尋找 [監視] 選項。 按一下星號圖示，將此選項新增至我的最愛清單，讓您可輕鬆從左側導覽列存取。
@@ -39,7 +39,7 @@ Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您
     [**活動記錄檔**](monitoring-overview-activity-logs.md)描述訂用帳戶中資源所執行的所有作業。 您可以使用 [活動記錄檔] 來判斷訂用帳戶中的資源上任何建立、更新或刪除作業的「內容、對象和時間」。 例如，活動記錄檔會告訴您 Web 應用程式停止的時間，及將 Web 應用程式停止的人員。 活動記錄檔事件會儲存在平台中並供查詢 90 天。
 
     您可以建立並儲存一般篩選的查詢，然後將最重要的查詢釘選至入口網站儀表板，這樣只要發生符合您準則的事件時就會通知您。
-4. 篩選上週特定資源群組的檢視，然後按一下 [儲存]  按鈕。
+4. 篩選上週特定資源群組的檢視，然後按一下 [儲存]  按鈕。 提供查詢名稱。 
 
     ![儲存活動記錄檔查詢](./media/monitoring-get-started/monitor-act-log-save.png)
 5. 現在，按一下 [釘選]  按鈕。

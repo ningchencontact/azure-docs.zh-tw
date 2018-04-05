@@ -1,6 +1,6 @@
 ---
-title: "Azure 儲存體發生中斷時該怎麼辦 | Microsoft Docs"
-description: "Azure 儲存體發生中斷時該怎麼辦"
+title: Azure 儲存體發生中斷時該怎麼辦 | Microsoft Docs
+description: Azure 儲存體發生中斷時該怎麼辦
 services: storage
 documentationcenter: .net
 author: tamram
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>如果 Azure 儲存體發生中斷怎麼辦
 在 Microsoft，我們竭力確保我們的服務總是可供用。 有時候會因為不可抗拒之因素，而造成服務在一或多個區域內中斷。 為了協助您處理這類罕見的狀況，我們提供下列 Azure 儲存體服務的高階指引。
@@ -42,10 +42,10 @@ ms.lasthandoff: 02/21/2018
 在此情況下，您不需要採取任何動作。 我們正在努力還原 Azure 服務的可用性。 您可以在 [Azure 服務健康狀態儀表板](https://azure.microsoft.com/status/)上監視目前的服務狀態。
 
 ### <a name="option-2-copy-data-from-secondary"></a>選項 2︰從次要區域複製資料
-如果您為儲存體帳戶選取 [讀取權限異地備援儲存體(RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (建議)，您將會有從次要地區讀取資料的權限。 您可以使用 [AzCopy](storage-use-azcopy.md)、[Azure PowerShell](storage-powershell-guide-full.md) 及 [Azure Data Movement 程式庫](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)，將資料從次要地區複製到其他未受影響之區域內的儲存體帳戶，然後將應用程式的讀取和寫入可用性都指向該儲存體帳戶。
+如果您為儲存體帳戶選取 [讀取權限異地備援儲存體(RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (建議)，您將會有從次要地區讀取資料的權限。 您可以使用 [AzCopy](storage-use-azcopy.md)、[Azure PowerShell](storage-powershell-guide-full.md) 及 [Azure Data Movement 程式庫](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)，將資料從次要地區複製到其他未受影響之區域內的儲存體帳戶，然後將應用程式的讀取和寫入可用性都指向該儲存體帳戶。
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>如果發生儲存體容錯移轉該預期什麼
-如果您選擇[異地備援儲存體 (GRS)](storage-redundancy.md#geo-redundant-storage) 或[讀取權限異地備援儲存體 (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (建議)，Azure 儲存體會將您的資料持久保留在兩個區域 (主要和次要)。 在兩個區域中，Azure 儲存體會持續維護多個您資料的複本。
+如果您選擇[異地備援儲存體 (GRS)](storage-redundancy-grs.md) 或[讀取權限異地備援儲存體 (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (建議)，Azure 儲存體會將您的資料持久保留在兩個區域 (主要和次要)。 在兩個區域中，Azure 儲存體會持續維護多個您資料的複本。
 
 當您的主要區域受到區域性災害影響時，我們會先嘗試還原該區域內的服務。 視災害的本質及其影響而定，在某些罕見的情況下我們可能無法還原主要區域。 這時候，我們會執行異地複寫容錯移轉。 跨區域資料複寫是非同步的程序，因此可能會有延遲，而且可能會遺失尚未複寫到次要地區的變更。 您可以查詢[儲存體帳戶的「上次同步處理時間」(英文)](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)，以取得複寫狀態的詳細資料。
 

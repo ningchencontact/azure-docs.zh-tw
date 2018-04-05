@@ -1,12 +1,11 @@
 ---
-title: "以視覺化方式呈現串流分析工作並進行疑難排解 | Microsoft Docs"
-description: "了解如何使用診斷圖表功能以視覺化方式呈現「串流分析」工作管線，來進行自助疑難排解。"
-keywords: 
-documentationcenter: 
+title: 以視覺化方式呈現串流分析工作並進行疑難排解 | Microsoft Docs
+description: 了解如何使用診斷圖表功能以視覺化方式呈現「串流分析」工作管線，來進行自助疑難排解。
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: d87841cd-c59f-4a46-b46e-8b904fdc12e9
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 820b73a5dbf9bb108e189313cf6ee2b924ab04c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: eae43a6a444514855229af760de6aa1cbec7840a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>以視覺化方式呈現串流分析工作並進行疑難排解
 在「串流分析」中，與其他雲端型技術一樣，有時需要進行疑難排解來仔細研究為何某個工作沒有產生預期的輸出 (或就此而言，產生任何輸出)。 根據此概念，「串流分析」提供了以視覺化方式呈現串流工作的功能。 此功能可作為便利的模型工具，並且對於需要為其工作提供佐證文件的使用者而言，也有附帶的好處。

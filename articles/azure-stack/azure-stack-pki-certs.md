@@ -1,25 +1,25 @@
 ---
-title: "Azure Stack 整合式系統的 Azure Stack 公開金鑰基礎結構憑證需求 | Microsoft Docs"
-description: "說明 Azure Stack 整合式系統的 Azure Stack PKI 憑證部署需求。"
+title: Azure Stack 整合式系統的 Azure Stack 公開金鑰基礎結構憑證需求 | Microsoft Docs
+description: 說明 Azure Stack 整合式系統的 Azure Stack PKI 憑證部署需求。
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mabriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f2f71372211dcc9db34beb3fa3fd788920f8bd45
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 455c74ca808f71258a12166c2e36bdd73d9a3e20
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
 Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 Azure Stack 服務和可能租用戶 VM 的外部可存取公用 IP 位址。 在 Azure Stack 部署期間，這些 Azure Stack 公用基礎結構端點需要具有適當 DNS 名稱的 PKI 憑證。 本文提供以下相關資訊：
@@ -39,6 +39,7 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 - 憑證格式必須是 PFX，因為安裝 Azure Stack 時需要公用與私密金鑰。 
 - 憑證 pfx 檔案的 [金鑰使用方法] 欄位中必須有 [數位簽章] 和 [KeyEncipherment] 值。
 - 憑證 pfx 檔案的 [增強金鑰使用方法] 欄位中必須有 [伺服器驗證 (1.3.6.1.5.5.7.3.1)] 和 [用戶端驗證 (1.3.6.1.5.5.7.3.2)]。
+- 憑證的 [核發給：] 欄位不能與 [核發者：] 欄位相同。
 - 部署時，所有憑證 pfx 檔案的密碼都必須相同
 - 確定所有憑證的 [主體名稱] 和 [主體別名] 都必須符合本文中所述的規格，以免部署失敗。
 

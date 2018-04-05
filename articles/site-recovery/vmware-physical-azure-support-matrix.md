@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: raynew
-ms.openlocfilehash: c4fb466443e2f29fb79c3707ce142895f140f9a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f2f28b36fdb3751a469d66f242f9fa2119f9ae8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>將 VMware 和實體伺服器複寫至 Azure 的支援對照表
 
@@ -175,7 +175,7 @@ Azure 虛擬網路服務端點<br/><br/> (Azure 儲存體防火牆和虛擬網�
 作業系統磁碟大小 | 最多 2,048 GB。 | 若不支援，則檢查會失敗。 
 作業系統磁碟計數 | 1 | 若不支援，則檢查會失敗。  
 資料磁碟計數 | 64 或以下。 | 若不支援，則檢查會失敗。  
-資料磁碟 VHD 大小 | 最多 4,095 GB | 若不支援，則檢查會失敗。 
+資料磁碟大小 | 最多 4,095 GB | 若不支援，則檢查會失敗。 
 網路介面卡 | 支援多個介面卡。 | 
 共用 VHD | 不支援。 | 若不支援，則檢查會失敗。 
 FC 磁碟 | 不支援。 | 若不支援，則檢查會失敗。 

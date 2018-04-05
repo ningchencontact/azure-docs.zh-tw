@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric 中之 ASP.NET Core 服務的監視和診斷 | Microsoft Docs"
-description: "在本教學課程中，您會了解如何設定 Azure Service Fabric ASP.NET Core 應用程式的監視和診斷。"
+title: Azure Service Fabric 中之 ASP.NET Core 服務的監視和診斷 | Microsoft Docs
+description: 在本教學課程中，您會了解如何設定 Azure Service Fabric ASP.NET Core 應用程式的監視和診斷。
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 0f51b52d9f4d5c8979ba636311e63089c11cd114
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 030c6fbfb5eb76a745a1089acab54e74ce7a01e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>教學課程：監視和診斷 Service Fabric 上的 ASP.NET Core 應用程式
 本教學課程是一個系列的第四部分。 其中會逐步設定使用 Application Insights 來監視和診斷 Service Fabric 叢集上執行的 ASP.NET Core 應用程式。 我們將從教學課程第一部分[建置 .NET Service Fabric 應用程式](service-fabric-tutorial-create-dotnet-app.md)中所開發的應用程式收集遙測資料。 
@@ -83,7 +83,7 @@ Application Insights 是 Azure 的應用程式效能管理平台，也是 Servic
 
 ## <a name="add-the-microsoftapplicationinsightsservicefabricnative-nuget-to-the-services"></a>將 Microsoft.ApplicationInsights.ServiceFabric.Native NuGet 新增至服務
 
-Application Insights 有兩個 Service Fabric 特定的 NuGet，可依情節來使用。 其中一個用於 Service Fabric 的原生服務，另一個用於容器和客體可執行檔。 在此案例中，我們將使用 Microsoft.ApplicationInsights.ServiceFabric.Native NuGet 以深入了解它所提供的服務內容。 若要深入了解 Application Insights SDK 及 Service Fabric 特定的 NuGet，請參閱 [Microsoft Application Insights for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/develop/README.md)。 
+Application Insights 有兩個 Service Fabric 特定的 NuGet，可依情節來使用。 其中一個用於 Service Fabric 的原生服務，另一個用於容器和客體可執行檔。 在此案例中，我們將使用 Microsoft.ApplicationInsights.ServiceFabric.Native NuGet 以深入了解它所提供的服務內容。 若要深入了解 Application Insights SDK 及 Service Fabric 特定的 NuGet，請參閱 [Microsoft Application Insights for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md)。 
 
 設定 NuGet 的步驟如下：
 1. 以滑鼠右鍵按一下 [方案總管] 頂端的 [方案 'Voting']，然後按一下 [管理方案的 NuGet 套件...]。

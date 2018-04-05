@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 入門指南與最佳作法"
-description: "Azure Mobile Engagement 入門指南與登入最佳作法"
+title: Azure Mobile Engagement 入門指南與最佳作法
+description: Azure Mobile Engagement 入門指南與登入最佳作法
 services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dfce1183-6398-466e-aa7e-ed702fb52818
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf9dc5febeae27473d2adb8a024536b945bb9d13
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - 入門指南與最佳作法
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 ## <a name="overview"></a>概觀
 **行動裝置的螢幕是非常擁擠的空間：** 2013 年的一項研究中發現，每個行動裝置約安裝了 27 個應用程式。 使用者每個月通常會花 30 小時在他們的應用程式上。 這些時間大部分是花在社交網路和遊戲上 (大約 20 小時)。 截至 2014 年為止，Android 市場約提供了一百五十萬個應用程式供使用者選擇。 Apple Store 包含約一百二十萬個應用程式。 隨著開發人員競相投入這個成長中的市場，行動應用程式的使用還在逐漸增長中。 
 

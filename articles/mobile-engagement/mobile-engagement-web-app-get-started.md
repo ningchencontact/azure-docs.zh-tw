@@ -1,11 +1,11 @@
 ---
-title: "開始使用適用於 Web Apps 的 Azure Mobile Engagement | Microsoft Docs"
-description: "了解如何使用 Web Apps 的 Azure Mobile Engagement 與分析和推播通知。"
+title: 開始使用適用於 Web Apps 的 Azure Mobile Engagement | Microsoft Docs
+description: 了解如何使用 Web Apps 的 Azure Mobile Engagement 與分析和推播通知。
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 04afe53a-4caf-4c80-bd75-20cc630cd75c
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb7a0e61b6d29c292642fd950aed7617de9b340d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>開始使用適用於 Web Apps 的 Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 本主題說明如何使用 Azure Mobile Engagement 來了解 Web 應用程式的使用量。

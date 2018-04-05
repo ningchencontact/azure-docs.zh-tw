@@ -1,6 +1,6 @@
 ---
-title: "Azure 中的網路安全性群組 | Microsoft Docs"
-description: "深入了解如何在 Azure 中使用分散式防火牆和網路安全性群組，來隔離及控制虛擬網路中的流量流程。"
+title: Azure 中的網路安全性群組 | Microsoft Docs
+description: 深入了解如何在 Azure 中使用分散式防火牆和網路安全性群組，來隔離及控制虛擬網路中的流量流程。
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c38223674061aa8c257e47b6208f890b7aef378d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>使用網路安全性群組來篩選網路流量
 
@@ -123,10 +123,10 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 
 | 部署工具 | 傳統 | Resource Manager |
 | --- | --- | --- |
-| Azure 入口網站   | 否 | [是](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell     | [是](virtual-networks-create-nsg-classic-ps.md) | [是](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI **V1**   | [是](virtual-networks-create-nsg-classic-cli.md) | [是](virtual-networks-create-nsg-arm-cli.md) |
-| Azure CLI **V2**   | 否 | [是](virtual-networks-create-nsg-arm-cli.md) |
+| Azure 入口網站   | yes | [是](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [是](virtual-networks-create-nsg-classic-ps.md) | [是](tutorial-filter-network-traffic.md) |
+| Azure CLI **V1**   | [是](virtual-networks-create-nsg-classic-cli.md) | [是](tutorial-filter-network-traffic-cli.md) |
+| Azure CLI **V2**   | 否 | [是](tutorial-filter-network-traffic-cli.md) |
 | Azure Resource Manager 範本   | 否  | [是](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>規劃

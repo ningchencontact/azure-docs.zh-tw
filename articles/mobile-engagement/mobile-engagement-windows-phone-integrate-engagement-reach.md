@@ -1,11 +1,11 @@
 ---
-title: "Windows Phone Silverlight Reach SDK 整合"
-description: "如何將 Azure Mobile Engagement Reach 與 Windows Phone Silverlight 應用程式整合"
+title: Windows Phone Silverlight Reach SDK 整合
+description: 如何將 Azure Mobile Engagement Reach 與 Windows Phone Silverlight 應用程式整合
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d3516a6b-db9f-4cdb-a475-4148edf81af1
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0738f33df94d14fbb393bfaaf09e94c6560213cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34e5ce414ebf72fbecef6c921e57128e2658c921
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-phone-silverlight-reach-sdk-integration"></a>Windows Phone Silverlight Reach SDK 整合
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 依照本指南進行之前，您必須先遵循 [Windows Phone Silverlight Engagement SDK 整合](mobile-engagement-windows-phone-integrate-engagement.md) 中所述的整合程序。
 
 ## <a name="embed-the-engagement-reach-sdk-into-your-windows-phone-silverlight-project"></a>將 Engagement Reach SDK 內嵌到您的 Windows Phone Silverlight 專案

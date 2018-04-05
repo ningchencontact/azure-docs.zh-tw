@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 15155ecaf17ae309a218bb1f51a4757e5338f64c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c34293796860e0ab72eecedab9cd8b023237050d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 無縫單一登入：常見問題集
 
@@ -38,16 +38,23 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>哪些應用程式利用無縫 SSO 的 `domain_hint` 或 `login_hint` 參數功能？
 
-下列是一個不完整的應用程式清單，這些應用程式會將這些參數傳送給 Azure AD，因此可使用「無縫 SSO」提供使用者一個無訊息的登入體驗：
+以下是一份不完整的應用程式清單，這些應用程式會將這些參數傳送給 Azure AD，因此可使用「無縫 SSO」(亦即，使用者不需要輸入自己的使用者名稱) 為使用者提供無訊息的登入體驗：
 
 | 應用程式名稱 | 要使用的應用程式 URL |
 | -- | -- |
 | 存取面板 | myapps.microsoft.com/contoso.com |
 | 網路版 Outlook | outlook.office365.com/contoso.com |
 
+此外，如果應用程式將登入要求傳送至 Azure AD 的租用戶端點 (也就是 https://login.microsoftonline.com/contoso.com/<..> 或 https://login.microsoftonline.com/<tenant_ID>/<..>) 而不是 Azure AD 的一般端點 (也就是 https://login.microsoftonline.com/common/<...>)，使用者也可獲得無訊息登入體驗。 以下是一份不完整的應用程式清單，列出會提出這類登入要求的應用程式。
+
+| 應用程式名稱 | 要使用的應用程式 URL |
+| -- | -- |
+| SharePoint Online | contoso.sharepoint.com |
+| Azure 入口網站 | portal.azure.com/contoso.com |
+
 在上表中，請以您的網域名稱取代 "contoso.com"，以連至您租用戶的正確應用程式 URL。
 
-如果您有其他感興趣的應用程式，請在註解區段中告訴我們。
+如果想要將無訊息登入使用在其他應用程式上，請以意見反應區段告知。
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>無縫 SSO 支援 `Alternate ID` 作為使用者名稱，而不是 `userPrincipalName`？
 
@@ -75,7 +82,7 @@ ms.lasthandoff: 03/08/2018
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>步驟 1. 取得已啟用無縫 SSO 的 AD 樹系清單
 
 1. 首先，下載並安裝 [Microsoft Online Services 登入小幫手](http://go.microsoft.com/fwlink/?LinkID=286152)。
-2. 接著下載並安裝 [適用於 Windows PowerShell 的 64 位元 Azure Active Directory 模組](http://go.microsoft.com/fwlink/p/?linkid=236297)。
+2. 接著下載並安裝 [適用於 Windows PowerShell 的 64 位元 Azure Active Directory 模組](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)。
 3. 瀏覽到 `%programfiles%\Microsoft Azure Active Directory Connect` 資料夾。
 4. 使用此命令匯入順暢 SSO PowerShell 模組：`Import-Module .\AzureADSSO.psd1`。
 5. 以系統管理員身分執行 PowerShell。 在 PowerShell 中，呼叫 `New-AzureADSSOAuthenticationContext`。 此命令應提供一個快顯視窗，以便輸入租用戶的全域管理員認證。

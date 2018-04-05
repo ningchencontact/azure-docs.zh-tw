@@ -1,6 +1,6 @@
 ---
-title: "監視應用程式閘道的存取記錄、效能記錄、後端健康情況及計量 | Microsoft Docs"
-description: "了解如何啟用和管理應用程式閘道的存取記錄和效能記錄"
+title: 監視應用程式閘道的存取記錄、效能記錄、後端健康情況及計量 | Microsoft Docs
+description: 了解如何啟用和管理應用程式閘道的存取記錄和效能記錄
 services: application-gateway
 documentationcenter: na
 author: amitsriva
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 3/23/2018
 ms.author: amitsriva
-ms.openlocfilehash: 12c252340b82aba5ee69b12db83353750782e7c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>應用程式閘道的後端健康情況、診斷記錄和計量
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 * [後端健康情況](#back-end-health)：應用程式閘道提供透過 Azure 入口網站和 PowerShell 監視後端集區中伺服器健康情況的功能。 您也可以透過效能診斷記錄找到後端集區的健康情況。
 
-* [記錄](#diagnostic-logs)：記錄能夠儲存效能、存取和其他資料，或從資源取用記錄以便進行監視。
+* [記錄](#diagnostic-logging)：記錄能夠儲存效能、存取和其他資料，或從資源取用記錄以便進行監視。
 
 * [計量](#metrics)：應用程式閘道目前有一個計量。 此計量會測量應用程式閘道的輸送量，以每秒的位元組數為單位。
 
@@ -152,9 +152,9 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
    ![啟動設定程序][2]
 
-4. 選擇現有的 Operations Management Suite (OMS) 工作區或建立新的。 這個範例使用現有工作區。
+4. 選擇現有的 Log Analytics 工作區，或建立新的工作區。 這個範例使用現有工作區。
 
-   ![OMS 工作區的選項][3]
+   ![Log Analytics 工作區的選項][3]
 
 5. 確認設定並按一下 [儲存]。
 
@@ -176,7 +176,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |clientPort     | 要求的原始連接埠。       |
 |httpMethod     | 要求使用的 HTTP 方法。       |
 |requestUri     | 接收之要求的 URI。        |
-|RequestQuery     | **Server-Routed**：傳送要求的後端集區執行個體。 </br> **X-AzureApplicationGateway-LOG-ID**：要求所使用的相互關聯識別碼。 它可以用來針對後端伺服器上的流量問題進行疑難排解。 </br>**SERVER-STATUS**：應用程式閘道從後端收到的 HTTP 回應碼。       |
+|RequestQuery     | **Server-Routed**：傳送要求的後端集區執行個體。</br>**X-AzureApplicationGateway-LOG-ID**：要求所使用的相互關聯識別碼。 它可以用來針對後端伺服器上的流量問題進行疑難排解。 </br>**SERVER-STATUS**：應用程式閘道從後端收到的 HTTP 回應碼。       |
 |UserAgent     | HTTP 要求標頭中的使用者代理程式。        |
 |httpStatus     | 應用程式閘道傳回用戶端的 HTTP 狀態碼。       |
 |httpVersion     | 要求的 HTTP 版本。        |
@@ -316,9 +316,21 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 
 ## <a name="metrics"></a>度量
 
-計量是某些 Azure 資源的功能，可供您在入口網站中檢視效能計數器。 目前應用程式閘道只有一個計量。 此計量是輸送量，可在入口網站中看到它。 瀏覽至應用程式閘道，然後按一下 [計量]。 若要檢視這些值，請在 [可用的計量] 區段中選取輸送量。 您可以在下圖中看到一個範例，內有篩選器可用來顯示不同時間範圍的資料。
+計量是某些 Azure 資源的功能，可供您在入口網站中檢視效能計數器。 應用程式閘道可使用下列計量：
 
-![計量與篩選器的檢視][5]
+- 目前的連線數
+- 失敗的要求
+- 狀況良好的主機計數
+- 回應狀態
+- Throughput
+- 要求總數
+- 狀況不良的主機計數
+
+瀏覽至應用程式閘道，在 [監視] 之下按一下 [計量]。 若要檢視可用的值，請選取 [計量] 下拉式清單。
+
+下圖中的範例顯示了最近 30 分鐘內的三項計量：
+
+[![](media/application-gateway-diagnostics/figure5.png "計量檢視")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 若要查看最新的度量清單，請參閱[支援 Azure Monitor 的計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md)。
 
@@ -336,7 +348,7 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 
    * 在 [條件] 選取器中，選取這 4 個值之一：[大於]、[大於或等於]、[小於] 或 [小於或等於]。
 
-   * 在 [期間]  選取器可中，選取 5 分鐘到 6 小時的期間。
+   * 在 [期間] 選取器中，選取 5 分鐘到 6 小時的期間。
 
    * 如果選取 [傳送電子郵件給擁有者、參與者和讀者]，便可根據可存取該資源的使用者動態傳送電子郵件。 否則，您可以在 [其他系統管理員電子郵件] 方塊中提供以逗號分隔的使用者清單。
 

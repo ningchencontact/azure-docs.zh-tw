@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure IoT 中樞查詢語言 | Microsoft Docs"
-description: "開發人員指南 - 說明類似 SQL 的 IoT 中樞查詢語言，用於從 IoT 中樞擷取裝置對應項和作業的相關資訊。"
+title: 了解 Azure IoT 中樞查詢語言 | Microsoft Docs
+description: 開發人員指南 - 說明類似 SQL 的 IoT 中樞查詢語言，用於從 IoT 中樞擷取裝置對應項和作業的相關資訊。
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>裝置對應項、作業和訊息路由的 IoT 中樞查詢語言
 
@@ -26,6 +26,8 @@ IoT 中樞提供功能強大、類似 SQL 的語言，來擷取有關[裝置對�
 
 * IoT 中樞查詢語言主要功能的簡介，以及
 * 語言的詳細說明。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-twin-queries"></a>裝置對應項查詢
 [裝置對應項][lnk-twins]可以包含標籤和屬性形式的任意 JSON 物件。 IoT 中樞可讓您以包含所有裝置對應項資訊的單一 JSON 文件形式查詢裝置對應項。

@@ -1,11 +1,11 @@
 ---
-title: "建立 Azure Mobile Engagement 應用程式 | Microsoft Docs"
-description: "說明如何在 Azure 中建立新的 Mobile Engagement 應用程式集合，以及透過 Mobile Engagement 入口網站來開始管理您的應用程式。"
+title: 建立 Azure Mobile Engagement 應用程式 | Microsoft Docs
+description: 說明如何在 Azure 中建立新的 Mobile Engagement 應用程式集合，以及透過 Mobile Engagement 入口網站來開始管理您的應用程式。
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b8aa1798-28c6-424c-a5b5-8a264d5a0ff0
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f47133a466f00de43ebfb2652eaf9058899f140
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>建立 Azure Mobile Engagement 應用程式
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 本文將說明如何使用**快速建立**方法來建立新的 **Azure Mobile Engagement** 應用程式。 本文也會說明如何前往至您的 **Mobile Engagement** 入口網站，以便開始監視和管理您的應用程式。 
 
 請注意，您必須新增最低限度的「基本整合」，才能夠為您的應用程式收集資料，以及傳送推播通知。 完整的整合文件位於 [Mobile Engagement 整合](mobile-engagement-windows-store-integrate-engagement.md)。

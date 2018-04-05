@@ -1,12 +1,11 @@
 ---
-title: "使用 SELECT INTO 對 Azure 串流分析查詢進行偵錯 | Microsoft Docs"
-description: "在串流分析中使用 SELECT INTO 陳述式對進行中的查詢進行資料取樣"
-keywords: 
+title: 使用 SELECT INTO 對 Azure 串流分析查詢進行偵錯 | Microsoft Docs
+description: 在串流分析中使用 SELECT INTO 陳述式對進行中的查詢進行資料取樣
+keywords: ''
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 9952e2cf-b335-4a5c-8f45-8d3e1eda2e20
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: 6ffa756eef0cfa44d7dd397e43afbf054ac2df7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f232ba9804886f416ac0941ddc7e602782b6ebe2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="debug-queries-by-using-select-into-statements"></a>使用 SELECT INTO 陳述式對查詢進行偵錯
 

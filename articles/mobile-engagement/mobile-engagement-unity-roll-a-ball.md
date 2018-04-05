@@ -1,11 +1,11 @@
 ---
-title: "Unity Roll a Ball 教學課程"
-description: "建立傳統 Unity Roll a Ball 遊戲的步驟，此遊戲是所有 Mobile Engagement Unity 教學課程的必要條件"
+title: Unity Roll a Ball 教學課程
+description: 建立傳統 Unity Roll a Ball 遊戲的步驟，此遊戲是所有 Mobile Engagement Unity 教學課程的必要條件
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0afd0eca-f74a-43aa-bba8-436a0265c312
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52d5962645b1408fdba61ec1bf4e4f682b80905b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a id="unity-roll-a-ball"></a>建立 Unity Roll a Ball 遊戲
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 本教學課程逐步引導您完成稍微修改過的 [Unity Roll a Ball 教學課程](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial)的主要步驟。 此範例遊戲由 app 使用者控制的球面「玩家」物件所組成，遊戲的目標是使用這些可收集的物件碰撞玩家物件來「收集」可收集的物件。 這是假設使用者對 Unity 編輯器環境有基本的熟悉度。 如果您遇到任何問題，應該參閱完整的教學課程。 
 
 ### <a name="setting-up-the-game"></a>設定遊戲

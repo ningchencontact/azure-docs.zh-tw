@@ -1,12 +1,11 @@
 ---
-title: "串流分析輸出︰儲存體、分析的選項 | Microsoft Docs"
-description: "深入了解串流分析資料輸出的選項 (包括使用於分析結果的 Power BI)。"
-keywords: "資料轉換, 分析結果, 資料儲存體選項"
+title: 串流分析輸出︰儲存體、分析的選項 | Microsoft Docs
+description: 深入了解串流分析資料輸出的選項 (包括使用於分析結果的 Power BI)。
+keywords: 資料轉換, 分析結果, 資料儲存體選項
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/18/2017
 ms.author: sngun
-ms.openlocfilehash: 6df9a3fafea97638d63c0dc4601c5ced357c410d
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a641c7e5e792b020be54a2ebc4bac63b545ce71e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>串流分析輸出︰儲存體、分析的選項
 當您在編寫串流分析作業時，請考慮所產生資料的取用方式。 如何檢視串流分析作業的結果，並將儲存於何處？

@@ -1,13 +1,13 @@
 ---
-title: "使用 Azure 網路和應用程式安全性群組 (預覽) 來篩選網路流量 | Microsoft Docs"
-description: "了解如何建立網路和應用程式安全性群組 (預覽) 來限制進出虛擬機器的網路流量類型。"
+title: 使用 Azure 網路和應用程式安全性群組 (預覽) 來篩選網路流量 | Microsoft Docs
+description: 了解如何建立網路和應用程式安全性群組 (預覽) 來限制進出虛擬機器的網路流量類型。
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: ac9a1a8c59a26393d32f9c543e630c302b7ced9d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/31/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>使用網路和應用程式安全性群組 (預覽) 來篩選網路流量
 

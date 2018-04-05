@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>規劃 Azure 檔案同步 (預覽) 部署
 使用 Azure 檔案同步 (預覽版)，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -160,9 +160,14 @@ Azure 檔案同步僅於下列區域以預覽的形式提供：
 |--------|---------------------|
 | 澳洲東部 | 新南威爾斯 |
 | 加拿大中部 | 多倫多 |
+| 美國中部 | 愛荷華州 |
+| 東亞 | 香港 |
 | 美國東部 | 維吉尼亞州 |
+| 美國東部 2 | 維吉尼亞州 |
+| 北歐 | 愛爾蘭 |
 | 東南亞 | 新加坡 |
 | 英國南部 | 倫敦 |
+| 美國中西部 |
 | 西歐 | 荷蘭 |
 | 美國西部 | California |
 
@@ -172,6 +177,7 @@ Azure 檔案同步僅於下列區域以預覽的形式提供：
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>後續步驟
+* [考量防火牆和 Proxy 設定](storage-sync-files-firewall-and-proxy.md)
 * [規劃 Azure 檔案部署](storage-files-planning.md)
 * [部署 Azure 檔案服務](storage-files-deployment-guide.md)
 * [部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)

@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement Web SDK 升級程序 | Microsoft Docs"
-description: "Azure Mobile Engagement Web SDK 的最新更新與程序"
+title: Azure Mobile Engagement Web SDK 升級程序 | Microsoft Docs
+description: Azure Mobile Engagement Web SDK 的最新更新與程序
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a20529b4-ec8d-4503-8ae9-09b5f0846d5b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42f78b5e6bfa028f3a798f6cb6c0dee3f17b3ebe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Azure Mobile Engagement Web SDK 升級程序
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 如果您已經將舊版 Azure Mobile Engagement Web SDK 整合到您的 Web 應用程式，則當您升級 SDK 時需要考慮下列幾點。
 
 如果您略過多個版本的 Mobile Engagement Web SDK，您可能需要在升級程序期間完成數個程序。 例如，如果您從 1.4.0 移轉到 1.6.0，請先遵循從從 1.4.0 升級到 1.5.0 的程序。 然後，遵循從 1.5.0 升級到 1.6.0 的程序。

@@ -1,12 +1,11 @@
 ---
-title: "使用串流分析事件處理的即時事件處理 | Microsoft Docs"
-description: "了解一組 Azure 服務可如何交互操作以啟用即時事件處理與分析。"
-keywords: "即時處理, 事件處理, 參考架構"
+title: 使用串流分析事件處理的即時事件處理 | Microsoft Docs
+description: 了解一組 Azure 服務可如何交互操作以啟用即時事件處理與分析。
+keywords: 即時處理, 事件處理, 參考架構
 services: stream-analytics,event-hubs,storage,sql-database
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 11af48bc-313c-4527-8c80-91088dc9f3c6
 ms.service: stream-analytics
 ms.workload: big-data
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-ms.author: samacha
-ms.openlocfilehash: a5206f74e61c3cfd210ff80654e31f466ce08977
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: cf11a80a93a923f038b7d6a0f02a35938794c242
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>參考架構：使用 Microsoft Azure 串流分析的即時事件處理
 使用 Microsoft Azure 串流分析的即時事件處理之參考架構主要用來提供一般的藍圖，供使用 Microsoft Azure 部署即時的平台即服務 (PaaS) 串流處理解決方案。

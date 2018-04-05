@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Connect Health 常見問題集 - Azure | Microsoft Docs"
-description: "此常見問題集會回答 Azure AD Connect Health 的相關問題。 這個常見問題集涵蓋使用服務的相關問題，包括計費模型、功能、限制及支援。"
+title: Azure Active Directory Connect Health 常見問題集 - Azure | Microsoft Docs
+description: 此常見問題集會回答 Azure AD Connect Health 的相關問題。 這個常見問題集涵蓋使用服務的相關問題，包括計費模型、功能、限制及支援。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b4c977b54c87276bd4b168bc56e70f3b918e6634
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health 常見問題集
 本文會回答有關 Azure Active Directory (Azure AD) Connect Health 的常見問題 (FAQ)。 這些常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -175,6 +175,9 @@ CheckForMS17-010
 
 ```
 
+**問：為什麼 PowerShell Cmdlet <i>Get MsolDirSyncProvisioningError</i> 在結果中顯示的同步錯誤比較少？**
+
+<i>Get MsolDirSyncProvisioningError</i> 只會傳回 DirSync 佈建錯誤。 除此之外，Connect Health 入口網站還會顯示其他同步錯誤類型，例如匯出錯誤。 這與 Azure AD Connect 差異結果一致。 深入瞭解 [Azure AD Connect 同步錯誤](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors)。
 
 
 ## <a name="related-links"></a>相關連結

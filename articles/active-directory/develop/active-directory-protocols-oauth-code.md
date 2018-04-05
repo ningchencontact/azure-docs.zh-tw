@@ -1,24 +1,24 @@
 ---
-title: "了解 Azure AD 中的 OAuth 2.0 授權碼流程"
-description: "本文說明如何使用 HTTP 訊息來使用 Azure Active Directory 和 OAuth 2.0 授權存取租用戶中的 Web 應用程式和 Web API。"
+title: 了解 Azure AD 中的 OAuth 2.0 授權碼流程
+description: 本文說明如何使用 HTTP 訊息來使用 Azure Active Directory 和 OAuth 2.0 授權存取租用戶中的 Web 應用程式和 Web API。
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-ms.author: dastrock
+ms.date: 03/19/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 77df32710f17f8c5b749c39af9f6c64f0cc0b376
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 87a24ae9b620557e3106eb7f51b3f002cd76dd03
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>使用 OAuth 2.0 和 Azure Active Directory 授權存取 Web 應用程式
 Azure Active Directory (Azure AD) 使用 OAuth 2.0 讓您授權存取 Azure AD 租用戶中的 Web 應用程式和 Web API。 本指南與語言無關，描述在不使用我們的任何開放原始碼程式庫的情況下，如何傳送和接收 HTTP 訊息。
@@ -50,7 +50,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 參數 |  | 說明 |
 | --- | --- | --- |
 | tenant |必要 |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。  租用戶獨立權杖允許的值為租用戶識別碼，例如 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 或 `contoso.onmicrosoft.com` 或 `common` |
-| client_id |必要 |向 Azure AD 註冊應用程式時，指派給您的應用程式的識別碼。 您可以在 Azure 入口網站中找到這個值。 按一下 [Active Directory]，按一下目錄，選擇應用程式，然後按一下 [設定] |
+| client_id |必要 |向 Azure AD 註冊應用程式時，指派給您應用程式的應用程式識別碼。 您可以在 Azure 入口網站中找到這個值。 按一下 [Active Directory]，按一下目錄，選擇應用程式，然後按一下 [設定] |
 | response_type |必要 |授權碼流程必須包含 `code`。 |
 | redirect_uri |建議使用 |應用程式的 redirect_uri，您的應用程式可在此傳送及接收驗證回應。  其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。  對於原生和行動應用程式，請使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。 |
 | response_mode |建議使用 |指定將產生的權杖送回到應用程式所應該使用的方法。  可以是 `query` 或 `form_post`。 |
@@ -59,6 +59,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | prompt |選用 |表示需要的使用者互動類型。<p> 有效值為： <p> *login*：應提示使用者重新驗證。 <p> *consent*：已授與使用者同意，但需要更新。 應提示使用者同意。 <p> *admin_consent*：應提示管理員代表其組織內的所有使用者同意 |
 | login_hint |選用 |如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。  通常應用程式會在重新驗證期間使用此參數，並已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。 |
 | domain_hint |選用 |提供有關使用者應該用來登入之租用戶或網域的提示。 domain_hint 的值是租用戶的註冊網域。 如果租用戶與內部部署目錄結成同盟，AAD 會重新導向至指定的租用戶同盟伺服器。 |
+| code_challenge_method | 選用    | 用於為 `code_challenge` 參數編碼 `code_verifier` 的方法。 可以是 `plain` 或 `S256` 其中一個。  如果排除，則假設 `code_challenge` 為包含 `code_challenge` 時的純文字。  Azure AAD v2.0 支援 `plain` 和 `S256`。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
+| code_challenge        | 選用    | 用於透過來自原生用戶端之代碼交換的證明金鑰 (PKCE) 保護授權碼授與。 如果包含 `code_challenge_method`，則為必要參數。  如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
 
 > [!NOTE]
 > 如果使用者隸屬於組織，組織的系統管理員可以代表使用者同意或拒絕，或允許使用者自行同意。 只有當系統管理員允許時，使用者才會獲得同意的選項。
@@ -138,6 +140,7 @@ grant_type=authorization_code
 | redirect_uri |必要 |用來取得 `authorization_code` 的相同 `redirect_uri` 值。 |
 | client_secret |Web Apps 所需 |您在應用程式註冊入口網站中為應用程式建立的應用程式密碼。  其不應用於原生應用程式，因為裝置無法穩當地儲存 client_secret。  Web Apps 和 Web API 都需要應用程式密碼，其能夠將 `client_secret` 安全地儲存在伺服器端。 |
 | resource |如果在授權碼要求中指定，則為必要，否則為選擇性 |Web API (受保護的資源) 應用程式識別碼 URI。 |
+| code_verifier | 選用              | 用於取得 authorization_code 的相同 code_verifier。  如果 PKCE 已用於授權碼授與要求，則為必要參數。  如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
 
 若要尋找應用程式識別碼 URI，請在 Azure 管理入口網站中，依序按一下 [Active Directory]、目錄、應用程式及 [設定]。
 

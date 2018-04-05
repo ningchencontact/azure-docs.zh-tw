@@ -1,6 +1,6 @@
 ---
-title: "Azure 檔案服務的共用快照集 (預覽) 概觀 | Microsoft Docs"
-description: "Azure 共用快照集是在某個時間點拍攝的 Azure 檔案共用唯讀版本，是備份共用的一個方法。"
+title: Azure 檔案服務的共用快照集 (預覽) 概觀 | Microsoft Docs
+description: Azure 共用快照集是在某個時間點拍攝的 Azure 檔案共用唯讀版本，是備份共用的一個方法。
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 671e3737a620d85c732a091d5a62f35f35c1d515
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Azure 檔案服務的共用快照集 (預覽) 概觀
-Azure 檔案提供為檔案共用拍攝共用快照集的功能。 共用快照集 (預覽) 能擷取該時間點的共用狀態。 在本文中，我們說明共用快照集提供哪些功能，以及如何在您的自訂使用案例中運用這些功能。
+# <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 檔案的共用快照集概觀 
+Azure 檔案提供為檔案共用拍攝共用快照集的功能。 共用快照集能擷取該時間點的共用狀態。 在本文中，我們說明共用快照集提供哪些功能，以及如何在您的自訂使用案例中運用這些功能。
 
 
 ## <a name="when-to-use-share-snapshots"></a>使用共用快照集的時機
@@ -48,7 +48,7 @@ Azure 檔案提供為檔案共用拍攝共用快照集的功能。 共用快照�
 
 共用快照集功能會於檔案共用層級提供。 擷取會於個別的檔案層級提供，以允許還原個別檔案。 您可以使用 SMB、REST API、入口網站、用戶端程式庫或 PowerShell/CLI 工具來還原完整的檔案共用。
 
-檔案共用的共用快照集和其基底檔案共用相同。 唯一的差別在於，**DateTime** 值會附加至共用 URI，以表示建立共用快照集的時間。 例如，如果檔案共用 URI 是 http://storagesample.core.file.windows.net/myshare，共用快照集 URI 將類似於：
+檔案共用的共用快照集和其基底檔案共用相同。 唯一的差別在於，**DateTime** 值會附加至共用 URI，以表示建立共用快照集的時間。 例如，如果檔案共用 URI 為 http://storagesample.core.file.windows.net/myshare，則共用快照集 URI 會類似於：
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -98,5 +98,5 @@ Azure 檔案服務目前允許的共用快照集最大數目為 200。 保留 20
 
 ## <a name="next-steps"></a>後續步驟
 * [使用共用快照集](storage-how-to-use-files-snapshots.md)
-* [共用快照集常見問題集](storage-files-faq.md)
+* [共用快照集常見問題集](storage-files-faq.md#share-snapshots)
 

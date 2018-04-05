@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 13d36e6861a30473e6cb5d54d94a3c23a1e4cc59
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: fe171000f83c27f23972569b93e351340f4426ad
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>使用 PowerShell 建立虛擬網路
 
@@ -50,7 +50,7 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Azure 資源會部署至虛擬網路內的子網路，因此您必須建立子網路。 使用 [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 來建立子網路設定。 
+Azure 資源會部署至虛擬網路內的子網路，因此您必須建立子網路。 請使用 [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 來建立子網路設定。 
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
@@ -159,4 +159,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 Azure 預設會允許虛擬機器之間進行不受限制的私密通訊，但只允許從網際網路到 Windows VM 連入遠端桌面連線。 若要了解如何允許或限制進出 VM 的不同類型網路通訊，請前進到下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [篩選網路流量](virtual-networks-create-nsg-arm-ps.md)
+> [篩選網路流量](tutorial-filter-network-traffic.md)

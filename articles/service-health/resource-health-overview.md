@@ -1,24 +1,24 @@
 ---
-title: "Azure 資源健康狀態概觀 | Microsoft Docs"
-description: "Azure 資源健康狀態的概觀"
+title: Azure 資源健康狀態概觀 | Microsoft Docs
+description: Azure 資源健康狀態的概觀
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: shawntabrizi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 07/01/2017
+ms.date: 03/27/2018
 ms.author: shawn.tabrizi
-ms.openlocfilehash: 50a173a3d3a10ed59492b4a1d64173913f331639
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 99e996f182aac774f2e2565d87fd0debaba1b2d1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-resource-health-overview"></a>Azure 資源健康狀態概觀
  
@@ -77,7 +77,7 @@ ms.lasthandoff: 03/02/2018
 ![用於提交不正確狀態相關資訊的方塊](./media/resource-health-overview/incorrect-status.png)
 
 ## <a name="historical-information"></a>歷程記錄資訊
-您可以選取 [資源健康狀態] 中的 [檢視歷程記錄]，來存取最多 14 天的健康狀態歷程記錄。 
+您可以在 [資源健康狀態] 的 [健康史] 區段中存取最多 14 天的健康狀態歷程記錄。 
 
 ![過去兩週的資源健康狀態事件清單](./media/resource-health-overview/history-blade.png)
 

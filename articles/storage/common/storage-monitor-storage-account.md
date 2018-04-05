@@ -1,8 +1,8 @@
 ---
-title: "如何監視 Azure 儲存體帳戶 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站來監視 Azure 中的儲存體帳戶。"
+title: 如何監視 Azure 儲存體帳戶 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站來監視 Azure 中的儲存體帳戶。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ffc7d46bbfa4db47a47e416c395efdfc451cadc1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>在 Azure 入口網站中監視儲存體帳戶
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 01/24/2018
 > 在 Azure 入口網站中查看監視資料會衍生相關成本。 如需詳細資訊，請參閱 [儲存體分析及計費](/rest/api/storageservices/Storage-Analytics-and-Billing)。
 >
 > Azure 檔案服務目前支援儲存體分析計量，但還不支援記錄。
->
-> 複寫類型為區域備援儲存體 (ZRS) 的儲存體帳戶，可支援度量或記錄功能。 先前的 ZRS 帳戶 (已重新命名為 ZRS 傳統) 不再支援度量或記錄功能。 如需 ZRS 的詳細資訊，請參閱[區域備援儲存體](storage-redundancy.md#zone-redundant-storage)。 
 > 
 > 如需使用儲存體分析和其他工具來識別、診斷及疑難排解 Azure 儲存體相關問題的深入指南，請參閱 [監視、診斷及疑難排解 Microsoft Azure 儲存體](../storage-monitoring-diagnosing-troubleshooting.md)。
 >

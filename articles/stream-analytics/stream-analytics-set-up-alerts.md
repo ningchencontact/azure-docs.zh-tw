@@ -1,12 +1,11 @@
 ---
-title: "在串流分析中設定查詢的警示 | Microsoft Docs"
-description: "了解串流分析警示"
-keywords: "設定警示"
+title: 在串流分析中設定查詢的警示 | Microsoft Docs
+description: 了解串流分析警示
+keywords: 設定警示
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 9952e2cf-b335-4a5c-8f45-8d3e1eda2e20
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/26/2017
-ms.author: samacha
-ms.openlocfilehash: cdbd7da36f3eb2795fc4548915ebbf18200ca44d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: b88d7e82ffcd2fab1845faf92f6d7a53b72cb54d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>設定 Azure 串流分析工作的警示
 ## <a name="introduction-monitor-page"></a>簡介：監視頁面

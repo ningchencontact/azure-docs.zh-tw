@@ -1,11 +1,11 @@
 ---
-title: "在傳統 Windows VM 上設定端點 | Microsoft Docs"
-description: "了解如何在 Azure 入口網站中設定傳統 Windows VM 的端點，以允許與 Azure 中的 Windows 虛擬機器進行通訊。"
+title: 在傳統 Windows VM 上設定端點 | Microsoft Docs
+description: 了解如何在 Azure 入口網站中設定傳統 Windows VM 的端點，以允許與 Azure 中的 Windows 虛擬機器進行通訊。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 8afc21c2-d3fb-43a3-acce-aa06be448bb6
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 34bfad1e41037f38e950db085c0c13b7066b3e96
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d64feff341e389df4079c0603a414f0d40b754e7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>如何在 Azure 中的傳統 Windows 虛擬機器上設定端點
 在 Azure 中使用傳統部署模型建立的所有 Windows 虛擬機器，都可以自動透過私人網路通道與同一雲端服務或虛擬網路中的其他虛擬機器通訊。 不過，網際網路或其他虛擬網路上的電腦需要端點，才能將傳入網路流量導向至虛擬機器。 本文也適用於 [Linux 虛擬機器](../../linux/classic/setup-endpoints.md)。
@@ -37,4 +37,4 @@ ms.lasthandoff: 12/11/2017
 ## <a name="next-steps"></a>後續步驟
 * 若要使用 Azure PowerShell Cmdlet 來設定 VM 端點，請參閱 [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx)。
 * 若要使用 Azure PowerShell Cmdlet 來管理端點上的 ACL，請參閱 [使用 PowerShell 管理端點的存取控制清單 (ACL)](../../../virtual-network/virtual-networks-acl-powershell.md)。
-* 如果您已在 Resource Manager 部署模型中建立虛擬機器，則可以使用 Azure PowerShell 來 [建立網路安全性群組](../../../virtual-network/virtual-networks-create-nsg-arm-ps.md) 以控制對 VM 的流量。
+* 如果您已在 Resource Manager 部署模型中建立虛擬機器，則可以使用 Azure PowerShell 來 [建立網路安全性群組](../../../virtual-network/tutorial-filter-network-traffic.md) 以控制對 VM 的流量。

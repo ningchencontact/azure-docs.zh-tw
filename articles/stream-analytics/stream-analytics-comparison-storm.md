@@ -1,12 +1,11 @@
 ---
-title: "分析平台：Apache Storm 與串流分析之間的比較 | Microsoft Docs"
-description: "本文將使用 Apache Storm 與串流分析之間的比較，提供您選擇雲端分析平台的指引。 了解功能和差異。"
-keywords: "分析平台, 分析平台, 雲端分析平台, storm 比較"
+title: 分析平台：Apache Storm 與串流分析之間的比較 | Microsoft Docs
+description: 本文將使用 Apache Storm 與串流分析之間的比較，提供您選擇雲端分析平台的指引。 了解功能和差異。
+keywords: 分析平台, 分析平台, 雲端分析平台, storm 比較
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
-ms.author: samacha
-ms.openlocfilehash: 97044cb5d7b0b3fcb3b85328df618a265bc59b61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 48599c362c5db50ebec3acd0aaa4359439edb00b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>選擇串流分析平台：比較 Apache Storm 與 Azure 串流分析
 Azure 提供多種解決方案來分析串流資料：[Azure 串流分析](https://docs.microsoft.com/azure/stream-analytics/)和 [Azure HDInsight 上的 Apache Storm](https://azure.microsoft.com/services/hdinsight/apache-storm/)。 這兩個分析平台提供 PaaS 解決方案的優點。 但這兩個平台的功能及設定和管理方式有一些顯著的差異。 

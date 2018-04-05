@@ -1,6 +1,6 @@
 ---
-title: "SQL Server 可用性群組 - Azure 虛擬機器 - 教學課程 | Microsoft Docs"
-description: "本教學課程說明如何在「Azure 虛擬機器」上建立「SQL Server Always On 可用性群組」。"
+title: SQL Server 可用性群組 - Azure 虛擬機器 - 教學課程 | Microsoft Docs
+description: 本教學課程說明如何在「Azure 虛擬機器」上建立「SQL Server Always On 可用性群組」。
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>在 Azure VM 中手動設定 Always On 可用性群組
 
@@ -356,7 +356,7 @@ Repeat these steps on the second SQL Server.
    | **虛擬網路** |使用 Azure 虛擬網路的名稱。 |
    | **子網路** |使用虛擬機器所在子網路的名稱。  |
    | **IP 位址指派** |靜態 |
-   | **IP 位址** |使用來自子網路的可用位址。 |
+   | **IP 位址** |使用來自子網路的可用位址。 請注意，這與您的叢集 IP 位址不同 |
    | **訂用帳戶** |使用與虛擬機器相同的訂用帳戶。 |
    | **位置** |使用與虛擬機器相同的位置。 |
 

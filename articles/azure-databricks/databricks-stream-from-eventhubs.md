@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/23/2018
+ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: 94b09b824becc8a67adf4edfd2d4b44496a6169c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c43edc6673c42a8b69bfa296e288e77adee4d0af
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>教學課程：使用事件中樞將資料串流至 Azure Databricks
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 03/28/2018
 
 若要收到推文的串流，您必須在 Twitter 中建立應用程式。 請依照下列指示建立 Twitter 應用程式，並記錄要完成本教學課程所需的值。
 
-1. 從網頁瀏覽器移至 [Twitter 應用程式管理](http://twitter.com/app)，然後選取 [建立新的應用程式]。
+1. 從網頁瀏覽器移至 [Twitter 應用程式管理](http://twitter.com/app)，然後選取 **建立新的應用程式**。
 
     ![建立 Twitter 應用程式](./media/databricks-stream-from-eventhubs/databricks-create-twitter-app.png "建立 Twitter 應用程式")
 
@@ -356,7 +356,7 @@ ms.lasthandoff: 03/28/2018
     ...
     ...
 
-就這麼簡單！ 您已使用 Azure Databricks 成功地以近乎即時的速度將資料串流至 Azure 事件中樞。 然後，您又使用適用於 Apache Spark 的事件中樞連接器取用串流資料。
+就這麼簡單！ 您已使用 Azure Databricks 成功地以近乎即時的速度將資料串流至 Azure 事件中樞。 然後，您又使用適用於 Apache Spark 的事件中樞連接器取用串流資料。 如需如何使用 Spark 事件中樞連接器的詳細資訊，請參閱[連接器文件](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs)。
 
 ## <a name="clean-up-resources"></a>清除資源
 

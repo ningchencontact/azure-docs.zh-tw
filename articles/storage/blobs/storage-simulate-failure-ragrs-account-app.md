@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 57296d828156184aa36532cd649fbec0c81b5e27
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0e7ab68075fbce729d3905375acce0dace22c483
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>模擬存取讀取權限備援儲存體時失敗
 
-本教學課程是一個系列的第二部分。  在本教學課程中，您可以使用 [Fiddler](#simulate-a-failure-with-fiddler) 或[靜態路由](#simulate-a-failure-with-an-invalid-static-route)，模擬對您 [read-access geo-redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) 儲存體帳戶的主要端點要求失敗，而從次要端點讀取應用程式的情況。
+本教學課程是一個系列的第二部分。  在本教學課程中，您可以使用 [Fiddler](#simulate-a-failure-with-fiddler) 或[靜態路由](#simulate-a-failure-with-an-invalid-static-route)，模擬對您 [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) 儲存體帳戶的主要端點要求失敗，而從次要端點讀取應用程式的情況。
 
 ![應用程式案例](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
@@ -117,7 +117,7 @@ Fiddler ScriptEditor 啟動，顯示 **SampleRules.js** 檔案。 此檔案是�
 
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>使用無效的靜態路由模擬失敗 
-您可以建立無效的靜態路由，並將其用於所有對您[讀取權限異地備援](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) 儲存體帳戶之主要端點的要求。 在本教學課程中，會使用本機主機作為將要求路由傳送到儲存體帳戶的閘道。 以本機主機作為閘道，會導致所有對儲存體帳戶主要端點的要求在主機內形成迴圈，進而導致失敗。 請遵循下列步驟，以使用無效的靜態路由模擬失敗和主要端點還原。 
+您可以建立無效的靜態路由，並將其用於所有對您[讀取權限異地備援](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) 儲存體帳戶之主要端點的要求。 在本教學課程中，會使用本機主機作為將要求路由傳送到儲存體帳戶的閘道。 以本機主機作為閘道，會導致所有對儲存體帳戶主要端點的要求在主機內形成迴圈，進而導致失敗。 請遵循下列步驟，以使用無效的靜態路由模擬失敗和主要端點還原。 
 
 ### <a name="start-and-pause-the-application"></a>啟動和暫停應用程式
 

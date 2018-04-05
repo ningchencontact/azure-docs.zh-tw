@@ -1,24 +1,24 @@
 ---
-title: "使用 Azure Stack 中具有特殊權限的端點 | Microsoft Docs"
-description: "說明如何使用 Azure Stack 中具有特殊權限的端點 (PEP) (適用於 Azure Stack 操作員)。"
+title: 使用 Azure Stack 中具有特殊權限的端點 | Microsoft Docs
+description: 說明如何使用 Azure Stack 中具有特殊權限的端點 (PEP) (適用於 Azure Stack 操作員)。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 29ac4517ec691f94f24ced81ca227cd4d1e7214e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中具有特殊權限的端點
 
@@ -74,7 +74,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
       ```` 
    出現輸入提示時，使用下列認證：
 
-      - **使用者名稱**：指定 CloudAdmin 帳戶，格式為 **&lt;*Azure Stack 網域*&gt;\cloudadmin**。 (若為 ASDK，使用者名稱是 **azurestack\cloudadmin**。)
+      - **使用者名稱**：指定 CloudAdmin 帳戶，格式為 **&lt;*Azure Stack domain*&gt;\accountname**。 (若為 ASDK，使用者名稱是 **azurestack\accountname**。) 
       - **密碼**：輸入與 AzureStackAdmin 網域系統管理員帳戶安裝期間所提供的相同密碼。
     
 3.  連線之後，視環境而定，提示會變更為 **[*IP 位址或 ERCS VM 名稱*]: PS>** 或變更為 **[azs-ercs01]: PS>**。 從這裡執行 `Get-Command` 可檢視可用的 Cmdlet 清單。
@@ -143,7 +143,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
       ```` 
    出現輸入提示時，使用下列認證：
 
-      - **使用者名稱**：指定 CloudAdmin 帳戶，格式為 **&lt;*Azure Stack 網域*&gt;\cloudadmin**。 (若為 ASDK，使用者名稱是 **azurestack\cloudadmin**。)
+      - **使用者名稱**：指定 CloudAdmin 帳戶，格式為 **&lt;*Azure Stack domain*&gt;\accountname**。 (若為 ASDK，使用者名稱是 **azurestack\accountname**。) 
       - **密碼**：輸入與 AzureStackAdmin 網域系統管理員帳戶安裝期間所提供的相同密碼。
 
 3. 將 PEP 工作階段匯入到本機電腦

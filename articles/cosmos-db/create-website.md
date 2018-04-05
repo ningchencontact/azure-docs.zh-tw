@@ -1,11 +1,11 @@
 ---
-title: "使用範本部署 Web 應用程式 - Azure Cosmos DB | Microsoft Docs"
-description: "了解如何使用 Azure Resource Manager 範本，來部署 Azure Cosmos DB 帳戶、Azure App Service Web Apps，以及範例 Web 應用程式。"
+title: 使用範本部署 Web 應用程式 - Azure Cosmos DB | Microsoft Docs
+description: 了解如何使用 Azure Resource Manager 範本，來部署 Azure Cosmos DB 帳戶、Azure App Service Web Apps，以及範例 Web 應用程式。
 services: cosmos-db, app-service\web
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -77,7 +77,7 @@ ms.lasthandoff: 02/24/2018
    ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment6.png)
 7. 部署完成時，隨即開啟 [資源群組] 窗格。
    ![資源群組窗格的螢幕擷取畫面](./media/create-website/TemplateDeployment7.png)  
-8. 若要使用應用程式，請瀏覽至 Web 應用程式 URL (上述範例中的 URL 會是 http://mydemodocdbwebapp.azurewebsites.net)。  您會看到下列的 Web 應用程式：
+8. 若要使用應用程式，請瀏覽至 Web 應用程式 URL (上述範例中的 URL 會是 http://mydemodocdbwebapp.azurewebsites.net )。  您會看到下列的 Web 應用程式：
    
    ![範例待辦事項應用程式](./media/create-website/image2.png)
 9. 請繼續在 Web 應用程式中建立幾個工作，然後回到 Azure 入口網站的 [資源群組] 窗格。 按一下 [資源] 清單中的 Azure Cosmos DB 帳戶資源，然後按一下 [資料總管]。
