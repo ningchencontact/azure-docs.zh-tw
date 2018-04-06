@@ -1,11 +1,11 @@
 ---
-title: "系統管理員接管 Azure Active Directory 中非受控目錄或影子租用戶 | Microsoft Docs"
-description: "如何接管 Azure Active Directory 之非受控目錄 (影子租用戶) 中的 DNS 網域名稱。"
+title: 系統管理員接管 Azure Active Directory 中非受控目錄或影子租用戶 | Microsoft Docs
+description: 如何接管 Azure Active Directory 之非受控目錄 (影子租用戶) 中的 DNS 網域名稱。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: f18e5883fca9291eb1447c1eebfe0883936fe84f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
 本文說明接管 Azure Active Directory (Azure AD) 之非受控目錄中 DNS 網域名稱的兩種方式。 當自助使用者註冊使用 Azure AD 的雲端服務時，系統會根據其電子郵件網域將其新增至非受控 Azure AD 目錄。 如需有關自助式或「病毒式」服務註冊的詳細資訊，請參閱[什麼是自助式 Azure Active Directory 註冊？]()

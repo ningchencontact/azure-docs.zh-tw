@@ -1,23 +1,23 @@
 ---
-title: "使用 Azure AD 驗證搭配 .NET 存取 Azure 媒體服務 API | Microsoft Docs"
-description: "本主題說明如何使用 Azure Active Directory (Azure AD) 驗證搭配 .NET 存取 Azure 媒體服務 (AMS) API。"
+title: 使用 Azure AD 驗證搭配 .NET 存取 Azure 媒體服務 API | Microsoft Docs
+description: 本主題說明如何使用 Azure Active Directory (Azure AD) 驗證搭配 .NET 存取 Azure 媒體服務 (AMS) API。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: a9355200a05a3aa1b494b76977d38ddc42bfe179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8817bb0da526769470e96b63b9c80620309757bf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>使用 Azure AD 驗證搭配 .NET 存取 Azure 媒體服務 API
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 - **服務主體驗證**會驗證服務。 通常使用這種驗證方法的應用程式有執行精靈服務、中介層服務或排程的工作的應用程式：例如，Web 應用程式、函數應用程式、邏輯應用程式、API 或微服務。
 
 >[!IMPORTANT]
->Azure 媒體服務目前支援 Azure 存取控制服務驗證模型。 不過，存取控制授權將在 2018 年 6 月 1 日被取代。 建議您儘速移轉至 Azure Active Directory 驗證模型。
+>Azure 媒體服務目前支援 Azure 存取控制服務驗證模型。 不過，存取控制授權將在 2018 年 6 月 22 日被取代。 建議您儘速移轉至 Azure Active Directory 驗證模型。
 
 ## <a name="get-an-azure-ad-access-token"></a>取得 Azure AD 存取權杖
 

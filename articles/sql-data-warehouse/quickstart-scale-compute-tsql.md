@@ -1,24 +1,24 @@
 ---
-title: "快速入門：相應放大 Azure SQL 資料倉儲中的計算 - T-SQL | Microsoft Docs"
-description: "T-SQL 命令會透過調整 DWU 來調整計算資源。"
+title: 快速入門：相應放大 Azure SQL 資料倉儲中的計算 - T-SQL | Microsoft Docs
+description: T-SQL 命令會透過調整 DWU 來調整計算資源。
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: f984f9b348f589e20cb8a4b68578ddef84d8292d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1591192c72f5bf201dbbef80acc5895c8324fca4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>快速入門：使用 T-SQL 調整 Azure SQL 資料倉儲中的計算
 
@@ -101,18 +101,9 @@ MODIFY (SERVICE_OBJECTIVE = 'DW300')
 ;
 ```
 
-## <a name="check-database-state"></a>檢查資料庫狀態
+## <a name="check-data-warehouse-state"></a>檢查資料倉儲狀態
 
-若要檢查資料庫狀態，請對**主要**資料庫執行下列查詢。
-
-```sql
-SELECT name AS "Database Name", state_desc AS "Status" 
-FROM sys.databases db
-WHERE db.name = 'mySampleDataWarehouse'
-;
-```
-
-當您執行此命令時，應該會收到下列其中一個 Status (狀態) 值：Online (上線)、Pausing (暫停中)、Resuming (正在恢復)、Scaling (正在調整) 或 Paused (已暫停)。
+當資料倉儲暫停時，您無法使用 T-SQL 與其連線。 若要查看資料倉儲的目前狀態，您可以使用 PowerShell Cmdlet。 如需範例，請參閱[檢查資料倉儲狀態 - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state)。 
 
 ## <a name="check-operation-status"></a>檢查作業狀態
 

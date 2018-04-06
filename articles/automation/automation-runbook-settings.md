@@ -1,24 +1,18 @@
 ---
-title: "Runbook 設定 |Microsoft Docs"
-description: "描述「Azure 自動化」中 Runbook 的組態設定，以及如何使用 Azure 入口網站和 Windows PowerShell 來變更這些設定。"
+title: Azure 自動化的 Runbook 設定
+description: 描述「Azure 自動化」中 Runbook 的組態設定，以及如何使用 Azure 入口網站和 Windows PowerShell 來變更這些設定。
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-ms.assetid: a726f20c-a952-48b8-88ee-36d76aa3ac61
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/11/2016
-ms.author: bwren
-ms.openlocfilehash: 527c40c4a0c5c9a0eb4745f542a8afcc63281416
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+manager: carmonm
+ms.openlocfilehash: 548a168055a63ee8cb5147b56fb77ef0bc801e17
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-settings"></a>Runbook 設定
 Azure 自動化中的每個 Runbook 具備多個有助於識別其本身及變更其記錄行為的設定。 以下會說明這些設定，後面則是如何加以修改的程序。

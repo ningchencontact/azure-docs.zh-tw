@@ -1,21 +1,21 @@
 ---
-title: "使用 Azure 資料庫移轉服務將 SQL Server 移轉到 Azure SQL Database | Microsoft Docs"
-description: "了解如何使用 Azure 資料庫移轉服務，從內部部署 SQL Server 移轉到 Azure SQL。"
+title: 使用 Azure 資料庫移轉服務將 SQL Server 移轉到 Azure SQL Database | Microsoft Docs
+description: 了解如何使用 Azure 資料庫移轉服務，從內部部署 SQL Server 移轉到 Azure SQL。
 services: dms
 author: HJToland3
 ms.author: jtoland
 manager: jhubbard
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 01/24/2018
-ms.openlocfilehash: 8dc8b4db80d5e319fad0b681924ab5a8e5642b2e
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.date: 03/29/2018
+ms.openlocfilehash: b16c3666b932beb771c51bb8dec3ebd5fa36e8a0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>將 SQL Server 移轉到 Azure SQL Database
 您可以使用 Azure 資料庫移轉服務，將內部部署 SQL Server 執行個體的資料庫移轉到 Azure SQL Database。 在本教學課程中，您要使用 Azure 資料庫移轉服務，將已還原至內部部署 SQL Server 2016 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉到 Azure SQL Database。
@@ -39,7 +39,8 @@ ms.lasthandoff: 01/25/2018
 - 使用 Azure Resource Manager 部署模型來建立 Azure 資料庫移轉服務的 VNET，其使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 提供站對站連線能力給您的內部部署來源伺服器。
 - 確定您的 Azure 虛擬網路 (VNET) 網路安全性群組規則不會封鎖下列通訊埠 443、53、9354、445、12000。 如需 Azure VNET NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg)。
 - 設定[用於 Database Engine 存取的 Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
-- 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 SQL Server。
+- 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 SQL Server，其預設會通過 TCP 連接埠 1433。
+- 如果您使用動態連接埠執行多個具名 SQL Server 執行個體，也許會想要啟用 SQL Browser 服務並允許通過防火牆存取 UDP 連接埠 1434，讓 Azure 資料庫移轉服務連線來源伺服器上的具名執行個體。
 - 使用來源資料庫前面的防火牆應用裝置時，您可能必須新增防火牆規則，才能讓 Azure 資料庫移轉服務存取來源資料庫，以進行移轉。
 - 針對 Azure SQL Database 伺服器建立伺服器層級的[防火牆規則](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure)，以允許 Azure 資料庫移轉服務存取目標資料庫。 提供用於 Azure 資料庫移轉服務之 VNET 的子網路範圍。
 - 確定用來連線至來源 SQL Server 執行個體的認證具有 [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) 權限。

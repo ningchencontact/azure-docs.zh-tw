@@ -1,24 +1,24 @@
 ---
-title: "Durable Functions 中的函式鏈結 - Azure"
-description: "了解如何執行 Durable Functions 範例來執行一連串的函式。"
+title: Durable Functions 中的函式鏈結 - Azure
+description: 了解如何執行 Durable Functions 範例來執行一連串的函式。
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Durable Functions 中的函式鏈結- Hello 序列範例
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="prerequisites"></a>先決條件
 
-* 請依照[安裝 Durable Functions](durable-functions-install.md) 中的指示來設定範例。
+* [安裝 Durable Functions](durable-functions-install.md)。
 
 ## <a name="the-functions"></a>函式
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/05/2017
 * `E1_HelloSequence`：此協調器函式連續呼叫 `E1_SayHello` 多次。 它會儲存 `E1_SayHello` 呼叫的輸出，並記錄結果。
 * `E1_SayHello`：此活動函式在字串前面加上 "Hello"。
 
-下列各節說明用於 Azure 入口網站開發的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
+下列各節說明用於 C# 指令碼的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
  
 ## <a name="functionjson-file"></a>function.json 檔案
 

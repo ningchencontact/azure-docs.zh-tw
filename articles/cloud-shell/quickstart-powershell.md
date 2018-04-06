@@ -1,12 +1,12 @@
 ---
-title: "Azure Cloud Shell (預覽) 中的 PowerShell 快速入門 | Microsoft Docs"
-description: "Cloud Shell 中 PowerShell 的快速入門"
+title: Azure Cloud Shell (預覽) 中的 PowerShell 快速入門 | Microsoft Docs
+description: Cloud Shell 中 PowerShell 的快速入門
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendmsft
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: efee0842a2fca2afac28f179bba07c3b6682ee57
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell 中 PowerShell 的快速入門 (預覽)
 
@@ -118,7 +118,7 @@ TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datace
 
 ### <a name="navigate-storage-resources"></a>導覽儲存體資源
     
-進入 `StorageAccounts` 資料夾，即可輕鬆地導覽儲存體資源
+進入 `StorageAccounts` 目錄，即可輕鬆地導覽儲存體資源
     
 ``` PowerShell 
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
@@ -182,7 +182,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 #### <a name="invoke-powershell-script-across-remote-vms"></a>在遠端 VM 之間叫用 PowerShell 指令碼
 
  > [!WARNING]
- > 請參閱[針對 Azure VM 遠端管理進行疑難排解](troubleshooting.md#powershell-resolutions)。
+ > 請參閱[針對 Azure VM 遠端管理進行疑難排解](troubleshooting.md#troubleshooting-remote-management-of-azure-vms)。
 
   假設您有名為 MyVM1 的 VM，讓我們使用 `Invoke-AzureRmVMCommand` 在遠端機器上叫用 PowerShell 指令碼區塊。
 
@@ -227,7 +227,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 ### <a name="discover-webapps"></a>探索 WebApp
 
-進入 `WebApps` 資料夾，即可輕鬆地導覽 Web 應用程式資源
+進入 `WebApps` 目錄，即可輕鬆地導覽 Web 應用程式資源
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -274,11 +274,11 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>使用自訂設定檔，以保存 GIT 和 SSH 設定
 
-因為工作階段在登出之後就不會保存，請將您的 `$env:USERPROFILE\.ssh` 資料夾儲存至 `CloudDrive`，或者在 Cloud Shell 啟動時建立符號連結。
+因為工作階段在登出之後就不會保存，請將您的 `$env:USERPROFILE\.ssh` 目錄儲存至 `CloudDrive`，或者在 Cloud Shell 啟動時建立符號連結。
 在 profile.ps1 中新增下列程式碼片段，以建立與 CloudDrive 的符號連結。
 
 ``` PowerShell
-# Check if the .ssh folder exists
+# Check if the .ssh directory exists
 if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
@@ -357,7 +357,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-下次當您在 Cloud Shell 中使用 PowerShell 時，`helloworld.ps1` 檔案將會存在於掛接 Azure 檔案共用的 `CloudDrive` 資料夾下。
+下次當您在 Cloud Shell 中使用 PowerShell 時，`helloworld.ps1` 檔案將會存在於掛接 Azure 檔案共用的 `CloudDrive` 目錄下。
 
 ## <a name="use-custom-profile"></a>使用自訂設定檔
 

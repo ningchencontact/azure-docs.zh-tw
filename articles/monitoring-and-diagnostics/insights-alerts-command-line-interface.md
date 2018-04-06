@@ -1,9 +1,9 @@
 ---
-title: "建立 Azure 服務的警示 - 跨平台 CLI | Microsoft Docs"
-description: "當符合您指定的條件時，觸發電子郵件、通知、呼叫網站 URL (Webhook) 或自動化。"
+title: 建立 Azure 服務的警示 - 跨平台 CLI | Microsoft Docs
+description: 當符合您指定的條件時，觸發電子郵件、通知、呼叫網站 URL (Webhook) 或自動化。
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 5c6a2d27-7dcc-4f89-8752-9bb31b05ff35
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cf93c95a37c9c32333727059317e05cfcc252905
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>在 Azure 監視器中為 Azure 服務建立計量警示 - 跨平台 CLI
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>在 Azure 監視器中為 Azure 服務建立傳統計量警示 - 跨平台 CLI
 > [!div class="op_single_selector"]
 > * [入口網站](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,6 +29,11 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>概觀
+> [!NOTE]
+> 本文說明如何建立舊版計量警示。 Azure 監視器現在支援[更新更好的計量警示](monitoring-near-real-time-metric-alerts.md)。 這些警示可以監視多個計量，且能針對維度計量發出警示。 即將推出更新計量警示的 CLI 支援。
+>
+>
+
 此文章將說明如何使用跨平台命令列介面 (CLI) 設定 Azure 計量警示。
 
 > [!NOTE]
@@ -39,7 +44,7 @@ ms.lasthandoff: 12/21/2017
 您可以收到以您 Azure 服務的監視計量或事件為基礎的警示。
 
 * **計量值** - 當指定的計量值超出您在任一方向指派的臨界值時會觸發警示。 也就是說，當先符合條件而之後該條件不再符合時，兩方面皆會觸發。    
-* **活動記錄檔事件** - 警示可在*每一個*事件上觸發，或是僅在發生特定事件時才觸發。 若要深入了解活動記錄檔警示，請[按一下這裡](monitoring-activity-log-alerts.md)
+* **活動記錄事件** - 警示可在*每一個*事件上觸發，或是僅在發生特定事件時才觸發。 若要深入了解活動記錄檔警示，請[按一下這裡](monitoring-activity-log-alerts.md)
 
 您可以設定當計量警示觸發時執行下列動作︰
 

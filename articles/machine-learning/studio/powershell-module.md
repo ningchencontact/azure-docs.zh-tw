@@ -1,11 +1,12 @@
 ---
-title: "適用於 Machine Learning 的 PowerShell 模組 | Microsoft Docs"
-description: "適用於 Azure Machine Learning 的 PowerShell 模組提供公開預覽模式。 您可以使用 PowerShell 來建立及管理工作區、實驗、Web 服務等。"
-keywords: "實驗、線性迴歸、機器學習服務演算法、機器學習服務教學課程、預測性模型技術、資料科學實驗"
+title: 適用於 Machine Learning 的 PowerShell 模組 | Microsoft Docs
+description: 適用於 Azure Machine Learning 的 PowerShell 模組提供公開預覽模式。 您可以使用 PowerShell 來建立及管理工作區、實驗、Web 服務等。
+keywords: 實驗、線性迴歸、機器學習服務演算法、機器學習服務教學課程、預測性模型技術、資料科學實驗
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: garye;haining
-ms.openlocfilehash: 47d005e584b6cb87d27a77f56ff619d342481aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9553e372f4d1cb5c60935fae5a7af61806ea6d4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="powershell-module-for-microsoft-azure-machine-learning"></a>適用於 Microsoft Azure Machine Learning 的 PowerShell 模組
 適用於 Azure Machine Learning 的 PowerShell 模組是一款功能強大的工具，它能讓您使用 Windows PowerShell 來管理工作區、實驗、資料集、傳統的 Web 服務等。

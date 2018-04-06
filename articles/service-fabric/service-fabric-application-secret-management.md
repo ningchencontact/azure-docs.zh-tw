@@ -1,47 +1,31 @@
 ---
-title: "管理 Service Fabric 應用程式中的祕密 | Microsoft Docs"
-description: "本文說明如何保護在 Service Fabric 應用程式中的密碼值。"
+title: 管理 Azure Service Fabric 應用程式密碼 | Microsoft Docs
+description: 瞭解如何保護在 Service Fabric 應用程式中的密碼值。
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 03/21/2018
 ms.author: vturecek
-ms.openlocfilehash: bb40f841c6c2671621624e0599a5f3a36a36ab26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 931667509a9aa5e898cd01ad26ff046e30acd3fe
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="managing-secrets-in-service-fabric-applications"></a>管理 Service Fabric 應用程式中的密碼
+# <a name="manage-secrets-in-service-fabric-applications"></a>管理 Service Fabric 應用程式中的祕密
 本指南將逐步引導您完成管理 Service Fabric 應用程式中密碼的步驟。 密碼可以是任何機密資訊，例如儲存體連接字串、密碼或其他不會以純文字處理的值。
 
-本指南使用 Azure 金鑰保存庫來管理金鑰和密碼。 不過，應用程式中的密碼「使用」  是由平台驗證，讓應用程式可部署至裝載在任何位置的叢集。 
+[Azure Key Vault][key-vault-get-started] 在此是當做憑證的安全儲存位置，以及讓憑證安裝在 Azure 中的 Service Fabric 叢集上的方法。 如果您沒有要部署至 Azure，您不需要使用金鑰保存庫管理 Service Fabric 應用程式中的密碼。 不過，應用程式中的密碼「使用」  是由平台驗證，讓應用程式可部署至裝載在任何位置的叢集。 
 
-## <a name="overview"></a>概觀
-建議透過[服務組態套件][config-package]來管理服務組態設定。 組態套件會有各種版本，並可透過含有健全狀況驗證和自動復原的受控輪流升級來進行升級。 這是慣用的全域組態，因為可以減少全域服務中斷的機會。 加密的密碼也不例外。 Service Fabric 具有內建的功能，可使用憑證加密來加密或解密組態套件 Settings.xml 檔案中的值。
-
-下圖說明 Service Fabric 應用程式中密碼管理的基本流程︰
-
-![密碼管理概觀][overview]
-
-此流程有四個主要步驟︰
-
-1. 取得資料編密憑證。
-2. 在叢集中安裝憑證。
-3. 在部署應用程式時以憑證來加密密碼的值，並將其插入服務的 Settings.xml 組態檔。
-4. 藉由以相同的編密憑證進行解密，從 Settings.xml 讀取加密的值。 
-
-[Azure Key Vault][key-vault-get-started] 在此是當做憑證的安全儲存位置，以及讓憑證安裝在 Azure 中的 Service Fabric 叢集上的方法。 如果您沒有要部署至 Azure，您不需要使用金鑰保存庫管理 Service Fabric 應用程式中的密碼。
-
-## <a name="data-encipherment-certificate"></a>資料編密憑證
+## <a name="obtain-a-data-encipherment-certificate"></a>取得資料加密憑證
 資料編密憑證只會用於服務的 Settings.xml 中組態值的加密與解密，並無法用來驗證或簽署密碼文字。 憑證必須符合下列要求：
 
 * 憑證必須包含私密金鑰。
@@ -58,7 +42,7 @@ ms.lasthandoff: 12/11/2017
 此憑證必須安裝在叢集中的每個節點上。 它會用在執行階段來解密服務的 Settings.xml 中儲存的值。 請參閱[如何使用 Azure Resource Manager][service-fabric-cluster-creation-via-arm] 建立叢集的安裝指示。 
 
 ## <a name="encrypt-application-secrets"></a>加密應用程式密碼
-Service Fabric SDK 有內建密碼加密和解密函式。 可以在建置階段加密密碼值，然後在服務代碼中以程式設計方式解密和讀取。 
+在部署應用程式時，以憑證來加密密碼的值，並將其插入服務的 Settings.xml 組態檔。 Service Fabric SDK 有內建密碼加密和解密函式。 可以在建置階段加密密碼值，然後在服務代碼中以程式設計方式解密和讀取。 
 
 下列 PowerShell 命令會用來加密密碼。 此命令只會將值加密；並**不會**簽署密碼文字。 您必須使用安裝在叢集中相同的編密憑證，以產生密碼值的加密文字︰
 
@@ -66,7 +50,7 @@ Service Fabric SDK 有內建密碼加密和解密函式。 可以在建置階段
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-產生的 Base-64 字串同時包含密碼的加密文字，以及用來對其加密的憑證相關資訊。  當 `IsEncrypted` 屬性設為 `true` 時，Base-64 編碼的字串可插入到服務的 Settings.xml 組態檔中的參數內：
+產生的 Base-64 編碼字串同時包含密碼的加密文字，以及用來對其加密的憑證相關資訊。  當 `IsEncrypted` 屬性設為 `true` 時，Base-64 編碼的字串可插入到服務的 Settings.xml 組態檔中的參數內：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -140,7 +124,7 @@ await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescript
 ```
 
 ## <a name="decrypt-secrets-from-service-code"></a>解密來自服務代碼的密碼
-Service Fabric 中的服務在「網路服務」下依預設是在 Windows 上執行，而且若沒有額外設定，則沒有安裝在節點上憑證的存取權。
+您可以藉由將密碼編碼的編密憑證進行解密，從 Settings.xml 讀取加密的值。 Service Fabric 中的服務在「網路服務」下依預設是在 Windows 上執行，而且若沒有額外設定，則沒有安裝在節點上憑證的存取權。
 
 使用資料編密憑證時，您必須確定「網路服務」或服務在其下執行的任何使用者帳戶，可以存取憑證的私密金鑰。 若您如此設定，Service Fabric 會自動處理授與服務的存取權。 可以藉由定義使用者及憑證的安全性原則，在 ApplicationManifest.xml 中完成此組態。 在下列範例中，已授與「網路服務」帳戶由其憑證指紋所定義的憑證讀取權限︰
 
@@ -176,7 +160,7 @@ SecureString mySecretValue = configPackage.Settings.Sections["MySettings"].Param
 ```
 
 ## <a name="next-steps"></a>後續步驟
-深入了解 [以不同的安全性權限執行應用程式](service-fabric-application-runas-security.md)
+深入了解[應用程式及服務安全性](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-get-started.md

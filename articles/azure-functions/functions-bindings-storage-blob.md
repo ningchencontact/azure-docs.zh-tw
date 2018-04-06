@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf2c4a12d1344ec17ce9688e1c7192f57104dc7b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
@@ -233,12 +233,12 @@ module.exports = function(context) {
 * `string`
 * `Byte[]`
 * 可序列化為 JSON 的 POCO
-* `ICloudBlob` (需要 *function.json* 中的 "inout" 繫結方向)
-* `CloudBlockBlob` (需要 *function.json* 中的 "inout" 繫結方向)
-* `CloudPageBlob` (需要 *function.json* 中的 "inout" 繫結方向)
-* `CloudAppendBlob` (需要 *function.json* 中的 "inout" 繫結方向)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-如上所述，其中一些類型需要 *function.json* 中的 `inout` 繫結方向。 Azure 入口網站中的標準編輯器不支援此方向，因此您必須使用進階編輯器。
+<sup>1</sup> 在 *function.json* 或 `FileAccess.ReadWrite` C# 類別庫中需要 "inout" 繫結 `direction`。
 
 由於會將整個 blob 內容載入記憶體中，因此只有在 Blob 大小很小時才建議繫結至 `string`、`Byte[]` 或 POCO。 一般而言，最好使用 `Stream` 或 `CloudBlockBlob` 類型。 如需詳細資訊，請參閱本文稍後的[並行存取和記憶體使用量](#trigger---concurrency-and-memory-usage)。
 
@@ -364,7 +364,7 @@ JavaScript 函式會將整個 Blob 載入記憶體中，而 C# 函式則會在�
 
 ### <a name="input---c-example"></a>輸入 - C# 範例
 
-下列範例是使用一個佇列觸發程序和一個輸入 Blob 繫結的 [C# 函式](functions-dotnet-class-library.md)。 佇列 messagge 包含 Blob 的名稱，而函式會記錄 Blob 的大小。
+下列範例是使用一個佇列觸發程序和一個輸入 Blob 繫結的 [C# 函式](functions-dotnet-class-library.md)。 佇列訊息包含 Blob 的名稱，而函式會記錄 Blob 的大小。
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -374,7 +374,6 @@ public static void Run(
     TraceWriter log)
 {
     log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-
 }
 ```        
 
@@ -534,12 +533,12 @@ public static void Run(
 * `Byte[]`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob` (需要 *function.json* 中的 "inout" 繫結方向)
-* `CloudBlockBlob` (需要 *function.json* 中的 "inout" 繫結方向)
-* `CloudPageBlob` (需要 *function.json* 中的 "inout" 繫結方向)
-* `CloudAppendBlob` (需要 *function.json* 中的 "inout" 繫結方向)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-如上所述，其中一些類型需要 *function.json* 中的 `inout` 繫結方向。 Azure 入口網站中的標準編輯器不支援此方向，因此您必須使用進階編輯器。
+<sup>1</sup> 在 *function.json* 或 `FileAccess.ReadWrite` C# 類別庫中需要 "inout" 繫結 `direction`。
 
 由於會將整個 blob 內容載入記憶體中，因此只有在 Blob 大小很小時才建議繫結至 `string` 或 `Byte[]`。 一般而言，最好使用 `Stream` 或 `CloudBlockBlob` 類型。 如需詳細資訊，請參閱本文稍早的[並行存取和記憶體使用量](#trigger---concurrency-and-memory-usage)。
 
@@ -737,21 +736,23 @@ public static void Run(
 
 ## <a name="output---usage"></a>輸出 - 使用方式
 
-在 C# 和 C# 指令碼中，您可以針對 Blob 輸出繫結使用下列參數類型：
+在 C# 和 C# 指令碼中，您可以繫結至下列類型以寫入 Blob：
 
 * `TextWriter`
 * `out string`
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer`
+* `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob` (需要 *function.json* 中的 "inout" 繫結方向)
-* `CloudBlockBlob` (需要 *function.json* 中的 "inout" 繫結方向)
-* `CloudPageBlob` (需要 *function.json* 中的 "inout" 繫結方向)
-* `CloudAppendBlob` (需要 *function.json* 中的 "inout" 繫結方向)
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-如上所述，其中一些類型需要 *function.json* 中的 `inout` 繫結方向。 Azure 入口網站中的標準編輯器不支援此方向，因此您必須使用進階編輯器。
+<sup>1</sup> 在 *function.json* 或 `FileAccess.Read` C# 類別庫中需要 "in" 繫結 `direction`。
+
+<sup>2</sup> 在 *function.json* 或 `FileAccess.ReadWrite` C# 類別庫中需要 "inout" 繫結 `direction`。
 
 在非同步函式中，使用傳回值或 `IAsyncCollector`，而不是 `out` 參數。
 

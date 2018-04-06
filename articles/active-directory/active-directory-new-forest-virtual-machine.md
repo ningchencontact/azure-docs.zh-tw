@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 虛擬網路上安裝 Active Directory 樹系 | Microsoft Docs"
-description: "說明如何在 Azure 虛擬網路之虛擬機器 (VM) 上建立新 Active Directory 樹系的教學課程。"
+title: 在 Azure 虛擬網路上安裝 Active Directory 樹系 | Microsoft Docs
+description: 說明如何在 Azure 虛擬網路之虛擬機器 (VM) 上建立新 Active Directory 樹系的教學課程。
 services: active-directory, virtual-network
-keywords: "active directory 虛擬機器, 安裝 active directory 樹系, azure active directory 影片  "
-documentationcenter: 
+keywords: 'active directory 虛擬機器, 安裝 active directory 樹系, azure active directory 影片  '
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
-tags: 
+tags: ''
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: c98082b7d839490410132f19fdbf653c61d7165c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0b98b475f49847589398ca743fc3ac3b8bcbb381
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>在 Azure 虛擬網路上安裝新的 Active Directory 樹系
 本文說明如何在 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)上，於虛擬機器 (VM) 上建立新的 Windows Server Active Directory 環境。 在此案例中，Azure 虛擬網路並未連線至內部部署網路。
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/22/2018
 * 如需在 Azure 虛擬網路上安裝 Active Directory 網域服務 (AD DS) 的概念指引，請參閱 [在 Azure 虛擬機器上部署 Windows Server Active Directory 的指導方針](https://msdn.microsoft.com/library/azure/jj156090.aspx)。
 
 ## <a name="scenario-diagram"></a>案例圖表
-在此案例中，外部使用者需要存取在加入網域的伺服器上執行的應用程式。 執行應用程式伺服器的 VM 和執行網域控制站的 VM 會安裝在 Azure 虛擬網路內自己的雲端服務中。 它們也會包含在可用性設定檔內，以改進容錯能力。
+在此案例中，外部使用者需要存取在加入網域的伺服器上執行的應用程式。 執行應用程式伺服器的 VM 和執行網域控制站的 VM，會安裝在 Azure 虛擬網路內的專屬雲端服務中。 它們也會包含在可用性設定檔內，以改進容錯能力。
 
 ![Azure 虛擬網路中虛擬機器上的 Active Directory 樹系][1] 7
 

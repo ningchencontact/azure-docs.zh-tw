@@ -1,11 +1,11 @@
 ---
-title: "如何在內部虛擬網路中使用 Azure API 管理 | Microsoft Docs"
-description: "了解如何在內部虛擬網路上安裝和設定 Azure API 管理"
+title: 如何在內部虛擬網路中使用 Azure API 管理 | Microsoft Docs
+description: 了解如何在內部虛擬網路上安裝和設定 Azure API 管理
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: kjoshi
-editor: 
+editor: ''
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: be4aa45c919f579355c6ac6c5682c1537e9cc0cb
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>在內部虛擬網路中使用 Azure API 管理服務
 在 Azure 虛擬網路中，Azure API 管理可以管理無法在網際網路上存取的 API。 有許多 VPN 技術可讓您建立連線。 API 管理在虛擬網路內有兩種主要的部署模式：
@@ -72,7 +72,7 @@ ms.lasthandoff: 02/09/2018
 當 API 管理處於外部虛擬網路模式時，DNS 是由 Azure 管理。 若是內部虛擬網路模式，您必須管理自己的路由。
 
 > [!NOTE]
-> API 管理服務不會接聽 IP 位址傳來的要求。 只有當要求指明其服務端點上所設定的主機名稱時，才會有所回應。 這些端點包括閘道、開發人員入口網站、Azure 入口網站，直接管理端點和 Git。
+> API 管理服務不會接聽 IP 位址傳來的要求。 只有當要求指明其服務端點上所設定的主機名稱時，才會有所回應。 這些端點包括閘道、Azure 入口網站和開發人員入口網站、直接管理端點及 Git。
 
 ### <a name="access-on-default-host-names"></a>在預設主機名稱上存取
 當您建立 API 管理服務時，假設名為 "contoso"，依預設會設定下列服務端點：

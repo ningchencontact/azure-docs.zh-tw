@@ -1,6 +1,6 @@
 ---
-title: "管理 Azure DNS 中的 DNS 區域 - Azure CLI 2.0 | Microsoft Docs"
-description: "您可以使用 Azure CLI 2.0 管理 DNS 區域。 本文說明如何在 Azure DNS 上更新、刪除及建立 DNS 區域。"
+title: 管理 Azure DNS 中的 DNS 區域 - Azure CLI 2.0 | Microsoft Docs
+description: 您可以使用 Azure CLI 2.0 管理 DNS 區域。 本文說明如何在 Azure DNS 上更新、刪除及建立 DNS 區域。
 services: dns
 documentationcenter: na
 author: KumudD
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: kumud
-ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d384f8867ddfd28acaf78a47a7d32729e87c5580
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>如何使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 區域
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 12/21/2017
 
 
 本指南說明如何使用適用於 Windows、Mac 和 Linux 的跨平台 Azure CLI 來管理 DNS 區域。 您也可以使用 [Azure PowerShell](dns-operations-dnszones.md) 或 Azure 入口網站來管理 DNS 區域。
+
+本指南特別說明公用 DNS 區域。 如需在 Azure DNS 中使用 Azure CLI 管理私人區域的資訊，請參閱[開始使用 Azure CLI 2.0 處理 Azure DNS 私人區域](private-dns-getstarted-cli.md)。
 
 ## <a name="introduction"></a>簡介
 
@@ -45,7 +47,7 @@ ms.lasthandoff: 12/21/2017
 
 ### <a name="sign-in-to-your-azure-account"></a>登入您的 Azure 帳戶
 
-開啟主控台視窗，並驗證您的認證。 如需詳細資訊，請參閱＜從 Azure CLI 登入 Azure＞
+開啟主控台視窗，並驗證您的認證。 如需詳細資訊，請參閱[從 Azure CLI 登入 Azure](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login
@@ -64,6 +66,12 @@ az account list
 ```azurecli
 az account set --subscription "subscription name"
 ```
+
+### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>選擇性：安裝/使用 Azure DNS 私人區域功能 (公開預覽)
+Azure DNS 私人區域功能是透過 Azure CLI 的擴充功能，以公開預覽版本發行。 安裝 “dns” Azure CLI 擴充功能 
+```
+az extension add --name dns
+``` 
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 

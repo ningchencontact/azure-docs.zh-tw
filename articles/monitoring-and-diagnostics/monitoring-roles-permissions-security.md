@@ -1,9 +1,9 @@
 ---
-title: "開始使用 Azure 監視器的角色、權限和安全性 | Microsoft Docs"
-description: "了解如何使用 Azure 監視器的內建角色和權限來限制存取監視資源。"
+title: 開始使用 Azure 監視器的角色、權限和安全性 | Microsoft Docs
+description: 了解如何使用 Azure 監視器的內建角色和權限來限制存取監視資源。
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: f8767073bb7a6723088bb2727346d23ec8872cd1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>開始使用 Azure 監視器的角色、權限和安全性
 許多團隊需要嚴格規範對監視資料及設定的存取。 例如，如果您擁有專門從事監視 (技術支援工程師、devops 工程師) 的團隊成員，或如果您使用受控服務提供者，則您可能只要授與他們監視資料的存取權，同時限制他們建立、修改或刪除資源的能力。 本文說明如何在 Azure 中快速將內建的監視 RBAC 角色套用到使用者，或針對需要有限監視權限的使用者建置您自己的自訂角色。 接著會討論 Azure 監視器相關資源的安全性考量，以及如何限制對這些資源所包含的資料進行存取。
@@ -30,6 +30,7 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 受指派監視讀取器角色的人員可以檢視訂用帳戶中所有的監視資料，但無法修改任何資源或編輯與監視資源相關的任何設定。 這個角色適用於組織中的使用者，例如支援或作業工程師，這些人員必須能夠︰
 
 * 在入口網站中檢視監視儀表板，並建立自己的私人監視儀表板。
+* 檢視 [Azure 警示](monitoring-overview-unified-alerts.md)中定義的警示規則
 * 使用 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)、[PowerShell cmdlets](insights-powershell-samples.md) 或[跨平台 CLI](insights-cli-samples.md) 查詢度量。
 * 使用入口網站、Azure 監視器 REST API、PowerShell Cmdlets 或跨平台 CLI 查詢活動記錄檔。
 * 檢視用於資源的 [診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) 。
@@ -55,7 +56,7 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 * 將監視儀表板發佈為共用儀表板。
 * 設定用於資源的[診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)。*
 * 設定用於訂用帳戶的[記錄檔設定檔](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)。*
-* 設定警示活動和設定。
+* 透過 [Azure 警示](monitoring-overview-unified-alerts.md)設定警示規則活動和設定。
 * 建立 Application Insights web 測試和元件。
 * 列出 Log Analytics 工作區共用金鑰。
 * 啟用或停用 Log Analytics 智慧套件。
@@ -76,7 +77,7 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |讀取/寫入/刪除動作群組。 |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |讀取/寫入/刪除活動記錄警示。 |
-| Microsoft.Insights/AlertRules/[讀取、寫入、刪除] |讀取/寫入/刪除警示規則 (計量警示)。 |
+| Microsoft.Insights/AlertRules/[讀取、寫入、刪除] |(從傳統警示) 讀取/寫入/刪除警示規則。 |
 | Microsoft.Insights/AlertRules/Incidents/Read |列出警示規則的事件 (觸發的警示規則歷程記錄)。 這僅適用於入口網站。 |
 | Microsoft.Insights/AutoscaleSettings/[讀取、寫入、刪除] |讀取/寫入/刪除自動調整設定。 |
 | Microsoft.Insights/DiagnosticSettings/[讀取、寫入、刪除] |讀取/寫入/刪除診斷設定。 |
@@ -86,10 +87,12 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | 讀取/寫入/刪除網路流量記錄的診斷設定。 |
 | Microsoft.Insights/LogDefinitions/Read |此為使用者需要透過入口網站存取活動記錄檔時所需的權限。 |
 | Microsoft.Insights/LogProfiles/[Read, Write, Delete] |讀取/寫入/刪除記錄設定檔 (將「活動記錄」串流至事件中樞或儲存體帳戶)。 |
-| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |讀取/寫入/刪除近乎即時的計量警示 (公開預覽版)。 |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |讀取/寫入/刪除近乎即時的計量警示 |
 | Microsoft.Insights/MetricDefinitions/Read |讀取度量定義 (可用資源的度量類型清單)。 |
 | Microsoft.Insights/Metrics/Read |讀取資源的度量。 |
 | Microsoft.Insights/Register/Action |註冊「Azure 監視器」資源提供者。 |
+| Microsoft.Insights/ScheduledQueryRules/[讀取、寫入、刪除] |讀取/寫入/刪除 Application Insights 的記錄警示。 |
+
 
 
 > [!NOTE]
@@ -118,9 +121,9 @@ New-AzureRmRoleDefinition -Role $role
 2. 診斷記錄檔，是由資源發出的記錄檔。
 3. 度量，是由資源發出。
 
-這三種資料類型都可以儲存在儲存體帳戶或串流到事件中樞，兩者都是一般用途的 Azure 資源。 由於這些是一般用途的資源，因此對其進行建立、刪除及存取通常是保留給系統管理員的特殊權限作業。 我們建議您對監視相關的資源使用下列作法以防止誤用︰
+這三種資料類型都可以儲存在儲存體帳戶或串流到事件中樞，兩者都是一般用途的 Azure 資源。 由於這些是一般用途的資源，因此對其進行建立、刪除及存取是保留給系統管理員的特殊權限作業。 我們建議您對監視相關的資源使用下列作法以防止誤用︰
 
-* 針對監視資料使用單一、專用的儲存體帳戶。 如果您需要將監視資料分成多個儲存體帳戶，切勿將儲存體帳戶的監視及非監視資料使用情況進行共用，因為這可能會不小心讓只需要存取監視資料 (例如， 第三方 SIEM) 的使用者得以存取非監視資料。
+* 針對監視資料使用單一、專用的儲存體帳戶。 如果您需要將監視資料分成多個儲存體帳戶，切勿在監視及非監視資料之間分享儲存體帳戶的使用情況，因為這可能會不小心讓只需要存取監視資料 (例如，第三方 SIEM) 的人員存取非監視資料。
 * 以上述相同的原因在所有的診斷設定中使用單一、專用的服務匯流排或事件中樞命名空間。
 * 將存取監視相關的儲存體帳戶或事件中樞保存在不同的資源群組中，以限制存取它們，並在監視角色上 [使用範圍](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) 來限制只能存取該資源群組。
 * 當使用者只需要存取監視資料時，切勿針對訂用帳戶範圍內的儲存體帳戶或事件中樞授與 ListKeys 權限。 反之，對資源或資源群組 (如果您有專用的監視資源群組) 範圍內的使用者授與這些權限。

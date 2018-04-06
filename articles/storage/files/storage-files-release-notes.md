@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: b42287580078b4391ddbc5b8ff2835131c64236d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bb7fa68809341b5132d551ff1cab187bd4d7eeac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Azure 檔案同步代理程式 (預覽) 版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -93,11 +93,12 @@ Azure 檔案同步代理程式支援下列版本：
 - 伺服器端點不在系統磁碟區上。 例如，C:\MyFolder 不是可接受的路徑，除非 C:\MyFolder 是掛接點。
 - 只有叢集磁碟才支援容錯移轉叢集，但叢集共用磁碟區 (CSV) 不提供支援。
 - 伺服器端點無法為巢狀。 它可與其他端點平行並存於相同的磁碟區上。
-- 一次從伺服器刪除大量 (超過 10000) 目錄會導致同步失敗。 刪除小於 10000 的批次中的目錄。 請先確定刪除作業同步成功，再刪除下一個批次。
 - 此版本會新增磁碟區的根目錄同步支援。
 - 請勿在伺服器端點內儲存 OS 或應用程式分頁檔。
 - 這一版的變動：新增了新事件，以追蹤雲端階層處理的總執行時間 (EventID 9016)、同步上傳進度 (EventID 9302)，以及未同步的檔案 (EventID 9900)。
-- 這一版的變動：大幅提升了快速 DR 命名空間同步效能。
+- 此版本的改善項目︰ 
+- 大幅提升了快速 DR 命名空間同步效能。
+- 刪除大量目錄 (超過 10,000 個) 不需要使用 v2* 分批完成。
  
 ### <a name="cloud-tiering"></a>雲端階層處理
 - 與前一版的差異：新檔案會依照階層處理原則設定在 1 小時 (先前為 32 小時) 內進行階層處理。 我們提供 PowerShell Cmdlet 以進行隨選階層處理。 您可以使用此 Cmdlet 更有效地評估階層處理，而不需等待背景處理。

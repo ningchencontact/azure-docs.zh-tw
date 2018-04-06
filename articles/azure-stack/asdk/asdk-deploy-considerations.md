@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 24a766ada1cdd1cb854b6869d571acd73e376327
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f4b55bb3287f67792b3257c3f62256437f5625ca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署規劃考量
 在部署 Azure Stack 開發套件 (ASDK) 前，請確定您的開發套件主機電腦符合本文中所述的需求。
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/17/2018
 | 計算：記憶體 |96 GB RAM |128 GB RAM (這是支援 PaaS 資源提供者的下限)。|
 | 計算：BIOS |啟用 Hyper-V (支援 SLAT) |啟用 Hyper-V (支援 SLAT) |
 | 網路：NIC |NIC 所需的 Windows Server 2012 R2 憑證；不需特殊的功能 |NIC 所需的 Windows Server 2012 R2 憑證；不需特殊的功能 |
-| HW 標誌憑證 |[Windows Server 2012 R2 認證](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2012 R2 認證](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| HW 標誌憑證 |[Windows Server 2012 R2 認證](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2016 認證](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup>如果您打算從 Azure 新增許多[市集項目](asdk-marketplace-item.md)，則您所需的容量會比這個建議的容量多。
 

@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C：Weibo 設定 | Microsoft Docs"
-description: "在受 Azure Active Directory B2C 保護的應用程式中，針對具有 Weibo 帳戶的取用者提供註冊和登入。"
+title: Azure Active Directory B2C：Weibo 設定 | Microsoft Docs
+description: 在受 Azure Active Directory B2C 保護的應用程式中，針對具有 Weibo 帳戶的取用者提供註冊和登入。
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 1860de34-94cb-4ceb-851e-102f930f7230
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
-ms.author: parakhj
-ms.openlocfilehash: 320d7c57035d3b3ecdb4e03d80141a58cf429461
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: f2a7b6992e54f9804057f21e10ba68a9a723c6a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C：針對具有 Weibo 帳戶的取用者提供註冊和登入
 
@@ -28,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="create-a-weibo-application"></a>建立 Weibo 應用程式
 
-若要在 Azure Active Directory (Azure AD) B2C 中使用 Weibo 做為識別提供者，您必須建立 Weibo 應用程式，並對其提供正確參數。 您需要 Weibo 帳戶才能執行此動作。 如果您沒有帳戶，您可以取得在 [http://weibo.com/signup/signup.php?lang=en-us](http://weibo.com/signup/signup.php?lang=en-us) 上取得一個。
+若要在 Azure Active Directory (Azure AD) B2C 中使用 Weibo 做為識別提供者，您必須建立 Weibo 應用程式，並對其提供正確參數。 您需要 Weibo 帳戶才能執行此動作。 如果您沒有帳戶，您可以在 [http://weibo.com/signup/signup.php?lang=en-us](http://weibo.com/signup/signup.php?lang=en-us) 上取得。
 
 ### <a name="register-for-the-weibo-developer-program"></a>註冊 Weibo 開發人員計劃
 

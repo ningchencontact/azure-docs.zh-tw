@@ -1,8 +1,8 @@
 ---
-title: "使用 HDInsight 開發指令碼動作 - Azure | Microsoft Docs"
-description: "了解如何使用指令碼動作來自訂 Hadoop 叢集。 指令碼動作可用來安裝其他在 Hadoop 叢集上執行的軟體，或變更叢集上所安裝應用程式的組態。"
+title: 使用 HDInsight 開發指令碼動作 - Azure | Microsoft Docs
+description: 了解如何使用指令碼動作來自訂 Hadoop 叢集。 指令碼動作可用來安裝其他在 Hadoop 叢集上執行的軟體，或變更叢集上所安裝應用程式的組態。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: d0e95014f6ebfc4e0286d3a12999c918f831b489
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ac2a087bb0a9d8cac15dfea2448a9c42cee4a1f4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>開發 HDInsight Windows 型叢集指令碼動作指令碼
 了解如何寫入 HDInsight 的指令碼動作指令碼 如需使用指令碼動作指令碼的資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。 如需針對 Linux 型 HDInsight 叢集撰寫的相同文章，請參閱[開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions-linux.md)。
@@ -117,7 +117,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 >
 
 ## <a name="helper-methods-for-custom-scripts"></a>自訂指令碼的協助程式方法
-指令碼動作協助程式方法是您在撰寫字訂指令碼時可以使用的公用程式。 這些方法是在 [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1) 中定義，並且可以使用以下範例包含至您的指令碼中：
+指令碼動作協助程式方法是您在撰寫字訂指令碼時可以使用的公用程式。 這些方法的定義位於 [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1)，您可以使用以下範例將它們納入指令碼：
 
     # Download config action module from a well-known directory.
     $CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
@@ -167,13 +167,13 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 * 提供穩定的指令碼資源連結
 
     使用者應該確定在叢集的整個存留期間，於叢集自訂中使用的所有指令碼及其他構件都保持可用，並且這些檔案的版本在此持續時間內不會變更。 如需為叢集中的節點重新製作映像，就必須有這些資源。 最佳做法是下載並封存使用者所控制之儲存體帳戶中的所有項目。 這可以是預設的儲存體帳戶，或是在部署時為自訂叢集指定的任何其他儲存體帳戶。
-    例如，在文件中所提供的 Spark 和 R 自訂叢集範例中，我們已經在本機複製一份此儲存體帳戶中的資源：https://hdiconfigactions.blob.core.windows.net/。
+    例如，在文件中所提供的 Spark 和 R 自訂叢集範例中，此儲存體帳戶中具有資源的已本機複本：https://hdiconfigactions.blob.core.windows.net/。
 * 確保叢集自訂指令碼具有等冪性
 
     您必須預期在叢集存留期間將為 HDInsight 叢集的節點重新製作映像。 每當重新製作叢集映像時，都會執行叢集自訂指令碼。 此指令碼必須設計成具有等冪性，意思就是在重新製作映像時，此指令碼應該確保叢集會回到與當初建立叢集時，指令碼剛剛第一次執行後相同的自訂狀態。 例如，如果自訂指令碼在第一次執行時，在 D:\AppLocation 中安裝了某個應用程式，則在後續每次的執行中，當重新製作映像時，此指令碼應該先檢查 D:\AppLocation 位置中是否有該應用程式，再繼續執行指令碼中的其他步驟。
 * 在最佳位置安裝自訂元件
 
-    重新製作叢集節點映像時，C:\ 資源磁碟機和 D:\ 系統磁碟機可能被重新格式化，而導致資料及安裝在這些磁碟機上的應用程式遺失。 如果隸屬於叢集的 Azure 虛擬機器 (VM) 節點故障，而被新節點取代時，也可能發生這種情況。 您可以將元件安裝在 D:\ 磁碟機上，或叢集上的 C:\apps 位置中。 C:\ 磁碟機上的所有其他位置則已預留他用。 請在叢集自訂指令碼中指定要用來安裝應用程式或程式庫的位置。
+    重新製作叢集節點映像時，C:\ 資源磁碟機和 D:\ 系統磁碟機可能被重新格式化，而導致資料及安裝在這些磁碟機上的應用程式遺失。 如果隸屬於叢集的 Azure 虛擬機器 (VM) 節點故障，而被新節點取代時，也可能會發生這種遺失情況。 您可以將元件安裝在 D:\ 磁碟機上，或叢集上的 C:\apps 位置中。 C:\ 磁碟機上的所有其他位置則已預留他用。 請在叢集自訂指令碼中指定要用來安裝應用程式或程式庫的位置。
 * 確保叢集架構具有高可用性
 
     為了獲得高可用性，HDInsight 具備主動/被動架構，在此架構中，有一個處於使用中模式的前端節點 (此節點正在執行 HDInsight 服務)，以及另一個處於待命模式的前端節點 (此節點未執行 HDInsight 服務)。 如果 HDInsight 服務中斷，這兩個節點就會切換主動和被動模式。 如果為了獲得高可用性，而使用指令碼動作在這兩個前端節點安裝服務，請注意 HDInsight 的容錯移轉機制並無法自動容錯移轉這些由使用者所安裝的服務。 因此使用者在 HDInsight 前端節點上所安裝的服務若想要有高可用性，則必須有自己的主動/被動模式時的容錯移轉機制，或是處於主動/被動模式。
@@ -246,7 +246,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 ## <a name="debug-custom-scripts"></a>偵錯自訂指令碼
 指令碼錯誤記錄檔會與其他輸出一起儲存在您建立叢集時為其指定的預設儲存體帳戶中。 記錄檔是以 *u<\cluster-name-fragment><\time-stamp>setuplog* 的名稱儲存在資料表中。 這些是彙總的記錄檔，包含來自指令碼執行所在之所有叢集節點 (前端節點和背景工作節點) 的記錄。
 
-檢查記錄檔的簡單方法是使用 HDInsight Tools for Visual Studio。 如需安裝工具，請參閱 [開始使用 Visual Studio Hadoop tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-and-upgrade-data-lake-tools-for-visual-studio)
+檢查記錄檔的簡單方法是使用 HDInsight Tools for Visual Studio。 如需安裝工具，請參閱 [開始使用 Visual Studio Hadoop tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-or-update-data-lake-tools-for-visual-studio)
 
 **使用 Visual Studio 檢查記錄檔**
 

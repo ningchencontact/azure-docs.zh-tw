@@ -1,24 +1,24 @@
 ---
-title: "如何設定進階 Azure Redis 快取的 Redis 叢集 | Microsoft Docs"
-description: "了解如何建立和管理進階層 Azure Redis 快取執行個體的 Redis 叢集"
+title: 如何設定進階 Azure Redis 快取的 Redis 叢集 | Microsoft Docs
+description: 了解如何建立和管理進階層 Azure Redis 快取執行個體的 Redis 叢集
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: wesmc
-ms.openlocfilehash: 16281cca4e4bc95e145317365d42382ab11fde93
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 4af6545058ab0031d7cd1b38618b6d80204f83b9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>如何設定進階 Azure Redis 快取的 Redis 叢集
 Azure Redis 快取有不同的快取供應項目，可讓您彈性選擇快取大小和功能，包括叢集、持續性和虛擬網路支援等進階層功能。 本文說明如何在進階 Azure Redis 快取執行個體中設定叢集。
@@ -33,7 +33,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像 [實作於 Redis](http:/
 * 更多輸送量：當您增加分區數目時，輸送量會呈線性增加。 
 * 更多記憶體大小：當您增加分區數目時，會呈線性增加。  
 
-如需進階快取的大小、輸送量和頻寬的詳細資訊，請參閱[應該使用哪個 Redis 快取供應項目和大小？](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+叢集化不會增加叢集快取的可用連線數目。 如需進階快取的大小、輸送量和頻寬的詳細資訊，請參閱[應該使用哪個 Redis 快取供應項目和大小？](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 在 Azure 中，Redis 叢集以主要/複本模型方式提供，其中的每個分區都有一個具複寫功能的主要/複本組，而複寫是由 Azure Redis 快取服務管理。 
 
@@ -75,6 +75,8 @@ Azure Redis 快取提供 Redis 叢集的方式，就像 [實作於 Redis](http:/
 ![Redis 叢集大小][redis-cache-redis-cluster-size]
 
 若要變更叢集大小，請使用滑桿，或在 [分區計數] 文字方塊中輸入 1 到 10 之間的數字，然後按一下 [確定] 加以儲存。
+
+增加叢集大小會增加最大輸送量和快取大小。 增加叢集大小不會增加用戶端可用的最大連線數目。
 
 > [!NOTE]
 > 調整叢集大小會執行 [MIGRATE](https://redis.io/commands/migrate) 命令，這個命令會耗用大量資源，因此為了將影響降到最低，請考慮在非尖峰時段執行此作業。 在移轉程序期間，您會看到伺服器負載出現峰值。 調整叢集大小是需要長時間執行的程序，且所需時間決定於索引鍵數目，以及與那些索引鍵相關聯之值的大小。

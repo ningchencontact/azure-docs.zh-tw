@@ -1,6 +1,6 @@
 ---
-title: "SQL Server FCI - Azure 虛擬機器 | Microsoft Docs"
-description: "本文說明如何在 Azure 虛擬機器上建立 SQL Server 容錯移轉叢集執行個體。"
+title: SQL Server FCI - Azure 虛擬機器 | Microsoft Docs
+description: 本文說明如何在 Azure 虛擬機器上建立 SQL Server 容錯移轉叢集執行個體。
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2017
+ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
@@ -46,6 +46,18 @@ ms.lasthandoff: 02/21/2018
 如需有關 S2D 的詳細資料，請參閱 [Windows Server 2016 Datacenter 版本儲存空間直接存取 \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)。
 
 S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為超交集。 超交集基礎結構會將儲存體放置於與裝載叢集應用程式相同的伺服器上。 在此架構中，儲存體會放置在每個 SQL Server FCI 節點上。
+
+## <a name="licensing-and-pricing"></a>授權和價格
+
+在 Azure 虛擬機器上，您可以使用隨收隨付制 (PAYG) 進行 SQL Server 的授權，而 VM 映像也可自備授權 (BYOL)。 您選擇的映像類型會影響向您收費的方式。
+
+使用 PAYG 授權時，在 Azure 虛擬機器上，SQL Server 的容錯移轉叢集執行個體 (FCI) 會產生所有 FCI 節點的費用，包括被動節點。 如需詳細資訊，請參閱 [SQL Server Enterprise 虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/)。 
+
+至於有簽訂軟體保證 Enterprise 合約的客戶，每個作用中的節點有權使用一個免費的被動 FCI 節點。 若要利用 Azure 的這項優點，可使用 BYOL VM 映像，然後在 FCI 的主動和被動節點上使用相同的授權。 如需詳細資訊，請參閱 [Enterprise 合約](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx)。
+
+若要比較 Azure 虛擬機器上 SQL Server 的 PAYG 和 BYOL 授權，請參閱[開始使用 SQL VM](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms)。
+
+如需授權 SQL Server 的完整資訊，請參閱[定價](http://www.microsoft.com/sql-server/sql-server-2017-pricing)。
 
 ### <a name="example-azure-template"></a>Azure 範本範例
 
@@ -123,7 +135,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
    按照您喜好的付款方式購買 SDL Server 授權，並選擇合適的映像：
 
-   - **每次使用授權時付款**：費用會以分鐘計算，且會包含下列 SQL Server 授權：
+   - **每次使用授權時付款**：費用會以秒鐘計算，且會包含下列 SQL Server 授權：
       - **Windows Server Datacenter 2016 上的 SQL Server 2016 Enterprise 版本**
       - **Windows Server Datacenter 2016 上的 SQL Server 2016 Standard 版本**
       - **Windows Server Datacenter 2016 上的 SQL Server 2016 Developer 版本**
@@ -266,7 +278,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. 儲存存取金鑰和容器 URL。
 
-1. 設定容錯移轉叢集的叢集仲裁見證。 請在 UI 中參閱 [在使用者介面中設定 WSFC 叢集仲裁見證] (http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)。
+1. 設定容錯移轉叢集的叢集仲裁見證。 請參閱使用者介面中的 [在使用者介面中設定仲裁見證]\(機器翻譯\)。(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)。
 
 ### <a name="add-storage"></a>新增儲存體
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 6ed3fb7c7c4de9edbf31fb2c47290e2e39ceadcd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6c715f07f75c9196b7cf2cc8659c6e541e1260da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Microsoft Azure Stack 開發套件 (ASDK) 疑難排解
 此文件提供 ASDK 的常見疑難排解資訊。 若您遇到未記載的問題，請務必檢查 [Azure Stack MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)以取得進一步的協助與資訊。  
@@ -31,7 +31,12 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="deployment"></a>部署
 ### <a name="deployment-failure"></a>部署失敗
-若安裝失敗，您可以使用部署指令碼的 -rerun 選項從失敗的步驟重新開始部署。  
+若安裝失敗，您可以使用部署指令碼的 -rerun 選項從失敗的步驟重新開始部署 - 如以下範例所示：
+
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>在部署結束時，PowerShell 工作階段仍開啟，而且不會顯示任何輸出
 此行為可能只是 PowerShell 命令視窗預設行為的結果 (當已選取它時)。 開發套件部署已成功，但當您選取視窗時，指令碼已暫停。 您可以尋找命令視窗標題列的「選取」字樣以驗證已完成安裝。 按 ESC 鍵以將它取消選取，之後將顯示完成訊息。

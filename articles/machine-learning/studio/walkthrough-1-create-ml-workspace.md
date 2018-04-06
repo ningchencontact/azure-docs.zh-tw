@@ -1,10 +1,11 @@
 ---
-title: "步驟 1︰建立 Machine Learning 工作區 | Microsoft Docs"
-description: "開發預測解決方案逐步解說的步驟 1：了解如何設定新的 Azure Machine Learning Studio 工作區。"
+title: 步驟 1︰建立 Machine Learning 工作區 | Microsoft Docs
+description: 開發預測解決方案逐步解說的步驟 1：了解如何設定新的 Azure Machine Learning Studio 工作區。
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: b3c97e3d-16ba-4e42-9657-2562854a1e04
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 58b37cf8927926cb128928e4d0e438945074f6e5
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 88f928599f62cbb39d65cd29a978e3a9d25d863f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-1-create-a-machine-learning-workspace"></a>逐步解說步驟 1：建立 Machine Learning 工作區
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)逐步解說的第一個步驟。
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/01/2017
 
 Azure 訂用帳戶的系統管理員必須建立工作區，然後將您新增為擁有者或參與者。 如需詳細資訊，請參閱[建立 Azure Machine Learning 工作區](create-workspace.md)。
 
-建立您的工作區之後，開啟 Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home))。 如果您具有多個工作區，您可以在視窗右上角的工具列中選取工作區。
+建立工作區後，開啟 Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home))。 如果您具有多個工作區，您可以在視窗右上角的工具列中選取工作區。
 
 ![在 Studio 中選取工作區][2]
 

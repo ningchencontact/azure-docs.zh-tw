@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C︰頁面 UI 自訂協助程式工具 | Microsoft Docs"
-description: "用來示範 Azure Active Directory B2C 中頁面 UI 自訂功能的協助程式工具"
+title: Azure Active Directory B2C︰頁面 UI 自訂協助程式工具 | Microsoft Docs
+description: 用來示範 Azure Active Directory B2C 中頁面 UI 自訂功能的協助程式工具
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: ae935d52-3520-4a94-b66e-b35bb40e7514
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: swkrish
-ms.openlocfilehash: a9ccdea64213d564b271699afe28f5ae6db0a71a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C︰用來示範頁面使用者介面 (UI) 自訂功能的協助程式工具
 本文可搭配 Azure Active Directory (Azure AD) B2C 中的 [主要 UI 自訂文章](active-directory-b2c-reference-ui-customization.md) 一起閱讀。 以下步驟說明如何使用我們提供的範例 HTML 和 CSS 內容，來練習頁面 UI 自訂功能。

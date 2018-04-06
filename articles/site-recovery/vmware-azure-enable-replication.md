@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: asgang
-ms.openlocfilehash: 17cd6a931563c7d33576749453d742aca253526b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 48d84f59a80ea14c2b40821d886fc410c7e3f2c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>讓 VMware VM 能夠複寫至 Azure
 
@@ -112,15 +112,15 @@ ms.lasthandoff: 03/09/2018
     例如，如果來源電腦具有兩張網路介面卡，而目標電腦大小支援四張，目標電腦就會有兩張介面卡。 如果來源電腦具有兩張介面卡，但支援的目標大小僅支援一張介面卡，目標電腦就只會有一張介面卡。
     - 如果虛擬機器有多張網路介面卡，就會全部連線至相同的網路。 此外，清單中顯示的第一項就會變成 Azure 虛擬機器中的*預設*網路介面卡。
 
-### <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
+### <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-Microsoft 軟體保證客戶可以利用 Azure Hybrid User Benefit，節省移轉至 Azure 之 Windows Server 電腦的授權成本，或使用 Azure 進行災害復原。 如果您有權使用 Azure Hybrid User Benefit，可以將獲指派這項權益的虛擬機器指定為 Azure Site Recovery 在容錯移轉建立的一個虛擬機器。 作法：
+微軟軟體保證客戶可以使用 Azure Hybrid Benefit，節省移轉至 Azure 之 Windows Server 電腦的授權成本，或使用 Azure 進行災害復原。 如果您有權使用 Azure Hybrid Benefit，可以將獲指派這項權益的虛擬機器指定為 Azure Site Recovery 在容錯移轉時建立的一部虛擬機器。 作法：
 - 移至複寫之虛擬機器的 [計算與網路屬性] 區段。
-- 回答問題，了解您是否具備 Windows Server 授權，讓您符合使用 Azure Hybrid User Benefit 的資格。
-- 選取核取方塊，確認您具備擁有軟體保證的合格 Windows Server 授權，可讓您在容錯移轉時建立的電腦上套用 Hybrid Use Benefit。
+- 回答問題，了解您是否具備 Windows Server 授權，讓您符合使用 Azure Hybrid Benefit 的資格。
+- 選取核取方塊，確認您具備擁有軟體保證的合格 Windows Server 授權，可讓您在容錯移轉時建立的電腦上套用 Azure Hybrid Benefit。
 - 儲存複寫機器的設定。
 
-深入了解 [Azure Hybrid Use Benefit](https://aka.ms/azure-hybrid-use-benefit-pricing)。
+深入了解 [Azure Hybrid Benefit](https://aka.ms/azure-hybrid-benefit-pricing)。
 
 ## <a name="common-issues"></a>常見問題
 

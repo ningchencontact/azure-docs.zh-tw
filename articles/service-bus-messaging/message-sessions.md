@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排訊息工作階段 | Microsoft Docs"
-description: "使用工作階段處理 Azure 服務匯流排訊息的序列。"
+title: Azure 服務匯流排訊息工作階段 | Microsoft Docs
+description: 使用工作階段處理 Azure 服務匯流排訊息的序列。
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 551432cd13c16fdd5423c46ed9c6f740353808f8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>訊息工作階段：先進先出 (FIFO) 
 
@@ -53,13 +53,7 @@ Microsoft Azure 服務匯流排工作階段能夠聯合和依序處理未繫結�
 
 當多個並行接收者從佇列提取時，就會將屬於特殊工作階段的訊息分派給目前保有該工作階段之鎖定的特定接收者。 透過該作業，位於一個佇列或訂用帳戶中的交錯式訊息資料流就會被完全分離信號到不同的接收者，而那些接收者也可以存留於不同的用戶端機器上，因為鎖定管理會發生於服務匯流排內部的服務端。
 
-不過，佇列仍然是佇列：不會有隨機存取。 如果多個並行接收者會等候接受特定的工作階段，或是等候來自特定工作階段的訊息，而且屬於尚未宣告任何接收者之工作階段的佇列頂端有一個訊息，則會保留傳遞，直到工作階段接收者宣告該工作階段為止。
-
-上圖顯示三個並行工作階段接收者，它們全都必須針對每個接收者主動從佇列中獲取訊息以取得進展。 前一個 `SessionId` = 4 的工作階段不具任何作用中的擁有用戶端，這表示在新建立的擁有工作階段接收者取得該訊息之前，不會將任何訊息傳遞給任何人。
-
-儘管那樣似乎會變成限制，但是，單一接收者處理序可以輕鬆地處理許多並行工作階段，特別當它們是以完全非同步的程式碼撰寫的；同時應付數十個並行工作階段，可利用回呼模型有效地自動執行。
-
-用於處理許多並行工作階段的策略 (其中每個工作階段只會偶爾收到訊息) 是針對處理常式，在一段閒置時間之後卸除該工作階段，並且在因下一個工作階段送達而接受工作階段時繼續處理。
+上圖顯示三個並行工作階段接收者。 帶有 `SessionId` = 4 的工作階段沒有任何作用中的所有權用戶端，這表示沒有訊息從此特定工作階段傳遞。 工作階段的行為在許多方面類似子佇列。
 
 工作階段接收者所保留的工作階段鎖定是對於「查看鎖定」安置模式所使用之訊息鎖定的保護傘。 接收者不能同時有兩個「在途中」的訊息，而是必須依序處理訊息。 只有在已完成先前的訊息或使其成為失效信件時才能取得新訊息。 放棄訊息會導致下一個接收作業再次提供相同的訊息。
 

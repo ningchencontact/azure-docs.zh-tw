@@ -1,6 +1,6 @@
 ---
-title: "Azure 服務的反向 DNS | Microsoft Docs"
-description: "了解如何設定 Azure 託管服務的反向 DNS 對應"
+title: Azure 服務的反向 DNS | Microsoft Docs
+description: 了解如何設定 Azure 託管服務的反向 DNS 對應
 services: dns
 documentationcenter: na
 author: KumudD
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: kumud
-ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: bba2d75ed760a6e4eef2caacb0bb5924680b1f4b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>設定 Azure 託管服務的反向 DNS
 
@@ -245,7 +245,7 @@ FQDN 是以正向順序指定，且必須以點結束 (例如，"app1.contoso.co
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>我可以從我的 Azure 計算服務將電子郵件傳送至外部網域嗎？
 
-編號 [Azure 計算服務不支援將電子郵件傳送至外部網域](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)
+從 Azure 部署直接傳送電子郵件的技術功能，須視訂用帳戶的類型而定。 不論訂用帳戶的類型為何，Microsoft 均建議您使用信任的郵件轉送服務來傳送外寄郵件。 如需詳細資訊，請參閱 [Enhanced Azure Security for sending Emails – November 2017 Update (增強 Azure 傳送電子郵件的安全性 – 2017 年 11 月更新)](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/)。
 
 ## <a name="next-steps"></a>後續步驟
 

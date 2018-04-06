@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
-ms.openlocfilehash: 7e556bff2e9ebdd1efc969660cc8b4a33f3adcdb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -48,6 +48,13 @@ ms.lasthandoff: 03/16/2018
 
 ### <a name="what-do-i-need-on-premises"></a>我的內部部署環境需要什麼？
 在內部部署環境中，您需要安裝在單一 VMware VM 上的 Site Recovery 元件。 您也需要至少有一個 ESXi 主機的 VMware 基礎結構，此外也建議要有 vCenter 伺服器。 此外，您需要一或多個要複寫的 VMware VM。 [深入了解](vmware-azure-architecture.md) VMware 到 Azure 的架構。
+
+可利用以下兩種方式之一部署內部部署設定伺服器
+
+1. 使用預先安裝設定伺服器的虛擬機器範本進行部署。 [請在這裡閱讀更多資訊](vmware-azure-tutorial.md#download-the-vm-template)。
+2. 在您選擇的 Windows Server 2016 機器上使用設定進行部署。 [請在這裡閱讀更多資訊](physical-azure-disaster-recovery.md#set-up-the-source-environment)。
+
+若要探索在您自己的 Windows Server 機器上部署設定伺服器的入門步驟，請在啟用保護的保護目標中，選擇**至 Azure > 未虛擬化/其他**。
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>內部部署 VM 會複寫到何處？
 資料會複寫到 Azure 儲存體。 當您容錯移轉時，Site Recovery 會從儲存體帳戶自動建立 Azure VM。

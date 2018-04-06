@@ -1,6 +1,6 @@
 ---
-title: "Azure 儲存體中的資料複寫 | Microsoft Docs"
-description: "系統會 複製Microsoft Azure 儲存體帳戶中的資料，以維持持久性和高可用性。 複寫選項包括本地備援儲存體 (LRS)、區域備援儲存體 (ZRS)、異地備援儲存體 (GRS) 和讀取權限異地備援儲存體 (RA-GRS)。"
+title: Azure 儲存體中的資料複寫 | Microsoft Docs
+description: 系統會 複製Microsoft Azure 儲存體帳戶中的資料，以維持持久性和高可用性。 複寫選項包括本地備援儲存體 (LRS)、區域備援儲存體 (ZRS)、異地備援儲存體 (GRS) 和讀取權限異地備援儲存體 (RA-GRS)。
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 600b66af3b7da24c5a40d09d5cdf76f2d5be67ac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-storage-replication"></a>Azure 儲存體複寫
 
@@ -30,7 +30,7 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 * [異地備援儲存體 (GRS)](#geo-redundant-storage)
 * [讀取權限異地備援儲存體 (RA-GRS)](#read-access-geo-redundant-storage)
 
-在建立儲存體帳戶時，讀取權限異地備援儲存體 (RA-GRS) 是預設選項。
+在建立儲存體帳戶時，本地備援儲存體 (LRS) 是預設選項。
 
 下表為 LRS、ZRS、GRS、RA-GRS 之間的差異快速概觀。 本文的後續各節會更詳細說明每一種複寫。
 

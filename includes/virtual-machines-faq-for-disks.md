@@ -42,7 +42,7 @@
 
 **客戶使用受控磁碟時是否有任何規模限制？**
 
-受控磁碟沒有儲存體帳戶方面的限制。 不過，依預設，每一訂用帳戶的受控磁碟數目限制是 2,000 個。 您可以連絡支援人員來增加此數目。
+受控磁碟沒有儲存體帳戶方面的限制。 然而，上限 (也是預設限制) 為一個訂用帳戶每一區域和每一磁碟類型 10,000 個受控磁碟。
 
 **我是否可以建立受控磁碟的增量快照集？**
 
@@ -176,8 +176,7 @@ Microsoft 負責管理加密金鑰。
 * [使用 Azure CLI 複製受控磁碟](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 * [使用 PowerShell 複製受控磁碟](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-
-            **受控快照集和映像是否加密？**
+**受控快照集和映像是否加密？**
 
 是。 2017 年 6 月 9 日後建立之所有受控快照集和映像都將自動加密。 
 

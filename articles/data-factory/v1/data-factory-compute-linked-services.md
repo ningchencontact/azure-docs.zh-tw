@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory 支援的計算環境 | Microsoft Docs"
-description: "了解您可以在 Azure Data Factory 管線中 (如 Azure HDInsight) 用來轉換/處理資料的計算環境。"
+title: Azure Data Factory 支援的計算環境 | Microsoft Docs
+description: 了解您可以在 Azure Data Factory 管線中 (如 Azure HDInsight) 用來轉換/處理資料的計算環境。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 410fb74d8f8ec6196bbd4cc19cc97704649b75c9
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory 支援的計算環境
 > [!NOTE]
@@ -51,7 +50,7 @@ Microsoft 會更新具有最新 Hadoop 生態系統元件和修正程式的 HDIn
 在 2017 年 12 月 15 日之後：
 
 - 您無法再使用 Data Factory 第 1 版中的隨選 HDInsight 連結服務，建立以 Linux 為基礎的 HDInsight 3.3 版 (或較舊版本) 叢集。 
-- 如果您未在現有 Data Factory 第 1 版隨選 HDInsight 連結服務的 JSON 定義中明確指定 [**osType** 和 **Version** 屬性](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service)，其預設值將會從 **Version=3.1, osType=Windows** 變更為 **Version=\<最新的 HDI 預設版本\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType=Linux**。
+- 如果沒有在現有 Data Factory 第 1 版隨選 HDInsight 連結服務之 JSON 定義中明確指定 [**osType** 和 **Version** 屬性 ](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service)，預設值將會從 **Version=3.1, osType=Windows** 變更為 **Version=\<最新 HDI 預設版本\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType=Linux**。
 
 在 2018 年 7 月 31 日之後：
 

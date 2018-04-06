@@ -1,11 +1,11 @@
 ---
-title: "指定 Service Fabric 服務端點 | Microsoft Docs"
-description: "如何在服務資訊清單中描述端點資源，包括如何設定 HTTPS 端點"
+title: 指定 Service Fabric 服務端點 | Microsoft Docs
+description: 如何在服務資訊清單中描述端點資源，包括如何設定 HTTPS 端點
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 6fa425829e8da294c8db3d64c3d8fd202c74375a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a028471871754c2b9c3981ec13f5788643675a77
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>在服務資訊清單中指定資源
 ## <a name="overview"></a>概觀
@@ -154,7 +154,7 @@ HTTPS 通訊協定提供伺服器驗證，也能用於加密用戶端-伺服器�
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>在 ServiceManifest.xml 中覆寫端點
 
-在 ApplicationManifest 中，新增 ResourceOverrides 區段，可成為 ConfigOverrides 區段的同層級。 在本節中，您可以在服務資訊清單中指定的資源區段中指定 [端點] 區段的覆寫。
+在 ApplicationManifest 中，新增 ResourceOverrides 區段，可成為 ConfigOverrides 區段的同層級。 在本節中，您可以在服務資訊清單中指定的資源區段中指定 [端點] 區段的覆寫。 執行階段 5.7.217/SDK 2.7.217 支援覆寫端點。
 
 若要使用 ApplicationParameters 覆寫 ServiceManifest 中的端點，請變更 Secretscertificate，如下所示：
 

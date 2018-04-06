@@ -1,11 +1,11 @@
 ---
-title: "以程式設計方式監視 Azure Data Factory | Microsoft Docs"
-description: "了解如何使用不同的軟體開發套件 (SDK) 來監視資料處理站中的管線。"
+title: 以程式設計方式監視 Azure Data Factory | Microsoft Docs
+description: 了解如何使用不同的軟體開發套件 (SDK) 來監視資料處理站中的管線。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,17 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 95934de9b84270ff112489a7b67f622dad609970
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 87e69349245c5f67e23022e3a45ed798400e6a2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>以程式設計方式監視 Azure Data Factory
 本文說明如何使用不同的軟體開發套件 (SDK) 來監視資料處理站中的管線。 
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版 Data Factory 服務 (正式運作版 (GA))，請參閱[在 Data Factory 第 1 版中監視和管理管線](v1/data-factory-monitor-manage-pipelines.md)。
+
+## <a name="data-range"></a>資料範圍
+
+Data Factory 只會儲存管線執行資料 45 天。 當您以程式設計方式查詢有關 Data Factory 管線執行的資料時 (例如，使用 PowerShell 命令 `Get-AzureRmDataFactoryV2PipelineRun`)，可選的 `LastUpdatedAfter` 和 `LastUpdatedBefore` 參數沒有最大日期。 但如果您查詢過去一年的資料，例如，查詢不會傳回錯誤，但僅傳回最近 45 天的管線執行資料。
+
+如果要將管線執行資料保存超過 45 天，請使用 [Azure 監視器](monitor-using-azure-monitor.md)設定您自己的診斷記錄。
 
 ## <a name="net"></a>.NET
 如需有關使用 .NET SDK 來建立和監視管線的完整逐步解說，請參閱[使用 .NET 建立資料處理站和管線](quickstart-create-data-factory-dot-net.md)。

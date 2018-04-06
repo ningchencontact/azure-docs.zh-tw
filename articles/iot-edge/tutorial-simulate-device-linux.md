@@ -1,8 +1,8 @@
 ---
-title: "在 Linux 上模擬 Azure IoT Edge | Microsoft Docs"
-description: "在 Linux 中的模擬裝置上安裝 Azure IoT Edge 執行階段及部署您的第一個模組"
+title: 在 Linux 上模擬 Azure IoT Edge | Microsoft Docs
+description: 在 Linux 中的模擬裝置上安裝 Azure IoT Edge 執行階段及部署您的第一個模組
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 65a3f6d71c0c0d92f703a5d48760dd348c726ba4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>在 Linux 或 MacOS 中的模擬裝置上部署 Azure IoT Edge - 預覽
 
@@ -31,12 +31,17 @@ Azure IoT Edge 可讓您在裝置上執行分析和資料處理，而不必將�
 
 您在本教學課程中建立的模擬裝置是一個監視器，會產生溫度、溼度和壓力資料。 其他 Azure IoT Edge 教學課程會以您在此所做的工作為基礎，並部署可分析商業見解資料的模組。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程會以物聯網裝置的形式使用您的電腦或虛擬機器。 若要將您的機器轉換為 IoT Edge 裝置，需要下列服務：
 
 * Python pip，以安裝 IoT Edge 執行階段。
    * Linux：`sudo apt-get install python-pip`。
+     * _請注意，特定發佈 (例如，Raspbian) 可能也需要升級特定的 pip 封裝並安裝其他相依性：_
+     ```
+     sudo pip install --upgrade setuptools pip
+     sudo apt-get install python2.7-dev libffi-dev libssl-dev
+     ```
    * MacOS：`sudo easy_install pip`。
 * Docker，以執行 IoT Edge 模組
    * [安裝適用於 Linux 的 Docker][lnk-docker-ubuntu] 並確定它正在執行。 
@@ -70,7 +75,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 使用上一節中的 IoT Edge 裝置連接字串來設定執行階段：
 ```cmd
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 啟動執行階段：

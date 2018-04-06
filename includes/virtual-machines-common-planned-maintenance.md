@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 193003cef0aed464596e913c0df86e6123292b9f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 為提升虛擬機器之主機基礎結構的可靠性、效能和安全性，Azure 會定期執行更新。 這些更新的範圍，從在主控環境 (像是作業系統、Hypervisor 和各種在主機上部署的代理程式) 中修補軟體元件、升級網路元件，以至硬體解除委任。 這些更新大多數都會在不影響託管虛擬機器的情況下執行。 不過，更新在某些情況下確實會造成影響：
 
-- 如果維護不需要重新開機，Azure 會在主機更新時使用就地移轉來暫停 VM。
+- 如果能夠進行不需重新開機的更新，在主機更新或 VM 移到已更新的主機時，Azure 會使用記憶體來保留維護，以暫停 VM。
 
 - 如果維護需要重新開機，您會在規劃維護時收到通知。 在這些情況下，您也將獲得一個時間範圍，您可以在適合您的時間自行開始維護。
 
@@ -26,13 +26,13 @@ ms.lasthandoff: 03/16/2018
 
 如需管理計劃性維護的「作法」資訊，請參閱適用於 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 或 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md) 的「處理計劃性維護通知」。
 
-## <a name="in-place-vm-migration"></a>就地 VM 移轉
+## <a name="memory-preserving-maintenance"></a>記憶體保留維護
 
-當更新不需要完整重新開機時，則會使用就地即時移轉。 在更新期間，虛擬機器會暫停 30 秒並將記憶體保留在 RAM 中，而主控環境會套用必要的更新和修補程式。 虛擬機器會接著繼續執行，而系統會自動同步虛擬機器的時鐘。
+更新不需要完整的重新開機時，記憶體保留維護機制可用來限制對虛擬機器的影響。 虛擬機器會暫停 30 秒並將記憶體保留在 RAM 中，而主控環境會套用必要的更新和修補程式，或將 VM 移到已經更新的主機。 虛擬機器會接著繼續執行，而系統會自動同步虛擬機器的時鐘。 
 
 對於可用性設定組中的 VM，更新網域會一次更新一個。 在計劃性維護移至下一個 UD 之前，一個更新網域 (UD) 中的所有 VM 會暫停、更新，而後繼續進行。
 
-這些類型的更新會對某些應用程式造成影響。 執行即時事件處理 (如媒體串流處理或轉碼，或高輸送量網路服務案例) 的應用程式，其設計可能不會容許暫停 30 秒。 <!-- sooooo, what should they do? --> 
+這些類型的更新會對某些應用程式造成影響。 執行即時事件處理 (如媒體串流處理或轉碼，或高輸送量網路服務案例) 的應用程式，其設計可能不會容許暫停 30 秒。 <!-- sooooo, what should they do? --> 萬一正在將 VM 移到不同的主機，某些重要的工作負載可能會有幾分鐘出現些微的效能降低，導致虛擬機器暫停。 
 
 
 ## <a name="maintenance-requiring-a-reboot"></a>維護需要重新開機
@@ -47,9 +47,11 @@ ms.lasthandoff: 03/16/2018
 
 當自助式期間過後，**排程的維護期間**隨即開始。 在這段期間內，您仍然可以查詢維護期間，但是無法再自行開始維護。
 
+如需管理需要重新開機的維護作業的相關資訊，請參閱 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 或 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md) 的「處理預定進行的維修作業通知」。 
+
 ## <a name="availability-considerations-during-planned-maintenance"></a>規劃維護期間的可用性考量 
 
-如果您決定等到計劃性維護期間，維護 VM 的最高可用性時需考慮下列事項。 
+如果您決定等到計劃性維護期間，為了維持 VM 的最高可用性，需考慮到下列事項。 
 
 ### <a name="paired-regions"></a>配對的區域
 

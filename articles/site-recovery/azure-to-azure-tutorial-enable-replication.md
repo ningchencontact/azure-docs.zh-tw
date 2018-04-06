@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 03/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 47d9a1e8aecde8ba0f01034f1d172c3fbd87ccfe
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>設定 Azure VM 到次要 Azure 區域的災害復原 (預覽)
 
@@ -144,7 +144,9 @@ Site Recovery 會設定目標區域的預設設定和複寫原則。 您可以�
 
 - **快取儲存體帳戶**：Site Recovery 會使用來源區域中的儲存體帳戶。 來源 VM 的變更會在複寫到目標位置之前，先傳送到此帳戶。
 
-- **目標儲存體帳戶**：根據預設，Site Recovery 會在目標區域中建立新的儲存體帳戶，以反映來源 VM 儲存體帳戶。
+- **目標儲存體帳戶 (如果來源 VM 未使用受控磁碟)**：根據預設，Site Recovery 會在目標區域中建立新的儲存體帳戶，以反映來源 VM 儲存體帳戶。
+
+- **複本受控磁碟 (如果來源 VM 使用受控磁碟)**：根據預設，Site Recovery 會在目標區域中建立複本受控磁碟，將來源 VM 的受控磁碟相同儲存類型 (標準或進階) 鏡映為來源 VM 的受控磁碟。
 
 - **目標可用性設定組**：根據預設，Site Recovery 會在目標區域中建立具有 "asr" 尾碼的新可用性設定組。 只有在 VM 是來源範圍中某個設定組的一部分，您才能新增可用性設定組。
 

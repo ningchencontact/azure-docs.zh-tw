@@ -1,8 +1,8 @@
 ---
-title: "針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解 | Microsoft Docs"
-description: "針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解。"
+title: 針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解 | Microsoft Docs
+description: 針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 03/20/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 02/24/2018
     3. 如果組織使用 Azure AD 無縫單一登入，則下列 URL 不會存在於裝置的 IE 內部網路設定中：
     
        - https://autologon.microsoftazuread-sso.com
-       - https://aadg.windows.net.nsatc.net
+
     
        而且必須為內部網路區域啟用 [允許透過指令碼更新狀態列]。
 

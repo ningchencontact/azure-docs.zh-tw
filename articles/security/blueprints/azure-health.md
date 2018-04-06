@@ -1,6 +1,6 @@
 ---
-title: "Azure 健康情況分析藍圖"
-description: "HIPAA/HITRUST 健康情況分析藍圖的部署指導方針"
+title: Azure 健康情況分析藍圖
+description: HIPAA/HITRUST 健康情況分析藍圖的部署指導方針
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 2bca630bb98b3d9c2be566fbd23ae3313c6a5a47
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI
 
@@ -69,7 +69,7 @@ Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 藍圖提�
 
 -   **[客戶實作矩陣](https://aka.ms/healthcrmblueprint)** Microsoft Excel 活頁簿會列出相關的 HITRUST 需求，並說明 Microsoft 和客戶如何負責符合每一個需求。
 
--   **[健康狀態檢閱。](https://aka.ms/healthreviewpaper)** 解決方案是由 Coalfire systems, Inc. 檢閱。健康情況合規性 (HIPAA，以及 HITRUST) 檢閱和實作指導方針提供稽核員對解決方案的檢閱，以及將藍圖轉換為實際可執行部署的考量。
+-   **[健康狀態檢閱。](https://aka.ms/healthreviewpaper)** 解決方案是由 Coalfire systems, Inc. 檢閱。健康情況合規性 (HIPAA，以及 HITRUST) 檢閱和實作指導方針提供稽核員\'對解決方案的檢閱，以及將藍圖轉換為實際可執行部署的考量。
 
 # <a name="architectural-diagram"></a>架構圖
 
@@ -214,7 +214,7 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 
 **驗證：**
 
--   [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) 是 Microsoft 多租用戶雲端式目錄和身分識別管理服務。 解決方案的所有使用者都是在 Azure Active Directory 中建立，包括存取 SQL Database 的使用者。
+-   [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) 是 Microsoft\' 多租用戶雲端式目錄和身分識別管理服務。 解決方案的所有使用者都是在 Azure Active Directory 中建立，包括存取 SQL Database 的使用者。
 
 
 

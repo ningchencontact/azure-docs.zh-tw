@@ -1,11 +1,11 @@
 ---
-title: "使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式"
-description: "了解如何使用 Visual Studio 2013 內建的遠端偵錯、追蹤和記錄工具，來疑難排解 Azure Web 應用程式。"
+title: 使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式
+description: 了解如何使用 Visual Studio 2013 內建的遠端偵錯、追蹤和記錄工具，來疑難排解 Azure Web 應用程式。
 services: app-service
 documentationcenter: .net
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7973f4311095b7c87ccd2394b048ec92c50f32a9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式
 ## <a name="overview"></a>概觀
@@ -125,12 +125,14 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 3. 刪除 `About()` 方法，然後插入以下程式碼加以取代。
 
-        public ActionResult About()
-        {
-            string currentTime = DateTime.Now.ToLongTimeString();
-            ViewBag.Message = "The current time is " + currentTime;
-            return View();
-        }
+``` c#
+public ActionResult About()
+{
+    string currentTime = DateTime.Now.ToLongTimeString();
+    ViewBag.Message = "The current time is " + currentTime;
+    return View();
+}
+```
 4. [在 `ViewBag.Message`這行設定中斷點](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)。
 
 5. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，再按一下 [發行]。
@@ -241,10 +243,12 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 * 在偵錯期間，伺服器會將資料傳送至 Visual Studio，進而影響頻寬付費情況。 如需關於頻寬費率的詳細資訊，請參閱 [Azure 定價](https://azure.microsoft.com/pricing/calculator/)。
 * 確保 *Web.config* 檔案裡 `compilation` 元素中的 `debug` 屬性設為 true。 在發行偵錯組建組態時，該值預設會設為 true。
 
-        <system.web>
-          <compilation debug="true" targetFramework="4.5" />
-          <httpRuntime targetFramework="4.5" />
-        </system.web>
+``` xml
+<system.web>
+  <compilation debug="true" targetFramework="4.5" />
+  <httpRuntime targetFramework="4.5" />
+</system.web>
+```
 * 如果您發現偵錯工具不會逐步執行您要進行偵錯的程式碼，可能需要變更 [Just My Code] 設定。  如需詳細資訊，請參閱 [將逐步執行限制於 Just My Code](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code)。
 * 當您啟用遠端偵錯功能時，伺服器上會啟動計時器，並在 48 小時後自動關閉此功能。 此 48 小時的限制是為了安全性與效能起見而設計的功能。 若需要，您可以輕鬆開啟這項功能，次數不限。 當您不需要偵錯時，建議您將其保持為停用。
 * 您可以手動將偵錯工具附加至任何處理序，不僅止於 Web 應用程式處理序 (w3wp.exe)。 如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱 [Visual Studio 偵錯](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)。
@@ -277,32 +281,35 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 ### <a name="add-tracing-statements-to-the-application"></a>將追蹤陳述式新增至應用程式
 1. 開啟 *Controllers\HomeController.cs*，然後使用下列程式碼來取代`Index`、`About` 和 `Contact` 方法，以便為 `System.Diagnostics` 加入 `Trace` 陳述式與 `using` 陳述式：
 
-        public ActionResult Index()
-        {
-            Trace.WriteLine("Entering Index method");
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Index method");
-            return View();
-        }
+```c#
+public ActionResult Index()
+{
+    Trace.WriteLine("Entering Index method");
+    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Index method");
+    return View();
+}
 
-        public ActionResult About()
-        {
-            Trace.WriteLine("Entering About method");
-            ViewBag.Message = "Your app description page.";
-            Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-            Trace.WriteLine("Leaving About method");
-            return View();
-        }
+public ActionResult About()
+{
+    Trace.WriteLine("Entering About method");
+    ViewBag.Message = "Your app description page.";
+    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+    Trace.WriteLine("Leaving About method");
+    return View();
+}
 
-        public ActionResult Contact()
-        {
-            Trace.WriteLine("Entering Contact method");
-            ViewBag.Message = "Your contact page.";
-            Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Contact method");
-            return View();
-        }        
+public ActionResult Contact()
+{
+    Trace.WriteLine("Entering Contact method");
+    ViewBag.Message = "Your contact page.";
+    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Contact method");
+    return View();
+}        
+```
+
 2. 將 `using System.Diagnostics;` 陳述式新增至檔案頂端。
 
 ### <a name="view-the-tracing-output-locally"></a>在本機檢視追蹤輸出
@@ -315,25 +322,30 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
     以下步驟說明如何在網頁中檢視追蹤輸出，而不需在偵錯模式中編譯。
 2. 開啟應用程式 Web.config 檔 (專案資料夾中的那個) 並將 `<system.diagnostics>` 元素新增至檔案結尾 `</configuration>` 元素關閉處前：
 
-          <system.diagnostics>
-            <trace>
-              <listeners>
-                <add name="WebPageTraceListener"
-                    type="System.Web.WebPageTraceListener,
-                    System.Web,
-                    Version=4.0.0.0,
-                    Culture=neutral,
-                    PublicKeyToken=b03f5f7f11d50a3a" />
-              </listeners>
-            </trace>
-          </system.diagnostics>
+``` xml
+<system.diagnostics>
+<trace>
+  <listeners>
+    <add name="WebPageTraceListener"
+        type="System.Web.WebPageTraceListener,
+        System.Web,
+        Version=4.0.0.0,
+        Culture=neutral,
+        PublicKeyToken=b03f5f7f11d50a3a" />
+  </listeners>
+</trace>
+</system.diagnostics>
+```
 
-    `WebPageTraceListener` 可讓您藉由瀏覽至 `/trace.axd` 來檢視追蹤輸出。
+`WebPageTraceListener` 可讓您藉由瀏覽至 `/trace.axd` 來檢視追蹤輸出。
 3. 在 Web.config 檔案的 `<system.web>` 下方，加入<a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">追蹤元素</a>，如以下範例所示：
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+``` xml
+<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+```       
+
 4. 按 CTRL+F5 執行應用程式。
-5. 在瀏覽器視窗的網址列中，將 *trace.axd* 新增至 URL，然後按 Enter (URL 類似於 http://localhost:53370/trace.axd)。
+5. 在瀏覽器視窗的網址列中，將 *trace.axd* 新增至 URL，然後按 Enter (URL 類似於 http://localhost:53370/trace.axd))。
 6. 在 [應用程式追蹤] 頁面上，按一下第一行 (不是 BrowserLink 行) 上的 [檢視詳細資料]。
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -646,15 +658,18 @@ Azure Web 應用程式會使用 IIS 7.0 及更新版本所提供的相同失敗�
 * [追蹤 ASP.NET MVC Razor 檢視](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   除了追蹤 Razor 檢視之外，該文同時說明了如何建立錯誤篩選條件以便記錄 MVC 應用程式所出現的所有未處理的例外。 如需如何記錄 Web Form 應用程式中所有未處理的例外項目的詳細資訊，請參閱 MSDN 上 [完整的錯誤處理常式範例](http://msdn.microsoft.com/library/bb397417.aspx) (英文) 的 Global.asax 範例。 無論是 MVC 還是 Web Form，如果您想要記錄特定例外，但是讓預設的架構處理功能生效，則您可以如以下範例所示捕捉並重新擲回這些例外：
 
-        try
-        {
-           // Your code that might cause an exception to be thrown.
-        }
-        catch (Exception ex)
-        {
-            Trace.TraceError("Exception: " + ex.ToString());
-            throw;
-        }
+``` c#
+try
+{
+   // Your code that might cause an exception to be thrown.
+}
+catch (Exception ex)
+{
+    Trace.TraceError("Exception: " + ex.ToString());
+    throw;
+}
+```
+
 * [從 Azure 命令列串流診斷追蹤記錄 (加上 Glimpse！)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   如何使用命令列來執行本教學課程所示範的 Visual Studio 步驟。 [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) (英文) 工具可供您偵錯 ASP.NET 應用程式。
 * [使用 Azure Web Apps 記錄和診斷功能 - 與 David Ebbo 合作](/documentation/videos/azure-web-site-logging-and-diagnostics/)以及[來自 Web Apps 的串流記錄 - 與 David Ebbo 合作](/documentation/videos/log-streaming-with-azure-web-sites/)<br>

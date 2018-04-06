@@ -8,16 +8,14 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 5ea3d1af6f8bb4a6c0ef45560d8707afc58f61b1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ca00736c6c42223a0fe6259da5ee2531c287de18
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>建立獨立的 Azure 自動化帳戶
-本文示範如何在 Azure 入口網站中建立 Azure 自動化帳戶。 您可以使用入口網站自動化帳戶來評估和了解自動化，而不需使用額外的管理解決方案或與 Operations Management Suite (OMS) 中的 Azure Log Analytics 整合。 您可以新增那些管理解決方案，或與 Log Analytics 整合，以便在未來的任何時間點進一步監視 Runbook 作業。 
+本文示範如何在 Azure 入口網站中建立 Azure 自動化帳戶。 您可以使用入口網站自動化帳戶來評估和了解自動化，而不需使用額外的管理解決方案或與 Azure Log Analytics 整合。 您可以新增那些管理解決方案，或與 Log Analytics 整合，以便在未來的任何時間點進一步監視 Runbook 作業。 
 
 使用自動化帳戶，您可以藉由在 Azure Resource Manager 或傳統部署模型中管理資源來驗證 Runbook。
 

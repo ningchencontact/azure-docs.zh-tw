@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure Functions 執行資料庫清除工作 | Microsoft Docs"
-description: "使用 Azure Functions 排程可連接到 Azure SQL Database 以定期清除資料列的工作。"
+title: 使用 Azure Functions 執行資料庫清除工作 | Microsoft Docs
+description: 使用 Azure Functions 排程可連接到 Azure SQL Database 以定期清除資料列的工作。
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: functions
 ms.devlang: multiple
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 2947fc6da0c4559e81cf97255b8375b020e0b657
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>使用 Azure Functions 連接到 Azure SQL Database
-本主題示範如何使用 Azure Functions 建立可清除 Azure SQL Database 資料表中資料列的排程作業。 新的 C# 函數是根據 Azure 入口網站中預先定義的計時器觸發程序範本所建立。 若要支援此案例，您也必須在函式應用程式中設定資料庫連接字串以作為設定。 此案例會對資料庫使用大量作業。 
+本主題示範如何使用 Azure Functions 建立可清除 Azure SQL Database 資料表中資料列的排程作業。 新的 C# 指令碼函數是根據 Azure 入口網站中預先定義的計時器觸發程序範本所建立。 若要支援此案例，您也必須在函式應用程式中設定資料庫連接字串以作為設定。 此案例會對資料庫使用大量作業。 
 
 若要讓您的函式程序在 Mobile Apps 資料表中個別建立、讀取、更新及刪除 (CRUD) 作業，您應該改用 [Mobile Apps 繫結](functions-bindings-mobile-apps.md)。
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/30/2017
  
 3. 從左側功能表中選取 [SQL Database]，然後選取 [SQL 資料庫] 頁面上的資料庫。
 
-4. 選取 [顯示資料庫連接字串]，然後複製完整的 **ADO.NET** 連接字串。
+4. 選取 [顯示資料庫連接字串]，然後複製完整的 **ADO.NET** 連接字串。 
 
     ![複製 ADO.NET 連接字串。](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -70,14 +70,16 @@ ms.lasthandoff: 11/30/2017
 
 ## <a name="update-your-function-code"></a>更新函數程式碼
 
-1. 在函數應用程式中，選取計時器觸發的函數。
+1. 在入口網站的函數應用程式中，選取計時器觸發的函數。
  
-3. 在現有函數程式碼頂端新增下列組件參考：
+3. 在現有 C# 指令碼函數程式碼頂端新增下列組件參考：
 
     ```cs
     #r "System.Configuration"
     #r "System.Data"
     ```
+    >[!NOTE]
+    >這些範例中的程式碼是來自入口網站的 C# 指令碼。 於本機開發先行編譯的 C# 函數時，必須改為將參考新增至本機專案中的這些組件。  
 
 3. 將下列 `using` 陳述式加入至函數：
     ```cs

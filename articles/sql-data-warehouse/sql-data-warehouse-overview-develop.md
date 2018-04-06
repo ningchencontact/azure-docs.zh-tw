@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: develop
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: 329217faaf865052b79a1d44200cc3c788702046
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c81a6f9af556a86f10d2482333fdc98f9cfb1454
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL 資料倉儲的設計決策和程式碼撰寫技術
 若要進一步了解 SQL 資料倉儲的重要的設計決策、建議和程式碼撰寫技術，請參閱這些開發文章。
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/17/2018
 * [變數指派][variable assignment]
 
 ## <a name="next-steps"></a>後續步驟
-如需更多的參考資訊，請參閱 SQL 資料倉儲的 [Transact-SQL 參考][][Transact-SQL reference] 頁面。
+如需更多的參考資訊，請參閱 [SQL 資料倉儲 T-SQL 陳述式](sql-data-warehouse-reference-tsql-statements.md)。
 
 <!--Image references-->
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 03/17/2018
 [user-defined schemas]: ./sql-data-warehouse-develop-user-defined-schemas.md
 [variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
 [views]: ./sql-data-warehouse-develop-views.md
-[Transact-SQL reference]: ./sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx

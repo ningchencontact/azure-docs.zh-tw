@@ -1,28 +1,25 @@
 ---
-title: "Azure Active Directory B2C：Amazon 設定 | Microsoft Docs"
-description: "在受 Azure Active Directory B2C 保護的應用程式中，針對具有 Amazon 帳戶的取用者提供註冊和登入。"
+title: Azure Active Directory B2C：Amazon 設定 | Microsoft Docs
+description: 在受 Azure Active Directory B2C 保護的應用程式中，針對具有 Amazon 帳戶的取用者提供註冊和登入。
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 77c099bb-a005-4d75-87f9-f61e3de48725
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: df69b075717e6b4311e336f5bd2d385c5f0e1f52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: a2989baa61e7b69534fe5703b2501d62a4f8aa94
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C：針對具有 Amazon 帳戶的取用者提供註冊和登入
 ## <a name="create-an-amazon-application"></a>建立 Amazon 應用程式
-若要在 Azure Active Directory (Azure AD) B2C 中使用 Amazon 做為身分識別提供者，您必須建立 Amazon 應用程式，並對其提供正確的參數。 您需要 Amazon 帳戶來執行此動作。 如果您沒有帳戶，您可以在 [http://www.amazon.com/](http://www.amazon.com/)上取得。
+若要在 Azure Active Directory (Azure AD) B2C 中使用 Amazon 做為身分識別提供者，您必須建立 Amazon 應用程式，並對其提供正確的參數。 您需要 Amazon 帳戶來執行此動作。 如果您沒有帳戶，您可以在 [http://www.amazon.com/](http://www.amazon.com/) 上取得。
 
 1. 移至 [Amazon Developer Center (Amazon 開發人員中心)](https://login.amazon.com/) ，並以您的 Amazon 帳戶認證登入。
 2. 若您尚未執行此動作，請按一下 [註冊] 、遵循開發人員註冊步驟，並接受原則。

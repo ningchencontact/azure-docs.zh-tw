@@ -1,5 +1,5 @@
 ---
-title: 路由傳送網路流量 - PowerShell | Microsoft Docs
+title: 路由傳送網路流量 - Azure PowerShell | Microsoft Docs
 description: 了解如何使用 PowerShell 以路由表路由傳送網路流量。
 services: virtual-network
 documentationcenter: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 49c7b6158beee9d47ecd224e6a0750310d2b68c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>使用 PowerShell 以路由表路由傳送網路流量
 
@@ -242,7 +242,7 @@ mstsc /v:<publicIpAddress>
 在稍後步驟中，tracert.exe 命令用於測試路由。 Tracert 會使用網際網路控制訊息通訊協定 (ICMP)，它在通過 Windows 防火牆時會遭到拒絕。 從 PowerShell 中輸入下列命令，讓 ICMP 通過 Windows 防火牆：
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 雖然本文使用 tracert 來測試路由，但不建議在生產環境部署中允許 ICMP 通過 Windows 防火牆。
@@ -272,7 +272,7 @@ mstsc /v:myVmPublic
 從 PowerShell 中輸入下列命令，讓 ICMP 通過 Windows 防火牆：
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 若要測試從 myVmPublic 虛擬機器前往 myVmPrivate 虛擬機器之網路流量的路由，請從 PowerShell 輸入下列命令：
@@ -332,4 +332,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 雖然您可以在虛擬網路內部署許多 Azure 資源，但是某些 Azure PaaS 服務的資源無法部署到虛擬網路中。 您仍可將某些 Azure PaaS 服務的資源存取，限制為僅來自虛擬網路子網路的流量。 請繼續閱讀下一篇文章，以了解如何限制對 Azure PaaS 資源的網路存取。
 
 > [!div class="nextstepaction"]
-> [限制對 PaaS 資源的網路存取](virtual-network-service-endpoints-configure.md#azure-powershell)
+> [限制對 PaaS 資源的網路存取](tutorial-restrict-network-access-to-resources-powershell.md)

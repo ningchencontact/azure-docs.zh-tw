@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 中設定服務對應 | Microsoft Docs"
-description: "服務對應是 Azure 中的一個解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文會詳細說明如何在環境中部署服務對應並將它用於各種案例。"
+title: 在 Azure 中設定服務對應 | Microsoft Docs
+description: 服務對應是 Azure 中的一個解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文會詳細說明如何在環境中部署服務對應並將它用於各種案例。
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: daveirwin1
 manager: jwhit
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2a5e6367cef02b53cb0e24d644b7e3e8025e19ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c01d18b17906a2b243a46241a6ec5c4b1d9ab8d9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中設定服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -28,8 +28,8 @@ ms.lasthandoff: 03/08/2018
 ## <a name="dependency-agent-downloads"></a>相依性代理程式下載
 | 檔案 | 作業系統 | 版本 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.2 | E0888727125FA4E4ECACFB4B2633284C014933EE0CC2F7A9F93F36AEDBD6C2C4  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.0 | 4125A88E60650FF168D6254AB4FCD14CDD3CC1C7B4CF168F3F5F3C1AF30895DD  |
 
 
 ## <a name="connected-sources"></a>連接的來源
@@ -168,7 +168,7 @@ ForEach-Object {
 }
 ```
 
-確保相依性代理程式會在您的每個 VM 上的更簡單方法是，在您的 Azure Resource Manager 範本中納入該代理程式。  請注意，相依性代理程式仍取決於 OMS 代理程式，所以必須先部署 [OMS 代理程式 VM 擴充功能](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension)。  您可以將下列 JSON 程式碼片段新增到範本的「資源」區段。
+確保相依性代理程式在您每個 VM 上的更簡單方法是，在您的 Azure Resource Manager 範本中納入該代理程式。  請注意，相依性代理程式仍取決於 OMS 代理程式，所以必須先部署 [OMS 代理程式 VM 擴充功能](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension)。  您可以將下列 JSON 程式碼片段新增到範本的「資源」區段。
 ```JSON
 "type": "Microsoft.Compute/virtualMachines/extensions",
 "name": "[concat(parameters('vmName'), '/DependencyAgent')]",

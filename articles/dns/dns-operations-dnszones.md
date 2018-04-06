@@ -1,6 +1,6 @@
 ---
-title: "管理 Azure DNS 中的 DNS 區域 - PowerShell | Microsoft Docs"
-description: "您可以使用 Azure Powershell 管理 DNS 區域。 本文說明如何在 Azure DNS 上更新、刪除及建立 DNS 區域"
+title: 管理 Azure DNS 中的 DNS 區域 - PowerShell | Microsoft Docs
+description: 您可以使用 Azure Powershell 管理 DNS 區域。 本文說明如何在 Azure DNS 上更新、刪除及建立 DNS 區域
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 03/19/2018
 ms.author: gwallace
-ms.openlocfilehash: 3f28e70bb6ef46f53375d256a520db40fcb71ad0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b9c263acf754a72cde5b2716703b8e771a349457
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>如何管理使用 PowerShell 的 DNS 區域
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 12/21/2017
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 本文說明如何使用 Azure PowerShell 管理 DNS 區域。 您也可以使用跨平台 [Azure CLI](dns-operations-dnszones-cli.md) 或 Azure 入口網站來管理 DNS 區域。
+
+本指南特別說明公用 DNS 區域。 如需在 Azure DNS 中使用 Azure PowerShell 管理私人區域的資訊，請參閱[利用 PowerShell 開始使用 Azure DNS 私人區域](private-dns-getstarted-powershell.md)。
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -50,7 +52,7 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Azure DNS 現在也支援私人 DNS 區域 (目前是預覽功能)。  如需如何建立私人 DNS 區域的範例，請參閱[利用 PowerShell 開始使用 Azure DNS 私人區域](./private-dns-getstarted-powershell.md)。
+Azure DNS 現在也支援私人 DNS 區域 (目前處於公開預覽狀態)。  若要深入了解私人 DNS 區域，請參閱[使用 Azure DNS 私人網域](private-dns-overview.md)。 如需如何建立私人 DNS 區域的範例，請參閱[利用 PowerShell 開始使用 Azure DNS 私人區域](./private-dns-getstarted-powershell.md)。
 
 ## <a name="get-a-dns-zone"></a>取得 DNS 區域
 

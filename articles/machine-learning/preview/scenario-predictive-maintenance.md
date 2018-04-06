@@ -1,6 +1,6 @@
 ---
-title: "真實案例的預測性維護 | Microsoft Docs"
-description: "使用 PySpark 之真實案例的預測性維護"
+title: 真實案例的預測性維護 | Microsoft Docs
+description: 使用 PySpark 之真實案例的預測性維護
 services: machine-learning
 author: ehrlinger
 ms.author: jehrling
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 81e227194ff64d7b7af842a208349ccc63528ab8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: bb6e4f9f147db2fb70d991922cf0bb8d16b29671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>真實案例的預測性維護
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/24/2018
 
 ### <a name="cortana-intelligence-gallery-github-repository"></a>Cortana Intelligence 資源庫 GitHub 存放庫
 
-PM 教學課程的「Cortana Intelligence 資源庫」是一個公用 GitHub 存放庫 ([https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance))，您可以在該處回報問題並作出貢獻。
+適用於 PM 教學課程的 Cortana Intelligence 資源庫是公用 GitHub 存放庫 ([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance))，您可以在此回報問題並進行貢獻。
 
 
 ## <a name="use-case-overview"></a>使用案例概觀

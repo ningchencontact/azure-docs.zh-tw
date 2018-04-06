@@ -1,25 +1,25 @@
 ---
-title: "Azure Cosmos DB 的區域性容錯移轉 | Microsoft Docs"
-description: "了解 Azure Cosmos DB 的手動和自動容錯移轉如何運作。"
+title: Azure Cosmos DB 的區域性容錯移轉 | Microsoft Docs
+description: 了解 Azure Cosmos DB 的手動和自動容錯移轉如何運作。
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5a4bdc49c5ab36a5026095b5d7b6f9856b020e1b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Azure Cosmos DB 中商務持續性的自動區域性容錯移轉
 Azure Cosmos DB 會簡化資料的全域散發作業，方法是提供多個完全受控的[多重地區資料庫帳戶](distribute-data-globally.md)，在一致性、可用性和效能之間進行明確取捨，這一切全都倚靠相對應的保證來完成。 Cosmos DB 帳戶具備下列優點：高可用性、個位數的毫秒延遲、[定義完善的一致性層級](consistency-levels.md)、利用多路連接 API 透明進行的區域性容錯移轉，以及全球輸送量及儲存體的靈活調整能力。 
@@ -30,9 +30,10 @@ Cosmos DB 支援明確和原則導向的容錯移轉，可讓您控制在失敗�
 * 自動容錯移轉在 Cosmos DB 中如何運作，以及當資料中心當機時會發生什麼情況？
 * 如何在應用程式架構中使用手動容錯移轉？
 
-您也可以在這段 Azure Friday 影片中，和 Scott Hanselman 與工程總經理 Karthik Raman 一起了解區域容錯移轉。
+您也可以透過 Azure Cosmos DB 程式管理員 Andrew Liu 的這段影片，瞭解區域的容錯移轉，影片中會示範全域散發功能，地區容錯移轉也包括在內。
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ## <a id="ConfigureMultiRegionApplications"></a>設定多區域應用程式
 在深入探討容錯移轉模式之前，我們會探討如何設定應用程式以發揮多區域可用性，並在區域性容錯移轉中兼具彈性。
@@ -85,7 +86,7 @@ Cosmos DB 帳戶的讀取區域若在其中一個受影響區域中，會自動�
 
 **如果寫入區域中斷會發生什麼事？**
 
-如果受影響的區域是目前的寫入區域，且已為 Azure Cosmos DB 帳戶啟用自動容錯移轉，則該區域會自動標示為離線。 然後，受影響 Azure Cosmos DB 帳戶的替代區域會升級為寫入區域。 您可以透過 Azure 入口網站或[以程式設計方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange)，啟用自動容錯移轉並完全控制 Azure Cosmos DB 帳戶的區域選擇順序。 
+如果受影響的區域是目前的寫入區域，且已為 Azure Cosmos DB 帳戶啟用自動容錯移轉，則該區域會自動標示為離線。 然後，受影響 Azure Cosmos DB 帳戶的替代區域會升級為寫入區域。 您可以透過 Azure 入口網站或[以程式設計方式](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange)，啟用自動容錯移轉並完全控制 Azure Cosmos DB 帳戶的區域選擇順序。 
 
 ![Azure Cosmos DB 的容錯移轉優先順序](./media/regional-failover/failover-priorities.png)
 
@@ -97,7 +98,7 @@ Cosmos DB 帳戶的讀取區域若在其中一個受影響區域中，會自動�
 
 * 在中斷期間未複寫到讀取區域之先前寫入區域中的資料，會發行為衝突摘要。 應用程式可以讀取衝突摘要，根據應用程式的特定邏輯解決衝突，再視情況將更新後的資料寫回 Azure Cosmos DB 帳戶。 
 * 先前的寫入區域會重新建立為讀取區域，並自動重新上線。 
-* 您可以透過 Azure 入口網站或[以程式設計方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)執行手動容錯移轉，將自動重新上線的讀取區域重新設定為寫入區域。
+* 您可以透過 Azure 入口網站或[以程式設計方式](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)執行手動容錯移轉，將自動重新上線的讀取區域重新設定為寫入區域。
 
 下列程式碼片段會說明受影響的區域在從中斷復原後，會如何處理衝突。
 
@@ -122,7 +123,7 @@ do
 
 ## <a id="ManualFailovers"></a>手動容錯移轉
 
-除了自動容錯移轉，可以手動將指定 Cosmos DB 帳戶的目前寫入區域動態變更為現有讀取區域之一。 手動容錯移轉可透過 Azure 入口網站或[以程式設計方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)起始。 
+除了自動容錯移轉，可以手動將指定 Cosmos DB 帳戶的目前寫入區域動態變更為現有讀取區域之一。 手動容錯移轉可透過 Azure 入口網站或[以程式設計方式](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)起始。 
 
 手動容錯移轉可確保「資料零遺失」和「可用性零遺失」，並正常地將指定 Cosmos DB 帳戶的寫入狀態從舊的寫入區域傳輸到新的。 像自動容錯移轉一樣，Cosmos DB SDK 會在手動容錯移轉期間自動處理寫入區域的變更，並確保會自動將呼叫重新導向至新的寫入區域。 不需要對應用程式的程式碼或設定做任何變更來管理容錯移轉。 
 

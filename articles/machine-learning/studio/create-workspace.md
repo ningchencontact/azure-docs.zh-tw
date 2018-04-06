@@ -1,22 +1,21 @@
 ---
-title: "建立 Machine Learning Studio 工作區 | Microsoft Docs"
-description: "如何建立 Azure Machine Learning Studio 的工作區"
+title: 建立 Machine Learning Studio 工作區 | Microsoft Docs
+description: 如何建立 Azure Machine Learning Studio 的工作區
 services: machine-learning
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: garye
-ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
-ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8da10e474c62868ca109a44e7c66dc11ee62b6de
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>建立和共用 Azure Machine Learning 工作區
 此功能表會連結至說明如何設定 Cortana Analytics 程序 (CAP) 所用的各種資料科學環境主題。
@@ -50,7 +49,7 @@ ms.lasthandoff: 12/08/2017
 
 一旦部署工作區之後，您可以在 Machine Learning Studio 中開啟它。
 
-1. 瀏覽 Machine Learning Studio ([https://studio.azureml.net](https://studio.azureml.net/))。
+1. 瀏覽至 [https://studio.azureml.net/](https://studio.azureml.net/) 的 Machine Learning Studio。
 
 2. 選取您右上角的工作區。
 
@@ -77,7 +76,7 @@ ms.lasthandoff: 12/08/2017
 
 ### <a name="to-share-a-workspace"></a>共用工作區
 
-1. 登入 Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home))
+1. 登入 [https://studio.azureml.net/Home](https://studio.azureml.net/Home) 的 Machine Learning Studio
 
 2. 按一下左面板中的 [設定]
 

@@ -1,24 +1,19 @@
 ---
-title: "整合 Azure 自動化與 Visual Stuido Team Services 原始檔控制 | Microsoft Docs"
-description: "案例將逐步引導您設定 Azure 自動化帳戶與 Visual Stuido Team Services 原始檔控制的整合。"
+title: 整合 Azure 自動化與 Visual Stuido Team Services 原始檔控制
+description: 案例將逐步引導您設定 Azure 自動化帳戶與 Visual Stuido Team Services 原始檔控制的整合。
 services: automation
-documentationcenter: 
-author: eamono
-manager: 
-editor: 
-keywords: "azure powershell, VSTS, 原始檔控制, 自動化"
-ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
+documentationcenter: ''
+author: eamonoreilly
+ms.author: eamono
+keywords: azure powershell, VSTS, 原始檔控制, 自動化
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
-ms.openlocfilehash: 5afccc4aa7b751958952d1401182f93109cff358
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 03/19/2017
+ms.openlocfilehash: a60143db03e5f89685a25f26789003de30d91f4c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Azure 自動化案例 - 自動化原始檔控制與 Visual Studio Team Services 的整合
 
@@ -51,7 +46,7 @@ VSToken | 您所建立的安全變數資產，其中包含 VSTS 個人存取權�
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
-請匯入會將 Runbook 或設定同步處理到自動化帳戶的 Runbook。 如果您使用 VSTS 原始檔控制，可以使用來自 PowerShellGallery.com 的 [VSTS 範例 Runbook (VSTS sample runbook)](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript)，如果搭配 Git 使用 VSTS，則可以使用 [VSTS with Git 範例 Runbook] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript)，然後再部署至自動化帳戶。
+請匯入會將 Runbook 或設定同步處理到自動化帳戶的 Runbook。 如果您使用 VSTS 原始檔控制，可以使用來自 PowerShellGallery.com 的 [VSTS 範例 Runbook (VSTS sample runbook)](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript)，如果搭配 Git 使用 VSTS，則可以使用 [VSTS with Git 範例 Runbook] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript))，然後再部署至自動化帳戶。
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: jeedes
-ms.openlocfilehash: faf4b2ff24ef733b740a5b65864941a10de64ed8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 604249151f3c1ca206f64a178b25ea1dae5b5023
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>教學課程：Azure Active Directory 與 Spacio 整合
 
@@ -112,18 +112,32 @@ Spacio 與 Azure AD 整合提供下列優點：
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Spacio 用戶端支援小組](mailto:support@spac.io)以取得這些值。 
- 
 
-
-4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
-
-    ![憑證下載連結](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_certificate.png) 
-
-5. 按一下 [儲存]  按鈕。
+4. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-spacio-tutorial/tutorial_general_400.png)
 
-6. 若要在 **Spacio** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [Spacio 支援小組](mailto:support@spac.io)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+5. 若要產生**中繼資料 URL**，請執行下列步驟：
+
+    a. 按一下 [應用程式註冊]。
+    
+    ![設定單一登入](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appregistrations.png)
+   
+    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
+    
+    ![設定單一登入](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpointicon.png)
+
+    c. 選取 [複製] 按鈕以複製 [同盟中繼資料文件] URL，並將它貼到記事本。
+    
+    ![設定單一登入](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpoint.png)
+     
+    d. 現在，移至 [Spacio] 的屬性頁面，使用 [複製] 按鈕複製 [應用程式識別碼]，並將它貼到記事本。
+ 
+    ![設定單一登入](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appid.png)
+
+    e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+
+6. 若要在 **Spacio** 端設定單一登入，您必須將產生的**中繼資料 URL** 傳送至 [Spacio 支援小組](mailto:support@spac.io)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

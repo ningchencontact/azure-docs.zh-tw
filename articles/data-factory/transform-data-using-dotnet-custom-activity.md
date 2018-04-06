@@ -4,8 +4,8 @@ description: 了解如何建立自訂活動，並在 Azure 資料處理站管線
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6aaeaaacdc9ee67ebbed3ea3090455dde2357c3d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 770187c16ed9d0eacfaf99e571ad048c6723a9cf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -295,10 +295,10 @@ namespace SampleApp
 如果您想要在下游活動中取用 stdout.txt 的內容，可以在 "@activity('MyCustomActivity').output.outputs[0]" 運算式中取得 stdout.txt 檔案的路徑。 
 
   > [!IMPORTANT]
-  > - activity.json、linkedServices.json 和 datasets.json 會儲存在 Batch 工作的執行階段資料夾。 針對此範例，activity.json、linkedServices.json 和 datasets.json 會儲存在 "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" 路徑。 您必須視需要個別加以清除。 
+  > - activity.json、linkedServices.json 和 datasets.json 會儲存在 Batch 工作的執行階段資料夾。 例如，activity.json、linkedServices.json 和 datasets.json 會儲存在「https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/」路徑。 您必須視需要個別加以清除。 
   > - 針對已連結的服務使用自我裝載整合執行階段，機密資訊 (例如金鑰或密碼) 就會由自我裝載整合執行階段加密，以確保認證保留在客戶定義的私人網路環境中。 某些機密欄位由您的自訂應用程式以這樣的方式參考時，可能會遺失。 視需要在 extendedProperties 中使用 SecureString，而不是使用已連結的服務參考。 
 
-## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a>比較 V2 自訂活動和第 1 版 (自訂) DotNet 活動
+## <a name="compare-v2-v1"></a> 比較 v2 自訂活動和第 1 版 (自訂) DotNet 活動
 
   在 Azure Data Factory 第 1 版中，您必須藉由建立一個 .NET 類別庫專案，其中含有實作 `IDotNetActivity` 介面之 `Execute` 方法的類別，來實作 (自訂) DotNet 活動。 (自訂) DotNet 活動之 JSON 承載中的已連結服務、資料集及擴充屬性，都會以強型別物件的形式傳遞至執行方法。 如需第 1 版行為的詳細資料，請參閱[第 1 版中的 (自訂) DotNet](v1/data-factory-use-custom-activities.md)。 基於此實作，您的第 1 版 DotNet 活動程式碼必須將目標設為 .Net Framework 4.5.2。 第 1 版 DotNet 活動也必須在 Windows 型 Azure Batch 集區節點上執行。 
 

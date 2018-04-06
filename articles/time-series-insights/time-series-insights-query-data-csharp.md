@@ -1,22 +1,22 @@
 ---
-title: "使用 C# 程式碼從 Azure 時間序列深入解析環境查詢資料 | Microsoft Docs"
-description: "本文說明如何編製以 C# (c-sharp) .NET 語言撰寫的自訂應用程式，以從 Azure 時間序列深入解析環境查詢資料。"
+title: 使用 C# 程式碼從 Azure 時間序列深入解析環境查詢資料 | Microsoft Docs
+description: 本文說明如何編製以 C# (c-sharp) .NET 語言撰寫的自訂應用程式，以從 Azure 時間序列深入解析環境查詢資料。
 services: time-series-insights
 ms.service: time-series-insights
 author: ankryach
 ms.author: ankryach
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-reviewer: v-mamcge, jasonwhowell, kfile, tsidocs
+reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 561ad848e7bddc6bf9d71328db4ddbba9bc5d2b4
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.date: 03/23/2018
+ms.openlocfilehash: 2cbdf4a5c7272e88430b1db7b853f8b6d441c893
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>使用 C# 從 Azure Time Series Insights 環境查詢資料
 
@@ -26,6 +26,11 @@ ms.lasthandoff: 12/19/2017
 2. 取得使用者可存取的環境清單。 挑選其中一個環境作為使用環境，並針對此環境查詢進一步資料。
 3. 在 HTTPS 要求的範例中，要求感興趣環境的可用性資料。
 4. 在 Web 通訊端要求的範例中，要求感興趣環境的事件彙總資料。 要求整個可用性時間範圍內的資料。
+
+[https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights) 也提供這個程式碼範例
+
+## <a name="project-references"></a>專案參考
+為此範例新增 NuGet 封裝 `Microsoft.IdentityModel.Clients.ActiveDirectory` 和 `Newtonsoft.Json`。 
 
 ## <a name="c-example"></a>C# 範例
 

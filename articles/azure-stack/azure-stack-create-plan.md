@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中建立方案 | Microsoft Docs"
-description: "身為雲端系統管理員，您可以建立可供訂閱者佈建虛擬機器的方案。"
+title: 在 Azure Stack 中建立方案 | Microsoft Docs
+description: 身為雲端系統管理員，您可以建立可供訂閱者佈建虛擬機器的方案。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
 ms.workload: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: brenduns
-ms.reviewer: 
+ms.reviewer: ''
 ms.openlocfilehash: 5eefca3541ae9f73514f80b0f8df9e5027600f87
 ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 [方案](azure-stack-key-features.md)結合一或多項服務。 身為提供者的您可以為使用者製作方案。 使用者接著即可訂閱您的供應項目，以使用其中的方案與服務。 此範例說明如何建立一個包含計算、網路及儲存體資源提供者的方案。 此方案可讓訂閱者佈建虛擬機器。
 
-1. 登入 Azure Stack 系統管理員入口網站 (https://adminportal.local.azurestack.external)。 輸入您在[執行 PowerShell 指令碼](azure-stack-run-powershell-script.md)一節步驟 5 中所建立帳戶的認證。
+1. 登入 Azure Stack 系統管理員入口網站 ( https://adminportal.local.azurestack.external )。 輸入您在[執行 PowerShell 指令碼](azure-stack-run-powershell-script.md)一節步驟 5 中所建立帳戶的認證。
 
 2. 若要建立使用者可訂閱的方案和供應項目，請按一下 [新增] > [租用戶供應項目 + 方案] > [方案]。
 

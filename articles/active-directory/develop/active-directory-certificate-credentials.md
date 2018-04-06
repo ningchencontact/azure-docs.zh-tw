@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 03/15/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7c58b4ebd840aca555b52a03cf44ace311b64e3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>適用於應用程式驗證的憑證認證
 
-Azure Active Directory 可讓應用程式使用自己的認證進行驗證，例如，在 OAuth 2.0 用戶端認證授與流程 ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md) 和代理者流程 ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)) 中。
+Azure Active Directory 可讓應用程式使用本身的認證來進行驗證。 例如 OAuth 2.0 用戶端認證授與流程 ([v1](active-directory-protocols-oauth-service-to-service.md)、 [v2](active-directory-v2-protocols-oauth-client-creds.md)) 和代理者流程 ([v1](active-directory-protocols-oauth-on-behalf-of.md)、[v2](active-directory-v2-protocols-oauth-on-behalf-of.md))。
 可用的認證形式之一，便是以應用程式擁有的憑證所簽署的 JSON Web 權杖 (JWT) 判斷提示。
 
 ## <a name="format-of-the-assertion"></a>判斷提示的格式
-為了計算判斷提示，您可能想要使用所選語言中許多 [JSON Web 權杖](https://jwt.io/) \(英文\) 程式庫其中之一。 權杖所攜帶的資訊是︰
+為了計算判斷提示，您可能想要使用所選語言中許多 [JSON Web 權杖](https://jwt.ms/) \(英文\) 程式庫其中之一。 權杖所攜帶的資訊是︰
 
 #### <a name="header"></a>頁首
 
@@ -85,7 +85,14 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ### <a name="register-your-certificate-with-azure-ad"></a>使用 Azure AD 註冊您的憑證
 
-若要在 Azure AD 中將憑證認證與用戶端應用程式相關聯，您必須編輯應用程式資訊清單。
+您可以使用以下任一種方法，透過 Azure 入口網站在 Azure AD 中建立憑證認證與用戶端應用程式之間的關聯：
+
+**上傳憑證檔案**
+
+在用戶端應用程式的 Azure 應用程式註冊中，按一下 [設定]，並按一下 [金鑰]，然後按一下 [上傳公開金鑰]。 選取您想要上傳的憑證檔案，並按一下 [儲存]。 儲存後會上傳憑證，並且會顯示指紋、開始日期和到期值。 
+
+**更新應用程式資訊清單**
+
 擁有憑證之後，您必須計算︰
 
 - `$base64Thumbprint`，它是憑證雜湊的 base64 編碼

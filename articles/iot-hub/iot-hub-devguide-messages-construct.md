@@ -1,24 +1,24 @@
 ---
-title: "了解 Azure IoT 中樞訊息格式 | Microsoft Docs"
-description: "開發人員指南 - 說明 IoT 中樞訊息的格式和預期內容。"
+title: 了解 Azure IoT 中樞訊息格式 | Microsoft Docs
+description: 開發人員指南 - 說明 IoT 中樞訊息的格式和預期內容。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3d5b500964ee37dbd347858edd35812e1d217499
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 832010181059e2ec42834e54622f374c367c8d4f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>建立及讀取 IoT 中樞訊息
 
@@ -50,6 +50,7 @@ ms.lasthandoff: 02/01/2018
 | ConnectionDeviceId |由 IoT 中樞在裝置到雲端訊息上設定的識別碼。 它包含傳送訊息之裝置的 **deviceId** 。 |
 | ConnectionDeviceGenerationId |由 IoT 中樞在裝置到雲端訊息上設定的識別碼。 它包含傳送訊息之裝置的 **generationId** (依據[裝置身分識別屬性][lnk-device-properties])。 |
 | ConnectionAuthMethod |由 IoT 中樞在裝置到雲端訊息上設定的驗證方法。 這個屬性包含用來驗證傳送訊息之裝置的驗證方法的相關資訊。 如需詳細資訊，請參閱[裝置到雲端反詐騙][lnk-antispoofing]。 |
+| CreationTimeUtc | 在裝置上建立訊息的日期和時間。 裝置必須明確設定此值。 |
 
 ## <a name="message-size"></a>訊息大小
 

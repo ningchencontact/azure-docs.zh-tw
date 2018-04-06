@@ -1,9 +1,9 @@
 ---
-title: "在 HDInsight 上將 Hadoop 工作的資料上傳 | Microsoft Docs"
-description: "了解如何使用 Azure CLI、Azure 儲存體總管、Azure PowerShell、Hadoop 命令列或 Sqoop 在 HDInsight 中上傳及存取 Hadoop 工作。"
-keywords: "etl hadoop、將資料上傳到 hadoop、hadoop 載入資料"
+title: 在 HDInsight 上將 Hadoop 工作的資料上傳 | Microsoft Docs
+description: 了解如何使用 Azure CLI、Azure 儲存體總管、Azure PowerShell、Hadoop 命令列或 Sqoop 在 HDInsight 中上傳及存取 Hadoop 工作。
+keywords: etl hadoop、將資料上傳到 hadoop、hadoop 載入資料
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ddb6291cdff7e2b65f54e89196c2b07dd6e4aaff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>在 HDInsight 上將 Hadoop 工作的資料上傳
 
@@ -188,7 +188,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
 | 用戶端 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Microsoft Visual Studio Tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [Microsoft Visual Studio Tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure 儲存體總管](http://storageexplorer.com/) |✔ |✔ |✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
@@ -196,10 +196,10 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Visual Studio Tools for HDInsight
-如需詳細資訊，請參閱 [瀏覽連結的資源](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources)。
+如需詳細資訊，請參閱 [瀏覽連結的資源](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources)。
 
 #### <a id="storageexplorer"></a>Azure 儲存體總管
-*Azure 儲存體總管* 是一種可在 Blob 中檢查和變更資料的實用工具。 它是免費開放原始碼工具，可從 [http://storageexplorer.com/](http://storageexplorer.com/)下載。 原始碼亦可從此連結取得。
+*Azure 儲存體總管* 是一種可在 Blob 中檢查和變更資料的實用工具。 它是免費開放原始碼工具，可從 [http://storageexplorer.com/](http://storageexplorer.com/) 下載。 原始碼亦可從此連結取得。
 
 使用此工具之前，必須先知道您的 Azure 儲存體帳戶名稱和帳戶金鑰。 如需關於取得此資訊的指示，請參閱[建立、管理或刪除儲存體帳戶][azure-create-storage-account]的＜如何：檢視、複製及重新產生儲存體存取金鑰＞一節。
 
@@ -280,7 +280,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 您也可以使用 Ambari，全域增加 `fs.azure.write.request.size` 的值。 使用下列步驟即可變更 Ambari Web UI 中的值︰
 
-1. 在瀏覽器中，移至叢集的 Ambari Web UI。 這是 https://CLUSTERNAME.azurehdinsight.net，其中 **CLUSTERNAME** 是叢集的名稱。
+1. 在瀏覽器中，移至叢集的 Ambari Web UI。 這是 https://CLUSTERNAME.azurehdinsight.net，其中 **CLUSTERNAME** 代表叢集名稱。
 
     出現提示時，請輸入該叢集的管理員名稱和密碼。
 2. 在畫面左側選取 [HDFS]，然後選取 [設定] 索引標籤。

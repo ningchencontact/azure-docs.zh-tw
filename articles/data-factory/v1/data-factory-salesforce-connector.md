@@ -1,11 +1,10 @@
 ---
-title: "使用 Data Factory 從 Salesforce 移動資料 | Microsoft Docs"
-description: "了解如何使用 Azure Data Factory 從 Salesforce 移動資料。"
+title: 使用 Data Factory 從 Salesforce 移動資料 | Microsoft Docs
+description: 了解如何使用 Azure Data Factory 從 Salesforce 移動資料。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: d4c679722e36eb9533b65037a488fb9af9a5bc80
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +71,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | type |類型屬性必須設為： **Salesforce**。 |yes |
-| environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> - 預設值為 " https://login.salesforce.com "。 <br> - 若要從沙箱複製資料，請指定 " https://test.salesforce.com "。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 "https://[網域].my.salesforce.com"。 |否 |
+| environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> - 預設為「https://login.salesforce.com」。 <br> - 若要從沙箱複製資料，請指定「https://test.salesforce.com」。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 "https://[網域].my.salesforce.com"。 |否 |
 | username |指定使用者帳戶的使用者名稱。 |yes |
 | password |指定使用者帳戶的密碼。 |yes |
 | securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。 |yes |

@@ -1,6 +1,6 @@
 ---
-title: "搭配 Azure Container Service 引擎和 Swarm 模式使用 CI/CD"
-description: "搭配 Docker Swarm 模式、Azure Container Registry 及 Visual Studio Team Services 使用 Azure Container Service 引擎，來持續傳遞多容器 .NET Core 應用程式。"
+title: 搭配 Azure Container Service 引擎和 Swarm 模式使用 CI/CD
+description: 搭配 Docker Swarm 模式、Azure Container Registry 及 Visual Studio Team Services 使用 Azure Container Service 引擎，來持續傳遞多容器 .NET Core 應用程式。
 services: container-service
 author: diegomrtnzg
 manager: timlt
@@ -114,12 +114,12 @@ ms.lasthandoff: 12/06/2017
     ![Visual Studio Team Services - 組建存放庫組態](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github-repo-conf.PNG)
 
 
-6. 最後，按一下 [選項] 索引標籤，並將預設代理程式佇列設定為 [Hosted Linux Preview] (託管的 Linux 預覽)。
+6. 最後，按一下 [選項] 索引標籤，並將預設代理程式佇列設定為 [Hosted Linux Preview] \(託管的 Linux 預覽)。
 
     ![Visual Studio Team Services - 主機代理程式設定](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-agent.png)
 
 ### <a name="define-the-build-workflow"></a>定義組建工作流程
-接下來的步驟會定義組建工作流程。 首先，您需要設定程式碼的來源。 若要這麼做，請選取 [GitHub] 以及 [儲存機制] 和 [分支] (docker-linux)。
+接下來的步驟會定義組建工作流程。 首先，您需要設定程式碼的來源。 若要這麼做，請選取 [GitHub] 以及 [儲存機制] 和 [分支] \(docker-linux)。
 
 ![Visual Studio Team Services - 設定程式碼來源](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-source-code.png)
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 12/06/2017
 
     ![Visual Studio Team Services - Docker 建置](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-build.png)
 
-    針對建置作業，選取您的 Azure Container Registry、[Build an image] (建置映像) 動作，以及定義每個映像的 Dockerfile。 將 [工作目錄] 設為 Dockerfile 根目錄，定義 [映像名稱]，然後選取 [包含最新標記]。
+    針對建置作業，選取您的 Azure Container Registry、[Build an image] \(建置映像) 動作，以及定義每個映像的 Dockerfile。 將 [工作目錄] 設為 Dockerfile 根目錄，定義 [映像名稱]，然後選取 [包含最新標記]。
     
     映像名稱格式必須為：```$(RegistryURL)/[NAME]:$(Build.BuildId)```。 以映像名稱取代 **[NAME]**：
     - ```proxy```
@@ -154,7 +154,7 @@ ms.lasthandoff: 12/06/2017
 
     ![Visual Studio Team Services - Docker 推送](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-push.png)
 
-    針對推送作業，選取您的 Azure Container Registry，選取 [Push an image] (推送映像) 動作，並輸入在上一個步驟中建置的**映像名稱**，然後選取 [包含最新標記]。
+    針對推送作業，選取您的 Azure Container Registry，選取 [Push an image] \(推送映像) 動作，並輸入在上一個步驟中建置的**映像名稱**，然後選取 [包含最新標記]。
 
 4. 針對這五個映像個別設定好建置和推送步驟之後，請在建置工作流程中再新增三個步驟。
 

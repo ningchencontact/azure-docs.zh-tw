@@ -1,11 +1,11 @@
 ---
-title: "垂直調整 Azure 虛擬機器擴展集 | Microsoft Docs"
-description: "如何垂直調整虛擬機器大小以回應 Azure 自動化的監視警示"
+title: 垂直調整 Azure 虛擬機器擴展集 | Microsoft Docs
+description: 如何垂直調整虛擬機器大小以回應 Azure 自動化的監視警示
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
 ms.service: virtual-machine-scale-sets
@@ -64,7 +64,7 @@ Azure 自動化 Runbook 資源庫已發佈垂直調整虛擬機器擴展集所�
 
 * [Azure 自動化的 Runbook 和模組資源庫](../automation/automation-runbook-gallery.md)
 
-從 [Runbooks] 功能表選擇 [瀏覽資源庫] 選項︰
+從 Runbooks 功能表選擇 [瀏覽資源庫] 選項︰
 
 ![要匯入的 Runbook][runbooks]
 

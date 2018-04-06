@@ -1,11 +1,11 @@
 ---
-title: "Azure 中 Linux VM 的常見問題集 | Microsoft Docs"
-description: "針對以 Resource Manager 模型建立的 Linux 虛擬機器，提供一些相關常見問題的解答。"
+title: Azure 中 Linux VM 的常見問題集 | Microsoft Docs
+description: 針對以 Resource Manager 模型建立的 Linux 虛擬機器，提供一些相關常見問題的解答。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-management
 ms.assetid: 3648e09c-1115-4818-93c6-688d7a54a353
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: f7fb3f24e9ca6b1827028d118cf833aad830e6a1
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 8a4d93ff12affac56c12c0eab85168c609400ee2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Linux 虛擬機器的常見問題
 本文可解決在 Azure 中使用 Resource Manager 部署模型建立之 Linux 虛擬機器的一些常見問題。 如需本主題的 Windows 版本，請參閱 [Windows 虛擬機器的常見問題](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -58,7 +58,8 @@ Azure 儲存體帳戶也提供作業系統磁碟和任何資料磁碟的儲存�
 是。 資源群組名稱長度最多可以有 90 個字元。 如需資源群組相關詳細資訊，請參閱[命名慣例規則與限制](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>建立 VM 時的使用者名稱需求為何？
-使用者名稱必須是長度在 1 - 64 之間的字元。
+
+使用者名稱的長度應介於 1 - 32 個字元之間。
 
 不允許下列使用者名稱︰
 

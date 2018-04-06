@@ -3,17 +3,17 @@ title: 開始使用 Azure SQL Database 中的時態表 | Microsoft Docs
 description: 了解如何開始使用 Azure SQL Database 中的時態表。
 services: sql-database
 author: bonova
+ms.date: 03/21/2018
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 01/10/2017
 ms.author: bonova
-ms.openlocfilehash: 8e76d78e402d2cdc58ca26767c55c413f83226d9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0299d52396549baf8ea7e5eb7145585c7b5900a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>開始使用 Azure SQL Database 中的時態表
 時態表是 Azure SQL Database 的一個新的可程式性功能，可讓您追蹤和分析資料變更的完整歷程記錄，而不需要撰寫自訂程式碼。 時態表會保持資料與時間內容之間的密切關係，因此只有在特定期間內，才會將預存的事實解譯為有效。 時態表的這個屬性允許進行以有效時間為基礎的分析，並可從資料演進中取得獨到見解。
@@ -64,7 +64,7 @@ CREATE TABLE WebsiteUserInfo
 在此特殊案例中，我們的目標是針對一段較長的資料歷程記錄以及較大的資料集，執行以時間為基礎的趨勢分析，因此歷程記錄表格的儲存體選擇為叢集資料行存放區索引。 叢集資料行存放區為分析查詢提供很好的壓縮和效能。 時態表提供您完全獨立地設定目前資料表和時態表的索引的彈性。 
 
 > [!NOTE]
-> 只有在進階服務層中才能使用資料行存放區索引。
+> 資料行存放區索引可用於進階層和標準層 S3 和更新版本。
 >
 
 下列指令碼示範如何將歷程記錄資料表的預設索引變更為叢集資料行存放區︰

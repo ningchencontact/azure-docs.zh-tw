@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/23/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 8a52d80f32f822691be862d566c17c84efc73c26
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2b42840bc1053e9574e7c8ab1c68611c3b2bc7df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>在 Azure Active Directory 中針對動態群組成員資格建立以屬性為基礎的規則
 在 Azure Active Directory (Azure AD) 中，您可以建立進階規則，以對群組啟用更複雜的屬性型動態成員資格。 本文將詳細說明用以建立適用於使用者或裝置之動態成員資格規則的屬性和語法。
@@ -74,7 +74,7 @@ ms.lasthandoff: 03/16/2018
 進階規則主體的總長度不得超過 2048 個字元。
 
 > [!NOTE]
-> 字串和 regex 運算都不區分大小寫。 您也可以使用 *null* 作為常數來執行 Null 檢查，例如 user.department -eq *null*。
+> 字串和 regex 運算都不區分大小寫。 您也可以使用 *null* 作為常數來執行 null 檢查，例如 user.department -eq *$null*。
 > 包含引號 " 的字串應該使用 ' 字元逸出，例如 user.department -eq \`"Sales"。
 
 ## <a name="supported-expression-rule-operators"></a>支援的運算式規則運算子
@@ -106,11 +106,11 @@ ms.lasthandoff: 03/16/2018
 不管有沒有連字號前置詞，均可使用所有運算子。 優先順序不符合您的需求時，才需要括號。
 例如︰
 ```
-   user.department –eq "Marketing" –and user.country –eq "US"
+   user.department -eq "Marketing" -and user.country -eq "US"
 ```
 相當於：
 ```
-   (user.department –eq "Marketing") –and (user.country –eq "US")
+   (user.department -eq "Marketing") -and (user.country -eq "US")
 ```
 ## <a name="using-the--in-and--notin-operators"></a>使用 -In 和 -notIn 運算子
 
@@ -160,32 +160,32 @@ ms.lasthandoff: 03/16/2018
 
 | properties | 允許的值 | 使用量 |
 | --- | --- | --- |
-| city |任何字串值或 *null* |(user.city -eq "value") |
-| country |任何字串值或 *null* |(user.country -eq "value") |
-| companyName | 任何字串值或 *null* | (user.companyName -eq "value") |
-| department |任何字串值或 *null* |(user.department -eq "value") |
+| city |任何字串值或 *$null* |(user.city -eq "value") |
+| country |任何字串值或 *$null* |(user.country -eq "value") |
+| companyName | 任何字串值或 *$null* | (user.companyName -eq "value") |
+| department |任何字串值或 *$null* |(user.department -eq "value") |
 | displayName |任何字串值 |(user.displayName -eq "value") |
-| employeeId |任何字串值 |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
-| facsimileTelephoneNumber |任何字串值或 *null* |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |任何字串值或 *null* |(user.givenName -eq "value") |
-| jobTitle |任何字串值或 *null* |(user.jobTitle -eq "value") |
-| mail |任何字串值或 *null* (使用者的 SMTP 位址) |(user.mail -eq "value") |
+| employeeId |任何字串值 |(user.employeeId -eq "value")<br>(user.employeeId -ne *$null*) |
+| facsimileTelephoneNumber |任何字串值或 *$null* |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |任何字串值或 *$null* |(user.givenName -eq "value") |
+| jobTitle |任何字串值或 *$null* |(user.jobTitle -eq "value") |
+| mail |任何字串值或 *$null* (使用者的 SMTP 位址) |(user.mail -eq "value") |
 | mailNickName |任何字串值 (使用者的郵件別名) |(user.mailNickName -eq "value") |
-| mobile |任何字串值或 *null* |(user.mobile -eq "value") |
+| mobile |任何字串值或 *$null* |(user.mobile -eq "value") |
 | objectId |使用者物件的 GUID |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | 已從內部部署環境同步至雲端之使用者的內部部署安全性識別碼 (SID)。 |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |任何字串值或 *null* |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |任何字串值或 *null* |(user.postalCode -eq "value") |
+| physicalDeliveryOfficeName |任何字串值或 *$null* |(user.physicalDeliveryOfficeName -eq "value") |
+| postalCode |任何字串值或 *$null* |(user.postalCode -eq "value") |
 | preferredLanguage |ISO 639-1 code |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |任何字串值或 *null* |(user.sipProxyAddress -eq "value") |
-| state |任何字串值或 *null* |(user.state -eq "value") |
-| streetAddress |任何字串值或 *null* |(user.streetAddress -eq "value") |
-| surname |任何字串值或 *null* |(user.surname -eq "value") |
-| telephoneNumber |任何字串值或 *null* |(user.telephoneNumber -eq "value") |
+| sipProxyAddress |任何字串值或 *$null* |(user.sipProxyAddress -eq "value") |
+| state |任何字串值或 *$null* |(user.state -eq "value") |
+| streetAddress |任何字串值或 *$null* |(user.streetAddress -eq "value") |
+| surname |任何字串值或 *$null* |(user.surname -eq "value") |
+| telephoneNumber |任何字串值或 *$null* |(user.telephoneNumber -eq "value") |
 | usageLocation |兩個字母的國家 (地區) 代碼 |(user.usageLocation -eq "US") |
 | userPrincipalName |任何字串值 |(user.userPrincipalName -eq "alias@domain") |
-| userType |member guest *null* |(user.userType -eq "Member") |
+| userType |成原來賓 *$null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>字串集合類型的屬性
 允許的運算子
@@ -226,11 +226,11 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-## <a name="use-of-null-values"></a>使用 Null 值
+## <a name="use-of-null-values"></a>使用 null 值
 
 若要在規則中指定 null 值，您可以使用 *null* 值。 注意，請不要在 *null* 文字前後使用引號，這麼做會使系統將它解釋為常值字串值。 參考 null 值的正確方法如下：
 ```
-   user.mail –ne null
+   user.mail –ne $null
 ```
 
 ## <a name="extension-attributes-and-custom-attributes"></a>擴充屬性和自訂屬性

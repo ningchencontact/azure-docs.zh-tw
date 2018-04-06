@@ -1,24 +1,24 @@
 ---
-title: "安裝並設定 Azure Stack 的 PowerShell 快速入門 | Microsoft Docs"
-description: "深入瞭解 Azure Stack 的 PowerShell 的安裝和設定。"
+title: 安裝並設定 Azure Stack 的 PowerShell 快速入門 | Microsoft Docs
+description: 深入瞭解 Azure Stack 的 PowerShell 的安裝和設定。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 6996DFC1-5E05-423A-968F-A9427C24317C
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: cba6f8295e5d4b75192e566d4931cbd617e7dc8d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 55fd212a895ed861cb5a9be0e4dae283e3cb5cfd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>在 Azure Stack 使用 PowerShell 啟動和執行
 
@@ -32,9 +32,6 @@ ms.lasthandoff: 03/08/2018
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>設定 PowerShell 進行以 Azure Active Directory 為基礎的部署
 
 如果您透過 VPN 連線，登入到 Azure Stack 開發套件或以 Windows 為基礎的外部用戶端。 開啟提升權限的 PowerShell ISE 工作階段，然後執行下列指令碼。 確定視需要更新環境設定的 **TenantName**、**ArmEndpoint** 和 **GraphAudience** 變數：
-
-> [!IMPORTANT]
-> AzureRM 1.2.11 PowerShell 模組的發行版本隨附重大變更清單。 若要從 1.2.10 版升級，請參閱[移轉指南](https://aka.ms/azspowershellmigration)。
 
 ```powershell
 # Specify Azure Active Directory tenant name.
@@ -83,10 +80,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
-
 
 # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
@@ -154,9 +147,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
-
 # Register an AzureRM environment that targets your Azure Stack instance
 Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
@@ -181,6 +171,9 @@ Login-AzureRmAccount `
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
+> [!note]  
+> 若要指定資源群組，您的訂用帳戶必須有資源群組。 如需訂用帳戶的詳細資訊，請參閱[方案、優惠、配額和訂用帳戶概觀](azure-stack-plan-offer-quota-overview.md)
+
 建立資源群組後，會將 [佈建狀態] 屬性設為 [成功]。
 
 ## <a name="next-steps"></a>後續步驟
@@ -188,10 +181,3 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 * [安裝及設定 CLI](azure-stack-connect-cli.md)
 
 * [開發範本](user/azure-stack-develop-templates.md)
-
-
-
-
-
-
-

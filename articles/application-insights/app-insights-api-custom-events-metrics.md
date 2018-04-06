@@ -1,8 +1,8 @@
 ---
-title: "自訂事件和度量的 Application Insights API | Microsoft Docs"
-description: "在您的裝置或桌面應用程式、網頁或服務中插入幾行程式碼，來追蹤使用狀況及診斷問題。"
+title: 自訂事件和度量的 Application Insights API | Microsoft Docs
+description: 在您的裝置或桌面應用程式、網頁或服務中插入幾行程式碼，來追蹤使用狀況及診斷問題。
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 80400495-c67b-4468-a92e-abf49793a54d
@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d797716fb98ac85f11f956e732e08820b56affc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 072ce2952e3cdea47b02ef7656ca67d4bc0ae8f1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
 
@@ -79,7 +79,17 @@ API 是跨所有平台統一的，除了一些小變化形式。
 
 TelemetryClient 具備執行緒安全。
 
-對於 ASP.NET 和 Java 專案，建議您為應用程式的每個模組都建立 TelemetryClient 執行個體。 比方說，您可能在 Web 服務中有一個 TelemetryClient 執行個體用來報告傳入的 HTTP 要求，以及中介類別中的另一個執行個體用來告報商業邏輯事件。 您可以設定如 `TelemetryClient.Context.User.Id` 的屬性以追蹤使用者和工作階段，或 `TelemetryClient.Context.Device.Id` 來識別電腦。 這項資訊會附加至執行個體所傳送的所有事件。
+針對 ASP.NET 和 Java 專案，系統會自動擷取傳入 HTTP 要求。 您可以為應用程式的其他模組建立額外的 TelemetryClient 執行個體。 比方說，您可以在中介軟體類別中配置一個 TelemetryClient 執行個體，用來報告商業邏輯事件。 您可以設定 UserId 和 DeviceId 等屬性，藉此辨識機器。 這些資訊會附加至執行個體所傳送的所有事件。 
+
+*C#*
+
+    TelemetryClient.Context.User.Id = "...";
+    TelemetryClient.Context.Device.Id = "...";
+
+*Java*
+
+    telemetry.getContext().getUser().setId("...);
+    telemetry.getContext().getDevice().setId("...");
 
 在 Node.js 專案中，您可以使用 `new applicationInsights.TelemetryClient(instrumentationKey?)` 建立新的執行個體，但只有在需要從單次 `defaultClient` 隔離設定的情況下，才建議這樣做。
 
@@ -156,13 +166,21 @@ Application Insights 可以將未附加至特定事件的計量繪製成圖表�
      appInsights.trackMetric("queueLength", 42.0);
  ```
 
-C#、Java
+*C#*
 
 ```csharp
     var sample = new MetricTelemetry();
     sample.Name = "metric name";
     sample.Value = 42.3;
     telemetryClient.TrackMetric(sample);
+```
+
+*Java*
+
+```Java
+    
+    telemetry.trackMetric("queueLength", 42.0);
+
 ```
 
 *Node.js*
@@ -350,6 +368,10 @@ namespace MetricAggregationExample
 
     telemetry.TrackPageView("GameReviewPage");
 
+*Java*
+
+    telemetry.trackPageView("GameReviewPage");
+
 *Visual Basic*
 
     telemetry.TrackPageView("GameReviewPage")
@@ -479,6 +501,14 @@ requests | summarize count = sum(itemCount), avgduration = avg(duration) by name
        telemetry.TrackException(ex);
     }
 
+*Java*
+
+    try {
+        ...
+    } catch (Exception ex) {
+        telemetry.trackException(ex);
+    }
+
 *JavaScript*
 
     try
@@ -541,11 +571,17 @@ exceptions
 ## <a name="tracktrace"></a>TrackTrace
 使用 TrackTrace 可協助您藉由將 "breadcrumb trail" 傳送至 Application Insights 來診斷問題。 您可以傳送診斷資料區塊，並且在[診斷搜尋](app-insights-diagnostic-search.md)中檢查。
 
-[記錄配接器](app-insights-asp-net-trace-logs.md)使用此 API 將第三方記錄傳送至入口網站。
+在 .NET 中，[記錄配接器](app-insights-asp-net-trace-logs.md)使用此 API 將第三方記錄傳送至入口網站。
+
+在 Java 中，[Log4J、Logback 等標準記錄器](app-insights-java-trace-logs.md)使用 Application Insights Log4j 或 Logback 附加器將第三方記錄傳送至入口網站。
 
 *C#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+
+*Java*
+
+    telemetry.trackTrace(message, SeverityLevel.Warning, properties);
     
 *Node.js*
 
@@ -559,10 +595,24 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如�
 
 此外，您可以在訊息中新增嚴重性層級。 就像其他遙測一樣，您可以新增屬性值以供協助篩選或搜尋不同的追蹤集。 例如︰
 
+*C#*
+
+```C#
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
+```
+
+*Java*
+
+```Java
+
+    Map<String, Integer> properties = new HashMap<>();
+    properties.put("Database", db.ID);
+    telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties);
+
+```
 
 在[搜尋](app-insights-diagnostic-search.md)中，您便可以輕鬆地篩選出與特定資料庫相關且具有特定嚴重性層級的所有訊息。
 
@@ -575,6 +625,8 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如�
 
 ## <a name="trackdependency"></a>TrackDependency
 您可以使用 TrackDependency 呼叫來追蹤回應時間以及呼叫外部程式碼片段的成功率。 結果會出現在入口網站中的相依性圖表中。
+
+*C#*
 
 ```csharp
 var success = false;
@@ -591,6 +643,26 @@ finally
 }
 ```
 
+*Java*
+
+```Java
+    boolean success = false;
+    long startTime = System.currentTimeMillis();
+    try {
+        success = dependency.call();
+    }
+    finally {
+        long endTime = System.currentTimeMillis();
+        long delta = endTime - startTime;
+        RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
+        telemetry.setTimeStamp(startTime);
+        telemetry.trackDependency(dependencyTelemetry);
+    }
+
+```
+
+*JavaScript*
+
 ```Javascript
 var success = false;
 var startTime = new Date().getTime();
@@ -605,9 +677,13 @@ finally
 }
 ```
 
-請記住，伺服器 SDK 包含[相依性模組](app-insights-asp-net-dependencies.md)，可用來自動探索和追蹤特定相依性呼叫 (例如資料庫和 REST API)。 您必須在伺服器上安裝代理程式才能讓模組正常運作。 如果您想要追蹤自動化追蹤不會攔截的呼叫，或不想安裝代理程式，您可以使用這個呼叫。
+請記住，伺服器 SDK 包含[相依性模組](app-insights-asp-net-dependencies.md)，可用來自動探索和追蹤特定相依性呼叫 (例如資料庫和 REST API)。 您必須在伺服器上安裝代理程式才能讓模組正常運作。 
 
-若要關閉標準的相依性追蹤模組，請編輯 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 並刪除 `DependencyCollector.DependencyTrackingTelemetryModule` 的參考。
+在 Java 中，您可以使用 [Java 代理程式](app-insights-java-agent.md)追蹤某些相依性呼叫。
+
+如果您想要追蹤自動化追蹤不會攔截的呼叫，或不想安裝代理程式，您可以使用這個呼叫。
+
+若要在 C# 中關閉標準相依性追蹤模組，請編輯 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 並刪除 `DependencyCollector.DependencyTrackingTelemetryModule` 的參考。 在 Java 中，如果您不想要自動收集標準相依性，請勿安裝 Java 用戶端。
 
 ### <a name="dependencies-in-analytics"></a>分析中的相依性
 
@@ -630,17 +706,29 @@ dependencies
 通常 SDK 會在選擇的時間傳送資料以將對使用者的影響降到最低。 不過，在某些情況下您可能想要排清緩衝區，例如，如果您在會關閉的應用程式中使用 SDK。
 
 *C#*
-
+ 
+ ```C#
     telemetry.Flush();
-
     // Allow some time for flushing before shutdown.
-    System.Threading.Thread.Sleep(1000);
+    System.Threading.Thread.Sleep(5000);
+```
+
+*Java*
+
+```Java
+    telemetry.flush();
+    //Allow some time for flushing before shutting down
+    Thread.sleep(5000);
+```
+
     
 *Node.js*
 
     telemetry.flush();
 
 請注意，此函式對[伺服器遙測通道](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/)而言是非同步的。
+
+在理想情況下，flush() 方法應該用於應用程式的關閉活動。
 
 ## <a name="authenticated-users"></a>驗證的使用者
 在 Web 應用程式中，預設是透過 Cookie 來識別使用者。 如果使用者從不同的電腦或瀏覽器存取您的 app 或刪除 Cookie，就可能多次計算他們。
@@ -832,6 +920,7 @@ requests
 
 *C#*
 
+```C#
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
     // ... perform the timed action ...
@@ -847,7 +936,27 @@ requests
 
     // Send the event:
     telemetry.TrackEvent("SignalProcessed", properties, metrics);
+```
 
+*Java*
+
+```Java
+    long startTime = System.currentTimeMillis();
+
+    // perform timed action
+
+    long endTime = System.currentTimeMillis();
+    Map<String, Double> metrics = new HashMap<>();
+    metrics.put("ProcessingTime", endTime-startTime);
+
+    // Setup some propereties
+    Map<String, String> properties = new HashMap<>();
+    properties.put("signalSource", currentSignalSource.getName());
+
+    //send the event
+    telemetry.trackEvent("SignalProcessed", properties, metrics);
+
+```
 
 
 ## <a name="defaults"></a>自訂遙測資料的預設屬性
@@ -918,6 +1027,14 @@ requests
     using  Microsoft.ApplicationInsights.Extensibility;
 
     TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+*Java*
+
+```Java
+    
+    telemetry.getConfiguration().setTrackingDisabled(true);
+
 ```
 
 若要*停用選取的標準收集器* (例如效能計數器、HTTP 要求或相依性)，請刪除或註解化 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中的相關行。例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
@@ -996,7 +1113,7 @@ requests
     }({instrumentationKey:  
       // Generate from server property:
       @Microsoft.ApplicationInsights.Extensibility.
-         TelemetryConfiguration.Active.InstrumentationKey"
+         TelemetryConfiguration.Active.InstrumentationKey;
     }) // ...
 
 

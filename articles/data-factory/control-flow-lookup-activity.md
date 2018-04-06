@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/27/2018
 ms.author: shlo
-ms.openlocfilehash: f55e85bb424f4f5973fd6d633b6adf9fbca4d0ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory 中的查閱活動
 您可使用查閱活動來讀取或查閱任何外部來源的記錄、資料表名稱或值。 此輸出可供後續活動進一步參考。 
@@ -30,12 +30,23 @@ ms.lasthandoff: 03/23/2018
 ## <a name="supported-capabilities"></a>支援的功能
 
 針對查閱，目前支援下列資料來源：
-- Azure Blob 儲存體中的 JSON 檔案
-- 檔案系統中的 JSON 檔案
-- Azure SQL Database (從查詢轉換的 JSON 資料)
-- Azure SQL 資料倉儲 (從查詢轉換的 JSON 資料)
-- SQL Server (從查詢轉換的 JSON 資料)
-- Azure 資料表儲存體 (從查詢轉換的 JSON 資料)
+
+- Amazon Redshift
+- Azure Blob 儲存體
+- Azure Cosmos DB
+- Azure Data Lake Store
+- Azure 檔案儲存體
+- 連接字串
+- Azure SQL 資料倉儲
+- Azure 資料表儲存體
+- Dynamics 365
+- Dynamics CRM
+- 檔案系統
+- PostgreSQL
+- Salesforce
+- Salesforce 服務雲端
+- SFTP
+- SQL Server
 
 查閱活動能傳回的資料列數目上限是 **5000**，最多為 **10MB** 的大小。
 
@@ -62,9 +73,14 @@ ms.lasthandoff: 03/23/2018
 ## <a name="type-properties"></a>類型屬性
 Name | 說明 | 類型 | 必要？
 ---- | ----------- | ---- | --------
-資料集 | 提供查閱的資料集參考。 目前支援的資料集類型為：<ul><li>`AzureBlobDataset`，以 [Azure Blob 儲存體](connector-azure-blob-storage.md#dataset-properties)作為來源</li><li>`FileShareDataset`，以[檔案系統](connector-file-system.md#dataset-properties)作為來源</li><li>`AzureSqlTableDataset`，以 [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) 或 [Azure SQL 資料倉儲](connector-azure-sql-data-warehouse.md#dataset-properties)作為來源</li><li>`SqlServerTable`，以 [SQL Server](connector-sql-server.md#dataset-properties) 作為來源</li><li>`AzureTableDataset`，以 [Azure 資料表儲存體](connector-azure-table-storage.md#dataset-properties)作為來源</li> | 索引鍵/值組 | yes
+資料集 | 提供查閱的資料集參考。 如需詳細資料，請參閱每個對應連接器文章中的＜資料集屬性＞一節。 | 索引鍵/值組 | yes
 來源 | 包含資料集特定的來源屬性，與複製活動來源相同。 如需詳細資料，請參閱每個對應連接器文章中的＜複製活動屬性＞一節。 | 索引鍵/值組 | yes
 firstRowOnly | 指出是否只傳回第一個資料列或傳回所有資料列。 | BOOLEAN | 編號 預設值為 `true`。
+
+請注意下列幾點：
+
+1. 不支援 ByteArray 類型的來源資料行。
+2. 資料集定義不支援結構。 針對文字格式檔案，您可以使用標頭資料列來提供資料行名稱。
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>在後續活動中使用查閱活動結果
 

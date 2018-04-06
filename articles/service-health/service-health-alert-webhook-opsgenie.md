@@ -1,12 +1,12 @@
 ---
-title: "使用 OpsGenie 設定 Azure 服務健康情況警示 | Microsoft Docs"
-description: "取得關於 OpsGenie 執行個體服務健康情況事件的個人化通知。"
+title: 使用 OpsGenie 設定 Azure 服務健康情況警示 | Microsoft Docs
+description: 取得關於 OpsGenie 執行個體服務健康情況事件的個人化通知。
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: a2309a050225dd0d7ac8d5b3e4c762bc5bcb25c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6b8017f62dd895219f1d2cdac40f0efdf2db6c93
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>使用 OpsGenie 設定服務健康情況警示
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 11/16/2017
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. 您應該會收到 `200 OK` 回應和狀態為「成功」的訊息。
 

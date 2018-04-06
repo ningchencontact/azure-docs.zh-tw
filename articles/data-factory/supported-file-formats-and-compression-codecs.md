@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 33e0d1d54a533d68ac08f223e1a41e65c7b301a4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b038052776cad63030ca8a48a43b4b579ce6c83a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
@@ -444,6 +444,30 @@ ms.lasthandoff: 03/23/2018
 * 不支援複雜資料類型 (STRUCT、MAP、LIST、UNION)
 * ORC 檔案有 3 種 [壓縮相關選項](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)︰NONE、ZLIB、SNAPPY。 Data Factory 支援以這些壓縮格式的任一項從 ORC 檔案讀取資料。 它會使用中繼資料裡的壓縮轉碼器來讀取資料。 不過，寫入 ORC 檔案時，Data Factory 會選擇 ZLIB，這是 ORC 的預設值。 目前沒有任何選項可覆寫這個行為。
 
+### <a name="data-type-mapping-for-orc-files"></a>ORC 檔案的資料類型對應
+
+| Data Factory 過渡期資料類型 | ORC 類型 |
+|:--- |:--- |
+| BOOLEAN | BOOLEAN |
+| SByte | Byte |
+| Byte | 簡短 |
+| Int16 | 簡短 |
+| UInt16 | int |
+| Int32 | int |
+| UInt32 | long |
+| Int64 | long |
+| UInt64 | 字串 |
+| 單一 | Float |
+| 兩倍 | 兩倍 |
+| 十進位 | 十進位 |
+| 字串 | 字串 |
+| Datetime | Timestamp |
+| DateTimeOffset | Timestamp |
+| 時間範圍 | Timestamp |
+| ByteArray | Binary |
+| Guid | 字串 |
+| Char | Char(1) |
+
 ## <a name="parquet-format"></a>Parquet 格式
 
 如果您想要剖析 Parquet 檔案，或以 Parquet 格式寫入資料，請將 `format``type` 屬性設定為 **ParquetFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例：
@@ -463,6 +487,31 @@ ms.lasthandoff: 03/23/2018
 
 * 不支援複雜資料類型 (MAP、LIST)
 * Parquet 檔案已有下列壓縮相關選項：NONE、SNAPPY、GZIP 和 LZO。 Data Factory 支援以這些壓縮格式的任一項從 ORC 檔案讀取資料。 它會使用中繼資料裡的壓縮轉碼器來讀取資料。 不過，寫入 Parquet 檔案時，Data Factory 會選擇 SNAPPY，這是 Parquet 格式的預設值。 目前沒有任何選項可覆寫這個行為。
+
+### <a name="data-type-mapping-for-parquet-files"></a>Parquet 檔案的資料類型對應
+
+| Data Factory 過渡期資料類型 | Parquet 基本類型 | Parquet 原始類型 (還原序列化) | Parquet 原始類型 (序列化) |
+|:--- |:--- |:--- |:--- |
+| BOOLEAN | BOOLEAN | N/A | N/A |
+| SByte | Int32 | Int8 | Int8 |
+| Byte | Int32 | UInt8 | Int16 |
+| Int16 | Int32 | Int16 | Int16 |
+| UInt16 | Int32 | UInt16 | Int32 |
+| Int32 | Int32 | Int32 | Int32 |
+| UInt32 | Int64 | UInt32 | Int64 |
+| Int64 | Int64 | Int64 | Int64 |
+| UInt64 | Int64/二進位 | UInt64 | 十進位 |
+| 單一 | Float | N/A | N/A |
+| 兩倍 | 兩倍 | N/A | N/A |
+| 十進位 | Binary | 十進位 | 十進位 |
+| 字串 | Binary | Utf8 | Utf8 |
+| Datetime | Int96 | N/A | N/A |
+| 時間範圍 | Int96 | N/A | N/A |
+| DateTimeOffset | Int96 | N/A | N/A |
+| ByteArray | Binary | N/A | N/A |
+| Guid | Binary | Utf8 | Utf8 |
+| Char | Binary | Utf8 | Utf8 |
+| CharArray | 不支援 | N/A | N/A |
 
 ## <a name="compression-support"></a>壓縮支援
 

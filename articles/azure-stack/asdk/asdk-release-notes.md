@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 176b850120958a5ca5fdaece4831e2ed27ac0a04
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b08c1793857fd6c6a6a04c0d450e76a36357597
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 開發套件版本資訊
 這些版本資訊提供 Azure Stack 開發套件中的增強功能、修正和已知問題的相關資訊。 如果您不確定所執行的版本，可以使用[入口網站來進行檢查](.\.\azure-stack-updates.md#determine-the-current-version)。
@@ -56,6 +56,11 @@ ms.lasthandoff: 03/17/2018
     - *錯誤 - 遺失 FaultType ResourceProviderTimeout 的範本。*
 
     您可以放心地忽略此警示。 
+
+- 在管理員入口網站和使用者入口網站中，當您使用舊版 API (例如：2015-06-15) 建立的儲存體帳戶選取 [概觀] 刀鋒視窗時，[概觀] 刀鋒視窗無法載入。 
+
+  因應措施是，使用 PowerShell 來執行 **Start-ResourceSynchronization.ps1** 指令碼，以還原對儲存體帳戶詳細資料的存取權。 [該指令碼可從 GitHub 取得]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)，而且如果您使用 ASDK，則必須在開發套件主機上使用服務管理員認證執行。  
+
 
 #### <a name="health-and-monitoring"></a>健康情況和監視
 在 Azure Stack 管理入口網站中，您可能會看到名稱為**外部憑證即將到期**的重大警示。  您可以放心忽略此警示，此警示不會影響「Azure Stack 開發套件」的作業。 
@@ -273,9 +278,11 @@ ms.lasthandoff: 03/17/2018
     > **新功能和修正**一節中所列的項目之中，有部分僅與 Azure Stack 整合系統相關。
 
 ### <a name="known-issues"></a>已知問題
+
  
 #### <a name="deployment"></a>部署
 - 在部署期間，您必須使用 IP 位址指定時間伺服器。
+- 從 1711 版本開始，**CloudAdmin** 是保留的帳戶名稱，而且當您部署開發套件時，不應該以手動方式指定。 
 
 #### <a name="infrastructure-management"></a>基礎結構管理
 - 請勿在 [基礎架構備份] 刀鋒視窗上啟用基礎結構備份。

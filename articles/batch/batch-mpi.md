@@ -1,24 +1,24 @@
 ---
-title: "使用多重執行個體工作執行 MPI 應用程式 - Azure Batch | Microsoft Docs"
-description: "了解如何在 Azure Batch 中使用多重執行個體工作類來執行訊息傳遞介面 (MPI) 應用程式。"
+title: 使用多重執行個體工作執行 MPI 應用程式 - Azure Batch | Microsoft Docs
+description: 了解如何在 Azure Batch 中使用多重執行個體工作類來執行訊息傳遞介面 (MPI) 應用程式。
 services: batch
-documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: 5/22/2017
-ms.author: tamram
+ms.tgt_pltfrm: ''
+ms.date: 5/22/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01da017587aed7c0f2415786fdcbf6f64024cbe3
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 0fb5ea21c6403369cbcb60df58c0f70a57a61d4e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>在 Batch 中使用多重執行個體工作來執行訊息傳遞介面 (MPI) 應用程式
 
@@ -49,6 +49,10 @@ ms.lasthandoff: 10/20/2017
 
 ## <a name="requirements-for-multi-instance-tasks"></a>多重執行個體工作的需求
 多重執行個體工作需要有**已啟用節點間通訊**和**已停用並行工作執行**的集區。 若要停用並行工作執行，請將 [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) 屬性設定為 1。
+
+> [!NOTE]
+> 批次[限制](batch-quota-limit.md#other-limits)已啟用節點間通訊之集區的大小。
+
 
 此程式碼片段會顯示如何使用批次 .NET 程式庫來建立要供多重執行個體工作使用的集區。
 
@@ -107,8 +111,7 @@ await myCloudPool.CommitAsync();
   * [Azure 中的虛擬機器大小](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> 若要在 [Linux 計算節點](batch-linux-nodes.md)上利用 RDMA，您必須在節點上使用 **Intel MPI**。 如需 CloudServiceConfiguration 和 VirtualMachineConfiguration 集區的詳細資訊，請參閱 [Batch 功能概觀](batch-api-basics.md)的＜集區＞一節。
->
+> 若要在 [Linux 計算節點](batch-linux-nodes.md)上利用 RDMA，您必須在節點上使用 **Intel MPI**。 
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>使用 Batch .NET 建立多個執行個體工作

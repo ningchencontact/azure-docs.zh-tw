@@ -1,12 +1,12 @@
 ---
-title: "使用共用存取簽章的 Azure 服務匯流排存取控制 | Microsoft Docs"
-description: "使用共用存取簽章的服務匯流排存取控制概觀，詳細說明 Azure 服務匯流排之 SAS 授權的相關資訊。"
+title: 使用共用存取簽章的 Azure 服務匯流排存取控制 | Microsoft Docs
+description: 使用共用存取簽章的服務匯流排存取控制概觀，詳細說明 Azure 服務匯流排之 SAS 授權的相關資訊。
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: sethm;clemensv
-ms.openlocfilehash: f6bb77ad6df09e36419b24b24924dac7ecd79065
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 21e9e0a20842e365e40b71ac96888e7cd2056e52
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>使用共用存取簽章的服務匯流排存取控制
 
@@ -273,6 +273,7 @@ AMQP 訊息包含眾多屬性，以及比簡單訊息更多的資訊。 SAS 權�
 | 讓訊息寄不出去 |接聽 |任何有效的佇列位址 |
 | 取得與訊息佇列工作階段相關聯的狀態 |接聽 |任何有效的佇列位址 |
 | 設定與訊息佇列工作階段相關聯的狀態 |接聽 |任何有效的佇列位址 |
+| 排程訊息以供日後傳遞，例如，[ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |接聽 | 任何有效的佇列位址
 | **主題** | | |
 | 建立主題 |管理 |任何命名空間位址 |
 | 刪除主題 |管理 |任何有效的主題位址 |

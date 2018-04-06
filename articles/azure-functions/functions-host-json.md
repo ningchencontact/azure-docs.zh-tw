@@ -1,12 +1,12 @@
 ---
-title: "Azure Functions 的 host.json 參考"
-description: "Azure Functions host.json 檔案的參考文件。"
+title: Azure Functions 的 host.json 參考
+description: Azure Functions host.json 檔案的參考文件。
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 577c45edc832288943a7eeefe27c7a189a61b7b0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure Functions 的 host.json 參考
 
-*host.json* 中繼資料檔案所包含的全域設定選項會影響函式應用程式的所有函式。 本文列出可用的設定。 JSON 結構描述位在 http://json.schemastore.org/host。
+*host.json* 中繼資料檔案所包含的全域設定選項會影響函式應用程式的所有函式。 本文列出可用的設定。 JSON 結構描述位於 http://json.schemastore.org/host。
 
 在[應用程式設定](functions-app-settings.md)和 [local.settings.json](functions-run-local.md#local-settings-file) 檔案中，還有其他全域設定選項。
 
@@ -201,6 +201,9 @@ ms.lasthandoff: 02/21/2018
 ## <a name="id"></a>id
 
 作業主機的唯一識別碼。 可以是已移除虛線的小寫 GUID。 在本機執行時為必要項目。 在 Azure Functions 中執行時，如果省略 `id`，則會自動產生識別碼。
+
+如果您在多個函數應用程式中共用儲存體帳戶，請確定每個函數應用程式具有不同的 `id`。 您可以省略 `id` 屬性或將每個函數應用程式的 `id` 手動設定為不同的值。 計時器觸發程序會使用儲存體鎖定，以確保當函數應用程式相應放大至多個執行個體時，只會有一個計時器執行個體。 如果兩個函數應用程式共用相同的 `id`，且每一個都是使用計時器觸發程序，則只有一個計時器會執行。
+
 
 ```json
 {

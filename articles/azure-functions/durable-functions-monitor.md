@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 617b33a9f860ce3b06ff560de22824037eab8332
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Durable Functions 中的監視器案例 - 天氣監看員範例
 
@@ -26,8 +26,8 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="prerequisites"></a>先決條件
 
-* 請依照[安裝 Durable Functions](durable-functions-install.md) 中的指示來設定範例。
-* 本文假設您已經完成 [Hello Sequence](durable-functions-sequence.md) 範例逐步解說。
+* [安裝 Durable Functions](durable-functions-install.md)。
+* 完成 [Hello 序列](durable-functions-sequence.md)逐步解說。
 
 ## <a name="scenario-overview"></a>案例概觀
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 03/17/2018
 * `E3_GetIsClear`：會檢查某地點目前天氣狀況的活動函式。
 * `E3_SendGoodWeatherAlert`：會透過 Twilio 傳送手機簡訊的活動函式。
 
-下列各節說明用於 Azure 入口網站開發的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
+下列各節說明用於 C# 指令碼的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
  
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>天氣監視協調流程 (Visual Studio Code 和 Azure 入口網站程式碼範例)
 

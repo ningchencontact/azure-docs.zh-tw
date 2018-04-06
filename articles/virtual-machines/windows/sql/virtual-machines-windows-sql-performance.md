@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/29/2018
+ms.date: 03/20/2018
 ms.author: jroth
-ms.openlocfilehash: 3458e2f1a09b597c50c01d59eb6522b3fa521310
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2aa066caf6239f29038228c3c91607d913e70682
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 效能最佳做法
 
@@ -41,8 +41,8 @@ ms.lasthandoff: 03/08/2018
 | --- | --- |
 | [VM 大小](#vm-size-guidance) |SQL Enterprise Edition 的 [DS3](../sizes-memory.md) 或更高版本。<br/><br/>SQL Standard 和 Web Edition 的 [DS2](../sizes-memory.md) 或更高版本。 |
 | [儲存體](#storage-guidance) |使用[進階儲存體](../premium-storage.md)。 標準儲存體只建議用於開發/測試。<br/><br/>將[儲存體帳戶](../../../storage/common/storage-create-storage-account.md)和 SQL Server VM 置於同一個區域。<br/><br/>停用儲存體帳戶上的 Azure [異地備援儲存體](../../../storage/common/storage-redundancy.md) (異地複寫)。 |
-| [磁碟](#disks-guidance) |使用至少 2 個 [P30 磁碟](../premium-storage.md#scalability-and-performance-targets) (1 個用於儲存記錄檔案，另 1 個用於儲存資料檔案和存放 TempDB)。<br/><br/>避免使用作業系統或暫存磁碟作為資料儲存體或進行記錄。<br/><br/>啟用裝載資料檔案和 TempDB 的磁碟上的 [讀取快取] 功能。<br/><br/>不要啟用裝載記錄檔案的磁碟上的 [快取] 功能。<br/><br/>重要事項︰變更 Azure VM 磁碟的快取設定時，停止 SQL Server 服務。<br/><br/>分割多個 Azure 資料磁碟，以提高 IO 輸送量。<br/><br/>以文件上記載的配置大小格式化。 |
-| [I/O](#io-guidance) |啟用 [資料庫頁面壓縮] 功能　。<br/><br/>針對資料檔案，啟用 [立即檔案初始化] 功能。<br/><br/>限制資料庫上的 [自動成長] 功能，或停用。<br/><br/>停用資料庫上的 [自動壓縮] 功能。<br/><br/>將所有的資料庫 (包括系統資料庫) 移到資料磁碟。<br/><br/>將 SQL Server 的錯誤記錄檔和追蹤檔案目錄移至資料磁碟。<br/><br/>設定預設備份和資料庫檔案位置。<br/><br/>啟用鎖定的頁面。<br/><br/>套用 SQL Server 效能修正程式。 |
+| [磁碟](#disks-guidance) |使用至少 2 個 [P30 磁碟](../premium-storage.md#scalability-and-performance-targets) (1 個用於儲存記錄檔案，另 1 個用於儲存資料檔案和存放 TempDB)。<br/><br/>避免使用作業系統或暫存磁碟作為資料儲存體或進行記錄。<br/><br/>啟用裝載資料檔案和 TempDB 資料檔案的磁碟上的 [讀取快取] 功能。<br/><br/>不要啟用裝載記錄檔案的磁碟上的 [快取] 功能。<br/><br/>重要事項︰變更 Azure VM 磁碟的快取設定時，停止 SQL Server 服務。<br/><br/>分割多個 Azure 資料磁碟，以提高 IO 輸送量。<br/><br/>以文件上記載的配置大小格式化。 |
+| [I/O](#io-guidance) |啟用 [資料庫頁面壓縮] 功能　。<br/><br/>針對資料檔案，啟用 [立即檔案初始化] 功能。<br/><br/>限制資料庫上的 [自動成長] 功能。<br/><br/>停用資料庫上的 [自動壓縮] 功能。<br/><br/>將所有的資料庫 (包括系統資料庫) 移到資料磁碟。<br/><br/>將 SQL Server 的錯誤記錄檔和追蹤檔案目錄移至資料磁碟。<br/><br/>設定預設備份和資料庫檔案位置。<br/><br/>啟用鎖定的頁面。<br/><br/>套用 SQL Server 效能修正程式。 |
 | [特定功能](#feature-specific-guidance) |直接備份至 Blob 儲存體。 |
 
 如需有關「如何」和「為何」進行這些最佳化的詳細資訊，請檢閱下列各節提供的詳細資料與指引。
@@ -118,7 +118,7 @@ D 系列、Dv2 系列和 G 系列 VM 的暫存磁碟機皆為 SSD 式。 如果�
 
   * 如果您不是使用「進階儲存體」(開發/測試案例)，建議您新增您 [VM 大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 所支援的最大數目資料磁碟，並使用「磁碟等量分割」。
 
-* **快取原則**：針對「進階儲存體」資料磁碟，請只在裝載資料檔和 TempDB 的資料磁碟上啟用讀取快取。 如果您並非使用進階儲存體，請勿啟用任何資料磁碟上的任何快取功能。 如需有關設定磁碟快取功能的指示，請參閱下列文章。 對於傳統 (ASM) 部署模型，請參閱：[Set-azureosdisk](https://msdn.microsoft.com/library/azure/jj152847) 和 [Set-azuredatadisk](https://msdn.microsoft.com/library/azure/jj152851.aspx)。 對於 Azure Resource Manager 部署模型，請參閱：[Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) 和 [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1)。
+* **快取原則**：針對「進階儲存體」資料磁碟，請只在裝載資料檔和 TempDB 資料檔案的資料磁碟上啟用讀取快取。 如果您並非使用進階儲存體，請勿啟用任何資料磁碟上的任何快取功能。 如需有關設定磁碟快取功能的指示，請參閱下列文章。 對於傳統 (ASM) 部署模型，請參閱：[Set-azureosdisk](https://msdn.microsoft.com/library/azure/jj152847) 和 [Set-azuredatadisk](https://msdn.microsoft.com/library/azure/jj152851.aspx)。 對於 Azure Resource Manager 部署模型，請參閱：[Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) 和 [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1)。
 
   > [!WARNING]
   > 變更 Azure VM 磁碟的快取設定時，請停止 SQL Server 服務，以避免任何發生資料庫損毀的可能性。

@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric Reliable Services 生命週期 | Microsoft Docs"
-description: "了解 Service Fabric Reliable Services 中的生命週期事件。"
+title: Azure Service Fabric Reliable Services 生命週期 | Microsoft Docs
+description: 了解 Service Fabric Reliable Services 中的生命週期事件。
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.openlocfilehash: ad4228ade68f4494e5be0454643752e742c1cc81
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 4270bf0b8002b5328241c6d31f399511fc38274e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reliable-services-lifecycle"></a>Reliable Services 生命週期
 > [!div class="op_single_selector"]
@@ -65,11 +65,11 @@ Reliable Services 是 Azure Service Fabric 提供的一種程式設計模型。 
 1. 以下事件會併行發生：
     - 任何開啟的接聽程式皆為關閉。 在每個接聽程式上呼叫 `CommunicationListener.closeAsync()`。
     - 傳遞至 `runAsync()` 的取消權杖已取消。 檢查取消權杖的 `isCancelled` 屬性傳回 `true`，還有呼叫權杖的 `throwIfCancellationRequested` 方法是否擲回 `CancellationException`。
-2. 每個接聽程式上完成 `closeAsync()` 時，且 `runAsync()` 也完成之後，就呼叫服務的 `StatelessService.onCloseAsync()` 方法 (若有)。 這同樣不是常見的覆寫。
+2. 每個接聽程式上完成 `closeAsync()` 時，且 `runAsync()` 也完成之後，就呼叫服務的 `StatelessService.onCloseAsync()` 方法 (若有)。 這同樣不是常見的覆寫，不過可以用來安全地關閉資源、停止背景處理、完成外部狀態儲存或關閉現有的連線。
 3. `StatelessService.onCloseAsync()` 完成之後，就解構服務物件。
 
 ## <a name="stateful-service-startup"></a>具狀態服務啟動
-具狀態服務的模式類似於無狀態服務，只有一些不同。 針對啟動具狀態服務，事件的順序如下︰
+具狀態服務的模式類似於無狀態服務，只有一些不同。  針對啟動具狀態服務，事件的順序如下︰
 
 1. 建構服務。
 2. 呼叫 `StatefulServiceBase.onOpenAsync()`。 這個呼叫在服務中不常覆寫。
@@ -127,15 +127,14 @@ Service Fabric 擲回的例外狀況都是永久 [(`FabricException`)](https://d
 測試和驗證 Reliable Services 時，請記得處理因將 `ReliableCollections` 而與服務生命週期事件搭配使用所導致的例外狀況，這是相當重要的一環。 建議您一律在負載下執行您的服務。 也應該先執行升級和[混亂測試](service-fabric-controlled-chaos.md)，再部署至生產環境。 下列基本步驟協助確保您的服務正確地實作，並正確地處理生命週期事件。
 
 ## <a name="notes-on-service-lifecycle"></a>服務生命週期的注意事項
-* `runAsync()` 方法和 `createServiceInstanceListeners/createServiceReplicaListeners` 呼叫都是選擇性。 服務可能會有其中一個或兩個，也可能完全沒有。 例如，若服務本身自行負責回應使用者呼叫，則不需要實作 `runAsync()`。 只需要通訊接聽程式及其相關聯的程式碼。 
-
-  同樣地，建立和傳回通訊接聽程式是選擇性的。 該服務可能只有背景工作要進行，因此只需要實作 `runAsync()`。
+* `runAsync()` 方法和 `createServiceInstanceListeners/createServiceReplicaListeners` 呼叫都是選擇性。 服務可能會有其中一個或兩個，也可能完全沒有。 例如，若服務本身自行負責回應使用者呼叫，則不需要實作 `runAsync()`。 只需要通訊接聽程式及其相關聯的程式碼。  同樣地，建立和傳回通訊接聽程式是選擇性的。 該服務可能只有背景工作要進行，因此只需要實作 `runAsync()`。
 * 服務可以成功完成 `runAsync()` 並返回。 這不被視為失敗狀況。 這代表服務的背景工作正要完成。 對於具狀態 Reliable Services，如果服務從主要降級，然後又升級回到主要，則會再次呼叫 `runAsync()`。
 * 如果服務藉由擲回某些非預期的例外狀況退出 `runAsync()`，即是失敗。 服務物件會關閉，而且會報告健康情況錯誤。
 * 雖然從這些方法進行傳回並沒有時間限制，您會立即喪失寫入的能力。 因此，您無法完成任何實際工作。 建議您盡快在收到取消要求後傳回。 如果您的服務未於合理的時間內回應這些 API 呼叫，Service Fabric 可能會強制終止服務。 這通常只發生在應用程式升級期間或刪除服務時。 此逾時預設為 15 分鐘。
-* `onCloseAsync()` 路徑的失敗會導致呼叫 `onAbort()`。 此呼叫是服務清除並釋放已宣告之任何資源的最後努力機會。
+* `onCloseAsync()` 路徑的失敗會導致呼叫 `onAbort()`。 此呼叫是服務清除並釋放已宣告之任何資源的最後努力機會。 這個一般會在於節點上偵測到永久錯誤，或因內部失敗而 Service Fabric 無法可靠地管理服務執行個體生命週期時呼叫。
+* 具狀態服務複本變更角色 (例如變更為主要或次要角色) 時，會呼叫 `OnChangeRoleAsync()`。 主要複本會獲得寫入狀態 (可建立並寫入可靠的集合)。 次要複本則會獲得讀取狀態 (只能從現有的可靠集合讀取)。 具狀態服務中的大部分工作會在主要複本執行。 次要複本可以執行唯讀驗證、產生報表、資料採礦或其他唯讀作業。
 
 ## <a name="next-steps"></a>後續步驟
 * [Reliable Services 簡介](service-fabric-reliable-services-introduction.md)
 * [Reliable Services 快速入門](service-fabric-reliable-services-quick-start-java.md)
-* [Reliable Services 的進階用法](service-fabric-reliable-services-advanced-usage.md)
+

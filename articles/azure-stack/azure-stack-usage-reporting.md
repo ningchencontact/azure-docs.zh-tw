@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9153efb73e84d7b84a732217b92a9c66617e90ae
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 回報 Azure Stack 使用情況資料 
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/12/2018
 使用取用型計費模型的 Azure Stack 多節點系統應該向 Azure 回報使用量資料以供計費。  Azure Stack 操作員應該設定其 Azure Stack 執行個體，以向 Azure 回報使用量資料。
 
 > [!NOTE]
-> 對採用依使用量付費授權模型的 Azure Stack 多節點使用者而言，使用量資料回報是必要功能。 對採用容量授權模型的客戶而言，則為選用功能 (請參閱[購買方式頁面](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack))。 對於 Azure Stack 開發套件使用者，Azure Stack 操作員可以回報使用量資料，並測試此功能。 不過，使用者不會因為其造成的任何使用量而需要付費。 
+> 對採用依使用量付費授權模型的 Azure Stack 多節點使用者而言，使用量資料回報是必要功能。 對採用容量授權模型的客戶而言，則為選用功能 (請參閱[購買方式頁面](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/))。 對於 Azure Stack 開發套件使用者，Azure Stack 操作員可以回報使用量資料，並測試此功能。 不過，使用者不會因為其造成的任何使用量而需要付費。 
 
 
 ![計費流程](media/azure-stack-usage-reporting/billing-flow.png)

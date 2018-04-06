@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 605f0cfe34e4fda14030bb38686095882846c7c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 11c737adb6578437a3708bb97397a24114e39585
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>開發 C# IoT Edge 模組並部署到您的模擬裝置 - 預覽
 
@@ -53,25 +53,25 @@ ms.lasthandoff: 03/16/2018
 ## <a name="create-an-iot-edge-module-project"></a>建立 IoT Edge 模組專案
 下列步驟會示範如何 使用 Visual Studio Code 和 Azure IoT Edge 擴充功能，來建立以 .NET core 2.0 為基礎的 IoT Edge 模組。
 1. 在 Visual Studio Code 中，選取 [檢視] > [整合式終端機] 以開啟 VS Code 整合式終端機。
-3. 在整合式終端機中，輸入下列命令來安裝 (或更新) dotnet 中的 **AzureIoTEdgeModule** 範本：
+2. 在整合式終端機中，輸入下列命令來安裝 (或更新) dotnet 中的 **AzureIoTEdgeModule** 範本：
 
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Module
     ```
 
-2. 針對新模組建立專案。 下列命令會在目前的工作資料夾中建立專案資料夾 **FilterModule**：
+3. 針對新模組建立專案。 下列命令會使用您的容器存放庫來建立專案資料夾 **FilterModule**。 如果您使用 Azure 容器登錄，第二個參數格式應該是 `<your container registry name>.azurecr.io`。 在目前的工作資料夾中輸入下列命令：
 
     ```cmd/sh
-    dotnet new aziotedgemodule -n FilterModule
+    dotnet new aziotedgemodule -n FilterModule -r <your container registry address>/filtermodule
     ```
  
-3. 選取 [檔案] > [開啟資料夾]。
-4. 瀏覽至 **FilterModule** 資料夾，然後按一下 [選取資料夾] 以在 VS Code 中開啟專案。
-5. 在 VS Code 檔案總管中，按一下 **Program.cs** 來將其開啟。
+4. 選取 [檔案] > [開啟資料夾]。
+5. 瀏覽至 **FilterModule** 資料夾，然後按一下 [選取資料夾] 以在 VS Code 中開啟專案。
+6. 在 VS Code 檔案總管中，按一下 **Program.cs** 來將其開啟。
 
    ![開啟 Program.cs][1]
 
-6. 在 **FilterModule** 命名空間頂端，為稍後會用到的類型新增三個 `using` 陳述式：
+7. 在 **FilterModule** 命名空間頂端，為稍後會用到的類型新增三個 `using` 陳述式：
 
     ```csharp
     using System.Collections.Generic;     // for KeyValuePair<>
@@ -79,13 +79,13 @@ ms.lasthandoff: 03/16/2018
     using Newtonsoft.Json;                // for JsonConvert
     ```
 
-6. 將 `temperatureThreshold` 變數新增至 **Program** 類別。 此變數會設定在將資料傳送至 IoT 中樞之前，測量的溫度必須超過的值。 
+8. 將 `temperatureThreshold` 變數新增至 **Program** 類別。 此變數會設定在將資料傳送至 IoT 中樞之前，測量的溫度必須超過的值。 
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-7. 將 `MessageBody`、`Machine` 及 `Ambient` 類別新增至 **Program** 類別。 這些類別會定義內送郵件本文的預期結構描述。
+9. 將 `MessageBody`、`Machine` 及 `Ambient` 類別新增至 **Program** 類別。 這些類別會定義內送郵件本文的預期結構描述。
 
     ```csharp
     class MessageBody
@@ -106,7 +106,7 @@ ms.lasthandoff: 03/16/2018
     }
     ```
 
-8. 在 **Init** 方法中，該程式碼會建立並設定 **DeviceClient** 物件。 此物件可允許模組連線至本機的 Azure IoT Edge 執行階段，以便傳送和接收訊息。 用於 **Init** 方法的連接字串，將會由 IoT Edge 執行階段提供給模組。 建立 **DeviceClient** 之後，程式碼會從模組對應項所需的屬性中讀取 TemperatureThreshold，並註冊回呼以透過 **input1** 端點接收來自 IoT Edge 中樞的訊息。 將 `SetInputMessageHandlerAsync` 方法取代為新的版本，然後針對所需的屬性更新新增 `SetDesiredPropertyUpdateCallbackAsync` 方法。 若要進行這項變更，請使用下列程式碼取代 **Init** 方法的最後一行：
+10. 在 **Init** 方法中，該程式碼會建立並設定 **DeviceClient** 物件。 此物件可允許模組連線至本機的 Azure IoT Edge 執行階段，以便傳送和接收訊息。 用於 **Init** 方法的連接字串，將會由 IoT Edge 執行階段提供給模組。 建立 **DeviceClient** 之後，程式碼會從模組對應項所需的屬性中讀取 TemperatureThreshold，並註冊回呼以透過 **input1** 端點接收來自 IoT Edge 中樞的訊息。 將 `SetInputMessageHandlerAsync` 方法取代為新的版本，然後針對所需的屬性更新新增 `SetDesiredPropertyUpdateCallbackAsync` 方法。 若要進行這項變更，請使用下列程式碼取代 **Init** 方法的最後一行：
 
     ```csharp
     // Register callback to be called when a message is received by the module
@@ -127,7 +127,7 @@ ms.lasthandoff: 03/16/2018
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
     ```
 
-9. 將 `onDesiredPropertiesUpdate` 方法新增至 **Program** 類別。 此方法會從模組對應項接收所需的屬性，並會更新 **temperatureThreshold** 變數以符合該屬性。 所有模組都具有自己的模組對應項，這可讓您直接從雲端設定於模組內執行的程式碼。
+11. 將 `onDesiredPropertiesUpdate` 方法新增至 **Program** 類別。 此方法會從模組對應項接收所需的屬性，並會更新 **temperatureThreshold** 變數以符合該屬性。 所有模組都具有自己的模組對應項，這可讓您直接從雲端設定於模組內執行的程式碼。
 
     ```csharp
     static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
@@ -158,7 +158,7 @@ ms.lasthandoff: 03/16/2018
     }
     ```
 
-10. 使用 `FilterMessages` 方法來取代 `PipeMessage` 方法。 每當模組從 IoT Edge 中樞接收到訊息時，就會呼叫此方法。 它會篩選所報告溫度低於 (透過模組對應項所設定) 之溫度閾值的訊息。 針對具有設定為 [警示] 之值的訊息，此方法也會將 **MessageType** 屬性新增至該訊息。 
+12. 使用 `FilterMessages` 方法來取代 `PipeMessage` 方法。 每當模組從 IoT Edge 中樞接收到訊息時，就會呼叫此方法。 它會篩選所報告溫度低於 (透過模組對應項所設定) 之溫度閾值的訊息。 針對具有設定為 [警示] 之值的訊息，此方法也會將 **MessageType** 屬性新增至該訊息。 
 
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
@@ -214,27 +214,21 @@ ms.lasthandoff: 03/16/2018
     }
     ```
 
-11. 若要建置專案，請在檔案總管中以滑鼠右鍵按一下 **FilterModule.csproj** 檔案，然後按一下 [建置 IoT Edge 模組]。 此程序會編譯模組，並將二進位檔及其相依性匯出至用於建立 Docker 映像的資料夾中。
-
-   ![建置 IoT Edge 模組][2]
+13. 儲存這個檔案。
 
 ## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>建立 Docker 映像並發行到您的登錄中
 
-1. 在 VS Code 檔案總管中，展開 [Docker] 資料夾。 然後展開適用於您容器平台的資料夾：**linux-x64** 或 **windows-nano**。
-
-   ![選取 Docker 容器平台][3]
-
-2. 以滑鼠右鍵按一下 [Dockerfile] 檔案，然後按一下 [建置 IoT Edge 模組的 Docker 映像]。 
-3. 在 [選取資料夾] 視窗中，瀏覽至或是輸入 `./bin/Debug/netcoreapp2.0/publish`。 按一下 [選取資料夾為 EXE_DIR]。
-4. 在 VS Code 視窗頂端的快顯文字方塊中，輸入映像名稱。 例如：`<your container registry address>/filtermodule:latest`。 容器登錄位址與您從登錄複製的登入伺服器相同。 其格式應該是 `<your container registry name>.azurecr.io`。
-5. 使用您在建立 Azure 容器登錄時從中複製的使用者名稱、密碼及登入伺服器，來登入 Docker。 在 VS Code 整合式終端機中，輸入下列命令： 
+1. 透過在 VS Code 整合式終端機中輸入下列命令來登入 Docker： 
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
+   若要尋找使用者名稱、密碼及登入伺服器，以在此命令中使用，請移至 [Azure 入口網站] (https://portal.azure.com)。 從 [所有資源] 中，按一下 Azure 容器登錄圖格以開啟其內容，然後按一下 [存取金鑰]。 複製 [使用者名稱]、[密碼] 和 [登入伺服器] 欄位中的值。 
 
-6. 將映像推送至容器登錄。 選取 [檢視] > [命令選擇區]，然後搜尋 [Edge: 推送 IoT Edge 模組 Docker 映像] 功能表命令。 在 VS Code 視窗頂端的快顯文字方塊中，輸入映像名稱。 使用您在步驟 4 中使用的相同映像名稱。
-7. 若要在 Azure 入口網站中檢視您的映像，請瀏覽至您的 Azure 容器登錄，然後選取 [存放庫]。 您應該會看到列出的 **filtermodule**。
+2. 在 VS Code 總管中，以滑鼠右鍵按一下 **module.json** 檔案並按一下 [建置及推送 IoT Edge 模組 Docker 映像]。 在於 VS Code 視窗頂端彈出的下拉式清單方塊中，選取您的容器平台，即適用於 Linux 容器的 **amd64**，或適用於 Windows 容器的 **windows-amd64**。 VS Code 會接著建置程式碼、將 `FilterModule.dll` 容器化，然後再推送到您指定的容器登錄。
+
+
+3. 您可以在 VS Code 整合式終端機中取得完整容器映像位址。 如需有關建置及推送定義的詳細資訊，請參閱 `module.json` 檔案。
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>將登錄認證新增至 Edge 執行階段
 在執行 Edge 裝置的電腦上，將登錄的認證新增至 Edge 執行階段。 這些認證會將提取容器的存取權提供給執行階段。 
@@ -256,15 +250,15 @@ ms.lasthandoff: 03/16/2018
 1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的 IoT 中樞。
 2. 移至 [IoT Edge (預覽)] 並選取您的 IoT Edge 裝置。
 3. 選取 [設定模組]。 
-2. 檢查 **tempSensor** 模組是否已自動填入。 如果沒有，請使用下列步驟來新增它：
+4. 檢查 **tempSensor** 模組是否已自動填入。 如果沒有，請使用下列步驟來新增它：
     1. 選取 [新增 IoT Edge 模組]。
     2. 在 [名稱] 欄位中，輸入 `tempSensor`。
     3. 在 [映像 URI] 欄位中，輸入 `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`。
     4. 其他設定保留不變，然後按一下 [儲存]。
-9. 新增您在先前小節中建立的 **filterModule** 模組。 
+5. 新增您在先前小節中建立的 **filterModule** 模組。 
     1. 選取 [新增 IoT Edge 模組]。
     2. 在 [名稱] 欄位中，輸入 `filterModule`。
-    3. 在 [映像 URI] 欄位中，輸入您的映像位址，例如 `<your container registry address>/filtermodule:latest`。
+    3. 在 [映像 URI] 欄位中，輸入您的映像位址，例如 `<your container registry address>/filtermodule:0.0.1-amd64`。 您可以在上一節找到完整的映像位址。
     4. 選取 [啟用] 方塊以編輯模組對應項。 
     5. 使用下列 JSON 取代模組對應項文字方塊中的 JSON： 
 
@@ -277,8 +271,8 @@ ms.lasthandoff: 03/16/2018
         ```
  
     6. 按一下 [檔案] 。
-12. 按 [下一步] 。
-13. 在 [指定路由] 步驟中，將下列 JSON 複製到文字方塊。 模組會將所有訊息發佈到 Edge 執行階段。 執行階段中的宣告式規則會定義訊息的流向。 在本教學課程中，您需要兩個路由。 第一個路由會透過使用 **FilterMessages** 處理常式設定的 "input1" 端點，將訊息從溫度感應器傳輸至篩選模組。 第二個路由會將訊息從篩選模組傳輸到 IoT 中樞。 在此路由中，`upstream` 是告知 Edge 中樞將訊息傳送至 IoT 中樞的特殊目的地。 
+6. 按 [下一步] 。
+7. 在 [指定路由] 步驟中，將下列 JSON 複製到文字方塊。 模組會將所有訊息發佈到 Edge 執行階段。 執行階段中的宣告式規則會定義訊息的流向。 在本教學課程中，您需要兩個路由。 第一個路由會透過使用 **FilterMessages** 處理常式設定的 "input1" 端點，將訊息從溫度感應器傳輸至篩選模組。 第二個路由會將訊息從篩選模組傳輸到 IoT 中樞。 在此路由中，`upstream` 是告知 Edge 中樞將訊息傳送至 IoT 中樞的特殊目的地。 
 
     ```json
     {
@@ -289,21 +283,21 @@ ms.lasthandoff: 03/16/2018
     }
     ```
 
-4. 按 [下一步] 。
-5. 在 [檢閱範本] 步驟中，按一下 [提交]。 
-6. 返回 IoT Edge 裝置的詳細資料頁面，按一下 [重新整理]。 您應該會看到新的 **filtermodule** 正在與 **tempSensor** 模組和 **IoT Edge 執行階段**一起執行。 
+8. 按 [下一步] 。
+9. 在 [檢閱範本] 步驟中，按一下 [提交]。 
+10. 返回 IoT Edge 裝置的詳細資料頁面，按一下 [重新整理]。 您應該會看到新的 **filtermodule** 正在與 **tempSensor** 模組和 **IoT Edge 執行階段**一起執行。 
 
 ## <a name="view-generated-data"></a>檢視產生的資料
 
 監視從 IoT Edge 裝置傳送到 IoT 中樞的「裝置到雲端」訊息：
 1. 使用 IoT 中樞連接字串來設定 Azure IoT Toolkit 擴充功能： 
     1. 選取 [檢視] > [檔案總管] 來開啟 VS Code 檔案總管。 
-    3. 在檔案總管中，按一下 [IOT HUB DEVICES]，然後按一下 [...]。按一下 [設定 IoT 中樞連接字串]，然後在快顯視窗中，輸入與您 IoT Edge 裝置連線的 IoT 中樞連接字串。 
+    2. 在檔案總管中，按一下 [IOT HUB DEVICES]，然後按一下 [...]。按一下 [設定 IoT 中樞連接字串]，然後在快顯視窗中，輸入與您 IoT Edge 裝置連線的 IoT 中樞連接字串。 
 
         若要尋找連接字串，在 Azure 入口網站中按一下 IoT 中樞圖格，然後按一下 [共用存取原則]。 在 [共用存取原則] 中，按一下 [iothubowner] 原則，然後複製 [iothubowner] 視窗中的 IoT 中樞連接字串。   
 
-1. 若要監視抵達 IoT 中樞的資料，請選取 [檢視] > [命令選擇區]，然後搜尋 [IoT: 開始監視 D2C 訊息] 功能表命令。 
-2. 若要停止監視資料，請使用 [IoT:停止監視 D2C 訊息] 功能表命令。 
+2. 若要監視抵達 IoT 中樞的資料，請選取 [檢視] > [命令選擇區]，然後搜尋 [IoT: 開始監視 D2C 訊息] 功能表命令。 
+3. 若要停止監視資料，請使用 [IoT:停止監視 D2C 訊息] 功能表命令。 
 
 ## <a name="next-steps"></a>後續步驟
 

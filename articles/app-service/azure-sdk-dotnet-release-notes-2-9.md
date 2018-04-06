@@ -1,10 +1,10 @@
 ---
-title: "Azure SDK for .NET 2.9 版本資訊"
-description: "Azure SDK for .NET 2.9 版本資訊"
+title: Azure SDK for .NET 2.9 版本資訊
+description: Azure SDK for .NET 2.9 版本資訊
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
 ms.devlang: multiple
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 199f0906f73d693d7cd4b73c928f23ae83b99596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Azure SDK for .NET 2.9 版本資訊
 
 本主題包含 Azure SDK for .NET 2.9 和 2.9.6 版的版本資訊。
 
-##<a name="azure-sdk-for-net-296-release-summary"></a>Azure SDK for .NET 2.9.6 發行摘要
+## <a name="azure-sdk-for-net-296-release-summary"></a>Azure SDK for .NET 2.9.6 發行摘要
 
 發行日期︰2016/11/16
  
@@ -31,7 +31,7 @@ Azure SDK 2.9 在此版本中沒有重大變更。 在現有的雲端服務專�
 
 ### <a name="visual-studio-2017-release-candidate"></a>Visual Studio 2017 候選版
 
-- 在 Visual Studio 2017 RC 中，這個版本的 Azure SDK for .NET 內建於 Azure 工作負載。 未來將會在 Visual Studio 2017 RC 中提供您開發 Azure 所需的一切工具。 在 Visual Studio 2015 和 Visual Studio 2013 中，將仍然可以透過 WebPI 使用這套 SDK。 當 Visual Studio 2017 以最終產品發行時，我們就不再提供適用於 Visual Studio 2013 的 Azure SDK for .NET 版本。 請透過此連結來下載 Visual Studio 2017 RC：https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- 在 Visual Studio 2017 RC 中，這個版本的 Azure SDK for .NET 內建於 Azure 工作負載。 未來將會在 Visual Studio 2017 RC 中提供您開發 Azure 所需的一切工具。 在 Visual Studio 2015 和 Visual Studio 2013 中，將仍然可以透過 WebPI 使用這套 SDK。 當 Visual Studio 2017 以最終產品發行時，我們就不再提供適用於 Visual Studio 2013 的 Azure SDK for .NET 版本。 請依照此連結下載 Visual Studio 2017 RC：https://www.visualstudio.com/vs/visual-studio-2017-rc/
 
 ### <a name="azure-diagnostics"></a>Azure 診斷
 

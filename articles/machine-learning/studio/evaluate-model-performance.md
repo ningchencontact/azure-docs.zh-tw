@@ -1,10 +1,11 @@
 ---
-title: "在 Machine Learning 中評估模型效能 | Microsoft Docs"
-description: "說明如何在 Azure Machine Learning 中評估模型效能"
+title: 在 Machine Learning 中評估模型效能 | Microsoft Docs
+description: 說明如何在 Azure Machine Learning 中評估模型效能
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: 48ce4584f7270d78b1d09b848bfdd305d03012b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bf065d8e91bd4ebb4cc3932c0525cb091b26b38
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>如何在 Azure Machine Learning 中評估模型效能
 本文示範如何在 Azure Machine Learning Studio 中評估模型的效能，並提供這項工作中可用度量的簡短說明。 提供三種常見的受監督的學習案例： 
@@ -151,7 +151,7 @@ Azure Machine Learning 支援透過兩個主要的機器學習服務模組來評
 
 將[訓練模型][train-model]模組的 [標籤] 資料行索引設定為 5。 此資料集沒有標頭資料列，但是我們知道類別標籤位於第五個資料行中。
 
-按一下[匯入資料][import-data]模組，然後將 [資料來源] 屬性設定為 [透過 HTTP 的 Web URL]，並將 [URL] 設定為 http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data。
+按一下 [匯入資料][import-data] 模組，並將 [資料來源] 屬性設定為 [透過 HTTP 的 Web URL]，並將 *URL* 設為 http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data。
 
 在[分割資料][split]模組中，設定要用於訓練的執行個體分數 (例如 0.7)。
 

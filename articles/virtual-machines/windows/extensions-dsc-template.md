@@ -1,11 +1,11 @@
 ---
-title: "採用 Azure Resource Manager 範本的預期狀態設定延伸模組 | Microsoft Docs"
-description: "了解 Azure 中適用於「預期狀態設定」(DSC) 延伸模組的 Resource Manager 範本定義。"
+title: 採用 Azure Resource Manager 範本的預期狀態設定延伸模組 | Microsoft Docs
+description: 了解 Azure 中適用於「預期狀態設定」(DSC) 延伸模組的 Resource Manager 範本定義。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mgreenegit
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
@@ -14,99 +14,121 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 0f1c53c9eafcd96e49232b75d46ef34537a1160f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ea259fc316827872cb1df8bcec385dddf8d2a461
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>採用 Azure Resource Manager 範本的預期狀態設定延伸模組
 
-本文說明適用於[預期狀態設定 (DSC) 延伸模組處理常式](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)的 Azure Resource Manager 範本。 
+本文說明適用於[預期狀態設定 (DSC) 延伸模組處理常式](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)的 Azure Resource Manager 範本。
 
 > [!NOTE]
 > 您可能會遇到略為不同的結構描述範例。 結構描述變更出現在 2016 年 10 月的版本中。 如需詳細資料，請參閱[從先前的格式更新](#update-from-the-previous-format)。
 
 ## <a name="template-example-for-a-windows-vm"></a>Windows VM 的範本範例
 
-下列程式碼片段會進入範本的 **Resource** 區段。 DSC 延伸模組會繼承預設的延伸模組屬性。 如需詳細資訊，請參閱 [VirtualMachineExtension 類別](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.)(英文\)。
+下列程式碼片段會進入範本的 **Resource** 區段。
+DSC 延伸模組會繼承預設的延伸模組屬性。
+如需詳細資訊，請參閱 [VirtualMachineExtension 類別](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.)(英文\)。
 
 ```json
-            "name": "Microsoft.Powershell.DSC",
-            "type": "extensions",
-             "location": "[resourceGroup().location]",
-             "apiVersion": "2015-06-15",
-             "dependsOn": [
-                  "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-              ],
-              "properties": {
-                  "publisher": "Microsoft.Powershell",
-                  "type": "DSC",
-                  "typeHandlerVersion": "2.72",
-                  "autoUpgradeMinorVersion": true,
-                  "forceUpdateTag": "[parameters('dscExtensionUpdateTagVersion')]",
-                  "settings": {
-                    "configurationArguments": {
-                        {
-                            "Name": "RegistrationKey",
-                            "Value": {
-                                "UserName": "PLACEHOLDER_DONOTUSE",
-                                "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                            },
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+    "apiVersion": "2017-12-01",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.75",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "protectedSettings": {
+            "Items": {
+                        "registrationKeyPrivate": "registrationKey"
+            }
+            },
+            "publicSettings": {
+                "configurationArguments": [
+                    {
+                        "Name": "RegistrationKey",
+                        "Value": {
+                            "UserName": "PLACEHOLDER_DONOTUSE",
+                            "Password": "PrivateSettingsRef:registrationKeyPrivate"
                         },
-                        "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                        "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+                    },
+                    {
+                        "RegistrationUrl" : "registrationUrl",
+                    },
+                    {
+                        "NodeConfigurationName" : "nodeConfigurationName"
                     }
+                ]
+            }
+        },
+    }
+}
 ```
 
 ## <a name="template-example-for-windows-virtual-machine-scale-sets"></a>Windows 虛擬機器擴展集的範本範例
 
-虛擬機器擴展集節點具有 **properties** 區段，其中含有 **VirtualMachineProfile, extensionProfile** 屬性。 請在 **extensions**底下，新增 DSC。
+虛擬機器擴展集節點具有 **properties** 區段，其中含有 **VirtualMachineProfile, extensionProfile** 屬性。
+在 **extensions** 下方新增 DSC 擴充功能的詳細資料。
 
-DSC 延伸模組會繼承預設的延伸模組屬性。 如需詳細資訊，請參閱 [VirtualMachineScaleSetExtension 類別](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet)(英文\)。
+DSC 延伸模組會繼承預設的延伸模組屬性。
+如需詳細資訊，請參閱 [VirtualMachineScaleSetExtension 類別](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet)(英文\)。
 
 ```json
 "extensionProfile": {
-            "extensions": [
-                {
-                    "name": "Microsoft.Powershell.DSC",
-                    "properties": {
-                        "publisher": "Microsoft.Powershell",
-                        "type": "DSC",
-                        "typeHandlerVersion": "2.72",
-                        "autoUpgradeMinorVersion": true,
-                        "forceUpdateTag": "[parameters('DscExtensionUpdateTagVersion')]",
-                        "settings": {
-                            "configurationArguments": {
-                                {
-                                    "Name": "RegistrationKey",
-                                    "Value": {
-                                        "UserName": "PLACEHOLDER_DONOTUSE",
-                                        "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                                    },
-                                },
-                                "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                                "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+    "extensions": [
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+            "apiVersion": "2017-12-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.75",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "protectedSettings": {
+                    "Items": {
+                                "registrationKeyPrivate": "registrationKey"
                     }
-                ]
+                    },
+                    "publicSettings": {
+                        "configurationArguments": [
+                            {
+                                "Name": "RegistrationKey",
+                                "Value": {
+                                    "UserName": "PLACEHOLDER_DONOTUSE",
+                                    "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                                },
+                            },
+                            {
+                                "RegistrationUrl" : "registrationUrl",
+                            },
+                            {
+                                "NodeConfigurationName" : "nodeConfigurationName"
+                            }
+                        ]
+                    }
+                },
             }
         }
+    ]
+}
 ```
 
 ## <a name="detailed-settings-information"></a>詳細的設定資訊
@@ -175,7 +197,8 @@ DSC 延伸模組會繼承預設的延伸模組屬性。 如需詳細資訊，請
 
 ## <a name="default-configuration-script"></a>預設設定指令碼
 
-如需有關下列值的詳細資訊，請參閱[本機設定管理員基本設定](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings)。 您可以使用 DSC 延伸模組預設設定指令碼來設定的 LCM 屬性僅限下表所列的屬性。
+如需有關下列值的詳細資訊，請參閱[本機設定管理員基本設定](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings)。
+您可以使用 DSC 延伸模組預設設定指令碼來設定的 LCM 屬性僅限下表所列的屬性。
 
 | 屬性名稱 | 類型 | 說明 |
 | --- | --- | --- |
@@ -191,7 +214,10 @@ DSC 延伸模組會繼承預設的延伸模組屬性。 如需詳細資訊，請
 
 ## <a name="settings-vs-protectedsettings"></a>Settings 與ProtectedSettings
 
-所有設定都會儲存在 VM 上的 settings 文字檔中。 列在 **settings** 底下的屬性是公用屬性。 公用屬性在設定文字檔中不會加密。 列在 **protectedSettings** 底下的屬性會以憑證加密，而不會在 VM 上的設定檔案中以純文字顯示。
+所有設定都會儲存在 VM 上的 settings 文字檔中。
+列在 **settings** 底下的屬性是公用屬性。
+公用屬性在設定文字檔中不會加密。
+列在 **protectedSettings** 底下的屬性會以憑證加密，而不會在 VM 上的設定檔案中以純文字顯示。
 
 如果設定需要認證，您可以將認證包含在 **protectedSettings**中：
 
@@ -208,7 +234,9 @@ DSC 延伸模組會繼承預設的延伸模組屬性。 如需詳細資訊，請
 
 ## <a name="example-configuration-script"></a>範例設定指令碼
 
-下列範例說明 DSC 延伸模組的預設行為，也就是向 LCM 提供中繼資料設定，並向 Automation DSC 服務註冊。 設定引數為必要引數。  設定引數會傳遞給預設設定指令碼來設定 LCM 中繼資料。
+下列範例說明 DSC 延伸模組的預設行為，也就是向 LCM 提供中繼資料設定，並向 Automation DSC 服務註冊。
+設定引數為必要引數。
+設定引數會傳遞給預設設定指令碼來設定 LCM 中繼資料。
 
 ```json
 "settings": {
@@ -233,7 +261,10 @@ DSC 延伸模組會繼承預設的延伸模組屬性。 如需詳細資訊，請
 
 ## <a name="example-using-the-configuration-script-in-azure-storage"></a>在 Azure 儲存體中使用設定指令碼的範例
 
-下列範例來自 [DSC 延伸模組處理常式概觀](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 此範例使用 Resource Manager 範本 (而不是Cmdlet) 來部署擴充功能。 請儲存 IisInstall.ps1 設定、將它放在 .zip 檔案中，然後以可存取的 URL 上傳此檔案。 此範例會使用 Azure Blob 儲存體，但您可以從任意位置下載 .zip 檔案。
+下列範例來自 [DSC 延伸模組處理常式概觀](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+此範例使用 Resource Manager 範本 (而不是Cmdlet) 來部署擴充功能。
+請儲存 IisInstall.ps1 設定、將它放在 .zip 檔案中，然後以可存取的 URL 上傳此檔案。
+此範例會使用 Azure Blob 儲存體，但您可以從任意位置下載 .zip 檔案。
 
 在 Resource Manager 範本中，下列程式碼會指示 VM 下載正確的檔案，然後執行適當的 PowerShell 函式：
 
@@ -252,7 +283,8 @@ DSC 延伸模組會繼承預設的延伸模組屬性。 如需詳細資訊，請
 
 ## <a name="update-from-a-previous-format"></a>從先前的格式更新
 
-採用先前延伸模組格式 (且包含 **ModulesUrl****ConfigurationFunction****SasToken**或 **Properties** 等公用屬性) 的任何設定，都會自動調整成目前的延伸模組格式。 其執行方式會與之前相同。
+採用先前延伸模組格式 (且包含 **ModulesUrl****ConfigurationFunction****SasToken**或 **Properties** 等公用屬性) 的任何設定，都會自動調整成目前的延伸模組格式。
+其執行方式會與之前相同。
 
 下列結構描述顯示先前 settings 結構描述看起來的樣子︰
 
@@ -302,7 +334,9 @@ DSC 延伸模組會繼承預設的延伸模組屬性。 如需詳細資訊，請
 
 ## <a name="troubleshooting---error-code-1100"></a>疑難排解 - 錯誤碼 1100
 
-錯誤碼 1100 表示與 DSC 延伸模組的使用者輸入有關的問題。 這些錯誤的文字並非固定，可能會有變更。 以下是一些您可能遇到的錯誤及其修正方式。
+錯誤碼 1100 表示與 DSC 延伸模組的使用者輸入有關的問題。
+這些錯誤的文字並非固定，可能會有變更。
+以下是一些您可能遇到的錯誤及其修正方式。
 
 ### <a name="invalid-values"></a>無效的值
 
@@ -313,7 +347,8 @@ DSC 延伸模組會繼承預設的延伸模組屬性。 如需詳細資訊，請
 
 **問題**︰所提供的值不是允許的值。
 
-**解決方式**︰將無效的值變更為有效的值。 如需詳細資訊，請參閱[詳細資料](#details)中的表格。
+**解決方式**︰將無效的值變更為有效的值。
+如需詳細資訊，請參閱[詳細資料](#details)中的表格。
 
 ### <a name="invalid-url"></a>無效的 URL
 
@@ -321,7 +356,8 @@ DSC 延伸模組會繼承預設的延伸模組屬性。 如需詳細資訊，請
 
 **問題**︰所提供的 URL 無效。
 
-**解決方式**︰檢查您提供的所有 URL。 請確定所有 URL 都會解析成延伸模組可在遠端電腦上存取的有效位置。
+**解決方式**︰檢查您提供的所有 URL。
+請確定所有 URL 都會解析成延伸模組可在遠端電腦上存取的有效位置。
 
 ### <a name="invalid-configurationargument-type"></a>無效的 ConfigurationArgument 類型
 
@@ -329,7 +365,8 @@ DSC 延伸模組會繼承預設的延伸模組屬性。 如需詳細資訊，請
 
 **問題**︰*ConfigurationArguments* 屬性無法解析成 **Hashtable**物件。
 
-**解決方式**︰將 *ConfigurationArguments* 屬性設定成**雜湊表**。 請依照上述範例中提供的格式。 請留意引號、逗號及大括號。
+**解決方式**︰將 *ConfigurationArguments* 屬性設定成**雜湊表**。
+請依照上述範例中提供的格式。 請留意引號、逗號及大括號。
 
 ### <a name="duplicate-configurationarguments"></a>重複的 ConfigurationArguments
 

@@ -1,6 +1,6 @@
 ---
-title: "從 Web 應用程式使用 Azure 金鑰保存庫 | Microsoft Docs"
-description: "使用本教學課程來幫助您了解如何從 Web 應用程式使用 Azure 金鑰保存庫。"
+title: 從 Web 應用程式使用 Azure 金鑰保存庫 | Microsoft Docs
+description: 使用本教學課程來幫助您了解如何從 Web 應用程式使用 Azure 金鑰保存庫。
 services: key-vault
 author: adhurwit
 manager: mbaldwin
@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 93ef76729123c7187c3dd616419b5771324fe2cb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>從 Web 應用程式使用 Azure 金鑰保存庫
 
@@ -151,7 +151,7 @@ makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-記下 .pfx 的結束日期和密碼 (在此範例中為：07/31/2017 和 test123)。 您將需要在下面使用這些資訊。
+記下 .pfx 的結束日期和密碼 (在此範例中為：07/31/2018 和 test123)。 您將需要在下面使用這些資訊。
 
 如需如何建立測試憑證的詳細資訊，請參閱 [做法：自行建立測試憑證](https://msdn.microsoft.com/library/ff699202.aspx)
 

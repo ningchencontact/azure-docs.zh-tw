@@ -1,16 +1,16 @@
 ---
-ms.assetid: 
-title: "Azure Key Vault 虛刪除 | Microsoft Docs"
+ms.assetid: ''
+title: Azure Key Vault 虛刪除 | Microsoft Docs
 ms.service: key-vault
 author: lleonard-msft
 ms.author: alleonar
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 01357e4fdb9b6f27e9baf5f5c8e4c7d6b582ad35
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6a3573cf31418309a31126b2a0c6a43ea2e0c745
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 虛刪除概觀
 
@@ -67,6 +67,13 @@ Azure Key Vault 是由 Azure Resource Manager 管理的追蹤資源。 Azure Res
 在 Proxy 資源上可透過 POST 作業永久刪除、清除 Key Vault，而這需要特殊權限。 一般而言，只有訂用帳戶擁有者可以清除 Key Vault。 POST 作業會對該保存庫觸發立即性且無法復原的刪除作業。 
 
 唯一的例外是當 Azure 訂用帳戶已標示為「無法刪除」時。 在此情況下，只有此服務可接著執行實際的刪除作業，而且會以排程的程序執行。 
+
+### <a name="billing-implications"></a>計費影響
+
+一般情況下，當物件 (金鑰保存庫或金鑰或密碼) 處於已刪除狀態時，可執行的作業只有兩種：「清除」與「復原」。 其他所有作業都會失敗。 因此，即使物件存在，但因為無法執行任何作業，所以不會有使用量發生，當然也就不會有費用。 然而，以下例外狀況不適用：
+
+- 「清除」與「復原」動作都算是一般金鑰保存庫作業，因此將予以計費。
+- 如果物件是 HSM 金鑰，而且金鑰版本在過去 30 天內曾經使用過，我們將會針對每個金鑰版本收取「HSM 保護的金鑰」費用的月費。 後續由於物件處於已刪除狀態，沒有可執行的作業，因此我們將不收費。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,24 +1,24 @@
 ---
-title: "使用 Azure Cosmos DB 全域散發資料 | Microsoft Docs"
-description: "了解如何從 Azure Cosmos DB (全域散發的多模型資料庫服務)，使用全域資料庫進行全球規模的異地複寫、容錯移轉及資料復原。"
+title: 使用 Azure Cosmos DB 全域散發資料 | Microsoft Docs
+description: 了解如何從 Azure Cosmos DB (全域散發的多模型資料庫服務)，使用全域資料庫進行全球規模的異地複寫、容錯移轉及資料復原。
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: 0be81802996f27a4c063e4e728a3c95ad757bea0
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e31b66f20c51e95dbc2d8285bb5602590abd4f4f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>如何使用 Azure Cosmos DB 全域散發資料
 Azure 無所不在 - 跨 30 多個地理區域，遍佈全球並持續擴充中。 遍及全球的 Azure 提供給開發人員的其中一項差異化功能，就是能夠輕鬆地建置、部署及管理分散在世界各地的應用程式。 
@@ -37,6 +37,11 @@ Azure 無所不在 - 跨 30 多個地理區域，遍佈全球並持續擴充中�
 
 ## <a id="EnableGlobalDistribution"></a>啟用周全的全域散發
 Azure Cosmos DB 提供下列功能，讓您輕鬆地撰寫全球規模的應用程式。 透過 Azure Cosmos DB 的資源提供者型 [REST API](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) 和 Azure 入口網站，即可使用這些功能。
+
+在下列影片中，Azure Cosmos DB 程式管理員 Andrew Liu 會示範周全的全域散發功能。
+
+> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ### <a id="RegionalPresence"></a>遍及各區，無所不在 
 Azure 透過不斷連上[新的地理區域](https://azure.microsoft.com/regions/)，而日益普及。 根據預設，新的 Azure 區域全部都可使用 Azure Cosmos DB。 一旦 Azure 為企業開啟新的區域，這就能讓您將地理區域關聯至 Azure Cosmos DB 資料庫帳戶。

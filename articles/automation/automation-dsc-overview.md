@@ -1,24 +1,19 @@
 ---
-title: "Azure Automation DSC 概觀 | Microsoft Docs"
-description: "Azure 自動化期望狀態組態 (DSC)、其條款和已知問題的概觀"
+title: Azure 自動化 DSC 概觀
+description: Azure 自動化期望狀態組態 (DSC)、其條款和已知問題的概觀
+keywords: powershell dsc, 需要的狀態組態, powershell dsc azure
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-keywords: "powershell dsc, 需要的狀態組態, powershell dsc azure"
-ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 7440fa58f9cbd201984d178a7e9a2c12afc84783
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 3949b79c3729ecdc2dfdd6297a5f10852e061540
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Azure 自動化 DSC 概觀
 
@@ -45,8 +40,8 @@ Azure Automation DSC 為 [PowerShell Desired State Configuration](https://msdn.m
 ### <a name="import-reporting-data-into-log-analytics"></a>將報告資料匯入至 Log Analytics
 
 使用 Azure Automation DSC 所管理的節點會將詳細報告狀態資料傳送至內建提取伺服器。
-您可以設定 Azure Automation DSC，將此資料傳送至 Microsoft Operations Management Suite (OMS) Log Analytics 工作區。
-若要了解如何將 DSC 狀態資料傳送至 Log Analytics 工作區，請參閱[將 Azure Automation DSC 報告資料轉送到 OMS Log Analytics](automation-dsc-diagnostics.md)。
+您可以設定 Azure Automation DSC，將此資料傳送至 Log Analytics 工作區。
+若要了解如何將 DSC 狀態資料傳送至 Log Analytics 工作區，請參閱[將 Azure Automation DSC 報告資料轉送到 Log Analytics](automation-dsc-diagnostics.md)。
 
 ## <a name="introduction-video"></a>簡介影片
 

@@ -1,6 +1,6 @@
 ---
-title: "Visual Studio Azure 資源群組 Visual Studio 專案 | Microsoft Docs"
-description: "使用 Visual Studio 建立 Azure 資源群組專案，並將資源部署至 Azure。"
+title: Visual Studio Azure 資源群組 Visual Studio 專案 | Microsoft Docs
+description: 使用 Visual Studio 建立 Azure 資源群組專案，並將資源部署至 Azure。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -32,7 +32,7 @@ Azure 資源群組專案包含 Azure Resource Manager JSON 範本，可定義部
 ## <a name="create-azure-resource-group-project"></a>建立 Azure 資源群組專案
 在此程序中，您會利用 **Web 應用程式 + SQL** 範本建立 Azure 資源群組專案。
 
-1. 在 Visual Studio 中，選擇 [檔案]新增專案，選擇 [C#] 或 [Visual Basic] (您所選擇的語言在後續階段沒有任何影響，因為這些專案只包含 JSON 和 PowerShell 內容)。 然後選擇 [雲端]，再選擇 [Azure 資源群組] 專案。
+1. 在 Visual Studio 中，選擇 [檔案]新增專案，選擇 [C#] 或 [Visual Basic] \(您所選擇的語言在後續階段沒有任何影響，因為這些專案只包含 JSON 和 PowerShell 內容)。 然後選擇 [雲端]，再選擇 [Azure 資源群組] 專案。
    
     ![雲端部署專案](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 2. 選擇您想要部署至 Azure 資源管理員的範本。 請注意，根據您想要部署的專案類型，有許多不同的選項。 在本文中，我們將選擇 **Web 應用程式 + SQL** 範本。

@@ -1,12 +1,12 @@
 ---
-title: "Azure 建議程式簡介 | Microsoft Docs"
-description: "使用 Azure 建議程式將 Azure 部署最佳化。"
+title: Azure 建議程式簡介 | Microsoft Docs
+description: 使用 Azure 建議程式將 Azure 部署最佳化。
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0aa97a7557706f0b704d4e31a84e9d356d1ad087
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure 建議程式簡介
 
@@ -43,9 +43,6 @@ Advisor 儀表板會顯示您所有訂用帳戶的個人化建議。  您可以�
 
   ![建議程式建議類型](./media/advisor-overview/advisor-dashboard.png)
 
-> [!NOTE]
-> 若要搭配某個訂用帳戶使用 Azure Advisor，訂用帳戶「擁有者」必須啟動 Advisor 儀表板。  此動作會向 Advisor 註冊訂用帳戶。  之後，任何訂用帳戶「擁有者」、「參與者」或「讀取者」便都可以存取該訂用帳戶的 Advisor 建議。 
-
 您可以按一下某個類別來顯示該類別內的建議清單，然後選取建議來進行深入了解。  您也可以了解您可以執行的動作，以便利用機會或解決問題。
 
 ![Advisor 建議類別](./media/advisor-overview/advisor-ha-category-example.png) 
@@ -62,12 +59,12 @@ Advisor 儀表板會顯示您所有訂用帳戶的個人化建議。  您可以�
 您也可以透過虛擬機器資源介面檢視 Advisor 建議。 選擇虛擬機器，然後捲動至功能表中的建議程式建議。 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>我需要哪些權限才能存取建議程式？
-
-若要取得適用於某個訂用帳戶的 Advisor 建議，您必須先向 Advisor 註冊您的訂用帳戶。 當訂用帳戶「擁有者」啟動 Advisor 儀表板時，便會註冊訂用帳戶。 此作業只需要執行一次。 註冊訂用帳戶之後，您便能以訂用帳戶的「擁有者」、「參與者」或「讀取者」身分存取 Advisor 建議。
+ 
+您能夠以訂用帳戶的「擁有者」、「參與者」或「讀取者」身分存取 Advisor 建議。
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>建議程式可提供哪些資源的建議？
 
-Advisor 可提供虛擬機器、可用性設定組、應用程式閘道、應用程式服務、SQL Server、SQL Database 和 Redis 快取的建議。
+Advisor 可提供虛擬機器、可用性設定組、應用程式閘道、應用程式服務、SQL 伺服器和 Redis 快取的建議。
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>是否可以延期或解除建議？
 

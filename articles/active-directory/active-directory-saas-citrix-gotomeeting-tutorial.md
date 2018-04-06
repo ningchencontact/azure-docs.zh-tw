@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 GoToMeeting 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 GoToMeeting 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 GoToMeeting 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 GoToMeeting 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 4826dee82e62ffac70d7ca3d6dcfe005129de764
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d26b78fb5be96e979fb7b375acf6e907d858b706
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>教學課程：Azure Active Directory 與 GoToMeeting 整合
 
@@ -32,7 +32,7 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 GoToMeeting 整合，您需要下列項目：
 
@@ -108,77 +108,32 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
     ![GoToMeeting 網域與 URL 單一登入資訊](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    在 [識別碼] 文字方塊中，輸入 URL：`https://login.citrixonline.com/saml/sp`
+    在 [識別碼] 文字方塊中，輸入 URL：`https://authentication.logmeininc.com/saml/sp`
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+4. 按一下 [顯示進階 URL 設定]，並設定以下 URL
 
-    ![憑證下載連結](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_certificate.png) 
-
+    **登入 URL** (保留空白)
+    
+    **回覆 URL**：`https://authentication.logmeininc.com/saml/acs`
+    
+    **RelayState**：
+    
+    - 對於 GoToMeeting 應用程式，使用 `https://global.gotomeeting.com`
+    
+    - 對於 GoToTraining，使用 `https://global.gototraining.com`
+    
+    - 對於 GoToWebinar，使用 `https://global.gotowebinar.com` 
+    
+    - 對於 GoToAssist，使用 `https://app.gotoassist.com`
+    
 5. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-gotomeeting-tutorial/tutorial_general_400.png)
 
-6. 若要產生**中繼資料** URL，執行下列步驟︰
+6. 在不同的瀏覽器視窗中，登入您的 [GoToMeeting 組織中心](https://organization.logmeininc.com/)。 系統會提示您確認 IdP 已更新
 
-    a. 按一下 [應用程式註冊]。
-    
-    ![設定單一登入](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
-   
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
-    
-    ![設定單一登入](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+7. 啟用 [我的識別提供者已使用新網域更新] 核取方塊。 完成後，請按一下 [完成]。
 
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
-     
-    d. 現在，移至 [GoToMeeting] 的屬性頁面，使用 [複製] 按鈕複製 [應用程式識別碼]，並將它貼到 [記事本]。
- 
-    ![設定單一登入](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
-
-7. 在 [GoToMeeting 組態] 區段上，按一下 [設定 GoToMeeting] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
-
-    ![GoToMeeting 設定](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
-
-8. 在不同的瀏覽器視窗中，登入您的 [GoToMeeting 組織中心](https://organization.logmeininc.com/)
-
-9. 在 [識別提供者] 索引標籤下，您可以提供所產生的**中繼資料 URL** 或下載的**中繼資料檔** 或 [手動]，來設定 Azure 設定。
-
-10. 若為 [中繼資料 URL]，請執行下列步驟：
-
-    ![GoToMeeting 設定](./media/active-directory-saas-gotomeeting-tutorial/config1.png)
-
-    a. 在 [想要如何設定 SAML IDP？] 中，從下拉式清單選取 [自動]。
-
-    b. 將您在先前步驟產生的**中繼資料 URL** 貼至 [中繼資料 URL] 文字方塊。
-
-    c. 按一下 [檔案] 。
-
-11. 若為 [中繼資料檔]，請執行下列步驟：
-
-    ![GoToMeeting 設定](./media/active-directory-saas-gotomeeting-tutorial/config2.png)
-
-    a. 在 [想要如何設定 SAML IDP？] 中，從下拉式清單選取 [上傳 SAML 中繼資料檔]。
-
-    b. 若要上傳您下載的中繼資料檔，請按一下 [上傳中繼資料檔] 。
-
-    c. 按一下 [檔案] 。
-
-12. 若為 [手動]，請執行下列步驟：
-
-    ![GoToMeeting 設定](./media/active-directory-saas-gotomeeting-tutorial/config3.png)
-
-    a.  在 [登入頁面 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
-
-    b.  在 [登出頁面 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
-
-    c.  在 [識別提供者實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
-
-    d. 從下載的中繼資料檔中擷取 X509Certificate，然後按一下 [上傳憑證]，上傳此憑證。
-
-    e. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

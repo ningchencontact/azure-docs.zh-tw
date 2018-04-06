@@ -1,9 +1,9 @@
 ---
-title: "適用於 Azure Cosmos DB 的 SQL 查詢 | Microsoft Docs"
-description: "了解 Azure Cosmos DB 的 SQL 語法、資料庫概念及 SQL 查詢。 SQL 可作為 Azure Cosmos DB 中的 JSON 查詢語言。"
-keywords: "sql 語法, sql 查詢, sql 查詢, json 查詢語言, 資料庫概念和 sql 查詢, 彙總函式"
+title: 適用於 Azure Cosmos DB 的 SQL 查詢 | Microsoft Docs
+description: 了解 Azure Cosmos DB 的 SQL 語法、資料庫概念及 SQL 查詢。 SQL 可作為 Azure Cosmos DB 中的 JSON 查詢語言。
+keywords: sql 語法, sql 查詢, sql 查詢, json 查詢語言, 資料庫概念和 sql 查詢, 彙總函式
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: LalithaMV
 manager: jhubbard
 editor: monicar
@@ -13,17 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a79b1a97909a38b4bfba06186db875d0c0c25f03
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>適用於 Azure Cosmos DB 的 SQL 查詢
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Microsoft Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢語言) 作為 JSON 查詢語言來查詢文件。 Azure Cosmos DB 確實無結構描述。 由於它是直接在資料庫引擎內使用 JSON 資料模型，因此它提供不需明確的結構描述或建立次要索引，即可自動編製 JSON 文件索引的功能。
 
@@ -34,11 +32,17 @@ Microsoft Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢
 
 我們相信這些功能的重點是減少應用程式與資料庫之間的摩擦，而且對開發人員的生產力而言十分重要。
 
-建議您透過觀看下列影片 (影片中 Aravind Ramachandran 會示範 Cosmos DB 的查詢功能)，以及瀏覽我們的 [Query Playground (查詢遊樂場)](http://www.documentdb.com/sql/demo) (您可以在其中試試 Cosmos DB，並對我們的資料集執行 SQL 查詢)，來開始著手。
+建議您透過觀看下列影片，讓 Azure Cosmos DB 程式管理員 Andrew Liu 為您示範 Azure Cosmos DB 的查詢功能，以及展示線上 [Query Playground (查詢遊樂場)](http://www.documentdb.com/sql/demo) (您可以試試 Azure Cosmos DB，並依照影片示範針對我們的資料集執行 SQL 查詢)，協助您開始著手。
 
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
-> 
-> 
+> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
+>
+>
+
+以下後續影片示範較進階的查詢技術：
+
+> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
+>
+>
 
 接著再回到本文，我們會從 SQL 查詢教學課程開始，帶領您演練一些簡易的 JSON 文件和 SQL 命令。
 

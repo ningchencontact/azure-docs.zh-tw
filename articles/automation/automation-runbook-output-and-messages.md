@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a02ea2854de7ff32a8c50ff2e6f317596fb4aa1b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d4b8d485906701b4f05e057996bc31232a29e620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure 自動化中的 Runbook 輸出與訊息
 大部分的 Azure 自動化 Runbook 會有某種形式的輸出，例如向使用者提供錯誤訊息，或供其他工作流程使用的複雜物件。 Windows PowerShell 提供 [多個資料流](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) 從指令碼或工作流程傳送輸出。 Azure 自動化會以不同的方式使用這些資料流，而在您建立 Runbook 時，應遵循使用每個資料流的最佳作法。
@@ -204,8 +204,8 @@ Windows PowerShell 使用 [喜好設定變數](http://technet.microsoft.com/libr
    
    ![圖形化編寫的 [記錄和追蹤] 刀鋒視窗](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-operations-management-suite-oms-log-analytics"></a>Microsoft Operations Management Suite (OMS) Log Analytics
-「自動化」可以將 Runebook 工作狀態和工作資料流傳送到您的 Microsoft Operations Management Suite (OMS) Log Analytics 工作區。 透過 Log Analytics，您可以：
+### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
+「自動化」可以將 Runebook 工作狀態和工作資料流傳送到您的 Log Analytics 工作區。 透過 Log Analytics，您可以：
 
 * 針對自動化工作取得深入解析 
 * 根據您的 Runbook 作業狀態 (例如已失敗或已暫停) 觸發電子郵件或警示 
@@ -213,7 +213,7 @@ Windows PowerShell 使用 [喜好設定變數](http://technet.microsoft.com/libr
 * 在自動化帳戶之間相互關聯工作 
 * 視覺化一段時間的工作歷程記錄    
 
-如需如何設定與 Log Analytics 整合以收集、相互關聯及處理作業資料的詳細資訊，請參閱[從自動化將作業狀態和作業串流轉送到 Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md)。
+如需如何設定與 Log Analytics 整合以收集、相互關聯及處理作業資料的詳細資訊，請參閱[從自動化將作業狀態和作業串流轉送到 Log Analytics](automation-manage-send-joblogs-log-analytics.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * 若要深入了解 Runbook 執行方式、如何監視 Runbook 工作，以及其他技術性詳細資料，請參閱 [追蹤 Runbook 工作](automation-runbook-execution.md)

@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C︰使用自訂原則新增 Google+ 作為 OAuth2 識別提供者"
-description: "透過 OAuth2 通訊協定使用 Google+ 作為識別提供者的範例"
+title: Azure Active Directory B2C︰使用自訂原則新增 Google+ 作為 OAuth2 識別提供者
+description: 透過 OAuth2 通訊協定使用 Google+ 作為識別提供者的範例
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: davidmu
+ms.openlocfilehash: f12bbc2472aa2d83088c7d4d7b8f173744fb36b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C︰使用自訂原則新增 Google+ 作為 OAuth2 識別提供者
 
@@ -39,7 +36,7 @@ ms.lasthandoff: 01/09/2018
 5.  將原則上傳至 Azure AD B2C 租用戶並加以測試
 
 ## <a name="create-a-google-account-application"></a>建立 Google+ 帳戶應用程式
-若要在 Azure Active Directory (Azure AD) B2C 中使用 Google+ 做為身分識別提供者，您必須建立 Google+ 應用程式，並對其提供正確參數。 您可以在這裡註冊 Google+ 應用程式：[https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)
+若要在 Azure Active Directory (Azure AD) B2C 中使用 Google+ 做為身分識別提供者，您必須建立 Google+ 應用程式，並對其提供正確參數。 您可以在此處註冊 Google+ 應用程式：[https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)
 
 1.  前往 [Google 開發人員主控台](https://console.developers.google.com/) ，並以您的 Google + 帳戶認證登入。
 2.  按一下 [建立專案]，輸入 [專案名稱]，接著按一下 [建立]。

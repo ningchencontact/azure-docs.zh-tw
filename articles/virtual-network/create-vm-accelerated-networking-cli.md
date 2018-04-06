@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 5c09ffe6867972e772334ae7ae1dd655cdac431f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: aa74596906206ba4460e80af9015955c0b848cd4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>使用加速網路建立 Linux 虛擬機器
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 03/09/2018
 如需 VM 執行個體的詳細資訊，請參閱 [Linux VM 大小](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 ## <a name="regions"></a>區域
-適用於亞太地區以外的所有公用 Azure 區域。   尚未支援 Azure Government 雲端。
+適用於所有公用 Azure 區域和 Azure 政府雲端。
 
 ## <a name="limitations"></a>限制
 使用這項功能時，有下列限制︰

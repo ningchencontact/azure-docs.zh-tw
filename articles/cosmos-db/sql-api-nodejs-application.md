@@ -1,7 +1,7 @@
 ---
-title: "建置適用於 Azure Cosmos DB 的 Node.js Web 應用程式 | Microsoft Docs"
-description: "這個 Node.js 教學課程會探索如何使用 Microsoft Azure Cosmos DB，從 Azure 網站上裝載的 Node.js Express Web 應用程式來儲存和存取資料。"
-keywords: "應用程式開發, 資料庫教學課程, 了解 node.js, node.js 教學課程"
+title: 建置適用於 Azure Cosmos DB 的 Node.js Web 應用程式 | Microsoft Docs
+description: 這個 Node.js 教學課程會探索如何使用 Microsoft Azure Cosmos DB，從 Azure 網站上裝載的 Node.js Express Web 應用程式來儲存和存取資料。
+keywords: 應用程式開發, 資料庫教學課程, 了解 node.js, node.js 教學課程
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/23/2018
 ms.author: mimig
-ms.openlocfilehash: 441f352555f40c0467df4c466d58ac35e32f9e61
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: ad6e335c562e52d7e2336dd1f29e5c159fe46589
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="_Toc395783175"></a>使用 Azure Cosmos DB 來建置 Node.js Web 應用程式
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 02/14/2018
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 本 Node.js 教學課程說明如何使用 Azure Cosmos DB 和 SQL API，來儲存和存取 Azure 網站上所託管的 Node.js 快速應用程式資料。 您會建置一個可供建立、擷取及完成工作的簡單網頁型工作管理應用程式 (待辦事項應用程式)。 在 Azure Cosmos DB 中，這些工作會儲存為 JSON 文件。 本教學課程會逐步引導您建立和部署應用程式，並說明每個程式碼片段中的狀況。
 
@@ -76,7 +74,7 @@ ms.lasthandoff: 02/14/2018
 5. 執行新的應用程式。
    
         npm start
-6. 您可以檢視新的應用程式，請導覽瀏覽器至 [http://localhost:3000/](http://localhost:3000)。
+6. 您可以檢視新的應用程式，請導覽瀏覽器至 [http://localhost:3000](http://localhost:3000)。
    
     ![了解 Node.js - Hello World 應用程式在瀏覽器視窗中的螢幕擷取畫面](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
@@ -154,7 +152,7 @@ ms.lasthandoff: 02/14/2018
 
     ```nodejs
     let DocumentDBClient = require('documentdb').DocumentClient;
-    let docdbUtils = require('./docdbUtils');
+    let docdbUtils = require('./cosmosdb-manager.js');
     ```
 7. 接下來，要加入程式碼以定義和匯出 Task 物件。 這會負責初始化我們的 Task 物件，並設定我們即將使用的資料庫和文件集合。  
 

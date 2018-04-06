@@ -1,11 +1,11 @@
 ---
-title: "Azure 流量管理員端點監視 | Microsoft Docs"
-description: "本文有助於您了解流量管理員如何使用端點監視和自動端點容錯移轉，以協助 Azure 客戶部署高可用性應用程式"
+title: Azure 流量管理員端點監視 | Microsoft Docs
+description: 本文有助於您了解流量管理員如何使用端點監視和自動端點容錯移轉，以協助 Azure 客戶部署高可用性應用程式
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 3b30aa04854b779c25582abafc0f9ebba65b71ba
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: c54454dd2e7b56820834e4f3cd7452be10d5ddca
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>流量管理員端點監視
 
@@ -78,6 +78,9 @@ Azure 流量管理員包含內建的端點監視和自動端點容錯移轉。 �
 | 已啟用 |已啟用 |已停止 |端點指向的雲端服務或 Web 應用程式並未執行。 請檢查雲端服務或 Web 應用程式設定。 如果端點是巢狀端點類型，且子系設定檔已停用或非使用中，也會發生這種情況。 <br>「已停止」狀態的端點不會受到監視。 它未包含於 DNS 回應中，因此不會接收流量。 例外狀況是如果所有端點都降級，如果發生這種情況，則所有端點會被視為要在查詢回應中傳回。</br>|
 
 如需如何計算巢狀端點的端點監視狀態詳細資訊，請參閱[巢狀流量管理員設定檔](traffic-manager-nested-profiles.md)。
+
+>[!NOTE]
+> 如果準層或以上層級中的 Web 應用程式未執行，App Service 可能會發生「已停止」端點監視狀態。 如需詳細資訊，請參閱[流量管理員與 App Service 整合](/azure/app-service/web-sites-traffic-manager)。
 
 ### <a name="profile-monitor-status"></a>設定檔監視狀態
 

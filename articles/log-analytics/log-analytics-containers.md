@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: 0ad267b9694c2f9cdb574b6b6008d4f6fa027fce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d2c85225ab74c912183a0bb8d7f100d1354e6c5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics 中的容器監視解決方案
 
@@ -100,7 +100,10 @@ ms.lasthandoff: 03/16/2018
     - 在 Windows Server 2016 和 Windows 10 上，安裝 Docker 引擎及用戶端，然後連接代理程式以收集資訊，並將它傳送至 Log Analytics。 如果您有 Windows 環境，請檢閱[安裝和設定 Windows 容器主機](#install-and-configure-windows-container-hosts)。
   - 若為 Docker 多主機協調流程：
     - 如果您有 Red Hat OpenShift 環境，請檢閱[針對 Red Hat OpenShift 設定 OMS 代理程式](#configure-an-oms-agent-for-red-hat-openshift)。
-    - 如果您有使用 Azure Container Service 的 Kubernetes 叢集，請檢閱[為 Kubernetes 設定 OMS 代理程式](#configure-an-oms-agent-for-kubernetes)。
+    - 如果您有使用 Azure Container Service 的 Kubernetes 叢集：
+       - 檢閱[為 Kubernetes 設定 OMS Linux 代理程式](#configure-an-oms-linux-agent-for-kubernetes)。
+       - 檢閱[為 Kubernetes 設定 OMS Windows 代理程式](#configure-an-oms-windows-agent-for-kubernetes)。
+       - 檢閱[使用 Helm 在 Linux Kubernetes 上部署 OMS 代理程式](#use-helm-to-deploy-oms-agent-on-linux-kubernetes)。
     - 如果您擁有 Azure Container Service DC/OS 叢集，請深入了解[使用 Operations Management Suite 監視 Azure Container Service DC/OS 叢集](../container-service/dcos-swarm/container-service-monitoring-oms.md)。
     - 如果您有 Docker Swarm 模式環境，詳細資訊請參閱[為 Docker Swarm 設定 OMS 代理程式](#configure-an-oms-agent-for-docker-swarm)。
     - 如果您有 Service Fabric 叢集，請在[使用 OMS Log Analytics 監視容器](../service-fabric/service-fabric-diagnostics-oms-containers.md)中深入了解。
@@ -387,7 +390,7 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-#### <a name="configure-an-oms-agent-for-windows-kubernetes"></a>為 Windows Kubernetes 設定 OMS 代理程式
+#### <a name="configure-an-oms-windows-agent-for-kubernetes"></a>為 Kubernetes 設定 OMS Windows 代理程式
 針對 Kubernetes，您可以使用指令碼為工作區 ID 與主索引鍵產生密碼 YAML 檔案，來安裝 OMS 代理程式。 [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) 頁面含有可搭配祕密資訊使用的檔案。  您必須分別為主要節點和代理程式節點安裝 OMS 代理程式。  
 
 1. 若要使用在主要節點上使用祕密資訊的 OMS 代理程式 DaemonSet，請先登入並建立祕密。
@@ -544,15 +547,15 @@ KEY:    88 bytes
 
 | 資料類型 | 記錄檔搜尋中的資料類型 | 欄位 |
 | --- | --- | --- |
-| 主機和容器的效能 | `Type=Perf` | Computer、ObjectName、CounterName &#40;%Processor Time、Disk Reads MB、Disk Writes MB、Memory Usage MB、Network Receive Bytes、Network Send Bytes、Processor Usage sec、Network&#41;、CounterValue、TimeGenerated、CounterPath、SourceSystem |
-| 容器清查 | `Type=ContainerInventory` | TimeGenerated、Computer、container name、ContainerHostname、Image、ImageTag、ContainerState、ExitCode、EnvironmentVar、Command、CreatedTime、StartedTime、FinishedTime、SourceSystem、ContainerID、ImageID |
-| 容器映像清查 | `Type=ContainerImageInventory` | TimeGenerated、Computer、Image、ImageTag、ImageSize、VirtualSize、Running、Paused、Stopped、Failed、SourceSystem、ImageID、TotalContainer |
-| 容器記錄檔 | `Type=ContainerLog` | TimeGenerated、Computer、image ID、container name、LogEntrySource、LogEntry、SourceSystem、ContainerID |
-| 容器服務記錄檔 | `Type=ContainerServiceLog`  | TimeGenerated、Computer、TimeOfCommand、Image、Command、SourceSystem、ContainerID |
-| 容器節點清查 | `Type=ContainerNodeInventory_CL`| TimeGenerated、Computer、ClassName_s、DockerVersion_s、OperatingSystem_s、Volume_s、Network_s、NodeRole_s、OrchestratorType_s、InstanceID_g、SourceSystem|
-| Kubernetes 清查 | `Type=KubePodInventory_CL` | TimeGenerated、Computer、PodLabel_deployment_s、PodLabel_deploymentconfig_s、PodLabel_docker_registry_s、Name_s、Namespace_s、PodStatus_s、PodIp_s、PodUid_g、PodCreationTimeStamp_t、SourceSystem |
-| 容器流程 | `Type=ContainerProcess_CL` | TimeGenerated、Computer、Pod_s、Namespace_s、ClassName_s、InstanceID_s、Uid_s、PID_s、PPID_s、C_s、STIME_s、Tty_s、TIME_s、Cmd_s、Id_s、Name_s、SourceSystem |
-| Kubernetes 事件 | `Type=KubeEvents_CL` | TimeGenerated、Computer、Name_s、ObjectKind_s、Namespace_s、Reason_s、Type_s、SourceComponent_s、SourceSystem、Message |
+| 主機和容器的效能 | `Perf` | Computer、ObjectName、CounterName &#40;%Processor Time、Disk Reads MB、Disk Writes MB、Memory Usage MB、Network Receive Bytes、Network Send Bytes、Processor Usage sec、Network&#41;、CounterValue、TimeGenerated、CounterPath、SourceSystem |
+| 容器清查 | `ContainerInventory` | TimeGenerated、Computer、container name、ContainerHostname、Image、ImageTag、ContainerState、ExitCode、EnvironmentVar、Command、CreatedTime、StartedTime、FinishedTime、SourceSystem、ContainerID、ImageID |
+| 容器映像清查 | `ContainerImageInventory` | TimeGenerated、Computer、Image、ImageTag、ImageSize、VirtualSize、Running、Paused、Stopped、Failed、SourceSystem、ImageID、TotalContainer |
+| 容器記錄檔 | `ContainerLog` | TimeGenerated、Computer、image ID、container name、LogEntrySource、LogEntry、SourceSystem、ContainerID |
+| 容器服務記錄檔 | `ContainerServiceLog`  | TimeGenerated、Computer、TimeOfCommand、Image、Command、SourceSystem、ContainerID |
+| 容器節點清查 | `ContainerNodeInventory_CL`| TimeGenerated、Computer、ClassName_s、DockerVersion_s、OperatingSystem_s、Volume_s、Network_s、NodeRole_s、OrchestratorType_s、InstanceID_g、SourceSystem|
+| Kubernetes 清查 | `KubePodInventory_CL` | TimeGenerated、Computer、PodLabel_deployment_s、PodLabel_deploymentconfig_s、PodLabel_docker_registry_s、Name_s、Namespace_s、PodStatus_s、PodIp_s、PodUid_g、PodCreationTimeStamp_t、SourceSystem |
+| 容器流程 | `ContainerProcess_CL` | TimeGenerated、Computer、Pod_s、Namespace_s、ClassName_s、InstanceID_s、Uid_s、PID_s、PPID_s、C_s、STIME_s、Tty_s、TIME_s、Cmd_s、Id_s、Name_s、SourceSystem |
+| Kubernetes 事件 | `KubeEvents_CL` | TimeGenerated、Computer、Name_s、ObjectKind_s、Namespace_s、Reason_s、Type_s、SourceComponent_s、SourceSystem、Message |
 
 附加到 PodLabel 資料類型的標籤是您自己的自訂標籤。 資料表中所顯示的附加 PodLabel 標籤就是範例。 因此，`PodLabel_deployment_s`、`PodLabel_deploymentconfig_s`、`PodLabel_docker_registry_s` 在環境的資料集中會有所不同，且一般而言會類似 `PodLabel_yourlabel_s`。
 
@@ -607,7 +610,7 @@ KEY:    88 bytes
    ![容器狀態](./media/log-analytics-containers/containers-log-search.png)
 3. 接下來，按一下失敗容器的彙總值，以檢視其他的資訊。 展開 [顯示更多] 以檢視映像識別碼。  
    ![失敗的容器](./media/log-analytics-containers/containers-state-failed.png)  
-4. 接下來，在搜尋查詢中輸入下列內容。 `Type=ContainerInventory <ImageID>`可查看關於映像的詳細資料，例如停止和失敗映像的映像大小與數目。  
+4. 接下來，在搜尋查詢中輸入下列內容。 `ContainerInventory <ImageID>`可查看關於映像的詳細資料，例如停止和失敗映像的映像大小與數目。  
    ![失敗的容器](./media/log-analytics-containers/containers-failed04.png)
 
 ## <a name="search-logs-for-container-data"></a>搜尋容器資料的記錄檔
@@ -625,17 +628,17 @@ KEY:    88 bytes
 
 
 ### <a name="to-search-logs-for-container-data"></a>搜尋容器資料的記錄檔
-* 選擇您知道最近失敗的映像並尋找其錯誤記錄檔。 首先，透過 **ContainerInventory** 搜尋來尋找正在執行該映像的容器名稱。 例如，搜尋 `Type=ContainerInventory ubuntu Failed`  
+* 選擇您知道最近失敗的映像並尋找其錯誤記錄檔。 首先，透過 **ContainerInventory** 搜尋來尋找正在執行該映像的容器名稱。 例如，搜尋 `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![搜尋 Ubuntu 容器](./media/log-analytics-containers/search-ubuntu.png)
 
-  [名稱] 旁的容器名稱，並搜尋其記錄。 在此範例中為 `Type=ContainerLog cranky_stonebreaker`。
+  [名稱] 旁的容器名稱，並搜尋其記錄。 在此範例中為 `ContainerLog | where Name == "cranky_stonebreaker"`。
 
 **檢視效能資訊**
 
 當您開始建構查詢時，這有助於先查看各種可能。 例如，若要查看所有效能資料，請輸入下列搜尋查詢，嘗試進行廣泛查詢。
 
 ```
-Type=Perf
+Perf
 ```
 
 ![容器效能](./media/log-analytics-containers/containers-perf01.png)
@@ -643,7 +646,7 @@ Type=Perf
 您可以輸入查詢右邊的名稱，將您所見的效能資料範圍限制於特定容器。
 
 ```
-Type=Perf <containerName>
+Perf <containerName>
 ```
 
 其顯示針對個別容器所收集的效能計量清單。
@@ -652,8 +655,6 @@ Type=Perf <containerName>
 
 ## <a name="example-log-search-queries"></a>範例記錄檔搜尋查詢
 從一或兩個範例開始建置查詢，然後加以修改以符合您的環境，通常很實用。 首先，您可以實驗 [查詢範例] 區域，協助您建置更進階的查詢。
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![容器查詢](./media/log-analytics-containers/containers-queries.png)
 

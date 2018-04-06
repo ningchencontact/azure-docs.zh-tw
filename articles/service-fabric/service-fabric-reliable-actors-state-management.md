@@ -1,11 +1,11 @@
 ---
-title: "Reliable Actors 狀態管理 | Microsoft Docs"
-description: "說明如何管理、保存及且複寫 Reliable Actors 狀態以提供高可用性。"
+title: Reliable Actors 狀態管理 | Microsoft Docs
+description: 說明如何管理、保存及且複寫 Reliable Actors 狀態以提供高可用性。
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f196b2e54efc5ecbbd93e48e1f115edb99e5c858
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d5d38e7fa80db3484c397d9840bbc6092e4f18bb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors 狀態管理
 Reliable Actors 是可封裝邏輯和狀態的單一執行緒物件。 由於動作項目會在 Reliable Services 上執行，因此，它們可以利用相同的持續性和複寫機制，以可靠的方式維護狀態。 如此一來，動作項目就不會在失敗之後、在記憶體回收之後重新啟動，或者因為資源平衡和升級的緣故而在叢集中的節點之間移動時，遺失它們的狀態。
@@ -111,299 +111,7 @@ class MyActorImpl extends FabricActor implements MyActor
 
 狀態管理員會公開一般字典方法來管理狀態，類似於在可靠的字典中找到的項目。
 
-## <a name="accessing-state"></a>存取狀態
-狀態可以透過狀態管理員依索引鍵來存取。 狀態管理員方法全都是非同步的，因為當動作項目具有保存的狀態時，它們可能需要磁碟 I/O。 第一次存取時，會將狀態物件快取於記憶體中。 重複存取作業會從記憶體中直接存取物件並以同步方式傳回，而不會造成磁碟 I/O 或非同步內容切換的負擔。 狀態物件會在下列情況中從快取移除︰
-
-* 從狀態管理員中擷取物件之後，動作項目方法會擲回未處理的例外狀況。
-* 動作項目會在已停用之後或因為失敗而重新啟動。
-* 狀態供應器會將狀態分頁到磁碟。 這個行為取決於狀態供應器實作。 `Persisted` 設定的預設狀態供應器具有這個行為。
-
-如果索引鍵的項目不存在，您可以使用會擲回 `KeyNotFoundException`(C#) 或 `NoSuchElementException`(Java) 的標準 *Get* 作業來擷取狀態：
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task<int> GetCountAsync()
-    {
-        return this.StateManager.GetStateAsync<int>("MyState");
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture<Integer> getCountAsync()
-    {
-        return this.stateManager().getStateAsync("MyState");
-    }
-}
-```
-
-如果索引鍵的項目不存在，您也可以使用不會擲回任何項目的 *TryGet* 方法來擷取狀態：
-
-```csharp
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task<int> GetCountAsync()
-    {
-        ConditionalValue<int> result = await this.StateManager.TryGetStateAsync<int>("MyState");
-        if (result.HasValue)
-        {
-            return result.Value;
-        }
-
-        return 0;
-    }
-}
-```
-```Java
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture<Integer> getCountAsync()
-    {
-        return this.stateManager().<Integer>tryGetStateAsync("MyState").thenApply(result -> {
-            if (result.hasValue()) {
-                return result.getValue();
-            } else {
-                return 0;
-            });
-    }
-}
-```
-
-## <a name="saving-state"></a>儲存狀態
-狀態管理員擷取方法會傳回本機記憶體中物件的參考。 在本機記憶體中單獨修改此物件並不會永久儲存該物件。 從狀態管理員中擷取並修改物件時，必須將它重新插入狀態管理員，才能永久儲存。
-
-您可以使用無條件的 *Set* 來插入狀態，這相當於 `dictionary["key"] = value` 語法︰
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task SetCountAsync(int value)
-    {
-        return this.StateManager.SetStateAsync<int>("MyState", value);
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture setCountAsync(int value)
-    {
-        return this.stateManager().setStateAsync("MyState", value);
-    }
-}
-```
-
-您可以使用 *Add* 方法來新增狀態。 這個方法會在它新增已存在的索引鍵時擲回 `InvalidOperationException`(C#) 或 `IllegalStateException`(Java)。
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task AddCountAsync(int value)
-    {
-        return this.StateManager.AddStateAsync<int>("MyState", value);
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture addCountAsync(int value)
-    {
-        return this.stateManager().addOrUpdateStateAsync("MyState", value, (key, old_value) -> old_value + value);
-    }
-}
-```
-
-您也可以使用 *TryAdd* 方法來新增狀態。 此方法不會在它嘗試新增已存在的索引鍵時擲回任何項目。
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task AddCountAsync(int value)
-    {
-        bool result = await this.StateManager.TryAddStateAsync<int>("MyState", value);
-
-        if (result)
-        {
-            // Added successfully!
-        }
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture addCountAsync(int value)
-    {
-        return this.stateManager().tryAddStateAsync("MyState", value).thenApply((result)->{
-            if(result)
-            {
-                // Added successfully!
-            }
-        });
-    }
-}
-```
-
-在動作項目方法結束時，狀態管理員會自動儲存透過插入或更新作業所新增或修改的任何值。 根據所使用的設定，「儲存」可以包括保存到磁碟與複本。 尚未經過修改的值不會保存或複寫。 如果未修改任何值，儲存作業就不會有任何動作。 如果儲存失敗，將會捨棄已修改的狀態並重新載入原始的狀態。
-
-您也可以呼叫動作項目基底上的 `SaveStateAsync` 方法來手動儲存狀態︰
-
-```csharp
-async Task IMyActor.SetCountAsync(int count)
-{
-    await this.StateManager.AddOrUpdateStateAsync("count", count, (key, value) => count > value ? count : value);
-
-    await this.SaveStateAsync();
-}
-```
-```Java
-interface MyActor {
-    CompletableFuture setCountAsync(int count)
-    {
-        this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value).thenApply();
-
-        this.stateManager().saveStateAsync().thenApply();
-    }
-}
-```
-
-## <a name="removing-state"></a>移除狀態
-您可以藉由呼叫 *Remove* 方法，從動作項目的狀態管理員中永久移除狀態。 這個方法會在它嘗試移除不存在的索引鍵時擲回 `KeyNotFoundException`(C#) 或 `NoSuchElementException`(Java)。
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task RemoveCountAsync()
-    {
-        return this.StateManager.RemoveStateAsync("MyState");
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture removeCountAsync()
-    {
-        return this.stateManager().removeStateAsync("MyState");
-    }
-}
-```
-
-您也可以使用 *TryRemove* 方法永久移除狀態。 此方法不會在它嘗試移除不存在的索引鍵時擲回任何項目。
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task RemoveCountAsync()
-    {
-        bool result = await this.StateManager.TryRemoveStateAsync("MyState");
-
-        if (result)
-        {
-            // State removed!
-        }
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture removeCountAsync()
-    {
-        return this.stateManager().tryRemoveStateAsync("MyState").thenApply((result)->{
-            if(result)
-            {
-                // State removed!
-            }
-        });
-    }
-}
-```
+如需管理動作項目狀態的範例，請參閱[存取、儲存和移除 Reliable Actors](service-fabric-reliable-actors-access-save-remove-state.md) (英文)。
 
 ## <a name="best-practices"></a>最佳作法
 以下是管理動作項目狀態的一些建議做法和疑難排解祕訣。
@@ -412,7 +120,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 這對於應用程式的效能和資源使用量而言很重要。 當動作項目的「具名狀態」有任何寫入/更新時，對應至該「具名狀態」的整個值會序列化，並透過網路傳送到次要複本。  次要複本會將它寫入至本機磁碟，並回覆回到主要複本。 當主要複本收到來自次要複本仲裁的通知時，它會將狀態寫入到其本機磁碟。 例如，假設此值是有 20 個成員且大小為 1 MB 的類別。 即使您只修改其中一個大小為 1 KB 的類別成員，您最終會在序列化和網路及磁碟寫入上付出整個 1 MB 的代價。 同樣地，如果此值為集合 (例如清單、陣列或字典)，即使您只修改它的其中一個成員，您仍需付出完整集合的成本。 動作項目類別的 StateManager 介面就像字典。 您一律應在此字典上建立資料結構的模型，以代表動作項目的狀態。
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>正確管理動作項目的生命週期
-您應該有關於管理動作項目服務的每個資料分割中狀態大小的清除原則。 動作項目服務應該有固定的動作項目數目，且儘可能重複使用它們。 如果您持續建立新的動作項目，則必須在它們完成其工作後加以刪除。 動作項目架構會儲存有關每個現有動作項目的一些中繼資料。 刪除動作項目的所有狀態，並不會移除有關該動作項目的中繼資料。 您必須刪除動作項目 (請參閱[刪除動作項目及其狀態](service-fabric-reliable-actors-lifecycle.md#deleting-actors-and-their-state))，以移除儲存在系統中有關它的所有資訊。 有一項額外檢查：您應該偶爾查詢動作項目服務 (請參閱[列舉動作項目](service-fabric-reliable-actors-platform.md))，以確保動作項目數目在預期的範圍內。
+您應該有關於管理動作項目服務的每個資料分割中狀態大小的清除原則。 動作項目服務應該有固定的動作項目數目，且儘可能重複使用它們。 如果您持續建立新的動作項目，則必須在它們完成其工作後加以刪除。 動作項目架構會儲存有關每個現有動作項目的一些中繼資料。 刪除動作項目的所有狀態，並不會移除有關該動作項目的中繼資料。 您必須刪除動作項目 (請參閱[刪除動作項目及其狀態](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state))，以移除儲存在系統中有關它的所有資訊。 有一項額外檢查：您應該偶爾查詢動作項目服務 (請參閱[列舉動作項目](service-fabric-reliable-actors-platform.md))，以確保動作項目數目在預期的範圍內。
  
 如果您看到動作項目服務的資料庫檔案大小增加超過預期的大小，請確定您遵循上述的指導方針。 如果您遵循這些指導方針，但仍有資料庫檔案大小問題，您應該[開啟支援票證](service-fabric-support.md)，向產品小組尋求協助。
 

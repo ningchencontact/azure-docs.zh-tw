@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 9d57f572ba159191f5b634b5ea604563ac2f7801
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3991312d7f7609bb0a206ccc0ecc67123ebec469
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>在 AKS 上執行 Apache Spark 作業
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/16/2018
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
 
 Spark 會用於大規模的資料處理，而且需要將 Kubernetes 節點的大小調整為符合 Spark 資源需求。 針對您的 Azure Container Service (AKS) 節點，我們建議使用 `Standard_D3_v2` 大小的最小值。
- 
+
 如果您需要符合此最小值建議的 AKS 叢集，請執行下列命令。
 
 建立叢集的資源群組。
@@ -58,12 +58,12 @@ az aks get-credentials --resource-group mySparkCluster --name mySparkCluster
 
 ## <a name="build-the-spark-source"></a>建置 Spark 來源
 
-在 AKS 叢集上執行 Spark 作業之前，您需要建置 Spark 原始程式碼，並將其封裝至容器映像。 Spark 來源包含可用來完成此程序的指令碼。 
+在 AKS 叢集上執行 Spark 作業之前，您需要建置 Spark 原始程式碼，並將其封裝至容器映像。 Spark 來源包含可用來完成此程序的指令碼。
 
 將 Spark 專案存放庫複製到您的開發系統。
 
 ```bash
-git clone https://github.com/apache/spark
+git clone -b branch-2.3 https://github.com/apache/spark
 ```
 
 變更為已複製之存放庫的目錄，然後將 Spark 來源的路徑儲存為變數。
@@ -73,7 +73,7 @@ cd spark
 sparkdir=$(pwd)
 ```
 
-如果您已安裝多個 JDK 版本，針對目前的工作階段設定 `JAVA_HOME` 使用第 8 版。 
+如果您已安裝多個 JDK 版本，針對目前的工作階段設定 `JAVA_HOME` 使用第 8 版。
 
 ```bash
 export JAVA_HOME=`/usr/libexec/java_home -d 64 -v "1.8*"`
@@ -85,16 +85,21 @@ export JAVA_HOME=`/usr/libexec/java_home -d 64 -v "1.8*"`
 ./build/mvn -Pkubernetes -DskipTests clean package
 ```
 
-下列命令會建立 Spark 容器映像，並將它推送到容器映像登錄。 以您的容器登錄名稱取代 `registry.example.com`。 如果使用 Docker Hub，這個值會是登錄名稱。 如果使用 Azure Container Registry (ACR)，這個值會是 ACR 登入伺服器名稱。
+下列命令會建立 Spark 容器映像，並將之推送到容器映像登錄。 請使用容器登錄的名稱取代 `registry.example.com`，並使用想要使用的標記取代 `v1`。 如果使用 Docker Hub，這個值會是登錄名稱。 如果使用 Azure Container Registry (ACR)，這個值會是 ACR 登入伺服器名稱。
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 build
+REGISTRY_NAME=registry.example.com
+REGISTRY_TAG=v1
+```
+
+```bash
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG build
 ```
 
 將容器映像推送到您的容器映像登錄。
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 push
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG push
 ```
 
 ## <a name="prepare-a-spark-job"></a>準備 Spark 作業
@@ -196,18 +201,10 @@ jarUrl=$(az storage blob url --container-name $CONTAINER_NAME --name $BLOB_NAME 
 
 ## <a name="submit-a-spark-job"></a>提交 Spark 作業
 
-提交 Spark 作業之前，您需要 Kubernetes API 伺服器位址。 使用 `kubectl cluster-info` 命令來取得此位址。
-
-探索 Kubernetes API 伺服器執行所在的 URL。
+使用下列程式碼，在另一個命令列中啟動 kube proxy。
 
 ```bash
-kubectl cluster-info
-```
-
-請記下位址和連接埠。
-
-```bash
-Kubernetes master is running at https://<your api server>:443
+kubectl proxy
 ```
 
 瀏覽回到 Spark 存放庫的根目錄。
@@ -216,18 +213,16 @@ Kubernetes master is running at https://<your api server>:443
 cd $sparkdir
 ```
 
-使用 `spark-submit` 提交作業。 
-
-以您的 API 伺服器位址和連接埠取代 `<kubernetes-api-server>` 值。 以您的容器映像名稱 (格式為 `<your container registry name>/spark:<tag>`) 取代 `<spark-image>`。
+使用 `spark-submit` 提交作業。
 
 ```bash
 ./bin/spark-submit \
-  --master k8s://https://<k8s-apiserver-host>:<k8s-apiserver-port> \
+  --master k8s://http://127.0.0.1:8001 \
   --deploy-mode cluster \
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
-  --conf spark.kubernetes.container.image=<spark-image> \
+  --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```
 
@@ -315,6 +310,9 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
     --conf spark.kubernetes.container.image=<spark-image> \
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```
+
+> [!WARNING]
+> 引述自 Spark [文件][spark-docs]：「Kubernetes 排程器目前為實驗性。 在未來的版本中，可組態、容器映像和進入點可能會有行為上的變更。」
 
 ## <a name="next-steps"></a>後續步驟
 

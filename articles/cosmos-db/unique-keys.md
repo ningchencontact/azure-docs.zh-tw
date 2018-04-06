@@ -1,25 +1,25 @@
 ---
-title: "Azure Cosmos DB 中的唯一索引鍵 | Microsoft Docs"
-description: "了解如何在 Azure Cosmos DB 資料庫中使用唯一索引鍵。"
+title: Azure Cosmos DB 中的唯一索引鍵 | Microsoft Docs
+description: 了解如何在 Azure Cosmos DB 資料庫中使用唯一索引鍵。
 services: cosmos-db
-keywords: "唯一索引鍵條件約束, 違反唯一索引鍵條件約束"
+keywords: 唯一索引鍵條件約束, 違反唯一索引鍵條件約束
 author: rafats
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0c80ee13298c2c749c5f7eb7e55d1d77a8d6a34e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一索引鍵
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/14/2017
 
 每個唯一索引鍵最多可以包含 16 個路徑值 (例如 /firstName、/lastName、/address/zipCode 等)。 
 
-每個唯一索引鍵原則最多可以有 10 個唯一索引鍵條件約束或組合。 因此先前使用名字、姓氏和電子郵件地址的範例只是一個條件約束，而且使用 16 個可能路徑中的三個。 
+每個唯一索引鍵原則最多可以有 10 個唯一索引鍵條件約束或組合，而且所有唯一索引屬性的結合路徑不應該超過 60 個字元。 因此先前使用名字、姓氏和電子郵件地址的範例只是一個條件約束，而且使用 16 個可能路徑中的三個。 
 
 當容器上有唯一索引鍵原則時，建立、更新及刪除項目的要求單位費用稍微高一些。 
 

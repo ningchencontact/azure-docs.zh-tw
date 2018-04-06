@@ -1,6 +1,6 @@
 ---
-title: "在適用於 MySQL 的 Azure 資料庫中執行匯入與匯出"
-description: "本文說明在適用於 MySQL 的 Azure 資料庫中，使用 MySQL Workbench 之類的工具匯入與匯出資料庫的常見方式。"
+title: 在適用於 MySQL 的 Azure 資料庫中執行匯入與匯出
+description: 本文說明在適用於 MySQL 的 Azure 資料庫中，使用 MySQL Workbench 之類的工具匯入與匯出資料庫的常見方式。
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: f15811cd44e405ee33d9ba3d565c2982e71a80c0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 74b8c6afc5167225414f467f76f08c0e53bbade5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>使用匯入和匯出移轉您的 MySQL 資料庫
 本文說明使用 MySQL Workbench 將資料匯入與匯出適用於 MySQL 伺服器的 Azure 資料庫的兩個常見方式。 
@@ -33,9 +33,9 @@ ms.lasthandoff: 02/28/2018
 ## <a name="create-a-database-on-the-azure-database-for-mysql-server"></a>在適用於 MySQL 伺服器的 Azure 資料庫上建立資料庫
 在您要移轉資料的適用於 MySQL 伺服器的 Azure 資料庫上建立空白資料庫。 使用例如 MySQL Workbench、Toad 或 Navicat 的工具來建立資料庫。 資料庫名稱可以與包含傾印資料的資料庫名稱相同，或者您可以建立名稱不同的資料庫。
 
-若要連線，在適用於 MySQL 的 Azure 資料庫中的 [屬性] 窗格中找到連線資訊。
+若要連線，在適用於 MySQL 之 Azure 資料庫的 [概觀] 中找到連線資訊。
 
-![在 Azure 入口網站中尋找連線資訊](./media/concepts-migrate-import-export/1_server-properties-name-login.png)
+![在 Azure 入口網站中尋找連線資訊](./media/concepts-migrate-import-export/1_server-overview-name-login.png)
 
 將連線資訊新增至 MySQL Workbench。
 

@@ -1,33 +1,32 @@
 ---
-title: "建立活動記錄警示 | Microsoft Docs"
-description: "活動記錄中發生特定事件時，透過 SMS、Webhook 及電子郵件收到通知。"
+title: 建立傳統的活動記錄警示 | Microsoft Docs
+description: 活動記錄中發生特定事件時，透過 SMS、Webhook 及電子郵件收到通知。
 author: johnkemnetz
-manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 03/18/2017
 ms.author: johnkem
-ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0d92fcd6d3cbd50a2bcb8166b27b11bc86aad83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-activity-log-alerts"></a>建立活動記錄警示
+# <a name="create-activity-log-alerts-classic"></a>建立活動記錄警示 (傳統)
 
 ## <a name="overview"></a>概觀
 活動記錄警示是發生符合警示中指定條件的新活動記錄事件時所啟動的警示。 它們是 Azure 資源，因此可以使用 Azure Resource Manager 範本來加以建立。 也可以在 Azure 入口網站中將它們建立、更新或刪除。 本文介紹活動記錄警示背後的概念。 然後將說明如何使用 Azure 入口網站來設定活動記錄事件的警示。
 
 > [!NOTE]
 
->  [警示 (預覽)](monitoring-overview-unified-alerts.md) 目前在建立和管理活動記錄方面，提供加強的體驗。  [深入了解](monitoring-activity-log-alerts-new-experience.md)。
+>  新的[警示](monitoring-overview-unified-alerts.md)體驗已取代此程序。 提供此文章以供先前體驗參考。 [深入了解](monitoring-activity-log-alerts-new-experience.md)。
 
 通常，您在下列情況要建立活動記錄警示來接收通知：
 
@@ -59,11 +58,11 @@ ms.lasthandoff: 02/09/2018
 
 若要深入了解服務健康情況通知，請參閱[在服務健康情況通知上接收活動記錄警示](monitoring-activity-log-alerts-on-service-notifications.md)。
 
-## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>使用 Azure 入口網站為新動作群組建立活動記錄事件的警示
-1. 在 [入口網站](https://portal.azure.com) 中，選取 [監視]。
+## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>使用 Azure 入口網站為新動作群組建立活動記錄事件的警示 (傳統)
+1. 在 [入口網站](https://portal.azure.com) 中，選取 **監視**。
 
     ![監視」服務](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. 在 [活動記錄] 區段中，選取 [警示]。
+2. 在 [活動記錄] 區段中，選取 [警示] (傳統)。
 
     ![「警示」索引標籤](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. 選取 [新增活動記錄警示]，並填寫各欄位。

@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect：針對物件同步處理進行疑難排解 | Microsoft Docs"
-description: "本主題提供如何使用疑難排解工作來針對物件同步處理問題進行疑難排解的步驟。"
+title: Azure AD Connect：針對物件同步處理進行疑難排解 | Microsoft Docs
+description: 本主題提供如何使用疑難排解工作來針對物件同步處理問題進行疑難排解的步驟。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 10ebe039b9d266d15696b397b9cdef9bc7ec2a10
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>針對使用 Azure AD Connect 同步所執行的物件同步處理進行疑難排解
 本文件提供如何使用疑難排解工作來針對物件同步處理問題進行疑難排解的步驟。
 
 ## <a name="troubleshooting-task"></a>疑難排解工作
-對於 <verison> 版或更新版本的 Azure Active Directory (AAD) Connect 部署，請在精靈中使用疑難排解工作，針對物件同步處理問題進行疑難排解。 對於先前的版本，則請以[這裡](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)所述的方式手動疑難排解。
+對於 1.1.749.0 版或更新版本的 Azure Active Directory (AAD) Connect 部署，請在精靈中使用疑難排解工作，針對物件同步處理問題進行疑難排解。 對於先前的版本，則請以[這裡](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)所述的方式手動疑難排解。
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>在精靈中執行疑難排解工作
 若要在精靈中執行疑難排解工作，請執行下列步驟：

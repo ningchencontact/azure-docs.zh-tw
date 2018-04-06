@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f62f6c4b2679457e8aaddb81e8a37622ca878ffc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8ee4af162ddaa64d4dbe83bebbb93e22409f041d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Azure 資料科學虛擬機器簡介
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/28/2018
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>我可以使用資料科學虛擬機器來做什麼？
-資料科學虛擬機器的目標是提供資料專業人員具有友善資料科學環境的所有技能等級和角色。 如果您已自行推出相當的環境，此 VM 可為您節省可觀的時間。 相反地，立即在新建立的 VM 執行個體中啟動您的資料科學專案。 
+資料科學虛擬機器 (DSVM) 的目標在於提供無衝突、預先設定及完全整合的資料科學環境，讓擁有各種技能等級和擔任各種角色的資料專業人員使用。 與其自行推出同等級的工作區，您只要佈建 DSVM 即可，不需要花費好幾天或甚至「好幾週」的時間來安裝、設定及完成套件管理程序。 配置 DSVM 之後，您可以立即開始進行資料科學專案。
 
 資料科學 VM 是針對使用廣泛用途案例而設計和設定的。 您可以在您的專案需要變更時，相應增加或相應減少您的環境。 可以使用您偏好的語言對資料科學工作進行程式設計。 您可以針對您確切的需求安裝其他工具和自訂系統。
 

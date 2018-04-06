@@ -1,21 +1,20 @@
 ---
-title: "建立包含 URL 路徑型路由規則的應用程式閘道 - Azure 入口網站 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站來建立應用程式閘道和虛擬機器擴展集的 URL 路徑型路由規則。"
+title: 建立包含 URL 路徑型路由規則的應用程式閘道 - Azure 入口網站
+description: 了解如何使用 Azure 入口網站來建立應用程式閘道和虛擬機器擴展集的 URL 路徑型路由規則。
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 3/26/2018
+ms.author: victorh
+ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 URL 路徑型路由規則的應用程式閘道
 
@@ -36,7 +35,7 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，網址是 [http://portal.azure.com](http://portal.azure.com)
+在 [http://portal.azure.com](http://portal.azure.com) 上登入 Azure 入口網站
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
@@ -158,9 +157,9 @@ ms.lasthandoff: 02/24/2018
 
     ![在應用程式閘道中測試基底 URL](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. 將 URL 變更為 http://&lt;ip-address&gt;:8080/video/test.htm，將 &lt;ip-address&gt; 取代為您的 IP 位址，然後您會看到類似下列的範例：
+3. 將 URL 變更為 http://&lt;ip-address&gt;:8080/images/test.htm，將 &lt;ip-address&gt; 取代為您的 IP 位址，然後您會看到類似下列的範例：
 
-    ![在應用程式閘道中測試映像 URL](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
+    ![在應用程式閘道中測試影像 URL](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
 4. 將 URL 變更為 http://&lt;ip-address&gt;:8080/video/test.htm，將 &lt;ip-address&gt; 取代為您的 IP 位址，然後您會看到類似下列的範例：
 

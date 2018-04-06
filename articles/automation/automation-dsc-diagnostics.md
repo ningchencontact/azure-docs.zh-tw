@@ -8,17 +8,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ac0da2b73341f0c6ed4f1e99e077996525890ab7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>將 Azure Automation DSC 報表資料轉送到 OMS Log Analytics
+# <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>將 Azure 自動化 DSC 報告資料轉送到 Log Analytics
 
-自動化可以將 DSC 節點狀態資料傳送到您的 Microsoft Operations Management Suite (OMS) Log Analytics 工作區。  
+「自動化」可以將 DSC 節點狀態資料傳送到您的 Log Analytics 工作區。  
 節點以及節點設定中個別 DSC 資源的合規性狀態會顯示在 Azure 入口網站中，或使用 PowerShell 顯示。 透過 Log Analytics，您可以：
 
 * 取得受控節點與個別資源的合規性資訊
@@ -34,7 +32,7 @@ ms.lasthandoff: 03/17/2018
 * 2016 年 11 月或更新版本的 [Azure PowerShell](/powershell/azure/overview) (v2.3.0)。
 * Azure 自動化帳戶。 如需詳細資訊，請參閱[開始使用 Azure 自動化](automation-offering-get-started.md)。
 * 提供 [自動化與控制] 服務的 Log Analytics 工作區。 如需詳細資訊，請參閱[開始使用 Log Analytics](../log-analytics/log-analytics-get-started.md)。
-* 至少一個 Azure Automation DSC 節點。 如需詳細資訊，請參閱[將機器上架交由 Azure Automation DSC 管理](automation-dsc-onboarding.md)。 
+* 至少一個 Azure Automation DSC 節點。 如需詳細資訊，請參閱[將機器上架交由 Azure Automation DSC 管理](automation-dsc-onboarding.md)。
 
 ## <a name="set-up-integration-with-log-analytics"></a>設定與 Log Analytics 整合
 
@@ -191,5 +189,5 @@ Log Analytics 可以為您的 Automation DSC 資料提供更高的操作可見�
 
 * 若要深入了解如何建構不同的搜尋查詢，以及使用 Log Analytics 檢閱 Automation DSC 記錄檔，請參閱 [Log Analytics 中的記錄檔搜尋](../log-analytics/log-analytics-log-searches.md)。
 * 若要深入了解使用 Azure Automation DSC，請參閱[開始使用 Azure Automation DSC](automation-dsc-getting-started.md)。
-* 若要深入了解 OMS Log Analytics 和資料收集來源，請參閱 [在 Log Analytics 中收集 Azure 儲存體資料概觀](../log-analytics/log-analytics-azure-storage.md)
+* 若要深入了解 Log Analytics 和資料收集來源，請參閱[在 Log Analytics 中收集 Azure 儲存體資料概觀](../log-analytics/log-analytics-azure-storage.md)
 

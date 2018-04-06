@@ -1,24 +1,24 @@
 ---
-title: "在 Azure Service Fabric 中管理多個環境的應用程式 | Microsoft Docs"
-description: "Azure Service Fabric 應用程式可以在任意大小 (從一部機器至數千部機器) 的叢集上執行。 在某些情況下，您會想要針對各種環境以不同的方式設定應用程式。 本文說明如何定義每個環境的不同應用程式參數。"
+title: 在 Azure Service Fabric 中管理多個環境的應用程式 | Microsoft Docs
+description: Azure Service Fabric 應用程式可以在任意大小 (從一部機器至數千部機器) 的叢集上執行。 在某些情況下，您會想要針對各種環境以不同的方式設定應用程式。 本文說明如何定義每個環境的不同應用程式參數。
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 6bc986236d50106485dce151f1f74622f56400c5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a3d0770d3b9c8702dbe4dac86f86030bea4090c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>管理多個環境的應用程式
 
@@ -41,7 +41,7 @@ Azure Service Fabric 叢集可讓您使用任意數量的機器 (從一部至數
 
 > [!NOTE]
 > 並非應用程式及服務資訊清單檔中的所有屬性皆支援參數。
-> 在這些案例中，您必須依賴將字串取代為部署工作流程的一部分。 在 Visual Studio Team Services 中，您可以使用擴充功能，如「取代權杖」：https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens 或您可以在 Jenkins 中執行指令碼工作來取代該值。
+> 在這些案例中，您必須依賴將字串取代為部署工作流程的一部分。 在 Visual Studio Team Services 中，您可以使用擴充功能，如「取代權杖」：https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens，或您可以在 Jenkins 中，執行指令碼工作來取代該值。
 >
 
 ## <a name="specifying-parameters-during-application-creation"></a>在應用程式建立期間指定參數

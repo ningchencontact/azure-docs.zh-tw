@@ -1,18 +1,18 @@
 ---
-title: "關於 Azure 中使用 Azure Site Recovery 進行 Azure 災害復原的網路功能 | Microsoft Docs"
-description: "提供使用 Azure Site Recovery 複寫 Azure VM 的網路功能概觀。"
+title: 關於 Azure 中使用 Azure Site Recovery 進行 Azure 災害復原的網路功能 | Microsoft Docs
+description: 提供使用 Azure Site Recovery 複寫 Azure VM 的網路功能概觀。
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 5ce85761df4e0ad62c22a829f67464a3145fd827
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>關於 Azure 中進行 Azure 複寫的網路功能
 
@@ -154,9 +154,10 @@ IP 位址範圍如下：
 ### <a name="expressroute-configuration"></a>ExpressRoute 設定
 請遵循 ExpressRoute 組態的下列最佳做法：
 
-- 您需要在來源和目標區域中建立 ExpressRoute 線路。 然後，您需要在下列兩者之間建立連線：
-  - 來源虛擬網路與 ExpressRoute 線路。
-  - 目標虛擬網路與 ExpressRoute 線路。
+- 在來源和目標區域兩地建立 ExpressRoute 線路。 然後，您需要在下列兩者之間建立連線：
+    - 來源虛擬網路與內部部署網路；透過來源區域中的 ExpressRoute 線路。
+    - 目標虛擬網路與內部部署網路；透過目標區域中的 ExpressRoute 線路。
+
 
 - 按照 ExpressRoute 標準，您可以在同一個地理政治區域中建立線路。 若要在不同的地理政治區域建立 ExpressRoute 線路，需要 Azure ExpressRoute Premium，這需要增加成本。 (如果您已經使用 ExpressRoute Premium，則不需要額外的成本。)如需詳細資訊，請參閱 [ExpressRoute 位置文件](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region)和 [ExpressRoute 定價](https://azure.microsoft.com/pricing/details/expressroute/)。
 

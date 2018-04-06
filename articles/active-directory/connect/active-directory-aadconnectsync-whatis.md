@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：了解及自訂同步處理 | Microsoft Docs"
-description: "說明 Azure AD Connect 同步處理如何運作及如何自訂。"
+title: Azure AD Connect 同步：了解及自訂同步處理 | Microsoft Docs
+description: 說明 Azure AD Connect 同步處理如何運作及如何自訂。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: d58baa89c9d11b6b7a6bbb3b53974184ef1903b5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a808f929dcd27b53821f59ed8fd3ab67af81a273
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect 同步處理：了解及自訂同步處理
 Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理) 是 Azure AD Connect 的主要元件。 它會負責執行同步處理內部部署環境與 Azure AD 之間識別資料的所有相關作業。 Azure AD Connect 同步處理是 DirSync、Azure AD 同步，以及已設定 Azure Active Directory 連接器之 Forefront Identity Manager 的後續版本。
@@ -46,7 +46,7 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
 | **功能和案例** | |
 | [防止意外刪除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |說明 [防止意外刪除]  功能以及如何加以設定。 |
 | [排程器](active-directory-aadconnectsync-feature-scheduler.md) |描述匯入、同步處理及匯出資料的內建排程器。 |
-| [實作密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md) |說明密碼同步處理的運作方式、實作方式，以及其操作方式及疑難排解方式。 |
+| [實作密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |說明密碼同步處理的運作方式、實作方式，以及其操作方式及疑難排解方式。 |
 | [裝置回寫](active-directory-aadconnect-feature-device-writeback.md) |說明在 Azure AD Connect 中，裝置回寫的運作方式。 |
 | [目錄擴充](active-directory-aadconnectsync-feature-directory-extensions.md) |說明如何使用您自己的自訂屬性擴充 Azure AD 結構描述。 |
 | [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) |描述如何將使用者的 Office 365 資源放在與使用者相同的區域中。 |

@@ -1,12 +1,12 @@
 ---
-title: "針對 Azure 點對站連線問題進行疑難排解| Microsoft Docs"
-description: "了解如何針對點對站連線問題進行疑難排解。"
+title: 針對 Azure 點對站連線問題進行疑難排解| Microsoft Docs
+description: 了解如何針對點對站連線問題進行疑難排解。
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 51076c225167accaf386190eeda4ec159cb5657d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：Azure 點對站連線問題
 
@@ -289,7 +289,7 @@ VPN 用戶端已連線到 Azure 虛擬網路。 不過，用戶端無法存取�
 
 ### <a name="solution"></a>解決方法
 
-若要解決此問題，請確定 Azure 虛擬網路中使用的 Azure DNS 伺服器可以解析本機資源的 DNS 記錄。 若要這樣做，您可以使用 DNS 轉寄站或條件式轉寄站。 如需詳細資訊，請參閱[使用自有 DNS 伺服器的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+若要解決此問題，請確定 Azure 虛擬網路中使用的 Azure DNS 伺服器可以解析本機資源的 DNS 記錄。 若要這樣做，您可以使用 DNS 轉寄站或條件式轉寄站。 如需詳細資訊，請參閱[使用自有 DNS 伺服器的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
 
 ## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>已建立點對站 VPN 連線，但您仍然無法連線到 Azure 資源 
 
@@ -304,7 +304,7 @@ VPN 用戶端已連線到 Azure 虛擬網路。 不過，用戶端無法存取�
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>錯誤：「因為撤銷伺服器已離線，所以撤銷功能無法核對撤銷狀況。(錯誤 0x80092013)」
 
 ### <a name="causes"></a>原因
-如果用戶端無法存取 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.cr， 就會出現這個錯誤訊息。撤銷檢查需要存取這兩個網站。  此問題通常是在已設定 Proxy 伺服器的用戶端上發生。 在某些環境中，如果要求不會經過 Proxy 伺服器，該要求就會在邊緣防火牆中被拒絕。
+如果用戶端無法存取 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.cr，就會出現這個錯誤訊息。撤銷檢查需要存取這兩個網站。  此問題通常是在已設定 Proxy 伺服器的用戶端上發生。 在某些環境中，如果要求不會經過 Proxy 伺服器，該要求就會在邊緣防火牆中被拒絕。
 
 ### <a name="solution"></a>解決方法
 

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>待用資料的 Azure 儲存體服務加密
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 03/16/2018
 
 **問：如何加密 Resource Manager 儲存體帳戶中的資料？**
 
-答：預設會針對所有儲存體帳戶 (傳統和 Resource Manager) 啟用「儲存體服務加密」。 不過，不會加密現有的資料。 若要加密現有的資料，您可以將該資料複製到另一個名稱或另一個容器，然後移除未加密的版本。 
+答：所有儲存體帳戶 (傳統和 Resource Manager) 的「儲存體服務加密」預設會啟用，背景加密程序將採用回溯方式，為啟用加密之前在儲存體帳戶中建立的所有現有檔案加密。
 
 **問︰是否可以使用 Azure PowerShell 和 Azure CLI 來建立儲存體帳戶並啟用「儲存體服務加密」？**
 

@@ -1,6 +1,6 @@
 ---
-title: "Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密 | Microsoft Docs"
-description: "本文提供 Windows 和 Linux IaaS VM 適用的 Microsoft Azure 磁碟加密概觀。"
+title: Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密 | Microsoft Docs
+description: 本文提供 Windows 和 Linux IaaS VM 適用的 Microsoft Azure 磁碟加密概觀。
 services: security
 documentationcenter: na
 author: DevTiw
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 03/13/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 73212a231d11136854115922df423a7cb5b08f05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密
 Microsoft Azure 強烈承諾確保您的資料隱私權、資料主權，並透過一系列進階技術來加密、控制和管理加密金鑰、控制和稽核資料存取，讓您控制您的 Azure 託管資料。 這會提供 Azure 客戶靈活度，可選擇最符合其商務需求的解決方案。 本文中，我們將為您介紹新的技術解決方案「Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密」，以協助保護及保障您的資料，以便符合組織的安全性和符合性的承諾。 本文提供有關如何使用 Azure 磁碟加密功能的詳細指引，包括支援的案例和使用者體驗。
@@ -156,13 +156,13 @@ Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密解決方案包含：
 * Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓它們可供虛擬機器用來開機和解密虛擬機器作業系統磁碟區。 若要授與權限至 Azure 平台，請設定金鑰保存庫中的 **EnabledForDiskEncryption** 屬性。 如需詳細資訊，請參閱＜附錄＞中的**安裝及設定 Azure 磁碟加密的金鑰保存庫**。
 * 您的金鑰保存庫密碼和 KEK URL 必須已設定版本。 Azure 會強制執行設定版本的這項限制。 針對有效的密碼和 KEK URL，請參閱下列範例︰
 
-  * 有效祕密 URL 的範例︰https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-  * 有效 KEK URL 的範例：https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  * 有效祕密 URL 的範例：*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * 有效 KEK URL 的範例：*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Azure 磁碟加密不支援將連接埠號碼指定為金鑰保存庫密碼和 KEK URL 的一部分。 如需不支援和支援的金鑰保存庫 URL 範例，請參閱下列各項︰
 
-  * 無法接受的金鑰保存庫 URL https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-  * 可接受的金鑰保存庫 URL：https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  * 無法接受的金鑰保存庫 URL *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * 可接受的金鑰保存庫 URL：*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * 若要啟用 Azure 磁碟加密功能，IaaS VM 必須符合下列網路端點組態需求：
   * 若要取得用來連線至金鑰保存庫的權杖，IaaS VM 必須能連線至 Azure Active Directory 端點 \[login.microsoftonline.com\]。
@@ -172,7 +172,7 @@ Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密解決方案包含：
   > [!NOTE]
   > 如果您的安全性原則會限制從 Azure VM 至網際網路的存取，您可以解析前述的 URI，並設定特定的規則以允許和這些 IP 的輸出連線。
   >
-  >設定與存取防火牆後的 Azure 金鑰保存庫 (https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
+  >若要在防火牆後設定並存取 Azure Key Vault (https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
 
 * 使用最新版的 Azure PowerShell SDK 版本來設定 Azure 磁碟加密。 下載最新版的 [Azure PowerShell 版本](https://github.com/Azure/azure-powershell/releases)
 
@@ -193,7 +193,7 @@ Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密解決方案包含：
 * 若要使用 Azure CLI 設定磁碟加密必要條件，請參閱[此 Bash 指令碼](https://github.com/ejarvi/ade-cli-getting-started)。
 * 若要使用 Azure 備份服務來備份和還原已加密的 VM，在透過 Azure 磁碟加密啟用加密時，請使用 Azure 磁碟加密金鑰組態來加密您的 VM。 備份服務支援使用非 KEK 或 KEK 組態加密的 VM。 請參閱[如何使用 Azure 備份加密來備份與還原加密的虛擬機器](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) (英文)。
 
-* 在加密 Linux 作業系統磁碟區時請注意，您目前需要在加密程序結束時重新啟動 VM。 這可以透過入口網站、PowerShell 或 CLI 來完成。   若要追蹤加密進度，請定期輪詢 Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus 所傳回的狀態訊息。  加密完成後，此命令所傳回的狀態訊息將會指出這一點。  例如，「ProgressMessage：已成功加密作業系統磁碟，請重新啟動 VM」。此時即可重新啟動及使用 VM。  
+* 在加密 Linux 作業系統磁碟區時請注意，您目前需要在加密程序結束時重新啟動 VM。 這可以透過入口網站、PowerShell 或 CLI 來完成。   若要追蹤加密進度，請定期輪詢 Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus 傳回的狀態訊息。  加密完成後，此命令傳回的狀態訊息將會指出這一點。 例如，「ProgressMessage：已成功加密作業系統磁碟，請重新啟動 VM」。此時即可重新啟動及使用 VM。  
 
 * 適用於 Linux 的 Azure 磁碟加密會要求資料磁碟先在 Linux 中擁有已掛接的檔案系統，然後才會執行加密
 
@@ -224,25 +224,25 @@ Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密解決方案包含：
 ##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-portal"></a>從 Azure 入口網站設定 Azure AD 用戶端識別碼和密碼
 您也可以使用 Azure 入口網站設定您的 Azure AD 用戶端識別碼和密碼。 若要執行這項工作，請執行下列步驟︰
 
-1. 按一下 [Active Directory] 索引標籤。
+1. 選取 [所有服務] > [Azure Active Directory]
 
- ![Azure 磁碟加密](./media/azure-security-disk-encryption/disk-encryption-fig3.png)
+ ![Azure 磁碟加密](./media/azure-security-disk-encryption/aad-service.png)
 
-2. 按一下 [新增應用程式]，並輸入應用程式名稱。
+2. 選取 [應用程式註冊] > [新增應用程式註冊]
 
- ![Azure 磁碟加密](./media/azure-security-disk-encryption/disk-encryption-fig4.png)
+ ![Azure 磁碟加密](./media/azure-security-disk-encryption/aad-app-registration.png)
 
-3. 按一下箭號按鈕，然後設定應用程式的屬性。
+3. 提供要求的資訊，並建立應用程式：
 
- ![Azure 磁碟加密](./media/azure-security-disk-encryption/disk-encryption-fig5.png)
+ ![Azure 磁碟加密](./media/azure-security-disk-encryption/aad-create-app.png)
 
-4. 按一下左下角的核取記號來完成。 應用程式組態頁面隨即出現，而 Azure AD 用戶端識別碼會顯示在頁面底部。
+4. 選取新建立的應用程式，以檢視其屬性，包括應用程式識別碼。  若要建立應用程式的金鑰，請選取 [設定] >[金鑰]，新增金鑰的描述與到期日，然後按一下 [儲存]
 
- ![Azure 磁碟加密](./media/azure-security-disk-encryption/disk-encryption-fig6.png)
+ ![Azure 磁碟加密](./media/azure-security-disk-encryption/aad-create-pw.png)
 
-5. 按一下 [儲存] 按鈕來儲存 Azure AD 用戶端密碼。 請注意在金鑰文字方塊中的 Azure AD 用戶端密碼。 適當地保護該密碼。
+5. 複製產生的密碼值，並適當地加以保護。
 
- ![Azure 磁碟加密](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
+ ![Azure 磁碟加密](./media/azure-security-disk-encryption/aad-save-pw.png)
 
 
 ##### <a name="use-an-existing-application"></a>使用現有的應用程式
@@ -698,7 +698,7 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 的設定值設定為 _Encrypted_，�
 
 ### <a name="enable-encryption-on-pre-encrypted-iaas-vm-with-azure-managed-disk"></a>在具有 Azure 受控磁碟且預先加密的 IaaS VM 上啟用加密
 使用 Azure 受控磁碟 ARM 範本，以使用位於以下位置的 ARM 範本從預先加密的 VHD 建立加密的 VM   
-[從預先加密的 VHD/儲存體 blob 建立新的已加密受控磁碟] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+[從預先加密的 VHD/儲存體 Blob 建立新加密的受控磁碟] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
 
 ### <a name="enable-encryption-on-a-new-linux-iaas-vm-with-azure-managed-disk"></a>在具有 Azure 受控磁碟的新 Linux IaaS VM 上啟用加密
 使用 Azure 受控磁碟 ARM 範本，以使用位於以下位置的 ARM 範本建立新的已加密 Linux IaaS VM   
@@ -706,7 +706,7 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 的設定值設定為 _Encrypted_，�
 
 ### <a name="enable-encryption-on-a-new-windows-iaas-vm-with-azure-managed-disk"></a>在具有 Azure 受控磁碟的新 Windows IaaS VM 上啟用加密
  使用 Azure 受控磁碟 ARM 範本，以使用位於以下位置的 ARM 範本建立新的已加密 Linux IaaS VM   
- [從資源庫映像建立新的已加密 Windows IaaS 受控磁碟 VM] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
+ [從資源庫映像建立新加密的 Windows IaaS 受控磁碟虛擬機器] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
 
   > [!NOTE]
   >您必須在啟用 Azure 磁碟加密之前，先在 Azure 磁碟加密之外對以受控磁碟為基礎的 VM 執行個體建立快照集和/或備份。  您可以從入口網站建立受控磁碟的快照集，也可以使用 Azure 備份來建立。  擁有備份可確保在加密期間發生任何非預期的失敗時，能有復原選項可供選擇。  在建立備份後，您就可以使用 Set-AzureRmVMDiskEncryptionExtension Cmdlet 並指定 -skipVmBackup 參數來加密受控磁碟。  在建立好備份並指定了這個參數之前，對以受控磁碟為基礎的 VM 執行這個命令都將會失敗。    

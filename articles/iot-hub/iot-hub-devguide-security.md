@@ -1,24 +1,24 @@
 ---
-title: "了解 Azure IoT 中樞安全性 | Microsoft Docs"
-description: "開發人員指南 - 如何控制裝置應用程式和後端應用程式存取 IoT 中樞。 包含安全性權杖和 X.509 憑證支援的相關資訊。"
+title: 了解 Azure IoT 中樞安全性 | Microsoft Docs
+description: 開發人員指南 - 如何控制裝置應用程式和後端應用程式存取 IoT 中樞。 包含安全性權杖和 X.509 憑證支援的相關資訊。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 45631e70-865b-4e06-bb1d-aae1175a52ba
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
 
@@ -206,12 +206,12 @@ public static string generateSasToken(string resourceUri, string key, string pol
     TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
     string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
 
-    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+    string stringToSign = WebUtility.UrlEncode(resourceUri) + "\n" + expiry;
 
     HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
     string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
 
-    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri), WebUtility.UrlEncode(signature), expiry);
 
     if (!String.IsNullOrEmpty(policyName))
     {
@@ -338,13 +338,17 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 ## <a name="supported-x509-certificates"></a>支援的 X.509 憑證
 
-您可以使用任何 X.509 憑證向「IoT 中樞」驗證裝置。 憑證包含：
+您可以使用任何 X.509 憑證來利用 IoT 中樞驗證裝置，只要將憑證指紋或憑證授權單位 (CA) 上傳至 Azure IoT 中樞即可。 使用憑證指紋來進行驗證時，只會驗證提供的憑證指紋與設定的憑證指紋是否相符。 使用憑證授權單位來進行驗證時，則會驗證憑證鏈結。 
 
-* **現有的 X.509 憑證**。 裝置可能已經有與其關聯的 X.509 憑證。 裝置可以使用此憑證向「IoT 中樞」進行驗證。
-* **自我產生及自我簽署的 X-509 憑證**。 裝置製造商或公司內部的部署人員可以產生這些憑證，並將對應的私密金鑰 (和憑證) 存放在裝置上。 您可以使用 [OpenSSL][lnk-openssl] 和 [Windows SelfSignedCertificate][lnk-selfsigned] 公用程式之類的工具來達到此目的。
-* **CA 簽署的 X.509 憑證**。 若要識別裝置並向 IoT 中樞驗證它，您可以使用「憑證授權單位」(CA) 所產生和簽署的 X.509 憑證。 IoT 中樞只會驗證出示的指紋是否符合設定的指紋。 IotHub 不會驗證憑證鏈結。
+支援的憑證包含：
+
+* **現有的 X.509 憑證**。 裝置可能已經有與其關聯的 X.509 憑證。 裝置可以使用此憑證向「IoT 中樞」進行驗證。 適用於指紋或 CA 驗證。 
+* **CA 簽署的 X.509 憑證**。 若要識別裝置並向 IoT 中樞驗證它，您可以使用「憑證授權單位」(CA) 所產生和簽署的 X.509 憑證。 適用於指紋或 CA 驗證。
+* **自我產生及自我簽署的 X-509 憑證**。 裝置製造商或公司內部的部署人員可以產生這些憑證，並將對應的私密金鑰 (和憑證) 存放在裝置上。 您可以使用 [OpenSSL][lnk-openssl] 和 [Windows SelfSignedCertificate][lnk-selfsigned] 公用程式之類的工具來達到此目的。 只適用於指紋驗證。 
 
 裝置可以使用 X.509 憑證或安全性權杖來進行驗證，但不可同時使用兩者。
+
+如需使用憑證授權單位進行驗證的詳細資訊，請參閱[概念性了解 X.509 CA 憑證](iot-hub-x509ca-concept.md)。
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>註冊裝置的 X.509 憑證
 
@@ -354,10 +358,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 **RegistryManager** 類別提供一個程式設計方式來註冊裝置。 特別是，**AddDeviceAsync** 和 **UpdateDeviceAsync** 方法可讓您在「IoT 中樞」身分識別登錄中註冊和更新裝置。 這兩種方法都會採用 **Device** 執行個體做為輸入。 **Device** 類別包含 **Authentication** 屬性，這可讓您指定主要和次要 X.509 憑證指紋。 憑證指紋代表 X.509 憑證的 SHA-1 雜湊 (使用二進位 DER 編碼來儲存)。 您可以選擇指定主要指紋或次要指紋，或是同時指定兩者。 支援主要和次要指紋是為了處理憑證變換情況。
 
-> [!NOTE]
-> 「IoT 中樞」並不需要也不會儲存整個 X.509 憑證，所需的只有指紋。
-
-以下是使用 X.509 憑證來註冊裝置的範例 C\# 程式碼片段︰
+以下是使用 X.509 憑證指紋來註冊裝置的範例 C\# 程式碼片段︰
 
 ```csharp
 var device = new Device(deviceId)

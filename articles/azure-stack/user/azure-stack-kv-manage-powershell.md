@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell 管理 Azure Stack 中的金鑰保存庫 | Microsoft Docs"
-description: "了解如何使用 PowerShell 管理 Azure Stack 中的金鑰保存庫"
+title: 使用 PowerShell 管理 Azure Stack 中的金鑰保存庫 | Microsoft Docs
+description: 了解如何使用 PowerShell 管理 Azure Stack 中的金鑰保存庫
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 22B62A3B-B5A9-4B8C-81C9-DA461838FAE5
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 6ee2ceff10d16456a6e8c6283f40fa594b3311bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9dac59d74347e21bebaf7cb65d199711f45b29a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-powershell"></a>使用 PowerShell 管理 Azure Stack 中的金鑰保存庫
 
@@ -81,7 +81,7 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 
 ![新的金鑰保存庫](media/azure-stack-kv-manage-powershell/image4.png)
 
-此命令的輸出會顯示您所建立的金鑰保存庫屬性。 應用程式存取此保存庫時，會使用此輸出中所顯示的 [保存庫 URI] 屬性。 例如，這個案例裡的保存庫統一資源識別碼 (URI) 是" https://vault01.vault.local.azurestack.external "。 透過 REST API 與此金鑰保存庫互動的應用程式必須使用此 URI。
+此命令的輸出會顯示您所建立的金鑰保存庫屬性。 應用程式存取此保存庫時，會使用此輸出中所顯示的 [保存庫 URI] 屬性。 例如，這個案例裡的保存庫統一資源識別碼 (URI) 是 "https://vault01.vault.local.azurestack.external"。 透過 REST API 與此金鑰保存庫互動的應用程式必須使用此 URI。
 
 在以 Active Directory 同盟服務 (AD FS) 為基礎的部署中，使用 PowerShell 建立金鑰保存庫時，可能會收到警告，指出「未設定存取原則， 使用者或應用程式沒有使用此保存庫的存取權」。 若要解決此問題，請使用 [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) 命令，設定保存庫的存取原則：
 
@@ -90,7 +90,7 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value 
 
-#Set the key vault access policy
+# Set the key vault access policy
 Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation 
 ```
 
@@ -113,8 +113,8 @@ Add-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01” -verbose -Destin
 
 您現在可以使用其 URI 參考建立的金鑰。 如果您建立或匯入與現有金鑰名稱相同的金鑰，就會以新金鑰中指定的值來更新原始金鑰。 您可以使用金鑰的版本特定 URI 來存取先前的版本。 例如︰ 
 
-* 使用 "https://vault10.vault.local.azurestack.external:443/keys/key01" 一律會取得目前的版本。 
-* 使用 "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" 則可取得此特定版本。
+* 使用 "https://vault10.vault.local.azurestack.external:443/keys/key01" 一律取得最新版本。 
+* 使用 "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" 以取得特定版本。
 
 ### <a name="get-a-key"></a>取得金鑰
 

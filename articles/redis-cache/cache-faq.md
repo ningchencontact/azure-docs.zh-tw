@@ -1,11 +1,11 @@
 ---
-title: "Azure Redis 快取常見問題集 | Microsoft Docs"
-description: "了解 Azure Redis 快取常見問題、模式和最佳作法的答案"
+title: Azure Redis 快取常見問題集 | Microsoft Docs
+description: 了解 Azure Redis 快取常見問題、模式和最佳作法的答案
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 82c01419d65e00ddf27dfeb8fd444d5d3d81803c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis 快取常見問題集
 了解 Azure Redis 快取常見問題、模式和最佳作法的答案。
@@ -89,7 +89,7 @@ Azure Redis 快取是以常用的開放原始碼 [Redis 快取](http://redis.io)
 
 * 您可以查看我們針對 [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)、[ASP.NET](cache-web-app-howto.md)、[Java](cache-java-get-started.md)、[Node.js](cache-nodejs-get-started.md) 和 [Python](cache-python-get-started.md) 提供的其中一套教學課程。
 * 您可以觀賞[如何使用 Microsoft Azure Redis 快取建立高效能應用程式](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/)。
-* 您可以取出符合您專案開發語言用戶端的用戶端文件，來查看如何使用 Redis。 有許多的 Redis 用戶端可和 Azure Redis 快取搭配使用。 如需 Redis 用戶端的清單，請參閱 [http://redis.io/clients](http://redis.io/clients)。
+* 您可以取出符合您專案開發語言用戶端的用戶端文件，來查看如何使用 Redis。 有許多的 Redis 用戶端可和 Azure Redis 快取搭配使用。 如需 Redis 用戶端清單，請參閱 [http://redis.io/clients](http://redis.io/clients)。
 
 如果您還沒有 Azure 帳戶，您可以：
 
@@ -111,7 +111,7 @@ Azure Redis 快取是以常用的開放原始碼 [Redis 快取](http://redis.io)
 * **Redis 叢集**︰若要建立大於 53 GB 的快取，或要跨多個 Redis 節點共用資料，您可以使用高階層中的 Redis 叢集。 每個節點均包含一個主要/複本快取組以提供高可用性。 如需詳細資訊，請參閱 [如何設定進階 Azure Redis 快取叢集](cache-how-to-premium-clustering.md)。
 * **增強的安全性和網路隔離**：Azure 虛擬網路 (VNET) 部署可為您的 Azure Redis 快取、子網路、存取控制原則和其他功能提供增強的安全性和隔離，以進一步限制存取權。 如需詳細資訊，請參閱 [如何設定進階 Azure Redis 快取的虛擬網路支援](cache-how-to-premium-vnet.md)。
 * **設定 Redis**：在標準層和進階層中，您可以設定 Redis 以接收 Keyspace 通知。
-* **用戶端連線的最大數目**：進階層提供可連線至 Redis 的最大用戶端數目，針對較大型的快取有更高的連線數目。 如需詳細資訊，請參閱 [Azure Redis 快取定價](https://azure.microsoft.com/pricing/details/cache/)。
+* **用戶端連線的最大數目**：進階層提供可連線至 Redis 的最大用戶端數目，針對較大型的快取有更高的連線數目。 叢集化不會增加叢集快取的可用連線數目。 如需詳細資訊，請參閱 [Azure Redis 快取定價](https://azure.microsoft.com/pricing/details/cache/)。
 * **Redis 伺服器的專用核心**：在進階層中，所有的快取大小均有 Redis 專用核心。 在基本/標準層中，C1 以上的大小有 Redis 伺服器專用核心。
 * **Redis 為單一執行緒** ，因此兩個以上核心所提供的優點與只有兩個核心相同，但較大的 VM 大小通常會比較小的有更多頻寬。 如果快取伺服器或用戶端達到頻寬限制，您在用戶端會收到逾時。
 * **效能改良**：進階層中的快取是部署在處理器較快的硬體上，因此效能優於基本或標準層。 高階層快取的輸送量較高，延遲性較低。

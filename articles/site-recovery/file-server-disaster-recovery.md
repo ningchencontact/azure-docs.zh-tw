@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: f53a8641a50a6c968a6ba7b841e0e8f938b5d9f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 830f9c76d9d1bf11692fa9f2f5c49cbecdb69f25
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保護檔案伺服器 
 
@@ -48,7 +48,7 @@ DFSR 使用名為「遠端差異壓縮 (RDC)」的壓縮演算法，可用來在
 
     * 如果您的 VM 所使用的組態不受 Site Recovery 的支援，您可以使用此方法。 範例之一是常用於檔案伺服器環境中的共用叢集磁碟。 DFSR 也適用於具中等變換率的低頻寬環境。 您必須考量讓 Azure VM 隨時啟動並執行的額外成本。 
 
-* **使用 Azure 檔案同步複寫您的檔案**：如果您想要使用雲端，或已經使用 Azure VM，您可以使用「檔案同步」。「檔案同步」可讓您同步雲端中受到完整管理、並且可透過業界標準[伺服器訊息區](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (SMB) 通訊協定來存取的檔案共用。 接著，Windows、Linux 和 macOS 的雲端部署或內部部署將可同時掛接 Azure 檔案共用。 
+* **使用 Azure 檔案同步複寫您的檔案**：如果您想要使用雲端，或已經使用 Azure VM，您可以使用「Azure 檔案同步」。「Azure 檔案同步」可讓您同步雲端中受到完整管理、並且可透過業界標準[伺服器訊息區](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (SMB) 通訊協定來存取的檔案共用。 然後 Windows、Linux 和 macOS 的雲端部署或內部部署就可同時掛接 Azure 檔案共用。 
 
 下圖可協助您決定檔案伺服器環境所適用的策略。
 

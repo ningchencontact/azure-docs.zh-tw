@@ -1,10 +1,11 @@
 ---
-title: "使用機器學習分析客戶流失 | Microsoft Docs"
-description: "開發整合式模型以分析及評分客戶流失的案例研究"
+title: 使用機器學習分析客戶流失 | Microsoft Docs
+description: 開發整合式模型以分析及評分客戶流失的案例研究
 services: machine-learning
-documentationcenter: 
-author: jeannt
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -13,14 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: jeannt
-ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 6c64444fc8d42782065d42ed5ee0c193678bb1f1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>使用 Azure Machine Learning 分析客戶流失
+# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>使用 Azure Machine Learning 分析客戶流失
 ## <a name="overview"></a>概觀
 本文提供使用 Azure Machine Learning 建置客戶流失分析專案的參考實作。 在本文中將討論關聯的一般模型，可全面性地解決產業客戶流失的問題。 對於以機器學習建立的模型，我們也衡量其正確性，同時評定進一步開發的方向。  
 

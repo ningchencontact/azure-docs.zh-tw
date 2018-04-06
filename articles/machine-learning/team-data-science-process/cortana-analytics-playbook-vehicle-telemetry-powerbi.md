@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 085ce90311d4d89b365f7fe51a95c00c1a734196
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>車輛遙測分析方案範本 Power BI 儀表板安裝指示
 此功能表連結至此腳本的章節： 
@@ -308,7 +308,7 @@ ms.lasthandoff: 03/16/2018
 
     ![詳細資料、圖例、軸和大小區域](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
-25. 將圖表**標題**變更為**平均油量、平均引擎溫度和 vin 的計數 (依車型) 以及車型**。
+25. 將圖表**標題**變更為**平均油量、平均引擎溫度和 vin 的計數 (依車型)**。
 
     ![散佈圖標題](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ii.png)
 

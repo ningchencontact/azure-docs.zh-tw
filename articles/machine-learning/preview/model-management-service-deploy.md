@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 7b481fb3287b8ee2c22e5f25f8cf1935eed05428
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 5211fa29af1d8cba17049b69974189990d30f34a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>將機器學習服務模型部署為 Web 服務
 
@@ -22,10 +22,17 @@ Azure Machine Learning 模型管理會提供介面供您將模型部署為容器
 
 本文件會說明使用 Azure Machine Learning 模型管理命令列介面 (CLI) 來將模型部署為 Web 服務的步驟。
 
+## <a name="what-you-need-to-get-started"></a>若要開始，您需要：
+
+若要善用本指南，您應該對於您可以部署模型的 Azure 訂用帳戶或資源群組具備參與者存取權。
+CLI 已預先安裝於 Azure Machine Learning Workbench 和 [Azure DSVM](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) 上。  它也可以安裝為獨立的封裝。
+
+此外，必須已設定模型管理帳戶和部署環境。  如需設定您的模型管理帳戶和環境以進行本機和叢集部署的詳細資訊，請參閱[模型管理設定](deployment-setup-configuration.md)。
+
 ## <a name="deploying-web-services"></a>部署 Web 服務
 使用 CLI，您就可以部署會在本機機器或叢集上執行的 Web 服務。
 
-建議您先從本機部署開始。 請先驗證模型和程式碼可正常運作，然後再將 Web 服務部署至叢集以供生產級別的環境使用。 如需設定環境以供部署叢集的詳細資訊，請參閱[模型管理設定](deployment-setup-configuration.md)。 
+建議您先從本機部署開始。 請先驗證模型和程式碼可正常運作，然後再將 Web 服務部署至叢集以供生產級別的環境使用。
 
 部署步驟如下：
 1. 使用已儲存且經過訓練的機器學習服務模型
@@ -49,7 +56,8 @@ saved_model = pickle.dumps(clf)
 ```
 
 ### <a name="2-create-a-schemajson-file"></a>2.建立 schema.json 檔案
-此為選用步驟。 
+
+雖然結構描述產生是選擇性的，但強烈建議定義要求和輸入變數格式，以獲得更完善的處理。
 
 建立結構描述，以自動驗證 Web 服務的輸入和輸出。 CLI 也會使用結構描述來產生 Web 服務的 Swagger 文件。
 
@@ -77,6 +85,13 @@ generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
+```
+
+下列範例使用一般 JSON 格式：
+
+```python
+inputs = {"input_json": SampleDefinition(DataTypes.STANDARD, yourinputjson)}
 generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
@@ -147,10 +162,13 @@ az ml manifest create --manifest-name [your new manifest name] -f [path to score
 az ml image create -n [image name] --manifest-id [the manifest ID]
 ```
 
-或者，您也可以使用單一命令同時建立資訊清單和映像。 
+>[!NOTE] 
+>您也可以使用單一命令以執行模型註冊、資訊清單和模型建立。 如需詳細資訊，請對 service create 命令使用 -h。
+
+或者，有單一命令可註冊模型、建立資訊清單，並建立映像 (但尚未建立及部署 Web 服務)，如下列步驟所示。
 
 ```
-az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]
+az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime e.g. spark-py which is the Docker container image base]
 ```
 
 >[!NOTE]
@@ -165,7 +183,14 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->您也可以使用單一命令來執行上述的 4 個步驟。 如需詳細資訊，請對 service create 命令使用 -h。
+>您也可以使用單一命令來執行上述所有 4 個步驟。 如需詳細資訊，請對 service create 命令使用 -h。
+
+或者，有單一命令可註冊模型、建立資訊清單，建立映像，以及建立和部署 Web 服務，如下列步驟所示。
+
+```azurecli
+az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
+```
+
 
 ### <a name="8-test-the-service"></a>8.測試服務
 使用下列命令來取得如何呼叫服務的資訊：

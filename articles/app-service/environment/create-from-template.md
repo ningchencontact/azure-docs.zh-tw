@@ -1,6 +1,6 @@
 ---
-title: "使用 Resource Manager 範本建立 Azure App Service Environment"
-description: "說明如何使用 Resource Manager 範本建立外部或 ILB Azure App Service Environment"
+title: 使用 Resource Manager 範本建立 Azure App Service Environment
+description: 說明如何使用 Resource Manager 範本建立外部或 ILB Azure App Service Environment
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d85384620b2e4c7ba0de84e0fe82ef3e83376dd8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本立 ASE
 
@@ -40,7 +40,7 @@ ASE 可以使用 Azure 入口網站或 Azure Resource Manager 範本來建立。
 
 2. 建立 ILB ASE 之後，會上傳與您的 ILB ASE 網域相符的 SSL 憑證。
 
-3. 上傳的 SSL 憑證會指派給 ILB ASE 作為其「預設」SSL 憑證。  如果 ILB ASE 上的應用程式是使用指派給 ASE 的一般根網域 (例如 https://someapp.mycustomrootdomain.com )，此憑證將使用於此應用程式的 SSL 流量。
+3. 上傳的 SSL 憑證會指派給 ILB ASE 作為其「預設」SSL 憑證。  如果 ILB ASE 上的應用程式是使用指派給 ASE 的一般根網域 (例如 https://someapp.mycustomrootdomain.com))，此憑證將使用於此應用程式的 SSL 流量。
 
 
 ## <a name="create-the-ase"></a>建立 ASE
@@ -54,15 +54,17 @@ ASE 可以使用 Azure 入口網站或 Azure Resource Manager 範本來建立。
 
 填入 azuredeploy.parameters.json 檔案後，就可以使用下列 Powershell 程式碼片段建立 ASE。 將檔案路徑變更為您電腦上 Resource Manager 範本檔案的位置。 記得提供您自己的 Resource Manager 部署名稱和資源群組名稱的值：
 
-    $templatePath="PATH\azuredeploy.json"
-    $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 建立 ASE 約需一小時。 然後在入口網站中，ASE 會顯示在觸發部署之訂用帳戶的 ASE 清單中。
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>上傳和設定預設SSL 憑證
-SSL 憑證必須與 ASE 相關聯，作為用來建立應用程式的 SSL 連線的「預設」SSL 憑證。 如果 ASE 的預設 DNS 尾碼是 internal-contoso.com，則連線到 https://some-random-app.internal-contoso.com 需要 *.internal contoso.com 的有效 SSL 憑證。 
+SSL 憑證必須與 ASE 相關聯，作為用來建立應用程式的 SSL 連線的「預設」SSL 憑證。 如果 ASE 的預設 DNS 尾碼是 *internal-contoso.com*，則連線到 https://some-random-app.internal-contoso.com 需要 **.internal-contoso.com* 的有效 SSL 憑證。 
 
 使用內部憑證授權單位、向外部簽發者購買憑證、或使用自我簽署的憑證，取得有效的 SSL 憑證。 無論 SSL 憑證的來源為何，都需要正確設定下列憑證屬性︰
 
@@ -82,17 +84,19 @@ SSL 憑證必須與 ASE 相關聯，作為用來建立應用程式的 SSL 連線
 
 以下 base64 編碼的 Powershell 程式碼是改寫自 [Powershell 指令碼部落格][examplebase64encoding]：
 
-        $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```powershell
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-        $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-        $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-        $fileName = "exportedcert.pfx"
-        Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
 
-        $fileContentBytes = get-content -encoding byte $fileName
-        $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-        $fileContentEncoded | set-content ($fileName + ".b64")
+$fileContentBytes = get-content -encoding byte $fileName
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$fileContentEncoded | set-content ($fileName + ".b64")
+```
 
 成功產生 SSL 憑證並轉換成 base64 編碼字串後，使用 GitHub 上的[設定預設 SSL 憑證][quickstartconfiguressl]範例 Resource Manager 範本。 
 
@@ -107,41 +111,45 @@ azuredeploy.parameters.json 檔案中有以下參數︰
 
 以下是 azuredeploy.parameters.json  的縮簡範例︰
 
-    {
-         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-              "appServiceEnvironmentName": {
-                   "value": "yourASENameHere"
-              },
-              "existingAseLocation": {
-                   "value": "East US 2"
-              },
-              "pfxBlobString": {
-                   "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
-              },
-              "password": {
-                   "value": "PASSWORDGOESHERE"
-              },
-              "certificateThumbprint": {
-                   "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
-              },
-              "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
-              }
-         }
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServiceEnvironmentName": {
+      "value": "yourASENameHere"
+    },
+    "existingAseLocation": {
+      "value": "East US 2"
+    },
+    "pfxBlobString": {
+      "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
+    },
+    "password": {
+      "value": "PASSWORDGOESHERE"
+    },
+    "certificateThumbprint": {
+      "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
+    },
+    "certificateName": {
+      "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
     }
+  }
+}
+```
 
 填入 azuredeploy.parameters.json 檔案後，使用下列 Powershell 程式碼片段設定預設 SSL。 將檔案路徑變更為您電腦上 Resource Manager 範本檔案的位置。 記得提供您自己的 Resource Manager 部署名稱和資源群組名稱的值：
 
-     $templatePath="PATH\azuredeploy.json"
-     $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 每個 ASE 前端套用變更大約需要 40 分鐘。 例如，有一個預設大小的 ASE 使用兩個前端，則範本將需要大約一小時 20 分鐘的時間才能完成。 執行範本時，無法調整 ASE。  
 
-範本完成之後，可以透過 HTTPS 存取 ILB ASE 上的應用程式。 此連線使用預設 SSL 憑證加以保護。 如果 ILB ASE 上的應用程式是使用應用程式名稱加上預設主機名稱的組合來定址，則會使用預設 SSL 憑證。 例如，https://mycustomapp.internal-contoso.com 會使用 *.internal contoso.com 的預設 SSL 憑證。
+範本完成之後，可以透過 HTTPS 存取 ILB ASE 上的應用程式。 此連線使用預設 SSL 憑證加以保護。 如果 ILB ASE 上的應用程式是使用應用程式名稱加上預設主機名稱的組合來定址，則會使用預設 SSL 憑證。 例如，https://mycustomapp.internal-contoso.com 會使用 **.internal-contoso.com* 的預設 SSL 憑證。
 
 不過，就如同在公用多租用戶服務上執行的應用程式，開發人員可以為個別的應用程式設定自訂主機名稱。 他們也可以為個別的應用程式設定唯一 SNI SSL 憑證繫結。
 

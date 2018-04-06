@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB：SQL 語法查詢參考 | Microsoft Docs"
-description: "Azure Cosmos DB SQL 查詢語言的參考文件。"
+title: Azure Cosmos DB：SQL 語法查詢參考 | Microsoft Docs
+description: Azure Cosmos DB SQL 查詢語言的參考文件。
 services: cosmos-db
 author: LalithaMV
 manager: jhubbard
 editor: mimig
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +14,13 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 968f9e4d643228e02a1d09aae1b6ce82d6775f25
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 012fa27fdebebf1c86a324c49c53d665a15a91c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 語法參考
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB 支援在階層式 JSON 文件上使用諸如文法等熟悉的 SQL (結構式查詢語言) 查詢文件，無需明確的結構描述，也不用建立次要索引。 本主題提供 SQL 查詢語言的參考文件，其與 SQL API 帳戶相容。
 

@@ -1,13 +1,13 @@
 ---
-title: "Hadoop 高可用性 - Azure HDInsight | Microsoft Docs"
-description: "了解如何使用額外的前端節點，讓 HDInsight 叢集可以提高可靠性和可用性。 了解這會如何影響例如 Ambari 和 Hive 等 Hadoop 服務，以及如何使用 SSH 分別連線到每個前端節點。"
+title: Hadoop 高可用性 - Azure HDInsight | Microsoft Docs
+description: 了解如何使用額外的前端節點，讓 HDInsight 叢集可以提高可靠性和可用性。 了解這會如何影響例如 Ambari 和 Hive 等 Hadoop 服務，以及如何使用 SSH 分別連線到每個前端節點。
 services: hdinsight
 editor: cgronlun
-manager: jhubbard
+manager: cgronlun
 author: Blackmist
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
-keywords: "hadoop 高可用性"
+keywords: hadoop 高可用性
 ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 0822502bcd3e2b0d20f718a158d6db489a650bde
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 556aedf5ce822d681caf1373ed7d51999bd439b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight 上 Hadoop 叢集的可用性和可靠性
 
@@ -112,7 +112,7 @@ HDInsight 叢集中的節點具有只能自叢集存取的內部 IP 位址和 FQ
 
 ### <a name="ambari-web-ui"></a>Ambari Web UI
 
-Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。 將 **CLUSTERNAME** 取代為您叢集的名稱。 如果出現提示，請輸入叢集的 HTTP 使用者認證。 預設 HTTP 使用者名稱為 **admin** ，密碼是您在建立叢集時輸入的密碼。
+可以在 https://CLUSTERNAME.azurehdinsight.net 檢視 Ambari Web UI。 將 **CLUSTERNAME** 取代為您叢集的名稱。 如果出現提示，請輸入叢集的 HTTP 使用者認證。 預設 HTTP 使用者名稱為 **admin** ，密碼是您在建立叢集時輸入的密碼。
 
 當您來到 Ambari 頁面上時，會在該頁面的左邊列出已安裝的服務。
 

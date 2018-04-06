@@ -1,24 +1,21 @@
 ---
-title: "使用 OpenID Connect 的 Web 登入 - Azure AD B2C | Microsoft Docs"
-description: "使用 OpenID Connect 驗證通訊協定的 Azure Active Directory 實作來建置 Web 應用程式"
+title: 使用 OpenID Connect 的 Web 登入 - Azure AD B2C | Microsoft Docs
+description: 使用 OpenID Connect 驗證通訊協定的 Azure Active Directory 實作來建置 Web 應用程式
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: 0eb4194307d1d3953fa1cd88ac014ac7c2ba7311
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e787ea36ab5099705f151504385dd5dc97029e37
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C：利用 OpenID Connect 的 Web 登入
 OpenID Connect 是建置在 OAuth 2.0 之上的驗證通訊協定，可用來將使用者安全地登入 Web 應用程式。 藉由使用 OpenID Connect 的 Azure Active Directory B2C (Azure AD B2C) 實作，您就能將 Web 應用程式中的註冊、登入及其他識別管理體驗外包給 Azure Active Directory (Azure AD)。 本指南會以與語言無關的方式示範如何執行此動作。 而是在說明如何傳送和接收 HTTP 訊息，但不使用我們的任何開放原始碼程式庫。
@@ -29,7 +26,7 @@ OpenID Connect 是建置在 OAuth 2.0 之上的驗證通訊協定，可用來將
 
 Azure AD B2C 擴充標準的 OpenID Connect 通訊協定，功能更強大，而不僅止於簡單的驗證和授權。 它引進[原則參數](active-directory-b2c-reference-policies.md)，讓您能利用 OpenID Connect 來為應用程式新增使用者體驗，例如註冊、登入和設定檔管理。 以下我們將示範如何利用 OpenID Connect 和原則，在您的 Web 應用程式中實作上述每一種體驗。 我們也會示範如何取得用來存取 Web API 的存取權杖。
 
-下一節中的範例 HTTP 要求會使用我們的範例 B2C 目錄 fabrikamb2c.onmicrosoft.com，以及我們的範例應用程式 https://aadb2cplayground.azurewebsites.net 和原則。 您可以隨意使用這些值來自行試驗要求，也可以把它們換成您自己的值。
+下一節的範例 HTTP 要求使用我們的範例 B2C 目錄 fabrikamb2c.onmicrosoft.com，以及我們的範例應用程式、https://aadb2cplayground.azurewebsites.net 和原則。 您可以隨意使用這些值來自行試驗要求，也可以把它們換成您自己的值。
 了解如何 [取得您自己的 B2C 租用戶、應用程式和原則](#use-your-own-b2c-directory)。
 
 ## <a name="send-authentication-requests"></a>傳送驗證要求

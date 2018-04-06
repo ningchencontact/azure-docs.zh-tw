@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory 概念證明腳本構成要素 | Microsoft Docs"
-description: "探索並快速實作身分識別和存取管理案例"
+title: Azure Active Directory 概念證明腳本構成要素 | Microsoft Docs
+description: 探索並快速實作身分識別和存取管理案例
 services: active-directory
-keywords: "azure active directory, 腳本, 概念證明, PoC"
-documentationcenter: 
+keywords: azure active directory, 腳本, 概念證明, PoC
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -40,8 +40,8 @@ ms.lasthandoff: 02/22/2018
 
 | 必要條件 | 資源 |
 | --- | --- |
-| 已定義有效 Azure 訂用帳戶的 Azure AD 租用戶 | [如何取得 Azure Active Directory 租用戶](active-directory-howto-tenant.md)<br/>**注意：**如果您已經有具備 Azure AD Premium 授權的環境，您可以瀏覽至 https://aka.ms/accessaad 來取得一個沒有上限的訂用帳戶 <br/>深入了解：https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ and https://technet.microsoft.com/library/dn832618.aspx |
-| 已定義並確認的網域 | [將自訂網域名稱新增到 Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**注意：**有些工作負載 (例如 Power BI) 可能已在幕後佈建 Azure AD 租用戶。 若要檢查指定的網域是否與租用戶關聯，請瀏覽至 https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration。 如果您獲得成功的回應，即表示網域已指派給租用戶，而可能需要接管。 如果是這種情況，請連絡 Microsoft 以獲得進一步的指導。 深入了解接管選項：[什麼是 Azure 的自助式註冊？](active-directory-self-service-signup.md) |
+| 已定義有效 Azure 訂用帳戶的 Azure AD 租用戶 | [如何取得 Azure Active Directory 租用戶](active-directory-howto-tenant.md)<br/>**注意：**如果您已經有具備 Azure AD Premium 授權的環境，您可以瀏覽至 https://aka.ms/accessaad 來取得沒有上限的訂用帳戶 <br/>深入了解：https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 和 https://technet.microsoft.com/library/dn832618.aspx |
+| 已定義並確認的網域 | [將自訂網域名稱新增到 Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**注意：**有些工作負載 (例如 Power BI) 可能已在幕後佈建 Azure AD 租用戶。 若要檢查指定網域是否與租用戶相關聯，請瀏覽至 https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration。 如果您獲得成功的回應，即表示網域已指派給租用戶，而可能需要接管。 如果是這種情況，請連絡 Microsoft 以獲得進一步的指導。 深入了解接管選項：[什麼是 Azure 的自助式註冊？](active-directory-self-service-signup.md) |
 | 已啟用 Azure AD Premium 或 EMS 試用版 | [Azure Active Directory Premium 可免費使用一個月](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | 您已將 Azure AD Premium 或 EMS 授權指派給 PoC 使用者 | [在 Azure Active Directory 中進行自身和使用者的授權](active-directory-licensing-get-started-azure-portal.md) |
 | Azure AD 全域管理員認證 | [在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md) |
@@ -71,7 +71,7 @@ ms.lasthandoff: 02/22/2018
 
 ### <a name="considerations"></a>考量
 
-1. 若要了解密碼雜湊同步處理的安全性考量，請參閱[這裡](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)。  如果試驗生產使用者的密碼雜湊同步處理確定不可行，則請考慮下列替代方案：
+1. 若要了解密碼雜湊同步處理的安全性考量，請參閱[這裡](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)。  如果試驗生產使用者的密碼雜湊同步處理確定不可行，則請考慮下列替代方案：
    * 在生產環境網域中建立測試使用者。 確定您不會同步處理任何其他帳戶
    * 移至 UAT 環境
 2.  如果您想要採用同盟，就值得了解在 POC 之外將同盟解決方案與內部部署「識別提供者」建立關聯的成本，並將它對照您要獲得的效益進行評估：
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/22/2018
 | 移至「Azure AD 管理入口網站」 | [Azure AD 管理入口網站 - 公司商標](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
 | 上傳登入頁面的資產 (大型標誌、小型標誌、標籤等)。 如果您有 AD FS，可視需要，與 ADFS 登入頁面採用相同的資產 | [在登入和存取面板頁面新增公司商標：可自訂元素](customize-branding.md) |
 | 等候幾分鐘讓變更完全生效 |  |
-| 使用 POC 使用者認證來登入 https://myapps.microsoft.com |  |
+| 以 POC 使用者認證登入 https://myapps.microsoft.com |  |
 | 在瀏覽器中確認外觀及操作 | [在登入和存取面板頁面新增公司商標](customize-branding.md) |
 | (選擇性) 在其他裝置中確認外觀及操作 |  |
 
@@ -138,7 +138,7 @@ ms.lasthandoff: 02/22/2018
 
 | 必要條件 | 資源 |
 | --- | --- |
-| 可用的 SaaS 應用程式測試環境。 在本指南中，我們將使用 ServiceNow 作為範例。<br/>強烈建議您使用測試執行個體，以將瀏覽現有資料品質與對應的阻力降到最低。 | 移至 https://developer.servicenow.com/app.do#!/home 以開始取得測試執行個體的程序 |
+| 可用的 SaaS 應用程式測試環境。 在本指南中，我們將使用 ServiceNow 作為範例。<br/>強烈建議您使用測試執行個體，以將瀏覽現有資料品質與對應的阻力降到最低。 | 請移至 https://developer.servicenow.com/app.do#!/home 以開始進行取得測試執行個體的程序 |
 | 對 ServiceNow 管理主控台的存取權 | [教學課程：Azure Active Directory 與 ServiceNow 整合](active-directory-saas-servicenow-tutorial.md) |
 | 一組要作為應用程式指派目標的使用者。 建議使用包含 PoC 使用者的安全性群組。 <br/>如果無法建立該群組，則請將使用者直接指派給 PoC 的應用程式 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md) |
 
@@ -156,10 +156,9 @@ ms.lasthandoff: 02/22/2018
 | 依照指示操作來設定 ServiceNow |  |
 | 在 ServiceNow 應用程式的 [佈建] 刀鋒視窗中，啟用 [自動] 佈建 | [在新的 Azure 入口網站中管理企業應用程式的使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md) |
 | 等候幾分鐘讓佈建完成。  此時，您可以查看佈建報告 |  |
-| 以具有存取權的測試使用者身分登入 https://myapps.microsoft.com/ | [何謂存取面板？](active-directory-saas-access-panel-introduction.md) |
+| 以擁有存取權限的測試使用者身分登入 https://myapps.microsoft.com/ | [何謂存取面板？](active-directory-saas-access-panel-introduction.md) |
 | 按一下剛建立之應用程式的圖格。 確認存取 |  |
-| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | 
-            [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
+| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
 
 ### <a name="considerations"></a>考量
 
@@ -187,12 +186,11 @@ ms.lasthandoff: 02/22/2018
 | 從資源庫設定應用程式 | [Azure Active Directory 中企業應用程式管理的新功能：全新和改進的應用程式資源庫](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | 設定密碼 SSO | [在新的 Azure 入口網站中管理企業應用程式的單一登入：密碼型登入](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | 將應用程式指派給「必要條件」中所識別的群組 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md) |
-| 以具有存取權的測試使用者身分登入 https://myapps.microsoft.com/ |  |
+| 以擁有存取權限的測試使用者身分登入 https://myapps.microsoft.com/ |  |
 | 按一下剛建立之應用程式的圖格。 | [何謂存取面板？：不含身分識別佈建的密碼型 SSO](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | 提供應用程式認證 | [何謂存取面板？：不含身分識別佈建的密碼型 SSO](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | 關閉瀏覽器並重新執行登錄。 這次使用者應該會看到順暢的應用程式存取。 |  |
-| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | 
-            [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
+| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
 
 ### <a name="considerations"></a>考量
 
@@ -211,7 +209,7 @@ ms.lasthandoff: 02/22/2018
 | 必要條件 | 資源 |
 | --- | --- |
 | 事先備妥的目標應用程式清單和確切的登入 URL。 您可以使用 Twitter 作為範例。 | [Microsoft Azure Marketplace 上的 Twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[註冊 Twitter](https://twitter.com/signup?lang=en) |
-| 此 SaaS 應用程式的共用認證。 | [使用 Azure AD 來共用帳戶](active-directory-sharing-accounts.md)<br/>[Azure AD 的 Facebook、Twitter 及 LinkedIn 自動密碼變換現已提供預覽版！ - Enterprise Mobility and Security 部落格] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| 此 SaaS 應用程式的共用認證。 | [使用 Azure AD 來共用帳戶](active-directory-sharing-accounts.md)<br/>[Azure AD 的 Facebook、Twitter 及 LinkedIn 自動密碼變換現已提供預覽版！ - Enterprise Mobility and Security 部落格] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
 | 至少兩個將存取相同帳戶之小組成員的認證。 他們必須是安全性群組的成員。 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md) |
 | 對電腦的本機系統管理員存取權，以部署適用於 Internet Explorer、Chrome 或 Firefox 的「存取面板擴充功能」 | [適用於 IE 的存取面板擴充功能](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[適用於 Chrome 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[適用於 Firefox 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -224,8 +222,7 @@ ms.lasthandoff: 02/22/2018
 | 設定密碼 SSO | [在新的 Azure 入口網站中管理企業應用程式的單一登入：密碼型登入](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | 為「必要條件」中所識別的群組指派認證時，將應用程式指派給他們 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md) |
 | 以不同的使用者身分登入來以「相同共用帳戶」身分存取應用程式  |  |
-| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | 
-            [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
+| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
 
 
 ### <a name="considerations"></a>考量
@@ -482,7 +479,7 @@ ms.lasthandoff: 02/22/2018
 | 以全域管理員身分 (GA) 登入 https://portal.azure.com，並啟動載入 PIM 刀鋒視窗。 執行此步驟的「全域管理員」會植入為安全性系統管理員。  讓我們將此執行者稱為 GA1 | [在 Azure AD Privileged Identity Management 中使用安全性精靈](active-directory-privileged-identity-management-security-wizard.md) |
 | 識別全域管理員，並將他們從永久移至合格。 為了清楚起見，這應該與步驟 1 中使用的管理員不同。 讓我們將此執行者稱為 GA2 | [Azure AD Privileged Identity Management：如何新增或移除使用者角色](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[什麼是 Azure AD Privileged Identity Management？：設定角色啟用設定](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
 | 現在，以 GA2 身分登入 https://portal.azure.com，並嘗試變更 [使用者設定]。 請注意，部分選項是呈現灰色。 | |
-| 在新索引標籤及與步驟 3 相同的工作階段中，現在瀏覽至 https://portal.azure.com，然後將 PIM 刀鋒視窗新增到儀表板中。 | [如何在 Azure AD Privileged Identity Management 中啟用或停用角色：新增 Privileged Identity Management 應用程式](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| 在新索引標籤及與步驟 3 相同的工作階段中，現在瀏覽至 https://portal.azure.com，然後將 PIM 刀鋒視窗新增至儀表板中。 | [如何在 Azure AD Privileged Identity Management 中啟用或停用角色：新增 Privileged Identity Management 應用程式](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
 | 要求啟用「全域管理員」角色 | [如何在 Azure AD Privileged Identity Management 中啟用或停用角色：啟用角色](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
 | 請注意，如果 GA2 從未註冊 MFA，將必須註冊 Azure MFA |  |
 | 回到步驟 3 中的原始索引標籤，然後按一下瀏覽器中的 [重新整理] 按鈕。 請注意，您現在已具有能夠變更 [使用者設定] 的存取權 | |
@@ -509,7 +506,7 @@ ms.lasthandoff: 02/22/2018
 | 步驟 | 資源 |
 | --- | --- |
 | 開啟 Tor 瀏覽器 | [下載 Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| 使用 POC 使用者帳戶來登入 https://myapps.microsoft.com | [Azure Active Directory Identity Protection 腳本：模擬風險事件](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| 以 POC 使用者帳戶登入 https://myapps.microsoft.com | [Azure Active Directory Identity Protection 腳本：模擬風險事件](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | 等候 5-7 分鐘 |  |
 | 以全域管理員身分登入 https://portal.azure.com，然後開啟 [Identity Protection] 刀鋒視窗 | https://aka.ms/aadipgetstarted |
 | 開啟 [風險事件] 刀鋒視窗。 您應該會在 [從匿名 IP 位址登入] 底下看到一個項目  | [Azure Active Directory Identity Protection 腳本：模擬風險事件](active-directory-identityprotection-playbook.md#simulating-risk-events) |
@@ -538,7 +535,7 @@ ms.lasthandoff: 02/22/2018
 | 以全域管理員身分登入 https://portal.azure.com，然後開啟 [Identity Protection] 刀鋒視窗 | https://aka.ms/aadipgetstarted |
 | 依下列方式啟用登入風險原則：<br/>- 指派至：POC 使用者<br/>- 條件：中度或更高的登入風險 (從匿名位置登入是視為中度風險層級)<br/>- 控制項：需要 MFA | [Azure Active Directory Identity Protection 腳本：登入風險](active-directory-identityprotection-playbook.md) |
 | 開啟 Tor 瀏覽器 | [下載 Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| 使用 PoC 使用者帳戶來登入 https://myapps.microsoft.com |  |
+| 以 PoC 使用者帳戶登入 https://myapps.microsoft.com |  |
 | 注意 MFA 挑戰 | [使用 Azure AD Identity Protection 時的登入體驗：有風險的登入復原](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>考量

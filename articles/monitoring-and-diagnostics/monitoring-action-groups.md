@@ -1,24 +1,24 @@
 ---
-title: "在 Azure 入口網站中建立和管理動作群組 | Microsoft Docs"
-description: "了解如何在 Azure 入口網站中建立和管理動作群組。"
+title: 在 Azure 入口網站中建立和管理動作群組 | Microsoft Docs
+description: 了解如何在 Azure 入口網站中建立和管理動作群組。
 author: dkamstra
 manager: chrad
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 03/12/2018
 ms.author: dukek
-ms.openlocfilehash: 772b9c2b9532bd2cc37ad89db92545297eecd903
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a7f8697b7a92de1c19ceb65fadbcd7e4186e83f7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
 ## <a name="overview"></a>概觀 ##
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/21/2018
 動作群組的每個動作類型可以有多達 10 個。 每個動作是由下列屬性所組成：
 
 * **名稱**：動作群組內的唯一識別碼。  
-* **動作類型**：傳送 SMS、傳送電子郵件、呼叫 Webhook、將資料傳送至 ITSM 工具、呼叫 Azure 應用程式，或執行自動化 Runbook。
+* **動作類型**：傳送語音通話或 SMS、傳送電子郵件、呼叫 Webhook、將資料傳送至 ITSM 工具、呼叫 Azure 應用程式，或執行自動化 Runbook。
 * **詳細資料**：對應的電話號碼、電子郵件地址、Webhook URI 或 ITSM 連線詳細資料。
 
 如需如何使用 Azure Resource Manager 範本設定動作群組的資訊，請參閱[動作群組 Resource Manager 範本](monitoring-create-action-group-with-resource-manager-template.md)。
@@ -56,7 +56,7 @@ ms.lasthandoff: 02/21/2018
 
     a. **名稱**：輸入此動作的唯一識別碼。
 
-    b. **動作類型**：選取電子郵件/SMS/Azure 應用程式、Webhook、ITSM 或自動化 Runbook。
+    b. **動作類型**：選取電子郵件/SMS/發送/語音、Webhook、ITSM 或自動化 Runbook。
 
     c. **詳細資料**：根據動作類型，輸入電話號碼、電子郵件地址、Webhook URI、Azure 應用程式、ITSM 連線或自動化 Runbook。 針對 ITSM 動作，請額外指定 [工作項目] 與您 ITSM 工具所需的其他欄位。
 

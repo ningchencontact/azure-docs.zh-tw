@@ -141,7 +141,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ### <a name="hbasesource-as-source"></a>將 HBaseSource 作為來源
 
-若要從 HBase 複製資料，請將複製活動中的來源類型設定為 **HBaseSource**.。 複製活動的 **source** 區段支援下列屬性：
+若要從 HBase 複製資料，請將複製活動中的來源類型設定為 **HBaseSource**. 複製活動的 **source** 區段支援下列屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |

@@ -1,5 +1,5 @@
 ---
-title: IoT DevKit 到雲端：將 IoT DevKit AZ3166 連線到 Azure IoT 中樞 | Microsoft Docs
+title: IoT DevKit 到雲端：將 IoT MXChip DevKit 連線到 Azure IoT 中樞 | Microsoft Docs
 description: 在本教學課程中，了解如何將 IoT DevKit AZ3166 上的感應器狀態傳送至 Azure IoT 套件以便進行監視和呈現視覺效果。
 services: iot-hub
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: b43061f5af3e836ba3f0b37eb11b351a769890be
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: b288595ca06c3a3cccb72082658f1927f2ae558a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="connect-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring"></a>將 IoT DevKit AZ3166 連線到 Azure IoT 套件以便進行遠端監視
+# <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>將 MXChip IoT DevKit 連線到 Azure IoT 套件以便進行遠端監視
 
 在本教學課程中，您將會了解如何在 DevKit 上執行範例應用程式，以將感應器資料傳送至 Azure IoT 套件。
 
@@ -35,14 +35,14 @@ ms.lasthandoff: 02/27/2018
 
 有效的 Azure 訂用帳戶。 如果沒有，您可以透過下列兩種方法之一來註冊：
 
-* 啟動 [30 天免費試用 Microsoft Azure 帳戶](https://azureinfo.microsoft.com/us-freetrial.html)
+* 啟動 [30 天免費試用 Microsoft Azure 帳戶](https://azure.microsoft.com/en-us/free/)
 * 如果您是 MSDN 或 Visual Studio 訂閱者，請認領您的 [Azure 點數](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
 ## <a name="create-an-azure-iot-suite"></a>建立 Azure IoT 套件
 
 1. 移至 [Azure IoT 套件網站](https://www.azureiotsuite.com/)，然後按一下 [建立新解決方案]。
   ![選取 Azure IoT 套件類型](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
-  > [!NOTE]
+  > [!WARNING]
   > 根據預設，此範例會在建立一個 IoT 套件之後，建立 S2 IoT 中樞。 如果此 IoT 中樞並未搭配大量裝置來使用，強烈建議您將其從 S2 降級為 S1，並刪除不再需要的 IoT 套件，以便能夠一併刪除相關的 IoT 中樞。 
 
 2. 選取 [遠端監視]。
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/27/2018
 3. 輸入解決方案名稱，選取訂用帳戶和區域，然後按一下 [建立解決方案]。 此解決方案可能需要一些時間才能完成佈建。
   ![建立解決方案](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
 
-4. 佈建完成後，按一下 [啟動]。 佈建程序進行期間會為解決方案建立一些模擬裝置。 按一下 **[裝置]** 將其簽出。![儀表板](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
+4. 佈建完成後，按一下 [啟動]。 佈建程序進行期間會為解決方案建立一些模擬裝置。 按一下 [裝置]**** 將其簽出。![儀表板](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
   ![主控台](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
 
 5. 按一下 [新增裝置]。

@@ -1,22 +1,22 @@
 ---
-title: "Azure 裝置佈建的裝置概念 | Microsoft Docs"
-description: "說明具有裝置佈建服務和 IoT 中樞之裝置的特定裝置佈建概念"
+title: Azure 裝置佈建的裝置概念 | Microsoft Docs
+description: 說明具有裝置佈建服務和 IoT 中樞之裝置的特定裝置佈建概念
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
 ms.date: 09/05/2017
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5297bc57729d9e983d63244c71eb21995cf73f0e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5482801461e2afea33d65d559723116f37a35d1f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT 中樞裝置佈建服務的裝置概念
 
@@ -33,7 +33,7 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 
 裝置佈建服務支援兩種形式的證明：
 * 以標準 X.509 憑證驗證流程為基礎的 **X.509 憑證**。
-* 以針對金鑰使用 TPM 標準之 nonce 挑戰為基礎的 **SAS 權杖**。 使用此種形式時，裝置不需要有實體 TPM 即可執行此動作，但該服務會因為 [TPM 規格](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)的需求，而預期裝置使用簽署金鑰進行證明。
+* **信賴平台模組 (TPM)** 是以 nonce 挑戰為基礎，使用金鑰的 TPM 標準，提供已簽署的共用存取簽章 (SAS) 權杖。 使用此種形式時，裝置不需要有實體 TPM 即可執行此動作，但該服務會因為 [TPM 規格](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)的需求，而預期裝置使用簽署金鑰進行證明。
 
 ## <a name="hardware-security-module"></a>硬體安全模組
 

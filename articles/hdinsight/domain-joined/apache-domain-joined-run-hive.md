@@ -1,8 +1,8 @@
 ---
-title: "在已加入網域的 HDInsight 中設定 Hive 原則 - Azure | Microsoft Docs"
-description: "了解 ..."
+title: 在已加入網域的 HDInsight 中設定 Hive 原則 - Azure | Microsoft Docs
+description: 了解 ...
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: saurinsh
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 919a0a45c4c8c94b19ed1d602ed20df0afabd09a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>在已加入網域的 HDInsight 中設定 Hive 原則
 了解如何針對 Hive 設定 Apache Ranger 原則。 在本文中，您會建立兩個 Ranger 原則來限制 hivesampletable 的存取權。 HDInsight 叢集隨附 hivesampletable。 設定原則之後，您可以使用 Excel 和 ODBC 驅動程式連接到 HDInsight 中的 Hive 資料表。
@@ -45,10 +45,10 @@ ms.lasthandoff: 01/18/2018
     目前，Ranger 僅適用於 Yarn 和 Hive。
 
 ## <a name="create-domain-users"></a>建立網域使用者
-在[設定已加入網域的 HDInsight 叢集](apache-domain-joined-configure.md#optional-create-ad-users-and-groups)中，您已建立 hiveruser1 和 hiveuser2。 在本教學課程中，您會使用兩個使用者帳戶。
+如需如何建立 hiveruser1 和 hiveuser2 的相關資訊，請參閱[建立已加入網域的 HDInsight 叢集](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster)。 在本教學課程中，您會使用兩個使用者帳戶。
 
 ## <a name="create-ranger-policies"></a>建立 Ranger 原則
-在這一節中，您會建立兩個 Ranger 原則以供存取 hivesampletable。 您會提供不同資料行集的選取權限。 兩個使用者都建立於[設定已加入網域的 HDInsight 叢集](apache-domain-joined-configure.md#optional-create-ad-users-and-groups)。  在下一節中，您將在 Excel 中測試這兩個原則。
+在這一節中，您會建立兩個 Ranger 原則以供存取 hivesampletable。 您會提供不同資料行集的選取權限。 兩個使用者均是按照[建立已加入網域的 HDInsight 叢集](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster)所建立。 在下一節中，您將在 Excel 中測試這兩個原則。
 
 **建立 Ranger 原則**
 

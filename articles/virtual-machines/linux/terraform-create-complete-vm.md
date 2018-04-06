@@ -1,13 +1,13 @@
 ---
-title: "使用 Terraform 在 Azure 中建立完整的 Linux VM | Microsoft Docs"
-description: "了解如何使用 Terraform 在 Azure 中建立及管理完整的 Linux 虛擬機器環境"
+title: 使用 Terraform 在 Azure 中建立完整的 Linux VM | Microsoft Docs
+description: 了解如何使用 Terraform 在 Azure 中建立及管理完整的 Linux 虛擬機器環境
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
 manager: timlt
 editor: na
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 2a6fb8b6b096a029db1ab88bd578461549db9776
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: aaa8235d5fe47e72963ef4942876ea9827a38ef6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 建立完整的 Linux 虛擬機器基礎結構
 
@@ -185,7 +185,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 ```
 
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>建立虛擬機器
 
 最後一個步驟是建立 VM，然後使用建立的所有資源。 以下區段會建立名為 *myVM* 的 VM，並附加名為 *myNIC* 的虛擬 NIC。 會使用最新的 *Ubuntu 16.04-LTS* 映像，並在停用密碼驗證的情況下建立名為 *azureuser* 的使用者。
 
@@ -450,7 +450,7 @@ Note: You didn’t specify an “-out” parameter to save this plan, so when
 Plan: 7 to add, 0 to change, 0 to destroy.
 ```
 
-如果一切看起來正確，而且您已準備好在 Azure 中建立基礎結構，請在 Terraform 中套用範本：
+如果一切看起來正確，而且您已準備好在 Azure 中組建基礎結構，請在 Terraform 中套用範本：
 
 ```bash
 terraform apply

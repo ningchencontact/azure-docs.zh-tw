@@ -1,9 +1,9 @@
 ---
-title: "使用 Visual Studio 開發和部署 WebJob - Azure"
-description: "了解如何使用 Visual Studio 開發 Azure WebJob，並將其部署至 Azure App Service。"
+title: 使用 Visual Studio 開發和部署 WebJob - Azure
+description: 了解如何使用 Visual Studio 開發 Azure WebJob，並將其部署至 Azure App Service。
 services: app-service
-documentationcenter: 
-author: ggailey777
+documentationcenter: ''
+author: tdykstra
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 8793485f2f1967e8c14ef335f14f81c9b946f974
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: babe190c0865f5be4aeecb40ca48b52673c6920e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>使用 Visual Studio 開發和部署 WebJob - Azure App Service
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/22/2017
 當 Visual Studio 部署具有 WebJobs 功能的主控台應用程式專案時，它會執行兩個工作：
 
 * 將執行階段檔案複製到 Web 應用程式中的適當資料夾 (若是連續 WebJobs，則是 *App_Data/jobs/continuous*，若是排程和隨選 WebJobs，則是 *App_Data/jobs/triggered*)。
-* 為已排定在特定時間執行的 WebJobs 設定 [Azure 排程器工作](#scheduler)。 (無需為連續 WebJobs 執行此動作。)
+* 為已排定在特定時間執行的 WebJobs 設定 [Azure 排程器](https://docs.microsoft.com/azure/scheduler/)工作。 (無需為連續 WebJobs 執行此動作。)
 
 具有 WebJobs 功能的專案會新增下列項目：
 
@@ -140,7 +140,7 @@ ms.lasthandoff: 11/22/2017
           "runMode": "Continuous"
         }
 
-您可以編輯此檔案目錄，而 Visual Studio 會提供 IntelliSense。 檔案結構描述會儲存在 [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) ，您可以在該處進行檢視。  
+您可以編輯此檔案目錄，而 Visual Studio 會提供 IntelliSense。 檔案結構描述會儲存在 [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json)，您可以在該處進行檢視。  
 
 ## <a id="webjobslist"></a>webjobs-list.json
 當您將具有 WebJobs 功能的專案連結到 Web 專案時，Visual Studio 會將 WebJobs 專案的名稱儲存在 Web 專案中 *Properties* 資料夾的 *webjobs-list.json* 檔案。 此清單可能包含多個 WebJobs 專案，如下列範例所示：
@@ -157,7 +157,7 @@ ms.lasthandoff: 11/22/2017
           ]
         }
 
-您可以編輯此檔案目錄，而 Visual Studio 會提供 IntelliSense。 檔案結構描述會儲存在 [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) ，您可以在該處進行檢視。
+您可以編輯此檔案目錄，而 Visual Studio 會提供 IntelliSense。 檔案結構描述會儲存在 [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json)，您可以在該處進行檢視。
 
 ## <a id="deploy"></a>部署 WebJobs 專案
 已連結到 Web 專案的 WebJobs 專案會透過 Web 專案自動部署。 如需 Web 專案部署的相關資訊，請參閱左邊功能窗格的**使用說明指南** > **部署應用程式**。

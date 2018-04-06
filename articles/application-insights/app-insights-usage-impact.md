@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights 使用情況影響 | Microsoft Docs"
-description: "分析不同的屬性可能會對您應用程式組件的轉換率產生哪些影響。"
+title: Azure Application Insights 使用情況影響 | Microsoft Docs
+description: 分析不同的屬性可能會對您應用程式組件的轉換率產生哪些影響。
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/09/2018
 ![影響工具](./media/app-insights-usage-impact/0002-dropdown.png)
 
 1. 從 [針對頁面檢視] 下拉式清單中選取頁面檢視。
-2. 保留 [分析其] 下拉式清單中的預設選取項目 [持續時間] (在此內容中，[持續時間] 為 [頁面載入時間] 的別名。)
+2. 保留 [分析其] 下拉式清單中的預設選取項目 [持續時間] \(在此內容中，[持續時間] 為 [頁面載入時間] 的別名。)
 3. 對於 [影響下列項目的使用量] 下拉式清單中，選取一個自訂事件。 此事件應與您在步驟 1 所選取頁面檢視上的 UI 元素相對應。
 
 ![結果的螢幕擷取畫面](./media/app-insights-usage-impact/0003-results.png)

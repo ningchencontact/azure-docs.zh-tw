@@ -1,24 +1,24 @@
 ---
-title: "快速入門：相應放大 Azure SQL 資料倉儲中的計算 - PowerShell | Microsoft Docs"
-description: "可藉由調整資料倉儲單位來相應放大計算資源的 Powershell 工作。"
+title: 快速入門：相應放大 Azure SQL 資料倉儲中的計算 - PowerShell | Microsoft Docs
+description: 可藉由調整資料倉儲單位來相應放大計算資源的 Powershell 工作。
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3236c0ad9676712afd220a3c8a9326f3ea1f59d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>快速入門：在 PowerShell 中調整 Azure SQL 資料倉儲中的計算
 
@@ -64,7 +64,7 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
     ![伺服器名稱和資源群組](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. 記下資料倉儲名稱，這將作為資料庫名稱使用。 也請記下伺服器名稱與資源群組。 您將會在暫停與繼續命令中使用它們。
+4. 記下資料倉儲名稱，這將作為資料庫名稱使用。 請記住，資料倉儲是一種資料庫。 也請記下伺服器名稱與資源群組。 您將會在暫停與繼續命令中使用它們。
 5. 如果您的伺服器是 foo.database.windows.net，請只在 PowerShell Cmdlet 中使用其第一個部分作為伺服器名稱。 在上述映像中，完整伺服器名稱是 newserver 20171113.database.windows.net。 我們會在 PowerShell Cmdlet 中使用 **newserver-20171113** 作為伺服器名稱。
 
 ## <a name="scale-compute"></a>調整計算
@@ -77,12 +77,13 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
 ```
 
-## <a name="check-database-state"></a>檢查資料庫狀態
+## <a name="check-data-warehouse-state"></a>檢查資料倉儲狀態
 
 若要查看資料倉儲的目前狀態，請使用 [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell Cmdlet。 這會取得資源群組 **myResourceGroup** 和伺服器 **mynewserver-20171113.database.windows.net** 中 **mySampleDataWarehouse** 資料庫的狀態。
 
 ```powershell
-Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database
 ```
 
 這會導致如以下的結果：
@@ -113,7 +114,13 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-您可以接著查看資料庫的 **Status**。 在此情況下，您會看到此資料庫已上線。  當您執行此命令時，應該會收到下列其中一個 Status (狀態) 值：Online (上線)、Pausing (暫停中)、Resuming (正在恢復)、Scaling (正在調整) 或 Paused (已暫停)。
+您可以在輸出中查看資料庫的 **Status**。 在此情況下，您會看到此資料庫已上線。  當您執行此命令時，應該會收到下列其中一個 Status (狀態) 值：Online (上線)、Pausing (暫停中)、Resuming (正在恢復)、Scaling (正在調整) 或 Paused (已暫停)。 
+
+若要單獨查看狀態，請使用下列命令：
+
+```powershell
+$database | Select-Object DatabaseName,Status
+```
 
 ## <a name="next-steps"></a>後續步驟
 您現已了解如何調整資料倉儲的計算。 若要深入了解 Azure SQL 資料倉儲，請繼續進行載入資料的教學課程。

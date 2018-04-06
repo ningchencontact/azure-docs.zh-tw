@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: e1be075ba2d3e6ae7512ccc030073fd7f1862502
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>針對受控網域的無效服務主體組態進行疑難排解
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>警示 AADDS105：密碼同步處理應用程式已過期
 
-**警示訊息：**應用程式識別碼為 “d87dcbc6-a371-462e-88e3-28ad15ec4e64” 的服務主體已刪除，Microsoft 能夠加以重新建立。 此服務主體可管理另一個服務主體，以及用於密碼同步處理的應用程式。 受控服務主體和應用程式在新建立的服務主體下未獲授權，且將會在同步處理憑證到期時隨之過時。 這表示，新建立的服務主體將無法更新舊的受控應用程式，而且會影響到從 AAD 執行的物件同步處理。
+**警示訊息：**應用程式識別碼為 “d87dcbc6-a371-462e-88e3-28ad15ec4e64” 的服務主體已刪除，然後重新建立。 此服務主體可管理另一個服務主體，以及用於密碼同步處理的應用程式。 受控服務主體及/或應用程式未經過新建立的服務主體授權，因此它們不能由我們的服務管理。 這表示，新建立的服務主體將無法更新舊的受控應用程式，而且會影響密碼同步處理。
 
 
 **解決方案：**您需要 Azure AD PowerShell 才能完成這些步驟。 如需安裝 Azure AD PowerShell 的相關資訊，請參閱[這篇文章](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.)。
@@ -108,7 +108,7 @@ ms.lasthandoff: 03/16/2018
 2. 使用下列 PowerShell 命令刪除舊的應用程式和物件
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId

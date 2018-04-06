@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 03/27/2018
 ms.author: danis
-ms.openlocfilehash: 5174e599f12314a657d142304ffec18fbff847b1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c0b7224d0f534661950117813e1a4f348810853
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>適用於 Linux 的 OMS 虛擬機器擴充功能
 
@@ -195,10 +195,11 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 | 錯誤碼 | 意義 | 可能的動作 |
 | :---: | --- | --- |
+| 9 | 啟用提前呼叫 | [將 Azure Linux 代理程式更新](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)為最新的可用版本。 |
 | 10 | VM 已經連線到 Log Analytics 工作區 | 若要將 VM 連線到擴充功能結構描述中所指定的工作區，請在公用設定中將 stopOnMultipleConnections 設定為 false，或是移除此屬性。 針對此 VM 所連線的每個工作區都會向此 VM 計費一次。 |
 | 11 | 提供給擴充功能的組態無效 | 依照上述範例來設定部署所需的所有屬性值。 |
 | 12 | dpkg 套件管理員已鎖定 | 請確定機器上的所有 dpkg 更新作業皆已完成，然後重試。 |
-| 20 | 啟用提前呼叫 | [將 Azure Linux 代理程式更新](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)為最新的可用版本。 |
+| 20 | SCX 套件安裝失敗 |
 | 51 | VM 的作業系統上不支援此擴充功能 | |
 | 55 | 無法連線至 Microsoft Operations Management Suite 服務 | 請確認系統是否有網際網路存取權，或已提供有效的 HTTP Proxy。 此外，請確認工作區識別碼是否正確。 |
 

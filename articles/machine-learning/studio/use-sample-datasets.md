@@ -1,10 +1,11 @@
 ---
-title: "使用 Machine Learning Studio 中的範例資料集 | Microsoft Docs"
-description: "Machine Learning Studio 中包含的範例模型所使用之資料集的描述。 您可以為您的實驗使用這些範例資料集。"
+title: 使用 Machine Learning Studio 中的範例資料集 | Microsoft Docs
+description: Machine Learning Studio 中包含的範例模型所使用之資料集的描述。 您可以為您的實驗使用這些範例資料集。
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: garye
-ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 38f31220b7cf4624367d872df152ef9e1304e841
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中使用範例資料集
 [top]: #machine-learning-sample-datasets
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/20/2018
 <p></p>
 <b>使用方式：</b>使用人口統計來將人口分類，以預測個人年收入是否超過 5 萬元。
 <p></p>
-<b>相關研究：</b>Kohavi, R.、Becker, B. (1996 年)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Kohavi, R.、Becker, B. (1996 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -68,7 +68,7 @@ ms.lasthandoff: 01/20/2018
 <p></p>
 <b>使用方式：</b>使用迴歸或多變量分類，依特性預測風險評分。 
 <p></p>
-<b>相關研究：</b>Schlimmer, J.C. (1987 年)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Schlimmer, J.C. (1987 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -99,7 +99,7 @@ ms.lasthandoff: 01/20/2018
 <p></p>
 <b>使用方式：</b>目標是透過分類來預測捐血者是否曾在 2007 年 3 月份捐血；1 表示目標期間內有 1 名捐血者，0 表示沒有捐血者。 
 <p></p>
-<b>相關研究：</b>Yeh, I.C. (2008 年)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science
+<b>相關研究：</b>Yeh, I.C. (2008 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
@@ -112,7 +112,7 @@ Oncology Institute 所提供的三個癌症相關資料集之一，常出現在�
 <p></p>
 <b>使用方式：</b>根據 9 個屬性 (有些是線性，有些則為類別) 將癌症類型分類。 
 <p></p>
-<b>相關研究：</b>Wohlberg, W.H.、Street, W.N. 和 Mangasarian, O.L. (1995 年)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Wohlberg, W.H.、Street, W.N. 和 Mangasarian, O.L. (1995 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -165,7 +165,7 @@ KDD Cup 2009 客戶關係預測挑戰 (<a href="http://www.sigkdd.org/site/2009/
 <p></p>
 <b>使用方式：</b>使用迴歸或分類，根據兩個實數值回應的其中之一來預測能量效益評等。 就多類別分類而言，會將回應變數進位至最接近的整數。 
 <p></p>
-<b>相關研究：</b>Xifara, A. 和 Tsanas, A.(2012 年)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Xifara, A. 和 Tsanas, A.(2012 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -190,7 +190,7 @@ KDD Cup 2009 客戶關係預測挑戰 (<a href="http://www.sigkdd.org/site/2009/
 <p></p>
 <b>使用方式：</b>預測航班誤點。 
 <p></p>
-<b>相關研究：</b>取自美國交通部 <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>。
+<b>相關研究：</b>來自美國運輸部 <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>。
   </td>
 </tr>
 
@@ -201,9 +201,9 @@ KDD Cup 2009 客戶關係預測挑戰 (<a href="http://www.sigkdd.org/site/2009/
 <p></p>
 <b>使用方式：</b>這是一項困難的迴歸工作，其目的是要預測森林火災的燃燒區域。 
 <p></p>
-<b>相關研究：</b>Cortez, P. 和 Morais, A.(2008 年)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science
+<b>相關研究：</b>Cortez, P. 和 Morais, A.(2008 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
-[Cortez and Morais, 2007] P. Cortez and A. Morais。 一個使用氣象資料預測森林火災的資料採礦方法。 In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. 可在此取得：<a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>。
+[Cortez and Morais, 2007] P. Cortez and A. Morais。 一個使用氣象資料預測森林火災的資料採礦方法。 In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. 可在下列地方獲取：<a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>。
   </td>
 </tr>
 
@@ -230,7 +230,7 @@ UCI Statlog (德國信用卡) 資料集 (<a href="http://archive.ics.uci.edu/ml/
 <p></p>
 <b>使用方式：</b>從尺寸預測鳶尾花類型。  
 <p></p>
-<b>相關研究：</b>Fisher, R.A. (1988 年)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Fisher, R.A. (1988 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -249,7 +249,7 @@ UCI Statlog (德國信用卡) 資料集 (<a href="http://archive.ics.uci.edu/ml/
 <p></p>
 <b>使用方式：</b>根據三個多重值離散屬性和五個連續屬性，預測燃料經濟效益。 
 <p></p>
-<b>相關研究：</b>StatLib Carnegie Mellon University (1993 年)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>StatLib Carnegie Mellon University (1993 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -259,7 +259,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 <b>使用方式：</b>預測受測者是否罹患糖尿病 (二元分類)。 
 <p></p>
-<b>相關研究：</b>Sigillito, V.(1990 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Sigillito, V.(1990 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -269,7 +269,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 <b>使用方式：</b>將此資料集與其他兩個餐廳資料集搭配使用，以使推薦系統定型並進行測試。 
 <p></p>
-<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science.
+<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -280,7 +280,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 <b>使用方式：</b>將此資料集與其他兩個餐廳資料集搭配使用，以使推薦系統定型並進行測試。 
 <p></p>
-<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science.
+<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -291,7 +291,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 <b>使用方式：</b>將此資料集與其他兩個餐廳資料集搭配使用，以使推薦系統定型並進行測試。 
 <p></p>
-<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science.
+<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -304,9 +304,9 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 鋼鐵等級會遵循 SAE 和其他組織所定義的一組標準。 您想要尋找特定的「等級」(類別變數)，並了解所需的值。 
 <p></p>
-<b>相關研究：</b>Sterling, D. 和 Buntine, W.(NA)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science
+<b>相關研究：</b>Sterling, D. 和 Buntine, W.(NA)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
-鋼鐵等級的實用指南可以在這裡找到：<a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+鋼鐵等級的實用指南可在這裡找到：<a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
@@ -325,7 +325,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 此外請注意，背景活動的數目 (h 表示強子波) 會被低估。 在實際的測量中，h 或雜訊類別會佔活動的多數。 
 <p></p>
-<b>相關研究：</b>Bock, R.K。 (1995 年)。 UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information </td>
+<b>相關研究：</b>Bock, R.K。 (1995 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information </td>
 </tr>
 
 <tr>

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 04688f943ac9eba27ca193aa2054c69b6a94547d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>使用 Azure Key Vault 中客戶管理的金鑰進行儲存體服務加密
 
@@ -111,11 +111,11 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 
 ### <a name="step-5-copy-data-to-storage-account"></a>步驟 5︰將資料複製到儲存體帳戶
 
-若要將資料傳輸至新的儲存體帳戶以便將其加密，請參閱[待用資料的儲存體服務加密使用者入門](storage-service-encryption.md#step-3-copy-data-to-storage-account)的步驟 3。
+將資料傳送到新的儲存體帳戶，使其加密。 如需詳細資訊，請參閱[儲存體服務加密的常見問題集](storage-service-encryption.md#faq-for-storage-service-encryption)。
 
 ### <a name="step-6-query-the-status-of-the-encrypted-data"></a>步驟 6︰查詢加密資料的狀態
 
-若要查詢加密資料的狀態，請參閱[待用資料的儲存體服務加密使用者入門](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data)的步驟 4。
+查詢加密資料的狀態。
 
 ## <a name="faq-for-sse-with-customer-managed-keys"></a>搭配客戶管理金鑰的 SSE 常見問題集
 

@@ -1,16 +1,16 @@
 ---
-title: "Azure Site Recovery 中的 Hyper-V 至 Azure 複寫架構 | Microsoft Docs"
-description: "本文提供使用 Azure Site Recovery 服務將內部部署 Hyper-V VM (不含 VMM) 複寫至 Azure 時所用元件和架構的概觀。"
+title: Azure Site Recovery 中的 Hyper-V 至 Azure 複寫架構 | Microsoft Docs
+description: 本文提供使用 Azure Site Recovery 服務將內部部署 Hyper-V VM (不含 VMM) 複寫至 Azure 時所用元件和架構的概觀。
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/194/2018
 ms.author: raynew
-ms.openlocfilehash: dd3dcf325ed5a628c98ac63683440e1796aa8c3f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 978d290287a4ff8875eea7e93f003c78e7177dae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V 至 Azure 複寫架構
 
@@ -28,7 +28,7 @@ Hyper-V 主機可選擇性第在 System Center Virtual Machine Manager (VMM) 私
 **元件** | **需求** | **詳細資料**
 --- | --- | ---
 **Azure** | Azure 訂用帳戶、Azure 儲存體帳戶及 Azure 網路。 | 從內部部署 VM 工作負載複寫的資料會儲存在儲存體帳戶中。 從內部部署網站進行容錯移轉時，便會以複寫的工作負載資料建立 Azure VM。<br/><br/> Azure VM 在建立後會連線到 Azure 虛擬網路。
-**Hyper-V** | 在 Site Recovery 部署期間，您會將 Hyper-V 主機和叢集蒐集到 Hyper-V 網站中。 您可在每部 Hyper-V 機器上安裝 Azure Site Recovery Provider 和復原服務代理程式。 | 此提供者會透過網際網路與 Site Recovery 協調複寫作業。 復原服務代理程式會處理資料複寫。<br/><br/> 來自提供者和代理程式的通訊都是安全且加密的。 Azure 儲存體中的複寫的資料也會加密。
+**Hyper-V** | 在 Site Recovery 部署期間，您會將 Hyper-V 主機和叢集蒐集到 Hyper-V 網站中。 您可在每部獨立的 Hyper-V 主機上，或在每個 Hyper-V 叢集節點上，安裝 Azure Site Recovery Provider 和復原服務代理程式。 | 此提供者會透過網際網路與 Site Recovery 協調複寫作業。 復原服務代理程式會處理資料複寫。<br/><br/> 來自提供者和代理程式的通訊都是安全且加密的。 Azure 儲存體中的複寫的資料也會加密。
 **Hyper-V VM** | 一或多部在 Hyper-V 上執行的 VM。 | 不需要在 VM 上明確安裝任何項目。
 
 
@@ -46,7 +46,7 @@ Hyper-V 主機可選擇性第在 System Center Virtual Machine Manager (VMM) 私
 --- | --- | ---
 **Azure** | Azure 訂用帳戶、Azure 儲存體帳戶及 Azure 網路。 | 從內部部署 VM 工作負載複寫的資料會儲存在儲存體帳戶中。 從內部部署站台進行容錯移轉時，便會以複寫的資料建立 Azure VM。<br/><br/> Azure VM 在建立後會連線到 Azure 虛擬網路。
 **VMM 伺服器** | VMM 伺服器有一或多個包含 Hyper-V 主機的雲端。 | 您可在 VMM 伺服器上安裝 Site Recovery Provider 來協調 Site Recovery 進行複寫，並在復原服務保存庫中註冊伺服器。
-**Hyper-V 主機** | 一或多個由 VMM 管理的 Hyper-V 主機/叢集。 |  您在每個主機或叢集成員上安裝復原服務代理程式。
+**Hyper-V 主機** | 一或多個由 VMM 管理的 Hyper-V 主機/叢集。 |  您在每個 Hyper-V 主機或叢集節點上安裝復原服務代理程式。
 **Hyper-V VM** | 一或多個在 Hyper-V 主機伺服器上執行的 VM。 | 不需要在 VM 上明確安裝任何項目。
 **網路功能** | 在 VMM 伺服器上設定的邏輯和 VM 網路。 VM 網路應該連結到與雲端相關聯的邏輯網路。 | VM 網路會對應至 Azure 虛擬網路。 在容錯移轉後建立 Azure VM 時，Azure VM 會新增到對應至 VM 網路的 Azure 網路。
 

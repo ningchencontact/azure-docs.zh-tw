@@ -1,24 +1,21 @@
 ---
-title: "權杖、工作階段及單一登入設定 - Azure AD B2C | Microsoft Docs"
-description: "Azure Active Directory B2C 中的權杖、工作階段及單一登入組態"
+title: 權杖、工作階段及單一登入設定 - Azure AD B2C | Microsoft Docs
+description: Azure Active Directory B2C 中的權杖、工作階段及單一登入組態
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: e78e6344-0089-49bf-8c7b-5f634326f58c
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: parakhj
-ms.openlocfilehash: 76feb172ce9b08d4feef9c86e74a592553a3c7f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 925313b6f2a00826f2ec8086457315c60f70b007
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C：權杖、工作階段及單一登入設定
 
@@ -32,7 +29,7 @@ ms.lasthandoff: 12/11/2017
 針對內建原則，您可以在 Azure AD B2C 目錄中使用這項功能，如下所示：
 
 1. 遵循下列步驟以[瀏覽至 B2C 功能功能表](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
-2. 按一下 [註冊或登入原則] 。 *附註︰這項功能適用於任何原則類型，並不限於**註冊或登入原則***。
+2. 按一下 [註冊或登入原則] 。 *附註︰這項功能適用於任何原則類型，並不限於 **註冊或登入原則***。
 3. 按一下原則以予以開啟。 例如，按一下 [B2C_1_SiUpIn]。
 4. 按一下功能表頂端的 [編輯]。
 5. 按一下 [權杖、工作階段及單一登入設定]。

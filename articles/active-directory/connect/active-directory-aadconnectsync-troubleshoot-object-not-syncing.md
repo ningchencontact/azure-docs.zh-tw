@@ -1,12 +1,12 @@
 ---
-title: "針對未同步至 Azure AD 的物件進行疑難排解 | Microsoft Docs"
-description: "針對物件未同步至 Azure AD 的原因進行疑難排解。"
+title: 針對未同步至 Azure AD 的物件進行疑難排解 | Microsoft Docs
+description: 針對物件未同步至 Azure AD 的原因進行疑難排解。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 05b60b091fe87620c88ad9eb761f1028c24d5730
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>針對未同步至 Azure AD 的物件進行疑難排解
 
@@ -110,7 +110,7 @@ Synchronization Service Manager 中的 [作業] 索引標籤是您應該開始�
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
 ### <a name="log"></a>記錄檔
-[記錄] 頁面可用來查看密碼同步狀態和歷程記錄。 如需詳細資訊，請參閱[針對密碼同步處理進行疑難排解 (英文)](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)。
+[記錄] 頁面可用來查看密碼同步狀態和歷程記錄。 如需詳細資訊，請參閱[針對密碼雜湊同步處理進行疑難排解](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md)。
 
 ## <a name="metaverse-object-properties"></a>Metaverse 物件屬性
 通常最好是從來源 Active Directory [連接器空間](#connector-space)開始搜尋。 但是您也可以從 Metaverse 開始搜尋。

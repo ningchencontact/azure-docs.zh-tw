@@ -1,8 +1,8 @@
 ---
-title: "了解 Azure Log Analytics 中的警示 | Microsoft Docs"
-description: "Log Analytics 中的警示會識別您的 OMS 儲存機制中的重要資訊，並可主動通知您相關問題或叫用動作以嘗試更正問題。  本文說明不同種類的警示規則和其定義方式。"
+title: 了解 Azure Log Analytics 中的警示 | Microsoft Docs
+description: Log Analytics 中的警示會識別您的 OMS 儲存機制中的重要資訊，並可主動通知您相關問題或叫用動作以嘗試更正問題。  本文說明不同種類的警示規則和其定義方式。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: ece2e7eeb53aebbb18bce4bb34e03307b0aea74c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>了解 Log Analytics 中的警示
 
@@ -102,7 +102,7 @@ Log Analytics 中的各個警示規則是兩種類型其中之一。  下列各�
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-如果您想要針對特定的時間範圍在處理器平均超過 90% 時發出警示，您會利用如下的[測量命令](log-analytics-search-reference.md#commands)來使用查詢，且警示規則的臨界值**大於 0**。
+如果您想要針對特定的時間範圍在處理器平均超過 90% 時發出警示，您會使用如下的 `measure` 命令來使用查詢，且警示規則的臨界值**大於 0**。
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
@@ -119,7 +119,7 @@ Log Analytics 中的各個警示規則是兩種類型其中之一。  下列各�
 **計量測量**警示規則會針對查詢中其值超過指定閾值的每個物件建立警示。  這些警示規則與**結果數目**警示規則具有下列明顯差異。
 
 #### <a name="log-search"></a>記錄搜尋
-您可以對**結果數目**警示規則使用任何查詢，但是對計量測量警示規則使用查詢時則有特定需求。  它必須包含[測量命令](log-analytics-search-reference.md#commands)以將結果群組在特定欄位上。 此命令必須包含下列元素。
+您可以對**結果數目**警示規則使用任何查詢，但是對計量測量警示規則使用查詢時則有特定需求。  它必須包含 `measure` 命令以將結果群組在特定欄位上。 此命令必須包含下列元素。
 
 - **彙總函式**。  決定要執行的計算，並可能決定要彙總的數值欄位。  例如，**count()** 會在查詢中傳回記錄數目，**avg(CounterValue)** 則會傳回 CounterValue 欄位在一段間隔內的平均值。
 - **群組欄位**。  系統會為這個欄位中的每個執行個體建立帶有彙總值的記錄，而且每個執行個體都可產生警示。  例如，如果您想要為每部電腦產生警示，您可以使用**依電腦**。   

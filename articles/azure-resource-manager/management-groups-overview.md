@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2018
+ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源 
 
@@ -24,15 +24,13 @@ ms.lasthandoff: 03/17/2018
 
 管理群組功能目前提供公開預覽版。 若要開始使用管理群組，請登入 [Azure 入口網站](https://portal.azure.com)，並在 [所有服務] 區段中搜尋 [管理群組]。 
 
-公開預覽版的管理群組目前尚不支援 Azure 原則，此支援將在未來的幾週內提供。  
-
 舉例來說，您可以將原則套用至管理群組，以限制可建立虛擬機器 (VM) 的區域。 此原則會套用至所有的管理群組、訂用帳戶以及該管理群組下的資源，而僅允許在該區域中建立的 VM。
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>管理群組和訂用帳戶的階層 
 
 您可以建置管理群組和訂用帳戶的彈性結構，將資源組織到一個階層中，以便執行統一原則與存取管理。 下圖顯示依部門組織的管理群組和訂用帳戶所組成的範例階層。    
 
-![階層](media/management-groups/MG_overview.png)
+![樹狀](media/management-groups/MG_overview.png)
 
 藉由建立依部門分組的階層，您就可以將*繼承*的 [Azure 角色型存取控制 (RBAC)](../active-directory/role-based-access-control-what-is.md) 角色指派給該管理群組下的部門。 藉由使用管理群組，您將可減少工作負載，且因為只需指派角色一次而降低發生錯誤的風險。 
 
@@ -42,6 +40,14 @@ ms.lasthandoff: 03/17/2018
     - 此限制不包含根層級或訂用帳戶層級。
 - 每個管理群組只能支援一個父系。
 - 一個管理群組可以有多個子系。 
+
+### <a name="preview-subscription-visibility-limitation"></a>預覽訂用帳戶可見性限制 
+預覽中目前存在限制，您無法檢視具有繼承存取權的訂用帳戶。 存取權已繼承到訂用帳戶，但 Azure Resource Manager 還不能接受繼承存取權。  
+
+當您擁有存取權時，可使用 REST API 取得訂用帳戶傳回詳細資料的相關資訊，但在 Azure 入口網站和 Azure Powershell 中，不會顯示訂用帳戶。 
+
+此項目正在進行中，並且會在宣佈管理群組為「一般可用性」之前解決。  
+
 
 ## <a name="root-management-group-for-each-directory"></a>每個目錄的根管理群組
 

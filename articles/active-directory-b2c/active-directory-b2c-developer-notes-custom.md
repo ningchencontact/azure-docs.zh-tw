@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C：開發人員的自訂原則使用注意事項 | Microsoft Docs"
-description: "開發人員在使用自訂原則來設定和維護 Azure AD B2C 時的注意事項"
+title: Azure Active Directory B2C：開發人員的自訂原則使用注意事項 | Microsoft Docs
+description: 開發人員在使用自訂原則來設定和維護 Azure AD B2C 時的注意事項
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/13/2017
-ms.author: joroja
-ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: davidmu
+ms.openlocfilehash: cf76f158d7e87a2f2f902551fdc751b295b6915b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Azure Active Directory B2C 自訂原則公開預覽版的版本資訊
 所有 Azure Active Directory B2C (Azure AD B2C) 客戶現在已可評估自訂原則功能集 (公開預覽狀態)。 此功能集的適用對象是正在建置最複雜身分識別解決方案的進階身分識別開發人員。  
@@ -60,7 +57,7 @@ ms.lasthandoff: 02/21/2018
 ## <a name="features-by-stage-and-known-issues"></a>依階段和已知問題的功能
 自訂原則/識別體驗架構功能正在進行持續不斷且快速的開發。  此資料表是功能/元件可用性的索引。
 
-將問題張貼在 Stack Overflow 中，網址是 [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
+將問題張貼在 Stack Overflow，網址為 [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
 ### <a name="identity-providers-tokens-protocols"></a>識別提供者、權杖、通訊協定

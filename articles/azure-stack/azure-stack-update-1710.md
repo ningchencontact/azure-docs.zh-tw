@@ -1,11 +1,11 @@
 ---
-title: "Azure Stack 1710 更新 (組建 20171020.1) | Microsoft Docs"
-description: "了解適用於 Azure Stack 整合系統之 1710 更新的新功能、已知問題，以及可從何處下載更新。"
+title: Azure Stack 1710 更新 (組建 20171020.1) | Microsoft Docs
+description: 了解適用於 Azure Stack 整合系統之 1710 更新的新功能、已知問題，以及可從何處下載更新。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 135314fd-7add-4c8c-b02a-b03de93ee196
 ms.service: azure-stack
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: mabrigg
 ms.openlocfilehash: 1a482f1d2f3eef8775bb7b64d4f6749f69fa5471
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Azure Stack 1710 更新 (組建 20171020.1)
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure 網路監看員中的資源疑難排解簡介 | Microsoft Docs"
-description: "本頁提供網路監看員資源疑難排解功能的概觀"
+title: Azure 網路監看員中的資源疑難排解簡介 | Microsoft Docs
+description: 本頁提供網路監看員資源疑難排解功能的概觀
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
 ms.service: network-watcher
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646caa5e4aacd58377c0a2b5985a69277d00cec3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Azure 網路監看員中的資源疑難排解簡介
 
-虛擬網路閘道可提供 Azure 中內部部署資源與其他虛擬網路之間的連線。 監視這些閘道器及其連線，對於確保通訊不中斷至關重要。 網路監看員可提供針對虛擬網路閘道和連線進行疑難排解的功能。 此功能可透過入口網站、PowerShell、CLI 或 REST API 呼叫。 一經呼叫，網路監看員就會診斷虛擬網路閘道或連線的健全狀況，並傳回相關結果。 此要求是長時間執行的交易，一旦完成診斷就會傳回結果。
+虛擬網路閘道可提供 Azure 中內部部署資源與其他虛擬網路之間的連線。 監視閘道器及其連線，對於確保通訊不中斷至關重要。 網路監看員可提供針對閘道和連線進行疑難排解的功能。 此功能可透過入口網站、PowerShell、Azure CLI 或 REST API 呼叫。 一經呼叫，網路監看員就會診斷閘道或連線的健康情況，並傳回相關結果。 此要求是長時間執行的交易。 完成診斷之後，會傳回結果。
 
 ![入口網站][2]
 
@@ -50,44 +50,44 @@ ms.lasthandoff: 10/11/2017
 
 | 錯誤類型 | 原因 | 記錄檔|
 |---|---|---|
-| NoFault | 未偵測到任何錯誤時。 |yes|
-| GatewayNotFound | 找不到閘道或閘道尚未佈建。 |否|
-| PlannedMaintenance |  閘道執行個體正在進行維護。  |否|
-| UserDrivenUpdate | 當正在更新使用者時。 這可能是調整大小作業。 | 否 |
-| VipUnResponsive | 無法連線到閘道的主要執行個體。 健全狀況探查失敗時便會發生這種狀況。 | 否 |
+| NoFault | 未偵測到任何錯誤時 |yes|
+| GatewayNotFound | 找不到閘道或閘道尚未佈建 |否|
+| PlannedMaintenance |  閘道執行個體正在進行維護  |否|
+| UserDrivenUpdate | 當正在更新使用者時，會發生此錯誤。 此更新可能是調整大小作業。 | 否 |
+| VipUnResponsive | 由於健康情況探查失敗而無法連線到閘道的主要執行個體時，會發生此錯誤。 | 否 |
 | PlatformInActive | 平台發生問題。 | 否|
 | ServiceNotRunning | 基礎服務並未執行。 | 否|
-| NoConnectionsFoundForGateway | 閘道上沒有任何連線存在。 這只是警告。| 否|
-| ConnectionsNotConnected | 未建立連線。 這只是警告。| yes|
+| NoConnectionsFoundForGateway | 閘道上沒有任何連線存在。 此錯誤只是警告。| 否|
+| ConnectionsNotConnected | 未建立連線。 此錯誤只是警告。| yes|
 | GatewayCPUUsageExceeded | 目前的閘道 CPU 使用量 > 95%。 | yes |
 
 ### <a name="connection"></a>連線
 
 | 錯誤類型 | 原因 | 記錄檔|
 |---|---|---|
-| NoFault | 未偵測到任何錯誤時。 |yes|
-| GatewayNotFound | 找不到閘道或閘道尚未佈建。 |否|
-| PlannedMaintenance | 閘道執行個體正在進行維護。  |否|
-| UserDrivenUpdate | 當正在更新使用者時。 這可能是調整大小作業。  | 否 |
-| VipUnResponsive | 無法連線到閘道的主要執行個體。 健全狀況探查失敗時便會發生這種狀況。 | 否 |
-| ConnectionEntityNotFound | 缺少連線組態。 | 否 |
-| ConnectionIsMarkedDisconnected | 連線標記為「已中斷連線」。 |否|
+| NoFault | 未偵測到任何錯誤時 |yes|
+| GatewayNotFound | 找不到閘道或閘道尚未佈建 |否|
+| PlannedMaintenance | 閘道執行個體正在進行維護  |否|
+| UserDrivenUpdate | 當正在更新使用者時，會發生此錯誤。 此更新可能是調整大小作業。  | 否 |
+| VipUnResponsive | 由於健康情況探查失敗而無法連線到閘道的主要執行個體時，會發生此錯誤。 | 否 |
+| ConnectionEntityNotFound | 缺少連線組態 | 否 |
+| ConnectionIsMarkedDisconnected | 連線標記為「已中斷連線」 |否|
 | ConnectionNotConfiguredOnGateway | 基礎服務未設定連線。 | yes |
 | ConnectionMarkedStandy | 基礎服務標記為「待命」。| yes|
-| 驗證 | 預先共用的金鑰不相符。 | yes|
+| 驗證 | 預先共用的金鑰不相符 | yes|
 | PeerReachability | 無法連線到對等閘道。 | yes|
 | IkePolicyMismatch | 對等閘道的 IKE 原則不受 Azure 支援。 | yes|
 | WfpParse 錯誤 | 剖析 WFP 記錄時發生錯誤。 |yes|
 
 ## <a name="supported-gateway-types"></a>支援的閘道類型
 
-下列清單顯示網路監看員疑難排解所支援的閘道和連線。
+下表列出網路監看員疑難排解所支援的閘道和連線：
+
 |  |  |
 |---------|---------|
 |**閘道類型**   |         |
 |VPN      | 支援        |
 |ExpressRoute | 不支援 |
-|Hypernet | 不支援|
 |**VPN 類型** | |
 |路由式 | 支援|
 |原則式 | 不支援|
@@ -95,7 +95,6 @@ ms.lasthandoff: 10/11/2017
 |IPsec| 支援|
 |VNet2Vnet| 支援|
 |ExpressRoute| 不支援|
-|Hypernet| 不支援|
 |VPNClient| 不支援|
 
 ## <a name="log-files"></a>記錄檔
@@ -151,7 +150,7 @@ Error: On-prem device sent invalid payload.
 
 **Scrubbed-wfpdiag.txt** 記錄檔包含 wfp 記錄。 此記錄包含套件置放和 IKE/AuthIP 失敗的記錄。
 
-下列範例顯示 Scrubbed-wfpdiag.txt 檔案的內容。 在此範例中，連線的共用金鑰不正確 (可以從底部算起的第 3 行看出來)。 下列範例是只是整個記錄的某個片段，因為視問題而定，記錄可能很冗長。
+下列範例顯示 Scrubbed-wfpdiag.txt 檔案的內容。 在此範例中，連線的共用金鑰不正確 (可以從底部算起的第三行看出來)。 下列範例是只是整個記錄的某個片段，因為視問題而定，記錄可能很冗長。
 
 ```
 ...

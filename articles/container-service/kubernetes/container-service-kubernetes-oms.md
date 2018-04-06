@@ -1,6 +1,6 @@
 ---
-title: "監視 Azure Kubernetes 叢集 - Operations Management"
-description: "使用 Microsoft Operations Management Suite 監視 Azure Container Service 中的 Kubernetes 叢集"
+title: 監視 Azure Kubernetes 叢集 - Operations Management
+description: 使用 Log Analytics 監視 Azure Container Service 中的 Kubernetes 叢集
 services: container-service
 author: bburns
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: e8a68896c923d785fea84cef60f8d2015906f342
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: efe4b3a1a63fa1986682a2fdde1a20221dc5d93a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-microsoft-operations-management-suite-oms"></a>使用 Microsoft Operations Management Suite (OMS) 監視 Azure Container Service 叢集
+# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>使用 Log Analytics 監視 Azure Container Service 叢集
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
@@ -56,18 +56,19 @@ CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
-## <a name="monitoring-containers-with-operations-management-suite-oms"></a>使用 Operations Management Suite (OMS) 監視容器
+## <a name="monitoring-containers-with-log-analytics"></a>使用Log Analytics 監視容器
 
-Microsoft Operations Management (OMS) 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。 容器解決方案是 OMS Log Analytics 中的解決方案，可協助您在單一位置檢視容器詳細目錄、效能和記錄檔。 您可以在集中式位置檢視記錄檔以稽核、對容器進行疑難排解，並尋找壟斷及佔用過量主機資源的容器。
+Log Analytics 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。 容器解決方案是 Log Analytics 中的解決方案，可協助您在單一位置檢視容器詳細目錄、效能和記錄檔。 您可以在集中式位置檢視記錄檔以稽核、對容器進行疑難排解，並尋找壟斷及佔用過量主機資源的容器。
 
 ![](media/container-service-monitoring-oms/image1.png)
 
 如需容器解決方案的詳細資訊，請參閱[容器解決方案 Log Analytics](../../log-analytics/log-analytics-containers.md)。
 
-## <a name="installing-oms-on-kubernetes"></a>在 Kubernetes 上安裝 OMS
+## <a name="installing-log-analytics-on-kubernetes"></a>在 Kubernetes 上安裝 Log Analytics
 
 ### <a name="obtain-your-workspace-id-and-key"></a>取得您的工作區識別碼和金鑰
-為了使 OMS 代理程式能與服務溝通，必須使用工作區識別碼和工作區金鑰來設定它。 若要取得工作區識別碼和金鑰，您必須在 <https://mms.microsoft.com> 建立一個 OMS 帳戶。請依步驟指示建立帳戶。 建立帳戶之後，您必須依序按一下 [設定]、[連接的來源]、[Linux 伺服器]，以取得您的識別碼和金鑰，如下所示。
+為了使 OMS 代理程式能與服務溝通，必須使用工作區識別碼和工作區金鑰來設定它。 若要取得工作區識別碼和金鑰，您必須在 <https://mms.microsoft.com> 建立帳戶。
+請依步驟指示建立帳戶。 建立帳戶之後，您必須依序按一下 [設定]、[連接的來源]、[Linux 伺服器]，以取得您的識別碼和金鑰，如下所示。
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -84,13 +85,13 @@ $ kubectl create -f oms-daemonset.yaml
 ```
 
 ### <a name="installing-the-oms-agent-using-a-kubernetes-secret"></a>使用 Kubernetes 秘密安裝 OMS 代理程式
-若要保護您的 OMS 工作區識別碼和金鑰，您可以使用 Kubernetes 秘密作為 DaemonSet YAML 檔案的一部分。
+若要保護您的 Log Analytics 工作區識別碼和金鑰，您可以使用 Kubernetes 秘密作為 DaemonSet YAML 檔案的一部分。
 
  - 複製指令碼、秘密範本檔案和 DaemonSet YAML 檔案 (從[存放庫](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes))，並確定它們位於相同的目錄。 
       - 秘密產生指令碼 - secret-gen.sh
       - 秘密範本 - secret-template.yaml
    - DaemonSet YAML 檔案 - omsagent-ds-secrets.yaml
- - 執行指令碼。 此指令碼會要求提供 OMS 工作區識別碼和主要金鑰。 請插入該資訊，而指令碼會建立秘密 yaml 檔案，以便您執行。   
+ - 執行指令碼。 此指令碼會要求提供 Log Analytics 工作區識別碼和主要金鑰。 請插入該資訊，而指令碼會建立秘密 yaml 檔案，以便您執行。   
    ```
    #> sudo bash ./secret-gen.sh 
    ```

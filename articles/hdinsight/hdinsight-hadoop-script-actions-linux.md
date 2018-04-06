@@ -1,8 +1,8 @@
 ---
-title: "使用以 Linux 為基礎的 HDInsight 開發指令碼動作 - Azure | Microsoft Docs"
-description: "深入了解如何使用 Bash 指令碼自訂以 Linux 為基礎的 HDInsight 叢集。 HDInsight 的指令碼動作功能可讓您在建立叢集期間或之後執行指令碼。 指令碼可用於變更叢集組態設定或安裝其他軟體。"
+title: 使用以 Linux 為基礎的 HDInsight 開發指令碼動作 - Azure | Microsoft Docs
+description: 深入了解如何使用 Bash 指令碼自訂以 Linux 為基礎的 HDInsight 叢集。 HDInsight 的指令碼動作功能可讓您在建立叢集期間或之後執行指令碼。 指令碼可用於變更叢集組態設定或安裝其他軟體。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5074345533f0fdb0c72bf319646ad614632d1940
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 開發指令碼動作
 
@@ -103,7 +103,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-您可以在 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh 找到包含這些程式碼片段的完整指令碼。
+您可以在 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh 找到含有這些程式碼片段的完整指令碼。
 
 如需 HDInsight 所使用的 Ubuntu 版本，請參閱 [HDInsight 元件版本](hdinsight-component-versioning.md)文件。
 
@@ -221,7 +221,7 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helpermethods"></a>自訂指令碼的協助程式方法
 
-指令碼動作協助程式方法是您在撰寫字訂指令碼時可以使用的公用程式。 這些方法全都在 [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) 指令碼中。 請使用下列命令下載這些方法，然後在您的指令碼中使用︰
+指令碼動作協助程式方法是您在撰寫字訂指令碼時可以使用的公用程式。 [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) 指令碼中含有這些方法。 請使用下列命令下載這些方法，然後在您的指令碼中使用︰
 
 ```bash
 # Import the helper method module.
@@ -317,7 +317,7 @@ fi
 以下是準備部署指令碼時所採取的步驟：
 
 * 將包含自訂指令碼的檔案放在叢集節點可於部署期間存取的位置。 例如，叢集的預設儲存體。 檔案也可以儲存在可公開讀取的主機服務中。
-* 確認指令碼不具有等冪性。 這麼做可讓指令碼在相同節點上執行多次。
+* 確定指令碼具有等冪性。 這麼做可讓指令碼在相同節點上執行多次。
 * 使用暫存檔案目錄 /tmp 來存放指令碼所使用的下載檔案，然後在執行完指令碼之後將這些檔案清除。
 * 如果作業系統層級設定或 Hadoop 服務組態檔變更，建議您重新啟動 HDInsight 服務。
 

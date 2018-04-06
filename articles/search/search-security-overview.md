@@ -1,24 +1,24 @@
 ---
-title: "在 Azure 搜尋服務中保護資料和作業 | Microsoft Docs"
-description: "「Azure 搜尋服務」安全性所根據的是 SOC 2 合規性、加密、驗證，以及透過「Azure 搜尋服務」篩選條件中的使用者和群組安全性識別碼來進行的身分識別存取。"
+title: 在 Azure 搜尋服務中保護資料和作業 | Microsoft Docs
+description: 「Azure 搜尋服務」安全性所根據的是 SOC 2 合規性、加密、驗證，以及透過「Azure 搜尋服務」篩選條件中的使用者和群組安全性識別碼來進行的身分識別存取。
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: search
-ms.devlang: 
+ms.devlang: ''
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Azure 搜尋服務中的安全性和受控存取
 
@@ -57,29 +57,16 @@ Microsoft 資料中心提供業界頂尖的實體安全性，符合一組廣泛�
 
 ## <a name="service-access-and-authentication"></a>服務存取與驗證
 
-雖然「Azure 搜尋服務」繼承 Azure 平台的安全性防護措施，但它也提供自己的金鑰型驗證。 金鑰的類型 (管理或查詢) 會決定存取層級。 提交有效的金鑰可證明要求源自受信任的實體。 
+雖然「Azure 搜尋服務」繼承 Azure 平台的安全性防護措施，但它也提供自己的金鑰型驗證。 API 金鑰是由隨機產生的數字和字母所組成的字串。 金鑰的類型 (管理或查詢) 會決定存取層級。 提交有效的金鑰可證明要求源自受信任的實體。 存取搜尋服務的金鑰有兩種類型：
 
-針對每個要求都必須進行驗證，其中每個要求會由強制性金鑰、作業及物件所組成。 當兩個權限層級 (完整和唯讀) 加上內容鏈結在一起時，即足以在服務作業上提供全面的安全性。 
+* 管理員 (適用於服務的任何讀寫作業)
+* 查詢 (適用於唯讀作業，例如針對索引的查詢)
 
-|Key|說明|限制|  
-|---------|-----------------|------------|  
-|Admin|授與所有作業的完整權限，包括能夠管理服務、建立和刪除索引、索引子及資料來源。<br /><br /> 當服務建立時，在入口網站中會產生兩個管理 **API 金鑰** (稱為「主要」和「次要」金鑰)，而且您可以視需要個別重新產生這些金鑰。 擁有兩個金鑰可讓您在變換一個金鑰時，使用第二個金鑰來繼續存取服務。<br /><br /> 指定管理金鑰時，只能在 HTTP 要求標頭中指定。 您無法將管理 API 金鑰放在 URL 中。|每個服務的上限為 2 個|  
-|查詢|授與索引和文件的唯讀存取權，且通常會分派給發出搜尋要求的用戶端應用程式。<br /><br /> 查詢金鑰是視需要建立的。 您可以在入口網站中手動建立這些金鑰，或是透過[管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/) \(英文\) 以程式設計方式建立這些金鑰。<br /><br /> 您可以在 HTTP 要求標頭中指定查詢金鑰，以進行查詢、建議或查閱作業。 或者，您也可以在 URL 上將查詢金鑰當作參數來傳遞。 視您用戶端應用程式制定要求的方式而定，將金鑰當作查詢參數來傳遞可能會較為簡單：<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|每個服務 50 個|  
+佈建服務時會建立管理金鑰。 有兩個管理員金鑰，指定為主要和次要以將它們保持在各自的位置，但事實上，它們是可互換。 每個服務有兩個管理員金鑰，以便您在轉換其中一個時不會無法存取您的服務。 您可以重新產生任何一種管理員金鑰，但您無法增加管理員金鑰的總數量。 每個搜尋服務最多有 2 個管理員金鑰。
 
- 管理金鑰或查詢金鑰在外觀上並無差別。 兩種金鑰都是由 32 個隨機產生的英數字元所組成。 如果您忘記在應用程式中指定的是哪種類型的金鑰，您可以[在入口網站中查看金鑰值](https://portal.azure.com)，或使用 [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) 來傳回值和金鑰類型。  
+查詢金鑰是視需要建立的，專為直接呼叫搜尋的用戶端應用程式所設計。 您最多可以建立 50 個查詢金鑰。 在應用程式程式碼中，您可以指定搜尋 URL 和查詢 API 金鑰以允許唯讀存取服務。 應用程式程式碼也會指定應用程式所使用的索引。 端點、可供唯讀存取的 API 金鑰以及目標索引共同定義來自用戶端應用程式連接的範圍和存取層級。
 
-> [!NOTE]  
->  在要求 URI 中傳遞敏感性資料 (例如 `api-key`) 被視為不佳的安全性做法。 基於這個理由，「Azure 搜尋服務」在查詢字串中只接受以查詢金鑰作為 `api-key` ，而且除非您應該公開提供索引內容，否則應避免採用此做法。 一般規則是建議將 `api-key` 當作要求標頭來傳遞。  
-
-### <a name="how-to-find-the-access-keys-for-your-service"></a>如何找出服務的存取金鑰
-
-您可以在入口網站中或透過[管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/) \(英文\) 取得存取金鑰。 如需詳細資訊，請參閱[管理金鑰](search-manage.md#manage-api-keys)。
-
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 列出您訂用帳戶的[搜尋服務](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。
-3. 選取服務，然後在服務頁面上尋找 [設定] >[金鑰]，以檢視管理和查詢金鑰。
-
-![入口網站頁面 > [設定] > [金鑰] 區段](media/search-security-overview/settings-keys.png)
+針對每個要求都必須進行驗證，其中每個要求會由強制性金鑰、作業及物件所組成。 當兩個權限層級 (完整和唯讀) 加上內容 (例如，索引上的查詢作業) 鏈結在一起時，即足以在服務作業上提供全面的安全性。 如需關於金鑰的詳細資訊，請參閱[建立及管理 API 金鑰](search-security-api-keys.md)。
 
 ## <a name="index-access"></a>索引存取權
 
@@ -123,7 +110,7 @@ Azure 搜尋服務管理 REST API 為 Azure 資源管理員的擴充功能並且
 | 查詢索引 | 管理或查詢金鑰 (RBAC 不適用) |
 | 查詢系統資訊，例如傳回統計資料、計數及物件清單。 | 管理金鑰、資源的 RBAC (擁有者、參與者、讀者) |
 | 管理管理金鑰 | 管理金鑰、資源的 RBAC 擁有者或參與者。 |
-| 管理查詢金鑰 |  管理金鑰、資源的 RBAC 擁有者或參與者。 RBAC 讀者可以檢視查詢金鑰。 |
+| 管理查詢金鑰 |  管理金鑰、資源的 RBAC 擁有者或參與者。  |
 
 
 ## <a name="see-also"></a>另請參閱

@@ -1,8 +1,8 @@
 ---
-title: "針對失敗 Azure Data Lake U-SQL 作業的使用者定義 C# 程式碼進行偵錯 | Microsoft Docs"
-description: "了解如何使用 Azure Data Lake Tools for Visual Studio 針對 U-SQL 失敗的頂點進行偵錯。"
+title: 針對失敗 Azure Data Lake U-SQL 作業的使用者定義 C# 程式碼進行偵錯 | Microsoft Docs
+description: 了解如何使用 Azure Data Lake Tools for Visual Studio 針對 U-SQL 失敗的頂點進行偵錯。
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b614583079347c2634f8d03531517d1d32c75132
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>對 U-SQL 失敗作業的使用者定義 C# 程式碼進行偵錯
 
@@ -41,7 +41,7 @@ U-SQL 提供使用 C# 的擴充性模型。 在 U-SQL 指令碼中，可以輕�
 
 1. 按一下 [下載]  以下載所有必要的資源和輸入資料流。 如果下載未完成，請按一下 [重試]。
 
-2. 在下載完成後按一下 [開啟]，以產生本機的偵錯環境。 隨即會自動建立並開啟具有偵錯方案的新 Visual Studio 執行個體。
+2. 在下載完成後按一下 [開啟]，以產生本機的偵錯環境。 將開啟新的偵錯解決方案，如果您在 Visual Studio 中開啟現有的解決方案，請確定在偵錯之前先儲存並予以關閉。
 
 ![Azure Data Lake Analytics U-SQL 偵錯 Visual Studio 下載 Vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 

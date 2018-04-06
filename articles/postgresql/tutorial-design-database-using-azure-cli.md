@@ -1,21 +1,5 @@
----
-title: 教學課程：使用 Azure CLI 來設計適用於 PostgreSQL 的 Azure 資料庫
-description: 本教學課程說明如何使用 Azure CLI 來建立、設定及查詢您的第一個「適用於 PostgreSQL 的 Azure 資料庫」伺服器。
-services: postgresql
-author: rachel-msft
-ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
-ms.service: postgresql
-ms.custom: mvc
-ms.devlang: azure-cli
-ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 56425ec7ccb1d6629b82db6683a02a57ab9999b4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+-- 標題：「教學課程：使用 Azure CLI 來設計適用於 PostgreSQL 的 Azure 資料庫」描述：本教學課程顯示如何使用 Azure CLI 建立、設定及查詢適用於 PostgreSQL 伺服器的第一個 Azure 資料庫。
+服務：postgresql 建立者：rachel-msft ms.author：raagyema 管理員：kfile 編輯器：jasonwhowell ms.service：postgresql ms.custom：mvc ms.devlang：azure-cli ms.topic：教學課程 ms.date：03/20/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>教學課程：使用 Azure CLI 來設計適用於 PostgreSQL 的 Azure 資料庫 
 在本教學課程中，您將使用 Azure CLI (命令列介面) 及其他公用程式來學習如何：
@@ -61,11 +45,11 @@ az extension list
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.3"
+    "version": "0.0.4"
 }
 ```
 
-如果未傳回 0.0.3 版，請執行下列命令來更新擴充功能： 
+如果未傳回 0.0.4 版，請執行下列命令來更新擴充功能： 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
@@ -149,7 +133,7 @@ psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<db
   例如，下列命令會使用存取認證，連線到 PostgreSQL 伺服器 **mydemoserver.postgres.database.azure.com** 上名為 **postgres** 的預設資料庫。 系統提示輸入密碼時，請輸入您選擇的 `<server_admin_password>`。
   
   ```azurecli-interactive
-psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver ---dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
 ```
 
 2.  連線到伺服器之後，在提示字元中建立空白資料庫：

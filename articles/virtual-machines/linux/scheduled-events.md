@@ -1,13 +1,13 @@
 ---
-title: "Azure 中 Linux VM 的已排定事件 | Microsoft Docs"
-description: "針對您的 Linux 虛擬機器，使用 Azure 中繼資料服務來排定事件。"
+title: Azure 中 Linux VM 的已排定事件 | Microsoft Docs
+description: 針對您的 Linux 虛擬機器，使用 Azure 中繼資料服務來排定事件。
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ericrad
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: e697a8f1160aff5774dc416c81819220c316707a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: c87dd5bdbdc87bf238f34d145bd7380a61b90cb6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure 中繼資料服務：Linux VM 的已排定事件
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/27/2018
 如需 Windows 上已排定事件的資訊，請參閱 [Windows VM 的已排定事件](../windows/scheduled-events.md)。
 
 > [!Note] 
-> 「已排定的事件」已在所有 Azure 區域中正式推出。 請參閱[版本和區域可用性](#version-and-region-availability)，以取得最新的版本資訊。
+> 已排定事件已在所有 Azure 區域中正式推出。 請參閱[版本和區域可用性](#version-and-region-availability)以取得最新的版本資訊。
 
 ## <a name="why-use-scheduled-events"></a>為什麼要使用已排定事件？
 
@@ -80,8 +80,8 @@ ms.lasthandoff: 02/27/2018
 > [!NOTE] 
 > 先前排定事件的預覽版支援作為 API 版本的 {latest}。 此格式將不再受到支援且之後會遭到取代。
 
-### <a name="enabling-and-disabling-scheduled-events"></a>啟用和停用已排定的事件
-系統會在您第一次提出事件要求時，為您的服務啟用「已排定的事件」。 第一次呼叫時，應該會有最長可達兩分鐘的延遲回應。
+### <a name="enabling-and-disabling-scheduled-events"></a>啟用和停用已排定事件
+系統會在您第一次提出事件要求時，為您的服務啟用「已排定事件」。 您可能會在第一次呼叫中遇到長達兩分鐘的延遲回應。
 
 如果您的服務在 24 小時內都未提出要求，系統就會為您的服務停用「已排定的事件」。
 
@@ -129,7 +129,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 | ResourceType | 受此事件影響的資源類型。 <br><br> 值： <ul><li>`VirtualMachine`|
 | 資源| 受此事件影響的資源清單。 其中最多只能包含來自一個[更新網域](manage-availability.md)的機器，但不能包含更新網域中的所有機器。 <br><br> 範例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | 此事件的狀態。 <br><br> 值： <ul><li>`Scheduled`︰此事件已排定在 `NotBefore` 屬性所指定的時間之後啟動。<li>`Started`︰已啟動事件。</ul> 未曾提供 `Completed` 或類似的狀態。 當事件完成時，不會再傳回事件。
-| NotBefore| 自此之後可啟動此事件的時間。 <br><br> 範例： <br><ul><li> 2016-09-19T18:29:47Z  |
+| NotBefore| 自此之後可啟動此事件的時間。 <br><br> 範例： <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>事件排程
 系統會根據事件類型，為每個事件在未來安排最少的時間量。 事件的 `NotBefore` 屬性會反映這個時間。 

@@ -1,10 +1,11 @@
 ---
-title: "步驟 2：將資料上傳至 Machine Learning 實驗中 | Microsoft Docs"
-description: "開發預測解決方案逐步解說步驟 2：將儲存的公用資料上傳至 Azure Machine Learning Studio 中。"
+title: 步驟 2：將資料上傳至 Machine Learning 實驗中 | Microsoft Docs
+description: 開發預測解決方案逐步解說步驟 2：將儲存的公用資料上傳至 Azure Machine Learning Studio 中。
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
 ms.service: machine-learning
@@ -12,13 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 469c94f6115f99bc4cf067e9c8f0e55c64990358
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f482b1273f83f5ae5bb4f1e64609767ee0c5fe32
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>逐步解說步驟 2：將現有資料上傳至 Azure Machine Learning 實驗中
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)
@@ -66,7 +65,7 @@ UCI 網站提供了這項資料的特徵向量的屬性描述。 包括財務資
 ## <a name="upload-the-dataset-to-machine-learning-studio"></a>將資料集上傳至 Machine Learning Studio
 在資料轉換為 CSV 格式後，我們必須將其上傳至 Machine Learning Studio 中。 
 
-1. 開啟 Machine Learning Studio 首頁 ([https://studio.azureml.net/Home](https://studio.azureml.net))。 
+1. 開啟 Machine Learning Studio 首頁 ([https://studio.azureml.net](https://studio.azureml.net))。 
 
 2. 按一下視窗左上角的功能表![功能表][1]，按一下 [Azure Machine Learning]，選取 [Studio] 然後登入。
 

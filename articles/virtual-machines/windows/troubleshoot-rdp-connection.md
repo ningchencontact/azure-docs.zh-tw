@@ -1,12 +1,12 @@
 ---
-title: "無法透過 RDP 連接到 Azure 中的 Windows VM | Microsoft Docs"
-description: "針對無法在 Azure 中使用遠端桌面連接到 Windows 虛擬機器時的問題進行疑難排解"
-keywords: "遠端桌面錯誤、遠端桌面連線錯誤、無法連接到 VM、遠端桌面疑難排解"
+title: 無法透過 RDP 連接到 Azure 中的 Windows VM | Microsoft Docs
+description: 針對無法在 Azure 中使用遠端桌面連接到 Windows 虛擬機器時的問題進行疑難排解
+keywords: 遠端桌面錯誤、遠端桌面連線錯誤、無法連接到 VM、遠端桌面疑難排解
 services: virtual-machines-windows
-documentationcenter: 
-author: genlin
+documentationcenter: ''
+author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
-ms.author: genli
-ms.openlocfilehash: 4731a34d143d402372aaff7c03f95dbf0bb508a4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.date: 03/23/2018
+ms.author: danis
+ms.openlocfilehash: e2b792743f1b4ba458cff111ab6dd888b0c26d93
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>針對 Azure 虛擬機器的遠端桌面連線進行疑難排解
 有各式各樣的原因可能導致 Windows 型 Azure 虛擬機器 (VM) 的遠端桌面通訊協定 (RDP) 連線失敗，讓您無法存取您的 VM。 問題可能與 VM 上的遠端桌面服務、網路連線或主機電腦上的遠端桌面用戶端有關。 本文將引導您完成一些可解決 RDP 連線問題的最常見方法。 
@@ -77,7 +77,7 @@ ms.lasthandoff: 01/03/2018
     在 Azure 入口網站中選取您的 VM。 向下捲動至 [設定] 窗格中接近清單底部的 [支援 + 疑難排解] 區段。 按一下 [資源健康狀態] 按鈕。 狀況良好的 VM 會報告為 [可用]：
    
     ![在 Azure 入口網站中檢查 VM 資源健康狀態](./media/troubleshoot-rdp-connection/check-resource-health.png)
-6. **重設使用者認證**。 當您不確定或忘了認證時，此疑難排解步驟可重設本機系統管理員帳戶的密碼。
+6. **重設使用者認證**。 當您不確定或忘了認證時，此疑難排解步驟可重設本機系統管理員帳戶的密碼。  您登入 VM 後，應重設該使用者的密碼。
    
     在 Azure 入口網站中選取您的 VM。 向下捲動至 [設定] 窗格中接近清單底部的 [支援 + 疑難排解] 區段。 按一下 [重設密碼] 按鈕。 確定 [模式] 已設為 [重設密碼]，然後輸入您的使用者名稱和新密碼。 最後，按一下 [更新] 按鈕：
    
@@ -207,7 +207,7 @@ ms.lasthandoff: 01/03/2018
     在 Azure 入口網站中選取您的 VM。 向下捲動至 [設定] 窗格中接近清單底部的 [支援 + 疑難排解] 區段。 按一下 [資源健康狀態] 按鈕。 狀況良好的 VM 會報告為 [可用]：
    
     ![在 Azure 入口網站中檢查 VM 資源健康狀態](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
-5. **重設使用者認證**。 當您不確定或忘了認證時，此疑難排解步驟可重設您指定之本機系統管理員帳戶的密碼。
+5. **重設使用者認證**。 當您不確定或忘了認證時，此疑難排解步驟可重設您指定之本機系統管理員帳戶的密碼。  您登入 VM 後，應重設該使用者的密碼。
    
     在 Azure 入口網站中選取您的 VM。 向下捲動至 [設定] 窗格中接近清單底部的 [支援 + 疑難排解] 區段。 按一下 [重設密碼] 按鈕。 輸入您的使用者名稱和新密碼。 最後，按一下 [儲存] 按鈕：
    

@@ -1,11 +1,11 @@
 ---
-title: "如何使用適用於 Mobile Apps 的 Node.js 後端伺服器 SDK | Microsoft Docs"
-description: "了解如何使用適用於 Azure App Service Mobile Apps 的 Node.js 後端伺服器 SDK。"
+title: 如何使用適用於 Mobile Apps 的 Node.js 後端伺服器 SDK | Microsoft Docs
+description: 了解如何使用適用於 Azure App Service Mobile Apps 的 Node.js 後端伺服器 SDK。
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: elamalani
 manager: elamalani
-editor: 
+editor: ''
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bd423d6fb62b2ace16832f665c8834b4aea7e26f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>如何使用 Mobile Apps Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -119,7 +119,7 @@ Visual Studio 2015 需要延伸模組才能在整合式開發環境 (IDE) 內開
         app.use(mobile);
 
    儲存檔案。
-10. 在本機執行應用程式 (已在 http://localhost:3000 上提供 API)，或發佈至 Azure。
+10. 在本機執行應用程式 (已在 http://localhost:3000) 上提供 API)，或發佈至 Azure。
 
 ### <a name="create-node-backend-portal"></a>使用 Azure 入口網站建立 Node.js 後端
 您可以在 [Azure 入口網站]中直接建立 Mobile Apps 後端。 您可以完成下列步驟，或者依照[建立行動應用程式](app-service-mobile-ios-get-started.md)教學課程，同時建立用戶端和伺服器。 本教學課程包含下列指示的簡化版本，最適用於概念驗證專案。
@@ -135,7 +135,7 @@ Visual Studio 2015 需要延伸模組才能在整合式開發環境 (IDE) 內開
 下列程序會使用 Git 存放庫來下載快速入門專案程式碼：
 
 1. 如果尚未安裝 Git，請先安裝。 安裝 Git 所需的步驟會因作業系統而有所不同。 如需作業系統特定的散發套件和安裝指引，請參閱[安裝 Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) 。
-2. 請依照[啟用 App Service 應用程式存放庫](../app-service/app-service-deploy-local-git.md#Step3)中的步驟，為您的後端網站啟用 Git 存放庫。 請記下部署使用者名稱和密碼。
+2. 請參閱[準備您的存放庫](../app-service/app-service-deploy-local-git.md#prepare-your-repository)，啟用後端網站的 Git 存放庫。 請記下部署使用者名稱和密碼。
 3. 在您 Mobile Apps 後端的視窗中，記下 [Git 複製 URL]  設定。
 4. 使用 Git 複製 URL執行 `git clone` 命令。 在需要時輸入您的密碼，如下列範例所示：
 

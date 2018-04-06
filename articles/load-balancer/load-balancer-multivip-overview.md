@@ -1,34 +1,32 @@
 ---
-title: "Azure Load Balancer 的多個前端 | Microsoft Docs"
-description: "Azure Load Balancer 上多個前端概觀"
+title: Azure Load Balancer 的多個前端 | Microsoft Docs
+description: Azure Load Balancer 上多個前端概觀
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: 
+editor: ''
 ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: e4c77f3b9bd53df632a433532376eb859969a036
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cf8fa396e0518e1c847225dfc1d8f91c3421bd11
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer 的多個前端
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer 可讓您平衡在多個連接埠、多個 IP 位址或兩者上的服務負載。 您可以使用公用和內部負載平衡器定義來負載平衡一組 VM 間的流量。
 
 本文說明此功能的基本運用、重要概念和限制。 如果您只想要公開一個 IP 位址上的服務，可以找到[公用](load-balancer-get-started-internet-portal.md)或[內部](load-balancer-get-started-ilb-arm-portal.md)負載平衡器設定的簡易指示。 對單一前端組態而言，系統會累加新增多個前端。 您隨時可以使用本文中的概念擴充簡化的設定。
 
-定義 Azure Load Balancer 時，前端和後端設定會與規則連線。 規則所參考的健全狀況探查是用來判斷新的流程如何傳送至後端集區中的節點。 前端是由前端 IP 組態 (也稱為 VIP) 定義，VIP 由 3 項元素所組成：IP 位址 (公用或內部)、傳輸通訊協定 (UDP 或 TCP)，以及負載平衡規則中的連接埠號碼。 DIP 是連接到後端集區中 VM 的 Azure 虛擬 NIC 上的 IP 位址。
+定義 Azure Load Balancer 時，前端和後端集區設定會與規則連線。 規則所參考的健全狀況探查是用來判斷新的流程如何傳送至後端集區中的節點。 前端 (也稱為 VIP) 是由 IP 位址 (公用或內部)、傳輸通訊協定 (UDP 或 TCP)，以及負載平衡規則中連接埠號碼組成的 3 項元素所定義。 後端集區是參考 Load Balancer 後端集區之虛擬機器 IP 設定的集合 (NIC 資源的一部分)。
 
 下表是一些範例前端設定：
 
@@ -134,6 +132,10 @@ Azure Load Balancer 提供在多個前端重複使用前端連接埠的彈性，
 ## <a name="limitations"></a>限制
 
 * 只有 IaaS VM 支援多個前端組態。
-* 若使用浮點 IP 規則，您的應用程式必須使用 DIP 輸出流量。 如果您的應用程式繫結至客體 OS 中回送介面上設定的前端 IP 位址，就無法使用 SNAT 來重寫輸出流量，流程就會失敗。
+* 若使用浮點 IP 規則，您的應用程式必須使用主要 IP 設定輸出流量。 如果您的應用程式繫結至客體 OS 中回送介面上設定的前端 IP 位址，就無法使用 Azure SNAT 來重寫輸出流量，流程就會失敗。
 * 公用 IP 位址需要費用。 如需詳細資訊，請參閱 [IP 位址定價](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * 訂用帳戶有其限制。 如需詳細資訊，請參閱 [服務限制](../azure-subscription-service-limits.md#networking-limits) 的說明。
+
+## <a name="next-steps"></a>後續步驟
+
+- 檢閱[輸出連線](load-balancer-outbound-connections.md)，以了解多個前端對輸出連線行為的影響。

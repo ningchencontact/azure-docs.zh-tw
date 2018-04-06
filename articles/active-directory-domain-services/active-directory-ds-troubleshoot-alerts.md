@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: e4b8f31fe3eb79f9b38ae01af598290582a2cde3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 436fa31b9fd1231b38b39d911d9b6c2d4829461d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 針對警示進行疑難排解
 本文提供的疑難排解指引，適用於受控網域上可能會遇到的任何警示。
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/16/2018
 | AADDS102 | *Azure AD 目錄中已刪除要讓 Azure AD Domain Services 正常運作所需的服務主體。此設定會影響 Microsoft 監視、管理、修補及同步處理受控網域的能力。* | [遺失服務主體](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *您於其中啟用 Azure AD Domain Services 之虛擬網路的 IP 位址範圍位於公用 IP 範圍中。Azure AD Domain Services 必須在具有私人 IP 位址範圍的虛擬網路中啟用。此設定會影響 Microsoft 的監視、管理、修補及同步處理受控網域等功能。* | [位址位於公用 IP 範圍中](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft 無法觸達此受控網域的網域控制站。如果虛擬網路上設定的網路安全性群組 (NSG) 封鎖受控網域的存取，就可能發生這種情況。另一個可能的原因，是使用者定義的路由封鎖了來自網際網路的連入流量。* | [網路錯誤](active-directory-ds-troubleshoot-nsg.md) |
-| AADDS105 | *應用程式識別碼為 “d87dcbc6-a371-462e-88e3-28ad15ec4e64” 的服務主體已刪除，Microsoft 能夠加以重新建立。此服務主體可管理另一個服務主體，以及用於密碼同步處理的應用程式。受控服務主體和應用程式在新建立的服務主體下未獲授權，且將會在同步處理憑證到期時隨之過時。這表示，新建立的服務主體將無法更新舊的受控應用程式，而且會影響到從 AAD 執行的物件同步處理。* | [密碼同步處理應用程式已過期](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS105 | *應用程式識別碼為 “d87dcbc6-a371-462e-88e3-28ad15ec4e64” 的服務主體已刪除，然後重新建立。此服務主體可管理另一個服務主體，以及用於密碼同步處理的應用程式。受控服務主體及/或應用程式未經過新建立的服務主體授權，因此它們不能由我們的服務管理。這表示，新建立的服務主體將無法更新舊的受控應用程式，而且會影響密碼同步處理。* | [密碼同步處理應用程式已過期](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *受控網域前次是在 [date] 與 Azure AD 同步處理。*使用者可能無法登入受控網域，或者群組成員資格可能無法與 Azure AD 同步。 | [有一陣子未發生同步處理](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *受控網域前次是在 [date] 進行備份。* | [有一陣子未進行備份](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | 受控網域的安全 LDAP 憑證將於 XX 到期。 | [安全 LDAP 憑證即將到期](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |

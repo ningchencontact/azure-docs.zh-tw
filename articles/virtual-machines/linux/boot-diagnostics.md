@@ -1,25 +1,25 @@
 ---
-title: "Azure 中 Linux 虛擬機器的開機診斷 | Microsoft Docs"
-description: "Azure 中 Linux 虛擬機器的兩個偵錯功能概觀"
+title: Azure 中 Linux 虛擬機器的開機診斷 | Microsoft Docs
+description: Azure 中 Linux 虛擬機器的兩個偵錯功能概觀
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: Deland-Han
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 03/19/2018
 ms.author: delhan
-ms.openlocfilehash: 70254d39b5c6326166f7e29fdfc99533835502f9
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: bf8e1b338012898ed3de3f443cf492b6890af796
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>如何使用開機診斷為 Azure 中的 Linux 虛擬機器進行疑難排解
 
@@ -39,9 +39,9 @@ Azure 現在提供兩個偵錯功能的支援︰Azure 虛擬機器 Resource Mana
 
 ## <a name="common-boot-errors"></a>常見的開機錯誤
 
-- [檔案系統問題](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/)
-- [核心問題](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/)
-- [FSTAB 錯誤](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/ )
+- [檔案系統問題](https://support.microsoft.com/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) 
+- [核心問題](https://support.microsoft.com/help/4091524/how-recovery-azure-linux-vm-from-kernel-related-boot-related-issues/) 
+- [FSTAB 錯誤](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>在新的虛擬機器上啟用診斷
 1. 從預覽入口網站建立新的虛擬機器時，從部署模型下拉式清單中選取 [Azure Resource Manager]︰
@@ -79,3 +79,7 @@ Azure 現在提供兩個偵錯功能的支援︰Azure 虛擬機器 Resource Mana
 若要透過入口網站啟用開機診斷，您也可以透過入口網站更新現有的虛擬機器。 選取 [開機診斷] 選項和 [儲存]。 重新啟動 VM 才會生效。
 
 ![更新現有的 VM](./media/boot-diagnostics/screenshot5.png)
+
+## <a name="next-steps"></a>後續步驟
+
+如果在使用「虛擬機器開機診斷」時看見「無法取得記錄內容」錯誤，請參閱[無法在虛擬機器開機診斷中取得記錄錯誤內容](https://support.microsoft.com/help/4094480/failed-to-get-contents-of-the-log-error-in-vm-boot-diagnostics-in-azur)。

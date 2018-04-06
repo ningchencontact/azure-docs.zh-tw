@@ -8,17 +8,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: bonova
-ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>什麼是受控執行個體 (預覽)？
 
-Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功能，幾乎可與 SQL Server 內部部署環境 100% 相容，並提供原生[虛擬網路 (VNet)](../virtual-network/virtual-networks-overview.md) 實作，可解決常見的安全性考量，以及提供有利於內部部署 SQL Server 客戶的[商務模型](https://azure.microsoft.com/pricing/details/sql-database/)。 受控執行個體可讓現有 SQL Server 客戶透過最少的應用程式和資料庫變更，將他們的內部部署應用程式隨即轉移至雲端。 同時，受控執行個體會保留 PaaS 的所有功能 (自動修補和版本的更新、備份、高可用性)，可以大幅降低管理負擔和 TCO。
+Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功能，幾乎可與 SQL Server 內部部署環境 (Enterprise Edition) 100% 相容，並提供原生[虛擬網路 (VNet)](../virtual-network/virtual-networks-overview.md) 實作，可解決常見的安全性考量，以及提供有利於內部部署 SQL Server 客戶的[商務模型](https://azure.microsoft.com/pricing/details/sql-database/)。 受控執行個體可讓現有 SQL Server 客戶透過最少的應用程式和資料庫變更，將他們的內部部署應用程式隨即轉移至雲端。 同時，受控執行個體會保留 PaaS 的所有功能 (自動修補和版本的更新、備份、高可用性)，可以大幅降低管理負擔和 TCO。
 
 > [!IMPORTANT]
 > 如需受控執行個體目前可用的區域清單，請參閱[使用 Azure SQL Database 受控執行個體將資料庫遷移到完全受控的服務](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)。
@@ -34,16 +34,16 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 
 在受控執行個體正式運作之前，其目標是透過階段式發行計劃，為最新版內部部署 SQL Server 提供幾乎 100% 的介面區相容性。 
 
-下表概述 SQL IaaS、Azure SQL Database 和受控執行個體間的主要差異及設想的使用方式情節：
+下表概述 SQL IaaS、Azure SQL Database 和 SQL Database 受控執行個體間的主要差異及設想的使用方式情節：
 
 | | 使用方式情節 | 
 | --- | --- | 
-|受控執行個體 |若客戶想要盡可能輕鬆地遷移大量內部部署、IaaS、自行建置或 ISV 提供的應用程式，則建議使用受控執行個體。 利用 Azure 中完全自動化的[資料移轉服務 (DMS)](/sql/dma/dma-overview)，客戶可以將內部部署 SQL Server 隨即移轉至受控執行個體，受控執行個體可與 SQL Server 內部部署環境相容，並透過原生 VNET 支援來完全隔離客戶執行個體。  您可以透過軟體保證使用[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，以折扣優惠在 SQL Database 受控執行個體上交換執行個體的現有授權。  對於需要高度安全性和程式設計介面豐富的 SQL Server 執行個體而言，SQL Database 受控執行個體是雲端中最佳的移轉目的地。 |
-|連接字串 |**彈性集區**：若客戶要開發新的 SaaS 多租用戶應用程式，或有意將其現有的內部部署應用程式移轉至 SaaS 多租用戶應用程式，則建議使用彈性集區。 此模型的優勢包括： <br><ul><li>從銷售授權轉換為銷售服務訂用帳戶的商務模型轉換 (適用於 ISV)</li></ul><ul><li>簡單且確實的租用戶隔離</li></ul><ul><li>以資料庫為中心的簡化程式設計模型</li></ul><ul><li>沒有硬限制的延展性</li></ul>**單一資料庫**：除了 SaaS 多租用戶，客戶若想開發其他工作負載穩定且可預測的新應用程式，則建議使用單一資料庫。 此模型的優勢包括：<ul><li>以資料庫為中心的簡化程式設計模型</li></ul>  <ul><li>每個資料庫的效能可預測性</li></ul>|
-|SQL IaaS |若客戶需要自訂作業系統或資料庫伺服器，且客戶在執行可支援 SQL Server 的第三方應用程式時有特殊需求 (在相同的 VM 上)，建議您將 SQL VM / IaaS 作為最佳解決方案|
+|SQL Database 受控執行個體 |若客戶想要盡可能輕鬆地遷移大量內部部署、IaaS、自行建置或 ISV 提供的應用程式，則建議使用受控執行個體。 利用 Azure 中完全自動化的[資料移轉服務 (DMS)](/sql/dma/dma-overview)，客戶可以將內部部署 SQL Server 隨即移轉至受控執行個體，受控執行個體可與 SQL Server 內部部署環境相容，並透過原生 VNET 支援來完全隔離客戶執行個體。  您可以透過軟體保證使用[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，以折扣優惠在 SQL Database 受控執行個體上交換執行個體的現有授權。  對於需要高度安全性和程式設計介面豐富的 SQL Server 執行個體而言，SQL Database 受控執行個體是雲端中最佳的移轉目的地。 |
+|Azure SQL 資料庫 (單一或集區) |**彈性集區**：若客戶要開發新的 SaaS 多租用戶應用程式，或有意將其現有的內部部署應用程式移轉至 SaaS 多租用戶應用程式，則建議使用彈性集區。 此模型的優勢包括： <br><ul><li>從銷售授權轉換為銷售服務訂用帳戶的商務模型轉換 (適用於 ISV)</li></ul><ul><li>簡單且確實的租用戶隔離</li></ul><ul><li>以資料庫為中心的簡化程式設計模型</li></ul><ul><li>沒有硬限制的延展性</li></ul>**單一資料庫**：除了 SaaS 多租用戶，客戶若想開發其他工作負載穩定且可預測的新應用程式，則建議使用單一資料庫。 此模型的優勢包括：<ul><li>以資料庫為中心的簡化程式設計模型</li></ul>  <ul><li>每個資料庫的效能可預測性</li></ul>|
+|SQL IaaS 虛擬機器|若客戶需要自訂作業系統或資料庫伺服器，且客戶在執行可支援 SQL Server 的第三方應用程式時有特殊需求 (在相同的 VM 上)，建議您將 SQL VM / IaaS 作為最佳解決方案|
 |||
 
-![定位](./media/sql-database-managed-instance/positioning.png)
+<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>如何以程式設計方式識別受控執行個體
 
@@ -57,6 +57,9 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 |`@@SERVERNAME`、`SERVERPROPERTY ('ServerName')`|下列格式的完整執行個體 DNS 名稱：<instanceName>.<dnsPrefix>.database.windows.net，其中 <instanceName> 是客戶提供的名稱，而 <dnsPrefix> 是自動產生的部分名稱，確保全域 DNS 名稱是唯一的 (例如，“wcus17662feb9ce98”)|範例：my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="key-features-and-capabilities-of-a-managed-instance"></a>受控執行個體的主要特性和功能 
+
+> [!IMPORTANT]
+> 受控執行個體能執行 SQL Server 最新版本的所有功能，包括線上作業、自動計劃修正，以及其他企業效能增強功能。 
 
 | **PaaS 支援** | **商務持續性** |
 | --- | --- |
@@ -90,6 +93,7 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 | SQL Server 版本/組建 | SQL Server (最新的可用版本) |
 | 儲存體大小下限 | 32 GB |
 | 儲存體大小上限 | 8 TB |
+| 每個資料庫的儲存體上限 | 4 TB |
 | 預期的儲存體 IOPS | 每個資料檔案 500-7500 IOPS (視資料檔案而定)。 請參閱[進階儲存體](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | 每個資料庫的資料檔案 (ROWS) 數目 | 多個 | 
 | 每個資料庫的記錄檔 (LOG) 數目 | 1 | 
@@ -120,7 +124,7 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 
 ### <a name="auditing-for-compliance-and-security"></a>合規性和安全性稽核 
 
-受控執行個體[稽核](sql-database-auditing.md)會追蹤資料庫事件並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核有助於保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。 
+[受控執行個體稽核](sql-database-managed-instance-auditing.md)會追蹤資料庫事件並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核有助於保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。 
 
 ### <a name="data-encryption-in-motion"></a>移動中資料加密 
 
@@ -138,7 +142,7 @@ SQL Database [動態資料遮罩](/sql/relational-databases/security/dynamic-dat
 
 ### <a name="threat-detection"></a>威脅偵測 
 
-Azure SQL Database [威脅偵測](sql-database-threat-detection.md)會提供服務內建的額外安全情報層，此情報層可偵測到不尋常且有危害的資料庫存取或攻擊動作，藉此補充稽核的不足之處。 系統會警示您有關可疑活動、潛在弱點、SQL 插入式攻擊和異常資料庫存取模式。 您可以從 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)檢視威脅偵測警示，該警示會提供可疑活動的詳細資料，以及如何調查與降低威脅的建議。  
+[受控執行個體威脅偵測](sql-database-managed-instance-threat-detection.md)會提供服務內建的額外安全情報層，此情報層可偵測到不尋常且有危害的資料庫存取或攻擊動作，藉此補充[受控執行個體稽核](sql-database-managed-instance-auditing.md)的不足之處。 系統會警示您有關可疑活動、潛在弱點、SQL 插入式攻擊和異常資料庫存取模式。 您可以從 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)檢視威脅偵測警示，該警示會提供可疑活動的詳細資料，以及如何調查與降低威脅的建議。  
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 整合和多重要素驗證 
 

@@ -1,8 +1,8 @@
 ---
-title: "使用 Ambari Web UI 監視和管理 Azure HDInsight | Microsoft Docs"
-description: "了解如何使用 Ambari 來監視和管理以 Linux 為基礎的 HDInsight 叢集。 在本文件中，您會學習如何使用 HDInsight 叢集隨附的 Ambari Web UI。"
+title: 使用 Ambari Web UI 監視和管理 Azure HDInsight | Microsoft Docs
+description: 了解如何使用 Ambari 來監視和管理以 Linux 為基礎的 HDInsight 叢集。 在本文件中，您會學習如何使用 HDInsight 叢集隨附的 Ambari Web UI。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/04/2018
+ms.date: 03/23/2018
 ms.author: larryfr
-ms.openlocfilehash: dc1265c7af011b92a9f862cf2e91b47c3998b2e4
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 922dfd475f27f182d8958887087fc2f4945cc43a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>使用 Ambari Web UI 管理 HDInsight 叢集
 
@@ -41,7 +41,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
 ## <a name="connectivity"></a>連線能力
 
-Ambari Web UI 位在您的 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdidnsight.net，其中 **CLUSTERNAME** 是您的叢集的名稱。
+Ambari Web UI 位在 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdinsight.net，其中 **CLUSTERNAME** 是叢集的名稱。
 
 > [!IMPORTANT]
 > 連線到 HDInsight 上的 Ambari 需要 HTTPS。 當系統提示要驗證時，請使用您在叢集建立時所提供的系統管理帳戶名稱和密碼。

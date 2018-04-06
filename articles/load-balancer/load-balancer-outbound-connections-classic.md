@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 7a307a598bd71369615b30476d387c06f473c397
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ec13109173f89b53e32f903febcec13c7f38c574
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="outbound-connections-classic"></a>輸出連線 (傳統)
 
@@ -60,7 +60,7 @@ Azure 提供三種不同的方法來達成輸出連線傳統部署。  並非所
 
 在此案例中，VM 具有指派給它的執行個體層級公用 IP (ILPIP)。 就輸出連線而言，VM 是否有負載平衡的端點並不重要。 此案例的優先順序高於其他案例。 使用 ILPIP 時，VM 會針對所有輸出流程使用 ILPIP。  
 
-不使用連接埠偽裝 (PAT)，VM 會有所有可用的暫時連接埠。
+指派給虛擬機器的公用 IP 是 1:1 關聯 (而非 1:多) 且實作為無狀態 1:1 NAT。  不使用連接埠偽裝 (PAT)，VM 會有所有可用的暫時連接埠。
 
 如果您的應用程式起始許多輸出流程而發生 SNAT 連接埠耗盡的情況，請考慮指派 [ILPIP 來緩和 SNAT 限制的問題](#assignilpip)。 從整體面檢閱[管理 SNAT 耗盡](#snatexhaust)。
 
@@ -123,6 +123,18 @@ Azure 會使用演算法在使用連接埠偽裝 SNAT ([PAT](#pat)) 時，根據
 
 如果部署大小縮減並轉換成較低的層級，可用的 SNAT 連接埠數目就會增加。 在此情況下，現有已配置 SNAT 連接埠及其各自流程都不會受到影響。
 
+SNAT 連接埠配置是 IP 傳輸通訊協定專屬 (TCP 和 UDP 會分別維護)，並且在下列條件底下釋放：
+
+### <a name="tcp-snat-port-release"></a>TCP SNAT 連接埠釋放
+
+- 如果這兩個伺服器/用戶端傳送 FIN/ACK，就會在 240 秒之後釋放 SNAT 連接埠。
+- 如果看到 RST，就會在 15 秒之後釋放 SNAT 連接埠。
+- 已達到閒置逾時
+
+### <a name="udp-snat-port-release"></a>UDP SNAT 連接埠釋放
+
+- 已達到閒置逾時
+
 ## <a name="problemsolving"></a>解決問題 
 
 本節的用意是協助您降低 Azure 中輸出連線可能會發生的 SNAT 耗盡與其他案例。
@@ -170,3 +182,4 @@ Azure 會使用演算法在使用連接埠偽裝 SNAT ([PAT](#pat)) 時，根據
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解在 Resource Manager 部署中使用的[負載平衡器](load-balancer-overview.md)。
+- 深入了解 Resource Manager 部署中的[輸出連線](load-balancer-outbound-connections.md)情節。

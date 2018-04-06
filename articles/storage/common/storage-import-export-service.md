@@ -6,13 +6,13 @@ manager: syadav
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Microsoft Azure 匯入/匯出服務將資料傳入 Azure 儲存體
 在本文中，我們會提供使用 Azure 匯入/匯出服務的逐步指示，藉由將磁碟機運送到 Azure 資料中心，安全地將大量資料傳入 Azure Blob 儲存體和 Azure 檔案服務。 這項服務也能用來將資料從 Azure 儲存體傳輸到硬碟，然後運送到您的內部部署網站。 單一內部 SATA 磁碟機的資料可匯入到 Azure Blob 儲存體或 Azure 檔案服務。 
@@ -151,7 +151,7 @@ WAImportExport 工具只與 64 位元 Windows 作業系統相容。 請參閱 [�
 ### <a name="operating-system"></a>作業系統
 您可以使用下列其中一個 64 位元作業系統，使用 WAImportExport 工具準備硬碟，然後再將磁碟機運送到 Azure︰
 
-Windows 7 Enterprise、Windows 7 Ultimate、Windows 8 Pro、Windows 8 Enterprise、Windows 8.1 Pro、Windows 8.1 Enterprise、Windows 10<sup>1</sup>、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。 所有這些作業系統都支援 BitLocker 磁碟機加密。
+Windows 7 Enterprise、Windows 7 Ultimate、Windows 8 Pro、Windows 8 Enterprise、Windows 8.1 Pro、Windows 8.1 Enterprise、Windows 10、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。 所有這些作業系統都支援 BitLocker 磁碟機加密。
 
 ### <a name="locations"></a>位置
 Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製資料。 您可以將硬碟運送到列出的其中一個位置。 如果您的儲存體帳戶是未在這裡指定的公用 Azure 位置，當您使用 Azure 入口網站或匯入/匯出 REST API 建立工作時，將會提供替代的運送位置。

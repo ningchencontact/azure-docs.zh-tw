@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 908910b44a9de28f184906dd4e904e651fe034ce
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4294169e89533150cade700fb89e14c4121c4404
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>Azure Container Service (AKS) 上的 HTTPS 輸入
 
@@ -31,21 +31,20 @@ ms.lasthandoff: 03/08/2018
 helm repo update
 ```
 
-安裝 NGINX 輸入控制器。
+安裝 NGINX 輸入控制器。 此範例將控制器安裝在 `kube-system` 命名空間，這可以修改為您選擇的命名空間。
 
 ```
-helm install stable/nginx-ingress
+helm install stable/nginx-ingress --namespace kube-system
 ```
 
 在安裝期間，會為輸入控制器建立 Azure 公用 IP 位址。 若要取公用 IP 位址，請使用 kubectl get service 命令。 將 IP 位址指派給服務可能需要一些時間。
 
 ```console
-$ kubectl get service
+$ kubectl get service -l app=nginx-ingress --namespace kube-system
 
-NAME                                          TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                      AGE
-kubernetes                                    ClusterIP      10.0.0.1       <none>           443/TCP                      3d
-toned-spaniel-nginx-ingress-controller        LoadBalancer   10.0.236.223   52.224.125.195   80:30927/TCP,443:31144/TCP   18m
-toned-spaniel-nginx-ingress-default-backend   ClusterIP      10.0.5.86      <none>           80/TCP                       18m
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
+eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   13.82.238.45   80:30920/TCP,443:30426/TCP   20m
+eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>         80/TCP                       20m
 ```
 
 由於尚未建立任何輸入規則，如果您瀏覽至公用 IP 位址，將會被導向至 NGINX 輸入控制器預設 404 頁面。

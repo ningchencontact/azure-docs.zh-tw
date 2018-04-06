@@ -9,15 +9,15 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Microsoft 應用程式和服務的 LinkedIn 帳戶連線
 在本文中，您可以了解如何在 Azure Active Directory (Azure AD) 系統管理中心管理您租用戶的 LinkedIn 帳戶連線。 
@@ -56,9 +56,9 @@ LinkedIn 帳戶連線可讓使用者看到其某些 Microsoft 應用程式內的
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>使用群組原則為組織的 Office 2016 應用程式啟用或停用 LinkedIn 帳戶連線
 
 1. 下載 [Office 2016 系統管理範本檔案 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
-2. 解壓縮 **ADMX** 檔案，並將其複製到**中央存放庫**。
+2. 解壓縮 **ADMX** 檔案，並將其複製到中央存放區。
 3. 開啟群組原則管理。
-4. 使用下列設定建立群組原則物件：[使用者設定] > [系統管理範本] > [Microsoft Office 2016] > [其他] > [允許 LinkedIn 整合]。
+4. 使用下列設定建立群組原則物件：[使用者設定] > [系統管理範本] > [Microsoft Office 2016] > [其他] > [在 Office 應用程式中顯示 LinkedIn 功能]。
 5. 選取 [啟用] 或 [停用]。
   * 當原則 [啟用] 時，在 Office 2016 [選項] 對話方塊中找到的 [在 Office 應用程式顯示 LinkedIn 功能] 設定也會啟用。 這也表示組織中的使用者可以在其 Office 應用程式中使用 LinkedIn 功能。
   * 當原則 [停用] 時，在 Office 2016 [選項] 對話方塊中找到的 [在 Office 應用程式顯示 LinkedIn 功能] 設定會設為停用狀態，且使用者無法變更此設定。 組織中的使用者無法在其 Office 2016 應用程式中使用 LinkedIn 功能。 

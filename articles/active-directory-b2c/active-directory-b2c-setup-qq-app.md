@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C：QQ 設定 | Microsoft Docs"
-description: "在受 Azure Active Directory B2C 保護的應用程式中，針對具有 QQ 帳戶的取用者提供註冊和登入。"
+title: Azure Active Directory B2C：QQ 設定 | Microsoft Docs
+description: 在受 Azure Active Directory B2C 保護的應用程式中，針對具有 QQ 帳戶的取用者提供註冊和登入。
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 18c2cf94-8004-4de1-81c2-e45be65ce12d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
-ms.author: parakhj
-ms.openlocfilehash: d4cc26d4f206baf9137feae0825b1f9fa5a7c8d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 12daed5f90e2b073a7520c061f18761baaed5c03
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>Azure Active Directory B2C：針對具有QQ 帳戶的取用者提供註冊和登入
 
@@ -28,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="create-a-qq-application"></a>建立 QQ 應用程式
 
-若要在 Azure Active Directory (Azure AD) B2C 中使用 QQ 做為識別提供者，您必須建立 QQ 應用程式，並對其提供正確參數。 您需要 QQ 帳戶才能執行此動作。 如果您沒有帳戶，您可以在 [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033) 上取得一個。
+若要在 Azure Active Directory (Azure AD) B2C 中使用 QQ 做為識別提供者，您必須建立 QQ 應用程式，並對其提供正確參數。 您需要 QQ 帳戶才能執行此動作。 如果您沒有帳戶，您可以在 [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033) 上取得。
 
 ### <a name="register-for-the-qq-developer-program"></a>註冊 QQ 開發人員計劃
 

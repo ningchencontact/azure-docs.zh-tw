@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>長期函式中的人為互動 - 電話驗證範例
 
@@ -28,8 +28,8 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="prerequisites"></a>先決條件
 
-* 請依照[安裝 Durable Functions](durable-functions-install.md) 中的指示來設定範例。
-* 本文假設您已經完成 [Hello Sequence](durable-functions-sequence.md) 範例逐步解說。
+* [安裝 Durable Functions](durable-functions-install.md)。
+* 完成 [Hello 序列](durable-functions-sequence.md)逐步解說。
 
 ## <a name="scenario-overview"></a>案例概觀
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 03/17/2018
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-下列各節說明用於 Azure 入口網站開發的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
+下列各節說明用於 C# 指令碼的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
  
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS 驗證協調流程 (Visual Studio Code 和 Azure 入口網站範例程式碼) 
 

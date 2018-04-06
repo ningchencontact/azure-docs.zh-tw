@@ -1,18 +1,18 @@
 ---
-title: "包含檔案"
-description: "包含檔案"
+title: 包含檔案
+description: 包含檔案
 services: backup
 author: markgalioto
 ms.service: backup
 ms.topic: include
 ms.date: 2/7/2018
-ms.author: trinadhk
+ms.author: trinadhk;sogup
 ms.custom: include file
-ms.openlocfilehash: 7ca5b34961b4d0e3d4fcecb8175e3e0901d7049d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b345283f87c446ff3b583b0c5dd8a4be222303ae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 下列限制適用於 Azure 備份。
 
@@ -23,8 +23,8 @@ ms.lasthandoff: 02/09/2018
 | 可以在每個 Azure 訂用帳戶中建立的備份保存庫的數目 |每個區域 25 個復原服務保存庫 |
 | 每日可以排程的備份次數 |Windows 伺服器/用戶端每日 3 次 <br/> 對於 SCDPM 每日 2 次 <br/> IaaS VM 每日一次 |
 | 連接到 Azure 虛擬機器進行備份的資料磁碟 |16 |
-| 連接到 Azure 虛擬機器進行備份的個別資料磁碟大小| 1024 GB <sup>2</sup>|
+| 連接到 Azure 虛擬機器進行備份的個別資料磁碟大小| 4095 GB <sup>2</sup>|
 
 * <sup>1</sup>54400 GB 上限並不適用於 IaaS VM 備份。
-* <sup>2</sup> 我們有[私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0)以支援最多 4 TB 的磁碟。 
+ 
 

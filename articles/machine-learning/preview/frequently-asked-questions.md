@@ -10,25 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 6146e1ce98144a05bef2ca29705f451aa3f5fb50
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 864e9ff5551637a93b957e5011a8857072c6eaaf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 常見問題集
 
+Azure Machine Learning 是一個完全受控的 Azure 服務，可讓您建立、測試、管理及部署機器學習服務和 AI 模型。 我們的服務和可下載應用程式提供一個程式碼優先方法，其運用雲端、內部部署環境及邊緣來提供具有強大功能、速度與彈性的訓練、部署、管理和監視模型。 或者，Azure Machine Learning Studio 也提供一個無須編寫任何程式碼的瀏覽器型視覺拖放撰寫環境。 
+
 ## <a name="general-product-questions"></a>一般產品問題
-
-**什麼是 Azure Machine Learning 服務？**
-
-Azure Machine Learning 是一個完全受控的 Azure 服務，可讓您建立、測試、管理及部署機器學習服務和 AI 模型。 我們的新服務和可下載應用程式提供一個程式碼優先方法，運用雲端、內部部署環境及邊緣，來提供具有強大功能、速度與彈性的訓練、部署、管理和監視模型。 或者，Azure Machine Learning Studio 也提供一個無須編寫任何程式碼的瀏覽器型視覺拖放撰寫環境。 
-
-**哪些區域有提供新服務？**
-
-請到[依區域提供的 Azure 產品](https://azure.microsoft.com/regions/services/)頁面的 Azure Machine Learning 底下，查看針對測試與模型管理服務支援的 Azure 區域。
-
-隨著我們的產品開發，將會新增更多區域。  您可以到 [Azure Machine Learning 意見反應](https://feedback.azure.com/forums/257792-machine-learning) \(英文\) 網站，協助我們判斷應優先部署到哪些區域。 
 
 **需要哪些其他 Azure 服務？**
 

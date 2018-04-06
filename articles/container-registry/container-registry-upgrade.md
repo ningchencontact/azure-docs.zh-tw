@@ -1,18 +1,18 @@
 ---
-title: "將傳統的 Azure 容器登錄升級"
-description: "將非受控的傳統容器登錄升級，以利用基本、標準和進階受控容器登錄的擴充功能集。"
+title: 將傳統的 Azure 容器登錄升級
+description: 將非受控的傳統容器登錄升級，以利用基本、標準和進階受控容器登錄的擴充功能集。
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 19090bb69d7165c1e904450dc93b925e23e44782
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c5a61941bab2aa49cd8205e0a07dd2b5f7378ce9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-a-classic-container-registry"></a>將傳統的容器登錄升級
 
@@ -29,14 +29,16 @@ ms.lasthandoff: 12/21/2017
 * [異地複寫](container-registry-geo-replication.md)
 * [Webhook](container-registry-webhook.md)
 
-「傳統」登錄大部分取決於您在建立登錄時，Azure 自動佈建在您 Azure 訂用帳戶中的儲存體帳戶。 相反地，「基本」、「標準」和「進階」SKU 會利用 *受控儲存體*。 也就是說，Azure 會明確地管理映像儲存體；在您自己的訂用帳戶中，不會建立不同的儲存體帳戶。
+「傳統」登錄大部分取決於您在建立登錄時，Azure 自動佈建在您 Azure 訂用帳戶中的儲存體帳戶。 相比之下，基本、標準和進階 SKU 會以透明的方式處理您的映像儲存體來利用 Azure 的[進階儲存體功能](container-registry-storage.md)。 您自己的訂用帳戶中未建立個別儲存體帳戶。
 
 受控登錄儲存體可提供下列優點：
 
-* 容器映像是進行[待用加密](../storage/common/storage-service-encryption.md)。
-* 映像是使用[異地備援儲存體](../storage/common/storage-redundancy.md#geo-redundant-storage)所儲存，並確保使用多區域複寫來備份映像。
+* 容器映像是進行[待用加密](container-registry-storage.md#encryption-at-rest)。
+* 映像是使用[異地備援儲存體](container-registry-storage.md#geo-redundant-storage)所儲存，並確保使用多區域複寫來備份映像。
 * 自由地[在 SKU 之間移動](container-registry-skus.md#changing-skus)的能力，讓您在選擇較高層級的 SKU 時獲得較高的輸送量。 運用每個 SKU，ACR 即可在您的需求增加時滿足輸送量需求。
 * 適用於登錄和其儲存體的整合安全性模型能提供簡化的權限管理功能。 您只負責管理容器登錄的權限，而不必還要管理不同儲存體帳戶的權限。
+
+如需 ACR 中映像儲存體的其他相關詳細資料，請參閱 [Azure Container Registry 中的容器映像儲存體](container-registry-storage.md)。
 
 ## <a name="migration-considerations"></a>移轉考量
 

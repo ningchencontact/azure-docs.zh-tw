@@ -1,24 +1,24 @@
 ---
-title: "Azure CosmosDB 資料表 API .NET SDK 和資源 | Microsoft Docs"
-description: "全面了解 Azure Cosmos DB 資料表 API，包括發行日期、停用日期，以及每個版本之間的變更。"
+title: Azure CosmosDB 資料表 API .NET SDK 和資源 | Microsoft Docs
+description: 全面了解 Azure Cosmos DB 資料表 API，包括發行日期、停用日期，以及每個版本之間的變更。
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: af14e9dbd5f65d5cefa3d9424b8628f10d8160da
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2afd7df65e7b223845752fc6bea5bc0ab4d3efd8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 資料表 .NET API：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -40,6 +40,11 @@ ms.lasthandoff: 02/23/2018
 >
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* 新增格式錯誤的 ETAG 在「直接模式」中的驗證。
+* 修正閘道模式中 LINQ 的查詢錯誤 (bug)。
+* 同步 API 現在使用 SynchronizationContext 在執行緒集區上執行。
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * 將 TableQueryMaxItemCount、TableQueryEnableScan、TableQueryMaxDegreeOfParallelism 及 TableQueryContinuationTokenLimitInKb 新增至 TableRequestOptions
@@ -63,6 +68,8 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.1.1](#1.1.1) |2018 年 3 月 26 日|--- |
+| [1.1.0](#1.1.0) |2018 年 2 月 21 日|--- |
 | [1.0.0](#1.0.0) |2017 年 11 月 15 日|--- |
 | [0.9.0-preview](#0.9.0-preview) |2017 年 11 月 11 日 |--- |
 

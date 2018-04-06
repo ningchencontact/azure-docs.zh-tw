@@ -1,23 +1,23 @@
 ---
-title: "Team 資料科學程序小組負責人工作 - Azure | Microsoft Docs"
-description: "資料科學 Team 專案上小組負責人工作的概述。"
-documentationcenter: 
+title: Team 資料科學程序小組負責人工作 - Azure | Microsoft Docs
+description: 資料科學 Team 專案上小組負責人工作的概述。
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 85589dfd60a32a28cecf427a7f5668dc36f8f5f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-lead-tasks"></a>小組負責人工作
 
@@ -208,7 +208,7 @@ ms.lasthandoff: 11/14/2017
 
 若要將本機 **GroupProjectTemplate** (D1) 資料夾的內容複製到本機 **MyTeamProjectTemplate** (D3)，請執行下列其中一個殼層指令碼： 
 
-####<a name="from-the-powershell-command-line-for-windows"></a>從適用於 Windows 的 PowerShell 命令列        
+#### <a name="from-the-powershell-command-line-for-windows"></a>從適用於 Windows 的 PowerShell 命令列       
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
     .\tdsp_local_copy_win.ps1 2
@@ -216,7 +216,7 @@ ms.lasthandoff: 11/14/2017
     
 ![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
 
-####<a name="from-the-linux-shell-for-the-linux-dsvm"></a>從適用於 **Linux DSVM** 的 Linux 殼層
+#### <a name="from-the-linux-shell-for-the-linux-dsvm"></a>從適用於 **Linux DSVM** 的 Linux 殼層
     
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
     bash tdsp_local_copy_linux.sh 2

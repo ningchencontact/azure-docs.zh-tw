@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0092564dce9424b445240ebd2c3247e763a237e9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>使用 Azure Data Factory 從 HTTP 端點複製資料 | Microsoft Docs
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,6 +40,9 @@ ms.lasthandoff: 03/23/2018
 - 依原樣複製 HTTP 回應，或使用[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md)來剖析回應。
 
 此連接器和 [Web 資料表連接器](connector-web-table.md)的差異是︰後者是用來擷取 HTML 網頁上的資料表內容。
+
+>[!TIP]
+>若要在 ADF 中設定 HTTP 連接器之前測試 HTTP 資料擷取要求，您可以從 API 規格取得標頭和本文需求，再使用 Postman 或網頁瀏覽器之類的工具進行驗證。
 
 ## <a name="getting-started"></a>開始使用
 

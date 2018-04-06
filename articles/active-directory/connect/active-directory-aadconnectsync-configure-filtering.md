@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：設定篩選 | Microsoft Docs"
-description: "說明如何在 Azure AD Connect 同步處理中設定篩選。"
+title: Azure AD Connect 同步：設定篩選 | Microsoft Docs
+description: 說明如何在 Azure AD Connect 同步處理中設定篩選。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5af82e889a80994dd47d4fc3b89f8eece2201355
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 同步處理：設定篩選
 使用篩選功能可讓您控制內部部署目錄中的哪些物件應該出現在 Azure Active Directory 中。 預設組態會擷取所設定樹系中所有網域內的所有物件。 一般會建議使用者使用這個組態。 完整的全域通訊清單對於使用 Exchange Online 和商務用 Skype 等 Office 365 工作負載的使用者來說十分方便，因為如此一來，他們就可以傳送電子郵件和呼叫每個人。 使用預設設定時，所獲得的體驗與使用 Exchange 或 Lync 的內部部署實作相同。
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/18/2018
 
 為了避免您意外刪除許多物件，預設會開啟「[防止意外刪除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)」功能。 如果因為進行篩選而刪除了許多物件 (預設是 500 個)，您需要遵循本文中的步驟，允許將刪除結果傳播至 Azure AD。
 
-如果您使用 2015 年 11 月 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)) 之前的組建、變更篩選組態並使用密碼同步處理，則在完成組態設定之後，必須觸發所有密碼的完整同步處理。 如需如何觸發密碼的完整同步處理的步驟，請參閱 [觸發所有密碼的完整同步處理](active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords)。 如果您使用組建 1.0.9125 或更新版本，則一般的 **完整同步處理** 動作也會計算是否應同步處理密碼，以及是否不再需要進行這個額外步驟。
+如果您使用 2015 年 11 月 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)) 之前的組建、變更篩選組態並使用密碼雜湊同步處理，則在完成組態設定之後，必須觸發所有密碼的完整同步處理。 如需如何觸發密碼的完整同步處理的步驟，請參閱 [觸發所有密碼的完整同步處理](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords)。 如果您使用組建 1.0.9125 或更新版本，則一般的 **完整同步處理** 動作也會計算是否應同步處理密碼，以及是否不再需要進行這個額外步驟。
 
 如果在 Azure AD 中， **使用者** 物件因為篩選錯誤而遭到意外刪除，您可以在 Azure AD 中重新建立使用者物件，方法是移除您的篩選組態。 然後您可以再次同步處理您的目錄。 這個動作會還原 Azure AD 資源回收筒中的使用者。 不過，您無法取消刪除其他物件類型。 例如，如果您意外刪除安全性群組，而該群組是用來對資源進行 ACL，則無法復原群組和其 ACL。
 

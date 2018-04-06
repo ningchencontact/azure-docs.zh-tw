@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 03/20/2018
 ms.author: bhanupr
-ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集
 
 已加入網域的叢集可在 HDInsight 上提供多使用者企業的安全性功能。 已加入網域的 HDInsight 叢集會與 Active Directory 網域連線，讓網域使用者可以使用其網域認證來驗證叢集並執行巨量資料作業。 
 
-有兩種方式可設定網域控制站，讓已加入網域的 HDInsight 叢集可以連線到：
-
-- Azure Active Directory Domain Services (Azure AD DS)
-- Azure IaaS VM 上的 Active Directory 網域控制站
-
 在此文章中，您會了解如何使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集。
+
+> [!NOTE]
+> Azure IaaS VM 上的 Active Directory 不再受支援。
 
 ## <a name="create-azure-adds"></a>建立 Azure ADDS
 

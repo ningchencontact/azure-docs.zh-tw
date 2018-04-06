@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C：使用自訂原則動態地自訂 Azure AD B2C 使用者介面 (UI)"
-description: "透過會在執行階段動態變更的 HTML5/CSS 內容支援多個品牌體驗。"
+title: Azure Active Directory B2C：使用自訂原則動態地自訂 Azure AD B2C 使用者介面 (UI)
+description: 透過會在執行階段動態變更的 HTML5/CSS 內容支援多個品牌體驗。
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/20/2017
-ms.author: yoelh
-ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則設定具有動態內容的 UI
 使用 Azure Active Directory B2C (Azure AD B2C) 自訂原則，您可以在查詢字串中傳送參數。 將參數傳遞至您的 HTML 端點，即可動態變更網頁內容。 例如，視您從 Web 或行動裝置應用程式傳遞的參數而定，您可以變更 Azure AD B2C 註冊或登入背景影像。 
@@ -121,7 +118,7 @@ ms.lasthandoff: 01/24/2018
 
 ### <a name="step-23-change-the-background-image"></a>步驟 2.3：變更背景影像
 
-找出包含 `ID` 值 background_background_image 的 `<img>` 元素，然後以 **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** 或您想要使用的任何其他背景影像取代 `src` 值。
+找出包含 `ID` 值 *background_background_image* 的 `<img>` 元素，然後以 **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** 或您想要使用的任何其他背景影像取代 `src` 值。
 
 ![變更頁面背景](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 

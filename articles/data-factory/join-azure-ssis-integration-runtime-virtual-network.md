@@ -4,8 +4,7 @@ description: 了解如何將 Azure-SSIS 整合執行階段加入 Azure 虛擬網
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cdda3fbe2aff40e26c6086e87ef3e05670c3419f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>將 Azure-SSIS 整合執行階段加入虛擬網路
 在下列案例中，將 Azure-SSIS 整合執行階段 (IR) 加入 Azure 虛擬網路： 
@@ -52,7 +51,7 @@ ms.lasthandoff: 03/08/2018
 - 如果在與 Azure-SSIS IR 不同的位置中有現有的 Azure Resource Manager 虛擬網路連線至您的內部部署網路，您可以先建立 Azure-SSIS IR 要加入的 [Azure Resource Manager 虛擬網路](../virtual-network/quick-create-portal.md##create-a-virtual-network)。 然後，設定 Azure Resource Manager 對 Azure Resource Manager 虛擬網路連線。 或者，您可以建立[傳統虛擬網路](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)，讓您的 Azure-SSIS IR 加入。 然後，設定[傳統對 Azure Resource Manager 虛擬網路](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)連線。
 
 ## <a name="domain-name-services-server"></a>網域名稱服務伺服器 
-如果您需要在 Azure-SSIS 整合執行階段所加入的虛擬網路中使用自己的網域名稱系統 (DNS) 伺服器，請遵循指引，以[確定虛擬網路中的 Azure-SSIS 整合執行階段的節點可解析 Azure 端點](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)。
+如果您需要在 Azure-SSIS 整合執行階段加入的虛擬網路中使用您自己的「網域名稱服務 (DNS)」伺服器，請依照[虛擬機器和角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文章中＜使用您自己的 DNS 伺服器的名稱解析＞一節中的指引。
 
 ## <a name="network-security-group"></a>網路安全性群組
 如果您需要在 Azure-SSIS 整合執行階段所加入的虛擬網路中實作網路安全性群組 (NSG)，請允許通過下列連接埠的輸入/輸出流量：

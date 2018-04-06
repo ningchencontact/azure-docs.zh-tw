@@ -1,8 +1,8 @@
 ---
-title: "已加入網域的 Azure HDInsight 架構 | Microsoft Docs"
-description: "了解如何規劃已加入網域的 HDInsight。"
+title: 已加入網域的 Azure HDInsight 架構 | Microsoft Docs
+description: 了解如何規劃已加入網域的 HDInsight。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bhanupr
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/14/2017
+ms.date: 03/20/2018
 ms.author: bprakash
-ms.openlocfilehash: 5285199d22528ed6b9fa3b7dbc85e382e7b28569
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b4f79388e45e24dc906a3a03dc0c0e51df52160d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>規劃 HDInsight 中已加入網域的 Azure Hadoop 叢集
 
@@ -47,16 +47,14 @@ HDInsight 不會建置自己的多使用者驗證和授權，而是依賴最受�
 
 ![已加入網域的 HDInsight 叢集 OU](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-### <a name="two-ways-of-bringing-your-own-active-directory-domain-controllers"></a>兩種自備 Active Directory 網域控制站的方式
-
-有兩種方式可讓您自備 Active Directory 網域控制站來建立已加入網域的 HDInsight 叢集。 
+### <a name="the-way-of-bringing-your-own-active-directory-domain-controllers"></a>自備 Active Directory 網域控制站的方式
 
 - **Azure Active Directory Domain Services**：這項服務會提供與 Windows Server Active Directory 完全相容的受控 Active Directory 網域。 Microsoft 會負責管理、修補及監視 AD 網域。 您可以放心地部署叢集，不必擔心網域控制站的維護問題。 使用者、群組和密碼都會從 Azure Active Directory 同步過來，讓使用者使用其公司認證來登入叢集。 如需詳細資訊，請參閱[使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集](./apache-domain-joined-configure-using-azure-adds.md)。
 
-- **Azure IaaS VM 上的 Active Directory**：使用此選項時，您會在 Azure IaaS VM 上部署和管理自己的 Windows Server Active Directory 網域。 如需詳細資訊，請參閱[設定已加入網域的沙箱環境](./apache-domain-joined-configure.md)。
+> [!NOTE]
+> Azure IaaS VM 上的 Active Directory 不再受支援。
 
 ## <a name="next-steps"></a>後續步驟
-* 若要設定已加入網域的 HDInsight 叢集，請參閱[設定已加入網域的 HDInisight 叢集](apache-domain-joined-configure.md)。
 * 若要管理已加入網域的 HDInsight 叢集，請參閱[管理已加入網域的 HDInisight 叢集](apache-domain-joined-manage.md)。
 * 若要設定 Hive 原則和執行 Hive 查詢，請參閱[針對已加入網域的 HDInsight 叢集設定 Hive 原則](apache-domain-joined-run-hive.md)。
 * 若要在已加入網域的 HDInsight 叢集上使用 SSH 執行 Hive 查詢，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。

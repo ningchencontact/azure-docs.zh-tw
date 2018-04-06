@@ -1,23 +1,23 @@
 ---
-title: "教學課程：Azure Active Directory 與 Domo 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Domo 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Domo 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Domo 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2017
+ms.date: 03/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 3fbfd8839b1a45c6927753a48d1ac617f2d34427
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c7f74d3bd8a2f0173f8f3cc69c611696044875a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>教學課程：Azure Active Directory 與 Domo 整合
 
@@ -167,7 +167,7 @@ Domo 與 Azure AD 整合提供下列優點：
 
    ![設定單一登入](./media/active-directory-saas-domo-tutorial/tutorial_domo_configure.png) 
 
-9. 若要在 **Domo** 端設定單一登入，您必須將已下載的「憑證」、「SAML 實體識別碼」、「SAML 單一登入服務 URL」和「登出 URL」傳送給 [Domo 支援小組](mailto:support@domo.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+9. 若要在 **Domo** 端設定單一登入，請瀏覽至 Domo 知識庫文章 (可在[這裡](http://knowledge.domo.com?cid=azuread)找到)，然後依照指示進行操作。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -250,8 +250,6 @@ Domo 與 Azure AD 整合提供下列優點：
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

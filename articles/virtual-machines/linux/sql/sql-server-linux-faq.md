@@ -1,8 +1,8 @@
 ---
-title: "Linux Azure 虛擬機器上的 SQL Server 常見問題集 | Microsoft Docs"
-description: "本文章提供在 Linux Azure VM 上執行 SQL Server 的常見問題解答。"
+title: Linux Azure 虛擬機器上的 SQL Server 常見問題集 | Microsoft Docs
+description: 本文章提供在 Linux Azure VM 上執行 SQL Server 的常見問題解答。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Linux Azure 虛擬機器上 SQL Server 的常見問題集
 
@@ -71,13 +71,17 @@ ms.lasthandoff: 12/21/2017
 
 1. **如果是從其中一個隨收隨付資源庫映像建立，可以將 VM 變更為使用自己的 SQL Server 授權嗎？**
 
-   編號 您不能從以分鐘計費授權切換為使用您自己的授權。 您必須建立新的 Linux VM，安裝 SQL Server，然後移轉資料。 如需自備授權的詳細資訊，請參閱上一個問題。
+   編號 您不能從以秒鐘計費授權切換為使用您自己的授權。 您必須建立新的 Linux VM，安裝 SQL Server，然後移轉資料。 如需自備授權的詳細資訊，請參閱上一個問題。
 
 ## <a name="administration"></a>系統管理
 
 1. **我可以使用 SQL Server Management Studio (SSMS) 管理 Linux SQL Server 虛擬機器嗎？**
 
    是，但 SSMS 目前為僅限 Windows 的工具。 您必須從 Windows 電腦進行遠端連線，才能使用 SSMS 搭配 Linux SQL Server VM。 在 Linux 本機上，新的 [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) 工具可以執行許多管理工作。 若要預覽跨平台的資料庫管理工具，請參閱 [SQL Server Operations Studio (預覽)](https://docs.microsoft.com/sql/sql-operations-studio/what-is)。
+
+1. **可以從 SQL VM 完全移除 SQL Server 嗎？**
+
+   可以，不過如 [SQL Server Azure VM 的定價指導方針](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json)所述，仍會繼續向您收取 SQL VM 的費用。 如果您不再需要 SQL Server，則可以部署新的虛擬機器，並將資料和應用程式移轉到新的虛擬機器。 接著，您可以移除 SQL Server 虛擬機器。
 
 ## <a name="updating-and-patching"></a>更新和修補
 

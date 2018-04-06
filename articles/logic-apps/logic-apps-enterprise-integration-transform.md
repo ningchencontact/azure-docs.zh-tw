@@ -1,6 +1,6 @@
 ---
-title: "使用轉換來轉換 XML 資料 - Azure Logic Apps | Microsoft Docs"
-description: "在邏輯應用程式中使用企業整合 SDK 來建立轉換或對應，以轉換 XML 資料格式"
+title: 使用轉換來轉換 XML 資料 - Azure Logic Apps | Microsoft Docs
+description: 在邏輯應用程式中使用企業整合 SDK 來建立轉換或對應，以轉換 XML 資料格式
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: fd59b6b3f51adb538e774bc5bb089880ca22e97e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>具備 XML 轉換的企業整合
 ## <a name="overview"></a>概觀
@@ -64,6 +64,7 @@ ms.lasthandoff: 01/08/2018
 
 您現在可以藉由向 HTTP 端點提出要求來測試轉換。  
 
+
 ## <a name="features-and-use-cases"></a>功能和使用案例
 * 在對應中建立轉換並不難，例如，只要在不同文件之間複製名稱和位址，即可完成。 或者，您可以使用內建的對應作業，建立更複雜的轉換。  
 * 目前有多個對應作業或函數可供使用，包括字串、日期時間函數等等。  
@@ -73,11 +74,49 @@ ms.lasthandoff: 01/08/2018
 * 上傳現有的對應  
 * 包括對 XML 格式的支援。
 
-## <a name="adanced-features"></a>進階功能
-下列功能只能從程式碼檢視存取。
+## <a name="advanced-features"></a>進階功能
+
+### <a name="reference-assembly-or-custom-code-from-maps"></a>來自對應的參考組件或自訂程式碼 
+轉換動作還支援以外部組件的參考進行對應或轉換。 此功能可讓您直接從 XSLT 對應呼叫自訂 .NET 程式碼。 以下是在對應中使用的組件的必要條件。
+
+* 對應與從對應參考的組件都必須[上傳到整合帳戶](./logic-apps-enterprise-integration-maps.md)。 
+
+  > [!NOTE]
+  > 對應和組件都必須依照特定順序上傳。 您必須先上傳組件，接著再上傳參考組件的對應。
+
+* 對應還必須包含以下屬性，以及含有組件程式碼呼叫的 CDATA 區段：
+
+    * **name** 是自訂組件名稱。
+    * **namespace** 是組件中包含自訂程式碼的命名空間。
+
+  以下範例展示的對應參考名為 "XslUtilitiesLib" 的組件，並且從組件呼叫 `circumreference` 方法。
+
+  ````xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
+  <msxsl:script language="C#" implements-prefix="user">
+    <msxsl:assembly name="XsltHelperLib"/>
+    <msxsl:using namespace="XsltHelpers"/>
+    <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
+  </msxsl:script>
+  <xsl:template match="data">
+     <circles>
+        <xsl:for-each select="circle">
+            <circle>
+                <xsl:copy-of select="node()"/>
+                    <circumference>
+                        <xsl:value-of select="user:circumference(radius)"/>
+                    </circumference>
+            </circle>
+        </xsl:for-each>
+     </circles>
+    </xsl:template>
+    </xsl:stylesheet>
+  ````
+
 
 ### <a name="byte-order-mark"></a>位元組順序標記
-根據預設，轉換回應將會以位元組順序標記 (BOM) 開頭。 若要停用這項功能，請為 `transformOptions` 屬性指定 `disableByteOrderMark`：
+根據預設，轉換將會以位元組順序標記 (BOM) 開頭。 唯有在使用 [程式碼檢視] 編輯器時，您才可以取用這項功能。 若要停用這項功能，請為 `transformOptions` 屬性指定 `disableByteOrderMark`：
 
 ````json
 "Transform_XML": {
@@ -94,6 +133,10 @@ ms.lasthandoff: 01/08/2018
     "type": "Xslt"
 }
 ````
+
+
+
+
 
 ## <a name="learn-more"></a>深入了解
 * [深入了解企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md "了解企業整合套件")  

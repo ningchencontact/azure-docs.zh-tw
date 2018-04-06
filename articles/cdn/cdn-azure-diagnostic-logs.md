@@ -1,12 +1,12 @@
 ---
-title: "Azure 診斷記錄 | Microsoft Docs"
-description: "客戶可以啟用 Azure CDN 的記錄分析功能。"
+title: Azure 診斷記錄 | Microsoft Docs
+description: 客戶可以啟用 Azure CDN 的記錄分析功能。
 services: cdn
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 診斷記錄
 
@@ -109,7 +109,7 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 
 下列範例說明如何透過 Azure PowerShell Cmdlet 啟用診斷記錄。
 
-###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>啟用儲存體帳戶中的診斷記錄
+### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>啟用儲存體帳戶中的診斷記錄
 
 先登入並選取訂用帳戶：
 

@@ -1,11 +1,11 @@
 ---
-title: "如何調整 Azure Redis 快取 | Microsoft Docs"
-description: "了解如何調整 Azure Redis 快取執行個體"
+title: 如何調整 Azure Redis 快取 | Microsoft Docs
+description: 了解如何調整 Azure Redis 快取執行個體
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: b0a9208681b164fe7be33bf9ef5f635358284ba3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9ef988ccdcca921c0285bf983125483a38a07678
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>如何調整 Azure Redis 快取
 Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大小和功能的彈性。 建立快取之後，如果您應用程式的需求改變，您可以調整快取的大小和定價層。 本文說明如何使用 Azure 入口網站和 Azure PowerShell 與 Azure CLI 之類的工具來調整快取。
@@ -111,6 +111,7 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 * [我是否會在調整期間遺失快取中的資料？](#will-i-lose-data-from-my-cache-during-scaling)
 * [我的自訂資料庫設定在調整期間會受到影響嗎？](#is-my-custom-databases-setting-affected-during-scaling)
 * [是否可以在調整期間使用我的快取？](#will-my-cache-be-available-during-scaling)
+* [設定異地複寫後，為什麼我不能調整快取大小或變更叢集中的分區？](#scaling-limitations-with-geo-relication)
 * [不支援的作業](#operations-that-are-not-supported)
 * [調整需要多長的時間？](#how-long-does-scaling-take)
 * [如何分辨調整何時完成？](#how-can-i-tell-when-scaling-is-complete)
@@ -119,9 +120,9 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 * 您無法從**進階**快取向下調整至**基本**或**標準**定價層。
 * 您可以將一個 **進階** 快取定價層調整為另一個定價層。
 * 您無法直接從**基本**快取調整至**進階**快取。 首先，在單一調整作業中從**基本**調整至**標準**，然後在後續的調整作業中從**標準**調整至**進階**。
-* 如果在建立 **進階** 快取時已啟用叢集，您可以 [變更叢集大小](cache-how-to-premium-clustering.md#cluster-size)。 如果在建立快取時未啟用叢集，之後便無法設定叢集。
+* 如果在建立 **進階** 快取時已啟用叢集，您可以 [變更叢集大小](cache-how-to-premium-clustering.md#cluster-size)。 如果在建立快取時未啟用叢集，之後依然可以設定叢集。
   
-  如需詳細資訊，請參閱 [如何設定進階 Azure Redis 快取的叢集](cache-how-to-premium-clustering.md)。
+  如需詳細資訊，請參閱 [如何設定進階 Azure Redis 快取叢集](cache-how-to-premium-clustering.md)。
 
 ### <a name="after-scaling-do-i-have-to-change-my-cache-name-or-access-keys"></a>調整之後，是否必須變更我的快取名稱或存取金鑰？
 否，在調整作業期間，您的快取名稱和金鑰不會變更。
@@ -151,6 +152,12 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 * **標準**與**進階**快取在調整作業期間會保持可用。 不過，調整標準和進階快取時可能會發生連線中斷 (從基本調整至標準快取時也一樣)。 這些連線中斷應該很短暫，而且 Redis 用戶端應可立即重新建立其連線。
 * **基本**快取在將作業調整至不同大小的期間，會處於離線狀態。 從**基本**調整至**標準**時，基本快取仍可使用，但可能會遇到短暫的連線中斷。 若發生連線中斷，Redis 用戶端應可立即重新建立其連線。
 
+
+### <a name="scaling-limitations-with-geo-relication"></a>異地複寫的調整限制
+
+一旦將異地複寫連結新增至兩個快取之間，您就無法再起始調整作業或變更叢集內的分區數目。 您必須將快取取消連結之後，才能發出這些命令。 如需詳細資訊，請參閱 [設定異地複寫](cache-how-to-geo-replication.md)。
+
+
 ### <a name="operations-that-are-not-supported"></a>不支援的作業
 * 您無法從較高的定價層調整至較低的定價層。
   * 您無法從**進階**快取向下調整至**標準**或**基本**快取。
@@ -160,6 +167,7 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 * 您無法從較大的大小向下調整至 **C0 (250 MB)** 的大小。
 
 如果調整作業失敗，服務會嘗試還原作業，而且快取會還原成原始大小。
+
 
 ### <a name="how-long-does-scaling-take"></a>調整需要多長的時間？
 根據快取中的資料量，調整大約需要 20 分鐘。

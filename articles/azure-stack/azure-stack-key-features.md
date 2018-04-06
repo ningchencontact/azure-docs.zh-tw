@@ -15,16 +15,13 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: b773ddc5da12f92960ef3378decac8569dac9ab9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 958b1757dd773f8c46185b13c84f766ce4f827ee
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack 的主要功能與概念
-
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
-
 如果您是 Microsoft Azure Stack 的新手，這些字詞與功能描述可能相當實用。
 
 ## <a name="personas"></a>角色
@@ -165,5 +162,5 @@ Microsoft Azure Stack 會從所有資源提供者收集彙總的使用方式資�
 - 其他改進功能
 
 ## <a name="next-steps"></a>後續步驟
-[Azure Stack 部署先決條件](azure-stack-deploy.md)
+[評估 Azure Stack 開發套件](azure-stack-deploy-overview.md)
 

@@ -1,24 +1,18 @@
 ---
-title: "管理 Azure 自動化資料 | Microsoft Docs"
-description: "本文章包含用於管理 Azure 自動化環境的多個主題。  目前將資料保留和備份 Azure 自動化災害復原併入 Azure 自動化中。"
+title: 管理 Azure 自動化資料
+description: 本文章包含用於管理 Azure 自動化環境的多個主題。  目前將資料保留和備份 Azure 自動化災害復原併入 Azure 自動化中。
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/02/201
-ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+manager: carmonm
+ms.openlocfilehash: c71807a14c8a7f1edff60411a84f7d0d6f70fd23
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-azure-automation-data"></a>管理 Azure 自動化資料
 本文章包含用於管理 Azure 自動化環境的多個主題。
@@ -43,7 +37,7 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 
 保留原則適用於所有使用者，而且目前無法自訂。
 
-不過，如果您需要將資料保留更長的時間，則可以將 Runbook 作業記錄轉送到 Log Analytics。  如需進一步資訊，請檢閱[將 Azure 自動化作業資料轉送到 OMS Log Analytics](automation-manage-send-joblogs-log-analytics.md)。   
+不過，如果您需要將資料保留更長的時間，則可以將 Runbook 作業記錄轉送到 Log Analytics。  如需進一步資訊，請檢閱[將 Azure 自動化作業資料轉送到 Log Analytics](automation-manage-send-joblogs-log-analytics.md)。   
 
 ## <a name="backing-up-azure-automation"></a>備份 Azure 自動化
 在 Microsoft Azure 中刪除自動化帳戶時，會刪除帳戶中的所有物件，包括 Runbook、模組、組態、設定、工作和資產。 刪除帳戶之後，就無法復原物件。  您可以使用下列資訊，在刪除之前備份您的自動化帳戶的內容。 

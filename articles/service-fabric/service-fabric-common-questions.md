@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure Service Fabric 的相關常見問題 | Microsoft Docs"
-description: "和 Service Fabric 有關的常見問題集和解答"
+title: Microsoft Azure Service Fabric 的相關常見問題 | Microsoft Docs
+description: 和 Service Fabric 有關的常見問題集和解答
 services: service-fabric
 documentationcenter: .net
 author: chackdan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: facbb980f57b4e70c34b238a8b8fbd988cb20d57
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ecce5581e8f14a02ad0ad618a226f4671e92f4b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 的常見問題
 
@@ -89,17 +89,7 @@ ms.lasthandoff: 02/21/2018
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>如何將叢集節點類型 (虛擬機器擴展集) 中已連結的資料磁碟加密？
 是。  如需詳細資訊，請參閱[使用已連結的資料磁碟建立叢集](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks)、[加密磁碟 (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md)，以及[加密磁碟 (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md)。
 
-## <a name="container-support"></a>容器支援
-
-### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>為何部署到 SF 的容器無法解析 DNS 位址？
-
-已有人針對 5.6.204.9494 版的叢集回報這個問題 
-
-**緩和**︰請遵循[這份文件](service-fabric-dnsservice.md)，以便在叢集中啟用 DNS Service Fabric 服務。
-
-**修正**：升級至 5.6.204.9494 以上的支援叢集版本 (當推出時)。 如果您的叢集設定為自動升級，則叢集將會自動升級為已修正此問題的版本。
-
-  
+ 
 ## <a name="application-design"></a>應用程式設計
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>在可靠集合的所有分割中查詢資料的最佳方式為何？
@@ -146,9 +136,11 @@ ms.lasthandoff: 02/21/2018
 
 ### <a name="are-you-planning-to-open-source-service-fabric"></a>您打算開放 Service Fabric 原始碼嗎？
 
-我們打算在 GitHub 上開放 Reliable Services 和 Reliable Actors 架構的原始碼，並接受社群參與這些專案。 請關注 [Service Fabric 部落格](https://blogs.msdn.microsoft.com/azureservicefabric/)，以便在公告更多詳細資料時進行了解。
+我們在 GitHub 上有開放部分 Service Fabric 原始碼 ([可靠的服務架構](https://github.com/Azure/service-fabric-services-and-actors-dotnet)、[可靠的執行者架構](https://github.com/Azure/service-fabric-services-and-actors-dotnet)、[ASP.NET Core 整合程式庫](https://github.com/Azure/service-fabric-aspnetcore)、[Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer)，以及 [Service Fabric CLI](https://github.com/Azure/service-fabric-cli))，並接受社群對這些專案的貢獻。 
 
-目前並無任何開放 Service Fabric 執行階段原始碼的計畫。
+我們[最近宣佈](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/)計劃開放 Service Fabric 執行階段原始碼。 此時，我們透過 Linux 組建和測試工具在 GitHub 上安裝 [Service Fabric 存放庫](https://github.com/Microsoft/service-fabric/)，這表示您可以複製存放庫、組建適用於 Linux 的 Service Fabric、執行基本測試、開啟問題，並提交提取要求。 我們正努力讓 Windows 組建環境以及完整的 CI 環境進行移轉。
+
+請關注 [Service Fabric 部落格](https://blogs.msdn.microsoft.com/azureservicefabric/)，以便在公告更多詳細資料時進行了解。
 
 ## <a name="next-steps"></a>後續步驟
 

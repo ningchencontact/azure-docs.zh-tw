@@ -1,31 +1,28 @@
 ---
-title: "Azure 流量管理員中的流量檢視 | Microsoft Docs"
-description: "流量管理員流量檢視簡介"
+title: Azure 流量管理員中的流量檢視 | Microsoft Docs
+description: 流量管理員流量檢視簡介
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 11/11/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: 6b4378cb293824702dd52dcdeb86619f957b83ea
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.custom: ''
+ms.openlocfilehash: 7ce51017fdee92e5589c06b398c9650930d5436d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-traffic-view"></a>流量管理員流量檢視
-
->[!NOTE]
->「流量管理員」中的「流量檢視」功能目前為「公開預覽版」，可能沒有與正式發行版本功能相同層級的可用性和可靠性。 不支援該功能、可能已經限制功能，以及可能無法在所有 Azure 位置提供使用。 如需此功能可用性和狀態的最新通知，請查看 [Azure 流量管理員](https://azure.microsoft.com/updates/?product=traffic-manager)分頁。
 
 流量管理員為您提供 DNS 層級路由，讓您的使用者根據您在建立設定檔時指定的路由方法，被導向至狀況良好的端點。 流量檢視提供流量管理員一個使用者群體 (在 DNS 解析程式資料粒度層級) 及其流量模式的檢視。 當您啟用流量檢視時，系統會處理這項資訊以提供可採取動作的深入資訊。 
 
@@ -43,7 +40,7 @@ ms.lasthandoff: 11/16/2017
 在下一個步驟中，流量管理員會將 Azure 區域對應的使用者群組區域與它為不同使用者網路維護的網路智慧延遲資料表相互關聯，以了解當連接到 Azure 區域時，這些區域的使用者所體驗的平均延遲。 所有這些計算接著會在呈現給您之前，在每個本機 DNS 解析程式 IP 層級上合併。 您可以用各種方式使用該資訊。
 
 >[!NOTE]
->流量檢視中所述的延遲是使用者與已連線 Azure 區域間的代表性延遲，不是 DNS 查詢延遲。
+>流量檢視中所述的延遲是使用者與已連線 Azure 區域間的代表性延遲，不是 DNS 查詢延遲。 流量檢視對本機 DNS 解析程式與查詢路由前往的 Azure 區域之間的延遲進行最佳投入量估算，如果資料不足，則傳回的延遲將為 Null。 
 
 ## <a name="visual-overview"></a>視覺效果概觀
 
@@ -61,12 +58,12 @@ ms.lasthandoff: 11/16/2017
 
 ### <a name="endpoint-information"></a>端點資訊
 
-端點所在的 Azure 區域會在地圖中顯示為藍點。 按一下任何端點，可查看流量被導向該端點的來源位置 (根據使用的 DNS 解析程式)。 連線會顯示為端點與 DNS 解析程式位置之間的路線，並且會根據該配對之間的代表性延遲標示顏色。 此外，您可以查看端點名稱、執行端點的 Azure 區域和由此流量管理員設定檔導向至此的要求總數。
+端點所在的 Azure 區域會在地圖中顯示為藍點。 如果您的端點是外部的，而且沒有與其對應的 Azure 區域，則該端點會顯示在地圖的頂端。 按一下任何端點，可查看流量被導向該端點的來源位置 (根據使用的 DNS 解析程式)。 連線會顯示為端點與 DNS 解析程式位置之間的路線，並且會根據該配對之間的代表性延遲標示顏色。 此外，您可以查看端點名稱、執行端點的 Azure 區域和由此流量管理員設定檔導向至此的要求總數。
 
 
 ## <a name="tabular-listing-and-raw-data-download"></a>表格檢視和原始資料下載
 
-您可以在 Azure 入口網站中以表格形式檢視流量檢視資料。 每個 DNS 解析程式 IP / 端點配對都有一個項目會顯示 DNS 解析程式的地理位置 (如果有的話)、端點所在位置的 Azure 區域名稱、與 DNS 解析程式相關聯的要求數量，以及與使用 DNS 的使用者相關聯的代表性延遲 (如果有的話)。 您也可以將流量檢視資料下載為 CSV 檔案，這可作為所選分析流程的一部分使用。
+您可以在 Azure 入口網站中以表格形式檢視流量檢視資料。 每個 DNS 解析程式 IP / 端點配對都有一個項目會顯示 DNS 解析程式的 IP 位置、端點所在位置 (如果有的話) 的 Azure 區域名稱與地理位置、與 DNS 解析程式到該端點相關聯的要求數量，以及與使用 DNS 的使用者相關聯的代表性延遲 (如果有的話)。 您也可以將流量檢視資料下載為 CSV 檔案，這可作為所選分析流程的一部分使用。
 
 ## <a name="billing"></a>計費
 

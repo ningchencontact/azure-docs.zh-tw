@@ -1,8 +1,8 @@
 ---
-title: "在 Azure HDInsight 上使用 Spark 的資料科學概觀 | Microsoft Docs"
-description: "Spark MLlib 工具組將可觀的機器學習模型化功能引進分散式 HDInsight 環境中。"
+title: 在 Azure HDInsight 上使用 Spark 的資料科學概觀 | Microsoft Docs
+description: Spark MLlib 工具組將可觀的機器學習模型化功能引進分散式 HDInsight 環境中。
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: e1c4a507214b9686154fc8311121b56f42f5cd40
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: bradsev
+ms.openlocfilehash: a12e2f1af945c8186067b791c4e96a52eb23f52f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>在 Azure HDInsight 上使用 Spark 的資料科學概觀
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -149,7 +149,7 @@ NYC 計程車和飛行航班延遲資料集上的 Spark 2.0 Notebook 需要 10 �
 
 ![叢集儀表板](./media/spark-overview/spark-jupyter-on-portal.png)
 
-您也可以瀏覽至 ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** 存取 Jupyter Notebook。 以您的叢集名稱來取代此 URL 內的 CLUSTERNAME 部分。 您需要有系統管理員帳戶的密碼才能存取 Notebook。
+若要存取 Jupyter Notebook，您也可以瀏覽 ***https://CLUSTERNAME.azurehdinsight.net/jupyter***。 以您的叢集名稱來取代此 URL 內的 CLUSTERNAME 部分。 您需要有系統管理員帳戶的密碼才能存取 Notebook。
 
 ![瀏覽 Jupyter Notebooks](./media/spark-overview/spark-jupyter-notebook.png)
 

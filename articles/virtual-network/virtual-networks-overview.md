@@ -1,11 +1,11 @@
 ---
-title: "Azure 虛擬網路 | Microsoft Docs"
-description: "了解 Azure 虛擬網路概念和功能。"
+title: Azure 虛擬網路 | Microsoft Docs
+description: 了解 Azure 虛擬網路概念和功能。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/1/2018
 ms.author: jdial
-ms.openlocfilehash: fadc1994cd930df36387a5bfb302c00d66f74fad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8d02afcc590482fdca4705ac582d85bb985dd3c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-virtual-network"></a>什麼是 Azure 虛擬網路？
 
@@ -32,7 +32,7 @@ Azure 虛擬網路提供下列各項功能：
 - **[虛擬網路連線：](#connect-vnets)**虛擬網路可以彼此連線，以便任何虛擬網路中的資源與其他任何虛擬網路中的資源進行通訊。
 - **[內部部署連線：](#connect-on-premises)**虛擬網路可以連線到內部部署網路，讓資源能夠互相進行通訊。
 - **[流量篩選︰](#filtering)**您可以依據來源 IP 位址和連接埠、目的地 IP 位址和連接埠以及通訊協定，篩選進出虛擬網路中資源的網路流量。
-- **[路由︰](#routing)**您可以設定您自己的路由，或透過網路閘道傳播 BGP 路由，選擇性地覆寫 Azure 的預設路由。
+- **[路由︰](#routing)**您可以設定您自己的路由，或透過網路閘道來傳播邊界閘道協定 (BGP) 路由，選擇性地覆寫 Azure 的預設路由。
 
 ## <a name = "isolation"></a>網路隔離和分割
 

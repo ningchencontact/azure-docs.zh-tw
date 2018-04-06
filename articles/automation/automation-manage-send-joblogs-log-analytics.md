@@ -1,5 +1,5 @@
 ---
-title: 將 Azure 自動化作業資料轉送至 OMS Log Analytics
+title: 將 Azure 自動化作業資料轉送到 Log Analytics
 description: 這篇文章示範如何將工作狀態和 Runbook 工作資料流傳送到 Microsoft Operations Management Suite Log Analytics，以提供額外的深入解析和管理。
 services: automation
 ms.service: automation
@@ -8,16 +8,14 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: c73a523f1239fb7d549b573ea6105168f4a63144
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c9b604b0fc7a3524686bec6832a19ee9f85f6ed2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>從「自動化」將工作狀態和工作資料流轉送到 Log Analytics (OMS)
-「自動化」可以將 Runebook 工作狀態和工作資料流傳送到您的 Microsoft Operations Management Suite (OMS) Log Analytics 工作區。 作業記錄和作業串流會顯示於 Azure 入口網站中，或是使用 PowerShell，針對個別作業，而這可讓您執行簡單的調查。 現在透過 Log Analytics，您可以：
+# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>從「自動化」將工作狀態和工作資料流轉送到 Log Analytics
+「自動化」可以將 Runebook 工作狀態和工作資料流傳送到您的 Log Analytics 工作區。 作業記錄和作業串流會顯示於 Azure 入口網站中，或是使用 PowerShell，針對個別作業，而這可讓您執行簡單的調查。 現在透過 Log Analytics，您可以：
 
 * 取得您「自動化」作業的相關深入解析。
 * 根據您的 Runbook 作業狀態 (例如失敗或已暫止) 觸發電子郵件或警示。
@@ -157,7 +155,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 最後，您可能會想要視覺化一段時間的工作歷程記錄。 您可以使用此查詢來搜尋您的工作在一段時間的狀態。
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
-<br> ![OMS 歷史工作狀態圖表](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+<br> ![Log Analytics 歷史工作狀態圖表](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="summary"></a>總結
 藉由將自動化作業狀態和串流資料傳送到 Log Analytics，您就能透過下列方式，更深入了解自動化作業的狀態：
@@ -170,4 +168,4 @@ Log Analytics 可以為您的自動化作業提供更高的操作可見性，並
 * 若要深入了解如何使用 Log Analytics 來建構不同的搜尋查詢及 檢閱「自動化」作業記錄，請參閱 [Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-log-searches.md)。
 * 若要了解如何從 Runbook 建立及擷取輸出與錯誤訊息，請參閱 [Runbook 輸出與訊息](automation-runbook-output-and-messages.md)。
 * 若要深入了解 Runbook 執行方式、如何監視 Runbook 作業，以及其他技術性詳細資料，請參閱[追蹤 Runbook 作業](automation-runbook-execution.md)。
-* 若要深入了解 OMS Log Analytics 和資料收集來源，請參閱 [在 Log Analytics 中收集 Azure 儲存體資料概觀](../log-analytics/log-analytics-azure-storage.md)。
+* 若要深入了解 Log Analytics 和資料收集來源，請參閱[在 Log Analytics 中收集 Azure 儲存體資料概觀](../log-analytics/log-analytics-azure-storage.md)。

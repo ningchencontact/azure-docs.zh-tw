@@ -1,23 +1,23 @@
 ---
-title: "敏捷式資料科學專案開發 - Azure Machine Learning | Microsoft Docs"
-description: "開發人員如何藉由使用 Team Data Science Process，在專案小組中以系統化、版本控制，以及共同作業的方式執行資料科學專案。"
-documentationcenter: 
+title: 敏捷式資料科學專案開發 - Azure Machine Learning | Microsoft Docs
+description: 開發人員如何藉由使用 Team Data Science Process，在專案小組中以系統化、版本控制，以及共同作業的方式執行資料科學專案。
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
-ms.openlocfilehash: 686f751b241d49d116948711c683f4b504d5d5f9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: bradsev
+ms.openlocfilehash: dbaf2df0f5572c9b269000c741f1d736a7521d73
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="agile-development-of-data-science-projects"></a>敏捷式資料科學專案開發
 
@@ -184,8 +184,8 @@ ms.lasthandoff: 11/30/2017
 
 以下是敏捷式程序的其他資源連結。
 
-- 敏捷式程序   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
-- 敏捷式程序工作項目類型和工作流程   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
+- 敏捷式流程   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
+- 敏捷式流程工作項目類型和工作流程   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
 
 
 也會提供逐步解說，說明**特定案例**之程序中的所有步驟。 [範例逐步解說](walkthroughs.md)文章中會列出這些逐步解說以及簡短說明的連結。 這些逐步解說說明如何將雲端、內部部署工具及服務組合成工作流程或管線，以建立智慧型應用程式。 

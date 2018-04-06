@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store 與 Azure 儲存體 Blob 比較 | Microsoft Docs"
-description: "Azure Data Lake Store 與 Azure 儲存體 Blob 比較"
+title: Azure Data Lake Store 與 Azure 儲存體 Blob 比較 | Microsoft Docs
+description: Azure Data Lake Store 與 Azure 儲存體 Blob 比較
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a8831278ef0e83571bf05d48e5d671f8dee92850
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: acdd829785c44f6683c356c135587be183cce392
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>比較 Azure Data Lake Store 和 Azure Blob 儲存體
 本文章中的表格摘要說明 Azure Data Lake Store 與 Azure Blob 儲存體之間的差異，以及巨量資料處理的一些重要層面。 Azure Blob 儲存體是一般用途的可調整物件存放區，針對各種不同的儲存體案例所設計。 Azure Data Lake Store 是超大規模儲存機制，已針對巨量資料分析的工作負載最佳化。
@@ -46,7 +46,4 @@ ms.lasthandoff: 02/21/2018
 | 區域可用性 |請參閱 [這裡](https://azure.microsoft.com/regions/#services) |所有 Azure 區域均可使用 |
 | 價格 |請參閱 [價格](https://azure.microsoft.com/pricing/details/data-lake-store/) |請參閱 [價格](https://azure.microsoft.com/pricing/details/storage/) |
 
-### <a name="next-steps"></a>後續步驟
-* [Azure Data Lake Store 概觀](data-lake-store-overview.md)
-* [開始使用 Data Lake Store](data-lake-store-get-started-portal.md)
 

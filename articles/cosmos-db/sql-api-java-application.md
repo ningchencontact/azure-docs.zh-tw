@@ -1,7 +1,7 @@
 ---
-title: "使用 Azure Cosmos DB 進行 Java 應用程式開發教學課程 | Microsoft Docs"
-description: "本 Java Web 應用程式教學課程示範如何使用 Azure Cosmos DB 和 SQL API，來儲存和存取 Azure 網站上所託管的 Java 應用程式資料。"
-keywords: "應用程式開發, 資料庫教學課程, java 應用程式, java web 應用程式教學課程, azure, Microsoft azure"
+title: 使用 Azure Cosmos DB 進行 Java 應用程式開發教學課程 | Microsoft Docs
+description: 本 Java Web 應用程式教學課程示範如何使用 Azure Cosmos DB 和 SQL API，來儲存和存取 Azure 網站上所託管的 Java 應用程式資料。
+keywords: 應用程式開發, 資料庫教學課程, java 應用程式, java web 應用程式教學課程, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 8507b772c537ac50bd40367fbde260a8d72375ca
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 816ea6e575759186973e23c6adfccd389c6920d9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 來建置 Java Web 應用程式
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 12/18/2017
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 本 Java Web 應用程式教學課程示範如何使用 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務，來儲存和存取 Azure App Service Web Apps 上所託管的 Java 應用程式資料。 在本主題中，您將了解：
 
@@ -739,7 +737,7 @@ Azure 網站讓部署 Java 應用程式變得相當簡單，您只需將應用�
 3. 在 Eclipse 的 [檔案] 功能表上，按一下 [匯入]。
 4. 在 [匯入] 視窗中，依序按一下 [Git]、[使用 Git 的專案] 和 [下一步]。
 5. 在 [選取儲存機制來源] 畫面上，按一下 [複製 URI]。
-6. 在 [來源 Git 存放庫] 畫面的 [URI] 方塊中，輸入 https://github.com/Azure-Samples/java-todo-app.git，然後按 [下一步]。
+6. 在 [來源 Git 存放庫] 畫面的 [URI] 方塊中，輸入 https://github.com/Azure-Samples/java-todo-app.git，然後按一下 [下一步]。
 7. 在 [分支選取] 畫面上，確定已選取 [主要]，然後按 [下一步]。
 8. 在 [本機目的地] 畫面上，按一下 [瀏覽] 以選取可以複製儲存機制的資料夾，然後按 [下一步]。
 9. 在 [選取要用於匯入專案的精靈] 畫面上，確定已選取 [匯入現有的專案]，然後按 [下一步]。
@@ -754,6 +752,6 @@ Azure 網站讓部署 Java 應用程式變得相當簡單，您只需將應用�
 18. 在螢幕底部的 [伺服器] 索引標籤上，以滑鼠右鍵按一下 [在 localhost 的 Tomcat v7.0 伺服器]，然後按一下 [新增和移除]。
 19. 在 [新增和移除] 視窗中，將 [azure-documentdb-java-sample] 移至 [已設定] 方塊，然後按一下 [完成]。
 20. 在 [伺服器] 索引標籤上，以滑鼠右鍵按一下 [Tomcat v7.0 Server at localhost] \(在 localhost 的 Tomcat v7.0 伺服器)，然後按一下 [重新啟動]。
-21. 在瀏覽器中，瀏覽至 http://localhost:8080/azure-documentdb-java-sample/，並開始新增至您的工作清單。 請注意，如果您之前變更預設的連接埠值，請將 8080 變更為您所選取的值。
+21. 在瀏覽器中，瀏覽至 http://localhost:8080/azure-documentdb-java-sample/，並開始新增到工作清單。 請注意，如果您之前變更預設的連接埠值，請將 8080 變更為您所選取的值。
 22. 若要將您的專案部署至 Azure 網站，請參閱[步驟 6：將應用程式部署至 Azure 網站](#Deploy)。
 

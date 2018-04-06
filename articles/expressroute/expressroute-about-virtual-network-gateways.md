@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2018
+ms.date: 03/22/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0517caed3a7d6632c1a5650147f4db240dbe0a17
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ae971e7743d6dd3269c0a4f976bd2a5316300f58
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>關於 ExpressRoute 的虛擬網路閘道
 虛擬網路閘道可用來傳送 Azure 虛擬網路和內部部署位置之間的網路流量。 當您設定 ExpressRoute 連線時，您必須建立及設定虛擬網路閘道和虛擬網路閘道連線。
@@ -35,13 +35,13 @@ ms.lasthandoff: 03/08/2018
 
 如果您想要將閘道器升級至更強大的閘道 SKU，在大部分情況下，您可以使用 'Resize-AzureRmVirtualNetworkGateway' PowerShell Cmdlet。 這適用於升級至 Standard 和 HighPerformance SKU。 不過，若要升級至 UltraPerformance SKU，您必須重新建立閘道器。
 
-### <a name="aggthroughput"></a>依閘道 SKU 列出的估計彙總輸送量
-下表顯示閘道類型和預估的彙總輸送量。 此資料表適用於資源管理員與傳統部署模型。
+### <a name="aggthroughput"></a>閘道 SKU 預估的效能
+下表顯示閘道類型和預估的效能。 此資料表適用於資源管理員與傳統部署模型。
 
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> 應用程式輸送量取決於多項因素，例如端對端延遲以及應用程式開啟之流量的數目。 表格中的數字代表應用程式在理想的環境中，理論上可以達成的最高上限。 
+> 應用程式效能取決於多項因素，例如端對端延遲以及應用程式開啟之流量的數目。 表格中的數字代表應用程式在理想的環境中，理論上可以達成的最高上限。 
 > 
 >
 

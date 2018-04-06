@@ -1,24 +1,24 @@
 ---
-title: "無伺服器資料庫計算 - Azure Functions 和 Azure Cosmos DB | Microsoft Docs"
-description: "了解 Azure Cosmos DB 和 Azure Functions 如何一起使用以建立事件驅動無伺服器計算的應用程式。"
+title: 無伺服器資料庫計算 - Azure Functions 和 Azure Cosmos DB | Microsoft Docs
+description: 了解 Azure Cosmos DB 和 Azure Functions 如何一起使用以建立事件驅動無伺服器計算的應用程式。
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 39155a2407efa0cc13236a1bbbbcd292daac86b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB：使用 Azure Functions 的無伺服器資料庫計算
 
@@ -113,12 +113,16 @@ Azure Cosmos DB 觸發程序、輸入繫結及輸出繫結皆可用於下列組�
 
 ## <a name="tooling"></a>工具
 
-Azure 入口網站提供 Azure Cosmos DB 與 Azure Functions 之間的原生整合。
+Azure 入口網站和 Visual Studio 2017 提供 Azure Cosmos DB 與 Azure Functions 之間的原生整合。
 * 在 Azure Functions 入口網站中，您可以建立 Azure Cosmos DB 觸發程序。 如需快速入門指示，請參閱[在 Azure 入口網站中建立 Azure Cosmos DB 觸發程序](https://aka.ms/cosmosdbtriggerportalfunc) ![在 Azure Functions 入口網站中建立 Azure Cosmos DB 觸發程序](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
 * 在 Azure Functions 入口網站中，您也可以將 Azure Cosmos DB 輸入繫結與輸出繫結新增至其他類型的觸發程序。 如需快速入門指示，請參閱[使用 Azure Functions 和 Cosmos DB 儲存非結構化資料](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)。
     ![在 Azure Functions 入口網站中建立 Azure Cosmos DB 觸發程序](./media/serverless-computing-database/function-portal-input-binding.png)
 *   在 Azure Cosmos DB 入口網站中，您可以將 Azure Cosmos DB 觸發程序新增至相同資源群組中現有的 Azure Function 應用程式。
     ![在 Azure Functions 入口網站中建立 Azure Cosmos DB 觸發程序](./media/serverless-computing-database/cosmos-db-portal.png)
+* 在 Visual Studio 2017 中，您可以使用整合式範本建立 Azure Cosmos DB 觸發程序：
+
+    >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
+
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>為何選擇 Azure Functions 整合以用於無伺服器的計算？
 

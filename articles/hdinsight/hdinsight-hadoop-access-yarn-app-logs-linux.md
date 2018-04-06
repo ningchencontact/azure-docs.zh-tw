@@ -1,11 +1,11 @@
 ---
-title: "存取以 Linux 為基礎之 HDInsight 上的 Hadoop YARN 應用程式記錄檔 - Azure | Microsoft Docs"
-description: "了解如何使用命令列和網頁瀏覽器存取以 Linux 為基礎之 HDInsight (Hadoop) 叢集上的 YARN 應用程式記錄檔。"
+title: 存取以 Linux 為基礎之 HDInsight 上的 Hadoop YARN 應用程式記錄檔 - Azure | Microsoft Docs
+description: 了解如何使用命令列和網頁瀏覽器存取以 Linux 為基礎之 HDInsight (Hadoop) 叢集上的 YARN 應用程式記錄檔。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
 ms.service: hdinsight
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f61e94d37a5e5f958a706f0db82526996a4ec02
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4d3157441777cc7e39c3ede65a6d90a0f9a163aa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>存取以 Linux 為基礎之 HDInsight 上的 YARN 應用程式記錄
 
@@ -72,7 +72,7 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 
 YARN ResourceManager UI 是在叢集前端節點上執行。 可透過 Ambari Web UI 存取。 請使用下列步驟來檢視 YARN 記錄：
 
-1. 在網頁瀏覽器中，瀏覽至 https://CLUSTERNAME.azurehdinsight.net。 將 CLUSTERNAME 取代為 HDInsight 叢集的名稱。
+1. 在您的網頁瀏覽器中，瀏覽至 https://CLUSTERNAME.azurehdinsight.net。 將 CLUSTERNAME 取代為 HDInsight 叢集的名稱。
 2. 從左邊的服務清單中選取 [YARN] 。
 
     ![選取的 Yarn 服務](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)

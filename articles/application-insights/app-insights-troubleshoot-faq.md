@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights 常見問題集 | Microsoft Docs"
-description: "關於 Application Insights 的常見問題集。"
+title: Azure Application Insights 常見問題集 | Microsoft Docs
+description: 關於 Application Insights 的常見問題集。
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 721799703923339d397113fc278cdeb6c6dbb88f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常見問題集
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 02/03/2018
 * [Azure 診斷](app-insights-azure-diagnostics.md)
 * [Docker 容器](app-insights-docker.md)
 * [將資料表匯入到分析](app-insights-analytics-import.md)
-* [OMS (Log Analytics)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
+* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>我是否可以篩選掉或修改某些遙測？
@@ -250,7 +250,7 @@ Azure 警示僅針對計量。 請建立一個會在每次事件發生時超出�
 
 ### <a name="firewall-door"></a>防火牆門
 
-可讓您的 Web 伺服器將遙測資料傳送給我們的端點 https://dc.services.visualstudio.com:443 和 https://rt.services.visualstudio.com:443 。 
+允許您的 Web 伺服器將遙測傳送至我們的端點 https://dc.services.visualstudio.com:443 和 https://rt.services.visualstudio.com:443。 
 
 ### <a name="proxy"></a>Proxy
 
@@ -262,7 +262,7 @@ Azure 警示僅針對計量。 請建立一個會在每次事件發生時超出�
 </TelemetryChannel>
 ```
 
-您的閘道應該將流量路由至 https://dc.services.visualstudio.com:443/v2/track
+您的閘道應該將流量路由到 https://dc.services.visualstudio.com:443/v2/track
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>我是否可以在內部網路伺服器上執行可用性 Web 測試？
 

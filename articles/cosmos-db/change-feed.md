@@ -1,25 +1,25 @@
 ---
-title: "使用 Azure Cosmos DB 中的變更摘要支援 | Microsoft Docs"
-description: "使用 Azure Cosmos DB 的變更摘要支援來追蹤文件中的變更，並執行以事件為基礎的處理 (例如觸發程序)，以及讓快取和分析系統保持最新狀態。"
-keywords: "變更摘要"
+title: 使用 Azure Cosmos DB 中的變更摘要支援 | Microsoft Docs
+description: 使用 Azure Cosmos DB 的變更摘要支援來追蹤文件中的變更，並執行以事件為基礎的處理 (例如觸發程序)，以及讓快取和分析系統保持最新狀態。
+keywords: 變更摘要
 services: cosmos-db
 author: rafats
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: e0940ab11f8840ffa2dbdbfd739340f8af5caf51
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 16f339540767246ef82bce020aacf9846c8d2e0b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的變更摘要支援
 
@@ -34,7 +34,13 @@ Azure Cosmos DB 中的**變更摘要支援**允許您針對每一個模式建置
 ![使用 Azure Cosmos DB 變更摘要來提供即時分析和事件導向的計算案例](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Azure Cosmos DB 中的所有資料模型和容器均可使用變更摘要支援。 不過，變更摘要是利用 SQL 用戶端來讀取，並可將項目序列化為 JSON 格式。 因為是 JSON 格式，MongoDB 用戶端會遇到 BSON 格式文件與 JSON 格式變更摘要互不相符的情況。 
+> Azure Cosmos DB 中的所有資料模型和容器均可使用變更摘要支援。 不過，變更摘要是利用 SQL 用戶端來讀取，並可將項目序列化為 JSON 格式。 因為是 JSON 格式，MongoDB 用戶端會遇到 BSON 格式文件與 JSON 格式變更摘要互不相符的情況。
+
+在下列影片中，Azure Cosmos DB 程式管理員 Andrew Liu 會示範 Azure Cosmos DB 如何變更摘要工作。
+
+> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
+>
+>
 
 ## <a name="how-does-change-feed-work"></a>變更摘要如何運作？
 

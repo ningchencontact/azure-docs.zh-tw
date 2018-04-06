@@ -1,6 +1,6 @@
 ---
-title: "將 Docker 映像推送至私人 Azure 登錄"
-description: "使用 Docker CLI 推送和提取 Docker 映像至 Azure 中的私人容器登錄"
+title: 將 Docker 映像推送至私人 Azure 登錄
+description: 使用 Docker CLI 推送和提取 Docker 映像至 Azure 中的私人容器登錄
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21d1abfbb49eaeae654a600d35ab350b96a12fd3
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 將您的第一個映像推送至私人 Docker 容器登錄
 
@@ -123,4 +123,8 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ## <a name="next-steps"></a>後續步驟
 
-現在您已瞭解基本概念了，可以開始使用您的登錄庫！ 例如，將容器映像從登錄庫部署到 [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md) 叢集。
+現在您已瞭解基本概念了，可以開始使用您的登錄庫！ 將登錄的容器映像部署至：
+
+* [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

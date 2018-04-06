@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 03/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2e78ecf6bd281bd5d30f59413789eb1e6fc7b5bc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cf9255126adcec9a2d9d280211e46a6b5f93e14c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>將一般化 VHD 上傳，並使用它在 Azure 中建立新的 VM
 
@@ -31,15 +31,10 @@ ms.lasthandoff: 03/08/2018
 
 - 將任何 VHD 上傳至 Azure 之前，您應該遵循[準備 Windows VHD 或 VHDX 以上傳至 Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - 請先檢閱[規劃移轉至受控磁碟](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)，再開始移轉至[受控磁碟](managed-disks-overview.md)。
-- 請確定您擁有最新版的 AzureRM.Compute PowerShell 模組。 執行下列命令來安裝它。
-
-    ```powershell
-    Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-    ```
-    如需詳細資訊，請參閱 [Azure PowerShell 版本控制](/powershell/azure/overview)。
+- 本文需要 AzureRM 模組 5.6 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM.Compute` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
 
-## <a name="generalize-the-windows-vm-using-sysprep"></a>使用 Sysprep 將 Windows VM 一般化
+## <a name="generalize-the-source-vm-using-sysprep"></a>使用 Sysprep 將來源 VM 一般化
 
 Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電腦以做為映像。 如需 Sysprep 的詳細資訊，請參閱 [如何使用 Sysprep：簡介](http://technet.microsoft.com/library/bb457073.aspx)。
 
@@ -60,67 +55,17 @@ Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電
 6. Sysprep 完成時，會關閉虛擬機器。 不要重新啟動 VM。
 
 
-
-## <a name="log-in-to-azure"></a>登入 Azure
-如果尚未安裝 Azure PowerShell 1.4 版或更高版本，請參閱 [How to install and configure Azure PowerShell (如何安裝和設定 Azure PowerShell)](/powershell/azure/overview)。
-
-1. 開啟 Azure PowerShell，並登入您的 Azure 帳戶。 這會開啟一個可供您輸入 Azure 帳戶認證的快顯視窗。
-   
-    ```powershell
-    Login-AzureRmAccount
-    ```
-2. 取得您可用訂用帳戶的訂用帳戶識別碼。
-   
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-3. 使用訂用帳戶識別碼來設定正確的訂用帳戶。 使用正確訂用帳戶的識別碼取代 *<subscriptionID>*。
-   
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
-    ```
-
 ## <a name="get-the-storage-account"></a>取得儲存體帳戶
+
 您需要一個 Azure 中的儲存體帳戶來裝載上傳的 VM 映像。 您可以使用現有的儲存體帳戶或建立新帳戶。 
 
 如果您要使用 VHD 為 VM 建立受控磁碟，儲存體帳戶位置與您將建立 VM 的位置必須相同。
 
 若要顯示可用的儲存體帳戶，請輸入︰
 
-```powershell
-Get-AzureRmStorageAccount
+```azurepowershell
+Get-AzureRmStorageAccount | Format-Table
 ```
-
-如果您想要使用現有的儲存體帳戶，請移至[上傳 VM 映像](#upload-the-vm-vhd-to-your-storage-account)一節。
-
-如果您需要建立儲存體帳戶，請依照下列步驟操作：
-
-1. 您需要在當中建立儲存體帳戶的資源群組名稱。 若要找出您訂用帳戶中的所有資源群組，請輸入︰
-   
-    ```powershell
-    Get-AzureRmResourceGroup
-    ```
-
-    若要在**美國東部**區域建立名為 **myResourceGroup** 的資源群組，請輸入︰
-
-    ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "East US"
-    ```
-
-2. 使用 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) Cmdlet，在此資源群組中建立名為 **mystorageaccount**的儲存體帳戶：
-   
-    ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "East US"`
-        -SkuName "Standard_LRS" -Kind "Storage"
-    ```
-   
-    -SkuName 的有效值包括：
-   
-   * **Standard_LRS** - 本地備援儲存體。 
-   * **Standard_ZRS** - 區域備援儲存體。
-   * **Standard_GRS** - 異地備援儲存體。 
-   * **Standard_RAGRS** - 讀取權限異地備援儲存體。 
-   * **Premium_LRS** - 進階本地備援儲存體。 
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>將 VHD 上傳至儲存體帳戶
 
@@ -150,10 +95,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 
 視您的網路連線和 VHD 檔案大小而定，此命令可能需要一些時間才能完成
 
-儲存 [目的地 URI] 路徑，以便日後想要使用上傳的 VHD 建立受控磁碟或新的 VM 時使用。
-
 ### <a name="other-options-for-uploading-a-vhd"></a>上傳 VHD 的其他選項
- 
  
 您也可以使用下列其中一種方法將 VHD 上傳至儲存體帳戶：
 
@@ -176,139 +118,49 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 使用一般化 OS VHD 建立受控映像。 使用您自己的資訊取代這些值。
 
 
-1.  首先，設定一般參數：
-
-    ```powershell
-    $vmName = "myVM"
-    $computerName = "myComputer"
-    $vmSize = "Standard_DS1_v2"
-    $location = "East US" 
-    $imageName = "yourImageName"
-    ```
-
-4.  使用一般化 OS VHD 建立映像。
-
-    ```powershell
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $urlOfUploadedImageVhd
-    $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ```
-
-## <a name="create-a-virtual-network"></a>建立虛擬網路
-建立[虛擬網路](../../virtual-network/virtual-networks-overview.md)的 vNet 和子網路。
-
-1. 建立子網路。 這個範例會建立名為 *mySubnet* 且具有位址首碼 *10.0.0.0/24* 的子網路。  
-   
-    ```powershell
-    $subnetName = "mySubnet"
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-    ```
-2. 建立虛擬網路 這個範例會建立名為 *myVnet* 且具有位址首碼 *10.0.0.0/16* 的虛擬網路。  
-   
-    ```powershell
-    $vnetName = "myVnet"
-    $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
-        -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-    ```    
-
-## <a name="create-a-public-ip-address-and-network-interface"></a>建立公用 IP 位址和網路介面
-
-若要能夠與虛擬網路中的虛擬機器進行通訊，您需要 [公用 IP 位址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 和網路介面。
-
-1. 建立公用 IP 位址。 此範例會建立名為 *myPip* 的公用 IP 位址。 
-   
-    ```powershell
-    $ipName = "myPip"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
-        -AllocationMethod Dynamic
-    ```       
-2. 建立 NIC。 此範例會建立名為 **myNic** 的 NIC。 
-   
-    ```powershell
-    $nicName = "myNic"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
-        -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-    ```
-
-## <a name="create-the-network-security-group-and-an-rdp-rule"></a>建立網路安全性群組和 RDP 規則
-
-若要能夠使用 RDP 登入 VM，您必須有可在連接埠 3389 上允許 RDP 存取的網路安全性規則 (NSG)。 
-
-此範例會建立名為 *myNsg* 的 NSG，其包含的規則 *myRdpRule* 可允許透過連接埠 3389 的 RDP 流量。 如需 NSG 的詳細資訊，請參閱[使用 PowerShell 對 Azure 中的 VM 開啟連接埠](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+首先，設定一些參數：
 
 ```powershell
-$nsgName = "myNsg"
-$ruleName = "myRdpRule"
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name $ruleName -Description "Allow RDP" `
-    -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
-    -SourceAddressPrefix Internet -SourcePortRange * `
-    -DestinationAddressPrefix * -DestinationPortRange 3389
-
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
-    -Name $nsgName -SecurityRules $rdpRule
+$location = "East US" 
+$imageName = "myImage"
 ```
 
-
-## <a name="create-a-variable-for-the-virtual-network"></a>建立虛擬網路的變數
-
-為已完成的虛擬網路建立變數。 
+使用一般化 OS VHD 建立映像。
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
-
+$imageConfig = New-AzureRmImageConfig `
+   -Location $location
+$imageConfig = Set-AzureRmImageOsDisk `
+   -Image $imageConfig `
+   -OsType Windows `
+   -OsState Generalized `
+   -BlobUri $urlOfUploadedImageVhd `
+   -DiskSizeGB 20
+New-AzureRmImage `
+   -ImageName $imageName `
+   -ResourceGroupName $rgName `
+   -Image $imageConfig
 ```
 
-## <a name="get-the-credentials-for-the-vm"></a>取得 VM 的認證
-
-下列 Cmdlet 會開啟視窗，讓您輸入新的使用者名稱和密碼，作為從遠端存取 VM 時使用的本機管理員帳戶。 
-
-```powershell
-$cred = Get-Credential
-```
-
-## <a name="add-the-vm-name-and-size-to-the-vm-configuration"></a>將 VM 名稱和大小新增至 VM 設定。
-
-```powershell
-$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
-```
-
-## <a name="set-the-vm-image-as-source-image-for-the-new-vm"></a>將 VM 映像設定為新 VM 的來源映像
-
-使用受控 VM 映像的識別碼設定來源影像。
-
-```powershell
-$vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
-```
-
-## <a name="set-the-os-configuration-and-add-the-nic"></a>設定 OS 組態並新增 NIC。
-
-輸入儲存體類型 (PremiumLRS 或 StandardLRS) 和 OS 磁碟的大小。 這個範例將帳戶類型設定為 *PremiumLRS*、將磁碟大小設定為 *128GB*，並將磁碟快取設定為 *ReadWrite*。
-
-```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -DiskSizeInGB 128 `
--CreateOption FromImage -Caching ReadWrite
-
-$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName `
--Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-
-$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-```
 
 ## <a name="create-the-vm"></a>建立 VM
 
-使用 **$vm** 變數中儲存的組態來建立新 VM。
+現在您已有映像，您可以從映像建立一個或多個新的 VM。 該範例會根據 *myResourceGroup* 中的 *myImage* 建立名為 *myVM* 的 VM。
+
 
 ```powershell
-New-AzureRmVM -VM $vm -ResourceGroupName $rgName -Location $location
+New-AzureRmVm `
+    -ResourceGroupName $rgName `
+    -Name "myVM" `
+    -ImageName $imageName `
+    -Location $location `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNSG" `
+    -PublicIpAddressName "myPIP" `
+    -OpenPorts 3389
 ```
 
-## <a name="verify-that-the-vm-was-created"></a>確認已建立 VM
-完成時，在 [Azure 入口網站](https://portal.azure.com)的 [瀏覽] > [虛擬機器] 底下，或是使用下列 PowerShell 命令，應該就可以看到新建立的 VM：
-
-```powershell
-    $vmList = Get-AzureRmVM -ResourceGroupName $rgName
-    $vmList.Name
-```
 
 ## <a name="next-steps"></a>後續步驟
 

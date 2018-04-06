@@ -1,8 +1,8 @@
 ---
-title: "使用 Windows VM MSI 存取 Azure SQL"
-description: "此教學課程引導您使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure SQL 的程序。"
+title: 使用 Windows VM MSI 存取 Azure SQL
+description: 此教學課程引導您使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure SQL 的程序。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b5bab684a7b188d1dc2e1f1f29a772aab8955e43
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure SQL
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Windows 虛擬機器
 
@@ -137,7 +137,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>啟用 SQL Server 的 Azure AD 驗證
 
-現在，您已建立群組並將 VM MSI 新增為成員，可以使用下列步驟[設定 SQL Server 的 Azure AD 驗證](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server)：
+現在，您已建立群組並將 VM MSI 新增為成員，可以使用下列步驟[設定 SQL Server 的 Azure AD 驗證](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)：
 
 1.  在 Azure 入口網站中，選取左側導覽中的 [SQL 伺服器]。
 2.  按一下要啟用 Azure AD 驗證的 SQL 伺服器。
@@ -183,7 +183,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 Azure SQL 原生支援 Azure AD 驗證，因此可以直接接受使用 MSI 取得的存取權杖。  您使用 **access token** 方法來建立 SQL 連線。  這是 Azure AD 與 Azure SQL 整合的一部分，與在連接字串上提供認證不同。
 
-以下是使用存取權杖開啟 SQL 連線的 .Net 程式碼範例。  此程式碼必須在 VM 上執行，才能夠存取 VM MSI 端點。  需使用 **.Net framework 4.6** 或更高版本，才可使用的 access token 方法。  將 AZURE-SQL-SERVERNAME 和 DATABASE 的值取代為實際值。  請注意，Azure SQL 的資源識別碼是 "https://database.windows.net/"。
+以下是使用存取權杖開啟 SQL 連線的 .Net 程式碼範例。  此程式碼必須在 VM 上執行，才能夠存取 VM MSI 端點。  需使用 **.Net framework 4.6** 或更高版本，才可使用的 access token 方法。  將 AZURE-SQL-SERVERNAME 和 DATABASE 的值取代為實際值。  請注意，Azure SQL 資源識別碼是「https://database.windows.net/」。
 
 ```csharp
 using System.Net;

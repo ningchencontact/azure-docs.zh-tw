@@ -1,31 +1,31 @@
 ---
-title: "Azure Service Fabric - 使用 OMS 代理程式設定監視 | Microsoft Docs"
-description: "了解如何設定 OMS 代理程式，以監視 Azure Service Fabric 叢集的容器和效能計數器。"
+title: Azure Service Fabric - 使用 OMS 代理程式設定監視 | Microsoft Docs
+description: 了解如何設定 OMS 代理程式，以監視 Azure Service Fabric 叢集的容器和效能計數器。
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 095db20e7d22bd517337f24fc9a81b84988d1465
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4b0845cbb25d160b53b483641e242422c98029ee
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>將 OMS 代理程式新增至叢集
 
-本文會逐步說明如何將 OMS 代理程式作為虛擬機器擴展集延伸模組，新增至您的叢集，並將它連接到現有 OMS Log Analytics 工作區。 如此即可收集容器、應用程式和效能監控的相關診斷資料。 將之新增為延伸模組，Azure Resource Manager 便一定能將其安裝在每個節點上，即使在調整過叢集規模時也無妨。
+本文會逐步說明如何將 OMS 代理程式作為虛擬機器擴展集延伸模組，新增至您的叢集，並將它連接到現有 Azure Log Analytics 工作區。 如此即可收集容器、應用程式和效能監控的相關診斷資料。 將之新增為延伸模組，Azure Resource Manager 便一定能將其安裝在每個節點上，即使在調整過叢集規模時也無妨。
 
 > [!NOTE]
-> 本文假設您已設定好 OMS Log Analytics 工作區。 如果尚未完成，請前往[設定 OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)
+> 本文假設您已設定好 Azure Log Analytics 工作區。 如果尚未完成，請前往[設定 Azure Log Analytics](service-fabric-diagnostics-oms-setup.md)
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>透過 Azure CLI 新增代理程式延伸模組
 
@@ -33,9 +33,9 @@ ms.lasthandoff: 01/17/2018
 
 1. 一旦要求了 Cloud Shell，請確定用於作業的訂用帳戶與資源的訂用帳戶相同。 請使用 `az account show` 進行檢查，並確保「名稱」值符合叢集訂用帳戶的名稱。
 
-2. 在入口網站中，瀏覽至您的 OMS 工作區所在的資源群組。 按一下 Log Analytics 資源 (資源類型為 Log Analytics)，在右側導覽區中，向下捲動並按一下 [屬性]。
+2. 在入口網站中，瀏覽至您的 Log Analytics 工作區所在的資源群組。 按一下 Log Analytics 資源 (資源類型為 Log Analytics)，在右側導覽區中，向下捲動並按一下 [屬性]。
 
-    ![OMS 屬性頁面](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
+    ![Log Analytics 屬性頁面](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
 
     記下您的 `workspaceId`。 
 
@@ -59,6 +59,12 @@ ms.lasthandoff: 01/17/2018
 
     ![OMS 代理程式 cli 命令](media/service-fabric-diagnostics-oms-agent/cli-command.png)
  
+5. 執行命令以將此設定套用至已存在的虛擬機器執行個體：  
+
+    ```sh
+    az vmss update-instances
+    ```
+
     應該在 15 分鐘內即可成功地將代理程式新增至您的節點。 您可以使用 `az vmss extension list` API 驗證是否已新增代理程式：
 
     ```sh
@@ -67,11 +73,11 @@ ms.lasthandoff: 01/17/2018
 
 ## <a name="add-the-agent-via-the-resource-manager-template"></a>透過 Resource Manager 範本新增代理程式
 
-部署 OMS Log Analytics 工作區，並將代理程式新增至每個節點的範例 Resource Manager 範本可用於 [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) 或 [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux)。
+部署 Azure Log Analytics 工作區，並將代理程式新增至每個節點的範例 Resource Manager 範本可用於 [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) 或 [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux)。
 
 您可以下載並修改此範本，以部署最適合您需求的叢集。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 收集相關[效能計數器](service-fabric-diagnostics-event-generation-perf.md)。 若要設定 OMS 代理程式以挑選特定的效能計數器，請前往 OMS 入口網站 (OMS Log Analytics 資源的頂端連結)。 然後按一下 [首頁] > [設定] > [資料] > [Windows 效能計數器]，或 [Linux 效能計數器]，然後選擇您想要收集的計數器。
-* 設定 OMS 以設定[自動化警示](../log-analytics/log-analytics-alerts.md)，來協助偵測與診斷
+* 收集相關[效能計數器](service-fabric-diagnostics-event-generation-perf.md)。 若要設定 OMS 代理程式以收集特定的效能計數器，請檢閱[設定資料來源](../log-analytics/log-analytics-data-sources.md#configuring-data-sources)。
+* 設定 Log Analytics 以設定[自動化警示](../log-analytics/log-analytics-alerts.md)，來協助偵測與診斷

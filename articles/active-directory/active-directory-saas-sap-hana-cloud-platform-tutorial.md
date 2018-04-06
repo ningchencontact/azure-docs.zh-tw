@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 SAP 雲端平台整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 SAP 雲端平台之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 SAP 雲端平台整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 SAP 雲端平台之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 309415a68308943f638195303ceb236569519472
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a578a732efa3d2b91240ef0f4c02670aea8e547f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>教學課程：Azure Active Directory 與 SAP 雲端平台整合
 
@@ -155,7 +155,7 @@ SAP 雲端平台與 Azure AD 整合提供下列優點：
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_general_400.png)
 
-6. 在不同的網頁瀏覽器視窗中，登入 SAP 雲端平台駕駛座，網址為 `https://account.<landscape host>.ondemand.com/cockpit` (例如：https://account.hanatrial.ondemand.com/cockpit)。
+6. 在不同的網頁瀏覽器視窗中，登入 SAP 雲端平台駕駛座，網址為 `https://account.<landscape host>.ondemand.com/cockpit`(例如：https://account.hanatrial.ondemand.com/cockpit)。
 
 7. 按一下 [信任]  索引標籤。
    
@@ -228,7 +228,7 @@ SAP 雲端平台與 Azure AD 整合提供下列優點：
  
     c. 螢幕擷取畫面所顯示的**主體屬性**名稱與值取決於應用程式是如何開發的。 您的應用程式很可能需要不同的對應。
 
-###<a name="assertion-based-groups"></a>以判斷提示為基礎的群組
+### <a name="assertion-based-groups"></a>以判斷提示為基礎的群組
 
 在選擇性的步驟中，您可以為 Azure Active Directory 識別提供者設定以判斷提示為基礎的群組。
 

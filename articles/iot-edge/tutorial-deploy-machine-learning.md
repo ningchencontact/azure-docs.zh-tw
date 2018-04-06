@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1b8a6079a68c50f80b593a1f56bc5256047ef31c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3d3a271bcdd5c507125b8b1a5482f833607a5a78
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>將 Azure Machine Learning 部署為 IoT Edge 模組 - 預覽
 
@@ -35,6 +35,8 @@ ms.lasthandoff: 03/23/2018
 * IoT 中樞 (連接您的 IoT Edge 裝置) 的 IoT 中樞連接字串。
 * Azure Machine Learning 帳戶。 若要建立帳戶，請遵循[建立 Azure Machine Learning 帳戶，並安裝 Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts) 中的指示。 您不需要針對此教學課程安裝 Workbench 應用程式。 
 * 在您的電腦上的 Azure ML 模組管理。 若要設定您的環境並建立帳戶，請遵循[模型管理設定](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration)中的指示。
+
+Azure Machine Learning 模組不支援 ARM 處理器。 
 
 ## <a name="create-the-azure-ml-container"></a>建立 Azure ML 容器
 在本節中，您會下載定型模型檔案，並將它們轉換成 Azure ML 容器。  

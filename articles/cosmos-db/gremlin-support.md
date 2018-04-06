@@ -1,9 +1,9 @@
 ---
 title: Azure Cosmos DB Gremlin 支援 | Microsoft Docs
-description: 了解 Apache TinkerPop 的 Gremlin 語言，Azure Cosmos DB 中可用使用其功能和步驟
+description: 從 Apache TinkerPop 了解 Gremlin 語言。 了解 Azure Cosmos DB 提供哪些可用的功能和步驟
 services: cosmos-db
 documentationcenter: ''
-author: luisbosquez
+author: LuisBosquez
 manager: jhubbard
 editor: ''
 tags: ''
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: b32838dfaf83ea3acfb7125322bb99124370bd8e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 453e11c31a01b6ce8e77deda89725ecd53fd2db9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin graph 支援
 Azure Cosmos DB 支援 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) \(英文\)，該圖形 API 是 [Apache Tinkerpop](http://tinkerpop.apache.org) \(英文\) 的圖形周遊語言，可用於建立圖表實體和執行圖表查詢作業。 您可以使用 Gremlin 語言建立圖表實體 (頂點和邊緣)、修改這些實體內的屬性、執行查詢和周遊，以及刪除實體。 
@@ -36,8 +36,8 @@ Azure Cosmos DB 在圖表資料庫中提供符合企業需求的功能。 包括
 此圖表有下列頂點類型 (在 Gremlin 中稱為「標籤」)︰
 
 - 人員：圖表中有三個人：Robin、Thomas 和 Ben
-- 興趣︰他們的興趣，在此範例中是足球比賽
-- 裝置：此人使用的裝置
+- 興趣︰在此範例中他們的興趣是足球比賽
+- 裝置：人員使用的裝置
 - 作業系統︰執行裝置的作業系統
 
 我們透過下列邊緣類型/標籤，表達這些實體之間的關聯性︰
@@ -165,45 +165,45 @@ GraphSON 用於頂點的屬性如下︰
 ## <a name="gremlin-steps"></a>Gremlin 步驟
 現在，讓我們看看 Azure Cosmos DB 支援的 Gremlin 步驟。 如需 Gremlin 的完整參考，請參閱 [TinkerPop 參考](http://tinkerpop.apache.org/docs/current/reference)。
 
-| 步驟 | 說明 | TinkerPop 3.2 文件 | 注意 |
-| --- | --- | --- | --- |
-| `addE` | 在兩個頂點之間新增邊緣 | [addE 步驟](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
-| `addV` | 將頂點新增至圖表 | [addV 步驟](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
-| `and` | 確保所有周遊都會傳回值 | [and 步驟](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
-| `as` | 將變數指派給步驟輸出的步驟調變器 | [as 步驟](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
-| `by` | 搭配 `group` 和 `order` 一起使用的步驟調變器 | [by 步驟](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
-| `coalesce` | 傳回第一次有傳回結果的周遊 | [coalesce 步驟](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
-| `constant` | 傳回常數值。 搭配 `coalesce` 使用| [constant 步驟](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
-| `count` | 從周遊傳回計數 | [count 步驟](http://tinkerpop.apache.org/docs/current/reference/#count-step) | |
-| `dedup` | 傳回已移除重複項的值 | [dedup 步驟](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) | |
-| `drop` | 捨棄值 (頂點/邊緣) | [drop 步驟](http://tinkerpop.apache.org/docs/current/reference/#drop-step) | |
-| `fold` | 作為屏障來計算結果的彙總| [fold 步驟](http://tinkerpop.apache.org/docs/current/reference/#fold-step) | |
-| `group` | 根據指定的標籤將值分組| [group 步驟](http://tinkerpop.apache.org/docs/current/reference/#group-step) | |
-| `has` | 用於篩選屬性、頂點和邊緣。 支援 `hasLabel`、`hasId`、`hasNot` 和 `has` 變體。 | [has 步驟](http://tinkerpop.apache.org/docs/current/reference/#has-step) | |
-| `inject` | 將值插入資料流| [inject 步驟](http://tinkerpop.apache.org/docs/current/reference/#inject-step) | |
-| `is` | 用來執行使用布林運算式的篩選條件 | [is 步驟](http://tinkerpop.apache.org/docs/current/reference/#is-step) | |
-| `limit` | 用來限制周遊中的項目數| [limit 步驟](http://tinkerpop.apache.org/docs/current/reference/#limit-step) | |
-| `local` | 局部包裝周遊的一個區段，類似於子查詢 | [local 步驟](http://tinkerpop.apache.org/docs/current/reference/#local-step) | |
-| `not` | 用來否定篩選條件 | [not 步驟](http://tinkerpop.apache.org/docs/current/reference/#not-step) | |
-| `optional` | 如果指定的周遊產生結果，則傳回結果，否則傳回呼叫端元素 | [optional 步驟](http://tinkerpop.apache.org/docs/current/reference/#optional-step) | |
-| `or` | 確保至少一個周遊會傳回值 | [or 步驟](http://tinkerpop.apache.org/docs/current/reference/#or-step) | |
-| `order` | 依指定的排序次序傳回結果 | [order 步驟](http://tinkerpop.apache.org/docs/current/reference/#order-step) | |
-| `path` | 傳回周遊的完整路徑 | [path 步驟](http://tinkerpop.apache.org/docs/current/reference/#path-step) | |
-| `project` | 將屬性投射為 Map | [project 步驟](http://tinkerpop.apache.org/docs/current/reference/#project-step) | |
-| `properties` | 傳回指定之標籤的屬性 | [properties 步驟](http://tinkerpop.apache.org/docs/current/reference/#properties-step) | |
-| `range` | 篩選為指定的值範圍| [range 步驟](http://tinkerpop.apache.org/docs/current/reference/#range-step) | |
-| `repeat` | 將步驟重複執行指定的次數。 用於迴圈處理 | [repeat 步驟](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) | |
-| `sample` | 用於取樣周遊的結果 | [sample 步驟](http://tinkerpop.apache.org/docs/current/reference/#sample-step) | |
+| 步驟 | 說明 | TinkerPop 3.2 文件 |
+| --- | --- | --- |
+| `addE` | 在兩個頂點之間新增邊緣 | [addE 步驟](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
+| `addV` | 將頂點新增至圖表 | [addV 步驟](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
+| `and` | 確保所有周遊都會傳回值 | [and 步驟](http://tinkerpop.apache.org/docs/current/reference/#and-step) |
+| `as` | 將變數指派給步驟輸出的步驟調變器 | [as 步驟](http://tinkerpop.apache.org/docs/current/reference/#as-step) |
+| `by` | 搭配 `group` 和 `order` 一起使用的步驟調變器 | [by 步驟](http://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `coalesce` | 傳回第一次有傳回結果的周遊 | [coalesce 步驟](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
+| `constant` | 傳回常數值。 搭配 `coalesce` 使用| [constant 步驟](http://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `count` | 從周遊傳回計數 | [count 步驟](http://tinkerpop.apache.org/docs/current/reference/#count-step) |
+| `dedup` | 傳回已移除重複項的值 | [dedup 步驟](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
+| `drop` | 捨棄值 (頂點/邊緣) | [drop 步驟](http://tinkerpop.apache.org/docs/current/reference/#drop-step) |
+| `fold` | 作為屏障來計算結果的彙總| [fold 步驟](http://tinkerpop.apache.org/docs/current/reference/#fold-step) |
+| `group` | 根據指定的標籤將值分組| [group 步驟](http://tinkerpop.apache.org/docs/current/reference/#group-step) |
+| `has` | 用於篩選屬性、頂點和邊緣。 支援 `hasLabel`、`hasId`、`hasNot` 和 `has` 變體。 | [has 步驟](http://tinkerpop.apache.org/docs/current/reference/#has-step) |
+| `inject` | 將值插入資料流| [inject 步驟](http://tinkerpop.apache.org/docs/current/reference/#inject-step) |
+| `is` | 用來執行使用布林運算式的篩選條件 | [is 步驟](http://tinkerpop.apache.org/docs/current/reference/#is-step) |
+| `limit` | 用來限制周遊中的項目數| [limit 步驟](http://tinkerpop.apache.org/docs/current/reference/#limit-step) |
+| `local` | 局部包裝周遊的一個區段，類似於子查詢 | [local 步驟](http://tinkerpop.apache.org/docs/current/reference/#local-step) |
+| `not` | 用來否定篩選條件 | [not 步驟](http://tinkerpop.apache.org/docs/current/reference/#not-step) |
+| `optional` | 如果指定的周遊產生結果，則傳回結果，否則傳回呼叫端元素 | [optional 步驟](http://tinkerpop.apache.org/docs/current/reference/#optional-step) |
+| `or` | 確保至少一個周遊會傳回值 | [or 步驟](http://tinkerpop.apache.org/docs/current/reference/#or-step) |
+| `order` | 依指定的排序次序傳回結果 | [order 步驟](http://tinkerpop.apache.org/docs/current/reference/#order-step) |
+| `path` | 傳回周遊的完整路徑 | [path 步驟](http://tinkerpop.apache.org/docs/current/reference/#path-step) |
+| `project` | 將屬性投射為 Map | [project 步驟](http://tinkerpop.apache.org/docs/current/reference/#project-step) |
+| `properties` | 傳回指定之標籤的屬性 | [properties 步驟](http://tinkerpop.apache.org/docs/current/reference/#properties-step) |
+| `range` | 篩選為指定的值範圍| [range 步驟](http://tinkerpop.apache.org/docs/current/reference/#range-step) |
+| `repeat` | 將步驟重複執行指定的次數。 用於迴圈處理 | [repeat 步驟](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
+| `sample` | 用於取樣周遊的結果 | [sample 步驟](http://tinkerpop.apache.org/docs/current/reference/#sample-step) |
 | `select` | 用於投射周遊的結果 |  [select 步驟](http://tinkerpop.apache.org/docs/current/reference/#select-step) | |
-| `store` | 用於來自周遊的非封鎖彙總 | [store 步驟](http://tinkerpop.apache.org/docs/current/reference/#store-step) | |
-| `tree` | 將頂點的路徑彙總至樹狀目錄 | [tree 步驟](http://tinkerpop.apache.org/docs/current/reference/#tree-step) | |
-| `unfold` | 將迭代器展開為步驟| [unfold 步驟](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) | |
-| `union` | 合併來自多個周遊的結果| [unfold 步驟](http://tinkerpop.apache.org/docs/current/reference/#union-step) | |
-| `V` | 包含頂點和邊緣之間周遊的必要步驟 `V`、`E`、`out`、`in`、`both`、`outE`、`inE`、`bothE`、`outV`、`inV`、`bothV` 和 `otherV` | [vertex 步驟](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) | |
-| `where` | 用於篩選周遊的結果。 支援 `eq`、`neq`、`lt`、`lte`、`gt`、`gte` 和 `between` 運算子  | [where 步驟](http://tinkerpop.apache.org/docs/current/reference/#where-step) | |
+| `store` | 用於來自周遊的非封鎖彙總 | [store 步驟](http://tinkerpop.apache.org/docs/current/reference/#store-step) |
+| `tree` | 將頂點的路徑彙總至樹狀目錄 | [tree 步驟](http://tinkerpop.apache.org/docs/current/reference/#tree-step) |
+| `unfold` | 將迭代器展開為步驟| [unfold 步驟](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
+| `union` | 合併來自多個周遊的結果| [unfold 步驟](http://tinkerpop.apache.org/docs/current/reference/#union-step) |
+| `V` | 包含頂點和邊緣之間周遊的必要步驟 `V`、`E`、`out`、`in`、`both`、`outE`、`inE`、`bothE`、`outV`、`inV`、`bothV` 和 `otherV` | [vertex 步驟](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
+| `where` | 用於篩選周遊的結果。 支援 `eq`、`neq`、`lt`、`lte`、`gt`、`gte` 和 `between` 運算子  | [where 步驟](http://tinkerpop.apache.org/docs/current/reference/#where-step) |
 
-根據預設，Azure Cosmos DB 的寫入最佳化引擎支援自動編製頂點和邊緣內所有屬性的索引。 因此，在任何屬性上執行附有篩選條件的查詢、範圍查詢、排序或彙總時，都是從索引來處理，而且有效率地提供。 如需 Azure Cosmos DB 中索引運作方式的詳細資訊，請參閱[無從驗證結構描述的索引編製](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)一文。
+根據預設，Azure Cosmos DB 提供的寫入最佳化引擎支援自動編製頂點和邊緣內所有屬性的索引。 因此，在任何屬性上執行附有篩選條件的查詢、範圍查詢、排序或彙總時，都是從索引來處理，而且有效率地提供。 如需 Azure Cosmos DB 中索引運作方式的詳細資訊，請參閱[無從驗證結構描述的索引編製](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)一文。
 
 ## <a name="next-steps"></a>後續步驟
 * [使用我們的 SDK](create-graph-dotnet.md) 開始建置圖表應用程式 
-* 深入了解 [Azure Cosmos DB 的圖表支援](graph-introduction.md)
+* 深入了解 Azure Cosmos DB 中的[圖表支援](graph-introduction.md)

@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 94f11504597c127d505d103a417c3d78744d99d1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -87,6 +87,11 @@ ms.lasthandoff: 03/16/2018
   az provider register --namespace Microsoft.Batch
   ```
 
+4. 移動資源的帳戶至少必須有下列權限：
+
+   * 來源資源群組上的 **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action**。
+   * 來源資源群組上的 **Microsoft.Resources/subscriptions/resourceGroups/write**。
+
 ## <a name="when-to-call-support"></a>呼叫支援的時機
 
 您可以透過本文顯示的自助式作業，移動大部分資源。 使用自助式作業︰
@@ -105,6 +110,7 @@ ms.lasthandoff: 03/16/2018
 
 * API 管理
 * App Service 應用程式 (Web 應用程式) - 請參閱 [App Service 限制](#app-service-limitations)
+* App Service 憑證
 * Application Insights
 * 自動化
 * Azure Cosmos DB
@@ -193,7 +199,9 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="app-service-limitations"></a>App Service 限制
 
-根據您是要移動訂用帳戶內的資源還是將資源移到新的訂用帳戶，移動 App Service 資源的限制會有所不同。
+根據您是要移動訂用帳戶內的資源還是將資源移到新的訂用帳戶，移動 App Service 資源的限制會有所不同。 
+
+這幾節所述的限制適用於上傳憑證，不適用於 App Service 憑證。 您可以將 App Service 憑證移至新資源群組或訂用帳戶，沒有任何限制。 如果您有多個 Web 應用程式使用相同的 App Service 憑證，請先移動所有的 Web 應用程式，再移動憑證。
 
 ### <a name="moving-within-the-same-subscription"></a>在相同的訂用帳戶內移動
 

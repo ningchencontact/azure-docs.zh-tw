@@ -1,8 +1,8 @@
 ---
-title: "使用 Apache Spark 對 Azure SQL 資料庫讀取及寫入資料 | Microsoft Docs"
-description: "了解如何設定 HDInsight Spark 叢集與 Azure SQL 資料庫之間的連線，以對 SQL 資料庫讀取資料、寫入資料和串流資料"
+title: 使用 Apache Spark 對 Azure SQL 資料庫讀取及寫入資料 | Microsoft Docs
+description: 了解如何設定 HDInsight Spark 叢集與 Azure SQL 資料庫之間的連線，以對 SQL 資料庫讀取資料、寫入資料和串流資料
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/29/2018
+ms.date: 03/28/2018
 ms.author: nitinme
-ms.openlocfilehash: 28ed6b9774bb85c7ec806c7775c34f8bc3d66bde
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 011471224d79ae326ccc33fc23fd6fada347497b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 叢集對 Azure SQL 資料庫讀取及寫入資料
 
@@ -234,7 +234,7 @@ ms.lasthandoff: 02/01/2018
         
          var streamingQuery = WriteToSQLQuery.start()
 
-6. 執行下列查詢，以確認資料已串流至 **hvactable**。 每當您執行此查詢時，都會顯示資料表中增加的資料列數。
+6. 在 SQL Server Management Studio (SSMS) 中執行下列查詢，以確認資料已串流至 **hvactable**。 每當您執行此查詢時，都會顯示資料表中增加的資料列數。
 
         SELECT COUNT(*) FROM hvactable
 

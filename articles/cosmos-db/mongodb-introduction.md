@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB 簡介：適用於 MongoDB 的 API | Microsoft Docs"
-description: "了解如何透過常用的 OSS MongoDB API，使用 Azure Cosmos DB 來儲存及查詢大量 JSON 文件 (低延遲)。"
-keywords: "MongoDB 是什麼"
+title: Azure Cosmos DB：MongoDB API 簡介 | Microsoft Docs
+description: 了解如何透過常用的 OSS MongoDB API，使用 Azure Cosmos DB 來儲存及查詢大量 JSON 文件 (低延遲)。
+keywords: MongoDB 是什麼
 services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: ffca8f4518361e8c5447d7bb7ed6022eb0e96a4a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: cdf1404d0070b74faeaca4dab7838167e2821323
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB 簡介：適用於 MongoDB 的 API
+# <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB：MongoDB API 簡介
 
 [Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 全域發佈的多模型資料庫服務，適用於任務關鍵性應用程式。 Azure Cosmos DB 提供[一站式全域散發](distribute-data-globally.md)、全球[彈性調整的輸送量和儲存體](partition-data.md)、達到第 99 個百分位數的個位數毫秒延遲，以及保證的高可用性，全部都由[領先業界的 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) \(英文\) 所支援。 Azure Cosmos DB 會[自動編製資料的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，您不需要處理結構描述和索引管理。 它是多重模型，支援文件、索引鍵/值、圖表和單欄式資料模型。 
 
 ![Azure Cosmos DB：MongoDB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
-Azure Cosmos DB 資料庫可作為針對 [MongoDB](https://docs.mongodb.com/manual/introduction/) 所撰寫之應用程式的資料存放區。 此功能表示透過使用現有的[驅動程式](https://docs.mongodb.org/ecosystem/drivers/)，現在針對 MongoDB 所撰寫的應用程式已可與 Azure Cosmos DB 通訊，並使用 Azure Cosmos DB 資料庫而非 MongoDB 資料庫。 在許多情況下，您只要變更連接字串，就可以從使用 MongoDB 切換到 Azure Cosmos DB。 您可以使用這項功能，輕鬆地在 Azure 雲端建置及執行 MongoDB 資料庫應用程式，利用 Azure Cosmos DB 的全域發佈和[領先業界的完整 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)，同時繼續使用 MongoDB 的熟悉技能和工具。
+Azure Cosmos DB 資料庫可作為針對 [MongoDB](https://docs.mongodb.com/manual/introduction/) 所撰寫之應用程式的資料存放區。 此功能表示透過使用現有的[驅動程式](https://docs.mongodb.org/ecosystem/drivers/)，現在針對 MongoDB 所撰寫的應用程式已可與 Azure Cosmos DB 通訊，並使用 Azure Cosmos DB 資料庫而非 MongoDB 資料庫。 在許多情況下，您只要變更連接字串，就可以從使用 MongoDB 切換到 Azure Cosmos DB。 透過這項功能，您可以使用 Azure Cosmos DB 和[領先業界的完整 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)，輕鬆地在 Azure 雲端建置及執行 MongoDB 全域發佈資料庫應用程式，同時繼續使用 MongoDB 的熟悉技能和工具。
 
 **MongoDB 相容性**：您可以使用現有的 MongoDB 專業知識、應用程式程式碼和 Azure Cosmos DB 等工具來實作 MongoDB 3.4 (第 5 版) 有線通訊協定，並支援 [MongoDB 彙總管線](mongodb-feature-support.md#aggregation-pipeline)。 您可以開發使用 MongoDB 的應用程式，並使用完全受控且全域分散式 Azure Cosmos DB 服務來部署這些應用程式。
 

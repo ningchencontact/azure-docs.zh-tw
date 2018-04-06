@@ -1,24 +1,25 @@
 ---
-title: "Azure Stack 1711 更新 | Microsoft Docs"
-description: "了解適用於 Azure Stack 整合系統之 1711 更新的新功能、已知問題，以及可從何處下載更新。"
+title: Azure Stack 1711 更新 | Microsoft Docs
+description: 了解適用於 Azure Stack 整合系統之 1711 更新的新功能、已知問題，以及可從何處下載更新。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/22/2018
 ms.author: brenduns
-ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.reviewer: justini
+ms.openlocfilehash: fd57699a329fbccdbefc73dae7d473070cd831ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure Stack 1711 更新
 
@@ -37,7 +38,13 @@ Azure Stack 1711 更新組建編號為 **171201.3**。
 
 ### <a name="prerequisites"></a>先決條件
 
-您必須先安裝 Azure Stack [1710 更新](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710)之後才能套用此更新。
+- 您必須先安裝 Azure Stack [1710 更新](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710)之後才能套用此更新。
+
+- 請先檢閱作為帳戶名稱之 **CloudAdmin** 的使用情況，然後再安裝更新 1711。 從 1711 版本開始，*CloudAdmin* 是保留的帳戶名稱，而且不應該以手動方式指定。 當您更新至 1711 版本時，該更新會移除部署帳戶 (通常稱為 AzureStackAdmin) 的現有執行個體。 如果您已命名部署帳戶 *CloudAdmin*，更新至 1711 會刪除該帳戶。 
+
+  *CloudAdmin* 是內建的帳戶，可連線至[*具有特殊權限的端點*](azure-stack-privileged-endpoint.md) (PEP)。 刪除此帳戶會導致 PEP 鎖定，除非已經有另一個屬於 CloudAdmin 群組成員的使用者帳戶。 
+
+  如果您使用 CloudAdmin 作為部署帳戶的名稱，請在開始更新到 1711 之前，將新的 CloudAdmin 使用者新增至您的 PEP，以避免鎖定在 Azure Stack 之外。 若要新增新的 CloudAdmin 使用者，請在 PEP 上執行 Cmdlet **New-CloudAdminUser**。
 
 ### <a name="new-features-and-fixes"></a>新功能和修正
 
@@ -80,7 +87,7 @@ Azure Stack 1711 更新組建編號為 **171201.3**。
     1. **原因：**這個問題是因為 Windows Server 問題所造成，會在後續 Windows Server 更新中獲得解決。
     2. **解決方式：**請連絡 Microsoft 客戶服務與支援中心 (CSS) 以尋求協助。
 <br><br>
-4. **徵兆：**Azure Stack 作業員在更新程序期間可能會看到下列錯誤："Type 'DefenderUpdate' of Role 'URP' raised an exception: Failed getting version from \\SU1FileServer\SU1_Public\DefenderUpdates\x64\{file name}.exe after 60 attempts at Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262"
+4. **徵兆：**Azure Stack 作業員在更新程序期間可能會看到下列錯誤：*"Type 'DefenderUpdate' of Role 'URP' raised an exception: Failed getting version from \\SU1FileServer\SU1_Public\DefenderUpdates\x64\{file name}.exe after 60 attempts at Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262"*
     1. **原因：**這個問題是因為 Windows Defender 定義更新的背景下載失敗或不完整所造成。
     2. **解決方式：**請在第一次更新嘗試起經過 8 小時之後，再嘗試繼續更新。
 

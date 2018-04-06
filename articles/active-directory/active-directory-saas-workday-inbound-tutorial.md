@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程︰設定 Workday 來自動佈建使用者
 
@@ -397,9 +397,9 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 **命令 1**
 
-> cd C:\\Program Files\\Microsoft Azure Active Directory Synchronization Agent\\Modules\\AADSyncAgent
+> cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent" Agent\\Modules\\AADSyncAgent
 
-> import-module AADSyncAgent.psd1
+> 匯入模組 "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
 **命令 2**
 
@@ -416,6 +416,9 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 >[!IMPORTANT]
 >目前有一項已知問題：若使用自訂網域，則全域管理員認證無法運作 (範例：admin@contoso.com)。 因應措施是以 onmicrosoft.com 網域來建立和使用全域管理員帳戶 (範例：admin@contoso.onmicrosoft.com)
+
+>[!IMPORTANT]
+>目前有一項已知問題：如果啟用多重要素驗證，則全域管理員認證無法運作。 因應措施是停用全域系統管理員的多重要素驗證。
 
 
 **命令 4**

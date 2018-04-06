@@ -1,26 +1,19 @@
 ---
 title: Azure SQL Database 服務 | Microsoft Docs
 description: 深入了解單一和集區資料庫的服務層，以提供效能層級和儲存體大小。
-keywords: ''
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 02/28/2018
+ms.date: 03/21/2018
+manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: ebfd44098a81b4a9d8863623458460ceb25f0d5d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3fe7add4ad4c5563a6307db0dec27c658913429b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>何謂 Azure SQL Database 服務層？
 
@@ -40,7 +33,8 @@ ms.lasthandoff: 03/08/2018
 |CPU|低|低、中、高|中、高|
 |IO 輸送量 (大約) |每一 DTU 2.5 IOPS  | 每一 DTU 2.5 IOPS | 每一 DTU 48 IOPS|
 |IO 延遲 (大約)|5 毫秒 (讀取)，10 毫秒 (寫入)|5 毫秒 (讀取)，10 毫秒 (寫入)|2 毫秒 (讀取/寫入)|
-|資料行存放區索引和記憶體內部 OLTP|N/A|N/A|支援|
+|資料行存放區索引 |N/A|S3 和更新版本|支援|
+|記憶體內部 OLTP|N/A|N/A|支援|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>效能層級和儲存體大小限制

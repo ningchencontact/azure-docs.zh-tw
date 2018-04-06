@@ -1,24 +1,24 @@
 ---
-title: "在 Azure 虛擬機器上部署 Windows Server Active Directory 的指導方針 | Microsoft Docs"
-description: "如果您知道如何部署 AD 網域服務和內部部署 AD 同盟服務，了解它們如何在 Azure 虛擬機器上運作。"
+title: 在 Azure 虛擬機器上部署 Windows Server Active Directory 的指導方針 | Microsoft Docs
+description: 如果您知道如何部署 AD 網域服務和內部部署 AD 同盟服務，了解它們如何在 Azure 虛擬機器上運作。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 03/20/2018
 ms.author: femila
-ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c2d58e056cdb285be51d259492e11e6ae37b253e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>在 Azure 虛擬機器上部署 Windows Server Active Directory 的指導方針
 本文說明 Windows Server Active Directory 網域服務 (ADDS) 和 Active Directory Federation Services (ADFS) 的內部部署與在 Microsoft Azure 虛擬機器上面部署之間的差異。
@@ -71,8 +71,10 @@ ms.lasthandoff: 03/09/2018
 > 
 > 
 
-### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>必須使用 Azure PowerShell 設定靜態 IP 位址。
-預設會配置動態位址，但是請改為使用 Set-AzureStaticVNetIP Cmdlet 以指派靜態 IP 位址。 這樣會設定靜態 IP 位址，在服務修復和 VM 關機/重新啟動期間是持續性的。 如需詳細資訊，請參閱 [虛擬機器的靜態內部 IP 位址](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)。
+### <a name="static-ip-addresses-can-be-configured-with-azure-powershell"></a>可使用 Azure PowerShell 設定靜態 IP 位址
+如果您要指派靜態 IP 位址，預設會配置動態位址，但是請改為使用 Set-AzureStaticVNetIP Cmdlet。 該 Cmdlet 會設定靜態 IP 位址，在服務修復和 VM 關機/重新啟動期間是持續性的。 如需詳細資訊，請參閱 [虛擬機器的靜態內部 IP 位址](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)。 您也可以設定靜態 IP 位址，同時在 Azure 入口網站中建立您的虛擬機器，如下所示。 如需詳細資訊，請參閱[使用 Azure 入口網站建立具有靜態公用 IP 的 VM](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md)。
+
+![建立虛擬機器時，新增靜態 IP 位址的步驟螢幕擷取畫面](media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
 ## <a name="BKMK_Glossary"></a>詞彙和定義
 以下是各種 Azure 技術詞彙的非詳盡清單，您將在本文中參考。

@@ -1,24 +1,18 @@
 ---
-title: "針對 Azure 自動化混合式 Runbook 背景工作角色進行疑難排解 | Microsoft Docs"
-description: "說明 Azure 自動化中最常見混合式 Runbook 背景工作角色問題的徵狀、原因和解決方法。"
+title: 針對 Azure 自動化混合式 Runbook 背景工作角色進行疑難排解
+description: 說明 Azure 自動化中最常見混合式 Runbook 背景工作角色問題的徵狀、原因和解決方法。
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 02c6606e-8924-4328-a196-45630c2255e9
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2017
-ms.author: magoedte
-ms.openlocfilehash: 75f4ac1bc940a2b1d8e4ac6aeac8b80c642489da
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+manager: carmonm
+ms.openlocfilehash: 2536a197cf9eca07f21b78f31f67065475054bd5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-tips-for-hybrid-runbook-worker"></a>混合式 Runbook 背景工作角色的疑難排解提示
 
@@ -31,7 +25,7 @@ Runbook 在嘗試執行三次後會馬上暫止。 在某些情況下，Runbook 
 若本文中未提及您的 Azure 問題，請造訪 [MSDN 及 Stack Overflow 上的 Azure 論壇](https://azure.microsoft.com/support/forums/)。 您可以在這些論壇上張貼您的問題，或將問題貼到 Twitter [@AzureSupport上的](https://twitter.com/AzureSupport) 。 此外，您也可以選取 [Azure 支援](https://azure.microsoft.com/support/options/)網站上的 [取得支援]，來提出 Azure 支援要求。
 
 ### <a name="symptom"></a>徵狀
-Runbook 執行失敗且傳回的錯誤是「作業動作 'Activate' 無法執行，因為處理序意外停止。 作業動作已嘗試 3 次」。
+Runbook 執行失敗且傳回的錯誤是「作業動作 'Activate' 無法執行，因為處理序意外停止。 作業動作已嘗試三次。」
 
 這個錯誤的可能原因有幾個，包括︰ 
 
@@ -46,15 +40,15 @@ Hybrid Runbook Worker 執行所在的電腦位於防火牆或 Proxy 伺服器後
 確認電腦可透過連接埠 443 輸出存取 *.azure-automation.net。 
 
 #### <a name="cause-2-computer-has-less-than-minimum-hardware-requirements"></a>原因 2︰電腦未滿足最低硬體需求
-執行 Hybrid Runbook Worker 的電腦應滿足最低硬體需求，您才能指派它來裝載這項功能。 否則，根據其他背景處理序的資源使用率和 Runbook 在執行期間造成的競爭，電腦可能會變得過度使用，導致 Runbook 作業延遲或逾時。 
+執行 Hybrid Runbook Worker 的電腦應滿足最低硬體需求，您才能指派它來裝載這項功能。 否則，根據其他背景處理序的資源使用率和 Runbook 在執行期間造成的競爭，電腦會變得過度使用，並導致 Runbook 作業延遲或逾時。 
 
 #### <a name="solution"></a>解決方法
-先確認指派來執行 Hybrid Runbook Worker 功能的電腦滿足最低硬體需求。  如果滿足最低硬體需求，請監視 CPU 和記憶體使用率，判斷 Hybrid Runbook Worker 處理序之效能和 Windows 之間是否有任何相互關聯。  如果有記憶體或 CPU 壓力，這表示電腦可能需要升級或增加額外處理器，或增加記憶體來解決資源瓶頸及解決錯誤。 您也可以選擇其他可支援最低需求，也能在工作負載需求指出需要增加資源時擴充的計算資源。         
+先確認指派來執行 Hybrid Runbook Worker 功能的電腦滿足最低硬體需求。 如果滿足最低硬體需求，請監視 CPU 和記憶體使用率，判斷 Hybrid Runbook Worker 處理序之效能和 Windows 之間是否有任何相互關聯。 如果有記憶體或 CPU 壓力，這表示電腦可能需要升級或增加額外處理器，或增加記憶體來解決資源瓶頸及解決錯誤。 您也可以選擇其他可支援最低需求，也能在工作負載需求指出需要增加資源時擴充的計算資源。         
 
 #### <a name="cause-3-runbooks-cannot-authenticate-with-local-resources"></a>原因 3：Runbook 無法使用本機資源驗證
 
 #### <a name="solution"></a>解決方法
-查閱 **Microsoft-SMA** 事件記錄檔，找出描述為「Win32 處理序結束，代碼為 [4294967295]」的對應事件。  此錯誤的原因是您尚未在 Runbook 中設定驗證，或尚未指定混合式背景工作角色群組的執行身分認證。  請檢閱 [Runbook 權限](automation-hrw-run-runbooks.md#runbook-permissions) ，確認 Runbook 的驗證設定正確無誤。  
+查閱 **Microsoft-SMA** 事件記錄檔，找出描述為「Win32 處理序結束，代碼為 [4294967295]」的對應事件。 此錯誤的原因是您尚未在 Runbook 中設定驗證，或尚未指定混合式背景工作角色群組的執行身分認證。 檢閱 [Runbook 權限](automation-hrw-run-runbooks.md#runbook-permissions)，確認 Runbook 的驗證設定正確無誤。  
 
 ## <a name="next-steps"></a>後續步驟
 

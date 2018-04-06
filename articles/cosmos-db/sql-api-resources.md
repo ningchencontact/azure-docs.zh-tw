@@ -1,9 +1,9 @@
 ---
-title: "Azure Cosmos DB 資源模型和概念 | Microsoft Docs"
-description: "深入了解 Azure Cosmos DB 資料庫的階層式模型、集合、使用者定義函數 (UDF)、文件、權限，以便管理資源等。"
-keywords: "階層式模型, Hierarchical model, cosmosdb, azure, Microsoft azure"
+title: Azure Cosmos DB 資源模型和概念 | Microsoft Docs
+description: 深入了解 Azure Cosmos DB 資料庫的階層式模型、集合、使用者定義函數 (UDF)、文件、權限，以便管理資源等。
+keywords: 階層式模型, Hierarchical model, cosmosdb, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
@@ -12,18 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a88f17a658987e1ff3ae0e0f38d6551c3acee1da
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 948fc84db2fd2d6f2059f9807b84194ebac59472
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 階層式資源模型和核心概念
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB 管理的資料庫實體稱為「資源」。 每個資源可透過邏輯 URI 唯一識別。 您可以使用標準 HTTP 動詞命令、要求/回應標頭和狀態碼來與資源互動。 
 
@@ -34,6 +32,12 @@ Azure Cosmos DB 管理的資料庫實體稱為「資源」。 每個資源可透
 * 如何處理資源？
 * 如何使用集合？
 * 如何使用預存程序、觸發程序和使用者定義函數 (UDF)？
+
+在下列影片中，Azure Cosmos DB 程式管理員 Andrew Liu 會向您介紹 Azure Cosmos DB 資源模型。 
+
+> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
+>
+>
 
 ## <a name="hierarchical-resource-model"></a>階層式資源模型
 如下圖所示，Azure Cosmos DB 的階層式「資源模型」包含某個資料庫帳戶下的多組資源，而每組資源都可透過邏輯和穩定 URI 加以定址。 本文中有一組資源稱為**摘要**。 
@@ -132,7 +136,7 @@ REST API 可透過識別碼與 _rid 屬性，支援資源的定址和要求的�
 ## <a name="database-accounts"></a>資料庫帳戶
 您可以使用 Azure 訂用帳戶佈建一或多個 Cosmos DB 資料庫帳戶。
 
-您可以透過 Azure 入口網站 (網址 [http://portal.azure.com/](https://portal.azure.com/)) 建立和管理 Cosmos DB 資料庫帳戶。 建立和管理資料庫帳戶都需要管理存取權，而且只有在 Azure 訂用帳戶下才能執行。 
+您可以透過 Azure 入口網站 (網址：[http://portal.azure.com/](https://portal.azure.com/)) 建立和管理 Cosmos DB 資料庫帳戶。 建立和管理資料庫帳戶都需要管理存取權，而且只有在 Azure 訂用帳戶下才能執行。 
 
 ### <a name="database-account-properties"></a>資料庫帳戶屬性
 在佈建和管理資料庫帳戶時，您可以設定和讀取下列屬性：  
@@ -154,7 +158,7 @@ REST API 可透過識別碼與 _rid 屬性，支援資源的定址和要求的�
     </tbody>
 </table>
 
-除了從「Azure 入口網站」佈建、設定及管理資料庫帳戶之外，您也可以透過使用 [Azure Cosmos DB REST API (英文)](/rest/api/documentdb/) 以及[用戶端 SDK (英文)](sql-api-sdk-dotnet.md)，以程式設計方式建立和管理 Cosmos DB 資料庫帳戶。  
+除了從「Azure 入口網站」佈建、設定及管理資料庫帳戶之外，您也可以透過使用 [Azure Cosmos DB REST API (英文)](/rest/api/cosmos-db/) 以及[用戶端 SDK (英文)](sql-api-sdk-dotnet.md)，以程式設計方式建立和管理 Cosmos DB 資料庫帳戶。  
 
 ## <a name="databases"></a>資料庫
 Cosmos DB 資料庫是一個或多個集合和使用者的邏輯容器，如下圖所示。 您可以在 Cosmos DB 資料庫帳戶下，根據供應項目限制建立任意數目的資料庫。  
@@ -173,7 +177,7 @@ Cosmos DB 資料庫預設相當靈活，範圍從幾 GB 到數 PB 的 SSD 型式
 
 Azure Cosmos DB 資料庫同時也是使用者的容器。 使用者因此是一組權限的邏輯命名空間，可針對集合、文件和附件提供微調的授權和存取權。  
 
-與 Azure Cosmos DB 資源模型中的其他資源相同，不論是使用 [REST API](/rest/api/documentdb/) 還是任何[用戶端 SDK](sql-api-sdk-dotnet.md)，都可輕鬆地建立、取代、刪除、讀取或列舉資料庫。 Azure Cosmos DB 保證讀取或查詢資料庫資源之中繼資料的強式一致性。 刪除資料庫會自動確定您無法存取其內所含的任何集合或使用者。   
+與 Azure Cosmos DB 資源模型中的其他資源相同，不論是使用 [REST API](/rest/api/cosmos-db/) 還是任何[用戶端 SDK](sql-api-sdk-dotnet.md)，都可輕鬆地建立、取代、刪除、讀取或列舉資料庫。 Azure Cosmos DB 保證讀取或查詢資料庫資源之中繼資料的強式一致性。 刪除資料庫會自動確定您無法存取其內所含的任何集合或使用者。   
 
 ## <a name="collections"></a>集合
 Cosmos DB 集合是 JSON 文件的容器。 
@@ -191,7 +195,7 @@ Azure Cosmos DB 是真正不具結構描述的資料庫系統。 它不會假設
 * 選擇在文件中包括還是排除索引中的特定路徑或模式。 做法是分別在集合的 indexingPolicy 上設定 includedPaths 和 excludedPaths。 您也可以針對特定路徑模式的範圍和雜湊查詢，設定儲存體和效能取捨。 
 * 選擇同步 (一致) 與非同步 (緩慢) 索引更新。 每次在集合中插入、取代或刪除文件時，預設會同步更新索引。 這個行為讓查詢能夠使用與文件的讀取相同的一致性層級。 雖然 Azure Cosmos DB 的寫入已經過最佳化處理，並支援持續的文件寫入數量以及同步索引維護和提供一致的查詢，但是您還是可以設定特定集合，讓集合的索引更新速度變慢。 緩慢索引會進一步地促進寫入效能，而且適合在主要進行大量讀取集合時大量擷取案例。
 
-在集合上執行 PUT 即可變更索引原則。 不論是透過[用戶端 SDK](sql-api-sdk-dotnet.md)、[Azure 入口網站](https://portal.azure.com)還是 [REST API](/rest/api/documentdb/)，都可達到此目的。
+在集合上執行 PUT 即可變更索引原則。 不論是透過[用戶端 SDK](sql-api-sdk-dotnet.md)、[Azure 入口網站](https://portal.azure.com)還是 [REST API](/rest/api/cosmos-db/)，都可達到此目的。
 
 ### <a name="querying-a-collection"></a>查詢集合
 集合內的文件可以有任意結構描述，而且您可以查詢集合內的文件，而不需要預先提供任何結構描述或次要索引。 您可以使用 [Azure Cosmos DB SQL 語法參考](https://msdn.microsoft.com/library/azure/dn782250.aspx)來查詢集合，這些語法透過 JavaScript 型 UDF 提供豐富階層式與關聯式的空間運算子及擴充性。 JSON 文法允許用於將 JSON 文件建模為標籤做為樹狀節點的樹狀目錄。 這會同時應用 SQL API 的自動編製索引技術與 Azure Cosmos DB 的 SQL 方言。 SQL 查詢語言包含三個主要部分：   
@@ -200,7 +204,7 @@ Azure Cosmos DB 是真正不具結構描述的資料庫系統。 它不會假設
 2. 關聯式作業 (包括複合、篩選、投射、彙總和自我聯結) 的子集。 
 3. 可與 (1) 和 (2) 搭配使用的純 JavaScript 型 UDF。  
 
-Azure Cosmos DB 查詢模型嘗試打破功能、效率和簡易性之間的平衡。 Azure Cosmos DB 資料庫引擎會原生編譯和執行 SQL 查詢陳述式。 您可以使用 [REST API](/rest/api/documentdb/) 或任何[用戶端 SDK](sql-api-sdk-dotnet.md) 來查詢集合。 .NET SDK 隨附於 LINQ 提供者。
+Azure Cosmos DB 查詢模型嘗試打破功能、效率和簡易性之間的平衡。 Azure Cosmos DB 資料庫引擎會原生編譯和執行 SQL 查詢陳述式。 您可以使用 [REST API](/rest/api/cosmos-db/) 或任何[用戶端 SDK](sql-api-sdk-dotnet.md) 來查詢集合。 .NET SDK 隨附於 LINQ 提供者。
 
 > [!TIP]
 > 您可以試試 SQL API，並在[查詢園地](https://www.documentdb.com/sql/demo) (英文) 中針對我們的資料集執行 SQL 查詢。
@@ -222,7 +226,7 @@ Azure Cosmos DB 查詢模型嘗試打破功能、效率和簡易性之間的平�
 
 直接在資料庫引擎 (與緩衝集區位於相同的位址空間) 內執行 JavaScript 的能力，可對集合的文件啟用資料庫作業的具效能和交易式執行。 此外，Cosmos DB 資料庫引擎會進一步對 JSON 和 JavaScript 執行認可，以去除應用程式與資料庫之的類型系統間的阻抗不相符。   
 
-建立集合之後，您即可使用 [REST API](/rest/api/documentdb/) 或任何[用戶端 SDK](sql-api-sdk-dotnet.md)，向集合註冊預存程序、觸發程序及 UDF。 註冊之後，您就可以參考和執行它們。 您可以考慮使用下列完全以 JavaScript 撰寫的預存程序。下列程式碼採用兩個引數 (書籍名稱和作者名稱) 建立新文件，接著再查詢文件，然後加以更新。這些作業全都會在隱含的 ACID 交易中進行。 在執行期間的任何時間點，如果擲回 JavaScript 例外狀況，整個交易便會中止。
+建立集合之後，您即可使用 [REST API](/rest/api/cosmos-db/) 或任何[用戶端 SDK](sql-api-sdk-dotnet.md)，向集合註冊預存程序、觸發程序及 UDF。 註冊之後，您就可以參考和執行它們。 您可以考慮使用下列完全以 JavaScript 撰寫的預存程序。下列程式碼採用兩個引數 (書籍名稱和作者名稱) 建立新文件，接著再查詢文件，然後加以更新。這些作業全都會在隱含的 ACID 交易中進行。 在執行期間的任何時間點，如果擲回 JavaScript 例外狀況，整個交易便會中止。
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -275,10 +279,10 @@ Azure Cosmos DB 查詢模型嘗試打破功能、效率和簡易性之間的平�
 
 預存程序和觸發程序會透過定義良好的物件模型 (可公開目前集合內容)，與集合及集合內的文件互動。  
 
-不論是使用 [REST API](/rest/api/documentdb/) 還是任何[用戶端 SDK](sql-api-sdk-dotnet.md)，都可輕鬆地建立、刪除、讀取或列舉 SQL API 中的集合。 SQL API 一律提供讀取或查詢集合之中繼資料的強式一致性。 刪除集合會自動確定您無法存取其內所含的任何文件、附件、預存程序、觸發程序和 UDF。   
+不論是使用 [REST API](/rest/api/cosmos-db/) 還是任何[用戶端 SDK](sql-api-sdk-dotnet.md)，都可輕鬆地建立、刪除、讀取或列舉 SQL API 中的集合。 SQL API 一律提供讀取或查詢集合之中繼資料的強式一致性。 刪除集合會自動確定您無法存取其內所含的任何文件、附件、預存程序、觸發程序和 UDF。   
 
 ## <a name="stored-procedures-triggers-and-user-defined-functions-udf"></a>預存程序、觸發程序和使用者定義函數 (UDF)
-如上一節所述，您可以撰寫直接在資料庫引擎的交易內執行的應用程式邏輯。 應用程式邏輯可以完全以 JavaScript 撰寫，也可以建模為預存程序、觸發程序或 UDF。 預存程序或觸發程序內的 JavaScript 程式碼可以在集合內插入、取代、刪除、讀取或查詢文件。 另一方面，UDF 內的 JavaScript 無法插入、取代或刪除文件。 UDF 會列舉查詢結果集的文件並產生另一個結果集。 若是多重租用，Azure Cosmos DB 會強制執行嚴謹的保留型資源管理。 每個預存程序、觸發程序或 UDF 都會取得固定配量的作業系統資源來執行工作。 此外，預存程序、觸發程序或 UDF 無法連結外部 JavaScript 程式庫，因此，當這些項目超出配置的資源預算時，便會將其列入封鎖清單。 您可以使用 REST API 向集合註冊、取消註冊預存程序、觸發程序或 UDF。  註冊時，預存程序、觸發程序或 UDF 會預先編譯並儲存為位元組程式碼，以在稍後執行。 下節說明如何使用 Azure Cosmos DB JavaScript SDK 來註冊、執行和取消註冊預存程序、觸發程序和 UDF。 JavaScript SDK 是一種透過 [REST API](/rest/api/documentdb/) 的簡單包裝函式。 
+如上一節所述，您可以撰寫直接在資料庫引擎的交易內執行的應用程式邏輯。 應用程式邏輯可以完全以 JavaScript 撰寫，也可以建模為預存程序、觸發程序或 UDF。 預存程序或觸發程序內的 JavaScript 程式碼可以在集合內插入、取代、刪除、讀取或查詢文件。 另一方面，UDF 內的 JavaScript 無法插入、取代或刪除文件。 UDF 會列舉查詢結果集的文件並產生另一個結果集。 若是多重租用，Azure Cosmos DB 會強制執行嚴謹的保留型資源管理。 每個預存程序、觸發程序或 UDF 都會取得固定配量的作業系統資源來執行工作。 此外，預存程序、觸發程序或 UDF 無法連結外部 JavaScript 程式庫，因此，當這些項目超出配置的資源預算時，便會將其列入封鎖清單。 您可以使用 REST API 向集合註冊、取消註冊預存程序、觸發程序或 UDF。  註冊時，預存程序、觸發程序或 UDF 會預先編譯並儲存為位元組程式碼，以在稍後執行。 下節說明如何使用 Azure Cosmos DB JavaScript SDK 來註冊、執行和取消註冊預存程序、觸發程序和 UDF。 JavaScript SDK 是一種透過 [REST API](/rest/api/cosmos-db/) 的簡單包裝函式。 
 
 ### <a name="registering-a-stored-procedure"></a>註冊預存程序
 透過 HTTP POST 在集合上建立新的預存程序資源，即可註冊預存程序。  
@@ -406,7 +410,7 @@ UDF 可以指定為部分 SQL 查詢，也可作為一種擴充核心 [SQL 查�
             console.log("Error");
         });
 
-雖然以上程式碼片段顯示的是透過 [JavaScript SDK](https://github.com/Azure/azure-documentdb-js) 執行的註冊 (POST)、取消註冊 (PUT)、讀取/列出 (GET) 及執行 (POST)，但您也可以使用 [REST API](/rest/api/documentdb/) 或其他[用戶端 SDK](sql-api-sdk-dotnet.md)。 
+雖然以上程式碼片段顯示的是透過 [JavaScript SDK](https://github.com/Azure/azure-documentdb-js) 執行的註冊 (POST)、取消註冊 (PUT)、讀取/列出 (GET) 及執行 (POST)，但您也可以使用 [REST API](/rest/api/cosmos-db/) 或其他[用戶端 SDK](sql-api-sdk-dotnet.md)。 
 
 ## <a name="documents"></a>文件
 您可以在集合中插入、取代、刪除、讀取、列舉和查詢任意 JSON 文件。 Azure Cosmos DB 不會託管任何結構描述，而且不需要次要索引，就支援逐一查詢集合中的文件。 文件的大小上限為 2 MB。   

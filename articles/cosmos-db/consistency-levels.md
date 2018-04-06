@@ -1,31 +1,35 @@
 ---
-title: "Azure Cosmos DB 中的一致性層級 | Microsoft Docs"
-description: "Azure Cosmos DB 具有五個一致性層級，有助於在最終一致性、可用性和延遲的取捨之間取得平衡。"
-keywords: "最終一致性, azure cosmos db, azure, Microsoft azure"
+title: Azure Cosmos DB 中的一致性層級 | Microsoft Docs
+description: Azure Cosmos DB 具有五個一致性層級，有助於在最終一致性、可用性和延遲的取捨之間取得平衡。
+keywords: 最終一致性, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: cgronlun
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/27/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 Tunable 資料一致性層級
 Azure Cosmos DB 是針對每個資料模型考量到全球發佈的全新設計。 它的設計目的是提供可預測的低延遲保證，以及多個定義完善且寬鬆的一致性層級模型。 Azure Cosmos DB 目前提供五種一致性層級：強式、限定過期、工作階段、一致的前置和最終。 限定過期、工作階段、一致前置詞、最終，統稱為「寬鬆的一致性模型」，因為它們提供的一致性比強式更小，後者是最高一致性的模型。 
 
 除了分散式資料庫經常提供的**強式一致性**和**最終一致性**模型，Azure Cosmos DB 還提供其他三個已仔細編碼且可運作的一致性模型：**限定過期**、**工作階段**、**一致前置詞**。 它們的實用性已根據真實世界的使用案例驗證過。 總言之，這五個一致性層級可讓您在一致性、可用性與延遲三者間做出合理取捨。 
+
+在下列影片中，Azure Cosmos DB 程式管理員 Andrew Liu 會示範周全的全域散發功能。
+
+>[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
 
 ## <a name="distributed-databases-and-consistency"></a>分散式資料庫和一致性
 商業散發資料庫分為兩類：完全不會提供完善且可證明之一致性選擇的資料庫，以及提供兩個極端的可程式性選擇 (強式與最終一致性) 的資料庫。 
@@ -60,13 +64,15 @@ Azure Cosmos DB 提供全面性的 99.99% [SLA](https://azure.microsoft.com/supp
 ## <a name="consistency-levels"></a>一致性層級
 您可以設定資料庫帳戶的「預設一致性層級」，以套用至 Cosmos DB 帳戶底下的所有集合 (和資料庫)。 所有對使用者定義的資源發出的讀取和查詢，預設都會使用資料庫帳戶上所指定的預設一致性層級。 您可以使用每個支援的 API，放寬特定讀取/查詢要求的一致性層級。 Azure Cosmos DB 複寫通訊協定支援五種類型的一致性層級，可在特定一致性保證和效能之間明確進行取捨，如本章節所述。
 
-**重要事項**： 
+<a id="strong"></a>
+**強式**： 
 
 * 強式一致性利用保證傳回項目最新版本的讀取來提供[線性化](https://aphyr.com/posts/313-strong-consistency-models)保證。 
 * 「增強式」一致性保證只有在複本的多數仲裁持久認可寫入之後，才會顯示寫入。 寫入不是會被主要和次要仲裁同步地持久認可，就是會被中止。 讀取的認可一律是交由多數讀取仲裁來負責；用戶端絕不會看到未認可或不完整的寫入，而且一律保證會讀取最新認可的寫入。 
 * 設定為使用強式一致性的 Azure Cosmos DB 帳戶，無法將一個以上的 Azure 區域關聯至它們的 Azure Cosmos DB 帳戶。  
 * 具有強式一致性的讀取作業成本 (就取用的 [要求單位](request-units.md) 而言) 會高於工作階段和最終，但與限定過期相同。
 
+<a id="bounded-staleness"></a>
 **限定過期**： 
 
 * 限定過期一致性保證讀取可能會落後寫入最多 K 個項目版本或首碼或是 t 個時間間隔。 
@@ -76,6 +82,7 @@ Azure Cosmos DB 提供全面性的 99.99% [SLA](https://azure.microsoft.com/supp
 * 使用限定過期一致性設定的 Azure Cosmos DB 帳戶可以將任意數目的 Azure 區域關聯至它們的 Azure Cosmos DB 區域。 
 * 具有限定過期的讀取作業成本 (就取用的 RU 而言) 會高於工作階段和最終一致性，但與強式一致性相同。
 
+<a id="session"></a>
 **工作階段**： 
 
 * 與強式和限定過期一致性層級所提供的全域一致性模型不同，工作階段一致性範圍會限制為用戶端工作階段。 
@@ -91,6 +98,7 @@ Azure Cosmos DB 提供全面性的 99.99% [SLA](https://azure.microsoft.com/supp
 * 一致前置詞保證讀取永遠不會看到沒有順序的寫入。 如果寫入以 `A, B, C` 順序執行，則用戶端會看到 `A`、`A,B` 或 `A,B,C`，但是永遠不會看到沒有順序的情形，像是 `A,C` 或 `B,A,C`。
 * 使用一致前置詞一致性設定的 Azure Cosmos DB 帳戶可以將任意數目的 Azure 區域關聯至它們的 Azure Cosmos DB 區域。 
 
+<a id="eventual"></a>
 **最終**： 
 
 * 最終一致性保證之後如果沒有再收到任何寫入，群組內的複本最後會只剩一個。 
@@ -125,19 +133,12 @@ Azure Cosmos DB 目前實作 MongoDB 3.4 版，有強式與最終這兩種一致
 ## <a name="next-steps"></a>後續步驟
 如果您想要詳細了解一致性層級和取捨，我們建議下列資源：
 
-* Doug Terry。 透過棒球來解說複寫的資料一致性 (影片)。   
-  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
-* Doug Terry。 透過棒球來解說複寫的資料一致性。   
-  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
-* Doug Terry。 弱式一致複寫資料的工作階段保證。   
-  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
-* Daniel Abadi。 現代分散式資料庫系統設計的一致性取捨：CAP 是整個過程中的唯一解決方案」。   
-  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* Peter Bailis、Shivaram Venkataraman、Michael J. Franklin、Joseph M. Hellerstein、Ion Stoica。 實際部分仲裁的機率界限-陳舊 (PBS)。   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
-* Werner Vogels。 再論最終一致。    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
-* Moni Naor、Avishai Wool，仲裁系統的負載、容量及可用性，SIAM 計算期刊，v.27 n.2，p.423-447，1998 年 4 月。
-  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
-* Sebastian Burckhardt，Chris Dern，Macanal Musuvathi，Roy Tan，陣容：完整和自動的線性化能力檢查程式，程式設計語言設計和實作的 2010 ACM SIGPLAN 會議論文集，2010 年 6 月 05-10 日，加拿大，安大略，多倫多 [doi>10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Peter Bailis，Shivaram Venkataraman，Michael J. Franklin，Joseph M. Hellerstein，Ion Stoica，實用部分仲裁的概率限定過期，VLDB Endowment 論文集，v.5 n.8，p.776-787，2012 年 4 月 [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+* [Doug Terry 透過棒球來解說複寫的資料一致性 (影片)](https://www.youtube.com/watch?v=gluIh8zd26I)
+* [Doug Terry 透過棒球來解說複寫的資料一致性 (白皮書)](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+* [弱式一致複寫資料的工作階段保證](http://dl.acm.org/citation.cfm?id=383631)
+* [現代分散式資料庫系統設計的一致性取捨：CAP 是整個過程中的唯一解決方案](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [實際部分仲裁的隨機限定過期 (PBS) (英文)](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+* [再論最終一致](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+* [仲裁系統的負載、容量及可用性，SIAM 計算期刊](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+* [陣容：完整和自動的線性化能力檢查程式，程式設計語言設計和實作的 2010 ACM SIGPLAN 會議論文集](http://dl.acm.org/citation.cfm?id=1806634)
+* [實際部分仲裁的概率限定過期](http://dl.acm.org/citation.cfm?id=2212359)

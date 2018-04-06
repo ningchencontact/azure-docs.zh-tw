@@ -1,8 +1,8 @@
 ---
-title: "檢視 Azure Data Lake Store 的診斷記錄 | Microsoft Docs"
-description: "了解如何設定及存取 Azure Data Lake Store 的診斷記錄  "
+title: 檢視 Azure Data Lake Store 的診斷記錄 | Microsoft Docs
+description: '了解如何設定及存取 Azure Data Lake Store 的診斷記錄  '
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: b58a4b215b13d2e57a69a94a60e3e37471c926c8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>存取 Azure Data Lake Store 的診斷記錄
 了解如何啟用 Data Lake Store 帳戶的診斷記錄，以及如何檢視針對帳戶收集的記錄。
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/23/2018
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>啟用 Data Lake Store 帳戶的診斷記錄
 1. 登入新的 [Azure 入口網站](https://portal.azure.com)。
-2. 開啟 Data Lake Store 帳戶，接著在 Data Lake Store 帳戶刀鋒視窗中依序按一下 [設定] 和 [診斷記錄檔]。
+2. 開啟 Data Lake Store 帳戶，接著在 Data Lake Store 帳戶刀鋒視窗中按一下 [診斷記錄檔]。
 3. 在 [診斷記錄檔] 刀鋒視窗中，按一下 [開啟診斷]。
 
     ![啟用診斷記錄](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "啟用診斷記錄")
@@ -150,6 +150,7 @@ ms.lasthandoff: 02/23/2018
              "category": "Audit",
              "operationName": "SeOpenStream",
              "resultType": "0",
+             "resultSignature": "0",
              "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
              "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
              "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
@@ -167,6 +168,7 @@ ms.lasthandoff: 02/23/2018
 | category |字串 |記錄類別。 例如， **稽核**。 |
 | operationName |字串 |記錄的作業名稱。 例如，getfilestatus。 |
 | resultType |字串 |作業的狀態。例如，200。 |
+| resultSignature |字串 |作業的其他詳細資料。 |
 | correlationId |字串 |用來將一組相關記錄項目分組在一起的記錄識別碼 |
 | 身分識別 |Object |產生記錄的身分識別 |
 | properties |JSON |如需詳細資料，請參閱下文 |
@@ -186,7 +188,7 @@ search *
 ```
 
 
-Azure Data Lake Store 會提供有關如何處理和分析記錄資料的範例。 您可以在 [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample)找到範例。 
+Azure Data Lake Store 會提供有關如何處理和分析記錄資料的範例。 您可以在 [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) 找到範例。 
 
 ## <a name="see-also"></a>另請參閱
 * [Azure 資料湖儲存區概觀](data-lake-store-overview.md)

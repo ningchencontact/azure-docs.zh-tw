@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 202c75366477ae3445f607f75d08faf0335de79f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -36,7 +36,7 @@ Azure 自動化中的「更新管理」解決方案，可讓您管理 Azure 中�
 
 在電腦執行更新合規性掃描之後，代理程式會將大量資訊轉送至 Log Analytics。 在 Windows 電腦上，合規性掃描預設會每 12 小時執行一次。 除了掃描排程，如果在更新安裝之前與更新安裝之後重新啟動 Microsoft Monitoring Agent (MMA)，則會在 15 分鐘內起始更新合規性掃描。 在 Linux 電腦上，合規性掃描預設會每 3 小時執行一次，而如果重新啟動 MMA 代理程式，則會在 15 分鐘內起始相容性掃描。
 
-解決方案會根據您設定要同步處理的來源，報告電腦的最新狀態。 如果 Windows 電腦設定為向 WSUS 報告，則視 WSUS 上次與 Microsoft Update 同步處理的時間，結果可能不同於 Microsoft Update 所顯示的結果。 設定為向本機存放庫和公用存放庫報告之 Linux 電腦，同樣也是如此。
+解決方案會根據您設定要同步處理的來源，報告電腦的最新狀態。 如果 Windows 電腦設定為向 WSUS 報告，則視 WSUS 上次與 Microsoft Update 同步處理的時間，結果可能不同於 Microsoft Update 所顯示的結果。 對於設定為向本機存放庫和公用存放庫報告的 Linux 電腦，同樣也是如此。
 
 您可以藉由建立排定的部署，在需要更新的電腦上部署和安裝軟體更新。 歸類為「選擇性」的更新不會包含在 Windows 電腦的部署範圍內，只需要更新。 排定的部署會藉由明確指定電腦，或選取以一組特定電腦之記錄搜尋為基礎的[電腦群組](../log-analytics/log-analytics-computer-groups.md)，定義哪些目標電腦將會收到適用的更新。 您也可以指定核准排程，並指定允許安裝更新的一段時間。 在 Azure 自動化中，會由 Runbook 安裝更新。 您無法檢視這些 Runbook，而它們也不需要任何設定。 更新部署在建立後便會建立排程，以在指定的時間為所包含的電腦啟動主要更新 Runbook。 這個主要 Runbook 會在每個代理程式上啟動子 Runbook，以安裝必要的更新。
 

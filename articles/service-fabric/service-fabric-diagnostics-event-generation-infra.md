@@ -1,47 +1,62 @@
 ---
-title: "Azure Service Fabric 平台層級監視 | Microsoft Docs"
-description: "了解用來監視和診斷 Azure Service Fabric 叢集的平台層級事件和記錄。"
+title: Azure Service Fabric 平台層級監視 | Microsoft Docs
+description: 了解用來監視和診斷 Azure Service Fabric 叢集的平台層級事件和記錄。
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/20/2017
+ms.date: 03/19/2018
 ms.author: dekapur
-ms.openlocfilehash: 8452b5ae733b21254b0beecaec44a968897ae491
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 46ba7b6e638fafa512d4a3f291c49acc1ddf02e4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="platform-level-event-and-log-generation"></a>平台層級事件和記錄產生
-
-## <a name="monitoring-the-cluster"></a>監視叢集
+# <a name="monitoring-the-cluster-and-platform"></a>監視叢集和平台
 
 請務必在平台層級進行監視，以判斷硬體和叢集是否如預期運作。 雖然 Service Fabric 可在硬體故障時讓應用程式繼續執行，但是您仍需要診斷錯誤是發生在應用程式中，還是發生在基礎結構中。 您也應該監視叢集，更妥善地規劃容量，以協助決定如何新增或移除硬體。
 
 Service Fabric 提供下列現成的記錄通道：
-* 作業通道：由 Service Fabric 與叢集執行的高階作業，包括即將進行的節點、正在部署的新應用程式，或升級復原等事件。
-* 作業通道 - 詳細：健康情況報告與負載平衡決策
-* 資料和傳訊通道：在傳訊 (目前僅限 ReverseProxy) 和資料路徑 (可靠的服務模型) 中產生的重要記錄和事件
-* 資料和傳訊通道 - 詳細：詳細資訊通道，其中包含叢集中資料和傳訊的所有非重要記錄 (此通道有非常大量的事件)   
+
+* **作業**  
+由 Service Fabric 與叢集執行的高階作業，包括即將進行的節點、正在部署的新應用程式，或升級復原等事件。
+
+* **作業 - 詳細**  
+健康情況報告和負載平衡決策。
+
+* **資料和傳訊**  
+在傳訊 (目前僅限 ReverseProxy) 和資料路徑 (可靠的服務模型) 中產生的重要記錄和事件。
+
+* **資料和傳訊 - 詳細**  
+詳細資訊通道，其中包含叢集中資料和傳訊的所有非重要記錄 (此通道有非常大量的事件)。
 
 除此以外，還提供了兩個結構化 EventSource 通道，以及我們為了支援而收集的記錄。
-* [Reliable Services 事件](service-fabric-reliable-services-diagnostics.md)：程式設計模型特定的事件
-* [Reliable Actors 事件](service-fabric-reliable-actors-diagnostics.md)︰程式設計模型特定的事件和效能計數器
-* 支援的記錄：由 Service Fabric 產生的系統記錄僅供我們在提供支援時使用
+
+* [Reliable Services 事件](service-fabric-reliable-services-diagnostics.md)  
+程式設計模型特定事件。
+
+* [Reliable Actors 事件](service-fabric-reliable-actors-diagnostics.md)  
+程式設計模型特定的事件和效能計數器。
+
+* 支援記錄  
+由 Service Fabric 產生的系統記錄僅供我們在提供支援時使用。
 
 這些各種通道涵蓋建議的大部分平台層級記錄。 若要改善平台層級記錄，請考慮深入了解健康情況模型並新增自訂健康情況報告，以及新增自訂**效能計數器**來即時了解對叢集上服務和應用程式的影響。
 
-### <a name="azure-service-fabric-health-and-load-reporting"></a>Azure Service Fabric 健全狀況和負載報告
+若要充分利用這些記錄，強烈建議在建立叢集期間啟用「診斷」。 透過開啟診斷，在部署叢集時，Windows Azure 診斷可以認可 Operational、Reliable Services 和 Reliable actors 通道，並儲存資料，如[使用 Azure 診斷彙總事件](service-fabric-diagnostics-event-aggregation-wad.md)的進一步說明。
+
+## <a name="azure-service-fabric-health-and-load-reporting"></a>Azure Service Fabric 健全狀況和負載報告
 
 Service Fabric 有自己的健全狀況模型，詳述於下列文件：
+
 - [Service Fabric 健全狀況監視簡介](service-fabric-health-introduction.md)
 - [回報和檢查服務健全狀況](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 - [新增自訂 Service Fabric 健康狀態報告](service-fabric-report-health.md)
@@ -58,44 +73,9 @@ Service Fabric 有自己的健全狀況模型，詳述於下列文件：
 
 任何能夠指出應用程式健全狀況和效能的資訊，都適合納入計量和健全狀況報告中。 CPU 效能計數器可以告訴您節點的使用情況，但無法讓您知道某個特定服務是否健康，因為可能有多項服務在單一節點上執行。 不過，像是 RPS、處理的項目和求延遲等計量，都可以指出特定服務的健全狀況。
 
-若要報告健全狀況，請使用如下的程式碼︰
-
-  ```csharp
-    if (!result.HasValue)
-    {
-        HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
-        this.Partition.ReportInstanceHealth(healthInformation);
-    }
-  ```
-
-若要報告計量，請使用如下的程式碼︰
-
-  ```csharp
-    this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
-  ```
-
-### <a name="service-fabric-support-logs"></a>Service Fabric 支援記錄
+## <a name="service-fabric-support-logs"></a>Service Fabric 支援記錄
 
 如果您需要連絡 Microsoft 支援服務以協助處理您的 Azure Service Fabric 叢集，通常都需要提供支援記錄。 如果您的叢集裝載於 Azure，建立叢集時會自動設定和收集支援記錄。 記錄會儲存在叢集資源群組中的專用儲存體帳戶。 儲存體帳戶沒有固定名稱，但您會在帳戶中看到名稱以 fabric 開頭的 blob 容器和資料表。 如需有關為獨立叢集設定記錄收集的資訊，請參閱[建立和管理獨立 Azure Service Fabric 叢集](service-fabric-cluster-creation-for-windows-server.md)和[獨立 Windows 叢集的組態設定](service-fabric-cluster-manifest.md)。 若為獨立 Service Fabric 執行個體，記錄應該傳送至本機檔案共用。 您**需要**擁有這些記錄才能取得支援，而這些記錄只限 Microsoft 客戶支援小組使用。
-
-## <a name="enabling-diagnostics-for-a-cluster"></a>啟用叢集的診斷
-
-若要充分利用這些記錄，強烈建議在建立叢集期間啟用「診斷」。 透過開啟診斷，在部署叢集時，Windows Azure 診斷可以認可 Operational、Reliable Services 和 Reliable actors 通道，並儲存資料，如[使用 Azure 診斷彙總事件](service-fabric-diagnostics-event-aggregation-wad.md)的進一步說明。
-
-如上所示，也有選擇性欄位可新增 Application Insights (AI) 檢測索引鍵。 如果您選擇使用 AI 進行任何事件分析 (在[透過 Application Insights 的事件分析](service-fabric-diagnostics-event-analysis-appinsights.md)深入閱讀此作業)，請在此包含 AppInsights 資源 instrumentationKey (GUID)。
-
-
-如果您要將容器部署至叢集，請讓 WAD 挑選 Docker 統計資料，方法是將這個項目新增至 "WadCfg > DiagnosticMonitorConfiguration"：
-
-```json
-"DockerSources": {
-    "Stats": {
-        "enabled": true,
-        "sampleRate": "PT1M"
-    }
-},
-
-```
 
 ## <a name="measuring-performance"></a>測量效能
 
@@ -105,9 +85,11 @@ Service Fabric 有自己的健全狀況模型，詳述於下列文件：
 
 以下是您可以設定收集叢集效能資料的兩個常用方式：
 
-* 使用代理程式：這是從電腦收集效能的慣用方法，因為代理程式通常會有一份可收集的效能計量清單，而且選擇您要收集或變更的計量是相當簡單的程序。 請閱讀[如何設定 Service Fabric 的 OMS](service-fabric-diagnostics-event-analysis-oms.md) 和[設定 OMS Windows 代理程式](../log-analytics/log-analytics-windows-agent.md)文章以深入了解 OMS 代理程式，而這類監視代理程式可以挑選叢集 VM 和已部署容器的效能資料。
+* **使用代理程式**  
+這是從電腦收集效能的慣用方法，因為代理程式通常會有一份可收集的效能計量清單，而且選擇您要收集或變更的計量是相當簡單的程序。 請閱讀[如何設定 Service Fabric 的 OMS](service-fabric-diagnostics-event-analysis-oms.md) 和[設定 OMS Windows 代理程式](../log-analytics/log-analytics-windows-agent.md)文章以深入了解 OMS 代理程式，而這類監視代理程式可以挑選叢集 VM 和已部署容器的效能資料。
 
-* 設定診斷以將效能計數器寫入資料表中：對於 Azure 上的叢集，這表示變更 Azure 診斷設定來反映叢集中 VM 的適當效能計數器，並在您要部署任何容器時，讓它反映 Docker 統計資料。 請閱讀在 Service Fabric 中設定 [WAD 中的效能計數器](service-fabric-diagnostics-event-aggregation-wad.md)，以設定效能計數器集合。
+* **設定診斷以將效能計數器寫入資料表中**  
+針對 Azure 上的叢集，這表示變更 Azure 診斷設定來反映叢集中 VM 的適當效能計數器，並在您要部署任何容器時，讓它反映 Docker 統計資料。 請閱讀在 Service Fabric 中設定 [WAD 中的效能計數器](service-fabric-diagnostics-event-aggregation-wad.md)，以設定效能計數器集合。
 
 ## <a name="next-steps"></a>後續步驟
 

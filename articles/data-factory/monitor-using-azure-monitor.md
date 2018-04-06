@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 監視器來監視 Data Factory | Microsoft Docs"
-description: "了解如何藉由啟用 Azure Data Factory 資訊的診斷記錄，以使用 Azure 監視器來監視 Data Factory 管線。"
+title: 使用 Azure 監視器來監視 Data Factory | Microsoft Docs
+description: 了解如何藉由啟用 Azure Data Factory 資訊的診斷記錄，以使用 Azure 監視器來監視 Data Factory 管線。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8ab2e7cdc8472be9c0800eea5bef9322b0ed87f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>使用 Azure 監視器來監視 Data Factory  
 雲端應用程式相當複雜，且具有許多移動組件。 監視會提供資料，以確保應用程式持續運作並以健全的狀態執行。 它也可協助您預防潛在問題，或是針對過去所發生的問題進行疑難排解。 除此之外，您還可以使用監視資料來取得應用程式的深入解析。 這項知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-這裡有詳細資訊](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+更多資訊] (https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>記錄和事件的結構描述
 
@@ -381,7 +381,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| 字串 | 時間範圍內所引發之觸發程序的開始時間 (UTC 格式) | `2017-06-26T20:55:29.5007959Z`|
 |status| 字串 | 無論是否成功引發觸發程序的最終狀態 (成功或失敗) | `Succeeded`|
 
-### <a name="metrics"></a>度量
+## <a name="metrics"></a>度量
 
 Azure 監視器可讓您取用遙測來查看您 Azure 工作負載的效能與健全狀況。 Azure 遙測資料最重要的類型是由大多數 Azure 資源所發出的度量 (也稱為效能計數器)。 Azure 監視器提供數種方式可設定及取用這些度量進行監視與疑難排解。
 
@@ -396,7 +396,52 @@ ADFV2 會發出下列計量
 | TriggerSucceededRuns | 成功的觸發程序執行計量  | Count    | 總計                | 為期一分鐘的時間內成功的觸發程序執行總計   |
 | TriggerFailedRuns    | 失敗的觸發程序執行計量     | Count    | 總計                | 為期一分鐘的時間內失敗的觸發程序執行總計      |
 
-若要存取計量，請遵循下列文章中的指示：https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+若要存取計量，請遵循文章中的指示操作 - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+
+## <a name="alerts"></a>警示
+
+您可以針對 Data Factory 中支援的計量提出警示。 請在 Data Factory [監視] 頁面中按一下 [警示] 按鈕。
+
+![警示選項](media/monitor-using-azure-monitor/alerts_image1.png)
+
+帶您前往 [警示]。
+
+![警示頁面](media/monitor-using-azure-monitor/alerts_image2.png)
+
+您也可以登入 Azure 入口網站，然後按一下 [監視] -&gt; [警示] 來直接前往 [警示] 頁面。
+
+![入口網站功能表中的警示](media/monitor-using-azure-monitor/alerts_image3.png)
+
+### <a name="create-alerts"></a>建立警示
+
+1.  按一下 [+ 新增警示規則] 來新建警示。
+
+    ![新增警示規則](media/monitor-using-azure-monitor/alerts_image4.png)
+
+2.  定義**警示條件**。
+
+    > [!NOTE]
+    > 請務必在 [依資源類型篩選] 中選取 [全部]。
+
+    ![警示條件畫面 3 之 1](media/monitor-using-azure-monitor/alerts_image5.png)
+
+    ![警示條件畫面 3 之 2](media/monitor-using-azure-monitor/alerts_image6.png)
+
+    ![警示條件畫面 3 之 3](media/monitor-using-azure-monitor/alerts_image7.png)
+
+3.  定義**警示詳細資料**。
+
+    ![警示詳細資料](media/monitor-using-azure-monitor/alerts_image8.png)
+
+4.  定義**動作群組**。
+
+    ![動作群組畫面 4 之 1](media/monitor-using-azure-monitor/alerts_image9.png)
+
+    ![動作群組畫面 4 之 2](media/monitor-using-azure-monitor/alerts_image10.png)
+
+    ![動作群組畫面 4 之 3](media/monitor-using-azure-monitor/alerts_image11.png)
+
+    ![動作群組畫面 4 之 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>後續步驟
 請參閱[以程式設計方式監視和管理管線](monitor-programmatically.md)文章，以了解如何藉由執行來監視和管理管線。 

@@ -4,7 +4,7 @@ description: 了解 Azure 虛擬網路閘道的 VPN 閘道設定。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2018
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: e4f02e2b001b6821e732cead660aa0b758f1133e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>關於 VPN 閘道組態設定
 
@@ -28,7 +28,9 @@ VPN 閘道是一種虛擬網路閘道，可透過公用連線在您的虛擬網�
 VPN 閘道連線依賴多個資源的設定，每一個都包含可設定的設定值。 本文各節討論在 Resource Manager 部署模型中所建立之虛擬網路 VPN 閘道相關的資源和設定。 您可以在[關於 VPN 閘道](vpn-gateway-about-vpngateways.md) 一文中找到每個連線解決方案的描述和拓撲圖。
 
 >[!NOTE]
-> 本文中的值適用於使用 -GatewayType 'Vpn' 的虛擬網路閘道。 這就是為什麼要將它們稱為 VPN 閘道的原因。 如需適用於 -GatewayType 'ExpressRoute' 的值，請參閱 [ExpressRoute 的虛擬網路閘道](../expressroute/expressroute-about-virtual-network-gateways.md)。 ExpressRoute 閘道的值與您針對 VPN 閘道使用的值不同。
+> 本文中的值適用於使用 -GatewayType 'Vpn' 的虛擬網路閘道。 這就是為何這些特定的虛擬網路閘道稱為 VPN 閘道的原因。 ExpressRoute 閘道的值與您針對 VPN 閘道使用的值不同。
+>
+>如需適用於 -GatewayType 'ExpressRoute' 的值，請參閱 [ExpressRoute 的虛擬網路閘道](../expressroute/expressroute-about-virtual-network-gateways.md)。
 >
 >
 
@@ -55,7 +57,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-### <a name="configure-the-gateway-sku"></a>設定閘道 SKU
+### <a name="configure-a-gateway-sku"></a>設定閘道 SKU
 
 #### <a name="azure-portal"></a>Azure 入口網站
 
@@ -63,24 +65,35 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 #### <a name="powershell"></a>PowerShell
 
-下列 PowerShell 範例將 `-GatewaySku` 指定為 VpnGw1。
+下列 PowerShell 範例將 `-GatewaySku` 指定為 VpnGw1。 使用 PowerShell 來建立閘道時，您必須先建立 IP 組態，然後使用變數來參考它。 在此範例中，組態變數是 $gwipconfig。
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
+New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+-Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="resize"></a>變更閘道 SKU (調整閘道 SKU 大小)
+#### <a name="azure-cli"></a>Azure CLI
 
-如果想要將閘道 SKU 升級成更強大的 SKU，您可以使用 `Resize-AzureRmVirtualNetworkGateway` PowerShell Cmdlet。 您也可以使用此 Cmdlet 將閘道 SKU 大小降級。
-
-下列 PowerShell 範例示範將閘道 SKU 的大小調整為 VpnGw2。
-
-```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
+```azurecli
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
+
+###  <a name="resizechange"></a>調整大小與變更 SKU
+
+調整閘道 SKU 的大小很容易。 調整閘道的大小時，停機時間會相當短。 不過，關於調整大小有一些規則：
+
+1. 您可以調整 VpnGw1、VpnGw2 和 VpnGw3 SKU 之間的大小。
+2. 使用舊式閘道 SKU 時，您可以在基本、標準和高效能 SKU 之間調整大小。
+3. 您**無法**將大小從基本/標準/高效能 SKU 調整為新的 VpnGw1/VpnGw2/VpnGw3 SKU。 您必須改為[變更](#change)為新的 SKU。
+
+#### <a name="resizegwsku"></a>調整閘道大小
+
+[!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
+
+####  <a name="change"></a>從舊式 (舊版) SKU 變更為新的 SKU
+
+[!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="connectiontype"></a>連線類型
 
@@ -150,7 +163,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 有時，您會需要修改區域網路閘道設定。 例如，當您新增或修改位址範圍時，或 VPN 裝置的 IP 位址變更時。 請參閱[使用 PowerShell 修改區域網路閘道設定](vpn-gateway-modify-local-network-gateway.md)。
 
-## <a name="resources"></a>REST API 和 PowerShell Cmdlet
+## <a name="resources"></a>REST API、PowerShell Cmdlet、CLI
 
 使用 REST API、PowerShell Cmdlet 或 Azure CLI 來設定 VPN 閘道組態時，如需其他技術資源和特定語法需求，請參閱下列頁面：
 

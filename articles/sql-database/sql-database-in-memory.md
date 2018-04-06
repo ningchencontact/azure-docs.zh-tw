@@ -2,24 +2,18 @@
 title: Azure SQL Database 記憶體內部技術 | Microsoft Docs
 description: SQL Database 記憶體內部技術大幅提升交易和分析工作負載的效能。
 services: sql-database
-documentationCenter: ''
 author: jodebrui
-manager: jhubbard
-editor: ''
-ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
+manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/21/2018
 ms.author: jodebrui
-ms.openlocfilehash: 98b4a0b4bcb271a68880359b1bb04655cae8d003
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>使用 SQL Database 中的記憶體內部技術將效能最佳化
 
@@ -110,7 +104,7 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 
 當您升級到較高的定價層時 (例如從標準升級到進階)，絕不會有任何相容性問題或其他問題， 可用的功能和資源只會增加。
 
-但是將定價層降級可能會對資料庫有負面影響。 當您的資料庫包含記憶體內部 OLTP 物件時，從進階降級到標準或基本會有特別顯著的影響。 降級之後將無法使用記憶體最佳化資料表和資料行存放區索引 (即使它們依然可見)。 同樣的考量也適用於降低彈性集區的定價層時，或將使用記憶體內部技術的資料庫移至標準或基本的彈性集區時。
+但是將定價層降級可能會對資料庫有負面影響。 當您的資料庫包含記憶體內部 OLTP 物件時，從進階降級到標準或基本會有特別顯著的影響。 降級之後將無法使用記憶體最佳化資料表 (即使它們依然可見)。 同樣的考量也適用於降低彈性集區的定價層時，或將使用記憶體內部技術的資料庫移至標準或基本的彈性集區時。
 
 ### <a name="in-memory-oltp"></a>記憶體內部 OLTP
 
@@ -136,11 +130,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="columnstore-indexes"></a>資料行存放區索引
 
-*降級為基本或標準*：只有在進階定價層才支援資料行存放區索引，標準或基本層則不支援。 當您將資料庫降級至標準或基本時，資料行存放區索引將變成無法使用。 系統會維持您的資料行存放區索引，但它不會再利用索引。 如果您之後再升級為進階，系統會立即重新利用您的資料行存放區索引。
+*降級為基本或標準*：只有在進階定價層和標準層、S3 及更新版本才支援資料行存放區索引，基本層則不支援。 當您將資料庫降級至不支援的層級時，資料行存放區索引將變成無法使用。 系統會維持您的資料行存放區索引，但它不會再利用索引。 如果您之後再升級為支援的層級，系統會立即重新利用您的資料行存放區索引。
 
-如果您有「叢集」資料行存放區索引，則降級層之後整個資料表會變成無法使用。 因此我們建議您在將資料庫降級至進階以下的層之前，先捨棄所有「叢集」資料行存放區索引。
+如果您有「叢集」資料行存放區索引，則降級之後整個資料表會變成無法使用。 因此我們建議您在將資料庫降級至不支援的層級之前，先捨棄所有「叢集」資料行存放區索引。
 
-*降級至較低的進階層*：只要整個資料庫大小小於目標定價層的最大資料庫大小，或小於彈性集區中可用儲存體的大小，此降級就會成功。 資料行存放區索引不會產生任何特定影響。
+*降級至支援較低的層級*：只要整個資料庫大小小於目標定價層的最大資料庫大小，或小於彈性集區中可用儲存體的大小，此降級就會成功。 資料行存放區索引不會產生任何特定影響。
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>

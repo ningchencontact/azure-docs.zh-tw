@@ -1,6 +1,6 @@
 ---
-title: "針對角色型存取控制 Azure RBAC 進行疑難排解 | Microsoft Docs"
-description: "取得有關角色型存取控制資源問題或疑問的協助。"
+title: 針對角色型存取控制 Azure RBAC 進行疑難排解 | Microsoft Docs
+description: 取得有關角色型存取控制資源問題或疑問的協助。
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: seohack1
-ms.openlocfilehash: c2589aabce86f848fa1aa3e25b3f78be180c5525
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 766ff118638538520c8f17694b32f35dbe6d1025
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-azure-role-based-access-control"></a>針對 Azure 角色型存取控制進行疑難排解 
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/09/2018
 
 擁有者與參與者都可以完整存取管理經驗，但參與者無法將存取權限授予其他使用者或群組。 讀取者角色則是比較有趣，因此我們會在本文中多花點時間介紹。 請參閱 [角色型存取控制入門文章](role-based-access-control-configure.md) ，以詳細了解如何授與存取權。
 
-## <a name="app-service-workloads"></a>應用程式服務工作負載
+## <a name="app-service"></a>App Service 方案
 ### <a name="write-access-capabilities"></a>寫入存取功能
 如果您授與對單一 Web 應用程式授與使用者唯讀存取權限，部分功能可能會在未預期的情況下停用。 以下管理功能需要 Web 應用程式的**寫入**存取權限 (參與者或擁有者)，而且無法在任何唯讀情況中使用。
 
@@ -69,7 +69,14 @@ Web 應用程式因為幾個互有關聯的資源而顯得複雜。 以下是具
 * 應用程式見解元件  
 * Web 測試  
 
-## <a name="virtual-machine-workloads"></a>虛擬機器工作負載
+## <a name="azure-functions"></a>Azure Functions
+[Azure Functions](../azure-functions/functions-overview.md) 的某些功能需要寫入存取權。 例如，如果指派使用者讀者角色，他們將無法檢視函數應用程式內的函數。 入口網站將顯示 **(無存取權)**。
+
+![函數應用程式無存取權](./media/role-based-access-control-troubleshooting/functionapps-noaccess.png)
+
+讀者可以按一下 [平台功能] 索引標籤，然後按一下 [所有設定] 以檢視與函數應用程式相關的一些設定 (類似於 Web 應用程式)，但他們不能修改這些設定。
+
+## <a name="virtual-machine"></a>虛擬機器
 差不多與 Web 應用程式相同的是，虛擬機器分頁上的某些功能需要具備虛擬機器 (或是資源群組中的其他資源) 的寫入存取權限。
 
 虛擬機器與網域名稱、虛擬網路、儲存體帳戶及警示規則相關。

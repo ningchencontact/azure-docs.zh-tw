@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6c6422bc2b13c0c40e48dabf0470c821b13e7851
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>取得虛擬機器使用者指派之受控服務識別 (MSI) 的存取權杖
 
@@ -42,7 +42,9 @@ ms.lasthandoff: 03/16/2018
 | [使用 CURL 取得權杖](#get-a-token-using-curl) | 從 Bash/CURL 用戶端使用 MSI REST 端點的範例 |
 | [處理權杖到期](#handling-token-expiration) | 處理過期存取權杖的指引 |
 | [錯誤處理](#error-handling) | 從 MSI 權杖端點傳回 HTTP 錯誤的處理指引 |
+| [節流指引](#throttling-guidance) | 處理 MSI 權杖端點之節流的指引 |
 | [Azure 服務的資源識別碼](#resource-ids-for-azure-services) | 取得所支援 Azure 服務資源識別碼的地方 |
+
 
 ## <a name="get-a-token-using-http"></a>使用 HTTP 取得權杖 
 
@@ -164,6 +166,16 @@ MSI 端點會透過 HTTP 回應訊息標頭的狀態碼欄位 (如 4xx 或 5xx �
 |           | unsupported_response_type | 授權伺服器不支援使用此方法取得存取權杖。 |  |
 |           | invalid_scope | 要求的範圍無效、未知或格式不正確。 |  |
 | 500 內部伺服器錯誤 | 未知 | 無法從 Active 目錄擷取權杖。 如需詳細資訊，請參閱\<檔案路徑\>中的記錄 | 請確認虛擬機器上已正確啟用 MSI。 如果您需要設定虛擬機器的協助，請參閱[使用 Azure 入口網站設定虛擬機器受控服務識別 (MSI)](msi-qs-configure-portal-windows-vm.md)。<br><br>也請確認 HTTP GET 要求 URI 的格式正確，尤其是查詢字串中指定的資源 URI。 請參閱[使用 HTTP 取得權杖](#get-a-token-using-http)一節中的「範例要求」，以取得相關範例，或請參閱[支援 Azure AD 驗證的 Azure 服務](msi-overview.md#azure-services-that-support-azure-ad-authentication)，以取得服務及其各自資源識別碼的清單。
+
+## <a name="throttling-guidance"></a>節流指引 
+
+節流限制會套用至對 MSI IMDS 端點進行的呼叫數目。 超過節流閾值時，MSI IMDS 端點會在節流生效時，限制任何進一步的要求。 在這段期間，MSI IMDS 端點會傳回 HTTP 狀態碼 429 (「太多要求」)，且要求會失敗。 
+
+對於重試，我們建議下列策略： 
+
+| **重試策略** | **設定** | **值** | **運作方式** |
+| --- | --- | --- | --- |
+|ExponentialBackoff |重試計數<br />最小輪詢<br />最大輪詢<br />差異輪詢<br />第一個快速重試 |5<br />0 秒<br />60 秒<br />2 秒<br />false |嘗試 1 - 延遲 0 秒<br />嘗試 2 - 延遲 ~2 秒<br />嘗試 3 - 延遲 ~6 秒<br />嘗試 4 - 延遲 ~14 秒<br />嘗試 5 - 延遲 ~30 秒 |
 
 ## <a name="resource-ids-for-azure-services"></a>Azure 服務的資源識別碼
 

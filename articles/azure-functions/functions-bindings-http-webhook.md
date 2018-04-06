@@ -3,7 +3,7 @@ title: Azure Functions HTTP 和 Webhook 繫結
 description: 了解如何在 Azure Functions 中使用 HTTP 和 Webhook 觸發程序與繫結。
 services: functions
 documentationcenter: na
-author: mattchenderson
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: mahender
-ms.openlocfilehash: a46177183035a53128c5341a3ce4c63dbc3a7497
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.openlocfilehash: 94a039ab1973cbd4112ddd0cd7548baa69924d26
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 和 Webhook 繫結
 
@@ -536,7 +536,7 @@ Webhook 授權是由 Webhook 接收器元件 (HTTP 觸發程序的一部分) 處
 
 ## <a name="trigger---limits"></a>觸發程序的 - 限制
 
-HTTP 要求的長度限制為 100K (102,400) 個位元組，而 URL 的長度限制為 4k (4,096) 個位元組。 這些限制由執行階段 [Web.config 檔案](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)的 `httpRuntime` 元素所指定。
+HTTP 要求的長度限制為 100MB (104,857,600 個位元組)，而 URL 的長度限制為 4KB (4,096 個位元組)。 這些限制由執行階段 [Web.config 檔案](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)的 `httpRuntime` 元素所指定。
 
 如果使用 HTTP 觸發程序的函式未在約 2.5 分鐘內完成，閘道將會逾時並傳回 HTTP 502 錯誤。 函式會繼續執行，但無法傳回 HTTP 回應。 對於長時間執行的函式，建議您遵循非同步模式，並傳回可以偵測要求狀態的位置。 如需函式可以執行多久的相關資訊，請參閱[級別和裝載 - 使用情況方案](functions-scale.md#consumption-plan)。 
 

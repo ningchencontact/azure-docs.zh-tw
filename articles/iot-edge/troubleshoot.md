@@ -6,15 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/15/2017
-ms.topic: tutorial
+ms.date: 03/23/2018
+ms.topic: article
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4d6dd0d46d909acfbfc04a23be74a571953ce660
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b03ece52c4ff77c9e0abbc794325cd7e9a20c915
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
@@ -104,7 +104,8 @@ Edge 代理程式沒有存取模組映像的權限。
 再次嘗試執行 `iotedgectl login` 命令。
 
 ## <a name="iotedgectl-cant-find-docker"></a>iotedgectl 找不到 Docker
-iotedgectl 無法執行設定或啟動命令，且將下列訊息輸出至記錄：
+
+命令 `iotedgectl setup` 或 `iotedgectl start` 失敗，並將下列訊息列印到記錄檔：
 ```output
 File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
   info = self._client.info()
@@ -119,6 +120,33 @@ iotedgectl 找不到 Docker，但這是必要項目。
 
 ### <a name="resolution"></a>解決方案
 安裝 Docker，確定它正在執行，然後重試。
+
+## <a name="iotedgectl-setup-fails-with-an-invalid-hostname"></a>主機名稱無效，iotedgectl 設定失敗
+
+命令 `iotedgectl setup` 失敗，並列印下列訊息： 
+
+```output
+Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
+```
+
+### <a name="root-cause"></a>根本原因
+IoT Edge 執行階段只能支援少於 64 個字元的主機名稱。 如此通常不會造成實體機器發生問題，但當在虛擬機器上設定執行階段時，就可能會產生問題。 在 Azure 中代管的 Windows 虛擬機器自動產生的主機名稱通常很長。 
+
+### <a name="resolution"></a>解決方案
+當發現這個錯誤時，可以設定虛擬機器的 DNS 名稱，然後將 DNS 名稱設定為安裝命令中的主機名稱來解決。
+
+1. 在 Azure 入口網站中，瀏覽至虛擬機器的概觀頁面。 
+2. 選取 DNS 名稱下的 [設定]。 如果虛擬機器已設定 DNS 名稱，則不需要設定新的名稱。 
+
+   ![設定 DNS 名稱](./media/troubleshoot/configure-dns.png)
+
+3. 提供 **DNS 名稱標籤**的值，並選取 [儲存]。
+4. 複製新的 DNS 名稱，格式應該是 **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**。
+5. 在虛擬機器中，使用下列命令以您的 DNS 名稱設定 IoT Edge 執行階段：
+
+   ```input
+   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
+   ```
 
 ## <a name="next-steps"></a>後續步驟
 您在 IoT Edge 平台中發現到錯誤嗎？ 請[提交問題](https://github.com/Azure/iot-edge/issues)，讓我們可以持續進行改善。 

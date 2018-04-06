@@ -1,24 +1,24 @@
 ---
-title: "在 Visual Studio 中管理應用程式 | Microsoft Docs"
-description: "使用 Visual Studio 來建立、開發、封裝、部署和偵錯 Service Fabric 應用程式和服務。"
+title: 在 Visual Studio 中管理 Azure Servic Fabric 應用程式 | Microsoft Docs
+description: 使用 Visual Studio 來建立、開發、封裝、部署和偵錯 Azure Service Fabric 應用程式和服務。
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2017
-ms.author: mikkelhegn
-ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 03/26/2018
+ms.author: mikhegn
+ms.openlocfilehash: 5c5c3dc20996fbbdee9f9ed61eb3b09e4b274d92
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>使用 Visual Studio 簡化撰寫及管理 Service Fabric 應用程式
 您可以透過 Visual Studio 管理 Azure Service Fabric 應用程式與服務。 [設定開發環境](service-fabric-get-started.md)後，您可以使用 Visual Studio 在本機開發叢集中建立 Service Fabric 應用程式、新增服務，或是封裝、註冊及部署應用程式。
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/14/2017
 4. 移除任何執行中的應用程式執行個體
 5. 建立應用程式執行個體
 
-在 Visual Studio 中按 **F5** 會部署應用程式，並將偵錯工具附加到所有應用程式執行個體。 您可以使用 **Ctrl + F5** 來部署應用程式而不進行偵錯，或是使用發佈設定檔來發佈至本機或遠端叢集。 
+在 Visual Studio 中按 **F5** 會部署應用程式，並將偵錯工具附加到所有應用程式執行個體。 您可以使用 **Ctrl + F5** 來部署應用程式而不進行偵錯，或是使用發佈設定檔來發佈至本機或遠端叢集。
 
 ### <a name="application-debug-mode"></a>應用程式偵錯模式
 Visual Studio 提供的 **Application Debug Mode** 屬性可讓您控制 Visual Studio 要如何處理應用程式部署作為偵錯的一部分。
@@ -45,7 +45,7 @@ Visual Studio 提供的 **Application Debug Mode** 屬性可讓您控制 Visual 
 
 #### <a name="application-debug-modes"></a>應用程式偵錯模式
 
-1. **重新整理應用程式** 這個模式可讓您快速變更和偵錯您的程式碼，並支援在偵錯時編輯靜態網頁檔案。 這種模式僅適用於您的本機開發叢集為 [1 個節點模式](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode)的情況。
+1. **重新整理應用程式** 這個模式可讓您快速變更和偵錯您的程式碼，並支援在偵錯時編輯靜態網頁檔案。 這種模式僅適用於您的本機開發叢集為 [1 個節點模式] 的情況。 此為預設的應用程式偵錯模式。(/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode)。
 2. **移除應用程式** 會在偵錯工作階段結束時移除應用程式。
 3. **自動升級** 偵錯工作階段結束時，應用程式繼續執行。 下一個偵錯工作階段會將部署視為升級。 此升級程序會保留您在前一個偵錯工作階段中輸入的所有資料。
 4. **保留應用程式** 偵錯工作階段結束時，應用程式會在叢集中繼續執行。 在下一個偵錯工作階段開始時，會移除應用程式。
@@ -53,7 +53,7 @@ Visual Studio 提供的 **Application Debug Mode** 屬性可讓您控制 Visual 
 如果使用 [自動升級]，資料會藉由套用 Service Fabric 的應用程式升級功能得以保留。 如需有關升級應用程式和如何在實際環境中執行升級的詳細資訊，請參閱 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)。
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>將服務加入 Service Fabric 應用程式
-您可以將新的服務新增至應用程式以擴充其功能。  若要確保應用程式封裝中包含該服務，請透過 [新增 Fabric 服務]  功能表項目新增服務。
+您可以將新的服務新增至應用程式以擴充其功能。 若要確保應用程式封裝中包含該服務，請透過 [新增 Fabric 服務]  功能表項目新增服務。
 
 ![新增 Service Fabric 服務][newservice]
 

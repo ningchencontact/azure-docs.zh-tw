@@ -1,11 +1,11 @@
 ---
-title: "Azure Log Analytics 中的 IT 服務管理連接器 | Microsoft Docs"
-description: "本文提供 IT Service Management Connector (ITSMC) 的概觀，以及說明如何使用此解決方案，在 Azure Log Analytics 集中監視及管理 ITSM 工作項目，並快速解決所有問題。"
+title: Azure Log Analytics 中的 IT 服務管理連接器 | Microsoft Docs
+description: 本文提供 IT Service Management Connector (ITSMC) 的概觀，以及說明如何使用此解決方案，在 Azure Log Analytics 集中監視及管理 ITSM 工作項目，並快速解決所有問題。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 56da2d4349a4a32eed783045381e504b529b1a1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c39cf464a7e838fecf7ebd4a3cbb08612388a5fa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT Service Management Connector 將 Azure 連線到 ITSM 工具
 
@@ -191,7 +191,7 @@ ITSMC 支援與下列 ITSM 工具連線：
 4. 在 [連絡人類型]、[影響]、[急迫性]、[類別] 和 [子類別] 文字方塊中提供適當的值，然後按一下 [建立]。
 
 
-##<a name="visualize-and-analyze-the-incident-and-change-request-data"></a>將事件和變更要求資料視覺化並加以分析
+## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>將事件和變更要求資料視覺化並加以分析
 
 根據您在設定連線時的設定，ITSM Connector 最多可將 120 天的事件和變更要求資料同步處理。 [下一節](#additional-information)會提供適用於此資料的記錄檔記錄結構描述。
 
@@ -342,7 +342,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 2.  如果 ServiceNow 的資料未同步處理至 Log Analytics，請確定 ServiceNow 執行個體並非處在睡眠中。 ServiceNow 開發人員執行個體閒置很長的時間時，有時會進入睡眠狀態。 否則，請回報問題。
 3.  如果引發 OMS 警示，但未在 ITSM 產品中建立工作項目，或未將設定項目建立為/連結至工作項目，或需任何其他一般資訊，請查看下列位置：
  -  ITSMC：解決方案會顯示連線/工作項目/電腦等的摘要。按一下顯示 [連接器狀態] 的磚，這會利用相關的查詢帶您前往 [記錄搜尋]。 如需詳細資訊，請查看 ERROR 為 LogType_S 的記錄檔記錄。
- - [記錄搜尋] 頁面：使用查詢 *Type=ServiceDeskLog_CL* 直接檢視錯誤/相關資訊。
+ - [記錄搜尋] 頁面：使用查詢 `*`ServiceDeskLog_CL`*` 直接檢視錯誤/相關資訊。
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>針對 Service Manager Web 應用程式部署進行疑難排解
 1.  如果是有關 Web 應用程式部署的任何問題，請確定您在所述的訂用帳戶中擁有足夠權限來建立/部署資源。

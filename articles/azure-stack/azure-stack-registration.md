@@ -12,22 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/26/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 27bd44f936e19890526c0834e14084647dcec086
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.reviewer: avishwan
+ms.openlocfilehash: 1dc3d9a96b9b27927cc8cc66b5e80987fba4f8ea
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
-您可以向 Azure 註冊 Azure Stack，以便從 Azure 下載市集項目，以及設定向 Microsoft 回報商務資料的功能。 註冊 Azure Stack 之後，使用情況會回報給 Azure Commerce。 您可以在註冊時所使用的訂用帳戶下看到這項資訊。
+向 Azure 註冊 [Azure Stack](azure-stack-poc.md)，即可從 Azure 下載市集項目，並設定向 Microsoft 回報商務資料的功能。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務報告，您可以在註冊所用的訂用帳戶中查看報告。 
 
 > [!IMPORTANT]
 > 如果您選擇使用時付費計費模型，則必須註冊。 否則，您將違反 Azure Stack 部署的授權條款，因為未報告使用量。
 
-## <a name="before-you-register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack 之前
+## <a name="prerequisites"></a>先決條件
 使用 Azure 註冊 Azure Stack 之前，您必須：
 
 - Azure 訂用帳戶的訂用帳戶 ID。 若要取得 ID，請登入 Azure 並按一下 [更多服務]  >  [訂用帳戶]，然後按一下您要使用的訂用帳戶，便可在 [基本資訊] 下找到 [訂用帳戶 ID]。 
@@ -36,52 +36,48 @@ ms.lasthandoff: 03/12/2018
   > 目前不支援中國、德國，和美國政府雲端訂用帳戶。 
 
 - 訂用帳戶擁有者的帳戶使用者名稱和密碼 (支援 MSA/2FA 帳戶)
-- 從 Azure Stack 1712 更新版本 (180106.1) 開始不再是必要項目：適用於 Azure 訂用帳戶的 Azure AD。 您可以將游標暫留在 Azure 入口網站右上角的顯示圖片，即可在 Azure 中找到此目錄。 
-- 註冊 Azure Stack 資源提供者 (請參閱下面的「註冊 Azure Stack 資源提供者」一節以取得詳細資料)
+- 註冊 Azure Stack 資源提供者 (請參閱下面的「註冊 Azure Stack 資源提供者」一節以取得詳細資料)。
 
 如果您沒有符合這些需求的 Azure 訂用帳戶，則可以[在這裡建立免費的 Azure 帳戶](https://azure.microsoft.com/free/?b=17.06)。 註冊 Azure Stack 不會對您的 Azure 訂用帳戶收取任何費用。
 
 ### <a name="bkmk_powershell"></a>安裝適用於 Azure Stack 的 PowerShell
-您必須使用適用於 Azure Stack 的最新 PowerShell 向 Azure 註冊系統。
+您必須使用適用於 Azure Stack 的最新 PowerShell 向 Azure 註冊。
 
 如果尚未安裝，[安裝適用於 Azure Stack 的 PowerShell](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install)。 
 
 ### <a name="bkmk_tools"></a>下載 Azure Stack 工具
 Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註冊功能) 的 PowerShell 模組。 在登錄程序期間，您必須匯入並使用 RegisterWithAzure.psm1 PowerShell 模組 (位於 Azure Stack 工具存放庫) 向 Stack 註冊您的 Azure Stack 執行個體。 
 
-```powershell
-# Change directory to the root directory. 
-cd \
-
-# Download the tools archive.
-  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
-  invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-  -OutFile master.zip
-
-# Expand the downloaded files.
-  expand-archive master.zip `
-  -DestinationPath . `
-  -Force
-
-# Change to the tools directory.
-  cd AzureStack-Tools-master
-```
+為確保使用的是最新版本，請刪除任何現有的 Azure Stack 工具版本，並[從 GitHub 下載最新版本](azure-stack-powershell-download.md)，再向 Azure 註冊。
 
 ## <a name="register-azure-stack-in-connected-environments"></a>在已連線的環境中註冊 Azure Stack
 已連線的環境可以存取網際網路和 Azure。 在這類環境中，您必須向 Azure 註冊 Azure Stack 資源提供者，然後設定計費模型。
 
+> [!NOTE]
+> 這些步驟全都必須從可存取具有特殊權限之端點的電腦執行。 
+
 ### <a name="register-the-azure-stack-resource-provider"></a>註冊 Azure Stack 資源提供者
 若要向 Azure 註冊 Azure Stack 資源提供者，請以系統管理員身分啟動 Powershell ISE 並使用下列 PowerShell 命令。 這些命令會：
-- 提示您以所要使用之 Azure 訂用帳戶的擁有者身分登入，並且將 `EnvironmentName` 參數設定為 [AzureCloud]。
+- 提示您以所要使用之 Azure 訂用帳戶的擁有者身分登入，並且將 **EnvironmentName** 參數設定為 [AzureCloud]。
 - 註冊 Azure 資源提供者 **Microsoft.AzureStack**。
 
-要執行的 PowerShell：
+1. 新增您用來註冊 Azure Stack 的 Azure 帳戶。 若要新增帳戶，請執行 **Add-AzureRmAccount** Cmdlet。 當系統提示您輸入 Azure 全域系統管理員帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。
 
-```powershell
-Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack 
-```
+   ```Powershell
+      Add-AzureRmAccount -EnvironmentName AzureCloud
+   ```
+
+2. 如果您有多個訂用帳戶，請執行下列命令以選取您要使用的訂用帳戶：  
+
+   ```powershell
+      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   ```
+
+3. 如需在您的 Azure 訂用帳戶中註冊 Azure Stack 資源提供者，請執行下列命令：
+
+   ```Powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
 
 ### <a name="register-azure-stack-with-azure-using-the-pay-as-you-use-billing-model"></a>向 Azure 註冊「使用時付費」計費模型的 Azure Stack
 使用這些步驟，向 Azure 註冊「使用時付費」計費模型的 Azure Stack。
@@ -99,7 +95,7 @@ Import-Module .\RegisterWithAzure.psm1
 
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
@@ -108,7 +104,7 @@ Set-AzsRegistration `
 
 |參數|說明|
 |-----|-----|
-|CloudAdminCredential|PowerShell 物件，其中包含 Azure 訂用帳戶擁有者的認證資訊 (使用者名稱和密碼)。|
+|CloudAdminCredential|PowerShell 物件，其中包含 存取特殊權限端點所用的認證資訊 (使用者名稱和密碼)。|
 |PrivilegedEndpoint|一個預先設定的遠端 PowerShell 主控台，可為您提供記錄收集和其他後續部署工作之類的功能。 若要深入了解，請參閱[使用具有特殊權限的端點](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint#access-the-privileged-endpoint)一文。|
 |BillingModel|您的訂用帳戶所使用的計費模型。 此參數允許的值：Capacity、PayAsYouUse 和 Development。|
 
@@ -118,7 +114,7 @@ Set-AzsRegistration `
 要執行的 PowerShell：
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
@@ -197,22 +193,6 @@ Set-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedE
 ```powershell
 Set-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
 ```
-
-## <a name="remove-a-registered-resource"></a>將已註冊的資源移除
-如果您要移除註冊，就必須使用 **UnRegister-AzsEnvironment** Cmdlet，並傳入註冊資源名稱，或您用於 **Register-AzsEnvironment** 的註冊權杖。
-
-若要使用資源名稱移除註冊：
-
-```Powershell    
-UnRegister-AzsEnvironment -RegistrationName "*Name of the registration resource*"
-```
-若要使用註冊權杖移除註冊：
-
-```Powershell
-$registrationToken = "*Your copied registration token*"
-UnRegister-AzsEnvironment -RegistrationToken $registrationToken
-```
-
 ## <a name="next-steps"></a>後續步驟
 
-[外部監視整合](azure-stack-integrate-monitor.md)
+[從 Azure 下載市集項目](azure-stack-download-azure-marketplace-item.md)。

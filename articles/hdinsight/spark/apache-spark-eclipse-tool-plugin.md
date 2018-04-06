@@ -1,8 +1,8 @@
 ---
-title: "適用於 Eclipse 的 Azure 工具組：建立適用於 HDInsight Spark 的 Scala 應用程式 | Microsoft Docs"
-description: "使用 HDInsight 工具 (位於 Eclipse 的 Azure 工具組中) 來開發以 Scala 撰寫的 Spark 應用程式，並直接從 Eclipse IDE 將它們提交到 HDInsight Spark 叢集。"
+title: 適用於 Eclipse 的 Azure 工具組：建立適用於 HDInsight Spark 的 Scala 應用程式 | Microsoft Docs
+description: 使用 HDInsight 工具 (位於 Eclipse 的 Azure 工具組中) 來開發以 Scala 撰寫的 Spark 應用程式，並直接從 Eclipse IDE 將它們提交到 HDInsight Spark 叢集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 8ac118593ecc93a2dd9e53ff7ad9ecf13daef017
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4ff67ebcbac5b1b85345421b16036c96f8e807cc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用適用於 Eclipse 的 Azure 工具組建立適用於 HDInsight 叢集的 Spark 應用程式
 
@@ -51,6 +51,8 @@ ms.lasthandoff: 02/21/2018
 
 ![自動安裝 Scala 外掛程式](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
+使用者可以[登入 Azure 訂用帳戶](#Sign-in-to-your-Azure-subscription)，或是使用 Ambari 使用者名稱/密碼或加入網域的認證開始[連結 HDInsight 叢集](#Link-a-cluster)。 
+
 ## <a name="sign-in-to-your-azure-subscription"></a>登入您的 Azure 訂用帳戶：
 1. 啟動 Eclipse IDE，然後開啟 [Azure Explorer]。 在 [視窗] 功能表上，選取 [顯示檢視]，然後選取 [其他]。 在開啟的對話方塊中展開 [Azure]，然後依序選取 [Azure Explorer] 和 [確定]。
 
@@ -75,12 +77,13 @@ ms.lasthandoff: 02/21/2018
 
    ![連結叢集操作功能表](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. 輸入 [叢集名稱]、[儲存體帳戶]、[儲存體金鑰]，然後選取 [儲存體容器] 中的容器，最後輸入使用者名稱和密碼。 按一下 [確定] 按鈕以連結叢集。
+2. 輸入 [叢集名稱]、[使用者名稱] 及 [密碼]，然後按一下 [確定] 按鈕連結叢集。 您也可以選擇輸入 [儲存體帳戶]、[儲存體金鑰]，然後選取 [儲存體容器]，讓儲存體總管在左側樹狀檢視中工作
    
    ![連結叢集對話方塊](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
    > [!NOTE]
    > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的儲存體金鑰、使用者名稱和密碼。
+   > ![Eclipse 中的儲存體總管](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
 3. 如果輸入資訊正確無誤，則按一下 [確定] 按鈕之後，您就可以在 [HDInsight] 節點中看見連結的叢集。 您現在可以將應用程式提交至此連結的叢集。
 

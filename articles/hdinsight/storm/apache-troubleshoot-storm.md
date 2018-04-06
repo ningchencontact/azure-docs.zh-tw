@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure HDInsight 為 Storm 進行疑難排解 | Microsoft Docs"
-description: "取得有關使用 Apache Storm 和 Azure HDInsight 的常見問題解答。"
-keywords: "Azure HDInsight, Storm, 常見問題集, 疑難排解指南, 常見問題"
+title: 使用 Azure HDInsight 為 Storm 進行疑難排解 | Microsoft Docs
+description: 取得有關使用 Apache Storm 和 Azure HDInsight 的常見問題解答。
+keywords: Azure HDInsight, Storm, 常見問題集, 疑難排解指南, 常見問題
 services: Azure HDInsight
 documentationcenter: na
 author: raviperi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ee408b32650fe0f0e0b66294896756732a2ca5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Storm 進行疑難排解
 
@@ -71,7 +71,7 @@ lib 資料夾的 .jar 檔案包含匯出/匯入作業的實作。 bash 資料夾
     ```
 
 #### <a name="import-offset-metadata"></a>匯入位移中繼資料
-1. 使用 SSH 移至叢集的 ZooKeeper 叢集，該舊叢集需要匯出檢查點位移。
+1. 使用 SSH 移至叢集的 ZooKeeper 叢集，該舊叢集需要匯入檢查點位移。
 2. 執行下列命令 (在您更新 HDP 版本字串之後)，將 ZooKeeper 位移資料從 HDFS 路徑 /stormmetadata/zkdata 匯入至目標叢集的 ZooKeeper 伺服器：
 
     ```apache
@@ -79,7 +79,7 @@ lib 資料夾的 .jar 檔案包含匯出/匯入作業的實作。 bash 資料夾
     ```
    
 #### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>刪除位移中繼資料，以便拓撲可以從頭開始處理資料，或從使用者選擇的時間戳記開始處理
-1. 使用 SSH 移至叢集的 ZooKeeper 叢集，該舊叢集需要匯出檢查點位移。
+1. 使用 SSH 移至叢集的 ZooKeeper 叢集，該舊叢集需要刪除檢查點位移。
 2. 執行下列命令 (在您更新 HDP 版本字串之後)，刪除目前叢集中的所有 ZooKeeper 位移資料：
 
     ```apache

@@ -15,11 +15,11 @@ ms.topic: 02get-started-article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: hector.linares
-ms.openlocfilehash: e7c437e3310fbf5c921920a3f08ecb8fe1f0d931
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>保護部署在 Azure Stack 上的虛擬機器
 
@@ -68,8 +68,8 @@ RTO 和 RPO 是商務需求。 進行風險評量可定義應用程式的 RTO �
  
 復原應用程式需要將一個或多個 VM 還原至相同雲端或新的雲端。 您可以鎖定您資料中心內的雲端或公用雲端。 您鎖定的雲端會完全由您控制，且會以您的資料隱私權和主權需求為基礎。 
  
- - RTO：以秒計算的停機時間 
- - RPO：最少的資料遺失量
+ - RTO：以小時計算的停機時間 
+ - RPO：變數資料遺失 (視備份頻率而定)
  - 部署拓撲：主動/被動 
 
 #### <a name="planning-your-backup-strategy"></a>規劃您的備份策略
@@ -96,7 +96,7 @@ RTO 和 RPO 是商務需求。 進行風險評量可定義應用程式的 RTO �
 ![複寫 - 手動容錯移轉](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
 
  - RTO：以分鐘計算的停機時間 
- - RPO：變動的資料遺失量
+ - RPO：變數資料遺失 (視複寫頻率而定)
  - 部署拓撲：主動/被動待命
  
 ### <a name="high-availabilityautomatic-failover"></a>高可用性/自動容錯移轉

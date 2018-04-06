@@ -1,25 +1,24 @@
 ---
-title: "利用串流分析來建置 IoT 解決方案 | Microsoft Docs"
-description: "串流分析收費亭案例 IoT 解決方案的入門教學課程"
-keywords: "iot 解決方案, 視窗函數"
-documentationcenter: 
+title: 利用串流分析來建置 IoT 解決方案 | Microsoft Docs
+description: 串流分析收費亭案例 IoT 解決方案的入門教學課程
+keywords: iot 解決方案, 視窗函數
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/12/2018
+ms.date: 03/21/2018
 ms.author: sngun
-ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: b36833a9fe35f14eba6d9e397eb0958b716b313b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>利用串流分析來建置 IoT 解決方案
 
@@ -41,8 +40,7 @@ ms.lasthandoff: 01/16/2018
 * Visual Studio 2017、2015 或免費的 [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)
 * 電腦的系統管理員權限
-* 從 Microsoft 下載中心下載 [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip)
-* 選擇性： [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
+* 從 [azure-stream-analytics GitHub 存放庫](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp)下載 TollApp 感應器資料分析的來源程式碼。 此存放庫包含您將在下一節使用的範例資料和查詢。 
 
 ## <a name="scenario-introduction-hello-toll"></a>案例簡介：收費站，你好！
 收費站是常見的設施。 您可以在世界各地的許多快速道路、橋樑及隧道中看到它們。 每個收費站都有多個收費亭。 在人工收費亭中，您需要停車來向服務員付費。 在自動收費亭中，位於每個收費亭最上方的感應器會在您通過收費亭時掃描黏貼在您車輛擋風玻璃上的 RFID 卡。 我們可以輕易地把車輛通過這些收費站的情況，想像成其中能執行許多有趣行動的事件串流。
@@ -173,7 +171,7 @@ ms.lasthandoff: 01/16/2018
 
 ![「正在傳送事件中樞資料」的螢幕擷取畫面](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image7.png)
 
-現在，您應該能夠在 Azure 入口網站中看到您的資源。 請前往 <https://portal.azure.com>，並使用您的帳戶認證登入。 請注意，目前有些功能會利用傳統入口網站。 將會清楚指出這些步驟。
+現在，您應該能夠在 Azure 入口網站中看到您的資源。 移至 <https://portal.azure.com>，並使用您的帳戶認證進行登入。 請注意，目前有些功能會利用傳統入口網站。 將會清楚指出這些步驟。
 
 ### <a name="azure-event-hubs"></a>Azure 事件中心
 
@@ -242,7 +240,7 @@ PowerShell 指令碼會自動利用 TollApp 範例應用程式來開始傳送事
 6. [來源] 是 [事件中樞]。
 7. [服務匯流排命名空間] 應該是下拉式清單中的 TollData。
 8. [事件中樞名稱] 應該設定為**進入**。
-9. [事件中樞原則名稱]* *是* **RootManageSharedAccessKey**  (預設值)。
+9. [事件中樞原則名稱]**是***RootManageSharedAccessKey**  (預設值)。
 10. 選取 [JSON] 做為 [事件序列化格式]，並選取 [UTF8] 做為 [編碼] 格式。
    
     您的設定將看起來會像是：

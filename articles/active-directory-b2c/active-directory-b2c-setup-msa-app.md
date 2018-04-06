@@ -1,28 +1,25 @@
 ---
-title: "Azure Active Directory B2C：Microsoft 帳戶設定 | Microsoft Docs"
-description: "在受 Azure Active Directory B2C 保護的應用程式中，針對具有 Microsoft 帳戶的取用者提供註冊和登入。"
+title: Azure Active Directory B2C：Microsoft 帳戶設定 | Microsoft Docs
+description: 在受 Azure Active Directory B2C 保護的應用程式中，針對具有 Microsoft 帳戶的取用者提供註冊和登入。
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 06407322-142c-4cb3-9106-a8d752c4c853
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: e746a5e7a2d9a13eb23ac0268104a9394c9b198d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e167c8737bc600f52759f33456fec3bc6e0a3678
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory B2C：針對具有 Microsoft 帳戶的取用者提供註冊和登入
 ## <a name="create-a-microsoft-account-application"></a>建立 Microsoft 帳戶應用程式
-若要在 Azure Active Directory (Azure AD) B2C 中使用 Microsoft 帳戶做為識別提供者，您必須建立 Microsoft 帳戶應用程式，然後對其提供正確參數。 您需要 Microsoft 帳戶才能執行此動作。 如果您沒有該帳戶，您可以在 [https://www.live.com/](https://www.live.com/)上申請。
+若要在 Azure Active Directory (Azure AD) B2C 中使用 Microsoft 帳戶做為識別提供者，您必須建立 Microsoft 帳戶應用程式，然後對其提供正確參數。 您需要 Microsoft 帳戶才能執行此動作。 如果您沒有帳戶，您可以在 [https://www.live.com/](https://www.live.com/) 上取得。
 
 1. 移至 [Microsoft 應用程式註冊入口網站](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)，並使用您的 Microsoft 帳戶認證登入。
 2. 按一下 [新增應用程式] 。

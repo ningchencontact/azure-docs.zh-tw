@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b68e8f7e67f767cff19e57f5864db89d6f059316
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b4559afa9294111eaa1f20fdf295d1fb26dcc994
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>如何部署 Linux 混合式 Runbook 背景工作角色
 
@@ -32,13 +30,13 @@ Azure 自動化中的 Runbook 無法存取其他雲端或內部部署環境中�
 在 Hybrid Runbook Worker 上啟動 Runbook 時，您會指定要執行它的群組。 群組的成員決定由哪一個背景工作角色處理要求。 您無法指定特定的背景工作。
 
 ## <a name="installing-linux-hybrid-runbook-worker"></a>安裝 Linux 混合式 Runbook 背景工作角色
-若要在 Linux 電腦上安裝和設定混合式 Runbook 背景工作角色，您可遵循直觀的程序手動安裝和設定此角色。 您必須在 OMS 工作區中啟用 [自動化混合式背景工作角色] 解決方案，然後執行一組命令將電腦註冊為背景工作角色，再將它新增至新的或現有的群組。 
+若要在 Linux 電腦上安裝和設定混合式 Runbook 背景工作角色，您可遵循直觀的程序手動安裝和設定此角色。 您必須在 Log Analytics 工作區中啟用 [自動化混合式背景工作角色] 解決方案，然後執行一組命令將電腦註冊為背景工作角色，再將它新增至新的或現有的群組。 
 
 繼續之前，您必須記下與自動化帳戶連結的 Log Analytics 工作區，以及自動化帳戶的主索引鍵。 您只要選取您的自動化帳戶，再針對工作區識別碼選取 [工作區]，針對主索引鍵選取 [索引鍵]，即可在入口網站中找到這兩項資訊。  
 
-1.  在 OMS 中啟用 [自動化混合式背景工作角色] 解決方案。 執行方式可以是下列任一項：
+1.  在 Azure 中啟用 [自動化混合式背景工作角色] 解決方案。 執行方式可以是下列任一項：
 
-   1. 從 [OMS 入口網站](https://mms.microsoft.com)中的 [方案庫]，啟用 [自動化混合式背景工作角色] 解決方案
+   1. 使用[將 Log Analytics 管理解決方案新增至您的工作區](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions)所述的程序，將**自動化混合式背景工作角色**解決方案新增至您的訂用帳戶。
    2. 執行下列 Cmdlet：
 
         ```powershell
@@ -47,18 +45,18 @@ Azure 自動化中的 Runbook 無法存取其他雲端或內部部署環境中�
 
 2.  執行下列命令，變更 -w、-k、-g 和 -e 參數的值。 對於 -g 參數，請將其值取代為新的 Linux 混合式 Runbook 背景工作角色應加入之混合式 Runbook 背景工作角色群組的名稱。 如果您的自動化帳戶中還沒有該名稱，則會以該名稱建立新的混合式 Runbook 背景工作角色群組。
     
-    ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
+    ```python
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
     ```
 3. 命令完成之後，Azure 入口網站中的 [混合式背景工作角色群組] 刀鋒視窗會顯示新的群組和成員數目，或者若是現有的群組，則成員數目會遞增。 您可以在 [Hybrid Worker 群組] 刀鋒視窗從清單中選取群組，然後選取 [Hybrid Worker] 圖格。 在 [Hybrid Worker] 刀鋒視窗上，您會看到列出群組的每個成員。  
 
 
 ## <a name="turning-off-signature-validation"></a>關閉簽章驗證 
-根據預設，Linux 混合式 Runbook 背景工作角色需要簽章驗證。 如果您對背景工作角色執行未簽署的 Runbook，就會看到包含「簽章驗證失敗」的錯誤。 若要關閉簽章驗證，請執行下列命令，並以您的 OMS 工作區識別碼取代第二個參數：
+根據預設，Linux 混合式 Runbook 背景工作角色需要簽章驗證。 如果您對背景工作角色執行未簽署的 Runbook，就會看到包含「簽章驗證失敗」的錯誤。 若要關閉簽章驗證，請執行下列命令，並以您的 Log Analytics 工作區識別碼取代第二個參數：
 
-    ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
-    ```
+ ```python
+ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
+ ```
 
 ## <a name="supported-runbook-types"></a>支援的 Runbook 類型
 

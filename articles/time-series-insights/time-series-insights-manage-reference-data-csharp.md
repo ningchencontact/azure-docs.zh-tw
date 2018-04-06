@@ -1,27 +1,28 @@
 ---
-title: "使用 C# 來管理 Azure 時間序列深入解析環境中的參考資料 | Microsoft Docs"
-description: "本文說明如何建立使用 C# (c-sharp) .NET 語言撰寫的自訂應用程式來管理 Azure 時間序列深入解析環境的參考資料。"
+title: 使用 C# 來管理 Azure 時間序列深入解析環境中的參考資料 | Microsoft Docs
+description: 本文說明如何建立使用 C# (c-sharp) .NET 語言撰寫的自訂應用程式來管理 Azure 時間序列深入解析環境的參考資料。
 services: time-series-insights
 ms.service: time-series-insights
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: b08b6af7abccb550884adc6cc90d180cfcadb2af
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.date: 03/23/2018
+ms.openlocfilehash: 61375ae3b304959d5cda37c4ce0364d566d576a5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用 C# 來管理 Azure Time Series Insights 環境的參考資料
 
-本主題說明您可以編譯的 C# 範例程式碼來管理 Azure 時間序列深入解析環境的參考資料。
+本文說明您可以編譯的範例 C# 專案來管理 Azure 時間序列深入解析環境的參考資料。
 
+## <a name="prerequistes"></a>必要條件
 編譯及執行範例程式碼之前，您必須先完成下列步驟：
 1. [建立參考資料集](time-series-insights-add-reference-data-set.md)。
 
@@ -30,6 +31,11 @@ ms.lasthandoff: 12/14/2017
    如需如何設定非互動式應用程式的相關資訊，請參閱[驗證與授權](time-series-insights-authentication-and-authorization.md)。
 
 3. 編輯範例程式碼以取代在接近程式碼開頭之 **#DUMMY#** 所指定的範例常數。 
+
+[https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights) 也提供這個程式碼範例
+
+## <a name="project-references"></a>專案參考
+為此範例新增 NuGet 封裝 `Microsoft.IdentityModel.Clients.ActiveDirectory` 和 `Newtonsoft.Json`。 
 
 ## <a name="c-sample-code"></a>C# 範例程式碼 
 ```csharp

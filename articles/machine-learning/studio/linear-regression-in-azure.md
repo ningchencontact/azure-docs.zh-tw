@@ -1,11 +1,12 @@
 ---
-title: "在 Machine Learning 中使用線性迴歸 | Microsoft Docs"
-description: "在 Excel 和 Azure Machine Learning Studio 中的線性迴歸模型的比較"
-metakeywords: 
+title: 在 Machine Learning 中使用線性迴歸 | Microsoft Docs
+description: 在 Excel 和 Azure Machine Learning Studio 中的線性迴歸模型的比較
+metakeywords: ''
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: kbaroni;garye
-ms.openlocfilehash: 218f2b141e3551180a2152570f99fdb427980dd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ea5a2720542217d3bb6a0a2b1309312fb74a953
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>在 Azure Machine Learning 中使用線性迴歸
 > *Kate Baroni* 和 *Ben Boatman* 是 Microsoft 的 Data Insights Center of Excellence 的企業解決方案架構設計人員。 在本文章中，他們將說明使用 Azure Machine Learning 將現有的迴歸分析套件移轉至雲端式解決方案的經驗。 
@@ -140,9 +140,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="resources"></a>資源
 以下是一些可幫助您處理迴歸的資源： 
 
-* Excel 中的迴歸。 如果您未曾使用 Excel 中的迴歸，本教學課程可讓它變得容易： [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
+* Excel 中的迴歸。 如果您從未嘗試過使用 Excel 進行迴歸，此教學課程可讓您輕鬆地完成：[http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
 * 迴歸與預測。 Tyler Chessman 撰寫部落格文章，說明如何在 Excel 中執行時間序列預測，其中包含初學者適用的良好線性迴歸描述。 [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* 一般最小平方線性迴歸：缺點、問題和陷阱。 迴歸的簡介和討論： [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* 一般最小平方線性迴歸：缺點、問題和陷阱。 如需迴歸的簡介與討論：[http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

@@ -1,33 +1,38 @@
 ---
-title: "Azure CDN POP 位置 | Microsoft Docs"
-description: "本文列出 Azure CDN 存在點位置。"
+title: 依地區排列的 Azure CDN POP 位置 | Microsoft Docs
+description: 本文會針對來自 Verizon 的 Azure CDN 和來自 Akamai 的 Azure CDN，列出 Azure CDN POP 位置。
 services: cdn
-documentationcenter: 
-author: zhangmanling
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dksimpson
+manager: akucer
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 03/20/2018
 ms.author: mazha
-ms.openlocfilehash: 3dd40bb6fc5754ca8f41360cc735a9136b3f89ea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a1c1408438ca2b74c63a77041849b9dc86f3b70b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="azure-cdn-pop-locations"></a>Azure CDN 的 POP 位置
-本文會針對**來自 Verizon 的 Azure CDN** 和**來自 Akamai 的 Azure CDN** 列出目前的存在點 (POP) 位置。
+# <a name="azure-cdn-pop-locations-by-region"></a>依地區的 Azure CDN POP 位置
+> [!div class="op_single_selector"]
+> * [依地區的 POP 位置](cdn-pop-locations.md)
+> * [依縮寫的 POP 位置](cdn-pop-abbreviations.md)
+> 
+
+
+本文會針對**來自 Verizon 的 Azure CDN** 和**來自 Akamai 的 Azure CDN**，依地區排序，列出目前的存在點 (POP) 位置。
 
 > [!IMPORTANT]
 > 不會個別揭露**來自 Akamai 的 Azure CDN** 的 POP 城市位置。  
 > 
-> 這兩個提供者可以不同方式建置其 CDN 基礎結構。  建議您不要使用 POP 位置來決定要使用哪個 Azure CDN 產品，並考慮改用功能和使用者效能。  測試兩個提供者的效能來為使用者選擇正確的 Azure CDN 產品。 
-> 
+> 由於這兩個提供者建立其 CDN 基礎結構的方式不同，建議您不要使用 POP 位置來決定要使用的 Azure CDN 產品。 相反地，請考慮其功能和終端使用者效能。 測試兩個提供者的效能來為使用者選擇正確的 Azure CDN 產品。 
 > 
 
 | 區域 | Verizon | Akamai |
@@ -41,6 +46,7 @@ ms.lasthandoff: 02/09/2018
 | 中東 | 馬斯喀特，阿曼<br />富吉拉，阿拉伯聯合大公國 | 卡達 |
 | 亞洲 | 香港<br />班加羅爾，印度<br />辰內，印度<br />新德里，印度<br />孟買，印度<br />新德里，印度<br />巴淡島，印尼<br />雅加達，印尼<br />大阪，日本<br />東京，日本<br />新加坡<br />首爾，南韓<br />高雄，台灣 | 香港<br />印度<br />印尼<br />日本<br />馬來西亞<br />菲律賓<br />新加坡<br />台灣<br />泰國<br />越南 |
 | 澳大利亞與紐西蘭 | 墨爾本，澳大利亞<br />雪梨，澳大利亞<br />奧克蘭，紐西蘭 | 澳大利亞<br />紐西蘭 |
+
 
 ## <a name="see-also"></a>另請參閱
 * [Azure CDN 邊緣節點 API 取得允許清單的最新 IP 位址 (英文)](https://docs.microsoft.com/rest/api/cdn/edgenodes)

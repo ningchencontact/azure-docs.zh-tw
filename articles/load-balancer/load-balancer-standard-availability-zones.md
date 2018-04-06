@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 61e0e7cf960d7eb2294bc294ec1eec9d80428a81
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9f5a68972015f54e2333199652075cda2535a3c8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>標準 Load Balancer 和可用性區域
 
 Azure Load Balancer 的標準 SKU 支援[可用性區域](../availability-zones/az-overview.md)案例。 標準 Load Balancer 有數個新的概念，可讓您藉由對應資源與區域並將其分散到區域，將您端對端案例中的可用性最佳化。  請檢閱[可用性區域](../availability-zones/az-overview.md)的指引，以了解可用性區域是什麼，目前有哪些區域支援可用性區域，以及其他相關概念與產品。 可用性區域與標準 Load Balancer 可組合成可擴充且具有彈性的功能集，用以建立許多不同的案例。  請檢閱本文以了解這些[概念](#concepts)，以及基本案例的[設計指引](#design)。
 
 >[!NOTE]
-> Load Balancer Standard SKU 目前為預覽版。 在預覽階段，功能可能沒有與正式運作版功能相同層級的可用性和可靠性。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 針對您的生產環境服務，請使用正式運作版的 [Load Balancer Basic SKU](load-balancer-overview.md)。 若要使用[可用性區域預覽](https://aka.ms/availabilityzones) 搭配此預覽，除了要註冊 Load Balancer [Standard 預覽](#preview-sign-up) 之外，還需要[另外註冊](https://aka.ms/availabilityzones)。
+>如需其他相關主題，請檢閱[可用性區域預覽](https://aka.ms/availabilityzones)。 
 
 ## <a name="concepts"></a>適用於 Load Balancer 的可用性區域概念
 
@@ -151,7 +151,7 @@ Load Balancer 資源可以同時包含區域性和區域備援前端。
 
 跨區域負載平衡是 Load Balancer 可及於任何區域中的後端端點，並獨立於前端及其區域性以外的能力。
 
-如果您想要讓部署對應於並保證屬於單一區域，請將區域性前端和區域性後端資源對應至相同區域。 不需要採取任何動作。
+如果您想要讓部署對應單一區域並保證位於該區域內，請將區域性前端和區域性後端資源對應至相同區域。 不需要採取任何動作。
 
 ### <a name="backend"></a>後端
 
@@ -210,7 +210,7 @@ Load Balancer 可簡化以單一 IP 作為區域備援前端的作業。 區域�
 
 區域性可提供屬於某區域的明確保證，而具有與該區域相同的健康情況。 建立區域性 IP 位址或區域性 Load Balancer 前端的關聯性，可能是理想或合理的表徵，，特別是當您連結的資源是位於相同區域中的區域性 VM 時。  或者，您的應用程式可能需要明確認知資源所在的區域，而您想要明確研判個別區域中的可用性。  您可以選擇將端對端服務的多個區域性前端分散公開於各區域間 (也就是，每個區域各有多個區域性虛擬機器擴展集的區域性前端)。  如果您的區域性前端是公用 IP 位址，您可以透過 [Traffic Manager](../traffic-manager/traffic-manager-overview.md) 使用這幾個區域性前端來公開您的服務。  或者，您可以使用多個區域性前端透過第三方監視解決方案取得個別區域的健康情況和效能深入資訊，並使用區域備援前端公開整體的服務。 您僅應為區域性資源提供與相同區域對應的區域性前端，並避免將可能有害的跨區域案例用於區域性資源。  區域性資源僅存在於有可用性區域的區域中。
 
-在未了解端對端服務的情況下，並沒有通則可說明哪個選擇較為理想。
+在未了解服務架構的情況下，並沒有通則可說明哪個選擇較為理想。
 
 ## <a name="limitations"></a>限制
 

@@ -1,13 +1,13 @@
 ---
-title: "在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共用之 SAP ASCS/SCS 執行個體的多重 SID 高可用性 | Microsoft Docs"
-description: "在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共用之 SAP ASCS/SCS 執行個體的多重 SID 高可用性"
+title: 在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共用之 SAP ASCS/SCS 執行個體的多重 SID 高可用性 | Microsoft Docs
+description: 在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共用之 SAP ASCS/SCS 執行個體的多重 SID 高可用性
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -270,7 +270,7 @@ _**圖 3：**多重 SID SOFS 與 SAP 全域主機名稱相同_
 ><SID2> 全域主機的檔案路徑為 C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\.
 >
 
-針對 \<SID2> 系統，您必須準備 SAP 全域主機 ..\SYS\.。 SOFS 叢集上的資料夾。
+針對 \<SID2> 系統，您必須準備 SAP 全域主機 ..\SYS\.. SOFS 叢集上的資料夾。
 
 若要為 \<SID2> 執行個體準備 SAP 全域主機，請執行下列 PowerShell 指令碼：
 

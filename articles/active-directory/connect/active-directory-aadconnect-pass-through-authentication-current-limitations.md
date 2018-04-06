@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 3e533b8b23c095a3de845d9b26a96aea9d8ee086
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 680e9967010771b8e3651c6f4eed81237f8fb4c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 傳遞驗證：目前的限制
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 03/16/2018
 - 使用 iOS 安裝小幫手的 Apple 裝置註冊計劃 (Apple DEP) 不支援新式驗證。 它無法在 Intune 中，對使用傳遞驗證的受控網域註冊 Apple DEP 裝置。 請考慮改用[公司入口網站應用程式](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/)。
 
 >[!IMPORTANT]
->_僅_針對不支援的情節，請在 Azure AD Connect 精靈的 [選用功能](active-directory-aadconnect-get-started-custom.md#optional-features) 頁面上，啟用密碼雜湊同步處理作為因應措施。
+>_僅_針對不支援的情節，請在 Azure AD Connect 精靈的 [選用功能](active-directory-aadconnect-get-started-custom.md#optional-features) 頁面上，啟用密碼雜湊同步處理作為因應措施。 當使用者登入「不支援的情節」一節中列出的應用程式時，傳遞驗證代理程式_不_會處理這些特定的登入要求，因此[傳遞驗證記錄](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)不會記錄。
 
 >[!NOTE]
 啟用密碼雜湊同步處理可讓您選擇在內部部署基礎結構中斷時，將驗證容錯移轉。 這個從傳遞驗證到 Active Directory 密碼雜湊同步處理的容錯移轉不會自動進行， 您必須使用 Azure AD Connect，以手動方式切換登入方法。 如果執行 Azure AD Connect 的伺服器關閉，您將需要 Microsoft 支援服務的協助，以關閉傳遞驗證。

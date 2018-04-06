@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a275df84ce784147b5fd4f09afe4995417affffd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定價指導方針
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 03/08/2018
 
 ### <a name="pay-per-usage"></a>依使用量付費
 
-**依使用量支付 SQL Server 授權費用**意謂著執行 Azure VM 的每分鐘費用都包含 SQL Server 授權的費用。 您可以在 [Azure VM 定價頁面](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)查看不同 SQL Server 版本 (Web、Standard、Enterprise) 的定價。 所有 SQL Server 版本 (2012 SP3 到 2017) 的費用都相同。 一般就 SQL Server 授權而言，每分鐘的授權費用會取決於 VM 核心數量。
+**依使用量支付 SQL Server 授權費用**意謂著執行 Azure VM 的每秒鐘費用都包含 SQL Server 授權的費用。 您可以在 [Azure VM 定價頁面](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)查看不同 SQL Server 版本 (Web、Standard、Enterprise) 的定價。 所有 SQL Server 版本 (2012 SP3 到 2017) 的費用都相同。 一般就 SQL Server 授權而言，每秒鐘的授權費用會取決於 VM 核心數量。
 
 針對下列情況，建議採用依使用量支付 SQL Server 授權費用：
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 03/08/2018
 > 請在 10 天內告訴我們您將在 Azure 中使用多少個 SQL Server 授權。 上述映像的連結包含如何這麼做的相關指示。
 
 > [!NOTE]
-> 不可能將支付 SQL Server VM 的每分鐘付費授權模式變更成使用自己的授權。 在此情況下，您必須建立新的 BYOL VM，並將資料庫移轉到新的 VM。 
+> 不可能將支付 SQL Server VM 的每秒鐘付費授權模式變更成使用自己的授權。 在此情況下，您必須建立新的 BYOL VM，並將資料庫移轉到新的 VM。 
 
 ## <a name="avoid-unnecessary-costs"></a>避免不必要的費用
 

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: d231fd525d310d2496c9ace40808b7deab0dd48f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0859031ac26b061861aa51dce1093f2fe4350935
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="model-management-setup"></a>模型管理安裝
 
@@ -154,12 +154,9 @@ az ml account modelmanagement create -l [Azure region, e.g. eastus2] -n [your ac
 az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
 ```
 
-### <a name="deploy-your-model"></a>部署模型
-您現在即可準備部署已儲存的模型作為 Web 服務。 
-
-```azurecli
-az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
-```
+由於此程序和環境均已就緒，且已建立模型管理帳戶來提供管理和部署機器學習模型所需的功能 (如需概略說明，請參閱 [Azure Machine Learning 模型管理](model-management-overview.md))。
 
 ## <a name="next-steps"></a>後續步驟
-嘗試資源庫中的其中一個範例。
+
+* 如需如何部署在本機電腦或叢集上執行之 Web 服務的說明，請繼續參閱[將機器學習服務模型部署為 Web 服務](model-management-service-deploy.md)。
+* 嘗試資源庫中的其中一個範例。

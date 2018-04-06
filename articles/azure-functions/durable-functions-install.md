@@ -1,24 +1,24 @@
 ---
-title: "安裝 Durable Functions 擴充和範例 - Azure"
-description: "了解如何安裝 Azure Functions 的 Durable Functions 擴充，供入口網站開發或 Visual Studio 開發使用。"
+title: 安裝 Durable Functions 擴充和範例 - Azure
+description: 了解如何安裝 Azure Functions 的 Durable Functions 擴充，供入口網站開發或 Visual Studio 開發使用。
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>安裝 Durable Functions 擴充和範例 (Azure Functions)
 
@@ -77,12 +77,17 @@ Visual Studio Code 提供涵蓋所有主要平台 (Windows、macOS 和 Linux) �
 3. 在命令提示字元/終端機視窗中執行下列命令來安裝 Azure Functions 永久性擴充功能：
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.2.0-beta3
     ```
-4. 執行 Azure 儲存體模擬器，或者使用實際的 Azure 儲存體連線字串來更新 *local.appsettings.json* 檔案。
-3. 在 Visual Studio Code 中開啟專案。 
-5. 如需有關如何執行範例的指示，請從[函式鏈結 - Hello 序列範例](durable-functions-sequence.md)開始。 此範例可以在本機執行，或發佈至 Azure。
-6. 在命令提示字元/終端機中執行下列命令來開始專案：
+4. 在命令提示字元/終端機視窗中執行下列命令來安裝 Azure Functions Twilio 擴充功能：
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta4
+    ```
+5. 執行 Azure 儲存體模擬器，或者使用實際的 Azure 儲存體連線字串來更新 *local.appsettings.json* 檔案。
+6. 在 Visual Studio Code 中開啟專案。 
+7. 如需有關如何執行範例的指示，請從[函式鏈結 - Hello 序列範例](durable-functions-sequence.md)開始。 此範例可以在本機執行，或發佈至 Azure。
+8. 在命令提示字元/終端機中執行下列命令來開始專案：
     ```bash
     func host start
     ```

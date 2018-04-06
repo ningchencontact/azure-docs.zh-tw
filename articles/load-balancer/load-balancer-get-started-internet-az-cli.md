@@ -4,7 +4,7 @@ description: 了解如何使用 Azure CLI 建立具有區域備援公用 IP 位�
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 725e1717110ebfe52e2b45ab0c45edc36055704f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1a430f5c6349741e5d04626158dc89d42169a15b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>使用 Azure CLI 建立具有區域備援前端的公用 Load Balancer Standard
 
@@ -27,19 +27,14 @@ ms.lasthandoff: 03/09/2018
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="register-for-availability-zones-load-balancer-standard-and-public-ip-standard-preview"></a>註冊可用性區域、Load Balancer Standard 和 Public IP Standard 預覽版
+## <a name="register-for-availability-zones-preview"></a>註冊可用性區域預覽
 
 如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.17 版或更新版本。  若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
->[!NOTE]
-[Load Balancer Standard SKU](https://aka.ms/azureloadbalancerstandard) 目前為預覽狀態。 在預覽階段，功能可能沒有與正式發行版本功能相同層級的可用性和可靠性。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 為您的生產服務使用正式推出的 [Load Balancer Basic SKU](load-balancer-overview.md)。 
-
 > [!NOTE]
 > 可用性區域為預覽版功能，可供開發和測試案例使用。 此功能支援選取 Azure 資源和區域以及 VM 大小系列。 如需如何開始使用，以及有哪些 Azure 資源、區域和 VM 大小系列可供用來試用可用性區域，請參閱[可用性區域概觀](https://docs.microsoft.com/azure/availability-zones/az-overview)。 如需支援，您可以透過 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) 與我們聯繫或[開啟 Azure 支援票證](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。  
-
-在選取 Load Balancer 前端公用 IP 位址的區域或區域備援選項之前，您必須先完成[註冊可用性區域預覽版](https://docs.microsoft.com/azure/availability-zones/az-overview)中的步驟。
 
 請確定您已安裝最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 並使用 [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login) \(英文\) 登入 Azure 帳戶。
 

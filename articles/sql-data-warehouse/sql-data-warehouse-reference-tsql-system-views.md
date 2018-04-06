@@ -1,11 +1,11 @@
 ---
-title: "SQL 資料倉儲系統檢視表 | Microsoft Docs"
-description: "SQL 資料倉儲的系統檢視表內容的連結。"
+title: SQL 資料倉儲系統檢視表 | Microsoft Docs
+description: SQL 資料倉儲的系統檢視表內容的連結。
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 01/22/2018
 ms.author: barbkess
-ms.openlocfilehash: 51e2bf8e9e0bbd6b2e61d37b438bf51325192058
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 96bd74a9c68cc77d35832836afa966958ed37264
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="system-views"></a>系統檢視表
 ## <a name="sql-data-warehouse-catalog-views"></a>SQL 資料倉儲目錄檢視
@@ -233,12 +233,12 @@ SQL 資料倉儲和分析平台系統的 Parallel Data Warehouse (PDW) 都使用
 * [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>後續步驟
-如需更多的參考資訊，請參閱 [SQL 資料倉儲參考概觀][SQL Data Warehouse reference overview]。
+如需更多的參考資訊，請參閱 [SQL 資料倉儲參考概觀][SQL 資料倉儲參考概觀]。
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 

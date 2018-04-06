@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 中建立 Analysis Services 伺服器 |Microsoft Docs"
-description: "瞭解如何在 Azure 中建立 Analysis Services 伺服器執行個體。"
+title: 在 Azure 中建立 Analysis Services 伺服器 |Microsoft Docs
+description: 瞭解如何在 Azure 中建立 Analysis Services 伺服器執行個體。
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 7f560216-8a9a-4d06-852e-48cf24deab19
 ms.service: analysis-services
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 54b9c9df1c368575c271a44e4738a2fc25ac4798
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9a80d7e6e9f24ccc730fe747fa0a71b91f22b7e9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>在 Azure 入口網站中建立 Azure Analysis Services 伺服器
 本文將逐步引導您在 Azure 訂用帳戶中建立 Analysis Services 伺服器資源。
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/21/2018
 > 
 > 
 
-## <a name="to-create-a-server-in-azure-portal"></a>若要在 Azure 入口網站中建立伺服器
+## <a name="to-create-a-server-in-the-azure-portal"></a>若要在 Azure 入口網站中建立伺服器
 1. 登入 [Azure 入口網站](https://portal.azure.com)。  
 2. 按一下 [+ 新增] > [資料 + 分析] > [Analysis Services]。
 3. 在 [Analysis Services] 刀鋒視窗中，填寫必要的欄位，然後按 [建立]。

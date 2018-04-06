@@ -1,14 +1,14 @@
 ---
-title: "Azure HDInsight 工具 - 使用適用於 Hive、LLAP 或 pySpark 的 Visual Studio Code | Microsoft Docs"
-description: "了解如何使用適用於 Visual Studio Code 的 Azure HDInsight 工具來建立及提交查詢和指令碼。"
+title: Azure HDInsight 工具 - 使用適用於 Hive、LLAP 或 pySpark 的 Visual Studio Code | Microsoft Docs
+description: 了解如何使用適用於 Visual Studio Code 的 Azure HDInsight 工具來建立及提交查詢和指令碼。
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
-manager: 
+manager: ''
 editor: jgao
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 4f0bcd0992a02e64b4b10347fc30776af17900bd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -69,9 +69,9 @@ ms.lasthandoff: 02/21/2018
 
 4. 從 [檔案總管] 開啟 **XXXX_hdi_settings.json**，或以滑鼠右鍵按一下指令碼編輯器以選取 [設定組態]。 您可以設定登入項目、預設叢集和作業提交參數，如檔案中的範例所示。 您也可以讓其餘參數保持空白。
 
-## <a name="connect-to-azure"></a>連接到 Azure
+## <a name="connect-to-hdinsight-cluster"></a>連接至 HDInsight 叢集
 
-您必須先連線到 Azure 帳戶，才可以從 VS Code 將指令碼提交到 HDInsight 叢集。
+將指令碼從 VS Code 提交到 HDInsight 叢集之前，您需要先連接 Azure 帳戶或叢集 (使用 Ambari 使用者名稱/密碼或加入網域的帳戶)。
 
 **連接到 Azure**
 

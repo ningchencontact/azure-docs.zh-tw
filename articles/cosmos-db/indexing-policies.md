@@ -1,10 +1,10 @@
 ---
-title: "Azure Cosmos DB 編製索引原則 | Microsoft Docs"
-description: "了解 Azure Cosmos DB 中編製索引的運作方式。 了解如何設定編製索引原則，以自動編製索引並追求更高的效能。"
-keywords: "編製索引運作方式, 自動編製索引, 為資料庫編製索引"
+title: Azure Cosmos DB 編製索引原則 | Microsoft Docs
+description: 了解 Azure Cosmos DB 中編製索引的運作方式。 了解如何設定編製索引原則，以自動編製索引並追求更高的效能。
+keywords: 編製索引運作方式, 自動編製索引, 為資料庫編製索引
 services: cosmos-db
-documentationcenter: 
-author: arramac
+documentationcenter: ''
+author: rafats
 manager: jhubbard
 editor: monicar
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/17/2017
-ms.author: arramac
-ms.openlocfilehash: b09f5323f0378721412baade9be9926ebd0c171e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 03/26/2018
+ms.author: rafats
+ms.openlocfilehash: 5610c5fdc6a04f9ef13d2e4592f0d7e5d8eba30c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何為資料編製索引？
 
 根據預設，會為所有 Azure Cosmos DB 資料編製索引。 儘管許多客戶都樂意讓 Azure Cosmos DB 自動處理所有編製索引層面，但在 Azure Cosmos DB 中，您也可以在建立時為集合指定自訂的「編製索引原則」。 Azure Cosmos DB 中的編制索引原則比其他資料庫平台中提供的次要索引更有彈性，功能更強大。 在 Azure Cosmos DB 中，您可以設計和自訂索引的圖形，卻不必犧牲結構描述彈性。 
 
 若要了解編製索引如何在 Azure Cosmos DB 內運作，您必須了解透過管理編製索引原則，您可以在索引儲存空間負荷、寫入和查詢輸送量，以及查詢一致性之間進行細微的取捨。  
+
+在下列影片中，Azure Cosmos DB 程式管理員 Andrew Liu 會示範 Azure Cosmos DB 自動編製索引的功能，以及如何在 Azure Cosmos DB 容器上微調和設定編製索引原則。 
+
+>[!VIDEO https://www.youtube.com/embed/uFu2D-GscG0]
 
 在本文中，我們將深入探討 Azure Cosmos DB 編製索引原則、自訂編製索引原則的方式及相關聯的取捨。 
 

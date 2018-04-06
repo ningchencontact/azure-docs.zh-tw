@@ -1,32 +1,32 @@
 ---
-title: "設定 Azure Load Balancer 的高可用性連接埠| Microsoft Docs"
-description: "了解如何使用高可用性連接埠來對所有連接埠上的內部流量進行負載平衡"
+title: 設定 Azure Load Balancer 的高可用性連接埠| Microsoft Docs
+description: 了解如何使用高可用性連接埠來對所有連接埠上的內部流量進行負載平衡
 services: load-balancer
 documentationcenter: na
 author: rdhillon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2017
+ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 36bc3d7a35f41384706cbc7101457d00848639b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>設定內部負載平衡器的高可用性連接埠
 
 本文提供如何在內部負載平衡器上部署高可用性連接埠的範例。 如需有關網路虛擬裝置 (NVA) 特有組態的詳細資訊，請參閱對應的提供者網站。
 
 >[!NOTE]
-> 高可用性連接埠功能目前為預覽版。 在預覽階段，功能可能沒有與正式運作版功能相同層級的可用性和可靠性。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+>Azure Load Balancer 支援兩種不同類型：基本和標準。 本文討論標準 Load Balancer。 如需基本 Load Balancer 的詳細資訊，請參閱 [Load Balancer 概觀](load-balancer-overview.md)。
 
 此圖表說明本文所述部署範例的下列組態：
 

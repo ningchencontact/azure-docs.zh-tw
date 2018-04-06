@@ -1,18 +1,18 @@
 ---
-title: "Azure Event Grid 事件結構描述"
-description: "描述 Azure Event Grid 中事件提供的屬性"
+title: Azure Event Grid 事件結構描述
+description: 描述 Azure Event Grid 中事件提供的屬性
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/22/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 事件結構描述
 
@@ -97,7 +97,11 @@ ms.lasthandoff: 02/24/2018
 * [IoT 中心](event-schema-iot-hub.md)
 * [資源群組 (管理作業)](event-schema-resource-groups.md)
 
-針對自訂主題，事件發行者會決定資料物件。 最高層級的資料應包含與標準資源定義事件相同的欄位。 在發佈事件至自訂主題時，您應考慮以幫助路由與篩選為目標建立事件的主體。
+針對自訂主題，事件發行者會決定資料物件。 最高層級的資料應包含與標準資源定義事件相同的欄位。
+
+將事件發佈至自訂主題時，為您的事件建立主旨，以便訂閱者輕鬆地了解他們是否對該事件感興趣。 訂閱者使用主旨以篩選和路由事件。 考慮為事件發生的位置提供路徑，以便訂閱者可以根據該路徑的區段進行篩選。 該路徑可讓訂閱者縮小或放大篩選事件的範圍。 例如，如果您在主旨中提供三區段路徑，例如 `/A/B/C`，訂閱者可根據第一個區段 `/A` 進行篩選，以取得一組廣泛的事件。 這些訂閱者可使用 `/A/B/C` 或 `/A/D/E` 之類的主旨來取得事件。 其他訂閱者可以根據 `/A/B` 篩選以取得一組範圍較小的事件。
+
+有時候您的主旨需要更多關於發生事情的細節。 例如，當檔案新增至容器時，**儲存體帳戶**發行者會提供主旨 `/blobServices/default/containers/<container-name>/blobs/<file>`。 訂閱者可根據路徑 `/blobServices/default/containers/testcontainer` 篩選，以取得儲存體帳戶中該容器的所有事件，但不會取得其他容器中的事件。 訂閱者也可以根據尾碼 `.txt` 進行篩選或路由，以僅與文字檔搭配使用。
 
 ## <a name="next-steps"></a>後續步驟
 

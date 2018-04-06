@@ -1,11 +1,11 @@
 ---
-title: "將存取重設為 Azure Linux VM | Microsoft Docs"
-description: "如何使用 VMAccess 擴充功能和 Azure CLI 2.0 在 Linux VM 上管理系統管理使用者及重設存取"
+title: 將存取重設為 Azure Linux VM | Microsoft Docs
+description: 如何使用 VMAccess 擴充功能和 Azure CLI 2.0 在 Linux VM 上管理系統管理使用者及重設存取
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
 ms.service: virtual-machines-linux
@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
-ms.openlocfilehash: 235a6367ad317945cfeaaa6aae4e060208fb8e8e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a5467722b347e68693b335da6b3ac3c5d1a3a441
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>使用 VMAccess 擴充功能搭配 Azure CLI 2.0 在 Linux VM 上管理系統管理使用者、SSH 及檢查或修復磁碟
 Linux VM 的磁碟顯示錯誤。 您不知怎麼重設 Linux VM的根密碼，或不小心刪除了 SSH 私密金鑰。 如果是過去資料中心的時代發生此狀況，您必須親赴現場，然後再開啟 KVM 才能存取伺服器主控台。 請將 Azure VMAccess 擴充功能想成 KVM 交換器，在此可以存取主控台重設 Linux 存取或執行磁碟等級維護。
 
-本文將說明如何使用 Azure VMAccess 擴充功能來檢查或修復磁碟、重設使用者存取、管理系統管理使用者帳戶或重設 Linux 上的 SSH 組態。 您也可以使用 [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 來執行這些步驟。
+本文將說明如何使用 Azure VMAccess 擴充功能來檢查或修復磁碟、重設使用者存取、管理系統管理使用者帳戶或更新 Linux 上的 SSH 組態。 您也可以使用 [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 來執行這些步驟。
 
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>使用 VMAccess 擴充功能的方式
@@ -35,8 +35,8 @@ Linux VM 的磁碟顯示錯誤。 您不知怎麼重設 Linux VM的根密碼，�
 
 下列範例會使用 [az vm user](/cli/azure/vm/user) 命令。 若要執行這些步驟，您需要安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。
 
-## <a name="reset-ssh-key"></a>重設 SSH 金鑰
-下列範例會重設名為 `myVM` 的 VM 上使用者 `azureuser` 的 SSH 金鑰：
+## <a name="update-ssh-key"></a>更新 SSH 金鑰
+下列範例會更新名為 `myVM` 的 VM 上使用者 `azureuser` 的 SSH 金鑰：
 
 ```azurecli
 az vm user update \
@@ -45,6 +45,8 @@ az vm user update \
   --username azureuser \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
+
+> **注意：**若為 VM 上的系統管理使用者，`az vm user update` 命令會將新的公用金鑰文字附加至 `~/.ssh/authorized_keys` 檔案。 這並非取代或移除任何現有的 SSH 金鑰。 並不會移除先前在部署期間所設定的金鑰，也不會移除 VMAccess 擴充功能提供的後續更新。
 
 ## <a name="reset-password"></a>重設密碼
 下列範例會重設名為 `myVM` 的 VM 上使用者 `azureuser` 的密碼：
@@ -94,9 +96,9 @@ az vm user delete \
 下列範例會使用原始 JSON 檔案。 請使用 [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) 來接著呼叫您的 JSON 檔案。 您也可以從 Azure 範本呼叫這些 JSON 檔案。 
 
 ### <a name="reset-user-access"></a>重設使用者存取
-如果您已無法存取 Linux VM 上的根，可以啟動 VMAccess 指令碼來重設使用者的 SSH 金鑰或密碼。
+如果您已無法存取 Linux VM 上的根，可以啟動 VMAccess 指令碼來更新使用者的 SSH 金鑰或密碼。
 
-若要重設使用者的 SSH 公開金鑰，請建立名為 `reset_ssh_key.json` 的檔案，並以下列格式新增設定。 將您自己的值取代為 `username` 和 `ssh_key` 參數：
+若要更新使用者的 SSH 公開金鑰，請建立名為 `update_ssh_key.json` 的檔案，並以下列格式新增設定。 將您自己的值取代為 `username` 和 `ssh_key` 參數：
 
 ```json
 {
@@ -114,7 +116,7 @@ az vm extension set \
   --name VMAccessForLinux \
   --publisher Microsoft.OSTCExtensions \
   --version 1.4 \
-  --protected-settings reset_ssh_key.json
+  --protected-settings update_ssh_key.json
 ```
 
 若要重設使用者密碼，請建立名為 `reset_user_password.json` 的檔案，並以下列格式新增設定。 將您自己的值取代為 `username` 和 `password` 參數：

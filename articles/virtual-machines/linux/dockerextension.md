@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Docker VM 延伸模組 | Microsoft Docs"
-description: "了解如何使用 Resource Manager 範本和 Azure CLI 2.0，在 Azure 中使用 Docker VM 延伸模組快速而安全地部署 Docker 環境"
+title: 使用 Azure Docker VM 延伸模組 | Microsoft Docs
+description: 了解如何使用 Resource Manager 範本和 Azure CLI 2.0，在 Azure 中使用 Docker VM 延伸模組快速而安全地部署 Docker 環境
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: fe4013eefc0a7a896d6e8eb737ee8e2bc26ecf61
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1e5a4fcfd758c12213d6de7d0f5cfcc78531ee97
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>使用 Docker VM 延伸模組在 Azure 中建立 Docker 環境
 Docker 是常用的容器管理和映像處理平台，它能讓您在 Linux 上快速地操作容器。 在 Azure 中，您可以根據您的需求使用幾個方式來部署 Docker。 本文著重於搭配 Azure CLI 2.0 使用 Docker VM 延伸模組與 Azure Resource Manager 範本。 您也可以使用 [Azure CLI 1.0](dockerextension-nodejs.md) 來執行這些步驟。
+
+> [!WARNING]
+> 適用於 Linux 的 Azure Docker VM 擴充功能已被取代，且即將在 2018 年 11 月淘汰。
+> 該擴充功能只會安裝 Docker，因此像是 cloud-init 或自訂指令碼擴充功能等替代方案，都是安裝選定 Docker 版本的更佳方法。 如需 cloud-init 使用方法的詳細資訊，請參閱[使用 cloud-init 來自訂 Linux VM](tutorial-automate-vm-deployment.md)。
 
 ## <a name="azure-docker-vm-extension-overview"></a>Azure Docker VM 延伸模組概觀
 Azure Docker VM 擴充功能會在您的 Linux 虛擬機器 (VM) 中安裝並設定 Docker 精靈、Docker 用戶端和 Docker Compose。 相較於只使用 Docker 電腦或自行建立 Docker 主機，您使用 Azure Docker VM 延伸模組會有更多控制權和功能。 這些額外功能，例如 [Docker Compose](https://docs.docker.com/compose/overview/)，讓 Azure Docker VM 延伸模組適用於更穩固的開發人員或生產環境。

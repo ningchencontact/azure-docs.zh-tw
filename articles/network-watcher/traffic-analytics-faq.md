@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: fd97e0ca7615691c537dcb1dc18643627046742d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常見問題集
 
@@ -29,6 +29,18 @@ ms.lasthandoff: 03/09/2018
     - 已針對您要監視的 NSG 啟用 NSG 流量記錄
     - 用來儲存原始 flog 記錄的 Azure 儲存體帳戶
     - 具有讀取和寫入權限的 Log Analytics (OMS) 工作區
+    - 必須將 Microsoft.Network 提供者的下列動作指派給您的帳戶：
+
+        - Microsoft.Network/applicationGateways/read
+        - Microsoft.Network/connections/read
+        - Microsoft.Network/loadBalancers/read 
+        - Microsoft.Network/localNetworkGateways/read 
+        - Microsoft.Network/networkInterfaces/read 
+        - Microsoft.Network/networkSecurityGroups/read 
+        - Microsoft.Network/publicIPAddresses/read
+        - Microsoft.Network/routeTables/read
+        - Microsoft.Network/virtualNetworkGateways/read 
+        - Microsoft.Network/virtualNetworks/read
 
 2.  在哪些 Azure 區域中可使用流量分析？
 
@@ -94,7 +106,7 @@ ms.lasthandoff: 03/09/2018
 
 14.  流量分析的價格為何？
 
-        流量分析處於公開預覽狀態時，不會收取任何費用。 產生 NSG 流量記錄以及在 OMS 工作區中保留資料則會依所發佈的費率收費。
+        流量分析的計量方式可用來加強減少記錄檔，並且將增強型記錄檔儲存於 Log Analytics 工作區。 在預覽中，不會對於加強減少記錄檔收取流量分析的費用，不過，工作區中的資料保留只會以公佈的費率計費。 出現流量分析的價格後，就會更新此回應。
 
 15.  如何在地理地圖檢視中使用鍵盤來巡覽？
 

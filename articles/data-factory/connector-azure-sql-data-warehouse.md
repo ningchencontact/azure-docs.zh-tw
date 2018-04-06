@@ -1,11 +1,11 @@
 ---
-title: "使用 Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 | Microsoft Docs"
-description: "了解如何使用 Data Factory 將資料從支援的來源存放區複製到「Azure SQL 資料倉儲」，或從「SQL 資料倉儲」複製到支援的接收存放區。"
+title: 使用 Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 | Microsoft Docs
+description: 了解如何使用 Data Factory 將資料從支援的來源存放區複製到「Azure SQL 資料倉儲」，或從「SQL 資料倉儲」複製到支援的接收存放區。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 2601d386bdacbe005b2930a44db531a0b58fb7b5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5d284277f600465345be0058468192f2f5609d89
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -395,7 +395,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store (使
 1. 「來源連結的服務」類型為：AzureStorage 或具備服務主題驗證的 AzureDataLakeStore。
 2. 「輸入資料集」的類型為：**AzureBlob** 或 **AzureDataLakeStoreFile**，而 `type` 屬性底下的格式類型為 **OrcFormat**、**ParquetFormat** 或具備下列設定的 **TextFormat**：
 
-   1. `rowDelimiter` 必須是 **\n**。
+   1. `rowDelimiter` 必須為 **\n**。
    2. `nullValue` 設定為「空字串」 ("") 或將 `treatEmptyAsNull` 設定為 **true**。
    3. `encodingName` 設定為 **utf-8**，也就是「預設」值。
    4. 未指定 `escapeChar`、`quoteChar`、`firstRowAsHeader` 和 `skipLineCount`。
@@ -510,7 +510,7 @@ PolyBase 載入被限制為只能載入小於 **1 MB**，且不能載入至 VARC
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL 資料倉儲資源類別
 
-若要達到最佳的可能輸送量，請考慮透過 PolyBase 將更大的資源類別指派給要用來將資料載入 SQL 資料倉儲的使用者。 遵循[變更使用者資源類別範例](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example)，了解如何執行這項作業。
+若要達到最佳的可能輸送量，請考慮透過 PolyBase 將更大的資源類別指派給要用來將資料載入 SQL 資料倉儲的使用者。
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的 tableName
 

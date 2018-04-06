@@ -1,12 +1,12 @@
 ---
-title: "管理 Microsoft Azure StorSimple 8000 系列裝置的 StorSimple 儲存體帳戶認證 | Microsoft Docs"
-description: "說明如何使用 StorSimple 裝置管理員的 [設定] 頁面來新增、編輯、刪除或替換儲存體帳戶的安全性金鑰。"
+title: 管理 Microsoft Azure StorSimple 8000 系列裝置的 StorSimple 儲存體帳戶認證 | Microsoft Docs
+description: 說明如何使用 StorSimple 裝置管理員的 [設定] 頁面來新增、編輯、刪除或替換儲存體帳戶的安全性金鑰。
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article

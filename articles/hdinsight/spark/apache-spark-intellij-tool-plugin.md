@@ -1,8 +1,8 @@
 ---
-title: "適用於 IntelliJ 的 Azure 工具組：建立適用於 HDInsight 叢集的 Spark 應用程式 | Microsoft Docs"
-description: "使用適用於 IntelliJ 的 Azure 工具組來開發以 Scala 撰寫的 Spark 應用程式，並將它們提交到 HDInsight Spark 叢集。"
+title: 適用於 IntelliJ 的 Azure 工具組：建立適用於 HDInsight 叢集的 Spark 應用程式 | Microsoft Docs
+description: 使用適用於 IntelliJ 的 Azure 工具組來開發以 Scala 撰寫的 Spark 應用程式，並將它們提交到 HDInsight Spark 叢集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 69f5857f89271b3e4865b93e42e5233ead572715
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2ebf87b0436dbc5ee12a1c41d33ff3d17af1f043
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用適用於 IntelliJ 的 Azure 工具組建立適用於 HDInsight 叢集的 Spark 應用程式
 
@@ -44,6 +44,10 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="install-azure-toolkit-for-intellij"></a>安裝適用於 IntelliJ 的 Azure 工具組
 如需安裝指示，請參閱[安裝適用於 IntelliJ 的 Azure 工具組](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation)。
+
+## <a name="get-started"></a>開始使用
+使用者可以[登入 Azure 訂用帳戶](#sign-in-to-your-azure-subscription)，或是使用 Ambari 使用者名稱/密碼或加入網域的認證開始[連結 HDInsight 叢集](#link-a-cluster)。
+
 
 ## <a name="sign-in-to-your-azure-subscription"></a>登入您的 Azure 訂用帳戶：
 
@@ -75,12 +79,14 @@ ms.lasthandoff: 02/21/2018
 
    ![連結叢集操作功能表](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. 輸入 [叢集名稱]、[儲存體帳戶]、[儲存體金鑰]，然後選取 [儲存體容器] 中的容器，最後輸入使用者名稱和密碼。 如果驗證失敗，您需要檢查使用者名稱和密碼。
+2. 輸入 [叢集名稱]、[使用者名稱] 和 [密碼]。 如果驗證失敗，您需要檢查使用者名稱和密碼。 您也可以選擇新增 [儲存體帳戶]、[儲存體金鑰]，然後從 [儲存體容器] 選取容器。 儲存體資訊適用於左側樹狀目錄中的儲存體總管
    
    ![連結叢集對話方塊](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
 
    > [!NOTE]
-   > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的儲存體金鑰、使用者名稱和密碼。 
+   > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的儲存體金鑰、使用者名稱和密碼。
+   > ![IntelliJ 中的儲存體總管](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
+
    
 3. 如果輸入資訊正確無誤，您可以在 [HDInsight] 節點中看見連結的叢集。 您現在可以將應用程式提交至此連結的叢集。
 

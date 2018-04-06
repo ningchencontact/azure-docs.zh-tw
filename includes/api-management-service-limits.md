@@ -1,10 +1,32 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: api-management
+author: vladvino
+ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
+ms.service: api-management
+ms.topic: include
+ms.date: 03/22/2018
+ms.author: vlvinogr
+ms.custom: include file
+ms.openlocfilehash: bee289da3f18edd0cb425f3d9acde084567a3b13
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/28/2018
+---
 | 資源 | 限制 |
 | --- | --- |
-| API 呼叫 (每個級別單位) |每日 3200 萬<sup>1</sup> |
-| 資料傳輸 (每個級別單位) |每日 161 GB<sup>1</sup> |
-| 快取 |5 GB<sup>1</sup> |
-| 級別單位 |無限制 <sup>1</sup> |
-| Azure Active Directory 整合 |無限制的使用者帳戶<sup>1</sup> |
+| 級別單位 | 每個區域 10 個<sup>1</sup> |
+| 快取 | 每個單位 5 GB<sup>1</sup> |
+| 每個 HTTP 授權單位的並行後端連線數目<sup>2</sup> | 每個單位 2048 個<sup>3</sup> |
+| 最大快取回應大小 | 10MB |
+| 最大自訂閘道網域數目 | 每個服務執行個體 20 個<sup>4</sup> |
 
-<sup>1</sup>每個定價層的 API 管理限制不同。 若要查看定價層和其相關聯的限制與調整選項，請參閱 [API 管理價格](https://azure.microsoft.com/pricing/details/api-management/)。
+
+<sup>1</sup>每個定價層的 API 管理限制不同。 若要查看定價層和調整限制，請移至 [API 管理價格](https://azure.microsoft.com/pricing/details/api-management/)。
+<sup>2</sup> 除非後端明確關閉連線，否則連線會經過集區化和重複使用。
+<sup>3</sup> 基本、標準和高階層的每個單位。 開發人員層的限制為 1024 個。
+<sup>4</sup> 只有高階層提供。
+
 

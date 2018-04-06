@@ -1,9 +1,9 @@
 ---
-title: "建立 Azure 服務的警示 - PowerShell | Microsoft Docs"
-description: "當符合您指定的條件時，觸發電子郵件、通知、呼叫網站 URL (Webhook) 或自動化。"
+title: 建立 Azure 服務的警示 - PowerShell | Microsoft Docs
+description: 當符合您指定的條件時，觸發電子郵件、通知、呼叫網站 URL (Webhook) 或自動化。
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d26ab15b-7b7e-42a9-81c8-3ce9ead5d252
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
-ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>在 Azure 監視器中為 Azure 服務建立計量警示 - PowerShell
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>在 Azure 監視器中為 Azure 服務建立傳統計量警示 - PowerShell
 > [!div class="op_single_selector"]
 > * [入口網站](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,12 +29,18 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>概觀
+
+> [!NOTE]
+> 本文說明如何建立舊版計量警示。 Azure 監視器現在支援[更新更好的計量警示](monitoring-near-real-time-metric-alerts.md)。 這些警示可以監視多個計量，且能針對維度計量發出警示。 即將推出更新計量警示的 Powershell 支援。
+>
+>
+
 此文章說明如何使用 PowerShell 設定 Azure 計量警示。  
 
 您可以收到以您 Azure 服務的監視計量或事件為基礎的警示。
 
 * **計量值** - 當指定的計量值超出您在任一方向指派的臨界值時會觸發警示。 也就是說，當先符合條件而之後該條件不再符合時，兩方面皆會觸發。    
-* **活動記錄檔事件** - 警示可在*每一個*事件上觸發，或是僅在發生特定事件時才觸發。 若要深入了解活動記錄檔警示，請[按一下這裡](monitoring-activity-log-alerts.md)
+* **活動記錄事件** - 警示可在*每一個*事件上觸發，或是僅在發生特定事件時才觸發。 若要深入了解活動記錄檔警示，請[按一下這裡](monitoring-activity-log-alerts.md)
 
 您可以設定當計量警示觸發時執行下列動作︰
 

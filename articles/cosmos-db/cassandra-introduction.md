@@ -1,10 +1,10 @@
 ---
-title: "Azure Cosmos DB Cassandra API 簡介 | Microsoft Docs"
-description: "了解如何透過您已熟悉的 Cassandra 驅動程式和 CQL 使用 Cassandra API，來利用 Azure Cosmos DB 「隨即轉移」現有應用程式和建立新的應用程式。"
+title: Azure Cosmos DB Cassandra API 簡介 | Microsoft Docs
+description: 了解如何透過您已熟悉的 Cassandra 驅動程式和 CQL 使用 Cassandra API，來利用 Azure Cosmos DB 「隨即轉移」現有應用程式和建立新的應用程式。
 services: cosmos-db
 author: govindk
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 88364cecc1fa1ad7318cb28c9708a42e6a807347
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>簡介適用於 Azure Cosmos DB 的 Apache Cassandra API
+# <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Azure Cosmos DB：Apache Cassandra API 簡介
 
 Azure Cosmos DB 提供的 Cassandra API (預覽) 適用於針對 Apache Cassandra 所撰寫、且需要進階功能的應用程式，例如：
 
@@ -43,8 +43,7 @@ Azure Cosmos DB 提供的 Cassandra API (預覽) 適用於針對 Apache Cassandr
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>使用適用於 Azure Cosmos DB 的 Apache Cassandra API 有什麼優點？
 
-
-            **沒有作業管理**：Azure Cosmos DB 是完全受控的服務，可確保 Cassandra API 系統管理員不需要為管理及監視各個作業系統、JVM 和 yaml 檔案及其之間相互作用的各種設定而擔心。 Azure Cosmos DB 可監視輸送量、延遲、儲存體和可用性，並可設定警示。 
+**沒有作業管理**：Azure Cosmos DB 是完全受控的服務，可確保 Cassandra API 系統管理員不需要為管理及監視各個作業系統、JVM 和 yaml 檔案及其之間相互作用的各種設定而擔心。 Azure Cosmos DB 可監視輸送量、延遲、儲存體和可用性，並可設定警示。 
 
 **效能管理**：Azure Cosmos DB 提供受 SLA 支援的低度延遲讀取和寫入 (第 99 個百分位數)。 使用者不需要擔心提供良好的讀取和寫入 SLA 會有很多作業負擔。 這些通常包括排程壓縮、管理標記、Bloom 篩選設定和複本延遲。 Azure Cosmos DB 讓您無須為管理這些問題而擔心，並可專注於應用程式的交付項目。
 

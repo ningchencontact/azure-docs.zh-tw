@@ -1,24 +1,18 @@
 ---
-title: "Azure 自動化原始檔控制與 GitHub Enterprise 的整合 | Microsoft Docs"
-description: "詳細描述如何設定自動化 Runbook 原始檔控制與 GitHub Enterprise 的整合。"
+title: Azure 自動化原始檔控制與 GitHub Enterprise 的整合
+description: 詳細描述如何設定自動化 Runbook 原始檔控制與 GitHub Enterprise 的整合。
 services: automation
-documentationCenter: 
-authors: georgewallace
-manager: jwhit
-editor: 
-ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 07/26/2017
-ms.author: magoedte
-ms.openlocfilehash: 2944b62cb3dc6146573041533d56d45b6cc87f18
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: carmonm
+ms.openlocfilehash: eab61daafe7ef8b5ca2fc1416dc7c04f97b8c671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Azure 自動化案例 - 自動化原始檔控制與 GitHub Enterprise 的整合
 
@@ -52,10 +46,10 @@ GitHRWCredential | 您所建立的認證資產，內含使用者的使用者名�
 
 1. Sync-LocalGitFolderToAutomationAccount Runbook 會使用 [Azure 執行身分帳戶](automation-sec-configure-azure-runas-account.md)進行驗證。 
 
-2. 還需要有一個已啟用和設定 Azure 自動化解決方案的 Microsoft Operations Management Suite (OMS) 工作區。 如果用來安裝和設定此情節的自動化帳戶沒有相關聯的工作區，當您從混合式 Runbook 背景工作角色執行 **New-OnPremiseHybridWorker.ps1** 指令碼時，將會為您建立並設定此工作區。        
+2. 還需要有一個已啟用和設定 Azure 自動化解決方案的 Log Analytics 工作區。 如果用來安裝和設定此情節的自動化帳戶沒有相關聯的工作區，當您從混合式 Runbook 背景工作角色執行 **New-OnPremiseHybridWorker.ps1** 指令碼時，將會為您建立並設定此工作區。        
 
     > [!NOTE]
-    > 目前，下列區域僅支援整合自動化與 OMS - **澳大利亞東南部**、**美國東部 2**、**東南亞**和**西歐**。 
+    > 目前，下列區域僅支援整合自動化與 Log Analytics - **澳大利亞東南部**、**美國東部 2**、**東南亞**和**西歐**。 
 
 3. 可作為專用「混合式 Runbook 背景工作角色」的電腦，此電腦也會裝載 GitHub 軟體並在檔案系統上的來源目錄中維護 Runbook 檔案 (*runbook*.ps1)，以在 GitHub 與「自動化」帳戶之間進行同步處理。
 

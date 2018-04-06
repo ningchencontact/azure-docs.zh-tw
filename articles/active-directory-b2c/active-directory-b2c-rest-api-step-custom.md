@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C：使用 REST API 宣告交換作為協調流程步驟 | Microsoft Docs"
-description: "關於已與 API 整合之 Azure Active Directory B2C 自訂原則的主題"
+title: Azure Active Directory B2C：使用 REST API 宣告交換作為協調流程步驟 | Microsoft Docs
+description: 關於已與 API 整合之 Azure Active Directory B2C 自訂原則的主題
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/24/2017
-ms.author: joroja
-ms.openlocfilehash: 3e4f0bccf02c0332663a746d4ed8e5234c51f54e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: bde1ef711fe19b7e26f2d93b58d653dc816b1a07
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>逐步解說︰將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為協調流程步驟
 
@@ -78,7 +75,7 @@ return request.CreateResponse<ResponseContent>(
     "application/json");
 ```
 
-Azure 函式應用程式可讓您輕鬆地取得函式 URL，此 URL 中包含特定函式的識別碼。 在此案例中，URL 是︰https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==。 您可以使用它來測試。
+Azure 函式應用程式可讓您輕鬆地取得函式 URL，此 URL 中包含特定函式的識別碼。 在此案例中，URL 是：https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==。 您可以使用它來測試。
 
 ## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>步驟 2：在 TrustFrameworExtensions.xml 檔案中，將 RESTful API 宣告交換設為技術設定檔
 

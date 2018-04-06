@@ -1,6 +1,6 @@
 ---
-title: "適用於 MySQL 的 Azure 資料庫中的定價層"
-description: "本文會說明適用於 MySQL 的 Azure 資料庫中的定價層。"
+title: 適用於 MySQL 的 Azure 資料庫中的定價層
+description: 本文會說明適用於 MySQL 的 Azure 資料庫中的定價層。
 services: mysql
 author: jan-eng
 ms.author: janeng
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 6bd24da05c337a902ce0e4a2b9acf22a809eb653
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: ec475648f1da4420e86bf59053d95770409bed8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 02/28/2018
 |    | **基本** | **一般用途** | **記憶體最佳化** |
 |:---|:----------|:--------------------|:---------------------|
 | 計算世代 | Gen 4、Gen 5 | Gen 4、Gen 5 | Gen 5 |
-| 虛擬核心 | 1、2 | 2、4、8、16、32 |2、4、8、16、32 |
+| 虛擬核心 | 1、2 | 2、4、8、16、32 |2、4、8、16 |
 | 每個虛擬核心的記憶體 | 1 倍 | 基本的 2 倍 | 一般用途的 2 倍 |
 | 儲存體大小 | 5 GB 至 1 TB | 5 GB 至 1 TB | 5 GB 至 1 TB |
 | 儲存體類型 | Azure 標準儲存體 | Azure 進階儲存體 | Azure 進階儲存體 |
@@ -40,7 +40,32 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="compute-generations-vcores-and-memory"></a>計算世代、虛擬機器和記憶體
 
-計算資源會作為虛擬核心提供，表示基礎硬體的邏輯 CPU。 目前，有兩個計算世代供您選擇，Gen 4 和 Gen 5。 Gen 4 邏輯 CPU 是以 Intel E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎。 Gen 5 邏輯 CPU 是以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎。
+計算資源會作為虛擬核心提供，表示基礎硬體的邏輯 CPU。 目前，有兩個計算世代供您選擇，Gen 4 和 Gen 5。 Gen 4 邏輯 CPU 是以 Intel E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎。 Gen 5 邏輯 CPU 是以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎。 Gen 4 與 Gen 5 可在下列區域使用 ("X" 代表可用)： 
+
+| **Azure 區域** | **第 4 代** | **第 5 代** |
+|:---|:----------:|:--------------------:|
+| 美國中部 |  | X |
+| 美國東部 | X | X |
+| 美國東部 2 | X |  |
+| 美國中北部 | X |  |
+| 美國中南部 | X |  |
+| 美國西部 | X | X |
+| 美國西部 2 |  | X |
+| 加拿大中部 | X | X |
+| 加拿大東部 | X | X |
+| 巴西南部 | X |  |
+| 北歐 | X | X |
+| 西歐 | X | X |
+| 英國西部 |  | X |
+| 英國南部 |  | X |
+| 東亞 | X |  |
+| 東南亞 | X |  |
+| 澳洲東部 |  | X |
+| 印度中部 | X |  |
+| 印度西部 | X |  |
+| 日本東部 | X |  |
+| 日本西部 | X |  |
+| 韓國南部 |  | X |
 
 根據定價層，每個虛擬核心都以特定數量的記憶體來佈建。 當您為伺服器增加或減少虛擬核心數目時，記憶體就會按比例增加或減少。 一般用途層提供給每個虛擬核心的記憶體數量是基本層的兩倍。 記憶體最佳化層提供的記憶體數量是一般用途層的兩倍。
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect：選取安裝類型 | Microsoft Docs"
-description: "本主題將逐步解說如何選取要用於 Azure AD Connect 的安裝類型"
+title: Azure AD Connect：選取安裝類型 | Microsoft Docs
+description: 本主題將逐步解說如何選取要用於 Azure AD Connect 的安裝類型
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 76f1ce12ab149f57ec6e995d132de83105c5e0ca
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>選取要用於 Azure AD Connect 的安裝類型
 Azure AD Connect 針對新安裝提供兩種安裝類型：快速和自訂。 本主題將協助您決定安裝時要使用的選項。
@@ -34,7 +34,7 @@ Azure AD Connect 針對新安裝提供兩種安裝類型：快速和自訂。 �
 
 您會獲得：
 
-- 從內部部署到 Azure AD 的[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)，用於進行單一登入。
+- 從內部部署到 Azure AD 的[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)，用於進行單一登入。
 - 同步處理[使用者、群組、連絡人及 Windows 10 電腦](active-directory-aadconnectsync-understanding-default-configuration.md)的組態。
 - 所有網域和所有 OU 中所有合格物件的同步處理。
 - [自動升級](active-directory-aadconnect-feature-automatic-upgrade.md)會啟用以確保您一律使用最新的可用版本。

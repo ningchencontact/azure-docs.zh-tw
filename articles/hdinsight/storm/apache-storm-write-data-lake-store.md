@@ -1,6 +1,6 @@
 ---
-title: "Apache Storm 寫入儲存體/Data Lake Store - Azure HDInsight | Microsoft Docs"
-description: "了解如何使用 Apache Storm 寫入 HDInsight 的 HDFS 相容儲存體。 Azure 儲存體或 Azure Data Lake Store 提供了 HDInsight 的 HDFS 相容儲存體。 本文件與相關聯的範例示範如何使用 HdfsBolt 元件寫入 Storm on HDInsight 叢集的預設儲存體。"
+title: Apache Storm 寫入儲存體/Data Lake Store - Azure HDInsight | Microsoft Docs
+description: 了解如何使用 Apache Storm 寫入 HDInsight 的 HDFS 相容儲存體。 Azure 儲存體或 Azure Data Lake Store 提供了 HDInsight 的 HDFS 相容儲存體。 本文件與相關聯的範例示範如何使用 HdfsBolt 元件寫入 Storm on HDInsight 叢集的預設儲存體。
 services: hdinsight
 documentationcenter: na
 author: Blackmist
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 908a1130171cc091b4d95d4532cc3bb95edb44f9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2310894e7257d0ddb919406a8f297089189a9484
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>從 Apache Storm on HDInsight 寫入 HDFS
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="get-the-code"></a>取得程式碼
 
-包含此拓撲的專案可從 [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store)下載。
+包含此拓撲的專案可從 [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) 下載。
 
 若要編譯此專案，您需要開發環境的下列設定：
 
@@ -134,7 +134,7 @@ bolts:
 * `rotationPolicy`：定義何時輪替檔案。 在此範例中，不會執行輪替。
 * `hdfs-bolt`：使用舊版元件作為 `HdfsBolt` 類別的設定參數。
 
-如需 Flux 架構的詳細資訊，請參閱 [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html)。
+如需有關 Flux 架構的詳細資訊，請參閱 [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html)。
 
 ## <a name="configure-the-cluster"></a>設定叢集
 
@@ -148,7 +148,7 @@ bolts:
 
 ## <a name="build-and-package-the-topology"></a>建置和封裝拓撲
 
-1. 從 [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) 下載範例專案到開發環境。
+1. 從 [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) 下載範例專案到您的部署環境。
 
 2. 從命令提示字元、終端機或 Shell 工作階段，將目錄變更為所下載專案的根目錄。 若要建置和封裝拓撲，請使用下列命令：
    

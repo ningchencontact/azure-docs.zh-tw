@@ -1,11 +1,12 @@
 ---
-title: "使用 Web 應用程式範本取用 Machine Learning Web 服務 | Microsoft Docs"
-description: "使用 Azure Marketplace 中的 Web 應用程式範本以使用 Azure Machine Learning 中的預測 Web 服務。"
-keywords: "Web 服務、operationalization、REST API、機器學習服務"
+title: 使用 Web 應用程式範本取用 Machine Learning Web 服務 | Microsoft Docs
+description: 使用 Azure Marketplace 中的 Web 應用程式範本以使用 Azure Machine Learning 中的預測 Web 服務。
+keywords: Web 服務、operationalization、REST API、機器學習服務
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: raymondl
-ms.openlocfilehash: f7efa647fa6afc247509cd4a52066c0459f75ca3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 81b89a1f8a053fd3b1d0d6a0a1bcc5c67d2ba728
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>使用 Web 應用程式範本取用 Azure Machine Learning Web 服務
 
@@ -77,7 +77,7 @@ Azure Marketplace 中可用的 Web 應用程式範本可以建立自訂的 Web �
 2. 選取 [新增]搜尋並選取 [Azure ML Request-Response Service Web App] \(Azure ML 要求回應服務 Web 應用程式\)，然後選取 [建立]。 
 3. 在 [建立] 窗格中：
    
-   * 為您的 Web 應用程式提供唯一名稱。 Web 應用程式名稱將會是此名稱加上 **.azurewebsites.net**。 範例是 **http://carprediction.azurewebsites.net**。
+   * 為您的 Web 應用程式提供唯一名稱。 Web 應用程式名稱將會是此名稱加上 **.azurewebsites.net**。 例如 http://carprediction.azurewebsites.net。
    * 選擇 Azure 訂用帳戶及您的 Web 服務在其下執行的服務。
    * 選取 [建立] 。
      

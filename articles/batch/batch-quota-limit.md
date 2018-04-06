@@ -1,25 +1,25 @@
 ---
-title: "Azure Batch 的服務配額和限制 | Microsoft Docs"
-description: "了解預設的 Azure Batch 配額、限制和條件約束，以及如何要求增加配額"
+title: Azure Batch 的服務配額和限制 | Microsoft Docs
+description: 了解預設的 Azure Batch 配額、限制和條件約束，以及如何要求增加配額
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/16/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 3cc833e456571b63fa03574808529c8c501d7ab5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服務配額和限制
 
@@ -53,6 +53,7 @@ ms.lasthandoff: 02/23/2018
 | 應用程式封裝大小 (每一個) |大約 195 GB<sup>1</sup> |
 | 最大啟動工作大小 | 32768 個字元<sup>2</sup> |
 | 工作存留期上限 | 7 天<sup>3</sup> |
+| 計算節點間通訊已啟用集區中的節點 | 100 |
 
 <sup>1</sup> 對於區塊 Blob 大小上限的 Azure 儲存體限制<br />
 <sup>2</sup> 包含資源檔案和環境變數<br />

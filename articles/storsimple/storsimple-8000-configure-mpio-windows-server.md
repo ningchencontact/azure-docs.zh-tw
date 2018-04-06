@@ -1,30 +1,30 @@
 ---
-title: "為 StorSimple 裝置設定 MPIO | Microsoft Docs"
-description: "描述如何針對與執行 Windows Server 2012 R2 的主機連線的 StorSimple 裝置設定多重路徑 I/O。"
+title: 為 StorSimple 裝置設定 MPIO | Microsoft Docs
+description: 描述如何針對與執行 Windows Server 2012 R2 的主機連線的 StorSimple 裝置設定多重路徑 I/O。
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 9fe3fa3a2df63d111de742ecb48b1469aad543cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f2b094604f486d283574f4669fcad6f72bd4431
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>為 StorSimple 裝置設定多重路徑 I/O
 
 本教學課程說明您應在執行 Windows Server 2012 R2 並與 StorSimple 實體裝置連接的主機上，據以安裝和使用多重路徑 I/O (MPIO) 功能的步驟。 本文中的指導僅適用於 StorSimple 8000 系列實體裝置。 StorSimple 雲端設備目前不支援 MPIO。
 
-Microsoft 為 Windows Server 中的多重路徑 I/O (MPIO) 功能建立支援，協助建立高可用性、容錯的 SAN 組態。 MPIO 使用備援實體路徑元件 — 配接器、纜線以及交換器 — 以在伺服器與存放裝置之間建立邏輯路徑。 如果元件故障而導致邏輯路徑失敗，多重路徑邏輯使用替代的 I/O 路徑，讓應用程式仍然可以存取其資料。 此外，依照您的設定，MPIO 也能藉由重新平衡所有路徑的負載來改善效能。 如需詳細資訊，請參閱 [MPIO 概觀](https://technet.microsoft.com/library/cc725907.aspx "MPIO 概觀 and features")。
+Microsoft 為 Windows Server 中的多重路徑 I/O (MPIO) 功能建立支援，協助建立高可用性、容錯的 iSCSI 網路組態。 MPIO 使用備援實體路徑元件 — 配接器、纜線以及交換器 — 以在伺服器與存放裝置之間建立邏輯路徑。 如果元件故障而導致邏輯路徑失敗，多重路徑邏輯使用替代的 I/O 路徑，讓應用程式仍然可以存取其資料。 此外，依照您的設定，MPIO 也能藉由重新平衡所有路徑的負載來改善效能。 如需詳細資訊，請參閱 [MPIO 概觀](https://technet.microsoft.com/library/cc725907.aspx "MPIO 概觀 and features")。
 
 您應該為 StorSimple 裝置設定 MPIO，才能獲得高可用性的 StorSimple 方案。 當您在執行 Windows Server 2012 R2 的主機伺服器上安裝 MPIO 時，伺服器才能容許連結、網路或介面失敗。
 
@@ -149,7 +149,7 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
 
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>步驟 4：設定 MPIO 以獲得高可用性與負載平衡
 
-多個工作階段必須以手動方式加入以宣告不同的路徑，才能獲得以多重路徑為基礎的高可用性與負載平衡。 比方說，如果主機有兩個介面連接到 SAN，而裝置也有兩個介面連接到 SAN，那麼您需要以正確的路徑排列組合設定四個工作階段 (如果每個 DATA 介面與主機介面都位在不同的 IP 子網路且不可路由時，將只需要兩個工作階段)。
+多個工作階段必須以手動方式加入以宣告不同的路徑，才能獲得以多重路徑為基礎的高可用性與負載平衡。 比方說，如果主機有兩個介面連接到 iSCSI 網路，而裝置也有兩個介面連接到 iSCSI 網路，那麼您需要以正確的路徑排列組合設定四個工作階段 (如果每個 DATA 介面與主機介面都位在不同的 IP 子網路且不可路由時，將只需要兩個工作階段)。
 
 「我們建議您在裝置和應用程式主機之間至少有 8 個作用中的平行工作階段。」 這可藉由在 Windows Server 系統上啟用 4 個網路介面來達成。 在 Windows Server 主機上的硬體或作業系統層級上，透過網路虛擬化技術使用實體網路介面或虛擬介面。 透過在裝置上使用這兩個網路介面，此設定將會有 8 個作用中的工作階段。 這項設定有助於將裝置和雲端輸送量最佳化。
 
@@ -172,15 +172,15 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
 6. 在 [進階設定]  對話方塊中：
    
    1. 在 [本機介面卡] 下拉式清單中，選取 [Microsoft iSCSI 啟動器]。
-   2. 在 [啟動器 IP]  下拉式清單中，選取主機的 IP 位址。
-   3. 在 [目標入口 IP]  下拉式清單中，為裝置上啟用的資料介面選取 IP 位址。
+   2. 在 [啟動器 IP] 下拉式清單中，選取對應到主機上第一個介面 (iSCSI 介面) 的 IP 位址。
+   3. 在 [目標入口 IP] 下拉式清單中，為裝置上啟用的第一個資料介面選取 IP 位址。
    4. 按一下 [確定]  以返回 [iSCSI 啟動器內容] 對話方塊。
 7. 按一下 [內容] 並在 [內容] 對話方塊中，按一下 [新增工作階段]。
 8. 在 [連線到目標] 對話方塊中，選取 [啟用多重路徑] 核取方塊，然後按一下 [進階]。
 9. 在 [進階設定]  對話方塊中：
    
    1. 在 [本機介面卡] 下拉式清單中，選取 [Microsoft iSCSI 啟動器]。
-   2. 在 [啟動器 IP]  下拉式清單中，選取對應到主機上第二個介面的 IP 位址。
+   2. 在 [啟動器 IP] 下拉式清單中，選取對應到主機上第二個 iSCSI 介面的 IP 位址。
    3. 在 [目標入口 IP]  下拉式清單中，為裝置上啟用的第二個資料介面選取 IP 位址。
    4. 按一下 [確定] 以返回 [iSCSI 啟動器內容] 對話方塊。 您現已完成將第二個工作階段新增到目標。
 10. 重複步驟 8-10，將其他工作階段 (路徑) 新增到目標。 主機上有兩個介面且裝置上也有兩個，您總共可以新增四個工作階段。

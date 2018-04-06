@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure PowerShell 管理虛擬機器擴展集 | Microsoft Docs"
-description: "管理虛擬機器擴展集 (例如如何啟動和停止執行個體，或變更擴展集容量) 的一般 Azure PowerShell Cmdlet。"
+title: 使用 Azure PowerShell 管理虛擬機器擴展集 | Microsoft Docs
+description: 管理虛擬機器擴展集 (例如如何啟動和停止執行個體，或變更擴展集容量) 的一般 Azure PowerShell Cmdlet。
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
 ms.service: virtual-machine-scale-sets
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c463dd26c106b3178becc977a8afd742220d7973
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>使用 Azure PowerShell 管理虛擬機器擴展集
 在虛擬機器擴展集生命週期期間，您可能需要執行一或多個管理工作。 此外，您可以建立指令碼來自動化各種生命週期工作。 本文詳述一些可讓您執行這些工作的一般 Azure PowerShell Cmdlet。
 
-若要完成這些管理工作，您需要最新的 Azure PowerShell 模組。 如需如何安裝和使用最新版本的資訊，請參閱[開始使用 Azure PowerShell](/powershell/azure/get-started-azureps)。 如果您需要建立虛擬機器擴展集，則可以[在 Azure 入口網站中建立擴展集](virtual-machine-scale-sets-create-portal.md)。
+若要完成這些管理工作，您需要最新的 Azure PowerShell 模組。 如需相關資訊，請參閱[開始使用 Azure PowerShell](/powershell/azure/get-started-azureps)。 如果您需要建立虛擬機器擴展集，可以[使用 Azure PowerShell 建立擴展集](quick-create-powershell.md)。
 
 
 ## <a name="view-information-about-a-scale-set"></a>檢視擴展集的相關資訊

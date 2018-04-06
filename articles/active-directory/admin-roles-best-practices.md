@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
@@ -156,7 +156,7 @@ Azure AD Privileged Identity Management 隨附於 Azure AD Premium P2 或 EMS E5
 
 #### <a name="turn-on-password-synchronization"></a>開啟密碼同步處理
 
-密碼同步處理功能可用來將使用者密碼雜湊從內部部署 Active Directory 執行個體同步處理至雲端式 Azure AD 執行個體。 即使您選擇使用與 Active Directory Federation Services (AD FS) 或其他身分識別提供者的同盟，仍可選擇性地設定密碼同步處理，作為 AD 或 ADFS 伺服器之類的內部部署基礎結構失敗或暫時無法使用時的備用方式。 這可讓使用者透過他們登入內部部署 AD 執行個體時所使用的相同密碼來登入服務。 此外，如果有使用者在未連線至 Azure AD 的其他服務上使用相同的電子郵件地址和密碼，Identity Protection 也將能夠藉由比較這些密碼雜湊與已知遭到破解的密碼，來偵測遭破解的認證。  如需詳細資訊，請參閱[使用 Azure AD Connect 同步實作密碼同步處理](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)。
+密碼同步處理功能可用來將使用者密碼雜湊從內部部署 Active Directory 執行個體同步處理至雲端式 Azure AD 執行個體。 即使您選擇使用與 Active Directory Federation Services (AD FS) 或其他身分識別提供者的同盟，仍可選擇性地設定密碼同步處理，作為 AD 或 ADFS 伺服器之類的內部部署基礎結構失敗或暫時無法使用時的備用方式。 這可讓使用者透過他們登入內部部署 AD 執行個體時所使用的相同密碼來登入服務。 此外，如果有使用者在未連線至 Azure AD 的其他服務上使用相同的電子郵件地址和密碼，Identity Protection 也將能夠藉由比較這些密碼雜湊與已知遭到破解的密碼，來偵測遭破解的認證。  如需詳細資訊，請參閱[使用 Azure AD Connect 同步實作密碼雜湊同步處理](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)。
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>所有具有特殊權限角色的使用者和公開的使用者，都必須進行多重要素驗證 (MFA)
 

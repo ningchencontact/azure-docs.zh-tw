@@ -1,24 +1,24 @@
 ---
-title: "Log Analytics 常見問題集 | Microsoft Docs"
-description: "Azure Log Analytics 服務的相關常見問題的解答。"
+title: Log Analytics 常見問題集 | Microsoft Docs
+description: Azure Log Analytics 服務的相關常見問題的解答。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 03/21/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b27386cd0f9f3ae50314b8c5d7708aea3e3d028
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常見問題集
 此 Microsoft 常見問題集是 Microsoft Azure 中 Log Analytics 常見問題的清單。 若您有任何關於 Log Analytics 的其他問題，請前往[討論論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
@@ -51,19 +51,21 @@ A. 下列查詢會顯示目前執行的所有檢查的描述：
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>問： 如何針對 Log Analytics 不再收集資料的問題進行疑難排解？
 
-答：如果您在免費定價層並在某天傳送了超過 500 MB 的資料，就會停止收集當天其餘資料。 達到每日限制是 Log Analytics 停止收集資料或資料似乎遺失的常見原因。
+答：如果您在免費定價層並在某天傳送了超過 500 MB 的資料，就會停止收集當天其餘資料。 達到每日限制是 Log Analytics 停止收集資料或資料似乎遺失的常見原因。  
 
-當資料收集開始及停止時，Log Analytics 會建立 *Operation* 類型的事件。 
+Log Analytics 會建立*活動訊號*類型的事件，而且可用於判斷資料收集是否停止。 
 
-在搜尋中執行下列查詢，即可檢查您是否達到每日限制並遺失資料：`Type=Operation OperationCategory="Data Collection Status"`
+在搜尋中執行下列查詢，即可檢查您是否達到每日限制並遺失資料：`Heartbeat | summarize max(TimeGenerated)`
 
-當資料收集停止時，*OperationStatus* 為 **Warning**。 當資料收集開始時，*OperationStatus* 為 **Succeeded**。 
+若要檢查特定電腦，請執行下列查詢：`Heartbeat | where Computer=="contosovm" | summarize max(TimeGenerated)`
+
+當資料收集停止時，根據選取的時間範圍，您不會看到任何傳回的記錄。   
 
 下表描述資料收集停止的原因，並建議為繼續資料收集所要採取的動作：
 
 | 資料收集停止的原因                       | 若要繼續資料收集 |
 | -------------------------------------------------- | ----------------  |
-| 已達免費資料的每日限制<sup>1</sup>       | 請等到隔天自動重新開始收集，或<br> 變更為付費定價層 |
+| 已達免費資料的限制<sup>1</sup>       | 請等到隔月自動重新開始收集，或<br> 變更為付費定價層 |
 | Azure 訂用帳戶處於暫停狀態，原因如下： <br> 免費試用已結束 <br> Azure Pass 已過期 <br> 已達每月消費限制 (例如 MSDN 或 Visual Studio 訂閱)                          | 轉換成付費訂閱 <br> 轉換成付費訂閱 <br> 移除限制，或等到限制重設 |
 
 <sup>1</sup> 如果您的工作區在免費定價層，您每天最多可傳送 500 MB 的資料至服務。 當您達到每日限制時，資料收集就會停止，直到隔天再開始。 在資料收集停止時所傳送的資料不會編製索引，而且無法供搜尋使用。 當資料收集繼續時，只會處理傳送的新資料。 
@@ -77,14 +79,13 @@ Log Analytics 使用 UTC 時間，而且每天從午夜 UTC 開始。 如果工�
 建立要在資料收集停止發出的警示時：
 - 將 [名稱] 設定為「資料收集已停止」
 - 將 [嚴重性] 設定為「警告」
-- 將 [搜尋查詢] 設定為 `Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
-- 將 [時間範圍] 設定為「2 小時」。
-- 將 [警示頻率] 設定為一小時，因為使用量資料每小時只會更新一次。
+- 將 [搜尋查詢] 設定為 `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+- **時間範圍**設定為 *30 分鐘*。
+- **警示頻率**設定為每*十*分鐘。
 - 將 [產生警示的依據] 設定為「結果數目」
 - 將 [結果數目] 設定為「大於 0」
 
-使用[將動作新增至警示規則](log-analytics-alerts-actions.md)中所述的步驟來設定警示規則的電子郵件、Webhook 或 Runbook 動作。
-
+只有在活動訊號遺失超過 15 分鐘的情況下，查詢傳回結果時，才會引發此警示。  使用[將動作新增到警示規則](log-analytics-alerts-actions.md)中所述的步驟來設定警示規則的電子郵件、Webhook 或 Runbook 動作。
 
 ## <a name="configuration"></a>組態
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>問： 可以變更用來從 Azure 診斷 (WAD) 讀取的資料表/Blob 容器的名稱嗎？
@@ -141,9 +142,9 @@ A. `Move-AzureRmResource` Cmdlet 可讓您將 Log Analytics 工作區及自動�
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>問： 我可以透過代理程式傳送多少資料到 Log Analytics？ 是否有每位客戶最大的資料量？
 A. 免費方案每個工作區的每日容量設定為 500 MB。 標準和進階計畫對於所上傳的資料量沒有限制。 作為一項雲端服務，Log Analytics 的設計可自動相應增加，以處理來自客戶的資料量，即使是每日數 TB。
 
-Log Analytics 代理程式的設計是為了確保它的使用量很小。 我們的其中一個客戶撰寫了一篇部落格，內容是有關他們為我們的代理程式執行的測試以及如何讓其印象深刻。 資料量會視您啟用的解決方案而不同。 您可以在[使用量](log-analytics-usage.md)頁面中找到有關資料量的詳細資訊，並依解決方案查看劃分。
+Log Analytics 代理程式的設計是為了確保它的使用量很小。 資料量會視您啟用的解決方案而不同。 您可以在[使用量](log-analytics-usage.md)頁面中找到有關資料量的詳細資訊，並依解決方案查看細目。
 
-如需詳細資訊，您可以閱讀 [客戶部落格](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) 以了解 OMS 代理程式的低使用量。
+如需詳細資訊，您可以閱讀[客戶部落格](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) 以了解 OMS 代理程式的低使用量。
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>問： 傳送資料到 Log Analytics 時，Microsoft 管理代理程式 (MMA) 使用多少網路頻寬？
 

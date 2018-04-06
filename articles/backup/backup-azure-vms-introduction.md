@@ -1,31 +1,31 @@
 ---
-title: "在 Azure 中規劃 VM 備份基礎結構 | Microsoft Docs"
-description: "在 Azure 中備份虛擬機器時的重要考量"
+title: 在 Azure 中規劃 VM 備份基礎結構 | Microsoft Docs
+description: 在 Azure 中備份虛擬機器時的重要考量
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "備份 VM, 備份虛擬機器"
+editor: ''
+keywords: 備份 VM, 備份虛擬機器
 ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/18/2017
+ms.date: 3/23/2018
 ms.author: markgal;trinadhk
-ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>在 Azure 中規劃 VM 備份基礎結構
 本文提供效能和資源方面的建議，以協助您規劃 VM 備份基礎結構。 本文也會定義備份服務的重要層面；這些層面對於決定架構、容量規劃及排程來說相當重要。 如果您已經[準備好環境](backup-azure-arm-vms-prepare.md)，則規劃是您開始[備份 VM](backup-azure-arm-vms.md) 之前的下一個步驟。 如果您需要 Azure 虛擬機器的詳細資訊，請參閱 [虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)。
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Azure 如何備份虛擬機器？
-Azure 備份服務在排定的時間開始備份工作時，會觸發備份擴充功能以建立時間點快照集。 Azure 備份服務在 Windows 中使用 _VMSnapshot_ 延伸模組，在 Linux 中使用 _VMSnapshotLinux_ 延伸模組。 延伸模組會在進行第一個 VM 備份期間安裝。 若要安裝延伸模組，VM 必須正在執行中。 如果 VM 未在執行中，則備份服務會擷取基礎儲存體的快照集 (因為 VM 停止時不會發生任何應用程式寫入)。
+Azure 備份服務在排定的時間開始備份工作時，服務會觸發備份擴充功能以建立時間點快照集。 Azure 備份服務在 Windows 中使用 _VMSnapshot_ 延伸模組，在 Linux 中使用 _VMSnapshotLinux_ 延伸模組。 延伸模組會在進行第一個 VM 備份期間安裝。 若要安裝延伸模組，VM 必須正在執行中。 如果 VM 未在執行中，則備份服務會擷取基礎儲存體的快照集 (因為 VM 停止時不會發生任何應用程式寫入)。
 
 當擷取 Windows VM 的快照集時，備份服務會與磁碟區陰影複製服務 (VSS) 協調，以取得虛擬機器磁碟一致的快照集。 如果您正在備份 Linux VM，您可以撰寫自己的自訂指令碼，以確保擷取 VM 快照集時會有一致性。 本文稍後會提供叫用這些指令碼的詳細資料。
 
@@ -37,8 +37,8 @@ Azure 備份服務擷取快照集之後，資料會傳輸至保存庫。 為了�
 
 > [!NOTE]
 > 1. 在備份程序進行期間，Azure 備份不會包含連接至虛擬機器的暫存磁碟。 如需詳細資訊，請參閱[暫存儲存空間](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)部落格文章 (英文)。
-> 2. 由於 Azure 備份會擷取儲存體層級的快照集，並將快照集傳輸至保存庫，因此在備份作業完成前，請勿變更儲存體帳戶金鑰。
-> 3. 對於進階 VM，我們會將快照集複製到儲存體帳戶。 這是為了確定 Azure 備份服務能取得足夠的 IOPS，將資料傳送至保存庫。 額外的儲存體複本依 VM 配置大小收費。 
+> 2. Azure 備份會擷取儲存體層級的快照集，並將快照集傳輸至保存庫，因此在備份作業完成前，請勿變更儲存體帳戶金鑰。
+> 3. 對於進階 VM，Azure Backup 會將快照集複製到儲存體帳戶。 這是為了確定備份服務能使用到足夠的 IOPS，將資料傳送至保存庫。 額外的儲存體複本依 VM 配置大小收費。 
 >
 
 ### <a name="data-consistency"></a>資料一致性
@@ -125,24 +125,24 @@ Azure 備份提供指令碼架構。 為確保備份 Linux VM 時應用程式的
 Azure 備份不會在備份過程中加密資料。 不過，您可以在 VM 中加密資料，並順暢地備份受保護的資料 (深入了解 [加密資料的備份](backup-azure-vms-encryption.md))。
 
 ## <a name="calculating-the-cost-of-protected-instances"></a>計算受保護執行個體的成本
-透過 Azure 備份進行備份的 Azure 虛擬機器受限於 [Azure 備份價格](https://azure.microsoft.com/pricing/details/backup/)。 受保護的執行個體是根據虛擬機器的*實際*大小來計算，也就是虛擬機器中不包含「資源磁碟」的所有資料總和。
+透過 Azure 備份進行備份的 Azure 虛擬機器受限於 [Azure 備份價格](https://azure.microsoft.com/pricing/details/backup/)。 受保護的執行個體是根據虛擬機器的*實際*大小來計算，也就是虛擬機器中暫存空間除外的所有資料總和。
 
-備份 VM 的定價方式*不是*以連接到虛擬機器的每個資料磁碟其支援大小上限為基礎， 而是根據儲存在資料磁碟中的實際資料來定價。 同樣地，備份儲存體帳單也是根據 Azure 備份所儲存的資料計費，也就是每個復原點所儲存的實際資料總和。
+備份 VM 的定價方式並非以連接到虛擬機器的每個資料磁碟其支援大小上限為基礎。 而是根據儲存在資料磁碟中的實際資料來定價。 同樣地，備份儲存體帳單也是根據 Azure 備份所儲存的資料計費，也就是每個復原點所儲存的實際資料總和。
 
 例如，A2 標準大小的虛擬機器擁有兩個額外資料磁碟，每個大小上限為 1 TB。 下表提供上述每個磁碟實際儲存的資料：
 
 | 磁碟類型 | 大小上限 | 實際儲存的資料 |
-| --- | --- | --- |
+| --------- | -------- | ----------- |
 | 作業系統磁碟 |1023 GB |17 GB |
-| 本機磁碟/資源磁碟 |135 GB |5 GB (未包含備份) |
+| 本機磁碟/暫存磁碟 |135 GB |5 GB (未包含備份) |
 | 資料磁碟 1 |1023 GB |30 GB |
 | 資料磁碟 2 |1023 GB |0 GB |
 
-在此案例中，虛擬機器的 *實際* 容量為 17 GB + 30 GB + 0 GB = 47 GB。 這個受保護的執行個體大小 (47 GB) 會成為每月計費的依據。 當虛擬機器的資料量增加時，用於計費之受保護的執行個體大小也會隨之變更。
+在此案例中，虛擬機器的實際容量為 17 GB + 30 GB + 0 GB = 47 GB。 這個受保護的執行個體大小 (47 GB) 會成為每月計費的依據。 當虛擬機器的資料量增加時，用於計費之受保護的執行個體大小也會隨之變更。
 
-第一次成功備份完成後才會開始計費。 儲存體和受保護的執行個體也會在此同時開始計費。 只要虛擬機器*有任何備份資料儲存在保存庫*，就會繼續計費。 如果您停止虛擬機器上的保護功能，但是虛擬機器備份資料仍在保存庫中，就會繼續計費。
+第一次成功備份完成後才會開始計費。 儲存體和受保護的執行個體也會在此同時開始計費。 只要虛擬機器有任何備份資料儲存在保存庫，就會繼續計費。 如果您停止虛擬機器上的保護功能，但是虛擬機器備份資料仍在保存庫中，就會繼續計費。
 
-只有在停止保護*且*刪除全部備份資料時，才會對指定的虛擬機器停止計費。 當保護停止且沒有任何作用中的備份作業時，最後一個成功 VM 備份的大小會成為每月帳單所使用的受保護執行個體大小。
+只有在停止保護且刪除全部備份資料時，才會對指定的虛擬機器停止計費。 當保護停止且沒有任何作用中的備份作業時，最後一個成功 VM 備份的大小會成為每月帳單所使用的受保護執行個體大小。
 
 ## <a name="questions"></a>有疑問嗎？
 如果您有問題，或希望我們加入任何功能，請 [傳送意見反應給我們](http://aka.ms/azurebackup_feedback)。

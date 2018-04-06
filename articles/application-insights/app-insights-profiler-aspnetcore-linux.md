@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2d7405baee84b53311f01e748ca7975147c107d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 63a7ceacffe1ee33227d3a8272dda7de7b3b1135
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>使用 Application Insights Profiler 來分析 ASP.NET Core Azure Linux Web 應用程式
 
@@ -143,6 +143,18 @@ ms.lasthandoff: 03/16/2018
 5. 在 Azure 入口網站中巡覽至 Application Insights 效能窗格。 您在右下角會看到可用的分析工具追蹤。
 
     ![檢視追蹤](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
+
+## <a name="known-issues"></a>已知問題
+
+### <a name="enable-button-in-profiler-configuration-pane-does-not-work"></a>[分析工具組態] 窗格的 [啟用] 按鈕無法產生作用
+**如果您使用 App Services Linux 裝載應用程式，則不需要在 [App Insights] 入口網站的 [效能] 窗格中再次啟用 [分析工具]。包含專案中的 NuGet 封裝並設定 [應用程式設定] 中的 [App Insights iKey]，即足以啟用 [分析工具]**。
+
+如果您依照 [App Insights Profiler for Windows](./app-insights-profiler.md) 啟用工作流程，在 [設定分析工具] 窗格中按一下 [啟用]，您將收到錯誤訊息，因為該按鈕嘗試將 Windows 版本的分析工具代理程式安裝在 Linux 環境。
+
+我們正努力解決啟用體驗中的這個問題。
+
+![您不需要在 [效能] 窗格中重新啟用 [分析工具]，讓分析工具在 Linux 應用程式服務上運作](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
+
 
 ## <a name="next-steps"></a>後續步驟
 如果您要使用應用程式服務所裝載的自訂容器，請依照[為容器化的 ASP.NET Core 應用程式啟用服務分析工具](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp)中的指示啟用 App Insights Profiler

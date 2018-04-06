@@ -3,7 +3,7 @@ title: 您可以在 Azure 的 Data Science Virtual Machine 上做的十件事 | 
 description: 在 Data science Virtual Machine 上執行各種資料探索和模型分析工作。
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: gokuma;weig;bradsev
-ms.openlocfilehash: 71745260f45c5a5c150fdd3eac4e9a8221b8bce4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: gokuma
+ms.openlocfilehash: f11aff2231a5ae6a58d5c9a3f53379a6849d226a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>您可以在 Data Science Virtual Machine 上做的十件事
 
@@ -450,7 +450,7 @@ Azure HDInsight 是在雲端上的受控 Apache Hadoop、Spark、HBase 和 Storm
 
 ![建立 Azure Blob 儲存體帳戶](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
-* 從 [Azure 入口網站](../team-data-science-process/customize-hadoop-cluster.md)自訂 Azure HDInsight Hadoop 叢集
+* 從 [Azure 入口網站](../team-data-science-process/customize-hadoop-cluster.md)
   
   * 在建立 HDInsight 叢集後，將所建立的儲存體帳戶與 HDInsight 叢集連結。 此儲存體帳戶用於存取可以在叢集內處理的資料。
 
@@ -812,7 +812,7 @@ Azure Cosmos DB 是雲端中的一種 NoSQL 資料庫。 它可讓您使用 JSON
 匯入資料之後，您即可移至 Jupyter 並開啟標題為 *DocumentDBSample* 且包含 Python 程式碼的筆記本，以存取 Azure Cosmos DB 及進行一些基本查詢。 如需深入了解 Cosmos DB，請參閱服務[文件頁面](https://docs.microsoft.com/azure/cosmos-db/)。
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8.使用 Power BI Desktop 建立報表和儀表板
-您可以在 Power BI 中將前述 Cosmos DB 範例中的 Volcano JSON 檔案視覺化，以深入了解資料。 在 [Power BI 文章](../../cosmos-db/powerbi-visualize.md)中可找到詳細的步驟。 以下是概要的步驟：
+您可以在 Power BI 中將前述 Cosmos DB 範例中的 Volcano JSON 檔案視覺化，以深入了解資料。 在 [Power BI 文章](../../cosmos-db/powerbi-visualize.md)中可找到詳細的步驟。 高階步驟如下：
 
 1. 開啟 Power BI Desktop 並執行「取得資料」。 將 URL 指定為︰https://cahandson.blob.core.windows.net/samples/volcano.json
 2. 您應該會看到匯入為清單的 JSON 記錄

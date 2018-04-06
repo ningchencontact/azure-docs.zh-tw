@@ -1,6 +1,6 @@
 ---
-title: "動作項目型 Azure 微服務生命週期概觀 | Microsoft Docs"
-description: "說明 Service Fabric Reliable Actor 生命週期、記憶體回收，以及手動刪除動作項目與其狀態"
+title: 動作項目型 Azure 微服務生命週期概觀 | Microsoft Docs
+description: 說明 Service Fabric Reliable Actor 生命週期、記憶體回收，以及手動刪除動作項目與其狀態
 services: service-fabric
 documentationcenter: .net
 author: amanbha
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: dd45acd75e1cf263029c869d88c87b28f56d50cc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4abb1ea6e5c79a5280d6ca4ad96070603b81793a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>動作項目生命週期、自動記憶體回收，以及手動刪除
 第一次呼叫動作項目的方法時就會啟動動作項目。 如果有一段可設定的時間未使用動作項目，動作項目就會停用 (由動作項目執行階段進行記憶體回收)。 動作項目與其狀態也可以隨時進行手動刪除。
@@ -112,37 +112,8 @@ public class Program
 
 動作項目正在執行其中一個方法時，無論在執行該方法時花費了多久的時間，動作項目絕對不會進行記憶體回收。 如先前所述，執行動作項目介面方法和提醒回撥會將動作項目的閒置時間重設為 0，來防止廢棄項目收集。 執行計時器回撥不會將閒置時間重設為 0。 不過，計時器回撥完成執行之前，會延遲動作項目的廢棄項目收集。
 
-## <a name="deleting-actors-and-their-state"></a>刪除動作項目與其狀態
-已停用動作項目的記憶體回收只會清除動作項目物件；但不會移除動作項目的狀態管理員中儲存的資料。 重新啟用動作項目後，會再次透過狀態管理員提供其資料。 在動作項目將資料儲存於狀態管理員後停用，而永遠不會重新啟用的情況下，可能需要清除其資料。
-
-[動作項目服務](service-fabric-reliable-actors-platform.md) 提供了從遠端呼叫端刪除動作項目的函式︰
-
-```csharp
-ActorId actorToDelete = new ActorId(id);
-
-IActorService myActorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
-```
-```Java
-ActorId actorToDelete = new ActorId(id);
-
-ActorService myActorServiceProxy = ActorServiceProxy.create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-myActorServiceProxy.deleteActorAsync(actorToDelete);
-```
-
-根據動作項目目前是否作用中而定，刪除動作項目具有下列效果︰
-
-* **作用中動作項目**
-  * 動作項目會從作用中動作項目清單中移除並且停用。
-  * 其狀態會永久刪除。
-* **非作用中動作項目**
-  * 其狀態會永久刪除。
-
-請注意，動作項目無法從其中一個動作項目方法呼叫刪除本身，因為在動作項目呼叫內容中執行動作項目時無法刪除該動作項目，而執行階段已取得動作項目呼叫的鎖定以強制執行單一執行緒存取。
+## <a name="manually-deleting-actors-and-their-state"></a>手動刪除動作項目及其狀態
+已停用動作項目的記憶體回收只會清除動作項目物件；但不會移除動作項目的狀態管理員中儲存的資料。 重新啟用動作項目後，會再次透過狀態管理員提供其資料。 在動作項目將資料儲存於狀態管理員後停用，而永遠不會重新啟用的情況下，可能需要清除其資料。  如需如何刪除執行者的範例，請參閱[刪除執行者及其狀態](service-fabric-reliable-actors-delete-actors.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * [動作項目計時器和提醒](service-fabric-reliable-actors-timers-reminders.md)

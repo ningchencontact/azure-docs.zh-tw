@@ -1,26 +1,20 @@
 ---
-title: "Azure 自動化中的驗證簡介 | Microsoft Docs"
-description: "本文概述 Azure 自動化中的自動化安全性和自動化帳戶可用的不同驗證方法。"
+title: Azure 自動化中的驗證簡介
+description: 本文概述 Azure 自動化中的自動化安全性和自動化帳戶可用的不同驗證方法。
+keywords: 自動化安全性、安全的自動化、自動化驗證
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-keywords: "自動化安全性、安全的自動化、自動化驗證"
-ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/01/2017
-ms.author: magoedte
+manager: carmonm
 ROBOTS: NOINDEX
-ms.openlocfilehash: 99882c1ff7517beec2ca827c63620f773d7d07c3
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4280c0de3f5c38aa8a72bad391544b03116e26c9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Azure 自動化中的驗證簡介  
 Azure 自動化可讓您針對 Azure、內部部署以及其他雲端提供者 (例如 Amazon Web Services (AWS)) 的資源自動執行工作。  為了讓 Runbook 執行其必要動作，其必須有權能以訂用帳戶內的最少必要權限，安全地存取資源。

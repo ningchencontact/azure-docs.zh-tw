@@ -1,6 +1,6 @@
 ---
 title: Azure 流量分析 | Microsoft Docs
-description: 了解如何透過「流量分析」來分析 Azure 網路安全性群組流量記錄。
+description: 了解如何透過流量分析來分析 Azure 網路安全性群組流量記錄。
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: 9fc44fdd6ce01452ffc2506c599e3d05aa0803e1
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ffb13d1190535dacbe3a0781a1d3b425a970d26e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-analytics"></a>流量分析
 
-流量分析是一個雲端式解決方案，可顯示雲端網路中的使用者和應用程式活動。 「流量分析」會分析網路監看員網路安全性群組 (NSG) 流量記錄，讓您深入了解 Azure 雲端中的流量。 透過流量分析，您可以：
+流量分析是一個雲端式解決方案，可顯示雲端網路中的使用者和應用程式活動。 流量分析會分析網路監看員網路安全性群組 (NSG) 流量記錄，讓您深入了解 Azure 雲端中的流量。 透過流量分析，您可以：
 
 - 視覺化您的 Azure 訂用帳戶之間的網路活動，並識別作用點。
 - 透過開啟的連接埠、嘗試存取網際網路的應用程式，和連線至 Rogue 網路的虛擬機器 (VM) 等資訊，識別網路的安全性威脅並保護您的網路。
@@ -58,7 +58,7 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 
 ### <a name="enable-network-watcher"></a>啟用網路監看員 
 
-若要分析流量，您必須具有現有的網路監看員，或在每個有 NSG 需要分析流量的區域中[啟用 Azure 網路監看員](network-watcher-create.md)。 您可以為任何[支援區域](#supported-regions)中裝載的 NSG 啟用流量分析。
+若要分析流量，您必須具有現有的網路監看員，或在每個有 NSG 需要分析流量的區域中[啟用網路監看員](network-watcher-create.md)。 您可以為任何[支援區域](#supported-regions)中裝載的 NSG 啟用流量分析。
 
 ### <a name="re-register-the-network-resource-provider"></a>重新註冊網路資源提供者 
 
@@ -107,7 +107,7 @@ New-AzureRmStorageAccount `
 4. 針對 [流量分析狀態]，選取 [開啟]。
 5. 選取現有的 Log Analytics (OMS) 工作區，或選取 [建立新的工作區] 以建立新工作區。 流量分析會使用 Log Analytics 工作區來儲存已彙總並編製索引的資料，而這些資料後續將用來產生分析。 如果您選取現有的工作區時，該工作區必須存在於其中一個[支援區域](#traffic-analytics-supported-regions)中，並且已升級至新的查詢語言。 如果您不想要升級現有的工作區，或是沒有支援區域中的工作區，請建立新的工作區。 如需關於查詢語言的詳細資訊，請參閱 [Azure Log Analytics 升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 
-    裝載流量分析解決方案和 NSG 的 Log Analytics (OMS) 工作區不需要位於相同區域中。 例如，您可以用西歐區域的工作區來處理流量分析，而 NSG 則位於美國東部和美國西部。 在相同的工作區中可設定多個 NSG。
+    裝載流量分析解決方案和 NSG 的 Log Analytics 工作區不需要位於相同區域中。 例如，您可以用西歐區域的工作區來處理流量分析，而 NSG 則位於美國東部和美國西部。 在相同的工作區中可設定多個 NSG。
 6. 選取 [ **儲存**]。
 
     ![選取儲存體帳戶、Log Analytics 工作區和啟用流量分析](media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)

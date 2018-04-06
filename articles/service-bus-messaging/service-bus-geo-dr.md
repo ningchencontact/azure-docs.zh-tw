@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排地理災害復原 | Microsoft Docs"
-description: "如何使用地理區域，在 Azure 服務匯流排中進行容錯移轉並執行災害復原"
+title: Azure 服務匯流排地理災害復原 | Microsoft Docs
+description: 如何使用地理區域，在 Azure 服務匯流排中進行容錯移轉並執行災害復原
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: christianwolf42
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 9cbeff82f7a237c813ea91cd83e9273cad934991
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure 服務匯流排地理災害復原
 
@@ -86,12 +86,13 @@ Azure 服務匯流排的地理災害復原功能就是一個災害復原解決�
 
 ## <a name="samples"></a>範例
 
-[GitHub 上的範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2)示範如何設定及初始化容錯移轉。 這些範例示範下列概念：
+[GitHub 上的範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/)示範如何設定及初始化容錯移轉。 這些範例示範下列概念：
 
-- 在 Azure Active Directory 中使用 Azure Resource Manager 與服務匯流排所需的設定。 
-- 執行範例程式碼所需的步驟。 
-- 從目前的主要命名空間傳送和接收。 
+- 在 Azure Active Directory 中使用 Azure Resource Manager 與服務匯流排來設定和啟用地理災害復原所需的設定。
+- 執行範例程式碼所需的步驟。
 - 如何使用現有命名空間作為別名。
+- 另外透過 PowerShell 或 CLI 啟用地理災害復原的步驟。
+- 使用別名從目前的主要或次要命名空間[傳送和接收](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1)。
 
 ## <a name="considerations"></a>考量
 

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ca8a34c0a29ffad21e6384feac055d7a292311a5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8f9eb95f49e0d2bd01d9ead7eda7d13288bfd573
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 權杖參考
 Azure Active Directory (Azure AD) 會在處理每個驗證流程時發出數種安全性權杖。 本文件說明每種權杖的格式、安全性特性和內容。
@@ -321,3 +321,4 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ## <a name="related-content"></a>相關內容
 * 若要深入了解透過 Azure AD Graph API 管理權杖存留期原則，請參閱 Azure AD Graph [原則作業](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations)和[原則實體](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity)。
 * 如需透過 PowerShell Cmdlet 管理原則的詳細資訊和範例，包括範例，請參閱[在 Azure AD 中設定權杖存留期](../active-directory-configurable-token-lifetimes.md)。 
+* 將[自訂和選擇性宣告](active-directory-optional-claims.md)新增至應用程式的權杖。 

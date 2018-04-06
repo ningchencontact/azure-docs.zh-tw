@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Data Factory 建立預測資料管線 | Microsoft Docs"
-description: "了解如何在 Azure Data Factory 中使用 Azure Machine Learning - 批次執行活動建立預測管線。"
+title: 使用 Azure Data Factory 建立預測資料管線 | Microsoft Docs
+description: 了解如何在 Azure Data Factory 中使用 Azure Machine Learning - 批次執行活動建立預測管線。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: fa493a6d7b4cf775f64b87c1d5cc21ff4a138609
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: bd72fd957948e77df6ffb0b310c590132c663235
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>使用 Azure Machine Learning 和 Azure Data Factory 來建立預測管線
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -75,7 +75,7 @@ Azure Machine Learning 支援傳統 Web 服務和新 Web 服務，以用於您�
 
 ![Azure Machine Learning Web 服務](./media/transform-data-using-machine-learning/web-services.png)
 
-##<a name="azure-machine-learning-batch-execution-activity"></a>Azure Machine Learning 批次執行活動
+## <a name="azure-machine-learning-batch-execution-activity"></a>Azure Machine Learning 批次執行活動
 
 下列 JSON 程式碼片段定義 Azure Machine Learning 批次執行活動。 活動定義具有您稍早建立之 Azure Machine Learning 連結服務的參考。 
 

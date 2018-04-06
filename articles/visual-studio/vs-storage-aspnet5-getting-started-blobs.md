@@ -1,11 +1,11 @@
 ---
-title: "開始使用 Blob 儲存體和 Visual Studio 已連接服務 (ASP.NET Core) | Microsoft Docs"
-description: "在使用 Visual Studio 已連接服務建立儲存體帳戶之後，如何在 Visual Studio ASP.NET Core 專案中開始使用 Azure Blob 儲存體"
+title: 開始使用 Blob 儲存體和 Visual Studio 已連接服務 (ASP.NET Core) | Microsoft Docs
+description: 在使用 Visual Studio 已連接服務建立儲存體帳戶之後，如何在 Visual Studio ASP.NET Core 專案中開始使用 Azure Blob 儲存體
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 094b596a-c92c-40c4-a0f5-86407ae79672
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
-ms.author: kraigb
-ms.openlocfilehash: afd73bd0fd041a53fbe31aa3a5c23b3e27d7a9ec
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.author: ghogen
+ms.openlocfilehash: b63f1f5c129029450d3c719297a9e7ea432f1564
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 (ASP.NET Core)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/28/2017
 
 Azure 二進位大型物件 (Microsoft Azure Blob) 儲存是一項儲存大量非結構化資料的服務，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。 單一 Blob 可以是任何大小。 Blob 可以是影像、音訊和視訊檔、原始資料及文件檔案。 本文描述如何在您於 ASP.NET Core 專案中使用 Visual Studio 的**已連線的服務**建立 Azure 儲存體帳戶之後，開始使用 Blob 儲存體。
 
-就像檔案在資料夾中一樣，儲存體 Blob 位於容器中。 在您已建立 Blob 之後，您會在 Blob 中建立一個或多個容器。 例如，在稱為 "Scrapbook" 的 Blob 中，您可以建立稱為 "images" 的容器來儲存圖片，並建立稱為 "audio" 的容器來儲存音訊檔。 建立容器之後，就可以將個別的檔案上傳至這些容器。 如需以程式設計方式處理 Blob 的詳細資訊，請參閱 [以 .NET 開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md) 。
+就像檔案在資料夾中一樣，儲存體 Blob 位於容器中。 在您已建立 Blob 之後，您會在 Blob 中建立一個或多個容器。 例如，在稱為 "Scrapbook" 的 Blob 中，您可以建立稱為 "images" 的容器來儲存圖片，並建立稱為 "audio" 的容器來儲存音訊檔。 建立容器之後，就可以將個別的檔案上傳至這些容器。 如需以程式設計方式處理 Blob 的詳細資訊，請參閱[快速入門：使用 .NET 上傳、下載及列出 Blob](../storage/blobs/storage-quickstart-blobs-dotnet.md)。
 
 某些 Azure 儲存體 API 是非同步的，本文章中的程式碼假設我們正在使用非同步方法。 如需詳細資訊，請參閱[非同步程式設計](https://docs.microsoft.com/dotnet/csharp/async)。
 
@@ -141,7 +141,7 @@ do
 } while (token != null);
 ```
 
-如需列出 Blob 容器內容的其他方法，請參閱[以 .NET 開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container)。
+如需列出 Blob 容器內容的其他方法，請參閱[快速入門：使用 .NET 上傳、下載及列出 Blob](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container)。
 
 ## <a name="download-a-blob"></a>下載 Blob
 
@@ -158,7 +158,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-如需將 Blob 儲存為檔案的其他方法，請參閱[以 .NET 開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)。
+如需將 Blob 儲存為檔案的其他方法，請參閱[快速入門：使用 .NET 上傳、下載及列出 Blob](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs)。
 
 ## <a name="delete-a-blob"></a>刪除 Blob
 

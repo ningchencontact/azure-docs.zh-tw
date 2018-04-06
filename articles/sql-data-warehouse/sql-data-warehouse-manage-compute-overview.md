@@ -1,11 +1,11 @@
 ---
-title: "管理 Azure SQL 資料倉儲中的計算資源 | Microsoft Docs"
-description: "了解 Azure SQL 資料倉儲中的效能相應放大功能。 藉由調整 DWU 來相應放大，或藉由暫停資料倉儲來降低成本。"
+title: 管理 Azure SQL 資料倉儲中的計算資源 | Microsoft Docs
+description: 了解 Azure SQL 資料倉儲中的效能相應放大功能。 藉由調整 DWU 來相應放大，或藉由暫停資料倉儲來降低成本。
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
-editor: 
+editor: ''
 ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>管理 Azure SQL 資料倉儲中的計算能力
 了解如何管理 Azure SQL 資料倉儲中的計算資源。 藉由暫停資料倉儲來降低成本，或調整資料倉儲規模以符合效能需求。 
@@ -110,7 +110,7 @@ SQL 資料倉儲的架構分隔儲存體和計算功能，可單獨進行調整�
 
 相應放大、暫停和繼續作業可能需要幾分鐘的時間才能完成。 如果您要自動調整/暫停/繼續，建議實作邏輯以確保在進行其他動作之前，先確認特定作業已完成。 透過各種端點檢查資料倉儲狀態可讓您正確地實作這類作業的自動化。 
 
-若要檢查資料倉儲狀態，請參閱 [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) 或 [T-SQL](quickstart-scale-compute-tsql.md#check-database-state) 快速入門。 您也可以使用 [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state) 來查看資料倉儲狀態。
+若要檢查資料倉儲狀態，請參閱 [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) 或 [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) 快速入門。 您也可以使用 [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state) 來查看資料倉儲狀態。
 
 
 ## <a name="permissions"></a>權限

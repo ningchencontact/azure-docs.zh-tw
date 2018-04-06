@@ -1,6 +1,6 @@
 ---
-title: "整合 ILB App Service Environment 與應用程式閘道"
-description: "逐步解說如何整合 ILB App Service Environment 中的應用程式與應用程式閘道"
+title: 整合 ILB App Service Environment 與應用程式閘道
+description: 逐步解說如何整合 ILB App Service Environment 中的應用程式與應用程式閘道
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: ccompy
-ms.openlocfilehash: d56eab79c3b3f6b37dc39d8e4bea0d5b7759631a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>整合 ILB App Service Environment 與應用程式閘道 #
 
-[PowerApps 的 App Service Environment](./intro.md) 是在客戶的 Azure 虛擬網路子網路中進行的 Azure App Service 部署。 可使用應用程式存取的公用或私用端點進行部署。 使用私用端點 (也就是內部負載平衡器) 進行的 App Service Environment 部署稱為 ILB App Service Environment。  
+[App Service Environment](./intro.md) 是在客戶的 Azure 虛擬網路子網路中進行的 Azure App Service 部署。 可使用應用程式存取的公用或私用端點進行部署。 使用私用端點 (也就是內部負載平衡器) 進行的 App Service Environment 部署稱為 ILB App Service Environment。  
 
 Azure 應用程式閘道是一個虛擬設備，可提供第 7 層負載平衡、SSL 卸載，以及 Web 應用程式防火牆 (WAF) 保護。 它可以接聽公用 IP 位址，並將流量路由到您的應用程式端點。 
 

@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b59a715919e38e68c3b7518932617e9950940e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7df566ced755e1e817b3107dac8f17e9f6e9b8e4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>了解如何使用、設定以及重複使用 IoT Edge 模組 - 預覽
 
@@ -134,32 +134,21 @@ Edge 中樞提供方法以宣告方式在模組之間及模組與 IoT 中樞之�
 ### <a name="condition"></a>條件
 條件在路由宣告中是選擇性項目。 如果您想要將所有訊息從接收傳遞至來源，請直接省略整個 **WHERE** 子句。 您可以使用 [IoT 中樞查詢語言][lnk-iothub-query]來篩選特定訊息或符合條件的訊息類型。
 
-Azure IoT 訊息會格式化為 JSON，並一律至少會有一個 **body** 參數。 例如︰
+在 IoT Edge 的模組之間傳遞的訊息所用的格式，和您的裝置與 Azure IoT 中樞傳遞訊息時所用的格式相同。 所有訊息均採用 JSON 格式，且含 **systemProperties**、**appProperties** 和 **body** 參數。 
 
-```json
-"message": {
-    "body":{
-        "ambient":{
-            "temperature": 54.3421,
-            "humidity": 25
-        },
-        "machine":{
-            "status": "running",
-            "temperature": 62.2214
-        }
-    },
-    "appProperties":{
-        ...
-    }
-}
+您可以使用下列語法，對所有三個參數建立查詢： 
+
+* 系統屬性：`$<propertyName>` 或 `{$<propertyName>}`
+* 應用程式屬性：`<propertyName>`
+* 主體屬性：`$body.<propertyName>` 
+
+如需如何針對訊息屬性建立查詢的範例，請參閱[裝置到雲端訊息路由查詢運算式](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions)。
+
+有個 IoT Edge 特有的範例，是想要篩選從分葉裝置送達閘道裝置的訊息。 來自模組的訊息包含稱為 **connectionModuleId** 的系統屬性。 因此，如果您將訊息直接從分葉裝置路由至 IoT 中樞，請使用下列路由來排除模組訊息：
+
+```sql
+FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
-
-以此範例訊息來說，您可定義許多條件，例如：
-* `WHERE $body.machine.status != "running"`
-* `WHERE $body.ambient.temperature <= 60 AND $body.machine.temperature >= 60`
-
-舉例來說，若有閘道要路由從分葉裝置傳入的訊息，則條件也可用來排序此閘道中的訊息類型。 來自模組的訊息包含稱為 **connectionModuleId** 的特定屬性。 因此，如果您將訊息直接從分葉裝置路由至 IoT 中樞，請使用下列路由來排除模組訊息：
-* `FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream`
 
 ### <a name="sink"></a>接收
 接收會定義要將訊息傳往何處。 可以是下列其中任何一個值：

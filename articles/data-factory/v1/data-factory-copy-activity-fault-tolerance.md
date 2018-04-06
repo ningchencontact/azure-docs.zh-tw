@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 29c78eb850b418772126dea50b40e924b6e71423
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8b91b76d049d1a7f299b7890665dd9281e08321e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>跳過不相容的資料列以在複製活動中新增容錯
 > [!NOTE]
@@ -39,7 +39,7 @@ Azure Data Factory [複製活動](data-factory-data-movement-activities.md)可�
 
     例如：使用包含六個資料行的結構描述定義，從 Blob 儲存體中的 CSV 檔案將資料複製到 SQL 資料庫。 包含六個資料行的 CSV 檔案資料列會成功複製到接收存放區。 包含多於或少於六個資料行的 CSV 檔案資料列會偵測為不相容，並加以跳過。
 
-- **寫入關聯式資料庫時發生主索引鍵違規**
+- **寫入 SQL Server/Azure SQL Database/Azure Cosmos DB 時發生主索引鍵違規**
 
     例如：從 SQL Server 將資料複製到 SQL 資料庫。 會在接收 SQL 資料庫中定義主索引鍵，但是在來源 SQL Server 中不會定義這類主索引鍵。 無法將來源中的重複資料列複製到接收。 複製活動只會將來源資料中的第一個資料列複製到接收。 包含重複主索引鍵值的後續來源資料列會偵測為不相容，並加以跳過。
 

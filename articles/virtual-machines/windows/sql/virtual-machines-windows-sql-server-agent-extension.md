@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/07/2018
+ms.date: 03/20/2018
 ms.author: jroth
-ms.openlocfilehash: dd32975e085a0f67d66f2949d4757a974bd9a616
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d9cb4a3bdc5776c4ac70ac376d8b839193e3fc3d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>使用 SQL Server 代理程式延伸模組 (Resource Manager) 自動化 Azure 虛擬機器上的管理工作
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 > [!IMPORTANT]
 > 如果擴充功能尚未安裝，安裝此擴充功能時 SQL Server 服務會重新啟動。
 
-您也可以將「SQL Server IaaS 代理程式擴充功能」安裝在只有 OS 的 Windows Server 虛擬機器上。 只有當您也已在該機器上手動安裝 SQL Server 時，才支援此做法。 然後使用相同的 **Set-AzureVMSqlServerExtension** PowerShell Cmdlet 來手動安裝擴充功能。
+您也可以將「SQL Server IaaS 代理程式擴充功能」安裝在只有 OS 的 Windows Server 虛擬機器上。 只有當您也已在該機器上手動安裝 SQL Server 時，才支援此做法。 然後使用相同的 **Set-AzureRmVMSqlServerExtension** PowerShell Cmdlet 來手動安裝擴充功能。
 
 > [!NOTE]
 > 如果您手動在只有作業系統的 Windows Server 虛擬機器上安裝「SQL Server IaaS 代理程式擴充功能」，您便無法透過 Azure 入口網站管理 SQL Server 組態設定。 在此情況下，您必須使用 PowerShell 來進行所有變更。
@@ -82,7 +82,7 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 
 ![Azure 入口網站中的 SQL Server IaaS 代理程式擴充功能](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
-您也可以使用 **Get-AzureVMSqlServerExtension** Azure PowerShell Cmdlet。
+您也可以使用 **Get-AzureRmVMSqlServerExtension** Azure PowerShell Cmdlet。
 
     Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
 

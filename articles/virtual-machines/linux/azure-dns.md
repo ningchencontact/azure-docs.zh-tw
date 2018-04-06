@@ -1,6 +1,6 @@
 ---
-title: "Azure 中 Linux 虛擬機器的 DNS 名稱解析選項"
-description: "Azure IaaS 中 Linux 虛擬機器的名稱解析案例 (包括提供的 DNS 服務)：混合式外部 DNS 和自備 DNS 伺服器。"
+title: Azure 中 Linux 虛擬機器的 DNS 名稱解析選項
+description: Azure IaaS 中 Linux 虛擬機器的名稱解析案例 (包括提供的 DNS 服務)：混合式外部 DNS 和自備 DNS 伺服器。
 services: virtual-machines
 documentationcenter: na
 author: RicksterCDN
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: cc06ee9305b4d3034154a0825c1aea53fe446f80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a445de3e1bfbeb2cd2e5674418688d6bb610a3c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虛擬機器的 DNS 名稱解析選項
 Azure 預設會提供單一虛擬網路中所有虛擬機器的 DNS 名稱解析。 您可以在 Azure 託管的虛擬機器上設定專屬 DNS 服務，以實作專屬 DNS 名稱解析解決方案。 下列案例應該可協助您選擇哪一種適合您的情況。
@@ -112,7 +112,7 @@ resolv.conf 檔案會自動產生且不可編輯。 新增 [選項] 行的特定
 2. 執行 'netconfig update' 以進行更新。
 
 **CentOS by Rogue Wave Software (先前稱為 OpenLogic)** (使用 NetworkManager)
-1. 將 'echo "options timeout:1 attempts:5"' 新增至 '/etc/NetworkManager/dispatcher.d/11-dhclient'。
+1. 將 'RES_OPTIONS="timeout:1 attempts:5"' 新增至 '/etc/sysconfig/network'。
 2. 執行 'service network restart' 以進行更新。
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>使用專屬 DNS 伺服器的名稱解析

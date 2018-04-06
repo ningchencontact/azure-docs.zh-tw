@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights 中 Java Web 應用程式的效能監視 | Microsoft Docs"
-description: "使用 Application Insights 延伸 Java 網站的效能和使用量監視。"
+title: Azure Application Insights 中 Java Web 應用程式的效能監視 | Microsoft Docs
+description: 使用 Application Insights 延伸 Java 網站的效能和使用量監視。
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: ecfcf7a3b3698435f98b74474d0ca7223ab2b46c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b327e7f062cdf3e6b1b34a9540461dcb18caf21c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>監視 Java Web 應用程式中的相依性、例外狀況和執行時間
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>監視 Java Web 應用程式中的相依性、擷取到的例外狀況和方法執行時間
 
 
 如果您已[使用 Application Insights 檢測您的 Java Web 應用程式][java]，您可以使用 Java 代理程式獲得更深入的見解，而不需變更任何程式碼：
 
 * **相依性** ：您的應用程式對其他元件呼叫的相關資料，包括：
-  * **REST 呼叫** ：透過 HttpClient、OkHttp 和 RestTemplate (Spring) 進行。
-  * **Redis 呼叫** ：透過 Jedis 用戶端進行。 如果呼叫時間長於 10 秒，代理程式也會擷取呼叫引數。
-  * **[JDBC 呼叫](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL、SQL Server、PostgreSQL、SQLite、Oracle DB 或 Apache Derby DB。 支援 "executeBatch" 呼叫。 MySQL 與 PostgreSQL 的呼叫時間如果長於 10 秒，代理程式會回報查詢計劃。
-* **攔截到例外狀況** ：由程式碼處理的例外狀況相關資料。
-* **方法執行時間** ：執行特定的方法所花費的時間相關資料。
+  * 擷取透過 HttpClient、OkHttp 和 RestTemplate (Spring) 進行的 **REST 呼叫**。
+  * 擷取透過 Jedis 用戶端進行的 **Redis 呼叫**。
+  * **[JDBC 呼叫](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - 自動擷取 MySQL、SQL Server 及 Oracle DB 命令。 MySQL 的呼叫時間如果比 10 秒長，代理程式會回報查詢計劃。
+* **攔截到例外狀況**：由程式碼處理的例外狀況相關資訊。
+* **方法執行時間**：執行特定的方法所花費的時間相關資訊。
 
 若要使用 Java 代理程式，您要在伺服器上安裝它。 您必須使用 [Application Insights Java SDK][java] 檢測您的 Web 應用程式。 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>安裝 Java 的 Application Insights 代理程式
-1. 在執行 Java 伺服器的電腦上[下載代理程式](https://aka.ms/aijavasdk)。
+1. 在執行 Java 伺服器的電腦上[下載代理程式](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)。 請確定下載的 Java 代理程式版本與 Application Insights Java SDK 核心和網頁套件相同。
 2. 編輯應用程式伺服器啟動指令碼，並加入下列 JVM：
    
     `javaagent:`*代理程式 JAR 檔案的完整路徑*

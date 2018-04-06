@@ -16,15 +16,55 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4dd908908877a222c708c9b2ab6255ab9a4b414a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虛擬機器擴展集常見問題集
 
 取得關於 Azure 中虛擬機器擴展集常見問題集的解答。
+
+## <a name="top-frequently-asked-questions-for-scale-sets"></a>擴展集的主要常見問題集
+**問：** 擴展集內可以有多少部 VM？
+
+**答：** 擴展集可以有 0 到 1,000 部以平台映像為基礎的 VM，或 0-300 部以自訂映像為基礎的 VM。 
+
+**問：** 在擴展集內是否支援資料磁碟？
+
+**答：** 是。 擴展集可以定義套用至集合中所有 VM 的連結資料磁碟組態。 如需詳細資訊，請參閱 [Azure 擴展集和連結的資料磁碟](virtual-machine-scale-sets-attached-disks.md)。 其他用於儲存資料的選項包括：
+
+* Azure 檔案 (SMB 共用磁碟機)
+* OS 磁碟機
+* 暫存磁碟機 (本機，未受 Azure 儲存體支援)
+* Azure 資料服務 (例如 Azure 資料表、Azure Blob)
+* 外部資料服務 (例如遠端資料庫)
+
+**問：** 哪些 Azure 區域支援擴展集？
+
+**答：** 所有區域都支援擴展集。
+
+**問：** 如何使用自訂映像建立擴展集？
+
+**答：** 根據自訂映像 VHD 建立受控磁碟，並在擴展集範本中參考它。 [以下是範例](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os)。
+
+**問：** 如果我將擴展集容量從 20 減少為 15，哪些 VM 會被移除？
+
+**答：** 虛擬機器會跨更新網域和容錯網域從擴展集平均地移除，以達到最大的可用性。 系統會先移除具有最高識別碼的 VM。
+
+**問：** 如果我後續又將容量從 15 增加到 18 呢？
+
+**答：** 如果您將容量增加到 18，則會建立 3 個新的 VM。 每次 VM 執行個體識別碼都會從上一個最高值遞增 (例如 20、21、22)。 VM 會平衡分散到容錯網域和更新網域。
+
+**問：** 在擴展集內使用多個延伸模組時，是否可以強制執行「執行順序」？
+
+**答：** 不是直接，但針對 customScript 擴充，您的指令碼可以等候另一個擴充完成。 您可以在部落格文章︰[Extension Sequencing in Azure virtual machine Scale Sets (Azure 虛擬機器擴展集中的擴充排序)](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) 中取得有關擴充排序的其他指導方針。
+
+**問：** 擴展集是否可與 Azure 可用性設定組組搭配使用？
+
+**答：** 是。 擴展集是隱含的可用性設定組，具有 5 個容錯網域和 5 個更新網域。 超過 100 個 VM 的擴展集橫跨多個「放置群組」，這相當於多個可用性設定組。 如需放置群組的詳細資訊，請參閱[使用大型的虛擬機器擴展集](virtual-machine-scale-sets-placement-groups.md)。 VM 的可用性設定組可以存在於與 VM 擴展集相同的虛擬網路中。 常見組態是在可用性設定組中放入控制節點 VM (其通常需要唯一組態)，以及在擴展集中放入資料節點。
+
 
 ## <a name="autoscale"></a>Autoscale
 
@@ -558,7 +598,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>如何設定擴展集以將公用 IP 位址指派給每部 VM？
 
-若要建立虛擬機器擴展集以將公用 IP 位址指派給每部虛擬機器，請確定 Microsoft.Compute/virtualMAchineScaleSets 資源的 API 版本為 2017-03-30，並將 _publicipaddressconfiguration_ JSON 封包加入至擴展集 ipConfigurations 區段。 範例：
+若要建立虛擬機器擴展集以將公用 IP 位址指派給每部虛擬機器，請確定 Microsoft.Compute/virtualMachineScaleSets 資源的 API 版本為 2017-03-30，並將 _publicipaddressconfiguration_ JSON 封包新增至擴展集 ipConfigurations 區段。 範例：
 
 ```json
     "publicipaddressconfiguration": {

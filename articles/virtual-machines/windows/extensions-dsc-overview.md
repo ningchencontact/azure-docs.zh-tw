@@ -1,11 +1,11 @@
 ---
-title: "Azure 的預期狀態設定概觀 | Microsoft Docs"
-description: "了解如何將 Microsoft Azure 延伸模組處理常式用於 PowerShell 預期狀態設定 (DSC)。 本文包含先決條件、架構及 Cmdlet。"
+title: Azure 的預期狀態設定概觀 | Microsoft Docs
+description: 了解如何將 Microsoft Azure 延伸模組處理常式用於 PowerShell 預期狀態設定 (DSC)。 本文包含先決條件、架構及 Cmdlet。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mgreenegit
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: 14d29223435e9a133b112a61f2ecdde0aad581a2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5b16261c9a9f046b7bc55a06dd71aa154a0cec27
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 期望狀態組態擴充功能處理常式簡介
 
@@ -71,7 +71,7 @@ Azure DSC 延伸模組包含預設設定指令碼，可在將 VM 上線至 Azure
 
 用來管理 DSC 延伸模組的 PowerShell Cmdlet 最適合用於互動式疑難排解和資訊收集案例。 您可以使用這些 Cmdlet 來封裝、發佈及監視 DSC 延伸模組部署。 請注意，DSC 延伸模組的 Cmdlet 尚未更新，無法與[預設設定指令碼](#default-configuration-script)搭配運作。
 
-**Publish-AzureRMVMDscConfiguration** Cmdlet 會接受組態檔、掃描其中是否有相依的 DSC 資源，然後建立 .zip 檔案。 .zip 檔案包含設定及制定設定所需的 DSC 資源。 此 Cmdlet 也可以使用 *-ConfigurationArchivePath* 參數在本機建立套件。 否則，此 Cmdlet 會將 .zip 檔案發佈至 Blob 儲存體，然後使用 SAS 權杖來保護它。
+**Publish-AzureRMVMDscConfiguration** Cmdlet 會接受組態檔、掃描其中是否有相依的 DSC 資源，然後建立 .zip 檔案。 .zip 檔案包含設定及制定設定所需的 DSC 資源。 此 Cmdlet 也可以使用 *-OutputArchivePath* 參數在本機建立套件。 否則，此 Cmdlet 會將 .zip 檔案發佈至 Blob 儲存體，然後使用 SAS 權杖來保護它。
 
 此 Cmdlet 所建立的 .ps1 設定指令碼在位於封存資料夾根目錄的 .zip 檔案中。 模組資料夾是放在資源的封存資料夾中。
 
@@ -133,7 +133,7 @@ Set-AzureRmVmDscExtension -Version 2.72 -ResourceGroupName $resourceGroup -VMNam
 
 入口網站需要下列輸入：
 
-* **設定模組或指令碼**：此為必要欄位 (此表單尚未針對[預設設定指令碼](#default-configuration-script)進行更新)。 設定模組和指令碼需要一個包含設定指令碼的 .ps1 檔案，或一個 .ps1 設定指令碼位於根目錄的 .zip 檔案。 如果您使用 .zip 檔案，所有相依資源都必須包含在該 .zip 檔案的模組資料夾中。 您可以使用 Azure PowerShell SDK 所包含的 **Publish-AzureVMDscConfiguration -ConfigurationArchivePath** Cmdlet 來建立 .zip 檔案。 此 .zip 檔案會上傳到您的使用者 Blob 儲存體並受到 SAS 權杖保護。
+* **設定模組或指令碼**：此為必要欄位 (此表單尚未針對[預設設定指令碼](#default-configuration-script)進行更新)。 設定模組和指令碼需要一個包含設定指令碼的 .ps1 檔案，或一個 .ps1 設定指令碼位於根目錄的 .zip 檔案。 如果您使用 .zip 檔案，所有相依資源都必須包含在該 .zip 檔案的模組資料夾中。 您可以使用 Azure PowerShell SDK 所包含的 **Publish-AzureVMDscConfiguration -OutputArchivePath** Cmdlet 來建立 .zip 檔案。 此 .zip 檔案會上傳到您的使用者 Blob 儲存體並受到 SAS 權杖保護。
 
 * **組態資料 PSD1 檔案**︰這是選擇性欄位。 如果您的設定需要的是 .psd1 中的設定資料檔，請使用此欄位來選取資料欄位，然後將它上傳到您的使用者 Blob 儲存體。 此設定資料檔在 Blob 儲存體中會受到 SAS 權杖保護。
 

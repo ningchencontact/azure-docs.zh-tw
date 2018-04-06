@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN 規則引擎比對條件 
 本文會針對 Azure 內容傳遞網路 (CDN) [規則引擎](cdn-rules-engine.md)列出可用比對條件的詳細描述。
@@ -526,15 +526,15 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 
      例如：https:\//&lt;endpoint&gt;.azureedge.net/**myfolder**/index.htm 
 
-     此 URL 會指向下列 Verizon CDN 主機名稱：http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/**myfolder**/index.htm
+     此 URL 會指向下列 Verizon CDN 主機名稱：http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder**/index.htm
 
 - 在 URL 比較之前，邊緣 CNAME URL 會重寫為 CDN URL。
 
     例如，以下這兩個 URL 都指向相同的資產，因此具有相同的 URL 路徑。
-    - CDN URL：http:\//wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+    - CDN URL：http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
     
     - 邊緣 CNAME URL：http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
+    
     其他資訊：
     - 自訂網域：https:\//my.domain.com/path/asset.htm
     
@@ -640,21 +640,21 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
     下列的值可供 [相對於] 選項使用：
      - **根**：表示 URL 比較點會緊接在 CDN 主機名稱之後。
 
-       例如：http:\//wpc.0001.&lt;Domain&gt;/**800001/myorigin/myfolder/index.htm**
+       例如：http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **原點**：表示 URL 比較點會在內容存取點 (例如，/000001 或 /800001/myorigin) 之後。 相對於原點目錄，\*.azureedge.net CNAME 依預設會建立在 Verizon CDN 主機名稱上，因此 Azure CDN 使用者應該使用**原點**值。 
 
        例如：https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     此 URL 會指向下列 Verizon CDN 主機名稱：http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/**myfolder/index.htm**
+     此 URL 會指向下列 Verizon CDN 主機名稱：http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
 
 - 在 URL 比較之前，邊緣 CNAME URL 會重寫為 CDN URL。
 
-   例如，以下這兩個 URL 都指向相同的資產，因此具有相同的 URL 路徑：
-    - CDN URL：http:\//wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+    例如，以下這兩個 URL 都指向相同的資產，因此具有相同的 URL 路徑：
+    - CDN URL：http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
     - 邊緣 CNAME URL：http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
-   其他資訊：
+    
+    其他資訊：
     
     - URL 路徑 (相對於根)：/800001/CustomerOrigin/path/asset.htm
    
@@ -681,13 +681,13 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 重要資訊：
 - 在 URL 比較之前，邊緣 CNAME URL 會重寫為 CDN URL。 
  
-   例如，這兩個 URL 都指向相同的資產，因此具有相同的 URL 路徑。
+    例如，這兩個 URL 都指向相同的資產，因此具有相同的 URL 路徑。
 
-     - CDN URL：http:\//wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+     - CDN URL：http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
 
      - 邊緣 CNAME URL：http:\//my.domain.com/path/asset.htm
-
-   其他資訊：
+    
+    其他資訊：
     
      - URL 路徑：/800001/CustomerOrigin/path/asset.htm
 
@@ -715,21 +715,21 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
    這個選項具有下列值：
      - **根**：表示 URL 比較點會緊接在 CDN 主機名稱之後。
 
-       例如：http:\//wpc.0001.&lt;Domain&gt;/**800001/myorigin/myfolder/index.htm**
+       例如：http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **原點**：表示 URL 比較點會在內容存取點 (例如，/000001 或 /800001/myorigin) 之後。 相對於原點目錄，\*.azureedge.net CNAME 依預設會建立在 Verizon CDN 主機名稱上，因此 Azure CDN 使用者應該使用**原點**值。 
 
        例如：https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     此 URL 會指向下列 Verizon CDN 主機名稱：http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/**myfolder/index.htm**
+     此 URL 會指向下列 Verizon CDN 主機名稱：http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
 
 - 在 URL 比較之前，邊緣 CNAME URL 會重寫為 CDN URL。
 
-   例如，以下這兩個 URL 都指向相同的資產，因此具有相同的 URL 路徑：
-     - CDN URL：http://wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+    例如，以下這兩個 URL 都指向相同的資產，因此具有相同的 URL 路徑：
+     - CDN URL：http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
      - 邊緣 CNAME URL：http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
-   其他資訊：
+    
+    其他資訊：
     
      - URL 路徑 (相對於根)：/800001/CustomerOrigin/path/asset.htm
     
@@ -737,7 +737,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
     
 - 使用單一空格來分隔每個 URL 路徑，藉以指定多個 URL 路徑。
 
-   例如： /marketing/asset.\* /sales/\*.htm
+   例如：/marketing/asset.* /sales/*.htm
 
 - 會忽略 URL 中的查詢字串。
     
@@ -757,7 +757,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 /80ABCD/origin/text/*   | 根           | 要求的資產符合下列準則時，會比對此模式： <br />- 必須位於名為 "origin" 的客戶原點。 <br />- 相對路徑必須以名為 "text" 的資料夾為開頭。 也就是所要求的資產可以位於 "text" 資料夾中，或是位於該資料夾的其中一個遞迴子資料夾中。
 /css/ /js/          | 根或原點 | 此模式會依所有包含 css 或 js 資料夾的 CDN 或邊緣 CNAME URL 進行比對。
 *.jpg *.gif *.png       | 根或原點 | 此模式會依所有以 .jpg、.gif 或 .png 結尾的 CDN 或邊緣 CNAME URL 進行比對。 指定此模式的替代方式是使用 [URL 路徑副檔名比對條件](#url-path-extension)。
-/images/\* /media/\*      | 來源         | 此模式會依相對路徑開頭為「映像」或「媒體」資料夾的 CDN 或邊緣 CNAME URL 進行比對。 <br />- CDN URL：http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/images/sales/event1.png<br />- 範例邊緣 CNAME URL：http:\//cdn.mydomain.com/images/sales/event1.png
+/images/\* /media/\*      | 來源         | 此模式會依相對路徑開頭為「映像」或「媒體」資料夾的 CDN 或邊緣 CNAME URL 進行比對。 <br />- CDN URL：http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/images/sales/event1.png<br />- 範例邊緣 CNAME URL：http:\//cdn.mydomain.com/images/sales/event1.png
 
 [回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -867,11 +867,11 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 #### <a name="sample-scenarios"></a>範例案例
 下列範例會示範這個選項在特定情況中的運作方式：
 
-Name      | 值 |  結果
-----------|-------|--------
-User      | Joe   | 當所要求 URL 的查詢字串為 "?user=joe" 時，會比對此模式。
-User      | *     | 當所要求 URL 的查詢字串包含 User 參數時，會比對此模式。
-Email Joe | *     | 當所要求 URL 的查詢字串包含以 "Joe" 為開頭的 Email 參數時，會比對此模式。
+Name  | 值 |  結果
+------|-------|--------
+User  | Joe   | 當所要求 URL 的查詢字串為 "?user=joe" 時，會比對此模式。
+User  | *     | 當所要求 URL 的查詢字串包含 User 參數時，會比對此模式。
+電子郵件 | Joe\* | 當所要求 URL 的查詢字串包含以 "Joe" 為開頭的 Email 參數時，會比對此模式。
 
 [回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -908,7 +908,7 @@ Email Joe | *     | 當所要求 URL 的查詢字串包含以 "Joe" 為開頭的
    值 | 解譯為 
    ------|---------------
    \\+    | +
-   \\\+   | \\+
+   \\\\+   | \\+
 
 - 由於追蹤快取設定的行為，因而導致此比對條件與下列功能不相容：
    - 完成快取填滿

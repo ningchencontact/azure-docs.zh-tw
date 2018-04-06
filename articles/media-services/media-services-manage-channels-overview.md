@@ -1,26 +1,30 @@
 ---
-title: "使用 Azure 媒體服務之即時串流的概觀 | Microsoft Docs"
-description: "本主題提供了使用 Azure 媒體服務之即時串流的概觀。"
+title: 使用 Azure 媒體服務之即時串流的概觀 | Microsoft Docs
+description: 本主題提供了使用 Azure 媒體服務之即時串流的概觀。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6f500f25129470a679c75cae6cd1abc9d71b72a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 451513c364978348eba922f5cf42b6e6c79f8700
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>使用 Azure 媒體服務之即時串流的概觀
+
+> [!NOTE]
+> 從 2018 年 5 月 12 日開始，即時通道將不再支援 RTP/MPEG-2 傳輸串流內嵌通訊協定。 請從 RTP/MPEG-2 移轉到 RTMP 或分散式 MP4 (Smooth Streaming) 內嵌通訊協定。
+
 ## <a name="overview"></a>概觀
 使用 Azure 媒體服務傳遞即時串流時，通常涉及下列元件：
 

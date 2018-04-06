@@ -1,28 +1,25 @@
 ---
-title: "Azure Active Directory B2C：Google+ 設定 | Microsoft Docs"
-description: "在受 Azure Active Directory B2C 保護的應用程式中，針對具有 Google+ 帳戶的取用者提供註冊和登入。"
+title: Azure Active Directory B2C：Google+ 設定 | Microsoft Docs
+description: 在受 Azure Active Directory B2C 保護的應用程式中，針對具有 Google+ 帳戶的取用者提供註冊和登入。
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 4dcca66f-29e4-4b4d-8840-50baad736bd7
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 93589352094fdd556811ba906ee27e7b8ac1d8b5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: db3044754e0c1316b49eda0600d41e3009c1ba16
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-google-accounts"></a>Azure Active Directory B2C：針對具有 Google+ 帳戶的取用者提供註冊和登入
 ## <a name="create-a-google-application"></a>建立 Google+ 應用程式
-若要在 Azure Active Directory (Azure AD) B2C 中使用 Google+ 做為身分識別提供者，您必須建立 Google+ 應用程式，並對其提供正確參數。 您需要 Google+ 帳戶才能執行此動作。 如果您沒有該帳戶，您可以在 [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)上申請。
+若要在 Azure Active Directory (Azure AD) B2C 中使用 Google+ 做為身分識別提供者，您必須建立 Google+ 應用程式，並對其提供正確參數。 您需要 Google+ 帳戶才能執行此動作。 如果您沒有帳戶，您可以在 [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp) 上取得。
 
 1. 前往 [Google 開發人員主控台](https://console.developers.google.com/) ，並以您的 Google + 帳戶認證登入。
 2. 按一下 [建立專案]，輸入 [專案名稱]，接著按一下 [建立]。

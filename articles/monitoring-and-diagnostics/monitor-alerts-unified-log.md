@@ -1,6 +1,6 @@
 ---
-title: Azure 監視器中的記錄警示 - 警示 (預覽) | Microsoft Docs
-description: 當您指定的複雜查詢條件符合 Azure 警示 (預覽) 時，觸發電子郵件、通知、呼叫網站 URL (Webhook) 或自動化。
+title: Azure 監視器中的記錄警示 - 警示 | Microsoft Docs
+description: 當您指定的複雜查詢條件符合 Azure 警示時，觸發電子郵件、通知、呼叫網站 URL (Webhook) 或自動化。
 author: msvijayn
 manager: kmadnani1
 editor: ''
@@ -12,35 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/17/2018
 ms.author: vinagara
-ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5928bbcec08d6ba4ac0b0d03b66fa4bfc8f5e3d7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Azure 監視器中的記錄警示 - 警示 (預覽)
-本文詳述在 Azure 警示 (預覽) 中，警示規則如何在 Analytics 中運作，並說明不同類型的記錄警示規則之間的差異。 如需計量警示使用記錄的詳細資訊，請參閱[近乎即時的度量警示](monitoring-near-real-time-metric-alerts.md)。
+# <a name="log-alerts-in-azure-monitor---alerts"></a>Azure 監視器中的記錄警示 - 警示 
+本文詳述在 Azure 警示中，警示規則如何在 Analytics 中運作，並說明不同類型的記錄警示規則之間的差異。 如需計量警示使用記錄的詳細資訊，請參閱[近乎即時的度量警示](monitoring-near-real-time-metric-alerts.md)。
 
-Azure 警示 (預覽) 目前支援來自 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) 和 [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events) 查詢上的記錄警示。
+Azure 警示目前支援來自 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) 和 [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events) 查詢上的記錄警示。
 
 > [!WARNING]
 
-> Azure 警示 (預覽) 中的記錄警示目前 不支援跨工作區中或跨應用程式的查詢。
+> Azure 警示中的記錄警示目前 不支援跨工作區中或跨應用程式的查詢。 而且 Application Insights 的記錄警示處於公開預覽狀態 - 功能和使用者體驗可能會有變動。
 
-此外，使用者可在 Azure 中選擇的 Analytics平台中完成理想的查詢後，*藉著儲存查詢來匯入它們以便在警示 (預覽) 中使用*。 要遵循的步驟如下：
+此外，使用者可在 Azure 中選擇的 Analytics平台中完成理想的查詢後，*藉著儲存查詢來匯入它們以便在警示中使用*。 要遵循的步驟如下：
 - 針對 Application Insights：前往 Analytics 入口網站，驗證查詢及其結果。 然後使用唯一名稱儲存到 [共用的查詢]中。
 - 針對 Log Analytics：前往記錄搜尋，驗證查詢及其結果。 然後使用唯一名稱儲存到任何類別中。
 
-然後，[在警示 (預覽) 中建立記錄警示時](monitor-alerts-unified-usage.md)，您會看到儲存的查詢列在 [記錄 (已儲存的查詢)] 訊號類型；如下列範例所示：![已儲存的查詢匯入至警示](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+然後，[在警示中建立記錄警示時](monitor-alerts-unified-usage.md)，您會看到儲存的查詢列在 [記錄 (已儲存的查詢)] 訊號類型；如下列範例所示：![已儲存的查詢匯入至警示](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
 
 > [!NOTE]
 > 使用 [記錄 (已儲存的查詢)] 會造成匯入到警示。 因此，在 Analytics 中完成後的任何變更不會反映到已儲存的警示規則中，反之亦然。
 
 ## <a name="log-alert-rules"></a>記錄警示規則
 
-警示會由自動定期執行記錄查詢的 Azure 警示 (預覽) 所建立。  如果記錄查詢的結果符合特定準則，則會建立警示的記錄。 此規則接著可以使用[動作群組](monitoring-action-groups.md)自動執行一或多個動作，以主動通知警示或叫用另一個處理序，例如使用 [json based webhook](monitor-alerts-unified-log-webhook.md) 傳送資料到外部應用程式。 不同類型的警示規則會使用不同邏輯來執行這項分析。
+警示會由自動定期執行記錄查詢的 Azure 警示所建立。  如果記錄查詢的結果符合特定準則，則會建立警示的記錄。 此規則接著可以使用[動作群組](monitoring-action-groups.md)自動執行一或多個動作，以主動通知警示或叫用另一個處理序，例如使用 [json based webhook](monitor-alerts-unified-log-webhook.md) 傳送資料到外部應用程式。 不同類型的警示規則會使用不同邏輯來執行這項分析。
 
 警示規則會由下列詳細資料定義：
 
@@ -118,7 +118,7 @@ Log Analytics 中的各個警示規則是兩種類型其中之一。  下列各�
 
 ## <a name="next-steps"></a>後續步驟
 * 了解 [Webhook 動作記錄警示](monitor-alerts-unified-log-webhook.md)
-* [取得 Azure 警示 (預覽) 概觀](monitoring-overview-unified-alerts.md)
-* 了解[使用 Azure 警示 (預覽)](monitor-alerts-unified-usage.md)
+* [取得 Azure 警示概觀](monitoring-overview-unified-alerts.md)
+* 了解[使用 Azure 警示](monitor-alerts-unified-usage.md)
 * 深入了解 [Application Insights](../application-insights/app-insights-analytics.md)
 * 深入了解 [Log Analytics](../log-analytics/log-analytics-overview.md)。    

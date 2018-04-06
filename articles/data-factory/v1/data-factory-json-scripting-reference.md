@@ -4,7 +4,7 @@ description: 提供 Data Factory 實體的 JSON 結構描述。
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
+manager: craigg
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 519a762e5f89533f4425d38e4a1ca76d8e3dd40f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 198fa15b7ee8cce6781e6a2575844a9666185be9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 指令碼參考
 > [!NOTE]
@@ -493,13 +493,13 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 如需詳細資訊，請參閱 [Azure Blob 連接器](data-factory-azure-blob-connector.md#dataset-properties)文件。
 
 ### <a name="blobsource-in-copy-activity"></a>複製活動中的 BlobSource
-如果您從 Azure Blob 儲存體複製資料，請將複製活動的 **source type** 設為 **BlobSource**，並在 **source** 區段中指定下列屬性︰
+如果您從 Azure Blob 儲存體複製資料，請將複製活動的 **source type** 設為 **BlobSource**，並在 **source** 區段中指定下列屬性：
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
 | 遞迴 |表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 |True (預設值)、False |否 |
 
-#### <a name="example-blobsource"></a>範例︰BlobSource**
+#### <a name="example-blobsource"></a>範例：**BlobSource**
 ```json
 {
     "name": "SamplePipeline",
@@ -3325,8 +3325,8 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 #### <a name="sample-folder-path-definitions"></a>範例資料夾路徑定義 
 | 案例 | 連結服務定義中的主機 | 資料集定義中的 folderPath |
 | --- | --- | --- |
-| 資料管理閘道電腦上的本機資料夾︰ <br/><br/>範例：D:\\\* 或 D:\folder\subfolder\\\* |D:\\\\ (適用於資料管理閘道 2.0 和更新版本) <br/><br/> localhost (適用於比資料管理閘道 2.0 更早的版本) |.\\\\ 或 folder\\\\subfolder (適用於資料管理閘道 2.0 和更新版本) <br/><br/>D:\\\\ 或 D:\\\\folder\\\\subfolder (適用低於閘道 2.0 的版本) |
-| 遠端共用資料夾︰ <br/><br/>範例︰\\\\myserver\\share\\\* 或 \\\\myserver\\share\\folder\\subfolder\\\* |\\\\\\\\myserver\\\\share |.\\\\ 或 folder\\\\subfolder |
+| 資料管理閘道電腦上的本機資料夾︰ <br/><br/>範例：D:\\\* 或 D:\folder\subfolder\\* |D:\\\\ (適用於資料管理閘道 2.0 和更新版本) <br/><br/> localhost (適用於比資料管理閘道 2.0 更早的版本) |.\\\\ 或 folder\\\\subfolder (適用於資料管理閘道 2.0 和更新版本) <br/><br/>D:\\\\ 或 D:\\\\folder\\\\subfolder (適用低於閘道 2.0 的版本) |
+| 遠端共用資料夾︰ <br/><br/>範例︰\\\\myserver\\share\\\* 或 \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ 或 folder\\\\subfolder |
 
 
 #### <a name="example-using-username-and-password-in-plain-text"></a>範例：使用純文字的使用者名稱和密碼
@@ -3898,7 +3898,7 @@ auto-
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>範例：採用加密認證的基本驗證**
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>範例：**採用加密認證的基本驗證**
 
 ```json
 {
@@ -3919,7 +3919,7 @@ auto-
 }
 ```
 
-#### <a name="using-ssh-public-key-authentication"></a>使用 SSH 公用金鑰驗證：**
+#### <a name="using-ssh-public-key-authentication"></a>**使用 SSH 公用金鑰驗證：**
 
 若要使用基本驗證，將 `authenticationType` 設定為 `SshPublicKey`，然後指定上一節中介紹的 SFTP 連接器泛用以外的下列屬性︰
 
@@ -3949,7 +3949,7 @@ auto-
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>範例︰使用私密金鑰內容的 SshPublicKey 驗證**
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>範例：**使用私密金鑰內容的 SshPublicKey 驗證**
 
 ```json
 {
@@ -4591,7 +4591,7 @@ auto-
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> - 預設值為 " https://login.salesforce.com "。 <br> - 若要從沙箱複製資料，請指定 " https://test.salesforce.com "。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 "https://[網域].my.salesforce.com"。 |否 |
+| environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> - 預設為「https://login.salesforce.com」。 <br> - 若要從沙箱複製資料，請指定「https://test.salesforce.com」。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 "https://[網域].my.salesforce.com"。 |否 |
 | username |指定使用者帳戶的使用者名稱。 |yes |
 | password |指定使用者帳戶的密碼。 |yes |
 | securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。 |yes |

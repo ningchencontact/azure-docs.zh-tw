@@ -1,11 +1,11 @@
 ---
-title: "重設 Windows VM 上的密碼或遠端桌面組態 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站或 Azure PowerShell 來重設 Windows VM 上的帳戶密碼或「遠端桌面」服務。"
+title: 重設 Windows VM 上的密碼或遠端桌面組態 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站或 Azure PowerShell 來重設 Windows VM 上的帳戶密碼或「遠端桌面」服務。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
 ms.service: virtual-machines-windows
@@ -13,16 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
-ms.author: genli
-ms.openlocfilehash: d9ca3d393bd4544fb4efdbc779f139ca13d98bcd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 03/23/2018
+ms.author: danis
+ms.openlocfilehash: d793b101e3b6fa5a441158ef8ca9f7cd6d3a5a5b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>如何在 Windows VM 中重設遠端桌面服務或其登入密碼
-如果您無法連線到 Windows 虛擬機器 (VM)，您可以重設本機系統管理員密碼或重設「遠端桌面」服務設定 (「Windows 網域控制站」上不支援)。 您可以使用 Azure 入口網站或 Azure PowerShell 中的 VM 存取延伸模組來重設密碼。 如果您使用的是 PowerShell，請確定您已[安裝並設定最新的 PowerShell 模組](/powershell/azure/overview)，並已登入您的 Azure 訂用帳戶。 您也可以[針對使用傳統部署模型建立的 VM 執行這些步驟](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp)。
+如果您無法連線到 Windows 虛擬機器 (VM)，您可以重設本機系統管理員密碼或重設「遠端桌面」服務設定 (「Windows 網域控制站」上不支援)。 您可以使用 Azure 入口網站或 Azure PowerShell 中的 VM 存取延伸模組來重設密碼。 您登入 VM 後，應重設該使用者的密碼。  
+如果您使用的是 PowerShell，請確定您已[安裝並設定最新的 PowerShell 模組](/powershell/azure/overview)，並已登入您的 Azure 訂用帳戶。 您也可以[針對使用傳統部署模型建立的 VM 執行這些步驟](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp)。
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>重設組態或認證的方式
 根據您的需求而定，您可以透過數種不同方式來重設遠端桌面服務和認證：

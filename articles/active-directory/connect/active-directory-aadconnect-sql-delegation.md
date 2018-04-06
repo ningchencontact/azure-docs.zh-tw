@@ -1,24 +1,24 @@
 ---
-title: "使用 SQL 委派的管理員權限安裝 Azure AD Connect | Microsoft Docs"
-description: "本主題說明可使用僅有 SQL dbo 權限之帳戶來進行安裝的 Azure AD Connect 更新。"
-documentationcenter: 
+title: 使用 SQL 委派的管理員權限安裝 Azure AD Connect | Microsoft Docs
+description: 本主題說明可使用僅有 SQL dbo 權限之帳戶來進行安裝的 Azure AD Connect 更新。
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: jparsons
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: c2d77c37f2f65c9a7db1fd5c4010fc43bcbc7ebf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>使用 SQL 委派的管理員權限安裝 Azure AD Connect
 最新的 Azure AD Connect 組建之前的版本在部署需要 SQL 的設定時不支援管理委派。  想要安裝 Azure AD Connect 的使用者必須在 SQL 伺服器上擁有伺服器管理員 (SA) 權限。
@@ -51,6 +51,8 @@ Azure AD Connect 系統管理員|安裝 Azure AD Connect，並在自訂安裝期
 
 ## <a name="additional-information"></a>其他資訊
 資料庫佈建好之後，Azure AD Connect 系統管理員就可以在他們方便的時候安裝及設定內部部署同步處理。  
+
+使用預先建立的資料庫時，需要有 **/UseExistingDatabase** 旗標。  它不僅用於復原情況。
 
 除了支援新的 Azure AD Connect 安裝外，這項功能也可讓您在任何與 **/UseExistingDatabase** 旗標相關的案例中執行委派。  如需使用現有資料庫來安裝 Azure AD Connect 的詳細資訊，請參閱[使用現有的 ADSync 資料庫安裝 Azure AD Connect](active-directory-aadconnect-existing-database.md)
 

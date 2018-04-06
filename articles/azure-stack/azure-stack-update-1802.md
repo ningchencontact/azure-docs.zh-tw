@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure Stack 1802 更新
 
@@ -103,7 +103,7 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 
 #### <a name="portal"></a>入口網站
 - 無法從系統管理員入口網站內，[從下拉式清單開啟新支援要求](azure-stack-manage-portals.md#quick-access-to-help-and-support)。 請改用下列連結：     
-    - 對於 Azure Stack 整合式系統，請使用 https://aka.ms/newsupportrequest。
+    - 對於 Azure Stack 整合系統，請使用 https://aka.ms/newsupportrequest。
 
 - <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
 
@@ -123,6 +123,13 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
     - *錯誤 - 遺失 FaultType ResourceProviderTimeout 的範本。*
 
     您可以放心地忽略此警示。 
+
+- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
+
+- 在管理員入口網站和使用者入口網站中，當您使用舊版 API (例如：2015-06-15) 建立的儲存體帳戶選取 [概觀] 刀鋒視窗時，[概觀] 刀鋒視窗無法載入。 這包括系統儲存體帳戶，例如修補和更新期間所使用的 **updateadminaccount**。 
+
+  因應措施是，使用 PowerShell 來執行 **Start-ResourceSynchronization.ps1** 指令碼，以還原對儲存體帳戶詳細資料的存取權。 [該指令碼可從 GitHub 取得]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)，而且必須在具有特殊權限的端點上使用服務管理員認證執行。 
+
 
 #### <a name="health-and-monitoring"></a>健康情況和監視
 更新為 1802 之後沒有已知問題。

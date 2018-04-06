@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 03/23/2018
 ms.author: anhoh
-ms.openlocfilehash: 3d4b3bf36bdc93fdd1a65f5c8fdcfe2237d23aa9
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 1571ed8bc3146a6351d0010a9f072cad986d6dc7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>使用 Node.js 建置 Azure Cosmos DB：適用於 MongoDB 的 API 應用程式
 > [!div class="op_single_selector"]
@@ -108,6 +108,44 @@ ms.lasthandoff: 03/17/2018
     );
     };
     
+    MongoClient.connect(url, function(err, client) {
+    assert.equal(null, err);
+    var db = client.db('familiesdb');
+    insertDocument(db, function() {
+        findFamilies(db, function() {
+        updateFamilies(db, function() {
+            removeFamilies(db, function() {
+                client.close();
+            });
+        });
+        });
+    });
+    });
+    ```
+    
+    **選擇性**：如果您使用 **MongoDB Node.js 2.2 驅動程式**，請取代以下程式碼片段：
+
+    原始：
+
+    ```nodejs
+    MongoClient.connect(url, function(err, client) {
+    assert.equal(null, err);
+    var db = client.db('familiesdb');
+    insertDocument(db, function() {
+        findFamilies(db, function() {
+        updateFamilies(db, function() {
+            removeFamilies(db, function() {
+                client.close();
+            });
+        });
+        });
+    });
+    });
+    ```
+    
+    應取代為：
+
+    ```nodejs
     MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
     insertDocument(db, function() {
@@ -121,8 +159,17 @@ ms.lasthandoff: 03/17/2018
     });
     });
     ```
-
+    
 2. 在 *app.js* 中根據每個帳戶設定 (了解如何尋找您的[連接字串](connect-mongodb-account.md)) 修改下列變數：
+
+    > [!IMPORTANT]
+    > **MongoDB Node.js 3.0 驅動程式**要求您為 Cosmos DB 密碼中的特殊字元編碼。 請務必將 '=' 字元編碼為 %3D
+    >
+    > 範例：密碼 *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* 應編碼為 *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
+    >
+    > **MongoDB Node.js 2.2 驅動程式**不要求您為 Cosmos DB 密碼中的特殊字元編碼。
+    >
+    >
    
     ```nodejs
     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';

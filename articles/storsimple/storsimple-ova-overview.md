@@ -1,24 +1,24 @@
 ---
-title: "Microsoft Azure StorSimple Virtual Array 概觀 | Microsoft Docs"
-description: "說明 StorSimple Virtual Array，這是一個整合式儲存體解決方案，可管理內部部署虛擬陣列與 Microsoft Azure 雲端儲存體之間的儲存體工作。"
+title: Microsoft Azure StorSimple Virtual Array 概觀 | Microsoft Docs
+description: 說明 StorSimple Virtual Array，這是一個整合式儲存體解決方案，可管理內部部署虛擬陣列與 Microsoft Azure 雲端儲存體之間的儲存體工作。
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/16/2017
+ms.date: 03/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b9a5797751fa970c569c93e5efe300d4d74319ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple Virtual Array 簡介
 
@@ -205,6 +205,15 @@ StorSimple 會使用重複資料刪除和資料壓縮，來進一步降低雲端
 ### <a name="scheduled-and-on-demand-backups"></a>排程和隨選備份
 
 StorSimple 資料保護功能可讓您建立隨選備份。 此外，預設備份排程可確保每日備份資料。 備份採用儲存在雲端的累加快照形式。 快照集 (僅記錄自上次備份後的變更) 可以快速進行建立和還原。 這些快照集在災害復原案例中至關重要，因為這些快照集會取代次要儲存體系統 (例如磁帶備份)，並讓您將資料還原到資料中心或在必要時還原至其他網站。
+
+## <a name="gdpr-compliance"></a>GDPR 合規性
+[一般資料保護規定 (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) 是歐盟 (EU) 所制定的資料保護和隱私權法律。 GDPR 包含許多有關如何收集、儲存和使用個人資訊的需求。 GDPR 規則強制實行於 EU 內營運，並且收集、分析 EU 居民相關之資料的公司、政府機關和其他組織。
+
+StorSimple 裝置管理員虛擬系列符合 GDPR。 有兩個主要執行個體，其中會收集個人資訊並在服務中顯示：
+ - 警示使用者設定，其中會設定使用者的電子郵件地址。 系統管理員可以清除此資訊。 
+ - 可以存取位於共用上的資料的使用者。 顯示可存取共用資料之使用者的清單，並且可匯出。 刪除共用時，也會一併刪除這份清單。
+
+如需詳細資訊，請在信任中心[檢閱 Microsoft 隱私權原則](https://www.microsoft.com/trustcenter)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,24 +1,24 @@
 ---
-title: "使用 Azure 搜尋服務對 Azure Blob 儲存體編制索引"
-description: "了解如何使用 Azure 搜尋服務對 Azure Blob 儲存體編製索引，以及從文件擷取文字"
+title: 使用 Azure 搜尋服務對 Azure Blob 儲存體編制索引
+description: 了解如何使用 Azure 搜尋服務對 Azure Blob 儲存體編製索引，以及從文件擷取文字
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/28/2017
+ms.date: 03/22/2018
 ms.author: eugenesh
-ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 67f6775fb68f4cd13c52ebe66727f2b4df23c692
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>使用 Azure 搜尋服務在 Azure Blob 儲存體中對文件編制索引
 本文說明如何使用 Azure 搜尋服務對儲存在 Azure Blob 儲存體的文件編製索引 (例如 PDF、Microsoft Office 文件和數種其他通用格式)。 首先，它會說明安裝和設定 blob 索引子的基本概念。 然後，它會提供可能會發生之行為和案例的更深入探索。
@@ -271,6 +271,10 @@ blob 索引子可以從下列文件格式擷取文字：
 對於某些 blob，Azure 搜尋服務無法判斷內容類型，或無法處理受支援內容類型的文件。 若要略過此失敗模式，請將 `failOnUnprocessableDocument` 組態參數設定為 false：
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 [Azure 搜尋服務中的限制](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)。 預設會將過大的 Blob 視為錯誤。 不過，如果您將 `indexStorageMetadataOnlyForOversizedDocuments` 組態參數設為 true，仍可以針對過大 Blob 的儲存體中繼資料編列索引： 
+
+    "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
 如果在處理期間發生任何錯誤，當剖析 blob 或是將文件新增至索引時，您還是可以繼續編製索引。 若要忽略特定錯誤數目，請將 `maxFailedItems` 和 `maxFailedItemsPerBatch` 組態參數設定為所需的值。 例如︰
 

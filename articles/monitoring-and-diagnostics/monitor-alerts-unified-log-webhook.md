@@ -1,12 +1,12 @@
 ---
-title: "Azure 警示 (預覽) 中記錄警示的 Webhook 動作 | Microsoft Docs"
-description: "本文說明使用 Log Analytics 或 Application Insights 的記錄警示規則如何將資料作為 HTTP Webhook 推送以及不同可行自訂的詳細資料。"
+title: Azure 警示中記錄警示的 Webhook 動作 | Microsoft Docs
+description: 本文說明使用 Log Analytics 或 Application Insights 的記錄警示規則如何將資料作為 HTTP Webhook 推送以及不同可行自訂的詳細資料。
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook 動作記錄警示規則
-[在 Azure (預覽) 中建立警示](monitor-alerts-unified-usage.md)後，您可以選擇[使用動作群組設定](monitoring-action-groups.md)以執行一或多個動作。  本文說明各種可用的 Webhook 動作以及設定自訂 JSON 型 Webhook 的詳細資訊。
+[在 Azure 中建立警示](monitor-alerts-unified-usage.md)後，您可以選擇[使用動作群組設定](monitoring-action-groups.md)以執行一或多個動作。  本文說明各種可用的 Webhook 動作以及設定自訂 JSON 型 Webhook 的詳細資訊。
 
 
 ## <a name="webhook-actions"></a>Webhook 動作
@@ -33,7 +33,7 @@ Webhook 動作需要下表中的屬性：
 | 屬性 | 說明 |
 |:--- |:--- |
 | Webhook URL |Webhook 的 URL。 |
-| 自訂 JSON 承載 |自訂在警示建立期間選擇此選項時使用 Webhook 傳送承載。 如需詳細資料，請參閱[使用 Azure 警示 (預覽) 管理警示](monitor-alerts-unified-usage.md) |
+| 自訂 JSON 承載 |自訂在警示建立期間選擇此選項時使用 Webhook 傳送承載。 如需詳細資料，請參閱[使用 Azure 警示管理警示](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
 > 記錄警示的 [包含 webhook 的自訂 JSON 承載] 選項旁的 [測試 Webhook] 按鈕會觸發虛擬呼叫來測試 Webhook URL。 它不包含實際資料，也不包含用於記錄警示的代表性 JSON 結構描述。 
@@ -157,6 +157,8 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
     }
     }
 
+> [!NOTE]
+> Application Insights 的記錄警示目前處於公開預覽狀態 - 功能和使用者體驗可能會有變動。
 
 #### <a name="log-alert-with-custom-json-payload"></a>含有自訂 JSON 承載的記錄警示
 例如，若要建立只包含警示名稱和搜尋結果的自訂承載，您可以使用下列程式碼： 
@@ -194,7 +196,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 
 
 ## <a name="next-steps"></a>後續步驟
-- 了解 [Azure 警示 (預覽) 中的記錄警示](monitor-alerts-unified-log.md)
+- 了解 [Azure 警示中的記錄警示](monitor-alerts-unified-log.md)
 - 建立和管理 [Azure 中的動作群組](monitoring-action-groups.md)
 - 深入了解 [Application Insights](../application-insights/app-insights-analytics.md)
 - 深入了解 [Log Analytics](../log-analytics/log-analytics-overview.md)。 

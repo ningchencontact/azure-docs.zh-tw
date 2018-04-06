@@ -1,8 +1,8 @@
 ---
-title: "Azure Log Analytics 查詢語言功能提要 | Microsoft Docs"
-description: "如果您已熟悉舊版語言，本文會提供轉換為 Log Analytics 新查詢語言的協助。"
+title: Azure Log Analytics 查詢語言功能提要 | Microsoft Docs
+description: 如果您已熟悉舊版語言，本文會提供轉換為 Log Analytics 新查詢語言的協助。
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: bwren
 ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>轉換為 Azure Log Analytics 新的查詢語言
 Log Analytics 最近已實作新的查詢語言。  如果您雖熟悉舊版語言卻仍需要協助，本文會提供轉換為這個 Log Analytics 語言的協助。
@@ -52,8 +52,8 @@ Log Analytics 最近已實作新的查詢語言。  如果您雖熟悉舊版語�
 | 日期比較        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
 |                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &amp;#124; where TimeGenerated between (datetime(2017-05-01) . datetime(2017-05-31)) |
 | 布林值比較     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| where IsGatewayInstalled == false |
-| 排序                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | Event \| sort by Computer asc, EventLog desc, EventLevelName asc |
-| Distinct               | Type=Event &#124; dedup Computer \| 選取電腦 | Event &#124; summarize by Computer, EventLog |
+| 排序                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | 事件 \| 依 Computer asc、EventLog desc、EventLevelName asc 排序 |
+| Distinct               | Type=Event &#124; dedup Computer \| select Computer | Event &#124; summarize by Computer, EventLog |
 | 擴充資料行         | Type=Perf CounterName="% Processor Time" &#124; EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION | Perf &#124; where CounterName == "% Processor Time" \| extend Utilization = iff(CounterValue > 50, "HIGH", "LOW") |
 | 彙總            | Type=Event &#124; measure count() as Count by Computer | Event &#124; summarize Count = count() by Computer |
 |                                | Type=Perf ObjectName=Processor CounterName="% Processor Time" &#124; measure avg(CounterValue) by Computer interval 5minute | Perf &#124; where ObjectName=="Processor" and CounterName=="% Processor Time" &#124; summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min) |

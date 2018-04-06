@@ -1,8 +1,8 @@
 ---
-title: "使用指令碼動作來自訂 HDInsight 叢集 - Azure | Microsoft Docs"
-description: "使用指令碼動作在以 Linux 為基礎的 HDInsight 叢集上新增自訂元件。 指令碼動作是 Bash 指令碼，可用來自訂叢集設定，或新增其他服務和公用程式，如 Hue、Solr 或 R。"
+title: 使用指令碼動作來自訂 HDInsight 叢集 - Azure | Microsoft Docs
+description: 使用指令碼動作在以 Linux 為基礎的 HDInsight 叢集上新增自訂元件。 指令碼動作是 Bash 指令碼，可用來自訂叢集設定，或新增其他服務和公用程式，如 Hue、Solr 或 R。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 42bf760b793f3c035a766c4d39524e03c1cbe6ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc8078a1681b8977a0748f633df02beb2f2bdc8a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用指令碼動作自訂 Linux 型 HDInsight 叢集
 
@@ -214,13 +214,15 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 在此範例中，指令碼動作是使用下列程式碼加入：
 
-    "scriptActions": [
-        {
-            "name": "setenvironmentvariable",
-            "uri": "[parameters('scriptActionUri')]",
-            "parameters": "headnode"
-        }
-    ]
+```json
+"scriptActions": [
+    {
+        "name": "setenvironmentvariable",
+        "uri": "[parameters('scriptActionUri')]",
+        "parameters": "headnode"
+    }
+]
+```
 
 如需如何部署範本的資訊，請參閱下列文件：
 
@@ -305,15 +307,21 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 1. 若要切換至 Azure Resource Manager 模式，請於命令列使用下列命令：
 
-        azure config mode arm
+    ```bash
+    azure config mode arm
+    ```
 
 2. 使用下列命令來驗證您的 Azure 訂用帳戶。
 
-        azure login
+    ```bash
+    azure login
+    ```
 
 3. 使用下列命令將指令碼動作套用至執行中的叢集
 
-        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```bash
+    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```
 
     如果省略這個命令的參數，系統會提示您使用。 如果您以 `-u` 指定的指令碼接受參數，您可以使用 `-p` 參數來指定它們。
 
@@ -337,7 +345,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>從 HDInsight .NET SDK 將指令碼動作套用到執行中的叢集
 
-如需使用 .NET SDK 將指令碼套用到叢集的範例，請參閱 [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action)。
+如需使用 .NET SDK 將指令碼套用至叢集的範例，請參閱 [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action)。
 
 ## <a name="view-history-promote-and-demote-script-actions"></a>檢視歷程記錄、升級和降級指令碼動作
 
@@ -413,7 +421,7 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 > [!WARNING]
 > 對隨 HDInsight 叢集提供的元件會有完整支援。 Microsoft 支援服務可協助隔離和解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 Microsoft 支援服務可能可以解決問題，也可能要求您利用可用的開放原始碼技術管道，找到該技術的深度專業知識。 例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 Microsoft 支援服務可能可以解決問題，也可能要求您利用可用的開放原始碼技術管道，找到該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
 
 HDInsight 服務提供數種方式以使用自訂元件。 無論元件如何使用或如何安裝在叢集上，都適用相同層級的支援。 下列清單描述自訂元件可用於 HDInsight 叢集之最常見方式：
 
@@ -493,7 +501,7 @@ __原因__︰如果您升級隨附於 HDInsight 叢集的 Python Azure 儲存體
 
 __解決方案__︰若要解決這個錯誤，請使用 `ssh` 以手動方式連線到每個叢集節點，然後使用下列命令重新安裝正確的儲存體用戶端版本︰
 
-```
+```bash
 sudo pip install azure-storage==0.20.0
 ```
 

@@ -1,6 +1,6 @@
 ---
-title: "「適用於 MySQL 的 Azure 資料庫」中的限制"
-description: "本文說明適用於 MySQL 的 Azure 資料庫中的限制，例如連線數量和儲存引擎選項。"
+title: 「適用於 MySQL 的 Azure 資料庫」中的限制
+description: 本文說明適用於 MySQL 的 Azure 資料庫中的限制，例如連線數量和儲存引擎選項。
 services: mysql
 author: kamathsun
 ms.author: sukamat
@@ -8,20 +8,20 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>「適用於 MySQL 的 Azure 資料庫」中的限制
-適用於 MySQL 的 Azure 資料庫服務目前為公開預覽狀態。 下列各節說明資料庫服務中的容量、儲存引擎支援、權限支援、資料操作陳述式支援，以及功能限制。 另請參閱適用於 MySQL 資料庫引擎的[一般限制](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) \(英文\)。
+下列各節說明資料庫服務中的容量、儲存引擎支援、權限支援、資料操作陳述式支援，以及功能限制。 另請參閱適用於 MySQL 資料庫引擎的[一般限制](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) \(英文\)。
 
 ## <a name="service-tier-maximums"></a>服務層上限
 適用於 MySQL 的 Azure 資料庫具有多個可在建立伺服器時從中選擇的服務層。 如需詳細資訊，請參閱[適用於 MySQL 的 Azure 資料庫定價層](concepts-pricing-tiers.md)。  
 
-在預覽期間，每個服務層中具有連線、計算單位及儲存體的數目上限，如下： 
+如下所示，在每個服務層中都有連線、計算單位及儲存體的數目上限： 
 
 |定價層| **計算世代**|**vCore(s)**| **連線數目上限**|
 |---|---|---|---|
@@ -29,21 +29,20 @@ ms.lasthandoff: 02/28/2018
 |基本| Gen 4| 2| 100|
 |基本| Gen 5| 1| 50|
 |基本| Gen 5| 2| 100|
-|一般用途| Gen 4| 2| 200|
-|一般用途| Gen 4| 4| 400|
-|一般用途| Gen 4| 8| 800|
-|一般用途| Gen 4| 16| 1600|
-|一般用途| Gen 4| 32| 3200|
-|一般用途| Gen 5| 2| 200|
-|一般用途| Gen 5| 4| 400|
-|一般用途| Gen 5| 8| 800|
-|一般用途| Gen 5| 16| 1600|
-|一般用途| Gen 5| 32| 3200|
+|一般用途| Gen 4| 2| 300|
+|一般用途| Gen 4| 4| 625|
+|一般用途| Gen 4| 8| 1250|
+|一般用途| Gen 4| 16| 2500|
+|一般用途| Gen 4| 32| 5000|
+|一般用途| Gen 5| 2| 300|
+|一般用途| Gen 5| 4| 625|
+|一般用途| Gen 5| 8| 1250|
+|一般用途| Gen 5| 16| 2500|
+|一般用途| Gen 5| 32| 5000|
 |記憶體最佳化| Gen 5| 2| 600|
 |記憶體最佳化| Gen 5| 4| 1250|
 |記憶體最佳化| Gen 5| 8| 2500|
 |記憶體最佳化| Gen 5| 16| 5000|
-|記憶體最佳化| Gen 5| 32| 10000| 
 
 到達太多連接時，您可能會收到下列錯誤：
 > 錯誤 1040 (08004)：太多的連接
@@ -74,7 +73,7 @@ ms.lasthandoff: 02/28/2018
 ### <a name="unsupported"></a>不支援
 - SELECT ...INTO OUTFILE
 
-## <a name="preview-functional-limitations"></a>預覽功能限制
+## <a name="functional-limitations"></a>功能限制：
 
 ### <a name="scale-operations"></a>調整作業
 - 目前不支援跨定價層動態調整伺服器。 亦即在「基本」、「一般用途」或「記憶體最佳化」定價層之間切換。

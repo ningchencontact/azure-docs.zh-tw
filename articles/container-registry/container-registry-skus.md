@@ -1,18 +1,18 @@
 ---
 title: Azure Container Registry SKU
-description: "比較 Azure Container Registry 所提供的不同服務層。"
+description: 比較 Azure Container Registry 所提供的不同服務層。
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 15179fa3e3567f92a5eae69ba9a684addc3138dd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c9b8e072b5ccd89c27d9c46407e472d6bf1e1e84
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
 
@@ -37,7 +37,7 @@ Azure Container Registry (ACR) 具有多個服務層 (稱為SKU)。 這些 SKU �
 
 ### <a name="managed-basic-standard-premium"></a>受控 (基本、標準、進階)
 
-受控登錄是由 Azure 所管理的 Azure 儲存體帳戶來提供支援。 亦即，儲存映像的儲存體帳戶不會出現在 Azure 訂用帳戶內。 使用其中一個受控登錄 SKU 可獲得幾個好處，[將傳統登錄升級][container-registry-upgrade]中會有這方面的深入討論。 本文著重在受控登錄 SKU 和其功能。
+受控登錄可從完全由 Azure 管理的映像儲存體中得到好處。 也就是說，儲存映像的儲存體帳戶不會顯示在您的 Azure 訂用帳戶中。 使用其中一個受控登錄 SKU 可獲得幾個好處，[Azure Container Registry 中的容器映像儲存體][container-registry-storage]中會有這方面的深入討論。 本文著重在受控登錄 SKU 和其功能。
 
 ### <a name="unmanaged-classic"></a>非受控 (傳統)
 
@@ -103,4 +103,5 @@ az acr update --name myregistry --sku Premium
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-storage]: container-registry-storage.md
 [container-registry-webhook]: container-registry-webhook.md

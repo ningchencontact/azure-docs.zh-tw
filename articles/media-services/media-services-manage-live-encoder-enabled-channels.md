@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 媒體服務執行即時串流，以建立多位元速率串流 | Microsoft Docs"
-description: "本主題描述如何設定通道，從內部部署編碼器接收單一位元速率即時串流，再利用媒體服務將此串流即時編碼為自動調整位元速率串流。 串流可以隨即透過一或多個串流端點傳遞給用戶端播放應用程式，使用下列其中一個自動調整串流通訊協定：HLS、Smooth Streaming、MPEG DASH。"
+title: 使用 Azure 媒體服務執行即時串流，以建立多位元速率串流 | Microsoft Docs
+description: 本主題描述如何設定通道，從內部部署編碼器接收單一位元速率即時串流，再利用媒體服務將此串流即時編碼為自動調整位元速率串流。 串流可以隨即透過一或多個串流端點傳遞給用戶端播放應用程式，使用下列其中一個自動調整串流通訊協定：HLS、Smooth Streaming、MPEG DASH。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: anilmur
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 9d89849bb982804515b21de8c251859591dbf6ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒體服務執行即時串流，以建立多位元速率串流
+
+> [!NOTE]
+> 從 2018 年 5 月 12 日開始，即時通道將不再支援 RTP/MPEG-2 傳輸串流內嵌通訊協定。 請從 RTP/MPEG-2 移轉到 RTMP 或分散式 MP4 (Smooth Streaming) 內嵌通訊協定。
+
 ## <a name="overview"></a>概觀
 在 Azure 媒體服務 (AMS) 中， **通道** 代表一個管線，負責處理即時資料流內容。 **通道** 會以兩種方式之一收到即時輸入串流：
 
@@ -45,7 +49,7 @@ ms.lasthandoff: 02/11/2018
 > 
 
 ## <a name="billing-implications"></a>計費影響
-即時編碼通道只要其狀態透過 API 轉換為「執行中」，即會開始計費。   您也可以在 Azure 入口網站或 Azure 媒體服務總管工具 (http://aka.ms/amse) 中檢視狀態。
+即時編碼通道只要其狀態透過 API 轉換為「執行中」，即會開始計費。   您也可以在 Azure 入口網站或 Azure 媒體服務總管工具 (http://aka.ms/amse)) 中檢視狀態。
 
 下表顯示通道狀態如何對應至 API 和 Azure 入口網站的計費狀態。 請注意，API 和入口網站 UX 之間的狀態稍有不同。 一旦通道透過 API 處於「執行中」狀態，或在 Azure 入口網站中處於「就緒」或「串流」狀態，就會開始計費。
 若要停止通道進一步向您計費，您必須停止透過 API 或在 Azure 入口網站中的通道。
@@ -217,7 +221,7 @@ ms.lasthandoff: 02/11/2018
 通道開始內嵌資料後，您就可以預覽您的資料流。
 
 > [!NOTE]
-> 無論指定的輸入類型為何，目前預覽串流都只能以分散式 MP4 (Smooth Streaming) 格式傳遞。 您可以使用 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) 播放器測試 Smooth Stream。 您也可以使用裝載於 Azure 入口網站中的播放器來檢視您的串流。
+> 無論指定的輸入類型為何，目前預覽串流都只能以分散式 MP4 (Smooth Streaming) 格式傳遞。 您可以使用 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) 播放器來測試您的 Smooth Stream。 您也可以使用裝載於 Azure 入口網站中的播放器來檢視您的串流。
 > 
 > 
 

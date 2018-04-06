@@ -1,24 +1,21 @@
 ---
-title: "使用圖形 API - Azure AD B2C | Microsoft Docs"
-description: "如何使用應用程式身分識別對 B2C 租用戶呼叫圖形 API，以將程序自動化。"
+title: 使用圖形 API - Azure AD B2C | Microsoft Docs
+description: 如何使用應用程式身分識別對 B2C 租用戶呼叫圖形 API，以將程序自動化。
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
-ms.author: parakhj
-ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.author: davidmu
+ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD 圖形 API
 
@@ -48,7 +45,7 @@ Azure Active Directory (Azure AD) B2C 租用戶通常會很龐大。 這表示�
 3. 在左側導覽窗格中，選擇 [所有服務]、按一下 [應用程式註冊]，然後按一下 [新增]。
 4. 遵照提示進行，並建立新的應用程式。 
     1. 選取 [Web 應用程式/API] 作為 [應用程式類型]。    
-    2. 提供**任何重新導向 URI** (例如 https://B2CGraphAPI)，因為它在此範例中不重要。  
+    2. 提供**任何登入 URL** (例如 https://B2CGraphAPI)，因為與本範例無關。  
 5. 應用程式會立即顯示在應用程式清單中，按一下它以取得 [應用程式識別碼] (也稱為用戶端識別碼)。 將它複製下來，稍後一節需要用到。
 6. 在 [設定] 功能表中，按一下 [金鑰] 來新增金鑰 (也稱為用戶端祕密)。 也將它複製下來，稍後一節會用到。
 
