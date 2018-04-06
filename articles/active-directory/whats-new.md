@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 03/28/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d356535bf1a7daf45108bc790a19578108a50bb7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9a947de3ad821d4cd65e579357e3c779e8623435
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -73,6 +73,32 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 如需詳細資訊，請參閱[什麼是 Azure AD B2B 共同作業？](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)。
  
+---
+
+
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>針對 iOS 和 Android，搭配 Azure AD 應用程式型條件式存取使用 Intune Managed Browser 來限制瀏覽器存取
+
+**類型：**新功能  
+**服務類別：**條件式存取  
+**產品功能：**身分識別安全性與保護
+ 
+
+**現已在公開預覽版中推出！**
+
+**Intune Managed Browser SSO：**您的員工可以在各個原生用戶端 (例如 Microsoft Outlook) 上使用單一登入，以及針對所有與 Azure AD 連接的應用程式使用 Intune Managed Browser。
+
+**Intune Managed Browser 條件式存取支援：**您現在可以使用應用程式型條件式存取原則來要求員工使用 Intune Managed Browser。
+
+如需深入了解，請參閱我們的[部落格文章](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/) \(英文\)。
+
+如需詳細資訊，請參閱
+
+- [設定應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+- [設定 Managed Browser 原則](https://aka.ms/managedbrowser)  
+
+
+
 ---
  
 

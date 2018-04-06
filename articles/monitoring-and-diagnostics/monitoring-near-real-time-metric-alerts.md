@@ -1,6 +1,6 @@
 ---
-title: Azure 監視器中近乎即時計量警示 | Microsoft Docs
-description: 了解如何使用近乎即時計量警示，以小到 1 分鐘的頻率來監視 Azure 資源計量。
+title: Azure 監視器所支援資源中的新版計量警示 | Microsoft Docs
+description: 新版 Azure 近乎即時計量警示之支援計量和記錄的相關參考。
 author: snehithm
 manager: kmadnani1
 editor: ''
@@ -12,32 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 15b9b0b69f3805b3e3af1d3973fd3a77bea62ab9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6ccb095f3739a90bdab2408965a742f9cbc19359
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="use-the-newer-metric-alerts-for-azure-services-in-azure-portal"></a>在 Azure 入口網站中針對 Azure 服務使用新版計量警示
-「Azure 監視器」支援一種新的警示類型，稱為近乎即時計量警示。 
+# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Azure 入口網站中 Azure 服務的新版計量警示
+Azure 監視器現在支援新的計量警示類型。 新版警示在幾個方面與[傳統計量警示](insights-alerts-portal.md)不同：
 
-近乎即時計量警示在幾個方面與[傳統計量警示](insights-alerts-portal.md)不同：
+- **改善延遲**：新版計量警示的執行頻率可以達到每分鐘一次。 舊版計量警示的執行頻率一律是每 5 分鐘一次。 記錄警示的延遲仍然超過 1 分鐘，因為會花費時間擷取記錄。 
+- **支援多維度計量**：您可以針對維度計量發出警示，這可讓您只監視計量中感興趣的某個區段。 
+- **對計量條件有更多的控制**：您可以定義更豐富的警示規則。 新版警示支援監視計量的最大值、最小值、平均及總計值。 
+- **可合併監視多個計量**：您可以使用單一規則來監視多個計量 (目前最多兩個計量)。 若兩個計量在指定的期間內都超出其個別閾值，就會觸發警示。 
+- **更好的通知系統**：所有新版警示都使用[動作群組](monitoring-action-groups.md)，這些是可在多個警示中重複使用的具名通知及動作群組。 警示計量警示及舊版 Log Analytics 警示並不使用動作群組。 
+- **來自記錄的計量** (有限公開預覽)：現在可將進入 Log Analytics 的記錄資料擷取並轉換成「Azure 監視器」計量，然後針對這些計量發出警示，就像任何其他計量一樣。 
 
-- **改善延遲**：近乎即時計量警示的執行頻率可以達到每分鐘一次。 舊版計量警示的執行頻率一律是每 5 分鐘一次。
-- **支援多維度計量**：您可以針對維度計量發出警示，以便監視計量中某個您感興趣的區段。
-- **對計量條件有更好的控制**：您可以在近乎即時計量警示中定義更豐富的警示規則。 警示支援監視計量的最大值、最小值、平均與總計值。
-- **可監視多個計量的整合監視功能**：近乎即時計量警示能以單一規則監視多個計量 (目前支援最多兩個計量)。 若兩個計量在指定的時間內都達到其個別閾值，則會觸發警示。
-- **模組化通知系統**：近乎即時計量警示使用[動作群組](monitoring-action-groups.md)。 您可以使用動作群組來建立模組化動作。 您可以針對多個警示規則重複使用動作群組。
-- **來自記錄檔的計量**：從進入 [Log Analytics](../log-analytics/log-analytics-overview.md) 的常用記錄資料中，系統可將計量擷取至「Azure 監視器」中並以近乎即時的方式發出警示。
+若要了解如何在 Azure 入口網站中建立新版計量警示，請參閱[在 Azure 入口網站中建立警示規則](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal)。 建立警示之後，您可以使用[在 Azure 入口網站中管理警示](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal)中所述的步驟來管理警示。
 
+
+## <a name="portal-powershell-cli-rest-support"></a>入口網站、PowerShell、CLI、REST 支援
+目前，您只能在 Azure 入口網站或 REST API 中建立新版計量警示。 即將支援使用 PowerShell 和 Azure 命令列介面 (Azure CLI 2.0) 來設定新版警示。
 
 ## <a name="metrics-and-dimensions-supported"></a>支援的計量和維度
-近乎即時計量警示支援使用維度之計量的警示。 您可以使用維度來將計量篩選到正確層級。 從 [Azure 監視器 - 計量瀏覽器 (預覽)](monitoring-metric-charts.md)，即可探索並以視覺化方式檢視所有支援的計量及適用的維度。
+新版計量警示支援針對使用維度的計量發出警示。 您可以使用維度來將計量篩選到正確層級。 從 [Azure 監視器 - 計量瀏覽器 (預覽)](monitoring-metric-charts.md)，即可探索並以視覺化方式檢視所有支援的計量及適用的維度。
 
-以下是支援近乎即時計量警示的 Azure 監視器型計量資源完整清單：
+以下是新版警示所支援的 Azure 監視器計量來源完整清單：
 
 |資源類型  |支援的維度  | 可用的計量|
 |---------|---------|----------------|
@@ -60,25 +63,20 @@ ms.lasthandoff: 03/23/2018
 |Microsoft.Storage/storageAccounts/services     |     yes    | [Blob 服務](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices)、[檔案服務](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices)、[佇列服務](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices)及[資料表服務](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  N/A       | [串流分析](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 |Microsoft.CognitiveServices/accounts     |    N/A     | [認知服務](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
-|Microsoft.OperationalInsights/workspaces (預覽) | yes|[Log Analytics 工作區](#support-for-oms-logs-as-metrics-for-alerting)|
+|Microsoft.OperationalInsights/workspaces (預覽) | yes|[Log Analytics 工作區](#log-analytics-logs-as-metrics-for-alerting)|
 
 
-## <a name="create-a-newer-metric-alert"></a>建立新版計量警示
-目前，您只能在 Azure 入口網站或 REST API 中建立新版計量警示。 即將支援使用 PowerShell、Azure 命令列介面 (Azure CLI) 來設定近乎即時計量警示。
+## <a name="log-analytics-logs-as-metrics-for-alerting"></a>使用 Log Analytics 記錄作為警示計量 
 
-若要了解如何在 Azure 入口網站中建立新版計量警示，請參閱[在 Azure 入口網站中建立警示規則](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal)。
-
-## <a name="manage-newer-metric-alerts"></a>管理新版計量警示
-建立近乎即時計量警示之後，您可以使用[在 Azure 入口網站中管理您的警示](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal)中所述的步驟來管理警示。
-
-## <a name="support-for-oms-logs-as-metrics-for-alerting"></a>支援使用 OMS 記錄作為警示計量
-
-您也可以針對擷取來作為計量 (作為來自 [記錄預覽] 之 [計量] 的一部分) 的常用 OMS 記錄使用近乎即時計量警示。  
+您也可以針對在「來自記錄的計量」(預覽版) 程序中擷取來作為計量的常用 Log Analytics 記錄，使用新版計量警示。  
 - Windows 和 Linux 電腦的[效能計數器](../log-analytics/log-analytics-data-sources-performance-counters.md)
 - [代理程式健全狀況的活動訊號記錄](../operations-management-suite/oms-solution-agenthealth.md)
 - [更新管理](../operations-management-suite/oms-solution-update-management.md)記錄
+ 
+> [!NOTE]
+> 只有在所選期間中有特定計量和/或維度的資料時，才會顯示特定計量和/或維度。 這些計量可供在美國東部、美國中西部及西歐有工作區且已選擇加入預覽的客戶使用。 如果您想要參與此預覽，請透過[問卷](https://aka.ms/MetricLogPreview)註冊。
 
-以下是支援近乎即時計量警示的 OMS 記錄檔型計量資源完整清單：
+以下是支援的 Log Analytics 記錄型計量來源清單：
 
 計量名稱/詳細資料  |支援的維度  | 記錄檔類型  |
 |---------|---------|---------|
@@ -151,13 +149,11 @@ ms.lasthandoff: 03/23/2018
 |    Heartbeat  |     是 - Computer、OSType、Version 及 SourceComputerId    |   活動訊號記錄 |
 |    更新 |     是 - Computer、Product、Classification、UpdateState、Optional 及 Approved    |   更新管理 |
 
-> [!NOTE]
-> 只有在所選期間中有特定計量和/或維度的資料時，才會顯示特定計量和/或維度。 這些計量可供在美國東部、美國中西部及西歐有工作區且已選擇加入預覽的客戶使用。 如果您想要參與此預覽，請透過[問卷](https://aka.ms/MetricLogPreview)註冊。
 
 
 ## <a name="payload-schema"></a>承載結構描述
 
-當使用已適當設定的[動作群組](monitoring-action-groups.md)時，POST 作業會針對所有近乎即時計量警示，包含下列 JSON 承載和結構描述：
+當使用已適當設定的[動作群組](monitoring-action-groups.md)時，POST 作業會針對所有新版計量警示，包含下列 JSON 承載和結構描述：
 
 ```json
 {"schemaId":"AzureMonitorMetricAlert","data":

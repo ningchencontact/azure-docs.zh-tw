@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 91eccd2b4587d7cb926ca506ae2f2e5b91ea1f3e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: cbd5b57d0cde3743c7ef70437f702536c27ac999
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>修改虛擬機器擴展集
 在應用程式的整個生命週期中，您可能需要修改或更新您的虛擬機器擴展集。 這些更新可能包括如何更新擴展集的組態，或者變更應用程式組態。 本文說明如何使用 REST API、Azure PowerShell 或 Azure CLI 2.0 來修改現有的擴展集。
@@ -29,19 +29,19 @@ ms.lasthandoff: 03/28/2018
 ### <a name="the-scale-set-model"></a>擴展集模型
 擴展集具有「擴展集模型」，可擷取擴展集整體的「預期」狀態。 若要查詢擴展集的模型，您可以使用 
 
-- REST API 執行 [compute/virtualmachinescalesets/get](/rest/api/compute/virtualmachinescalesets/get)，如下所示：
+- REST API 搭配 [compute/virtualmachinescalesets/get](/rest/api/compute/virtualmachinescalesets/get)，如下所示：
 
     ```rest
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
     ```
 
-- Azure Powershell 執行 [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)：
+- Azure PowerShell 搭配 [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)：
 
     ```powershell
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- Azure CLI 2.0 執行 [az vmss show](/cli/azure/vmss#az_vmss_show)：
+- Azure CLI 2.0 搭配 [az vmss show](/cli/azure/vmss#az_vmss_show)：
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -73,19 +73,19 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 ### <a name="the-scale-set-instance-view"></a>擴展集執行個體檢視
 擴展集也具有「擴展集執行個體檢視」，可擷取擴展集整體的目前「執行階段」狀態。 若要查詢擴展集的執行個體檢視，您可以使用：
 
-- REST API 執行 [compute/virtualmachinescalesets/getinstanceview](/rest/api/compute/virtualmachinescalesets/getinstanceview)，如下所示：
+- REST API 搭配 [compute/virtualmachinescalesets/getinstanceview](/rest/api/compute/virtualmachinescalesets/getinstanceview)，如下所示：
 
     ```rest
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/instanceView?api-version={apiVersion}
     ```
 
-- Azure Powershell 執行 [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)：
+- Azure PowerShell 搭配 [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)：
 
     ```powershell
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- Azure CLI 2.0 執行 [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)：
+- Azure CLI 2.0 搭配 [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)：
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -127,19 +127,19 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
 ### <a name="the-scale-set-vm-model-view"></a>擴展集 VM 模型檢視
 就像擴展集有模型檢視一樣，擴展集內的每個 VM 也有自己的模型檢視。 若要查詢擴展集的模型檢視，您可以使用：
 
-- REST API 執行 [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get)，如下所示：
+- REST API 搭配 [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get)，如下所示：
 
     ```rest
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId?api-version={apiVersion}
     ```
 
-- Azure Powershell 執行 [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm)：
+- Azure PowerShell 搭配 [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm)：
 
     ```powershell
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI 2.0 執行 [az vmss show](/cli/azure/vmss#az_vmss_show)：
+- Azure CLI 2.0 搭配 [az vmss show](/cli/azure/vmss#az_vmss_show)：
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -167,19 +167,19 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 ### <a name="the-scale-set-vm-instance-view"></a>擴展集 VM 執行個體檢視
 就像擴展集有執行個體檢視一樣，擴展集內的每個 VM 也有自己的執行個體檢視。 若要查詢擴展集的執行個體檢視，您可以使用：
 
-- REST API 執行 [ompute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview)，如下所示：
+- REST API 搭配 [ompute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview)，如下所示：
 
     ```rest
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId/instanceView?api-version={apiVersion}
     ```
 
-- Azure Powershell 執行 [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm)：
+- Azure PowerShell 搭配 [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm)：
 
     ```powershell
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Azure CLI 2.0 執行 [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
+- Azure CLI 2.0 搭配 [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -244,7 +244,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 ## <a name="how-to-update-global-scale-set-properties"></a>如何更新全域擴展集屬性
 若要更新全域擴展集屬性，您必須更新擴展集模型中的屬性。 您可以透過下列方式執行此操作：
 
-- REST API 執行 [compute/virtualmachinescalesets/createorupdate](/rest/api/compute/virtualmachinescalesets/createorupdate)，如下所示：
+- REST API 搭配 [compute/virtualmachinescalesets/createorupdate](/rest/api/compute/virtualmachinescalesets/createorupdate)，如下所示：
 
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
@@ -252,13 +252,13 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 
 - 您可以使用來自 REST API 的屬性來部署 Resource Manager 範本，以更新全域擴展集屬性。
 
-- Azure Powershell 執行 [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)：
+- Azure PowerShell 搭配 [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)：
 
     ```powershell
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
-- Azure CLI 2.0 執行 [az vmss update](/cli/azure/vmss#az_vmss_update)：
+- Azure CLI 2.0 搭配 [az vmss update](/cli/azure/vmss#az_vmss_update)：
     - 若要修改屬性：
 
         ```azurecli
@@ -293,19 +293,19 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
  
 若要更新現有的 VM，您必須「手動升級」每個現有的 VM。 您可以透過下列方式執行此手動升級：
 
-- REST API 執行 [compute/virtualmachinescalesets/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances)，如下所示：
+- REST API 搭配 [compute/virtualmachinescalesets/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances)，如下所示：
 
     ```rest
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
     ```
 
-- Azure Powershell 執行 [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance)：
+- Azure PowerShell 搭配 [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance)：
     
     ```powershell
     Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI 2.0 執行 [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
+- Azure CLI 2.0 搭配 [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
@@ -318,19 +318,19 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 
 有一種全域擴展集屬性修改並不遵守升級原則。 對於擴展集作業系統設定檔 (例如系統管理員使用者名稱和密碼) 的變更，只能在 API 版本 2017-12-01 或更新版本中進行。 這些變更只會套用至變更擴展集模型之後建立的 VM。 若要將現有的 VM 更新至最新狀態，您必須為每個現有的 VM 執行「重新安裝映像」作業。 您可以透過下列方式執行這個重新安裝映像作業：
 
-- REST API 執行 [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage)，如下所示：
+- REST API 搭配 [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage)，如下所示：
 
     ```rest
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- Azure Powershell 執行 [Set-AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm)：
+- Azure PowerShell 搭配 [Set-AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm)：
 
     ```powershell
     Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Azure CLI 2.0 執行 [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage)：
+- Azure CLI 2.0 搭配 [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage)：
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -384,13 +384,13 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 ### <a name="update-the-os-image-for-your-scale-set"></a>更新擴展集的 OS 映像
 您可能有執行舊版 Ubuntu LTS 16.04 的擴展集。 您想要更新為較新版本的 Ubuntu LTS 16.04 (例如，版本 16.04.201801090)。 映像參考版本屬性不是清單的一部分，因此您可以直接使用下列其中一個命令來修改這些屬性：
 
-- Azure Powershell 執行 [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)，如下所示：
+- Azure PowerShell 搭配 [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)，如下所示：
 
     ```powershell
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
-- Azure CLI 2.0 執行 [az vmss update](/cli/azure/vmss#az_vmss_update_instances)：
+- Azure CLI 2.0 搭配 [az vmss update](/cli/azure/vmss#az_vmss_update_instances)：
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
@@ -403,16 +403,16 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 - Azure Powershell：
 
     ```powershell
-    # Get the current model of the scale set and store it in a local powershell object named $vmss
+    # Get the current model of the scale set and store it in a local PowerShell object named $vmss
     $vmss=Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
     
-    # Create a local powershell object for the new desired IP configuration, which includes the referencerence to the application gateway
+    # Create a local PowerShell object for the new desired IP configuration, which includes the referencerence to the application gateway
     $ipconf = New-AzureRmVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
     
-    # Replace the existing IP configuration in the local powershell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
+    # Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
     $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
     
-    # Update the model of the scale set with the new configuration in the local powershell object
+    # Update the model of the scale set with the new configuration in the local PowerShell object
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN 規則引擎功能 | Microsoft Docs"
-description: "Azure CDN 規則引擎比對條件和功能的參考文件。"
+title: Azure CDN 規則引擎功能 | Microsoft Docs
+description: Azure CDN 規則引擎比對條件和功能的參考文件。
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN 規則引擎功能
 本本會針對 Azure 內容傳遞網路 (CDN) [規則引擎](cdn-rules-engine.md)列出可用功能的詳細說明。
@@ -46,28 +46,28 @@ Name | 目的
 Name | 目的
 -----|--------
 [頻寬參數](#bandwidth-parameters) | 判斷是否使用頻寬節流設定參數 (例如 ec_rate 和 ec_prebuf)。
-[頻寬節流設定](#bandwidth-throttling) | 針對 Edge Server 所提供的回應進行頻寬節流設定。
+[頻寬節流設定](#bandwidth-throttling) | 針對存在點 (POP) 所提供的回應進行頻寬節流。
 [略過快取](#bypass-cache) | 判斷要求是否應略過快取。
-[Cache-Control 標頭處理](#cache-control-header-treatment) | 當 [外部最大壽命] 功能為作用中時，透過 Edge Server 來控制 `Cache-Control` 標頭的產生。
+[Cache-Control 標頭處理](#cache-control-header-treatment) | 當 [外部最大壽命] 功能為作用中時，透過 POP 來控制 `Cache-Control` 標頭的產生。
 [快取索引鍵查詢字串](#cache-key-query-string) | 判斷快取索引鍵會包含或排除與要求相關聯的佇列字串參數。
 [快取索引鍵重寫](#cache-key-rewrite) | 重寫與要求相關聯的快取索引鍵。
-[完成快取填滿](#complete-cache-fill) | 判斷在要求於 Edge Server 上產生部分快取遺失時會發生什麼事。
+[完成快取填滿](#complete-cache-fill) | 決定當要求導致在 POP 上發生部分快取遺失時要執行的動作。
 [壓縮檔案類型](#compress-file-types) | 定義將在伺服器上壓縮的檔案之檔案格式。
-[預設的內部最大壽命](#default-internal-max-age) | 判斷 Edge Server 到原始伺服器快取重新驗證之間的預設最大壽命間隔。
-[Expires 標頭處理](#expires-header-treatment) | 當 [外部最大壽命] 功能為作用中時，透過 Edge Server 來控制 `Expires` 標頭的產生。
-[外部最大壽命](#external-max-age) | 判斷瀏覽器到 Edge Server 快取重新驗證之間的最大壽命間隔。
-[強制執行內部最大壽命](#force-internal-max-age) | 判斷 Edge Server 到原始伺服器快取重新驗證之間的最大壽命間隔。
+[預設的內部最大壽命](#default-internal-max-age) | 決定 POP 向原始伺服器重新驗證快取之前的預設最大壽命間隔。
+[Expires 標頭處理](#expires-header-treatment) | 當 [外部最大壽命] 功能為作用中時，透過 POP 來控制 `Expires` 標頭的產生。
+[外部最大壽命](#external-max-age) | 決定瀏覽器向 POP 重新驗證快取之前的最大壽命間隔。
+[強制執行內部最大壽命](#force-internal-max-age) | 決定 POP 向原始伺服器重新驗證快取之前的最大壽命間隔。
 [H.264 支援 (HTTP 漸進式下載)](#h264-support-http-progressive-download) | 判斷可能用於串流處理內容的 H.264 檔案格式類型。
 [接受 No-Cache 要求](#honor-no-cache-request) | 判斷是否要將 HTTP 用戶端的 no-cache 要求轉送到原始伺服器。
 [忽略原始的 No-Cache](#ignore-origin-no-cache) | 判斷 CDN 是否忽略原始伺服器所提供的特定指示詞。
 [忽略無法滿足的範圍](#ignore-unsatisfiable-ranges) | 判斷在要求產生「416 無法滿足的要求範圍」狀態代碼時傳回給用戶端的要求。
-[內部最大過時](#internal-max-stale) | 控制當 Edge Server 無法使用原始伺服器重新驗證快取的資產時，從 Edge Server 所提供的快取資產可能會經歷多長的標準到期時間。
+[內部最大過時](#internal-max-stale) | 控制當 POP 無法向原始伺服器重新驗證所快取的資產時，在過了標準到期時間多久之後仍可從 POP 提供所快取的資產。
 [部分快取共用](#partial-cache-sharing) | 判斷要求是否可以產生部分快取的內容。
 [預先驗證快取的內容](#prevalidate-cached-content) | 在快取內容的 TTL 到期之前，判斷其是否適合進行早期重新驗證。
-[重新整理零位元組的快取檔案](#refresh-zero-byte-cache-files) | 判斷如何透過 Edge Server 來處理 HTTP 用戶端對於 0 位元組快取資產的要求。
+[重新整理零位元組的快取檔案](#refresh-zero-byte-cache-files) | 決定 POP 如何處理 HTTP 用戶端的 0 位元組快取資產要求。
 [設定可快取的狀態碼](#set-cacheable-status-codes) | 定義一組可產生快取內容的狀態碼。
 [發生錯誤時傳遞過時的內容](#stale-content-delivery-on-error) | 判斷在快取重新驗證期間發生錯誤時，或者在接收到來自客戶原始伺服器的要求內容時，是否要傳遞到期的快取內容。
-[在重新驗證時過期](#stale-while-revalidate) | 允許 Edge Server 在進行重新驗證時提供過時的用戶端給要求者，藉以改善效能。
+[在重新驗證時過期](#stale-while-revalidate) | 藉由允許 POP 在進行重新驗證時提供過時的用戶端給要求者來改善效能。
 
 ## <a name="comment-feature"></a>註解功能
 
@@ -110,7 +110,7 @@ Name | Purpose
 Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
 Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
 
-###Edge Optimizer
+### Edge Optimizer
 **Purpose:** Determines whether Edge Optimizer can be applied to a request.
 
 If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
@@ -128,7 +128,7 @@ Disabled|Restores the default behavior. The default behavior is to deliver conte
 **Default Behavior:** Disabled
  
 
-###Edge Optimizer - Instantiate Configuration
+### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
 
 This feature requires the ADN platform and the Edge Optimizer feature.
@@ -151,7 +151,7 @@ If the desired site does not appear in the list, then you should edit its config
 Name | 目的
 -----|--------
 [最大 Keep-Alive 要求數目](#maximum-keep-alive-requests) | 判斷在關閉 Keep-Alive 連線之前，適用於該連線的最大要求數目。
-[Proxy 特殊標頭](#proxy-special-headers) | 定義要從 Edge Server 轉送到原始伺服器之 CDN 特定的要求標頭組。
+[Proxy 特殊標頭](#proxy-special-headers) | 定義從 POP 轉送到原始伺服器的一組 CDN 特定要求標頭。
 
 
 ## <a name="specialty-features"></a>特性功能
@@ -201,8 +201,8 @@ Name | 目的
 
 值|結果
 --|--
-已啟用|允許 Edge Server 接受頻寬節流設定要求。
-已停用|導致 Edge Server 忽略頻寬節流設定參數。 通常會提供要求的內容 (亦即，不需頻寬節流)。
+已啟用|允許 POP 接受頻寬節流設定要求。
+已停用|導致 POP 忽略頻寬節流設定參數。 通常會提供要求的內容 (亦即，不需頻寬節流)。
 
 **預設行為：**已啟用。
  
@@ -212,14 +212,14 @@ Name | 目的
 
 ---
 ### <a name="bandwidth-throttling"></a>頻寬節流設定
-**目的：**針對 Edge Server 所提供的回應進行頻寬節流設定。
+**目的：**針對 POP 所提供的回應進行頻寬節流。
 
 您必須定義下列這兩個選項，才能正確設定頻寬節流設定。
 
 選項|說明
 --|--
 每秒 KB 數|將此選項設定為可能用來傳遞回應的最大頻寬 (每秒 KB 數)。
-Prebuf 秒|將此選項設定為 Edge Server 在進行頻寬節流設定之前等候的秒數。 這段不受頻寬限制之期間的用意是防止媒體播放器因為頻寬節流設定而遇到間斷或緩衝處理問題。
+Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數。 這段不受頻寬限制之期間的用意是防止媒體播放器因為頻寬節流設定而遇到間斷或緩衝處理問題。
 
 **預設行為：**已停用。
 
@@ -233,8 +233,8 @@ Prebuf 秒|將此選項設定為 Edge Server 在進行頻寬節流設定之前�
 
 值|結果
 --|--
-已啟用|導致所有對原始伺服器的要求都失敗，即使先前已在 Edge Server 上快取內容也一樣。
-已停用|導致 Edge Server 會根據其回應標頭中定義的快取原則來快取資產。
+已啟用|導致將所有要求都直接導向至原始伺服器，即使先前已將內容快取在 POP 上也一樣。
+已停用|導致 POP 根據其回應標頭中所定義的快取原則來快取資產。
 
 **預設行為：**
 
@@ -289,7 +289,7 @@ Prebuf 秒|將此選項設定為 Edge Server 在進行頻寬節流設定之前�
 
 ---
 ### <a name="cache-control-header-treatment"></a>Cache-Control 標頭處理
-**目的：**當 [外部最大壽命] 功能為作用中時，透過 Edge Server 來控制 `Cache-Control` 標頭的產生。
+**目的：**當 [外部最大壽命] 功能為作用中時，透過 POP 來控制 `Cache-Control` 標頭的產生。
 
 完成這類型組態的最簡單方式是將 [外部最大壽命] 和 [Cache-Control 標頭處理] 功能放在同一個陳述式中。
 
@@ -415,9 +415,9 @@ Prebuf 秒|將此選項設定為 Edge Server 在進行頻寬節流設定之前�
 
 ---
 ### <a name="complete-cache-fill"></a>完成快取填滿
-**目的：**判斷在要求於 Edge Server 上產生部分快取遺失時會發生什麼事。
+**目的：**決定當要求導致在 POP 上發生部分快取遺失時要執行的動作。
 
-部分快取遺失會說明未完全下載至 Edge Server 之資產的快取狀態。 如果只在 Edge Server 上部分快取了資產，則會將該資產的下一個要求再次轉送至原始伺服器。
+部分快取遺失描述的是未完全下載至 POP 之資產的快取狀態。 如果資產只有部分快取在 POP 上，則會將該資產的下一個要求再次轉送給原始伺服器。
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
@@ -430,8 +430,8 @@ This feature is not available for the ADN platform. The typical traffic on this 
 
 值|結果
 --|--
-已啟用|還原預設行為。 預設行為是強制 Edge Server 從原始伺服器起始資產的背景擷取。 在那之後，資產將位於 Edge Server 的本機快取中。
-已停用|防止 Edge Server 執行資產的背景擷取。 結果是來自該區域中該資產的下一個要求會導致 Edge Server 向客戶原始伺服器要求它。
+已啟用|還原預設行為。 預設行為是強制 POP 在背景從原始伺服器起始資產擷取。 之後，資產就會在 POP 的本機快取中。
+已停用|防止 POP 在背景執行資產擷取。 結果是從該區域對該資產發出下一個要求時，會導致 POP 向客戶原始伺服器要求該資產。
 
 **預設行為：**已啟用。
 
@@ -523,14 +523,14 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="default-internal-max-age"></a>預設的內部最大壽命
-**目的：**判斷 Edge Server 到原始伺服器快取重新驗證之間預設的最大壽命間隔。 換句話說，就是 Edge Server 將檢查快取的資產是否符合原始伺服器上儲存的資產之前所經過的時間長度。
+**目的：**決定 POP 向原始伺服器重新驗證快取之前的預設最大壽命間隔。 換句話說，就是 POP 檢查所快取資產是否符合原始伺服器上所儲存資產之前將經歷的時間長度。
 
 重要資訊：
 
 - 只有原始伺服器未在 `Cache-Control` 或 `Expires` 標頭中指派最大壽命指示時，此動作才會針對來自該原始伺服器的回應加以執行。
 - 此動作將不會針對未被視為可快取的資產加以執行。
-- 此動作不會影響瀏覽器對 Edge Server 快取重新驗證。 這些類型的重新驗證取決於傳送到瀏覽器的 `Cache-Control` 或 `Expires` 標頭，而其可使用 [外部最大壽命] 功能來自訂。
-- 此動作的結果對於回應標頭以及針對您的內容從 Edge Server 傳回的內容並無顯著影響，但它可能會影響從 Edge Server 傳送至原始伺服器的重新驗證流量。
+- 此動作不會影響瀏覽器向 POP 重新驗證快取。 這些類型的重新驗證取決於傳送到瀏覽器的 `Cache-Control` 或 `Expires` 標頭，而其可使用 [外部最大壽命] 功能來自訂。
+- 此動作的結果對於回應標頭及針對您內容從 POP 傳回的內容並無顯著影響，但可能影響從 POP 傳送至原始伺服器的重新驗證流量多寡。
 - 以下列方式設定此功能：
     - 選取可套用預設內部最大壽命的狀態碼。
     - 指定整數值，然後選取所需的時間單位 (例如，秒、分鐘、小時等)。 此值會定義預設的內部最大壽命間隔。
@@ -571,7 +571,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="expires-header-treatment"></a>Expires 標頭處理
-**目的：**當 [外部最大壽命] 功能為作用中時，透過 Edge Server 來控制 `Expires` 標頭的產生。
+**目的：**當 [外部最大壽命] 功能為作用中時，透過 POP 來控制 `Expires` 標頭的產生。
 
 完成這類型組態的最簡單方式是將 [外部最大壽命] 和 [Expires 標頭處理] 功能放在同一個陳述式中。
 
@@ -590,15 +590,15 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="external-max-age"></a>外部最大壽命
-**目的：**判斷瀏覽器到 Edge Server 快取重新驗證之間的最大壽命間隔。 換句話說，就是瀏覽器可以檢查來自 Edge Server 的新版本資產之前所經歷的時間長度。
+**目的：**決定瀏覽器向 POP 重新驗證快取之前的最大壽命間隔。 換句話說，就是瀏覽器可向 POP 檢查是否有新版資產之前將經歷的時間長度。
 
-啟用此功能將會從 Edge Server 產生 `Cache-Control: max-age` 和 `Expires` 標頭，並將它們傳送至 HTTP 用戶端。 根據預設，這些標頭將會覆寫原始伺服器所建立的標頭。 不過，可能會使用 [Cache-Control 標頭處理] 和 [Expires 標頭處理] 功能來改變此行為。
+啟用此功能會從 POP 產生 `Cache-Control: max-age` 和 `Expires` 標頭，並將它們傳送給 HTTP 用戶端。 根據預設，這些標頭將會覆寫原始伺服器所建立的標頭。 不過，可能會使用 [Cache-Control 標頭處理] 和 [Expires 標頭處理] 功能來改變此行為。
 
 重要資訊：
 
-- 此動作不會影響 Edge Server 對原始伺服器的快取重新驗證。 這些類型的重新驗證取決於接收自原始伺服器的 `Cache-Control` 和 `Expires` 標頭，並可使用 [預設的內部最大壽命] 和 [強制執行內部最大壽命] 功能來自訂。
+- 此動作不會影響 POP 向原始伺服器重新驗證快取。 這些類型的重新驗證取決於接收自原始伺服器的 `Cache-Control` 和 `Expires` 標頭，並可使用 [預設的內部最大壽命] 和 [強制執行內部最大壽命] 功能來自訂。
 - 指定整數值，然後選取所需的時間單位 (例如，秒、分鐘、小時等)，從而設定此功能。
-- 將此功能設為負數值，會導致 Edge Server 將過去利用每個回應設定的 `Cache-Control: no-cache` 和 `Expires` 時間傳送到瀏覽器。 儘管 HTTP 用戶端將不會快取回應，但此設定將不會影響 Edge Server 從原始伺服器快取回應的能力。
+- 將此功能設定為負數值時，會導致 POP 將過去利用每個回應設定的 `Cache-Control: no-cache` 和 `Expires` 時間傳送給瀏覽器。 儘管 HTTP 用戶端將不會快取回應，但此設定並不影響 POP 從原始伺服器快取回應的能力。
 - 將時間單位設為「關閉」，即會停用此功能。 使用原始伺服器回應快取的 `Cache-Control` 和 `Expires` 標頭將會傳遞到瀏覽器。
 
 **預設行為：**關閉
@@ -628,13 +628,13 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="force-internal-max-age"></a>強制執行內部最大壽命
-**目的：**判斷 Edge Server 到原始伺服器快取重新驗證之間的最大壽命間隔。 換句話說，就是 Edge Server 可以檢查快取的資產是否符合原始伺服器上儲存的資產之前所經過的時間長度。
+**目的：**決定 POP 向原始伺服器重新驗證快取之前的最大壽命間隔。 換句話說，就是 POP 可檢查所快取資產是否符合原始伺服器上所儲存資產之前將經歷的時間長度。
 
 重要資訊：
 
 - 此功能將會覆寫從原始伺服器產生之 `Cache-Control` 或 `Expires` 標頭中所定義的最大壽命間隔。
-- 此功能不會影響瀏覽器對 Edge Server 的快取重新驗證。 這些類型的重新驗證取決於傳送至瀏覽器的 `Cache-Control` 或 `Expires` 標頭。
-- 此功能對於由 Edge Server 傳遞給要求者的回應並沒有顯著的影響。 不過，可能會對從 Edge Server 傳送至原始伺服器的重新驗證流量產生作用。
+- 此功能不會影響瀏覽器向 POP 重新驗證快取。 這些類型的重新驗證取決於傳送至瀏覽器的 `Cache-Control` 或 `Expires` 標頭。
+- 此功能對於由 POP 傳遞給要求者的回應並沒有顯著的影響。 不過，可能會影響從 POP 傳送給原始伺服器的重新驗證流量多寡。
 - 以下列方式設定此功能：
     - 選取將套用內部最大壽命的狀態碼。
     - 指定整數值並選取所需的時間單位 (例如，秒、分鐘、小時等)。 此值會定義要求的最大壽命間隔。
@@ -678,10 +678,10 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 值|結果
 --|--
-已啟用|允許將 HTTP 用戶端的 no-cache 要求轉送到原始伺服器，而原始伺服器會透過 Edge Server 將回應標頭和主體傳回 HTTP 用戶端。
+已啟用|允許將 HTTP 用戶端的 no-cache 要求轉送給原始伺服器，而原始伺服器則會透過 POP 將回應標頭和主體傳回給 HTTP 用戶端。
 已停用|還原預設行為。 預設行為是防止將 no-cache 要求轉送到原始伺服器。
 
-針對所有生產環境的流量，強烈建議將此功能保留為其預設的停用狀態。 否則，將無法為原始伺服器提供防護，來防範可能會在重新整理網頁時不小心觸發許多 no-cache 要求的使用者，或者許多已編碼為要透過每個視訊要求傳送 no-cache 標題的熱門媒體播放器。 不過，此功能非常適合用來套用至特定的非生產環境暫存或測試目錄，以便隨時從原始伺服器提取隨最新內容。
+針對所有生產環境的流量，強烈建議將此功能保留為其預設的停用狀態。 否則，將無法為原始伺服器提供防護，來防範可能在重新整理網頁時不小心觸發許多 no-cache 要求的使用者，或防範許多已編碼成要隨著每個視訊要求傳送 no-cache 標題的熱門媒體播放器。 不過，此功能非常適合用來套用至特定的非生產環境暫存或測試目錄，以便隨時從原始伺服器提取隨最新內容。
 
 將針對因此功能而允許轉送至原始伺服器的要求報告的快取狀態為 TCP_Client_Refresh_Miss。 快取狀態報表 (可在 [核心報告] 模組中取得) 會依快取狀態提供統計資訊。 這讓您能夠追蹤因此功能而轉送至原始伺服器的要求數目和百分比。
 
@@ -724,11 +724,11 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 ### <a name="ignore-unsatisfiable-ranges"></a>忽略無法滿足的範圍 
 **目的：**判斷在要求產生 [416 無法滿足的要求範圍] 狀態代碼時將傳回用戶端的要求。
 
-根據預設，當 Edge Server 無法滿足指定的位元組範圍要求，且未指定 If-Range 要求標頭欄位時，即會傳回此狀態碼。
+根據預設，當 POP 無法滿足指定的位元組範圍要求，且未指定 If-Range 要求標頭欄位時，即會傳回此狀態碼。
 
 值|結果
 -|-
-已啟用|防止 Edge Server 使用 [416 無法滿足的要求範圍] 狀態碼來回應不正確的位元組範圍要求。 伺服器將改為傳遞要求的資產，並將 [200 確定] 傳回用戶端。
+已啟用|防止 POP 使用「416 無法滿足的要求範圍」狀態碼來回應無效的位元組範圍要求。 伺服器將改為傳遞要求的資產，並將 [200 確定] 傳回用戶端。
 已停用|還原預設行為。 預設行為是接受 [416 無法滿足的要求範圍] 狀態碼。
 
 **預設行為：**已停用。
@@ -739,15 +739,15 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="internal-max-stale"></a>內部最大過時
-**目的：**控制當 Edge Server 無法使用原始伺服器重新驗證快取的資產時，從 Edge Server 所提供的快取資產可能會經歷多長的標準到期時間。
+**目的：**控制當 POP 無法向原始伺服器重新驗證所快取的資產時，在過了標準到期時間多久之後仍可從 POP 提供所快取的資產。
 
-一般來說，當資產的最大壽命時間過期時，Edge Server 會將重新驗證要求傳送至原始伺服器。 原始伺服器接著會使用 [304 未修改] 來回應，以便為 Edge Server 提供所快取資產上的全新租用，或使用 [200 確定] 來提供具備更新快取資產版本的 Edge Server。
+一般來說，當資產的最大壽命時間到期時，POP 會向原始伺服器傳送重新驗證要求。 接著，原始伺服器會使用「304 未修改」來回應，為 POP 提供所快取資產的全新租用，或使用「200 確定」來為 POP 提供所快取資產的已更新版本。
 
-如果 Edge Server 在嘗試進行這類重新驗證時無法建立與原始伺服器的連線，則這個 [內部最大過時] 功能就會控制 Edge Server 是否可能要繼續提供現已過時的資產，以及提供多久時間。
+如果 POP 在嘗試進行這類重新驗證時，無法與原始伺服器重新建立連線，則這個 [內部最大過時] 功能就會控制 POP 是否可繼續提供現已過時的資產，以及可以持續提供多久。
 
 請注意，這個時間間隔是從資產的最大壽命到期時開始，而不是從發生失敗的重新驗證時開始。 因此，在未成功重新驗證的情況下可為資產提供服務的最長期間，是由 max-age 加上 max-stale 的組合所指定的時間長度。 例如，如果資產是在 9:00 快取，而 max-age 為 30 分鐘且 max-stale 為 15 分鐘，則在 9:44 進行的失敗重新驗證嘗試會導致使用者接收到過時的快取資產，而在 9:46 進行的失敗重新驗證嘗試則會導致使用者接收到 [504 閘道逾時]。
 
-任何針對此功能設定的值都會由接收自原始伺服器的 `Cache-Control: must-revalidate` 或 `Cache-Control: proxy-revalidate` 標頭所取代。 如果在一開始快取資產時從原始伺服器接收到這其中一個標頭，則 Edge Server 將不會為過時的快取資產提供服務。 在這種情況下，如果 Edge Server 無法在資產的最大壽命間隔到期時利用原始伺服器進行重新驗證，則 Edge Server 會傳回 [504 閘道逾時] 錯誤。
+任何針對此功能設定的值都會由接收自原始伺服器的 `Cache-Control: must-revalidate` 或 `Cache-Control: proxy-revalidate` 標頭所取代。 如果在一開始快取資產時從原始伺服器收到這其中一個標頭，POP 就不會提供過時的已快取資產。 在這種情況下，如果在資產的最大壽命間隔到期時，POP 無法向原始伺服器重新驗證，POP 就會傳回「504 閘道逾時」錯誤。
 
 重要資訊：
 
@@ -828,7 +828,7 @@ Append|指定的值會新增至現有要求標頭值的結尾。|**要求標頭�
     - CACHE-CONTROL
     - cachE-Control
 - 在指定標頭名稱時，僅使用英數字元、連字號或底線。
-- 刪除標頭，可防止 Edge Server 將它轉送到原始伺服器。
+- 刪除標頭將可防止 POP 將它轉送給原始伺服器。
 - 以下為保留的標頭，且此功能無法加以修改：
     - forwarded
     - host
@@ -848,7 +848,7 @@ Append|指定的值會新增至現有要求標頭值的結尾。|**要求標頭�
 - 附加或覆寫指派給回應標頭的值。 如果指定的回應標頭不存在，則此功能會將其新增至回應。
 - 刪除回應的回應標頭。
 
-根據預設，回應標頭值是由原始伺服器和 Edge Server 所定義。
+預設會由原始伺服器和 POP 定義回應標頭值。
 
 您可以在回應標頭上執行下列其中一個動作：
 
@@ -922,7 +922,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 ---
 ### <a name="proxy-special-headers"></a>Proxy 特定的標頭
-**目的：**定義一組將從 Edge Server 轉送到原始伺服器之 CDN 特定的要求標頭。
+**目的：**定義一組將從 POP 轉送給原始伺服器的 CDN 特定要求標頭。
 
 重要資訊：
 
@@ -937,15 +937,15 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 ---
 ### <a name="refresh-zero-byte-cache-files"></a>重新整理零位元組的快取檔案
-**目的：**判斷如何透過 Edge Server 來處理 HTTP 用戶端對於 0 位元組快取資產的要求。
+**目的：**決定 POP 如何處理 HTTP 用戶端的 0 位元組快取資產要求。
 
 有效值為：
 
 值|結果
 --|--
-已啟用|導致 Edge Server 重新擷取原始伺服器的資產。
+已啟用|導致 POP 從原始伺服器重新擷取資產。
 已停用|還原預設行為。 預設行為是根據要求提供有效的快取資產。
-不需要此功能即可進行正確的快取和內容傳遞，但此功能可能有助於解決這個問題。 例如，原始伺服器上的動態內容產生器不慎產生了要傳送到 Edge Server 的 0 位元組回應。 Edge Server 通常會快取這些類型的回應。 如果您知道對於這類內容而言，0 位元組的回應絕對不是有效的回應， 
+不需要此功能即可進行正確的快取和內容傳遞，但此功能可能有助於解決這個問題。 例如，原始伺服器上的動態內容產生器可能會不小心導致將 0 位元組回應傳送給 POP。 POP 通常會快取這些類型的回應。 如果您知道對於這類內容而言，0 位元組的回應絕對不是有效的回應， 
 
 則此功能可防止將這些類型的資產提供給用戶端。
 
@@ -1016,12 +1016,12 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 ---
 ### <a name="stale-while-revalidate"></a>在重新驗證時過期
-**目的：**允許 Edge Server 在進行重新驗證時提供過時的用戶端給要求者，藉以改善效能。
+**目的：**藉由允許 POP 在進行重新驗證時提供過時的內容給要求者來改善效能。
 
 重要資訊：
 
 - 此功能的行為會根據選取的時間單位而不同。
-    - **時間單位︰**指定的時間長度，然後選取允許過時內容傳遞的時間單位 (例如，秒、分鐘、小時等)。 這種類型的安裝程式可讓 CDN 根據下列公式，延伸可能要在要求驗證之前傳遞內容的時間長度：**TTL** + **重新驗證時間時過時** 
+    - **時間單位︰**指定的時間長度，然後選取允許過時內容傳遞的時間單位 (例如，秒、分鐘、小時等)。 這類型的設定可讓 CDN 根據下列公式，延長在要求驗證之前可傳遞內容的時間長度：**TTL** + **重新驗證時過時時間** 
     - **關閉：**選取「關閉」，以便在可能提供過時內容的要求之前，要求重新驗證。
         - 請勿指定時間長度，因為它不適用且將會遭到忽略。
 
@@ -1109,7 +1109,7 @@ WWW-Authenticate 標頭只適用於 401 回應碼。
 
 值|結果
 ---|----
-已啟用|導致 Edge Server 會在比較權杖型驗證參數的 URL 時忽略大小寫。
+已啟用|導致 POP 在比較「權杖型驗證」參數的 URL 時忽略大小寫。
 已停用|還原預設行為。 預設行為是在進行權杖型驗證的 URL 比較時會區分大小寫。
 
 **預設行為：**已停用。
@@ -1149,7 +1149,7 @@ WWW-Authenticate 標頭只適用於 401 回應碼。
 -|-
 代碼|選取將傳回給要求者的回應碼。
 來源與模式| 這些設定會定義要求 URI 模式，此模式會識別可能要重新導向的要求類型。 只會重新導向 URL 符合下列這兩個準則的要求： <br/> <br/> **來源 (或內容存取點)：**選取識別原始伺服器的相對路徑。 這是「/XXXX/」區段和您的端點名稱。 <br/> **來源 (模式)︰**必須定義依相對路徑識別要求的模式。 這個規則運算式模式必須定義一個路徑，該路徑會在先前選取的內容存取點 (請參閱上述內容) 之後直接啟動。 <br/> - 確定先前定義的要求 URI 準則 (亦即，[來源與模式]) 不會與針對此功能所定義的任何比對條件相衝突。 <br/> - 指定模式；如果您是使用空白值作為模式，所有字串都會相符。
-目的地| 定義要將上述要求重新導向至其中的 URL。 <br/> 使用下列方式來動態建構此 URL： <br/> - 規則運算式模式 <br/>- HTTP 變數 <br/> 使用 $_n_，將擷取自來源模式的值替代為目的地模式，其中 _n_ 可依擷取的順序來識別值。 例如，$1 表示擷取自來源模式的第一個值，而 $2 代表第二個值。 <br/> 
+目的地| 定義要將上述要求重新導向至其中的 URL。 <br/> 使用下列方式來動態建構此 URL： <br/> - 規則運算式模式 <br/>- HTTP 變數 <br/> 使用 $_n_，將擷取自來源模式的值替代至目的地模式，其中_n_ 可依擷取的順序來識別值。 例如，$1 表示擷取自來源模式的第一個值，而 $2 代表第二個值。 <br/> 
 強烈建議使用絕對 URL。 使用相對 URL 可能會將 CDN URL 重新導向至不正確的路徑。
 
 **範例案例**
@@ -1166,13 +1166,13 @@ WWW-Authenticate 標頭只適用於 401 回應碼。
 - 所有相符的要求都將重新導向到 [目的地] 選項中所定義的 Edge CNAME URL。 
     - 範例案例 1： 
         - 範例要求 (CDN URL)：http://marketing.azureedge.net/brochures/widgets.pdf 
-        - 要求 URL (重新導向之後)：http://cdn.mydomain.com/resources/widgets.pdf  
+        - 要求 URL (重新導向後)：http://cdn.mydomain.com/resources/widgets.pdf  
     - 範例案例 2： 
         - 範例要求 (Edge CNAME URL)：http://marketing.mydomain.com/brochures/widgets.pdf 
-        - 要求 URL (重新導向之後)：http://cdn.mydomain.com/resources/widgets.pdf 範例案例
+        - 要求 URL (重新導向後)：http://cdn.mydomain.com/resources/widgets.pdf  範例案例
     - 範例案例 3： 
         - 範例要求 (Edge CNAME URL)：http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - 要求 URL (重新導向之後)：http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - 要求 URL (重新導向後)：http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - 已在 [目的地] 選項中運用要求配置 (%{scheme}) 變數。 這可確保要求的配置在重新導向之後仍會維持不變。
 - 擷取自要求的 URL 區段會透過「$1」附加到新的 URL。
 
@@ -1191,8 +1191,8 @@ WWW-Authenticate 標頭只適用於 401 回應碼。
 選項|說明
 -|-
  來源與模式 | 這些設定會定義要求 URI 模式，此模式會識別可能要重寫的要求類型。 只會重寫 URL 符合下列這兩個準則的要求： <br/>     - **來源 (或內容存取點)：**選取識別原始伺服器的相對路徑。 這是「/XXXX/」區段和您的端點名稱。 <br/> - **來源 (模式)︰**必須定義依相對路徑識別要求的模式。 這個規則運算式模式必須定義一個路徑，該路徑會在先前選取的內容存取點 (請參閱上述內容) 之後直接啟動。 <br/> - 確認先前定義的要求 URI 準則 (亦即，[來源與模式]) 不會與針對此功能所定義的任何比對條件相衝突。 指定模式；如果您是使用空白值作為模式，所有字串都會相符。 
- 目的地  |使用下列方式來定義要將上述要求重寫至其中的相對 URL： <br/>    1.選取可識別原始伺服器的內容存取點。 <br/>    2.使用下列方式來定義相對路徑： <br/>        - 規則運算式模式 <br/>        - HTTP 變數 <br/> <br/> 使用 $_n_，將擷取自來源模式的值替代為目的地模式，其中 _n_ 可依擷取的順序來識別值。 例如，$1 表示擷取自來源模式的第一個值，而 $2 代表第二個值。 
- 此功能讓 Edge Server 不需執行傳統的重新導向就能重寫 URL。 這表示，如果收到重寫 URL 的要求，要求者將會收到相同的回應碼。
+ 目的地  |使用下列方式來定義要將上述要求重寫至其中的相對 URL： <br/>    1.選取可識別原始伺服器的內容存取點。 <br/>    2.使用下列方式來定義相對路徑： <br/>        - 規則運算式模式 <br/>        - HTTP 變數 <br/> <br/> 使用 $_n_，將擷取自來源模式的值替代至目的地模式，其中_n_ 可依擷取的順序來識別值。 例如，$1 表示擷取自來源模式的第一個值，而 $2 代表第二個值。 
+ 此功能可讓 POP 不需執行傳統的重新導向就能重寫 URL。 這表示，如果收到重寫 URL 的要求，要求者將會收到相同的回應碼。
 
 **範例案例 1**
 

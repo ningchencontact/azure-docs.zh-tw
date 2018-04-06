@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 285f4540c7f9be19cde0aafeff67ce2b39abe957
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc7a4062af9e73383af46f0c36eb22710ce9b6e1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
 Azure 監視器提供數種與計量進行互動的方式，包括在入口網站中製作計量圖表、透過 REST API 存取計量，或使用 PowerShell 或 CLI 查詢計量。 以下是目前可供 Azure 監視器計量管線使用的所有計量完整清單。
 
 > [!NOTE]
-> 其他計量可在入口網站中或使用舊版 API 提供。 此清單只包含使用彙總 Azure 監視器計量管線時可供使用的計量。 若要查詢並存取具有維度的計量，請使用 [2017-05-01-preview api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+> 其他計量可在入口網站中或使用舊版 API 提供。 此清單只包含使用彙總 Azure 監視器計量管線時可供使用的計量。 若要查詢及存取具有維度的計量，請使用 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 >
 >
 
@@ -672,7 +672,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |CaptureBacklog|擷取待辦項目。 (預覽)|Count|總計|Microsoft.EventHub 的擷取待辦項目。 (預覽)|EntityName|
 |CapturedMessages|已擷取的訊息。 (預覽)|Count|總計|Microsoft.EventHub 的已擷取訊息。 (預覽)|EntityName|
 |CapturedBytes|已擷取的位元組。 (預覽)|位元組|總計|Microsoft.EventHub 的已擷取位元組。 (預覽)|EntityName|
-|Size|大小 (預覽)|位元組|平均值|EventHub 的大小 (以位元組為單位)。 (預覽)|EntityName|
+|大小|大小 (預覽)|位元組|平均值|EventHub 的大小 (以位元組為單位)。 (預覽)|EntityName|
 |INREQS|傳入的要求|Count|總計|命名空間的連入傳送要求總計|無維度|
 |SUCCREQ|成功的要求|Count|總計|命名空間的成功要求總數|無維度|
 |FAILREQ|失敗的要求|Count|總計|命名空間的失敗要求總數|無維度|

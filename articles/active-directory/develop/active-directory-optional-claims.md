@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 03/15/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0cfa79b9c44953c613eaec8d701f351c6f2ce212
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f9cc4f900428e1337fc9b9d428879d6527c60017
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Azure AD 中的選擇性宣告 (預覽)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/23/2018
 
 **表 2：標準選擇性宣告集**
 
-| 名稱                     | 說明                                                                                                                                                                                     | 權杖類型 | 使用者類型 | 附註                                                                                                                                                                                                                                                                                   |
+| Name                     | 說明                                                                                                                                                                                     | 權杖類型 | 使用者類型 | 注意                                                                                                                                                                                                                                                                                   |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `auth_time`                | 上次驗證使用者的時間。  請參閱 OpenID Connect 規格。                                                                                                                                | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_region_scope`      | 資源租用戶的區域                                                                                                                                                                   | JWT        |           |                                                                                                                                                                                                                                                                                         |
@@ -65,19 +65,13 @@ ms.lasthandoff: 03/23/2018
 | `fwd`                      | IP 位址。  新增發出要求之用戶端的原始 IPv4 位址 (位於 VNET 內部時)                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | 使用者的國家/地區                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | 資源租用戶的國家/地區                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `is_device_known`          | 指出裝置是否已加入工作場所。 與「條件式存取」原則相關                                                                                                                 | SAML       |           | 就 JWT 而言，已聚合至 signin_state                                                                                                                                                                                                                                                   |
-| `is_device_managed`        | 指出裝置是否已安裝 MDM。 與「條件式存取」原則相關。                                                                                                                  | SAML       |           | 就 JWT 而言，已聚合至 signin_state                                                                                                                                                                                                                                                   |
-| `is_device_compliant`      | 指出 MDM 已判斷裝置符合組織的裝置安全性原則。                                                                                  | SAML       |           | 就 JWT 而言，已聚合至 signin_state                                                                                                                                                                                                                                                   |
-| `kmsi`                     | 指出使用者是否已選擇 [讓我保持登入] 選項。                                                                                                                                    | SAML       |           | 就 JWT 而言，已聚合至 signin_state                                                                                                                                                                                                                                                   |
-| `upn`                      | UserPrincipalName 宣告。  雖然會自動包含此宣告，但在來賓使用者案例中，您可以將它指定為選擇性宣告來附加額外屬性，以修改其行為。 | JWT、SAML  |           | 額外屬性： <br> include_externally_authenticated_upn <br> include_externally_authenticated_upn_without_hash                                                                                                                                                                 |
-| `groups`                   | 使用者所屬的群組。                                                                                                                                                               | JWT、SAML  |           | 額外屬性： <br> Sam_account_name<br> Dns_domain_and_sam_account_name<br> Netbios_domain_and_sam_account<br> Max_size_limit<br> Emit_as_roles<br>                                                                                                                            |
-
+| `upn`                      | UserPrincipalName 宣告。  雖然會自動包含此宣告，但在來賓使用者案例中，您可以將它指定為選擇性宣告來附加額外屬性，以修改其行為。 | JWT、SAML  |           | 額外屬性： <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
 ### <a name="v20-optional-claims"></a>V2.0 選擇性宣告
 在 v1.0 權杖中一律會包含這些宣告，但在 v2.0 權杖中則除非提出要求，否則會移除這些宣告。  這些宣告僅適用於 JWT (識別碼權杖和存取權杖)。  
 
 **表 3：僅適用於 V2.0 的選擇性宣告**
 
-| JWT 宣告     | 名稱                            | 說明                                                                                                                    | 注意 |
+| JWT 宣告     | Name                            | 說明                                                                                                                    | 注意 |
 |---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
 | `ipaddr`      | IP 位址                      | 用戶端的登入來源 IP 位址。                                                                                      |       |
 | `onprem_sid`  | 內部部署安全性識別碼 |                                                                                                                                |       |
@@ -90,26 +84,19 @@ ms.lasthandoff: 03/23/2018
 
 ### <a name="additional-properties-of-optional-claims"></a>選擇性宣告的額外屬性
 
-有些選擇性宣告可經由設定來變更傳回宣告的方式。  這些額外屬性的範圍從格式設定變更 (例如 `include_externally_authenticated_upn_without_hash`) 到變更所傳回的資料集 (`Dns_domain_and_sam_account_name`) 都包含在內。
+有些選擇性宣告可經由設定來變更傳回宣告的方式。  這些額外的屬性大多數用來協助移轉對資料有不同要求的內部部署應用程式 (例如 `include_externally_authenticated_upn_without_hash` 可協助無法處理 UPN 中井號 (`#`) 的用戶端)
 
 **表 4：用來設定標準選擇性宣告的值**
 
 | 屬性名稱                                     | 額外屬性名稱                                                                                                             | 說明 |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `Upn`                                                 |                                                                                                                                      |             |
-| | `include_externally_authenticated_upn`              | 包含儲存在資源租用戶中的來賓 UPN。  例如 `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
+| `upn`                                                 |                                                                                                                                      |             |
+| | `include_externally_authenticated_upn`              | 包含儲存在資源租用戶中的來賓 UPN。  例如， `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | 同上，除了將井號 (`#`) 取代成底線 (`_`) 之外，例如 `foo_hometenant.com_EXT_@resourcetenant.com` |             
-| `groups`                                              |                                                                                                                                      |             |
-| | `sam_account_name`                                  |                                                                                                                                      |             
-| | `dns_domain_and_sam_account_name`                   |                                                                                                                                      |             
-| | `netbios_domain_and_sam_account_name`               |                                                                                                                                      |             
-| | `max_size_limit`                                    | 將傳回的群組數目提高至群組大小上限 (1,000)。                                                            |             
-| | `emit_as_roles`                                     | 以相同的值發出「角色」宣告來取代「群組」宣告。  適用於要從內部部署環境 (此環境中傳統上是透過群組成員資格來控制 RBAC) 移轉的應用程式。   |             
 
 > [!Note]
 >如果指定 UPN 選擇性宣告但未指定額外屬性，將不會變更任何行為 – 為了在權杖中看到簽發新屬性，必須至少新增其中一個額外屬性。 
->
->群組的 `account_name` 額外屬性不具互通性，且額外屬性的順序有關緊要 – 將只會使用所列出的第一個帳戶名稱「額外屬性」。 
+
 
 #### <a name="additional-properties-example"></a>額外屬性範例：
 
@@ -118,15 +105,15 @@ ms.lasthandoff: 03/23/2018
    {
        "idToken": [ 
              { 
-                "name": "groups", 
+                "name": "upn", 
             "essential": false,
-                "additionalProperties": [ "netbios_domain_and_sam_account_name", "sam_account_name" , "emit_as_roles"]  
+                "additionalProperties": [ "include_externally_authenticated_upn"]  
               }
         ]
 }
 ```
 
-這個 OptionalClaims 物件會傳回如同未包含 `sam_account_name`一樣的相同 `groups` 宣告 – 因為它位於 `netbios_domain_and_sam_account_name` 之後，所以會被忽略。 
+這個 OptionalClaims 物件會導致傳回給用戶端的識別碼權杖包含另一個 UPN，該 UPN 含有額外的主租用戶和資源租用戶資訊。  
 
 ## <a name="configuring-optional-claims"></a>設定選擇性宣告
 
@@ -170,7 +157,7 @@ ms.lasthandoff: 03/23/2018
 
 **表 5：OptionalClaims 類型屬性**
 
-| 名稱        | 類型                       | 說明                                           |
+| Name        | 類型                       | 說明                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 集合 (OptionalClaim) | 在 JWT 識別碼權杖中傳回的選擇性宣告。     |
 | `accessToken` | 集合 (OptionalClaim) | 在 JWT 存取權杖中傳回的選擇性宣告。 |
@@ -188,7 +175,7 @@ ms.lasthandoff: 03/23/2018
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 選擇性宣告的名稱。                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | 宣告的來源 (目錄物件)。 有來自延伸模組屬性的預先定義宣告和使用者定義宣告。 如果來源值為 null，宣告便是預先定義的選擇性宣告。 如果來源值為 user，名稱屬性中的值即為來自使用者物件的延伸模組屬性。 |
-| `essential`            | Edm.Boolean             | 如果值為 true，就必須要有用戶端指定的宣告，才能確保使用者所要求之特定工作的授權體驗順暢。 預設值為 false。                                                                                                                 |
+| `essential`            | Edm.Boolean             | 如果值為 true，就必須要有用戶端指定的宣告，才能確保使用者所要求之特定工作的授權體驗順暢。 預設值為 False。                                                                                                                 |
 | `additionalProperties` | 集合 (Edm.String) | 宣告的額外屬性。 如果屬性存在於此集合中，它就會修改名稱屬性中所指定之選擇性宣告的行為。                                                                                                                                                   |
 
 ## <a name="configuring-custom-claims-via-directory-extensions"></a>透過目錄延伸模組設定自訂宣告
