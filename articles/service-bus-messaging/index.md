@@ -1,22 +1,22 @@
 ---
-title: "服務匯流排傳訊文件"
-description: "了解如何設定傳訊功能，以連接橫跨內部部署和雲端環境的應用程式和服務。"
-services: service-bus
-author: czeumault
-manager: carolz
+title: 服務匯流排傳訊文件
+description: 了解如何設定傳訊功能，以連接橫跨內部部署和雲端環境的應用程式和服務。
+services: service-bus-messaging
+author: sethmanheim
+manager: timlt
 layout: LandingPage
-ms.assetid: 
-ms.service: service-bus
+ms.assetid: ''
+ms.service: service-bus-messaging
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 03/14/2017
-ms.author: carolz
-ms.openlocfilehash: 733d2fd848e100525cb7f50f9831f52d5d473863
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/02/2018
+ms.author: sethm
+ms.openlocfilehash: cafe8d0687260362347600f05ef090c7cb95ea82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="service-bus-messaging-documentation"></a>服務匯流排傳訊文件
 傳訊服務提供做為訊息代理程式或第三方通訊機制的相依資訊傳遞。

@@ -132,9 +132,24 @@
       tocHref: '/azure/#pivot=products&panel=ai'
       topicHref: '/azure/#pivot=products&panel=ai'
       items:
+        - name: Bing 自動建議
+          tocHref: /azure/cognitive-services/Bing-Autosuggest/
+          topicHref: /azure/cognitive-services/Bing-Autosuggest/
         - name: Bing 自訂搜尋
           tocHref: /azure/cognitive-services/bing-custom-search/
           topicHref: /azure/cognitive-services/bing-custom-search/
+        - name: Bing 實體搜尋
+          tocHref: /azure/cognitive-services/bing-entities-search/
+          topicHref: /azure/cognitive-services/bing-entities-search/
+        - name: Bing 影像搜尋
+          tocHref: /azure/cognitive-services/bing-image-search/
+          topicHref: /azure/cognitive-services/bing-image-search/
+        - name: Bing 新聞搜尋
+          tocHref: /azure/cognitive-services/bing-news-search/
+          topicHref: /azure/cognitive-services/bing-news-search/
+        - name: Bing 影片搜尋
+          tocHref: /azure/cognitive-services/Bing-Video-Search/
+          topicHref: /azure/cognitive-services/Bing-Video-Search/
         - name: Bing Web 搜尋
           tocHref: /azure/cognitive-services/bing-web-search/
           topicHref: /azure/cognitive-services/bing-web-search/
@@ -144,6 +159,9 @@
         - name: 電腦視覺
           tocHref: /azure/cognitive-services/computer-vision/
           topicHref: /azure/cognitive-services/computer-vision/
+        - name: 自訂決策服務
+          tocHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview/
+          topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview/
         - name: 自訂語音服務
           tocHref: /azure/cognitive-services/custom-speech-service/
           topicHref: /azure/cognitive-services/custom-speech-service/
@@ -151,23 +169,26 @@
           tocHref: /azure/cognitive-services/custom-vision-service/
           topicHref: /azure/cognitive-services/custom-vision-service/
         - name: 表情 API
-          tocHref: /azure/cognitive-services/emotion/home
-          topicHref: /azure/cognitive-services/emotion/home
+          tocHref: /azure/cognitive-services/emotion/home/
+          topicHref: /azure/cognitive-services/emotion/home/
         - name: 臉部
           tocHref: /azure/cognitive-services/face/
           topicHref: /azure/cognitive-services/face/
         - name: 語言理解 (LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
+        - name: QnA Maker
+          tocHref: /azure/cognitive-services/qnamaker/home/
+          topicHref: /azure/cognitive-services/qnamaker/home/
         - name: 文字分析
           tocHref: /azure/cognitive-services/text-analytics/
-          topicHref: /azure/cognitive-services/text-analytics/overview
+          topicHref: /azure/cognitive-services/text-analytics/
         - name: 影片索引子
-          tocHref: /azure/cognitive-services/video-indexer/video-indexer-overview
-          topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
+          tocHref: /azure/cognitive-services/video-indexer/video-indexer-overview/
+          topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview/
         - name: 內容仲裁
-          tocHref: /azure/cognitive-services/content-moderator/overview
-          topicHref: /azure/cognitive-services/content-moderator/overview
+          tocHref: /azure/cognitive-services/content-moderator/overview/
+          topicHref: /azure/cognitive-services/content-moderator/overview/
     - name: 連接器
       tocHref: /azure/connectors/
       topicHref: /azure/connectors/

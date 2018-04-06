@@ -120,7 +120,6 @@
 #### [Node.js 後端](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## 安全
-### [驗證和授權](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### 使用識別提供者進行驗證
 #### [Azure Active Directory 驗證](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Facebook 驗證](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
