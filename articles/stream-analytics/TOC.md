@@ -94,7 +94,7 @@
 ## [部落格](http://blogs.msdn.com/b/streamanalytics/)
 ## [影片](https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest)
 ## [意見反應論壇](http://feedback.azure.com/forums/270577-azure-stream-analytics)
-## [論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+## [論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 ## [定價](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [版本資訊](stream-analytics-release-notes.md)

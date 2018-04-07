@@ -178,7 +178,7 @@
         - name: RedGate
           href: sql-data-warehouse-load-with-redgate.md
         - name: SSIS
-          href: sql-data-warehouse-load-from-sql-server-with-integration-services.md
+          href: /sql/integration-services/load-data-to-sql-data-warehouse
     - name: 整合
       items:
         - name: 設定 SQL Database 彈性查詢
