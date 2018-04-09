@@ -1,18 +1,18 @@
 ---
-title: "原則範本範例 | Microsoft Docs"
-description: "Azure 原則的 JSON 範例"
+title: 原則範本範例 | Microsoft Docs
+description: Azure 原則的 JSON 範例
 services: azure-policy
-documentationcenter: 
+documentationcenter: ''
 author: bandersmsft
 manager: carmonm
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: azure-policy
 ms.devlang: na
 ms.topic: samples
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
@@ -30,8 +30,7 @@ ms.lasthandoff: 01/29/2018
 |---|---|
 |**計算**||
 | [已核准的 VM 映像](scripts/allowed-custom-images.md) | 要求只能在環境中部署已核准的自訂映像。 您需指定已核准的映像識別碼陣列。 |
-| 
-            [在 VM 不使用受控磁碟時稽核](scripts/create-vm-managed-disk.md) | 稽核所建立的虛擬機器是否未使用受控磁碟。|
+| [在 VM 不使用受控磁碟時稽核](scripts/create-vm-managed-disk.md) | 稽核所建立的虛擬機器是否未使用受控磁碟。|
 | [稽核擴充功能是否不存在](scripts/audit-ext-not-exist.md) | 稽核是否未搭配虛擬機器部署擴充功能。 您需指定擴充功能發行者和類型，以檢查是否已部署該擴充功能。 |
 | [允許來自某個資源群組的自訂 VM 映像](scripts/allow-custom-vm-image.md) |  要求自訂映像必須來自某個已核准的資源群組。 您需指定已核准之資源群組的名稱。 |
 | [拒絕 Hybrid Use Benefit](scripts/deny-hybrid-use.md) | 禁止使用 Azure Hybrid Use Benefit (AHUB)。 當您不想要允許使用內部部署授權時，請使用此範本。 |
