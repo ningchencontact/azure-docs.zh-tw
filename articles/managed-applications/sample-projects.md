@@ -1,6 +1,6 @@
 ---
-title: "Azure 受控應用程式範例專案 | Microsoft Docs"
-description: "摘要說明適用於 Azure 受控應用程式之範例專案"
+title: Azure 受控應用程式範例專案 | Microsoft Docs
+description: 摘要說明適用於 Azure 受控應用程式之範例專案
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -27,11 +27,7 @@ ms.lasthandoff: 12/18/2017
 | --- | --- |
 | **範例** | |
 | [將受控應用程式 (試用或生產) 插入新的或現有虛擬網路](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-app-using-existing-vnet) | 示範如何為客戶建立彈性部署選項。 此受控應用程式可部署至新的虛擬網路或現有虛擬網路。 客戶可以指定受控應用程式的試用或生產版本。 |
-| 
-            [受控 Azure 儲存體帳戶](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-storage-account) | 部署單一儲存體帳戶。 使用這個範例專案作為建立受控應用程式之簡介。 |
-| 
-            [受控 Service Fabric 與 Azure 管理服務](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-service-fabric) | 部署 Service Fabric 叢集與虛擬機器擴展集。 包含用於記錄和診斷的儲存體帳戶。 |
-| 
-            [受控 Web 應用程式 (IaaS) 與 Azure 管理服務](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app) | 部署虛擬機器 (裝載 Web 應用程式)。 |
-| 
-            [受控 Web 應用程式 (IaaS) 與 Azure 管理服務和 Key Vault](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app-using-keyvault) | 部署虛擬機器 (裝載 Web 應用程式)。 它會針對系統管理員密碼參考金鑰保存庫。 |
+| [受控 Azure 儲存體帳戶](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-storage-account) | 部署單一儲存體帳戶。 使用這個範例專案作為建立受控應用程式之簡介。 |
+| [受控 Service Fabric 與 Azure 管理服務](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-service-fabric) | 部署 Service Fabric 叢集與虛擬機器擴展集。 包含用於記錄和診斷的儲存體帳戶。 |
+| [受控 Web 應用程式 (IaaS) 與 Azure 管理服務](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app) | 部署虛擬機器 (裝載 Web 應用程式)。 |
+| [受控 Web 應用程式 (IaaS) 與 Azure 管理服務和 Key Vault](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app-using-keyvault) | 部署虛擬機器 (裝載 Web 應用程式)。 它會針對系統管理員密碼參考金鑰保存庫。 |
