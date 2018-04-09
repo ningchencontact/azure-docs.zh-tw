@@ -1,11 +1,11 @@
 ---
-title: "變更用於支付 Azure 訂閱費的信用卡 | Microsoft Docs"
-description: "描述如何變更用來支付 Azure 訂用帳戶的信用卡"
-services: 
-documentationcenter: 
+title: 變更用於支付 Azure 訂閱費的信用卡 | Microsoft Docs
+description: 描述如何變更用來支付 Azure 訂用帳戶的信用卡
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 15252ced-1841-4a66-ae79-2e58af1d3370
 ms.service: billing
@@ -34,6 +34,7 @@ ms.lasthandoff: 12/23/2017
 1. 以帳戶管理員身分登入[帳戶中心](https://account.windowsazure.com/Subscriptions)。
 1. 選取一個訂用帳戶。
 1. 在頁面右側，選取 [管理付款方式] 。
+
     ![顯示已選取 [管理付款方式] 選項的螢幕擷取畫面。](./media/billing-how-to-change-credit-card/changesub_new.png)
 1. 選取 [+] 以新增信用卡/轉帳卡。
 
