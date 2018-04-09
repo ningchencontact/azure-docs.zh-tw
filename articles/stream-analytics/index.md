@@ -1,22 +1,19 @@
 ---
-title: "Azure 串流分析文件 - 教學課程和 API 參考 | Microsoft Docs"
-description: "了解如何透過完全受控事件處理，在雲端執行 IoT 分析。 即時分析來自應用程式、感應器、裝置等的資料。"
+title: Azure 串流分析文件 - 教學課程和 API 參考
+description: 了解如何透過完全受控事件處理，在雲端執行 IoT 分析。 即時分析來自應用程式、感應器、裝置等的資料。
 services: stream-analytics
-author: czeumault
-manager: carolz
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 layout: LandingPage
-ms.assetid: 
 ms.service: stream-analytics
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/23/2017
-ms.author: carolz
-ms.openlocfilehash: 5bc0f813ac9ba8fa0960f2802d5482e31d772daf
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: bb305fa038a59c5e385e0cce7eed07c3a2693634
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-analytics-documentation"></a>串流分析文件
 

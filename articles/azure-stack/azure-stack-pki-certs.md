@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 455c74ca808f71258a12166c2e36bdd73d9a3e20
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5712e556d7b3bdcce38b8b8d39a08414ce0fd2f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
 Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 Azure Stack 服務和可能租用戶 VM 的外部可存取公用 IP 位址。 在 Azure Stack 部署期間，這些 Azure Stack 公用基礎結構端點需要具有適當 DNS 名稱的 PKI 憑證。 本文提供以下相關資訊：
@@ -34,6 +34,9 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 ## <a name="certificate-requirements"></a>憑證需求
 下列清單描述部署 Azure Stack 時所需的憑證需求： 
 - 憑證必須由內部憑證授權單位或公用憑證授權單位發出。 如果使用公用憑證授權單位，它必須包含在基礎作業系統映像中成為 Microsoft 信任根授權單位方案的一部分。 您可以在這裡找到完整清單：https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
+- 您的 Azure Stack 基礎結構必須能夠存取用來簽署憑證的網路憑證授權單位
+- 旋轉憑證時，憑證必須是與從用來簽署憑證 (在部署時提供) 相同的內部憑證授權單位，或上述任何公用憑證授權單位發行
+- 不支援使用自我簽署憑證
 - 憑證可以是單一萬用字元憑證，其中涵蓋主體別名 (SAN) 欄位中的所有命名空間。 或者，您可以針對需要憑證的端點 (例如 acs、金鑰保存庫)，使用採用萬用字元的個別憑證。 
 - 憑證簽章演算法不能是 SHA1，因為它必須更強大。 
 - 憑證格式必須是 PFX，因為安裝 Azure Stack 時需要公用與私密金鑰。 
@@ -42,6 +45,9 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 - 憑證的 [核發給：] 欄位不能與 [核發者：] 欄位相同。
 - 部署時，所有憑證 pfx 檔案的密碼都必須相同
 - 確定所有憑證的 [主體名稱] 和 [主體別名] 都必須符合本文中所述的規格，以免部署失敗。
+
+> [!NOTE]
+> 不支援使用自我簽署憑證。
 
 > [!NOTE]
 > 支援憑證信任鏈結 IS 中存在的中繼憑證授權單位。 

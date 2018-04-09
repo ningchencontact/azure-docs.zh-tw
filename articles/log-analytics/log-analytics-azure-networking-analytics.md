@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: richrund
-ms.openlocfilehash: 17dadd784d59a2cc0cab6ffbae144010f896b296
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Log Analytics 中的 Azure 網路監視解決方案
 
@@ -28,18 +28,19 @@ Log Analytics 提供下列解決方案來監視您的網路︰
 * 要檢閱的 Azure 應用程式閘道分析
  * Azure 應用程式閘道記錄檔
  * Azure 應用程式閘道計量
-* 要檢閱的 Azure 網路安全性群組分析
- * Azure 網路安全性群組記錄檔
+* 監視和稽核雲端網路上網路活動的解決方案
+* [流量分析](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+* Azure 網路安全性群組分析
 
 ## <a name="network-performance-monitor-npm"></a>網路效能監視器 (NPM)
 
-[網路效能監視器](log-analytics-network-performance-monitor.md)管理解決方案是網路監視解決方案，可監視網路的健康狀態、可用性和連線能力。  可用來監視下列項目之間的連線能力︰
+[網路效能監視器](https://docs.microsoft.com/azure/networking/network-monitoring-overview)管理解決方案是網路監視解決方案，可監視網路的健康狀態、可用性和連線能力。  可用來監視下列項目之間的連線能力︰
 
 * 公用雲端與內部部署環境
 * 資料中心與使用者地點 (分公司)
 * 裝載多層式應用程式各層的子網路。
 
-如需詳細資訊，請參閱[網路效能監視器](log-analytics-network-performance-monitor.md)。
+如需詳細資訊，請參閱[網路效能監視器](https://docs.microsoft.com/azure/networking/network-monitoring-overview)。
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure 應用程式閘道和網路安全性群組分析
 若要使用解決方案：

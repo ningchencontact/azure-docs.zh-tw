@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f3ed53e3c6606ca540cc2e760f2f6280ccf5cc2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>規劃 Azure 檔案同步 (預覽) 部署
 使用 Azure 檔案同步 (預覽版)，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -96,6 +96,19 @@ Windows Server 的未來版本將會於發佈時加入支援清單。 舊版的 
 
 > [!Note]  
 > 僅支援 NTFS 磁碟區。 不支援 ReFS、FAT、FAT32 及其他檔案系統。
+
+### <a name="files-skipped"></a>跳過的檔案
+| 檔案/資料夾 | 附註 |
+|-|-|
+| Desktop.ini | 系統專用檔案 |
+| ethumbs.db$ | 暫存檔案的縮圖 |
+| ~$\*.\* | Office 暫存檔 |
+| \*.tmp | 暫存檔 |
+| \*.laccdb | Access DB 鎖定檔|
+| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| \\系統磁碟區資訊 | 特定磁碟區的資料夾 |
+| $RECYCLE.BIN| 資料夾 |
+| \\SyncShareState | 同步處理的資料夾 |
 
 ### <a name="failover-clustering"></a>容錯移轉叢集
 Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Windows Server 容錯移轉叢集。 「適用於應用程式資料的向外延展檔案伺服器」(SOFS) 或叢集共用磁碟區 (CSV) 上並不支援容錯移轉叢集。

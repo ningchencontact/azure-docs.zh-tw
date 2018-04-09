@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 470ad2fe458c47392b8f55a8f46c75e54ccf87a3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 22ae56d9ebb2ea39acbd9f4536ef9ea5508b9867
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB 功能和語法的 MongoDB API 支援
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以透過任何開放原始碼 MongoDB 用戶端[驅動程式](https://docs.mongodb.org/ecosystem/drivers)與資料庫的 DocumentDB API 通訊。 MongoDB API 藉由遵循 MongoDB [有線通訊協定](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)，來使用現有用戶端驅動程式。
 
-藉由使用 Azure Cosmos DB MongoDB API，您除了可享有慣用的 MongoDB API 權益外，還可使用所有 Azure Cosmos DB 的企業功能：[全域發佈](distribute-data-globally.md)、[自動分區](partition-data.md)、可用性和延遲保證、每個欄位的自動編製索引，待用加密和備份等多能。
+藉由使用 Azure Cosmos DB MongoDB API，您除了可享有慣用的 MongoDB API 權益外，還可使用 Azure Cosmos DB 提供的所有企業功能：[全域發佈](distribute-data-globally.md)、[自動分區](partition-data.md)、可用性和延遲保證、每個欄位的自動編製索引、待用加密、備份等功能。
 
 ## <a name="mongodb-query-language-support"></a>MongoDB 查詢語言支援
 

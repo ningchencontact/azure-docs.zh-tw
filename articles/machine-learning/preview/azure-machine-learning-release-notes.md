@@ -9,18 +9,72 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: ac08baa6f478926a2c8dadd366049e9506272366
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9d16606665bf043e094bebdfbbce973910135f1a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Azure Machine Learning 新增功能
 
-本文章會說明 [Azure Machine Learning 服務](overview-what-is-azure-ml.md)的新功能和已知問題。 
+本文章會說明 [Azure Machine Learning 服務](overview-what-is-azure-ml.md)的新版本。 
+
+## <a name="2018-03-sprint-4"></a>2018-03 (Sprint 4)
+**版本號碼**：0.1.1801.24353  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+
+
+歡迎使用 Azure Machine Learning Workbench 的第五次更新。 以下的更新有許多是直接來自您的意見反應。 請繼續提供您的意見！
+
+**重要新功能和變更**
+
+- 除了以 remote-docker 為基礎的執行以外，也支援在您自己的環境中，在遠端 Ubnutu VM 上執行原生指令碼。
+- Workbench 應用程式中的新環境經驗可讓您建立計算目標，並執行以 CLI 為基礎的經驗以外的組態。
+![環境索引標籤](media/azure-machine-learning-release-notes/environment-page.png)
+- 可自訂的執行歷程記錄報告![新執行歷程記錄報告圖像](media/azure-machine-learning-release-notes/new-run-history-reports.png)
+
+**詳細的更新**
+
+以下是 Azure Machine Learning 在此 Sprint 中各元件區域的詳細更新清單。
+
+### <a name="workbench-ui"></a>Workbench UI
+- 可自訂的執行歷程記錄報告
+  - 改善的圖表組態，適用於執行歷程記錄報告
+    - 可以變更使用的進入點
+    - 可以新增及修改最上層篩選條件![新增篩選條件](media/azure-machine-learning-release-notes/add-filters.jpg)
+    - 可以新增或修改 (也可拖放並重新排列) 圖表與統計資料。
+    ![建立新的圖表](media/azure-machine-learning-release-notes/configure-charts.png)
+
+  - 適用於執行歷程記錄報告的 CRUD
+  - 已將所有現有的執行歷程記錄清單檢視設定移至伺服器端報告，其動作會與在選定的進入點執行的管道類似。
+
+- 環境索引標籤
+  - 輕鬆地將新的計算目標和執行組態檔新增到專案中![新的計算的目標](media/azure-machine-learning-release-notes/add-new-environments.png)
+  - 使用簡單、以表單為基礎的 UX 來管理與更新組態檔
+  - 用來準備執行環境的新按鈕
+
+- 增強側邊欄中檔案清單的效能
+
+### <a name="data-preparation"></a>資料準備 
+- Azure Machine Learning Workbench 現在可讓您使用已知的資料行名稱來搜尋資料行。
+
+
+### <a name="experimentation"></a>測試
+- Azure Machine Learning Workbench 現在支援在您自己的 Python 或 Pyspark 環境中執行原生指令碼。 若使用這項功能，使用者必須在遠端的 VM 上建立並管理自己的環境，並使用 Azure Machine Learning WOrkbench 在該目標上執行其指令碼。 請參閱[設定 Azure Machine Learning 測試服務](experimentation-service-configuration.md) 
+
+### <a name="model-management"></a>模型管理
+- 支援自訂已部署的容器：允許您使用 apt-get 等命令安裝外部程式碼，以自訂容器映像。不再僅限於可安裝 pip 的程式庫。 請參閱[文件](model-management-custom-container.md)以取得更多資訊。
+  - 使用 `--docker-file myDockerStepsFilename` 旗標與檔案名稱搭配資訊清單、映像或服務建立命令。
+  - 請注意，基礎映像為 Ubuntu，無法修改。
+  - 範例命令： 
+  
+      ```shell
+      $ az ml image create -n myimage -m mymodel.pkl -f score.py --docker-file mydockerstepsfile
+      ```
+
+
 
 ## <a name="2018-01-sprint-3"></a>2018-01 (Sprint 3) 
-**版本號碼**：0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](known-issues-and-troubleshooting-guide.md))
+**版本號碼**：0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 以下是此 Sprint 中的更新和增強功能。 以下的更新有許多是直接來自使用者的意見反應。 
 
@@ -55,7 +109,7 @@ ms.lasthandoff: 03/28/2018
   - 針對免費訂用帳戶啟用本機環境設定 
 
 ## <a name="2017-12-sprint-2-qfe"></a>2017-12 (Sprint 2 QFE) 
-**版本號碼**：0.1.1711.15323  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](known-issues-and-troubleshooting-guide.md))
+**版本號碼**：0.1.1711.15323  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 這是 QFE (快速檢修) 版本，也就是次要版本。 此版本解決了幾個遙測問題，並可協助產品團隊深入了解使用者對產品的使用方式。 這些知識可以進一步用來改善產品體驗。 
 
@@ -65,8 +119,7 @@ ms.lasthandoff: 03/28/2018
 - 在命令列工具中，不必身為 Azure 訂用帳戶擁有者也可以佈建 Machine Learning 計算 ACS 叢集。 
 
 ## <a name="2017-12-sprint-2"></a>2017-12 (Sprint 2)
-**版本號碼**：0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](known-issues-and-troubleshooting-guide.md))
-
+**版本號碼**：0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 歡迎使用 Azure Machine Learning 的第三次更新。 此更新包括 Workbench 應用程式、命令列介面 (CLI) 和後端服務的改進。 非常感謝您傳送的正反面意見。 以下的更新有許多是直接來自您的意見反應。 
 
@@ -165,7 +218,7 @@ ms.lasthandoff: 03/28/2018
     - `az ml computetarget attach --type cluster` 現在為 `az ml computetarget attach cluster`
 
 ## <a name="2017-11-sprint-1"></a>2017-11 (Sprint 1) 
-**版本號碼**：0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](known-issues-and-troubleshooting-guide.md))
+**版本號碼**：0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 在這個版本中，我們改善了 Workbench 應用程式、CLI 和後端服務層的安全性、穩定性和可維護性。 非常感謝您傳送的肯定 (笑臉) 與不滿意 (苦臉)。 以下的更新有許多是直接來自您的意見反應。 歡迎繼續提供意見！
 
@@ -287,7 +340,7 @@ ms.lasthandoff: 03/28/2018
 
 
 ## <a name="2017-10-sprint-0"></a>2017-10 (Sprint 0) 
-**版本號碼**：0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](known-issues-and-troubleshooting-guide.md))
+**版本號碼**：0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 歡迎使用我們在 Microsoft Ignite 2017 會議首次公開預覽 Microsoft Azure Machine Learning Workbench 後的第一次更新。 此版本的主要更新為可靠性和穩定化修正。  我們解決的一些重大問題包括：
 

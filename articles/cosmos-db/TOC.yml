@@ -6,8 +6,6 @@ items:
     items:
       - name: 關於 Azure Cosmos DB
         href: introduction.md
-      - name: 文件實驗
-        href: experiment.md
   - name: 快速入門
     expanded: true
     items:
@@ -164,7 +162,7 @@ items:
       - name: 安全性
         href: database-security.md
       - name: TCO
-        href: 'https://aka.ms/documentdb-tco-paper'
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: 使用案例
         href: use-cases.md
         items:
@@ -184,13 +182,15 @@ items:
               - name: SQL 查詢效能
                 href: sql-api-sql-query-metrics.md
               - name: SQL 園地
-                href: 'https://www.documentdb.com/sql/demo'
+                href: 'https://aka.ms/cosmos-db-playground'
               - name: 分割
                 href: sql-api-partition-data.md
               - name: 預存程序、觸發程序和 UDF
                 href: programming.md
               - name: 效能測試
                 href: performance-testing.md
+              - name: Async Java 的效能秘訣
+                href: performance-tips-async-java.md
               - name: .NET 的效能秘訣
                 href: performance-tips.md
               - name: Java 的效能秘訣
@@ -378,17 +378,17 @@ items:
           - name: 使用 Logic Apps 進行應用程式記錄
             href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
           - name: 繫結至 Azure Functions
-            href: ../azure-functions/functions-bindings-documentdb.md
+            href: ../azure-functions/functions-bindings-cosmosdb.md
           - name: 與 Azure 搜尋服務整合
-            href: ../search/search-howto-index-documentdb.md
+            href: ../search/search-howto-index-cosmosdb.md
           - name: 使用 Azure Data Factory 移動資料
             href: ../data-factory/connector-azure-cosmos-db.md
           - name: 使用 Azure 串流分析來分析即時資料
-            href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
+            href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
           - name: 使用 Logic Apps 取得已變更的 HL7 FHIR 記錄
             href: change-feed-hl7-fhir-logic-apps.md
           - name: 即時處理感應器資料
-            href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+            href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
           - name: 使用 Power BI 將資料視覺化
             href: powerbi-visualize.md
           - name: 運用 ODBC 驅動程式展現資料視覺效果

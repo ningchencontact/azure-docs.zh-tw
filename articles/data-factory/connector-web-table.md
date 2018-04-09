@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: f4755d6cce0787a411fee7d32c887ae71c134c94
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f1fa79ed32969f5087107d6105fd2f4baf7640e3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Web 資料表複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -143,6 +143,8 @@ ms.lasthandoff: 03/23/2018
 ```
 
 ## <a name="get-index-of-a-table-in-an-html-page"></a>取得 HTML 網頁中資料表的索引
+
+若要取得您要在[資料集屬性](#dataset-properties)中設定的資料表索引，可以使用 Excel 2016 等軟體 (如下所示) 做為工具：
 
 1. 啟動 **Excel 2016**，然後切換到 [資料] 索引標籤。
 2. 按一下工具列上的 [開新查詢]、指向 [從其他來源]，然後按一下 [從 Web]。

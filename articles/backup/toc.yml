@@ -155,14 +155,10 @@
           href: backup-client-automation.md
     - name: 連接字串
       items:
-        - name: 設定長期備份保留期
-          href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: 檢視復原服務保存庫中的備份
-          href: ../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: 從長期備份保留期還原
-          href: ../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: 刪除長期的 Azure SQL 備份資料
-          href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: 設定並還原 SQL Database 備份 - SQL 儲存體
+          href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: 設定並還原 SQL Database 備份 - 復原服務存放庫
+          href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
     - name: Windows Server
       items:
         - name: 備份 Windows Server 檔案和資料夾

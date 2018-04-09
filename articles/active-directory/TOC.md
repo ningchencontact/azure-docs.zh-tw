@@ -215,11 +215,12 @@
 ##### [自訂首頁](application-proxy-office365-app-launcher.md)
 ##### [翻譯內嵌連結](application-proxy-link-translation.md)
 ##### [萬用字元應用程式](active-directory-application-proxy-wildcard.md)
-##### [Azure AD 應用程式 Proxy 和 Qlik Sense](active-directory-application-proxy-qlik.md) 
+
 #### 發佈逐步解說
 ##### [遠端桌面](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+##### [Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [疑難排解](active-directory-application-proxy-troubleshoot.md)
 

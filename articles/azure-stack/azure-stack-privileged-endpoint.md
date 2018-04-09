@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f786d99718b82dba052909e566f1b0571701127e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中具有特殊權限的端點
 
@@ -76,6 +76,8 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
 
       - **使用者名稱**：指定 CloudAdmin 帳戶，格式為 **&lt;*Azure Stack domain*&gt;\accountname**。 (若為 ASDK，使用者名稱是 **azurestack\accountname**。) 
       - **密碼**：輸入與 AzureStackAdmin 網域系統管理員帳戶安裝期間所提供的相同密碼。
+    > [!NOTE]
+    > 如果您無法連線到 ERCS 端點，請用 ERCS VM 的 IP 位址，再試一次步驟一和二與尚未連線的端點連線。
     
 3.  連線之後，視環境而定，提示會變更為 **[*IP 位址或 ERCS VM 名稱*]: PS>** 或變更為 **[azs-ercs01]: PS>**。 從這裡執行 `Get-Command` 可檢視可用的 Cmdlet 清單。
 

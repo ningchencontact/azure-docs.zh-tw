@@ -43,6 +43,7 @@
 ## 使用 MXChip IoT DevKit
 ### [使用 Azure 認知服務翻譯語音訊息](iot-hub-arduino-iot-devkit-az3166-translator.md)
 ### [使用 Azure Functions 擷取 Twitter 訊息](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+### [使用 Eclipse Paho API 將訊息傳送至 MQTT 伺服器](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 ### [使用 Azure Functions 監視磁性感應器並傳送電子郵件通知](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
 # 使用說明指南
@@ -197,7 +198,7 @@
 ## [iothub-explorer 工具](https://github.com/Azure/iothub-explorer)
 ## [學習路徑](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [價格](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [定價](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)

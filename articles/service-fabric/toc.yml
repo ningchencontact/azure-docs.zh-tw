@@ -249,12 +249,12 @@
               href: service-fabric-reliable-services-diagnostics.md
             - name: Reliable Actors 事件
               href: service-fabric-reliable-actors-diagnostics.md
-            - name: 效能度量
-              href: service-fabric-diagnostics-event-generation-perf.md
             - name: 監視服務遠端處理
               href: service-fabric-reliable-serviceremoting-diagnostics.md
         - name: 應用程式記錄檔
           href: service-fabric-diagnostics-event-generation-app.md
+        - name: 效能度量
+          href: service-fabric-diagnostics-event-generation-perf.md
         - name: 健康情況模型概觀
           href: service-fabric-health-introduction.md
         - name: 報告健康情況事件
@@ -433,6 +433,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: 建議的做法
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
+        - name: 重構已遷移的應用程式
+          href: /azure/architecture/service-fabric/refactor-migrated-app
     - name: 管理應用程式生命週期
       items:
         - name: 封裝應用程式

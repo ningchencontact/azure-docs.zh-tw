@@ -14,17 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 258aac722aa1c94ecf2cbf0524a3e4b53b8a788c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f3e7b9c7432538c0f78662213544d4d691652f13
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-and-service-level-logging"></a>應用程式和服務層級記錄
 
 檢測程式碼是其他監視服務層面的基礎。 為了讓您知道有問題發生，並診斷有什麼需要修正，檢測是唯一方式。 雖然技術上可以將偵錯工具連線至生產服務，但這不是常見的做法。 因此，取得詳細的檢測資料很重要。
 
 某些產品會自動檢測您的程式碼。 雖然這些產品的效果不錯，但幾乎都還是需要手動檢測。 最後您還是要有足夠資訊，才能以抽絲剝繭的方式對應用程式進行偵錯。 本文件說明檢測程式碼的不同方法，以及在何種情況下應選擇什麼方法。
+
+如需有關如何使用這些建議的範例，請參閱 [在您的 Service Fabric 應用程式中新增記錄](service-fabric-how-to-diagnostics-log.md)。
 
 ## <a name="eventsource"></a>EventSource
 

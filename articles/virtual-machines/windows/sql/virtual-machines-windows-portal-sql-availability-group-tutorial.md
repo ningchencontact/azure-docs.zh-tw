@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>在 Azure VM 中手動設定 Always On 可用性群組
 
@@ -374,22 +374,14 @@ Repeat these steps on the second SQL Server.
 
    ![在資源群組中尋找負載平衡器](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. 依序按一下負載平衡器、[後端集區]、[+加入]。 請依照下列方式設定後端集區：
+1. 依序按一下負載平衡器、[後端集區]、[+加入]。 
 
-   | 設定 | 說明 | 範例
-   | --- | --- |---
-   | **名稱** | 輸入文字名稱 | SQLLBBE
-   | **與下列產生關聯** | 從清單中挑選 | 可用性設定組
-   | **可用性設定組** | 使用您 SQL Server 所在可用性設定組的名稱 | sqlAvailabilitySet |
-   | **虛擬機器** |兩個 Azure SQL Server VM 名稱 | sqlserver-0、sqlserver-1
+1. 將後端集區關聯至包含 VM 的可用性設定組。
 
-1. 輸入後端集區的名稱。
+1. 在 [目標網路 IP 設定] 下方，檢查**虛擬機器**並選擇兩個會託管可用性群組複本的虛擬機器。 請勿包含檔案共用見證伺服器。
 
-1. 按一下 [+ 新增虛擬機器]。
-
-1. 針對可用性設定組，選擇 SQL Server 所在的可用性設定組。
-
-1. 針對虛擬機器，將兩部 SQL Server 都包含在內。 請勿包含檔案共用見證伺服器。
+   >[!NOTE]
+   >如果未指定這兩個虛擬機器，則只能成功連線至主要複本。
 
 1. 按一下 [確定]  以建立後端集區。
 

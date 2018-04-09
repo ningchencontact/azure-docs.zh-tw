@@ -17,18 +17,18 @@
       href: tutorial-simulate-device-linux.md
     - name: 模擬 Edge 裝置 - Windows
       href: tutorial-simulate-device-windows.md
-    - name: '開發 C# 模組'
-      href: tutorial-csharp-module.md
-    - name: 開發 Python 模組
-      href: tutorial-python-module.md
+    - name: 在模組中部署程式碼
+      items:
+        - name: 'C#'
+          href: tutorial-csharp-module.md
+        - name: Python
+          href: tutorial-python-module.md
     - name: 部署 Azure 串流分析
       href: tutorial-deploy-stream-analytics.md
     - name: 部署 Azure Machine Learning
       href: tutorial-deploy-machine-learning.md
     - name: 部署 Azure Functions
       href: tutorial-deploy-function.md
-    - name: 在 VS Code 中使用多個模組
-      href: tutorial-multiple-modules-in-vscode.md
 - name: 使用說明指南
   items:
     - name: 建立閘道
@@ -53,6 +53,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: 偵錯 Azure Functions
           href: how-to-vscode-debug-azure-function.md
+        - name: 使用多個模組
+          href: tutorial-multiple-modules-in-vscode.md
     - name: 在 Edge 中儲存資料
       href: sql-storage.md
     - name: 疑難排解

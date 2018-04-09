@@ -342,13 +342,20 @@
         - name: Azure 記錄檔收集器擴充功能
           href: log-collector-extension.md
         - name: Azure 診斷延伸模組
-          href: ps-extensions-diagnostics.md
+          href: extensions-diagnostics.md
+          items:
+            - name: 擴充功能結構描述
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
+            - name: 使用 PowerShell 啟用
+              href: ps-extensions-diagnostics.md
+            - name: 使用範本啟用
+              href: extensions-diagnostics-template.md
+            - name: 疑難排解
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
         - name: 匯出 VM 延伸模組
           href: extensions-export-templates.md
         - name: 針對擴充功能進行疑難排解
           href: extensions-troubleshoot.md
-        - name: 監視和診斷延伸模組
-          href: extensions-diagnostics-template.md
         - name: 網路監看員代理程式
           href: extensions-nwa.md
         - name: 限制延伸模組安裝
