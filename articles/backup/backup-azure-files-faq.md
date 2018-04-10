@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: backup
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 850d4d1e2ef6a13fcd8a072e6da210d558c7769b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 8093275ec9e9cce6d9a765bf1bfc434fecdb6ea7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 本文提供有關備份 Azure 檔案服務的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -27,10 +27,16 @@ ms.lasthandoff: 03/29/2018
 在預覽期間，Azure 檔案共用的備份不支援所有的儲存體帳戶類型。 請參閱[這裡](troubleshoot-azure-files.md#preview-boundaries)的清單，以查看支援的儲存體帳戶清單。
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>為何我在嘗試設定備份時，在儲存體帳戶中看不到某些 Azure 檔案共用？ <br/>
-請確認 Azure 檔案共用是否已在相同的復原服務保存庫中受到保護，或已於近期刪除。
+請確認 Azure 檔案共用是否已在相同的復原服務保存庫中受到保護，或是否已於近期刪除。
 
-### <a name="why-cant-i-protect-file-shares-connected-to-a-sync-group-in-azure-file-sync-br"></a>為何無法保護已與 Azure 檔案同步中的同步群組連線的檔案共用？ <br/>
-保護已連線至同步群組的 Azure 檔案共用，目前處於有限預覽狀態。 請使用您的訂用帳戶識別碼寫信送至 [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) 以要求存取。 
+### <a name="can-i-protect-file-shares-connected-to-a-sync-group-in-azure-files-sync-br"></a>我可以保護已連線到 Azure 檔案同步中同步群組的檔案共用嗎？ <br/>
+是。 保護已連線至同步群組的 Azure 檔案共用並處於公開預覽狀態。
+
+### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-did-not-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>在嘗試備份檔案共用時，我按了一下 [儲存體帳戶] 來探索其中的檔案共用。 不過，我並未保護它們。 如何使用任何其他保存庫來保護這些檔案共用？
+嘗試備份，並選取 [儲存體帳戶] 以探索其中的檔案共用時，向保存庫註冊此 [儲存體帳戶]。 如果您選擇使用不同的保存庫來保護檔案共用，從這個保存庫[取消註冊](troubleshoot-azure-files.md#configuring-backup)所選的儲存體帳戶。
+
+### <a name="can-i-change-the-vault-to-which-i-backup-my-file-shares"></a>可以將保存庫變更為我備份檔案共用的保存庫嗎？
+是。 不過，您必須從已連線的保存庫[停止保護](backup-azure-files.md#stop-protecting-an-azure-file-share)，[取消註冊](troubleshoot-azure-files.md#configuring-backup)這個儲存體帳戶，然後從不同的保存庫加以保護。
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>我可以在哪些地區備份 Azure 檔案共用 <br/>
 Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列地區： 
@@ -43,7 +49,11 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 -   澳大利亞東部 (AE) 
 -   美國東部 (EUS)
 -   美國東部 2 (EUS2)
+- 日本東部 (JPE)
+- 日本西部 (JPW)
 -   印度中部 (INC) 
+- 印度南部 (INS)
+- 南韓 (KRS)
 -   美國中北部 (NCUS) 
 -   北歐 (NE) 
 -   美國中南部 (SCUS) 
@@ -58,7 +68,10 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 如果您在未列於上方的特定地區中需要使用該功能，請寫信送至 [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com)。
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vaultbr"></a>我可以在一個保存庫中保護多少個 Azure 檔案共用？<br/>
-在預覽期間，您在每個保存庫中最多可以保護 25 個儲存體帳戶的 Azure 檔案共用。 此外，您在單一保存庫中最多可保護 200 個檔案共用。 
+在預覽期間，您在每個保存庫中最多可以保護 25 個儲存體帳戶的 Azure 檔案共用。 此外，您在單一保存庫中最多可保護 200 個檔案共用。
+
+### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>可以將相同儲存體帳戶中的兩個不同檔案共用放入不同的保存庫中保護？
+編號 一個儲存體帳戶中的所有檔案共用只能由相同的保存庫保護。
 
 ## <a name="backup"></a>Backup 
 
@@ -71,7 +84,7 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 ## <a name="restore"></a>Restore
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share-br"></a>已刪除的 Azure 檔案共用是否可以復原？ <br/>
-刪除 Azure 檔案共用時，系統會顯示也將一併刪除的備份清單並要求您確認。 已刪除的 Azure 檔案共用無法還原。
+刪除 Azure 檔案共用時，系統會顯示將一併刪除的備份清單並要求您確認。 已刪除的 Azure 檔案共用無法還原。
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share-br"></a>如果我停止保護 Azure 檔案共用，是否可以從備份還原？ <br/>
 是。 如果您在停止保護時選擇 [保留備份資料]，則您可以從所有現有的還原點進行還原。
@@ -85,7 +98,7 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 Azure 檔案共用的備份可讓您保留每日備份長達 120 天。
 
 ### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share-br"></a>變更 Azure 檔案共用的備份原則時，會發生什麼狀況？ <br/>
-在檔案共用上套用新原則後，就會遵循新原則的排程和保留期。 如果延長保留期，會標示現有的復原點，以依據新的原則加以保留。 如果縮短保留期，則會標示現有的復原點，以便在下次清除作業中剪除然後刪除。
+在檔案共用上套用新原則後，就會遵循新原則的排程和保留期。 如果延長保留期，會標示現有的復原點，以依據新的原則加以保留。 如果縮短保留期，則會標示現有的復原點，以便在下次清除作業中剪除並刪除。
 
 ## <a name="see-also"></a>另請參閱
 此資訊僅只關於備份 Azure 檔案，若要深入了解 Azure 備份的其他領域，請參閱其他備份常見問題集：

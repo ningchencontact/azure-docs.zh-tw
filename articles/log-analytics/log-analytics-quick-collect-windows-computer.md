@@ -1,25 +1,25 @@
 ---
-title: "使用 Azure Log Analytics 從內部部署 Windows 電腦收集資料 | Microsoft Docs"
-description: "了解如何針對在 Azure 外部電腦上執行的 Windows 部署 Log Analytics 代理程式，並使用 Log Analytics 來啟用資料收集。"
+title: 使用 Azure Log Analytics 從內部部署 Windows 電腦收集資料 | Microsoft Docs
+description: 了解如何針對在 Azure 外部電腦上執行的 Windows 部署 Log Analytics 代理程式，並使用 Log Analytics 來啟用資料收集。
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/06/2018
+ms.date: 03/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: e04b9ae29191a170b1662a982d7f38426e6cc831
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 589a3f375275c49ad7f9ea312934eb4312995562
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-data-from-windows-computers-hosted-in-your-environment"></a>從您環境中裝載的 Windows 電腦收集資料
 [Azure Log Analytics](log-analytics-overview.md) 可直接從您的實體或虛擬 Windows 電腦及您環境中的其他資源，將資料收集到單一儲存機制，來進行詳細的分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Windows 電腦的資料。  針對 Azure Windows VM，請參閱下列主題：[收集關於 Azure 虛擬機器的資料](log-analytics-quick-collect-azurevm.md)。  
@@ -29,19 +29,20 @@ ms.lasthandoff: 03/09/2018
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="log-in-to-azure-portal"></a>登入 Azure 入口網站
-登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。 
+在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站。 
 
 ## <a name="create-a-workspace"></a>建立工作區
-1. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。<br><br> ![Azure 入口網站](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。<br><br> ![Azure 入口網站](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. 按一下 [建立]，然後選取下列項目的選項：
 
   * 為新的 [OMS 工作區] 提供名稱，例如，*DefaultLAWorkspace*。 
   * 如果選取的預設值不合適，請從下拉式清單中選取要連結的 [訂用帳戶]。
-  * 針對 [資源群組]，選取現有的資源群組，或藉由在文字方塊中輸入名稱來建立新的資源群組。  
-  * 選取要部署 VM 的 [位置]。  如需詳細資訊，請查看 [Log Analytics 的可用區域](https://azure.microsoft.com/regions/services/)。
-  * 您可以在 Log Analytics 中選擇三種不同的 [定價層]，但對於本快速入門，您要選取 [免費] 層。  如需特定層的詳細資訊，請參閱 [Log Analytics 價格詳細資料](https://azure.microsoft.com/pricing/details/log-analytics/)。
+  * 對於 [資源群組]，選取包含一或多個 Azure 虛擬機器的現有資源群組。  
+  * 選取要部署 VM 的 [位置]。  如需詳細資訊，請查看 [Log Analytics 的可用區域](https://azure.microsoft.com/regions/services/)。  
+  * 如果您要在 2018 年 4 月 2 之後建立的新訂用帳戶中建立工作區，系統會自動使用「每 GB」定價方案和選項來選取將無法使用的定價層。  如果您要針對在 4 月 2 日之前建立的現有訂用帳戶，或已繫結至現有 EA 註冊的訂用帳戶建立工作區，您有三個定價層可供選擇。  在本快速入門中，您即將選取免費層。  如需特定層的詳細資訊，請參閱 [Log Analytics 價格詳細資料](https://azure.microsoft.com/pricing/details/log-analytics/)。
 
-        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
+        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
+
 3. 在 [OMS 工作區] 窗格上提供必要資訊之後，按一下 [確定]。  
 
 在驗證資訊及建立工作區時，您可以在功能表的 [通知] 底下追蹤其進度。 
@@ -49,7 +50,7 @@ ms.lasthandoff: 03/09/2018
 ## <a name="obtain-workspace-id-and-key"></a>取得工作區識別碼和金鑰
 安裝適用於 Windows 的 Microsoft Monitoring Agent 之前，您必須有 Log Analytics 工作區的工作區識別碼和金鑰。  安裝精靈必須要有這項資訊，才能正確設定代理程式，並確保它能與 Log Analytics 順利進行通訊。  
 
-1. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
+1. 在 Azure 入口網站中，按一下左上角的 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 2. 在 Log Analytics 工作區清單中，選取稍早建立的 *DefaultLAWorkspace*。
 3. 選取 [進階設定]。<br><br> ![Log Analytics 進階設定](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. 選取 [連接的來源]，然後選取 [Windows 伺服器]。   

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/16/2018
+ms.date: 03/29/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f47d250bbe6689e19dda5042b335ff1812a790d4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>教學課程：使用 MongoDB API 查詢 Azure Cosmos DB
 
@@ -30,6 +30,10 @@ Azure Cosmos DB [適用於 MongoDB 的 API](mongodb-introduction.md) 支援 [Mon
 
 > [!div class="checklist"]
 > * 使用 MongoDB 來查詢資料
+
+您可以從與 Azure Cosmos DB 程式管理員 Andy Hoh 一起觀賞這段有關查詢 MongoDB 的影片開始：
+
+>[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
 
 ## <a name="sample-document"></a>範例文件
 
@@ -300,7 +304,7 @@ Azure Cosmos DB [適用於 MongoDB 的 API](mongodb-introduction.md) 支援 [Mon
 
 **結果**
 
-不會傳回任何結果，因為小孩數目不超過 2 個。 只有當參數為 2 時，此查詢才會成功並傳回整個文件。
+因為沒有任何家族有兩個以上的小孩，則不會傳回任何結果。 只有當參數為 2 時，此查詢才會成功並傳回整個文件。
 
 ## <a name="next-steps"></a>後續步驟
 

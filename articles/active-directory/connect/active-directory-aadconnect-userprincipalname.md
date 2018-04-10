@@ -35,7 +35,7 @@ UserPrincipalName 屬性值是使用者帳戶的 Azure AD 使用者名稱。
 UserPrincipalName 是依據網際網路標準 [RFC 822](http://www.ietf.org/rfc/rfc0822.txt) 所定義的一個屬性，可作為使用者的網際網路樣式登入名稱。 
 
 ### <a name="upn-format"></a>UPN 格式
-UPN 是由 UPN 前置詞 (使用者帳戶名稱) 和 UPN 尾碼 (DNS 網域名稱) 所組成。 前置詞會使用 "@" 符號與尾碼連結。 例如，"someone@example.com"。 在目錄樹系的所有安全性主體物件之間，UPN 必須是唯一的。 
+UPN 是由 UPN 前置詞 (使用者帳戶名稱) 和 UPN 尾碼 (DNS 網域名稱) 所組成。 前置詞會使用 \"\@\" 符號與尾碼連結。 例如，"someone@example.com"。 在目錄樹系的所有安全性主體物件之間，UPN 必須是唯一的。 
 
 ## <a name="upn-in-azure-ad"></a>Azure AD 中的 UPN 
 Azure AD 會使用 UPN 來允許使用者登入。  使用者所能使用的 UPN 取決於網域是否已驗證。  如果網域已驗證，則系統會允許具有該尾碼的使用者登入 Azure AD。  

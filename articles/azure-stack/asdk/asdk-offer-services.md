@@ -13,14 +13,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 083b5e20b89f22cb8e523926858fe9ffb1441319
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 8bcc2f3077e79ff83ac2e90db0bb0fa53ae83adc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-offer-azure-stack-iaas-services"></a>教學課程：提供 Azure Stack IaaS 服務
 身為 Azure Stack 雲端系統管理員，您可以建立供應項目，以供您的使用者 (有時稱為租用戶) 訂閱。 利用其訂用帳戶，使用者可以接著取用 Azure Stack 服務。
@@ -103,7 +103,7 @@ ms.lasthandoff: 03/17/2018
 ## <a name="set-offer-to-public"></a>將訂閱詳情設為公用
 您必須將訂閱詳情設為公用，讓使用者在選擇要訂閱的項目時可以看見。 
 
-訂閱詳情可以是：
+供應項目可以是：
 - **公用**：所有使用者都可以看到。
 - **私用**：只有雲端系統管理員可以看到。 在草擬方案或訂閱詳情時，或雲端系統管理員想要為使用者建立訂用帳戶時，會相當實用。
 - **已解除**：不開放給新的訂閱者。 雲端系統管理員可以使用「已解除」來避免之後的訂用帳戶使用，但不會影響目前的訂閱者。
@@ -112,14 +112,24 @@ ms.lasthandoff: 03/17/2018
 > 對訂閱詳情所做的變更不會立即對使用者顯示。 若要查看變更，使用者可能必須先登出並再次登入[使用者入口網站](https://portal.local.azurestack.external)，才能看見新的訂閱詳情。
 
 若要將新的訂閱詳情設為公用： 
+   - 1803 (含) 之後的版本： 
+     1. 在儀表板功能表上，按一下 [供應項目]，然後按一下您建立的供應項目。
 
-1. 在儀表板功能表上，按一下 [供應項目]，然後按一下您建立的供應項目。
+     2. 按一下 [協助工具狀態]，然後按一下 [公開]。
 
-2. 按一下 [變更狀態]，然後按一下 [公開]。
+        ![變更狀態](media/asdk-offer-services/change-state.png)
 
-   ![公開映像](media/asdk-offer-services/set-public.png)
+     3. 現在 Azure Stack 入口網站中會提供該訂閱詳情。
 
-3. 現在 Azure Stack 入口網站中會提供該訂閱詳情。
+
+   - 1803 之前的版本：  
+     1. 在儀表板功能表上，按一下 [供應項目]，然後按一下您建立的供應項目。
+
+     2. 按一下 [變更狀態]，然後按一下 [公開]。
+
+        ![公開映像](media/asdk-offer-services/set-public.png)
+
+     3. 現在 Azure Stack 入口網站中會提供該訂閱詳情。
 
 ## <a name="next-steps"></a>後續步驟
 
