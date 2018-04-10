@@ -175,7 +175,7 @@ ms.lasthandoff: 04/03/2018
     > **Azure IoT SDK for Node.js** 支援額外的通訊協定，像是 _AMQP_、_AMQP WS_ 和 _MQTT WS_。  如需詳細資訊，請參閱[適用於 Node.js 的裝置佈建服務 SDK 範例](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples)。
     > 
 
-1. 新增 **globalDeviceEndpoint** 和 **idScope** 變數，並用來建立 **ProvisioningDeviceClient** 執行個體。 使用**步驟 1** 的 [全域裝置端點]**__** 和 [識別碼範圍]_****_ 值，取代 **{globalDeviceEndpoint}** 和 **{idScope}**：
+1. 新增 **globalDeviceEndpoint** 和 **idScope** 變數，並用來建立 **ProvisioningDeviceClient** 執行個體。 使用**步驟 1** 的 [全域裝置端點] 和 [識別碼範圍] 值，取代 **{globalDeviceEndpoint}** 和 **{idScope}**：
    
     ```
     var provisioningHost = '{globalDeviceEndpoint}';
