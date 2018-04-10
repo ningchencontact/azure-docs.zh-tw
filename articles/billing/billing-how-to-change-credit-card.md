@@ -1,4 +1,4 @@
----
+﻿---
 title: 變更用於支付 Azure 訂閱費的信用卡 | Microsoft Docs
 description: 描述如何變更用來支付 Azure 訂用帳戶的信用卡
 services: ''
