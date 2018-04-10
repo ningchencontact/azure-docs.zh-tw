@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: eb68993924bff8605fc244f438a686f0142c4762
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 18a8065bba8a4a0ec2025d6b9134fe9fab21eb5f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure 儲存體簡介
 
@@ -143,35 +143,11 @@ SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Re
 
 ## <a name="replication"></a>複寫
 
-為了確保資料的持久性，Azure 儲存體會為您保存 (及管理) 多個資料複本。 這稱為複寫，有時候稱為備援。 當您設定儲存體帳戶時，您可選取複寫類型。 在大部分情況下，在設定儲存體帳戶之後可以修改此設定。
+為了確保資料的持久性，Azure 儲存體會為您複寫多個資料複本。 當您設定儲存體帳戶時，您可選取複寫類型。 在大部分情況下，建立儲存體帳戶後即可修改此設定。 
 
-**本地備援儲存體 (LRS)**
-
-本地備援儲存體 (LRS) 依設計可提供物件在指定一年中至少 99.999999999% (11 個 9) 的耐久性。 這表示 Azure 儲存體會在設定儲存體帳戶時指定的資料中心管理多個資料複本。 認可變更後，系統會在傳回成功前更新所有複本。 這表示這些複本一直都保持同步。此外，這些複本位於不同的容錯網域和升級網域中，這表示即使保留資料的儲存體節點失敗或已離線進行更新，仍可使用資料。
-
-**區域備援儲存體 (ZRS) (預覽版)**
-
-區域備援儲存體 (ZRS) 依設計可簡化高可用性應用程式的開發。 ZRS 提供儲存體物件在指定一年中至少 99.9999999999% (12 個 9) 的耐久性。 ZRS 會以同步方式將您的資料複寫到多個可用性區域。 針對不接受停機時間的情況 (例如交易式應用程式)，請考慮使用 ZRS。 ZRS 讓客戶即使在單一區域無法使用或無法修復時，仍然能夠讀取和寫入資料。 插入和更新資料會以同步方式進行，一致性極強。    
-
-舊版 ZRS 功能現在稱為傳統 ZRS。 傳統 ZRS 帳戶僅適用於一般用途 V1 儲存體帳戶中的區塊 Blob。 傳統 ZRS 會以非同步方式在一至兩個區域內的資料中心間複寫資料。 除非 Microsoft 開始容錯移轉至次要區域，否則可能無法使用複本。 傳統 ZRS 帳戶無法與 LRS 或 GRS 相互轉換，而且沒有計量或記錄功能。
-
-**異地備援儲存體 (GRS)**
-
-異地備援儲存體 (GRS) 設計來提供某一年 99.99999999999999% (16 個 9) 的物件持久性，方法是在主要區域中維護本機資料複本，加上在距離主要區域數百哩的次要區域中維護另一組資料複本。 在主要區域發生問題時，Azure 儲存體將會容錯移轉至次要區域。
-
-**讀取權限異地備援儲存體 (RA-GRS)**
-
-除了您取得次要位置中資料的讀取權限以外，讀取權限的異地備援儲存體與 GRS 完全相同。 如果主要資料中心暫時變得無法使用，您可以繼續從次要位置讀取資料。 這很有幫助。 例如，您可能有變更為唯讀模式並指向次要複本的 Web 應用程式，允許即使無法取得更新也可進行某些存取。
-
-> [!IMPORTANT]
-> 您可以在儲存體帳戶建立後變更資料的複寫方式。 不過，從 LRS 或 ZRS 切換至 GRS 或 RA-GRS 時，可能必須支付額外的單次資料傳輸成本。
->
-
-如需複寫選項的詳細資訊，請參閱 [Azure 儲存體複寫](storage-redundancy.md)。
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 如需災害復原資訊，請參閱[如果 Azure 儲存體發生中斷怎麼辦](storage-disaster-recovery-guidance.md)。
-
-如需有關如何利用 RA-GRS 儲存體來確保高可用性的範例，請參閱[使用 RA-GRS 設計高可用性應用程式](storage-designing-ha-apps-with-ragrs.md)。
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>從 Azure 儲存體來回傳輸資料
 

@@ -1,120 +1,169 @@
 ---
-title: "為裝置設定 Azure IoT 中樞裝置佈建服務 | Microsoft Docs"
-description: "在裝置製造過程中將裝置設定為透過 IoT 中樞裝置佈建服務進行佈建"
+title: 為裝置設定 Azure IoT 中樞裝置佈建服務
+description: 在裝置製造過程中將裝置設定為透過 IoT 中樞裝置佈建服務進行佈建
 services: iot-dps
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 835a54f147b9ea543df21e7dfeb226ac42aceda3
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c885e4d5d747d913eaf0b7137b240950e920e7ff
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>將裝置設定為使用 Azure IoT 中樞裝置佈建服務進行佈建
 
-在上一個教學課程中，您已了解如何將 Azure IoT 中樞裝置佈建服務設定為自動將裝置佈建到 IoT 中樞。 本教學課程則會指引您如何在製造過程中為裝置進行設定，以便您可以根據裝置的[硬體安全模組 (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security) 為裝置設定裝置佈建服務，並讓裝置可以在首次開機時連線到裝置佈建服務。 本教學課程會討論下列作業的程序：
+在上一個教學課程中，您已了解如何將 Azure IoT 中樞裝置佈建服務設定為自動將裝置佈建到 IoT 中樞。 本教學課程示範如何在製造過程中設定您的裝置，讓它能透過 IoT 中樞自動佈建。 第一次開機並連線至佈建服務時，您的裝置會根據其[證明機制](concepts-device.md#attestation-mechanism)進行佈建。 本教學課程會討論下列作業的程序：
 
 > [!div class="checklist"]
-> * 選取硬體安全模組
-> * 為選定的 HSM 建置裝置佈建用戶端 SDK
+> * 建置平台特定裝置佈建服務用戶端 SDK
 > * 擷取安全構件
-> * 在裝置上設定裝置佈建服務組態
+> * 建立裝置註冊軟體
 
 ## <a name="prerequisites"></a>先決條件
 
-在繼續之前，請先使用[為雲端設定裝置佈建功能](./tutorial-set-up-cloud.md)教學課程中所提到的指示，建立裝置佈建服務執行個體和 IoT 中樞。
+繼續之前，請使用 [1 - 設定雲端資源](./tutorial-set-up-cloud.md)教學課程中的指示，建立裝置佈建服務執行個體和 IoT 中樞。
 
+本教學課程使用 [Azure IoT SDK 及適用於 C 存放庫的程式庫](https://github.com/Azure/azure-iot-sdk-c)，其中包含適用於 C 的裝置佈建服務用戶端 SDK。此 SDK 目前針對在 Windows 或 Ubuntu 實作上執行的裝置，提供 TPM 和 X.509 支援。 本教學課程是以使用 Windows 開發用戶端為基礎，而且假設熟悉 Visual Studio 2017 基本功能。 
 
-## <a name="select-a-hardware-security-module"></a>選取硬體安全模組
+如果您不熟悉自動佈建程序，請務必先檢閱[自動佈建概念](concepts-auto-provisioning.md)才能繼續。 
 
-[裝置佈建服務用戶端 SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) 可支援兩種硬體安全模組 (簡稱 HSM)： 
+## <a name="build-a-platform-specific-version-of-the-sdk"></a>建置 SDK 的平台特定版本
 
-- [信賴平台模組 (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module)。
-    - TPM 是適用於大部分 Windows 裝置平台以及一些 Linux/Ubuntu 架構裝置的公認標準。 身為裝置製造商，如果您的裝置是執行上述任一作業系統，而且您想要使用公認的 HSM 標準，則可以選擇這個 HSM。 若使用 TPM 晶片，裝置就只能個別地向裝置佈建服務進行註冊。 若要進行開發，您可以在 Windows 或 Linux 開發機器上使用 TPM 模擬器。
+裝置佈建服務用戶端 SDK 可協助您實作裝置註冊軟體。 但是，您必須先建置您的開發用戶端平台和證明機制特有的 SDK 版本，才可以使用該軟體。 在本教學課程中，您會針對支援的證明類型，在 Windows 開發平台上建置使用 Visual Studio 2017 的 SDK：
 
-- [X.509](https://cryptography.io/en/latest/x509/) 架構的硬體安全模組。 
-    - X.509 架構的 HSM 是較新型的晶片，Microsoft 目前正著手設計 RIoT 或 DICE 晶片以便實作 X.509 憑證。 若使用 X.509 晶片，您將可以在入口網站中進行大量註冊。 這種晶片也支援某些非 Windows 的作業系統，例如 embedOS。 針對開發用途，裝置佈建服務用戶端 SDK 可支援 X.509 裝置模擬器。 
+1. 安裝必要的工具及複製 GitHub 存放庫 (包含適用於 C 的佈建服務用戶端 SDK)：
 
-身為裝置製造商，您必須選取以上述任一類型為基礎的硬體安全模組/晶片。 裝置佈建服務用戶端 SDK 目前不支援其他類型的 HSM。   
+   a. 確定您已在電腦上安裝 Visual Studio 2015 或 [Visual Studio 2017](https://www.visualstudio.com/vs/)。 為了 Visual Studio 安裝，您必須啟用[「C ++ 桌面開發」](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載。
 
+   b. 下載並安裝 [CMake 建置系統](https://cmake.org/download/)。 在 CMake 安裝**之前**，請務必將包含「C ++ 桌面開發」工作負載的 Visual Studio 安裝在您的電腦上。
 
-## <a name="build-device-provisioning-client-sdk-for-the-selected-hsm"></a>為選定的 HSM 建置裝置佈建用戶端 SDK
+   c. 確定 `git` 已安裝在電腦上，並已新增至命令視窗可存取的環境變數。 請參閱[軟體自由保護協會的 Git 用戶端工具](https://git-scm.com/download/)以取得最新的 `git` 工具，其中包括 **Git Bash** (可用來與本機 Git 存放庫互動的命令列應用程式)。 
 
-裝置佈建服務用戶端 SDK 可協助您在軟體中實作選定的安全性機制。 下列步驟說明如何使用選定 HSM 晶片的 SDK：
+   d. 開啟 Git Bash，以及複製「適用於 C 的 Azure IoT SDK」存放庫。 複製命令可能需要幾分鐘才能完成，因為它也會下載數個相依子模組：
+    
+   ```cmd/sh
+   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+   ```
 
-1. 如果您有遵循[建立模擬裝置的快速入門](./quick-create-simulated-device.md)，您就已設定妥當而可建置 SDK。 如果沒有，請遵循[準備開發環境](./quick-create-simulated-device.md#setupdevbox)一節的前四個步驟。 這四個步驟會複製裝置佈建服務用戶端 SDK 的 GitHub 存放庫，並安裝 `cmake` 建置工具。 
+   e. 在新建立的存放庫子目錄中建立新的 `cmake` 子目錄：
 
-1. 在命令提示字元上使用下列其中一個命令，針對您為裝置選定的 HSM 類型建置 SDK：
-    - 針對 TPM 裝置：
+   ```cmd/sh
+   mkdir azure-iot-sdk-c/cmake
+   ``` 
+
+2. 從 Git Bash 命令提示字元，變更為 azure-iot-sdk-c 存放庫的 `cmake` 子目錄：
+
+   ```cmd/sh
+   cd azure-iot-sdk-c/cmake
+   ```
+
+3. 使用下列其中一個命令 (也請注意兩個尾端句號字元)，為您的開發平台與其中一個支援的證明機制建置 SDK。 完成時，CMake 會建置出含有您裝置特有內容的 `/cmake` 子目錄：
+    - 對於使用實體 TPM/HSM 或模擬 X.509 憑證進行證明的裝置：
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON ..
         ```
 
-    - 針對 TPM 模擬器：
+    - 對於使用 TPM 模擬器進行證明的裝置：
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
         ```
 
-    - 針對 X.509 裝置和模擬器：
-        ```cmd/sh
-        cmake -Duse_prov_client:BOOL=ON ..
-        ```
-
-1. 針對執行了 Windows 或 Ubuntu 系統以實作 TPM 和 X.509 HSM 的裝置，SDK 會提供預設的支援。 請針對這些受支援的 HSM 繼續進行下面的[擷取安全構件](#extractsecurity)一節。 
+您現在即可使用 SDK 來建置您的裝置註冊程式碼。 
  
-## <a name="support-custom-tpm-and-x509-devices"></a>支援自訂的 TPM 和 X.509 裝置
+<a id="extractsecurity"></a> 
 
-對於並非執行 Windows 或 Ubuntu 的 TPM 和 X.509 裝置，裝置佈建系統用戶端 SDK 不會提供預設支援。 對於這類裝置，您必須為您特殊的 HSM 晶片撰寫自訂程式碼，如下列步驟所示：
+## <a name="extract-the-security-artifacts"></a>擷取安全構件 
 
-### <a name="develop-your-custom-repository"></a>開發自訂存放庫
+下一個步驟是為您的裝置所用的證明機制擷取安全構件。 
 
-1. 開發程式庫以存取您的硬體安全模組 (HSM)。 此專案必須產生靜態程式庫以供裝置佈建 SDK 取用。
-1. 程式庫必須實作下列標頭檔所定義的函式：a. 若為自訂 TPM，請實作[自訂 HSM 文件](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api) 中所定義的函式。
-    b. 若為自訂 X.509，請實作[自訂 HSM 文件](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api) 中所定義的函式。 
+### <a name="physical-device"></a>實體裝置 
 
-### <a name="integrate-with-the-device-provisioning-service-client"></a>與裝置佈建服務用戶端整合
+如果您建立的 SDK 使用實體 TPM/HSM 的證明：
 
-程式庫自行建置成功後，您就可以移到 IoThub C-SDK 並對連結至您的程式庫：
+- 對於 TPM 裝置，您必須從 TPM 晶片製造商找出與其相關聯的**簽署金鑰**。 您可以將簽署金鑰進行雜湊處理，以衍生 TPM 裝置的唯一**註冊識別碼**。  
 
-1. 在下列 cmake 命令中提供自訂的 HSM GitHub 存放庫、程式庫路徑和其名稱：
-    ```cmd/sh
-    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
+- 若為 X.509 裝置，您必須取得對裝置所核發的憑證，也就是用來註冊個別裝置的終端實體憑證，以及用來以群組方式註冊裝置的根憑證。 
+
+### <a name="simulated-device"></a>模擬裝置
+
+如果您建立的 SDK 使用模擬 TPM 或 X.509 憑證的證明：
+
+- 對於模擬 TPM 裝置：
+   1. 在個別/新的命令提示字元中，瀏覽至 `azure-iot-sdk-c` 子目錄，然後執行 TPM 模擬器。 它會透過連接埠 2321年和 2322 上的通訊端接聽。 請勿關閉此命令視窗；您必須讓此模擬器保持執行，直到下列快速入門結束為止。 
+
+      從 `azure-iot-sdk-c` 子目錄，執行下列命令以啟動模擬器：
+
+      ```cmd/sh
+      .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
+      ```
+
+   2. 使用 Visual Studio，開啟在 cmake 資料夾中產生的方案 (名為 `azure_iot_sdks.sln`)，然後使用 [建置] 功能表上的 [建置方案] 命令加以建置。
+
+   3. 在 Visual Studio 的 [方案總管] 窗格中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **tpm_device_provision** 專案，然後選取 [設為起始專案]。 
+
+   4. 使用 [偵錯] 功能表上的任一 [啟動] 命令來執行方案。 輸出視窗會顯示裝置註冊所需之 TPM 模擬器的 [登錄識別碼] 和 [簽署金鑰]。 複製這些值，供後續使用。 您可以關閉此視窗 (使用註冊識別碼和簽署金鑰)，但是讓您在步驟 1 中啟動的 TPM 模擬器視窗持續執行。
+
+- 對於模擬 X.509 裝置：
+  1. 使用 Visual Studio，開啟在 cmake 資料夾中產生的方案 (名為 `azure_iot_sdks.sln`)，然後使用 [建置] 功能表上的 [建置方案] 命令加以建置。
+
+  2. 在 Visual Studio 的 [方案總管] 窗格中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **dice\_device\_enrollment** 專案，然後選取 [設為起始專案]。 
+  
+  3. 使用 [偵錯] 功能表上的任一 [啟動] 命令來執行方案。 在輸出視窗中，當出現提示時，針對個別註冊輸入 **i**。 輸出視窗會顯示針對您的模擬裝置在本機產生的 X.509 憑證。 將輸出 (從 -----BEGIN CERTIFICATE----- 開始並於第一個 -----END PUBLIC KEY----- 結束) 複製到剪貼簿，並確定包含這兩行文字。 請注意，您只需要輸出視窗中的第一個憑證。
+ 
+  4. 建立名為 **X509testcert.pem** 的檔案，在您選擇的文字編輯器中開啟該檔案，並將剪貼簿內容複製到這個檔案。 儲存檔案，因為稍後註冊裝置時會用到它。 當您註冊軟體執行時，它會在自動佈建期間使用相同的憑證。    
+
+向裝置佈建服務註冊裝置期間需要這些安全構件。 佈建服務會等候裝置開機，並於稍後的任何時間點與裝置連線。 裝置第一次開機時，用戶端 SDK 邏輯會與晶 (或模擬器) 片互動以從裝置擷取安全構件，並向裝置佈建服務確認註冊情形。 
+
+## <a name="create-the-device-registration-software"></a>建立裝置註冊軟體
+
+最後一個步驟是撰寫註冊應用程式，以使用裝置佈建服務用戶端 SDK 來向 IoT 中樞服務註冊裝置。 
+
+> [!NOTE]
+> 在此步驟中，我們會假設使用模擬裝置，並藉由從您的工作站執行 SDK 範例註冊應用程式來完成。 不過，如果您要建置註冊應用程式以供部署到實體裝置，則適用相同的概念。 
+
+1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀] 刀鋒視窗，並複製 [識別碼範圍] 值。 「識別碼範圍」會由服務產生，以保證唯一性。 識別碼範圍永遠不變，因此可用來唯一識別註冊識別碼。
+
+    ![從入口網站刀鋒視窗擷取 DPS 端點資訊](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
+
+2. 在您電腦上 Visual Studio 的 [方案總管] 中，瀏覽至 **Provision\_Samples** 資料夾。 選取名為 **prov\_dev\_client\_sample** 的範例專案，並開啟來源檔案 **prov\_dev\_client\_sample.c**。
+
+3. 將在步驟 1 取得的 [識別碼範圍] 值指派給 `id_scope` 變數 (移除左 `[` 和右 `]` 方括號)： 
+
+    ```c
+    static const char* global_prov_uri = "global.azure-devices-provisioning.net";
+    static const char* id_scope = "[ID Scope]";
     ```
-   
-1. 在 Visual Studio 中開啟 SDK 並加以建置。 
 
-    - 建置程序將會組建 SDK 程式庫。
-    - SDK 會嘗試與 cmake 命令中所定義的自訂 HSM 進行連結。
+    提供參考，`global_prov_uri` 變數可讓 IoT 中樞用戶端註冊 API`IoTHubClient_LL_CreateFromDeviceAuth` 與指定的裝置佈建服務執行個體進行連線。
 
-1. 執行 `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` 範例，以確認 HSM 是否有正確地實作。
+4. 在相同檔案的 **main()** 函式中，請註解/取消註解 `hsm_type` 變數，以符合您裝置的註冊軟體 (TPM 或 X.509) 所使用的證明機制： 
 
-<a id="extractsecurity"></a>
-## <a name="extract-the-security-artifacts"></a>擷取安全構件
+    ```c
+    hsm_type = SECURE_DEVICE_TYPE_TPM;
+    //hsm_type = SECURE_DEVICE_TYPE_X509;
+    ```
 
-下一個步驟是在裝置上擷取 HSM 的安全構件。
+5. 儲存您的變更，並藉由從 [建置] 功能表選取 [建置方案] 來重建 **prov\_dev\_client\_sample** 範例。 
 
-1. 若為 TPM 裝置，您必須從 TPM 晶片製造商那邊找出其相關聯的**簽署金鑰**。 您可以將簽署金鑰進行雜湊處理，以衍生 TPM 裝置的唯一**註冊識別碼**。 
-2. 若為 X.509 裝置，您必須取得對裝置所核發的憑證，也就是用來註冊個別裝置的終端實體憑證，以及用來以群組方式註冊裝置的根憑證。
+6. 以滑鼠右鍵按一下 **Provision\_Samples** 資料夾底下的 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]。 先不要執行範例應用程式。
 
-您必須有這些安全構件才能向裝置佈建服務註冊裝置。 然後，佈建服務會等候這些裝置開機，並於稍後的任何時間點與裝置連線。 如需如何使用這些安全構件來建立註冊的相關資訊，請參閱[如何管理裝置註冊](how-to-manage-enrollments.md)。 
+> [!IMPORTANT]
+> 先不要執行/啟動裝置！ 在啟動裝置之前，您必須先向裝置佈建服務註冊裝置，才能完成此程序。 下面的「後續步驟」一節將引導您前往下一篇文章。
 
-裝置第一次開機時，用戶端 SDK 會與晶片互動以從裝置擷取安全構件，並向裝置佈建服務確認註冊情形。 
+### <a name="sdk-apis-used-during-registration-for-reference-only"></a>在註冊期間使用的 SDK API (僅供參考)
 
-
-## <a name="set-up-the-device-provisioning-service-configuration-on-the-device"></a>在裝置上設定裝置佈建服務組態
-
-裝置製造程序的最後一個步驟是撰寫應用程式，以使用裝置佈建服務用戶端 SDK 來向服務註冊裝置。 這個 SDK 會提供下列 API 供應用程式使用：
+提供參考，此 SDK 會提供下列 API 以供應用程式在註冊期間使用。 這些 API 可協助裝置在開機時與裝置佈建服務進行連線和註冊。 然而，您的裝置會收到建立 IoT 中樞執行個體連線所需的資訊：
 
 ```C
-// Creates a Provisioning Client for communications with the Device Provisioning Client Service
+// Creates a Provisioning Client for communications with the Device Provisioning Client Service.  
 PROV_DEVICE_LL_HANDLE Prov_Device_LL_Create(const char* uri, const char* scope_id, PROV_DEVICE_TRANSPORT_PROVIDER_FUNCTION protocol)
 
 // Disposes of resources allocated by the provisioning Client.
@@ -130,67 +179,22 @@ void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
 PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-在使用這些 API 之前，請記得先依照[這個快速入門的＜模擬裝置的第一個開機順序＞章節](./quick-create-simulated-device.md#firstbootsequence)中的說明，將 `uri` 和 `id_scope` 變數初始化。 裝置佈建用戶端註冊 API `Prov_Device_LL_Create` 會連線至全域裝置佈建服務。 「識別碼範圍」會由服務產生，以保證唯一性。 識別碼範圍永遠不變，因此可用來唯一識別註冊識別碼。 `iothub_uri` 可讓 IoT 中樞用戶端註冊 API `IoTHubClient_LL_CreateFromDeviceAuth` 與正確的 IoT 中樞連線。 
-
-
-這些 API 可協助裝置在開機時與裝置佈建服務進行連線和註冊，以取得 IoT 中樞的相關資訊，然後與其連線。 `provisioning_client/samples/prov_client_ll_sample/prov_client_ll_sample.c` 檔案會說明如何使用這些 API。 一般來說，您必須建立下列架構以註冊用戶端：
-
-```C
-static const char* global_uri = "global.azure-devices-provisioning.net";
-static const char* id_scope = "[ID scope for your provisioning service]";
-...
-static void register_callback(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* context)
-{
-    USER_DEFINED_INFO* user_info = (USER_DEFINED_INFO *)user_context;
-    ...
-    user_info. reg_complete = 1;
-}
-static void registation_status(DPS_REGISTRATION_STATUS reg_status, void* user_context)
-{
-}
-int main()
-{
-    ...
-    SECURE_DEVICE_TYPE hsm_type;
-    hsm_type = SECURE_DEVICE_TYPE_TPM;
-    //hsm_type = SECURE_DEVICE_TYPE_X509;
-    prov_dev_security_init(hsm_type); // initialize your HSM 
-
-    prov_transport = Prov_Device_HTTP_Protocol;
-    
-    PROV_CLIENT_LL_HANDLE handle = Prov_Device_LL_Create(global_uri, id_scope, prov_transport); // Create your provisioning client
-
-    if (Prov_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
-        do {
-        // The register_callback is called when registration is complete or fails
-            Prov_Client_LL_DoWork(handle);
-        } while (user_info.reg_complete == 0);
-    }
-    Prov_Client_LL_Destroy(handle); // Clean up the Provisioning client
-    ...
-    iothub_client = IoTHubClient_LL_CreateFromDeviceAuth(user_info.iothub_uri, user_info.device_id, transport); // Create your IoT hub client and connect to your hub
-    ...
-}
-```
-
-您可以使用測試服務安裝程式，先以模擬裝置改進裝置佈建服務用戶端註冊應用程式。 當應用程式可以在測試環境中運作後，您可以針對特定裝置來建置此應用程式，並將可執行檔複製到裝置映像中。 先不要啟動裝置，在啟動裝置之前，您必須先[向裝置佈建服務註冊裝置](./tutorial-provision-device-to-hub.md#enrolldevice)。 請參閱後續步驟以了解此程序。 
+您也會發現您需要先使用模擬裝置，然後測試服務安裝程式，以改進裝置佈建服務用戶端註冊應用程式。 當應用程式可以在測試環境中運作後，您可以針對特定裝置來建置此應用程式，並將可執行檔複製到裝置映像中。 
 
 ## <a name="clean-up-resources"></a>清除資源
 
-至此，您可能已在入口網站中設定裝置佈建和 IoT 中樞服務。 如果您想要放棄裝置佈建設定及 (或) 延遲使用這些服務，建議您將其關閉以避免產生不必要的成本。
+至此，您可能有在入口網站中執行的裝置佈建和 IoT 中樞服務。 如果您想要放棄裝置佈建設定及 (或) 延遲完成本教學課程系列，建議您將其關閉以避免產生不必要的成本。
 
 1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的裝置佈建服務。 在 [所有資源] 刀鋒視窗的頂端，按一下 [刪除]。  
-1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的 IoT 中樞。 在 [所有資源] 刀鋒視窗的頂端，按一下 [刪除]。  
-
+2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的 IoT 中樞。 在 [所有資源] 刀鋒視窗的頂端，按一下 [刪除]。  
 
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
-> * 選取硬體安全模組
-> * 為選定的 HSM 建置裝置佈建用戶端 SDK
+> * 建置平台特定裝置佈建服務用戶端 SDK
 > * 擷取安全構件
-> * 在裝置上設定裝置佈建服務組態
+> * 建立裝置註冊軟體
 
 前進到下一個教學課程，以了解如何藉由向 Azure IoT 中樞裝置佈建服務註冊要讓裝置進行自動佈建，來將裝置佈建到 IoT 中樞。
 

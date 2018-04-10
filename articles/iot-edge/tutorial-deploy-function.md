@@ -5,16 +5,16 @@ services: iot-edge
 keywords: ''
 author: kgremban
 manager: timlt
-ms.author: v-jamebr
+ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a43ae8f28fc32b61fb5db985ffae98f093293798
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3d7dd0986878c747f92afc712301453bc8772ef2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>將 Azure Function 部署為 IoT Edge 模組 - 預覽
 您可以使用 Azure Functions 來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您建立及部署 Azure Function，以篩選模擬 IoT Edge 裝置上的感應器資料 (模擬裝置是在＜在 [Windows][lnk-tutorial1-win] 或 [Linux][lnk-tutorial1-lin] 上的模擬裝置中部署 Azure IoT Edge＞教學課程中所建立)。 在本教學課程中，您了解如何：     
@@ -58,10 +58,10 @@ ms.lasthandoff: 03/28/2018
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Function
     ```
-2. 針對新模組建立專案。 下列命令會在目前的工作資料夾中建立專案資料夾 **FilterFunction**：
+2. 針對新模組建立專案。 下列命令會使用您的容器存放庫來建立專案資料夾 **FilterFunction**。 如果您使用 Azure 容器登錄，第二個參數格式應該是 `<your container registry name>.azurecr.io`。 在目前的工作資料夾中輸入下列命令：
 
     ```cmd/sh
-    dotnet new aziotedgefunction -n FilterFunction
+    dotnet new aziotedgefunction -n FilterFunction -r <your container registry address>/filterfunction
     ```
 
 3. 選取 [檔案] > [開啟資料夾]，然後瀏覽至 **FilterFunction** 資料夾，並在 VS Code 中開啟專案。
@@ -127,24 +127,19 @@ ms.lasthandoff: 03/28/2018
 
 11. 儲存檔案。
 
-## <a name="publish-a-docker-image"></a>發佈 Docker 映像
+## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>建立 Docker 映像並發行到您的登錄中
 
-1. 建置 Docker 映像。
-    1. 在 VS Code 檔案總管中，展開 [Docker] 資料夾。 然後展開適用於您容器平台的資料夾：**linux-x64** 或 **windows-nano**。 
-    2. 以滑鼠右鍵按一下 [Dockerfile] 檔案，然後按一下 [建置 IoT Edge 模組的 Docker 映像]。 
-    3. 瀏覽至 **FilterFunction** 專案資料夾，然後按一下 [選取資料夾作為 EXE_DIR]。 
-    4. 在 VS Code 視窗頂端的快顯文字方塊中，輸入映像名稱。 例如：`<your container registry address>/filterfunction:latest`。 容器登錄位址與您從登錄複製的登入伺服器相同。 其格式應該是 `<your container registry name>.azurecr.io`。
- 
-4. 登入 Docker。 在整合式終端機中，輸入下列命令： 
-
+1. 透過在 VS Code 整合式終端機中輸入下列命令來登入 Docker： 
+     
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
    若要尋找使用者名稱、密碼及登入伺服器，以在此命令中使用，請移至 [Azure 入口網站] (https://portal.azure.com)。 從 [所有資源] 中，按一下 Azure 容器登錄圖格以開啟其內容，然後按一下 [存取金鑰]。 複製 [使用者名稱]、[密碼] 和 [登入伺服器] 欄位中的值。 
 
-3. 將映像推送到您的 Docker 存放庫。 選取 [檢視] > [命令選擇區...]，然後搜尋 [Edge：推送 IoT Edge 模組 Docker 映像]。
-4. 在快顯文字方塊中，輸入步驟 1.d 中使用的相同映像名稱。
+2. 在 VS Code 總管中，以滑鼠右鍵按一下 **module.json** 檔案並按一下 [建置及推送 IoT Edge 模組 Docker 映像] \(Build and Push IoT Edge module Docker image\)。 在於 VS Code 視窗頂端彈出的下拉式清單方塊中，選取您的容器平台，即適用於 Linux 容器的 **amd64**，或適用於 Windows 容器的 **windows-amd64**。 VS Code 會接著將您的函式程式碼容器化，再將它推送到您指定的容器登錄。
+
+
+3. 您可以在 VS Code 整合式終端機中取得完整容器映像位址。 如需有關建置及推送定義的詳細資訊，請參閱 `module.json` 檔案。
 
 ## <a name="add-registry-credentials-to-your-edge-device"></a>將登錄認證新增至 Edge 裝置
 在執行 Edge 裝置的電腦上，將登錄的認證新增至 Edge 執行階段。 這會提供存取權給執行階段，以提取容器。 
@@ -174,7 +169,7 @@ ms.lasthandoff: 03/28/2018
 1. 新增 **filterFunction** 模組。
     1. 再次選取 [新增 IoT Edge 模組]。
     2. 在 [名稱] 欄位中，輸入 `filterFunction`。
-    3. 在 [映像 URI] 欄位中，輸入您的映像位址，例如 `<your container registry address>/filtermodule:0.0.1-amd64`。 您可以在上一節找到完整的映像位址。
+    3. 在 [映像 URI] 欄位中，輸入您的映像位址，例如 `<your container registry address>/filterfunction:0.0.1-amd64`。 您可以在上一節找到完整的映像位址。
     74. 按一下 [檔案] 。
 2. 按 [下一步] 。
 3. 在 [指定路由] 步驟中，將下列 JSON 複製到文字方塊。 第一個路由會透過 "input1" 端點，將訊息從溫度感應器傳輸到篩選模組。 第二個路由會將訊息從篩選模組傳輸到 IoT 中樞。 在此路由中，`$upstream` 是告知 Edge 中樞將訊息傳送至 IoT 中樞的特殊目的地。 
@@ -198,11 +193,11 @@ ms.lasthandoff: 03/28/2018
 1. 使用 IoT 中樞連接字串來設定 Azure IoT Toolkit 擴充功能： 
     1. 在 Azure 入口網站中，瀏覽至您的 IoT 中樞，並選取 [共用存取原則]。 
     2. 選取 [iothubowner]，然後複製 [連接字串-主索引鍵] 的值。
-    1. 在 VS Code 檔案總管中，按一下 [IOT HUB DEVICES]，然後按一下 [...]。 
-    1. 選取 [設定 IoT 中樞連接字串]，並在快顯視窗中輸入 IoT 中樞連接字串。 
+    3. 在 VS Code 檔案總管中，按一下 [IOT HUB DEVICES]，然後按一下 [...]。 
+    4. 選取 [設定 IoT 中樞連接字串]，並在快顯視窗中輸入 IoT 中樞連接字串。 
 
-1. 若要監視抵達 IoT 中樞的資料，請選取 [檢視] > [命令選擇區...]，然後搜尋 [IoT: 開始監視 D2C 訊息]。 
-2. 若要停止監視資料，請在命令選擇區中使用 **IoT: Stop monitoring D2C message** 命令。 
+2. 若要監視抵達 IoT 中樞的資料，請選取 [檢視] > [命令選擇區...]，然後搜尋 [IoT: 開始監視 D2C 訊息]。 
+3. 若要停止監視資料，請在命令選擇區中使用 **IoT: Stop monitoring D2C message** 命令。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure 網路安全性概觀 | Microsoft Docs"
-description: "深入了解用於控制 Azure 資源之間網路流量流程的安全性選項。"
+title: Azure 網路安全性概觀 | Microsoft Docs
+description: 深入了解用於控制 Azure 資源之間網路流量流程的安全性選項。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: fbf0556cc47bc08a71fcf050b43c2dbbe5d27184
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 950c64ea1ea2edc072650a9f63a6d21ad369c496
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="network-security"></a>網路安全性
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 02/28/2018
  
 若要了解建立應用程式安全性群組以及在安全性規則中指定它們時的相關限制，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
-應用程式安全性群組已在預覽版本中提供。 預覽狀態的功能並沒有與一般版本中的功能相同層級的可用性和可靠性。 使用應用程式安全性群組之前，您必須先完成[建立具有應用程式安全性群組的網路安全性群組](create-network-security-group-preview.md)的 Azure 或 PowerShell 小節中的步驟 1-5 才註冊使用它們。 應用程式安全性群組具有下列條件約束：
+應用程式安全性群組具有下列條件約束：
 
 -   應用程式安全性群組內的所有網路介面都必須存在於相同的虛擬網路。 您無法將不同虛擬網路的網路介面新增至相同的應用程式安全性群組。 第一個網路介面指派至應用程式安全性群組的虛擬網路，是用來定義後續的所有虛擬網路 - 指派的網路介面必須存在其中。
 - 如果您指定安全性群組作為安全性規則中的來源和目的地，兩個應用程式安全性群組中的網路介面都必須在相同的虛擬網路中。 例如，如果 ASG1 包含來自 VNet1 的網路介面，而 ASG2 包含來自 VNet2 的網路介面，您無法在規則中將 ASG1 指派為來源，將 ASG2 指派為目的地，所有網路介面都必須存在於 VNet1 中。
@@ -165,5 +165,4 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-* 完成[建立網路安全性群組](virtual-networks-create-nsg-arm-pportal.md)教學課程
-* 完成[建立具有應用程式安全性群組的網路安全性群組](create-network-security-group-preview.md)教學課程
+* 了解如何[建立網路安全性群組](tutorial-filter-network-traffic.md)。

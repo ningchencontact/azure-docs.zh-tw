@@ -1,4 +1,4 @@
-1. 按一下 Azure 入口網站左上角的 [建立資源]，然後選取 [計算] > [函式應用程式]。 
+1. 選取 Azure 入口網站左上角的 [新增] 按鈕，然後選取 [計算] > [函式應用程式]。 
 
     ![在 Azure 入口網站中建立函式應用程式](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
@@ -16,8 +16,14 @@
     | **位置** | 西歐 | 選擇與您接近的[區域](https://azure.microsoft.com/regions/)，或選擇與函式將會存取之其他服務接近的區域。 |
     | **[儲存體帳戶](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  全域唯一的名稱 |  函式應用程式所使用之新儲存體帳戶的名稱。 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。 您也可以使用現有帳戶。 |
 
-1. 按一下 [建立] 以佈建並部署新的函式應用程式。 您可以按一下入口網站右上方的通知圖示來監視部署的狀態。 
+3. 選取 [建立] 以佈建並部署函式應用程式。 
+
+4. 選取入口網站右上角的 [通知] 圖示，查看是否有**部署成功**訊息。 
 
     ![定義新的函式應用程式設定](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
-    按一下 [前往資源] 會帶您前往您的新函式應用程式。
+4. 選取 [前往資源]，以檢視您新的函式應用程式。
+
+>[!TIP]
+>在入口網站中尋找您的函式應用程式時若發生問題，請嘗試[在 Azure 入口網站中將函式應用程式新增至您的最愛](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite)。   
+

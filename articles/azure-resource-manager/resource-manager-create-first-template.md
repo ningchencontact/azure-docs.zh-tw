@@ -1,8 +1,8 @@
 ---
-title: "建立第一個 Azure Resource Manager 範本 | Microsoft Docs"
-description: "說明如何建立第一個 Azure Resource Manager 範本的逐步指南。 它說明如何使用儲存體帳戶的範本參考來建立範本。"
+title: 建立第一個 Azure Resource Manager 範本 | Microsoft Docs
+description: 說明如何建立第一個 Azure Resource Manager 範本的逐步指南。 它說明如何使用儲存體帳戶的範本參考來建立範本。
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -10,14 +10,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2017
+ms.date: 03/30/2018
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adf7d6ad04b9c341eac2172e09da3cb1f044aa62
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>建立及部署第一個 Azure Resource Manager 範本
 本主題會逐步引導您完成建立第一個 Azure Resource Manager 範本的步驟。 Resource Manager 範本是 JSON 檔案，該檔案定義您需要為您的解決方案部署的資源。 若要了解部署和管理 Azure 解決方案的相關概念，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。 如果您有現成的資源且想要取得這些資源的範本，請參閱[從現有資源匯出 Azure Resource Manager 範本](resource-manager-export-template.md)。
@@ -26,8 +26,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>先決條件
 
-* Visual Studio Code。 如有需要，請從 [https://code.visualstudio.com/](https://code.visualstudio.com/) 進行安裝。
+* Visual Studio Code。 視需要從 [https://code.visualstudio.com/](https://code.visualstudio.com/) 進行安裝。
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+* 已在本機安裝 [Azure PowerShell](/powershell/azure/install-azurerm-ps) 或 [Azure CLI](/cli/azure/install-azure-cli)。 因為您的範本會儲存為本機檔案，所以您在本教學課程中需要本機安裝。 若要使用 Cloud Shell，您必須[將範本載入儲存體帳戶](resource-group-template-deploy-cli.md#deploy-template-from-cloud-shell)。
 
 ## <a name="create-template"></a>建立範本
 
@@ -92,24 +93,6 @@ ms.lasthandoff: 10/11/2017
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
-
-部署完成時，您的儲存體帳戶會儲存在資源群組中。
-
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
-
-針對 Azure CLI，使用下列命令：
-
-```azurecli-interactive
-az group create --name examplegroup --location "South Central US"
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-```
-
-目前，PowerShell 在 Cloud Shell 中以預覽形式提供使用。 針對 PowerShell，使用下列命令：
-
-```powershell
-New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
-```
 
 部署完成時，您的儲存體帳戶會儲存在資源群組中。
 
@@ -244,12 +227,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
-對於 Cloud Shell，將已變更的範本上傳到檔案共用。 覆寫現有的檔案。 然後，使用下列命令：
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
-```
-
 ## <a name="use-autocomplete"></a>使用自動完成
 
 到目前為止，您在範本上的工作只包含從本文複製並貼上 JSON。 不過，在開發自己的範本時，您需要尋找並指定資源類型可用的屬性和值。 VS Code 會讀取資源類型的結構描述，並建議屬性和值。 若要查看自動完成功能，請移至您範本的 properties 元素並新增一行。 輸入引號，並注意 VS Code 會立即建議 properties 元素內可用的名稱。
@@ -377,12 +354,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile
 
 ```azurecli
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
-```
-
-對於 Cloud Shell，將已變更的範本上傳到檔案共用。 覆寫現有的檔案。 然後，使用下列命令：
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
 ```
 
 ## <a name="clean-up-resources"></a>清除資源

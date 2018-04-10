@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ce72c1a68c1dbe5cede33dd42adc1b002a81326e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6226fea5001d19a6f0e1f6700d90ea2b9481d43c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>使用 Azure 儲存體讓應用程式資料具有高可用性
 
-本教學課程是一個系列的第一部分，會說明如何讓應用程式資料在 Azure 中具有高可用性。 當您完成本教學課程，就會擁有主控台應用程式，可將 Blob 上傳和擷取到[讀取權限異地備援](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) 儲存體帳戶。 RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複寫程序可保證次要區域中的資料是最終一致的。 該應用程式會使用[斷路器](/azure/architecture/patterns/circuit-breaker)模式來決定要連線到哪一個端點。 在模擬失敗狀況時，應用程式會切換到次要端點。
+本教學課程是一個系列的第一部分，會說明如何讓應用程式資料在 Azure 中具有高可用性。 當您完成本教學課程，就會擁有主控台應用程式，可將 Blob 上傳和擷取到[讀取權限異地備援](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) 儲存體帳戶。 RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複寫程序可保證次要區域中的資料是最終一致的。 該應用程式會使用[斷路器](/azure/architecture/patterns/circuit-breaker)模式來決定要連線到哪一個端點。 在模擬失敗狀況時，應用程式會切換到次要端點。
 
 在系列的第一部分中，您將了解如何：
 

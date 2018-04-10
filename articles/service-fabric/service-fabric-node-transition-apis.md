@@ -1,11 +1,11 @@
 ---
-title: "啟動和停止叢集節點以測試 Azure 微服務 | Microsoft Docs"
-description: "了解如何使用錯誤插入，藉由啟動和停止叢集節點的方式，測試 Service Fabric 應用程式。"
+title: 啟動和停止叢集節點以測試 Azure 微服務 | Microsoft Docs
+description: 了解如何使用錯誤插入，藉由啟動和停止叢集節點的方式，測試 Service Fabric 應用程式。
 services: service-fabric
 documentationcenter: .net
 author: LMWF
 manager: rsinha
-editor: 
+editor: ''
 ms.assetid: f4e70f6f-cad9-4a3e-9655-009b4db09c6d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -44,8 +44,7 @@ ms.lasthandoff: 10/11/2017
 如果節點轉換 API 被呼叫時沒有擲回例外狀況，則系統已接受非同步作業，並將執行它。  成功的呼叫並不表示作業完成。  若要取得作業的目前狀態資訊，請呼叫節點轉換進度 API (受控︰ [GetNodeTransitionProgressAsync()][gntp])，並搭配此作業叫用節點轉換 API 時使用的 guid。  節點轉換進度 API 會傳回 NodeTransitionProgress 物件。  此物件的 State 屬性會指定作業的目前狀態。  如果狀態是 "Running"，則作業正在執行。  如果是 "Completed"，則作業完成沒有錯誤。  如果是 "Faulted"，則表示執行作業發生問題。  Result 屬性的 Exception 屬性會指出問題為何。  請參閱 https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate 了解 State 屬性的相關資訊，以及之後的「範例用法」一節中的程式碼範例。
 
 
-
-            **區分停止節點和關閉節點** 如果是使用節點轉換 API「停止」** 節點，節點查詢的輸出 (受控：[GetNodeListAsync()][nodequery]、PowerShell：[Get-ServiceFabricNode][nodequeryps]) 將顯示此節點的 IsStopped** 屬性值為 true。  請注意，這和 NodeStatus屬性的值 (Down) 不同。  如果 NodeStatus屬性的值為 Down，但 IsStopped 為 false，則節點並非使用節點轉換 API 停止，而是因其他原因而「關閉」。  如果 IsStopped屬性為 true，而NodeStatus 屬性為 Down，則是使用節點轉換 API 停止節點。
+**區分停止節點和關閉節點** 如果是使用節點轉換 API *停止*節點，節點查詢的輸出 (受控：[GetNodeListAsync()][nodequery]、PowerShell：[Get-ServiceFabricNode][nodequeryps]) 將顯示此節點的 *IsStopped* 屬性值為 true。  請注意，這和 NodeStatus屬性的值 (Down) 不同。  如果 NodeStatus屬性的值為 Down，但 IsStopped 為 false，則節點並非使用節點轉換 API 停止，而是因其他原因而「關閉」。  如果 IsStopped屬性為 true，而NodeStatus 屬性為 Down，則是使用節點轉換 API 停止節點。
 
 使用節點轉換 API 啟動「停止」節點會將它恢復運作，再次成為叢集的一般成員。  節點查詢 API 的輸出會顯示IsStopped 是 false，而 NodeStatus 是 Down 以外的值 (例如 Up)。
 

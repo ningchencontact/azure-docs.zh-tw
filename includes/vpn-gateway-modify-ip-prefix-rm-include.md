@@ -5,32 +5,32 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 03/28/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e81e083b012c4cc29f2d6c09f8254025d712a97c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8803aada61ae58f1e221767aeb382f7d74c63eb4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 ### <a name="noconnection"></a>修改區域網路閘道 IP 位址首碼 - 沒有閘道連線
 
 若要新增其他位址首碼：
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+```azurepowershell-interactive
+$local = Get-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
 Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+-AddressPrefix @('10.101.0.0/24','10.101.1.0/24','10.101.2.0/24')
 ```
 
 若要移除位址首碼：<br>
-省略您不再需要的首碼。 此範例中不再需要首碼 20.0.0.0/24 (來自先前的範例)，因此我們將更新區域網路閘道，並排除該首碼。
+省略您不再需要的首碼。 此範例中不再需要首碼 10.101.2.0/24 (來自先前的範例)，因此我們將更新區域網路閘道，並排除該首碼。
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+```azurepowershell-interactive
+$local = Get-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
 Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+-AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
 ```
 
 ### <a name="withconnection"></a>修改區域網路閘道 IP 位址首碼 - 現有閘道連線
@@ -40,36 +40,36 @@ Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
 
 1. 移除連線。
 
-  ```powershell
-  Remove-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName -ResourceGroupName MyRGName
+  ```azurepowershell-interactive
+  Remove-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
   ```
 2. 修改區域網路閘道的位址首碼。
    
   設定 LocalNetworkGateway 的變數。
 
-  ```powershell
-  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName
+  ```azurepowershell-interactive
+  $local = Get-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
   ```
    
   修改首碼。
    
-  ```powershell
+  ```azurepowershell-interactive
   Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+  -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
   ```
 3. 建立連線。 在此範例中，我們會設定 IPsec 連線類型。 當您重新建立連線時，請使用針對設定指定的連線類型。 對於其他連線類型，請參閱 [PowerShell Cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) 頁面。
    
   設定 VirtualNetworkGateway 的變數。
 
-  ```powershell
-  $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
+  ```azurepowershell-interactive
+  $gateway1 = Get-AzureRmVirtualNetworkGateway -Name VNet1GW  -ResourceGroupName TestRG1
   ```
    
   建立連線。 此範例使用您在步驟 2 中設定的 $local 變數。
 
-  ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `
-  -ResourceGroupName MyRGName -Location 'West US' `
+  ```azurepowershell-interactive
+  New-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 `
+  -ResourceGroupName TestRG1 -Location 'East US' `
   -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
   -ConnectionType IPsec `
   -RoutingWeight 10 -SharedKey 'abc123'

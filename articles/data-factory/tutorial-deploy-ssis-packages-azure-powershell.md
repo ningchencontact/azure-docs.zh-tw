@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: f9487067ae77fbb261fb683ddd15207670f9576f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: aab864696be7121be049ce4e907b10431a7b63cb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure-with-powershell"></a>使用 PowerShell 將 SQL Server Integration Services 套件部署至 Azure
 本教學課程提供在 Azure Data Factory 中佈建 Azure-SSIS Integration Runtime (IR) 的步驟。 接著，您可以使用 SQL Server Data Tools (SSDT) 或 SQL Server Management Studio (SSMS)，將 SQL Server Integration Services (SSIS) 套件部署到 Azure 上的此執行階段。 在本教學課程中，您會執行下列步驟：
@@ -83,7 +83,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 ```
@@ -246,7 +246,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 
@@ -300,7 +300,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="join-azure-ssis-ir-to-a-vnet"></a>將 Azure-SSIS IR 加入至 VNet
-如果您使用 Azure SQL 受控執行個體 (私人預覽) 在虛擬網路 (VNet) 內裝載 SQL Server Integration Services (SSIS) 目錄，則也必須將 Azure-SSIS Integration Runtime 加入至相同的虛擬網路。 Azure Data Factory 第 2 版 (預覽版) 可讓您將 Azure-SSIS 整合執行階段加入至 VNet。 如需詳細資訊，請參閱[將 Azure-SSIS 執行階段加入至 VNet](join-azure-ssis-integration-runtime-virtual-network.md)。
+如果您使用 Azure SQL 受控執行個體 (預覽) 在虛擬網路 (VNet) 內裝載 SQL Server Integration Services (SSIS) 目錄，則也必須將 Azure-SSIS Integration Runtime 加入至相同的虛擬網路。 Azure Data Factory 第 2 版 (預覽版) 可讓您將 Azure-SSIS 整合執行階段加入至 VNet。 如需詳細資訊，請參閱[將 Azure-SSIS 執行階段加入至 VNet](join-azure-ssis-integration-runtime-virtual-network.md)。
 
 如需建立可加入 VNet 之 Azure-SSIS 執行階段的完整指令碼，請參閱[建立 Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)。
 

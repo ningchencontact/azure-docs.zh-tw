@@ -11,14 +11,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 04/02/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 81d9d8790a750f34133f3f00dafc15c56185d7b1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9cf1d485f32c861ac5b5720cd77a988eee624f4d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>使用 Java 和 Maven 建立您的第一個函式 (預覽)
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/28/2018
 
 [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) 提供撰寫、執行和偵錯 Azure Functions 的本機開發環境。 
 
-若要安裝，請瀏覽[安裝](https://github.com/azure/azure-functions-core-tools#installing)區段，並尋找您所選作業系統 (Windows、Linux、Mac) 的特定指示。
+若要安裝，請瀏覽 Azure Functions Core Tools 專案的[安裝](https://github.com/azure/azure-functions-core-tools#installing)區段，尋找您作業系統的特定指示。
 
 您也可以在安裝下列需求後，使用 [npm](https://www.npmjs.com/) (隨附於 [Node.js](https://nodejs.org/)) 來手動安裝：
 
@@ -80,7 +80,9 @@ mvn archetype:generate ^
     -DarchetypeArtifactId=azure-functions-archetype
 ```
 
-Maven 會提示您提供完成產生專案所需的值。 如需 _groupId_、_artifactId_ 和 _version_ 值，請參閱 [Maven 命名慣例](https://maven.apache.org/guides/mini/guide-naming-conventions.html) \(英文\) 參考。 _appName_ 值必須在整個 Azure 中是唯一的，Maven 才能根據先前輸入的 _artifactId_ 作為預設值產生應用程式名稱。 _packageName_ 值決定產生的函式程式碼的 Java 封裝。
+Maven 會要求您提供完成產生專案所需的值。 如需 _groupId_、_artifactId_ 和 _version_ 值，請參閱 [Maven 命名慣例](https://maven.apache.org/guides/mini/guide-naming-conventions.html) \(英文\) 參考。 _appName_ 值必須在整個 Azure 中是唯一的，Maven 才能根據先前輸入的 _artifactId_ 作為預設值產生應用程式名稱。 _packageName_ 值決定產生的函式程式碼的 Java 封裝。
+
+以下的 `com.fabrikam.functions` 和 `fabrikam-functions` 識別碼作為範例使用，讓本快速入門中的步驟更容易閱讀。 建議您在此步驟中提供自己的值給 Maven。
 
 ```Output
 Define value for property 'groupId': com.fabrikam.functions
@@ -91,7 +93,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven 會以 _artifactId_ 名稱在新的資料夾中建立專案檔。 在專案中產生的程式碼是回應要求本文的簡單 [HTTP 觸發](/azure/azure-functions/functions-bindings-http-webhook)函式：
+Maven 會以 _artifactId_ 名稱在新資料夾中建立專案檔案，在此例中為 `fabrikam-functions`。 在專案中準備要執行之產生的程式碼是回應要求本文的簡單 [HTTP 觸發](/azure/azure-functions/functions-bindings-http-webhook)函式：
 
 ```java
 public class Function {
@@ -133,7 +135,7 @@ mvn azure-functions:run
 > [!NOTE]
 > 如果您遇到下列例外狀況：使用 Java 9 時的 `javax.xml.bind.JAXBException`，請參閱 [GitHub](https://github.com/jOOQ/jOOQ/issues/6477) 上的因應措施。
 
-函式執行時，您會看到以下輸出：
+當函式在您的系統本機執行並準備好回應 HTTP 要求時，您會看到以下輸出：
 
 ```Output
 Listening on http://localhost:7071
@@ -144,7 +146,7 @@ Http Functions:
    hello: http://localhost:7071/api/hello
 ```
 
-在新的終端機中使用 curl 從命令列觸發函式：
+在新的終端機視窗中使用 curl 從命令列觸發函式：
 
 ```
 curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
@@ -158,10 +160,15 @@ Hello LocalFunction!
 
 ## <a name="deploy-the-function-to-azure"></a>將函式部署到 Azure
 
-部署到 Azure Functions 的程序從 Azure CLI 使用帳戶認證。 [使用 Azure CLI 登入](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)，然後使用 `azure-functions:deploy` Maven 目標將您的程式碼部署到新的函式應用程式。
+部署到 Azure Functions 的程序從 Azure CLI 使用帳戶認證。 繼續執行前，請[使用 Azure CLI 登入](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)。
+
+```azurecli
+az login
+```
+
+使用 `azure-functions:deploy` Maven 目標將您的程式碼部署到新的函式應用程式。
 
 ```
-az login
 mvn azure-functions:deploy
 ```
 
@@ -175,7 +182,7 @@ mvn azure-functions:deploy
 [INFO] ------------------------------------------------------------------------
 ```
 
-使用 curl 測試在 Azure 上執行的函式應用程式：
+使用 `cURL` 測試在 Azure 上執行的函式應用程式。 您必須變更下面範例中的 URL，以符合上一個步驟中自有函式應用程式的已部署 URL。
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions

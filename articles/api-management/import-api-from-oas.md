@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 入口網站匯入 OpenAPI 規格 | Microsoft Docs"
-description: "了解如何使用 API 管理匯入 OpenAPI 規格。"
+title: 使用 Azure 入口網站匯入 OpenAPI 規格 | Microsoft Docs
+description: 了解如何使用 API 管理匯入 OpenAPI 規格。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: f0c77c6e959ca99698b3ea704756a6abf36147f3
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0ea24b58deb7b33755a44737a66938883f74a13c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="import-an-openapi-specification"></a>匯入 OpenAPI 規格
 
-本文示範如何匯入「OpenAPI 規格」後端 API (位於 http://conferenceapi.azurewebsites.net?format=json)。 這個後端 API 是由 Microsoft 所提供且裝載於 Azure 上。 本文也會示範如何測試 APIM API。
+本文示範如何匯入位於 http://conferenceapi.azurewebsites.net?format=json 的「OpenAPI 規格」後端 API。 這個後端 API 是由 Microsoft 所提供且裝載於 Azure 上。 本文也會示範如何測試 APIM API。
+
+> [!IMPORTANT]
+> 請參閱此[文件](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/)中的重要資訊和 OpenAPI 匯入相關祕訣。
 
 在本文中，您將了解：
 
@@ -59,7 +62,7 @@ ms.lasthandoff: 12/04/2017
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>在 Azure 入口網站中測試新的 APIM API
 
-您可以從 Azure 入口網站直接呼叫作業，以便檢視和測試 API 的作業。  
+您可以從 Azure 入口網站直接呼叫作業，以便檢視和測試 API 的作業。
 
 1. 選取您在上一個步驟中建立的 API。
 2. 按 [測試] 索引標籤。
@@ -67,14 +70,14 @@ ms.lasthandoff: 12/04/2017
     ![測試 API](./media/api-management-get-started/test-api.png)
 1. 按一下 [GetSpeakers]。
 
-    此頁面會顯示查詢參數的欄位，但在此案例中，我們沒有任何適用欄位。 此頁面也會顯示標頭的欄位。 其中一個標頭是 "Ocp-Apim-Subscription-Key"，它適用於與此 API 相關聯之產品的訂用帳戶金鑰。 如果您建立了 APIM 執行個體，您就已經是系統管理員，因此會自動填入此金鑰。 
+    此頁面會顯示查詢參數的欄位，但在此案例中，我們沒有任何適用欄位。 此頁面也會顯示標頭的欄位。 其中一個標頭是 "Ocp-Apim-Subscription-Key"，它適用於與此 API 相關聯之產品的訂用帳戶金鑰。 如果您建立了 APIM 執行個體，您就已經是系統管理員，因此會自動填入此金鑰。
 4. 按 [傳送]。
 
     後端會回應 **200 確定**與部分資料。
 
 ## <a name="call-operation"> </a>從開發人員入口網站呼叫作業
 
-您也可以在**開發人員入口網站**呼叫作業來測試 API。 
+您也可以在**開發人員入口網站**呼叫作業來測試 API。
 
 1. 選取您在「匯入和發佈後端 API」步驟中建立的 API。
 2. 按 [開發人員入口網站]。
@@ -85,11 +88,11 @@ ms.lasthandoff: 12/04/2017
 3. 選取 [API]。
 4. 選取 [Demo Conference API]。
 5. 按一下 [GetSpeakers]。
-    
+
     此頁面會顯示查詢參數的欄位，但在此案例中，我們沒有任何適用欄位。 此頁面也會顯示標頭的欄位。 其中一個標頭是 "Ocp-Apim-Subscription-Key"，它適用於與此 API 相關聯之產品的訂用帳戶金鑰。 如果您建立了 APIM 執行個體，您就已經是系統管理員，因此會自動填入此金鑰。
 6. 按 [試試看]。
 7. 按 [傳送]。
-    
+
     叫用作業之後，開發人員入口網站會顯示 [回應狀態]、[回應標頭]，以及任何的 [回應內容]。
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]

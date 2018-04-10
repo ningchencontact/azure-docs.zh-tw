@@ -1,8 +1,8 @@
 ---
-title: "使用 Application Insights 監視 SharePoint 網站"
-description: "開始使用新的檢測金鑰監視新的應用程式"
+title: 使用 Application Insights 監視 SharePoint 網站
+description: 開始使用新的檢測金鑰監視新的應用程式
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/24/2016
+ms.date: 04/01/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9c07ba125e0f9eae2b8f94661abf6dc1efc0cdad
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9eb7f74a365b51431aabd78de3c6d36c3c969bb6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>使用 Application Insights 監視 SharePoint 網站
 Azure Application Insights 會監視應用程式的可用性、效能和使用情況。 您將在這裡深入了解如何針對 SharePoint 網站進行設定。
@@ -25,14 +25,30 @@ Azure Application Insights 會監視應用程式的可用性、效能和使用�
 ## <a name="create-an-application-insights-resource"></a>建立 Application Insights 資源
 在 [Azure 入口網站](https://portal.azure.com)中，建立新的 Application Insights 資源。 選擇 ASP.NET 做為應用程式類型。
 
-![按一下 [屬性]，選取金鑰，然後按下 CTRL+C](./media/app-insights-sharepoint/01-new.png)
+![按一下 [屬性]，選取金鑰，然後按下 CTRL+C](./media/app-insights-sharepoint/001.png)
 
-開啟的刀鋒視窗是您要查看您的應用程式效能和使用量資料的位置。 若要在下次登入 Azure 時回到此位置，您應該會在開始畫面上發現它的磚。 或者按一下 [瀏覽] 以尋找它。
+開啟的視窗是您要查看您的應用程式效能和使用量資料的位置。 若要在下次登入 Azure 時回到此位置，您應該會在開始畫面上發現它的磚。 或者按一下 [瀏覽] 以尋找它。
 
-## <a name="add-our-script-to-your-web-pages"></a>將我們的指令碼加入至您的網頁
-在快速入門中，取得網頁指令碼：
+## <a name="add-the-script-to-your-web-pages"></a>將指令碼新增至您的網頁
 
-![](./media/app-insights-sharepoint/02-monitor-web-page.png)
+```HTML
+<!-- 
+To collect end-user usage analytics about your application, 
+insert the following script into each page you want to track.
+Place this code immediately before the closing </head> tag,
+and before any other scripts. Your first data will appear 
+automatically in just a few seconds.
+-->
+<script type="text/javascript">
+var appInsights=window.appInsights||function(a){
+  function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
+  }({
+      instrumentationKey:"<your instrumentation key>"
+  });
+  
+window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+</script>
+```
 
 在您想要追蹤之每一個頁面的 &lt;/head&gt; 標記前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。 例如，在 ASP.NET MVC 專案中，可放在 View\Shared\_Layout.cshtml 中
 

@@ -8,11 +8,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: c2a52a387860de640e290746b25c164090819654
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>教學課程：在 ASP.NET Web 應用程式中使用 Azure Active Directory B2C 進行使用者驗證
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 03/23/2018
 
 ### <a name="create-a-client-password"></a>建立用戶端密碼
 
-Azure AD B2C 會對[用戶端應用程式](../active-directory/develop/active-directory-dev-glossary.md#client-application)使用 OAuth2 授權。 Web 應用程式屬於[機密用戶端](../active-directory/develop/active-directory-dev-glossary.md#web-client)，需要用戶端秘密 (密碼)。 Web 應用程式使用 Azure Active Directory 進行驗證時，會使用應用程式的用戶端識別碼和用戶端密碼。 
+Azure AD B2C 會對[用戶端應用程式](../active-directory/develop/active-directory-dev-glossary.md#client-application)使用 OAuth2 授權。 Web 應用程式屬於[機密用戶端](../active-directory/develop/active-directory-dev-glossary.md#web-client)，需要用戶端識別碼或應用程式識別碼和用戶端秘密、用戶端密碼或應用程式金鑰。
 
 1. 選取已註冊之 Web 應用程式的 [金鑰] 頁面，然後按一下 [產生金鑰]。
 
@@ -150,7 +150,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 **Web API 範例應用程式 (TaskService)：**支援建立、讀取、更新和刪除工作清單功能的 Web API。 此 Web API 會受到 Azure AD B2C 的保護，且由 Web 應用程式呼叫。
 
-您必須變更此應用程式，以使用您的租用戶中的應用程式註冊。 您也需要設定您已建立的原則。 範例 Web 應用程式會在 Web.config 檔案中將組態值定義為應用程式設定。 若要變更應用程式設定：
+您需要將應用程式變更為在租用戶中使用應用程式註冊，其中包含用戶端識別碼或應用程式識別碼以及用戶端密碼或應用程式金鑰。 您也需要設定您已建立的原則。 範例 Web 應用程式會在 Web.config 檔案中將組態值定義為應用程式設定。 若要變更應用程式設定：
 
 1. 在 Visual Studio 中開啟 **B2C-WebAPI-DotNet** 方案。
 
@@ -161,7 +161,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
     
     <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
     
-    <add key="ida:ClientSecret" value="Client password (client secret)" />
+    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
 3. 使用您在建立原則時產生的名稱來更新原則設定。
 

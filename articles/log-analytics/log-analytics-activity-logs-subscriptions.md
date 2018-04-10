@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>跨訂用帳戶將 Azure 活動記錄收集到 Log Analytics
 
@@ -324,15 +324,15 @@ ms.lasthandoff: 03/28/2018
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>步驟 5 - 在 Log Analytics 中檢視 Azure 活動記錄
 最後一個步驟是檢查 Log Analytics 工作區，確定正在如預期收集資料。
 
-1. 在 Azure 入口網站中，選取 [Log Analytics]。
-2. 選取您的工作區，然後選取 [記錄搜尋] 磚。
-3. 在搜尋查詢列中，鍵入 `AzureActivity_CL`，然後按一下搜尋按鈕。 如果您未將自訂記錄命名為 *AzureActivity*，則請鍵入選擇的名稱，並附加 `_CL`。
+1. 在 Azure 入口網站中，按一下左上角的 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
+2. 在 Log Analytics 工作區清單中，選取您的工作區。
+3.  按一下 [記錄搜尋] 圖格，然後在 [記錄搜尋] 窗格的查詢欄位中輸入 `AzureActivity_CL`，再按 Enter 鍵，或按一下查詢欄位右邊的搜尋按鈕。 如果您未將自訂記錄命名為 *AzureActivity*，則請鍵入選擇的名稱，並附加 `_CL`。
 
 >[!NOTE]
 > 第一次將新的自訂記錄傳送至 Log Analytics 時，最多可能需要一個小時的時間來搜尋自訂記錄。
 
 >[!NOTE]
-> 活動記錄會寫入自訂資料表，而且不會顯示在[活動記錄解決方案](./log-analytics-activity.md)中。
+> 活動記錄會寫入自訂資料表，而且不會出現在[活動記錄解決方案](./log-analytics-activity.md)中。
 
 
 ![測試邏輯應用程式](media/log-analytics-activity-logs-subscriptions/log-analytics-results.png)

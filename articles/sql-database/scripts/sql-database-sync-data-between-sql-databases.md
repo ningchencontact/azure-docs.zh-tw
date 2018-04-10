@@ -1,13 +1,13 @@
 ---
-title: "PowerShell 範例 - 在多個 Azure SQL Database 之間進行同步處理 | Microsoft Docs"
-description: "在多個 Azure SQL Database 之間進行同步處理的 Azure PowerShell 範例指令碼"
+title: PowerShell 範例 - 在多個 Azure SQL Database 之間進行同步處理 | Microsoft Docs
+description: 在多個 Azure SQL Database 之間進行同步處理的 Azure PowerShell 範例指令碼
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,15 +17,15 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 23446e4156daca3903f15e538e2c47e63fcbf673
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8a6dbf6e8cdd2fe066c11cc14ae587912873f7e4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>使用 PowerShell 在多個 SQL Database 之間進行同步處理
  
-此 PowerShell 範例會設定「資料同步」，以在多個 Azure SQL Database 之間進行同步處理。
+此 PowerShell 範例會設定資料同步 (預覽)，以在多個 Azure SQL Database 之間進行同步處理。
 
 此範例需要 Azure PowerShell 模組 4.2 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
  

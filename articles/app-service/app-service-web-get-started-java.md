@@ -4,7 +4,7 @@ description: 藉由部署基本 Java 應用程式，了解如何在 App Service 
 services: app-service\web
 documentationcenter: ''
 author: rmcmurray
-manager: routlaw
+manager: mbaldwin
 editor: ''
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -12,18 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/08/2017
+ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e63f8706e28a5d34cc9774cbaecde31415a4b48e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>在 Azure 中建立第一個 Java Web 應用程式
 
 [Azure Web Apps](app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。 本快速入門示範如何使用 [Eclipse IDE for Java EE Developers](http://www.eclipse.org/) 將 Java Web 應用程式部署到 App Service。
+
+> [!NOTE]
+>
+> 本快速入門中的步驟示範如何使用 Eclipse IDE，來 Java Web 應用程式發佈至 App Service，但是您可以使用 IntelliJ IDEA Ultimate Edition 或 Community Edition。 如需詳細資訊，請參閱[使用 IntelliJ 建立 Azure Hello World Web 應用程式](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)。
+>
 
 當您完成本快速入門，在網頁瀏覽器中檢視您的應用程式時，看起來會如下圖所示：
 
@@ -37,6 +42,11 @@ ms.lasthandoff: 03/29/2018
 
 * 免費的 <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>。 本快速入門使用 Eclipse Neon。
 * <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">適用於 Eclipse 的 Azure 工具組</a>。
+
+> [!NOTE]
+>
+> 您必須使用適用於 Eclipse 的 Azure 工具組登入您的 Azure 帳戶，以完成本快速入門中的步驟。 若要這麼做，請參閱[適用於 Eclipse 的 Azure 工具組的 Azure 登入指示](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions)。
+>
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>在 Eclipse 中建立動態 Web 專案
 
@@ -74,15 +84,20 @@ ms.lasthandoff: 03/29/2018
 
 儲存變更。
 
+> [!NOTE]
+>
+> 如果您在參照遺失 Java Servlet 類別的第 1 行上看到錯誤，您可以忽略它。
+> 
+> ![良性 Java Servlet 錯誤](./media/app-service-web-get-started-java/java-servlet-benign-error.png)
+>
+
 ## <a name="publish-the-web-app-to-azure"></a>將 Web 應用程式發佈至 Azure
 
-在 [專案總管] 中，以滑鼠右鍵按一下專案名稱，然後選取 [Azure] > [發佈為 Azure Web 應用程式]。
+在 [專案總管] 中，以滑鼠右鍵按一下專案，然後選取 [Azure] > [發佈為 Azure Web 應用程式]。
 
 ![[發佈為 Azure Web 應用程式] 內容功能表](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
-在 [Azure 登入] 對話方塊中，保留 [互動式]，然後選取 [登入]。
-
-遵循登入指示進行。
+如果出現 [Azure 登入] 對話方塊的提示，則必須依照[適用於 Eclipse 之 Azure 工具組的 Azure 登入指示](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions)一文中的步驟輸入您的認證。
 
 ### <a name="deploy-web-app-dialog-box"></a>部署 Web 應用程式對話方塊
 
@@ -100,8 +115,8 @@ ms.lasthandoff: 03/29/2018
 
 在 [建立 App Service] 對話方塊中：
 
-* 保留針對 Web 應用程式產生的名稱。 此名稱在整個 Azure 中必須是唯一的。 名稱是 Web 應用程式 URL 位址的一部分。 例如：如果 Web 應用程式名稱是 **MyJavaWebApp**，URL 是 *myjavawebapp.azurewebsites.net*。
-* 保留預設 Web 容器。
+* 為您的 Web 應用程式名稱輸入唯一的名稱，或保留所產生的名稱。 此名稱在整個 Azure 中必須是唯一的。 名稱是 Web 應用程式 URL 位址的一部分。 例如：如果 Web 應用程式名稱是 **MyJavaWebApp**，URL 是 *myjavawebapp.azurewebsites.net*。
+* 在本快速入門中，保留預設 Web 容器。
 * 選取 Azure 訂用帳戶。
 * 在 [App Service 方案] 索引標籤上：
 
@@ -187,7 +202,7 @@ Azure Toolkit 會建立 Web 應用程式並顯示進度對話方塊。
 
 選取資源群組。 此頁面會顯示您在本快速入門中建立的資源。
 
-![資源群組 myResourceGroup](media/app-service-web-get-started-java/rg2.png)
+![資源群組](media/app-service-web-get-started-java/rg2.png)
 
 選取 Web 應用程式 (上圖中的 **webapp 170602193915**)。
 
