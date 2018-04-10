@@ -65,7 +65,7 @@ ms.lasthandoff: 03/28/2018
 > 
 > 
 
-下載已加密的 Blob 牽涉到使用 **DownloadTo***/**BlobReadStream** 便利方法擷取整個 Blob 的內容。 包裝的 CEK 會解除包裝，並與 IV (在此情況下儲存為 blob 中繼資料) 一起用來傳回解密的資料給使用者。
+下載已加密的 Blob 牽涉到使用 **DownloadTo** **/BlobReadStream**\* 便利方法擷取整個 Blob 的內容。 包裝的 CEK 會解除包裝，並與 IV (在此情況下儲存為 blob 中繼資料) 一起用來傳回解密的資料給使用者。
 
 在加密的 Blob 中下載任意範圍 (**DownloadRange*** 方法)，包含調整使用者所提供的範圍，藉此取得少量額外的資料以便用來成功解密所要求的範圍。
 

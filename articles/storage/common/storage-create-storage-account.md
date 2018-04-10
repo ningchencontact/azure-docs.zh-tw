@@ -1,8 +1,8 @@
 ---
-title: "如何在 Azure 入口網站中建立、管理或刪除儲存體帳戶 | Microsoft Docs"
-description: "在 Azure 入口網站中建立新的儲存體帳戶、管理帳戶存取金鑰，或刪除儲存體帳戶。 了解標準和進階儲存體帳戶。"
+title: 如何在 Azure 入口網站中建立、管理或刪除儲存體帳戶 | Microsoft Docs
+description: 在 Azure 入口網站中建立新的儲存體帳戶、管理帳戶存取金鑰，或刪除儲存體帳戶。 了解標準和進階儲存體帳戶。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
