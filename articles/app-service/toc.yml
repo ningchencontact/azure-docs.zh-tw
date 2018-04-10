@@ -51,6 +51,8 @@
       href: app-service-web-tutorial-custom-ssl.md
     - name: 4 - 新增 CDN
       href: app-service-web-tutorial-content-delivery-network.md
+    - name: 5 - 驗證使用者
+      href: app-service-web-tutorial-auth-aad.md
 - name: 範例
   items:
     - name: Azure CLI
@@ -139,7 +141,7 @@
               href: app-service-mobile-how-to-configure-microsoft-authentication.md
             - name: 使用 Twitter 進行驗證
               href: app-service-mobile-how-to-configure-twitter-authentication.md
-        - name: 自訂 authN/authZ
+        - name: 自訂驗證
           href: app-service-authentication-how-to.md
         - name: 使用受控服務識別
           href: app-service-managed-service-identity.md

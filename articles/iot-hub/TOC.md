@@ -45,6 +45,7 @@
 ### [使用 Azure Functions 擷取 Twitter 訊息](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 ### [使用 Eclipse Paho API 將訊息傳送至 MQTT 伺服器](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 ### [使用 Azure Functions 監視磁性感應器並傳送電子郵件通知](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
+### [使用 Azure 裝置對應項控制 MXChip IoT DevKit RGB LED](iot-hub-arduino-iot-devkit-az3166-devkit-state.md)
 
 # 使用說明指南
 ## 規劃
@@ -173,7 +174,7 @@
 ## [Java (服務)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (裝置)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Node.js (裝置)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
-## [Node.js (服務)](https://docs.microsoft.com/javascript/api/azure-iothub)
+## [Node.js (服務)](https://docs.microsoft.com/javascript/api/azure-iothub/)
 ## [C 裝置 SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (資源提供者)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
