@@ -1,6 +1,6 @@
 ---
-title: "Hyper-V 到 Azure 的 Azure Site Recovery 部署規劃工具 | Microsoft Docs"
-description: "本文說明當您從 Hyper-V 移至 Azure 時，執行 Azure Site Recovery 部署規劃工具的模式。"
+title: Hyper-V 到 Azure 的 Azure Site Recovery 部署規劃工具 | Microsoft Docs
+description: 本文說明當您從 Hyper-V 移至 Azure 時，執行 Azure Site Recovery 部署規劃工具的模式。
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -96,7 +96,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Directory|(選用) 用來儲存分析期間所產生之分析資料的 UNC 或本機目錄路徑。 如果未指定名稱，目前路徑下名為 ProfiledData 的目錄將會作為預設目錄。|
 |-Password|(選用) 用於連線到 Hyper-V 主機的密碼。 如果您未將其指定為參數，您會在執行命令時收到提示。|
 |-StorageAccountName|(選用) 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫可達成的輸送量。 此工具會將測試資料上傳到此儲存體帳戶，以計算輸送量。 儲存體帳戶必須是一般用途 v1 或一般用途 v2。|
-|-StorageAccountKey|(選用) 用來存取儲存體帳戶的金鑰。 移至 Azure 入口網站 > [儲存體帳戶] > 儲存體帳戶名稱 > [設定] > [存取金鑰] > [Key1] (或傳統儲存體帳戶的主要存取金鑰)。|
+|-StorageAccountKey|(選用) 用來存取儲存體帳戶的金鑰。 移至 Azure 入口網站 > [儲存體帳戶] > 儲存體帳戶名稱 > [設定] > [存取金鑰] > [Key1] \(或傳統儲存體帳戶的主要存取金鑰)。|
 |-Environment|(選用) Azure 儲存體帳戶的目標環境。 可以是下列三個值之一：AzureCloud、AzureUSGovernment 或 AzureChinaCloud。 預設值為 AzureCloud。 當目標區域是 Azure US Government 或 Azure China 時，請使用此參數。|
 
 我們建議至少分析您的 VM 7 天以上。 如果變換模式在一個月內改變，我們建議在您看到最大變換的一週內進行分析。 最好的方法是分析 31 天，以取得更好的建議。 
@@ -278,7 +278,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 |-Virtualization|虛擬化類型 (VMware 或 Hyper-V)。|
 |-Directory|(選用) 儲存分析資料 (分析期間產生的檔案) 的 UNC 或本機目錄路徑。 產生報告時需要這項資料。 如果未指定名稱，目前路徑下名為 ProfiledData 的目錄將會作為預設目錄。|
 | -StorageAccountName | 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫所耗用的頻寬。 此工具會將測試資料上傳到此儲存體帳戶，以找出所耗用的頻寬。 儲存體帳戶必須是一般用途 v1 或一般用途 v2。|
-| -StorageAccountKey | 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 [Azure 入口網站] > [儲存體帳戶] > 儲存體帳戶名稱 > [設定] > [存取金鑰] > [Key1]。|
+| -StorageAccountKey | 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 [Azure 入口網站] > **儲存體帳戶** > *儲存體帳戶名稱* > **設定** > **存取金鑰** > **Key1** 。|
 | -VMListFile | 包含要剖析之 VM 清單的檔案，以便計算所耗用的頻寬。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**例如：**VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(選用) Azure 儲存體帳戶的目標環境。 可以是下列三個值之一：AzureCloud、AzureUSGovernment 或 AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure China 時，請使用此參數。|
 
