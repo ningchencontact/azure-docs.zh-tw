@@ -1,6 +1,6 @@
 ---
-title: 將警示從 OMS 擴充至 Azure - 概觀 | Microsoft Docs
-description: 將警示從 OMS 擴充至 Azure 警示的程序概觀，詳細說明常見的客戶考量。
+title: 將警示從 OMS 入口網站擴充 (複製) 到 Azure - 概觀 | Microsoft Docs
+description: 將警示從 OMS 入口網站複製到 Azure 警示的程序概觀，詳細說明常見的客戶考量。
 author: msvijayn
 manager: kmadnani1
 editor: ''
@@ -13,40 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vinagara
-ms.openlocfilehash: 045a7f97d9c4d380e83325c04c209a6afcc761a7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 356c1343443b33e565c65ef0693b8d8455ff1d1b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="extend-alerts-from-oms-into-azure"></a>將警示從 OMS 擴充至 Azure
-全新警示體驗現在整合 Microsoft Azure 中各種服務與組件的警示體驗。 入口網站中 Azure 監視器下提供的 [警示] 新體驗，將 Log Analytics 上的活動記錄警示、計量警示和記錄警示，以及 Application Insights 共同集結在同一個位置。 
+# <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>將警示從 OMS 入口網站擴充 (複製) 到 Azure
+Operations Management Suite (OMS) 入口網站只會顯示 Log Analytics 警示。  全新警示體驗現已整合 Microsoft Azure 中各種服務與組件間的警示體驗。 Azure 入口網站中的 Azure 監視器下提供的 [警示] 新體驗，包含 Log Analytics 和 Application Insights 的活動記錄警示、計量警示和記錄警示。 
 
-但部分使用者是透過 [Microsoft Operation Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 在使用 Log Analytics 及同盟功能 (如警示)。 因此，為了讓他們在使用 Log Analytics 時也能夠輕鬆管理其他 Azure 資源，Microsoft 已有系統地確保 Azure 入口網站中也會提供 OMS 的功能。 在這個考量下，Azure 警示已讓使用者能夠管理 Log Analytics 的查詢式警示，如需詳細資訊，請參閱 [Azure 警示上的記錄警示](monitor-alerts-unified-log.md)。 在 Azure 監視器的 [警示] 中，OMS 中建立的警示已列在適當的 Log Analytics 工作區下。 但是對 OMS 中建立的這類警示進行任何編輯或變更時，系統會要求使用者離開 Azure 並使用 OMS；然後當他們需要管理任何其他服務時，再回到 Azure。 若要減少這種困難，Microsoft 現在可讓使用者將自己的警示從 OMS 擴充至 Azure。
+
+但部分使用者是透過 [Microsoft Operation Management Suite (OMS) 入口網站](../operations-management-suite/operations-management-suite-overview.md)在使用 Log Analytics 及同盟功能 (如警示)。 因此，為了讓他們在使用 Log Analytics 時也能夠輕鬆管理其他 Azure 資源，Microsoft 已有系統地確保 Azure 入口網站中也會提供 OMS 入口網站的功能。 在這個考量下，Azure 警示已讓使用者能夠管理 Log Analytics 的查詢式警示，如需詳細資訊，請參閱 [Azure 警示上的記錄警示](monitor-alerts-unified-log.md)。 在 Azure 監視器下的 [警示] 中，在 OMS 入口網站中建立的警示已列在適當的 Log Analytics 工作區下。 但是對 OMS 入口網站中建立的這類警示進行任何編輯或變更時，使用者必須離開 Azure 並使用 OMS 入口網站；然後，當他們需要管理任何其他服務時，再回到 Azure。 為了減少此繁複程序，Microsoft 現在已可讓使用者將其警示從 OMS 入口網站擴充至 Azure。
 
 ## <a name="benefits-of-extending-your-alerts"></a>擴充您警示的好處
-除了不必巡覽到 Azure 入口網站外部的好處之外，將警示從 OMS 擴充到 Azure 還有其他顯著的好處
+除了不必瀏覽至 Azure 入口網站外部的好處以外，將警示從 OMS 入口網站擴充到 Azure 還有其他顯著的好處
 
-- 不同於在 OMS 中只能建立及檢視 250 個警示，在 Azure 警示中並沒有這項限制
-- 在 Azure 警示中，您可以管理、列舉以及檢視所有警示類型；並非僅限使用 OMS 時的 Log Analytics 警示
-- Azure 警示會利用[動作群組](monitoring-action-groups.md)，可讓您的每個警示擁有多個動作，包括 SMS、語音通話、自動化 Runbook、Webhook、ITSM 連接器等等。 而在 OMS 警示中，可能採取的動作數目及類型都有限
+- 不同於在 OMS 入口網站中只能建立及檢視 250 個警示，在 Azure 警示中並沒有這項限制
+- 在 Azure 警示中，您可以管理、列舉以及檢視所有警示類型；而不是像使用 OMS 入口網站時只能處理 Log Analytics 警示
+- Azure 警示會利用[動作群組](monitoring-action-groups.md)，讓您能夠對每個警示執行多個動作，包括 SMS、語音通話、自動化 Runbook、Webhook、ITSM 連接器等等。 而對於 Log Analytics 警示，可能採取的動作數目及類型都有限
 
 ## <a name="process-of-extending-your-alerts"></a>擴充警示的程序
-將警示從 OMS 擴充至 Azure 的程序「不」包含以任何方式變更您的警示定義、查詢或設定。 唯一需要的變更是，Azure 中的所有動作 (例如電子郵件通知、Webhook 呼叫、執行自動化 Runbook 或連線至 ITSM 工具) 都是透過「動作群組」完成。 因此，如果適當的動作群組與您的警示相關聯，它們就會擴充至 Azure。
+將警示從 OMS 入口網站擴充至 Azure 的程序「不」包含以任何方式變更您的警示定義、查詢或設定。 唯一需要的變更是，Azure 中的所有動作 (例如電子郵件通知、Webhook 呼叫、執行自動化 Runbook 或連線至 ITSM 工具) 都是透過「動作群組」完成。 因此，如果適當的動作群組與您的警示相關聯，它們就會擴充至 Azure。
 
-因為擴充程序不具破壞性且不會造成作業中斷，Microsoft 從 **2018 年 4 月 23 日**開始，會將 Operations Management Suite (OMS) 中建立的警示自動擴充至 Azure 警示。 這天起，Microsoft 會開始針對將警示擴充至 Azure 的作業進行排程，並逐漸讓所有警示出現在 OMS 中，且可從 Azure 入口網站進行管理。 
+由於擴充程序不具破壞性，且不會造成作業中斷，Microsoft 從 **2018 年 4 月 23 日**開始，會將在 OMS 入口網站中建立的警示自動擴充至 Azure 警示。 這天起，Microsoft 會開始針對將警示擴充至 Azure 的作業進行排程，並逐漸讓所有警示出現在 OMS 入口網站中，且可從 Azure 入口網站進行管理。 
 
-當 OMS 工作區中的警示要根據排程擴充至 Azure 時，這些警示會繼續運作，且「不會」以任何方式危害您的監視。 當排程時，您的警示可能暫時無法進行修改/編輯；但可以在這個短暫的時間內繼續建立新的 Azure 警示。 在這個短暫的時間內，如果從 OMS 中對警示進行任何編輯或建立警示，使用者就可以選擇是否要在 Azure Log Analytics 或 Azure 警示中繼續進行。
+當 Log Analytics 工作區中的警示要根據排程擴充至 Azure 時，這些警示會繼續運作，且「不會」以任何方式妨礙您的監視。 當排程時，您的警示可能暫時無法進行修改/編輯；但可以在這個短暫的時間內繼續建立新的 Azure 警示。 在這個短暫的時間內，如果從 OMS 入口網站進行了任何警示編輯或建立，使用者將可以選擇要在 Azure Log Analytics 還是 Azure 警示中繼續進行。
 
  ![在排程的期間，系統會將警示上的使用者動作重新導向至 Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> 如果您遵循 [Azure 監視器定價原則](https://azure.microsoft.com/en-us/pricing/details/monitor/)中所述的限制及條件，則將警示從 Operations Management Suite (OMS) 擴充至 Azure 時並不會收費，而且用於查詢式 Log Analytics 警示的 Azure 警示也不會計費  
+> 如果您遵循 [Azure 監視器定價原則](https://azure.microsoft.com/en-us/pricing/details/monitor/)中所述的限制及條件，則將警示從 OMS 入口網站擴充至 Azure 時並不會收費，而且用於查詢式 Log Analytics 警示的 Azure 警示也不會計費  
 
 在這個日期前，使用者只要主動選擇在 Azure 中管理自己的警示，即可享受擴充警示的好處。
 
 ### <a name="how-to-voluntarily-extending-your-alerts"></a>如何主動擴充您的警示
-為了讓 OMS 使用者輕鬆地移入 Azure 警示，Microsoft 已建立可擴充警示的工具。 Microsoft Operations Management Suite (OMS) 的客戶可以從 OMS 入口網站中的精靈，或是使用新的 API 以程式設計方式將他們的警示擴充至 Azure。 如需詳細資訊，請參閱[使用 OMS 入口網站和 API 將警示擴充至 Azure](monitoring-alerts-extend-tool.md)。
+為了讓 OMS 使用者輕鬆地移入 Azure 警示，Microsoft 已建立可擴充警示的工具。 Microsoft OMS 入口網站的客戶可以從 OMS 入口網站中的精靈，或是使用新的 API 以程式設計方式將其警示擴充至 Azure。 如需詳細資訊，請參閱[使用 OMS 入口網站和 API 將警示擴充至 Azure](monitoring-alerts-extend-tool.md)。
 
 
 ## <a name="usage-after-extending-your-alerts"></a>擴充警示之後的使用

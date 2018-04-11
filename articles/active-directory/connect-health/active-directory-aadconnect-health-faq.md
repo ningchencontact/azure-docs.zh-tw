@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health 常見問題集
 本文會回答有關 Azure Active Directory (Azure AD) Connect Health 的常見問題 (FAQ)。 這些常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -181,7 +181,7 @@ CheckForMS17-010
 
 **問：為何系統並未產生我的 ADFS 稽核？**
 
-請使用 PowerShell Cmdlet <i>Get-AdfsProperties -AuditLevel</i> 以確保稽核記錄不是處於停用狀態。 深入了解 [ADFS 稽核記錄](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)
+請使用 PowerShell Cmdlet <i>Get-AdfsProperties -AuditLevel</i> 以確保稽核記錄不是處於停用狀態。 深入了解 [ADFS 稽核記錄](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)。 請注意，若系統將進階稽核設定推送至 ADFS 伺服器，將會覆寫 auditpol.exe 的任何變更 (即使並未設定產生的應用程式)。 在此情況下，請將本機本機安全性原則設定為記錄已產生應用程式的失敗和成功項目。 
 
 
 ## <a name="related-links"></a>相關連結
