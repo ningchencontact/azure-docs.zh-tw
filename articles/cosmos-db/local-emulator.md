@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2018
+ms.date: 03/27/2018
 ms.author: danoble
-ms.openlocfilehash: 4a393887d8e82e833b0c956666bf36e5adb19e70
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e0d23a163f16763dd4764eb7857dec8076f4754c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos DB 模擬器進行本機開發和測試
 
@@ -136,7 +136,7 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 若是第一次啟用網路存取，使用者應該關閉模擬器，並且刪除模擬器的資料目錄 (C:\Users\user_name\AppData\Local\CosmosDBEmulator)。
 
 ## <a name="developing-with-the-emulator"></a>使用模擬器進行開發
-在桌面上執行 Azure Cosmos DB 模擬器之後，就可以使用任何支援的 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 或 [Azure Cosmos DB REST API](/rest/api/documentdb/) 與模擬器互動。 Azure Cosmos DB 模擬器也包含內建的資料總管，可讓您建立 SQL 和 MongoDB API 集合、檢視及編輯文件，而不需要撰寫任何程式碼。   
+在桌面上執行 Azure Cosmos DB 模擬器之後，就可以使用任何支援的 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 或 [Azure Cosmos DB REST API](/rest/api/cosmos-db/) 與模擬器互動。 Azure Cosmos DB 模擬器也包含內建的資料總管，可讓您建立 SQL 和 MongoDB API 集合、檢視及編輯文件，而不需要撰寫任何程式碼。   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
@@ -342,17 +342,41 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
 
 ### `Get-CosmosDbEmulatorStatus`
 
+#### <a name="syntax"></a>語法
+
+`Get-CosmosDbEmulatorStatus`
+
+#### <a name="remarks"></a>備註
+
 傳回這些 ServiceControllerStatus 值的其中一個：ServiceControllerStatus.StartPending、ServiceControllerStatus.Running 或 ServiceControllerStatus.Stopped。
 
-### `Start-CosmosDbEmulator [-NoWait]`
+### `Start-CosmosDbEmulator`
+
+#### <a name="syntax"></a>語法
+
+`Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>]  [<CommonParameters>]`
+
+#### <a name="remarks"></a>備註
 
 啟動模擬器。 根據預設，命令會等到模擬器準備好接受要求。 如果您希望啟動模擬器時立即傳回 Cmdlet，請使用 -NoWait 選項。
 
-### `Stop-CosmosDbEmulator [-NoWait]`
+### `Stop-CosmosDbEmulator`
+
+#### <a name="syntax"></a>語法
+
+ `Stop-CosmosDbEmulator [-NoWait]`
+
+#### <a name="remarks"></a>備註
 
 停止模擬器。 根據預設，此命令會等到模擬器完全關機。 如果您希望模擬器開始關閉時立即傳回 Cmdlet，請使用 -NoWait 選項。
 
-### `Uninstall-CosmosDbEmulator [-RemoveData]`
+### `Uninstall-CosmosDbEmulator`
+
+#### <a name="syntax"></a>語法
+
+`Uninstall-CosmosDbEmulator [-RemoveData]`
+
+#### <a name="remarks"></a>備註
 
 解除安裝模擬器，並選擇性地移除 $env 的完整內容：LOCALAPPDATA\CosmosDbEmulator。
 Cmdlet 可確保在解除安裝之前停止模擬器。
@@ -454,6 +478,20 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 ## <a name="change-list"></a>變更清單
 
 以滑鼠右鍵按一下工作列上的本機模擬器圖示，然後按一下關於功能表項目，以檢查版本號碼。
+
+### <a name="12106-released-on-march-27-2018"></a>已於 2018 年 3 月 27 日發行 1.21.0.6 版
+
+除了更新與 Cosmos DB 雲端服務進行同位檢查的模擬器服務，我們還在此版本中包含了一項新功能和兩個錯誤修正。
+
+#### <a name="features"></a>特性
+
+1. Start-CosmosDbEmulator 命令現在包含啟動選項。
+
+#### <a name="bug-fixes"></a>錯誤修正
+
+1. Microsoft.Azure.CosmosDB.Emulator PowerShell 模組現在可確保會載入 `ServiceControllerStatus` 列舉。
+
+2. Microsoft.Azure.CosmosDB.Emulator PowerShell 模組現在包含一個資訊清單；第一個版本中的遺漏項。
 
 ### <a name="1201084-released-on-february-14-2018"></a>已於 2018 年 2 月 14 日發行 1.20.108.4 版
 

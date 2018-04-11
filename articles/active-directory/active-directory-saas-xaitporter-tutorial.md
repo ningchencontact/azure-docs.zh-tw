@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 XaitPorter 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 XaitPorter 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 XaitPorter 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 XaitPorter 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -139,7 +139,7 @@ XaitPorter 與 Azure AD 整合提供下列優點：
 
     e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-6. 將 **IP 位址**或**中繼資料 URL** 提供給 [SmartRecruiters 支援小組](https://www.smartrecruiters.com/about-us/contact-us/)，讓 XaitPorter 自行設定白名單，以確保可以從您 XaitPorter 執行個體可觸達 IP 位址。 
+6. 將 **IP 位址**或**中繼資料 URL** 提供給 [SmartRecruiters 支援小組](https://www.smartrecruiters.com/about-us/contact-us/)，讓 XaitPorter 自行設定允許清單，以確保可以從您 XaitPorter 執行個體可觸達 IP 位址。 
 
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 XaitPorter 公司網站。
 

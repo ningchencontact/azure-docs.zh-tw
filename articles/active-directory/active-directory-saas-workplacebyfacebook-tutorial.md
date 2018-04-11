@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Workplace by Facebook 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Workplace by Facebook 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Workplace by Facebook 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Workplace by Facebook 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 524319deea957809440436b3cac2b0256516923a
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: a1f4243eafc6a2d5c632220ec80b28b29f8ae985
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>教學課程：Azure Active Directory 與 Workplace by Facebook 整合
 
-在本教學課程中，您將了解如何整合 Workplace by Facebook 與 Azure Active Directory (Azure AD)。
+在本教學課程中，您會了解如何將 Workplace by Facebook 與 Azure Active Directory (Azure AD) 整合。
 
-將 Workplace by Facebook 與 Azure AD 整合提供下列優點：
+將 Workplace by Facebook 與 Azure AD 整合可提供下列優點：
 
 - 您可以在 Azure AD 中控制可存取 Workplace by Facebook 的人員
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Workplace by Facebook (單一登入)
@@ -46,6 +46,9 @@ ms.lasthandoff: 02/11/2018
 - 除非必要，否則請勿使用生產環境。
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
+> [!NOTE]
+> Facebook 有兩項產品 Workplace Standard (免費) 和 Workplace Premium (付費)。 任何 Workplace Premium 租用戶都可以設定 SCIM 和 SSO 整合，而無須任何其他費用或授權。 Workplace Standard 執行個體中並未提供 SSO 和 SCIM。
+
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
@@ -53,7 +56,7 @@ ms.lasthandoff: 02/11/2018
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>從資源庫新增 Workplace by Facebook
-若要設定將 Workplace by Facebook 整合到 Azure AD 中，您需要將 Workplace by Facebook 從資源庫新增到受控 SaaS 應用程式清單。
+若要設定將 Workplace by Facebook 整合到 Azure AD 中，您需要從資源庫將 Workplace by Facebook 新增到受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 Workplace by Facebook，請執行下列步驟：**
 
@@ -107,7 +110,7 @@ ms.lasthandoff: 02/11/2018
  
     ![設定單一登入](./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_samlbase.png)
 
-3. 在 [Workplace by Facebook 網域及 URL] 區段上，執行下列步驟：
+3. 在 [Workplace by Facebook 網域與 URL] 區段上，執行下列步驟：
 
     ![設定單一登入](./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_url.png)
 
@@ -159,10 +162,6 @@ ms.lasthandoff: 02/11/2018
 15. **SAML 登出重新導向 (選擇性)** - 
 
     您可以選擇性地選擇設定 SAML 登出 URL，可用來指向 Azure AD 的登出頁面。 當啟用並設定此設定時，就不會再將使用者導向至 Workplace 登出頁面。 相反地，系統會將使用者重新導向至 [SAML 登出重新導向] 設定中所新增的 URL。
-
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="configuring-reauthentication-frequency"></a>設定重新驗證頻率
 
@@ -271,4 +270,3 @@ ms.lasthandoff: 02/11/2018
 [201]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_203.png
-

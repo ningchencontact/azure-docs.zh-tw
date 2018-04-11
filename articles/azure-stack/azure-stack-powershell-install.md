@@ -1,28 +1,28 @@
 ---
-title: "安裝 Azure Stack 的 PowerShell | Microsoft Docs"
-description: "瞭解如何安裝 Azure Stack 的 PowerShell。"
+title: 安裝 Azure Stack 的 PowerShell | Microsoft Docs
+description: 瞭解如何安裝 Azure Stack 的 PowerShell。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0CDD8B9B-EC32-4453-918A-D0A606C7BC10
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/23/2018
+ms.date: 3/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 18a697813fbeb11be7a599359285f824ed804216
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 2b620a13cb752d573305154f57cac7f6a106968c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>安裝適用於 Azure Stack 的 PowerShell  
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 您需要與 Azure Stack 相容的 Azure PowerShell 模組，才能搭配 Azure Stack 使用。 在本指南中，我們引導您安裝 Azure Stack 的 PowerShell 所需要的步驟。 您可以從 Azure Stack 開發套件，或從以 Windows 為基礎的外部用戶端 (如果您透過 VPN 連線) 來使用這篇文章中所述的步驟。
 
@@ -55,10 +55,10 @@ Set-PSRepository `
 
 ## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>在已連線的情況 (有網際網路連線能力) 安裝 PowerShell
 
-透過 API 版本設定檔安裝 Azure Stack 相容的 AzureRM 模組。 Azure Stack 需要 **2017-03-09-profile** API 版本設定檔 (可藉由安裝 AzureRM.Bootstrapper 模組取得)。 若要深入了解 API 版本設定檔和其所提供的 cmdlet，請參閱[管理 API 版本設定檔](azure-stack-version-profiles.md)。 除了 AzureRM 模組外，您也應該安裝 Azure Stack 特有的 Azure PowerShell 模組。 執行下列 PowerShell 指令碼，在開發工作站上安裝這些模組：
+透過 API 版本設定檔安裝 Azure Stack 相容的 AzureRM 模組。 Azure Stack 需要 **2017-03-09-profile** API 版本設定檔 (可藉由安裝 AzureRM.Bootstrapper 模組取得)。 若要深入了解 API 版本設定檔和其所提供的 cmdlet，請參閱[管理 API 版本設定檔](user/azure-stack-version-profiles.md)。 除了 AzureRM 模組外，您也應該安裝 Azure Stack 特有的 Azure PowerShell 模組。 執行下列 PowerShell 指令碼，在開發工作站上安裝這些模組：
 
 > [!IMPORTANT]
-> AzureRM 1.2.11 PowerShell 模組的發行版本隨附重大變更清單。 若要從 1.2.10 版升級，請參閱移轉指南 (網址為 [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration))。
+> AzureRM 1.2.11 PowerShell 模組的發行版本隨附重大變更清單。 若要從 1.2.10 版升級，請參閱位於 [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration)的移轉指南。
 
   ```powershell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
@@ -87,7 +87,7 @@ Set-PSRepository `
 在中斷連線的案例中，您必須先將 PowerShell 模組下載至具有網際網路連線的電腦，然後將其傳送至 Azure Stack 開發套件進行安裝。
 
 > [!IMPORTANT]
-> AzureRM 1.2.11 PowerShell 模組的發行版本隨附重大變更清單。 若要從 1.2.10 版升級，請參閱移轉指南 (網址為 [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration))。
+> AzureRM 1.2.11 PowerShell 模組的發行版本隨附重大變更清單。 若要從 1.2.10 版升級，請參閱位於 [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration)的移轉指南。
 
 1. 登入具有網際網路連線的電腦並使用下列指令碼，將 AzureRM 及 AzureStack 套件下載到您的本機電腦：
 
@@ -138,4 +138,4 @@ Set-PSRepository `
 * [從 GitHub 下載 Azure Stack 工具](azure-stack-powershell-download.md)
 * [設定 Azure Stack 使用者的 PowerShell 環境](user/azure-stack-powershell-configure-user.md)  
 * [設定 Azure Stack 操作員的 PowerShell 環境](azure-stack-powershell-configure-admin.md) 
-* [在 Azure Stack 中管理 API 版本設定檔](azure-stack-version-profiles.md)  
+* [在 Azure Stack 中管理 API 版本設定檔](user/azure-stack-version-profiles.md)  

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: 62917a1d342158ec2114a9204ee1ca9e447284fa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3df5374911ee6381f25d08d23d565cdf8a7cd12f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>以本機使用者帳戶或本機系統帳戶身分執行服務
-藉由使用 Azure Service Fabric，您便可以保護在叢集中以不同使用者帳戶執行的應用程式。 根據預設，Service Fabric 應用程式會在用以執行 Fabric.exe 程序的帳戶之下執行。 Service Fabric 也提供以本機使用者帳戶或本機系統帳戶執行應用程式的功能，做法是在應用程式資訊清單內指定 RunAs 原則。 支援的本機系統帳戶類型為 **LocalUser**、**NetworkService**、**LocalService** 和 **LocalSystem**。
+藉由使用 Azure Service Fabric，您便可以保護在叢集中以不同使用者帳戶執行的應用程式。 根據預設，Service Fabric 應用程式會在用以執行 Fabric.exe 程序的帳戶之下執行。 Service Fabric 也提供以本機使用者帳戶或本機系統帳戶執行應用程式的功能，做法是在應用程式資訊清單內指定 RunAs 原則。 支援的本機系統帳戶類型為 **LocalUser**、**NetworkService**、**LocalService** 和 **LocalSystem**。  如果您在 Windows 獨立叢集上執行 Service Fabric，便可以在 [Active Directory 網域帳戶](service-fabric-run-service-as-ad-user-or-group.md)或[群組受控服務帳戶](service-fabric-run-service-as-gmsa.md)底下執行服務。
 
 您也可以定義和建立使用者群組，以便將一或多個使用者新增至每個要一起管理的群組。 當不同的服務進入點有多個使用者，而且他們需要具備可在群組層級取得的某些常見權限時，這會很有用。
 

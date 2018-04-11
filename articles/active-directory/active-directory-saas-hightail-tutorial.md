@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Hightail 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Hightail 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Hightail 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Hightail 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -163,7 +163,7 @@ Hightail 與 Azure AD 整合提供下列優點：
     ![設定單一登入](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_configure.png) 
 
     >[!NOTE] 
-    >在 Hightail 應用程式設定單一登入之前，請透過 Hightail 小組將您的電子郵件網域列入白名單，以便使用此網域的所有使用者都可以使用單一登入功能。
+    >在 Hightail 應用程式設定單一登入之前，請透過 Hightail 小組將您的電子郵件網域列入允許清單，以便使用此網域的所有使用者都可以使用單一登入功能。
 
 
 9. 若要取得為應用程式設定的 SSO，您必須以系統管理員身分登入 Hightail 租用戶。

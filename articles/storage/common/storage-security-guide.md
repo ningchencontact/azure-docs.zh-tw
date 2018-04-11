@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: e0a398075b01b3c3750a33a9dd74b5ad1c0f71fd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 
@@ -357,7 +357,7 @@ SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Re
 
 #### <a name="iaas-vms-and-their-vhd-files"></a>IaaS VM 及其 VHD 檔案
 
-針對 IaaS VM 所使用的資料磁碟，建議使用「Azure 磁碟加密」。 如果您使用來自 Azure Marketplace 的映像建立 VM，Azure 就會在 Azure 儲存體中對您的儲存體帳戶執行該映像的 [淺層複製](https://en.wikipedia.org/wiki/Object_copying) ，而且即使您已啟用 SSE，也不會將之加密。 當它建立 VM 並開始更新映像之後，SSE 將開始加密資料。 基於這個理由，如果您想要將它們完整加密，最好是在透過 Azure Marketplace 中的映像建立的 VM 上使用 Azure 磁碟加密。
+針對 IaaS VM 所使用的資料磁碟，建議使用「Azure 磁碟加密」。 如果您使用來自 Azure Marketplace 的映像來建立具有非受控磁碟的 VM，Azure 會以[淺層複製 (Shallow Copy)](https://en.wikipedia.org/wiki/Object_copying) 的方式將該映像複製到您在「Azure 儲存體」中的儲存體帳戶，而且即使您已啟用 SSE，也不會將其加密。 當它建立 VM 並開始更新映像之後，SSE 將開始加密資料。 因此，如果您想要將從 Azure Marketplace 中映像建立之具有非受控磁碟的 VM 完整加密，最好是在這些 VM 上使用「Azure 磁碟加密」。 如果您建立的是具有受控磁碟的 VM，則 SSE 預設會使用平台管理的金鑰來加密所有資料。 
 
 如果透過內部部署將預先加密的 VM 帶入 Azure 中，您就能將加密金鑰上傳至 Azure 金鑰保存庫，並繼續針對使用內部部署的 VM 使用加密。 啟用 Azure 磁碟加密即可處理此案例。
 

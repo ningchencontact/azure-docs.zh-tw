@@ -1,6 +1,6 @@
 ---
-title: "Azure 受控應用程式 Section UI 元素 | Microsoft Docs"
-description: "描述 Azure 受控應用程式的 Microsoft.Common.Section UI 元素"
+title: Azure Section UI 元素 | Microsoft Docs
+description: 描述 Azure 入口網站的 Microsoft.Common.Section UI 元素。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a460fde88982c53a7ef3a1ec444d50c1c482fc4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 46ea2e3d404ac3ec9b7f909257451991dbb55f53
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI 元素
-將標題下方一個或多個元素進行群組的控制項。 您可以在[建立 Azure 受控應用程式](publish-service-catalog-app.md)時使用此元素。
+將標題下方一個或多個元素進行群組的控制項。
 
 ## <a name="ui-sample"></a>UI 範例
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
@@ -61,6 +61,5 @@ basics('section1').element1
 `Microsoft.Common.Section` 類型的元素本身沒有任何輸出值。
 
 ## <a name="next-steps"></a>後續步驟
-* 如需受控應用程式的簡介，請參閱 [Azure 受控應用程式概觀](overview.md)。
 * 如需建立 UI 定義的簡介，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。
 * 如需 UI 元素中通用屬性的說明，請參閱 [CreateUiDefinition 元素](create-uidefinition-elements.md)。

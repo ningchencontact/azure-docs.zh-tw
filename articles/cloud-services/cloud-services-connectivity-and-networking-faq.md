@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure 雲端服務之連線能力和網路服務問題的常見問題集 | Microsoft Docs"
-description: "本文列出 Microsoft Azure 雲端服務之連線能力和網路服務的相關常見問題集。"
+title: Microsoft Azure 雲端服務之連線能力和網路服務問題的常見問題集 | Microsoft Docs
+description: 本文列出 Microsoft Azure 雲端服務之連線能力和網路服務的相關常見問題集。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -97,12 +97,12 @@ IIS 的 URL Rewrite 模組可用來將流向雲端服務 (例如，\*.cloudapp.n
 
 ## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>如何確定雲端服務的公眾對應 IP 位址永遠不會變更？
 
-若要確定您雲端服務 (也稱為 VIP) 的公眾對應 IP 位址永遠不會變更，以便幾個特定用戶端可常態地將它設為白名單，我們建議您使用與它相關聯的保留 IP。 否則，如果您刪除部署，Azure 提供的虛擬 IP 會從您的訂用帳戶中解除配置。 若要成功地進行 VIP 交換作業，您需要有生產位置和預備位置的個別保留 IP。 如果沒有這些 IP，交換作業將會失敗。 若要保留 IP 位址，並將它與您的雲端服務相關聯，請參閱下列文章：
+若要確定您雲端服務 (也稱為 VIP) 的公眾對應 IP 位址永遠不會變更，以便幾個特定用戶端可常態地將它設為允許清單，我們建議您使用與它相關聯的保留 IP。 否則，如果您刪除部署，Azure 提供的虛擬 IP 會從您的訂用帳戶中解除配置。 若要成功地進行 VIP 交換作業，您需要有生產位置和預備位置的個別保留 IP。 如果沒有這些 IP，交換作業將會失敗。 若要保留 IP 位址，並將它與您的雲端服務相關聯，請參閱下列文章：
  
 - [保留現有雲端服務的 IP 位址](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
 - [使用服務組態檔建立保留的 IP 至雲端服務的關聯](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file) 
 
-如果您的角色有多個執行個體時，將 RIP 與您的雲端服務建立關聯就應該不會導致任何停機時間。 或者，您可以將您 Azure 資料中心的 IP 範圍列入白名單。 您可以在 [Microsoft 下載中心](https://www.microsoft.com/en-us/download/details.aspx?id=41653)找到所有 Azure IP 範圍。 
+如果您的角色有多個執行個體時，將 RIP 與您的雲端服務建立關聯就應該不會導致任何停機時間。 或者，您可以將您 Azure 資料中心的 IP 範圍列入允許清單。 您可以在 [Microsoft 下載中心](https://www.microsoft.com/en-us/download/details.aspx?id=41653)找到所有 Azure IP 範圍。 
 
 這個檔案包含 Azure 資料中心使用的 IP 位址範圍 (包括計算、SQL 和儲存體範圍)。 每週會公佈已更新的檔案，以反映目前已部署的範圍及任何即將進行的 IP 範圍變更。 出現在檔案中的新範圍至少有一週的時間不會在資料中心中使用。 請每週下載新的 .xml 檔案，並在您的站台上執行必要的變更，以正確識別在 Azure 中執行的服務。 Azure Express Route 使用者可能會注意到，在每個月的第一週會使用此檔案來更新 Azure 空間的 BGP 公告。 
 

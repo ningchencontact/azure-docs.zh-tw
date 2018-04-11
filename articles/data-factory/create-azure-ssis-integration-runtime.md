@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: dc4c690633d14163eddfa70e8417a645f95a0861
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c8804dce7dd8291b65f704ba36aaa1cd05eb4518
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中建立 Azure-SSIS 整合執行階段
 本文提供在 Azure Data Factory 中佈建 Azure-SSIS Integration Runtime 的步驟。 接著，您可以使用 SQL Server Data Tools (SSDT) 或 SQL Server Management Studio (SSMS)，將 SQL Server Integration Services (SSIS) 套件部署到 Azure 上的此執行階段。
 
 教學課程：[教學課程：將 SQL Server Integration Services 套件 (SSIS) 部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md) 示範如何使用 Azure SQL Database 作為 SSIS 目錄的存放區來建立 Azure SSIS Integration Runtime (IR)。 本文會詳述此教學課程並示範如何執行下列作業： 
 
-- 使用 Azure SQL 受控執行個體 (私人預覽) 來裝載 SSIS 目錄 (SSISDB 資料庫)。
+- 使用 Azure SQL 受控執行個體 (預覽) 來裝載 SSIS 目錄 (SSISDB 資料庫)。
 - 將 Azure-SSIS IR 加入至 Azure 虛擬網路 (VNet)。 如需上將 Azure-SSIS IR 加入至 VNet 並在 Azure 入口網站中設定 VNet 的概念資訊，請參閱[將 Azure-SSIS IR 加入至 VNet](join-azure-ssis-integration-runtime-virtual-network.md)。 
 
 > [!NOTE]
@@ -44,11 +44,11 @@ ms.lasthandoff: 03/23/2018
 ## <a name="prerequisites"></a>先決條件
 
 - **Azure 訂用帳戶**。 如果您沒有訂用帳戶，則可以建立[免費試用](http://azure.microsoft.com/pricing/free-trial/)帳戶。
-- **Azure SQL Database 伺服器**或 **SQL Server 受控執行個體 (私人預覽) (延伸的私人預覽)**。 如果您還沒有資料庫伺服器，請在 Azure 入口網站中建立一個，然後再開始。 此伺服器裝載 SSIS 目錄資料庫 (SSISDB)。 建議於整合執行階段所在的相同 Azure 區域中建立資料庫伺服器。 此設定可讓整合執行階段將執行記錄寫入 SSISDB，而不需要跨 Azure 區域。 記下您的 Azure SQL 伺服器定價層。 如需 Azure SQL Database 支援的定價層清單，請參閱 [SQL Database 資源限制](../sql-database/sql-database-resource-limits.md)。
+- **Azure SQL Database 伺服器**或 **SQL Server 受控執行個體 (預覽) (延伸的私人預覽)**。 如果您還沒有資料庫伺服器，請在 Azure 入口網站中建立一個，然後再開始。 此伺服器裝載 SSIS 目錄資料庫 (SSISDB)。 建議於整合執行階段所在的相同 Azure 區域中建立資料庫伺服器。 此設定可讓整合執行階段將執行記錄寫入 SSISDB，而不需要跨 Azure 區域。 記下您的 Azure SQL 伺服器定價層。 如需 Azure SQL Database 支援的定價層清單，請參閱 [SQL Database 資源限制](../sql-database/sql-database-resource-limits.md)。
 
-    請確認您的 Azure SQL Database 伺服器或 SQL Server 受控執行個體 (延伸私人預覽) 並無 SSIS 目錄 (SSIDB 資料庫)。 Azure-SSIS IR 的佈建不支援使用現有的 SSIS 目錄。
+    請確認您的 Azure SQL Database 伺服器或 SQL Server 受控執行個體 (預覽) 並無 SSIS 目錄 (SSIDB 資料庫)。 Azure-SSIS IR 的佈建不支援使用現有的 SSIS 目錄。
 - **傳統或 Azure Resource Manager 虛擬網路 (VNet) (選擇性)**。 如果至少有下列一個條件成立，則您必須具備 Azure 虛擬網路 (VNet)：
-    - 您要在屬於 VNet 一部分的 SQL Server 受控執行個體 (私人預覽) 上裝載 SSIS 目錄資料庫。
+    - 您要在屬於 VNet 一部分的 SQL Server 受控執行個體 (預覽) 上裝載 SSIS 目錄資料庫。
     - 您想要從 Azure-SSIS 整合執行階段上執行的 SSIS 套件連線至內部部署資料存放區。
 - **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。 您需要使用 PowerShell 來執行指令碼，以佈建在雲端中執行 SSIS 套件的 Azure-SSIS 整合執行階段。 
 
@@ -181,15 +181,15 @@ $AzureSSISNodeNumber = 2
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint]"
+$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (Preview) server endpoint]"
 $SSISDBServerAdminUserName = "[your server admin username]"
 $SSISDBServerAdminPassword = "[your server admin password]"
 
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0, S1, S2, S3, etc.]"
 
-## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (private preview) 
+## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (Preview) 
 # Specify information about your classic or Azure Resource Manager virtual network (VNet). 
 $VnetId = "[your VNet resource ID or leave it empty]" 
 $SubnetName = "[your subnet name or leave it empty]" 
@@ -204,7 +204,7 @@ Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
 ### <a name="validate-the-connection-to-database"></a>驗證資料庫的連線
-新增下列指令碼以驗證您的 Azure SQL Database 伺服器 (server.database.windows.net)，或是您的 Azure SQL 受控執行個體 (私人預覽) 伺服器端點。 
+新增下列指令碼以驗證您的 Azure SQL Database 伺服器 (server.database.windows.net)，或您的 Azure SQL 受控執行個體 (預覽) 伺服器端點。 
 
 ```powershell
 $SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
@@ -263,7 +263,7 @@ Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ```
 
 ### <a name="create-an-integration-runtime"></a>建立整合執行階段
-執行下列命令來建立在 Azure 中執行 SSIS 封裝的 Azure-SSIS 整合執行階段：請根據您使用的資料庫類型 (Azure SQL Database 與Azure SQL 受控執行個體 (私人預覽)) 使用本節提供的指令碼。 
+執行下列命令來建立在 Azure 中執行 SSIS 封裝的 Azure-SSIS 整合執行階段：請根據您使用的資料庫類型 (Azure SQL Database 與Azure SQL 受控執行個體 (預覽)) 使用本節提供的指令碼。 
 
 #### <a name="azure-sql-database-to-host-the-ssisdb-database-ssis-catalog"></a>使用 Azure SQL Database 來裝載 SSISDB 資料庫 (SSIS 目錄) 
 
@@ -286,7 +286,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
 
 您不需要傳遞 VNetId 和 Subnet 的值，除非您需要內部部署資料存取，也就是說，您的 SSIS 套件中有內部部署資料來源/目的地。 您必須傳遞 CatalogPricingTier 參數的值。 如需 Azure SQL Database 支援的定價層清單，請參閱 [SQL Database 資源限制](../sql-database/sql-database-resource-limits.md)。
 
-#### <a name="azure-sql-managed-instance-private-preview-to-host-the-ssisdb-database"></a>使用 Azure SQL 受控執行個體 (私人預覽) 來裝載 SSISDB 資料庫
+#### <a name="azure-sql-managed-instance-preview-to-host-the-ssisdb-database"></a>用來裝載 SSISDB 資料庫的 Azure SQL 受控執行個體 (預覽)
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
@@ -306,7 +306,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -Subnet $SubnetName
 ```
 
-您需要透過加入 VNet 的 Azure SQL 受控執行個體 (私人預覽)，傳遞 VnetId 和 Subnet 參數的值。 CatalogPricingTier 參數不適用於 Azure SQL 受控執行個體。 
+您需要透過加入 VNet 的 Azure SQL 受控執行個體 (預覽)，傳遞 VnetId 和 Subnet 參數的值。 CatalogPricingTier 參數不適用於 Azure SQL 受控執行個體 (預覽)。 
 
 ### <a name="start-integration-runtime"></a>啟動整合執行階段
 執行下列命令以啟動 Azure-SSIS 整合執行階段： 
@@ -325,7 +325,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 
 
 ### <a name="full-script"></a>完整指令碼
-以下是建立 Azure-SSIS IR 並將之加入 VNet 的完整指令碼。 該指令碼假設您使用 Azure SQL 受控執行個體 (MI) 來裝載 SSIS 目錄。 
+以下是建立 Azure-SSIS IR 並將之加入 VNet 的完整指令碼。 此指令碼假設您使用 Azure SQL 受控執行個體 (預覽) 來裝載 SSIS 目錄。 
 
 ```powershell
 # Azure Data Factory version 2 information 
@@ -351,7 +351,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 

@@ -58,7 +58,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
     | **443** | 處理所有與服務之間的輸出通訊 |
    
     如果您的防火牆會根據原始使用者強制執行規則，請開啟這些連接埠，讓來自以網路服務形式執行之 Windows 服務的流量得以通行。
-   - 如果您的防火牆或 Proxy 允許建立 DNS 白名單，便可將對 **\*.msappproxy.net** 與 **\*.servicebus.windows.net** 的連線加入白名單。 如果不允許建立，請允許存取每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
+   - 如果您的防火牆或 Proxy 允許建立 DNS 允許清單，便可將對 **\*.msappproxy.net** 與 **\*.servicebus.windows.net** 的連線加入允許清單。 如果不允許建立，請允許存取每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
    - 您的驗證代理程式必須存取 **login.windows.net** 與 **login.microsoftonline.com**才能進行初始註冊， 因此也請針對這些 URL 開啟您的防火牆。
    - 為了驗證憑證，請解除封鎖以下 URL：**mscrl.microsoft.com:80**、**crl.microsoft.com:80**、**ocsp.msocsp.com:80** 和 **www.microsoft.com:80**。 這些 URL 會用於其他 Microsoft 產品的憑證驗證， 因此您可能已將這些 URL 解除封鎖。
 

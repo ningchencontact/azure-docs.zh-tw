@@ -56,7 +56,7 @@ Azure Stack 基礎結構使用許多祕密 (例如密碼) 來運作。 這些祕
 針對其餘不是「群組受控服務」帳戶的祕密，您可以使用「具特殊權限的端點」中的指令碼以手動方式輪換。
 
 ## <a name="code-integrity"></a>程式碼完整性
-Azure Stack 使用最新的 Windows Server 2016 安全性功能。 其中一個是 Windows Defender Device Guard，此功能提供應用程式白名單功能，可確保只有經授權的程式碼會在 Azure Stack 基礎結構內執行。 
+Azure Stack 使用最新的 Windows Server 2016 安全性功能。 其中一個是 Windows Defender Device Guard，此功能提供應用程式允許清單功能，可確保只有經授權的程式碼會在 Azure Stack 基礎結構內執行。 
 
 經授權的程式碼是由 Microsoft 或 OEM 合作夥伴所簽署的程式碼，包含在 Microsoft 所定義之原則中指定的允許軟體清單內。 換句話說，只有獲核准在 Azure Stack 基礎結構中執行的軟體才能執行。 系統會封鎖任何執行未經授權程式碼的嘗試並產生稽核。
 
@@ -72,7 +72,7 @@ Azure Stack 中的每個元件 (Hyper-V 主機和虛擬機器兩者) 都受到�
 Azure Stack 中的管理是透過使用三個進入點來控制的，每個進入點都有特定的目的： 
 1. [系統管理員入口網站](azure-stack-manage-portals.md)針對日常管理作業提供點選體驗。
 2. Azure Resource Manager 會透過 PowerShell 和 Azure CLI 所使用的 REST API 公開「系統管理員入口網站」的所有管理作業。 
-3. 針對特定的低階作業 (例如資料中心整合或支援案例)，Azure Stack 公開了一個稱為[具特殊權限的端點](azure-stack-privileged-endpoint.md)的 PowerShell 端點。 這個端點只公開一組已加入白名單中的 Cmdlet，並且經常受到稽核。
+3. 針對特定的低階作業 (例如資料中心整合或支援案例)，Azure Stack 公開了一個稱為[具特殊權限的端點](azure-stack-privileged-endpoint.md)的 PowerShell 端點。 這個端點只公開一組已加入允許清單中的 Cmdlet，並且經常受到稽核。
 
 ## <a name="network-controls"></a>網路控制措施
 Azure Stack 基礎結構隨附多層的網路「存取控制清單」(ACL)。 ACL 可防止使用者對基礎結構元件進行未經授權的存取，並將基礎結構通訊僅限於其運作所需的路徑。 

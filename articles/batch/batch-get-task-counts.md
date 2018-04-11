@@ -1,18 +1,18 @@
 ---
-title: "藉由依狀態計算工作以監視作業的進度 - Azure Batch | Microsoft Docs"
-description: "藉由呼叫「取得工作計數」來計算某個作業的工作，以監視作業的進度。 您可以取得作用中、執行中和已完成工作的計數，並依照成功或失敗的工作計算。"
+title: 藉由依狀態計算工作以監視作業的進度 - Azure Batch | Microsoft Docs
+description: 藉由呼叫「取得工作計數」來計算某個作業的工作，以監視作業的進度。 您可以取得作用中、執行中和已完成工作的計數，並依照成功或失敗的工作計算。
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: tamram
-ms.openlocfilehash: ceff59d7063b60a1344a47489d3d73e0e8ee07df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: bc112ed5b481560362962d6b550d336de6b3d9b4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="count-tasks-by-state-to-monitor-a-jobs-progress-preview"></a>依狀態計算工作以監視作業的進度 (預覽)
 
@@ -31,7 +31,7 @@ Azure Batch 提供有效的方式來監視作業在執行其工作時的進度�
 - 已指派至計算節點的工作會算作是**執行中**的工作，但尚未完成。 處於 `preparing` 或 `running` 狀態的工作會算作是**執行中**的工作，如[取得工作相關資訊][ rest_get_task]作業所示。
 - 不再有資格執行的工作會算作是**已完成**的工作。 算作是**已完成**的工作通常已順利完成，或未順利完成且也已達到其重試限制。 
 
-「取得工作計數」作業也會回報有多少成功或失敗的工作。 Batch 會檢查 [executionInfo](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo) 的**結果**屬性 屬性，以判斷工作成功或失敗：
+「取得工作計數」作業也會回報有多少成功或失敗的工作。 Batch 會藉由檢查 [executionInfo][https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo] 屬性的**結果**屬性來判斷工作是否成功或失敗：
 
     - 如果工作執行結果為 `success`，則工作會算作是**成功**。
     - 如果工作執行結果為 `failure`，則工作會算作是**失敗**。

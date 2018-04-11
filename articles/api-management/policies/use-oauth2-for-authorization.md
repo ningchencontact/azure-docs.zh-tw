@@ -1,11 +1,11 @@
 ---
-title: "Azure API 管理原則範例 - 使用 OAuth2 在閘道與後端之間進行授權 | Microsoft Docs"
-description: "Azure API 管理原則範例 - 示範如何在閘道與後端之間使用 OAuth2 進行授權。 此範例示範如何從 AAD 取得存取權杖並將它轉送到後端。"
+title: Azure API 管理原則範例 - 使用 OAuth2 在閘道與後端之間進行授權 | Microsoft Docs
+description: Azure API 管理原則範例 - 示範如何在閘道與後端之間使用 OAuth2 進行授權。 此範例示範如何從 AAD 取得存取權杖並將它轉送到後端。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,16 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: e0aeec66f23033f916c782c8a895e725b0735b62
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: fc896656a4725475fc78cadb5bab54a27cfc02a2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-oauth2-for-authorization-between-the-gateway-and-a-backend"></a>使用 OAuth2 在閘道與後端之間進行授權
 
-本文會說明 Azure API 管理原則範例，示範如何在閘道與後端之間使用 OAuth2 進行授權。 此範例示範如何從 AAD 取得存取權杖並將它轉送到後端。 若要設定或編輯原則程式碼，請依照[設定或編輯原則](../set-edit-policies.md)中所述的步驟執行。 若要查看其他範例，請參閱[原則範例](../policy-samples.md)。
+本文會說明 Azure API 管理原則範例，示範如何在閘道與後端之間使用 OAuth2 進行授權。 此範例示範如何從 AAD 取得存取權杖並將它轉送到後端。 
 
+若要設定或編輯原則程式碼，請依照[設定或編輯原則](../set-edit-policies.md)中所述的步驟執行。 若要查看其他範例，請參閱[原則範例](../policy-samples.md)。
+
+下列指令碼會使用 {{屬性}} 中出現的屬性。 若要了解屬性以及如何在 API 管理原則中使用它們，請參閱[這個](../api-management-howto-properties.md)主題。
+ 
 ## <a name="policy"></a>原則
 
 將程式碼貼至 [輸入] 區塊。

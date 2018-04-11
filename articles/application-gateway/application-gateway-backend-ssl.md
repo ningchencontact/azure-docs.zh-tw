@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 應用程式閘道上啟用端對端 SSL | Microsoft Docs"
-description: "本頁面提供應用程式閘道端對端 SSL 支援的概觀。"
+title: 在 Azure 應用程式閘道上啟用端對端 SSL | Microsoft Docs
+description: 本頁面提供應用程式閘道端對端 SSL 支援的概觀。
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -35,9 +35,9 @@ ms.lasthandoff: 10/11/2017
 
 在此範例中，使用端對端 SSL，將使用 TLS1.2 的要求路由傳送至 Pool1 中的後端伺服器。
 
-## <a name="end-to-end-ssl-and-whitelisting-of-certificates"></a>端對端 SSL 和憑證白名單
+## <a name="end-to-end-ssl-and-whitelisting-of-certificates"></a>端對端 SSL 和憑證允許清單
 
-應用程式閘道只會與已知的後端執行個體通訊，後者已將其憑證加入到應用程式閘道的白名單。 若要啟用憑證白名單，您必須將後端伺服器憑證的公開金鑰上傳至應用程式閘道 (不是根憑證)。 於是，只允許連接至已知和白名單中的後端。 其餘的後端會導致閘道錯誤。 自我簽署憑證僅供測試之用，並不建議用於生產工作負載。 這類憑證也必須如先前步驟所述，加入應用程式閘道的白名單之中，才能使用。
+應用程式閘道只會與已知的後端執行個體通訊，後者已將其憑證加入到應用程式閘道的允許清單。 若要啟用憑證允許清單，您必須將後端伺服器憑證的公開金鑰上傳至應用程式閘道 (不是根憑證)。 於是，只允許連接至已知和允許清單中的後端。 其餘的後端會導致閘道錯誤。 自我簽署憑證僅供測試之用，並不建議用於生產工作負載。 這類憑證也必須如先前步驟所述，加入應用程式閘道的允許清單之中，才能使用。
 
 ## <a name="next-steps"></a>後續步驟
 

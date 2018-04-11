@@ -1,5 +1,5 @@
 -- 標題：「教學課程：使用 Azure CLI 來設計適用於 PostgreSQL 的 Azure 資料庫」描述：本教學課程顯示如何使用 Azure CLI 建立、設定及查詢適用於 PostgreSQL 伺服器的第一個 Azure 資料庫。
-服務：postgresql 建立者：rachel-msft ms.author：raagyema 管理員：kfile 編輯器：jasonwhowell ms.service：postgresql ms.custom：mvc ms.devlang：azure-cli ms.topic：教學課程 ms.date：03/20/2018
+服務：postgresql 作者：rachel-msft ms.author：raagyema 管理員：kfile 編輯器：jasonwhowell ms.service：postgresql ms.custom：mvc ms.devlang：azure-cli ms.topic：教學課程 ms.date：04/01/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>教學課程：使用 Azure CLI 來設計適用於 PostgreSQL 的 Azure 資料庫 
 在本教學課程中，您將使用 Azure CLI (命令列介面) 及其他公用程式來學習如何：
@@ -45,11 +45,11 @@ az extension list
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.4"
+    "version": "0.0.5"
 }
 ```
 
-如果未傳回 0.0.4 版，請執行下列命令來更新擴充功能： 
+如果未傳回 0.0.5 版，請執行下列命令來更新延伸模組： 
 ```azurecli-interactive
 az extension update --name rdbms
 ```

@@ -1,11 +1,11 @@
 ---
-title: "Windows VM 的計算基準測試分數 | Microsoft Docs"
-description: "比較執行 Windows Server 之 Azure VM 的 SPECint 計算基準測試分數"
+title: Windows VM 的計算基準測試分數 | Microsoft Docs
+description: 比較執行 Windows Server 之 Azure VM 的 SPECint 計算基準測試分數
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
@@ -15,14 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: 37eaafdbcee87e6f6a6164dffcabaa7e9efa65ca
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cb77a058e72b8f08cb8974d5ec5088bc498e071d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM 的計算基準測試分數
-下列 SPECInt 基準測試分數顯示執行 Windows Server 的 Azure 高效能 VM 產品陣容的計算效能。 也有 [Linux VM](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的計算基準測試分數。
+下列 SPECInt 基準測試分數顯示執行 Windows Server 的 Azure 高效能 VM 產品陣容的計算效能。 也有 [Linux VM](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的計算基準測試分數。 
+> [!NOTE]
+> Linux 數字最近已更新，並包含一組更完整的 VM。
 
 ## <a name="a-series---compute-intensive"></a>A 系列 - 計算密集型
 | 大小 | vCPU | NUMA 節點 | CPU | 執行 | 平均基本費率 | 標準差 |

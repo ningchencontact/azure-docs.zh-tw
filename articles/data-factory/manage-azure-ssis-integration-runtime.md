@@ -1,11 +1,11 @@
 ---
-title: "重新設定 Azure-SSIS 整合執行階段 | Microsoft Docs"
-description: "了解如何在佈建 Azure Data Factory 中的 Azure SSIS 整合執行階段後重新設定。"
+title: 重新設定 Azure-SSIS 整合執行階段 | Microsoft Docs
+description: 了解如何在佈建 Azure Data Factory 中的 Azure SSIS 整合執行階段後重新設定。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 752640552a7af307bb54f3c0e4bc7fa0f3009d48
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9932ee862a9cdc7591c62c016e888d9e5d593cf7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-an-azure-ssis-integration-runtime"></a>管理 Azure-SSIS 整合執行階段
 [建立 Azure SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)文章向您示範如何使用 Azure Data Factory 建立 Azure-SSIS 整合執行階段 (IR)。 本文提供關於重新設定現有 Azure-SSIS 整合執行階段的資訊。  
@@ -96,7 +96,7 @@ ms.lasthandoff: 03/02/2018
 
 - [Azure-SSIS 整合執行階段](concepts-integration-runtime.md#azure-ssis-integration-runtime)。 本文提供整合執行階段的一般概念性資訊，包括 Azure-SSIS IR。 
 - [教學課程：將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 本文逐步說明如何建立 Azure-SSIS IR，並使用 Azure SQL Database 裝載 SSIS 目錄。 
-- [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 這篇文章會展開教學課程，並提供使用 Azure SQL 的受控執行個體 (私人預覽)，和將 IR 加入 VNet 的指示。 
+- [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL 受控執行個體 (預覽)，以及將 IR 加入 VNet 的指示。 
 - [將 VNet 加入至 Azure SSIS IR](join-azure-ssis-integration-runtime-virtual-network.md)。 這篇文章提供將 Azure SSIS IR 加入至 Azure 虛擬網路 (VNet) 的概念資訊。 它也提供使用 Azure 入口網站來設定 VNet，好讓 Azure SSIS IR 可加入 VNet 的步驟。 
 - [監視 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). 本文示範如何在傳回的資訊中擷取 Azure-SSIS IR 的相關資訊和狀態描述。 
  

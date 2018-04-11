@@ -1,24 +1,24 @@
 ---
-title: "使用 Azure 入口網站建立 IoT 中樞 | Microsoft Docs"
-description: "如何透過 Azure 入口網站建立、管理和刪除 Azure IoT 中樞。 其中包括定價層、調整、安全性和傳訊組態的相關資訊。"
+title: 使用 Azure 入口網站建立 IoT 中樞 | Microsoft Docs
+description: 如何透過 Azure 入口網站建立、管理和刪除 Azure IoT 中樞。 其中包括定價層、調整、安全性和傳訊組態的相關資訊。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0909cd2b-4c1e-49e0-b68a-75532caf0a6a
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ac1a52355ffa5354bebe3b98fdb75783bcd57697
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 6ffde076caff6217bf6255c9294eca63d3e39b85
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>使用 Azure 入口網站建立 IoT 中樞
 
@@ -53,18 +53,9 @@ ms.lasthandoff: 11/18/2017
 
 ### <a name="choose-the-pricing-tier"></a>選擇定價層。
 
-您可以從 4 個層級中選擇：**免費**、**標準 1**、**標準 2** 和**標準 S3**。 免費層只允許 500 個裝置連接至 IoT 中樞，每天最多 8,000 封訊息。
+您可以依據所需的功能多寡，以及每天透過解決方案傳送的訊息多寡，從數個層級中做選擇。 免費層適用於測試和評估。 它可允許 500 個裝置連接到 IoT 中樞，每天最多可允許 8,000 則訊息。 每個 Azure 訂用帳戶可以在免費層建立一個「IoT 中樞」。 
 
-**標準 S1**：如果 IoT 解決方案擁有大量裝置，但每個裝置只會產生少量資料，請使用 S1 版本。 S1 版本的每個單位可讓您跨所有連接的裝置，每天傳輸高達 400,000 封訊息。
-
-**標準 S2**：如果 IoT 解決方案中的裝置會產生大量資料，請使用 S2 版本。 S2 版本的每個單位可讓您跨所有連接的裝置，每天傳輸高達 6 百萬封訊息。
-
-**標準 S3**：如果 IoT 解決方案會產生大量資料，請使用 S3 版本。 S3 版本的每個單位可讓您跨所有連接的裝置，每天傳輸高達 3 億封訊息。
-
-![][4]
-
-> [!NOTE]
-> IoT 中樞只允許每個 Azure 訂用帳戶有一個免費中樞。
+如需有關其他層級選項的詳細資料，請參閱[選擇適合的 IoT 中樞層](iot-hub-scaling.md)。
 
 ### <a name="iot-hub-units"></a>IoT 中樞單位
 
@@ -153,17 +144,6 @@ Azure IoT 中樞會自動列出使用者帳戶所連結的 Azure 訂用帳戶。
 您可以將路由新增至 IoT 中樞，方法是按一下 [路由]* 刀鋒視窗頂端的 [新增]、輸入必要資訊，然後按一下 [確定]。 接著您的路由會列在主要 [路由] 刀鋒視窗中。 您可以在路由清單中按一下路由來編輯它。 若要啟用路由，按一下路由清單中的路由，並將 [已啟用] 切換為 [關閉]。 若要儲存變更，請按一下刀鋒視窗底部的 [確定]。
 
 ![][15]
-
-## <a name="pricing-and-scale"></a>價格和調整
-
-現有 IoT 中樞的價格可透過 [價格]  設定變更，但是有下列例外狀況：
-
-* 在目前的實作中，具有免費 SKU 的 IoT 中樞無法變更為付費 SKU 層，反之亦然。
-* 在 Azure 訂用帳戶中只能有一個免費層 IoT 中樞。
-
-![][12]
-
-該日傳送的訊息數目超過較低層級的配額時，您才能從較高層級移至較低層級。 例如，如果每天的訊息數目都超過 400,000，則 IoT 中樞的層會變更。 不過，如果您變更為 S1 層，IoT 中樞當天會進行節流。
 
 ## <a name="delete-the-iot-hub"></a>刪除 IoT 中樞
 

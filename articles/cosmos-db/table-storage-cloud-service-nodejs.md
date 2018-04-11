@@ -1,6 +1,6 @@
 ---
-title: "Azure 資料表儲存體：建置 Web 應用程式 Node.js | Microsoft Docs"
-description: "本教學課程以「使用 Express 的 Web 應用程式」教學課程為基礎，再加上 Azure 儲存體服務和 Azure 模組建置而成。"
+title: Azure 資料表儲存體：建置 Web 應用程式 Node.js | Microsoft Docs
+description: 本教學課程以「使用 Express 的 Web 應用程式」教學課程為基礎，再加上 Azure 儲存體服務和 Azure 模組建置而成。
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: 9acd197c26e6365e396fd8f6321d764bba7bbb6c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b63f6b3be2e4576b304c1a73ff326a937815b27e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Azure 資料表儲存體：Node.js Web 應用程式
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="overview"></a>概觀
 本教學課程會擴充您在[使用 Express 的 Node.js Web 應用程式]教學課程中所建立的應用程式，方法是使用 Microsoft Azure Client Libraries for Node.js 來搭配資料管理服務使用。 您要建立可供部署到 Azure 的 Web 架構工作清單應用程式以擴充您的應用程式。 使用者可透過工作清單來擷取工作、新增工作及將工作標示為已完成。
 
-工作項目會儲存於 Azure 儲存體中。 Azure 儲存體提供可容錯且高度可用的非結構化資料儲存體。 Azure 儲存體包含許多資料結構供您儲存及存取資料。 您可以從包含在 Azure SDK for Node.js 的 API 或透過 REST API 使用儲存體服務。 如需詳細資訊，請參閱[在 Azure 中儲存和存取資料]。
+工作項目會儲存於 Azure 儲存體或 Azure Cosmos DB 中。 Azure 儲存體和 Azure Cosmos DB 提供可容錯且高度可用的非結構化資料儲存體。 Azure 儲存體和 Azure Cosmos DB 包含許多資料結構供您儲存及存取資料。 您可以從適用於 Node.js 之 Azure SDK 隨附的 API 或透過 REST API，使用儲存體和 Azure Cosmos DB 服務。 如需詳細資訊，請參閱[在 Azure 中儲存和存取資料]。
 
 本教學課程假設您已完成 [Node.js Web 應用程式]和[使用 Express 的 Node.js][使用 Express 的 Node.js Web 應用程式]教學課程。
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/18/2018
 ![The completed web page in internet explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>在 Web.Config 中設定儲存體認證
-您必須傳入儲存體認證才能存取 Azure 儲存體。 藉由使用 web.config 應用程式設定即可達到此目的。
+您必須傳入儲存體認證，才能存取 Azure 儲存體或 Azure Cosmos DB。 藉由使用 web.config 應用程式設定即可達到此目的。
 web.config 設定會以環境變數方式傳遞至 Node，接著再由 Azure SDK 進行讀取。
 
 > [!NOTE]
@@ -144,7 +144,7 @@ web.config 設定會以環境變數方式傳遞至 Node，接著再由 Azure SDK
     Task.prototype = {
       find: function(query, callback) {
         self = this;
-        self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+        self.storageClient.queryEntities(this.tablename, query, null, null, function entitiesQueried(error, result) {
           if(error) {
             callback(error);
           } else {
@@ -181,7 +181,7 @@ web.config 設定會以環境變數方式傳遞至 Node，接著再由 Azure SDK
             callback(error);
           }
           entity.completed._ = true;
-          self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+          self.storageClient.replaceEntity(self.tableName, entity, function entityUpdated(error) {
             if(error) {
               callback(error);
             }
@@ -215,7 +215,7 @@ web.config 設定會以環境變數方式傳遞至 Node，接著再由 Azure SDK
     TaskList.prototype = {
       showTasks: function(req, res) {
         self = this;
-        var query = azure.TableQuery()
+        var query = new azure.TableQuery()
           .where('completed eq ?', false);
         self.task.find(query, function itemsFound(error, items) {
           res.render('index',{title: 'My ToDo List ', tasks: items});
@@ -224,7 +224,10 @@ web.config 設定會以環境變數方式傳遞至 Node，接著再由 Azure SDK
 
       addTask: function(req,res) {
         var self = this
-        var item = req.body.item;
+        var item = {
+            name: req.body.name, 
+            category: req.body.category
+        };
         self.task.addItem(item, function itemAdded(error) {
           if(error) {
             throw error;
@@ -307,7 +310,7 @@ web.config 設定會以環境變數方式傳遞至 Node，接著再由 Azure SDK
             td Category
             td Date
             td Complete
-          if tasks != []
+          if tasks == []
             tr
               td
           else
@@ -325,9 +328,9 @@ web.config 設定會以環境變數方式傳遞至 Node，接著再由 Azure SDK
       hr
       form.well(action="/addtask", method="post")
         label Item Name:
-        input(name="item[name]", type="textbox")
+        input(name="name", type="textbox")
         label Item Category:
-        input(name="item[category]", type="textbox")
+        input(name="category", type="textbox")
         br
         button.btn(type="submit") Add item
     ```
@@ -414,7 +417,7 @@ Azure 會對於 Web 角色執行個體的伺服器使用時間時數計費。
    刪除服務可能需要幾分鐘的時間。 刪除服務後，您會收到表示已刪除服務的訊息。
 
 [使用 Express 的 Node.js Web 應用程式]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
-[在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[在 Azure 中儲存和存取資料]: https://docs.microsoft.com/azure/storage/
 [Node.js Web 應用程式]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
 
 

@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure 和 Azure 監視器中的警示概觀 | Microsoft Docs
+title: Microsoft Azure 和 Azure 監視器中的傳統警示概觀 | Microsoft Docs
 description: 警示可讓您監視 Azure 資源度量、事件或記錄檔，並在您所指定條件符合時收到通知。
 author: rboucher
 manager: carmonm
@@ -12,55 +12,46 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 03/28/2018
 ms.author: robb
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c64ca224705b7da57846e53bdc28d6d03eb28b06
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 06ba05f71cf1f696033099c04448526a0421ad42
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示是什麼？
-本文說明 Microsoft Azure 中的各種警示來源、這些警示的目的和優點，以及如何開始使用這些警示。 此內容特別適用於 Azure 監視器，但也會提供其他警示服務的指示。 警示是在 Azure 中進行監視的一種方法，可讓您對資料設定條件，並在最近的監視資料符合條件時收到通知。
+# <a name="what-are-classic-alerts-in-microsoft-azure"></a>什麼是 Microsoft Azure 中的傳統警示？
+
+> [!NOTE]
+> 本文說明如何建立舊版傳統計量警示。 「Azure 監視器」現已支援[新版的近乎即時計量警示](monitoring-overview-unified-alerts.md)
+>
+
+本文說明 Microsoft Azure 中的各種警示來源、這些警示的目的和優點，以及如何開始使用這些警示。 本文特別適用於「Azure 監視器」傳統警示。 警示是在 Azure 中進行監視的一種方法，可讓您對資料設定條件，並在最近的監視資料符合條件時收到通知。
 
 
-## <a name="taxonomy-of-azure-alerts"></a>Azure 警示的分類
-Azure 使用下列詞彙來描述警示及其功能：
+## <a name="taxonomy-of-azure-monitor-classic-alerts"></a>Azure 監視器傳統警示的分類法
+Azure 使用下列詞彙來描述傳統警示及其功能：
 * **警示** - 符合時會啟動之準則 (一或多個規則或條件) 的定義。
-* **作用中** - 警示所定義的準則符合時的狀態。
-* **已解決** - 警示所定義的準則之前符合但已不再符合時的狀態。
-* **通知** - 警示成為作用中時所採取的動作。
+* **作用中** - 符合傳統警示所定義準則時的狀態。
+* **已解決** - 先前符合傳統警示所定義的準則，但之後已不再符合時的狀態。
+* **通知** - 根據變成作用中之傳統警示而採取的動作。
 * **動作** - 傳送給通知接收者的特定呼叫 (例如以電子郵件傳送位址或張貼到 Webhook URL)。 通知通常可觸發多個動作。
 
-
-## <a name="alerts-in-different-azure-services"></a>不同 Azure 服務中的警示
-警示可跨數個 Azure 監視服務使用。 如需如何及何時使用這些服務的資訊，[請參閱這篇文章](./monitoring-overview.md)。 以下是可跨 Azure 使用之警示類型的細分：
-
-
-| 服務 | 警示類型 | 支援的服務 | 說明 |
-|---|---|---|---|
-| Azure 監視器 | [度量警示](./insights-alerts-portal.md) | [Azure 監視器支援的度量](./monitoring-supported-metrics.md) | 當任何平台層級度量符合特定條件時收到通知 (例如 VM 上的 CPU % 在過去 5 分鐘大於 90)。 |
-|Azure 監視器 | [近乎即時的計量警示](./monitoring-near-real-time-metric-alerts.md)| [Azure 監視器支援的資源](./monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported) | 當一或多個平台層級計量符合指定的條件 (例如過去 5 分鐘 VM 上的 CPU% 超過 90 且 Network In 超過 500 MB)，以比計量警示快的速度接收通知。 |
-| Azure 監視器 | [活動記錄警示](./monitoring-activity-log-alerts.md) | Azure Resource Manager 中可用的所有資源類型 | 當 [Azure 活動記錄](./monitoring-overview-activity-logs.md)中有任何新事件符合特定條件時收到通知 (例如當 myProductionResourceGroup 中發生「刪除 VM」作業時，或當新服務健康狀態事件的狀態顯示為「作用中」時)。 |
-| Application Insights | [度量警示](../application-insights/app-insights-alerts.md) | 經檢測可傳送資料至 Application Insights 的任何應用程式 | 當任何應用程式層級度量符合特定條件時收到通知 (例如伺服器回應時間大於 2 秒)。 |
-| Application Insights | [Web 測試警示](../application-insights/app-insights-monitor-web-app-availability.md) | 經檢測可傳送資料至 Application Insights 的任何網站 | 當網站的可用性或回應能力低於預期時收到通知。 |
-| Log Analytics | [Log Analytics 警示](../log-analytics/log-analytics-alerts.md) | 設定為傳送資料至 Log Analytics 的任何服務 | 當 Log Analytics 搜尋查詢高於度量及/或事件資料符合特定準則時收到通知。 |
 
 ## <a name="alerts-on-azure-monitor-data"></a>Azure 監視器資料的相關警示
 Azure 監視器中可用資料的警示類型有三種：計量警示、近乎即時計量警示與活動記錄警示。
 
-* **度量警示**：當指定的度量值超出您指派的閾值時會觸發這個警示。 當警示為「已啟動」時 (超出閾值且符合警示條件時)，以及當警示為「已解決」時 (再次超出閾值且不再符合條件時)，警示會產生通知。 這些是舊的計量警示。 如需較新的計量警示，請參閱下文。
+* **傳統計量警示**：當指定的計量值超出您指派的閾值時，就會觸發此警示。 當警示為「已啟動」時 (超出閾值且符合警示條件時)，以及當警示為「已解決」時 (再次超出閾值且不再符合條件時)，警示會產生通知。 這些是舊的計量警示。 如需較新的計量警示，請參閱下文。
 
-* **近乎即時的計量警示** - 與先前的計量警示相比，這些是新一代的計量警示，具有改良的功能。 這些警示可以 1 分鐘的頻率執行。它們也支援監視多個 (目前是兩個) 計量。  當警示「啟用」時 (每個計量的閾值同時超過且符合警示條件)，或當警示「解決」時 (當至少有一個計量再次超過閾值且已不符合條件)，警示都會產生通知。
+* **近乎即時的計量警示** (新版警示體驗) - 與先前的計量警示相比，這些是新一代的計量警示，具有改良的功能。 這些警示可以 1 分鐘的頻率執行。它們也支援監視多個 (目前是兩個) 計量。  當警示「啟用」時 (每個計量的閾值同時超過且符合警示條件)，或當警示「解決」時 (當至少有一個計量再次超過閾值且已不符合條件)，警示都會產生通知。
 
-* **活動記錄警示** - 當產生符合您已指派之篩選準則的活動記錄事件時會觸發資料流記錄警示。 這些警示只有「已啟動」這個狀態，因為警示引擎只會將篩選準則套用至任何新的事件。 您可以使用這些警示，在發生新的服務健康狀態事件時，或是在使用者或應用程式於您的訂用帳戶中執行作業時 (例如「刪除虛擬機器」)，收到通知。
+* **傳統活動記錄警示** - 產生符合您所指派篩選準則之「活動記錄」事件時會觸發的資料流記錄警示。 這些警示只有「已啟動」這個狀態，因為警示引擎只會將篩選準則套用至任何新的事件。 您可以使用這些警示，在發生新的服務健康狀態事件時，或是在使用者或應用程式於您的訂用帳戶中執行作業時 (例如「刪除虛擬機器」)，收到通知。
 
 針對透過 Azure 監視器提供的診斷記錄資料，建議將資料路由傳送至 Log Analytics 並使用 Log Analytics 警示。 下圖摘要說明 Azure 監視器中的資料來源，以及就概念而言如何發出該資料的警示。
 
 ![警示的說明](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
 
-## <a name="how-do-i-receive-a-notification-on-an-azure-monitor-alert"></a>如何收到 Azure 監視器警示的通知？
+## <a name="how-do-i-receive-a-notification-on-an-azure-monitor-classic-alert"></a>如何收到 Azure 監視器傳統警示的通知？
 在過去，Azure 的警示來自不同的服務，各自使用其專屬的內建通知方法。 從現在開始，Azure 監視器提供可重複使用的通知群組，稱為動作群組。 動作群組會指定一組通知接收者 (任何數目的電子郵件地址、電話號碼 (簡訊) 或 Webhook URL)，每當啟動參考此動作群組的警示時，所有接收者都會收到該通知。 這可讓您在許多警示物件之間重複使用一組接收者 (例如您隨時待命的工程師清單)。 目前，只有活動記錄警示可以使用動作群組，但未來將有數個其他 Azure 警示類型也可以使用動作群組。
 
 除了電子郵件地址和簡訊號碼，動作群組的通知支援還包括張貼到 Webhook URL。 如此即可啟用自動化和修復，例如使用：

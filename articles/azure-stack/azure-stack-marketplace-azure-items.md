@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdce5ad971e345971aa5de9a9bb79379fb1ead48
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b91cfdfe89f1f15354595400ed9547496fdcd796
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 可用的 Azure Marketplace 項目
 
@@ -220,4 +220,5 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall 會偵測已知和未知的漏洞，並防止 Web 應用程式上的攻擊。 <b>請同時下載兩個 PT Marketplace 項目。</b> | Positive Technologies |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise 可讓您將整個 Azure Stack 基礎結構的生命週期自動化。 <b>下載兩個 Puppet Marketplace 項目。</b> | Puppet |
 | ![SUSE Manager 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | 同級產品中最佳的開放原始碼基礎結構管理。 | SUSE |
+| ![Veeam 備份和複寫](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam 備份和複寫](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication) | Veeam Backup & Replication 9.5。 | Veeam |
 | ![ZeroDown Software Tool](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Tool ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown Software Tool v7.1 - Migrate + HA. | ZeroDown Software |

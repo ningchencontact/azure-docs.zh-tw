@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 中備份應用程式"
-description: "了解如何在 Azure App Service 中建立應用程式的備份。"
+title: 在 Azure 中備份應用程式
+description: 了解如何在 Azure App Service 中建立應用程式的備份。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -138,7 +138,7 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 > [!NOTE]
 > 您還原站台部分備份的方式會與[還原一般備份](web-sites-restore.md)的方式相同。 還原程序會執行正確的作業。
 > 
-> 還原完整備份時，網站上的所有內容都會取代為備份中的內容。 如果檔案在網站上，而不在備份中，系統就會將它刪除。 但是，還原部分備份時，位於其中一個黑名單目錄或任何黑名單檔案中的任何內容都會保持原狀。
+> 還原完整備份時，網站上的所有內容都會取代為備份中的內容。 如果檔案在網站上，而不在備份中，系統就會將它刪除。 但是，還原部分備份時，位於其中一個封鎖清單目錄或任何封鎖清單檔案中的任何內容都會保持原狀。
 > 
 
 

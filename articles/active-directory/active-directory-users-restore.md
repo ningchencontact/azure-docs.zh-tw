@@ -1,29 +1,32 @@
 ---
-title: "在 Azure Active Directory 中將已刪除的使用者還原或永久移除 | Microsoft Docs"
-description: "如何還原已刪除的使用者、檢視可還原的使用者，以及永久刪除 Azure Active Directory 中的使用者"
+title: 在 Azure Active Directory 中將已刪除的使用者還原或永久移除 | Microsoft Docs
+description: 如何還原已刪除的使用者、檢視可還原的使用者，以及永久刪除 Azure Active Directory 中的使用者
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 03/28/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: d8a1850f8635097364268abdf77394ba592f761b
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 9eea61cc1b735c6505df87526cd526a9a4a6eed8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="restore-a-deleted-user-in-azure-active-directory"></a>在 Azure Active Directory 中還原已刪除的 使用者
 
 本文包含還原或永久刪除先前刪除之使用者的指示。 當您在 Azure Active Directory (Azure AD) 中刪除使用者時，從刪除日起算，仍會保留已刪除的使用者 30 天。 在這段時間內，可以還原使用者和其屬性。 
+
+> [!wARNING]
+> 永久刪除之後，即無法還原使用者。
 
 
 ## <a name="how-to-restore-a-recently-deleted-user"></a>如何還原最近刪除的使用者

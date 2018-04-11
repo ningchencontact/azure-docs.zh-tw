@@ -168,7 +168,7 @@ Azure 也非常適合替代耗費成本的災害復原 (DR) 網站。 託管少�
 | 選項 | 優點 | 缺點 |
 | --- | --- | --- |
 | [Azure 網路 ACL](../virtual-network/virtual-networks-acl.md) |較便宜又簡單的初始組態 |如果在部署中加入任何新的 VM，則需要額外的網路 ACL 組態 |
-| [Barracuda NG 防火牆](https://www.barracuda.com/products/ngfirewall) |作業的白名單模式且不需要網路 ACL 組態 |初始設定的增加成本與複雜度 |
+| [Barracuda NG 防火牆](https://www.barracuda.com/products/ngfirewall) |作業的允許清單模式且不需要網路 ACL 組態 |初始設定的增加成本與複雜度 |
 
 在此情況下部署 AD FS 的高階步驟，如下所示︰
 

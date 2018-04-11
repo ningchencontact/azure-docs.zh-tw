@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 網路監看員管理網路安全性群組流量記錄 | Microsoft Docs"
-description: "此頁面說明如何在 Azure 網路監看員中管理網路安全性群組流量記錄"
+title: 使用 Azure 網路監看員管理網路安全性群組流量記錄 | Microsoft Docs
+description: 此頁面說明如何在 Azure 網路監看員中管理網路安全性群組流量記錄
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cb41781c5ac8fb759cecea01402c08dd716bf7d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>在 Azure 入口網站中管理網路安全性群組流量記錄
 
@@ -38,7 +38,10 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="before-you-begin"></a>開始之前
 
-此案例假設您已依照[建立網路監看員執行個體](network-watcher-create.md)中的步驟執行。 此案例也假設您已擁有具備有效虛擬機器的資源群組。
+若要完成本文中的步驟，您必須已經具備下列資源：
+
+- 現有的網路監看員。 若要建立網路監看員，請參閱[建立網路監看員執行個體](network-watcher-create.md)。
+- 內含有效虛擬機器的現有資源群組。 如果您沒有虛擬機器，請參閱「建立 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 或 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 虛擬機器」。
 
 ## <a name="register-insights-provider"></a>註冊 Insights 提供者
 
@@ -68,7 +71,7 @@ ms.lasthandoff: 12/21/2017
 
 ### <a name="step-3"></a>步驟 3 
 
-在 [流量記錄設定] 刀鋒視窗上，將狀態設為 [開啟] 並設定儲存體帳戶。  完成後，選取 [確定]。 然後選取 [儲存]。
+在 [流量記錄設定] 刀鋒視窗上，將狀態設為 [開啟] 並設定儲存體帳戶。 選取已在 [防火牆與虛擬網路] 下方選取 [所有網路] (預設值) 的現有儲存體帳戶，該設定位於儲存體帳戶的**設定**下方。 選取儲存體帳戶之後，依序選取 [確定] 和 [儲存]。
 
 ![流量記錄概觀][3]
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f9318b5baa46ab991b5e72e12a89a25e4f635db3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>設定 SQL 資料同步 (預覽)
 在本教學課程中，您將了解如何使用包含 Azure SQL Database 和 SQL Server 執行個體的混合式同步群組設定 Azure SQL 資料同步。 新的同步處理群組會依照您設定的排程完整設定和同步。
@@ -38,6 +38,8 @@ ms.lasthandoff: 03/16/2018
     ![Azure SQL 資料庫清單](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
 3.  在 [SQL 資料庫] 頁面上，選取您想要作為資料同步的中樞資料庫使用的現有 SQL 資料庫。[SQL 資料庫] 頁面隨即開啟。
+
+    中樞資料庫是同步拓撲的中央端點，其中的同步群組具有多個資料庫端點。 同一個同步群組中的所有其他資料庫端點 (也就是，所有成員資料庫) 都會與中樞資料庫進行同步。
 
 4.  在所選取資料庫的 [SQL 資料庫] 頁面上，選取 [同步至其他資料庫]。 [資料同步] 頁面隨即開啟。
 
@@ -67,6 +69,8 @@ ms.lasthandoff: 03/16/2018
         ![指定同步處理頻率](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
     4.  在 [衝突解決] 區段中，選取 [中樞獲勝] 或 [成員獲勝]。
+
+        「中樞獲勝」表示，發生衝突時，中樞資料庫中的資料會覆寫成員資料庫中的衝突資料。 「成員獲勝」表示，發生衝突時，成員資料庫中的資料會覆寫中樞資料庫中的衝突資料。 
 
         ![指定解決衝突的方式](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 

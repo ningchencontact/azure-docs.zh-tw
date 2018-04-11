@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 1cf23a8f564553e65ac2c0fd34d44d81fe2327ea
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7dc467d9977d536011e1c3fcf663fc335f90a492
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>以 Active Directory 使用者或群組身分執行服務
-藉由使用 Azure Service Fabric，您便可以保護在叢集中以不同使用者帳戶執行的應用程式。 如此一來，即使在共用主控環境中，執行中的應用程式就不會彼此干擾。 根據預設，Service Fabric 應用程式會在用以執行 Fabric.exe 程序的帳戶之下執行。 針對 Windows Server 獨立叢集，您能使用 RunAs 原則以[群組受控服務帳戶 (gMSA)](service-fabric-run-service-as-gmsa.md) 或 Active Directory 使用者或群組身分執行服務。 請注意，這會使用網域內部部署的 Active Directory，不是 Azure Active Directory (Azure AD)。
+在 Windows Server 獨立叢集上，您可以使用 RunAs 原則，以 Active Directory 使用者或群組身分執行服務。  根據預設，Service Fabric 應用程式會在用以執行 Fabric.exe 程序的帳戶之下執行。 即使在共用主控環境中，以不同帳戶執行應用程式能避免彼此干擾。 請注意，這會使用網域內部部署的 Active Directory，不是 Azure Active Directory (Azure AD)。  您也可以利用[群組受控服務帳戶 (gMSA)](service-fabric-run-service-as-gmsa.md) 身分執行服務。
 
 然後，您可以使用網域使用者或群組，存取網域中已經被授與權限的其他資源 (例如檔案共用)。
 

@@ -2776,8 +2776,8 @@ ms.lasthandoff: 03/23/2018
 | 作業 | 說明 |
 |---|---|
 |/alerts/read|取得所有可用的安全性警訊|
-|/applicationWhitelistings/read|取得應用程式白名單|
-|/applicationWhitelistings/write|建立新的應用程式白名單，或更新現有的應用程式白名單|
+|/applicationWhitelistings/read|取得應用程式允許清單|
+|/applicationWhitelistings/write|建立新的應用程式允許清單，或更新現有的應用程式允許清單|
 |/complianceResults/read|取得資源的合規性結果|
 |/locations/alerts/activate/action|啟動安全性警訊|
 |/locations/alerts/dismiss/action|關閉安全性警訊|

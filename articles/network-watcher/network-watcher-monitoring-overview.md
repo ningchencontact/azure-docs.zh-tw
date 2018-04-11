@@ -1,11 +1,11 @@
 ---
-title: "Azure 網路監看員簡介 | Microsoft Docs"
-description: "本頁概述用於監視並以視覺化方式呈現 Azure 中網路連線資源的網路監看員服務"
+title: Azure 網路監看員簡介 | Microsoft Docs
+description: 本頁概述用於監視並以視覺化方式呈現 Azure 中網路連線資源的網路監看員服務
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 792b96e4f5ba5dc0f2f943f099a2fee339407d66
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Azure 網路監視概觀
 
@@ -47,6 +47,7 @@ ms.lasthandoff: 02/21/2018
 * **[網路訂用帳戶限制](#network-subscription-limits)** - 可讓您檢視網路資源使用量與限制。
 * **[設定診斷記錄](#diagnostic-logs)** - 提供單一窗格以供啟用或停用資源群組中網路資源的診斷記錄。
 * **[連線疑難排解](network-watcher-connectivity-overview.md)** - 確認是否可以建立從虛擬機器到以 Azure 內容擴充的指定端點之直接 TCP 連線。
+* **[連線監視](connection-monitor.md)**：使用來源和目的地 IP 位址和連接埠，來監視 Azure 虛擬機器和 IP 位址之間的延遲和設定問題。
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>網路監看員的角色型存取控制 (RBAC)
 

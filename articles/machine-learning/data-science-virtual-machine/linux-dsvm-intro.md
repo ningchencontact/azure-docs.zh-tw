@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 550d49e3d6007c6b494deec95b785ea9bc214f3a
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7f683fff142a3654249560ed5299ed3cd7cb9cce
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Linux CentOS 資料科學虛擬機器
 
@@ -153,14 +153,16 @@ Python 3.5 安裝於 */anaconda/envs/py35/bin*上。
 
 若要安裝其他的 Python 程式庫，您需要在 sudo 底下執行 ```conda``` 或 ````pip```` 命令，並提供 Python 套件管理員的完整路徑 (conda 或 pip) 以安裝到正確的 Python 環境。 例如︰
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install <package> #pip for Python 2.7
+    sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
+    sudo /anaconda/bin/conda install [-n py27] <package> #conda for Python 2.7, default behavior
+    sudo /anaconda/bin/conda install -n py35 <package> #conda for Python 3.5
 
 
 ### <a name="jupyter-notebook"></a>Jupyter 筆記本
 Jupyter Notebook 中也隨附 Anaconda 散發套件，這是一個共用程式碼與分析的環境。 Jupyter 筆記本是透過 JupyterHub 來存取。 您可以使用本機 Linux 使用者名稱和密碼來登入。
 
-Jupyter 筆記本伺服器已使用 Python 2、Python 3 及 R 核心進行預先設定。 有一個名為「Jupyter 筆記本」的桌面圖示可以啟動瀏覽器來存取 Notebook 伺服器。 如果您是透過 SSH 或 X2Go 用戶端進入 VM，您也可以造訪 [https://localhost:8000/](https://localhost:8000/) 來存取 Jupyter 筆記本伺服器。
+Jupyter 筆記本伺服器已使用 Python 2、Python 3 及 R 核心進行預先設定。 有一個名為「Jupyter 筆記本」的桌面圖示可以啟動瀏覽器來存取 Notebook 伺服器。 如果您透過 SSH 或 X2Go 用戶端進入 VM，則也可以造訪 [https://localhost:8000/](https://localhost:8000/) 來存取 Jupyter 筆記本伺服器。
 
 > [!NOTE]
 > 如果您收到任何憑證警告，請繼續。

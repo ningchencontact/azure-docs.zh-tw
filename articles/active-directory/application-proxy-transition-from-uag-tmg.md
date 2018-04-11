@@ -1,11 +1,11 @@
 ---
-title: "升級到 Azure AD 應用程式 Proxy | Microsoft Docs"
-description: "如果您是從 Microsoft Forefront 或 Unified Access Gateway 升級，選擇哪一個 Proxy 解決方案最適合。"
+title: 升級到 Azure AD 應用程式 Proxy | Microsoft Docs
+description: 如果您是從 Microsoft Forefront 或 Unified Access Gateway 升級，選擇哪一個 Proxy 解決方案最適合。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -45,7 +45,7 @@ Azure Active Directory 應用程式 Proxy 是 Microsoft 提供的兩個遠端存
 | 使用標頭進行驗證 | - | yes | - | 是，使用 PingAccess | 
 | 雲端級別安全性 | - | - | - | yes | 
 | 條件式存取 | - | yes | - | yes |
-| 非軍事區域 (DMZ) 中沒有任何元件 | - | - | - | yes |
+| 周邊網路 (DMZ) 中沒有任何元件 | - | - | - | yes |
 | 沒有輸入連線 | - | - | - | yes |
 
 大部分情節中，建議將 Azure AD 應用程式作為現代化解決方案。 Web 應用程式 Proxy 只建議用在需要 AD FS Proxy 伺服器的情節中，而且您無法使用 Azure Active Directory 中的自訂網域。 
@@ -55,7 +55,7 @@ Azure Active Directory 應用程式 Proxy 是 Microsoft 提供的兩個遠端存
 - 將 Azure AD 擴充至內部部署資源
    - 雲端級別安全性和保護
    - 可輕鬆地啟用諸如條件式存取和 Multi-Factor Authentication 等功能
-- 非軍事區域中沒有任何元件
+- 周邊網路中沒有任何元件
 - 沒有所需的輸入連線
 - 您的使用者可以使用其所有應用程式的單一存取面板，包括 O365、Azure AD 整合式 SaaS 應用程式，以及您的內部部署 Web 應用程式。 
 

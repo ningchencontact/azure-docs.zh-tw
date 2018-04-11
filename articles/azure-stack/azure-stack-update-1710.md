@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mabrigg
-ms.openlocfilehash: 1a482f1d2f3eef8775bb7b64d4f6749f69fa5471
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8c7c39ecdc332c994e5c00f8415462f208e7d20b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Azure Stack 1710 更新 (組建 20171020.1)
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/23/2018
 ### <a name="additional-quality-improvements-and-fixes"></a>其他的品質改良功能與修正
 
 - 已新增具有特殊權限的端點 PowerShell Cmdlet，以協助對網路時間通訊協定 (NTP) 伺服器進行疑難排解和更新。
-- 已新增對更新具有特殊權限之端點 Just Enough Administration (JEA) 端點模組和 Cmdlet 白名單的支援。 
+- 已新增對更新具有特殊權限之端點 Just Enough Administration (JEA) 端點模組和 Cmdlet 允許清單的支援。 
 - 已修正具有特殊權限之端點中的當地語言錯誤。
 - 已新增輪替閘道認證的能力。
 - 已移除 CBLocalAdmin 本機系統管理員帳戶。 
@@ -85,7 +85,9 @@ ms.lasthandoff: 03/23/2018
    若要解決後兩個問題，您可以輸入訂用帳戶或資源群組的名稱 (如果您知道)，或者可以改用 PowerShell。
 - 刪除使用者訂用帳戶會產生孤立的資源。 因應措施是，先刪除使用者資源或整個資源群組，然後再刪除使用者訂用帳戶。
 - 您無法使用 Azure Stack 入口網站檢視訂用帳戶的權限。 因應措施是，可以使用 PowerShell 確認權限。
-  
+- [服務健全狀況] 刀鋒視窗無法載入。 當您在管理員或使用者入口網站中開啟 [服務健全狀況] 刀鋒視窗時，Azure Stack 顯示錯誤而未載入資訊。 這是預期行為。 雖然您可以選取並開啟 [服務健全狀況]，不過此功能尚無法供使用，但在未來的 Azure Stack 版本中會實作此功能。
+ 
+
 ### <a name="backup"></a>Backup 
 
 - 請勿在 [基礎架構備份] 刀鋒視窗上啟用基礎結構備份。

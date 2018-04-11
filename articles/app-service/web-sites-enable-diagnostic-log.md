@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: c39a8fafef9a45f5e80d00f8cbc75833201df150
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 27c4a169a906f8e53a5548a38e3f680fd38155b3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。
 ## <a name="overview"></a>概觀
@@ -84,7 +84,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 > 儲存在 [資料表儲存體] 或 [Blob 儲存體] 內的資訊只能透過儲存用戶端，或是能夠直接使用這些儲存系統的應用程式來存取。 例如，Visual Studio 2013 內含的 [儲存體總管] 可用來探索資料表或 Blob 儲存體，而 HDInsight 則可存取儲存在 Blob 儲存體內的資料。 您也可以使用任何一項 [Azure SDK](/downloads/#)，撰寫可存取 Azure 儲存體的應用程式。
 >
 > [!NOTE]
-> 您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱 [如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/)(英文)。
+> 您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂用帳戶，請參閱[安裝並設定 Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)。
 >
 >
 
@@ -113,19 +113,19 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 此命令會將 **-Name** 參數所指定的 Web 應用程式記錄儲存到目前目錄中名為 **logs.zip** 的檔案中。
 
 > [!NOTE]
-> 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱 [如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/)(英文)。
+> 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂用帳戶，請參閱[安裝並設定 Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)。
 >
 >
 
 ### <a name="download-with-azure-command-line-interface"></a>使用 Azure 命列列介面來下載
 若要使用 Azure 命令列介面來下載記錄檔案，請開啟新的命令列提示字元、PowerShell、Bash 或終端機工作階段，然後輸入下列命令：
 
-    az webapp log download --name webappname
+    az webapp log download --resource-group resourcegroupname --name webappname
 
 此命令會將名為 'webappname' 的 Web 應用程式記錄儲存至目前目錄中名為 **diagnostics.zip** 的檔案。
 
 > [!NOTE]
-> 如果您尚未安裝 Azure 命令列介面 (Azure CLI)，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱 [如何使用 Azure CLI](../cli-install-nodejs.md)。
+> 如果您尚未安裝 Azure 命令列介面 (Azure CLI)，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱 [如何使用 Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)。
 >
 >
 

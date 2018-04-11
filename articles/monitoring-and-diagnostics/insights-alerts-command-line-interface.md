@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: cf93c95a37c9c32333727059317e05cfcc252905
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9ea7da35acefc139625e71904c8aa1b01b87e4df
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>在 Azure 監視器中為 Azure 服務建立傳統計量警示 - 跨平台 CLI
 > [!div class="op_single_selector"]
@@ -30,11 +30,11 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="overview"></a>概觀
 > [!NOTE]
-> 本文說明如何建立舊版計量警示。 Azure 監視器現在支援[更新更好的計量警示](monitoring-near-real-time-metric-alerts.md)。 這些警示可以監視多個計量，且能針對維度計量發出警示。 即將推出更新計量警示的 CLI 支援。
+> 本文說明如何建立舊版傳統計量警示。 Azure 監視器現在支援[更新更好的計量警示](monitoring-near-real-time-metric-alerts.md)。 這些警示可以監視多個計量，且能針對維度計量發出警示。 即將推出更新計量警示的 CLI 支援。
 >
 >
 
-此文章將說明如何使用跨平台命令列介面 (CLI) 設定 Azure 計量警示。
+本文說明如何使用跨平台「命令列介面」(CLI) 來設定 Azure 傳統計量警示。
 
 > [!NOTE]
 > 自 2016 年 9 月 25 日起，「Azure 監視器」是以前所謂「Azure Insights」的新名稱。 不過，命名空間和下列命令中仍有 "insights"。
@@ -46,14 +46,14 @@ ms.lasthandoff: 03/23/2018
 * **計量值** - 當指定的計量值超出您在任一方向指派的臨界值時會觸發警示。 也就是說，當先符合條件而之後該條件不再符合時，兩方面皆會觸發。    
 * **活動記錄事件** - 警示可在*每一個*事件上觸發，或是僅在發生特定事件時才觸發。 若要深入了解活動記錄檔警示，請[按一下這裡](monitoring-activity-log-alerts.md)
 
-您可以設定當計量警示觸發時執行下列動作︰
+您可以設定讓傳統計量警示在觸發時執行下列動作︰
 
 * 傳送電子郵件給服務管理員和共同管理員
 * 傳送電子郵件至您指定的其他電子郵件
 * 呼叫 webhook
 * 啟動執行 Azure Runbook (現階段只能從 Azure 入口網站啟動)
 
-您可以透過下列方式設定和取得有關計量警示規則的資訊
+您可以透過下列方式來設定和取得有關傳統計量警示規則的資訊
 
 * [Azure 入口網站](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -112,7 +112,7 @@ ms.lasthandoff: 03/23/2018
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
 
     ```
-5. 若要在計量警示引發時建立 Webhook 或傳送電子郵件，請先建立電子郵件和/或 Webhook。 然後立即建立規則。 您無法使用 CLI 將 webhook 或電子郵件與已建立的規則建立關聯。
+5. 若要在傳統計量警示引發時建立 Webhook 或傳送電子郵件，請先建立電子郵件和/或 Webhook。 然後立即建立規則。 您無法使用 CLI 將 webhook 或電子郵件與已建立的規則建立關聯。
 
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com

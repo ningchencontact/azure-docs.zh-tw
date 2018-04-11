@@ -58,7 +58,7 @@ ms.lasthandoff: 03/23/2018
 ## <a name="ports"></a>連接埠
 閘道會建立 Azure 服務匯流排的輸出連接。 閘道會與下列輸出連接埠進行通訊︰TCP 443 (預設)、5671、5672、9350 到 9354。  閘道不需要輸入連接埠。
 
-建議您在防火牆中將您的資料區域 IP 位址列入白名單。 您可以下載 [Microsoft Azure Datacenter IP 清單](https://www.microsoft.com/download/details.aspx?id=41653)。 此清單每週更新。
+建議您在防火牆中將您的資料區域 IP 位址列入允許清單。 您可以下載 [Microsoft Azure Datacenter IP 清單](https://www.microsoft.com/download/details.aspx?id=41653)。 此清單每週更新。
 
 > [!NOTE]
 > Azure Datacenter IP 清單中列出的 IP 位址採用 CIDR 標記法。 若要深入了解，請參閱[無類別網域間路由選擇](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)。

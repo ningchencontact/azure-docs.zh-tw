@@ -3,7 +3,7 @@ title: 使用 Azure CLI (azure.js) 建立 IoT 中樞 | Microsoft Docs
 description: 如何使用跨平台 Azure CLI (azure.js) 建立 Azure IoT 中樞。
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: kgremban
 manager: timlt
 editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
-ms.author: boltean
-ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/01/2018
+ms.author: kgremban
+ms.openlocfilehash: 7e761ba66f4b28dd7cc59dc8998c23810dd2b7d1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>使用 Azure CLI 建立 IoT 中樞
 
@@ -90,8 +90,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **resource-group**。 資源群組名稱。 格式為不區分大小寫的英數字元、底線和連字號，長度為 1-64。
 * **名稱**。 要建立的 IoT 中樞名稱。 格式為不區分大小寫的英數字元和連字號，長度為 3-50。
 * **location**。 佈建 IoT 中樞的位置 (azure 區域/資料中心)。
-* **sku-name**。 sku 的名稱，下列其中一個：[F1、S1、S2、S3]。 如需最新的完整清單，請參閱 IoT 中樞的定價頁面。
-* **units**。 佈建的單位數。 範圍：F1 [1-1]：S1、S2 [1-200]：S3 [1-10]。 IoT 中樞單位會根據您的訊息總計數和您想要連接的裝置數目而定。
+* **sku-name**。 sku 的名稱，下列其中一個：[F1、S1、S2、S3]。 如需有關每個 SKU 的詳細資料，請參閱 [Azure IoT 中樞價格](https://azure.microsoft.com/pricing/details/iot-hub/)。 目前，只有透過入口網站才有提供基本層。 
+* **units**。 佈建的單位數。 如需有關單位限制的詳細資料，請參閱 [Azure IoT 中樞價格](https://azure.microsoft.com/pricing/details/iot-hub/)。
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -119,7 +119,7 @@ Heartbeat
 
 在 Windows 電腦上，您可以檢閱下列各項來確認與 Log Analytics 的代理程式連線能力︰
 
-1.  在控制台中開啟 Microsoft Monitoring Agent，而代理程式會在 [Azure Log Analytics (OMS)] 索引標籤上顯示以下訊息︰**Microsoft Monitoring Agent 已成功連線到 Microsoft Operations Management Suite 服務**。   
+1.  在控制台中開啟 Microsoft Monitoring Agent，而代理程式會在 [Azure Log Analytics] 索引標籤上顯示以下訊息︰**Microsoft Monitoring Agent 已成功連線到 Log Analytics**。   
 2.  開啟 [Windows 事件記錄]，瀏覽至 [應用程式及服務記錄\Operations Manager] 並從來源服務連接器搜尋事件識別碼 3000 和 5002。 這些事件表示電腦已向 Log Analytics 工作區註冊，並且正在接收組態。  
 
 如果代理程式無法與 Log Analytics 通訊，並已設定為透過防火牆或 Proxy 伺服器來與網際網路通訊，請藉由檢閱 [Windows 代理程式的網路設定](../log-analytics/log-analytics-agent-windows.md)或 [Linux 代理程式的網路設定](../log-analytics/log-analytics-agent-linux.md)，確認防火牆或 Proxy 伺服器設定正確。
@@ -131,7 +131,7 @@ Heartbeat
 
 在執行評估之後，新增的 Linux 代理程式的狀態會顯示為 [已更新]。 此程序可能需要多達 6 小時的時間。
 
-若要確認 Operations Manager 管理群組正在與 Log Analytics 通訊，請參閱[驗證 Operations Manager 與 OMS 的整合](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms)。
+若要確認 Operations Manager 管理群組正在與 Log Analytics 通訊，請參閱[驗證 Operations Manager 與 Log Analytics 的整合](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms)。
 
 ## <a name="data-collection"></a>資料收集
 
@@ -173,7 +173,7 @@ Heartbeat
 
 ## <a name="viewing-update-deployments"></a>檢視更新部署
 
-按一下 [更新部署]，可檢視現有更新部署的清單。 按一下清單中的任一更新部署，會開啟該更新部署的 [更新部署執行] 頁面。
+按一下 [更新部署] 索引標籤，以檢視現有更新部署的清單。 按一下表格中的任一個更新部署，即會開啟該更新部署的 [更新部署執行] 頁面。
 
 ![更新部署結果的概觀](./media/automation-update-management/update-deployment-run.png)
 
@@ -213,7 +213,7 @@ Heartbeat
 
 投資了 System Center Configuration Manager 以管理電腦、伺服器和行動裝置的客戶也需仰賴其管理軟體更新的強度和成熟度，作為軟體更新管理 (SUM) 週期的一部分。
 
-若要了解如何將 OMS 更新管理解決方案與 Sytem Center Configuration Manager 整合，請參閱[將 System Center Configuration Manager 與 OMS 更新管理整合](oms-solution-updatemgmt-sccmintegration.md)。
+若要了解如何將管理解決方案與 Sytem Center Configuration Manager 整合，請參閱[將 System Center Configuration Manager 與更新管理整合](oms-solution-updatemgmt-sccmintegration.md)。
 
 ## <a name="patching-linux-machines"></a>修補 Linux 機器
 

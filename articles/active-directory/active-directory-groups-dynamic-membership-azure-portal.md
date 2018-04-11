@@ -12,31 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 03/30/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 2b42840bc1053e9574e7c8ab1c68611c3b2bc7df
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a4ed9ddabe19406fa694992f29cf529b491438c0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>在 Azure Active Directory 中針對動態群組成員資格建立以屬性為基礎的規則
-在 Azure Active Directory (Azure AD) 中，您可以建立進階規則，以對群組啟用更複雜的屬性型動態成員資格。 本文將詳細說明用以建立適用於使用者或裝置之動態成員資格規則的屬性和語法。
+在 Azure Active Directory (Azure AD) 中，您可以建立進階規則，以對群組啟用更複雜的屬性型動態成員資格。 本文將詳細說明用以建立適用於使用者或裝置之動態成員資格規則的屬性和語法。 您可以為安全性群組或 Office 365 群組的動態成員資格設定規則。
 
 當使用者或裝置的任何屬性變更時，系統會評估目錄中的所有動態群組規則，以查看變更是否會觸發任何的群組新增或移除。 如果使用者或裝置滿足群組上的規則，就會將他們新增為該群組的成員。 如果他們不再符合此規則，則會予以移除。
 
 > [!NOTE]
-> 您可以為安全性群組或 Office 365 群組的動態成員資格設定規則。
->
 > 此功能要求新增到至少一個動態群組的每個使用者成員都具有 Azure AD Premium P1 授權。 不一定要實際將授權指派給使用者，讓他們成為動態群組的成員，但是您必須在租用戶中有最小數量的授權，以涵蓋所有這類使用者。 例如：如果您的租用戶中所有動態群組有總計 1000 個唯一使用者，則必須至少具有 Azure AD Premium P1 或以上版本的 1000 個授權，以符合授權需求。
 >
 > 您可以為裝置或使用者建立動態群組，但無法建立同時包含使用者和裝置物件的規則。
 > 
 > 目前無法依據擁有使用者的屬性建立裝置群組。 裝置成員資格規則只能參考目錄中裝置物件的直接屬性。
-> 
-> Microsoft 小組尚不支援動態群組成員資格。 您可以驗證記錄中與「無法移轉動態成員資格群組」相關聯的錯誤
 
 ## <a name="to-create-an-advanced-rule"></a>建立進階規則
 1. 使用具備全域管理員或使用者帳戶管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
@@ -74,7 +70,7 @@ ms.lasthandoff: 03/28/2018
 進階規則主體的總長度不得超過 2048 個字元。
 
 > [!NOTE]
-> 字串和 regex 運算都不區分大小寫。 您也可以使用 *null* 作為常數來執行 null 檢查，例如 user.department -eq *$null*。
+> 字串和 regex 運算都不區分大小寫。 您也可以使用 *null* 作為常數來執行 Null 檢查，例如 user.department -eq *null*。
 > 包含引號 " 的字串應該使用 ' 字元逸出，例如 user.department -eq \`"Sales"。
 
 ## <a name="supported-expression-rule-operators"></a>支援的運算式規則運算子
@@ -106,11 +102,11 @@ ms.lasthandoff: 03/28/2018
 不管有沒有連字號前置詞，均可使用所有運算子。 優先順序不符合您的需求時，才需要括號。
 例如︰
 ```
-   user.department -eq "Marketing" -and user.country -eq "US"
+   user.department –eq "Marketing" –and user.country –eq "US"
 ```
 相當於：
 ```
-   (user.department -eq "Marketing") -and (user.country -eq "US")
+   (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
 ## <a name="using-the--in-and--notin-operators"></a>使用 -In 和 -notIn 運算子
 
@@ -160,32 +156,32 @@ ms.lasthandoff: 03/28/2018
 
 | properties | 允許的值 | 使用量 |
 | --- | --- | --- |
-| city |任何字串值或 *$null* |(user.city -eq "value") |
-| country |任何字串值或 *$null* |(user.country -eq "value") |
-| companyName | 任何字串值或 *$null* | (user.companyName -eq "value") |
-| department |任何字串值或 *$null* |(user.department -eq "value") |
+| city |任何字串值或 *null* |(user.city -eq "value") |
+| country |任何字串值或 *null* |(user.country -eq "value") |
+| companyName | 任何字串值或 *null* | (user.companyName -eq "value") |
+| department |任何字串值或 *null* |(user.department -eq "value") |
 | displayName |任何字串值 |(user.displayName -eq "value") |
-| employeeId |任何字串值 |(user.employeeId -eq "value")<br>(user.employeeId -ne *$null*) |
-| facsimileTelephoneNumber |任何字串值或 *$null* |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |任何字串值或 *$null* |(user.givenName -eq "value") |
-| jobTitle |任何字串值或 *$null* |(user.jobTitle -eq "value") |
-| mail |任何字串值或 *$null* (使用者的 SMTP 位址) |(user.mail -eq "value") |
+| employeeId |任何字串值 |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
+| facsimileTelephoneNumber |任何字串值或 *null* |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |任何字串值或 *null* |(user.givenName -eq "value") |
+| jobTitle |任何字串值或 *null* |(user.jobTitle -eq "value") |
+| mail |任何字串值或 *null* (使用者的 SMTP 位址) |(user.mail -eq "value") |
 | mailNickName |任何字串值 (使用者的郵件別名) |(user.mailNickName -eq "value") |
-| mobile |任何字串值或 *$null* |(user.mobile -eq "value") |
+| mobile |任何字串值或 *null* |(user.mobile -eq "value") |
 | objectId |使用者物件的 GUID |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | 已從內部部署環境同步至雲端之使用者的內部部署安全性識別碼 (SID)。 |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |任何字串值或 *$null* |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |任何字串值或 *$null* |(user.postalCode -eq "value") |
+| physicalDeliveryOfficeName |任何字串值或 *null* |(user.physicalDeliveryOfficeName -eq "value") |
+| postalCode |任何字串值或 *null* |(user.postalCode -eq "value") |
 | preferredLanguage |ISO 639-1 code |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |任何字串值或 *$null* |(user.sipProxyAddress -eq "value") |
-| state |任何字串值或 *$null* |(user.state -eq "value") |
-| streetAddress |任何字串值或 *$null* |(user.streetAddress -eq "value") |
-| surname |任何字串值或 *$null* |(user.surname -eq "value") |
-| telephoneNumber |任何字串值或 *$null* |(user.telephoneNumber -eq "value") |
+| sipProxyAddress |任何字串值或 *null* |(user.sipProxyAddress -eq "value") |
+| state |任何字串值或 *null* |(user.state -eq "value") |
+| streetAddress |任何字串值或 *null* |(user.streetAddress -eq "value") |
+| surname |任何字串值或 *null* |(user.surname -eq "value") |
+| telephoneNumber |任何字串值或 *null* |(user.telephoneNumber -eq "value") |
 | usageLocation |兩個字母的國家 (地區) 代碼 |(user.usageLocation -eq "US") |
 | userPrincipalName |任何字串值 |(user.userPrincipalName -eq "alias@domain") |
-| userType |成原來賓 *$null* |(user.userType -eq "Member") |
+| userType |member guest *null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>字串集合類型的屬性
 允許的運算子
@@ -226,9 +222,9 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-## <a name="use-of-null-values"></a>使用 null 值
+## <a name="use-of-null-values"></a>使用 Null 值
 
-若要在規則中指定 null 值，您可以使用 *null* 值。 注意，請不要在 *null* 文字前後使用引號，這麼做會使系統將它解釋為常值字串值。 參考 null 值的正確方法如下：
+若要在規則中指定 null 值，您可以使用 *null* 值。 注意，請不要在 *null* 文字前後使用引號，這麼做會使系統將它解釋為常值字串值。 -not 運算子不能用來作為 null 的比較運算子。 如果使用它，則不論您使用 null 還是 $null 都會收到錯誤。 請改用 -eq 或 -ne。 參考 null 值的正確方法如下：
 ```
    user.mail –ne $null
 ```
@@ -253,14 +249,15 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 > [!NOTE]
 > 1. 若要讓規則得以運作，請確定已對您租用戶中的使用者正確設定 [經理識別碼] 屬性。 您可以在其 **[設定檔] 索引標籤**上檢查使用者的目前值。
-> 2. 此規則只支援**直屬**員工。 目前無法建立巢狀階層的群組，例如包含直屬員工及其員工的群組。
+> 2. 此規則只支援**直屬**員工。 目前無法為巢狀階層建立群組；例如包含直屬員工及其員工的群組。
+> 3. 此規則無法與任何其他進階規則結合。
 
 **設定群組**
 
 1. 依照[建立進階規則](#to-create-the-advanced-rule)一節中的步驟 1-5 操作，然後在 [成員資格類型] 中選取 [動態使用者]。
 2. 在 [動態成員資格規則]  刀鋒視窗上，使用下列語法來輸入規則：
 
-    *Direct Reports for "{obectID_of_manager}"*
+    *"{objectID_of_manager}" 的直屬員工*
 
     有效規則的範例：
 ```
@@ -295,19 +292,43 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>將動態成員資格變更為靜態，反之亦然
 您可以變更在群組中管理成員資格的方式。 當您想要在系統中保留相同的群組名稱和識別碼，讓任何現有的群組參考仍然有效時，這非常實用；建立新的群組需要更新這些參考。
 
-我們正在更新 Azure 入口網站以支援此功能。 在此同時，您可以使用 PowerShell Cmdlet，如下所示。
+我們已更新 Azure AD 系統管理中心，以新增這項功能的支援。 現在，客戶可以透過 Azure AD 系統管理中心或 PowerShell Cmdlet，將現有的群組從動態成員資格轉換為指派的成員資格，反之亦然，如下所示。
 
 > [!WARNING]
 > 將現有的靜態群組變更為動態群組時，系統將從群組中移除所有現有的成員，然後再處理成員資格規則，以加入新的成員。 如果群組用來控制對應用程式或資源的存取，則在完全處理成員資格規則之前，原始成員可能會失去存取權。
 >
-> 建議的作法是，事先測試新的成員資格規則，以確保群組中的新成員資格如預期般運作。
+> 建議您先測試新的成員資格規則，以確保群組中的新成員資格如預期般運作。
 
-**使用 PowerShell 變更群組上的成員資格管理**
+### <a name="using-azure-ad-admin-center-to-change-membership-management-on-a-group"></a>使用 Azure AD 系統管理中心來變更群組上的成員資格管理 
+
+1. 使用具備您租用戶中全域管理員或使用者帳戶管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
+2. 選取 [群組]。
+3. 從 [所有群組] 清單中，開啟您想要變更的群組。
+4. 選取 [屬性] 。
+5. 在群組的 [屬性] 頁面上，依據您所需的成員資格類型，選取 [已指派] (靜態)、[動態使用者] 或 [動態裝置] 作為 [成員資格類型]。 針對動態成員資格，您可以使用規則建立器來選取簡單規則的選項，或自行撰寫進階規則。 
+
+下列步驟是針對某個使用者群組將群組從靜態變更為動態成員資格的範例。 
+
+1. 在所選群組的 [屬性] 上，選取 [動態使用者] 作為 [成員資格類型]，然後在說明群組成員資格變更的對話方塊上，選取 [是] 以繼續。 
+  
+   ![選取動態使用者作為成員資格類型](./media/active-directory-groups-dynamic-membership-azure-portal/select-group-to-convert.png)
+  
+2. 選取 [新增動態查詢]，然後提供規則。
+  
+   ![輸入規則](./media/active-directory-groups-dynamic-membership-azure-portal/enter-rule.png)
+  
+3. 建立規則之後，在頁面底部選取 [新增查詢]。
+4. 在群組的 [屬性] 頁面上，選取 [儲存] 以儲存變更。 群組的 [成員資格類型] 會立即在群組清單中更新。
+
+> [!TIP]
+> 如果您輸入的進階規則不正確，群組轉換可能會失敗。 入口網站右上角將會顯示通知，當中包含系統為什麼無法接受該規則的解釋。 請仔細閱讀，以了解您可以如何調整規則來讓規則變成有效。
+
+### <a name="using-powershell-to-change-membership-management-on-a-group"></a>使用 PowerShell 來變更群組上的成員資格管理
 
 > [!NOTE]
-> 若要變更動態群組屬性，您必須使用**預覽版本** [Azure AD PowerShell 第 2 版](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)中的 Cmdlet。 您可以從[這裡](https://www.powershellgallery.com/packages/AzureADPreview)安裝預覽版本。
+> 若要變更動態群組屬性，您必須使用**預覽版本** [Azure AD PowerShell 第 2 版](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)中的 Cmdlet。 您可以從 [PowerShell 資源庫](https://www.powershellgallery.com/packages/AzureADPreview)安裝預覽版。
 
-以下是在現有群組上切換成員資格管理的函式範例。 請注意，請小心並正確地操作 GroupTypes 屬性，並保留可能存在該處，與動態成員資格不相關的任何值。
+以下是在現有群組上切換成員資格管理的函式範例。 在此範例中，需小心以正確操作 GroupTypes 屬性，並保留任何與動態成員資格無關的值。
 
 ```
 #The moniker for dynamic groups as used in the GroupTypes property of a group object

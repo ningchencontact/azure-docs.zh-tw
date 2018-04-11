@@ -1,6 +1,6 @@
 ---
-title: "Azure 受控應用程式 OptionsGroup UI 元素 | Microsoft Docs"
-description: "描述 Azure 受控應用程式的 Microsoft.Common.OptionsGroup UI 元素"
+title: Azure OptionsGroup UI 元素 | Microsoft Docs
+description: 描述 Azure 入口網站的 Microsoft.Common.OptionsGroup UI 元素。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0ba820176e0231437e878922cb508cd3b97d46c3
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 4b2ce987e311a12e3833fcc1dbae2b48b40135ff
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Microsoft.Common.OptionsGroup UI 元素
-包含可用選項資料列的選取控制項。 您可以在[建立 Azure 受控應用程式](publish-service-catalog-app.md)時使用此元素。
+包含可用選項資料列的選取控制項。
 
 ## <a name="ui-sample"></a>UI 範例
 ![Microsoft.Common.OptionsGroup](./media/managed-application-elements/microsoft.common.optionsgroup.png)
@@ -31,17 +31,17 @@ ms.lasthandoff: 10/27/2017
   "name": "element1",
   "type": "Microsoft.Common.OptionsGroup",
   "label": "Some options group",
-  "defaultValue": "Foo",
+  "defaultValue": "my value",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
       {
-        "label": "Foo",
-        "value": "Bar"
+        "label": "Value one",
+        "value": "one"
       },
       {
-        "label": "Baz",
-        "value": "Qux"
+        "label": "Value two",
+        "value": "two"
       }
     ]
   },
@@ -61,6 +61,5 @@ ms.lasthandoff: 10/27/2017
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* 如需受控應用程式的簡介，請參閱 [Azure 受控應用程式概觀](overview.md)。
 * 如需建立 UI 定義的簡介，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。
 * 如需 UI 元素中通用屬性的說明，請參閱 [CreateUiDefinition 元素](create-uidefinition-elements.md)。

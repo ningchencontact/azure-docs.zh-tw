@@ -1,12 +1,12 @@
 ---
-title: "在本機的計算模擬器中分析雲端服務 | Microsoft Docs"
+title: 在本機的計算模擬器中分析雲端服務 | Microsoft Docs
 services: cloud-services
-description: "使用 Visual Studio 分析工具調查雲端服務中的效能問題"
-documentationcenter: 
+description: 使用 Visual Studio 分析工具調查雲端服務中的效能問題
+documentationcenter: ''
 author: mikejo
-manager: ghogen
-editor: 
-tags: 
+manager: douge
+editor: ''
+tags: ''
 ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
 ms.service: cloud-services
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8ff7b88a3086488ab669288687c274237ca30b47
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>使用 Visual Studio 分析工具，在 Azure 計算模擬器中本機測試雲端服務的效能
 各種工具和技術可用於測試雲端服務的效能。
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/21/2018
 本文涵蓋進行分析的「CPU 取樣」方法，這可以在模擬器上本機完成。 CPU 取樣不是非常侵入式的分析方法。 分析工具會按指定的取樣間隔取得呼叫堆疊的快照集。 會收集一段時間的資料，而且資料會顯示在報告中。 此分析方法傾向指出在計算密集應用程式中的哪個位置完成大部分的 CPU 工作。  這可讓您有機會聚焦在應用程式耗用最多時間的「最忙碌路徑」。
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1：設定 Visual Studio 進行分析
-首先，有些 Visual Studio 組態選項可能在進行分析時很實用。 若要讓分析報告發揮作用，您需要應用程式的符號 (.pdb 檔案)，也需要系統庫的符號。 您會希望確定參考可用的符號伺服器。 若要這樣做，請在 Visual Studio 的 [工具] 功能表上，依序選擇 [選項]、[偵錯] 和 [符號]。 請確定 Microsoft Symbol Servers 列在 [符號檔 (.pdb) 位置] 下方。  您也可以參考 http://referencesource.microsoft.com/symbols，其中可能有其他符號檔案。
+首先，有些 Visual Studio 組態選項可能在進行分析時很實用。 若要讓分析報告發揮作用，您需要應用程式的符號 (.pdb 檔案)，也需要系統庫的符號。 您會希望確定參考可用的符號伺服器。 若要這樣做，請在 Visual Studio 的 [工具] 功能表上，依序選擇 [選項]、[偵錯] 和 [符號]。 請確定 Microsoft Symbol Servers 列在 [符號檔 (.pdb) 位置] 下方。  您也可以參考 http://referencesource.microsoft.com/symbols，這裡可能有其他符號檔。
 
 ![符號選項][4]
 

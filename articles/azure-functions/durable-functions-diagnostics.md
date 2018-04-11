@@ -1,12 +1,12 @@
 ---
-title: "長期函式中的診斷 - Azure"
-description: "了解如何在 Azure Functions 的「長期函式」延伸模組中實作診斷問題。"
+title: 長期函式中的診斷 - Azure
+description: 了解如何在 Azure Functions 的「長期函式」延伸模組中實作診斷問題。
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5ebab8660dfe21984e1a7f9a1cb925aea60de213
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>長期函式中的診斷 (Azure Functions)
 
@@ -50,6 +50,7 @@ Azure Functions 長期延伸模組也會發出「追蹤事件」，可讓您追�
 * **原因**：與追蹤事件相關聯的其他資料。 例如，如果執行個體正在等候外部事件通知，這個欄位會指出它正在等候之事件的名稱。 如果函式失敗，會包含錯誤詳細資料。
 * **isReplay**：布林值，指出追蹤事件是否要重新執行。
 * **extensionVersion**：長期工作延伸模組的版本。 報告延伸模組中可能的錯誤時，這個資料特別重要。 如果在長時間執行執行個體執行時發生更新，它可能會報告多個版本。 
+* **sequenceNumber**：事件的執行序號。 與時間戳記結合，有助於依執行時間排序事件。 請注意，如果主機會在執行個體執行中重新啟動，這個數字將重設為零，所以務必一律先依 timestamp，然後依 sequenceNumber 進行排序。
 
 可以在 `host.json` 檔案的 `logger` 區段中，設定發出至 Application Insights 之追蹤資料的詳細資訊。
 
@@ -72,11 +73,11 @@ Azure Functions 長期延伸模組也會發出「追蹤事件」，可讓您追�
 
 ### <a name="single-instance-query"></a>單一執行個體查詢
 
-下列查詢顯示 [Hello Sequence](durable-functions-sequence.md) 函式協調流程之單一執行個體的歷史追蹤資料。 它是使用 [Application Insights 查詢語言 (AIQL)](https://docs.loganalytics.io/docs/Language-Reference) 寫入的。 它會篩選重新執行，以便僅顯示「邏輯」執行路徑。
+下列查詢顯示 [Hello Sequence](durable-functions-sequence.md) 函式協調流程之單一執行個體的歷史追蹤資料。 它是使用 [Application Insights 查詢語言 (AIQL)](https://docs.loganalytics.io/docs/Language-Reference) 寫入的。 它會篩選重新執行，以便僅顯示「邏輯」執行路徑。 您可以藉由排序 `timestamp` 和 `sequenceNumber` 來排序事件，如下列查詢中所示： 
 
 ```AIQL
-let targetInstanceId = "bf71335b26564016a93860491aa50c7f";
-let start = datetime(2017-09-29T00:00:00);
+let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
+let start = datetime(2018-03-25T09:20:00);
 traces
 | where timestamp > start and timestamp < start + 30m
 | where customDimensions.Category == "Host.Triggers.DurableTask"
@@ -84,16 +85,17 @@ traces
 | extend instanceId = customDimensions["prop__instanceId"]
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
 | where isReplay == false
 | where instanceId == targetInstanceId
-| project timestamp, functionName, state, instanceId, appName = cloud_RoleName
+| sort by timestamp asc, sequenceNumber asc
+| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
 ```
-結果是一份追蹤事件的清單，顯示協調流程的執行路徑，包括任何活動函式。
 
-![Application Insights 查詢](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
+結果是一份追蹤事件的清單，顯示協調流程的執行路徑，包括依執行時間以遞增順序排序任何活動函式。
 
-> [!NOTE]
-> 部分追蹤事件可能會因為 `timestamp` 資料行缺少有效位數而不按照順序。 這個問題在 GitHub 中以[問題 #71](https://github.com/Azure/azure-functions-durable-extension/issues/71) 進行追蹤。
+![Application Insights 查詢](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+
 
 ### <a name="instance-summary-query"></a>執行個體摘要查詢
 

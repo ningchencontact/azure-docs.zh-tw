@@ -1,11 +1,11 @@
 ---
-title: "Windows 通用 app Engagement SDK 整合"
-description: "如何將 Azure Mobile Engagement 與 Windows 通用 app 整合"
+title: Windows 通用 app Engagement SDK 整合
+description: 如何將 Azure Mobile Engagement 與 Windows 通用 app 整合
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 71236b68-5ebd-44aa-8c82-c7ca8098ea05
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: dc075ffe6565b4ef60e77f74ba4f065629c99952
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Windows 通用 app Engagement SDK 整合
+> [!IMPORTANT]
+> Azure Mobile Engagement 將於 2018 年 3 月 31 日停止服務。 此頁面將於不久之後刪除。
+> 
+
 > [!div class="op_single_selector"]
 > * [Universal Windows](mobile-engagement-windows-store-integrate-engagement.md) 
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 

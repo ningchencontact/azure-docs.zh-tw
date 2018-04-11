@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 03/28/2018
 ms.author: robb
-ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8f7df424b27e6899821a9bdd2f1d8397a0de35a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>在 Azure 監視器中為 Azure 服務建立傳統計量警示 - PowerShell
 > [!div class="op_single_selector"]
@@ -31,18 +31,18 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>概觀
 
 > [!NOTE]
-> 本文說明如何建立舊版計量警示。 Azure 監視器現在支援[更新更好的計量警示](monitoring-near-real-time-metric-alerts.md)。 這些警示可以監視多個計量，且能針對維度計量發出警示。 即將推出更新計量警示的 Powershell 支援。
+> 本文說明如何建立舊版傳統計量警示。 Azure 監視器現在支援[更新更好的計量警示](monitoring-near-real-time-metric-alerts.md)。 這些警示可以監視多個計量，且能針對維度計量發出警示。 即將推出更新計量警示的 Powershell 支援。
 >
 >
 
-此文章說明如何使用 PowerShell 設定 Azure 計量警示。  
+本文說明如何使用 PowerShell 來設定 Azure 傳統計量警示。  
 
 您可以收到以您 Azure 服務的監視計量或事件為基礎的警示。
 
 * **計量值** - 當指定的計量值超出您在任一方向指派的臨界值時會觸發警示。 也就是說，當先符合條件而之後該條件不再符合時，兩方面皆會觸發。    
 * **活動記錄事件** - 警示可在*每一個*事件上觸發，或是僅在發生特定事件時才觸發。 若要深入了解活動記錄檔警示，請[按一下這裡](monitoring-activity-log-alerts.md)
 
-您可以設定當計量警示觸發時執行下列動作︰
+您可以設定讓傳統計量警示在觸發時執行下列動作︰
 
 * 傳送電子郵件給服務管理員和共同管理員
 * 傳送電子郵件至您指定的其他電子郵件
@@ -135,8 +135,8 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="next-steps"></a>後續步驟
 * [取得 Azure 監視的概觀](monitoring-overview.md) 中說明您可以收集和監視的資訊類型。
-* 深入了解 [在警示中設定 webhook](insights-webhooks-alerts.md)。
-* 深入了解[在活動記錄檔事件上設定警示](monitoring-activity-log-alerts.md)。
+* 了解如何[在警示中設定 Webhook](insights-webhooks-alerts.md)。
+* 了解如何[針對活動記錄事件設定警示](monitoring-activity-log-alerts.md)。
 * 深入了解 [Azure 自動化 Runbook](../automation/automation-starting-a-runbook.md)。
 * 依照 [收集診斷記錄檔概觀](monitoring-overview-of-diagnostic-logs.md) 中的做法，收集您服務中詳細的高頻率計量。
 * 依照 [計量集合概觀](insights-how-to-customize-monitoring.md) 中的做法，確保您的服務可使用且有回應。

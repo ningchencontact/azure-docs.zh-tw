@@ -5,14 +5,14 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 03/05/2018
-ms.author: danlep
+ms.date: 03/30/2018
+ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 8614fa7a52c91419c66782f7434692228e6b18d2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5457ac8bd229889ed2b96354c44066959c00c64f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/03/2018
 ---
 GPU 最佳化的 VM 大小，為搭配單一或多個 NVIDIA GPU 提供的特製化虛擬機器。 這些大小是專門針對計算密集型、圖形密集型及視覺效果的工作負載所設計。 本文提供 GPU、vCPU、資料磁碟和 NIC 的數量與類型，以及此群組中各種大小之儲存體輸送量和網路頻寬的相關資訊。 
 
@@ -27,7 +27,7 @@ NC 系列 VM 是由 [NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/kepl
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | GPU | 最大資料磁碟 | 最大 NIC |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 | 380 | 1 | 24 | 1 |
+| Standard_NC6 |6 |56 | 340 | 1 | 24 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 | 48 | 2 |
 | Standard_NC24 |24 |224 | 1440 | 4 | 64 | 4 |
 | Standard_NC24r* |24 |224 | 1440 | 4 | 64 | 4 |
@@ -46,10 +46,10 @@ NCv2 系列 VM 是由 [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | GPU | 最大資料磁碟 | 最大 NIC |
 | --- | --- | --- | --- | --- | --- | ---  |
-| Standard_NC6s_v2 |6 |112 | 336 | 1 | 12 | 4 |
-| Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 | 8 |
-| Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 | 8 |
-| Standard_NC24rs_v2* |24 |448 | 1344 | 4 | 32 | 8 |
+| Standard_NC6s_v2 |6 |112 | 736 | 1 | 12 | 4 |
+| Standard_NC12s_v2 |12 |224 | 1474 | 2 | 24 | 8 |
+| Standard_NC24s_v2 |24 |448 | 2948 | 4 | 32 | 8 |
+| Standard_NC24rs_v2* |24 |448 | 2948 | 4 | 32 | 8 |
 
 1 GPU = 一張 P100 卡。
 
@@ -65,10 +65,10 @@ NCv3 系列 VM 是由 [NVIDIA Tesla V100](http://www.nvidia.com/content/PDF/Volt
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | GPU | 最大資料磁碟 | 最大 NIC |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6s_v3 |6 |112 | 336 | 1 | 12 | 4 |
-| Standard_NC12s_v3 |12 |224 | 672 | 2 | 24 | 8 |
-| Standard_NC24s_v3 |24 |448 | 1344 | 4 | 32 | 8 | 
-| Standard_NC24rs_v3* |24 |448 | 1344 | 4 | 32 | 8 |
+| Standard_NC6s_v3 |6 |112 | 736 | 1 | 12 | 4 |
+| Standard_NC12s_v3 |12 |224 | 1474 | 2 | 24 | 8 |
+| Standard_NC24s_v3 |24 |448 | 2948 | 4 | 32 | 8 | 
+| Standard_NC24rs_v3* |24 |448 | 2948 | 4 | 32 | 8 |
 
 1 GPU = 一張 V100 卡。
 
@@ -84,10 +84,10 @@ ND 系列的虛擬機器是 GPU 系列的新成員，專為 AI 和深度學習�
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | GPU | 最大資料磁碟 | 最大 NIC |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND6s |6 |112 | 336 | 1 | 12 | 4 |
-| Standard_ND12s |12 |224 | 672 | 2 | 24 | 8 | 
-| Standard_ND24s |24 |448 | 1344 | 4 | 32 | 8 |
-| Standard_ND24rs* |24 |1448 | 1344 | 4 | 32 | 8 |
+| Standard_ND6s |6 |112 | 736 | 1 | 12 | 4 |
+| Standard_ND12s |12 |224 | 1474 | 2 | 24 | 8 | 
+| Standard_ND24s |24 |448 | 2948 | 4 | 32 | 8 |
+| Standard_ND24rs* |24 |448 | 2948 | 4 | 32 | 8 |
 
 1 GPU = 一張 P40 卡。
 
@@ -101,7 +101,7 @@ NV 執行個體中的每個 GPU 均隨附 GRID 授權。 此授權可讓您彈�
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | GPU | 最大資料磁碟 | 最大 NIC | 虛擬工作站 | 虛擬應用程式 | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 | 1 | 25 |
+| Standard_NV6 |6 |56 |340 | 1 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
 | Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
 

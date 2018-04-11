@@ -1,6 +1,6 @@
 ---
-title: "Azure 受控應用程式 TextBox UI 元素 | Microsoft Docs"
-description: "描述 Azure 受控應用程式的 Microsoft.Common.TextBox UI 元素"
+title: Azure TextBox UI 元素 | Microsoft Docs
+description: 描述 Azure 入口網站的 Microsoft.Common.TextBox UI 元素。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d3fae42ae202fe720761382e1020fa8bd8c62b44
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: daee95c177ecddfea1cf7d6d162906fcc86938b4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Microsoft.Common.TextBox UI 元素
-可以用來編輯未格式化文字的控制項。 您可以在[建立 Azure 受控應用程式](publish-service-catalog-app.md)時使用此元素。
+可以用來編輯未格式化文字的控制項。
 
 ## <a name="ui-sample"></a>UI 範例
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
@@ -31,8 +31,8 @@ ms.lasthandoff: 10/27/2017
   "name": "element1",
   "type": "Microsoft.Common.TextBox",
   "label": "Some text box",
-  "defaultValue": "foobar",
-  "toolTip": "Halp!",
+  "defaultValue": "my value",
+  "toolTip": "Use only allowed characters",
   "constraints": {
     "required": true,
     "regex": "^[a-z0-9A-Z]{1,30}$",
@@ -55,6 +55,5 @@ ms.lasthandoff: 10/27/2017
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* 如需受控應用程式的簡介，請參閱 [Azure 受控應用程式概觀](overview.md)。
 * 如需建立 UI 定義的簡介，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。
 * 如需 UI 元素中通用屬性的說明，請參閱 [CreateUiDefinition 元素](create-uidefinition-elements.md)。

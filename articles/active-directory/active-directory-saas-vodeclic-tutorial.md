@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Vodeclic 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Vodeclic 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Vodeclic 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Vodeclic 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -171,7 +171,7 @@ ms.lasthandoff: 12/14/2017
 在本節中，您會在 Vodeclic 中建立名為 Britta Simon 的使用者。 請與 [Vodeclic 支援小組](mailto:hotline@vodeclic.com)合作，以在 Vodeclic 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 > [!NOTE]
-> 根據應用程式需求，您可能需要將您的電腦列入白名單中。 若要這麼做，您必須將公用 IP 位址分享給 [Vodeclic 支援小組](mailto:hotline@vodeclic.com)。
+> 根據應用程式需求，您可能需要將您的電腦列入允許清單中。 若要這麼做，您必須將公用 IP 位址分享給 [Vodeclic 支援小組](mailto:hotline@vodeclic.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

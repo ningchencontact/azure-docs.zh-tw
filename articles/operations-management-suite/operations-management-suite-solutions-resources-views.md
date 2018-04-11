@@ -1,8 +1,8 @@
 ---
-title: "Operations Management Suite (OMS) 管理解決方案中的檢視 | Microsoft Docs"
-description: "Operations Management Suite (OMS) 中的管理解決方案通常包含一或多個檢視，以將資料視覺化。  本文說明如何匯出檢視設計工具所建立的檢視並將它納入管理解決方案中。 "
+title: 管理解決方案中的檢視 | Microsoft Docs
+description: '管理解決方案通常包含一或多個檢視，以將資料視覺化。  本文說明如何匯出檢視設計工具所建立的檢視並將它納入管理解決方案中。 '
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: b44763fe67b1c70c0b6ecdff73c32d8bb4fab3a4
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Operations Management Suite (OMS) 管理解決方案中的檢視 (預覽)
+# <a name="views-in-management-solutions-preview"></a>管理解決方案中的檢視 (預覽)
 > [!NOTE]
-> 這是在 OMS 中建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。    
->
->
+> 這是建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。    
 
-[Operations Management Suite (OMS) 中的管理解決方案](operations-management-suite-solutions.md)通常包含一或多個檢視，以將資料視覺化。  本文說明如何匯出[檢視設計工具](../log-analytics/log-analytics-view-designer.md)所建立的檢視並將它納入管理解決方案中。  
+
+[管理解決方案](operations-management-suite-solutions.md)通常包含一或多個檢視，以將資料視覺化。  本文說明如何匯出[檢視設計工具](../log-analytics/log-analytics-view-designer.md)所建立的檢視並將它納入管理解決方案中。  
 
 > [!NOTE]
-> 本文中的範例使用管理解決方案所必要或通用的參數和變數，如[在 Operations Management Suite (OMS) 中建立管理解決方案](operations-management-suite-solutions-creating.md)所述。
+> 本文中的範例使用管理解決方案所需或通用的參數和變數，如[在 Azure 中設計和建置管理解決方案](operations-management-suite-solutions-creating.md)所述。
 >
 >
 
@@ -48,7 +47,7 @@ ms.lasthandoff: 01/17/2018
 ## <a name="export-the-view-to-a-file"></a>將檢視匯出至檔案
 請依照 [Log Analytics 檢視設計工具](../log-analytics/log-analytics-view-designer.md)的指示將檢視匯出至檔案。  匯出的檔案會是 JSON 格式，具有與[方案檔相同的元素](operations-management-suite-solutions-solution-file.md)。  
 
-檢視檔的 **resources** 元素會有 **Microsoft.OperationalInsights/workspaces** 類型的資源，其代表 OMS 工作區。  此元素會有 **views** 類型的子元素，其代表檢視且包含詳細的組態。  您將複製此元素的詳細資料，然後將它複製到您的方案。
+檢視檔的 **resources** 元素將會有 **Microsoft.OperationalInsights/workspaces** 類型的資源，其代表 Log Analytics 工作區。  此元素會有 **views** 類型的子元素，其代表檢視且包含詳細的組態。  您將複製此元素的詳細資料，然後將它複製到您的方案。
 
 ## <a name="create-the-view-resource-in-the-solution"></a>在方案中建立檢視資源
 將下列檢視資源新增至方案檔的 **resources** 元素。  這會使用您也必須新增的下述變數。  請注意，**Dashboard** 和 **OverviewTile** 屬性是您將以所匯出檢視檔中的對應屬性覆寫的預留位置。

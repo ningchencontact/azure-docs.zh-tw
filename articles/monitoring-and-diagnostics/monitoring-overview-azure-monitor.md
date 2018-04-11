@@ -1,25 +1,25 @@
 ---
-title: "Azure 監視器概觀 | Microsoft Docs"
-description: "Azure 監視器會收集用於警示、webhook、自動調整，以及自動化的統計資料。 文章也會列出其他 Microsoft 監視選項。"
+title: Azure 監視器概觀 | Microsoft Docs
+description: Azure 監視器會收集用於警示、webhook、自動調整，以及自動化的統計資料。 文章也會列出其他 Microsoft 監視選項。
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 448711b7b2e102662bc157485561c33bf7f5fba1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Azure 監視器的概觀
 本文提供 Microsoft Azure 中 Azure 監視器服務的概觀。 它會討論 Azure 監視器所執行的作業，並提供關於如何使用 Azure 監視器之其他資訊的指標。  如果您偏好影片介紹，請參閱本文最後的＜後續步驟＞連結。 
@@ -35,15 +35,13 @@ Azure 監視器具有登陸頁面，可協助使用者：
 - 了解 Azure 所提供的監視功能。
 - 探索、設定及開始使用 Azure 的平台與進階監視功能。
 
-當 Azure 監視器服務發行時，登陸概觀頁面處於預覽狀態。 
-
 該頁面試是瀏覽的起點 (包括開始使用)。 它顯示來自不同服務的精心策劃問題，並可讓使用者深入瀏覽。
  
 ![非計算資源的監視與診斷模型](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
 
 當您開啟該頁面時，您可以選取您有讀取存取權的訂用帳戶。 針對選取的訂用帳戶，您可以看到：
 
-- **已觸發的警示與警示來源** - 此表格顯示摘要計數、警示來源，以及警示在選取的時間範圍內觸發的次數。 它同時適用於計量與活動記錄警示。 <編輯：具有一致體驗的警示 (預覽) 也會針對所有警示來顯示 - 事件、度量和記錄>
+- **已觸發的警示與警示來源** - 此表格顯示摘要計數、警示來源，以及警示在選取的時間範圍內觸發的次數。 這同時適用於舊版和新版警示。 進一步閱讀[新版 Azure 警示](monitoring-overview-unified-alerts.md)。 
 - **活動記錄錯誤** - 若您的任何 Azure 資源記錄具有嚴重性錯誤層級的事件，您可以檢視高階計數並點擊到活動記錄頁面以調查每個事件。
 - **Azure 服務健康情況** - 您可以看到「服務健康情況」服務問題、已規劃的維護事件與健康情況建議的計數。 當 Azure 基礎結構的問題影響您的服務時，Azure 服務健康情況將提供個人化資訊。  如需詳細資訊，請參閱 [Azure 服務健康情況](../service-health/service-health-overview.md)。  
 - **Application Insights** - 查看目前訂用帳戶中每個 AppInsights 資源的 KPI。 KPI 已針對伺服器端應用程式 (包括 ASP.NET Web 應用程式、Java、Node 與一般應用程式類型) 監視最佳化。 KPI 包括要求速率、回應期間、失敗率與可用性百分比的計量。 
@@ -143,12 +141,12 @@ Azure 監視器具有登陸頁面，可協助使用者：
 
 ### <a name="automate"></a>自動化
 > [!NOTE]
-> 隨著 Microsoft Azure 上警示功能的持續發展，警示的一致體驗現在正開放預覽。 有關 [Azure 警示 (預覽)](monitoring-overview-unified-alerts.md) 的詳細資訊
+> 隨著 Microsoft Azure 上警示功能的持續發展，現已提供整合的警示功能體驗。 如需更多詳細資料，請參閱[新版 Azure 警示](monitoring-overview-unified-alerts.md)
 
-在標準的 Azure 警示中，您可以使用監視資料來觸發警示或甚至觸發整個程序。 範例包括：
+在 Azure 警示中，您可以使用監視資料來觸發警示或甚至觸發整個程序。 範例包括：
 
 * 使用資料來根據應用程式負載，自動向上或向下調整計算執行個體。
-* 在某個計量超過預先定義的臨界值時傳送電子郵件。
+* 根據計量或記錄條件傳送電子郵件。 
 * 呼叫 Web URL (webhook) 以在 Azure 之外的系統中執行動作
 * 在 Azure 自動化中啟動 Runbook 以執行各種工作
 

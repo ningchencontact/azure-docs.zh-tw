@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 網路監看員管理網路安全性群組流量記錄 - Azure CLI | Microsoft Docs"
-description: "此頁面說明如何使用 Azure CLI 在 Azure 網路監看員中管理網路安全性群組流量記錄"
+title: 使用 Azure 網路監看員管理網路安全性群組流量記錄 - Azure CLI | Microsoft Docs
+description: 此頁面說明如何使用 Azure CLI 在 Azure 網路監看員中管理網路安全性群組流量記錄
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 51683e937b7985bb61671645f3e2e1be6d786201
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b8c2ff527328fe5f486362db416a99a1c711c9c2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>使用 Azure CLI 設定網路安全性群組流量記錄
 
@@ -50,6 +50,8 @@ az provider register --namespace Microsoft.Insights
 ```azurecli
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
+
+您指定的儲存體帳戶不能為其設定網路規則，以限制只能對 Microsoft 服務或特定虛擬網路進行網路存取。
 
 ## <a name="disable-network-security-group-flow-logs"></a>停用網路安全性群組流量記錄
 

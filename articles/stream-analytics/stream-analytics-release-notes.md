@@ -1,11 +1,10 @@
 ---
-title: "串流分析版本資訊 | Microsoft Docs"
-description: "串流分析版本資訊"
+title: 串流分析版本資訊 | Microsoft Docs
+description: 串流分析版本資訊
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 5e59f893-cd2c-43fb-9eca-c146ce637203
 ms.service: stream-analytics
 ms.devlang: na
@@ -13,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/03/2017
-ms.author: samacha
-ms.openlocfilehash: 3251cd47bb917912d63330345dbf392e724448ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 645c9e7014beba0312de3784bbc04734927929a9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-release-notes"></a>串流分析版本資訊
 
@@ -84,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 
 | 標題 | 說明 |
 | --- | --- |
-| SELECT 的新行為 |「串流分析」中的 SELECT 已經延伸成允許使用 * 做為巢狀記錄的屬性存取子。 如需詳細資訊，請參閱 [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "複雜資料類型")。 |
+| SELECT 的新行為 |「串流分析」中的 SELECT 已經延伸成允許使用 * 做為巢狀記錄的屬性存取子。 如需詳細資訊，請參閱 [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "複雜資料類型") \(英文\)。 |
 
 ## <a name="notes-for-10222015-release-of-stream-analytics"></a>串流分析 2015/10/22 版本的注意事項
 此版本包含下列更新：

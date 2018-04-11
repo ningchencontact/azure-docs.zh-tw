@@ -1,5 +1,5 @@
 ---
-title: 從 Log Analytics 取消 Azure 自動化帳戶連結
+title: 從 Log Analytics 取消 Azure 自動化帳戶連結 | Microsoft Docs
 description: 此文章提供如何將 Azure 自動化帳戶從 Log Analytics 工作區取消連結的概觀。
 services: automation
 ms.service: automation
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2e6f887a7684ae995e9b7da84dace523843ff555
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b8b00f8a82dd63df13ccd0bc7e10429323c15ab3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>如何將自動化帳戶從 Log Analytics 工作區取消連結
 
@@ -46,4 +46,4 @@ Azure 自動化與 Log Analytics 整合，不僅是為了支援監視所有自�
 
 ## <a name="next-steps"></a>後續步驟
 
-若要重新設定您的自動化帳戶以與 OMS Log Analytics 整合，請參閱[從自動化將作業狀態和作業串流轉送到 Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md)。 
+若要重新設定您的自動化帳戶以與 Log Analytics 整合，請參閱[從自動化將作業狀態和作業串流轉送到 Log Analytics](automation-manage-send-joblogs-log-analytics.md)。 

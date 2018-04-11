@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 15a1648193555ecc5847170ab65f48dfa4f6417b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 66e1d5691b431be0c3d040570b13e8d16b1669ef
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 MySQL 資料庫
 
@@ -76,11 +76,11 @@ ms.lasthandoff: 03/09/2018
     | Azure Stack 組建 | MySQL RP 安裝程式 |
     | --- | --- |
     | 1802：1.0.180302.1 | [MySQL RP 版本 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
-    | 1712：1.0.180102.3 或 1.0.180106.1 (多節點) | [MySQL RP 版本 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+    | 1712：1.0.180102.3 或 1.0.180106.1 (多節點) | [MySQL RP 1.1.14.0 版](https://aka.ms/azurestackmysqlrp1712) |
     | 1711：1.0.171122.1 | [MySQL RP 版本 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1710：1.0.171028.1 | [MySQL RP 版本 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
 
-4.  Azure Stack 根憑證擷取自具特殊權限的端點。 針對 Azure SDK，會在此程序的執行過程中建立自我簽署憑證。 對於多節點，您必須提供適當的憑證。
+4.  針對 Azure SDK，會在此程序的執行過程中建立自我簽署憑證。 對於多節點，您必須提供適當的憑證。
 
     如果您需要提供自己的憑證，請將符合下列準則的 .pfx 檔案放在 **DependencyFilesLocalPath** 中：
 

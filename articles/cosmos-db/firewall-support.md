@@ -1,26 +1,26 @@
 ---
-title: "Azure Cosmos DB 防火牆支援和 IP 存取控制 | Microsoft Docs"
-description: "了解如何使用 IP 存取控制原則進行 Azure Cosmos DB 資料庫帳戶上的防火牆支援。"
-keywords: "IP 存取控制，防火牆支援"
+title: Azure Cosmos DB 防火牆支援和 IP 存取控制 | Microsoft Docs
+description: 了解如何使用 IP 存取控制原則進行 Azure Cosmos DB 資料庫帳戶上的防火牆支援。
+keywords: IP 存取控制，防火牆支援
 services: cosmos-db
-author: shahankur11
+author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
-ms.author: ankshah
-ms.openlocfilehash: 85f5e0e076f92afc79ed8f4ce652bb0f31923113
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 03/30/2018
+ms.author: mimig
+ms.openlocfilehash: 5b70f77d49651e2873428fc7798fff3770b7a095
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB 防火牆支援
 為了保護 Azure Cosmos DB 資料庫帳戶中所儲存的資料，Azure Cosmos DB 已支援利用強式雜湊式訊息驗證碼 (HMAC) 的密碼型[授權模型](https://msdn.microsoft.com/library/azure/dn783368.aspx)。 現在，除了密碼型授權模型之外，Azure Cosmos DB 還支援使用原則驅動的 IP 型存取控制來進行輸入防火牆支援。 此模型與傳統資料庫系統的防火牆規則相類似，且可為 Azure Cosmos DB 資料庫帳戶提供額外的安全性層級。 您現在可以使用這個模型，設定只能從一組核准的電腦和 (或) 雲端服務存取 Azure Cosmos DB 資料庫帳戶。 透過這些核准的電腦和服務組合來存取 Azure Cosmos DB 資源，仍然需要呼叫者呈現有效的授權權杖。
@@ -31,15 +31,13 @@ ms.lasthandoff: 01/03/2018
 ![顯示 IP 型存取控制之連接程序的圖表](./media/firewall-support/firewall-support-flow.png)
 
 ## <a id="configure-ip-policy"></a> 設定 IP 存取控制原則
-您可以在 Azure 入口網站中設定 IP 存取控制原則，也可以透過 [Azure CLI](cli-samples.md)、[Azure Powershell](powershell-samples.md) 或 [REST API](/rest/api/documentdb/)，以程式設計方式更新 **ipRangeFilter** 屬性來設定。 
+您可以在 Azure 入口網站中設定 IP 存取控制原則，也可以透過 [Azure CLI](cli-samples.md)、[Azure Powershell](powershell-samples.md) 或 [REST API](/rest/api/cosmos-db/)，以程式設計方式更新 **ipRangeFilter** 屬性來設定。 
 
-若要在 Azure 入口網站中設定 IP 存取控制原則，請瀏覽至 [Azure Cosmos DB 帳戶] 頁面、按一下導覽功能表中的 [防火牆]，然後將 [啟用 IP 存取控制] 值變更為 [開啟]。 
+若要在 Azure 入口網站中設定 IP 存取控制原則，請瀏覽至 [Azure Cosmos DB 帳戶] 頁面、按一下導覽功能表中的 [防火牆]，接著將 [允許從下項存取] 值變更為 [選取的網路]，然後按一下 [儲存]。 
 
 ![顯示如何在 Azure 入口網站中開啟 [防火牆] 頁面的螢幕擷取畫面](./media/firewall-support/azure-portal-firewall.png)
 
-一旦開啟 IP 存取控制，入口網站就會提供參數以允許存取 Azure 入口網站、其他 Azure 服務及目前的 IP。 下列各節會提供有關這些參數的額外資訊。
-
-![顯示如何在 Azure 入口網站中進行防火牆設定的螢幕擷取畫面](./media/firewall-support/azure-portal-firewall-configure.png)
+一旦開啟 IP 存取控制之後，入口網站就能指定 IP 位址和範圍，以及提供參數來允許存取其他 Azure 服務和 Azure 入口網站。 下列各節會提供有關這些參數的額外資訊。
 
 > [!NOTE]
 > 啟用 Azure Cosmos DB 資料庫帳戶的 IP 存取控制原則，即會封鎖所設定之允許 IP 位址範圍清單外部的電腦對您 Azure Cosmos DB 資料庫帳戶的所有存取。 透過這個模型，也會封鎖從入口網站瀏覽資料平面作業，確保存取控制的完整性。
@@ -55,12 +53,14 @@ ms.lasthandoff: 01/03/2018
 |中國|139.217.8.252|
 |US Gov|52.244.48.71|
 
-若要允許存取 Azure 入口網站，請從 Azure 入口網站，將 Azure 入口網站中的 [允許存取 Azure 入口網站] 值設定為 [開啟]\([啟用 IP 存取控制] 值必須設為 [開啟] 以檢視和變更 [允許存取 Azure 入口網站] 值)。
+當您在 Azure 入口網站中將防火牆設定變更為 [選取的網路] 時，預設允許存取 Azure 入口網站。 
 
 ![顯示如何允許存取 Azure 入口網站的螢幕擷取畫面](./media/firewall-support/enable-azure-portal.png)
 
 ## <a name="connections-from-other-azure-paas-services"></a>來自其他 Azure PaaS 服務的連線 
-在 Azure 中，Azure 串流分析、Azure Functions 和 Azure App Service 之類的 PaaS 服務會與 Azure Cosmos DB 搭配使用。 若要允許從這些服務存取 Azure Cosmos DB 資料庫帳戶，由於它們的 IP 位址尚無法得知，請以程式設計方式將 IP 位址 0.0.0.0 加入到與您的 Azure Cosmos DB 資料庫帳戶相關聯之允許的 IP 位址清單，或將 Azure 入口網站中的 [允許存取 Azure 服務] 值設為 [開啟] \([啟用 IP 存取控制] 值必須設為 [開啟] 以檢視和變更 [允許存取 Azure 服務] 值)。 這可確保 Azure PaaS 服務能夠存取 Azure Cosmos DB 帳戶。 
+在 Azure 中，Azure 串流分析、Azure Functions 和 Azure App Service 之類的 PaaS 服務會與 Azure Cosmos DB 搭配使用。 若要能夠從 IP 位址尚無法使用的這些服務存取 Azure Cosmos DB 資料庫帳戶，請以程式設計方式將 IP 位址 0.0.0.0 新增到與您的 Azure Cosmos DB 資料庫帳戶相關聯的允許 IP 位址清單中。 
+
+當您在 Azure 入口網站中將防火牆設定變更為 [選取的網路] 時，預設允許存取其他 Azure 服務。 
 
 ![顯示如何在 Azure 入口網站中開啟 [防火牆] 頁面的螢幕擷取畫面](./media/firewall-support/enable-azure-services.png)
 
@@ -68,10 +68,12 @@ ms.lasthandoff: 01/03/2018
 
 為了簡化開發工作，Azure 入口網站可協助您識別用戶端電腦的 IP 並新增至允許清單，讓您電腦上執行的應用程式可以存取 Azure Cosmos DB 帳戶。 此處的用戶端 IP 位址是入口網站所偵測到的。 它可能是您電腦的用戶端 IP 位址，但也可能是網路閘道的 IP 位址。 移至生產環境之前，別忘記移除它。
 
+若要啟用目前的 IP，選取 [Add my current IP] \(新增我目前的 IP\)，將您目前的 IP 新增至 IP 清單，然後按一下 [儲存]。
+
 ![顯示如何為目前的 IP 進行防火牆設定的螢幕擷取畫面](./media/firewall-support/enable-current-ip.png)
 
 ## <a name="connections-from-cloud-services"></a>從雲端服務的連接
-在 Azure 中，雲端服務是使用 Azure Cosmos DB 裝載中介層服務邏輯的常見方式。 若要從雲端服務存取 Azure Cosmos DB 資料庫帳戶，必須[設定 IP 存取控制原則](#configure-ip-policy)，以將雲端服務的公用 IP 位址新增至與 Azure Cosmos DB 資料庫帳戶相關聯的允許 IP 位址清單。  這確保雲端服務的所有角色執行個體都能存取您的 Azure Cosmos DB 資料庫帳戶。 您可以在 Azure 入口網站中擷取雲端服務的 IP 位址，如下列螢幕擷取畫面所示：
+在 Azure 中，雲端服務是使用 Azure Cosmos DB 裝載中介層服務邏輯的常見方式。 若要從雲端服務存取 Azure Cosmos DB 資料庫帳戶，必須[設定 IP 存取控制原則](#configure-ip-policy)，以將雲端服務的公用 IP 位址新增至與 Azure Cosmos DB 資料庫帳戶相關聯的允許 IP 位址清單。 這確保雲端服務的所有角色執行個體都能存取您的 Azure Cosmos DB 資料庫帳戶。 您可以在 Azure 入口網站中擷取雲端服務的 IP 位址，如下列螢幕擷取畫面所示：
 
 ![這個螢幕擷取畫面顯示 Azure 入口網站中所顯示雲端服務的公用 IP 位址](./media/firewall-support/public-ip-addresses.png)
 
@@ -91,7 +93,7 @@ ms.lasthandoff: 01/03/2018
 ### <a name="portal-operations"></a>入口網站作業
 啟用 Azure Cosmos DB 資料庫帳戶的 IP 存取控制原則，即會封鎖所設定之允許 IP 位址範圍清單外部的電腦對您 Azure Cosmos DB 資料庫帳戶的所有存取。 因此，如果您想要啟用入口網站資料層面作業，例如瀏覽集合和查詢文件，您需要在入口網站使用 [防火牆] 頁面，明確允許存取 Azure 入口網站。 
 
-![顯示如何允許存取 Azure 入口網站的螢幕擷取畫面](./media/firewall-support/enable-azure-portal.png)
+![顯示如何允許存取 Azure 入口網站的螢幕擷取畫面](./media/firewall-support/azure-portal-firewall.png)
 
 ### <a name="sdk--rest-api"></a>SDK & Rest API
 基於安全性考量，如果從電腦透過 SDK 或 REST API 的存取不在允許清單上，則會傳回沒有其他詳細資料的一般「404 找不到」回應。 請確認您針對 Azure Cosmos DB 資料庫帳戶設定的 IP 允許清單，以確保會將正確的原則組態套用至您的 Azure Cosmos DB 資料庫帳戶。

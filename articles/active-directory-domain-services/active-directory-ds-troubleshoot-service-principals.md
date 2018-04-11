@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7cd16d64d18b4cdcb710f68c55a8251904acda86
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>針對受控網域的無效服務主體組態進行疑難排解
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>警示 AADDS105：密碼同步處理應用程式已過期
 
-**警示訊息：**應用程式識別碼為 “d87dcbc6-a371-462e-88e3-28ad15ec4e64” 的服務主體已刪除，然後重新建立。 此服務主體可管理另一個服務主體，以及用於密碼同步處理的應用程式。 受控服務主體及/或應用程式未經過新建立的服務主體授權，因此它們不能由我們的服務管理。 這表示，新建立的服務主體將無法更新舊的受控應用程式，而且會影響密碼同步處理。
+**警示訊息：**應用程式識別碼為 “d87dcbc6-a371-462e-88e3-28ad15ec4e64” 的服務主體已刪除，然後重新建立。 重新建立會在為您受控網域提供服務所需的 Azure AD Domain Services 資源上留下不一致的權限。 受控網域上的密碼同步處理可能會受到影響。
 
 
 **解決方案：**您需要 Azure AD PowerShell 才能完成這些步驟。 如需安裝 Azure AD PowerShell 的相關資訊，請參閱[這篇文章](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.)。

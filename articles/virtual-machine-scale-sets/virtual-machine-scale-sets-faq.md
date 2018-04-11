@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 4dd908908877a222c708c9b2ab6255ab9a4b414a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虛擬機器擴展集常見問題集
 
@@ -63,7 +63,11 @@ ms.lasthandoff: 03/28/2018
 
 **問：** 擴展集是否可與 Azure 可用性設定組組搭配使用？
 
-**答：** 是。 擴展集是隱含的可用性設定組，具有 5 個容錯網域和 5 個更新網域。 超過 100 個 VM 的擴展集橫跨多個「放置群組」，這相當於多個可用性設定組。 如需放置群組的詳細資訊，請參閱[使用大型的虛擬機器擴展集](virtual-machine-scale-sets-placement-groups.md)。 VM 的可用性設定組可以存在於與 VM 擴展集相同的虛擬網路中。 常見組態是在可用性設定組中放入控制節點 VM (其通常需要唯一組態)，以及在擴展集中放入資料節點。
+**答：** 區域 (非區域) 擴展集會使用「放置群組」，其中每一個都可設定來作為隱含的可用性設定組，並具有五個容錯網域和五個更新網域。 具有 100 部以上 VM 的擴展集會跨越多個放置群組。 如需放置群組的詳細資訊，請參閱[使用大型的虛擬機器擴展集](virtual-machine-scale-sets-placement-groups.md)。 VM 的可用性設定組可以存在於與 VM 擴展集相同的虛擬網路中。 常見組態是在可用性設定組中放入控制節點 VM (其通常需要唯一組態)，以及在擴展集中放入資料節點。
+
+**問：** 擴展集是否可與 Azure 可用性區域搭配使用？
+
+**答：** 可以！ 如需詳細資訊，請參閱[擴展集區域文件](./virtual-machine-scale-sets-use-availability-zones.md)。
 
 
 ## <a name="autoscale"></a>Autoscale

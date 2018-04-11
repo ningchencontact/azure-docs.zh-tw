@@ -1,11 +1,11 @@
 ---
-title: "Azure 網路安全性最佳作法 |Microsoft Docs"
-description: "了解 Azure 中可用來協助建立安全網路環境中的一些重要功能"
+title: Azure 網路安全性最佳作法 |Microsoft Docs
+description: 了解 Azure 中可用來協助建立安全網路環境中的一些重要功能
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: d169387a-1243-4867-a602-01d6f2d8a2a1
 ms.service: virtual-network
 ms.devlang: na
@@ -27,7 +27,7 @@ Microsoft 雲端服務提供超大規模的服務和基礎結構、企業級的�
 以下邏輯圖表以具體範例說明 Azure 平台可用的許多安全性技術。 如需快速參考，請找出最符合您情況的範例。 如需延伸說明，請繼續閱讀本文。
 [![0]][0]
 
-[範例 1︰建置周邊網路 (也稱為 DMZ、非軍事區或屏蔽式子網路)，使用網路安全性群組 (NSG) 協助保護應用程式。](#example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs)</br>
+[範例 1︰建置周邊網路 (也稱為 DMZ 或屏蔽式子網路)，使用網路安全性群組 (NSG) 協助保護應用程式。](#example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs)</br>
 [範例 2：建置周邊網路，使用防火牆和 NSG 協助保護應用程式。](#example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs)</br>
 [範例 3︰建置周邊網路，使用防火牆、使用者定義的路由 (UDR) 及 NSG 協助保護網路。](#example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
 [範例 4：新增使用站對站、虛擬設備的虛擬私人網路 (VPN) 混合式連接。](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br>

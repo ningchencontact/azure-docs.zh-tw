@@ -1,11 +1,11 @@
 ---
-title: "使用 CLI 2.0 在 Azure 中擷取 Linux VM 的映像 | Microsoft Docs"
-description: "使用 Azure CLI 2.0 擷取要用於大型部署的 Azure VM 映像。"
+title: 使用 CLI 2.0 在 Azure 中擷取 Linux VM 的映像 | Microsoft Docs
+description: 使用 Azure CLI 2.0 擷取要用於大型部署的 Azure VM 映像。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/22/2018
 ms.author: cynthn
-ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: e83319b8b4ace495a4301dd850cea27633115426
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何建立虛擬機器或 VHD 的映像
 
@@ -89,6 +89,8 @@ ms.lasthandoff: 03/09/2018
    
    > [!NOTE]
    > 此映像與來源 VM 建立於相同的資源群組中。 您可以從此映像，在您訂用帳戶的任何資源群組中建立 VM。 從管理觀點來看，您可能想為您的 VM 資源和映像建立特定的資源群組。
+   >
+   > 如果您想要將映像儲存於區域復原的儲存體中，則需要在支援[可用性區域](../../availability-zones/az-overview.md)且包含 `--zone-resilient true` 參數的區域中建立它。
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>步驟 3：從擷取的映像建立 VM
 使用您以 [az vm create](/cli/azure/vm#az_vm_create) 建立的映像來建立 VM。 下列範例會從名為 myImage 的映像建立名為 myVMDeployed 的 VM：

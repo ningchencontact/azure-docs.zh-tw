@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute 線路和路由網域
  您必須訂購 *ExpressRoute 線路* ，才能將內部部署基礎結構透過連線提供者連接到 Microsoft。 下圖所示的是 WAN 與 Microsoft 之間連線的邏輯表示法。
@@ -72,7 +72,7 @@ ExpressRoute 線路有多個相關聯的路由網域：Azure 公用、Azure 私�
 ## <a name="routing-domain-comparison"></a>路由網域的比較
 下表是這三種路由網域的比較：
 
-|  | **私人對等互連** | **公用對等互連** | **Microsoft 對等互連*** |
+|  | **私人對等互連** | **公用對等互連** (已被新建立的取代) | **Microsoft 對等互連** |
 | --- | --- | --- | --- |
 | **每個對等支援的前置詞數目最大值** |預設為 4000，ExpressRoute Premium 中為 10000 |200 |200 |
 | **支援的 IP 位址範圍** |您的 WAN 內任何有效的 IP 位址。 |您或您的連線提供者所擁有的公用 IP 位址。 |您或您的連線提供者所擁有的公用 IP 位址。 |
@@ -81,7 +81,7 @@ ExpressRoute 線路有多個相關聯的路由網域：Azure 公用、Azure 私�
 | **路由介面 IP 位址** |RFC1918 和公用 IP 位址 |在路由註冊中向您註冊的公用 IP 位址。 |在路由註冊中向您註冊的公用 IP 位址。 |
 | **MD5 雜湊支援** |yes |yes |yes |
 
-(*) 需要進階附加元件 SKU 層
+
 
 您可以選擇啟用一或多個路由網域，使之成為 ExpressRoute 線路的一部分。 如果想要將所有路由網域合併成單一路由網域，您可以選擇將所有路由網域放在相同的 VPN。 您也可以將他們放在不同的路由網域，類似上圖。 建議的設定是將私用對等直接連線到核心網路，而將公用和 Microsoft 對等連結連線到您的 DMZ。
 

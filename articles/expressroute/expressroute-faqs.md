@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 03/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3f33703ec86f131d18c89cf4b29514c5002349d1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 557c6a75140f399f74d77543de834af086871032
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
@@ -70,11 +70,12 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 * Power BI
 * Dynamics 365 for Finance and Operations (先前稱為 Dynamics AX Online)
-* 除了下列少數例外狀況的大部分 Azure 服務：
-  * CDN
-  * Visual Studio Team Services 負載測試 
-  * 多因素驗證
-  * 流量管理員
+* 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br>
+  不支援下列服務：
+    * CDN
+    * Visual Studio Team Services 負載測試 
+    * 多因素驗證
+    * 流量管理員
 
 ### <a name="microsoft-peering"></a>Microsoft 對等互連
 
@@ -87,7 +88,8 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 * 使用[路由篩選器](#route-filters-for-microsoft-peering)，您就可以存取與 Microsoft 對等互連相同的公用服務：
   * Power BI
   * Dynamics 365 for Finance and Operations
-  * 除了下列少數例外狀況的大部分 Azure 服務：
+  * 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br>
+  不支援下列服務：
     * CDN
     * Visual Studio Team Services 負載測試 
     * 多因素驗證
@@ -214,7 +216,7 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>為什麼虛擬網路上的 ExpressRoute 閘道會有相關聯的公用 IP 位址？
 
-這個公用 IP 位址僅用於內部管理。 此公用 IP 位址不會向網際網路公開，並不會構成虛擬網路的安全性風險。
+公用 IP 位址僅供內部管理使用，並不會構成虛擬網路的安全性風險。
 
 ### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>我該採取什麼動作才能透過 ExpressRoute 連線至 Azure 儲存體？
 
