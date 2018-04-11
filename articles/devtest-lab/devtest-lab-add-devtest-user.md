@@ -1,11 +1,11 @@
 ---
-title: "在 Azure DevTest Labs 中新增擁有者和使用者 | Microsoft Docs"
-description: "使用 Azure 入口網站或 PowerShell 在 Azure DevTest Labs 中新增擁有者和使用者"
+title: 在 Azure DevTest Labs 中新增擁有者和使用者 | Microsoft Docs
+description: 使用 Azure 入口網站或 PowerShell 在 Azure DevTest Labs 中新增擁有者和使用者
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
 ms.service: devtest-lab
 ms.workload: na
@@ -44,7 +44,7 @@ Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../ac
 | **VM 的基本工作** | | | |
 | 新增和移除自訂映像 |否 |yes |yes |
 | 新增、更新和刪除公式 |yes |yes |yes |
-| 將 Azure Marketplace 映像加入白名單 |否 |yes |yes |
+| 將 Azure Marketplace 映像加入允許清單 |否 |yes |yes |
 | **VM 工作** | | | |
 | 建立 VM |yes |yes |yes |
 | 啟動、停止和刪除 VM |僅限使用者所建立的 VM |yes |yes |

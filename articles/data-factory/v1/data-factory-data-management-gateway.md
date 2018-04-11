@@ -150,8 +150,8 @@ ms.lasthandoff: 03/23/2018
 Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，您可以在閘道電腦上相應地設定網域和連接埠。
 
 > [!NOTE]
-> 1. 視您的來源/接收器而定，您可能需要將額外的網域和輸出連接埠加到您公司/Windows 防火牆的白名單中。
-> 2. 對於某些雲端資料庫 (例如：[Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings)、[Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) 等)，您可能需要將閘道電腦的 IP 位址加到其防火牆組態的白名單中。
+> 1. 視您的來源/接收器而定，您可能需要將額外的網域和輸出連接埠加到您公司/Windows 防火牆的允許清單中。
+> 2. 對於某些雲端資料庫 (例如：[Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings)、[Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) 等)，您可能需要將閘道電腦的 IP 位址加到其防火牆組態的允許清單中。
 >
 >
 

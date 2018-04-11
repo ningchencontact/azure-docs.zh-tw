@@ -1,11 +1,11 @@
 ---
-title: "使用適用於開發人員的 Azure DevTest Labs | Microsoft Docs"
-description: "了解如何使用適用於開發人員案例的 Azure DevTest Labs。"
+title: 使用適用於開發人員的 Azure DevTest Labs | Microsoft Docs
+description: 了解如何使用適用於開發人員案例的 Azure DevTest Labs。
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 22e070e5-3d1a-49fe-9d4c-5e07cb0b7fe2
 ms.service: devtest-lab
 ms.workload: na
@@ -53,7 +53,7 @@ Azure DevTest Labs 可以用來實作許多重要案例，但是其中一個主�
    
    | Task | 您學到什麼 |
    | --- | --- |
-   | [設定 Azure Marketplace 映像](devtest-lab-configure-marketplace-images.md) |了解如何將 Azure Marketplace 映像加入白名單；只讓您想要提供給開發人員使用的映像可供選取。|
+   | [設定 Azure Marketplace 映像](devtest-lab-configure-marketplace-images.md) |了解如何將 Azure Marketplace 映像加入允許清單；只讓您想要提供給開發人員使用的映像可供選取。|
    | [建立自訂映像](devtest-lab-create-template.md) |預先安裝所需軟體以建立自訂映像，讓開發人員可以使用自訂映像快速建立 VM。|
    | [了解映像處理站](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |觀看如何設定及使用映像處理站的說明影片。|
 

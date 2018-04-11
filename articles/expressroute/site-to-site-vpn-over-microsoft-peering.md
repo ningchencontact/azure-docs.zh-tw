@@ -1,12 +1,12 @@
 ---
-title: "透過適用於 Azure ExpressRoute 的 Microsoft 對等互連，設定站對站 VPN | Microsoft Docs"
-description: "使用站對站 VPN 閘道，透過 ExpressRoute Microsoft 對等互連線路，設定 IPsec/IKE 與 Azure 的連線。"
+title: 透過適用於 Azure ExpressRoute 的 Microsoft 對等互連，設定站對站 VPN | Microsoft Docs
+description: 使用站對站 VPN 閘道，透過 ExpressRoute Microsoft 對等互連線路，設定 IPsec/IKE 與 Azure 的連線。
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/07/2017
 
 ## <a name="routefilter"></a>2.設定路由篩選
 
-路由篩選可讓您識別想要透過 ExpressRoute 線路的 Microsoft 對等互連使用的服務。 它基本上是所有 BGP 社群值的白名單。 
+路由篩選可讓您識別想要透過 ExpressRoute 線路的 Microsoft 對等互連使用的服務。 它基本上是所有 BGP 社群值的允許清單。 
 
 ![路由篩選](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 

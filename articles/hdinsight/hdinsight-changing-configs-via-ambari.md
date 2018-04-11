@@ -1,11 +1,11 @@
 ---
-title: "使用 Ambari - Azure HDInsight 將叢集設定最佳化 | Microsoft Docs"
-description: "使用 Ambari web UI 設定 HDInsight 叢集並使之最佳化。"
-documentationcenter: 
+title: 使用 Ambari - Azure HDInsight 將叢集設定最佳化 | Microsoft Docs
+description: 使用 Ambari web UI 設定 HDInsight 叢集並使之最佳化。
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
@@ -230,7 +230,7 @@ Hadoop 工作通常出現 I/O 瓶頸。 壓縮資料可以加快 I/O 和整體�
 
 ### <a name="enable-speculative-execution"></a>啟用推測性執行
 
-推測性執行會啟動特定數目的重複工作，以偵測緩慢執行的工作並列入黑名單，同時將個別工作的結果最佳化，藉以改善整體的工作執行效果。
+推測性執行會啟動特定數目的重複工作，以偵測緩慢執行的工作並列入封鎖清單，同時將個別工作的結果最佳化，藉以改善整體的工作執行效果。
 
 對於有大量輸入的長時間執行 MapReduce 工作，不應該開啟推測性執行。
 
