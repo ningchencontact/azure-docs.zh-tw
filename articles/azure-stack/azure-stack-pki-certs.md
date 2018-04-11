@@ -3,7 +3,7 @@ title: Azure Stack 整合式系統的 Azure Stack 公開金鑰基礎結構憑證
 description: 說明 Azure Stack 整合式系統的 Azure Stack PKI 憑證部署需求。
 services: azure-stack
 documentationcenter: ''
-author: mabriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
-ms.author: mabrigg
+ms.date: 03/29/2018
+ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: a5712e556d7b3bdcce38b8b8d39a08414ce0fd2f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
+
 Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 Azure Stack 服務和可能租用戶 VM 的外部可存取公用 IP 位址。 在 Azure Stack 部署期間，這些 Azure Stack 公用基礎結構端點需要具有適當 DNS 名稱的 PKI 憑證。 本文提供以下相關資訊：
 
 - 部署 Azure Stack 時需要哪些憑證
@@ -37,7 +38,7 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 - 您的 Azure Stack 基礎結構必須能夠存取用來簽署憑證的網路憑證授權單位
 - 旋轉憑證時，憑證必須是與從用來簽署憑證 (在部署時提供) 相同的內部憑證授權單位，或上述任何公用憑證授權單位發行
 - 不支援使用自我簽署憑證
-- 憑證可以是單一萬用字元憑證，其中涵蓋主體別名 (SAN) 欄位中的所有命名空間。 或者，您可以針對需要憑證的端點 (例如 acs、金鑰保存庫)，使用採用萬用字元的個別憑證。 
+- 憑證可以是單一萬用字元憑證，其中涵蓋主體別名 (SAN) 欄位中的所有命名空間。 或者，您可以針對需要憑證的端點 (例如 **acs**、Key Vault)，使用採用萬用字元的個別憑證。 
 - 憑證簽章演算法不能是 SHA1，因為它必須更強大。 
 - 憑證格式必須是 PFX，因為安裝 Azure Stack 時需要公用與私密金鑰。 
 - 憑證 pfx 檔案的 [金鑰使用方法] 欄位中必須有 [數位簽章] 和 [KeyEncipherment] 值。
@@ -58,6 +59,23 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 每個 Azure Stack 公用基礎結構端點需要具有適當 DNS 名稱的憑證。 每個端點的 DNS 名稱是以下列格式表示：*&lt;prefix>.&lt;region>.&lt;fqdn>*。 
 
 針對您的部署，[region] 和 [externalfqdn] 值必須符合您為 Azure Stack 系統選擇的地區和外部網域名稱。 例如，如果區域名稱為 Redmond，而外部網域名稱為 contoso.com，則 DNS 名稱的格式會是 *&lt;prefix>.redmond.contoso.com*。Microsoft 會預先指定 *&lt;prefix>* 值，以描述憑證所保護的端點。 此外，外部基礎結構端點的 *&lt;prefix>* 值取決於使用特定端點的 Azure Stack 服務。 
+
+> [!note]  
+> 憑證可以作為單一萬用字元憑證，涵蓋複製到所有目錄的主體以及主體別名 (SAN) 欄位中的所有命名空間；或作為個別憑證，供複製到對應目錄的每個端點使用。 請記住，無論使用哪種方式，在必要時您都必須針對端點 (例如 **acs** 和 Key Vault) 使用萬用宇元憑證。 
+
+| 部署資料夾 | 必要的憑證主體和主體別名 (SAN) | 範圍 (每個區域) | 子網域命名空間 |
+|-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
+| 公用入口網站 | portal.&lt;region>.&lt;fqdn> | 入口網站 | &lt;region>.&lt;fqdn> |
+| 管理入口網站 | adminportal.&lt;region>.&lt;fqdn> | 入口網站 | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager (公用) | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager (管理員) | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | Blob 儲存體 | blob.&lt;region>.&lt;fqdn> |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | 資料表儲存體 | table.&lt;region>.&lt;fqdn> |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | 佇列儲存體 | queue.&lt;region>.&lt;fqdn> |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | Key Vault | vault.&lt;region>.&lt;fqdn> |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) |  內部金鑰保存庫 |  adminvault.&lt;region>.&lt;fqdn> |
+
+### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>供 Pre-1803 版本上的 Azure Stack 環境使用
 
 |部署資料夾|必要的憑證主體和主體別名 (SAN)|範圍 (每個區域)|子網域命名空間|
 |-----|-----|-----|-----|
@@ -93,7 +111,7 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 |範圍 (每個區域)|憑證|必要的憑證主體和主體別名 (SAN)|子網域命名空間|
 |-----|-----|-----|-----|
 |SQL、MySQL|SQL 和 MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(萬用字元 SSL 憑證)|dbadapter.*&lt;region>.&lt;fqdn>*|
-|App Service 方案|Web 流量預設 SSL 憑證|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>(多重網域萬用字元 SSL 憑證<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service 方案|Web 流量預設 SSL 憑證|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(多重網域萬用字元 SSL 憑證<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service 方案|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 憑證<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service 方案|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 憑證<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service 方案|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 憑證<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
