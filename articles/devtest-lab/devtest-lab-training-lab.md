@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure DevTest Labs 進行訓練 | Microsoft Docs"
-description: "了解如何針對訓練案例使用 Azure DevTest Labs。"
+title: 使用 Azure DevTest Labs 進行訓練 | Microsoft Docs
+description: 了解如何針對訓練案例使用 Azure DevTest Labs。
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 57ff4e30-7e33-453f-9867-e19b3fdb9fe2
 ms.service: devtest-lab
 ms.workload: na
@@ -54,7 +54,7 @@ Azure DevTest Labs 符合下列在任何虛擬環境進行訓練所必須具備�
    
    | Task | 您學到什麼 |
    | --- | --- |
-   | [設定 Azure Marketplace 映像](devtest-lab-configure-marketplace-images.md) |了解如何將 Azure Marketplace 映像加入白名單；只讓想要用於進行訓練的映像可供選取。 |
+   | [設定 Azure Marketplace 映像](devtest-lab-configure-marketplace-images.md) |了解如何將 Azure Marketplace 映像加入允許清單；只讓想要用於進行訓練的映像可供選取。 |
    | [建立自訂映像](devtest-lab-create-template.md) |預先安裝訓練所需軟體以建立自訂映像，讓受訓者可以使用自訂映像快速建立 VM。 |
 3. **建立可重複用於訓練機器的範本** 
    

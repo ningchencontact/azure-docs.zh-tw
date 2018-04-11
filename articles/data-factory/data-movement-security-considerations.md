@@ -136,7 +136,7 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 
 ![IPSec VPN 搭配閘道](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-addresses"></a>防火牆組態及將 IP 位址加入白名單
+### <a name="firewall-configurations-and-whitelisting-ip-addresses"></a>防火牆組態及將 IP 位址加入允許清單
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>內部部署/私人網路的防火牆需求  
 在企業中，公司防火牆會在組織的中央路由器上執行。 Windows 防火牆則是在安裝自我裝載整合執行階段的本機電腦上以精靈的形式執行。 
@@ -152,7 +152,7 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 | `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (選擇性) 當您在 Azure Data Lake Store 來回複製時，需要提供此資訊。 |
 
 > [!NOTE] 
-> 您可能需要依個別資料來源所需，在公司防火牆層級管理連接埠或將網域加入白名單。 此表格僅使用 Azure SQL Database、Azure SQL 資料倉儲和 Azure Data Lake Store 作為範例。   
+> 您可能需要依個別資料來源所需，在公司防火牆層級管理連接埠或將網域加入允許清單。 此表格僅使用 Azure SQL Database、Azure SQL 資料倉儲和 Azure Data Lake Store 作為範例。   
 
 下表提供 Windows 防火牆的輸入連接埠需求：
 
@@ -162,10 +162,10 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 
 ![閘道連接埠需求](media\data-movement-security-considerations/gateway-port-requirements.png) 
 
-#### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>資料存放區中的 IP 組態和白名單設定
-有些雲端資料存放區也會要求必須將存取存放區的電腦 IP 位址加入白名單。 請確定在防火牆中已將自我裝載整合執行階段電腦的 IP 位址正確地加入白名單或進行設定。
+#### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>資料存放區中的 IP 組態/允許清單設定
+有些雲端資料存放區也會要求必須將存取存放區的電腦 IP 位址加入允許清單。 請確定在防火牆中已將自我裝載整合執行階段電腦的 IP 位址正確地加入允許清單並進行設定。
 
-下列雲端資料存放區會要求必須將自我裝載整合執行階段電腦的 IP 位址加入白名單。 在這些資料存放區中，有些可能預設不會要求將 IP 位址加入白名單。 
+下列雲端資料存放區會要求必須將自我裝載整合執行階段電腦的 IP 位址加入允許清單。 在這些資料存放區中，有些可能預設不會要求將 IP 位址加入允許清單。 
 
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -181,7 +181,7 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 
 **自我裝載整合執行階段需要什麼連接埠才能運作？**
 
-自我裝載整合執行階段會建立 HTTP 型連線來存取網際網路。 必須開啟輸出連接埠 443 和 80，自我裝載整合執行階段才能建立此連線。 針對認證管理員應用程式，請只在機器層級 (而非公司防火牆層級) 開啟輸入連接埠 8050。 如果使用 Azure SQL Database 或 Azure SQL 資料倉儲作為來源或目的地，則也需要開啟連接埠 1433。 如需詳細資訊，請參閱[防火牆組態及將 IP 位址加入白名單](#firewall-configurations-and-whitelisting-ip-address-of-gateway)一節。 
+自我裝載整合執行階段會建立 HTTP 型連線來存取網際網路。 必須開啟輸出連接埠 443 和 80，自我裝載整合執行階段才能建立此連線。 針對認證管理員應用程式，請只在機器層級 (而非公司防火牆層級) 開啟輸入連接埠 8050。 如果使用 Azure SQL Database 或 Azure SQL 資料倉儲作為來源或目的地，則也需要開啟連接埠 1433。 如需詳細資訊，請參閱[防火牆組態及將 IP 位址加入允許清單](#firewall-configurations-and-whitelisting-ip-address-of-gateway)一節。 
 
 
 ## <a name="next-steps"></a>後續步驟
