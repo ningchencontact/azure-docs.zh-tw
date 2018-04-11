@@ -1,6 +1,6 @@
 ---
-title: "Azure 受控應用程式 PasswordBox UI 元素 | Microsoft Docs"
-description: "描述 Azure 受控應用程式的 Microsoft.Common.PasswordBox UI 元素"
+title: Azure PasswordBox UI 元素 | Microsoft Docs
+description: 描述 Azure 入口網站的 Microsoft.Common.PasswordBox UI 元素。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d9f2b7cf56375d3a609cff20e928307c13bf2b8
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 19c027819b83f10a7a3de714d690964507311da0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Microsoft.Common.PasswordBox UI 元素
-可使用控制項來提供及確認密碼。 您可以在[建立 Azure 受控應用程式](publish-service-catalog-app.md)時使用此元素。
+可使用控制項來提供及確認密碼。
 
 ## <a name="ui-sample"></a>UI 範例
 ![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
@@ -58,6 +58,5 @@ ms.lasthandoff: 10/27/2017
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* 如需受控應用程式的簡介，請參閱 [Azure 受控應用程式概觀](overview.md)。
 * 如需建立 UI 定義的簡介，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。
 * 如需 UI 元素中通用屬性的說明，請參閱 [CreateUiDefinition 元素](create-uidefinition-elements.md)。

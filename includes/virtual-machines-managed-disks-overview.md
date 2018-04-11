@@ -87,8 +87,7 @@ Azure 磁碟設計成確保可用性達 99.999%。 得知有三個資料複本�
 受控磁碟也支援建立受管理的自訂映像。 您可以從儲存體帳戶中的自訂 VHD 或直接從一般化 (系統預備的) VM 建立映像。 這會在單一映像中擷取與 VM 相關聯的所有受控磁碟，包括 OS 和資料磁碟。 這可讓您使用自訂映像建立數百個 VM，而不需要複製或管理任何儲存體帳戶。
 
 如需建立映像的相關資訊，請參閱下列文章︰
-* 
-            [在 Azure 中如何擷取一般化 VM 的受控映像](../articles/virtual-machines/windows/capture-image-resource.md)
+* [在 Azure 中如何擷取一般化 VM 的受控映像](../articles/virtual-machines/windows/capture-image-resource.md)
 * [如何使用 Azure CLI 2.0 來一般化和擷取 Linux 虛擬機器](../articles/virtual-machines/linux/capture-image.md)
 
 ## <a name="images-versus-snapshots"></a>映像與快照集的比較
@@ -105,7 +104,8 @@ Azure 磁碟設計成確保可用性達 99.999%。 得知有三個資料複本�
 
 ### <a name="storage-service-encryption-sse"></a>儲存體服務加密 (SSE)
 
-[Azure 儲存體服務加密](../articles/storage/common/storage-service-encryption.md)提供待用加密，並保護資料安全，以符合組織安全性和合規性承諾。 在所有可用受控磁碟的區域中，所有受控磁碟、快照集和映像預設都會啟用 SSE。 從 2017 年 6 月 10 日開始，所有新受控磁碟/快照集/映像和寫入至現有受控磁碟的新資料都會使用 Microsoft 所管理的金鑰進行自動待用加密。  如需詳細資訊，請造訪[受控磁碟常見問題頁面](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)。
+[Azure 儲存體服務加密](../articles/storage/common/storage-service-encryption.md)提供待用加密，並保護資料安全，以符合組織安全性和合規性承諾。 在所有可用受控磁碟的區域中，所有受控磁碟、快照集和映像預設都會啟用 SSE。 從 2017 年 6 月 10 日開始，所有新的受控磁碟/快照集/映像和寫入至現有受控磁碟的新資料，預設都會使用 Microsoft 所管理的金鑰進行自動待用加密。 您可以選擇使用自己的金鑰來加密 Azure Blob 和檔案。 適用於資料表和佇列的加密一律會使用 Microsoft 受控金鑰。
+請注意，啟用儲存體服務加密後只會加密新資料，而此儲存體帳戶中的任何現有資料則會受到背景加密程序追溯加密。 如需詳細資訊，請造訪[受控磁碟常見問題頁面](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)。
 
 
 ### <a name="azure-disk-encryption-ade"></a>Azure 磁碟加密 (ADE)

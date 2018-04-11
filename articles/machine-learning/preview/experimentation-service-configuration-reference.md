@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 75b55b45c355f585fd73bdc1d97bc6adbbc4e9a0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning 測試服務組態檔
 
@@ -149,6 +149,8 @@ _\<compute target name>.compute_ 檔案會指定用於計算目標的連線和�
 **nativeSharedDirectory**：此屬性會指定基礎目錄 (例如：_~/.azureml/share/_)，可供檔案儲存，以在相同計算目標的執行上進行共用。 如果在 Docker 容器上執行時使用這個設定，_sharedVolumes_ 必須設定為 true。 否則，執行就會失敗。
 
 **userManagedEnvironment**：此屬性會指定此計算目標是由使用者直接管理或是透過實驗服務管理。  
+
+**pythonLocation**：這個屬性會指定要在計算目標上用來執行使用者程式的 python 執行階段位置。 
 
 ### <a name="run-configuration-namerunconfig"></a>\<回合組態名稱>.runconfig
 _\<run configuration name>.runconfig_ 會指定 Azure ML 測試執行行為。 您可以設定諸如追蹤執行歷程記錄等執行行為，或是要與其他許多人共同使用的計算目標。 回合組態檔的名稱可用來填入 Azure ML Workbench 桌面應用程式中的執行內容下拉式清單。

@@ -1,24 +1,24 @@
 ---
-title: "在 Log Analytics 中收集並分析 Azure 活動記錄 | Microsoft Docs"
-description: "您可以使用 Azure 活動記錄解決方案來分析和搜尋所有 Azure 訂用帳戶的 Azure 活動記錄。"
+title: 在 Log Analytics 中收集並分析 Azure 活動記錄 | Microsoft Docs
+description: 您可以使用 Azure 活動記錄解決方案來分析和搜尋所有 Azure 訂用帳戶的 Azure 活動記錄。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: c13890862c058701268c07d032d6d990c659287a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b6e823d9338d76a350569091d6794e3ac4a2eae9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>在 Log Analytics 中收集並分析 Azure 活動記錄
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 02/13/2018
 - 找出影響資源的中斷或服務健全狀況問題
 - 使用記錄搜尋使使用者活動、 自動調整作業、授權變更和服務健全狀況與您環境的其他記錄或度量資訊產生關聯
 
-<sup>1</sup>Log Analytics 預設會保留 Azure 活動記錄 90 天，即使您在免費層也是如此。 或者，如果您有少於 90 天的工作區中保留期設定。 如果工作區的保留期超過 90 天，工作區的保留期即為保留活動記錄的期間。
+<sup>1</sup>Log Analytics 預設會保留 Azure 活動記錄 90 天，即使您在免費層也是如此。 或者，如果您有少於 90 天的工作區中保留期設定。 如果工作區的保留期超過 90 天，即會根據工作區的保留期間來保留活動記錄。
 
 Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如果儲存記錄超過 90 天，對於儲存超過 90 天的資料將產生資料保留期費用。
 

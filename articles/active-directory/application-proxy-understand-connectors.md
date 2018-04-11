@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure AD 應用程式 Proxy 連接器 | Microsoft Docs"
-description: "涵蓋 Azure AD 應用程式 Proxy 連接器的基本概念。"
+title: 了解 Azure AD 應用程式 Proxy 連接器 | Microsoft Docs
+description: 涵蓋 Azure AD 應用程式 Proxy 連接器的基本概念。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -85,7 +85,7 @@ Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程�
 
 ## <a name="security-and-networking"></a>安全性和網路服務
 
-在允許連接器將要求傳送至應用程式 Proxy 服務的網路上，任何地方都可以安裝連接器。 重點是執行連接器的電腦也可存取您的應用程式。 您可以在貴公司網路內或在雲端中執行的虛擬機器上安裝連接器。 可以在非軍事區域 (DMZ) 內執行連接器，但並非必要，因為所有流量都是輸出的，因此您的網路都能保持安全。
+在允許連接器將要求傳送至應用程式 Proxy 服務的網路上，任何地方都可以安裝連接器。 重點是執行連接器的電腦也可存取您的應用程式。 您可以在貴公司網路內或在雲端中執行的虛擬機器上安裝連接器。 可以在周邊網路 (DMZ) 內執行連接器，但並非必要，因為所有流量都是輸出的，因此您的網路都能保持安全。
 
 連接器僅會傳送輸出要求。 輸出流量會傳送到應用程式 Proxy 服務和已發佈應用程式。 不需要開啟輸入連接埠，因為建立工作階段後，流量就會雙向流動。 不需要設定連接器之間的負載平衡，或透過您的防火牆設定內部存取。 
 

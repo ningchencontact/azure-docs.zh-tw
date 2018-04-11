@@ -1,11 +1,11 @@
 ---
-title: "使用 CLI 連線至 Azure Stack | Microsoft 文件"
-description: "了解如何使用跨平台命令列介面 (CLI) 在 Azure Stack 上管理及部署資源"
+title: 使用 CLI 連線至 Azure Stack | Microsoft 文件
+description: 了解如何使用跨平台命令列介面 (CLI) 在 Azure Stack 上管理及部署資源
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/26/2018
 ms.author: mabrigg
 ms.openlocfilehash: ad258cf6c73b2c1ea5f208ebef9906a0e3d35ea4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/02/2018
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>安裝並設定 CLI 以與 Azure Stack 搭配使用
 
@@ -89,7 +89,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 ## <a name="get-the-virtual-machine-aliases-endpoint"></a>取得虛擬機器別名端點
 
-使用者在使用 CLI 建立虛擬機器之前，必須連絡 Azure Stack 操作員，並取得虛擬機器別名端點 URI。 例如，Azure 使用以下 URI：https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json。 雲端系統管理員應該使用 Azure Stack 市集中可用的映像，為 Azure Stack 設定類似的端點。 使用者必須將端點 URI 的 `endpoint-vm-image-alias-doc` 參數傳遞至 `az cloud register` 命令，如下一節中所示。 
+使用者在使用 CLI 建立虛擬機器之前，必須連絡 Azure Stack 操作員，並取得虛擬機器別名端點 URI。 例如，Azure 會使用下列 URI：https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json。 雲端系統管理員應該使用 Azure Stack 市集中可用的映像，為 Azure Stack 設定類似的端點。 使用者必須將端點 URI 的 `endpoint-vm-image-alias-doc` 參數傳遞至 `az cloud register` 命令，如下一節中所示。 
    
 
 ## <a name="connect-to-azure-stack"></a>連線至 Azure Stack

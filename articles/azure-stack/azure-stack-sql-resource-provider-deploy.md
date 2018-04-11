@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4d2a00f04e5b07aeb3585fb3ab6c8966e0de7e19
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d0b287eb61087e90c898aad5273ab5be8c1f98b2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 SQL 資料庫
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 03/09/2018
     | 1710：1.0.171028.1 | [SQL RP 版本 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
   
 
-4. Azure Stack 根憑證擷取自具特殊權限的端點。 針對 Azure Stack SDK，會在此程序的執行過程中建立自我簽署憑證。 針對整合式系統，您必須提供適當的憑證。
+4. 針對 Azure Stack SDK，會在此程序的執行過程中建立自我簽署憑證。 針對整合式系統，您必須提供適當的憑證。
 
    若要提供自己的憑證，請依照下列方式，將 .pfx 檔案放在 **DependencyFilesLocalPath** 中：
 

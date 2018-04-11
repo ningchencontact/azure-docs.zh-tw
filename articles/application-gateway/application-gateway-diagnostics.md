@@ -1,25 +1,22 @@
 ---
-title: 監視應用程式閘道的存取記錄、效能記錄、後端健康情況及計量 | Microsoft Docs
+title: 監視應用程式閘道的存取記錄、效能記錄、後端健康情況及計量
 description: 了解如何啟用和管理應用程式閘道的存取記錄和效能記錄
 services: application-gateway
-documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 4/2/2018
 ms.author: amitsriva
-ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>應用程式閘道的後端健康情況、診斷記錄和計量
 
@@ -29,7 +26,7 @@ ms.lasthandoff: 03/29/2018
 
 * [記錄](#diagnostic-logging)：記錄能夠儲存效能、存取和其他資料，或從資源取用記錄以便進行監視。
 
-* [計量](#metrics)：應用程式閘道目前有一個計量。 此計量會測量應用程式閘道的輸送量，以每秒的位元組數為單位。
+* [計量](#metrics)：應用程式閘道目前有七個計量，可用來檢視效能計數器。
 
 ## <a name="back-end-health"></a>後端健康情況
 
@@ -318,13 +315,22 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 
 計量是某些 Azure 資源的功能，可供您在入口網站中檢視效能計數器。 應用程式閘道可使用下列計量：
 
-- 目前的連線數
-- 失敗的要求
-- 狀況良好的主機計數
-- 回應狀態
-- Throughput
-- 要求總數
-- 狀況不良的主機計數
+- **目前的連線數**
+- **失敗的要求**
+- **狀況良好的主機計數**
+
+   您可以根據每個後端集區進行篩選，以顯示特定後端集區中狀況良好/狀況不良的主機。
+
+
+- **回應狀態**
+
+   回應狀態碼發佈可以進一步分類，以顯示回應 2xx、3xx、4xx 和 5xx 分類中的回應。
+
+- **輸送量**
+- **要求總數**
+- **狀況不良的主機計數**
+
+   您可以根據每個後端集區進行篩選，以顯示特定後端集區中狀況良好/狀況不良的主機。
 
 瀏覽至應用程式閘道，在 [監視] 之下按一下 [計量]。 若要檢視可用的值，請選取 [計量] 下拉式清單。
 

@@ -1,12 +1,12 @@
 ---
-title: "監視 Azure Functions"
-description: "了解如何使用 Azure Application Insights 搭配 Azure Functions 來監視函式執行。"
+title: 監視 Azure Functions
+description: 了解如何使用 Azure Application Insights 搭配 Azure Functions 來監視函式執行。
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構"
+editor: ''
+tags: ''
+keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
@@ -493,7 +493,7 @@ module.exports = function (context, req) {
 
 ### <a name="logging-to-storage"></a>記錄到儲存體
 
-內建記錄使用 `AzureWebJobsDashboard` 應用程式設定中由連接字串所指定的儲存體帳戶。 如果您配置該應用程式設定，便可以在 Azure 入口網站中查看記錄資料。 在函式應用程式頁面中，依序選取函式和 [監視] 索引標籤，函式執行清單隨即會出現。 選取函式執行，以檢閱持續時間、輸入資料、錯誤和相關聯的記錄檔。
+內建記錄使用 `AzureWebJobsDashboard` 應用程式設定中由連接字串所指定的儲存體帳戶。 如果您配置該應用程式設定，便可以在 Azure 入口網站中查看記錄資料。 在儲存體資源中，移至 [檔案]、選取適用於函式的檔案服務，然後移至 `LogFiles > Application > Functions > Function > your_function`，即可查看記錄檔。 在函式應用程式頁面中，依序選取函式和 [監視] 索引標籤，函式執行清單隨即會出現。 選取函式執行，以檢閱持續時間、輸入資料、錯誤和相關聯的記錄檔。
 
 如果您使用 Application Insights 並已[停用內建記錄](#disable-built-in-logging)，[監視] 索引標籤會帶您前往 Application Insights。
 

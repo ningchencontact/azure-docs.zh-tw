@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
@@ -375,27 +375,13 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
 1. 透過虛擬機器返回 Azure 資源群組，並尋找新的負載平衡器。 您可能需要重新整理資源群組的畫面。 按一下 [負載平衡器]。
 
-1. 在 [負載平衡器] 刀鋒視窗中，按一下 [後端集區]。
+1. 按一下 [後端集區]，然後按一下 [+ 新增] 以新增後端集區。
 
-1. 按一下 [+ 新增] 以新增後端集區。
+1. 將後端集區關聯至包含 VM 的可用性設定組。
 
-1. 輸入後端集區的名稱。
+1. 在 [目標網路 IP 設定] 下方，檢查**虛擬機器**並選擇將加入為叢集節點的虛擬機器。 請務必包含將裝載 FCI 的所有虛擬機器。 
 
-1. 按一下 [+ 新增虛擬機器]。
-
-1. 在 [選擇虛擬機器] 刀鋒視窗中，按一下 [選擇可用性設定組]。
-
-1. 選擇您放置 SQL Server 虛擬機器的可用性設定組。
-
-1. 在 [選擇虛擬機器] 刀鋒視窗中，按一下 [選擇虛擬機器]。
-
-   您的 Azure 入口網站看起來應如下圖所示︰
-
-   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
-
-1. 在 [選擇虛擬機器] 刀鋒視窗中，按一下 [選取]。
-
-1. 按兩次 [確定]  。
+1. 按一下 [確定]  以建立後端集區。
 
 ### <a name="configure-a-load-balancer-health-probe"></a>設定負載平衡器健全狀況探查
 

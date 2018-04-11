@@ -1,12 +1,12 @@
 ---
-title: "將 Azure 虛擬機器容錯移轉至另一個 Azure 區域時保留 IP 位址 | Microsoft Docs"
-description: "說明如何在使用 Azure Site Recovery 進行 Azure 至 Azure 容錯移轉案例時保留 IP 位址"
+title: 將 Azure 虛擬機器容錯移轉至另一個 Azure 區域時保留 IP 位址 | Microsoft Docs
+description: 說明如何在使用 Azure Site Recovery 進行 Azure 至 Azure 容錯移轉案例時保留 IP 位址
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8e128e057e45f6966067ebaaf039d9b14349d926
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>針對 Azure 虛擬機器容錯移轉保留 IP 位址
 
@@ -84,11 +84,7 @@ Azure Site Recovery 能針對 Azure VM 啟用災害復原。 從一個 Azure 區
 
 ### <a name="further-considerations"></a>進一步考量
 
-VPN 閘道會利用公用 IP 位址與閘道躍點來建立連線。 如果您不想使用公用 IP 及/或想要避免額外的躍點，您現在可以使用全域 VNet 對等互連來跨 Azure 區域對虛擬網路進行對等互連。
-
-此功能目前處於公開預覽狀態，且正在擴充至更多支援的區域。此功能可在不需使用任何公開的網際網路或額外躍點的情況下，提供直接的 VM 對 VM 連線。
-
-如需詳細資訊，請參閱[對等互連文件](../virtual-network/tutorial-connect-virtual-networks-portal.md#register)和[價格](https://azure.microsoft.com/pricing/details/virtual-network/)。
+VPN 閘道會利用公用 IP 位址與閘道躍點來建立連線。 如果您不想使用公用 IP 及/或想要避免額外的躍點，則可以使用 [Azure 虛擬網路對等互連](../virtual-network/virtual-network-peering-overview.md)，跨[支援的 Azure 區域](../virtual-network/virtual-network-manage-peering.md#cross-region)針對虛擬網路進行對等互連。
 
 ## <a name="on-premises-to-azure-connectivity"></a>內部部署對 Azure 連線能力
 

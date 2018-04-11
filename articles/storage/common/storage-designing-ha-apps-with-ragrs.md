@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure 讀取權限異地備援儲存體 (RA-GRS) 設計高可用性應用程式 | Microsoft Docs"
-description: "如何使用 Azure RA-GRS 儲存體來設計高可用性應用程式的架構，使其有足夠的彈性來處理中斷。"
+title: 使用 Azure 讀取權限異地備援儲存體 (RA-GRS) 設計高可用性應用程式 | Microsoft Docs
+description: 如何使用 Azure RA-GRS 儲存體來設計高可用性應用程式的架構，使其有足夠的彈性來處理中斷。
 services: storage
 documentationcenter: .net
 author: tamram
@@ -12,28 +12,26 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: tamram
-ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: f7f3f2d99e5582a1bcb672cc176258dfff9c3217
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 設計高可用性應用程式
 
 雲端式基礎結構 (例如 Azure 儲存體) 的常見功能是提供高可用性平台來裝載應用程式。 雲端式應用程式的開發人員必須仔細考慮如何運用此平台，來為使用者提供高可用性應用程式。 本文著重於開發人員如何利用讀取權限異地備援儲存體 (RA-GRS)，來確定其 Azure 儲存體應用程式的高可用性。
 
-Azure 儲存體為儲存體帳戶中的資料備援提供四個選項：
-
-- LRS (本地備援儲存體)
-- ZRS (區域備援儲存體) 
-- GRS (異地備援儲存體)
-- RA-GRS (讀取權限異地備援儲存體) 
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 本文的重點在於 GRS 和 RA-GRS。 使用 GRS 時，會在您設定儲存體帳戶時選取的主要區域中保留三份您的資料。 另外會以非同步方式在 Azure 所指定的次要區域中保留三個額外複本。 除了您具備次要複本的讀取權限之外，RA-GRS 與 GRS 一樣。 如需各種 Azure 儲存體備援選項的詳細資訊，請參閱 [Azure 儲存體複寫](https://docs.microsoft.com/azure/storage/storage-redundancy)。 該複寫文章也會示範主要和次要區域的配對。
 
 本文提供一些程式碼片段，並在結尾處提供完整範例的連結，可供您下載並執行。
+
+> [!NOTE]
+> 「Azure 儲存體」現已支援使用區域備援儲存體 (ZRS) 來建置高可用性應用程式。 ZRS 針對許多應用程式的備援需求，提供一個簡單的解決方案。 ZRS 可以針對硬體故障或影響單一資料中心的災難性災害提供防護。 如需詳細資訊，請參閱[區域備援儲存體 (ZRS)：高可用性 Azure 儲存體應用程式](storage-redundancy-zrs.md)。
 
 ## <a name="key-features-of-ra-grs"></a>RA-GRS 的主要功能
 

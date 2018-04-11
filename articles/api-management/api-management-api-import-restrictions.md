@@ -1,11 +1,11 @@
 ---
-title: "在 Azure API 管理 API 匯入的限制和已知問題 | Microsoft Docs"
-description: "有關使用 Open API、WSDL 或 WADL 格式匯入 Azure API 管理的已知問題和限制的詳細資料。"
+title: 在 Azure API 管理 API 匯入的限制和已知問題 | Microsoft Docs
+description: 有關使用 Open API、WSDL 或 WADL 格式匯入 Azure API 管理的已知問題和限制的詳細資料。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: vlvinogr
-editor: 
+editor: ''
 ms.assetid: 7a5a63f0-3e72-49d3-a28c-1bb23ab495e2
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: 758babce3ed387ed4864f1934650cf701bda788f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: d4229a3ecbcf8aa044eb448290c243e9920bd5cb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 匯入的限制和已知問題
 ## <a name="about-this-list"></a>關於本清單
@@ -29,7 +29,10 @@ ms.lasthandoff: 12/04/2017
 
 * **主機名稱** APIM 需要主機名稱屬性。
 * **基本路徑** APIM 需要基本路徑屬性。
-* **配置** APIM 需要配置陣列。 
+* **配置** APIM 需要配置陣列。
+
+> [!IMPORTANT]
+> 請參閱此[文件](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/)中 OpenAPI 匯入相關的重要資訊和祕訣。
 
 ## <a name="wsdl"> </a>WSDL
 WSDL 檔案是用來產生 SOAP 傳遞的 API，或作為「SOAP 至 REST」API 的後端。
@@ -37,7 +40,7 @@ WSDL 檔案是用來產生 SOAP 傳遞的 API，或作為「SOAP 至 REST」API 
 * **WSDL:Import** - APIM 目前不支援使用這個屬性的 API。 客戶應該將匯入的項目合併成一份文件。
 * **具有多個部分的訊息**目前 APIM 不支援這些類型的訊息。
 * **WCF wsHttpBinding** 使用 Windows Communication Foundation 建立的 SOAP 服務應該使用 basicHttpBinding - 不支援 wsHttpBinding。
-* **MTOM** - 使用 MTOM 的服務「可能」<em></em>可以運作。 目前不提供官方支援。
+* **MTOM** - 使用 MTOM 的服務「可能」可以運作。 目前不提供官方支援。
 * APIM 不支援以遞迴方式定義的**遞迴**類型 (例如，參考自己的陣列)。
 
 ## <a name="wadl"> </a>WADL

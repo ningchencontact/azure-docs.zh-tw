@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 網域服務的網路考量
 ## <a name="how-to-select-an-azure-virtual-network"></a>如何選取 Azure 虛擬網路
@@ -73,7 +73,7 @@ ms.lasthandoff: 03/09/2018
 **連接埠 443 (與 Azure AD 同步)**
 * 用來同步您的 Azure AD 目錄與受控網域。
 * 在 NSG 中允許存取此連接埠是必要的。 若無法存取此連接埠，您的受控網域將無法與 Azure AD 目錄同步。 使用者可能會因為他們變更的密碼未與受控網域同步，而無法登入。
-* 您可以限制僅屬於 Azure IP 位址範圍的 IP 位址有此連接埠的對內存取權。
+* 您可以限制僅屬於 Azure IP 位址範圍的 IP 位址有此連接埠的對內存取權。 請注意，Azure IP 位址範圍是與下面規則中所示的 PowerShell 範圍不同的範圍。
 
 **連接埠 5986 (PowerShell 遠端處理)**
 * 用來在受控網域上使用 PowerShell 遠端執行管理工作。

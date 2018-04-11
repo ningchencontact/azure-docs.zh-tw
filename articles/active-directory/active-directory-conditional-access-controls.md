@@ -1,30 +1,30 @@
 ---
-title: "Azure Active Directory 條件式存取中的存取控制 | Microsoft Docs"
-description: "了解 Azure Active Directory 條件式存取中的存取控制如何運作。"
+title: Azure Active Directory 條件式存取中的存取控制 | Microsoft Docs
+description: 了解 Azure Active Directory 條件式存取中的存取控制如何運作。
 services: active-directory
-keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
-documentationcenter: 
+keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 03/28/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的存取控制 
 
-透過 [Azure Active Directory (Azure AD) 條件式存取](active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則之原因做出的回應。 
+透過 [Azure Active Directory (Azure AD) 條件式存取](active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則之原因 ("when this happens") 做出的回應 ("do this")。 
 
 ![控制](./media/active-directory-conditional-access-controls/10.png)
 
@@ -75,11 +75,15 @@ ms.lasthandoff: 02/11/2018
 
 ### <a name="compliant-device"></a>符合規範的裝置
 
-您可以設定以裝置作為基礎的條件式存取原則。 以裝置作為基礎的條件式存取原則目標在於只從信任的裝置授與已設定資源的存取權。 要定義受信任裝置的選項之一，是要求符合規範的裝置。 如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
+您可以設定以裝置作為基礎的條件式存取原則。 以裝置作為基礎的條件式存取原則目標在於只從信任的裝置授與已設定資源的存取權。 要定義受信任裝置的選項之一，是要求符合規範的裝置。 如果選取此選項，當使用已加入您 Azure Active Directory 且經 MDM 解決方案標示為符合規範的裝置來嘗試存取時，您的條件式存取原則就會對其授與存取權。
+
+如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
 
 ### <a name="domain-joined-device"></a>已加入網域的裝置
 
-設定以裝置作為基礎的條件式存取原則的另一個選項，是要求已加入網域的裝置。 這項需求是指加入內部部署 Active Directory 的 Windows 桌上型電腦、膝上型電腦和企業平板電腦。 如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
+設定以裝置作為基礎的條件式存取原則的另一個選項，是要求已加入網域的裝置。 這項需求是指加入內部部署 Active Directory 的 Windows 桌上型電腦、膝上型電腦和企業平板電腦。 如果選取此選項，當使用已加入您內部部署 Active Directory 和 Azure Active Directory 的裝置來嘗試存取時，您的條件式存取原則就會對其授與存取權。  
+
+如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
 
 
 

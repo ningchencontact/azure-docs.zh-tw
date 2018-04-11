@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源 
 
@@ -46,7 +46,11 @@ ms.lasthandoff: 03/23/2018
 
 當您擁有存取權時，可使用 REST API 取得訂用帳戶傳回詳細資料的相關資訊，但在 Azure 入口網站和 Azure Powershell 中，不會顯示訂用帳戶。 
 
-此項目正在進行中，並且會在宣佈管理群組為「一般可用性」之前解決。  
+此項目正在進行中，並且會在將管理群組宣佈為「正式運作」之前解決。  
+
+### <a name="cloud-solution-providercsp-limitation-during-preview"></a>雲端方案提供者 (CSP) 在預覽期間的限制 
+目前對於雲端方案提供者 (CSP) 合作夥伴有一項限制，他們不能在其客戶的目錄中建立或管理其客戶的管理群組。  
+此項目正在進行中，並且會在將管理群組宣佈為「正式運作」之前解決。
 
 
 ## <a name="root-management-group-for-each-directory"></a>每個目錄的根管理群組

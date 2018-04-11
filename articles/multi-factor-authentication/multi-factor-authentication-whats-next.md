@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4259715fbb062bfb170509c928b5a1ad898ea394
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
@@ -228,11 +228,7 @@ _單次許可_可讓使用者只驗證一次，不需要執行雙步驟驗證。
 
 某些應用程式 (例如 Office 2010 或更舊版本和 Apple Mail) 不支援雙步驟驗證。 應用程式未設定為接受第二次驗證。 若要使用這些應用程式，請善用_應用程式密碼_功能。 您可以使用應用程式密碼取代您的傳統密碼，以允許應用程式略過雙步驟驗證並繼續工作。
 
->[!NOTE]
->適用於 Microsoft Office 2013 用戶端和更新版本的新式驗證
-> 
->Office 2013 用戶端和更新版本 (包括 Outlook) 支援新式驗證通訊協定，而且可搭配雙步驟驗證。 啟用用戶端之後，用戶端並不需要應用程式密碼。 如需詳細資訊，請參閱 [發表 Office 2013 新式驗證公開預覽](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)。
->
+Microsoft Office 2013 用戶端和更新版本支援新式驗證。 Office 2013 用戶端 (包括 Outlook) 支援新式驗證通訊協定，而且可搭配雙步驟驗證運作。 啟用用戶端之後，用戶端並不需要應用程式密碼。
 
 ### <a name="considerations-about-app-passwords"></a>關於應用程式密碼的考量
 

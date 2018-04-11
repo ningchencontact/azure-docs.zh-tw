@@ -1,24 +1,24 @@
 ---
-title: "針對 Azure 站對站 VPN 連線無法連線進行疑難排解| Microsoft Docs"
-description: "了解如何針對突然停止運作且無法重新連線的站對站 VPN 連線進行疑難排解。"
+title: 針對 Azure 站對站 VPN 連線無法連線進行疑難排解| Microsoft Docs
+description: 了解如何針對突然停止運作且無法重新連線的站對站 VPN 連線進行疑難排解。
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2017
+ms.date: 03/29/2018
 ms.author: genli
-ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3e590df66f84cd88ba7ba251373c14a44a94ca77
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>疑難排解：Azure 站對站 VPN 連線無法連線並停止運作
 
@@ -92,7 +92,9 @@ ms.lasthandoff: 01/24/2018
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>步驟 7. 確認 Azure 閘道健康狀態探查
 
-1. 移至健康情況探查。
+1. 瀏覽至下列 URL 來開啟健康狀態探查：
+
+    `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
 2. 按一下以略過憑證警告。
 3. 如果您收到回應，表示 VPN 閘道的健康狀態良好。 如果未收到回應，閘道的健康狀態可能有問題，或可能是閘道子網路上的 NSG 造成問題。 下列文字是回應的範例：

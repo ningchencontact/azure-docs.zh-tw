@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights 支援多個元件、微服務和容器 | Microsoft Docs"
-description: "監視由多個元件或角色組成之應用程式的效能和使用方式。"
+title: Azure Application Insights 支援多個元件、微服務和容器 | Microsoft Docs
+description: 監視由多個元件或角色組成之應用程式的效能和使用方式。
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 046661bf7903b4e5ea528282ad5170901a45b35c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9b03aff140eec5b355383447f0a815220d6408e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>使用 Application Insights (預覽) 監視多元件應用程式
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/01/2017
 
 * 在應用程式的每個元件中**安裝最新的發行前版本** Application Insights 套件。 
 * 對您應用程式的所有元件**共用單一 Application Insights 資源**。
-* 在 [預覽] 刀鋒視窗中**啟用多角色應用程式對應**。
+* 在 [預覽] 刀鋒視窗中**啟用複合應用程式對應**。
 
 使用適合其類型的方法，設定您應用程式的每個元件 ([ASP.NET](app-insights-asp-net.md)、[Java](app-insights-java-get-started.md)、[Node.js](app-insights-nodejs.md)、[JavaScript](app-insights-javascript.md))。
 
@@ -73,9 +73,9 @@ ms.lasthandoff: 11/01/2017
 ![將檢測金鑰複製到 .config 檔案](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
 
 
-### <a name="3-enable-multi-role-application-map"></a>3.啟動多角色應用程式對應
+### <a name="3-enable-composite-application-map"></a>3.啟用複合應用程式對應
 
-在 Azure 入口網站中，開啟您應用程式的資源。 在 [預覽] 刀鋒視窗中，啟用「多角色應用程式對應」。
+在 Azure 入口網站中，開啟您應用程式的資源。 在「設定」子標題下方，按一下 [預覽] 以開啟 [預覽] 刀鋒視窗。 在 [預覽] 刀鋒視窗中，啟用「複合應用程式對應」。
 
 ### <a name="4-enable-docker-metrics-optional"></a>4.啟用 Docker 計量 (選擇性) 
 

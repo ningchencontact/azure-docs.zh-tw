@@ -1,11 +1,11 @@
 ---
-title: "使用具有特殊權限的端點來監視 Azure Stack 中的更新 | Microsoft Docs"
-description: "了解如何使用具有特殊權限的端點來監視 Azure Stack 整合系統的更新狀態。"
+title: 使用具有特殊權限的端點來監視 Azure Stack 中的更新 | Microsoft Docs
+description: 了解如何使用具有特殊權限的端點來監視 Azure Stack 整合系統的更新狀態。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/06/2018
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>確認 Cmdlet 可供使用
-因為 Cmdlet 是適用於 Azure Stack 之 1710 更新程式封裝中的新功能，所以 1710 更新程序需要先到達某個點，才能使用監視功能。 一般而言，如果系統管理員入口網站中的狀態表示 1710 更新位於**重新啟動儲存體主機**步驟中，則可使用 Cmdlet。 具體來說，Cmdlet 更新會在**步驟：正在執行步驟 2.6 - 更新 PrivilegedEndpoint 白名單**期間發生。
+因為 Cmdlet 是適用於 Azure Stack 之 1710 更新程式封裝中的新功能，所以 1710 更新程序需要先到達某個點，才能使用監視功能。 一般而言，如果系統管理員入口網站中的狀態表示 1710 更新位於**重新啟動儲存體主機**步驟中，則可使用 Cmdlet。 具體來說，Cmdlet 更新會在**步驟：正在執行步驟 2.6 - 更新 PrivilegedEndpoint 允許清單**期間發生。
 
 您也可以藉由從具有特殊權限的端點查詢命令清單，來判斷 Cmdlet 是否可以程式設計方式使用。 若要這樣做，請從硬體生命週期主機或特殊權限存取工作站執行下列命令。 此外，確定具有特殊權限的端點是信任的主機。 如需詳細資訊，請參閱[存取具有特殊權限的端點](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的步驟 1。 
 

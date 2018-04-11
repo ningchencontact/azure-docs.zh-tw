@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Slack 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Slack 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Slack 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Slack 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: jeedes
-ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6a4c64fb8400eaf2e09be049b032535e09969fb8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>教學課程：Azure Active Directory 與 Slack 整合
 
@@ -44,7 +44,7 @@ Slack 與 Azure AD 整合提供下列優點：
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
 - 除非必要，否則請勿使用生產環境。
-- 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
+- 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
@@ -115,14 +115,14 @@ Slack 與 Azure AD 整合提供下列優點：
     b. 在 [識別碼] 文字方塊中，輸入 URL：`https://slack.com`
 
     > [!NOTE] 
-    > 這不是真正的值。 您必須使用實際的「登入 URL」來更新此值。 請連絡 [Slack 支援小組](https://slack.com/help/contact)以取得此值
+    > 這不是真正的值。 您必須使用實際的「登入 URL」來更新此值。 請連絡 [Slack 支援小組](https://slack.com/help/contact)以取得此值。
      
 4. Slack 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 以下螢幕擷取畫面顯示上述的範例。
     
     ![設定單一登入](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
     > [!NOTE] 
-    > 如果使用者有使用 Office365 指派的**電子郵件地址**，則只會填入該地址，否則**電子郵件地址**宣告不會出現在 SAML 權杖中。
+    > 如果您使用者獲指派的**電子郵件地址**不具備 Office365 授權，SAML 權杖中就不會出現 **User.Email** 宣告。 在這些情況下，建議您改用 **user.userprincipalname** 作為 **User.Email** 屬性值來對應成**唯一識別碼**。
 
 5. 在 [單一登入] 對話方塊內的 [使用者屬性] 區段中，選取 [user.mail] 當作 [使用者識別碼]，並在下表顯示的每個列上執行下列步驟：
     
@@ -143,7 +143,7 @@ Slack 與 Azure AD 整合提供下列優點：
 
     c. 讓 [命名空間] 保持空白。
     
-    d. 按一下 [確定] 
+    d. 按一下 [檔案] &gt; [新增] &gt; [專案] 
 
 6. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -180,12 +180,6 @@ Slack 與 Azure AD 整合提供下列優點：
     d. 針對您的 Slack 小組適當地設定上述三個設定。 如需這些這設定的詳細資訊，請參閱這裡的 **Slack 的 SSO 設定指南**。 `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     e.  按一下 [儲存組態] 。
-     
-    <!-- Deselect **Allow users to change their email address**.
-
-    e.  Select **Allow users to choose their own username**.
-
-    f.  As **Authentication for your team must be used by**, select **It’s optional**. -->
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -271,8 +265,6 @@ Slack 與 Azure AD 整合提供下列優點：
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

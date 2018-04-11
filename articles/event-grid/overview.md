@@ -1,18 +1,18 @@
 ---
-title: "Azure Event Grid 概觀"
-description: "說明 Azure Event Grid 與其概念。"
+title: Azure Event Grid 概觀
+description: 說明 Azure Event Grid 與其概念。
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 簡介
 
@@ -33,25 +33,26 @@ Event Grid 目前支援下列區域：
 *   美國西部
 *   美國西部 2
 
-本文提供 Azure Event Grid 的概觀。 若要開始使用 Event Grid，請參閱[使用 Azure Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)。 下圖顯示 Event Grid 如何連接發行者和處理常式，但是它不提供完整的支援選項清單。
+本文提供 Azure Event Grid 的概觀。 若要開始使用 Event Grid，請參閱[使用 Azure Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)。 下圖顯示事件格線如何連接資源和處理常式，但是它不提供完整的支援選項清單。
 
 ![Event Grid 運作模型](./media/overview/functional-model.png)
 
-## <a name="event-publishers"></a>事件發佈者
+## <a name="event-sources"></a>事件來源
 
-目前有下列 Azure 服務具有內建的 Event Grid 發行者支援：
+目前支援將事件傳送到事件格線的 Azure 服務如下：
 
 * Azure 訂用帳戶 (管理作業)
 * 自訂主題
 * 事件中樞
 * IoT 中樞
 * 資源群組 (管理作業)
+* 服務匯流排
 * 儲存體 Blob
 * 儲存體一般用途 v2 (GPv2)
 
 ## <a name="event-handlers"></a>事件處理常式
 
-目前有下列 Azure 服務具有內建的 Event Grid 處理常式支援： 
+目前支援處理來自事件格線之事件的 Azure 服務如下： 
 
 * Azure 自動化
 * Azure Functions

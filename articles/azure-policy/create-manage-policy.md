@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 原則來建立和管理原則以強制執行組織相容性 | Microsoft Docs"
-description: "使用 Azure 原則來強制執行標準、符合法規合規性與稽核需求、控制成本、維護安全性與效能一致性，並且強制整個企業的設計原則。"
+title: 使用 Azure 原則來建立和管理原則以強制執行組織相容性 | Microsoft Docs
+description: 使用 Azure 原則來強制執行標準、符合法規合規性與稽核需求、控制成本、維護安全性與效能一致性，並且強制整個企業的設計原則。
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/18/2018
@@ -345,7 +345,7 @@ az policy definition list
    - 需要 SQL Server 12.0 版
    - 在資訊安全中心監視未受保護的 Web 應用程式。
    - 監視整個資訊安全中心的寬鬆網路。
-   - 監視資訊安全中心的可能應用程式白名單。
+   - 監視資訊安全中心的可能應用程式允許清單。
    - 監視資訊安全中心的未加密 VM 磁碟。
 
    ![計畫定義](media/create-manage-policy/initiative-definition-2.png)

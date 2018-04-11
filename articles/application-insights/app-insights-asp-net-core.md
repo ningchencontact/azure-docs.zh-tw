@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core 的 Application Insights
 
@@ -95,7 +95,7 @@ Application Insights 的負荷極低。 若要檢視新增 Application Insights 
 
 1. 按一下 IIS Express 以執行應用程式 ![Visual Studio IIS Express 圖示的螢幕擷取畫面](./media/app-insights-asp-net-core/0012-iis-express.png)
 
-2. 從瀏覽器的網址列複製 URL。 格式為 http://localhost:{隨機連接埠號碼}
+2. 從瀏覽器的網址列複製 URL。 它的格式是 http://localhost:{random port number}
 
    ![瀏覽器 URL 網址列的螢幕擷取畫面](./media/app-insights-asp-net-core/0013-copy-url.png)
 
@@ -159,7 +159,7 @@ Application Insights 的負荷極低。 若要檢視新增 Application Insights 
    ```
      ![_ViewImports.cshtml 的程式碼變更螢幕擷取畫面](./media/app-insights-asp-net-core/00018-view-imports.png)
 
-3. 在 **Layout.cshtml** 中的 ``</head>`` 標籤之前新增下列行 (但要在任何其他指令碼之前)。
+3. 在 **_Layout.cshtml** 中的 ``</head>`` 標籤之前新增下列行 (但要在任何其他指令碼之前)。
 
     ```C#
     @Html.Raw(snippet.FullScript)

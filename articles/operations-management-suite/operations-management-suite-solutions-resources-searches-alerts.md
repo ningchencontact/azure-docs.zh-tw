@@ -1,8 +1,8 @@
 ---
-title: "OMS 解決方案中儲存的搜尋和警示 | Microsoft Docs"
-description: "OMS 中的解決方案通常會包含 Log Analytics 中儲存的搜尋，來分析解決方案所收集的資料。  它們可能也會定義警示來通知使用者，或自動採取動作以回應重大的問題。  本文說明如何在 Resource Manager 範本中定義 Log Analytics 儲存的搜尋和警示，讓它們能夠包含於管理解決方案中。"
+title: 管理解決方案中儲存的搜尋和警示 | Microsoft Docs
+description: 管理解決方案通常會包含 Log Analytics 中儲存的搜尋，來分析解決方案所收集的資料。  它們可能也會定義警示來通知使用者，或自動採取動作以回應重大的問題。  本文說明如何在 Resource Manager 範本中定義 Log Analytics 儲存的搜尋和警示，讓它們能夠包含於管理解決方案中。
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,29 +14,29 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警告新增到 OMS 管理解決方案 (預覽)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警示新增到管理解決方案 (預覽)
 
 > [!NOTE]
-> 這是在 OMS 中建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。   
+> 這是建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。   
 
 
-[OMS 中的管理解決方案](operations-management-suite-solutions.md)通常會包含 Log Analytics 中[儲存的搜尋](../log-analytics/log-analytics-log-searches.md)，來分析解決方案所收集的資料。  它們可能也會定義[警示](../log-analytics/log-analytics-alerts.md)來通知使用者，或自動採取動作以回應重大的問題。  本文說明如何在[資源範本範本](../resource-manager-template-walkthrough.md)中定義 Log Analytics 儲存的搜尋與警示，讓它們能夠包含於[管理解決方案](operations-management-suite-solutions-creating.md)中。
+[管理解決方案](operations-management-suite-solutions.md)通常會包含 Log Analytics 中[儲存的搜尋](../log-analytics/log-analytics-log-searches.md)，來分析解決方案所收集的資料。  它們可能也會定義[警示](../log-analytics/log-analytics-alerts.md)來通知使用者，或自動採取動作以回應重大的問題。  本文說明如何在[資源範本範本](../resource-manager-template-walkthrough.md)中定義 Log Analytics 儲存的搜尋與警示，讓它們能夠包含於[管理解決方案](operations-management-suite-solutions-creating.md)中。
 
 > [!NOTE]
-> 本文中的範例使用管理解決方案所必要或通用的參數和變數，如[在 Operations Management Suite (OMS) 中建立管理解決方案](operations-management-suite-solutions-creating.md)所述。  
+> 本文中的範例使用管理解決方案所需或通用的參數和變數，如[在 Azure 中設計和建置管理解決方案](operations-management-suite-solutions-creating.md)所述。  
 
 ## <a name="prerequisites"></a>先決條件
 本文假設您已經熟悉如何[建立管理解決方案](operations-management-suite-solutions-creating.md)，以及 [Resource Manager 範本](../resource-group-authoring-templates.md)和解決方案檔案的結構。
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 工作區
-Log Analytics 中的所有資源都包含於[工作區](../log-analytics/log-analytics-manage-access.md)中。  如 [OMS 工作區和自動化帳戶](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account)所述，工作區不會包含於管理解決方案中，但在安裝解決方案前就必須存在。  如果無法使用，則解決方案安裝會失敗。
+Log Analytics 中的所有資源都包含於[工作區](../log-analytics/log-analytics-manage-access.md)中。  如 [Log Analytics 工作區和自動化帳戶](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account)所述，工作區不會包含於管理解決方案中，但在安裝解決方案前就必須存在。  如果無法使用，則解決方案安裝會失敗。
 
 工作區的名稱位於每個 Log Analytics 資源的名稱中。  這可在解決方案中使用**工作區**參數來完成，如下列 savedsearch 資源範例所示。
 

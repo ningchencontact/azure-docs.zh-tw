@@ -1,32 +1,32 @@
 ---
-title: "Office 365 群組在 Azure Active Directory 中的群組名稱原則設定 (預覽) | Microsoft Docs"
-description: "如何設定 Azure Active Directory 中 Office 365 群組的到期日 (預覽)"
+title: Office 365 群組在 Azure Active Directory 中的群組名稱原則設定 (預覽) | Microsoft Docs
+description: 如何設定 Azure Active Directory 中 Office 365 群組的到期日 (預覽)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: michael.tillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c21706a591d0e1aa00279edf7a5534ada95fd8c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>在 Azure Active Directory 中對 Office 365 群組強制執行命名原則 (預覽)
 
 若要對使用者所建立或編輯的 Office 365 群組強制執行一致的命名慣例，請在 Azure Active Directory (Azure AD) 中為租用戶設定群組命名原則。 例如，您可以使用命名原則來傳達群組的功能、成員資格、地理區域或群組的建立者。 您也可以使用命名原則將通訊錄中的群組分類。 您可以使用原則來防止群組名稱和別名中使用特定字組。
 
 > [!IMPORTANT]
-> 若要使用 Office 365 群組命名原則預覽版，屬於一或多個 Office 365 群組成員的每個唯一使用者都需要有 Azure Active Directory Premium P1 授權。
+> 若要使用「Office 365 群組命名原則」預覽版，每個獨特使用者只要是一或多個 Office 365 群組的成員，都必須具備 Azure Active Directory Premium P1 授權或 Azure AD Basic EDU 授權。
 
 命名原則會套用至跨工作負載 (例如 Microsoft Teams、SharePoint、Exchange 或 Planner) 所建立的建立或編輯群組。 群組名稱和群組別名皆為套用對象。 如果您在 Azure AD 中設定命名原則，而您又有現存的 Exchange 群組命名原則，所套用的會是 Azure AD 命名原則。
 

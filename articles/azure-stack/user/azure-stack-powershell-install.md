@@ -1,11 +1,11 @@
 ---
-title: "安裝 Azure Stack 的 PowerShell | Microsoft Docs"
-description: "瞭解如何安裝 Azure Stack 的 PowerShell。"
+title: 安裝 Azure Stack 的 PowerShell | Microsoft Docs
+description: 瞭解如何安裝 Azure Stack 的 PowerShell。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: F8D99A91-15B5-4073-BE07-A43514A6D2CF
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: b5cc53387b6867d776059856b6e7793abbc67c9a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 7bf2d9b999db738007f75d72a8818ca0eb6f34ba
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>安裝 Azure Stack 的 PowerShell  
 
@@ -53,10 +53,10 @@ Set-PSRepository `
 
 ## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>在已連線的情況 (有網際網路連線能力) 安裝 PowerShell
 
-透過 API 版本設定檔安裝 Azure Stack 相容的 AzureRM 模組。 Azure Stack 需要 **2017-03-09-profile** API 版本設定檔 (可藉由安裝 AzureRM.Bootstrapper 模組取得)。 若要深入了解 API 版本設定檔和其所提供的 cmdlet，請參閱[管理 API 版本設定檔](azure-stack-version-profiles.md)。 除了 AzureRM 模組外，您也應該安裝 Azure Stack 特有的 Azure PowerShell 模組。 執行下列 PowerShell 指令碼，在開發工作站上安裝這些模組：
+透過 API 版本設定檔安裝 Azure Stack 相容的 AzureRM 模組。 Azure Stack 需要 **2017-03-09-profile** API 版本設定檔 (可藉由安裝 AzureRM.Bootstrapper 模組取得)。 若要深入了解 API 版本設定檔和其所提供的 cmdlet，請參閱[管理 API 版本設定檔](azure-stack-version-profiles-powershell.md)。 除了 AzureRM 模組外，您也應該安裝 Azure Stack 特有的 Azure PowerShell 模組。 執行下列 PowerShell 指令碼，在開發工作站上安裝這些模組：
 
-> [!IMPORTANT]
-> AzureRM 1.2.11 PowerShell 模組的發行版本隨附重大變更清單。 若要從 1.2.10 版升級，請參閱移轉指南 (網址為 [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration))。
+> [!IMPORTANT]  
+> AzureRM 1.2.11 PowerShell 模組的發行版本隨附重大變更清單。 若要從 1.2.10 版升級，請參閱位於 [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration)的移轉指南。
 
   ```powershell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
@@ -85,7 +85,7 @@ Set-PSRepository `
 在中斷連線或部分連線的案例中，您必須先將 PowerShell 模組下載至具有網際網路連線的電腦，然後將其傳送至 Azure Stack 開發套件進行安裝。
 
 > [!IMPORTANT]
-> AzureRM 1.2.11 PowerShell 模組的發行版本隨附重大變更清單。 若要從 1.2.10 版升級，請參閱移轉指南 (網址為 [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration))。
+> AzureRM 1.2.11 PowerShell 模組的發行版本隨附重大變更清單。 若要從 1.2.10 版升級，請參閱位於 [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration)的移轉指南。
 
 1. 登入具有網際網路連線的電腦並使用下列指令碼，將 AzureRM 及 AzureStack 套件下載到您的本機電腦：
 
@@ -134,6 +134,6 @@ Set-PSRepository `
 
 ## <a name="next-steps"></a>後續步驟
 
-* [從 GitHub 下載 Azure Stack 工具](azure-stack-powershell-download.md)
+* [從 GitHub 下載 Azure Stack 工具](azure-stack-powershell-download.md)  
 * [設定 Azure Stack 使用者的 PowerShell 環境](azure-stack-powershell-configure-user.md)  
-* [在 Azure Stack 中管理 API 版本設定檔](azure-stack-version-profiles.md)  
+* [在 Azure Stack 中管理 API 版本設定檔](azure-stack-version-profiles-powershell.md)  

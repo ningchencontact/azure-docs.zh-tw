@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 29ab87b6afe31b7bbb40ef7d743e209f86811c9d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c227af1afa95243390152918a6b81015dbaceaeb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -61,7 +61,7 @@ Windows 代理程式必須設定為可與 Windows Server Update Services (WSUS) 
 
 Linux 代理程式必須能夠存取更新存放庫。
 
-此解決方案不支援設定為向多個 Operations Management Suite 工作區報告的 OMS Agent for Linux。
+此解決方案不支援適用於 Linux 且設定為向多個 Log Analytics 工作區報告的 OMS 代理程式。
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>為 Azure 虛擬機器啟用更新管理
 
@@ -176,5 +176,5 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入了解更新管理 (包括記錄、輸出和錯誤)，請參閱 [OMS 中的更新管理方案](../operations-management-suite/oms-solution-update-management.md)。
+* 若要深入了解更新管理 (包括記錄、輸出和錯誤)，請參閱 [Azure 中的更新管理解決方案](../operations-management-suite/oms-solution-update-management.md)。
 

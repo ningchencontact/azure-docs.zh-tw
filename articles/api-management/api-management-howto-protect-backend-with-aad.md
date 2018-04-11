@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 3caa3d2b8640c83f1001aeac3b0a5e9ada143183
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c05407d761a8848f9e032aa219960cd7ea6fa93
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-protect-an-api-using-oauth-20-with-azure-active-directory-and-api-management"></a>如何使用 OAuth 2.0 搭配 Azure Active Directory 與 API 管理來保護 API
 
@@ -181,9 +181,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNTUWRoSTFjS3
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>設定 JWT 驗證原則來預先授權要求
 
-此時，當使用者嘗試從開發人員主控台進行呼叫，系統會提示使用者登入，而開發人員主控台會代表使用者取得存取權杖。 一切如預期般運作。 不過，如果有人沒用權杖或用無效的權杖呼叫 API 會怎麼樣？ 例如，您可以嘗試刪除 `Authorization` 標頭，並發現您仍然可以呼叫 API。 這是因為 APIM 不會在此時驗證存取權杖。 它會將 `Auhtorization` 標頭傳遞至後端 API。
+此時，當使用者嘗試從開發人員主控台進行呼叫，系統會提示使用者登入，而開發人員主控台會代表使用者取得存取權杖。 一切如預期般運作。 不過，如果有人沒用權杖或用無效的權杖呼叫 API 會怎麼樣？ 例如，您可以嘗試刪除 `Authorization` 標頭，並發現您仍然可以呼叫 API。 這是因為 APIM 不會在此時驗證存取權杖。 它只會將 `Auhtorization` 標頭傳遞至後端 API。
 
-我們可以使用[驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT) 原則，藉由驗證每個傳入要求的存取權杖來預先授權 APIM 中的要求。 如果要求沒有有效權杖，API 管理就會將其封鎖，而不會將其傳入後端。 我們可以將下列原則新增至 `Echo API`。 
+我們可以使用[驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT) 原則，藉由驗證每個傳入要求的存取權杖來預先授權 APIM 中的要求。 如果要求沒有有效權杖，API 管理就會將其封鎖，而不會將其傳入後端。 例如，我們可以將下列原則新增至 `Echo API` 的 `<inbound>` 原則區段。 它會檢查存取權杖中的 audience 宣告，並在權杖無效時傳回錯誤訊息。 如需如何設定原則的資訊，請參閱[設定或編輯原則](set-edit-policies.md)。
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -196,7 +196,12 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNTUWRoSTFjS3
 </validate-jwt>
 ```
 
+## <a name="build-an-application-to-call-the-api"></a>建置應用程式來呼叫 API
+
+在本指南中，我們使用了 APIM 中的開發人員主控台作為範例用戶端應用程式，來呼叫 OAuth 2.0 所保護的 `Echo API`。 若要深入了解如何建置應用程式及實作 OAuth 2.0 流程，請參閱 [Azure Active Directory 程式碼範例](../active-directory/develop/active-directory-code-samples.md)。
+
 ## <a name="next-steps"></a>後續步驟
+* 深入了解 [Azure Active Directory 和 OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md)。
 * 查看更多有關 API 管理的 [視訊](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 。
 * 如需其他保護後端服務的方式，請參閱[相互憑證驗證](api-management-howto-mutual-certificates.md)。
 

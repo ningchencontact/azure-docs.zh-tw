@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題
 
@@ -78,21 +78,6 @@ ms.lasthandoff: 03/09/2018
 **原因 4︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **原因 5︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
 **原因 6：[備份服務因資源群組鎖定而沒有刪除舊還原點的權限](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
-
-## <a name="disk-configuration-is-not-supported"></a>不支援磁碟組態
-
-錯誤訊息：「不支援指定的磁碟組態」
-
-> [!NOTE]
-> 我們有私人預覽，可支援磁碟大於 1 TB 的虛擬機器備份作業。 如需詳細資訊，請參閱[適用於大型磁碟虛擬機器備份支援的私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)。
->
->
-
-Azure 備份目前不支援[大於 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm) 的磁碟。 如果您有大於 1 TB 的磁碟：  
-1. [連結新磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)，其容量小於 1 TB。  
-2. 將資料從大於 1 TB 的磁碟，複製到小於 1 TB 的新建磁碟。  
-3. 確定已複製所有資料。 然後，移除大於 1 TB 的磁碟。  
-4. 起始備份。
 
 ## <a name="causes-and-solutions"></a>原因和解決方案
 

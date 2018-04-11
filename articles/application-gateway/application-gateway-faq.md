@@ -1,24 +1,19 @@
 ---
-title: Azure 應用程式閘道的常見問題集 | Microsoft Docs
+title: Azure 應用程式閘道的常見問題集
 description: 本頁提供 Azure 應用程式閘道相關常見問題的解答
-documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 3/29/2018
+ms.author: victorh
+ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>應用程式閘道的常見問題集
 
@@ -38,7 +33,19 @@ Azure 應用程式閘道是服務形式的應用程式傳遞控制器 (ADC)，�
 
 **問：應用程式閘道支援哪些通訊協定？**
 
-Azure 應用程式閘道支援 HTTP、HTTPS 和 WebSocket。
+應用程式閘道支援 HTTP、HTTPS、HTTP/2 和 WebSocket。
+
+**問：應用程式閘道如何支援 HTTP/2？**
+
+HTTP/2 通訊協定支援僅適用於連線到應用程式閘道接聽程式的用戶端。 與後端伺服器集區的通訊是透過 HTTP/1.1 進行的。 
+
+預設已停用 HTTP/2 支援。 下列 Azure PowerShell 程式碼片段範例示範如何啟用它：
+
+```
+$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw.EnableHttp2 = $true
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
+```
 
 **問：目前支援哪些資源做為後端集區的一部分？**
 
@@ -104,7 +111,7 @@ Azure 應用程式閘道支援 HTTP、HTTPS 和 WebSocket。
 
 * 必須放入連接埠 65503-65534 上傳入流量的例外狀況，後端健康情況才能正常運作。
 
-* 不會封鎖輸出網際網路連線。
+* 無法封鎖輸出網際網路連線。
 
 * 必須允許來自 AzureLoadBalancer 標籤的流量。
 
@@ -314,7 +321,7 @@ WAF 目前支援 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 **問：是否可以設定應用程式閘道的警示？**
 
-是，應用程式閘道可以支援警示，並可將警示設定為關閉計量。  應用程式閘道目前有「輸送量」計量，這可設定用於警示。 若要深入了解警示，請瀏覽[接收警示通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)。
+是，應用程式閘道可以支援警示，並可將警示設定為關閉計量。 應用程式閘道目前有「輸送量」計量，這可設定用於警示。 若要深入了解警示，請瀏覽[接收警示通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)。
 
 **問：後端健康情況傳回不明狀態，什麼導致這個狀態？**
 

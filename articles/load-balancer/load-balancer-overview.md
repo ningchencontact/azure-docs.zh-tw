@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 3a5d1e897d8ffe063ecf9277bef346c8b7c5092b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f4410932f00f8505ae5a894caa002e1223196d95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-load-balancer-overview"></a>Azure 負載平衡器概觀
 
@@ -142,7 +142,7 @@ Azure Load Balancer 支援兩種不同的 SKU：基本和標準。  它們的案
 
 ![建立負載平衡器範例](./media/load-balancer-overview/IC727496.png)
 
-**圖 1：使用公用 Load Balancer 進行網路流量負載平衡**
+*圖：使用公用 Load Balancer 來進行網路流量負載平衡*
 
 當網際網路用戶端在 TCP 通訊埠 80 上傳送網頁要求至 Web 應用程式的公用 IP 位址時，Azure Load Balancer 會在負載平衡集中，將要求分配至這三部虛擬機器。 如需負載平衡器演算法的詳細資訊，請參閱[負載平衡器概觀頁面](load-balancer-overview.md#load-balancer-features)。
 
@@ -161,7 +161,7 @@ Azure Load Balancer 支援兩種不同的 SKU：基本和標準。  它們的案
 
 ![內部負載平衡器範例](./media/load-balancer-overview/IC744147.png)
 
-**圖 2 - 使用公用和內部負載平衡器來負載平衡多層式應用程式**
+*圖 - 使用公用和內部負載平衡器來進行多層式應用程式負載平衡*
 
 ## <a name="pricing"></a>價格
 標準 Load Balancer 為計費產品，根據所設定的負載平衡規則數目以及處理的所有輸入和輸出資料計算費用。 如需標準 Load Balancer 的定價資訊，請瀏覽 [Load Balancer 定價](https://azure.microsoft.com/pricing/details/load-balancer/)網頁。

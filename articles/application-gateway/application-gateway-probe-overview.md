@@ -1,25 +1,23 @@
 ---
-title: "Azure 應用程式閘道的健全狀況監視概觀 | Microsoft Docs"
-description: "了解 Azure 應用程式閘道的監視功能"
+title: Azure 應用程式閘道的健全狀況監視概觀
+description: 了解 Azure 應用程式閘道的監視功能
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
-ms.assetid: 7eeba328-bb2d-4d3e-bdac-7552e7900b7f
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
-ms.author: davidmu
-ms.openlocfilehash: 83a0b1be1aba48146aa1aaedb36ad9d9d23f17d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 3/30/2018
+ms.author: victorh
+ms.openlocfilehash: 2f62f01c1178f9529eb46051f088affccc5279a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>應用程式閘道健全狀況監視概觀
 
@@ -40,6 +38,25 @@ Azure 應用程式閘道預設會監視其後端集區中所有資源的健康�
 
 如果伺服器 A 的預設探查檢查失敗，應用程式閘道就會將其從後端集區中移除，網路流量也不會再流向此伺服器。 預設探查仍會繼續每 30 秒檢查一次伺服器 A。 當伺服器 A 成功回應預設健全狀態探查所提出的要求時，就會變為狀況良好並重新回到後端集區中，而流量也會開始再次流向該伺服器。
 
+### <a name="probe-matching"></a>探查比對
+
+根據預設，狀態碼 200 的 HTTP 回應會被視為狀況良好。 自訂的健全狀況探查額外支援兩個比對準則。 比對準則可用來選擇性地修改其預設解譯會構成狀況良好回應的項目。
+
+以下為比對準則： 
+
+- **HTTP 回應狀態碼比對**：探查比對準則，以接受使用者指定的 HTTP 回應碼或回應碼範圍。 支援以逗號分隔的個別回應狀態碼或一個狀態碼範圍。
+- **HTTP 回應主體比對**：探查比對準則，其會查看 HTTP 回應主體並與使用者指定的字串進行比對。 請注意，比對只會在回應主體中尋找是否有使用者指定的字串，並不會進行完整的規則運算式比對。
+
+比對準則是使用 `New-AzureRmApplicationGatewayProbeHealthResponseMatch` Cmdlet 來指定的。
+
+例如︰
+
+```
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```
+一旦指定比對準則之後，就可使用 PowerShell 中的 `-Match` 參數，將它附加至探查設定。
+
 ### <a name="default-health-probe-settings"></a>預設的健全狀況探查設定
 
 | 探查屬性 | 值 | 說明 |
@@ -52,7 +69,7 @@ Azure 應用程式閘道預設會監視其後端集區中所有資源的健康�
 > [!NOTE]
 > 連接埠會是和後端 HTTP 設定相同的連接埠。
 
-預設探查只會查看 http://127.0.0.1:\<連接埠\> 來判斷健康狀態。 如果您需要設定健全狀態探查，使其移至自訂 URL 或修改任何其他設定，則必須使用如下列步驟所述的自訂探查：
+預設探查只會查看 http://127.0.0.1:\<連接埠\> 來判斷健全狀態。 如果您需要設定健全狀態探查，使其移至自訂 URL 或修改任何其他設定，則必須使用如下列步驟所述的自訂探查：
 
 ## <a name="custom-health-probe"></a>自訂的健全狀況探查
 

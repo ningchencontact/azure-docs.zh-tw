@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: df4a5a17ad034ae5d6ab82791c020634a8758b71
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基本知識
 若您還不熟悉 Azure Stack 管理，有幾件事需要知道。 本指南提供您身為 Azure Stack 操作員的角色概觀，以及您需要告知使用者哪些事項，使他們快速上手。
@@ -31,9 +31,9 @@ ms.lasthandoff: 03/23/2018
  
 ### <a name="development-kit"></a>開發套件
 
-如果您使用的是「Azure Stack 開發套件」，請檢閱[什麼是 Azure Stack？](azure-stack-poc.md)一文，以確保您了解開發套件的目的及其限制。 您應該將開發套件當作「沙箱」使用，在其中評估 Azure Stack，並在非生產環境中開發和測試您的應用程式。 (如需部署資訊，請參閱 [Azure Stack 開發套件部署](azure-stack-deploy-overview.md)快速入門。)
+如果您使用的是「Azure Stack 開發套件」，請檢閱[什麼是 Azure Stack？](.\asdk\asdk-what-is.md)一文，以確保您了解開發套件的目的及其限制。 您應該將開發套件當作「沙箱」使用，在其中評估 Azure Stack，並在非生產環境中開發和測試您的應用程式。 (如需部署資訊，請參閱 [Azure Stack 開發套件部署](.\asdk\asdk-deploy.md)教學課程)。
 
-就像 Azure 一樣，我們迅速地進行創新。 我們會定期發行新組建。 如果您執行的是開發套件並且想要移至最新的組建，就必須[重新部署 Azure Stack](azure-stack-redeploy.md)。 您無法套用更新套件。 此流程需要時間，但好處是您可以嘗試最新的功能。 我們網站上的開發套件文件會反映最新發行的組建。
+就像 Azure 一樣，我們迅速地進行創新。 我們會定期發行新組建。 如果您執行的是開發套件並且想要移至最新的組建，就必須[重新部署 Azure Stack](.\asdk\asdk-redeploy.md)。 您無法套用更新套件。 此流程需要時間，但好處是您可以嘗試最新的功能。 我們網站上的開發套件文件會反映最新發行的組建。
 
 ## <a name="learn-about-available-services"></a>了解可用的服務
 
@@ -63,6 +63,18 @@ ms.lasthandoff: 03/23/2018
 **服務藍圖**
 
 Azure Stack 會持續新增對 Azure 服務的支援。 如需了解所規劃的藍圖，請參閱 [Azure Stack：Azure 的延伸](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) \(英文\) 白皮書。 您也可以留意 [Azure Stack 部落格文章](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview)的新宣告。
+
+## <a name="what-account-should-i-use"></a>我該使用哪個帳戶?
+管理 Azure Stack 時，有幾個您應該注意的帳戶考量。 尤其是在使用 Windows Server「Active Directory 同盟服務」(AD FS) 而不是 Azure Active Directory (Azure AD) 作為身分識別提供者的部署中。 下列帳戶考量同時適用於 Azure Stack 整合式系統和 ASDK 部署：
+
+
+|帳戶|Azure AD|AD FS|
+|-----|-----|-----|
+|本機系統管理員 (.\Administrator)|ASDK 主機管理員|ASDK 主機管理員|
+|AzureStack\AzureStackAdmin|ASDK 主機管理員<br><br>可用來登入 Azure Stack 管理入口網站<br><br>具備檢視及管理 Service Fabric 環的存取權|ASDK 主機管理員<br><br>無法存取 Azure Stack 管理入口網站<br><br>具備檢視及管理 Service Fabric 環的存取權<br><br>已不再是「預設提供者訂用帳戶」(DPS) 的擁有者|
+|AzureStack\CloudAdmin|可在「具有特殊權限的端點」內存取及執行允許的命令|可在「具有特殊權限的端點」內存取及執行允許的命令<br><br>無法登入 ASDK 主機<br><br>「預設提供者訂用帳戶」(DPS) 的擁有者|
+|Azure AD 全域管理員|安裝時所使用<br><br>「預設提供者訂用帳戶」(DPS) 的擁有者|不適用|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>我可以使用哪些工具來管理？
  

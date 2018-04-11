@@ -1,6 +1,6 @@
 ---
-title: "Azure 儲存體移轉常見問題集 | Microsoft Docs"
-description: "移轉 Azure 儲存體常見問題的解答"
+title: Azure 儲存體移轉常見問題集 | Microsoft Docs
+description: 移轉 Azure 儲存體常見問題的解答
 services: storage
 documentationcenter: na
 author: genlin
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 89d1a4767c240c7e4fedb9d7ac47d6d4fb0aa737
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>關於 Azure 儲存體移轉的常見問題集
 
@@ -168,7 +168,7 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 
 **如何將儲存體帳戶的次要位置變更為歐洲地區？**
 
-建立儲存體帳戶時，您可以為帳戶選取主要區域。 次要地區的選擇是以主要地區為準，無法變更。 如需詳細資訊，請參閱 [Azure 儲存體複寫](storage-redundancy.md)。
+建立儲存體帳戶時，您可以為帳戶選取主要區域。 次要地區的選擇是以主要地區為準，無法變更。 如需詳細資訊，請參閱[異地備援儲存體 (GRS)：適用於 Azure 儲存體的跨區域複寫](storage-redundancy.md)。
 
 **我可以從哪裡取得更多關於 Azure 儲存體服務加密 (SSE) 的資訊？**  
   
@@ -284,7 +284,7 @@ Azure 檔案共用不允許使用進階儲存體。
 
     - **SAS 權杖**︰使用 SAS 權杖以存取來自端點的資料。 如需詳細資訊，請參閱[使用共用存取簽章](storage-dotnet-shared-access-signature-part-1.md)。
 
-**如何將 HTTPS 自訂網域與我的儲存體帳戶搭配使用？例如，如何讓「https://mystorageaccountname.blob.core.windows.net/images/image.gif」顯示為「https://www.contoso.com/images/image.gif」？**
+**如何將 HTTPS 自訂網域與我的儲存體帳戶搭配使用？例如，如何讓 "https://mystorageaccountname.blob.core.windows.net/images/image.gif" 顯示為 "https://www.contoso.com/images/image.gif"？**
 
 具有自訂網域的儲存體帳戶目前不支援 SSL。
 但可以使用非 HTTPS 的自訂網域。 如需詳細資訊，請參閱[針對 Blob 儲存體端點設定自訂網域名稱](../blobs/storage-custom-domain-name.md)。

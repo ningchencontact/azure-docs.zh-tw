@@ -1,11 +1,11 @@
 ---
-title: "開始使用 Azure AD Cordova | Microsoft Docs"
-description: "如何建置 Cordova 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。"
+title: 開始使用 Azure AD Cordova | Microsoft Docs
+description: 如何建置 Cordova 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: vibronet
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
 ms.service: active-directory
 ms.workload: identity
@@ -124,7 +124,7 @@ Azure AD 只會發出權杖給已知的應用程式。 您必須先在租用戶�
   * Windows：`xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
   * Mac：`cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
 
-4. 新增白名單外掛程式。 這是叫用圖形 API 所需的。
+4. 新增允許清單外掛程式。 這是叫用圖形 API 所需的。
 
         cordova plugin add cordova-plugin-whitelist
 

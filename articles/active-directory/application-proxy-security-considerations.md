@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 應用程式 Proxy 的安全性考量 | Microsoft Docs"
-description: "涵蓋使用 Azure AD 應用程式 Proxy 的安全性考量"
+title: Azure AD 應用程式 Proxy 的安全性考量 | Microsoft Docs
+description: 涵蓋使用 Azure AD 應用程式 Proxy 的安全性考量
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -59,7 +59,7 @@ Azure AD 應用程式 Proxy 是反向 Proxy，因此所有至後端應用程式�
 
 不需要開啟連往公司網路的輸入連線。
 
-應用程式 Proxy 連接器只會使用連往 Azure AD 應用程式 Proxy 服務的輸出連線；亦即，您不需要開啟防火牆連接埠以供連入連線使用。 傳統 Proxy 需要周邊網路 (也稱為「DMZ」、「非軍事區」或「遮蔽式子網路」) 並在網路邊緣允許未經授權連線的存取權。 這種情節需要投資 Web 應用程式防火牆產品，以便分析流量及保護環境。 使用應用程式 Proxy，您就不需要周邊網路，因為所有連線皆為輸出方向，並且是透過安全通道來傳輸。
+應用程式 Proxy 連接器只會使用連往 Azure AD 應用程式 Proxy 服務的輸出連線；亦即，您不需要開啟防火牆連接埠以供連入連線使用。 傳統 Proxy 需要周邊網路 (也稱為「DMZ」、「周邊網路」或「遮蔽式子網路」) 並在網路邊緣允許未經授權連線的存取權。 這種情節需要投資 Web 應用程式防火牆產品，以便分析流量及保護環境。 使用應用程式 Proxy，您就不需要周邊網路，因為所有連線皆為輸出方向，並且是透過安全通道來傳輸。
 
 如需連接器的詳細資訊，請參閱[了解 Azure AD 應用程式 Proxy 連接器](application-proxy-understand-connectors.md)。
 

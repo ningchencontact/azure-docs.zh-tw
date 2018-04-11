@@ -1,8 +1,8 @@
 ---
-title: "Azure AD 應用程式 Proxy - 開始安裝連接器 | Microsoft Docs"
-description: "在 Azure 入口網站中開啟應用程式 Proxy，並安裝反向 Proxy 的連接器。"
+title: Azure AD 應用程式 Proxy - 開始安裝連接器 | Microsoft Docs
+description: 在 Azure 入口網站中開啟應用程式 Proxy，並安裝反向 Proxy 的連接器。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
@@ -53,7 +53,7 @@ ms.lasthandoff: 02/01/2018
    >
    >如需將連接器更新至最新版本的詳細資訊，請參閱[了解 Azure AD 應用程式 Proxy 連接器](application-proxy-understand-connectors.md#automatic-updates)。
 
-2. 如果您的防火牆或 Proxy 允許建立 DNS 白名單，您可以建立 msappProxy.net 和 servicebus.windows.net 的白名單連線。 如果不是，您需要允許對每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)的存取。
+2. 如果您的防火牆或 Proxy 允許建立 DNS 允許清單，您可以建立 msappProxy.net 和 servicebus.windows.net 的允許清單連線。 如果不是，您需要允許對每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)的存取。
 
 3. Microsoft 使用四個位址來驗證憑證。 請允許存取下列 URL (若尚未允許其他產品存取)：
    * mscrl.microsoft.com:80

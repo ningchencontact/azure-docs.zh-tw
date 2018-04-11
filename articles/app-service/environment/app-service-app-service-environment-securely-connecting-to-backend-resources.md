@@ -1,11 +1,11 @@
 ---
-title: "安全地從 App Service 環境連接到後端資源"
-description: "了解如何安全地從 App Service 環境連接到後端資源。"
+title: 安全地從 App Service 環境連接到後端資源
+description: 了解如何安全地從 App Service 環境連接到後端資源。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.service: app-service
 ms.workload: na
@@ -52,7 +52,7 @@ App Service 環境需要針對虛擬網路設定的有效 DNS 基礎結構。  �
 * [網路安全性群組][NetworkSecurityGroups]
 
 ## <a name="restricting-access-with-a-network-acl"></a>利用網路 ACL 限制存取
-使用網路存取控制清單可以保護連接埠 1433。  下列範例將源自虛擬網路內部的用戶端位址列入白名單，並封鎖對所有其他用戶端的存取。
+使用網路存取控制清單可以保護連接埠 1433。  下列範例將源自虛擬網路內部的用戶端位址列入允許清單，並封鎖對所有其他用戶端的存取。
 
 ![網路存取控制清單範例][NetworkAccessControlListExample]
 

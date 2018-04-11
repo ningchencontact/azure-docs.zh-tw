@@ -1,12 +1,12 @@
 ---
-title: "透過 Azure CDN 進行動態網站加速"
-description: "動態站台加速深入探討"
+title: 透過 Azure CDN 進行動態網站加速
+description: Azure CDN 針對具有動態內容的檔案，支援動態網站加速 (DSA) 最佳化。
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli
-ms.openlocfilehash: 713f00f432095b7a8a19996fb7bdb7e5f8d79b63
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>透過 Azure CDN 進行動態網站加速
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 03/02/2018
 **Akamai 中的 Azure CDN** 和 **Verizon 中的 Azure CDN** 都會在端點建立期間透過 [最佳化] 功能表來提供 DSA 最佳化。
 
 > [!Important]
-> 僅限於 **Akamai 中的 Azure CDN** 設定檔，您能夠在 CDN 端點建立之後，變更其最佳化。
+> 針對**來自 Akamai 的 Azure CDN**設定檔，您可以在 CDN 端點建立之後，變更其最佳化。
 >   
-> 對於 **Verizon 中的 Azure CDN** 設定檔，不可能在 CDN 端點建立之後，變更其最佳化。
+> 針對**來自 Verizon 的 Azure CDN**設定檔，您無法在 CDN 端點建立之後，變更其最佳化。
 
 ## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>設定 CDN 端點以加速動態檔案傳遞
 
@@ -104,7 +104,7 @@ Akamai 網路會使用一些技術，透過 Akamai 伺服器中不同的節點�
 
 TCP「慢速啟動」是 TCP 通訊協定的演算法，可藉由限制透過網路傳送的資料量來防止網路壅塞。 它會從傳送者與接收者之間的小型壅塞視窗大小開始，直到觸達最大值或偵測到封包遺失為止。
 
- **Akamai 中的 Azure CDN** 和 **Verizon 中的 Azure CDN** 會透過下列三個步驟排除 TCP 緩慢啟動：
+ **來自 Akamai 的 Azure CDN** 和**來自 Verizon 的 Azure CDN** 設定檔都可透過下列三個步驟消除 TCP 啟動緩慢的情況：
 
 1. 健康狀態和頻寬監視用來測量 PoP Edge Server 之間的連線頻寬。
     
@@ -152,19 +152,32 @@ JPEG 壓縮 | .jpg、.jpeg、.jpe、.jig、.jgig、.jgi
 
 如果您的網站混雜了靜態和動態資產，您最好採用混合式方法以獲得最佳效能。 
 
-對於 **Verizon Premium 中的 Azure CDN** 設定檔，您可以使用 DSA 端點的[規則引擎](cdn-rules-engine.md)，在特定情況下開啟快取。 所建立的任何規則只會影響您設定檔中已針對 DSA 最佳化的這些端點。 
+針對**來自 Verizon 的 Azure CDN (標準)** 和**來自 Akamai 的 Azure CDN (標準)** 設定檔，您可以使用[快取規則](cdn-caching-rules.md)來開啟特定 DSA 端點的快取。
 
-若要存取 DSA 端點的規則引擎：
+存取快取規則：
+
+1. 從 [CDN 設定檔] 頁面的 [設定] 底下，選取 [快取規則]。  
+    
+    ![CDN [快取規則] 按鈕](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+
+    [快取規則] 頁面隨即開啟。
+
+2. 建立全域或自訂快取規則以開啟 DSA 端點的快取。 
+
+針對**來自 Verizon 的 Azure CDN (進階)** 設定檔，您可以使用[規則引擎](cdn-rules-engine.md)來開啟特定 DSA 端點的快取。 所建立的任何規則只會影響您設定檔中已針對 DSA 最佳化的這些端點。 
+
+存取規則引擎：
     
 1. 從 [CDN 設定檔] 頁面選取 [管理]。  
     
-    ![CDN 設定檔管理按鈕](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![CDN 設定檔管理按鈕](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     隨即開啟 CDN 管理入口網站。
 
 2. 從 CDN 管理入口網站，選取 [ADN]，然後選取 [規則引擎]。 
 
-    ![DSA 的規則引擎](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+    ![DSA 的規則引擎](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
+
 
 
 此外，您可以使用兩個 CDN 端點：一個使用 DSA 最佳化的端點用來傳遞動態資產，另一個使用靜態最佳化類型 (例如一般 Web 傳遞) 最佳化的端點用來傳遞可快取的資產。 將網頁 URL 修改為直接連結至您打算使用之 CDN 端點上的資產。 

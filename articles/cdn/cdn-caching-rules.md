@@ -1,12 +1,12 @@
 ---
-title: "使用快取規則控制 Azure 內容傳遞網路快取行為 | Microsoft Docs"
-description: "您可以使用 CDN 快取規則，以全域及有條件 (例如 URL 路徑和副檔名) 的方式設定或修改預設快取到期行為。"
+title: 使用快取規則來控制 Azure CDN 快取行為 | Microsoft Docs
+description: 您可以使用 CDN 快取規則，以全域及有條件 (例如 URL 路徑和副檔名) 的方式設定或修改預設快取到期行為。
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 735978a0986b2b16b4f96faca78c06d798915002
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>使用快取規則控制 Azure 內容傳遞網路快取行為
+# <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>使用快取規則來控制 Azure CDN 快取行為
 
 > [!NOTE] 
 > 快取規則僅適用於**來自 Verizon 的 Azure CDN 標準**和**來自 Akamai 的 Azure CDN 標準**。 針對**來自 Verizon Premium 的 Azure CDN**，您可以使用 [管理] 入口網站中的 [Azure CDN 規則引擎](cdn-rules-engine.md)來執行類似功能。
  
-Azure 內容傳遞網路提供兩種方式來控制檔案的快取方式： 
+「Azure 內容傳遞網路」(CDN) 提供兩種方式來控制如何快取檔案： 
 
 - 快取規則：本文說明如何使用內容傳遞網路 (CDN) 快取規則，以全域及有自訂條件 (例如 URL 路徑和副檔名) 的方式設定或修改預設快取到期行為。 Azure CDN 提供兩種類型的快取規則：
    - 全域快取規則：您可以針對設定檔中的每個端點設定一個全域快取規則，這會影響針對端點的所有要求。 全域快取規則會覆寫任何 HTTP 快取指示詞標頭 (如果已設定)。
@@ -40,11 +40,11 @@ Azure 內容傳遞網路提供兩種方式來控制檔案的快取方式：
 如何設定 CDN 快取規則：
 
 1. 開啟 Azure 入口網站，選取 CDN 設定檔，然後選取端點。
-2. 在左側窗格的 [設定] 下方，按一下 [快取規則]。
+2. 在左窗格的 [設定] 下方，選取 [快取規則]。
 
    ![CDN [快取規則] 按鈕](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-1. 建立全域快取規則，如下所示：
+3. 建立全域快取規則，如下所示：
    1. 在 [全域快取規則] 下方，將 [查詢字串快取行為] 設定為 [忽略查詢字串]。
    2. 將 [快取行為] 設定為 [缺少時才設定]。
        
@@ -62,6 +62,7 @@ Azure 內容傳遞網路提供兩種方式來控制檔案的快取方式：
 
     ![自訂快取規則](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
+    
 > [!NOTE] 
 > 在規則變更之前快取的檔案會維持其原始的快取持續時間設定。 若要重設它們的快取持續時間，您必須[清除檔案](cdn-purge-endpoint.md)。 針對**來自 Verizon 的 Azure CDN** 端點，快取規則可能需要 90 分鐘才會生效。
 

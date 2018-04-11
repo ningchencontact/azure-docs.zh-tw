@@ -1,33 +1,33 @@
 ---
-title: "Azure Cosmos DB 中的資料分割和水平調整 | Microsoft Docs"
-description: "了解資料分割在 Azure Cosmos DB 中的運作方式、如何設定資料分割和資料分割索引鍵，以及如何為您的應用程式挑選合適的資料分割索引鍵。"
+title: Azure Cosmos DB 中的資料分割和水平調整 | Microsoft Docs
+description: 了解資料分割在 Azure Cosmos DB 中的運作方式、如何設定資料分割和資料分割索引鍵，以及如何為您的應用程式挑選合適的資料分割索引鍵。
 services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/30/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 149d2ba5108fb49741203fbe5c50add6c0d523ae
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中進行資料分割和調整
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 是全域分散的多重模型資料庫服務，其設計可協助您達成快速且可預測的效能。 它會順暢地隨著應用程式的成長而調整規模。 本文概述 Azure Cosmos DB 中所有資料模型的資料分割運作方式的概觀， 並描述可如何設定 Azure Cosmos DB 容器以有效地調整應用程式規模。
 
-Scott Hanselman 和 Azure Cosmos DB 工程總經理 Shireesh Thota 會在這段 Azure Friday 影片中討論資料分割和資料分割索引鍵：
+Azure Cosmos DB 程式總監 Andrew Liu 會在這段影片中討論資料分割和分割區索引鍵：
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
+> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB 中的資料分割
@@ -53,7 +53,7 @@ Scott Hanselman 和 Azure Cosmos DB 工程總經理 Shireesh Thota 會在這段 
 * Azure Cosmos DB 會在幕後佈建服務 **T** 每秒要求所需的分割區。 如果 **T** 超過每一分割區的最大輸送量 **t**，Azure Cosmos DB 就會佈建 **N = T/t** 分割區。
 * Azure Cosmos DB 會在 **N** 分割區平均地配置分割區索引鍵雜湊的索引鍵空間。 因此，每個分割區 (實體分割區) 會裝載 **1/N** 個資料分割索引鍵值 (邏輯分割區)。
 * 當實體分割區 **p** 達到儲存體限制時，Azure Cosmos DB 會以無縫方式將 **p** 分割成兩個新的分割區 **p1** 和 **p2**。 它會分配相當於約索引鍵一半的值給每個分割區。 應用程式不會察覺此分割作業。 如果實體分割區觸達其儲存空間限制，且實體分割區中的所有資料屬於相同的邏輯分割區索引鍵，就不會進行分割作業。 這是因為單一邏輯分割區索引鍵的所有資料必須都位於相同的實體磁碟分割，因此您無法將實體分割區分割為 p1 和 p2。 在此情況下，應該採用不同的分割區索引鍵策略。
-* 當您佈建超過 **t*N** 的輸送量時，Azure Cosmos DB 會分割一或多個分割區以支援更高的輸送量。
+* 當您佈建超過 **t*N** 的輸送量時，Azure Cosmos DB 會分割您的一或多個分割區以支援更高的輸送量。
 
 資料分割索引鍵的語意會稍有不同，以符合各 API 的語意，如下表所示︰
 

@@ -13,17 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: zhiweiw
-ms.openlocfilehash: a57bb4a019ce51e67516761ae6fb89461fe89e15
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6803d0a5cff45736013a840451b940ef7108bca1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Azure Active Directory Connect Health 警示目錄 
 
 Azure AD Connect Health 服務會傳送指出您身分識別基礎結構狀況不良的警示。 本文包含警示標題、說明及每個警示的補救步驟。 <br />
 「錯誤」、「警告」及「預先警告」是從 Connect Health 服務產生之警示的三個階段。 強烈建議您針對所觸發的警示採取立即的動作。 <br />
 Azure AD Connect Health 警示會在成功情況下獲得解決。 Azure AD Connect Health 代理程式會定期偵測成功情況，並向服務回報。 對於少數幾個警示，隱藏是以時間為基礎。 也就是說，如果在警示產生的 72 小時內未觀察到相同的錯誤狀況，就會自動解決警示。
+
+## <a name="general-alerts"></a>一般警示
+
+| 警示名稱 | 說明 | 補救 |
+| --- | --- | ----- |
+| 健全狀況服務的資料並非最新 | 有一或多部伺服器上執行的健康情況代理程式未與健康情況服務連線，因此健康情況服務未收到此伺服器的最新資料。 健康情況服務上次處理的資料已是 2 小時前的資料。 | 請確認健康情況代理程式能夠連出到下列服務端點。 [閱讀更多資訊](active-directory-aadconnect-health-data-freshness.md) |
 
 ## <a name="alerts-for-azure-ad-connect-sync"></a>Azure AD Connect (同步) 的警示
 
@@ -35,10 +41,10 @@ Azure AD Connect Health 警示會在成功情況下獲得解決。 Azure AD Conn
 | 匯出至 Active Directory 失敗 | 匯出至 Active Directory 連接器的作業失敗。 | 請調查匯出作業的事件記錄檔錯誤，以取得進一步的詳細資料。 | 
 | 從 Active Directory 匯入失敗 | 從 Active Directory 匯入失敗。 因此，可能無法匯入來自這個樹系中某些網域的物件。 | <li>驗證 DC 連線</li> <li>手動重新執行匯入</li> <li> 調查匯入作業的事件記錄檔錯誤，以取得進一步的詳細資料。 | 
 | 匯出至 Azure Active Directory 失敗 | 匯出至 Azure Active Directory 連接器的作業失敗。 因此，某些物件可能無法成功匯出至 Azure Active Directory。 | 請調查匯出作業的事件記錄檔錯誤，以取得進一步的詳細資料。 |
-| 在過去 120 分鐘內，已跳過密碼同步化活動訊號 | 密碼同步處理作業在過去 120 分鐘內皆未與 Azure Active Directory 連線。 因此，密碼將不會與 Azure Active Directory 同步。 | 重新啟動 Microsoft Azure Active Directory 同步服務：</b><br> 目前執行的所有同步處理作業都會中斷。 您可以選擇在未進行同步處理作業時執行下列步驟。<br> 1.依序按一下 [啟動]<b></b>、[執行]<b></b>，輸入 <b>Services.msc</b>，然後按一下 [確定]<b></b>。<br> 2.找到 [Microsoft Azure AD 同步]<b></b>，按一下滑鼠右鍵，再按一下 [重新啟動]<b></b>。 | 
+| 在過去 120 分鐘內，已跳過密碼雜湊同步處理活動訊號 | 密碼雜湊同步處理在過去 120 分鐘內皆未與 Azure Active Directory 連線。 因此，密碼將不會與 Azure Active Directory 同步。 | 重新啟動 Microsoft Azure Active Directory 同步服務：</b><br> 目前執行的所有同步處理作業都會中斷。 您可以選擇在未進行同步處理作業時執行下列步驟。<br> 1.依序按一下 [啟動]<b></b>、[執行]<b></b>，輸入 <b>Services.msc</b>，然後按一下 [確定]<b></b>。<br> 2.找到 [Microsoft Azure AD 同步]<b></b>，按一下滑鼠右鍵，再按一下 [重新啟動]<b></b>。 | 
 | 偵測到高 CPU 使用率 | 此伺服器的 CPU 耗用量百分比超出建議的臨界值。 | <li>這可能是 CPU 耗用量暫時突然增加。 請查看 [監視] 區段中的 CPU 使用量趨勢。</li><li>檢查伺服器上 CPU 使用量最高的前幾名處理序。<ol type="a"><li>您可以使用工作管理員或執行下列 PowerShell 命令： <br> <i>get-process \| Sort-Object -Descending CPU \| Select-Object -First 10</i></li><li>如有未預期的處理序正在耗用大量的 CPU，請使用下列 PowerShell 命令停止這些處理序： <br> <i>stop-process -ProcessName [處理序名稱]</i></li></li></ol><li>若上述清單中出現的處理序是預期會在伺服器上執行的處理序，而 CPU 耗用量持續趨近臨界值，請考慮重新評估此伺服器的部署需求。</li><li>為了保險起見，您可以考慮重新啟動伺服器。 |
 | 偵測到高記憶體耗用量 | 此伺服器的記憶體耗用量百分比超出建議的臨界值。 | 檢查伺服器上記憶體使用量最高的前幾名處理序。 您可以使用工作管理員或執行下列 PowerShell 命令：<br> <i>get-process \| Sort-Object -Descending WS \| Select-Object -First 10</i> </br> 如有未預期的處理序正在耗用大量的記憶體，請使用下列 PowerShell 命令停止這些處理序：<br><i>stop-process -ProcessName [處理序名稱] </i></li><li> 若上述清單中出現的處理序是預期會在伺服器上執行的處理序，請考慮重新評估此伺服器的部署需求。</li><li>為了保險起見，您可以考慮重新啟動伺服器。 | 
-| 密碼同步化已停止運作 | 密碼同步化已停止。 因此，密碼將不會與 Azure Active Directory 同步。 | 重新啟動 Microsoft Azure Active Directory 同步服務： <br /> 目前執行的所有同步處理作業都會中斷。 您可以選擇在未進行同步處理作業時執行下列步驟。 <br /> <ol> <li>依序按一下 [啟動]<b></b>、[執行]<b></b>，輸入 <b>Services.msc</b>，然後按一下 [確定]<b></b>。</li> <li>找到 [Microsoft Azure AD 同步]<b></b>，按一下滑鼠右鍵，再按一下 [重新啟動]<b></b>。</li> </ol> </p>  | 
+| 密碼雜湊同步處理已停止運作 | 密碼雜湊同步處理已停止。 因此，密碼將不會與 Azure Active Directory 同步。 | 重新啟動 Microsoft Azure Active Directory 同步服務： <br /> 目前執行的所有同步處理作業都會中斷。 您可以選擇在未進行同步處理作業時執行下列步驟。 <br /> <ol> <li>依序按一下 [啟動]<b></b>、[執行]<b></b>，輸入 <b>Services.msc</b>，然後按一下 [確定]<b></b>。</li> <li>找到 [Microsoft Azure AD 同步]<b></b>，按一下滑鼠右鍵，再按一下 [重新啟動]<b></b>。</li> </ol> </p>  | 
 | 匯出至 Azure Active Directory 已停止。 已達意外刪除臨界值 | 匯出至 Azure Active Directory 的作業失敗。 要刪除的物件數目超過設定的臨界值。 因此未匯出任何物件。 | <li> 標示要刪除的物件數目大於設定的臨界值。 請確定這是想要的結果。</li> <li> 若要繼續匯出，請執行下列步驟： <ol type="a"> <li>執行 Disable-ADSyncExportDeletionThreshold 以停用臨界值</li> <li>啟動同步處理服務管理員</li> <li>在 Azure Active Directory 類型的連接器上執行匯出</li> <li>成功匯出物件之後，請執行 Enable-ADSyncExportDeletionThreshold 啟用臨界值</li> </ol> </li> |
 
 ## <a name="alerts-for-active-directory-federation-services"></a>Active Directory 同盟服務的警示
@@ -78,7 +84,7 @@ Azure AD Connect Health 警示會在成功情況下獲得解決。 Azure AD Conn
 | 網域控制站無法連線到本機 SYSVOL 共用 | SYSVOL 包含來自群組原則物件的重要項目，以及在網域的 DC 中散發的指令碼。 此 DC 不會將自已公告為 DC，且不會套用群組原則。 | 請參閱<a href="https://support.microsoft.com/kb/2958414">如何疑難排解遺失 SYSVOL 和 Netlogon 共用</a> | 
 | 網域控制站時間不同步 | 此網域控制站上的時間超過正常的時間誤差範圍。 Kerberos 驗證將會因此而失敗。 | <li>重新啟動 Windows 時間服務：執行 <br><i>net stop w32time</i> </br> 然後在受影響的網域控制站上執行 <br><i>net start w32time </i></br> 。</li><li>重新同步時間：在受影響的網域控制站上執行 <br><i>w32tm \/resync </i></br> 。 | 
 | 網域控制站未公告 | 此網域控制站未正確公告可執行作業的角色。 可能是因為複寫、DNS 組態不正確、未執行重要服務，或因為未完整初始化伺服器等問題所致。  因此，網域控制站、網域成員與其他裝置會找不到這個網域控制站。 此外，其他網域控制站可能無法從此網域控制站進行複寫。 | 查看其他相關警示的警示清單，例如：複寫中斷。 網域控制站時間未同步。Netlogon 服務未執行。 DFSR 及 (或) NTFRS 服務未執行。 識別相關 DNS 問題，並進行疑難排解：登入受影響的網域控制站。 開啟系統事件記錄檔。 若出現事件 5774、5775 或 5781，請參閱<a href="https://msdn.microsoft.com/library/bb727055.aspx#ECAA">為網域控制站定位器 DNS 記錄登錄失敗進行疑難排解</a> \(英文\)。識別相關的 Windows 時間服務問題，並進行疑難排解：確認 Windows 時間服務正在執行中：在受影響的網域控制站上執行 '<b>net start w32time</b>'。重新啟動 Windows 時間服務：執行 '<b>net stop w32time</b>'，然後在受影響的網域控制站上執行 '<b>net start w32time</b>'。 | 
-| GPSVC 服務並未執行 | 若停止或停用服務，將不會套用管理員所進行的設定，且應用程式及元件將無法透過群組原則管理。 若停用服務，任何依存於群組原則元件的元件或應用程式可能會無法正常運作。  | 在受影響的網域控制站上執行 <br><i>net start gpsvc </i></br> 。 | 
+| GPSVC 服務並未執行 | 若停止或停用服務，將不會套用管理員所進行的設定，且應用程式及元件將無法透過群組原則管理。 若停用服務，任何依存於群組原則元件的元件或應用程式可能會無法正常運作。  | 執行 <br><i>net start gpsvc </i></br> 。 | 
 | DFSR 及 (或) NTFRS 服務未執行 | 若 DFSR 與 NTFRS 服務兩者皆已停止，網域控制站將無法複寫 SYSVOL 資料。 SYSVOL 資料將會不一致。 | <li>若使用 DFSR：<ol type="1" > 請在受影響的網域控制站上執行 '<b>net start dfsr</b>'。 </li><li>若使用 NTFRS：<ol type="1" >則在受影響的網域控制站上執行 '<b>net start ntfrs</b>'。 </li>| 
 | Netlogon 服務未執行 | 此 DC 上將無法使用登入要求、註冊、驗證，也無法尋找網域控制站。 | 在受影響的網域控制站上執行 '<b>net start netlogon</b>' | 
 | W32Time 服務並未執行 | 若停止 Windows 時間服務，將無法同步處理日期與時間。 若停用此服務，任何明確依存於其的服務將無法啟動。 | 在受影響的網域控制站上執行 '<b>net start win32Time</b>' | 

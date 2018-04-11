@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 入口網站手動新增 API | Microsoft Docs"
-description: "本教學課程示範如何使用 API 管理 (APIM) 來手動新增 API。"
+title: 使用 Azure 入口網站手動新增 API | Microsoft Docs
+description: 本教學課程示範如何使用 API 管理 (APIM) 來手動新增 API。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/04/2017
 此時，APIM 中沒有對應至後端 API 中任何作業的作業。 如果您呼叫透過後端公開的作業，而不是呼叫透過 APIM 公開的作業，您會收到 **404**。 
 
 >[!NOTE] 
-> 依預設，當您新增 API 時 (即使 API 已連線到某些後端服務)，APIM 不會公開任何作業，直到您將作業加入白名單。 若要將您的後端服務作業加入白名單，請建立對應至後端作業的 APIM 作業。
+> 依預設，當您新增 API 時 (即使 API 已連線到某些後端服務)，APIM 不會公開任何作業，直到您將作業加入允許清單。 若要將您的後端服務作業加入允許清單，請建立對應至後端作業的 APIM 作業。
 >
 
 ## <a name="add-and-test-an-operation"></a>新增和測試作業

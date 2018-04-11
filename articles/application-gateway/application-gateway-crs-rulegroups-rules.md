@@ -1,6 +1,6 @@
 ---
-title: "Azure 應用程式閘道 Web 應用程式防火牆 CRS 規則群組與規則 | Microsoft Docs"
-description: "此頁面提供關於 Web 應用程式防火牆 CRS 規則群組與規則的資訊。"
+title: Azure 應用程式閘道 Web 應用程式防火牆 CRS 規則群組與規則 | Microsoft Docs
+description: 此頁面提供關於 Web 應用程式防火牆 CRS 規則群組與規則的資訊。
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -11,7 +11,7 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: davidmu
@@ -39,10 +39,10 @@ ms.lasthandoff: 10/11/2017
 |910100|用戶端 IP 是來自高風險國家/地區位置。|
 |910120|規則 910120|
 |910130|規則 910130|
-|910150|搜尋引擎 IP 的 HTTP 黑名單相符項目|
-|910160|濫發垃圾郵件者 IP 的 HTTP 黑名單相符項目|
-|910170|可疑 IP 的 HTTP 黑名單相符項目|
-|910180|收割者 IP 的 HTTP 黑名單相符項目|
+|910150|搜尋引擎 IP 的 HTTP 封鎖清單相符項目|
+|910160|濫發垃圾郵件者 IP 的 HTTP 封鎖清單相符項目|
+|910170|可疑 IP 的 HTTP 封鎖清單相符項目|
+|910180|收割者 IP 的 HTTP 封鎖清單相符項目|
 |910013|規則 910013|
 |910014|規則 910014|
 |910015|規則 910015|
@@ -268,7 +268,7 @@ ms.lasthandoff: 10/11/2017
 |941130|XSS 篩選器 - 類別 3 = 屬性向量|
 |941140|XSS 篩選器 - 類別 4 = JavaScript URI 向量|
 |941150|XSS 篩選器 - 類別 5 = 不允許的 HTML 屬性|
-|941180|節點狀態驗證黑名單關鍵字|
+|941180|節點狀態驗證封鎖清單關鍵字|
 |941190|IE XSS 篩選器 - 偵測到攻擊。|
 |941200|IE XSS 篩選器 - 偵測到攻擊。|
 |941210|IE XSS 篩選器 - 偵測到攻擊。|

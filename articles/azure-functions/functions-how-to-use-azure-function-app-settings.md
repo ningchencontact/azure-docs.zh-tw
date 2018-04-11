@@ -1,24 +1,25 @@
 ---
-title: "設定 Azure 函數應用程式的設定 | Microsoft Docs"
-description: "了解如何設定 Azure Functions 應用程式設定。"
-services: 
+title: 設定 Azure 函數應用程式的設定 | Microsoft Docs
+description: 了解如何設定 Azure Functions 應用程式設定。
+services: ''
 documentationcenter: .net
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: cc996988-fb4f-47
+ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 入口網站中管理函數應用程式 
 
@@ -27,6 +28,24 @@ ms.lasthandoff: 03/02/2018
 若要開始，請移至 [Azure 入口網站](http://portal.azure.com)，然後登入您的 Azure 帳戶。 在入口網站頂端的搜尋列中，輸入函數應用程式的名稱，然後從清單中選取它。 選取函數應用程式之後，您會看到下列頁面：
 
 ![Azure 入口網站中的函數應用程式概觀](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+
+## <a name="favorite"></a>入口網站中的我的最愛函式 
+
+有時候很難在 [Azure 入口網站]中找到您的資源。 若要更輕鬆地尋找您所建立的函數應用程式，在入口網站中將函數應用程式新增至我的最愛。 
+
+1. 登入 [Azure 入口網站]。
+
+2. 按一下左下方的箭號以展開所有服務，在 [篩選] 欄位中輸入 `Functions`，然後按一下 [函式應用程式] 旁的星號。  
+ 
+    ![在 Azure 入口網站中建立函式應用程式](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
+
+    這會在入口網站左側的功能表中新增 [Functions] 圖示。
+
+3. 關閉功能表，然後捲動到底部就能看到 [Functions] 圖示。 按一下此圖示可查看所有函式應用程式的清單。 按一下函式應用程式可在此應用程式中使用函式。 
+ 
+    ![[我的最愛] 中的函式應用程式](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
+ 
+[Azure 入口網站]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>函數應用程式設定索引標籤
 
@@ -102,7 +121,7 @@ Functions 支援「取用」主控方案和 App Service 主控方案。 如需�
 
 | | |
 |-|-|
-| ![Azure 入口網站中的函數應用程式 CORS](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | 為了防止惡意程式碼在您的服務中執行，App Service 會封鎖外部來源對您函數應用程式的呼叫。 Functions 支援跨原始來源資源共用 (CORS)，可讓您定義您函數可從中接受遠端要求的允許原始來源「白名單」。  |
+| ![Azure 入口網站中的函數應用程式 CORS](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | 為了防止惡意程式碼在您的服務中執行，App Service 會封鎖外部來源對您函數應用程式的呼叫。 Functions 支援跨原始來源資源共用 (CORS)，可讓您定義您函數可從中接受遠端要求的允許原始來源「允許清單」。  |
 
 ![設定函數應用程式的 CORS](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 

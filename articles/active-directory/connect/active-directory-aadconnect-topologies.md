@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect：支援的拓撲 | Microsoft Docs"
-description: "本主題詳細說明 Azure AD Connect 的受支援和不受支援拓撲"
+title: Azure AD Connect：支援的拓撲 | Microsoft Docs
+description: 本主題詳細說明 Azure AD Connect 的受支援和不受支援拓撲
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.devlang: na
@@ -51,7 +51,7 @@ ms.lasthandoff: 02/28/2018
 
 許多組織都有包含多個內部部署 Active Directory 樹系的環境。 擁有多個內部部署 Active Directory 的原因有很多。 常見的範例如包含帳戶資源樹系，和合併或收購的結果。
 
-當您擁有多個樹系，所有樹系必須可由單一 Azure AD Connect 同步處理伺服器連線。 您不需要將伺服器加入網域。 如有必要觸達所有的樹系，您可以將伺服器放置於周邊網路 (也稱為 DMZ、非軍事區域及遮蔽式子網路)。
+當您擁有多個樹系，所有樹系必須可由單一 Azure AD Connect 同步處理伺服器連線。 您不需要將伺服器加入網域。 如有必要觸達所有的樹系，您可以將伺服器放置於周邊網路 (也稱為 DMZ 及遮蔽式子網路)。
 
 Azure AD Connect 安裝精靈會提供數個選項以合併多個樹系中表示的使用者。 目標是使用者只會在 Azure AD 中顯示一次。 有一些常見的拓撲，您可以在安裝精靈中的自訂安裝路徑中設定。 在 [專門識別您的使用者] 頁面上，選取表示拓撲的對應選項。 只對使用者設定合併。 重複群組不會和預設組態合併。
 

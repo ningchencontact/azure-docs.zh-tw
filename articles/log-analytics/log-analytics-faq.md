@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常見問題集
 此 Microsoft 常見問題集是 Microsoft Azure 中 Log Analytics 常見問題的清單。 若您有任何關於 Log Analytics 的其他問題，請前往[討論論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
@@ -51,7 +51,7 @@ A. 下列查詢會顯示目前執行的所有檢查的描述：
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>問： 如何針對 Log Analytics 不再收集資料的問題進行疑難排解？
 
-答：如果您在免費定價層並在某天傳送了超過 500 MB 的資料，就會停止收集當天其餘資料。 達到每日限制是 Log Analytics 停止收集資料或資料似乎遺失的常見原因。  
+答：針對 2018 年 4 月 2 日之前建立且位於「免費」定價層的訂用帳戶和工作區，如果每天傳送的資料超過 500 MB，即會針對當日的剩餘時間停止資料收集。 達到每日限制是 Log Analytics 停止收集資料或資料似乎遺失的常見原因。  
 
 Log Analytics 會建立*活動訊號*類型的事件，而且可用於判斷資料收集是否停止。 
 
@@ -68,7 +68,7 @@ Log Analytics 會建立*活動訊號*類型的事件，而且可用於判斷資�
 | 已達免費資料的限制<sup>1</sup>       | 請等到隔月自動重新開始收集，或<br> 變更為付費定價層 |
 | Azure 訂用帳戶處於暫停狀態，原因如下： <br> 免費試用已結束 <br> Azure Pass 已過期 <br> 已達每月消費限制 (例如 MSDN 或 Visual Studio 訂閱)                          | 轉換成付費訂閱 <br> 轉換成付費訂閱 <br> 移除限制，或等到限制重設 |
 
-<sup>1</sup> 如果您的工作區在免費定價層，您每天最多可傳送 500 MB 的資料至服務。 當您達到每日限制時，資料收集就會停止，直到隔天再開始。 在資料收集停止時所傳送的資料不會編製索引，而且無法供搜尋使用。 當資料收集繼續時，只會處理傳送的新資料。 
+<sup>1</sup> 如果您的工作區位於「免費」定價層，您每天最多可傳送 500 MB 的資料至服務。 當您達到每日限制時，資料收集就會停止，直到隔天再開始。 在資料收集停止時所傳送的資料不會編製索引，而且無法供搜尋使用。 當資料收集繼續時，只會處理傳送的新資料。 
 
 Log Analytics 使用 UTC 時間，而且每天從午夜 UTC 開始。 如果工作區達到每日限制，會在隔天 UTC 的第一個小時繼續處理。
 
@@ -96,7 +96,7 @@ A. 不可以，目前無法讀取 Azure 儲存體中的任意資料表或容器�
 
 A. Log Analytics 服務以 Azure 為建置基礎。 Log Analytics IP 位址位於 [Microsoft Azure 資料中心 IP 範圍](http://www.microsoft.com/download/details.aspx?id=41653)內。
 
-進行服務部署時，Log Analytics 服務的實際 IP 位址會變更。 [在 Log Analytics 中設定 Proxy 和防火牆設定](log-analytics-proxy-firewall.md)中記載要允許通過防火牆的 DNS 名稱。
+進行服務部署時，Log Analytics 服務的實際 IP 位址會變更。 允許通過防火牆的 DNS 名稱會記載於[系統需求](log-analytics-concept-hybrid.md#prerequisites)中。
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>問： 我可以使用 ExpressRoute 連接到 Azure。 我的 Log Analytics 流量是否會使用我的 ExpressRoute 連線？
 
@@ -144,7 +144,7 @@ A. 免費方案每個工作區的每日容量設定為 500 MB。 標準和進階
 
 Log Analytics 代理程式的設計是為了確保它的使用量很小。 資料量會視您啟用的解決方案而不同。 您可以在[使用量](log-analytics-usage.md)頁面中找到有關資料量的詳細資訊，並依解決方案查看細目。
 
-如需詳細資訊，您可以閱讀[客戶部落格](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) 以了解 OMS 代理程式的低使用量。
+如需詳細資訊，您可以閱讀[客戶部落格](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) \(英文\)，其中顯示評估 OMS 代理程式的資源使用率 (使用量) 之後的結果。
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>問： 傳送資料到 Log Analytics 時，Microsoft 管理代理程式 (MMA) 使用多少網路頻寬？
 
