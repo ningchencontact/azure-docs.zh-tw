@@ -1,11 +1,11 @@
 ---
-title: "適用於 Android 的 Azure Authenticator | Microsoft Docs"
-description: "Microsoft Azure Authenticator 應用程式可用來登入以存取工作資源。 Azure Authenticator 應用程式會對您的行動裝置顯示警示，以通知您有一個擱置的雙因素驗證要求。"
+title: 適用於 Android 的 Azure Authenticator | Microsoft Docs
+description: Microsoft Azure Authenticator 應用程式可用來登入以存取工作資源。 Azure Authenticator 應用程式會對您的行動裝置顯示警示，以通知您有一個擱置的雙因素驗證要求。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: b7ceca0d-5c9d-45c4-942c-b3a9b6bad36c
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 349649e015aae7198d2c40efc3c1865cad087e8a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-authenticator-for-android"></a>適用於 Android 的 Azure Authenticator
 IT 系統管理員可能曾建議您使用 Microsoft Azure Authenticator 進行登入以存取您的工作資源。 此應用程式提供下列兩個登入選項：
