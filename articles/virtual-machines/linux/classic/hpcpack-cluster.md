@@ -1,11 +1,11 @@
 ---
-title: "HPC Pack 叢集中的 Linux 計算 VM | Microsoft Docs"
-description: "了解如何在 Azure 中建立及使用 HPC Pack 叢集，來處理 Linux 高效能運算 (HPC) 工作負載"
+title: HPC Pack 叢集中的 Linux 計算 VM | Microsoft Docs
+description: 了解如何在 Azure 中建立及使用 HPC Pack 叢集，來處理 Linux 高效能運算 (HPC) 工作負載
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 4d080fdd-5ffe-4f54-a78d-4c818f6eb3fb
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57ad5d5d2e7e068f47d51408527f1f7553917279
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點
 在 Azure 中設定 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) 叢集，其中包含一個執行 Windows Server 的前端節點，以及數個執行支援之 Linux 散發套件的計算節點。 探索叢集的 Linux 節點與 Windows 前端節點之間移動資料的一些選項。 了解如何將 Linux HPC 作業提交至叢集。
@@ -178,8 +178,7 @@ HPC Pack IaaS 部署指令碼會使用 XML 組態檔作為輸入，以描述 HPC
 ## <a name="how-to-move-data-in-a-cluster-with-linux-nodes"></a>如何在具有 Linux 節點的叢集中移動資料
 您有數個選擇可在 Linux 節點與叢集的 Windows 前端節點間移動資料。 以下是三種常見的方法，下列各節將詳細說明︰
 
-* 
-            **Azure 檔案** - 公開受控 SMB 檔案共用，以在 Azure 儲存體中儲存資料檔案。 Windows 節點和 Linux 節點可同時掛接 Azure 檔案共用作為磁碟機或資料夾，即使它們部署在不同的虛擬網路中。
+* **Azure 檔案** - 公開受控 SMB 檔案共用，以在 Azure 儲存體中儲存資料檔案。 Windows 節點和 Linux 節點可同時掛接 Azure 檔案共用作為磁碟機或資料夾，即使它們部署在不同的虛擬網路中。
 * **前端節點 SMB 共用** - 在 Linux 節點上裝載前端節點的標準 Windows 共用資料夾。
 * **前端節點 NFS 伺服器** - 為混合式 Windows 與 Linux 環境提供檔案共用解決方案。
 

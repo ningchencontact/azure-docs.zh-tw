@@ -5,14 +5,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/21/2018
+ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b317a2d9241016b66651af4659c7daf2e8d8f2cc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8f212797decdd967154584927984bc0a4e58f4ba
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>使用混合式 Runbook 背景工作角色將資料中心內或雲端的資源自動化
 
@@ -93,6 +93,7 @@ Azure 自動化中的 Runbook 無法存取其他雲端或內部部署環境中�
 對您的自動化環境執行一次前兩個步驟，再對每一台背景工作角色電腦重複其餘步驟。
 
 #### <a name="1-create-log-analytics-workspace"></a>1.建立 Log Analytics 工作區
+
 如果您還沒有 Log Analytics 工作區，則可使用[管理您的工作區](../log-analytics/log-analytics-manage-access.md)中的指示建立一個。 如果您已經有工作區，可以使用現有的工作區。
 
 #### <a name="2-add-automation-solution-to-log-analytics-workspace"></a>2.將自動化解決方案新增至 Log Analytics 工作區
@@ -102,6 +103,7 @@ Azure 自動化中的 Runbook 無法存取其他雲端或內部部署環境中�
 依照[使用方案庫新增解決方案](../log-analytics/log-analytics-add-solutions.md)中的指示，將**自動化**解決方案新增至 Log Analytics 工作區。
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3.安裝 Microsoft Monitoring Agent
+
 Microsoft Monitoring Agent 可將電腦連線至 Log Analytics。 將代理程式安裝在內部部署電腦，並連接到您的工作區時，它會自動下載 Hybrid Runbook Worker 所需的元件。
 
 請依照[將 Windows 電腦連接到 Log Analytics](../log-analytics/log-analytics-windows-agent.md) 中的指示，將代理程式安裝在內部部署電腦上。 您可以對多部電腦重複此程序，將多個背景工作角色加入至您的環境。

@@ -1,11 +1,11 @@
 ---
-title: "如何決定要使用的單一登入方法 | Microsoft Docs"
-description: "了解 Azure AD 支援的單一登入模式，以及如何為您感興趣的應用程式選擇何種模式。"
+title: 如何決定要使用的單一登入方法 | Microsoft Docs
+description: 了解 Azure AD 支援的單一登入模式，以及如何為您感興趣的應用程式選擇何種模式。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 4363f308f9bfa685b0f4e946cdd97d34b6ece197
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-determine-what-single-sign-on-method-to-use"></a>如何決定要使用的單一登入方法
 
@@ -65,11 +65,11 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 02/21/2018
 
 6.  選取您要設定單一登入的應用程式
 
-7.  應用程式載入後，按一下應用程式的左側瀏覽功能表中的 [單一登入]。
+7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
 ## <a name="next-steps"></a>後續步驟
 [使用應用程式 Proxy 提供單一登入應用程式](active-directory-application-proxy-sso-using-kcd.md)

@@ -1,13 +1,13 @@
 ---
-title: "在 Azure 中遠端桌面的詳細疑難排解 | Microsoft Docs"
-description: "針對您無法透過遠端桌面連線到 Azure 中 Windows 虛擬機器的錯誤，檢閱詳細的疑難排解步驟"
+title: 在 Azure 中遠端桌面的詳細疑難排解 | Microsoft Docs
+description: 針對您無法透過遠端桌面連線到 Azure 中 Windows 虛擬機器的錯誤，檢閱詳細的疑難排解步驟
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: "無法連線到遠端桌面, 疑難排解遠端桌面, 遠端桌面無法連線, 遠端桌面錯誤, 遠端桌面疑難排解, 遠端桌面問題"
+keywords: 無法連線到遠端桌面, 疑難排解遠端桌面, 遠端桌面無法連線, 遠端桌面錯誤, 遠端桌面疑難排解, 遠端桌面問題
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2017
 ms.author: genli
-ms.openlocfilehash: afbaa3afc78efd220d74def2e9f106e9fbd1ee2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1485bc5ac7ae47df9a1a36c8b88d6515b5624360
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure 中 Windows VM 之遠端桌面連線問題的詳細疑難排解步驟
 本文章提供診斷和修正複雜的以 Windows 為基礎的 Azure 虛擬機器的遠端桌面錯誤的詳細疑難排解步驟。

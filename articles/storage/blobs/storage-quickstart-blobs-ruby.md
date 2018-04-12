@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: seguler
-ms.openlocfilehash: fa92875fe859e7d1364267d6157f7a706d9eb8df
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 493da815b670c15bb892fa0be750c684cab70cb9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>快速入門：使用 Ruby 上傳、下載及列出 Blob
 
@@ -43,6 +43,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git
 ```
 
 此命令會將存放庫複製到本機的 git 資料夾。 若要開啟 Ruby 範例應用程式，請尋找 storage-blobs-ruby-quickstart 資料夾，並開啟 example.rb 檔案。  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>設定儲存體連接字串
 在應用程式中，您必須提供儲存體帳戶名稱和帳戶金鑰，才能建立應用程式的 `BlobService` 執行個體。 從 IDE 中的方案總管開啟 `example.rb` 檔案。 使用您的帳戶名稱和金鑰取代 **accountname** 和 **accountkey**。 

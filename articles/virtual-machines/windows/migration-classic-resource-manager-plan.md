@@ -1,11 +1,11 @@
 ---
-title: "將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃 | Microsoft Docs"
-description: "將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃"
+title: 將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃 | Microsoft Docs
+description: 將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: b77000c2cf46b59b65c27c78182193624fd62062
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 32e595b6ae01e77289a81734f61b9036835dd2fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
 雖然 Azure Resource Manager 提供了許多令人讚嘆的功能，但請務必詳加規劃您的移轉作業，以確保一切順利進行。 詳細規劃可確保您在執行移轉活動期間不會遇到問題。

@@ -8,13 +8,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 75abd818b29c78a4ae7499741904637e8ed6798c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 010d4f6d9f33b8fb6f1622321a3b566f68f28f5f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="elastic-database-tools-glossary"></a>彈性資料庫工具字彙
 下列詞彙是針對 [彈性資料庫工具](sql-database-elastic-scale-introduction.md)(Azure SQL Database的一項功能) 所定義的。 這些工具是用來管理[分區對應](sql-database-elastic-scale-shard-map-management.md)，並且包含[用戶端程式庫](sql-database-elastic-database-client-library.md)、[分割合併工具](sql-database-elastic-scale-overview-split-and-merge.md)、[彈性集區](sql-database-elastic-pool.md)及[查詢](sql-database-elastic-query-overview.md)。 

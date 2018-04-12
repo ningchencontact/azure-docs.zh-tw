@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: b25efb600fc89b5a6ead6ec27e212d09c9a14435
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d0f4e292c6f5a2725b4a9efe91e78c6e634ea64e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>使用 CLI 來建立路由型 VPN 閘道
 
 本文將協助您使用 Azure CLI 來快速建立路由型 Azure VPN 閘道。 建立與內部部署網路的 VPN 連線時，會使用 VPN 閘道。 您也可以使用 VPN 閘道來連線至 VNet。
 
-本文中的步驟將會建立 VNet、子網路、閘道子網路，以及路由型 VPN 閘道 (虛擬網路閘道)。 虛擬網路閘道的建立作業可能需要花費 45 分鐘以上的時間。 完成閘道建立作業之後，您便可以接著建立連線。 這些步驟需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+本文中的步驟將會建立 VNet、子網路、閘道子網路，以及路由型 VPN 閘道 (虛擬網路閘道)。 虛擬網路閘道的建立作業可能需要花費 45 分鐘以上的時間。 完成閘道建立之後，您接著就可建立連線。 這些步驟需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -72,7 +72,7 @@ VPN 閘道必須具有動態配置的公用 IP 位址。 公用 IP 位址將會�
 
 ```azurecli-interactive
 az network public-ip create \
-  -n VNet1GWPIP \
+  -n VNet1GWIP \
   -g TestRG1 \
   --allocation-method Dynamic 
 ```
@@ -87,7 +87,7 @@ az network public-ip create \
 az network vnet-gateway create \
   -n VNet1GW \
   -l eastus \
-  --public-ip-address VNet1GWPIP \
+  --public-ip-address VNet1GWIP \
   -g TestRG1 \
   --vnet VNet1 \
   --gateway-type Vpn \
@@ -125,7 +125,7 @@ az network vnet-gateway show \
       "privateIpAllocationMethod": "Dynamic",
       "provisioningState": "Updating",
       "publicIpAddress": {
-        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/publicIPAddresses/VNet1GWPIP",
+        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP",
         "resourceGroup": "TestRG1"
       },
       "resourceGroup": "TestRG1",
@@ -158,7 +158,7 @@ az network vnet-gateway show \
 
 ```azurecli-interactive
 az network public-ip show \
-  --name VNet1GWPIP \
+  --name VNet1GWIP \
   --resource-group TestRG11
 ```
 
@@ -170,7 +170,7 @@ az network public-ip show \
 {
   "dnsSettings": null,
   "etag": "W/\"a12d4d03-b27a-46cc-b222-8d9364b8166a\"",
-  "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWPIP",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP",
   "idleTimeoutInMinutes": 4,
   "ipAddress": "13.90.195.184",
   "ipConfiguration": {
@@ -187,7 +187,7 @@ az group delete --name TestRG1 --yes
 
 ## <a name="next-steps"></a>後續步驟
 
-閘道建立完成之後，您便可以在您的虛擬網路與另一個 VNet 之間建立連線。 或是在您的虛擬網路與內部部署位置之間建立連線。
+閘道建立完成之後，您便可在您的虛擬網路與另一個 VNet 之間建立連線。 或是在您的虛擬網路與內部部署位置之間建立連線。
 
 > [!div class="nextstepaction"]
 > [建立站對站連線](vpn-gateway-create-site-to-site-rm-powershell.md)<br><br>

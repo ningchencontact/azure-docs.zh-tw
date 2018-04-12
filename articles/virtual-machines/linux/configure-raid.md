@@ -1,10 +1,10 @@
 ---
-title: "在執行 Linux 的虛擬機器上設定軟體 RAID | Microsoft Docs"
-description: "了解如何使用 mdadm，在 Azure 的 Linux 上設定 RAID。"
+title: 在執行 Linux 的虛擬機器上設定軟體 RAID | Microsoft Docs
+description: 了解如何使用 mdadm，在 Azure 的 Linux 上設定 RAID。
 services: virtual-machines-linux
 documentationcenter: na
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-ms.openlocfilehash: 12f540a700fbf85e579e8aadc9f6def039299ff7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d6e831692da37645e264c6674f1ba54bb16d25d4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-software-raid-on-linux"></a>在 Linux 上設定軟體 RAID
 在 Azure 的 Linux 虛擬機器上使用軟體 RAID，以單一 RAID 裝置的形式顯示多個連接的資料磁碟，這種案例很常遇到。 相較於只使用單一磁碟，這通常可用來提高效能並允許增加輸送量。
@@ -61,7 +61,7 @@ zypper install mdadm
                     sectors (command 'u').
     ```
 
-2. 出現提示時請按 'n'，以建立「新的」磁碟分割：
+2. 出現提示時請按 'n'，以建立 **新的**磁碟分割：
 
     ```bash
     Command (m for help): n

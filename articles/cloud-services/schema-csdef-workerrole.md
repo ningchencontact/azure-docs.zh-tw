@@ -1,23 +1,23 @@
 ---
-title: "Azure 雲端服務定義。WorkerRole 結構描述 | Microsoft Docs"
-ms.custom: 
+title: Azure 雲端服務定義。WorkerRole 結構描述 | Microsoft Docs
+ms.custom: ''
 ms.date: 04/14/2015
 ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
-caps.latest.revision: 
+caps.latest.revision: 55
 author: thraka
 ms.author: adegeo
 manager: timlt
 ms.openlocfilehash: 0171c7254db5855f0eccd19ae9938249d8966edd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure 雲端服務定義 WorkerRole 結構描述
 Azure 背景工作角色是適用於一般開發的角色，並可為 Web 角色執行背景處理。

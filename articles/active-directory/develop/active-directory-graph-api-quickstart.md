@@ -1,9 +1,9 @@
 ---
 title: Azure AD Graph API 快速入門 | Microsoft Aure
-description: Azure Active Directory Graph API 會透過 OData REST API 端點，以程式設計方式存取 Azure AD。 應用程式可以使用 Azure AD Graph API 來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。
+description: Azure Active Directory Graph API 會透過 OData REST API 端點，以程式設計方式存取 Azure AD。 應用程式可以使用 Azure AD 圖形 API 來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。
 services: active-directory
 documentationcenter: n/a
-author: viv-liu
+author: mtillman
 manager: mtillman
 editor: ''
 tags: ''
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/28/2017
-ms.author: viviali
+ms.date: 04/02/2018
+ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 6869fc8ec582ea857128e91f1f127e9255e77865
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d195d808e07b872c11379f13b6e89794da39f70e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Azure AD Graph API 的快速入門
-Azure Active Directory (AD) Graph API 是透過 OData REST API 端點，以程式設計方式存取 Azure AD。 應用程式可以使用 Azure AD Graph API 來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。 例如，您可以使用 Azure AD Graph API 來建立新的使用者、檢視或更新使用者的屬性、變更使用者的密碼、檢查群組成員資格以進行角色型存取、停用或刪除使用者。 如需有關 Azure AD Graph API 功能和應用程式案例的詳細資訊，請參閱 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 和 [Azure AD Graph API 先決條件](https://msdn.microsoft.com/library/hh974476.aspx)。 
+Azure Active Directory (AD) Graph API 是透過 OData REST API 端點，以程式設計方式存取 Azure AD。 應用程式可以使用 Azure AD 圖形 API 來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。 例如，您可以使用 Azure AD Graph API 來建立新的使用者、檢視或更新使用者的屬性、變更使用者的密碼、檢查群組成員資格以進行角色型存取、停用或刪除使用者。 如需有關 Azure AD Graph API 功能和應用程式案例的詳細資訊，請參閱 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 和 [Azure AD Graph API 先決條件](https://msdn.microsoft.com/library/hh974476.aspx)。 
 
 > [!IMPORTANT]
 > 強烈建議您使用 [Microsoft Graph](https://developer.microsoft.com/graph) 取代 Azure AD Graph API 來存取 Azure Active Directory 資源。 我們的開發工作現在是針對 Microsoft Graph，並沒有針對 Azure AD Graph API 規劃的進一步增強功能 。 有極少數的案例可能仍適用 Azure AD Graph API；如需詳細資訊，請參閱 Office 開發人員中心的 [Microsoft Graph 或 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) 部落格文章。

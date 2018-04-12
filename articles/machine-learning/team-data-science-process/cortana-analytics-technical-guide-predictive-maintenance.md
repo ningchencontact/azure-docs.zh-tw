@@ -1,8 +1,8 @@
 ---
-title: "在航太工業中使用 Azure - Cortana Intelligence 解決方案進行預測性維護的技術指南 | Microsoft Docs"
-description: "航太、公用事業和運輸中預測性維護的 Microsoft Cortana Intelligence 解決方案範本的技術指南。"
+title: 在航太工業中使用 Azure - Cortana Intelligence 解決方案進行預測性維護的技術指南 | Microsoft Docs
+description: 航太、公用事業和運輸中預測性維護的 Microsoft Cortana Intelligence 解決方案範本的技術指南。
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
 ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>航太與其他業務中預測性維護的 Cortana Intelligence 解決方案範本的技術指南
 

@@ -1,13 +1,13 @@
 ---
-title: "在 Azure 中使用 Team Services 建立 CI/CD 管線 | Microsoft Docs"
-description: "了解如何建立用於持續整合和持續傳遞的 Visual Studio Team Services 管線，將 Web 應用程式部署至 Windows VM 上的 IIS"
+title: 在 Azure 中使用 Team Services 建立 CI/CD 管線 | Microsoft Docs
+description: 了解如何建立用於持續整合和持續傳遞的 Visual Studio Team Services 管線，將 Web 應用程式部署至 Windows VM 上的 IIS
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 006cac5606c411c9d86b36d0069021094fcdb1db
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cf6e3013d4dfc7e18d96a717a76b591cde939139
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>使用 Visual Studio Team Services 和 IIS 建立持續整合管線
 若要將應用程式開發的組建、測試、部署階段自動化，可以使用持續整合和部署 (CI/CD) 管線。 在本教學課程中，您可以使用 Visual Studio Team Services 以及 Azure 中執行 IIS 的 Windows 虛擬機器 (VM) 建立 CI/CD 管線。 您會了解如何：
@@ -91,7 +91,7 @@ Visual Studio Team Services 可讓您進行簡單的共同作業與開發，不�
 ![Team Services 專案的成功組建](media/tutorial-vsts-iis-cicd/successful_build.png)
 
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>建立虛擬機器
 若要提供執行 ASP.NET Web 應用程式的平台，您需要執行 IIS 的 Windows 虛擬機器。 當您認可程式碼且組建觸發後，Team Services 會使用代理程式來與 IIS 執行個體互動。
 
 使用[此指令碼範例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)建立 Windows Server 2016 VM。 指令碼需要花幾分鐘的時間來執行及建立 VM。 建立 VM 後，使用 [Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermresourcegroup) 開啟連接埠 80 用於 Web 流量，如下所示︰

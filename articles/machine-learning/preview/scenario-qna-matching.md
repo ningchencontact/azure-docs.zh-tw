@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Machine Learning Workbench 的問與答比對 | Microsoft Docs"
-description: "如何使用各種有效的機器學習方法，來比對開放式查詢與既存的常見問題集問/答組合。"
+title: 使用 Azure Machine Learning Workbench 的問與答比對 | Microsoft Docs
+description: 如何使用各種有效的機器學習方法，來比對開放式查詢與既存的常見問題集問/答組合。
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: mezmicrosoft
 editor: mezmicrosoft
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
 ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/05/2018
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 的問與答比對
 開放式問題不容易回答，因此通常需要由主題專家 (SME) 親自回覆。 為了減少對於內部 SME 的需求，各家公司通常會建立常見問題集 (FAQ) 清單來協助使用者。 此範例會展示各種有效的機器學習方法，以供您比對開放式查詢與既存的常見問題集問/答組合。 此範例會示範簡單的開發程序，讓您了解如何使用 Azure Machine Learning Workbench 來建置這類解決方案。 

@@ -1,11 +1,11 @@
 ---
-title: "Resource Manager 模式中的 Azure CLI 命令 | Microsoft Docs"
-description: "在 Resource Manager 部署模型中管理資源的 Azure 命令列介面 (CLI) 命令"
+title: Resource Manager 模式中的 Azure CLI 命令 | Microsoft Docs
+description: 在 Resource Manager 部署模型中管理資源的 Azure 命令列介面 (CLI) 命令
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
 ms.service: multiple
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 8a2bae12fae6a1bf8f5ecbdb2ae01dea5260f3cb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Resource Manager 模式中的 Azure CLI 命令
 本文提供在 Azure Resource Manager 部署模型中建立和管理 Azure 資源時，常用的 Azure 命令列介面 (CLI) 命令的語法和選項。 您可以在 Resource Manager (ARM) 模式中執行 CLI 來存取這些命令。 這不是完整的參考，您的 CLI 版本可能會顯示稍微不同的命令或參數。 如需 Azure 資源及資源群組的一般概觀，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。  

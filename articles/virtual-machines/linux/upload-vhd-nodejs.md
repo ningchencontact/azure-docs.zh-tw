@@ -1,10 +1,10 @@
 ---
-title: "使用 Azure CLI 1.0 上傳自訂 Linux 映像 | Microsoft Docs"
-description: "使用 Resource Manager 部署模型與 Azure CLI 1.0 搭配自訂 Linux 映像，來建立虛擬硬碟 (VHD) 並上傳至 Azure。"
+title: 使用 Azure CLI 1.0 上傳自訂 Linux 映像 | Microsoft Docs
+description: 使用 Resource Manager 部署模型與 Azure CLI 1.0 搭配自訂 Linux 映像，來建立虛擬硬碟 (VHD) 並上傳至 Azure。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
-ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6eb0cae2b70e0cbb9a4fb5fcab3a58d566d0f4d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 從自訂磁碟映像上傳並建立 Linux VM
 本文說明如何使用 Resource Manager 部署模型，將虛擬硬碟 (VHD) 上傳至 Azure，並從這個自訂映像建立 Linux VM。 這項功能可讓您安裝和設定 Linux 散發版本以符合您的需求，然後使用該 VHD 快速建立 Azure 虛擬機器 (VM)。

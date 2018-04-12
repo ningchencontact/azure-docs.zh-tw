@@ -1,11 +1,11 @@
 ---
-title: "使用 HPC Pack 在 Linux VM 上執行 OpenFOAM | Microsoft Docs"
-description: "在 Azure 上部署 Microsoft HPC Pack 叢集，並且跨 RDMA 網路在多個 Linux 計算節點上執行 OpenFOAM 工作。"
+title: 使用 HPC Pack 在 Linux VM 上執行 OpenFOAM | Microsoft Docs
+description: 在 Azure 上部署 Microsoft HPC Pack 叢集，並且跨 RDMA 網路在多個 Linux 計算節點上執行 OpenFOAM 工作。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: c0bb1637-bb19-48f1-adaa-491808d3441f
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: ef124a8983fa112d499252460bff9ed2fcccc02b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f43790d3495e1c09730e90b5077ec840731a7d83
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>在 Azure 中的 Linux RDMA 叢集以 Microsoft HPC Pack 執行 OpenFoam
 本文說明一個在 Azure 虛擬機器中執行 OpenFoam 的方式。 在這裡，您將在 Azure 上部署一個具有 Linux 計算節點的 Microsoft HPC Pack 叢集，並使用 Intel MPI 來執行 [OpenFoam](http://openfoam.com/) 作業。 您可以使用支援 RDMA 的 Azure VM 作為計算節點，讓計算節點能夠透過 Azure RDMA 網路進行通訊。 其他在 Azure 中執行 OpenFoam 的選項還包括 Marketplace 中所提供已完整設定的市售映像 (例如 UberCloud 的 [OpenFoam 2.3 on CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/))，以及藉由在 [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/) 上執行。 

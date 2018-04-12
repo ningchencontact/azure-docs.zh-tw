@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 994b8946078ed9b4c8aa965a3bc0e117ba3185c0
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 42932e6d1727a1444c62f565ae3c48dc178aeb2b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure Logic Apps 的工作流程定義語言結構描述
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 03/08/2018
 
 |元素名稱|必要|說明|  
 |------------------|--------------|-----------------|  
-|type|yes|**類型**：字串 <p> **宣告**：`"parameters": {"parameter1": {"type": "string"}` <p> **規格**：`"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **類型**：securestring <p> **宣告**：`"parameters": {"parameter1": {"type": "securestring"}}` <p> **規格**：`"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **類別**：int <p> **宣告**：`"parameters": {"parameter1": {"type": "int"}}` <p> **規格**：`"parameters": {"parameter1": {"value" : 5}}` <p> **類型**：bool <p> **宣告**：`"parameters": {"parameter1": {"type": "bool"}}` <p> **規格**：`"parameters": {"parameter1": { "value": true }}` <p> **類型**：陣列 <p> **宣告**：`"parameters": {"parameter1": {"type": "array"}}` <p> **規格**：`"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **類型**：物件 <p> **宣告**：`"parameters": {"parameter1": {"type": "object"}}` <p> **規格**：`"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **類型**：secureobject <p> **宣告**：`"parameters": {"parameter1": {"type": "object"}}` <p> **規格**：`"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **注意：**`GET`作業中不會傳回 `securestring` 和 `secureobject` 類型。 所有密碼、金鑰和密碼都應該使用這個類型。|  
+|type|yes|**類型**：字串 <p> **宣告**：`"parameters": {"parameter1": {"type": "string"}}` <p> **規格**：`"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **類型**：securestring <p> **宣告**：`"parameters": {"parameter1": {"type": "securestring"}}` <p> **規格**：`"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **類別**：int <p> **宣告**：`"parameters": {"parameter1": {"type": "int"}}` <p> **規格**：`"parameters": {"parameter1": {"value" : 5}}` <p> **類型**：bool <p> **宣告**：`"parameters": {"parameter1": {"type": "bool"}}` <p> **規格**：`"parameters": {"parameter1": { "value": true }}` <p> **類型**：陣列 <p> **宣告**：`"parameters": {"parameter1": {"type": "array"}}` <p> **規格**：`"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **類型**：物件 <p> **宣告**：`"parameters": {"parameter1": {"type": "object"}}` <p> **規格**：`"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **類型**：secureobject <p> **宣告**：`"parameters": {"parameter1": {"type": "object"}}` <p> **規格**：`"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **注意：**`GET`作業中不會傳回 `securestring` 和 `secureobject` 類型。 所有密碼、金鑰和密碼都應該使用這個類型。|  
 |defaultValue|否|在建立資源期間未指定任何值時，請為參數指定預設值。|  
 |allowedValues|否|指定參數允許值的陣列。|  
 |中繼資料|否|指定參數的其他資訊，例如可讀取描述或是 Visual Studio 或其他工具所使用的設計階段資料。|  
@@ -126,14 +126,14 @@ ms.lasthandoff: 03/08/2018
 > [!NOTE]
 > 某些運算式可能會從執行開始時不存在的執行階段動作中取得其值。 您可以使用**函式**來協助擷取這些值。  
   
-運算式可以出現在 JSON 字串值中的任何一處，並一律產生另一個 JSON 值。 當 JSON 值已經確定是運算式時，藉由移除 \@ 符號來擷取運算式的主體。 如果需要的常值字串開頭為 \@，字串必須使用 \@@ 逸出。 下列範例顯示如何評估運算式。  
+運算式可以出現在 JSON 字串值中的任何一處，並一律產生另一個 JSON 值。 當 JSON 值已經確定是運算式時，藉由移除 @ 符號來擷取運算式的主體。 如果需要的常值字串開頭為 @，字串必須使用 @@ 逸出。 下列範例顯示如何評估運算式。  
   
 |JSON 值|結果|  
 |----------------|------------|  
 |"parameters"|傳回字元 'parameters'。|  
 |"parameters[1]"|傳回字元 'parameters[1]'。|  
-|\"\@\@\"|傳回包含 \'\@\' 的 1 個字元字串。|  
-|\" \@\"|傳回包含 \'\@\' 的 2 個字元字串。|  
+|"@@"|傳回包含 \'\@\' 的 1 個字元字串。|  
+|\" \@\"|傳回包含 '@' 的 2 個字元字串。|  
   
 使用「字串插補」，運算式也可以出現在字串內，其中運算式會包含在 `@{ ... }` 內。 例如︰ <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
@@ -142,12 +142,12 @@ ms.lasthandoff: 03/08/2018
 |JSON 值|結果|  
 |----------------|------------|  
 |"@parameters('myString')"|傳回 `sampleString` 做為字串。|  
-|\"\@{parameters('myString')}"|傳回 `sampleString` 做為字串。|  
+|"@{parameters('myString')}"|傳回 `sampleString` 做為字串。|  
 |"@parameters('myNumber')"|傳回 `42` 做為「編號」。|  
-|\"\@{parameters('myNumber')}"|傳回 `42` 做為「字串」。|  
-|"Answer is: \@{parameters('myNumber')}"|傳回字串 `Answer is: 42`。|  
+|"@{parameters('myNumber')}"|傳回 `42` 做為「字串」。|  
+|"Answer is: @{parameters('myNumber')}"|傳回字串 `Answer is: 42`。|  
 |"@concat('Answer is: ', string(parameters('myNumber')))"|傳回字串 `Answer is: 42`|  
-|"Answer is: \@\@{parameters('myNumber')}"|傳回字串 `Answer is: @{parameters('myNumber')}`。|  
+|"Answer is: @@{parameters('myNumber')}"|傳回字串 `Answer is: @{parameters('myNumber')}`。|  
   
 ## <a name="operators"></a>運算子  
 

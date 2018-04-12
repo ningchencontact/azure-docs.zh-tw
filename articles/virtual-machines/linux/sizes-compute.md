@@ -1,13 +1,13 @@
 ---
-title: "Azure Linux VM 大小 - 計算最佳化 | Microsoft Docs"
-description: "列出 Azure 中可用的不同 Linux 虛擬機器計算最佳化大小。 列出 vCPU 數目、資料磁碟和 NIC 的相關資訊，以及此服務中各種大小之儲存體輸送量和網路頻寬的相關資訊。"
+title: Azure Linux VM 大小 - 計算最佳化 | Microsoft Docs
+description: 列出 Azure 中可用的不同 Linux 虛擬機器計算最佳化大小。 列出 vCPU 數目、資料磁碟和 NIC 的相關資訊，以及此服務中各種大小之儲存體輸送量和網路頻寬的相關資訊。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 006f79f2017a12cfc131013acfe66f2befa93a80
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: da914aff4ff0f14e90a45e7783df23d58789984f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>計算最佳化的虛擬機器大小
 

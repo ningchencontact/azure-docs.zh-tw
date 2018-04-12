@@ -6,14 +6,14 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.date: 11/15/2016
+ms.date: 04/01/2018
 ms.author: jovanpop
 ms.topic: article
-ms.openlocfilehash: 353a1cc99f122c773f0a005a20f04391236ad913
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f36d7b551a0ff89589564f5f9170aa24f62a61ad
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>開始使用 Azure SQL Database 中的 JSON 功能
 Azure SQL Database 可讓您剖析及查詢以「JavaScript 物件標記法」 [(JSON)](http://www.json.org/) 格式表示的資料，然後將您的關聯式資料匯出成 JSON 文字。

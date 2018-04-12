@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 18d03ffcd586a809b37cbc1ca9a7843c25c7758d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 85f25946974b7ede64f9f8fb0009eed42c55c25a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL Database 查詢效能深入解析
 管理和調整關聯式資料庫效能是一項具挑戰性的工作，需要投入大量的專業知識和時間。 「查詢效能深入解析」提供了下列各項，讓您得以花費較少時間來對資料庫效能進行疑難排解：

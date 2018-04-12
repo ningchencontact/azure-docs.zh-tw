@@ -1,10 +1,10 @@
 ---
-title: "登入傳統 Azure VM | Microsoft Docs"
-description: "使用 Azure 入口網站來登入以傳統部署模型建立的 Windows 虛擬機器。"
+title: 登入傳統 Azure VM | Microsoft Docs
+description: 使用 Azure 入口網站來登入以傳統部署模型建立的 Windows 虛擬機器。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: c35bfeaa81f89dc5a636d67ed9a2a930d689c54a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bcbebc216dbd63acfb33cf72ba774d088149a3a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>使用 Azure 入口網站登入 Windows 虛擬機器
 在 Azure 入口網站中，使用 [連接]  按鈕來啟動遠端桌面工作階段，並登入 Windows VM。

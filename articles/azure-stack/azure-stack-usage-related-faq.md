@@ -1,9 +1,25 @@
- ---
-標題：使用情況 API 相關常見問題集 | Microsoft Docs 描述：Azure Stack 計量清單、與 Azure 使用情況 API 的比較、使用時間與回報時間、錯誤碼。
-services: azure-stack documentationcenter: '' author: mattbriggs manager: femila editor: ''
-
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071 ms.service: azure-stack ms.workload: na ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 03/09/2018 ms.author: mabrigg ms.reviewer: alfredop
-
+---
+title: 使用情況 API 相關常見問題集 | Microsoft Docs
+description: Azure Stack 計量清單、與 Azure 使用情況 API 的比較、使用時間與回報時間、錯誤碼。
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/09/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 3d6f2bf569ecfebe3bf4f535a7a8ab3bf22849f1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 使用量 API 的常見問題集
 此文章提供 Azure Stack 使用情況 API 的一些常見問題集解答。

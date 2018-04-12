@@ -1,12 +1,12 @@
 ---
-title: "Azure 的 vCPU 配額 | Microsoft Docs"
-description: "了解 Azure 的 vCPU 配額。"
-keywords: 
+title: Azure 的 vCPU 配額 | Microsoft Docs
+description: 了解 Azure 的 vCPU 配額。
+keywords: ''
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: Drewm3
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: drewm
-ms.openlocfilehash: 8b99fd92d9031b7172e698cf5db1f776387bdfb9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a4e0bbe1c6d9b121dfb422934cdd67ff19f80482
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>虛擬機器 vCPU 配額
 
@@ -68,7 +68,7 @@ az vm list-usage --location "East US"
   },
 ```
 ## <a name="reserved-vm-instances"></a>保留的 VM 執行個體
-保留的 VM 執行個體 (僅限於單一訂用帳戶) 將為 vCPU 配額加入新的層面。 這些值描述在訂用帳戶中必須是可部署的指定大小執行個體數目。 它們是配額系統中的預留位置，以確保該配額會被保留，使保留的執行個體可於訂用帳戶中部署。 例如，如果特定訂用帳戶有 10 個保留的執行個體 Standard_D1，則保留的執行個體 Standard_D1 的使用量限制將為 10。 這可讓 Azure 確保「區域 vCPU 總計」配額中永遠至少有 10 個 vCPU 可用於 Standard_D1 執行個體，「標準 D 系列 vCPU」配額中有至少 10 個 vCPU 可用於 Standard_D1 執行個體。
+保留的 VM 執行個體 (僅限於單一訂用帳戶) 將為 vCPU 配額新增新的層面。 這些值描述在訂用帳戶中必須是可部署的指定大小執行個體數目。 它們是配額系統中的預留位置，以確保該配額會被保留，使保留的執行個體可於訂用帳戶中部署。 例如，如果特定訂用帳戶有 10 個保留的執行個體 Standard_D1，則保留的執行個體 Standard_D1 的使用量限制將為 10。 這可讓 Azure 確保「區域 vCPU 總計」配額中永遠至少有 10 個 vCPU 可用於 Standard_D1 執行個體，「標準 D 系列 vCPU」配額中有至少 10 個 vCPU 可用於 Standard_D1 執行個體。
 
 如果需要購買單一訂用帳戶 RI 來增加配額，您可以在訂用帳戶中[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。
 

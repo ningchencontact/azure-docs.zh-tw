@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 3218778640acc5d08cef94849e25323650c42c6c
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f8b97aeb4c37578b884c924bd1919a59fa0f1cf8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 清單將隨著時間擴展並更新以涵蓋更多平台。
@@ -71,7 +71,7 @@ ms.lasthandoff: 03/29/2018
 * [IoT 中心](#iot-hub-limits)
 * [IoT 中樞裝置佈建服務](#iot-hub-device-provisioning-service-limits)
 * [金鑰保存庫](#key-vault-limits)
-* [Log Analytics / Operational Insights](#log-analytics-limits)
+* [Log Analytics](#log-analytics-limits)
 * [媒體服務](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [行動服務](#mobile-services-limits)

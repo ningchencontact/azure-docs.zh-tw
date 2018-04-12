@@ -4,8 +4,7 @@ description: 了解如何從 Azure Cosmos DB (全域散發的多模型資料庫�
 services: cosmos-db
 documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: ''
+manager: kfile
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: e31b66f20c51e95dbc2d8285bb5602590abd4f4f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 588eb4df9555f20fe4193e8ae34ad51c17921db2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>如何使用 Azure Cosmos DB 全域散發資料
 Azure 無所不在 - 跨 30 多個地理區域，遍佈全球並持續擴充中。 遍及全球的 Azure 提供給開發人員的其中一項差異化功能，就是能夠輕鬆地建置、部署及管理分散在世界各地的應用程式。 
@@ -36,7 +35,7 @@ Azure 無所不在 - 跨 30 多個地理區域，遍佈全球並持續擴充中�
 在本文中，我們提供 Azure Cosmos DB 的全域散發功能概觀。 我們也會說明 Azure Cosmos DB 唯一能提供完整 SLA 的方法。 
 
 ## <a id="EnableGlobalDistribution"></a>啟用周全的全域散發
-Azure Cosmos DB 提供下列功能，讓您輕鬆地撰寫全球規模的應用程式。 透過 Azure Cosmos DB 的資源提供者型 [REST API](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) 和 Azure 入口網站，即可使用這些功能。
+Azure Cosmos DB 提供下列功能，讓您輕鬆地撰寫全球規模的應用程式。 透過 Azure Cosmos DB 的資源提供者型 [REST API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) 和 Azure 入口網站，即可使用這些功能。
 
 在下列影片中，Azure Cosmos DB 程式管理員 Andrew Liu 會示範周全的全域散發功能。
 

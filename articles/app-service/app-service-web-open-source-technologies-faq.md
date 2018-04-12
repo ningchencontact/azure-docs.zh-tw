@@ -1,11 +1,11 @@
 ---
-title: "Azure Web 應用程式的開放原始碼技術常見問題集 |Microsoft Docs"
-description: "獲得有關 Azure App Service 之 Web Apps 功能的開放原始碼技術常見問題解答。"
+title: Azure Web 應用程式的開放原始碼技術常見問題集 |Microsoft Docs
+description: 獲得有關 Azure App Service 之 Web Apps 功能的開放原始碼技術常見問題解答。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure 中的 Web Apps 相關開放原始碼技術常見問題集
 

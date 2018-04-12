@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure 資料靜態加密 | Microsoft Docs"
-description: "本文提供 Microsoft Azure 資料靜態加密概觀、整體功能及一般考量。"
+title: Microsoft Azure 資料靜態加密 | Microsoft Docs
+description: 本文提供 Microsoft Azure 資料靜態加密概觀、整體功能及一般考量。
 services: security
 documentationcenter: na
 author: YuriDio
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
 ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 資料靜態加密
 在 Microsoft Azure 內有多個工具，可根據貴公司的安全性和法規遵循需求來保護資料。 本文著重於：

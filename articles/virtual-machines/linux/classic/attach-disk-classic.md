@@ -1,10 +1,10 @@
 ---
-title: "將磁碟附加至 Azure 中的 Linux VM | Microsoft Docs"
-description: "了解如何使用傳統部署模型將資料磁碟連接至 Linux VM，並初始化磁碟，使其可供使用"
+title: 將磁碟附加至 Azure 中的 Linux VM | Microsoft Docs
+description: 了解如何使用傳統部署模型將資料磁碟連接至 Linux VM，並初始化磁碟，使其可供使用
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: b47451bb8e53154760b893e452649f15ffdff7f9
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e7f587f6126f60f18bb4c6f184ec58cf7efc1a81
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>如何將資料磁碟連接至 Linux 虛擬機器
 > [!IMPORTANT] 
@@ -90,7 +90,7 @@ ms.lasthandoff: 01/19/2018
     sudo fdisk /dev/sdc
     ```
 
-4. 出現提示時，請輸入 **n** 以建立磁碟分割。
+4. 出現提示時，輸入 **n** 建立磁碟分割。
 
     ![建立裝置](./media/attach-disk/fdisknewpartition.png)
 

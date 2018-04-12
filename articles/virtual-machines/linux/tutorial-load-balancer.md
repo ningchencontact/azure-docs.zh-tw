@@ -1,13 +1,13 @@
 ---
-title: "如何在 Azure 中平衡 Linux 虛擬機器的負載 | Microsoft Docs"
-description: "了解如何使用 Azure Load Balancer，跨三部 Linux VM 建立高可用性且安全的應用程式"
+title: 如何在 Azure 中平衡 Linux 虛擬機器的負載 | Microsoft Docs
+description: 了解如何使用 Azure Load Balancer，跨三部 Linux VM 建立高可用性且安全的應用程式
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: feb2c369fc00d37c9a6af0c0be68cbf7d9e59921
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c473a31261337f0b968ca21c85b61dafbf8fa74a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>如何平衡 Azure 中 Linux 虛擬機器的負載以建立高可用性應用程式
 負載平衡會將傳入要求分散到多部虛擬機器，藉此提供高可用性。 在本教學課程中，您會了解 Azure Load Balancer 的不同元件，以分散流量並提供高可用性。 您會了解如何：

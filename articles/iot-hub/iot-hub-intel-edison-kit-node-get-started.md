@@ -1,12 +1,12 @@
 ---
-title: "Intel Edison 到雲端 (Node.js) - 將 Intel Edison 連線到 Azure IoT 中樞 | Microsoft Docs"
-description: "了解如何設定及連線 Intel Edison 和 Azure IoT 中樞，在本教學課程中讓 Intel Edison 將資料傳送到 Azure 雲端平台。"
+title: Intel Edison 到雲端 (Node.js) - 將 Intel Edison 連線到 Azure IoT 中樞 | Microsoft Docs
+description: 了解如何設定及連線 Intel Edison 和 Azure IoT 中樞，在本教學課程中讓 Intel Edison 將資料傳送到 Azure 雲端平台。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
-keywords: "azure iot intel edison, intel edison iot 中樞, intel edison 傳送資料到雲端, intel edison 到雲端"
+tags: ''
+keywords: azure iot intel edison, intel edison iot 中樞, intel edison 傳送資料到雲端, intel edison 到雲端
 ms.assetid: a7c9cf2d-c102-41b0-aa45-41285c6877eb
 ms.service: iot-hub
 ms.devlang: nodejs
@@ -17,10 +17,10 @@ ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5a31efba704045196b5563f7bc467c773bea7805
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>將 Intel Edison 連線到 Azure IoT 中樞 (Node.js)
 

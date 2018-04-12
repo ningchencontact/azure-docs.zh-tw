@@ -1,11 +1,11 @@
 ---
-title: "適用於 Windows Server 的 Azure Hybrid Benefit | Microsoft Docs"
-description: "了解如何發揮 Windows 軟體保證的最大效益，以將內部部署授權帶到 Azure"
+title: 適用於 Windows Server 的 Azure Hybrid Benefit | Microsoft Docs
+description: 了解如何發揮 Windows 軟體保證的最大效益，以將內部部署授權帶到 Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: kmouss
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: 245bffbc208ce67d990a63e744c42dc671686b4b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f445a2c77b14477ea2ef4ff7722183d641275f08
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>適用於 Windows Server 的 Azure Hybrid Benefit
 對於擁有軟體保證的客戶，適用於 Windows Server 的 Azure Hybrid Benefit 讓您能夠以較低的成本來使用內部部署 Windows Server 授權，以及在 Azure 上執行 Windows 虛擬機器。 您可以使用適用於 Windows Server 的 Azure Hybrid Benefit，從任何 Azure 支援的平台 Windows Server 映像或 Windows 自訂映像來部署新的虛擬機器。 本文章會詳述使用適用於 Windows Server 的 Azure Hybrid Benefit 來部署新 VM 的步驟，以及您如何更新現有的執行中 VM。 如需有關適用於 Windows Server 之 Azure Hybrid Benefit 的授權和節省成本詳細資訊，請參閱[適用於 Windows Server 的 Azure Hybrid Benefit 授權頁面](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。

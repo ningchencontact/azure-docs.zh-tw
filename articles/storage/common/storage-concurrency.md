@@ -1,8 +1,8 @@
 ---
-title: "管理 Microsoft Azure 儲存體中的並行存取"
-description: "如何管理 Blob、佇列、資料表和檔案服務的並行存取"
+title: 管理 Microsoft Azure 儲存體中的並行存取
+description: 如何管理 Blob、佇列、資料表和檔案服務的並行存取
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: jasontang501
 manager: tadb
 editor: tysonn
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.openlocfilehash: 937cca66a0af0674b868e6a87681adbea330e91c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>管理 Microsoft Azure 儲存體中的並行存取
 ## <a name="overview"></a>概觀

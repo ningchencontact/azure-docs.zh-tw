@@ -1,23 +1,23 @@
 ---
-title: "Azure 雲端服務定義。WebRole 結構描述 | Microsoft Docs"
-ms.custom: 
+title: Azure 雲端服務定義。WebRole 結構描述 | Microsoft Docs
+ms.custom: ''
 ms.date: 04/14/2015
 ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
-caps.latest.revision: 
+caps.latest.revision: 60
 author: thraka
 ms.author: adegeo
 manager: timlt
 ms.openlocfilehash: b2873f61dcab9a14089949f27f40ca5bedaf14ee
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure 雲端服務定義 WebRole 結構描述
 Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (例如，ASP.NET、PHP、Windows Communication Foundation 及 FastCGI) 所自訂的角色。

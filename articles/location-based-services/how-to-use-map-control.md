@@ -1,19 +1,18 @@
 ---
-title: "如何使用 Azure LBS 的地圖控制項 | Microsoft Docs"
-description: "了解如何使用 Azure LBS 的地圖控制項用戶端 Javascript 程式庫。"
+title: 如何使用 Azure LBS 的地圖控制項 | Microsoft Docs
+description: 了解如何使用 Azure LBS 的地圖控制項用戶端 Javascript 程式庫。
 services: location-based-services
-keywords: "請勿在未諮詢 SEO 之前新增或編輯關鍵字。"
 author: kgremban
 ms.author: kgremban
 ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 9843387a9e4f3b5751bafceb48d6fc949dff7e23
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ee767c9461f79437ab49d2a919bb82e7de8feba7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>如何使用 Azure LBS 的地圖控制項
 地圖控制項用戶端 Javascript 程式庫可讓您將地圖和內嵌的 Azure LBS 功能轉譯到 Web 或行動裝置應用程式中。 

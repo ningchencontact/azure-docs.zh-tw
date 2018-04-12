@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: acc2c2556763650e0a0aff93fd247d882cb37852
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5a3196f1cdbebd131d6880bab6fc1468f4c1b849
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>解決移轉至 SQL Database 期間的 Transact-SQL 差異   
 [將您的資料庫從 SQL Server 移轉](sql-database-cloud-migrate.md)至 Azure SQL Server 時，您可能會發現您的資料庫必須先進行一些再造，才能移轉 SQL Server。 本文章提供一些指引，以協助您執行此再造作業，以及了解為何必須執行再造的基礎原因。 若要偵測不相容性，請使用 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595)。

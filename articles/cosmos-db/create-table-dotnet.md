@@ -1,25 +1,24 @@
 ---
-title: "快速入門：資料表 API 與 .NET - Azure Cosmos DB | Microsoft Docs"
-description: "本快速入門示範如何使用 Azure Cosmos DB 資料表 API，以使用 Azure 入口網站與 .NET 建立應用程式"
+title: 快速入門：資料表 API 與 .NET - Azure Cosmos DB | Microsoft Docs
+description: 本快速入門示範如何使用 Azure Cosmos DB 資料表 API，以使用 Azure 入口網站與 .NET 建立應用程式
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
 ms.custom: quickstart connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2017
-ms.author: mimig
-ms.openlocfilehash: c3d4637871ed56bd32e514c9de4374257e55d844
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: sngun
+ms.openlocfilehash: 676e1bce0b74579780ed3dd540cae78a3f616b7e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>快速入門：使用 .NET 與 Azure Cosmos DB 建置資料表 API 應用程式 
 

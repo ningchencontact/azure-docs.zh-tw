@@ -1,11 +1,11 @@
 ---
-title: "如何設定 ExpressRoute 線路的路由 (對等互連)：Azure：傳統 | Microsoft Docs"
-description: "本文將逐步引導您為 ExpressRoute 線路建立和佈建私用、公用及 Microsoft 對等。 本文也示範如何檢查狀態、更新或刪除線路的對等。"
+title: 如何設定 ExpressRoute 線路的路由 (對等互連)：Azure：傳統 | Microsoft Docs
+description: 本文將逐步引導您為 ExpressRoute 線路建立和佈建私用、公用及 Microsoft 對等。 本文也示範如何檢查狀態、更新或刪除線路的對等。
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a4bd39d2-373a-467a-8b06-36cfcc1027d2
 ms.service: expressroute
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 ms.openlocfilehash: d6c675d314e96cd0caab7e5eb5c60e3b1458e4a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>建立和修改 ExpressRoute 線路的對等互連 (傳統)
 > [!div class="op_single_selector"]

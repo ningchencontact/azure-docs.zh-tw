@@ -1,25 +1,24 @@
 ---
-title: "Azure Cosmos DB︰使用 Spark 和 Apache TinkerPops Gremlin 執行圖表分析 | Microsoft Docs"
-description: "本文提供在 Azure Cosmos DB 中使用 Spark 和 TinkerPop SparkGraphComputer 設定及執行圖形分析和平行計算的指引。"
+title: Azure Cosmos DB︰使用 Spark 和 Apache TinkerPops Gremlin 執行圖表分析 | Microsoft Docs
+description: 本文提供在 Azure Cosmos DB 中使用 Spark 和 TinkerPop SparkGraphComputer 設定及執行圖形分析和平行計算的指引。
 services: cosmosdb
-documentationcenter: 
-author: khdang
-manager: shireest
-editor: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
 ms.custom: quick start connect
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: gremlin
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: khdang
-ms.openlocfilehash: d2ea692c5c353586cc2b653e57eca7ccb8c9c7ce
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: sngun
+ms.openlocfilehash: f44c7d432ac9c07daf9b99dd922f1dcd5de5d58e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB︰使用 Spark 和 Apache TinkerPop Gremlin 執行圖表分析
 

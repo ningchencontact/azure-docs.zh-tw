@@ -2,9 +2,8 @@
 title: Azure Cosmos DB 的佈建輸送量 | Microsoft Docs
 description: 了解如何設定 Azure Cosmos DB 容器、集合、圖表和資料表的佈建輸送量。
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: f98def7f-f012-4592-be03-f6fa185e1b1e
 ms.service: cosmos-db
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
-ms.author: mimig
-ms.openlocfilehash: b9ad94276287a5e46a9d3b3b9332547fba5627e9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: 0e89b93764f51873d991524a5e226464c224b649
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>設定 Azure Cosmos DB 容器的輸送量
 
