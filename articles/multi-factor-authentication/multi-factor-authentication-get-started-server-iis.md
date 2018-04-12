@@ -1,8 +1,8 @@
 ---
-title: "IIS 驗證和 Azure MFA Server | Microsoft Docs"
-description: "此 Azure Multi-Factor Authentication 頁面協助您部署 IIS 驗證與 Azure Multi-Factor Authentication Server。"
+title: IIS 驗證和 Azure MFA Server | Microsoft Docs
+description: 此 Azure Multi-Factor Authentication 頁面協助您部署 IIS 驗證與 Azure Multi-Factor Authentication Server。
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: d1bf1c8a-2c10-4ae6-9f4b-75f0c3df43eb
@@ -75,4 +75,4 @@ ms.lasthandoff: 12/11/2017
 1. 在 [IIS 驗證] 區段中，按一下 [信任的 IP] 索引標籤。
 2. 按一下 [新增] 。
 3. 在 [新增可信任 IP] 對話方塊出現時，選取 [單一 IP]、[IP 範圍] 或 [子網路] 選項按鈕。
-4. 輸入應列入白名單中的 IP 位址、IP 位址範圍或子網路。 如果要輸入子網路，請選取適當的「網路遮罩」，然後按一下 [確定]。 現已加入白名單。
+4. 輸入應列入允許清單中的 IP 位址、IP 位址範圍或子網路。 如果要輸入子網路，請選取適當的「網路遮罩」，然後按一下 [確定]。 現已加入允許清單。

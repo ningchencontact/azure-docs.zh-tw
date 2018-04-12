@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1b7901542a699e74f65527bf734133f73acb0bea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c646b0b1ab0ec62cffb4f7cf7474b48c68dfabb4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-public-basic-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>使用 Azure 入口網站建立公用基本負載平衡器以平衡 VM 的負載
 
@@ -38,8 +38,8 @@ ms.lasthandoff: 03/23/2018
 1. 在畫面的左上方，按一下 [建立資源] > [網路] > [負載平衡器]。
 2. 在 [建立負載平衡器] 頁面中輸入負載平衡器的下列值：
     - myLoadBalancer - 作為負載平衡器的名稱。
-    - Public - 作為負載平衡器的前端類型。 
-     - myPublicIP -作為您必須建立的公用 IP，其 SKU 為 [基本]，而且 [指派] 設為 [動態]。
+    - Public - 作為負載平衡器的類型。
+    - myPublicIP -作為您必須建立的公用 IP，其 SKU 為 [基本]，而且 [指派] 設為 [動態]。
     - myResourceGroupLB - 作為您新建立的資源群組的名稱。
 3. 按一下 [建立] 以建立負載平衡器。
    

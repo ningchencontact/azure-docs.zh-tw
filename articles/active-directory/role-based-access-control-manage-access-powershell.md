@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure PowerShell 管理角色型存取控制 (RBAC) | Microsoft Docs"
-description: "如何使用 Azure PowerShell 管理 RBAC，包括列出角色、指派角色，以及刪除角色指派。"
+title: 使用 Azure PowerShell 管理角色型存取控制 (RBAC) | Microsoft Docs
+description: 如何使用 Azure PowerShell 管理 RBAC，包括列出角色、指派角色，以及刪除角色指派。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
@@ -15,10 +15,10 @@ ms.date: 07/12/2017
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.openlocfilehash: 5e7e01502a173cb93216c77dd43f61094fd88148
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>使用 Azure PowerShell 管理角色型存取控制
 > [!div class="op_single_selector"]

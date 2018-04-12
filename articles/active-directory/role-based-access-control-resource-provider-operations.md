@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: rolyon
 ms.openlocfilehash: 0b8c8823c6d21df96dcfd926db1855169f1570e4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
@@ -2776,7 +2776,7 @@ ms.lasthandoff: 03/23/2018
 | 作業 | 說明 |
 |---|---|
 |/alerts/read|取得所有可用的安全性警訊|
-|/applicationWhitelistings/read|取得應用程式允許清單|
+|/applicationWhitelistings/read|取得應用程式白名單|
 |/applicationWhitelistings/write|建立新的應用程式允許清單，或更新現有的應用程式允許清單|
 |/complianceResults/read|取得資源的合規性結果|
 |/locations/alerts/activate/action|啟動安全性警訊|
