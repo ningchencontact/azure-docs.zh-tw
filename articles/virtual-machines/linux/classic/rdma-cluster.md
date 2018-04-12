@@ -1,11 +1,11 @@
 ---
-title: "設定 Linux RDMA 叢集以執行 MPI 應用程式 | Microsoft Docs"
-description: "建立由 H16r、H16mr、A8 或 A9 大小之 VM 所組成的 Linux 叢集，以使用 Azure RDMA 網路來執行 MPI 應用程式"
+title: 設定 Linux RDMA 叢集以執行 MPI 應用程式 | Microsoft Docs
+description: 建立由 H16r、H16mr、A8 或 A9 大小之 VM 所組成的 Linux 叢集，以使用 Azure RDMA 網路來執行 MPI 應用程式
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 01834bad-c8e6-48a3-b066-7f1719047dd2
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 428dc1e8ba03ba17e348a33a33b5cf5e6118a43c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 18549a8606285238f26d2c8cec54793e26e3e8d1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>設定 Linux RDMA 叢集以執行 MPI 應用程式
 了解如何使用[高效能運算 VM 大小](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)在 Azure 中設定 Linux RDMA 叢集，以執行平行訊息傳遞介面 (MPI) 應用程式。 本文提供準備 Linux HPC 映像以在叢集上執行 Intel MPI 的步驟。 準備之後，您會使用此映像和其中一個支援 RDMA 的 Azure VM 大小 (目前為 H16r、H16mr、A8 或 A9) 來部署 VM 的叢集。 請使用此叢集來執行透過低延遲、高輸送量網路有效率地進行通訊的 MPI 應用程式，此網路是以遠端直接記憶體存取 (RDMA) 技術為基礎。

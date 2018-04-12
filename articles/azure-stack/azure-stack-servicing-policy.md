@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2c10dcf185c62f3672be80ad2e3d049eae82fe6b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e37b63580d8cea4b5772bc54f7b2f79980afc0bc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服務原則
 本文說明 Azure Stack 整合系統的服務原則，以及必須如何做才能將狀態保持在支援的狀態。 
@@ -47,19 +47,6 @@ Microsoft 更新封裝包含下列命名慣例，可協助您輕鬆識別發行�
 
 Microsoft 軟體更新套件不會累積，而且先決條件是必須要有上一個更新套件。 如果您決定延後一或多個更新，但是想要取得最新版本，請考慮整體的執行時間。 
 
-下表顯示範例更新封裝發行、其先決條件，以及獲得支援必要的系統最低支援版本。 該表是以 Azure Stack 整合系統 (組建 1708) 為依據，第一次更新封裝發行 (1709) 是在 2017 年 9 月。 
-
-| 最新更新封裝 (*範例*) | 必要條件 | 最低支援版本 |
-| -- | -- | -- |
-| 1710 | 1709 | N/A |
-| 1711 | 1710 | 1709 |
-| 1712 | 1711 | 1710 |
-| 1802 | 1712 | 1711 |
-| 1803 | 1802 | 1712 |
-| 1804 | 1803 | 1802 |
-| 1805 | 1804 | 1803 |
-| | | 
-在上表中，沒有 1801 發行版本。
 
 ## <a name="next-steps"></a>後續步驟
 

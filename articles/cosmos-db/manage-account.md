@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: kirillg
 ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>如何管理 Azure Cosmos DB 帳戶
 了解如何在 Azure 入口網站中設定全域一致性、使用金鑰，以及刪除 Azure Cosmos DB 帳戶。

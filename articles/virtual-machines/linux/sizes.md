@@ -1,11 +1,11 @@
 ---
-title: "Azure 中的 Linux VM 大小 | Microsoft Docs"
-description: "列出 Azure 中 Linux 虛擬機器的不同可用大小。"
+title: Azure 中的 Linux VM 大小 | Microsoft Docs
+description: 列出 Azure 中 Linux 虛擬機器的不同可用大小。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: da681171-f045-4c80-a5a9-d8bd47964673
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: 3f2c44a6402845ddfbc5c6453968817d6e49f64f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: e615cf4760ef3c75bdb398744a1454cd4d5121a4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure 中的 Linux 虛擬機器大小
 本文說明可用於執行 Linux 應用程式與工作負載之 Azure 虛擬機器的可用大小及選項。 同時也提供當您規劃使用這些資源時所需注意的部署考量。 本文也適用於 [Windows 虛擬機器](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。

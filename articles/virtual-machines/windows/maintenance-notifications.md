@@ -1,13 +1,13 @@
 ---
-title: "處理 Azure 中 Windows VM 的維修通知 | Microsoft Docs"
-description: "檢視 Azure 中執行的 Windows 虛擬機器的維修通知，並開始自助維修。"
+title: 處理 Azure 中 Windows VM 的維修通知 | Microsoft Docs
+description: 檢視 Azure 中執行的 Windows 虛擬機器的維修通知，並開始自助維修。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: zivraf
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
-ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
+ms.openlocfilehash: a9cb24b569af4ff0fd3cf9bf66d0b937415907ae
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>處理 Windows 虛擬機器預定進行的維修作業通知
 

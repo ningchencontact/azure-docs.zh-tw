@@ -1,11 +1,11 @@
 ---
-title: "開始使用 Azure IoT 中樞裝置對應項 (Python) | Microsoft Docs"
-description: "如何使用 Azure IoT 中樞裝置對應項來新增標籤，然後使用 IoT 中樞查詢。 您可以使用適用於 Python 的 Azure IoT SDK，實作模擬裝置應用程式和服務應用程式，以新增標籤和執行 IoT 中樞查詢。"
+title: 開始使用 Azure IoT 中樞裝置對應項 (Python) | Microsoft Docs
+description: 如何使用 Azure IoT 中樞裝置對應項來新增標籤，然後使用 IoT 中樞查詢。 您可以使用適用於 Python 的 Azure IoT SDK，實作模擬裝置應用程式和服務應用程式，以新增標籤和執行 IoT 中樞查詢。
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
 ms.service: iot-hub
 ms.devlang: python
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2017
-ms.author: v-masebo
-ms.openlocfilehash: 20c1eeee6ca690ddcf0b9489b88689213b79488e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: d5b606532ac445b03527c5027dc3b434d88b6b1f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-device-twins-python"></a>開始使用裝置對應項 (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]

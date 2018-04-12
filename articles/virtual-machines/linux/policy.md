@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中的 Linux VM 上使用原則強制執行安全性 | Microsoft Docs"
-description: "如何將原則套用至 Azure Resource Manager Linux 虛擬機器"
+title: 在 Azure 中的 Linux VM 上使用原則強制執行安全性 | Microsoft Docs
+description: 如何將原則套用至 Azure Resource Manager Linux 虛擬機器
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 06778ab4-f8ff-4eed-ae10-26a276fc3faa
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: 72abb01a3ce7f4dea2ee97219e9a406c69cda7c5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 12066fe622ec3ed2eded74ecf7b791689ed873d5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>使用 Azure Resource Manager 將原則套用至 Linux VM
 藉由使用原則，組織可以強制執行整個企業的各種慣例和規則。 強制執行所要的行為有助於降低風險，同時促進組織的成功。 我們會在本文中說明如何使用 Azure Resource Manager 原則來為您組織的虛擬機器定義所要的行為。

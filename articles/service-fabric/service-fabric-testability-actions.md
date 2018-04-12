@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv;heeldin
 ms.openlocfilehash: c8ddc7732999ae555323bebaef60aa34c8f2ec17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="testability-actions"></a>Testability 動作
 為了模擬不可靠的基礎結構，Azure Service Fabric 會提供開發人員用於模擬各種真實失敗案例及狀態轉換的方法。 這些方法會以 Testability 動作的形式公開。 這些動作是低階 API，會導致特定錯誤插入、狀態轉換或驗證。 結合這些動作後，便可以為您的服務撰寫完整的測試案例。

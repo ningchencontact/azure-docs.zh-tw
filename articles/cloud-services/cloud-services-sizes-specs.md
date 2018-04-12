@@ -1,11 +1,11 @@
 ---
-title: "Azure 雲端服務的虛擬機器大小 | Microsoft Docs"
-description: "列出 Azure 雲端服務 Web 和背景工作角色的各種虛擬機器大小 (和識別碼)。"
+title: Azure 雲端服務的虛擬機器大小 | Microsoft Docs
+description: 列出 Azure 雲端服務 Web 和背景工作角色的各種虛擬機器大小 (和識別碼)。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
 ms.service: cloud-services
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
 ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="sizes-for-cloud-services"></a>雲端服務的大小
 本主題描述雲端服務角色執行個體 (Web 角色和背景工作角色)的可用大小和選項。 同時也提供計劃使用這些資源時，需注意的部署考量。 每種大小都有一個識別碼，可讓您放入[服務定義檔](cloud-services-model-and-package.md#csdef)。 每種大小的價格可以在[雲端服務價格](https://azure.microsoft.com/pricing/details/cloud-services/)頁面上取得。

@@ -17,21 +17,20 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 445baa36f33cbe02b68bdb37406f842932089183
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2490b96716519ef749dd1e3a1fbe6846c6b5d999
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>使用 PowerShell 以虛擬網路對等互連連線虛擬網路
 
 您可以使用虛擬網路對等互連，讓虛擬網路彼此連線。 一旦虛擬網路對等互連，兩個虛擬網路中的資源就可以彼此通訊，且通訊時會有相同的延遲和頻寬，彷彿這些資源是位於相同的虛擬網路中。 在本文中，您將了解：
 
-> [!div class="checklist"]
-> * 建立兩個虛擬網路
-> * 使用虛擬網路對等互連連線兩個虛擬網路
-> * 將虛擬機器 (VM) 部署到每個虛擬網路
-> * 虛擬機器之間的通訊
+* 建立兩個虛擬網路
+* 使用虛擬網路對等互連連線兩個虛擬網路
+* 將虛擬機器 (VM) 部署到每個虛擬網路
+* 虛擬機器之間的通訊
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

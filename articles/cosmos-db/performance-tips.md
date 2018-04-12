@@ -3,9 +3,8 @@ title: Azure Cosmos DB 的 .NET 效能祕訣 | Microsoft Docs
 description: 了解用以改善 Azure Cosmos DB 資料庫效能的用戶端設定選項
 keywords: 如何改善資料庫效能
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
 ms.service: cosmos-db
@@ -14,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
-ms.author: mimig
-ms.openlocfilehash: 374d333517301db6cf44f6c00da52202ef5150e1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: sngun
+ms.openlocfilehash: 51674f80e918f28febf0e854caa72c0da43c589c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 > [!div class="op_single_selector"]
+> * [非同步 Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 

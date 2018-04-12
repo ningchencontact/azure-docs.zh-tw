@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure Data Lake U-SQL SDK 調整 U-SQL 本機執行和測試 | Microsoft Docs"
-description: "了解如何使用 Azure Data Lake U-SQL SDK 在本機工作站上使用命令列及程式設計介面來調整 U-SQL 作業本機執行和測試。"
+title: 使用 Azure Data Lake U-SQL SDK 調整 U-SQL 本機執行和測試 | Microsoft Docs
+description: 了解如何使用 Azure Data Lake U-SQL SDK 在本機工作站上使用命令列及程式設計介面來調整 U-SQL 作業本機執行和測試。
 services: data-lake-analytics
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>使用 Azure Data Lake U-SQL SDK 調整 U-SQL 本機執行和測試
 

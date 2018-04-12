@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/27/2018
 ms.author: victorh
-ms.openlocfilehash: 2de7086d7c26d5a655ad5998678f392126ea7e1d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f4552960cf16e8f7cb89868a03e4b4699eba2540
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>使用 PowerShell 以應用程式閘道設定端對端 SSL
 
@@ -183,7 +183,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
    ```
 
    > [!NOTE]
-   > 在此步驟中所提供的憑證，應該是在後端上出現的 .pfx 憑證本身的公開金鑰。 將安裝在後端伺服器上的憑證 (非根憑證) 以「宣告、證據和推論」(CER) 格式匯出，並將它用於此步驟。 此步驟會將後端加入到應用程式閘道的允許清單。
+   > 在此步驟中所提供的憑證，應該是在後端上出現的 .pfx 憑證本身的公開金鑰。 將安裝在後端伺服器上的憑證 (非根憑證) 以「宣告、證據和推論」(CER) 格式匯出，並將它用於此步驟。 此步驟會將後端加入到應用程式閘道的白名單。
 
    8. 設定應用程式閘道的後端 HTTP 設定。 將前述步驟中上傳的憑證指派給 HTTP 設定。
 
@@ -240,7 +240,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -
    2. 定義 SSL 原則。 在下列範例中，會停用 **TLSv1.0** 和 **TLSv1.1**，且只有 **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, and **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** 是允許的加密套件。
 
    ```powershell
-   Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
+   Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
    ```
 

@@ -7,13 +7,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 05/23/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 0731ddfea83d287c88118cf4b48e86427d8f520f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c7bf6816b457f7e193f53336c48f5e205722067e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>開始使用跨資料庫查詢 (垂直資料分割) (預覽)
 Azure SQL Database 彈性資料庫查詢 (預覽) 可讓您執行使用單一連接點跨越多個資料庫的 T-SQL 查詢。 本主題適用於 [垂直分割的資料庫](sql-database-elastic-query-vertical-partitioning.md)。  

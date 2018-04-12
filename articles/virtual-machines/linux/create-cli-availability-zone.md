@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/27/2018
+ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: cfc3fbf5432108222ee7941d92d78e49d3eaed78
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 512b6cde1a1de70f020a9af1254d2bc8e78f1b5f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>使用 Azure CLI 在可用性區域中建立 Linux 虛擬機器
 
@@ -78,7 +78,7 @@ az group create --name myResourceGroupVM --location eastus2
 建立虛擬機器時，有數個可用的選項，例如作業系統映像、磁碟大小及系統管理認證。 在此範例中，是使用 myVM 名稱來建立執行 Ubuntu Server 的虛擬機器。 VM 是在可用性區域 *1* 中所建立。 依預設，會以 *Standard_DS1_v2* 大小建立 VM。
 
 ```azurecli-interactive 
-az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys --zone 1
+az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
 系統可能需要幾分鐘的時間來建立 VM。 建立 VM 之後，Azure CLI 就會輸出 VM 的相關資訊。 請記下 `zones` 值，該值代表 VM 正在其中執行的可用性區域。 

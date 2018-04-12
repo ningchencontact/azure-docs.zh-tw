@@ -1,12 +1,12 @@
 ---
-title: "以 Node.js 將裝置佈建到遠端監視 - Azure | Microsoft Docs"
-description: "描述如何使用 Node.js 中已寫入的應用程式，將裝置連接至 Azure IoT Suite 預先設定遠端監視方案。"
-services: 
+title: 以 Node.js 將裝置佈建到遠端監視 - Azure | Microsoft Docs
+description: 描述如何使用 Node.js 中已寫入的應用程式，將裝置連接至 Azure IoT Suite 預先設定遠端監視方案。
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 01/24/2018
 ms.author: dobett
 ms.openlocfilehash: df89150867a3c95116ba8ca8cd684af4b32a36de
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>將裝置連接至遠端監視預先設定方案 (Node.js)
 

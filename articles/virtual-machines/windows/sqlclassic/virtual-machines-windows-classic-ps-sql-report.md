@@ -1,6 +1,6 @@
 ---
-title: "使用 PowerShell 建立具有原生模式報表伺服器的 VM | Microsoft Docs"
-description: "本主題說明並逐步引導您在 Azure 虛擬機器中，部署並設定 SQL Server Reporting Services 原生模式報表伺服器。 "
+title: 使用 PowerShell 建立具有原生模式報表伺服器的 VM | Microsoft Docs
+description: '本主題說明並逐步引導您在 Azure 虛擬機器中，部署並設定 SQL Server Reporting Services 原生模式報表伺服器。 '
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM
 > [!IMPORTANT] 

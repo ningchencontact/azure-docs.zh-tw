@@ -3,7 +3,7 @@ title: 使用 Azure IoT 中樞 (Python) 排程作業 | Microsoft Docs
 description: 如何排定 Azure IoT 中樞作業在多個裝置上叫用直接方法。 您可以使用適用於 Python 的 Azure IoT SDK，實作模擬裝置應用程式和服務應用程式來執行作業。
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
 editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2018
-ms.author: v-masebo
-ms.openlocfilehash: 632e1788f614b0a57d631759d1638027e1d0118a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: bb087d3fce8d663995a3878951477df8343dca00
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>排程及廣播作業 (Python)
 

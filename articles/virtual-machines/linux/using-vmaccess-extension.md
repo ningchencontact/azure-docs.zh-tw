@@ -4,7 +4,7 @@ description: 如何使用 VMAccess 擴充功能和 Azure CLI 2.0 在 Linux VM �
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
-ms.openlocfilehash: a5467722b347e68693b335da6b3ac3c5d1a3a441
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 15fab2b4f83b86227a3a2327669861b5adc8d3c5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>使用 VMAccess 擴充功能搭配 Azure CLI 2.0 在 Linux VM 上管理系統管理使用者、SSH 及檢查或修復磁碟
 Linux VM 的磁碟顯示錯誤。 您不知怎麼重設 Linux VM的根密碼，或不小心刪除了 SSH 私密金鑰。 如果是過去資料中心的時代發生此狀況，您必須親赴現場，然後再開啟 KVM 才能存取伺服器主控台。 請將 Azure VMAccess 擴充功能想成 KVM 交換器，在此可以存取主控台重設 Linux 存取或執行磁碟等級維護。

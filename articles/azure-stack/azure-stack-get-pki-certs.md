@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 4a7432260167b8740567ad4308e102417abad82c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc2ec96113310f54d32a67ea5fa31725600046c9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>產生適用於 Azure Stack 部署的 PKI 憑證
 您現在已知道 Azure Stack 部署的 [PKI 憑證需求](azure-stack-pki-certs.md)，那麼您必須從您選擇的憑證授權單位 (CA) 取得這些憑證。 
@@ -75,4 +75,4 @@ ms.lasthandoff: 03/23/2018
 5. **匯出 .PFX 並複製到部署資料夾**。 將憑證 (包括私密金鑰) 匯出為 .PFX 檔案，然後將 .PFX 檔案複製到 [Azure Stack 部署 PKI 需求](azure-stack-pki-certs.md)中所述的部署資料夾。
 
 ## <a name="next-steps"></a>後續步驟
-[準備 Azure Stack PKI 憑證](prepare-pki-certs.md)
+[準備 Azure Stack PKI 憑證](azure-stack-prepare-pki-certs.md)

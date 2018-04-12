@@ -1,14 +1,14 @@
 ---
-title: "如何解除佈建使用 Azure IoT 中樞裝置佈建服務註冊的裝置 | Microsoft Docs"
-description: "如何在 Azure 入口網站中，將裝置佈建服務所註冊的裝置解除佈建"
+title: 如何解除佈建使用 Azure IoT 中樞裝置佈建服務註冊的裝置 | Microsoft Docs
+description: 如何在 Azure 入口網站中，將裝置佈建服務所註冊的裝置解除佈建
 services: iot-dps
-keywords: 
+keywords: ''
 author: JimacoMS
 ms.author: v-jamebr
 ms.date: 01/08/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
@@ -56,7 +56,7 @@ ms.lasthandoff: 02/03/2018
 對於註冊群組，有兩個案例要加以考慮：
 
 - 若要解除佈建所有透過註冊群組佈建的裝置：
-  1. 停用註冊群組，將其簽署憑證列入黑名單。 
+  1. 停用註冊群組，將其簽署憑證列入封鎖清單。 
   2. 請使用該註冊群組的佈建裝置清單，從個別的 IoT 中樞身分識別登錄中停用或刪除每個裝置。 
   3. 從個別的 IoT 中樞停用或刪除所有裝置之後，可以選擇是否要刪除註冊群組。 不過請注意，如果您刪除註冊群組，而憑證鏈結之中一個或多個更上層裝置的簽署憑證有已啟用的註冊群組，這些裝置可以重新註冊。 
 - 若要從註冊群組解除佈建單一裝置：

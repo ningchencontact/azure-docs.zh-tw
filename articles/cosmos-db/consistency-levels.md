@@ -3,9 +3,8 @@ title: Azure Cosmos DB 中的一致性層級 | Microsoft Docs
 description: Azure Cosmos DB 具有五個一致性層級，有助於在最終一致性、可用性和延遲的取捨之間取得平衡。
 keywords: 最終一致性, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 Tunable 資料一致性層級
 Azure Cosmos DB 是針對每個資料模型考量到全球發佈的全新設計。 它的設計目的是提供可預測的低延遲保證，以及多個定義完善且寬鬆的一致性層級模型。 Azure Cosmos DB 目前提供五種一致性層級：強式、限定過期、工作階段、一致的前置和最終。 限定過期、工作階段、一致前置詞、最終，統稱為「寬鬆的一致性模型」，因為它們提供的一致性比強式更小，後者是最高一致性的模型。 

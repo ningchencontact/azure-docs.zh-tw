@@ -1,25 +1,24 @@
 ---
-title: "快速入門：資料表 API 與 Java - Azure Cosmos DB | Microsoft Docs"
-description: "本快速入門示範如何使用 Azure Cosmos DB 資料表 API，以使用 Azure 入口網站與 Java 建立應用程式"
+title: 快速入門：資料表 API 與 Java - Azure Cosmos DB | Microsoft Docs
+description: 本快速入門示範如何使用 Azure Cosmos DB 資料表 API，以使用 Azure 入口網站與 Java 建立應用程式
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 90ba10990049cd1fb788d63a143eb1169191cf24
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: fb544e11ac637201fb3fb032daeb395d5f0da839
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>快速入門：使用 Java 與 Azure Cosmos DB 建置資料表 API 應用程式
 

@@ -2,24 +2,18 @@
 title: 套用效能建議 - Azure SQL Database |Microsoft Docs
 description: 使用 Azure 入口網站以找出可最佳化 Azure SQL Database 的效能建議。
 services: sql-database
-documentationcenter: ''
 author: stevestein
 manager: jhubbard
-editor: monicar
-ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 07/05/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a9b9bec4fd48c44ece9d762b539cd3d6e10c1858
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>尋找和套用效能建議
 

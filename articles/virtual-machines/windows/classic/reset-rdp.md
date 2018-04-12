@@ -1,13 +1,13 @@
 ---
-title: "在 Azure 中重設 Windows VM 上的密碼或遠端桌面組態 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站或 Azure PowerShell，在使用傳統部署模型建立的 Windows VM 上重設帳戶密碼或遠端桌面服務。"
+title: 在 Azure 中重設 Windows VM 上的密碼或遠端桌面組態 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站或 Azure PowerShell，在使用傳統部署模型建立的 Windows VM 上重設帳戶密碼或遠端桌面服務。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 200e5667f4bc2ca0b7dc041eef990b7aff0914ff
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 516cb740f9acad19dac77db0239341b42a2b27fe
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>如何在使用傳統部署模型建立的 Windows VM 中重設遠端桌面服務或其登入密碼
 > [!IMPORTANT]

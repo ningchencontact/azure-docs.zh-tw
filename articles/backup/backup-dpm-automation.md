@@ -1,11 +1,11 @@
 ---
-title: "Azure 備份 - 使用 PowerShell 備份 DPM 工作負載 | Microsoft Docs"
-description: "了解如何使用 PowerShell 部署和管理 Data Protection Manager (DPM) 的 Azure 備份"
+title: Azure 備份 - 使用 PowerShell 備份 DPM 工作負載 | Microsoft Docs
+description: 了解如何使用 PowerShell 部署和管理 Data Protection Manager (DPM) 的 Azure 備份
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: NKolli1
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: e9bd223c-2398-4eb1-9bf3-50e08970fea7
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 9322037427c84f0b8a91cc76f5c0fed52167bc3c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 89dd965208cd473e47de9e0c9bdbfa3ab986c3d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>使用 PowerShell 部署和管理 Data Protection Manager (DPM) 伺服器的 Azure 備份
 本文說明如何使用 PowerShell 來設定 DPM 伺服器上的 Azure 備份以及管理備份和復原。
@@ -77,7 +77,7 @@ PowerShell 可以自動化下列設定和註冊工作：
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. 指定要使用的儲存體備援類型；您可以使用[本地備援儲存體 (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) 或[異地備援儲存體 (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage)。 以下範例示範 testVault 設定為 GeoRedundant 的 BackupStorageRedundancy 選項。
+4. 指定要使用的儲存體備援類型；您可以使用[本地備援儲存體 (LRS)](../storage/common/storage-redundancy-lrs.md) 或[異地備援儲存體 (GRS)](../storage/common/storage-redundancy-grs.md)。 以下範例示範 testVault 設定為 GeoRedundant 的 BackupStorageRedundancy 選項。
 
    > [!TIP]
    > 許多 Azure 備份 Cmdlet 都需要將復原服務保存庫物件當做輸入。 基於這個理由，將備份復原服務保存庫物件儲存在變數中會是方便的做法。

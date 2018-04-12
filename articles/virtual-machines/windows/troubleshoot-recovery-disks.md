@@ -1,11 +1,11 @@
 ---
-title: "使用 Windows 疑難排解 VM 與 Azure PowerShell | Microsoft Docs"
-description: "了解如何在 Azure 中使用 Azure PowerShell 將 OS 磁碟連接至復原 VM，以針對 Windows VM 問題進行疑難排解"
+title: 使用 Windows 疑難排解 VM 與 Azure PowerShell | Microsoft Docs
+description: 了解如何在 Azure 中使用 Azure PowerShell 將 OS 磁碟連接至復原 VM，以針對 Windows VM 問題進行疑難排解
 services: virtual-machines-windows
-documentationCenter: 
+documentationCenter: ''
 authors: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 8bac3457e70e86c0f2fb0e70b166097da4a89c23
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: cbb9a47b878471e6efd5f4e280f44c6c8fe78df4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>使用 Azure PowerShell 將 OS 磁碟連結至復原 VM，以針對 Windows VM 進行疑難排解
 如果 Azure 中的 Windows 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是應用程式更新無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure PowerShell 將虛擬硬碟連接至另一個 Windows VM，以修正任何錯誤，然後重新建立原始 VM。

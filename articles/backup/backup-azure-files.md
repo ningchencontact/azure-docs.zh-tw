@@ -2,18 +2,17 @@
 title: 將 Azure 檔案備份至 Azure
 description: 本文詳細說明如何備份及還原 Azure 檔案共用，並且說明管理工作。
 services: backup
-keywords: 請勿在未諮詢 SEO 之前新增或編輯關鍵字。
 author: markgalioto
 ms.author: markgal
 ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 3eab85aa4f7fde190a93239fc396cb9c04c2396c
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 440cee4309fad0a22d8964982f3aad2178397124
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="back-up-azure-file-shares"></a>備份 Azure 檔案共用
 本文說明如何使用 Azure 入口網站來備份和還原 [Azure 檔案共用](../storage/files/storage-files-introduction.md)。
@@ -32,7 +31,7 @@ ms.lasthandoff: 03/29/2018
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>預覽期間的 Azure 檔案共用備份限制
 Azure 檔案共用的備份處於預覽狀態。 請注意預覽期間的下列限制：
-- 您無法使用[區域備援儲存體 (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) 或[讀取權限異地備援儲存體 (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) 複寫功能，來保護儲存體帳戶中的 Azure 檔案共用。
+- 您無法使用[區域備援儲存體 (ZRS)](../storage/common/storage-redundancy-zrs.md) 或[讀取權限異地備援儲存體 (RA-GRS)](../storage/common/storage-redundancy-grs.md) 複寫功能，來保護儲存體帳戶中的 Azure 檔案共用。
 - 您無法在已啟用虛擬網路的儲存體帳戶中保護 Azure 檔案共用。
 - 沒有任何 PowerShell 或 CLI 可用來保護 Azure 檔案。
 - 每天的排程備份次數上限為 1 次。

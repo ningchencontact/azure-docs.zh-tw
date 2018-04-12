@@ -1,11 +1,11 @@
 ---
-title: "Windows VM 上的自訂指令碼擴充功能 | Microsoft Docs"
-description: "使用自訂指令碼擴充功能，在遠端 Windows VM 上執行 PowerShell 指令碼，將 Azure VM 組態工作自動化"
+title: Windows VM 上的自訂指令碼擴充功能 | Microsoft Docs
+description: 使用自訂指令碼擴充功能，在遠端 Windows VM 上執行 PowerShell 指令碼，將 Azure VM 組態工作自動化
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: ebb7340a-8f61-4d3c-a290-d7bf8de2d0bd
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: danis
-ms.openlocfilehash: 5de2949561ed5f64582898006de7818e81f79f5b
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0ed73a53e6ec40af888f12cbf8f002a62098cda5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>使用傳統部署模型自訂適用於 Windows 的指令碼擴充功能
 

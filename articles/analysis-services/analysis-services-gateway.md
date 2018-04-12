@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 04/03/2018
 ms.author: owend
-ms.openlocfilehash: 2bb85eafc7722840b6a35956403c29d4ac642cc1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f38faf4d75125201ee209eb40c9f223a0487f042
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>透過 Azure 內部部署資料閘道連線至內部部署資料來源
 內部部署資料閘道的角色如同橋接器，在內部部署資料來源和雲端中的 Azure Analysis Services 伺服器之間提供安全的資料傳輸。 除了搭配相同區域中的多部 Azure Analysis Services 伺服器運作，最新版的閘道也可以搭配 Azure Logic Apps、Power BI、Power Apps 和 Microsoft Flow運作。 您可以讓相同區域中的多項服務與單一閘道建立關聯。 

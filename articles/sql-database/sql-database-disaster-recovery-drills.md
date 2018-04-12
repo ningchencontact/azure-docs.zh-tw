@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 04/01/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 10a3891c51d20a26b946847d47bb712d97fa3c51
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 948b8c2c7eac7306336e5dacafffb62a337b8191
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="performing-disaster-recovery-drill"></a>執行災害復原演練
 建議您定期驗證應用程式的復原工作流程整備。 最佳設計作法是，驗證容錯移轉所涉及之資料遺失和 (或) 中斷的應用程式行為和影響。 這也是大多數業界標準在商務持續性認證中的規定。

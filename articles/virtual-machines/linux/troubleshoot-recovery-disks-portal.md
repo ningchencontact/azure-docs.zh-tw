@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 入口網站中使用 Linux 疑難排解 VM | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站將 OS 磁碟連接至復原 VM，以針對 Linux 虛擬機器問題進行疑難排解"
+title: 在 Azure 入口網站中使用 Linux 疑難排解 VM | Microsoft Docs
+description: 了解如何使用 Azure 入口網站將 OS 磁碟連接至復原 VM，以針對 Linux 虛擬機器問題進行疑難排解
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 authors: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
-ms.openlocfilehash: c96ff625c3e83f6fc9057f1163c877e8e0aed5e3
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 08bf4675378918097e177228ee1be4e4e690c63b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>使用 Azure 入口網站將 OS 磁碟連結至復原 VM，以針對 Linux VM 進行疑難排解
 如果 Linux 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是 `/etc/fstab` 中的項目無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure 入口網站將虛擬硬碟連接至另一個 Linux VM，以修正任何錯誤，然後重新建立原始 VM。

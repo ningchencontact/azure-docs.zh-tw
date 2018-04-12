@@ -5,15 +5,15 @@ services: azure-policy
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/30/2018
+ms.date: 04/03/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 356521c0d1771906e41c816d523d687fe8902acd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9c0abc96b074f6226ae8153237c5e96b8b0dec0b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>使用 Azure CLI 建立原則指派，以識別 Azure 環境中的不相容資源
 
@@ -34,7 +34,7 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 使用 Azure CLI 註冊 Policy Insights 資源提供者。 註冊資源提供者，以確保您的訂用帳戶可搭配它使用。 若要註冊資源提供者，您必須有權執行資源提供者的註冊動作作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
 
 ```
-az provider register –-namespace 'Microsoft.PolicyInsights
+az provider register –-namespace 'Microsoft.PolicyInsights'
 ```
 如需註冊及檢視資源提供者的詳細資訊，請參閱[資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure 診斷 1.2 組態結構描述 | Microsoft Docs"
-description: "如果您是搭配 Azure 虛擬機器、虛擬機器擴展集、Service Fabric 或雲端服務使用 Azure SDK 2.5 才相關。"
+title: Azure 診斷 1.2 組態結構描述 | Microsoft Docs
+description: 如果您是搭配 Azure 虛擬機器、虛擬機器擴展集、Service Fabric 或雲端服務使用 Azure SDK 2.5 才相關。
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
 ms.openlocfilehash: 1e9cc6d0950945df8c4fba74d8e1f6196be224f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure 診斷 1.2 組態結構描述
 > [!NOTE]

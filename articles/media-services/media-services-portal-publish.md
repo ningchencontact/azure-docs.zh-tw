@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 入口網站中發佈內容 | Microsoft Docs"
-description: "本教學課程將逐步引導您完成在 Azure 入口網站中發佈內容的步驟。"
+title: 在 Azure 入口網站中發佈內容 | Microsoft Docs
+description: 本教學課程將逐步引導您完成在 Azure 入口網站中發佈內容的步驟。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 6759d3f49e15a3b01022df318a83563ad6bd859f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6fec9b21e8612376dced6af9da7304f4c2b1a93f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="publish-content-in-the-azure-portal"></a>在 Azure 入口網站中發佈內容
 > [!div class="op_single_selector"]
@@ -36,20 +36,20 @@ ms.lasthandoff: 12/21/2017
 
 若要提供 URL 給使用者，讓使用者可以利用這個 URL 來傳送或下載內容，您必須先建立定位器來發佈您的資產。 定位器可供存取資產檔案。 Azure 媒體服務支援兩種類型的定位器： 
 
-* **串流 (OnDemandOrigin) 定位器**。 串流定位器可用於彈性資料流。 彈性資料流的範例包括 Apple HTTP Live Streaming (HLS)、Microsoft Smooth Streaming 和 Dynamic Adaptive Streaming over HTTP (DASH，也稱為 MPEG-DASH)。 若要建立串流定位器，您的資產必須包含 .ism 檔案。 
+* **串流 (OnDemandOrigin) 定位器**。 串流定位器可用於彈性資料流。 彈性資料流的範例包括 Apple HTTP Live Streaming (HLS)、Microsoft Smooth Streaming 和 Dynamic Adaptive Streaming over HTTP (DASH，也稱為 MPEG-DASH)。 若要建立串流定位器，您的資產必須包含 .ism 檔案。 例如： http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest。
 * **漸進式 (共用存取簽章) 定位器**。 漸進式定位器用於透過漸進式下載傳遞影片。
 
 若要建立 HLS 資料流 URL，請在 URL 加上 (format=m3u8-aapl)：
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
 若要建置串流 URL 以播放 Smooth Streaming 資產，請使用下列 URL 格式：
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest
 
 若要建置 MPEG-DASH 串流 URL，請將 (format=mpd-time-csf) 附加至 URL：
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
 共用存取簽章 URL 具有下列格式︰
 

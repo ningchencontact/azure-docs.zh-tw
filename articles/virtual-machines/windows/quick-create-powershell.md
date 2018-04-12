@@ -1,13 +1,13 @@
 ---
-title: "Azure 快速入門 - 建立 Windows VM PowerShell | Microsoft Docs"
-description: "快速了解如何使用 PowerShell 建立 Windows 虛擬機器"
+title: Azure 快速入門 - 建立 Windows VM PowerShell | Microsoft Docs
+description: 快速了解如何使用 PowerShell 建立 Windows 虛擬機器
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: hero-article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 393536ab2c485f2ecf844144016c212bd1d00c16
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: f1ab714407bd686ac8bffb23c7ba9ec8951902ef
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell"></a>使用 PowerShell 建立 Windows 虛擬機器
 
@@ -43,7 +43,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>建立虛擬機器
 
 使用 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) 建立虛擬機器。 您只需要提供每個資源的名稱，而 New-AzureRMVM cmdlet 會為您建立這些名稱 (不存在的話)。
 

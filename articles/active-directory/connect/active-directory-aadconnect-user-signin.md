@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
 ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 使用者登入選項
 Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的密碼來登入雲端和內部部署資源。 本文說明每個身分識別模型的主要概念，以協助您選擇要用於登入 Azure AD 的身分識別。

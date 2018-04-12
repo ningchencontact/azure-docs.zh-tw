@@ -1,13 +1,12 @@
 ---
-title: "Azure CLI 指令碼 - Azure Cosmos DB 的多區域複寫 | Microsoft Docs"
-description: "Azure CLI 指令碼範例 - Azure Cosmos DB 的多區域複寫"
+title: Azure CLI 指令碼 - Azure Cosmos DB 的多區域複寫 | Microsoft Docs
+description: Azure CLI 指令碼範例 - Azure Cosmos DB 的多區域複寫
 services: cosmos-db
 documentationcenter: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: 
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
@@ -15,12 +14,12 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
-ms.author: mimig
-ms.openlocfilehash: d3ebeab2857ae49c2b30c0e9e735fe936debbc09
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: sngun
+ms.openlocfilehash: ce50a8d0e42a7799ea85d8fec92f4c9e27cd6bf8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>使用 Azure CLI 複寫多個區域中的 Azure Cosmos DB 資料庫帳戶和設定容錯移轉優先順序
 

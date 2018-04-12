@@ -4,8 +4,7 @@ description: 提供可用來連線及查詢 Azure Cosmos DB 的 Node.js 程式�
 services: cosmos-db
 documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
-editor: ''
+manager: kfile
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
@@ -15,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: bba876d2530b3b1c418e18fd807cfdfbfdfc4296
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ed8b76655ff0fc1a0604e59c704646aac95bd744
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB：使用圖形 API 來建置 Node.js 應用程式
 

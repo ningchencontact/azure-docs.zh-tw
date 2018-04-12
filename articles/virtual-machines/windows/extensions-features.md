@@ -1,11 +1,11 @@
 ---
-title: "Azure 中適用於 Windows 的虛擬機器擴充功能和功能 | Microsoft Docs"
-description: "了解哪些擴充功能適用於 Azure 虛擬機器，並依它們提供或改善的內容來分組。"
+title: Azure 中適用於 Windows 的虛擬機器擴充功能和功能 | Microsoft Docs
+description: 了解哪些擴充功能適用於 Azure 虛擬機器，並依它們提供或改善的內容來分組。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0065468e4172f62dc1759c1905a8df48e91e01a6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: efb7f7cf911ad5dc753afffd077c473cc0faaf74
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>適用於 Windows 的虛擬機器擴充功能和功能
 

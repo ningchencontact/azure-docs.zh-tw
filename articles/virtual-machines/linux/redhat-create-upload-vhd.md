@@ -4,7 +4,7 @@ description: 了解如何建立及上傳包含 Red Hat Linux 作業系統的 Azu
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 6c6b8f72-32d3-47fa-be94-6cb54537c69f
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2c48f95306ddce5d51100e869cc4ac80a4b55c20
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e0e0fdbb3702ec16e9d5a33659c1ddbee589b989
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>準備適用於 Azure 的 Red Hat 型虛擬機器
 在本文中，您將學習如何準備 Red Hat Enterprise Linux (RHEL) 虛擬機器以在 Azure 中使用。 本文涵蓋的 RHEL 版本為 6.7 和 7.1。 本文章所述之準備作業使用 Hyper-V、核心為基礎之虛擬機器 (KVM) 及 VMware 等 Hypervisor。 如需參加 Red Hat 雲端存取方案之資格需求的詳細資訊，請參閱 [Red Hat 雲端存取網站](http://www.redhat.com/en/technologies/cloud-computing/cloud-access)與[在 Azure 上執行 RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure)。

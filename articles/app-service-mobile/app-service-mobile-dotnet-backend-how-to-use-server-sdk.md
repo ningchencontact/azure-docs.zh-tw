@@ -1,12 +1,12 @@
 ---
-title: "如何使用適用於 Mobile Apps 的 .NET 後端伺服器 SDK | Microsoft Docs"
-description: "了解如何使用適用於 Azure App Service Mobile Apps 的 .NET 後端伺服器 SDK。"
-keywords: "App Service, Azure App Service, 行動應用程式, 行動服務, 調整, 可調整, 應用程式部署, Azure 應用程式部署"
+title: 如何使用適用於 Mobile Apps 的 .NET 後端伺服器 SDK | Microsoft Docs
+description: 了解如何使用適用於 Azure App Service Mobile Apps 的 .NET 後端伺服器 SDK。
+keywords: App Service, Azure App Service, 行動應用程式, 行動服務, 調整, 可調整, 應用程式部署, Azure 應用程式部署
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]

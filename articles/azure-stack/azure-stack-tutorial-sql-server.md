@@ -17,10 +17,10 @@ ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>將 SQL 資料庫提供給您的 Azure Stack 使用者
 身為 Azure Stack 雲端系統管理員，您可以建立供應項目以讓您的使用者 (租用戶) 建立 SQL 資料庫，以搭配其雲端原生應用程式、網站與工作負載使用。 透過將對這些自訂隨選雲端式資料庫的存取權提供給您的使用者，您可以節省其時間與資源。 若要設定，您將必須：

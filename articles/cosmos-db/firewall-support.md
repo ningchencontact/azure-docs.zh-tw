@@ -3,9 +3,8 @@ title: Azure Cosmos DB 防火牆支援和 IP 存取控制 | Microsoft Docs
 description: 了解如何使用 IP 存取控制原則進行 Azure Cosmos DB 資料庫帳戶上的防火牆支援。
 keywords: IP 存取控制，防火牆支援
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 tags: azure-resource-manager
 documentationcenter: ''
 ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: mimig
-ms.openlocfilehash: 5b70f77d49651e2873428fc7798fff3770b7a095
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: sngun
+ms.openlocfilehash: 4d5743703f3a1d98b720bd92a30c91549bbf89c0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB 防火牆支援
 為了保護 Azure Cosmos DB 資料庫帳戶中所儲存的資料，Azure Cosmos DB 已支援利用強式雜湊式訊息驗證碼 (HMAC) 的密碼型[授權模型](https://msdn.microsoft.com/library/azure/dn783368.aspx)。 現在，除了密碼型授權模型之外，Azure Cosmos DB 還支援使用原則驅動的 IP 型存取控制來進行輸入防火牆支援。 此模型與傳統資料庫系統的防火牆規則相類似，且可為 Azure Cosmos DB 資料庫帳戶提供額外的安全性層級。 您現在可以使用這個模型，設定只能從一組核准的電腦和 (或) 雲端服務存取 Azure Cosmos DB 資料庫帳戶。 透過這些核准的電腦和服務組合來存取 Azure Cosmos DB 資源，仍然需要呼叫者呈現有效的授權權杖。

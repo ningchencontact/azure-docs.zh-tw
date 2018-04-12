@@ -1,11 +1,11 @@
 ---
-title: "移動 Azure 中的 Windows VM 資源 | Microsoft Docs"
-description: "在 Resource Manager 部署模型中將 Windows VM 移至另一個 Azure 訂用帳戶或資源群組。"
+title: 移動 Azure 中的 Windows VM 資源 | Microsoft Docs
+description: 在 Resource Manager 部署模型中將 Windows VM 移至另一個 Azure 訂用帳戶或資源群組。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: cynthn
-ms.openlocfilehash: f4b739fd34cc0c85d47b97b7b42a70eb7f5f5ac7
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: b98b8c947fb34b60c7bd27b006672e0e9d923d3b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>將 Windows VM 移至另一個 Azure 訂用帳戶或資源群組
 本文將逐步引導您了解如何在資源群組或訂用帳戶之間移動 Windows VM。 如果您原本在個人訂用帳戶中建立 VM，而現在想要將它移至您的公司訂用帳戶以繼續工作，在訂用帳戶之間移動會很方便。
