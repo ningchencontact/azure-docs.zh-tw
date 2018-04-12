@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric 安全性最佳做法 | Microsoft Docs"
-description: "本文提供一組 Azure Service Fabric 安全性的最佳做法。"
+title: Azure Service Fabric 安全性最佳做法 | Microsoft Docs
+description: 本文提供一組 Azure Service Fabric 安全性的最佳做法。
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -56,7 +56,7 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署�
 -   需經過驗證，人員才能存取祕密。
 
 此外，請考慮下列設定選項：
--   使用 Azure 網路安全性群組 (NSG) 來建立周邊網路 (也稱為非軍事區域、DMZ 和遮蔽式子網路)。
+-   使用 Azure 網路安全性群組 (NSG) 來建立周邊網路 (也稱為 DMZ 和遮蔽式子網路)。
 -   使用跳躍伺服器搭配遠端桌面連線來存取叢集虛擬機器 (VM) 或管理您的叢集。
 
 叢集必須受到安全保護，以防止未經授權使用者連線，特別是當叢集正在生產環境中執行時。 雖然可以建立不安全的叢集，但如果叢集向公用網際網路公開管理端點，匿名使用者就可以連線到您的叢集。

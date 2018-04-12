@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 中針對 StorSimple 8000 裝置管理員服務使用新驗證 | Microsoft Docs"
-description: "說明如何針對您的服務使用 AAD 型驗證、產生新的註冊金鑰，以及執行裝置的手動註冊。"
+title: 在 Azure 中針對 StorSimple 8000 裝置管理員服務使用新驗證 | Microsoft Docs
+description: 說明如何針對您的服務使用 AAD 型驗證、產生新的註冊金鑰，以及執行裝置的手動註冊。
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -59,7 +59,7 @@ AAD 驗證會在執行 Update 5 或更新版本的 StorSimple 8000 系列裝置�
 
 | 如果您的裝置正在執行| 請採取下列動作                                    |
 |--------------------------|------------------------|--------------------|--------------------------------------------------------------|
-| Update 5 或更新版本，且裝置已離線。 <br> 您會看到表示 URL 未列入白名單的警示。| 修改防火牆規則以包含驗證 URL。<br> 請參閱[驗證 URL](#url-changes-for-aad-authentication)。 |
+| Update 5 或更新版本，且裝置已離線。 <br> 您會看到表示 URL 未列入允許清單的警示。| 修改防火牆規則以包含驗證 URL。<br> 請參閱[驗證 URL](#url-changes-for-aad-authentication)。 |
 | Update 5 或更新版本，且裝置已上線。| 不需採取任何動作。                                       |
 | Update 4 或更早版本，且裝置已離線。 | 修改防火牆規則以包含驗證 URL。<br>[透過目錄伺服器下載 Update 5](storsimple-8000-install-update-5.md#download-updates-for-your-device)。<br>[透過 Hotfix 方法套用 Update 5](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix)。 <br> [從服務取得 AAD 註冊金鑰](#aad-based-registration-keys)。 <br> [連線至 StorSimple 8000 系列裝置的 Windows PowerShell 介面](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)。 <br>使用 `Redo-DeviceRegistration` Cmdlet 以透過 Windows PowerShell 註冊裝置。 提供您在上一個步驟中取得的金鑰。|
 | Update 4 或更早版本，且裝置已上線。 |修改防火牆規則以包含驗證 URL。<br> 透過 Azure 入口網站安裝 Update 5。              |

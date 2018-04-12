@@ -1,11 +1,11 @@
 ---
-title: "SQL 資料倉儲中的 PolyBase 教學課程 | Microsoft Docs"
-description: "瞭解 PolyBase 是什麼及如何用於資料倉儲案例。"
+title: SQL 資料倉儲中的 PolyBase 教學課程 | Microsoft Docs
+description: 瞭解 PolyBase 是什麼及如何用於資料倉儲案例。
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 03/01/2017
 ms.author: barbkess
 ms.openlocfilehash: 47a2f48a1eef0c138875fbc079724b8d631abc54
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用 PolyBase 載入資料
 > [!div class="op_single_selector"]

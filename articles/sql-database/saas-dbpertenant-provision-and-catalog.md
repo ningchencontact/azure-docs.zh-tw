@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 1accc672e396c5a9405369654f9bc4f8463c9afc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ddb870d0513d6834aacf0964c240260f18df0fd
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>了解如何佈建新的租用戶並在目錄中註冊它們
 
 在本教學課程中，您會了解如何佈建 SaaS 模式並將它們編入目錄中。 您也會了解在每一租用戶一個資料庫的 Wingtip Tickets SaaS 應用程式中實作它們的方式。 您會建立新的租用戶資料庫並將這些資料庫初始化，然後在應用程式的租用戶目錄中註冊它們。 「目錄」是維護許多 SaaS 應用程式租用戶及其資料間之對應的資料庫。 目錄扮演將應用程式和管理要求導向正確資料庫的重要角色。
 
-在本教學課程中，您會了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 
@@ -89,7 +89,7 @@ SaaS 應用程式以外，目錄可以啟用資料庫工具。 在每一租用�
 
 4. 在指令碼於中斷點停止執行之後，按 F11 來逐步執行程式碼。
 
-   ![偵錯](media/saas-dbpertenant-provision-and-catalog/debug.png)
+   ![Debugging](media/saas-dbpertenant-provision-and-catalog/debug.png)
 
 
 

@@ -3,25 +3,24 @@ title: 針對 Azure 檔案服務備份進行疑難排解
 description: 本文說明如何排解您在保護 Azure 檔案共用時所發生的問題。
 services: backup
 ms.service: backup
-keywords: 請勿在未諮詢 SEO 之前新增或編輯關鍵字。
 author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: c803118ccdafa8db0e8f8ddee608f60311f65e05
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>針對備份 Azure 檔案服務的問題進行疑難排解
 您可以使用下列表格中所列的資訊，針對使用 Azure 檔案服務備份時所發生的問題和錯誤進行疑難排解。
 
 ## <a name="preview-boundaries"></a>預覽界限
 Azure 檔案服務備份處於預覽狀態。 Azure 檔案共用不支援下列備份案例︰
-- 使用[區域備援儲存體](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) 或[讀取權限異地備援儲存體](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) 複寫功能，保護儲存體帳戶中的 Azure 檔案共用。
+- 使用[區域備援儲存體](../storage/common/storage-redundancy-zrs.md) (ZRS) 或[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能，保護儲存體帳戶中的 Azure 檔案共用。
 - 在已啟用虛擬網路的儲存體帳戶中保護 Azure 檔案共用。
 - 使用 PowerShell 或 CLI 備份 Azure 檔案共用。
 

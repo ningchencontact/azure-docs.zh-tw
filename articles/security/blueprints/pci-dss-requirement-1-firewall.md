@@ -1,6 +1,6 @@
 ---
-title: "Azure 付款處理藍圖 - 防火牆需求"
-description: "PCI DSS 需求 1"
+title: Azure 付款處理藍圖 - 防火牆需求
+description: PCI DSS 需求 1
 services: security
 documentationcenter: na
 author: simorjay
@@ -89,7 +89,7 @@ ms.lasthandoff: 11/16/2017
 
 ### <a name="pci-dss-requirement-114"></a>PCI DSS 需求 1.1.4
 
-**1.1.4** 每個網際網路連線及任何非軍事區域 (DMZ) 與內部網路區域之間的防火牆需求
+**1.1.4** 每個網際網路連線及任何周邊網路 (DMZ) 與內部網路區域之間的防火牆需求
 
 **責任：&nbsp;&nbsp;`Shared`**
 

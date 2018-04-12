@@ -1,8 +1,8 @@
 ---
-title: "搭配 AD FS 2.0 使用 Azure MFA Server | Microsoft Docs"
-description: "這是說明如何開始使用 Azure MFA 和 AD FS 2.0 的 Azure Multi-Factor Authentication 頁面。"
+title: 搭配 AD FS 2.0 使用 Azure MFA Server | Microsoft Docs
+description: 這是說明如何開始使用 Azure MFA 和 AD FS 2.0 的 Azure Multi-Factor Authentication 頁面。
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 96168849-241a-4499-a224-d829913caa7e
@@ -81,7 +81,7 @@ ms.lasthandoff: 12/11/2017
 3. 如果使用者以 "domain\username" 格式輸入其使用者名稱，伺服器則需能夠在建立 LDAP 查詢時，刪除使用者名稱中的網域。 這個動作可透過登錄設定完成。
 4. 開啟登錄編輯程式並移至 64 位元伺服器上的 HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor。 如果在 32 位元伺服器上，請拿掉路徑中的 "Wow6432Node"。 建立名為 "UsernameCxz_stripPrefixDomain" 的 DWORD 登錄機碼，並將值設定為 1。 Azure Multi-Factor Authentication 現已保護 AD FS Proxy。
 
-確定已將使用者從 Active Directory 匯入伺服器中。 如果您想要將內部 IP 位址列入白名單，以便從這些位置登入網站時不需進行雙步驟驗證，請參閱[信任的 IP](#trusted-ips) 一節。
+確定已將使用者從 Active Directory 匯入伺服器中。 如果您想要將內部 IP 位址列入允許清單，以便從這些位置登入網站時不需進行雙步驟驗證，請參閱[信任的 IP](#trusted-ips) 一節。
 
 <center>![設定](./media/multi-factor-authentication-get-started-adfs-adfs2/reg.png)</center>
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure Multi-Factor Authentication 現已保護 AD FS。
 
-確定已將使用者從 Active Directory 匯入伺服器中。 如果您想要將內部 IP 位址列入白名單，以便從這些位置登入網站時不需進行雙步驟驗證，請參閱＜信任的 IP＞一節。
+確定已將使用者從 Active Directory 匯入伺服器中。 如果您想要將內部 IP 位址列入允許清單，以便從這些位置登入網站時不需進行雙步驟驗證，請參閱＜信任的 IP＞一節。
 
 ## <a name="trusted-ips"></a>信任的 IP
 信任的 IP 可讓使用者對源自特定 IP 位址或子網路的網站要求略過 Azure Multi-Factor Authentication。 例如，您可能想讓使用者在從辦公室登入時不必進行雙步驟驗證。 為此，您可以將辦公室子網路指定為信任的 IP 項目。
@@ -113,6 +113,6 @@ Azure Multi-Factor Authentication 現已保護 AD FS。
 1. 在 [IIS 驗證] 區段中，按一下 [信任的 IP] 索引標籤。
 2. 按一下 [新增...] 按鈕。
 3. 當 [新增信任的 IP] 對話方塊出現時，請選取 [單一 IP]、[IP 範圍] 或 [子網路] 選項按鈕的其中一個。
-4. 輸入應列入白名單中的 IP 位址、IP 位址範圍或子網路。 如果輸入子網路，請選取適當的網路遮罩，然後按一下 [確定] 按鈕。 現在已加入信任的 IP。
+4. 輸入應列入允許清單中的 IP 位址、IP 位址範圍或子網路。 如果輸入子網路，請選取適當的網路遮罩，然後按一下 [確定] 按鈕。 現在已加入信任的 IP。
 
 <center>![設定](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>

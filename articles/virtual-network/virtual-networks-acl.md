@@ -1,11 +1,11 @@
 ---
-title: "什麼是 Azure 網路存取控制清單？"
-description: "了解 Azure 中的存取控制清單"
+title: 什麼是 Azure 網路存取控制清單？
+description: 了解 Azure 中的存取控制清單
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 83d66c84-8f6b-4388-8767-cd2de3e72d76
 ms.service: virtual-network
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 您可以使用網路 ACL 執行下列作業：
 
 * 根據遠端子網路與虛擬機器輸入端點的 IPv4 位址範圍，選擇性允許或拒絕傳入流量。
-* 將 IP 位址加入黑名單
+* 將 IP 位址加入封鎖清單
 * 為每個虛擬機器端點建立多個規則
 * 使用規則順序以確保正確的規則集套用於指定的虛擬機器端點 (從最低到最高)
 * 為特定遠端子網路 IPv4 位址指定 ACL。

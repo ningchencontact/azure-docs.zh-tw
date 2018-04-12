@@ -1,8 +1,8 @@
 ---
-title: "Azure 入口網站中的角色型存取控制 | Microsoft Docs"
-description: "在 Azure 入口網站中使用角色型存取控制開始進行存取管理。 使用角色指派將權限指派給您的資源。"
+title: Azure 入口網站中的角色型存取控制 | Microsoft Docs
+description: 在 Azure 入口網站中使用角色型存取控制開始進行存取管理。 使用角色指派將權限指派給您的資源。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
@@ -15,10 +15,10 @@ ms.date: 07/17/2017
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.openlocfilehash: 57b6aa57a57317563a9da8e1765f4d97b1b79852
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>使用角色型存取控制來管理 Azure 訂用帳戶資源的存取
 > [!div class="op_single_selector"]

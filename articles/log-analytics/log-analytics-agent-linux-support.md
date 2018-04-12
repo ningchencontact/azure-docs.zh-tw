@@ -28,14 +28,14 @@ ms.lasthandoff: 03/16/2018
 
 ### <a name="probable-causes"></a>可能的原因
 * 上架期間指定的 Proxy 不正確
-* Log Analytics 和 Azure 自動化服務端點未列在資料中心的白名單中 
+* Log Analytics 和 Azure 自動化服務端點未列在資料中心的允許清單中 
 
 ### <a name="resolutions"></a>解決方式
 1. 使用下列命令搭配已啟用的 `-v` 選項，以便透過 OMS Agent for Linux 重新上架至 Log Analytics 服務。 這可讓透過 Proxy 連接到 OMS 服務的代理程式產生詳細資訊輸出。 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. 檢閱[更新 Proxy 設定](log-analytics-agent-manage.md#update-proxy-settings)一節以驗證您是否已正確設定代理程式透過 Proxy 伺服器通訊。    
-* 再次檢查以確認下列 Log Analytics 服務端點已列在白名單中：
+* 再次檢查以確認下列 Log Analytics 服務端點已列在允許清單中：
 
     |代理程式資源| 連接埠 | 方向 |
     |------|---------|----------|  

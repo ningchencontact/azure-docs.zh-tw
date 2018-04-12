@@ -35,7 +35,7 @@ ms.lasthandoff: 03/28/2018
 
 ![客戶環境](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-通常會使用防火牆和網路安全性群組 (NSG) 來保護網路。 防火牆會使用以 URL 或 IP 為基礎的白名單來控制網路連線能力。 NSG 提供規則，使用 IP 位址範圍來控制網路連線能力。
+通常會使用防火牆和網路安全性群組 (NSG) 來保護網路。 防火牆會使用以 URL 或 IP 為基礎的允許清單來控制網路連線能力。 NSG 提供規則，使用 IP 位址範圍來控制網路連線能力。
 
 >[!IMPORTANT]
 > Site Recovery 不支援使用經過驗證的 Proxy 來控制網路連線能力，而且無法啟用複寫。
