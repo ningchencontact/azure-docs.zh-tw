@@ -1,24 +1,19 @@
 ---
 title: IoT Edge 上的 Azure 串流分析 (預覽)
 description: 在 Azure 串流分析中建立 Edge 作業，並將其部署至執行 Azure IoT Edge 的裝置中。
-keywords: 資料流, iot, edge
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 475ca357c8445e8a7c672406f919af1d99a0933b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 01/16/2017
+ms.openlocfilehash: 1c02f8f7b086d0441c2def0e92c54cce72fad85e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge 上的 Azure 串流分析 (預覽)
 
@@ -207,7 +202,7 @@ ASA Edge 作業可以從 IoT Edge 裝置上執行的其他模組取得輸入和�
 * [IoT Edge 預覽上 Azure 串流分析的第三方通知](https://go.microsoft.com/fwlink/?linkid=862828).
 
 ## <a name="get-help"></a>取得說明
-如需進一步的協助，請參閱 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 
 ## <a name="next-steps"></a>後續步驟
