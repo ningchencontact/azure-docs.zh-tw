@@ -50,7 +50,7 @@ ms.lasthandoff: 04/03/2018
 3. 輸入解決方案名稱，選取訂用帳戶和區域，然後按一下 [建立解決方案]。 此解決方案可能需要一些時間才能完成佈建。
   ![建立解決方案](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
 
-4. 佈建完成後，按一下 [啟動]。 佈建程序進行期間會為解決方案建立一些模擬裝置。 按一下**裝置**將其簽出。![儀表板](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
+4. 佈建完成後，按一下 [啟動]。 佈建程序進行期間會為解決方案建立一些模擬裝置。 按一下 **裝置** 將其簽出。![儀表板](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
   ![主控台](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
 
 5. 按一下 [新增裝置]。

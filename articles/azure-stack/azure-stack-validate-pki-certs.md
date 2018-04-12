@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1f234c2529213dfa7f42d6ee11b840236488065d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0bdadadb1f4ee5f76cde9d05b11e8d57b99ac191
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>驗證 Azure Stack PKI 憑證
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/03/2018
 ## <a name="prerequisites"></a>先決條件
 在驗證 Azure Stack 部署的 PKI 憑證之前，您的系統應該符合下列必要條件：
 - CertChecker (在 **PartnerToolKit** 的 **\utils\certchecker** 下)
-- 遵循[準備指示](prepare-pki-certs.md)匯出的 SSL 憑證
+- 遵循[準備指示](azure-stack-prepare-pki-certs.md)匯出的 SSL 憑證
 - DeploymentData.json
 - Windows 10 或 Windows Server 2016
 

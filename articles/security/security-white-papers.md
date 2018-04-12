@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 3/19/2018
 ms.author: tomsh
 ms.openlocfilehash: dfc0128247ad86e9fa6932f8b05c91ae7da0d950
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-security-white-papers"></a>Azure 安全性白皮書
 | | |
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/23/2018
 |[Azure 安全性技術功能](azure-security-technical-capabilities.md)|焦點放在支援「Azure 儲存體」、Azure SQL Database、Azure 虛擬機器模型的安全性特性與功能，以及用以管理這一切的工具和基礎結構。|
 |[Azure 儲存體安全性指南](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |簡要說明可與「Azure 儲存體」搭配使用的每個安全性功能。 涵蓋管理層安全性、資料層安全性、靜態加密、傳輸中加密，以及儲存體分析。|
 |[雲端整備的資料分類](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03) |這份可下載的文件介紹資料分類的基本概念，以及其在雲端運算方面的價值。 不論是評估雲端運算以供未來使用的組織，還是目前使用雲端服務而尋求資料管理最佳化方式的組織，都會是這份文件的最大受益者。|
-|[Azure 中的治理](governance-in-azure.md)|說明 Azure 內建的安全性和治理功能。 探討的主要治理問題包括：適用於您組織目標的原則、處理序及程序實作；安全性及持續符合組織標準規範；警示和監視。
+|[在 Azure 中控管](governance-in-azure.md)|說明 Azure 內建的安全性和治理功能。 探討的主要治理問題包括：適用於您組織目標的原則、處理序及程序實作；安全性及持續符合組織標準規範；警示和監視。
 |[Azure 公用雲端中的隔離](azure-isolation.md)|概述 Azure 如何針對惡意和非惡意使用者提供隔離。 藉由為架構設計人員提供各種隔離選項，提供雲端解決方案架構的設計指南。 主要焦點放在客戶面向的安全性控制措施，並不嘗試處理 SLA、計價模式及 DevOps 做法考量。|
 |[Azure 合規性的概觀](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|這份可下載的文件探討 Azure 合規性供應項目，除了由 Microsoft 產生的契約修訂、自我評量及客戶指引文件之外，也包括由獨立的第三方稽核公司所產生的正式認證、證明、驗證、授權及評量。 <br/> 每個供應項目描述都會說明評量範圍包含哪些 Azure 客戶面向服務，並提供可下載的資源連結，以協助客戶履行自己的合規性義務。|
 |[Azure 的安全性管理](azure-security-management.md)|探討 Azure 資源的遠端存取問題。 雲端在本質上便需要進行遠端存取管理，因此安全性至關重要。 涵蓋一般安全性指導方針、用戶端設定、最佳做法，以及作業原則和程序。 |

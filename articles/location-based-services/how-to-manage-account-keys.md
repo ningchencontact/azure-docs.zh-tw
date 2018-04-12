@@ -1,19 +1,18 @@
 ---
-title: "如何管理 Azure LBS 帳戶和金鑰 | Microsoft Docs"
-description: "您可以使用 Azure 入口網站來管理 Azure LBS 帳戶以及管理存取金鑰。"
+title: 如何管理 Azure LBS 帳戶和金鑰 | Microsoft Docs
+description: 您可以使用 Azure 入口網站來管理 Azure LBS 帳戶以及管理存取金鑰。
 services: location-based-services
-keywords: "請勿在未諮詢 SEO 之前新增或編輯關鍵字。"
 author: kgremban
 ms.author: kgremban
 ms.date: 11/14/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 8ea7beae054157800ee404cf237772d0677574ca
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 38466a741bc836a6f13db83fd939d178fbbc1a7b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>如何管理 Azure LBS 帳戶和金鑰
 
@@ -23,7 +22,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="log-in-to-azure"></a>登入 Azure 
 
-登入 Azure 入口網站，網址是 http://portal.azure.com/。
+在 http://portal.azure.com 上登入 Azure 入口網站。
 
 ## <a name="create-a-new-account"></a>建立新帳戶
 

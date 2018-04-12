@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: shlo
-ms.openlocfilehash: 977fd59b746d13e9bf331edc32c63dd5a21c69f7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a226402f16f98c830c1e1cf34653b8f6513f06b4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory 中的視覺化撰寫
 Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰寫及部署資料處理站的資源，而不必編寫任何程式碼。 您可以將活動拖放到管線畫布上、執行測試回合、反覆進行偵錯，以及部署和監視管線回合。 使用 UX 來執行視覺化撰寫的方法有兩種：
@@ -58,7 +58,7 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 
 此窗格會顯示下列 VSTS 程式碼存放庫設定：
 
-| 設定 | 描述 | 值 |
+| 設定 | 說明 | 值 |
 |:--- |:--- |:--- |
 | **存放庫類型** | VSTS 程式碼存放庫的類型。<br/>**注意**：目前不支援 GitHub。 | Visual Studio Team Services Git |
 | **Azure Active Directory** | 您的 Azure AD 租用戶名稱。 | <your tenant name> |
@@ -72,7 +72,7 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>設定方法 2：UX 撰寫畫布
 在 Azure Data Factory UX **撰寫畫布**中，找到您的資料處理站。 選取 [Data Factory] 下拉式功能表，然後選取 [設定程式碼存放庫]。
 
-隨即會出現設定窗格。 如需有關組態設定的詳細資訊，請參閱<a href="#method1">設定方法 1</a> 中的描述。
+隨即會出現設定窗格。 如需有關組態設定的詳細資訊，請參閱<a href="#method1">設定方法 1</a> 中的說明。
 
 ![設定用於 UX 撰寫的程式碼存放庫設定](media/author-visually/configure-repo-2.png)
 
@@ -93,7 +93,7 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 ![將變更發佈到 Data Factory 服務](media/author-visually/publish-changes.png)
 
 > [!IMPORTANT]
-> master 分支不代表在 Data Factory 服務中部署的內容。 「必須」以手動方式將 master 分支主發佈至 Data Factory 服務。
+> 主要分支不代表在 Data Factory 服務中部署的內容。 「必須」以手動方式將主要分支主發佈至 Data Factory 服務。
 
 ## <a name="use-the-expression-language"></a>使用運算式語言
 您可以藉由使用 Azure Data Factory 所支援的運算式語言，來指定屬性值的運算式。 

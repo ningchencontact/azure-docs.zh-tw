@@ -1,11 +1,11 @@
 ---
-title: "將資料磁碟與 Windows VM 中斷連結 - Azure | Microsoft Docs"
-description: "了解如何使用 Resource Manger 部署模型將資料磁碟與 Azure 中的虛擬機器中斷連結。"
+title: 將資料磁碟與 Windows VM 中斷連結 - Azure | Microsoft Docs
+description: 了解如何使用 Resource Manger 部署模型將資料磁碟與 Azure 中的虛擬機器中斷連結。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 7013e7ff3cb14dcad8e3e9a926bcee771180259d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e56e9ce22cc9e2bad75c944c20bff812d8720d18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>如何從 Windows 虛擬機器卸離資料磁碟
 當不再需要某個連接至虛擬機器的資料磁碟時，卸離此資料磁碟很簡單。 這會將磁碟從虛擬機器中卸離，但這不會將它從儲存體中移除。
