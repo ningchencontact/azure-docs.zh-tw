@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7331c3385f70de7d13895fc88d1d8630af4e9b05
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f772485dd49a730e34ec856768fa91bc3fdd114b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>在 Java Web 專案中開始使用 Application Insights
 
@@ -46,9 +46,6 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2.將 Java 適用的 Application Insights SDK 加入至專案
 *選擇適合您的專案的方式。*
-
-#### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project"></a>如果您使用 Eclipse 建立動態 Web 專案...
-使用 [Java 適用的 Application Insights SDK 外掛程式][eclipse]。
 
 #### <a name="if-youre-using-maven-a-namemaven-setup-"></a>如果您使用 Maven... <a name="maven-setup" />
 如果您的專案已設定為使用 Maven 來建置，請將下列程式碼合併至 pom.xml 檔案。
@@ -94,6 +91,9 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
       // or applicationinsights-core for bare API
     }
 ```
+
+#### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>如果您使用 Eclipse 建立動態 Web 專案...
+使用 [Java 適用的 Application Insights SDK 外掛程式][eclipse]。 注意：雖然使用此外掛程式可讓您較快啟動並執行 Application Insights (假設您未使用 Maven/Gradle)，但它並不是相依性管理系統。 因此，更新此外掛程式並不會自動更新專案中的 Application Insights 程式庫。
 
 * *建置或總和檢查碼驗證錯誤？* 嘗試使用特定版本，例如：`version:'2.0.n'`。 您可以在 [SDK 版本資訊](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)或 [Maven 成品](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
 * *若要更新為新的 SDK* 請重新整理專案的相依項目。
@@ -170,6 +170,61 @@ Application Insights SDK 會依此順序尋找此金鑰︰
 ## <a name="4-add-an-http-filter"></a>4.加入 HTTP 篩選器
 上一個組態步驟可讓 HTTP 要求元件記錄每個 Web 要求。 (如果您只需要單純的 API，則非必要。)
 
+### <a name="spring-boot-applications"></a>Spring Boot 應用程式
+在您的組態類別中註冊 Application Insights `WebRequestTrackingFilter`：
+
+```Java
+package devCamp.WebApp.configurations;
+
+    import javax.servlet.Filter;
+
+    import org.springframework.boot.context.embedded.FilterRegistrationBean;
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.core.Ordered;
+    import org.springframework.beans.factory.annotation.Value;
+    import org.springframework.context.annotation.Configuration;
+    import com.microsoft.applicationinsights.TelemetryConfiguration;
+    import com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter;
+
+
+    @Configuration
+    public class AppInsightsConfig {
+
+    //Initialize AI TelemetryConfiguration via Spring Beans
+        @Bean
+        public String telemetryConfig() {
+            String telemetryKey = System.getenv("APPLICATION_INSIGHTS_IKEY");
+            if (telemetryKey != null) {
+                TelemetryConfiguration.getActive().setInstrumentationKey(telemetryKey);
+            }
+            return telemetryKey;
+        }
+    
+    //Set AI Web Request Tracking Filter
+        @Bean
+        public FilterRegistrationBean aiFilterRegistration(@Value("${spring.application.name:application}") String applicationName) {
+           FilterRegistrationBean registration = new FilterRegistrationBean();
+           registration.setFilter(new WebRequestTrackingFilter(applicationName));
+           registration.setName("webRequestTrackingFilter");
+           registration.addUrlPatterns("/*");
+           registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 10);
+           return registration;
+       } 
+
+    //Set up AI Web Request Tracking Filter
+        @Bean(name = "WebRequestTrackingFilter")
+        public Filter webRequestTrackingFilter(@Value("${spring.application.name:application}") String applicationName) {
+            return new WebRequestTrackingFilter(applicationName);
+        }   
+    }
+```
+
+此類別會將 `WebRequestTrackingFilter` 設定為 http 篩選鏈結上的第一個篩選條件。 它也會從作業系統環境變數中提取可用的檢測金鑰。
+
+> 由於這是 Spring Boot 應用程式，而且它有其本身的 Spring MVC 組態，因此我們會使用 web http 篩選組態，而不是 Spring MVC 組態。 請參閱以下幾節，以了解 Spring MVC 特定組態。
+
+
+### <a name="applications-using-webxml"></a>使用 Web.xml 的應用程式
 在您的專案中找到並開啟 web.xml 檔案，然後將下列程式碼合併至 Web 應用程式節點下，也就是應用程式篩選器設定的位置。
 
 為獲得最準確的結果，應該在其他所有篩選器之前先對應此篩選器。

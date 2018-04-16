@@ -10,11 +10,11 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 0e7ab68075fbce729d3905375acce0dace22c483
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a86f54d580db6e577b878cb1701c7b969d23c129
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>模擬存取讀取權限備援儲存體時失敗
 
@@ -179,9 +179,9 @@ route delete <destination_ip>
 > * 使用 [fiddler](#simulate-a-failure-with-fiddler) 或[無效的靜態路由](#simulate-a-failure-with-an-invalid-static-route)模擬失敗 
 > * 模擬主要端點還原
 
-遵循以下連結以查看預先建立的儲存體範例。
+請閱讀下列文章，以深入了解 RA-GRS 儲存體的運作方式 (及其相關聯的風險)。
 
 > [!div class="nextstepaction"]
-> [Azure 儲存體指令碼範例](storage-samples-blobs-cli.md)
+> [使用 RA-GRS 設計 HA 應用程式](../common/storage-designing-ha-apps-with-ragrs.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md

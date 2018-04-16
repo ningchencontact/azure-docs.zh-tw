@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9123519217e87494316c1dc6b7f90da1b30ba392
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 804bc3f3708a6b5e70c91d68f954ebc10c477831
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -194,11 +194,16 @@ Ubuntu
   sudo apt-get install gradle
   ```
 
-## <a name="install-the-eclipse-neon-plug-in-optional"></a>安裝 Eclipse Neon 外掛程式 (選擇性)
+## <a name="install-the-eclipse-plug-in-optional"></a>安裝 Eclipse 外掛程式 (選擇性)
 
 您可以從適用於 Java 開發人員的 Eclipse 整合式開發環境 (IDE) 安裝適用於 Service Fabric 的 Eclipse 外掛程式。 除了 Service Fabric Java 應用程式之外，您可以使用 Eclipse 來建立 Service Fabric 來賓可執行檔應用程式和容器應用程式。
 
-1. 在 Eclipse 中，確定已安裝最新版 Eclipse Neon 和最新的 Buildship 版本 (1.0.17 或更新版本)。 您可以選取 [說明]  >  [安裝詳細資料]，檢查已安裝的元件版本。 您可以使用 [Eclipse Buildship：適用於 Gradle 的 Eclipse 外掛程式][buildship-update]的指示來更新 Buildship。
+> [!IMPORTANT]
+> Service Fabric 外掛程式需要 Eclipse Neon 或更新版本。 請參閱此注意事項之後的指示，以了解如何檢查您的 Eclipse 版本。 如果您已安裝較早版本的 Eclipse，可以從 [Eclipse 網站](https://www.eclipse.org)下載較新版本。 建議您不要在現有的 Eclipse 安裝之上進行安裝 (覆寫)。 您可以在執行安裝程式之前先移除舊版，或在不同的目錄中安裝較新版本。 
+> 
+> 在 Ubuntu 上，建議您直接從 Eclipse 網站安裝，而不要使用套件安裝程式 (`apt` 或 `apt-get`)。 這麼做可確保您會取得最新版的 Eclipse。 
+
+1. 在 Eclipse 中，確定您具有 Eclipse Neon 或更新版本，並且已安裝最新版的 Buildship (1.0.17 或更新版本)。 您可以選取 [說明]  >  [安裝詳細資料]，檢查已安裝的元件版本。 您可以使用 [Eclipse Buildship：適用於 Gradle 的 Eclipse 外掛程式][buildship-update]的指示來更新 Buildship。
 
 2. 若要安裝 Service Fabric 外掛程式，請選取 [說明]  >  [安裝新軟體]。
 

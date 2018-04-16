@@ -1,28 +1,28 @@
 ---
-title: "將 VM 映像新增到 Azure Stack | Microsoft Docs"
-description: "新增您組織的自訂 Windows 或 Linux VM 映像以供租用戶使用。"
+title: 將 VM 映像新增到 Azure Stack | Microsoft Docs
+description: 新增您組織的自訂 Windows 或 Linux VM 映像以供租用戶使用。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2018
+ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供自訂虛擬機器映像
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 在 Azure Stack 中，操作員可以自訂虛擬機器映像提供給其使用者使用。 這些映像可供 Azure Resource Manager 範本參考，或者您可以將其新增到 Azure Marketplace UI 作為 Marketplace 項目。
 
@@ -126,6 +126,7 @@ ms.lasthandoff: 01/20/2018
     -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
   ```
 
+
 命令會執行下列動作：
 
 * 向 Azure Stack 環境進行驗證。
@@ -133,9 +134,9 @@ ms.lasthandoff: 01/20/2018
 * 將 VM 映像新增到 VM 映像存放庫。
 * 建立 Marketplace 項目。
 
-若要確認命令執行成功，在入口網站中移至 Marketplace。 請確認 VM 映像在 [虛擬機器] 類別目錄中可供使用。
+若要確認命令執行成功，在入口網站中移至 Marketplace。 請確認 VM 映像在 [計算] 類別中可供使用。
 
-![已成功新增 VM 映像](./media/azure-stack-add-vm-image/image5.PNG)
+![已成功新增 VM 映像](./media/azure-stack-add-vm-image/verify-vm.png)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>使用 PowerShell 來移除 VM 映像
 

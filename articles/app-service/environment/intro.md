@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service Environment 簡介"
-description: "Azure App Service Environment 簡要概觀"
+title: Azure App Service Environment 簡介
+description: Azure App Service Environment 簡要概觀
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 803a1cde5387b549504b42346d1a2e6a5df04746
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="introduction-to-app-service-environments"></a>App Service Environment 簡介 #
+# <a name="introduction-to-the-app-service-environments"></a>App Service 環境簡介 #
  
 ## <a name="overview"></a>概觀 ##
 
@@ -43,7 +43,7 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
 
 ## <a name="dedicated-environment"></a>專用的環境 ##
 
-ASE 以獨佔方式專屬於單一訂用帳戶，並可以裝載 100 個執行個體。 不管是單一 App Service 方案中的 100 個執行個體或 100 個單一執行個體的 App Service 方案，只要加總之執行個體數在 100 以下皆可。
+ASE 以獨佔方式專屬於單一訂用帳戶，並可以裝載 100 個 App Service 方案執行個體。 不管是單一 App Service 方案中的 100 個執行個體或 100 個單一執行個體的 App Service 方案，只要加總之執行個體數在 100 以下皆可。
 
 ASE 是由前端和背景工作角色所組成。 前端負責處理 HTTP/HTTPS 終止和 ASE 中應用程式要求的自動負載平衡。 前端會隨 ASE 中的 App Service 方案相應放大而自動新增。
 

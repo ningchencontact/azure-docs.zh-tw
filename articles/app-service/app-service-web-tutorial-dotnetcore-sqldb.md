@@ -1,11 +1,11 @@
 ---
-title: "在 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式 | Microsoft Docs"
-description: "了解如何讓 .NET Core 應用程式在 Azure App Service 中運作，並連線至 SQL Database。"
+title: 在 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式 | Microsoft Docs
+description: 了解如何讓 .NET Core 應用程式在 Azure App Service 中運作，並連線至 SQL Database。
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,13 +14,13 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d7f7407a385dd38989eaca2b81f66600c82cac2e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2fb966d92dec713d5bf5ca48e8d15ae489227739
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>在 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式
+# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>教學課程：在 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式
 
 > [!NOTE]
 > 本文會將應用程式部署至 Windows 上的 App Service。 若要在 _Linux_ 上部署至 App Service，請參閱[在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式](./containers/tutorial-dotnetcore-sqldb-app.md)。

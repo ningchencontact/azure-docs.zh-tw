@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6038251ba79797312a0fec61e4a6f3d2e99d5435
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>快速入門：在 Azure 中建立 .NET Service Fabric 應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -29,14 +29,14 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 ![應用程式螢幕擷取畫面](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
 使用此應用程式，您將了解如何：
-> [!div class="checklist"]
-> * 建立使用 .NET 和 Service Fabric 的應用程式
-> * 使用 ASP.NET Core 作為 Web 前端
-> * 將應用程式資料儲存在具狀態服務中
-> * 在本機偵錯您的應用程式
-> * 將應用程式部署到 Azure 中的叢集
-> * 跨多個節點相應放大應用程式
-> * 執行輪流應用程式升級
+
+* 建立使用 .NET 和 Service Fabric 的應用程式
+* 使用 ASP.NET Core 作為 Web 前端
+* 將應用程式資料儲存在具狀態服務中
+* 在本機偵錯您的應用程式
+* 將應用程式部署到 Azure 中的叢集
+* 跨多個節點相應放大應用程式
+* 執行輪流應用程式升級
 
 ## <a name="prerequisites"></a>先決條件
 若要完成本快速入門：
@@ -92,7 +92,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="debug-in-visual-studio"></a>在 Visual Studio 中偵錯
 
-在 Visual Studio 中偵錯應用程式時，您會使用本機 Service Fabric 開發叢集。 您可以根據自己的情況選擇調整偵錯體驗。 在這個應用程式中，我們會使用可靠的字典，將資料儲存在後端服務中。 當您停止偵錯工具時，Visual Studio 預設會移除應用程式。 移除應用程式也會導致移除後端服務中的資料。 若要保存偵錯工作階段之間的資料，您可以在 Visual Studio 中，將 [應用程式偵錯模式] 當做 [投票] 專案上的屬性來變更。
+應用程式應可正常執行，但是您可以使用偵錯工具查看應用程式主要組件的運作情形。 在 Visual Studio 中偵錯應用程式時，您會使用本機 Service Fabric 開發叢集。 您可以根據自己的情況選擇調整偵錯體驗。 在這個應用程式中，我們會使用可靠的字典，將資料儲存在後端服務中。 當您停止偵錯工具時，Visual Studio 預設會移除應用程式。 移除應用程式也會導致移除後端服務中的資料。 若要保存偵錯工作階段之間的資料，您可以在 Visual Studio 中，將 [應用程式偵錯模式] 當做 [投票] 專案上的屬性來變更。
 
 若要查看對程式碼的影響，請完成下列步驟：
 1. 開啟 **/VotingWeb/Controllers/VotesController.cs** 檔案，並在 Web API 的 **Put** 方法 (第 69 行) 中設定中斷點 - 您可以在 Visual Studio 的方案總管中搜尋此檔案。
@@ -181,8 +181,8 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可從�
 
 若要調整 Web 前端服務，請執行下列步驟：
 
-1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`。
-2. 按一下樹狀檢視中 **fabric:/Voting/VotingWeb** 節點旁的省略符號 (三個點)，然後選擇 [調整服務]。
+1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`。 
+2. 在樹狀檢視中，依序展開 [應用程式]->**VotingType**->**fabric:/Voting**。 按一下樹狀檢視中 **fabric:/Voting/VotingWeb** 節點旁的省略符號 (三個點)，然後選擇 [調整服務]。
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
 
@@ -213,25 +213,26 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可從�
 7. 在 [發行 Service Fabric 應用程式] 對話方塊中，核取 [升級應用程式] 核取方塊，然後按一下 [發行]。
 
     ![發行對話方塊的升級設定](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
+
+    執行升級期間，您仍然可以使用應用程式。 由於您有兩個服務執行個體正在叢集中執行，因此其中一些要求可能會取得應用程式的升級版本，而其他要求可能仍然會取得舊版。
+
 8. 開啟您的瀏覽器，然後瀏覽至連接埠 19080 上的叢集位址，例如 `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`。
 9. 按一下樹狀檢視中的 [應用程式] 節點，然後按一下右窗格中的 [正在升級]。 您會看到在叢集的升級網域中輪流升級的情況，請確保每個網域的狀況良好，再繼續下一步。 當網域的健康狀態通過驗證時，進度列中的升級網域即會呈現綠色。
     ![Service Fabric Explorer 中的升級檢視](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric 會等候兩分鐘，再升級叢集中每個節點上的服務，以確保安全升級。 整個更新預計需要約八分鐘。
 
-10. 執行升級期間，您仍然可以使用應用程式。 由於您有兩個服務執行個體正在叢集中執行，因此其中一些要求可能會取得應用程式的升級版本，而其他要求可能仍然會取得舊版。
 
 ## <a name="next-steps"></a>後續步驟
 在此快速入門中，您已了解如何：
 
-> [!div class="checklist"]
-> * 建立使用 .NET 和 Service Fabric 的應用程式
-> * 使用 ASP.NET Core 作為 Web 前端
-> * 將應用程式資料儲存在具狀態服務中
-> * 在本機偵錯您的應用程式
-> * 將應用程式部署到 Azure 中的叢集
-> * 跨多個節點相應放大應用程式
-> * 執行輪流應用程式升級
+* 建立使用 .NET 和 Service Fabric 的應用程式
+* 使用 ASP.NET Core 作為 Web 前端
+* 將應用程式資料儲存在具狀態服務中
+* 在本機偵錯您的應用程式
+* 將應用程式部署到 Azure 中的叢集
+* 跨多個節點相應放大應用程式
+* 執行輪流應用程式升級
 
 若要深入了解 Service Fabric 和 .NET，請參閱下列教學課程：
 > [!div class="nextstepaction"]

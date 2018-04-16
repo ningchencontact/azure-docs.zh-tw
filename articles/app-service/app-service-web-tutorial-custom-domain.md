@@ -1,12 +1,12 @@
 ---
-title: "將現有的自訂 DNS 名稱對應至 Azure Web Apps | Microsoft Docs"
-description: "學習如何將現有的自訂 DNS 網域名稱 (虛名網域) 新增至 Azure App Service 中的 Web 應用程式、行動裝置應用程式後端或 API 應用程式。"
-keywords: "應用程式服務, Azure 應用程式服務, 網域對應, 網域名稱, 現有的網域, 主機名稱"
+title: 將現有的自訂 DNS 名稱對應至 Azure Web Apps | Microsoft Docs
+description: 學習如何將現有的自訂 DNS 網域名稱 (虛名網域) 新增至 Azure App Service 中的 Web 應用程式、行動裝置應用程式後端或 API 應用程式。
+keywords: 應用程式服務, Azure 應用程式服務, 網域對應, 網域名稱, 現有的網域, 主機名稱
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.service: app-service-web
 ms.workload: web
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9867cc2f8a8d484ca4bfb160c20a07df38790f4d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>將現有的自訂 DNS 名稱對應至 Azure Web Apps
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>教學課程：將現有的自訂 DNS 名稱對應至 Azure Web Apps
 
 [Azure Web Apps](app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。 本教學課程會示範如何將現有的自訂 DNS 名稱對應至 Azure Web 應用程式。
 
@@ -292,7 +292,7 @@ ms.lasthandoff: 02/01/2018
 
 ![自訂虛擬目錄](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-當作業完成時，應用程式應該會傳回位於根路徑 (如 http://contoso.com) 的正確頁面。
+當作業完成時，應用程式應該會傳回位於根路徑 (如 http://contoso.com)) 的正確頁面。
 
 ## <a name="automate-with-scripts"></a>使用指令碼進行自動化
 

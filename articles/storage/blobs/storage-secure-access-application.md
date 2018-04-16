@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure 儲存體安全存取雲端中的應用程式資料 | Microsoft Docs"
-description: "使用 SAS 權杖、加密和 HTTPS 保護雲端中的應用程式資料"
+title: 使用 Azure 儲存體安全存取雲端中的應用程式資料 | Microsoft Docs
+description: 使用 SAS 權杖、加密和 HTTPS 保護雲端中的應用程式資料
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 03/06/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 66a5f7e6872a76c91f1f5f1a4b0b1973cb890b0f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 09a229d93ee8d5fec36a0cfa765e87bebaafc24d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>安全存取雲端中的應用程式資料
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/09/2018
 
 ## <a name="set-container-public-access"></a>設定容器的公用存取
 
-在教學課程系列的這個部分中，使用 SAS 權杖來存取縮圖。 在此步驟中，您會將 _thumbs_ 容器的公用存取設定為 `off`。
+在教學課程系列的這個部分中，使用 SAS 權杖來存取縮圖。 在此步驟中，您會將 _thumbnails_ 容器的公用存取設為 `off`。
 
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -42,7 +42,7 @@ blobStorageAccount=<blob_storage_account>
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbs  \
+az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbnails  \
 --public-access off
 ``` 
 
@@ -145,7 +145,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
 [Azure 儲存體服務加密 (SSE)](../common/storage-service-encryption.md) 可協助您保護及防護資料。 SSE 會加密待用資料，並處理加密、解密和金鑰管理。 所有資料都使用 256 位元 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) (可用的最強區塊加密方式之一) 進行加密。
 
-SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Resource Manager 和傳統) 以及所有 Azure 儲存體服務 (Blob、佇列、資料表和檔案) 中的資料加密。 
+SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Resource Manager 和傳統) 以及所有「Azure 儲存體」服務 (Blob、佇列、資料表和檔案) 中的資料加密。 
 
 ## <a name="enable-https-only"></a>只啟用 HTTPS
 

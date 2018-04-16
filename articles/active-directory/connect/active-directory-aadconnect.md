@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: febe055348efb49ea1e6bc670333f435de654cfc
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: bd2b65c31e7736346957dde4edfb7c32894c833e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>整合您的內部部署目錄與 Azure Active Directory
 Azure AD Connect 會整合您的內部部署目錄與 Azure Active Directory。 這可讓您為與 Azure AD 整合之 Office 365、Azure 和 SaaS 應用程式的使用者提供通用身分識別。 本主題將引導您完成規劃、部署和作業步驟。 其中集結了與此領域相關的主題連結。
@@ -73,7 +73,7 @@ Azure Active Directory Connect 由三個主要元件組成︰同步處理服務�
 |安裝後 | [驗證安裝和指派授權 ](active-directory-aadconnect-whats-next.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>深入了解安裝 Azure AD Connect
-您也想要準備 [操作](active-directory-aadconnectsync-operations.md) 考量。 您可能想要有一個待命伺服器，讓您可在 [災害](active-directory-aadconnectsync-operations.md#disaster-recovery)發生時輕鬆地容錯移轉。 如果您打算進行頻繁的組態變更，則應該規劃 [預備模式](active-directory-aadconnectsync-operations.md#staging-mode) 伺服器。
+您也想要準備 [操作](active-directory-aadconnectsync-operations.md) 考量。 您可以準備一個待命伺服器，以便在[災害](active-directory-aadconnectsync-operations.md#disaster-recovery)發生時輕鬆地進行容錯移轉。 如果您打算進行頻繁的組態變更，則應該規劃 [預備模式](active-directory-aadconnectsync-operations.md#staging-mode) 伺服器。
 
 |話題 |連結|  
 | --- | --- |

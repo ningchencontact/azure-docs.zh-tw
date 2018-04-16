@@ -1,11 +1,11 @@
 ---
-title: "資訊安全中心規劃和操作指南 | Microsoft Docs"
-description: "本文件可協助您在採用 Azure 資訊安全中心和日常作業相關考量之前進行規劃。"
+title: 資訊安全中心規劃和操作指南 | Microsoft Docs
+description: 本文件可協助您在採用 Azure 資訊安全中心和日常作業相關考量之前進行規劃。
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 8a44542091ea4dddc214a4954766c63dacd3e2a2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: e07e6792c74e1bdb5c5839e8c6bd9efbedf10170
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure 資訊安全中心規劃和操作指南
 本指南適用於計劃採用 Azure 資訊安全中心的組織中的資訊技術 (IT) 專業人員、IT 架構設計人員、資訊安全性分析師和雲端系統管理員。
@@ -138,7 +138,7 @@ ms.lasthandoff: 01/02/2018
 在設定安全性原則之前，請檢閱每個 [安全性建議](https://docs.microsoft.com/azure/security-center/security-center-recommendations)，並判斷這些原則是否適合您的各種訂用帳戶和資源群組。 此外，也務必了解該採取什麼動作才能處理安全性建議，以及您組織將負責監視新建議及採取必要步驟的人員。
 
 ## <a name="data-collection-and-storage"></a>資料收集和儲存
-Azure 資訊安全中心會使用 Microsoft Monitoring Agent (這是 Operations Management Suite 和 Log Analytics 服務所用的相同代理程式) 從虛擬機器收集安全性資料。 從這個代理程式[收集的資料](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)會儲存在 Log Analytics 工作區中。
+Azure 資訊安全中心會使用 Microsoft Monitoring Agent (這是 Log Analytics 服務所使用的相同代理程式) 從虛擬機器收集安全性資料。 從這個代理程式[收集的資料](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)會儲存在 Log Analytics 工作區中。
 
 ### <a name="agent"></a>代理程式
 
@@ -215,7 +215,7 @@ Azure 資訊安全中心會使用 Microsoft Monitoring Agent (這是 Operations 
 
 您也應該在安全性作業中採用預防措施，來限制對 VM 的存取，並且控制在 VM 上執行的應用程式。 藉由鎖定前往您的 Azure VM 的輸入流量，可以降低被攻擊的曝光度，同時提供簡易存取以在需要時連線到 VM。 使用 [Just-in-Time VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 存取功能來強化您的 VM 存取。 
 
-您可以使用[自適性應用程式控制](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)，以協助控制哪些應用程式可以在 Azure 中的 VM 上執行，而且有助於強化您的 VM 來抵禦惡意程式碼。 資訊安全中心會利用機器學習服務來分析在 VM 中執行的程序，並協助您利用此情報來套用列入白名單規則。
+您可以使用[自適性應用程式控制](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)，以協助控制哪些應用程式可以在 Azure 中的 VM 上執行，而且有助於強化您的 VM 來抵禦惡意程式碼。 資訊安全中心會利用機器學習服務來分析在 VM 中執行的程序，並協助您利用此情報來套用列入允許清單規則。
 
 
 ## <a name="incident-response"></a>事件回應

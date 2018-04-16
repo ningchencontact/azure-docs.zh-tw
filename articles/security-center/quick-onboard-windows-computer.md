@@ -1,11 +1,11 @@
 ---
-title: "Azure 資訊安全中心快速入門 - 將您的 Windows 電腦上架到資訊安全中心 | Microsoft Docs"
-description: "本快速入門說明如何在 Windows 電腦上佈建 Microsoft Monitoring Agent。"
+title: Azure 資訊安全中心快速入門 - 將您的 Windows 電腦上架到資訊安全中心 | Microsoft Docs
+description: 本快速入門說明如何在 Windows 電腦上佈建 Microsoft Monitoring Agent。
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>快速入門：將 Windows 電腦上架到 Azure 資訊安全中心
 將 Azure 訂用帳戶上架之後，您可以透過佈建 Microsoft Monitoring Agent，為在 Azure 外 (例如，內部部署或其他雲端服務) 執行的資源啟用資訊安全中心。
@@ -62,7 +62,7 @@ ms.lasthandoff: 02/24/2018
 2. 在 [歡迎] 頁面上，選取 [下一步]。
 3. 在 [授權條款] 頁面上，閱讀授權並選取 [我同意]。
 4. 在 [目的資料夾] 頁面上，變更或保留預設的安裝資料夾，然後選取 [下一步]。
-5. 在 [代理程式安裝選項] 頁面上，選擇將代理程式連線到 Azure Log Analytics (OMS)，然後選取 [下一步]。
+5. 在 [代理程式安裝選項] 頁面上，選擇將代理程式連線至 Azure Log Analytics，然後選取 [下一步]。
 6. 在 [Azure Log Analytics] 頁面上，貼上您在先前程序中複製到「記事本」中的 [工作區識別碼] 和 [工作區金鑰 (主要金鑰)]。
 7. 如果電腦應該向 Azure Government Cloud 中的 Log Analytics 工作區回報，請從 [Azure 雲端] 下拉式清單中選取 [Azure 美國政府]。  如果電腦需要透過 Proxy 伺服器與 Log Analytics 服務進行通訊，請選取 [進階]，然後提供 Proxy 伺服器的 URL 和連接埠號碼。
 8. 完成提供必要的組態設定之後，選取 [下一步]。
