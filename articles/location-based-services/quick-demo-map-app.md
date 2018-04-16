@@ -1,26 +1,26 @@
 ---
-title: "使用 Azure 位置服務的互動式地圖搜尋 | Microsoft Docs"
-description: "Azure 快速入門 - 使用 Azure 位置服務 (預覽版) 啟動示範互動式地圖搜尋"
+title: 使用 Azure 位置服務的互動式地圖搜尋 | Microsoft Docs
+description: Azure 快速入門 - 使用 Azure 位置服務 (預覽版) 啟動示範互動式地圖搜尋
 services: location-based-services
-keywords: 
+keywords: ''
 author: kgremban
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 04/03/2018
 ms.topic: quickstart
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 288044b2f8a4b996489bbd6a6b0a61b455e8f4ad
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a61d56f8e649d60dacff8f9849ab7e26363e119
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>使用 Azure 位置服務 (預覽版) 啟動示範互動式地圖搜尋
 
-本文會使用 Azure Map 來示範 Azure LBS 執行互動式搜尋的功能。 也會引導您完成建立自己 LBS 帳戶的基本步驟，並取得用於示範 Web 應用程式中的帳戶金鑰。 
+本文示範 Azure LBS 執行互動式搜尋的功能。 也會引導您完成建立自己 LBS 帳戶的基本步驟，並取得用於示範 Web 應用程式中的帳戶金鑰。 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -40,14 +40,14 @@ ms.lasthandoff: 03/08/2018
 
 5. 成功建立您的帳戶之後，請將其開啟並瀏覽到帳戶的 [設定]。 按一下 [金鑰]，可取得您的 Azure 位置服務帳戶的主要和次要金鑰。 將 [主要金鑰] 值複製到本機剪貼簿，下一節將使用此值。 
 
-## <a name="download-the-demo-application-for-azure-maps"></a>下載 Azure Map 示範應用程式
+## <a name="download-the-demo-application"></a>下載示範應用程式
 
 1. 下載或複製 [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html) 檔案的內容。
 2. 將此檔案的內容在本機另存為 **AzureMapDemo.html**，並在文字編輯器中開啟。
 3. 搜尋字串 `<insert-key>`，並以上一節中所取得的 [主要金鑰] 值加以取代。 
 
 
-## <a name="launch-the-demo-application-for-azure-maps"></a>啟動 Azure Map 示範應用程式
+## <a name="launch-the-demo-application-for"></a>啟動示範應用程式
 
 1. 在您選擇的瀏覽器中開啟 **AzureMapDemo.html** 檔案。
 2. 查看地圖所顯示的洛杉磯市。 顯示的城市是由 `[longitude, latitude]` 配對值所決定，其會提供給 AzureMapDemo.html 中名為 **center** 的 JavaScript 變數。 您可以將這些座標變更為您選擇的任何其他城市。 例如，紐約市的座標是 *[-74.0060，40.7128]*。

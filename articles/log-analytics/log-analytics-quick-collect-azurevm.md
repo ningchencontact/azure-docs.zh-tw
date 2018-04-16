@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2018
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: ff610c4efa9db16ca8a1e151b36e0e08dfe30d69
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 3b21a3ae5940cd736fe23b76e7ede9dc0061b711
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>收集關於 Azure 虛擬機器的資料
 [Azure Log Analytics](log-analytics-overview.md) 可將環境中 Azure 虛擬機器和其他資源的資料直接收集到單一存放庫，以供詳細分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Azure Linux 或 Windows VM 的資料。  
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/30/2018
   * 如果選取的預設值不合適，請從下拉式清單中選取要連結的 [訂用帳戶]。
   * 對於 [資源群組]，選取包含一或多個 Azure 虛擬機器的現有資源群組。  
   * 選取要部署 VM 的 [位置]。  如需詳細資訊，請查看 [Log Analytics 的可用區域](https://azure.microsoft.com/regions/services/)。
-  * 如果您要在 2018 年 4 月 2 之後建立的新訂用帳戶中建立工作區，系統會自動使用「每 GB」定價方案和選項來選取將無法使用的定價層。  如果您要針對在 4 月 2 日之前建立的現有訂用帳戶，或已繫結至現有 EA 註冊的訂用帳戶建立工作區，您有三個定價層可供選擇。  在本快速入門中，您即將選取免費層。  如需特定層的詳細資訊，請參閱 [Log Analytics 價格詳細資料](https://azure.microsoft.com/pricing/details/log-analytics/)。
+  * 如果您要在 2018 年 4 月 2 之後建立的新訂用帳戶中建立工作區，系統會自動使用「每 GB」定價方案和選項來選取將無法使用的定價層。  如果您要為在 4 月 2 日之前建立的現有訂用帳戶，或已繫結至現有 EA 註冊的訂用帳戶建立工作區，請選取您偏好的定價層。  如需特定層的詳細資訊，請參閱 [Log Analytics 價格詳細資料](https://azure.microsoft.com/pricing/details/log-analytics/)。
   
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 
@@ -45,19 +45,12 @@ ms.lasthandoff: 03/30/2018
 
 在驗證資訊及建立工作區時，您可以在功能表的 [通知] 底下追蹤其進度。 
 
->[!NOTE]
->當您建立連結至在 2018 年 4 月 2 日之後建立之新訂用帳戶的新工作區時，系統會自動使用 PerGB2018 定價方案。  這個方案包含橫跨 Application Insights 和 Log Analytics 資源的每個月 5 GB 免費資料。 如需定價模型的詳細資訊，請參閱 [Log Analytics 定價詳細資料](https://azure.microsoft.com/pricing/details/log-analytics/)。
->
-
 ## <a name="enable-the-log-analytics-vm-extension"></a>啟用 Log Analytics VM 延伸模組
 對於已部署在 Azure 中的 Windows 和 Linux 虛擬機器，您可以使用 Log Analytics VM 延伸模組來安裝 Log Analytics 代理程式。  使用擴充可以簡化安裝程序，並自動設定代理程式將資料傳送到您指定的 Log Analytics 工作區。 代理程式也會自動升級，以確保您擁有最新的功能和修正程式。
 
 >[!NOTE]
 >OMS agent for Linux 無法設定為回報多個 Log Analytics 工作區。 
 
-如果您在 Azure Government 雲端中建立工作區，您可能會在入口網站發現 Log Analytics 資源頁面頂端的橫幅邀請您升級。  基於本快速入門的目的，不需要升級。<br>
-
-![Azure 入口網站中的 Log Analytics 升級注意事項](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
 1. 在 Azure 入口網站中，按一下左上角的 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 2. 在 Log Analytics 工作區清單中，選取稍早建立的 *DefaultLAWorkspace*。
 3. 在左側功能表的 [工作區資料來源] 下方，按一下 [虛擬機器]。  
@@ -93,10 +86,6 @@ Log Analytics 可以從 Windows 事件記錄檔或 Linux Syslog 收集事件，�
 
 1. 在 Azure 入口網站中，瀏覽至 Log Analytics 並選取稍早建立的工作區。
 2. 按一下 [記錄搜尋] 圖格，然後在 [記錄搜尋] 窗格的查詢欄位中輸入 `Perf`，再按 Enter 鍵，或按一下查詢欄位右邊的搜尋按鈕。<br> ![Log Analytics 記錄搜尋查詢範例](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
-
-   >[!NOTE]
-   >如果您的工作區是在 Azure Government 雲端中建立的，您將會使用查詢 `Type=Perf`。  
-   >
 
 例如，下列影像中的查詢會傳回 78,000 筆效能記錄。  結果將會大幅減少。<br> ![Log Analytics 記錄搜尋結果](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 

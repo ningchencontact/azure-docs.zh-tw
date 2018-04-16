@@ -1,6 +1,6 @@
 ---
-title: "將 CDN 新增至 Azure App Service | Microsoft Docs"
-description: "將內容傳遞網路 (CDN) 新增至 Azure App Service，以從您在世界各地的客戶附近的伺服器快取和傳遞靜態檔案。"
+title: 將 CDN 新增至 Azure App Service | Microsoft Docs
+description: 將內容傳遞網路 (CDN) 新增至 Azure App Service，以從您在世界各地的客戶附近的伺服器快取和傳遞靜態檔案。
 services: app-service\web
 author: syntaxc4
 ms.author: cfowler
@@ -10,13 +10,13 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 257b75d01f3904661c1a188a2d53ffcb74f48f06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74344b72869ef6b27f9e7329c7a1777a40662b17
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>將內容傳遞網路 (CDN) 新增至 Azure App Service
+# <a name="tutorial-add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>教學課程：將內容傳遞網路 (CDN) 新增至 Azure App Service
 
 [Azure 內容傳遞網路 (CDN)](../cdn/cdn-overview.md) 會在策略性放置的位置上快取靜態 Web 內容，以提供最大輸送量來將內容傳遞給使用者。 CDN 也可降低您的 Web 應用程式的伺服器負載。 本教學課程說明如何將 Azure CDN 新增至 [Azure App Service 中的 Web 應用程式](app-service-web-overview.md)。 
 

@@ -1,6 +1,6 @@
 ---
 title: 建立及使用內部負載平衡器與 Azure App Service Environment
-description: 如何建立及使用隔離網際網路之 Azure App Service Environment 的詳細資料
+description: 如何建立及使用與網際網路隔離的 Azure App Service Environment 的詳細資料
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>建立及使用內部負載平衡器與 App Service Environment #
 
- Azure App Service Environment (ASE) 是將 Azure App Service 部署到客戶 Azure 虛擬網路 (VNet) 中子網路的一種部署。 部署 App Service Environment (ASE) 有二種方法： 
+ Azure App Service Environment (ASE) 是將 Azure App Service 部署到客戶 Azure 虛擬網路 (VNet) 中子網路的一種部署。 有二種方法可以部署 App Service Environment (ASE)： 
 
 - 使用外部 IP 位址上的 VIP，通常稱為「外部 ASE」。
 - 使用內部 IP 位址上的 VIP，通常稱為 「ILB ASE」，因為內部端點是內部負載平衡器 (ILB)。 
 
-本文說明如何建立 ILB ASE。 如需 ASE 的概述，請參閱 [App Service Environment 簡介][Intro]。 若要深了解如何建立外部 ASE，請參閱[建立外部 ASE][MakeExternalASE]。
+本文說明如何建立 ILB ASE。 如需 ASE 的概觀，請參閱 [App Service Environment 簡介][Intro]。 若要深了解如何建立外部 ASE，請參閱[建立外部 ASE][MakeExternalASE]。
 
 ## <a name="overview"></a>概觀 ##
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 03/16/2018
 
 4. 選取或建立 VNet。
 
-5. 如果您選取現有的 VNet，則需要建立子網路來存放 ASE。 確定將子網路的大小設為足以容納 ASE 的任何未來成長。 建議的大小是 `/25`，具有 128 個位址，而且可以處理最大大小的 ASE。 您可以選取的大小下限是 `/28`。 滿足基礎結構的需求之後，這個大小可以調整至最多 11 個執行個體。
+5. 如果您選取現有的 VNet，則需要建立子網路來存放 ASE。 確定將子網路的大小設為足以容納 ASE 的任何未來成長。 建議的大小是 `/25`，具有 128 個位址，而且可以處理最大大小的 ASE。 您可以選取的大小下限是 `/28`。 達到基礎結構的需求之後，此大小最多只能調整至 3 個執行個體。
 
     * 超過您的 App Service 方案中的預設上限 100 個執行個體。
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 03/16/2018
 
     * &lt;asename&gt;.p.azurewebsites.net
 
-   應用程式使用的自訂網域名稱，與您的 ASE 使用的網域名稱不可重疊。 若 ILB ASE 的網域名稱為 contoso.com，則您的應用程式不能使用像這樣的自訂網域名稱：
+   有一項名為自訂網域名稱的功能，可讓您將現有的 DNS 名稱對應至 Web 應用程式。 您可以閱讀[將現有的 DNS 名稱對應至 Web 應用程式][customdomain]一文，以深入了解該功能。 應用程式使用的自訂網域名稱，與您的 ASE 使用的網域名稱不可重疊。 若 ILB ASE 的網域名稱為 contoso.com，則您的應用程式不能使用像這樣的自訂網域名稱：
 
     * www.contoso.com
 
@@ -250,3 +250,4 @@ Azure App Service 提供許多安全性措施來保護您的系統。 它們也�
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[customdomain]: ../app-service-web-tutorial-custom-domain.md

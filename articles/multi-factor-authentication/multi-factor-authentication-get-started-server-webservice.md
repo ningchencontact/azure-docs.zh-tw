@@ -1,8 +1,8 @@
 ---
-title: "Azure MFA Server Mobile App Web 服務 | Microsoft Docs"
-description: "Microsoft Authenticator 應用程式提供額外的頻外驗證選項。  它可以讓 MFA Server 將通知推播給使用者。"
+title: Azure MFA Server Mobile App Web 服務 | Microsoft Docs
+description: Microsoft Authenticator 應用程式提供額外的頻外驗證選項。  它可以讓 MFA Server 將通知推播給使用者。
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 83b04e48dd528881097bcf16bc03e1a18ea20c43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7ca5c7bcc82f0a77276f4f39a02d8abf2f47bc10
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>使用 Azure Multi-Factor Authentication Server 來啟用行動應用程式驗證
 
@@ -29,11 +29,13 @@ Microsoft Authenticator 應用程式提供額外的頻外驗證選項。 Azure M
 
 視您的環境而定，建議您在與 Azure Multi-factor Authentication Server 相同的伺服器，或在另一個網際網路對向的伺服器上部署行動裝置應用程式 Web 服務。
 
+若您已安裝 MFA Server 8.0 或更新版本，則以下大部分的步驟都不需要執行。 您可以依照[設定行動應用程式](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server)下的步驟，設定行動應用程式驗證。
+
 ## <a name="requirements"></a>需求
 
 若要使用 Microsoft Authenticator 應用程式，必須符合以下條件，應用程式才能與 Mobile App Web 服務成功通訊：
 
-* Azure Multi-Factor Authentication Server 6.0 或更新版本
+* Azure Multi-Factor Authentication Server 6.x 版或更新版本
 * 將 Mobile App Web 服務安裝在執行 Microsoft® [Internet Information Services (IIS) IIS 7.x 或更新版本](http://www.iis.net/)的網際網路對向 Web 伺服器上
 * 已安裝、註冊 ASP.NET v4.0.30319 並已設定為 [已允許]
 * 所需的角色服務包括 ASP.NET 和 IIS 6 Metabase 相容性
@@ -48,6 +50,7 @@ Microsoft Authenticator 應用程式提供額外的頻外驗證選項。 Azure M
 
 在安裝 Mobile App Web 服務之前，請注意下列細節：
 
+* 對於 8.0 版或更新版本，不需要安裝行動應用程式 Web 服務。 請完成[設定行動應用程式](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server)下的步驟即可。
 * 您需要屬於 "PhoneFactor Admins" 群組的服務帳戶。 此帳戶可與使用者入口網站安裝所用的帳戶相同。
 * 在網際網路對向 Web 伺服器上開啟網頁瀏覽器，並瀏覽至輸入 web.config 檔案中的 Web 服務 SDK URL，如此將有所幫助。 如果瀏覽器可以順利連接 Web 服務，它應該會提示您輸入認證。 輸入使用者名稱和密碼 (與輸入 web.config 檔案中的使用者名稱和密碼完全相同)。 確定未出現任何憑證警告或錯誤。
 * 如果反向 Proxy 或防火牆是在 Mobile App Web 服務 Web 伺服器之前，並且目前執行 SSL 卸載，則您可以編輯 Mobile App Web 服務的 web.config 檔案，以便讓 Mobile App Web 服務能夠使用 http 而不是 https。 從 Mobile App 到防火牆/反向 Proxy 仍然需要 SSL。 將下列索引鍵新增到 \<appSettings\> 區段：
@@ -80,25 +83,24 @@ Web 服務 SDK 必須受到 SSL 憑證保護。 自我簽署憑證適用於這�
 
    * 找出 **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** 機碼並將 **value=""** 變更為 **value="DOMAIN\User"**，其中的 DOMAIN\User 是屬於 "PhoneFactor Admins" 群組的服務帳戶。
    * 找出 **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** 機碼並將 **value=""** 變更為 **value="Password"**，其中的 Password 是在前一行中輸入之服務帳戶的密碼。
-   * 找出 **pfMobile App Web Service_pfwssdk_PfWsSdk** 設定，並將值從 **http://localhost:4898/PfWsSdk.asmx** 變更為 Web 服務 SDK URL (例如：https://mfa.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx)。
+   * 找出 **pfMobile App Web Service_pfwssdk_PfWsSdk** 設定，並將值從 **http://localhost:4898/PfWsSdk.asmx** 變更為 Web 服務 SDK URL (例如：https://mfa.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx))。
    * 儲存 Web.Config 檔案並關閉 [記事本]。
 
    > [!NOTE]
    > 由於此連線使用 SSL，因此您必須依**完整網域名稱 (FQDN)** 參考 Web 服務 SDK，而不是依 **IP 位址**。 SSL 憑證會針對 FQDN 發出，因此所使用的 URL 必須與憑證上的名稱相符。
 
 7. 如果安裝 Mobile App Web 服務的網站尚未與公開簽署的憑證繫結，請在伺服器上安裝憑證、開啟「IIS 管理員」，然後將憑證繫結至該網站。
-8. 從任何電腦開啟網頁瀏覽器，並瀏覽至安裝行動裝置應用程式 Web 服務的 URL (例如：https://mfa.contoso.com/MultiFactorAuthMobileAppWebService)。 確定未出現任何憑證警告或錯誤。
+8. 從任何電腦開啟網頁瀏覽器，並瀏覽至安裝 Mobile App Web 服務的 URL (例如：https://mfa.contoso.com/MultiFactorAuthMobileAppWebService))。 確定未出現任何憑證警告或錯誤。
 9. 如需有關 Web 服務 SDK 中可用方法的詳細資訊，請參閱 MFA Server 說明檔。
+10. 既然 Mobile App Web 服務已安裝完成，您需要設定 Azure Multi-Factor Authentication Server，使其與入口網站搭配運作。
 
 ## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>在 Azure Multi-Factor Authentication Server 中配置行動應用程式設定
-
-既然 Mobile App Web 服務已安裝完成，您需要設定 Azure Multi-Factor Authentication Server，使其與入口網站搭配運作。
 
 1. 在 Multi-Factor Authentication Server 主控台中，按一下 [使用者入口網站] 圖示。 如果您允許使用者控制其驗證方法，請在 [設定] 索引標籤之 [允許使用者選取方法] 下方選取 [行動應用程式]。 若未啟用這個功能，使用者就必須連絡技術支援人員來完成行動裝置應用程式啟用。
 2. 選取 [允許使用者啟用行動裝置應用程式] 方塊。
 3. 選取 [允許使用者註冊] 方塊。
 4. 按一下 [行動裝置應用程式] 圖示。
-5. 在 [行動裝置應用程式 Web 服務 URL：] 欄位中，輸入要搭配在安裝 MultiFactorAuthenticationMobileAppWebServiceSetup64 時建立之虛擬機器使用的 URL (例如：https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/)。
+5. 如果您使用 8.0 版或更新版本，請略過下列步驟：在 [行動應用程式 Web 服務 URL：]https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/) **欄位中，輸入要與安裝 MultiFactorAuthenticationMobileAppWebServiceSetup64 時建立的虛擬目錄搭配使用的 URL (例如：**)。
 6. 以要顯示在此帳戶的行動裝置應用程式中的公司或組織名稱填入 [帳戶名稱] 欄位。
    ![MFA Server 組態行動裝置應用程式設定](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)
 

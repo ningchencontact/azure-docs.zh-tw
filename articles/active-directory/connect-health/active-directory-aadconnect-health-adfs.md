@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad8ed320a8dd91ea83dbaf71e2e9514b4df4cdb5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 630a633cf8657d43d6416d316928830634c9bf48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>使用 Azure AD Connect Health 監視 AD FS
 下列文件適用於使用 Azure AD Connect Health 來監視 AD FS 基礎結構。 如需使用 Azure AD Connect Health 來監視 Azure AD Connect (同步處理) 的詳細資訊，請參閱 [使用適用於同步處理的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)。此外，如需使用 Azure AD Connect Health 來監視 Active Directory 網域服務的詳細資訊，請參閱 [在 AD DS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adds.md)。
@@ -109,7 +109,7 @@ Azure AD Connect Health for ADFS 會提供一份報告，內容有關因為使�
 | 使用者識別碼 |顯示所使用的使用者識別碼。 這個值是使用者所輸入的內容，在某些情況下是所使用的錯誤使用者識別碼。 |
 | 嘗試失敗 |顯示該特定使用者識別碼的嘗試失敗總數。 此資料表是依據最多失敗嘗試次數以遞減順序排序。 |
 | 上次失敗 |顯示上次發生失敗時的時間戳記。 |
-| 上次失敗 IP |顯示最後一個不正確要求的用戶端 IP 位址。 |
+| 上次失敗 IP |顯示最後一個不正確要求的用戶端 IP 位址。 如果您在此值中看到多個 IP 位址，表示其中可能同時包含轉送用戶端 IP 與使用者上次嘗試的要求 IP。  |
 
 > [!NOTE]
 > 此報告會每隔 12 小時以該段時間內收集的新資訊自動進行更新。 因此，報告中不包含過去 12 小時內的登入嘗試。
@@ -191,11 +191,14 @@ AD FS 客戶可能會向網際網路公開密碼驗證端點，以提供驗證�
 1. 為何我會在報告中看到私人 IP 位址範圍？  <br />
 系統會篩選出私人 IP 位址 (10.x.x.x、172.x.x.x 和 192.168.x.x<i></i>) 和 Exchange IP 位址，並在 IP 白名單中將這些位址標示為 True。 如果您看見私人 IP 位址範圍，則很可能表示您的外部負載平衡器未在將要求傳遞至 Web 應用程式 Proxy 伺服器時傳送用戶端 IP 位址。
 
-2. 我該如何封鎖 IP 位址？  <br />
+2. 為何我會在報告中看到負載平衡器 IP 位址？  <br />
+如果您看見負載平衡器 IP 位址，則很可能表示您的外部負載平衡器未在將要求傳遞至 Web 應用程式 Proxy 伺服器時傳送用戶端 IP 位址。 請正確設定您的負載平衡器，以傳遞轉送用戶端 IP 位址。 
+
+3. 我該如何封鎖 IP 位址？  <br />
 請將已識別出的惡意 IP 位址新增至防火牆，或在 Exchange 中封鎖。   <br />
 對於 AD FS 2016 + 1803.C+ QFE，您可以直接在 AD FS 中封鎖 IP 位址。 
 
-3. 為何我未在此報告中看到任何項目？ <br />
+4. 為何我未在此報告中看到任何項目？ <br />
    - 失敗登入活動未超過閾值設定。 
    - 請確定 AD FS 伺服器清單中沒有作用中的「健康情況服務不是最新狀態」警示。  深入了解[如何針對此警示進行疑難排解](active-directory-aadconnect-health-data-freshness.md)。
    - AD FS 伺服器陣列中未啟用稽核。

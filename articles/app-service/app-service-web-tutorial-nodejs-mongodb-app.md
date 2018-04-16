@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中建置 Node.js 和 MongoDB Web 應用程式 | Microsoft Docs"
-description: "了解如何取得在 Azure 中運作的 Node.js 應用程式，並利用 MongoDB 連接字串連線到 Cosmos DB 資料庫。"
+title: 在 Azure 中建置 Node.js 和 MongoDB Web 應用程式 | Microsoft Docs
+description: 了解如何取得在 Azure 中運作的 Node.js 應用程式，並利用 MongoDB 連接字串連線到 Cosmos DB 資料庫。
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b191af9edd8fd38c819483e8836568657d0b6bf0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8fdad8d8e62365c33b47e67b483c929aaab0083e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>在 Azure 中建置 Node.js 和 MongoDB Web 應用程式
+# <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>教學課程：在 Azure 中建置 Node.js 和 MongoDB Web 應用程式
 
 > [!NOTE]
 > 本文會將應用程式部署至 Windows 上的 App Service。 若要在 Linux 上部署至 App Service，請參閱[在 Linux 上的 Azure App Service 中建置 Node.js 和 MongoDB Web 應用程式](./containers/tutorial-nodejs-mongodb-app.md)。

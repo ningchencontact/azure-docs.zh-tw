@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/18
+ms.date: 04/03/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: eb4de9d7781ae355e42a6fec9f7732ad67228e70
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47a4e75699e024dae367524f16eb23fb72043ef5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>快速入門：在 Azure 上部署 Service Fabric Windows 容器應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -28,12 +28,12 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 
 ![IIS 預設網頁][iis-default]
 
-使用此快速入門，您可了解如何：
-> [!div class="checklist"]
-> * 封裝 Docker 映像容器
-> * 設定通訊
-> * 建置及封裝 Service Fabric 應用程式
-> * 將容器應用程式部署至 Azure
+在此快速入門中，您將了解如何：
+
+* 封裝 Docker 映像容器
+* 設定通訊
+* 建置及封裝 Service Fabric 應用程式
+* 將容器應用程式部署至 Azure
 
 ## <a name="prerequisites"></a>先決條件
 * Azure 訂用帳戶 (您可以建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))。
@@ -210,16 +210,16 @@ Thumbprint                                Subject
 
 ## <a name="next-steps"></a>後續步驟
 在此快速入門中，您已了解如何：
-> [!div class="checklist"]
-> * 封裝 Docker 映像容器
-> * 設定通訊
-> * 建置及封裝 Service Fabric 應用程式
-> * 將容器應用程式部署至 Azure
 
-* 深入了解如何[在 Service Fabric 上執行容器](service-fabric-containers-overview.md)。
-* 閱讀[在容器中部署 .NET 應用程式](service-fabric-host-app-in-a-container.md)教學課程。
-* 深入了解 Service Fabric [應用程式生命週期](service-fabric-application-lifecycle.md)。
-* 請查看 GitHub 上的[ Service Fabric 容器程式碼範例](https://github.com/Azure-Samples/service-fabric-containers)。
+* 封裝 Docker 映像容器
+* 設定通訊
+* 建置及封裝 Service Fabric 應用程式
+* 將容器應用程式部署至 Azure
+
+若要深入了解如何在 Service Fabric 中使用 Windows 容器，請繼續進行教學課程以了解 Windows 容器應用程式。
+
+> [!div class="nextstepaction"]
+> [建立 Windows 容器應用程式](./service-fabric-host-app-in-a-container.md)
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

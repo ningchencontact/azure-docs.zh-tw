@@ -1,11 +1,11 @@
 ---
-title: "適用於 Eclipse 的 Azure Service Fabric 外掛程式 | Microsoft Docs"
-description: "開始使用適用於 Eclipse 的 Service Fabric 外掛程式。"
+title: 適用於 Eclipse 的 Azure Service Fabric 外掛程式 | Microsoft Docs
+description: 開始使用適用於 Eclipse 的 Service Fabric 外掛程式。
 services: service-fabric
 documentationcenter: java
 author: rapatchi
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
@@ -14,38 +14,43 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2016
 ms.author: rapatchi
-ms.openlocfilehash: 291bbd35d6e3c89eb9568130ad144831452142ad
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: d415c3eb540056dc7ad6f1ab14fc8250903d6744
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>適用於 Eclipse Java 應用程式開發的 Service Fabric 外掛程式
-Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) 之一。 在本文中，我們將說明如何設定 Eclipse 開發環境來使用 Azure Service Fabric。 了解如何安裝 Service Fabric 外掛程式、建立 Service Fabric 應用程式，以及將 Service Fabric 應用程式部署到 Eclipse Neon 中的本機或遠端 Service Fabric 叢集。 
+Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) 之一。 在本文中，我們將說明如何設定 Eclipse 開發環境來使用 Azure Service Fabric。 了解如何安裝 Service Fabric 外掛程式、建立 Service Fabric 應用程式，以及將 Service Fabric 應用程式部署到 Eclipse 中的本機或遠端 Service Fabric 叢集。 
 
 > [!NOTE]
 > Windows 上目前不支援 Eclipse 外掛程式。 
 
-## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>在 Eclipse Neon 安裝或更新 Service Fabric 外掛程式
+## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse"></a>在 Eclipse 中安裝或更新 Service Fabric 外掛程式
 您可以在 Eclipse 中安裝 Service Fabric 外掛程式。 外掛程式可協助簡化建置和部署 Java 服務的程序。
 
-1.  請確定您已安裝最新版的 Eclipse Neon 和最新版的 Buildship (1.0.17 或更新版本)︰
-    -   若要檢查已安裝的元件版本，請在 Eclipse Neon 中，前往選擇 [說明] > [安裝詳細資料]。
-    -   若要更新 Buildship，請參閱 [Eclipse Buildship：適用於 Gradle 的 Eclipse 外掛程式][buildship-update]。
-    -   若要檢查並安裝 Eclipse Neon 的更新，前往 [說明] > [檢查更新]。
+> [!IMPORTANT]
+> Service Fabric 外掛程式需要 Eclipse Neon 或更新版本。 請參閱此注意事項之後的指示，以了解如何檢查您的 Eclipse 版本。 如果您已安裝較早版本的 Eclipse，可以從 [Eclipse 網站](https://www.eclipse.org)下載較新版本。 建議您不要在現有的 Eclipse 安裝之上進行安裝 (覆寫)。 您可以在執行安裝程式之前先移除舊版，或在不同的目錄中安裝較新版本。 
+> 
+> 在 Ubuntu 上，建議您直接從 Eclipse 網站安裝，而不要使用套件安裝程式 (`apt` 或 `apt-get`)。 這麼做可確保您會取得最新版的 Eclipse。 
 
-2.  若要安裝 Service Fabric 外掛程式，在 Eclipse Neon 中，前往 [說明] > [安裝新軟體]。
-  1.    在 [使用] 文字方塊中，輸入 **http://dl.microsoft.com/eclipse**。
+1.  請確定您具有 Eclipse Neon 或更新版本，並且已安裝最新版的 Buildship (1.0.17 或更新版本)︰
+    -   若要檢查已安裝的元件版本，請在 Eclipse 中移至 [說明] > [安裝詳細資料]。
+    -   若要更新 Buildship，請參閱 [Eclipse Buildship：適用於 Gradle 的 Eclipse 外掛程式][buildship-update]。
+    -   若要檢查並安裝 Eclipse 的更新，請移至 [說明] > [檢查更新]。
+
+2.  若要安裝 Service Fabric 外掛程式，請在 Eclipse 中移至 [說明] > [安裝新軟體]。
+  1.    在 [使用] 方塊中，輸入 **http://dl.microsoft.com/eclipse**。
   2.    按一下 [新增] 。
 
-         ![適用於 Eclipse Neon 的 Service Fabric 外掛程式][sf-eclipse-plugin-install]
+         ![適用於 Eclipse 的 Service Fabric 外掛程式][sf-eclipse-plugin-install]
   3.    選取 Service Fabric 外掛程式，然後按 [下一步]。
   4.    完成安裝步驟，然後接受 Microsoft 軟體授權條款。
 
 如果您已安裝 Service Fabric 外掛程式，請確定您擁有的是最新版本。 若要檢查可用的更新，前往 [說明] > [安裝詳細資料]。 在已安裝外掛程式的清單中，選取 Service Fabric，然後按一下 [更新]。 將安裝可用的更新。
 
 > [!NOTE]
-> 如果安裝或更新 Service Fabric 外掛程式時很緩慢，可能是因為 Eclipse 設定。 Eclipse 會收集所有變更的中繼資料，以更新使用您 Eclipse 執行個體註冊的網站。 若要加速檢查及安裝 Service Fabric 外掛程式更新的程序，前往 [可用的軟體站台]。 清除所有網站的核取方塊，除了指向 Service Fabric 外掛程式位置 (http://dl.microsoft.com/eclipse/azure/servicefabric) 的網站以外。
+> 如果安裝或更新 Service Fabric 外掛程式時很緩慢，可能是因為 Eclipse 設定。 Eclipse 會收集所有變更的中繼資料，以更新使用您 Eclipse 執行個體註冊的網站。 若要加速檢查及安裝 Service Fabric 外掛程式更新的程序，前往 [可用的軟體站台]。 清除所有網站的核取方塊，但指向 Service Fabric 外掛程式位置 (http://dl.microsoft.com/eclipse/azure/servicefabric)) 的網站除外。
 
 > [!NOTE]
 >如果 Eclipse 在 Mac 上未如預期一般運作，或需要您以進階使用者身分執行，請移至 **ECLIPSE_INSTALLATION_PATH** 資料夾，並瀏覽至子資料夾 **Eclipse.app/Contents/MacOS**。 執行 `./eclipse` 來啟動 Eclipse。
@@ -53,7 +58,7 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>在 Eclipse 中建立 Service Fabric 應用程式
 
-1.  在 Eclipse Neon 中，前往 [檔案] > [新增] > [其他]。 選取 **Service Fabric 外掛程式**，然後按 [下一步]。
+1.  在 Eclipse 中，移至 [檔案] > [新增] > [其他]。 選取 **Service Fabric 外掛程式**，然後按 [下一步]。
 
     ![Service Fabric 新專案第 1 頁][create-application/p1]
 
@@ -142,7 +147,7 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
 
 首先，變更您的應用程式，然後重建已修改的服務。 以服務 (和程式碼、組態或資料，視相關性而定) 已更新的版本，更新已修改之服務的資訊清單檔案 (ServiceManifest.xml)。 同時，也以應用程式已更新的版本號碼及已修改的服務，修改應用程式的資訊清單 (ApplicationManifest.xml)。  
 
-若要使用 Eclipse Neon 升級您的應用程式，您可以建立重複的執行組態設定檔。 然後，視需要使用它升級您的應用程式。
+若要使用 Eclipse 升級您的應用程式，您可以建立重複的執行組態設定檔。 然後，視需要使用它升級您的應用程式。
 
 1.  前往 [執行] > [執行組態]。 在左窗格中，按一下 [等級專案] 左邊的小箭號。
 2.  以滑鼠右鍵按一下 **ServiceFabricDeployer**，然後選取 [重複]。 輸入此設定的新名稱，例如，**ServiceFabricUpgrader**。

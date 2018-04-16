@@ -1,12 +1,12 @@
 ---
-title: "建立 Azure Service Fabric Java 應用程式 | Microsoft Docs"
-description: "在本快速入門中，您會使用 Service Fabric 可靠服務範例應用程式建立適用於 Azure 的 Java 應用程式。"
+title: 建立 Azure Service Fabric Java 應用程式 | Microsoft Docs
+description: 在本快速入門中，您會使用 Service Fabric 可靠服務範例應用程式建立適用於 Azure 的 Java 應用程式。
 services: service-fabric
 documentationcenter: java
 author: suhuruli
 manager: msfussell
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: quickstart
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0b284194abbbdd38524c0ae74ab7e05977d6883f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cc5f685efdf3ed680acf4d95185c58b4c43f5ac5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>快速入門：將 Java Service Fabric 可靠服務應用程式部署至 Azure
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理微服務與容器。 
@@ -30,11 +30,10 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 
 在此快速入門中，您可了解如何：
 
-> [!div class="checklist"]
-> * 使用 Eclipse 作為 Service Fabric Java 應用程式的工具
-> * 將應用程式部署到本機叢集 
-> * 將應用程式部署到 Azure 中的叢集
-> * 跨多個節點相應放大應用程式
+* 使用 Eclipse 作為 Service Fabric Java 應用程式的工具
+* 將應用程式部署到本機叢集 
+* 將應用程式部署到 Azure 中的叢集
+* 跨多個節點相應放大應用程式
 
 ## <a name="prerequisites"></a>先決條件
 若要完成本快速入門：
@@ -70,7 +69,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
     ![本機發佈對話方塊](./media/service-fabric-quickstart-java/localjson.png)
     
-7. 開啟您最愛的網頁瀏覽器，並存取 **http://localhost:8080** 來存取應用程式。 
+7. 開啟您最愛的網頁瀏覽器，並存取 **http://localhost:8080** 以存取應用程式。 
 
     ![本機應用程式前端](./media/service-fabric-quickstart-java/runninglocally.png)
     
@@ -81,21 +80,40 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>設定 Azure Service Fabric 叢集
 若要將應用程式部署到 Azure 中的叢集，請建立您自己的叢集。
 
-合作對象叢集是 Azure 上裝載的免費、限時 Service Fabric 叢集。 這類叢集是由任何人皆可部署應用程式並了解平台的 Service Fabric 小組所執行。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。 
+合作對象叢集是 Azure 上裝載的免費、限時 Service Fabric 叢集，由 Service Fabric 小組所執行。 您可以使用合作對象叢集來部署應用程式，並了解平台。 叢集會使用單一的自我簽署憑證，以確保節點對節點和用戶端對節點的安全性。
 
-如需在安全的合作對象叢集上執行管理作業，您可以使用 Service Fabric Explorer、CLI 或 Powershell。 若要使用 Service Fabric Explorer，您必須從合作對象叢集網站下載 PFX 檔案，並將憑證匯入憑證存放區 (Windows 或 Mac) 或瀏覽器本身 (Ubuntu)。 合作對象叢集中的自我簽署憑證沒有任何密碼。 
-
-若要使用 Powershell 或 CLI 執行管理作業，您需要 PFX (Powershell) 或 PEM (CLI)。 若要將 PFX 轉換成 PEM 檔案，請執行下列命令：  
-
-```bash
-openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
-```
-
-如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的 Service Fabric 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
+登入並加入 [Linux 叢集](http://aka.ms/tryservicefabric)。 藉由按一下 [PFX] 連結，將 PFX 憑證下載至您的電腦。 按一下**讀我檔案**連結以尋找憑證密碼，以及關於如何設定各種環境以使用憑證的指示。 請將 [歡迎] 頁面和 [讀我檔案] 頁面保持為開啟，您將在下列步驟使用其中的某些指示。 
 
 > [!Note]
+> 每小時可用的合作對象叢集數目有限。 如果您在嘗試註冊合作對象叢集時收到錯誤，可以等候一段時間再重試，也可以依照[在 Azure 上建立 Service Fabric 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)中的步驟，在您的訂用帳戶中建立叢集。 
+>
 > Spring Boot 服務設定為在連接埠 8080 上接聽傳入流量。 請確定您的叢集中已開啟該連接埠。 如果您使用合作對象叢集，此連接埠已開啟。
 >
+
+Service Fabric 提供了數項可用來管理叢集及其應用程式的工具：
+
+- Service Fabric Explorer，此為以瀏覽器為基礎的工具。
+- Service Fabric 命令列介面 (CLI)，此 CLI 會在 Azure CLI 2.0 之上執行。
+- PowerShell 命令。 
+
+在此快速入門中，您會使用 Service Fabric CLI 和 Service Fabric Explorer。 
+
+若要使用 CLI，必須根據您所下載的 PFX 檔案建立 PEM 檔案。 若要轉換此檔案，請使用下列命令。 (對於合作對象叢集，您可以從 [讀我檔案] 頁面上的指示中，複製您的 PFX 檔案適用的特定命令。)
+
+    ```bash
+    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
+    ``` 
+
+若要使用 Service Fabric Explorer，必須將您從合作對象叢集網站下載的憑證 PFX 檔案匯入至憑證存放區 (Windows 或 Mac) 或瀏覽器本身 (Ubuntu)。 您需要 PFX 私密金鑰密碼；此密碼可從 [讀我檔案] 頁面取得。
+
+請使用您最熟悉的方法在您的系統上匯入憑證。 例如︰
+
+- 在 Windows 上：按兩下 PFX 檔案，並依照提示在您的個人存放區中安裝憑證：`Certificates - Current User\Personal\Certificates`。 或者，您可以使用 **ReadMe** 指示中的 PowerShell 命令。
+- 在 Mac 上：按兩下 PFX 檔案，並依照提示在您的 Keychain 中安裝憑證。
+- 在 Ubuntu 上：Mozilla Firefox 是 Ubuntu 16.04 中的預設瀏覽器。 若要將憑證匯入 Firefox 中，請按一下瀏覽器右上角的功能表按鈕，然後按一下 [選項]。 在 [喜好設定] 頁面上，使用搜尋方塊搜尋「憑證」。 按一下 [檢視憑證]，選取 [您的憑證] 索引標籤上，按一下 [匯入]，並依照提示匯入憑證。
+ 
+   ![在 Firefox 上安裝憑證](./media/service-fabric-quickstart-java/install-cert-firefox.png) 
+
 
 ### <a name="add-certificate-information-to-your-application"></a>將憑證資訊新增至應用程式
 
@@ -104,7 +122,7 @@ openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1
 1. 在安全的叢集上執行時，您需要 ```Voting/VotingApplication/ApplicationManiest.xml``` 檔案中的憑證指紋。 執行下列命令以擷取憑證的指紋。
 
     ```bash
-    openssl x509 -in [CERTIFICATE_FILE] -fingerprint -noout
+    openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
 2. 在 ```Voting/VotingApplication/ApplicationManiest.xml``` 中的 **Secretscertificate** 標記下，新增下列程式碼片段。 **X509FindValue** 應該是上一個步驟的指紋 (沒有分號)。 
@@ -136,16 +154,16 @@ openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1
 
     ![雲端發佈對話方塊](./media/service-fabric-quickstart-java/cloudjson.png)
 
-3. 開啟您最愛的網頁瀏覽器，並存取 **http://\<ConnectionIPOrURL>:8080** 來存取應用程式。 
+3. 開啟您的網頁瀏覽器，並存取 **http://\<ConnectionIPOrURL>:8080** 以存取應用程式。 
 
     ![雲端應用程式前端](./media/service-fabric-quickstart-java/runningcloud.png)
     
 ## <a name="scale-applications-and-services-in-a-cluster"></a>調整叢集中的應用程式和服務
-您可以在整個叢集內調整服務，以符合服務上的負載變更。 您可以藉由變更叢集中執行的執行個體數目來調整服務。 您有多種方法來調整您的服務，您可以使用 Service Fabric CLI (sfctl) 中的指令碼或命令。 在此範例中，我們使用 Service Fabric Explorer。
+您可以在整個叢集內調整服務，以符合服務上的負載變更。 您可以藉由變更叢集中執行的執行個體數目來調整服務。 您可以透過多種方式調整服務；例如，您可以使用 Service Fabric CLI (sfctl) 中的指令碼或命令。 在下列步驟中，請使用 Service Fabric Explorer。
 
-Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可從瀏覽器瀏覽至叢集 HTTP 管理連接埠 (19080) 來存取，例如 `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`。
+Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可藉由瀏覽至叢集 HTTP 管理連接埠 (19080) 從瀏覽器存取，例如 `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`。
 
-若要調整 Web 前端服務，請執行下列步驟：
+若要調整 Web 前端服務，請執行下列動作：
 
 1. 在您的叢集中開啟 Service Fabric Explorer，例如 `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`。
 2. 按一下樹狀檢視中 **fabric:/Voting/VotingWeb** 節點旁的省略符號 (三個點)，然後選擇 [調整服務]。
@@ -161,17 +179,17 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可從�
 
     您現在會看到此服務具有兩個執行個體，而且在樹狀檢視中，您會看到執行個體執行所在的節點。
 
-藉由這項簡單的管理工作，我們會加倍前端服務可用來處理使用者負載的資源。 請務必了解，您不需要多個服務執行個體，就能夠可靠地執行。 如果服務失敗，Service Fabric 可確保新的服務執行個體在叢集中執行。
+藉由這項簡單的管理工作，您已讓前端服務可用來處理使用者負載的資源倍增。 請務必了解，您不需要多個服務執行個體，就能讓服務確實可靠地執行。 如果服務失敗，Service Fabric 可確保會有新的服務執行個體在叢集中執行。
 
 ## <a name="next-steps"></a>後續步驟
 在此快速入門中，您已了解如何：
 
-> [!div class="checklist"]
-> * 使用 Eclipse 作為 Service Fabric Java 應用程式的工具
-> * 將 Java 應用程式部署到本機叢集 
-> * 將 Java 應用程式部署到 Azure 中的叢集
-> * 跨多個節點相應放大應用程式
+* 使用 Eclipse 作為 Service Fabric Java 應用程式的工具
+* 將 Java 應用程式部署到本機叢集 
+* 將 Java 應用程式部署到 Azure 中的叢集
+* 跨多個節點相應放大應用程式
 
-* 深入了解[使用 Eclipse 偵錯 Java 上的服務](service-fabric-debugging-your-application-java.md)
-* 深入了解[使用 Jenkins 設定連續整合及部署](service-fabric-cicd-your-linux-applications-with-jenkins.md)
-* 簽出其他 [Java 範例](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+若要深入了解如何在 Service Fabric 中使用 Java 應用程式，請繼續進行教學課程以了解 Java 應用程式。
+
+> [!div class="nextstepaction"]
+> [部署 Java 應用程式](./service-fabric-tutorial-create-java-app.md)

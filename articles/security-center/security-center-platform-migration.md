@@ -1,11 +1,11 @@
 ---
-title: "Azure 資訊安全中心平台移轉 | Microsoft Docs"
-description: "本文件說明 Azure 資訊安全中心資料收集方式的一些變更。"
+title: Azure 資訊安全中心平台移轉 | Microsoft Docs
+description: 本文件說明 Azure 資訊安全中心資料收集方式的一些變更。
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 80246b00-bdb8-4bbc-af54-06b7d12acf58
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2e2e8d7213504ccd71df7048045925bf566c76d5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-security-center-platform-migration"></a>Azure 資訊安全中心平台移轉
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/13/2017
 
 資訊安全中心先前使用 Azure Monitoring Agent 從您的 VM 收集安全性資料。 這包括用來識別弱點之安全性設定，以及用來偵測威脅之安全性事件的相關資訊。 此資料會儲存於 Azure 中您的儲存體帳戶。
 
-此後，資訊安全中心會使用 Microsoft Monitoring Agent (這是 Operations Management Suite 和 Log Analytics 服務所用的相同代理程式)。 從這個代理程式收集的資料會儲存在與您的 Azure 訂用帳戶相關聯的現有 Log Analytics [工作區](../log-analytics/log-analytics-manage-access.md)或新的工作區中 (將 VM 的地理位置納入考量)。
+此後，資訊安全中心會使用 Microsoft Monitoring Agent (這是 Log Analytics 服務所使用的相同代理程式)。 從這個代理程式收集的資料會儲存在與您的 Azure 訂用帳戶相關聯的現有 Log Analytics [工作區](../log-analytics/log-analytics-manage-access.md)或新的工作區中 (將 VM 的地理位置納入考量)。
 
 ## <a name="agent"></a>代理程式
 
@@ -62,9 +62,9 @@ ms.lasthandoff: 12/13/2017
 > [!NOTE]
 > 資訊安全中心先前收集的資料會保留在儲存體帳戶中。 完成移轉之後，您可以刪除這些儲存體帳戶。
 
-### <a name="oms-security-solution"></a>OMS 安全性解決方案 
+### <a name="security-management-solution"></a>安全性管理解決方案 
 
-對於未安裝 OMS 安全性解決方案的現有客戶，Microsoft 會安裝在其工作區上，但是僅以 Azure VM 為目標。 請勿解除安裝此解決方案，因為如果從 OMS 管理主控台進行此動作，就沒有任何自動補救方式。
+對於未在 Log Analytics 中安裝安全性解決方案的現有客戶，Microsoft 會將其安裝在他們的工作區上，但僅以 Azure VM 為目標。 請勿解除安裝此解決方案，因為如果從管理主控台進行此動作，就沒有任何自動補救方式。
 
 
 ## <a name="other-updates"></a>其他更新

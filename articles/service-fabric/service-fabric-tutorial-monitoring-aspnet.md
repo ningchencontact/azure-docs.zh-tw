@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 030c6fbfb5eb76a745a1089acab54e74ce7a01e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: febeb2b7e6ada69db78cb0553b4fa90874f5f2eb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>教學課程：監視和診斷 Service Fabric 上的 ASP.NET Core 應用程式
 本教學課程是一個系列的第四部分。 其中會逐步設定使用 Application Insights 來監視和診斷 Service Fabric 叢集上執行的 ASP.NET Core 應用程式。 我們將從教學課程第一部分[建置 .NET Service Fabric 應用程式](service-fabric-tutorial-create-dotnet-app.md)中所開發的應用程式收集遙測資料。 
@@ -89,8 +89,12 @@ Application Insights 有兩個 Service Fabric 特定的 NuGet，可依情節來�
 1. 以滑鼠右鍵按一下 [方案總管] 頂端的 [方案 'Voting']，然後按一下 [管理方案的 NuGet 套件...]。
 2. 在 [NuGet - 方案] 視窗的頂端導覽功能表上，按一下 [瀏覽]，並勾選搜尋列旁邊的 [包含發行前版本] 方塊。
 3. 搜尋 `Microsoft.ApplicationInsights.ServiceFabric.Native`，然後按一下適當的 NuGet 套件。
+
+>[!NOTE]
+>如果在安裝 Application Insights 套件之前未預先安裝 Microsoft.ServiceFabric.Diagnistics.Internal 套件，您可能需要以類似方式安裝該套件
+
 4. 在右側，按一下應用程式中兩個服務 (**VotingWeb** 和 **VotingData**) 旁邊的兩個核取方塊，然後按一下 [安裝]。
-    ![AI 註冊完成](./media/service-fabric-tutorial-monitoring-aspnet/aisdk-sf-nuget.png)
+    ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. 按一下 [檢閱變更] 快顯對話方塊上的 [確定]，並選擇 [接受授權]。 這會完成將 NuGet 新增至服務。
 6. 您現在需要在兩個服務中設定遙測初始設定式。 請開啟 *VotingWeb.cs* 和 *VotingData.cs*。 對這兩者執行下列兩個步驟：
     1. 在每個 *\<ServiceName>.cs* 的頂端，新增下列兩個 *using* 陳述式：
@@ -114,6 +118,7 @@ Application Insights 有兩個 Service Fabric 特定的 NuGet，可依情節來�
                 .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
+        .UseApplicationInsights()
         .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
         .UseUrls(url)
         .Build();
@@ -137,6 +142,19 @@ Application Insights 有兩個 Service Fabric 特定的 NuGet，可依情節來�
         .Build();
     ```
 
+再次確認已在這兩個檔案中呼叫 `UseApplicationInsights()` 方法，如前所述。 
+
+>[!NOTE]
+>此範例應用程式會使用 HTTP 進行服務的通訊。 如果您使用服務遠端處理第 2 版開發應用程式，則您也必須依照前述作法，在相同的位置加入以下幾行程式碼
+
+```csharp
+ConfigureServices(services => services
+    ...
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingDependencyTrackingTelemetryModule())
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingRequestTrackingTelemetryModule())
+)
+```
+
 此時，您已經準備好要部署應用程式。 按一下頂端的 [開始] \(或 **F5**)，Visual Studio 會建置並封裝應用程式、設定本機叢集，然後將應用程式部署到此叢集。 
 
 完成應用程式部署後，請移至 [localhost:8080](localhost:8080)，您應該可以看到「投票範例」單一頁面應用程式。 票選您喜歡的幾個不同項目，以建立一些樣本資料和遙測資料 - 我去吃甜點了！
@@ -147,9 +165,7 @@ Application Insights 有兩個 Service Fabric 特定的 NuGet，可依情節來�
 
 ## <a name="view-telemetry-and-the-app-map-in-application-insights"></a>在 Application Insights 中檢視遙測資料和應用程式對應 
 
-在 Azure 入口網站中，移至您的 Application Insights 資源，在資源的左導覽列中，按一下 [設定]下的 [預覽]。 在可用的預覽清單中，**開啟** [多重角色的應用程式對應]。
-
-![AI 啟用 AppMap](./media/service-fabric-tutorial-monitoring-aspnet/ai-appmap-enable.png)
+在 Azure 入口網站中瀏覽至您的 Application Insights 資源。
 
 按一下 [概觀]，以回到資源的登陸頁面。 然後按一下頂端的 [搜尋]，可看到追蹤開始湧入。 經過幾分鐘，追蹤就會出現在 Application Insights 中。 如果沒有看到任何追蹤，請稍候片刻，然後按一下頂端的 [重新整理] 按鈕。
 ![AI 查看追蹤](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
@@ -160,9 +176,9 @@ Application Insights 有兩個 Service Fabric 特定的 NuGet，可依情節來�
 
 ![AI 追蹤詳細資料](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
-此外，由於我們已啟用應用程式對應，在 [概觀] 頁面上，按一下 [應用程式對應] 圖示會顯示兩個已連線的服務。
+此外，您可以在 [概觀] 頁面的左側功能表上按一下 [應用程式對應]，或按一下 [應用程式對應] 圖示，以導向至會顯示兩個連線服務的 [應用程式對應]。
 
-![AI 追蹤詳細資料](./media/service-fabric-tutorial-monitoring-aspnet/app-map.png)
+![AI 追蹤詳細資料](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 「應用程式對應」可協助您更充分了解應用程式拓撲，特別是當您開始新增多個一起運作的不同服務時。 另外也提供要求成功率的基本資料，還可協助您診斷失敗的要求，以查明可能出錯的地方。 若要深入了解使用應用程式對應，請參閱 [Application Insights 中的應用程式對應](../application-insights/app-insights-app-map.md)。
 

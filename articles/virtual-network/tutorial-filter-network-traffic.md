@@ -1,6 +1,6 @@
 ---
-title: 篩選網路流量 - Azure PowerShell | Microsoft Docs
-description: 在本文中，您將了解如何使用 PowerShell 透過網路安全性群組篩選傳至子網路的網路流量。
+title: 篩選網路流量 - 教學課程 - Azure PowerShell | Microsoft Docs
+description: 在本教學課程中，您將了解如何使用 PowerShell 透過網路安全性群組篩選傳至子網路的網路流量。
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -11,21 +11,21 @@ Customer intent: I want to filter network traffic to virtual machines that perfo
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: 53406150cfc2ec4229ecd9cf3356ad03d60f8e7e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.custom: mvc
+ms.openlocfilehash: 8e04ed7ad16b673597b62d947c3f782ee0d27c7c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>使用 PowerShell 透過網路安全性群組篩選網路流量
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>教學課程：使用 PowerShell 透過網路安全性群組篩選網路流量
 
-您可以透過網路安全性群組篩選輸入虛擬網路子網路和從中輸出的網路流量。 網路安全性群組包含可依 IP 位址、連接埠和通訊協定篩選網路流量的安全性規則。 安全性規則會套用至子網路中部署的資源。 在本文中，您將了解：
+您可以透過網路安全性群組篩選輸入虛擬網路子網路和從中輸出的網路流量。 網路安全性群組包含可依 IP 位址、連接埠和通訊協定篩選網路流量的安全性規則。 安全性規則會套用至子網路中部署的資源。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立網路安全性群組和安全性規則
@@ -33,13 +33,13 @@ ms.lasthandoff: 04/03/2018
 > * 將虛擬機器 (VM) 部署至子網路中
 > * 測試流量篩選
 
-如果您想要，您可以使用 [Azure CLI](tutorial-filter-network-traffic-cli.md) 完成本文。
+如果您想要，您可以使用 [Azure CLI](tutorial-filter-network-traffic-cli.md) 完成本教學課程。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，本文會要求使用 Azure PowerShell 模組版本 5.4.1 或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。 
+如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 Azure PowerShell 模組 5.4.1 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。 
 
 ## <a name="create-a-network-security-group"></a>建立網路安全性群組
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 04/03/2018
 
 ### <a name="create-application-security-groups"></a>建立應用程式安全性群組
 
-首先，請使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 為本文中建立的所有資源建立資源群組。 下列範例會在 *eastus* 位置建立資源群組： 
+首先，請使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 為本教學課程中建立的所有資源建立資源群組。 下列範例會在 *eastus* 位置建立資源群組： 
 
 
 ```azurepowershell-interactive
@@ -98,7 +98,7 @@ $mgmtRule = New-AzureRmNetworkSecurityRuleConfig `
   -DestinationPortRange 3389
 ```
 
-在本文中，會針對 *myAsgMgmtServers* VM 將 RDP (連接埠 3389) 公開至網際網路。 在生產環境中則不應將連接埠 3389 公開至網際網路，而是建議您使用 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或[私人](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)網路連線連接到您想要管理的 Azure 資源。
+在本教學課程中，會針對 *myAsgMgmtServers* VM 將 RDP (連接埠 3389) 公開至網際網路。 在生產環境中則不應將連接埠 3389 公開至網際網路，而是建議您使用 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或[私人](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)網路連線連接到您想要管理的 Azure 資源。
 
 ### <a name="create-a-network-security-group"></a>建立網路安全性群組
 
@@ -297,9 +297,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已建立網路安全性群組，並將其與虛擬網路子網路產生關聯。 若要深入了解網路安全性群組，請參閱[網路安全性群組概觀](security-overview.md)和[管理網路安全性群組](virtual-network-manage-nsg-arm-ps.md)。
+在本教學課程中，您已建立網路安全性群組，並將其與虛擬網路子網路產生關聯。 若要深入了解網路安全性群組，請參閱[網路安全性群組概觀](security-overview.md)和[管理網路安全性群組](virtual-network-manage-nsg-arm-ps.md)。
 
-Azure 依預設會路由傳送子網路之間的流量。 您可以改採其他方式，例如，透過作為防火牆的 VM 路由傳送子網路之間的流量。 若想了解如何建立路由表，請移至下一篇文章。
+Azure 依預設會路由傳送子網路之間的流量。 您可以改採其他方式，例如，透過作為防火牆的 VM 路由傳送子網路之間的流量。 若想了解如何建立路由表，請移至下一個教學課程。
 
 > [!div class="nextstepaction"]
 > [建立路由表](./tutorial-create-route-table-portal.md)

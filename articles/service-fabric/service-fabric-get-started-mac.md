@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 81265dd61faee38d578a380ca392e7851662329c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 76bbe686d07ff83bff6271f62793713194938212
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上設定開發環境
 > [!div class="op_single_selector"]
@@ -109,7 +109,7 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-5. 叢集會在短時間內啟動，您可以使用下列命令來檢視記錄，或跳到儀表板檢視叢集健康狀態 [http://localhost:19080](http://localhost:19080)：
+5. 叢集會在短時間內啟動，您可以使用下列命令來檢視記錄，或跳到儀表板檢視叢集健康情況 [http://localhost:19080](http://localhost:19080)：
 
     ```bash 
     docker logs sftestcluster
@@ -187,9 +187,9 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 
 安裝 [.NET Core 2.0 SDK for Mac](https://www.microsoft.com/net/core#macos) 以開始[建立 C# Service Fabric 應用程式](service-fabric-create-your-first-linux-application-with-csharp.md)。 .NET Core 2.0 Service Fabric 應用程式的套件裝載於 NuGet.org (目前處於預覽狀態)。
 
-## <a name="install-the-service-fabric-plug-in-for-eclipse-neon-on-your-mac"></a>在 Mac 上安裝適用於 Eclipse Neon 的 Service Fabric 外掛程式
+## <a name="install-the-service-fabric-plug-in-for-eclipse-on-your-mac"></a>在 Mac 上安裝適用於 Eclipse 的 Service Fabric 外掛程式
 
-Azure Service Fabric 會針對 Java IDE 提供 Eclipse Neon 的外掛程式。 外掛程式可簡化建立、建置和部署 Java 服務的程序。 若要安裝或更新為最新版的 Eclipse Service Fabric 外掛程式，請遵循[這些步驟](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon)。 [Eclipse 的 Service Fabric 文件](service-fabric-get-started-eclipse.md)中的其他步驟也適用：建置應用程式、將服務新增至應用程式、解除安裝應用程式等。
+Azure Service Fabric 會針對 Java IDE 提供 Eclipse Neon (或更新版本) 的外掛程式。 外掛程式可簡化建立、建置和部署 Java 服務的程序。 若要安裝或更新為最新版的 Eclipse Service Fabric 外掛程式，請遵循[這些步驟](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse)。 [Eclipse 的 Service Fabric 文件](service-fabric-get-started-eclipse.md)中的其他步驟也適用：建置應用程式、將服務新增至應用程式、解除安裝應用程式等。
 
 最後一個步驟是使用與您的主機共用的路徑將容器具現化。 外掛程式需要這種類型的具現化，才能在您的 Mac 上使用 Docker 容器。 例如︰
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 存取權檢閱 | Microsoft Docs"
-description: "您可以使用 Azure Active Directory 存取權檢閱，來控制群組成員資格和應用程式存取權，以符合貴組織的控管、風險管理和合規性計畫。"
+title: Azure AD 存取權檢閱 | Microsoft Docs
+description: 您可以使用 Azure Active Directory 存取權檢閱，來控制群組成員資格和應用程式存取權，以符合貴組織的控管、風險管理和合規性計畫。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: 40c3cfaf723a22013c93e0efae3d074e98643742
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3c5d09b6f17fe8ae9be73d23d7aef6beae2ae43c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-ad-access-reviews-preview"></a>Azure AD 存取權檢閱 (預覽)
+# <a name="azure-ad-access-reviews"></a>Azure AD 存取權檢閱
 
-Azure Active Directory (Azure AD) 存取權檢閱可讓組織有效地管理群組成員資格和企業應用程式的存取權。 
+Azure Active Directory (Azure AD) 存取權檢閱可讓組織有效地管理群組成員資格、對企業應用程式的存取，以及特殊權限角色指派。 
 
 ## <a name="what-can-you-do-with-access-reviews"></a>可以使用存取權檢閱做什麼？
    
@@ -30,6 +30,8 @@ Azure Active Directory (Azure AD) 存取權檢閱可讓組織有效地管理群�
 - 您可以利用存取權檢閱，重新認證員工對應用程式的存取權和群組成員資格。
    
 - 您可以將存取權檢閱控制項收集到組織相關的程式，以追蹤合規性或與風險相關之應用程式的檢閱。
+
+- 您可以對指派給 Azure AD 角色 (例如全域系統管理員) 或 Azure 訂用帳戶角色的系統管理使用者重新認證其角色指派。  此功能隨附於 Azure AD Privileged Identity Management 中。
     
 
 ## <a name="next-steps"></a>後續步驟

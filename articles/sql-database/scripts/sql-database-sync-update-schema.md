@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 01/10/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 5f9f0a5921951669d451a9755c5da2091287c909
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6b117484eaa1a9ac3ed85dfe547b3f6163d702cf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>使用 PowerShell 更新現有同步群組中的同步結構描述
 
@@ -97,7 +97,7 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
 -   [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步處理資料](../sql-database-sync-data.md)
 -   [設定 Azure SQL 資料同步](../sql-database-get-started-sql-data-sync.md)
 -   [Azure SQL 資料同步最佳做法](../sql-database-best-practices-data-sync.md)
--   [透過 OMS Log Analytics 監視 Azure SQL 資料同步](../sql-database-sync-monitor-oms.md)
+-   [透過 Log Analytics 監視 Azure SQL 資料同步](../sql-database-sync-monitor-oms.md)
 -   [對 Azure SQL 資料同步的問題進行疑難排解](../sql-database-troubleshoot-data-sync.md)
 
 -   示範如何設定 SQL 資料同步的完整 PowerShell 範例：

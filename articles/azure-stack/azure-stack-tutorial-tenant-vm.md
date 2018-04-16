@@ -17,10 +17,10 @@ ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>將虛擬機器提供給您的 Azure Stack 使用者
 身為 Azure Stack 雲端系統管理員，您可以建立供應項目，以供您的使用者 (有時稱為租用戶) 訂閱。 利用其訂用帳戶，使用者可以接著取用 Azure Stack 服務。
@@ -113,7 +113,7 @@ ms.lasthandoff: 03/23/2018
    現在您能以使用者身分登入到入口網站，以訂閱供應項目。
 
    a. 以使用者身分登入使用者入口網站，並按一下 [Get a Subscription]\(取得訂用帳戶\)。
-   - 就整合系統而言，URL 會因操作員的區域和外部網域名稱而有所不同，格式將會是 https://portal.&lt;*區域*&gt;.&lt;*FQDN*&gt;。
+   - 就整合系統而言，URL 會因操作員的區域和外部網域名稱而有所不同，且格式將是 https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;。
    - 如果您使用「Azure Stack 開發套件」，則入口網站位址為 https://portal.local.azurestack.external。
 
    ![取得訂用帳戶](media/azure-stack-subscribe-plan-provision-vm/image01.png)
@@ -131,7 +131,7 @@ ms.lasthandoff: 03/23/2018
    現在您能以使用者身分登入入口網站，以使用訂用帳戶佈建虛擬機器。 
 
    a. 以使用者身分登入使用者入口網站。
-      - 就整合系統而言，URL 會因操作員的區域和外部網域名稱而有所不同，格式將會是 https://portal.&lt;*區域*&gt;.&lt;*FQDN*&gt;。
+      - 就整合系統而言，URL 會因操作員的區域和外部網域名稱而有所不同，且格式將是 https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;。
    - 如果您使用「Azure Stack 開發套件」，則入口網站位址為 https://portal.local.azurestack.external。
 
    b.  在儀表板上，按一下 [新增] > **[計算]** > **[Windows Server 2016 Datacenter 評估版]**，然後按一下 [建立]。

@@ -1,10 +1,10 @@
 ---
-title: "使用 Azure Event Grid 以自動調整上傳映像的大小 | Microsoft Docs"
-description: "Azure Event Grid 可在 Azure 儲存體的 Blob 上傳項目上觸發。 您可以使用此將上傳至 Azure 儲存體的映像檔案傳送至其他服務 (例如 Azure Functions)，以調整大小和其他改善功能。"
+title: 使用 Azure Event Grid 以自動調整上傳映像的大小 | Microsoft Docs
+description: Azure Event Grid 可在 Azure 儲存體的 Blob 上傳項目上觸發。 您可以使用此將上傳至 Azure 儲存體的映像檔案傳送至其他服務 (例如 Azure Functions)，以調整大小和其他改善功能。
 services: event-grid, functions
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 68343c3ffd87496ed4ae89b478ee5c8119ed67f5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0edf5648ddef58db74273635c84d7473e17e1b30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>使用 Event Grid 自動調整已上傳映像的大小
 
@@ -90,7 +90,7 @@ storageConnectionString=$(az storage account show-connection-string \
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbs
+myContainerName=thumbnails
 ```
 
 您現在可以將函式程式碼專案部署到此函式應用程式。
@@ -145,7 +145,7 @@ az functionapp deployment source config --name <function_app> \
     | **訂閱者端點** | 自動產生 | 使用為您產生的端點 URL。 | 
     | **前置詞篩選** | /blobServices/default/containers/images/blobs/ | 將儲存體事件篩選為只有**映像**容器上的事件。| 
 
-4. 按一下 [建立] 以新增事件訂閱。 當 Blob 新增至 images 容器時，這會建立可觸發 `imageresizerfunc` 的事件訂閱。 此函式會調整映像大小，並將其新增至 thumbs 容器。
+4. 按一下 [建立] 以新增事件訂閱。 當 Blob 新增至 images 容器時，這會建立可觸發 `imageresizerfunc` 的事件訂閱。 此函式會調整映像大小，並將其新增至 *thumbnails* 容器。
 
 既然已設定了後端服務，您可以在範例 Web 應用程式中測試映像調整大小功能。 
 
@@ -155,7 +155,7 @@ az functionapp deployment source config --name <function_app> \
 
 按一下 [上傳相片] 區域，以選取並上傳檔案。 您也可以將相片拖曳到此區域。 
 
-請注意，上傳的映像消失之後，上傳映像的複本會顯示在 [產生縮圖] 浮動切換中。 此映像已由函式調整大小、新增至 thumbs 容器，並由 Web 用戶端下載。
+請注意，上傳的映像消失之後，上傳映像的複本會顯示在 [產生縮圖] 浮動切換中。 此映像已由函式調整大小、新增至 *thumbnails* 容器，並由 Web 用戶端下載。
 
 ![Edge 瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
