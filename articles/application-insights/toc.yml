@@ -196,6 +196,8 @@
               href: app-insights-usage-segmentation.md
             - name: 漏斗圖
               href: usage-funnels.md
+            - name: 同群使用者
+              href: app-insights-usage-cohorts.md
             - name: 影響
               href: app-insights-usage-impact.md
             - name: 保留

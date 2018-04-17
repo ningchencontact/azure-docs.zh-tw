@@ -16,7 +16,7 @@
 ## 管理
 ### [開啟高對比或變更佈景主題](azure-portal-change-theme-high-contrast.md)
 ### [使用入口網站管理資源](../azure-resource-manager/resource-group-portal.md)
-### [使用角色型存取控制來管理存取](../active-directory/role-based-access-control-configure.md)
+### [使用角色型存取控制來管理存取](../role-based-access-control/role-assignments-portal.md)
 ### [使用角色型存取控制來共用儀表板](azure-portal-dashboard-share-access.md)
 ### [使用標籤來整理資源](../azure-resource-manager/resource-group-using-tags.md)
 ### [調整您的資源](../monitoring-and-diagnostics/insights-how-to-scale.md)
