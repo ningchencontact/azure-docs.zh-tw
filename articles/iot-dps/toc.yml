@@ -89,28 +89,30 @@
       href: concepts-service.md
 - name: 使用說明指南
   items:
-    - name: 管理裝置註冊
+    - name: 將 MXChip IoT DevKit 連線到 IoT 中樞
+      href: how-to-connect-mxchip-iot-devkit.md
+    - name: 管裝置佈建設定
       items:
-        - name: 透過 Azure 入口網站管理裝置註冊
+        - name: 設定已驗證的 CA 憑證
+          href: how-to-verify-certificates.md
+        - name: 管理取消佈建
+          href: how-to-unprovision-devices.md
+        - name: 管理取消註冊
+          href: how-to-revoke-device-access-portal.md
+        - name: 管理註冊 - 入口網站
           href: how-to-manage-enrollments.md
-        - name: 透過服務 SDK 管理裝置註冊
+        - name: 管理註冊 - 服務 SDK
           href: how-to-manage-enrollments-sdks.md
-    - name: 撤銷裝置存取
-      href: how-to-revoke-device-access-portal.md
-    - name: 解除佈建裝置
-      href: how-to-unprovision-devices.md
-    - name: 執行證明持有 X.509 CA 憑證
-      href: how-to-verify-certificates.md
-    - name: 使用 HSM 與 SDK
+    - name: 管理裝置佈建服務
+      items:
+        - name: 使用 Azure CLI 來設定裝置佈建服務
+          href: how-to-manage-dps-with-cli.md
+        - name: 控制佈建服務 API 的存取
+          href: how-to-control-access.md
+    - name: 透過 SDK 使用證明機制
       href: use-hsm-with-sdk.md
-    - name: 控制佈建服務的存取
-      href: how-to-control-access.md
-    - name: 使用 Azure CLI 來管理裝置佈建服務
-      href: how-to-manage-dps-with-cli.md
     - name: 使用 SDK 工具進行開發
       href: how-to-use-sdk-tools.md
-    - name: 連線至 MXChip IoT DevKit
-      href: how-to-connect-mxchip-iot-devkit.md
 - name: 參考
   items:
     - name: REST

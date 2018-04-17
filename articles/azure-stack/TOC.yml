@@ -55,11 +55,11 @@
         - name: Azure Stack 部署 PKI 先決條件
           href: azure-stack-pki-certs.md
           items:
-            - name: 取得 Azure Stack PKI 憑證
+            - name: 產生 PKI 憑證
               href: azure-stack-get-pki-certs.md
             - name: 準備 Azure Stack PKI 憑證
               href: azure-stack-prepare-pki-certs.md
-            - name: 驗證 Azure Stack PKI 憑證
+            - name: 驗證 PKI 憑證
               href: azure-stack-validate-pki-certs.md
         - name: 身分識別整合
           href: azure-stack-integrate-identity.md
@@ -286,8 +286,6 @@
           href: azure-stack-diagnostics.md
         - name: Azure Stack 驗證
           href: azure-stack-diagnostic-test.md
-        - name: 重新部署 Azure Stack 開發套件
-          href: azure-stack-redeploy.md
 - name: 參考
   items:
     - name: Azure Stack PowerShell
