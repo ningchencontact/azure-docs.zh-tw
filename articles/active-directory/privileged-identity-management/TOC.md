@@ -55,7 +55,7 @@
 
 # 相關參考
 ## [Azure Active Directory](/azure/active-directory/)
-## [角色型存取控制](../role-based-access-control-what-is.md)
+## [角色型存取控制](../../role-based-access-control/overview.md)
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
