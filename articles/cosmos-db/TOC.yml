@@ -183,7 +183,7 @@ items:
                 href: sql-api-sql-query-metrics.md
               - name: SQL 園地
                 href: 'https://aka.ms/cosmos-db-playground'
-              - name: 分割
+              - name: SQL 資料分割
                 href: sql-api-partition-data.md
               - name: 預存程序、觸發程序和 UDF
                 href: programming.md
@@ -286,6 +286,8 @@ items:
             items:
               - name: Gremlin 支援
                 href: gremlin-support.md
+              - name: 圖表分割
+                href: graph-partitioning.md
           - name: 資料表 API
             items:
               - name: 資料表開發
@@ -328,8 +330,6 @@ items:
             href: geospatial.md
           - name: 編製索引
             href: indexing-policies.md
-          - name: Visual Studio 中的已連線服務
-            href: connected-service.md
       - name: 管理
         items:
           - name: 符合成本效益的讀取和寫入
@@ -394,7 +394,7 @@ items:
           - name: 運用 ODBC 驅動程式展現資料視覺效果
             href: odbc-driver.md
           - name: 使用 Spring Boot Starter 搭配 SQL API
-            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
   - name: 參考
     items:
       - name: 程式碼範例

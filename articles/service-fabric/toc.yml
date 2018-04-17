@@ -201,6 +201,8 @@
       items:
         - name: 叢集安全性
           href: service-fabric-cluster-security.md
+        - name: 調整大小
+          href: service-fabric-cluster-scaling.md
         - name: Linux 和 Windows 間的功能差異
           href: service-fabric-linux-windows-differences.md
         - name: Azure 上的叢集
@@ -323,6 +325,8 @@
               href: service-fabric-resource-governance.md
             - name: 磁碟區與記錄驅動程式
               href: service-fabric-containers-volume-logging-drivers.md
+            - name: 檢視容器記錄
+              href: service-fabric-containers-view-logs.md
             - name: 容器內的服務
               href: service-fabric-services-inside-containers.md
             - name: 容器網路服務模式
@@ -395,7 +399,7 @@
               href: service-fabric-assign-policy-to-endpoint.md
             - name: 以 AD 使用者或群組身分執行服務
               href: service-fabric-run-service-as-ad-user-or-group.md
-            - name: 以群組受控受控服務帳戶身分執行服務
+            - name: 以群組受控服務帳戶身分執行服務
               href: service-fabric-run-service-as-gmsa.md
             - name: 在容器中使用憑證
               href: service-fabric-securing-containers.md
@@ -539,8 +543,10 @@
           href: service-fabric-visualizing-your-cluster.md
         - name: 連線到安全的叢集
           href: service-fabric-connect-to-secure-cluster.md
-        - name: 修補叢集節點
+        - name: 修補叢集節點 (Windows)
           href: service-fabric-patch-orchestration-application.md
+        - name: 修補叢集節點 (Linux)
+          href: service-fabric-patch-orchestration-application-linux.md
     - name: 監視與診斷
       items:
         - name: 使用 OMS 分析

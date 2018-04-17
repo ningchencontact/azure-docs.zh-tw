@@ -26,32 +26,25 @@
 ### [Azure 入口網站](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-### [Azure 入口網站 (傳統)](vpn-gateway-howto-site-to-site-classic-portal.md)
-
 ## [下載 VPN 裝置組態指令碼](vpn-gateway-download-vpndevicescript.md)
-
 ## 設定點對站連線 - 原生 Azure 憑證驗證
 ### 設定 P2S VPN
 #### [Azure 入口網站](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 #### [Azure PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-#### [Azure 入口網站 (傳統)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 ### 建立自我簽署憑證
 #### [Azure PowerShell](vpn-gateway-certificates-point-to-site.md)
 #### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ### [建立和安裝 VPN 用戶端組態檔](point-to-site-vpn-client-configuration-azure-cert.md)
 ### [裝用戶端憑證](point-to-site-how-to-vpn-client-install-azure-cert.md)
-
 ## 設定點對站連線 - RADIUS 驗證
 ### 設定 P2S VPN
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [建立和安裝 VPN 用戶端組態檔](point-to-site-vpn-client-configuration-radius.md)
 ### [將 P2S VPN RADIUS 驗證與 NPS 伺服器整合](vpn-gateway-radiuis-mfa-nsp.md)
-
 ## 設定 VNet 對 VNet 連線
 ### [Azure 入口網站](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-### [Azure 入口網站 (傳統)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## 在部署模型間設定 VNet 對 VNet 連線
 ### [Azure 入口網站](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Azure PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
@@ -59,7 +52,6 @@
 ### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## 設定多個站對站連線
 ### [Azure 入口網站](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-### [Azure PowerShell (傳統)](vpn-gateway-multi-site.md)
 ## 連線多個原則型 VPN 裝置
 ### [Azure PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
 ## 在連線上設定 IPsec/IKE 原則
@@ -71,7 +63,6 @@
 ### [Azure CLI](bgp-how-to-cli.md)
 ## 設定強制通道
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
-### [Azure PowerShell (傳統)](vpn-gateway-about-forced-tunneling.md)
 ## 修改區域網路閘道設定
 ### [Azure 入口網站](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-modify-local-network-gateway.md)
@@ -81,13 +72,10 @@
 ## 刪除 VPN 閘道
 ### [Azure 入口網站](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-### [Azure PowerShell (傳統)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [設定 VPN 閘道 (傳統)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## [閘道 SKU (舊版)](vpn-gateway-about-skus-legacy.md)
 ## 設定第三方 VPN 裝置
 ### [概觀和 Azure 組態](vpn-gateway-3rdparty-device-config-overview.md)
 ### [範例：Cisco ASA 裝置 (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
-## [從傳統移轉到資源管理員](vpn-gateway-classic-resource-manager-migration.md)
 ## [疑難排解](vpn-gateway-troubleshoot.md)
 ### [社群建議的 VPN 或防火牆裝置設定](vpn-gateway-third-party-settings.md)
 ### [設定和驗證 VNet 或 VPN 連線](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
@@ -99,6 +87,15 @@
 #### [站對站連線問題](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
 #### [站對站連線會間歇性中斷](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 
+## 傳統部署模型文章
+### [設定站對站連線](vpn-gateway-howto-site-to-site-classic-portal.md)
+### [設定點對站連線](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### [設定 VNet 對 VNet 連線](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+### [設定強制通道](vpn-gateway-about-forced-tunneling.md)
+### [刪除 VPN 閘道](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+### [設定多個站對站連線](vpn-gateway-multi-site.md)
+### [設定 VPN 閘道](vpn-gateway-configure-vpn-gateway-mp.md)
+### [從傳統移轉到資源管理員](vpn-gateway-classic-resource-manager-migration.md)
 
 # 參考
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
@@ -119,7 +116,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
 ## [部落格](https://azure.microsoft.com/blog/topics/networking)
 ## [論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [價格](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [定價](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

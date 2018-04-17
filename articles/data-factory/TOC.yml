@@ -364,6 +364,10 @@
           href: create-azure-ssis-integration-runtime.md
     - name: 在 Azure 中執行 SSIS 套件
       items:
+        - name: Azure-SSIS 整合執行階段自訂設定
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: 佈建 Azure-SSIS 整合執行階段的 Enterprise Edition
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: 將 Azure SSIS 整合執行階段新增至 VNET
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: 管理 Azure-SSIS 整合執行階段
@@ -374,6 +378,8 @@
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: 排程 Azure-SSIS 整合執行階段
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: 開發 Azure-SSIS 整合執行階段的授權元件
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: 建立觸發程序
       items:
         - name: 建立排程觸發程序

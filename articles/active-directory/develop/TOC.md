@@ -7,9 +7,9 @@
 ### [概觀](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
-### [.NET](active-directory-devquickstarts-dotnet.md)
-### [Windows](active-directory-devquickstarts-windowsstore.md)
-### [Xamarin](active-directory-devquickstarts-xamarin.md)
+### [.NET (Windows Desktop)](active-directory-devquickstarts-dotnet.md)
+### [.NET (Windows Universal)](active-directory-devquickstarts-windowsstore.md)
+### [.NET (Xamarin)](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## Web 應用程式
@@ -96,11 +96,16 @@
 ### 行動和桌面應用程式
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [Windows 桌面型 .NET](guidedsetups/active-directory-windesktop.md)
+#### [.NET (Windows Desktop)](guidedsetups/active-directory-windesktop.md)
 ### Web 應用程式
-#### [JavaScript SPA](guidedsetups/active-directory-javascriptspa.md)
-#### [ASP.NET Web 伺服器](guidedsetups/active-directory-aspnetwebapp.md)
-#### [NodeJS Web 應用程式](active-directory-v2-devquickstarts-node-web.md)
+#### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
+#### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+### 單一頁面應用程式
+#### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
+### Web API
+#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
+### 服務對服務
+#### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## 手冊
 ### [註冊應用程式](active-directory-v2-app-registration.md)
 ## 參考
@@ -110,10 +115,10 @@
 #### [OAuth 2.0 授權碼授與](active-directory-v2-protocols-oauth-code.md)
 #### [Oauth 2.0 隱含授與](active-directory-v2-protocols-implicit.md)
 #### [OAuth 2.0 用戶端認證授與](active-directory-v2-protocols-oauth-client-creds.md)
-#### [Oauth 2.0 代理者流程](active-directory-v2-protocols-oauth-on-behalf-of.md)
-#### [權杖參考](active-directory-v2-tokens.md)
+#### [OAuth 2.0 代理者流程](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [憑證認證](active-directory-certificate-credentials.md)
-### [範圍](active-directory-v2-scopes.md)
+### [權杖](active-directory-v2-tokens.md)
+### [範圍與同意](active-directory-v2-scopes.md)
 # 資源
 ## [取得說明](active-directory-develop-help-support.md)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)

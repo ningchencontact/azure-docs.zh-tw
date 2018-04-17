@@ -293,8 +293,8 @@
               href: delete-vault.md
         - name: 監視及疑難排解
           items:
-            - name: 對 Azure 進行容錯移轉的疑難排解
-              href: site-recovery-failover-to-azure-troubleshoot.md
+            - name: Hyper-V 複寫問題疑難排解
+              href: hyper-v-azure-troubleshoot.md
             - name: 監視 Azure Site Recovery
               href: site-recovery-monitor-and-troubleshoot.md
     - name: Hyper-V 至次要網站

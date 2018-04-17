@@ -2,40 +2,38 @@
 
 # 概觀
 ## [什麼是串流分析？](stream-analytics-introduction.md)
-## [比較 Storm 與串流分析](stream-analytics-comparison-storm.md)
 
-# 開始使用
-## [處理 IoT 串流資料](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
-## [即時詐欺偵測](stream-analytics-real-time-fraud-detection.md)
-## [使用 Power BI 分析資料](stream-analytics-power-bi-dashboard.md)
+# 快速入門
+## [建立作業 - Azure 入口網站](stream-analytics-quick-create-portal.md)
+## [建立作業 - PowerShell](stream-analytics-quick-create-powershell.md)
+
+# 教學課程
+## [1 - 建立/管理作業](stream-analytics-manage-job.md)
+## [2 - 執行 Azure Functions](stream-analytics-with-azure-functions.md)
+## [3 - 執行 Javascript UDF](stream-analytics-javascript-user-defined-functions.md)
 
 # 範例
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
 
 # 概念
-## 作業的輸入類型
+## [作業的輸入類型](stream-analytics-add-inputs.md)
 ### [串流資料輸入](stream-analytics-define-inputs.md)
 ### [參考資料輸入](stream-analytics-use-reference-data.md)
 ## [作業的輸出類型](stream-analytics-define-outputs.md)
+### [輸出至 Cosmos DB](stream-analytics-documentdb-output.md)
 ## [視窗函式](stream-analytics-window-functions.md)
 ## [相容性層級](stream-analytics-compatibility-level.md)
 ## [常見查詢模式](stream-analytics-stream-analytics-query-patterns.md)
 ## [事件順序的考量](stream-analytics-out-of-order-and-late-events.md)
 
-
 # 使用指南
-
-## 建立作業
-### [測試查詢及範例輸入資料](stream-analytics-sample-data-input.md)
-### [測試查詢](stream-analytics-test-query.md)
-### [執行 JavaScript UDF](stream-analytics-javascript-user-defined-functions.md)
-### [輸出至 Data Lake Store](stream-analytics-data-lake-output.md)
-### [輸出至 Cosmos DB](stream-analytics-documentdb-output.md)
-### [設定警示](stream-analytics-set-up-alerts.md)
 
 ## 管理
 ### [更新作業](stream-analytics-job-reliability.md)
 ### [更新認證](stream-analytics-login-credentials-inputs-outputs.md)
+### [設定警示](stream-analytics-set-up-alerts.md)
+### [測試您的工作](stream-analytics-test-query.md)
+### [在儀表板上檢視結果](stream-analytics-power-bi-dashboard.md)
 
 ## 建置解決方案
 ### [Twitter 情緒分析](stream-analytics-twitter-sentiment-analysis-trends.md)
@@ -44,11 +42,11 @@
 ### [收費亭感應器資料分析](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [執行 JavaScript UDA](stream-analytics-javascript-user-defined-aggregates.md)
 ### [高頻率交易](stream-analytics-high-frequency-trading.md)
-### [執行 Azure Functions](stream-analytics-with-azure-functions.md)
+### [處理 IoT 串流資料](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 
 ## 監視
 
-### [監視工作- 入口網站](stream-analytics-monitoring.md)
+### [監視工作 - Azure 入口網站](stream-analytics-monitoring.md)
 ### [監視工作- PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [監視工作 Azure .Net SDK](stream-analytics-monitor-jobs.md)
 
@@ -82,7 +80,6 @@
 ### [異常偵測](stream-analytics-machine-learning-anomaly-detection.md)
 ### [使用 REST API](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 
-
 # 參考
 ## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [查詢語言](https://msdn.microsoft.com/library/azure/dn834998)
@@ -102,7 +99,8 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [客戶案例研究](https://azure.microsoft.com/case-studies/?service=stream-analytics)
-## [即時事件處理](stream-analytics-real-time-event-processing-reference-architecture.md)
+## [白皮書 - 即時事件處理](stream-analytics-real-time-event-processing-reference-architecture.md)
+## [比較 Storm 與串流分析](stream-analytics-comparison-storm.md)
 
 
 
