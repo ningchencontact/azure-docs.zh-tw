@@ -1,6 +1,6 @@
 ---
-title: "設定 VM (傳統) 的私人 IP 位址 - Azure 入口網站 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站設定虛擬機器 (傳統) 的私人 IP 位址。"
+title: 設定 VM (傳統) 的私人 IP 位址 - Azure 入口網站 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站設定虛擬機器 (傳統) 的私人 IP 位址。
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>建立 VM 時如何指定靜態私人 IP 位址
 若要在名為 TestVNet 之 VNet 的FrontEnd子網路中建立名為 DNS01 且其靜態私人 IP 為 192.168.1.101 的 VM，請遵循下列步驟：
 
-1. 透過瀏覽器瀏覽至 http://portal.azure.com，並視需要使用您的 Azure 帳戶登入。
+1. 透過瀏覽器瀏覽至 http://portal.azure.com ，並視需要使用您的 Azure 帳戶登入。
 2. 按一下 [新增]  >  [計算]  >  [Windows Server 2012 R2 Datacenter]，注意 [選取部署模型] 清單已經顯示 [傳統]，然後按一下 [建立]。
    
     ![在 Azure 入口網站中建立 VM](./media/virtual-networks-static-ip-classic-pportal/figure01.png)

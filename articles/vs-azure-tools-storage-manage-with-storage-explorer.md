@@ -1,11 +1,11 @@
 ---
-title: "開始使用儲存體總管 (預覽) | Microsoft Docs"
-description: "使用儲存體總管管理 Azure 儲存體資源 (預覽)"
+title: 開始使用儲存體總管 (預覽) | Microsoft Docs
+description: 使用儲存體總管管理 Azure 儲存體資源 (預覽)
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
@@ -70,7 +70,7 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 
     ![登入選項][2]
 
-3. 使用 Azure 帳戶成功登入後，左窗格中會新增該帳戶以及與該帳戶相關聯的 Azure 訂用帳戶。 選取您要使用的 Azure 訂用帳戶，然後選取 [套用] (選取 [所有訂用帳戶:] 切換方塊，可選取全部或不選取任何列出的 Azure 訂用帳戶)。
+3. 使用 Azure 帳戶成功登入後，左窗格中會新增該帳戶以及與該帳戶相關聯的 Azure 訂用帳戶。 選取您要使用的 Azure 訂用帳戶，然後選取 [套用] \(選取 [所有訂用帳戶:] 切換方塊，可選取全部或不選取任何列出的 Azure 訂用帳戶)。
 
     ![選取 Azure 訂用帳戶][3]
 
