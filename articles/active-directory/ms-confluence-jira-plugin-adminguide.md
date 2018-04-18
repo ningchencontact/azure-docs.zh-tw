@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Active Directory 單一登入外掛程式管理指南 | Microsoft Docs
-description: 了解如何設定 Azure Active Directory 與適用於 JIRA 的 Microsoft Azure Active Directory 單一登入之間的單一登入。
+title: Azure Active Directory SSO 外掛程式管理指南 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Jira/Confluence 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,165 +14,139 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: jeedes
-ms.openlocfilehash: af949d1db8af37a534a16364f9f0763479c436e4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d34ff6021816c73fb064a3ce73b7fcf3ae22dbd1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="microsoft-azure-active-directory-single-sign-on-plugin-admin-guide"></a>Microsoft Azure Active Directory 單一登入外掛程式管理指南
-
-## <a name="table-of-contents"></a>目錄
-
-1. **[概觀](#overview)**
-2. **[運作方式](#how-it-works)**
-3. **[對象](#audience)**
-4. **[假設](#assumptions)**
-5. **[必要條件](#prerequisites)**
-6. **[支援的 JIRA 和 Confluence 版本](#supported-versions-of-jira-and-confluence)**
-7. **[安裝](#installation)**
-8. **[外掛程式設定](#plugin-configuration)**
-9. **[附加元件設定畫面的欄位說明：](#field-explanation-for-add---on-configuration-screen:)**
-10. **[疑難排解](#troubleshooting)**
+# <a name="admin-guide-for-the-azure-active-directory-sso-plug-in"></a>Azure Active Directory SSO 外掛程式管理指南
 
 ## <a name="overview"></a>概觀
 
-這些附加元件可讓 Microsoft Azure AD 客戶使用其組織的使用者名稱和密碼登入以 Atlassian Jira 和 Confluence Server 為基礎的產品。 它會實作以 SAML 2.0 為基礎的 SSO。
+Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsoft Azure AD 客戶使用工作或學校帳戶登入 Atlassian Jira 和 Confluence 伺服器架構的產品。 它會實作以 SAML 2.0 為基礎的 SSO。
 
 ## <a name="how-it-works"></a>運作方式
 
-當使用者要登入 Atlassian Jira 或 Confluence 應用程式時，他們會在登入頁面上看到 [以 Azure AD 登入] 按鈕。 當使用者按下按鈕，系統會要求他們使用 Azure AD 組織登入頁面來登入。
+當使用者要登入 Atlassian Jira 或 Confluence 應用程式時，他們會在登入頁面上看到 [以 Azure AD 登入] 按鈕。 使用者選取此按鈕後，系被會要求他們使用 Azure AD 組織登入頁面 (也就是工作或學校帳戶) 登入。
 
-使用者經過驗證後，應該就能登入應用程式。 如果他們已經使用組織識別碼與密碼驗證過，便可以直接登入應用程式。 另請注意，此登入在 JIRA 和 Confluence 皆有效。 如果使用者登入 JIRA 應用程式，而且 Confluence 也在相同瀏覽器視窗中開啟，他們只需要登入一次，就不需要再對其他應用程式提供認證。 使用者也可以透過 Azure 帳戶底下的 myapps 進入 Atlassian 產品，他們應該會直接登入，無須認證。
+使用者經過驗證後，應該就能登入應用程式。 如果他們已經使用工作或學校帳戶的識別碼與密碼驗證過，便可以直接登入應用程式。 
+
+此登入在 Jira 和 Confluence 皆有效。 如果使用者登入 Jira 應用程式，而且在相同瀏覽器視窗中開啟 Confluence，就不需要再對其他應用程式提供認證。 
+
+使用者也可以使用工作或學校帳戶透過 [我的應用程式] 存取 Atlassian 產品。 系統應該會讓他們登入，不會再要求認證。
 
 > [!NOTE]
-> 使用者佈建不是使用這個附加元件來進行的。
+> 使用者佈建不是透過此外掛程式進行。
 
 ## <a name="audience"></a>對象
 
-計劃使用此外掛程式啟用 Azure AD SSO 的 JIRA 和 Confluence 管理員。
+可使用此外掛程式啟用 Azure AD SSO 的 Jira 和 Confluence 管理員。
 
 ## <a name="assumptions"></a>假設
 
-* JIRA/Confluence 執行個體已啟用 HTTPS
-* 已在 JIRA/Confluence 中建立使用者
-* 已在 JIRA/Confluence 中指派使用者的角色
-* 管理員可以存取設定外掛程式所需的資訊
-* 從公司網路外部也可以使用 JIRA/Confluence
-* 附加元件只能在內部部署版本的 JIRA 和 Confluence 中運作
+* Jira 和 Confluence 執行個體已啟用 HTTPS。
+* 已在 Jira 或 Confluence 中建立使用者。
+* 已在 Jira 或 Confluence 中指派使用者角色。
+* 管理員可以取得設定外掛程式所需的資訊。
+* 從公司網路外部也可以使用 Jira 或 Confluence。
+* 外掛程式只能在內部部署版本的 Jira 和 Confluence 中運作。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-請注意，需符合下列必要條件，才能繼續進行附加元件安裝：
+安裝外掛程式之前，請注意下列資訊：
 
-* JIRA/Confluence 是安裝在 64 位元版本的 Windows 上
-* JIRA/Confluence 版本已啟用 HTTPS
-* 請注意下一節「支援的版本」中的外掛程式支援版本。
-* 可從網際網路上使用 JIRA/Confluence。
-* JIRA/Confluence 的管理員認證
-* Azure AD 的管理員認證
-* 應該在 JIRA 和 Confluence 中停用 WebSudo
+* Jira 和 Confluence 是安裝在 64 位元版本的 Windows 上。
+* Jira 和 Confluence 版本已啟用 HTTPS。
+* Jira 和 Confluence 都可以在網際網路上取得。
+* Jira 和 Confluence 中已設定管理員認證。
+* Azure AD 中已設定管理員認證。
+* Jira 和 Confluence 已停用 WebSudo。
 
-## <a name="supported-versions-of-jira-and-confluence"></a>支援的 JIRA 和 Confluence 版本
+## <a name="supported-versions-of-jira-and-confluence"></a>支援的 Jira 和 Confluence 版本
 
-目前支援下列 JIRA 和 Confluence 版本：
+此外掛程式支援下列 Jira 和 Confluence 版本：
 
-* JIRA 核心和軟體：6.0 至 7.2.0
-* JIRA 服務台：3.0 至 3.2
+* Jira 核心和軟體：6.0 到 7.2.0
+* Jira Service Desk：3.0 到 3.2
 * Confluence：5.0 到 5.10
 
 ## <a name="installation"></a>安裝
 
-管理員應遵循以下步驟以安裝外掛程式：
+若要安裝外掛程式，請遵循下列步驟：
 
-1. 以管理員身分登入 JIRA/Confluence 執行個體
+1. 以管理員身分登入 Jira 或 Confluence 執行個體。
     
-2. 移至 JIRA/Confluence [管理]，按一下 [附加元件]。
+2. 移至 Jira/Confluence 管理主控台，選取 [附加元件]。
     
-3. 在 Atlassian Marketplace 中搜尋 **Microsoft SAML SSO 外掛程式**
+3. 在 Atlassian Marketplace 中搜尋 **Microsoft SAML SSO 外掛程式**。
  
-4. 適當版本的附加元件會出現在搜尋中
+   搜尋結果中會顯示適當的外掛程式版本。
  
-5. 選取外掛程式，UPM 會安裝它。
+5. 選取外掛程式，然後通用外掛程式管理員 (UPM) 會安裝它。
  
-6. 安裝外掛程式之後，它會出現在 [管理附加元件] 區段的 [使用者安裝的附加元件] 區段中
- 
-7. 您必須先設定外掛程式，才能開始使用它。
- 
-8. 按一下外掛程式，您會看到 [設定] 按鈕。
- 
-9. 按一下按鈕以提供設定輸入
+安裝外掛程式之後，它會出現在 [管理附加元件] 的 [使用者安裝的附加元件] 區段。
     
-## <a name="plugin-configuration"></a>外掛程式設定
+## <a name="plug-in-configuration"></a>外掛程式設定
 
-下圖顯示 JIRA 和 Confluence 中的附加元件設定畫面
-    
-![附加元件設定](./media/ms-confluence-jira-plugin-adminguide/jira.png)
+您必須先設定外掛程式，才能開始使用。 選取外掛程式，選取 [設定] 按鈕，並提供組態詳細資料。
 
-### <a name="field-explanation-for-add-on-configuration-screen"></a>附加元件設定畫面的欄位說明：
-
-1.   中繼資料 URL：用來從 Azure AD 取得同盟中繼資料的 URL
- 
-2.   識別碼：Azure AD 用於驗證要求的來源。 這會對應至 Azure AD 中的識別碼元素。 這會由外掛程式自動衍生為 https://<domain:port>/
- 
-3.   回覆 URL：在您的 IdP 中使用回覆 URL 以起始 SAML 登入。 這會對應至 Azure AD 中的回覆 URL 元素。 這會由外掛程式自動衍生為 https://<domain:port>/plugins/servlet/saml/auth
- 
-4.   登入 URL (Sign On URL)：在您的 IdP 中使用登入 URL 以起始 SAML 登入。 這會對應至 Azure AD 中的登入 (Sign On) 元素。 這會由外掛程式自動衍生為 https://<domain:port>/plugins/servlet/saml/auth
- 
-5.   IdP 實體識別碼：您的 IdP 所使用的實體識別碼。 解析中繼資料 URL 時就會填入這個項目。
- 
-6.   登入 URL (Login URL)：來自您 IdP 的登入 URL。 解析中繼資料 URL 時 Azure AD 就會填入這個項目。
- 
-7.   登出 URL：來自您 IdP 的登出 URL。 解析中繼資料 URL 時 Azure AD 就會填入這個項目。
- 
-8.   X.509 憑證：您 IdP 的 X.509 憑證。 解析中繼資料 URL 時 Azure AD 就會填入這個項目。
- 
-9.   登入按鈕名稱：組織想要看到的登入按鈕名稱。 使用者會在登入畫面的登入按鈕上看到此文字。
- 
-10.   SAML 使用者識別碼位置：使用者識別碼在 SAML 回應中的預期位置。 可能是在 NameID 或自訂屬性名稱中。 此識別碼必須為 JIRA/Confluence 使用者識別碼。
- 
-11.   屬性名稱：預期出現使用者識別碼之屬性的名稱。
- 
-12.   啟用主領域探索：如果公司使用 ADFS 型登入，請勾選此旗標。
- 
-13.   網域名稱：如果是使用 ADFS 型登入，請在此提供網域名稱。
- 
-14.   啟用單一登出：如果您想要在使用者登出 JIRA/Confluence 時登出 Azure AD，請勾選此項目。
-
-### <a name="troubleshooting"></a>疑難排解
-
-* 如果您遇到多個憑證錯誤
+下圖是 Jira 和 Confluence 中的設定畫面：
     
-    * 登入 Azure AD，移除應用程式可使用的多個憑證。 確定只剩一個憑證。
+![外掛程式設定畫面](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-* Azure AD 中的憑證即將到期。
-    
-    * 附加元件會負責自動變換憑證。 當憑證即將到期時，新的憑證應該會標示為使用中，並刪除未使用的憑證。 當使用者嘗試在此情況下登入 JIRA 時，附加元件會擷取新的憑證，並儲存在外掛程式中。
+*   **中繼資料 URL**：用來從 Azure AD 取得同盟中繼資料的 URL。
+ 
+*   **識別碼**：Azure AD 用來驗證要求來源的 URL。 此識別碼對應至 Azure AD 中的 **Identifier** 元素。 外掛程式會自動將此 URL 衍生為 https://*<domain:port>*/。
+ 
+*   **回覆 URL**：識別提供者 (IdP) 中的回覆 URL，用於起始 SAML 登入。 此回覆 URL 對應至 Azure AD 中的 **Reply URL** 元素。 外掛程式會自動將此 URL 衍生為 https://*<domain:port>*/plugins/servlet/saml/auth。
+ 
+*   **登入 URL**：識別提供者 (IdP) 中的登入 URL，用於起始 SAML 登入。 此登入 URL 對應至 Azure AD 中的 **Sign On** 元素。 外掛程式會自動將此 URL 衍生為 https://*<domain:port>*/plugins/servlet/saml/auth。
+ 
+*   **IdP 實體識別碼**：IdP 所使用的實體識別碼。 系統解析中繼資料 URL 時就會填入這個方塊。
+ 
+*   **登入 URL**：來自 IdP 的登入 URL。 系統解析中繼資料 URL 時，Azure AD 就會填入這個方塊。
+ 
+*   **登出 URL**：來自 IdP 的登出 URL。 系統解析中繼資料 URL 時，Azure AD 就會填入這個方塊。
+ 
+*   **X.509 憑證**：IdP 的 X.509 憑證。 系統解析中繼資料 URL 時，Azure AD 就會填入這個方塊。
+ 
+*   **登入按鈕名稱**：輸入您組織要讓使用者在登入頁面上看到的登入按鈕名稱。
+ 
+*   **SAML 使用者識別碼位置**：SAML 回應中預期的 Jira 或 Confluence 使用者識別碼位置。 可能是在 **NameID** 或自訂屬性名稱中。
+ 
+*   **屬性名稱**：預期出現使用者識別碼的屬性名稱。
+ 
+*   **啟用主領域探索**：如果公司使用 Active Directory 同盟服務 (AD FS) 式登入，就要選擇此選項。
+ 
+*   **網域名稱**：採用 AD FS 式登入時的網域名稱。
+ 
+*   **啟用單一登出**：如果您想要在使用者登出 Jira 或 Confluence 時登出 Azure AD，就要選擇此選項。
 
-* 如何停用 WebSudo (停用安全的系統管理員工作階段)
-    
-    * JIRA：預設會啟用安全的系統管理員工作階段 (也就是確認密碼後才能存取管理功能)。 如果您想要在 JIRA 執行個體中停用此功能，在 jira-config.properties 檔案中指定下列這一行即可停用這項功能："ira.websudo.is.disabled = true"
-    
-    * Confluence：依照下列 URL 中提供的步驟執行 https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html
+## <a name="troubleshooting"></a>疑難排解
 
-* 中繼資料 URL 應該填入的欄位未填入資料
-    
-    * 檢查 URL 是否正確。 檢查是否已對應正確的租用戶和應用程式識別碼。
-    
-    * 在瀏覽器中輸入 URL，看看是否收到同盟中繼資料 XML。
+* **您遇到多個憑證錯誤**：登入 Azure AD，移除應用程式可使用的多個憑證。 確定只剩一個憑證。
 
-* 內部伺服器錯誤：
-    
-    * 查看安裝記錄目錄中的記錄。 如果您是在使用者嘗試使用 Azure AD SSO 登入時遇到錯誤，您可以使用本文件下面所提供的支援資訊來分享記錄。
+* **Azure AD 中的憑證即將到期**：附加元件負責憑證的自動變換。 當憑證快到期時，應將新的憑證標示為使用中，並刪除未使用的憑證。 當使用者嘗試在此情況下登入 Jira 時，外掛程式會擷取並儲存新的憑證。
 
-* 使用者嘗試登入時出現找不到使用者識別碼的錯誤
+* **您想要停用 WebSudo (停用安全的系統管理員工作階段)**：
     
-    * 未在 JIRA/Confluence 中建立使用者，請建立。
+  * 針對 Jira，預設會啟用安全的系統管理員工作階段 (也就是確認密碼後才能存取管理功能)。 如果您想要在 Jira 執行個體中移除這個功能，在 jira-config.propertie 檔案中指定以下這一行：`ira.websudo.is.disabled = true`
+    
+  * 針對 Confluence，請遵循 [Confluence支援網站](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html)上的步驟。
 
-* 在 Azure AD 中出現找不到應用程式的錯誤
+* **中繼資料 URL 應該填入的欄位未填入資料**：
     
-    * 檢查是否以正確 URL 對應至 Azure AD 中的應用程式。
+  * 檢查 URL 是否正確。 檢查是否已對應正確的租用戶和應用程式識別碼。
+    
+  * 在瀏覽器中輸入 URL，看看是否收到同盟中繼資料 XML。
 
-* 支援詳細資料：請連繫我們：[Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)。 我們會在營業時間 24-48 小時內回應。
+* **發生內部伺服器錯誤**：檢閱安裝記錄目錄中的記錄。 如果您是在使用者嘗試使用 Azure AD SSO 登入時遇到錯誤，您可以將記錄提供給支援小組。
+
+* **使用者嘗試登入時發生「找不到使用者識別碼」錯誤**：在 Jira 或 Confluence 中建立使用者識別碼。
+
+* **Azure AD 中發生「找不到應用程式」錯誤**：檢查是否以正確 URL 對應至 Azure AD 中的應用程式。
+
+* **您需要支援**：請連繫 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)。 小組會在營業時間 24-48 小時內回應。
     
-    * 您也可以透過 Azure 入口網站管道向 Microsoft 發出支援票證。
+  您也可以透過 Azure 入口網站管道向 Microsoft 發出支援票證。

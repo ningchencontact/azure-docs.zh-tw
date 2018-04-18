@@ -1,12 +1,12 @@
 ---
-title: "如何將 Power BI 工作區集合內容移轉至 Power BI Embedded | Microsoft Docs"
-description: "了解如何從 Power BI 工作區集合移轉至 Power BI Embedded，以及利用進階功能內嵌於應用程式中。"
+title: 如何將 Power BI 工作區集合內容移轉至 Power BI Embedded | Microsoft Docs
+description: 了解如何從 Power BI 工作區集合移轉至 Power BI Embedded，以及利用進階功能內嵌於應用程式中。
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: guyinacube
 manager: erikre
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
 ms.openlocfilehash: 069f31c8213bd0d8586f7ca50e543acfdad8a2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>如何將 Power BI 工作區集合內容移轉至 Power BI Embedded
 
@@ -117,13 +117,13 @@ ms.lasthandoff: 10/11/2017
 
 **流程**
 
-1. 呼叫 GET https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources 並儲存接收到的連接字串。
+1. 呼叫 GET https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources 並儲存已接收的連接字串。
 2. 從您的 Power BI 工作區集合工作區呼叫「下載 PBIX」API。
 3. 儲存 PBIX。
 4. 為您的 Power BI Embedded 工作區呼叫「匯入 PBIX」。
-5. 呼叫 POST https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections 來更新連接字串
-6. 呼叫 GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources 來取得 GW 識別碼和資料來源識別碼
-7. 呼叫 PATCH https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id} 來更新使用者的認證
+5. 呼叫 - POST https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections 更新連接字串
+6. 呼叫 - GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources 取得 GW 識別碼與資料來源識別碼
+7. 呼叫 - PATCH https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id} 更新使用者的認證
 
 #### <a name="old-dataset-and-reports"></a>舊的資料集和報表
 

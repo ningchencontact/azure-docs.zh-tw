@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>使用 Azure Data Lake Store 的最佳做法
 在本文中，您會了解使用 Azure Data Lake Store 的最佳做法和考量。 本文提供 Data Lake Store 的安全性、效能、恢復功能及監視作業等相關資訊。 尚未使用 Data Lake Store 之前，若要在 Azure HDInsight 這類服務中處理如此龐大的資料，過程會十分繁瑣。 您必須將資料分給多個 Blob 儲存體帳戶，才能達到該規模的 PB 儲存量和最佳效能。 Data Lake Store 能突破大小和效能等大部分的硬性限制。 不過，為了讓您可取得 Data Lake Store 的最佳效能，本文中仍包含了一些考量。 
@@ -129,7 +129,7 @@ Data Lake Store 提供詳細的診斷記錄和稽核。 Data Lake Store 在 Azur
 
 ### <a name="export-data-lake-store-diagnostics"></a>匯出 Data Lake Store 診斷 
 
-能最快地從 Data Lake Store 存取可搜尋記錄的其中一個方法，就是在 Data Lake Store 帳戶的 [診斷] 刀鋒視窗下，啟用 [Operations Management Suite (OMS)] 的記錄傳送。 這提供了以時間和內容篩選來立即存取輸入資料的功能，以及每隔 15 分鐘就會觸發的警示選項 (電子郵件/Webhook)。 如需指示，請參閱[存取 Azure Data Lake Store 的診斷記錄](data-lake-store-diagnostic-logs.md)。 
+能最快地從 Data Lake Store 存取可搜尋記錄的其中一個方法，就是在 Data Lake Store 帳戶的 [診斷] 刀鋒視窗下，啟用 [Log Analytics] 的記錄傳送。 這提供了以時間和內容篩選來立即存取輸入資料的功能，以及每隔 15 分鐘就會觸發的警示選項 (電子郵件/Webhook)。 如需指示，請參閱[存取 Azure Data Lake Store 的診斷記錄](data-lake-store-diagnostic-logs.md)。 
 
 如需更即時的警示，以及更容易控管要置入記錄的位置，請考慮將記錄匯出至 Azure EventHub，此處的內容可以各別進行分析，或針對某一段時間範圍的內容進行分析，以提交即時通知到佇列中。 然後，[邏輯應用程式](../connectors/connectors-create-api-azure-event-hubs.md)這類的應用程式就可以取用警示，並將其傳達至適當的通道，以及將計量提交至 NewRelic、Datadog 或 AppDynamics 等監視工具。 或者，如果您使用 ElasticSearch 這類第三方工具，您可以將記錄匯出到 Blob 儲存體，並使用 [Azure Logstash 外掛程式](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob)將資料取用到 Elasticsearch、Kibana 和 Logstash (ELK) 堆疊中。
 
@@ -139,7 +139,7 @@ Data Lake Store 提供詳細的診斷記錄和稽核。 Data Lake Store 在 Azur
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-設定好屬性並重新啟動節點後，Data Lake Store 診斷資料就會寫入節點上的 YARN 記錄 (/tmp/<user>/yarn.log)，並可監視錯誤或節流 (HTTP 429 錯誤代碼) 等重要的詳細資訊。 此相同資訊也可以在 OMS 中監視，或在記錄送達的任何位置上監視 (透過 Data Lake Store 帳戶的 [[診斷](data-lake-store-diagnostic-logs.md)] 刀鋒視窗)。 建議您至少開啟用戶端記錄，或利用 Data Lake Store 的記錄傳送選項，來提供作業可見性並且使偵錯更容易進行。
+設定好屬性並重新啟動節點後，Data Lake Store 診斷資料就會寫入節點上的 YARN 記錄 (/tmp/<user>/yarn.log)，並可監視錯誤或節流 (HTTP 429 錯誤代碼) 等重要的詳細資訊。 此相同資訊也可以在 Log Analytics 中監視，或在記錄送達的任何位置上監視 (透過 Data Lake Store 帳戶的 [[診斷](data-lake-store-diagnostic-logs.md)] 刀鋒視窗)。 建議您至少開啟用戶端記錄，或利用 Data Lake Store 的記錄傳送選項，來提供作業可見性並且使偵錯更容易進行。
 
 ### <a name="run-synthetic-transactions"></a>執行綜合交易 
 

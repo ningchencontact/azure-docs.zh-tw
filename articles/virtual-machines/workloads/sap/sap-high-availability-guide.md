@@ -1,13 +1,13 @@
 ---
-title: "SAP NetWeaver 的 Azure 虛擬機器高可用性 | Microsoft Docs"
-description: "Azure 虛擬機器上的 SAP NetWeaver 高可用性指南"
+title: SAP NetWeaver 的 Azure 虛擬機器高可用性 | Microsoft Docs
+description: Azure 虛擬機器上的 SAP NetWeaver 高可用性指南
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器高可用性
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP 多重 SID 高可用性設定)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -739,7 +739,7 @@ _**圖 15：**Azure 內部負載平衡器的預設 ASCS/SCS 負載平衡規_
 
 如果您想要將其他號碼用於 SAP ASCS 或 SCS 執行個體，您就必須從預設值變更其連接埠的名稱和值。
 
-1.  在 Azure 入口網站中，選取 **<*SID*>-lb-ascs 負載平衡器** > **[負載平衡規則]**。
+1.  在 Azure 入口網站中，選取 [<*SID*>-lb-ascs 負載平衡器] > [負載平衡規則]。
 2.  針對屬於 SAP ASCS 或 SCS 執行個體的所有負載平衡規則，變更下列值：
 
   * Name
@@ -954,7 +954,7 @@ _**表 4：**變更第二個 TCP/IP 參數_
 
   _**圖 38：**確認您已重新設定叢集_
 
-成功安裝 Windows 容錯移轉叢集之後，有些閾值需要變更，讓容錯移轉偵測適應 Azure 中的條件。 需要變更的參數記載於此部落格中︰https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/。 假設為 ASCS/SCS 建置 Windows 叢集組態的兩部 VM 位於相同子網路中，則必須將下列參數變更為這些值︰
+成功安裝 Windows 容錯移轉叢集之後，有些閾值需要變更，讓容錯移轉偵測適應 Azure 中的條件。 需要變更的參數記載於此部落格中：https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/。 假設為 ASCS/SCS 建置 Windows 叢集組態的兩部 VM 位於相同子網路中，則必須將下列參數變更為這些值︰
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 
@@ -1134,7 +1134,7 @@ Microsoft .NET Framework 3.5 不會自動啟用或安裝在 Windows Server 2012 
 1.  在「Windows DNS 管理員」中，為 ASCS/SCS 執行個體的虛擬主機名稱建立 DNS 項目。
 
   > [!IMPORTANT]
-  > 您指派給 ASCS/SCS 執行個體之虛擬主機名稱的 IP 位址必須與指派給 Azure Load Balancer (**<*SID*>-lb-ascs**) 的 IP 位址相同。  
+  > 您指派給 ASCS/SCS 執行個體之虛擬主機名稱的 IP 位址，必須與指派給 Azure Load Balancer (**<*SID*>-lb-ascs**) 的 IP 位址相同。  
   >
   >
 
@@ -1270,7 +1270,7 @@ Microsoft .NET Framework 3.5 不會自動啟用或安裝在 Windows Server 2012 
   }
   ```
 
-  讓 **SAP <*SID*>** 叢集角色上線之後，請確認 **ProbePort** 已設定為新值。
+  讓 **SAP <*SID*>** 叢集角色上線之後，請確認已將 **ProbePort** 設定為新值。
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -1318,7 +1318,7 @@ _**圖 60：**將 SAP ERS 執行個體的服務類型變更為延遲的自動類
 
 ### <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> 安裝 SAP 其他應用程式伺服器
 
-在您指派來裝載 SAP 應用程式伺服器執行個體的所有虛擬機器上安裝 SAP 其他應用程式伺服器 (AAS)。 例如，在 <*SID*>-di-1 到 <*SID*>-di-&lt;n&gt;。
+在您指派來裝載 SAP 應用程式伺服器執行個體的所有虛擬機器上安裝 SAP 其他應用程式伺服器 (AAS)。 例如，在 <SID>-di-1 到 <SID>-di-&lt;n&gt;。
 
 > [!NOTE]
 > 這樣就完成高可用性的 SAP NetWeaver 系統的安裝。 接下來，繼續進行容錯移轉測試。

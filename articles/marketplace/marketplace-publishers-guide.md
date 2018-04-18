@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: e9343b4a0049b2eea30f903159fdeff0ae7ff851
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 和 AppSource 發行者指南
 
@@ -121,7 +121,8 @@ Microsoft 提供兩個不同的市集店面，可讓合作夥伴列出供應項�
 試用層級或交易層級參與均不可行時，請使用「與我連絡」。 此方法的優點是可讓已有上市解決方案的發行者立即獲得潛在客戶，繼而將其經營為您展開業務的基礎交易。 不過，和其他供應項目類型相較之下，缺點是客戶參與率有限。
 
 >[!IMPORTANT]
->「與我連絡」不是建議的清單類型。 只在無法建立試用體驗的情況下，才可使用。 使用試用版和交易供應項目是客戶參與的首選。 如果您有任何類型的試用體驗，根據您的案例而定，我們的上架程序將引導您進行其中一個選項。
+<<<<<<< 標頭 使用試用版和交易供應項目的客戶參與最佳。 「與我連絡」的價值是您所收到的潛在客戶，因此如果您選擇此類型的清單，請確定已設定您的潛在客戶目的地，且您已能夠將潛在客戶最大化。 =======「與我連絡」不是建議的清單類型。 只在無法建立試用體驗的情況下，才可使用。 使用試用版和交易供應項目是客戶參與的首選。 如果您有任何類型的試用體驗，根據您的案例而定，我們的上架程序將引導您進行其中一個選項。
+>>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
 
 供應項目主要由專業服務 (例如評量、實作、研討會) 組成時，請使用「諮詢服務」供應項目類型。 供應項目範圍、期間及價格必須固定，專為單一客戶提供，而且必須在現場執行。
 
