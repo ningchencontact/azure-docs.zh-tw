@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory 中的宣告對應 (公開預覽)
 
@@ -234,7 +234,7 @@ ms.lasthandoff: 03/14/2018
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>宣告對應原則屬性
-使用宣告對應原則屬性，即可控制要發出哪些宣告，以及要從哪個來源取得資料。 如果未設定任何原則，系統所發出的權杖就會包含核心宣告集、基本宣告集，以及應用程式選擇要收到的任何選擇性宣告。
+使用宣告對應原則屬性，即可控制要發出哪些宣告，以及要從哪個來源取得資料。 如果未設定任何原則，系統所發出的權杖就會包含核心宣告集、基本宣告集，以及應用程式選擇要收到的任何[選擇性宣告](develop/active-directory-optional-claims.md)。
 
 ### <a name="include-basic-claim-set"></a>包含基本宣告集
 

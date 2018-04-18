@@ -1,6 +1,6 @@
 ---
-title: "整合 Azure 雲端服務與 Azure CDN | Microsoft Docs"
-description: "了解如何部署可提供整合式 Azure CDN 端點內容的雲端服務"
+title: 整合 Azure 雲端服務與 Azure CDN | Microsoft Docs
+description: 了解如何部署可提供整合式 Azure CDN 端點內容的雲端服務
 services: cdn, cloud-services
 documentationcenter: .net
 author: zhangmanling
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="intro"></a> 整合雲端服務與 Azure CDN
 雲端服務可以與 Azure CDN 整合，從雲端服務的位置提供任何內容。 此方法提供下列優點：
@@ -138,7 +138,7 @@ CDN 設定檔為 CDN 端點的集合。  每個設定檔皆包含一或多個 CD
    > 
 
 ## <a name="test-the-cdn-endpoint"></a>測試 CDN 端點
-若發佈狀態為 [已完成]，請開啟瀏覽器視窗並瀏覽至 **http://<cdnName>*.azureedge.net/Content/bootstrap.css**。 在我的設定中，此 URL 為：
+若發佈狀態為 [已完成]，開啟瀏覽器視窗並巡覽至 **http://<cdnName>*.azureedge.net/Content/bootstrap.css**。 在我的設定中，此 URL 為：
 
     http://camservice.azureedge.net/Content/bootstrap.css
 
@@ -146,18 +146,18 @@ CDN 設定檔為 CDN 端點的集合。  每個設定檔皆包含一或多個 CD
 
     http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
-瀏覽至 **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css** 時，根據您的瀏覽器而定，系統會提示您下載或開啟來自已發佈 Web 應用程式的 bootstrap.css。
+巡覽至 **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css** 時，系統會提示您下載或開啟來自已發佈 Web 應用程式的 bootstrap.css，根據您的瀏覽器而定。
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-同樣地，您可以從 CDN 端點，以 http://&lt;serviceName>.cloudapp.net/ 存取任何可公開存取的 URL。 例如︰
+同樣地，您可以從 CDN 端點，以 **http://*&lt;serviceName>*.cloudapp.net/** 存取任何可公開存取的 URL。 例如︰
 
 * /Script 路徑中的 .js 檔案
 * /Content 路徑中的任何內容檔案
 * 任何控制器/動作
 * 任何含有查詢字串的 URL (若 CDN 端點已啟用查詢字串的話)
 
-實際上，以上述設定來說，您可以從 **http://*&lt;cdnName>*.azureedge.net/** 代管整個雲端服務。 如果我瀏覽至 **http://camservice.azureedge.net/**，就可以從 Home/Index 取得動作結果。
+實際上，以上述設定來說，您可以從 **http://*&lt;cdnName>*.azureedge.net/** 代管整個雲端服務。 如果我巡覽至 **http://camservice.azureedge.net/**，我可以從 Home/Index 取得動作結果。
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -325,7 +325,7 @@ CDN 設定檔為 CDN 端點的集合。  每個設定檔皆包含一或多個 CD
             <br />
             <input class="btn" type="submit" value="Generate meme" />
         </form>
-5. 重新發佈雲端服務，然後在瀏覽器中瀏覽至 **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index**。
+5. 重新發佈雲端服務，然後在瀏覽器中巡覽至 **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index**。
 
 當您將表單值提交至 `/MemeGenerator/Index` 時，`Index_Post` 動作方法會傳回 `Show` 動作方法的連結及個別的輸入識別碼。 按一下連結會執行下列程式碼：  
 

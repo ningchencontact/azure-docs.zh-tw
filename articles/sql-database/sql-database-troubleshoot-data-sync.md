@@ -2,18 +2,18 @@
 title: 針對 Azure SQL 資料同步 (預覽) 進行疑難排解 | Microsoft Docs
 description: 了解如何對使用 Azure SQL 資料同步 (預覽) 的常見問題進行疑難排解。
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: a24e16abd78a89d6143c00fc08a3ef91d7dd8202
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>針對 SQL 資料同步 (預覽) 的問題進行疑難排解
 
@@ -442,7 +442,7 @@ SQL 資料同步 (預覽) 會從服務移除已離線 45 天以上 (從資料庫
 -   [使用 Azure SQL 資料同步 (預覽)，跨多個雲端和內部部署資料庫同步資料](sql-database-sync-data.md)  
 -   [設定 Azure SQL 資料同步 (預覽)](sql-database-get-started-sql-data-sync.md)  
 -   [Azure SQL 資料同步 (預覽) 最佳做法](sql-database-best-practices-data-sync.md)  
--   [使用 OMS Log Analytics 監視 Azure SQL 資料同步 (預覽)](sql-database-sync-monitor-oms.md)  
+-   [使用 Log Analytics 監視 Azure SQL 資料同步 (預覽)](sql-database-sync-monitor-oms.md)  
 -   示範如何設定 SQL 資料同步 (預覽) 的完整 PowerShell 範例：  
     -   [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)  

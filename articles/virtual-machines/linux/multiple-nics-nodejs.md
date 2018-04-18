@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 中建立連接多個 NIC 的 Linux VM | Microsoft Docs"
-description: "了解如何使用 Azure CLI 或 Resource Manager 範本，來建立連接多個 NIC 的 Linux VM。"
+title: 在 Azure 中建立連接多個 NIC 的 Linux VM | Microsoft Docs
+description: 了解如何使用 Azure CLI 或 Resource Manager 範本，來建立連接多個 NIC 的 Linux VM。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 93a32ae7ec0cf73825791e8c8bc3d388cf999ece
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 20e3a65c28e95849822d81076b6780e05a2aebbf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 建立連接多個 NIC 的 Linux 虛擬機器
 您可以在 Azure 中，建立連接多個虛擬網路介面 (NIC) 的虛擬機器 (VM)。 常見案例是有不同的子網路可用於前端和後端連線，或者專門用來監視或備份解決方案的網路。 本文提供快速命令來建立連接多個 NIC 的 VM。 不同的 [VM 大小](sizes.md) 支援不同數量的 NIC，因此可據以調整您的 VM。
@@ -143,6 +143,8 @@ azure vm create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
+當您將多個 NIC 新增至 Linux VM 時，您需要建立路由規則。 這些規則可讓 VM 傳送和接收屬於特定 NIC 的流量。 否則，已定義的預設路由便無法正確處理屬於 eth1 的流量。 若要更正此路由問題，請參閱[針對多個 NIC 設定客體作業系統](multiple-nics.md#configure-guest-os-for-multiple-nics)。
+
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>使用 Resource Manager 範本建立多個 NIC
 Azure Resource Manager 範本會使用宣告式 JSON 檔案來定義您的環境。 您可以閱讀 [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)。 Resource Manager 範本提供一種方式，可在部署期間建立資源的多個執行個體，例如建立多個 NIC。 您使用 *copy* 來指定要建立的執行個體數目：
 
@@ -162,6 +164,8 @@ Azure Resource Manager 範本會使用宣告式 JSON 檔案來定義您的環境
 ```
 
 您可以閱讀 [使用 Resource Manager 範本建立多個 NIC](../../virtual-network/virtual-network-deploy-multinic-arm-template.md)的完整範例。
+
+當您將多個 NIC 新增至 Linux VM 時，您需要建立路由規則。 這些規則可讓 VM 傳送和接收屬於特定 NIC 的流量。 否則，已定義的預設路由便無法正確處理屬於 eth1 的流量。 若要更正此路由問題，請參閱[針對多個 NIC 設定客體作業系統](multiple-nics.md#configure-guest-os-for-multiple-nics)。
 
 ## <a name="next-steps"></a>後續步驟
 嘗試建立具有多個 NIC 的 VM 時，請務必檢閱 [Linux VM 大小](sizes.md) 。 注意每個 VM 大小所支援的 NIC 數目上限。 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d008e94186dd3c5a18c92617ebddfffa966358d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 觸發程序和繫結概念
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/08/2018
 
 延伸模組會以 NuGet 套件的形式來傳遞，而套件名稱的開頭通常是 [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions)。  您安裝及註冊繫結延伸模組的方式取決於您如何開發您的函式： 
 
-+ [在本機 C# 中使用 Visual Studio 或 VS Code](#precompiled-functions-c)
++ [在本機 C# 中使用 Visual Studio 或 VS Code](#local-c-development-using-visual-studio-or-vs-code)
 + [在本機使用 Azure Functions Core Tools](#local-development-azure-functions-core-tools)
 + [在 Azure 入口網站中](#azure-portal-development) 
 
@@ -635,7 +635,7 @@ public class BlobName
 
 ## <a name="functionjson-file-schema"></a>function.json 檔案結構描述
 
-*function.json* 檔案結構描述位於 [http://json.schemastore.org/function](http://json.schemastore.org/function)。
+function.json 檔案結構描述可以在 [http://json.schemastore.org/function](http://json.schemastore.org/function) 取得。
 
 ## <a name="handling-binding-errors"></a>處理繫結錯誤
 

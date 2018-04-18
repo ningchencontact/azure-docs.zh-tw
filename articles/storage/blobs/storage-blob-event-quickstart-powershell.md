@@ -8,24 +8,22 @@ ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 374a24448eb1bf366e26bb55fdf09e470b030c89
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e5524732185d7b80ebf16a9bce6de9ca0183c27e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>使用 PowerShell 將 Blob 儲存體事件路由至自訂的 Web 端點
 
 Azure Event Grid 是一項雲端事件服務。 在本文中，您可以使用 Azure PowerShell 來訂閱 Blob 儲存體事件、觸發事件並檢視結果。 
 
-一般而言，您可將事件傳送至可回應事件的端點，例如 Webhook 或 Azure Function。 為了簡化本文中所示的範例，會將事件傳送至只收集訊息的 URL。 您會使用 [RequestBin](https://requestb.in/) \(英文\) 或 [Hookbin](https://hookbin.com/) \(英文\) 提供的第三方工具來建立此 URL。
+一般而言，您可將事件傳送至可回應事件的端點，例如 Webhook 或 Azure Function。 為了簡化本文中所示的範例，會將事件傳送至只收集訊息的 URL。 使用 [Hookbin](https://hookbin.com/) 提供的第三方工具來建立此 URL。
 
 > [!NOTE]
-> **RequestBin** 和 **Hookbin** 都不適用於高輸送量的使用方式。 這些工具單純用於示範。 如果您一次推送多個事件，則可能看不到工具中的所有事件。
+> **Hookbin** 不適用於高輸送量的用途。 此工具單純用於示範。 如果您一次推送多個事件，則可能看不到工具中的所有事件。
 
 當您完成本文所述的步驟時，您會看到事件資料已傳送至端點。
-
-![事件資料](./media/storage-blob-event-quickstart/request-result.png)
 
 ## <a name="setup"></a>設定
 
@@ -84,7 +82,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>建立訊息端點
 
-訂閱主題之前，讓我們建立事件訊息的端點。 讓我們建立可收集訊息的端點，以便檢視訊息，而不需撰寫程式碼來回應事件。 RequestBin 和 Hookbin 都是第三方工具，可讓您建立端點，以及檢視傳送給它的要求。 移至 [RequestBin](https://requestb.in/) \(英文\)，然後按一下 [Create a RequestBin] \(建立 RequestBin\)，或移至 [Hookbin](https://hookbin.com/) \(英文\)，然後按一下 [Create New Endpoint] \(建立新端點\)。 在下列指令碼中，複製 Bin URL 並取代 `<bin URL>`。
+訂閱主題之前，讓我們建立事件訊息的端點。 讓我們建立可收集訊息的端點，以便檢視訊息，而不需撰寫程式碼來回應事件。 Hookbin 是一個第三方工具，可讓您建立端點，以及檢視傳送給它的要求。 移至 [Hookbin](https://hookbin.com/) 並按一下 [建立新的端點]。 在下列指令碼中，複製 Bin URL 並取代 `<bin URL>`。
 
 ```powershell
 $binEndPoint = "<bin URL>"
@@ -92,7 +90,7 @@ $binEndPoint = "<bin URL>"
 
 ## <a name="subscribe-to-your-storage-account"></a>訂閱您的儲存體帳戶
 
-您可訂閱主題，告知 Event Grid 您想要追蹤的事件。下列範例會訂閱您所建立的儲存體帳戶，並從 RequestBin 或 Hookbin 傳遞 URL 作為事件通知的端點。 
+您可訂閱主題，告知 Event Grid 您想要追蹤的事件。下列範例會訂閱您所建立的儲存體帳戶，並從 Hookbin 傳遞 URL 作為事件通知的端點。 
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id

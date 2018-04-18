@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 352b0d48ab223a236b96c633526f792b6f8a703d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f76a9f0aa5e68e729c67dad52f6dae4e01fdb56a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中 Azure SQL Database 和集區的效能
 
@@ -54,7 +54,7 @@ Wingtip Tickets SaaS Database Per Tenant 應用程式使用單一租用戶資料
 
 [Azure 入口網站](https://portal.azure.com)提供大部分資源的內建監視與警示功能。 針對 SQL Database，資料庫與集區提供監視與警示功能。 這個內建的監視與警示功能是資源特定，因此針對少數資源使用很方便，但是搭配許多資源使用時則不是很方便。
 
-在您處理許多資源的大量案例中，可以使用 [Log Analytics (OMS)](saas-dbpertenant-log-analytics.md)。 這是個別的 Azure 服務，可針對發出的診斷記錄和記錄分析工作區中收集的遙測提供分析。 Log Analytics 可以收集來自許多服務的遙測並用來查詢及設定警示。
+在您處理許多資源的大量案例中，可以使用 [Log Analytics](saas-dbpertenant-log-analytics.md)。 這是個別的 Azure 服務，可針對發出的診斷記錄和記錄分析工作區中收集的遙測提供分析。 Log Analytics 可以收集來自許多服務的遙測並用來查詢及設定警示。
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>取得 Wingtip Tickets SaaS Database Per Tenant 應用程式指令碼
 

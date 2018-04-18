@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: kumud
-ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer Standard 概觀
 
@@ -43,7 +43,7 @@ Load Balancer 資源是一種物件，而您可以在其中表示 Azure 應如�
 
 ## <a name="why-use-standard-load-balancer"></a>為何要使用標準 Load Balancer？
 
-您可以將標準 Load Balancer 用於各種規模的虛擬資料中心，從小規模的部署到大型且複雜的多重區域架構均適用。
+標準負載平衡器可讓您將小規模部署的應用程式調整為大型且複雜的多重區域架構，並建立高可用性。
 
 請檢閱下表，大致了解標準 Load Balancer 與基本 Load Balancer 之間的差異：
 
@@ -57,7 +57,7 @@ Load Balancer 資源是一種物件，而您可以在其中表示 Azure 應如�
 | 可用性區域 | 輸入和輸出的區域備援和區域性前端、輸出流程對應存活區域失敗、跨區域負載平衡 | / |
 | 診斷 | Azure 監視器、多維度計量 (包括位元組和封包計數器)、健康情況探查狀態、連線嘗試 (TCP SYN)、輸出連線的健康情況 (SNAT 成功和失敗的流程)、使用中資料層測量 | 僅適用於公用 Load Balancer 的 Azure Log Analytics、SNAT 耗盡警示、後端集區健康情況計數 |
 | HA 連接埠 | 內部 Load Balancer | / |
-| 預設保護 | 針對公用 IP 和 Load Balancer 端點的保護預設為關閉，必須使用網路安全性群組明確地將流程的流量加入白名單 | 預設為開啟，網路安全性群組為選擇性 |
+| 預設保護 | 針對公用 IP 和 Load Balancer 端點的保護預設為關閉，必須使用網路安全性群組明確地將流程的流量加入允許清單 | 預設為開啟，網路安全性群組為選擇性 |
 | 輸出連線 | 多個可選擇退出個別規則的前端。「必須」明確建立輸出案例，虛擬機器才能使用輸出連線能力。  不用輸出連線能力即可與 [VNet 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)連線，且不會計入已處理的資料。  必須透過輸出連線能力連線到任何公用 IP 位址 (包括無法作為 VNet 服務端點的 Azure PaaS 服務)，並計入已處理的資料。 只有內部 Load Balancer 在提供虛擬機器時，就無法透過預設 SNAT 進行輸出連線。 輸出 SNAT 的程式設計依傳輸通訊協定而異，以輸入負載平衡規則的通訊協定為依據。 | 單一前端，有多個前端時會隨機選取。  只有內部 Load Balancer 在提供虛擬機器時，會使用預設 SNAT。 |
 | 多個前端 | 輸入和輸出 | 僅輸入 |
 | 管理作業 | 大部分的作業 < 30 秒 | 通常是 60-90+ 秒 |
@@ -180,7 +180,7 @@ SKU 是不可變動的。 請依照本節中的步驟從一個資源 SKU 移到�
 
 1. 視需要針對 Load Balancer 和「公用 IP」建立一個新的 Standard 資源。 重新建立您的規則和探查定義。
 
-2. 在 NIC 或子網路上建立新的或更新現有的 NSG，以將已負載平衡的流量、探查及任何其他您想要允許的流量列入白名單。
+2. 在 NIC 或子網路上建立新的或更新現有的 NSG，以將已負載平衡的流量、探查及任何其他您想要允許的流量列入允許清單。
 
 3. 從所有 VM 執行個體中移除 Basic SKU 資源 (看 Load Balancer 和「公用 IP」哪一個適用)。 請務必也移除可用性設定組的所有 VM 執行個體。
 

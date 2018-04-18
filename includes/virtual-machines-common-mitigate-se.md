@@ -5,16 +5,16 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/02/2018
+ms.date: 04/03/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 6ad9c365894feed61fa4f55d442194d1cf996889
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 81357bce92bb8bd2f77f7aaabc8e3b1d49047a1b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
-**上次文件更新**：4 月 2 日上午 10:00 PST。
+**上次文件更新**：4 月 3 日下午 3:00 PST。
 
 最近揭露的[新 CPU 漏洞類別](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)也稱為推測性執行旁路攻擊，讓許多客戶不知所措。  
 
@@ -25,7 +25,7 @@ Microsoft 已在我們所有的雲端服務上部署防護功能。 執行 Azure
 > [!NOTE] 
 > 在 2018 年 2 月下旬，Intel Corporation 針對其微碼版本狀態發佈了更新的[微碼修訂指引](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf)，以改善穩定性並降低最近由 [Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html) 所揭露的弱點風險。 Azure 在 [2018 年 1 月 3 日](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/)實施的緩和措施不會受到 Intel 的微碼更新影響。 Microsoft 已適當地提供強大的防護功能，以保護 Azure 客戶免於遭受其他 Azure 虛擬機器的危害。  
 >
-> Intel 的微碼可解決 Spectre Variant 2 ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715))，以防禦在 Azure 上的 VM 內執行共用或未受信任工作負載的情況下才適用的攻擊。 我們的工程師會測試穩定性，以將微碼的效能影響降至最低，然後才會將它提供給 Azure 客戶使用。  因為很少客戶會在其 VM 內執行未受信任的工作負載，所以大部分客戶都不需要在此功能發行後立即啟用。 
+> Intel 的微碼可解決 Spectre Variant 2 ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) 或分支目標導入)，以防禦在 Azure 上的 VM 內執行共用或未受信任工作負載的情況下才適用的攻擊。 我們的工程師會測試穩定性，以將微碼的效能影響降至最低，然後才會將它提供給 Azure 客戶使用。  因為很少客戶會在其 VM 內執行未受信任的工作負載，所以大部分客戶都不需要在此功能發行後立即啟用。 
 >
 > 此頁面會隨時更新並提供更多資訊。  
 
@@ -64,7 +64,7 @@ Microsoft 已在我們所有的雲端服務上部署防護功能。 執行 Azure
 
 
 ### <a name="windows"></a>Windows 
-如果您使用 Windows 並裝載未受信任的程式碼，則也應該啟用名為核心虛擬位址 (KVA) 的遮蔽功能，此功能可針對推測性執行旁路攻擊漏洞提供額外的防護措施 (特別是 Variant 3 Meltdown，[CVE-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754) \(英文\))。 依預設此功能為關閉，若啟用可能會影響效能。 請遵循 [Windows 伺服器 KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 啟用伺服器保護中的指示。 如果您執行的是 Azure 雲端服務，請確認您正在執行 WA-GUEST-OS-5.15_201801-01 或 WA-GUEST-OS-4.50_201801-01 (於2018 年 1 月 10 日起可用) 並透過啟動工作啟用登錄機碼。
+如果您使用 Windows 並裝載未受信任的程式碼，則也應該啟用名為核心虛擬位址 (KVA) 的遮蔽功能，此功能可針對推測性執行旁路攻擊漏洞提供額外的防護措施 (特別是針對 Variant 3 Meltdown，[CVE-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754) 或惡意資料快取載入)。 依預設此功能為關閉，若啟用可能會影響效能。 請遵循 [Windows 伺服器 KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 啟用伺服器保護中的指示。 如果您執行的是 Azure 雲端服務，請確認您正在執行 WA-GUEST-OS-5.15_201801-01 或 WA-GUEST-OS-4.50_201801-01 (於2018 年 1 月 10 日起可用) 並透過啟動工作啟用登錄機碼。
 
 
 ### <a name="linux"></a>Linux

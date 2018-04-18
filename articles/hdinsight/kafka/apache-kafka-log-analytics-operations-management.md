@@ -1,30 +1,30 @@
 ---
-title: "適用於 Apache Kafka 的 Log Analytics - Azure HDInsight | Microsoft Docs"
-description: "了解如何在 Azure HDInsight 上使用 Operations Management Suite 分析 Apache Kafka 叢集的記錄。"
+title: 適用於 Apache Kafka 的 Log Analytics - Azure HDInsight | Microsoft Docs
+description: 了解如何在 Azure HDInsight 上使用 Log Analytics 分析 Apache Kafka 叢集的記錄。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 6fcb925829e33704c94c96209a61346b0404e13b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 15107a0fbcd6242ac13f366b16be10efaeaad6bb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>在 HDInsight 上分析 Apache Kafka 的記錄
 
-了解如何在 HDInsight 上使用 Microsoft Operations Management Suite 分析 Apache Kafka 產生的記錄。
+了解如何在 HDInsight 上使用 Log Analytics 分析 Apache Kafka 產生的記錄。
 
-## <a name="enable-oms-for-kafka"></a>針對 Kafka 啟用 OMS
+## <a name="enable-log-analytics-for-kafka"></a>啟用適用於 Kafka 的Log Analytics
 
 針對 HDInsight 啟用 Log Analytics 的步驟，對於所有 HDInsight 叢集來說都一樣。 若要了解如何建立和設定所需的服務，請使用下列連結：
 
@@ -38,8 +38,8 @@ ms.lasthandoff: 02/01/2018
     > 您也可以使用 `Enable-AzureRmHDInsightOperationsManagementSuite` Cmdlet，將叢集設定為使用 Log Analytics。 這個 Cmdlet 需要下列資訊︰
     >
     > * HDInsight 叢集名稱。
-    > * Log Analytics 的工作區識別碼。 您可以在 Log Analytics 工作區的 OMS 工作區中找到工作區識別碼。
-    > * OMS 連線的主索引鍵。 若要尋找主索引鍵，請依序選取 Log Analytics 執行個體和 [OMS 入口網站]。 在 OMS 入口網站中，依序選取 [設定]、[連接的來源] 及 [Linux 伺服器]。
+    > * Log Analytics 的工作區識別碼。 您可以在 Log Analytics 工作區中找到工作區識別碼。
+    > * Log Analytics 連線的主索引鍵。 若要尋找主索引鍵，請依序選取 Log Analytics 執行個體和 [OMS 入口網站]。 在 OMS 入口網站中，依序選取 [設定]、[連接的來源] 及 [Linux 伺服器]。
 
 
 > [!IMPORTANT]

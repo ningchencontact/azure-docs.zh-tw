@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 80f427d5acb884be1752f470e2a9d9d04eee5518
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f1e1c2aa447e35ea483665cc33e4eb6af7a41f51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>使用 Resource Manager 範本在建立資源時自動啟用診斷設定
 在本文中，我們示範如何在建立資源時使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md) 設定診斷設定。 這可讓您在建立資源時，自動開始將您的診斷記錄檔和度量串流至事件中樞、將它們封存在儲存體帳戶中，或將它們傳送至 Log Analytics。
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/28/2018
 ## <a name="non-compute-resource-template"></a>非計算資源範本
 如是非計算資源，您需要做兩件事︰
 
-1. 將參數新增至儲存體帳戶名稱、事件中樞授權規則識別碼，和/或 OMS Log Analytics 工作區識別碼的參數 blob (可啟用儲存體帳戶中診斷記錄檔的封存、串流記錄檔至事件中樞，和/或將記錄檔傳送至 Log Analytics)。
+1. 將參數新增至儲存體帳戶名稱、事件中樞授權規則識別碼，和/或 Log Analytics 工作區識別碼的參數 blob (可啟用儲存體帳戶中診斷記錄的封存、串流記錄至事件中樞，和/或將記錄傳送至 Log Analytics)。
    
     ```json
     "settingName": {

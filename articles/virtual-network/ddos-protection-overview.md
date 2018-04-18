@@ -1,13 +1,13 @@
 ---
-title: "Azure DDoS Protection Standard 概觀 | Microsoft Docs"
-description: "深入了解 Azure DDoS Protection 服務。"
+title: Azure DDoS Protection Standard 概觀 | Microsoft Docs
+description: 深入了解 Azure DDoS Protection 服務。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6b15be022ba3b8373cfb852be8fc6915824801dc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb19baae1bc03633b7646fd2255ca910532595c5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection Standard 概觀
 
@@ -65,7 +65,7 @@ DDoS Protection Standard 功能包括：
 - **第 3 層至第 7 層保護：**搭配應用程式閘道時，可提供完整的堆疊 DDoS 保護。
 - **廣泛的安全防護範圍：**可利用全域功能降低超過 60 種不同攻擊類型的風險，以抵禦最大的已知 DDoS 攻擊。 
 - **攻擊計量：**透過 Azure 監視器可以存取每個攻擊的摘要計量。
-- **攻擊警示：**警示可設定為在開始和停止攻擊時，並且在攻擊的持續時間內使用內建攻擊計量。 警示會整合到您的作業軟體，例如 Microsoft Operations Management Suite、Splunk、Azure 儲存體、電子郵件和 Azure 入口網站。
+- **攻擊警示：**警示可設定為在開始和停止攻擊時，並且在攻擊的持續時間內使用內建攻擊計量。 警示會整合到您的作業軟體，例如 Microsoft Azure Log Analytics、Splunk、Azure 儲存體、電子郵件和 Azure 入口網站。
 - **成本保證：**資料傳輸和應用程式相應放大服務會針對記載的 DDoS 攻擊計算點數。
 
 ## <a name="ddos-protection-standard-mitigation"></a>DDoS Protection Standard 安全防護功能

@@ -1,25 +1,25 @@
 ---
-title: "Azure Analysis Services 中支援的資料來源 | Microsoft Docs"
-description: "說明 Azure Analysis Services 中資料模型支援的資料來源。"
+title: Azure Analysis Services 中支援的資料來源 | Microsoft Docs
+description: 說明 Azure Analysis Services 中資料模型支援的資料來源。
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 6ec63319-ff9b-4b01-a1cd-274481dc8995
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 04/05/2018
 ms.author: owend
-ms.openlocfilehash: 9f2a4acdd0a2b29bc1485f62c0049f0065cbf711
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 16bf333fe18c912db7cb81e74fce29960b0728d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -33,12 +33,10 @@ ms.lasthandoff: 03/02/2018
 |Azure SQL 資料倉儲     |   yes      |   yes       |
 |Azure Blob 儲存體*     |   yes       |    否      |
 |Azure 表格儲存體*    |   yes       |    否      |
-|Azure Cosmos DB (搶鮮版 (Beta))*     |  yes        |  否        |
+|Azure Cosmos DB*     |  yes        |  否        |
 |Azure Data Lake Store*     |   yes       |    否      |
 |Azure HDInsight HDFS*     |     yes     |   否       |
-|Azure HDInsight Spark (搶鮮版 (Beta))*     |   yes       |   否       |
-|適用於 MySQL 的 Azure 資料庫 (預覽)*     |   yes       |   否      |
-|適用於 PostgreSQL 的 Azure 資料庫 (預覽)*     | yes         |  否       |
+|Azure HDInsight Spark*     |   yes       |   否       |
 ||||
 
 \* 僅限表格式 1400 模型。

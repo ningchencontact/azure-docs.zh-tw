@@ -8,15 +8,15 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords: ''
-ms.openlocfilehash: a4c854bdd659a05f032f5ee232074bc38ff677ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器擴展集
 
@@ -47,6 +47,7 @@ Azure Stack 上的虛擬機器擴展集就像是 Azure 上的虛擬機器擴展�
 
    如需 Linux 支援，請下載 Ubuntu Server 16.04，並將使用 ```Add-AzsVMImage``` 搭配下列參數來新增它：```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```。
 
+
 ## <a name="add-the-virtual-machine-scale-set"></a>新增虛擬機器擴展集
 
 為您的環境編輯下列 PowerShell 指令碼，然後執行它以將虛擬機器擴展集新增至您的 Azure Stack Marketplace。 
@@ -72,6 +73,38 @@ Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
 ```
+
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>更新虛擬機器擴展集中的映像 
+建立虛擬機器擴展集之後，使用者可以更新擴展集中的映像，而不必重新建立擴展集。 更新映像的程序取決於下列案例：
+
+1. 虛擬機器擴展集部署範本會**指定最新的** version：  
+
+   當 version 在擴展集範本的 imageReference 區段中設定為 **latest** 時，擴展集的相應放大作業會針對擴展集執行個體使用映像可用的最新版本。 相應放大完成之後，您可以刪除較舊的虛擬機器擴展集執行個體。  (publisher、offer 和 sku 的值維持不變)。 
+
+   以下是指定 latest 的範例：  
+
+          "imageReference": {
+             "publisher": "[parameters('osImagePublisher')]",
+             "offer": "[parameters('osImageOffer')]",
+             "sku": "[parameters('osImageSku')]",
+             "version": "latest"
+             }
+
+   您必須先下載新映像，相應放大才可使用這個新映像：  
+
+   - 當 Marketplace 上的映像版本比擴展集中的映像還要新時：下載新映像以取代舊映像。 取代映像之後，使用者可以繼續相應放大。 
+
+   - 當 Marketplace 上的映像版本與擴展集中的映像相同時：刪除擴展集中使用的映像，然後下載新映像。 在移除原始映像與下載新映像之間的這段時間內，您無法相應放大。 
+      
+     您必須執行此程序，才能重新整合使用疏鬆檔案格式 (在版本 1803 中引進) 的映像。 
+ 
+
+2. 虛擬機器擴展集部署範本**不會指定最新的** version，而會改為指定一個版本號碼：  
+
+     如果您下載較新版本的映像 (它會變更可用版本)，則無法相應放大擴展集。 這是因為根據設計，擴展集範本中指定的映像版本必須可以使用。  
+
+如需詳細資訊，請參閱[作業系統磁碟和映像](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images)。  
+
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>移除虛擬機器擴展集
 

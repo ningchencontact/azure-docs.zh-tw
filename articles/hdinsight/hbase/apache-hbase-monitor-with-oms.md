@@ -1,6 +1,6 @@
 ---
-title: 使用 Operations Management Suite (OMS) 監視 HBase - Azure HDInsight | Microsoft Docs
-description: 搭配 Azure Log Analytics 使用 OMS 來監視 HDInsight HBase 叢集。
+title: 使用 Azure Log Analytics 監視 HBase - Azure HDInsight | Microsoft Docs
+description: 使用 Azure Log Analytics 監視 HDInsight HBase 叢集。
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -16,23 +16,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: f78d570cfa8b040cd7673a5e14e6a992511f60bb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3746713cdadff0a4c6f4fe25d278e8d78555f9d6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="monitor-hbase-with-operations-management-suite-oms"></a>使用 Operations Management Suite (OMS) 監視 HBase
+# <a name="monitor-hbase-with-log-analytics"></a>透過 Log Analytics 監視 HBase
 
 HDInsight HBase 監控會使用 Azure Log Analytics 從您的 HDInsight 叢集節點收集 HDInsight HBase 效能計量。 「監視器」提供 HBase 特定的視覺效果和儀表板、用來搜尋計量的工具，以及建立自訂監控規則和警示的能力。 您可以監視多個 Azure 訂用帳戶之多個 HDInsight HBase 叢集的計量。
 
-Log Analytics 是 [Operations Management Suite (OMS)](../../operations-management-suite/operations-management-suite-overview.md) 中的一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 Log Analytics 會收集您的雲端和內部部署環境中之資源所產生的資料以及從其他監控工具收集資料，以提供橫跨多個來源的分析。
+Log Analytics 是 [Azure](../../operations-management-suite/operations-management-suite-overview.md) 中的一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 Log Analytics 會收集您的雲端和內部部署環境中之資源所產生的資料以及從其他監控工具收集資料，以提供橫跨多個來源的分析。
 
-[Log Analytics 管理解決方案](../../log-analytics/log-analytics-add-solutions.md)可將功能新增至 OMS，以提供其他資料和分析工具。 Log Analytics 管理解決方案是邏輯、視覺效果和資料擷取規則的集合，可提供特定領域的計量。 解決方案可能也會定義要收集的新記錄類型，而且這些記錄可使用記錄搜尋或新的使用者介面功能進行分析。
+[Log Analytics 管理解決方案](../../log-analytics/log-analytics-add-solutions.md)可將功能新增至 Log Analytics，以提供其他資料和分析工具。 Log Analytics 管理解決方案是邏輯、視覺效果和資料擷取規則的集合，可提供特定領域的計量。 解決方案可能也會定義要收集的新記錄類型，而且這些記錄可使用記錄搜尋或新的使用者介面功能進行分析。
 
 [深入解析與分析](https://azure.microsoft.com/pricing/details/insight-analytics/)內建於 Log Analytics 平台。 您可以選擇使用 Log Analytics 功能並依內嵌到服務的每一 GB 付費，或將工作區切換為「深入解析與分析」層並依服務管理的每一節點付費。 深入解析與分析囊括了 Log Analytics 所提供的功能。 HBase 監控解決方案適用於 Log Analytics 或「深入解析與分析」。
 
-當您佈建 HDInsight HBase 監控解決方案時，您會建立 OMS 工作區。 每個工作區都是唯一的 Log Analytics 環境，有自己的資料存放庫、資料來源和解決方案。 您可以在訂用帳戶中建立多個工作區以支援多個環境，例如生產環境和測試環境。
+當您佈建 HDInsight HBase 監控解決方案時，您會建立 Log Analytics 工作區。 每個工作區都是唯一的 Log Analytics 環境，有自己的資料存放庫、資料來源和解決方案。 您可以在訂用帳戶中建立多個工作區以支援多個環境，例如生產環境和測試環境。
 
 ## <a name="provision-hdinsight-hbase-monitoring"></a>佈建 HDInsight HBase 監控
 
@@ -50,7 +50,7 @@ Log Analytics 是 [Operations Management Suite (OMS)](../../operations-managemen
 
     ![[管理解決方案] 窗格](./media/apache-hbase-monitor-with-oms/hbase-solution.png)  
 6. 在 [管理解決方案] 窗格中，檢閱管理解決方案的相關資訊，然後選取 [建立]。 
-7. 在 [管理解決方案名稱] 窗格中，選取現有的工作區以與管理解決方案產生關聯，或建立新的 OMS 工作區，然後選取它。
+7. 在 [管理解決方案名稱] 窗格中，選取現有的工作區以與管理解決方案產生關聯，或建立新的 Log Analytics 工作區，然後選取它。
 8. 視需要變更工作區的 Azure 訂用帳戶、資源群組和位置等設定。 
     ![解決方案工作區](./media/apache-hbase-monitor-with-oms/solution-workspace.png)  
 9. 選取 [建立] 。  
@@ -68,9 +68,9 @@ Log Analytics 是 [Operations Management Suite (OMS)](../../operations-managemen
 
 若要使用 HDInsight HBase 監控所提供的工具，您需要設定叢集，讓它將來自其區域伺服器、前端節點以及 ZooKeeper 節點的計量傳輸到 Log Analytics。 此設定可藉由對 HDInsight HBase 叢集執行指令碼動作來完成。
 
-### <a name="get-oms-workspace-id-and-workspace-key"></a>取得 OMS 工作區識別碼和工作區金鑰
+### <a name="get-log-analytics-workspace-id-and-workspace-key"></a>取得 Log Analytics 工作區識別碼和工作區金鑰
 
-您需要 OMS 工作區識別碼和工作區金鑰，才能讓叢集中的節點向 Log Analytics 進行驗證。 若要取得這些值：
+您需要 Log Analytics 工作區識別碼和工作區金鑰，才能讓叢集中的節點向 Log Analytics 進行驗證。 若要取得這些值：
 
 1. 從 Azure 入口網站中的 HBase 監控窗格，選取 [概觀]。
 
@@ -146,5 +146,5 @@ Log Analytics 是 [Operations Management Suite (OMS)](../../operations-managemen
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 OMS Log Analytics 中建立警示](../../log-analytics/log-analytics-alerts-creating.md)
+* [在 Log Analytics 中建立警示](../../log-analytics/log-analytics-alerts-creating.md)
 * [在 Azure Log Analytics 中使用記錄搜尋以尋找資料](../../log-analytics/log-analytics-log-searches.md)。

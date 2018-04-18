@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
-ms.openlocfilehash: c4693d91fe81ce55c6faa6610ea19219ac5cfcb5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7fcd8e12a7109218387788e47eddad48e72797bb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Microsoft Azure 虛擬資料中心：網路觀點
 **Microsoft Azure**：移動更為快速、節省成本、在內部部署環境整合應用程式和資料
@@ -259,9 +259,9 @@ Azure 中有兩種主要類型的記錄：
 
 所有記錄都可以儲存在 Azure 儲存體帳戶中，以進行稽核、靜態分析或備份。 將記錄儲存在 Azure 儲存體帳戶中時，客戶就可以使用不同類型的架構來擷取、準備、分析並以視覺化方式檢視這項資料，以報告雲端資源的狀態和健康狀態。
 
-大型企業應該已取得用來監視內部部署系統的標準架構，以及可以延伸該架構以整合雲端部署所產生的記錄。 針對想要在雲端保留所有記錄的組織，[Microsoft Operations Management Suite (OMS)][OMS] 是不錯的選擇。 因為 OMS 實作為雲端型服務，所以您對基礎結構服務進行最小的投資就可以快速啟動並執行它。 OMS 也可以整合 System Center 元件 (例如 System Center Operations Manager)，以將現有管理投資擴充到雲端。
+大型企業應該已取得用來監視內部部署系統的標準架構，以及可以延伸該架構以整合雲端部署所產生的記錄。 對於想要在雲端保留所有記錄的組織而言，[Log Analytics][LogAnalytics] 是不錯的選擇。 因為 Log Analytics 實作為雲端型服務，所以您對基礎結構服務進行最小的投資就可以快速啟動並執行它。 Log Analytics 也可以整合 System Center 元件 (例如 System Center Operations Manager)，以將現有管理投資擴充到雲端。
 
-OMS 記錄分析是 OMS 架構的元件，可協助收集、相互關聯、搜尋和處理作業系統、應用程式、基礎結構雲端元件所產生的記錄和效能資料。 它可將使用整合式搜尋和自訂儀表板的即時操作深入資訊提供給客戶，以分析 vDC 中所有工作負載的所有記錄。
+Log Analytics 是一項 Azure 服務，可協助收集、相互關聯、搜尋和處理作業系統、應用程式及基礎結構雲端元件所產生的記錄和效能資料。 它可將使用整合式搜尋和自訂儀表板的即時操作深入資訊提供給客戶，以分析 vDC 中所有工作負載的所有記錄。
 
 #### <a name="component-type-workloads"></a>元件類型：工作負載
 工作負載元件是實際應用程式和服務所在的位置。 它也是在應用程式開發小組花費最多時間的位置。
@@ -332,7 +332,7 @@ vDC 裝載所在的 Azure 區域也需要符合您組織運作所在之任何法
 |網路功能|負載平衡|連線能力|
 |[Azure 虛擬網路][VNet]</br>[網路安全性群組][NSG]</br>[NSG 記錄][NSGLog]</br>[使用者定義路由][UDR]</br>[網路虛擬設備][NVA]</br>[公用 IP 位址][PIP]|[Azure Load Balancer (L3) ][ALB]</br>[應用程式閘道 (L7) ][AppGW]</br>[Web 應用程式防火牆][WAF]</br>[Azure 流量管理員][TM] |[VNet 對等][VNetPeering]</br>[虛擬私人網路][VPN]</br>[ExpressRoute][ExR]
 |身分識別</br>|監視</br>|最佳做法</br>|
-|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[角色型存取控制][RBAC]</br>[預設 AAD 角色][Roles] |[活動記錄][ActLog]</br>[診斷記錄][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[周邊網路最佳做法][DMZ]</br>[訂用帳戶管理][SubMgmt]</br>[資源群組管理][RGMgmt]</br>[Azure 訂用帳戶限制][Limits] |
+|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[角色型存取控制][RBAC]</br>[預設 AAD 角色][Roles] |[活動記錄][ActLog]</br>[診斷記錄][DiagLog]</br>[Log Analytics][LogAnalytics]</br> |[周邊網路最佳做法][DMZ]</br>[訂用帳戶管理][SubMgmt]</br>[資源群組管理][RGMgmt]</br>[Azure 訂用帳戶限制][Limits] |
 |其他 Azure 服務|
 |[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[事件中樞][EventHubs]</br>[服務匯流排][ServiceBus]|
 
@@ -379,7 +379,7 @@ vDC 裝載所在的 Azure 區域也需要符合您組織運作所在之任何法
 [ActLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
-[OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
+[LogAnalytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
 [WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 

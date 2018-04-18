@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9c61fe7c62f0718d390509d3b0ff3327bd193f43
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 診斷記錄
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/23/2018
 
  - Azure 儲存體帳戶
  - Azure 事件中心
- - [OMS Log Analytics 存放庫](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
+ - [Log Analytics 工作區](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 這項功能適用於所有屬於 Verizon (標準與進階) 及 Akamai (標準) CDN 設定檔的 CDN 端點。 
 
@@ -34,7 +34,7 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 
 - 匯出資料至 Blob 儲存體、匯出至 CSV，以及在 Excel 中產生圖表。
 - 匯出資料至事件中樞，並將資料與其他 Azure 服務相互關聯。
-- 匯出資料至 Log Analytics，並在您自己的 OMS 工作區中檢視資料
+- 匯出資料至 Log Analytics，並在您自己的 Log Analytics 工作區中檢視資料
 
 下圖說明典型的 CDN 核心分析資料檢視。
 
@@ -68,9 +68,9 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 
 *圖 2 - 使用 Azure 儲存體進行記錄*
 
-### <a name="logging-with-oms-log-analytics"></a>使用 OMS Log Analytics 進行記錄
+### <a name="logging-with-log-analytics"></a>使用 Log Analytics 記錄
 
-若要使用 OMS Log Analytics 來儲存記錄，請遵循下列步驟：
+若要使用 Log Analytics 來儲存記錄，請遵循下列步驟：
 
 1. 從 [診斷記錄] 刀鋒視窗中，選取 [傳送至 Log Analytics]。 
 
@@ -84,7 +84,7 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 
     ![入口網站 - 診斷記錄](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. 輸入新的 OMS 工作區名稱。 OMS 工作區名稱必須是唯一的，且只能包含字母、數字和連字號；不允許空格和底線。 
+4. 輸入新的 Log Analytics 工作區名稱。 Log Analytics 工作區名稱必須是唯一的，且只能包含字母、數字和連字號；不允許空格和底線。 
 5. 接下來，選取現有的訂用帳戶、資源群組 (新的或現有的)、位置和定價層。 您也可以選擇將此設定釘選到儀表板上。 按一下 [確定] 完成設定。
 
     ![入口網站 - 診斷記錄](./media/cdn-diagnostics-log/08_Workspace-resource.png)
@@ -97,11 +97,11 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 
 6. 按一下 [檔案] 。
 
-7. 若要查看新的 OMS 工作區，請前往 Azure 入口網站的儀表板，然後按一下 Log Analytics 工作區的名稱。 按一下 [OMS 入口網站] 圖格，以檢視您在 OMS 存放庫中的工作區。 
+7. 若要檢視新的 Log Analytics 工作區，請前往 Azure 入口網站的儀表板，然後按一下 Log Analytics 工作區的名稱。 按一下 [OMS 入口網站] 圖格，以檢視您的 Log Analytics 工作區。 
 
     ![入口網站 - 診斷記錄](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
 
-    您的 OMS 存放庫現已可供記錄資料。 若要取用該資料，您必須使用 [OMS 解決方案](#consuming-oms-log-analytics-data) (本文稍後會有說明)。
+    您的 Log Analytics 工作區現在已經可以記錄資料。 若要取用該資料，您必須使用 [Log Analytics 解決方案](#consuming-diagnostics-logs-from-a-log-analytics-workspace) (本文稍後會有說明)。
 
 如需有關記錄資料延遲的詳細資訊，請參閱[記錄資料延遲](#log-data-delays)。
 
@@ -123,7 +123,7 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
 ```
-若要啟用 OMS 工作區中的診斷記錄，請使用此命令：
+若要在 Log Analytics 工作區中啟用診斷記錄，請使用下列命令：
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -179,16 +179,16 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 4.  執行工具。
 5.  產生的 CSV 檔案會以簡單的平面階層顯示分析資料。
 
-## <a name="consuming-diagnostics-logs-from-an-oms-log-analytics-repository"></a>從 OMS Log Analytics 存放庫取用診斷記錄
-Log Analytics 是 Operations Management Suite (OMS) 中的一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。 
+## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>從 Log Analytics 工作區取用診斷記錄
+Log Analytics 是 Azure 中的一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。 
 
-若要使用 Log Analytics，您必須對 Azure OMS Log Analytics 存放庫[啟用記錄功能](#enable-logging-with-azure-storage) (本文前面已討論過)。
+若要使用 Log Analytics，您必須對 Azure Log Analytics 工作區[啟用記錄功能](#enable-logging-with-azure-storage) (本文前面已討論過)。
 
-### <a name="using-the-oms-repository"></a>使用 OMS 存放庫
+### <a name="using-the-log-analytics-workspace"></a>使用 Log Analytics 工作區
 
  下圖顯示存放庫的輸入和輸出架構：
 
-![OMS Log Analytics 存放庫](./media/cdn-diagnostics-log/12_Repo-overview.png)
+![Log Analytics 工作區](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *圖 3 - Log Analytics 存放庫*
 
@@ -196,7 +196,7 @@ Log Analytics 是 Operations Management Suite (OMS) 中的一項服務，可監�
 
 按一下每個解決方案底部的 [立刻取得] 連結，即可從 Azure marketplace 安裝管理解決方案。
 
-### <a name="adding-an-oms-cdn-management-solution"></a>新增 OMS CDN 管理解決方案
+### <a name="adding-a-log-analytics-cdn-management-solution"></a>新增 Log Analytics CDN 管理解決方案
 
 請遵循下列步驟來新增管理解決方案：
 
@@ -219,7 +219,7 @@ Log Analytics 是 Operations Management Suite (OMS) 中的一項服務，可監�
 
     ![檢視全部](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6.  在按一下 [建立] 後，系統會詢問您是要建立新的 OMS 工作區，還是使用現有工作區。 
+6.  在按一下 [建立] 之後，系統會詢問您是要建立新的 Log Analytics 工作區，還是使用現有工作區。 
 
     ![檢視全部](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
@@ -241,11 +241,11 @@ Log Analytics 是 Operations Management Suite (OMS) 中的一項服務，可監�
 
     按一下您所建立的 Log Analytics 工作區以前往您的工作區。 
 
-11. 按一下 [OMS 入口網站] 圖格，以查看您在 OMS 入口網站的新解決方案。
+11. 按一下 [OMS 入口網站] 圖格，以查看您的新解決方案。
 
     ![檢視全部](./media/cdn-diagnostics-log/23_workspace.png)
 
-12. 您的 OMS 入口網站現在看起來應該類似下列畫面︰
+12. 您的入口網站現在看起來應該類似下列畫面︰
 
     ![檢視全部](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
@@ -261,11 +261,11 @@ Log Analytics 是 Operations Management Suite (OMS) 中的一項服務，可監�
 
 ### <a name="offers-and-pricing-tiers"></a>優惠和定價層
 
-您可以在[這裡](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)看到 OMS 管理解決方案的供應項目和定價層。
+您可以在[這裡](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)看到管理解決方案的供應項目和定價層。
 
 ### <a name="customizing-views"></a>自訂檢視
 
-您可以使用**檢視設計工具**來自訂資料的檢視。 若要開始設計，請前往您的 OMS 工作區，然後按一下 [檢視設計工具] 圖格。
+您可以使用**檢視設計工具**來自訂資料的檢視。 若要開始設計，請前往您的 Log Analytics 工作區，然後按一下 [檢視設計工具] 圖格。
 
 ![[檢視設計工具]](./media/cdn-diagnostics-log/27_Designer.png)
 
@@ -410,7 +410,7 @@ Verizon 記錄資料會延遲 1 小時，端點傳播完成後需花費最多 2 
 
 * [Azure 診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [分析 Azure CDN 使用模式](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 

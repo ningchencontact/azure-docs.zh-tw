@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 42fdfa2eb629351c38fb72c20a62cd7d78acf229
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/28/2018
 * 模式
 * parameters
 * 顯示名稱
-* 描述
+* 說明
 * 原則規則
   * 邏輯評估
   * 效果
@@ -70,7 +70,7 @@ ms.lasthandoff: 03/28/2018
 * `all`：評估資源群組和所有資源類型 
 * `indexed`：只評估支援標記和位置的資源類型
 
-我們建議您在大部分的情況下都將 **mode** 設定為 `all`。 透過入口網站使用 `all` 模式建立的所有原則定義。 如果您是使用 PowerShell 或 Azure CLI，則需要手動指定 **mode** 參數。
+我們建議您在大部分的情況下都將 **mode** 設定為 `all`。 透過入口網站使用 `all` 模式建立的所有原則定義。 如果您是使用 PowerShell 或 Azure CLI，則需要手動指定 **mode** 參數。 如果原則定義不包含 **mode** 值，它會預設為 `indexed` 以獲得回溯相容性。
 
 當建立會強制執行標籤或位置的原則時，應該使用 `indexed`。 這不是必要的，但它會防止不支援標籤和位置的資源在合規性結果中顯示為不符合規範。 唯一的例外是**資源群組**。 嘗試在資源群組上強制執行位置或標籤的原則應該將 **mode** 設定為 `all`，並明確地將 `Microsoft.Resources/subscriptions/resourceGroup` 類型設定為目標。 如需範例，請參閱[強制執行資源群組標籤](scripts/enforce-tag-rg.md)。
 
@@ -102,6 +102,8 @@ ms.lasthandoff: 03/28/2018
 * `"resourceTypes"`
 * `"storageSkus"`
 * `"vmSKUs"`
+* `"existingResourceGroups"`
+* `"omsWorkspace"`
 
 在原則規則中，您可以使用下列語法參考參數︰
 
@@ -246,7 +248,7 @@ ms.lasthandoff: 03/28/2018
 
 **Microsoft.Cache/Redis**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Cache/Redis/enableNonSslPort | 設定是否啟用非 SSL Redis 伺服器連接埠 (6379)。 |
 | Microsoft.Cache/Redis/shardCount | 設定要在進階叢集快取上建立的分區數目。  |
@@ -256,13 +258,13 @@ ms.lasthandoff: 03/28/2018
 
 **Microsoft.Cdn/profiles**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.CDN/profiles/sku.name | 設定定價層的名稱。 |
 
 **Microsoft.Compute/disks**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Compute/imageOffer | 設定用來建立虛擬機器的平台映像或 Marketplace 映像供應項目。 |
 | Microsoft.Compute/imagePublisher | 設定用來建立虛擬機器的平台映像或 Marketplace 映像發行者。 |
@@ -272,7 +274,7 @@ ms.lasthandoff: 03/28/2018
 
 **Microsoft.Compute/virtualMachines**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | 設定用來建立虛擬機器的映像識別碼。 |
 | Microsoft.Compute/imageOffer | 設定用來建立虛擬機器的平台映像或 Marketplace 映像供應項目。 |
@@ -290,7 +292,7 @@ ms.lasthandoff: 03/28/2018
 
 **Microsoft.Compute/virtualMachines/extensions**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Compute/virtualMachines/extensions/publisher | 設定擴充功能發行者的名稱。 |
 | Microsoft.Compute/virtualMachines/extensions/type | 設定擴充功能的類型。 |
@@ -298,7 +300,7 @@ ms.lasthandoff: 03/28/2018
 
 **Microsoft.Compute/virtualMachineScaleSets**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | 設定用來建立虛擬機器的映像識別碼。 |
 | Microsoft.Compute/imageOffer | 設定用來建立虛擬機器的平台映像或 Marketplace 映像供應項目。 |
@@ -314,26 +316,26 @@ ms.lasthandoff: 03/28/2018
 
 **Microsoft.Network/applicationGateways**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Network/applicationGateways/sku.name | 設定閘道的大小。 |
 
 **Microsoft.Network/virtualNetworkGateways**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Network/virtualNetworkGateways/gatewayType | 設定此虛擬網路閘道的類型。 |
 | Microsoft.Network/virtualNetworkGateways/sku.name | 設定閘道 SKU 名稱。 |
 
 **Microsoft.Sql/servers**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Sql/servers/version | 設定伺服器的版本。 |
 
 **Microsoft.Sql/databases**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Sql/servers/databases/edition | 設定資料庫的版本。 |
 | Microsoft.Sql/servers/databases/elasticPoolName | 設定資料庫所在彈性集區的名稱。 |
@@ -342,14 +344,14 @@ ms.lasthandoff: 03/28/2018
 
 **Microsoft.Sql/elasticpools**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | 設定資料庫彈性集區的所有共用 DTU。 |
 | servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | 設定彈性集區的版本。 |
 
 **Microsoft.Storage/storageAccounts**
 
-| Alias | 描述 |
+| Alias | 說明 |
 | ----- | ----------- |
 | Microsoft.Storage/storageAccounts/accessTier | 設定用於計費的存取層。 |
 | Microsoft.Storage/storageAccounts/accountType | 設定 SKU 名稱。 |

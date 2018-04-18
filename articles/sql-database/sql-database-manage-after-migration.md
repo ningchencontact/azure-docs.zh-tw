@@ -12,15 +12,15 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 4e50a1be3437ab1b027c1ca0f160402239e13e92
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的資料庫
 
-從傳統的自我管理、自我控管的環境轉移至 PaaS 環境，一開始會讓人有點不知所措。 身為應用程式開發人員或 DBA，建議您熟知可協助您讓應用程式持續保持可用、高效能、安全且有彈性的平台核心功能。 本文章的用意就是如此。 本文章簡潔地整理了資源，並提供一些指引，說明如何善用 SQL Database 的重要功能來管理應用程式並讓其有效率地在雲端中執行及達到最佳結果。 本文章的典型對象是：
+從傳統的自我管理、自我控管的環境轉移至 PaaS 環境，一開始會讓人有點不知所措。 身為應用程式開發人員或 DBA，建議您熟知可協助您讓應用程式持續保持可用、高效能、安全且有彈性的平台核心功能。 本文章的用意就是如此。 本文章簡潔地整理了資源，並提供一些指引，說明如何善用 SQL Database 的重要功能來管理應用程式並讓其有效率地在雲端中執行及達到最佳結果。 本文章的典型對象是： 
 - 正在評估將其應用程式移轉到 Azure SQL DB 的使用者 - 將您的應用程式現代化。
 - 正處於移轉其應用程式的使用者 - 持續中的移轉案例。
 - 最近完成移轉至 Azure SQL DB 的使用者 - 雲端中的新 DBA。
@@ -105,7 +105,7 @@ SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentic
 ![VNET 服務端點](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
 #### <a name="reserved-ips"></a>保留的 IP
-另一個選項就是為您的 VM 佈建[保留的 IP](../virtual-network/virtual-networks-reserved-public-ip.md)，並將伺服器防火牆設定中的特定 VM IP 位址列入白名單。 藉由指派保留的 IP，即可免去必須以不斷變更的 IP 位址更新防火牆規則的麻煩。
+另一個選項就是為您的 VM 佈建[保留的 IP](../virtual-network/virtual-networks-reserved-public-ip.md)，並將伺服器防火牆設定中的特定 VM IP 位址列入允許清單。 藉由指派保留的 IP，即可免去必須以不斷變更的 IP 位址更新防火牆規則的麻煩。
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>我會透過哪個連接埠連接到 SQL Database？
 
@@ -218,7 +218,7 @@ SQL Database 符合各種法規規範。 若要檢視已符合的最新一組規
 
 對效能進行疑難排解時，請務必找出影響應用程式效能的是否只是應用程式或是後端資料庫。 往往效能問題會出在應用程式層。 可能是架構或資料存取模式。 例如，假設您有對網路延遲敏感的交談應用程式。 在此情況下，因為在應用程式與伺服器之間有許多往返傳送的簡短要求 (「交談」)，而在網路壅塞時，這些來回會快速增加，使得您的應用程式遭遇困境。 若要改善此情況下的效能，您可以使用[批次查詢](sql-database-performance-guidance.md#batch-queries)。 使用批次對您大有幫助，因為現在系統會以批次處理您的要求，因此可協助您減少來回延遲，並改善您的應用程式效能。 
 
-此外，如果您發現資料庫整體效能降低，您可以監視 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 和 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 動態管理檢視，以便了解 CPU、I/O 和記憶體耗用量。 您的效能可能受到影響，因為您的資料庫極需要資源。 您可能需要根據成長和縮減的工作負載需求來變更效能層級和/或服務層。 
+此外，如果您發現資料庫整體效能降低，您可以監視 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 和 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 動態管理檢視，以便了解 CPU、IO 和記憶體耗用量。 您的效能可能受到影響，因為您的資料庫極需要資源。 您可能需要根據成長和縮減的工作負載需求來變更效能層級和/或服務層。 
 
 如需一組完整的調整效能問題相關建議，請參閱[微調資料庫](sql-database-performance-guidance.md#tune-your-database)。
 

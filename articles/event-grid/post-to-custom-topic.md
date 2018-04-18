@@ -1,18 +1,18 @@
 ---
-title: "張貼事件以自訂 Azure Event Grid 主題"
-description: "描述如何針對 Azure Event Grid 將事件張貼到自訂主題"
+title: 張貼事件以自訂 Azure Event Grid 主題
+description: 描述如何針對 Azure Event Grid 將事件張貼到自訂主題
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 43dcdf9ab0fee5f7e61ecdc42aaf40430e272d92
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>針對 Azure Event Grid 張貼到自訂主題
 
@@ -91,8 +91,34 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 }]
 ```
 
+## <a name="response"></a>Response
+
+在張貼到主題端點之後，您會收到回應。 回應是標準的 HTTP 回應碼。 一些常見回應有：
+
+|結果  |Response  |
+|---------|---------|
+|成功  | 200 確定  |
+|端點不正確 | 404 找不到 |
+|存取金鑰無效 | 401 未經授權 |
+|事件資料的格式不正確 | 400 不正確的要求 |
+
+對於錯誤，訊息內文的格式如下：
+
+```json
+{
+    "error": {
+        "code": "<HTTP status code>",
+        "message": "<description>",
+        "details": [{
+            "code": "<HTTP status code>",
+            "message": "<description>"
+    }]
+  }
+}
+```
+
 ## <a name="next-steps"></a>後續步驟
 
-* 如需路由傳送自訂事件的簡介，請參閱[使用 Azure CLI 和 Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)或[使用 Azure PowerShell 和 Event Grid 建立和路由傳送自訂事件](custom-event-quickstart-powershell.md)。
+* 如需關於監視事件傳遞的資訊，請參閱[監視 Event Grid 訊息傳遞](monitor-event-delivery.md)。
 * 如需驗證金鑰的詳細資訊，請參閱 [Event Grid 安全性和驗證](security-authentication.md)。
 * 若要了解 Event Grid 訂用帳戶的建立，請參閱 [Event Grid 訂用帳戶結構描述](subscription-creation-schema.md)。

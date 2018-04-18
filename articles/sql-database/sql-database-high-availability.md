@@ -6,14 +6,14 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d26fe28d301cf563dc6bdb3d9e17903dea3e73fc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 69d004ae4c2408e5749d0a7d21b996cec8dba722
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>高可用性和 Azure SQL Database
 自推出 Azure SQL Database PaaS 供應項目以來，Microsoft 已對客戶承諾會在服務中內建「高可用性」(HA)，讓客戶無須針對 HA 進行操作、新增特殊邏輯或進行決策。 Microsoft 會保有 HA 系統設定和作業的完整控制權，為客戶提供 SLA。 HA SLA 會套用至區域中的 SQL 資料庫，而對於總區域因超出 Microsoft 可合理控制範圍的因素 (例如天然災害、戰爭、恐怖攻擊、暴動、政府行為，或是 Microsoft 資料中心外的網路或裝置故障，包括在客戶網站上或客戶網站與 Microsoft 資料中心之間) 而發生故障的情況，並不提供保護。
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/23/2018
 客戶最感興趣的是他們自己資料庫的恢復功能，對於整體 SQL Database 服務的恢復功能則不太感興趣。 如果「我的資料庫」屬於資料庫中已當機的 0.01%，則服務的 99.99% 運作時間就是毫無意義的。 每個資料庫都需要進行容錯，而減緩錯誤應該永遠不會導致遺失認可的交易。 
 
 針對資料，SQL Database 會根據直接連結的磁碟/VHD 使用本機儲存體 (LS)，並根據 Azure 進階儲存體分頁 Blob 使用遠端儲存體 (RS)。 
-- 本機儲存體會用於「進階」資料庫和集區，是專為具有高 IOPS 需求的任務關鍵性 OLTP 應用程式而設計的。 
+- 本機儲存體會用於進階或業務關鍵 (預覽) 資料庫和彈性集區，是專為具有高 IOPS 需求的任務關鍵性 OLTP 應用程式而設計的。 
 - 遠端儲存體會用於「基本」和「標準」服務層，是專為需要儲存和計算能力以獨立調整規模的預算導向型業務工作負載而設計的。 它們針對資料庫和記錄檔使用單一分頁 Blob，並內建儲存體複寫和容錯移轉機制。
 
 在這兩種情況下，會將 SQL Database 的複寫、失敗偵測和容錯移轉機制完全自動化並進行操作，而不需人為介入。 此架構的設計目的是確保認可的資料絕對不會遺失，以及資料持久性的優先順序高於所有其他項目。
@@ -52,7 +52,7 @@ SQL Database 中的高可用性解決方案是以 SQL Server 的 [Always ON 可�
 
 在此設定中，控制環內的管理服務 (MS) 會使每個資料庫上線。 租用戶環內包含一個主要複本和至少兩個次要複本 (仲裁集)，此環跨越同一個資料中心內的三個獨立實體子系統。 閘道 (GW) 會將所有讀取和寫入傳送至主要複本，而寫入會以非同步方式複寫至次要複本。 SQL Database 會使用以仲裁為基礎的認可配置，其中會先將資料先寫入至主要複本以及至少一個次要複本，然後交易才會認可。
 
-[Service Fabric](../service-fabric/service-fabric-overview.md) 容錯移轉系統會在節點失敗時自動重新建置複本，並在節點離開和加入系統時維護仲裁集成員資格。 預定進行的維護作業會經過仔細協調，以防止仲裁集低於最小複本計數 (通常是 2)。 此模型非常適用於進階資料庫，但它需要計算和儲存元件的備援，因而會導致較高的成本。
+[Service Fabric](../service-fabric/service-fabric-overview.md) 容錯移轉系統會在節點失敗時自動重新建置複本，並在節點離開和加入系統時維護仲裁集成員資格。 預定進行的維護作業會經過仔細協調，以防止仲裁集低於最小複本計數 (通常是 2)。 此模型非常適用於進階和業務關鍵 (預覽) 資料庫，但它需要計算和儲存元件的備援，因而會導致較高的成本。
 
 ## <a name="remote-storage-configuration"></a>遠端儲存體設定
 
@@ -73,16 +73,25 @@ SQL Database 中的高可用性解決方案是以 SQL Server 的 [Always ON 可�
 
 ## <a name="zone-redundant-configuration-preview"></a>區域備援設定 (預覽)
 
-預設會在相同的資料中心內建立本機儲存體設定的仲裁集複本。 隨著 [Azure 可用性區域](../availability-zones/az-overview.md)的導入，您便能夠將仲裁集內的不同複本放到相同區域的不同可用性區域中。 為了避免發生單點失敗，系統也會跨多個區域將控制環複寫成三個閘道環 (GW)。 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md) (ATM) 會控制特定閘道的路由。 由於區域備援設定並不會建立額外的資料庫備援，因此在「進階」服務層中使用「可用性區域」並不需要額外付費。 藉由選取區域備援資料庫，您無須進行任何應用程式邏輯變更，即可讓您的進階資料庫在面對一組更大規模的失敗情況 (包括災難性的資料中心服務中斷) 時，也能夠復原。 您也可以將任何現有的進階資料庫或集區轉換成區域備援設定。
+預設會在相同的資料中心內建立本機儲存體設定的仲裁集複本。 隨著 [Azure 可用性區域](../availability-zones/az-overview.md)的導入，您便能夠將仲裁集內的不同複本放到相同區域的不同可用性區域中。 為了避免發生單點失敗，系統也會跨多個區域將控制環複寫成三個閘道環 (GW)。 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md) (ATM) 會控制特定閘道的路由。 由於區域備援設定並不會建立額外的資料庫備援，因此在進階或業務關鍵 (預覽) 服務層中使用「可用性區域」並不需要額外付費。 藉由選取區域備援資料庫，您無須進行任何應用程式邏輯變更，即可讓您的進階或業務關鍵 (預覽) 資料庫在面對一組更大規模的失敗情況 (包括災難性的資料中心服務中斷) 時，也能夠復原。 您也可以將任何現有的進階或業務關鍵資料庫或彈性集區 (預覽) 轉換成區域備援組態。
 
 由於區域備援仲裁集在不同資料中心 (資料中心彼此之間有些距離) 內都有複本，增加的網路延遲可能導致認可時間增加，因而影響某些 OLTP 工作負載的效能。 您一律可以停用區域備援設定來回到單一區域設定。 此程序是一個資料大小作業，類似於一般的服務等級目標 (SLO) 更新。 在此程序結束時，資料庫或集區會從區域備援環移轉成單一區域環，或反之亦然。
 
 > [!IMPORTANT]
-> 只有在「進階」服務層中才支援區域備援資料庫和彈性集區。 在公開預覽版期間，備份和稽核記錄會儲存在 RA-GRS 儲存體中，因此在發生全區域服務中斷時，可能不會自動提供這些記錄。 
+> 只有在進階和業務關鍵 (預覽) 服務層中才支援區域備援資料庫和彈性集區。 在公開預覽版期間，備份和稽核記錄會儲存在 RA-GRS 儲存體中，因此在發生全區域服務中斷時，可能不會自動提供這些記錄。 
 
 下圖說明區域備援版的高可用性架構：
  
 ![高可用性架構區域備援](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
+
+## <a name="read-scale-out"></a>讀取向外延展
+如其所述，進階和業務關鍵 (預覽) 服務層會利用仲裁集和 AlwaysON 技術，在單一區域和區域備援組態中都能取得高可用性。 AlwasyON 的其中一個優點是複本一律處於交易一致狀態。 因為複本的效能層級與主要複本相同，所以應用程式可以利用額外容量來處理唯讀工作負載，不會有額外成本 (讀取向外延展)。 這種方式的唯讀查詢將會與主要讀寫工作負載隔離，而且不會影響其效能。 讀取向外延展功能適用於包含邏輯上分隔唯讀工作負載 (例如分析) 的應用程式，因此不需要連線到主要複本即可利用這個額外容量。 
+
+若要對特定資料庫使用唯讀向外延展功能，您必須在建立資料庫時或者以後明確地啟用它，方法是藉由使用 PowerShell 叫用 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 或 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) Cmdlet，或者透過 Azure Resource Manager REST API 使用 [Databases - Create or Update](/rest/api/sql/databases/createorupdate) 方法來改變它的組態。
+
+為資料庫啟用讀取向外延展之後，系統會根據在應用程式連接字串中設定的 `ApplicationIntent` 屬性，將連線到該資料庫的應用程式導向到該資料庫的讀寫複本或唯讀複本。 如需 `ApplicationIntent` 屬性的詳細資訊，請參閱[指定應用程式意圖](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) 
+
+讀取向外延展功能支援工作階段層級一致性。 如果唯讀工作階段在無法使用複本所造成的連線錯誤之後重新連線，它會被重新導向到不同的複本。 雖然不太可能，但它會導致處理過時的資料集。 同樣地，如果應用程式使用讀寫工作階段寫入資料，並且使用唯讀工作階段立即讀取它，則新的資料可能無法立即可見。
 
 ## <a name="conclusion"></a>結論
 Azure SQL Database 與 Azure 平台緊密整合，並與 Service Fabric 高度相依以提供失敗偵測和復原、與「Azure 儲存體 Blob」高度相依以提供資料保護，以及與「可用性區域」高度相依以提供更高的容錯能力。 同時，Azure SQL Database 也充分利用 SQL Server 盒裝產品的 Always On 技術來提供複寫和容錯移轉。 這些技術的組合可讓應用程式完全了解混合式儲存體模型的優點，並支援最嚴苛的 SLA。 

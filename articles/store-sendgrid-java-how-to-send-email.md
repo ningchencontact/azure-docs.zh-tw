@@ -1,7 +1,7 @@
 ---
-title: "如何使用 SendGrid 電子郵件服務 (Java) | Microsoft Docs"
-description: "了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。 程式碼範例以 Java 撰寫。"
-services: 
+title: 如何使用 SendGrid 電子郵件服務 (Java) | Microsoft Docs
+description: 了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。 程式碼範例以 Java 撰寫。
+services: ''
 documentationcenter: java
 author: thinkingserious
 manager: sendgrid
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>如何使用 SendGrid 透過 Java 傳送電子郵件
 本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。 相關範例是以 Java 撰寫的。 涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**、**新增附件**、**使用篩選器**及**更新屬性**。 如需有關 SendGrid 及傳送電子郵件的詳細資訊，請參閱[後續步驟](#next-steps)一節。
@@ -39,7 +39,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="how-to-use-the-javaxmail-libraries"></a>如何：使用 javax.mail 程式庫
-取得 javax.mail 程式庫，例如從 <http://www.oracle.com/technetwork/java/javamail> 並將其匯入您的程式碼中。 使用 javax.mail 程式庫來傳送採用 SMTP 之電子郵件的高層級程序就是執行下列動作：
+取得 javax.mail 程式庫，例如從 <http://www.oracle.com/technetwork/java/javamail> 取得並將其匯入您的程式碼。 使用 javax.mail 程式庫來傳送採用 SMTP 之電子郵件的高層級程序就是執行下列動作：
 
 1. 指定 SMTP 值 (包括 SMTP 伺服器)，對 SendGrid 而言是 smtp.sendgrid.net。
 
@@ -180,7 +180,7 @@ SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGri
 了解 SendGrid 電子郵件服務的基本概念後，請參考下列連結以取得更多資訊。
 
 * 示範在 Azure 部署中使用 SendGrid 的範例：[如何在 Azure 部署中使用 SendGrid 透過 Java 傳送電子郵件](store-sendgrid-java-how-to-send-email-example.md)
-* SendGrid Java SDK：<https://sendgrid.com/docs/Code_Examples/java.html>
+* SendGrid Java SDK: <https://sendgrid.com/docs/Code_Examples/java.html>
 * SendGrid API 文件：<https://sendgrid.com/docs/API_Reference/index.html>
 * Azure 客戶的 SendGrid 特別優惠：<https://sendgrid.com/windowsazure.html>
 

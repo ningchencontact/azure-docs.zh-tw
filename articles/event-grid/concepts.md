@@ -1,18 +1,18 @@
 ---
-title: "Azure Event Grid 概念"
-description: "說明 Azure Event Grid 與其概念。 定義 Event Grid 的數個重要元件。"
+title: Azure Event Grid 概念
+description: 說明 Azure Event Grid 與其概念。 定義 Event Grid 的數個重要元件。
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/04/2018
 ms.author: babanisa
-ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid 中的概念
 
@@ -32,9 +32,11 @@ Azure Event Grid 中的主要概念如下：
 
 系統主題是由 Azure 服務提供的內建主題。 自訂主題是應用程式和協力廠商的主題。
 
+在設計您的應用程式時，請針對每一個類別的相關事件建立自訂主題。 例如，請考慮使用應用程式來傳送與修改使用者帳戶和處理訂單有關的事件。 任何事件處理常式不太需要兩種類別的事件。 建立兩個自訂主題，並讓事件處理常式訂閱其感興趣的自訂主題。 訂閱自訂主題時，事件處理常式可依事件類型進行篩選。
+
 ## <a name="event-subscriptions"></a>事件訂閱
 
-訂用帳戶指示 Event Grid 訂閱者有興趣接收主題上的何種事件。  訂用帳戶也掌握事件應如何傳遞至訂閱者的相關資訊。
+訂用帳戶指示 Event Grid 訂閱者有興趣接收主題上的何種事件。 訂用帳戶也掌握事件應如何傳遞至訂閱者的相關資訊。
 
 ## <a name="event-handlers"></a>事件處理常式
 

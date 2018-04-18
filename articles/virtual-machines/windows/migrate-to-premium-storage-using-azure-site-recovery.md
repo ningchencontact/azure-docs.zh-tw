@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure Site Recovery 將 Windows VM 移轉到 Azure 進階儲存體 | Microsoft Docs"
-description: "使用 Site Recovery 將您現有的虛擬機器移轉到 Azure 進階儲存體。 「進階儲存體」可針對在「Azure 虛擬機器」上執行且需要大量 I/O 的工作負載，提供高效能、低延遲的磁碟支援。"
+title: 使用 Azure Site Recovery 將 Windows VM 移轉到 Azure 進階儲存體 | Microsoft Docs
+description: 使用 Site Recovery 將您現有的虛擬機器移轉到 Azure 進階儲存體。 「進階儲存體」可針對在「Azure 虛擬機器」上執行且需要大量 I/O 的工作負載，提供高效能、低延遲的磁碟支援。
 services: virtual-machines-windows
 cloud: Azure
 documentationcenter: na
 author: luywang
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 15c9a6608421b3eeebe6fbe91a10a849bf36ed85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 171b0f938e44218d11cfb001e3f58ebd0feb35fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 移轉到進階儲存體
 
@@ -80,7 +80,7 @@ Site Recovery 支援數種類型的容錯移轉，且停機時間最短或甚至
 ### <a name="step-1-create-a-recovery-services-vault"></a>步驟 1：建立復原服務保存庫
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [建立群組] > [管理] > [備份] 和 [Site Recovery (OMS)]。 或者，您也可以選取 [瀏覽] > [復原服務保存庫] > [加入]。 
+2. 選取 [建立資源] > [管理] > [備份與 Site Recovery] \(OMS\)。 或者，您也可以選取 [瀏覽] > [復原服務保存庫] > [加入]。 
 3. 指定 VM 將複寫到的地區。 若要在相同區域中移轉，請選取來源 VM 和來源儲存體帳戶所在的區域。 
 
 ### <a name="step-2-choose-your-protection-goals"></a>步驟 2︰選擇您的保護目標 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e5d487c4c793a49ce1d4ac17f6fcd672e09bb90
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="security-frame-cryptography--mitigations"></a>安全性架構︰密碼編譯 | 風險降低 
 | 產品/服務 | 文章 |
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
-| **步驟** | <p>產品必須使用核准的亂數產生器。 因此，虛擬隨機函式 (例如 C 執行階段函式 rand)、.NET Framework 類別 System.Random 或系統函式 (例如 GetTickCount) 絕不會用於這類程式碼中。 禁止使用雙橢圓曲線亂數產生器 (DUAL_EC_DRBG) 演算法</p><ul><li>**CNG-** BCryptGenRandom (建議使用 BCRYPT_USE_SYSTEM_PREFERRED_RNG 旗標，除非呼叫端可能執行於任何大於 0 的 IRQL [也就是 PASSIVE_LEVEL])</li><li>**CAPI-** cryptGenRandom</li><li>**Win32/64-** RtlGenRandom (新的實作應該使用 BCryptGenRandom 或 CryptGenRandom) * rand_s * SystemPrng (適用於核心模式)</li><li>**.NET-** RNGCryptoServiceProvider 或 RNGCng</li><li>**Windows 市集應用程式-** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom 或 .GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+)-** int SecRandomCopyBytes (SecRandomRef random, size_t count, uint8_t *bytes )</li><li>**Apple OS X (<10.7)-* \* 使用 /dev/random 來擷取亂數</li><li>**Java (包括 Google Android Java 程式碼)-** java.security.SecureRandom 類別。 請注意，在 Android 4.3 (Jelly Bean) 中，開發人員必須遵循 Android 建議的因應措施，並將其應用程式更新為使用來自 /dev/urandom 或 /dev/random 的 Entropy 明確初始化 PRNG</li></ul>|
+| **步驟** | <p>產品必須使用核准的亂數產生器。 因此，虛擬隨機函式 (例如 C 執行階段函式 rand)、.NET Framework 類別 System.Random 或系統函式 (例如 GetTickCount) 絕不會用於這類程式碼中。 禁止使用雙橢圓曲線亂數產生器 (DUAL_EC_DRBG) 演算法</p><ul><li>**CNG-** BCryptGenRandom (建議使用 BCRYPT_USE_SYSTEM_PREFERRED_RNG 旗標，除非呼叫端可能執行於任何大於 0 的 IRQL [也就是 PASSIVE_LEVEL])</li><li>**CAPI-** cryptGenRandom</li><li>**Win32/64-** RtlGenRandom (新的實作應該使用 BCryptGenRandom 或 CryptGenRandom) * rand_s * SystemPrng (適用於核心模式)</li><li>**.NET-** RNGCryptoServiceProvider 或 RNGCng</li><li>**Windows 市集應用程式-** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom 或 .GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+)-** int SecRandomCopyBytes (SecRandomRef random, size_t count, uint8_t \*bytes )</li><li>**Apple OS X (<10.7)-** 使用 /dev/random 來取出隨機數字</li><li>**Java (包括 Google Android Java 程式碼)-** java.security.SecureRandom 類別。 請注意，在 Android 4.3 (Jelly Bean) 中，開發人員必須遵循 Android 建議的因應措施，並將其應用程式更新為使用來自 /dev/urandom 或 /dev/random 的 Entropy 明確初始化 PRNG</li></ul>|
 
 ## <a id="stream-ciphers"></a>請勿使用對稱串流編碼器
 

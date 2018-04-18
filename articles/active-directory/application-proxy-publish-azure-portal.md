@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure AD 應用程式 Proxy 發佈應用程式 | Microsoft Docs"
-description: "在 Azure 入口網站中使用 Azure AD 應用程式 Proxy 將內部部署應用程式發佈至雲端。"
+title: 使用 Azure AD 應用程式 Proxy 發佈應用程式 | Microsoft Docs
+description: 在 Azure 入口網站中使用 Azure AD 應用程式 Proxy 將內部部署應用程式發佈至雲端。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
@@ -15,11 +15,11 @@ ms.date: 12/06/2017
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 43cabb03a698dd87f12fef8e9a4dd54ee42c3ec9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 1bf72b450747e98e254db77514fc7a902bbe70cc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈應用程式
 
@@ -53,7 +53,7 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
    - **內部 URL**：要從您私人網路中存取應用程式的 URL。 您可以提供後端伺服器上要發佈的特定路徑，而伺服器的其餘部分則不發佈。 如此一來，您可以在相同的伺服器上將不同網站發佈為不同應用程式，並給予各自的名稱和存取規則。
 
      > [!TIP]
-     > 如果您發佈路徑，請確定其中包含您的應用程式的所有必要映像、指令碼和樣式表。 例如，如果您的應用程式位於 https://yourapp/app 並使用位於 https://yourapp/media 的映像，您應該發佈 https://yourapp/ 做為路徑。 此內部 URL 不一定是您使用者所看見的登陸頁面。 如需詳細資訊，請參閱[針對發佈應用程式設定自訂的首頁](application-proxy-office365-app-launcher.md)。
+     > 如果您發佈路徑，請確定其中包含您的應用程式的所有必要映像、指令碼和樣式表。 例如，如果您的應用程式位於 https://yourapp/app 並使用位於 https://yourapp/media 的映像，您應該發佈 https://yourapp/ 作為路徑。 此內部 URL 不一定是您使用者所看見的登陸頁面。 如需詳細資訊，請參閱[針對發佈應用程式設定自訂的首頁](application-proxy-office365-app-launcher.md)。
 
    - **外部 URL**：您的使用者要前往此位址才能在您的網路之外存取您的應用程式。 如果您不想使用預設的應用程式 Proxy 網域，請閱讀 [Azure AD Application Proxy 中的自訂網域](active-directory-application-proxy-custom-domains.md)。
    - **預先驗證**︰應用程式 Proxy 在給予您的應用程式存取權前，用來驗證使用者的方式。 
@@ -61,6 +61,9 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
      - Azure Active Directory︰應用程式 Proxy 會重新導向使用者以使用 Azure AD 登入，進而驗證目錄和應用程式的權限。 建議您將這個選項保持為預設值，讓您可以利用諸如條件式存取以及 Multi-Factor Authentication 等 Azure AD 安全性功能。
      - 即時通行︰使用者不必向 Azure Active Directory 進行驗證即可存取應用程式。 您還是可以在後端設定驗證需求。
    - **連接器群組**︰連接器會處理針對應用程式的遠端存取，連接器群組可協助您依區域、網路或用途組織連接器和應用程式。 如果您尚未建立任何連接器群組，您的應用程式就會指派給 [預設]。
+
+>[!NOTE]
+>如果您的應用程式使用 WebSocket 進行連線，請確認您的連接器版本至少為 1.5.612.0 並支援 WebSocket，而且指派的連接器群組只會使用這些連接器。
 
    ![設定您的應用程式](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. 如有必要，請設定其他設定。 對於大部分的應用程式，您應該在其預設狀態中保留這些設定。 

@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 0339dc2ecc93fb9ec260ede9d3f2e9b7b1419b08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核也具備下列功能：
@@ -118,7 +118,7 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
 
     4. 合併的檔案會在 SSMS 中開啟，您可以在其中檢視和分析該檔案，以及將其匯出至 XEL 或 CSV 檔案或資料表。
 
-* 使用我們建立的[同步應用程式](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)。 其會在 Azure 中執行，並利用 Operations Management Suite (OMS) Log Analytics 公開 API 將 SQL 稽核記錄推送至 OMS。 同步應用程式會透過 OMS Log Analytics 儀表板，將 SQL 稽核記錄推送至 OMS Log Analytics。
+* 使用我們建立的[同步應用程式](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)。 其會在 Azure 中執行，並利用 Log Analytics 公開 API 將 SQL 稽核記錄推送至 Log Analytics。 同步應用程式會透過 Log Analytics 儀表板，將 SQL 稽核記錄推送至 Log Analytics。
 
 * 使用 Power BI。 您可以在 Power BI 中檢視和分析稽核記錄資料。 深入了解 [Power BI，並存取可下載的範本](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/)。
 

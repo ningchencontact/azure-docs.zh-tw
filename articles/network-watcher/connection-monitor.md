@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: 0d550d3bda119cfcb9ecc6f852006d5e325fdfa3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b0eb10d373f47191933eb1c3c22b779e9e8d6685
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>使用 Azure 入口網站來監視與 Azure 網路監看員的網路連線
 
@@ -29,25 +29,25 @@ ms.lasthandoff: 04/03/2018
 
 * 您需要監視連線之區域中的網路監看員執行個體。 如果您還沒有網路監看員，可完成[建立 Azure 網路監看員執行個體](network-watcher-create.md)中的步驟來建立一個。
 * 要從中監視的 VM。 若要了解如何建立 VM，請參閱「建立 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) VM」。
-* 在您需要從中監視連線的 VM 中安裝 `AzureNetworkWatcherExtension`。 若要在 Windows VM 中安裝擴充功能，請參閱[適用於 Windows 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)；若要在 Linux VM 中安裝擴充功能，請參閱[適用於 Linux 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+* 在您需要從中監視連線的 VM 中安裝 `AzureNetworkWatcherExtension`。 若要在 Windows VM 中安裝擴充功能，請參閱[適用於 Windows 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)；若要在 Linux VM 中安裝擴充功能，請參閱[適用於 Linux 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。 您要監視的目的地端點上不需要擴充功能。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure 
 
 登入 [Azure 入口網站](http://portal.azure.com)。
 
-## <a name="create-a-connection-monitor"></a>建立連線監視器
+## <a name="create-a-connection-monitor"></a>建立連線監視
 
 以下步驟會啟用經由連接埠 80 和 1433 對目的地 VM 的連線監視：
 
 1. 在入口網站的左側，選取 [所有服務]。
 2. 開始在 [篩選] 方塊中輸入「網路監看員」。 當搜尋結果中出現**網路監看員**時，請加以選取。
 3. 在 [監視] 下，選取 [連線監視器]。
-4. 選取 [+ 新增]。
+4. 選取 [+ 新增] 。
 5. 輸入或選取您要監視之連線的資訊，然後選取 [新增]。 在下圖所顯示的範例中，受監視的是透過連接埠 80 從 *MultiTierApp0* 到 *Database0* VM 的連線：
 
     ![新增連線監視器](./media/connection-monitor/add-connection-monitor.png)
 
-    開始監視。 連線監視器每隔 60 秒會進行探查。
+    開始監視。 連線監視每隔 60 秒會進行探查。
 6. 指定相同的來源和目的地 VM 以及下列值，再次完成步驟 5：
     
     |設定  |值          |

@@ -1,24 +1,19 @@
 ---
-title: 串流分析中一般使用模式的查詢範例 | Microsoft Docs
-description: 常見的 Azure 串流分析查詢模式
-keywords: 查詢範例
+title: Azure 串流分析中常見的查詢模式
+description: 本文說明一些常見的查詢模式和設計，在 Azure 串流分析作業中很實用。
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 08/08/2017
+manager: kfile
 ms.author: jeanb
-ms.openlocfilehash: 9632a77afff6ba47d6ce80457e02f1f6194362a1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 08/08/2017
+ms.openlocfilehash: b929eaf17255210a5c813e3e91478f9202941b64
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>一般串流分析使用模式的查詢範例
 ## <a name="introduction"></a>簡介
@@ -580,7 +575,7 @@ WHERE
 
 
 ## <a name="get-help"></a>取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)

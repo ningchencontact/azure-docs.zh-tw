@@ -12,16 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/19/2018
+ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: c42986e4cdae1d5156863d92eb946220805f7b48
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5631fb8df6453cf7a1806947f0e29ab7fff7093e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 已引進更新的特定[系列][family-explain]會持續推出更新。
+
+## <a name="march-guest-os"></a>三月客體作業系統
+| 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| --- | --- | --- | --- | --- |
+| Rel 18-03 | [4088787]、[4088776] |Windows 10 安全性 |5.17 |2018 年 3 月 13 日 |
+| Rel 18-03 | [4088878]、[4088880]、[4088879] |只有 Windows 安全性 |2.72、3.59、4.52 |2018 年 3 月 13 日 |
+| Rel 18-03 | [4089187] |Internet Explorer |2.72、3.59、4.52 |2018 年 3 月 13 日 |
+| Rel 18-03 | [4074595] |閃爍 |3.59、4.52、5.17 |2018 年 3 月 13 日 |
+| N/A | [4074598] |二月份非安全性彙總套件 |2.72 |2018 年 2 月 13 日 |
+| N/A | [4074593] |二月份非安全性彙總套件 |3.59 |2018 年 2 月 13 日 |
+| N/A | [4074594] |二月份非安全性彙總套件 |4.52 |2018 年 2 月 13 日 |
+| N/A | [4074837] |時區更新 |2.72、3.59、4.52 |2018 年 2 月 13 日 |
+
 
 ## <a name="february-guest-os"></a>二月客體作業系統
 | 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
@@ -601,6 +614,17 @@ ms.lasthandoff: 03/23/2018
 | N/A |[2999802] |在 Windows 中列印虛線時會變成實線 |4.15、3.22,、2.34 |2015 年 1 月 13 日 |
 | N/A |[2896881] |在 Windows 中於登入程序期間使用 AddPrinterConnection VBScript 命令對應使用者印表機時，登入時間過長 |4.15、3.22,、2.34 |2015 年 1 月 13 日 |
 
+[4088787]: http://support.microsoft.com/kb/4088787
+[4088776]: http://support.microsoft.com/kb/4088776 
+[4088878]: http://support.microsoft.com/kb/4088878
+[4088880]: http://support.microsoft.com/kb/4088880
+[4088879]: http://support.microsoft.com/kb/4088879
+[4089187]: http://support.microsoft.com/kb/4089187
+[4088785]: http://support.microsoft.com/kb/4088785
+[4074598]: http://support.microsoft.com/kb/4074598
+[4074593]: http://support.microsoft.com/kb/4074593
+[4074594]: http://support.microsoft.com/kb/4074594
+[4074837]: http://support.microsoft.com/kb/4074837
 
 [4074590]: http://support.microsoft.com/kb/4074590
 [4074588]: http://support.microsoft.com/kb/4074588 

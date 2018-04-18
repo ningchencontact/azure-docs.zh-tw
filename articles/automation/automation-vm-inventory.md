@@ -5,39 +5,41 @@ services: automation
 keywords: 清查、自動化、變更、追蹤
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 09/13/2017
+ms.date: 03/30/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b23132f6e5693f5d731bf044ac5c2544a9308ee1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 6eb1a77613c6f7784e251bb99a03e6ca7e1f7017
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>使用清查收集來管理 Azure 虛擬機器
 
 您可以從虛擬機器的資源頁面啟用 Azure 虛擬機器的清查追蹤。 此方法提供以瀏覽器為基礎的使用者介面，讓您設定清查收集。
 
 ## <a name="before-you-begin"></a>開始之前
+
 如果您沒有 Azure 訂用帳戶，請[建立免費帳戶](https://azure.microsoft.com/free/)。
-如果您沒有 Azure 虛擬機器，請[建立虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)。
+
+本文假設您擁有可設定解決方案的 VM。 如果您沒有 Azure 虛擬機器，請[建立虛擬機器](../virtual-machines/windows/quick-create-portal.md)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
+
 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>從虛擬機器資源頁面啟用清查收集
 
 1. 在 Azure 入口網站的左側窗格中，選取 [虛擬機器]。
 2. 在虛擬機器清單中，選取虛擬機器。
-3. 在 [資源] 功能表上，於 [作業] 下選取 [清查 (預覽)]。  
-    視窗頂端會出現橫幅，指出此解決方案未啟用。 
-4. 若要啟用此方案，請選取橫幅。
-5. 選取 Log Analytics 工作區來儲存資料記錄。  
-    如果該區域沒有工作區可供您使用，系統會提示您建立預設工作區和自動化帳戶。 
-6. 若要開始將您的電腦上架，請按一下 [啟用]。
+3. 在 [資源] 功能表上，於 [作業] 下選取 [清查]。
+4. 選取 Log Analytics 工作區來儲存資料記錄。
+    如果該區域沒有工作區可供您使用，系統會提示您建立預設工作區和自動化帳戶。
+5. 若要開始將您的電腦上架，請按一下 [啟用]。
 
-   ![檢視上架選項](./media/automation-vm-inventory/inventory-onboarding-options.png)  
-    狀態列會通知正在啟用解決方案。 此程序可能需要 15 分鐘的時間。 在此期間，您可以關閉視窗，或可以保持開啟，以及它會在方案啟用時通知您。 您可以從通知窗格監視部署狀態。
+   ![檢視上架選項](./media/automation-vm-inventory/inventory-onboarding-options.png)
+
+    狀態列會通知正在啟用解決方案。 此程序可能需要 15 分鐘的時間。 在此期間，您可以關閉視窗，或可以保持開啟，它會在解決方案啟用時通知您。 您可以從通知窗格監視部署狀態。
 
    ![上架之後立即檢視清查解決方案](./media/automation-vm-inventory/inventory-onboarded.png)
 
@@ -47,20 +49,52 @@ ms.lasthandoff: 03/30/2018
 
 根據預設會設定收集軟體、Windows 服務及 Linux 精靈。 若要收集 Windows 登錄和檔案清查，請進行清查收集設定。
 
-1. 在 [清查 (預覽)] 檢視中，選取視窗頂端的 [編輯設定] 按鈕。
-2. 若要新增收集設定，請透過選取 [Windows 登錄]、[Windows 檔案] 和 [Linux 檔案] 索引標籤，前往您想要新增的設定分類。 
-3. 在視窗頂端選取 [新增]。
-4. 若要檢視每個設定屬性的詳細資料和描述，請瀏覽[清查文件頁面](https://aka.ms/configinventorydocs)。
+1. 在 [清查] 檢視中，選取視窗頂端的 [編輯設定] 按鈕。
+2. 若要新增收集設定，請透過選取 [Windows 登錄]、[Windows 檔案] 和 [Linux 檔案] 索引標籤，前往您想要新增的設定分類。
+3. 選取適當的類別，按一下視窗頂端的 [新增]。
+
+下表提供各種類別可設定的每個屬性相關資訊。
+
+### <a name="windows-registry"></a>Windows 登錄
+
+|屬性  |說明  |
+|---------|---------|
+|已啟用     | 判斷是否已套用設定        |
+|項目名稱     | 所要追蹤檔案的易記名稱        |
+|群組     | 用於將檔案以邏輯方式分組的群組名稱        |
+|Windows 登錄機碼   | 要檢查檔案的路徑。例如："HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+
+### <a name="windows-files"></a>Windows 檔案
+
+|屬性  |說明  |
+|---------|---------|
+|已啟用     | 判斷是否已套用設定        |
+|項目名稱     | 所要追蹤檔案的易記名稱        |
+|群組     | 用於將檔案以邏輯方式分組的群組名稱        |
+|輸入路徑     | 要檢查檔案的路徑，例如："c:\temp\myfile.txt"
+
+### <a name="linux-files"></a>Linux 檔案
+
+|屬性  |說明  |
+|---------|---------|
+|已啟用     | 判斷是否已套用設定        |
+|項目名稱     | 所要追蹤檔案的易記名稱        |
+|群組     | 用於將檔案以邏輯方式分組的群組名稱        |
+|輸入路徑     | 要檢查檔案的路徑。例如："/etc/*.conf"       |
+|路徑類型     | 要追蹤的項目類型，可能值為 [檔案] 和 [目錄]        |
+|遞迴     | 決定在尋找所要追蹤的項目時是否使用遞迴。        |
+|使用 Sudo     | 此設定會決定在檢查項目時是否使用 sudo。         |
+|連結     | 此設定會決定在周遊目錄時處理符號連結的方式。<br> **忽略** - 忽略符號連結，而不包含參考的檔案/目錄<br>**遵循** - 遵循遞迴期間的符號連結，而且包含參考的檔案/目錄<br>**管理** - 遵循符號連結並允許變更所傳回內容的處理方式      |
 
 ## <a name="disconnect-your-virtual-machine-from-management"></a>讓虛擬機器脫離管理
 
 若要從清查管理中移除您虛擬機器：
 
 1. 在 Azure 入口網站的左窗格中，選取 [Log Analytics]，然後選取您在將虛擬機器上架時使用的工作區。
-2. 在 **Log Analytics** 視窗的 [資源] 功能表上，於 [工作區資料來源] 類別下選取 [虛擬機器]。 
-3. 在清單中，選取您要中斷連線的虛擬機器。 虛擬機器在 [OMS 連線] 資料行中，**這個工作區**文字旁邊會出現綠色核取記號。 
+2. 在 **Log Analytics** 視窗的 [資源] 功能表上，於 [工作區資料來源] 類別下選取 [虛擬機器]。
+3. 在清單中，選取您要中斷連線的虛擬機器。 虛擬機器在 [OMS 連線] 資料行中，**這個工作區**文字旁邊會出現綠色核取記號。
 4. 在下一個頁面的頂端，選取 [中斷連線]。
-5. 在確認視窗中，選取 [是]。  
+5. 在確認視窗中，選取 [是]。
     這個動作會讓機器脫離管理。
 
 ## <a name="next-steps"></a>後續步驟

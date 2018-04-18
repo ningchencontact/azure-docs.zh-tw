@@ -1,9 +1,9 @@
 ---
-title: "Azure 診斷記錄檔概觀 | Microsoft Docs"
-description: "認識 Azure 診斷記錄，並了解如何利用它們來了解 Azure 資源內發生的事件。"
+title: Azure 診斷記錄檔概觀 | Microsoft Docs
+description: 認識 Azure 診斷記錄，並了解如何利用它們來了解 Azure 資源內發生的事件。
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 04/04/2018
 ms.author: johnkem; magoedte
-ms.openlocfilehash: df20e174abb9960ad378221008ac7261fd0582f1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 884acc4885da3a321477c51f6d7b76748d797d9b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>收集並取用來自 Azure 資源的記錄資料
 
 ## <a name="what-are-azure-resource-diagnostic-logs"></a>什麼是 Azure 資源診斷記錄
+
 **Azure 資源層級診斷記錄**是由資源發出的記錄，提供有關該資源之作業的經常性豐富資料。 這些記錄的內容會依資源類型而有所不同。 例如，網路安全性群組規則計數器和 Key Vault 稽核是其中兩種資源記錄類別。
 
 資源層級診斷記錄與[活動記錄](monitoring-overview-activity-logs.md)不同。 活動記錄可讓您深入探索在訂用帳戶中的資源上使用 Resource Manager 所執行的作業，例如建立虛擬機器或刪除邏輯應用程式。 活動記錄是訂用帳戶層級記錄。 資源層級診斷記錄可讓您深入探索在該資源本身內所執行的作業，例如從 Key Vault 取得密碼。
@@ -38,39 +39,44 @@ ms.lasthandoff: 02/21/2018
 
 ![資源診斷記錄的邏輯位置](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
-
 * 將診斷記錄檔儲存到[**儲存體帳戶**](monitoring-archive-diagnostic-logs.md)以利稽核或手動檢查。 您可以使用**資源診斷設定**指定保留時間 (以天為單位)。
 * [將診斷記錄檔串流至**事件中樞**](monitoring-stream-diagnostic-logs-to-event-hubs.md)，以供第三方服務或自訂的分析解決方案 (如 PowerBI) 擷取。
-* 以 [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md) 分析記錄檔
+* 使用 [Log Analytics](../log-analytics/log-analytics-azure-storage.md) 分析診斷記錄
 
 您可以使用並非發出記錄的同一個訂用帳戶中的儲存體帳戶或事件中樞命名空間。 進行此設定的使用者必須具有這兩個訂用帳戶的適當 RBAC 存取權。
 
 ## <a name="resource-diagnostic-settings"></a>資源診斷設定
+
 非計算資源的資源診斷記錄是使用資源診斷設定來設定的。 資源的**資源診斷設定**可控制：
 
-* 資源診斷記錄和計量傳送至何處 (儲存體帳戶、事件中樞和/或 OMS Log Analytics)。
+* 資源診斷記錄和計量傳送至何處 (儲存體帳戶、事件中樞和/或 Log Analytics)。
 * 傳送何種記錄類別，以及是否也會傳送計量資料。
 * 每個記錄類別應該在儲存體帳戶中保留多久
     - 保留期為 0 天表示會永遠保留記錄。 否則，此值可以是 1 到 2147483647 之間的任意天數。
-    - 如果有設定保留原則，但將儲存體帳戶的記錄檔儲存停用 (例如，如果只選取事件中樞或 OMS 選項)，保留原則不會有任何作用。
+    - 如果已設定保留原則，但將儲存體帳戶的記錄儲存停用 (例如，若只選取事件中樞或 Log Analytics 選項)，保留原則不會有任何作用。
     - 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。
 
 透過 Azure 入口網站中資源的診斷設定、透過 Azure PowerShell 和 CLI 命令、或是透過 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx)，可以輕鬆地進行這些設定。
 
-> [!WARNING]
-> 客體 OS 層計算資源 (例如 VM 或 Service Fabric) 的診斷記錄和計量使用[不同機制來進行設定與選取輸出](../azure-diagnostics.md)。
+> [!NOTE]
+> 目前不支援透過診斷設定傳送多維度計量。 跨維度值所彙總的維度計量會匯出為扁平化單一維度計量。
+>
+> 「例如」：可以在每個佇列層級瀏覽並繪製事件中樞上的「內送郵件」計量。 不過，當您透過診斷設定匯出時，計量將會呈現為事件中樞內所有佇列的所有內送郵件。
 >
 >
 
+> [!WARNING]
+> 客體 OS 層計算資源 (例如 VM 或 Service Fabric) 的診斷記錄和計量使用[不同機制來進行設定與選取輸出](../azure-diagnostics.md)。
+
 ## <a name="how-to-enable-collection-of-resource-diagnostic-logs"></a>如何啟用資源診斷記錄的收集
+
 您可以[在 Resource Manager 範本中建立資源時](./monitoring-enable-diagnostic-logs-using-template.md)啟用資源診斷記錄的收集，或是在建立資源之後從入口網站中該資源的頁面啟用收集。 您也可以在任何時間點使用 Azure PowerShell 或 CLI 命令，或使用 Azure 監視器 REST API 啟用收集。
 
 > [!TIP]
 > 這些指示可能無法直接套用於每個資源。 請透過此頁面底部的結構描述連結，來了解適用於特定資源類型的特殊步驟。
->
->
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-in-the-portal"></a>在入口網站中啟用資源診斷記錄的收集
+
 您可以在建立資源之後，於 Azure 入口網站中移至特定資源或巡覽至 Azure 監視器，來啟用資源診斷記錄的收集。 若要透過 Azure 監視器來啟用此作業：
 
 1. 在 [Azure 入口網站](http://portal.azure.com)中，巡覽至 Azure 監視器，然後按一下 [診斷設定]
@@ -88,14 +94,15 @@ ms.lasthandoff: 02/21/2018
    ![新增診斷設定 - 現有的設定](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-multiple.png)
 
 3. 為您的設定指定名稱，核取您要傳送資料之每個目的地的方塊，然後設定要用於每個目的地的資源。 使用 [保留 (天數)] 滑桿選擇性地設定這些記錄的保留天數 (僅適用於儲存體帳戶目的地)。 保留天數為 0 會無限期地儲存記錄。
-   
+
    ![新增診斷設定 - 現有的設定](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-configure.png)
-    
+
 4. 按一下 [檔案] 。
 
 過了幾分鐘之後，新的設定就會出現在此資源的設定清單中，而且每次產生新的事件資料，都會將診斷記錄傳送至指定的目的地。
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>透過 PowerShell 啟用資源診斷記錄的收集
+
 若要透過 Azure PowerShell 啟用資源診斷記錄的收集，請使用下列命令：
 
 若要啟用儲存體帳戶中診斷記錄的儲存體，請使用下列命令：
@@ -128,37 +135,72 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resour
 
 您可以結合這些參數讓多個輸出選項。
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-cli"></a>透過 CLI 啟用資源診斷記錄的收集
-若要透過 Azure CLI 啟用資源診斷記錄的收集，請使用下列命令：
+### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>透過 Azure CLI 2.0 啟用資源診斷記錄的收集
 
-若要啟用儲存體帳戶中診斷記錄的儲存體，請使用下列命令：
+若要透過 Azure CLI 2.0 啟用資源診斷記錄的收集，請使用 [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 命令。
 
-```azurecli
-azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
-```
-
-儲存體帳戶識別碼是您要傳送記錄之目標儲存體帳戶的資源識別碼。
-
-若要將診斷記錄串流至事件中樞，請使用下列命令：
+若要在儲存體帳戶中啟用診斷記錄的儲存：
 
 ```azurecli
-azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --storage-account <name or ID of storage account> \
+    --resource <target resource object ID> \
+    --resource-group <storage account resource group> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true,
+        "retentionPolicy": {
+            "days": <# days to retain>,
+            "enabled": true
+        }
+    }]'
 ```
 
-服務匯流排規則識別碼是此格式的字串︰`{Service Bus resource ID}/authorizationrules/{key name}`。
+僅在 `--storage-account` 不是物件識別碼時才需要 `--resource-group` 引數。
 
-若要將診斷記錄傳送到 Log Analytics 工作區，請使用下列命令：
+若要將診斷記錄串流至事件中樞：
 
 ```azurecli
-azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --event-hub <event hub name> \
+    --event-hub-rule <event hub rule ID> \
+    --resource <target resource object ID> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true
+    }
+    ]'
 ```
 
-您可以結合這些參數讓多個輸出選項。
+規則識別碼是一個字串，格式為：`{Service Bus resource ID}/authorizationrules/{key name}`。
+
+若要將診斷記錄傳送到 Log Analytics 工作區：
+
+```azurecli
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --workspace <log analytics name or object ID> \
+    --resource <target resource object ID> \
+    --resource-group <log analytics workspace resource group> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true
+    }
+    ]'
+```
+
+僅在 `--workspace` 不是物件識別碼時才需要 `--resource-group` 引數
+
+您可以使用任何命令將字典新增至傳遞作為 `--logs` 參數的 JSON 陣列，從而將其他類別新增至診斷記錄。 您可以結合 `--storage-account`、`--event-hub` 和 `--workspace` 參數來啟用多個輸出選項。
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-rest-api"></a>透過 REST API 啟用資源診斷記錄的收集
+
 若要使用 Azure 監視器 REST API 變更診斷設定，請參閱[這份文件](https://msdn.microsoft.com/library/azure/dn931931.aspx)。
 
 ## <a name="manage-resource-diagnostic-settings-in-the-portal"></a>在入口網站中管理資源診斷設定
+
 請確定所有資源皆已設定了診斷設定。 在入口網站中，巡覽至 [監視器]，然後開啟 [診斷設定]。
 
 ![入口網站中的診斷記錄檔刀鋒視窗](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
@@ -172,6 +214,7 @@ azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource 
 新增診斷設定會顯示 [診斷設定] 檢視，您可以在其中啟用、停用或修改所選取資源的診斷設定。
 
 ## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>資源診斷記錄支援的服務、類別和結構描述
+
 如需支援的服務以及這些服務所使用之記錄類別和結構描述的完整清單，[請參閱這篇文章](monitoring-diagnostic-logs-schema.md)。
 
 ## <a name="next-steps"></a>後續步驟

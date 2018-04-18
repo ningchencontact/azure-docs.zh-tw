@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: c2e11d89f35915ef0a0c1e1f544b0be8df0473de
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>如何將警示從 OMS 延伸 (複製) 至 Azure
-自 **2018 年 4 月 23 日**開始，使用在 [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 中設定之警示的所有客戶將會擴充至 Azure。 擴充至 Azure 的警示行為與 OMS 中的行為相同。 監視功能仍維持不變。 將 OMS 中建立的警示擴充至 Azure 可提供許多好處。 如需有關將警示從 OMS 擴充至 Azure 的優點和程序詳細資訊，請參閱[將警示從 OMS 擴充至 Azure](monitoring-alerts-extend.md)。
+自 **2018 年 5 月 14 日**開始，使用在 [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 中設定之警示的所有客戶將會擴充至 Azure。 擴充至 Azure 的警示行為與 OMS 中的行為相同。 監視功能仍維持不變。 將 OMS 中建立的警示擴充至 Azure 可提供許多好處。 如需有關將警示從 OMS 擴充至 Azure 的優點和程序詳細資訊，請參閱[將警示從 OMS 擴充至 Azure](monitoring-alerts-extend.md)。
 
 需要立即將警示從 OMS 移至 Azure 的客戶，可以使用這裡所述的其中一種選項來進行。
 
 ## <a name="option-1---using-oms-portal"></a>選項 1 - 使用 OMS 入口網站
 若要主動起始將警示從 OMS 入口網站延伸至 Azure，請依照下列步驟進行操作。
 
-1. 在 OMS 入口網站 [概觀] 頁面上，移至 [設定]，然後移至 [警示] 區段。 按一下標示為 [延伸至 Azure] 的按鈕，如下圖中醒目提示的部分。
+1. 在 OMS 入口網站 [概觀] 頁面上，移至 [設定]，然後移至 [警示] 區段。 按一下標示為 [擴充至 Azure] 的按鈕，如下圖中醒目提示的部分。
 
     ![具有 [延伸] 選項的 OMS 入口網站 [警示設定] 頁面](./media/monitor-alerts-extend/ExtendInto.png)
 
@@ -157,8 +157,87 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 ```
 指出警示已擴充至 Azure 中，如第 2 版所示。 這個版本僅供檢查警示是否已擴充至 Azure，且與 [Log Analytics 搜尋 API](../log-analytics/log-analytics-api-alerts.md) 使用方式並無任何關聯。 將警示成功延伸至 Azure 之後，在 GET 期間提供的所有電子郵件地址，都會收到含有所進行變更之詳細資料的報告。
 
+最後，如果指定工作區中的所有警示都已排程要擴充至 Azure，則對 POST 的回應將會是 403 禁止。 若要檢視任何錯誤訊息，或瞭解擴充程序是否卡住，使用者可以執行 GET 呼叫，而如有任何錯誤訊息，則會與摘要一起傳回。
 
-最後，如果指定工作區中的所有警示都已排程要擴充至 Azure，則對 POST 的回應將會是 403 禁止。
+```json
+{
+    "version": 1,
+    "message": "OMS was unable to extend your alerts into Azure, Error: The subscription is not registered to use the namespace 'microsoft.insights'. OMS will schedule extending your alerts, once remediation steps illustrated in the troubleshooting guide are done.",
+    "recipients": [
+       "john.doe@email.com",
+       "jane.doe@email.com"
+     ],
+    "migrationSummary": {
+        "alertsCount": 2,
+        "actionGroupsCount": 2,
+        "alerts": [
+            {
+                "alertName": "DemoAlert_1",
+                "alertId": " /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/savedSearches/<savedSearchId>/schedules/<scheduleId>/actions/<actionId>",
+                "actionGroupName": "<workspaceName>_AG_1"
+            },
+            {
+                "alertName": "DemoAlert_2",
+                "alertId": " /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/savedSearches/<savedSearchId>/schedules/<scheduleId>/actions/<actionId>",
+                "actionGroupName": "<workspaceName>_AG_2"
+            }
+        ],
+        "actionGroups": [
+            {
+                "actionGroupName": "<workspaceName>_AG_1",
+                "actionGroupResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<resourceGroupName>/providers/microsoft.insights/actionGroups/<workspaceName>_AG_1",
+                "actions": {
+                    "emailIds": [
+                        "JohnDoe@mail.com"
+                    ],
+                    "webhookActions": [
+                        {
+                            "name": "Webhook_1",
+                            "serviceUri": "http://test.com"
+                        }
+                    ],
+                    "itsmAction": {}
+                }
+            },
+            {
+                "actionGroupName": "<workspaceName>_AG_1",
+                "actionGroupResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<resourceGroupName>/providers/microsoft.insights/actionGroups/<workspaceName>_AG_1",
+                 "actions": {
+                    "emailIds": [
+                        "test1@mail.com",
+                          "test2@mail.com"
+                    ],
+                    "webhookActions": [],
+                    "itsmAction": {
+                        "connectionId": "<Guid>",
+                        "templateInfo":"{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{\\\"contact_type\\\":\\\"email\\\",\\\"impact\\\":\\\"3\\\",\\\"urgency\\\":\\\"2\\\",\\\"category\\\":\\\"request\\\",\\\"subcategory\\\":\\\"password\\\"}\",\"CreateOneWIPerCI\":false}"
+                    }
+                }
+            }
+        ]
+    }
+}              
+
+```
+
+## <a name="troubleshooting"></a>疑難排解 
+將警示從 OMS 擴充至 Azure 期間，可能會發生防止系統建立所需[動作群組](monitoring-action-groups.md)的偶發問題。 在這類情況下，錯誤訊息會顯示在 OMS 入口網站 (透過 [警示] 區段中的橫幅) 和對 API 所進行的 GET 呼叫中。
+
+以下列出每個錯誤的補救步驟：
+1. **錯誤：訂用帳戶未註冊為使用命名空間 'microsoft.insights'**：![具有註冊錯誤訊息的 OMS 入口網站 [警示設定] 頁面](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
+
+    a. 與您的 OMS 工作區相關聯的訂用帳戶未註冊為使用 Azure 監視器 (microsoft.insights) 功能，因此 OMS 無法將警示擴充至 Azure 監視器和警示。
+    
+    b. 若要解決此問題，請使用 Powershell、Azure CLI 或 Azure 入口網站，在您的訂用帳戶中註冊 microsoft.insights (Azure 監視器和警示) 使用。 若要深入了解，請檢視[解決資源提供者註冊錯誤](../azure-resource-manager/resource-manager-register-provider-errors.md)文章
+    
+    c. 根據文章中所述的步驟解決問題後，OMS 就會在隔天的排定執行中將警示擴充至 Azure，而不需進行任何動作或初始。
+2. **錯誤：寫入作業的訂用帳戶/資源群組層級出現範圍鎖定**：![具有 ScopeLock 錯誤訊息的 OMS 入口網站 [警示設定] 頁面](./media/monitor-alerts-extend/ErrorScopeLock.png)
+
+    a. 如果已啟用範圍鎖定，則會限制在包含 Log Analytics (OMS) 工作區的訂用帳戶或資源群組中進行任何新的變更；系統無法將警示擴充 (複製) 到 Azure 和建立所需的動作群組。
+    
+    b. 若要解決此問題，請使用 Azure 入口網站、Powershell、Azure CLI 或 API，在包含此工作區的訂用帳戶或資源群組上刪除 ReadOnly 鎖定。 若要深入了解，請檢視[資源鎖定使用方式](../azure-resource-manager/resource-group-lock-resources.md)文章。 
+    
+    c. 根據文章中所述的步驟解決問題後，OMS 就會在隔天的排定執行中將警示擴充至 Azure，而不需進行任何動作或初始。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -1,10 +1,10 @@
 ---
-title: "教學課程：Azure Active Directory 與 Teamwork.com 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Teamwork.com 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Teamwork.com 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Teamwork.com 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 00292d0aed24ea034eba8686bcd9cbdd1ef676e3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 07b4be1256b77ac35efab9c6b2d593b4763cdf86
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>教學課程：Azure Active Directory 與 [Teamwork.com](https://www.teamwork.com/projects) 整合
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>教學課程：Azure Active Directory 與 Teamwork.com 整合
 
 在本教學課程中，您將了解如何整合 Teamwork.com 與 Azure Active Directory (Azure AD)。
 
-將 Teamwork.com 與 Azure AD 整合提供下列優點：
+Teamwork.com 與 Azure AD 整合提供下列優點：
 
 - 您可以在 Azure AD 中管控可存取 Teamwork.com 的人員。
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Teamwork.com (單一登入)。
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/11/2017
 若要設定 Azure AD 與 Teamwork.com 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
-- Pro 或更高版本方案的 [Teamwork.com](https://www.teamwork.com/projects) 訂用帳戶
+- 已啟用 Teamwork.com 單一登入功能的訂用帳戶
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。
@@ -54,7 +54,7 @@ ms.lasthandoff: 12/11/2017
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-teamworkcom-from-the-gallery"></a>從資源庫新增 Teamwork.com
-若要設定將 Teamwork.com 整合到 Azure AD 中，您需要將 Teamwork.com 從資源庫新增到受控 SaaS 應用程式清單。
+若要設定將 Teamwork.com 整合到 Azure AD 中，您需要從資源庫將 HPE SaaS 新增到受控 Teamwork.com 清單。
 
 **若要從資源庫新增 Teamwork.com，請執行下列步驟：**
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 12/11/2017
 
 在 Teamwork.com 中，將 Azure AD 中 [使用者名稱] 的值指派為 [使用者名稱] 的值，以建立連結關聯性。
 
-若要設定及測試與 Teamwork.com 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Teamwork.com 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
@@ -104,14 +104,21 @@ ms.lasthandoff: 12/11/2017
  
     ![單一登入對話方塊](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_samlbase.png)
 
-3. 在 [Teamwork.com 網域及 URL] 區段上，執行下列步驟：
+3. 在 [Teamwork.com 網域與 URL] 區段中，執行下列步驟：
 
     ![Teamwork.com 網域及 URL 單一登入資訊](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_url.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<company name>.teamwork.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<company name>.teamwork.com`
+
+    b. 在 [識別碼] 文字方塊中，輸入 URL：
+
+    |||
+    |-|-|
+    | `https://teamwork.com/saml`|
+    | `https://eu.teamwork.com/saml`|
 
     > [!NOTE] 
-    > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Teamwork.com 支援小組](mailto:support@teamwork.com)以取得此值。 
+    > 此 [登入 URL] 值不是真正的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Teamwork.com 支援小組](mailto:support@teamwork.com)以取得此值。 
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -122,10 +129,6 @@ ms.lasthandoff: 12/11/2017
     ![設定單一登入儲存按鈕](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
 
 6. 若要在 **Teamwork.com** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [Teamwork.com 支援小組](mailto:support@teamwork.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -204,8 +207,6 @@ ms.lasthandoff: 12/11/2017
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

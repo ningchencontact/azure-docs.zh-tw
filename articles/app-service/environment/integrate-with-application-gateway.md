@@ -1,5 +1,5 @@
 ---
-title: 整合 ILB App Service Environment 與應用程式閘道
+title: 整合 ILB App Service Environment 與 Azure 應用程式閘道
 description: 逐步解說如何整合 ILB App Service Environment 中的應用程式與應用程式閘道
 services: app-service
 documentationcenter: na
@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 31aea1d19ed6da856bb5fc634a919819513cb6b2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>整合 ILB App Service Environment 與應用程式閘道 #
+# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>整合 ILB App Service Environment 與 Azure 應用程式閘道 #
 
 [App Service Environment](./intro.md) 是在客戶的 Azure 虛擬網路子網路中進行的 Azure App Service 部署。 可使用應用程式存取的公用或私用端點進行部署。 使用私用端點 (也就是內部負載平衡器) 進行的 App Service Environment 部署稱為 ILB App Service Environment。  
 
-Azure 應用程式閘道是一個虛擬設備，可提供第 7 層負載平衡、SSL 卸載，以及 Web 應用程式防火牆 (WAF) 保護。 它可以接聽公用 IP 位址，並將流量路由到您的應用程式端點。 
+Web 應用程式防火牆會檢查輸入的 Web 流量以封鎖 SQL 插入、跨網站指令碼、惡意程式碼上傳和應用程式 DDoS 以及其他攻擊，藉此保護您的 Web 應用程式。 它也會針對資料外洩防護 (DLP) 檢查來自後端 Web 伺服器的回應。 您可以從 Azure Marketplace 取得 WAF 裝置，或者您可以使用 [Azure 應用程式閘道][appgw]。
 
-下列資訊說明如何將已設定 WAF 的應用程式閘道與 ILB App Service Environment 中的應用程式進行整合。  
+Azure 應用程式閘道是一個虛擬設備，可提供第 7 層負載平衡、SSL 卸載，以及 Web 應用程式防火牆 (WAF) 保護。 它可以接聽公用 IP 位址，並將流量路由到您的應用程式端點。 下列資訊說明如何將已設定 WAF 的應用程式閘道與 ILB App Service Environment 中的應用程式進行整合。  
 
 應用程式閘道與 ILB App Service Environment 的整合是在應用程式層級進行的。 當您使用 ILB App Service Environment 設定應用程式閘道時，請針對 ILB App Service Environment 中的特定應用程式進行此操作。 此技巧可讓您在單一 ILB App Service Environment 中裝載安全的多租用戶應用程式。  
 
@@ -33,14 +33,14 @@ Azure 應用程式閘道是一個虛擬設備，可提供第 7 層負載平衡�
 
 在本逐步解說中，您將：
 
-* 建立應用程式閘道。
+* 建立 Azure 應用程式閘道。
 * 將應用程式閘道設定為指向 ILB App Service Environment 中的應用程式。
 * 將應用程式設定為採用自訂網域名稱。
 * 編輯指向應用程式閘道的公用 DNS 主機名稱。
 
 ## <a name="prerequisites"></a>先決條件
 
-若要整合應用程式閘道與 ILB App Service Environment，您需要：
+為了整合應用程式閘道與 ILB App Service Environment，您需要：
 
 * ILB App Service Environment。
 * 在 ILB App Service Environment 中執行的應用程式。
@@ -53,7 +53,7 @@ Azure 應用程式閘道是一個虛擬設備，可提供第 7 層負載平衡�
 
 如需如何建立 ILB App Service Environment 的詳細資訊，請參閱[建立和使用 ILB App Service Environment][ilbase]。
 
-本文假設您要讓應用程式閘道位於 App Service Environment 部署所在的同一個 Azure 虛擬網路中。 在開始建立應用程式閘道之前，請挑選或建立將用來裝載閘道的子網路。 
+本文假設您要讓應用程式閘道位於 App Service Environment 部署所在的同一個 Azure 虛擬網路中。 開始建立應用程式閘道之前，請挑選或建立將用來裝載閘道的子網路。 
 
 請勿使用名稱為 GatewaySubnet 的子網路。 如果您將應用程式閘道放在 GatewaySubnet，稍後就無法建立虛擬網路閘道。 
 
@@ -95,7 +95,7 @@ Azure 應用程式閘道是一個虛擬設備，可提供第 7 層負載平衡�
     
 4. 在 [摘要] 區段中檢閱設定，然後選取 [確定]。 應用程式閘道可能需要 30 多分鐘才能完成設定。  
 
-5. 在應用程式閘道完成設定後，請進入應用程式閘道入口網站。 選取 [後端集區]。 新增 ILB App Service Environment 的 ILB 位址。
+5. 在應用程式閘道完成設定後，請移至應用程式閘道入口網站。 選取 [後端集區]。 新增 ILB App Service Environment 的 ILB 位址。
 
    ![設定後端集區][4]
 
@@ -107,7 +107,7 @@ Azure 應用程式閘道是一個虛擬設備，可提供第 7 層負載平衡�
 
    ![進行 HTTP 設定][6]
     
-8. 移至應用程式閘道的 [概觀] 區段，然後複製應用程式閘道所使用的公用 IP 位址。 將該 IP 位址設定為應用程式網域名稱的 A 記錄，或在 CNAME 記錄中使用該位址的 DNS 名稱。 相較於從應用程式閘道之 [概觀] 區段中的連結複製位址，從公用 IP 位址的 UI 選取公用 IP 位址並加以複製會比較容易。 
+8. 移至應用程式閘道的 [概觀] 區段，然後複製應用程式閘道所使用的公用 IP 位址。 將該 IP 位址設定為應用程式網域名稱的 A 記錄，或在 CNAME 記錄中使用該位址的 DNS 名稱。 相較於從應用程式閘道 [概觀] 區段中的連結複製位址，從公用 IP 位址的 UI 選取公用 IP 位址並加以複製會比較容易。 
 
    ![應用程式閘道入口網站][7]
 

@@ -9,26 +9,23 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c2a1acd2c249bdbc92119bc92f055b095f318f00
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 65f2fb4526f1048ae88193f85a552a2202afa1d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>使用 Visual Studio Code 搭配 Azure IoT Edge 進行 C# 模組偵錯
 本文提供詳細的指示，說明如何使用 [Visual Studio Code](https://code.visualstudio.com/) 作為主要開發工具來進行 Azure IoT Edge 模組偵錯。
 
 ## <a name="prerequisites"></a>先決條件
-本教學課程假設您使用執行 Windows 或 Linux 的電腦或虛擬機器作為開發電腦。 您的 IoT Edge 裝置可以是其他實體裝置，或是您也可以在開發電腦上模擬 IoT Edge 裝置。
+本文假設您使用執行 Windows 或 Linux 的電腦或虛擬機器作為開發電腦。 您的 IoT Edge 裝置可以是其他實體裝置，或是您也可以在開發機器上模擬 IoT Edge 裝置。
 
-開始使用本指引之前，請先完成下列教學課程：
-- [使用 Visual Studio Code 中的多個模組來開發 IoT Edge 解決方案](tutorial-multiple-modules-in-vscode.md)
-
-完成上述教學課程之後，您應該會備妥下列項目：
-- 在您的開發電腦上執行的本機 Docker 登錄。 建議您使用本機 Docker 登錄作為原型並用於測試。 您可以在每個模組資料夾中的 `module.json` 檔案中更新容器登錄。
+遵循本文中的指引之前，請完成[使用 Visual Studio Code 中的多個模組來開發 IoT Edge 解決方案](tutorial-multiple-modules-in-vscode.md)中的步驟。 在這之後，您應該已準備好下列項目：
+- 在您的開發機器上執行的本機 Docker 登錄。 建議您使用本機 Docker 登錄作為原型並用於測試。 您可以在每個模組資料夾中的 `module.json` 檔案中更新容器登錄。
 - 具有 C# 模組子資料夾的 IoT Edge 解決方案專案工作區。
 - 包含最新模組程式碼的 `Program.cs` 檔案。
-- 在您的開發電腦上執行的 Edge 執行階段。
+- 在您的開發機器上執行的 Edge 執行階段。
 
 ## <a name="build-your-iot-edge-c-module-for-debugging"></a>建置用於偵錯的 IoT Edge C# 模組
 1. 若要開始偵錯，您必須使用 **Dockerfile.amd64.debug** 重建您的 docker 映像，並再次部署 Edge 解決方案。 在 VS Code 總管中，瀏覽至 `deployment.template.json` 檔案。 透過在結尾加上 `.debug` 以更新您的功能映像 URL。
@@ -46,7 +43,7 @@ ms.lasthandoff: 03/28/2018
 
 2. 瀏覽至 `program.cs`。 在此檔案中新增中斷點。
 
-3. 按一下 [開始偵錯] 按鈕或按 **F5**，並選取要附加至哪個處理序。
+3. 按一下 [開始偵錯] 按鈕或按**F5**，並選取要附加至哪個處理序。
 
 4. 在 VS Code 偵錯檢視中，您可以在左面板中看到變數。 
 
@@ -55,8 +52,5 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已建立 IoT Edge 模組並部署它來進行偵錯。 您開始在 VS Code 中對它進行偵錯。 在 VS Code 中開發 Azure IoT Edge 時，若要了解其他案例，請參閱： 
-
-> [!div class="nextstepaction"]
-> [使用 Visual Studio Code 中的多個模組來開發 IoT Edge 解決方案](tutorial-multiple-modules-in-vscode.md)
+[使用 Visual Studio Code 以 Azure IoT Edge 為 Azure Functions 偵錯](how-to-vscode-debug-azure-function.md)
 

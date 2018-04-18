@@ -1,11 +1,11 @@
 ---
-title: "適用於 B2B 監視的 AS2 追蹤結構描述 - Azure Logic Apps | Microsoft Docs"
-description: "使用 AS2 追蹤結構描述以監視來自 Azure 整合帳戶中交易的 B2B 訊息。"
+title: 適用於 B2B 監視的 AS2 追蹤結構描述 - Azure Logic Apps | Microsoft Docs
+description: 使用 AS2 追蹤結構描述以監視來自 Azure 整合帳戶中交易的 B2B 訊息。
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31bd296dc5ed5ac6998a6c05ee80fd38b12d662c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8605950f3cc07730ee13b91999076e3a093e8d92
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>啟動或啟用追蹤 AS2 訊息和 MDN，以監視成功、錯誤和訊息屬性
 您可以在 Azure 整合帳戶中使用這些 AS2 追蹤結構描述，協助您監視企業對企業 (B2B) 交易︰
@@ -136,4 +136,4 @@ ms.lasthandoff: 10/11/2017
 * [深入了解監視 B2B 訊息](logic-apps-monitor-b2b-message.md)。   
 * [深入了解 B2B 自訂追蹤結構描述](logic-apps-track-integration-account-custom-tracking-schema.md)。   
 * 深入了解 [X12 追蹤結構描述](logic-apps-track-integration-account-x12-tracking-schema.md)。   
-* 了解[在 Operations Management Suite 入口網站中追蹤 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
+* 了解[在 Log Analytics 中追蹤 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。

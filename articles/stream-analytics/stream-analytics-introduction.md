@@ -1,24 +1,19 @@
 ---
-title: 串流分析簡介 | Microsoft Docs
+title: Azure 串流分析概觀
 description: 了解串流分析，這是可協助您即時分析物聯網 (IoT) 資料流的受控服務。
-keywords: 分析服務, 受控服務, 串流處理, 串流分析, 什麼是串流分析
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 10/17/2017
 ms.author: jeanb
-ms.openlocfilehash: 70a4b0b358b79ec892483a9fa5573e4bf2d57534
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 10/17/2017
+ms.openlocfilehash: 1912972b2a5ef40bcc61140225f1fdbcbb1535c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="what-is-stream-analytics"></a>什麼是串流分析？
 
@@ -86,5 +81,5 @@ Azure 串流分析是受控事件處理引擎，可讓您設定串流資料的�
 
 * 先從[嘗試從 IoT 裝置執行匯入和查詢](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)開始。
 * 建置[端對端串流分析解決方案](stream-analytics-real-time-fraud-detection.md)，透過檢查電話中繼資料以找出詐騙電話。
-* 在 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)中尋找串流分析問題的答案。
+* 在 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)中尋找串流分析問題的答案。
 

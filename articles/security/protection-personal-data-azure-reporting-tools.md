@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc859f3aa34531133b7a21e36591b011c63d511c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>使用 Azure 報告工具記載個人資料的保護
 
@@ -95,13 +95,13 @@ Log Analytics 中的分析工具 (例如記錄搜尋、檢視和解決方案) �
 
 #### <a name="how-do-i-use-log-analytics"></a>如何使用 Log Analytics？
 
-您可以透過 OMS 入口網站或 Azure 入口網站，從任何網頁瀏覽器存取 Log Analytics。 Log Analytics 包含可快速擷取及彙總存放庫中資料的查詢語言。 您可以建立及儲存記錄搜尋，直接在入口網站中分析資料。
+您可以透過 OMS 入口網站或 Azure 入口網站，從任何網頁瀏覽器存取 Log Analytics。 Log Analytics 包含可快速擷取及彙總 Log Analytics 工作區中資料的查詢語言。 您可以建立及儲存記錄搜尋，直接在入口網站中分析資料。
 
 若要在 Azure 入口網站中建立 Log Analytics 工作區，請執行下列作業：
 
 1. 從 Marketplace 中的服務清單選取 **Log Analytics**。
 
-2. 選取 [建立]，然後指定 OMS 工作區的名稱、選取您的訂用帳戶、資源群組、位置和定價層。
+2. 選取 [建立]，然後指定 Log Analytics 工作區的名稱、選取您的訂用帳戶、資源群組、位置和定價層。
 
 3. 按一下 [確定] 以顯示工作區清單。
 

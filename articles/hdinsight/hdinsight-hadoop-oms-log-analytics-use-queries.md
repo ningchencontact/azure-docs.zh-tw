@@ -1,8 +1,8 @@
 ---
-title: "查詢 Azure Log Analytics 以監視 Azure HDInsight 叢集 | Microsoft Docs"
-description: "了解如何在 Log Analytics 上執行查詢，以監視在 HDInsight 叢集中執行的作業。"
+title: 查詢 Azure Log Analytics 以監視 Azure HDInsight 叢集 | Microsoft Docs
+description: 了解如何在 Log Analytics 上執行查詢，以監視在 HDInsight 叢集中執行的作業。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: f9e023ae8d6c50049b588cf056629cd8d46ee603
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1b2f5fc9bd4f8fc8cd70437e38831595d0a8a819
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>查詢 Azure Log Analytics 以監視 HDInsight 叢集
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/24/2018
 
 * 您必須先設定好 HDInsight 叢集，才可使用 Azure Log Analytics。 如需指示，請參閱[搭配使用 Azure Log Analytics 與 HDInsight 叢集](hdinsight-hadoop-oms-log-analytics-tutorial.md)。
 
-* 您必須已將 HDInsight 叢集特定的管理解決方案新增至 [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 工作區，如[將 HDInsight 叢集管理解決方案新增至 Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md) 中所描述。
+* 您必須已將 HDInsight 叢集特定的管理解決方案新增至 [Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md) 工作區，如同[將 HDInsight 叢集管理解決方案新增至 Log Analytics](../operations-management-suite/operations-management-suite-overview.md)中的描述。
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>分析 HDInsight 叢集計量
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 02/24/2018
 
     ![開啟 OMS 儀表板](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "開啟 OMS 儀表板")
 
-2. 在 OMS 儀表板的主畫面上，按一下 [記錄搜尋]。
+2. 在 OMS 入口網站的主畫面上，按一下 [記錄搜尋]。
 
     ![開啟記錄搜尋](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "開啟記錄搜尋")
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 02/24/2018
 
     ![開啟 OMS 儀表板](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "開啟 OMS 儀表板")
 
-2. 在 OMS 儀表板的主畫面上，按一下 [記錄搜尋]。
+2. 在 OMS 入口網站的主畫面上，按一下 [記錄搜尋]。
 
     ![開啟記錄搜尋](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "開啟記錄搜尋")
 
@@ -152,5 +152,5 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="see-also"></a>另請參閱
 
-* [使用 Operations Management Suite Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [使用 Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [在 Log Analytics 中建立警示規則](../log-analytics/log-analytics-alerts-creating.md)

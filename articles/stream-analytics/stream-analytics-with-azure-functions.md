@@ -1,28 +1,23 @@
 ---
-title: "使用 Azure 串流分析作業來執行 Azure Functions | Microsoft Docs"
-description: "了解如何設定 Azure Functions 做為串流分析作業的輸出接收。"
-keywords: "資料輸出、串流資料、Azure Function"
-documentationcenter: 
+title: 從 Azure 串流分析作業執行 Azure Functions
+description: 本文說明如何將 Azure Functions 作為串流分析作業中的輸出接收，設定為事件導向的工作負載。
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 manager: kfile
-ms.assetid: 
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/19/2017
-ms.author: sngun
-ms.openlocfilehash: f2f4a8d8cda752dc6ed197b8402119f7cbcaf58f
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: a8eebfa0c40caa455eb20431e5cf4acb8eeb248c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>使用 Azure 串流分析作業執行 Azure Functions 
+# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>從 Azure 串流分析作業執行 Azure Functions 
 
-您可以將 Functions 設定為串流分析作業的其中一個輸出接收，藉以使用 Azure 串流分析執行 Azure Functions。 Functions 是事件取向隨選計算的體驗，可讓您實作在 Azure 或協力廠商服務中發生之事件所觸發的程式碼。 Functions 回應觸發程序的功能，很適合作為串流分析作業的輸出。
+您可以將 Functions 設定為串流分析作業的其中一個輸出接收，藉以從 Azure 串流分析執行 Azure Functions。 Functions 是事件導向隨選計算的體驗，可讓您實作在 Azure 或第三方服務中發生之事件所觸發的程式碼。 Functions 回應觸發程序的功能，很適合作為串流分析作業的輸出。
 
 串流分析會透過 HTTP 觸發程序叫用 Functions。 Functions 輸出配接器可以讓使用者將 Functions 連接至串流分析，如此便可以根據串流分析的查詢來觸發事件。 
 

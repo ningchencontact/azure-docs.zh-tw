@@ -4,7 +4,7 @@ description: 了解如何在具有自訂網域的 Azure CDN 端點上啟用或�
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
-ms.author: casoper
-ms.openlocfilehash: fea7121fc67944b20b8f39007edb0c0aad86aeaa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: rli; v-deasim
+ms.openlocfilehash: 554ae4c19d1a3d35075ad174549a62a20329e5fa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>設定 Azure 內容傳遞網路自訂網域上的 HTTPS
 
@@ -45,7 +45,7 @@ HTTPS 功能的一些重要特色如下：
 
 ### <a name="step-1-enable-the-feature"></a>步驟 1︰啟用功能 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽到您的 Verizon 標準或進階 CDN 設定檔。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至「**來自 Verizon 的 Azure CDN 標準**」或「**來自 Verizon 的 Azure CDN 進階**」的 CDN 設定檔。
 
 2. 在端點清單中，按一下包含自訂網域的端點。
 
@@ -69,7 +69,7 @@ HTTPS 功能的一些重要特色如下：
 
 您的 CNAME 記錄應該採用下列格式，其中「名稱」是您的自訂網域名稱，而「值」則是您的 CDN 端點主機名稱：
 
-| 名稱            | 類型  | 值                 |
+| Name            | 類型  | 值                 |
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azureedge.net |
 
@@ -93,7 +93,7 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-您應該會在幾分鐘之內收到邀請您核准要求的電子郵件，如以下範例所示。 如果您使用垃圾郵件篩選器，請將 admin@digicert.com 加入允許清單。 如果您未在 24 小時內收到驗證電子郵件，請連絡 Microsoft 支援服務。
+您應該會在幾分鐘之內收到邀請您核准要求的電子郵件，如以下範例所示。 如果您使用垃圾郵件篩選器，請將 admin@digicert.com 加入白名單。 如果您未在 24 小時內收到驗證電子郵件，請連絡 Microsoft 支援服務。
     
 ![網域驗證電子郵件](./media/cdn-custom-ssl/domain-validation-email.png)
 
@@ -149,7 +149,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ### <a name="step-1-disable-the-feature"></a>步驟 1︰停用功能 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽到您的 Verizon 標準或進階 CDN 設定檔。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至「**來自 Verizon 的 Azure CDN 標準**」或「**來自 Verizon 的 Azure CDN 進階**」的 CDN 設定檔。
 
 2. 在端點清單中，按一下包含自訂網域的端點。
 

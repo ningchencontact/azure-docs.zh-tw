@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 8c8a2f6076c14dabe70f90538ca8c8b97fb93de0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3ea7d09338d4d89030138b8c4dc4085a6cd8ccc5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>適用於 PostgreSQL 的 Azure 資料庫定價層
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/03/2018
 | 計算世代 | Gen 4、Gen 5 | Gen 4、Gen 5 | Gen 5 |
 | 虛擬核心 | 1、2 | 2、4、8、16、32 |2、4、8、16 |
 | 每個虛擬核心的記憶體 | 基準 | 基本的 2 倍 | 一般用途的 2 倍 |
-| 儲存體大小 | 5 GB 至 1 TB | 5 GB 至 1 TB | 5 GB 至 1 TB |
+| 儲存體大小 | 5 GB 至 1 TB | 5 GB 至 2 TB | 5 GB 至 2 TB |
 | 儲存體類型 | Azure 標準儲存體 | Azure 進階儲存體 | Azure 進階儲存體 |
 | 資料庫備份的保留期限 | 7 至 35 天 | 7 至 35 天 | 7 至 35 天 |
 
@@ -46,9 +46,9 @@ ms.lasthandoff: 04/03/2018
 |:---|:----------:|:--------------------:|
 | 美國中部 |  | X |
 | 美國東部 | X | X |
-| 美國東部 2 | X |  |
+| 美國東部 2 | X | X |
 | 美國中北部 | X |  |
-| 美國中南部 | X |  |
+| 美國中南部 | X | X |
 | 美國西部 | X | X |
 | 美國西部 2 |  | X |
 | 加拿大中部 | X | X |
@@ -63,8 +63,8 @@ ms.lasthandoff: 04/03/2018
 | 澳洲東部 |  | X |
 | 印度中部 | X |  |
 | 印度西部 | X |  |
-| 日本東部 | X |  |
-| 日本西部 | X |  |
+| 日本東部 | X | X |
+| 日本西部 | X | X |
 | 韓國南部 |  | X |
 
 根據定價層，每個虛擬核心都以特定數量的記憶體來佈建。 當您為伺服器增加或減少虛擬核心數目時，記憶體就會按比例增加或減少。 一般用途層提供給每個虛擬核心的記憶體數量是基本層的兩倍。 記憶體最佳化層提供的記憶體數量是一般用途層的兩倍。
@@ -76,7 +76,7 @@ ms.lasthandoff: 04/03/2018
 |    | **基本** | **一般用途** | **記憶體最佳化** |
 |:---|:----------|:--------------------|:---------------------|
 | 儲存體類型 | Azure 標準儲存體 | Azure 進階儲存體 | Azure 進階儲存體 |
-| 儲存體大小 | 5 GB 至 1 TB | 5 GB 至 1 TB | 5 GB 至 1 TB |
+| 儲存體大小 | 5 GB 至 1 TB | 5 GB 至 2 TB | 5 GB 至 2 TB |
 | 儲存體遞增大小 | 1 GB | 1 GB | 1 GB |
 | IOPS | 變數 |3 IOPS/GB<br/>最小值為 100 IOPS | 3 IOPS/GB<br/>最小值為 100 IOPS |
 

@@ -2,19 +2,20 @@
 title: Azure SQL Database 自動、異地備援備份 | Microsoft Docs
 description: SQL Database 每隔幾鐘會自動建立一個本機資料庫備份，並使用 Azure 讀取權限異地備援儲存體來進行異地備援。
 services: sql-database
-author: CarlRabeler
-manager: jhubbard
+author: anosov1960
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
 ms.workload: Active
-ms.date: 07/05/2017
-ms.author: carlrab
-ms.openlocfilehash: 053dd680af020aa05bc071c49f0f47ebe6a8f0da
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/04/2018
+ms.author: sashan
+ms.reviewer: carlrab
+ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>了解自動 SQL Database 備份
 
@@ -22,7 +23,7 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 
 ## <a name="what-is-a-sql-database-backup"></a>什麼是 SQL Database 備份？
 
-SQL Database 使用 SQL Server 技術來建立[完整](https://msdn.microsoft.com/library/ms186289.aspx)、[差異](https://msdn.microsoft.com/library/ms175526.aspx)，及[交易記錄](https://msdn.microsoft.com/library/ms191429.aspx)備份。 交易記錄備份根據效能層級和資料庫活動量的頻率通常每隔 5-10 分鐘會進行一次。 具有完整和差異備份的交易記錄備份可讓您將資料庫還原到特定的時間點，至裝載資料庫相同的伺服器。 在您還原資料庫時，服務會判斷需要還原的完整、差異及交易記錄備份。
+針對還原時間點 (PITR) 目的，SQL Database 會使用 SQL Server 技術來建立[完整](https://msdn.microsoft.com/library/ms186289.aspx)、[差異](https://msdn.microsoft.com/library/ms175526.aspx)及[交易記錄](https://msdn.microsoft.com/library/ms191429.aspx)備份。 交易記錄備份根據效能層級和資料庫活動量的頻率通常每隔 5-10 分鐘會進行一次。 具有完整和差異備份的交易記錄備份可讓您將資料庫還原到特定的時間點，至裝載資料庫相同的伺服器。 在您還原資料庫時，服務會判斷需要還原的完整、差異及交易記錄備份。
 
 
 您可以使用這些備份︰
@@ -30,7 +31,7 @@ SQL Database 使用 SQL Server 技術來建立[完整](https://msdn.microsoft.co
 * 將資料庫還原至保留期限內的某一個時間點。 這項作業將會在與原始資料庫相同的伺服器中建立新的資料庫。
 * 將已刪除的資料庫還原至其被刪除的時間，或保留期限內的任何時間。 已刪除的資料庫只能在當中已建立原始資料庫的相同伺服器中還原。
 * 將資料庫還原到另一個地理區域。 這可讓您在無法存取您的伺服器和資料庫時，從地理災害中復原。 在世界各地任何現有的伺服器中建立新的資料庫。 
-* 從 Azure 復原服務保存庫中儲存的特定備份中還原資料庫。 這可讓您還原舊版的資料庫來符合規範要求，或執行舊版的應用程式。 請參閱[長期保留](sql-database-long-term-retention.md)。
+* 如果已使用長期保留原則設定資料庫，請從特定長期備份還原資料庫。 這可讓您還原舊版的資料庫來符合規範要求，或執行舊版的應用程式。 請參閱[長期保留](sql-database-long-term-retention.md)。
 * 若要執行還原，請參閱[從備份還原資料庫](sql-database-recovery-using-backups.md)。
 
 > [!NOTE]
@@ -49,10 +50,14 @@ SQL Database 使用 SQL Server 技術來建立[完整](https://msdn.microsoft.co
 * 基本服務層為 7 天。
 * 標準服務層為 35 天。
 * 進階服務層為 35 天。
+* 一般用途層可以設定為最多 35 天 (預設值為 7 天)*
+* 業務關鍵層 (預覽) 可以設定為最多 35 天 (預設值為 7 天)*
 
-如果您將資料庫從「標準」或「進階」服務層降級到「基本」服務層，備份就會保存 7 天。 所有超過 7 天的現有備份都無法再使用。 
+\* 在預覽期間，備份保留期限無法設定且固定為 7 天。
 
-如果您將資料庫從「基本」服務層升級到「標準」或「進階」服務層，SQL Database 就會將現有備份自其建立日期算起保存 35 天。 它也會將新的備份自其建立日期算起保存 35 天。
+如果您將具有較長備份保留期限的資料庫轉換為具有較短保留期限的資料庫，則無法使用比目標層保留期限還要舊的所有現有備份。
+
+如果您將具有較短保留期限的資料庫升級為具有較長期間的資料庫，則 SQL Database 會保留現有的備份，直到達到較長的保留期限為止。 
 
 如果您刪除資料庫，SQL Database 會以和保存線上資料庫備份的相同方式保存備份。 例如，假設您刪除保存期限為 7 天的「基本」資料庫。 已保存 4 天的備份會再保存 3 天。
 
@@ -61,17 +66,17 @@ SQL Database 使用 SQL Server 技術來建立[完整](https://msdn.microsoft.co
 > 
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>如何延長備份保留期限？
-如果您的應用程式需要較長時間可進行備份，您可以延長內建的保留期限，方法為設定個別資料庫的長期備份保留原則 (LTR 原則)。 這可讓您將保留期限延長 35 天至多達 10 年。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
 
-一旦您使用 Azure 入口網站或 API 將 LTR 原則新增至資料庫後，每週的完整資料庫備份將會自動複製到您自己的 Azure 備份服務保存庫。 如果您的資料庫是使用 TDE 加密，則備份會自動加密靜止。  服務保存庫將自動刪除您過期的備份，根據其時間戳記和 LTR 原則。  因此您不需要管理備份排程或擔心清理舊檔案的工作。 還原 API 支援保存庫中儲存的備份，只要保存庫在與您的 SQL Database 相同的訂用帳戶中。 您可使用 Azure 入口網站或 PowerShell 存取這些備份。
+如果您的應用程式需要比最大 PITR 備份保留期限還要長的時間可進行備份，您可以設定個別資料庫的長期備份保留原則 (LTR 原則)。 這可讓您將保留期限從最多 35 天延長至多達 10 年。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
 
-> [!TIP]
-> 如需作法指南，請參閱[設定 Azure SQL Database 長期備份保留並從中還原](sql-database-long-term-backup-retention-configure.md)
->
+一旦您使用 Azure 入口網站或 API 將 LTR 原則新增至資料庫，每週的完整資料庫備份將會自動複製到個別的 RA-GRS 儲存體容器進行長期保留 (LTR 儲存體)。 如果您的資料庫是使用 TDE 加密，則備份會自動加密靜止。 SQL Database 將根據其時間戳記和 LTR 原則，自動刪除過期的備份。 設定原則之後，您不需要管理備份排程或擔心清理舊檔案的工作。 您可以使用 Azure 入口網站或 PowerShell 來檢視、還原或刪除這些備份。
 
 ## <a name="are-backups-encrypted"></a>備份經過加密？
 
 Azure SQL 資料庫啟用 TDE 時，也會加密備份。 所有新的 Azure SQL Database 預設都會設定為啟用 TDE。 如需 TDE 的詳細資訊，請參閱 [Azure SQL Database 的透明資料加密](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)。
+
+## <a name="are-the-automatic-backups-compliant-with-gdpr"></a>自動備份是否符合 GDPR 的規範？
+如果備份包含個人資料，而該資料受限於一般資料保護規定 (GDPR)，您必須套用增強式安全性措施以保護資料免於遭受未經授權的存取。 為了符合 GDPR 的規範，您需要一個方法來管理資料擁有者的資料要求，而不必存取備份。  針對短期備份，有一個解決方案可以將備份時間縮短為 30 天以內，這是允許完成資料存取要求的時間。  如果需要較長期的備份，建議只在備份中儲存「經過假名化處理」資料。 例如，如果需要刪除或更新個人相關資料，就不需要刪除或更新現有的備份。 您可以在 [GDPR 合規性的資料治理](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html)中找到有關 GDPR 最佳做法的詳細資訊。
 
 ## <a name="next-steps"></a>後續步驟
 

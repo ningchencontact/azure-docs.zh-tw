@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/03/2018
 ms.author: bonova
-ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>什麼是受控執行個體 (預覽)？
 
@@ -69,6 +69,23 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 
 ![單一登入](./media/sql-database-managed-instance/sso.png) 
 
+## <a name="vcore-based-purchasing-model"></a>以虛擬核心為基礎的購買模型
+
+以虛擬核心為基礎的購買模型提供彈性、可控制、透明及直接的方法，讓您將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，進行計算、記憶體和儲存體調整。 虛擬核心模型也能夠透過[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，最多節省 30% 的成本。
+
+虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。
+- 「第 4 代」邏輯 CPU 是以 Intel E5-2673 v3 (Haswell) 2.4-GHz 處理器為基礎。
+- 「第 5 代」邏輯 CPU 是以 Intel E5-2673 v4 (Broadwell) 2.3-GHz 處理器為基礎。
+
+下表可協助您了解如何為您的計算、記憶體、儲存體和 I/O 資源選取最佳組態。
+
+||Gen 4|Gen 5|
+|----|------|-----|
+|硬體|Intel E5 2673 v3 (Haswell) 2.4 GHz 處理器，附加 SSD 虛擬核心 = 1 PP (實體核心)|Intel E5 2673 v4 (Broadwell) 2.3 GHz 處理器，快速 eNVM SSD，虛擬核心 = 1 LP (超執行緒)|
+|效能層級|8 個、16 個、24 個虛擬核心|8 個、16 個、24 個、32 個、40 個虛擬核心|
+|記憶體|每個虛擬核心 7GB|每個虛擬核心 5.5GB|
+||||
+
 ## <a name="managed-instance-service-tier"></a>受控執行個體服務層
 
 受控執行個體初期可在「一般用途」的單一服務層中取得，該服務層適用於具有標準可用性和一般 IO 延遲需求的應用程式。
@@ -89,11 +106,11 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 
 |功能 | 說明|
 |---|---|
-| 虛擬核心數* | 8、16、24|
+| 虛擬核心數* | 8 個、16 個、24 個 (第 4 代)<br>8 個、16 個、24 個、32 個、40 (第 5 代)|
 | SQL Server 版本/組建 | SQL Server (最新的可用版本) |
 | 儲存體大小下限 | 32 GB |
 | 儲存體大小上限 | 8 TB |
-| 每個資料庫的儲存體上限 | 4 TB |
+| 每個資料庫的儲存體上限 | 8 TB |
 | 預期的儲存體 IOPS | 每個資料檔案 500-7500 IOPS (視資料檔案而定)。 請參閱[進階儲存體](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | 每個資料庫的資料檔案 (ROWS) 數目 | 多個 | 
 | 每個資料庫的記錄檔 (LOG) 數目 | 1 | 
@@ -106,7 +123,7 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 | 入口網站支援 | yes|
 |||
 
-\*虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 第四代邏輯 CPU 的基礎為 E5-2673 v3 (Haswell) 2.4 GHz 處理器，第五代邏輯 CPU 的基礎為 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器。  
+\*虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 第四代邏輯 CPU 的基礎為 E5-2673 v3 (Haswell) 2.4 GHz 處理器，第五代邏輯 CPU 的基礎為 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器。 
 
 ## <a name="advanced-security-and-compliance"></a>進階安全性與合規性 
 
@@ -152,7 +169,7 @@ SQL Database 可讓您透過 [Azure Active Directory 整合](sql-database-aad-au
 SQL 資料庫驗證是指使用者連線到資料庫時如何證明他們的身分識別。 SQL Database 支援兩種驗證類型：  
 
 - SQL 驗證，其需要使用者名稱和密碼。
-- Azure Active Directory 驗證，它會使用由 Azure Active Directory 管理的身分識別，並支援受控和整合的網域。  
+- Azure Active Directory 驗證，它會使用由 Azure Active Directory 管理的身分識別，並支援受控和整合的網域。 
 
 ### <a name="authorization"></a>Authorization
 
@@ -160,11 +177,11 @@ SQL 資料庫驗證是指使用者連線到資料庫時如何證明他們的身�
 
 ## <a name="database-migration"></a>資料庫移轉 
 
-受控執行個體鎖定的是將大量資料庫從內部部署或 IaaS 資料庫實作移轉的使用者案例。  受控執行個體支援數個資料庫移轉選項： 
+受控執行個體鎖定的是將大量資料庫從內部部署或 IaaS 資料庫實作移轉的使用者案例。 受控執行個體支援數個資料庫移轉選項： 
 
 ### <a name="data-migration-service"></a>資料移轉服務
 
-Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低。   此服務可簡化將現有第三方和 SQL Server 資料庫移動至 Azure 時所需的工作。 部署選項包括 Azure SQL Database、受控執行個體，以及 Azure VM 中處於公開預覽階段的 SQL Server。 請參閱[如何使用 DMS 將您的內部部署資料庫遷移至受控執行個體](https://aka.ms/migratetoMIusingDMS)。  
+Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低。 此服務可簡化將現有第三方和 SQL Server 資料庫移動至 Azure 時所需的工作。 部署選項包括 Azure SQL Database、受控執行個體，以及 Azure VM 中處於公開預覽階段的 SQL Server。 請參閱[如何使用 DMS 將您的內部部署資料庫遷移至受控執行個體](https://aka.ms/migratetoMIusingDMS)。 
 
 ### <a name="backup-and-restore"></a>備份與還原  
 
@@ -174,7 +191,7 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 
 受控執行個體的目標是在各階段中，為內部部署 SQL Server 提供幾乎 100% 的介面區相容性，直到服務正式運作為止。 如需功能與比較清單，請參閱[SQL 的一般功能](sql-database-features.md)。
  
-受控執行個體支援與 SQL 2008 資料庫的回溯相容性。  支援直接從 SQL 2005 資料庫伺服器進行移轉，移轉後，SQL 2005 資料庫的相容性層級會更新為 SQL 2008。 
+受控執行個體支援與 SQL 2008 資料庫的回溯相容性。 支援直接從 SQL 2005 資料庫伺服器進行移轉，移轉後，SQL 2005 資料庫的相容性層級會更新為 SQL 2008。 
  
 下圖概述受控執行個體中的介面區相容性：  
 
@@ -182,7 +199,7 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 
 ### <a name="key-differences-between-sql-server-on-premises-and-managed-instance"></a>SQL Server 內部部署和受控執行個體之間的主要差異 
 
-受控執行個體的優勢是其在雲端中一律是最新狀態，這表示內部部署 SQL Server 中的某些功能可能已過時、已停用或已有替代方案。  在某些情況，當工具必須辨識特定功能的運作方式稍有不同，或是服務不在某個環境中執行時，您無法完全控制： 
+受控執行個體的優勢是其在雲端中一律是最新狀態，這表示內部部署 SQL Server 中的某些功能可能已過時、已停用或已有替代方案。 在某些情況，當工具必須辨識特定功能的運作方式稍有不同，或是服務不在某個環境中執行時，您無法完全控制： 
 
 - 高可用性會內建和預先設定。 Always On 高可用性功能的公開方式不會與 SQL IaaS 實作上的相同 
 - 自動備份和時間點還原。 客戶可以起始 `copy-only` 備份，這不會干擾自動備份鏈結。 
@@ -192,7 +209,7 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
  
 ### <a name="managed-instance-administration-features"></a>受控執行個體的管理功能  
 
-受控執行個體讓系統管理員可以專注於與商務最相關的事情。 許多系統管理員/DBA 活動其實非必要或相當簡單。 例如，OS / RDBMS 安裝和修補、動態執行個體的大小調整和組態、備份、資料庫複寫 (包括系統資料庫)、高可用性組態，以及健康情況和效能監視資料流的組態。  
+受控執行個體讓系統管理員可以專注於與商務最相關的事情。 許多系統管理員/DBA 活動其實非必要或相當簡單。 例如，OS / RDBMS 安裝和修補、動態執行個體的大小調整和組態、備份、資料庫複寫 (包括系統資料庫)、高可用性組態，以及健康情況和效能監視資料流的組態。 
 
 > [!IMPORTANT]
 > 如需可支援、部分支援和不支援的功能清單，請參閱[SQL Database 功能](sql-database-features.md)。 如需受控執行個體與 SQL Server 的 T-SQL 差異清單，請參閱[受控執行個體與 SQL Server 的 T-SQL 差異](sql-database-managed-instance-transact-sql-information.md)

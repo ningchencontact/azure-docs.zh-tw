@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="collector-appliance"></a>收集器設備
 
@@ -58,17 +58,17 @@ Azure Migrate 收集器是輕量型設備，可用來探索您的內部部署 vC
 > [!NOTE]
 > 收集器不支援 HTTPS 型 Proxy 伺服器。
 
-#### <a name="whitelisting-urls-for-internet-connection"></a>將網際網路連線的 URL 加入白名單
+#### <a name="whitelisting-urls-for-internet-connection"></a>將網際網路連線的 URL 加入允許清單
 
-如果收集器可以透過所提供的設定連線到網際網路，必要條件檢查就會成功。 您可以連線到下表中所提供的 URL 清單來驗證連線檢查。 如果您使用任何 URL 型防火牆 Proxy 控制輸出連線能力，務必將這些必要的 URL 列入白名單：
+如果收集器可以透過所提供的設定連線到網際網路，必要條件檢查就會成功。 您可以連線到下表中所提供的 URL 清單來驗證連線檢查。 如果您使用任何 URL 型防火牆 Proxy 控制輸出連線能力，務必將這些必要的 URL 列入允許清單：
 
 **URL** | **用途**  
 --- | ---
 *.portal.azure.com | 檢查與 Azure 服務的連線能力及驗證時間同步問題時所需。
 
-此外，檢查也會嘗試驗證下列 URL 的連線，但如果無法存取，檢查也不會失敗。 您可以選擇性地設定下列 URL 的白名單，但您必須採取手動步驟來減輕必要條件檢查。
+此外，檢查也會嘗試驗證下列 URL 的連線，但如果無法存取，檢查也不會失敗。 您可以選擇性地設定下列 URL 的允許清單，但您必須採取手動步驟來減輕必要條件檢查。
 
-**URL** | **用途**  | **如果不加入白名單該怎麼辦**
+**URL** | **用途**  | **如果不加入允許清單該怎麼辦**
 --- | --- | ---
 *.oneget.org:443 | 下載以 Powershell 為基礎的 vCenter PowerCLI 模組時所需。 | PowerCLI 安裝失敗。 手動安裝模組。
 *.windows.net:443 | 下載以 Powershell 為基礎的 vCenter PowerCLI 模組時所需。 | PowerCLI 安裝失敗。 手動安裝模組。
@@ -91,7 +91,7 @@ Azure Migrate 收集器服務應在機器上執行。 此服務會在機器開�
 
 ### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5 
 
-您必須安裝 VMware PowerCLI powershell 模組，收集器才能與 vCenter Server 通訊，以及查詢機器詳細資料及其效能資料。 進行必要條件檢查時，系統會自動下載及安裝 Powershell 模組。 自動下載必須將少數 URL 加入白名單中，若未這麼做，您必須將它們加入白名單來提供存取，或以手動方式安裝模組。
+您必須安裝 VMware PowerCLI powershell 模組，收集器才能與 vCenter Server 通訊，以及查詢機器詳細資料及其效能資料。 進行必要條件檢查時，系統會自動下載及安裝 Powershell 模組。 自動下載必須將少數 URL 加入允許清單中，若未這麼做，您必須將它們加入允許清單來提供存取，或以手動方式安裝模組。
 
 使用下列步驟以手動方式安裝模組：
 
@@ -126,7 +126,7 @@ Azure Migrate 收集器服務應在機器上執行。 此服務會在機器開�
 
 1. 此範圍可以是資料中心、資料夾或 ESXi 主機。 
 2. 您一次只能選取一個範圍。 若要選取多部虛擬機器，您可以完成一次探索，然後以新的範圍重新啟動探索程序。
-3. 您只能選取「少於 1000 部虛擬機器」的範圍。 如果您選取的範圍包含超過 1000 部虛擬機器，則必須建立數個資料夾，將範圍分割成較小的單位。 接著，您必須執行較小型資料夾的獨立探索。
+3. 您只能選取「少於 1500 部虛擬機器」的範圍。
 
 ## <a name="specify-migration-project"></a>指定移轉專案
 
@@ -197,6 +197,16 @@ Azure Migrate 收集器服務應在機器上執行。 此服務會在機器開�
 5. 以滑鼠右鍵按一下 Setup.ps1 並選取 [使用 PowerShell 執行]，然後遵循螢幕上的指示安裝更新。
 
 ### <a name="list-of-updates"></a>更新清單
+
+#### <a name="upgrade-to-version-1097"></a>升級為 1.0.9.7 版
+
+若要升級為 1.0.9.7 版，請下載[套件](https://aka.ms/migrate/col/upgrade_9_7)
+
+**演算法** | **雜湊值**
+--- | ---
+MD5 | 01ccd6bc0281f63f2a672952a2a25363
+SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
+SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
 
 #### <a name="upgrade-to-version-1095"></a>升級為 1.0.9.5 版
 

@@ -1,12 +1,13 @@
 ---
 title: 路由網路流量 - Azure CLI | Microsoft Docs
-description: 了解如何使用 Azure CLI 以路由表路由網路流量。
+description: 在本文中，了解如何使用 Azure CLI 以路由表路由傳送網路流量。
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -16,24 +17,23 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 871b562fa12b93d1b65e23ca58615d35ef6bb34b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb4a28b5a57d7e301e800cd4ad87c56b7c5df6d2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>使用 Azure CLI 以路由表路由網路流量
 
-Azure 依預設會自動路由虛擬網路內所有子網路之間的流量。 您可以建立您自己的路由，以覆寫 Azure 的預設路由。 舉例來說，如果您想要通過網路虛擬設備 (NVA) 路由傳送子網路之間的流量，則建立自訂路由的能力很有幫助。 在本文中，您將了解如何：
+Azure 依預設會自動路由虛擬網路內所有子網路之間的流量。 您可以建立您自己的路由，以覆寫 Azure 的預設路由。 舉例來說，如果您想要通過網路虛擬設備 (NVA) 路由傳送子網路之間的流量，則建立自訂路由的能力很有幫助。 在本文中，您將了解：
 
-> [!div class="checklist"]
-> * 建立路由表
-> * 建立路由
-> * 建立有多個子網路的虛擬網路
-> * 建立路由表與子網路的關聯
-> * 建立會路由傳送流量的 NVA
-> * 將虛擬機器 (VM) 部署到不同子網路
-> * 透過 NVA 從一個子網路將流量路由傳送到另一個子網路
+* 建立路由表
+* 建立路由
+* 建立有多個子網路的虛擬網路
+* 建立路由表與子網路的關聯
+* 建立會路由傳送流量的 NVA
+* 將虛擬機器 (VM) 部署到不同子網路
+* 透過 NVA 從一個子網路將流量路由傳送到另一個子網路
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -203,7 +203,7 @@ az vm create \
   "resourceGroup": "myResourceGroup"
 }
 ```
-請記下 **publicIpAddress**。 這個位址可在稍後的步驟中，用來從網際網路存取虛擬機器。
+請記下 **publicIpAddress**。 在稍後的步驟中，這個位址可用來從網際網路存取虛擬機器。
 
 ## <a name="route-traffic-through-an-nva"></a>透過 NVA 路由傳送流量
 
@@ -275,9 +275,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已建立路由表並將其與子網路產生關聯。 您已建立簡單的 NVA，它會將來自公用子網路的流量路由傳送至私人子網路。 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking) 部署各種預先設定的 NVA，這些設備會執行例如防火牆和 WAN 最佳化的網路功能。 在您部署用於生產環境的路由表之前，建議您徹底熟悉[在 Azure 中路由傳送](virtual-networks-udr-overview.md)、[管理路由表](manage-route-table.md)和 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+在本文中，您已建立路由表並將其與子網路產生關聯。 您已建立簡單的 NVA，它會將來自公用子網路的流量路由傳送至私人子網路。 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking) 部署各種預先設定的 NVA，這些設備會執行例如防火牆和 WAN 最佳化的網路功能。 若要深入了解路由，請參閱[路由概觀](virtual-networks-udr-overview.md)和[管理路由表](manage-route-table.md)。
 
-雖然您可以在虛擬網路內部署許多 Azure 資源，但是某些 Azure PaaS 服務的資源無法部署到虛擬網路中。 您仍可將某些 Azure PaaS 服務的資源存取，限制為僅來自虛擬網路子網路的流量。 請繼續閱讀下一篇文章，以了解如何限制對 Azure PaaS 資源的網路存取。
-
-> [!div class="nextstepaction"]
-> [限制對 PaaS 資源的網路存取](tutorial-restrict-network-access-to-resources-cli.md)
+雖然您可以在虛擬網路內部署許多 Azure 資源，但是某些 Azure PaaS 服務的資源無法部署到虛擬網路中。 您仍可將某些 Azure PaaS 服務的資源存取，限制為僅來自虛擬網路子網路的流量。 若要深入了解，請參閱[限制對 PaaS 資源的網路存取](tutorial-restrict-network-access-to-resources-cli.md)。

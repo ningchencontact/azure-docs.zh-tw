@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-monitoring-solutions"></a>網路監視解決方案 
 
@@ -60,9 +60,11 @@ Expressroute 的 NPM 提供對於私用對等連線的全面性 ExpressRoute 監
 
 * 自動偵測與您的訂用帳戶相關聯的 ER 線路
 * 偵測從內部部署至雲端應用程式的網路拓撲
-* 容量規劃、使用率分析
+* 每個虛擬網路的容量規劃、使用率分析、頻寬使用率
 * 監視主要和次要路徑並且提出警示
 * 偵測 VNet 連線能力的降低
+
+![顯示跨區域流量的地理資訊地圖](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
 如需詳細資訊，請參閱下列文章：
 
@@ -116,7 +118,6 @@ Expressroute 的 NPM 提供對於私用對等連線的全面性 ExpressRoute 監
 相關連結：
 * [部落格文章](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/)、[文件](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="next-steps"></a>後續步驟
+## <a name="miscellaneous"></a>其他資訊
 
-* [設定網路效能監控](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
-* [設定 ExpressRoute 線路的網路效能監視器](../expressroute/how-to-npm.md)
+* [新定價](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

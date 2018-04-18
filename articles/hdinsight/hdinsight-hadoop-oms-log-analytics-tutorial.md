@@ -1,8 +1,8 @@
 ---
-title: "使用 Log Analytics 以監視 Azure HDInsight 叢集 | Microsoft Docs"
-description: "了解如何使用 Azure Log Analytics，以監視在 HDInsight 叢集中執行的作業。"
+title: 使用 Log Analytics 以監視 Azure HDInsight 叢集 | Microsoft Docs
+description: 了解如何使用 Azure Log Analytics，以監視在 HDInsight 叢集中執行的作業。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 2c43b9aabda56e1204870575e86934bf93d05882
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: be71b065999c30546432895804df8633da21b43e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>使用 Azure Log Analytics 監視 HDInsight 叢集
 
 了解如何使用 Azure Log Analytics，監視 HDInsight 中的 Hadoop 叢集作業。
 
-[Log Analytics](../log-analytics/log-analytics-overview.md) 是 [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 中的一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。 
+[Log Analytics](../log-analytics/log-analytics-overview.md) 是一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。 
 
 ## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**。 開始進行本教學課程之前，您必須擁有 Azure 訂用帳戶。 請參閱[立即建立免費的 Azure 帳戶](https://azure.microsoft.com/free)。
 
-* **Azure HDInsight 叢集**。 目前，您可以使用具有以下 HDInsight 叢集類型的 Azure Operations Management Suite：
+* **Azure HDInsight 叢集**。 目前，您可以使用具有以下 HDInsight 叢集類型的 Log Analytics：
 
     * Hadoop
     * hbase

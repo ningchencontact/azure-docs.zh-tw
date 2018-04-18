@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>部署及探索使用 Azure SQL Database 的分區化多租用戶應用程式
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 03/23/2018
 
 在本節的步驟中，您將提供使用者值來確保資源名稱是全域唯一，且為資源群組的名稱，該群組包含部署應用程式時建立的所有資源。 假設使用者的姓名為 Ann Finley，我們建議使用以下名稱：
 - 使用者：**af1** (姓名首字母縮寫加一個數字。如果您非首次部署應用程式，請使用另一個值 (例如 af2))。
-- 資源群組：**wingtip-dpt-af1** (wingtip-dpt 表示這是每一租用戶一個資料庫應用程式。 加上使用者名稱 af1，會使資源群組名稱與其中各項資源的名稱相互關聯)。
+- *資源群組：* **wingtip-mt-af1** *(wingtip-mt 表示這是共用的多租用戶應用程式。* 加上使用者名稱 af1，會使資源群組名稱與其中各項資源的名稱相互關聯)。
 
 現在請選擇您的名稱，然後將它們寫下來。 
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 03/23/2018
 中央 [事件中樞] 網頁提供特定部署中租用戶的連結清單。 使用下列步驟，以體驗 [事件中樞] 網頁和個別 Web 應用程式：
 
 1. 在網頁瀏覽器中開啟 [事件中樞]：
-    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; (將 &lt;user&gt; 取代為您部署的使用者值。)
+    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp;  *(將 &lt;user&gt; 取代為您部署的使用者值。)*
 
     ![事件中樞](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 

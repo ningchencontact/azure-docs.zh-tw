@@ -1,13 +1,29 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/03/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 6381f8f0e68853183fc3e17e76b4ab93b152b48b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 04/05/2018
+---
 | 資源 | 預設限制 |
 | --- | --- |
 | 每一區域的儲存體帳戶數目 | 200<sup>1</sup> |
 | 儲存體帳戶容量上限 | 500 TiB<sup>2</sup> |
 | 每一儲存體帳戶的 Blob 容器、Blob、檔案共用、資料表、佇列、實體或訊息的數目上限 | 沒有限制 |
 | 每一儲存體帳戶的要求率上限 | 每秒 20,000 個要求<sup>2</sup> |
-| 每一儲存體帳戶的輸入上限<sup>3</sup> (美國地區) | 如果啟用 RA-GRS/GRS/ZRS<sup>4</sup>，則為 10 Gbps，LRS 為 20 Gbps<sup>2</sup> |
-| 每一儲存體帳戶的輸出上限<sup>3</sup> (美國地區) | 如果啟用 RA-GRS/GRS/ZRS<sup>4</sup>，則為 20 Gbps，LRS 為 30 Gbps<sup>2</sup> |
-| 每一儲存體帳戶的輸入上限<sup>3</sup> (非美國地區) | 如果啟用 RA-GRS/GRS/ZRS<sup>4</sup>，則為 5 Gbps，LRS 為 10 Gbps<sup>2</sup> |
-| 每一儲存體帳戶的輸出上限<sup>3</sup> (非美國地區) | 如果啟用 RA-GRS/GRS/ZRS<sup>4</sup>，則為 10 Gbps，LRS 為 15 Gbps<sup>2</sup> |
+| 每一儲存體帳戶的輸入上限<sup>3</sup> (美國地區) | 如果啟用 RA-GRS/GRS，則為 10 Gbps，LRS/ZRS 為 20 Gbps<sup>4</sup> |
+| 每一儲存體帳戶的輸出上限<sup>3</sup> (美國地區) | 如果啟用 RA-GRS/GRS，則為 20 Gbps，LRS/ZRS 為 30 Gbps<sup>4</sup> |
+| 每一儲存體帳戶的輸入上限<sup>3</sup> (非美國地區) | 如果啟用 RA-GRS/GRS，則為 5 Gbps，LRS/ZRS 為 10 Gbps<sup>4</sup> |
+| 每一儲存體帳戶的輸出上限<sup>3</sup> (非美國地區) | 如果啟用 RA-GRS/GRS，則為 10 Gbps，LRS/ZRS 為 15 Gbps<sup>4</sup> |
 
 <sup>1</sup>同時包括標準和進階儲存體帳戶。 如果您需要超過 200 個儲存體帳戶，請透過 [Azure 支援](https://azure.microsoft.com/support/faq/)提出要求。 Azure 儲存體團隊將會檢閱您的商務案例，而且可以核准多達 250 個儲存體帳戶。 
 

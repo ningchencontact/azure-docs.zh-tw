@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure Stack 1802 更新
 
@@ -56,7 +56,9 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 
 
 ### <a name="post-update-steps"></a>更新後步驟
-*更新 1802 沒有更新後的步驟。*
+在安裝 1802 之後，安裝任何適用的 Hotfix。 如需詳細資訊，請檢視下列知識庫文章，以及我們的[服務原則](azure-stack-servicing-policy.md)。  
+- [KB 4103348 - 網路控制器 API 服務在您嘗試安裝 Azure Stack 更新時損毀](https://support.microsoft.com/help/4103348)
+
 
 
 ### <a name="new-features-and-fixes"></a>新功能和修正
@@ -103,7 +105,7 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 
 #### <a name="portal"></a>入口網站
 - 無法從系統管理員入口網站內，[從下拉式清單開啟新支援要求](azure-stack-manage-portals.md#quick-access-to-help-and-support)。 請改用下列連結：     
-    - 對於 Azure Stack 整合系統，請使用 https://aka.ms/newsupportrequest。
+    - 針對 Azure Stack 整合式系統，請使用 https://aka.ms/newsupportrequest。
 
 - <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
 
@@ -141,6 +143,10 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 
 #### <a name="compute"></a>計算
 - 無法在入口網站中使用虛擬機器擴展集的調整設定。 您可以使用 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) 作為因應措施。 由於 PowerShell 版本差異，您必須使用 `-Name` 參數，而不是 `-VMScaleSetName`。
+
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  版本 1803 已經修正這個問題。 若要解決版本 1802 的這個問題，請安裝 Azure Stack Hotfix **1.0.180302.4**。 如需詳細資訊，請參閱 [KB 4131152：現有虛擬機器擴展集可能無法使用]( https://support.microsoft.com/help/4131152)。 
 
 - Azure Stack 支援僅使用固定類型的 VHD。 Azure Stack 上有些透過市集提供的影像使用動態 VHD，但這些影像已被移除。 對已連結動態磁碟的虛擬機器 (VM) 調整大小，會導致 VM 處於失敗狀態。
 

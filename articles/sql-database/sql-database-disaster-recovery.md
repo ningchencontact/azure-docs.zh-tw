@@ -7,14 +7,14 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e9ec0a0a602965561b77619123588db57c59993c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dc97c0703150df9773427b13fc07371c3593ce9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>還原 Azure SQL Database 或容錯移轉到次要資料庫
 Azure SQL Database 提供下列功能，以從中斷復原：
@@ -26,7 +26,7 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 若要了解商務持續性案例，以及支援這些案例的功能，請參閱 [商務持續性](sql-database-business-continuity.md)。
 
 > [!NOTE]
-> 如果您使用區域備援進階資料庫或集區，系統就會自動執行復原程序，但這份資料的其餘部分不適用。 
+> 如果您使用區域備援進階或業務關鍵資料庫或集區 (預覽)，系統就會自動執行復原程序，但這份資料的其餘部分不適用。 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>準備中斷事件
 如果要使用容錯移轉群組或異地備援備份成功復原到另一個資料區域，您必須準備一台伺服器，以便在另一個資料中心中斷時成為新的主要伺服器，以及將定義好的步驟寫成文件並經過測試，以確保順利復原。 這些準備步驟包括︰

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b908e8877162a6a1d9292616a1704c1c528e1725
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9f8f8cb7fd267e25c83ecceb98b5faa8848fb126
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>使用 Azure PowerShell 監視和更新 Windows 虛擬機器
 
@@ -238,7 +238,7 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -
 
 ## <a name="advanced-monitoring"></a>進階監視
 
-您可以使用「Azure 自動化」所提供的「更新管理」和「變更」與「清查」等解決方案，來進行更進階的 VM 監視。 [Operations Management Suite](../../automation/automation-intro.md).
+您可以使用 [Azure 自動化](../../automation/automation-intro.md)所提供的「更新管理」和「變更」與「清查」等解決方案，來進行更進階的 VM 監視。
 
 當您能夠存取 Log Analytics 工作區時，便可以藉由選取 [設定] 底下的 [進階設定]，找出工作區金鑰和工作區識別碼。 請使用 [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) 命令將 Microsoft Monitoring Agent 延伸模組新增至 VM。 更新以下範例中的變數值，以反映您的 Log Analytics 工作區金鑰和工作區識別碼。
 

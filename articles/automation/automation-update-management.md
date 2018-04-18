@@ -5,14 +5,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -30,7 +30,7 @@ Azure 自動化中的「更新管理」解決方案，可讓您管理 Azure 中�
 * 自動化 Hybrid Runbook Worker
 * 適用於 Windows 電腦的 Microsoft Update 或 Windows Server Update Services
 
-下列圖表顯示行為和資料流程的概念性檢視，說明解決方案如何評估安全性更新並將及套用至工作區中所有連線的 Windows Server 和 Linux 電腦。    
+下列圖表顯示行為和資料流程的概念性檢視，說明解決方案如何評估安全性更新並將及套用至工作區中所有連線的 Windows Server 和 Linux 電腦。
 
 ![更新管理程序流程](media/automation-update-management/update-mgmt-updateworkflow.png)
 
@@ -70,21 +70,24 @@ Azure 自動化中的「更新管理」解決方案，可讓您管理 Azure 中�
 
 #### <a name="windows"></a>Windows
 
-Windows 代理程式必須設定為可與 Windows Server Update Services (WSUS) 伺服器通訊，或必須能夠存取 Microsoft Update。 此外，Windows 代理程式不可由 System Center Configuration Manager 並行管理。 需要 [Windows 代理程式](../log-analytics/log-analytics-agent-windows.md)。 此代理程式會在您登入 Azure VM 時自動安裝。
+Windows 代理程式必須設定為可與 Windows Server Update Services (WSUS) 伺服器通訊，或必須能夠存取 Microsoft Update。 更新管理可與 Sytem Center Configuration Manager 搭配使用，如需深入了解整合案例，請造訪[將 System Center Configuration Manager 與更新管理整合](oms-solution-updatemgmt-sccmintegration.md#configuration)。 需要 [Windows 代理程式](../log-analytics/log-analytics-agent-windows.md)。 此代理程式會在您登入 Azure VM 時自動安裝。
 
 #### <a name="linux"></a>Linux
 
 Linux 的機器必須能夠存取更新存放庫 (可以是私人或公用的)。 此解決方案不支援適用於 Linux 且設定為向多個 Log Analytics 工作區報告的 OMS 代理程式。
 
-如需關於如何安裝適用於 Linux 的 OMS 代理程式及下載最新版本的詳細資訊，請參閱[適用於 Linux 的 Operations Management Suite 代理程式](https://github.com/microsoft/oms-agent-for-linux)。 如需有關如何安裝適用於 Windows 的 OMS 代理程式，請檢閱[適用於 Windows 的 Operations Management Suite 代理程式](../log-analytics/log-analytics-windows-agent.md)。  
+如需關於如何安裝適用於 Linux 的 OMS 代理程式及下載最新版本的詳細資訊，請參閱[適用於 Linux 的 Operations Management Suite 代理程式](https://github.com/microsoft/oms-agent-for-linux)。 如需有關如何安裝適用於 Windows 的 OMS 代理程式，請檢閱[適用於 Windows 的 Operations Management Suite 代理程式](../log-analytics/log-analytics-windows-agent.md)。
 
 ## <a name="permissions"></a>權限
-若要建立及管理更新部署，您必須具有特定權限。 若要深入了解這些權限，請瀏覽[角色型存取 - 更新管理](automation-role-based-access-control.md#update-management) 
+
+若要建立及管理更新部署，您必須具有特定權限。 若要深入了解這些權限，請瀏覽[角色型存取 - 更新管理](automation-role-based-access-control.md#update-management)
 
 ## <a name="solution-components"></a>方案元件
+
 此解決方案包含下列已新增到自動化帳戶的資源，以及直接連線的代理程式或 Operations Manager 連線的管理群組。
 
 ### <a name="hybrid-worker-groups"></a>混合式背景工作群組
+
 啟用此解決方案之後，任何直接連線到 Log Analytics 工作區的 Windows 電腦都會自動設定為 Hybrid Runbook Worker，以支援此解決方案中所包含的 Runbook。 對於此解決方案管理的每部 Windows 電腦，它會遵循 Hostname FQDN_GUID 命名慣例，並且列在自動化帳戶的 [混合式背景工作群組] 頁面下，作為系統混合式背景工作群組。 您不能讓這些群組以您帳戶中的 Runbook 為目標，否則它們會失敗。 這些群組只為了支援管理解決方案。
 
 然而，您可以將 Windows 電腦新增到自動化帳戶中的 Hybrid Runbook Worker 群組來支援自動化 Runbook，只要解決方案和 Hybrid Runbook Worker 群組成員資格兩者所用的帳戶相同即可。 此功能已新增至 Hybrid Runbook Worker 7.2.12024.0 版。
@@ -119,14 +122,13 @@ Heartbeat
 
 在 Windows 電腦上，您可以檢閱下列各項來確認與 Log Analytics 的代理程式連線能力︰
 
-1.  在控制台中開啟 Microsoft Monitoring Agent，而代理程式會在 [Azure Log Analytics] 索引標籤上顯示以下訊息︰**Microsoft Monitoring Agent 已成功連線到 Log Analytics**。   
-2.  開啟 [Windows 事件記錄]，瀏覽至 [應用程式及服務記錄\Operations Manager] 並從來源服務連接器搜尋事件識別碼 3000 和 5002。 這些事件表示電腦已向 Log Analytics 工作區註冊，並且正在接收組態。  
+1. 在控制台中開啟 Microsoft Monitoring Agent，而代理程式會在 [Azure Log Analytics] 索引標籤上顯示以下訊息︰**Microsoft Monitoring Agent 已成功連線到 Log Analytics**。   
+2. 開啟 [Windows 事件記錄]，瀏覽至 [應用程式及服務記錄\Operations Manager] 並從來源服務連接器搜尋事件識別碼 3000 和 5002。 這些事件表示電腦已向 Log Analytics 工作區註冊，並且正在接收組態。
 
 如果代理程式無法與 Log Analytics 通訊，並已設定為透過防火牆或 Proxy 伺服器來與網際網路通訊，請藉由檢閱 [Windows 代理程式的網路設定](../log-analytics/log-analytics-agent-windows.md)或 [Linux 代理程式的網路設定](../log-analytics/log-analytics-agent-linux.md)，確認防火牆或 Proxy 伺服器設定正確。
 
 > [!NOTE]
-> 如果您的 Linux 系統是設定為與 proxy 或 OMS 閘道通訊，而且您要將此解決方案上架，請更新 proxy.conf 權限，請執行下列命令，將檔案讀取權限授與 omiuser 群組：  
-> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`  
+> 如果您的 Linux 系統是設定為與 proxy 或 OMS 閘道通訊，而且您要將此解決方案上架，請更新 proxy.conf 權限，並執行下列命令，將檔案讀取權限授予 omiuser 群組：`sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
 
 在執行評估之後，新增的 Linux 代理程式的狀態會顯示為 [已更新]。 此程序可能需要多達 6 小時的時間。
@@ -136,6 +138,7 @@ Heartbeat
 ## <a name="data-collection"></a>資料收集
 
 ### <a name="supported-agents"></a>支援的代理程式
+
 下表描述此方案支援的連接來源。
 
 | 連接的來源 | 支援 | 說明 |
@@ -145,11 +148,13 @@ Heartbeat
 | Operations Manager 管理群組 |yes |方案會從所連線之管理群組中的代理程式收集系統更新的相關資訊。<br>Operations Manager 代理程式不需要直接連線到 Log Analytics。 資料會從管理群組轉送至 Log Analytics 工作區。 |
 
 ### <a name="collection-frequency"></a>收集頻率
+
 對於每部受控 Windows 電腦，每天會掃描兩次。 系統會每隔 15 分鐘呼叫一次 Windows API 來查詢上次更新時間，以判斷狀態是否變更，若是如此，則會起始合規性掃描。 對於每部受控 Linux 電腦，每 3 個小時會掃描一次。
 
-儀表板可能需要 30 分鐘以至 6 小時的時間，顯示來自受控電腦的已更新資料。   
+儀表板可能需要 30 分鐘以至 6 小時的時間，顯示來自受控電腦的已更新資料。
 
 ## <a name="viewing-update-assessments"></a>檢視更新評估
+
 按一下您自動化帳戶上的 [更新管理]，以檢視您的機器狀態。
 
 此檢視會提供您的機器、遺漏的更新、更新部署以及排定更新部署的相關資訊。
@@ -165,7 +170,7 @@ Heartbeat
 
 若要避免在 Ubuntu 維護期間以外套用更新，請將自動安裝升級套件重新設定為停用自動更新。 如需設定方式的資訊，請參閱 [Ubuntu Server 指南中的自動更新主題](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)。
 
-針對從 Azure Marketplace 所提供之隨選 Red Hat Enterprise Linux (RHEL) 映像建立的虛擬機器，系統會將其註冊以存取部署在 Azure 中的 [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md)。 針對任何其他 Linux 發行版本，則必須從發行版本線上檔案存放庫，依照其支援的方法來更新這些發行版本。  
+針對從 Azure Marketplace 所提供之隨選 Red Hat Enterprise Linux (RHEL) 映像建立的虛擬機器，系統會將其註冊以存取部署在 Azure 中的 [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md)。 針對任何其他 Linux 發行版本，則必須從發行版本線上檔案存放庫，依照其支援的方法來更新這些發行版本。
 
 ## <a name="viewing-missing-updates"></a>檢視遺漏的更新
 
@@ -204,8 +209,8 @@ Heartbeat
 |更新<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; project Computer, Title, KBID, Classification, PublishedDate |遺漏更新的所有電腦<br>新增下列其中一項以限制 OS：<br>OSType = "Windows"<br>OSType == "Linux" |
 | 更新<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; where Computer == "ContosoVM1.contoso.com"<br>&#124; project Computer, Title, KBID, Product, PublishedDate |特定電腦的遺漏更新 (以您自己的電腦名稱取代此值)|
 | Event<br>&#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates")<br>&#124; where UpdateState == "Needed" and Optional == false <br>&#124; distinct Computer)) |遺漏必要重大更新或安全性更新之機器的錯誤事件 |
-| 更新<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; distinct Title |所有電腦的不同遺漏更新 | 
-| UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |在更新執行時更新失敗的電腦<br>新增下列其中一項以限制 OS：<br>OSType = "Windows"<br>OSType == "Linux" | 
+| 更新<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; distinct Title |所有電腦的不同遺漏更新 |
+| UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |在更新執行時更新失敗的電腦<br>新增下列其中一項以限制 OS：<br>OSType = "Windows"<br>OSType == "Linux" |
 | 更新<br>&#124; where OSType == "Linux"<br>&#124; where UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates")<br>&#124; summarize AggregatedValue = count() by Computer |有可以解決重大漏洞或安全性漏洞之可用套件更新的所有 Linux 機器清單 | 
 | UpdateRunProgress<br>&#124; where UpdateRunName == "DeploymentName"<br>&#124; summarize AggregatedValue = count() by Computer|在此更新回合中更新的電腦 (以您的更新部署名稱取代此值) | 
 
@@ -239,15 +244,15 @@ Heartbeat
 
 本節提供的資訊有助於排解更新管理解決方案的疑難問題。
 
-如果您在嘗試將解決方案或虛擬機器上架時遇到問題，請檢查**應用程式和服務記錄\Operations Manager** 事件記錄中具有事件識別碼 4502 和事件訊息內含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** 的事件。 下表特別說明特定錯誤訊息及各自的可能解決方式。  
+如果您在嘗試將解決方案或虛擬機器上架時遇到問題，請檢查**應用程式和服務記錄\Operations Manager** 事件記錄中具有事件識別碼 4502 和事件訊息內含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** 的事件。 下表特別說明特定錯誤訊息及各自的可能解決方式。
 
-| 訊息 | 原因 | 解決方法 |   
-|----------|----------|----------|  
-| 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>System.InvalidOperationException：{"Message":"電腦已經<br>註冊至不同的帳戶。 "} | 電腦已經上架到另一個工作區進行更新管理 | [刪除混合式 Runbook 群組](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)以執行舊構件的清除|  
-| 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>System.Net.Http.HttpRequestException：傳送要求時發生錯誤。 ---><br>System.Net.WebException：基礎連線<br>已關閉：接收時發生<br>意外的錯誤。 ---> System.ComponentModel.Win32Exception：<br>用戶端和伺服器無法通訊，<br>因為它們沒有共同的演算法 | Proxy/閘道/防火牆封鎖通訊 | [檢閱網路需求](automation-offering-get-started.md#network-planning)|  
-| 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>Newtonsoft.Json.JsonReaderException：剖析正無限值時發生錯誤。 | Proxy/閘道/防火牆封鎖通訊 | [檢閱網路需求](automation-offering-get-started.md#network-planning)| 
-| 服務 <wsid>.oms.opinsights.azure.com<br>所提供的憑證不是由 Microsoft 服務所用的<br>憑證授權單位發出。 連絡人<br>您的網路管理員，以查看它們是否正在執行可攔截 TLS/SSL 通訊的<br>Proxy。 |Proxy/閘道/防火牆封鎖通訊 | [檢閱網路需求](automation-offering-get-started.md#network-planning)|  
-| 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>AgentService.HybridRegistration。<br>PowerShell.Certificates.CertificateCreationException：<br>無法建立自我簽署憑證。 ---><br>System.UnauthorizedAccessException：存取遭到拒絕。 | 自我簽署的憑證產生失敗 | 確認系統帳戶具有<br>以下資料夾的讀取權限：<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
+| 訊息 | 原因 | 解決方法 |
+|----------|----------|----------|
+| 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>System.InvalidOperationException：{"Message":"電腦已經<br>註冊至不同的帳戶。 "} | 電腦已經上架到另一個工作區進行更新管理 | [刪除混合式 Runbook 群組](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)以執行舊構件的清除|
+| 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>System.Net.Http.HttpRequestException：傳送要求時發生錯誤。 ---><br>System.Net.WebException：基礎連線<br>已關閉：接收時發生<br>意外的錯誤。 ---> System.ComponentModel.Win32Exception：<br>用戶端和伺服器無法通訊，<br>因為它們沒有共同的演算法 | Proxy/閘道/防火牆封鎖通訊 | [檢閱網路需求](automation-offering-get-started.md#network-planning)|
+| 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>Newtonsoft.Json.JsonReaderException：剖析正無限值時發生錯誤。 | Proxy/閘道/防火牆封鎖通訊 | [檢閱網路需求](automation-offering-get-started.md#network-planning)|
+| 服務 <wsid>.oms.opinsights.azure.com<br>所提供的憑證不是由 Microsoft 服務所用的<br>憑證授權單位發出。 連絡人<br>您的網路管理員，以查看它們是否正在執行可攔截 TLS/SSL 通訊的<br>Proxy。 |Proxy/閘道/防火牆封鎖通訊 | [檢閱網路需求](automation-offering-get-started.md#network-planning)|
+| 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>AgentService.HybridRegistration。<br>PowerShell.Certificates.CertificateCreationException：<br>無法建立自我簽署憑證。 ---><br>System.UnauthorizedAccessException：存取遭到拒絕。 | 自我簽署的憑證產生失敗 | 確認系統帳戶具有<br>以下資料夾的讀取權限：<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
 
 ## <a name="next-steps"></a>後續步驟
 

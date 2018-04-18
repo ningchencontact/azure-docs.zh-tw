@@ -1,11 +1,11 @@
 ---
-title: "Service Fabric 的健康狀態監視 | Microsoft Docs"
-description: "Azure Service Fabric 健康狀態監視模型的簡介，該模型提供對叢集及其應用程式和服務的監視。"
+title: Service Fabric 的健康狀態監視 | Microsoft Docs
+description: Azure Service Fabric 健康狀態監視模型的簡介，該模型提供對叢集及其應用程式和服務的監視。
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d226b8f8b3252fe82cd5077d235f301cfaa83654
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c5ce0a765451171f7cbd6d875d4302d1e406b4f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric 健康狀態監視簡介
 Azure Service Fabric 導入了健康狀態模型，提供豐富、彈性且可延伸的健康狀態評估與報告。 此模型允許幾乎即時地監視叢集狀態以及其中所執行的服務。 您可以輕鬆地取得健康狀態資訊，並在潛在問題引起連鎖反應和造成大規模中斷之前，予以更正。 在一般模型中，服務會根據其本機檢視傳送報告，且該資訊會進行彙總以提供整體叢集層級檢視。
 
 Service Fabric 元件會使用此健康狀態模型來報告其目前狀態。 您可以使用相同機制來報告應用程式的健康狀態。 只要投入時間規劃高品質的健康狀態報告來擷取您的自訂條件，就能更輕鬆地偵測並修正執行中應用程式的問題。
 
-下列 Microsoft Virtual Academy 影片也會說明 Service Fabric 健康狀態模型及其使用方式︰<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+下列 Microsoft Virtual Academy 影片也會說明 Service Fabric 健康情況模型及其使用方式︰<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 

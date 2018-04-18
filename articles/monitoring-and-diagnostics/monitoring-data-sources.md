@@ -1,12 +1,12 @@
 ---
-title: "取用來自 Azure 的監視資料 | Microsoft Docs"
-description: "了解目前 Azure 所提供的所有監視資料來源。"
+title: 取用來自 Azure 的監視資料 | Microsoft Docs
+description: 了解目前 Azure 所提供的所有監視資料來源。
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
-ms.openlocfilehash: c7075c2e1a2500eca1d0aa9b3a797e8a0e903ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b10e95cd6b335468201b4cd123b3a29fb5d1bcdb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="consume-monitoring-data-from-azure"></a>取用來自 Azure 的監視資料
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 | Azure 監視器計量警示 | 通知 | [請參閱此處的清單](monitoring-supported-metrics.md) | <ul><li>**Webhook：**[Azure 計量警示](insights-webhooks-alerts.md)</li></ul> |
 | Azure 監視器活動記錄警示 | 通知 | 所有 Azure 服務 | <ul><li>**Webhook：**Azure 活動記錄警示</li></ul> |
 | 自動調整規模通知 | 通知 | [請參閱此處的清單](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Webhook：**[自動調整規模通知 Webhook 承載結構描述](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| OMS 記錄搜尋查詢警示 | 通知 | OMS Log Analytics | <ul><li>**Webhook：**[Log Analytics 警示](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
+| 記錄搜尋查詢警示 | 通知 | Log Analytics | <ul><li>**Webhook：**[Log Analytics 警示](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
 | Application Insights 計量警示 | 通知 | Application Insights | <ul><li>**Webhook：**[Application Insights 警示](../application-insights/app-insights-alerts.md)</li></ul> |
 | Application Insights Web 測試 | 通知 | Application Insights | <ul><li>**Webhook：**[Application Insights 警示](../application-insights/app-insights-alerts.md)</li></ul> |
 

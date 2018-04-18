@@ -7,13 +7,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5d55ae225ca1b550bbf70314e2f48fc0161ad107
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2d8760476fd7b8a5a11d01a434a383ec1ba27ef1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>開始使用彈性資料庫工作
 Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料庫可靠地執行 T-SQL 指令碼，同時自動重試並提供最終完成保證。 如需有關彈性資料庫作業功能的詳細資訊，請參閱[彈性作業](sql-database-elastic-jobs-overview.md)。
@@ -460,7 +460,7 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
 您現在可以使用 Excel 的資料功能。 使用具備伺服器名稱、資料庫名稱和認證的連接字串，將您的 BI 和資料整合工具連接至彈性查詢資料庫。 請確定 SQL Server 可支援做為您的工具的資料來源。 參考彈性查詢資料庫和外部資料表，就如同您會使用您的工具連接的任何其他 SQL Server 資料庫和 SQL Server 資料表。
 
 ### <a name="cost"></a>成本
-使用彈性資料庫的查詢功能不另行收費。 不過，目前這項功能僅適用於 Premium 資料庫做為端點，但分區可以是任何服務層。
+使用彈性資料庫的查詢功能不另行收費。 不過，目前這項功能僅適用於進階和業務關鍵 (預覽) 資料庫和彈性集區作為端點，但分區可以是任何服務層。
 
 如需價格資訊，請參閱 [SQL Database 價格詳細資料](https://azure.microsoft.com/pricing/details/sql-database/)。
 

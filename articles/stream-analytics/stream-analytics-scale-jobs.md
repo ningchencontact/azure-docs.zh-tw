@@ -1,31 +1,25 @@
 ---
-title: 調整串流分析工作以增加輸送量 | Microsoft Docs
-description: 了解如何透過設定輸入資料分割、微調查詢定義，及設定工作串流處理單元來調整串流分析工作。
-keywords: 資料串流處理, 串流資料處理, 微調分析
+title: 在 Azure 串流分析作業中相應增加和相應放大
+description: 本文說明如何透過分割輸入資料、微調查詢，及設定作業串流單元來調整串流分析作業。
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 2e0487a9e4cd6346312c6817ef2768556cba72ba
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>調整 Azure 串流分析工作以增加輸送量
+# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>調整 Azure 串流分析作業以增加輸送量
 本文示範如何調整串流分析查詢，以增加串流分析作業的輸送量。 您可以使用以下指南來調整作業，進而處理更高的負載及利用更多系統資源 (如更多頻寬、更多 CPU 資源、更多記憶體)。
 依照必要條件的規定，您需要閱讀以下文章：
 -   [了解及調整串流處理單位](stream-analytics-streaming-unit-consumption.md)
 -   [建立可平行作業](stream-analytics-parallelization.md)
-
 
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>案例 1 – 查詢在輸入分割區之間原本就完全可平行
 如果您的查詢在輸入分割區之間原本就完全可平行，可以遵循以下步驟：
@@ -40,7 +34,6 @@ ms.lasthandoff: 03/30/2018
 >[!Note]
 > 請選擇正確的串流處理單位數目：串流分析會為每個新增的 6 SU 建立處理節點，因此節點數目最好是輸入分割區數目的除數，這樣分割區才能平均分配到各個節點。
 > 例如，如果您已測量出 6 SU 作業能達成 4 MB/s 的處理速率，那麼您的輸入分割區計數便是 4。 您可以選擇使用 12 SU 來執行作業以達成約 8 MB/s 的處理速率，或使用 24 SU 來達成 16 MB/s 的處理速率。 接著，您可以決定何時要將作業的 SU 數目增加為什麼值，做為輸入速率的函式。
-
 
 
 ## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>案例 2 - 如果您的查詢不是窘迫平行。
@@ -150,7 +143,7 @@ ms.lasthandoff: 03/30/2018
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)

@@ -1,24 +1,19 @@
 ---
-title: Azure 串流分析的事件順序和延遲處理 | Microsoft Docs
-description: 深入了解串流分析如何處理資料串流中順序錯亂或延遲的事件。
-keywords: 順序錯亂、延遲、事件
-documentationcenter: ''
+title: 在 Azure 串流分析中處理事件順序和延遲
+description: 本文說明串流分析如何處理資料流中順序錯亂或延遲的事件。
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 3c1924ad87715f7a44c3666991e792adc3a20af9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure 串流分析事件的順序考量
 
@@ -132,7 +127,7 @@ Azure 串流分析會使用 [TIMESTAMP BY OVER](https://msdn.microsoft.com/libra
 * 結合多個時間軸時，在其中一個來源或分割區中缺少資料的情況下，可能會因額外的延遲傳入容錯時間而延遲輸出。
 
 ## <a name="get-help"></a>取得說明
-如需其他協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需其他協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 * [串流分析介紹](stream-analytics-introduction.md)

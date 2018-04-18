@@ -1,11 +1,11 @@
 ---
-title: "管理 Azure 內容傳遞網路中 Web 內容的期限 | Microsoft Docs"
-description: "了解如何在 Azure CDN 中管理 Azure Web Apps/雲端服務、ASP.NET 或 IIS 內容的到期。"
+title: 管理 Azure 內容傳遞網路中 Web 內容的期限 | Microsoft Docs
+description: 了解如何在 Azure CDN 中管理 Azure Web Apps/雲端服務、ASP.NET 或 IIS 內容的到期。
 services: cdn
 documentationcenter: .NET
 author: dksimpson
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: db7b5053cb926d2ec86c7feea4ac411acbeb1ae2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d1a12e0d5bd5852cf8de3d5fec93f2bfdd3ab257
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>管理 Azure 內容傳遞網路中 Web 內容的期限
 > [!div class="op_single_selector"]
@@ -40,9 +40,9 @@ ms.lasthandoff: 02/21/2018
 設定 Web 伺服器 `Cache-Control` 標頭的慣用方法為在 Azure 入口網站中使用快取規則。 如需 CDN 快取規則的詳細資訊，請參閱[使用快取規則控制 Azure CDN 快取行為](cdn-caching-rules.md)。
 
 > [!NOTE] 
-> 快取規則僅適用於**來自 Verizon 的 Azure CDN 標準**和**來自 Akamai 的 Azure CDN 標準**設定檔。 針對**來自 Verizon Premium 的 Azure CDN** 設定檔，您必須使用 [管理] 入口網站中的 [Azure CDN 規則引擎](cdn-rules-engine.md)來執行類似功能。
+> 快取規則僅適用於**來自 Verizon 的 Azure CDN 標準**和**來自 Akamai 的 Azure CDN 標準**設定檔。 針對**來自 Verizon 的 Azure CDN 進階**設定檔，您必須使用 [管理] 入口網站中的 [Azure CDN 規則引擎](cdn-rules-engine.md)來執行類似功能。
 
-**若要瀏覽至 CDN 快取規則頁面**：
+**瀏覽至 CDN 快取規則頁面**：
 
 1. 在 Azure 入口網站中，選取 CDN 設定檔，然後選取 Web 伺服器的端點。
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/21/2018
 
 1. 在 [全域快取規則] 下方，將 [查詢字串快取行為] 設定為 [忽略查詢字串]，並將 [快取行為] 設定為 [覆寫]。
       
-2. 對於 [快取到期期間]，在 [秒鐘] 方塊中輸入 3600 或 [小時] 方塊中輸入 1。 
+2. 在 [快取到期期間] 的 [秒鐘] 方塊中輸入 3600 或在 [小時] 方塊中輸入 1。 
 
    ![CDN 全域快取規則範例](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 

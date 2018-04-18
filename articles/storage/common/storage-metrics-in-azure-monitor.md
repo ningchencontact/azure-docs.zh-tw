@@ -1,12 +1,12 @@
 ---
-title: "Azure 監視器中的 Azure 儲存體計量 | Microsoft Docs"
-description: "了解 Azure 監視器所提供的新計量。"
+title: Azure 監視器中的 Azure 儲存體計量 | Microsoft Docs
+description: 了解 Azure 監視器所提供的新計量。
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: cbrooks
 editor: fhryo-msft
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: d30a99044e335723e5d2c4bbd71fab7e4fd51145
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8e9f9c0cbe044b2aa459898f2d3900db10d200a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Azure 監視器中的 Azure 儲存體計量 (預覽)
 
@@ -28,7 +28,7 @@ Azure 監視器提供了統一的使用者介面供您監視不同的 Azure 服�
 
 ## <a name="access-metrics"></a>存取計量
 
-Azure 監視器提供了多種方法供您存取計量。 您可以從 [Azure 入口網站](https://portal.azure.com)、Azure 監視器 API (REST 和 .Net) 和分析解決方案 (例如 Operation Management Suite 和事件中樞) 存取這些計量。 如需詳細資訊，請參閱 [Azure 監視器計量](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
+Azure 監視器提供了多種方法供您存取計量。 您可以從 [Azure 入口網站](https://portal.azure.com)、Azure 監視器 API (REST 和 .Net) 和分析解決方案 (例如 Log Analytics 和事件中樞) 存取這些計量。 如需詳細資訊，請參閱 [Azure 監視器計量](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
 
 計量功能會依預設啟用，您可以存取最近 30 天的資料。 如果您需要延長這些資料的保留時間，您可以將計量資料封存到 Azure 儲存體帳戶。 此功能可於 Azure 監視器的[診斷設定](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)中進行設定。
 
@@ -141,7 +141,7 @@ Azure 監視器提供了 [REST API](/rest/api/monitor/) 來讀取計量定義和
 
 ## <a name="billing-for-metrics"></a>計量的計費
 
-在 Azure 監視器中使用計量目前是免費的服務。 不過，如果您使用其他解決方案來擷取計量資料，可能就要支付這些解決方案的使用費。 例如，如果您將計量資料封存到 Azure 儲存體帳戶，就要支付 Azure 儲存體的使用費。 或者，如果您將計量資料串流到 OMS 以進行進階分析，就要支付 Operation Management Suite (OMS) 的使用費。
+在 Azure 監視器中使用計量目前是免費的服務。 不過，如果您使用其他解決方案來擷取計量資料，可能就要支付這些解決方案的使用費。 例如，如果您將計量資料封存到 Azure 儲存體帳戶，就要支付 Azure 儲存體的使用費。 或如果您將計量資料串流到 Log Analytics 進行進階分析，則需支付 Log Analytics 的費用。
 
 ## <a name="understanding-resource-id-for-services-in-azure-storage"></a>了解 Azure 儲存體所含服務的資源識別碼
 
@@ -243,7 +243,7 @@ Azure 儲存體會提供下列 Azure 監視器交易計量。
 | 輸出 | 輸出資料量。 此數目包括從外部用戶端輸出到 Azure 儲存體與 Azure 內的輸出。 因此，此數目未反映可收費的輸出。 <br/><br/> 單位：位元組 <br/> 彙總類型：總計 <br/> 適用維度：GeoType、ApiName ([定義](#metrics-dimensions)) <br/> 值範例：1024 |
 | SuccessServerLatency | Azure 儲存體用來處理成功要求的平均時間。 此值不包括在 SuccessE2ELatency 中指定的網路延遲。 <br/><br/> 單位：毫秒 <br/> 彙總類型：平均 <br/> 適用維度：GeoType、ApiName ([定義](#metrics-dimensions)) <br/> 值範例：1024 |
 | SuccessE2ELatency | 向儲存體服務或所指定 API 作業發出之成功要求的平均端對端延遲。 此值包括 Azure 儲存體內讀取要求、傳送回應及接收回應認可的必要處理時間。 <br/><br/> 單位：毫秒 <br/> 彙總類型：平均 <br/> 適用維度：GeoType、ApiName ([定義](#metrics-dimensions)) <br/> 值範例：1024 |
-| Availability | 儲存體服務或所指定 API 作業的可用性百分比。 可用性的計算方式是將可計費的要求值總計除以適用要求數目，包括產生意外錯誤的要求。 所有意外錯誤都會導致儲存體或所指定 API 作業的可用性降低。 <br/><br/> 單位：百分比 <br/> 彙總類型：平均 <br/> 適用維度：GeoType、ApiName ([定義](#metrics-dimensions)) <br/> 值範例：99.99 |
+| 可用性 | 儲存體服務或所指定 API 作業的可用性百分比。 可用性的計算方式是將可計費的要求值總計除以適用要求數目，包括產生意外錯誤的要求。 所有意外錯誤都會導致儲存體或所指定 API 作業的可用性降低。 <br/><br/> 單位：百分比 <br/> 彙總類型：平均 <br/> 適用維度：GeoType、ApiName ([定義](#metrics-dimensions)) <br/> 值範例：99.99 |
 
 ## <a name="metrics-dimensions"></a>計量維度
 

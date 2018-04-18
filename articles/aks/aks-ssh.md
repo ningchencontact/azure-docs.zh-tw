@@ -1,95 +1,77 @@
 ---
-title: "透過 SSH 連線至 Azure Container Service (AKS) 叢集"
-description: "建立 Azure Container Service (AKS) 叢集節點的 SSH 連線"
+title: 透過 SSH 連線至 Azure Container Service (AKS) 叢集
+description: 建立 Azure Container Service (AKS) 叢集節點的 SSH 連線
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/28/2018
+ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 00affc3d1c02c477826261aeac6e092934037e81
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>透過 SSH 連線至 Azure Container Service (AKS) 叢集
 
 有時候，您可能需要存取 Azure Container Service (AKS) 節點以進行維護、記錄收集或其他疑難排解作業。 Azure Container Service (AKS) 節點不會公開至網際網路。 請使用本文詳述的步驟建立 AKS 節點的 SSH 連線。
 
-## <a name="configure-ssh-access"></a>設定 SSH 存取
+## <a name="get-aks-node-address"></a>取得 AKS 節點位址
 
- 若要透過 SSH 連線至特定節點，必須建立具有 `hostNetwork` 存取的 Pod。 此外也會針對 Pod 存取建立一項服務。 此設定具特殊權限，並應在使用後移除。
+使用 `az vm list-ip-addresses` 命令取得 AKS 叢集節點的 IP 位址。 使用您 AKS 資源群組的名稱取代資源群組名稱。
 
-建立名為 `aks-ssh.yaml` 的檔案，並複製到此資訊清單中。 以目標 AKS 節點的名稱更新節點名稱。
+```console
+$ az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: aks-ssh
-spec:
-  selector:
-    app: aks-ssh
-  type: LoadBalancer
-  ports:
-  - protocol: TCP
-    port: 22
-    targetPort: 22
----
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: aks-ssh
-  labels:
-    app: aks-ssh
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: aks-ssh
-  template:
-    metadata:
-      labels:
-        app: aks-ssh
-    spec:
-      containers:
-      - name: alpine
-        image: alpine:latest
-        ports:
-        - containerPort: 22
-        command: ["/bin/sh", "-c", "--"]
-        args: ["while true; do sleep 30; done;"]
-      hostNetwork: true
-      nodeName: aks-nodepool1-42032720-0
+VirtualMachine            PrivateIPAddresses
+------------------------  --------------------
+aks-nodepool1-42032720-0  10.240.0.6
+aks-nodepool1-42032720-1  10.240.0.5
+aks-nodepool1-42032720-2  10.240.0.4
 ```
 
-執行資訊清單以建立 Pod 和服務。
+## <a name="create-ssh-connection"></a>建立 SSH 連線
 
-```azurecli-interactive
-$ kubectl apply -f aks-ssh.yaml
+執行 `debian` 容器映像，並將終端機工作階段與它連結。 接著，您可以使用容器搭配 AKS 叢集中的任何節點來建立 SSH 工作階段。
+
+```console
+kubectl run -it --rm aks-ssh --image=debian
 ```
 
-取得公開服務的外部 IP 位址。 完成 IP 位址設定需要約一分鐘。 
+在容器中安裝 SSH 用戶端。
 
-```azurecli-interactive
-$ kubectl get service
-
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
-kubernetes         ClusterIP      10.0.0.1      <none>          443/TCP        1d
-aks-ssh            LoadBalancer   10.0.51.173   13.92.154.191   22:31898/TCP   17m
+```console
+apt-get update && apt-get install openssh-client -y
 ```
 
-建立 SSH 連線。 
+開啟第二個終端機，並列出所有 Pod 以取得新建立的 Pod 名稱。
 
-AKS 叢集的預設使用者名稱是 `azureuser`。 如果此帳戶在叢集建立時有所變更，請取代為適當的管理員使用者名稱。 
+```console
+$ kubectl get pods
 
-如果您的金鑰不在 `~/ssh/id_rsa` 上，請使用 `ssh -i` 引數提供正確的位置。
+NAME                       READY     STATUS    RESTARTS   AGE
+aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
+```
 
-```azurecli-interactive
-$ ssh azureuser@13.92.154.191
+將 SSH 金鑰複製到 Pod，然後將 Pod 名稱取代為適當的值。
+
+```console
+kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
+```
+
+更新 `id_rsa` 檔案，讓它成為使用者唯讀狀態。
+
+```console
+chmod 0600 id_rsa
+```
+
+現在建立對 AKS 節點的 SSH 連線。 AKS 叢集的預設使用者名稱是 `azureuser`。 如果此帳戶在叢集建立時有所變更，請取代為適當的管理員使用者名稱。
+
+```console
+$ ssh -i id_rsa azureuser@10.240.0.6
 
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
 
@@ -114,8 +96,4 @@ azureuser@aks-nodepool1-42032720-0:~$
 
 ## <a name="remove-ssh-access"></a>移除 SSH 存取
 
-完成後，請刪除 SSH 存取 Pod 和服務。
-
-```azurecli-interactive
-kubectl delete -f aks-ssh.yaml
-```
+完成時，結束 SSH 工作階段，然後結束互動式容器工作階段。 這個動作會刪除用於從 AKS 叢集進行 SSH 存取的 Pod。

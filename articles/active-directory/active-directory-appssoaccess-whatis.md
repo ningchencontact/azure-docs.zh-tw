@@ -1,11 +1,11 @@
 ---
-title: "什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？ | Microsoft Docs"
-description: "您可以使用 Azure Active Directory 來單一登入到您進行工作所需的所有 SaaS 和 Web 應用程式。"
+title: 什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？ | Microsoft Docs
+description: 您可以使用 Azure Active Directory 來單一登入到您進行工作所需的所有 SaaS 和 Web 應用程式。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 42a24654eb059894a855474c922a4dd2da185149
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？
 單一登入表示只要使用單一使用者帳戶登入，就能夠存取所有進行工作所需的應用程式和資源。 登入之後，您可以存取所有需要的應用程式，而不需要再驗證一次 (例如，輸入密碼)。
@@ -68,7 +68,7 @@ Azure AD 可以對支援 SAML 2.0、WS-同盟或 OpenID Connect 通訊協定的�
 凡是任何具有 HTML 登入頁面的雲端應用程式，Azure AD 都可以支援密碼單一登入。 AAD 會使用自訂的瀏覽器外掛程式，從目錄安全地擷取應用程式認證 (例如使用者名稱和密碼)，將使用者的登入程序自動化，並代替使用者將這些認證輸入應用程式的登入頁面。 有兩個使用案例：
 
 1. **系統管理員管理認證** – 系統管理員可以建立和管理應用程式認證，並將這些認證指派給需要存取應用程式的使用者或群組。 在這些情況下，使用者不需要知道認證，但只要在其存取面板中或透過提供的連結按一下認證，仍然可以單一登入存取應用程式。 如此一來，系統管理員可以對認證進行週期管理，對使用者也很方便，因為使用者不需要記住或管理應用程式專用的密碼。 使用者在自動登入程序期間的認證會經過模糊處理，不過使用者使用 Web 偵錯工具在技術上還是可以找到這些認證，因此使用者和系統管理員應該遵循與使用者直接提出認證時相同的安全性原則。 當提供的帳戶存取權是由許多使用者共用時，例如社交媒體或文件共用應用程式，系統管理員提供的認證會很有用。
-2. **使用者管理認證** – 系統管理員可以指派應用程式給使用者或群組，並允許使用者在存取面板中第一次存取應用程式時直接輸入自己的認證。 這樣可以方便使用者，每次存取應用程式時，不需要一再輸入應用程式專用的密碼。 這個使用案例也可以用來做為系統性管理認證的跳板，系統管理員可以在日後設定應用程式的新認證，而不需要變更使用者的應用程式存取體驗。
+2. **使用者管理認證** – 系統管理員可以指派應用程式給使用者或群組，並允許使用者在存取面板中第一次存取應用程式時直接輸入自己的認證。 這樣可以方便使用者，每次存取應用程式時，不需要一再輸入應用程式專用的密碼。 使用者可以繼續管理他們的密碼，視需要更新或刪除它們。 這個使用案例也可以用來做為系統性管理認證的跳板，系統管理員可以在日後設定應用程式的新認證，而不需要變更使用者的應用程式存取體驗。
 
 在上述兩種情況下，認證都會以加密的狀態儲存在目錄中，而且在自動登入程序期間只會透過 HTTPS 傳遞。 使用密碼單一登入，Azure AD 就能對無法支援同盟通訊協定的應用程式提供方便的身分識別存取管理解決方案。
 
@@ -151,7 +151,7 @@ Azure AD 提供幾種可自訂的方式，來對您組織中的使用者部署�
 您選擇要在組織中部署哪一種方法由您自行決定。
 
 ### <a name="azure-ad-access-panel"></a>Azure AD 存取面板
-位於 https://myapps.microsoft.com 的「存取面板」是一種 Web 型入口網站，可讓在 Azure Active Directory 中擁有組織帳戶的使用者檢視和啟動 Azure AD 系統管理員已授與他們存取權的雲端型應用程式。 如果您是 [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/) 的使用者，也可以透過 [存取面板] 使用自助式群組管理功能。
+位於 https://myapps.microsoft.com 的「存取面板」是一種 Web 入口網站，可讓 Azure Active Directory 中擁有組織帳戶的使用者檢視和啟動 Azure AD 系統管理員已授與他們存取權的雲端應用程式。 如果您是 [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/) 的使用者，也可以透過 [存取面板] 使用自助式群組管理功能。
 
 ![Azure AD 存取面板](media/active-directory-appssoaccess-whatis/azure-ad-access-panel.png)
 

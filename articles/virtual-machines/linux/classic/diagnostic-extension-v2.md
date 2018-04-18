@@ -1,10 +1,10 @@
 ---
-title: "用 VM 擴充功能監視 Linux VM | Microsoft Docs"
-description: "了解如何使用 Linux 診斷延伸模組監視 Azure 中 Linux VM 的效能和診斷資料。"
+title: 用 VM 擴充功能監視 Linux VM | Microsoft Docs
+description: 了解如何使用 Linux 診斷延伸模組監視 Azure 中 Linux VM 的效能和診斷資料。
 services: virtual-machines-linux
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: f54a11c5-5a0e-40ff-af6c-e60bd464058b
 ms.service: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>使用 Linux 診斷擴充功能監視 Linux VM 的效能和診斷資料
 
@@ -88,7 +88,7 @@ Linux 診斷延伸模組可協助使用者監視在 Microsoft Azure 上執行的
         "storageAccountKey" : "the key of the account"
     }
 
-步驟 2. 執行 **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**。
+步驟 2. 執行 *azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2。 --private-config-path PrivateConfig.json**。
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>案例 2. 自訂效能監視器計量
 

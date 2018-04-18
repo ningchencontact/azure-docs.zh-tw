@@ -1,24 +1,19 @@
 ---
-title: 串流分析時間範圍函式簡介 | Microsoft Docs
-description: 深入了解串流分析中的三個時間範圍函式 (輪轉、跳動、滑動)。
-keywords: 輪轉時間範圍、滑動時間範圍、跳動時間範圍
-documentationcenter: ''
+title: Azure 串流分析視窗化函式簡介
+description: 本文說明三個用於 Azure 串流分析作業中的視窗化函式 (輪轉、跳動、滑動)。
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 3757834ff816fffc4571aeef8c164c2230c0f7c2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: c6f5dbe49cb60e3c7b2bc6562acf2d7fd79096ec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>串流分析時間範圍函式簡介
 在許多即時資串流案例中，只必須對暫時時間範圍中內含的資料執行作業。 時間範圍函式的原生支援是 Azure 串流分析的重要功能，可對撰寫複雜串流處理作業中的開發人員產能造成重大影響。 串流分析可讓開發人員使用[**輪轉**](https://msdn.microsoft.com/library/dn835055.aspx)、[**跳動**](https://msdn.microsoft.com/library/dn835041.aspx)和[**滑動**](https://msdn.microsoft.com/library/dn835051.aspx)時間範圍對串流資料執行暫時作業。 值得注意的是，所有 [時間範圍](https://msdn.microsoft.com/library/dn835019.aspx) 作業都會在時間範圍 **結束** 時輸出結果。 時間範圍的輸出會是以使用的彙總函式為基礎的單一事件。 此事件會有時間範圍結束的時間戳記，所有時間範圍函式都是以固定長度定義。 最後務必注意，所有時間範圍函式都應使用於 [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx) 子句中。
@@ -41,7 +36,7 @@ ms.lasthandoff: 03/30/2018
 ![串流分析時間範圍函式滑動簡介](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 ## <a name="getting-help-with-window-functions"></a>取得使用時間範圍函式的說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)

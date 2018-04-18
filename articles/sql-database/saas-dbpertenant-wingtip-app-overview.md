@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/12/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 563d82076721a669069ba3e36df84a050188813c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 224639dcc7da950801c7a5959ec14fc5ac7313e0
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>搭配 SQL Database 使用每一租用戶一個資料庫模式的多租用戶 SaaS 應用程式簡介
 
@@ -43,7 +43,7 @@ Wingtip SaaS 應用程式會使用每一租用戶一個資料庫的模型。 它
 |[部署及探索 Wingtip SaaS 應用程式](saas-dbpertenant-get-started-deploy.md)|  使用您的 Azure 訂用帳戶來部署及探索 Wingtip SaaS 應用程式。 |
 |[佈建租用戶並在目錄中註冊](saas-dbpertenant-provision-and-catalog.md)| 了解應用程式如何使用目錄資料庫來連線至租用戶，以及目錄如何將租用戶對應至其資料。 |
 |[監視及管理效能](saas-dbpertenant-performance-monitoring.md)| 了解如何使用 SQL Database 的監視功能，以及設定超過效能閾值時的警示。 |
-|[使用 Azure Log Analytics (Operations Management Suite) 進行監視](saas-dbpertenant-log-analytics.md) | 了解如何使用 [Log Analytics](../log-analytics/log-analytics-overview.md) 來監視跨多個集區的大量資源。 |
+|[透過 Azure Log Analytics 監視](saas-dbpertenant-log-analytics.md) | 了解如何使用 [Log Analytics](../log-analytics/log-analytics-overview.md) 來監視跨多個集區的大量資源。 |
 |[還原單一租用戶](saas-dbpertenant-restore-single-tenant.md)| 了解如何將租用戶資料庫還原到先前的時間點。 此外，也了解如何還原到平行資料庫，這會讓現有的租用戶資料庫維持上線狀態。 |
 |[管理租用戶資料庫結構描述](saas-tenancy-schema-management.md)| 了解如何更新結構描述，以及更新跨所有租用戶資料庫的參考資料。 |
 |[執行跨租用戶分散式查詢](saas-tenancy-cross-tenant-reporting.md) | 建立臨機操作分析資料庫，並跨所有租用戶執行即時分散式查詢。  |

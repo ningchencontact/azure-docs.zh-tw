@@ -1,6 +1,6 @@
 ---
-title: "教學課程︰以 Azure Active Directory 設定 Workplace by Facebook 來自動佈建使用者 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Workplace by Facebook 之間的單一登入。"
+title: 教學課程︰以 Azure Active Directory 設定 Workplace by Facebook 來自動佈建使用者 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Workplace by Facebook 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d42a6b63833bffc3cce1830a728ec21083b25dc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>教學課程：設定 Workplace by Facebook 來自動佈建使用者
 
@@ -75,7 +75,7 @@ Azure AD 支援將指派之使用者的帳戶詳細資料自動同步處理至 W
 
     ![佈建](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. 在 [管理員認證] 區段下，輸入 Workplace by Facebook 系統管理員的 [祕密權杖]，並且將 [租用戶 URL] 設定為 `https://www.facebook.com/scim/v1/`。
+5. 在 [管理員認證] 區段下，輸入 Workplace by Facebook 系統管理員的 [存取權杖]，並且將 [租用戶 URL] 設定為 `https://www.facebook.com/scim/v1/`。 請參閱這些[指示](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps)，以建立工作場所的存取權杖。 
 
 6. 在 Azure 入口網站中，按一下 [測試連線]以確保 Azure AD 可以連線到您的 Workplace by Facebook 應用程式。 如果連線失敗，請確定您的 Workplace by Facebook 帳戶具有小組系統管理員權限。
 
@@ -91,7 +91,7 @@ Azure AD 支援將指派之使用者的帳戶詳細資料自動同步處理至 W
 
 12. 按一下 [儲存]。
 
-如需如何設定自動佈建的詳細資訊，請參閱 [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
+如需有關如何設定自動佈建的詳細資訊，請參閱 [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)。
 
 您現在可以建立測試帳戶了。 請等候 20 分鐘以驗證帳戶已同步至 Workplace by Facebook。
 

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d1ca15028590824cef95e3e9c2d957f9883a0e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0cb9b4003faa2ccdd07ccc78c2095472690f0e7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>適用於 SAP 部署的 Azure 寫入加速器
 Azure 寫入加速器是專門為 M 系列 VM 推出的功能。 除了 M 系列，Azure 寫入加速器不適用於 Azure 中的任何其他 VM 系列。 如同名稱所示，這個功能的目的是改善針對 Azure 進階儲存體之寫入的 I/O 延遲。 
@@ -28,10 +28,11 @@ Azure 寫入加速器是專門為 M 系列 VM 推出的功能。 除了 M 系列
 >[!NOTE]
 > 現階段，Azure 寫入加速器為公開預覽狀態，需要將您的 Azure 訂用帳戶識別碼列入白名單
 
-在以下地區可取得 Azure 寫入加速器公開預覽功能：
+在以下地區可取得 M 系列部署的 Azure 寫入加速器公開預覽功能：
 
 - 美國西部 2
 - 西歐
+- 東南亞
 
 ## <a name="planning-for-using-azure-write-accelerator"></a>規劃使用 Azure 寫入加速器
 Azure 寫入加速器應該用於包含 DBMS 之交易記錄或重做記錄的磁碟區。 不建議將 Azure 寫入加速器用在 DBMS 的資料磁碟區。 有此限制的原因是，Azure 寫入加速器會要求裝載 Azure 進階儲存體 VHD，但不進行進階儲存體可使用的額外讀取快取。 此類型快取的優勢可在傳統資料庫中更加明顯地觀察到。 由於寫入加速器只會影響寫入活動，但不會加快讀取速度，所以針對 SAP 所支援的設計是將寫入加速器用於 SAP 所支援資料庫的交易記錄或重做記錄磁碟機。 
@@ -54,15 +55,16 @@ Azure 寫入加速器可以支援之每個虛擬機器的 Azure 進階儲存體 
 > 若要啟用現有 Azure 磁碟的 Azure 寫入加速器，且此磁碟「不」屬於使用 Windows 磁碟或磁碟區管理員、Windows 儲存空間、Windows 相應放大檔案伺服器 (SOFS)、Linux LVM 或 MDADM 從多個磁碟建置的磁碟區，則必須關閉存取此 Azure 磁碟的工作負載。 「必須」關閉使用 Azure 磁碟的資料庫應用程式。
 
 > [!IMPORTANT]
-> 為 VM 的 Azure 作業系統磁碟啟用寫入加速器時，會重新啟動此 VM。 
+> 為 VM 的 Azure VM 作業系統磁碟啟用寫入加速器時，會重新啟動此 VM。 
 
 針對 SAP 相關的 VM 設定，應該沒有必要為作業磁碟啟用 Azure 寫入加速器。
 
 ### <a name="restrictions-when-using-azure-write-accelerator"></a>使用 Azure 寫入加速器時的限制
 針對 Azure 磁碟/VHD 使用 Azure 寫入加速器時適用以下限制：
 
-- 必須將進階磁碟快取設定為「無」。 不支援所有其他的快取模式。
+- 必須將進階磁碟快取設定為「無」或「唯讀」。 不支援所有其他的快取模式。
 - 尚不支援已啟用寫入加速器之磁碟的快照集。 這項限制會封鎖「Azure 備份服務」對虛擬機器的所有磁碟執行應用程式一致快照的能力。
+- 只有較小的 I/O 大小會採用加速路徑。 在大量載入資料或在不同 DBMS 的交易記錄緩衝區保存到儲存體之前就達到較大填滿程度的工作負載情況下，寫入磁碟的 I/O 可能不會採用加速路徑。
 
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>在特定磁碟上啟用寫入加速器
@@ -70,7 +72,7 @@ Azure 寫入加速器可以支援之每個虛擬機器的 Azure 進階儲存體 
 
 現階段，透過 Azure Rest API 和 PowerShell 是啟用寫入加速器的唯一方法。 其他可在 Azure 入口網站中支援的方法，會在接下來幾週按預定時程推出。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 以下必要條件適用於本文撰寫時的 Azure 寫入加速器使用：
 
 - 您用來部署 VM 和 VM 儲存體的訂用帳戶識別碼必須列入白名單。 請連絡您的 Microsoft CSA、GBB 或客戶經理，將您的訂用帳戶識別碼列入白名單。 
@@ -289,7 +291,7 @@ armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>
 
 ```
 
-下一個步驟是更新 JSON 檔案，並在名為 'log1' 的磁碟上啟用寫入加速器。 做法是將這個屬性新增至 JSON 檔案中磁碟的快取項目之後。 
+下一個步驟是更新 JSON 檔案，並在名為 'log1' 的磁碟上啟用寫入加速器。 將這個屬性新增至 JSON 檔案中磁碟的快取項目之後，即可完成此步驟。 
 
 ```
         {

@@ -1,21 +1,21 @@
 ---
-title: "使用 Azure CLI 2.0 的 IoT 擴充功能將模組部署到 IoT Edge 裝置 | Microsoft Docs"
-description: "使用 Azure CLI 2.0 的 IoT 擴充功能將模組部署到 IoT Edge 裝置"
+title: 使用 Azure CLI 2.0 的 IoT 擴充功能將模組部署到 IoT Edge 裝置 | Microsoft Docs
+description: 使用 Azure CLI 2.0 的 IoT 擴充功能將模組部署到 IoT Edge 裝置
 services: iot-edge
-keywords: 
+keywords: ''
 author: chrissie926
 manager: timlt
 ms.author: menchi
 ms.date: 03/02/2018
 ms.topic: article
 ms.service: iot-edge
-ms.custom: mvc
+ms.custom: ''
 ms.reviewer: kgremban
-ms.openlocfilehash: 25f1becff11138e59595c211802acbf791094e53
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1f71fdfb7090dce24ba73f1fa01e287c52b065f8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>使用 Azure CLI 2.0 的 IoT 擴充功能將模組部署到 IoT Edge 裝置
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/09/2018
 
 Azure CLI 2.0 可讓您管理 Azure IoT 中樞資源、裝置佈建服務執行個體，以及現成的連結中樞。 新的 IoT 擴充功能以裝置管理和完整 IoT Edge 功能來擴充 Azure CLI 2.0 的功能。
 
-在本教學課程中，您會先完成設定 Azure CLI 2.0 和 IoT 擴充功能的步驟。 然後了解如何使用可用的 CLI 命令，將模組部署到 IoT Edge 裝置。
+在本文中，您會設定 Azure CLI 2.0 和 IoT 擴充功能。 然後了解如何使用可用的 CLI 命令，將模組部署到 IoT Edge 裝置。
 
 ## <a name="prerequisites"></a>先決條件
 

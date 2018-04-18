@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 961b783b44b95a871c98f96d3783f3429636f295
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2fcbbc2532e5cb9963922b4987ba0c7080fdb170
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-azure-automation"></a>開始使用 Azure 自動化
 
@@ -33,11 +33,11 @@ Azure 自動化是軟體即服務 (SaaS) 應用程式，提供可擴充和可靠
 
 您可以部署多個混合式 Runbook 背景工作角色。 使用混合式 Runbook 背景工作角色為您的 Runbook 提供高可用性，以及對 Runbook 作業進行負載平衡。 在某些情況下，您可以讓 Runbook 作業專屬於特定工作負載或環境。 混合式 Runbook 背景工作角色上的 Microsoft Monitoring Agent 會透過 TCP 通訊埠 443，起始與自動化服務的通訊。 混合式 Runbook 背景工作角色沒有輸入防火牆需求。  
 
-您可能需要一個在混合式 Runbook 背景工作角色上執行的 Runbook，以針對環境中的其他機器或服務執行管理工作。 在該案例中，Runbook 可能也需要存取其他連接埠。 如果您的 IT 安全性原則不允許您網路上的電腦連線到網際網路，請檢閱 [OMS 閘道](../log-analytics/log-analytics-oms-gateway.md)。 Operations Management Suite (OMS) 閘道會作為混合式 Runbook 背景工作角色的 Proxy。 它會收集作業狀態，並且從您的自動化帳戶接收設定資訊。
+您可能需要一個在混合式 Runbook 背景工作角色上執行的 Runbook，以針對環境中的其他機器或服務執行管理工作。 在該案例中，Runbook 可能也需要存取其他連接埠。 如果您的 IT 安全性原則不允許您網路上的電腦連線到網際網路，請檢閱 [OMS 閘道](../log-analytics/log-analytics-oms-gateway.md)。 OMS 閘道會作為混合式 Runbook 背景工作角色的 Proxy。 它會收集作業狀態，並且從您的自動化帳戶接收設定資訊。
 
 在混合式 Runbook 背景工作角色上執行的 Runbook，會在電腦本機系統帳戶的內容中執行。 當您在本機 Windows 電腦上執行系統管理動作時，我們會提供資訊安全內容的建議。 如果您想要讓 Runbook 針對本機電腦以外的資源執行工作，您可能需要在自動化帳戶中定義安全認證資產。 您可以從 Runbook 存取安全認證資產，並用它們對外部資源進行驗證。 您可以使用 Runbook 中的[認證](automation-credentials.md)、[憑證](automation-certificates.md)和[連線](automation-connections.md)資產。 搭配可以用來指定認證以進行驗證的 Cmdlet 來使用資產。
 
-您可以將儲存在 Azure 自動化的 DSC 設定套用至虛擬機器。 其他實體和虛擬機器可以從 Automation DSC 提取伺服器中要求設定。 您不需要部署任何基礎結構以支援 Automation DSC 提取伺服器，來管理內部部署實體或虛擬 Windows 和 Linux 系統的設定。 只需要即將使用 Automation DSC 管理的每個系統能進行輸出網際網路存取。 通訊是透過 TCP 連接埠 443 連線到 OMS 服務。   
+您可以將儲存在 Azure 自動化的 DSC 設定套用至虛擬機器。 其他實體和虛擬機器可以從 Automation DSC 提取伺服器中要求設定。 您不需要部署任何基礎結構以支援 Automation DSC 提取伺服器，來管理內部部署實體或虛擬 Windows 和 Linux 系統的設定。 只需要即將使用 Automation DSC 管理的每個系統能進行輸出網際網路存取。 通訊是透過 TCP 連接埠 443 連線到 Log Analytics 服務。   
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -125,9 +125,9 @@ RBAC 可讓資源管理員將允許的動作授與 Azure AD 使用者帳戶和�
 對於 Azure 執行身分和傳統執行身分帳戶，[更新自動化執行身分帳戶](automation-create-runas-account.md)說明如何從入口網站透過執行身分帳戶更新現有的自動化帳戶。 它也說明如果原先並未以執行身分或傳統執行身分帳戶設定自動化帳戶，則該如何使用 PowerShell。 您可以使用企業憑證授權單位 (CA) 所核發的憑證，來建立執行身分帳戶和傳統執行身分帳戶。 檢閱[更新自動化執行身分帳戶](automation-create-runas-account.md)以了解如何使用此設定來建立帳戶。     
  
 ## <a name="network-planning"></a>規劃您的網路
-若要讓混合式 Runbook 背景工作角色連線至 OMS 並向其註冊，它必須能夠存取本節所述的連接埠號碼和 URL。 此外，這是 [Microsoft Monitoring Agent 連線至 OMS 所需的連接埠和 URL](../log-analytics/log-analytics-windows-agent.md)。 
+若要讓混合式 Runbook 背景工作角色連線至 Log Analytics 並向其註冊，它必須能夠存取本節所述的連接埠號碼和 URL。 此外，這是 [Microsoft Monitoring Agent 連線至 Log Analytics 所需的連接埠和 URL](../log-analytics/log-analytics-windows-agent.md)。 
 
-如果您使用 Proxy 伺服器在代理程式和 OMS 服務之間進行通訊，請確保可以存取適當的資源。 如果您使用防火牆來限制網際網路存取，您必須設定防火牆以允許存取。
+如果您使用 Proxy 伺服器在代理程式和 Log Analytics 服務之間進行通訊，請確保可以存取適當的資源。 如果您使用防火牆來限制網際網路存取，您必須設定防火牆以允許存取。
 
 若要讓混合式 Runbook 背景工作角色與自動化進行通訊，需要下列連接埠和 URL：
 
@@ -167,36 +167,36 @@ RBAC 可讓資源管理員將允許的動作授與 Azure AD 使用者帳戶和�
 
 |方法 | 說明 |
 |-------|-------------|
-| 在 Azure Marketplace 中選取 [自動化與控制] | Azure Marketplace 供應項目會建立自動化帳戶和 OMS 工作區，這些項目會連結並且在相同的資源群組與區域中。 與 OMS 的整合也包括使用 Log Analytics 來監視和分析一段時間 Runbook 工作狀態和作業資料流的好處。 您也可以使用 Log Analytics 中的進階功能來提升效能或調查問題。 供應項目會部署「變更追蹤」和「更新管理」解決方案，這些項目預設會啟用。 |
-| 在 Marketplace 中選取 [自動化] | 這個方法會在未連結到 OMS 工作區的新建或現有資源群組中，建立自動化帳戶。 它不包含來自 [自動化與控制] 供應項目的任何可用解決方案。 這個方法屬於基本設定，有助於您了解自動化。 它可以協助您了解如何撰寫 Runbook 和 DSC 設定，並了解如何使用服務的功能。 |
-| 選取「管理」解決方案 | 如果您選取「管理」解決方案，包括[「更新管理」](../operations-management-suite/oms-solution-update-management.md)、[「停機期間啟動/停止 VM」](automation-solution-vm-management.md)或[「變更追蹤」](../log-analytics/log-analytics-change-tracking.md)，解決方案會提示您選取現有的自動化帳戶與 OMS 工作區。 此解決方案會提供建立自動化帳戶與 OMS 工作區所需的選項，以便您在訂用帳戶中部署該解決方案。 |
+| 在 Azure Marketplace 中選取 [自動化與控制] | Azure Marketplace 供應項目會建立自動化帳戶和 Log Analytics 工作區，這些項目會連結並且在相同的資源群組與區域中。 與 Log Analytics 整合的好處也包括使用它來監視和分析一段時間 Runbook 工作狀態和作業資料流。 您也可以使用 Log Analytics 中的進階功能來提升效能或調查問題。 供應項目會部署「變更追蹤」和「更新管理」解決方案，這些項目預設會啟用。 |
+| 在 Marketplace 中選取 [自動化] | 這個方法會在未連結到 Log Analytics 工作區的新建或現有資源群組中，建立自動化帳戶。 它不包含來自 [自動化與控制] 供應項目的任何可用解決方案。 這個方法屬於基本設定，有助於您了解自動化。 它可以協助您了解如何撰寫 Runbook 和 DSC 設定，並了解如何使用服務的功能。 |
+| 選取「管理」解決方案 | 如果您選取「管理」解決方案，包括[「更新管理」](../operations-management-suite/oms-solution-update-management.md)、[「停機期間啟動/停止 VM」](automation-solution-vm-management.md)或[「變更追蹤」](../log-analytics/log-analytics-change-tracking.md)，解決方案會提示您選取現有的自動化帳戶與 Log Analytics 工作區。 此解決方案會提供建立自動化帳戶與 Log Analytics 工作區所需的選項，以便您在訂用帳戶中部署該解決方案。 |
 
-### <a name="create-an-automation-account-thats-integrated-with-oms"></a>建立與 OMS 整合的自動化帳戶
-若要讓自動化上架，建議您在 Marketplace 中選取 [自動化與控制] 供應項目。 使用此方法建立自動化帳戶，並且建立與 OMS 工作區的整合。 當您使用這個方法時，您也會有安裝適用於供應項目的管理解決方案選項。  
+### <a name="create-an-automation-account-thats-integrated-with-log-analytics"></a>建立與 Log Analytics 整合的自動化帳戶
+若要讓自動化上架，建議您在 Marketplace 中選取 [自動化與控制] 供應項目。 使用此方法建立自動化帳戶，並且建立與 Log Analytics 工作區的整合。 當您使用這個方法時，您也會有安裝適用於供應項目的管理解決方案選項。  
 
-[建立獨立的自動化帳戶](automation-create-standalone-account.md)會藉由將 [自動化與控制] 供應項目上架，逐步引導您建立自動化帳戶和 OMS 工作區的程序。 您可以了解如何針對測試或預覽服務，建立獨立的自動化帳戶。  
+[建立獨立的自動化帳戶](automation-create-standalone-account.md)會藉由將 [自動化與控制] 供應項目上架，逐步引導您建立自動化帳戶和 Log Analytics 工作區的程序。 您可以了解如何針對測試或預覽服務，建立獨立的自動化帳戶。  
 
-若要藉由使用 [自動化與控制] Marketplace 供應項目來建立自動化帳戶與 OMS 工作區：
+若要藉由使用 [自動化與控制] Marketplace 供應項目來建立自動化帳戶與 Log Analytics 工作區：
 
 1. 以訂用帳戶管理員角色成員和訂用帳戶共同管理員的帳戶登入 Azure 入口網站。
 2. 選取 [ **新增**]。<br><br> ![在 Azure 入口網站中選取 [新增]](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. 搜尋 [自動化]。 在搜尋結果中，選取 [自動化與控制]。<br><br> ![在 Azure Marketplace 中搜尋並選取 [自動化與控制]](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png)。<br>   
 4. 檢閱供應項目的描述，然後選取 [建立]。  
-5. 在 [自動化與控制] 底下，選取 [OMS 工作區]。 在 [OMS 工作區] 底下，選取連結到自動化帳戶所在之 Azure 訂用帳戶的 OMS 工作區。 如果您沒有 OMS 工作區，選取 [建立新工作區]。 在 [OMS 工作區] 底下： 
+5. 在 [自動化與控制] 底下，選取 [OMS 工作區]。 在 [OMS 工作區] 底下，選取連結到自動化帳戶所在 Azure 訂用帳戶的 Log Analytics 工作區。 如果您沒有 Log Analytics 工作區，請選取 [建立新工作區]。 在 [OMS 工作區] 底下： 
   1. 對於 [OMS 工作區]，輸入新工作區的名稱。
   2. 對於 [訂用帳戶]，選取要連結的訂用帳戶。 如果預設選取項目不是您想要使用的訂用帳戶，請從下拉式清單中選取訂用帳戶。
   3. 對於 [資源群組]，您可以建立資源群組，或選取現有的資源群組。  
   4. 對於 [位置]，選取區域。 如需詳細資訊，請參閱 [Azure 自動化的可用區域](https://azure.microsoft.com/regions/services/)。 解決方案是以兩種定價層提供︰免費和每個節點 (OMS) 層。 免費層會限制每日可收集的資料量、保留期和 Runbook 作業執行階段分鐘數。 每個節點 (OMS) 層不會限制每日可收集的資料量。  
-  5. 選取 [自動化帳戶]。  如果您建立新的 OMS 工作區，您也必須建立與新 OMS 工作區相關聯的自動化帳戶。 包含您的 Azure 訂用帳戶、資源群組與區域。 
+  5. 選取 [自動化帳戶]。  如果您建立新的 Log Analytics 工作區，您也必須建立與新 Log Analytics 工作區相關聯的自動化帳戶。 包含您的 Azure 訂用帳戶、資源群組與區域。 
     1. 選取 [建立自動化帳戶]。
     2. 在 [自動化帳戶] 底下的 [名稱] 欄位中，輸入自動化帳戶的名稱。
-    系統會根據所選的 OMS 工作區自動填入所有其他選項。 您無法修改這些選項。 
+    系統會根據所選的 Log Analytics 工作區自動填入所有其他選項。 您無法修改這些選項。 
     3. Azure 執行身分帳戶是供應項目的預設驗證方法。 在您選取 [確定] 之後，就會驗證設定選項並建立自動化帳戶。 若要追蹤其進度，請在功能表上選取 [通知]。 
-    4. 不然，選取現有的自動化執行身分帳戶。 您選取的帳戶不能已連結至另一個 OMS 工作區。 如果是此情況，便會出現通知訊息。 如果該帳戶已經連結至 OMS 工作區，則選取不同的自動化執行身分帳戶或建立一個帳戶。
+    4. 不然，選取現有的自動化執行身分帳戶。 您選取的帳戶不能已連結至另一個 Log Analytics 工作區。 如果是此情況，便會出現通知訊息。 如果該帳戶已經連結至 Log Analytics 工作區，則選取不同的自動化執行身分帳戶或建立一個帳戶。
     5. 您輸入或選取所需的資訊之後，選取 [建立]。 系統會驗證此資訊，並建立自動化帳戶和執行身分帳戶。 您會自動回到 [OMS 工作區] 窗格。  
 6. 您在 [OMS 工作區] 窗格輸入或選取所需的資訊之後，選取 [建立]。  系統會驗證資訊，並建立工作區。 若要追蹤其進度，請在功能表上選取 [通知]。 您會回到 [新增解決方案] 窗格。  
 7. 在 [自動化與控制] 設定底下，確認您要安裝建議的預先選取解決方案。 如果您變更任何預設選項，您可以在稍後個別安裝解決方案。  
-8. 若要繼續將自動化和 OMS 工作區上架，選取 [建立]。 系統會驗證所有設定，然後 Azure 會嘗試在您的訂用帳戶中部署此供應項目。 此流程可能需要數秒鐘的時間。 若要追蹤其進度，請在功能表上選取 [通知]。 
+8. 若要繼續將自動化和 Log Analytics 工作區上架，選取 [建立]。 系統會驗證所有設定，然後 Azure 會嘗試在您的訂用帳戶中部署此供應項目。 此流程可能需要數秒鐘的時間。 若要追蹤其進度，請在功能表上選取 [通知]。 
 
 供應項目上架之後，您就可以執行下列工作：
 * 開始建立 Runbook。

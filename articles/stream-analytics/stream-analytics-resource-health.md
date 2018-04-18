@@ -1,34 +1,29 @@
 ---
-title: 在 Azure 串流分析中使用資源健康狀態刀鋒視窗 |Microsoft 文件
-description: 針對串流分析作業進行移難排解時，如何精準找出問題。
-keywords: 疑難排解流程圖、資源刀鋒視窗
-documentationcenter: ''
+title: 在 Azure 串流分析中使用資源健康情況頁面
+description: 本文說明如何使用 Azure 入口網站中的資源健康情況，針對 Azure 串流分析作業中的問題進行疑難排解。
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 05/01/2017
 ms.author: jeanb
-ms.openlocfilehash: 598f858c22494bc511ef0e2f04f3c3a6baad1ae8
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 05/01/2017
+ms.openlocfilehash: 27d9bd7ffd7088cbd67879e83176b66cdbbf471d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="stream-analytics-resource-health-blade"></a>串流分析資源健康狀態刀鋒視窗
+# <a name="stream-analytics-resource-health-page-in-the-azure-portal"></a>Azure 入口網站中的串流分析資源健康情況頁面
 
-Azure 入口網站中的 [資源健康狀態] 刀鋒視窗會顯示 Azure 串流分析作業的健康狀態。 也會顯示可採取的動作指引，協助您對問題進行移難排解。 
+Azure 入口網站中的 [資源健康情況] 頁面會顯示 Azure 串流分析作業的健康情況。 也會顯示可採取的動作指引，協助您對問題進行移難排解。 
 
-[資源健康狀態] 刀鋒視窗的目的是要協助您更快地判斷根本問題是否存在於應用程式中，或是由 Azure 中的事件所造成。 並可協助您了解何時該建立支援案例以取得協助。
+[資源健康情況] 頁面旨在協助您更快地判斷根本問題是否存在應用程式中，或是由 Azure 中的事件所造成。 並可協助您了解何時該建立支援案例以取得協助。
 
 ## <a name="troubleshooting-workflow"></a>疑難排解工作流程
 
-若要查看串流分析作業的資源健康狀態，請選取 [資源健康狀態] 刀鋒視窗。 
+若要查看串流分析作業的資源健康情況，請選取 [資源健康情況] 頁面。 
 
 ![串流分析的疑難排解流程 - 存取](media/stream-analytics-resource-health/stream-analytics-access-troubleshooting.png)
 
@@ -37,7 +32,7 @@ Azure 入口網站中的 [資源健康狀態] 刀鋒視窗會顯示 Azure 串流
 ![串流分析的疑難排解流程 - 地圖](media/stream-analytics-resource-health/stream-analytics-troubleshooting-map.png)
 
 ## <a name="get-help"></a>取得說明
-如需其他協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需其他協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 * [串流分析介紹](stream-analytics-introduction.md)

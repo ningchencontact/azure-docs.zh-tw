@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2018
 ms.author: johnkem
-ms.openlocfilehash: e09fe4fd48d1806e2194ed3065e7c2edbe2d1aa5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 05e9430dd8b7a14bc94869071cd145696f34567f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>開始使用 Azure 監視器
 Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您可以使用 Azure 監視器來視覺化、查詢、路由、封存，以及針對來自 Azure 資源的度量和記錄檔採取其他行動。 您可以使用 Azure 入口網站、[Monitor PowerShell Cmdlet](insights-powershell-samples.md)、[跨平台 CLI](insights-cli-samples.md) 或 [Azure 監視器 REST API](https://msdn.microsoft.com/library/dn931943.aspx) 來使用此資料。 在本文中，我們會逐步解說幾個 Azure 監視器的重要元件，並使用入口網站進行示範。
@@ -37,9 +37,9 @@ Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您
     [**活動記錄檔**](monitoring-overview-activity-logs.md)描述訂用帳戶中資源所執行的所有作業。 您可以使用 [活動記錄檔] 來判斷訂用帳戶中的資源上任何建立、更新或刪除作業的「內容、對象和時間」。 例如，活動記錄檔會告訴您 Web 應用程式停止的時間，及將 Web 應用程式停止的人員。 活動記錄檔事件會儲存在平台中並供查詢 90 天。
 
     ![活動記錄檔](./media/monitoring-get-started/monitor-act-log-blade.png)
-    
+
     您可以建立並儲存一般篩選的查詢，然後將最重要的查詢釘選至入口網站儀表板，這樣只要發生符合您準則的事件時就會通知您。
-4. 篩選上週特定資源群組的檢視，然後按一下 [儲存]  按鈕。 提供查詢名稱。 
+4. 篩選上週特定資源群組的檢視，然後按一下 [儲存]  按鈕。 提供查詢名稱。
 
     ![儲存活動記錄檔查詢](./media/monitoring-get-started/monitor-act-log-save.png)
 5. 現在，按一下 [釘選]  按鈕。
@@ -63,6 +63,7 @@ Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您
    > 部分度量僅可藉由啟用資源上的 [Application Insights](../application-insights/app-insights-overview.md) 及/或 Windows 或 Linux Azure 診斷擴充功能加以使用。
    >
    >
+
 9. 當您對圖表感到滿意時，可以使用 [釘選]  按鈕將它釘選到儀表板。
 10. 返回 [監視器]，然後按一下 [診斷記錄檔]。
 
@@ -71,6 +72,13 @@ Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您
     [**診斷記錄檔**](monitoring-overview-of-diagnostic-logs.md)是*由*特定資源發出的記錄檔，提供有關該資源的作業資料。 例如，網路安全性群組規則計數器和邏輯應用程式工作流程記錄檔皆為診斷記錄檔的類型。 這些記錄檔可以儲存於儲存體帳戶、串流至事件中樞，及/或傳送至 [Log Analytics](../log-analytics/log-analytics-overview.md)。 Log Analytics 是 Microsoft 的營運情報產品，用以進行進階搜尋和警示。
 
     在入口網站中，您可以檢視及篩選訂用帳戶中所有資源的清單，來識別它們是否已啟用診斷記錄檔。
+    > [!NOTE]
+    > 目前不支援透過診斷設定傳送多維度計量。 跨維度值所彙總的維度計量會匯出為扁平化單一維度計量。
+    >
+    > 「例如」：可以在每個佇列層級瀏覽並繪製事件中樞上的「內送郵件」計量。 不過，當您透過診斷設定匯出時，計量將會呈現為事件中樞內所有佇列的所有內送郵件。
+    >
+    >
+
 11. 按一下診斷記錄檔頁面中的資源。 如果診斷記錄檔儲存於儲存體帳戶，您會看到每小時記錄檔的清單，可供您直接下載。
 
     ![一項資源的診斷記錄檔](./media/monitoring-get-started/monitor-diaglogs-detail.png)
@@ -84,8 +92,8 @@ Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您
 
     ![公用警示刀鋒視窗](./media/monitoring-get-started/monitor-alerts-nopp.png)
 
-    您可以在這裡管理 Azure 資源上的所有[**傳統警示**](monitoring-overview-alerts.md)。 這包括計量、活動記錄事件、Application Insights Web 測試 (位置) 和 Application Insights 主動診斷的警示。 警示會與動作群組連線。 [動作群組](monitoring-action-groups.md)會提供方法來通知相關人員，或者會在引發警示時執行特定動作。 
-    
+    您可以在這裡管理 Azure 資源上的所有[**傳統警示**](monitoring-overview-alerts.md)。 這包括計量、活動記錄事件、Application Insights Web 測試 (位置) 和 Application Insights 主動診斷的警示。 警示會與動作群組連線。 [動作群組](monitoring-action-groups.md)會提供方法來通知相關人員，或者會在引發警示時執行特定動作。
+
 13. 按一下 [新增度量警示]  建立警示。
 
     ![新增度量警示](./media/monitoring-get-started/monitor-alerts-add.png)
@@ -93,7 +101,7 @@ Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您
     然後您可以將警示釘選到儀表板，輕鬆地隨時查看其狀態。
 
     Azure 監視器現在也有[**較新的警示**](https://aka.ms/azuremonitor/near-real-time-alerts)，能以小至 1 分鐘的頻率進行評估。
-    
+
 14. [監視] 區段也包含 [Application Insights](../application-insights/app-insights-overview.md) 應用程式和 [Log Analytics](../log-analytics/log-analytics-overview.md) 管理解決方案的連結。 這些其他的 Microsoft 產品與 Azure 監視器深入整合。
 15. 如果您不使用 Application Insights 或 Log Analytics，有可能是 Azure 監視器已與您目前的監視、記錄和警示產品建立合作關係。 請參閱我們的 [合作夥伴頁面](monitoring-partners.md) ，取得如何進行整合的完整清單和指示。
 
@@ -102,6 +110,4 @@ Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您
 ![Azure 監視器儀表板](./media/monitoring-get-started/monitor-final-dash.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 讀取[所有 Azure 監視工具概觀](monitoring-overview.md)，了解 Azure 監視器與它們搭配運作的方式。 
-
-
+* 讀取[所有 Azure 監視工具概觀](monitoring-overview.md)，了解 Azure 監視器與它們搭配運作的方式。

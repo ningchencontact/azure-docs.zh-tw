@@ -1,27 +1,22 @@
 ---
-title: 使用 Azure 串流分析與 AzureML 函式調整作業 | Microsoft Docs
-description: 了解如何在使用 Azure Machine Learning 函式時適當地調整串流分析作業 (資料分割、SU 數量等)。
-keywords: ''
-documentationcenter: ''
+title: 調整 Azure 串流分析中的 Machine Learning 函式
+description: 本文說明如何藉由設定資料分割和串流單位來調整使用 Machine Learning 函式的串流分析作業。
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: dd6effab3ba0b411131414bd757ffe8cc54e49d2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 015312ab95d6dd5615a5f5bc62d270d46b795ffa
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>使用 Azure Machine Learning 函式調整串流分析作業
-設定串流分析作業並透過它執行一些範例資料通常很容易。 當我們需要以較高的資料量來執行相同的作業時，我們該怎麼辦？ 我們必須了解如何設定串流分析作業，以便進行調整。 本文件的重點在於使用 Machine Learning 函數調整串流分析作業的特殊層面。 如需有關如何調整串流分析作業的一般資訊，請參閱 [調整作業](stream-analytics-scale-jobs.md)文章。
+設定串流分析作業並透過它執行一些範例資料很簡單。 當我們需要以較高的資料量來執行相同的作業時，我們該怎麼辦？ 我們必須了解如何設定串流分析作業，以便進行調整。 本文件的重點在於使用 Machine Learning 函數調整串流分析作業的特殊層面。 如需有關如何調整串流分析作業的一般資訊，請參閱 [調整作業](stream-analytics-scale-jobs.md)文章。
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>什麼是串流分析中的 Azure Machine Learning 函式？
 串流分析中的 Machine Learning 函式可如同一般函式呼叫使用於串流分析查詢語言中。 不過，在幕後，函式呼叫實際上是 Azure Machine Learning Web 服務要求。 Machine Learning Web 服務在相同的 Web 服務 API 呼叫中支援「批次處理」多個資料列 (稱之為迷你批次)，以改善整體輸送量。 如需詳細資訊，請參閱下列文章：[串流分析中的 Azure Machine Learning 函數](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/)和 [Azure Machine Learning Web 服務](../machine-learning/studio/consume-web-services.md)。
@@ -111,7 +106,7 @@ ms.lasthandoff: 03/30/2018
 2. 執行中串流分析作業容許的延遲 (和 Machine Learning Web 服務要求的批次大小)
 3. 佈建的串流分析 SU 和 Machine Learning Web 服務要求數目 (額外的函式相關成本)
 
-以完全分割的串流分析查詢為例。 如果需要更複雜的查詢， [Azure Stream Analytics forum (Azure 串流分析論壇)](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) 是可向串流分析小組取得其他協助的絕佳資源。
+以完全分割的串流分析查詢為例。 如果需要更複雜的查詢， [Azure Stream Analytics forum (Azure 串流分析論壇)](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) 是可向串流分析小組取得其他協助的絕佳資源。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解串流分析，請參閱：

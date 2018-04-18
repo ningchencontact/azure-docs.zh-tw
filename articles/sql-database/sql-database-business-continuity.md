@@ -7,17 +7,16 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 08/25/2017
+ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 160e65130efc78bc1a98a0feceb1c824cf226156
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: carlrab
+ms.openlocfilehash: 1f125596a6cc874f285611290d5c42700009afbe
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>使用 Azure SQL Database 的商務持續性概觀
 
@@ -27,20 +26,20 @@ ms.lasthandoff: 03/16/2018
 
 SQL Database 提供幾種商務持續性功能，包括自動備份和選用的資料庫複寫。 每個功能對於預估的復原時間 (ERT) 都有不同的特性，最近的交易都有可能遺失資料。 一旦您了解這些選項，就可以在其中選擇，而在大部分情況下，可以針對不同情況一起搭配使用。 當您開發商務持續性方案時，您必須了解應用程式在干擾性事件之後完全復原的最大可接受時間 - 這是您的復原時間目標 (RTO)。 您也必須了解在干擾性事件之後復原時，應用程式可忍受遺失的最近資料更新 (時間間隔) 最大數量，這就是您的復原點目標 (RPO)。
 
-下表針對三種最常見的案例提供 ERT 與 RPO 的比較。
+下表針對三種最常見的案例，為每個服務層提供 ERT 與 RPO 的比較。
 
-| 功能 | 基本層 | 標準層 | 高階層 |
-| --- | --- | --- | --- |
-| 從備份進行時間點還原 |7 天內的任何還原點 |35 天內的任何還原點 |35 天內的任何還原點 |
-| 從異地複寫備份進行異地還原 |ERT < 12 小時，RPO < 1 小時 |ERT < 12 小時，RPO < 1 小時 |ERT < 12 小時，RPO < 1 小時 |
-| 從 Azure 備份保存庫還原 |ERT < 12 小時，RPO < 1 週 |ERT < 12 小時，RPO < 1 週 |ERT < 12 小時，RPO < 1 週 |
-| 主動式異地複寫 |ERT < 30 秒，RPO < 5 秒 |ERT < 30 秒，RPO < 5 秒 |ERT < 30 秒，RPO < 5 秒 |
+| 功能 | 基本 | 標準 | 進階  | 一般用途 | 業務關鍵
+| --- | --- | --- | --- |--- |--- |
+| 從備份進行時間點還原 |7 天內的任何還原點 |35 天內的任何還原點 |35 天內的任何還原點 |設定期間內的任何還原點 (最多 35 天)|設定期間內的任何還原點 (最多 35 天)|
+| 從異地複寫備份進行異地還原 |ERT < 12 小時，RPO < 1 小時 |ERT < 12 小時，RPO < 1 小時 |ERT < 12 小時，RPO < 1 小時 |ERT < 12 小時，RPO < 1 小時|ERT < 12 小時，RPO < 1 小時|
+| 從 Azure 備份保存庫還原 |ERT < 12 小時，RPO < 1 週 |ERT < 12 小時，RPO < 1 週 |ERT < 12 小時，RPO < 1 週 |ERT < 12 小時，RPO < 1 週|ERT < 12 小時，RPO < 1 週|
+| 主動式異地複寫 |ERT < 30 秒，RPO < 5 秒 |ERT < 30 秒，RPO < 5 秒 |ERT < 30 秒，RPO < 5 秒 |ERT < 30 秒，RPO < 5 秒|ERT < 30 秒，RPO < 5 秒|
 
-### <a name="use-database-backups-to-recover-a-database"></a>使用資料庫備份來復原資料庫
+### <a name="use-point-in-time-restore-to-recover-a-database"></a>使用時間點還原來復原資料庫
 
-SQL Database 會每週自動執行完整資料庫備份、每小時自動執行差異資料庫備份，以及每 5 到 10 分鐘自動執行交易記錄備份，透過這樣的備份組合來防止您的企業遺失資料。 針對「標準」和「進階」服務層中的資料庫，這些備份會在異地備援儲存體中儲存達 35 天，如果是「基本」服務層中的資料庫，則儲存天數為 7 天。 如需詳細資訊，請參閱[服務層](sql-database-service-tiers.md)。 如果服務層的保留期間不符合您的企業需求，您可以 [變更服務層](sql-database-service-tiers.md)來增長保留期間。 完整和差異資料庫備份也會複寫到[配對的資料中心](../best-practices-availability-paired-regions.md)，以防止發生資料中心中斷的情況。 如需詳細資訊，請參閱[自動資料庫備份](sql-database-automated-backups.md)。
+SQL Database 會每週自動執行完整資料庫備份、每小時自動執行差異資料庫備份，以及每 5 到 10 分鐘自動執行交易記錄備份，透過這樣的備份組合來防止您的企業遺失資料。 針對「標準」和「進階」服務層中的資料庫，這些備份會在 RA-GRS 儲存體中儲存達 35 天，如果是「基本」服務層中的資料庫，則儲存天數為 7 天。 在一般用途和業務關鍵服務層 (預覽) 中，備份保留期可以設定為最多 35 天。 如需詳細資訊，請參閱[服務層](sql-database-service-tiers.md)。 如果服務層的保留期間不符合您的企業需求，您可以 [變更服務層](sql-database-service-tiers.md)來增長保留期間。 完整和差異資料庫備份也會複寫到[配對的資料中心](../best-practices-availability-paired-regions.md)，以防止發生資料中心中斷的情況。 如需詳細資訊，請參閱[自動資料庫備份](sql-database-automated-backups.md)。
 
-如果應用程式內建的保留期間不夠用，您可以藉由為資料庫設定長期保留原則來延長此期間。 如需詳細資訊，請參閱[長期保留](sql-database-long-term-retention.md)。
+如果應用程式的最大支援 PITR 保留期限不夠，可以藉由針對資料庫設定長期保留 (LTR) 原則來延長。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
 
 您可以使用這些自動資料庫備份，將資料庫從各種干擾性事件復原，不論是在您的資料中心內復原，還是復原到另一個資料中心，都可以。 使用自動資料庫備份時，預估的復原時間取決於數個因素，包括在相同區域中同時進行復原的資料庫總數、資料庫大小、交易記錄大小，以及網路頻寬。 復原時間通常不到 12 小時。 復原到另一個資料區域時，每小時差異資料庫備份的異地備援儲存體就限制為可能遺失 1 小時的資料。
 
@@ -55,7 +54,7 @@ SQL Database 會每週自動執行完整資料庫備份、每小時自動執行�
 * 資料變更率低 (每小時的交易次數低)，並且最多可接受遺失一小時的資料變更。
 * 成本有限。
 
-如果您需要更快速的復原，請使用[主動式異地複寫](sql-database-geo-replication-overview.md) (會接著討論)。 如果您必須能夠復原 35 天之前的資料，請使用[長期備份保留](sql-database-long-term-retention.md)。 
+如果您需要更快速的復原，請使用[主動式異地複寫](sql-database-geo-replication-overview.md) (會接著討論)。 如果您必須能夠復原 35 天之前的資料，請使用[長期保留](sql-database-long-term-retention.md)。 
 
 ### <a name="use-active-geo-replication-and-auto-failover-groups-in-preview-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>使用作用中異地複寫和自動容錯移轉群組 (預覽版)，以減少復原時間並限制與復原關聯的資料損失
 
@@ -77,12 +76,12 @@ SQL Database 會每週自動執行完整資料庫備份、每小時自動執行�
 * 具有很高的資料變更率，而且不接受遺失一個小時的資料。
 * 與潛在的財務責任和相關企業損失相較下，使用主動式異地複寫的額外成本較低。
 
->
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>在使用者或應用程式錯誤之後復原資料庫
-* 沒有人是完美的！ 使用者可能會不小心刪除某些資料、不小心卸除重要的資料表，或甚至是卸除整個資料庫。 或者，應用程式可能會因為應用程式缺陷，而意外以不正確的資料覆寫正確的資料。
+
+沒有一項是完美的！ 使用者可能會不小心刪除某些資料、不小心卸除重要的資料表，或甚至是卸除整個資料庫。 或者，應用程式可能會因為應用程式缺陷，而意外以不正確的資料覆寫正確的資料。
 
 在此案例中，以下是您的復原選項。
 
@@ -101,8 +100,9 @@ SQL Database 會每週自動執行完整資料庫備份、每小時自動執行�
 >
 >
 
-### <a name="restore-from-azure-backup-vault"></a>從 Azure 備份保存庫還原
-如果在自動備份的目前保留期間外發生資料遺失，且您的資料庫設定為長期保留，則您可以從 Azure 備份保存庫的每週備份還原至新的資料庫。 目前，您可以將原始資料庫取代為還原的資料庫，或從還原的資料庫將所需的資料複製到原始資料庫。 如果您需要在主要應用程式升級之前擷取舊版資料庫，請滿足稽核員或合法順序的要求，您可以使用 Azure 備份保存庫中儲存的完整備份來建立資料庫。  如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
+### <a name="restore-backups-from-long-term-retention"></a>從長期保留還原備份
+
+如果在自動備份的目前保留期間外發生資料遺失，且您的資料庫設定為長期保留，則可以從 LTR 儲存體的完整備份還原至新的資料庫。 目前，您可以將原始資料庫取代為還原的資料庫，或從還原的資料庫將所需的資料複製到原始資料庫。 如果您需要在主要應用程式升級之前擷取舊版資料庫，請滿足稽核員或合法順序的要求，您可以使用 Azure 備份保存庫中儲存的完整備份來建立資料庫。  如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>將資料庫從 Azure 區域資料中心中斷復原到另一個區域
 <!-- Explain this scenario -->

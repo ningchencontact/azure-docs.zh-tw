@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure AD 存取權檢閱來管理來賓存取權 | Microsoft Docs"
-description: "使用 Azure Active Directory 存取權檢閱，以作為群組成員或指派給應用程式的方式管理來賓使用者"
+title: 使用 Azure AD 存取權檢閱來管理來賓存取權 | Microsoft Docs
+description: 使用 Azure Active Directory 存取權檢閱，以作為群組成員或指派給應用程式的方式管理來賓使用者
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 8d5cc8035d085ac9c8fc46077376836726afbb1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 564f4f4a3f7532a7419e15b91fdbae9ee12088fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱來管理來賓存取權
 
@@ -105,15 +105,15 @@ Azure AD 可檢閱來賓使用者的幾個案例。
 > [!NOTE]
 > 舊版的 Azure 入口網站不允許 UserType 是「來賓」的使用者具備系統管理存取權。 在某些情況下，您目錄中的系統管理員可能已使用 PowerShell 將來賓的 UserType 值變更為「成員」。 如果您的目錄之前有過這項變更，先前的查詢可能不會包括過去具有系統管理存取權限的所有使用者。 在此情況下，您需要變更來賓的 UserType 或在群組成員資格中手動加入來賓。
 
-1. 如果不存在適當的群組，請在 Azure AD 中建立成員是來賓的安全性群組。 比方說，您可以建立手動保留來賓成員資格的群組。 或者，您可針對 Contoso 租用戶中 UserType 屬性值為「來賓」的使用者，建立具有「Contoso 來賓」之類名稱的動態群組。
+1. 如果不存在適當的群組，請在 Azure AD 中建立成員是來賓的安全性群組。 比方說，您可以建立手動保留來賓成員資格的群組。 或者，您可針對 Contoso 租用戶中 UserType 屬性值為「來賓」的使用者，建立具有「Contoso 來賓」之類名稱的動態群組。  為了提高效率，請確定群組絕大多數是來賓 - 請勿選取包含不需要檢閱之使用者的群組。
 
 2. 若要開始該群組的存取權檢閱，請選取要做為成員的檢閱者。 如需詳細資訊，請參閱[建立存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)。
 
-3. 要求每個來賓檢閱他們自己的成員資格。 根據預設，已接受邀請的每個來賓會收到 Azure AD 的電子郵件，其中的連結可連至您組織的存取面板以執行存取權檢閱。 Azure AD 會指示來賓如何[檢閱其存取權](active-directory-azure-ad-controls-perform-access-review.md)。
+3. 要求每個來賓檢閱他們自己的成員資格。 根據預設，已接受邀請的每個來賓會收到 Azure AD 的電子郵件，其中的連結可連至您組織的存取面板以執行存取權檢閱。 Azure AD 會指示來賓如何[檢閱其存取權](active-directory-azure-ad-controls-perform-access-review.md)。  未接受邀請的來賓會在檢閱結果中顯示為「未通知到」。
 
 4. 在檢閱者提供輸入後，停止存取權檢閱。 如需詳細資訊，請參閱[完成存取權檢閱](active-directory-azure-ad-controls-complete-access-review.md)。
 
-5. 移除被拒絕、未完成檢閱，或先前未接受邀請之來賓的來賓存取權。 如果某些來賓是連絡人，因為他們未接受邀請而未獲選參與檢閱，您可以使用 Azure 入口網站或 PowerShell 來停用其帳戶。 如果來賓不再需要存取權，也不是連絡人，您可以使用 Azure 入口網站或 PowerShell 從您的目錄中移除其使用者物件。
+5. 移除被拒絕、未完成檢閱，或先前未接受邀請之來賓的來賓存取權。 如果某些來賓是連絡人且獲選參與檢閱，或是他們未接受邀請，您可以使用 Azure 入口網站或 PowerShell 來停用其帳戶。 如果來賓不再需要存取權、也不是連絡人，您可以使用 Azure 入口網站或 PowerShell 刪除來賓使用者物件，以從您的目錄中移除其使用者物件。
 
 ## <a name="next-steps"></a>後續步驟
 

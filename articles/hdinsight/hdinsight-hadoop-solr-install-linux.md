@@ -1,8 +1,8 @@
 ---
-title: "使用指令碼動作在以 Linux 為基礎的 HDInsight 上安裝 Solr - Azure | Microsoft Docs"
-description: "在本主題中，您將學習如何使用指令碼動作在以 Linux 為基礎的 HDInsight Hadoop 叢集上安裝 Solr。"
+title: 使用指令碼動作在以 Linux 為基礎的 HDInsight 上安裝 Solr - Azure | Microsoft Docs
+description: 在本主題中，您將學習如何使用指令碼動作在以 Linux 為基礎的 HDInsight Hadoop 叢集上安裝 Solr。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Solr
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/21/2018
 > [!WARNING]
 > Microsoft 對隨 HDInsight 叢集提供的元件提供完整支援。
 >
-> 自訂元件 (例如 Solr) 則獲得商務上合理的支援，協助您進一步對問題進行疑難排解。 Microsoft 支援服務可能無法解決自訂元件的問題。 您可能需要加入開放原始碼社群以取得協助。 例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自訂元件 (例如 Solr) 則獲得商務上合理的支援，協助您進一步對問題進行疑難排解。 Microsoft 支援服務可能無法解決自訂元件的問題。 您可能需要加入開放原始碼社群以取得協助。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
 
 ## <a name="what-the-script-does"></a>指令碼會執行哪些作業
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 02/21/2018
 1. 從 [叢集摘要] 區段，依序選取 [進階設定] 和 [指令碼動作]。 使用下列資訊來填入表單：
 
    * **名稱**：輸入指令碼動作的易記名稱。
-   * **SCRIPT URI**：https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **指令碼 URI**：https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**：勾選此選項
    * **WORKER**：勾選此選項
    * **ZOOKEEPER**：勾選此選項以在 Zookeeper 節點上安裝
@@ -116,7 +116,7 @@ ms.lasthandoff: 02/21/2018
     curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
     ```
 
-    此命令會搜尋 **collection1** 中是否有文件符合  **\*:\***  (在查詢字串中編碼為 \*%3A\*)。 下列 JSON 文件是回應的範例：
+    此命令會搜尋 **collection1** 中是否有文件符合 **\*:\*** (在查詢字串中編碼為 \*%3A\*)。 下列 JSON 文件是回應的範例：
 
             "response": {
                 "numFound": 2,
@@ -194,7 +194,7 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。 Solr 儀
 
         儲存傳回的值，因為稍後會使用它。
 
-2. 在瀏覽器中，連接到 **http://HOSTNAME:8983/solr/#/**，其中 **HOSTNAME** 是您在先前步驟中決定的名稱。
+2. 在瀏覽器中，連線到 **http://HOSTNAME:8983/solr/#/**，其中的 HOSTNAME 是您在先前步驟中決定的名稱。
 
     此要求是透過 SSH 通道路由到您叢集上的 Solr Web UI。 此頁面看起來類似下圖：
 

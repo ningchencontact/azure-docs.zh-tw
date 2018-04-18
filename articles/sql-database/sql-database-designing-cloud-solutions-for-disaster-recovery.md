@@ -3,32 +3,26 @@ title: 使用 Azure SQL Database 設計高可用性服務 | Microsoft Docs
 description: 了解使用 Azure SQL Database 對高可用性服務的應用程式設計。
 keywords: cloud disaster recovery,disaster recovery solutions,app data backup,geo-replication,business continuity planning,雲端災害復原,災害復原方案,應用程式資料備份,異地複寫,商務持續性計劃
 services: sql-database
-documentationcenter: ''
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: e8a346ac-dd08-41e7-9685-46cebca04582
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
-ms.date: 03/07/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: aa6a032a9d42038502cf074ef8aeff8e2e8b0b31
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d19087743740799ec9972bed7a602073afea9f26
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>使用 Azure SQL Database 設計高可用性服務
 
 在 Azure SQL Database 上建置和部署高可用性服務時，您可以使用[容錯移轉群組和主動式異地複寫](sql-database-geo-replication-overview.md)來為區域性中斷和嚴重的故障提供恢復能力。 它也可讓次要資料庫快速復原。 在本文中，我們將著重於常見的應用程式模式，並討論每個選項的優缺點。 如需主動式異地複寫與彈性集區的相關資訊，請參閱[彈性集區災害復原策略](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)。
 
 > [!NOTE]
-> 如果您目前使用「進階」資料庫和集區，您可以將它們轉換成區域備援部署設定 (目前為預覽版) 來使它們具備區域中斷復原能力。 請參閱[區域備援資料庫](sql-database-high-availability.md)。  
+> 如果您目前使用進階或業務關鍵 (預覽) 資料庫和彈性集區，您可以將它們轉換成區域備援部署組態 (目前為預覽版) 來使它們具備區域中斷復原能力。 請參閱[區域備援資料庫](sql-database-high-availability.md)。  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>情節 1：使用兩個 Azure 區域以獲得最少停機時間的業務持續性
 在此情節中，應用程式具有下列特性： 

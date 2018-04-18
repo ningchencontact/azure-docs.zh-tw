@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric CLI- sfctl application| Microsoft Docs
-description: "描述 Service Fabric CLI sfctl application 命令。"
+description: 描述 Service Fabric CLI sfctl application 命令。
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3a10437d0a2d680e586ada6a87750a69453c1f0c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: fe0ef5c81b1ef6bef298e65cde3649c9464089d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sfctl-application"></a>sfctl application
 建立、刪除與管理應用程式和應用程式類型。
@@ -241,9 +241,7 @@ ms.lasthandoff: 02/27/2018
 ## <a name="sfctl-application-provision"></a>sfctl application provision
 使用外部存放區中的 SFPKG 套件或使用映像存放區中的應用程式套件，向叢集佈建或註冊 Service Fabric 應用程式類型。
 
-向叢集佈建 Service Fabric 應用程式類型。 需要有這個項目，才能具現化任何新的應用程式。 佈建作業可以在由 relativePathInImageStore 指定的應用程式套件上執行，也可以使用外部 SFPKG 的 URI 來執行。 除非已設定 --external-provision，否則此命令必須要有映像存放區
-
-佈建。
+向叢集佈建 Service Fabric 應用程式類型。 需要有這個項目，才能具現化任何新的應用程式。 佈建作業可以在由 relativePathInImageStore 指定的應用程式套件上執行，也可以使用外部 SFPKG 的 URI 來執行。 除非您已設定 --external-provision，否則此命令會佈建映像存放區中的應用程式套件。
         
 
 

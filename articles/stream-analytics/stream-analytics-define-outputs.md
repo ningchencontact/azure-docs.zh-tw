@@ -1,26 +1,21 @@
 ---
-title: 串流分析輸出︰儲存體、分析的選項 | Microsoft Docs
+title: Azure 串流分析作業的輸出類型
 description: 深入了解串流分析資料輸出的選項 (包括使用於分析結果的 Power BI)。
-keywords: 資料轉換, 分析結果, 資料儲存體選項
-services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: ''
-author: SnehaGunda
+services: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 02/18/2017
-ms.author: sngun
-ms.openlocfilehash: a641c7e5e792b020be54a2ebc4bac63b545ce71e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: afaadc12d056f42a75795073d480fe26757649d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="stream-analytics-outputs-options-for-storage-analysis"></a>串流分析輸出︰儲存體、分析的選項
+# <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>串流分析輸出︰儲存體和分析的選項
 當您在編寫串流分析作業時，請考慮所產生資料的取用方式。 如何檢視串流分析作業的結果，並將儲存於何處？
 
 為了要啟用各種應用程式模式，Azure 串流分析針對儲存輸出及檢視分析結果提供了數種不同的選項。 這讓您能輕鬆地檢視工作輸出，還讓您對於資料倉儲和其他用途之工作輸出的取用及儲存方式更有彈性。 任何在工作中設定的輸出，都必須在工作開始之前，以及在事件開始運作之前就已經存在。 例如，如果您將 Blob 儲存體作為輸出使用，作業就不會自動建立儲存體帳戶。 在串流分析作業開始之前，建立儲存體帳戶。
@@ -342,7 +337,7 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 新的 Az
 
 
 ## <a name="get-help"></a>取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>後續步驟
 以上就是串流分析 (物聯網資料串流分析專用的受控服務) 的簡介。 若要深入了解此服務，請參閱：

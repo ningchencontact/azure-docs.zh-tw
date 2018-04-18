@@ -1,11 +1,11 @@
 ---
-title: "檢查狀態、設定記錄並取得警示 - Azure Logic Apps | Microsoft Docs"
-description: "監視邏輯應用程式的狀態和效能、記錄診斷資料，並設定警示"
+title: 檢查狀態、設定記錄並取得警示 - Azure Logic Apps | Microsoft Docs
+description: 監視邏輯應用程式的狀態和效能、記錄診斷資料，並設定警示
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>監視狀態、設定診斷記錄，以及開啟 Azure Logic Apps 的警示
 
@@ -76,9 +76,9 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>開啟邏輯應用程式的診斷記錄
 
-如需使用執行階段詳細資料和事件進行更豐富的偵錯，您可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 設定診斷記錄。 Log Analytics 是 [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 中的一項服務，可監視您的雲端和內部部署環境，協助您維護其可用性和效能。 
+如需使用執行階段詳細資料和事件進行更豐富的偵錯，您可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 設定診斷記錄。 Log Analytics 是 Azure 中的一項服務，可監視雲端和內部部署環境，協助您維護其可用性和效能。 
 
-開始之前，您需要有 OMS 工作區。 了解[如何建立 OMS 工作區](../log-analytics/log-analytics-get-started.md)。
+開始之前，您需要有 Log Analytics 工作區。 深入了解[如何建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，尋找並選取邏輯應用程式。 
 
@@ -90,16 +90,16 @@ ms.lasthandoff: 02/28/2018
 
    ![開啟診斷記錄](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. 現在選取用於記錄的 OMS 工作區和事件類別目錄，如下所示：
+4. 現在選取用於記錄的 Log Analytics 工作區和事件類別目錄，如下所示：
 
    1. 選取 [傳送至 Log Analytics]。 
    2. 在 [Log Analytics] 下，選擇 [設定]。 
-   3. 在 [OMS 工作區] 下，選取要用於記錄的 OMS 工作區。
+   3. 在 [OMS 工作區] 下，選取要用於記錄的 Log Analytics 工作區。
    4. 在 [記錄] 下，選取 [WorkflowRuntime] 分類。
    5. 選擇計量間隔。
    6. 完成之後，請選擇 [儲存]。
 
-   ![選取用於記錄的 OMS 工作區和資料](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![選取用於記錄的 Log Analytics 工作區和資料](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 現在，您可以尋找事件，以及觸發程序事件、執行事件和動作事件的其他資料。
 
@@ -113,23 +113,23 @@ ms.lasthandoff: 02/28/2018
 
    ![選擇 [Log Analytics]](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. 在 [Log Analytics] 下，尋找並選取 OMS 工作區。 
+2. 在 [Log Analytics] 下，尋找並選取 Log Analytics 工作區。 
 
-   ![選取 OMS 工作區](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![選取 Log Analytics 工作區](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
 3. 在 [管理] 下，選擇 [OMS 入口網站]。
 
    ![選擇 [OMS 入口網站]](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
 
-4. 在 OMS 首頁上，選擇 [記錄搜尋]。
+4. 在首頁上，選擇 [記錄搜尋]。
 
-   ![在 OMS 首頁上，選擇 [記錄搜尋]](media/logic-apps-monitor-your-logic-apps/logsearch.png)
+   ![在首頁上選擇記錄搜尋](media/logic-apps-monitor-your-logic-apps/logsearch.png)
 
    -或-
 
-   ![在 OMS 功能表上，選擇 [記錄搜尋]](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
+   ![選擇功能表上的記錄搜尋](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
 
-5. 在搜尋方塊中，指定您想要尋找的欄位，然後按 **Enter**。 當您開始鍵入時，OMS 會顯示您可以使用的可能相符項目和作業。 
+5. 在搜尋方塊中，指定您想要尋找的欄位，然後按 **Enter**。 當您開始輸入時，會看到您可以使用的可能相符項目和作業。 
 
    例如，若要尋找所發生的前 10 個事件，請輸入並選取此搜尋查詢：**search Category == "WorkflowRuntime" | limit 10**
 

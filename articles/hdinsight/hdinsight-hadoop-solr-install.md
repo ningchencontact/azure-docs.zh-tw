@@ -1,8 +1,8 @@
 ---
-title: "使用指令碼動作在 Hadoop 叢集上安裝 Solr - Azure | Microsoft Docs"
-description: "深入了解如何使用指令碼動作來以 Solr 自訂 HDInsight 叢集。"
+title: 使用指令碼動作在 Hadoop 叢集上安裝 Solr - Azure | Microsoft Docs
+description: 深入了解如何使用指令碼動作來以 Solr 自訂 HDInsight 叢集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.openlocfilehash: 6efb7ea26c3cdf7748fff4b02b5810c85cc41e1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>在 Windows 型 HDInsight 叢集上安裝和使用 Solr
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 > 本文件的步驟只適用於 Windows HDInsight 叢集。 Windows 上的 HDInsight 只提供低於 HDInsight 3.4 的版本。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需搭配以 Linux 為基礎的叢集使用 Solr 的詳細資訊，請參閱 [在 HDInsight Hadoop 叢集上安裝和使用 Solr (Linux)](hdinsight-hadoop-solr-install-linux.md)
 
 
-您也可以使用「指令碼動作」 ，在 Azure HDInsight 的任一類型的叢集 (Hadoop、Storm、HBase、Spark) 上安裝 Solr。 您可以從唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Solr 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)。
+您也可以使用「指令碼動作」 ，在 Azure HDInsight 的任一類型的叢集 (Hadoop、Storm、HBase、Spark) 上安裝 Solr。 您可以從 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1) 的唯讀 Azure 儲存體 blob 中，取得用來在 HDInsight 叢集上安裝 Solr 的範例指令碼。
 
 範例指令碼只能與 HDInsight 叢集版本 3.1 搭配使用。 如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
 
@@ -159,7 +159,7 @@ ms.lasthandoff: 10/11/2017
              </lst>
              <str name="status">OK</str>
            </response>
-   2. 在遠端工作階段中，瀏覽至 {SOLR_HOME}\{Collection}\data。 若是透過範例指令碼建立的叢集，則應該是 **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**。 在此位置中，您應該會看到以類似「snapshot.timestamp」的名稱建立的快照資料夾。
+   2. 在遠端工作階段中，瀏覽至 {SOLR_HOME}\{Collection}\data。 若是透過範例指令碼建立的叢集，則應該是 **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**。 在此位置中，您應該會看到快照資料夾已使用類似 *snapshot.timestamp*** 的名稱建立。
    3. 壓縮快照資料夾，並上傳至 Azure Blob 儲存體。 從 Hadoop 命令列使用下列命令瀏覽至快照資料夾的位置：
 
              hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data

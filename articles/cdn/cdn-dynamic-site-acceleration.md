@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli
-ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>透過 Azure CDN 進行動態網站加速
 
@@ -152,7 +152,7 @@ JPEG 壓縮 | .jpg、.jpeg、.jpe、.jig、.jgig、.jgi
 
 如果您的網站混雜了靜態和動態資產，您最好採用混合式方法以獲得最佳效能。 
 
-針對**來自 Verizon 的 Azure CDN (標準)** 和**來自 Akamai 的 Azure CDN (標準)** 設定檔，您可以使用[快取規則](cdn-caching-rules.md)來開啟特定 DSA 端點的快取。
+針對**來自 Verizon 的 Azure CDN 標準**和**來自 Akamai 的 Azure CDN 標準**設定檔，您可以使用[快取規則](cdn-caching-rules.md)來開啟特定 DSA 端點的快取。
 
 存取快取規則：
 
@@ -164,7 +164,7 @@ JPEG 壓縮 | .jpg、.jpeg、.jpe、.jig、.jgig、.jgi
 
 2. 建立全域或自訂快取規則以開啟 DSA 端點的快取。 
 
-針對**來自 Verizon 的 Azure CDN (進階)** 設定檔，您可以使用[規則引擎](cdn-rules-engine.md)來開啟特定 DSA 端點的快取。 所建立的任何規則只會影響您設定檔中已針對 DSA 最佳化的這些端點。 
+針對**來自 Verizon 的 Azure CDN 進階**設定檔，您可以使用[規則引擎](cdn-rules-engine.md)來開啟特定 DSA 端點的快取。 所建立的任何規則只會影響您設定檔中已針對 DSA 最佳化的這些端點。 
 
 存取規則引擎：
     

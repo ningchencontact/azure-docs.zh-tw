@@ -9,20 +9,19 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0ea2dc723c674e7119b6ef38771a73ff4c11e98d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6c94701507f86f6ecab2875f952215cc3e4cc719
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code---preview"></a>在 Visual Studio Code 中使用多個模組來開發 IoT Edge 方案 - 預覽
-您可以使用 Visual Studio Code，利用多個模組來開發 IoT Edge 方案。 本教學課程會逐步引導您建立、更新和部署 IoT Edge 方案，此方案只會在 Visual Studio Code 中，於模擬的 IoT Edge 裝置上透過管道傳送感應器資料。 在本教學課程中，您了解如何：
+您可以使用 Visual Studio Code，利用多個模組來開發 IoT Edge 方案。 本文會逐步引導您建立、更新和部署 IoT Edge 解決方案，此解決方案會在 Visual Studio Code 中，於模擬的 IoT Edge 裝置上透過管道傳送感應器資料。 在本文中，您將了解：
 
-> [!div class="checklist"]
-> * 使用 Visual Studio Code 建立 IoT Edge 方案
-> * 使用 VS Code，將新模組新增到您工作中的模組 IoT Edge 方案。 
-> * 將 IoT Edge 方案 (多個模組) 部署到您的 IoT Edge 裝置
-> * 檢視產生的資料
+* 使用 Visual Studio Code 建立 IoT Edge 方案
+* 使用 VS Code，將新模組新增到您工作中的模組 IoT Edge 方案。 
+* 將 IoT Edge 方案 (多個模組) 部署到您的 IoT Edge 裝置
+* 檢視產生的資料
 
 ## <a name="prerequisites"></a>先決條件
 * 完成下列教學課程
@@ -67,8 +66,7 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您建立了含有一個 C# 模組的 IoT Edge 方案，接著新增了函式模組、更新了方案的路由、建置並部署到模擬的 IoT Edge 裝置。 您可以繼續進行下列任一個教學課程，以了解在 VS Code 中開發 Azure IoT Edge 時的其他案例。
+您可以繼續進行下列任一個文章，以了解在 Visual Studio Code 中開發 Azure IoT Edge 時的其他案例：
 
-> [!div class="nextstepaction"]
-> [在 VS Code 中對 C# 模組進行偵錯](how-to-vscode-debug-csharp-module.md)
-> [在 VS Code 中對 C# 函式進行偵錯](how-to-vscode-debug-azure-function.md)
+* [在 VS Code 中進行 C# 模組偵錯](how-to-vscode-debug-csharp-module.md)
+* [在 VS Code 中進行 C# 函式偵錯](how-to-vscode-debug-azure-function.md)

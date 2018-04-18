@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: c62817b6bb60d99a4762e433510cc54d15add35a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 84e6f2303bcfd6a2c91f29e9e9afdc2b84f990ca
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>部署及探索搭配 SQL Database 使用每一租用戶一個資料庫模式的多租用戶 SaaS 應用程式
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 03/23/2018
 
 中央 [事件中樞] 頁面提供部署中租用戶的連結清單。
 
-1. 在網頁瀏覽器中使用 URL 開啟 [事件中樞]：http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net。 將 &lt;user&gt; 取代為部署的使用者值。
+1. 在網頁瀏覽器中使用 URL 開啟事件中樞：http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net。 將 &lt;user&gt; 取代為部署的使用者值。
 
     ![事件中樞](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 

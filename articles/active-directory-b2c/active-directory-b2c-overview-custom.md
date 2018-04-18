@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 269b65662796c092190cd2622c240756f6bd1cf7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4c09fa5c454cee6ca9a0ed0d3fd4582b222c0c1a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C：自訂原則
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/23/2018
 - **信賴憑證者 (RP) 檔案**，這是以單一工作為主的檔案，直接由應用程式或服務 (也稱為信賴憑證者) 叫用。  如需詳細資訊，請參閱原則檔案定義的相關文件。  每個唯一的工作需要自己的 RP，而根據品牌需求而定，數目可能是「應用程式總數 x 使用案例總數」。
 
 
-Azure AD B2C 中的內建原則依照上述的 3 檔案模式，但開發人員只能看到信賴憑證者 (RP) 檔案，而入口網站是在背景中變更擴充檔案。
+Azure AD B2C 中的內建原則遵守上述的 3 檔案模式，但開發人員只能看到信賴憑證者 (RP) 檔案，而入口網站是在背景中變更擴充檔案。
 
 ## <a name="core-concepts-you-should-know-when-using-custom-policies"></a>使用自訂原則時應該知道的核心概念
 

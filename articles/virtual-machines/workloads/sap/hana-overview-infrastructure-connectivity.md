@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Azure 上 SAP HANA (大型執行個體) 的基礎結構和連接 
 
@@ -49,9 +49,9 @@ ms.lasthandoff: 03/09/2018
 - 每個「HANA 大型執行個體」系統的資料：
   - 所需的主機名稱 - 最好是完整的網域名稱。
   - 來自伺服器 IP 集區位址範圍的所需 HANA 大型執行個體單位 IP 位址 - 請記住，伺服器 IP 集區位址範圍中的前 30 個 IP 位址，是保留給在 HANA 大型執行個體中供內部使用的 IP 位址。
-  - SAP HANA 執行個體的 SAP HANA SID 名稱 (這是建立必要 SAP HANA 相關磁碟區所需的名稱)。 在 NFS 磁碟區上建立 <sidadm> 權限需要有 HANA SID，這些磁碟區會附加至 HANA 大型執行個體單位。 也會用做為掛接磁碟區的其中一個名稱元件。 如果您想要在單位上執行多個 HANA 執行個體，您需要列出多個 HANA SID。 每一個都會分別指派一組磁碟區。
-  - 必須要有 hana-sidadm 使用者在 Linux OS 中所擁有的 groupid，才能建立必要的 SAP HANA 相關磁碟區。 SAP HANA 安裝通常會建立群組識別碼為 1001 的 sapsys 群組。 hana-sidadm 使用者為該群組的成員
-  - 必須要有 hana-sidadm 使用者在 Linux OS 中所擁有的 userid，才能建立必要的 SAP HANA 相關磁碟區。 如果要在單位上執行多個 HANA 執行個體，您需要列出所有的 <sid> adm 使用者。 
+  - SAP HANA 執行個體的 SAP HANA SID 名稱 (這是建立必要 SAP HANA 相關磁碟區所需的名稱)。 在 NFS 磁碟區上建立 sidadm 權限需要有 HANA SID，這些磁碟區會附加至 HANA 大型執行個體單位。 也會用做為掛接磁碟區的其中一個名稱元件。 如果您想要在單位上執行多個 HANA 執行個體，您需要列出多個 HANA SID。 每一個都會分別指派一組磁碟區。
+  - 必須要有 sidadm 使用者在 Linux OS 中所擁有的 groupid，才能建立必要的 SAP HANA 相關磁碟區。 SAP HANA 安裝通常會建立群組識別碼為 1001 的 sapsys 群組。 sidadm 使用者為該群組的成員
+  - 必須要有 sidadm 使用者在 Linux OS 中所擁有的 userid，才能建立必要的 SAP HANA 相關磁碟區。 如果要在單位上執行多個 HANA 執行個體，您需要列出所有的 <sid> adm 使用者。 
 - Azure HANA 大型執行個體上 SAP HANA 要直接連接的 Azure 訂用帳戶的 Azure 訂用帳戶識別碼。 此訂用帳戶識別碼參考 Azure 訂用帳戶，會要支付 HANA 大型執行個體單位的費用。
 
 在您提供資訊之後，Microsoft 就會佈建 SAP HANA on Azure (大型執行個體)，並且會傳回將 Azure VNet 連接到「HANA 大型執行個體」及存取「HANA 大型執行個體」單位所需的資訊。

@@ -1,24 +1,24 @@
 ---
-title: "透過限制租用戶管理對雲端應用程式的存取 | Microsoft Docs"
-description: "如何使用「租用戶限制」以根據使用者的 Azure AD 租用戶來管理可存取應用程式的使用者。"
+title: 透過限制租用戶管理對雲端應用程式的存取 | Microsoft Docs
+description: 如何使用「租用戶限制」以根據使用者的 Azure AD 租用戶來管理可存取應用程式的使用者。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
 editor: yossib
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: 63e0fa54433a60fe7384d21cf7d215cc8283afca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>使用租用戶限制來管理對 SaaS 雲端應用程式的存取
 
@@ -112,7 +112,9 @@ Office 365 應用程式必須符合兩項準則，才能完全支援「租用戶
 
 目前 Office 365 瀏覽器型應用程式 (Office Portal、Yammer、SharePoint 網站、Outlook 網頁版等) 都支援「租用戶限制」。 針對豐富型用戶端 (Outlook、商務用 Skype、Word、Excel、PowerPoint 等)，只有在使用新式驗證的情況下，才能強制執行「租用戶限制」。  
 
-支援新式驗證的 Outlook 和「商務用 Skype」用戶端仍然能夠針對未啟用新式驗證的租用戶使用傳統通訊協定，有效地略過「租用戶限制」。 針對 Windows 上的 Outlook，客戶可以選擇實作可防止使用者將非已核准郵件帳戶新增至其設定檔的限制。 例如，請參閱[防止新增非預設 Exchange 帳戶](http://gpsearch.azurewebsites.net/default.aspx?ref=1)群組原則設定。 對於非 Windows 平台上的 Outlook 與所有平台上的商務用 Skype，目前尚未完整支援租用戶限制。
+支援新式驗證的 Outlook 和「商務用 Skype」用戶端仍然能夠針對未啟用新式驗證的租用戶使用傳統通訊協定，有效地略過「租用戶限制」。 使用傳統通訊協定的應用程式如果在驗證期間連絡 login.microsoftonline.com、login.microsoft.com 或 login.windows.net，可能會遭到「租用戶限制」封鎖。
+
+針對 Windows 上的 Outlook，客戶可以選擇實作可防止使用者將非已核准郵件帳戶新增至其設定檔的限制。 例如，請參閱[防止新增非預設 Exchange 帳戶](http://gpsearch.azurewebsites.net/default.aspx?ref=1)群組原則設定。 對於非 Windows 平台上的 Outlook 與所有平台上的商務用 Skype，目前尚未完整支援租用戶限制。
 
 ## <a name="testing"></a>測試
 

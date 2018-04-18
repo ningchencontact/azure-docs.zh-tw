@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5031ab1ec8c7b42c65fb35e47c32d10ff2898501
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5a20f8cb2946db0ff5fafc4c307f56629b635825
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 用戶端應用程式的 SQL 錯誤碼：資料庫連線錯誤和其他問題
 
@@ -104,8 +104,8 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 
 | 錯誤號碼 | 錯誤嚴重性 | 錯誤格式 | 錯誤說明 | 錯誤原因 | 錯誤修正動作 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| 1132 |EX_RESOURCE |彈性集區已達到其儲存體限制。 彈性集區的儲存體使用量不能超過 (%d) MB。 |彈性集區空間限制 (MB)。 |當彈性集區達到儲存體限制時，嘗試將資料寫入資料庫。 |請考慮盡可能增加彈性集區的 DTU 數，以提高其儲存體限制、減少彈性集區中個別資料庫所使用的儲存體量，或是從彈性集區移除資料庫。 |
-| 10929 |EX_USER |%s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。 但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。 請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) 以取得協助。 或者，請稍後再試一次。 |每個資料庫的最小 DTU、每個資料庫的最大 DTU |彈性集區中的所有資料庫並行背景工作 (要求) 總數試圖超過集區限制。 |請考慮盡可能增加彈性集區的 DTU 數，以提高其背景工作數的限制，或是從彈性集區移除資料庫。 |
+| 1132 |EX_RESOURCE |彈性集區已達到其儲存體限制。 彈性集區的儲存體使用量不能超過 (%d) MB。 |彈性集區空間限制 (MB)。 |當彈性集區達到儲存體限制時，嘗試將資料寫入資料庫。 |請考慮盡可能增加彈性集區的 DTU 及/或儲存體，以提高其儲存體限制、減少彈性集區中個別資料庫所使用的儲存體量，或是從彈性集區移除資料庫。 |
+| 10929 |EX_USER |%s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。 但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。 請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) 以取得協助。 或者，請稍後再試一次。 |每個資料庫的最小 DTU / vCore、每個資料庫的最大 DTU / vCore |彈性集區中的所有資料庫並行背景工作 (要求) 總數試圖超過集區限制。 |請考慮盡可能增加彈性集區的 DTU 或 vCore，以提高其背景工作數的限制，或是從彈性集區移除資料庫。 |
 | 40844 |EX_USER |伺服器 '%ls' 上的資料庫 '%ls' 是彈性集區中的 '%ls' 版資料庫，且無法有連續複製關聯性。 |資料庫名稱、資料庫版本、伺服器名稱 |針對彈性集區中的非高階資料庫發出了 StartDatabaseCopy 命令。 |敬請期待 |
 | 40857 |EX_USER |找不到伺服器 '%ls' 的彈性集區，彈性集區名稱: '%ls'。 |伺服器名稱、彈性集區名稱 |指定的彈性集區不存在於指定的伺服器中。 |請提供有效的彈性集區名稱。 |
 | 40858 |EX_USER |彈性集區 '%ls' 已存在於伺服器 '%ls' 中 |彈性集區名稱、伺服器名稱 |指定的彈性集區已存在於指定的邏輯伺服器中。 |請提供新的彈性集區名稱。 |

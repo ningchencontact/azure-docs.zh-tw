@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Replicon Gateway 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Reward Gateway 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Replicon Gateway 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Reward Gateway 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 6e46668804da237e789cea73d25982953a31edef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 76e34b2d170ad1a47dca180fe7caf8c015d17634
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>教學課程：Azure Active Directory 與 Replicon Gateway 整合
 
@@ -127,7 +127,7 @@ ms.lasthandoff: 12/11/2017
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Reward Gateway 支援小組](mailto:clientsupport@rewardgateway.com)以取得這些值。
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 若要取得這些值，在 Reward Manager 入口網站上開始設定整合。 在 http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration 可以找到詳細資訊。
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 12/11/2017
 
     ![設定單一登入](./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_400.png)
 
-6. 若要在 **Reward Gateway** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [Reward Gateway 支援小組](mailto:clientsupport@rewardgateway.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+6. 若要在 **Reward Gateway** 端設定單一登入，在 Reward Manager入口網站上開始設定整合。 使用下載的中繼資料取得簽署憑證，並在設定期間上傳。 在 http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration 可以找到詳細資訊。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

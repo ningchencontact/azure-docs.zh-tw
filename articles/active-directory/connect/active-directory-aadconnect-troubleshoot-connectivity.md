@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect：針對連線問題進行疑難排解 | Microsoft Docs"
-description: "說明如何使用 Azure AD Connect 疑難排解連線問題。"
+title: Azure AD Connect：針對連線問題進行疑難排解 | Microsoft Docs
+description: 說明如何使用 Azure AD Connect 疑難排解連線問題。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>對 Azure AD Connect 的連線問題進行疑難排解
 這篇文章說明 Azure AD Connect 與 Azure AD 之間的連線的運作方式，以及如何疑難排解連線問題。 這些問題最有可能出現在具有 Proxy 伺服器的環境中。
@@ -66,7 +66,7 @@ Proxy 伺服器也必須開啟必要的 URL。 如需官方清單，請參閱 [O
 ![使用了 Microsoft 帳戶](./media/active-directory-aadconnect-troubleshoot-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>無法連線 MFA 端點
-如果無法連線到端點 **https://secure.aadcdn.microsoftonline-p.com**，而您的全域系統管理員已啟用 MFA，就會出現此錯誤。  
+如果無法連線到 **https://secure.aadcdn.microsoftonline-p.com** 端點，而您的全域系統管理員已啟用 MFA，就會出現此錯誤。  
 ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
 * 如果您看到此錯誤，請確認是否已將 **secure.aadcdn.microsoftonline-p.com** 端點新增到 Proxy。
@@ -75,7 +75,7 @@ Proxy 伺服器也必須開啟必要的 URL。 如需官方清單，請參閱 [O
 如果安裝精靈成功連線到 Azure AD，但密碼本身無法獲得驗證，您就會看到此錯誤：  
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-* 密碼是暫時密碼，而且必須變更嗎？ 實際上是正確的密碼嗎？ 嘗試登入 https://login.microsoftonline.com (在 Azure AD Connect 伺服器以外的另一部電腦上)，並確認該帳戶是否可用。
+* 密碼是暫時密碼，而且必須變更嗎？ 實際上是正確的密碼嗎？ 嘗試登入 https://login.microsoftonline.com (在 Azure AD Connect 伺服器以外的另一部電腦上)，並確認該帳戶是否可使用。
 
 ### <a name="verify-proxy-connectivity"></a>確認 Proxy 連線
 若要確認 Azure AD Connect 伺服器是否確實能夠與 Proxy 和網際網路連線，請使用一些 PowerShell 來查看 Proxy 是否允許 Web 要求。 在 PowerShell 命令提示字元中，執行 `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`。 (就技術而言，第一個呼叫是對 https://login.microsoftonline.com 發出，而這個 URI 同樣能夠運作，但另一個 URI 的回應速度較快。)
@@ -101,7 +101,7 @@ PowerShell 會使用 machine.config 中的組態來連絡 Proxy。 winhttp/netsh
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Azure AD Connect 與 Azure AD 之間的通訊模式
 如果您已依照上述這些步驟操作卻仍然無法連接，這時可以開始查看網路記錄檔。 本節說明正常和成功的連線模式。 它也會列出常見的假象，當您閱讀網路記錄檔時可以略過。
 
-* 有對 https://dc.services.visualstudio.com 發出的呼叫。並不需要在 Proxy 中開啟此 URL，安裝即可成功，因此可以忽略這些呼叫。
+* 會有一些對 https://dc.services.visualstudio.com 的呼叫。並不需要在 Proxy 中開啟此 URL，安裝即可成功，因此可以忽略這些呼叫。
 * 您會看到 DNS 解析列出要在 DNS 命名空間 nsatc.net 中的實際主機，以及其他不在 microsoftonline.com 底下的命名空間。不過，實際伺服器名稱上沒有任何 Web 服務要求，因此您不需要將這些 URL 新增到 Proxy。
 * 端點 adminwebservice 和 provisioningapi 是探索端點，可用來尋找要使用的實際端點。 這些端點會依據您的區域而有所不同。
 

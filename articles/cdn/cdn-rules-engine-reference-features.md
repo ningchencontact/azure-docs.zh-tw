@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN 規則引擎功能
 本本會針對 Azure 內容傳遞網路 (CDN) [規則引擎](cdn-rules-engine.md)列出可用功能的詳細說明。
@@ -28,7 +28,6 @@ ms.lasthandoff: 03/23/2018
 ## <a name="access-features"></a>存取功能
 
 這些功能是設計來控制內容的存取權。
-
 
 Name | 目的
 -----|--------
@@ -312,7 +311,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 重要資訊：
 
-- 指定一或多個查詢字串參數名稱。 以單一空格分隔每個參數名稱。
+- 指定一或多個查詢字串參數名稱，然後以單一空格分隔每個參數名稱。
 - 此功能會判斷要在快取索引鍵中包含查詢字串參數或從中排除。 下表提供每個選項的其他資訊。
 
 類型|說明
@@ -326,11 +325,14 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 若要複製 [查詢字串快取] 頁面上的 "no-cache" 查詢字串快取行為，請建立規則，其中包含 [URL 查詢萬用字元] 比對條件和 [略過快取] 功能。 將 [URL 查詢萬用字元] 比對條件設為星號 (*)。
 
+>[!IMPORTANT] 
+> 如果已針對此帳戶上的任何路徑啟用權杖授權，則標準快取模式就會是唯一可用於查詢字串快取的模式。 如需詳細資訊，請參閱[使用查詢字串控制 Azure CDN 快取行為](cdn-query-string-premium.md)。
+
 #### <a name="sample-scenarios"></a>範例案例
 
 下列範例是這項功能的使用方式，會提供範例要求和預設快取金鑰：
 
-- **範例要求︰**http://wpc.0001.&lt;網域&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
+- **範例要求︰** http://wpc.0001.&lt;網域&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **預設的快取索引鍵︰**/800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>包含
@@ -1052,12 +1054,14 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 ---
 ### <a name="token-auth-denial-code"></a>權杖驗證拒絕代碼
-**目的：**判斷在要求因權杖型驗證而遭到拒絕時將傳回給使用者的回應類型。
+**目的：**判斷在要求因權杖型驗證而遭到拒絕時，將傳回給使用者的回應類型。
 
-以下列出可用的回應碼。
+權杖驗證拒絕程式碼不能與一律比對條件搭配使用。 請改用 [管理] 入口網站中 [權杖驗證] 頁面的 [自訂拒絕處理] 區段。 如需詳細資訊，請參閱[使用權杖驗證來保護 Azure CDN 資產](cdn-token-auth.md)。
+
+下表中列出可用的回應碼。
 
 回應碼|回應名稱|說明
-----------------|-----------|--------
+-------------|-------------|--------
 301|已永久移動|此狀態碼會將未經授權的使用者重新導向至位置標頭中指定的 URL。
 302|已找到|此狀態碼會將未經授權的使用者重新導向至位置標頭中指定的 URL。 此狀態碼是執行重新導向的業界標準方法。
 307|暫時重新導向|此狀態碼會將未經授權的使用者重新導向至位置標頭中指定的 URL。

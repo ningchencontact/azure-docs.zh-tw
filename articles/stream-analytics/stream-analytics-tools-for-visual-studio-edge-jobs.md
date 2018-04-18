@@ -1,26 +1,21 @@
 ---
-title: 使用串流分析 Visual Studio 工具設定持續整合和部署程序 | Microsoft Docs
-description: 開發 Visual Studio 的串流分析工具，以撰寫、偵錯及建立串流分析 Edge 作業的教學課程。
-keywords: visual studio, NuGet, DevOps, Edge 作業, 串流分析
-documentationcenter: ''
+title: 適用於 Visual Studio 的 Azure 串流分析工具中的 Edge 作業
+description: 本文說明如何使用適用於 Visual Studio 的串流分析工具來撰寫、偵錯及建立串流分析 Edge 作業。
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/13/2018
 ms.author: sujie
-ms.openlocfilehash: c6e1d0693035ef343e20cee4b09f0669e089afee
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/13/2018
+ms.openlocfilehash: ec916ea2104df9d694aad2462df7ca5a487017f2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="develop-stream-analytics-edge-jobs-by-using-visual-studio-tools"></a>使用 Visual Studio 工具來開發串流分析 Edge 作業
+# <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>使用 Visual Studio 工具來開發串流分析 Edge 作業
 
 在本教學課程中，您可以了解如何使用 Visual Studio 的串流分析工具來撰寫、偵錯及建立串流分析 Edge 作業。 建立和測試作業之後，您可以前往 Azure 入口網站將其部署到您的裝置。 
 

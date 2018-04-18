@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 記錄與稽核
 ## <a name="introduction"></a>簡介
@@ -74,7 +74,7 @@ Azure 會為每項 Azure 服務產生大量記錄。 這些記錄檔會分類為
 |[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|儲存體記錄，並提供儲存體帳戶的計量資料|讓您了解追蹤要求、分析使用趨勢，以及診斷儲存體帳戶的問題。|    REST API 或[用戶端程式庫](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[NSG (網路安全性群組) 流程記錄](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON 格式，並顯示每個規則的輸出和輸入流程|檢視透過網路安全性群組輸入和輸出 IP 流量的相關資訊|[網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|記錄、例外狀況及自訂診斷|    多個平台上的 Web 開發人員所適用的應用程式效能管理 (APM) 服務。| REST API、[Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|處理資料/安全性警示| Azure 資訊安全中心警示，OMS 警示| 資訊安全資訊與警示。|   REST API、JSON|
+|處理資料/安全性警示| Azure 資訊安全中心警示，Log Analytics 警示|   資訊安全資訊與警示。|   REST API、JSON|
 
 ### <a name="activity-log"></a>活動記錄檔
 [Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您了解訂用帳戶中的資源所執行之作業。 活動記錄之前稱做「稽核記錄」或「作業記錄」，因為它會報告訂用帳戶中[控制層面的事件 (英文)](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/)。 您可以使用活動記錄，來判斷訂用帳戶中的資源上所採用之任何寫入作業 (PUT、POST、DELETE) 的「內容、對象和時間」。 您也可以了解作業的狀態和其他相關屬性。 活動記錄檔不包含讀取作業 (GET)。
@@ -114,7 +114,7 @@ Azure 診斷記錄提供多個組態選項，亦即 Azure 入口網站、使用 
 
 -   [將診斷記錄串流至事件中樞](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs)，以供第三方服務或自訂的分析解決方案 (如 [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)) 擷取。
 
--   以 [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 分析記錄。
+-   使用 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 分析診斷記錄
 
 **支援的服務、診斷記錄的結構描述，以及每個資源類型支援的記錄分類**
 
@@ -333,11 +333,11 @@ Application Insights 是以開發小組為目標，以協助您了解您的應�
 
 ## <a name="log-analytics"></a>Log Analytics
 
-Log Analytics 是 [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 中的一項服務，可協助您收集和分析雲端和內部部署環境中的資源所產生的資料。 它可讓您在所有工作負載和伺服器之間 (無論其實體位置為何)，使用整合式搜尋和自訂儀表板輕易地分析數百萬筆記錄，提供您即時的深入資訊。
+Log Analytics 是 Azure 中的一項服務，可協助您收集和分析雲端和內部部署環境中的資源所產生的資料。 它可讓您在所有工作負載和伺服器之間 (無論其實體位置為何)，使用整合式搜尋和自訂儀表板輕易地分析數百萬筆記錄，提供您即時的深入資訊。
 
 ![Log Analytics](./media/azure-log-audit/azure-log-audit-fig8.png)
 
-Log Analytics 的中心是裝載在 Azure 雲端的 OMS 存放庫。 資料會藉由設定資料來源以及將方案新增至訂用帳戶中，而從連接的來源收集到存放庫。 資料來源和方案都會建立不同的記錄類型，它們具有自己的屬性集，但仍可以一起分析，以便查詢存放庫。 這可讓您使用相同的工具和方法，來處理由不同來源收集的不同類型的資料。
+Log Analytics 的中心是裝載在 Azure 雲端的 Log Analytics 工作區。 資料會藉由設定資料來源以及將方案新增至訂用帳戶，而從連線的來源收集到工作區中。 資料來源和方案都會建立不同的記錄類型，它們具有自己的屬性集，但仍可以一起分析，以便查詢工作區。 這可讓您使用相同的工具和方法，來處理由不同來源收集的不同類型的資料。
 
 連接的來源是指產生 Log Analytics 所收集資料的電腦和其他資源。 這可包括安裝在直接連接之 [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) 和 [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) 電腦的代理程式，或[已連接的 System Center Operations Manager 管理群組](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents)中的代理程式。 Log Analytics 也可以從 [Azure 儲存體](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)收集資料。
 

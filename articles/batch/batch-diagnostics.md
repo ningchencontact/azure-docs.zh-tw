@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41c8c9f8fd9302c610ce356b0485e33ea3c967d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4c68df9650fa300ea20ea0621c732cb96d167ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>記錄事件以便對 Batch 解決方案進行診斷評估和監視
 
@@ -97,7 +97,7 @@ Batch 服務目前會發出下列服務記錄檔事件。 這份清單可能不�
   將 Batch 診斷事件串流處理至高擴充性的資料輸入服務：事件中樞。 事件中樞每秒可輸入數百萬個事件，您可以使用任何即時分析提供者來轉換和儲存。
 * [使用 Log Analytics 分析 Azure 診斷記錄](../log-analytics/log-analytics-azure-storage.md)
   
-  將您的診斷記錄傳送至 Log Analytics，您可以在 Operations Management Suite (OMS) 入口網站中分析它們，或是匯出它們以在 Power BI 或 Excel 中分析。
+  將您的診斷記錄傳送至 Log Analytics，您可以在 Azure 入口網站中分析它們，或是匯出它們以在 Power BI 或 Excel 中分析。
 
 [pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
 [pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx

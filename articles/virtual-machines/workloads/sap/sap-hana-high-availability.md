@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: f8c01c4e3f060c6a5ad52f1ed16103ea42d8cd2b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e3fb06309dabd7f66d5873e4c5faa48b468854f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Azure 虛擬機器 (VM) 上 SAP HANA 的高可用性
 
@@ -34,6 +34,7 @@ ms.lasthandoff: 03/29/2018
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2388694]:https://launchpad.support.sap.com/#/notes/2388694
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -130,11 +131,11 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 1. 建立虛擬機器 1  
    至少須使用 SLES4SAP 12 SP1；在此範例中，我們將使用 SLES4SAP 12 SP2 映像 https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM  
    SAP 12 SP2 的 SLES (Premium)  
-   選取稍早建立的可用性設定組  
+   選取稍早建立的「可用性設定組」  
 1. 建立虛擬機器 2  
    至少須使用 SLES4SAP 12 SP1；在此範例中，我們將使用 SLES4SAP 12 SP1 BYOS 映像 https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM  
    SAP 12 SP2 的 SLES (Premium)  
-   選取稍早建立的可用性設定組  
+   選取稍早建立的「可用性設定組」  
 1. 新增資料磁碟
 1. 設定負載平衡器
     1. 建立前端 IP 集區
@@ -155,15 +156,36 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
         1. 輸入新健康狀態探查的名稱 (例如 hana-hp)
         1. 選取 TCP 當做通訊協定、連接埠 625**03**，保留間隔 5 和狀況不良閾值 2
         1. Click OK
-    1. 建立負載平衡規則
+    1. SAP Hana 1.0：建立負載平衡規則
         1. 開啟負載平衡器、選取負載平衡規則，然後按一下 [新增]
         1. 輸入新負載平衡器規則的名稱 (例如 hana-lb-3**03**15)
+        1. 選取您稍早建立的前端 IP 位址、後端集區及健康情況探查 (例如 hana-frontend)
+        1. 保留通訊協定 TCP，輸入連接埠 3**03**15
+        1. 將閒置逾時增加為 30 分鐘
+        1. **務必啟用浮動 IP**
+        1. Click OK
+        1. 針對連接埠 3**03**17 重複上述步驟
+    1. SAP Hana 2.0：為系統資料庫建立負載平衡規則
+        1. 開啟負載平衡器、選取負載平衡規則，然後按一下 [新增]
+        1. 輸入新負載平衡器規則的名稱 (例如 hana-lb-3**03**13)
         1. 選取您稍早建立的前端 IP 位址、後端集區及健康情況探查 (例如 hana-frontend)
         1. 保留通訊協定 TCP，輸入連接埠 3**03**13
         1. 將閒置逾時增加為 30 分鐘
         1. **務必啟用浮動 IP**
         1. Click OK
-        1. 針對連接埠 3**03**15 和 3**03**17 重複上述步驟
+        1. 針對連接埠 3**03**14 重複上述步驟
+    1. SAP Hana 2.0：為第一個租用戶資料庫建立負載平衡規則
+        1. 開啟負載平衡器、選取負載平衡規則，然後按一下 [新增]
+        1. 輸入新負載平衡器規則的名稱 (例如 hana-lb-3**03**40)
+        1. 選取您稍早建立的前端 IP 位址、後端集區及健康情況探查 (例如 hana-frontend)
+        1. 保留通訊協定 TCP，輸入連接埠 3**03**40
+        1. 將閒置逾時增加為 30 分鐘
+        1. **務必啟用浮動 IP**
+        1. Click OK
+        1. 針對連接埠 3**03**41 和 3**03**42 重複上述步驟
+
+如需 SAP Hana 必要連接埠的詳細資訊，請參閱 [SAP Hana 租用戶資料庫](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) 指南的[連線到租用戶資料庫](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html)章節或 [SAP Note 2388694][2388694]。
+
 
 ## <a name="create-pacemaker-cluster"></a>建立 Pacemaker 叢集
 

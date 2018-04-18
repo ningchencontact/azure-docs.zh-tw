@@ -1,26 +1,21 @@
 ---
-title: 串流分析的 JSON 輸出 | Microsoft Docs
-description: 了解「串流分析」如何將 Azure Cosmos DB 設定為 JSON 輸出的目標，以針對非結構化 JSON 資料進行資料封存和低延遲查詢。
-keywords: JSON 輸出
-documentationcenter: ''
-services: stream-analytics,documentdb
+title: Azure 串流分析輸出至 Cosmos DB
+description: 本文說明如何使用 Azure 串流分析將輸出儲存至 JSON 輸出的 Azure Cosmos DB，以針對非結構化 JSON 資料進行資料封存和低延遲查詢。
+services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 8bda2abda6f2b7207a5a7195c24b07da9089fb06
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: f7115f7d19cd44ae7d0812d3aa6c48d8dd58c20d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>將 Azure Cosmos DB 設定為串流分析的 JSON 輸出目標
+# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure 串流分析輸出至 Azure Cosmos DB  
 「串流分析」可以將 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 設定為 JSON 輸出的目標，讓您能夠針對非結構化的 JSON 資料進行資料封存和低延遲查詢。 本文件涵蓋實作這種組態的一些最佳作法。
 
 如果您不熟悉 Cosmos DB，請參閱 [Azure Cosmos DB 的學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)來開始著手。 
@@ -35,7 +30,7 @@ ms.lasthandoff: 03/30/2018
 以下詳細說明一些 Cosmos DB 集合選項。
 
 ## <a name="tune-consistency-availability-and-latency"></a>微調一致性、 可用性及延遲
-為了符合應用程式需求，Cosmos DB 允許您微調資料庫與集合，並在一致性、可用性及延遲之間進行取捨。 您可以視案例針對讀取與寫入延遲所需的讀取一致性層級，來選擇資料庫帳戶上的一致性層級。 此外，Cosmos DB 預設會在對您集合進行的每個 CRUD 作業進行同步索引編製。 這是另一個可在 Cosmos DB 中控制寫入/讀取效能的實用選項。 如需深入了解這個主題，請參閱 [變更資料庫及查詢的一致性層級](../cosmos-db/consistency-levels.md) 。
+為了符合應用程式需求，Cosmos DB 允許您微調資料庫與集合，並在一致性、可用性及延遲之間進行取捨。 您可以視案例針對讀取與寫入延遲所需的讀取一致性層級，來選擇資料庫帳戶上的一致性層級。 此外，Cosmos DB 預設會在對您集合進行的每個 CRUD 作業進行同步索引編製。 這是另一個可在 Cosmos DB 中控制寫入/讀取效能的實用選項。 如需詳細資訊，請檢閱[變更資料庫及查詢的一致性層級](../cosmos-db/consistency-levels.md)一文。
 
 ## <a name="upserts-from-stream-analytics"></a>來自串流分析的 Upsert
 「串流分析」與 Cosmos DB 的整合可讓您根據指定的「文件識別碼」資料行，在 Cosmos DB 集合中插入或更新記錄。 這也稱為「Upsert」 。

@@ -1,24 +1,18 @@
 ---
-title: 了解 Azure 串流分析作業的相容性層級。 | Microsoft Docs
+title: 了解 Azure 串流分析作業的相容性層級
 description: 了解如何為 Azure 串流分析作業設定相容性層級，並了解最新相容性層級中的重大變更
-keywords: 相容性層級、串流資料
-documentationcenter: ''
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: ''
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 01/03/2018
-ms.author: sngun
-ms.openlocfilehash: 6f7f2314d225aa02be28fa817151f8f245478cf0
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 32e73918b2dd98822d42d74002b705ff730145d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 串流分析作業的相容性層級
  

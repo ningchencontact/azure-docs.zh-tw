@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 04/06/2018
 ms.author: brenduns
-ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure Stack 1712 更新
 
@@ -43,11 +43,14 @@ Azure Stack 1712 更新組建編號為 **180106.1**。 如果客戶先前已部�
 您必須先安裝 Azure Stack [1711 更新](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1711)，才能套用此更新。
 
 ### <a name="post-update-steps"></a>更新後步驟
+- 在安裝 1712 之後，安裝任何適用的 Hotfix。 如需詳細資訊，請檢視下列知識庫文章，以及我們的[服務原則](azure-stack-servicing-policy.md)。  
+  - [KB 4103348 - 網路控制器 API 服務在您嘗試安裝 Azure Stack 更新時損毀](https://support.microsoft.com/help/4103348)
 
-此更新還需要您在完成 1712 Azure Stack 更新安裝之後，安裝 OEM 夥伴的韌體更新。
 
-> [!NOTE]
-> 請參閱您的 OEM 夥伴網站來下載更新。
+- 更新 1712 還需要您在完成 1712 Azure Stack 更新安裝之後，安裝 OEM 夥伴的韌體更新。
+
+  > [!NOTE]
+  > 請參閱您的 OEM 夥伴網站來下載更新。
 
 ### <a name="new-features-and-fixes"></a>新功能和修正
 

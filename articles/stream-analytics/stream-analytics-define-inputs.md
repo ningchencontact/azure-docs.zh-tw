@@ -1,24 +1,19 @@
 ---
-title: 資料連線：來自事件資料流的資料流輸入 | Microsoft Docs
-description: 了解如何設定通往串流分析的資料連線 (也就是「輸入」)。 輸入包括來自事件的資料流，以及參考資料。
-keywords: 資料流, 資料連線, 事件資料流
+title: Azure 串流分析中事件串流的資料流輸入
+description: 了解如何設定 Azure 串流分析中的資料連線。 輸入包括來自事件的資料流，以及參考資料。
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: sngun
-ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0a90e97779416db7b7244cce9d6bdad740161051
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>資料連線：了解資料從事件到串流分析的資料流輸入
 串流分析作業的資料連線是來自資料來源的事件資料流，稱為作業的「輸入」。 串流分析與 Azure 資料流來源的整合性極佳，來源包括 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)、[Azure IoT 中樞](https://azure.microsoft.com/services/iot-hub/)和 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)。 這些輸入來源可以來自與分析作業相同的 Azure 訂用帳戶，或來自不同的訂用帳戶。
@@ -176,7 +171,7 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 您已經了解自己串流分析工作的資料連線選項。 若要深入了解串流分析，請參閱：

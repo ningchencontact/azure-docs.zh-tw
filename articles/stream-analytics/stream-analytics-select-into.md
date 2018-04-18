@@ -1,24 +1,19 @@
 ---
-title: 使用 SELECT INTO 對 Azure 串流分析查詢進行偵錯 | Microsoft Docs
-description: 在串流分析中使用 SELECT INTO 陳述式對進行中的查詢進行資料取樣
-keywords: ''
+title: 使用 SELECT INTO 對 Azure 串流分析查詢進行偵錯
+description: 本文說明如何使用查詢語法中的 SELECT INTO 陳述式，對 Azure 串流分析作業的進行中查詢進行資料取樣。
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 9952e2cf-b335-4a5c-8f45-8d3e1eda2e20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: f232ba9804886f416ac0941ddc7e602782b6ebe2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: ccaa6203e4bfe52758e26416646f9152ac5378ea
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="debug-queries-by-using-select-into-statements"></a>使用 SELECT INTO 陳述式對查詢進行偵錯
 
@@ -73,7 +68,7 @@ ms.lasthandoff: 03/30/2018
 
 ## <a name="get-help"></a>取得說明
 
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 

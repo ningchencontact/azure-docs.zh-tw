@@ -1,23 +1,23 @@
 ---
-title: "Azure Cosmos DB 每日秘訣 20 則 | Microsoft Docs"
-description: "在單一位置尋找 Simona Cotin「20 天的 Azure Cosmos DB」秘訣系列的所有秘訣。"
+title: Azure Cosmos DB 每日秘訣 20 則 | Microsoft Docs
+description: 在單一位置尋找 Simona Cotin「20 天的 Azure Cosmos DB」秘訣系列的所有秘訣。
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: cda
-ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 79ef4a8c22143ed77535e1190b5f7e8eb5d17bb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>Azure Cosmos DB 每日秘訣 20 則
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-4-gremlin-graph-support"></a>秘訣 4：Gremlin 圖形支援
 
-秘訣 4：小精靈合您的胃口嗎？ #cosmosdb 也愛 Gremlin！ 使用 Azure 入口網站檢視、查詢及編輯圖表 DB[https://aka.ms/tfmi37](https://aka.ms/tfmi37)  
+秘訣 4：小精靈合您的胃口嗎？ #cosmosdb 也愛 Gremlin！ 使用 Azure 入口網站檢視、查詢及編輯圖表 DB [https://aka.ms/tfmi37](https://aka.ms/tfmi37)  
 
 > [!VIDEO https://www.youtube.com/embed/oPUTZbiXffk]
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-8-build-a-nodejs-app-by-using-sql-api"></a>秘訣 8：使用 SQL API 建置 Node.js 應用程式
 
-秘訣 8：使用 SQL API 和 Azure #CosmosDB 建置 @nodejs 應用程式。 請前往文件頁面了解詳細資訊 [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8)  
+秘訣 8：使用 SQL API 和 Azure #CosmosDB 建置 @nodejs 應用程式。 在文件頁面 [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8) 上進一步了解  
 
 > [!VIDEO https://www.youtube.com/embed/_gd9ZY-rHtM]
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-9-query-using-mongodb-in-nodejs"></a>秘訣 9：在 Node.js 中使用 MongoDB 來查詢
 
-秘訣 9：在 Node.js 中使用 MongoDB API 來查詢 Azure #CosmosDB。 請前往文件頁面了解詳細資訊 [https://aka.ms/Dert0r](https://aka.ms/Dert0r)  
+秘訣 9：在 Node.js 中使用 MongoDB API 來查詢 Azure #CosmosDB。 在文件頁面 [https://aka.ms/Dert0r](https://aka.ms/Dert0r) 上進一步了解  
 
 ![使用 MongoDB 來查詢](./media/20-days-of-tips/cosmos-db-tip-9-mongodb-query.png)
 
@@ -142,7 +142,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-16-functions-and-twilio-demo"></a>秘訣 16：函式和 Twilio 示範
 
-秘訣 16：真棒的示範！ 整合 Azure #cosmosDB，函式和 @twilio，在任何資料庫變更上傳送 SMS。 請參閱 [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 上的文件 
+秘訣 16：真棒的示範！ 整合 Azure #cosmosDB，函式和 @twilio，在任何資料庫變更上傳送 SMS。 請在 [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 參閱文件 
 
 > [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-17-using-mongoose-discriminators"></a>秘訣 17：使用 Mongoose 鑑別子
 
-秘訣 17：使用 Mongoose 鑑別子來儲存單一 #CosmosDB 集合中的多個項目，藉此最佳化成本 [https://aka.ms/M488jm](https://aka.ms/M488jm)
+秘訣 17：使用 Mongoose 鑑別子在單一 #CosmosDB 集合中儲存多個項目，藉此最佳化成本 [https://aka.ms/M488jm](https://aka.ms/M488jm)
 
 部落格：[使用 Mongoose 鑑別子來儲存單一 CosmosDB 集合中的多個項目，藉此最佳化成本，作者 Anthony Chu](https://aka.ms/M488jm)
 
@@ -159,7 +159,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-18-request-units"></a>提示 18：要求單位
 
-提示 18：了解為何要求單位 (RU)，以及如何在 Azure #CosmosDB 中設定它們。 更多文件位於 [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
+提示 18：了解為何要求單位 (RU)，以及如何在 Azure #CosmosDB 中設定它們。 [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 的文件有詳細資訊 
 
 文章：[Azure Cosmos DB 中的要求單位](https://aka.ms/Kt2nbn)
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-20-cheatsheet"></a>提示 20：速查表
 
-提示 20：人人都愛良好的舊速查表。 Azure #CosmosDB 也有。 可在 [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl) 中查看
+提示 20：人人都愛良好的舊速查表。 Azure #CosmosDB 也有。 在 [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl) 立即了解
 
 速查表：[Azure Cosmos DB SQL 查詢速查表 PDF](https://aka.ms/Nt01nl)
 

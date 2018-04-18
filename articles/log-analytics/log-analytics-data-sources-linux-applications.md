@@ -1,8 +1,8 @@
 ---
-title: "在 OMS Log Analytics 中收集 Linux 應用程式效能 | Microsoft Docs"
-description: "本文詳細說明如何設定 OMS Agent for Linux，以收集 MySQL 和 Apache HTTP Server 的效能計數器。"
+title: 在 OMS Log Analytics 中收集 Linux 應用程式效能 | Microsoft Docs
+description: 本文詳細說明如何設定 OMS Agent for Linux，以收集 MySQL 和 Apache HTTP Server 的效能計數器。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>在 Log Analytics 中收集 Linux 應用程式的效能計數器 
 本文詳細說明如何設定 [OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux)，以收集特定應用程式的效能計數器。  本文包含的應用程式如下︰  

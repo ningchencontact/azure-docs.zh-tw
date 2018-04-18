@@ -1,8 +1,8 @@
 ---
-title: "Office 365 和 Azure AD 使用者的憑證更新 | Microsoft Docs"
-description: "本文說明 Office 365 使用者如何解決收到電子郵件通知續約憑證的問題。"
+title: Office 365 和 Azure AD 使用者的憑證更新 | Microsoft Docs
+description: 本文說明 Office 365 使用者如何解決收到電子郵件通知續約憑證的問題。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: a0e3b65c108f8d839b8107e98a5cd59df78e1ab0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0435f1c5aae9381c76441b1233a47799af94768
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>更新 Office 365 和 Azure Active Directory 的同盟憑證
 ## <a name="overview"></a>概觀
@@ -111,8 +111,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 將其中的 `(your_FS_name) `取代為您的組織使用的同盟服務主機名稱，例如 fs.contoso.com。如果您能夠成功確認上述兩個設定，您就不必執行任何動作。  
 
-範例：https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
-
+範例： https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 ## 手動更新權杖簽署憑證 <a name="manualrenew"></a>
 您可以選擇手動更新權杖簽署憑證。 例如，下列案例可能比較適合進行手動更新︰
 
@@ -152,8 +151,8 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 1. 開啟適用於 Windows PowerShell 的 Microsoft Azure Active Directory 模組。
 2. 執行 $cred=Get-Credential。 當此 Cmdlet 提示您輸入認證時，請輸入您的雲端服務系統管理員帳戶認證。
 3. 執行 Connect-MsolService –Credential $cred。此 Cmdlet 可讓您連線到雲端服務。 在您執行由工具安裝的任何其他 Cmdlet 之前，必須先建立讓您連線到雲端服務的環境。
-4. 如果您不是在 AD FS 主要同盟伺服器的電腦上執行這些命令，請執行 Set-MSOLAdfscontext -Computer <AD FS primary server>，其中 <AD FS primary server> 是主要 AD FS 伺服器的內部 FQDN 名稱。 此 Cmdlet 會建立讓您連線到 AD FS 的環境。
-5. 執行 Update-MSOLFederatedDomain –DomainName <domain>。 此 Cmdlet 會將 AD FS 的設定更新成雲端服務，並設定兩者之間的信任關係。
+4. 如果您不是在 AD FS 主要同盟伺服器的電腦上執行這些命令，請執行 Set-MSOLAdfscontext -Computer &lt;AD FS primary server&gt;，其中 &lt;AD FS primary server&gt; 是主要 AD FS 伺服器的內部 FQDN 名稱。 此 Cmdlet 會建立讓您連線到 AD FS 的環境。
+5. 執行 Update-MSOLFederatedDomain –DomainName &lt;domain&gt;。 此 Cmdlet 會將 AD FS 的設定更新成雲端服務，並設定兩者之間的信任關係。
 
 > [!NOTE]
 > 如果您需要支援多個頂層網域，例如 contoso.com 和 fabrikam.com，則您使用任何 Cmdlet 時必須搭配使用 **SupportMultipleDomain** 參數。 如需詳細資訊，請參閱 [支援多個頂層網域](active-directory-aadconnect-multiple-domains.md)。

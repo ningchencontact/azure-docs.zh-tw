@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook 動作記錄警示規則
 [在 Azure 中建立警示](monitor-alerts-unified-usage.md)後，您可以選擇[使用動作群組設定](monitoring-action-groups.md)以執行一或多個動作。  本文說明各種可用的 Webhook 動作以及設定自訂 JSON 型 Webhook 的詳細資訊。
@@ -54,7 +54,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 | 搜尋間隔開始時間 |#searchintervalstarttimeutc |查詢的開始時間 (UTC 格式)。 
 | SearchQuery |#searchquery |警示規則所使用的記錄檔搜尋查詢。 |
 | SearchResults |"IncludeSearchResults": true|查詢會將記錄傳回為 JSON 資料表，受限於前 1,000 筆記錄；如果在自訂 JSON Webhook 定義中將 "IncludeSearchResults": true 新增為最上層屬性的話。 |
-| WorkspaceID |#workspaceid |Log Analytics (OMS) 工作區的識別碼。 |
+| WorkspaceID |#workspaceid |Log Analytics 工作區的識別碼。 |
 | 應用程式識別碼 |#applicationid |Application Insight 應用程式的識別碼。 |
 | 訂用帳戶識別碼 |#subscriptionid |搭配 Application Insights 使用之 Azure 訂用帳戶的識別碼。 
 
@@ -77,7 +77,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 本節說明記錄警示的 Webhook 範例承載，包括其為標準和自訂承載時。
 
 > [!NOTE]
-> 為了確保回溯相容性，使用 Azure Log Analytics 的警示標準 Webhook 承載會與 [OMS 警示管理](../log-analytics/log-analytics-alerts-creating.md)相同。 但是對於使用 [Application Insights](../application-insights/app-insights-analytics.md) 的記錄警示，標準 Webhook 承載是以動作群組結構描述為基礎的。
+> 為了確保回溯相容性，使用 Azure Log Analytics 的警示標準 Webhook 承載會與 [Log Analytics 警示管理](../log-analytics/log-analytics-alerts-creating.md)相同。 但是對於使用 [Application Insights](../application-insights/app-insights-analytics.md) 的記錄警示，標準 Webhook 承載是以動作群組結構描述為基礎的。
 
 ### <a name="standard-webhook-for-log-alerts"></a>記錄警示的標準 Webhook 
 這兩個範例都提供只含有兩個資料行和兩個資料列的虛擬承載。

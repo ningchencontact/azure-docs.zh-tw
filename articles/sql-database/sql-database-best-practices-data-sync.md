@@ -1,18 +1,18 @@
 ---
-title: "Azure SQL 資料同步 (預覽) 最佳做法 | Microsoft Docs"
-description: "了解設定及執行 Azure SQL 資料同步 (預覽) 的最佳做法。"
+title: Azure SQL 資料同步 (預覽) 最佳做法 | Microsoft Docs
+description: 了解設定及執行 Azure SQL 資料同步 (預覽) 的最佳做法。
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 1c8ad4b318d52b5cb6af284b3304cfa7ad35522b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7ce7830d853a77b54706201fa614e9f4bee637a4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="best-practices-for-sql-data-sync-preview"></a>SQL 資料同步最佳做法 (預覽) 
 
@@ -212,7 +212,7 @@ SQL 資料同步 (預覽) 的自動佈建限制如下：
 
 -   [使用 Azure SQL 資料同步 (預覽)，跨多個雲端和內部部署資料庫同步資料](sql-database-sync-data.md)
 -   [設定 Azure SQL 資料同步 (預覽)](sql-database-get-started-sql-data-sync.md)
--   [使用 OMS Log Analytics 監視 Azure SQL 資料同步 (預覽)](sql-database-sync-monitor-oms.md)
+-   [使用 Log Analytics 監視 Azure SQL 資料同步 (預覽)](sql-database-sync-monitor-oms.md)
 -   [為 Azure SQL 資料同步 (預覽) 的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)  
 -   示範如何設定 SQL 資料同步 (預覽) 的完整 PowerShell 範例：  
     -   [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)  

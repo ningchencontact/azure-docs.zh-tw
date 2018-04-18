@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 4598267e92716529774f42d22ab7c47d944d4495
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure 中的度量概觀
 本文章說明何謂 Microsoft Azure 中的度量、其優點，以及如何開始使用它們。  
@@ -47,7 +47,7 @@ Azure 監視器可讓您取用遙測來查看您 Azure 工作負載的效能與�
 
 * 設定當度量超出您設定的閾值時，**會傳送通知或採取自動化動作的度量警示規則**。 自動調整是一種特殊的自動化動作，可讓您相應放大資源來符合您網站或計算資源的連入要求或負載。 您可以設定自動調整設定規則，根據超出閾值的度量相應縮小或放大。
 
-* **路由**所有度量至 Application Insights 或 Log Analytics (OMS)，以啟用即時分析、搜尋及自訂來自您資源的度量資料警示。 您也可以串流度量到事件中樞，可讓您將它們路由至 Azure 串流分析或自訂應用程式，以進行近乎即時的分析。 您需要設定使用診斷設定的事件中樞串流。
+* **路由**所有計量 Application Insights 或 Log Analytics，以啟用即時分析、搜尋及自訂來自您資源的計量資料警示。 您也可以串流度量到事件中樞，可讓您將它們路由至 Azure 串流分析或自訂應用程式，以進行近乎即時的分析。 您需要設定使用診斷設定的事件中樞串流。
 
 * **將度量封存至儲存體**來延長保留時間或將度量用於離線報告。 當您設定資源的診斷設定時，可以將度量路由至 Azure Blob 儲存體。
 
@@ -100,11 +100,18 @@ Azure 監視器的預覽版本也可讓使用者體驗新的計量圖表。 這�
 如需使用 Azure 監視器 REST API 的更詳細逐步解說，請參閱 [Azure 監視器 REST API 逐步解說](monitoring-rest-api-walkthrough.md)。
 
 ## <a name="export-metrics"></a>匯出度量
-您可以移至 [監視] 索引標籤下的 [診斷設定] 刀鋒視窗，並檢視度量的匯出選項。 針對本文中先前所述的使用案例，您可以選取要傳送至 Blob 儲存體、Azure 事件中樞或 OMS 的度量 (和診斷記錄檔)。
+您可以移至 [監視] 索引標籤下的 [診斷設定] 刀鋒視窗，並檢視度量的匯出選項。 針對本文中先前所述的使用案例，您可以選取要路由傳送至 Blob 儲存體、Azure 事件中樞或 Log Analytics 的計量 (和診斷記錄)。
 
  ![在 Azure 監視器中匯出度量選項](./media/monitoring-overview-metrics/MetricsOverview3.png)
 
 您可以透過 Resource Manager 範本、[PowerShell](insights-powershell-samples.md)、[Azure CLI](insights-cli-samples.md) 或 [REST API](https://msdn.microsoft.com/library/dn931943.aspx) 來進行設定。
+
+> [!NOTE]
+> 目前不支援透過診斷設定傳送多維度計量。 跨維度值所彙總的維度計量會匯出為扁平化單一維度計量。
+>
+> 「例如」：可以在每個佇列層級瀏覽並繪製事件中樞上的「內送郵件」計量。 不過，當您透過診斷設定匯出時，計量將會呈現為事件中樞內所有佇列的所有內送郵件。
+>
+>
 
 ## <a name="take-action-on-metrics"></a>對度量採取動作
 若要收到通知或對度量資料採取自動化的動作，您可以設定警示規則或 [自動調整] 設定。

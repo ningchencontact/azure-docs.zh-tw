@@ -1,12 +1,12 @@
 ---
-title: "Azure 中的治理 | Microsoft Docs"
-description: "了解雲端式計算服務，其中包含各式各樣的計算執行個體和服務，可自動相應增加或縮小以符合您應用程式或企業的需求。"
+title: Azure 中的治理 | Microsoft Docs
+description: 了解雲端式計算服務，其中包含各式各樣的計算執行個體和服務，可自動相應增加或縮小以符合您應用程式或企業的需求。
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 875b78f6af330aea3333b045ee72e9632e9aa8a6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="governance-in-azure"></a>Azure 中的治理
 
@@ -263,7 +263,7 @@ Azure Resource Manager 會分析相依性，確保以正確的順序建立資源
 
 資源鎖定目前支援兩個值︰CanNotDelete 和 ReadOnly。 CanNotDelete 表示使用者 (具有適當權限) 仍可讀取或修改資源，但無法加以刪除。 ReadOnly 表示經過授權的使用者無法刪除或修改資源。
 
-Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳送至 <https://management.azure.com> 的作業。鎖定並不會限制資源執行自己函式的方式。 限制資源的變更，但沒有限制資源的作業。 例如，SQL 資料庫的 ReadOnly 鎖定會防止您刪除或修改資料庫，但它不會阻止您建立、更新或刪除資料庫中的資料。
+Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳送至 <https://management.azure.com> 的作業。 鎖定並不會限制資源執行自己函式的方式。 限制資源的變更，但沒有限制資源的作業。 例如，SQL 資料庫的 ReadOnly 鎖定會防止您刪除或修改資料庫，但它不會阻止您建立、更新或刪除資料庫中的資料。
 
 套用 **ReadOnly** 會導致無法預期的結果，因為有些看似讀取作業的作業會需要進行其他動作。 例如，將 **ReadOnly** 鎖定放置在儲存體帳戶上，會防止所有使用者列出金鑰。 清單金鑰作業是透過 POST 要求進行處理，因為傳回的金鑰可用於寫入作業。
 
@@ -410,33 +410,33 @@ Azure 資訊安全中心會監視下列 Azure 資源：
 
 - 與您的 Azure 訂用帳戶整合的合作夥伴解決方案，例如位於 VM 和 [App Service 環境](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme)上的 Web 應用程式防火牆。
 
-### <a name="operations-management-suite"></a>Operations Management Suite
+### <a name="log-analytics"></a>Log Analytics
 
-OMS 軟體開發和服務小組的資訊安全性及[治理程式](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) \(英文\) 可支援其商務需求，並且會遵守 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/)和 [Microsoft 信任中心合規性](https://www.microsoft.com/TrustCenter/Compliance/default.aspx) \(英文\) 所述的法律與法規。 上述位置也會描述 OMS 是如何建立安全性需求、識別安全性控制，以及管理和監視風險。 每年我們都會檢閱原則、標準、程序和指導方針。
+Log Analytics 軟體開發和服務小組的資訊安全性及[治理程式](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md)可支援其商務需求，並且會遵守 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/)和 [Microsoft 信任中心合規性所述的法律與法規](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)。 上述位置也會描述 Log Analytics 建立安全性需求、識別安全性控制，以及管理和監視風險的方式。 每年我們都會檢閱原則、標準、程序和指導方針。
 
-每個 OMS 開發小組成員都會獲得正式的應用程式安全性訓練。 在內部，我們使用版本控制系統來開發軟體。 每個軟體專案都受到版本控制系統的保護。
+每個 Log Analytics 開發小組成員都會獲得正式的應用程式安全性訓練。 在內部，我們使用版本控制系統來開發軟體。 每個軟體專案都受到版本控制系統的保護。
 
-Microsoft 備有會監看及評估 Microsoft 中所有服務的安全性和法規遵循小組。 資訊安全人員會組成小組，而且他們與開發 OMS 的工程部門並無關聯。 安全人員有他們自己的管理鏈，並且會獨立評估產品和服務，以確保安全性與法規遵循。
+Microsoft 備有會監看及評估 Microsoft 中所有服務的安全性和法規遵循小組。 資訊安全人員會組成小組，且他們與開發 Log Analytics 的工程部門並無關聯。 安全人員有他們自己的管理鏈，並且會獨立評估產品和服務，以確保安全性與法規遵循。
 
-Operations Management Suite (也稱為 OMS) 是在雲端中從頭設計的管理服務集合。 與其部署及管理內部部署資源，OMS 元件會完全裝載於 Azure 中。 需要進行的設定很少，您可以在幾分鐘內完成啟動並執行。
+Azure 會提供在雲端中從頭設計的管理服務集合。 與其部署及管理內部部署資源，這些元件會完全裝載於 Azure 中。 需要進行的設定很少，您可以在幾分鐘內完成啟動並執行。
 
 ![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-雖然 OMS 服務是在雲端中執行，這並不表示其無法有效地管理您的內部部署環境。
+雖然 Log Analytics 服務是在雲端中執行，這並不表示其無法有效地管理您的內部部署環境。
 
 將代理程式置於資料中心的任何 Windows 或 Linux 電腦上，它會將資料傳送到 Log Analytics，以便與從雲端或內部部署服務收集而來的其他所有資料一起進行分析。 使用 Azure 備份和 Azure Site Recovery，以運用雲端針對內部部署資源取得備份及高可用性。
 
 雲端中的 Runbook 通常無法存取內部部署資源，但您可以在一或多部電腦上安裝代理程式，以在您的資料中心裝載 Runbook。 當您啟動 Runbook 時，只要指定您希望它在雲端或在本機背景工作上執行。
 
-OMS 的核心功能是由在 Azure 中執行的一組服務所提供。 每個服務會提供特定的管理功能，您可以合併服務以達成不同的管理案例。
+Log Analytics 的核心功能是由在 Azure 中執行的一組服務所提供。 每個服務會提供特定的管理功能，您可以合併服務以達成不同的管理案例。
 
 ![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Azure Operation Manager 會透過提供管理解決方案來延伸其功能性。 [管理解決方案](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)是預先封裝的邏輯集合，會實作能運用一或多項 OMS 服務的管理案例。
+Azure Operation Manager 會透過提供管理解決方案來延伸其功能性。 [管理解決方案](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)是預先封裝的邏輯集合，會實作能運用一或多項管理服務的管理案例。
 
 ![Azure 作業管理](./media/governance-in-azure/security-governance-in-azure-fig10.png)
 
-Microsoft 和合作夥伴會提供不同的解決方案，您可以輕鬆地將其新增至您的 Azure 訂用帳戶，以提升您的 OMS 投資價值。
+Microsoft 和合作夥伴會提供不同的解決方案，您可以輕鬆地將其新增至您的 Azure 訂用帳戶，以提升您的 Log Analytics 投資價值。
 
 身為合作夥伴的您可以建立自己的解決方案，來支援您的應用程式和服務，並透過 Azure Marketplace 或快速入門範本將其提供給使用者。
 
@@ -455,7 +455,7 @@ Microsoft 和合作夥伴會提供不同的解決方案，您可以輕鬆地將�
 >[!Note]
 > 請參閱 [ Application Insights 中設定警示](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)和[監視任何網站的可用性和回應性](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)。
 
-- Log Analytics (Operations Management Suite)：允許將活動和診斷記錄路由至 Log Analytics。 Operations Management Suite 可允許度量、記錄和其他警示類型。
+- Log Analytics：能將活動和診斷記錄路由傳送至 Log Analytics，而且允許計量、記錄和其他警示類型。
 
 >[!Note]
 > 如需詳細資訊，請參閱 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts) 中的＜警示＞。

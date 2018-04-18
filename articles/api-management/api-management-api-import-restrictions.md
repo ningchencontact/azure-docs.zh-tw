@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: d4229a3ecbcf8aa044eb448290c243e9920bd5cb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 匯入的限制和已知問題
 ## <a name="about-this-list"></a>關於本清單
@@ -27,9 +27,11 @@ ms.lasthandoff: 04/03/2018
 ## <a name="open-api"> </a>Open API/Swagger
 如果您匯入 Open API 文件時收到錯誤，請務必確認您的文件 - 可使用 Azure 入口網站中的設計工具 ([設計] - [前端] - [Open API 規格編輯器])，或使用第 3 方工具 (例如 <a href="http://www.swagger.io">Swagger 編輯器</a>)。
 
-* **主機名稱** APIM 需要主機名稱屬性。
-* **基本路徑** APIM 需要基本路徑屬性。
-* **配置** APIM 需要配置陣列。
+* 只支援適用於 OpenAPI 的 JSON 格式。
+* 參考的結構描述若使用 **$ref** 屬性，不能再包含其他 **$ref** 屬性。
+* **$ref** 指標不可以參考外部檔案。
+* **x-ms-paths** 和 **x-servers** 是唯二支援的副檔名。
+* 在匯入時系統會忽略自訂副檔名，不會儲存或保留用於匯出。
 
 > [!IMPORTANT]
 > 請參閱此[文件](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/)中 OpenAPI 匯入相關的重要資訊和祕訣。

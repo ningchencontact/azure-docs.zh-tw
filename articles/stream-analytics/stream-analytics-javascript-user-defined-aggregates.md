@@ -1,23 +1,19 @@
 ---
-title: Azure 串流分析 JavaScript 使用者定義彙總 | Microsoft Docs
-description: 使用 JavaScript 使用者定義彙總來執行進階查詢技術
-keywords: javascript, 使用者定義彙總, uda
+title: Azure 串流分析中 JavaScript 使用者定義的彙總
+description: 本文說明如何使用 Azure 串流分析中 JavaScript 使用者定義的彙總來執行進階的查詢機制。
 services: stream-analytics
 author: minhe-msft
-manager: santoshb
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 10/28/2017
 ms.author: minhe
-ms.openlocfilehash: 9f9a2e33f97fc90265933ee9941f2d02a92cbc4c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: santoshb
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 10/28/2017
+ms.openlocfilehash: 718109d17309747a3c19f22921e4a316b0b88dc6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure 串流分析 JavaScript 使用者定義彙總 (預覽)
 
@@ -230,7 +226,7 @@ GROUP BY TumblingWindow(minute, 5)
 
 ## <a name="get-help"></a>取得說明
 
-如需其他協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需其他協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 

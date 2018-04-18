@@ -4,7 +4,7 @@ description: 快取是在本機儲存資料的程序，以便未來可以更快�
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 26a0478f8713cb3584045f59c181c0a38331ea97
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: rli; v-deasim
+ms.openlocfilehash: 88c1b98a9dcaa1d22cdc1be3853b1fa7116c8a48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-caching-works"></a>快取的運作方式
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 04/03/2018
 ## <a name="cache-directive-headers"></a>快取指示詞標頭
 
 > [!IMPORTANT]
-> 根據預設，已針對 DSA 最佳化的 Azure CDN 端點會忽略快取指示詞標頭並略過快取。 針對**來自 Verizon 的 Azure CDN (標準)** 和**來自 Akamai 的 Azure CDN (標準)** 設定檔，您可以使用 [CDN 快取規則](cdn-caching-rules.md)來啟用快取，以調整 Azure CDN 端點處理這些標頭的方式。 僅針對 **來自 Verizon 的 Azure CDN (進階)** 而言，您需使用[規則引擎](cdn-rules-engine.md)來啟用快取。
+> 根據預設，已針對 DSA 最佳化的 Azure CDN 端點會忽略快取指示詞標頭並略過快取。 針對「**來自 Verizon 的 Azure CDN 標準**」和「**來自 Akamai 的 Azure CDN 標準**」設定檔，您可以使用 [CDN 快取規則](cdn-caching-rules.md)來啟用快取，以調整 Azure CDN 端點處理這些標頭的方式。 只有針對「**來自 Verizon 的 Azure CDN 進階**」，您需使用[規則引擎](cdn-rules-engine.md)來啟用快取。
 
 Azure CDN 支援下列 HTTP 快取指示詞標頭，這些標頭會定義快取持續時間和快取共用。
 
@@ -95,14 +95,14 @@ Azure CDN 支援下列 HTTP 快取指示詞標頭，這些標頭會定義快取�
 當快取過期時，HTTP 快取驗證程式可用來比較檔案的快取版本與原始伺服器上的版本。 **來自 Verizon 的 Azure CDN** 預設支援 `ETag` 和 `Last-Modified` 驗證器，而**來自 Akamai 的 Azure CDN** 預設僅支援 `Last-Modified`。
 
 **ETag：**
-- **Azure CDN from Verizon** 依預設會使用 `ETag`，而 **Azure CDN from Akamai** 則不會。
+- 「**來自 Verizon 的 Azure CDN**」預設會使用 `ETag`，而「**來自 Akamai 的 Azure CDN**」則不會。
 - `ETag` 會定義對每個檔案和檔案版本是唯一的字串。 例如： `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`。
 - 在 HTTP 1.1 中導入，且較 `Last-Modified` 更新。 上次修改的日期難以判斷時會很有用。
 - 支援強式驗證和弱式驗證；不過，Azure CDN 僅支援強式驗證。 針對強式驗證，兩個資源表示法必須是位元組對位元組相同。 
 - 快取會驗證使用 `ETag` 的檔案，方法是傳送要求中具有一或多個 `ETag` 驗證程式的 `If-None-Match` 標頭。 例如： `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`。 如果伺服器的版本符合清單上的 `ETag` 驗證程式，它會在其回應中傳送狀態碼 304 (未修改)。 如果版本不同，伺服器會以狀態碼 200 (確定) 和更新的資源回應。
 
 **Last-Modified：**
-- 僅針對**來自 Verizon 的 Azure CDN** 而言，如果 `ETag` 未包含在 HTTP 回應中，就會使用 `Last-Modified`。 
+- 僅針對「**來自 Verizon 的 Azure CDN**」而言，如果 HTTP 回應中未包含 `ETag`，就會使用 `Last-Modified`。 
 - 指定原始伺服器判斷上次修改資源的日期和時間。 例如： `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`。
 - 快取會使用 `Last-Modified` 來驗證檔案，方法是傳送要求中具有日期和時間 `If-Modified-Since` 的標頭。 原始伺服器會比較該日期與最新資源的 `Last-Modified` 標頭。 如果資源從指定時間起尚未修改，伺服器就會在其回應中傳回狀態碼 304 (未修改)。 如果資源已修改，伺服器會傳回狀態碼 200 (確定) 和更新的資源。
 

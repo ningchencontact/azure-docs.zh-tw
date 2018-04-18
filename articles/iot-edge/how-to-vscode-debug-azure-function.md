@@ -1,6 +1,6 @@
 ---
 title: 使用 Visual Studio Code 為 Azure IoT Edge 上的 Azure Functions 偵錯 | Microsoft Docs
-description: 在 VS Code 中為 Azure IoT Edge 上的 C# Azure Functions 偵錯
+description: 在 VS Code 中偵錯 Azure IoT Edge 上的 C# Azure Functions
 services: iot-edge
 keywords: ''
 author: shizn
@@ -9,27 +9,24 @@ ms.author: xshi
 ms.date: 3/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 8da16ffe72ad265f0201c2fe7e00e585dfa255e8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8c266a01375bf74fd4df9290255e84bc28e6089c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-visual-studio-code-to-debug-azure-functions-with-azure-iot-edge"></a>使用 Visual Studio Code 為 Azure IoT Edge 上的 Azure Functions 偵錯
 
-本文提供使用 [Visual Studio Code](https://code.visualstudio.com/) 作為主要開發工具，為 IoT Edge 上 Azure Functions 偵錯的詳細指示。
+本文提供使用 [Visual Studio Code](https://code.visualstudio.com/) 作為主要開發工具，偵錯 IoT Edge 上 Azure Functions 的詳細指示。
 
 ## <a name="prerequisites"></a>先決條件
-本教學課程假設您使用執行 Windows 或 Linux 的電腦或虛擬機器作為開發電腦。 IoT Edge 裝置可以是其他實體裝置，您也可以在開發電腦上模擬 IoT Edge 裝置。
+本文假設您使用執行 Windows 或 Linux 的電腦或虛擬機器作為開發電腦。 IoT Edge 裝置可以是其他實體裝置，您也可以在開發機器上模擬 IoT Edge 裝置。
 
-在開始使用此指導方針之前，請確定您已完成下列教學課程。
-- [使用 Visual Studio Code 中的多個模組來開發 IoT Edge 解決方案](tutorial-multiple-modules-in-vscode.md)
-
-完成前述教學課程之後，您應該先準備好下列項目：
-- 在您的開發電腦上執行的本機 Docker 登錄。 建議您使用本機 Docker 登錄作為原型並用於測試。 您可以在每個模組資料夾中的 `module.json` 檔案中更新容器登錄。
+遵循本文中的指引之前，請完成[使用 Visual Studio Code 中的多個模組來開發 IoT Edge 解決方案](tutorial-multiple-modules-in-vscode.md)中的步驟。 在這之後，您應該已準備好下列項目：
+- 在您的開發機器上執行的本機 Docker 登錄。 建議您使用本機 Docker 登錄作為原型並用於測試。 您可以在每個模組資料夾中的 `module.json` 檔案中更新容器登錄。
 - 具有 Azure 函式模組子資料夾的 IoT Edge 解決方案專案工作區。
 - 具有您函式程式碼的 `run.csx` 檔案。
-- 在您的開發電腦上執行的 Edge 執行階段。
+- 在您的開發機器上執行的 Edge 執行階段。
 
 ## <a name="build-your-iot-edge-function-module-for-debugging-purpose"></a>建置用於偵錯的 IoT Edge 函式模組
 1. 若要開始偵錯，您必須使用 **Dockerfile.amd64.debug** 重建您的 docker 映像，並再次部署 Edge 解決方案。 在 VS Code 總管中，瀏覽至 `deployment.template.json` 檔案。 透過在結尾加上 `.debug` 以更新您的功能映像 URL。
@@ -55,12 +52,10 @@ ms.lasthandoff: 03/28/2018
 
 
 > [!NOTE]
-> 以上範例示範如何為容器上的 .Net Core IoT Edge 函式進行偵錯。 它以 `Dockerfile.amd64.debug` 的偵錯版本為依據，此版本包含建立時容器映像中的 VSDBG (.NET Core 命令列偵錯工具)。 完成 C# 函式偵錯之後，我們建議您直接使用，或針對生產就緒 IoT Edge 函式自訂無 VSDBG 的 `Dockerfile`。
+> 以上範例示範如何偵錯容器上的 .Net Core IoT Edge 函式。 它以 `Dockerfile.amd64.debug` 的偵錯版本為依據，此版本包含建立時容器映像中的 VSDBG (.NET Core 命令列偵錯工具)。 完成 C# 函式偵錯之後，我們建議您直接使用，或針對生產就緒 IoT Edge 函式自訂無 VSDBG 的 `Dockerfile`。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您建立了 Azure 函式並為了偵錯將它部署到 IoT Edge，然後在 VS Code 中開始偵錯。 您可以繼續進行下列任一個教學課程，以了解在 VS Code 中開發 Azure IoT Edge 時的其他案例。 
 
-> [!div class="nextstepaction"]
-> [使用 Visual Studio Code 中的多個模組來開發 IoT Edge 解決方案](tutorial-multiple-modules-in-vscode.md)
+[使用 Visual Studio Code 搭配 Azure IoT Edge 進行 C# 模組偵錯](how-to-vscode-debug-csharp-module.md)
 

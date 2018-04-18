@@ -1,18 +1,17 @@
 ---
-title: "如何使用 Azure LBS (預覽) 搜尋地址 | Microsoft Docs"
-description: "了解如何使用 Azure LBS (預覽) 搜尋地址"
+title: 如何使用 Azure LBS (預覽) 搜尋地址 | Microsoft Docs
+description: 了解如何使用 Azure LBS (預覽) 搜尋地址
 services: location-based-services
-keywords: "請勿在未諮詢 SEO 之前新增或編輯關鍵字。"
 author: kgremban
 ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8b886607fe0915396a659593cd5910a271fca93
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>如何使用 Azure LBS (預覽) 尋找地址
 搜尋服務是一組 RESTful 的 API，針對要搜尋地址、位置、感興趣點、商務清單及其他地理資訊的開發人員所設計。 搜尋服務會將經緯度指派給特定地址、交叉街道、地理功能或感景點 (POI)。 搜尋服務 API 所傳回的緯度與經度值可用來作為其他 Azure LBS (例如路由和流量 API) 中的參數。
@@ -44,7 +43,7 @@ ms.lasthandoff: 03/08/2018
     | 要求 URL | https://atlas.microsoft.com/search/fuzzy/json? |
     | Authorization | 無授權 |
 
-    URL 路徑中的 **Json** 屬性會判斷回應格式。 您在整篇文章中使用 json，以方便使用並提升可讀性。 您可以在 [位置服務功能性 API 參考] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy) 的 **取得搜尋模糊**定義中找到可用的回應格式。
+    URL 路徑中的 **Json** 屬性會判斷回應格式。 您在整篇文章中使用 json，以方便使用並提升可讀性。 您可以在 [位置服務功能性 API 參考] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy) 的**取得搜尋模糊**定義中找到可用的回應格式。
 
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
 ms.openlocfilehash: 200d87b950ac76c85513bc11da2798562e48bec3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>整合 Azure Active Directory 與 E Sales Manager Remix
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 03/08/2018
     
     b. 在 [共同作業項目] 區段中，從下拉式清單中選取 [電子郵件]。
 
-    c. 在 [共同作業項目] 方塊中，貼上您之前從 Azure 入口網站複製的宣告值 (也就是 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**)。
+    c. 在 [共同作業項目] 方塊中，貼上您從 Azure 入口網站複製的宣告值，也就是 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。
 
     d. 在 [簽發者 (實體 ID)] 方塊中，貼上您之前從 Azure 入口網站的 [E Sales Manager Remix 網域和 URL] 區段中複製的識別碼值。
 
