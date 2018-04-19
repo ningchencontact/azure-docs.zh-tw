@@ -1,12 +1,12 @@
 ---
-title: "Azure 網路安全性 | Microsoft Docs"
-description: "了解雲端式計算服務，其中包含各式各樣的計算執行個體和服務，可自動相應增加或縮小以符合您應用程式或企業的需求。"
+title: Azure 網路安全性 | Microsoft Docs
+description: 了解雲端式計算服務，其中包含各式各樣的計算執行個體和服務，可自動相應增加或縮小以符合您應用程式或企業的需求。
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f0cc1716daa70bf7c860373819568774cf6f95d9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9b86eda1f4ddff9b61ff5b0f9c465e5ef6c2088b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-network-security"></a>Azure 網路安全性
 
@@ -392,7 +392,7 @@ Azure 網路安全性設備可改善 VNet 安全性和網路功能，這些功�
 
 JSON 格式化記錄會直接移至客戶的儲存體帳戶。 您可以完全掌控這些記錄，而且可以套用自己的保留原則。
 
-您也可以使用 [Azure 記錄整合](https://aka.ms/AzLog)，將這些記錄內嵌至自己的分析系統中。 WAF 記錄也會與 [Operations Management Suite (OMS)](https://www.microsoft.com/cloud-platform/operations-management-suite) 整合，以便您使用 OMS 記錄分析來執行複雜精細的查詢。
+您也可以使用 [Azure 記錄整合](https://aka.ms/AzLog)，將這些記錄內嵌至自己的分析系統中。 WAF 記錄也會與 [Log Analytics](../log-analytics/log-analytics-overview.md) 整合，以便您使用 Log Analytics 來執行複雜精細的查詢。
 
 #### <a name="azure-web-application-firewall-waf"></a>Azure Web 應用程式防火牆 (WAF)
 
@@ -606,7 +606,7 @@ IP 流量驗證是以虛擬機器的網路介面作為目標。 接著會根據�
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 是 [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 中的一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。
+[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 是 Azure 中的一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。
 
 Log Analytics 提供下列解決方案來監視您的網路︰
 
