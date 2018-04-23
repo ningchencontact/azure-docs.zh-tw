@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: klam; LADocs
 ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>適用於邏輯應用程式工作流程的觸發程序和動作
 
@@ -1121,7 +1121,7 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
 | `"expression": "@greater(actions('action1').output.value, parameters('threshold'))"` | 支援比較函式。 就此範例而言，只有當 action1 的輸出大於閾值時，才會執行動作。 | 
 | `"expression": "@or(greater(actions('action1').output.value, parameters('threshold')), less(actions('action1').output.value, 100))"` | 支援使用邏輯函式來建立巢狀布林運算式。 在此範例中，只有當 action1 的輸出超出閾值或低於 100 時，才會執行動作。 | 
 | `"expression": "@equals(length(actions('action1').outputs.errors), 0))"` | 若要檢查陣列是否有任何項目，您可以使用陣列函式。 在此範例中，當錯誤陣列空白時，就會執行動作。 | 
-| `"expression": "parameters('hasSpecialAction')"` | 此運算式會造成錯誤，且不是有效的條件。 條件必須使用 "\@\" 符號。 | 
+| `"expression": "parameters('hasSpecialAction')"` | 此運算式會造成錯誤，且不是有效的條件。 條件必須使用 "@" 符號。 | 
 ||| 
 
 ## <a name="switch-action"></a>Switch 動作

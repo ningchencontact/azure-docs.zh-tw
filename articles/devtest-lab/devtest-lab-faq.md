@@ -1,11 +1,11 @@
 ---
-title: "Azure DevTest Labs 常見問題集 | Microsoft Docs"
-description: "尋找 Azure DevTest Labs 常見問題的解答。"
+title: Azure DevTest Labs 常見問題集 | Microsoft Docs
+description: 尋找 Azure DevTest Labs 常見問題的解答。
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
 ms.service: devtest-lab
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 24a3220a21280684a34405ac4c3d9f9eab9e3683
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: d8b9e48db9e75fb41ecad1958b3aa930a6bce3aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs 常見問題集
 獲得一些關於 Azure DevTest Labs 最常見問題的解答。
@@ -55,7 +55,7 @@ DevTest Labs 是免費的服務。 在 DevTest Labs 建立實驗室和設定原�
 
 **Security**
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>DevTest Labs 中有哪些不同的安全性層級？
-安全性存取權是由[角色型存取控制 (RBAC)](../active-directory/role-based-access-built-in-roles.md) 所決定。 若要了解存取權的運作方式，了解 RBAC 所定義的權限、角色和範圍之間的差異將有所幫助。
+安全性存取權是由[角色型存取控制 (RBAC)](../role-based-access-control/built-in-roles.md) 所決定。 若要了解存取權的運作方式，了解 RBAC 所定義的權限、角色和範圍之間的差異將有所幫助。
 
 * **權限**：權限是針對特定動作所定義的存取權。 例如，權限可以是對所有 VM 的讀取權限。
 * **角色**：角色是一組可以分組並指派給使用者的權限。 例如，具有訂用帳戶擁有者角色的使用者可存取訂用帳戶內的所有資源。
@@ -159,7 +159,7 @@ DevTest Labs 是免費的服務。 在 DevTest Labs 建立實驗室和設定原�
     $labName = "<Enter lab name here>"
 
     # Sign in to your Azure account.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     # Select the Azure subscription that has the lab. This step is optional
     # if you have only one subscription.

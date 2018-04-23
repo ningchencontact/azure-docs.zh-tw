@@ -1,11 +1,11 @@
 ---
-title: "服務提供者的 Log Analytics 功能 | Microsoft Docs"
-description: "Log Analytics 可協助管理服務提供者 (MSP)、大型企業、獨立軟體廠商 (ISV) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器。"
+title: 服務提供者的 Log Analytics 功能 | Microsoft Docs
+description: Log Analytics 可協助管理服務提供者 (MSP)、大型企業、獨立軟體廠商 (ISV) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="log-analytics-features-for-service-providers"></a>服務提供者的 Log Analytics 功能
 Log Analytics 可協助管理服務提供者 (MSP)、大型企業、獨立軟體廠商 (ISV) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器。 
@@ -40,7 +40,7 @@ Log Analytics 可協助管理服務提供者 (MSP)、大型企業、獨立軟體
 若要登入租用戶的訂用帳戶，您需要指定租用戶識別碼。 租用戶識別碼通常是您用來登入的電子郵件地址的最後一部分。
 
 * 在 OMS 入口網站中，針對入口網站在 URL 新增 `?tenant=contoso.com`。 例如，`mms.microsoft.com/?tenant=contoso.com`
-* 在 PowerShell 中，使用 `Add-AzureRmAccount` Cmdlet 時使用 `-Tenant contoso.com` 參數
+* 在 PowerShell 中，使用 `Connect-AzureRmAccount` Cmdlet 時使用 `-Tenant contoso.com` 參數
 * 當您從 Azure 入口網站使用 `OMS portal` 連結，來開啟並登入所選取工作區的 OMS 入口網站時，會自動新增租用戶識別碼
 
 身為「雲端解決方案提供者」的「客戶」，您可以：

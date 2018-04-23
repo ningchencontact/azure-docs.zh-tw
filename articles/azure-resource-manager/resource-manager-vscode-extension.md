@@ -1,8 +1,8 @@
 ---
-title: "採用 VS Code 擴充功能的 Azure Resource Manager 範本 | Microsoft Docs"
-description: "利用 Azure Resource Manager Tools 擴充功能來使用 Resource Manager 範本。"
+title: 採用 VS Code 擴充功能的 Azure Resource Manager 範本 | Microsoft Docs
+description: 利用 Azure Resource Manager Tools 擴充功能來使用 Resource Manager 範本。
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.date: 09/06/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 0dd48146624052fbd00093066d79067b75e33c92
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 9d15d3e48f7e952e1454718759f4770be0d8d135
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>使用 Visual Studio Code 擴充功能來建立 Azure Resource Manager 範本
 本文說明在 Visual Studio Code 中安裝和使用 Azure Resource Manager Tools 擴充功能的優點。 不需使用擴充功能，即可在 VS Code 中建立 Resource Manager 範本，但擴充功能會提供可簡化範本開發的自動完成選項。 它會建議範本中可用的函式、參數和變數。
@@ -261,7 +261,7 @@ ms.lasthandoff: 12/08/2017
 * 對於 PowerShell，從包含範本的資料夾使用下列命令：
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    
    New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json

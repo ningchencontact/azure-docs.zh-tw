@@ -3,26 +3,26 @@ title: 在 Azure 上佈建 Windows 資料科學虛擬機器 | Microsoft Docs
 description: 在 Azure 上設定和建立資料科學虛擬機器以進行分析和機器學習。
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
-ms.openlocfilehash: 9f01ba69f6511a3f9a7f99e379522be3c00554f5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: gokuma
+ms.openlocfilehash: 445b18dee9efa9561ba1274ef59a9a426332d745
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Windows 資料科學虛擬機器
 Microsoft 資料科學虛擬機器是預先安裝並設定數個常用於資料分析和機器學習之熱門工具的 Windows Azure 虛擬機器 (VM) 映像。 這些工具包括：
 
-* [Azure Machine Learning](../preview/index.yml) Workbench
+* [Azure Machine Learning](../service/index.yml) Workbench
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
 * Anaconda Python 散佈
 * Jupyter notebook (使用 R、Python、PySpark 核心)
@@ -192,7 +192,7 @@ Azure Machine Learning Workbench 是桌面應用程式和命令列介面。 在�
 以下是繼續您的學習和探索的一些後續步驟。 
 
 * 按一下開始功能表並查看功能表中列出的工具，來探索資料科學 VM 上的各種資料科學工具。
-* 若要了解 Azure 機器學習服務和 Azure Machine Learning Workbench，可瀏覽產品的[快速入門與教學課程頁面](../preview/index.yml)。 
+* 若要了解 Azure 機器學習服務和 Azure Machine Learning Workbench，可瀏覽產品的[快速入門與教學課程頁面](../service/index.yml)。 
 * 瀏覽至 **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts**，以取得在 R 中使用 RevoScaleR 程式庫的範例，其支援企業規模的資料分析。  
 * 閱讀文章： [您可以在 Data Science Virtual Machine 上做的 10 件事](http://aka.ms/dsvmtenthings)
 * 了解如何使用 [Team Data Science Process](../team-data-science-process/index.yml)以系統化方式建置端對端分析方案。

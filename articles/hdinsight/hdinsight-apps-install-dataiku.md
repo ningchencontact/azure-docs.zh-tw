@@ -12,19 +12,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 835f433e0bf79e8bc4d9b30963196f65bc53cd0e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: facee9187528fa0c6a74f71ee73636dc23ca35ba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---dataiku-dds"></a>安裝已發佈的應用程式 - Dataiku DDS
 
-本文說明如何在 Azure HDInsight 上安裝及執行 [Dataiku DDS](https://www.dataiku.com/) \(英文\) 已發佈的 Hadoop 應用程式。 如需 HDInsight 應用程式平台的概觀，以及可用的獨立軟體廠商 (ISV) 已發佈應用程式清單，請參閱[安裝協力廠商 Hadoop 應用程式](hdinsight-apps-install-applications.md)。 如需您自己的應用程式的安裝指示，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
+本文說明如何在 Azure HDInsight 上安裝及執行 [Dataiku DDS](https://www.dataiku.com/) \(英文\) 已發佈的 Hadoop 應用程式。 如需 HDInsight 應用程式平台的概觀，以及可用獨立軟體廠商 (ISV) 已發佈的應用程式清單，請參閱[安裝第三方 Hadoop 應用程式](hdinsight-apps-install-applications.md)。 如需您自己的應用程式的安裝指示，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
 
 ## <a name="about-dataiku-dss"></a>關於 Dataiku DSS
 
@@ -38,7 +36,7 @@ Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/connect
 
 ## <a name="prerequisites"></a>先決條件
 
-若要在新的 HDInsight 叢集或現有的叢集上安裝此應用程式，您必須具有下列設定：
+若要在新的 HDInsight 叢集或現有叢集上安裝此應用程式，您必須具有下列設定：
 
 * 叢集層：標準、進階
 * 叢集類型：Hadoop、Spark
@@ -68,7 +66,7 @@ Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/connect
 
     ![新增專案連結](./media/hdinsight-apps-install-dataiku/new-project.png)
 
-3. 在 [New project] \(新增專案\) 表單中，輸入 [Name] \(名稱\)。 [Project Key] \(專案金鑰\) 中會自動填入建議值。 在此案例中，請輸入 "Orders"。 按一下 [CREATE] \(建立\)。
+3. 在 [New project] \(新增專案\) 表單中，輸入 [Name] \(名稱\)。 [Project Key] \(專案金鑰\) 中會自動填入建議值。 在此案例中，請輸入 "Orders"。 按一下 [建立]。
 
     ![新增專案表單](./media/hdinsight-apps-install-dataiku/new-project-form.png)
 
@@ -122,5 +120,5 @@ Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/connect
 * [安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)︰了解如何將未發佈的 HDInsight 應用程式部署到 HDInsight。
 * [發佈 HDInsight 應用程式](hdinsight-apps-publish-applications.md)︰了解如何將自訂 HDInsight 應用程式發佈至 Azure Marketplace。
 * [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)︰了解如何定義 HDInsight 應用程式。
-* [使用指令碼動作自訂 Linux 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用「指令碼動作」來安裝額外的應用程式。
+* [使用指令碼動作自訂以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用指令碼動作來安裝其他應用程式。
 * [在 HDInsight 中使用空白邊緣節點](hdinsight-apps-use-edge-node.md)︰了解如何使用空白邊緣節點來存取 HDInsight 叢集，以及測試和裝載 HDInsight 應用程式。

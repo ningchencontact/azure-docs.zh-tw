@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Active Directory 中設定內部部署條件式存取 | Microsoft Docs"
-description: "在 Windows Server 2012 R2 中使用 Active Directory Federation Services (AD FS) 來啟用對內部部署應用程式之條件式存取的逐步指南。"
+title: 在 Azure Active Directory 中設定內部部署條件式存取 | Microsoft Docs
+description: 在 Windows Server 2012 R2 中使用 Active Directory Federation Services (AD FS) 來啟用對內部部署應用程式之條件式存取的逐步指南。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>使用 Azure Active Directory 裝置註冊來設定內部部署條件式存取
 當您要求使用者在工作場所將其個人裝置加入至 Azure Active Directory (Azure AD) 裝置註冊服務時，他們的裝置便可標示為組織已知的裝置。 以下是一個逐步指南，說明如何在 Windows Server 2012 R2 中使用 Active Directory Federation Services (AD FS)，來啟用對內部部署應用程式的條件式存取。
@@ -89,7 +89,7 @@ ms.lasthandoff: 01/18/2018
 | 完成「在 Azure AD Connect 中啟用裝置回寫」的第 2 部分。 完成之後，請返回本指南。 |[在 Azure AD Connect 中啟用裝置回寫](#upgrade-your-active-directory-domain-services-schema) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[選擇性] 第 4 部分：啟用 Multi-Factor Authentication
-強烈建議您設定數個 Multi-Factor Authentication 選項其中之一。 如果您想要要求 Multi-Factor Authentication，請參閱[選擇您的 Multi-Factor Authentication 安全性解決方案](../multi-factor-authentication/multi-factor-authentication-get-started.md)。 它包含每個解決方案的描述，以及可協助您設定您所選解決方案的連結。
+強烈建議您設定數個 Multi-Factor Authentication 選項其中之一。 如果您想要要求 Multi-Factor Authentication，請參閱[選擇您的 Multi-Factor Authentication 安全性解決方案](authentication/concept-mfa-whichversion.md)。 它包含每個解決方案的描述，以及可協助您設定您所選解決方案的連結。
 
 ## <a name="part-5-verification"></a>第 5 部分：驗證
 部署程序現已完成，您可以試試一些案例。 請使用下列連結來進行服務實驗以熟悉其功能。

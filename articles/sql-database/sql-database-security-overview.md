@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 1dc34f021fa6482c65cce0e922951ae329987c43
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6a66c9fe3716935a717dca984d1995ca371d9499
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-your-sql-database"></a>保護您的 SQL Database
 
@@ -48,7 +48,7 @@ SQL Database 會使用[傳輸層安全性](https://support.microsoft.com/kb/3135
 SQL Database 使用防火牆規則、要求使用者證明其身分的驗證機制，以及透過角色型成員資格與權限和透過資料列層級安全性與動態資料遮罩的資料授權來限制資料庫的存取，進而保護您的資料。 如需在 SQL Database 中使用存取控制功能的討論，請參閱[控制存取](sql-database-control-access.md)。
 
 > [!IMPORTANT]
-> 在 Azure 內管理資料庫和邏輯伺服器，是由入口網站使用者帳戶的角色指派所控制。 如需有關此文章的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../active-directory/role-based-access-control-what-is.md)。
+> 在 Azure 內管理資料庫和邏輯伺服器，是由入口網站使用者帳戶的角色指派所控制。 如需有關此文章的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../role-based-access-control/overview.md)。
 >
 
 ### <a name="firewall-and-firewall-rules"></a>防火牆與防火牆規則

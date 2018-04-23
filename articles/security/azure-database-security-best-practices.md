@@ -1,12 +1,12 @@
 ---
-title: "Azure 資料庫安全性最佳做法 | Microsoft Docs"
-description: "本文章提供一組 Azure 資料庫安全性的最佳做法。"
+title: Azure 資料庫安全性最佳做法 | Microsoft Docs
+description: 本文章提供一組 Azure 資料庫安全性的最佳做法。
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3c019e8e1518c661eb75065f061ee681f0231efa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-database-security-best-practices"></a>Azure 資料庫安全性最佳做法
 
@@ -112,7 +112,7 @@ SQL Database 支援兩種類型的驗證，SQL 驗證和 Azure Active Directory 
 因為經過授權的使用者 (如安全性系統管理員或資料庫管理員) 可以存取資料，所以即使已使用 TDE 將資料庫加密，您也應該遵循下列建議︰
 
 -   啟用資料庫等級的 SQL 驗證。
--   使用 [RBAC 角色](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)的 Azure AD 驗證。
+-   使用 [RBAC 角色](https://docs.microsoft.com/azure/role-based-access-control/overview)的 Azure AD 驗證。
 -   使用者和應用程式應使用不同的帳戶進行驗證。 如此一來，您可以限制授與使用者和應用程式的權限，並降低惡意活動的風險。
 -   使用固定的資料庫角色 (例如 db_datareader 或 db_datawriter) 實作資料庫等級安全性，或者您可以為應用程式建立自訂角色，以授與明確的權限給選取的資料庫物件。
 

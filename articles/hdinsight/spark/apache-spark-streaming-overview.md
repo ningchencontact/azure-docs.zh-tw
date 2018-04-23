@@ -10,17 +10,15 @@ editor: cgronlun
 ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: a4cc2768f0d4217b2bd14938889e9b71c26009c9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1b836951bcb958d00fe846304cc1240ecfa01037
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="overview-of-spark-streaming"></a>Spark 串流的概觀
 
@@ -217,7 +215,7 @@ Spark 串流應用程式是長時間執行的應用程式，其會接收來自�
 
 ![部署 Spark 串流應用程式](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-藉由對 LIVY 端點發出 GET 要求，也可檢查所有應用程式的狀態。 最後，您可以對 LIVY 端點發出 DELETE 要求，來終止執行中的應用程式。 如需 LIVY API 的詳細資訊，請參閱[使用 LIVY 執行遠端作業](apache-spark-livy-rest-interface.md)
+您也可以藉由 LIVY 端點，使用 GET 要求來檢查所有應用程式的狀態。 最後，您可以對 LIVY 端點發出 DELETE 要求，來終止執行中的應用程式。 如需 LIVY API 的詳細資訊，請參閱[使用 LIVY 執行遠端作業](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>後續步驟
 

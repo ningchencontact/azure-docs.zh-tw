@@ -71,14 +71,12 @@ items:
     items:
       - name: 全球發佈
         href: distribute-data-globally.md
-      - name: 一致性
-        href: consistency-levels.md
       - name: 分割
         href: partition-data.md
       - name: Throughput
         href: request-units.md
-      - name: TCO
-        href: 'https://aka.ms/cosmosdb-tco-paper'
+      - name: 一致性
+        href: consistency-levels.md
       - name: 無伺服器資料庫
         href: serverless-computing-database.md
       - name: 安全性
@@ -86,10 +84,10 @@ items:
         items:
           - name: 待用加密
             href: database-encryption-at-rest.md
-          - name: 防火牆支援
-            href: firewall-support.md
           - name: 保護資料存取
             href: secure-access-to-data.md
+      - name: TCO
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: 使用案例
         href: use-cases.md
         items:
@@ -180,7 +178,7 @@ items:
                     href: sql-api-sql-query-metrics.md
               - name: 索引
                 href: indexing-policies.md
-              - name: 分割資料
+              - name: SQL 資料分割
                 href: sql-api-partition-data.md
               - name: 預存程序、觸發程序和 UDF
                 href: programming.md
@@ -233,7 +231,7 @@ items:
                   - name: 運用 ODBC 驅動程式展現資料視覺效果
                     href: odbc-driver.md
                   - name: 使用 Spring Boot Starter 搭配 SQL API
-                    href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+                    href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
           - name: 參考
             items:
               - name: 非同步 Java
@@ -346,6 +344,8 @@ items:
                 href: tutorial-global-distribution-graph.md
           - name: 使用說明指南
             items:
+              - name: 圖表分割
+                href: graph-partitioning.md
               - name: 整合
                 items:
                   - name: 連線至 Spark GraphX
@@ -434,6 +434,8 @@ items:
         href: manage-account.md
       - name: Throughput
         href: set-throughput.md
+      - name: 防火牆支援
+        href: firewall-support.md
       - name: 度量
         href: use-metrics.md
       - name: 監視 SLA
@@ -466,5 +468,3 @@ items:
         href: faq.md
       - name: 透過棒球說明資料一致性
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
-      - name: 針對 Azure Cosmos DB 進行疑難排解
-        href: troubleshoot-azure-cosmosdb.md

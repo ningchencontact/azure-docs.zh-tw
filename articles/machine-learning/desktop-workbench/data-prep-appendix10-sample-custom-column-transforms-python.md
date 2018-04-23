@@ -1,6 +1,6 @@
 ---
-title: "在 Azure Machine Learning 資料準備中衍生新資料行的範例 Python | Microsoft Docs"
-description: "本文件提供在 Azure Machine Learning 資料準備中建立新資料行的 Python 程式碼範例。"
+title: 在 Azure Machine Learning 資料準備中衍生新資料行的範例 Python | Microsoft Docs
+description: 本文件提供在 Azure Machine Learning 資料準備中建立新資料行的 Python 程式碼範例。
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 02670fa4506237ac391e467e5c7a1187b1131ece
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sample-of-custom-column-transforms-python"></a>自訂資料行轉換的範例 (Python) 
 這個轉換在功能表中的名稱是**新增資料行 (指令碼)**。

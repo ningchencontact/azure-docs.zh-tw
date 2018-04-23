@@ -1,11 +1,11 @@
 ---
-title: "使用範本建立 Azure IoT 中樞 (PowerShell) | Microsoft Docs"
-description: "如何在 PowerShell 中使用 Azure Resource Manager 範本建立 IoT 中樞。"
+title: 使用範本建立 Azure IoT 中樞 (PowerShell) | Microsoft Docs
+description: 如何在 PowerShell 中使用 Azure Resource Manager 範本建立 IoT 中樞。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7eade855-c289-4ffb-b5ef-02be8c5f670f
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 242c50b61b00bbf71b26e2aea1a66e2b2c55dbd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0e5f95d98f772b226e162f601939bc94bf8fb78b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>使用 Azure Resource Manager 範本建立 IoT 中樞 (PowerShell)
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/18/2017
 在 PowerShell 命令提示字元中，輸入下列命令來登入您的 Azure 訂用帳戶：
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 如果您有多個 Azure 訂用帳戶，則登入 Azure 即會為您授與和您認證相關聯之所有 Azure 訂用帳戶的存取權。 使用下列命令來列出可供您使用的 Azure 訂用帳戶：

@@ -3,22 +3,21 @@ title: 如何使用 PHP 的 Azure 儲存體表格服務或 Azure Cosmos DB 資�
 description: 了解如何使用 PHP 的表格服務 API 來建立和刪除資料表，以及插入、刪除和查詢資料表。
 services: cosmos-db
 documentationcenter: php
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: mimig
-ms.openlocfilehash: 69fa1f8f9717d1ea4ca5081a45317cff8d752809
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: af193c5ec7993d44fe67216843eb18f459718cfe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>如何使用 PHP 的 Azure 儲存體表格服務或 Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -27,23 +26,18 @@ ms.lasthandoff: 04/06/2018
 ## <a name="overview"></a>概觀
 本指南說明如何使用 Azure 儲存體表格服務和 Azure Cosmos DB 資料表 API 來執行一般案例。 這些範例是以 PHP 撰寫，並且使用 [Azure 儲存體資料表 PHP 用戶端程式庫][download]。 所涵蓋的案例包括**建立和刪除資料表**以及**在資料表中插入、刪除及查詢實體**。 如需有關 Azure 資料表服務的詳細資訊，請參閱 [後續步驟](#next-steps) 一節。
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 ## <a name="create-an-azure-service-account"></a>建立 Azure 服務帳戶
 
-您可以使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API 來搭配使用資料表。 您可以參閱[表格供應項目](table-introduction.md#table-offerings)，深入了解各服務之間的差異。 您必須為您要使用的服務建立帳戶。 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 
-建立您第一個儲存體帳戶最簡單的方法，就是使用 [Azure 入口網站](https://portal.azure.com)。 若要深入了解，請參閱 [建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-您也可以使用 [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) 或 [Azure CLI](../storage/common/storage-azure-cli.md) 來建立儲存體帳戶。
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>建立 Azure Cosmos DB 表格 API 帳戶
 
-如果您不想在此時建立儲存體帳戶，也可以使用 Azure 儲存體模擬器在本機環境中執行並測試您的程式碼。 如需詳細資訊，請參閱[使用 Azure 儲存體模擬器進行開發和測試](../storage/common/storage-use-emulator.md)。
-
-### <a name="create-an-azure-cosmos-db-account"></a>建立 Azure Cosmos DB 帳戶
-
-有關建立 Azure Cosmos DB 帳戶的指示，請參閱[建立資料表 API 帳戶](create-table-dotnet.md#create-a-database-account)。
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-php-application"></a>建立 PHP 應用程式
 

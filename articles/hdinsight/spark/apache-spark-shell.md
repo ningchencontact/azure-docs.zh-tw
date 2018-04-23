@@ -1,26 +1,24 @@
 ---
-title: "在 Azure HDInsight 中使用互動式 Spark Shell |Microsoft 文件"
-description: "互動式 Spark Shell 會針對執行 Spark 命令 (一次一個) 及查看結果提供「讀取-執行-列印」的流程。"
+title: 在 Azure HDInsight 中使用互動式 Spark Shell |Microsoft 文件
+description: 互動式 Spark Shell 會針對執行 Spark 命令 (一次一個) 及查看結果提供「讀取-執行-列印」的流程。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: maxluk
-ms.openlocfilehash: 55ff40165a1b25949cb202d9a5174e1f52fe4630
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 1d3d9d228e86df2811b92a0fcaa235f9d8c58d3f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-spark-from-the-spark-shell"></a>從 Spark Shell 執行 Spark
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 記錄與稽核
 ## <a name="introduction"></a>簡介
@@ -101,7 +101,7 @@ Azure 會為每項 Azure 服務產生大量記錄。 這些記錄檔會分類為
 
 -   將活動記錄與記錄設定檔匯出至 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)。
 
-您可以使用並非發出記錄的同一個訂用帳戶中的儲存體帳戶或[事件中樞命名空間](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive)。 進行此設定的使用者必須具有這兩個訂用帳戶的適當 [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) 存取權。
+您可以使用並非發出記錄的同一個訂用帳戶中的儲存體帳戶或[事件中樞命名空間](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive)。 進行此設定的使用者必須具有這兩個訂用帳戶的適當 [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 存取權。
 ### <a name="azure-diagnostic-logs"></a>Azure 診斷記錄
 Azure 診斷記錄是由資源發出的，提供有關該資源之作業的豐富、經常性資料。 這些記錄的內容會因資源類型而不同 (例如，[Windows 事件系統記錄檔](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events)是 VM 之診斷記錄的一個分類，而 [Blob、表格及佇列記錄](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account)是儲存體帳戶之診斷記錄檔的分類)，而且與活動記錄不同，後者可讓您深入了解在訂用帳戶中的資源上執行之作業。
 

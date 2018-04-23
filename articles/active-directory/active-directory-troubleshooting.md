@@ -1,11 +1,11 @@
 ---
-title: "疑難排解：'Active Directory' 項目遺失或無法使用 | Microsoft Docs"
-description: "若 Active Directory 功能表項目未出現在 Azure 管理入口網站中，該怎麼做。"
+title: 疑難排解：'Active Directory' 項目遺失或無法使用 | Microsoft Docs
+description: 若 Active Directory 功能表項目未出現在 Azure 管理入口網站中，該怎麼做。
 services: active-directory
 documentationcenter: na
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: 27a884b89224ed5765e9fcef134e711e3952ff72
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6e8557ec66db51df0bb463a9511b0cdc94811d4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>疑難排解：'Active Directory' 項目遺失或無法使用
 許多使用 Azure Active Directory 功能和服務的相關指示都是以「前往 Azure 管理入口網站並按一下 **Active Directory**」為開頭。 但是，如果 Active Directory 擴充功能或功能表項目未出現，或者標示為 [無法使用]，該怎麼辦？ 本主題旨在提供協助。 它將說明 **Active Directory** 未出現或無法使用的情況，並說明如何繼續執行。
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/11/2017
 * Azure 租用戶至少具有一個 Azure AD 存取控制 (ACS) 命名空間。 如需詳細資訊，請參閱 [存取控制命名空間](https://msdn.microsoft.com/library/azure/gg185908.aspx)。
   
     或
-* Azure 租用戶至少具有一個 Azure Multi-Factor Authentication 提供者。 如需詳細資訊，請參閱 [管理 Azure Multi-Factor Authentication 提供者](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)。
+* Azure 租用戶至少具有一個 Azure Multi-Factor Authentication 提供者。 如需詳細資訊，請參閱 [管理 Azure Multi-Factor Authentication 提供者](authentication/howto-mfa-getstarted.md)。
 
 若要建立存取控制命名空間或 Multi-Factor Authentication 提供者，請按一下 [+新增]  >  [應用程式服務]  >  [Active Directory]。
 

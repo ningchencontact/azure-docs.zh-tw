@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: af011cb3eea27498107cdfd650518552cd63bdf3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="governance-in-azure"></a>Azure 中的治理
 
@@ -147,7 +147,7 @@ Azure 最初發行時，訂用帳戶的存取控制是基本的︰系統管理�
 
 不再需要此種訂用帳戶激增情況。 使用角色型存取控制，您可以將使用者指派給標準角色 (例如常見的「讀取者」和「寫入者」角色類型)。 您也可以定義自訂角色。
 
-[Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) 可以對 Azure 進行更細緻的存取權管理。 使用 RBAC，您可以僅授與使用者執行其作業所需的存取權。 安全性導向公司應該將焦點放在提供員工所需的確切權限。 權限太多會讓帳戶暴露在攻擊者的威脅下。 權限太少則會讓員工無法有效率地完成工作。 Azure「角色型存取控制」(RBAC) 可以為 Azure 提供更細緻的存取管理來協助解決這個問題。 RBAC 可協助您區隔小組內的職責，而僅授與使用者執行作業所需的存取權。 您可以不授與每個人 Azure 訂用帳戶或資源中無限制的權限，而是只允許執行特定的動作。
+[Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 可以對 Azure 進行更細緻的存取權管理。 使用 RBAC，您可以僅授與使用者執行其作業所需的存取權。 安全性導向公司應該將焦點放在提供員工所需的確切權限。 權限太多會讓帳戶暴露在攻擊者的威脅下。 權限太少則會讓員工無法有效率地完成工作。 Azure「角色型存取控制」(RBAC) 可以為 Azure 提供更細緻的存取管理來協助解決這個問題。 RBAC 可協助您區隔小組內的職責，而僅授與使用者執行作業所需的存取權。 您可以不授與每個人 Azure 訂用帳戶或資源中無限制的權限，而是只允許執行特定的動作。
 
 例如，使用 RBAC 讓一位員工管理某個訂用帳戶中的虛擬機器，而讓另一位員工管理相同訂用帳戶中的 SQL 資料庫。
 
@@ -161,7 +161,7 @@ Azure RBAC 有適用於所有資源類型的三個基本角色：
 
 Azure 中其餘的 RBAC 角色可以管理特定 Azure 資源。 例如，「虛擬機器參與者」角色可讓使用者建立和管理虛擬機器。 但不會授予他們存取虛擬機器所連接的虛擬網路或子網路的存取權。
 
-[RBAC 內建角色](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) 會列出 Azure 中可用的角色。 它會指定每個內建角色授與使用者的作業和範圍。
+[RBAC 內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 會列出 Azure 中可用的角色。 它會指定每個內建角色授與使用者的作業和範圍。
 
 您可以藉由在特定範圍將適當的 RBAC 角色指派給使用者、群組及應用程式，來授與存取權。 角色指派的範圍可以是訂用帳戶、資源群組或單一資源。 在父範圍指派的角色也會授與其內含子系的存取權。
 
@@ -169,9 +169,9 @@ Azure 中其餘的 RBAC 角色可以管理特定 Azure 資源。 例如，「虛
 
 Azure RBAC 僅支援在 Azure 入口網站和 Azure Resource Manager API 中的 Azure 資源管理作業。 它無法授權 Azure 資源的所有資料層級作業。 例如，您可以授權某個人管理「儲存體帳戶」，但無法授權他管理「儲存體帳戶」內的 Blob 或資料表。 同樣地，可以管理 SQL Database，但無法管理其中的資料表。
 
-如果您需要有關 RBAC 如何協助您管理存取權的詳細資訊，請參閱 [什麼是角色型存取控制](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)。
+如果您需要有關 RBAC 如何協助您管理存取權的詳細資訊，請參閱 [什麼是角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/overview)。
 
-如果內建角色都不符合您的特定存取需求，您也可以在 Azure 角色型存取控制 (RBAC) 中[建立自訂角色](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)。 自訂角色可以使用 [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell)、[Azure 命令列介面 (CLI)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli) 和 [REST API](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest) 建立。 就像內建角色一樣，可以將自訂角色指派給訂用帳戶、資源群組和資源範圍的使用者、群組和應用程式。
+如果內建角色都不符合您的特定存取需求，您也可以在 Azure 角色型存取控制 (RBAC) 中[建立自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)。 自訂角色可以使用 [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)、[Azure 命令列介面 (CLI)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) 和 [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest) 建立。 就像內建角色一樣，可以將自訂角色指派給訂用帳戶、資源群組和資源範圍的使用者、群組和應用程式。
 
 在每個訂用帳戶內，您可以授與最多 2000 個角色指派。
 
@@ -271,7 +271,7 @@ Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳
 
 舉另一個例子來說，將 ReadOnly 鎖定放置在 App Service 資源上，會防止 Visual Studio 伺服器總管顯示該資源的檔案，因為該互動需要寫入存取權。
 
-不同於角色型存取控制，您可以使用管理鎖定來對所有使用者和角色套用限制。 如要了解使用者和角色的設定權限，請參閱 [Azure 角色型存取控制](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)。
+不同於角色型存取控制，您可以使用管理鎖定來對所有使用者和角色套用限制。 如要了解使用者和角色的設定權限，請參閱 [Azure 角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)。
 
 當您在父範圍套用鎖定時，該範圍內的所有資源都會都繼承相同的鎖定。 甚至您稍後新增的資源都會繼承父項的鎖定。 繼承中限制最嚴格的鎖定優先順序最高。
 

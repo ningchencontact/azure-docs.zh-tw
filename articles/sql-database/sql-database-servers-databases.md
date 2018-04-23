@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>建立和管理 Azure SQL Database 伺服器與資料庫
 
@@ -46,7 +46,7 @@ Azure 資料庫邏輯伺服器：
 - 是資料庫的父資源、彈性集區和資料倉儲
 - 提供資料庫的命名空間、彈性集區和資料倉儲
 - 是具有強式存留期語意 - 刪除伺服器的邏輯容器，它會刪除自主資料庫、彈性集區和資料倉儲
-- 參與 [Azure 角色型存取控制 (RBAC)](/active-directory/role-based-access-control-what-is) - 伺服器內的資料庫、彈性集區和資料倉儲會從伺服器繼承存取權限
+- 參與 [Azure 角色型存取控制 (RBAC)](/azure/role-based-access-control/overview) - 伺服器內的資料庫、彈性集區和資料倉儲會從伺服器繼承存取權限
 - 是供 Azure 資源管理的資料庫身分識別、彈性集區和資料倉儲的高序位項目 (請參閱資料庫和集區的 URL 配置)
 - 區域中的共置資源
 - 提供用來存取資料庫的連接端點 (<serverName>.database.windows.net)
@@ -79,9 +79,8 @@ Azure 資料庫邏輯伺服器：
 
 > [!IMPORTANT]
 > 如需選取資料庫定價層的資訊，請參閱[服務層](sql-database-service-tiers.md)。
->
 
-若要建立「受控執行個體」，請參閱[建立受控執行個體](sql-database-managed-instance-tutorial-portal.md)
+若要建立「受控執行個體」，請參閱[建立受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)
 
 ### <a name="manage-an-existing-sql-server"></a>管理現有的 SQL Server
 

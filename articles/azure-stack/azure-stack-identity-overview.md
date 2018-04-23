@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 2/22/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: deebe5d8ff4c35c4507d2daf5c15025a1810d865
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 607c7938a789b3504a425057645b291bd4c8235b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack 的身分識別概觀
 
@@ -169,9 +169,9 @@ Azure Stack 的身分識別包括使用者帳戶、群組和服務主體。
 
 ### <a name="use-role-based-access-control"></a>使用角色型存取控制  
 Azure Stack 中的角色型存取控制 (RBAC) 與 Microsoft Azure 中的實作一致。 您可以藉由將適當的 RBAC 角色指派給使用者、群組及應用程式，來管理資源的存取權。 如需如何使用 RBAC 搭配 Azure Stack 的相關資訊，請參閱下列文章：
-- [在 Azure 入口網站中開始使用角色型存取控制](/azure/active-directory/role-based-access-control-what-is)。
-- [使用角色型存取控制來管理 Azure 訂用帳戶資源的存取](/azure/active-directory/role-based-access-control-configure)。
-- [建立 Azure 角色型存取控制的自訂角色](/azure/active-directory/role-based-access-control-custom-roles)。
+- [在 Azure 入口網站中開始使用角色型存取控制](/azure/role-based-access-control/overview)。
+- [使用角色型存取控制來管理 Azure 訂用帳戶資源的存取](/azure/role-based-access-control/role-assignments-portal)。
+- [建立 Azure 角色型存取控制的自訂角色](/azure/role-based-access-control/custom-roles)。
 - 在 Azure Stack 中[管理角色型存取控制](azure-stack-manage-permissions.md)。
 
 

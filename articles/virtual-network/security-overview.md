@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 3b935d3a3c37b63386dfb2cbd25ceba59d91a998
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f57a4b87c239126d248cba5106e005103d8372b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="network-security"></a>網路安全性
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/06/2018
 - **輸入流量**：系統會先評估與網路介面所在子網路相關聯的網路安全性群組。 再由與網路介面相關聯的網路安全性群組，評估經由與子網路相關聯的網路安全性群組允許的任何流量。 例如，您可能需要從網際網路透過連接埠 80 對虛擬機器進行輸入存取。 如果您將網路安全性群組與網路介面和網路介面所在子網路產生關聯，則與子網路和網路介面相關聯的網路安全性群組必須允許連接埠 80。 如果您經由與子網路或子網路所在網路介面相關聯的網路安全性群組只允許連接埠 80，則通訊會因為預設安全性規則而失敗。 如需詳細資訊，請參閱[預設安全性規則](#default-security-rules)。 如果您只將網路安全性群組套用至子網路或網路介面，而且此網路安全性群組含有允許輸入連接埠 80 流量 (舉例來說) 的規則，則通訊會成功。 
 - **輸出流量**：系統會先評估與網路介面相關聯的網路安全性群組。 再由與子網路相關聯的網路安全性群組，評估經由與網路介面相關聯的網路安全性群組允許的任何流量。
 
-您可能永遠不會注意網路安全性群組何時同時套用至網路介面和子網路。 藉由檢視網路介面的[有效安全性規則](virtual-network-nsg-troubleshoot-portal.md)，可以輕鬆地檢視套用至網路介面的彙總規則。 您也可以使用 Azure 網路監看員中的 [IP 流量確認](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)功能來判斷是否允許網路介面的雙向通訊。 此工具會告訴您是否允許通訊，以及哪個網路安全性規則允許或拒絕流量。
+您可能永遠不會注意網路安全性群組何時同時套用至網路介面和子網路。 藉由檢視網路介面的[有效安全性規則](virtual-network-network-interface.md#view-effective-security-rules)，可以輕鬆地檢視套用至網路介面的彙總規則。 您也可以使用 Azure 網路監看員中的 [IP 流量確認](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)功能來判斷是否允許網路介面的雙向通訊。 此工具會告訴您是否允許通訊，以及哪個網路安全性規則允許或拒絕流量。
  
 > [!NOTE]
 > 網路安全性群組會與子網路或與部署傳統部署模型的虛擬機器和雲端服務相關聯，而不是與 Resource Manager 部署模型中的網路介面相關聯。 若要深入了解 Azure 部署模型，請參閱[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。

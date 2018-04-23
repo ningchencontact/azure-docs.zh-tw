@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: d0b287eb61087e90c898aad5273ab5be8c1f98b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bd3618367f91fe043cc8412481b38a9c996a5275
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 SQL 資料庫
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 04/03/2018
 
     - 在 DependencyFilesLocalPath 參數所指向的目錄中只能有一個憑證檔案。
 
-    - 檔案名稱不得包含任何特殊字元。
+    - 檔案名稱不得包含任何特殊字元或空格。
 
 
 5. 開啟**新的**已提升權限 (管理) 的 PowerShell 主控台，並變更至解壓縮檔案所在的目錄。 使用新視窗，以避免因系統上已載入不正確的 PowerShell 模組而可能發生的問題。

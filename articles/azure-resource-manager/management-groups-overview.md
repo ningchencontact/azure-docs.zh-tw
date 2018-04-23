@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 31e71f153c7bbf76b0f06f8f17a74c43cc1b1c81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源 
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/03/2018
 
 ![樹狀](media/management-groups/MG_overview.png)
 
-藉由建立依部門分組的階層，您就可以將*繼承*的 [Azure 角色型存取控制 (RBAC)](../active-directory/role-based-access-control-what-is.md) 角色指派給該管理群組下的部門。 藉由使用管理群組，您將可減少工作負載，且因為只需指派角色一次而降低發生錯誤的風險。 
+藉由建立依部門分組的階層，您就可以將*繼承*的 [Azure 角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 角色指派給該管理群組下的部門。 藉由使用管理群組，您將可減少工作負載，且因為只需指派角色一次而降低發生錯誤的風險。 
 
 ### <a name="important-facts-about-management-groups"></a>關於管理群組的重要事實
 - 單一目錄中可支援 10,000 個管理群組。 
@@ -55,7 +55,7 @@ ms.lasthandoff: 04/03/2018
 
 ## <a name="root-management-group-for-each-directory"></a>每個目錄的根管理群組
 
-每個目錄會都會有一個最上層管理群組，名為「根」管理群組。 這個根管理群組會建置於階層內，讓所有的管理群組和訂用帳戶摺疊於其中。 這個根管理群組可讓全域原則和 RBAC 指派在目錄層級套用。 [目錄管理員必須提高本身的權限](../active-directory/role-based-access-control-tenant-admin-access.md)，以成為此根群組最初的擁有者。 管理員一旦成為群組的擁有者，即可將任何 RBAC 角色指派給其他目錄使用者或群組，以管理階層。  
+每個目錄會都會有一個最上層管理群組，名為「根」管理群組。 這個根管理群組會建置於階層內，讓所有的管理群組和訂用帳戶摺疊於其中。 這個根管理群組可讓全域原則和 RBAC 指派在目錄層級套用。 [目錄管理員必須提高本身的權限](../role-based-access-control/elevate-access-global-admin.md)，以成為此根群組最初的擁有者。 管理員一旦成為群組的擁有者，即可將任何 RBAC 角色指派給其他目錄使用者或群組，以管理階層。  
 
 ### <a name="important-facts-about-the-root-management-group"></a>關於根管理群組的重要事實
 - 依預設會提供 Azure Active Directory 識別碼作為根管理群組的名稱和識別碼。 顯示名稱可隨時更新，而在 Azure 入口網站中呈現為不同名稱。 
@@ -67,9 +67,9 @@ ms.lasthandoff: 04/03/2018
   
 ## <a name="management-group-access"></a>管理群組存取
 
-Azure 管理群組支援對所有的資源存取和角色定義使用 [Azure 角色型存取控制 (RBAC)](../active-directory/role-based-access-control-what-is.md)。 這些權限會被存在於階層中的子資源繼承。   
+Azure 管理群組支援對所有的資源存取和角色定義使用 [Azure 角色型存取控制 (RBAC)](../role-based-access-control/overview.md)。 這些權限會被存在於階層中的子資源繼承。   
 
-雖然任何[內建 RBAC 角色](../active-directory/role-based-access-control-what-is.md#built-in-roles)都可指派給管理群組，但常用的角色只有四種： 
+雖然任何[內建 RBAC 角色](../role-based-access-control/overview.md#built-in-roles)都可指派給管理群組，但常用的角色只有四種： 
 - **擁有者** 具有所有資源的完整存取權，包括將存取權委派給其他人的權限。 
 - **參與者**：可以建立和管理所有類型的 Azure 資源，但是不能將存取權授與其他人。
 - **資源原則參與者**可在目錄中建立和管理資源的原則。     

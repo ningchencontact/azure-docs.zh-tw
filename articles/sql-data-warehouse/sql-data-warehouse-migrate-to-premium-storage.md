@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 03/15/2018
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 3b43bc17b7f9cf80a9520c5c573be3a48d82e4e7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>將您的資料倉儲移轉到進階儲存體
 Azure SQL 資料倉儲最新引進了[進階儲存體，以獲得更高的效能可預測性][premium storage for greater performance predictability]。 現在可以將目前在標準儲存體上的現有資料倉儲移轉至進階儲存體。 您可以利用自動移轉，或如果您想要控制何時要移轉 (未包含某些停機時間)，您可以自行完成移轉。

@@ -1,12 +1,12 @@
 ---
-title: "使用 Log Analytics 收集 Azure PaaS 資源計量 | Microsoft Docs"
-description: "了解如何使用 PowerShell 來啟用 Azure PaaS 資源計量收集，以便在 Log Analytics 中保留和分析。"
+title: 使用 Log Analytics 收集 Azure PaaS 資源計量 | Microsoft Docs
+description: 了解如何使用 PowerShell 來啟用 Azure PaaS 資源計量收集，以便在 Log Analytics 中保留和分析。
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 83491c4902dabc6bab1e222551298cfaffbaecf4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8a2c04c2f79f310b7e70e7add7a8d5f318f056d2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>使用 Log Analytics 設定 Azure PaaS 資源計量的收集
 
@@ -57,7 +57,7 @@ Azure 平台即服務 (PaaS) 資源 (例如 Azure SQL 和網站 (Web 應用程�
     PS C:\> save-script -Name Enable-AzureRMDiagnostics -Path "C:\users\<username>\desktop\temp"
     ```
 
-3. 執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。   
+3. 執行 `Connect-AzureRmAccount` 來建立與 Azure 的連線。   
 4. 執行下列指令碼 `.\Enable-AzureRmDiagnostics.ps1` (不使用任何參數) 來啟用從您訂用帳戶中的特定資源收集資料，，或使用參數 `-ResourceGroup <myResourceGroup>` 來指定特定資源群組中的資源。   
 5. 如果您有多個訂用帳戶，請輸入正確的值，以便從清單中選取適當的訂用帳戶。<br><br> ![選取指令碼所傳回的訂用帳戶](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> 否則，它會自動選取可用的單一訂用帳戶。
 6. 接下來，指令碼會傳回訂用帳戶中已註冊的 Log Analytics 工作區清單。  從清單中選取適當的工作區。<br><br> ![選取指令碼所傳回的工作區](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 

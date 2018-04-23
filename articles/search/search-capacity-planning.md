@@ -1,25 +1,17 @@
 ---
-title: "Azure 搜尋服務的容量規劃 | Microsoft Docs"
-description: "在「Azure 搜尋服務」中調整分割區和複本電腦資源，其中每個資源都是以計費搜尋單位來計價。"
-services: search
-documentationcenter: 
+title: Azure 搜尋服務的容量規劃 | Microsoft Docs
+description: 在「Azure 搜尋服務」中調整分割區和複本電腦資源，其中每個資源都是以計費搜尋單位來計價。
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 1dc16afe-56f9-439d-8874-1733ae1a2b74
+manager: cgronlun
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 47dcd5366ef8ba3d4598e6d418b11997c61bddea
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: caca793b529d8025f3c6a994ea8598068ee1b053
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>在 Azure 搜尋服務中調整適用於查詢和編製索引工作負載的資源等級
 在您[選擇定價層](search-sku-tier.md)和[佈建搜尋服務](search-create-service-portal.md)之後，下一個步驟是選擇性地增加服務所使用的複本或分割區數目。 每一層都提供固定的計費單位數目。 本文說明如何配置這些單位以達到最佳的組態，讓您在查詢執行、編制索引和儲存體等需求之間取得平衡。

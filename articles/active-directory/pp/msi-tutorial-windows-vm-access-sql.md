@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 682998bb979c9b155b7b1389d8f605018ae135b6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure SQL
 
@@ -101,7 +101,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-接下來，將 VM 的 MSI 新增至群組。  您需要的 MSI 的 **ObjectId**，可以使用 Azure PowerShell 取得此值。  首先，下載 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 然後使用 `Login-AzureRmAccount` 登入，執行下列命令來達成這些事項︰
+接下來，將 VM 的 MSI 新增至群組。  您需要的 MSI 的 **ObjectId**，可以使用 Azure PowerShell 取得此值。  首先，下載 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 然後使用 `Connect-AzureRmAccount` 登入，執行下列命令來達成這些事項︰
 - 確定工作階段內容設為所需的 Azure 訂用帳戶 (如果您有多個訂用帳戶)。
 - 列出 Azure 訂用帳戶中的可用資源，確認資源群組和 VM 名稱正確。
 - 使用適當的 `<RESOURCE-GROUP>`和 `<VM-NAME>` 值取得 MSI VM 的屬性。

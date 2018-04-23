@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
 ms.openlocfilehash: 42932e6d1727a1444c62f565ae3c48dc178aeb2b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure Logic Apps 的工作流程定義語言結構描述
 
@@ -126,14 +126,14 @@ ms.lasthandoff: 04/06/2018
 > [!NOTE]
 > 某些運算式可能會從執行開始時不存在的執行階段動作中取得其值。 您可以使用**函式**來協助擷取這些值。  
   
-運算式可以出現在 JSON 字串值中的任何一處，並一律產生另一個 JSON 值。 當 JSON 值已經確定是運算式時，藉由移除 @ 符號來擷取運算式的主體。 如果需要的常值字串開頭為 \@\，字串必須使用 \@@\ 逸出。 下列範例顯示如何評估運算式。  
+運算式可以出現在 JSON 字串值中的任何一處，並一律產生另一個 JSON 值。 當 JSON 值已經確定是運算式時，藉由移除 @ 符號來擷取運算式的主體。 如果需要的常值字串開頭為 \@\，字串必須使用 \@@ 逸出。 下列範例顯示如何評估運算式。  
   
 |JSON 值|結果|  
 |----------------|------------|  
 |"parameters"|傳回字元 'parameters'。|  
 |"parameters[1]"|傳回字元 'parameters[1]'。|  
-|"\@@\"|傳回包含 \'\@\' 的 1 個字元字串。|  
-|\" \@\"|傳回包含 '\@\' 的 2 個字元字串。|  
+|"@@"|傳回包含 \'\@\' 的 1 個字元字串。|  
+|\" \@\"|傳回包含 \ ' \@ \' 的 2 個字元字串。|  
   
 使用「字串插補」，運算式也可以出現在字串內，其中運算式會包含在 `@{ ... }` 內。 例如︰ <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 

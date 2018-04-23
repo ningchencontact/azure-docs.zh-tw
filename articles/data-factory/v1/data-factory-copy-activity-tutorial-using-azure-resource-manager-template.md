@@ -1,11 +1,11 @@
 ---
-title: "教學課程：使用 Resource Manager 範本建立管線 | Microsoft Docs"
-description: "在本教學課程中，您會使用 Azure Resource Manager 範本建立 Azure Data Factory 管線。 此管線會將資料從 Azure Blob 儲存體複製到 Azure SQL Database。"
+title: 教學課程：使用 Resource Manager 範本建立管線 | Microsoft Docs
+description: 在本教學課程中，您會使用 Azure Resource Manager 範本建立 Azure Data Factory 管線。 此管線會將資料從 Azure Blob 儲存體複製到 Azure SQL Database。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 1274e11a-e004-4df5-af07-850b2de7c15e
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6d4006389fffe999ce83d3c2535505869ecc0519
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c8f96ffa44cb584cef3c3a5f785c20469aac38bd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>本教學課程︰使用 Azure Resource Manager 範本建立 Data Factory 管線來複製資料 
 > [!div class="op_single_selector"]
@@ -319,7 +319,7 @@ ms.lasthandoff: 03/02/2018
    * 執行下列命令並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。
    
     ```PowerShell
-    Login-AzureRmAccount    
+    Connect-AzureRmAccount      
     ```  
    * 執行下列命令以檢視此帳戶的所有訂用帳戶。
    

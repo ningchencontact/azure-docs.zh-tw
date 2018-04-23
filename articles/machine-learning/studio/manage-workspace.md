@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 4d971d75424f85bb07c0be779b9dfedb1ef41c1e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f5561ac0089225ae2d06e51a90fa2081e409ce41
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>管理 Azure Machine Learning 工作區
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/23/2018
 > [!NOTE]
 > 若要部署或管理新的 Web 服務，您必須獲得下列角色的指派：要部署 Web 服務之訂用帳戶上的參與者或系統管理員角色。 如果您邀請另一位使用者到 Machine Learning 工作區，就必須為他們指派訂用帳戶上的參與者或管理員角色，然後他們才能部署或管理 Web 服務。 
 > 
->如需有關設定存取權限的詳細資訊，請參閱[在 Azure 入口網站中檢視使用者和群組的存取權指派](../../active-directory/role-based-access-control-manage-assignments.md)。
+>如需有關設定存取權限的詳細資訊，請參閱[在 Azure 入口網站中檢視使用者和群組的存取權指派](../../role-based-access-control/role-assignments-users.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解[使用Azure Resource Manager 範本部署 Machine Learning](deploy-with-resource-manager-template.md)。 

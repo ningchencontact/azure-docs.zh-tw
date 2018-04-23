@@ -1,6 +1,6 @@
 ---
-title: "建立有多站台裝載的應用程式閘道 - Azure PowerShell | Microsoft Docs"
-description: "了解如何使用 Azure PowerShell 來建立應用程式閘道，裝載多個站台。"
+title: 建立有多站台裝載的應用程式閘道 - Azure PowerShell | Microsoft Docs
+description: 了解如何使用 Azure PowerShell 來建立應用程式閘道，裝載多個站台。
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: ed385eac624f5c59981c01ee70ba2a1700a78653
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: be3ecf1d1ce292df47cbe117390e863f4bd4d5b1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>使用 Azure PowerShell，建立有多站台裝載的應用程式閘道
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/09/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組版本 3.6 或更新版本。 若要尋找版本，請執行 ` Get-Module -ListAvailable AzureRM`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組版本 3.6 或更新版本。 若要尋找版本，請執行 ` Get-Module -ListAvailable AzureRM`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -249,7 +249,7 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="create-cname-record-in-your-domain"></a>在網域中建立 CNAME 記錄
 
-在以公用 IP 位址建立應用程式閘道之後，您可以取得 DNS 位址並用以在網域中建立 CNAME 記錄。 您可以使用 [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 取得應用程式閘道的 DNS 位址。 複製 DNSSettings 的 fqdn 值，並用來作為所建立 CNAME 記錄的值。 不建議使用 A-records，因為重新啟動應用程式閘道時，可能會變更 VIP。
+在以公用 IP 位址建立應用程式閘道之後，您可以取得 DNS 位址並用以在網域中建立 CNAME 記錄。 您可以使用 [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 取得應用程式閘道的 DNS 位址。 複製 DNSSettings 的 *fqdn* 值，並用來作為所建立 CNAME 記錄的值。 不建議使用 A-records，因為重新啟動應用程式閘道時，可能會變更 VIP。
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -257,9 +257,9 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-在瀏覽器的網址列中輸入您的網域名稱。 例如 http://www.contoso.com。
+在瀏覽器的網址列中輸入您的網域名稱。 例如，http://www.contoso.com。
 
-![測試應用程式閘道中的 contoso 網站](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest.png)
+![在應用程式閘道中測試 contoso 網站](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest.png)
 
 將位址變更為您的另一個網域，您應該會看到類似下列的範例：
 

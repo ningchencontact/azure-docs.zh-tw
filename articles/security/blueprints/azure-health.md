@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bdd7dbf4f39529ac76fb496f0d459577e6f929dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI
 
@@ -79,14 +79,14 @@ Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 藍圖提�
 ## <a name="roles"></a>角色
 
 
-藍圖為系統管理使用者 (操作員) 定義兩個角色，並為醫院管理與病患照護中的使用者定義三個角色。 第六個角色是針對要評估 HIPAA 與其他法規合規性的稽核員所定義的。 Azure 角色型存取控制 (RBAC) 可透過內建與自訂角色，為解決方案的每個使用者做到精確且專注的存取權管理。 請參閱[在 Azure 入口網站中開始使用角色型存取控制](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)和[Azure 角色型存取控制的內建角色](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)以了解關於 RBAC、角色和權限的詳細資訊。
+藍圖為系統管理使用者 (操作員) 定義兩個角色，並為醫院管理與病患照護中的使用者定義三個角色。 第六個角色是針對要評估 HIPAA 與其他法規合規性的稽核員所定義的。 Azure 角色型存取控制 (RBAC) 可透過內建與自訂角色，為解決方案的每個使用者做到精確且專注的存取權管理。 請參閱[在 Azure 入口網站中開始使用角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/overview)和[Azure 角色型存取控制的內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)以了解關於 RBAC、角色和權限的詳細資訊。
 
 ### <a name="site-administrator"></a>網站系統管理員
 
 
 網站系統管理員負責客戶的 Azure 訂用帳戶。 他們控制整體部署，但沒有病患記錄的存取權。
 
--   預設角色指派：[擁有者](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#owner)
+-   預設角色指派：[擁有者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   自訂角色指派：N/A
 
@@ -97,7 +97,7 @@ Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 藍圖提�
 資料庫分析師會管理 SQL Server 執行個體與資料庫。
 他們沒有病患記錄的存取權。
 
--   內建角色指派：[SQL DB 參與者](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-db-contributor)[SQL Server 參與者](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-server-contributor)
+-   內建角色指派：[SQL DB 參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor)[SQL Server 參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   自訂角色指派：N/A
 
@@ -108,7 +108,7 @@ Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 藍圖提�
 
 資料科學家負責操作 Azure Machine Learning 服務。 他們可以匯入、匯出及管理資料，以及執行報告。 資料科學家具有病患資料的存取權，但沒有系統管理權限。
 
--   內建角色指派：[儲存體帳戶參與者](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#storage-account-contributor)
+-   內建角色指派：[儲存體帳戶參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   自訂角色指派：N/A
 
@@ -138,7 +138,7 @@ CMIO 是橫跨醫療保健組織內的資訊/技術和醫護專業的人。 其�
 
 稽核員會評估解決方案的合規性。 他們沒有網路的直接存取權。
 
--   內建角色指派：[讀者](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#reader)
+-   內建角色指派：[讀者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   自訂角色指派：N/A
 
@@ -222,7 +222,7 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 
 -   [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) 會偵測影響您組織身分識別的潛在弱點，並為偵測到的組織身分識別相關可疑活動設定自動回應，以及調查可疑事件並採取適當動作來解決這些可疑事件。
 
--   [Azure 角色型存取控制 (RBAC)](/azure/active-directory/role-based-access-control-configure) 可以對 Azure 進行精確且專注的存取權管理。 可存取訂用帳戶的身分會限制為訂用帳戶系統管理員，而可存取 Azure Key Vault 的身分則是限制為網站系統管理員。 需要強式密碼 (至少 12 個字元，其中至少一個大寫/小寫字母、數字和特殊字元)。
+-   [Azure 角色型存取控制 (RBAC)](/azure/role-based-access-control/role-assignments-portal) 可以對 Azure 進行精確且專注的存取權管理。 可存取訂用帳戶的身分會限制為訂用帳戶系統管理員，而可存取 Azure Key Vault 的身分則是限制為網站系統管理員。 需要強式密碼 (至少 12 個字元，其中至少一個大寫/小寫字母、數字和特殊字元)。
 
 -   在部署期間啟用 -enableMFA 參數時，支援多重要素驗證。
 
@@ -230,7 +230,7 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 
 **角色：**
 
--   解決方案使用[內建角色](/azure/active-directory/role-based-access-built-in-roles)來管理資源的存取權。
+-   解決方案使用[內建角色](/azure/role-based-access-control/built-in-roles)來管理資源的存取權。
 
 -   所有使用者依預設會被指派特定的內建角色。
 
@@ -356,7 +356,7 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 
 
 -   會針對 Machine Learning Web 服務[啟用記錄](/azure/machine-learning/studio/web-services-logging)。
-- 使用 [Machine Learning](/azure/machine-learning/preview/experimentation-service-configuration) 工作台需要開發實驗，以便提供預測解決方案集的能力。 [整合工作台](/azure/machine-learning/preview/using-git-ml-project)可協助簡化實驗管理。
+- 使用 [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) 工作台需要開發實驗，以便提供預測解決方案集的能力。 [整合工作台](/azure/machine-learning/desktop-workbench/using-git-ml-project)可協助簡化實驗管理。
 
 ## <a name="security"></a>安全性
 

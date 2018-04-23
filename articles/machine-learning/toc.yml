@@ -1,5 +1,5 @@
 - name: Azure Machine Learning 服務 (預覽)
-  href: preview/index.yml
+  href: service/index.yml
 - name: Azure Machine Learning Studio
   href: studio/index.yml
 - name: 資料科學虛擬機器

@@ -1,11 +1,11 @@
 ---
-title: "透過 Windows Hello 企業版和 Azure AD 不需要密碼就能驗證身分識別 | Microsoft Docs"
-description: "提供 Windows Hello 企業版概觀以及部署 Windows Hello 企業版的其他資訊。"
+title: 透過 Windows Hello 企業版和 Azure AD 不需要密碼就能驗證身分識別 | Microsoft Docs
+description: 提供 Windows Hello 企業版概觀以及部署 Windows Hello 企業版的其他資訊。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 tags: azure-classic-portal
 ms.assetid: f907bb90-8776-46ca-9e12-279949af66ff
 ms.service: active-directory
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
 ms.openlocfilehash: 22534cc5f7f2de235bc1f1212c63ea227083c5a4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="authenticating-identities-without-passwords-through-windows-hello-for-business"></a>透過 Windows Hello 企業版不需要密碼就能驗證身分識別
 目前單獨驗證密碼的方法不足以保障使用者的安全。 使用者會重複使用和忘記密碼。 密碼是可破壞、可進行網路釣魚、易於破解且可猜測的。 密碼也很難記住，而且易於遭受攻擊，例如「[傳送雜湊](https://technet.microsoft.com/dn785092.aspx)」。

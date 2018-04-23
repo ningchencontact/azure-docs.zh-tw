@@ -1,8 +1,8 @@
 ---
-title: "使用 RBAC 共用 Azure 入口網站儀表板 | Microsoft Docs"
-description: "本文說明如何在 Azure 入口網站中使用角色型存取控制來共用儀表板。"
+title: 使用 RBAC 共用 Azure 入口網站儀表板 | Microsoft Docs
+description: 本文說明如何在 Azure 入口網站中使用角色型存取控制來共用儀表板。
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: 33ddfef1e23a6ff0c2cb8e359d408d2c42cbcf3a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 75f06e49aa317fc887831a9e04861d9a7989bdb2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>使用角色型存取控制來共用 Azure 儀表板
-設定儀表板之後，您可以將它發佈，並與組織中的其他使用者共用。 使用 Azure [角色型存取控制](../active-directory/role-based-access-control-configure.md)，您可允許其他人檢視您的儀表板。 您可以將一名使用者或一群使用者指派給某個角色，該角色就會定義這些使用者可以檢視或修改已發佈的儀表板。 
+設定儀表板之後，您可以將它發佈，並與組織中的其他使用者共用。 使用 Azure [角色型存取控制](../role-based-access-control/role-assignments-portal.md)，您可允許其他人檢視您的儀表板。 您可以將一名使用者或一群使用者指派給某個角色，該角色就會定義這些使用者可以檢視或修改已發佈的儀表板。 
 
 所有已發佈的儀表板會實作為 Azure 資源，這表示它們是做為您訂用帳戶內可管理的項目而存在，並且會包含在資源群組中。  從存取控制的觀點來看，儀表板與其他資源 (例如虛擬機器或儲存體帳戶) 並無不同。
 
@@ -74,6 +74,6 @@ ms.lasthandoff: 12/11/2017
      ![指派的角色](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 如需角色清單，請參閱 [RBAC︰內建角色](../active-directory/role-based-access-built-in-roles.md)。
+* 如需角色清單，請參閱 [RBAC︰內建角色](../role-based-access-control/built-in-roles.md)。
 * 若要了解如何管理資源，請參閱 [透過入口網站管理 Azure 資源](resource-group-portal.md)。
 

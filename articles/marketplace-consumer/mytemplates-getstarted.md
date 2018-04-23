@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mbaldwin
-ms.openlocfilehash: e3a0bbe75177ac25a0aeff89d171dfe88bd0880f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c716f54a1361d41dbad00e2e45562d5fbf8fd6ca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>開始在 Azure 入口網站上使用私人範本
 [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) 範本是用來定義您的部署的宣告式範本。 您可以定義要對解決方案部署的資源，並指定可讓您針對不同環境輸入值的參數和變數。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。
@@ -103,7 +103,7 @@ ms.lasthandoff: 03/16/2018
 ![部署範本](media/deploy-template-portal1b.png)
 
 ## <a name="share-a-template-resource"></a>共用範本資源
-可與您的同事共用 **範本** 資源。 共用行為類似於 [Azure 上任何資源的角色指派](../active-directory/role-based-access-control-configure.md)。 **範本** 擁有者會提供權限給可與範本資源互動的其他使用者。 與您共用**範本**的個人或一群人將可看到 Resource Manager 範本和其資源庫屬性。
+可與您的同事共用 **範本** 資源。 共用行為類似於 [Azure 上任何資源的角色指派](../role-based-access-control/role-assignments-portal.md)。 **範本** 擁有者會提供權限給可與範本資源互動的其他使用者。 與您共用**範本**的個人或一群人將可看到 Resource Manager 範本和其資源庫屬性。
 
 ### <a name="access-control-for-the-microsoftgallery-resources"></a>Microsoft.Gallery 資源的存取控制
 | 角色 | 權限 |

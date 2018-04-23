@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 61815098a4935983f19b3dcea6e001230aee4771
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 753e13ea0dbfc7fe0c74987e1383f71329b76a63
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace 中 Azure 受控應用程式
 
@@ -107,7 +107,7 @@ SKU 會顯示在 Marketplace 中的父供應項目底下。 它會在 Azure 入�
 
 您可以新增多個授權。 建議您建立 AD 使用者群組並且在 **PrincipalId** 中指定其識別碼。 如此一來，您可以將更多使用者新增至使用者群組，而不需要更新 SKU。
 
-如需 RBAC 的詳細資訊，請參閱[在 Azure 入口網站中開始使用 RBAC](../active-directory/role-based-access-control-what-is.md)。
+如需 RBAC 的詳細資訊，請參閱[在 Azure 入口網站中開始使用 RBAC](../role-based-access-control/overview.md)。
 
 ## <a name="marketplace-form"></a>Marketplace 表單
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 996079e0062bf1e24ae2bf24354a94167e6adff3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公用雲端中的隔離
 ##  <a name="introduction"></a>簡介
@@ -52,7 +52,7 @@ Microsoft Azure 可讓您在共用的實體基礎結構上執行應用程式和�
 每個 Azure AD 目錄都不同，並與其他 Azure AD 目錄分開。 就像公司辦公大樓是您組織特有的安全資產，Azure AD 目錄也是設計成僅供您組織使用的安全資產。 Azure AD 架構會隔離客戶資料與身分識別資訊，避免兩者混淆。 這表示某個 Azure AD 目錄的使用者和系統管理員無法意外或惡意存取另一個目錄中的資料。
 
 ### <a name="azure-tenancy"></a>Azure 租用
-Azure 租用 (Azure 訂用帳戶) 是指「客戶/計費」關聯性，以及 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 中唯一的[租用戶](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant)。 Microsoft Azure 中的租用戶層級隔離是使用 Azure Active Directory 及其所提供的[角色型控制](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)來達成。 每個 Azure 訂用帳戶都會與一個 Azure Active Directory (AD) 目錄相關聯。
+Azure 租用 (Azure 訂用帳戶) 是指「客戶/計費」關聯性，以及 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 中唯一的[租用戶](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant)。 Microsoft Azure 中的租用戶層級隔離是使用 Azure Active Directory 及其所提供的[角色型控制](https://docs.microsoft.com/azure/role-based-access-control/overview)來達成。 每個 Azure 訂用帳戶都會與一個 Azure Active Directory (AD) 目錄相關聯。
 
 該目錄中的使用者、群組和應用程式可以管理 Azure 訂用帳戶中的資源。 您可以使用 Azure 入口網站、Azure 命令列工具或 Azure 管理 API 來指派這些存取權限。 Azure AD 租用戶邏輯上是使用安全性界限來隔離，如此一來就沒有任何客戶可以存取或危害共同的租用戶 (不論是惡意或意外)。 Azure AD 是在已隔離網路區段上隔離之「裸機」伺服器上執行的，其中主機層級的封包篩選和 Windows 防火牆會封鎖來路不明的連接和流量。
 
@@ -80,7 +80,7 @@ Azure Active Directory 會透過租用戶單獨擁有且管理之容器內的原
 即使將來自多個 Azure Active Directory 租用戶的中繼資料儲存於同一個實體磁碟，在目錄服務所定義之容器以外的容器間還是不會有任何關聯性，而目錄服務是由租用戶管理員所決定。
 
 ### <a name="azure-role-based-access-control-rbac"></a>Azure 角色型存取控制 (RBAC)
-[Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) 可藉由提供適用於 Azure 的細部存取管理，來協助您在 Azure 訂用帳戶之間共用各種可用的元件。 Azure RBAC 可讓您隔離組織內的責任，並根據使用者需要哪些權限執行其工作來授與他們存取權。 您不需為每個人授與 Azure 訂用帳戶或資源中無限制的權限，而是只允許執行特定的動作。
+[Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) 可藉由提供適用於 Azure 的細部存取管理，來協助您在 Azure 訂用帳戶之間共用各種可用的元件。 Azure RBAC 可讓您隔離組織內的責任，並根據使用者需要哪些權限執行其工作來授與他們存取權。 您不需為每個人授與 Azure 訂用帳戶或資源中無限制的權限，而是只允許執行特定的動作。
 
 Azure RBAC 有適用於所有資源類型的三個基本角色：
 
@@ -94,7 +94,7 @@ Azure RBAC 有適用於所有資源類型的三個基本角色：
 
 Azure 中其餘的 RBAC 角色可以管理特定 Azure 資源。 例如，「虛擬機器參與者」角色可讓使用者建立和管理虛擬機器。 但不會授予他們存取虛擬機器所連接之 Azure 虛擬網路或子網路的存取權。
 
-[RBAC 內建角色](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)會列出 Azure 中可用的角色。 它會指定每個內建角色授與使用者的作業和範圍。 如果您想要定義自己的角色，獲得更進一步控制，請參閱如何建立 [Azure RBAC 中的自訂角色](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)。
+[RBAC 內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)會列出 Azure 中可用的角色。 它會指定每個內建角色授與使用者的作業和範圍。 如果您想要定義自己的角色，獲得更進一步控制，請參閱如何建立 [Azure RBAC 中的自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)。
 
 Azure Active Directory 的一些其他功能包括：
 - Azure AD 會啟用 SaaS 應用程式的 SSO，而無論應用程式裝載於何處。 有些應用程式會與 Azure AD 同盟，有些則使用密碼 SSO。 同盟應用程式也能支援使用者佈建和[密碼儲存庫存 (英文)](https://www.techopedia.com/definition/31415/password-vault)。
@@ -200,7 +200,7 @@ Microsoft Azure 的基本設計是將以 VM 為基礎的計算與儲存體分隔
 
 ![使用儲存體存取控制進行隔離](./media/azure-isolation/azure-isolation-fig9.png)
 
- **Azure 儲存體資料 (包括表格)** 可透過 [SAS (共用存取簽章)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 權杖來控制，該權杖會授與限定範圍的存取權。 SAS 會透過查詢範本 (URL) 來建立，此 URL 是利用 [SAK (儲存體帳戶金鑰)](https://msdn.microsoft.com/library/azure/ee460785.aspx) 簽署的。 該[簽署的 URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 可以提供給另一個程序 (也就是委派)，然後填入查詢的詳細資料，並提出儲存體服務的要求。 SAS 可讓您對用戶端授與限時的存取權，而不需揭露儲存體帳戶的祕密金鑰。
+**Azure 儲存體資料 (包括表格)** 可透過 [SAS (共用存取簽章)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 權杖來控制，該權杖會授與限定範圍的存取權。 SAS 會透過查詢範本 (URL) 來建立，此 URL 是利用 [SAK (儲存體帳戶金鑰)](https://msdn.microsoft.com/library/azure/ee460785.aspx) 簽署的。 該[簽署的 URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 可以提供給另一個程序 (也就是委派)，然後填入查詢的詳細資料，並提出儲存體服務的要求。 SAS 可讓您對用戶端授與限時的存取權，而不需揭露儲存體帳戶的祕密金鑰。
 
 SAS 意謂著我們可以將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定的時間內使用一組指定的權限進行存取。 我們可以在不須分享您帳戶存取金鑰的情況下，授與這些有限的權限。
 
@@ -337,7 +337,7 @@ Azure 部署具有多層網路隔離。 下圖顯示 Azure 提供給客戶的各
 
 - [適用於 Windows Azure 虛擬網路中之機器的網路隔離選項 (英文)](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
 
-這包括傳統的前端和後端案例，其中特定後端網路或子網路中的機器可能只會根據 IP 位址允許清單，允許特定的用戶端或其他電腦連接到特定端點。
+這包括傳統的前端和後端案例，其中特定後端網路或子網路中的機器可能只會根據 IP 位址白名單，允許特定的用戶端或其他電腦連接到特定端點。
 
 - [計算隔離 (英文)](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 

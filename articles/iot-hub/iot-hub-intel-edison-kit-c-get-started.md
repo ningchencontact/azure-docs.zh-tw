@@ -3,7 +3,7 @@ title: Intel Edison 到雲端 (C) - 將 Intel Edison 連線到 Azure IoT 中樞 
 description: 了解如何設定及連線 Intel Edison 和 Azure IoT 中樞，在本教學課程中讓 Intel Edison 將資料傳送到 Azure 雲端平台。
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: azure iot intel edison, intel edison iot 中樞, intel edison 傳送資料到雲端, intel edison 到雲端
@@ -13,14 +13,14 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2017
-ms.author: xshi
+ms.date: 4/11/2018
+ms.author: rangv
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: edbdbe0230f742cd7228f04a4a83c9bd567527e8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8a1ed0a42fe323183b8985e1530ef102552ae7d6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>將 Intel Edison 連線到 Azure IoT 中樞 (C)
 

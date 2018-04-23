@@ -1,24 +1,17 @@
 ---
-title: "Azure 搜尋服務中的語言篩選條件 | Microsoft Docs"
-description: "依使用者安全性身分識別、語言、地理位置或數值來篩選準則，以縮減在 Azure 搜尋服務 (Microsoft Azure 上裝載的雲端搜尋服務) 中查詢的搜尋結果。"
-services: search
-documentationcenter: 
+title: Azure 搜尋服務中的語言篩選條件 | Microsoft Docs
+description: 依使用者安全性身分識別、語言、地理位置或數值來篩選準則，以縮減在 Azure 搜尋服務 (Microsoft Azure 上裝載的雲端搜尋服務) 中查詢的搜尋結果。
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: cgronlun
 ms.service: search
-ms.devlang: 
 ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.date: 10/23/2017
 ms.author: heidist
-ms.openlocfilehash: 2c09de74405394d4c385dbbd0535913cf2488744
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 45d5fb127a4c9df4cf4875ecafbc4ad5ce244998
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>如何在 Azure 搜尋服務中依語言進行篩選 
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d241bfb6245eb5a70f1e4fcedc86c969766019f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fc3dca82bea17b44f66b433f59e5861da3bb0ca2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>概觀︰容錯移轉群組和主動式異地複寫
 主動式異地複寫可讓您在相同或不同資料中心位置 (區域) 中設定最多 4 個可讀取的次要資料庫。 在資料中心中斷或在無法連線至主要資料庫的情況下，便可使用次要資料庫進行查詢和容錯移轉。 容錯移轉必須由使用者的應用程式手動起始。 容錯移轉之後，新的主要資料庫會有不同的連接端點。 
@@ -131,7 +131,7 @@ Azure SQL Database 的自動容錯移轉群組 (預覽版) 是一項 SQL Databas
 ## <a name="programmatically-managing-failover-groups-and-active-geo-replication"></a>以程式設計方式管理容錯移轉群組和主動式異地複寫
 如前所述，自動容錯移轉群組 (預覽版) 和主動式異地複寫也可以使用 Azure PowerShell 和 REST API，以程式設計的方式管理。 下表描述可用的命令集。
 
-**Azure Resource Manager API 和以角色為基礎的安全性**︰主動式異地複寫包含一組可管理的 Azure Resource Manager API，包括 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) 和 [Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/overview)。 這些 API 需要使用資源群組，並支援以角色為基礎的安全性 (RBAC)。 如需如何實作存取角色的詳細資訊，請參閱 [Azure 角色型存取控制](../active-directory/role-based-access-control-what-is.md)。
+**Azure Resource Manager API 和以角色為基礎的安全性**︰主動式異地複寫包含一組可管理的 Azure Resource Manager API，包括 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) 和 [Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/overview)。 這些 API 需要使用資源群組，並支援以角色為基礎的安全性 (RBAC)。 如需如何實作存取角色的詳細資訊，請參閱 [Azure 角色型存取控制](../role-based-access-control/overview.md)。
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>使用 Transact-SQL 管理 SQL 資料庫容錯移轉
 

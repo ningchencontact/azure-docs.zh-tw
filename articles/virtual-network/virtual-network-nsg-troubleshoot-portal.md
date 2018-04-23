@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 5998aa0e0b281ead859c24d792c3e175e3cca899
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: b053993bec74d358dd7a0a8889fa05885b563b16
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>使用 Azure 入口網站為網路安全性群組疑難排解
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ NSG 可讓您控制流入和流出虛擬機器 (VM) 的流量類型。 您可對
 
 您可以從 VM 本身檢視 NIC 上完整的有效安全性規則清單。 如果您有權限，也可以從有效規則的刀鋒視窗新增、修改和刪除 NIC 和子網路的 NSG 規則。
 
-1. 使用 Azure 帳戶來登入 Azure 入口網站，網址為 https://portal.azure.com。 您的帳戶必須獲指派網路介面的 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 作業。 若要了解如何將作業指派給帳戶，請參閱[建立 Azure 角色型存取控制的自訂角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)。
+1. 使用 Azure 帳戶來登入 Azure 入口網站，網址為 https://portal.azure.com。 您的帳戶必須獲指派網路介面的 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 作業。 若要了解如何將作業指派給帳戶，請參閱[建立 Azure 角色型存取控制的自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)。
 2. 按一下 [所有服務]，然後在出現的清單中按一下 [虛擬機器]。
 3. 從出現的清單中選取要進行疑難排解的 VM，此時會出現一個有選項的 VM 刀鋒視窗。
 4. 按一下 [診斷並解決問題]，然後選取常見的問題。 例如選取了 [我無法連接到我的 Windows VM]  。 

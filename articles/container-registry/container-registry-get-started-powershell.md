@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9603ac779c7dbc640a7c24856c32f04edbac849d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ae21fc7ab016071d075324bf813243cef58dcd04
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>快速入門：使用 PowerShell 建立 Azure Container Registry
 
@@ -25,10 +25,10 @@ Azure Container Registry 是用於儲存私用 Docker 容器映像的受控 Dock
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-使用 `Login-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-resource-group"></a>建立資源群組

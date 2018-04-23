@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 20e3a65c28e95849822d81076b6780e05a2aebbf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5a4e19f232abce8701e6d2e12a876c55079b91a2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 建立連接多個 NIC 的 Linux 虛擬機器
 您可以在 Azure 中，建立連接多個虛擬網路介面 (NIC) 的虛擬機器 (VM)。 常見案例是有不同的子網路可用於前端和後端連線，或者專門用來監視或備份解決方案的網路。 本文提供快速命令來建立連接多個 NIC 的 VM。 不同的 [VM 大小](sizes.md) 支援不同數量的 NIC，因此可據以調整您的 VM。
@@ -163,7 +163,7 @@ Azure Resource Manager 範本會使用宣告式 JSON 檔案來定義您的環境
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-您可以閱讀 [使用 Resource Manager 範本建立多個 NIC](../../virtual-network/virtual-network-deploy-multinic-arm-template.md)的完整範例。
+您可以閱讀 [使用 Resource Manager 範本建立多個 NIC](../../virtual-network/template-samples.md)的完整範例。
 
 當您將多個 NIC 新增至 Linux VM 時，您需要建立路由規則。 這些規則可讓 VM 傳送和接收屬於特定 NIC 的流量。 否則，已定義的預設路由便無法正確處理屬於 eth1 的流量。 若要更正此路由問題，請參閱[針對多個 NIC 設定客體作業系統](multiple-nics.md#configure-guest-os-for-multiple-nics)。
 

@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 2c37151c09c7b180993056532c07ff081f576b83
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 657a5a72650b330323406703d2c479c96c096f2e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="preview-create-a-java-web-app-in-app-service-on-linux"></a>預覽：在 Linux 上的 App Service 中建立 Java Web 應用程式
 
@@ -60,7 +60,10 @@ Linux 上的 App Service 目前提供一項預覽功能來支援 Java web 應用
 使用 Cloud Shell，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../app-service-web-overview.md)。 您可以使用 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 命令執行此工作。 在下列範例中，使用全域唯一的應用程式名稱 (有效的字元為 `a-z`、`0-9` 和 `-`) 取代 \<app_name>。 
 
 ```azurecli-interactive
+# Bash
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "TOMCAT|8.5-jre8"
+# PowerShell
+az --% webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "TOMCAT|8.5-jre8"
 ```
 
 對於 **runtime** 參數，請使用下列其中一個執行階段：

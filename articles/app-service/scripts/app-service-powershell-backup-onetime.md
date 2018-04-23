@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 指令碼範例 - 備份 Web 應用程式 | Microsoft Docs"
-description: "Azure PowerShell 指令碼範例 - 備份 Web 應用程式"
+title: Azure PowerShell 指令碼範例 - 備份 Web 應用程式 | Microsoft Docs
+description: Azure PowerShell 指令碼範例 - 備份 Web 應用程式
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: fc755f82-ca3e-4532-b251-690b699324d6
 ms.service: app-service-web
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5984a7707552b2740b48e3c9da40a5e96a3a279b
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: ed373131a2ca62ec79d9742545c2f18f6c1e382a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="back-up-a-web-app"></a>備份 Web 應用程式
 
 此範例指令碼會在 App Service 中建立 Web 應用程式及其相關資源，然後為其建立一次性的備份。 
 
-您可以視需要使用 [Azure PowerShell 指南](/powershell/azure/overview) \(英文\) 中的指示來安裝 Azure PowerShell，然後執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。 
+您可以視需要使用 [Azure PowerShell 指南](/powershell/azure/overview) \(英文\) 中的指示來安裝 Azure PowerShell，然後執行 `Connect-AzureRmAccount` 來建立與 Azure 的連線。 
 
 ## <a name="sample-script"></a>範例指令碼
 

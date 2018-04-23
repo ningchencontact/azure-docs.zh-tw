@@ -11,17 +11,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: davidmu
-ms.openlocfilehash: ac0351ce220da5194d3a447e51185409b7368f21
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3347eac16e447091ffcaaf403e1291e2c7175a2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C：使用 OAuth 2.0 隱含流程的單一頁面應用程式登入
-
-> [!NOTE]
-> 這項功能處於預覽狀態。
-> 
 
 許多新式應用程式都有一個單頁應用程式前端，主要是以 JavaScript 撰寫。 通常會使用 AngularJS、Ember.js、Durandal 等架構來撰寫應用程式。 主要在瀏覽器上執行的單一頁面應用程式和其他 JavaScript 應用程式，在驗證時會面臨一些額外的挑戰：
 

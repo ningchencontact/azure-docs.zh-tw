@@ -1,24 +1,18 @@
 ---
-title: "Azure 搜尋服務的效能與最佳化考量 | Microsoft Docs"
-description: "調整 Azure 搜尋服務效能並設定最佳規模"
-services: search
-documentationcenter: 
+title: Azure 搜尋服務的效能與最佳化考量 | Microsoft Docs
+description: 調整 Azure 搜尋服務效能並設定最佳規模
 author: LiamCavanagh
-manager: pablocas
-editor: 
-ms.assetid: 4d3cd864-29d2-4921-be0d-a3f1a819de46
+manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14f46e2f76268f4d865d9ea6b16e8eda047ffe31
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Azure 搜尋服務的效能與最佳化考量
 絕佳搜尋體驗是許多行動和 Web 應用程式成功的關鍵。 從房地產到二手車市場，再到線上目錄，快速搜尋和相關結果都將影響客戶體驗。 本文旨在協助您探索如何充分利用 Azure 搜尋服務的最佳做法，特別適用於對延展性、多語言支援或自訂排名有複雜需求的進階案例。  此外，本文件也會概述本質，並涵蓋可在真實世界客戶應用程式中有效率地工作的處理方法。

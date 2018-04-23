@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: e1dfd7ec4a2475142423f00a457a909989a36bea
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: be7db6f8a69731dec83ba94aecc272bc1df17892
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>建立虛擬網路對等互連 - 不同部署模型、相同訂用帳戶 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 04/03/2018
 
     > [!WARNING]
     > 匯入變更過的網路組態檔會導致您訂用帳戶中現有的虛擬網路 (傳統) 發生變更。 請確定您只新增先前的虛擬網路，並且未變更或移除您訂用帳戶中任何現有的虛擬網路。 
-5. 輸入 `login-azurermaccount` 命令來登入 Azure 以建立虛擬網路 (Resource Manager)。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需權限清單，請參閱[虛擬網路對等互連權限](virtual-network-manage-peering.md#requirements-and-constraints)。
+5. 輸入 `Connect-AzureRmAccount` 命令來登入 Azure 以建立虛擬網路 (Resource Manager)。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需權限清單，請參閱[虛擬網路對等互連權限](virtual-network-manage-peering.md#requirements-and-constraints)。
 6. 建立資源群組和虛擬網路 (Resource Manager)。 請複製指令碼並貼到 PowerShell 中，然後按 `Enter`。
 
     ```powershell

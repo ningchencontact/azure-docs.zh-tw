@@ -1,11 +1,11 @@
 ---
-title: "搭配使用 Power BI 與 SQL 資料倉儲 | Microsoft Docs"
-description: "搭配使用 Power BI 與 Azure SQL 資料倉儲以便開發解決方案的秘訣。"
+title: 搭配使用 Power BI 與 SQL 資料倉儲 | Microsoft Docs
+description: 搭配使用 Power BI 與 Azure SQL 資料倉儲以便開發解決方案的秘訣。
 services: sql-data-warehouse
 documentationcenter: NA
 author: mlee3gsd
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: b12bee87-2268-40c2-81bf-ab27588b32e8
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>搭配使用 Power BI 與 SQL 資料倉儲
 在 Azure SQL Database 中，SQL Data Warehouse Direct Connect 可讓使用者充分利用功能強大的邏輯下推，以及 Power BI 的分析功能。  透過 Direct Connect，查詢會在您瀏覽資料時即時傳送回到您的 Azure SQL 資料倉儲。  這項與 SQL 資料倉儲結合的功能，可讓使用者在數分鐘內針對數 TB 的資料建立動態報表。  此外，引入 [在 Power BI 中開啟] 按鈕可讓使用者直接將 Power BI 連接到其 SQL 資料倉儲，而不需從其他 Azure 部分收集資訊。

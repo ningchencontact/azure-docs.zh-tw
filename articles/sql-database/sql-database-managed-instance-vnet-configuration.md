@@ -3,18 +3,18 @@ title: Azure SQL Database 受控執行個體 VNet 組態 | Microsoft Docs
 description: 本主題描述具有 Azure SQL Database 受控執行個體之虛擬網路 (VNet) 的設定選項。
 services: sql-database
 author: srdjan-bozovic
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1a839a9bb2355da9451816828f6f9f0e99f43f5e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bccc2d52c592101a23338e57791a992441e80047
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>設定 Azure SQL Database 受控執行個體的 VNet
 
@@ -33,7 +33,7 @@ Azure SQL Database 受控執行個體 (預覽) 必須部署在 Azure [虛擬網�
 
    如果您打算使用現有的虛擬網路，您需要修改該網路組態以順應您的受控執行個體。 如需詳細資訊，請參閱[針對受控執行個體修改現有的虛擬網路](#modify-an-existing-virtual-network-for-managed-instances)。 
 
-   如果您打算建立新的虛擬網路，請參閱[針對受控執行個體建立新的虛擬網路](#create-new-virtual-network-for-managed-instances)。
+   如果您打算建立新的虛擬網路，請參閱[針對受控執行個體建立新的虛擬網路](#create-a-new-virtual-network-for-managed-instances)。
 
 ## <a name="requirements"></a>需求
 
@@ -144,6 +144,6 @@ Azure SQL Database 受控執行個體 (預覽) 必須部署在 Azure [虛擬網�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需概觀，請參閱[受控執行個體是什麼](sql-database-managed-instance.md)
-- 如需示範如何建立 VNet、建立受控執行個體，以及從資料庫備份還原資料庫的教學課程，請參閱[建立 Azure SQL Database 受控執行個體](sql-database-managed-instance-tutorial-portal.md)。
+- 如需概觀，請參閱[受控執行個體是什麼](sql-database-managed-instance.md)。
+- 如需示範如何建立 VNet、建立受控執行個體，以及從資料庫備份還原資料庫的教學課程，請參閱[建立 Azure SQL Database 受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)。
 - 針對 DNS 問題，請參閱[設定自訂 DNS](sql-database-managed-instance-custom-dns.md)

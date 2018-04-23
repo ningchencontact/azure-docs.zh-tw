@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services 中的驗證和使用者權限 | Microsoft Docs"
-description: "了解 Azure Analysis Services 中的驗證和使用者權限。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 中的驗證和使用者權限 | Microsoft Docs
+description: 了解 Azure Analysis Services 中的驗證和使用者權限。
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 1011e2c8351839cc8c93fc74a7d6f51f29e52410
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ede05667d794267443babacaa8b016206d86ab2c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authentication-and-user-permissions"></a>驗證和使用者權限
 Azure Analysis Services 會使用 Azure Active Directory (Azure AD) 進行身分識別管理和使用者驗證。 任何建立、管理或連線到 Azure Analysis Services 伺服器的使用者在相同的訂用帳戶中必須 [Azure AD 租用戶](../active-directory/active-directory-administer.md)的有效使用者身分識別。
@@ -69,7 +62,7 @@ Excel 使用者可以使用 Windows 帳戶、組織識別碼 (電子郵件地址
 
 ![Azure 入口網站中的存取控制](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-此層級的角色會套用到使用者或帳戶，讓他們可在入口網站或使用 Azure Resource Manager 範本完成需要執行的工作。 若要深入了解，請參閱[角色型存取控制](../active-directory/role-based-access-control-what-is.md)。 
+此層級的角色會套用到使用者或帳戶，讓他們可在入口網站或使用 Azure Resource Manager 範本完成需要執行的工作。 若要深入了解，請參閱[角色型存取控制](../role-based-access-control/overview.md)。 
 
 
 ## <a name="database-roles"></a>資料庫角色
@@ -85,4 +78,4 @@ Excel 使用者可以使用 Windows 帳戶、組織識別碼 (電子郵件地址
 [使用 Azure Active Directory 群組來管理資源的存取權](../active-directory/active-directory-manage-groups.md)   
 [管理資料庫角色和使用者](analysis-services-database-users.md)  
 [管理伺服器管理員](analysis-services-server-admins.md)  
-[角色型存取控制](../active-directory/role-based-access-control-what-is.md)  
+[角色型存取控制](../role-based-access-control/overview.md)  

@@ -47,6 +47,7 @@
 ### [Azure 入口網站](resource-group-portal.md)
 ### [使用標籤來整理資源](resource-group-using-tags.md)
 ### [將資源移至新群組或訂用帳戶](resource-group-move-resources.md)
+### [以程式設計方式建立 EA 訂用帳戶](programmatically-create-subscription.md)
 ### [建立管理群組](management-groups-create.md)
 ### [管理您的管理群組](management-groups-manage.md)
 ### [治理範例](resource-manager-subscription-examples.md)

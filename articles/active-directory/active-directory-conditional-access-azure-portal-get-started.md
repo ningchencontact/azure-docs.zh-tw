@@ -1,12 +1,12 @@
 ---
-title: "開始使用 Azure Active Directory 中的條件式存取 | Microsoft Docs"
-description: "使用位置條件測試條件式存取。"
+title: 開始使用 Azure Active Directory 中的條件式存取 | Microsoft Docs
+description: 使用位置條件測試條件式存取。
 services: active-directory
-keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
-documentationcenter: 
+keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 04a7736e85c0b149cb627411f61fc147220769ad
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>開始使用 Azure Active Directory 中的條件式存取
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/16/2018
 
 ## <a name="scenario-description"></a>案例描述
 
-許多組織有一個共同需求：只需要 Multi-Factor Authentication，即可存取不是從公司內部網路執行的應用程式。 使用 Azure Active Directory 設定以位置為基礎的條件式存取原則，即可輕鬆地完成此目標。 本主題提供設定相關原則的詳細指示。 原則會利用[信任的 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) 來區別從公司內部網路與所有其他位置進行的存取嘗試。
+許多組織有一個共同需求：只需要 Multi-Factor Authentication，即可存取不是從公司內部網路執行的應用程式。 使用 Azure Active Directory 設定以位置為基礎的條件式存取原則，即可輕鬆地完成此目標。 本主題提供設定相關原則的詳細指示。 原則會利用[信任的 IP](authentication/howto-mfa-mfasettings.md#trusted-ips) 來區別從公司內部網路與所有其他位置進行的存取嘗試。
 
 
 ## <a name="prerequisites"></a>先決條件
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/16/2018
 
 - 設定信任的 IP
 
-如果您需要更多有關信任 IP 的詳細資訊，請參閱[信任的 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)。
+如果您需要更多有關信任 IP 的詳細資訊，請參閱[信任的 IP](authentication/howto-mfa-mfasettings.md#trusted-ips)。
 
 
 ## <a name="policy-configuration-steps"></a>原則設定步驟

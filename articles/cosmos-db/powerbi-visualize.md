@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: sngun
 ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB 的 Power BI 教學課程：使用 Power BI 連接器將資料視覺化
 [PowerBI.com](https://powerbi.microsoft.com/) 是一項線上服務，您可以在其中建立及共用具有您和組織之重要資料的儀表板和報告。  Power BI Desktop 是一項專用的報告撰寫工具，可讓您從各種資料來源擷取資料、合併和轉換資料、建立功能強大的報告和視覺效果，以及將報告發佈至 Power BI。  有了最新版的 Power BI Desktop，您現在可以透過 Power BI 的 Azure Cosmos DB 連接器連線到 Azure Cosmos DB 帳戶。   

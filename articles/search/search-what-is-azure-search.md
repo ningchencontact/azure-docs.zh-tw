@@ -1,23 +1,17 @@
 ---
-title: "什麼是 Azure 搜尋服務 | Microsoft Docs"
-description: "Azure 搜尋服務是完全受控的託管雲端搜尋服務。 深入了解此功能概觀。"
-services: search
-manager: jhubbard
+title: 什麼是 Azure 搜尋服務 | Microsoft Docs
+description: Azure 搜尋服務是完全受控的託管雲端搜尋服務。 深入了解此功能概觀。
+manager: cgronlun
 author: HeidiSteen
-documentationcenter: 
-ms.assetid: 50bed849-b716-4cc9-bbbc-b5b34e2c6153
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: overview
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: 2fa637b2119e55f0ad8a0aec3926df11871e7a2a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: df726e26b6a6f9ff28c1c38253875897b49b4155
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-azure-search"></a>何謂 Azure 搜尋服務？
 Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，以透過內容在 Web、行動和企業應用程式中增添豐富的搜尋體驗。
@@ -109,8 +103,7 @@ Azure 訂閱者可以[在免費層中佈建服務](search-create-service-portal.
 
 2. 逐步執行一個或多個下列教學課程。 
 
-  + 
-            [如何使用 .NET SDK](search-howto-dotnet-sdk.md) 會示範受控碼中的主要步驟。  
+  + [如何使用 .NET SDK](search-howto-dotnet-sdk.md) 會示範受控碼中的主要步驟。  
   + [開始使用 REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) (英文) 會示範使用 REST API 的相同步驟。  
   + 使用內建索引和原型功能，[在入口網站中建立您的第一個索引](search-get-started-portal.md)。   
 

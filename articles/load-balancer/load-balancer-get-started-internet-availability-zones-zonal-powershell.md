@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 6fb783b79f0e4fd1c453695c1ebd360b91962f41
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dbb4176ac61cf707b28cddc98db80a1188be3cc8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-powershell"></a>使用 Azure PowerShell 來建立具有區域前端的公用 Load Balancer Standard
 
@@ -32,10 +32,10 @@ ms.lasthandoff: 04/03/2018
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-使用 `Login-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-resource-group"></a>建立資源群組

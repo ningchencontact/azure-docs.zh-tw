@@ -1,22 +1,22 @@
 ---
-title: "使用 Azure IoT 中樞裝置佈建服務 (.NET) 佈建裝置 | Microsoft Docs"
-description: "使用 Azure IoT 中樞裝置佈建服務 (.NET) 將裝置佈建到單一 IoT 中樞"
+title: 使用 Azure IoT 中樞裝置佈建服務 (.NET) 佈建裝置 | Microsoft Docs
+description: 使用 Azure IoT 中樞裝置佈建服務 (.NET) 將裝置佈建到單一 IoT 中樞
 services: iot-dps
-keywords: 
-author: msebolt
+keywords: ''
+author: bryanla
 ms.author: v-masebo
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6919f962d853faa572ee7ad5d0cb9aeacd3bd2b6
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: ec08d617b461240062190ec7fdb919f051675798
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>使用 Azure IoT 中樞佈建服務用戶端 (.NET) 將裝置註冊到 IoT 中樞
 

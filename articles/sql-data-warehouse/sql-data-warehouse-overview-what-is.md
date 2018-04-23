@@ -1,25 +1,20 @@
 ---
-title: "什麼是 Azure SQL 資料倉儲？ | Microsoft Docs"
-description: "企業級分散式資料庫，可處理資料量高達 PB 的關聯式與非關聯式資料。 它是業界首見能在幾秒內增加、縮減和暫停的雲端資料倉儲。"
+title: 什麼是 Azure SQL 資料倉儲？ | Microsoft Docs
+description: 企業級分散式資料庫，可處理資料量高達 PB 的關聯式與非關聯式資料。 它是業界首見能在幾秒內增加、縮減和暫停的雲端資料倉儲。
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jenniehubbard
-editor: 
-ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
+author: igorstanko
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: overview
-ms.date: 10/23/2017
-ms.author: jrj
-ms.openlocfilehash: 7fd17c29c413905084c6b3736018d111d3b28fea
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.topic: overview
+ms.component: design
+ms.date: 04/17/2018
+ms.author: igorstan
+ms.reviewer: igorstan
+ms.openlocfilehash: 57b94a57ae0279a391cb4269f7b1625499748bae
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>什麼是 Azure SQL 資料倉儲？
 
@@ -37,13 +32,6 @@ SQL 資料倉儲會將資料儲存到具有單欄式儲存體的關聯式資料�
 
 分析結果可以移至全球報告資料庫或應用程式。 商務分析師便可充分了解，以進行靈活的商務決策。
 
-## <a name="optimization-choices"></a>最佳化選項
-
-SQL 資料倉儲提供[效能層級](performance-tiers.md)設計彈性，以符合您無論是大型或小型的資料需求。 您可以選擇針對彈性或者計算最佳化的資料倉儲。 
-
-- **針對彈性效能層級最佳化**會分隔架構中的計算和儲存體層級。 此選項的過人之處在於工作負載可以充分利用計算和儲存體之間的分離，方法是經常調整以支援短期的尖峰活動。 此計算層級具有最低的項目價格點，並可調整來支援大部分的客戶工作負載。
-
-- **針對計算最佳化的效能層級**會使用最新的 Azure 硬體來導入新的 NVMe 固態硬碟快取，將最常存取的資料保留在 CPU 附近，這正是您想要的位置。 藉由對儲存體進行自動階層處理，此效能層級在複雜查詢部分具有優勢，因為所有 IO 都會保持在計算層級的本機。 此外，已增強資料行存放區，以便在 SQL 資料倉儲中儲存無限數量的資料。 針對計算最佳化的效能層級會提供最高層級的延展性，讓您可以相應增加為 30,000 個計算資料倉儲單位 (cDWU)。 為需要連續、快速、效能的工作負載選擇此層級。
 
 ## <a name="next-steps"></a>後續步驟
 現在您已稍微了解 SQL 資料倉儲，請了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]和[載入範例資料][load sample data]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary]在您遇到新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  

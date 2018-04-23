@@ -1,26 +1,24 @@
 ---
-title: "在 Azure HDInsight 中建立非互動式驗證 .NET 應用程式 | Microsoft Docs"
-description: "了解如何在 Azure HDInsight 中建立非互動式驗證 Microsoft .NET 應用程式。"
+title: 在 Azure HDInsight 中建立非互動式驗證 .NET 應用程式 | Microsoft Docs
+description: 了解如何在 Azure HDInsight 中建立非互動式驗證 Microsoft .NET 應用程式。
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 8e32430f-6404-498a-9fcd-f20338d964af
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b2b24747ce4ea8499c999c693f00fb09178d52b0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5672dae5600634b53cfbc8d677f6e1b8e3fa327d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>建立非互動式驗證 .NET HDInsight 應用程式
 您可以使用應用程式本身的身分識別 (非互動式) 或使用應用程式的登入使用者的身分識別 (互動式)，執行 Microsoft .NET Azure HDInsight 應用程式。 本文將說明如何建立非互動式驗證 .NET 應用程式，來連線到 Azure 及管理 HDInsight。 如需互動式應用程式的範例，請參閱[連線至 Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight)。 
@@ -35,7 +33,7 @@ ms.lasthandoff: 01/03/2018
 * HDInsight 叢集。 請參閱[入門教學課程](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)。
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>將角色新增至 Azure AD 應用程式
-為您的 Azure AD 應用程式指派[角色](../active-directory/role-based-access-built-in-roles.md)，以授與執行動作的權限。 您可以針對訂用帳戶、資源群組或資源的層級設定範圍。 較低的範圍層級會繼承較高層級的權限。 (例如，為資源群組的讀取者角色新增應用程式，代表應用程式可以讀取資源群組及其所包含的任何資源。)在本教學課程中，您將在資源群組層級設定範圍。 如需詳細資訊，請參閱[使用角色指派來管理 Azure 訂用帳戶資源的存取權](../active-directory/role-based-access-control-configure.md)。
+為您的 Azure AD 應用程式指派[角色](../role-based-access-control/built-in-roles.md)，以授與執行動作的權限。 您可以針對訂用帳戶、資源群組或資源的層級設定範圍。 較低的範圍層級會繼承較高層級的權限。 (例如，為資源群組的讀取者角色新增應用程式，代表應用程式可以讀取資源群組及其所包含的任何資源。)在本教學課程中，您將在資源群組層級設定範圍。 如需詳細資訊，請參閱[使用角色指派來管理 Azure 訂用帳戶資源的存取權](../role-based-access-control/role-assignments-portal.md)。
 
 **將擁有者角色新增至 Azure AD 應用程式**
 
@@ -127,4 +125,4 @@ ms.lasthandoff: 01/03/2018
 ## <a name="next-steps"></a>後續步驟
 * [在入口網站中建立 Azure Active Directory 應用程式和服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)。
 * 了解如何[使用 Azure Resource Manager 驗證服務主體](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
-* 深入了解 [Azure 角色型存取控制 (RBAC)](../active-directory/role-based-access-control-configure.md)。
+* 深入了解 [Azure 角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md)。

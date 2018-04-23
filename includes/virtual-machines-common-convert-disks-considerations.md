@@ -3,7 +3,7 @@
 
 * 轉換是無法復原的。 
 
-* 請注意任何具有[虛擬機器參與者](../articles/active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)角色的使用者將無法變更 VM 大小 (因為它們可能為轉換前)。 這是因為具有受控磁碟的 VM 需要使用者具有 OS 磁碟上的 Microsoft.Compute/disks/write 權限。
+* 請注意任何具有[虛擬機器參與者](../articles/role-based-access-control/built-in-roles.md#virtual-machine-contributor)角色的使用者將無法變更 VM 大小 (因為它們可能為轉換前)。 這是因為具有受控磁碟的 VM 需要使用者具有 OS 磁碟上的 Microsoft.Compute/disks/write 權限。
 
 * 請務必先進行轉換測試。 在生產環境中執行移轉之前，請先移轉測試虛擬機器。
 

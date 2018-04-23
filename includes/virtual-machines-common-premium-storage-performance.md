@@ -94,7 +94,7 @@ IOPS 是指應用程式在一秒內傳送到儲存體磁碟的要求數。 輸�
 | **最大記憶體** |順暢執行應用程式所需的記憶體數量 |% Committed Bytes in Use |Use vmstat |
 | **最大CPU** |順暢執行應用程式所需的 CPU 數量 |% Processor time |%util |
 
-深入了解 [iostat](http://linuxcommand.org/man_pages/iostat1.html) 和 [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx)。
+深入了解 [iostat](https://linux.die.net/man/1/iostat) 和 [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx)。
 
 ## <a name="optimizing-application-performance"></a>最佳化應用程式效能
 對進階儲存體上執行的應用程式，影響效能的主要因素包括 IO 要求的本質、VM 大小、磁碟大小、磁碟數目、磁碟快取、多執行緒處理和佇列深度。 您可以使用系統提供的參數來控制這些因素。 大部分應用程式可能沒有選項讓您直接改變 IO 大小和佇列深度。 例如，如果您使用 SQL Server，您無法選擇 IO 大小和佇列深度。 SQL Server 會選擇最佳 IO 大小和佇列深度值，以獲得最高效能。 務必了解這兩種因素對應用程式效能的影響，才能佈建適當的資源來滿足效能需求。

@@ -1,23 +1,18 @@
 ---
-title: "升級至 Azure 搜尋服務 .NET SDK 第 3 版 | Microsoft Docs"
-description: "升級至 Azure 搜尋服務 .NET SDK 版本 3"
-services: search
-documentationcenter: 
+title: 升級至 Azure 搜尋服務 .NET SDK 第 3 版 | Microsoft Docs
+description: 升級至 Azure 搜尋服務 .NET SDK 版本 3
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 48238788e06057ccaba41d1d3f500b5c10c93cb7
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 287b587badc0b1b6029ab0601ea19a734d56acd9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>升級至 Azure 搜尋服務 .NET SDK 版本 3
 如果您使用版本 2.0 預覽版或更舊版本的 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)，本文可協助您將應用程式升級至版本 3。

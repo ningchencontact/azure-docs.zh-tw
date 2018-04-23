@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: trinadhk;markgal;jpallavi;sogup
-ms.openlocfilehash: 89535fc22faccfb184d9b56a6138337877957829
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 93eb9a65e9d5733963f7d6269a06d5f3cde5e256
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
 您可以疑難排解將 Azure 備份使用於下表所列資訊時發生的錯誤。
@@ -45,7 +45,6 @@ ms.lasthandoff: 03/23/2018
 | 虛擬機器代理程式不存在於虛擬機器上：請安裝任何必要元件和 VM 代理程式，然後重新啟動作業。 |[深入了解](#vm-agent) VM 代理程式安裝，以及如何驗證 VM 代理程式安裝。 |
 | 快照集作業失敗，因為 VSS 寫入器處於不正常狀態 |您需要重新啟動 VSS (磁碟區陰影複製服務) 寫入器處於不正常的狀態。 若要達到這個目的，從提高權限的命令提示字元，執行 _vssadmin list writers_。 輸出會包含所有 VSS 寫入器和其狀態。 對於每個狀態不是「[1] 穩定」的 VSS 寫入器，請從提升權限的命令提示字元執行下列命令，重新啟動 VSS 寫入器：<br> _net stop serviceName_ <br> _net start serviceName_|
 | 快照集作業失敗，因為組態的剖析失敗 |這是因為 MachineKeys 目錄中的權限已變更︰_%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>請執行下列命令，並確認 MachineKeys 目錄的權限是預設的︰<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> 預設權限是︰<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>如果您發現 MachineKeys 目錄的權限不同於預設權限，請依照下列步驟來修正權限、刪除憑證，並觸發備份。<ol><li>修正 MachineKeys 目錄上的權限。<br>在目錄上使用 Explorer 安全性屬性和進階安全性設定，將權限重設回預設值，從目錄移除任何額外 (預設值以外) 的使用者物件，然後確認「Everyone」權限有特殊存取權︰<br>-列出資料夾/讀取資料 <br>-讀取屬性 <br>-讀取擴充屬性 <br>-建立檔案/寫入資料 <br>-建立資料夾/附加資料<br>-寫入屬性<br>-寫入擴充屬性<br>-讀取權限<br><br><li>刪除 [發給] 欄位 = "Windows Azure Service Management for Extensions" 或 "Windows Azure CRP Certificate Generator" 的所有憑證。<ul><li>[開啟 [憑證 (本機電腦)] 主控台](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>刪除 [發給] 欄位 = "Windows Azure Service Management for Extensions" 或 "Windows Azure CRP Certificate Generator" 的所有憑證 (在 [個人] -> [憑證] 下)。</ul><li>觸發 VM 備份。 </ol>|
-| 驗證失敗，因為虛擬機器單獨以 BEK 進行加密。 只會對同時使用 BEK 和 KEK 加密的虛擬機器啟用備份。 |虛擬機器應該使用「BitLocker 加密金鑰」和「金鑰加密金鑰」進行加密。 之後，應該啟用備份。 |
 | Azure 備份服務沒有足夠的 Key Vault權限可備份加密的虛擬機器。 |應使用 [PowerShell 文件](backup-azure-vms-automation.md)的**啟用備份**區段中所述的步驟，在 PowerShell 中向備份服務提供這些權限。 |
 |快照集擴充安裝失敗，錯誤為 - COM+ 無法與 Microsoft Distributed Transaction Coordinator 通話 | 請嘗試重新啟動 Windows 服務 "COM+ System Application" (從提高權限的命令提示字元 - _net start COMSysApp_)。 <br>如果在啟動時失敗，請遵循下列步驟︰<ol><li> 確認服務 "Distributed Transaction Coordinator" 的登入帳戶是 "Network Service"。 如果不是，請變更為 "Network Service"，重新啟動此服務，然後嘗試啟動服務 "COM+ System Application"。'<li>如果仍然無法啟動，請依照下列步驟解除安裝/安裝服務 "Distributed Transaction Coordinator"：<br> - 停止 MSDTC 服務<br> - 開啟命令提示字元 (cmd) <br> - 執行命令 “msdtc -uninstall” <br> - 執行命令 “msdtc -install” <br> - 啟動 MSDTC 服務<li>啟動 Windows 服務 "COM+ System Application"，啟動之後，從入口網站觸發備份。</ol> |
 |  因 COM + 錯誤而導致快照集作業失敗 | 建議的動作是重新啟動 Windows 服務「COM + 系統應用程式」(從提升權限的命令提示字元 - _net start COMSysApp_)。 如果問題持續發生，請重新啟動 VM。 如果重新啟動 VM 沒有幫助，請嘗試[移除 VMSnapshot 延伸模組](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load)，並手動觸發備份。 |

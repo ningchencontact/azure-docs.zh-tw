@@ -1,11 +1,11 @@
 ---
-title: "Azure 資訊安全中心常見問題集 (FAQ) | Microsoft Docs"
-description: "這個常見問題集回答「Azure 資訊安全中心」的相關問題。"
+title: Azure 資訊安全中心常見問題集 (FAQ) | Microsoft Docs
+description: 這個常見問題集回答「Azure 資訊安全中心」的相關問題。
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: 2bbd0a8be891bd472cdc631a1f8dc79471d66a77
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 7bbe0945981370c15fd10e93498fcc3ee0bf1a39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 資訊安全中心常見問題集 (FAQ)
 這個常見問題集回答「Azure 資訊安全中心」的相關問題，此資訊安全中心是一項針對 Microsoft Azure 資源的安全性提供更深入的洞悉和更佳控制的服務，可協助您預防、偵測及回應威脅。
@@ -44,7 +44,7 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 「標準層」加上了進階威脅偵測功能，包括威脅情報、行為分析、異常偵測、安全性事件，以及威脅歸因報告。 標準層的前 60 天免費。 如果您在超過 60 天後選擇繼續使用服務，服務會自動開始計費。  若要升級，請選取安全性原則中的[定價層](https://docs.microsoft.com/azure/security-center/security-center-pricing)。
 
 ## <a name="permissions"></a>權限
-Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../active-directory/role-based-access-control-configure.md)，以提供可在 Azure 中指派給使用者、群組與服務的[內建角色](../active-directory/role-based-access-built-in-roles.md)。
+Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md)，以提供可在 Azure 中指派給使用者、群組與服務的[內建角色](../role-based-access-control/built-in-roles.md)。
 
 資訊安全中心會評估資源的組態，以識別安全性問題與弱點。 在「資訊安全中心」中，當您獲指派為資源所屬的訂用帳戶或資源群組「擁有者」、「參與者」或「讀取者」角色時，您只會看到與資源相關的項目。
 

@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Azure Machine Learning 文件"
+title: Azure Machine Learning 文件
 metadata:
-  title: "Azure Machine Learning 文件 - 教學課程和 API 參考"
-  description: "Machine Learning 的文件、影片和範例模型，專為那些在應用程式中使用預測性分析的資料科學家和開發人員所設計的雲端服務。"
+  title: Azure Machine Learning 文件 - 教學課程和 API 參考
+  description: Machine Learning 的文件、影片和範例模型，專為那些在應用程式中使用預測性分析的資料科學家和開發人員所設計的雲端服務。
   services: machine-learning
   author: garyericson
   manager: jhubbard
@@ -13,13 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/01/2018
   ms.author: garye
-  ms.openlocfilehash: 3303174486e9fd7a5b0f6dfe713be93e569a80a7
-  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+  ms.openlocfilehash: 6bfeb53dccd9d281cd467b8261eff5cd47cb4dfb
+  ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 02/13/2018
+  ms.lasthandoff: 04/19/2018
 abstract:
-  description: "了解如何使用 Azure Machine Learning 搭配其完全受控的服務，在雲端中建置、 部署及管理機器學習服務 AI 模型。 教學課程、快速入門、參考資料和範例會帶您了解如何建置和部署任何應用程式模型。"
+  description: 了解如何使用 Azure Machine Learning 搭配其完全受控的服務，在雲端中建置、 部署及管理機器學習服務 AI 模型。 教學課程、快速入門、參考資料和範例會帶您了解如何建置和部署任何應用程式模型。
 sections:
 - title: 
   items:
@@ -27,13 +27,13 @@ sections:
     style: cards
     className: cardsA
     items:
-    - html: "<a href=\"/azure/machine-learning/preview/\"> <img height=\"48\" width=\"48\" src=\"/azure/machine-learning/media/index/i_machine-learning.svg\" alt=\"Azure Machine Learning services\"> (預覽) <br><b>Azure Machine Learning 服務</b></a> <p>了解這些服務能如何強化資料科學家的能力，以使用 Python 工具和程式庫搭配各種 Azure 資料和計算服務，開發 AI 解決方案。</p>"
-    - html: "<a href=\"/azure/machine-learning/studio/\"> <img height=\"48\" width=\"48\" src=\"/azure/machine-learning/media/index/machine-learning-studio.svg\" alt=\"Azure Machine Learning Studio\"> <br><b>Azure Machine Learning Studio</b></a> <p>了解如何使用這項共同作業式的拖放工具，依據您的資料建置、測試及部署預測分析解決方案。</p>"
-    - html: "<a href=\"/azure/machine-learning/data-science-virtual-machine/index\"> <img height=\"48\" width=\"48\" src=\"/azure/machine-learning/media/index/virtualmachine.svg\" alt=\"Data Science Virtual Machine\"> <br><b>資料科學虛擬機器</b></a> <p>了解如何使用用來建置智慧型應用程式以進行進階分析的資料科學工具，來載入資料科學和深入學習虛擬機器， 及 Azure 中自訂的虛擬機器映像。</p>"
-- title: "5 分鐘快速入門"
+    - html: <a href="/azure/machine-learning/service/"> <img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services"> (預覽) <br><b>Azure Machine Learning 服務</b></a> <p>了解這些服務能如何強化資料科學家的能力，以使用 Python 工具和程式庫搭配各種 Azure 資料和計算服務，開發 AI 解決方案。</p>
+    - html: <a href="/azure/machine-learning/studio/"> <img height="48" width="48" src="/azure/machine-learning/media/index/machine-learning-studio.svg" alt="Azure Machine Learning Studio"> <br><b>Azure Machine Learning Studio</b></a> <p>了解如何使用這項共同作業式的拖放工具，依據您的資料建置、測試及部署預測分析解決方案。</p>
+    - html: <a href="/azure/machine-learning/data-science-virtual-machine/index"> <img height="48" width="48" src="/azure/machine-learning/media/index/virtualmachine.svg" alt="Data Science Virtual Machine"> <br><b>資料科學虛擬機器</b></a> <p>了解如何使用用來建置智慧型應用程式以進行進階分析的資料科學工具，來載入資料科學和深入學習虛擬機器， 及 Azure 中自訂的虛擬機器映像。</p>
+- title: 5 分鐘快速入門
   items:
   - type: paragraph
-    text: "了解如何快速設定及使用 Azure Machine Learning 服務 (預覽)、Studio 和資料科學虛擬機器："
+    text: 了解如何快速設定及使用 Azure Machine Learning 服務 (預覽)、Studio 和資料科學虛擬機器：
   - type: table
     style: dataMatrix
     columns:
@@ -44,20 +44,20 @@ sections:
     - image:
         src: media/index/virtualmachine.svg
     rows:
-    - title: "設定"
+    - title: 設定
       values:
-      - href: /azure/machine-learning/preview/quickstart-installation
+      - href: /azure/machine-learning/service/quickstart-installation
       - href: /azure/machine-learning/studio/create-workspace
       - href: /azure/machine-learning/data-science-virtual-machine/provision-vm
-    - title: "建置模型"
+    - title: 建置模型
       values:
-      - href: /azure/machine-learning/preview/quickstart-installation
+      - href: /azure/machine-learning/service/quickstart-installation
       - href: /azure/machine-learning/studio/create-experiment
       - href: 
-- title: "逐步教學課程"
+- title: 逐步教學課程
   items:
   - type: paragraph
-    text: "了解如何使用 Azure Machine Learning 服務 (預覽) 和 Studio 來建置、 部署及取用模型："
+    text: 了解如何使用 Azure Machine Learning 服務 (預覽) 和 Studio 來建置、 部署及取用模型：
   - type: table
     style: dataMatrix
     columns:
@@ -66,31 +66,31 @@ sections:
     - image:
         src: media/index/machine-learning-studio.svg
     rows:
-    - title: "準備資料"
+    - title: 準備資料
       values:
-      - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-1
+      - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1
       - href: /azure/machine-learning/studio/walkthrough-2-upload-data
-    - title: "建置模型"
+    - title: 建置模型
       values:
-      - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-2
+      - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-2
       - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
-    - title: "模型運作"
+    - title: 模型運作
       values:
-      - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-3
+      - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-3
       - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
-    - title: "取用模型"
+    - title: 取用模型
       values:
-      - href: /azure/machine-learning/preview/model-management-consumption
+      - href: /azure/machine-learning/desktop-workbench/model-management-consumption
       - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
-- title: "更多的 Microsoft Azure Machine Learning 技術"
+- title: 更多的 Microsoft Azure Machine Learning 技術
   items:
   - type: list
     style: cards
     className: cardsA
     items:
-    - html: "<a href=\"/azure/machine-learning/team-data-science-process\"> <img src=\"media/index/tdsp.png\" alt=\"Team Data Science Process\" height=\"32\" width=\"32\"> <p><b>Team Data Science Process</b></p> </a>一種共同作業式資料科學方法，可協助團隊有效產出預測分析解決方案和智慧型應用程式。"
-    - html: "<a href=\"/sql/advanced-analytics/r/r-services\"> <img src=\"media/index/logo_sql.png\" alt=\"SQL Server Machine Learning Services\" height=\"32\" width=\"32\"> <p><b>SQL Server Machine Learning 服務</b></p> </a>資料庫中支援使用 R 和 Python 進行分析。"
-    - html: "<a href=\"/machine-learning-server/\"> <img src=\"media/index/ml-server.png\" alt=\"Microsoft Machine Learning Server\" height=\"32\" width=\"32\"> <p><b>Microsoft Machine Learning Server</b></p> </a>彈性靈活的企業機器學習服務平台，支援在 Windows、Linux、HDInsight Spark 和 Hadoop 叢集中進行 R 和 Python 部署。"
-    - html: "<a href=\"/azure/batch-ai/\"> <img src=\"media/index/batch.png\" alt=\"Batch AI Training\" height=\"32\" width=\"32\"> <p><b>Batch AI 訓練</b></p> </a>是一種受控服務，可協助您使用任何架構搭配您的 AI 模型並行測試，然後在叢集化的 GPU 之間大規模定型。"
-    - html: "<a href=\"/azure/#pivot=products&panel=cognitive\"> <img src=\"media/index/cognitive-services.png\" alt=\"Cognitive Services\" height=\"32\" width=\"32\"> <p><b>認知服務</b></p> </a>支援您應用程式、網站和聊天機器人採用的智慧型演算法 API。"
-    - html: "<a href=\"/cognitive-toolkit/\"> <img src=\"media/index/cntk.png\" alt=\"Microsoft Cognitive Toolkit\" height=\"32\" width=\"32\"> <p><b>Microsoft 辨識工具組</b></p> </a>免費的開放原始碼工具組，用來訓練深入學習演算法。"
+    - html: <a href="/azure/machine-learning/team-data-science-process"> <img src="media/index/tdsp.png" alt="Team Data Science Process" height="32" width="32"> <p><b>Team Data Science Process</b></p> </a>一種共同作業式資料科學方法，可協助團隊有效產出預測分析解決方案和智慧型應用程式。
+    - html: <a href="/sql/advanced-analytics/r/r-services"> <img src="media/index/logo_sql.png" alt="SQL Server Machine Learning Services" height="32" width="32"> <p><b>SQL Server Machine Learning 服務</b></p> </a>資料庫中支援使用 R 和 Python 進行分析。
+    - html: <a href="/machine-learning-server/"> <img src="media/index/ml-server.png" alt="Microsoft Machine Learning Server" height="32" width="32"> <p><b>Microsoft Machine Learning Server</b></p> </a>彈性靈活的企業機器學習服務平台，支援在 Windows、Linux、HDInsight Spark 和 Hadoop 叢集中進行 R 和 Python 部署。
+    - html: <a href="/azure/batch-ai/"> <img src="media/index/batch.png" alt="Batch AI Training" height="32" width="32"> <p><b>Batch AI 訓練</b></p> </a>是一種受控服務，可協助您使用任何架構搭配您的 AI 模型並行測試，然後在叢集化的 GPU 之間大規模定型。
+    - html: <a href="/azure/#pivot=products&panel=cognitive"> <img src="media/index/cognitive-services.png" alt="Cognitive Services" height="32" width="32"> <p><b>認知服務</b></p> </a>支援您應用程式、網站和聊天機器人採用的智慧型演算法 API。
+    - html: <a href="/cognitive-toolkit/"> <img src="media/index/cntk.png" alt="Microsoft Cognitive Toolkit" height="32" width="32"> <p><b>Microsoft 辨識工具組</b></p> </a>免費的開放原始碼工具組，用來訓練深入學習演算法。

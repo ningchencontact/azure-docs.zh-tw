@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
-ms.openlocfilehash: 31b36e6fb6a1ebf09c559b2777ffa5f554c3cfa0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3bfedf940bd884fc8093f14236b6f3e4f7596839
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>使用 PowerShell 在 Azure 獨立雲端中管理儲存體
 
@@ -48,7 +48,7 @@ Get-AzureRmEnvironment
 登入您的帳戶，該帳戶可存取您想要連線並且設定環境的雲端。 這個範例示範如何登入使用 Azure Government 雲端的帳戶。   
 
 ```powershell
-Login-AzureRmAccount –Environment AzureUSGovernment
+Connect-AzureRmAccount –Environment AzureUSGovernment
 ```
 
 若要存取中國雲端，請使用環境 **AzureChinaCloud**。 若要存取德國雲端，請使用 **AzureGermanCloud**。

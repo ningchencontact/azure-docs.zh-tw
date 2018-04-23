@@ -1,8 +1,8 @@
 ---
-title: "以程式設計方式建立 Azure 儀表板 | Microsoft Docs"
-description: "本文說明如何以程式設計方式建立 Azure 儀表板。"
+title: 以程式設計方式建立 Azure 儀表板 | Microsoft Docs
+description: 本文說明如何以程式設計方式建立 Azure 儀表板。
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: adamab
 manager: timlt
 editor: tysonn
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 0e84ff61346f2788cf475cee2783ba2056a091ad
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3d72c8b026dd7c72be01aabcb47e76174d7afd6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="programmatically-create-azure-dashboards"></a>以程式設計方式建立 Azure Dashboards
 
@@ -55,7 +55,7 @@ Azure 中的共用儀表板屬於[資源](https://docs.microsoft.com/azure/azure
 
 ![共用命令](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-按一下「共用」命令即會顯示對話方塊，要求您選擇要發佈的目的地訂用帳戶和資源群組。 請注意，對於您選擇的訂用帳戶和資源群組，[您必須擁有寫入權限](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)。
+按一下「共用」命令即會顯示對話方塊，要求您選擇要發佈的目的地訂用帳戶和資源群組。 請注意，對於您選擇的訂用帳戶和資源群組，[您必須擁有寫入權限](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)。
 
 ![共用和存取](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

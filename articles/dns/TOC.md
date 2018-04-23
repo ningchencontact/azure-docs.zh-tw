@@ -8,6 +8,7 @@
 ## [DNS 常見問題](dns-faq.md)
 ## [使用私人 DNS 區域](private-dns-overview.md)
 ## [私人 DNS 案例](private-dns-scenarios.md)
+## [DNS 計量與警示](dns-alerts-metrics.md)
 
 
 # 開始使用

@@ -1,11 +1,11 @@
 ---
-title: "搭配使用 Azure Data Factory 與 SQL 資料倉儲 | Microsoft Docs"
-description: "搭配使用 Azure Data Factory (ADF) 與 SQL 資料倉儲以便開發解決方案的秘訣。"
+title: 搭配使用 Azure Data Factory 與 SQL 資料倉儲 | Microsoft Docs
+description: 搭配使用 Azure Data Factory (ADF) 與 SQL 資料倉儲以便開發解決方案的秘訣。
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 492de762-c7a2-4cdb-943f-3135230e94f1
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 6adfa1264c9d196d6c6e57f1d108710b9ee73265
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-data-factory-with-sql-data-warehouse"></a>搭配使用 Azure Data Factory 與 SQL 資料倉儲
 Azure Data Factory 提供完全受控的方法，可供協調資料的傳輸和 SQL 資料倉儲上預存程序的執行。  這可讓您更輕鬆地設定及排程 SQL 資料倉儲的複雜擷取、轉換和載入 (ETL) 程序。 如需 Azure Data Factory 的更完整概觀，請參閱 [Azure Data Factory 文件][Azure Data Factory documentation]。

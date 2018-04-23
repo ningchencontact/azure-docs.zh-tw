@@ -1,6 +1,6 @@
 ---
-title: "連線到 Azure Cosmos DB 作為 Azure Machine Learning Workbench 中的資料來源| Microsoft Docs"
-description: "此文件提供的範例說明如何透過 Azure Machine Learning Workbench 連線到 Azure Cosmos DB"
+title: 連線到 Azure Cosmos DB 作為 Azure Machine Learning Workbench 中的資料來源| Microsoft Docs
+description: 此文件提供的範例說明如何透過 Azure Machine Learning Workbench 連線到 Azure Cosmos DB
 services: machine-learning
 author: cforbe
 ms.author: cforbe
@@ -8,15 +8,15 @@ manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 09/11/2017
 ms.openlocfilehash: d36b394a528dc4bc1b6e0a9e0e5dbde728cbee1b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connecting-to-azure-cosmos-db-as-a-data-source"></a>連線到 Azure Cosmos DB 作為資料來源
 此文章包含的 Python 範例可讓您連線到 Azure Machine Learning Workbench 中的 Cosmos DB。

@@ -3,8 +3,8 @@ title: 什麼是 Azure 網路存取控制清單？
 description: 了解 Azure 中的存取控制清單
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: ''
 tags: azure-service-management
 ms.assetid: 83d66c84-8f6b-4388-8767-cd2de3e72d76
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
-ms.openlocfilehash: 9a0c85367968c9b38104012d75b1f3975be82cc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: b2239ae6393e74a518522594d36f7b9c30d2a6f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>什麼是端點存取控制清單？
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 您可以使用網路 ACL 執行下列作業：
 
 * 根據遠端子網路與虛擬機器輸入端點的 IPv4 位址範圍，選擇性允許或拒絕傳入流量。
-* 將 IP 位址加入封鎖清單
+* 將 IP 位址加入黑名單
 * 為每個虛擬機器端點建立多個規則
 * 使用規則順序以確保正確的規則集套用於指定的虛擬機器端點 (從最低到最高)
 * 為特定遠端子網路 IPv4 位址指定 ACL。

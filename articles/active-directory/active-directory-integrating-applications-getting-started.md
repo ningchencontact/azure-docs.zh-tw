@@ -1,11 +1,11 @@
 ---
-title: "開始將 Azure AD 與應用程式整合 | Microsoft Docs"
-description: "本文章是整合 Azure Active Directory (AD) 與在內部部署應用程式和雲端應用程式的入門指南。"
+title: 開始將 Azure AD 與應用程式整合 | Microsoft Docs
+description: 本文章是整合 Azure Active Directory (AD) 與在內部部署應用程式和雲端應用程式的入門指南。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: bf8ef28b49a3a12772965e7ebc85539c1a86e10f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dd118dbda9b7b0bee27bf9c97627bb8269e2d9b4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>整合 Azure Active Directory 與應用程式入門指南
 ## <a name="overview"></a>概觀
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/16/2018
 * 您是否需要在整合之前清除使用者/群組資料庫？  (這是很重要的問題。 垃圾進，垃圾出 - 應當避免無用資料。)
 
 ### <a name="access-management-inventory"></a>存取管理清查
-* 您如何目前管理使用者對應用程式存的取？ 需要變更嗎？  曾經考量過管理存取的其他方式，例如使用 [RBAC](role-based-access-control-configure.md) 之類？
+* 您如何目前管理使用者對應用程式存的取？ 需要變更嗎？  曾經考量過管理存取的其他方式，例如使用 [RBAC](../role-based-access-control/role-assignments-portal.md) 之類？
 * 誰需要存取哪些內容？
 
 也許您事先對這所有問題沒有答案，但是沒關係。  本指南可協助您回答其中一些問題，並做出一些明智的決策。

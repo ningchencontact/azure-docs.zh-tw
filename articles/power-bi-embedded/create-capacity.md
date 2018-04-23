@@ -1,24 +1,24 @@
 ---
-title: "在 Azure 入口網站中建立 Power BI Embedded 容量 | Microsoft Docs"
-description: "本文將逐步解說如何在 Microsoft Azure 中建立 Power BI Embedded 容量。"
+title: 在 Azure 入口網站中建立 Power BI Embedded 容量 | Microsoft Docs
+description: 本文將逐步解說如何在 Microsoft Azure 中建立 Power BI Embedded 容量。
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: maghan
+ms.openlocfilehash: 2fadfde13aee3aaf965c6ba30188544a8a075b9d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>在 Azure 入口網站中建立 Power BI Embedded 容量
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/21/2018
 若要完成本快速入門，您需要：
 
 * **Azure 訂用帳戶**︰瀏覽 [Azure 免費試用](https://azure.microsoft.com/free/)來建立帳戶。
-* **Azure Active Directory**：您的訂用帳戶必須與 Azure Active Directory (AAD) 租用戶相關聯。 而且，***您必須使用該租用戶中的帳戶來登入 Azure***。 不支援 Microsoft 帳戶。 若要深入了解，請參閱＜驗證和使用者權限＞。
+* **Azure Active Directory**：您的訂用帳戶必須與 Azure Active Directory (AAD) 租用戶相關聯。 而且，***您必須使用該租用戶中的帳戶來登入 Azure***。 不支援 Microsoft 帳戶。 若要深入了解，請參閱[驗證和使用者權限](../analysis-services/analysis-services-manage-users.md)。
 * **Power BI 租用戶**：您的 AAD 租用戶中至少有一個帳戶必須已註冊 Power BI。
 * **資源群組**：使用現有資源群組，或[建立新的群組](../azure-resource-manager/resource-group-overview.md)。
 

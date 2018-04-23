@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 5979ded9afaa31054f835b5f16fe525809f5730d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 52843c926248627e4e530612cfe9326d4302eb95
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>使用 Mobile Engagement REST API 進行驗證
 > [!IMPORTANT]
@@ -67,7 +67,7 @@ ms.lasthandoff: 03/30/2018
         Import-Module Azure
 3. 執行下列命令，從 PowerShell 登入 Azure Resource Manager。 提供 Azure 帳戶的使用者名稱和密碼： 
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 4. 如果您擁有多個訂用帳戶，請執行下列步驟︰
 
     a. 取得所有訂用帳戶的清單。 然後，複製所要使用訂用帳戶的 **SubscriptionId**。 確定此訂用帳戶有 Mobile Engagement 應用程式。 您要使用此應用程式來與 API 互動。 

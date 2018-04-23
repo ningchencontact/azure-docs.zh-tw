@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2017
-ms.author: v-masebo;kgremban
-ms.openlocfilehash: d5b606532ac445b03527c5027dc3b434d88b6b1f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: kgremban
+ms.openlocfilehash: 44b913d5f30a8465219a6793f48d82cfe39d12b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-device-twins-python"></a>開始使用裝置對應項 (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -242,7 +242,7 @@ ms.lasthandoff: 04/05/2018
 1. 執行裝置應用程式
    
     ```cmd/sh
-    python ReportConnectivity.js
+    python ReportConnectivity.py
     ```
    
     您應該會看到裝置對應項已更新的確認。
@@ -252,7 +252,7 @@ ms.lasthandoff: 04/05/2018
 6. 現在，裝置已回報其連線資訊，它應該會出現在這兩個查詢中。 請返回並再次執行查詢：
    
     ```cmd/sh
-    python AddTagsAndQuery.js
+    python AddTagsAndQuery.py
     ```
    
     這次，您的 **{裝置識別碼}** 應該會出現在這兩個查詢結果中。

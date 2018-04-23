@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 儲存體模擬器進行開發和測試 | Microsoft Docs"
-description: "Azure 儲存體模擬器提供免費的本機開發環境，針對 Azure 儲存體應用程式進行開發和測試。 了解如何驗證要求、如何從應用程式連接到模擬器，以及如何使用命令列工具。"
+title: 使用 Azure 儲存體模擬器進行開發和測試 | Microsoft Docs
+description: Azure 儲存體模擬器提供免費的本機開發環境，針對 Azure 儲存體應用程式進行開發和測試。 了解如何驗證要求、如何從應用程式連接到模擬器，以及如何使用命令列工具。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f98b8c3a8217b60fd0ba3754ac4ba72e09039f24
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 儲存體模擬器進行開發和測試
 
@@ -27,7 +27,7 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 ## <a name="get-the-storage-emulator"></a>取得儲存體模擬器
 儲存體模擬器隨 [Microsoft Azure SDK](https://azure.microsoft.com/downloads/)提供。 您也可以使用[獨立安裝程式](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (直接下載) 來安裝儲存體模擬器。 若要安裝儲存體模擬器，您必須具有電腦上的系統管理權限。
 
-儲存體模擬器目前只能在 Windows 上執行。 針對考慮適用於 Linux 之儲存體模擬器的使用者，有一個選擇是社群維護的開放原始碼儲存體模擬器 [Azurite](https://github.com/arafato/azurite)。
+儲存體模擬器目前只能在 Windows 上執行。 針對考慮適用於 Linux 之儲存體模擬器的使用者，有一個選擇是社群維護的開放原始碼儲存體模擬器 [Azurite](https://github.com/azure/azurite)。
 
 > [!NOTE]
 > 在某個儲存體模擬器版本中建立的資料不保證可在使用不同版本時加以存取。 如果您需要長期保存資料，建議您將該資料儲存於 Azure 儲存體帳戶中 (而不是儲存體模擬器中)。

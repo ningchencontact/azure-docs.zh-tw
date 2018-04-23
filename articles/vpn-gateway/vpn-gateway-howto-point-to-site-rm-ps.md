@@ -1,11 +1,11 @@
 ---
-title: "使用點對站和原生 Azure 憑證驗證將電腦連線至 Azure 虛擬網路︰PowerShell | Microsoft Docs"
-description: "使用 P2S 和自我簽署或 CA 核發的憑證，將 Windows 和 Mac OS X 用戶端安全地連線至 Azure 虛擬網路。 本文使用 PowerShell。"
+title: 使用點對站和原生 Azure 憑證驗證將電腦連線至 Azure 虛擬網路︰PowerShell | Microsoft Docs
+description: 使用 P2S 和自我簽署或 CA 核發的憑證，將 Windows 和 Mac OS X 用戶端安全地連線至 Azure 虛擬網路。 本文使用 PowerShell。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: ab171a97855090302148651e8e9c3d0d8b91a33a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 42afdee5ac58db005a7ecfb6388c88a974704a03
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用原生 Azure 憑證驗證設定 VNet 的點對站連線：PowerShell
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 02/22/2018
 1. 以提高的權限開啟 PowerShell 主控台並登入您的 Azure 帳戶。 此 Cmdlet 會提示您提供登入認證。 登入之後，它會下載您的帳戶設定以供 Azure PowerShell 使用。
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 2. 取得您的 Azure 訂用帳戶清單。
 

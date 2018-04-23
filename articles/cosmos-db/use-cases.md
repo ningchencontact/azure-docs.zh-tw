@@ -1,11 +1,9 @@
 ---
-title: "Azure Cosmos DB 常見的使用案例與情況 | Microsoft Docs"
-description: "了解 Azure Cosmos DB 的前五大使用案例：使用者產生的內容、事件記錄、目錄資料、使用者喜好設定資料，以及物聯網 (IoT)。"
+title: Azure Cosmos DB 常見的使用案例與情況 | Microsoft Docs
+description: 了解 Azure Cosmos DB 的前五大使用案例：使用者產生的內容、事件記錄、目錄資料、使用者喜好設定資料，以及物聯網 (IoT)。
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: 
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
 ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: mimig
-ms.openlocfilehash: bcafc999c30d1e72971c8e26e951169ea6b56416
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: sngun
+ms.openlocfilehash: c85aa1a010ea9ccac807d676fd69473de07abca9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>常見的 Azure Cosmos DB 使用案例
 本文提供數個常見的 Azure Cosmos DB 使用案例概觀。  本文中的建議可作為使用 Cosmos DB 來開發應用程式時的起點。   

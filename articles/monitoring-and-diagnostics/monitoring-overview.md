@@ -1,7 +1,7 @@
 ---
 title: 監視 Azure 應用程式和資源 | Microsoft Docs
 description: 構成 Azure 服務和應用程式之完整監視策略的各種 Microsoft 服務和功能的概觀。
-author: robb
+author: rboucher
 manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: c20e97e445dc79bdb65dcde40d323989005f5f5d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 404ede664f13900137c730034798fbb4b8307852
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>監視 Azure 應用程式和資源
 

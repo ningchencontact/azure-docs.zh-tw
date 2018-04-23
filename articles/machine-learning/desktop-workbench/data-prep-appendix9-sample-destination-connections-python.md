@@ -1,6 +1,6 @@
 ---
-title: "可供 Azure Machine Learning 資料準備使用的範例目的地/輸出 | Microsoft Docs"
-description: "本文件提供可用於 Azure Machine Learning 資料準備之自訂資料目的地/輸出的一組範例"
+title: 可供 Azure Machine Learning 資料準備使用的範例目的地/輸出 | Microsoft Docs
+description: 本文件提供可用於 Azure Machine Learning 資料準備之自訂資料目的地/輸出的一組範例
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: a9476b9ac3a5cc1f82ab1c09678972fb6b78b894
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sample-of-destination-connections-python"></a>目的地連線的範例 (Python) 
 閱讀本附錄之前，請先參閱 [Python 擴充性概觀](data-prep-python-extensibility-overview.md)。

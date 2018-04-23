@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 自動化中使用 Runbook 收集 Log Analytics 資料 | Microsoft Docs"
-description: "逐步教學課程，可逐步解說如何在 Azure 自動化中建立 Runbook 以將資料收集到 OMS 存放庫，供 Log Analytics 進行分析。"
+title: 在 Azure 自動化中使用 Runbook 收集 Log Analytics 資料 | Microsoft Docs
+description: 逐步教學課程，可逐步解說如何在 Azure 自動化中建立 Runbook 以將資料收集到 OMS 存放庫，供 Log Analytics 進行分析。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: operations-management-suite
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 59f674c9c6404da7f5384539189f41a4ba1a939a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0784e2317fbc98561b486547654ca27bb30e76c3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>使用 Azure 自動化 Runbook 在 Log Analytics 中收集資料
 您可以在 Log Analytics 中收集來自各種來源 (包括代理程式上的[資料來源](../log-analytics/log-analytics-data-sources.md)) 的大量資料，以及[收集自 Azure 的資料](../log-analytics/log-analytics-azure-storage.md)。  在某些情況下，您需要收集無法透過這些標準來源存取到的資料。  在這些案例中，您可以使用 [HTTP 資料收集器 API](../log-analytics/log-analytics-data-collector-api.md) 將資料從任何 REST API 用戶端寫入 Log Analytics。  執行此資料收集的常見方法是在 Azure 自動化中使用 Runbook。   
@@ -97,7 +97,7 @@ Azure 自動化在入口網站中有一個編輯器，您可以在其中編輯�
         # Code copied from the runbook AzureAutomationTutorial.
         $connectionName = "AzureRunAsConnection"
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `

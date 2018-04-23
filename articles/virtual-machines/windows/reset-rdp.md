@@ -3,7 +3,7 @@ title: 重設 Windows VM 上的密碼或遠端桌面組態 | Microsoft Docs
 description: 了解如何使用 Azure 入口網站或 Azure PowerShell 來重設 Windows VM 上的帳戶密碼或「遠端桌面」服務。
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
-ms.author: danis
-ms.openlocfilehash: 038fc81fd46f81a454ec908e2156579ff8d41ee6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: 26a213d490ee3f661735ff5b893b0a5f5f9906da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>如何在 Windows VM 中重設遠端桌面服務或其登入密碼
 如果您無法連線到 Windows 虛擬機器 (VM)，您可以重設本機系統管理員密碼或重設「遠端桌面」服務設定 (「Windows 網域控制站」上不支援)。 您可以使用 Azure 入口網站或 Azure PowerShell 中的 VM 存取延伸模組來重設密碼。 您登入 VM 後，應重設該使用者的密碼。  
@@ -54,24 +54,24 @@ ms.lasthandoff: 04/06/2018
 
 
 ## <a name="vmaccess-extension-and-powershell"></a>VMAccess 延伸模組和 PowerShell
-請確定您已[安裝並設定最新的 PowerShell 模組](/powershell/azure/overview)，並使用 `Login-AzureRmAccount` Cmdlet 登入您的 Azure 訂用帳戶。
+請確定您已[安裝並設定最新的 PowerShell 模組](/powershell/azure/overview)，並使用 `Connect-AzureRmAccount` Cmdlet 登入您的 Azure 訂用帳戶。
 
 ### <a name="reset-the-local-administrator-account-password"></a>**重設本機系統管理員帳戶密碼**
-請使用 [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell Cmdlet，來重設系統管理員密碼或使用者名稱。 建立您的帳戶認證，如下所示：
+請使用 [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell Cmdlet，來重設系統管理員密碼或使用者名稱。 
 
 ```powershell
-$cred=Get-Credential
+$SubID = "<SUBSCRIPTION ID>" 
+$RgName = "<RESOURCE GROUP NAME>" 
+$VmName = "<VM NAME>" 
+$Location = "<LOCATION>" 
+ 
+Connect-AzureRmAccount 
+Select-AzureRMSubscription -SubscriptionId $SubID 
+Set-AzureRmVMAccessExtension -ResourceGroupName $RgName -Location $Location -VMName $VmName -Credential (get-credential) -typeHandlerVersion "2.0" -Name VMAccessAgent 
 ```
 
 > [!NOTE] 
 > 如果您輸入的名稱與 VM 上目前本機系統管理員帳戶不同，VMAccess 延伸模組將會以該名稱新增一個本機系統管理員帳戶，然後將您指定的密碼指派給該帳戶。 如果 VM 上有本機系統管理員帳戶存在，它將會重設密碼，而如果該帳戶已停用，VMAccess 延伸模組就會啟用它。
-
-
-下列範例會將資源群組 `myResourceGroup` 中的 VM `myVM` 更新為指定的認證。
-
-```powershell
-Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -UserName $cred.GetNetworkCredential().UserName -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
-```
 
 ### <a name="reset-the-remote-desktop-service-configuration"></a>**重設遠端桌面服務組態**
 使用 [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell Cmdlet，重設對您 VM 的遠端存取。 下列範例會在資源群組 `myResourceGroup` 中的 VM `myVM` 上重設存取擴充功能 `myVMAccess`：

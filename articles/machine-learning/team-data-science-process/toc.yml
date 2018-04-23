@@ -51,10 +51,10 @@
         - name: 情感分類
           href: predict-twitter-sentiment.md
         - name: 美國收入分類
-          href: ../preview/scenario-tdsp-classifying-us-incomes.md
+          href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
           maintainContext: true
         - name: 生物醫學實體辨識
-          href: ../preview/scenario-tdsp-biomedical-recognition.md
+          href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
     - name: Spark 與 PySpark 和 Scala
       href: walkthroughs-spark.md
@@ -83,7 +83,7 @@
     作法
   items:
     - name: 在 Azure ML 中使用 TDSP
-      href: ../preview/how-to-use-tdsp-in-azure-ml.md
+      href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
       maintainContext: true
     - name: 設定資料科學環境
       href: environment-setup.md

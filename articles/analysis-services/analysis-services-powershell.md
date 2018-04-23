@@ -1,24 +1,18 @@
 ---
-title: "使用 PowerShell 管理 Azure Analysis Services | Microsoft Docs"
-description: "使用 PowerShell 的 Azure Analysis Services 管理。"
-services: analysis-services
-documentationcenter: 
+title: 使用 PowerShell 管理 Azure Analysis Services | Microsoft Docs
+description: 使用 PowerShell 的 Azure Analysis Services 管理。
 author: minewiskan
 manager: kfile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: reference
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 0e154c7789b38843cd3784daa8cf60d078bdc546
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: c7315835bca446c4cae592f4bdd58a733b203655
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 
@@ -29,7 +23,7 @@ ms.lasthandoff: 02/21/2018
 ## <a name="permissions"></a>權限
 大部分的 PowerShell 工作需要您在您管理的 Analysis Services 伺服器上具備系統管理員權限。 排定的 PowerShell 工作都是自動的作業。 執行排程器的帳戶必須具有 Analysis Services 伺服器上的管理員權限。 
 
-針對使用 AzureRm Cmdlet 的伺服器作業，您的帳戶或執行排程器的帳戶也必須屬於 [Azure 角色型存取控制 (RBAC)](../active-directory/role-based-access-control-what-is.md) 中之資源的 Owner 角色。 
+針對使用 AzureRm Cmdlet 的伺服器作業，您的帳戶或執行排程器的帳戶也必須屬於 [Azure 角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 中之資源的 Owner 角色。 
 
 ## <a name="server-operations"></a>伺服器作業 
 Azure Analysis Services Cmdlet 包含在 [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) 元件模組中。 若要安裝 AzureRM Cmdlet 模組，請參閱 PowerShell 資源庫中的 [Azure Resource Manager Cmdlet (英文)](/powershell/azure/overview)。

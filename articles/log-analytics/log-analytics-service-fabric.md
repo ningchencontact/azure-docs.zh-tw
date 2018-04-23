@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell 以 Azure Log Analytics 評估 Service Fabric 應用程式 | Microsoft Docs"
-description: "您可以在 Log Analytics 中使用 PowerShell，使用 Service Fabric 解決方案評估 Service Fabric 應用程式、微服務、節點和叢集的風險和健全狀況。"
+title: 使用 PowerShell 以 Azure Log Analytics 評估 Service Fabric 應用程式 | Microsoft Docs
+description: 您可以在 Log Analytics 中使用 PowerShell，使用 Service Fabric 解決方案評估 Service Fabric 應用程式、微服務、節點和叢集的風險和健全狀況。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: niniikhena
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 2047b3fa-96b1-4230-af5d-a4c331d973ce
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 15c2d882a121df48c94d457719287cd510d0c093
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 879c89d21aece120888dded49ca1b2c55677635e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>使用 PowerShell 評估 Azure Service Fabric 應用程式和微服務
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ try
 }
 catch [System.Management.Automation.PSInvalidOperationException]
 {
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 }
 
 $validTables = "WADServiceFabric*EventTable", "WADETWEventTable"
@@ -609,7 +609,7 @@ try
 }
 catch [System.Management.Automation.PSInvalidOperationException]
 {
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 }
 
 $allResources = Get-AzureRmResource

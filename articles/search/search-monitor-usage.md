@@ -1,25 +1,19 @@
 ---
-title: "監視 Azure 搜尋服務中的使用量和統計資料 | Microsoft Docs"
-description: "追蹤 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 的資源耗用量和索引大小。"
-services: search
-documentationcenter: 
+title: 監視 Azure 搜尋服務中的使用量和統計資料 | Microsoft Docs
+description: 追蹤 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 的資源耗用量和索引大小。
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
 ms.service: search
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fe852afedfc1cce99d81b8ab53c6c80df34ac6d6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b8c07d5965876cba45f03fa8c5ffb473c6ca3bc2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitoring-an-azure-search-service"></a>監視 Azure 搜尋服務
 

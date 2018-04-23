@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>使用 Azure 成本管理啟動 Azure 訂用帳戶與帳戶
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/09/2018
 - 向 Azure AD 租用戶註冊 CloudynCollector 應用程式的權限。
 - 將應用程式指派給 Azure 訂用帳戶中角色的能力。
 
-在您的 Azure 訂用帳戶中，您的帳戶必須具有 `Microsoft.Authorization/*/Write` 存取權，才能指派 CloudynCollector 應用程式。 此動作是[擁有者](../active-directory/role-based-access-built-in-roles.md#owner)角色或[使用者存取系統管理員](../active-directory/role-based-access-built-in-roles.md#user-access-administrator)角色來授與。
+在您的 Azure 訂用帳戶中，您的帳戶必須具有 `Microsoft.Authorization/*/Write` 存取權，才能指派 CloudynCollector 應用程式。 此動作是[擁有者](../role-based-access-control/built-in-roles.md#owner)角色或[使用者存取系統管理員](../role-based-access-control/built-in-roles.md#user-access-administrator)角色來授與。
 
 如果您的帳戶被指派**參與者**角色，您並沒有足夠的權限可指派應用程式。 嘗試將 CloudynCollector 應用程式指派到您的 Azure 訂用帳戶時，您會收到錯誤。
 

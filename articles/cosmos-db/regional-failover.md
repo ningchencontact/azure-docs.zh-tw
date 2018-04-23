@@ -3,9 +3,8 @@ title: Azure Cosmos DB 的區域性容錯移轉 | Microsoft Docs
 description: 了解 Azure Cosmos DB 的手動和自動容錯移轉如何運作。
 services: cosmos-db
 documentationcenter: ''
-author: arramac
+author: SnehaGunda
 manager: kfile
-editor: ''
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -13,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: arramac
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4a221a0d4f9ef6b6b32ed9b684939b9f277e2084
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 977027de0627a6eca5f9eb5d1ab83dea5347c6d4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Azure Cosmos DB 中商務持續性的自動區域性容錯移轉
 Azure Cosmos DB 會簡化資料的全域散發作業，方法是提供多個完全受控的[多重地區資料庫帳戶](distribute-data-globally.md)，在一致性、可用性和效能之間進行明確取捨，這一切全都倚靠相對應的保證來完成。 Cosmos DB 帳戶具備下列優點：高可用性、個位數的毫秒延遲、[定義完善的一致性層級](consistency-levels.md)、利用多路連接 API 透明進行的區域性容錯移轉，以及全球輸送量及儲存體的靈活調整能力。 
@@ -61,7 +60,7 @@ usConnectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
 
 DocumentClient usClient = new DocumentClient(
     new Uri("https://contosodb.documents.azure.com"),
-    "memf7qfF89n6KL9vcb7rIQl6tfgZsRt5gY5dh3BIjesarJanYIcg2Edn9uPOUIVwgkAugOb2zUdCR2h0PTtMrA==",
+    "<Fill your Cosmos DB account's AuthorizationKey>",
     usConnectionPolicy);
 ```
 

@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell Cmdlet 建立 Azure IoT 中樞 | Microsoft Docs"
-description: "如何使用 PowerShell Cmdlet 建立 IoT 中樞。"
+title: 使用 PowerShell Cmdlet 建立 Azure IoT 中樞 | Microsoft Docs
+description: 如何使用 PowerShell Cmdlet 建立 IoT 中樞。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 1d22e1a20d18e06686f893b1f4ae22e6373633b3
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e7dbfabadf72b8abece02907cd16644ef95e67a9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>使用 New-AzureRmIotHub Cmdlet 建立 IoT 中樞
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/18/2017
 在 PowerShell 命令提示字元中，輸入下列命令來登入您的 Azure 訂用帳戶：
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 如果您有多個 Azure 訂用帳戶，則登入 Azure 即會為您授與和您認證相關聯之所有 Azure 訂用帳戶的存取權。 使用下列命令來列出可供您使用的 Azure 訂用帳戶：

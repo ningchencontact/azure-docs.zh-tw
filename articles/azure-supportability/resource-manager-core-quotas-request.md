@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager vCPU 配額增加要求 | Microsoft Docs"
-description: "Azure Resource Manager vCPU 配額增加要求"
+title: Azure Resource Manager vCPU 配額增加要求 | Microsoft Docs
+description: Azure Resource Manager vCPU 配額增加要求
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/18/2017
@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Resource Manager vCPU 配額增加要求
 
@@ -19,7 +19,7 @@ ms.lasthandoff: 11/11/2017
 您可以在 [Azure 訂用帳戶和服務限制](http://aka.ms/quotalimits)頁面深入了解如何強制執行配額。
 若要深入了解 SKU 系列，您可以在[虛擬機器價格](http://aka.ms/pricingcompute)頁面上比較成本和效能。
 
-若要要求增加，請在 Azure 入口網站 [https://portal.azure.com](https://portal.azure.com) 中建立 vCPU 的配額支援案例。
+若要求增加，請在 Azure 入口網站 [https://portal.azure.com](https://portal.azure.com) 中建立 vCPU 的配額支援案例。
 
 > [!NOTE]
 > 了解如何在 Azure 入口網站中[建立支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)

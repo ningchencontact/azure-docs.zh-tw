@@ -1,12 +1,12 @@
 ---
-title: "在使用 PowerShell 的 Azure 佇列儲存體上執行作業 | Microsoft Docs"
-description: "如何在使用 PowerShell 的 Azure 佇列儲存體上執行作業"
+title: 在使用 PowerShell 的 Azure 佇列儲存體上執行作業 | Microsoft Docs
+description: 如何在使用 PowerShell 的 Azure 佇列儲存體上執行作業
 services: storage
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 36eb6db83bb902b35efb8c9666ab06e0c618d602
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bad9f1f3fd5737e865a8f4d1d15ab3d5eb68b4cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 執行 Azure 佇列儲存體作業
 
@@ -38,10 +38,10 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-使用 `Login-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>擷取位置清單

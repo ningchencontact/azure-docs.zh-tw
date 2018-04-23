@@ -1,5 +1,5 @@
 ---
-title: "可用於 Azure 儲存體的安全性功能 | Microsoft Docs"
+title: 可用於 Azure 儲存體的安全性功能 | Microsoft Docs
 description: " 本文提供可用於 Azure 儲存體的核心 Azure 安全性功能概觀。 "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: a118bde2290e68c9a741e40cda210d47db918047
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8160ede71930bf4c15969044deb3fced855f03e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-overview"></a>Azure 儲存體安全性概觀
 Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應用程式仰賴持續性、可用性和可調整性來滿足其客戶的需求。 Azure 儲存體提供一組完整的安全性功能：
@@ -44,11 +44,11 @@ Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應�
 * Azure 金鑰保存庫
 
 ## <a name="role-based-access-control-rbac"></a>角色型存取控制 (RBAC)
-您可以使用角色型存取控制 (RBAC) 來保護儲存體帳戶。 對於想要強制執行資料存取安全性原則的組織，根據[需要知道](https://en.wikipedia.org/wiki/Need_to_know)和[最低權限](https://en.wikipedia.org/wiki/Principle_of_least_privilege)安全性原則限制存取權限是必須做的事。 在特定範圍將適當的 RBAC 角色指派給群組和應用程式，即可授與這些存取權限。 您可以使用 [內建的 RBAC 角色](../active-directory/role-based-access-built-in-roles.md)(例如儲存體帳戶參與者) 將權限指派給使用者。
+您可以使用角色型存取控制 (RBAC) 來保護儲存體帳戶。 對於想要強制執行資料存取安全性原則的組織，根據[需要知道](https://en.wikipedia.org/wiki/Need_to_know)和[最低權限](https://en.wikipedia.org/wiki/Principle_of_least_privilege)安全性原則限制存取權限是必須做的事。 在特定範圍將適當的 RBAC 角色指派給群組和應用程式，即可授與這些存取權限。 您可以使用 [內建的 RBAC 角色](../role-based-access-control/built-in-roles.md)(例如儲存體帳戶參與者) 將權限指派給使用者。
 
 深入了解：
 
-* [Azure Active Directory 角色型存取控制](../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory 角色型存取控制](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="delegated-access-to-storage-objects"></a>儲存體物件的委派存取權
 共用存取簽章 (SAS) 可提供您儲存體帳戶中資源的委派存取。 SAS 意謂著您可以將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定的時間內使用一組指定的權限來進行存取。 您可以在不須分享您帳戶存取金鑰的情況下，授與這些有限的權限。 SAS 是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進行驗證式存取所需的一切資訊。 若要使用 SAS 存取儲存體資源，用戶端只需將 SAS 提供給適當的建構函式或方法即可。

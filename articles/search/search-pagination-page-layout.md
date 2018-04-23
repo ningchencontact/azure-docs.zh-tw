@@ -1,24 +1,18 @@
 ---
-title: "如何在 Azure 搜尋服務中對搜尋結果分頁 | Microsoft Docs"
-description: "Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 中的分頁方式。"
-services: search
-documentationcenter: 
+title: 如何在 Azure 搜尋服務中對搜尋結果分頁 | Microsoft Docs
+description: Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 中的分頁方式。
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: a0a1d315-8624-4cdf-b38e-ba12569c6fcc
+manager: cgronlun
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 1054e15a2751c53aad5dbc8054c4cec41102dee9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 066358241b79f8bc0fb40e5e5b5989e561d9c909
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>如何在 Azure 搜尋服務中對搜尋結果分頁
 本文提供指引，關於如何使用 Azure 搜尋服務 REST API 來實作搜尋結果頁面的標準項目，例如次數總計、擷取文件、排序次序和導覽。

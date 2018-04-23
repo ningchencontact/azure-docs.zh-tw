@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b50c9f059d82d9378fba8db663aa2e8dce0273f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 239478a9e697d9eed474a9bfcc0d12fb6a05faee
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>使用執行身分帳戶更新您的自動化帳戶驗證 
 您可以從 Azure 入口網站或使用 PowerShell 來更新現有的自動化帳戶，前提是：
@@ -177,7 +177,7 @@ ms.lasthandoff: 03/23/2018
         return
     }
         
-    Login-AzureRmAccount -Environment $EnvironmentName 
+    Connect-AzureRmAccount -Environment $EnvironmentName 
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
         
     # Create a Run As account by using a service principal

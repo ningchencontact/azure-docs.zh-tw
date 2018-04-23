@@ -1,6 +1,6 @@
 ---
-title: "加強 Azure 中的遠端管理安全性 | Microsoft Docs"
-description: "本文探討管理 Microsoft Azure 環境時提升遠端管理安全性的步驟，這些環境包括雲端服務、虛擬機器及自訂應用程式。"
+title: 加強 Azure 中的遠端管理安全性 | Microsoft Docs
+description: 本文探討管理 Microsoft Azure 環境時提升遠端管理安全性的步驟，這些環境包括雲端服務、虛擬機器及自訂應用程式。
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 026a22355ab1d35fa1fe6b7ba624fed5d10b3e38
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-management-in-azure"></a>Azure 的安全性管理
 Azure 訂閱者可從多種裝置管理其雲端環境，這些裝置包括管理工作站、開發人員的電腦，甚至是具有工作專用權限的特殊權限使用者裝置。 有時候，管理功能是透過 Web 式主控台來執行，例如 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)。 至於其他時候，則可能會從內部部署系統，透過虛擬私人網路 (VPN)、終端機服務、用戶端應用程式通訊協定或 Azure 服務管理 API (SMAPI) (以程式設計方式) 直接連線至 Azure。 此外，用戶端端點也可以加入網域或是遭到隔離且非受控，例如平板電腦或智慧型手機。
@@ -64,7 +64,7 @@ Azure 訂閱者可從多種裝置管理其雲端環境，這些裝置包括管�
 ### <a name="providing-security-for-azure-remote-management"></a>為 Azure 的遠端管理提供安全性
 Azure 提供了安全性機制來協助系統管理員管理 Azure 雲端服務和虛擬機器。 這些機制包括︰
 
-* 驗證和[角色型存取控制](../active-directory/role-based-access-control-configure.md)。
+* 驗證和[角色型存取控制](../role-based-access-control/role-assignments-portal.md)。
 * 監視、記錄和稽核。
 * 憑證和加密通訊。
 * Web 管理入口網站。

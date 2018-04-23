@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 4bc5644425aa11fb210d81095e4166baefc6432e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 26ba68be6d4932da77befaf7c968525393c0a033
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>讓雲端服務提供者能夠管理您的 Azure Stack 訂用帳戶
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 03/12/2018
 將 CSP 新增為您訂用帳戶的擁有者。 
 
 1. 在您的租用戶目錄中將 CSP 新增為 具有擁有者角色的來賓使用者。  如需新增使用者的步驟，請參閱[將新的使用者新增至 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)
-2. 將擁有者角色新增至 CSP 來賓使用者。 如需將 CSP 使用者新增至您訂用帳戶的步驟，請參閱[使用角色型存取控制來管理 Azure 訂用帳戶資源的存取](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)
+2. 將擁有者角色新增至 CSP 來賓使用者。 如需將 CSP 使用者新增至您訂用帳戶的步驟，請參閱[使用角色型存取控制來管理 Azure 訂用帳戶資源的存取](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 3. 接著，CSP 會為您建立本機 Azure Stack 訂用帳戶。
 4. 您已準備好開始使用 Azure Stack。
 5. 接著，您的 CSP 應該會在您的訂用帳戶中建立資源，以確認它們可以管理您的資源。 

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 
@@ -85,16 +85,16 @@ ms.lasthandoff: 03/30/2018
 * 您可以建立一份報告，其中包含哪一位人員已使用 PowerShell 或 Azure CLI，在哪個範圍中，為哪些對象授與/撤銷何種類型的存取權。
 
 #### <a name="resources"></a>資源
-* [Azure Active Directory 角色型存取控制](../../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory 角色型存取控制](../../role-based-access-control/role-assignments-portal.md)
 
   本文說明 Azure Active Directory 角色型存取控制及其運作方式。
-* [RBAC：內建角色](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC：內建角色](../../role-based-access-control/built-in-roles.md)
 
   本文將詳細說明 RBAC 中所有可用的內建角色。
 * [了解資源管理員部署和傳統部署](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   本文說明資源管理員部署和傳統部署模型，並說明使用資源管理員和資源群組的優點。 內容中會說明 Azure 計算、網路及儲存體提供者在 Resource Manager 模型下的運作方式。
-* [使用 REST API 管理角色型存取控制](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [使用 REST API 管理角色型存取控制](../../role-based-access-control/role-assignments-rest.md)
 
   本文說明如何使用 REST API 來管理 RBAC。
 * [Azure 儲存體資源提供者 REST API 參考](https://msdn.microsoft.com/library/azure/mt163683.aspx)

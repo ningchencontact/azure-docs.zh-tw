@@ -1,6 +1,6 @@
 ---
-title: "可供 Azure Machine Learning 資料準備使用的支援資料目的地和輸出 | Microsoft Docs"
-description: "本文件提供 Azure Machine Learning 資料準備可使用的支援目的地和輸出完整清單"
+title: 可供 Azure Machine Learning 資料準備使用的支援資料目的地和輸出 | Microsoft Docs
+description: 本文件提供 Azure Machine Learning 資料準備可使用的支援目的地和輸出完整清單
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 5451a5f525da845f97141a97241efb53ec42ff58
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="supported-data-exports-for-this-preview"></a>適用於此預覽的支援資料匯出 
 您可匯出成幾個不同的格式。 可以先使用這些格式來保留資料準備的中繼結果，然後再將結果整合至其餘 Machine Learning 工作流程。

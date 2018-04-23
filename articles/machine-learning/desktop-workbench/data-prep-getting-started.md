@@ -1,6 +1,6 @@
 ---
-title: "開始進行 Azure Machine Learning 的資料準備 | Microsoft Docs"
-description: "這是適用於 AML Workbench 資料準備區段的快速入門指南"
+title: 開始進行 Azure Machine Learning 的資料準備 | Microsoft Docs
+description: 這是適用於 AML Workbench 資料準備區段的快速入門指南
 services: machine-learning
 author: cforbe
 ms.author: cforbe
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
 ms.openlocfilehash: b0fbb0af433cfad6693b022d7a00373dc39533aa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="getting-started-with-data-preparation"></a>開始進行資料準備
 

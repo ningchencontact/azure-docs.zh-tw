@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 網路監看員 IP 流量驗證來驗證流量 - Azure 入口網站 | Microsoft Docs"
-description: "本文說明如何檢查虛擬機器中的流入或流出流量是被允許或拒絕"
+title: 使用 Azure 網路監看員 IP 流量驗證來驗證流量 - Azure 入口網站 | Microsoft Docs
+description: 本文說明如何檢查虛擬機器中的流入或流出流量是被允許或拒絕
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e0e3e9a8-70eb-409a-a744-0ce9deb27148
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 8333ccfd1e4cc917c8af4b3006292e43b77ecc7f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b6d929f025c8b95709b7c0eb28ee78310e5f12a5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>使用 Azure 網路監看員的 IP 流量驗證元件來檢查 VM 中的流入或流出流量是被允許或拒絕
 
@@ -59,7 +59,7 @@ IP 流量驗證是網路監看員的一項功能，可讓您驗證虛擬機器�
 
 ## <a name="next-steps"></a>後續步驟
 
-如果流量遭到封鎖，但不應如此，請參閱[管理網路安全性群組](../virtual-network/virtual-network-manage-nsg-arm-portal.md)以追蹤網路安全性群組和所定義的安全性規則。
+如果流量遭到封鎖，但不應如此，請參閱[管理網路安全性群組](../virtual-network/manage-network-security-group.md)以追蹤網路安全性群組和所定義的安全性規則。
 
 [1]: ./media/network-watcher-check-ip-flow-verify-portal/figure1.png
 [2]: ./media/network-watcher-check-ip-flow-verify-portal/figure2.png

@@ -1,11 +1,11 @@
 ---
-title: "為網路安全性群組疑難排解 - PowerShell | Microsoft Docs"
-description: "了解如何使用 Azure PowerShell 對 Azure Resource Manager 部署模型中的網路安全性群組進行疑難排解。"
+title: 為網路安全性群組疑難排解 - PowerShell | Microsoft Docs
+description: 了解如何使用 Azure PowerShell 對 Azure Resource Manager 部署模型中的網路安全性群組進行疑難排解。
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4c732bb7-5cb1-40af-9e6d-a2a307c2a9c4
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d556f2d6d37956c3b3bca2a2905b2c947e6be0df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6beaeb4b7e5c9e393427d575f1cf8bc48599dbd5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>使用 Azure PowerShell 為網路安全性群組疑難排解
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ NSG 可讓您控制流入和流出虛擬機器 (VM) 的流量類型。 您可對
 ## <a name="detailed-troubleshooting-steps"></a>詳細的疑難排解步驟
 完成下列步驟對 VM 的 NSG 進行疑難排解：
 
-1. 啟動 Azure PowerShell 工作階段並登入 Azure。 如果您不熟悉如何使用 Azure PowerShell，請閱讀 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 文章。 您的帳戶必須獲指派網路介面的 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 作業。 若要了解如何將作業指派給帳戶，請參閱[建立 Azure 角色型存取控制的自訂角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)。
+1. 啟動 Azure PowerShell 工作階段並登入 Azure。 如果您不熟悉如何使用 Azure PowerShell，請閱讀 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 文章。 您的帳戶必須獲指派網路介面的 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 作業。 若要了解如何將作業指派給帳戶，請參閱[建立 Azure 角色型存取控制的自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)。
 2. 輸入下列命令會傳回對資源群組 *RG1* 中名為 *VM1-NIC1* 的 NIC 套用的所有 NSG 規則：
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

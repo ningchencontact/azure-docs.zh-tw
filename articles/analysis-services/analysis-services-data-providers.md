@@ -1,25 +1,18 @@
 ---
-title: "連接到 Azure Analysis Services 所需的用戶端程式庫 | Microsoft Docs"
-description: "說明用戶端應用程式和工具連接到 Azure Analysis Services 所需的用戶端程式庫"
-services: analysis-services
-documentationcenter: 
+title: 連接到 Azure Analysis Services 所需的用戶端程式庫 | Microsoft Docs
+description: 說明用戶端應用程式和工具連接到 Azure Analysis Services 所需的用戶端程式庫
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/27/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 5c847f5cd02503b708db8a0a0211b5d403df0943
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.reviewer: minewiskan
+ms.openlocfilehash: 66818fd0d6618abe83903df8723e3e17920a4a2e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>可供連接到 Azure Analysis Services 的用戶端程式庫
 

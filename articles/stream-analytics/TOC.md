@@ -25,6 +25,7 @@
 ## [相容性層級](stream-analytics-compatibility-level.md)
 ## [常見查詢模式](stream-analytics-stream-analytics-query-patterns.md)
 ## [事件順序的考量](stream-analytics-out-of-order-and-late-events.md)
+## [檢查點和重送](stream-analytics-concepts-checkpoint-replay.md)
 
 # 使用指南
 
@@ -68,7 +69,7 @@
 
 ## 疑難排解
 ### [疑難排解步驟](stream-analytics-troubleshooting-guide.md)
-### [常見問題疑難排解](stream-analytics-common-troubleshooting-issues.md)
+### [常見問題](stream-analytics-common-troubleshooting-issues.md)
 ### [工作圖表](stream-analytics-job-diagram-with-metrics.md)
 ### [診斷記錄](stream-analytics-job-diagnostic-logs.md)
 ### [檢查資源健康情況](stream-analytics-resource-health.md)
@@ -94,16 +95,8 @@
 ## [論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 ## [定價](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
-## [版本資訊](stream-analytics-release-notes.md)
 ## [服務更新](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [客戶案例研究](https://azure.microsoft.com/case-studies/?service=stream-analytics)
 ## [白皮書 - 即時事件處理](stream-analytics-real-time-event-processing-reference-architecture.md)
-## [比較 Storm 與串流分析](stream-analytics-comparison-storm.md)
-
-
-
-
-
-

@@ -11,6 +11,12 @@
 ### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
 ### [Azure CLI](create-routebased-vpn-gateway-cli.md)
 
+# 範例
+## [建立 VPN 閘道](./scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md)
+## [點對站 - RADIUS 驗證](./scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md)
+## [點對站 - 憑證驗證](./scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md)
+## [網站間](./scripts/vpn-gateway-sample-site-to-site-powershell.md)
+
 # 概念
 ## [規劃與設計 VPN 閘道](vpn-gateway-plan-design.md)
 ## [關於 VPN 閘道設定](vpn-gateway-about-vpn-gateway-settings.md)
@@ -19,9 +25,9 @@
 ## [關於 BGP 和 VPN 閘道](vpn-gateway-bgp-overview.md)
 ## [關於高可用性連線](vpn-gateway-highlyavailable.md)
 ## [關於點對站連線](point-to-site-about.md)
+## [關於點對站路由](vpn-gateway-about-point-to-site-routing.md)
 
-# 作法
-
+# 使用說明指南
 ## 設定站對站連線
 ### [Azure 入口網站](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)

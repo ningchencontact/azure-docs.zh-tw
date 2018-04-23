@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7fe27ed8615b9684e14276d6d0f5bf84ee5ee81
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6d9fbfd07de9a5d536cf458dc478aade851d4b23
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>從 Amazon Web Services (AWS) 和其他平台移轉至 Azure 中的受控磁碟
 
@@ -55,7 +55,7 @@ Azure 受控磁碟可免除管理儲存體帳戶的需求，進而簡化 VM 管�
 
 本節可協助您做出最佳的 VM 和磁碟類型決策。
 
-如果您打算從非受控磁碟移轉至受控磁碟，您應注意到具有[虛擬機器參與者](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)角色的使用者將無法變更 VM 大小 (因為它們可能為轉換前)。 這是因為具有受控磁碟的 VM 需要使用者具有 OS 磁碟上的 Microsoft.Compute/disks/write 權限。
+如果您打算從非受控磁碟移轉至受控磁碟，您應注意到具有[虛擬機器參與者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)角色的使用者將無法變更 VM 大小 (因為它們可能為轉換前)。 這是因為具有受控磁碟的 VM 需要使用者具有 OS 磁碟上的 Microsoft.Compute/disks/write 權限。
 
 ### <a name="location"></a>位置
 

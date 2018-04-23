@@ -1,12 +1,12 @@
 ---
-title: "Azure VM 備份常見問題集 | Microsoft Docs"
-description: "有關以下常見問題的解答：Azure VM 備份的運作方式、限制，以及原則變更時會發生什麼情況"
+title: Azure VM 備份常見問題集 | Microsoft Docs
+description: 有關以下常見問題的解答：Azure VM 備份的運作方式、限制，以及原則變更時會發生什麼情況
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
-keywords: "azure vm 備份, azure vm 還原, 備份原則"
+editor: ''
+keywords: azure vm 備份, azure vm 還原, 備份原則
 ms.assetid: c4cd7ff6-8206-45a3-adf5-787f64dbd7e1
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM 備份服務的相關問題
 本文包含常見問題的解答，可協助您快速了解 Azure VM 備份元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/22/2018
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>在設定備份精靈中為何看不到我的 VM？
 在「設定備份精靈」中，Azure 備份只會列出這種 VM：
-  * 尚未保護 - 移至 VM 刀鋒視窗，並從 [設定] 功能表檢查備份狀態，即可驗證 VM 的備份狀態。 進一步了解如何[檢查 VM 的備份狀態](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)
+  * 尚未保護 - 移至 VM 刀鋒視窗，並從 [設定] 功能表檢查備份狀態，即可驗證 VM 的備份狀態。 進一步了解如何[檢查 VM 的備份狀態](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
   * 屬於與 VM 相同的區域
 
 ## <a name="backup"></a>Backup 

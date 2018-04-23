@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager 概觀 | Microsoft Docs"
-description: "描述如何使用 Azure Resource Manager 在 Azure 上進行資源的部署、管理及存取控制。"
+title: Azure Resource Manager 概觀 | Microsoft Docs
+description: 描述如何使用 Azure Resource Manager 在 Azure 上進行資源的部署、管理及存取控制。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: cc3402b56b12e82653f673d7a5ab527231599c5b
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a7e3d817923b0f9a691d5acaba606bdcd0012e60
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 應用程式的基礎結構通常由許多元件所組成 – 或許是虛擬機器、儲存體帳戶和虛擬網路，或者 web 應用程式、資料庫、資料庫伺服器和第三方服務。 您看不到這些元件作為個別的實體，而是看到它們作為單一實體相關且彼此相依的組件。 您會想要將其當成群組來部署、管理和監視。 Azure Resource Manager 可讓您將方案中的資源作為群組使用。 您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。 
@@ -215,7 +215,7 @@ Azure 也提供數個資源特有的角色。 一些常見的角色有︰
 4. SQL Server 參與者 - 可以管理 SQL Server 和資料庫，但是無法管理它們的安全性相關原則
 5. 網站參與者 - 可以管理網站，但是不能管理它們連接的 Web 方案
 
-如需角色和允許動作的完整清單，請參閱 [RBAC：內建角色](../active-directory/role-based-access-built-in-roles.md)。 如需角色型存取控制的詳細資訊，請參閱 [Azure 角色型存取控制](../active-directory/role-based-access-control-configure.md)。 
+如需角色和允許動作的完整清單，請參閱 [RBAC：內建角色](../role-based-access-control/built-in-roles.md)。 如需角色型存取控制的詳細資訊，請參閱 [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)。 
 
 在某些情況下，您會想要執行程式碼或指令碼來存取資源，但不想透過使用者的認證來執行。 相反地，您會想要建立稱為應用程式服務主體的身分識別，並為服務主體指派適當的角色。 Resource Manager 可讓您建立應用程式認證，並以程式設計方式驗證應用程式。 若要了解如何建立服務主體，請參閱下列其中一個主題︰
 

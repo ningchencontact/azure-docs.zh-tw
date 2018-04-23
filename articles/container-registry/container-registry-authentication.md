@@ -1,6 +1,6 @@
 ---
-title: "向 Azure Container Registry 進行驗證 | Microsoft Docs"
-description: "Azure Container Registry 的驗證選項，包括 Azure Active Directory 服務主體的直接和登錄登入。"
+title: 向 Azure Container Registry 進行驗證 | Microsoft Docs
+description: Azure Container Registry 的驗證選項，包括 Azure Active Directory 服務主體的直接和登錄登入。
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 349d4f8cba2967edcedb202979695d271283fa8b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>向私用 Docker 容器登錄進行驗證
 
@@ -31,11 +31,11 @@ Azure Container Registry 不支援未經驗證的 Docker 作業或匿名存取�
 az acr login --name <acrName>
 ```
 
-當您使用 `az acr login` 來進行登入時，CLI 會使用您執行 `az login` 時所建立的權杖，以順暢地向登錄驗證您的工作階段。 在您以此方式登入之後，系統會快取您的認證，而後續的 `docker` 命令就不會要求提供使用者名稱和密碼。 如果您的權杖過期，您可以再次使用 `az acr login` 命令進行重新驗證來重新整理該權杖。 使用 `az acr login` 搭配 Azure 身分識別可提供[角色型存取](../active-directory/role-based-access-control-configure.md)功能。
+當您使用 `az acr login` 來進行登入時，CLI 會使用您執行 `az login` 時所建立的權杖，以順暢地向登錄驗證您的工作階段。 在您以此方式登入之後，系統會快取您的認證，而後續的 `docker` 命令就不會要求提供使用者名稱和密碼。 如果您的權杖過期，您可以再次使用 `az acr login` 命令進行重新驗證來重新整理該權杖。 使用 `az acr login` 搭配 Azure 身分識別可提供[角色型存取](../role-based-access-control/role-assignments-portal.md)功能。
 
 ## <a name="service-principal"></a>服務主體
 
-您可以將[服務主體](../active-directory/develop/active-directory-application-objects.md)指派給登錄，而您的應用程式或服務便可以使用它來進行遠端控制驗證。 服務主體可允許對登錄進行[角色型存取](../active-directory/role-based-access-control-configure.md)，而您可以將多個服務主體指派給登錄。 多個服務主體可讓您為不同的應用程式定義不同的存取權。
+您可以將[服務主體](../active-directory/develop/active-directory-application-objects.md)指派給登錄，而您的應用程式或服務便可以使用它來進行遠端控制驗證。 服務主體可允許對登錄進行[角色型存取](../role-based-access-control/role-assignments-portal.md)，而您可以將多個服務主體指派給登錄。 多個服務主體可讓您為不同的應用程式定義不同的存取權。
 
 可用的角色包括：
 

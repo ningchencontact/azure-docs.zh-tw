@@ -1,6 +1,6 @@
 ---
-title: "訂用帳戶治理的案例和範例 |Microsoft Docs"
-description: "提供如何在常見案例中實作 Azure 訂用帳戶治理的範例。"
+title: 訂用帳戶治理的案例和範例 |Microsoft Docs
+description: 提供如何在常見案例中實作 Azure 訂用帳戶治理的範例。
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>實作 Azure 企業 Scaffold 的範例
 本主題提供企業如何實作 [Azure 企業 Scaffold](resource-manager-subscription-governance.md)建議的範例。 它會使用名為 Contoso 的虛構公司來說明常見案例的最佳作法。
@@ -56,10 +56,10 @@ Dave 為訂用帳戶指派下列角色︰
 
 | 角色 | 指派對象 | 說明 |
 | --- | --- | --- |
-| [擁有者](../active-directory/role-based-access-built-in-roles.md#owner) |Contoso AD 提供的受控識別碼 |此識別碼會透過 Contoso 的身分識別管理工具進行即時 (JIT) 存取控制，可確保完整稽核訂用帳戶擁有者存取權 |
-| [安全性管理員](../active-directory/role-based-access-built-in-roles.md#security-manager) |安全性和風險管理部門 |此角色可讓使用者查看 Azure 資訊安全中心和資源的狀態 |
-| [網路參與者](../active-directory/role-based-access-built-in-roles.md#network-contributor) |網路小組 |此角色可讓 Contoso 的網路小組管理站對站 VPN 和虛擬網路 |
-| *自訂角色* |應用程式擁有者 |Dave 會建立一個角色，以授與修改資源群組內資源的能力。 如需詳細資訊，請參閱 [Azure RBAC 中的自訂角色](../active-directory/role-based-access-control-custom-roles.md) |
+| [擁有者](../role-based-access-control/built-in-roles.md#owner) |Contoso AD 提供的受控識別碼 |此識別碼會透過 Contoso 的身分識別管理工具進行即時 (JIT) 存取控制，可確保完整稽核訂用帳戶擁有者存取權 |
+| [安全性管理員](../role-based-access-control/built-in-roles.md#security-manager) |安全性和風險管理部門 |此角色可讓使用者查看 Azure 資訊安全中心和資源的狀態 |
+| [網路參與者](../role-based-access-control/built-in-roles.md#network-contributor) |網路小組 |此角色可讓 Contoso 的網路小組管理站對站 VPN 和虛擬網路 |
+| *自訂角色* |應用程式擁有者 |Dave 會建立一個角色，以授與修改資源群組內資源的能力。 如需詳細資訊，請參閱 [Azure RBAC 中的自訂角色](../role-based-access-control/custom-roles.md) |
 
 ### <a name="policies"></a>原則
 Dave 管理訂用帳戶中資源的需求如下︰

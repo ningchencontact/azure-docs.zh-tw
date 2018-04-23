@@ -1,13 +1,13 @@
 ---
-title: "Azure 網路 | Microsoft Docs"
-description: "深入了解 Azure 網路服務和功能。"
+title: Azure 網路 | Microsoft Docs
+description: 深入了解 Azure 網路服務和功能。
 services: networking
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a4f1c7c3342a2a78a2a5b765bd688bed4c85392f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-networking"></a>Azure 網路
 
@@ -138,7 +138,7 @@ Azure 提供下列工具來監視和管理網路功能︰
 - **診斷記錄：**網路資源會定期和自發地建立事件，並記錄到 Azure 儲存體帳戶、傳送到 Azure 事件中樞或 Azure Log Analytics。 診斷記錄可讓您深入了解資源的健全狀況。 負載平衡器 (網際網路對向)、網路安全性群組、路由和應用程式閘道均提供診斷記錄。 若要深入了解診斷記錄，請閱讀[診斷記錄概觀](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fnetworking%2ftoc.json)一文。
 - **計量：**計量是在一段時間內所收集到關於資源的效能測量數據和計數器。 計量可用來根據臨界值觸發警示。 目前有針對應用程式閘道的計量。 若要深入了解計量，請閱讀[計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json)一文。
 - **疑難排解︰**在 Azure 入口網站中，可直接存取疑難排解資訊。 此資訊有助於診斷和下列網路資源有關的常見問題：ExpressRoute、VPN 閘道、應用程式閘道、網路安全性記錄、路由、DNS、負載平衡器和流量管理員。
-- **角色型存取控制 (RBAC)：**使用角色型存取控制 (RBAC)，控制誰可以建立和管理網路資源。 若要深入了解 RBAC，請閱讀[開始使用 RBAC](../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fnetworking%2ftoc.json) 一文。 
+- **角色型存取控制 (RBAC)：**使用角色型存取控制 (RBAC)，控制誰可以建立和管理網路資源。 若要深入了解 RBAC，請閱讀[開始使用 RBAC](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 一文。 
 - **封包擷取︰**Azure 網路監看員服務可透過 VM 內的擴充功能，在 VM 上執行封包擷取。 Linux 和 Windows VM 均提供此功能。 若要深入了解封包擷取，請閱讀[封包擷取概觀](../network-watcher/network-watcher-packet-capture-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)一文。
 - **驗證 IP 流量：**網路監看員可讓您驗證 Azure VM 和遠端資源之間的 IP 流量，以決定允許或拒絕封包。 系統管理員可利用此功能快速診斷連線問題。 若要深入了解如何驗證 IP 流量，請閱讀 [IP 流量驗證概觀](../network-watcher/network-watcher-ip-flow-verify-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)一文。
 - **疑難排解 VPN 連線︰**網路監看員的 VPN 疑難排解員功能可查詢連線或閘道，以確認資源的健全狀況。 若要深入了解對 VPN 連線進行疑難排解，請閱讀 [VPN 連線疑難排解概觀](../network-watcher/network-watcher-troubleshoot-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)一文。

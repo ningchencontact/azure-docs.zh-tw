@@ -1,25 +1,23 @@
 ---
 title: 適用於 HDInsight 上 R 伺服器的 Azure 儲存體選項 - Azure | Microsoft Docs
 description: 了解 HDInsight 上 R 伺服器可用的不同儲存體選項
-services: HDInsight
+services: hdinsight
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 1cf30096-d3ca-45ea-b526-aa3954402f66
-ms.service: HDInsight
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: nitinme
-ms.openlocfilehash: f0333252e404c52f123da916df01d198234ef5af
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 23e32a913fb73d2207f7cf37ce6230e428fbe95c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-solutions-for-r-server-on-azure-hdinsight"></a>適用於 Azure HDInsight 上 R 伺服器的 Azure 儲存體解決方案
 
@@ -109,7 +107,7 @@ HDInsight 上的 R 伺服器有數種儲存體解決方案可用來保存資料�
 
 ## <a name="use-an-azure-data-lake-store-with-r-server-cluster"></a>搭配 R 伺服器叢集使用 Azure Data Lake Store 
 
-若要搭配 HDInsight 叢集帳戶使用 Data Lake Store，您必須為叢集提供您想要使用之每個 Azure Data Lake Store 的存取權。 如需有關如何使用 Azure 入口網站並使用 Azure Data Lake Store 帳戶作為預設儲存體或作為其他存放區來建立 HDInsight 叢集的指示，請參閱[使用 Azure 入口網站搭配 Data Lake Store 建立 HDInsight 叢集](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)。
+若要搭配 HDInsight 叢集帳戶使用 Data Lake Store，您必須為叢集提供您想要使用之每個 Azure Data Lake Store 的存取權。 如需有關如何使用 Azure 入口網站並使用 Azure Data Lake Store 帳戶作為預設儲存體或作為其他存放區來建立 HDInsight 叢集的指示，請參閱 [使用 Azure 入口網站搭配 Data Lake Store 建立 HDInsight 叢集](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)。
 
 接著，您會以和使用次要 Azure 儲存體帳戶的方式 (如先前程序所述) 很像的方式，在 R 指令碼中使用存放區。
 
@@ -166,7 +164,7 @@ HDInsight 上的 R 伺服器有數種儲存體解決方案可用來保存資料�
 
 另外還有可在邊緣節點上使用的便利資料儲存選項，我們稱之為 [Azure 檔案]((https://azure.microsoft.com/services/storage/files/)。 它可以讓您將 Azure 儲存體的檔案共用掛接至 Linux 檔案系統。 此選項對於儲存資料檔案、R 指令碼與結果物件相當便利，該結果物件在稍後可以於邊緣節點 (而不是 HDFS) 上使用原生檔案系統時需要。 
 
-Azure 檔案的主要優點是，只要是擁有受支援作業系統 (例如 Windows 或 Linux) 的系統，就可以掛接和使用檔案共用。 例如，您本人或您的小組成員所擁有的另一個 HDInsight 叢集，或是 Azure VM 甚或內部部署系統均可使用 Azure 檔案。 如需詳細資訊，請參閱：
+Azure 檔案的主要優點是，只要是擁有受支援作業系統 (例如 Windows 或 Linux) 的系統，就可以掛接和使用檔案共用。 例如，您本人或您的小組成員所擁有的另一個 HDInsight 叢集，或是 Azure VM 甚或內部部署系統均可使用 Azure 檔案。 如需詳細資訊，請參閱
 
 - [如何搭配 Linux 使用 Azure 檔案儲存體](../../storage/files/storage-how-to-use-files-linux.md)
 - [如何在 Windows 上使用 Azure 檔案儲存體](../../storage/files/storage-dotnet-how-to-use-files.md)

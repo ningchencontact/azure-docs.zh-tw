@@ -1,12 +1,12 @@
 ---
-title: "以範例作為起始"
-description: "本文將介紹開始使用 Power BI 工作區集合範例。"
+title: 以範例作為起始
+description: 本文將介紹開始使用 Power BI 工作區集合範例。
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 9049f95c9f81c0217c96469a45561b6cd0b33ae9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 4daa675092bed1788025e7e3f7e7e11d02ef1671
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>開始使用 Power BI 工作區集合範例
 

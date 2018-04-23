@@ -1,11 +1,11 @@
 ---
-title: "使用端對端金鑰輪替和稽核設定 Azure 金鑰保存庫 | Microsoft Docs"
-description: "使用此操作說明可協助您使用金鑰輪替和監視金鑰保存庫記錄檔來進行設定。"
+title: 使用端對端金鑰輪替和稽核設定 Azure 金鑰保存庫 | Microsoft Docs
+description: 使用此操作說明可協助您使用金鑰輪替和監視金鑰保存庫記錄檔來進行設定。
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: swgriffith
 manager: mbaldwin
-tags: 
+tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: jodehavi;stgriffi
-ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.author: stgriffi
+ms.openlocfilehash: 01f1f719545b554b22ef79b38f95087341c65e83
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>使用端對端金鑰輪替和稽核設定 Azure 金鑰保存庫
 ## <a name="introduction"></a>簡介
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/05/2018
 若要讓應用程式能夠從金鑰保存庫擷取密碼，您必須先建立此密碼，並上傳至保存庫。 開始 Azure PowerShell 工作階段，並使用下列命令登入您的 Azure 帳戶，即可完成此作業：
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 在快顯瀏覽器視窗中，輸入您的 Azure 帳戶使用者名稱與密碼。 PowerShell 會取得與此帳戶相關聯的所有訂用帳戶。 PowerShell 使用預設第一個訂用帳戶。
@@ -201,7 +201,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Add-AzureRmAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `

@@ -1,24 +1,17 @@
 ---
-title: "Azure 搜尋服務中的篩選條件 | Microsoft Docs"
-description: "依使用者安全性身分識別、語言、地理位置或數值進行篩選，以縮減在 Azure 搜尋服務 (Microsoft Azure 上裝載的雲端搜尋服務) 中查詢的搜尋結果。"
-services: search
-documentationcenter: 
+title: Azure 搜尋服務中的篩選條件 | Microsoft Docs
+description: 依使用者安全性身分識別、語言、地理位置或數值進行篩選，以縮減在 Azure 搜尋服務 (Microsoft Azure 上裝載的雲端搜尋服務) 中查詢的搜尋結果。
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: cgronlun
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/19/2017
 ms.author: heidist
-ms.openlocfilehash: 2e8721684b1d4ed0e7392d85ea1df0f595860a05
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 867a0eab20c7827ca99dc4b4371dfb2d551180b3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filters-in-azure-search"></a>Azure 搜尋服務中的篩選條件 
 

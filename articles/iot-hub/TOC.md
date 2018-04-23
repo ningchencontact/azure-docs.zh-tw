@@ -121,7 +121,7 @@
 #### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Java 後端/Java 裝置](iot-hub-java-java-twin-how-to-configure.md)
 #### [Python 後端/Python 裝置](iot-hub-python-python-twin-how-to-configure.md)
-### 使用裝置作業更新裝置韌體
+### 使用裝置對應項更新裝置韌體
 #### [Node 後端/Node 裝置](iot-hub-node-node-firmware-update.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-firmware-update.md)
 #### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-firmware-update.md)
@@ -199,7 +199,7 @@
 ## [iothub-explorer 工具](https://github.com/Azure/iothub-explorer)
 ## [學習路徑](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [定價](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [價格](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)

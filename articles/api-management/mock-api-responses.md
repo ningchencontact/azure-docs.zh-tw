@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 入口網站模擬 API 回應 | Microsoft Docs"
-description: "本教學課程示範如何使用 API 管理 (APIM) 來設定 API 上的原則，讓它能夠傳回模擬的回應。 萬一無法使用後端傳送實際回應，這個方法讓開發人員能夠繼續實作和測試 API 管理執行個體。"
+title: 使用 Azure 入口網站模擬 API 回應 | Microsoft Docs
+description: 本教學課程示範如何使用 API 管理 (APIM) 來設定 API 上的原則，讓它能夠傳回模擬的回應。 萬一無法使用後端傳送實際回應，這個方法讓開發人員能夠繼續實作和測試 API 管理執行個體。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: e485071b026c52eb23532639546ad475fc92cde3
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: f3209edb23577d656e228aa0d75d852f35cd93ef
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="mock-api-responses"></a>模擬 API 回應
 
@@ -40,8 +40,6 @@ ms.lasthandoff: 12/04/2017
 ## <a name="prerequisites"></a>先決條件
 
 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="create-a-test-api"></a>建立測試 API 
 

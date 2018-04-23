@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a4bdea4844c4aaa9990d619d59326a83cf0aef6c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6947358c6c845ff2c2a35cb218c11294a2841dc8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>使用 Azure 入口網站管理裝置
 
@@ -74,7 +74,7 @@ Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使�
 
 - **使用者可以向 Azure AD 註冊其裝置** - 您需要設定這項設定，才能向 Azure AD [註冊](device-management-introduction.md#azure-ad-registered-devices)裝置。 如果您選取 [無]，當裝置未加入 Azure AD 或混合式 Azure AD 時，則不允許註冊這些裝置。 需要先註冊 (registration)，才可註冊 (enrollment) Microsoft Intune 或適用於 Office 365 的行動裝置管理 (MDM)。 如果您已設定任一服務，則會選取 [全部] 且無法使用 [無]。
 
-- **需要 Multi-Factor Auth 才能加入裝置** - 您可以選擇使用者是否需要提供次要驗證因素，才能將其裝置[加入](device-management-introduction.md#azure-ad-joined-devices) Azure AD。 預設值為 [ **否**]。 建議在註冊裝置時要求 Multi-Factor Authentication。 啟用此服務的 Multi-Factor Authentication 之前，您必須確定已為註冊其裝置的使用者設定 Multi-Factor Authentication。 如需不同 Azure Multi-Factor Authentication 服務的詳細資訊，請參閱[開始使用 Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md)。 
+- **需要 Multi-Factor Auth 才能加入裝置** - 您可以選擇使用者是否需要提供次要驗證因素，才能將其裝置[加入](device-management-introduction.md#azure-ad-joined-devices) Azure AD。 預設值為 [ **否**]。 建議在註冊裝置時要求 Multi-Factor Authentication。 啟用此服務的 Multi-Factor Authentication 之前，您必須確定已為註冊其裝置的使用者設定 Multi-Factor Authentication。 如需不同 Azure Multi-Factor Authentication 服務的詳細資訊，請參閱[開始使用 Azure Multi-Factor Authentication](authentication/concept-mfa-whichversion.md)。 
 
 - **裝置數目上限** - 這項設定可讓您選取使用者可在 Azure AD 中擁有的裝置數目上限。 如果使用者達到此配額，則在移除一或多個現有的裝置之前，將無法新增其他裝置。 今日已加入 Azure AD 或 Azure AD 已註冊的所有裝置都會計入裝置配額。 預設值為 **20**。
 

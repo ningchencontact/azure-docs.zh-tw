@@ -1,6 +1,6 @@
 ---
-title: "設定 Always On 可用性群組接聽程式 - Microsoft Azure | Microsoft Docs"
-description: "使用具有一個或多個 IP 位址的內部負載平衡器，在 Azure Resource Manager 模型上設定可用性群組接聽程式。"
+title: 設定 Always On 可用性群組接聽程式 - Microsoft Azure | Microsoft Docs
+description: 使用具有一個或多個 IP 位址的內部負載平衡器，在 Azure Resource Manager 模型上設定可用性群組接聽程式。
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 5efb72f450261e098b638af023001ddb2a5015cf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>設定一或多個 Always On 可用性群組接聽程式 - Resource Manager
 本主題說明如何：
@@ -48,10 +48,10 @@ ms.lasthandoff: 02/21/2018
 > 
 > 
 
-下列 PowerShell 指令碼會建立內部負載平衡器、設定負載平衡規則，以及設定負載平衡器的 IP 位址。 若要執行此指令碼，請開啟 Windows PowerShell ISE，然後將指令碼貼到 [指令碼] 窗格中。 請使用 `Login-AzureRMAccount` 來登入 PowerShell。 如果您有多個 Azure 訂用帳戶，請使用 `Select-AzureRmSubscription ` 來設定訂用帳戶。 
+下列 PowerShell 指令碼會建立內部負載平衡器、設定負載平衡規則，以及設定負載平衡器的 IP 位址。 若要執行此指令碼，請開啟 Windows PowerShell ISE，然後將指令碼貼到 [指令碼] 窗格中。 請使用 `Connect-AzureRmAccount` 來登入 PowerShell。 如果您有多個 Azure 訂用帳戶，請使用 `Select-AzureRmSubscription ` 來設定訂用帳戶。 
 
 ```powershell
-# Login-AzureRmAccount
+# Connect-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<Resource Group Name>" # Resource group name
@@ -112,7 +112,7 @@ foreach($VMName in $VMNames)
 下列指令碼會將新的 IP 位址新增至現有的負載平衡器。 ILB 會使用接聽程式連接埠作為負載平衡前端連接埠。 此連接埠可以是 SQL Server 正在接聽的連接埠。 就預設的 SQL Server 執行個體而言，連接埠是 1433。 可用性群組的負載平衡規則需要浮動 IP (伺服器直接回傳)，因此後端連接埠與前端連接埠相同。 請更新您環境的變數。 
 
 ```powershell
-# Login-AzureRmAccount
+# Connect-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<ResourceGroup>"          # Resource group name

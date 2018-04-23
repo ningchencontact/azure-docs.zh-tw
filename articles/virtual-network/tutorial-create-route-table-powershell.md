@@ -17,11 +17,11 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: f6f3bd2a9683daf5f523cc5cfe43e568fb508694
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2aca1de567dbd4d37daf7f9dd7c407b669396a47
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>使用 PowerShell 以路由表路由傳送網路流量
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 04/05/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，本文會要求使用 Azure PowerShell 模組版本 5.4.1 或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。 
+如果您選擇在本機安裝和使用 PowerShell，本文會要求使用 Azure PowerShell 模組版本 5.4.1 或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。 
 
 ## <a name="create-a-route-table"></a>建立路由表
 
@@ -239,7 +239,7 @@ mstsc /v:<publicIpAddress>
 
 輸入您在建立虛擬機器時指定的使用者名稱和密碼 (您可能需要選取 [更多選擇]，然後選取 [使用不同的帳戶] 以指定您在建立虛擬機器時輸入的認證)，然後選取 [確定]。 您可能會在登入過程中收到憑證警告。 選取 [是] 以繼續進行連線。 
 
-在稍後步驟中，tracert.exe 命令用於測試路由。 Tracert 會使用網際網路控制訊息通訊協定 (ICMP)，它在通過 Windows 防火牆時會遭到拒絕。 從 myVmPrivate 虛擬機器上的 PowerShell 中輸入下列命令，讓 ICMP 通過 Windows 防火牆：
+在稍後步驟中，tracert.exe 命令用於測試路由。 Tracert 會使用網際網路控制訊息通訊協定 (ICMP)，它在通過 Windows 防火牆時會遭到拒絕。 從 myVmPrivate VM 上的 PowerShell 中輸入下列命令，讓 ICMP 通過 Windows 防火牆：
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
@@ -261,21 +261,21 @@ mstsc /v:myvmnva
 Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
 ```
     
-重新啟動 myVmNva 虛擬機器，也會中斷與遠端桌面工作階段的連線。
+重新啟動 myVmNva VM，也會中斷與遠端桌面工作階段的連線。
 
-保持連線到 myVmPrivate 虛擬機器，在 myVmNva 虛擬機器重新啟動之後，建立與 myVmPublic 虛擬機器的遠端桌面工作階段：
+在連線至 myVmPrivate VM 的狀態下，在 myVmNva VM 重新啟動後建立 myVmPublic VM 的遠端桌面工作階段：
 
 ``` 
 mstsc /v:myVmPublic
 ```
     
-從 myVmPublic 虛擬機器上的 PowerShell 中輸入下列命令，讓 ICMP 通過 Windows 防火牆：
+從 myVmPublic VM 上的 PowerShell 中輸入下列命令，讓 ICMP 通過 Windows 防火牆：
 
 ```powershell
 New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
 
-若要測試從 myVmPublic 虛擬機器前往 myVmPrivate 虛擬機器之網路流量的路由，請在 myVmPublic 虛擬機器上從 PowerShell 輸入下列命令：
+若要測試從 myVmPublic VM 到 myVmPrivate VM 的網路流量路由，請在 myVmPublic VM 上的 PowerShell 中輸入下列命令：
 
 ```
 tracert myVmPrivate
@@ -297,7 +297,7 @@ Trace complete.
 
 關閉 myVmPublic 虛擬機器的遠端桌面工作階段，但您仍然與 myVmPrivate 虛擬機器連線。
 
-若要測試從 myVmPrivate 虛擬機器前往 myVmPublic 虛擬機器之網路流量的路由，請在 myVmPrivate 虛擬機器上從命令提示字元輸入下列命令：
+若要測試從 myVmPrivate VM 到 myVmPublic VM 的網路流量路由，請在 myVmPrivate VM 上的命令提示字元中輸入下列命令：
 
 ```
 tracert myVmPublic

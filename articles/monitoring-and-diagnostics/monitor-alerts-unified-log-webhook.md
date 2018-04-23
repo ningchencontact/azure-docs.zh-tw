@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2018
+ms.date: 04/09/2018
 ms.author: vinagara
-ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a786ac2e241657cc0020ecfe9438e3d1a5e4c5fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook 動作記錄警示規則
 [在 Azure 中建立警示](monitor-alerts-unified-usage.md)後，您可以選擇[使用動作群組設定](monitoring-action-groups.md)以執行一或多個動作。  本文說明各種可用的 Webhook 動作以及設定自訂 JSON 型 Webhook 的詳細資訊。
@@ -61,15 +61,19 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 
 例如，您可以指定下列自訂承載，其中包含稱為 text 的單一參數。  此 Webhook 所呼叫的服務需要有這個參數。
 
+```json
+
     {
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
-
+```
 此範例承載會在傳送到 Webhook 時解析如下。
 
+```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
+```
 
 若要在自訂承載中包含搜尋結果，請務必將 **IncudeSearchResults** 設定為 json 承載中的最上層屬性。 
 
@@ -85,7 +89,8 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 #### <a name="log-alert-for-azure-log-analytics"></a>Azure Log-Analytics 記錄警示
 以下是用於 Log-Analytics 型警示時，*不含自訂 Json 選項*的標準 Webhook 動作範例承載。
 
-    {
+```json
+{
     "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
     "AlertRuleName":"AcmeRule","SearchQuery":"search *",
     "SearchResult":
@@ -95,7 +100,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -104,7 +109,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -114,15 +119,14 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
     "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
     "Severity": "Warning"
-    }
-    
-
+ }
+ ```   
 
 #### <a name="log-alert-for-azure-application-insights"></a>Azure Application Insights 記錄警示
 以下是用於 Application Insights 型記錄警示時，*不含自訂 Json 選項*的標準 Webhook 範例承載。
     
-
-    {
+```json
+{
     "schemaId":"Microsoft.Insights/LogAlert","data":
     { 
     "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
@@ -134,7 +138,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -143,7 +147,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -152,10 +156,11 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error"
+    "Severity": "Error",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
-    }
+}
+```
 
 > [!NOTE]
 > Application Insights 的記錄警示目前處於公開預覽狀態 - 功能和使用者體驗可能會有變動。
@@ -163,14 +168,16 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 #### <a name="log-alert-with-custom-json-payload"></a>含有自訂 JSON 承載的記錄警示
 例如，若要建立只包含警示名稱和搜尋結果的自訂承載，您可以使用下列程式碼： 
 
+```json
     {
        "alertname":"#alertrulename",
        "IncludeSearchResults":true
     }
+```
 
 以下是任何記錄警示的自訂 Webhook 動作範例承載。
     
-
+```json
     {
     "alertname":"AcmeRule","IncludeSearchResults":true,
     "SearchResult":
@@ -180,7 +187,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -191,8 +198,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
                 ]
         }
     }
-
-
+```
 
 
 ## <a name="next-steps"></a>後續步驟

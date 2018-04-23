@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 89ab1e7c8b2fa0f4014ecfa0e677b398e601e6fa
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 62792747b4efe2de4c22af6f0886503d7d63ed44
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>刪除 Site Recovery 保存庫
 相依性會阻擋您刪除 Azure Site Recovery 保存庫。 您需要採取的動作隨 Site Recovery 案例而異：VMware 到 Azure、HYPER-V (附與不附 System Center Virtual Machine Manager) 到 Azure，以及 Azure 備份。 若要刪除 Azure 備份使用的保存庫，請參閱[刪除 Azure 中的備份保存庫](../backup/backup-azure-delete-vault.md)。
@@ -65,7 +65,7 @@ ms.lasthandoff: 03/08/2018
 
 即使有受保護的項目也要刪除 Site Recovery 保存庫，請使用這些命令：
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Select-AzureRmSubscription -SubscriptionName "XXXXX"
 

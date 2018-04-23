@@ -1,24 +1,18 @@
 ---
 title: 將服務主體新增至 Azure Analysis Services 伺服器管理員角色 | Microsoft Docs
 description: 了解如何將自動化服務主體新增至伺服器管理員角色
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 8e51b80e184b2b1ff24b1051b55088fbc54c271c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: minewiskan
+ms.openlocfilehash: 9c6417e069bbed38b1f6e9317636a10834ce7197
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-a-service-principle-to-the-server-administrator-role"></a>將服務主體加入伺服器管理員角色 
 
@@ -47,7 +41,7 @@ ms.lasthandoff: 03/08/2018
 
 
 > [!NOTE]
-> 針對使用 AzureRm Cmdlet 的伺服器作業，執行排程器的服務主體也必須屬於 [Azure 角色型存取控制 (RBAC)](../active-directory/role-based-access-control-what-is.md) 中的資源**擁有者**角色。 
+> 針對使用 AzureRm Cmdlet 的伺服器作業，執行排程器的服務主體也必須屬於 [Azure 角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 中的資源**擁有者**角色。 
 
 ## <a name="related-information"></a>相關資訊
 

@@ -3,7 +3,7 @@ title: 使用 Azure Cosmos DB 的多重主機資料庫架構 | Microsoft Docs
 description: 了解如何設計應用程式架構，使用 Azure Cosmos DB 在多個地理區域進行本機讀取和寫入。
 services: cosmos-db
 documentationcenter: ''
-author: arramac
+author: SnehaGunda
 manager: kfile
 ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
 ms.service: cosmos-db
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
-ms.author: arramac
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 941af42561afbdf91cb3529fd51971ee88fafdbc
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5e8853d521173a9a8d3c925361e43ce469471918
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 的多重主機全域複寫資料庫架構
 Azure Cosmos DB 支援周全的[全域複寫](distribute-data-globally.md)，可讓您以低延遲存取工作負載中的任何位置，將資料散發到多個區域。 此模型通常用於發行者/取用者工作負載，寫入器在單一地理區域中，而讀取器 (讀取) 分散在世界各地的其他區域。 

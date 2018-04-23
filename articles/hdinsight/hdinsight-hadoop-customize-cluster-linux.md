@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: bc8078a1681b8977a0748f633df02beb2f2bdc8a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5d1af5ae008fb2811f1ae59396a03833b8c1b15f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用指令碼動作自訂 Linux 型 HDInsight 叢集
 
@@ -50,8 +48,8 @@ HDInsight 提供一個稱為 [指令碼動作]  的組態選項，此指令碼�
 
 如需使用存取管理的詳細資訊，請參閱下列文件：
 
-* [開始在 Azure 入口網站中使用存取管理](../active-directory/role-based-access-control-what-is.md)
-* [使用角色指派來管理 Azure 訂用帳戶資源的存取權](../active-directory/role-based-access-control-configure.md)
+* [開始在 Azure 入口網站中使用存取管理](../role-based-access-control/overview.md)
+* [使用角色指派來管理 Azure 訂用帳戶資源的存取權](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="understanding-script-actions"></a>了解指令碼動作
 

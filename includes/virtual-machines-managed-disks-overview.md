@@ -24,7 +24,7 @@ Azure 磁碟設計成確保可用性達 99.999%。 得知有三個資料複本�
 
 ### <a name="granular-access-control"></a>細微的存取控制
 
-您可以使用 [Azure 角色型存取控制 (RBAC)](../articles/active-directory/role-based-access-control-what-is.md) 將受控磁碟的特定權限指派給一個或多個使用者。 受控磁碟公開各種不同的作業，包括讀取、寫入 (建立/更新)、刪除和擷取磁碟的[共用存取簽章 (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)。 您可以授權某人只能存取他份內工作所需的作業。 例如，如果您不想讓某人將受控磁碟複製到儲存體帳戶，您可以選擇不要授權存取該受控磁碟的匯出動作。 同樣地，如果您不想讓某人使用 SAS URI 來複製受控磁碟，您可以選擇不要授與有關受控磁碟的這種權限。
+您可以使用 [Azure 角色型存取控制 (RBAC)](../articles/role-based-access-control/overview.md) 將受控磁碟的特定權限指派給一個或多個使用者。 受控磁碟公開各種不同的作業，包括讀取、寫入 (建立/更新)、刪除和擷取磁碟的[共用存取簽章 (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)。 您可以授權某人只能存取他份內工作所需的作業。 例如，如果您不想讓某人將受控磁碟複製到儲存體帳戶，您可以選擇不要授權存取該受控磁碟的匯出動作。 同樣地，如果您不想讓某人使用 SAS URI 來複製受控磁碟，您可以選擇不要授與有關受控磁碟的這種權限。
 
 ### <a name="azure-backup-service-support"></a>Azure 備份服務支援
 搭配受控磁碟使用 Azure 備份服務，以建立具有以時間為基礎的備份、簡易 VM 還原，以及備份保留原則的備份作業。 受控磁碟僅支援本地備援儲存體 (LRS) 做為複寫選項，這表示它在單一區域內會保留三份資料。 針對區域性災害復原，您必須使用 [Azure 備份服務](../articles/backup/backup-introduction-to-azure-backup.md)來備份位於不同區域的 VM 磁碟，並以 GRS 儲存體帳戶作為備份保存庫。 Azure 備份目前支援用於備份的資料磁碟大小最大為 1TB。 如需深入了解，請參閱[針對具有受控磁碟的 VM 使用 Azure 備份服務](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)。
@@ -104,8 +104,7 @@ Azure 磁碟設計成確保可用性達 99.999%。 得知有三個資料複本�
 
 ### <a name="storage-service-encryption-sse"></a>儲存體服務加密 (SSE)
 
-[Azure 儲存體服務加密](../articles/storage/common/storage-service-encryption.md)提供待用加密，並保護資料安全，以符合組織安全性和合規性承諾。 在所有可用受控磁碟的區域中，所有受控磁碟、快照集和映像預設都會啟用 SSE。 從 2017 年 6 月 10 日開始，所有新的受控磁碟/快照集/映像和寫入至現有受控磁碟的新資料，預設都會使用 Microsoft 所管理的金鑰進行自動待用加密。 您可以選擇使用自己的金鑰來加密 Azure Blob 和檔案。 適用於資料表和佇列的加密一律會使用 Microsoft 受控金鑰。
-請注意，啟用儲存體服務加密後只會加密新資料，而此儲存體帳戶中的任何現有資料則會受到背景加密程序追溯加密。 如需詳細資訊，請造訪[受控磁碟常見問題頁面](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)。
+[Azure 儲存體服務加密](../articles/storage/common/storage-service-encryption.md)提供待用加密，並保護資料安全，以符合組織安全性和合規性承諾。 在所有可用受控磁碟的區域中，所有受控磁碟、快照集和映像預設都會啟用 SSE。 從 2017 年 6 月 10 日開始，所有新的受控磁碟/快照集/映像和寫入至現有受控磁碟的新資料，預設都會使用 Microsoft 所管理的金鑰進行自動待用加密。 如需詳細資訊，請造訪[受控磁碟常見問題頁面](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)。
 
 
 ### <a name="azure-disk-encryption-ade"></a>Azure 磁碟加密 (ADE)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e41dae2f4e93fe2e3cef689596612a6a192c844
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>規劃和設計 Azure 虛擬網路
 建立要實驗的 VNet 很簡單，但關鍵在於，您會隨著時間部署多個 Vnet，以支援您的組織的生產需求。 經過一些規劃和設計，您就能夠部署 Vnet 且更有效率地連接您所需的資源。 如果您不熟悉 VNet，建議您先[了解 Vnet](virtual-networks-overview.md) 及[如何部署](quick-create-portal.md) Vnet，再繼續執行。
@@ -87,12 +87,12 @@ VNET 包含下列屬性：
 請檢閱 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文中的網路功能限制，以確保您的設計未與任何限制發生衝突。 您可以開啟支援票證來提高部分限制。
 
 ### <a name="role-based-access-control-rbac"></a>角色型存取控制 (RBAC)
-您可以使用 [Azure RBAC](../active-directory/role-based-access-built-in-roles.md) 來控制不同使用者對於 Azure 中不同資源的存取層級。 如此一來，您可以根據小組需求分隔其所完成的工作。
+您可以使用 [Azure RBAC](../role-based-access-control/built-in-roles.md) 來控制不同使用者對於 Azure 中不同資源的存取層級。 如此一來，您可以根據小組需求分隔其所完成的工作。
 
 只要已連接虛擬網路，具備 **網路參與者** 角色的使用者即可完全控制 Azure 資源管理員的虛擬網路資源。 同樣地，具備 **傳統網路參與者** 角色的使用者可完全控制傳統的虛擬網路資源。
 
 > [!NOTE]
-> 您也可以 [建立自己的角色](../active-directory/role-based-access-control-configure.md) ，以區分您的系統管理需求。
+> 您也可以 [建立自己的角色](../role-based-access-control/role-assignments-portal.md) ，以區分您的系統管理需求。
 >
 >
 

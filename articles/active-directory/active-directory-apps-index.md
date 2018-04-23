@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ffb8e822644ba8f0bccc3e81edc4da6085ff3ec7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e9e5ad496362bf958dfe39b73ecd209f7b8aa284
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory 中應用程式管理的文章索引
 本頁面提供一份完整清單，列出撰寫 Azure Active Directory (Azure AD) 中各種應用程式相關功能的所有文章。
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/29/2018
 | 同盟單一登入 |[對 SAML 型單一登入進行疑難排解](active-directory-saml-debugging.md) |
 | 密碼單一登入 |[疑難排解 Internet explorer 的存取面板擴充功能](active-directory-saas-ie-troubleshooting.md) |
 | 應用程式 Proxy |[應用程式 Proxy 疑難排解指南](active-directory-application-proxy-troubleshoot.md) |
-| 內部部署 AD 與 Azure AD 之間的單一登入 |[針對密碼雜湊同步處理進行疑難排解](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[對密碼回寫進行疑難排解](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| 內部部署 AD 與 Azure AD 之間的單一登入 |[針對密碼雜湊同步處理進行疑難排解](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[對密碼回寫進行疑難排解](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | 動態群組成員資格 |[對動態群組成員資格進行疑難排解](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>單一登入 (SSO)
@@ -96,7 +96,7 @@ ms.lasthandoff: 03/29/2018
 | Azure AD Connect 中提供之單一登入選項的概觀，以及管理混合式環境的相關資訊 |[Azure AD Connect 中的使用者登入選項](active-directory-aadconnect-user-signin.md) |
 | 同時使用內部部署 Active Directory 和 Azure Active Directory 管理環境的一般指引 |[Azure AD 混合式身分識別設計考量](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md) |
 | 使用密碼同步處理來啟用 SSO 的相關指導方針 |[使用 Azure AD Connect 實作密碼同步處理](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[對密碼同步處理進行疑難排解](https://support.microsoft.com/en-us/kb/2855271) |
-| 使用密碼回寫來啟用 SSO 的相關指導方針 |[在 Azure AD 中開始使用密碼管理](active-directory-passwords-getting-started.md)<br /><br />[疑難排解密碼回寫](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| 使用密碼回寫來啟用 SSO 的相關指導方針 |[在 Azure AD 中開始使用密碼管理](active-directory-passwords-getting-started.md)<br /><br />[針對密碼回寫問題進行疑難排解](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | 使用協力廠商身分識別提供者來啟用 SSO 的指導方針 |[可用來啟用單一登入的相容協力廠商身分識別提供者清單](https://aka.ms/ssoproviders) |
 | Windows 10 使用者如何透過 Azure AD Join 享受單一登入的優點 |[透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-overview.md) |
 

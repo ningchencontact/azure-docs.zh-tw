@@ -1,8 +1,8 @@
 ---
-title: "使用 Sqoop 在 Data Lake Store和 Azure SQL Database 之間複製資料 | Microsoft Docs"
-description: "使用 Sqoop 在 Azure SQL Database 和 Data Lake Store 之間複製資料"
+title: 使用 Sqoop 在 Data Lake Store和 Azure SQL Database 之間複製資料 | Microsoft Docs
+description: 使用 Sqoop 在 Azure SQL Database 和 Data Lake Store 之間複製資料
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 2611b50114a9fae003fe6e77300780a9af0698cc
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 2e68f74976c25a5c2db32867dabca147f5c30e80
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-between-data-lake-store-and-azure-sql-database-using-sqoop"></a>使用 Sqoop 在 Data Lake Store 和 Azure SQL Database 之間複製資料
 了解如何使用 Apache Sqoop 在 Azure SQL Database 和 Data Lake Store 之間匯入及匯出資料。
@@ -48,7 +48,7 @@ ms.lasthandoff: 01/10/2018
         [ID] [int] NOT NULL,
         [FName] [nvarchar](50) NOT NULL,
         [LName] [nvarchar](50) NOT NULL,
-         CONSTRAINT [PK_Table_4] PRIMARY KEY CLUSTERED
+         CONSTRAINT [PK_Table_1] PRIMARY KEY CLUSTERED
             (
                    [ID] ASC
             )
@@ -61,7 +61,7 @@ ms.lasthandoff: 01/10/2018
         [ID] [int] NOT NULL,
         [FName] [nvarchar](50) NOT NULL,
         [LName] [nvarchar](50) NOT NULL,
-         CONSTRAINT [PK_Table_4] PRIMARY KEY CLUSTERED
+         CONSTRAINT [PK_Table_2] PRIMARY KEY CLUSTERED
             (
                    [ID] ASC
             )

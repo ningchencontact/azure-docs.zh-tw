@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: afb0b40ad23fa8ec5468f10027710294b5e67aab
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8c032cdbf3549cdce435c8179777083d653fb058
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>使用 PowerShell 建立 Linux 虛擬機器
 
@@ -35,10 +35,10 @@ Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-使用 `Login-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-resource-group"></a>建立資源群組

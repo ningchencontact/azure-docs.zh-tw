@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 容器執行個體中掛接秘密磁碟區"
-description: "了解如何掛接秘密磁碟區，以儲存供您的容器執行個體存取的機密資訊"
+title: 在 Azure 容器執行個體中掛接秘密磁碟區
+description: 了解如何掛接秘密磁碟區，以儲存供您的容器執行個體存取的機密資訊
 services: container-instances
 author: mmacy
 manager: timlt
@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: marsma
-ms.openlocfilehash: 6f8e1b6faac11b668a143f8013a198831a428c51
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: e20dc3b37bc766b2a8a352eb62c03f5e2ee14c52
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>在 Azure 容器執行個體中掛接秘密磁碟區
 
@@ -35,6 +35,7 @@ ms.lasthandoff: 02/14/2018
 
 例如，下列 Resource Manager 範本會建立一個由單一容器組成的容器群組。 容器會掛接由兩個 Base64 編碼密碼所組成的秘密磁碟區。
 
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
 若要使用 Azure Resource Manager 範本來查看容器執行個體部署範例，請參閱[在 Azure 容器執行個體中部署多個容器群組](container-instances-multi-container-group.md)。

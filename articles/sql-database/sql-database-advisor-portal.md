@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: a9b9bec4fd48c44ece9d762b539cd3d6e10c1858
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>尋找和套用效能建議
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="viewing-recommendations"></a>檢視建議
 
-若要檢視和套用效能建議，您在 Azure 中必須有正確的[角色型存取控制](../active-directory/role-based-access-control-what-is.md)權限。 需要**讀取者**、**SQL DB 參與者**權限，才能檢視建議，以及需要**擁有者**、**SQL DB 參與者**權限，才能執行任何動作；建立或卸除索引並取消建立索引。
+若要檢視和套用效能建議，您在 Azure 中必須有正確的[角色型存取控制](../role-based-access-control/overview.md)權限。 需要**讀取者**、**SQL DB 參與者**權限，才能檢視建議，以及需要**擁有者**、**SQL DB 參與者**權限，才能執行任何動作；建立或卸除索引並取消建立索引。
 
 使用下列步驟在 Azure 入口網站上尋找效能建議：
 
@@ -154,5 +154,5 @@ Azure SQL Database 會提供可改善 SQL Database 效能的建議。 藉由提�
 ## <a name="additional-resources"></a>其他資源
 * [查詢存放區](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [角色型存取控制](../active-directory/role-based-access-control-what-is.md)
+* [角色型存取控制](../role-based-access-control/overview.md)
 

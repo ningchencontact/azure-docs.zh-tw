@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 30f5fe83c46f2dbe1933e8347242be7fbb30a3e3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d4e09eb11ea04c31b7e302b7f66f8e67c13e8252
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>使用 Azure PowerShell 控管虛擬機器
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/06/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。 針對本機安裝，您還必須[下載 Azure AD PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD/)以建立新的 Azure Active Directory 群組。
+如果您選擇在本機安裝和使用 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。 針對本機安裝，您還必須[下載 Azure AD PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD/)以建立新的 Azure Active Directory 群組。
 
 ## <a name="understand-scope"></a>了解範圍
 
@@ -43,15 +43,15 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="role-based-access-control"></a>角色型存取控制
 
-您想要確定組織中的使用者具有這些資源的正確存取權等級。 您不想要授與不受限制的存取權給使用者，但是您又必須確定他們可以執行其工作。 [角色型存取控制](../../active-directory/role-based-access-control-what-is.md)可讓您管理哪些使用者具有權限可以在一個範圍內完成特定動作。
+您想要確定組織中的使用者具有這些資源的正確存取權等級。 您不想要授與不受限制的存取權給使用者，但是您又必須確定他們可以執行其工作。 [角色型存取控制](../../role-based-access-control/overview.md)可讓您管理哪些使用者具有權限可以在一個範圍內完成特定動作。
 
 若要建立和移除角色指派，使用者必須具有 `Microsoft.Authorization/roleAssignments/*` 存取權。 此存取權是透過擁有者或使用者存取系統管理員角色來授與。
 
 為了管理虛擬機器解決方案，有三個資源專屬角色可提供您經常需要的存取權：
 
-* [虛擬機器參與者](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [網路參與者](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [儲存體帳戶參與者](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [虛擬機器參與者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [網路參與者](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [儲存體帳戶參與者](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 相較於將角色指派給個別使用者，為需要執行類似動作的使用者[建立 Azure Active Directory 群組](../../active-directory/active-directory-groups-create-azure-portal.md)通常會更加容易。 然後，將該群組指派給適當的角色。 一言以蔽之，您要建立沒有成員的 Azure Active Directory 群組。 您仍然可以指派此群組給某個範圍內的角色。 
 

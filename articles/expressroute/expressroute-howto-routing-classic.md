@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: d6c675d314e96cd0caab7e5eb5c60e3b1458e4a0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9cebb196bd91da704798fb001763a76e6d090472
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>建立和修改 ExpressRoute 線路的對等互連 (傳統)
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ ms.lasthandoff: 04/05/2018
 ### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>登入您的 Azure 帳戶並選取訂用帳戶
 1. 以提高的權限開啟 PowerShell 主控台並連接到您的帳戶。 使用下列範例來協助您連接：
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
 2. 檢查帳戶的訂用帳戶。
 

@@ -1,11 +1,11 @@
 ---
-title: "排程器概念、條款和實體 | Microsoft Docs"
-description: "Azure 排程器概念、詞彙及實體階層，包括工作和工作集合。  顯示排程工作的完整範例。"
+title: 排程器概念、條款和實體 | Microsoft Docs
+description: Azure 排程器概念、詞彙及實體階層，包括工作和工作集合。  顯示排程工作的完整範例。
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91302d57c43a6c9d14aeeee95df3d61fa6f73172
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>排程器概念、術語及實體階層
 ## <a name="scheduler-entity-hierarchy"></a>排程器實體階層
@@ -176,7 +176,7 @@ ms.lasthandoff: 10/11/2017
 
 若要設定重試原則，可以指定另外兩項設定：重試間隔 (**retryInterval**) 和重試次數 (**retryCount**)。
 
-搭配 **retryInterval** 物件指定的重試間隔是重試的間隔。 其預設值為 30 秒、最小可設定值為 15 秒，而最大值為 18 個月。 免費作業集合中作業的最小可設定值為 1 小時。  它是以 ISO 8601 格式定義。 同樣地，搭配 **retryCount** 物件指定的重試次數值，它是重試的次數。 其預設值為 4，而最大值為 20。 **retryInterval** 和 **retryCount** 都是選擇性的。 如果 **retryType** 設定為 **fixed**，而且未明確地指定任何值，則會給與它們預設值。
+搭配 **retryInterval** 物件指定的重試間隔是重試的間隔。 其預設值為 30 秒、最小可設定值為 15 秒，而最大值為 18 個月。 它是以 ISO 8601 格式定義。 同樣地，搭配 **retryCount** 物件指定的重試次數值，它是重試的次數。 其預設值為 4，而最大值為 20。 **retryInterval** 和 **retryCount** 都是選擇性的。 如果 **retryType** 設定為 **fixed**，而且未明確地指定任何值，則會給與它們預設值。
 
 ## <a name="see-also"></a>另請參閱
  [排程器是什麼？](scheduler-intro.md)

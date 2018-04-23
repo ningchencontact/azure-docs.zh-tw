@@ -1,24 +1,17 @@
 ---
-title: "SQL VM 到 Azure 搜尋服務的連線 | Microsoft Docs"
-description: "啟用加密的連線並設定防火牆，以允許在 Azure 虛擬機器 (VM) 上從 Azure 搜尋服務的索引子連接到 SQL Server。"
-services: search
-documentationcenter: 
+title: SQL VM 到 Azure 搜尋服務的連線 | Microsoft Docs
+description: 啟用加密的連線並設定防火牆，以允許在 Azure 虛擬機器 (VM) 上從 Azure 搜尋服務的索引子連接到 SQL Server。
 author: HeidiSteen
-manager: pablocas
-editor: 
-ms.assetid: 46e42e0e-c8de-4fec-b11a-ed132db7e7bc
+manager: cgronlun
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: bb61330ba5511955e0da16dcd5b8b19529d0e44b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f9f429a8a18a6e0722e1cb5e190104665305e06
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>在 Azure VM 上設定從 Azure 搜尋服務索引子到 SQL Server 的連線
 如[使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)中所述，Azure 搜尋服務支援針對 **Azure VM 上的 SQL Server** (或簡稱 **SQL Azure VM**) 建立索引子，但必須先處理幾個安全性相關的必要條件。 

@@ -421,6 +421,8 @@
           href: troubleshoot-activation-problems.md
         - name: 配置失敗
           href: allocation-failure.md
+        - name: 配置失敗 - 傳統 VM
+          href: allocation-failure-classic.md
         - name: 重新部署 VM
           href: redeploy-to-new-node.md
         - name: 常見的錯誤訊息

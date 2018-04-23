@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: virtual-network
+author: genli
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: genli
+ms.custom: include file
+ms.openlocfilehash: edfcd4d59eceada9e1c6014dad9afa7fe8ab3c8f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>如何在 Azure 入口網站中建立傳統 VNet
 若要以上述案例為基礎建立傳統 VNet，請遵循下列步驟執行。
 

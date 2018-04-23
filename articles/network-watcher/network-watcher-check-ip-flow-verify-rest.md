@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 網路監看員 IP 流程驗證來驗證流量 - REST | Microsoft Docs"
-description: "本文說明如何檢查虛擬機器中的流入或流出流量是被允許或拒絕"
+title: 使用 Azure 網路監看員 IP 流程驗證來驗證流量 - REST | Microsoft Docs
+description: 本文說明如何檢查虛擬機器中的流入或流出流量是被允許或拒絕
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3307a79f-03be-46a0-aaaf-b2079cb5f3b2
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3ccef9ef521b86ffc1eb6047174f4f9e5d9e4296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c3d38f776db63e777174b7dca8b09a0d19c387e8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>使用 Azure 網路監看員的 IP 流程驗證元件來檢查流量是被允許或拒絕
 
@@ -165,7 +165,7 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 
 ## <a name="next-steps"></a>後續步驟
 
-如果流量遭到封鎖，但不應如此，請參閱[管理網路安全性群組](../virtual-network/virtual-network-manage-nsg-arm-portal.md)以深入了解網路安全性群組。
+如果流量遭到封鎖，但不應如此，請參閱[管理網路安全性群組](../virtual-network/manage-network-security-group.md)以深入了解網路安全性群組。
 
 
 

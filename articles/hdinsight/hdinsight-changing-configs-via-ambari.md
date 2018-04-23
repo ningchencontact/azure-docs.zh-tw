@@ -10,15 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f3c1edc767ab07bcdd8b09a0e40e291cbd1f3d9a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Ambari 將 HDInsight 叢集設定最佳化
 
@@ -230,7 +228,7 @@ Hadoop 工作通常出現 I/O 瓶頸。 壓縮資料可以加快 I/O 和整體�
 
 ### <a name="enable-speculative-execution"></a>啟用推測性執行
 
-推測性執行會啟動特定數目的重複工作，以偵測緩慢執行的工作並列入封鎖清單，同時將個別工作的結果最佳化，藉以改善整體的工作執行效果。
+推測性執行會啟動特定數目的重複工作，以偵測緩慢執行的工作並列入黑名單，同時將個別工作的結果最佳化，藉以改善整體的工作執行效果。
 
 對於有大量輸入的長時間執行 MapReduce 工作，不應該開啟推測性執行。
 

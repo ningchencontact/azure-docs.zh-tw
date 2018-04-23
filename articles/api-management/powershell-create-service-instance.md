@@ -1,22 +1,22 @@
 ---
-title: "使用 PowerShell 建立 Azure API 管理執行個體 | Microsoft Docs"
-description: "請依照本教學課程的步驟來建立新的 Azure API 管理執行個體。"
+title: 使用 PowerShell 建立 Azure API 管理執行個體 | Microsoft Docs
+description: 請依照本教學課程的步驟來建立新的 Azure API 管理執行個體。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cflower
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: d33a37002f1e3a2684d4b93682dbd48327f3312b
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 4037666081395abc18543fc4dc8d26d40024e1ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>建立新的 Azure API 管理服務執行個體
 
@@ -28,11 +28,11 @@ ms.lasthandoff: 12/04/2017
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，網址是 http://portal.azure.com/。
+在 http://portal.azure.com 上登入 Azure 入口網站。
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組版本 3.6 或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組版本 3.6 或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 
 ## <a name="create-resource-group"></a>建立資源群組

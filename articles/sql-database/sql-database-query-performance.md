@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 85f25946974b7ede64f9f8fb0009eed42c55c25a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c0cff73e8164bd493554b663d4ffbbf20f5155cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL Database 查詢效能深入解析
 管理和調整關聯式資料庫效能是一項具挑戰性的工作，需要投入大量的專業知識和時間。 「查詢效能深入解析」提供了下列各項，讓您得以花費較少時間來對資料庫效能進行疑難排解：
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/06/2018
 * 「查詢效能深入解析」要求 [查詢存放區](https://msdn.microsoft.com/library/dn817826.aspx) 在您的資料庫上為作用中狀態。 如果查詢存放區不在執行中，則入口網站會提示您將它開啟。
 
 ## <a name="permissions"></a>權限
-需有下列 [角色型存取控制](../active-directory/role-based-access-control-what-is.md) 權限，才能使用「查詢效能深入解析」︰ 
+需有下列 [角色型存取控制](../role-based-access-control/overview.md) 權限，才能使用「查詢效能深入解析」︰ 
 
 * 檢視排名最前面的資源取用查詢和圖表時，需具備**讀取器**、**擁有者**、**參與者**、**SQL DB 參與者** 或 **SQL Server 參與者** 權限。 
 * 檢視查詢文字時，需具備**擁有者**、**參與者**、**SQL DB 參與者**或 **SQL Server 參與者**權限。

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 03/04/2018
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 500fb11627fa0ce7ac838c650a582dd9d49b598c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 94a066c43d1b04161a46dac15e5b373d97cc063d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Azure Active Directory PIM 中不同的系統管理角色
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -67,7 +67,7 @@ Privileged Identity Management 可讓您將使用者指派給常見的系統管�
 ## <a name="roles-not-managed-in-pim"></a>PIM 中未管理的角色
 Exchange Online 或 SharePoint Online 內的角色 (除了前面提及的角色外) 並不會出現在 Azure AD 中，因此您不會在 PIM 中看到。 如需有關在這些 Office 365 服務中變更細部角色指派的詳細資訊，請參閱 [Office 365 中的權限](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
 
-Azure 訂用帳戶和資源群組也不會出現在 Azure AD 中。 若要管理 Azure 訂用帳戶，請參閱 [如何新增或變更 Azure 管理員角色](../billing/billing-add-change-azure-subscription-administrator.md)，如需有關 Azure RBAC 的詳細資訊，請參閱 [Azure 角色型存取控制](role-based-access-control-configure.md)。
+Azure 訂用帳戶和資源群組也不會出現在 Azure AD 中。 若要管理 Azure 訂用帳戶，請參閱 [如何新增或變更 Azure 管理員角色](../billing/billing-add-change-azure-subscription-administrator.md)，如需有關 Azure RBAC 的詳細資訊，請參閱 [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)。
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: 4baf691268fdb11f769a39144c2b5461ee9c2362
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bebf8b8830255277b5ea492f06e130ee667affa5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB：MongoDB API 簡介
 
@@ -73,5 +73,5 @@ Azure Cosmos DB 的 MongoDB API 相關資訊已整合至整體 Azure Cosmos DB �
 * 依照[使用 Studio 3T (MongoChef) 搭配 Azure Cosmos DB](mongodb-mongochef.md) 教學課程，了解如何在 Studio 3T 中建立 Azure Cosmos DB 資料庫和 MongoDB 應用程式之間的連線。
 * 依照[將資料移轉至具有 MongoDB 通訊協定支援的 Azure Cosmos DB](mongodb-migrate.md) 教學課程，將資料匯入適用於 MongoDB 的 API資料庫。
 * 使用 [Robomongo](mongodb-robomongo.md) 連線至 API for MongoDB 帳戶。
-* 使用 [GetLastRequestStatistics 命令和 Azure 入口網站計量](request-units.md#GetLastRequestStatistics)，了解您的作業使用多少 RU。
+* 使用 [GetLastRequestStatistics 命令和 Azure 入口網站計量](set-throughput.md#GetLastRequestStatistics)，了解您的作業使用多少 RU。
 * 了解如何[設定全球分散式應用程式的讀取喜好設定](../cosmos-db/tutorial-global-distribution-mongodb.md)。

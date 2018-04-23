@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 175d95c16484b90b13936c3be39b67749f0c3238
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70255ead4a556204689e9918b9c89e396f8122c0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>使用 Azure PowerShell 建立具有憑證的服務主體
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>使用自我簽署憑證建立服務主體
 
-下列範例涵蓋簡單的案例。 其使用 [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) 建立具有自我簽署憑證的服務主體，並使用 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) 將[參與者](../active-directory/role-based-access-built-in-roles.md#contributor)角色指派給服務主體。 角色指派的範圍僅限於您目前所選的 Azure 訂用帳戶。 若要選取不同的訂用帳戶，請使用 [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext)。
+下列範例涵蓋簡單的案例。 其使用 [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) 建立具有自我簽署憑證的服務主體，並使用 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) 將[參與者](../role-based-access-control/built-in-roles.md#contributor)角色指派給服務主體。 角色指派的範圍僅限於您目前所選的 Azure 訂用帳戶。 若要選取不同的訂用帳戶，請使用 [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext)。
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -75,7 +75,7 @@ Param (
  [String] $ApplicationDisplayName
  )
 
- Login-AzureRmAccount
+ Connect-AzureRmAccount
  Import-Module AzureRM.Resources
 
  if ($SubscriptionId -eq "") 
@@ -150,7 +150,7 @@ Param (
  )
 
  $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
- Login-AzureRmAccount -ServicePrincipal `
+ Connect-AzureRmAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
@@ -170,7 +170,7 @@ Param (
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>使用憑證授權中心的憑證來建立服務主體
 
-下列範例使用憑證授權中心所發行的憑證來建立服務主體。 指派範圍僅限於指定的 Azure 訂用帳戶。 這會將服務主體新增至[參與者角色](../active-directory/role-based-access-built-in-roles.md#contributor)。 如果角色指派期間發生錯誤，則指派會重試。
+下列範例使用憑證授權中心所發行的憑證來建立服務主體。 指派範圍僅限於指定的 Azure 訂用帳戶。 這會將服務主體新增至[參與者角色](../role-based-access-control/built-in-roles.md#contributor)。 如果角色指派期間發生錯誤，則指派會重試。
 
 ```powershell
 Param (
@@ -187,7 +187,7 @@ Param (
  [String] $CertPlainPassword
  )
 
- Login-AzureRmAccount
+ Connect-AzureRmAccount
  Import-Module AzureRM.Resources
  Set-AzureRmContext -Subscription $SubscriptionId
  
@@ -239,7 +239,7 @@ Param (
   -ArgumentList @($CertPath, $CertPassword)
  $Thumbprint = $PFXCert.Thumbprint
 
- Login-AzureRmAccount -ServicePrincipal `
+ Connect-AzureRmAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId

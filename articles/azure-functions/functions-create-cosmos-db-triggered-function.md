@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 60836bd88335dc5c58423bad94b6a95e9782c474
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9ba7d8c403a7778a52b858a41ad41bca405cb199
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>建立 Azure Cosmos DB 所觸發的函式
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 03/30/2018
     | **集合識別碼** | 項目 | 新集合的名稱。 這必須符合您函式繫結中定義的名稱。  |
     | **儲存體容量** | 固定 (10 GB)|使用預設值。 此值是資料庫的儲存體容量。 |
     | **輸送量** |400 RU| 使用預設值。 如果您想要降低延遲，稍後可以相應增加輸送量。 |
-    | **[分割區索引鍵](../cosmos-db/partition-data.md#design-for-partitioning)** | /類別|可將資料平均分散到每個資料分割的資料分割索引鍵。 選取正確的資料分割索引鍵對於建立高效能集合來說很重要。 | 
+    | **[分割區索引鍵](../cosmos-db/partition-data.md#design-for-scale)** | /類別|可將資料平均分散到每個資料分割的資料分割索引鍵。 選取正確的資料分割索引鍵對於建立高效能集合來說很重要。 | 
 
 1. 按一下 [確定] 以建立 [工作] 集合。 集合可能會在很短的時間內建立。
 

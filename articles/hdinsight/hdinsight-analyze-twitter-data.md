@@ -1,25 +1,23 @@
 ---
-title: "使用 HDInsight 中的 Hadoop 分析 Twitter 資料 - Azure | Microsoft Docs"
-description: "了解如何在 HDInsight 中的 Hadoop 上使用 Hive 來分析 Twitter 資料，以找出特定單字的使用頻率。"
+title: 使用 HDInsight 中的 Hadoop 分析 Twitter 資料 - Azure | Microsoft Docs
+description: 了解如何在 HDInsight 中的 Hadoop 上使用 Hive 來分析 Twitter 資料，以找出特定單字的使用頻率。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 78e4ea33-9714-424d-ac07-3d60ecaebf2e
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: a5f97dfa084291cefde9bf27b5639926de1bc80e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d81f7889122bcf887676496a056df2148cdff6e9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>在 HDInsight 中使用 Hive 分析 Twitter 資料
 社群網站是驅使採用巨量資料的其中一個主要動力。 像 Twitter 之類的網站所提供的公開 API，是分析和了解流行趨勢的一項實用的資料來源。
@@ -38,7 +36,7 @@ ms.lasthandoff: 11/03/2017
     執行 Windows PowerShell 指令碼之前，請確定您已使用下列 Cmdlet 連接到 Azure 訂用帳戶：
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     如果您有多個 Azure 訂閱，請使用下列 Cmdlet 設定目前的訂閱：
@@ -77,7 +75,7 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。 OAuth 是一項驗�
 
 **建立 Twitter 應用程式**
 
-1. 登入 [https://apps.twitter.com/](https://apps.twitter.com/)。 如果您沒有 Twitter 帳戶，請按一下 [ **立即註冊** ] 連結。
+1. 登入 [https://apps.twitter.com/](https://apps.twitter.com/)。 如果您沒有 Twitter 帳戶，請按一下[立即註冊]  連結。
 2. 按一下 [建立新的應用程式] 。
 3. 輸入 [名稱]、[說明]、[網站]。 您可以在 [網站] 欄位中自行設定 URL。 下表列出部分要使用的範例值：
 
@@ -122,7 +120,7 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。 OAuth 是一項驗�
 
     #region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     #endregion
 
     #region - Create a block blob object for writing tweets into Blob storage
@@ -396,7 +394,7 @@ HiveQL 指令碼將執行下列作業：
         Get-AzureRmSubscription
     }
     Catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
 
     Select-AzureRmSubscription -SubscriptionId $subscriptionID

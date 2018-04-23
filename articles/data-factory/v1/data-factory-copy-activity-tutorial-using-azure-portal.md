@@ -1,11 +1,11 @@
 ---
-title: "教學課程︰建立 Azure Data Factory 管線來複製資料 (Azure 入口網站) |Microsoft 文件"
-description: "在本教學課程中，您會使用 Azure 入口網站建立具有複製活動的 Azure Data Factory 管線，以將資料從 Azure Blob 儲存體複製到 Azure SQL Database。"
+title: 教學課程︰建立 Azure Data Factory 管線來複製資料 (Azure 入口網站) |Microsoft 文件
+description: 在本教學課程中，您會使用 Azure 入口網站建立具有複製活動的 Azure Data Factory 管線，以將資料從 Azure Blob 儲存體複製到 Azure SQL Database。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: d9317652-0170-4fd3-b9b2-37711272162b
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7f42cfda1684b7ff5bd2a1655154b6a11d4ffd31
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c4e8de6b229fe027e43a2b13f2a7ad54b7c3eaf2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>本教學課程︰使用 Azure 入口網站建立 Data Factory 管線來複製資料 
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ ms.lasthandoff: 03/02/2018
    6. 按一下頁面底部的 [新增] 。
       
       > [!IMPORTANT]
-      > 若要建立 Data Factory 執行個體，您必須是訂用帳戶/資源群組層級的 [Data Factory 參與者](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) 角色成員。
+      > 若要建立 Data Factory 執行個體，您必須是訂用帳戶/資源群組層級的 [Data Factory 參與者](../../role-based-access-control/built-in-roles.md#data-factory-contributor) 角色成員。
       > 
       > Data Factory 的名稱未來可能會註冊為 DNS 名稱，因此會變成公開可見的名稱。                
       > 

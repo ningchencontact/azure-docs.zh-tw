@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 520427b99c05fcbc8125bdbde7d8eb56e7487292
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3eb6f08d89daec063841eeb5fff8479c9f2f41fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>使用 Azure Machine Learning Web 服務參數
 藉由發行包含可設定參數模組的試驗，來建立 Azure Machine Learning Web 服務。 在某些情況下，您可能想要在執行 Web 服務時之際，變更模組的行為。 「Web 服務參數」可讓您執行這項工作。 
@@ -52,8 +52,8 @@ Web 服務的 API 文件會包含 Web 服務使用者在存取 Web 服務時，�
    * 在 **[請指定資料目的地]**底下，選取 [Azure Blob 儲存體]。
    * 在 **[請指定驗證類型]**底下，選取 [帳戶]。
    * 輸入 Azure Blob 儲存體的帳戶資訊。 
-     <p />
-3. 按一下 **[以容器參數為開頭的 Blob 路徑]** 右邊的圖示。 它看起來像這樣：
+
+3. 按一下 **[以容器參數為開頭的 Blob 路徑]**右邊的圖示。 它看起來像這樣：
    
    ![Web 服務參數圖示][icon]
    

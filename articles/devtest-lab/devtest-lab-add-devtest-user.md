@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: 348952626e13b9ac73ca2ec8e101bf02e416dc9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f7f7562f0af4753bc08018227a967f9ca3736021
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中新增擁有者和使用者
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../active-directory/role-based-access-control-what-is.md)所控制。 RBAC 可讓您將小組內的職責區隔為「角色」  ，而僅授與使用者執行作業所需的存取權數量。 這些 RBAC 角色的其中三個分別是*擁有者*、*DevTest Labs 使用者*和*參與者*。 在本文中，您會了解三個主要 RBAC 角色中各自可執行哪些動作。 從中您將會了解如何透過入口網站和透過 PowerShell 指令碼將使用者新增至實驗室，以及如何在訂用帳戶層級新增使用者。
+Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../role-based-access-control/overview.md)所控制。 RBAC 可讓您將小組內的職責區隔為「角色」  ，而僅授與使用者執行作業所需的存取權數量。 這些 RBAC 角色的其中三個分別是*擁有者*、*DevTest Labs 使用者*和*參與者*。 在本文中，您會了解三個主要 RBAC 角色中各自可執行哪些動作。 從中您將會了解如何透過入口網站和透過 PowerShell 指令碼將使用者新增至實驗室，以及如何在訂用帳戶層級新增使用者。
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>可在每個角色執行的動作
 您可以對使用者指派三個主要角色︰
@@ -44,7 +44,7 @@ Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../ac
 | **VM 的基本工作** | | | |
 | 新增和移除自訂映像 |否 |yes |yes |
 | 新增、更新和刪除公式 |yes |yes |yes |
-| 將 Azure Marketplace 映像加入允許清單 |否 |yes |yes |
+| 將 Azure Marketplace 映像加入白名單 |否 |yes |yes |
 | **VM 工作** | | | |
 | 建立 VM |yes |yes |yes |
 | 啟動、停止和刪除 VM |僅限使用者所建立的 VM |yes |yes |
@@ -97,7 +97,7 @@ Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../ac
     $userDisplayName = "<Enter user's display name here>"
 
     # Log into your Azure account
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     # Select the Azure subscription that contains the lab. 
     # This step is optional if you have only one subscription.

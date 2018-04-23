@@ -1,13 +1,13 @@
 ---
-title: "Azure 快速入門 - 使用 PowerShell 來備份 VM | Microsoft Docs"
-description: "了解如何使用 Azure PowerShell 來備份虛擬機器"
+title: Azure 快速入門 - 使用 PowerShell 來備份 VM | Microsoft Docs
+description: 了解如何使用 Azure PowerShell 來備份虛擬機器
 services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 55de58770bd91e000c12b42c8eeac92fb8c0a710
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 91303368f96b477f0756e4d3b9d19601797f0ba8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中備份虛擬機器
 Azure PowerShell 模組用於從命令列或在指令碼中建立和管理 Azure 資源。 您可以定期建立備份以保護您的資料。 Azure 備份會建立復原點，其可儲存在異地備援復原保存庫中。 本文詳述如何使用 Azure PowerShell 模組備份虛擬機器 (VM)。 您也可以使用 [Azure CLI](quick-backup-vm-cli.md) 或 [Azure 入口網站](quick-backup-vm-portal.md)來執行這些步驟。
@@ -31,10 +31,10 @@ Azure PowerShell 模組用於從命令列或在指令碼中建立和管理 Azure
 
 
 ## <a name="log-in-to-azure"></a>登入 Azure
-使用 `Login-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 第一次使用 Azure 備份時，您必須使用 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) 在您的訂用帳戶中註冊 Azure 復原服務提供者。

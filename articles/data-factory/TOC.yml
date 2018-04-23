@@ -374,7 +374,9 @@
           href: manage-azure-ssis-integration-runtime.md
         - name: 設定 Azure-SSIS 整合執行階段效能設定
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: 使用預存程序活動叫用 SSIS 套件
+        - name: 使用 SSIS 活動執行 SSIS 套件
+          href: how-to-invoke-ssis-package-ssis-activity.md
+        - name: 使用預存程序活動執行 SSIS 套件
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: 排程 Azure-SSIS 整合執行階段
           href: how-to-schedule-azure-ssis-integration-runtime.md

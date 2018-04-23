@@ -4,9 +4,8 @@ description: 檢閱資料庫教學課程，了解如何使用 Azure Cosmos DB，
 keywords: 應用程式部署、python flask、python Web 應用程式、python Web 開發
 services: cosmos-db
 documentationcenter: python
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+author: SnehaGunda
+manager: kfile
 ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
 ms.service: cosmos-db
 ms.workload: data-management
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 02/23/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 333d34e2c7b07b1ec09d1375d4d05075ed7dde0d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3746a8f3d565d06dd81077efe84c8a9173a68dd7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 建置 Python Flask Web 應用程式
 > [!div class="op_single_selector"]

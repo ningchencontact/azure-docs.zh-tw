@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell 啟用 Azure Stack 備份 | Microsoft Docs"
-description: "使用 Windows PowerShell 啟用「基礎結構備份服務」，以便在發生失敗時，可以將 Azure Stack 還原。"
+title: 使用 PowerShell 啟用 Azure Stack 備份 | Microsoft Docs
+description: 使用 Windows PowerShell 啟用「基礎結構備份服務」，以便在發生失敗時，可以將 Azure Stack 還原。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 7DFEFEBE-D6B7-4BE0-ADC1-1C01FB7E81A6
 ms.service: azure-stack
 ms.workload: na
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: cbec6242fb4e185c9801a93fc2c4b35721269c2f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d21bb919686e318b1caf7267b3115dae20938884
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>使用 PowerShell 啟用 Azure Stack 備份
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 使用 Windows PowerShell 啟用「基礎結構備份服務」，以便在發生失敗時，可以將 Azure Stack 還原。 您可以存取 PowerShell Cmdlet 來啟用備份、開始備份，並透過作業員管理端點取得備份資訊。
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 01/12/2018
       -EnvironmentName AzureStackAdmin
     
     # Sign-in to the operator's console.
-    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
+    Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
     
    ```
 ## <a name="generate-a-new-encryption-key"></a>產生新的加密金鑰
@@ -136,4 +136,4 @@ ms.lasthandoff: 01/12/2018
 ## <a name="next-steps"></a>後續步驟
 
  - 若要了解如何執行備份，請參閱[備份 Azure Stack](azure-stack-backup-back-up-azure-stack.md )。  
-- 若要了解如何確認您的備份已執行，請參閱[確認系統管理入口網站中已完成的備份](azure-stack-backup-back-up-azure-stack.md )。
+- 若要了解如何確認您的備份已執行，請參閱[在系統管理入口網站中確認已完成的備份](azure-stack-backup-back-up-azure-stack.md )。

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: b13e31be58502d670b11dace1f646b0632a2f039
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c3d80fcaa38d0f1d7fa1770879ca9b40642bb796
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin graph 支援
 Azure Cosmos DB 支援 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) \(英文\)，該圖形 API 是 [Apache Tinkerpop](http://tinkerpop.apache.org) \(英文\) 的圖形周遊語言，可用於建立圖表實體和執行圖表查詢作業。 您可以使用 Gremlin 語言建立圖表實體 (頂點和邊緣)、修改這些實體內的屬性、執行查詢和周遊，以及刪除實體。 
@@ -153,12 +153,6 @@ GraphSON 用於頂點的屬性如下︰
 | 屬性 | 說明 |
 | --- | --- |
 | value | 屬性的值
-
-## <a name="gremlin-partitioning"></a>Gremlin 分割
-
-在 Azure Cosmos DB 中，圖表儲存在容器內，而容器可根據儲存體和輸送量 (以一般化每秒要求數表示) 而獨立調整。 每個容器必須定義一個選擇性但建議的資料分割索引鍵屬性，以決定相關資料的邏輯資料分割界限。 每個頂點/邊緣都必須有一個 `id` 屬性，此屬性在該資料分割索引鍵值內的實體之間是唯一的。 [Azure Cosmos DB 中的資料分割](partition-data.md)涵蓋詳細資料。
-
-對於 Azure Cosmos DB 中跨越多個資料分割的圖形資料，Gremlin 作業可以順暢地運作。 不過，建議您為圖表選擇的資料分割索引鍵，最好是常用作查詢中的篩選條件、有許多不同的值，而且以類似的頻率存取這些值。 
 
 ## <a name="gremlin-steps"></a>Gremlin 步驟
 現在，讓我們看看 Azure Cosmos DB 支援的 Gremlin 步驟。 如需 Gremlin 的完整參考，請參閱 [TinkerPop 參考](http://tinkerpop.apache.org/docs/current/reference)。

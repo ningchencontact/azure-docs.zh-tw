@@ -1,11 +1,11 @@
 ---
-title: "如何要求進行多重要素驗證 | Microsoft Docs"
-description: "了解如何利用  Azure Active Directory Privileged Identity Management 擴充功能，為特殊權限的身分識別強制啟用 Multi-Factor Authentication (MFA)。"
+title: 如何要求進行多重要素驗證 | Microsoft Docs
+description: 了解如何利用  Azure Active Directory Privileged Identity Management 擴充功能，為特殊權限的身分識別強制啟用 Multi-Factor Authentication (MFA)。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1e3dc4ad-3a6a-4a52-8417-3ca4f84ae05c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: faee62bdaca3f80fdd8f6be8aaf28c881314333a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 42552b4b8a7b2704a94786518f411f922dbd6a81
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management：如何要求 MFA
 建議您針對所有系統管理員都要求進行多重要素驗證 (MFA)。 這可降低密碼遭入侵所導致的攻擊風險。
@@ -41,9 +41,9 @@ ms.lasthandoff: 12/11/2017
 ## <a name="how-azure-ad-pim-validates-mfa"></a>Azure AD PIM 如何驗證 MFA
 在使用者啟用角色時有兩個選項可用來驗證 MFA。
 
-最簡單的選項是讓啟用特殊權限角色的使用者依賴 Azure MFA。 若要這樣做，請先確認這些使用者已獲授權；必要時，針對 Azure MFA 進行註冊。 如需有關如何執行此動作的詳細資訊，請參閱 [開始在雲端中使用 Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)。 建議 (但非必要) 設定 Azure AD，在這些使用者登入時，強制為他們執行 MFA。 這是因為 MFA 檢查將是由 Azure AD PIM 本身所進行。
+最簡單的選項是讓啟用特殊權限角色的使用者依賴 Azure MFA。 若要這樣做，請先確認這些使用者已獲授權；必要時，針對 Azure MFA 進行註冊。 如需有關如何執行此動作的詳細資訊，請參閱 [開始在雲端中使用 Azure Multi-Factor Authentication](authentication/howto-mfa-getstarted.md)。 建議 (但非必要) 設定 Azure AD，在這些使用者登入時，強制為他們執行 MFA。 這是因為 MFA 檢查將是由 Azure AD PIM 本身所進行。
 
-或者，如果使用者驗證內部部署，您可以讓您的身分識別提供者負責進行 MFA。 例如，如果您已在存取 Azure AD 之前將 Active Directory 同盟服務設定為需要以智慧卡為基礎的驗證， [使用 Azure Multi-Factor Authentication 與 AD FS 保護雲端資源](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md) 包含用來設定 AD FS 來將宣告傳送至 Azure AD 的相關指示。 當使用者嘗試啟動角色時，Azure AD PIM 將會在其收到適當宣告時，接受系統已針對使用者驗證過 MFA。
+或者，如果使用者驗證內部部署，您可以讓您的身分識別提供者負責進行 MFA。 例如，如果您已在存取 Azure AD 之前將 Active Directory 同盟服務設定為需要以智慧卡為基礎的驗證， [使用 Azure Multi-Factor Authentication 與 AD FS 保護雲端資源](authentication/howto-mfa-adfs.md) 包含用來設定 AD FS 來將宣告傳送至 Azure AD 的相關指示。 當使用者嘗試啟動角色時，Azure AD PIM 將會在其收到適當宣告時，接受系統已針對使用者驗證過 MFA。
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>後續步驟

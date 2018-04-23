@@ -1,24 +1,18 @@
 ---
 title: Azure 搜尋服務索引子中的欄位對應
 description: 設定 Azure 搜尋服務索引子欄位對應交代欄位名稱和資料表示的差異
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: 0325a4de-0190-4dd5-a64d-4e56601d973b
+manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: e4d6960e540641405b879064a8064d45521dc04f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6e5148727ab09c56d9af36f7e6fae5e47c85ea59
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Azure 搜尋服務索引子中的欄位對應
 使用 Azure 搜尋服務索引子時，您偶爾會發現置身於輸入資料不完全符合目標索引結構描述的情況中。 在這些情況下，您可以使用 **欄位對應** 將您的資料轉換成所需的形狀。

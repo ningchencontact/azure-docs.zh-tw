@@ -3,22 +3,21 @@ title: 以 Python 開始使用 Azure 表格儲存體 | Microsoft Docs
 description: 使用 Azure 表格儲存體 (NoSQL 資料存放區) 將結構化的資料儲存在雲端。
 services: cosmos-db
 documentationcenter: python
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/08/2018
-ms.author: mimig
-ms.openlocfilehash: 455479c9eb77093dd5611263fe5bdcf699b9d026
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: c8f35656e9db07b596cd24ecb570fa0960f540b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>以 Python 開始使用 Azure 表格儲存體
 
@@ -45,22 +44,14 @@ Azure 表格儲存體是可將結構化的 NoSQL 資料儲存在雲端中的服�
 - [適用於 Python 的 Azure Cosmos DB 資料表 SDK ](https://pypi.python.org/pypi/azure-cosmosdb-table/)。 此 SDK 與 Azure 表格儲存體和 Azure Cosmos DB 資料表 API 連線。
 - [Azure 儲存體帳戶](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account)或 [Azure Cosmos DB 帳戶](https://azure.microsoft.com/en-us/try/cosmosdb/)
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## <a name="create-an-azure-service-account"></a>建立 Azure 服務帳戶
-
-您可以使用 Azure 表格儲存體或 Azure Cosmos DB 來搭配使用表格。 您可以參閱[表格供應項目](table-introduction.md#table-offerings)，深入了解各服務之間的差異。 您必須為您要使用的服務建立帳戶。 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
-建立您第一個 Azure 儲存體帳戶最簡單的方法，就是使用 [Azure 入口網站](https://portal.azure.com)。 若要深入了解，請參閱 [建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
-
-您也可以使用 [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) 或 [Azure CLI](../storage/common/storage-azure-cli.md) 來建立 Azure 儲存體帳戶。
-
-如果您不想在此時建立儲存體帳戶，也可以使用 Azure 儲存體模擬器在本機環境中執行並測試您的程式碼。 如需詳細資訊，請參閱 [使用 Azure 儲存體模擬器進行開發和測試](../storage/common/storage-use-emulator.md)。
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>建立 Azure Cosmos DB 表格 API 帳戶
-
-有關建立 Azure Cosmos DB 表格 API 帳戶的指示，請參閱[建立表格 API 帳戶](create-table-dotnet.md#create-a-database-account)。
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="install-the-azure-cosmos-db-table-sdk-for-python"></a>安裝適用於 Python 的 Azure Cosmos DB 資料表 SDK
 

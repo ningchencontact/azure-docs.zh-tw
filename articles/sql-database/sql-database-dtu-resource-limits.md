@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: c4c85395856756e8ec6a788aa958b479a297892d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a56ff1d70d56b742966c9980f01b4de03f7f30b2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Azure SQL Database 以 DTU 為基礎的資源模型限制
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 04/05/2018
 ### <a name="standard-service-tier"></a>標準服務層
 | **效能等級** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| 最大 DTU** | 10 | 20 | 50 | 100 |
+| 最大 DTU | 10 | 20 | 50 | 100 |
 | 內含儲存體 (GB) | 250 | 250 | 250 | 250 |
 | 最大儲存體選擇 (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | OLTP 記憶體內部儲存體上限 (GB) | N/A | N/A | N/A | N/A |
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/05/2018
 ### <a name="standard-service-tier-continued"></a>標準服務層 (續)
 | **效能等級** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| 最大 DTU** | 200 | 400 | 800 | 1600 | 3000 |
+| 最大 DTU | 200 | 400 | 800 | 1600 | 3000 |
 | 內含儲存體 (GB) | 250 | 250 | 250 | 250 | 250 |
 | 最大儲存體選擇 (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | OLTP 記憶體內部儲存體上限 (GB) | N/A | N/A | N/A | N/A |N/A |
@@ -78,8 +78,6 @@ ms.lasthandoff: 04/05/2018
 >
 >\* 在進階層，目前於下列區域中提供超過 1 TB 的儲存體：澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、韓國中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 請參閱 [P11-P15 目前限制](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
 > 
->\*\* 標準中起始數量為 200 DTU 以上的每個資料庫 DTU 上限目前為預覽版。
->
 
 
 ## <a name="single-database-change-storage-size"></a>單一資料庫：變更儲存體大小

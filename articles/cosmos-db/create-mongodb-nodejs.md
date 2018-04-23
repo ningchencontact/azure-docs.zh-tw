@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: sngun
-ms.openlocfilehash: 01634be8c59433bc3f4b7283f7da38e8c248e80e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 69302a0291b267bd4d46ab9387d296673da17025
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB︰移轉現有的 Node.js MongoDB Web 應用程式 
 
@@ -45,13 +45,25 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="clone-the-sample-application"></a>複製範例應用程式
 
-開啟 Git 終端機視窗 (例如 Git Bash)，然後使用 `cd` 來切換到工作目錄。  
+執行下列命令來複製範例存放庫。 此範例存放庫包含預設 [MEAN.js](http://meanjs.org/) 應用程式。
 
-執行下列命令來複製範例存放庫。 此範例存放庫包含預設 [MEAN.js](http://meanjs.org/) 應用程式。 
+1. 開啟命令提示字元，建立名為 git-samples 的新資料夾，然後關閉命令提示字元。
 
-```bash
-git clone https://github.com/prashanthmadi/mean
-```
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. 開啟 git 終端機視窗 (例如 git bash)，並使用 `cd` 命令變更至要安裝範例應用程式的新資料夾。
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. 執行下列命令來複製範例存放庫。 此命令會在您的電腦上建立範例應用程式副本。 
+
+    ```bash
+    git clone https://github.com/prashanthmadi/mean
+    ```
 
 ## <a name="run-the-application"></a>執行應用程式
 
@@ -232,10 +244,7 @@ git commit -m "configured MongoDB connection string"
 ```
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您將不繼續使用此應用程式，請使用下列步驟，在 Azure 入口網站中刪除本快速入門所建立的所有資源：
-
-1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。 
-2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

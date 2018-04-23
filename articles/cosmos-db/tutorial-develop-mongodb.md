@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure Cosmos DB 適用於 MongoDB 的 API 建置 Web 應用程式 | Microsoft Docs"
-description: "使用適用於 MongoDB 的 API 建立線上資料庫 Web 應用程式的 Azure Cosmos DB 教學課程。"
-keywords: "mongodb 範例"
+title: 使用 Azure Cosmos DB 適用於 MongoDB 的 API 建置 Web 應用程式 | Microsoft Docs
+description: 使用適用於 MongoDB 的 API 建立線上資料庫 Web 應用程式的 Azure Cosmos DB 教學課程。
+keywords: mongodb 範例
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+editor: ''
+documentationcenter: ''
 ms.assetid: 61a2ab3a-2fc3-4d49-a263-ed87c66628f6
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: f7aed1c69e930bdd5e5b451fa2726a75b78515eb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 76a8e19bacdbde938758bf41ed7f209521f513aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB：使用 .NET 來連線到 MongoDB 應用程式
 

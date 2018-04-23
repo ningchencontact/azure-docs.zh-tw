@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f97de4e93c9330206ed22c071d8ade0821bf6691
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
@@ -154,7 +154,7 @@ Azure Event Grid 支援下列動作：
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-最後三種作業可能會回傳秘密資訊，這種資訊在一般讀取作業時是會被篩選掉的。 最好的做法是限制這幾項作業的存取。 自訂角色可以使用 [Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)、[Azure 命令列介面 (CLI)](../active-directory/role-based-access-control-manage-access-azure-cli.md) 和 [REST API](../active-directory/role-based-access-control-manage-access-rest.md) 建立。
+最後三種作業可能會回傳秘密資訊，這種資訊在一般讀取作業時是會被篩選掉的。 最好的做法是限制這幾項作業的存取。 自訂角色可以使用 [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)、[Azure 命令列介面 (CLI)](../role-based-access-control/role-assignments-cli.md) 和 [REST API](../role-based-access-control/role-assignments-rest.md) 建立。
 
 ### <a name="enforcing-role-based-access-check-rbac"></a>強制執行 Role Based Access Check (RBAC)
 

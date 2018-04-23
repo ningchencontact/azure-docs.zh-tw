@@ -4,9 +4,8 @@ description: 這個 Node.js 教學課程會探索如何使用 Microsoft Azure Co
 keywords: 應用程式開發, 資料庫教學課程, 了解 node.js, node.js 教學課程
 services: cosmos-db
 documentationcenter: nodejs
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+author: SnehaGunda
+manager: kfile
 ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/23/2018
-ms.author: mimig
-ms.openlocfilehash: ad6e335c562e52d7e2336dd1f29e5c159fe46589
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: 6a7d1b961245a47015bdb96fd8653d04586238b3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="_Toc395783175"></a>使用 Azure Cosmos DB 來建置 Node.js Web 應用程式
 > [!div class="op_single_selector"]

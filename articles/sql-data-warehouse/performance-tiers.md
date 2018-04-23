@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL 資料倉儲效能層級 | Microsoft Docs"
-description: "Azure SQL 資料倉儲中可用之針對彈性與計算最佳化的效能層級簡介。"
+title: Azure SQL 資料倉儲效能層級 | Microsoft Docs
+description: Azure SQL 資料倉儲中可用之針對彈性與計算最佳化的效能層級簡介。
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 03881c12faed723999e97431e4a69fdeb6bfa10d
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Azure SQL 資料倉儲效能層級 (預覽)
 SQL 資料倉儲提供兩個最佳化以用於分析工作負載的效能層級。 本文說明效能層級的概念，可協助您選擇最適合工作負載的效能層級。 

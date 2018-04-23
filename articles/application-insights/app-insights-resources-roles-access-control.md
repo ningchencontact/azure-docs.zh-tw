@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights 中的資源、角色及存取控制 | Microsoft Docs"
-description: "您的組織詳細資料的擁有者、參與者及讀者。"
+title: Azure Application Insights 中的資源、角色及存取控制 | Microsoft Docs
+description: 您的組織詳細資料的擁有者、參與者及讀者。
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6e811c9b427469fa781cf1f5b7c7deff3a8e6eb3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bb6c33c083e1be690b70b63ca087c923d43f3ee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights 中的資源、角色及存取控制
-您可以使用 [Microsoft Azure 中的角色型存取控制](../active-directory/role-based-access-control-configure.md) ，控制誰對您在 Azure [Application Insights][start] 中的資料具有讀取和更新存取權。
+您可以使用 [Microsoft Azure 中的角色型存取控制](../role-based-access-control/role-assignments-portal.md) ，控制誰對您在 Azure [Application Insights][start] 中的資料具有讀取和更新存取權。
 
 > [!IMPORTANT]
 > 指派存取權給您的應用程式資源所屬之 **資源群組或訂用帳戶** 中的使用者 - 不在資源本身。 指派 **Application Insights 元件參與者** 角色。 這可確保 Web 測試和警示以及您的應用程式資源的統一存取控制。 [深入了解](#access)。
@@ -91,7 +91,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="related-content"></a>相關內容
 
-* [Azure 中的角色型存取控制](../active-directory/role-based-access-control-configure.md)
+* [Azure 中的角色型存取控制](../role-based-access-control/role-assignments-portal.md)
 
 <!--Link references-->
 

@@ -11,6 +11,8 @@
   items:
     - name: 建立與連線 - 入口網站
       href: create-data-warehouse-portal.md
+    - name: 建立 - PowerShell
+      href: create-data-warehouse-powershell.md
     - name: 暫停與繼續計算
       items:
         - name: 入口網站

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 65c40885a8dde2e07deb2a4f94a3dc6a05ef78d0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 28128e07b4beb03b1a8ecdd8546d54c19145689f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>使用 Azure Data Factory 大量複製多個資料表
 本教學課程示範**從 Azure SQL Database 複製一些資料表到 Azure SQL 資料倉儲**。 您也可以在其他複製案例中套用相同模式。 例如，將資料表從 SQL Server/Oracle 複製到 Azure SQL Database/資料倉儲/Azure Blob，將不同的路徑從 Blob 複製到 Azure SQL Database 資料表。
@@ -81,7 +81,7 @@ ms.lasthandoff: 03/23/2018
     執行下列命令，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼：
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
     執行下列命令以檢視此帳戶的所有訂用帳戶：
 

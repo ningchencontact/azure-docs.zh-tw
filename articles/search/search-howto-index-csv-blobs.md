@@ -1,24 +1,18 @@
 ---
-title: "使用 Azure 搜尋服務 Blob 索引子編製索引 CSV Blob | Microsoft Docs"
-description: "了解如何使用 Azure 搜尋服務編製索引 CSV Blob"
-services: search
-documentationcenter: 
+title: 使用 Azure 搜尋服務 Blob 索引子編製索引 CSV Blob | Microsoft Docs
+description: 了解如何使用 Azure 搜尋服務編製索引 CSV Blob
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: ed3c9cff-1946-4af2-a05a-5e0b3d61eb25
+manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: f4c1238b5ff03d9fc52238660134fde774b3474e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>使用 Azure 搜尋服務 Blob 索引子編製索引 CSV Blob
 根據預設， [Azure 搜尋服務 Blob 索引子](search-howto-indexing-azure-blob-storage.md) 會將分隔符號文字 Blob 剖析為單一的文字區塊。 不過，使用包含 CSV 資料的 blob，您通常想要將 blob 中的每一行當做個別文件。 例如，假設有下列分隔符號文字： 

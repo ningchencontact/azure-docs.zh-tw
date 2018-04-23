@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: be15fbc5fad79f1079b901b3d6cb4948c45a0ab4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: fbdf4023bc70f1ad05dd52ac1eabe95b12be9be2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>管理 Azure Stack 中的租用戶註冊
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/12/2018
 
 ### <a name="powershell"></a>PowerShell
 
-使用 New-AzureRmResource Cmdlet 來更新註冊資源。 使用初始註冊所用的帳戶來登入 Azure (`Login-AzureRMAccount`)。 以下是如何新增租用戶的範例：
+使用 New-AzureRmResource Cmdlet 來更新註冊資源。 使用初始註冊所用的帳戶來登入 Azure (`Connect-AzureRmAccount`)。 以下是如何新增租用戶的範例：
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -78,7 +78,7 @@ ms.lasthandoff: 03/12/2018
 
 ### <a name="powershell"></a>PowerShell
 
-使用 Get-AzureRmResovurce Cmdlet 列出所有已註冊的租用戶。 使用初始註冊所用的帳戶來登入 Azure (`Login-AzureRMAccount`)。 以下是如何新增租用戶的範例：
+使用 Get-AzureRmResovurce Cmdlet 列出所有已註冊的租用戶。 使用初始註冊所用的帳戶來登入 Azure (`Connect-AzureRmAccount`)。 以下是如何新增租用戶的範例：
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01

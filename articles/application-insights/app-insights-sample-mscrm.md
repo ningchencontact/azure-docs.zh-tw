@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: c5a651a24fcf5d1fc64922483045c08321a3b89c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ced4f62b4f27ede28c61e8d2670432ddd7b76f9b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>逐步解說：使用 Application Insights 啟用Microsoft Dynamics CRM Online 遙測
 本文說明如何使用 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 從 [Microsoft Dynamics CRM Online](https://www.dynamics.com/) 取得遙測資料。 我們會逐步解說將 Application Insights 指令碼加入至您的應用程式、擷取資料和資料視覺化的完整程序。
@@ -60,7 +60,7 @@ ms.lasthandoff: 03/17/2018
     ![開啟文字編輯器](./media/app-insights-sample-mscrm/00004.png)
 2. 從 Application Insights 複製程式碼。 在複製時請務必略過 script 標記。 請參閱以下螢幕擷取畫面：
 
-    ![設定您的檢測金鑰](./media/app-insights-sample-mscrm/00005.png)
+    ![設定您的檢測金鑰](./media/app-insights-sample-mscrm/000005.png)
 
     程式碼包含用來識別您 Application insights 資源的檢測金鑰。
 3. 儲存並發佈。

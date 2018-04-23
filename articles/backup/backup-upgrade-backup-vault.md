@@ -1,11 +1,11 @@
 ---
-title: "將備份保存庫升級為 Azure 備份的復原服務保存庫 | Microsoft Docs"
-description: "將備份保存庫升級為復原服務保存庫，以取得新功能，例如資源管理員 VM 的備份、增強的安全性、Windows 伺服器的 VMware VM 備份和系統狀態備份"
+title: 將備份保存庫升級為 Azure 備份的復原服務保存庫 | Microsoft Docs
+description: 將備份保存庫升級為復原服務保存庫，以取得新功能，例如資源管理員 VM 的備份、增強的安全性、Windows 伺服器的 VMware VM 備份和系統狀態備份
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: 
+editor: ''
 keyword: backup vault; upgrade vault; recovery services vault
 ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>將備份保存庫升級為復原服務保存庫
 本文提供復原服務保存庫提供服務的概觀、將現有備份保存庫升級為復原服務保存庫的常見問題集，與升級後步驟。 復原服務保存庫是您存放備份資料之備份保存庫的 Azure Resource Manager 對等項目。 資料通常是資料的副本，或是虛擬機器 (VM)、工作負載、伺服器或工作站的設定資訊，無論是內部部署或是在 Azure 中。
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/19/2017
 
 - **將您的混合式 IT 環境集中監視**︰透過復原服務保存庫，您不只可以監視 [Azure IaaS VM](backup-azure-manage-vms.md)，還可以從中央入口網站監視[內部部署資產](backup-azure-manage-windows-server.md#manage-backup-items)。 [深入了解](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **角色型存取控制 (RBAC)**：RBAC 提供 Azure 中的更細緻存取權管理。 [Azure 提供各種內建角色](../active-directory/role-based-access-built-in-roles.md)，且 Azure Backup 有三個[內建的角色可用來管理復原點](backup-rbac-rs-vault.md)。 復原服務保存庫與 RBAC 相容，且會對一組定義之使用者角色的備份和還原存取權限加以限制。 [深入了解](backup-rbac-rs-vault.md)
+- **角色型存取控制 (RBAC)**：RBAC 提供 Azure 中的更細緻存取權管理。 [Azure 提供各種內建角色](../role-based-access-control/built-in-roles.md)，且 Azure Backup 有三個[內建的角色可用來管理復原點](backup-rbac-rs-vault.md)。 復原服務保存庫與 RBAC 相容，且會對一組定義之使用者角色的備份和還原存取權限加以限制。 [深入了解](backup-rbac-rs-vault.md)
 
 - **保護 Azure 虛擬機器的所有設定**︰復原服務保存庫會保護以 Resource Manager 為基礎的 VM，包括進階磁碟、受控磁碟及加密的 VM。 將備份保存庫升級至復原服務保存庫，讓您有機會可將以 Service Manager 為基礎的 VM 升級至以 Resource Manager 為基礎的 VM。 在升級保存庫時，您可以保留以 Service Manager 為基礎的 VM 復原點，並設定已升級 (已啟用 Resource Manager) 的 VM 保護。 [深入了解](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 

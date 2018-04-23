@@ -1,11 +1,11 @@
 ---
-title: "在 Azure API 管理中使用要求追蹤對 API 進行偵錯 | Microsoft Docs"
-description: "依照此教學課程的步驟，了解如何在 Azure API 管理中檢查要求處理步驟。"
+title: 在 Azure API 管理中使用要求追蹤對 API 進行偵錯 | Microsoft Docs
+description: 依照此教學課程的步驟，了解如何在 Azure API 管理中檢查要求處理步驟。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7b9bec7927169b9d820c095a7d11705264e7dcfe
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 4db89b52a3fa9585572322d546d87513da41c3f0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>使用要求追蹤對 API 進行偵錯
 
@@ -35,8 +35,6 @@ ms.lasthandoff: 12/04/2017
 
 + 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 + 以及完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="trace-a-call"></a>追蹤呼叫
 

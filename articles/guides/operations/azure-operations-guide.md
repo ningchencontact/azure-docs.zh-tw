@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 0be60fff3d49ff39691f19cb1013e023f9f984e6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 231e8110dc6e1844108502e5c2277edc3ba77132
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>雲端運算和 Microsoft Azure 簡介
 
@@ -323,7 +323,7 @@ Resource Manager 範本包含四個區段：
 
 -   **儲存體帳戶參與者**：擁有此角色的使用者可以管理儲存體帳戶，但是無法管理儲存體帳戶的存取權。
 
-如需詳細資訊，請參閱[使用角色指派來管理 Azure 訂用帳戶資源的存取權](../../active-directory/role-based-access-control-configure.md)。
+如需詳細資訊，請參閱[使用角色指派來管理 Azure 訂用帳戶資源的存取權](../../role-based-access-control/role-assignments-portal.md)。
 
 ## <a name="azure-virtual-machines"></a>Azure 虛擬機器
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全性與合規性藍圖 - 英國官方三層式 Web 應用程式自動化"
-description: "Azure 安全性與合規性藍圖 - 英國官方三層式 Web 應用程式自動化"
+title: Azure 安全性與合規性藍圖 - 英國官方三層式 Web 應用程式自動化
+description: Azure 安全性與合規性藍圖 - 英國官方三層式 Web 應用程式自動化
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure 安全性與合規性藍圖 - 英國官方三層式 Web 應用程式自動化
 
@@ -211,7 +211,7 @@ ms.lasthandoff: 02/11/2018
 
 **資源管理**：Azure 資源 (例如 VM、VNet 及負載平衡器) 是透過將它們組成 [Azure 資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource) 來管理。 接著可將資源型存取控制角色指派給每個資源群組，以限制只有經授權的使用者可以存取。
 
-**存取控制限制**：使用[角色型存取控制](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) 來透過[自訂角色](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)管理應用程式中的資源。RBAC 可以用來限制 DevOps 可於每個層級上執行的作業。 授與權限時，請使用[最小權限的原則](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1)。 記錄所有的系統管理作業並定期執行稽核，以確保所有設定變更都是經過規劃的。
+**存取控制限制**：使用[角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) 來透過[自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)管理應用程式中的資源。RBAC 可以用來限制 DevOps 可於每個層級上執行的作業。 授與權限時，請使用[最小權限的原則](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1)。 記錄所有的系統管理作業並定期執行稽核，以確保所有設定變更都是經過規劃的。
 
 **網際網路存取**：此參考架構會運用 [Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)作為網際網路面向閘道和負載平衡器。 作為 [Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)的替代項目，有些客戶可能也會考慮使用協力廠商網路虛擬裝置來取得額外的網路安全性層。
 

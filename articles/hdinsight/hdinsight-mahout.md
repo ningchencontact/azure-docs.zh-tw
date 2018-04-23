@@ -1,8 +1,8 @@
 ---
-title: "從 PowerShell 使用 Mahout HDInsight 產生推薦 - Azure | Microsoft Docs"
-description: "了解如何從您的用戶端上執行的 PowerShell 指令碼搭配 HDInsight (Hadoop) 使用 Apache Mahout 機器學習庫來產生電影推薦。"
+title: 從 PowerShell 使用 Mahout HDInsight 產生推薦 - Azure | Microsoft Docs
+description: 了解如何從您的用戶端上執行的 PowerShell 指令碼搭配 HDInsight (Hadoop) 使用 Apache Mahout 機器學習庫來產生電影推薦。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 07b57208-32aa-4e59-900a-6c934fa1b7a7
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: a2477b0a7c9c76f8ce4a183f4d699ddf4c291023
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 0c35d1affe2499d44cb1810ae51f2fe6f06bc90f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>透過在 HDInsight 上將 Apache Mahout 與 Hadoop 搭配使用來產生電影推薦 (PowerShell)
 
@@ -150,7 +148,7 @@ Mahout 工作不會清除在處理期間所建立的暫存檔。 此外，作業
 $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 }
 
 # Get cluster info

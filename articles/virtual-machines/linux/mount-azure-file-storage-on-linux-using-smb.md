@@ -3,7 +3,7 @@ title: 使用 SMB 在 Linux VM 上掛接 Azure 檔案儲存體 | Microsoft Docs
 description: 如何使用 Azure CLI 2.0 利用 SMB 在 Linux VM 上掛接 Azure 檔案儲存體
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
-ms.author: v-livech
-ms.openlocfilehash: de200c9b18b9d27325bcb92e0d27e83ad7c65811
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: iainfou
+ms.openlocfilehash: 01e18103f9e94615357ff3b9c4be7f2473763a57
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上掛接 Azure 檔案儲存體
 
-本文說明如何使用 Azure CLI 2.0 ，利用 SMB 掛接在 Linux VM 上使用「Azure 檔案儲存體」服務。 Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案共用。 您也可以使用 [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 來執行這些步驟。 這些需求包括：
+本文說明如何使用 Azure CLI 2.0 ，利用 SMB 掛接在 Linux VM 上使用「Azure 檔案儲存體」服務。 Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案共用。 您也可以使用 [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md) 來執行這些步驟。 這些需求包括：
 
 - [一個 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)
 - [SSH 公開金鑰和私密金鑰檔案](mac-create-ssh-keys.md)
@@ -49,14 +49,14 @@ mkdir -p /mnt/mymountpoint
 ### <a name="mount-the-file-storage-smb-share-to-the-mount-point"></a>掛接檔案儲存體 SMB 共用至掛接點
 
 ```bash
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ### <a name="persist-the-mount-after-a-reboot"></a>在重新開機之後保留掛接
 若要這樣做，請在 `/etc/fstab` 中新增下面這行：
 
 ```bash
-//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+//myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ## <a name="detailed-walkthrough"></a>詳細的逐步解說
@@ -121,7 +121,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
     在 Linux 檔案系統上建立本機目錄，以供 SMB 共用來掛接。 任何從本機掛接目錄寫入或讀取的項目會轉送給裝載於檔案儲存體上的 SMB 共用。 若要在 /mnt/mymountdirectory 建立本機目錄，請使用下列範例︰
 
     ```bash
-    sudo mkdir -p /mnt/mymountdirectory
+    sudo mkdir -p /mnt/mymountpoint
     ```
 
 6. 將 SMB 共用掛接到本機目錄。
@@ -129,7 +129,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
     請依下列方式，提供您自己的儲存體帳戶使用者名稱和儲存體帳戶金鑰作為掛接認證：
 
     ```azurecli
-    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountdirectory -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
+    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountpoint -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
     ```
 
 7. 透過重新開機持續 SMB 掛接。
@@ -137,11 +137,11 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
     當您重新開機 Linux VM 時，掛接的 SMB 共用會在關機期間取消掛接。 若要在開機時重新掛接 SMB 共用，請新增一行至 Linux /etc/fstab。 Linux 會使用 fstab 檔案來列出它在開機程序期間所必須掛接的檔案系統。 新增 SMB 共用可確保檔案儲存體共用是 Linux VM 的永久掛接檔案系統。 當您使用 cloud-init 時，便可以將檔案儲存體 SMB 共用新增至新的 VM。
 
     ```bash
-    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>後續步驟
 
-- [在建立期間使用 cloud-init 自訂 Linux VM](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [在 Linux VM 中新增磁碟](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [使用 Azure CLI 將 Linux VM 上的磁碟加密](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [在建立期間使用 cloud-init 自訂 Linux VM](using-cloud-init.md)
+- [在 Linux VM 中新增磁碟](add-disk.md)
+- [使用 Azure CLI 將 Linux VM 上的磁碟加密](encrypt-disks.md)

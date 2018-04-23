@@ -1,24 +1,24 @@
 ---
-title: "IoT DevKit 到雲端：將 IoT DevKit AZ3166 連線到 Azure IoT 中樞 | Microsoft Docs"
-description: "在本教學課程中了解如何設定 IoT DevKit AZ3166 並將其連線到 Azure IoT 中樞，以便它可以將資料傳送到 Azure 雲端平台。"
+title: IoT DevKit 到雲端：將 IoT DevKit AZ3166 連線到 Azure IoT 中樞 | Microsoft Docs
+description: 在本教學課程中了解如何設定 IoT DevKit AZ3166 並將其連線到 Azure IoT 中樞，以便它可以將資料傳送到 Azure 雲端平台。
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/20/2017
-ms.author: xshi
-ms.openlocfilehash: 1ad9200376bc4959e7572ae8d5be11b278a42cc0
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 3d83875171c7c097bac5a70852f049a6ce4219b3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>將 IoT DevKit AZ3166 連線到雲端中的 Azure IoT 中樞
 

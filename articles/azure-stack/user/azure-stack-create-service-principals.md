@@ -1,6 +1,6 @@
 ---
-title: "為 Azure Stack 建立服務主體 | Microsoft Docs"
-description: "描述如何建立可以與 Azure Resource Manager 中的角色型存取控制搭配使用來管理資源存取權的新服務主體。"
+title: 為 Azure Stack 建立服務主體 | Microsoft Docs
+description: 描述如何建立可以與 Azure Resource Manager 中的角色型存取控制搭配使用來管理資源存取權的新服務主體。
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3a22efa4ace8b779f51ca5036b7df536b8c39313
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6b53e46253edc063b1b7ae94bf2fac2781a0613a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>為 Azure Stack 提供應用程式存取
 
@@ -105,7 +105,7 @@ $servicePrincipal = New-AzSADGraphServicePrincipal `
 一旦已指派角色，您可以使用服務主體搭配下列命令登入 Azure Stack：
 
 ```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
+Connect-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
  -ApplicationId $servicePrincipal.ApplicationId ` 
@@ -113,7 +113,7 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 ```
 
 ## <a name="assign-role-to-service-principal"></a>指派角色給服務主體
-若要存取您的訂用帳戶中的資源，您必須將應用程式指派給角色。 決定哪個角色代表應用程式的正確權限。 若要深入了解可用的角色，請參閱 [RBAC：內建角色](../../active-directory/role-based-access-built-in-roles.md)。
+若要存取您的訂用帳戶中的資源，您必須將應用程式指派給角色。 決定哪個角色代表應用程式的正確權限。 若要深入了解可用的角色，請參閱 [RBAC：內建角色](../../role-based-access-control/built-in-roles.md)。
 
 您可以針對訂用帳戶、資源群組或資源的層級設定範圍。 較低的範圍層級會繼承較高層級的權限。 例如，為資源群組的讀取者角色新增應用程式，代表該角色可以讀取資源群組及其所包含的任何資源。
 

@@ -1,25 +1,18 @@
 ---
-title: "使用入口網站進行編製索引、查詢和篩選的 Azure 搜尋服務教學課程 | Microsoft Docs"
-description: "在 Azure 入口網站中，使用預先定義的範例資料在 Azure 搜尋服務中產生索引。 探索全文檢索搜尋、篩選器、面向、模糊搜尋、地理搜尋功能等等。"
-services: search
-documentationcenter: 
+title: 使用入口網站進行編製索引、查詢和篩選的 Azure 搜尋服務教學課程 | Microsoft Docs
+description: 在 Azure 入口網站中，使用預先定義的範例資料在 Azure 搜尋服務中產生索引。 探索全文檢索搜尋、篩選器、面向、模糊搜尋、地理搜尋功能等等。
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0dbc4ca0b3ca5ce59fb81e1a241982bca099aab
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>在入口網站中建立、查詢和篩選 Azure 搜尋服務索引
 

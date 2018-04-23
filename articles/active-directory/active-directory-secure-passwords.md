@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 多層密碼安全性 | Microsoft Docs"
-description: "說明 Azure AD 如何強制執行強式密碼，及保護使用者密碼免遭網路罪犯破解。"
+title: Azure AD 多層密碼安全性 | Microsoft Docs
+description: 說明 Azure AD 如何強制執行強式密碼，及保護使用者密碼免遭網路罪犯破解。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 04e437eb5a040f418df22e0857cb96d7ef99bbbb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Azure AD 密碼安全性多層法
 
@@ -84,4 +84,4 @@ Microsoft 會持續分析[資料外洩](https://www.privacyrights.org/data-breac
 
 * [如何更新自己的密碼](active-directory-passwords-update-your-own-password.md)
 * [Azure 身分識別管理的基本概念](fundamentals-identity.md)
-* [密碼重設活動報告](active-directory-passwords-reporting.md)
+* [密碼重設活動報告](authentication/howto-sspr-reporting.md)

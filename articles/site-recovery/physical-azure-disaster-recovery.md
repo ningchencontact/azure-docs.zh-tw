@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Site Recovery 設定實體內部部署伺服器至 Azure 的災害復原 | Microsoft Docs"
-description: "了解如何使用 Azure Site Recovery 服務，以設定內部部署 Windows 和 Linux 伺服器至 Azure 的災害復原。"
+title: 使用 Azure Site Recovery 設定實體內部部署伺服器至 Azure 的災害復原 | Microsoft Docs
+description: 了解如何使用 Azure Site Recovery 服務，以設定內部部署 Windows 和 Linux 伺服器至 Azure 的災害復原。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>設定內部部署實體伺服器至 Azure 的災害復原
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 03/09/2018
 請確定您的 Azure 帳戶具有權限將 VM 複寫至 Azure。
 
 - 檢閱您將機器複寫至 Azure 所需的[權限](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)。
-- 驗證並修改[角色型存取](../active-directory/role-based-access-control-configure.md)權限。 
+- 驗證並修改[角色型存取](../role-based-access-control/role-assignments-portal.md)權限。 
 
 
 

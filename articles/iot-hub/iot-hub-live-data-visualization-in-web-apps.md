@@ -1,25 +1,25 @@
 ---
-title: "Azure IoT 中樞感應器資料的即時資料視覺效果 – Web Apps | Microsoft Docs"
-description: "使用 Microsoft Azure App Service 的 Web Apps 功能來視覺化收集自感應器並傳送至 IoT 中樞的溫度和溼度資料。"
+title: Azure IoT 中樞感應器資料的即時資料視覺效果 – Web Apps | Microsoft Docs
+description: 使用 Microsoft Azure App Service 的 Web Apps 功能來視覺化收集自感應器並傳送至 IoT 中樞的溫度和溼度資料。
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "即時資料視覺效果, 即時資料視覺效果, 感應器資料視覺效果"
+tags: ''
+keywords: 即時資料視覺效果, 即時資料視覺效果, 感應器資料視覺效果
 ms.assetid: e42b07a8-ddd4-476e-9bfb-903d6b033e91
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2017
-ms.author: xshi
-ms.openlocfilehash: 54a2defd6bfe2396e24584c686698d3215893cfd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 0edf72595f67dd9f6b33f9bfeaf4cd98405dc3ca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>使用 Azure App Service 的 Web Apps 功能將來自 Azure IoT 中樞的即時感應器資料視覺化
 

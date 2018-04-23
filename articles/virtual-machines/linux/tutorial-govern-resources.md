@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1f52079e00c7c5f4e70acf8c86f648ed9281744e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a7d44e421162cf5784dde58f757e235d12b63cba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>使用 Azure CLI 控管虛擬機器
 
@@ -43,15 +43,15 @@ az group create --name myResourceGroup --location "East US"
 
 ## <a name="role-based-access-control"></a>角色型存取控制
 
-您想要確定組織中的使用者具有這些資源的正確存取權等級。 您不想要授與不受限制的存取權給使用者，但是您又必須確定他們可以執行其工作。 [角色型存取控制](../../active-directory/role-based-access-control-what-is.md)可讓您管理哪些使用者具有權限可以在一個範圍內完成特定動作。
+您想要確定組織中的使用者具有這些資源的正確存取權等級。 您不想要授與不受限制的存取權給使用者，但是您又必須確定他們可以執行其工作。 [角色型存取控制](../../role-based-access-control/overview.md)可讓您管理哪些使用者具有權限可以在一個範圍內完成特定動作。
 
 若要建立和移除角色指派，使用者必須具有 `Microsoft.Authorization/roleAssignments/*` 存取權。 此存取權是透過擁有者或使用者存取系統管理員角色來授與。
 
 為了管理虛擬機器解決方案，有三個資源專屬角色可提供您經常需要的存取權：
 
-* [虛擬機器參與者](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [網路參與者](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [儲存體帳戶參與者](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [虛擬機器參與者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [網路參與者](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [儲存體帳戶參與者](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 相較於將角色指派給個別使用者，為需要執行類似動作的使用者[建立 Azure Active Directory 群組](../../active-directory/active-directory-groups-create-azure-portal.md)通常會更加容易。 然後，將該群組指派給適當的角色。 一言以蔽之，您要建立沒有成員的 Azure Active Directory 群組。 您仍然可以指派此群組給某個範圍內的角色。 
 

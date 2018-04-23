@@ -1,22 +1,22 @@
 ---
-title: "使用 Azure 入口網站設定裝置佈建 | Microsoft Docs"
-description: "Azure 快速入門 - 使用 Azure CLI 設定 Azure IoT 中樞裝置佈建服務"
+title: 使用 Azure 入口網站設定裝置佈建 | Microsoft Docs
+description: Azure 快速入門 - 使用 Azure CLI 設定 Azure IoT 中樞裝置佈建服務
 services: iot-dps
-keywords: 
-author: JimacoMS2
+keywords: ''
+author: bryanla
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 09b212a5abe2ebb9c123f3adcbdfa59390d16c10
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 70248ea2bdd595e6206084ef59822ec0a7ca7d2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>使用 Azure CLI 設定 IoT 中樞裝置佈建服務
 

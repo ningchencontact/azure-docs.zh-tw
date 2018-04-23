@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/16/2018
 2. 按一下 [變更目錄]。
 
     ![顯示變更目錄按鈕的螢幕擷取畫面](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
-3. 檢閱警告。 所有具備指派存取權的[角色型存取控制 (RBAC)](role-based-access-control-configure.md) 使用者以及所有訂用帳戶管理員都會在訂用帳戶目錄變更時喪失存取權。
+3. 檢閱警告。 所有具備指派存取權的[角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 使用者以及所有訂用帳戶管理員都會在訂用帳戶目錄變更時喪失存取權。
 4. 選取目錄。
 
     ![顯示變更目錄 UI 的螢幕擷取畫面](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
@@ -60,7 +60,7 @@ ms.lasthandoff: 03/16/2018
 
 * 若要深入了解如何免費建立新的 Azure AD 目錄，請參閱[如何取得 Azure Active Directory 租用戶](develop/active-directory-howto-tenant.md)
 * 若要深入了解如何移轉 Azure 訂用帳戶的帳單擁有權，請參閱[將 Azure 訂用帳戶的擁有權轉移轉至另一個帳戶](../billing/billing-subscription-transfer.md)
-* 若要深入了解如何在 Microsoft Azure 中控制資源存取，請參閱 [了解 Azure 中的資源存取](active-directory-understanding-resource-access.md)
+* 若要深入了解如何在 Microsoft Azure 中控制資源存取，請參閱 [了解 Azure 中的資源存取](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * 如需有關如何在 Azure AD 中指派角色的詳細資訊，請參閱 [在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->

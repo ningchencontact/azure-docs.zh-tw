@@ -1,12 +1,12 @@
 ---
-title: "升級 Azure Service Fabric 執行階段 | Microsoft Docs"
-description: "在本教學課程中，您會了解如何使用 PowerShell 來升級 Azure 裝載的 Service Fabric 叢集執行階段。"
+title: 升級 Azure Service Fabric 執行階段 | Microsoft Docs
+description: 在本教學課程中，您會了解如何使用 PowerShell 來升級 Azure 裝載的 Service Fabric 叢集執行階段。
 services: service-fabric
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 49211a88e004bbcbcc41b6674a34934db39513c7
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 407268299e77d771a53c49c11995dce1ada65112
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>教學課程：升級 Service Fabric 叢集的執行階段
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 02/24/2018
 請先登入您的 Azure 帳戶並選取您的訂用帳戶，再執行 Azure 命令。
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```

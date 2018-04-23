@@ -1,5 +1,5 @@
 ---
-title: "Azure 安全性管理和監視概觀 | Microsoft Docs"
+title: Azure 安全性管理和監視概觀 | Microsoft Docs
 description: " Azure 提供安全性機制，來協助管理與監視 Azure 雲端服務和虛擬機器。  本文概述這些核心安全性功能和服務。 "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 906ea3c37823616597ee74dbadf50618d5c4e11d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 安全性管理和監視概觀
 Azure 提供安全性機制，來協助管理與監視 Azure 雲端服務和虛擬機器。 本文概述這些核心安全性功能和服務。 所提供的文章連結將提供每個項目的詳細資料，以讓您深入了解。
@@ -50,7 +50,7 @@ Microsoft 雲端服務的安全性是您與 Microsoft 之間的合作關係和�
 深入了解：
 
 * [有關 RBAC 的 Active Directory 小組部落格](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
-* [Azure 角色型存取控制](../active-directory/role-based-access-control-configure.md)
+* [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>反惡意程式碼
 運用 Azure，您可以使用來自各大安全性廠商 (例如 Microsoft、Symantec、Trend Micro、McAfee 和 Kaspersky) 的反惡意程式碼軟體，以協助保護您的虛擬機器抵禦惡意檔案、廣告軟體和其他威脅。
@@ -76,7 +76,7 @@ Azure Multi-Factor Authentication (MFA) 是需要使用多種驗證方法，並�
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 * [什麼是 Azure Multi-Factor Authentication？](../multi-factor-authentication/multi-factor-authentication.md)
-* [Azure Multi-Factor Authentication 的作用](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
+* [Azure Multi-Factor Authentication 的作用](../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
 Microsoft Azure ExpressRoute 可讓您透過連線提供者所提供的專用私人連線，將內部部署網路擴充至 Microsoft 雲端。 透過 ExpressRoute，您可以建立 Microsoft 雲端服務的連線，例如 Microsoft Azure、Office 365 和 CRM Online。 從任意點對任意點 (IP VPN) 網路、點對點乙太網路，或在共置設施上透過連線提供者的虛擬交叉連接，都可以進行連線。 ExpressRoute 連線不會經過公用網際網路。 相較於一般網際網路連線，這可讓 ExpressRoute 連線提供更可靠、更快速、延遲更短和更安全的連線。

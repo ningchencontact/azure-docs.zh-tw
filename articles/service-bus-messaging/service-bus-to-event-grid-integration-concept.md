@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: e0c32510ee49b95bc3606ea1efff7e2a6f72799b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1da2b6568125c61db2c4dda3bd81abb8f1a59ec7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure 服務匯流排與 Event Grid 的整合概觀
 
@@ -157,7 +157,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 確定您已安裝 Azure PowerShell。 [下載安裝程式](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0)。 選取 [Windows + X]，然後以系統管理員權限開啟新的 PowerShell 主控台。 或者，也可以在 Azure 入口網站中使用命令 shell。
 
 ```PowerShell-interactive
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
 

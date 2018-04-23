@@ -1,11 +1,11 @@
 ---
-title: "建置您的第一個 Data Factory (PowerShell) | Microsoft Docs"
-description: "在本教學課程中，您將使用 Azure PowerShell，建立範例 Azure Data Factory 管線。"
+title: 建置您的第一個 Data Factory (PowerShell) | Microsoft Docs
+description: 在本教學課程中，您將使用 Azure PowerShell，建立範例 Azure Data Factory 管線。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 22ec1236-ea86-4eb7-b903-0e79a58b90c7
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: bea8f944e59774abdb70f0f1cad37cfe0749b195
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 915c2eb6be14520d8a6eeccf173ac30b70eca45b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建置您的第一個 Azure Data Factory
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ ms.lasthandoff: 03/02/2018
 1. 啟動 Azure PowerShell 並執行下列命令。 將 Azure PowerShell 維持在開啟狀態，直到本教學課程結束為止。 如果您關閉並重新開啟，則需要再次執行這些命令。
    * 執行下列命令並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```    
    * 執行下列命令以檢視此帳戶的所有訂用帳戶。
     ```PowerShell

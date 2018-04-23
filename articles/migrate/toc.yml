@@ -18,6 +18,12 @@
       href: concepts-dependency-visualization.md
 - name: 使用說明指南
   items:
+    - name: 將您的內部部署資源遷移至 Azure
+      items:
+        - name: 案例概觀 - 將您的內部部署資源遷移至 Azure
+          href: migrate-scenarios-overview.md
+        - name: 案例 1 - 存取內部部署資源以移轉至 Azure
+          href: migrate-scenarios-assessment.md
     - name: 探索及評定大型環境
       href: how-to-scale-assessment.md
     - name: 群組機器

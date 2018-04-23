@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: b7d6e48a6f34472bc38947fd70e850b1c3bf6f8a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>虛擬機器序列主控台 (預覽) 
 
@@ -32,7 +32,7 @@ Azure 上的虛擬機器序列主控台可讓您存取 Linux 和 Windows 虛擬�
 ## <a name="prerequisites"></a>先決條件 
 
 * 虛擬機器必須啟用[開機診斷](boot-diagnostics.md)功能 
-* 使用序列主控台的帳戶必須具有 VM 的[參與者角色](../../active-directory/role-based-access-built-in-roles.md)和[開機診斷](boot-diagnostics.md)儲存體帳戶。 
+* 使用序列主控台的帳戶必須具有 VM 的[參與者角色](../../role-based-access-control/built-in-roles.md)和[開機診斷](boot-diagnostics.md)儲存體帳戶。 
 * 如需了解 Linux 發行版本的特定設定，請參閱[存取 Linux 的序列主控台](#accessing-serial-console-for-linux)
 
 
@@ -56,7 +56,7 @@ Azure 上的虛擬機器序列主控台可讓您存取 Linux 和 Windows 虛擬�
 ## <a name="serial-console-security"></a>序列主控台安全性 
 
 ### <a name="access-security"></a>存取安全性 
-僅限具有虛擬機器之 [VM 參與者](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)或更高存取權的使用者，才能存取序列主控台。 如果您的 AAD 租用戶要求使用 Multi-Factor Authentication，則存取序列主控台時也會需要 MFA，因為會透過 [Azure 入口網站](https://portal.azure.com)進行其存取。
+僅限具有虛擬機器之 [VM 參與者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)或更高存取權的使用者，才能存取序列主控台。 如果您的 AAD 租用戶要求使用 Multi-Factor Authentication，則存取序列主控台時也會需要 MFA，因為會透過 [Azure 入口網站](https://portal.azure.com)進行其存取。
 
 ### <a name="channel-security"></a>通道安全性
 系統會加密在網路上來回傳送的所有資料。
@@ -123,10 +123,10 @@ Azure 上提供的 Oracle Linux 映像已預設啟用主控台存取。 針對�
 
 `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 
 
-## <a name="errors"></a>錯誤
+## <a name="errors"></a>Errors
 大多數錯誤本質上都是暫時性的，重試連線將可解決這些錯誤。 下表顯示錯誤清單及緩和措施 
 
-錯誤                            |   緩和 
+Error                            |   緩和 
 :---------------------------------|:--------------------------------------------|
 無法擷取 '<VMNAME>' 的開機診斷設定。 若要使用序列主控台，請確定已針對此 VM 啟用診斷開機診斷。 | 請確定 VM 已啟用[開機診斷](boot-diagnostics.md)。 
 VM 處於已停止 (已解除配置) 狀態。 啟動 VM 並重試序列主控台連線。 | 虛擬機器必須處於已啟動狀態，才能存取序列主控台
@@ -145,15 +145,15 @@ VM 處於已停止 (已解除配置) 狀態。 啟動 VM 並重試序列主控�
 ## <a name="frequently-asked-questions"></a>常見問題集 
 **問：如何傳送意見反應？**
 
-答： 前往 https://aka.ms/serialconsolefeedback \(英文\) 來以問題形式提供意見反應。 或者，您也可以 (較不建議) 透過 azserialhelp@microsoft.com 或在 http://feedback.azure.com 的虛擬機器類別中傳送意見反應
+A. 前往 https://aka.ms/serialconsolefeedback \(英文\) 來以問題形式提供意見反應。 或者，您也可以 (較不建議) 透過 azserialhelp@microsoft.com 或在 http://feedback.azure.com 的虛擬機器類別中傳送意見反應
 
 **問：我收到「現有主控台的 OS 類型 "Windows" 與要求的 OS 類型 Linux 相衝突？」錯誤**
 
-答： 這是已知的問題，若要修正此問題，只需以 Bash 模式開啟 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 並重試即可。
+A. 這是已知的問題，若要修正此問題，只需以 Bash 模式開啟 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 並重試即可。
 
 **問：我無法存取序列主控台，哪裡可以找到支援案例？**
 
-答： 此預覽版功能是透過「Azure 預覽條款」提供的。 對此功能的支援最好是透過上述管道處理。 
+A. 此預覽版功能是透過「Azure 預覽條款」提供的。 對此功能的支援最好是透過上述管道處理。 
 
 ## <a name="next-steps"></a>後續步驟
 * 序列主控台也適用於 [Windows](../windows/serial-console.md) VM

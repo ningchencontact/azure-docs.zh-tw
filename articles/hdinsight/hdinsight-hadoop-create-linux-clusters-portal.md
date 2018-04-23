@@ -1,8 +1,8 @@
 ---
-title: "使用網頁瀏覽器建立 Hadoop 叢集 - Azure HDInsight | Microsoft Docs"
-description: "了解如何在 Linux 上使用網頁瀏覽器及 Azure Preview 入口網站，為 HDInsight 建立 Hadoop、HBase、Storm 或 Spark 叢集。"
+title: 使用網頁瀏覽器建立 Hadoop 叢集 - Azure HDInsight | Microsoft Docs
+description: 了解如何在 Linux 上使用網頁瀏覽器及 Azure Preview 入口網站，為 HDInsight 建立 Hadoop、HBase、Storm 或 Spark 叢集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 697278cf-0032-4f7c-b9b2-a84c4347659e
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: c200b405d8ae2548e16548b88683cf6de4aef2b3
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 13f746697a7e694da79a6e376b45f95529049a44
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>在 HDInsight 中使用 Azure 入口網站建立以 Linux 為基礎的叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

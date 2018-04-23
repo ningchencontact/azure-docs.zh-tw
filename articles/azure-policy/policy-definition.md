@@ -5,15 +5,15 @@ services: azure-policy
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/17/2018
+ms.date: 04/18/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 42fdfa2eb629351c38fb72c20a62cd7d78acf229
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c98712b8fb2f8d6a85906b2c78fb678fc0f970b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 04/06/2018
 ## <a name="mode"></a>Mode
 
 **Mode** 決定原則要評估哪些資源類型。 支援的模式如下：
-* `all`：評估資源群組和所有資源類型 
+* `all`：評估資源群組和所有資源類型
 * `indexed`：只評估支援標記和位置的資源類型
 
 我們建議您在大部分的情況下都將 **mode** 設定為 `all`。 透過入口網站使用 `all` 模式建立的所有原則定義。 如果您是使用 PowerShell 或 Azure CLI，則需要手動指定 **mode** 參數。 如果原則定義不包含 **mode** 值，它會預設為 `indexed` 以獲得回溯相容性。

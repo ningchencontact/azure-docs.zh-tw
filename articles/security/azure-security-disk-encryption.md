@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
-ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 5219ebc22e56ad4b5cdfc125f7fa5882c61adb9f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: devtiw
+ms.openlocfilehash: df13f23908aa787bfcc579340ed0aa6cb0d5ed29
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密
 Microsoft Azure 強烈承諾確保您的資料隱私權、資料主權，並透過一系列進階技術來加密、控制和管理加密金鑰、控制和稽核資料存取，讓您控制您的 Azure 託管資料。 這會提供 Azure 客戶靈活度，可選擇最符合其商務需求的解決方案。 本文中，我們將為您介紹新的技術解決方案「Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密」，以協助保護及保障您的資料，以便符合組織的安全性和符合性的承諾。 本文提供有關如何使用 Azure 磁碟加密功能的詳細指引，包括支援的案例和使用者體驗。
@@ -720,7 +720,7 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 的設定值設定為 _Encrypted_，�
 
 1. 開始 Azure PowerShell 工作階段，並使用下列命令登入您的 Azure 帳戶：
 
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 
 2. 如果您有多個訂用帳戶，並想要指定要使用的其中一個，請輸入下列內容以查看您帳戶的訂用帳戶：
 

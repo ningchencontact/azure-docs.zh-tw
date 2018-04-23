@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 網路監看員來針對虛擬網路閘道和連線進行疑難排解 - REST | Microsoft Docs"
-description: "此頁面說明如何搭配使用 Azure 網路監看員和 REST，以針對虛擬網路閘道和連線進行疑難排解"
+title: 使用 Azure 網路監看員來針對虛擬網路閘道和連線進行疑難排解 - REST | Microsoft Docs
+description: 此頁面說明如何搭配使用 Azure 網路監看員和 REST，以針對虛擬網路閘道和連線進行疑難排解
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e4d5f195-b839-4394-94ef-a04192766e55
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 086a853d0849ee22f992c9d3265f6988bcc7bd83
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a916a261c310a2a9b4cc777fe17db794fed26cbd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>使用 Azure 網路監看員來針對虛擬網路閘道和連線進行疑難排解
 
@@ -329,4 +329,4 @@ is a transient state while the Azure platform is being updated.",
 
 ## <a name="next-steps"></a>後續步驟
 
-如果設定已變更而停止了 VPN 連線，請參閱[管理網路安全性群組](../virtual-network/virtual-network-manage-nsg-arm-portal.md)以追蹤可能有問題的網路安全性群組和安全性規則。
+如果設定已變更而停止了 VPN 連線，請參閱[管理網路安全性群組](../virtual-network/manage-network-security-group.md)以追蹤可能有問題的網路安全性群組和安全性規則。

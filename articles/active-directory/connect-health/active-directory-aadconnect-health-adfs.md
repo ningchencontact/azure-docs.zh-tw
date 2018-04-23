@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 630a633cf8657d43d6416d316928830634c9bf48
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d416c8953f1e41c04a39141c79e0b1568c1dccb3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>使用 Azure AD Connect Health 監視 AD FS
 下列文件適用於使用 Azure AD Connect Health 來監視 AD FS 基礎結構。 如需使用 Azure AD Connect Health 來監視 Azure AD Connect (同步處理) 的詳細資訊，請參閱 [使用適用於同步處理的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)。此外，如需使用 Azure AD Connect Health 來監視 Active Directory 網域服務的詳細資訊，請參閱 [在 AD DS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adds.md)。
@@ -127,7 +127,7 @@ AD FS 客戶可能會向網際網路公開密碼驗證端點，以提供驗證�
 
 > [!NOTE]
 > 若要使用此報告，您必須確定已啟用 AD FS 稽核。 如需詳細資訊，請參閱 [啟用 AD FS 的稽核](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs)。 <br />
-> 若要存取預覽，則需要全域管理員或[安全性讀取者](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#security-reader)的權限。  
+> 若要存取預覽，則需要全域管理員或[安全性讀取者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader)的權限。  
 > 
 
 ### <a name="what-is-in-the-report"></a>報告內容

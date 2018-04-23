@@ -12,10 +12,10 @@ ms.date: 03/14/2018
 ms.author: bonova
 manager: craigg
 ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>在 Azure 入口網站中建立 Azure SQL Database 受控執行個體
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/16/2018
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
 > [!IMPORTANT]
-> 如需受控執行個體目前可用的區域清單，請參閱[使用 Azure SQL Database 受控執行個體將資料庫移轉到完全受控的服務](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)。
+> 如需受控執行個體目前可用的區域清單，請參閱[使用 Azure SQL Database 受控執行個體將資料庫遷移到完全受控的服務](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)。
  
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 

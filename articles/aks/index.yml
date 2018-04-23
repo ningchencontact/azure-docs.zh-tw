@@ -14,13 +14,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: a381697e27a2d85d99fcbb1eb54bd7c0ab7d743a
-  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+  ms.openlocfilehash: 7b18da63a74059e48d41f9e0a068a4f7618aa97a
+  ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 04/16/2018
+  ms.lasthandoff: 04/18/2018
 abstract:
-  description: Azure Container Service (AKS) 會管理您的託管 Kubernetes 環境；無需容器協調流程專業技術，就能快速輕鬆地部署並管理容器化的應用程式。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。
+  description: Azure Container Service (AKS) 會管理您的託管 Kubernetes 環境；無需容器協調流程專業技術，就能快速輕鬆地部署並管理容器化的應用程式。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。<div class="IMPORTANT alert"><p>重要事項</p><p>Azure Container Service (AKS) 目前為<strong>預覽</strong>狀態。 若您同意<a href="https://azure.microsoft.com/support/legal/preview-supplemental-terms/">補充的使用規定</a>即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。</p></div>
 sections:
 - title: 5 分鐘快速入門
   items:

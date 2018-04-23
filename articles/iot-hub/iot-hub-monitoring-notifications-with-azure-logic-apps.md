@@ -1,25 +1,25 @@
 ---
-title: "搭配 Azure Logic Apps 進行 IoT 遠端監視和通知 | Microsoft Docs"
-description: "使用 Azure Logic Apps 進行 IoT 中樞的 IoT 溫度監視，並對於偵測到的任何異常自動將電子郵件通知寄送到您的信箱。"
+title: 搭配 Azure Logic Apps 進行 IoT 遠端監視和通知 | Microsoft Docs
+description: 使用 Azure Logic Apps 進行 IoT 中樞的 IoT 溫度監視，並對於偵測到的任何異常自動將電子郵件通知寄送到您的信箱。
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "iot 監視、iot 通知、iot 溫度監視"
+tags: ''
+keywords: iot 監視、iot 通知、iot 溫度監視
 ms.assetid: 43043067-2e1f-42c9-953d-e2dce8fd86df
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
-ms.author: xshi
-ms.openlocfilehash: 0caa3397723f9cd0476e85d52a8d30ae283b6e47
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: e54c36d0cfbaedb93db86ad6ce5f99b288b63c9c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>搭配連接 IoT 中樞和信箱的 Azure Logic Apps 進行 IoT 遠端監視和通知
 

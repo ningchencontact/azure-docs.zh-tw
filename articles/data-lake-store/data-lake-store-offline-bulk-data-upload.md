@@ -1,8 +1,8 @@
 ---
-title: "使用離線方法將大量資料上傳到 Data Lake Store | Microsoft Docs"
-description: "使用 AdlCopy 工具將資料從 Azure 儲存體 Blob 複製到 Data Lake Store"
+title: 使用離線方法將大量資料上傳到 Data Lake Store | Microsoft Docs
+description: 使用 AdlCopy 工具將資料從 Azure 儲存體 Blob 複製到 Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8dd20d0cf7f202b5d5fdeffb5848235e73eb9349
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ee6f4ab1ac5892536d7f419c198158dc34d6f49e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>使用 Azure 匯入/匯出服務將資料離線複製到 Data Lake Store
 在本文中，您將深入了解如何使用離線複製方法 (例如 [Azure 匯入/匯出服務](../storage/common/storage-import-export-service.md)) 將大型資料集 (>200 GB) 複製到 Azure Data Lake Store 中。 具體來說，作為本文中範例的檔案是 339,420,860,416 個位元組，或在磁碟上大約是 319 GB。 讓我將此檔案稱為 319GB.tsv。
@@ -195,7 +195,7 @@ Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安
 
 ````
 # Login to our account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List your subscriptions
 Get-AzureRmSubscription

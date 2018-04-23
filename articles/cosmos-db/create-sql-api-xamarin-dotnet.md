@@ -12,13 +12,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 1fec2604dc2aee412e73f5ca332d2852bf7e58bd
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ca6780f9cec478cf9ed756aaefc7f6c059b6316a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB︰使用 Xamarin 建置待辦事項應用程式
 
@@ -50,40 +50,29 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="add-sample-data"></a>新增範例資料
 
-您現在可以使用 [資料總管] 將資料新增至您的新集合。
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
-1. 從資料總管依序展開 [工作] 資料庫、[項目] 集合，按一下 [文件]，然後按一下 [新增文件]。
+## <a name="query-your-data"></a>查詢資料
 
-   ![在 Azure 入口網站的 [資料總管] 中建立新文件](./media/create-sql-api-xamarin-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-
-2. 現在將文件新增至具有下列結構的集合。
-
-     ```json
-     {
-         "id": "1",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "completed": false
-     }
-     ```
-
-3. 將 json 新增至 [文件] 索引標籤後，按一下 [儲存]。
-
-    ![將 json 資料複製在 Azure 入口網站的 [資料總管] 中並按一下 [儲存]](./media/create-sql-api-xamarin-dotnet/azure-cosmosdb-data-explorer-save-document.png)
-
-4. 多建立並儲存一份文件，以便在其中插入 `id` 屬性的唯一值，並適當變更其他屬性。 新文件可擁有您想要的任何結構，因為 Azure Cosmos DB 不會對您的資料強加任何結構描述。
-
-     您現在可以在 [資料總管] 中使用查詢來擷取您的資料。 [資料總管] 預設會使用 `SELECT * FROM c` 來擷取集合中的所有文件，但您可以將其變更為不同的 [SQL 查詢](sql-api-sql-query.md) (例如 `SELECT * FROM c ORDER BY c._ts DESC`)，以根據時間戳記按遞減順序傳回所有的文件。
-
-     您也可以使用 [資料總管] 來建立預存程序、UDF 和觸發程序，以執行伺服器端商務邏輯及調整輸送量。 [資料總管] 會公開 API 中所有可用的內建程式設計資料存取，但可讓您在 Azure 入口網站中輕鬆存取您的資料。
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## <a name="clone-the-sample-application"></a>複製範例應用程式
 
 現在，我們要從 github 複製 Xamarin SQL API 應用程式、檢閱程式碼、取得 API 金鑰，並加以執行。 您會看到，以程式設計方式來處理資料有多麼的容易。
 
-1. 開啟 Git 終端機視窗 (例如 Git Bash)，然後使用 `cd` 來切換到工作目錄。
+1. 開啟命令提示字元，建立名為 git-samples 的新資料夾，然後關閉命令提示字元。
 
-2. 執行下列命令來複製範例存放庫。
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. 開啟 git 終端機視窗 (例如 git bash)，並使用 `cd` 命令變更至要安裝範例應用程式的新資料夾。
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. 執行下列命令來複製範例存放庫。 此命令會在您的電腦上建立範例應用程式副本。
 
     ```bash
     git clone https://github.com/Azure/azure-documentdb-dotnet.git
@@ -246,10 +235,7 @@ ToDoItems 解決方案中的程式碼包含：
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您將不繼續使用此應用程式，請使用下列步驟，在 Azure 入口網站中刪除本快速入門所建立的所有資源：
-
-1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。
-2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

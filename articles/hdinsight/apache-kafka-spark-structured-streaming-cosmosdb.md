@@ -9,16 +9,14 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 7346a45cf04b50369cc7b853b985a8b0bc865493
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 63c536f1a8bdcfbbbd97b904f15ccf83043659e0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>搭配 Kafka 和 Azure Cosmos DB 使用 Apache Spark 結構化串流
 
@@ -97,7 +95,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     * **SSH 密碼**：Spark 和 Kafka 叢集的 SSH 使用者密碼。
 
-3. 閱讀**條款及條件**，然後選取 [我同意上方所述的條款及條件]。
+3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]。
 
 4. 最後，核取 [釘選到儀表板]，然後選取 [購買]。 大約需要 20 分鐘的時間來建立叢集。
 

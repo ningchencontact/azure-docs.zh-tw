@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: bacf59cd7be637110125a51b64c708e755a8958d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3737ea08e593ae1018489633e23e80e1099296ae
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何從 Azure VM 建立非受控 VM 映像
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 04/06/2018
 1. 開啟 Azure PowerShell，並登入您的 Azure 帳戶。
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
    
     這會開啟一個可供您輸入 Azure 帳戶認證的快顯視窗。

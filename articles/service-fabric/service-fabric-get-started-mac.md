@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 76bbe686d07ff83bff6271f62793713194938212
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f6813d98782d31dc780da21f78aafbbfdfc5e688
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上設定開發環境
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
     >
     >測試大型應用程式時，建議提高配置給 Docker 的資源。 選取 [Docker 圖示]，然後選取 [進階] 來調整核心數目和記憶體，即可完成此作業。
 
-2. 在新目錄中建立一個名為 `.Dockerfile` 的檔案，以建置 Service Fabric 映像：
+2. 在新目錄中建立一個名為 `Dockerfile` 的檔案，以建置 Service Fabric 映像：
 
     ```dockerfile
     FROM microsoft/service-fabric-onebox
@@ -86,7 +86,7 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
     >[!TIP]
     > 根據預設，這會提取包含最新版 Service Fabric 的映像。 如需特定版本，請造訪 [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 頁面。
 
-3. 若要從 `.Dockerfile` 建置可重複使用的映像，請開啟終端機並 `cd` 到直接保留的 `.Dockerfile`，然後執行：
+3. 若要從 `Dockerfile` 建置可重複使用的映像，請開啟終端機並 `cd` 到直接保留的 `Dockerfile`，然後執行：
 
     ```bash 
     docker build -t mysfcluster .

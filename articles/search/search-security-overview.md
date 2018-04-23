@@ -1,24 +1,17 @@
 ---
 title: 在 Azure 搜尋服務中保護資料和作業 | Microsoft Docs
 description: 「Azure 搜尋服務」安全性所根據的是 SOC 2 合規性、加密、驗證，以及透過「Azure 搜尋服務」篩選條件中的使用者和群組安全性識別碼來進行的身分識別存取。
-services: search
-documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: ''
-ms.assetid: ''
 ms.service: search
-ms.devlang: ''
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3985e4fff5eb1eb0c80b267dd8983488d10cb4e5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Azure 搜尋服務中的安全性和受控存取
 
@@ -51,7 +44,7 @@ Microsoft 資料中心提供業界頂尖的實體安全性，符合一組廣泛�
 整個 Azure Stack 有數個可用的安全性機制，因此會自動提供給您建立的「Azure 搜尋服務」資源使用。
 
 + [可防止刪除的訂用帳戶或資源層級鎖定](../azure-resource-manager/resource-group-lock-resources.md)
-+ [可控制對資訊和系統管理作業之存取的角色型存取控制 (RBAC)](../active-directory/role-based-access-control-what-is.md)
++ [可控制對資訊和系統管理作業之存取的角色型存取控制 (RBAC)](../role-based-access-control/overview.md)
 
 所有 Azure 服務都支援角色型存取控制 (RBAC)，可在所有服務以一致的方式設定存取層級。 例如，限制只有「擁有者」和「參與者」角色才能檢視敏感性資料 (例如管理金鑰)，而讓所有角色的成員都可以檢視服務狀態。 RBAC 提供的角色包括「擁有者」、「參與者」及「讀者」。 根據預設，所有服務管理員都是擁有者角色的成員。
 

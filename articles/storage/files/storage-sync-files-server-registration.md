@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 檔案同步 (預覽) 管理已註冊的伺服器 | Microsoft Docs"
-description: "了解如何向 Azure 檔案同步儲存體同步服務註冊及取消註冊 Windows Server。"
+title: 使用 Azure 檔案同步 (預覽) 管理已註冊的伺服器 | Microsoft Docs
+description: 了解如何向 Azure 檔案同步儲存體同步服務註冊及取消註冊 Windows Server。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: fcd79f25dee4ccaf674594222a6465fda137fd7a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>使用 Azure 檔案同步 (預覽) 管理已註冊的伺服器
 Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
@@ -139,7 +139,7 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
-$accountInfo = Login-AzureRmAccount
+$accountInfo = Connect-AzureRmAccount
 Login-AzureRmStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
 
 $StorageSyncService = "<your-storage-sync-service>"

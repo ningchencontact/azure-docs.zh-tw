@@ -10,10 +10,10 @@ ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: d5bad277e6a54b23f0e3ef7321e82d212ae885d3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device---preview"></a>開發 Python IoT Edge 模組並部署到您的模擬裝置 - 預覽
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 03/28/2018
     pip install -U cookiecutter
     ```
 
-3. 針對新模組建立專案。 下列命令會使用您的容器存放庫來建立專案資料夾 **FilterModule** 如果您使用 Azure 容器登錄，`image_repository` 的參數格式應該是 `<your container registry name>.azurecr.io/filtermodule`。 在目前的工作資料夾中輸入下列命令：
+3. 針對新模組建立專案。 下列命令會使用您的容器存放庫來建立專案資料夾 **FilterModule**。 如果您使用 Azure 容器登錄，`image_repository` 的參數格式應該是 `<your container registry name>.azurecr.io/filtermodule`。 在目前的工作資料夾中輸入下列命令：
 
     ```cmd/sh
     cookiecutter --no-input https://github.com/Azure/cookiecutter-azure-iot-edge-module module_name=FilterModule image_repository=<your container registry address>/filtermodule
@@ -148,7 +148,7 @@ ms.lasthandoff: 03/28/2018
         
    使用您在建立 Azure 容器登錄時從中複製的使用者名稱、密碼及登入伺服器。
 
-2. 在 VS Code 總管中，以滑鼠右鍵按一下 **module.json** 檔案並按一下 [建置及推送 IoT Edge 模組 Docker 映像] \(Build and Push IoT Edge module Docker image\)。 在於 VS Code 視窗頂端彈出的下拉式清單方塊中，選取您的容器平台，例如適用於 Linux 容器的 **amd64**。 VS Code 會將 `main.py` 與必要相依性容器化，然後將它推送到您指定的容器登錄。 第一次建置映像可能需要數分鐘的時間。
+2. 在 VS Code 總管中，以滑鼠右鍵按一下 **module.json** 檔案並按一下 [建置及推送 IoT Edge 模組 Docker 映像]。 在於 VS Code 視窗頂端彈出的下拉式清單方塊中，選取您的容器平台，例如適用於 Linux 容器的 **amd64**。 VS Code 會將 `main.py` 與必要相依性容器化，然後將它推送到您指定的容器登錄。 第一次建置映像可能需要數分鐘的時間。
 
 3. 您可以在 VS Code 整合式終端機中取得完整容器映像位址。 如需有關建置及推送定義的詳細資訊，請參閱 `module.json` 檔案。
 
@@ -192,8 +192,8 @@ ms.lasthandoff: 03/28/2018
         }
         ```
  
-    6. 按一下 [檔案]。
-10. 按一下 [下一步]。
+    6. 按一下 [檔案] 。
+10. 按 [下一步] 。
 11. 在 [指定路由] 步驟中，將下列 JSON 複製到文字方塊。 模組會將所有訊息發佈到 Edge 執行階段。 執行階段中的宣告式規則會定義訊息的流向。 在本教學課程中，您需要兩個路由。 第一個路由會透過使用 **FilterMessages** 處理常式設定的 "input1" 端點，將訊息從溫度感應器傳輸至篩選模組。 第二個路由會將訊息從篩選模組傳輸到 IoT 中樞。 在此路由中，`upstream` 是告知 Edge 中樞將訊息傳送至 IoT 中樞的特殊目的地。 
 
     ```json
@@ -205,7 +205,7 @@ ms.lasthandoff: 03/28/2018
     }
     ```
 
-4. 按一下 [下一步]。
+4. 按 [下一步] 。
 5. 在 [檢閱範本] 步驟中，按一下 [提交]。 
 6. 返回 IoT Edge 裝置的詳細資料頁面，按一下 [重新整理]。 您應該會看到新的 **filtermodule** 正在與 **tempSensor** 模組和 **IoT Edge 執行階段**一起執行。 
 

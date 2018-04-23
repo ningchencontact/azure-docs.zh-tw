@@ -3,9 +3,8 @@ title: 以 .NET 開始使用 Azure 表格儲存體 | Microsoft Docs
 description: 使用 Azure 表格儲存體 (NoSQL 資料存放區) 將結構化的資料儲存在雲端。
 services: cosmos-db
 documentationcenter: .net
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: mimig
-ms.openlocfilehash: d31dd1c267bcc63106616b191b6b79d5800e31e9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: sngun
+ms.openlocfilehash: ff26ab122e920d6ca8dbf837a2229f8728a471ce
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>以 .NET 開始使用 Azure 表格儲存體
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -49,11 +48,8 @@ Azure 表格儲存體是可將結構化的 NoSQL 資料儲存在雲端中的服�
 ### <a name="more-samples"></a>更多範例
 如需使用表格儲存體的其他範例，請參閱 [在 .NET 中開始使用 Azure 表格儲存體](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)。 您可以下載範例應用程式並加以執行，或瀏覽 GitHub 上的程式碼。
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## <a name="create-an-azure-service-account"></a>建立 Azure 服務帳戶
-
-您可以使用 Azure 表格儲存體或 Azure Cosmos DB 來搭配使用表格。 您可以參閱[表格供應項目](table-introduction.md#table-offerings)，深入了解各服務之間的差異。 您必須為您要使用的服務建立帳戶。 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 建立您第一個 Azure 儲存體帳戶最簡單的方法，就是使用 [Azure 入口網站](https://portal.azure.com)。 若要深入了解，請參閱 [建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
@@ -63,8 +59,7 @@ Azure 表格儲存體是可將結構化的 NoSQL 資料儲存在雲端中的服�
 如果您不想在此時建立儲存體帳戶，也可以使用 Azure 儲存體模擬器在本機環境中執行並測試您的程式碼。 如需詳細資訊，請參閱 [使用 Azure 儲存體模擬器進行開發和測試](../storage/common/storage-use-emulator.md)。
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>建立 Azure Cosmos DB 表格 API 帳戶
-
-有關建立 Azure Cosmos DB 表格 API 帳戶的指示，請參閱[建立表格 API 帳戶](create-table-dotnet.md#create-a-database-account)。
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="set-up-your-development-environment"></a>設定開發環境
 接下來，在 Visual Studio 中設定您的開發環境，以便您開始嘗試本指南中的程式碼範例。

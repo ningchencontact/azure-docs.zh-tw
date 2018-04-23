@@ -1,24 +1,18 @@
 ---
-title: "Azure 搜尋服務 REST API 版本 2016-09-01-Preview | Microsoft Docs"
-description: "Azure 搜尋服務 REST API 版本 2016-09-01-Preview 包含同義字和 moreLikeThis 搜尋等實驗性功能。"
-services: search
-documentationcenter: na
+title: Azure 搜尋服務 REST API 版本 2016-09-01-Preview | Microsoft Docs
+description: Azure 搜尋服務 REST API 版本 2016-09-01-Preview 包含同義字和 moreLikeThis 搜尋等實驗性功能。
 author: mhko
 manager: jlembicz
-editor: 
-ms.assetid: 3dba3bf8-9c83-42f6-82bc-04727bd11037
 ms.service: search
 ms.devlang: rest-api
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: search
+ms.topic: reference
 ms.date: 10/25/2017
 ms.author: nateko
-ms.openlocfilehash: 082c207f892fcc277d30d66c6165dd9920d3ab27
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: bbfdb2641d68f1262cc6293462c7022701357374
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-search-service-rest-api-version-2016-09-01-preview"></a>Azure 搜尋服務 REST API：版本 2016-09-01-Preview
 本文是 `api-version=2016-09-01-Preview`的參考文件。 這個預覽版本可藉由提供下列實驗性功能，來擴充公開上市版本 [api-version=2016-09-01](https://msdn.microsoft.com/library/dn798935.aspx)：

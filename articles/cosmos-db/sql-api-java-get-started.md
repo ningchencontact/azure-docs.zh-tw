@@ -4,9 +4,8 @@ description: NoSQL 教學課程，將使用適用於 Azure Cosmos DB 的 SQL API
 keywords: nosql 教學課程, 線上資料庫, java 主控台應用程式
 services: cosmos-db
 documentationcenter: Java
-author: arramac
-manager: jhubbard
-editor: monicar
+author: SnehaGunda
+manager: kfile
 ms.assetid: 75a9efa1-7edd-4fed-9882-c0177274cbb2
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: arramac
-ms.openlocfilehash: 5052c3cdeabd5001c6d0144dc77401a9495ba887
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: sngun
+ms.openlocfilehash: 8405894451c60f0661922584d9927960e3d0f611
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教學課程：建置 SQL API Java 主控台應用程式
 > [!div class="op_single_selector"]

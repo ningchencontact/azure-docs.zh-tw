@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 指令碼範例 - 建立 Web 應用程式的排程備份 | Microsoft Docs"
-description: "Azure PowerShell 指令碼範例 - 建立 Web 應用程式的排程備份"
+title: Azure PowerShell 指令碼範例 - 建立 Web 應用程式的排程備份 | Microsoft Docs
+description: Azure PowerShell 指令碼範例 - 建立 Web 應用程式的排程備份
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
 ms.service: app-service-web
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bfc9dc5defa5644c5ede0acab1d4eae4d93edc94
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 4afa7c2b144fcb1d72d82f146719c26d7ceb4eb4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app"></a>為 Web 應用程式建立排程備份
 
 此範例指令碼會在 App Service 中建立 Web 應用程式及其相關資源，然後為其建立排程備份。 
 
-您可以視需要使用 [Azure PowerShell 指南](/powershell/azure/overview) \(英文\) 中的指示來安裝 Azure PowerShell，然後執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。 
+您可以視需要使用 [Azure PowerShell 指南](/powershell/azure/overview) \(英文\) 中的指示來安裝 Azure PowerShell，然後執行 `Connect-AzureRmAccount` 來建立與 Azure 的連線。 
 
 ## <a name="sample-script"></a>範例指令碼
 

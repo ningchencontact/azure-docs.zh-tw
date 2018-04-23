@@ -1,11 +1,11 @@
 ---
-title: "避免意外的成本、管理計費 - Azure | Microsoft Docs"
-description: "了解如何避免 Azure 帳單上的意外費用。 使用 Microsoft Azure 訂用帳戶的成本追蹤與管理功能。"
-services: 
-documentationcenter: 
+title: 避免意外的成本、管理計費 - Azure | Microsoft Docs
+description: 了解如何避免 Azure 帳單上的意外費用。 使用 Microsoft Azure 訂用帳戶的成本追蹤與管理功能。
+services: ''
+documentationcenter: ''
 author: tonguyen10
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: a13552e36b4c74b6d3165168c727dbcc8a00704e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>使用 Azure 計費與成本管理避免非預期的費用
 
@@ -172,7 +172,7 @@ ms.lasthandoff: 01/25/2018
 
 ![Azure 入口網站的訂用帳戶檢視中您的角色的螢幕擷取畫面](./media/billing-getting-started/sub-blade-view.PNG)
 
-如果您不是帳戶管理員，則表示有人可能透過 [Azure Active Directory 角色型存取控制](../active-directory/role-based-access-control-configure.md) (RBAC) 授與您部分存取權。 若要管理訂用帳戶及變更帳單資訊，請[找到帳戶管理員](billing-subscription-transfer.md#whoisaa)，並要求他們執行工作或[將訂用帳戶轉移給您](billing-subscription-transfer.md)。
+如果您不是帳戶管理員，則表示有人可能透過 [Azure Active Directory 角色型存取控制](../role-based-access-control/role-assignments-portal.md) (RBAC) 授與您部分存取權。 若要管理訂用帳戶及變更帳單資訊，請[找到帳戶管理員](billing-subscription-transfer.md#whoisaa)，並要求他們執行工作或[將訂用帳戶轉移給您](billing-subscription-transfer.md)。
 
 如果您的帳戶系統管理員已不在您組織，而您需要管理帳單，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員

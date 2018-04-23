@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/07/2018
 ms.author: iainfou
-ms.openlocfilehash: 4f21e457b266fdd0106992dad29578eef6e89144
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 442ff942150af8a8dec89164fbc017a9e6f360e8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>如何將 Windows VM 上的虛擬磁碟加密
 如需強化虛擬機器 (VM) 安全性與法規遵循，可以將 Azure 中的虛擬磁碟加密。 磁碟會使用 Azure 金鑰保存庫中受保護的密碼編譯金鑰進行加密。 您可控制這些密碼編譯金鑰，並可稽核其使用情況。 本文詳細說明如何使用 Azure PowerShell 將 Windows VM 上的虛擬磁碟加密。 您也可以[使用 Azure CLI 2.0 將 Linux VM 加密](../linux/encrypt-disks.md)。
@@ -102,7 +102,7 @@ Add-AzureKeyVaultKey -VaultName $keyVaultName `
 ## <a name="create-the-azure-active-directory-service-principal"></a>建立 Azure Active Directory 服務主體
 將虛擬磁碟加密或解密時，您可以指定帳戶以處理 Key Vault 中密碼編譯金鑰的驗證和交換。 此帳戶 (Azure Active Directory 服務主體) 可讓 Azure 平台代表 VM 要求適當的密碼編譯金鑰。 雖然許多組織都有專用的 Azure Active Directory 目錄，但您的訂用帳戶中會有預設 Azure Active Directory 執行個體。
 
-請使用 [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) 在 Azure Active Directory 中建立服務主體。 若要指定安全的密碼，請依照 [Azure Active Directory 中的密碼原則和限制](../../active-directory/active-directory-passwords-policy.md)所述進行操作：
+請使用 [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) 在 Azure Active Directory 中建立服務主體。 若要指定安全的密碼，請依照 [Azure Active Directory 中的密碼原則和限制](../../active-directory/authentication/concept-sspr-policy.md)所述進行操作：
 
 ```powershell
 $appName = "My App"

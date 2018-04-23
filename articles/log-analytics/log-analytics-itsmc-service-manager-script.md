@@ -1,11 +1,11 @@
 ---
-title: "自動化的指令碼可建立與 Azure 中的 IT 服務管理連接器連線之 Service Manager Web 應用程式 | Microsoft Docs"
-description: "使用自動化的指令碼建立 Service Manager Web 應用程式，來與 Azure 中的 IT 服務管理連接器連線，並將 ITSM 工作項目集中監視及管理。"
+title: 自動化的指令碼可建立與 Azure 中的 IT 服務管理連接器連線之 Service Manager Web 應用程式 | Microsoft Docs
+description: 使用自動化的指令碼建立 Service Manager Web 應用程式，來與 Azure 中的 IT 服務管理連接器連線，並將 ITSM 工作項目集中監視及管理。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 879e819f-d880-41c8-9775-a30907e42059
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 34ec15781776fc8373cd6c9dafa75010e942e167
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e47f6e2bbac643729ad23eba0407bca71f7aff99
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>使用自動化的指令碼建立 Service Manager Web 應用程式
 
@@ -126,7 +126,7 @@ if(!$siteNamePrefix)
     $siteNamePrefix = "smoc"
 }
 
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 $context = Set-AzureRmContext -SubscriptionName $azureSubscriptionName -WarningAction SilentlyContinue
 

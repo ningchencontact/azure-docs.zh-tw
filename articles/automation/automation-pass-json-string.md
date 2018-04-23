@@ -9,11 +9,11 @@ ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
 keywords: powershell, runbook, json, azure 自動化
-ms.openlocfilehash: dd90c15ca70b08a010215a10f35abb3706825dea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 43f11b6e89b45fae94d0f7b10f0348468593956e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>將 JSON 物件傳送至 Azure 自動化 Runbook
 
@@ -60,7 +60,7 @@ Param(
 
 # Connect to Azure account   
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
     -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
 # Convert object to actual JSON
@@ -79,7 +79,7 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
 
 1. 登入 Azure：
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
     系統會提示您輸入 Azure 認證。
 1. 取得 JSON 檔案的內容，並將它轉換成字串：

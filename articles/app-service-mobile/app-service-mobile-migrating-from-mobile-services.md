@@ -1,11 +1,11 @@
 ---
-title: "從行動服務移轉到應用程式服務行動應用程式"
-description: "了解如何輕鬆地將您的行動服務應用程式移轉至應用程式服務行動應用程式"
+title: 從行動服務移轉到應用程式服務行動應用程式
+description: 了解如何輕鬆地將您的行動服務應用程式移轉至應用程式服務行動應用程式
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
 ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="article-top"></a>將您現有的 Azure 行動服務移轉至 Azure App Service
 透過 [Azure App Service 的公開上市版]，Azure 行動服務網站將可輕易地就地移轉，以使用 Azure App Service 的所有功能。  本文件說明將您的網站從 Azure 行動服務移轉至 Azure App Service 時的情形。
@@ -128,7 +128,7 @@ PublishSettings 檔案會下載至您的電腦。  此檔案通常名為 *sitena
 1. 開啟 Visual Studio 和您的 Azure 行動服務專案。
 2. 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選取 [發佈...]。
 3. 按一下 [匯入]。
-4. 按一下 [瀏覽]，然後選取已下載的發佈設定檔案。  按一下 [確定] 
+4. 按一下 [瀏覽]，然後選取已下載的發佈設定檔案。  按一下 [檔案] &gt; [新增] &gt; [專案] 
 5. 按一下 [驗證連接]，確保發佈設定可運作。
 6. 選擇 [發佈] 來發佈您的網站。
 

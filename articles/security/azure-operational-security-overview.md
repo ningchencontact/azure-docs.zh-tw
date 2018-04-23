@@ -1,12 +1,12 @@
 ---
-title: "Azure 作業安全性概觀 | Microsoft Docs"
-description: "本文提供 Azure 作業安全性概觀。"
+title: Azure 作業安全性概觀 | Microsoft Docs
+description: 本文提供 Azure 作業安全性概觀。
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ca42e0cc76bc385f04cb2e010ff91dbb27bd627a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-operational-security-overview"></a>Azure 作業安全性概觀
 Azure 作業安全性是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制及功能。 [Azure 作業安全性](https://docs.microsoft.com/azure/security/azure-operational-security)的基礎架構涵蓋透過 Microsoft 特有之各種功能獲得的知識，包括 Microsoft 安全性開發週期 (SDL)、Microsoft 安全性回應中心方案，以及對網路安全性威脅型態的深層認知。
@@ -65,7 +65,7 @@ Microsoft [Azure 自動化](https://docs.microsoft.com/azure/automation/automati
 -   提供集中式存取管理、單一登入 (SSO) 及報告功能
 -   支援應用程式資源庫中 [數千個應用程式](https://azure.microsoft.com/marketplace/active-directory/) (包括 Salesforce、Google Apps、Box、Concur 等) 的整合式存取管理。
 
-Azure AD 也包含一組完整的[身分識別管理功能](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports)，包括[多重要素驗證](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication)、[裝置註冊]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview)、[自助式密碼管理](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)、[自助式群組管理](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password)、[特殊權限的帳戶管理](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)、[角色型存取控制](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)、[應用程式使用量監視](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health)、[豐富的稽核](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)，以及[安全性監視和警示](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)。
+Azure AD 也包含一組完整的[身分識別管理功能](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports)，包括[多重要素驗證](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication)、[裝置註冊]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview)、[自助式密碼管理](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)、[自助式群組管理](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password)、[特殊權限的帳戶管理](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)、[角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/overview)、[應用程式使用量監視](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health)、[豐富的稽核](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)，以及[安全性監視和警示](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)。
 
 藉由 Azure Active Directory，您為合作夥伴和客戶 (企業或消費者) 發佈的所有應用程式都可享有相同的身分識別與存取管理功能。 這可讓您大幅降低營運成本。
 
@@ -80,7 +80,7 @@ Azure AD 也包含一組完整的[身分識別管理功能](https://docs.microso
 -   磁碟加密驗證
 -   網路型攻擊
 
-Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)，以提供可在 Azure 中指派給使用者、群組與服務的[內建角色](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)。
+Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)，以提供可在 Azure 中指派給使用者、群組與服務的[內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)。
 
 資訊安全中心會評估資源的組態，以識別安全性問題與弱點。 在「資訊安全中心」中，當您獲指派為資源所屬的訂用帳戶或資源群組「擁有者」、「參與者」或「讀取者」角色時，您只會看到與資源相關的項目。
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0cd21c0367a95d3e866137797ac32fc5bdd196c0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>如何設定 Azure Redis 快取
 本主題說明適用於您 Azure Redis 快取執行個體的設定。 本主題也會涵蓋適用於 Azure Redis 快取執行個體的預設 Redis 伺服器設定。
@@ -79,7 +79,7 @@ ms.lasthandoff: 03/16/2018
 
 ### <a name="access-control-iam"></a>存取控制 (IAM)
 
-**存取控制 (IAM)** 區段提供 Azure 入口網站中對於角色型存取控制 (RBAC) 的支援。 此設定可協助組織簡單而精準地符合其存取管理需求。 如需詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../active-directory/role-based-access-control-configure.md)。
+**存取控制 (IAM)** 區段提供 Azure 入口網站中對於角色型存取控制 (RBAC) 的支援。 此設定可協助組織簡單而精準地符合其存取管理需求。 如需詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../role-based-access-control/role-assignments-portal.md)。
 
 ### <a name="tags"></a>標記
 

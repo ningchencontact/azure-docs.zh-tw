@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 0f19ed89e49b34ff4b8abf5d22e7d59b89fd6d72
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b08e2b7315d180a387f27ab2082b7f9f6a9bbfff
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>建立及管理具有多個 NIC 的 Windows 虛擬機器
 Azure 中的虛擬機器 (VM) 可以連結多個虛擬網路介面卡 (NIC)。 常見案例是有不同的子網路可用於前端和後端連線，或者專門用來監視或備份解決方案的網路。 本文詳述如何建立已連結多個 NIC 的 VM。 您也了解如何新增或移除現有 VM 中的 NIC。 不同的 [VM 大小](sizes.md) 支援不同數量的 NIC，因此可據以調整您的 VM。
@@ -235,7 +235,7 @@ Azure Resource Manager 範本提供一種方式，可在部署期間建立資源
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-您可以閱讀[使用 Resource Manager 範本建立多個 NIC](../../virtual-network/virtual-network-deploy-multinic-arm-template.md)的完整範例。
+您可以閱讀[使用 Resource Manager 範本建立多個 NIC](../../virtual-network/template-samples.md)的完整範例。
 
 完成[針對多個 NIC 設定作業系統](#configure-guest-os-for-multiple-nics)中的步驟，以將次要 NIC 的路由新增至作業系統。
 

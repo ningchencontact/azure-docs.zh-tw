@@ -3,8 +3,8 @@ title: Azure Cosmos DB 診斷記錄 | Microsoft Docs
 description: 使用本教學課程來協助您開始使用 Azure Cosmos DB 記錄。
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: cosmos-db
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: mimig
-ms.openlocfilehash: 3b7c9f1acd79a2f170ecead9dedd200ad37d9388
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: 6bad6c7cd641a2ef5461ee37b89c0bdc6a221017
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 診斷記錄
 
@@ -140,7 +140,7 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
 開始 Azure PowerShell 工作階段，並使用下列命令登入您的 Azure 帳戶：  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 在快顯瀏覽器視窗中，輸入您的 Azure 帳戶使用者名稱與密碼。 Azure PowerShell 會取得與此帳戶相關聯的所有訂用帳戶，並依預設使用第一個訂用帳戶。

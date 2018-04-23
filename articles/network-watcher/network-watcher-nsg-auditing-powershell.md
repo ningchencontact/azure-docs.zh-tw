@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 網路監看員安全性群組檢視自動化 NSG 稽核 | Microsoft Docs"
-description: "此頁面說明如何設定網路安全性群組的稽核"
+title: 使用 Azure 網路監看員安全性群組檢視自動化 NSG 稽核 | Microsoft Docs
+description: 此頁面說明如何設定網路安全性群組的稽核
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78a01bcf-74fe-402a-9812-285f3501f877
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 57f2200e541eeb629f72d60ffa0acb2d8233c018
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c9450099ad3561611796a9b45157932f9ac85a9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>使用 Azure 網路監看員安全性群組檢視自動化 NSG 稽核
 
@@ -187,7 +187,7 @@ SideIndicator            : <=
 
 ## <a name="next-steps"></a>後續步驟
 
-如果設定已變更，請參閱[管理網路安全性群組](../virtual-network/virtual-network-manage-nsg-arm-portal.md)以追蹤有問題的網路安全性群組和安全性規則。
+如果設定已變更，請參閱[管理網路安全性群組](../virtual-network/manage-network-security-group.md)以追蹤有問題的網路安全性群組和安全性規則。
 
 
 

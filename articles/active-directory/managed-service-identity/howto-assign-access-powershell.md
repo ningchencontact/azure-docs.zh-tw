@@ -1,11 +1,11 @@
 ---
-title: "如何使用 PowerShell 將 MSI 存取權指派給 Azure 資源"
-description: "使用 PowerShell 在一個資源上指派 MSI，並存取另一個資源的逐步解說指示。"
+title: 如何使用 PowerShell 將 MSI 存取權指派給 Azure 資源
+description: 使用 PowerShell 在一個資源上指派 MSI，並存取另一個資源的逐步解說指示。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 36b95a1de64fe49a1225bd647ca963c8957fe160
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7074aeddaf5ff3e64c4ccb12c3bfbb53b54eea33
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>使用 PowerShell 將受控服務識別 (MSI) 存取權指派給資源
 
@@ -35,10 +35,10 @@ ms.lasthandoff: 03/08/2018
 
 您在 Azure 資源上啟用 MSI 之後，[例如 Azure VM](qs-configure-powershell-windows-vm.md)：
 
-1. 請使用 `Login-AzureRmAccount` Cmdlet 登入 Azure。 使用您已設定 MSI 且與 Azure 訂用帳戶相關聯的帳戶：
+1. 請使用 `Connect-AzureRmAccount` Cmdlet 登入 Azure。 使用您已設定 MSI 且與 Azure 訂用帳戶相關聯的帳戶：
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 2. 在此範例中，我們會將 Azure VM 存取權給予儲存體帳戶。 首先我們使用 [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) 取得 VM 名為 "myVM" 的服務主體，這是我們在啟用 MSI 時所建立的。 然後，我們使用 [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) 將 VM 「讀取」存取權提供給稱為「myStorageAcct」的儲存體帳戶：
 

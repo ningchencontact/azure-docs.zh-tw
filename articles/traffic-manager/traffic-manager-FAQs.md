@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kumud
-ms.openlocfilehash: d9db669ab905fb51390f6ca80736af4cde13d902
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 18a0ca32f51e6c1be01e59c3899bc2e625868cad
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理員常見問題集 (FAQ)
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 03/23/2018
 
 為了解決此問題，我們建議使用 HTTP 重新導向，將流量從裸網域名稱導向不同的 URL，這樣就可以使用流量管理員。 例如，裸網域 'contoso.com' 可以將使用者重新導向 CNAME 'www.contoso.com'，後者指向流量管理員 DNS 名稱。
 
-我們的功能待處理項目中追蹤了對「流量管理員」中裸網域的完整支援。 您可以[在我們的社群意見反應站投票](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly)，以表達您支持這個功能要求。
+我們的功能待處理項目中追蹤了對「流量管理員」中裸網域的完整支援。 您可以[在我們的社群意見反應站投票](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly)，以表達您支持這項功能要求。
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>處理 DNS 查詢時，流量管理員會考量用戶端子網路位址嗎？ 
 是，除了所收到 DNS 查詢的來源 IP 位址 (通常是 DNS 解析程式的 IP 位址) 之外，在執行「地理」和「效能」路由方法的查閱時，如果代表使用者發出要求的解析程式在查詢中包含了用戶端子網路位址，則流量管理員也會考量該位址。  
@@ -124,10 +124,10 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 ## <a name="real-user-measurements"></a>實際使用者度量
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>使用「實際使用者度量」有哪些優點？
-當您使用效能路由方法時，「流量管理員」會檢查來源 IP 和「EDNS 用戶端子網路」(如果已傳入)，並根據服務所維護的網路延遲智慧功能檢查這些資訊，為您的使用者挑選最佳的 Azure 區域來進行連線。 「實際使用者度量」可藉由除了確保延遲表格將使用者網路從使用者連線位置充分延伸到 Azure 之外，也將使用者體驗加到此延遲表格中，為您的使用者加強這個功能。 這可提升使用者路由的精確度。
+當您使用效能路由方法時，「流量管理員」會檢查來源 IP 和「EDNS 用戶端子網路」(如果已傳入)，並根據服務所維護的網路延遲智慧功能檢查這些資訊，為您的使用者挑選最佳的 Azure 區域來進行連線。 「實際使用者度量」可藉由除了確保延遲表格將使用者網路從使用者連線位置充分延伸到 Azure 之外，也將使用者體驗加到此延遲表格中，為您的使用者加強這項功能。 這可提升使用者路由的精確度。
 
 ### <a name="can-i-use-real-user-measurements-with-non-azure-regions"></a>我是否可以將「實際使用者度量」與非 Azure 區域搭配使用？
-「實際使用者度量」只會測量連線到 Azure 區域的延遲並進行回報。 如果您將效能型路由與非 Azure 區域中所裝載的端點搭配使用，您仍然可以從這個功能受益，因為您會獲得更多有關所選取要與此端點建立關聯之代表性 Azure 區域的延遲資訊。
+「實際使用者度量」只會測量連線到 Azure 區域的延遲並進行回報。 如果您將效能型路由與非 Azure 區域中所裝載的端點搭配使用，您仍然可以從這項功能受益，因為您會獲得更多有關所選取要與此端點建立關聯之代表性 Azure 區域的延遲資訊。
 
 ### <a name="which-routing-method-benefits-from-real-user-measurements"></a>哪個路由方法可從「實際使用者度量」受益？
 透過「實際使用者度量」取得的額外資訊僅適用於使用效能路由方法的設定檔。 請注意，透過 Azure 入口網站檢視「實際使用者度量」時，從所有設定檔都可以使用 [實際使用者度量] 連結。
@@ -136,7 +136,7 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 否，每一訂用帳戶只需啟用一次，所測量到和回報的所有延遲資訊便可供所有設定檔使用。
 
 ### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>如何關閉我訂用帳戶的「實際使用者度量」？
-當您從用戶端應用程式停止收集及傳回延遲度量時，即可停止產生與「實際使用者度量」相關的費用。 例如，當度量 JavaScript 內嵌在網頁中時，您可以移除該 JavaScript，或是在轉譯頁面時關閉其引動過程，來停止使用這個功能。
+當您從用戶端應用程式停止收集及傳回延遲度量時，即可停止產生與「實際使用者度量」相關的費用。 例如，當度量 JavaScript 內嵌在網頁中時，您可以移除該 JavaScript，或是在轉譯頁面時關閉其引動過程，來停止使用這項功能。
 
 您也可以透過刪除您的金鑰來關閉「實際使用者度量」。 一旦您刪除金鑰，所有傳送給「流量管理員」且具有該金鑰的度量就都會被捨棄。
 
@@ -199,7 +199,7 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 
 ### <a name="how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor"></a>「流量檢視」與透過 Azure 監視器提供的「流量管理員」計量有何不同？
 
-「Azure 監視器」可用來了解設定檔及其端點所收到流量的彙總層級。 它也可以顯示端點的健康情況檢查結果，來讓您追蹤端點的健康情況。 當您不僅要了解這些，還必須了解使用者連線到 Azure 的區域層級體驗時，便可以使用「流量檢視」來達到該目的。
+「Azure 監視器」可用來了解設定檔及其端點所收到流量的彙總層級。 它也可以顯示端點的健康情況檢查結果，來讓您追蹤端點的健康狀態。 當您不僅要了解這些，還必須了解使用者連線到 Azure 的區域層級體驗時，便可以使用「流量檢視」來達到該目的。
 
 ### <a name="does-traffic-view-use-edns-client-subnet-information"></a>「流量檢視」是否使用「EDNS 用戶端子網路」資訊？
 
@@ -233,7 +233,7 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 
 來自多個訂用帳戶的端點不能與 Azure Web 應用程式搭配使用。 Azure Web Apps 規定 Web Apps 使用的任何自訂網域名稱只能在單一訂用帳戶內使用。 無法使用具有相同網域名稱的多個訂用帳戶中的 Web Apps。
 
-針對其他端點類型，則可以將「流量管理員」與來自多個訂用帳戶的端點搭配使用。 在 Resource Manager 中，來自任何訂用帳戶的端點都可以新增至流量管理員，只要設定流量管理員設定檔的人員具有端點的讀取權限即可。 使用 [Azure Resource Manager 角色型存取控制 (RBAC)](../active-directory/role-based-access-control-configure.md)可以授與這些權限。
+針對其他端點類型，則可以將「流量管理員」與來自多個訂用帳戶的端點搭配使用。 在 Resource Manager 中，來自任何訂用帳戶的端點都可以新增至流量管理員，只要設定流量管理員設定檔的人員具有端點的讀取權限即可。 使用 [Azure Resource Manager 角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md)可以授與這些權限。
 
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>我可以使用流量管理員來設定雲端服務「預備」位置嗎？
@@ -315,7 +315,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 ### <a name="what-host-header-do-endpoint-health-checks-use"></a>端點健全狀況檢查使用哪一個主機標頭？
 
-流量管理員在 HTTP 和 HTTPS 的健康情況檢查中使用主機標頭。 流量管理員所使用的主機標頭是設定檔中設定的端點目標名稱。 主機標頭中使用的值不能與目標屬性分開指定。
+流量管理員在 HTTP 和 HTTPS 的健康狀態檢查中使用主機標頭。 流量管理員所使用的主機標頭是設定檔中設定的端點目標名稱。 主機標頭中使用的值不能與目標屬性分開指定。
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>健康情況檢查是從哪些 IP 位址產生？
 
@@ -345,7 +345,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 使用巢狀設定檔並沒有計價上的負面影響。
 
-流量管理員計費有兩個要素︰端點健康情況檢查和數百萬個 DNS 查詢
+流量管理員計費有兩個要素︰端點健康狀態檢查和數百萬個 DNS 查詢
 
 * 端點健康情況檢查︰當子設定檔被設定為父設定檔中的端點時，並不會針對該子設定檔收費。 監視子設定檔中的端點將以一般方式計費。
 * DNS 查詢：每個查詢只計算一次。 查詢父設定檔而從子設定檔傳回端點時，只計入父設定檔內。
@@ -358,11 +358,11 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 在處理每個 DNS 查詢時，流量管理員名稱伺服器會周遊設定檔階層內部。 父設定檔的 DNS 查詢可能會收到從子設定檔傳回端點的 DNS 回應。 不論您使用單一設定檔或巢狀設定檔，都只會使用單一 CNAME 記錄。 不需要為階層中的每個設定檔建立 CNAME 記錄。
 
-### <a name="how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile"></a>流量管理員如何計算父設定檔中的巢狀端點健康情況？
+### <a name="how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile"></a>流量管理員如何計算父設定檔中的巢狀端點健康狀態？
 
-父設定檔不會直接對子系執行健康情況檢查， 子設定檔端點的健康情況會用來計算子設定檔的整體健康情況。 這項資訊會在巢狀設定檔階層中往上傳播，以判斷巢狀端點的健康情況。 父設定檔會使用此彙總健康情況，以決定是否可以將流量導向子設定檔。
+父設定檔不會直接對子系執行健康狀態檢查， 子設定檔端點的健康狀態會用來計算子設定檔的整體健康狀態。 這項資訊會在巢狀設定檔階層中往上傳播，以判斷巢狀端點的健康狀態。 父設定檔會使用此彙總健康狀態，以決定是否可以將流量導向子設定檔。
 
-下表描述流量管理員檢查巢狀端點健康情況時的行為。
+下表描述流量管理員檢查巢狀端點健康狀態時的行為。
 
 | 子設定檔監視狀態 | 父端點監視狀態 | 注意 |
 | --- | --- | --- |

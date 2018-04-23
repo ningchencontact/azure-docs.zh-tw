@@ -1,12 +1,12 @@
 ---
-title: "將 Azure 訂用帳戶擁有權轉移給另一個帳戶 |Microsoft 文件"
-description: "描述如何將 Azure 訂用帳戶轉移給另一位使用者，以及一些關於此程序的常見問題集 (FAQ)"
-keywords: "轉移 azure 訂用帳戶,azure 轉移訂用帳戶,將 azure 訂用帳戶移到另一個帳戶,azure 變更訂用帳戶擁有者,將 azure 訂用帳戶轉移給另一個帳戶"
-services: 
-documentationcenter: 
+title: 將 Azure 訂用帳戶擁有權轉移給另一個帳戶 |Microsoft 文件
+description: 描述如何將 Azure 訂用帳戶轉移給另一位使用者，以及一些關於此程序的常見問題集 (FAQ)
+keywords: 轉移 azure 訂用帳戶,azure 轉移訂用帳戶,將 azure 訂用帳戶移到另一個帳戶,azure 變更訂用帳戶擁有者,將 azure 訂用帳戶轉移給另一個帳戶
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e81037aeb3a8aee4f70eaf33280b1dc0d483332
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的擁有權轉移給另一個帳戶
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/02/2018
 
 > [!IMPORTANT]
 > 
-> 如果您將訂用帳戶轉移至新的 Azure AD 租用戶，[角色型存取控制 (RBAC)](../active-directory/role-based-access-control-what-is.md) 中的所有角色指派會從來源租用戶中永久刪除，而且不會移轉至目標租用戶。
+> 如果您將訂用帳戶轉移至新的 Azure AD 租用戶，[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 中的所有角色指派會從來源租用戶中永久刪除，而且不會移轉至目標租用戶。
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>轉移 Azure 訂用帳戶的擁有權
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 03/02/2018
 
    > [!IMPORTANT]
    > 
-   > 如果您將訂用帳戶轉移至新的 Azure AD 租用戶，[角色型存取控制 (RBAC)](../active-directory/role-based-access-control-what-is.md) 中的所有角色指派會從來源租用戶中永久刪除，而且不會移轉至目標租用戶。
+   > 如果您將訂用帳戶轉移至新的 Azure AD 租用戶，[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 中的所有角色指派會從來源租用戶中永久刪除，而且不會移轉至目標租用戶。
 
    ![移轉訂用帳戶對話方塊](./media/billing-subscription-transfer/image2.PNG)
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>所有項目都會移轉嗎？ 包括資源群組、VM、磁碟和其他執行中的服務？
 
-VM、磁碟和網站等所有資源都會轉移給新的擁有者。 不過，不會跨不同目錄轉送您所設定的任何[系統管理員角色](billing-add-change-azure-subscription-administrator.md)和[角色型存取控制 (RBAC)](../active-directory/role-based-access-control-configure.md) 原則。 此外，[應用程式註冊](../active-directory//develop/active-directory-integrating-applications.md)和其他租用戶特定服務並不會隨之轉移。
+VM、磁碟和網站等所有資源都會轉移給新的擁有者。 不過，不會跨不同目錄轉送您所設定的任何[系統管理員角色](billing-add-change-azure-subscription-administrator.md)和[角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 原則。 此外，[應用程式註冊](../active-directory//develop/active-directory-integrating-applications.md)和其他租用戶特定服務並不會隨之轉移。
 
 ### <a id="no-button"></a> 為什麼看不到 [移轉訂用帳戶] 按鈕？
 

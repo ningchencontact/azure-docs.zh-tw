@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure 儲存體來保護 PaaS 應用程式 | Microsoft Docs"
+title: 使用 Azure 儲存體來保護 PaaS 應用程式 | Microsoft Docs
 description: " 了解用來保護 PaaS Web 與行動應用程式的 Azure 儲存體安全性最佳做法。 "
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomShinder
-ms.openlocfilehash: 16ee6d9d2f02c758d7682626a8b71a3ff17f841c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>使用 Azure 儲存體來保護 PaaS Web 與行動應用程式
 在本文中，我們將說明用來保護 PaaS Web 與行動應用程式的 Azure 儲存體安全性最佳做法。 這些最佳做法衍生自我們的 Azure 經驗和客戶 (例如您自己) 的經驗。
@@ -75,7 +75,7 @@ SAS 可讓您以您想要的方式來共用內容，而不必交出儲存體帳�
 
 我們已經在前面討論過，如何在無須提供帳戶之儲存體帳戶金鑰的情況下，使用共用存取簽章 (SAS) 將儲存體帳戶中物件的受限存取權授與其他用戶端。 有時候，在儲存體帳戶中執行特定作業的相關風險可能大過 SAS 的好處。 有時候以其他方式管理存取權可能比較簡單。
 
-另一種管理存取權的方式是使用 [Azure 角色型存取控制](../active-directory/role-based-access-control-what-is.md) (RBAC)。 若使用 RBAC，您就可以根據須知事項和最低權限安全性原則來專注在為員工提供確實符合其所需的權限。 權限太多可能會讓帳戶暴露在攻擊者的威脅下。 權限太少則會讓員工無法有效率地完成工作。 RBAC 可以為 Azure 提供更細緻的存取管理來協助解決這個問題。 對於想要強制執行資料存取安全性原則的組織，這是必須做的事。
+另一種管理存取權的方式是使用 [Azure 角色型存取控制](../role-based-access-control/overview.md) (RBAC)。 若使用 RBAC，您就可以根據須知事項和最低權限安全性原則來專注在為員工提供確實符合其所需的權限。 權限太多可能會讓帳戶暴露在攻擊者的威脅下。 權限太少則會讓員工無法有效率地完成工作。 RBAC 可以為 Azure 提供更細緻的存取管理來協助解決這個問題。 對於想要強制執行資料存取安全性原則的組織，這是必須做的事。
 
 您可以利用 Azure 中內建的 RBAC 角色指派權限給使用者。 請考慮將儲存體帳戶參與者用於需要管理儲存體帳戶的雲端操作者，以及使用傳統儲存體帳戶參與者角色來管理傳統儲存體帳戶。 對於需要管理 VM 而非其所連線的虛擬網路或儲存體帳戶的雲端操作者，請考慮將他們新增至虛擬機器參與者角色。
 
@@ -83,8 +83,8 @@ SAS 可讓您以您想要的方式來共用內容，而不必交出儲存體帳�
 
 若要深入了解 RBAC，請參閱：
 
-- [Azure 角色型存取控制](../active-directory/role-based-access-control-configure.md)
-- [Azure 角色型存取控制的內建角色](../active-directory/role-based-access-built-in-roles.md)
+- [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)
+- [Azure 角色型存取控制的內建角色](../role-based-access-control/built-in-roles.md)
 - [Azure 儲存體安全性指南](../storage/common/storage-security-guide.md)，以了解如何使用 RBAC 來保護您的儲存體帳戶
 
 ## <a name="storage-encryption"></a>儲存體加密

@@ -1,11 +1,11 @@
 ---
-title: "登入針對同盟單一登入設定之資源庫應用程式的問題 | Microsoft Docs"
-description: "當登入您已使用 Azure AD 針對 SAML 型同盟單一登入設定之應用程式時所發生特定錯誤的指引"
+title: 登入針對同盟單一登入設定之資源庫應用程式的問題 | Microsoft Docs
+description: 當登入您已使用 Azure AD 針對 SAML 型同盟單一登入設定之應用程式時所發生特定錯誤的指引
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: fa1387c3eb11899bb74418b2ff1af4a5d22a73d9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>登入針對同盟單一登入設定之資源庫應用程式的問題
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="application-not-found-in-directory"></a>在目錄中找不到應用程式
 
-*錯誤 AADSTS70001：目錄中找不到識別碼為 ‘https://contoso.com’ 的應用程式*。
+*錯誤 AADSTS70001：在目錄中找不到識別碼為 ‘https://contoso.com’ 的應用程式*。
 
 **可能的原因**
 
@@ -43,11 +43,11 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 02/21/2018
 
 6.  選取您要設定單一登入的應用程式
 
-7.  應用程式載入後，按一下應用程式的左側瀏覽功能表中的 [單一登入]。
+7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
 8.  移至 [網域及 URL] 區段。 確認 [識別碼] 文字方塊中的值符合錯誤中所顯示的識別碼值。
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>回覆位址不符合為應用程式設定的回覆位址。
 
-*Error AADSTS50011：回覆位址 ‘https://contoso.com’ 不符合為應用程式設定的回覆位址*
+*錯誤 AADSTS50011：回覆位址 ‘https://contoso.com’ 不符合為應用程式設定的回覆位址*
 
 **可能的原因**
 
@@ -75,11 +75,11 @@ SAML 要求中的 AssertionConsumerServiceURL 值不符合在 Azure AD 中設定
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -87,7 +87,7 @@ SAML 要求中的 AssertionConsumerServiceURL 值不符合在 Azure AD 中設定
 
 6.  選取您要設定單一登入的應用程式
 
-7.  應用程式載入後，按一下應用程式的左側瀏覽功能表中的 [單一登入]。
+7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
 8.  移至 [網域及 URL] 區段。 驗證或更新 [回覆 URL] 文字方塊中的值，以符合 SAML 要求中的 AssertionConsumerServiceURL 值。  
     * 如果沒有看到 [回覆 URL] 文字方塊中，請選取 [顯示進階 URL 設定] 核取方塊。
@@ -108,11 +108,11 @@ SAML 要求中的 AssertionConsumerServiceURL 值不符合在 Azure AD 中設定
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -120,7 +120,7 @@ SAML 要求中的 AssertionConsumerServiceURL 值不符合在 Azure AD 中設定
 
 6.  從清單中選取您想要指派使用者的應用程式。
 
-7.  應用程式載入之後，按一下應用程式左邊瀏覽功能表中的 [使用者和群組]。
+7.  應用程式載入之後，按一下應用程式左側導覽功能表中的 [使用者和群組]。
 
 8.  按一下 [使用者和群組] 清單頂端的 [新增] 按鈕，以開啟 [新增指派] 窗格。
 
@@ -178,11 +178,11 @@ Azure AD 不支援應用程式為單一登入傳送的 SAML 要求。 以下為�
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -205,11 +205,11 @@ Azure AD 不支援應用程式為單一登入傳送的 SAML 要求。 以下為�
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -217,7 +217,7 @@ Azure AD 不支援應用程式為單一登入傳送的 SAML 要求。 以下為�
 
 6.  選取您要設定單一登入的應用程式
 
-7.  按一下應用程式 [概觀] 窗格左上角的 [刪除]。
+7.  按一下應用程式 [概觀] 窗格左上方的 [刪除]。
 
 8.  重新整理 Azure AD，並從 Azure AD 資源庫新增應用程式。 接著，設定應用程式
 
@@ -237,11 +237,11 @@ Azure AD 不支援應用程式為單一登入傳送的 SAML 要求。 以下為�
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -249,13 +249,13 @@ Azure AD 不支援應用程式為單一登入傳送的 SAML 要求。 以下為�
 
 6.  選取您要設定單一登入的應用程式
 
-7.  應用程式載入後，按一下應用程式的左側瀏覽功能表中的 [單一登入]。
+7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
 8.  在 [SAML 簽署憑證] 區段下方，按一下 [建立新憑證]。
 
 9.  選取到期日。 然後按一下 [儲存] 。
 
-10. 勾選 [Make new certificate active (啟用新憑證)] 以覆寫作用中的憑證。 然後按一下窗格頂端的 [儲存]，接受啟用變換憑證。
+10. 勾選 [Make new certificate active (啟用新憑證)] 以覆寫作用中的憑證。 然後按一下窗格頂端的 [儲存]，並按 [接受] 以啟動變換憑證。
 
 11. 在 [SAML 簽署憑證] 區段下，按一下 [移除] 以移除**未使用**的憑證。
 

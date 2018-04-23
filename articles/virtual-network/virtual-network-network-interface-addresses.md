@@ -1,13 +1,13 @@
 ---
-title: "設定 Azure 網路介面的 IP 位址 | Microsoft Docs"
-description: "了解如何對網路介面新增、變更和移除私人與公用 IP 位址。"
+title: 設定 Azure 網路介面的 IP 位址 | Microsoft Docs
+description: 了解如何對網路介面新增、變更和移除私人與公用 IP 位址。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 478a2ebfa6a4cc504119734ac2f67b1f7c77dd5a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 79b84e3231886f62bf5978195562339d5c3275b6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>新增、變更或移除 Azure 網路介面的 IP 位址
 
@@ -34,14 +34,14 @@ ms.lasthandoff: 03/05/2018
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
-- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.2.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.2.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 - 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.26 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
 ## <a name="add-ip-addresses"></a>新增 IP 位址
 
 您可以將所需的多個[私人](#private)和[公用](#public) [IPv4](#ipv4) 位址新增至網路介面，但不得超過 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文所列的限制。 您無法使用入口網站將 IPv6 位址新增至現有網路介面 (不過，在建立網路介面時，可以使用入口網站將私人 IPv6 位址新增至網路介面)。 針對未連接至虛擬機器的現有網路介面，可以使用 PowerShell 或 CLI 來將私人 IPv6 位址新增到[次要 IP 組態](#secondary) (只要目前尚無次要 IP 組態)。 您無法使用任何工具將公用 IPv6 位址新增至網路介面。 如需使用 IPv6 位址的詳細資訊，請參閱 [IPv6](#ipv6)。 
 
-1. 使用具備您訂用帳戶網路參與者角色 (最低) 權限的帳戶登入 [Azure 入口網站](https://portal.azure.com)。 請閱讀 [Azure 角色型存取控制的內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，深入了解如何將角色和權限指派給帳戶。
+1. 使用具備您訂用帳戶網路參與者角色 (最低) 權限的帳戶登入 [Azure 入口網站](https://portal.azure.com)。 請閱讀 [Azure 角色型存取控制的內建角色](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，深入了解如何將角色和權限指派給帳戶。
 2. 在 Azure 入口網站頂端包含「搜尋資源」文字的方塊中，輸入「網路介面」。 當「網路介面」出現於搜尋結果時，按一下它。
 3. 在出現的 [網路介面] 刀鋒視窗中，按一下您要新增 IPv4 位址的網路介面。
 4. 在所選網路介面的刀鋒視窗中，按一下 [設定] 區段中的 [IP 組態]。
@@ -67,7 +67,7 @@ ms.lasthandoff: 03/05/2018
 
 您可能需要變更 IPv4 位址的指派方法、變更靜態 IPv4 位址，或變更指派給網路介面的公用 IP 位址。 如果您要變更與虛擬機器中次要網路介面相關聯之次要 IP 組態的私人 IPv4 位址 (深入了解[主要和次要網路介面](virtual-network-network-interface-vm.md))，請先讓虛擬機器進入停止 (已取消配置) 狀態，再完成下列步驟︰ 
 
-1. 使用具備您訂用帳戶網路參與者角色 (最低) 權限的帳戶登入 [Azure 入口網站](https://portal.azure.com)。 請閱讀 [Azure 角色型存取控制的內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，深入了解如何將角色和權限指派給帳戶。
+1. 使用具備您訂用帳戶網路參與者角色 (最低) 權限的帳戶登入 [Azure 入口網站](https://portal.azure.com)。 請閱讀 [Azure 角色型存取控制的內建角色](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，深入了解如何將角色和權限指派給帳戶。
 2. 在 Azure 入口網站頂端包含「搜尋資源」文字的方塊中，輸入「網路介面」。 當「網路介面」出現於搜尋結果時，按一下它。
 3. 在出現的 [網路介面] 刀鋒視窗中，按一下您要檢視或變更 IP 位址設定的網路介面。
 4. 在所選網路介面的刀鋒視窗中，按一下 [設定] 區段中的 [IP 組態]。
@@ -88,7 +88,7 @@ ms.lasthandoff: 03/05/2018
 
 您可以從網路介面移除[私人](#private)和[公用](#public) IP 位址，但一律必須對網路介面指派至少一個私人 IPv4 位址。
 
-1. 使用具備您訂用帳戶網路參與者角色 (最低) 權限的帳戶登入 [Azure 入口網站](https://portal.azure.com)。 請閱讀 [Azure 角色型存取控制的內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，深入了解如何將角色和權限指派給帳戶。
+1. 使用具備您訂用帳戶網路參與者角色 (最低) 權限的帳戶登入 [Azure 入口網站](https://portal.azure.com)。 請閱讀 [Azure 角色型存取控制的內建角色](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，深入了解如何將角色和權限指派給帳戶。
 2. 在 Azure 入口網站頂端包含「搜尋資源」文字的方塊中，輸入「網路介面」。 當「網路介面」出現於搜尋結果時，按一下它。
 3. 在出現的 [網路介面] 刀鋒視窗中，按一下您要從中移除 IP 位址的網路介面。
 4. 在所選網路介面的刀鋒視窗中，按一下 [設定] 區段中的 [IP 組態]。

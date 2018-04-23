@@ -1,11 +1,11 @@
 ---
-title: "建立自訂探查 - Azure 應用程式閘道 - PowerShell | Microsoft Docs"
-description: "了解如何在資源管理員中使用 PowerShell 建立應用程式閘道的自訂探查"
+title: 建立自訂探查 - Azure 應用程式閘道 - PowerShell | Microsoft Docs
+description: 了解如何在資源管理員中使用 PowerShell 建立應用程式閘道的自訂探查
 services: application-gateway
 documentationcenter: na
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
 ms.service: application-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 344d6922d1649449e26f2500e538b5a0b440476d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5d17a05f964367ff12a58c3e301a1741181003fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>使用 Azure 資源管理員的 PowerShell 建立 Azure 應用程式閘道的自訂探查
 
@@ -39,10 +39,10 @@ ms.lasthandoff: 12/21/2017
 
 ### <a name="sign-in-and-create-resource-group"></a>登入並建立資源群組
 
-1. 使用 `Login-AzureRmAccount`來驗證。
+1. 使用 `Connect-AzureRmAccount`來驗證。
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 1. 取得帳戶的訂用帳戶。

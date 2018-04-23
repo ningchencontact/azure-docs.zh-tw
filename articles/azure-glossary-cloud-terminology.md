@@ -1,12 +1,12 @@
 ---
-title: "Azure 詞彙 - Azure 字典 | Microsoft Docs"
-description: "使用 Azure 詞彙，來了解 Azure 平台上的雲端術語。 這個簡短的 Azure 字典提供 Azure 的常見雲端術語定義。"
-keywords: "Azure 字典、雲端術語、Azure 詞彙、詞彙定義、雲端詞彙"
+title: Azure 詞彙 - Azure 字典 | Microsoft Docs
+description: 使用 Azure 詞彙，來了解 Azure 平台上的雲端術語。 這個簡短的 Azure 字典提供 Azure 的常見雲端術語定義。
+keywords: Azure 字典、雲端術語、Azure 詞彙、詞彙定義、雲端詞彙
 services: na
 documentationcenter: na
 author: MonicaRush
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fd20405c284161a1a66493056f21c147efa632cb
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 953320734c1601c411144bd7a6496716a65e452e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 詞彙︰Azure 平台上的雲端術語字典
 
@@ -111,7 +111,7 @@ Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型
 
 ## <a name="role"></a>角色
 用於控制可指派給使用者、群組和服務的存取權的方式。 角色能夠在 Azure 資源上執行建立、管理及讀取之類的動作。  
-請參閱 [RBAC：內建角色](active-directory/role-based-access-built-in-roles.md)
+請參閱 [RBAC：內建角色](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>服務等級協定 (SLA)
 此協定會描述 Microsoft 對執行時間與連線能力的承諾。 每個 Azure 服務都有特定的 SLA。  

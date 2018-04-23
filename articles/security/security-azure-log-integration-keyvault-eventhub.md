@@ -1,21 +1,21 @@
 ---
-title: "透過使用事件中樞整合來自 Azure Key Vault 的記錄 | Microsoft Docs"
-description: "提供使用 Azure 記錄整合將金鑰保存庫記錄提供給 SIEM 之必要步驟的教學課程"
+title: 透過使用事件中樞整合來自 Azure Key Vault 的記錄 | Microsoft Docs
+description: 提供使用 Azure 記錄整合將金鑰保存庫記錄提供給 SIEM 之必要步驟的教學課程
 services: security
 author: barclayn
 manager: MBaldwin
 editor: TomShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9b3ae914774d2d6a66c5732f1d63f09926bb48fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 記錄整合教學課程：使用事件中樞處理Azure Key Vault 事件
 
@@ -81,14 +81,14 @@ ms.lasthandoff: 02/21/2018
 
    ![載入的模組清單](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. 輸入 `Login-AzureRmAccount` 命令 在登入視窗中，輸入將用於本教學課程的訂用帳戶認證資訊。
+3. 輸入 `Connect-AzureRmAccount` 命令 在登入視窗中，輸入將用於本教學課程的訂用帳戶認證資訊。
 
    >[!NOTE]
    >如果這是您第一次從此電腦登入 Azure，您會看到有關允許 Microsoft 收集 PowerShell 使用情況資料的訊息。 由於此資料收集會用於改進 Azure PowerShell，因此我們建議您將其啟用。
 
 4. 成功驗證之後，您便會登入並看到下列螢幕擷取畫面中的資訊。 由於您在後續步驟中需要使用訂用帳戶識別碼和訂用帳戶名稱，因此請記下這些資訊。
 
-   ![PowerShell 視窗](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
+   ![PowerShell 視窗](./media/security-azure-log-integration-keyvault-eventhub/Connect-AzureRmAccount.png)
 5. 建立變數來儲存稍後將使用的值。 逐行下列每一行 PowerShell。 您可能需要調整該值以符合您的環境。
     - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (您的訂用帳戶名稱可能會不同。 您可以看到其顯示為先前命令輸出的一部分。)
     - ```$location = 'West US'``` (此變數會用於傳遞應該建立資源的位置。 您可以將此變數變更為您所選擇的任何位置。)

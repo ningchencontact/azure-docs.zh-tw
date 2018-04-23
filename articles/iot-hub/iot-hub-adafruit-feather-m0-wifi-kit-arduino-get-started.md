@@ -3,7 +3,7 @@ title: M0 連線到雲端：將 Feather M0 WiFi 連線到 Azure IoT 中樞 | Mic
 description: 了解如何設定及連線 Adafruit Feather M0 WiFi 和 Azure IoT 中樞，在本教學課程中將資料傳送到 Azure 雲端平台。
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: ''
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/16/2017
-ms.author: xshi
-ms.openlocfilehash: 9b278735ce3af9e6e61a85c5e95ea218622361c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 2a6a65a3c4a69a49788ce9799ceed53d53edcd77
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>將 Adafruit Feather M0 WiFi 連線到位於雲端的 Azure IoT 中樞
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -156,7 +156,7 @@ ms.lasthandoff: 10/11/2017
    ![在 Arduino IDE 中開啟範例應用程式](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
 
-1. 按一下 [檔案] > [喜好設定] \(Windows/Linux) 或 [Arduino] > [喜好設定] \(Mac)，然後將下列連結複製貼入 Arduino IDE 喜好設定的 [Additional Boards Manager URLs] \(其他面板管理員 URL) 選項。
+1. 按一下 [檔案] > [喜好設定] (Windows/Linux) 或 [Arduino] > [喜好設定] (Mac)，然後將下列連結複製貼入 Arduino IDE 喜好設定的 [Additional Boards Manager URLs] (其他面板管理員 URL) 選項。
    
    ```
    https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
@@ -216,7 +216,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 在 Arduino IDE 中，按一下 [工具] > [序列監視器]。
 
-2. 在序列監視器視窗的右下角，在左邊的下拉式清單中選取 [No line ending] \(沒有行尾結束符號)。
+2. 在序列監視器視窗的右下角，在左邊的下拉式清單中選取 [No line ending] (沒有行尾結束符號)。
 3. 在右邊的下拉式清單中選取 [115200 傳輸速率]。
 4. 如果系統要求您提供，請在上方的輸入方塊中輸入下列資訊，然後按一下 [傳送]：
 

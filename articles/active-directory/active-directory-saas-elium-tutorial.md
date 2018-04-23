@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 6a72cc1829b7b8a5c7c588543d0b5c91f9f36bf5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2c41b2c297d8d89554950e8c77201ff5bedf743e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>教學課程：Azure Active Directory 與 Elium 整合
 
@@ -117,7 +117,7 @@ Elium 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰` https://<platform-domain>.elium.com/login/saml2/login`
      
     > [!NOTE] 
-    > 這些都不是真正的值。 您可以從 **SP 中繼資料檔案** (可於 `https://<platform-domain>/login/saml2/metadata` 下載) 取得這些值，該檔案會在本教學課程稍後加以說明。
+    > 這些都不是真正的值。 您可以從 **SP 中繼資料檔案** (可於 `https://<platform-domain>.elium.com/login/saml2/metadata` 下載) 取得這些值，該檔案會在本教學課程稍後加以說明。
 
 5. Elium 應用程式需要特定格式的 SAML 判斷提示，而您需要將自訂屬性對應新增到您的 SAML 權杖屬性組態。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。
 

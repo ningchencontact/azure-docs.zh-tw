@@ -1,11 +1,11 @@
 ---
-title: "建立和共用 Azure Log Analytics 資料的儀表板 | Microsoft Docs"
-description: "本教學課程可幫助您了解 Log Analytics 儀表板如何以視覺化方式呈現所有儲存的記錄搜尋，讓您以單一方式檢視您的環境。"
+title: 建立和共用 Azure Log Analytics 資料的儀表板 | Microsoft Docs
+description: 本教學課程可幫助您了解 Log Analytics 儀表板如何以視覺化方式呈現所有儲存的記錄搜尋，讓您以單一方式檢視您的環境。
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 272945134b534a5ded794379ce5e96b0902a4227
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: f6a70f33b143a5b9354411af9717d2a21e24af0c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>建立和共用 Log Analytics 資料的儀表板
 
@@ -34,7 +34,7 @@ Log Analytics 儀表板可以視覺化方式呈現所有儲存的記錄搜尋，
 若要完成本教學課程中的範例，您目前必須有[連線至 Log Analytics 工作區](log-analytics-quick-collect-azurevm.md)的虛擬機器。  
  
 ## <a name="log-in-to-azure-portal"></a>登入 Azure 入口網站
-登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。 
+在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站。 
 
 ## <a name="create-a-shared-dashboard"></a>建立共用儀表板
 
@@ -48,7 +48,7 @@ Log Analytics 儀表板可以視覺化方式呈現所有儲存的記錄搜尋，
 
 當您建立儀表板時，它預設是私人用途，這表示只有您會看得到。 若要讓其他人也能看見，請使用與其他儀表板命令一同出現的 [共用]  按鈕。<br> ![在 Azure 入口網站中共用新儀表板](media/log-analytics-tutorial-dashboards/log-analytics-share-dashboard.png) 
 
-系統會要求您選擇可將儀表板發佈至的訂用帳戶和資源群組。 為了方便起見，入口網站的發佈體驗會引導您朝向將儀表板放在稱為 **儀表板**的資源群組中的模式。  確認選取的訂用帳戶，然後按一下[發行]。  使用[Azure 資源存取控制](../active-directory/role-based-access-control-configure.md)來控制對儀表板中顯示資訊的存取權。   
+系統會要求您選擇可將儀表板發佈至的訂用帳戶和資源群組。 為了方便起見，入口網站的發佈體驗會引導您朝向將儀表板放在稱為 **儀表板**的資源群組中的模式。  確認選取的訂用帳戶，然後按一下[發行]。  使用[Azure 資源存取控制](../role-based-access-control/role-assignments-portal.md)來控制對儀表板中顯示資訊的存取權。   
 
 ## <a name="visualize-a-log-search"></a>以視覺化方式呈現記錄搜尋
 

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure PowerShell 管理 Azure Redis 快取 | Microsoft Docs"
-description: "了解如何使用 Azure PowerShell 執行 Azure Redis 快取的管理工作。"
+title: 使用 Azure PowerShell 管理 Azure Redis 快取 | Microsoft Docs
+description: 了解如何使用 Azure PowerShell 執行 Azure Redis 快取的管理工作。
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 38b2f57811b0e952d3020c06d39350918f2f0391
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Redis 快取
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/19/2018
 
 首先，您必須使用此命令登入 Azure。
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 在 [Microsoft Azure 登入] 對話方塊中，指定 Azure 帳戶的電子郵件地址和密碼。
 
@@ -66,18 +66,18 @@ ms.lasthandoff: 01/19/2018
     Get-Help New-AzureRmRedisCache -Detailed
 
 ### <a name="how-to-connect-to-other-clouds"></a>如何連線到其他雲端
-根據預設，Azure 環境是 `AzureCloud`，其代表全域 Azure 雲端執行個體。 若要連線至不同的執行個體，請使用 `Add-AzureRmAccount` 命令搭配 `-Environment` 或使用 -`EnvironmentName` 命令列參數搭配所需的環境或環境名稱。
+根據預設，Azure 環境是 `AzureCloud`，其代表全域 Azure 雲端執行個體。 若要連線至不同的執行個體，請使用 `Connect-AzureRmAccount` 命令搭配 `-Environment` 或使用 -`EnvironmentName` 命令列參數搭配所需的環境或環境名稱。
 
 若要查看可用環境的清單，請執行 `Get-AzureRmEnvironment` Cmdlet。
 
 ### <a name="to-connect-to-the-azure-government-cloud"></a>連線到 Azure Government 雲端
 如果要連線到 Azure Government 雲端，請使用下列其中一個命令。
 
-    Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+    Connect-AzureRmAccount -EnvironmentName AzureUSGovernment
 
 或
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
 
 如果要在 Azure Government 雲端建立快取，請使用下列其中一個位置。
 
@@ -89,11 +89,11 @@ ms.lasthandoff: 01/19/2018
 ### <a name="to-connect-to-the-azure-china-cloud"></a>連線到 Azure 中國雲端
 如果要連線到 Azure 中國雲端，請使用下列其中一個命令。
 
-    Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 或
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
 
 如果要在 Azure 中國雲端建立快取，請使用下列其中一個位置。
 
@@ -105,12 +105,12 @@ ms.lasthandoff: 01/19/2018
 ### <a name="to-connect-to-microsoft-azure-germany"></a>連線到 Microsoft Azure (德國)
 若要連線到 Microsoft Azure (德國)，請使用下列其中一個命令。
 
-    Add-AzureRMAccount -EnvironmentName AzureGermanCloud
+    Connect-AzureRmAccount -EnvironmentName AzureGermanCloud
 
 
 或
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
 
 若要在 Microsoft Azure (德國) 中建立快取，請使用下列其中一個位置。
 

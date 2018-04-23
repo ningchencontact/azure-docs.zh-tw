@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
 ms.author: billmath
-ms.openlocfilehash: 87d349933a8daeaf8b7a4487612ad62dd2b9efc2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="pim-for-azure-resources"></a>適用於 Azure 資源的 PIM
 
@@ -43,7 +43,7 @@ Azure AD PIM 可以管理內建 Azure 資源角色，以及自訂 (RBAC) 角色�
 - 安全性管理員以及其他
 
 >[!NOTE]
-指派至擁有者或使用者存取管理員角色的使用者或群組成員，以及在 Azure AD 中啟用訂閱管理的全域管理員，為資源管理員。 這些系統管理員可指派角色、設定角色設定，並使用適用於 Azure 資源的 PIM 進行檢閱存取。 請檢視[Azure 資源的內建角色](../role-based-access-built-in-roles.md)清單。
+指派至擁有者或使用者存取管理員角色的使用者或群組成員，以及在 Azure AD 中啟用訂閱管理的全域管理員，為資源管理員。 這些系統管理員可指派角色、設定角色設定，並使用適用於 Azure 資源的 PIM 進行檢閱存取。 請檢視[Azure 資源的內建角色](../../role-based-access-control/built-in-roles.md)清單。
 
 ## <a name="tasks"></a>工作
 
@@ -193,6 +193,6 @@ Azure AD PIM 可以管理內建 Azure 資源角色，以及自訂 (RBAC) 角色�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [適用於 Azure 資源的內建角色](../role-based-access-built-in-roles.md)
+- [適用於 Azure 資源的內建角色](../../role-based-access-control/built-in-roles.md)
 - 深入了解[在這裡啟用 Azure AD 角色](../active-directory-privileged-identity-management-how-to-activate-role.md)
 - [PIM 核准工作流程](azure-ad-pim-approval-workflow.md)

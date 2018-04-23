@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f91ebe0f94c57c9ad217ffe280f9aa0a9aa6acb9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>什麼是 Azure AD Privileged Identity Management？
 
@@ -72,7 +72,7 @@ Azure AD Privileged Identity Management 可協助您的組織：
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Privileged Identity Management 概觀 (進入點)
 
-Azure AD Privileged Identity Management 可支援 Azure AD 目錄角色和 Azure 資源 (預覽) 角色的管理。 Azure 資源角色與 Azure AD 中系統管理角色的功能不同。 Azure 資源角色提供針對指派的資源以及資源階層中所有從屬資源 (稱為繼承) 的細微權限。 [深入了解 RBAC、資源階層和繼承](role-based-access-control-configure.md)。 在 PIM [概觀] 進入點左側導覽功能表的 [管理] 區段下存取相應連結，即可管理適用於 Azure AD 目錄角色和 Azure 資源 (預覽) 的 PIM。
+Azure AD Privileged Identity Management 可支援 Azure AD 目錄角色和 Azure 資源 (預覽) 角色的管理。 Azure 資源角色與 Azure AD 中系統管理角色的功能不同。 Azure 資源角色提供針對指派的資源以及資源階層中所有從屬資源 (稱為繼承) 的細微權限。 [深入了解 RBAC、資源階層和繼承](../role-based-access-control/role-assignments-portal.md)。 在 PIM [概觀] 進入點左側導覽功能表的 [管理] 區段下存取相應連結，即可管理適用於 Azure AD 目錄角色和 Azure 資源 (預覽) 的 PIM。
 
 PIM 提供方便的存取，以利啟用角色、檢視擱置的啟用/要求、擱置的核准 (適用於 Azure AD 目錄角色)，以及左側導覽功能表 [工作] 區段的待回應檢閱。
 
