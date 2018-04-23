@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>如何使用 Mobile Apps Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -234,7 +234,7 @@ azure-mobile-apps Node.js Server SDK 提供將儲存在 Azure SQL Database 中�
 
     module.exports = table;
 
-如果您以靜態方式定義資料表，則必須同時呼叫 `tables.initialize()` 方法，以在啟動時建立資料庫結構描述。 ] 方法會傳回 `tables.initialize()`Promise[，避免 Web 服務在資料庫初始化之前處理要求。
+如果您以靜態方式定義資料表，則必須同時呼叫 `tables.initialize()` 方法，以在啟動時建立資料庫結構描述。 `tables.initialize()` 方法會傳回 [Promise] ，避免 Web 服務在資料庫初始化之前處理要求。
 
 ### <a name="howto-sqlexpress-setup"></a>以 SQL Server Express 作為本機電腦上的開發資料存放區
 Mobile Apps Node.js SDK 提供三種現成可用的資料提供選項：
@@ -401,7 +401,7 @@ azureMobile.js 檔案中的大部分設定在 [Azure 入口網站]中都有對�
 建立資料庫可能需要幾分鐘的時間。 使用 [通知]  區域來監視部署的進度。 在資料庫成功部署之前，請勿繼續進行。 資料庫部署完成後，將會在您 Mobile Apps 的應用程式設定中建立 SQL Database 執行個體的連接字串。 您可以在 [設定] > [應用程式設定] > [連接字串]中檢視此應用程式設定。
 
 ### <a name="howto-tables-auth"></a>需經過驗證才能存取資料表
-如果您想要在 ] 端點使用 App Service 驗證，就必須先在 `tables`Azure 入口網站[中設定 App Service 驗證。 如需詳細資訊，請參閱您要使用之身分識別提供者的設定指南：
+如果您想要在 `tables` 端點使用 App Service 驗證，就必須先在 [Azure 入口網站] 中設定 App Service 驗證。 如需詳細資訊，請參閱您要使用之身分識別提供者的設定指南：
 
 * [設定 Azure Active Directory 驗證]
 * [設定 Facebook 驗證]
