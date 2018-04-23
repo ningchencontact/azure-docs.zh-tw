@@ -1,8 +1,8 @@
 ---
-title: "使用 PowerShell 管理 Azure 解決方案 | Microsoft Docs"
-description: "使用 Azure PowerShell 和 Resource Manager 管理資源。"
+title: 使用 PowerShell 管理 Azure 解決方案 | Microsoft Docs
+description: 使用 Azure PowerShell 和 Resource Manager 管理資源。
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 96206482195cdcbd06ee2dafdc551f7b1f81d319
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a3dcbfe09d47388b80cee15ff0e46f8b75b474a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理資源
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/08/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 ## <a name="understand-scope"></a>了解範圍
 
@@ -51,9 +51,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 在本文中，您會部署虛擬機器以及和其相關的虛擬網路。 為了管理虛擬機器解決方案，有三個資源專屬角色可提供您經常需要的存取權：
 
-* [虛擬機器參與者](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [網路參與者](../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [儲存體帳戶參與者](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [虛擬機器參與者](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [網路參與者](../role-based-access-control/built-in-roles.md#network-contributor)
+* [儲存體帳戶參與者](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 相較於將角色指派給個別使用者，為需要執行類似動作的使用者[建立 Azure Active Directory 群組](../active-directory/active-directory-groups-create-azure-portal.md)通常會更加容易。 然後，將該群組指派給適當的角色。 一言以蔽之，您要建立沒有成員的 Azure Active Directory 群組。 您仍然可以指派此群組給範圍內的角色。 
 

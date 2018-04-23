@@ -1,6 +1,6 @@
 ---
-title: "建立網路安全性群組 - Azure 入口網站 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站建立和部署網路安全性群組。"
+title: 建立網路安全性群組 - Azure 入口網站 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站建立和部署網路安全性群組。
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 865032f350735d35668bb199ccf1ef3f0fae81de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd05df542327f9d8dae924b7097d247980a0558b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-portal"></a>使用 Azure 入口網站建立網路安全性群組
 
@@ -92,6 +92,6 @@ ms.lasthandoff: 10/11/2017
 3. 重複[建立 NSG 與 FrontEnd 子網路的關聯](#Associate-the-NSG-to-the-FrontEnd-subnet)中的步驟，建立 **NSG-Backend** NSG 與 **BackEnd** 子網路的關聯。
 
 ## <a name="next-steps"></a>後續步驟
-* 了解如何 [管理現有的 NSG](virtual-network-manage-nsg-arm-portal.md)
+* 了解如何 [管理現有的 NSG](manage-network-security-group.md)
 * [啟用 NSG 的記錄](virtual-network-nsg-manage-log.md) 。
 

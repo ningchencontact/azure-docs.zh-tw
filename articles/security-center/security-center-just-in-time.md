@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 22eee6c2253e6b1ff92de0cebf4fea451a0a8fe5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用 Just-In-Time 管理虛擬機器存取
 
@@ -41,7 +41,7 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 
 啟用 Just-In-Time 時，資訊安全中心會建立 NSG 規則，藉此鎖定進入 Azure VM 的流量。 系統會鎖定選取的 VM 連接埠的輸入流量。 Just-In-Time 解決方案會控制這些連接埠。
 
-當使用者要求存取 VM 時，資訊安全中心會檢查該使用者是否擁有可提供 VM 寫入存取權限的[角色型存取控制 (RBAC)](../active-directory/role-based-access-control-configure.md) 權限。 如果其擁有寫入權限、要求會通過核准，且資訊安全中心會將網路安全性群組 (NSG) 自動設定為在指定時間內允許輸入流量進入管理連接埠。 時間到期之後，資訊安全中心會將 NSG 還原為其先前的狀態。
+當使用者要求存取 VM 時，資訊安全中心會檢查該使用者是否擁有可提供 VM 寫入存取權限的[角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 權限。 如果其擁有寫入權限、要求會通過核准，且資訊安全中心會將網路安全性群組 (NSG) 自動設定為在指定時間內允許輸入流量進入管理連接埠。 時間到期之後，資訊安全中心會將 NSG 還原為其先前的狀態。
 
 > [!NOTE]
 > 資訊安全中心 Just-In-Time VM 存取目前僅支援透過 Azure Resource Manager 部署的 VM。 若要深入了解傳統部署和資源管理員部署的模型，請參閱 [Azure Resource Manager 與傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)。

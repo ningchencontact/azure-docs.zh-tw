@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory v2.0 端點限制 | Microsoft Docs"
-description: "Azure AD v2.0 端點的限制清單。"
+title: Azure Active Directory v2.0 端點限制 | Microsoft Docs
+description: Azure AD v2.0 端點的限制清單。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>我應該使用 v2.0 端點嗎？
 當您建立與 Azure Active Directory 整合的應用程式時，您必須判斷 v2.0 端點和驗證通訊協定是否符合您的需求。 Azure Active Directory 的原始端點仍受到完整的支援，而且在某些方面擁有比 v2.0 更豐富的功能。 不過，v2.0 端點為開發人員[帶來極大的好處](active-directory-v2-compare.md)。
@@ -84,15 +84,6 @@ v2.0 端點目前不支援下列類型的應用程式。 如需所支援應用�
 也請注意，一個特定應用程式只可以有 20 個回覆 URL。
 
 若要了解如何在「應用程式註冊入口網站」中註冊應用程式，請參閱[如何使用 v2.0 端點註冊 App](active-directory-v2-app-registration.md)。
-
-## <a name="restrictions-on-services-and-apis"></a>服務和 API 的限制
-目前 v2.0 端點支援已在「應用程式註冊入口網站」中註冊及在[支援的驗證流程](active-directory-v2-flows.md)清單範圍內之所有應用程式的登入。 不過，這些應用程式只能取得非常有限的一組資源的 OAuth 2.0 存取權杖。 v2.0 端點只會針對下列項目簽發存取權杖：
-
-* 要求權杖的應用程式。 如果邏輯應用程式是由數個不同的元件或層級組成，應用程式就可以為自己取得存取權杖。 若要查看此案例的執行狀況，請參閱 [使用者入門](active-directory-appmodel-v2-overview.md#getting-started) 教學課程。
-* Outlook 郵件、行事曆和連絡人 REST API 全都位於 https://outlook.office.com。若要了解如何撰寫存取這些 API 的應用程式，請參閱[開始使用 Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) 教學課程。
-* Microsoft Graph API。 您可以深入了解 [Microsoft Graph](https://graph.microsoft.io)和可供您使用的資料。
-
-目前不支援其他服務。 除了支援您自己的自訂建置 Web API 和服務之外，未來還將增加更多 Microsoft Online Services。
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>程式庫和 SDK 的限制
 目前對 v2.0 端點提供的程式庫支援相當有限。 如果您想要在實際執行應用程式中使用 v2.0 端點，您有下列選項：

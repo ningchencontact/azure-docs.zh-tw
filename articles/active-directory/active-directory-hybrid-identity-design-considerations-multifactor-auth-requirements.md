@@ -1,11 +1,11 @@
 ---
-title: "混合式身分識別設計 - 多重要素驗證需求 Azure | Microsoft Docs"
-description: "透過條件式存取控制，Azure Active Directory 會在驗證使用者時以及允許存取應用程式之前，檢查您挑選的特定條件。 一旦符合這些條件，就會驗證使用者並允許存取應用程式。"
-documentationcenter: 
+title: 混合式身分識別設計 - 多重要素驗證需求 Azure | Microsoft Docs
+description: 透過條件式存取控制，Azure Active Directory 會在驗證使用者時以及允許存取應用程式之前，檢查您挑選的特定條件。 一旦符合這些條件，就會驗證使用者並允許存取應用程式。
+documentationcenter: ''
 services: active-directory
 author: femila
 manager: billmath
-editor: 
+editor: ''
 ms.assetid: 9c59fda9-47d0-4c7e-b3e7-3575c29beabe
 ms.service: active-directory
 ms.devlang: na
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bbdf60ed22a720f4f735108da79fe3b2ace1660a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 998aebfc38c4a0971a5071faebdeae4dbca86690
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>判斷混合式身分識別解決方案的多重要素驗證需求
 在這個具備行動力的世界中，使用者可在雲端中或從任何裝置存取資料和應用程式，因此，保護此資訊就成為最重要的項目。  每天都會出現關於安全性漏洞的新標題。  雖然不會針對這類漏洞提供保證，但多重要素驗證還是可以提供額外的安全性層級來協助防止這些漏洞。
 一開始，先評估組織對於多重要素驗證的需求。 也就是，組織試圖保護哪些項目。  當您定義如何設定和啟用組織使用者來進行多重要素驗證的技術需求時，這項評估非常重要。
 
 > [!NOTE]
-> 如果您不熟悉 MFA 和它的功用，強烈建議您先閱讀 [什麼是 Azure 多重要素驗證？](../multi-factor-authentication/multi-factor-authentication.md) 一文，然後再繼續閱讀本節。
+> 如果您不熟悉 MFA 和它的功用，強烈建議您先閱讀 [什麼是 Azure 多重要素驗證？](authentication/multi-factor-authentication.md) 一文，然後再繼續閱讀本節。
 > 
 > 
 

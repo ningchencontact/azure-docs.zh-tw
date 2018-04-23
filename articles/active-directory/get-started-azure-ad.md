@@ -1,25 +1,25 @@
 ---
-title: "開始使用 Azure Active Directory | Microsoft Docs"
-description: "在 Azure Active Diretory 中取得授權、新增網域名稱、建立自訂登入分頁，以及新增自助式密碼重設"
-keywords: 
+title: 開始使用 Azure Active Directory | Microsoft Docs
+description: 在 Azure Active Diretory 中取得授權、新增網域名稱、建立自訂登入分頁，以及新增自助式密碼重設
+keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: active-directory
 ms.workload: identity
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: eedcb80038179cf74666880816cb0b5416ac63fd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-ad"></a>開始使用 Azure AD
 現代的身分識別管理需要可調整、一致的可靠性，以確保只有經過驗證的使用者才可使用應用程式和服務。 為了充分支援使用者的身分識別管理需求，IT 需要設法允許存取已核准、公開的軟體即服務 (SaaS) 應用程式、設法裝載內部的企業營運應用程式，甚至設法加強內部部署應用程式開發和使用方式。 這些需求全都指出需要有一套雲端式身分識別管理解決方案。      
@@ -81,7 +81,7 @@ Azure AD 包含一整套的身分識別管理功能，包括能夠同步處理�
 在 [Azure Active Directory] > [授權] > [所有產品] 之下，檢閱已指派和可用的授權。
 
 ## <a name="configure-self-service-password-reset"></a>設定自助式密碼重設
-[自助式密碼重設 (SSPR)](active-directory-passwords-getting-started.md) 提供簡單的方法，讓 IT 系統管理員允許使用者重設或解除鎖定其密碼或帳戶。 系統包含詳細的報告，以追蹤使用者何時使用系統與通知來警示您誤用或濫用。
+[自助式密碼重設 (SSPR)](authentication/quickstart-sspr.md) 提供簡單的方法，讓 IT 系統管理員允許使用者重設或解除鎖定其密碼或帳戶。 系統包含詳細的報告，以追蹤使用者何時使用系統與通知來警示您誤用或濫用。
 
 ### <a name="verification-step"></a>驗證步驟
 在 [Azure Active Directory] > [密碼重設] 之下檢閱已啟用的 SSPR 屬性，確保已完成適當的使用者和群組指派。 

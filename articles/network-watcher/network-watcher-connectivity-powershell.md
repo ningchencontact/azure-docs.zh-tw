@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 5b22da43fe36a4e048483bb558a7705a3a670a9f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eecdd9f169b5b61262f4e3121337c730700f0757
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>使用 PowerShell 利用 Azure 網路監看員進行連線疑難排解
 
@@ -306,4 +306,4 @@ Hops             : [
 
 造訪[檢查 IP 流量驗證](network-watcher-check-ip-flow-verify-portal.md)來判斷 VM 是否允許特定流量流入或流出。
 
-如果流量遭到封鎖，但不應如此，請參閱[管理網路安全性群組](../virtual-network/virtual-network-manage-nsg-arm-portal.md)以追蹤網路安全性群組和所定義的安全性規則。
+如果流量遭到封鎖，但不應如此，請參閱[管理網路安全性群組](../virtual-network/manage-network-security-group.md)以追蹤網路安全性群組和所定義的安全性規則。

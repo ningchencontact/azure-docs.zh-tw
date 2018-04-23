@@ -1,19 +1,19 @@
 ---
-title: "建立原則指派，以識別 Azure 環境中的不相容資源 | Microsoft Docs"
-description: "這篇文章會引導您逐步完成建立原則定義來識別不相容的資源。"
+title: 建立原則指派，以識別 Azure 環境中的不相容資源 | Microsoft Docs
+description: 這篇文章會引導您逐步完成建立原則定義來識別不相容的資源。
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/10/2018
+ms.date: 04/18/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 4287b139f26d17e58f6caffbadb2c7da2a9b7b82
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: e5b27bdc2aef15b619022d1c08fa3e6dccaa5736
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>建立原則指派，以識別 Azure 環境中的不相容資源
 了解 Azure 中合規性的第一個步驟是識別您資源的狀態。 本快速入門會逐步引導您完成程序來建立原則指派，以識別出未使用受控磁碟的虛擬機器。
@@ -71,15 +71,14 @@ ms.lasthandoff: 01/11/2018
 
 根據現有資源評估條件，而且結果為 true 時，這些資源都會標示為不符合原則規範。 上述範例映像會顯示不符合規範的資源。 下表顯示不同的原則動作如何與結果合規性狀態的條件評估搭配使用。 雖然您在 Azure 入口網站中沒有看到評估邏輯，但是會顯示合規性狀態結果。 合規性狀態結果是符合規範和不符合規範其中之一。
 
-|資源  |如果原則中的條件評估為  |原則中的動作   |相容性狀態  |
-|-----------|---------|---------|---------|
-|exists     |True     |拒絕     |不相容 |
-|exists     |False    |拒絕     |相容     |
-|exists     |True     |Append   |不相容 |
-|exists     |False    |Append   |相容     |
-|exists     |True     |稽核    |不相容 |
-|exists     |False    |稽核    |不相容 |
+| **資源狀態** | **Action** | **原則評估** | **合規性狀態** |
+| --- | --- | --- | --- |
+| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | True | 不符合規範 |
+| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | False | 相容 |
+| 新增 | 稽核、AuditIfNotExist\* | True | 不符合規範 |
+| 新增 | 稽核、AuditIfNotExist\* | False | 相容 |
 
+\* 附加、DeployIfNotExist 和 AuditIfNotExist 動作需要 IF 陳述式為 TRUE。 這些動作也需要存在條件為 FALSE，以呈現不符合規範。 若為 TRUE，IF 條件會觸發相關資源的存在條件評估。
 ## <a name="clean-up-resources"></a>清除資源
 
 此集合中的其他指南是以本快速入門為基礎。 如果您打算繼續進行後續的教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，請使用下列步驟，在 Azure 入口網站中刪除本快速入門所建立的所有資源。

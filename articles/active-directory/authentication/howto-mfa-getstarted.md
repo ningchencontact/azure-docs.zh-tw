@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/24/2017
 ms.author: joflore
-ms.openlocfilehash: e6210cf7ece0aa0cdeec8f95b74910893c22b1bb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e7ae9ad5429c9bdfe8fba2648f8b7a3390705b23
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>開始在雲端中使用 Azure Multi-Factor Authentication
 本文將帶領您逐步了解如何在雲端中開始使用 Azure Multi-Factor Authentication。
@@ -41,7 +41,7 @@ ms.lasthandoff: 04/19/2018
 
 ## <a name="turn-on-two-step-verification-for-users"></a>對使用者開啟雙步驟驗證
 
-使用[如何要求使用者或群組進行雙步驟驗證](../../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md)中所列的其中一個程序，開始使用 Azure MFA。 您可以選擇對所有登入強制執行雙步驟驗證，也可以建立條件式存取原則，只有在與您有關時要求雙步驟驗證。
+使用[如何要求使用者或群組進行雙步驟驗證](howto-mfa-userstates.md)中所列的其中一個程序，開始使用 Azure MFA。 您可以選擇對所有登入強制執行雙步驟驗證，也可以建立條件式存取原則，只有在與您有關時要求雙步驟驗證。
 
 ## <a name="next-steps"></a>後續步驟
 現在您已在雲端中設定 Azure Multi-Factor Authentication，接下來您可以設定及安裝您的部署。 如需詳細資訊，請參閱[設定 Azure Multi-Factor Authentication](howto-mfa-mfasettings.md)。

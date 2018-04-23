@@ -1,5 +1,5 @@
 ---
-title: "Azure 中 IaaS 工作負載的安全性最佳作法 | Microsoft Docs"
+title: Azure 中 IaaS 工作負載的安全性最佳作法 | Microsoft Docs
 description: " 將工作負載移轉至 Azure IaaS 可帶來重新評估設計的機會 "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 376a3e47e5099aa4d74732e0b6ed14ed9af14091
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作負載的安全性最佳作法
 
@@ -83,7 +83,7 @@ PAW 方法是完善且建議之作法的延伸，可使用個別指派的系統�
 
 將 Azure 使用於實驗室和開發環境，可讓組織排除硬體採購所造成的延遲，進而獲得測試和開發靈活度。 不幸的是，不熟悉 Azure 或渴望協助促進其採用，可能會導致系統管理員的權限指派過度寬鬆。 此風險可能會不小心讓組織暴露於內部攻擊。 有些使用者可能會被授與超出其應該擁有的存取權。
 
-[Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) 服務會使用 [Azure 角色型存取控制](../active-directory/role-based-access-control-what-is.md) (RBAC)。 透過使用 RBAC，您可以將小組內的職責區隔為各種角色，而僅授與使用者執行其作業所需的存取層級。 RBAC 隨附預先定義的角色 (擁有者、實驗室使用者和參與者)。 您甚至可以使用這些角色來指派權限給外部合作夥伴，大幅簡化共同作業。
+[Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) 服務會使用 [Azure 角色型存取控制](../role-based-access-control/overview.md) (RBAC)。 透過使用 RBAC，您可以將小組內的職責區隔為各種角色，而僅授與使用者執行其作業所需的存取層級。 RBAC 隨附預先定義的角色 (擁有者、實驗室使用者和參與者)。 您甚至可以使用這些角色來指派權限給外部合作夥伴，大幅簡化共同作業。
 
 由於 DevTest Labs 使用 RBAC，所以可能建立其他[自訂角色](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md)。 DevTest Labs 不僅可簡化權限管理，也能夠簡化佈建環境的程序。 它還能協助您處理小組在開發與測試環境上所面臨的其他典型挑戰。 這需要一些準備工作，但長期來看，它會讓您的小組更輕鬆地作業。
 

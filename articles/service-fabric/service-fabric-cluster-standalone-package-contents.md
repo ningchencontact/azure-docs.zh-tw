@@ -1,23 +1,23 @@
 ---
-title: "適用於 Windows Server 的 Azure Service Fabric 獨立封裝 | Microsoft Docs"
-description: "適用於 Windows Server 的 Azure Service Fabric 獨立封裝描述和內容。"
+title: 適用於 Windows Server 的 Azure Service Fabric 獨立封裝 | Microsoft Docs
+description: 適用於 Windows Server 的 Azure Service Fabric 獨立封裝描述和內容。
 services: service-fabric
 documentationcenter: .net
 author: maburlik
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: chackdan;maburlik
-ms.openlocfilehash: 6a6bacedde04419449a061554d5ce9ad37259a2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maburlik;aljo
+ms.openlocfilehash: 37425f8a076be2579726e5a83bec3da8c6eb5fff
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>適用於 Windows Server 的 Service Fabric 獨立封裝內容
 在[下載](http://go.microsoft.com/fwlink/?LinkId=730690)的 Service Fabric 獨立封裝中，您會找到下列檔案︰

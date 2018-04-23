@@ -1,8 +1,8 @@
 ---
-title: "服務對服務驗證︰使用 Python 利用 Azure Active Directory 向 Data Lake Store 進行 | Microsoft Docs"
-description: "了解如何使用 Python 利用 Azure Active Directory 向 Data Lake Store 完成服務對服務驗證"
+title: 服務對服務驗證︰使用 Python 利用 Azure Active Directory 向 Data Lake Store 進行 | Microsoft Docs
+description: 了解如何使用 Python 利用 Azure Active Directory 向 Data Lake Store 完成服務對服務驗證
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: c04b870e72c5d29df95d16b96cc423441af6fd85
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4a60ce14b711f50dd6cca996438ba0405ba4abcb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-python"></a>使用 Python 向 Data Lake Store 進行服務對服務驗證
 > [!div class="op_single_selector"]
@@ -102,7 +102,15 @@ pip install azure-datalake-store
 
 使用下列程式碼片段向 Azure AD 進行驗證，以便在 Data Lake Store 上進行檔案系統作業，例如建立資料夾、上傳檔案等等。下列程式碼片段可供使用應用程式/服務主體的用戶端密碼，以非互動方式驗證您的應用程式。 請將此方法用於現有的 Azure AD「Web 應用程式」應用程式。
 
-    adlCreds = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE', resource = 'https://datalake.azure.net/')
+    tenant = '<TENANT>'
+    RESOURCE = 'https://datalake.azure.net/'
+    client_id = '<CLIENT_ID>'
+    client_secret = '<CLIENT_SECRET>'
+    
+    adlCreds = lib.auth(tenant_id = tenant,
+                    client_secret = client_secret,
+                    client_id = client_id,
+                    resource = RESOURCE)
 
 <!-- ## Service-to-service authentication with certificate for account management
 

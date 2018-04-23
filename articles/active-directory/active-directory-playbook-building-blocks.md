@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -380,8 +380,8 @@ ms.lasthandoff: 03/29/2018
 | 必要條件 | 資源 |
 | --- | --- |
 | 在您的租用戶中啟用自助式密碼管理。 | [IT 系統管理員的 Azure Active Directory 密碼重設](active-directory-passwords-update-your-own-password.md) |
-| 啟用密碼回寫以管理來自內部部署環境的密碼。 請注意，這需要特定的 Azure AD Connect 版本 | [密碼回寫先決條件](active-directory-passwords-writeback.md) |
-| 識別將使用此功能的 PoC 使用者，並確定他們是安全性群組的成員。 使用者必須是非系統管理員，才能完整展示此功能 | [自訂：Azure AD 密碼管理：限制對密碼重設的存取](active-directory-passwords-writeback.md) |
+| 啟用密碼回寫以管理來自內部部署環境的密碼。 請注意，這需要特定的 Azure AD Connect 版本 | [密碼回寫先決條件](authentication/howto-sspr-writeback.md) |
+| 識別將使用此功能的 PoC 使用者，並確定他們是安全性群組的成員。 使用者必須是非系統管理員，才能完整展示此功能 | [自訂：Azure AD 密碼管理：限制對密碼重設的存取](authentication/howto-sspr-writeback.md) |
 
 
 ### <a name="steps"></a>步驟
@@ -412,7 +412,7 @@ ms.lasthandoff: 03/29/2018
 | 必要條件 | 資源 |
 | --- | --- |
 | 識別將使用 MFA 的 POC 使用者  |  |
-| 可供 MFA 挑戰使用的收訊良好手機  | [什麼是 Azure Multi-Factor Authentication？](../multi-factor-authentication/multi-factor-authentication.md) |
+| 可供 MFA 挑戰使用的收訊良好手機  | [什麼是 Azure Multi-Factor Authentication？](authentication/multi-factor-authentication.md) |
 
 ### <a name="steps"></a>步驟
 
@@ -421,7 +421,7 @@ ms.lasthandoff: 03/29/2018
 | 移至「Azure AD 管理入口網站」中的 [使用者和群組] 刀鋒視窗 | [Azure AD 管理入口網站：使用者和群組](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | 關閉 [所有使用者] 刀鋒視窗 |  |
 | 在頂端列中，選擇 [Multi-Factor Authentication] 按鈕 | Azure MFA 入口網站的直接 URL：https://aka.ms/mfaportal |
-| 在 [使用者] 設定中，選取 PoC 使用者並啟用他們來進行 MFA | [Azure Multi-Factor Authentication 中的使用者狀態](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
+| 在 [使用者] 設定中，選取 PoC 使用者並啟用他們來進行 MFA | [Azure Multi-Factor Authentication 中的使用者狀態](authentication/howto-mfa-userstates.md) |
 | 以 PoC 使用者身分登入，然後逐步執行提出證明的程序  |  |
 
 ### <a name="considerations"></a>考量
@@ -457,7 +457,7 @@ ms.lasthandoff: 03/29/2018
 
 ### <a name="considerations"></a>考量
 
-如果您要使用同盟，您可以使用內部部署的「識別提供者」(IdP)，透過宣告來溝通內部/外部公司網路狀態。 您可以使用這項技術而不需管理 IP 位址清單，在大型組織中，評估和管理 IP 位址可能會相當複雜。 在該設定中，您需要解釋「網路漫遊」情況 (使用者從內部網路登入，並在已登入的情況下切換位置，例如咖啡店)，並確定您了解該意涵。 深入了解：[使用 Azure Multi-Factor Authentication 與 AD FS 保護雲端資源：同盟使用者的可信任 IP](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
+如果您要使用同盟，您可以使用內部部署的「識別提供者」(IdP)，透過宣告來溝通內部/外部公司網路狀態。 您可以使用這項技術而不需管理 IP 位址清單，在大型組織中，評估和管理 IP 位址可能會相當複雜。 在該設定中，您需要解釋「網路漫遊」情況 (使用者從內部網路登入，並在已登入的情況下切換位置，例如咖啡店)，並確定您了解該意涵。 深入了解：[使用 Azure Multi-Factor Authentication 與 AD FS 保護雲端資源：同盟使用者的可信任 IP](authentication/howto-mfa-adfs.md#trusted-ips-for-federated-users)
 
 ## <a name="privileged-identity-management-pim"></a>Privileged Identity Management (PIM)
 

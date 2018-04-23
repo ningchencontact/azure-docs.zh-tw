@@ -1,13 +1,13 @@
 ---
-title: "Azure 虛擬機器擴展集加密磁碟 | Microsoft Docs"
-description: "了解如何在虛擬機器擴展集中加密連結的磁碟。"
+title: Azure 虛擬機器擴展集加密磁碟 | Microsoft Docs
+description: 了解如何在虛擬機器擴展集中加密連結的磁碟。
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3263ed4d6325207f38656d741fa4a1f091d4fdea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570764ad5d657a8b1efa2425423a89ddc518451c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>在虛擬機器擴展集中加密作業系統和連結的資料磁碟
 Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)支援 Azure 磁碟加密 (ADE)。  您可以啟用適用於 Windows 和 Linux 虛擬機器擴展集的 Azure 磁碟加密，使用業界標準加密技術來保護與防禦擴展集待用資料。 如需詳細資訊，請閱讀 Windows 和 Linux 虛擬機器適用的 Azure 磁碟加密。
@@ -42,7 +42,7 @@ Azure 磁碟加密支援：
 適用於虛擬機器擴展集預覽的 Azure 磁碟加密會要求您使用下列 PowerShell 命令，自行註冊訂用帳戶： 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 

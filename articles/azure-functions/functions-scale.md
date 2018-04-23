@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions 的規模調整和主控 |Microsoft Docs"
-description: "了解如何在 Azure Functions 取用方案與 App Service 方案之間做出選擇。"
+title: Azure Functions 的規模調整和主控 |Microsoft Docs
+description: 了解如何在 Azure Functions 取用方案與 App Service 方案之間做出選擇。
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 函式, 取用方案, app service 方案, 事件處理, webhooks, 動態計算, 無伺服器架構"
+editor: ''
+tags: ''
+keywords: azure functions, 函式, 取用方案, app service 方案, 事件處理, webhooks, 動態計算, 無伺服器架構
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
 ms.devlang: multiple
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
@@ -86,7 +86,7 @@ VM 可以減少執行數目、執行時間以及使用記憶體的成本。 如�
 
 <!-- JH: Does using a PRemium Storage account improve perf? -->
 
-若要深入了解儲存體帳戶類型，請參閱 [Azure 儲存體服務簡介](../storage/common/storage-introduction.md#introducing-the-azure-storage-services)。
+若要深入了解儲存體帳戶類型，請參閱 [Azure 儲存體服務簡介](../storage/common/storage-introduction.md#azure-storage-services)。
 
 ## <a name="how-the-consumption-plan-works"></a>取用方案的運作方式
 

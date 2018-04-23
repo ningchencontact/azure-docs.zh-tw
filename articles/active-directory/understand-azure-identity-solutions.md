@@ -1,23 +1,23 @@
 ---
-title: "了解 Azure 身分識別 | Microsoft Docs"
-description: "取得 Microsoft Azure 身分識別解決方案條款、概念和建議的基本了解，讓您為貴組織做出最佳的身分識別控管決策。"
-keywords: 
+title: 了解 Azure 身分識別 | Microsoft Docs
+description: 取得 Microsoft Azure 身分識別解決方案條款、概念和建議的基本了解，讓您為貴組織做出最佳的身分識別控管決策。
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>了解 Azure 身分識別解決方案
 Microsoft Azure Active Directory (Azure AD) 是一個身分識別和存取管理的雲端解決方案，可提供目錄服務、身分識別治理及應用程式存取管理。 Azure AD 可在 [Azure AD 應用程式庫](https://azure.microsoft.com/marketplace/active-directory/all/)中，快速[啟用單一登入 (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) 至 1,000 個預先整合的商業和自訂應用程式。 您可能已經使用這其中有許多應用程式，例如 Office 365、Salesforce.com、Box、ServiceNow 及 Workday。
@@ -53,7 +53,7 @@ Microsoft Azure 可提供數種方式，運用包含不同複雜性等級的身�
 |-----|-----|
 |[Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) |每個 Azure 訂用帳戶都具有 Azure AD 目錄的信任關係，可驗證使用者、服務和裝置。 多個訂用帳戶可以信任相同的 Azure AD 目錄，但一個訂用帳戶將只會信任單一 Azure AD 目錄。 這個信任關係不同於訂用帳戶與其他 Azure 資源 (網站、資料庫等) 之間的關係，後者比較像是訂用帳戶的子資源。 如果訂用帳戶已過期，則也會停止存取與 Azure AD 之外的訂用帳戶相關聯的資源。 不過，Azure AD 目錄會保留在 Azure 中，因此您可以將其他訂用帳戶與該目錄產生關聯，並繼續管理租用戶資源。|
 |[Azure AD 授權的運作方式](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-get-started-azure-portal) | 當您購買或啟用 Enterprise Mobility Suite、Azure AD Premium 或 Azure AD Basic 時，您的目錄會隨著訂用帳戶更新，包括其有效期間和預付授權。 一旦訂用帳戶啟用後，Azure AD 全域管理員就能管理服務，且可供授權的使用者使用。 可在 Azure 入口網站中的 [Azure Active Directory] > [授權] 刀鋒視窗中取得您訂用帳戶的資訊 (包括已指派或可用的授權數目)。 這也是管理您的授權指派最佳的位置。|
-|[Azure 入口網站中的角色型存取控制](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)|Azure 角色型存取控制 (RBAC) 可協助提供 Azure 資源的更細緻存取權管理。 權限太多可能會使帳戶暴露在攻擊者的威脅下。 權限太少則會讓員工無法有效率地完成工作。 使用 RBAC 時，您可以套用至所有資源群組的三個基本角色︰擁有者、參與者、讀取器作為基礎，為員工提供他們需要的確切權限。 您也可以建立最多 2000 個您自己的[自訂 RBAC 角色](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)，來符合您特定的需求。 |
+|[Azure 入口網站中的角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/overview)|Azure 角色型存取控制 (RBAC) 可協助提供 Azure 資源的更細緻存取權管理。 權限太多可能會使帳戶暴露在攻擊者的威脅下。 權限太少則會讓員工無法有效率地完成工作。 使用 RBAC 時，您可以套用至所有資源群組的三個基本角色︰擁有者、參與者、讀取器作為基礎，為員工提供他們需要的確切權限。 您也可以建立最多 2000 個您自己的[自訂 RBAC 角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)，來符合您特定的需求。 |
 |[混合式身分識別](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)|您可以使用 [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)，將內部部署 Windows Server Active Directory (AD DS) 與 Azure AD 整合，來達成混合式身分識別。 這可讓您為與 Azure AD 整合之 Office 365、Azure 和內部部署應用程式或 SaaS 應用程式的使用者提供通用身分識別。 您可以利用混合式身分識別，有效地將內部部署環境擴充到雲端，以進行身分識別與存取。|
 
 ### <a name="the-difference-between-windows-server-ad-ds-and-azure-ad"></a>Windows Server AD DS 與 Azure AD 之間的差異

@@ -1,25 +1,20 @@
 ---
-title: "SQL 資料倉儲商業智慧合作夥伴 | Microsoft Docs"
-description: "具有可支援「SQL 資料倉儲」之解決方案的協力廠商商業智慧合作夥伴清單。"
+title: SQL 資料倉儲商業智慧合作夥伴 | Microsoft Docs
+description: 具有可支援「SQL 資料倉儲」之解決方案的協力廠商商業智慧合作夥伴清單。
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: 
-ms.assetid: 1d9cdbd0-76c0-4b87-8a80-e792b73ffe10
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: partners
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
-ms.openlocfilehash: 7c88e55b420d45f6d0cd4486377e3f2b1347bd9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: 22f05607d85a1425c54b890e233b161e72c10848
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL 資料倉儲商業智慧合作夥伴
 若要建立端對端資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。  本文將重點放在具有可支援「Azure SQL 資料倉儲」之商業智慧 (BI) 解決方案的 Microsoft 合作夥伴公司。

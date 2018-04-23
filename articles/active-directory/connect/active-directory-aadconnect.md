@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 02849fb63a8d696fa4296f5ec885a2d24f9adca1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7112b8af792dc245c1a2a68e130328d82b4958b3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>整合您的內部部署目錄與 Azure Active Directory
 Azure AD Connect 會整合您的內部部署目錄與 Azure Active Directory。 這可讓您為與 Azure AD 整合之 Office 365、Azure 和 SaaS 應用程式的使用者提供通用身分識別。 本主題將引導您完成規劃、部署和作業步驟。 其中集結了與此領域相關的主題連結。
@@ -97,7 +97,7 @@ Azure AD Connect 隨附數個您可以選擇性地開啟或預設為啟用的功
 
 [密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)會將 Active Directory 中的密碼雜湊同步處理至 Azure AD。 使用者可在內部部署與雲端中使用相同的密碼，但只能在一個地方管理此密碼。 因為它使用您的內部部署 Active Directory 做為授權單位，所以您也可以使用自己的密碼原則。
 
-[密碼回寫](../active-directory-passwords-getting-started.md) 將可讓您的使用者在雲端中變更和重設其密碼，並套用您的內部部署密碼原則。
+[密碼回寫](../authentication/quickstart-sspr.md) 將可讓您的使用者在雲端中變更和重設其密碼，並套用您的內部部署密碼原則。
 
 [裝置回寫](active-directory-aadconnect-feature-device-writeback.md) 將可讓 Azure AD 中註冊的裝置寫回至內部部署 Active Directory，以便可以使用該裝置進行條件式存取。
 
@@ -110,7 +110,7 @@ Azure AD Connect 隨附數個您可以選擇性地開啟或預設為啟用的功
 | --- | --- |
 |設定篩選 | [Azure AD Connect 同步處理：設定篩選](active-directory-aadconnectsync-configure-filtering.md)|
 |密碼雜湊同步處理 | [Azure AD Connect 同步處理：實作密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
-|密碼回寫 | [開始使用密碼管理](../active-directory-passwords-getting-started.md)|
+|密碼回寫 | [開始使用密碼管理](../authentication/quickstart-sspr.md)|
 |裝置回寫 | [在 Azure AD Connect 中啟用裝置回寫](active-directory-aadconnect-feature-device-writeback.md)|
 |防止意外刪除 | [Azure AD Connect 同步處理：防止意外刪除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |自動升級 | [Azure AD Connect：自動升級](active-directory-aadconnect-feature-automatic-upgrade.md)|

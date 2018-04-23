@@ -1,8 +1,8 @@
 ---
-title: "Azure Multi-Factor Authentication 和 Active Directory 之間的目錄整合"
-description: "此 Azure Multi-Factor Authentication 頁面說明如何整合 Azure Multi-Factor Authentication Server 與 Active Directory，讓您可以同步處理目錄。"
+title: Azure Multi-Factor Authentication 和 Active Directory 之間的目錄整合
+description: 此 Azure Multi-Factor Authentication 頁面說明如何整合 Azure Multi-Factor Authentication Server 與 Active Directory，讓您可以同步處理目錄。
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
@@ -16,10 +16,10 @@ ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 9d06da0d15bfeffb17da81e4b5ae4423d01ed770
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Server 與 Active Directory 之間的目錄整合
 使用 Azure MFA Server 的 [目錄整合] 區段來與 Active Directory 或另一個 LDAP 目錄整合。 您可以設定相關屬性以比對目錄結構描述，並設定自動使用者同步處理。

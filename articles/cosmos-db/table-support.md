@@ -1,10 +1,10 @@
 ---
-title: "Azure Cosmos DB 的 Azure 表格儲存體支援 | Microsoft Docs"
-description: "了解 Azure Cosmos DB 資料表 API 和 Azure 儲存體資料表如何一起運作。"
+title: Azure Cosmos DB 的 Azure 表格儲存體支援 | Microsoft Docs
+description: 了解 Azure Cosmos DB 資料表 API 和 Azure 儲存體資料表如何一起運作。
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: 378f00f2-cfd9-4f6b-a9b1-d1e4c70799fd
 ms.service: cosmos-db
 ms.workload: data-services
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: mimig
-ms.openlocfilehash: c0c8f1aee75c4ee5cc35758b71ef573637fd3edd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.author: sngun
+ms.openlocfilehash: 2560c2ee34a83ce86db043e17fb41192c31de398
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>使用 Azure Cosmos DB 資料表 API 和 Azure 表格儲存體進行開發
 

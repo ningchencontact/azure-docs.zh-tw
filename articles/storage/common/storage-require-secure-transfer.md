@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 儲存體中要求使用安全傳輸 |Microsoft 文件"
-description: "了解 Azure 儲存體的「需要安全傳輸」功能，以及如何啟用它。"
+title: 在 Azure 儲存體中要求使用安全傳輸 |Microsoft 文件
+description: 了解 Azure 儲存體的「需要安全傳輸」功能，以及如何啟用它。
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: Jason.Hogg
 editor: fhryo-msft
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.openlocfilehash: 797ac45a41cdf655e7465a01875a0394081c08a7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 0ec36864377d724795197851341cbb837f47c4c6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>在 Azure 儲存體中要求使用安全傳輸
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/07/2017
 
 此範例需要 Azure PowerShell 模組 4.1 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
-執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。
+執行 `Connect-AzureRmAccount` 來建立與 Azure 的連線。
 
  使用下列命令列檢查設定：
 

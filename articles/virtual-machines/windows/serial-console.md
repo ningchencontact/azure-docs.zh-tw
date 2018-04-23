@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 2ff0dcba0912461d8528fc76c7c67d90febc0324
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>虛擬機器序列主控台 (預覽) 
 
@@ -33,7 +33,7 @@ Azure 上的虛擬機器序列主控台可讓您存取 Linux 和 Windows 虛擬�
 ## <a name="prerequisites"></a>先決條件 
 
 * 虛擬機器必須啟用[開機診斷](boot-diagnostics.md)功能 
-* 使用序列主控台的帳戶必須具有 VM 的[參與者角色](../../active-directory/role-based-access-built-in-roles.md)和[開機診斷](boot-diagnostics.md)儲存體帳戶。 
+* 使用序列主控台的帳戶必須具有 VM 的[參與者角色](../../role-based-access-control/built-in-roles.md)和[開機診斷](boot-diagnostics.md)儲存體帳戶。 
 
 ## <a name="open-the-serial-console"></a>開啟序列主控台
 只有透過 [Azure 入口網站](https://portal.azure.com)，才能存取虛擬機器的序列主控台。 以下是透過入口網站存取虛擬機器之序列主控台的步驟 
@@ -51,7 +51,7 @@ Azure 上的虛擬機器序列主控台可讓您存取 Linux 和 Windows 虛擬�
 ## <a name="serial-console-security"></a>序列主控台安全性 
 
 ### <a name="access-security"></a>存取安全性 
-僅限具有虛擬機器之 [VM 參與者](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)或更高存取權的使用者，才能存取序列主控台。 如果您的 AAD 租用戶要求使用 Multi-Factor Authentication，則存取序列主控台時也會需要 MFA，因為會透過 [Azure 入口網站](https://portal.azure.com)進行其存取。
+僅限具有虛擬機器之 [VM 參與者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)或更高存取權的使用者，才能存取序列主控台。 如果您的 AAD 租用戶要求使用 Multi-Factor Authentication，則存取序列主控台時也會需要 MFA，因為會透過 [Azure 入口網站](https://portal.azure.com)進行其存取。
 
 ### <a name="channel-security"></a>通道安全性
 系統會加密在網路上來回傳送的所有資料。

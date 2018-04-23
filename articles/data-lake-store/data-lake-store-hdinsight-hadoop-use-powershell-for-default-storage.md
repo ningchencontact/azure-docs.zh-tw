@@ -1,8 +1,8 @@
 ---
-title: "使用 PowerShell 建立以 Data Lake Store 做為預設儲存體的 HDInsight 叢集 | Microsoft Docs'"
-description: "使用 Azure PowerShell 建立及使用 HDInsight 叢集與 Azure Data Lake Store"
+title: 使用 PowerShell 建立以 Data Lake Store 做為預設儲存體的 HDInsight 叢集 | Microsoft Docs'
+description: 使用 Azure PowerShell 建立及使用 HDInsight 叢集與 Azure Data Lake Store
 services: data-lake-store,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 2f1793c2de2b68a8b155ada73044c6bc36882612
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 81074d303fbcefdf396de09510f69067eac3f3f6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-as-default-storage-by-using-powershell"></a>使用 PowerShell 建立以 Data Lake Store 做為預設儲存體的 HDInsight 叢集
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/21/2017
 1. 從您的桌面開啟 PowerShell 視窗，然後輸入下列程式碼片段。 當系統提示您登入時，請以其中一個訂用帳戶管理員或擁有者身分登入。 
 
         # Sign in to your Azure account
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
         # List all the subscriptions associated to your account
         Get-AzureRmSubscription

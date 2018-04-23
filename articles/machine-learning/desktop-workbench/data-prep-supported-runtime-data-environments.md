@@ -13,10 +13,10 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: bdd1c51c915787d9e9522f6691ae0ff06d546484
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="supported-matrix-for-this-release"></a>此版本支援的矩陣 
 當您的程式碼使用 Azure Machine Learning 資料來源或 Azure Machine Learning 資料準備載入資料，取得 Pandas 或 Spark 資料框架時，支援以下實驗計算環境和資料位置的組合：

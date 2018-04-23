@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b5df3d5e355fac0c0ea4203d28170a2d3c04ad9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ea5b19abed0b9d2a2b8131f2be3be14e94e17405
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集
 
@@ -63,7 +61,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
     1. 登入 [Azure 入口網站](https://portal.azure.com)。
     2. 按一下左側功能表的 [訂用帳戶]。 它有黃色的鑰匙圖示。 您應該會看到訂用帳戶清單。
     3. 按一下您要用來建立叢集的訂用帳戶。 
-    4. 按一下 [我的權限]。  它會顯示您在訂用帳戶上的[角色](../active-directory/role-based-access-control-what-is.md#built-in-roles)。 您至少需要「參與者」存取權限才能建立 HDInsight 叢集。
+    4. 按一下 [我的權限]。  它會顯示您在訂用帳戶上的[角色](../role-based-access-control/overview.md#built-in-roles)。 您至少需要「參與者」存取權限才能建立 HDInsight 叢集。
 
 - 若要使用現有的資源群組：
 
@@ -89,7 +87,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
     **左側功能表**：
     * **活動記錄檔**︰顯示和查詢活動記錄檔。
-    * **存取控制 (IAM)**︰使用角色指派。  請參閱[使用角色指派來管理 Azure 訂用帳戶資源的存取權](../active-directory/role-based-access-control-configure.md)。
+    * **存取控制 (IAM)**︰使用角色指派。  請參閱[使用角色指派來管理 Azure 訂用帳戶資源的存取權](../role-based-access-control/role-assignments-portal.md)。
     * **標記**：可讓您設定索引鍵/值組，以定義自訂的雲端服務分類法。 例如，您可建立名為 **project**的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
     * **診斷並解決問題**︰顯示疑難排解資訊。
     * **鎖定**︰新增鎖定以防止叢集遭到修改或刪除。

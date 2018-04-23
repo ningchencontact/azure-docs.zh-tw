@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 810c585e104f6b7bc63222594375527c45c6082d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>適用於 IT 專業人員的 Azure AD 自助式密碼重設
 
@@ -42,7 +42,7 @@ Azure AD SSPR 可協助您：
 * **發揮行動力**因為使用者可隨時隨地重設密碼。
 * **維持控制**安全性原則。 系統管理員可以持續強制執行其現有的原則。
 
-如果您準備好，可以使用我們[快速入門指南](../active-directory-passwords-getting-started.md)，開始使用 Azure AD SSPR。 您可以快速讓使用者能夠重設自己的密碼。
+如果您準備好，可以使用我們[快速入門指南](quickstart-sspr.md)，開始使用 Azure AD SSPR。 您可以快速讓使用者能夠重設自己的密碼。
 
 ## <a name="azure-ad-sspr-availability"></a>Azure AD SSPR 可用性
 
@@ -65,7 +65,7 @@ Azure AD SSPR 可協助您：
 
 ## <a name="next-steps"></a>後續步驟
 
-* 準備好開始使用 SSPR 嗎？ [安裝 Azure AD 自助式密碼重設](../active-directory-passwords-getting-started.md)。
+* 準備好開始使用 SSPR 嗎？ [安裝 Azure AD 自助式密碼重設](quickstart-sspr.md)。
 * 使用我們[首度發行指南](howto-sspr-deployment.md)中的指引來為使用者計劃成功的 SSPR 部署。
 * [重設或變更您的密碼](../active-directory-passwords-update-your-own-password.md)。
 * [註冊自助式密碼重設](../active-directory-passwords-reset-register.md)。

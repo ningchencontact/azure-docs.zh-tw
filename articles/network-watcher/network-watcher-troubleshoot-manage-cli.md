@@ -1,11 +1,11 @@
 ---
-title: "針對 Azure 虛擬網路閘道和連線進行疑難排解 - Azure CLI 2.0 | Microsoft Docs"
-description: "此頁面說明如何使用 Azure 網路監看員來針對 Azure CLI 2.0 進行疑難排解"
+title: 針對 Azure 虛擬網路閘道和連線進行疑難排解 - Azure CLI 2.0 | Microsoft Docs
+description: 此頁面說明如何使用 Azure 網路監看員來針對 Azure CLI 2.0 進行疑難排解
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2838bc61-b182-4da8-8533-27db8fdbd177
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 6e55e0a70142c81e9543688bf699ef149f3ecff2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 67f2e8a897c7bcb66b2950925480b3dff5a09f61
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>使用 Azure 網路監看員 Azure CLI 2.0 來針對虛擬網路閘道和連線進行疑難排解
 
@@ -99,4 +99,4 @@ az network watcher troubleshooting start --resource-group resourceGroupName --re
 
 ## <a name="next-steps"></a>後續步驟
 
-如果設定已變更而停止了 VPN 連線，請參閱[管理網路安全性群組](../virtual-network/virtual-network-manage-nsg-arm-portal.md)以追蹤可能有問題的網路安全性群組和安全性規則。
+如果設定已變更而停止了 VPN 連線，請參閱[管理網路安全性群組](../virtual-network/manage-network-security-group.md)以追蹤可能有問題的網路安全性群組和安全性規則。

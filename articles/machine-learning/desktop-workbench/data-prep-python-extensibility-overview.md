@@ -1,6 +1,6 @@
 ---
-title: "搭配 Azure Machine Learning 資料準備使用 Python 擴充性 | Microsoft Docs"
-description: "本文件提供如何使用 Python 程式碼來擴充資料準備功能的概觀和一些詳細範例"
+title: 搭配 Azure Machine Learning 資料準備使用 Python 擴充性 | Microsoft Docs
+description: 本文件提供如何使用 Python 程式碼來擴充資料準備功能的概觀和一些詳細範例
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="data-preparations-python-extensions"></a>資料準備 Python 延伸模組
 資料準備可用來作為填補內建功能之間功能落差的方法，Azure Machine Learning 資料準備包含多個層級的擴充性。 在本文件中，我們將透過 Python 指令碼概述擴充性。 

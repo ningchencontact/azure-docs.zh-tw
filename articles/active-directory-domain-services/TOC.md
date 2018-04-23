@@ -61,12 +61,12 @@
 # 相關參考
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
-## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+## [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 
 # 資源
 ## [Azure AD 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [與我們連絡](active-directory-ds-contact-us.md)
-## [價格](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [定價](https://azure.microsoft.com/pricing/details/active-directory-ds/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory-ds)

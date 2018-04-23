@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory Identity Protection 偵測到的弱點 | Microsoft Docs"
-description: "Azure Active Directory Identity Protection 偵測到的弱點概觀。"
+title: Azure Active Directory Identity Protection 偵測到的弱點 | Microsoft Docs
+description: Azure Active Directory Identity Protection 偵測到的弱點概觀。
 services: active-directory
-keywords: "azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則"
-documentationcenter: 
+keywords: azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 65b1ae76794c812f9fcf2955d09e023195ef6342
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 90fb659abfcff09eb715fcc29bbfb7e4facd3a6b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection 偵測到的弱點
 弱點是您的環境中攻擊者可以利用的弱點。 我們建議您處理這些弱點，以改善組織的安全性狀態，並防止攻擊者利用這些弱點。
@@ -38,7 +38,7 @@ Azure Multi-Factor Authentication 會為使用者驗證提供第二層安全性�
 
 建議您要求對使用者登入進行 Multi-Factor Authentication。在 Identity Protection 提供的以風險為基礎的條件式存取原則中，Multi-Factor Authentication 扮演關鍵角色。
 
-如需詳細資訊，請參閱 [什麼是 Azure Multi-Factor Authentication？](../multi-factor-authentication/multi-factor-authentication.md)
+如需詳細資訊，請參閱 [什麼是 Azure Multi-Factor Authentication？](authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>非受控雲端應用程式
 此弱點可協助您識別組織中非受控雲端應用程式。

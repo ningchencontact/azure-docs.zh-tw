@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4d926ee08da593e590aa77a2ca09d8d1e1f6bb46
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5d91d8d00a37422dcead195354447d602b801f9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>保護儲存在 Azure 資料湖儲存區中的資料
 保護儲存在 Azure 資料湖儲存區中的資料，其方法有三步驟。  必須設定角色型存取控制 (RBAC) 和存取控制清單 (ACL) 都，才能完整啟用使用者和安全性群組之資料的存取權。
 
-1. 首先，在 Azure Active Directory (AAD) 中建立安全性群組。 這些安全性群組是用在 Azure 入口網站中實作角色型存取控制 (RBAC)。 如需詳細資訊，請參閱 [Microsoft Azure 中的角色型存取控制](../active-directory/role-based-access-control-configure.md)。
+1. 首先，在 Azure Active Directory (AAD) 中建立安全性群組。 這些安全性群組是用在 Azure 入口網站中實作角色型存取控制 (RBAC)。 如需詳細資訊，請參閱 [Microsoft Azure 中的角色型存取控制](../role-based-access-control/role-assignments-portal.md)。
 2. 指派 AAD 安全性群組給 Azure 資料湖儲存區帳戶。 這會控制從入口網站至資料湖儲存區帳戶，以及從入口網站或 API 至管理作業的存取。
 3. 指派 AAD 安全性群組做為資料湖儲存區檔案系統上的存取控制清單 (ACL)。
 4. 此外，您也可以針對可以存取 Data Lake Store 中資料的用戶端設定 IP 位址範圍。

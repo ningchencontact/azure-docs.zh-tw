@@ -1,6 +1,6 @@
 ---
-title: "如何使用 Azure Machine Learning 資料準備執行 API 的深度指南 | Microsoft Docs"
-description: "本文件提供事先執行設計之資料來源和資料準備套件的詳細資料"
+title: 如何使用 Azure Machine Learning 資料準備執行 API 的深度指南 | Microsoft Docs
+description: 本文件提供事先執行設計之資料來源和資料準備套件的詳細資料
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 36814d238aabd12e7cc6947809c135130002eb46
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="execute-data-sources-and-data-preparations-packages-from-python"></a>執行來自 Python 的資料來源和資料準備套件
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 018893a2124f1ab9c98e0728bc90ad0a69cf471f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3f553b9ea3629a38ab9dea0e93b16c62aebe301f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>教學課程：Azure Active Directory 與 Amazon Web Services (AWS) 整合
 
@@ -202,9 +202,9 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     b. 在 [Role description] \(文字描述\) 文字方塊中，輸入描述。
 
-    a. 按一下 [建立角色]。
+    c. 按一下 [建立角色]。
 
-    b. 建立所需數量的角色，並將它們對應至識別提供者。
+    d. 建立所需數量的角色，並將它們對應至識別提供者。
 
 18. 使用 AWS 服務帳戶認證，以透過 Azure AD 使用者佈建中的 AWS 帳戶來擷取角色。 若要這麼做，請開啟 AWS 主控台首頁。
 
@@ -270,16 +270,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
     
     c. 按一下 [建立原則] 按鈕。
 
-24. 在 [檢閱]  對話方塊上，執行下列步驟：   
-    
-    ![設定單一登入檢閱][34] 
-
-    a. 按一下 [建立角色]。
-
-    b. 建立所需數量的角色，並將它們對應至識別提供者。
-
-
-25. 執行下列步驟，以在 AWS IAM 服務中建立新的使用者帳戶：
+24. 執行下列步驟，以在 AWS IAM 服務中建立新的使用者帳戶：
 
     a. 按一下 AWS IAM 主控台中的 [使用者] 導覽。
 
@@ -299,7 +290,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
     
     * 按一下右下角的 [Next Permissions] (接下來的權限) 按鈕。
 
-26. 現在，執行下列步驟，以建立此使用者的新原則：
+25. 現在，執行下列步驟，以建立此使用者的新原則：
 
     ![新增使用者](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
@@ -309,7 +300,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
     
     c. 選取 [原則]，然後按一下 [下一步: 評論] 按鈕。
 
-27. 執行下列步驟，以檢閱所連接使用者的原則：
+26. 執行下列步驟，以檢閱所連接使用者的原則：
 
     ![新增使用者](./media/active-directory-saas-amazon-web-service-tutorial/adduser3.png)
     
@@ -317,7 +308,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
     
     b. 按一下右下角的 [建立使用者] 按鈕，以建立使用者。
 
-28. 執行下列步驟，以下載使用者的使用者認證：
+27. 執行下列步驟，以下載使用者的使用者認證：
 
     ![新增使用者](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
     
@@ -327,11 +318,11 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
     
     c. 按一下底部的 [關閉] 按鈕。
 
-29. 巡覽至 Azure AD 管理入口網站中 Amazon Web Services 應用程式的 [使用者佈建] 區段。
+28. 巡覽至 Azure AD 管理入口網站中 Amazon Web Services 應用程式的 [使用者佈建] 區段。
 
     ![新增使用者](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-30. 在 [用戶端祕密] 和 [祕密權杖] 欄位中，分別輸入 [存取金鑰] 和 [祕密]。
+29. 在 [用戶端祕密] 和 [祕密權杖] 欄位中，分別輸入 [存取金鑰] 和 [祕密]。
 
     ![新增使用者](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -343,7 +334,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     d. 按一下頂端的 [儲存] 按鈕，以儲存設定。
  
-31. 現在，請確定您開啟開關，然後按一下頂端的 [儲存] 按鈕，以在 [設定] 區段中 [開啟] [佈建狀態]。
+30. 現在，請確定您開啟開關，然後按一下頂端的 [儲存] 按鈕，以在 [設定] 區段中 [開啟] [佈建狀態]。
 
     ![新增使用者](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
 

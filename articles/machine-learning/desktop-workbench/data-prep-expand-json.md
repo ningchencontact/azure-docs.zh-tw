@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Machine Learning Workbench 展開 JSON 轉換"
-description: "「展開 JSON」轉換的參考文件"
+title: 使用 Azure Machine Learning Workbench 展開 JSON 轉換
+description: 「展開 JSON」轉換的參考文件
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -12,10 +12,10 @@ ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: 21de94d2d0d3cc12aabcb8e9e8b0eec39b0a2710
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="expand-json-transformation"></a>展開 JSON 轉換
 **展開 JSON**轉換可讓使用者將包含有效 JSON 文字的現有資料行展開至多個資料行。
