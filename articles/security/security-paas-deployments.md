@@ -1,12 +1,12 @@
 ---
-title: "保護 PaaS 部署 | Microsoft Docs"
+title: 保護 PaaS 部署 | Microsoft Docs
 description: " 了解 PaaS 與其他雲端服務模型相較之下的安全性優點，以及了解保護 Azure PaaS 部署的建議做法。 "
 services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
 editor: techlake
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 4629e0ab6bbc9554128a923e92b269df79446b18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: f19c52629a997687692eef9bce2e13b2b7894052
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-paas-deployments"></a>保護 PaaS 部署
 
@@ -87,12 +87,12 @@ PaaS 與傳統內部部署的另一個重大差異在於一個新觀點，就是
 
 - **不要遺失您的金鑰或認證**：保護金鑰和認證對保護 PaaS 部署來說相當重要。 遺失金鑰和認證是相當常見的問題。 其中一個絕佳的解決方案是使用集中式解決方案，將金鑰和密碼存放在硬體安全性模組 (HSM) 中。 Azure 藉由 [Azure Key Vault](../key-vault/key-vault-whatis.md) 提供您一個雲端 HSM。
 - **不要將認證及其他密碼放在原始程式碼或 GitHub 中**：唯一比遺失金鑰和認證更糟的情況就是讓未經授權的一方能夠存取這些機密資料。 攻擊者能夠利用 Bot 技術來尋找存放在程式碼儲存機制 (例如 GitHub) 中的金鑰和密碼。 請勿將金鑰和密碼放在這些公用原始程式碼儲存機制中。
-- **保護混合式 PaaS 和 IaaS 服務上的 VM 管理介面**：IaaS 和 PaaS 服務是在虛擬機器 (VM) 上執行。 視服務類型而定，有數個管理介面可供您從遠端直接管理這些 VM。 可使用的遠端管理通訊協定包括像是[安全殼層通訊協定 (SSH)](https://en.wikipedia.org/wiki/Secure_Shell)、[遠端桌面通訊協定 (RDP)](https://support.microsoft.com/kb/186607) 及[遠端 PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting)。 一般而言，建議您不要啟用從網際網路直接遠端存取 VM 的功能。 您應該使用替代方法 (如果可用)，例如使用虛擬私人網路來連線到 Azure 虛擬網路。 如果沒有替代方法可用，則請務必使用複雜密碼，並且如果可以使用雙重要素驗證 (例如 [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md))，便使用此驗證。
+- **保護混合式 PaaS 和 IaaS 服務上的 VM 管理介面**：IaaS 和 PaaS 服務是在虛擬機器 (VM) 上執行。 視服務類型而定，有數個管理介面可供您從遠端直接管理這些 VM。 可使用的遠端管理通訊協定包括像是[安全殼層通訊協定 (SSH)](https://en.wikipedia.org/wiki/Secure_Shell)、[遠端桌面通訊協定 (RDP)](https://support.microsoft.com/kb/186607) 及[遠端 PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting)。 一般而言，建議您不要啟用從網際網路直接遠端存取 VM 的功能。 您應該使用替代方法 (如果可用)，例如使用虛擬私人網路來連線到 Azure 虛擬網路。 如果沒有替代方法可用，則請務必使用複雜密碼，並且如果可以使用雙重要素驗證 (例如 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md))，便使用此驗證。
 - **使用增強式驗證與授權平台**
 
   - 使用 Azure AD 中的同盟身分識別，而不要使用自訂使用者存放區。 使用同盟身分識別時，您可以利用平台型方法並將已授權之身分識別的管理委派給您的合作夥伴。 在員工已被解雇而該資訊必須透過多個身分識別與授權系統來反映的案例中，同盟身分識別方法尤其重要。
   - 使用平台提供的驗證與授權機制，而不要使用自訂程式碼。 原因在於開發自訂驗證程式碼可能容易出錯。 您的大多數開發人員都不是安全性專家，因此可能不是很清楚驗證與授權方面的微妙細節和最新發展。 商業程式碼 (例如來自 Microsoft) 通常都經過廣泛的安全性檢閱。
-  - 使用多重要素驗證。 多重要素驗證是現行的驗證與授權標準，因為它可避免使用者名稱與密碼型驗證中固有的安全性弱點。 您應該將 Azure 管理 (入口網站/遠端 PowerShell) 介面和面向客戶之服務的存取方式都設計並設定成使用 [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md)。
+  - 使用多重要素驗證。 多重要素驗證是現行的驗證與授權標準，因為它可避免使用者名稱與密碼型驗證中固有的安全性弱點。 您應該將 Azure 管理 (入口網站/遠端 PowerShell) 介面和面向客戶之服務的存取方式都設計並設定成使用 [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md)。
   - 使用標準驗證通訊協定，例如 OAuth2 和 Kerberos。 這些通訊協定已經過廣泛的對等檢閱，而可能作為您驗證與授權平台程式庫的一部分來實作。
 
 ## <a name="next-steps"></a>後續步驟

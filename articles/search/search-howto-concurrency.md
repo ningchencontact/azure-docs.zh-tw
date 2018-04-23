@@ -3,15 +3,16 @@ title: 如何在 Azure 搜尋服務中管理對於資源的並行寫入
 description: 使用開放式同步存取來避免在針對 Azure 搜尋服務索引、索引子及資料來源的更新或刪除過程中發生衝突。
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
-ms.openlocfilehash: 26c285a016443bd67eb8dca008510debe82bcc32
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f5fa495c1266c847cabc0eb4e35b85132550bc3c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>如何管理 Azure 搜尋服務中的並行
 

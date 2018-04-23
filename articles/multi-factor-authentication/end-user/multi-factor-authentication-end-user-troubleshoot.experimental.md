@@ -1,9 +1,9 @@
 ---
-title: "針對雙步驟驗證進行疑難排解 | Microsoft Docs"
-description: "本文件將提供如果使用者使用 Azure Multi-Factor Authentication 遇到問題時，該怎麼辦的資訊。"
+title: 針對雙步驟驗證進行疑難排解 | Microsoft Docs
+description: 本文件將提供如果使用者使用 Azure Multi-Factor Authentication 遇到問題時，該怎麼辦的資訊。
 services: multi-factor-authentication
-keywords: "多重要素驗證用戶端, 驗證的問題, 相互關聯識別碼"
-documentationcenter: 
+keywords: 多重要素驗證用戶端, 驗證的問題, 相互關聯識別碼
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
@@ -16,11 +16,11 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 20a90aa36b727b18fb37aaf658da884b5997cd44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 736a1f03ef87850fdaaee7ce636d8dd0f3ae1a84
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-help-with-two-step-verification"></a>取得雙步驟驗證的說明
 本文回答人們最常詢問有關雙步驟驗證的問題。 
@@ -86,7 +86,7 @@ Microsoft 提供了雙步驟驗證，但您的組織選擇使用該功能。 如
 如果您經常因手機收訊不良而延遲，則建議在智慧型手機上使用 [Microsoft Authenticator 應用程式](microsoft-authenticator-app-how-to.md)。 應用程式可以產生您用來登入的隨機安全驗證碼，而且這些代碼不需要任何手機訊號或網際網路連接。
 
 ## <a name="app-passwords-are-not-working"></a>應用程式密碼無效
-首先，請確定您輸入的是正確的應用程式密碼。 產生的應用程式密碼會取代您的一般密碼，但僅適用於不支援雙步驟驗證的較舊桌面應用程式。 如果仍無法登入，請嘗試登入並[建立新的應用程式密碼](multi-factor-authentication-end-user-app-passwords.md)。  如果還是無法登入，請連絡公司支援人員，要求他們[刪除您現有的應用程式密碼](../multi-factor-authentication-manage-users-and-devices.md)，然後建立新的密碼。
+首先，請確定您輸入的是正確的應用程式密碼。 產生的應用程式密碼會取代您的一般密碼，但僅適用於不支援雙步驟驗證的較舊桌面應用程式。 如果仍無法登入，請嘗試登入並[建立新的應用程式密碼](multi-factor-authentication-end-user-app-passwords.md)。  如果還是無法登入，請連絡公司支援人員，要求他們[刪除您現有的應用程式密碼](../../active-directory/authentication/howto-mfa-userdevicesettings.md)，然後建立新的密碼。
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>我找不到我問題的解答。
 如果您嘗試過這些疑難排解步驟，但仍遭遇問題，請連絡您的公司支援人員。 他們應該可以協助您。

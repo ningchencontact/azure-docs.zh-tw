@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: be167e298a4c0e76d7cf3bb638838047d4e9bcee
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3bbcf7b637a0f32751dc15664a1b7479e65503eb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>最大化資料行存放區的資料列群組品質
 
@@ -149,11 +149,3 @@ DWU 大小和使用者資源類別會共同判斷有多少記憶體可供使用�
 
 若要尋找更多在 SQL 資料倉儲中改善效能的方法，請參閱[效能概觀](sql-data-warehouse-overview-manage-user-queries.md)。
 
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-<!--Other Web references-->

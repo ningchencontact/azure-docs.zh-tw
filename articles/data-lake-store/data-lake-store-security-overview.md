@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: d3387812e064d3ce8a293db7d2c942a34cd5b364
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4dc1b070f7933f23ee615501dfbc68551068210c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store 安全性
 許多企業會運用巨量資料分析來獲得商業見解，以利他們做出明智的決策。 但企業的環境可能既複雜又受到規範，並且還有數目日益增加的各類使用者。 因此，企業必須確定重要的商業資料有受到更妥善的保存，並授與正確層級的存取權給個別使用者。 Azure Data Lake Store 的設計便是要協助企業符合這些安全性需求。 請透過本文了解 Data Lake Store 的安全性功能，包括︰
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/16/2018
 每個 Azure 訂用帳戶都可與 Azure Active Directory 的執行個體相關聯。 只有 Azure Active Directory 服務中所定義的使用者和服務身分識別可以存取 Data Lake Store 帳戶，方法是使用 Azure 入口網站、命令列工具，或透過您的組織使用 Azure Data Lake Store SDK 所建立的用戶端應用程式。 使用 Azure Active Directory 做為集中式存取控制機制的主要優點如下︰
 
 * 簡化的身分識別生命週期管理。 只要刪除或停用目錄中的帳戶，即可快速建立及快速撤銷使用者或服務的身分識別 (服務主體身分識別)。
-* 多因素驗證。 [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) 可為使用者登入和交易提供額外的安全性。
+* 多因素驗證。 [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) 可為使用者登入和交易提供額外的安全性。
 * 可透過標準的開放通訊協定 (例如 OAuth 或 OpenID) 從任何用戶端進行驗證。
 * 可與企業目錄服務和雲端識別提供者同盟。
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-management-in-azure"></a>Azure 的安全性管理
 Azure 訂閱者可從多種裝置管理其雲端環境，這些裝置包括管理工作站、開發人員的電腦，甚至是具有工作專用權限的特殊權限使用者裝置。 有時候，管理功能是透過 Web 式主控台來執行，例如 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)。 至於其他時候，則可能會從內部部署系統，透過虛擬私人網路 (VPN)、終端機服務、用戶端應用程式通訊協定或 Azure 服務管理 API (SMAPI) (以程式設計方式) 直接連線至 Azure。 此外，用戶端端點也可以加入網域或是遭到隔離且非受控，例如平板電腦或智慧型手機。
@@ -99,7 +99,7 @@ Azure 雲端服務組態是透過 Azure 入口網站或 SMAPI，經由 Windows P
 
 虛擬機器部署的應用程式會視需要提供自己的用戶端工具和介面 (例如 Microsoft Management Console (MMC))、企業管理主控台 (例如 Microsoft System Center 或 Windows Intune) 或其他管理應用程式 (例如 Microsoft SQL Server Management Studio)。 這些工具通常位在企業環境或用戶端網路中。 它們可能仰賴需要直接、具狀態之連線的特定網路通訊協定，例如遠端桌面通訊協定 (RDP)。 有些則可能會有不應該透過網際網路公開發佈或存取的具有 Web 功能的介面。
 
-您可以使用 [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)、[X.509 管理憑證](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/)和防火牆規則來限制存取 Azure 中的基礎結構和平台服務管理。 Azure 入口網站和 SMAPI 需要傳輸層安全性 (TLS)。 不過，您部署至 Azure 的服務和應用程式需要您根據應用程式採取合適的保護措施。 這些機制可以透過標準化的強化後工作站組態更容易地經常啟用。
+您可以使用 [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)、[X.509 管理憑證](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/)和防火牆規則來限制存取 Azure 中的基礎結構和平台服務管理。 Azure 入口網站和 SMAPI 需要傳輸層安全性 (TLS)。 不過，您部署至 Azure 的服務和應用程式需要您根據應用程式採取合適的保護措施。 這些機制可以透過標準化的強化後工作站組態更容易地經常啟用。
 
 ### <a name="management-gateway"></a>管理閘道
 若要集中管理所有系統管理存取權並簡化監視與記錄，您可以在內部部署網路中部署連線到 Azure 環境的專用[遠端桌面閘道](https://technet.microsoft.com/library/dd560672) (RD 閘道) 伺服器。
@@ -110,7 +110,7 @@ Azure 雲端服務組態是透過 Azure 入口網站或 SMAPI，經由 Windows P
 * 將 RD 閘道加入至相同的[管理網域](http://technet.microsoft.com/library/bb727085.aspx)以做為系統管理員的工作站。 當您在具有對 Azure AD 之單向信任的網域內使用網站間 IPsec VPN 或 ExpressRoute 時，或是如果您要同盟內部部署 AD DS 執行個體與 Azure AD 之間的認證，就必須這麼做。
 * 設定[用戶端連線授權原則](http://technet.microsoft.com/library/cc753324.aspx)，讓 RD 閘道驗證用戶端電腦名稱是否有效 (已加入網域)，並允許存取 Azure 入口網站。
 * 針對 [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) 使用 IPsec 以進一步防止管理流量遭到竊聽以及權杖遭竊，或考慮使用透過 [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) 的隔離網際網路連結。
-* 針對透過 RD 閘道登入的系統管理員啟用 Multi-Factor Authentication (透過 [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)) 或智慧卡驗證。
+* 針對透過 RD 閘道登入的系統管理員啟用 Multi-Factor Authentication (透過 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)) 或智慧卡驗證。
 * 在 Azure 中設定來源 [IP 位址限制](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/)或[網路安全性群組](../virtual-network/virtual-networks-nsg.md)以將允許的管理端點數目降到最低。
 
 ## <a name="security-guidelines"></a>安全性方針

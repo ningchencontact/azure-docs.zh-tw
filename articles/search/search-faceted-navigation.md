@@ -3,15 +3,16 @@ title: 如何在 Azure 搜尋服務中實作多面向導覽 | Microsoft Docs
 description: 將「多面向導覽」加入與 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 整合的應用程式。
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: 9ca289d4a8ce9849e3ec8fa4c2a3ca89f4dc311e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1bd814250a243d03f1eedc4d0ecb2719975b9c6f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>如何在 Azure 搜尋服務中實作多面向導覽
 多面向導覽是一個篩選機制，它在搜尋應用程式中提供自動導向的向下鑽研導覽。 「多面向導覽」一詞可能讓您感到陌生，但您可能早已使用過它。 如下列範例所示，多面向導覽其實就是用來篩選結果的類別。

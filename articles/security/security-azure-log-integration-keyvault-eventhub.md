@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 9b3ae914774d2d6a66c5732f1d63f09926bb48fc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 42c30a825e44c289c42d0fb0a40a442c4ac950d7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 記錄整合教學課程：使用事件中樞處理Azure Key Vault 事件
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 04/19/2018
 
 4. 成功驗證之後，您便會登入並看到下列螢幕擷取畫面中的資訊。 由於您在後續步驟中需要使用訂用帳戶識別碼和訂用帳戶名稱，因此請記下這些資訊。
 
-   ![PowerShell 視窗](./media/security-azure-log-integration-keyvault-eventhub/Connect-AzureRmAccount.png)
+   ![PowerShell 視窗](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 5. 建立變數來儲存稍後將使用的值。 逐行下列每一行 PowerShell。 您可能需要調整該值以符合您的環境。
     - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (您的訂用帳戶名稱可能會不同。 您可以看到其顯示為先前命令輸出的一部分。)
     - ```$location = 'West US'``` (此變數會用於傳遞應該建立資源的位置。 您可以將此變數變更為您所選擇的任何位置。)

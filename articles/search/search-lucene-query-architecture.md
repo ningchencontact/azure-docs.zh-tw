@@ -3,16 +3,17 @@ title: Azure 搜尋服務中的完整文字搜尋引擎 (Lucene) 架構 | Micros
 description: 與 Azure 搜尋服務相關之全文檢索搜尋的 Lucene 查詢處理和文件擷取概念說明。
 manager: jlembicz
 author: yahnoosh
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.openlocfilehash: 7cc4e19fd23095982d59578f7393e17b7f003757
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d05aade97ea5713b63b921d9e39d4df0c30b8fa0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>全文檢索搜尋如何在 Azure 搜尋服務中運作
 

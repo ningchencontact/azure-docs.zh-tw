@@ -3,7 +3,7 @@ title: 靜態內部私人 IP - Azure VM - 傳統
 description: 了解靜態內部 IP (DIP) 以及如何管理
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: genli
-ms.openlocfilehash: b668a06b91a5fcb1dd08737e0422b599bdb3e27f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1cdf33632c282a872d0eb83dd1a1b1c639fc14bd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>如何使用 PowerShell 設定靜態內部私人 IP 位址 (傳統)
 在大部分情況下，您不需要針對虛擬機器指定靜態內部 IP 位址。 虛擬網路中的 VM 會從您指定的範圍自動接收內部 IP 位址。 但在某些情況下，針對特定 VM 指定靜態 IP 位址是合理的。 例如，如果您的 VM 即將執行 DNS 或將成為網域控制站。 靜態內部 IP 位址會伴隨 VM 而存在，甚至是透過停止/取消佈建狀態。 

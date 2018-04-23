@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 906ea3c37823616597ee74dbadf50618d5c4e11d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 66a3a31574778bb1238498b523d51dc0d32ac22f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 安全性管理和監視概觀
 Azure 提供安全性機制，來協助管理與監視 Azure 雲端服務和虛擬機器。 本文概述這些核心安全性功能和服務。 所提供的文章連結將提供每個項目的詳細資料，以讓您深入了解。
@@ -75,7 +75,7 @@ Azure Multi-Factor Authentication (MFA) 是需要使用多種驗證方法，並�
 深入了解：
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [什麼是 Azure Multi-Factor Authentication？](../multi-factor-authentication/multi-factor-authentication.md)
+* [什麼是 Azure Multi-Factor Authentication？](../active-directory/authentication/multi-factor-authentication.md)
 * [Azure Multi-Factor Authentication 的作用](../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute

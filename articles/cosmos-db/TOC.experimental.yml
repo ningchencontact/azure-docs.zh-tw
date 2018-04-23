@@ -209,17 +209,17 @@ items:
                   - name: 連線至 Spark
                     href: spark-connector.md
                   - name: 在 HDInsight 上使用 Kafka 和 Spark 進行串流
-                    href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+                    href: 'https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json'
                   - name: 以 Azure App Service 部署網站
                     href: create-website.md
                   - name: 使用 Logic Apps 進行應用程式記錄
-                    href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
+                    href: 'https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json'
                   - name: 繫結至 Azure Functions
-                    href: ../azure-functions/functions-bindings-cosmosdb.md
+                    href: 'https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json'
                   - name: 與 Azure 搜尋服務整合
-                    href: ../search/search-howto-index-cosmosdb.md
+                    href: 'https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json'
                   - name: 使用 Azure Data Factory 移動資料
-                    href: ../data-factory/connector-azure-cosmos-db.md
+                    href: 'https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json'
                   - name: 使用 Azure 串流分析來分析即時資料
                     href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
                   - name: 使用 Logic Apps 取得已變更的 HL7 FHIR 記錄
@@ -231,7 +231,7 @@ items:
                   - name: 運用 ODBC 驅動程式展現資料視覺效果
                     href: odbc-driver.md
                   - name: 使用 Spring Boot Starter 搭配 SQL API
-                    href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+                    href: 'https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json'
           - name: 參考
             items:
               - name: 非同步 Java
@@ -381,7 +381,7 @@ items:
               - name: .NET
                 href: table-storage-how-to-use-dotnet.md
               - name: 'F#'
-                href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+                href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
               - name: Node.js
                 href: table-storage-cloud-service-nodejs.md
               - name: Java

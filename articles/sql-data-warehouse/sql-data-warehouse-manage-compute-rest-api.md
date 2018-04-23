@@ -2,19 +2,19 @@
 title: 在 Azure SQL 資料倉儲中暫停、繼續、使用 REST 調整 | Microsoft Docs
 description: 透過 REST API 管理 SQL 資料倉儲中的計算能力。
 services: sql-data-warehouse
-author: ronortloff
+author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 198c78c18839dea4d29e7a314835162bca5b350c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 21423d69bf2cf06bcd208082ce492bf5dd038e29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>適用於 Azure SQL 資料倉儲的 REST API
 在 Azure SQL 資料倉儲中用於管理計算能力的 REST API。

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>將備份保存庫升級為復原服務保存庫
 本文提供復原服務保存庫提供服務的概觀、將現有備份保存庫升級為復原服務保存庫的常見問題集，與升級後步驟。 復原服務保存庫是您存放備份資料之備份保存庫的 Azure Resource Manager 對等項目。 資料通常是資料的副本，或是虛擬機器 (VM)、工作負載、伺服器或工作站的設定資訊，無論是內部部署或是在 Azure 中。
@@ -60,7 +60,7 @@ ms.lasthandoff: 04/16/2018
 復原服務保存庫支援在備份原則中指定時區資訊。 在保存庫順利升級後，請從 [保存庫設定] 功能表移至 [備份] 原則，並更新保存庫中所設定之各個原則的時區資訊。 此畫面會顯示您在建立原則時使用每個當地時區所指定的備份排程時間。 
 
 ## <a name="enhanced-security"></a>強化的安全性
-當備份保存庫升級為復原服務保存庫時，系統會自動開啟該保存庫的安全性設定。 當安全性設定開啟時，某些作業 (例如刪除備份或變更複雜密碼) 會需要 [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) PIN 碼。 如需強化的安全性的詳細資訊，請參閱[用來保護混合式備份的安全性功能](backup-azure-security-feature.md)一文。 開啟強化的安全性時，在您從保存庫中刪除復原點資訊後，資料最多保留 14 天的時間。 客戶需支付此安全性資料的儲存體費用。 安全性資料保留原則適用於 Azure 備份代理程式、Azure 備份伺服器和 System Center Data Protection Manager 所備份的復原點。 
+當備份保存庫升級為復原服務保存庫時，系統會自動開啟該保存庫的安全性設定。 當安全性設定開啟時，某些作業 (例如刪除備份或變更複雜密碼) 會需要 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN 碼。 如需強化的安全性的詳細資訊，請參閱[用來保護混合式備份的安全性功能](backup-azure-security-feature.md)一文。 開啟強化的安全性時，在您從保存庫中刪除復原點資訊後，資料最多保留 14 天的時間。 客戶需支付此安全性資料的儲存體費用。 安全性資料保留原則適用於 Azure 備份代理程式、Azure 備份伺服器和 System Center Data Protection Manager 所備份的復原點。 
 
 ## <a name="gather-data-on-your-vault"></a>在保存庫上收集資料
 在升級為復原服務保存庫後，請為 Azure 備份設定報告 (適用於 IaaS VM 和 Microsoft Azure 復原服務代理程式)，並使用 Power BI 來存取報告。 如需有關如何收集資料的其他資訊，請參閱[設定 Azure 備份報告](backup-azure-configure-reports.md)一文。

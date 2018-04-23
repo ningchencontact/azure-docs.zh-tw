@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 1338f9e5c4a0e21dadbd5ae6f51b12c8f1dd44a3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dcfc295de39e909bf157edee4fec1ba51a583750
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure 身分識別管理安全性概觀
 Microsoft 身分識別與存取管理解決方案會協助 IT 保護應用程式和跨公司資料中心和到雲端的存取，啟用其他層級的驗證，例如 Multi-Factor Authentication 和條件式存取原則。 透過進階的安全性報告、稽核和警示來監視可疑活動，有助於減緩潛在的安全性問題。 [Azure Active Directory Premium](../active-directory/active-directory-editions.md) 可以提供數千個雲端 (SaaS) 應用程式的單一登入及存取您在內部部署執行的 Web 應用程式。
@@ -75,7 +75,7 @@ Azure Multi-Factor Authentication (MFA) 是需要使用多種驗證方法，並�
 深入了解：
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [什麼是 Azure Multi-Factor Authentication？](../multi-factor-authentication/multi-factor-authentication.md)
+* [什麼是 Azure Multi-Factor Authentication？](../active-directory/authentication/multi-factor-authentication.md)
 * [Azure Multi-Factor Authentication 的作用](../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>安全性監視、警示以及機器學習服務型報告

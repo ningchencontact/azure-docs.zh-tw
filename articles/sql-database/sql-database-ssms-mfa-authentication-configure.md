@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: bf09e4b7866a2320b1a26c7164565d5c2f9c4d0a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 47e05c5acbcd0c36efb7fcef2f0997aac4f46470
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>設定適用於 SQL Server Management Studio 和 Azure AD 的多重要素驗證
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/06/2018
 ## <a name="configuration-steps"></a>組態步驟
 
 1. **設定 Azure Active Directory** - 如需詳細資訊，請參閱[管理 Azure AD 目錄](https://msdn.microsoft.com/library/azure/hh967611.aspx)、[整合內部部署身分識別與 Azure Active Directory](../active-directory/active-directory-aadconnect.md)、[將您自己的網域名稱新增至 Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)、[Microsoft Azure 現在支援與 Windows Server Active Directory 同盟](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)、[使用 Windows PowerShell 管理 Azure AD](https://msdn.microsoft.com/library/azure/jj151815.aspx)。
-2. **設定 MFA** - 如需逐步指示，請參閱[什麼是 Azure Multi-Factor Authentication？](../multi-factor-authentication/multi-factor-authentication.md)、[使用 Azure SQL Database 和資料倉儲的條件式存取 (MFA)](sql-database-conditional-access.md)。 (完全條件式存取需要進階 Azure Active Directory (Azure AD)。 有限的 MFA 適用於標準 Azure AD。)
+2. **設定 MFA** - 如需逐步指示，請參閱[什麼是 Azure Multi-Factor Authentication？](../active-directory/authentication/multi-factor-authentication.md)、[使用 Azure SQL Database 和資料倉儲的條件式存取 (MFA)](sql-database-conditional-access.md)。 (完全條件式存取需要進階 Azure Active Directory (Azure AD)。 有限的 MFA 適用於標準 Azure AD。)
 3. **設定 SQL Database 或 SQL 資料倉儲進行 Azure AD 驗證** - 如需逐步指示，請參閱[使用 Azure Active Directory 驗證連線到 SQL Database 或 SQL 資料倉儲](sql-database-aad-authentication.md)。
 4. **下載 SSMS** - 在用戶端電腦上，從[下載 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下載最新的 SSMS。 對於本主題中的所有功能，至少使用 2017 年 7 月的 17.2 版。  
 

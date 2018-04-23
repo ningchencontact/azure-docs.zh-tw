@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 8fede07aea8410cfc2cee120102c9f8c3becd746
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 0d930cc200d8f8df30927ba7d2f942b2eb8a85a7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database：使用 SQL Server Management Studio 連接及查詢資料
 
-[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) 是整合式的環境，可用來管理任何 SQL 基礎結構，範圍從 Microsoft Windows 的 SQL Server 到 SQL Database。 此快速入門教學課程會示範如何使用 SSMS 連線至 Azure SQL 資料庫，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 
+[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) 是整合式的環境，可用來管理任何 SQL 基礎結構，範圍從 Microsoft Windows 的 SQL Server 到 SQL Database。 此快速入門示範如何使用 SSMS 來連線至 Azure SQL Database，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 
 
 ## <a name="prerequisites"></a>先決條件
 

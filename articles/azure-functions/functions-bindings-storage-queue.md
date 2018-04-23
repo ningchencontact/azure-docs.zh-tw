@@ -3,7 +3,7 @@ title: Azure Functions 的 Azure 佇列儲存體繫結
 description: 了解如何在 Azure Functions 中使用 Azure 佇列儲存體觸發程序和輸出繫結。
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
-ms.author: glenga
+ms.author: tdykstra
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: bdbbb80ff1b367a0da37094e787d03d23a7d4d59
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 52cd0e9b23d7a752b121d3087f040a3bc63def41
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 

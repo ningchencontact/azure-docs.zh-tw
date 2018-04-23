@@ -1,6 +1,7 @@
 ---
 title: 選擇 Azure 搜尋服務的 SKU 或定價層 | Microsoft Docs
 description: 「Azure 搜尋服務」可以在這些 SKU 佈建︰「免費」、「基本」及「標準」，其中「標準」在各種資源組態和容量層級都有提供。
+services: search
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -8,11 +9,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: 498ceb4a5d9e0bb9c8c5b5711c8c2687df3a3409
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6fe41a8c4d184fef4d1bb0a12fed44a49ef8a6da
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的 SKU 或定價層
 在 Azure 搜尋服務中，會在特定定價層或 SKU [佈建服務](search-create-service-portal.md)。 選項包括**免費**、**基本**或**標準**，其中**標準**在多個組態和容量都有提供。

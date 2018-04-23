@@ -3,8 +3,8 @@ title: 如何將 Power BI 工作區集合內容移轉至 Power BI Embedded | Mic
 description: 了解如何從 Power BI 工作區集合移轉至 Power BI Embedded，以及利用進階功能內嵌於應用程式中。
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
-manager: erikre
+author: markingmyname
+manager: kfile
 editor: ''
 tags: ''
 ms.service: power-bi-embedded
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: 069f31c8213bd0d8586f7ca50e543acfdad8a2b3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: maghan
+ms.openlocfilehash: d138b0c26ffc0a44947f79811fd586dda7df4509
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>如何將 Power BI 工作區集合內容移轉至 Power BI Embedded
 
@@ -160,7 +160,7 @@ ms.lasthandoff: 04/05/2018
 
 1. 修改應用程式以使用 Power BI REST API 和 powerbi.com 內的報表位置。
 
-2. 使用應用程式的「主要」帳戶，重建您的 AuthN/AuthZ 驗證。 您可以藉由使用[內嵌權杖](https://msdn.microsoft.com/library/mt784614.aspx)來允許這位使用者代表其他使用者動作。
+2. 使用應用程式的「主要」帳戶，重建您的 AuthN/AuthZ 驗證。 您可以藉由使用 [內嵌權杖](https://msdn.microsoft.com/library/mt784614.aspx) 來允許這位使用者代表其他使用者動作。
 
 3. 將報表從 Power BI Embedded 內嵌到您的應用程式。 如需詳細資訊，請參閱[內嵌 Power BI 儀表板、報表和磚](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/)。
 

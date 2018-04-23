@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: dae93a622bad3ddfb1d9492d17b700d82e9969c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 169234195fa75924a65680ce2f3fa6ee9633daae
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 資料安全性和加密最佳作法
 在雲端保護資料的其中一個關鍵是考慮您的資料可能會發生的狀態，以及哪些控制項適用於該狀態。 基於 Azure 資料安全性和加密最佳作法的目的，相關建議將以下列資料狀態為主︰
@@ -50,13 +50,13 @@ ms.lasthandoff: 04/19/2018
 * 強制執行檔案層級資料加密
 
 ## <a name="enforce-multi-factor-authentication"></a>強制執行 Multi-Factor Authentication
-在 Microsoft Azure 中存取和控制資料的第一個步驟是驗證使用者。 [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) 是除了使用使用者名稱與密碼之外，利用其他方法驗證使用者身分識別的驗證方法。 此驗證方法有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。
+在 Microsoft Azure 中存取和控制資料的第一個步驟是驗證使用者。 [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) 是除了使用使用者名稱與密碼之外，利用其他方法驗證使用者身分識別的驗證方法。 此驗證方法有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。
 
 為您的使用者啟用 Azure MFA，您可為使用者登入和交易增加第二層安全性。 在此情況下，交易可能會存取位於檔案伺服器或 SharePoint Online 中的文件。 Azure MFA 也可協助 IT 降低遭入侵的認證能夠存取公司資料的可能性。
 
 例如︰如果您對使用者強制執行 Azure MFA，並將它設定為以電話或簡訊做為驗證，如果使用者的認證遭到入侵，攻擊者將無法存取任何資源，因為攻擊者無法使用使用者的電話。 未新增此額外身分識別保護層的組織會更容易受到認證竊取攻擊，這可能會導致資料洩漏。
 
-想要保留驗證控制內部部署的組織有一個替代方法，就是使用 [Azure Multi-factor Authentication Server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md) (也稱為 MFA 內部部署)。 使用此方法，您仍可強制執行 Multi-Factor Authentication，同時保留 MFA 伺服器內部部署。
+想要保留驗證控制內部部署的組織有一個替代方法，就是使用 [Azure Multi-factor Authentication Server](../active-directory/authentication/howto-mfaserver-deploy.md) (也稱為 MFA 內部部署)。 使用此方法，您仍可強制執行 Multi-Factor Authentication，同時保留 MFA 伺服器內部部署。
 
 如需 Azure MFA 的詳細資訊，請參閱[開始在雲端中使用 Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)。
 

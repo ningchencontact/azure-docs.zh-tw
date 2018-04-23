@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd8e122324ab2d4c783fb6d4e09a9f4f197f91ca
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>了解 Azure 身分識別解決方案
 Microsoft Azure Active Directory (Azure AD) 是一個身分識別和存取管理的雲端解決方案，可提供目錄服務、身分識別治理及應用程式存取管理。 Azure AD 可在 [Azure AD 應用程式庫](https://azure.microsoft.com/marketplace/active-directory/all/)中，快速[啟用單一登入 (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) 至 1,000 個預先整合的商業和自訂應用程式。 您可能已經使用這其中有許多應用程式，例如 Office 365、Salesforce.com、Box、ServiceNow 及 Workday。
@@ -107,7 +107,7 @@ Microsoft Azure 提供數種方式可供您管理使用者的身分識別，不�
 我們有無數的絕佳線上資源，協助您詳細了解 Azure AD。 以下是一些很棒的文章，讓您快速入門：
 
 * [使用 Azure AD Connect 啟用目錄的混合式管理](active-directory-aadconnect.md)
-* [為連線過的項目提供額外的安全性](../multi-factor-authentication/multi-factor-authentication.md)
+* [為連線過的項目提供額外的安全性](authentication/multi-factor-authentication.md)
 * [自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)
 * [開始使用 Azure AD 報告](active-directory-reporting-getting-started.md)
 * [從任何地方管理您的密碼](active-directory-passwords-update-your-own-password.md)

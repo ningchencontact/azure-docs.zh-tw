@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 501364f24e61c29ac0d5909a7dff1df9e93fe6a5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作負載的安全性最佳作法
 
@@ -52,7 +52,7 @@ PAW 方法是完善且建議之作法的延伸，可使用個別指派的系統�
 
 保護帳戶時，您可採取之最有幫助的步驟之一就是啟用雙因素驗證。 雙因素驗證是不只使用密碼的驗證方法。 它有助於緩和設法取得他人密碼的人員所造成的存取風險。
 
-[Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) 有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。 它可以透過一些簡單的驗證選項 (例如電話、文字訊息，或行動應用程式驗證) 來提供強大的驗證功能。 使用者可選擇其慣用的方法。
+[Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) 有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。 它可以透過一些簡單的驗證選項 (例如電話、文字訊息，或行動應用程式驗證) 來提供強大的驗證功能。 使用者可選擇其慣用的方法。
 
 使用 Multi-Factor Authentication 的最簡單方式是 Microsoft Authenticator 行動應用程式，該應用程式可用於執行 Windows、iOS 和 Android 的行動裝置。 使用最新版的 Windows 10 和內部部署 Active Directory 與 Azure Active Directory (Azure AD) 的整合，[Windows Hello 企業版](../active-directory/active-directory-azureadjoin-passport-deployment.md)即可完美地用於單一登入 Azure 資源。 在此情況下，Windows 10 裝置會作為第二個驗證因素。
 
@@ -118,7 +118,7 @@ Azure 中的技術可協助您限制這些系統管理端點的存取。 在 Azu
 >[!NOTE]
 >您可以使用任何一個 VPN 選項將 NSG 的 ACL 重新設定為不允許從網際網路存取管理端點。
 
-另一個值得考慮的選項是[遠端桌面閘道](../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md)部署。 您可以使用此部署，透過 HTTPS 安全地連線到遠端桌面伺服器，同時對這些連線套用更詳細的控制。
+另一個值得考慮的選項是[遠端桌面閘道](../active-directory/authentication/howto-mfaserver-nps-rdg.md)部署。 您可以使用此部署，透過 HTTPS 安全地連線到遠端桌面伺服器，同時對這些連線套用更詳細的控制。
 
 您可以存取的功能包括︰
 

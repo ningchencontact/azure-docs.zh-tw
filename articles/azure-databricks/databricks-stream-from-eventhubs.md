@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: c43edc6673c42a8b69bfa296e288e77adee4d0af
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2e4c424bb26a3b268ec893ca40dcdce7d7469217
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>教學課程：使用事件中樞將資料串流至 Azure Databricks
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 03/29/2018
 
     * 輸入叢集的名稱。
     * 針對本文，使用 **4.0** 執行階段建立叢集。
-    * 請確定您選取 [在活動 ___ 分鐘後終止] 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
+    * 請確定您選取 **在活動 ___ 分鐘後終止** 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
 
     選取 [建立叢集]。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 03/29/2018
 
 若要收到推文的串流，您必須在 Twitter 中建立應用程式。 請依照下列指示建立 Twitter 應用程式，並記錄要完成本教學課程所需的值。
 
-1. 從網頁瀏覽器移至 [Twitter 應用程式管理](http://twitter.com/app)，然後選取 **建立新的應用程式**。
+1. 從網頁瀏覽器移至 [Twitter 應用程式管理](http://twitter.com/app)，然後選取 [建立新的應用程式]。
 
     ![建立 Twitter 應用程式](./media/databricks-stream-from-eventhubs/databricks-create-twitter-app.png "建立 Twitter 應用程式")
 
@@ -173,6 +173,7 @@ ms.lasthandoff: 03/29/2018
 
 在 **SendTweetsToEventHub** Notebook 中貼上下列程式碼，並將預留位置取代為您稍早所建立之事件中樞命名空間和 Twitter 應用程式的值。 此 Notebook 會將含有關鍵字 "Azure" 的推文即時串流到事件中樞。
 
+```scala
     import java.util._
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
@@ -242,6 +243,7 @@ ms.lasthandoff: 03/29/2018
 
     // Closing connection to the Event Hub
     eventHubClient.get().close()
+```
 
 若要執行 Notebook，請按 **SHIFT + ENTER**。 您會看到如下面程式碼片段的輸出。 輸出中的每個事件都是擷取至事件中樞中含有 "Azure" 一詞的推文。
 
@@ -264,6 +266,7 @@ ms.lasthandoff: 03/29/2018
 
 在 **ReadTweetsFromEventHub** Notebook 中貼上下列程式碼，並將預留位置取代為您稍早所建立之 Azure 事件中樞的值。 此 Notebook 會讀取您稍早使用 **SendTweetsToEventHub** Notebook 串流至事件中樞的推文。
 
+```scala
     import org.apache.spark.eventhubs._
 
     // Build connection string with the above information
@@ -282,6 +285,7 @@ ms.lasthandoff: 03/29/2018
     // Sending the incoming stream into the console.
     // Data comes in batches!
     incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 您會獲得下列輸出︰
 
@@ -312,6 +316,7 @@ ms.lasthandoff: 03/29/2018
 
 因為輸出採用二進位模式，請使用下列程式碼片段將它轉換成字串。
 
+```scala
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
 
@@ -328,6 +333,7 @@ ms.lasthandoff: 03/29/2018
     messages.printSchema
 
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 輸出現在會類似下列程式碼片段：
 

@@ -4,15 +4,16 @@ description: 在 Azure 搜尋服務中建立搜尋查詢，並使用搜尋參數
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
+services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/19/2017
-ms.openlocfilehash: 7aa372f751cc15e05cd7f118a862275d21627d73
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 83f7f29471d49c4dbbf1630b4e8e9006144638cc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>使用 .NET SDK 查詢 Azure 搜尋服務索引
 > [!div class="op_single_selector"]

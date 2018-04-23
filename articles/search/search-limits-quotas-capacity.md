@@ -3,16 +3,17 @@ title: Azure 搜尋中的服務限制 | Microsoft Docs
 description: 容量計劃中使用的服務限制，以及 Azure 搜尋服務要求和回應的最大限制。
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: heidist
-ms.openlocfilehash: 23f67099bff7cdadcee44eed50e9944ecf7c5672
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 59b6efd8459f675bc44891d7b04251260fdd38e9
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜尋中的服務限制
 儲存體與工作負載的最大限制，以及索引、文件和其他物件的數量上限，皆取決於您是在**免費**、**基本**，還是**標準**定價層中[佈建 Azure 搜尋服務](search-create-service-portal.md)。

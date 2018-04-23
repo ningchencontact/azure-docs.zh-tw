@@ -1,12 +1,12 @@
 ---
-title: "保護 Azure 中的 PaaS 資料庫 | Microsoft Docs"
+title: 保護 Azure 中的 PaaS 資料庫 | Microsoft Docs
 description: " 了解用來保護 PaaS Web 與行動應用程式的 Azure SQL Database 和 SQL 資料倉儲安全性最佳做法。 "
 services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: ed15ff750e73179f6979d13e45ab27aeee5c82ab
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 3e7dc4dfba001228a4d11e2b21cdeed8e7af45ac
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-paas-databases-in-azure"></a>保護 Azure 中的 PaaS 資料庫
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/22/2017
 - 使用自主資料庫使用者，在資料庫層級驗證身分。
 - 針對連線到 SQL Database 的應用程式支援權杖型驗證。
 - 支援本機 Azure AD 的 ADFS (網域同盟) 或原生使用者/密碼驗證，而不需進行網域同步處理。
-- 支援來自 SQL Server Management Studio 之使用「Active Directory 通用驗證」(包括 [Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md)) 的連線。 MFA 包含增強式驗證功能，其中提供一系列簡易的驗證選項，例如電話、簡訊、含有 PIN 的智慧卡或行動應用程式通知。 如需詳細資訊，請參閱 [適用於與 SQL Database 和 SQL 資料倉儲搭配使用之 Azure AD MFA 的 SSMS 支援](../sql-database/sql-database-ssms-mfa-authentication.md)。
+- 支援來自 SQL Server Management Studio 之使用「Active Directory 通用驗證」(包括 [Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md)) 的連線。 MFA 包含增強式驗證功能，其中提供一系列簡易的驗證選項，例如電話、簡訊、含有 PIN 的智慧卡或行動應用程式通知。 如需詳細資訊，請參閱 [適用於與 SQL Database 和 SQL 資料倉儲搭配使用之 Azure AD MFA 的 SSMS 支援](../sql-database/sql-database-ssms-mfa-authentication.md)。
 
 若要深入了解 Azure AD 驗證，請參閱：
 

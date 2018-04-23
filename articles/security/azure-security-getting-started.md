@@ -1,6 +1,6 @@
 ---
-title: "開始使用 Microsoft Azure 安全性 | Microsoft Docs"
-description: "本文提供 Microsoft Azure 安全性功能的概觀，和將資產移轉至雲端提供者的組織所需的一般考量。"
+title: 開始使用 Microsoft Azure 安全性 | Microsoft Docs
+description: 本文提供 Microsoft Azure 安全性功能的概觀，和將資產移轉至雲端提供者的組織所需的一般考量。
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: e1ee07f2284df925b8bbd9050de7ae40fa66bf65
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 7d3fab20ec238bff0664fc98c2067c919e97a7c2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>開始使用 Microsoft Azure 安全性
 當您建置 IT 資產或將其移轉至雲端提供者時，您可以依賴該組織的能力來保護您的應用程式和資料，並利用他們所提供的安全性控制來管理您雲端架構資產的安全性。
@@ -45,7 +45,7 @@ Azure AD 可以作為組織的獨立式雲端目錄，或在您現有的內部�
 * Azure AD 可啟用 SaaS 應用程式的 [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)，無論應用程式裝載於何處。 有些應用程式會與 Azure AD 同盟，有些則使用密碼 SSO。 同盟應用程式也支援使用者佈建和密碼儲存庫存。
 * 對 [Azure 儲存體](https://azure.microsoft.com/services/storage/)的資料存取可透過驗證來控制。 每個儲存體帳戶都有主要金鑰 ([儲存體帳戶金鑰](https://msdn.microsoft.com/library/azure/ee460785.aspx)，或稱 SAK) 和次要金鑰 (共用存取簽章，或稱 SAS)。
 * Azure AD 可透過與內部部署目錄的同盟、同步和複寫提供「身分識別即服務」(使用 [Active Directory Federation Services](../active-directory/fundamentals-identity.md))。
-* [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) 是一種多因素驗證服務，需要使用者同時使用行動裝置應用程式、通話或簡訊來驗證登入。 它可與 Azure Active Directory 搭配使用，來協助保護內部部署資源和 Azure Multi-Factor Authentication Server 的安全，它還可以使用 SDK 來與自訂應用程式和目錄搭配使用。
+* [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) 是一種多因素驗證服務，需要使用者同時使用行動裝置應用程式、通話或簡訊來驗證登入。 它可與 Azure Active Directory 搭配使用，來協助保護內部部署資源和 Azure Multi-Factor Authentication Server 的安全，它還可以使用 SDK 來與自訂應用程式和目錄搭配使用。
 * [Azure AD 網域服務](https://azure.microsoft.com/services/active-directory-ds/)可讓您將 Azure 虛擬機器加入網域，而不需要部署網域控制站。 您可以登入使用公司的 Active Directory 認證登入這些虛擬機器，並使用群組原則管理加入網域的虛擬機器，以對您所有的 Azure 虛擬機器強制執行安全性基準。
 * [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) 所提供的高可用性全域身分識別管理服務，可用於處理數億個身分識別的消費者端應用程式。 此服務可跨行動及 Web 平台進行整合。 可自訂的使用經驗讓您的消費者可以使用其現有的社交帳戶，或是建立新的認證來登入您所有的應用程式。
 

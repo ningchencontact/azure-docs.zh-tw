@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: 2ea8c3119366d86c3aabf1faa0d71f1ba3610f41
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8c6472dcde55a7b642ced7bbf0d93893df9208e0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)
 Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通用驗證」 ，從 SQL Server Management Studio (SSMS) 連線。 
@@ -25,7 +25,7 @@ Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通
 
 - `Active Directory - Universal with MFA` 驗證也是支援 Azure Multi-Factor Authentication (MFA) 的互動式方法。 Azure MFA 有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。 它利用各種簡單的驗證選項來提供強大的驗證 (包括電話、簡訊、含有 Pin 的智慧卡或行動應用程式通知)，讓使用者能夠選擇自己喜歡的方式。 搭配 Azure AD 使用互動式 MFA 時，會出現快顯對話方塊以進行驗證。
 
-如需 Multi-Factor Authentication 的說明，請參閱 [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)。
+如需 Multi-Factor Authentication 的說明，請參閱 [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)。
 如需了解組態步驟，請參閱[設定適用於 SQL Server Management Studio 的 Azure SQL Database 多重要素驗證](sql-database-ssms-mfa-authentication-configure.md)。
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD 網域名稱或租用戶 ID 參數   

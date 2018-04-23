@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning 模型管理安裝和組態 |Microsoft Docs"
-description: "本文件說明在 Azure Machine Learning 中安裝和設定模型管理有關的步驟和概念。"
+title: Azure Machine Learning 模型管理安裝和組態 |Microsoft Docs
+description: 本文件說明在 Azure Machine Learning 中安裝和設定模型管理有關的步驟和概念。
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="model-management-setup"></a>模型管理安裝
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/23/2018
 CLI 已預先安裝於 Azure Machine Learning Workbench 和 [Azure DSVM](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) 上。
 
 ## <a name="using-the-cli"></a>使用 CLI
-若要從 Workbench 使用命令列介面 (CLI)，請按一下 檔案 -] 開啟命令列介面。 
+若要從 Workbench 使用命令列介面 (CLI)，請按一下 **檔案** -\] **開啟命令列介面**。 
 
 在資料科學虛擬機器上，連接並開啟命令提示字元。 輸入 `az ml -h` 查看選項。 如需有關命令的詳細資訊，請使用 --help 旗標。
 
@@ -83,7 +83,7 @@ sudo /opt/microsoft/azureml/initial_setup.sh
 若要開始，您需要設定您的部署環境。 環境設定是一次完成的工作。 設定完成後，可以對於後續部署重複使用該環境。 請參閱下一節以了解更多詳細資料。
 
 完成環境設定時：
-- 系統會提示您登入 Azure。 若要登入，請使用網頁瀏覽器開啟 https://aka.ms/devicelogin 頁面並輸入對於驗證所提供的程式碼。
+- 系統會提示您登入 Azure。 若要登入，請使用網頁瀏覽器開啟頁面 https://aka.ms/devicelogin，並輸入所提供的代碼以進行驗證。
 - 在驗證過程中，會提示您用來驗證的帳戶。 重要事項：選取具有有效 Azure 訂用帳戶而且有充分的權限在帳戶中建立資源的帳戶。登入完成時，會顯示您的訂用帳戶資訊，並提示您是否要使用選取的帳戶繼續。
 
 ### <a name="environment-setup"></a>環境設定

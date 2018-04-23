@@ -3,18 +3,18 @@ title: Azure SQL 資料倉儲速查表 | Microsoft Docs
 description: 尋找快速建置 Azure SQL 資料倉儲解決方案的連結和最佳做法。
 services: sql-data-warehouse
 author: acomet
-manager: jhubbard
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.component: design
-ms.date: 03/28/2018
+ms.date: 04/17/2018
 ms.author: acomet
-ms.reviewer: mausher,igorstan,jrj
-ms.openlocfilehash: 1e09dc2f3c7e7aa4ae98ef98a8957454a1beee6b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.reviewer: igorstan
+ms.openlocfilehash: 172780512dd179d91300459987ad0ba683727859
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲的速查表
 本速查表提供實用的秘訣和最佳作法，協助您建立 Azure SQL 資料倉儲解決方案。 開始之前，請先閱讀 [Azure SQL 資料倉儲工作負載模式和反向模式](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns)，詳細瞭解每個步驟，文內會說明何謂 SQL 資料倉儲，何者又不屬於 SQL 資料倉儲。

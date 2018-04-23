@@ -1,5 +1,3 @@
-若要在您的應用程式中啟用登入功能，您必須建立登入原則。 此原則描述取用者在登入期間將經歷的體驗，以及成功登入時，應用程式將收到的權杖內容。
-
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
 在設定的原則區段中，選取 [註冊或登入原則]，然後按一下 [+ 新增]。

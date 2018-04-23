@@ -2,23 +2,20 @@
 title: 開始使用 Azure 佇列儲存體和 Visual Studio 已連線的服務 (ASP.NET) | Microsoft Docs
 description: 在使用 Visual Studio 已連接服務連接到儲存體帳戶之後，如何在 Visual Studio ASP.NET 專案中開始使用 Azure 佇列儲存體
 services: storage
-documentationcenter: ''
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 89baa741dcd916b70514f9703255b9e6d01c689b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d06fde0dc6c289a09b9fe4c9e2ffbb50c3027490
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連線的服務 (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]

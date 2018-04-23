@@ -3,7 +3,7 @@ title: 指定虛擬網路組態檔中的 DNS 設定 | Microsoft Docs
 description: 如何使用傳統部署模型中的虛擬網路組態檔變更虛擬網路的 DNS 伺服器設定
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 tags: azure-service-management
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: genli
-ms.openlocfilehash: 8e6cfc285b3fb23944dfa0189bb492a9b8fa9a88
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ed7f02d3e389db3bc772c4fcb00a7b3877d60173
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>指定虛擬網路組態檔中的 DNS 設定
 網路組態檔有兩種您可以用來指定網域名稱系統 (DNS) 設定的項目：**DnsServers** 和 **DnsServerRef**。 您可以藉由指定其 IP 位址並參考 **DnsServers** 項目的名稱，新增 DNS 伺服器的清單。 然後您可以使用 **DnsServerRef** 項目，來針對您虛擬網路內的不同網站，指定要使用 DnsServers 項目中哪些 DNS 伺服器項目。

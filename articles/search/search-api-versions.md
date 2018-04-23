@@ -1,23 +1,19 @@
 ---
-title: "Azure 搜尋服務的 API 版本 | Microsoft Docs"
-description: "Azure 搜尋服務 REST API 與 .NET SDK 中用戶端程式庫的版本原則。"
-services: search
-documentationcenter: 
+title: Azure 搜尋服務的 API 版本 | Microsoft Docs
+description: Azure 搜尋服務 REST API 與 .NET SDK 中用戶端程式庫的版本原則。
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 1a7f5b9c53d3258e5f8eda40401c61a85971d8c7
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dfa3e1996ecbd3d78fef9f85facb7da1c209fafa
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="api-versions-in-azure-search"></a>Azure 搜尋服務中的 API 版本
 「Azure 搜尋服務」會定期推出功能更新。 有時候 (但並不一定)，這些更新會需要我們發佈新版本的 API，以保留回溯相容性。 發行新版本可讓您控制在程式碼中整合搜尋服務更新的時機與方式。

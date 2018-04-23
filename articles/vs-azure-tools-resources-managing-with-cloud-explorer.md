@@ -2,23 +2,20 @@
 title: 使用雲端總管管理 Azure 資源 | Microsoft Docs
 description: 了解如何在 Visual Studio 內使用 [雲端總管] 瀏覽和管理 Azure 資源。
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/25/2017
 ms.author: ghogen
-ms.openlocfilehash: f5205bb158141a3f8e0296fefe2528d1bc5ea64c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9d8ae465e80ab38c1d7b0f6082865c110c0ff06b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>在 Visual Studio Cloud Explorer 中管理與 Azure 帳戶關聯的資源
 Cloud Explorer 可讓您從 Visual Studio 內檢視您的 Azure 資源和資源群組、檢查其屬性，以及執行重要的開發人員診斷動作。 

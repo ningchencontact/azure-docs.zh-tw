@@ -327,7 +327,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 堆疊溢位
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-network'
-    - name: 網路資源提供者
-      href: resource-groups-networking.md
     - name: 常見問題集
       href: virtual-networks-faq.md

@@ -3,16 +3,17 @@ title: 建立索引 (入口網站 - Azure 搜尋服務) | Microsoft Docs
 description: 使用 Azure 入口網站建立索引。
 manager: cgronlun
 author: heidisteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: quickstart
 ms.date: 06/20/2017
 ms.author: heidist
-ms.openlocfilehash: ab0352b8c830e875afc9b1d1b006ba4d2a512d7a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ea05cd34e5ba3f55b2f5400f1252f729401c5d6a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-an-azure-search-index-using-the-azure-portal"></a>使用 Azure 入口網站建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
