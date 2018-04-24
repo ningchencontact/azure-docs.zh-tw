@@ -43,6 +43,8 @@
       href: container-instances-environment-variables.md
     - name: 針對部署進行疑難排解
       href: container-instances-troubleshooting.md
+    - name: ACI 上的 Jenkins 組建代理程式
+      href: container-instances-jenkins.md
     - name: 設定資料磁碟區
       items:
         - name: Azure 檔案

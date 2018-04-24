@@ -29,7 +29,7 @@
       href: app-service-web-get-started-html.md
 - name: 教學課程
   items:
-    - name: 1 - App with DB
+    - name: App with DB
       items:
         - name: .NET Core with SQL DB
           href: app-service-web-tutorial-dotnetcore-sqldb.md
@@ -43,15 +43,17 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: Python with PostgreSQL
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 - 託管 RESTful API
+    - name: 安全存取 SQL DB
+      href: app-service-web-tutorial-connect-msi.md
+    - name: 託管 RESTful API
       href: app-service-web-tutorial-rest-api.md
-    - name: 2 - 對應自訂網域
+    - name: 對應自訂網域
       href: app-service-web-tutorial-custom-domain.md
-    - name: 3 - 繫結 SSL 憑證
+    - name: 繫結 SSL 憑證
       href: app-service-web-tutorial-custom-ssl.md
-    - name: 4 - 新增 CDN
+    - name: 新增 CDN
       href: app-service-web-tutorial-content-delivery-network.md
-    - name: 5 - 驗證使用者
+    - name: 驗證使用者
       href: app-service-web-tutorial-auth-aad.md
 - name: 範例
   items:
@@ -69,6 +71,8 @@
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: 作業系統功能
       href: web-sites-available-operating-system-functionality.md
+    - name: 輸入和輸出 IP
+      href: app-service-ip-addresses.md
     - name: 驗證和授權
       href: app-service-authentication-overview.md
     - name: 混合式連線
@@ -143,6 +147,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: 自訂驗證
           href: app-service-authentication-how-to.md
+        - name: 限制 IP
+          href: app-service-ip-restrictions.md
         - name: 使用受控服務識別
           href: app-service-managed-service-identity.md
         - name: 在應用程式程式碼中使用 SSL 憑證

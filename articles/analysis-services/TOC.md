@@ -31,6 +31,7 @@
 ### [管理伺服器管理員](analysis-services-server-admins.md)
 ### [監視伺服器計量](analysis-services-monitor.md)
 ### [設定診斷記錄](analysis-services-logging.md)
+### [針對 VNET 上的資料來源使用閘道](analysis-services-vnet-gateway.md)
 ## 連線
 ### [取得用戶端程式庫](analysis-services-data-providers.md)
 ### [與 Excel 連線](analysis-services-connect-excel.md)
@@ -70,7 +71,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Azure 狀態](https://azure.microsoft.com/status/)
 ## [意見反應](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [價格](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [定價](https://azure.microsoft.com/pricing/details/analysis-services/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [影片](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)

@@ -17,7 +17,7 @@
 ## [設定公司商標](customize-branding.md)
 ## [在 Azure AD 中新增使用者](add-users-azure-active-directory.md)
 ## [將授權指派給使用者](license-users-groups.md)
-## [啟用自助式密碼重設](active-directory-passwords-getting-started.md)
+## [啟用自助式密碼重設](authentication/quickstart-sspr.md)
 
 
 # 作法
@@ -63,6 +63,8 @@
 #### [動態群組和 B2B 使用者](active-directory-b2b-dynamic-groups.md)
 #### [稽核與報告](active-directory-b2b-auditing-and-reporting.md)
 #### [適用於混合式組織的 B2B](active-directory-b2b-hybrid-organizations.md)
+##### [授與 B2B 使用者本機應用程式的存取權限](active-directory-b2b-hybrid-cloud-to-on-premises.md)
+##### [授與本機使用者雲端應用程式的存取權限](active-directory-b2b-hybrid-on-premises-to-cloud.md)
 #### [B2B 和 Office 365 外部共用](active-directory-b2b-o365-external-user.md)
 #### [B2B 授權](active-directory-b2b-licensing.md)
 #### [目前限制](active-directory-b2b-current-limitations.md)
@@ -119,6 +121,7 @@
 #### [保留](active-directory-reporting-retention.md)
 #### [延遲](active-directory-reporting-latencies-azure-portal.md)
 #### [通知](active-directory-reporting-notifications.md)
+#### [稽核活動參考](active-directory-reporting-activity-audit-reference.md)
 #### [登入活動的錯誤代碼](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### 疑難排解
@@ -141,7 +144,7 @@
 #### [註冊自助式密碼重設](active-directory-passwords-reset-register.md)
 ### [SSPR 運作方式](authentication/concept-sspr-howitworks.md)
 ### [SSPR 部署指南](authentication/howto-sspr-deployment.md)
-### [SSPR 和 Windows 10](active-directory-passwords-login.md)
+### [SSPR 和 Windows 10](authentication/tutorial-sspr-windows.md)
 ### [SSPR 原則](authentication/concept-sspr-policy.md)
 ### [SSPR 自訂](authentication/concept-sspr-customization.md)
 ### [SSPR 資料需求](authentication/howto-sspr-authenticationdata.md)
@@ -149,7 +152,7 @@
 ### IT 系統管理員︰重設密碼
 #### [Azure 入口網站](active-directory-users-reset-password-azure-portal.md)
 ### [授權 SSPR](authentication/concept-sspr-licensing.md)
-### [密碼回寫](active-directory-passwords-writeback.md)
+### [密碼回寫](authentication/howto-sspr-writeback.md)
 ### [疑難排解](authentication/active-directory-passwords-troubleshoot.md)
 ### [常見問題集](authentication/active-directory-passwords-faq.md)
 

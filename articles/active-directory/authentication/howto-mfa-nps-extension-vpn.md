@@ -378,7 +378,7 @@ NPS 擴充功能必須安裝於已安裝「網路原則與存取服務」角色�
 
 2. 在 PowerShell 命令提示字元中輸入 **cd "c:\Program Files\Microsoft\AzureMfa\Config"**，然後選取 ENTER 鍵。
 
-3. 在下一個命令提示字元中輸入**.\AzureMfsNpsExtnConfigSetup.ps1**，然後選取 Enter。 此指令碼會檢查您是否已安裝 Azure AD PowerShell 模組。 如果尚未安裝此模組，指令碼就會為您安裝。
+3. 在下一個命令提示字元中輸入 **.\AzureMfsNpsExtnConfigSetup.ps1**，然後選取 Enter。 此指令碼會檢查您是否已安裝 Azure AD PowerShell 模組。 如果尚未安裝此模組，指令碼就會為您安裝。
  
     ![PowerShell](./media/howto-mfa-nps-extension-vpn/image38.png)
  

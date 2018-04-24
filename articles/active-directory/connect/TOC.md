@@ -50,7 +50,7 @@
 ### [對同盟的多網域支援](active-directory-aadconnect-multiple-domains.md)
 ### [自動升級](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [使用 SAML 2.0 識別提供者 (IdP) 來進行單一登入](active-directory-aadconnect-federation-saml-idp.md)
-
+### [同步處理使用電子郵件登入的來賓使用者帳戶](active-directory-aadconnect-guest-sync.md)
 
 
 ## 管理 Azure AD Connect 同步處理

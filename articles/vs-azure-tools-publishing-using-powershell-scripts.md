@@ -320,7 +320,7 @@ return $WebDeployPackage
 | Find-AzureVM |取得指定的 Azure 虛擬機器。 |
 | Format-DevTestMessageWithTime |在訊息前面加上日期和時間。 此函式是專為寫入 Error 和 Verbose 串流的訊息所設計。 |
 | Get-AzureSQLDatabaseConnectionString |組合連接字串來連線到 Azure SQL Database。 |
-| Get-AzureVMStorage |傳回指定位置或同質群組中具有 "devtest*" (不區分大小寫) 名稱模式的第一個儲存體帳戶的名稱。如果 "devtest*" 儲存體帳戶不符合位置或同質群組，此函式會忽略它。 指定位置或同質群組。 |
+| Get-AzureVMStorage |傳回指定位置或同質群組中具有 "devtest *" (不區分大小寫) 名稱模式的第一個儲存體帳戶的名稱。如果 "devtest*" 儲存體帳戶不符合位置或同質群組，此函式會忽略它。 指定位置或同質群組。 |
 | Get-MSDeployCmd |傳回執行 MsDeploy.exe 工具的命令。 |
 | New-AzureVMEnvironment |在訂用帳戶中尋找或建立符合 JSON 組態檔中的值的虛擬機器。 |
 | Publish-WebPackage |使用 MsDeploy.exe 和 Web 發佈封裝 .Zip 檔案將資源部署至網站。 此函式不會產生任何輸出。 如果呼叫 MSDeploy.exe 失敗，此函式會擲回例外狀況。 若要取得更詳細的輸出，請使用 **-Verbose** 選項。 |

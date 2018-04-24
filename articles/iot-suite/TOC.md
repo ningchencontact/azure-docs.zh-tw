@@ -48,6 +48,7 @@
 ### [預防性維護解決方案的逐步解說](iot-suite-predictive-walkthrough.md)
 
 ## 連線的處理站
+### [什麼是連線的處理站？](iot-suite-connected-factory-features.md)
 ### [連線的處理站解決方案概觀](iot-suite-connected-factory-overview.md)
 ### [連線的處理站解決方案逐步解說](iot-suite-connected-factory-sample-walkthrough.md)
 

@@ -43,6 +43,8 @@
       href: batch-apis-tools.md
     - name: 配額和限制
       href: batch-quota-limit.md
+    - name: 支援的 VM 大小
+      href: batch-pool-vm-sizes.md
 - name: 使用說明指南
   items:
     - name: 管理 Batch 帳戶
@@ -108,10 +110,13 @@
           href: batch-rendering-service.md
         - name: 透過 Batch 和 Data Factory 處理的資料
           href: ../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json
-    - name: 監視資源
+    - name: 監視 Batch 解決方案
+      href: monitoring-overview.md
       items:
-        - name: 診斷記錄
+        - name: 使用計量和診斷記錄
           href: batch-diagnostics.md
+        - name: 使用 Application Insights 進行監視
+          href: monitor-application-insights.md
         - name: 有效率的清單查詢
           href: batch-efficient-list-queries.md
     - name: 使用開發人員工具

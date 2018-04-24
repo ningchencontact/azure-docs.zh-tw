@@ -275,7 +275,7 @@ VPN 用戶端已連線到 Azure 虛擬網路。 不過，用戶端無法存取�
 
 ### <a name="solution"></a>解決方法
 
-若要解決此問題，請從 **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>**中刪除舊的 VPN 用戶端設定檔，然後重新執行 VPN 用戶端安裝程式。
+若要解決此問題，請從 **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** 中刪除舊的 VPN 用戶端設定檔，然後重新執行 VPN 用戶端安裝程式。
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>點對站 VPN 用戶端無法解析本機網域中資源的 FQDN
 
