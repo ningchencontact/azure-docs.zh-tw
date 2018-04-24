@@ -1,8 +1,8 @@
 ---
-title: "教學課程︰以 Azure Active Directory 設定 Cornerstone OnDemand 來自動佈建使用者 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 以對 Cornerstone OnDemand 自動佈建及取消佈建使用者帳戶。"
+title: 教學課程︰以 Azure Active Directory 設定 Cornerstone OnDemand 來自動佈建使用者 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 以對 Cornerstone OnDemand 自動佈建及取消佈建使用者帳戶。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: zhchia
 writer: zhchia
 manager: beatrizd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.openlocfilehash: 8aed9bdcdd54f2f0ef3cd81f979635e5716f0b5f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>教學課程︰設定 Cornerstone OnDemand 來自動佈建使用者
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 03/05/2018
 
 **若要從 Azure AD 應用程式庫新增 Cornerstone OnDemand，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
