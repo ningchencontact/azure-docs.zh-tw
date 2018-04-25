@@ -6,19 +6,18 @@ services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 4/16/2018
 ms.author: amsriva
-ms.openlocfilehash: d3945436a369f624ccb1d862b9623b8cfb1ed376
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 35a7e60dc65b54cbddfcd85fa0e704823152889e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="web-application-firewall-waf"></a>Web 應用程式防火牆 (WAF)
 
@@ -60,7 +59,7 @@ Web 應用程式防火牆已預先設定為使用 CRS 3.0，或者您可以選�
 * 防範 HTTP 通訊協定違規
 * 防範 HTTP 通訊協定異常行為，例如遺漏主機使用者代理程式和接受標頭
 * 防範 Bot、編目程式和掃描器
-* 偵測一般應用程式錯誤組態 (也就是 Apache、IIS 等)
+* 偵測一般應用程式錯誤組態 (例如，Apache、IIS 等)
 
 如需更詳細的規則清單及其保護功能，請參閱下列[核心規則集](#core-rule-sets)。
 
@@ -74,9 +73,7 @@ Web 應用程式防火牆已預先設定為使用 CRS 3.0，或者您可以選�
 
 |RuleGroup|說明|
 |---|---|
-|**[REQUEST-910-IP-REPUTATION](application-gateway-crs-rulegroups-rules.md#crs910)**|包含規則，可防範已知的濫發垃圾郵件者或惡意活動。|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|包含規則，可鎖定方法 (PUT、PPATCH< ..)|
-|**[REQUEST-912-DOS-PROTECTION](application-gateway-crs-rulegroups-rules.md#crs912)**| 包含規則，可防禦阻絕服務 (DoS) 攻擊。|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| 包含規則，可防禦連接埠和環境掃描器。|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|包含規則，可防範通訊協定和編碼問題。|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|包含規則，可防止標頭插入、要求走私和回應分割|
@@ -166,7 +163,6 @@ Web 應用程式防火牆已預先設定為使用 CRS 3.0，或者您可以選�
 
 只有在新的 WAF SKU 之下才能使用 Web 應用程式防火牆。 此 SKU 只適用於 Azure Resource Manager 佈建模型，而不適用於傳統部署模型。 此外 WAF SKU 僅以中型和大型應用程式閘道執行個體大小提供。 應用程式閘道的所有限制也適用於 WAF SKU。 價格是以每小時的閘道器執行個體費用和資料處理費用為基礎。 WAF SKU 的每小時閘道價格不同於標準 SKU 費用，您可在[應用程式閘道價格詳細資料](https://azure.microsoft.com/pricing/details/application-gateway/)找到。 資料處理費用維持不變。 不會依照每個規則或規則群組計算費用。 您可以保護相同 Web 應用程式防火牆後面的多個 Web 應用程式，因此支援多個應用程式不需額外付費。 
 
-WAF 計費於 2017 年 5 月 5 日生效，直到 WAF SKU 閘道繼續以標準費率收費為止。
 
 ## <a name="next-steps"></a>後續步驟
 

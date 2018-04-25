@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: dbcb1d87fafe085d6232fa621fbd9e211fa4174d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e91e27da5ef80236768d19c5870ac96f19f6b074
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/23/2018
 
 - **Azure 儲存體**：正式推出。 Azure 公用雲端和 Azure Government 中的所有區域。
 - **Azure SQL Database**：已在所有 Azure 區域正式推出。 
-- **Azure SQL 資料倉儲**：預覽 Azure 公用雲端中的所有區域。
+- **Azure SQL 資料倉儲**：預覽。 Azure 公用雲端中的所有區域。
 
 如需此預覽的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。
 
@@ -87,6 +87,7 @@ ms.lasthandoff: 03/23/2018
 - **對等互連、已連線或多個虛擬網路**：若要將 Azure 服務放到一個虛擬網路或多個虛擬網路內的多個子網路保護，您可以獨立啟用每個子網路上的服務端點，並將 Azure 服務資源放到所有子網路保護。
 - **Filtering outbound traffic from a virtual network to Azure services**：如果您想檢查或篩選從虛擬網路送到 Azure 服務的流量，則可以在虛擬網路內部署網路虛擬設備。 接著，可以將服務端點套用到網路虛擬設備部署所在的子網路，只將 Azure 服務資源放到此子網路保護。 如果您想要使用網路虛擬設備篩選，讓來自虛擬網路的 Azure 服務存取只限於特定 Azure 資源，則此案例可能有幫助。 如需詳細資訊，請參閱[使用網路虛擬設備輸出](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 - **將 Azure 資源放到直接部署至虛擬網路的服務保護**：可以將各種 Azure 資源直接部署至虛擬網路中的特定子網路。 在受控服務子網路上設定服務端點，即可將 Azure 服務資源放到[受控服務](virtual-network-for-azure-services.md)子網路保護。
+- **來自 Azure 虛擬機器的磁碟流量**：對受控/非受控磁碟而言，虛擬機器磁碟流量 (包括掛接和卸載、diskIO) 不會因為 Azure 儲存體的服務端點路徑變更而受到影響。 您可以透過服務端點和 [Azure 儲存體網路規則](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，將分頁 Blob 的 REST 存取限制為選取網路。 
 
 ### <a name="logging-and-troubleshooting"></a>記錄和疑難排解
 
@@ -105,7 +106,7 @@ ms.lasthandoff: 03/23/2018
 
 擁有虛擬網路寫入權的使用者可以任意地在虛擬網路上設定服務端點。 若要將 Azure 服務資源放到 VNet 保護，使用者必須擁有所要新增之子網路的 *Microsoft.Network/JoinServicetoaSubnet* 權限。 此權限預設會隨附在內建的服務管理員角色中，可藉由建立自訂角色加以修改。
 
-深入了解[內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)以及如何將特定權限指派給[自訂角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+深入了解[內建角色](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)以及如何將特定權限指派給[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 虛擬網路和 Azure 服務資源可以位在相同或不同的訂用帳戶中。 如果虛擬網路和 Azure 服務資源位在不同的訂用帳戶中，資源必須位在相同的 Active Directory (AD) 租用戶下。 
 

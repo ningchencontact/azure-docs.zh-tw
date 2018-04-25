@@ -5,22 +5,22 @@ services: iot-dps
 keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 03/28/2018
+ms.date: 04/12/2018
 ms.topic: tutorial
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4d98ce103bed7f9d14eb45422b70ceca1328afaa
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9f151a8fbcdc20124467a1db290f6a05f574e4fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>使用 Azure IoT 中樞裝置佈建服務將裝置佈建到 IoT 中樞
 
-在上一個教學課程中，您已了解如何將裝置設定為連線到裝置佈建服務。 在本教學課程中，您會了解如何使用這項服務，以透過**_註冊清單_**將裝置佈建到單一 IoT 中樞。 本教學課程說明如何：
+在上一個教學課程中，您已了解如何將裝置設定為連線到裝置佈建服務。 在本教學課程中，您會了解如何使用這項服務，以透過自動佈建和**_註冊清單_** 將裝置佈建到單一 IoT 中樞。 本教學課程說明如何：
 
 > [!div class="checklist"]
 > * 註冊裝置
@@ -42,18 +42,18 @@ ms.lasthandoff: 03/30/2018
     - 「簽署金鑰」是每個 TPM 晶片或模擬從 TMP 晶片製造商取得唯一的簽署金鑰。  如需詳細資訊，請參閱[了解 TPM 簽署金鑰](https://technet.microsoft.com/library/cc770443.aspx)。
     - 註冊識別碼，用來唯一識別命名空間/範圍中的裝置。 此識別碼與裝置識別碼不一定相同。 每個裝置都必須有註冊識別碼。 若為 TPM 架構的裝置，註冊識別碼可能會衍生自該 TPM 自身，例如，TPM 簽署金鑰的 SHA-256 雜湊。
 
-    ![入口網站中的 TPM 註冊資訊](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)
+    [![入口網站中的 TPM 註冊資訊](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - 對於以 X.509 為基礎的裝置，您需要：
     - [核發給 X.509 晶片或模擬的憑證](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx)，格式為 .pem 或 .cer 檔案。 若要進行個別註冊，您必須對 X.509 系統使用每一裝置的「簽章者憑證」，若要進行群組註冊，則必須使用「根憑證」。 
 
-    ![入口網站中的 X.509 註冊資訊](./media/tutorial-provision-device-to-hub/x509-device-enrollment.png)
+    [![在入口網站中新增 X.509 證明的個別註冊](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
 有兩種方式可向裝置佈建服務註冊裝置：
 
 - **註冊群組** 這代表一組共用特定證明機制的裝置。 對於共用所需初始設定的大量裝置，或是全都要進入同一個租用戶的裝置，建議您使用註冊群組。
 
-    ![入口網站中的 X.509 註冊群組](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
+    [![在入口網站中新增 X.509 證明的群組註冊](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
 - **個別註冊** 這代表可能會向裝置佈建服務註冊的單一裝置項目。 個別註冊可使用 x509 憑證或 SAS 權杖 (在實際或虛擬的 TPM 中) 來作為證明機制。 對於需要唯一初始設定的裝置，以及只能透過 TPM 或虛擬 TPM 使用 SAS 權杖作為證明機制的裝置，我們建議您使用個別申請。 個別申請可能會指定所需的 IoT 中樞裝置識別碼。
 

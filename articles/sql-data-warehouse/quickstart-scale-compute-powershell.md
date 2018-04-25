@@ -1,43 +1,39 @@
 ---
 title: 快速入門：相應放大 Azure SQL 資料倉儲中的計算 - PowerShell | Microsoft Docs
-description: 可藉由調整資料倉儲單位來相應放大計算資源的 Powershell 工作。
+description: 在 PowerShell 中調整 Azure SQL 資料倉儲中的計算。 相應放大計算以提升效能，或將計算調整回來以節省成本。
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: jhubbard
-editor: ''
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/16/2018
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 3236c0ad9676712afd220a3c8a9326f3ea1f59d5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: quickstart
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 40fa33aad8bf5ac042f9d80493b97a914fe770bb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>快速入門：在 PowerShell 中調整 Azure SQL 資料倉儲中的計算
 
-在 PowerShell 中調整 Azure SQL 資料倉儲中的計算。 [相應放大計算](sql-data-warehouse-manage-compute-overview.md)以提升效能，或將計算調整回來以節省成本。 
+在 PowerShell 中調整 Azure SQL 資料倉儲中的計算。 [相應放大計算](sql-data-warehouse-manage-compute-overview.md)以提升效能，或將計算調整回來以節省成本。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
-本教學課程需要 Azure PowerShell 模組 5.1.1 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找您目前擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps.md)。 
+本教學課程需要 Azure PowerShell 模組 5.1.1 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找您目前擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps.md)。
 
 ## <a name="before-you-begin"></a>開始之前
 
-本快速入門假設您已有可調整的 SQL 資料倉儲。 若您需要建立 SQL 資料倉儲，請使用[建立與連線 - 入口網站](create-data-warehouse-portal.md)來建立稱為 **mySampleDataWarehouse** 的資料倉儲。 
+本快速入門假設您已有可調整的 SQL 資料倉儲。 若您需要建立 SQL 資料倉儲，請使用[建立與連線 - 入口網站](create-data-warehouse-portal.md)來建立稱為 **mySampleDataWarehouse** 的資料倉儲。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-使用 [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+使用 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 若要查看您正在使用的訂用帳戶，請執行 [Get AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription)。
@@ -54,13 +50,13 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
 ## <a name="look-up-data-warehouse-information"></a>查詢資料倉儲資訊
 
-找出您計畫暫停與繼續之資料倉儲的資料庫名稱、伺服器名稱和資源群組。 
+找出您計畫暫停與繼續之資料倉儲的資料庫名稱、伺服器名稱和資源群組。
 
 遵循下列步驟來尋找您資料倉儲的位置資訊。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料庫]。
-3. 從 [SQL 資料庫] 頁面中，選取 [mySampleDataWarehouse]。 這會開啟資料倉儲。 
+3. 從 [SQL 資料庫] 頁面中，選取 [mySampleDataWarehouse]。 這會開啟資料倉儲。
 
     ![伺服器名稱和資源群組](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
@@ -88,7 +84,7 @@ $database
 
 這會導致如以下的結果：
 
-```powershell   
+```powershell
 ResourceGroupName             : myResourceGroup
 ServerName                    : mynewserver-20171113
 DatabaseName                  : mySampleDataWarehouse
@@ -114,7 +110,7 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-您可以在輸出中查看資料庫的 **Status**。 在此情況下，您會看到此資料庫已上線。  當您執行此命令時，應該會收到下列其中一個 Status (狀態) 值：Online (上線)、Pausing (暫停中)、Resuming (正在恢復)、Scaling (正在調整) 或 Paused (已暫停)。 
+您可以在輸出中查看資料庫的 **Status**。 在此情況下，您會看到此資料庫已上線。  當您執行此命令時，應該會收到下列其中一個 Status (狀態) 值：Online (上線)、Pausing (暫停中)、Resuming (正在恢復)、Scaling (正在調整) 或 Paused (已暫停)。
 
 若要單獨查看狀態，請使用下列命令：
 

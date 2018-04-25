@@ -1,19 +1,19 @@
 ---
-title: Azure 快速入門 - 使用 Node.js 上傳、下載及列出 Azure 儲存體中的 Blob | Microsoft Docs
-description: 在本快速入門中，您會建立儲存體帳戶和容器。 然後，使用 Node.js 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
+title: Azure 快速入門 - 使用 Node.js 在物件儲存體中建立 Blob | Microsoft Docs
+description: 在本快速入門中，您會在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Node.js 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 services: storage
 author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 8783b83a1a94caf4a49f9da7a2dd30c9cb52df22
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 30a64ec6fd4df63eba9c35f1774c81c35fa3506f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>快速入門：使用 Node.js 上傳、下載及列出 Blob
 
@@ -82,7 +82,7 @@ const storage = require('azure-storage');
 - dotenv 會將名為 .env 之檔案中所定義的環境變數載入至目前的執行內容
 - path 是必要項目，有此項目才能判斷要上傳至 Blob 儲存體之檔案的絕對檔案路徑
 - yargs 會公開簡單的介面來存取命令列引數
-- azure-storage 是 Node.js 的 [Azure 儲存體 SDK](/nodejs/api/azure-storage) 模組
+- azure-storage 是 Node.js 的 [Azure 儲存體 SDK](https://docs.microsoft.com/javascript/api/azure-storage) 模組
 
 接下來，系統會初始化一系列變數：
 
@@ -294,4 +294,4 @@ try {
 > [!div class="nextstepaction"]
 > [Blob 儲存體作業操作說明](storage-nodejs-how-to-use-blob-storage.md)
 
-如需 Azure 儲存體的 Node.js 參考，請參閱 [azure-storage 套件](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest)。
+如需 Azure 儲存體的 Node.js 參考，請參閱 [azure-storage 套件](https://docs.microsoft.com/javascript/api/azure-storage)。

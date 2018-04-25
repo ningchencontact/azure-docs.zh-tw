@@ -1,18 +1,18 @@
 ---
-title: "建立要搭配 Azure Site Recovery 使用的資源 | Microsoft Docs"
-description: "了解如何準備 Azure，以使用 Azure Site Recovery 來進行內部部署電腦的複寫。"
+title: 建立要搭配 Azure Site Recovery 使用的資源 | Microsoft Docs
+description: 了解如何準備 Azure，以使用 Azure Site Recovery 來進行內部部署電腦的複寫。
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2f6ff1d30eef1fe34e55457d9bdd4295804ec16a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 0aec94ce4d53e1d0f5ecfbc7c667f7d4ceea1d2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>準備 Azure 資源以進行內部部署機器的複寫
 
@@ -21,8 +21,9 @@ ms.lasthandoff: 02/23/2018
 本教學課程說明如何在您想要將內部部署 VM (Hyper-V 或 VMware) 或 Windows/Linux 實體伺服器複寫至 Azure 時，準備好 Azure 元件。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 確認您的帳戶具有複寫權限。
-> * 建立 Azure 儲存體帳戶。
+> * 確認您的 Azure 帳戶具有複寫權限。
+> * 建立 Azure 儲存體帳戶。 複寫的資料會儲存在此。
+> * 建立復原服務保存庫。
 > * 設定 Azure 網路。 當 Azure VM 在容錯移轉後建立時，會加入此 Azure 網路。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
@@ -39,7 +40,7 @@ ms.lasthandoff: 02/23/2018
 - 在所選的虛擬網路中建立 VM。
 - 寫入所選取的儲存體帳戶。
 
-具有這些權限的「虛擬機器參與者」內建角色。 您也需要管理 Site Recovery 作業的權限。 「Site Recovery 參與者」角色具有在復原服務保存庫中管理 Site Recovery 作業所需的所有權限。
+若要完成這些工作，應將虛擬機器參與者內建角色指派至您的帳戶。 此外，若要管理保存庫中的 Site Recovery 作業，應將 Site Recovery 參與者內建角色指派至您的帳戶。
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 

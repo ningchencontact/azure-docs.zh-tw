@@ -1,24 +1,24 @@
 ---
-title: "在 Linux 上使用 C# 建立您的第一個 Azure 微服務應用程式 | Microsoft Docs"
-description: "使用 C# 建立和部署 Service Fabric 應用程式"
+title: 在 Linux 上使用 C# 建立您的第一個 Azure 微服務應用程式 | Microsoft Docs
+description: 使用 C# 建立和部署 Service Fabric 應用程式
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
 ms.service: service-fabric
 ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 9a97a560034b288823d662d83d6366383c9e1706
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 30ed7eb736b2012a0e9ed4c10d4bfd1aff35faac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>建立第一個 Azure Service Fabric 應用程式
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
   ```bash
   sudo npm install -g yo
   ```
-3. 從 NPM 安裝 Service Fabric Yeo Java 應用程式產生器
+3. 從 NPM 安裝 Service Fabric Yeoman C# 應用程式產生器
 
   ```bash
   sudo npm install -g generator-azuresfcsharp

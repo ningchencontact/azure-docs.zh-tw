@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f87705ebbdd14b1bbf7cade481a7dbe7dd3d5131
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ce295c449b01de4fa99df9198805a6b0727c0d18
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>監視使用量和估計成本
 
@@ -61,12 +61,16 @@ ms.lasthandoff: 04/03/2018
 3. Application Insights\基本超額資料
 4. Application Insights\內含資料
 
-會結合為新的通用資料擷取計量，名為**共用服務\資料擷取**，因為新的定價模式並沒有以節點為基礎的內含資料配置。
+會結合為新的通用資料擷取計量，名為**共用服務\資料擷取**，因為新的定價模式並沒有按節點的內含資料權利。
 
 您會看到另一項變更是，資料若擷取到成本較高之區域的 Log Analytics 或 Application Insights 中，將會以新的區域計量顯示，以適當加以反映，例如**擷取資料 (美國中西部)**。
 
 > [!NOTE]
-> 如果您有 Operations Management Suite (OMS) 訂用帳戶，則您所購買的每個節點都會獲得 Log Analytics 和 Application Insights 資料擷取配置。 由於這會在帳戶層級上套用 (而非訂用帳戶)，因此這項估計無法顯示這些配置的效果。 如需深入討論新的定價模式在此情況下的運作方式，請洽詢帳戶代表。
+> 按訂用帳戶的估計成本不會考慮 Operations Management Suite (OMS) 訂用帳戶的按節點權利帳戶層級。 如需深入討論新的定價模式在此情況下的運作方式，請洽詢帳戶代表。
+
+## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>新的定價模型和 Operations Management Suite 訂用帳戶的權利
+
+凡購買 Microsoft Operations Management Suite E1 和 E2 的客戶，皆符合資格使用 [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) 和 [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans) 的按節點資料擷取權利。 若要以指定訂用帳戶享用 Log Analytics 工作區或 Application Insights 資源的這些權利，該訂用帳戶的定價模型必須保持在 2018 年 4 月前的定價模型；在該定價模型中可使用 Log Analytics「按節點 (OMS)」定價層和 Application Insights「企業」定價方案。 根據貴組織所購買套件的節點數目，讓部分訂用帳戶改採新的定價模型仍可能對您有利，但這需要仔細考量。 
 
 ## <a name="changes-when-moving-to-the-new-pricing-model"></a>移轉至新定價模式時的變更
 

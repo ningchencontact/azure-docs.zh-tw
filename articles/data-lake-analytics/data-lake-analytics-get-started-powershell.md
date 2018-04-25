@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: saveenr
-ms.openlocfilehash: f37a4563a758d442760f4a6be3c11bb9a9ddfc28
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 332b6c90ea51d16a439bfb21222bb753e93a02b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>使用 Azure PowerShell 開始使用 Azure Data Lake Analytics
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -39,13 +39,13 @@ ms.lasthandoff: 03/16/2018
 若要使用訂用帳戶名稱登入：
 
 ```
-Login-AzureRmAccount -SubscriptionName "ContosoSubscription"
+Connect-AzureRmAccount -SubscriptionName "ContosoSubscription"
 ```
 
 除了訂用帳戶名稱之外，您也可以使用訂用帳戶識別碼來登入：
 
 ```
-Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Connect-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
 如果成功，這個命令的輸出看起來會類似下列文字：
@@ -96,13 +96,13 @@ OUTPUT @a
 "@
 ```
 
-提交指令碼。
+使用 `Submit-AdlJob` Cmdlet 和 `-Script` 參數提交指令碼文字。
 
 ```
 $job = Submit-AdlJob -Account $adla -Name "My Job" –Script $script
 ```
 
-或者，您可以將指令碼儲存為檔案，並使用下列命令提交：
+或者，您也可以使用 `-ScriptPath` 參數提交指令檔：
 
 ```
 $filename = "d:\test.usql"
@@ -110,20 +110,19 @@ $script | out-File $filename
 $job = Submit-AdlJob -Account $adla -Name "My Job" –ScriptPath $filename
 ```
 
-
-取得特定作業的狀態。 繼續使用這個 Cmdlet，直到您看到作業完成為止。
+使用 `Get-AdlJob` 取得作業狀態。 
 
 ```
 $job = Get-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-您可以使用 Wait-AdlJob Cmdlet，而不需在作業完成前反覆呼叫 Get-AdlAnalyticsJob。
+使用 `Wait-AdlJob` Cmdlet，而不是一再呼叫 Get-AdlJob 直到作業完成。
 
 ```
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-下載輸出檔案。
+使用 `Export-AdlStoreItem` 下載輸出檔案。
 
 ```
 Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"

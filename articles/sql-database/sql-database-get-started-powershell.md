@@ -11,11 +11,11 @@ ms.devlang: PowerShell
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 9649b79a8100597c73d9082e1314fc47e811b95c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 205e2c075f98ebb6fe7bd6156fd255d25c434681
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>使用 PowerShell 建立單一 Azure SQL Database
 
@@ -23,14 +23,14 @@ PowerShell 可用來從命令列或在指令碼中建立和管理 Azure 資源�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
-本教學課程需要 Azure PowerShell 模組 4.0 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 
+本教學課程需要 Azure PowerShell 模組 4.0 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-使用 [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+使用 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-variables"></a>建立變數
@@ -100,7 +100,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
 
 ## <a name="clean-up-resources"></a>清除資源
 
-此集合中的其他快速入門教學課程會以此快速入門為基礎。 
+此集合中的其他快速入門教學課程會以此快速入門為基礎。
 
 > [!TIP]
 > 如果您打算繼續進行後續的快速入門教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，請使用下列步驟，在 Azure 入口網站中刪除本快速入門所建立的所有資源。
@@ -112,7 +112,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>後續步驟
 
-- 您現在具有資料庫，您可使用任何一個慣用工具或語言進行[連線和查詢](sql-database-connect-query.md)。 
+- 您現在具有資料庫，您可使用任何一個慣用工具或語言進行[連線和查詢](sql-database-connect-query.md)。
 - 若要了解如何設計您的第一個資料庫、建立資料表及插入資料，請參閱下列其中一個教學課程：
  - [使用 SSMS 設計您的第一個 Azure SQL 資料庫](sql-database-design-first-database.md)
   - [設計 Azure SQL Database 並連接 C# 和 ADO.NET](sql-database-design-first-database-csharp.md)

@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a04cd63944d0ed75ff90f211134cd93c77abe1e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c42f67197b10769a49ce61095e1d5d22c9012340
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>教學課程：使用 Python API 透過 Azure Batch 執行平行工作負載
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/03/2018
 
 * [pip](https://pip.pypa.io/en/stable/installing/) 套件管理員
 
-* Azure Batch 帳戶和連結的一般用途 Azure 儲存體帳戶。 若要建立這些帳戶，請參閱使用 [Azure 入口網站](quick-create-portal.md)或 [Azure CLI](quick-create-cli.md) 的 Batch 快速入門。
+* Azure Batch 帳戶和連結的 Azure 儲存體帳戶。 若要建立這些帳戶，請參閱使用 [Azure 入口網站](quick-create-portal.md)或 [Azure CLI](quick-create-cli.md) 的 Batch 快速入門。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 

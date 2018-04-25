@@ -12,13 +12,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 04/13/2018
 ms.author: sngun
-ms.openlocfilehash: 5b9206a7bbd0fe5afcb2c65f2270fc67dffee4e3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2e439b260ae2964aeab33c100db3f62e0bd06f33
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Python 和 Azure 入口網站建置 SQL API 應用程式
 
@@ -26,15 +26,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 本快速入門會示範如何使用 Azure 入口網站建立 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帳戶、文件資料庫和集合。 接著，您要建置和執行以 [SQL Python API](sql-api-sdk-python.md) 為基礎的主控台應用程式。
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
 ## <a name="prerequisites"></a>先決條件
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
-* 此外：
-    * 如果尚未安裝 Visual Studio 2017，您可以下載並使用**免費的** [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 **Azure 開發**。
-    * [GitHub](http://microsoft.github.io/PTVS/)的 Python Tools for Visual Studio。 本教學課程使用 Python Tools for VS 2015。
-    * 來自 [python.org](https://www.python.org/downloads/release/python-2712/) 的 Python 2.7
+* [Python 3.6](https://www.python.org/downloads/)，而且 \<安裝位置\>\Python36 和 \<安裝位置>\Python36\Scripts 會新增至您的 PATH。 
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [適用於 Visual Studio Code 的 Python 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
 
@@ -44,21 +42,41 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
+## <a name="add-sample-data"></a>新增範例資料
+
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+
+## <a name="query-your-data"></a>查詢資料
+
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
+
 ## <a name="clone-the-sample-application"></a>複製範例應用程式
 
 現在，我們將從 github 複製 SQL API 應用程式、設定連接字串，然後加以執行。 您會看到，以程式設計方式來處理資料有多麼的容易。 
 
-1. 開啟 Git 終端機視窗 (例如 Git Bash)，然後使用 `cd` 來切換到工作目錄。  
+1. 開啟命令提示字元，建立名為 git-samples 的新資料夾，然後關閉命令提示字元。
 
-2. 執行下列命令來複製範例存放庫。 
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. 開啟 git 終端機視窗 (例如 git bash)，並使用 `cd` 命令變更至要安裝範例應用程式的新資料夾。
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. 執行下列命令來複製範例存放庫。 此命令會在您的電腦上建立範例應用程式副本。 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-python-getting-started.git
     ```  
+    
 ## <a name="review-the-code"></a>檢閱程式碼
 
-讓我們快速檢閱應用程式中發生了什麼。 請開啟 DocumentDBGetStarted.py 檔案，您會發現這些程式碼行會建立 Azure Cosmos DB 資源。 
+此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-string)。 
 
+下列程式碼片段全部取自 DocumentDBGetStarted.py 檔案。
 
 * 已初始化 DocumentClient。
 
@@ -122,28 +140,55 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，於您 Azure Cosmos DB 帳戶的左側瀏覽區中，按一下 [金鑰]，然後按一下 [讀寫金鑰]。 在下一個步驟中，您將使用畫面右側的複製按鈕，將 URI 和主要金鑰複製到 `DocumentDBGetStarted.py` 檔案。
+1. 在 [Azure 入口網站](http://portal.azure.com/)的 Azure Cosmos DB 帳戶中，按一下左側導覽列中的 [金鑰]。 在下一個步驟中，您將使用畫面右側的複製按鈕，將 **URI** 和**主要金鑰**複製到 DocumentDBGetStarted.py 檔案中。
 
     ![在 Azure 入口網站的 [金鑰] 刀鋒視窗中檢視並複製存取金鑰](./media/create-sql-api-dotnet/keys.png)
 
-2. 開啟 `DocumentDBGetStarted.py` 檔案。 
+2. 在 Visual Studio Code 中開啟 C:\git-samples\azure-cosmos-db-documentdb-python-getting-startedDocumentDBGetStarted.py 檔案。 
 
-3. 從入口網站複製您的 URI 值 (使用 [複製] 按鈕)，並使它成為 `DocumentDBGetStarted.py` 中的端點金鑰值。 
+3. 從入口網站複製您的 **URI** 值 (使用 [複製] 按鈕)，並使它成為 DocumentDBGetStarted.py 中的**端點**金鑰值。 
 
     `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
-4. 然後，從入口網站複製您的主要金鑰值，並使它成為 `DocumentDBGetStarted.py` 中的 `config.MASTERKEY` 值。 您現已更新應用程式，使其具有與 Azure Cosmos DB 通訊所需的所有資訊。 
+4. 然後，從入口網站複製您的**主要金鑰**值，並使它成為 DocumentDBGetStarted.py 中的 **config.MASTERKEY** 值。 您現已更新應用程式，使其具有與 Azure Cosmos DB 通訊所需的所有資訊。 
 
     `'MASTERKEY': 'FILLME',`
+
+5. 儲存 DocumentDBGetStarted.py 檔案。
     
 ## <a name="run-the-app"></a>執行應用程式
-1. 在 Visual Studio 中，於 [方案總管] 中的專案上按一下滑鼠右鍵，選取目前的 Python 環境，然後按一下滑鼠右鍵。
 
-2. 選取 [安裝 Python 套件]，然後輸入 **pydocumentdb**
+1. 在 Visual Studio Code 中，選取 [檢視]>[命令選擇區]。 
 
-3. 按 F5 鍵執行應用程式。 您的應用程式會顯示在瀏覽器中。 
+2. 在提示字元中，輸入 **Python: Select Interpreter**，然後選取要使用的 Python 版本。
 
-您現在可以返回 [資料總管]，以查看、查詢、修改及使用這項新資料。 
+    Visual Studio Code 中的頁尾會更新以指出選取的解譯器。 
+
+3. 選取 [檢視] > [整合式終端機] 以開啟 Visual Studio Code 整合式終端機。
+
+4. 在整合式終端機視窗中，確保您在 azure-cosmos-db-documentdb-python-getting-started 資料夾中。 如果不是，請執行下列命令來切換至範例資料夾。 
+
+    ```
+    cd "C:\git-samples\azure-cosmos-db-documentdb-python-getting-started"`
+    ```
+
+5. 執行以下命令來安裝 pydocumentdb 套件。 
+
+    ```
+    pip3 install pydocumentdb
+    ```
+
+    如果您收到有關在嘗試安裝 pydocumentdb 時拒絕存取的錯誤，您必須[以系統管理員身分執行 VS Code](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights)。
+
+6. 執行下列命令以執行範例，並且在 Azure Cosmos dB 中建立和儲存新文件。
+
+    ```
+    python DocumentDBGetStarted.py
+    ```
+
+7. 若要確認已建立並儲存新文件，請在 Azure 入口網站中，選取 [資料總管]，依序展開 [coll]、[文件]，然後選取 [server1] 文件。 Server1 文件內容符合整合式終端機視窗中傳回的內容。 
+
+    ![在 Azure 入口網站中檢視新文件](./media/create-sql-api-python/azure-cosmos-db-confirm-documents.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 入口網站中檢閱 SLA
 
@@ -151,10 +196,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您將不繼續使用此應用程式，請使用下列步驟，在 Azure 入口網站中刪除本快速入門所建立的所有資源：
-
-1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。 
-2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

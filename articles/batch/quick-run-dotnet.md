@@ -1,6 +1,6 @@
 ---
-title: "Azure 快速入門 - 執行 Batch 作業 - .NET"
-description: "使用 Batch .NET 用戶端程式庫快速執行 Batch 作業和工作。"
+title: Azure 快速入門 - 執行 Batch 作業 - .NET
+description: 使用 Batch .NET 用戶端程式庫快速執行 Batch 作業和工作。
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: efa697482b5b27846f2be129998c100787466467
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b5431feec23e2e0681967a9fe0345edc1db567aa
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>快速入門：使用 .NET API 執行您的第一個 Azure Batch 作業
 
@@ -28,11 +28,11 @@ ms.lasthandoff: 02/01/2018
 
 * [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 或更新版本)。 
 
-* Batch 帳戶和連結的一般用途儲存體帳戶。 若要建立這些帳戶，請參閱使用 [Azure 入口網站](quick-create-portal.md)或 [Azure CLI](quick-create-cli.md) 的 Batch 快速入門。 
+* Batch 帳戶和連結的 Azure 儲存體帳戶。 若要建立這些帳戶，請參閱使用 [Azure 入口網站](quick-create-portal.md)或 [Azure CLI](quick-create-cli.md) 的 Batch 快速入門。 
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 

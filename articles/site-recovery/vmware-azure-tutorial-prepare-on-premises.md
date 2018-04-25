@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7722891af15111fd0151055c35bf24100ed79b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>準備內部部署 VMware 伺服器以進行 Azure 的災害復原
 
@@ -25,9 +25,12 @@ ms.lasthandoff: 03/16/2018
 > * 檢閱 VMware 伺服器需求
 > * 檢閱 VMware VM 需求
 
-在此教學課程系列中，我們說明如何使用 Azure Site Recovery 來備份單一 VM。 如果您想要保護多個 VMware VM，您應該下載用於 VMware 複寫的[部署規劃工具](https://aka.ms/asr-deployment-planner)。 此工具可讓您收集 VM 相容性、每個 VM 的磁碟及每個磁碟的資料變換等相關資訊。 此工具也涵蓋網路頻寬需求，以及要成功複寫和測試容錯移轉所需的 Azure 基礎結構。 [深入了解](site-recovery-deployment-planner.md)如何執行此工具。
+在此教學課程系列中，我們說明如何使用 Azure Site Recovery 來複寫單一 VM。 
 
 這是系列中的第二個教學課程。 確定您已如上一個教學課程中所述[設定 Azure 元件](tutorial-prepare-azure.md)。
+
+如股您要複寫多個 VM，請下載用於 VMware 複寫的[部署規劃工具](https://aka.ms/asr-deployment-planner)。 [深入了解](site-recovery-deployment-planner.md)。
+
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>準備帳戶以進行自動探索
 

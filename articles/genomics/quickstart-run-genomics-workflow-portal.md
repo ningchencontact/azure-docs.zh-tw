@@ -1,6 +1,6 @@
 ---
-title: "快速入門：透過 Microsoft Genomics 服務執行工作流程 | Microsoft Docs"
-description: "本快速入門示範如何將輸入資料載入 Azure Blob 儲存體中，並透過 Microsoft Genomics 服務執行工作流程。"
+title: 快速入門：透過 Microsoft Genomics 服務執行工作流程 | Microsoft Docs
+description: 本快速入門示範如何將輸入資料載入 Azure Blob 儲存體中，並透過 Microsoft Genomics 服務執行工作流程。
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -10,11 +10,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: ed2048755317649d160bcfd71519af715067b99b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1436ad54eb13052aa87ccfd5adc371c8d7d5a100
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>快速入門：透過 Microsoft Genomics 服務執行工作流程
 
@@ -174,4 +174,4 @@ msgen list -f c:\temp\config.txt
 
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您已將範例輸入資料上傳到 Azure 儲存體，並已透過 `msgen` Python 用戶端將工作流程提交至 Microsoft Genomics 服務。 若要了解有關可與 Microsoft Genomics 服務搭配使用之其他輸入檔案類型的詳細資訊，請參閱下列頁面：[配對的 FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [多個 FASTQ 或 BAM](quickstart-input-multiple.md) 
+在本文中，您已將範例輸入資料上傳到 Azure 儲存體，並已透過 `msgen` Python 用戶端將工作流程提交至 Microsoft Genomics 服務。 若要了解有關可與 Microsoft Genomics 服務搭配使用的其他輸入檔案類型詳細資訊，請參閱下列頁面：[配對的 FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [多個 FASTQ 或 BAM](quickstart-input-multiple.md)。 您也可以使用我們的 [Azure Notebook 教學課程](http://aka.ms/genomicsnotebook)來探索此教學課程。

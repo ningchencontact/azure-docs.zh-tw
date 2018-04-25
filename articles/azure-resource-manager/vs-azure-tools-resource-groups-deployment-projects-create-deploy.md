@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2017
+ms.date: 04/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d647206b882059e0651223dc84f2ad2a314f8a87
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bd0680a16596931b5f595bbdd4e48414c8dbde73
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>透過 Visual Studio 建立與部署 Azure 資源群組
 使用 Visual Studio 和 [Azure SDK](https://azure.microsoft.com/downloads/)，您可以建立專案，將您的基礎結構和程式碼部署至 Azure。 例如，您可以為您的應用程式定義 Web 主機、網站和資料庫，並且部署該基礎結構與程式碼。 或者，您可以定義虛擬機器、虛擬網路和儲存體帳戶，並且部署該基礎結構以及在虛擬機器上執行的指令碼。 **Azure 資源群組** 部署專案可讓您在單一、可重複執行的作業中部署所有所需的資源。 如需部署與管理資源的詳細資訊，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。
@@ -148,7 +148,7 @@ Visual Studio 也會提供 Intellisense 以協助您了解編輯範本時可以�
 5. 選擇 [部署] 按鈕，將專案部署至 Azure。 PowerShell 主控台會在 Visual Studio 執行個體的外部開啟。 出現提示時，請在 PowerShell 主控台中輸入 SQL Server 系統管理員密碼。 **PowerShell 主控台可能會隱藏在其他項目之後或在工作列中最小化。** 尋找此主控台並加以選取，以便提供密碼。
    
    > [!NOTE]
-   > Visual Studio 可能會要求您安裝 Azure PowerShell Cmdlet。 您需要 Azure PowerShell Cmdlet 才能成功部署資源群組。 如果出現提示，請予以安裝。
+   > Visual Studio 可能會要求您安裝 Azure PowerShell Cmdlet。 您需要 Azure PowerShell Cmdlet 才能成功部署資源群組。 如果出現提示，請予以安裝。 如需詳細資訊，請參閱[安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)。
    > 
    > 
 6. 部署可能需要幾分鐘的時間。 您可在 [輸出]  視窗中查看部署的狀態。 部署完成時，最後一則訊息會表示成功部署，如下所示︰
@@ -216,6 +216,102 @@ Visual Studio 也會提供 Intellisense 以協助您了解編輯範本時可以�
     
      ![顯示已部署的應用程式](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
+## <a name="add-an-operations-dashboard-to-your-deployment"></a>將作業儀表板新增至您的部署
+現在我們已建立了解決方案，該進行最後一步並讓其開始運作了。 您不一定要透過 Visual Studio 介面使用資源。 我們可以利用定義為 JSON 資源的共用儀表板。 透過編輯範本和新增自訂資源即可執行此操作。 
+
+1. 開啟 WebsiteSqlDeploy.json 檔案，並在資源區段的儲存體帳戶資源之後和結尾 ] 之前，新增下列 json 程式碼區塊。
+
+```json
+    ,{
+      "properties": {
+        "lenses": {
+          "0": {
+            "order": 0,
+            "parts": {
+              "0": {
+                "position": {
+                  "x": 0,
+                  "y": 0,
+                  "colSpan": 4,
+                  "rowSpan": 6
+                },
+                "metadata": {
+                  "inputs": [
+                    {
+                      "name": "resourceGroup",
+                      "isOptional": true
+                    },
+                    {
+                      "name": "id",
+                      "value": "[resourceGroup().id]",
+                      "isOptional": true
+                    }
+                  ],
+                  "type": "Extension/HubsExtension/PartType/ResourceGroupMapPinnedPart"
+                }
+              },
+              "1": {
+                "position": {
+                  "x": 4,
+                  "y": 0,
+                  "rowSpan": 3,
+                  "colSpan": 4
+                },
+                "metadata": {
+                  "inputs": [],
+                  "type": "Extension[azure]/HubsExtension/PartType/MarkdownPart",
+                  "settings": {
+                    "content": {
+                      "settings": {
+                        "content": "__Customizations__\n\nUse this dashboard to create and share the operational views of services critical to the application performing. To customize simply pin components to the dashboard and then publish when you're done. Others will see your changes when you publish and share the dashboard.\n\nYou can customize this text too. It supports plain text, __Markdown__, and even limited HTML like images <img width='10' src='https://portal.azure.com/favicon.ico'/> and <a href='https://azure.microsoft.com' target='_blank'>links</a> that open in a new tab.\n",
+                        "title": "Operations",
+                        "subtitle": "[resourceGroup().name]"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "metadata": {
+          "model": {
+            "timeRange": {
+              "value": {
+                "relative": {
+                  "duration": 24,
+                  "timeUnit": 1
+                }
+              },
+              "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+            }
+          }
+        }
+      },
+      "apiVersion": "2015-08-01-preview",
+      "name": "[concat('ARM-',resourceGroup().name)]",
+      "type": "Microsoft.Portal/dashboards",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "hidden-title": "[concat('OPS-',resourceGroup().name)]"
+      }
+    }
+}
+```
+
+2. 重新部署您的資源群組，當您查看 Azure 入口網站上的儀表板時，您會看到共用儀表已新增至您的選擇清單。 
+
+    ![自訂儀表板](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
+
+
+
+   > [!NOTE] 
+   > 您可以使用 RBAC 群組來管理儀表板的存取，並在部署好資源後，將自訂項目發行至資源。 請注意，當您重新部署資源群組時，其會重設回您範本中的預設值。 您應考慮是否要以自訂項目更新範本。 如需此操作的說明，請參閱[以程式設計方式建立 Azure 儀表板](../azure-portal/azure-portal-dashboards-create-programmatically.md)
+
+
+    ![自訂儀表板](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
+    
+    
 ## <a name="next-steps"></a>後續步驟
 * 若要了解透過入口網站管理資源，請參閱 [使用 Azure 入口網站來管理您的 Azure 資源](resource-group-portal.md)。
 * 若要了解範本，請參閱 [撰寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: davidmu1
-ms.openlocfilehash: 011426f3d8eab4eb2513270a9bcd1562e3c12b31
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0329cb9e49196f77ba12940e5987487eb2b6fda9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C：應用程式類型
-Azure Active Directory (Azure AD) B2C 支援各種現代應用程式架構的驗證。 全部都以業界標準通訊協定 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 或 [OpenID Connect](active-directory-b2c-reference-protocols.md) 為基礎。 此文件簡要描述您可以建置的應用程式類型，不涉及您慣用的語言或平台。 在您 [開始建立應用程式](active-directory-b2c-overview.md#get-started)之前，也可協助您先了解一些高階案例。
+Azure Active Directory (Azure AD) B2C 支援各種現代應用程式架構的驗證。 全部都以業界標準通訊協定 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 或 [OpenID Connect](active-directory-b2c-reference-protocols.md) 為基礎。 此文件簡要描述您可以建置的應用程式類型，不涉及您慣用的語言或平台。 在您 [開始建立應用程式](active-directory-b2c-overview.md)之前，也可協助您先了解一些高階案例。
 
 ## <a name="the-basics"></a>基本概念
 每個使用 Azure AD B2C 的應用程式都必須透過 [Azure 入口網站](https://portal.azure.com/)，註冊在 [B2C 目錄](active-directory-b2c-get-started.md)中。 App 註冊處理序會收集與指派一些值給您的 app：
@@ -30,16 +30,9 @@ Azure Active Directory (Azure AD) B2C 支援各種現代應用程式架構的驗
 * 可用來將回應導回至應用程式的 **重新導向 URI** 。
 * 案例特有的其他任何值。 如需詳細資訊，請瞭解如何 [註冊應用程式](active-directory-b2c-app-registration.md)。
 
-註冊應用程式之後，應用程式即會向 Azure AD v2.0 端點傳送要求，以與 Azure AD 通訊：
-
-```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-https://login.microsoftonline.com/common/oauth2/v2.0/token
-```
-
 每個傳送至 Azure AD B2C 的要求都指定一個 **原則**。 原則控制 Azure AD 的行為。 您也可以使用這些端點來建立一組可靈活自訂的使用者體驗。 常見的原則包括註冊、登入和設定檔編輯原則。 如果您不熟悉原則，在繼續之前，請參閱 Azure AD B2C 的 [可延伸原則架構](active-directory-b2c-reference-policies.md) 。
 
-每個應用程式與 v2.0 端點的互動都遵循類似的高階模式：
+每個應用程式的互動都遵循類似的高階模式：
 
 1. 應用程式會將使用者導向至 v2.0 端點以執行 [原則](active-directory-b2c-reference-policies.md)。
 2. 使用者完成根據原則定義來完成原則。
@@ -49,7 +42,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 6. 應用程式會定期重新整理安全性權杖。
 
 <!-- TODO: Need a page for libraries to link to -->
-根據您要建置的應用程式類型而定，這些步驟可能稍有不同。 開放原始碼程式庫可以為您處理細節。
+根據您要建置的應用程式類型而定，這些步驟可能稍有不同。
 
 ## <a name="web-apps"></a>Web 應用程式
 對於裝載於伺服器且透過瀏覽器存取的 Web 應用程式 (包括 .NET、PHP、Java、Ruby、Python、Node.js)，Azure AD B2C 支援以 [OpenID Connect](active-directory-b2c-reference-protocols.md) 完成一切使用者體驗。 這包括登入、註冊和設定檔管理。 在 Azure AD B2C 的 OpenID Connect 實作中，Web 應用程式會向 Azure AD 發出驗證要求，以起始這些使用者體驗。 要求的結果是 `id_token`。 這個安全性權杖代表使用者的身分識別。 它也以宣告形式提供使用者的相關資訊：
@@ -75,7 +68,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
 使用接收自 Azure AD 的公開簽署金鑰來驗證 `id_token` ，就足以驗證使用者的身分識別。 這也會設定工作階段 Cookie，在後續頁面要求上可用來識別使用者。
 
-若要查看此案例的實際運作情形，請在 [使用者入門](active-directory-b2c-overview.md#get-started)一節的 Web 應用程式登入程式碼範例中擇一試用。
+若要查看此案例的實際運作情形，請在 [使用者入門](active-directory-b2c-overview.md)一節的 Web 應用程式登入程式碼範例中擇一試用。
 
 除了讓登入更簡單，Web 伺服器應用程式可能也需要存取後端 Web 服務。 在此情況下，Web 應用程式可能執行稍有不同的 [OpenID Connect 流程](active-directory-b2c-reference-oidc.md) ，並使用授權碼和重新整理權杖來取得權杖。 以下 [Web API](#web-apis)一節描述此案例。
 
@@ -105,7 +98,7 @@ Web API 接收的權杖可以來自許多類型的應用程式，包括 Web 應�
 
 若要深入了解授權碼、重新整理權杖和取得權杖的步驟，請參閱 [OAuth 2.0 通訊協定](active-directory-b2c-reference-oauth-code.md)。
 
-若要了解如何使用 Azure AD B2C 保護 Web API，請查看 [使用者入門](active-directory-b2c-overview.md#get-started)一節的 Web API 教學課程。
+若要了解如何使用 Azure AD B2C 保護 Web API，請查看 [使用者入門](active-directory-b2c-overview.md)一節的 Web API 教學課程。
 
 ## <a name="mobile-and-native-apps"></a>行動和原生應用程式
 安裝在裝置中的應用程式 (如行動和桌面應用程式) 通常需要代替使用者存取後端服務或 Web API。 您可以將自訂的身分識別管理體驗加入至原生應用程式，並使用 Azure AD B2C 和 [OAuth 2.0 授權碼流程](active-directory-b2c-reference-oauth-code.md)安全地呼叫後端服務。  

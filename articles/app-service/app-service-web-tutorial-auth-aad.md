@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/03/2018
 ms.author: cephalin
-ms.openlocfilehash: 66e127e3c2c025818bb972d8937d8fb238d49e15
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4bdb182d93b842bf94e75672b1d7b4cf4f6da253
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>教學課程：在 Azure App Service 中端對端驗證和授權使用者
 
@@ -273,7 +273,7 @@ git push frontend master
 
 ![在 Azure App Service 中執行的 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/resources-enable-write.png)
 
-在左側瀏覽器中，按一下 **訂用帳戶** > **_&lt;your\_subscription>_** > **resourceGroups** > **myAuthResourceGroup** > **提供者** > **Microsoft.Web** > **網站** > **_&lt;back\_end\_app\_name>_** > **組態** > **authsettings**。
+在左側瀏覽器中，按一下 **訂用帳戶** > **_&lt;your\_subscription>_** > **resourceGroups** > **myAuthResourceGroup** > **提供者** > **Microsoft.Web** > **網站** > **_\<front\_end\_app\_name>_** > **組態** > **authsettings**。
 
 在 **authsettings** 檢視中，按一下 [編輯]。 使用您複製的應用程式識別碼，將 `additionalLoginParams` 設為下列 JSON 字串。 
 

@@ -1,6 +1,6 @@
 ---
-title: "開始在 Azure 媒體服務上使用 Java SDK |Microsoft 文件"
-description: "本教學課程會逐步引導您使用 Java 實作含 Azure 媒體服務 (AMS) 應用程式的基本點播視訊 (VoD) 內容傳遞服務。"
+title: 開始在 Azure 媒體服務上使用 Java SDK |Microsoft 文件
+description: 本教學課程會逐步引導您使用 Java 實作含 Azure 媒體服務 (AMS) 應用程式的基本點播視訊 (VoD) 內容傳遞服務。
 services: media-services
 documentationcenter: java
 author: juliako
@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 10/26/2017
 ms.author: juliako
-ms.openlocfilehash: cba1e58478f4bbdffb61566e53aa0b86138b7fc6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b8dea132fc1af546b64f51e5ab395ad8bc3fe37
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>開始在 Azure 媒體服務上使用 Java 用戶端 SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/02/2018
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->從 `0.9.8` 版的 `azure-media` 套件開始，SDK 新增了 Azure Active Directory (AAD) 驗證的支援，並移除了 Azure 存取控制服務 (ACS) 驗證的支援。 ACS 服務將在 2018 年 6 月 1 日被取代。 建議您儘速移轉至 Azure AD 驗證模型。 如需有關移轉的詳細資訊，請閱讀[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)一文。
+>從 `0.9.8` 版的 `azure-media` 套件開始，SDK 新增了 Azure Active Directory (AAD) 驗證的支援，並移除了 Azure 存取控制服務 (ACS) 驗證的支援。 ACS 服務將在 2018 年 6 月 22 日被取代。 建議您儘速移轉至 Azure AD 驗證模型。 如需有關移轉的詳細資訊，請閱讀[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)一文。
 
 >[!NOTE]
 >您可以在我們的 [GitHub 存放庫](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media)中找到 Azure 媒體服務 Java SDK 的原始程式碼。 請確定切換至 0.9 分支，而不是主要分支。 

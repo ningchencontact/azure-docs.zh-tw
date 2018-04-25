@@ -1,19 +1,19 @@
 ---
-title: "使用 Azure Site Recovery 為內部部署 VMware VM 設定災害復原至 Azure | Microsoft Docs"
-description: "了解如何使用 Azure Site Recovery 為內部部署 VMware VM 設定災害復原至 Azure。"
+title: 使用 Azure Site Recovery 為內部部署 VMware VM 設定災害復原至 Azure | Microsoft Docs
+description: 了解如何使用 Azure Site Recovery 為內部部署 VMware VM 設定災害復原至 Azure。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7580db2a2fd41c124443b26257f1b946adcc068c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6c86a98dd819b91608be04f1466dc1e6764ee4b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>為內部部署 VMware VM 設定災害復原至 Azure
 
@@ -27,8 +27,8 @@ ms.lasthandoff: 02/28/2018
 
 這是本系列的第三個教學課程。 本教學課程假設您已完成先前教學課程中的工作：
 
-* [準備 Azure](tutorial-prepare-azure.md)
-* [準備內部部署 VMware](vmware-azure-tutorial-prepare-on-premises.md)
+* [準備 Azure](tutorial-prepare-azure.md)。 本教學課程說明如何設定 Azure 儲存體帳戶和網路、確定您的 Azure 帳戶具有正確權限，以及建立復原服務保存庫。
+* [準備內部部署 VMware](vmware-azure-tutorial-prepare-on-premises.md)。 在本教學課程中，您將準備一個帳戶，讓 Site Recovery 可存取 VMware 伺服器來探索 VM，以及在為 VM 啟用複寫時，選擇性地進行 Site Recovery 行動服務元件的推入安裝。 您也可確定您的 VMware 伺服器和 VM 完全符合 Site Recovery 需求。
 
 開始之前，最好先針對災害復原案例[檢閱架構](vmware-azure-architecture.md)。
 
@@ -43,8 +43,6 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="set-up-the-source-environment"></a>設定來源環境
 
-> [!TIP]
-> 部署設定伺服器來保護 VMware 虛擬機器的建議方法，就是如本文所建議使用以 OVF 為基礎的部署模型。 如果貴組織的限制使您無法部署 OVF 範本，您可以使用 [UnifiedSetup.exe 來安裝設定伺服器](physical-manage-configuration-server.md)。
 
 若要設定來源環境，您需要單一、高可用性、內部部署的電腦來裝載 Site Recovery 元件。 元件包含設定伺服器、處理序伺服器和主要目標伺服器：
 
@@ -53,6 +51,10 @@ ms.lasthandoff: 02/28/2018
 - 主要目標伺服器會在從 Azure 容錯回復期間，處理複寫資料。
 
 若要將設定伺服器設定為高可用性 VMware VM，請下載備妥的開放式虛擬化格式 (OVF) 範本，然後將範本匯入 VMware 以建立 VM。 在設定好設定伺服器之後，在保存庫中加以註冊。 註冊之後，Site Recovery 會探索內部部署 VMware VM。
+
+> [!TIP]
+> 本教學課程會使用 OVF 範本來建立組態伺服器 VMware VM。 如果您無法進行此操作，可以執行[手動安裝](physical-manage-configuration-server.md)來完成此操作。 
+
 
 ### <a name="download-the-vm-template"></a>下載 VM 範本
 
@@ -103,7 +105,7 @@ ms.lasthandoff: 02/28/2018
 7. 此工具會執行一些設定工作，而後重新開機。
 8. 再次登入電腦。 設定伺服器管理精靈會自動啟動。
 
-### <a name="configure-settings-and-connect-to-vmware"></a>進行設定並連線到 VMware
+### <a name="configure-settings-and-add-the-vmware-server"></a>進行設定與新增 VMware 伺服器
 
 1. 在設定伺服器管理精靈中，選取 [設定連線]，然後選取要接收複寫流量的 NIC。 然後選取 [儲存]。 您在設定後便無法變更此設定。
 2. 在 [選取復原服務保存庫] 中，選取您的 Azure 訂用帳戶及相關的資源群組和保存庫。
@@ -111,7 +113,7 @@ ms.lasthandoff: 02/28/2018
 4. 選取 [安裝 VMware PowerCLI]。 在您執行這項作業之前，確定所有瀏覽器視窗都已關閉。 然後選取 [繼續]。
 5. 在 [驗證設備設定] 中，必要條件會在您繼續之前進行驗證。
 6. 在 [設定 vCenter 伺服器/vSphere ESXi 伺服器] 中，輸入 vCenter 伺服器或 vSphere 主機 (您要複寫的 VM 位於其上) 的 FQDN 或 IP 位址。 輸入伺服器所接聽的連接埠。 輸入要用於保存庫中 VMware 伺服器的易記名稱。
-7. 輸入設定伺服器用來連線至 VMware 伺服器的認證。 Site Recovery 會使用這些認證來自動探索可用於複寫的 VMware VM。 選取 [新增]，然後選取 [繼續]。
+7. 輸入供設定伺服器用來連線至 VMware 伺服器的認證。 Site Recovery 會使用這些認證來自動探索可用於複寫的 VMware VM。 選取 [新增]，然後選取 [繼續]。
 8. 在 [設定虛擬機器認證] 中，輸入要用於在電腦上自動安裝行動服務的使用者名稱和密碼 (已啟用複寫時)。 若為 Windows 電腦，此帳戶需具備您要複寫之機器的本機系統管理員權限。 若為 Linux，請提供根帳戶的詳細資料。
 9. 選取 [完成設定] 以完成註冊。 
 10. 註冊完成後，在 Azure 入口網站中確認組態伺服器和 VMware 伺服器都已列在保存庫中的 [來源] 頁面上。 然後選取 [確定] 以設定目標設定。

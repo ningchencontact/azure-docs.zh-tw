@@ -1,34 +1,36 @@
 ---
-title: "使用 Azure 備份還原 VM 磁碟 | Microsoft Docs"
-description: "了解如何還原磁碟，並在 Azure 中使用備份與復原服務建立 VM。"
+title: 使用 Azure 備份還原 VM 磁碟 | Microsoft Docs
+description: 了解如何還原磁碟，並在 Azure 中使用備份與復原服務建立 VM。
 services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 2/14/2018
+ms.date: 4/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 571d40c46771f43ad5ea78fe92398de09e87393c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f2b82725362517d12dd4e7df7b2bb083fa107253
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>在 Azure 中還原磁碟並建立已復原的 VM
-Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當您從復原點還原時，可以還原整個 VM 或個別檔案。 本文說明如何還原完整的 VM。 在本教學課程中，您將了解如何：
+Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當您從復原點還原時，可以還原整個 VM 或個別檔案。 本文說明如何使用 CLI 還原完整的 VM。 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 列出和選取復原點
 > * 從復原點還原磁碟
 > * 從還原的磁碟建立 VM
+
+如需使用 PowerShell 還原磁碟及建立已復原 VM 的相關資訊，請參閱[使用 PowerShell 備份及還原 Azure VM](backup-azure-vms-automation.md#restore-an-azure-vm)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

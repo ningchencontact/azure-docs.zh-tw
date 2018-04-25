@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 常見問題集 | Microsoft Docs"
-description: "Azure Active Directory 常見問題集可回答有關 Azure 及 Azure Active Directory、密碼管理和應用程式存取等常見問題。"
+title: Azure Active Directory 常見問題集 | Microsoft Docs
+description: Azure Active Directory 常見問題集可回答有關 Azure 及 Azure Active Directory、密碼管理和應用程式存取等常見問題。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 80df81f365ac884bc1f44268e615975407f485f0
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 83586cff59d5beb7c48bc6bb8b72fd09e4d37bf8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -119,11 +119,11 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 **答：** 是，如果您已啟用密碼回寫，系統管理員所執行的密碼作業便會回寫到內部部署環境。  
 
-如需密碼相關問題的詳細解答，請參閱[密碼管理常見問題集](active-directory-passwords-faq.md)。
+如需密碼相關問題的詳細解答，請參閱[密碼管理常見問題集](authentication/active-directory-passwords-faq.md)。
 - - -
 **問︰如果我在嘗試變更密碼時不記得現有的 Office 365/Azure AD 密碼，我可以做什麼？**
 
-**答︰**在這種情況下有幾種做法。  使用自助式密碼重設 (SSPR) (如果可用的話)。  SSPR 能否運作取決於其設定方式。  如需詳細資訊，請參閱[密碼重設入口網站的運作方式](active-directory-passwords-best-practices.md)。
+**答︰**在這種情況下有幾種做法。  使用自助式密碼重設 (SSPR) (如果可用的話)。  SSPR 能否運作取決於其設定方式。  如需詳細資訊，請參閱[密碼重設入口網站的運作方式](authentication/howto-sspr-deployment.md)。
 
 對於 Office 365 使用者，您的系統管理員可以使用[重設使用者密碼](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)所述的步驟重設密碼。
 

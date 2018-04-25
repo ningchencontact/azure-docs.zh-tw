@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2018
+ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e78051c4eb0cd79d636a6af31db8ffb6cd7e6aef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>比較 Azure Data Factory V1 與 V2
 本文比較 Azure Data Factory 的 V1 與 V2。 如需 V1 簡介，請參閱 [Azure Data Factory 簡介](v1/data-factory-introduction.md)。 如需 V2 簡介，請參閱 [Data Factory (V2 - 預覽) 簡介](introduction.md)。
@@ -139,11 +139,7 @@ V2 支援建立隨選 Azure HDInsight Spark 叢集。 若要建立隨選 Spark �
 
 ## <a name="roles-and-permissions"></a>角色和權限
 
-若要建立及管理 v2 Data Factory 的子資源：
-
--   第 1 版 Data Factory 參與者角色不能用於建立及管理 v2 資源。
--   在 Data Factory 資源上建立的標準 ARM 參與者角色，足以針對使用 PowerShell 或 SDK 部署的 v2 Data Factory 建立及管理子資源。 但不足以針對從 Azure 入口網站或使用 ARM 範本部署的 v2 Data Factory 建立及管理子資源。
--   若要針對部署從 Azure 入口網站或使用 ARM 範本部署的 v2 Data Factory 建立及管理子資源，您必須是資源群組層級或訂用帳戶層級的「自動化作業操作員」角色的成員。 如[建立 Azure 角色型存取控制的自訂角色](../active-directory/role-based-access-control-custom-roles.md)所述，您的組織也可建立一個在 [動作] 清單中包含 "Microsoft.Resources/deployments/*" 的自訂角色。
+第 1 版 Data Factory 參與者角色可用於建立及管理 Data Factory v2 資源。
 
 ## <a name="monitoring-experience"></a>監視體驗
 在 V2 中，您可以使用 [Azure 監視器](monitor-using-azure-monitor.md)來監視資料處理站。 新的 PowerShell Cmdlet 支援[整合執行階段](monitor-integration-runtime.md)的監視。 V1 和 V2 都支援透過可從 Azure 入口網站啟動的監視應用程式進行視覺化監視。

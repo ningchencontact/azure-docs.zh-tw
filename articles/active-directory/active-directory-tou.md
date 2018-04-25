@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/29/2018
 ms.author: billmath
-ms.openlocfilehash: 208a65c09b13acad62c9b6d8e55b6050041c9f5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。  此呈現可確保使用者看到合法或合規性需求的相關免責聲明。
@@ -96,7 +96,7 @@ Azure AD 使用規定可以用於下列案例：
 2. 按一下 [檢視稽核記錄]。</br>
 ![稽核事件](media/active-directory-tou/tou8.png)
 3.  在 Azure AD 稽核記錄畫面上，您可以使用提供的下拉式清單，將特定的稽核記錄資訊設為目標來篩選資訊。
-![稽核事件](media/active-directory-tou/tou9.png)
+[稽核事件](media/active-directory-tou/tou9.png)
 4.  您也可以將資訊下載成.csv 檔案，以在本機中使用。
 
 ## 

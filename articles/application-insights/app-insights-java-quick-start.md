@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights 快速入門 | Microsoft Docs"
-description: "提供指示說明如何快速設定 Java Web 應用程式，以透過 Application Insights 來監視"
+title: Azure Application Insights 快速入門 | Microsoft Docs
+description: 提供指示說明如何快速設定 Java Web 應用程式，以透過 Application Insights 來監視
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: daf7fb88b41ca21ea08e1368215578971032e47d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0198614f34b5e4ad31d9cf19f6799913dc71e21f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-monitoring-your-java-web-application"></a>開始監視 Java Web 應用程式
 
@@ -26,7 +26,7 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 
 若要完成本快速入門：
 
-- 安裝 Oracle JRE 1.6 或更新版本，或 Zulu JRE 1.6 或更新版本
+- 安裝 JRE 1.7 或 1.8
 - 安裝[免費的 Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/)。 本快速入門使用 Eclipse Oxygen (4.7)
 - 您需要 Azure 訂用帳戶和現有的 Java 動態 Web 專案
  

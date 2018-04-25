@@ -1,25 +1,18 @@
 ---
-title: "在入口網站中將資料匯入 Azure 搜尋服務 | Microsoft Docs"
-description: "使用 Azure 入口網站的 Azure 搜尋服務匯入資料精靈，以從 NoSQL Azure Cosmos DB、Blob 儲存體、表格儲存體、SQL Database 和 Azure VM 上的 SQL Server 對 Azure 資料進行編目。"
-services: search
-documentationcenter: 
+title: 在入口網站中將資料匯入 Azure 搜尋服務 | Microsoft Docs
+description: 使用 Azure 入口網站的 Azure 搜尋服務匯入資料精靈，以從 NoSQL Azure Cosmos DB、Blob 儲存體、表格儲存體、SQL Database 和 Azure VM 上的 SQL Server 對 Azure 資料進行編目。
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: Azure Portal
-ms.assetid: f40fe07a-0536-485d-8dfa-8226eb72e2cd
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: 286408fb0c3aa2b83cf17a4646f6f7420b6884f4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b651ccaa59e40b9d8d1c682fc8c266bf95b62a2e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>使用入口網站將資料匯入至 Azure 搜尋服務
 Azure 入口網站在 Azure 搜尋服務儀表板上提供 [匯入資料] 精靈來將資料載入至索引。 
@@ -94,7 +87,7 @@ Azure 入口網站在 Azure 搜尋服務儀表板上提供 [匯入資料] 精靈
 
 入口網站包含 [搜尋總管]，可供您查詢索引，而不需撰寫任何程式碼。 您可以將 [搜尋總管](search-explorer.md) 使用於任何索引。
 
-搜尋體驗是以預設設定為基礎，例如[簡單語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)和預設 searchMode 查詢參數 (https://docs.microsoft.com/rest/api/searchservice/search-documents)。 
+搜尋體驗是以預設設定為基礎，例如[簡單語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)和預設 [searchMode 查詢參數 (https://docs.microsoft.com/rest/api/searchservice/search-documents)。 
 
 結果會以 JSON 詳細資訊格式傳回，以便您檢查整份文件。
 

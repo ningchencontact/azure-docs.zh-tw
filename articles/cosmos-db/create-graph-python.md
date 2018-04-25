@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: aa1d70d33e1f9cefee4d06ea182ffb3fc960e07a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f668b233cd2bb44012c6132fee55626ddc3597e0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Python 和 Azure 入口網站建立圖形資料庫
 
@@ -47,24 +47,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="add-a-graph"></a>新增圖形
 
-您現在可以在 Azure 入口網站中使用 [資料總管] 工具，建立圖形資料庫。 
-
-1. 按一下 [資料總管] > [新增圖形]。
-
-    [新增圖形] 區域會顯示在最右邊，您可能需要向右捲動才會看到。
-
-    ![Azure 入口網站資料總管 [新增圖形] 頁面](./media/create-graph-python/azure-cosmosdb-data-explorer-graph.png)
-
-2. 在 [新增圖形] 頁面上，輸入新圖形的設定。
-
-    設定|建議的值|說明
-    ---|---|---
-    資料庫識別碼|sample-database|輸入 *sample-database* 作為新資料庫的名稱。 資料庫名稱的長度必須介於 1 到 255 個字元，且不能包含 `/ \ # ?` 或尾端空格。
-    圖形識別碼|sample-graph|輸入 *sample-graph* 作為新集合的名稱。 圖形名稱與資料庫識別碼具有相同的字元需求。
-    儲存體容量|固定 (10 GB)|保持使用預設值 [固定 (10 GB)]。 此值是資料庫的儲存體容量。
-    Throughput|400 RU|將輸送量變更為每秒 400 個要求單位 (RU/秒)。 如果您想要降低延遲，稍後可以相應增加輸送量。
-
-3. 填妥表單後，按一下 [確定]。
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>複製範例應用程式
 
@@ -90,7 +73,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
-此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 程式碼片段皆取自 C:\git-samples\azure-cosmos-db-graph-python-getting-started\ 資料夾中的 `connect.py` 檔案。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-information)。 
+此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 程式碼片段皆取自 C:\git-samples\azure-cosmos-db-graph-python-getting-started\ 資料夾中的 connect.py 檔案。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-information)。 
 
 * Gremlin `client` 是於 `connect.py` 的第 104 行初始化：
 

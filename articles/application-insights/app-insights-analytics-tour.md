@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights 中分析的完整教學課程 | Microsoft Docs"
-description: "分析 (Application Insights 的強大搜尋工具) 中所有主要查詢的簡短範例。"
+title: Azure Application Insights 中分析的完整教學課程 | Microsoft Docs
+description: 分析 (Application Insights 的強大搜尋工具) 中所有主要查詢的簡短範例。
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9727e3b715334837b959f22dd526caba221be62c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application Insights 中分析的教學課程
 [分析](app-insights-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。 這些分頁說明 Log Analytics 查詢語言。
 
 * **[觀看簡介影片](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**。
 * 如果您的應用程式還未將資料傳送至 Application Insights，則**[在我們的模擬資料上測試分析](https://analytics.applicationinsights.io/demo)**。
-* **[SQL 使用者的功能提要](https://aka.ms/sql-analytics)**會翻譯成最常見的習慣用語。
+* **[SQL 使用者的功能提要](https://aka.ms/sql-analytics)** 會翻譯成最常見的習慣用語。
 
 讓我們逐步解說可讓您快速入門的一些基本查詢。
 
@@ -170,7 +170,7 @@ ms.lasthandoff: 02/01/2018
 
 ```
 
-[日期和時間參考](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html)。
+[日期和時間參考](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime)。
 
 
 ## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Project](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html)：選取、重新命名和計算資料行
@@ -286,7 +286,7 @@ ms.lasthandoff: 02/01/2018
 
 ![按一下 [圖表]，然後選擇 [直條圖] 並指派 x 和 y 軸](./media/app-insights-analytics-tour/230.png)
 
-請注意，雖然我們並未依時間排序結果 (如資料表顯示中所示），但圖表顯示一律會以正確的順序顯示日期時間。
+請注意，雖然我們並未依時間排序結果 (如資料表顯示中所示)，但圖表顯示一律會以正確的順序顯示日期時間。
 
 
 ## <a name="timecharts"></a>時間表
@@ -541,7 +541,7 @@ requests
 ```csharp
 
     var dimensions = new Dictionary<string, string>
-                     {{"p1", "v1"},{"p2", "v2"}};
+                     {{"p1", "v1"},{"p2.d2", "v2"}};
     var measurements = new Dictionary<string, double>
                      {{"m1", 42.0}, {"m2", 43.2}};
     telemetryClient.TrackEvent("myEvent", dimensions, measurements);
@@ -554,7 +554,6 @@ requests
     customEvents
     | extend p1 = customDimensions.p1,
       m1 = todouble(customMeasurements.m1) // cast to expected type
-
 ```
 
 若要驗證自訂維度是否為特定類型︰
@@ -565,6 +564,18 @@ requests
     | extend p1 = customDimensions.p1,
       iff(notnull(todouble(customMeasurements.m1)), ...
 ```
+
+### <a name="special-characters"></a>特殊字元
+
+對於名稱中使用特殊字元或語言關鍵字的識別碼，您需要透過 `['` 和 `']` 或使用 `["` 和 `"]` 進行存取。
+
+```AIQL
+
+    customEvents
+    | extend p2d2 = customDimensions.['p2.d2'], ...
+```
+
+[識別碼命名規則參考](https://docs.loganalytics.io/docs/Learn/References/Naming-principles)
 
 ## <a name="dashboards"></a>儀表板
 您可以將結果釘選至儀表板，以便結合所有最重要的圖表和資料表。

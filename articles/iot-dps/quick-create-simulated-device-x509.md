@@ -5,25 +5,25 @@ services: iot-dps
 keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 12/20/2017
+ms.date: 04/16/2018
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 484b82b79d796536a2c9a527b42e90f4e37c7bda
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e5fe9282dd10bd6bdc41c63718a884a92da4d7c6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 C 裝置 SDK 來建立及佈建 X.509 模擬裝置
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 這些步驟顯示如何在執行 Windows OS 的開發電腦上模擬 X.509 裝置，並使用程式碼範例來連線此模擬裝置與裝置佈建服務和 IoT 中樞。 
 
-繼續之前，請務必完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)中的步驟。
+如果您不熟悉自動佈建程序，請務必也要檢閱[自動佈建概念](concepts-auto-provisioning.md)。 繼續之前，請務必完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)中的步驟。 
 
 [!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/03/2018
     cd cmake
     ```
 
-6. 執行下列命令，為佈建用戶端建立 Visual Studio 解決方案。
+6. 程式碼範例會使用 X.509 憑證來提供透過 X.509 驗證的證明。 請執行下列命令，以建置您的開發用戶端平台和[證明機制](concepts-security.md#attestation-mechanism) (X.509 憑證) 特有的 SDK 版本。 這也會為模擬裝置產生 Visual Studio 解決方案。 
 
     ```cmd
     cmake -Duse_prov_client:BOOL=ON ..
@@ -62,7 +62,7 @@ ms.lasthandoff: 04/03/2018
 
 <a id="portalenroll"></a>
 
-## <a name="create-a-device-enrollment-entry-in-the-device-provisioning-service"></a>在裝置佈建服務中建立裝置註冊項目
+## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>建立自我簽署的 X.509 裝置憑證和個別的註冊項目
 
 1. 開啟在 *cmake* 資料夾中產生的方案 (名為 `azure_iot_sdks.sln`)，並且在 Visual Studio 中建置。
 
@@ -72,18 +72,18 @@ ms.lasthandoff: 04/03/2018
 
 4. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟您的佈建服務。
 
-4. 開啟您服務的 [管理註冊] 刀鋒視窗。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增] 按鈕。 
+5. 在裝置佈建服務摘要刀鋒視窗上，選取 [管理註冊]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增] 按鈕。 
 
-5. 在 [新增註冊清單項目] 之下，輸入下列資訊：
+6. 在 [新增註冊] 面板之下，輸入下列資訊：
     - 選取 [X.509] 作為身分識別證明「機制」。
-    - 在 .pem 或 .cer 憑證檔案 之下，選取在先前步驟中使用 [檔案總管] widget 建立的憑證檔案 _X509testcert.pem_。
+    - 在 [主要 .pem 或 .cer 憑證檔案] 之下，按一下 [選取檔案] 以選取在先前步驟中建立的憑證檔案 **X509testcert.pem**。
     - 您可以選擇性地提供下列資訊：
-        - 選取與您的佈建服務連結的 IoT 中樞。
-        - 輸入唯一的裝置識別碼。 替您的裝置命名時，務必避免使用敏感性資料。 
-        - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
+      - 選取與您的佈建服務連結的 IoT 中樞。
+      - 輸入唯一的裝置識別碼。 替您的裝置命名時，務必避免使用敏感性資料。 
+      - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
     - 完成後，按一下 [儲存] 按鈕。 
 
-    ![在入口網站刀鋒視窗中輸入 X.509 裝置註冊資訊](./media/quick-create-simulated-device-x509/enter-device-enrollment.png)  
+    [![在入口網站中新增 X.509 證明的個別註冊](./media/quick-create-simulated-device-x509/individual-enrollment.png)](./media/quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
 
    註冊成功時，您的 X.509 裝置會在 [個別註冊] 索引標籤之下的 [註冊識別碼] 資料行中顯示為 **riot-device-cert**。 
 

@@ -12,13 +12,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: a56c9d57c802e869ee0de4c9bde2ab5e319f34da
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 076693250faaafe85df5b8c1ffcbc657b9201f3e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Node.js 和 Azure 入口網站建置 SQL API 應用程式
 
@@ -43,13 +43,31 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
+## <a name="add-sample-data"></a>新增範例資料
+
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+
+## <a name="query-your-data"></a>查詢資料
+
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
+
 ## <a name="clone-the-sample-application"></a>複製範例應用程式
 
 現在，我們將從 github 複製 SQL API 應用程式、設定連接字串，然後加以執行。 您會看到，以程式設計方式來處理資料有多麼的容易。 
 
-1. 開啟 Git 終端機視窗 (例如 Git Bash)，然後使用 `CD` 來切換到工作目錄。  
+1. 開啟命令提示字元，建立名為 git-samples 的新資料夾，然後關閉命令提示字元。
 
-2. 執行下列命令來複製範例存放庫。 
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. 開啟 git 終端機視窗 (例如 git bash)，並使用 `cd` 命令變更至要安裝範例應用程式的新資料夾。
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. 執行下列命令來複製範例存放庫。 此命令會在您的電腦上建立範例應用程式副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-nodejs-getting-started.git
@@ -57,7 +75,9 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
-讓我們快速檢閱應用程式中發生了什麼。 請開啟 `app.js` 檔案，您會發現這些程式碼行建立 Azure Cosmos DB 資源。 
+此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-string)。 
+
+下列程式碼片段全部取自 app.js 檔案。
 
 * 已初始化 `documentClient`。
 
@@ -142,10 +162,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您將不繼續使用此應用程式，請使用下列步驟，在 Azure 入口網站中刪除本快速入門所建立的所有資源：
-
-1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。 
-2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

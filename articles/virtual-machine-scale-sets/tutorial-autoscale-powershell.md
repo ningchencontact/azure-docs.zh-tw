@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 128f3d366dc7de0870bc6f52ae6d0bbaf3a0fcb3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f184c30f1f39563d6e029d506237e6b0e23ec482
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 自動調整虛擬機器擴展集
 當建立擴展集時，您會定義您想要執行的 VM 執行個體數目。 當您的應用程式需求變更時，您可以自動增加或減少 VM 執行個體數目。 自動調整的能力可讓您在整個應用程式的生命週期中，跟上客戶的需求或對應用程式效能變更做出回應。 在本教學課程中，您將了解如何：
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/28/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 Azure PowerShell 模組 5.6.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 Azure PowerShell 模組 5.6.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 
 ## <a name="create-a-scale-set"></a>建立擴展集
@@ -242,7 +242,7 @@ MYRESOURCEGROUP   myScaleSet_5   eastus Standard_DS2                   5        
 MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6          Creating
 ```
 
-與每個 VM 執行個體的遠端桌面連線工作階段中，關閉 **CPU Stress** 工具。 擴展集中的平均 CPU 負載會恢復正常。 再經過 5 分鐘之後，自動調整規則會相應縮小 VM 執行個體數目。 相應縮小動作會先移除具有最高識別碼的 VM 執行個體。 下列範例輸出顯示擴展集自動相應縮小時所刪除的一個 VM 執行個體：
+與每個 VM 執行個體的遠端桌面連線工作階段中，關閉 **CPU Stress** 工具。 擴展集中的平均 CPU 負載會恢復正常。 再經過 5 分鐘之後，自動調整規則會相應縮小 VM 執行個體數目。 相應縮小動作會先移除具有最高識別碼的 VM 執行個體。 當擴展集使用可用性設定組或可用性區域時，相應縮小動作會平均散發到這些 VM 執行個體上。 下列範例輸出顯示擴展集自動相應縮小時所刪除的一個 VM 執行個體：
 
 ```powershell
 MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6          Deleting

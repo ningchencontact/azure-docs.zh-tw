@@ -1,11 +1,11 @@
 ---
-title: "開始在 Azure 入口網站中使用 Azure 排程器 | Microsoft Docs"
-description: "開始在 Azure 入口網站中使用 Azure 排程器"
+title: 開始在 Azure 入口網站中使用 Azure 排程器 | Microsoft Docs
+description: 開始在 Azure 入口網站中使用 Azure 排程器
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f03ddb475835b30e9b931b7f057c062b57ac45f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>開始在 Azure 入口網站中使用 Azure 排程器
 在 Azure 排程器中建立排程作業很簡單。 在本教學課程中，您將了解如何建立作業。 您也將學習排程器的監視和管理功能。
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 2. 按一下 [+新增] > 在搜尋方塊中輸入*排程器* > 在結果中選取 [排程器] > 按一下 [建立]。
    
     ![][marketplace-create]
-3. 讓我們使用 GET 要求建立只要點擊 http://www.microsoft.com/ 的工作。 在 [排程器作業]  畫面中，輸入下列資訊：
+3. 讓我們使用 GET 要求來建立只要點擊 http://www.microsoft.com/ 的工作。 在 [排程器作業]  畫面中，輸入下列資訊：
    
    1. **名稱：** `getmicrosoft`  
    2. **訂用帳戶：** 您的 Azure 訂用帳戶   
@@ -105,7 +105,7 @@ ms.lasthandoff: 10/11/2017
    ![][job-history-details]
 
 ### <a name="users"></a>使用者
-Azure 角色型存取控制 (RBAC) 可以對 Azure 排程器進行更細緻的存取權管理。 若要了解如何使用 [使用者] 索引標籤，請參閱 [Azure 角色型存取控制](../active-directory/role-based-access-control-configure.md)
+Azure 角色型存取控制 (RBAC) 可以對 Azure 排程器進行更細緻的存取權管理。 若要了解如何使用 [使用者] 索引標籤，請參閱 [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="see-also"></a>另請參閱
  [排程器是什麼？](scheduler-intro.md)

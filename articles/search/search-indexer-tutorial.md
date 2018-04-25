@@ -1,25 +1,18 @@
 ---
-title: "在 Azure 搜尋服務中編製 Azure SQL Database 索引的教學課程 | Microsoft Docs"
-description: "搜耙 Azure SQL Database，以擷取可搜尋的資料並填入 Azure 搜尋服務索引。"
-services: search
-documentationcenter: 
+title: 在 Azure 搜尋服務中編製 Azure SQL Database 索引的教學課程 | Microsoft Docs
+description: 搜耙 Azure SQL Database，以擷取可搜尋的資料並填入 Azure 搜尋服務索引。
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: cgronlun
 ms.service: search
 ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f123b4f5d0a51a4ab5015a2a0008a76fbfa0318e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>如何使用 Azure 搜尋索引子搜耙 Azure SQL 資料庫
 
@@ -95,7 +88,7 @@ ms.lasthandoff: 02/21/2018
 4. 複製並貼上該服務名稱，作為您在 Visual Studio 的 **appsettings.json** 中輸入的第一項資料。
 
   > [!Note]
-  > 服務名稱屬於包含 search.windows.net 的端點。 如果您很好奇，您可以在 [概觀] 頁面上的 [基本資訊] 中查看完整 URL。 URL 如同此範例所示：https://your-service-name.search.windows.net
+  > 服務名稱屬於包含 search.windows.net 的端點。 如果您很好奇，您可以在 [概觀] 頁面上的 [基本資訊] 中查看完整 URL。 URL 看起來像這個範例：https://your-service-name.search.windows.net
 
 5. 在左側的 [設定] > [金鑰] 中，複製其中一個系統管理金鑰並將它當作第二個項目貼到 **appsettings.json** 中。 金鑰是在佈建期間為您的服務產生的英數字元字串，而且是獲得授權存取服務作業的必要項目。 
 

@@ -1,32 +1,32 @@
 ---
-title: "Azure 上的 OpenShift 部署後工作 | Microsoft Docs"
-description: "在部署 OpenShift 叢集之後的其他工作。"
+title: Azure 上的 OpenShift 部署後工作 | Microsoft Docs
+description: 在部署 OpenShift 叢集之後的其他工作。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 77c4719b5cee7f5736d73ee10cf6abf12229ea11
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 1fe44f6d18199fe1a37db566f8b30eeaa4fbfab2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="post-deployment-tasks"></a>部署後工作
 
 部署 OpenShift 叢集之後，您可以設定其他項目。 本文涵蓋下列內容：
 
 - 如何使用 Azure Active Directory (Azure AD) 設定單一登入
-- 如何設定 Operations Management Suite 去監視 OpenShift
+- 如何設定 Log Analytics 來監視 OpenShift
 - 如何設定計量與記錄
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>使用 Azure Active Directory 設定單一登入
@@ -38,9 +38,9 @@ ms.lasthandoff: 11/11/2017
 這些步驟使用 Azure CLI 建立應用程式註冊，以及使用 GUI (入口網站) 設定權限。 若要建立應用程式註冊，您需要下列五項資訊：
 
 - 顯示名稱：應用程式註冊名稱 (例如 OCPAzureAD)
-- 首頁：OpenShift 主控台 URL (例如 https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- 識別碼 URI：OpenShift 主控台 URL (例如 https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- 回覆 URL：主要公用 URL 以及應用程式註冊名稱 (例如 https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- 首頁：OpenShift 主控台 URL (例如，https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- 識別碼 URI：OpenShift 主控台 URL (例如，https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- 回覆 URL：主要公用 URL 及應用程式註冊名稱 (例如，https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
 - 密碼：安全密碼 (使用強式密碼)
 
 下列範例將會使用上述資訊建立應用程式註冊：
@@ -171,11 +171,11 @@ sudo systemctl restart atomic-openshift-master
 
 在 OpenShift 主控台中，您現在會看到兩個用於驗證的選項：htpasswd_auth 和 [應用程式註冊]。
 
-## <a name="monitor-openshift-with-operations-management-suite"></a>使用 Operations Management Suite 監視 OpenShift
+## <a name="monitor-openshift-with-log-analytics"></a>使用 Log Analytics 監視 OpenShift
 
-若要用 OMS 監視 OpenShift，可以使用這兩個選項之一：VM 主機上的 OMS Agent 安裝，或 OMS 容器。 本文提供部署 OMS 容器的相關指示。
+若要用 Log Analytics 監視 OpenShift，可以使用這兩個選項之一：VM 主機上的 OMS Agent 安裝，或 OMS 容器。 本文提供部署 OMS 容器的相關指示。
 
-## <a name="create-an-openshift-project-for-operations-management-suite-and-set-user-access"></a>建立適用於 Operations Management Suite 的 OpenShift 專案，然後設定使用者存取權
+## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>建立適用於 Log Analytics 的 OpenShift 專案，然後設定使用者存取權
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -244,7 +244,7 @@ spec:
 
 ## <a name="create-a-secret-yaml-file"></a>建立祕密 yaml 檔案
 
-若要建立祕密 yaml 檔案，將需要兩項資訊：OMS 工作區識別碼、OMS 工作區共用金鑰。 
+若要建立祕密 yaml 檔案，將需要兩項資訊：Log Analytics 工作區識別碼、Log Analytics 工作區共用金鑰。 
 
 ocp-secret.yml 檔案範例： 
 
@@ -258,7 +258,7 @@ data:
   KEY: key_data
 ```
 
-將 wsid_data 取代為 Base64 編碼的 OMS 工作區識別碼。 將 key_data 取代為 Base64 編碼的 OMS 工作區識別碼共用金鑰。
+將 wsid_data 取代為 Base64 編碼的 Log Analytics 工作區識別碼。 將 key_data 取代為 Base64 編碼的 Log Analytics 工作區識別碼共用金鑰。
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'

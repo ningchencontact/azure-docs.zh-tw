@@ -1,20 +1,20 @@
 ---
-title: "教學課程 - 在 Azure 成本管理中檢閱使用量和成本 | Microsoft Docs"
-description: "在本教學課程中，檢閱使用量和成本，以追蹤趨勢、偵測效率不足的情況並建立警示。"
+title: 教學課程 - 在 Azure 成本管理中檢閱使用量和成本 | Microsoft Docs
+description: 在本教學課程中，檢閱使用量和成本，以追蹤趨勢、偵測效率不足的情況並建立警示。
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 820fea1aa2eb93fb383dca4def9ed607515c29b8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -37,11 +37,11 @@ Azure 成本管理會顯示使用量和成本，讓您可以追蹤趨勢、偵�
 
 ## <a name="open-the-cloudyn-portal"></a>開啟 Cloudyn 入口網站
 
-您可以在 Cloudyn 入口網站中檢閱所有使用量和成本。 從 Azure 入口網站開啟 Cloudyn 入口網站，或巡覽至 https://azure.cloudyn.com 並登入。
+您可以在 Cloudyn 入口網站中檢閱所有使用量和成本。 從 Azure 入口網站中開啟 Cloudyn 入口網站，或瀏覽至 https://azure.cloudyn.com 並登入。
 
 ## <a name="track-usage-and-cost-trends"></a>追蹤使用量和成本趨勢
 
-您可以使用不同時間報表來追蹤使用量和成本的實際金額支出，以識別趨勢。 若要開始查看趨勢，請使用不同時間的實際成本報表。 在入口網站頂端的 [報表] 功能表上，按一下 [成本] > [成本分析] > [不同時間的實際成本]。 當您第一次開啟報表時，不會對其套用任何群組或篩選。
+您可以使用不同時間報表來追蹤使用量和成本的實際金額支出，以識別趨勢。 若要開始查看趨勢，請使用不同時間的實際成本報表。 在入口網站頂端的功能表上，按一下 [成本] > [成本分析] > [不同時間的實際成本]。 當您第一次開啟報表時，不會對其套用任何群組或篩選。
 
 以下是範例報表：
 
@@ -69,7 +69,7 @@ Azure 成本管理會顯示使用量和成本，讓您可以追蹤趨勢、偵�
 
 符合成本效益的大小調整建議報表藉由比對 VM 執行個體類型容量與其 CPU 和記憶體使用量歷程記錄資料，來識別每年可能省下的費用。  
 
-在入口網站頂端的 [報表] 功能表上，按一下 [Optimizer] \(最佳化工具) > [Pricing Optimization] \(價格最佳化) > [Cost Effective Sizing Recommendations] \(符合成本效益的大小調整建議)。 將提供者篩選到 Azure，只查看 Azure VM。 以下是範例影像。
+在入口網站頂端的功能表上，按一下 [最佳化工具] > [調整大小最佳化] > [符合成本效益的大小調整建議]。 將提供者篩選到 Azure，只查看 Azure VM。 以下是範例影像。
 
 ![Azure VM](./media/tutorial-review-usage/sizing01.png)
 
@@ -87,9 +87,9 @@ Azure 成本管理會顯示使用量和成本，讓您可以追蹤趨勢、偵�
 
 您可以在出現異常消費和超額消費風險時自動向專案關係人發出警示。 您可以輕鬆快速地使用支援根據預算和成本閾值發出警示的報表來建立警示。
 
-您可以使用任何成本報表針對任何消費建立警示。 在此範例中，使用不同時間的成本報表在 Azure VM 的消費接近總預算時通知您。 在入口網站頂端的 [報表] 功能表上，按一下 [成本] > [成本分析] > [不同時間的實際成本]。 將 [群組] 設定為 [服務]，並將 [Filter on the service] \(服務上的篩選) 設定為 [Azure/VM]。 在報表的右上方，按一下 [動作]，然後選取 [排程報表]。
+您可以使用任何成本報表針對任何消費建立警示。 在此範例中，使用不同時間的成本報表在 Azure VM 的消費接近總預算時通知您。 若要建立警示，則需要執行下列所有步驟。 在入口網站頂端的功能表上，按一下 [成本] > [成本分析] > [不同時間的實際成本]。 將 [群組] 設定為 [服務]，並將 [Filter on the service] \(服務上的篩選) 設定為 [Azure/VM]。 在報表的右上方，按一下 [動作]，然後選取 [排程報表]。
 
-使用 [排程] 索引標籤，以您想要的頻率傳送報表電子郵件給自己。 您所使用的任何標記、群組和篩選都會包含在以電子郵件傳送的報表中。 按一下 [閾值] 索引標籤，然後選取 [Actual Cost vs. Threshold] \(實際成本與閾值)。 如果您的總預算為美金 $500,000 元，而且想要在成本接近大約一半時收到通知，請在美金 $250,000 元處建立**紅色警示**，並在美金 $240,000 元處建立**黃色警示**。 然後，選擇連續警示數目。 當您收到所指定的警示總數時，不會再傳送其他警示。 儲存排程報表。
+使用 [排程] 索引標籤，以您想要的頻率傳送報表電子郵件給自己。 務必要選取 [透過電子郵件傳送]。 您所使用的任何標記、群組和篩選都會包含在以電子郵件傳送的報表中。 按一下 [閾值] 索引標籤，然後選取 [Actual Cost vs. Threshold] \(實際成本與閾值)。 如果您的總預算為美金 $500,000 元，而且想要在成本接近大約一半時收到通知，請在美金 $250,000 元處建立**紅色警示**，並在美金 $240,000 元處建立**黃色警示**。 不要在您輸入的值內包含逗號。 然後，選擇連續警示數目。 當您收到所指定的警示總數時，不會再傳送其他警示。 儲存排程報表。
 
 ![範例報表](./media/tutorial-review-usage/schedule-alert01.png)
 

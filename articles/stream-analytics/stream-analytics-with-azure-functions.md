@@ -1,19 +1,21 @@
 ---
-title: 從 Azure 串流分析作業執行 Azure Functions
-description: 本文說明如何將 Azure Functions 作為串流分析作業中的輸出接收，設定為事件導向的工作負載。
+title: 教學課程：使用 Azure 串流分析作業來執行 Azure Functions | Microsoft Docs
+description: 在本教學課程中，您將了解如何設定 Azure Functions 作為串流分析作業的輸出接收。
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
-ms.reviewer: jasonh
 manager: kfile
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 12/19/2017
-ms.openlocfilehash: a8eebfa0c40caa455eb20431e5cf4acb8eeb248c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.topic: tutorial
+ms.custom: mvc
+ms.workload: data-services
+ms.date: 04/09/2018
+ms.author: jasonh
+ms.reviewer: jasonh
+ms.openlocfilehash: 1d33c3f0a4c36dc681aaa42bc68ae56eec234401
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>從 Azure 串流分析作業執行 Azure Functions 
 
@@ -21,7 +23,14 @@ ms.lasthandoff: 04/06/2018
 
 串流分析會透過 HTTP 觸發程序叫用 Functions。 Functions 輸出配接器可以讓使用者將 Functions 連接至串流分析，如此便可以根據串流分析的查詢來觸發事件。 
 
-本教學課程示範如何使用 [Azure Functions](../azure-functions/functions-overview.md) 將串流分析連接至 [Azure Redis 快取](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)。 
+在本教學課程中，您了解如何：
+
+> [!div class="checklist"]
+> * 建立串流分析作業
+> * 建立 Azure 函式
+> * 將 Azure 函式設定為您作業的輸出
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>設定串流分析作業以執行函式 
 
@@ -191,3 +200,16 @@ ms.lasthandoff: 04/06/2018
 
 在 Azure 入口網站中，您嘗試將最大批次大小/最大批次計數值重設為空 (預設值) 時，值將儲存時變更回先前輸入的值。 在此情況下，請手動將預設值輸入欄位。
 
+## <a name="clean-up-resources"></a>清除資源
+
+若不再需要，可刪除資源群組、串流作業和所有相關資源。 刪除作業可避免因為作業使用串流單位而產生費用。 如果您計劃在未來使用該作業，您可以將其停止並在之後需要時重新啟動。 如果您將不繼續使用此作業，請使用下列步驟，刪除本快速入門所建立的所有資源：
+
+1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。  
+2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
+
+## <a name="next-steps"></a>後續步驟
+
+在本教學課程中，您已建立可執行 Azure 函式的簡單串流分析作業，若要深入了解串流分析作業，請繼續進行下一個教學課程：
+
+> [!div class="nextstepaction"]
+> [在串流分析作業內執行 JavaScript 使用者定義函式](stream-analytics-javascript-user-defined-functions.md)

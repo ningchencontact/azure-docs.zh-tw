@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure CLI 建立 Azure 受控應用程式 | Microsoft Docs"
-description: "示範如何建立 Azure 受控應用程式，以供組織成員使用。"
+title: 使用 Azure CLI 建立 Azure 受控應用程式 | Microsoft Docs
+description: 示範如何建立 Azure 受控應用程式，以供組織成員使用。
 services: azure-resource-manager
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35059603096279f7d58da1c1b40dd2ab3f1b5c38
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 46ea192220ced18b25d60030527d1f76fb37962a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>使用 Azure CLI 建立及部署 Azure 受控應用程式
 
@@ -74,15 +74,10 @@ az managedapp definition create \
 
 上述範例中使用的部分參數：
 
-* 
-            **resource-group**：資源群組的名稱，其中會建立受控應用程式定義。
-* 
-            **lock-level**：放在受控資源群組的鎖定類型。 它可以避免客戶在此資源群組上執行非預期的作業。 目前唯一支援的鎖定等級是 ReadOnly。 指定 ReadOnly 時，客戶只能讀取受控資源群組中存在的資源。
-* 
-            **authorizations**：描述用來授與權限給受控資源群組的主體識別碼及角色定義識別碼。 它是以 `<principalId>:<roleDefinitionId>` 格式來指定。 這個屬性也可以指定多個值。 如果需要多個值，應該以 `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>` 格式來指定。 多個值之間以空格分隔。
-* **package-file-uri**：該位置有包含必要檔案的.zip 套件。 套件中最少會包含 **mainTemplate.json** 和 **createUiDefinition.json** 檔案。 
-            **mainTemplate.json**會將佈建作為受控應用程式一部分的 Azure 資源進行定義。 此範本與一般 Resource Manager 範本不同。 
-            **createUiDefinition.json**會透過 入口網站為建立受控應用程式的使用者產生使用者介面。
+* **resource-group**：資源群組的名稱，其中會建立受控應用程式定義。
+* **lock-level**：放在受控資源群組的鎖定類型。 它可以避免客戶在此資源群組上執行非預期的作業。 目前唯一支援的鎖定等級是 ReadOnly。 指定 ReadOnly 時，客戶只能讀取受控資源群組中存在的資源。 獲取受控資源群組存取權的發行者身分識別免除鎖定。
+* **authorizations**：描述用來授與權限給受控資源群組的主體識別碼及角色定義識別碼。 它是以 `<principalId>:<roleDefinitionId>` 格式來指定。 這個屬性也可以指定多個值。 如果需要多個值，應該以 `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>` 格式來指定。 多個值之間以空格分隔。
+* **package-file-uri**：該位置有包含必要檔案的.zip 套件。 套件中最少會包含 **mainTemplate.json** 和 **createUiDefinition.json** 檔案。 **mainTemplate.json**會將佈建作為受控應用程式一部分的 Azure 資源進行定義。 此範本與一般 Resource Manager 範本不同。 **createUiDefinition.json**會透過 入口網站為建立受控應用程式的使用者產生使用者介面。
 
 ## <a name="create-resource-group-for-managed-application"></a>為受控應用程式建立資源群組
 
@@ -116,12 +111,9 @@ az managedapp create \
 上述範例中使用的部分參數：
 
 * **managedapp-definition-id**：您稍早在本文中建立的定義識別碼。
-* 
-            **managed-rg-id**：資源群組的識別碼，資源群組中的資源與受控應用程式相關聯。 此命令會建立此資源群組。 此識別碼**必然不會在執行命令前就存在**。 此資源群組是由發行者所管理。 
-* 
-            **resource-group**：受控應用程式資源建立之資源群組。
-* 
-            **parameters**：與受控應用程式相關聯的資源會需要這些參數。
+* **managed-rg-id**：資源群組的識別碼，資源群組中的資源與受控應用程式相關聯。 此命令會建立此資源群組。 此識別碼**必然不會在執行命令前就存在**。 此資源群組是由發行者所管理。 
+* **resource-group**：受控應用程式資源建立之資源群組。
+* **parameters**：與受控應用程式相關聯的資源會需要這些參數。
 
 順利完成部署之後，您會看到在 applicationGroup 中建立了受控應用程式。 storageAccount 資源會建立於 infrastructureGroup 中。
 

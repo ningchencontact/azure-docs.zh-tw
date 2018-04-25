@@ -1,28 +1,26 @@
 ---
-title: "Azure SQL 資料倉儲中的稽核 | Microsoft Docs"
-description: "開始使用 Azure SQL 資料倉儲中的稽核"
+title: Azure SQL 資料倉儲中的稽核 | Microsoft Docs
+description: 了解稽核，以及如何在 Azure SQL 資料倉儲中設定稽核。
 services: sql-data-warehouse
-documentationcenter: 
 author: ronortloff
-manager: jhubbard
-editor: 
-ms.assetid: 0e6af148-b218-4b43-bb5f-907917d20330
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.custom: security
-ms.date: 01/16/2018
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/11/2018
+ms.author: rortloff
+ms.reviewer: jrj
+ms.openlocfilehash: 7bce59114dcfef7f9faa7f112c62dbb88044f2ab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的稽核
 
+了解稽核，以及如何在 Azure SQL 資料倉儲中設定稽核。
+
+## <a name="what-is-auditing"></a>稽核是什麼？
 SQL 資料倉儲稽核可讓您將資料庫中的事件記錄到 Azure 儲存體帳戶中的稽核記錄。 稽核可協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。 SQL 資料倉儲稽核也整合了 Microsoft Power BI，具備報告和分析的功能。
 
 稽核工具啟用及推動遵循法規標準，但不保證符合法規。 如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure 信任中心</a>。
@@ -70,7 +68,7 @@ SQL 資料倉儲資料庫稽核可讓您：
 5. 按一下 [確定]  按鈕，以儲存儲存體的詳細資料組態。
 6. 在 [依事件記錄] 下，按一下 [成功] 和 [失敗] 以記錄所有事件，或選擇個別的事件類別。
 7. 如果您正在為資料庫設定稽核，您可能需要變更用戶端的連接字串，以確保系統會正確擷取資料稽核。 請參閱 [修改連接字串中的伺服器 FDQN](sql-data-warehouse-auditing-downlevel-clients.md) 主題，以取得下層用戶端連線。
-8. 按一下 [SERVICEPRINCIPAL] 。
+8. 按一下 [確定]。
 
 ## <a id="subheading-3"></a>分析稽核記錄和報告
 在安裝期間，會在所選擇的 Azure 儲存體帳戶之具有 **SQLDBAuditLogs** 首碼的 [儲存資料表] 集合中彙總稽核記錄。 您可以使用工具 (例如 <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure 儲存體總管</a>) 來檢視記錄檔。

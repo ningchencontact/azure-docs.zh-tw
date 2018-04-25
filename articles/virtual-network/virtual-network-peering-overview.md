@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: 69264ac7ffe8124b964a10c11aacaca5c712fd63
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dcb46c7127590f1986fe1fd66c2f6ac4fd8b107d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
-虛擬網路對等互連可讓您完美地連線兩個 Azure [虛擬網路](virtual-networks-overview.md)。 經過對等互連後，所有虛擬網路就可以作為一個整體來進行連線。 在對等互連之虛擬網路中的虛擬機器之間的流量，會透過 Microsoft 骨幹基礎結構路由傳送，其原理就像在相同虛擬網路中的虛擬機器之間，流量只會透過「私人」IP 位址來路由傳送。 
+虛擬網路對等互連可讓您完美地連線兩個 Azure [虛擬網路](virtual-networks-overview.md)。 經過對等互連後，所有虛擬網路就可以作為一個整體來進行連線。 在對等互連之虛擬網路中的虛擬機器之間的流量，會透過 Microsoft 骨幹基礎結構路由傳送，其原理就像在相同虛擬網路中的虛擬機器之間，流量只會透過「私人」IP 位址來路由傳送。 Azure 支援：
+* VNet 對等互連 - 連接相同 Azure 區域內的 VNet
+* 全球 VNet 對等互連 - 連接各 Azure 區域內的 VNet
 
-使用虛擬網路對等互連的優點包括︰
+使用虛擬網路對等互連 (不論是本機還是全球) 的優點包括︰
 
 * 對等互連虛擬網路之間的網路流量為私用。 虛擬網路之間的流量會保留在 Microsoft 骨幹網路上。 虛擬網路之間的通訊不需要公用網際網路、閘道或加密。
 * 不同虛擬網路的資源之間具有低延遲、高頻寬連線。

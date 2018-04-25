@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: f772485dd49a730e34ec856768fa91bc3fdd114b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e1c4ea08b71c2e99b6c8e839e1fddc3172ca251d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>在 Java Web 專案中開始使用 Application Insights
 
@@ -30,7 +30,7 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 
 您需要：
 
-* Oracle 或 Zulu JRE 1.7 或 1.8 版
+* JRE 1.7 或 1.8 版
 * [Microsoft Azure](https://azure.microsoft.com/)訂用帳戶。
 
 如果您有使用中的 Web 應用程式，您可以依照替代的程序[在執行階段於 Web 伺服器中新增 SDK ](app-insights-java-live.md)。替代方法可避免重建程式碼，但您沒有選項可撰寫程式碼來追蹤使用者活動。

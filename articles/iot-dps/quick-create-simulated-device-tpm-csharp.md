@@ -3,20 +3,20 @@ title: 使用 C# 將模擬 TPM 裝置佈建到 Azure IoT 中樞 | Microsoft Docs
 description: Azure 快速入門 - 使用適用於 Azure IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 TPM 裝置
 services: iot-dps
 keywords: ''
-author: JimacoMS2
-ms.author: v-jamebr
-ms.date: 12/21/2017
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/09/2018
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8c292f998a719f8bc6d64655c1f2cdd75054653b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4bca89f71922e36707c0c4893a7190d508242ffc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 TPM 裝置
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/03/2018
 
 這些步驟示範如何在執行 Windows OS 的開發機器上建置 Azure IoT 中樞 C# SDK 所模擬的 TPM 裝置範例，並將模擬的裝置與裝置佈建服務和 IoT 中樞連線。 此程式碼範例會使用 Windows TPM 模擬器作為裝置的[硬體安全性模組 (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)。 
 
-繼續之前，請務必完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)中的步驟。
+如果您不熟悉自動佈建程序，請務必也要檢閱[自動佈建概念](concepts-auto-provisioning.md)。 繼續之前，請務必完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)中的步驟。 
 
 [!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 

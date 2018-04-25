@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5b11c3cdf3eb457ade111d0908a2dac867ac1278
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6dc5ce87e1e7a8629e96426701d4ac691fa4c687
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>使用 Log Analytics 監視 Kubernetes 叢集
 
@@ -27,8 +27,8 @@ ms.lasthandoff: 04/06/2018
 
 > [!div class="checklist"]
 > * 取得 Log Analytics 工作區設定
-> * 在 Kubernetes 節點上設定 OMS 代理程式
-> * 在 OMS 入口網站或 Azure 入口網站中存取監視資訊
+> * 在 Kubernetes 節點上設定 Log Analytics 代理程式
+> * 在 Log Analytics 入口網站或 Azure 入口網站中存取監視資訊
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="get-workspace-settings"></a>取得工作區設定
 
-可以存取 [OMS 入口網站](https://mms.microsoft.com)時，請移至 [設定] >  [已連線的服務] >  [Linux 伺服器]。 您可以在那裡找到「工作區識別碼」和主要或次要「工作區金鑰」。 請記下這些值，您在叢集上設定 OMS 代理程式時需要用到這些值。
+可以存取 [Log Analytics 入口網站](https://mms.microsoft.com)時，請移至 [設定] >  [已連線的服務] >  [Linux 伺服器]。 您可以在那裡找到「工作區識別碼」和主要或次要「工作區金鑰」。 請記下這些值，您在叢集上設定 Log Analytics 代理程式時需要用到這些值。
 
 ## <a name="create-kubernetes-secret"></a>建立 Kubernetes 祕密
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 04/06/2018
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
 ```
 
-## <a name="set-up-oms-agents"></a>設定 OMS 代理程式
+## <a name="set-up-log-analytics-agents"></a>設定 Log Analytics 代理程式
 
 下列 Kubernetes 資訊清單檔案可用於在 Kubernetes 叢集上設定容器監視代理程式。 它會建立 Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)，以在每個叢集節點上執行單一相同的 pod。
 
@@ -142,11 +142,11 @@ omsagent   3         3         3         0            3           <none>        
 
 ## <a name="access-monitoring-data"></a>存取監視資料
 
-在 OMS 入口網站或 Azure 入口網站中，使用[容器解決方案](../../log-analytics/log-analytics-containers.md)來檢視和分析容器監視資料。
+在 Log Analytics 入口網站或 Azure 入口網站中，使用[容器解決方案](../../log-analytics/log-analytics-containers.md)來檢視和分析容器監視資料。
 
-若要使用 [OMS 入口網站](https://mms.microsoft.com)安裝 Container 解決方案，請移至**方案庫**。 然後新增 [Container 解決方案]。 或者，從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview) 新增 Containers 解決方案。
+若要使用 [Log Analytics 入口網站](https://mms.microsoft.com)來安裝容器解決方案，請移至**方案庫**。 然後新增 [Container 解決方案]。 或者，從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview) 新增 Containers 解決方案。
 
-在 OMS 入口網站中，尋找儀表板上的 [容器] 摘要圖格。 按一下此圖格以取得下列詳細資訊：容器事件、錯誤、狀態、映像清查，以及 CPU 和記憶體使用量。 如需更細微的資訊，請按一下任何圖格上的資料列，或執行[記錄搜尋](../../log-analytics/log-analytics-log-searches.md)。
+在 Log Analytics 入口網站中，尋找儀表板上的 [容器] 摘要圖格。 按一下此圖格以取得下列詳細資訊：容器事件、錯誤、狀態、映像清查，以及 CPU 和記憶體使用量。 如需更細微的資訊，請按一下任何圖格上的資料列，或執行[記錄搜尋](../../log-analytics/log-analytics-log-searches.md)。
 
 ![OMS 入口網站中的 Containers 儀表板](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
@@ -160,8 +160,8 @@ omsagent   3         3         3         0            3           <none>        
 
 > [!div class="checklist"]
 > * 取得 Log Analytics 工作區設定
-> * 在 Kubernetes 節點上設定 OMS 代理程式
-> * 在 OMS 入口網站或 Azure 入口網站中存取監視資訊
+> * 在 Kubernetes 節點上設定 Log Analytics 代理程式
+> * 在 Log Analytics 入口網站或 Azure 入口網站中存取監視資訊
 
 
 用以下連結查看針對 Container Service 預先建立的指令碼範例。

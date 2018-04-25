@@ -1,25 +1,17 @@
 ---
-title: "Azure 搜尋的影片、範例和教學課程 | Microsoft Docs"
-description: "針對 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 所建立之所有影片、範例、示範和教學課程的集中清單。"
-services: search
-documentationcenter: 
+title: Azure 搜尋的影片、範例和教學課程 | Microsoft Docs
+description: 針對 Azure 搜尋服務 (Microsoft Azure 上裝載的雲端服務) 所建立之所有影片、範例、示範和教學課程的集中清單。
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 4ffa17a3-9e2b-4172-ad77-30c6a1354b24
+manager: cgronlun
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: heidist
-ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dd2e689e3f21877bdbaee83ef48dc9eaf438090
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Azure 搜尋服務：程式碼範例、示範、影片和教學課程
 透過下列影片、示範、教學課程和範例應用程式更快上手。

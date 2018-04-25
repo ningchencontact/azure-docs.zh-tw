@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 09ee56627f6c254362d9fbc3c665494418efb1dc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
@@ -154,9 +154,9 @@ Azure AD Privileged Identity Management 隨附於 Azure AD Premium P2 或 EMS E5
 
 請確定所有使用者都曾在過去 90 天內登入其系統管理帳戶並變更密碼至少一次。 此外，請確定任何有多個使用者知道密碼的共用帳戶近期都曾變更過密碼。
 
-#### <a name="turn-on-password-synchronization"></a>開啟密碼同步處理
+#### <a name="turn-on-password-hash-synchronization"></a>開啟密碼雜湊同步處理
 
-密碼同步處理功能可用來將使用者密碼雜湊從內部部署 Active Directory 執行個體同步處理至雲端式 Azure AD 執行個體。 即使您選擇使用與 Active Directory Federation Services (AD FS) 或其他身分識別提供者的同盟，仍可選擇性地設定密碼同步處理，作為 AD 或 ADFS 伺服器之類的內部部署基礎結構失敗或暫時無法使用時的備用方式。 這可讓使用者透過他們登入內部部署 AD 執行個體時所使用的相同密碼來登入服務。 此外，如果有使用者在未連線至 Azure AD 的其他服務上使用相同的電子郵件地址和密碼，Identity Protection 也將能夠藉由比較這些密碼雜湊與已知遭到破解的密碼，來偵測遭破解的認證。  如需詳細資訊，請參閱[使用 Azure AD Connect 同步實作密碼雜湊同步處理](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)。
+密碼雜湊同步處理功能可用來將使用者密碼雜湊從內部部署 Active Directory 執行個體，同步到雲端式 Azure AD 執行個體。 即使您選擇使用與 Active Directory 同盟服務 (AD FS) 或其他身分識別提供者的同盟，仍可選擇性地設定密碼雜湊同步處理作為備用方式，以防 AD 或 ADFS 伺服器之類的內部部署基礎結構失敗或暫時無法使用。 這可讓使用者透過他們登入內部部署 AD 執行個體時所使用的相同密碼來登入服務。 此外，如果有使用者在未連線至 Azure AD 的其他服務上使用相同的電子郵件地址和密碼，Identity Protection 也將能夠藉由比較這些密碼雜湊與已知遭到破解的密碼，來偵測遭破解的認證。  如需詳細資訊，請參閱[使用 Azure AD Connect 同步實作密碼雜湊同步處理](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)。
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>所有具有特殊權限角色的使用者和公開的使用者，都必須進行多重要素驗證 (MFA)
 
@@ -282,11 +282,11 @@ Azure AD Identity Protection 是一種以演算法為基礎的監視和報告工
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>清查您在代管虛擬機器內的特殊權限帳戶
 
-在大部分情況下，您並不需要為使用者提供對您所有 Azure 訂用帳戶或資源的無限制權限。 您可以使用 Azure AD 管理員角色來區隔組織內的職責，而僅授與使用者執行特定作業所需的存取權。 例如，使用 Azure AD 系統管理員角色讓一個管理員僅管理某個訂用帳戶中的 VM，而讓另一個管理員管理相同訂用帳戶中的 SQL 資料庫。 如需詳細資訊，請參閱[在 Azure 入口網站中開始使用角色型存取控制](role-based-access-control-what-is.md)。
+在大部分情況下，您並不需要為使用者提供對您所有 Azure 訂用帳戶或資源的無限制權限。 您可以使用 Azure AD 管理員角色來區隔組織內的職責，而僅授與使用者執行特定作業所需的存取權。 例如，使用 Azure AD 系統管理員角色讓一個管理員僅管理某個訂用帳戶中的 VM，而讓另一個管理員管理相同訂用帳戶中的 SQL 資料庫。 如需詳細資訊，請參閱[在 Azure 入口網站中開始使用角色型存取控制](../role-based-access-control/overview.md)。
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>為 Azure AD 系統管理員角色實作 PIM
 
-透過具有 Azure AD 系統管理員角色的 Privileged Identity Management，可管理、控制及監視對 Azure 資源的存取。 使用 PIM 可降低權限的曝光時間，並透過報告和警示提升您對其使用情況的了解，以保護特殊權限帳戶免受網路攻擊的威脅。 如需詳細資訊，請參閱[使用 Privileged Identity Management 管理對 Azure 資源的 RABC 存取](pim-azure-resource.md)。
+透過具有 Azure AD 系統管理員角色的 Privileged Identity Management，可管理、控制及監視對 Azure 資源的存取。 使用 PIM 可降低權限的曝光時間，並透過報告和警示提升您對其使用情況的了解，以保護特殊權限帳戶免受網路攻擊的威脅。 如需詳細資訊，請參閱[使用 Privileged Identity Management 管理對 Azure 資源的 RABC 存取](../role-based-access-control/pim-azure-resource.md)。
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>使用 Azure 記錄整合將相關 Azure 記錄傳送至您的 SIEM 系統 
 

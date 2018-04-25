@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6767257a540e4f29bb5445a718ad65a31e1f373e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 7d263dbb89b10876c3a1deb330f969c598addd6a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell Cmdlet 管理 Batch 資源
 
@@ -33,9 +33,9 @@ ms.lasthandoff: 04/03/2018
 執行下列作業，以使用 Azure PowerShell 來管理您的 Batch 資源。
 
 * [安裝並設定 Azure PowerShell](/powershell/azure/overview)
-* 執行 **Login-AzureRmAccount** Cmdlet 以連線到訂用帳戶 (Azure Batch Cmdlet 隨附在 Azure Resource Manager 模組中)：
+* 執行 **Connect-AzureRmAccount** Cmdlet 以連線到訂用帳戶 (Azure Batch Cmdlet 隨附在 Azure Resource Manager 模組中)：
   
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 * **註冊 Batch 提供者命名空間**。 每個訂用帳戶只需要執行這項作業**一次**。
   
     `Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`

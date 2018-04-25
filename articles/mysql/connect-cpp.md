@@ -1,6 +1,6 @@
 ---
-title: "從 C++ 連線到適用於 MySQL 的 Azure 資料庫"
-description: "本快速入門提供 C++ 程式碼範例，您可用於從 Azure Database for MySQL 連線及查詢資料。"
+title: 從 C++ 連線到適用於 MySQL 的 Azure 資料庫
+description: 本快速入門提供 C++ 程式碼範例，您可用於從 Azure Database for MySQL 連線及查詢資料。
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -10,12 +10,12 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: C++
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 41a56e1325c62a71880395c666e67c740742c3f9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 04/12/2018
+ms.openlocfilehash: 8394fbf5146a268bad464dc1a11d0772359c9acb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Connector/C++ 來連線及查詢資料
 本快速入門示範如何使用 C++ 應用程式來連線到適用於 MySQL 的 Azure 資料庫。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 C++ 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
@@ -40,11 +40,11 @@ ms.lasthandoff: 02/28/2018
    2. 執行安裝程式並依照安裝提示來完成安裝。
 
 ### <a name="configure-visual-studio"></a>**設定 Visual Studio**
-1. 從 Visual Studio 的專案屬性 > 組態屬性 > C/C++ > 連結器 > 一般 > 其他 library 目錄，新增 c++ 連接器的 lib\opt 目錄 (也就是 C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt)。
-2. 從 Visual Studio 的專案屬性 > 組態屬性 > C/C++ > 一般 > 其他 include 目錄：
-   - 新增 c++ 連接器的 include/ 目錄 (也就是 C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\)。
+1. 從 Visual Studio 的專案 -> 屬性 -> 連結器 -> 一般 > 其他程式庫目錄，新增 C++ 連接器的 "\lib\opt" 目錄 (也就是 C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt)。
+2. 從 Visual Studio 的專案 -> 屬性 -> C/C++ -> 一般 -> 其他 Include 目錄：
+   - 新增 c++ 連接器的 "\include" 目錄 (也就是 C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\)。
    - 新增 Boost 程式庫的根目錄 (也就是 C:\boost_1_64_0\)。
-3. 從 Visual Studio 的專案屬性 > 組態屬性 > C/C++ > 連結器 > 輸入 > 其他相依性，將 mysqlcppconn.lib 新增到文字欄位。
+3. 從 Visual Studio 的專案 -> 屬性 -> 連結器 -> 輸入 > 其他相依性，將 **mysqlcppconn.lib** 新增到文字欄位。
 4. 從步驟 3 的 C++ 連接器程式庫資料夾將 mysqlcppconn.dll 複製到與應用程式可執行檔相同的目錄，或將它新增至環境變數，您的應用程式便可找到它。
 
 ## <a name="get-connection-information"></a>取得連線資訊
@@ -72,6 +72,11 @@ ms.lasthandoff: 02/28/2018
 #include <cppconn/prepared_statement.h>
 using namespace std;
 
+//for demonstration only. never save your password in the code!
+const string server = "tcp://yourservername.mysql.database.azure.com:3306";
+const string username = "username@servername";
+const string password = "yourpassword";
+
 int main()
 {
     sql::Driver *driver;
@@ -82,44 +87,46 @@ int main()
     try
     {
         driver = get_driver_instance();
-        //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
+        con = driver->connect(server, username, password);
     }
     catch (sql::SQLException e)
     {
-        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        cout << "Could not connect to server. Error message: " << e.what() << endl;
         system("pause");
         exit(1);
     }
 
-    stmt = con>createStatement();
-    stmt>execute("DROP TABLE IF EXISTS inventory");
+    //please create database "quickstartdb" ahead of time
+    con->setSchema("quickstartdb");
+
+    stmt = con->createStatement();
+    stmt->execute("DROP TABLE IF EXISTS inventory");
     cout << "Finished dropping table (if existed)" << endl;
-    stmt>execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
+    stmt->execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
     cout << "Finished creating table" << endl;
     delete stmt;
 
-    pstmt = con>prepareStatement("INSERT INTO inventory(name, quantity) VALUES(?,?)");
-    pstmt>setString(1, "banana");
-    pstmt>setInt(2, 150);
-    pstmt>execute();
+    pstmt = con->prepareStatement("INSERT INTO inventory(name, quantity) VALUES(?,?)");
+    pstmt->setString(1, "banana");
+    pstmt->setInt(2, 150);
+    pstmt->execute();
     cout << "One row inserted." << endl;
 
-    pstmt>setString(1, "orange");
-    pstmt>setInt(2, 154);
-    pstmt>execute();
+    pstmt->setString(1, "orange");
+    pstmt->setInt(2, 154);
+    pstmt->execute();
     cout << "One row inserted." << endl;
 
-    pstmt>setString(1, "apple");
-    pstmt>setInt(2, 100);
-    pstmt>execute();
+    pstmt->setString(1, "apple");
+    pstmt->setInt(2, 100);
+    pstmt->execute();
     cout << "One row inserted." << endl;
-    
-    delete pstmt;   
+
+    delete pstmt;
     delete con;
     system("pause");
     return 0;
-
+}
 ```
 
 ## <a name="read-data"></a>讀取資料
@@ -128,7 +135,7 @@ int main()
 
 以建立伺服器和資料庫時所指定的值，取代主機、資料庫名稱、使用者和密碼參數。 
 
-```csharp
+```c++
 #include <stdlib.h>
 #include <iostream>
 #include "stdafx.h"
@@ -139,6 +146,11 @@ int main()
 #include <cppconn/resultset.h>
 #include <cppconn/prepared_statement.h>
 using namespace std;
+
+//for demonstration only. never save your password in the code!
+const string server = "tcp://yourservername.mysql.database.azure.com:3306";
+const string username = "username@servername";
+const string password = "yourpassword";
 
 int main()
 {
@@ -151,24 +163,26 @@ int main()
     {
         driver = get_driver_instance();
         //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
+        con = driver->connect(server, username, password);
     }
     catch (sql::SQLException e)
     {
-        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        cout << "Could not connect to server. Error message: " << e.what() << endl;
         system("pause");
         exit(1);
-    }   
+    }
 
-//  select  
-    pstmt = con>prepareStatement("SELECT * FROM inventory;");
-    result = pstmt>executeQuery();  
-    
-    while (result>next())
-        printf("Reading from table=(%d, %s, %d)\n", result>getInt(1), result>getString(2).c_str(), result>getInt(3));   
-    
+    con->setSchema("quickstartdb");
+
+    //select  
+    pstmt = con->prepareStatement("SELECT * FROM inventory;");
+    result = pstmt->executeQuery();
+
+    while (result->next())
+        printf("Reading from table=(%d, %s, %d)\n", result->getInt(1), result->getString(2).c_str(), result->getInt(3));
+
     delete result;
-    delete pstmt;   
+    delete pstmt;
     delete con;
     system("pause");
     return 0;
@@ -180,7 +194,7 @@ int main()
 
 以建立伺服器和資料庫時所指定的值，取代主機、資料庫名稱、使用者和密碼參數。 
 
-```csharp
+```c++
 #include <stdlib.h>
 #include <iostream>
 #include "stdafx.h"
@@ -188,8 +202,14 @@ int main()
 #include "mysql_connection.h"
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
+#include <cppconn/resultset.h>
 #include <cppconn/prepared_statement.h>
 using namespace std;
+
+//for demonstration only. never save your password in the code!
+const string server = "tcp://yourservername.mysql.database.azure.com:3306";
+const string username = "username@servername";
+const string password = "yourpassword";
 
 int main()
 {
@@ -201,22 +221,24 @@ int main()
     {
         driver = get_driver_instance();
         //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
+        con = driver->connect(server, username, password);
     }
     catch (sql::SQLException e)
     {
-        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        cout << "Could not connect to server. Error message: " << e.what() << endl;
         system("pause");
         exit(1);
-    }   
+    }
+    
+    con->setSchema("quickstartdb");
 
     //update
-    pstmt = con>prepareStatement("UPDATE inventory SET quantity = ? WHERE name = ?");
-    pstmt>setInt(1, 200);
-    pstmt>setString(2, "banana");
-    pstmt>executeQuery();
+    pstmt = con->prepareStatement("UPDATE inventory SET quantity = ? WHERE name = ?");
+    pstmt->setInt(1, 200);
+    pstmt->setString(2, "banana");
+    pstmt->executeQuery();
     printf("Row updated\n");
-    
+
     delete con;
     delete pstmt;
     system("pause");
@@ -230,7 +252,7 @@ int main()
 
 以建立伺服器和資料庫時所指定的值，取代主機、資料庫名稱、使用者和密碼參數。 
 
-```csharp
+```c++
 #include <stdlib.h>
 #include <iostream>
 #include "stdafx.h"
@@ -241,6 +263,11 @@ int main()
 #include <cppconn/resultset.h>
 #include <cppconn/prepared_statement.h>
 using namespace std;
+
+//for demonstration only. never save your password in the code!
+const string server = "tcp://yourservername.mysql.database.azure.com:3306";
+const string username = "username@servername";
+const string password = "yourpassword";
 
 int main()
 {
@@ -253,19 +280,21 @@ int main()
     {
         driver = get_driver_instance();
         //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
+        con = driver->connect(server, username, password);
     }
     catch (sql::SQLException e)
     {
-        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        cout << "Could not connect to server. Error message: " << e.what() << endl;
         system("pause");
         exit(1);
     }
+    
+    con->setSchema("quickstartdb");
         
     //delete
-    pstmt = con>prepareStatement("DELETE FROM inventory WHERE name = ?");
-    pstmt>setString(1, "orange");
-    result = pstmt>executeQuery();
+    pstmt = con->prepareStatement("DELETE FROM inventory WHERE name = ?");
+    pstmt->setString(1, "orange");
+    result = pstmt->executeQuery();
     printf("Row deleted\n");    
     
     delete pstmt;

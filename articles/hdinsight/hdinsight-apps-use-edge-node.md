@@ -1,26 +1,24 @@
 ---
-title: "在 HDInsight 中的 Hadoop 叢集上使用空白邊緣節點 - Azure | Microsoft Docs"
-description: "如何將空白邊緣節點新增至可作為用戶端的 HDInsight 叢集，然後測試/主控 HDInsight 應用程式。"
+title: 在 HDInsight 中的 Hadoop 叢集上使用空白邊緣節點 - Azure | Microsoft Docs
+description: 如何將空白邊緣節點新增至可作為用戶端的 HDInsight 叢集，然後測試/主控 HDInsight 應用程式。
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: mumian
 tags: azure-portal
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: jgao
-ms.openlocfilehash: 7c09b2aefac1248a0bad06b913a8da56e73c0e4d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>在 HDInsight 中的 Hadoop 叢集上使用空白邊緣節點
 
@@ -69,7 +67,7 @@ ms.lasthandoff: 01/12/2018
 > * [HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://stackoverflow.com](http://stackoverflow.com)。
 >
-> 如果您使用 Apache 技術，您可以透過位於 [http://apache.org](http://apache.org) 的 Apache 專案網站 (例如 [Hadoop](http://hadoop.apache.org/) 網站) 找到協助。
+> 如果您使用 Apache 技術，您可以透過位於 [http://apache.org](http://apache.org) 的 Apache 專案網站 (例如 [Hadoop](http://hadoop.apache.org/) 網站) 尋求協助。
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>將邊緣節點新增至現有叢集
 在本節中，您會使用 Resource Manager 範本將邊緣節點新增至現有 HDInsight 叢集。  Resource Manager 範本可在 [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/)中找到。 Resource Manager 範本會呼叫位於 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh 的指令碼動作。此指令碼不會執行任何動作。  其目的只是為了示範從 Resource Manager 範本呼叫指令碼動作。

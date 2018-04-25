@@ -1,6 +1,6 @@
 ---
-title: 測試已啟用 Azure AD B2C 的 Web 應用程式
-description: 試用範例 ASP.NET Web 應用程式的快速入門，而該應用程式使用 Azure Active Directory B2C 來提供使用者登入。
+title: 快速入門 - 設定使用 Azure Active Directory B2C 登入 ASP.NET 應用程式 | Microsoft Docs
+description: 執行範例 ASP.NET Web 應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 7d6744fe7ef82a6a4f54291cedd15d5b3d4ee242
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4342e8c58c9bb20580d8428a6c9869f9a3b893cb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-web-app"></a>快速入門：測試已啟用 Azure AD B2C 的 Web 應用程式
+# <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 登入 ASP.NET 應用程式
 
 Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的應用程式、企業和客戶受到保護。 Azure AD B2C 可讓您的應用程式使用開放式標準通訊協定，向社交帳戶和企業帳戶進行驗證。
 

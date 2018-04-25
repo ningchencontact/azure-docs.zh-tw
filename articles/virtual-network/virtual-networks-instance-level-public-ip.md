@@ -1,10 +1,10 @@
 ---
-title: "Azure 執行個體層級公用 IP (傳統) 位址 | Microsoft Docs"
-description: "了解執行個體層級公用 IP (ILPIP) 位址，以及使用 PowerShell 來管理它們的方式。"
+title: Azure 執行個體層級公用 IP (傳統) 位址 | Microsoft Docs
+description: 了解執行個體層級公用 IP (ILPIP) 位址，以及使用 PowerShell 來管理它們的方式。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
-ms.author: jdial
-ms.openlocfilehash: 773043f2841ec7539b0d49357dec6bcb9f4f78a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 631b667b12941781a7e69361a0e731f94b7119f8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>執行個體層級公用 IP (Classic) 概觀
 執行個體層級公用 IP (ILPIP) 是您可以直接指派至 VM 或雲端服務角色執行個體的公用 IP 位址，而不是指派至 VM 或角色執行個體所在的雲端服務。 ILPIP 不會取代指派給雲端服務的虛擬 IP (VIP)。 應該說是您可以用來直接連接到 VM 或角色執行個體的其他 IP 位址。
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="why-would-i-request-an-ilpip"></a>為什麼我要要求 ILPIP？
 如果想要透過直接指派 IP 位址的方式連接到 VM 或角色執行個體，而不是使用雲端服務 VIP:&lt;連接埠號碼&gt;，請為 VM 或角色執行個體要求 ILPIP。
 
-* **主動式 FTP**：透過將 ILPIP 指派給 VM，VM 就可以在所有的連接埠上接收流量。 VM 不需要端點就可以接收流量。  請參閱 (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP 通訊協定概觀 (英文)] 以取得 FTP 通訊協定的詳細資料。
+* **主動式 FTP**：透過將 ILPIP 指派給 VM，VM 就可以在所有的連接埠上接收流量。 VM 不需要端點就可以接收流量。  如需 FTP 通訊協定的詳細資訊，請參閱 (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP 通訊協定概觀]。
 * **輸出 IP**：源自 VM 的輸出流量會對應至 ILPIP，因為來源與 ILPIP 可向外部實體唯一識別 VM。
 
 > [!NOTE]

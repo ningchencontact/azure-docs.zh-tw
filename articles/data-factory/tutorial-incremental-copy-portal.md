@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 17ea97e34deb375123de12508c2c0845cd25c27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 75d291c10f732f2d18fb78b0262c42052acc713e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
@@ -67,7 +67,7 @@ ms.lasthandoff: 03/23/2018
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * **Azure SQL Database**。 您需要使用資料庫作為來源資料存放區。 如果您沒有 SQL 資料庫，請參閱[建立 Azure SQL Database](../sql-database/sql-database-get-started-portal.md)，按照步驟來建立 SQL 資料庫。
 * **Azure 儲存體**。 您需要使用 Blob 儲存體作為接收資料存放區。 如果您沒有儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)，按照步驟來建立儲存體帳戶。 建立名為 adftutorial 的容器。 
 
@@ -249,7 +249,7 @@ END
     ```
 
     ![第二個查閱活動 - 查詢](./media/tutorial-incremental-copy-portal/query-for-new-watermark.png)
-19. 在 活動 工具箱中，展開 資料流程，並從 活動 工具箱中拖放 複製 活動，以及將名稱設定為 **IncrementalCopyActivity**。 
+19. 在 [活動] 工具箱中，展開 [資料流程]，並從 [活動] 工具箱中拖放 [複製] 活動，以及將名稱設定為 **IncrementalCopyActivity**。 
 
     ![複製活動 - 名稱](./media/tutorial-incremental-copy-portal/copy-activity-name.png)
 20. 透過將 [查閱] 活動所附加的**綠色按鈕**拖曳至 [複製] 活動**，即可將兩個 [查閱] 活動同時連線至 [複製] 活動**。 當您看到 [複製] 活動的框線顏色變為藍色時即鬆開滑鼠按鈕。 

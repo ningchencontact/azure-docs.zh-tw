@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: f6d8b8773719a59ad5326196f32a69a13a9a5d34
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4c7046c335039f5bc689790aaf53f5dff65991d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB︰使用 PHP 和 Azure 入口網站建立圖形資料庫
 
@@ -42,24 +42,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="add-a-graph"></a>新增圖形
 
-您現在可以在 Azure 入口網站中使用 [資料總管] 工具，建立圖形資料庫。 
-
-1. 按一下 [資料總管] > [新增圖形]。
-
-    [新增圖形] 區域會顯示在最右邊，您可能需要向右捲動才會看到。
-
-    ![Azure 入口網站資料總管 [新增圖形] 頁面](./media/create-graph-php/azure-cosmosdb-data-explorer-graph.png)
-
-2. 在 [新增圖形] 頁面上，輸入新圖形的設定。
-
-    設定|建議的值|說明
-    ---|---|---
-    資料庫識別碼|sample-database|輸入 *sample-database* 作為新資料庫的名稱。 資料庫名稱的長度必須介於 1 到 255 個字元，且不能包含 `/ \ # ?` 或尾端空格。
-    圖形識別碼|sample-graph|輸入 *sample-graph* 作為新集合的名稱。 圖形名稱與資料庫識別碼具有相同的字元需求。
-    儲存體容量|固定 (10 GB)|保持使用預設值 [固定 (10 GB)]。 此值是資料庫的儲存體容量。
-    Throughput|400 RU|將輸送量變更為每秒 400 個要求單位 (RU/秒)。 如果您想要降低延遲，稍後可以相應增加輸送量。
-
-3. 填妥表單後，按一下 [確定]。
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>複製範例應用程式
 
@@ -85,7 +68,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
-此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 程式碼片段皆取自 C:\git-samples\azure-cosmos-db-graph-php-getting-started\ 資料夾中的 `connect.php` 檔案。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-information)。 
+此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 程式碼片段皆取自 C:\git-samples\azure-cosmos-db-graph-php-getting-started\ 資料夾中的 connect.php 檔案。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-information)。 
 
 * Gremlin `connection` 是於 `connect.php` 檔案的開頭，使用 `$db` 物件初始化。
 
@@ -122,7 +105,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     ![在 Azure 入口網站的 [金鑰] 頁面中，檢視並複製存取金鑰](./media/create-graph-php/keys.png)
 2. 開啟 `connect.php` 檔案，並在第 8 行將 URI 值貼至 `your_server_address` 上。
 
-    連線物件初始化現在看起來應該類似以下程式碼：
+    連線物件初始化現在看起來應該類似下列程式碼：
 
     ```php
     $db = new Connection([
@@ -138,11 +121,11 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 3. 如果您的圖形資料庫帳戶是在 2017 年 12 月 20 日當天或以後建立的，請將主機名稱中的 `graphs.azure.com` 變更為 `gremlin.cosmosdb.azure.com`。
 
-4. 以您的資料庫和圖形名稱，變更連線物件中的 `username` 參數。 如果您使用建議的 `sample-database` 和 `sample-graph` 值，它看起來應該如下：
+4. 以您的資料庫和圖形名稱，變更連線物件中的 `username` 參數。 如果您使用建議的 `sample-database` 和 `sample-graph` 值，它看起來應該類似下列程式碼：
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
-    以下是整個連線物件目前應該看起來的樣子：
+    此時整個連線物件應看起來類似下列程式碼片段：
 
     ```php
     $db = new Connection([
@@ -158,7 +141,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 5. 在 Azure 入口網站中，使用複製按鈕複製 [主要金鑰]，然後將其貼上至密碼參數中的 `your_primary_key`。
 
-    連線物件初始化現在看起來應該如下：
+    連線物件初始化現在看起來應該類似下列程式碼：
 
     ```php
     $db = new Connection([
@@ -228,7 +211,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     tech | java | 
 
     > [!NOTE]
-    > 在本快速入門中，我們會建立非資料分割集合。 不過，如果您藉由在集合建立期間指定資料分割索引鍵來建立資料分割集合，您就必須包含資料分割索引鍵作為每個新頂點的索引鍵。 
+    > 在本快速入門中，您會建立非資料分割集合。 不過，如果您藉由在集合建立期間指定資料分割索引鍵來建立資料分割集合，您就必須包含資料分割索引鍵作為每個新頂點的索引鍵。 
 
 6. 按一下 [SERVICEPRINCIPAL] 。 您可能需要展開畫面，才能在螢幕底部看到 [確定]。
 
@@ -250,7 +233,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     隨著您新增更多的資料，您可以使用篩選條件來限制您的結果。 依預設，[資料總管] 會使用 `g.V()` 擷取圖形中的所有頂點。 您可將其變更為不同的[圖形查詢](tutorial-query-graph.md) (例如 `g.V().count()`)，以使用 JSON 格式傳回圖形中所有頂點的計數。 若您變更篩選條件，請將篩選條件變更回 `g.V()`，然後按一下 [套用篩選條件]，即可再次顯示所有的結果。
 
-12. 現在我們可以連線 rakesh 和 ashley。 請確定已在 [結果] 清單中選取 **ashley**，然後按一下右下方 [目標] 旁邊的編輯按鈕。 您可能需要加寬視窗，才可看到 [屬性] 區域。
+12. 現在您可以將 rakesh 和 ashley 連線。 請確定已在 [結果] 清單中選取 **ashley**，然後按一下右下方 [目標] 旁邊的編輯按鈕。 您可能需要加寬視窗，才可看到 [屬性] 區域。
 
    ![變更圖形中頂點的目標](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
@@ -262,7 +245,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
    ![[資料總管] 中連線的兩個頂點](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   本教學課程的資源建立部分結束了。您可繼續新增頂點至圖形、修改現有的頂點，或是變更查詢。 現在讓我們檢閱 Azure Cosmos DB 提供的計量，然後再清除資源。 
+   這會完成本快速入門中的資源建立部分。 您可以繼續將頂點新增至圖形、修改現有的頂點，或是變更查詢。 現在讓我們檢閱 Azure Cosmos DB 提供的計量，然後再清除資源。 
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 入口網站中檢閱 SLA
 

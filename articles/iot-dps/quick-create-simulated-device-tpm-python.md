@@ -3,20 +3,20 @@ title: 使用 Python 將模擬 TPM 裝置佈建到 Azure IoT 中樞 | Microsoft 
 description: Azure 快速入門 - 使用適用於 IoT 中樞裝置佈建服務的 Java 裝置 SDK 來建立及佈建模擬 TPM 裝置
 services: iot-dps
 keywords: ''
-author: msebolt
-ms.author: v-masebo
-ms.date: 12/12/2017
+author: bryanla
+ms.author: v-masebo;bryanla
+ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 603ca504d95b7999137a4638aeed3ac58ce6c72d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5038a632bc88c7b44f275968779d9d7ca5044d38
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Python 裝置 SDK 來建立及佈建模擬 TPM 裝置
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/03/2018
 
 這些步驟顯示如何在執行 Windows 作業系統的開發電腦上建立模擬裝置、執行 Windows TPM 模擬器作為裝置的[硬體安全性模組 (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)，並使用 Python 程式碼範例，將模擬裝置與裝置佈建服務和 IoT 中樞進行連線。 
 
-繼續之前，請務必完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)中的步驟。
+如果您不熟悉自動佈建程序，請務必也要檢閱[自動佈建概念](concepts-auto-provisioning.md)。 繼續之前，請務必完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)中的步驟。 
 
 [!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 

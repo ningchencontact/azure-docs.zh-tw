@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Azure Data Lake Store 中的存取控制
 
@@ -150,7 +150,7 @@ Azure Data Lake Store 實作的存取控制模型衍生自 HDFS，而 HDFS 又�
 * 參與者
 * 讀取者
 
-具備 Data Lake Store 帳戶的 [擁有者]  角色的每個人都會自動成為該帳戶的超級使用者。 若要深入了解，請參閱[角色型存取控制](../active-directory/role-based-access-control-configure.md)。
+具備 Data Lake Store 帳戶的 [擁有者]  角色的每個人都會自動成為該帳戶的超級使用者。 若要深入了解，請參閱[角色型存取控制](../role-based-access-control/role-assignments-portal.md)。
 如果您想要建立自訂的角色型存取控制 (RBAC) 角色並讓它具有超級使用者權限，它必須擁有下列權限︰
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -184,7 +184,7 @@ Azure Data Lake Store 實作的存取控制模型衍生自 HDFS，而 HDFS 又�
 * 擁有使用者，如果擁有使用者也是目標群組的成員。
 
 > [!NOTE]
-> 擁有群組「無法」變更檔案或資料夾的 ACL。
+> 擁有群組「無法」變更檔案或資料夾的 ACL。  如果將擁有群組設定為在上述根資料夾案例 (**案例 1**) 中建立帳戶的使用者，則無法透過擁有群組提供權限給單一使用者帳戶。  您可以將此權限指派給有效的使用者群組 (如果適用的話)。
 
 ## <a name="access-check-algorithm"></a>存取檢查演算法
 

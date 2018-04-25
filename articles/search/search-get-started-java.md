@@ -1,24 +1,17 @@
 ---
-title: "開始在 Java 中使用 Azure 搜尋服務 | Microsoft Docs"
-description: "如何使用 Java 做為程式設計語言，在 Azure 上建置雲端託管搜尋應用程式。"
-services: search
-documentationcenter: 
-author: EvanBoyle
-manager: pablocas
-editor: v-lincan
-ms.assetid: 8b4df3c9-3ae5-4e3a-b4bb-74b516a91c8e
+title: 開始在 Java 中使用 Azure 搜尋服務 | Microsoft Docs
+description: 如何使用 Java 做為程式設計語言，在 Azure 上建置雲端託管搜尋應用程式。
+author: jj09
+manager: jlembicz
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/14/2016
-ms.author: evboyle
-ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.author: jjed
+ms.openlocfilehash: 73e18b91412fd93897f9596077948fd7ea459e71
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>開始在 Java 中使用 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -91,7 +84,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="configure-the-service-url-and-api-key"></a>設定服務 URL 和 API 金鑰
 1. 在**專案總管**中按兩下 **config.properties** 以編輯含有伺服器名稱和 API 金鑰的組態設定。
 2. 請參閱本文中稍早的步驟，其中提及如何在 [Azure 入口網站](https://portal.azure.com)中找到服務 URL 和 API 金鑰，藉此取得您現在要輸入 **config.properties** 中的值。
-3. 在 **config.properties**中，以您服務的 API 金鑰取代 "Api Key"。 接著，在同一個檔案中以服務名稱 (URL http://servicename.search.windows.net 的第一個部分) 取代 "service name"。
+3. 在 **config.properties**中，以您服務的 API 金鑰取代 "Api Key"。 接著，在同一個檔案中以服務名稱 (URL http://servicename.search.windows.net) 的第一個部分) 取代 "service name"。
    
     ![][5]
 
@@ -107,7 +100,7 @@ ms.lasthandoff: 01/18/2018
     ![][7]
 6. 在下一頁指定 Tomcat 的安裝目錄。 在 Windows 電腦中，這通常為 C:\Program Files\Apache Software Foundation\Tomcat *版本*。
 7. 按一下 [完成] 。
-8. 選取 [視窗] > [喜好設定] > [Java] > [已安裝的 JRE] > [新增]。
+8. 選取 [視窗] > [喜好設定] > [Java] > [安裝的 JRE] > [新增]。
 9. 在 [Add JRE (新增 JRE)] 中，選取 [Standard VM (標準 VM)]。
 10. 按 [下一步] 。
 11. 在 [JRE Definition (JRE 定義)] 的 [JRE home (JRE 主資料夾)] 中按一下 [Directory (目錄)] 。

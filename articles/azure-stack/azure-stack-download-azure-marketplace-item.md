@@ -1,12 +1,12 @@
 ---
-title: "從 Azure 下載市集項目 | Microsoft Docs"
-description: "我可以將市集項目從 Azure 下載到我的 Azure Stack 部署。"
+title: 從 Azure 下載市集項目 | Microsoft Docs
+description: 我可以將市集項目從 Azure 下載到我的 Azure Stack 部署。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdadf48aa23e3dd76d8a511794f00725f073611d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c7d28831edf028657b7dd2a6a404a692a4a3bcb0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>將市集項目從 Azure 下載到 Azure Stack
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/08/2018
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>在連線的案例 (具有網際網路連線能力) 中下載 Marketplace 項目
 
 1. 若要下載市集項目，您必須先[向 Azure 註冊 Azure Stack](azure-stack-register.md)。
-2. 登入 Azure Stack 系統管理員入口網站 ( https://portal.local.azurestack.external )。
+2. 登入 Azure Stack 系統管理員入口網站 (https://portal.local.azurestack.external))。
 3. 有些 Marketplace 項目可能很大。 按一下 [資源提供者] > [儲存體] 來檢查，以確定您的系統上有足夠的空間。
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
@@ -62,7 +62,7 @@ ms.lasthandoff: 03/08/2018
 
 1. 以系統管理員身分開啟 PowerShell 主控台，然後[安裝 Azure Stack 特有的 PowerShell 模組](azure-stack-powershell-install.md)。 請確定您已安裝 **PowerShell 1.2.11 版或更高版本**。  
 
-2. 新增您用來註冊 Azure Stack 的 Azure 帳戶。 若要新增帳戶，請執行未使用任何參數的 **Add-AzureRmAccount** Cmdlet。 當系統提示您輸入 Azure 帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。  
+2. 新增您用來註冊 Azure Stack 的 Azure 帳戶。 若要新增帳戶，請執行未使用任何參數的 **Connect-AzureRmAccount** Cmdlet。 當系統提示您輸入 Azure 帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。  
 
 3. 如果您有多個訂用帳戶，請執行下列命令以選取您用於註冊的訂用帳戶：  
 

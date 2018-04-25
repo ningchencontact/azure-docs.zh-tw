@@ -1,12 +1,12 @@
 ---
-title: "搭配使用儲存體 Explorer (預覽) 與 Azure 檔案儲存體 | Microsoft Docs"
-description: "了解如何透過儲存體 Explorer (預覽) 來使用檔案共用和檔案。"
+title: 搭配使用儲存體總管與 Azure 檔案儲存體 | Microsoft Docs
+description: 了解如何透過儲存體總管來使用檔案共用和檔案。
 services: storage
 documentationcenter: na
 author: cawaMS
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="using-storage-explorer-preview-with-azure-file-storage"></a>搭配使用儲存體 Explorer (預覽) 與 Azure 檔案儲存體
+# <a name="using-storage-explorer-with-azure-file-storage"></a>搭配使用儲存體總管與 Azure 檔案儲存體
 
-Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，在雲端中提供檔案共用功能的服務。 SMB 2.1 和 SMB 3.0 皆受到支援。 使用 Azure 檔案儲存體時，您可以快速地將依賴檔案共用功能的舊式應用程式移轉至 Azure，而不必浪費成本來重新撰寫程式。 您可以使用檔案儲存體向全球公開資料，或私下儲存應用程式資料。 在本文中，您將學習如何使用儲存體 Explorer (預覽) 來使用檔案共用和檔案。
+Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，在雲端中提供檔案共用功能的服務。 SMB 2.1 和 SMB 3.0 皆受到支援。 使用 Azure 檔案儲存體時，您可以快速地將依賴檔案共用功能的舊式應用程式移轉至 Azure，而不必浪費成本來重新撰寫程式。 您可以使用檔案儲存體向全球公開資料，或私下儲存應用程式資料。 在本文中，您將學習如何使用儲存體總管來使用檔案共用和檔案。
 
 ## <a name="prerequisites"></a>先決條件
 
 若要完成這篇文章中的步驟，您需要下列項目︰
 
-- [下載並安裝儲存體 Explorer (預覽)](http://www.storageexplorer.com/)
+- [下載並安裝儲存體總管](http://www.storageexplorer.com/)
 
 - [連接到 Azure 儲存體帳戶或服務](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -36,9 +36,9 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 所有檔案必須都位於檔案共用，這是檔案的邏輯群組。 帳戶可以包含無限數量的檔案共用，每個共用可以儲存無限數量的檔案。
 
-下列步驟說明如何在儲存體 Explorer (預覽) 中建立檔案共用。
+下列步驟說明如何在儲存體總管中建立檔案共用。
 
-1. 開啟儲存體 Explorer (預覽)。
+1. 開啟儲存體總管。
 
 2. 在左窗格中，展開您要在其中建立檔案共用的儲存體帳戶
 
@@ -58,9 +58,9 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 檔案共用包含檔案和資料夾 (也包含檔案)。
 
-下列步驟說明如何在儲存體 Explorer (預覽) 中檢視檔案共用的內容：+
+下列步驟說明如何在儲存體總管中檢視檔案共用的內容：+
 
-1. 開啟儲存體 Explorer (預覽)。
+1. 開啟儲存體總管。
 
 2. 在左窗格中，展開儲存體帳戶，其中包含您要檢視的檔案共用。
 
@@ -78,9 +78,9 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 檔案共用可以輕鬆地建立並視需要刪除。 (若要查看如何刪除個別的檔案，請參閱[管理檔案共用中的檔案](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)。)
 
-下列步驟說明如何在儲存體 Explorer (預覽) 中刪除檔案共用：
+下列步驟說明如何在儲存體總管中刪除檔案共用：
 
-1. 開啟儲存體 Explorer (預覽)。
+1. 開啟儲存體總管。
 
 2. 在左窗格中，展開儲存體帳戶，其中包含您要檢視的檔案共用。
 
@@ -96,11 +96,11 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 ## <a name="copy-a-file-share"></a>複製檔案共用
 
-儲存體 Explorer (預覽) 可讓您將檔案共用複製到剪貼簿，然後將該檔案共用貼到另一個儲存體帳戶。 (若要查看如何複製個別的檔案，請參閱[管理檔案共用中的檔案](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)。)
+儲存體總管可讓您將檔案共用複製到剪貼簿，然後將該檔案共用貼到另一個儲存體帳戶。 (若要查看如何複製個別的檔案，請參閱[管理檔案共用中的檔案](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)。)
 
 下列步驟說明如何將檔案共用從某個儲存體帳戶複製到另一個儲存體帳戶。
 
-1. 開啟儲存體 Explorer (預覽)。
+1. 開啟儲存體總管。
 
 2. 在左窗格中，展開儲存體帳戶，其中包含您要複製的檔案共用。
 
@@ -120,7 +120,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 下列步驟說明如何建立檔案共用的 SAS：
 
-1. 開啟儲存體 Explorer (預覽)。
+1. 開啟儲存體總管。
 
 2. 在左窗格中，展開儲存體帳戶，其中包含您要取得 SAS 的檔案共用。
 
@@ -146,7 +146,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 下列步驟說明如何管理 (新增和移除) 檔案共用的存取原則︰+。 存取原則用來建立 SAS URL，使用者可藉此使用在定義的時間期間存取儲存體檔案資源。
 
-1. 開啟儲存體 Explorer (預覽)。
+1. 開啟儲存體總管。
 
 2. 在左窗格中，展開儲存體帳戶，其中包含您要管理其存取原則的檔案共用。
 
@@ -180,7 +180,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 下列步驟說明如何管理檔案共用中的檔案 (及資料夾)。
 
-1.  開啟儲存體 Explorer (預覽)。
+1.  開啟儲存體總管。
 
 2.  在左窗格中，展開儲存體帳戶，其中包含您要管理的檔案共用。
 
@@ -258,6 +258,6 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 檢視 [最新的儲存體 Explorer (預覽) 版本資訊與影片](http://www.storageexplorer.com/)。
+- 檢視 [最新的儲存體 Explorer 版本資訊與影片](http://www.storageexplorer.com/)。
 
 - 了解如何 [利用 Azure Blob、資料表、佇列和檔案建立應用程式](https://azure.microsoft.com/documentation/services/storage/)。

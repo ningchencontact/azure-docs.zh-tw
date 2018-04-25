@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c9b4408e6ac92a2f86a10f63ddd254486b82b3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7b24d4b15d83d746c5a514725bcd474828c62001
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>教學課程：使用 Data Factory REST API 建置您的第一個 Azure Data Factory
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 03/23/2018
   4. 將 **ADFGetStartedApp** 應用程式指派給 **Data Factory 參與者**角色。
 * 安裝 [Azure PowerShell](/powershell/azure/overview)。
 * 啟動 **PowerShell** 並執行下列命令。 將 Azure PowerShell 維持在開啟狀態，直到本教學課程結束為止。 如果您關閉並重新開啟，則需要再次執行這些命令。
-  1. 執行 **Login-AzureRmAccount** ，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。
+  1. 執行 **Connect-AzureRmAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。
   2. 執行 **Get-AzureRmSubscription** 以檢視此帳戶的所有訂用帳戶。
   3. 執行 **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** 來選取您想要使用的訂用帳戶。 以您的 Azure 訂用帳戶名稱取代 **NameOfAzureSubscription** 。
 * 在 PowerShell 中執行以下命令，建立名為 **ADFTutorialResourceGroup** 的 Azure 資源群組：

@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Site Recovery 將 VM 從 AWS 移轉至 Azure | Microsoft Docs"
-description: "本文說明如何使用 Azure Site Recovery 將 Amazon Web Services (AWS) 中執行的 Windows VM 移轉至 Azure。"
+title: 使用 Azure Site Recovery 將 VM 從 AWS 移轉至 Azure | Microsoft Docs
+description: 本文說明如何使用 Azure Site Recovery 將 Amazon Web Services (AWS) 中執行的 Windows VM 移轉至 Azure。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,17 +9,18 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 59a09b5d67391f2b48d338d721369f14ed6b4ede
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3ad4f46585be9cf61e3ef8343b5cb05308c972d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>將 Amazon Web Services (AWS) VM 移轉至 Azure
 
 本教學課程將教導您如何使用 Site Recovery 將 Amazon Web Services (AWS) 虛擬機器 (VM) 移轉至 Azure VM。 將 EC2 執行個體移轉至 Azure 時，VM 會被視為實體的內部部署電腦。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
+> * 驗證必要條件
 > * 準備 Azure 資源
 > * 準備要移轉的 AWS EC2 執行個體
 > * 部署設定伺服器
@@ -29,6 +30,22 @@ ms.lasthandoff: 02/28/2018
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
 
+## <a name="prerequisites"></a>先決條件
+- 確定您想要遷移的 VM 正執行支援的 OS 版本，包括 
+    - 64 位元版本的 Windows Server 2008 R2 SP1 或更新版本、 
+    - Windows Server 2012、
+    - Windows Server 2012 R2、 
+    - Windows Server 2016
+    - Red Hat Enterprise Linux 6.7 (僅限 HVM 虛擬化執行個體)，而且必須只具備 Citrix PV 或 AWS PV 驅動程式。 **不**支援執行 RedHat PV 驅動程式的執行個體。
+
+- 行動服務必須安裝在您要複寫的每個 VM 上。 
+
+> [!IMPORTANT]
+> 當您啟用 VM 的複寫功能時，Site Recovery 會自動安裝此服務。 若要自動安裝，您必須在 EC2 執行個體上準備一個可供 Site Recovery 用來存取 VM 的帳戶。 您可以使用網域帳戶或本機帳戶。 
+> - 若是 Linux VM，此帳戶應該是來源 Linux 伺服器上的根使用者。 
+> - 若是 Windows VM，如果您不使用網域帳戶，請停用本機電腦上的遠端使用者存取控制：在登錄的 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** 下，新增 DWORD 項目 **LocalAccountTokenFilterPolicy** 並將其值設為 1。
+
+- 您需要另一個可作為 Site Recovery 設定伺服器的 EC2 執行個體。 此執行個體必須執行 Windows Server 2012 R2。
 
 ## <a name="prepare-azure-resources"></a>準備 Azure 資源
 
@@ -74,19 +91,6 @@ Azure 中需要有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 8. 保留 [子網路] 的預設值，包括 [名稱] 和 [IP 範圍]。
 9. [服務端點] 保持停用。
 10. 完成之後，請按一下 [建立]。
-
-
-## <a name="prepare-the-ec2-instances"></a>準備 EC2 執行個體
-
-您需要有一或多個想要移轉的 VM。 這些 EC2 執行個體應該執行 64 位元版本的 Windows Server 2008 R2 SP1 或更新版本、Windows Server 2012、Windows Server 2012 R2、Windows Server 2016 或 Red Hat Enterprise Linux 6.7 (僅限 HVM 虛擬化執行個體)。 伺服器必須只有 Citrix PV 或 AWS PV 驅動程式。 不支援執行 RedHat PV 驅動程式的執行個體。
-
-行動服務必須安裝在您要複寫的每個 VM 上。 當您啟用 VM 的複寫功能時，Site Recovery 會自動安裝此服務。 若要自動安裝，您必須在 EC2 執行個體上準備一個可供 Site Recovery 用來存取 VM 的帳戶。
-
-您可以使用網域帳戶或本機帳戶。 若是 Linux VM，此帳戶應該是來源 Linux 伺服器上的根使用者。 若是 Windows VM，如果您不使用網域帳戶，請停用本機電腦上的遠端使用者存取控制：
-
-  - 在登錄的 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** 下，新增 DWORD 項目 **LocalAccountTokenFilterPolicy** 並將其值設為 1。
-
-您還需要另一個可作為 Site Recovery 設定伺服器的 EC2 執行個體。 此執行個體必須執行 Windows Server 2012 R2。
 
 
 ## <a name="prepare-the-infrastructure"></a>準備基礎結構

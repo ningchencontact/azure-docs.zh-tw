@@ -9,17 +9,21 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4294169e89533150cade700fb89e14c4121c4404
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b0bc6035c3004587ae50f1c331dd3976883e9d34
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>Azure Container Service (AKS) 上的 HTTPS 輸入
 
 輸入控制器是一項可為 Kubernetes 服務提供反向 Proxy、可設定的流量路由和 TLS 終止的軟體。 Kubernetes 輸入資源可用來設定個別 Kubernetes 服務的輸入規則和路由。 透過輸入控制器和輸入規則，您將可使用單一外部位址將流量路由至 Kubernetes 叢集中的多個服務。
 
 本文將在 Azure Container Service (AKS) 叢集中逐步執行 [NGINX 輸入控制器][nginx-ingress]的範例部署。 此外也會使用 [KUBE-LEGO][kube-lego] 專案自動產生和設定 [Let's Encrypt][lets-encrypt] 憑證。 最後，將會有數個應用程式執行於 AKS 叢集中，且全都可透過同一個位址來存取。
+
+## <a name="prerequisite"></a>必要條件
+
+安裝 Helm CLI - 請參閱 Helm CLI [文件][helm-cli]以取得安裝指示。
 
 ## <a name="install-an-ingress-controller"></a>安裝輸入控制器
 
@@ -179,10 +183,12 @@ kubectl apply -f hello-world-ingress.yaml
 
 深入了解本文所示範的軟體。 
 
+- [Helm CLI][helm-cli]
 - [NGINX 輸入控制器][nginx-ingress]
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
+[helm-cli]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

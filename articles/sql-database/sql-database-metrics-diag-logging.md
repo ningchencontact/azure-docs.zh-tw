@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b1ac34c97d94f0b8759cb3e6f229ba0f7a2be7c9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄 
 Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
@@ -191,11 +191,11 @@ SQL Database 計量和診斷記錄可以串流到 Log Analytics，方法是使�
 
 ### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>從資源庫安裝 SQL 分析解決方案
 
-1. 建立 Log Analytics 資源之後，您的資料會流入其中，請安裝 SQL 分析解決方案。 在 Operations Management Suite 首頁的側邊功能表上，選取 [解決方案資源庫]。 在資源庫中，選取 [Azure SQL 分析] 解決方案，然後選取 [新增]。
+1. 建立 Log Analytics 資源之後，您的資料會流入其中，請安裝 SQL 分析解決方案。 在首頁的側邊功能表上，選取 [解決方案資源庫]。 在資源庫中，選取 [Azure SQL 分析] 解決方案，然後選取 [新增]。
 
    ![監視解決方案](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. 在您的 Operations Management Suite 首頁上，[Azure SQL 分析] 圖格會出現。 選取此圖格以開啟 SQL 分析儀表板。
+2. 在您的首頁上，會出現 [Azure SQL 分析] 圖格。 選取此圖格以開啟 SQL 分析儀表板。
 
 ### <a name="use-the-sql-analytics-solution"></a>使用 SQL 分析解決方案
 

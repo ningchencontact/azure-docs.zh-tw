@@ -4,7 +4,7 @@ description: 了解如何使用 .NET 搭配 Azure Cosmos DB 的 SQL API 進行�
 services: cosmos-db
 documentationcenter: ''
 author: rafats
-manager: jhubbard
+manager: kfile
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -16,17 +16,17 @@ ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 7fca9f184097ed50ace665cde0c5ef8fb180feda
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a6ed74de159593003e8a18daefce2eb9a5945481
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配 SQL API 進行開發
+# <a name="azure-cosmos-db-develop-with-the-sql-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配 SQL API 進行開發
 
-Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
+Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。
 
-本教學課程示範如何使用 Azure 入口網站來建立 Azure Cosmos DB 帳戶，然後使用 [SQL .NET API](sql-api-introduction.md) 來建立具有[分割區索引鍵](sql-api-partition-data.md#partition-keys)的文件資料庫和集合。 透過在建立集合時定義分割區索引鍵，您的應用程式便已做好準備，可隨著資料成長毫不費力地進行調整。 
+本教學課程示範如何使用 Azure 入口網站來建立 Azure Cosmos DB 帳戶，然後使用 [SQL .NET API](sql-api-introduction.md) 來建立具有[分割區索引鍵](sql-api-partition-data.md#partition-keys)的文件資料庫和集合。 透過在建立集合時定義分割區索引鍵，您的應用程式便已做好準備，可隨著資料成長毫不費力地進行調整。
 
 本教學課程使用 [SQL .NET API](sql-api-sdk-dotnet.md)來涵蓋下列工作：
 
@@ -41,25 +41,22 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 > * 刪除資料庫
 
 ## <a name="prerequisites"></a>先決條件
-請確定您具有下列項目：
+開始之前，請確定您具有下列項目：
 
-* 使用中的 Azure 帳戶。 如果您沒有帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/free/)。 
+* 存取 Azure Cosmos DB 帳戶
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
+  您也可以透過註冊[免費的 Azure 帳戶](https://azure.microsoft.com/free/)，來使用自己的 Azure 訂用帳戶。 自此以後，您就可以[建立 Azure Cosmos DB 帳戶](create-sql-api-dotnet.md#create-a-database-account)。
+
 * 如果尚未安裝 Visual Studio 2017，您可以下載並使用**免費的** [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 **Azure 開發**。
 
-## <a name="create-an-azure-cosmos-db-account"></a>建立 Azure Cosmos DB 帳戶
-
-我們將從在 Azure 入口網站中建立 Azure Cosmos DB 帳戶開始著手。
 
 > [!TIP]
-> * 已經有 Azure Cosmos DB 帳戶？ 如果是，請直接跳到[設定您的 Visual Studio 方案](#SetupVS)
-> * 如果您使用「Azure Cosmos DB 模擬器」，請依照 [Azure Cosmos DB 模擬器](local-emulator.md)的步驟來設定模擬器，然後直接跳到[設定您的 Visual Studio 方案](#SetupVS)。 
+> * 如果您選擇使用「Azure Cosmos DB 模擬器」，請依照 [Azure Cosmos DB 模擬器](local-emulator.md)的步驟來設定模擬器
 >
 >
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a>設定您的 Visual Studio 方案
 1. 在電腦上開啟 **Visual Studio**。
@@ -68,7 +65,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
    ![[新增專案] 視窗的螢幕擷取畫面](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-new-project-2.png)
 
 4. 在 [方案總管] 中，以滑鼠右鍵按一下 Visual Studio 方案底下的新主控台應用程式，然後按一下 [管理 NuGet 套件...]
-    
+
     ![專案的滑鼠右鍵功能表的螢幕擷取畫面](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-manage-nuget-pacakges.png)
 5. 在 [NuGet] 索引標籤中按一下 [瀏覽]，然後在搜尋方塊中輸入 **documentdb**。
 <!---stopped here--->
@@ -103,11 +100,11 @@ private DocumentClient client;
 
 然後，返回 [Azure 入口網站](https://portal.azure.com)以擷取您的端點 URL 和主要金鑰。 必須提供端點 URL 和主要金鑰，您的應用程式才能了解所要連線的位置，以及使 Azure Cosmos DB 信任您的應用程式連線。
 
-在 Azure 入口網站中，瀏覽至您的 Azure Cosmos DB 帳戶，按一下 [金鑰]，然後按一下 [讀寫金鑰]。
+在 Azure 入口網站中，瀏覽至 Azure Cosmos DB 帳戶。 在左側功能表上，選取 [金鑰]，然後選取 [讀寫金鑰]。
 
 從入口網站中複製 URI，然後將它貼到 program.cs 檔案中的 `<your endpoint URL>`。 然後從入口網站複製「主要金鑰」，並將它貼到 `<your primary key>`。 請務必將您值中的 `<` 和 `>` 移除。
 
-![NoSQL 教學課程用來建立 C# 主控台應用程式之 Azure 入口網站的螢幕擷取畫面。 顯示 Azure Cosmos DB 帳戶，其中 Azure Cosmos DB 帳戶刀鋒視窗上醒目提示 [金鑰]，[金鑰] 刀鋒視窗上則醒目提示 [URI] 和 [主要金鑰] 的值](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-keys.png)
+![NoSQL 教學課程用來建立 C# 主控台應用程式之 Azure 入口網站的螢幕擷取畫面。 顯示 Azure Cosmos DB 帳戶，其中 Azure Cosmos DB 帳戶區段上醒目提示 [金鑰]，[金鑰] 區段上則醒目提示 [URI] 和 [主要金鑰] 的值](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-keys.png)
 
 ## <a id="instantiate"></a>將 DocumentClient 具現化
 
@@ -124,24 +121,24 @@ DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
 ```
-## <a name="decide-on-a-partition-key"></a>選定分割區索引鍵 
+## <a name="decide-on-a-partition-key"></a>選定分割區索引鍵
 
-集合是用來儲存文件的容器。 它們是邏輯資源，並且可以[跨一或多個實體分割區](partition-data.md)。 [分割區索引鍵](sql-api-partition-data.md)是您文件內的屬性 (或路徑)，可用來在伺服器或分割區之間散發資料。 具有相同分割區索引鍵的所有文件都會儲存在相同的分割區中。 
+集合是用來儲存文件的容器。 它們是邏輯資源，並且可以[跨一或多個實體分割區](partition-data.md)。 [分割區索引鍵](sql-api-partition-data.md)是您文件內的屬性 (或路徑)，可用來在伺服器或分割區之間散發資料。 具有相同分割區索引鍵的所有文件都會儲存在相同的分割區中。
 
-判斷分割區索引鍵是在建立集合之前所需進行的重要決策。 分割區索引鍵是您文件內的屬性 (或路徑)，可供 Azure Cosmos DB 用來在多個伺服器或分割區之間散發資料。 Cosmos DB 會將分割區索引鍵值進行雜湊處理，然後使用雜湊的結果來判斷要在其中儲存文件的分割區。 具有相同分割區索引鍵的所有文件都會儲存在相同的分割區中，而且在建立集合之後，即無法變更分割區索引鍵。 
+判斷分割區索引鍵是在建立集合之前所需進行的重要決策。 分割區索引鍵是您文件內的屬性 (或路徑)，可供 Azure Cosmos DB 用來在多個伺服器或分割區之間散發資料。 Cosmos DB 會將分割區索引鍵值進行雜湊處理，然後使用雜湊的結果來判斷要在其中儲存文件的分割區。 具有相同分割區索引鍵的所有文件都會儲存在相同的分割區中，而且在建立集合之後，即無法變更分割區索引鍵。
 
-針對本教學課程，我們會將分割區索引鍵設定為 `/deviceId`，讓單一裝置的所有資料都儲存在單一分割區中。 您想要選擇一個擁有大量值的分割區索引鍵，其中每個值的使用頻率都大致相同，以確保 Cosmos DB 可以在資料成長時平衡負載，並且達到該集合的完整輸送量。 
+針對本教學課程，您必須將分割區索引鍵設定為 `/deviceId`，讓單一裝置的所有資料都儲存在單一分割區中。 您想要選擇一個擁有大量值的分割區索引鍵，其中每個值的使用頻率都大致相同，以確保 Cosmos DB 可以在資料成長時平衡負載，並且達到該集合的完整輸送量。
 
-如需有關資料分割的詳細資訊，請參閱[如何在 Azure Cosmos DB 中進行資料分割和調整？](partition-data.md) 
+如需有關資料分割的詳細資訊，請參閱[如何在 Azure Cosmos DB 中進行資料分割和調整？](partition-data.md)
 
-## <a id="CreateColl"></a>建立集合 
+## <a id="CreateColl"></a>建立集合
 
-既然我們已知道分割區索引鍵 `/deviceId`，我們將使用 **DocumentClient** 類別的 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 方法或 [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) 方法來建立[集合](sql-api-resources.md#collections)。 集合是 JSON 文件和任何相關 JavaScript 應用程式邏輯的容器。 
+透過分割區索引鍵 `/deviceId`，您可以使用 **DocumentClient** 類別的 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 方法或 [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) 方法來建立[集合](sql-api-resources.md#collections)。 集合是 JSON 文件和任何相關 JavaScript 應用程式邏輯的容器。
 
 > [!WARNING]
-> 建立集合會牽涉到定價，因為您會將輸送量保留供應用程式與 Azure Cosmos DB 通訊使用。 如需更多詳細資料，請瀏覽我們的[定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)
-> 
-> 
+> 建立集合會牽涉到定價，因為您會將輸送量保留供應用程式與 Azure Cosmos DB 通訊使用。 如需詳細資訊，請瀏覽[定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)
+>
+>
 
 ```csharp
 // Collection for device telemetry. Here the JSON property deviceId is used  
@@ -186,7 +183,7 @@ public class DeviceReading
     public double MetricValue;
   }
 
-// Create a document. Here the partition key is extracted 
+// Create a document. Here the partition key is extracted
 // as "XMS-0001" based on the collection definition
 await client.CreateDocumentAsync(
     UriFactory.CreateDocumentCollectionUri("db", "coll"),
@@ -207,7 +204,7 @@ await client.CreateDocumentAsync(
 ```csharp
 // Read document. Needs the partition key and the Id to be specified
 Document result = await client.ReadDocumentAsync(
-  UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+  UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"),
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 
 DeviceReading reading = (DeviceReading)(dynamic)result;
@@ -223,7 +220,7 @@ reading.MetricValue = 104;
 reading.ReadingTime = DateTime.UtcNow;
 
 await client.ReplaceDocumentAsync(
-  UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+  UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"),
   reading);
 ```
 
@@ -234,7 +231,7 @@ await client.ReplaceDocumentAsync(
 ```csharp
 // Delete a document. The partition key is required.
 await client.DeleteDocumentAsync(
-  UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+  UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"),
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 ```
 ## <a name="query-partitioned-collections"></a>查詢已分割的集合
@@ -247,13 +244,13 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
     UriFactory.CreateDocumentCollectionUri("db", "coll"))
     .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 ```
-    
+
 下列查詢沒有根據資料分割索引鍵 (DeviceId) 的篩選，且已展開至對資料分割索引執行它的所有資料分割。 請注意，您必須指定 EnableCrossPartitionQuery (REST API 中的`x-ms-documentdb-query-enablecrosspartition` )，才能讓 SDK 跨資料分割執行查詢。
 
 ```csharp
 // Query across partition keys
 IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
-    UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+    UriFactory.CreateDocumentCollectionUri("db", "coll"),
     new FeedOptions { EnableCrossPartitionQuery = true })
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
@@ -264,16 +261,16 @@ Azure Cosmos DB SQL SDK 1.9.0 和更新版本支援平行查詢執行選項，�
 ```csharp
 // Cross-partition Order By queries
 IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
-    UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+    UriFactory.CreateDocumentCollectionUri("db", "coll"),
     new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
     .OrderBy(m => m.MetricValue);
 ```
-    
+
 若要管理平行執行查詢，您可以調整下列參數︰
 
-* 藉由設定 `MaxDegreeOfParallelism`，您可以控制平行處理原則的程度，亦即與集合的資料分割同時的網路連線數上限。 如果您將此設定為 -1，平行處理原則的程度是由 SDK 管理。 如果 `MaxDegreeOfParallelism` 未指定或設為 0 (這是預設值)，將會有連往集合資料分割的單一網路連線。
-* 您可藉由設定 `MaxBufferedItemCount`，來權衡取捨查詢延遲和用戶端記憶體使用量。 如果您省略這個參數或將此設定為 -1，平行查詢執行期間緩衝處理的項目數是由 SDK 管理。
+* 藉由設定 `MaxDegreeOfParallelism`，您可以控制平行處理原則的程度，亦即與集合的資料分割同時的網路連線數上限。 如果您將此參數設定為 -1，平行處理原則的程度是由 SDK 管理。 如果 `MaxDegreeOfParallelism` 未指定或設為 0 (這是預設值)，將會有連往集合資料分割的單一網路連線。
+* 您可藉由設定 `MaxBufferedItemCount`，來權衡取捨查詢延遲和用戶端記憶體使用量。 如果您省略這個參數或將其設定為 -1，平行查詢執行期間緩衝處理的項目數是由 SDK 管理。
 
 在相同的集合狀態下，平行查詢會以和序列執行相同的順序傳回結果。 執行包含排序 (ORDER BY 和/或 TOP) 的跨資料分割查詢時，SQL SDK 會跨資料分割發出平行查詢，並合併用戶端中已部分排序的結果來產生全域排序的結果。
 
@@ -283,7 +280,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 ```csharp
 await client.ExecuteStoredProcedureAsync<DeviceReading>(
     UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
-    new RequestOptions { PartitionKey = new PartitionKey("XMS-001") }, 
+    new RequestOptions { PartitionKey = new PartitionKey("XMS-001") },
     "XMS-001-FE24C");
 ```
 
@@ -293,12 +290,12 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 
 如果您將不繼續使用此應用程式，請使用下列步驟，在 Azure 入口網站中刪除本教學課程所建立的所有資源：
 
-1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的唯一名稱。 
+1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的唯一名稱。
 2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已完成下列操作： 
+在本教學課程中，您已完成下列操作：
 
 > [!div class="checklist"]
 > * 建立 Azure Cosmos DB 帳戶
@@ -310,7 +307,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 > * 刪除文件
 > * 刪除資料庫
 
-您現在可以繼續進行到下一個教學課程，以將其他資料匯入到 Cosmos DB 帳戶。 
+您現在可以繼續進行到下一個教學課程，以將其他資料匯入到 Cosmos DB 帳戶。
 
 > [!div class="nextstepaction"]
 > [將資料匯入到 Azure Cosmos DB](import-data.md)

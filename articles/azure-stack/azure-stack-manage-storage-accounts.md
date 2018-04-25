@@ -1,11 +1,11 @@
 ---
-title: "管理 Azure Stack 儲存體帳戶 | Microsoft Docs"
-description: "了解如何尋找、管理、復原及回收 Azure Stack 儲存體帳戶"
+title: 管理 Azure Stack 儲存體帳戶 | Microsoft Docs
+description: 了解如何尋找、管理、復原及回收 Azure Stack 儲存體帳戶
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: anirudha
-ms.openlocfilehash: 395cd113e21bf747c796ff28026f552f30656b47
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ce61dec785d6207e2d2df21884525f76a6778f4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>在 Azure Stack 中管理儲存體帳戶
 了解如何在 Azure Stack 中管理儲存體帳戶，以便根據業務需求來尋找、復原及回收儲存體容量。
@@ -99,7 +99,7 @@ ms.lasthandoff: 03/08/2018
   如果已刪除的帳戶已經被記憶體回收，您的帳戶就不會顯示在帳戶清單中。 在此情況下，便無法復原該帳戶。 請參閱本主題中的[回收容量](#reclaim)。
 
 ## <a name="set-the-retention-period"></a>設定保留期限
-保留期限設定可讓雲端操作員指定時間間隔天數 (介於 0 到 9999 天)，在此期間，任何已刪除的帳戶都可能復原。 預設保留期限設定為 15 天。 將值設定為 "0" 表示立即不保留任何已刪除的帳戶，並標示供定期記憶體回收。
+保留期限設定可讓雲端操作員指定時間間隔天數 (介於 0 到 9999 天)，在此期間，任何已刪除的帳戶都可能復原。 預設保留期限設定為 0 天。 將值設定為 "0" 表示立即不保留任何已刪除的帳戶，並標示供定期記憶體回收。
 
 **變更保留期限：**
 

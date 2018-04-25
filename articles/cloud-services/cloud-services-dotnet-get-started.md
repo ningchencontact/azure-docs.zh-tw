@@ -1,11 +1,11 @@
 ---
-title: "開始使用 Azure 雲端服務和 ASP.NET | Microsoft Docs"
-description: "了解如何使用 ASP.NET MVC 和 Azure 建立多層式應用程式。 應用程式在雲端服務中執行，具備 Web 角色和背景工作角色。 它使用 Entity Framework、SQL Database 及 Azure 儲存體佇列和 Blob。"
+title: 開始使用 Azure 雲端服務和 ASP.NET | Microsoft Docs
+description: 了解如何使用 ASP.NET MVC 和 Azure 建立多層式應用程式。 應用程式在雲端服務中執行，具備 Web 角色和背景工作角色。 它使用 Entity Framework、SQL Database 及 Azure 儲存體佇列和 Blob。
 services: cloud-services, storage
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d092f5f6c59351530941d47565ee2c4905ddd2e7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
 
@@ -34,8 +34,8 @@ ms.lasthandoff: 02/21/2018
 
 此應用程式會使用 [以佇列為中心的工作模式](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) ，將建立縮圖的 CPU 密集工作轉變為後端程序。
 
-## <a name="alternative-architecture-websites-and-webjobs"></a>替代架構：網站和 WebJobs
-本教學課程示範如何在 Azure 雲端服務中執行前端與後端。 替代方式是在 [Azure 網站](/services/web-sites/)中執行前端，並且將 [WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) 功能 (目前處於預覽) 用於後端。 如需使用 WebJob 的教學課程，請參閱 [開始使用 Azure WebJob SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)。 如需如何選擇最符合您的案例之服務的詳細資訊，請參閱 [Azure 網站、雲端服務和虛擬機器比較](../app-service/choose-web-site-cloud-service-vm.md)。
+## <a name="alternative-architecture-web-apps-and-webjobs"></a>替代架構：Web Apps 和 WebJob
+本教學課程示範如何在 Azure 雲端服務中執行前端與後端。 替代方式是在 [Azure Web Apps](/azure/app-service/) 中執行前端，並且將 [WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) 功能用於後端。 如需使用 WebJob 的教學課程，請參閱 [開始使用 Azure WebJob SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)。 如需如何選擇最符合您的案例之服務的詳細資訊，請參閱 [Azure 網站、雲端服務和虛擬機器比較](../app-service/choose-web-site-cloud-service-vm.md)。
 
 ## <a name="what-youll-learn"></a>您將學到什麼
 * 如何安裝 Azure SDK 好讓電腦適合用於進行 Azure 開發。
@@ -400,7 +400,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 ### <a name="add-code-files"></a>加入程式碼檔案
 在本節中，您會將檔案從所下載的方案複製到新方案。 下一節將示範和說明此程式碼的重要部分。
 
-若要加入檔案到專案或資料夾，請以滑鼠右鍵按一下專案或資料夾，然後按一下   - **現有項目**。 選取您需要的檔案，然後按一下 [加入] 。 如果詢問您是否要取代現有的檔案，請按一下 [是] 。
+若要加入檔案到專案或資料夾，請以滑鼠右鍵按一下專案或資料夾，然後按一下 [**新增** - **現有項目**]。 選取您需要的檔案，然後按一下 [加入] 。 如果詢問您是否要取代現有的檔案，請按一下 [是] 。
 
 1. 在 ContosoAdsCommon 專案中，刪除 *Class1.cs* 檔案，並在其位置新增來自所下載專案的 *Ad.cs* 和 *ContosoAdscontext.cs* 檔案。
 2. 在 ContosoAdsWeb 專案中，從所下載的專案加入下列檔案。

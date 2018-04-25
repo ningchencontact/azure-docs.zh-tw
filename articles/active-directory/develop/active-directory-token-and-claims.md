@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8f9eb95f49e0d2bd01d9ead7eda7d13288bfd573
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a28811437668488c2207535cef3aa4640f17aa54
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 權杖參考
 Azure Active Directory (Azure AD) 會在處理每個驗證流程時發出數種安全性權杖。 本文件說明每種權杖的格式、安全性特性和內容。
@@ -59,7 +59,9 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | 驗證時刻 |記錄驗證發生的日期和時間。 <br><br> **範例 SAML 值**： <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |驗證方法 |識別如何驗證權杖的主體。 <br><br> **範例 SAML 值**： <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **範例 JWT 值**：`“amr”: ["pwd"]` |
 | `given_name` |名字 |提供使用者的名字 (如 Azure AD 使用者物件上所設定)。 <br><br> **範例 SAML 值**： <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>`<br>`<AttributeValue>Frank<AttributeValue>` <br><br> **範例 JWT 值**： <br> `"given_name": "Frank"` |
-| `groups` |群組 |提供代表主體群組成員資格的物件識別碼。 這些值都是唯一的 (請參閱「物件識別碼」)，而且可安全地用來管理存取權，例如強制授權以存取資源。 群組宣告中包含的群組會透過應用程式資訊清單的 "groupMembershipClaims"屬性，針對每個應用程式進行設定。 Null 值將會排除所有群組，"SecurityGroup" 值只會包含 Active Directory 安全性群組成員資格，而 "All" 值將會包含安全性群組和 Office 365 通訊群組清單。 <br><br> **範例 SAML 值**： <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **範例 JWT 值**： <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
+| `groups` |群組 |提供代表主體群組成員資格的物件識別碼。 這些值都是唯一的 (請參閱「物件識別碼」)，而且可安全地用來管理存取權，例如強制授權以存取資源。 群組宣告中包含的群組會透過應用程式資訊清單的 "groupMembershipClaims"屬性，針對每個應用程式進行設定。 Null 值將會排除所有群組，"SecurityGroup" 值只會包含 Active Directory 安全性群組成員資格，而 "All" 值將會包含安全性群組和 Office 365 通訊群組清單。 <br><br> **注意**： <br> 請參閱下面的 `hasgroups` 宣告，以取得使用 `groups` 宣告搭配隱含授與的詳細資訊。  <br> 對於其他流程，如果使用者所屬的群組數目超過限制 (SAML 為 150，JWT 為 200)，則會將超額宣告新增至指向宣告來源 (包含使用者群組清單的 Graph 端點)。 (in . <br><br> **範例 SAML 值**： <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **範例 JWT 值**： <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
+|`hasgroups` | JWT 隱含流程群組超額指標| 如果有的話，一律為 `true`，表示使用者在至少一個群組中。  如果完整 groups 宣告會將 URI 片段延伸超出 URL 長度限制 (目前為 6 個或更多群組)，則使用於取代隱含授與流程中 JWT 的 `groups` 宣告。  表示用戶端應該使用 Graph 來判斷使用者的群組 (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`)。 |
+| `groups:src1` <br> `http://schemas.microsoft.com/claims/groups.link` | 群組超額指標 | 若為沒有長度限制 (請參閱上面的 `hasgroups`) 但是對權杖而言仍然太大的權杖要求，則會包含使用者的完整 groups 清單連結。  在 JWT 中以分散式宣告形式取代 `groups` 宣告，在 SAML 中則以新宣告形式取代。 <br><br> **範例 SAML 值**： <br> `<Attribute Name=” http://schemas.microsoft.com/claims/groups.link”>`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` <br><br> **範例 JWT 值**： <br> `"groups":"src1` <br> `_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
 | `idp` |身分識別提供者 |記錄驗證權杖主體的身分識別提供者。 除非使用者帳戶位於與簽發者不同的租用戶中，否則這個值與 Issuer 宣告值相同。 <br><br> **範例 SAML 值**： <br> `<Attribute Name=” http://schemas.microsoft.com/identity/claims/identityprovider”>`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` <br><br> **範例 JWT 值**： <br> `"idp":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `iat` |IssuedAt |儲存權杖簽發的時間。 這通常用來測量權杖有效時間。 <br><br> **範例 SAML 值**： <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **範例 JWT 值**： <br> `"iat": 1390234181` |
 | `iss` |簽發者 |識別負責建構並傳回權杖的 Security Token Service (STS)。 在 Azure AD 傳回的權杖中，簽發者為 sts.windows.net。 簽發者宣告值中的 GUID 是 Azure AD 目錄的租用戶識別碼。 租用戶識別碼是目錄的不可變且可靠的識別碼。 <br><br> **範例 SAML 值**： <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **範例 JWT 值**： <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |

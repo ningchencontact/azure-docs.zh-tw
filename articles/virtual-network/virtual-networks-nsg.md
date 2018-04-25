@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 3a581111587d0fe3cba04cd05272b3154374ce52
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 87ca0a1cd9766d3ad76d0fe5dd29a34ec40ea276
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>使用網路安全性群組來篩選網路流量
 
@@ -50,8 +50,8 @@ NSG 規則包含下列屬性：
 | **通訊協定** |規則要符合的通訊協定。 |TCP、UDP 或 * |使用 * 做為通訊協定包含 ICMP (僅東西流量)，以及 UDP 和 TCP，而且可能會降低您需要的規則數目。<br/>同時，使用 * 可能會是過於廣泛的方法，因此建議您只有在必要時使用 *。 |
 | **來源連接埠範圍** |規則要符合的來源連接埠範圍。 |1 到 65535 的單一連接埠號碼、連接埠範圍 (例如：1-65535)，或 * (所有連接埠)。 |來源連接埠可以是暫時的。 除非您的用戶端程式是使用特定連接埠，否則在大部分情況下請使用 *。<br/>請嘗試儘可能使用連接埠範圍以避免需要多個規則。<br/>多個連接埠或連接埠範圍不可使用逗號分組。 |
 | **目的地連接埠範圍** |規則要符合的目的地連接埠範圍。 |1 到 65535 的單一連接埠號碼、連接埠範圍 (例如：1-65535)，或 \* (所有連接埠)。 |請嘗試儘可能使用連接埠範圍以避免需要多個規則。<br/>多個連接埠或連接埠範圍不可使用逗號分組。 |
-| **來源位址首碼** |規則要符合的來源位址首碼或標籤。 |單一 IP 位址 (例如：10.10.10.10)、IP 子網路 (例如：192.168.1.0/24)、[預設標籤](#default-tags)或 * (用於所有位址)。 |考慮使用範圍、預設標籤和 * 以降低規則的數量。 |
-| **Destination address prefix** |規則要符合的目的地位址首碼或標籤。 | 單一 IP 位址 (例如：10.10.10.10)、IP 子網路 (例如：192.168.1.0/24)、[預設標籤](#default-tags)或 * (用於所有位址)。 |考慮使用範圍、預設標籤和 * 以降低規則的數量。 |
+| **來源位址首碼** |規則要符合的來源位址首碼或標籤。 |單一 IP 位址 (例如：10.10.10.10)、IP 子網路 (例如：192.168.1.0/24)、[服務標籤](#service-tags)或 * (用於所有位址)。 |考慮使用範圍、服務標籤和 * 以降低規則的數量。 |
+| **Destination address prefix** |規則要符合的目的地位址首碼或標籤。 | 單一 IP 位址 (例如：10.10.10.10)、IP 子網路 (例如：192.168.1.0/24)、[預設標籤](#service-tags)或 * (用於所有位址)。 |考慮使用範圍、服務標籤和 * 以降低規則的數量。 |
 | **Direction** |規則要符合的流量方向。 |輸入或輸出。 |輸入和輸出規則會根據方向分別處理。 |
 | **優先順序** |系統會依照規則優先順序檢查規則。 一旦套用規則，就不會再測試規則是否符合。 | 100 和 4096 之間的數字。 | 考慮為每個規則建立 100 的跳躍優先順序，以保留空間給您未來可能建立的新規則。 |
 | **Access** |如果規則符合，要套用的存取類型。 | 允許或拒絕。 | 請注意，如果找不到封包的允許規則，則會捨棄封包。 |
@@ -62,36 +62,13 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 
 上圖顯示 NSG 規則的處理方式。
 
-### <a name="default-tags"></a>預設標籤
-預設標籤是系統提供的識別項，用來解決 IP 位址的類別。 您可以在任何規則的**來源位址首碼**和**目的地位址首碼**屬性使用預設標籤。 有三個您可使用的預設標籤：
+### <a name="default-tags"></a>系統標籤
 
-* **VirtualNetwork** (Resource Manager) (適用於傳統部署的 **VIRTUAL_NETWORK**)：這個標籤包含虛擬網路位址空間 (在 Azure 中定義的 CIDR 範圍)、所有已連線的內部部署位址空間以及已連線的 Azure VNet (區域網路)。
-* **AzureLoadBalancer** (Resource Manager) (適用於傳統部署的 **AZURE_LOADBALANCER**)：這個標籤代表 Azure 基礎結構的負載平衡器。 此標籤會轉譯成為 Azure Load Balancer 之健康狀態探查來源的 Azure 資料中心 IP。
-* **Internet** (Resource Manager) (適用於傳統部署的 **INTERNET**)：這個標籤代表虛擬網路以外且可以透過公用網際網路進行存取的 IP 位址空間。 此範圍也包括 [Azure 擁有的公用 IP 空間](https://www.microsoft.com/download/details.aspx?id=41653)。
+服務標籤是系統提供的識別項，用來解決 IP 位址的類別。 您可以在任何安全性規則的**來源位址首碼**和**目的地位址首碼**屬性使用服務標籤。 深入了解[服務標籤](security-overview.md#service-tags)。
 
-### <a name="default-rules"></a>預設規則
-所有 NSG 都包含一組預設規則。 預設規則無法刪除，但因為其會指派為最低優先權，因此可以由您所建立的規則覆寫預設規則。 
+### <a name="default-rules"></a>預設安全性規則
 
-預設規則可允許及不允許流量，如下所示︰
-- 虛擬網路中的流量起始和結束同時允許輸入和輸出方向。
-- **網際網路︰**允許輸出流量，但會封鎖輸入流量。
-- **負載平衡器︰**允許 Azure 的負載平衡器探查 VM 和角色執行個體的健康狀態。 如果您覆寫此規則，Azure Load Balancer 健康狀態探查將會失敗，因而對您的服務造成影響。
-
-**輸入預設規則**
-
-| Name | 優先順序 | 來源 IP | 來源連接埠 | 目的地 IP | 目的地連接埠 | 通訊協定 | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | 允許 |
-| AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | 允許 |
-| DenyAllInBound |65500 | * | * | * | * | * | 拒絕 |
-
-**輸出預設規則**
-
-| Name | 優先順序 | 來源 IP | 來源連接埠 | 目的地 IP | 目的地連接埠 | 通訊協定 | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | 允許 |
-| AllowInternetOutBound | 65001 | * | * | Internet | * | * | 允許 |
-| DenyAllOutBound | 65500 | * | * | * | * | * | 拒絕 |
+所有 NSG 都包含一組預設安全性規則。 預設規則無法刪除，但因為其會指派為最低優先權，因此可以由您所建立的規則覆寫預設規則。 深入了解[預設安全性規則](security-overview.md#default-security-rules)。
 
 ## <a name="associating-nsgs"></a>建立 NSG 關聯
 視您使用的部署模型而定，您可以將 NSG 與 VM、NIC 和子網路建立關聯，如下所示：
@@ -127,7 +104,7 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 | PowerShell     | [是](virtual-networks-create-nsg-classic-ps.md) | [是](tutorial-filter-network-traffic.md) |
 | Azure CLI **V1**   | [是](virtual-networks-create-nsg-classic-cli.md) | [是](tutorial-filter-network-traffic-cli.md) |
 | Azure CLI **V2**   | 否 | [是](tutorial-filter-network-traffic-cli.md) |
-| Azure Resource Manager 範本   | 否  | [是](virtual-networks-create-nsg-arm-template.md) |
+| Azure Resource Manager 範本   | 否  | [是](template-samples.md) |
 
 ## <a name="planning"></a>規劃
 實作 NSG 之前，您需要回答下列問題：

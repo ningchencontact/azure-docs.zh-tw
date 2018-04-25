@@ -10,11 +10,11 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 74344b72869ef6b27f9e7329c7a1777a40662b17
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 131424b4a09beeca7c2e318a04e454bea7dab6a7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>教學課程：將內容傳遞網路 (CDN) 新增至 Azure App Service
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="have-a-custom-domain-ready"></a>備妥自訂網域
 
-若要完成本教學課程的自訂網域步驟，您需要擁有自訂網域並且具有網域提供者 (例如 GoDaddy) 的 DNS 登錄存取權。 例如，若要為 `contoso.com` 和 `www.contoso.com` 新增 DNS 項目，您必須有權設定 `contoso.com` 根網域的 DNS 設定。
+若要完成本教學課程的自訂網域步驟，您需要擁有自訂網域並且具有網域提供者的 DNS 登錄存取權。 例如，若要為 `contoso.com` 和 `www.contoso.com` 新增 DNS 項目，您必須有權設定 `contoso.com` 根網域的 DNS 設定。
 
 如果您還沒有網域名稱，請考慮遵循 [App Service 網域教學課程](custom-dns-web-site-buydomains-web-app.md)的作法，使用 Azure 入口網站來購買網域。 
 

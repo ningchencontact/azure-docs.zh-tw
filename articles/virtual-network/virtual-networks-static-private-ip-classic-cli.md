@@ -1,10 +1,10 @@
 ---
-title: "設定 VM (傳統) 的私人 IP 位址 - Azure CLI 1.0 | Microsoft Docs"
-description: "了解如何使用 Azure 命令列介面 (CLI) 1.0 設定虛擬機器 (傳統) 的私人 IP 位址。"
+title: 設定 VM (傳統) 的私人 IP 位址 - Azure CLI 1.0 | Microsoft Docs
+description: 了解如何使用 Azure 命令列介面 (CLI) 1.0 設定虛擬機器 (傳統) 的私人 IP 位址。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ed0fe2fea20671063395b9ff089599853278989d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c23419fdee7330d091d4699714f4ec08e72be2df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 設定虛擬機器 (傳統) 的私人 IP 位址
 
@@ -114,6 +114,10 @@ ms.lasthandoff: 10/11/2017
     info:    Reading network configuration
     info:    Updating network configuration
     info:    vm static-ip set command OK
+
+## <a name="set-ip-addresses-within-the-operating-system"></a>設定作業系統內的 IP 位址
+
+除非必要，建議您不要靜態指派虛擬機器作業系統內已指派給 Azure 虛擬機器的私人 IP。 如果您確實手動設定作業系統內的私人 IP 位址，請確保該位址與指派給 Azure VM 的私人 IP 位址相同，否則可能會失去與虛擬機器的連線。 請勿手動指派在虛擬機器作業系統內已指派給 Azure 虛擬機器的公用 IP 位址。
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 [保留的公用 IP](virtual-networks-reserved-public-ip.md) 位址。

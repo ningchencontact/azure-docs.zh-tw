@@ -1,5 +1,5 @@
 ---
-title: 在瀏覽器中使用 JavaScript 和 HTML 對 Azure 儲存體上傳、列出及刪除 Blob
+title: Azure 快速入門 - 在瀏覽器中使用 JavaScript 和 HTML 建立物件儲存體中的 Blob
 description: 了解如何在 HTML 網頁中使用 JavaScript 以 BlobService 的執行個體上傳、列出及刪除 Blob。
 services: storage
 keywords: 儲存體, Javascript, Html
@@ -10,23 +10,18 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 83db6539e6ad8ec8e18d99bf7eedbc037d95509e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-with-azure-storage-using-javascripthtml-in-the-browser"></a>快速入門：在瀏覽器中使用 JavaScript/HTML 對 Azure 儲存體上傳、列出及刪除 Blob
-此快速入門示範如何從完全在瀏覽器中執行的程式碼以及必要的安全措施管理 Blob，以確實保護對您 Blob 儲存體帳戶的存取。 若要完成本快速入門，您需要 [Azure 訂用帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>快速入門：在瀏覽器中使用 JavaScript/HTML 來上傳、列出及刪除 Blob
+本快速入門會示範如何從完全在瀏覽器中執行的程式碼中管理 Blob。 這裡使用的方法會說明如何使用必要安全措施，來確保 Blob 儲存體帳戶的存取會受到保護。 若要完成本快速入門，您需要 [Azure 訂用帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
-
-### <a name="copy-security-settings"></a>複製安全性設定
-在進行此快速入門時，您必須要有幾個安全性相關值，才能建立安全性權杖。 您可以從入口網站將這些值複製到文字編輯器中，以供後續使用。 
-
-在入口網站中選取儲存體帳戶，然後尋找 [設定] 區段。 在 [設定] 下選取 [存取金鑰]，並設定 [儲存體帳戶名稱] 和 **key1** 標題下的 [金鑰] 值。 (您可以使用輸入方塊右側的 [複製] 按鈕，將值複製到您的剪貼簿上。)
 
 ## <a name="setting-up-storage-account-cors-rules"></a>設定儲存體帳戶 CORS 規則 
 您必須先設定帳戶以啟用[跨原始資源共用](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) (或簡稱為 CORS)，Web 應用程式才可從用戶端存取 Blob 儲存體。 
@@ -55,7 +50,7 @@ ms.lasthandoff: 04/06/2018
 ## <a name="create-a-shared-access-signature"></a>建立共用存取簽章
 在瀏覽器中執行的程式碼會使用共用存取簽章 (SAS) 來驗證對 Blob 儲存體的要求。 藉由使用 SAS，用戶端不需要帳戶存取金鑰或連接字串即可進行驗證。 如需 SAS 的詳細資訊，請參閱[使用共用存取簽章 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md)。
 
-您可以透過 Azure Cloud Shell 使用 Azure CLI 建立 SAS。 下表說明您為了產生 SAS 而需提供值的參數。
+您可以透過 Azure Cloud Shell 或 Azure 儲存體總管使用 Azure CLI 建立 SAS。 下表說明為使用 CLI 產生 SAS 而需為其提供值的參數。
 
 | 參數      |說明  | Placeholder |
 |----------------|-------------|-------------|
@@ -121,7 +116,7 @@ npm i http-server
 npm start
 ```
 
-### <a name="get-the-blob-storage-client-scripts"></a>取得 Blob 儲存體用戶端指令碼
+### <a name="get-the-blob-storage-client-library"></a>取得 Blob 儲存體用戶端程式庫
 [下載 JavaScript 用戶端程式庫](https://aka.ms/downloadazurestoragejs)、解壓縮 zip 的內容，並將 bundle 資料夾中的指令碼檔案放入名為 scripts 的資料夾中。
 
 ### <a name="add-the-client-script-reference-to-the-page"></a>將用戶端指令碼參考新增至頁面
@@ -153,7 +148,7 @@ npm start
 - 用來上傳檔案的 INPUT 元素
 - 儲存體專用程式碼的預留位置
 
-### <a name="create-a-blob-service"></a>建立 Blob 服務 
+### <a name="create-an-instance-of-blobservice"></a>建立 BlobService 執行個體 
 [BlobService](https://azure.github.io/azure-storage-node/BlobService.html) 提供 Azure Blob 儲存體的介面。 若要建立服務的執行個體，您必須提供儲存體帳戶名稱以及在先前的步驟中產生的 SAS。
 
 ```javascript
@@ -184,7 +179,7 @@ document.getElementById('create-button').addEventListener('click', () => {
 ```
 
 ### <a name="upload-a-blob"></a>上傳 Blob
-若要從 HTML 表單上傳 Blob，您必須先透過將 [類型] 設為 [檔案] 的 INPUT 元素的 `files` 陣列取得所選檔案的參考。
+若要從 HTML 表單上傳 Blob，您可以從 INPUT 元素取得所選檔案的參考。 當元素的「類型」設為「檔案」時，您可以透過`files` 陣列取得選取的檔案。
 
 透過指令碼，您可以參考 HTML 元素，並將選取的檔案傳遞至 Blob 服務。
 
@@ -227,6 +222,9 @@ document.getElementById('list-button').addEventListener('click', () => {
     
 });
 ```
+
+listBlobsSegmented 方法會傳回 Blob 的集合。 預設的集合數量為 5,000 個 Blob，但您可以調整此值以符合您的需求。 [接續範例](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js#L132)會示範如何處理大量 Blob 以及用戶端程式庫如何支援分頁作業。 
+
 
 ### <a name="delete-blobs"></a>刪除 Blob
 您可以藉由呼叫 [deleteBlobIfExists](https://azure.github.io/azure-storage-node/BlobService.html#deleteBlobIfExists__anchor) 刪除您上傳的 Blob。

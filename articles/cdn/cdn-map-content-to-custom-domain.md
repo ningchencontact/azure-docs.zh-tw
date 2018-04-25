@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/09/2018
+ms.date: 04/06/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: de04253a51d30885e936cb65a1925df4e5e96eaf
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dad9866a3d61421987bc4a62057498e004f65e7f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>教學課程：將自訂網域新增至 Azure CDN 端點
-本教學課程說明如何將自訂網域新增至 Azure CDN 端點。 使用 CDN 端點來傳遞內容時，如果您想要在 CDN URL 中顯示您自己的網域名稱，則需要自訂網域。 有可見的網域名稱對您的客戶而言較為方便，並且也有助於宣傳商標。 
+本教學課程說明如何將自訂網域新增至 Azure 內容傳遞網路 (CDN) 端點。 使用 CDN 端點來傳遞內容時，如果您想要在 CDN URL 中顯示您自己的網域名稱，則需要自訂網域。 有可見的網域名稱對您的客戶而言較為方便，並且也有助於宣傳商標。 
 
 當您在設定檔中建立 CDN 端點後，端點名稱 (azureedge.net 的子網域) 會包含在依預設傳遞 CDN 內容的 URL 中 (例如 https:\//contoso.azureedge.net/photo.png)。 為了方便起見，Azure CDN 會提供在自訂網域與 CDN 端點之間建立關聯的選項。 使用此選項時，您會在 URL 中使用自訂網域來傳遞內容，而不是使用端點名稱 (例如 https:\//www.contoso.com/photo.png)。 
 
@@ -49,7 +49,8 @@ ms.lasthandoff: 04/05/2018
 
 自訂網域及其子網域一次只能與單一端點相關聯。 不過，您可以使用多個 CNAME 記錄，將來自相同自訂網域的不同子網域用於不同的 Azure 服務端點。 您也可以將具有不同子網域的自訂網域對應至相同的 CDN 端點。
 
-## <a name="map-temporary-cdnverify-subdomain"></a>對應暫時 cdnverify 子網域
+
+## <a name="map-the-temporary-cdnverify-subdomain"></a>對應暫時 cdnverify 子網域
 
 在對應生產環境中的現有網域時，會有特殊事項需要考量。 當您在 Azure 入口網站中註冊自訂網域時，該網域可能會有短暫的期間停止運作。 為了避免 Web 流量中斷，請先將自訂網域對應至具有 Azure cdnverify 子網域的 CDN 端點主機名稱，以建立暫時 CNAME 對應。 透過此方法，使用者在 DNS 對應期間將可持續存取您的網域而不被中斷。 
 
@@ -135,7 +136,8 @@ ms.lasthandoff: 04/05/2018
 
 2. 在瀏覽器中，使用自訂網域瀏覽至檔案的位址。 例如，如果您的自訂網域是 cdn.contoso.com，則快取檔案的 URL 應會類似於下列 URL：http:\//cdn.contoso.com/my-public-container/my-file.jpg。
 
-## <a name="map-permanent-custom-domain"></a>對應永久自訂網域
+
+## <a name="map-the-permanent-custom-domain"></a>對應永久自訂網域
 
 如果您已確認 cdnverify 子網域已成功對應至您的端點 (或者，如果您使用不在生產環境中的新自訂網域)，則可以將自訂網域直接對應至 CDN 端點主機名稱。
 
@@ -160,6 +162,8 @@ ms.lasthandoff: 04/05/2018
 4. 儲存您的變更。
 
 5. 如果您先前曾建立暫時 cdnverify 子網域 CNAME 記錄，請將其刪除。 
+
+6. 如果您是第一次在生產環境中使用此自訂網域，請遵循[將自訂網域與您的 CDN 端點產生關聯](#associate-the-custom-domain-with-your-cdn-endpoint)和[驗證自訂網域](#verify-the-custom-domain)的步驟。
 
 例如，GoDaddy 網域註冊機構的程序如下所示：
 
@@ -192,8 +196,6 @@ ms.lasthandoff: 04/05/2018
 7. 如果您有 cdnverify CNAME 記錄，請選取它旁邊的鉛筆圖示，然後選取資源回收筒圖示。
 
 8. 選取 [刪除]，將 CNAME 記錄刪除。
-
-如果您是第一次在生產環境中使用此自訂網域，請遵循[將自訂網域與您的 CDN 端點產生關聯](#associate-the-custom-domain-with-your-cdn-endpoint)和[驗證自訂網域](#verify-the-custom-domain)的步驟。
 
 
 ## <a name="clean-up-resources"></a>清除資源

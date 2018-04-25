@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7c14b241155e10f0bb325b50819e2277622e4dff
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5a6fd54e4d20e55116bc0fa771e039e5ea2bb30b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教學課程：將現有的自訂 SSL 憑證繫結至 Azure Web Apps
 
@@ -149,7 +149,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ### <a name="upload-your-ssl-certificate"></a>上傳 SSL 憑證
 
-若要上傳 SSL 憑證，請按一下 Web 應用程式左側導覽列中的 [SSL 憑證]。
+若要上傳 SSL 憑證，請按一下 Web 應用程式左側導覽列中的 [SSL 設定]。
 
 按一下 [上傳憑證]。 
 
@@ -159,7 +159,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ![Upload certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
-當 App Service 完成上傳您的憑證時，它會出現在 [SSL 憑證] 頁面。
+當 App Service 完成您的憑證上傳時，它會出現在 [SSL 設定] 頁面中。
 
 ![Certificate uploaded](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
@@ -174,7 +174,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 >
 >
 
-在 **SSL 類型**中，選擇使用**[伺服器名稱指示 (SNI) ](http://en.wikipedia.org/wiki/Server_Name_Indication)**還是以 IP 為基礎的 SSL。
+在 **SSL 類型**中，選擇使用**[伺服器名稱指示 (SNI) ](http://en.wikipedia.org/wiki/Server_Name_Indication)** 還是以 IP 為基礎的 SSL。
 
 - **以 SNI 為基礎的 SSL**：可能會新增多個以 SNI 為基礎的 SSL 繫結。 此選項可允許多個 SSL 憑證保護同一個 IP 位址上的多個網域。 大多數現代化的瀏覽器 (包括 Internet Explorer、Chrome、Firefox 和 Opera) 都支援 SNI (可在[伺服器名稱指示](http://wikipedia.org/wiki/Server_Name_Indication)找到更完整的瀏覽器支援資訊)。
 - **以 IP 為基礎的 SSL**：可能只會新增一個以 IP 為基礎的 SSL 繫結。 此選項只允許一個 SSL 憑證保護專用的公用 IP 位址。 若要保護多個網域，您必須全部使用相同的 SSL 憑證來保護它們。 這是 SSL 繫結的傳統選項。
@@ -216,7 +216,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 根據預設，任何人仍可以使用 HTTP 存取您的 Web 應用程式。 您可以將所有 HTTP 要求重新都導向至 HTTPS 連接埠。
 
-在 Web 應用程式頁面的左側導覽中，選取 [自訂網域]。 然後，在 [僅限 HTTPS] 中選取 [開啟]。
+在 Web 應用程式頁面的左側導覽列中，選取 [SSL 設定]。 然後，在 [僅限 HTTPS] 中選取 [開啟]。
 
 ![強制使用 HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -225,6 +225,16 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
 - `http://www.contoso.com`
+
+## <a name="enforce-tls-1112"></a>強制使用 TLS 1.1/1.2
+
+根據預設，您的應用程式允許 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0，業界標準 (例如 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)) 不再將它視為安全的。 若要強制使用更高的 TLS 版本，請遵循下列步驟：
+
+在 Web 應用程式頁面的左側導覽列中，選取 [SSL 設定]。 然後，在 [TLS 版本] 中，選取您想要的最低 TLS 版本。
+
+![強制使用 HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+
+當作業完成時，您的應用程式會拒絕與較低 TLS 版本的所有連線。
 
 ## <a name="automate-with-scripts"></a>使用指令碼進行自動化
 

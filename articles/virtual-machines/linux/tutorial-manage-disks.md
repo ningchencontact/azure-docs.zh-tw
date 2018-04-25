@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1207ae8160739bcf27a651880dd58ea6893ebf37
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3153c57d6504346f6985823860623dc37977b79f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>使用 Azure CLI 管理 Azure 磁碟
 
@@ -108,16 +108,17 @@ Azure 提供兩種類型的磁碟。
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-使用 [az vm create]( /cli/azure/vm#az_vm_create) 命令來建立 VM。 `--datadisk-sizes-gb` 引數用來指定應該建立一個額外的磁碟並連結至虛擬機器。 若要建立並連結多個磁碟，請使用以空格分隔的磁碟大小值清單。 在下列範例中，會建立具有兩個資料磁碟 (均為 128 GB) 的 VM。 因為磁碟大小是 128 GB，所以這些磁碟都會設為 P10，其可提供每個磁碟最高 500 IOPS。
+使用 [az vm create]( /cli/azure/vm#az_vm_create) 命令來建立 VM。 下列範例會建立名為 myVM 的 VM，新增名為 azureuser 的使用者帳戶，並產生 SSH 金鑰 (如果沒有這些金鑰的話)。 `--datadisk-sizes-gb` 引數用來指定應該建立一個額外的磁碟並連結至虛擬機器。 若要建立並連結多個磁碟，請使用以空格分隔的磁碟大小值清單。 在下列範例中，會建立具有兩個資料磁碟 (均為 128 GB) 的 VM。 因為磁碟大小是 128 GB，所以這些磁碟都會設為 P10，其可提供每個磁碟最高 500 IOPS。
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroupDisk \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
-  --data-disk-sizes-gb 128 128 \
-  --generate-ssh-keys
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --data-disk-sizes-gb 128 128
 ```
 
 ### <a name="attach-disk-to-existing-vm"></a>將磁碟連結至現有的 VM

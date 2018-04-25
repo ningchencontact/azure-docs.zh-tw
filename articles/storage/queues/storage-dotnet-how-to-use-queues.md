@@ -1,24 +1,19 @@
 ---
-title: "以 .NET 開始使用 Azure 佇列儲存體 | Microsoft Docs"
-description: "Azure 佇列可在應用程式元件之間提供可靠的非同步傳訊。 雲端傳訊可讓您的應用程式元件獨立擴充。"
+title: 以 .NET 開始使用 Azure 佇列儲存體 | Microsoft Docs
+description: Azure 佇列可在應用程式元件之間提供可靠的非同步傳訊。 雲端傳訊可讓您的應用程式元件獨立擴充。
 services: storage
-documentationcenter: .net
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: c0f82537-a613-4f01-b2ed-fc82e5eea2a7
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 04/16/2018
 ms.author: tamram
-ms.openlocfilehash: 00c737205c8970bf3cd3036b8bfa653c962949d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 749bc318af331100c8c2079d58c8e3ca395f4a49
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>以 .NET 開始使用 Azure 佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -56,6 +51,17 @@ using Microsoft.Azure; // Namespace for CloudConfigurationManager
 using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 ```
+
+### <a name="copy-your-credentials-from-the-azure-portal"></a>從 Azure 入口網站複製您的認證
+
+範例程式碼需要驗證對您儲存體帳戶的存取。 若要進行驗證，您必須以連接字串的形式為應用程式提供您的儲存體帳戶認證。 若要檢視您的儲存體帳戶認證：
+
+1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
+2. 找出您的儲存體帳戶。
+3. 在儲存體帳戶概觀的 [設定] 區段中，選取 [存取金鑰]。 您的帳戶存取金鑰隨即出現，此外也會顯示每個金鑰的完整連接字串。   
+4. 尋找 [金鑰1] 下方的 [連接字串] 值，然後按一下 [複製] 按鈕來複製連接字串。 在下一個步驟中，您會將連接字串值新增至環境變數。
+
+    ![顯示如何從 Azure 入口網站複製連接字串的螢幕擷取畫面](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
 ### <a name="parse-the-connection-string"></a>解析連接字串
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]

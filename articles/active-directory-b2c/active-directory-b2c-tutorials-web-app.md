@@ -1,5 +1,5 @@
 ---
-title: 使用在 ASP.NET Web 應用程式中使用 Azure Active Directory B2C 進行使用者驗證的教學課程
+title: 教學課程 - 讓 Web 應用程式能夠使用 Azure Active Directory B2C 向帳戶進行驗證 | Microsoft Docs
 description: 關於如何使用 Azure Active Directory B2C 為 ASP.NET Web 應用程式提供使用者登入的教學課程。
 services: active-directory-b2c
 author: davidmu1
@@ -8,13 +8,13 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 59e23344d235bac8f69bba76cfff2922bc41fd0f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>教學課程：在 ASP.NET Web 應用程式中使用 Azure Active Directory B2C 進行使用者驗證
+# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>教學課程：讓 Web 應用程式能夠使用 Azure Active Directory B2C 向帳戶進行驗證
 
 本教學課程將說明如何使用 Azure Active Directory (Azure AD) B2C 在 ASP.NET Web 應用程式中登入和註冊使用者。 Azure AD B2C 可讓您的應用程式使用開放式標準通訊協定向社交帳戶、企業帳戶和 Azure Active Directory 帳戶進行驗證。
 
@@ -40,22 +40,22 @@ ms.lasthandoff: 04/03/2018
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. 從 Azure 入口網站的服務清單中選取 [Azure AD B2C]。
+1. 從 Azure 入口網站的服務清單中選取 [Azure AD B2C]。 
 
-2. 在 B2C 設定中按一下 [應用程式]，然後按一下 [新增]。
+2. 在 B2C 設定中按一下 [應用程式]，然後按一下 [新增]。 
 
     若要在您的租用戶中註冊範例 Web 應用程式，請使用下列設定：
 
     ![新增應用程式](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
-
+    
     | 設定      | 建議的值  | 說明                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **名稱** | 我的範例 Web 應用程式 | 輸入向取用者描述您的應用程式的 [名稱]。 | 
     | **包含 Web 應用程式 / Web API** | yes | 針對 Web 應用程式選取 [是]。 |
     | **允許隱含流程** | yes | 請選取 [是]，因為應用程式使用 [OpenID Connect 登入](active-directory-b2c-reference-oidc.md)。 |
     | **回覆 URL** | `https://localhost:44316` | 回覆 URL 是 Azure AD B2C 傳回您應用程式要求之任何權杖的所在端點。 在本教學課程中，範例會在本機執行 (localhost)，並接聽連接埠 44316。 |
-    | **原生用戶端** | 否 | 這是 Web 應用程式，而不是原生用戶端，因此請選取 [否]。 |
-
+    | **包含原生用戶端** | 否 | 這是 Web 應用程式，而不是原生用戶端，因此請選取 [否]。 |
+    
 3. 按一下 [建立]  以註冊您的應用程式。
 
 已註冊的應用程式會顯示在 Azure AD B2C 租用戶的應用程式清單中。 從清單中選取 Web 應用程式。 Web 應用程式的 [屬性] 窗格隨即顯示。
@@ -70,7 +70,7 @@ Azure AD B2C 會對[用戶端應用程式](../active-directory/develop/active-di
 
 1. 選取已註冊之 Web 應用程式的 [金鑰] 頁面，然後按一下 [產生金鑰]。
 
-2. 按一下 [儲存] 以顯示金鑰。
+2. 按一下 [儲存] 以顯示應用程式金鑰。
 
     ![應用程式一般金鑰頁面](media/active-directory-b2c-tutorials-web-app/app-general-keys-page.png)
 
@@ -112,7 +112,7 @@ Azure AD B2C 原則會定義使用者工作流程。 例如，登入、註冊、
     | **名稱** | SiPe | 輸入原則的 [名稱]。 原則名稱前面會加上 **b2c_1_**。 您在範例程式碼中會使用完整的原則名稱 **b2c_1_SiPe**。 | 
     | **身分識別提供者** | 本機帳戶登入 | 用來唯一識別使用者的身分識別提供者。 |
     | **設定檔屬性** | 顯示名稱和郵遞區號 | 選取使用者在設定檔編輯期間可修改的屬性。 |
-    | **應用程式宣告** | 顯示名稱、郵遞區號、使用者是新的、使用者的物件識別碼 | 選取在設定檔編輯成功後要包含在[存取權杖](../active-directory/develop/active-directory-dev-glossary.md#access-token)中的[宣告](../active-directory/develop/active-directory-dev-glossary.md#claim)。 |
+    | **應用程式宣告** | 顯示名稱、郵遞區號、使用者的物件識別碼 | 選取在設定檔編輯成功後要包含在[存取權杖](../active-directory/develop/active-directory-dev-glossary.md#access-token)中的[宣告](../active-directory/develop/active-directory-dev-glossary.md#claim)。 |
 
 2. 按一下 [建立] 以建立原則。 
 
@@ -134,7 +134,7 @@ Azure AD B2C 原則會定義使用者工作流程。 例如，登入、註冊、
 
 ## <a name="update-web-app-code"></a>更新 Web 應用程式的程式碼
 
-現在，您已註冊 Web 應用程式並建立原則，接下來您必須設定應用程式以使用您的 Azure AD B2C 租用戶。 在本教學課程中，您會設定範例 Web 應用程式。 
+現在，您已註冊 Web 應用程式並建立原則，接下來您必須設定應用程式以使用您的 Azure AD B2C 租用戶。 在本教學課程中，您會設定可從 GitHub 下載的範例 Web 應用程式。 
 
 [下載 zip 檔案](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip)，或從 GitHub 複製範例 Web 應用程式。
 
@@ -154,7 +154,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 1. 在 Visual Studio 中開啟 **B2C-WebAPI-DotNet** 方案。
 
-2. 在 **TaskWebApp** Web 應用程式專案中開啟 **Web.config** 檔案，並進行下列更新：
+2. 在 **TaskWebApp** Web 應用程式專案中開啟 **Web.config** 檔案，並且對現有金鑰進行下列更新：
 
     ```C#
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
@@ -163,7 +163,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
     
     <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
-3. 使用您在建立原則時產生的名稱來更新原則設定。
+3. 使用您在上一個步驟中建立的原則名稱值來更新現有的索引鍵。 請記得包含 b2c_1_ 首碼。
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />

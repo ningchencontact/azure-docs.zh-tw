@@ -9,11 +9,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 225d11c8609c81ed7877283e8dc0fd920b14d838
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>針對備份 Azure 檔案服務的問題進行疑難排解
 您可以使用下列表格中所列的資訊，針對使用 Azure 檔案服務備份時所發生的問題和錯誤進行疑難排解。
@@ -59,6 +59,7 @@ Azure 檔案服務備份處於預覽狀態。 Azure 檔案共用不支援下列�
 | 還原失敗，因為來源中的其中一個檔案不存在。 | <ul><li> 選取的項目不存在於復原點資料中。 若要復原檔案，請提供正確的檔案清單。 <li> 已手動刪除復原點對應的檔案共用快照集。 選取不同的復原點，然後重試還原作業。 |
 | 復原作業正處理至相同的目的地。 | <ul><li>檔案共用備份不支援平行復原至相同的目標檔案共用。 <li>等待現有的復原完成，然後再試一次。 如果您在復原服務保存庫中找不到復原作業，請檢查相同訂用帳戶中的其他復原服務保存庫。 |
 | 還原作業因為目標檔案共用已滿而失敗。 | 增加目標檔案共用大小配額以容納還原資料，然後重試此作業。 |
+| 還原作業失敗，因為在檔案同步服務資源 (與目標檔案共用相關聯) 上執行還原前置作業時發生錯誤。 | 請稍待片刻後再重試，如果問題持續發生，請連絡 Microsoft 支援。 |
 | 無法成功復原一或多個檔案。 如需詳細資訊，請檢查上述路徑中的失敗檔案清單。 | <ul> <li> 復原失敗原因會列在檔案中 (作業詳細資料中提供的路徑)，請解決這些原因，且只針對失敗的檔案重試還原作業。 <li> 檔案還原失敗的常見原因： <br/> - 確定失敗的檔案目前不在使用中。 <br/> - 與失敗檔案同名的目錄存在於上層目錄中。 |
 
 ## <a name="see-also"></a>另請參閱

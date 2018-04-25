@@ -6,7 +6,7 @@ documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1f0166f44661483c1c8118ddf85263166a248118
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a3826db21d2e4ed447e1ef8d4016ff1dbbf75b1c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>使用 Azure CLI 來建立和管理 Linux VM
 
@@ -54,10 +54,15 @@ az group create --name myResourceGroupVM --location eastus
 
 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 命令建立虛擬機器。 
 
-建立虛擬機器時，有數個可用的選項，例如作業系統映像、磁碟大小及系統管理認證。 在此範例中，是使用 myVM 名稱來建立執行 Ubuntu Server 的虛擬機器。 
+建立虛擬機器時，有數個可用的選項，例如作業系統映像、磁碟大小及系統管理認證。 下列範例會建立名為 myVM 的 VM，而該 VM 執行 Ubuntu Server。 VM 上會建立名為 azureuser 的使用者帳戶，而如果預設金鑰位置 (~/.ssh) 沒有 SSH 金鑰，則會加以產生：
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
+```azurecli-interactive
+az vm create \
+    --resource-group myResourceGroupVM \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys
 ```
 
 系統可能需要幾分鐘的時間來建立 VM。 建立 VM 之後，Azure CLI 就會輸出 VM 的相關資訊。 請記下 `publicIpAddress`，此位址可用來存取虛擬機器。 

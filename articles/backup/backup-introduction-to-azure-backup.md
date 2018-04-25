@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: mvc
-ms.openlocfilehash: 00ed2a64c672e1d2ae9a0037905a544b6c4424b7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b6701cdc4dd25c0a46193a73d1edd022388bc5ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 備份中的功能概觀
 Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料的 Azure 服務。 Azure 備份將以一個可靠、安全及具成本競爭力的雲端架構解決方案，取代您現有的內部部署或異地備份解決方案。 Azure 備份提供多個元件，您可以下載並部署在適當的電腦、伺服器或雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份的元件 (無論您要保護的是內部部署或雲端資料) 都可以將資料備份至 Azure 中的復原服務保存庫。 請參閱 [Azure 備份元件資料表](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (稍後於本文提及) 以取得該使用哪個元件來保護特定資料、應用程式或工作負載的資訊。
@@ -219,7 +219,7 @@ Azure 備份每個*受保護的執行個體*上限為 9999 個復原點 (也稱�
 
 
 ## <a name="what-is-a-recovery-services-vault"></a>什麼是復原服務保存庫？
-復原服務保存庫是 Azure 中的線上儲存實體，用來保存備份副本、復原點及備份原則等資料。 您可以使用復原服務保存庫來保存 Azure 服務及內部部署伺服器和工作站的備份資料。 復原服務保存庫可輕鬆地組織您的備份資料，同時可減輕管理負擔。 在每個 Azure 訂用帳戶內，您可以為每個 Azure 區域最多建立 25 個復原服務保存庫。 在考慮儲存資料的位置時，並非所有區域的考量都一樣。 如需區域配對和額外儲存體考量的相關資訊，請參閱[異地備援儲存體](../storage/common/storage-redundancy-grs.md)。
+復原服務保存庫是 Azure 中的線上儲存實體，用來保存備份副本、復原點及備份原則等資料。 您可以使用復原服務保存庫來保存 Azure 服務及內部部署伺服器和工作站的備份資料。 復原服務保存庫可輕鬆地組織您的備份資料，同時可減輕管理負擔。 在每個 Azure 訂用帳戶內，您可以為每個 Azure 區域最多建立 500 個復原服務保存庫。 在考慮儲存資料的位置時，並非所有區域的考量都一樣。 如需區域配對和額外儲存體考量的相關資訊，請參閱[異地備援儲存體](../storage/common/storage-redundancy-grs.md)。
 
 備份保存庫是第一個保存庫版本，並以 Azure 服務管理員為基礎。 復原服務保存庫是第二個保存庫版本，並新增 Azure Resource Manager 模型功能。 如需功能差異的完整說明，請參閱[復原服務保存庫概觀](backup-azure-recovery-services-vault-overview.md)一文。 您無法再建立備份保存庫，而且所有現有的備份保存庫都已升級為復原服務保存庫。 您可以使用 Azure 入口網站來管理已升級為復原服務保存庫的保存庫。
 

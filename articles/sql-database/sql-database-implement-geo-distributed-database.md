@@ -9,11 +9,11 @@ ms.custom: mvc,business continuity
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 569eef6e1d930e505bc6dff9b692814438e5bd4d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="implement-a-geo-distributed-database"></a>實作異地分散資料庫
 
@@ -380,4 +380,17 @@ sudo apt-get install maven
 
 ## <a name="next-steps"></a>後續步驟
 
-如需詳細資訊，請參閱[作用中異地複寫和容錯移轉群組](sql-database-geo-replication-overview.md)。
+在本教學課程中，您已了解如何設定 Azure SQL 資料庫和應用程式來容錯移轉到遠端區域，然後測試您的容錯移轉計畫。  您已了解如何︰ 
+
+> [!div class="checklist"]
+> * 建立資料庫使用者並授與其權限
+> * 設定資料庫層級防火牆規則
+> * 建立異地複寫容錯移轉群組
+> * 建立及編譯 Java 應用程式以查詢 Azure SQL Database
+> * 執行災害復原演練
+
+請前進到下一個教學課程，以了解如何建立受控執行個體。
+
+> [!div class="nextstepaction"]
+>[建立受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)
+

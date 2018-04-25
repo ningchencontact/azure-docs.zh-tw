@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: bf2c4a12d1344ec17ce9688e1c7192f57104dc7b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eccaf205ae4705848b591442ca0fdb2aab44b9c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
@@ -430,7 +430,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 <!--Same example for input and output. -->
 
-下列範例所示範的是使用繫結之 function.json 檔案，以及 [JavaScript 程式碼] (functions-reference-node.md) 中的 Blob 輸入和輸出繫結。 此函式會建立 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
+下列範例所示範的是 *function.json* 檔案中的 blob 輸入和輸出繫結，以及使用該繫結的 [JavaScript 程式碼](functions-reference-node.md)。 此函式會建立 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
 
 在 *function.json* 檔案中，`queueTrigger` 中繼資料屬性用於指定 `path` 屬性中的 Blob 名稱：
 

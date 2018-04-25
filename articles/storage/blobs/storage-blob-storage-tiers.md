@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: c62f3a92e6199f6467556054c9f58c20b6ceba2c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 21b09d9c428f9c29e0048faa32ce5349a127be89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob 儲存體︰經常性存取、非經常性存取和封存儲存層
 
@@ -159,7 +159,7 @@ GPv1 與 GPv2 帳戶之間的價格結構不同，客戶在決定使用 GPv2 帳
 
 **非經常性存取儲存層中的 Blob 與經常性存取儲存層中的 Blob 的行為有所不同嗎？**
 
-經常性存取儲存層中的 Blob 與 GPv1、GPv2 和 Blob 儲存體帳戶中的 Blob 有相同的延遲。 非經常性存取儲存層中的 Blob 與 GPv1、GPv2 和 Blob 儲存體帳戶中的 Blob 有類似的延遲 (以毫秒為單位)。 封存儲存層中的 blob 在 GPv1、GPv2 和 Blob 儲存體帳戶中會有好幾個小時的延遲。
+經常性儲存層中的 Blob 與 GPv1、GPv2 和 Blob 儲存體帳戶中的 Blob 有相同的延遲。 非經常性儲存層中的 Blob 與 GPv1、GPv2 和 Blob 儲存體帳戶中的 Blob 有類似的延遲 (以毫秒為單位)。 封存儲存層中的 blob 在 GPv1、GPv2 和 Blob 儲存體帳戶中會有好幾個小時的延遲。
 
 相較於經常性存取儲存層中儲存的 Blob，非經常性存取儲存層中的 Blob 有稍微較低的可用性服務等級 (SLA)。 如需詳細資訊，請參閱 [儲存體的 SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_2/)。
 

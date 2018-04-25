@@ -1,6 +1,6 @@
 ---
-title: "Azure 快速入門 - 執行 Batch 作業 - CLI"
-description: "快速了解如何使用 Azure CLI 執行 Batch 作業。"
+title: Azure 快速入門 - 執行 Batch 作業 - CLI
+description: 快速了解如何使用 Azure CLI 執行 Batch 作業。
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8d0e827dd3658d711de3830453c92af581786ad0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: de0ff088b3a61c48ddcbdff01f105884870886e1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>快速入門：使用 Azure CLI 執行您的第一個 Batch 作業
 
@@ -40,7 +40,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-您可以連結 Azure 的一般用途儲存體帳戶與您的 Batch 帳戶。 本快速入門雖然不要求這麼做，但儲存體帳戶很適合用於部署應用程式以及儲存大部分真實工作負載的輸入和輸出資料。 使用 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 命令在資源群組中建立儲存體帳戶。
+您可以連結 Azure 的儲存體帳戶與您的 Batch 帳戶。 本快速入門雖然不要求這麼做，但儲存體帳戶很適合用於部署應用程式以及儲存大部分真實工作負載的輸入和輸出資料。 使用 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 命令在資源群組中建立儲存體帳戶。
 
 ```azurecli-interactive
 az storage account create \

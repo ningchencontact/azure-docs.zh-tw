@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 入口網站中建立 Batch 帳戶 | Microsoft Docs"
-description: "了解如何在 Azure 入口網站中建立 Azure Batch 帳戶，以在雲端中執行大規模的平行工作負載"
+title: 在 Azure 入口網站中建立 Batch 帳戶 | Microsoft Docs
+description: 了解如何在 Azure 入口網站中建立 Azure Batch 帳戶，以在雲端中執行大規模的平行工作負載
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6374e49f3f682d022613e3e5244d273337213311
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 入口網站建立 Batch 帳戶
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 02/21/2018
 
     d. **位置**：要在其中建立 Batch 帳戶的 Azure 區域。 只有您的訂用帳戶和資源群組所支援的區域會顯示為選項。
 
-    e. **儲存體帳戶** (選用)：與 Batch 帳戶相關聯的一般用途 Azure 儲存體帳戶。 這是大部分 Batch 帳戶的建議作法。 如需詳細資訊，請參閱本文稍後的[連結的 Azure 儲存體帳戶](#linked-azure-storage-account)。
+    e. **儲存體帳戶** (選用)：與 Batch 帳戶相關聯的 Azure 儲存體帳戶。 這是大部分 Batch 帳戶的建議作法。 如需詳細資訊，請參閱本文稍後的[連結的 Azure 儲存體帳戶](#linked-azure-storage-account)。
 
 4. 按一下 [建立]  來建立帳戶。
 
@@ -85,11 +85,11 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="linked-azure-storage-account"></a>連結的 Azure 儲存體帳戶
 
-您可以將一般用途的 Azure 儲存體帳戶連結至您的 Batch 帳戶，在許多情節都很有用。 Batch 的[應用程式套件](batch-application-packages.md)功能會使用 Azure Blob 儲存體，如同 [Batch 檔案慣例 .NET](batch-task-output.md) 程式庫所為。 這些選擇性功能可協助您部署您的 Batch 工作所執行的應用程式，並保存其所產生的資料。
+您可以將 Azure 儲存體帳戶連結至您的 Batch 帳戶，在許多案例都很有用。 Batch 的[應用程式套件](batch-application-packages.md)功能會使用 Azure Blob 儲存體，如同 [Batch 檔案慣例 .NET](batch-task-output.md) 程式庫所為。 這些選擇性功能可協助您部署您的 Batch 工作所執行的應用程式，並保存其所產生的資料。
 
-我們建議建立 Batch 帳戶專用的新儲存體帳戶。 Azure Batch 目前僅支援一般用途的儲存體帳戶類型。 [關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)中的步驟 5 [儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)中會說明此帳戶類型。
+如需 Batch 中的儲存體帳戶選項，請參閱 [Batch 功能概觀](batch-api-basics.md#azure-storage-account)。
 
-![建立一般用途的儲存體帳戶][storage_account]
+![建立儲存體帳戶][storage_account]
 
 > [!NOTE]
 > 重新產生已連結儲存體帳戶的存取金鑰時，請格外小心。 只重新產生單一儲存體帳戶金鑰，並按一下連結的儲存體帳戶頁面上的 [同步金鑰]。 等候 5 分鐘，讓金鑰傳播至您的集區中的計算節點，然後重新產生並同步處理其他金鑰 (如有必要)。 如果您同時重新產生這兩個金鑰，計算節點將無法同步處理任何一個金鑰，而且將無法存取儲存體帳戶。

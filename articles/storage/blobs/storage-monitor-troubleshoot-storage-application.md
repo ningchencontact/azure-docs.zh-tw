@@ -1,6 +1,6 @@
 ---
-title: "對 Azure 中的雲端儲存體應用程式進行疑難排解及監視 | Microsoft Docs"
-description: "使用診斷工具、計量和警示，針對雲端應用程式進行疑難排解及監視。"
+title: 對 Azure 中的雲端儲存體應用程式進行疑難排解及監視 | Microsoft Docs
+description: 使用診斷工具、計量和警示，針對雲端應用程式進行疑難排解及監視。
 services: storage
 author: tamram
 manager: jeconnoc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: eb58104309802125a8424cbbf8a1bef3d1c5e79c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>對雲端儲存體應用程式進行疑難排解及監視
 
@@ -41,11 +41,11 @@ ms.lasthandoff: 02/22/2018
 
 從左側功能表中，依序選取 [資源群組] 和 [myResourceGroup]，然後選取資源清單中的儲存體帳戶。
 
-將 [診斷] 下方的 [狀態] 設定為 [開啟]。 請確定 [Blob 彙總計量]、[Blob (依 API 計量)] 和 [Blob 記錄] 已啟用。
+將 [診斷] 下方的 [狀態] 設定為 [開啟]。 請確定 **Blob 屬性** 下方的所有選項皆已啟用。
 
 完成時，按一下 [儲存]。
 
-![[診斷] 窗格](media/storage-monitor-troubleshoot-storage-application/figure1.png)
+![[診斷] 窗格](media/storage-monitor-troubleshoot-storage-application/contoso.png)
 
 ## <a name="enable-alerts"></a>啟用警示
 

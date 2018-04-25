@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 97c92a68009a378d13daed35520c7d338c5b932a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7ca037a6aec8516d9656b3389da67b9b02a906d8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>教學課程：使用 Azure 範本自動調整虛擬機器擴展集
 當建立擴展集時，您會定義您想要執行的 VM 執行個體數目。 當您的應用程式需求變更時，您可以自動增加或減少 VM 執行個體數目。 自動調整的能力可讓您在整個應用程式的生命週期中，跟上客戶的需求或對應用程式效能變更做出回應。 在本教學課程中，您將了解如何：
@@ -186,14 +186,14 @@ az vmss list-instance-connection-info \
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-登入之後，安裝 **stress** 公用程式。 請啟動 *10* 個會產生 CPU 負載的 **stress** 背景工作。 這些背景工作會執行 *420* 秒，這就足以讓自動調整規則實作所需的動作。
+登入之後，安裝 **stress** 公用程式。 請啟動 10 個會產生 CPU 負載的 **stress** 背景工作。 這些背景工作會執行 420 秒，這就足以讓自動調整規則實作所需的動作。
 
 ```azurecli-interactive
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-當 **stress** 顯示類似於 *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* 的輸出時，請按 *Enter* 鍵返回提示。
+當 **stress** 顯示類似於 stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd 的輸出時，請按 Enter 鍵返回提示。
 
 若要確認 **stress** 產生了 CPU 負載，請使用 **top** 公用程式檢查作用中的系統負載：
 
@@ -221,7 +221,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-同樣地，當 **stress** 顯示類似於 *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* 的輸出時，請按 *Enter* 鍵返回提示。
+同樣地，當 **stress** 顯示類似於 stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd 的輸出時，請按 Enter 鍵返回提示。
 
 關閉第二個 VM 執行個體的連線。 **stress** 會繼續對 VM 執行個體執行。
 
@@ -253,13 +253,13 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
            6  True                  eastus      myScaleSet_6  Creating             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-初始 VM 執行個體的 **stress** 停止時，平均 CPU 負載即會恢復正常。 再經過 5 分鐘之後，自動調整規則會相應縮小 VM 執行個體數目。 相應縮小動作會先移除具有最高識別碼的 VM 執行個體。 下列範例輸出顯示擴展集自動相應縮小時所刪除的一個 VM 執行個體：
+初始 VM 執行個體的 **stress** 停止時，平均 CPU 負載即會恢復正常。 再經過 5 分鐘之後，自動調整規則會相應縮小 VM 執行個體數目。 相應縮小動作會先移除具有最高識別碼的 VM 執行個體。 當擴展集使用可用性設定組或可用性區域時，相應縮小動作會平均散發到這些 VM 執行個體上。 下列範例輸出顯示擴展集自動相應縮小時所刪除的一個 VM 執行個體：
 
 ```bash
            6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-使用 `Ctrl-c` 結束 *watch*。 擴展集會繼續每隔 5 分鐘相應縮小一次，並移除一個 VM 執行個體，直到達到最小執行個體計數 (兩個) 為止。
+使用 `Ctrl-c` 結束 watch。 擴展集會繼續每隔 5 分鐘相應縮小一次，並移除一個 VM 執行個體，直到達到最小執行個體計數 (兩個) 為止。
 
 
 ## <a name="clean-up-resources"></a>清除資源

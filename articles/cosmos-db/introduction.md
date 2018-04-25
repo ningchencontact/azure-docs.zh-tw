@@ -2,9 +2,8 @@
 title: Azure Cosmos DB 簡介 | Microsoft Docs
 description: 了解 Azure Cosmos DB。 這個全球散發的多模型資料庫是針對低延遲、彈性的延展性和高可用性所建置。
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: monicar
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
@@ -12,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/15/2017
-ms.author: mimig
+ms.date: 04/08/2018
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: e78480ceb47e472029795848739b4416e0c4256e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 13c6fc8550f6b5bfac6d236a7145039d2622f0ae
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>歡迎使用 Azure Cosmos DB
 
@@ -36,7 +35,7 @@ Azure Cosmos DB 是一個全球分散式多模型資料庫服務，可讓您輕�
 * **周全且立即可用的全域分散式資料庫**
     * 只要[按一下按鈕](tutorial-global-distribution-sql-api.md)，就可以[將資料分散](distribute-data-globally.md)至多個 [Azure 區域](https://azure.microsoft.com/regions/)。 這可讓您將資料放在使用者所在的區域，確保客戶的可能延遲最低。 
     * 使用 Azure Cosmos DB 的多路連接 API，應用程式一律知道最接近的區域為何，並將要求傳送至最接近的資料中心。 不必變更組態就可以實現上述目的。 您可設定寫入區域和所需數量的讀取區域，系統會為您處理其餘部分。
-    * 由於有多路連接 API 功能，因此當您在 Cosmos DB 資料庫中新增及移除區域時，應用程式不需要重新部署，就可繼續保有高可用性。
+    * 由於有多路連接 API 功能，因此當您在 Azure Cosmos DB 資料庫中新增及移除區域時，應用程式不需要重新部署，就可繼續保有高可用性。
 
 * **存取和查詢資料的多重資料模型與常用 API**
     * 建置 Azure Cosmos DB 所依據的 Atom-記錄-序列 (ARS) 型資料模型，原本支援多個資料模型，包括但不是限於文件、圖形、索引鍵-值、資料表和資料行系列資料模型。
@@ -44,9 +43,9 @@ Azure Cosmos DB 是一個全球分散式多模型資料庫服務，可讓您輕�
         * [SQL API](sql-api-introduction.md)：具有豐富 SQL 查詢功能的無結構描述 JSON 資料庫引擎。
         * [MongoDB API](mongodb-introduction.md)：由 Azure Cosmos DB 平台所提供、可大幅調整的 *MongoDB 即服務*。 與現有 MongoDB 程式庫、驅動程式、工具和應用程式相容。
         * [Cassandra API](cassandra-introduction.md)：由 Azure Cosmos DB 平台所提供的全球分散式 Cassandra 即服務。 與現有 [Apache Cassandra](https://cassandra.apache.org/) 程式庫、驅動程式、工具和應用程式相容。
-        * [Graph (Gremlin) API](graph-introduction.md)：完全受控、可水平調整的圖表資料庫服務，可讓您輕鬆地建置並執行應用程式，以便使用可支援 Open Graph API 且高度連接的資料集 (以 [Apache TinkerPop 規格](http://tinkerpop.apache.org/)，也就是 Apache Gremlin 為基礎)。
+        * [Gremlin (Graph) API](graph-introduction.md)：完全受控、可水平調整的圖表資料庫服務，可讓您輕鬆地建置並執行應用程式，以便使用可支援 Open Graph API 且高度連接的資料集 (以 [Apache TinkerPop 規格](http://tinkerpop.apache.org/)，也就是 Apache Gremlin 為基礎)。
         * [資料表 API](table-introduction.md)：為了在不必進行任何應用程式變更的情況下，就能對現有的 Azure 資料表儲存體應用程式提供進階功能 (例如，自動編製索引、保證低延遲、全球分散)，而建置的索引鍵-值資料庫服務。
-        * 其他資料模型即將登場！
+        * 其他資料模型和 API 即將登場！
 
 * **彈性且獨立地依需求進行全球性的輸送量和儲存體調整**
     * 輕鬆地以[每秒](request-units.md)的細微度調整資料庫輸送量，並隨時依需求變更。 
@@ -65,7 +64,7 @@ Azure Cosmos DB 是一個全球分散式多模型資料庫服務，可讓您輕�
     * 五個定義完善、實用且直覺的[一致性模型](consistency-levels.md)，可提供強式的 SQL 型一致性、寬鬆的 NoSQL 型最終一致性，以及介於兩者之間的各種一致性。 
   
 * **退款保證**
-    * 領先業界、以財務為後盾的完整[服務等級協定](https://aka.ms/acdbsla)，可為您的任務關鍵性資料保證可用性、延遲、輸送量和一致性。 
+    * 領先業界、以財務為後盾的完整[服務等級協定](https://aka.ms/acdbsla) (SLA)，可為您的任務關鍵性資料保證可用性、延遲、輸送量和一致性。 
 
 * **無資料庫結構描述/索引管理**
     * 快速地逐一查看應用程式的結構描述，而不必擔心資料庫結構描述和/或索引的管理。
@@ -77,7 +76,7 @@ Azure Cosmos DB 是一個全球分散式多模型資料庫服務，可讓您輕�
 
 ## <a name="capability-comparison"></a>功能比較
 
-Azure Cosmos DB 會提供關聯式與非關聯式資料庫的最佳功能。
+Azure Cosmos DB 會提供傳統關聯式與非關聯式資料庫的最佳功能。
 
 | 功能 | 關聯式資料庫   | 非關聯式 (NoSQL) 資料庫 |    Azure Cosmos DB |
 | --- | --- | --- | --- |

@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9968d18f9e27d7a138831394658b40a483b66709
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dbd96187ad73a9c7e27b28f137e25fe66e2944ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>開始使用適用於.NET 的 Batch 用戶端程式庫來建置解決方案
 
@@ -40,12 +40,8 @@ ms.lasthandoff: 04/03/2018
 ### <a name="accounts"></a>帳戶
 * **Azure 帳戶**：如果您沒有 Azure 訂用帳戶，請[建立免費的 Azure 帳戶][azure_free_account]。
 * **Batch 帳戶**：擁有 Azure 訂用帳戶後，請 [建立 Azure Batch 帳戶](batch-account-create-portal.md)。
-* **儲存體帳戶**：請參閱[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)中的[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+* **儲存體帳戶**：如需 Batch 中的儲存體帳戶選項，請參閱 [Batch 功能概觀](batch-api-basics.md#azure-storage-account)。
 
-> [!IMPORTANT]
-> Batch 目前「僅」支援**一般用途**的儲存體帳戶類型，如[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)中的步驟 #5 [建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)所述。
->
->
 
 ### <a name="visual-studio"></a>Visual Studio
 您必須擁有 **Visual Studio 2015 或更新版本**才能建置範例專案。 您可以在 [Visual Studio 產品概觀][visual_studio]中找到免費試用版的 Visual Studio。
@@ -101,11 +97,6 @@ private const string BatchAccountUrl  = "";
 private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
-
-> [!IMPORTANT]
-> 如上所述，目前您必須在 Azure 儲存體中指定**一般用途**儲存體帳戶的認證。 Batch 應用程式會使用**一般用途**儲存體帳戶中的 blob 儲存體。 請勿指定透過選取「Blob 儲存體」  帳戶類型所建立的儲存體帳戶認證。
->
->
 
 您可以在 [Azure 入口網站][azure_portal]中每項服務的帳戶刀鋒視窗中尋找您的 Batch 和儲存體帳戶認證：
 

@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: df97d2020309fa9af7f67170729ce9c2d723572d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7800c2e72b1bfd78f83bf7b90a35e47f6109a014
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 簡介
 
@@ -32,22 +32,13 @@ Linux 上的 App Service 可支援一些內建映像，以增加開發人員的�
 
 | 語言 | 支援的版本 |
 |---|---|
-| Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 9.4 |
 | Java * | 8.0 |
-| PHP | 5.6, 7.0 |
+| PHP | 5.6, 7.0, 7.2 |
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
-
-* 預覽功能支援
-
-### <a name="preview-supported-java-runtimes"></a>預覽：支援的 Java 執行階段
-
-Linux 上的 App Service 可用的 Java 執行階段如下：
-
-| 執行階段 | 版本 |
-|---|---|
-| Apache Tomcat | 8.5 |
-| Apache Tomcat | 9.0 |
+| Go | 1.0 |
+| Apache Tomcat | 8.5, 9.0 |
 
 請參閱[在 Linux 上的 App Service 中建立 Java Web 應用程式](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java)，以取得詳細資料。
 
@@ -84,10 +75,7 @@ Azure 入口網站只會顯示 Web App for Containers 目前可用的功能。 �
 
 某些功能尚無法使用，例如虛擬網路整合、Azure Active Directory/第三方驗證或 Kudu 網站擴充功能。 一旦這些功能提供使用後，我們將會在文件和部落格中更新關於變更的消息。
 
-Linux 上的 App Service 僅支援[基本和標準](https://azure.microsoft.com/pricing/details/app-service/plans/)應用程式服務方案，而且沒有[免費或共用](https://azure.microsoft.com/pricing/details/app-service/plans/)層。 以下也是 Linux 上的 App Service 重要限制：
-
-* 在已裝載非 Linux Web Apps 的 App Service 方案中，您無法建立 Web App for Containers。
-* 在包含非 Linux Web Apps 的資源群組中建立 Web App for Containers 時，您必須在與現有 App Service 方案不同的資源群組中建立 App Service 方案。
+Linux 上的 App Service 僅支援[基本和標準](https://azure.microsoft.com/pricing/details/app-service/plans/)應用程式服務方案，而且沒有[免費或共用](https://azure.microsoft.com/pricing/details/app-service/plans/)層。 在已裝載非 Linux Web Apps 的 App Service 方案中，您無法建立 Web App for Containers。
 
 ## <a name="troubleshooting"></a>疑難排解
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 53d5f413f58cea7bc8eab081d46eff2ab83e7ecb
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2328f7e233025d9f9ee9113aa28fb74754dd9193
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Azure Data Lake Store 中的資料加密
 
@@ -138,3 +138,6 @@ Data Lake Store 提供兩種管理主要加密金鑰 (MEK) 的模式。 現在�
     ![Data Lake Store 視窗的螢幕擷取畫面 (含有訊息並醒目提示 [輪替金鑰])](./media/data-lake-store-encryption/rotatekey.png)
 
 這項作業應在 2 分鐘內完成，且預計不會因為金鑰輪替而停機。 在作業完成後，就會使用新版的金鑰。
+
+> [!IMPORTANT]
+> 金鑰輪替作業完成之後，舊版本的金鑰將不再主動用於加密資料。  不過，在極少數非預期的失敗情況下 (甚至影響到資料的備援複本)，系統可能會從仍使用舊版金鑰的備份中還原資料。 為確保可在這些極少數情況下存取您的資料，請保留舊版加密金鑰的複本。 請參閱 [Data Lake Store 中資料的災害復原指引](data-lake-store-disaster-recovery-guidance.md)，以了解災害復原規劃的最佳作法。 

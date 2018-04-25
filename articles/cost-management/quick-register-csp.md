@@ -1,20 +1,20 @@
 ---
-title: "使用 CSP 合作夥伴資訊向 Azure 成本管理進行註冊 | Microsoft Docs"
-description: "使用您的 CSP 合作夥伴資訊向 Azure 成本管理進行註冊。"
+title: 使用 CSP 合作夥伴資訊向 Azure 成本管理進行註冊 | Microsoft Docs
+description: 使用您的 CSP 合作夥伴資訊向 Azure 成本管理進行註冊。
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/17/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9e09961685ad688098970ae4ea73e1a90f6a95ca
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>註冊 CSP 合作夥伴計劃並檢視成本資料
 
@@ -32,9 +32,9 @@ ms.lasthandoff: 03/09/2018
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-- 登入 Azure 入口網站，網址是 http://portal.azure.com/。
+- 在 http://portal.azure.com 上登入 Azure 入口網站。
 
-## <a name="create-a-trial-registration"></a>建立試用註冊
+## <a name="register-with-azure-cost-management"></a>註冊 Azure 成本管理
 
 1. 在 Azure 入口網站中，按一下服務清單中的 [成本管理與帳單]。
 2. 在 [概觀] 底下，按一下 [成本管理]  

@@ -1,8 +1,8 @@
 ---
-title: "Azure 金鑰保存庫記錄 | Microsoft Docs"
-description: "使用本教學課程來協助您開始使用 Azure 金鑰保存庫記錄。"
+title: Azure 金鑰保存庫記錄 | Microsoft Docs
+description: 使用本教學課程來協助您開始使用 Azure 金鑰保存庫記錄。
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 2faf45c7329f1c98a26bcf7ec5d569dfa16cbbda
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-key-vault-logging"></a>Azure 金鑰保存庫記錄
 大部分地區均提供 Azure 金鑰保存庫。 如需詳細資訊，請參閱 [金鑰保存庫價格頁面](https://azure.microsoft.com/pricing/details/key-vault/)。
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/17/2017
 ## <a id="connect"></a>連線到您的訂用帳戶
 開始 Azure PowerShell 工作階段，並使用下列命令登入您的 Azure 帳戶：  
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 在快顯瀏覽器視窗中，輸入您的 Azure 帳戶使用者名稱與密碼。 Azure PowerShell 會取得與此帳戶相關聯的所有訂用帳戶，並依預設使用第一個訂用帳戶。
 

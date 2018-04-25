@@ -1,8 +1,8 @@
 ---
-title: "開始使用 Azure 金鑰保存庫 | Microsoft Docs"
-description: "使用本教學課程可協助您開始使用 Azure 金鑰保存庫，進而在 Azure 中建立強化的容器，以儲存及管理 Azure 中的密碼編譯金鑰和密碼。"
+title: 開始使用 Azure 金鑰保存庫 | Microsoft Docs
+description: 使用本教學課程可協助您開始使用 Azure 金鑰保存庫，進而在 Azure 中建立強化的容器，以儲存及管理 Azure 中的密碼編譯金鑰和密碼。
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/20/2017
 ms.author: barclayn
-ms.openlocfilehash: 1b70802945b710059e93b54607996ccf74510d1f
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d082241ee5151b199376a0c2c9baccc242ece12e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-azure-key-vault"></a>開始使用 Azure 金鑰保存庫
 本文可協助您使用 PowerShell 來開始使用 Azure Key Vault，並引導您完成下列活動：
@@ -49,10 +49,10 @@ ms.lasthandoff: 11/20/2017
 Get-Help <cmdlet-name> -Detailed
 ```
     
-例如，如需取得 **Login-AzureRmAccount** Cmdlet 的說明，請輸入：
+例如，如需取得 **Connect-AzureRmAccount** Cmdlet 的說明，請輸入：
 
 ```PowerShell
-Get-Help Login-AzureRmAccount -Detailed
+Get-Help Connect-AzureRmAccount -Detailed
 ```
 
 您也可以閱讀下列文章，以熟悉 Azure PowerShell 中的 Azure Resource Manager 部署模型：
@@ -64,13 +64,13 @@ Get-Help Login-AzureRmAccount -Detailed
 開始 Azure PowerShell 工作階段，並使用下列命令登入您的 Azure 帳戶：  
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 >[!NOTE]
  如果您是使用 Azure 的特定執行個體，請使用 -Environment 參數。 例如︰ 
  ```powershell
- Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
+ Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
 
 在快顯瀏覽器視窗中，輸入您的 Azure 帳戶使用者名稱與密碼。 Azure PowerShell 會取得與此帳戶相關聯的所有訂用帳戶，並依預設使用第一個訂用帳戶。
@@ -114,7 +114,7 @@ New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoReso
 此 Cmdlet 的輸出會顯示您所建立的 Key Vault 屬性。 兩個最重要屬性是：
 
 * **保存庫名稱**：在此範例中是 **ContosoKeyVault**。 您將在其他金鑰保存庫 Cmdlet 中使用此名稱。
-* **保存庫名稱**：在此範例中是 https://contosokeyvault.vault.azure.net/。 透過其 REST API 使用保存庫的應用程式必須使用此 URI。
+* **保存庫 URI**：在此範例中，這是 https://contosokeyvault.vault.azure.net/。 透過其 REST API 使用保存庫的應用程式必須使用此 URI。
 
 您的 Azure 帳戶現已取得在此金鑰保存庫上執行任何作業的授權。 而且，沒有其他人有此授權。
 
@@ -138,7 +138,7 @@ $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'
 $key.id
 ```
 
-您可以參照您所建立或上傳至 Azure Key Vault 的金鑰 (藉由使用其 URI)。 若要取得目前的版本，您可以使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**，並使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 來取得此特定版本。  
+您可以參照您所建立或上傳至 Azure Key Vault 的金鑰 (藉由使用其 URI)。 若要取得目前的版本，您可以使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 和使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 來取得此特定版本。  
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>將現有的 PFX 檔案匯入 Azure Key Vault 中
 
@@ -187,7 +187,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPasswor
 ```
 
 
-透過使用其 URI，您現在可以參照您新增至 Azure 金鑰保存庫的密碼。 使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword** 一律可取得目前的版本，而使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** 可取得此特定版本。
+透過使用其 URI，您現在可以參照您新增至 Azure 金鑰保存庫的密碼。 使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword** 可一律取得目前的版本，使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** 則可取得此特定版本。
 
 若要顯示此密碼的 URI，請輸入：
 
@@ -241,7 +241,10 @@ $secret.Id
 10. 您將在下一個步驟中使用 [應用程式識別碼] 和 [金鑰] 資訊來設定您保存庫的權限。
 
 ## <a id="authorize"></a>授權應用程式使用金鑰或密碼
-若要授權應用程式存取保存庫中的金鑰或密碼，請使用 [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) Cmdlet。
+有兩種方式可授權應用程式存取保存庫中的金鑰或密碼。
+
+### <a name="using-powershell"></a>使用 PowerShell
+若要使用 PowerShell，請使用 [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) Cmdlet。
 
 例如，如果您的保存庫名稱是 **ContosoKeyVault** ，且您要授權的應用程式具有 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed 的用戶端識別碼，您想要授權應用程式使用保存庫中的金鑰來進行解密並簽署，則請執行下列作業：
 
@@ -254,6 +257,13 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 ```
+### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
+若要將應用程式的授權變更為使用金鑰或密碼：
+1. 從 [金鑰保存庫] 資源刀鋒視窗中選取 [存取原則]
+2. 按一下刀鋒視窗頂端的 [+ 新增] 按鈕
+3. 按一下 [選取主體] 以選取您稍早建立的應用程式
+4. 從 [金鑰權限] 下拉式清單中，選取 [解密] 和 [簽署] 來授權應用程式使用保存庫中的金鑰解密和簽署
+5. 從 [祕密權限] 下拉式清單中，選取 [取得] 以允許應用程式讀取保存庫中的祕密
 
 ## <a id="HSM"></a>使用硬體安全模組 (HSM)
 為了加強保證，您可以在硬體安全模組 (HSM) 中匯入或產生無需離開 HSM 界限的金鑰。 HSM 已通過 FIPS 140-2 Level 2 驗證。 如果此需求對您不適用，請略過本節並移至 [刪除金鑰保存庫及相關聯的金鑰和密碼](#delete)。

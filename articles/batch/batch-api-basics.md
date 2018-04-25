@@ -1,25 +1,25 @@
 ---
-title: "適用於開發人員的 Azure Batch 概觀 | Microsoft Docs"
-description: "從開發觀點了解 Batch 服務的功能及其 API。"
+title: 適用於開發人員的 Azure Batch 概觀 | Microsoft Docs
+description: 從開發觀點了解 Batch 服務的功能及其 API。
 services: batch
 documentationcenter: .net
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/28/2018
+ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0a18f975530d2a291e529308ee53d6d48a68e42
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1a202efd08de69e6e766c9c42047c01a03be4d96
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -79,10 +79,15 @@ ms.lasthandoff: 03/09/2018
 
 ## <a name="azure-storage-account"></a>Azure 儲存體帳戶
 
-大部分 Batch 解決方案都使用 Azure 儲存體來儲存資源檔和輸出檔。  
+大部分 Batch 解決方案都使用 Azure 儲存體來儲存資源檔和輸出檔。 例如，您的 Batch 工作 (包括標準工作、啟動工作、作業準備工作和作業發行工作) 通常會指定位於儲存體帳戶中的資源檔案。
 
-Batch 目前僅支援一般用途的儲存體帳戶類型，如[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)中[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)的步驟 5 所述。 您的 Batch 工作 (包括標準工作、啟動工作、作業準備工作和作業發行工作) 必須指定位於一般用途的儲存體帳戶中的資源檔。
+Batch 支援下列 Azure 儲存體[帳戶選項](../storage/common/storage-account-options.md)：
 
+* 一般用途 v2 (GPv2) 帳戶 
+* 一般用途 v1 (GPv1) 帳戶
+* Blob 儲存體帳戶
+
+您可以在建立 Batch 帳戶時或在稍後，建立儲存體帳戶與 Batch 帳戶的關聯。 在選擇儲存體帳戶時，請考慮您的成本和效能需求。 例如，相較於 GPv1，GPv2 和 Blob 儲存體帳戶選項支援更大的[容量和延展性限制](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)。 (請連絡 Azure 支援以要求增加儲存體限制。)對於包含讀取自或寫入至儲存體帳戶之大量平行工作的 Batch 解決方案，這些帳戶選項可以改善其效能。
 
 ## <a name="compute-node"></a>計算節點
 計算節點是 Azure 虛擬機器 (VM) 或雲端服務 VM，專門用來處理您應用程式的部分工作負載。 節點大小決定配置給節點的 CPU 核心數目、記憶體容量，以及本機檔案系統大小。 您可以使用 Azure 雲端服務、[Azure 虛擬機器 Marketplace][vm_marketplace] 中的映像，或您準備的自訂映像來建立 Windows 或 Linux 節點的集區。 如需這些選項的詳細資訊，請參閱下列 [集區](#pool) 。
@@ -252,7 +257,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
     `/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
     如果您的工作需要執行不在節點的 `PATH` 中的應用程式或指令碼，或參考環境變數，請在工作命令列中明確地叫用 Shell。
-* **資源檔** 。 在工作的命令列執行之前，這些檔案會自動從一般用途的 Azure 儲存體帳戶中的 Blob 儲存體複製到節點。 如需詳細資訊，請參閱[啟動工作](#start-task)和[檔案和目錄](#files-and-directories)章節。
+* **資源檔** 。 在工作的命令列執行之前，這些檔案會自動從 Azure 儲存體帳戶中的 Blob 儲存體複製到節點。 如需詳細資訊，請參閱[啟動工作](#start-task)和[檔案和目錄](#files-and-directories)章節。
 * 應用程式所需的 **環境變數** 。 如需詳細資訊，請參閱 [工作的環境設定](#environment-settings-for-tasks) 一節。
 * 執行工作所應根據的 **條件約束** 。 例如，條件約束包括允許執行工作的時間上限、失敗的工作應該重試的次數上限，以及檔案保留在工作的工作目錄中的時間上限。
 * **Application packages** 。 [應用程式封裝](#application-packages) 會提供您的工作執行之應用程式的簡化部署和版本控制。 在共用集區的環境中，工作層級的應用程式封裝特別有用：不同的作業會在一個集區上執行，而某項作業完成時並不會刪除該集區。 如果您的作業擁有的工作少於集區中的節點，工作應用程式套件可以減少資料傳輸，因為您的應用程式只會部署至執行工作的節點。

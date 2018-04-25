@@ -1,22 +1,36 @@
 ---
-title: Azure 串流分析中的 JavaScript 使用者定義函式
-description: 本文說明如何使用 Azure 串流分析中 JavaScript 使用者定義的函式來執行進階查詢機制。
+title: '教學課程：Azure 串流分析 JavaScript 使用者定義函式 | Microsoft Docs '
+description: 在此教學課程中，您將使用 JavaScript 使用者定義函式來執行進階查詢技術
+keywords: javascript, 使用者定義函式, udf
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: SnehaGunda
 manager: kfile
-ms.reviewer: jasonh
+ms.assetid: ''
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 462bd55dfae3a2c471d1111637a6de0bc95e6bfa
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.topic: tutorial
+ms.reviewer: jasonh
+ms.custom: mvc
+ms.date: 04/01/2018
+ms.workload: data-services
+ms.author: sngun
+ms.openlocfilehash: f3a94017b95eb614669fa42594fe3a3499c74be7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Azure 串流分析 JavaScript 使用者定義函式
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>教學課程：Azure 串流分析 JavaScript 使用者定義函式
+
 Azure 串流分析支援以 JavaScript 撰寫的使用者定義函式。 JavaScript 提供豐富的 **String**、**RegExp**、**Math**、**Array** 和 **Date** 方法，可讓使用串流分析作業建立複雜的資料轉換變得更容易。
+
+在本教學課程中，您了解如何：
+
+> [!div class="checklist"]
+> * 定義 JavaScript 使用者定義函式
+> * 將函式新增至入口網站
+> * 定義執行函式的查詢
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="javascript-user-defined-functions"></a>JavaScript 使用者定義函式
 JavaScript 使用者定義的函式支援無狀態且只做為計算用途的純量函式，而且不需要外部連線能力。 函數的傳回值只能是純量 (單一) 值。 將 JavaScript 使用者定義函式新增至作業之後，您可以在查詢中的任何位置使用函式，就像是內建的純量函式。
@@ -133,12 +147,19 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
+## <a name="clean-up-resources"></a>清除資源
+
+若不再需要，可刪除資源群組、串流作業和所有相關資源。 刪除作業可避免因為作業使用串流單位而產生費用。 如果您計劃在未來使用該作業，您可以將其停止並在之後需要時重新啟動。 如果您將不繼續使用此作業，請使用下列步驟，刪除本快速入門所建立的所有資源：
+
+1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。  
+2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
+
 ## <a name="get-help"></a>取得說明
 如需其他協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
-* [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
-* [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure 串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
+在本教學課程中，您已建立可執行簡單 JavaScript 使用者定義函式的串流分析作業。 若要深入了解串流分析，請繼續前往即時案例的文章：
+
+> [!div class="nextstepaction"]
+> [Azure 串流分析中的即時 Twitter 情感分析](stream-analytics-twitter-sentiment-analysis-trends.md)

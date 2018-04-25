@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: hero-article
-ms.date: 01/29/2018
+ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: aca9f822bf3fd3b26e554240a4fee2474b89143d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cc0c26d83794cfb0b398e668ae89e268901df345
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>將 SQL Server Integration Services 套件部署至 Azure
 本教學課程提供使用 Azure 入口網站在 Azure Data Factory 中佈建 Azure-SSIS 整合執行階段 (IR) 的步驟。 接著，您可以使用 SQL Server Data Tools 或 SQL Server Management Studio，將 SQL Server Integration Services (SSIS) 套件部署到 Azure 上的此執行階段。 如需 Azure-SSIS IR 的概念資訊，請參閱 [Azure-SSIS 整合執行階段概觀](concepts-integration-runtime.md#azure-ssis-integration-runtime)。
@@ -41,7 +41,7 @@ ms.lasthandoff: 03/23/2018
 
 > [!NOTE]
 > - 您可以在下列區域中建立第 2 版的資料處理站：美國東部、美國東部 2、東南亞和西歐。 
-> - 您可以在下列區域中建立 Azure-SSIS IR：美國東部、美國東部 2、美國中部、北歐、西歐和澳大利亞東部。 
+> - 您可以在下列區域中建立 Azure-SSIS IR：美國東部、美國東部 2、美國中部、美國西部 2、北歐、西歐、英國南部和澳大利亞東部。 
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
@@ -128,7 +128,7 @@ ms.lasthandoff: 03/23/2018
    >
    > 此 Data Factory 服務會連線到您的 Azure SQL 資料庫，以準備 SSIS 目錄 (SSISDB 資料庫)。 指令碼也會設定虛擬網路的權限和設定 (若已指定)。 而且會將 Azure-SSIS 整合執行階段的新執行個體加入虛擬網路。
    > 
-   > 當您佈建 Azure-SSIS IR 的執行個體時，也會安裝適用於 SSIS 的 Azure Feature Pack 和 Access 可轉散發套件。 除了內建元件所支援的資料來源以外，這些元件還提供對 Excel 和 Access 檔案以及各種 Azure 資料來源的連線能力。 您此時無法安裝適用於 SSIS 的第三方元件。 (這包括來自 Microsoft 的第三方元件，例如 Attunity 所提供的 Oracle 和 Teradata 元件及 SAP BI 元件)。
+   > 當您佈建 Azure-SSIS IR 的執行個體時，也會安裝適用於 SSIS 的 Azure Feature Pack 和 Access 可轉散發套件。 除了內建元件所支援的資料來源以外，這些元件還提供對 Excel 和 Access 檔案以及各種 Azure 資料來源的連線能力。 您也可以安裝其他元件。 如需詳細資訊，請參閱 [Azure-SSIS 整合執行階段自訂設定](how-to-configure-azure-ssis-ir-custom-setup.md)。
 
 7. 如有必要，在 [連線] 索引標籤上，切換到 [整合執行階段]。 選取 [重新整理] 可重新整理狀態。 
 

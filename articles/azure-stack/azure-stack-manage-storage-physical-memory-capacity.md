@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/03/2018
+ms.date: 04/17/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 34b03cf1fda29706936968ab93cb35a6a2510c65
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: af253525ce5a77ece72e810642abcaf7931e39d8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>管理 Azure Stack 的實際記憶體容量
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/05/2018
 若要提高 Azure Stack 的總可用記憶體容量，您可以新增其他記憶體。 在 Azure Stack 中，您的實體伺服器也稱為「縮放單位節點」。 所有屬於單一縮放單位成員的縮放單位節點都必須具有相同的記憶體數量。
 
 > [!note]  
-> 繼續之前，請參閱您的硬體製造商文件，看看您的製造商是否支援實體記憶體升級。 OEM 硬體廠商支援合約可能會要求廠商進行實體伺服器機架放置和裝置韌體更新。
+> 繼續之前，請參閱您的硬體製造商文件，看看您的廠商是否支援實體記憶體升級。 OEM 硬體廠商支援合約可能會要求他們進行實體伺服器機架放置和裝置韌體更新。
 
 下列流程圖顯示將記憶體新增至每個縮放單位節點的一般程序。
 

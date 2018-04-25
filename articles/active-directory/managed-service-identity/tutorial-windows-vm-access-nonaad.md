@@ -1,8 +1,8 @@
 ---
-title: "使用 Windows VM MSI 存取 Azure Key Vault"
-description: "此教學課程引導您使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure Key Vault 的程序。"
+title: 使用 Windows VM MSI 存取 Azure Key Vault
+description: 此教學課程引導您使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Key Vault 的程序。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 3c1f41f407dc85eac40d1aa545c588426db6a382
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a4bf44dc444c144991e3a96efc130ec97b90ec9f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure Key Vault 
+# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程會示範如何為 Windows 虛擬機器啟用受控服務識別 (MSI)，然後使用該識別來存取 Azure Key Vault。 作為啟動程序，金鑰保存庫可讓您的用戶端應用程式，接著使用密碼存取未受 Azure Active Directory (AD) 保護的資源。 受控服務身分識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 
+本教學課程會示範如何為 Windows 虛擬機器啟用受控服務識別 (MSI)，然後使用該識別來存取 Azure Key Vault。 作為啟動程序，金鑰保存庫可讓您的用戶端應用程式，接著使用密碼存取未受 Azure Active Directory (AD) 保護的資源。 受控服務識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 
 
 您會了解如何：
 
 
 > [!div class="checklist"]
-> * 在 Windows 虛擬機器上啟用受控服務身分識別 
-> * 將您的 VM 存取權授與 Key Vault 中儲存的祕密 
+> * 在 Windows 虛擬機器上啟用受控服務識別 
+> * 授與 VM 存取權以取得 Key Vault 中的密碼 
 > * 使用 VM 身分識別取得存取權杖，並使用它來擷取 Key Vault 的祕密 
 
 ## <a name="prerequisites"></a>先決條件
@@ -41,7 +41,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Windows 虛擬機器
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI 
 
-虛擬機器 MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 啟用 MSI 會告訴 Azure 為您的虛擬機器建立受控身分識別。 實際上，啟用 MSI 會執行兩項工作：在您的 VM 上安裝 MSI VM 延伸模組，並在 Azure Resource Manager 中啟用 MSI。
+虛擬機器 MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 啟用 MSI 會告訴 Azure 為您的虛擬機器建立受控身分識別。 實際上，啟用 MSI 會執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受控身分識別，它就會在 VM 上設定身分識別。
 
 1.  選取您想要在其中啟用 MSI 的 [虛擬機器]。  
 2.  在左側的導覽列上，按一下 [設定] 。 
@@ -66,10 +66,6 @@ ms.lasthandoff: 03/08/2018
 4.  按一下 [儲存] 確認儲存設定。  
 
     ![替代映像文字](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. 如果您想要檢查並確認哪些延伸模組會在此 VM 上，請按一下 [延伸模組]。 如果 MSI 已啟用，則 **ManagedIdentityExtensionforWindows** 會出現在清單中。
-
-    ![替代映像文字](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>授與 VM 存取權以取得 Key Vault 中的密碼 
  
@@ -112,7 +108,7 @@ ms.lasthandoff: 03/08/2018
     PowerShell 要求：
     
     ```powershell
-    PS C:\> $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://vault.azure.net"} -Headers @{Metadata="true"} 
+    PS C:\> $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net -Method GET -Headers @{Metadata="true"} 
     ```
     
     接下來，擷取完整的回應，它會儲存為 $response 物件中的 JavaScript 物件標記法 (JSON) 格式字串。  
@@ -127,7 +123,7 @@ ms.lasthandoff: 03/08/2018
     PS C:\> $KeyVaultToken = $content.access_token 
     ```
     
-    最後，使用 PowerShell 的 Invoke-WebRequest 命令來擷取您稍早在 Key Vault 中建立的祕密，在授權標頭中傳遞存取權杖。  您會需要 Key Vault 的 URL，其位於 Key Vault [概觀] 頁面的 [基本資訊]區段。  
+    最後，使用 PowerShell 的 Invoke-WebRequest 命令來擷取您稍早在 Key Vault 中建立的祕密，在授權標頭中傳遞存取權杖。  您會需要 Key Vault 的 URL，其位於 Key Vault [概觀] 頁面的 [基本資訊] 區段。  
     
     ```powershell
     PS C:\> (Invoke-WebRequest -Uri https://<your-key-vault-URL>/secrets/<secret-name>?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).content 

@@ -1,35 +1,23 @@
 ---
-title: "適用於 Azure SQL 資料倉儲的驗證 | Microsoft Docs"
-description: "適用於 Azure SQL 資料倉儲的 Azure Active Directory (AAD) 與 SQL Server 驗證。"
+title: 驗證 Azure SQL 資料倉儲 | Microsoft Docs
+description: 了解如何使用 Azure Active Directory (AAD) 或 SQL Server 驗證來驗證 Azure SQL 資料倉儲。
 services: sql-data-warehouse
-documentationcenter: 
 author: ronortloff
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.custom: security
-ms.date: 03/21/2017
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 2340168e736c13b5d911a987d36b0224d3c3b1ed
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="authentication-to-azure-sql-data-warehouse"></a>適用於 Azure SQL 資料倉儲的驗證
-> [!div class="op_single_selector"]
-> * [安全性概觀](sql-data-warehouse-overview-manage-security.md)
-> * [驗證](sql-data-warehouse-authentication.md)
-> * [加密 (入口網站)](sql-data-warehouse-encryption-tde.md)
-> * [加密 (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-> 
-> 
+# <a name="authenticate-to-azure-sql-data-warehouse"></a>驗證 Azure SQL 資料倉儲
+了解如何使用 Azure Active Directory (AAD) 或 SQL Server 驗證來驗證 Azure SQL 資料倉儲。
 
 若要連線到 SQL 資料倉儲，您必須傳入安全性認證進行驗證用途。 建立連線時，會設定特定的連線設定，以做為建立查詢工作階段的一部分。  
 

@@ -1,25 +1,25 @@
 ---
-title: "執行平行工作負載 - Azure Batch .NET"
-description: "教學課程 - 使用 Batch .NET 用戶端程式庫透過 Azure Batch 中的 ffmpeg 平行進行媒體檔案轉碼"
+title: 執行平行工作負載 - Azure Batch .NET
+description: 教學課程 - 使用 Batch .NET 用戶端程式庫透過 Azure Batch 中的 ffmpeg 平行進行媒體檔案轉碼
 services: batch
 author: dlepow
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 1100f8fddcd2f802b5f38e0b9789bc9ec359e03a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 57fc70d5b47f18affa90e1153884e8af23d937ec
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>教學課程：使用 .NET API 透過 Azure Batch 執行平行工作負載
 
-使用 Azure Batch 在 Azure 中有效率地執行大規模的平行和高效能運算 (HPC) 批次作業。 本教學課程會逐步說明使用 Batch 執行平行工作負載的 C# 範例。 您會了解通用的 Batch 應用程式工作流程，以及如何以程式設計方式與 Batch 和儲存體資源進行互動。 您會了解如何：
+使用 Azure Batch 在 Azure 中有效率地執行大規模的平行和高效能運算 (HPC) 批次作業。 本教學課程會逐步說明使用 Batch 執行平行工作負載的 C# 範例。 您會了解 Batch 應用程式的通用工作流程，以及如何以程式設計方式與 Batch 和儲存體資源進行互動。 您會了解如何：
 
 > [!div class="checklist"]
 > * 將應用程式套件新增至您的 Batch 帳戶
@@ -38,13 +38,13 @@ ms.lasthandoff: 02/01/2018
 
 * [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 或更新版本)。 
 
-* Batch 帳戶和連結的一般用途儲存體帳戶。 若要建立這些帳戶，請參閱使用 [Azure 入口網站](quick-create-portal.md)或 [Azure CLI](quick-create-cli.md) 的 Batch 快速入門。
+* Batch 帳戶和連結的 Azure 儲存體帳戶。 若要建立這些帳戶，請參閱使用 [Azure 入口網站](quick-create-portal.md)或 [Azure CLI](quick-create-cli.md) 的 Batch 快速入門。
 
 * [Windows 64 位元版本的 ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip)。 將 ZIP 檔案下載到本機電腦。 在本教學課程中，您只需要 ZIP 檔案。 您不需要將此檔案解壓縮或在本機進行安裝。 
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 
 ## <a name="add-an-application-package"></a>新增應用程式套件

@@ -9,28 +9,24 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: 09e848abaf09811ff3f2b8ad009cd23dedb6645d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a2aacc28a70a5150c1903a60c7a697409e2bbbe7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>如何在 App Service 和 Azure Functions 中使用 Azure 受控服務身分識別 (公開預覽)
+# <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>如何在 App Service 和 Azure Functions 中使用 Azure 受控服務識別 (公開預覽)
 
 > [!NOTE] 
-> 適用於 App Service 和 Azure Functions 的受控服務識別目前為預覽版本。
+> 適用於 App Service 和 Azure Functions 的受控服務識別目前為預覽版本。 目前在 Linux 和適用於容器的 Web 應用程式上不支援 App Service。
 
 本主題示範如何為 App Service 和 Azure Functions 應用程式建立受控應用程式身分識別，以及如何使用它來存取其他資源。 Azure Active Directory 的受控服務識別，可讓應用程式輕鬆存取其他受到 AAD 保護的資源 (如 Azure Key Vault)。 身分識別由 Azure 平台負責管理，因此您不需要佈建或輪替任何密碼。 如需受控服務識別的詳細資訊，請參閱[受控服務識別概觀](../active-directory/managed-service-identity/overview.md)。
 
 ## <a name="creating-an-app-with-an-identity"></a>建立採用身分識別的應用程式
 
 若要建立採用身分識別的應用程式，您必須在應用程式上設定額外的屬性。
-
-> [!NOTE] 
-> 只有網站的主要位置才會收到身分識別。 尚不支援部署位置的受控服務識別。
-
 
 ### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
 
@@ -48,11 +44,11 @@ ms.lasthandoff: 03/16/2018
 
 ### <a name="using-the-azure-cli"></a>使用 Azure CLI
 
-若要使用 Azure CLI 設定受控服務識別，您必須對現有的應用程式使用 `az webapp assign-identity` 命令。 有三個選項可供您執行本節中的範例︰
+若要使用 Azure CLI 設定受控服務識別，您必須對現有的應用程式使用 `az webapp identity assign` 命令。 有三個選項可供您執行本節中的範例︰
 
 - 從 Azure 入口網站使用 [Azure Cloud Shell](../cloud-shell/overview.md)。
 - 請透過下方每個程式碼區塊右上角的 [立即試用] 按鈕，使用內嵌的 Azure Cloud Shell。
-- 如果您需要使用本機的 CLI 主控台，請[安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 或更新版本)。 
+- 如果您偏好使用本機 CLI 主控台，請[安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 或更新版本)。 
 
 下列步驟將逐步引導您建立 web 應用程式，並使用 CLI 指派身分識別給它：
 
@@ -65,14 +61,14 @@ ms.lasthandoff: 03/16/2018
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location westus
-    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
-    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    az appservice plan create --name myPlan --resource-group myResourceGroup --sku S1
+    az webapp create --name myApp --resource-group myResourceGroup --plan myPlan
     ```
 
-3. 執行 `assign-identity` 命令來建立此應用程式的身分識別：
+3. 執行 `identity assign` 命令來建立此應用程式的身分識別：
 
     ```azurecli-interactive
-    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本

@@ -1,23 +1,28 @@
 ---
-title: 將 SQL Server DB 移轉至 Azure SQL Database | Microsoft Docs
-description: 學習如何將 SQL Server Database 移轉至 Azure SQL Database。
+title: 使用 DMS 將 SQL Server DB 遷移至 Azure SQL Database | Microsoft Docs
+description: 學習如何使用 DMS 將 SQL Server 資料庫遷移至 Azure SQL Database。
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: c4b4354cb1090b9abc388da9d1d1b135f135144d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 14e9949fe0c292a366fa55e3f16d14d885606f6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>將 SQL Server Database 移轉至 Azure SQL Database
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>使用 DMS 將 SQL Server 資料庫遷移至 Azure SQL Database
 
-將 SQL Server 資料庫移到 Azure SQL Database 很簡單，只要在 Azure 中建立的空 SQL 資料庫，然後使用[資料移轉小幫手](https://www.microsoft.com/download/details.aspx?id=53595)(DMA) 將資料庫匯入 Azure。 您會在本教學課程中學到：
+將 SQL Server 資料庫移到 Azure SQL Database 的單一資料庫很簡單，只要在 Azure 中建立的空 SQL 資料庫，然後使用[資料移轉小幫手](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) 將資料庫匯入 Azure。 如需其他移轉選項，請參閱[將資料庫遷移至 Azure SQL Database](sql-database-cloud-migrate.md)。
+
+> [!IMPORTANT]
+> 若要遷移至「Azure SQL Database 受控執行個體」，請參閱[從 SQL Server 遷移至受控執行個體](sql-database-managed-instance-migrate.md)
+
+您會在本教學課程中學到：
 
 > [!div class="checklist"]
 > * 在 Azure 入口網站中建立空的 Azure SQL 資料庫 (使用新的或現有的 Azure SQL Database 伺服器)
@@ -138,7 +143,7 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
 
 ## <a name="migrate-your-database"></a>移轉資料庫
 
-遵循以下步驟，使用**[資料移轉小幫手](https://www.microsoft.com/download/details.aspx?id=53595)**評估資料庫對於移轉至 Azure SQL Database 的整備程度，並完成移轉。
+遵循以下步驟，使用**[資料移轉小幫手](https://www.microsoft.com/download/details.aspx?id=53595)** 評估資料庫對於移轉至 Azure SQL Database 的整備程度，並完成移轉。
 
 1. 開啟 **Data Migration Assistant**。 您可在任何電腦上執行 DMA，只要它能連線至網際網路並連線至內含您規劃要移轉之資料庫的 SQL Server 執行個體。 無須在裝載要移轉之 SQL Server 執行個體的電腦上安裝 DMA。 您在上一個程序中建立的防火牆規則，必須適用於您執行資料移轉小幫手的電腦。
 

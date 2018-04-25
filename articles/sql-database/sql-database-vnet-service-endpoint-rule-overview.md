@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>對 Azure SQL Database 使用虛擬網路服務端點和規則
 
@@ -129,8 +129,8 @@ RBAC 替代方案：
 
 - 虛擬網路規則只套用至 Azure Resource Manager 虛擬網路，而不是[傳統部署模型][arm-deployment-model-568f]網路。
 
-- 開啟 Azure SQL Database 的虛擬網路服務端點也可啟用 MySQL 和 PostGres Azure 服務的端點。 不過，開啟端點時，嘗試從端點連線到您的 MySQL 或 Postgres 執行個體將會失敗。
-    - 根本原因是該 MySQL 和 PostGres 目前不支援執行 ACL。
+- 開啟 Azure SQL Database 的虛擬網路服務端點也可啟用 MySQL 和 PostgreSQL Azure 服務的端點。 不過，開啟端點時，嘗試從端點連線到您的 MySQL 或 PostgreSQL 執行個體將會失敗。
+    - 根本原因是該 MySQL 和 PostgreSQL 目前不支援執行 ACL。
 
 - 在防火牆上，IP 位址範圍會套用到下列網路項目，但虛擬網路規則不這麼做：
     - [站對站 (S2S) 虛擬私人網路 (VPN)][vpn-gateway-indexmd-608y]
@@ -226,6 +226,10 @@ Blob 稽核會將稽核記錄推送到您自己的儲存體帳戶。 如果這�
 
 本節說明如何使用 [Azure 入口網站][http-azure-portal-link-ref-477t]在 Azure SQL Database 中建立「虛擬網路規則」。 此規則會指示 SQL Database 接受一個標記為「虛擬網路服務端點」的特定子網路所傳來的通訊。
 
+> [!NOTE]
+> 針對要新增至伺服器 VNET 防火牆規則的 VNET/子網路，請確認已開啟服務端點。
+> 如果沒有針對 VNET/子網路開啟服務端點，入口網站會要求您啟用它們，請在要新增規則的刀鋒視窗上按一下啟用。
+
 #### <a name="powershell-alternative"></a>PowerShell 替代方案
 
 PowerShell 指令碼也可以建立虛擬網路規則。 重要的 Cmdlet **New-AzureRmSqlServerVirtualNetworkRule**。 如有興趣，請參閱[使用 PowerShell 建立 Azure SQL Database 的虛擬網路服務端點和規則][sql-db-vnet-service-endpoint-rule-powershell-md-52d]。
@@ -315,7 +319,7 @@ Azure SQL Database 的虛擬網路規則功能，已於 2017 年 9 月底推出�
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 

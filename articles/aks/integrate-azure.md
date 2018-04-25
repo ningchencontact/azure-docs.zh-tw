@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: b1b51b6c36143747a81d1c1fc035ee6d54d34076
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a29a3f27f7c9ab41724d400c9eb787e6888bedc4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>使用 Open Service Broker for Azure (OSBA) 與 Azure 受控服務整合
 
@@ -21,9 +21,9 @@ Open Service Broker for Azure (OSBA) 可以與 [Kubernetes 服務類別目錄][k
 ## <a name="prerequisites"></a>先決條件
 * Azure 訂用帳戶
 
-* Azure CLI 2.0：您可以[在本機進行安裝][azure-cli-install]，或用於 [Azure Cloud Shell][azure-cloud-shell]。
+* Azure CLI 2.0：[在本機進行安裝][azure-cli-install]，或用於 [Azure Cloud Shell][azure-cloud-shell]。
 
-* Helm CLI 2.7+：您可以[在本機進行安裝install it locally][helm-cli-install]，或用於 [Azure Cloud Shell][azure-cloud-shell]。
+* Helm CLI 2.7+：[在本機進行安裝][helm-cli-install]，或用於 [Azure Cloud Shell][azure-cloud-shell]。
 
 * 在 Azure 訂用帳戶上使用參與者角色建立服務主體的權限
 

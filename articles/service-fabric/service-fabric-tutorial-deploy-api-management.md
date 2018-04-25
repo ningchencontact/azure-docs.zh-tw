@@ -1,12 +1,12 @@
 ---
-title: "整合 Azure Service Fabric 與 API 管理 | Microsoft Docs"
-description: "在本教學課程中，您會了解如何快速開始使用 Azure API 管理與 Service Fabric。"
+title: 整合 Azure Service Fabric 與 API 管理 | Microsoft Docs
+description: 在本教學課程中，您會了解如何快速開始使用 Azure API 管理與 Service Fabric。
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 3/9/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 430e813b89f3e0004c517ef77f1028e00ebe5404
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f209e992c4562f11727613c58e1e94483af03bb7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-deploy-api-management-with-service-fabric"></a>教學課程：使用 Service Fabric 部署 API 管理
 本教學課程是一個系列的第四部分。  使用 Service Fabric 部署 API 管理是進階案例。  當您需要為您的後端 Service Fabric 服務發佈具有豐富集合之路由規則的 API 時，API 管理很有用。 雲端應用程式通常需要前端閘道來為使用者、裝置或其他應用程式提供單一輸入點。 在 Service Fabric 中，閘道可以是為流量輸入設計的任何無狀態服務，例如 ASP.NET Core 應用程式、事件中樞、IoT 中樞或 Azure API 管理。 
@@ -59,7 +59,7 @@ ms.lasthandoff: 03/12/2018
 請先登入您的 Azure 帳戶並選取您的訂用帳戶，再執行 Azure 命令。
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -142,7 +142,7 @@ az account set --subscription <guid>
 
    一個名為 `fabric:/EchoServerApplication/EchoServerService` 的 Java 無狀態服務現在應該正在 Azure 中的 Service Fabric 叢集內執行。
 
-5. 開啟瀏覽器然後輸入 http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage，您應該會看到 "[version 1.0]Hello World!!!" 顯示。
+5. 開啟瀏覽器並輸入 http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage，您應該會看到 "[version 1.0]Hello World!!!" 顯示。
 
 ## <a name="download-and-understand-the-resource-manager-templates"></a>下載並了解 Resource Manager 範本
 下載並儲存下列 Resource Manager 範本和參數檔：
@@ -179,7 +179,7 @@ az account set --subscription <guid>
 
 - **displayName** 可以是 API 的任何名稱。 本教學課程使用 "Service Fabric App"。
 - **name** 提供 API 的唯一和描述性名稱，例如 "service-fabric-app"。 它會顯示在開發人員和發行者入口網站中。 
-- **serviceUrl** 會參考實作 API 的 HTTP 服務。 API 管理則將要求轉送至此位址。 就 Service Fabric 後端而言，並不使用此 URL 值。 您可以在這裡輸入任何值。 舉例來說，本教學課程使用："  http://servicefabric "。 
+- **serviceUrl** 會參考實作 API 的 HTTP 服務。 API 管理則將要求轉送至此位址。 就 Service Fabric 後端而言，並不使用此 URL 值。 您可以在這裡輸入任何值。 舉例來說，本教學課程使用 "http://servicefabric"。 
 - **path** 會附加至 API 管理服務的基底 URL 後面。 基礎 URL 是 API 管理服務主控的所有 API 所共有。 API 管理依尾碼來區分 API，因此，特定發行者的每一個 API 必須有唯一的尾碼。 
 - **protocols** 會決定可使用哪些通訊協定來存取 API。 針對此教學課程，列出 **http** 和 **https**。
 - **path** 是 API 的尾碼。 本教學課程使用 "myapp"。

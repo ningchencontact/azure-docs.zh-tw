@@ -1,20 +1,20 @@
 ---
-title: "教學課程 - 在 Azure 成本管理中指派存取權 | Microsoft Docs"
-description: "在本教學課程中，您會了解如何透過定義實體存取層級的使用者帳戶，指派成本管理資料的存取權。"
+title: 教學課程 - 在 Azure 成本管理中指派存取權 | Microsoft Docs
+description: 在本教學課程中，您會了解如何透過定義實體存取層級的使用者帳戶，指派成本管理資料的存取權。
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/09/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: db5cdecc57cf07876ca8d4e981860615643cfd79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>教學課程：指派成本管理資料的存取權
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/09/2018
 
 雖然您已經有系統管理員存取權，但您組織中的同事也可能需要有系統管理員存取權。 在 Cloudyn 入口網站中，按一下右上角的齒輪符號並選取 [使用者管理]。 按一下 [新增使用者] 以新增使用者。
 
-輸入使用者的相關資訊。 您可以將密碼欄位留空，以便使用者在第一次登入時設定新密碼。 當您選取 [透過電子郵件通知使用者] 時，系統就會透過電子郵件從 Cloudyn 將含有登入資訊的連結傳送給使用者。 選擇允許「使用者管理」的權限，以便使用者建立和修改其他使用者。 「收件者清單管理」可允許使用者編輯收件者清單。
+輸入使用者的相關資訊。 登入識別碼必須是有效的電子郵件地址。 選擇允許「使用者管理」的權限，以便使用者建立和修改其他使用者。 「收件者清單管理」可允許使用者編輯收件者清單。 當您選取 [透過電子郵件通知使用者] 時，系統就會透過電子郵件從 Cloudyn 將含有登入資訊的連結傳送給使用者。 第一次登入時，使用者需設定密碼。
 
 在 [使用者具有系統管理員存取權] 之下，已選取您組織的根實體。 讓根實體保留已選取狀態，然後儲存使用者資訊。 選取根實體，可讓使用者不只擁有樹狀目錄中根實體的系統管理員權限，也擁有其下所有實體的系統管理員權限。  
   ![新增具有系統管理員存取權的使用者](.\media\tutorial-user-access\new-admin-access.png)
@@ -64,7 +64,7 @@ ms.lasthandoff: 03/09/2018
 
 在您向 Cloudyn 註冊 Azure 合約或帳戶後，您的 Azure 資源資料 (包括您訂用帳戶中的使用量、效能、帳單和標籤資料) 便已複製到您的 Cloudyn 帳戶。 不過，您必須手動建立您的實體樹狀目錄。 如果您略過 Azure Resource Manager 註冊，則只能在 Cloudyn 入口網站中取得計費資料和一些資產報告。
 
-在 Cloudyn 入口網站中，按一下右上角的 [設定] 並選取 [雲端帳戶]。 您可從單一實體 (根目錄) 開始，並在根目錄下建置您的實體樹狀目錄。 以下是樹狀目錄完成後的實體階層範例，這可能類似於許多 IT 組織：
+在 Cloudyn 入口網站中，按一下右上角的齒輪符號並選取 [雲端帳戶]。 您可從單一實體 (根目錄) 開始，並在根目錄下建置您的實體樹狀目錄。 以下是樹狀目錄完成後的實體階層範例，這可能類似於許多 IT 組織：
 
 ![實體樹狀目錄](.\media\tutorial-user-access\entity-tree.png)
 

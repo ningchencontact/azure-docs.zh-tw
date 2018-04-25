@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: e2f2064de5dc29ef290e6dc6dd7df6ae0a466f92
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ead584c3b1556839a4e2ef036489635b388d136c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>快速入門：使用 Node.js 和 Azure Cosmos DB 建置 Cassandra 應用程式
 
@@ -46,13 +46,19 @@ Azure Cosmos DB Cassandra API 預覽版程式的存取權。 如果您尚未申�
 
 現在，我們將從 Github 複製 Cassandra API 應用程式、設定連接字串，然後加以執行。 您會看到，以程式設計方式來處理資料有多麼的容易。 
 
-1. 開啟 git 終端機視窗 (例如 git bash)，並使用 `cd` 命令變更至要安裝範例應用程式的資料夾。 
+1. 開啟命令提示字元，建立名為 git-samples 的新資料夾，然後關閉命令提示字元。
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. 開啟 git 終端機視窗 (例如 git bash)，並使用 `cd` 命令變更至要安裝範例應用程式的新資料夾。
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. 執行下列命令來複製範例存放庫。 此命令會在您的電腦上建立範例應用程式副本。
+3. 執行下列命令來複製範例存放庫。 此命令會在您的電腦上建立範例應用程式副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-nodejs-getting-started.git
@@ -60,7 +66,7 @@ Azure Cosmos DB Cassandra API 預覽版程式的存取權。 如果您尚未申�
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
-此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 這些程式碼片段皆是取自以下資料夾中的 `uprofile.js` 檔案：C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-string)。 
+此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 這些程式碼片段皆是取自以下資料夾中的 uprofile.js 檔案：C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-string)。 
 
 * 在 Azure 入口網站中使用連接字串頁面來設定使用者名稱和密碼。 'path\to\cert' 可提供 X509 憑證的路徑。 
 

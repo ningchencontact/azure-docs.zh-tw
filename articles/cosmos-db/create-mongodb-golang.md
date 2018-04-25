@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 5e8a85af7bfb3245f766b932397999726746dfa7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d5ac2f683308385b2bd4ca422cf00abaa37735fd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure CosmosDB︰使用 Golang 和 Azure 入口網站建置 MongoDB API 主控台應用程式
 
@@ -79,7 +79,9 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
-讓我們快速檢閱 main.go 檔案中所發生的事情。 
+此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 或是，您可以直接跳到[執行應用程式](#run-the-app)。 
+
+下列程式碼片段全部取自 main.go 檔案。
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>將 Go 應用程式連線到 Azure Cosmos DB
 
@@ -234,10 +236,7 @@ if err != nil {
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您將不繼續使用此應用程式，請使用下列步驟，在 Azure 入口網站中刪除本快速入門所建立的所有資源：
-
-1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。 
-2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

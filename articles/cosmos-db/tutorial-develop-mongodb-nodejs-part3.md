@@ -1,25 +1,25 @@
 ---
-title: "適用於 Azure 的 MongoDB、Angular 及 Node 教學課程 - 第 3 部分 | Microsoft Docs"
-description: "本教學課程系列的第 3 部分，有關使用您用於 MongoDB 的完全相同 API，以 Azure Cosmos DB 上的 Angular 和 Node 建立 MongoDB 應用程式。"
+title: 適用於 Azure 的 MongoDB、Angular 及 Node 教學課程 - 第 3 部分 | Microsoft Docs
+description: 本教學課程系列的第 3 部分，有關使用您用於 MongoDB 的完全相同 API，以 Azure Cosmos DB 上的 Angular 和 Node 建立 MongoDB 應用程式。
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: ff75b4546a85c1c0bbf5c256977a3d33016c8c44
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: de645f46a889ba05fc54b1c5d2b9da64393d348e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 3 部分：使用 Angular 建置 UI
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 12/05/2017
     > 2. 在搜尋方塊中輸入 angular essentials。
     > 3. 按一下 [Install] 。 
     > 4. 按一下 [重新載入] 按鈕以使用新的擴充功能。
-    > 或者，從 [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials) 下載。 
+    > 或是從 [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials) 下載。 
     > ![Angular Essentials 擴充功能](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
 
 7. 請回到 **heroes.component.html** 檔案並在此程式碼中複製。 `<div>` 是整個頁面的容器。 容器內部有我們需要建立的 Hero 清單，因此當您按一下其中一個 Hero 時，您可以在 UI 中選取您、編輯或刪除它。 然後在 HTML 中，我們已取得一些樣式，因此您知道已選取哪一個 Hero。 另外還有一個編輯區域，以便您新增 Hero 或編輯現有的 Hero。 

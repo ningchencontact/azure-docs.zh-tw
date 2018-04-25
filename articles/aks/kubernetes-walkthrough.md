@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 03/14/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2748b078586c27a7625c8e48172048d7a574a4d7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 90ac873fd552058e3f7d538560efa46d33ea52a5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>快速入門：部署 Azure Container Service (AKS) 叢集
 
@@ -108,9 +108,9 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>執行應用程式
 
-Kubernetes 資訊清單檔會定義所需的叢集狀態，包括哪些容器映像應在執行中。 例如，資訊清單可用來建立執行 Azure 投票應用程式所需的所有物件。 提供的映像是一個範例應用程式，但您可以閱讀[建立映像](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app)和[部署至 Azure Container Registry](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr)來使用自己的映像。
+Kubernetes 資訊清單檔會定義所需的叢集狀態，包括哪些容器映像應在執行中。 例如，資訊清單可用來建立執行 Azure 投票應用程式所需的所有物件。 這包含兩個 [Kubernetes 部署][kubernetes-deployment]，一個適用於 Azure 的投票 Python 應用程式，而另一個適用於 Redis 執行個體。 此外，還會建立兩個 [Kubernetes 服務][kubernetes-service]，內部服務用於 Redis 執行個體，而外部服務用於從網際網路存取 Azure 投票應用程式。
 
-建立名為 `azure-vote.yaml` 的檔案，然後將下列 YAML 程式碼複製到其中。 如果您在 Azure Cloud Shell 中作業，可以使用 vi 或 Nano 建立這個檔案，猶如使用虛擬或實體系統。 如果您在本機作業，您可以執行 `code azure-vote.yaml`，使用 Visual Studio Code 來建立此檔案。
+建立名為 `azure-vote.yaml` 的檔案，然後將下列 YAML 程式碼複製到其中。 如果您在 Azure Cloud Shell 中作業，可以使用 vi 或 Nano 建立這個檔案，猶如使用虛擬或實體系統。
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -211,13 +211,13 @@ azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-您現在可以瀏覽至外部 IP 位址來查看 Azure 投票應用程式。
+現在可以瀏覽至外部 IP 位址來查看 Azure 投票應用程式。
 
 ![瀏覽至 Azure 投票的影像](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>刪除叢集
 
-若不再需要叢集，您可以使用 [az group delete][az-group-delete] 命令來移除資源群組、容器服務和所有相關資源。
+若不再需要叢集，可使用 [az group delete][az-group-delete] 命令來移除資源群組、容器服務和所有相關資源。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -242,8 +242,9 @@ az group delete --name myResourceGroup --yes --no-wait
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->

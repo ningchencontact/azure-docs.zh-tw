@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中建立 Node.js Web 應用程式"
-description: "短短幾分鐘內在 Azure App Service Web Apps 中部署第一個 Node.js Hello World。"
+title: 在 Azure 中建立 Node.js Web 應用程式
+description: 短短幾分鐘內在 Azure App Service Web Apps 中部署第一個 Node.js Hello World。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bc4f2fd72860278fcd6c41c64f6f55715eb1884c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 936077f9445ec38fe8d05314fdf20d8412fb8b06
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中建立 Node.js Web 應用程式
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/03/2018
 
 ## <a name="download-the-sample"></a>下載範例
 
-從 [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) 下載 Node.js 專案範例，並將 ZIP 封存檔解壓縮。
+從 [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) 下載範例 Node.js 專案並將 ZIP 封存檔解壓縮。
 
 在終端機視窗中，瀏覽至 Node.js 專案範例的根目錄 (包含 _index.js_ 的目錄)。
 
@@ -80,7 +80,10 @@ npm start
 在下列範,了中，使用全域唯一的應用程式名稱 (有效的字元為 `a-z`、`0-9` 和 `-`) 取代 `<app_name>`。 執行階段設定為 `NODE|6.9`。 若要查看所有支援的執行階段，請執行 [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes)。 
 
 ```azurecli-interactive
+# Bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+# PowerShell
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
 ```
 
 建立 Web 應用程式後，Azure CLI 會顯示類似下列範例的輸出：

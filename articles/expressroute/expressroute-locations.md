@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 04/13/2018
 ms.author: pareshmu
-ms.openlocfilehash: e675600b326bb5269f8bb91aaa067a5842c0f8dd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 87fc79a525ec61f3ce15a60ee2d07efd178fb4d8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -43,10 +43,10 @@ ms.lasthandoff: 04/05/2018
 | --- | --- | --- |
 | **北美洲** |美國東部、美國西部、美國東部 2、美國西部 2、美國中部、美國中南部、美國中北部、美國中西部、加拿大中部、加拿大東部 |亞特蘭大、芝加哥、達拉斯、丹佛、拉斯維加斯、洛杉磯、邁阿密、紐約、聖安東尼奧、西雅圖、矽谷、華盛頓特區、蒙特婁、魁北克市、多倫多 |
 | **南美洲** |巴西南部 |聖保羅 |
-| **歐洲** |北歐、西歐、英國西部、英國南部 |阿姆斯特丹、都柏林、倫敦、紐波特 (威爾斯)、巴黎 |
+| **歐洲** |法國中部、法國南部、北歐、西歐、英國西部、英國南部 |阿姆斯特丹、都柏林、倫敦、紐波特 (威爾斯)、巴黎 |
 | **亞洲** |東亞、東南亞 |香港特別行政區、新加坡、新加坡 2 |
 | **日本** |日本西部、日本東部 |大阪、東京 |
-| **澳大利亞** |澳洲東南部、澳洲東部 |墨爾本、雪梨 |
+| **澳大利亞** |澳大利亞東南部、澳大利亞東部、澳大利亞中部、澳大利亞中部 2 |墨爾本、雪梨 |
 | **印度** |印度西部、印度中部、印度南部 |辰內，孟買 |
 | **南韓** |韓國中部、韓國南部 |釜山、首爾 |
 
@@ -186,6 +186,7 @@ ms.lasthandoff: 04/05/2018
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |紐約、華盛頓特區 |
 | **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |東京 |
+| **[Axtel](http://alestra.mx/landing/expressrouteazure/)** |Equinix |達拉斯|
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | 倫敦 |
 | **[BICS](https://bics.com/bics-solutions-suite/cloud-connect/)** | Equinix | 阿姆斯特丹、法蘭克福、倫敦、新加坡、華盛頓特區 |
 | **[BroadBand Tower, Inc.](http://www.bbtower.co.jp/product-service/data-center/network/dcconnect-for-azure/)** | Equinix | 東京 |
@@ -207,7 +208,9 @@ ms.lasthandoff: 04/05/2018
 | **[MainOne](https://www.mainone.net/services/connectivity/cloud-connect/)** |Equinix | 阿姆斯特丹 |
 | **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | 華盛頓 |
 | **[NexGen Networks](http://www.nexgen-net.com/nexgen-networks-direct-connect-microsoft-azure-expressroute.html)** | Interxion | 倫敦 |
-| **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Telecity | 阿姆斯特丹、法蘭克福 |  
+| **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Telecity | 阿姆斯特丹、法蘭克福 |
+| **[Post](https://www.teralinksolutions.com/cloud-connectivity/cloudbridge-to-azure-expressroute/)**|Equinix | 阿姆斯特丹 |
+| **[Proximus](https://www.proximus.be/en/id_b_cl_proximus_external_cloud_connect/companies-and-public-sector/discover/magazines/expert-blog/proximus-external-cloud-connect.html)**|Equinix | 阿姆斯特丹、都柏林、倫敦、巴黎 |
 | **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | 法蘭克福 |  
 | **Rogers** | Cologix、Equinix | 蒙特婁、多倫多 |
 | **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Telecity | 倫敦 | 

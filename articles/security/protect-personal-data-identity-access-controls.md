@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 08c26942294d7027ffdcd3fcaa0ff0831e95509f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory 和 Multi-factor Authentication：使用身分識別和存取控制來保護個人資料
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="company-goal"></a>公司目標
 
-公司的目標是為了確保個人資料的存取權受到嚴格控管。 請務必以強式驗證保護具備個人資料存取權之使用者的身分識別。 必須強制執行 [最小權限] 的原則 (https://en.wikipedia.org/wiki/Principle_of_least_privilege)，讓合法使用者只能擁有他們所需的存取層級。
+公司的目標是為了確保個人資料的存取權受到嚴格控管。 請務必以強式驗證保護具備個人資料存取權之使用者的身分識別。 必須強制執行 [最小權限] 的原則 (https://en.wikipedia.org/wiki/Principle_of_least_privilege))，讓合法使用者只能擁有他們所需的存取層級。
 
 ## <a name="solutions"></a>解決方案
 
@@ -83,11 +83,11 @@ Azure AD Privileged Identity Management 設定完畢後，您會在每次開啟�
 
 ### <a name="azure-role-based-access-control"></a>Azure 角色型存取控制
 
-[Azure 角色型存取控制](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) 能夠根據使用者的指派角色授與存取權限，協助 Azure 系統管理員來管理 Azure 資源的存取權。 您可以區隔小組內的職責，僅授與使用者、群組和應用程式執行其作業所需的存取量。
+[Azure 角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) 能夠根據使用者的指派角色授與存取權限，協助 Azure 系統管理員來管理 Azure 資源的存取權。 您可以區隔小組內的職責，僅授與使用者、群組和應用程式執行其作業所需的存取量。
 
 使用 Azure 入口網站、Azure 命令列工具或 Azure 管理 API 的使用者，可以獲授與角色型存取權。
 
-如需 Azure RBAC 基本概念的詳細資訊，請參閱[在 Azure 入口網站中開始使用角色型存取控制](https://docs.microsoft.com/active-directory/role-based-access-control-what-is)。
+如需 Azure RBAC 基本概念的詳細資訊，請參閱[在 Azure 入口網站中開始使用角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/overview)。
 
 #### <a name="how-do-i-manage-azure-rbac-with-powershell"></a>如何使用 PowerShell 管理 Azure RBAC？
 
@@ -111,7 +111,7 @@ Azure AD Privileged Identity Management 設定完畢後，您會在每次開啟�
 
 - 列出自訂角色
 
-如需有關如何使用 PowerShell 管理 Azure RBAC 的指示，請參閱[使用 Azure PowerShell 管理角色型存取](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell)。
+如需有關如何使用 PowerShell 管理 Azure RBAC 的指示，請參閱[使用 Azure PowerShell 管理角色型存取](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)。
 
 ### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
@@ -125,7 +125,7 @@ Azure AD Privileged Identity Management 設定完畢後，您會在每次開啟�
 
 ![啟用 MFA 的使用者](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-如果您目前沒有授權，您必須經歷為您的案例決定最合適部署類型的程序。 您可以從查看[為您選擇 Azure Multi-Factor Autehntication 方案](../multi-factor-authentication/multi-factor-authentication-get-started.md)這篇文章著手。 如果您這麼決定，您需要建立 Multi-Factor Authentication 伺服器。 首先，依照下列步驟進行。
+如果您目前沒有授權，您必須經歷為您的案例決定最合適部署類型的程序。 您可以從查看[為您選擇 Azure Multi-Factor Autehntication 方案](../active-directory/authentication/concept-mfa-whichversion.md)這篇文章著手。 如果您這麼決定，您需要建立 Multi-Factor Authentication 伺服器。 首先，依照下列步驟進行。
 
 1. 在 Azure 入口網站中選取 [Active Directory] (以系統管理員身分登入)。
 
@@ -184,6 +184,6 @@ Azure AD Privileged Identity Management 設定完畢後，您會在每次開啟�
 
 - [與 Azure Multi-Factor Authentication 相關的常見問題](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-faq)
 
-- [角色型存取控制疑難排解](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
+- [角色型存取控制疑難排解](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting)
 
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)

@@ -1,11 +1,11 @@
 ---
-title: "Azure 資訊安全中心疑難排解指南 | Microsoft Docs"
-description: "本文件有助於在 Azure 資訊安全中心排解疑難問題。"
+title: Azure 資訊安全中心疑難排解指南 | Microsoft Docs
+description: 本文件有助於在 Azure 資訊安全中心排解疑難問題。
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
 ms.author: yurid
-ms.openlocfilehash: e2e8b16bf720e2be8b8bc8ae81fc944af79dddab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0c5f7a932cef904abbca25b63cf8e0d96db73c29
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure 資訊安全中心疑難排解指南
 本指南適用於組織目前採用 Azure 資訊安全中心，且需要針對資訊安全中心相關問題進行疑難排解的資訊技術 (IT) 專業人員、資訊安全性分析師和雲端系統管理員。
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/03/2018
 稽核記錄檔包含在您的資源上執行的所有寫入作業 (PUT、POST、DELETE)，但不包含讀取作業 (GET)。
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
-資訊安全中心會使用 Microsoft Monitoring Agent (這是 Operations Management Suite 和 Log Analytics 服務所用的相同代理程式) 從 Azure 虛擬機器收集安全性資料。 啟用資料收集且代理程式已正確安裝在目標電腦之後，以下處理序應在執行中︰
+資訊安全中心會使用 Microsoft Monitoring Agent (這是 Log Analytics 服務所使用的相同代理程式) 從 Azure 虛擬機器收集安全性資料。 啟用資料收集且代理程式已正確安裝在目標電腦之後，以下處理序應在執行中︰
 
 * HealthService.exe
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 02/03/2018
 代理程式若要連線到資訊安全中心並向其註冊，就必須能夠存取網路資源，包括連接埠號碼和網域 URL。
 
 - 對於 Proxy 伺服器，您需要確保代理程式設定中已設定了適當的 Proxy 伺服器資源。 如需有關[如何變更 Proxy 設定](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings)的詳細資訊，請參閱這篇文章。
-- 對於限制網際網路存取的防火牆，您需要設定防火牆以允許存取 OMS。 您不需要在代理程式設定中進行任何動作。
+- 對於限制網際網路存取的防火牆，您需要設定防火牆以允許存取 Log Analytics。 您不需要在代理程式設定中進行任何動作。
 
 下表說明通訊所需資源。
 

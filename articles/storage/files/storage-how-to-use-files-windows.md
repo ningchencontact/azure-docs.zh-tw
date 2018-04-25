@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 04/11/2018
 ms.author: renash
-ms.openlocfilehash: 8905b708101e78691c14168edf7afd659afa92a4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e283619c7e634a1fbba5940e5c8545b0ee4de3d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>掛接 Azure 檔案共用並在 Windows 中存取共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中掛接。 本文將說明在 Windows 中掛接 Azure 檔案共用的三種不同方式：使用檔案總管 UI、透過 PowerShell，以及透過命令提示字元。 
@@ -49,7 +49,16 @@ ms.lasthandoff: 03/29/2018
 
 * **儲存體帳戶金鑰**：若要掛接 Azure 檔案共用，您需要主要 (或次要) 金鑰。 掛接目前不支援 SAS 金鑰。
 
-* **確定已開啟連接埠 445**：Azure 檔案服務會使用 SMB 通訊協定。 SMB 透過 TCP 通訊埠 445 進行通訊 - 請檢查您的防火牆不會將 TCP 通訊埠 445 從用戶端電腦封鎖。
+* **確定已開啟連接埠 445**：Azure 檔案服務會使用 SMB 通訊協定。 SMB 透過 TCP 通訊埠 445 進行通訊 - 請檢查您的防火牆不會將 TCP 通訊埠 445 從用戶端電腦封鎖。 您可以使用 Portqry 來檢查 TCP 通訊埠 445 是否已開啟。 如果篩選顯示 TCP 通訊埠 445，表示 TCP 連接埠遭到封鎖。 查詢範例如下：
+
+    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+
+    如果 TCP 連接埠 445 被網路路徑規則所封鎖，您將看到下列輸出：
+
+    `TCP port 445 (Microsoft-ds service): FILTERED`
+
+    如需如何使用 Portqry 的詳細資訊，請參閱 [Portqry.exe 命令列公用程式說明](https://support.microsoft.com/help/310099)。
+
 
 ## <a name="persisting-connections-across-reboots"></a>在重新啟動期間保持連線
 ### <a name="cmdkey"></a>CmdKey
