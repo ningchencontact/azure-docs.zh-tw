@@ -1,6 +1,6 @@
 ---
 title: 使用 Windows VM MSI 存取 Azure Resource Manager
-description: 此教學課程引導您使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Resource Manager 的程序。
+description: 此教學課程引導您使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure Resource Manager 的程序。
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 0e1a01eec7080c3520dfe63954e91802843c18a4
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a19f0b9a333cbd01827ce54576c1bb77a0ce7c1d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Resource Manager
+# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure Resource Manager
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程會示範如何為 Windows 虛擬機器 (VM) 啟用受控服務識別 (MSI)。 接著，您便可以使用該身分識別來存取 Azure Resource Manager API。 受控服務識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 您會了解如何：
+本教學課程會示範如何為 Windows 虛擬機器 (VM) 啟用受控服務身分識別 (MSI)。 接著，您便可以使用該身分識別來存取 Azure Resource Manager API。 受控服務身分識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 您會了解如何：
 
 > [!div class="checklist"]
 > * 在 Windows VM 上啟用 MSI 
@@ -85,7 +85,7 @@ VM MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您
 4.  使用 Powershell 的 Invoke-WebRequest，向本機 MSI 端點提出要求來取得 Azure Resource Manager 的存取權杖。
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -Method GET -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]

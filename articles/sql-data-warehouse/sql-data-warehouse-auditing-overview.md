@@ -2,19 +2,19 @@
 title: Azure SQL 資料倉儲中的稽核 | Microsoft Docs
 description: 了解稽核，以及如何在 Azure SQL 資料倉儲中設定稽核。
 services: sql-data-warehouse
-author: ronortloff
+author: kavithaj
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/11/2018
-ms.author: rortloff
-ms.reviewer: jrj
-ms.openlocfilehash: 7bce59114dcfef7f9faa7f112c62dbb88044f2ab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: 6e0072602586b5a1b873a3a6a0ff71a9d640ff29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的稽核
 
@@ -68,7 +68,7 @@ SQL 資料倉儲資料庫稽核可讓您：
 5. 按一下 [確定]  按鈕，以儲存儲存體的詳細資料組態。
 6. 在 [依事件記錄] 下，按一下 [成功] 和 [失敗] 以記錄所有事件，或選擇個別的事件類別。
 7. 如果您正在為資料庫設定稽核，您可能需要變更用戶端的連接字串，以確保系統會正確擷取資料稽核。 請參閱 [修改連接字串中的伺服器 FDQN](sql-data-warehouse-auditing-downlevel-clients.md) 主題，以取得下層用戶端連線。
-8. 按一下 [確定]。
+8. 按一下 [SERVICEPRINCIPAL] 。
 
 ## <a id="subheading-3"></a>分析稽核記錄和報告
 在安裝期間，會在所選擇的 Azure 儲存體帳戶之具有 **SQLDBAuditLogs** 首碼的 [儲存資料表] 集合中彙總稽核記錄。 您可以使用工具 (例如 <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure 儲存體總管</a>) 來檢視記錄檔。

@@ -1,17 +1,18 @@
 ---
 title: 開始在 Java 中使用 Azure 搜尋服務 | Microsoft Docs
 description: 如何使用 Java 做為程式設計語言，在 Azure 上建置雲端託管搜尋應用程式。
+services: search
 author: jj09
 manager: jlembicz
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/14/2016
 ms.author: jjed
-ms.openlocfilehash: 73e18b91412fd93897f9596077948fd7ea459e71
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d95abab1d1a489deba2ebc260e1e32963aa5639e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>開始在 Java 中使用 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -100,7 +101,7 @@ ms.lasthandoff: 04/18/2018
     ![][7]
 6. 在下一頁指定 Tomcat 的安裝目錄。 在 Windows 電腦中，這通常為 C:\Program Files\Apache Software Foundation\Tomcat *版本*。
 7. 按一下 [完成] 。
-8. 選取 [視窗] > [喜好設定] > [Java] > [安裝的 JRE] > [新增]。
+8. 選取 [視窗] > [喜好設定] > [Java] > [已安裝的 JRE] > [新增]。
 9. 在 [Add JRE (新增 JRE)] 中，選取 [Standard VM (標準 VM)]。
 10. 按 [下一步] 。
 11. 在 [JRE Definition (JRE 定義)] 的 [JRE home (JRE 主資料夾)] 中按一下 [Directory (目錄)] 。

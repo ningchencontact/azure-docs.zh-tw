@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 83586cff59d5beb7c48bc6bb8b72fd09e4d37bf8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: be5f5a6c39e27ae7fedab32fea12f5cf9b7cd3bd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -112,7 +112,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 **答：**密碼回寫會即時運作。
 
-如需詳細資訊，請參閱[開始使用密碼管理](active-directory-passwords-getting-started.md)。
+如需詳細資訊，請參閱[開始使用密碼管理](authentication/quickstart-sspr.md)。
 
 - - -
 **問︰是否可以搭配使用密碼回寫和由系統管理員管理的密碼？**

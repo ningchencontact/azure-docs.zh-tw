@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: ab2da4e372759fb26d50daf519faecd1810c084d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8937be0e3f18d58d4cdd909de0ca2c455cc46c1f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>使用 REST 發佈 Azure 媒體服務內容
 > [!div class="op_single_selector"]
@@ -28,7 +28,6 @@ ms.lasthandoff: 04/19/2018
 > 
 > 
 
-## <a name="overview"></a>概觀
 您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。 [為資產編碼](media-services-rest-encode-asset.md)文章說明如何編碼為調適性位元速率 MP4 集。 如果您的內容已加密，請在建立定位器之前設定資產傳遞原則 (如[這個](media-services-rest-configure-asset-delivery-policy.md)文章中所述)。 
 
 您也可以使用隨選串流定位器來建置指向可漸進式下載之 MP4 檔案的 URL。  

@@ -1,25 +1,20 @@
 ---
-title: "將您的資料移轉至 SQL 資料倉儲 | Microsoft Docs"
-description: "將您的資料移轉至 Azure SQL 資料倉儲來開發解決方案的秘訣。"
+title: 將您的資料移轉至 SQL 資料倉儲 | Microsoft Docs
+description: 將您的資料移轉至 Azure SQL 資料倉儲來開發解決方案的秘訣。
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: migrate
-ms.date: 06/29/2017
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 0d156bc2eecf8220bd5ff4eb811d91482f216837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: 3839f02d8e083ed384f0d01fccee6ad951477f3b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-your-data"></a>移轉資料
 資料可以藉由各種工具，從不同的來源移到您的「SQL 資料倉儲」中。  ADF 複製、SSIS 和 bcp 都可用來達成此目標。 不過，隨著資料量增加，您應該考慮將資料移轉程序細分成步驟。 這樣讓您有機會來最佳化每個步驟的效能和彈性，以確保順暢移轉資料。
@@ -106,7 +101,7 @@ PolyBase 規定要有固定的資料列結束字元 \n 或新行。 您的資料
 
 在 PolyBase 中，您必須將檔案中的每個資料行定義為外部資料表的一部分。 請確定所有匯出的資料行都是必要，且型別符合必要的標準。
 
-如需有關支援的資料類型的詳細資料，請回頭參閱 [移轉您的結構描述] 文章。
+如需有關所支援資料類型的詳細資料，請回頭參閱[移轉您的結構描述]文章。
 
 ### <a name="location-of-data-files"></a>資料檔案的位置
 SQL 資料倉儲只使用 PolyBase 從 Azure Blob 儲存體載入資料。 因此，資料必須先傳輸到 blob 儲存體。
@@ -190,10 +185,11 @@ PolyBase 也支援一項稱為「遞迴資料夾周遊」的功能。 您可以�
 [ADF samples]: ../data-factory/v1/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md
 [development overview]: sql-data-warehouse-overview-develop.md
+[移轉您的結構描述]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
-[Use PolyBase to load data into SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
+[Use PolyBase to load data into SQL Data Warehouse]: load-data-wideworldimportersdw.md
 
 
 <!--MSDN references-->

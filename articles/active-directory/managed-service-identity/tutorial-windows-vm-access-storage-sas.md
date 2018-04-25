@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: f7fd733410ee59307d63de72c650c45d57b88575
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 88d09bac87c474359f5ece93b6fe0340d9565833
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>使用 Windows VM 受控服務識別透過 SAS 認證存取 Azure 儲存體
 
@@ -99,7 +99,7 @@ Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用 M
 2. 按一下左側面板中的 [存取控制 (IAM)] 連結。  
 3. 按一下頁面頂端的 [+ 新增] 以新增 VM 的新角色指派
 4. 在頁面右側中，將 [角色] 設定為 [儲存體帳戶參與者]。  
-5. 在下一個下拉式清單中，將 [存取權指派給] 設定為資源 [虛擬機器]。  
+5. 在下一個下拉式清單中，將 [存取權指派對象為] 設定為資源 [虛擬機器]。  
 6. 接下來，請確保 [訂用帳戶] 下拉式清單中已列出適當的訂用帳戶，然後將 [資源群組] 設定為 [所有資源群組]。  
 7. 最後，在 [選取] 的下拉式清單中，選擇您的 Windows 虛擬機器，然後按一下 [儲存]。 
 
@@ -117,7 +117,7 @@ Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用 M
 4. 使用 Powershell 的 Invoke-WebRequest，向本機 MSI 端點提出要求來取得 Azure Resource Manager 的存取權杖。
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -Method GET -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]

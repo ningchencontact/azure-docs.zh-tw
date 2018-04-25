@@ -16,19 +16,19 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 22086a0d9fc774b75e1b0873188b16fc548d0791
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>如何成功推出自助式密碼重設
 
 為確保 Azure Active Directory (Azure AD) 自助式密碼重設 (SSPR) 功能順利推出，大部分的客戶會完成下列步驟：
 
-1. [在您的目錄中啟用密碼重設](../active-directory-passwords-getting-started.md)。
-2. [設定密碼回寫的內部部署 Active Directory 權限](../active-directory-passwords-writeback.md#active-directory-permissions)。
-3. [設定密碼回寫](../active-directory-passwords-writeback.md#configure-password-writeback)以將密碼從 Azure AD 回寫到您的內部部署目錄。
+1. [在您的目錄中啟用密碼重設](quickstart-sspr.md)。
+2. [設定密碼回寫的內部部署 Active Directory 權限](howto-sspr-writeback.md#active-directory-permissions)。
+3. [設定密碼回寫](howto-sspr-writeback.md#configure-password-writeback)以將密碼從 Azure AD 回寫到您的內部部署目錄。
 4. [指派和驗證所需的授權](concept-sspr-licensing.md)。
 5. 決定您是否需要進行漸進式推出。 如果您需要漸進式地推出 SSPR，可以限制使用者群組的存取權，讓您可以對特定群組試驗程式。 若要推出至特定群組，請將 [已啟用自助式密碼重設] 切換為 [選取]，並選取您需要能夠使用密碼重設的安全性群組。 
 6. 為您的使用者填入註冊所需的[驗證資料](howto-sspr-authenticationdata.md)，例如其辦公室電話、行動電話和備用電子郵件地址。
@@ -41,7 +41,7 @@ ms.lasthandoff: 04/19/2018
    > [!NOTE]
    > 將此選項從選取的群組變更為每個人，不會讓使用者已註冊為測試群組一部分的現有驗證資料失效。 已設定並註冊有效驗證資料的使用者會繼續運作。
 
-12. [讓 Windows 10 使用者在登入畫面重設其密碼](../active-directory-passwords-login.md)。
+12. [讓 Windows 10 使用者在登入畫面重設其密碼](tutorial-sspr-windows.md)。
 
    > [!IMPORTANT]
    > 以使用者而非系統管理員測試 SSPR，因為 Microsoft 會強制執行 Azure 系統管理員帳戶的強式驗證需求。 如需有關系統管理員密碼原則的詳細資訊，請參閱我們的[密碼原則](concept-sspr-policy.md#administrator-password-policy-differences)一文。
@@ -90,7 +90,7 @@ ms.lasthandoff: 04/19/2018
 * [您有授權問題嗎？](concept-sspr-licensing.md)
 * [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](howto-sspr-authenticationdata.md)
 * [使用 SSPR 的原則選項有哪些？](concept-sspr-policy.md)
-* [什麼是密碼回寫，且為什麼我需要了解它？](../active-directory-passwords-writeback.md)
+* [什麼是密碼回寫，且為什麼我需要了解它？](howto-sspr-writeback.md)
 * [如何回報 SSPR 中的活動？](howto-sspr-reporting.md)
 * [SSPR 中的所有選項有哪些，以及它們有何意義？](concept-sspr-howitworks.md)
 * [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)

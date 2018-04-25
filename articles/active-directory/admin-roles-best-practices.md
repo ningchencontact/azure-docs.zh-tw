@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 09ee56627f6c254362d9fbc3c665494418efb1dc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
@@ -118,7 +118,7 @@ Azure AD Privileged Identity Management 隨附於 Azure AD Premium P2 或 EMS E5
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>開啟多重要素驗證，並註冊所有其他高特殊權限的單一使用者非同盟管理員帳戶 
 
-所有永久指派給一或多個 Azure AD 管理員角色的個別使用者在進行登入時，都必須進行 Azure Multi-Factor Authentication (MFA)：全域系統管理員、特殊權限角色系統管理員、Exchange Online 系統管理員和 SharePoint Online 系統管理員。 請使用指南啟用[管理員帳戶的 Multi-factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md)，並確定這些使用者全都已在 [https://aka.ms/mfasetup](https://aka.ms/mfasetup) 註冊。 您可以在[保護 Office 365 中的資料和服務存取](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e)指南的步驟 2 和步驟 3 下找到詳細資訊。 
+所有永久指派給一或多個 Azure AD 管理員角色的個別使用者在進行登入時，都必須進行 Azure Multi-Factor Authentication (MFA)：全域系統管理員、特殊權限角色系統管理員、Exchange Online 系統管理員和 SharePoint Online 系統管理員。 請使用指南啟用[管理員帳戶的 Multi-factor Authentication (MFA)](authentication/howto-mfa-userstates.md)，並確定這些使用者全都已在 [https://aka.ms/mfasetup](https://aka.ms/mfasetup) 註冊。 您可以在[保護 Office 365 中的資料和服務存取](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e)指南的步驟 2 和步驟 3 下找到詳細資訊。 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>階段 2：減少最常用的攻擊技巧
 
@@ -164,8 +164,8 @@ Azure AD 建議您要求所有使用者進行多重要素驗證 (MFA)，包括�
 
 開啟：
 
-* [高度曝險帳戶的 MFA](../multi-factor-authentication/multi-factor-authentication-security-best-practices.md)，例如組織中行政人員的帳戶 
-* [與個別使用者相關聯的每個管理員帳戶的 MFA](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) (針對其他已連線的 SaaS 應用程式) 
+* [高度曝險帳戶的 MFA](authentication/multi-factor-authentication-security-best-practices.md)，例如組織中行政人員的帳戶 
+* [與個別使用者相關聯的每個管理員帳戶的 MFA](authentication/howto-mfa-userstates.md) (針對其他已連線的 SaaS 應用程式) 
 * Microsoft SaaS 應用程式之所有管理員的 MFA，包括在 Exchange Online 和 Office 入口網站中受管理之角色中的系統管理員
 
 如果您使用 Windows Hello 企業版，您可以使用 Windows Hello 登入體驗達到 MFA 需求。 如需詳細資訊，請參閱 [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport)。 

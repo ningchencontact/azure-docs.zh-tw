@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: 08c26942294d7027ffdcd3fcaa0ff0831e95509f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c0e7f2060f81812cd69ed1af0246287757985243
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory 和 Multi-factor Authentication：使用身分識別和存取控制來保護個人資料
 
@@ -137,7 +137,7 @@ Azure AD Privileged Identity Management 設定完畢後，您會在每次開啟�
 
 4. 按一下 [儲存] 
 
-在此視窗中，您也可以選擇下載 MFA Server。 檢閱[開始使用 Azure Multi-factor Authentication 伺服器](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)，即可取得如何調整及規劃您的部署的其他詳細資訊
+在此視窗中，您也可以選擇下載 MFA Server。 檢閱[開始使用 Azure Multi-factor Authentication 伺服器](../active-directory/authentication/howto-mfaserver-deploy.md)，即可取得如何調整及規劃您的部署的其他詳細資訊
 
 如需如何管理 Multi-Factor Auth Provider 的詳細指示，請參閱[開始使用 Azure Multi-Factor Auth Provider](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)。
 

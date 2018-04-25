@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: f9dc1e87dee83aa3f10d5319ac3df3933b7d96a9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8b7e6cbd4bc7cfef349e9cebd9e4db537701a877
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>使用 Linux VM 的受控服務識別來存取 Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程示範如何使用 Linux 虛擬機器 (VM) 的受控服務識別來存取 Azure Data Lake Store。 Azure 會自動管理您透過 MSI 所建立的身分識別。 您可以使用 MSI 向支援 Azure Active Directory (Azure AD) 驗證的服務進行驗證，而不需要將認證插入您的程式碼中。 
+本教學課程示範如何使用 Linux 虛擬機器 (VM) 的受控服務身分識別來存取 Azure Data Lake Store。 Azure 會自動管理您透過 MSI 所建立的身分識別。 您可以使用 MSI 向支援 Azure Active Directory (Azure AD) 驗證的服務進行驗證，而不需要將認證插入您的程式碼中。 
 
 在本教學課程中，您了解如何：
 
@@ -102,7 +102,7 @@ Azure Data Lake Store 原生支援 Azure AD 驗證，因此可以直接接受透
 3. 在終端機視窗中使用 cURL 向本機 MSI 端點提出要求，來取得 Data Lake Store 檔案系統的存取權杖。 Data Lake Store 的資源識別碼是 "https://datalake.azure.net/"。  請務必包含資源識別項中的結尾斜線。
     
    ```bash
-   curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F -H Metadata:true   
+   curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   
    ```
     
    成功的回應會傳回您向 Data Lake Store 驗證時所使用的存取權杖：

@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 5f410b6c0c1f24a9f9d453c833074cbd515f46b2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2e0d7f7f8b63a199f921c28072bcd861711addfc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程示範如何使用 Windows 虛擬機器 (VM) 受控服務識別 (MSI) 來存取 Azure Data Lake Store。 受控服務識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 您會了解如何：
+本教學課程示範如何使用 Windows 虛擬機器 (VM) 受控服務識別 (MSI) 來存取 Azure Data Lake Store。 受控服務身分識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 您會了解如何：
 
 > [!div class="checklist"]
 > * 在 Windows VM 上啟用 MSI 
@@ -102,7 +102,7 @@ Azure Data Lake Store 原生支援 Azure AD 驗證，因此可以直接接受使
 4. 使用 PowerShell 的 `Invoke-WebRequest`，向本機 MSI 端點提出要求取得 Azure Data Lake Store 的存取權杖。  Data Lake Store 的資源識別碼是 "https://datalake.azure.net/"。  Data Lake 會對資源識別碼執行完全相符的比對，因此結尾的斜線很重要。
 
    ```powershell
-   $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F -Method GET -Headers @{Metadata="true"}
+   $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}
    ```
     
    將來自 JSON 物件的回應轉換為 PowerShell 物件。 

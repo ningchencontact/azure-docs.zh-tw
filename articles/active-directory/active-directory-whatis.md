@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.custom: it-pro
-ms.openlocfilehash: 003ce2edda3e2069eb7e05f58ecc2e208c818946
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 01183a2c85b748d593146f6b52a7d4dbd34524cb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-azure-active-directory"></a>什麼是 Azure Active Directory？
 Azure Active Directory (Azure AD) 是 Microsoft 的多租用戶雲端式目錄，也是身分識別管理服務，將核心目錄服務、應用程式存取管理、身分識別保護結合在單一解決方案中。 Azure AD 同時也提供豐富且標準型的平台，可讓開發人員根據集中式原則和規則，提供對其應用程式的存取控制。
@@ -55,7 +55,7 @@ Azure AD 經悉心設計，不但支援多租用戶、地理分布周全，更�
 > 許多 Azure Active Directory 功能是透過「隨用隨付」版本提供：
 >
 > * Active Directory B2C 是面向消費者應用程式適用的身分識別和存取管理解決方案。 如需詳細資訊，請參閱 [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)。
-> * Azure Multi-Factor Authentication 可透過每一使用者或每一驗證提供者方式使用。 如需詳細資訊，請參閱[什麼是 Azure Multi-Factor Authentication？](../multi-factor-authentication/multi-factor-authentication.md)。
+> * Azure Multi-Factor Authentication 可透過每一使用者或每一驗證提供者方式使用。 如需詳細資訊，請參閱[什麼是 Azure Multi-Factor Authentication？](authentication/multi-factor-authentication.md)。
 >
 
 ## <a name="how-can-i-get-started"></a>如何開始使用？

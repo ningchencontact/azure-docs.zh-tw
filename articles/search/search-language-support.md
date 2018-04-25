@@ -3,15 +3,16 @@ title: 在 Azure 搜尋服務中編製多種語言的索引 | Microsoft Docs
 description: Azure 搜尋服務支援 56 種語言，運用來自 Lucene 的語言分析器和來自 Microsoft 的自然語言處理技術。
 author: yahnoosh
 manager: jlembicz
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: jlembicz
-ms.openlocfilehash: fc038c288f878d72d29ce35ba983b3d4b6f3633e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: cb011ee54894f53cda81d9d116899dcaeb558b6d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>在 Azure 搜尋服務中建立多種語言的文件索引
 > [!div class="op_single_selector"]
