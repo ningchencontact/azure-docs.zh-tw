@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 網路監看員下一個躍點來尋找下一個躍點 - PowerShell | Microsoft Docs"
-description: "本文會說明如何使用 PowerShell，利用下一個躍點功能來得知下一個躍點類型和 IP 位址。"
+title: 使用 Azure 網路監看員下一個躍點來尋找下一個躍點 - PowerShell | Microsoft Docs
+description: 本文會說明如何使用 PowerShell，利用下一個躍點功能來得知下一個躍點類型和 IP 位址。
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6a656c55-17bd-40f1-905d-90659087639c
 ms.service: network-watcher
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: ef559fbbd3e8448d64167552cacee04790418343
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-powershell"></a>使用 PowerShell，利用 Azure 網路監看員的下一個躍點功能找出下一個躍點類型
 
