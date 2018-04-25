@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3839f02d8e083ed384f0d01fccee6ad951477f3b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ca467ae5fbe784399e4e046c47c920ff7dec638e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="migrate-your-data"></a>移轉資料
 資料可以藉由各種工具，從不同的來源移到您的「SQL 資料倉儲」中。  ADF 複製、SSIS 和 bcp 都可用來達成此目標。 不過，隨著資料量增加，您應該考慮將資料移轉程序細分成步驟。 這樣讓您有機會來最佳化每個步驟的效能和彈性，以確保順暢移轉資料。
@@ -188,7 +188,7 @@ PolyBase 也支援一項稱為「遞迴資料夾周遊」的功能。 您可以�
 [移轉您的結構描述]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
-[Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
+[Use bcp to load data into SQL Data Warehouse]: /sql/tools/bcp-utility
 [Use PolyBase to load data into SQL Data Warehouse]: load-data-wideworldimportersdw.md
 
 
