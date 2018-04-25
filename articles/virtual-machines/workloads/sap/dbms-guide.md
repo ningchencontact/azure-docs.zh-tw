@@ -1,13 +1,13 @@
 ---
-title: "適用於 SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署 | Microsoft Docs"
-description: "SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署"
+title: 適用於 SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署 | Microsoft Docs
+description: SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5654dac7-4204-4387-b312-3d8b2898eb3a
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 855fc155bbdef9a3a0ab8415067102e607fab0f9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f8e8f1bc6f43c78e500e198a222fd29051138505
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -237,7 +237,7 @@ ms.lasthandoff: 03/09/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -290,7 +290,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -810,7 +810,7 @@ SAP 支援的「資料庫鏡像」(請參閱 SAP 附註 [965908]) 有賴於在 S
 
 [comment]: <> (TODO 舊部落格)
 [comment]: <> (若要了解在 Azure 上安裝 AlwaysOn 組態的詳細步驟和必要條件，最佳體驗方式就是逐步完成[這裡][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]提供的教學課程)
-[comment]: <> (透過 Azure 資源庫 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx> 執行之預先設定的 AlwaysOn 設定)
+[comment]: <> (透過 Azure 映像庫預先設定的 AlwaysOn 安裝程式 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
 [comment]: <> ([這個][virtual-machines-windows-classic-ps-sql-int-listener] 教學課程提供建立「可用性群組接聽程式」的最佳說明)
 [comment]: <> (以下提供使用 ACL 來保護網路端點的最佳說明：)
 [comment]: <> (*    <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
@@ -821,7 +821,7 @@ SAP 支援的「資料庫鏡像」(請參閱 SAP 附註 [965908]) 有賴於在 S
 您也可以在不同的 Azure 區域上部署 SQL Server AlwaysOn 可用性群組。 此功能會利用 Azure VNet 對 Vnet 連線 ([更多詳細資料][virtual-networks-configure-vnet-to-vnet-connection])。
 
 [comment]: <> (TODO 舊部落格)
-[comment]: <> (以下提供在這類案例中設定「SQL Server AlwaysOn 可用性群組」的說明：<https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>。) 
+[comment]: <> (這裡描述了在這種情況下 SQL Server AlwaysOn 可用性群組的設定：<https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>。) 
 
 #### <a name="summary-on-sql-server-high-availability-in-azure"></a>Azure 中 SQL Server 高可用性的摘要
 由於 Azure 儲存體會保護內容，因此沒有理由堅持要有熱待命映像。 這表示您的高可用性案例只需要在下列情況中提供保護：

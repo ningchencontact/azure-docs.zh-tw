@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.openlocfilehash: 0a90e97779416db7b7244cce9d6bdad740161051
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2db5398b7f252f723f342c1b978b27dd273321ec
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>資料連線：了解資料從事件到串流分析的資料流輸入
 串流分析作業的資料連線是來自資料來源的事件資料流，稱為作業的「輸入」。 串流分析與 Azure 資料流來源的整合性極佳，來源包括 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)、[Azure IoT 中樞](https://azure.microsoft.com/services/iot-hub/)和 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)。 這些輸入來源可以來自與分析作業相同的 Azure 訂用帳戶，或來自不同的訂用帳戶。
@@ -129,6 +129,8 @@ Azure IoT 中樞是已針對 IoT 案例最佳化的高延展性發佈/訂閱事�
 在串流分析中，Blob 儲存體事件的預設時間戳記是上次修改 blob 的時間戳記，也就是 `BlobLastModifiedUtcTime`。 若要使用事件裝載中的時間戳記，將資料當作資料流處理，您必須使用 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 關鍵字。
 
 CSV 格式的輸入「需要」標題列來定義資料集的欄位。 此外，所有標題列欄位都必須是唯一的。
+
+如果原始訊息 (JSON、CSV 或 AVRO) 已從 IoT 或事件中樞以 AVRO 格式路由傳送到 Blob 儲存體，串流分析將無法從 Blob 儲存體還原序列化這類輸入。
 
 > [!NOTE]
 > 串流分析不支援將內容加入現有的 blob 檔案。 串流分析只會檢視每個檔案一次，在作業讀取資料之後，不會處理檔案中發生的任何變更。 最佳做法是一次上傳 blob 檔案的所有資料，然後將其他較新的事件新增到不同的新 blob 檔案。

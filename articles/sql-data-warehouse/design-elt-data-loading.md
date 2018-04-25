@@ -3,18 +3,18 @@ title: 針對 Azure SQL 資料倉儲設計 ELT 而不是 ETL | Microsoft Docs
 description: 針對「Azure SQL 資料倉儲」的資料載入設計「擷取」、「載入」及「轉換」(ELT) 程序，而不是 ETL。
 services: sql-data-warehouse
 author: ckarst
-manager: jhubbard
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 03/28/2018
+ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 18d5f4131718021de82328719e0538db759dde9c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>設計 Azure SQL 資料倉儲的擷取、載入及轉換 (ELT)
 
@@ -48,15 +48,15 @@ PolyBase 是一種技術，它會透過 T-SQL 語言存取資料庫外部的資�
 
 - [PolyBase 與 T-SQL](load-data-from-azure-blob-storage-using-polybase.md) 非常適合於當您的資料是在 Azure Blob 儲存體或 Azure Data Lake Store 中的時候。 它給予您對於載入程序最多的控制權，但是也需要您定義外部資料物件。 其他方法會在您將來源資料表對應至目的地資料表時，在幕後定義這些物件。  若要協調 T-SQL 載入，您可以使用 Azure Data Factory、SSIS 或 Azure 函式。 
 - [PolyBase 與 SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) 非常適合於當您的來源資料是在 SQL Server 中的時候，無論是 SQL Server 內部部署或是在雲端。 SSIS 會定義來源至目的地資料表對應，也會協調載入。 如果您已經有 SSIS 套件，您可以將套件修改為搭配新的資料倉儲目的地。 
-- [PolyBase 與 Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) 是另一個協調工具。  它會定義管線並排程作業。 您可以使用 ADF 來剖析 JSON 資料並將資料載入 SQL 資料倉儲中。
-- 搭配使用 [PolyBase 與 Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md)，可將資料從 Azure Data Lake Store 移轉到 SQL 資料倉儲。 您可以使用 Azure DataBricks 來剖析 JSON 資料並將資料載入 SQL 資料倉儲中。 
+- [PolyBase 與 Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) 是另一個協調工具。  它會定義管線並排程作業。 
+- 搭配使用 [PolyBase 與 Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md)，可將資料從 SQL 資料倉儲資料表移轉到 Databricks 資料框架和/或從 Databricks 資料框架移轉到 SQL 資料倉儲資料表。
 
 ### <a name="polybase-external-file-formats"></a>PolyBase 外部檔案格式
 
 PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除了分隔符號文字檔，它會從 Hadoop 檔案格式 RC 檔案、ORC 和 Parquet 載入。 PolyBase 可以從 Gzip 和 Snappy 壓縮檔案載入資料。 PolyBase 目前不支援延伸的 ASCII、固定寬度格式和巢狀格式，例如 WinZip、JSON 和 XML。
 
 ### <a name="non-polybase-loading-options"></a>非 PolyBase 載入選項
-如果您的資料與 PolyBase 不相容，您可以使用 [bcp](sql-data-warehouse-load-with-bcp.md) 或 [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx)。 bcp 會直接載入 SQL 資料倉儲而不需要透過 Azure Blob 儲存體，它僅適用於小型載入。 請注意，這些選項的載入效能會顯著低於 PolyBase。 
+如果您的資料與 PolyBase 不相容，您可以使用 [bcp](/sql/tools/bcp-utility) 或 [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx)。 bcp 會直接載入 SQL 資料倉儲而不需要透過 Azure Blob 儲存體，它僅適用於小型載入。 請注意，這些選項的載入效能會顯著低於 PolyBase。 
 
 
 ## <a name="extract-source-data"></a>擷取來源資料
@@ -70,11 +70,8 @@ PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除�
 這些是您可以用來將資料移至 Azure 儲存體的工具和服務。
 
 - [Azure ExpressRoute](../expressroute/expressroute-introduction.md) 服務會增強網路輸送量、效能及可預測性。 ExpressRoute 是一項服務，它會透過專用私人連線將您的資料路由傳送至 Azure。 ExpressRoute 連線不會透過公用網際網路路由傳送資料。 相較於透過公用網際網路的一般連線，這個連線提供更為可靠、速度更快、延遲更低且安全性更高的網際網路連線。
-- [AZCopy 公用程式](../storage/common/storage-use-azcopy.md)透過公用網際網路將資料移至 Azure 儲存體。 如果您的資料大小小於 10 TB，就適用這個選項。 若要使用 AZCopy 定期執行載入，請測試網路速度以查看是否可以接受。 
-- [Azure Data Factory (ADF)](../data-factory/introduction.md) 具有閘道，您可以在本機伺服器上安裝。 然後您可以建立管線，將資料從本機伺服器移至 Azure 儲存體。
-
-如需詳細資訊，請參閱[移動資料進出 Azure 儲存體](../storage/common/storage-moving-data.md)
-
+- [AZCopy 公用程式](../storage/common/storage-moving-data.md)透過公用網際網路將資料移至 Azure 儲存體。 如果您的資料大小小於 10 TB，就適用這個選項。 若要使用 AZCopy 定期執行載入，請測試網路速度以查看是否可以接受。 
+- [Azure Data Factory (ADF)](../data-factory/introduction.md) 具有閘道，您可以在本機伺服器上安裝。 然後您可以建立管線，將資料從本機伺服器移至 Azure 儲存體。 若要搭配使用 Data Factory 與 SQL 資料倉儲，請參閱[將資料載入 SQL 資料倉儲](/azure/data-factory/load-azure-sql-data-warehouse)。
 
 ## <a name="prepare-data"></a>準備資料
 

@@ -1,26 +1,26 @@
 ---
-title: "Azure Active Directory 條件式存取中的位置條件 | Microsoft Docs"
-description: "了解如何使用位置條件，以根據使用者的網路位置來控制雲端應用程式的存取。"
+title: Azure Active Directory 條件式存取中的位置條件 | Microsoft Docs
+description: 了解如何使用位置條件，以根據使用者的網路位置來控制雲端應用程式的存取。
 services: active-directory
-keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
-documentationcenter: 
+keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2018
+ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 687f3c4a5f70154b6335563d65443c12463b0b74
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的位置條件 
 
@@ -43,7 +43,14 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 使用具名位置，您可以建立 IP 位址範圍、國家和地區的邏輯群組。 
 
- 具名位置具有下列元件：
+您可以在 [條件式存取] 頁面的 [管理] 區段中存取您的具名位置。
+
+![位置](./media/active-directory-conditional-access-locations/02.png)
+
+ 
+
+
+具名位置具有下列元件：
 
 ![位置](./media/active-directory-conditional-access-locations/42.png)
 
@@ -68,13 +75,13 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 ## <a name="trusted-ips"></a>信任的 IP
 
-您也可以在[多重要素驗證服務設定](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)中設定代表您組織的近端內部網路的 IP 位址範圍。 這項功能可讓您設定最多 50 個 IP 位址範圍。 IP 位址範圍是 CIDR 格式。 如需詳細資訊，請參閱[信任的 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)。  
+您也可以在[多重要素驗證服務設定](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)中設定代表您組織的近端內部網路的 IP 位址範圍。 這項功能可讓您設定最多 50 個 IP 位址範圍。 IP 位址範圍是 CIDR 格式。 如需詳細資訊，請參閱[信任的 IP](authentication/howto-mfa-mfasettings.md#trusted-ips)。  
 
 如果您已設定信任的 IP，在位置條件的位置清單中，它們會顯示為 **MFA 信任的 IP**。   
 
 ### <a name="skipping-multi-factor-authentication"></a>略過多重要素驗證
 
-在多重要素驗證服務設定頁面中，您可以透過選取**針對來自內部網路同盟使用者的要求略過多重要素驗證**來識別公司內部網路使用者。 此設定表示 AD FS 所發出的內部公司網路宣告應受信任，並且應用來識別使用者位於公司網路上。 如需詳細資訊，請參閱[使用條件式存取啟用信任的 IP 功能](../multi-factor-authentication/multi-factor-authentication-whats-next.md#enable-the-trusted-ips-feature-by-using-conditional-access)。
+在多重要素驗證服務設定頁面中，您可以透過選取**針對來自內部網路同盟使用者的要求略過多重要素驗證**來識別公司內部網路使用者。 此設定表示 AD FS 所發出的內部公司網路宣告應受信任，並且應用來識別使用者位於公司網路上。 如需詳細資訊，請參閱[使用條件式存取啟用信任的 IP 功能](authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access)。
 
 核取此選項之後，**MFA 信任的 IP** (包含具名位置) 將套用到選取此選項的任何原則。
 

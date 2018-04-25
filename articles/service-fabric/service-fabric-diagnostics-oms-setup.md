@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - 使用 OMS Log Analytics 設定監視 | Microsoft Docs
-description: 了解如何設定 Operations Management Suite 對事件進行視覺化及分析，以供監視 Azure Service Fabric 叢集。
+title: Azure Service Fabric - 使用 Log Analytics 設定監視 | Microsoft Docs
+description: 了解如何設定 Log Analytics 對事件進行視覺化及分析，以供監視 Azure Service Fabric 叢集。
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/30/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: af09df52fe733b69cfe4470de2fd6e978f126ca0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>針對叢集設定 Operations Management Suite Log Analytics
+# <a name="set-up-log-analytics-for-a-cluster"></a>為叢集設定 Log Analytics
 
-您可以透過 Azure Resource Manager、PowerShell 或 Azure Marketplace 設定 Operations Management Suite (OMS) 工作區。 如果要維護您的部署的 Resource Manager 更新範本，以供未來使用，請使用相同的範本來設定您的 OMS 環境。 如果已經在啟用診斷的情況下部署叢集，則透過 Marketplace 部署會更輕鬆。 如果要部署 OMS 的帳戶中沒有訂用帳戶層級的存取權，請使用 PowerShell 或 Resource Manager 範本進行部署。
+您可以透過 Azure Resource Manager、PowerShell 或 Azure Marketplace 設定 Log Analytics 工作區。 如果要維護您的部署的 Resource Manager 更新範本，以供未來使用，請使用相同的範本來設定您的 OMS 環境。 如果已經在啟用診斷的情況下部署叢集，則透過 Marketplace 部署會更輕鬆。 如果要部署 OMS 的帳戶中沒有訂用帳戶層級的存取權，請使用 PowerShell 或 Resource Manager 範本進行部署。
 
 > [!NOTE]
-> 若要設定 OMS 來監視您的叢集，您需要啟用診斷，才能檢視叢集層級或平台層級事件。
+> 若要設定 Log Analytics 來監視您的叢集，您需要啟用診斷，才能檢視叢集層級或平台層級事件。
 
 ## <a name="deploy-oms-by-using-azure-marketplace"></a>使用 Azure Marketplace 部署 OMS
 
@@ -200,7 +200,7 @@ $WorkspaceName = "<OMS Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId $SubID 
 
 # Create the resource group if needed

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e2bd041bd5848ceb5f04f06601190fb0508aca1c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題
 
@@ -29,7 +29,8 @@ ms.lasthandoff: 04/03/2018
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM 代理程式無法與 Azure 備份通訊
 
-錯誤訊息：「VM 代理程式無法與 Azure 備份通訊」
+錯誤訊息：「VM 代理程式無法與 Azure 備份通訊」<br>
+錯誤碼："UserErrorGuestAgentStatusUnavailable"
 
 在註冊及排程備份服務的 VM 之後，備份就會藉由與 VM 代理程式通訊以取得時間點快照集，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 若未觸發快照集，備份可能會失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：
 
@@ -41,7 +42,8 @@ ms.lasthandoff: 04/03/2018
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>快照集作業因為虛擬機器沒有網路連線而失敗
 
-錯誤訊息：「因為虛擬機器沒有網路連線，所以快照集作業失敗」
+錯誤訊息：「因為虛擬機器沒有網路連線，所以快照集作業失敗」<br>
+錯誤碼："ExtensionSnapshotFailedNoNetwork"
 
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：    
 **原因 1：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**  
@@ -50,7 +52,8 @@ ms.lasthandoff: 04/03/2018
 
 ## <a name="vmsnapshot-extension-operation-failed"></a>VMSnapshot 延伸模組作業失敗
 
-錯誤訊息：「VMSnapshot 延伸模組作業失敗」
+錯誤訊息：「VMSnapshot 延伸模組作業失敗」<br>
+錯誤碼："ExtentionOperationFailed"
 
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：  
 **原因 1︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -60,7 +63,8 @@ ms.lasthandoff: 04/03/2018
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>備份因為 VM 代理程式沒有回應而失敗
 
-錯誤訊息：「無法執行操作，因為 VM 代理程式沒有回應」
+錯誤訊息：「無法執行操作，因為 VM 代理程式沒有回應」 <br>
+錯誤碼："GuestAgentSnapshotTaskStatusError"
 
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：  
 **原因 1：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -69,7 +73,8 @@ ms.lasthandoff: 04/03/2018
 
 ## <a name="backup-fails-with-an-internal-error"></a>備份失敗，發生內部錯誤
 
-錯誤訊息：「備份因為內部錯誤而失敗 - 請在幾分鐘內重試此作業」
+錯誤訊息：「備份因為內部錯誤而失敗 - 請在幾分鐘內重試此作業」 <br>
+錯誤碼："BackUpOperationFailed"/ "BackUpOperationFailedV2"
 
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：  
 **原因 1：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**  
@@ -177,6 +182,8 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 3. 選取 [擴充功能]。
 4. 選取 [Vmsnapshot 解除安裝]。
 5. 選取 [解除安裝]。
+
+針對 Linux VM，如果 VMSnapshot 延伸模組未顯示在 Azure 入口網站中，[更新 Azure Linux 代理程式](../virtual-machines/linux/update-agent.md)，然後再執行備份。 
 
 完成這些步驟之後，下一次備份期間會重新安裝延伸模組。
 

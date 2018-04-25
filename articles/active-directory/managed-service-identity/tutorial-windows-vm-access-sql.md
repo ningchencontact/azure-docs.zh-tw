@@ -1,8 +1,8 @@
 ---
-title: "使用 Windows VM MSI 存取 Azure SQL"
-description: "此教學課程引導您使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure SQL 的程序。"
+title: 使用 Windows VM MSI 存取 Azure SQL
+description: 此教學課程引導您使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure SQL 的程序。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 863054ea8c69206d4068a35f09ec946aec67ea1f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5459739e9d3469adc7dbf65c8dcc0de918ea0c73
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure SQL
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Windows 虛擬機器
 
@@ -55,17 +55,13 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI 
 
-VM MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 啟用 MSI 會告訴 Azure 為您的 VM 建立受控身分識別。 實際上，啟用 MSI 會執行兩項工作：在您的 VM 上安裝 MSI VM 延伸模組，並在 Azure Resource Manager 中啟用 MSI。
+VM MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 啟用 MSI 會告訴 Azure 為您的 VM 建立受控身分識別。 實際上，啟用 MSI 會執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受管理的身分識別，它就會在 VM 上設定身分識別。
 
 1.  選取您想要在其中啟用 MSI 的 [虛擬機器]。  
 2.  在左側的導覽列上，按一下 [設定] 。 
 3.  您會看到**受控服務識別**。 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。 
 4.  按一下 [儲存] 確認儲存設定。  
     ![替代映像文字](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. 如果您想要檢查並確認哪些延伸模組會在此 VM 上，請按一下 [延伸模組]。 如果 MSI 已啟用，則 **ManagedIdentityExtensionforWindows** 會出現在清單中。
-
-    ![替代映像文字](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>將您的 VM 存取權授與 Azure SQL 伺服器中的資料庫
 
@@ -100,7 +96,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-接下來，將 VM 的 MSI 新增至群組。  您需要的 MSI 的 **ObjectId**，可以使用 Azure PowerShell 取得此值。  首先，下載 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 然後使用 `Login-AzureRmAccount` 登入，執行下列命令來達成這些事項︰
+接下來，將 VM 的 MSI 新增至群組。  您需要的 MSI 的 **ObjectId**，可以使用 Azure PowerShell 取得此值。  首先，下載 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 然後使用 `Connect-AzureRmAccount` 登入，執行下列命令來達成這些事項︰
 - 確定工作階段內容設為所需的 Azure 訂用帳戶 (如果您有多個訂用帳戶)。
 - 列出 Azure 訂用帳戶中的可用資源，確認資源群組和 VM 名稱正確。
 - 使用適當的 `<RESOURCE-GROUP>`和 `<VM-NAME>` 值取得 MSI VM 的屬性。
@@ -182,7 +178,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 Azure SQL 原生支援 Azure AD 驗證，因此可以直接接受使用 MSI 取得的存取權杖。  您使用 **access token** 方法來建立 SQL 連線。  這是 Azure AD 與 Azure SQL 整合的一部分，與在連接字串上提供認證不同。
 
-以下是使用存取權杖開啟 SQL 連線的 .Net 程式碼範例。  此程式碼必須在 VM 上執行，才能夠存取 VM MSI 端點。  需使用 **.Net framework 4.6** 或更高版本，才可使用的 access token 方法。  將 AZURE-SQL-SERVERNAME 和 DATABASE 的值取代為實際值。  請注意，Azure SQL 的資源識別碼是 "https://database.windows.net/"。
+以下是使用存取權杖開啟 SQL 連線的 .Net 程式碼範例。  此程式碼必須在 VM 上執行，才能夠存取 VM MSI 端點。  需使用 **.Net framework 4.6** 或更高版本，才可使用的 access token 方法。  將 AZURE-SQL-SERVERNAME 和 DATABASE 的值取代為實際值。  請注意，Azure SQL 資源識別碼是「https://database.windows.net/」。
 
 ```csharp
 using System.Net;
@@ -193,7 +189,7 @@ using System.Web.Script.Serialization;
 //
 // Get an access token for SQL.
 //
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://database.windows.net/");
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://database.windows.net/");
 request.Headers["Metadata"] = "true";
 request.Method = "GET";
 string accessToken = null;
@@ -234,7 +230,7 @@ if (accessToken != null) {
 4.  使用 Powershell 的 `Invoke-WebRequest`，向本機 MSI 端點提出要求取得 Azure SQL 的存取權杖。
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://database.windows.net/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     將來自 JSON 物件的回應轉換為 PowerShell 物件。 

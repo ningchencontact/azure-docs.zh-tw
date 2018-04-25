@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: ecf9df0d94f34df69750a8baa7f5502764cf9b06
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c4f4c89eccd1faa4c947048a6d634c4cf8483cb6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>在 Visual Studio 中設定和使用儲存體模擬器
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -54,5 +54,5 @@ Azure SDK 開發環境包含儲存體模擬器，這是一個公用程式，可�
 儲存體模擬器提供使用者介面，可讓您檢視本機儲存體服務的狀態，並啟動、停止和重新設定它們。 一旦啟動儲存體模擬器服務，您可以用滑鼠右鍵按一下 Windows 工作列的 Microsoft Azure 模擬器通知區域圖示，以顯示使用者介面或是啟動或停止服務。
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>在 [伺服器總管] 中檢視儲存體模擬器資料
-[伺服器總管] 中的 [Azure 儲存體] 節點可讓您檢視儲存體帳戶中的資料，以及變更 blob 和資料表資料的設定，包括儲存體模擬器。 如需詳細資訊，請參閱[使用儲存體總管管理 Azure Blob 儲存體資源 (預覽)](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)。
+[伺服器總管] 中的 [Azure 儲存體] 節點可讓您檢視儲存體帳戶中的資料，以及變更 blob 和資料表資料的設定，包括儲存體模擬器。 如需詳細資訊，請參閱[使用儲存體總管管理 Azure Blob 儲存體資源](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)。
 
