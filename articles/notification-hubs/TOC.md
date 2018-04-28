@@ -63,7 +63,7 @@
 ### [診斷指導方針](notification-hubs-push-notification-fixer.md)
 
 # 參考
-## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
+## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=notification-hubs)
 ## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)

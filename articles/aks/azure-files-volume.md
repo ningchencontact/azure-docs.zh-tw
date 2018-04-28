@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1def417f97a94fa0770b99606cd3a68189d1d51b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 04380e5e9e0f1f9b0c88fdba8d21b3e7e8e8a358
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="volumes-with-azure-files"></a>包含 Azure 檔案的磁碟區
 
@@ -66,7 +66,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-file-share-as-volume"></a>將檔案共用掛接成磁碟區
 
-您可以藉由在 Pod 的規格中設定磁碟區，將「Azure 檔案」共用掛接到 Pod 中。建立一個名為 `azure-files-pod.yaml` 且含有下列內容的新檔案。 將 `aksshare` 更新成提供給「Azure 檔案」共用的名稱。
+藉由在 Pod 的規格中設定磁碟區，將「Azure 檔案服務」共用掛接到 Pod 中。建立一個名為 `azure-files-pod.yaml` 且含有下列內容的新檔案。 將 `aksshare` 更新成提供給「Azure 檔案」共用的名稱。
 
 ```yaml
 apiVersion: v1
@@ -94,7 +94,7 @@ spec:
 kubectl apply -f azure-files-pod.yaml
 ```
 
-您現在有一個 Azure 檔案共用掛接在 `/mnt/azure` 目錄中的執行中容器。 您可以在透過 `kubectl describe pod azure-files-pod`檢查 Pod 時，查看磁碟區掛接。
+您現在有一個 Azure 檔案共用掛接在 `/mnt/azure` 目錄中的執行中容器。  您可以在透過 `kubectl describe pod azure-files-pod`檢查 Pod 時，查看磁碟區掛接。
 
 ## <a name="next-steps"></a>後續步驟
 

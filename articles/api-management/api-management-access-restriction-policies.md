@@ -1,11 +1,11 @@
 ---
-title: "Azure API 管理存取限制原則 | Microsoft Docs"
-description: "了解可用於 Azure API 管理中的存取限制原則。"
+title: Azure API 管理存取限制原則 | Microsoft Docs
+description: 了解可用於 Azure API 管理中的存取限制原則。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理存取限制原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -88,8 +88,8 @@ ms.lasthandoff: 02/21/2018
   
 ```xml  
 <rate-limit calls="number" renewal-period="seconds">  
-    <api name="name" calls="number" renewal-period="seconds">  
-        <operation name="name" calls="number" renewal-period="seconds" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </rate-limit>  
 ```  
@@ -113,8 +113,8 @@ ms.lasthandoff: 02/21/2018
 |Name|說明|必要|  
 |----------|-----------------|--------------|  
 |set-limit|根元素。|yes|  
-|api|新增一或多個這些元素，以對產品內的 API 強加呼叫頻率限制。 產品和 API 呼叫頻率限制會獨立套用。|否|  
-|operation|新增一或多個這些元素，以對 API 內的作業強加呼叫頻率限制。 產品、API 和作業呼叫頻率限制會獨立套用。|否|  
+|api|新增一或多個這些元素，以對產品內的 API 強加呼叫頻率限制。 產品和 API 呼叫頻率限制會獨立套用。 API 可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。|否|  
+|operation|新增一或多個這些元素，以對 API 內的作業強加呼叫頻率限制。 產品、API 和作業呼叫頻率限制會獨立套用。 作業可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。|否|  
   
 ### <a name="attributes"></a>屬性  
   
@@ -243,8 +243,8 @@ ms.lasthandoff: 02/21/2018
   
 ```xml  
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">  
-    <api name="name" calls="number" bandwidth="kilobytes">  
-        <operation name="name" calls="number" bandwidth="kilobytes" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </quota>  
 ```  
@@ -268,8 +268,8 @@ ms.lasthandoff: 02/21/2018
 |Name|說明|必要|  
 |----------|-----------------|--------------|  
 |quota|根元素。|yes|  
-|api|新增一或多個這些元素，以對產品內的 API 強加配額。 產品和 API 配額會獨立套用。|否|  
-|operation|新增一或多個這些元素，以對 API 內的作業強加配額。 產品、API 和作業配額會獨立套用。|否|  
+|api|新增一或多個上述元素，以對產品內的 API 強加呼叫配額。 產品和 API 呼叫配額會獨立套用。 API 可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。|否|  
+|operation|新增一或多個上述元素，以對 API 內的作業強加呼叫配額。 產品、API 和作業呼叫配額會獨立套用。 作業可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。|否|  
   
 ### <a name="attributes"></a>屬性  
   

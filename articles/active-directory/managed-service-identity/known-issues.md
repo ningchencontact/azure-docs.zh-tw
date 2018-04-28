@@ -14,11 +14,11 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>受控服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="frequently-asked-questions-faqs"></a>常見問題集 (FAQ)
 
-### <a name="is-there-a-private-preview-available-for-additional-features"></a>是否有私人預覽版可用於提供其他功能？
+### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>對於即將推出的 MSI 功能與整合，有可用的私人預覽方案嗎？
 
-是。 如果您要在私人預覽中進行註冊，[請造訪我們的註冊頁面](https://aka.ms/azuremsiprivatepreview)。
+是。 如果您要在私人預覽方案中進行註冊，[請造訪我們的註冊頁面](https://aka.ms/azuremsiprivatepreview)。
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>MSI 是否使用 Azure 雲端服務？
 
@@ -42,10 +42,24 @@ ms.lasthandoff: 03/16/2018
 
 身分識別的安全性界限，是指身分識別所連結到的資源。 例如，虛擬機器 MSI 安全性界限就是虛擬機器。 在該 VM 上執行的任何程式碼，都能呼叫 MSI 端點並要求權杖。 它是與支援 MSI 其他資源類似的體驗。
 
+### <a name="should-i-use-the-msi-vm-imds-endpoint-or-the-msi-vm-extension-endpoint"></a>我應該使用 MSI VM IMDS 端點還是 MSI VM 延伸模組端點？
+
+若搭配使用 MSI 與 VM，建議您使用 MSI IMDS 端點。 Azure 執行個體中繼資料服務是透過 Azure Resource Manager建立之所有 IaaS VM 可存取的 REST 端點。 使用 MSI 勝過使用 IMDS 的一些優點包括：
+
+1. 所有 Azure IaaS 支援的作業系統皆可使用 MSI，勝過使用 IMDS。 
+2. 不再需要為了啟用 MSI 而在 VM 上安裝延伸模組。 
+3. VM 中不會再有 MSI 所使用的憑證。 
+4. IMDS 端點是眾所周知的非可路由 IP 位址，且只能從 VM 內取得。 
+
+MSI VM 延伸模組目前仍可供使用；但往後，我們會預設為使用 IMDS 端點。 MSI VM 延伸模組很快就會啟動淘汰計劃。 
+
+如需 Azure 執行個體中繼資料服務的詳細資訊，請參閱 [IMDS 文件](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+
 ### <a name="what-are-the-supported-linux-distributions"></a>支援的 Linux 散發套件有哪些？
 
-下列 Linux 散發套件支援 MSI： 
+Azure IaaS 所支援的所有 Linux 散發套件都可以透過 IMDS 端點與 MSI 搭配使用。 
 
+注意：MSI VM 延伸模組僅支援下列 Linux 散發套件：
 - CoreOS Stable
 - CentOS 7.1
 - RedHat 7.2

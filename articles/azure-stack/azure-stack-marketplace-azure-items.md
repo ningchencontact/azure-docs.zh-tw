@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 413485fc764000dadca1a2cccf9ee0de7e9046aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1081fe9f8aceb6b849d595177b7c7cac2a26cbfc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 可用的 Azure Marketplace 項目
 
@@ -32,10 +32,10 @@ ms.lasthandoff: 04/16/2018
 |  | 項目名稱 | 說明 | 發行者 | OS 類型 |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS 延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>下載此延伸模組以在 Windows Marketplace 項目上部署任何 SQL Server - 此延伸模組是必要延伸模組。</b> | Microsoft | Windows |
-|![自訂指令碼延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [自訂指令碼擴充功能](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>請將此更新下載到附隨版的 Windows 自訂指令碼擴充功能中。</b> | Microsoft | Windows |
+|![自訂指令碼延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [自訂指令碼擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>請將此更新下載到附隨版的 Windows 自訂指令碼擴充功能中。</b> | Microsoft | Windows |
 |![PowerShell DSC 延伸模組](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>下載這個隨附版「PowerShell DSC 延伸模組」的更新。已更新成支援 TLS v1.2。</b> | Microsoft | Windows |
-| ![Microsoft Antimalware 延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 反惡意程式碼軟體擴充功能](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| 適用於 Azure 的 Microsoft Antimalware 是一個針對應用程式和租用戶環境所提供的單一代理程式解決方案，其設計可於無人為介入的情況下在背景中執行。 | Microsoft | Windows |
-|![自訂指令碼延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [自訂指令碼擴充功能](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>下載這個隨附版「適用於 Linux 的自訂指令碼延伸模組」的更新。此延伸模組有多個版本，您應該同時下載 1.5.2.1 和 2.0.x。</b> | Microsoft | Linux |
+| ![Microsoft Antimalware 延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 反惡意程式碼軟體擴充功能](https://docs.microsoft.com/azure/security/azure-security-antimalware)| 適用於 Azure 的 Microsoft Antimalware 是一個針對應用程式和租用戶環境所提供的單一代理程式解決方案，其設計可於無人為介入的情況下在背景中執行。 | Microsoft | Windows |
+|![自訂指令碼延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [自訂指令碼擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>下載這個隨附版「適用於 Linux 的自訂指令碼延伸模組」的更新。此延伸模組有多個版本，您應該同時下載 1.5.2.1 和 2.0.x。</b> | Microsoft | Linux |
 | ![Docker 延伸模組](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | 適用於 Linux 虛擬機器的 Docker 擴充功能。 | Microsoft | Linux |
 | ![適用於 Linux 的 VM 存取](media/azure-stack-marketplace-azure-items/cse.png) | [ VM Access for Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>請將此更新下載到附隨版的 VMAccess for Linux 擴充功能中。如果您打算使用 Debian Linux VM，這個更新很重要。</b> | Microsoft | Linux |
 | ![適用於 Linux 的 Acronis Backup 延伸模組](media/azure-stack-marketplace-azure-items/acronis.png) | [適用於 Linux 的 Acronis Backup 擴充功能](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | 適用於 Microsoft Azure 的 Acronis Backup 擴充功能，是 Acronis Backup 資料保護產品系列的一部分。 | Acronis International GmbH. | Linux |

@@ -10,18 +10,18 @@ ms.topic: article
 manager: carmonm
 tags: top-support-issue
 keywords: 自動化錯誤, 疑難排解, 問題
-ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 44200ae9deb1a5c11c81550173b3f6f90b5d62ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>針對 Azure 自動化中的常見問題進行疑難排解 
 本文提供針對您在 Azure 自動化中可能遇到的一些常見錯誤進行疑難排解的協助，並且建議可能的解決方法。
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>使用 Azure 自動化 Runbook 時的驗證錯誤
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>案例：登入 Azure 帳戶失敗
-**錯誤：**使用 Add-AzureAccount 或 Login-AzureRmAccount Cmdlet 時，收到錯誤「Unknown_user_type：未知的使用者類型」。
+**錯誤：**使用 Add-AzureAccount 或 Connect-AzureRmAccount Cmdlet 時，收到錯誤「Unknown_user_type：未知的使用者類型」。
 
 **錯誤的原因：**如果認證資產名稱無效，或您用來設定自動化認證資產的使用者名稱和密碼無效，就會發生此錯誤。
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/23/2018
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount –Credential $Cred
+        Connect-AzureRmAccount –Credential $Cred
 3. 如果您的驗證在本機失敗，這表示您尚未正確設定 Azure Active Directory 認證。 請參閱 [Authenticating to Azure using Azure Active Directory (使用 Azure Active Directory 對 Azure 進行驗證)](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) 部落格文章，以正確設定 Azure Active Directory 帳戶。  
 
 ### <a name="scenario-unable-to-find-the-azure-subscription"></a>案例：找不到 Azure 訂用帳戶

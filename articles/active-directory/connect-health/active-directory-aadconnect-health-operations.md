@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Connect Health 作業"
-description: "本文說明可以在您部署 Azure AD Connect Health 之後執行的其他作業。"
+title: Azure Active Directory Connect Health 作業
+description: 本文說明可以在您部署 Azure AD Connect Health 之後執行的其他作業。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health 作業
 本主題說明您可以使用 Azure Active Directory (Azure AD) Connect Health 來執行的各種作業。
@@ -91,9 +91,9 @@ Azure AD Connect Health for Azure Active Directory Domain Services：
 4. 按一下 [刪除] 。
    <br><br>
 
-[//]: # (Start of RBAC section)
+[//]: # (RBAC 小節的開頭)
 ## <a name="manage-access-with-role-based-access-control"></a>使用角色型存取控制來管理存取
-Azure AD Connect Health 的[角色型存取控制 (RBAC)](../role-based-access-control-configure.md) 提供存取權給全域管理員以外的使用者和群組。 RBAC 會指派角色給目標使用者和群組，並提供機制來限制您目錄內的全域管理員。
+Azure AD Connect Health 的[角色型存取控制 (RBAC)](../../role-based-access-control/role-assignments-portal.md) 提供存取權給全域管理員以外的使用者和群組。 RBAC 會指派角色給目標使用者和群組，並提供機制來限制您目錄內的全域管理員。
 
 ### <a name="roles"></a>角色
 Azure AD Connect Health 支援下列內建角色：
@@ -153,7 +153,7 @@ Azure AD Connect Health 支援在兩個層級上管理存取：
 您可以移除已新增至 Azure AD Connect Health RBAC 的使用者或群組。 只要以滑鼠右鍵按一下使用者或群組，然後選取 [移除] 即可。<br>
 ![Azure AD Connect Health RBAC [使用者] 視窗的螢幕擷取畫面，其中已醒目提示 [移除]](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
-[//]: # (End of RBAC section)
+[//]: # (RBAC 小節的結尾)
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

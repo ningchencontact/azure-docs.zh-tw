@@ -1,8 +1,8 @@
 ---
-title: "使用 Apache Kafka Producer 和 Consumer API - Azure HDInsight | Microsoft Docs"
-description: "了解如何搭配 HDInsight 上的 Kafka 使用 Apache Kafka Producer 和 Consumer API。 這些 API 可讓您開發寫入和讀取 Apache Kafka 的應用程式。"
+title: 使用 Apache Kafka Producer 和 Consumer API - Azure HDInsight | Microsoft Docs
+description: 了解如何搭配 HDInsight 上的 Kafka 使用 Apache Kafka Producer 和 Consumer API。 這些 API 可讓您開發寫入和讀取 Apache Kafka 的應用程式。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/18/2018
+ms.topic: conceptual
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: b57745d6bd993a993e923c964327d9071e745413
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 01592401c4c88adeed49b11df4e7963e27b1bcee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-kafka-producer-and-consumer-apis"></a>Apache Kafka Producer 和 Consumer API
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 01/20/2018
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    以您的 HDInsight 叢集的名稱取代__您的叢集名稱__。 出現提示時，輸入 HDInsight 叢集登入帳戶的密碼。
+    以您 HDInsight 叢集的名稱取代 __您的叢集名稱__。 出現提示時，輸入 HDInsight 叢集登入帳戶的密碼。
 
     > [!NOTE]
     > 如果您的叢集登入與預設值 `admin` 不同，請以您的叢集登入名稱取代上一個命令中的 `admin` 值。

@@ -1,11 +1,11 @@
 ---
-title: "混合式身分識別設計 - Azure 採用策略 | Microsoft Docs"
-description: "透過條件式存取控制，Azure Active Directory 會在驗證使用者時以及允許存取應用程式之前，檢查您挑選的特定條件。 一旦符合這些條件，就會驗證使用者並允許存取應用程式。"
-documentationcenter: 
+title: 混合式身分識別設計 - Azure 採用策略 | Microsoft Docs
+description: 透過條件式存取控制，Azure Active Directory 會在驗證使用者時以及允許存取應用程式之前，檢查您挑選的特定條件。 一旦符合這些條件，就會驗證使用者並允許存取應用程式。
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>定義混合式身分識別採用策略
 在這項工作中，您將為混合式身分識別解決方案，定義混合式身分識別採用策略，以滿足下列幾節已討論的商務需求：
@@ -196,7 +196,7 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 | 內部部署 AD |Multi-Factor Authentication Server |
 
 > [!NOTE]
-> 您也應該確定您選取的多重要素驗證設計選項，支援您的設計所需的功能。  如需詳細資訊，請參閱 [選擇合適的多重因素安全性解決方案](../multi-factor-authentication/multi-factor-authentication-get-started.md#what-am-i-trying-to-secure)。
+> 您也應該確定您選取的多重要素驗證設計選項，支援您的設計所需的功能。  如需詳細資訊，請參閱 [選擇合適的多重因素安全性解決方案](authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure)。
 > 
 > 
 

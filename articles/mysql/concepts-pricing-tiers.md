@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: c9a74aa00ee263b8fb4e19b77ad5be418e31c7d6
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 24f352d8743ba8ef72e141498589e1c6c14ff85e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/05/2018
 | 一般用途 | 需要平衡的計算和記憶體以及可擴充 I/O 輸送量的大多數商務工作負載。 範例包括用於裝載 Web 和行動應用程式的伺服器，以及其他企業應用程式。|
 | 記憶體最佳化 | 需要記憶體內效能來提供更快速交易處理和更高並行性的高效能資料庫工作負載。 範例包括用於處理即時資料的伺服器，以及高效能交易式或分析應用程式。|
 
-建立伺服器之後，虛擬核心數目可在幾秒內增加或減少。 您可以也單獨調高儲存體的數量及延長或縮短備份保留期限，而無須中斷應用程式。 如需詳細資訊，請參閱＜調整資源＞一節。
+建立伺服器之後，虛擬核心數目可在幾秒內增加或減少 (在同一個定價層內)。 您可以也單獨調高儲存體的數量及延長或縮短備份保留期限，而無須中斷應用程式。 但您無法在建立伺服器之後，變更定價層或備份儲存體類型。 如需詳細資訊，請參閱[調整資源](#scale-resources)一節。
 
 ## <a name="compute-generations-vcores-and-memory"></a>計算世代、虛擬機器和記憶體
 
@@ -53,13 +53,13 @@ ms.lasthandoff: 04/05/2018
 | 美國西部 2 |  | X |
 | 加拿大中部 | X | X |
 | 加拿大東部 | X | X |
-| 巴西南部 | X |  |
+| 巴西南部 | X | X |
 | 北歐 | X | X |
 | 西歐 | X | X |
 | 英國西部 |  | X |
 | 英國南部 |  | X |
 | 東亞 | X |  |
-| 東南亞 | X |  |
+| 東南亞 | X | X |
 | 澳洲東部 |  | X |
 | 印度中部 | X |  |
 | 印度西部 | X |  |
@@ -90,7 +90,7 @@ ms.lasthandoff: 04/05/2018
 
 ## <a name="scale-resources"></a>調整資源
 
-建立伺服器之後，您可以單獨變更 vCore、儲存體數量及備份保留期限。 但您無法在建立伺服器之後，變更定價層或備份儲存體類型。 您可相應增加或減少虛擬核心及備份保留期限。 儲存體大小只能增加。 您可以透過入口網站或 Azure CLI 來調整資源。 如需使用 Azure CLI 進行調整的範例，請參閱[使用 Azure CLI 監視和調整適用於 MySQL 伺服器的 Azure 資料庫](scripts/sample-scale-server.md)。
+建立伺服器之後，您可以單獨變更 vCore、儲存體數量及備份保留期限。 但您無法在建立伺服器之後，變更定價層或備份儲存體類型。 虛擬核心數目可在同一個定價層內相應增加或減少。 備份保留期可在 7 到 35 天的範圍內相應增加或減少。 儲存體大小只能增加。 您可以透過入口網站或 Azure CLI 來調整資源。 如需使用 Azure CLI 進行調整的範例，請參閱[使用 Azure CLI 監視和調整適用於 MySQL 伺服器的 Azure 資料庫](scripts/sample-scale-server.md)。
 
 當您變更虛擬核心數目時，系統會以新的計算配置來建立原始伺服器的複本。 當新伺服器已啟動並執行之後，連線就會切換到新的伺服器。 在系統切換到新伺服器的期間，您無法建立任何新的連線，且所有未認可的交易皆會復原。 此期間長短可能有所不同，但大部分情況下是少於一分鐘。
 

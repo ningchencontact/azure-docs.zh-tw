@@ -1,26 +1,22 @@
 ---
-title: "Hadoop 安全性 - 已加入網域的 HDInsight 叢集 - Azure | Microsoft Docs"
-description: "了解 ..."
+title: HDInsight - 已加入網域的 HDInsight 叢集 - Azure
+description: 了解 ...
 services: hdinsight
-documentationcenter: 
-author: saurinsh
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/31/2016
-ms.author: saurinsh
-ms.openlocfilehash: 0a3558973014e47d470ef89d5d0f7c9ac15cb4d9
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 6225bd824e3bcff24b84c79f39ce209f16caafd8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>已加入網域之 HDInsight 叢集的 Hadoop 安全性簡介
 
@@ -55,7 +51,10 @@ ms.lasthandoff: 12/14/2017
 保護資料對於符合組織安全性和規範需求而言極為重要，而除了限制未經授權的員工存取資料以外，還應該透過加密方式加以保護。 HDInsight 叢集的兩個資料存放區 (Azure 儲存體 Blob 和 Azure Data Lake 儲存體) 都支援透明的伺服器端待用[資料加密](../../storage/common/storage-service-encryption.md)。 安全的 HDInsight 叢集會完美地與此伺服器端待用資料加密功能配合運作。
 
 ## <a name="next-steps"></a>後續步驟
-* 如需設定已加入網域的 HDInsight 叢集，請參閱[設定已加入網域的 HDInisight 叢集](apache-domain-joined-configure.md)。
+* 如需設定已加入網域的 HDInsight 叢集，請參閱[設定已加入網域的 HDInsight 叢集](apache-domain-joined-configure.md)。
 * 如需管理已加入網域的 HDInsight 叢集，請參閱[管理已加入網域的 HDInisight 叢集](apache-domain-joined-manage.md)。
 * 如需設定 Hive 原則和執行 Hive 查詢，請參閱[針對已加入網域的 HDInisight 叢集設定 Hive 原則](apache-domain-joined-run-hive.md)。
 * 若要在已加入網域的 HDInsight 叢集上使用 SSH 執行 Hive 查詢，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)。
+* 有關使用 VSCode 連結到已加入網域的叢集，請參閱[使用 VSCode 連結到已加入網域的叢集](../hdinsight-for-vscode.md#linkcluster)。
+* 有關使用 IntelliJ 連結到已加入網域的叢集，請參閱[使用 IntelliJ 連結到已加入網域的叢集](../spark/apache-spark-intellij-tool-plugin.md#linkcluster)。
+* 有關使用 Eclipse 連結到已加入網域的叢集，請參閱[使用 Eclipse 連結到已加入網域的叢集](../spark/apache-spark-eclipse-tool-plugin.md#linkcluster)。

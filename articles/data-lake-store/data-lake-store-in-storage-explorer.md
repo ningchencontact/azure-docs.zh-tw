@@ -16,15 +16,15 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a02844c678c08d8aefbceb16d3908faeffd755fb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 396452faf36bc43a185fd6492f952b7bfd9511cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>使用儲存體總管管理 Azure Data Lake Store 資源
 
-[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) 是用來儲存大量非結構化資料 (例如文字或二進位資料) 的服務。 您可以透過 HTTP 或 HTTPS 從任何位置存取資料。 Azure 儲存體總管中的 Data Lake Store 可讓您存取和管理 Data Lake Store 資料和資源，以及如 Blob 和佇列之類的其他 Azure 實體。 現在您可以使用同一個工具在同一處管理您不同的 Azure 實體。
+[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) 是用來儲存大量非結構化資料 (例如文字或二進位資料) 的服務。 您可以透過 HTTP 或 HTTPS 從任何位置存取資料。 Azure 儲存體總管中的 Data Lake Store 可讓您存取和管理 Data Lake Store 資料和資源，以及如 Blob 和佇列之類的其他 Azure 實體。 現在您可以使用同一個工具在同一處管理您不同的 Azure 實體。
 
 另一個優點是，您不需擁有訂用帳戶權限即可管理 Data Lake Store 資料。 在儲存體總管中，只要他人授與權限，您即可將 Data Lake Store 路徑連結至 [本機與已連結的資源] 節點。
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/16/2018
 若要完成本文中的步驟，您必須符合下列先決條件︰
 
 *   Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial)。
-*   Azure Data Lake Store 帳戶。 如需有關如何建立帳戶的詳細指示，請參閱[開始使用 Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal)。
+*   Azure Data Lake Store 帳戶。 如需有關如何建立帳戶的詳細指示，請參閱[開始使用 Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。
 
 ## <a name="install-storage-explorer"></a>安裝儲存體總管
 
@@ -197,7 +197,7 @@ Azure Data Lake Store 帳戶的資源包含資料夾和檔案。
 
 ## <a name="next-steps"></a>後續步驟
 * 檢視 [最新的儲存體 Explorer 版本資訊與影片](http://www.storageexplorer.com)。
-* 了解如何[在 Azure 儲存體總管中管理 Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer)。
-* [開始使用儲存體總管](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer)
-* [開始使用 Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview)。
+* 了解如何[在 Azure 儲存體總管中管理 Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/storage-explorer)。
+* [開始使用儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [開始使用 Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)。
 * 觀看[有關如何在 Azure 儲存體總管中使用 Azure Cosmos DB 的 YouTube 影片](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)。

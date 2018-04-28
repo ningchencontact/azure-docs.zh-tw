@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 72a823ef04ad69d1d3b40377c32a02bacb8328c2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6d2681ad05890fc5f9f2821245e0f0280bf45a5f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>管理 Azure 內容傳遞網路中 Azure Blob 儲存體的期限
 > [!div class="op_single_selector"]
@@ -148,7 +148,7 @@ class Program
 ## <a name="setting-cache-control-headers-by-using-other-methods"></a>使用其他方法設定 Cache-Control 標頭
 
 ### <a name="azure-storage-explorer"></a>Azure 儲存體總管
-透過 [Azure 儲存體總管](https://azure.microsoft.com/en-us/features/storage-explorer/)，您可以檢視和編輯您的 Blob 儲存體資源，包括如 *CacheControl* 屬性的屬性。 
+透過 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)，您可以檢視和編輯您的 Blob 儲存體資源，包括如 *CacheControl* 屬性的屬性。 
 
 若要使用 Azure 儲存體總管更新 blob 的 CacheControl 屬性：
    1. 選取 blob，然後從捷徑功能表選取 [屬性]。 
@@ -168,8 +168,8 @@ azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .
 ### <a name="azure-storage-services-rest-api"></a>Azure 儲存體服務 REST API
 您可以使用 [Azure 儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) \(英文\)，在要求上使用下列作業來明確設定 *x-ms-blob-cache-control* 屬性：
   
-   - [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx) \(英文\)
-   - [Put Block List](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx) \(英文\)
+   - [Put Blob](https://msdn.microsoft.com/library/azure/dd179451.aspx) \(英文\)
+   - [Put Block List](https://msdn.microsoft.com/library/azure/dd179467.aspx) \(英文\)
    - [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx) \(英文\)
 
 ## <a name="testing-the-cache-control-header"></a>測試 Cache-Control 標頭

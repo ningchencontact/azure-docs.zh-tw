@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/21/2017
+ms.date: 4/11/2018
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 39e7c95f236f53d7b7c4de0e5b792debe5c0c6f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9dfd600a0e3271afff0dd7ce634c78bf87ab314f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>關於 Azure 備份服務的問題
 本文提供 Azure 備份元件的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 按一下 [註解] \(位於右側)，即可詢問 Azure 備份的相關問題。 註解會出現於文末。 需有 Livefyre 帳戶才能使用註解。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -30,10 +30,10 @@ ms.lasthandoff: 03/16/2018
 ## <a name="recovery-services-vault"></a>復原服務保存庫
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>每個 Azure 訂用帳戶中可以建立的保存庫數目是否有任何限制？ <br/>
-是。 從 2018 年 1 月起，您可以為每個訂用帳戶的 Azure 備份支援區域，最多建立 25 個復原服務保存庫。 如果您需要其他保存庫，請建立其他訂用帳戶。
+是。 您可以為每個訂用帳戶的 Azure 備份支援區域，最多建立 500 個復原服務保存庫。 如果您需要其他保存庫，請建立其他訂用帳戶。
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>針對每個保存庫註冊的伺服器/電腦具有數目限制嗎？ <br/>
-每個保存庫可以註冊最多 200 部 Azure 虛擬機器。 如果您使用的是 MAB 代理程式，則每個保存庫可以註冊最多 50 個 MAB 代理程式。 而且您可以將 50 部 MAB 伺服器/DPM 伺服器註冊至保存庫。
+每個保存庫可以註冊最多 1000 部 Azure 虛擬機器。 如果您使用的是 MAB 代理程式，則每個保存庫可以註冊最多 50 個 MAB 代理程式。 而且您可以將 50 部 MAB 伺服器/DPM 伺服器註冊至保存庫。
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>如果我的組織有一個備份保存庫，如何在還原資料時隔離某一部伺服器與另一部伺服器的資料？<br/>
 所有向相同保存庫註冊的伺服器都可以復原由「使用相同複雜密碼」 之其他伺服器所備份的資料。 如果您想要隔離您伺服器中的備份資料與您組織中的其他伺服器，請使用這些伺服器的指定複雜密碼。 例如，人力資源伺服器可能使用一組加密複雜密碼，而會計伺服器使用另一組，並且儲存體伺服器使用第三組。
@@ -81,13 +81,13 @@ ms.lasthandoff: 03/16/2018
 如果您取消 Azure VM 的備份工作，則會忽略任何傳輸的資料。 下一個備份工作會傳輸自最後一個成功備份工作之後的增量資料。
 
 ### <a name="are-there-limits-on-when-or-how-many-times-a-backup-job-can-be-scheduledbr"></a>備份作業可排程的時間和次數是否有限制？<br/>
-是。 您一天可以在 Windows Server 或 Windows 工作站上執行備份作業最多三次。 您一天可以在 System Center DPM 上執行備份作業最多兩次。 您一天可以執行 IaaS VM 的備份作業一次。 若要指定每日或每週排程，您可以使用 Windows Server 或 Windows 工作站的排程原則。 使用 System Center DPM 時，您可以指定每日、每週、每月和每年排程。
+是。 您一天可以在 Windows Server 或 Windows 工作站上執行備份作業最多三次。 您一天可以在 System Center DPM 上執行備份作業最多兩次。 您一天可以執行 IaaS VM 的備份作業一次。 若要指定每日或每週排程，可以使用 Windows Server 或 Windows 工作站的排程原則。 使用 System Center DPM 時，您可以指定每日、每週、每月和每年排程。
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>為何傳輸到復原服務保存庫的資料大小會小於我備份的資料？<br/>
  從 Azure 備份代理程式、SCDPM 或 Azure 備份伺服器備份的所有資料都會在傳輸之前，經過壓縮和加密。 一旦套用壓縮和加密，復原服務保存庫中的資料會縮小 30-40%。
 
 ## <a name="what-can-i-back-up"></a>我可以備份什麼
-### <a name="which-operating-systems-do-azure-backup-support-br"></a>Azure 備份支援哪些作業系統？ <br/>
+### <a name="which-operating-systems-does-azure-backup-support-br"></a>Azure 備份支援哪些作業系統？ <br/>
 Azure 備份支援下列作業系統清單來備份：使用 Azure 備份伺服器和 System Center Data Protection Manager (DPM) 保護的檔案、資料夾及工作負載應用程式。
 
 | 作業系統 | 平台 | SKU |
@@ -112,7 +112,7 @@ Azure 備份支援下列作業系統清單來備份：使用 Azure 備份伺服�
 
 
 ### <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>正在備份的每個資料來源是否有大小限制？ <br/>
-您可備份到保存庫的資料量並無任何限制。 Azure 備份會限制資料來源的大小上限，不過，這些限制很大。 截至 2015 年 8 月，適用於支援作業系統的資料來源大小上限為：
+Azure 備份會強制執行資料來源的大小上限，不過，來源的限額很大。 截至 2015 年 8 月，適用於支援作業系統的資料來源大小上限為：
 
 | S.No | 作業系統 | 資料來源的大小上限 |
 |:---:|:--- |:--- |
@@ -132,13 +132,16 @@ Azure 備份支援下列作業系統清單來備份：使用 Azure 備份伺服�
 | Microsoft Exchange |在要備份的 Exchange Server 中所有 Exchange 資料庫的總和 |
 | BMR/系統狀態 |在要備份的電腦上 BMR 或系統狀態的每個個別複本 |
 
-在 Azure VM 備份中，每個 VM 最多可以有 16 個資料磁碟，而每個資料磁碟的大小為 4095GB 或更少。 <br>
+如果是 Azure IaaS VM 備份，每個 VM 最多可有 16 個資料磁碟，每個資料磁碟最多為 4095 GB。
+
+### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>復原服務保存庫容納的資料量是否有限制？
+您可備份到復原服務保存庫的資料量並無任何限制。
 
 ## <a name="retention-policy-and-recovery-points"></a>保留原則和復原點
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>DPM 和 Windows Server/用戶端 (亦即在不含 DPM 的 Windows Server 上) 的保留原則是否具有差異？<br/>
 否，DPM 和 Windows Server/用戶端均有每日、每週、每月和每年保留原則。
 
-### <a name="can-i-configure-my-retention-policies-selectively--ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>我可以選擇性設定保留原則，例如設定每週和每日，但不包含每年和每月嗎？<br/>
+### <a name="can-i-configure-my-retention-policies-selectively--that-is-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>我可以選擇性設定保留原則嗎 (例如設定每週和每日，但不包含每年和每月)？<br/>
 是的，Azure 備份保留結構讓您可以依照您的需求，彈性定義保留原則。
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>我可以在下午 6:00「排程備份」，並在不同的時間指定「保留原則」嗎？<br/>

@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 04/10/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異 
 
@@ -239,7 +239,7 @@ WITH PRIVATE KEY ( <private_key_options> )
 ### <a name="linked-servers"></a>連結的伺服器
  
 在受控執行個體中，連結伺服器支援的目標數有限： 
-- 支援的目標：SQL Server、SQL Database、受控執行個體和虛擬機器上的 SQL Server。
+- 支援的目標：SQL Server 及 SQL Database
 - 不支援目標：檔案、Analysis Services 和其他 RDBMS。
 
 作業
@@ -419,4 +419,4 @@ SQL Server Management Studio 和 SQL Server Data Tools 在存取受控執行個�
 
 - 如需受控執行個體的詳細資訊，請參閱[受控執行個體是什麼？](sql-database-managed-instance.md)
 - 如需功能與比較清單，請參閱 [SQL 的一般功能](sql-database-features.md)。
-- 如需教學課程，請參閱[建立受控執行個體](sql-database-managed-instance-tutorial-portal.md)。
+- 如需示範如何新建受控執行個體的教學課程，請參閱[建立受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)。

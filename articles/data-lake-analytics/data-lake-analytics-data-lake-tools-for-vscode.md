@@ -1,10 +1,10 @@
 ---
-title: "Azure Data Lake Tools：使用 Azure Data Lake Tools for Visual Studio Code | Microsoft Docs"
-description: "了解如何使用 Azure Data Lake Tools for Visual Studio Code 來建立、測試和執行 U-SQL 指令碼。 "
+title: Azure Data Lake Tools：使用 Azure Data Lake Tools for Visual Studio Code | Microsoft Docs
+description: '了解如何使用 Azure Data Lake Tools for Visual Studio Code 來建立、測試和執行 U-SQL 指令碼。 '
 Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
+documentationcenter: ''
+author: Jejiang
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: 7e1e2c0a5481a81e9267bcf87076076b377a1496
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fcd821c91a8c94792eeed83940abe1c72d0b2fb8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>使用 Azure Data Lake Tools for Visual Studio Code
 
@@ -356,13 +356,13 @@ Azure Data Lake Tool 支援多個自訂程式碼，如需指示，請參閱[針�
 
 **Azure 整合** 
 
-- 登入 Azure 之前，您一律可以展開 **DataLake 總管**，然後按一下 [登入 Azure] 以登入 Azure。 登入之後，您會看到 Azure 帳戶下的所有訂用帳戶都列在 **DataLake 總管**的左側面板中。 
+- 登入 Azure 之前，您一律可以展開 **AZURE DATALAKE**，然後按一下 [登入 Azure] 以登入 Azure。 登入之後，您會看到 Azure 帳戶下的所有訂用帳戶都列在 **AZURE DATALAKE** 的左側面板中。 
 
    ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**ADLA 中繼資料瀏覽** 
+**ADLA 中繼資料瀏覽**
 
 - 展開您的 Azure 訂用帳戶，您可以瀏覽 U-SQL 資料庫，在 U-SQL 資料庫節點底下檢視**結構描述**、**認證**、**組件**、**資料表**、**索引**等等。
 
@@ -382,11 +382,31 @@ Azure Data Lake Tool 支援多個自訂程式碼，如需指示，請參閱[針�
 
 **ADLS 整合** 
 
- - 瀏覽至**儲存體帳戶**，您可以根據檔案節點上的內容功能表**預覽**、**下載**、**刪除**、**複製相對路就**、**複製完整路徑**。 您可以藉由以滑鼠右鍵按一下資料夾節點上的內容功能表，**重新整理**、**上傳**、**上傳資料夾**、**刪除**。
+瀏覽至 **Data Lake Store**
+
+ - 在資料夾節點上，您可以在滑鼠右鍵內容功能表中重新整理、刪除、上傳**、上傳資料夾****、複製相對路徑****、複製完整路徑**。
 
    ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
+ - 在檔案節點上，您可以在滑鼠右鍵內容功能表中下載、預覽、刪除、複製相對路徑、複製完整路徑。 
+
    ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+**WASB 整合**
+
+瀏覽至 Blob 儲存體
+
+- 在 Blob 容器節點上，您可以在滑鼠右鍵內容功能表中重新整理刪除 Blob 容器上傳 Blob。
+
+    ![Blob 儲存體 Blob 容器節點](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
+
+- 在資料夾 節點上，您可以在滑鼠右鍵內容功能表中**重新整理**、上傳 Blob。
+
+    ![Blob 儲存體資料夾節點](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
+
+- 在檔案節點上，您可以在滑鼠右鍵內容功能表中預覽/編輯、下載、刪除、複製相對路徑、複製完整路徑。
+
+    ![Blob 儲存體檔案節點](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
 
 ## <a name="open-adl-storage-explorer-in-portal"></a>在入口網站中開啟 ADL 儲存體總管
 1. 選取 Ctrl+Shift+P 以開啟命令選擇區。

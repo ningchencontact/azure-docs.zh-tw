@@ -1,6 +1,6 @@
 ---
 title: 回應 Azure Blob 儲存體事件 | Microsoft Docs
-description: 使用 Azure Event Grid 訂閱 Blob 儲存體事件。
+description: 使用 Azure Event Grid 以訂閱 Blob 儲存體事件。
 services: storage,event-grid
 keywords: ''
 author: cbrooksmsft
@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: ea2ec712c8d8b5f85f020535ab0544986f0da53a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="reacting-to-blob-storage-events"></a>回應 Blob 儲存體事件
 
@@ -92,7 +92,7 @@ Blob 事件訂閱可以根據事件類型來篩選，也可以依據容器名稱
 
 Blob 儲存體事件的主體使用格式：
 
-```json
+```
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
 
@@ -100,19 +100,19 @@ Blob 儲存體事件的主體使用格式：
 
 若要比對建立於共用前置詞的一組容器之 Blob 事件，請使用 `subjectBeginsWith` 篩選條件，例如：
 
-```json
+```
 /blobServices/default/containers/containerprefix
 ```
 
 若要比對建立於特定容器之 Blob 事件，請使用 `subjectBeginsWith` 篩選條件，例如：
 
-```json
+```
 /blobServices/default/containers/containername/
 ```
 
 若要比對建立於共用 Blob 名稱前置詞的特定容器之 Blob 事件，請使用 `subjectBeginsWith` 篩選條件，例如：
 
-```json
+```
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 

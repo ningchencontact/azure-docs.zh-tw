@@ -1,8 +1,8 @@
 ---
-title: "連接到 Windows Server VM | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站和 Resource Manager 部署模型來連接和登入 Windows VM。"
+title: 連接到 Windows Server VM | Microsoft Docs
+description: 了解如何使用 Azure 入口網站和 Resource Manager 部署模型來連接和登入 Windows VM。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: tysonn
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 04/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 3e7b7c2ffa7471b96ebd23ac430fbd21eb21e9c5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 0c81e70a76983885fdfb6eefe9b6cbe407e117c8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>如何連接和登入執行 Windows 的 Azure 虛擬機器
 您會使用 Azure 入口網站中的 [連線] 按鈕，從 Windows 桌面啟動遠端桌面 (RDP) 工作階段。 首先您要連接至虛擬機器，然後登入。
@@ -30,9 +30,7 @@ ms.lasthandoff: 01/03/2018
 1. 如果您尚未登入 [Azure 入口網站](https://portal.azure.com/)，請先登入。
 2. 在左側功能表中，按一下 [虛擬機器]。
 3. 然後從清單中選取虛擬機器。
-4. 在虛擬機器頁面上，按一下 [連線]。
-   
-    ![顯示如何連接至 VM 的 Azure 入口網站螢幕擷取畫面。](./media/connect-logon/connect.png)
+4. 在虛擬機器頁面上方，按一下 ![[連線] 按鈕的影像。](./media/connect-logon/connect.png) 按鈕。
    
    > [!TIP]
    > 如果入口網站中的 [連接] 按鈕呈現灰色，而且您未透過 [Express Route](../../expressroute/expressroute-introduction.md) 或[網站間 VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 連接來連接到 Azure，您就必須先建立 VM 並為其指派公用 IP 位址，才能使用 RDP。 您可以深入了解 [Azure 中的公用 IP 位址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)。

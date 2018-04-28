@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: e421797d85dd031b77788958db6b1df62a292a8a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: db910096f776f2f8710c0ac03f0378491018fc09
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 已知問題和疑難排解指南 
 本文可協助您尋找和修正使用 Azure Machine Learning Workbench 應用程式過程中遇到的錯誤與失敗。 
@@ -137,7 +137,7 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 如果您有 Windows 10 Fall Creators Update，而且您的專案建立於 OneDrive 對應的本機資料夾，您可能會發現您無法在 Workbench 中開啟任何檔案。 這是因為 Fall Creators Update 所引進的 Bug 造成 node.js 程式碼在 OneDrive 資料夾中發生失敗。 Windows Update 很快就會修正此 Bug，請不要在 OneDrive 資料夾中建立專案。
 
 ## <a name="file-name-too-long-on-windows"></a>檔案名稱在 Windows 上太長
-如果您在 Windows 上使用 Workbench，您可能會遇到預設最大 260 個字元的檔案名稱長度限制，這可能呈現為「系統找不到指定的路徑」錯誤。 您可以修改登錄機碼設定，以允許更長的檔案路徑名稱。 檢閱[本文](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath)，以取得有關如何設定 _MAX_PATH_ 登錄機碼的詳細資訊。
+如果您在 Windows 上使用 Workbench，您可能會遇到預設最大 260 個字元的檔案名稱長度限制，這可能呈現為「系統找不到指定的路徑」錯誤。 您可以修改登錄機碼設定，以允許更長的檔案路徑名稱。 檢閱[本文](https://msdn.microsoft.com/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath)，以取得有關如何設定 _MAX_PATH_ 登錄機碼的詳細資訊。
 
 ## <a name="interrupt-cli-execution-output"></a>插斷 CLI 執行輸出
 如果您使用 `az ml experiment submit` 或 `az ml notebook start` 來啟動測試執行回合，但想要插斷輸出： 

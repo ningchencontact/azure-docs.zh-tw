@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: d8b9e48db9e75fb41ecad1958b3aa930a6bce3aa
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7a65ba691b9cf8b0ce989f0c54bd0b74edd43b85
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs 常見問題集
 獲得一些關於 Azure DevTest Labs 最常見問題的解答。
@@ -128,9 +128,9 @@ DevTest Labs 是免費的服務。 在 DevTest Labs 建立實驗室和設定原�
 若要對 Azure 中的開發或測試使用 Windows 用戶端 OS 映像 (Windows 7 或更新版本)，您必須執行下列其中一項動作：
 
 - [購買 MSDN 訂閱](https://www.visualstudio.com/products/how-to-buy-vs)。
-- 如果您有 Enterprise 合約，請以 [Enterprise 開發/測試優惠](https://azure.microsoft.com/en-us/offers/ms-azr-0148p)建立 Azure 訂用帳戶。
+- 如果您有 Enterprise 合約，請以 [Enterprise 開發/測試優惠](https://azure.microsoft.com/offers/ms-azr-0148p)建立 Azure 訂用帳戶。
 
-如需每個 MSDN 優惠之 Azure 點數的詳細資訊，請參閱 [Visual Studio 訂閱者的每月 Azure 點數](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/)。
+如需每個 MSDN 優惠之 Azure 點數的詳細資訊，請參閱 [Visual Studio 訂閱者的每月 Azure 點數](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
 ## <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>如何自動執行上傳 VHD 檔案的程序以建立自訂映像？
 若要自動上傳 VHD 檔案以建立自訂映像，您有兩個選擇：

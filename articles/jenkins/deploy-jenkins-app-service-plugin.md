@@ -1,12 +1,12 @@
 ---
-title: "使用 Jenkins 外掛程式來部署到 Azure App Service | Microsoft Docs"
-description: "了解如何在 Jenkins 中使用 Azure App Service Jenkins 外掛程式將 Java Web 應用程式部署到 Azure"
+title: 使用 Jenkins 外掛程式來部署到 Azure App Service | Microsoft Docs
+description: 了解如何在 Jenkins 中使用 Azure App Service Jenkins 外掛程式將 Java Web 應用程式部署到 Azure
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>使用 Jenkins 外掛程式來部署到 Azure App Service 
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/01/2018
 * [Jenkins Git 用戶端外掛程式](https://plugins.jenkins.io/git-client) 2.4.6 版 
 * [Docker Commons 外掛程式](https://plugins.jenkins.io/docker-commons) 1.4.0 版
 * [Azure 認證](https://plugins.jenkins.io/azure-credentials) 1.2 版
-* [Azure App Service](https://plugins.jenkins.io/azure-app-server) 0.1 版
+* [Azure App Service](https://plugins.jenkins.io/azure-app-service) 0.1 版
 
 您可以使用 Jenkins 外掛程式來部署 Web Apps 所支援、以任何語言 (例如 C#、PHP、Java 及 Node.js) 撰寫的 Web 應用程式。 在本教學課程中，我們會使用[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)。 若要將儲存機制分支到您自己的 GitHub 帳戶，請選取 GitHub 介面右上角的 [Fork] \(分支\) 按鈕。  
 > [!NOTE]

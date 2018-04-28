@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure IoT 中樞的裝置到雲端傳訊 | Microsoft Docs"
-description: "開發人員指南 - 如何使用 IoT 中樞的裝置到雲端傳訊。 包含傳送遙測和非遙測資料，以及使用路由來傳遞訊息的相關資訊。"
+title: 了解 Azure IoT 中樞的裝置到雲端傳訊 | Microsoft Docs
+description: 開發人員指南 - 如何使用 IoT 中樞的裝置到雲端傳訊。 包含傳送遙測和非遙測資料，以及使用路由來傳遞訊息的相關資訊。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 54b2961713f529438f5508bb0615824ec6bec214
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>將裝置到雲端訊息傳送至 IoT 中樞
 
@@ -32,7 +32,7 @@ IoT 中樞的裝置對雲端傳訊具有下列特性：
 * 裝置到雲端訊息會長期保留在 IoT 中樞的預設 **messages/events** 端點，最多達七天。
 * 裝置到雲端訊息最大可能為 256 KB，而且可分成數個批次以最佳化傳送。 批次最多可達 256 KB。
 * 如[控制 IoT 中樞的存取權][lnk-devguide-security]一節所述，IoT 中樞會啟用每一裝置的驗證和存取控制。
-* IoT 中樞可讓您建立最多 10 個自訂端點。 訊息會根據您 IoT 中樞上所設定的路由傳遞至端點。 如需詳細資訊，請參閱[路由規則](#routing-rules)。
+* IoT 中樞可讓您建立最多 10 個自訂端點。 訊息會根據您 IoT 中樞上所設定的路由傳遞至端點。 如需詳細資訊，請參閱[路由規則](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions)。
 * IoT 中樞可同時連線到數百萬部裝置 (請參閱[配額和節流][lnk-quotas])。
 * IoT 中樞不允許任意進行資料分割。 裝置到雲端訊息會根據其原始的 **deviceId**進行分割。
 

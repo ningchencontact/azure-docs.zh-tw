@@ -1,11 +1,11 @@
 ---
-title: "Azure 儲存體佇列和服務匯流排佇列異同比較 | Microsoft Docs"
-description: "分析 Azure 所提供之兩種佇列類型之間的差異和相似性。"
+title: Azure 儲存體佇列和服務匯流排佇列異同比較 | Microsoft Docs
+description: 分析 Azure 所提供之兩種佇列類型之間的差異和相似性。
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>儲存體佇列和服務匯流排佇列 - 異同比較
 本文將分析 Microsoft Azure 目前所提供之兩種佇列類型之間的差異和相似性：儲存體佇列和服務匯流排佇列。 透過使用這項資訊，您可以比較和比對個別的技術，而且對於哪一種方案最符合您的需求，也能夠做出更旁徵博引的決定。
@@ -39,7 +39,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 
 身為方案架構設計人員/開發人員，您應該在下列情況下**考慮使用儲存體佇列**：
 
-* 您的應用程式必須在佇列中儲存超過 80 GB 的訊息，而且訊息的存留期短於 7 天。
+* 您的應用程式必須在佇列中儲存超過 80 GB 的訊息。
 * 您的應用程式想要在佇列內部追蹤處理訊息的進度。 如果處理訊息的工作者損毀，這就很有用。 後續工作者可以接著使用該項資訊，從先前工作者停止的地方繼續處理。
 * 您需要有針對佇列執行之所有交易的伺服器端記錄。
 
@@ -51,7 +51,6 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 * 您的方案必須能夠支援自動重複偵測。
 * 您想要讓應用程式將訊息當成長時間執行的平行資料流來處理 (訊息是透過訊息上的 [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) 屬性與資料流相關聯)。 在這個模型中，取用端應用程式中的每個節點都會競爭取得資料流而不是訊息。 將資料流提供給取用端節點時，節點可以檢查應用程式資料流使用交易的狀態。
 * 從佇列傳送或接收多個訊息時，您的方案需要交易行為和不可部分完成性。
-* 應用程式特有工作負載的存留時間 (TTL) 特性可能會超過 7 天的期限。
 * 您的應用程式所處理的訊息可能會超過 64 KB，但是不太可能會接近 256 KB 的限制。
 * 您需要提供角色型存取模型給佇列，並且針對傳送者和接收者提供不同的權限。
 * 您的佇列大小不會成長超過 80 GB。
@@ -133,7 +132,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 | --- | --- | --- |
 | 佇列大小上限 |**500 TB**<br/><br/>(限制為[單一儲存體帳戶容量](../storage/common/storage-introduction.md#queue-storage)) |**1 GB 到 80 GB**<br/><br/>(在建立佇列和[啟用分割](service-bus-partitioning.md)時定義 - 請參閱＜其他資訊＞一節) |
 | 訊息大小上限 |**64 KB**<br/><br/>(使用 **Base64** 編碼時則為 48 KB)<br/><br/>Azure 可以結合佇列和 Blob 來支援大型訊息，因此您最多可以將 200 GB 的單一項目加入佇列。 |**256 KB** 或 **1 MB**<br/><br/>(包括標頭和主體，標頭大小上限：64 KB)。<br/><br/>取決於[服務層](service-bus-premium-messaging.md)。 |
-| 訊息 TTL 上限 |**7 天** |**TimeSpan.Max** |
+| 訊息 TTL 上限 |**無限** (自 api-version 2017-07-27 起) |**TimeSpan.Max** |
 | 佇列數目上限 |**無限制** |**10,000**<br/><br/>(每一服務命名空間) |
 | 並行用戶端數目上限 |**無限制** |**無限制**<br/><br/>(100 個並行連接限制只適用於以 TCP 通訊協定為基礎的通訊) |
 

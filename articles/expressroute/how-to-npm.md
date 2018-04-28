@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0d8bee936717a5668e16fbd66d416fcc4e738814
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>設定 ExpressRoute 的網路效能監控
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 04/05/2018
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取有 VNET 對等連至 ExpressRoute 線路的訂用帳戶。 然後搜尋 **Marketplace** 中的服務清單，以找出 [網路效能監視器]。 在傳回的結果中，按一下以開啟 [網路效能監視器] 頁面。
 
    >[!NOTE]
-   >您可以建立新的工作區，或使用現有的工作區。  如果您想要使用現有的工作區，您必須確定工作區已移轉至新的查詢語言。 [詳細資訊...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >您可以建立新的工作區，或使用現有的工作區。  如果您想要使用現有的工作區，您必須確定工作區已移轉至新的查詢語言。 [詳細資訊...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![入口網站](.\media\how-to-npm\3.png)<br><br>
@@ -118,7 +118,7 @@ ms.lasthandoff: 04/05/2018
   >
   
   >[!NOTE]
-  >SCOM 所推送的代理程式 (包括 [MMA](https://technet.microsoft.com/en-us/library/dn465154(v=sc.12).aspx)) 如果裝載在 Azure 中，則可能無法一致地偵測到其位置。  建議您不要在 Azure VNET 中使用這些代理程式來監視 ExpressRoute。
+  >SCOM 所推送的代理程式 (包括 [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) 如果裝載在 Azure 中，則可能無法一致地偵測到其位置。  建議您不要在 Azure VNET 中使用這些代理程式來監視 ExpressRoute。
   >
   >
 

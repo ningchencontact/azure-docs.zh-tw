@@ -1,11 +1,11 @@
 ---
-title: "建立具有靜態公用 IP 位址的 VM - Azure CLI | Microsoft Docs"
-description: "了解如何使用 Azure 命令列介面 (CLI) 建立具有靜態公用 IP 位址的 VM。"
+title: 建立具有靜態公用 IP 位址的 VM - Azure CLI | Microsoft Docs
+description: 了解如何使用 Azure 命令列介面 (CLI) 建立具有靜態公用 IP 位址的 VM。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
 ms.service: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bd44971162a79e53b731c5c89316f14e8bb0a1a6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>使用 Azure CLI 建立具有靜態公用 IP 位址的 VM
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 12/21/2017
 > * [Azure 入口網站](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-> * [範本](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (傳統)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
@@ -145,7 +144,11 @@ az vm create \
 1. 若要檢視資源群組中的資源，請執行 `az resource list --resource-group IaaSStory` 命令。
 2. 確認資源群組中除了本文指令碼所建立的資源外，沒有其他資源。 
 3. 若要刪除本練習中建立的所有資源，請執行 `az group delete -n IaaSStory` 命令。 此命令會刪除資源群組以及其中包含的所有資源。
+ 
+## <a name="set-ip-addresses-within-the-operating-system"></a>設定作業系統內的 IP 位址
+
+您絕不應手動指派在虛擬機器作業系統內已指派給 Azure 虛擬機器的公用 IP 位址。 建議您不要靜態指派在 VM 作業系統內已指派給 Azure 虛擬機器的私人 IP，除非必要，例如[將多個 IP 位址指派給 Windows VM](virtual-network-multiple-ip-addresses-cli.md) 時。 如果您確實手動設定作業系統內的私人 IP 位址，請確保它的位址與指派給 Azure [網路介面](virtual-network-network-interface-addresses.md#change-ip-address-settings)的私人 IP 位址相同，否則您可能會失去與虛擬機器的連線。 深入了解[私人 IP 位址](virtual-network-network-interface-addresses.md#private)設定。
 
 ## <a name="next-steps"></a>後續步驟
 
-任何網路流量均可流入和流出本文所建立的 VM。 您可以在 NSG 內定義輸入和輸出規則，以限制網路介面和 (或) 子網路可以流入和流出的流量。 若要深入了解 NSG，請閱讀 [NSG 概觀](virtual-networks-nsg.md)一文。
+任何網路流量均可流入和流出本文所建立的 VM。 您可以在網路安全性群組內定義輸入和輸出安全性規則，以限制網路介面和 (或) 子網路可以流入和流出的流量。 若要深入了解網路安全性群組，請參閱[網路安全性群組概觀](security-overview.md)。

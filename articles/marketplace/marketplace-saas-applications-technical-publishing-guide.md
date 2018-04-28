@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: pabutler
-ms.openlocfilehash: 64becc80192e69bd332d6657637c845acf93748b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: eb6db45ca0fcb6879aeaeaaf70715691cac438b0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>SaaS 應用程式技術發行指南
 
 歡迎使用 Azure Marketplace SaaS 應用程式技術發行指南。 本指南旨在協助候選發行者和現有發行者，讓其能夠使用 SaaS 應用程式供應項目來列出其在 Azure Marketplace 中的應用程式和服務。  
-當您的解決方案會部署在您自己的 Azure 訂用帳戶中，且客戶會透過您所設計和管理的介面登入以測試應用程式時，建議您使用 SaaS 應用程式供應項目。 其做法是使用 [Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) 以充分利用您現有的試用環境。 換句話說，它是客戶導向、合作夥伴託管的免費試用。 請務必透過以下方法公開您的解決方案：讓雲端購買者有機會免費獨立體驗您的解決方案，從而讓此供應項目類型提供與客戶搜尋雲端解決方案之方式相符的試用體驗。  
+當您的解決方案會部署在您自己的 Azure 訂用帳戶中，且客戶會透過您所設計和管理的介面登入以測試應用程式時，建議您使用 SaaS 應用程式供應項目。 其做法是使用 [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 以充分利用您現有的試用環境。 換句話說，它是客戶導向、合作夥伴託管的免費試用。 請務必透過以下方法公開您的解決方案：讓雲端購買者有機會免費獨立體驗您的解決方案，從而讓此供應項目類型提供與客戶搜尋雲端解決方案之方式相符的試用體驗。  
 
 如需所有其他 Marketplace 供應項目的概觀，請參閱 [Marketplace 發行者指南](https://aka.ms/sellerguide)。
 
@@ -31,8 +31,8 @@ ms.lasthandoff: 03/17/2018
 SaaS 應用程式的技術需求很簡單。 發行者只需要與所要發行的 Azure AD 整合即可。  Azure AD 與應用程式的整合已有完善的記載，Microsoft 會提供多個 SDK 和資源來完成這項作業。  
 
 一開始，建議您備妥專用於 Azure Marketplace 發行的訂用帳戶，以便您可以讓此工作與其他計劃分開進行。 此外，也建議您在開發環境中備妥下列工具 (如果您尚未安裝)： 
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)  
-- [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0)  
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  
+- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)  
 - [Azure 開發人員工具 (檢閱可用項目)](https://azure.microsoft.com/tools/)  
 - [Visual Studio Code](https://code.visualstudio.com/)  
 
@@ -41,11 +41,11 @@ SaaS 應用程式的技術需求很簡單。 發行者只需要與所要發行�
 
 **Documentation**
 
-- [Azure Active Directory 開發人員指南](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+- [Azure Active Directory 開發人員指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-- [與 Azure Active Directory 整合](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+- [與 Azure Active Directory 整合](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-- [整合應用程式與 Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+- [整合應用程式與 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 - [Azure 藍圖 - 安全性與身分識別](https://azure.microsoft.com/roadmap/?category=security-identity)
 

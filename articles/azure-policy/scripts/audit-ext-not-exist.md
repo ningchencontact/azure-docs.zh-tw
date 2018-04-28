@@ -1,25 +1,25 @@
 ---
-title: "Azure 原則 JSON 範例 - 稽核擴充功能是否不存在 | Microsoft Docs"
-description: "此 JSON 範例原則會稽核是否未搭配虛擬機器部署擴充功能。"
+title: Azure 原則 JSON 範例 - 稽核擴充功能是否不存在 | Microsoft Docs
+description: 此 JSON 範例原則會稽核是否未搭配虛擬機器部署擴充功能。
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: f873351fb7b6742bb0ad5916607c634282b480d3
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 2edaf23f696e82b440f31cc264cab69843120f50
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="audit-if-extension-does-not-exist"></a>稽核擴充功能是否不存在
 

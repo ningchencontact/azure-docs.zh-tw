@@ -1,8 +1,8 @@
 ---
-title: "使用者驗證︰使用 .NET SDK 利用 Azure Active Directory 向 Data Lake Store 進行 | Microsoft Docs"
-description: "了解如何使用 .NET SDK，利用 Azure Active Directory 向 Data Lake Store 完成使用者驗證"
+title: 使用者驗證︰使用 .NET SDK 利用 Azure Active Directory 向 Data Lake Store 進行 | Microsoft Docs
+description: 了解如何使用 .NET SDK，利用 Azure Active Directory 向 Data Lake Store 完成使用者驗證
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 524b00c9fac8b874576cb756c1c8ee39e15e9882
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>使用 .NET SDK 向 Data Lake Store 進行使用者驗證
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/12/2018
 
 在本文中，您會了解如何使用 .NET SDK 向 Azure Data Lake Store 進行使用者驗證。 如需使用 .NET SDK 向 Data Lake Store 進行服務對服務驗證，請參閱[使用 .NET SDK 向 Data Lake Store 進行服務對服務驗證](data-lake-store-service-to-service-authenticate-net-sdk.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Visual Studio 2013、2015 或 2017**。 以下指示使用 Visual Studio 2017。
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/12/2018
    | --- | --- |
    | 類別 |範本/Visual C#/Windows |
    | 範本 |主控台應用程式 |
-   | 名稱 |CreateADLApplication |
+   | Name |CreateADLApplication |
 
 4. 按一下 [確定]  以建立專案。
 

@@ -7,11 +7,11 @@ manager: rloutlaw
 ms.author: tarcher
 ms.date: 3/12/2018
 ms.topic: article
-ms.openlocfilehash: db45e9fe1eb724e6404f5e83bbbe4f62ee32343d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5f0ee2904c1072a5ad8c5f7ae1c90e649cc4813c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>使用 Azure Marketplace 映像透過受控服務識別來建立 Terraform Linux 虛擬機器
 
@@ -42,7 +42,7 @@ Terraform Marketplace 映像可讓您輕鬆地在 Azure 上開始使用 Terrafor
 
 在 [建立 Terraform] 索引標籤中輸入以下的詳細資料：
 
-1. **基本資料**
+1. **基本概念**
     
    * **名稱**：Terraform 虛擬機器的名稱。
    * **使用者名稱**：第一個帳戶登入識別碼。
@@ -88,7 +88,7 @@ Terraform VM 映像會執行下列步驟：
 
  `cp  ~/tfTemplate/remoteState.tf .`
 
- 如需遠端狀態管理的詳細資訊，請參閱[與 Terraform 遠端狀態相關的此網頁](https://www.terraform.io/docs/state/remote.html)。 儲存體存取金鑰會在此檔案中公開，且必須仔細簽入原始檔控制。  
+ 如需遠端狀態管理的詳細資訊，請參閱[與 Terraform 遠端狀態相關的此網頁](https://www.terraform.io/docs/state/remote.html)。 儲存體存取金鑰會在這個檔案中公開，且需要在將 Terraform 組態檔認可至原始檔控制之前加以排除。
 
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何在 Azure 上設定 Terraform Linux 虛擬機器。 以下有一些額外的資源，可協助您深入了解 Azure 上的 Terraform： 

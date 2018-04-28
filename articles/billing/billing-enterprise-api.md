@@ -1,11 +1,11 @@
 ---
-title: "Azure 計費企業版 API | Microsoft Docs"
-description: "了解可讓企業 Azure 客戶以程式設計方式提取使用情況資料的報告 API。"
-services: 
-documentationcenter: 
+title: Azure 計費企業版 API | Microsoft Docs
+description: 了解可讓企業 Azure 客戶以程式設計方式提取使用情況資料的報告 API。
+services: ''
+documentationcenter: ''
 author: anandedwin
 manager: aedwin
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
 ms.service: billing
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: f7a480c77c93035e655606433aea2547a1c105cc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7ae04c7c1fdddecf40583d14f7b08dcf41941c6f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>適用於企業客戶的報告 API 概觀
 報告 API 可讓企業 Azure 客戶以程式設計方式提取使用情況和帳單資料，以使用慣用的資料分析工具進行分析。 
 
 ## <a name="enabling-data-access-to-the-api"></a>啟用對 API 的資料存取
-* **產生或擷取 API 金鑰** - 登入企業入口網站，並遵循 [說明] - [報告 API] 底下的教學課程。 此說明文章的第一節說明如何針對指定的註冊產生或擷取 API 金鑰。
+* **產生或擷取 API 金鑰** - 登入企業版入口網站，並瀏覽至 [報告] > [下載使用量] > [API 存取金鑰] 來產生或擷取 API 金鑰。
 * **在 API 中傳遞金鑰** - 必須針對每個驗證和授權呼叫傳遞 API 金鑰。 下列屬性必須是針對 HTTP 標頭
 
 |要求標頭金鑰 | 值|

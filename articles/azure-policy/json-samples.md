@@ -3,7 +3,7 @@ title: 原則範本範例 | Microsoft Docs
 description: Azure 原則的 JSON 範例
 services: azure-policy
 documentationcenter: ''
-author: bandersmsft
+author: DCtheGeek
 manager: carmonm
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: samples
 ms.tgt_pltfrm: ''
 ms.workload: ''
 ms.date: 01/17/2018
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0956f42812307f88e37ef12078a86eb85f407ce6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="templates-for-azure-policy"></a>Azure 原則的範本
 

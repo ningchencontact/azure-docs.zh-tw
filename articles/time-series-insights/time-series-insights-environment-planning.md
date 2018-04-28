@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 991db58db1bb07f338c0f80aa4db69ddb868dcab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4da62d808caf1e88aef8e67f91815b959a19af0f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>規劃 Azure 時間序列深入解析環境
 
@@ -87,14 +87,14 @@ ms.lasthandoff: 04/16/2018
 如需關於如何避免節流和延遲的資訊，請參閱[減少節流和延遲](time-series-insights-environment-mitigate-latency.md)。 
 
 ## <a name="shaping-your-events"></a>塑造您的事件
-請務必確定您將事件傳送至 TSI 的方式可支援要佈建的環境大小 (反過來說，您可以將環境的大小對應至 TSI 可讀取的事件數目和每個事件的大小)。  同樣地，務必考量您在查詢資料時想要進行配量和篩選的屬性。  基於這一點，我們建議您檢閱「傳送事件」文件 [文件] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events) 中的「JSON 形式」一節。  該內容位於頁面底部。  
+請務必確定您將事件傳送至 TSI 的方式可支援要佈建的環境大小 (反過來說，您可以將環境的大小對應至 TSI 可讀取的事件數目和每個事件的大小)。  同樣地，務必考量您在查詢資料時想要進行配量和篩選的屬性。  基於這一點，我們建議您檢閱「傳送事件」文件 [文件] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events) 中的「JSON 形式」一節。  該內容位於頁面底部。  
 
 ## <a name="ensuring-you-have-reference-data-in-place"></a>確定您已備妥參考資料
 參考資料集是許多項目的集合，由這些項目來擴展您事件來源中的事件。 Time Series Insights 輸入引擎會將事件來源的每個事件和參考資料集中的對應資料聯結在一起。 然後此增強的事件可用於查詢。 這項聯結是以參考資料集中定義的主索引鍵資料行為基礎。
 
 請注意，參考資料不會回溯加入。 這表示一旦設定和上傳參考資料集之後，只會比對目前和未來的輸入資料並加入參考資料集中。  如果您打算將大量歷程記錄資料傳送至 TSI，但沒有先在 TSI 中上傳或建立參考資料，則您可能要重新執行您的工作 (提醒您，這可不有趣)。  
 
-若要深入了解如何在 TSI 中建立、上傳及管理您的參考資料，請移至我們的「參考資料」文件 [文件] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set)。
+若要深入了解如何在 TSI 中建立、上傳及管理您的參考資料，請移至我們的「參考資料」文件 [文件] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)。
 
 
 ## <a name="next-steps"></a>後續步驟

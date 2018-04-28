@@ -9,14 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/26/2017
-ms.openlocfilehash: 2498c0960ef8fd50064e40428f87d106abf10ecd
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fb69f1b52e5b17dd6794c896969c29003a929c9b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>設定 Azure 串流分析工作的警示
-## <a name="introduction-monitor-page"></a>簡介：監視頁面
+# <a name="tutorial-set-up-alerts-for-azure-stream-analytics-jobs"></a>教學課程：設定 Azure 串流分析作業的警示
 您可以設定會在計量達到您指定的條件時觸發的警示。 例如，您可能如下所示設定條件的警示：
 
 `If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`

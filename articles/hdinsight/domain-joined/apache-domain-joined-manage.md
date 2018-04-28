@@ -1,29 +1,91 @@
 ---
-title: 管理已加入網域的 HDInsight 叢集 - Azure | Microsoft Docs
+title: 管理已加入網域的 HDInsight 叢集 - Azure
 description: 了解如何管理已加入網域的 HDInsight 叢集
 services: hdinsight
-documentationcenter: ''
-author: bprakash
+author: omidm1
 manager: jhubbard
 editor: cgronlun
-tags: ''
 ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/11/2018
-ms.author: bhanupr
-ms.openlocfilehash: 44202541557a7513e0068f52289a637f6e48f43f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 9875d9884f04d26ebfbd44e858beb272c2306958
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>管理已加入網域的 HDInsight 叢集
 認識已加入網域的 HDInsight 叢集中的使用者和角色，了解如何管理已加入網域的 HDInsight 叢集。
+
+## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>使用 VSCode 連結至已加入網域的叢集
+
+您可以使用 Ambari 受控使用者名稱來連結正常的叢集，也可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結安全性 hadoop 叢集。
+1. 選取 **CTRL+SHIFT+P** 以開啟命令選擇區，然後輸入 **HDInsight: Link a cluster**。
+
+   ![連結叢集命令](./media/apache-domain-joined-manage/link-cluster-command.png)
+
+2. 輸入 HDInsight 叢集 URL -> 輸入使用者名稱 -> 輸入密碼 -> 選取叢集類型 -> 如果通過驗證，它會顯示成功資訊。
+   
+   ![連結叢集對話方塊](./media/apache-domain-joined-manage/link-cluster-process.png)
+
+   > [!NOTE]
+   > 如果叢集已登入 Azure 訂用帳戶並連結叢集，則會使用連結的使用者名稱和密碼。 
+   
+3. 您可以使用 **List cluster** 命令來查看連結的叢集。 您現在可以將指令碼提交至此連結的叢集。
+
+   ![連結的叢集](./media/apache-domain-joined-manage/linked-cluster.png)
+
+4. 您也可以從命令選擇區輸入 **HDInsight: Unlink a cluster** 以取消連結叢集。
+
+## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>使用 IntelliJ 連結至已加入網域的叢集
+
+您可以使用 Ambari 受控使用者名稱來連結正常的叢集，也可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結安全性 hadoop 叢集。 
+1. 從 [Azure 總管] 中按一下 [連結叢集]。
+
+   ![連結叢集操作功能表](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+
+2. 輸入 [叢集名稱]、[使用者名稱] 和 [密碼]。 如果驗證失敗，您需要檢查使用者名稱和密碼。 您也可以選擇新增 [儲存體帳戶]、[儲存體金鑰]，然後從 [儲存體容器] 選取容器。 儲存體資訊適用於左側樹狀目錄中的儲存體總管
+   
+   ![連結叢集對話方塊](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的儲存體金鑰、使用者名稱和密碼。
+   > ![IntelliJ 中的儲存體總管](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
+
+   
+3. 如果輸入資訊正確無誤，您可以在 [HDInsight] 節點中看見連結的叢集。 您現在可以將應用程式提交至此連結的叢集。
+
+   ![連結的叢集](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+
+4. 您也可以從 [Azure 總管] 取消連結叢集。
+   
+   ![取消連結的叢集](./media/apache-domain-joined-manage/unlink.png)
+
+## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>使用 Eclipse 連結至已加入網域的叢集
+
+您可以使用 Ambari 受控使用者名稱來連結正常的叢集，也可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結安全性 hadoop 叢集。
+1. 從 [Azure 總管] 中按一下 [連結叢集]。
+
+   ![連結叢集操作功能表](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+
+2. 輸入 [叢集名稱]、[使用者名稱] 及 [密碼]，然後按一下 [確定] 按鈕連結叢集。 您也可以選擇輸入 [儲存體帳戶]、[儲存體金鑰]，然後選取 [儲存體容器]，讓儲存體總管在左側樹狀檢視中工作
+   
+   ![連結叢集對話方塊](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   
+   > [!NOTE]
+   > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的儲存體金鑰、使用者名稱和密碼。
+   > ![Eclipse 中的儲存體總管](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
+
+3. 如果輸入資訊正確無誤，則按一下 [確定] 按鈕之後，您就可以在 [HDInsight] 節點中看見連結的叢集。 您現在可以將應用程式提交至此連結的叢集。
+
+   ![連結的叢集](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+
+4. 您也可以從 [Azure 總管] 取消連結叢集。
+   
+   ![取消連結的叢集](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>以企業安全性套件存取叢集。
 

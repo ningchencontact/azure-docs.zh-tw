@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 10e0e0df4bf71c7a21a3cc06b5b1c16930d54ec6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 12d3d2d4b0c35dc7d21cb78465225e3c029ca33e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>上架由 Azure 自動化 DSC 管理的機器
 
@@ -31,7 +31,7 @@ Azure 自動化 DSC 可以用來管理各種不同的機器：
 此外，如果您不準備從雲端管理機器組態，Azure Automation DSC 也可用來當做報告專用端點。 這可讓您透過 DSC 內部部署設定 (推送) 所需的組態，以及檢視與 Azure 自動化中的期望狀態相符節點的豐富報告詳細資料。
 
 > [!NOTE]
-> 如果安裝的虛擬機器 DSC 延伸模組大於 2.70，則使用 DSC 管理 Azure VM 是免費隨附的。 如需詳細資料，請參閱[**自動化定價分頁**](https://azure.microsoft.com/en-us/pricing/details/automation/)。
+> 如果安裝的虛擬機器 DSC 延伸模組大於 2.70，則使用 DSC 管理 Azure VM 是免費隨附的。 如需詳細資料，請參閱[**自動化定價分頁**](https://azure.microsoft.com/pricing/details/automation/)。
 
 
 下列各節概述如何將每個類型的機器上架到 Azure 自動化 DSC。
@@ -195,7 +195,7 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 
 ## <a name="generating-dsc-metaconfigurations"></a>產生 DSC 中繼設定
 
-若要以一般方式將任何電腦上架至 Azure Automation DSC，可產生套用時會告知電腦上的 DSC 代理程式從 Azure Automation DSC 提取且/或報告的 [DSC 中繼設定](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig)。 Azure 自動化 DSC 的 DSC 中繼設定可以使用 PowerShell DSC 設定或 Azure 自動化 PowerShell Cmdlet 產生。
+若要以一般方式將任何電腦上架至 Azure Automation DSC，可產生套用時會告知電腦上的 DSC 代理程式從 Azure Automation DSC 提取且/或報告的 [DSC 中繼設定](https://msdn.microsoft.com/powershell/dsc/metaconfig)。 Azure 自動化 DSC 的 DSC 中繼設定可以使用 PowerShell DSC 設定或 Azure 自動化 PowerShell Cmdlet 產生。
 
 > [!NOTE]
 > DSC 中繼設定包含將電腦上架至進行管理之自動化帳戶的機密資料。 請務必適當地保護您所建立的任何 DSC 中繼設定，或在使用後將它們刪除。

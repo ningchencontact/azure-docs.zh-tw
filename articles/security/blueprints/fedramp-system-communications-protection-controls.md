@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 系統與通訊保護"
-description: "FedRAMP Web 應用程式 自動化 - 系統與通訊保護"
+title: Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 系統與通訊保護
+description: FedRAMP Web 應用程式 自動化 - 系統與通訊保護
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 6749ad50cd1ea1cd4ec6ca2f86fef43a9f1515d9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>系統與通訊保護 (SC)
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | 此藍圖會部署應用程式閘道、負載平衡器，以及設定網路安全性群組規則，來控制外部界限上和內部子網路之間的通訊。 OMS Log Analytics 會收集應用程式閘道、負載平衡器和網路安全性群組事件及診斷記錄，以允許客戶監視。 |
+| **客戶** | 此藍圖會部署應用程式閘道、負載平衡器，以及設定網路安全性群組規則，來控制外部界限上和內部子網路之間的通訊。 Log Analytics 會收集應用程式閘道、負載平衡器和網路安全性群組事件及診斷記錄，以允許客戶監視。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -141,8 +141,7 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="boundary-protection"></a>界限保護
 
-
-            **SC-7.c** 與外部網路連線或只透過受控介面的資訊系統，由根據組織安全性架構規劃的界限保護裝置所組成的。
+**SC-7.c** 與外部網路連線或只透過受控介面的資訊系統，由根據組織安全性架構規劃的界限保護裝置所組成的。
 
 **責任：**`Customer Only`
 
@@ -170,8 +169,7 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="boundary-protection--external-telecommunications-services"></a>界限保護 | 外部電信服務
 
-
-            **SC-7 (4).a** 組織為每個外部電信服務實作受控介面。
+**SC-7 (4).a** 組織為每個外部電信服務實作受控介面。
 
 **責任：**`Customer Only`
 
@@ -185,10 +183,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="boundary-protection--external-telecommunications-services"></a>界限保護 | 外部電信服務
 
+**SC-7 (4).b** 組織建立每個受控介面的流量流程原則。
 
-            **SC-7 (4).b** 組織建立每個受控介面的流量流程原則。
-
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -242,8 +239,7 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="boundary-protection--deny-by-default--allow-by-exception"></a>界限保護 | 預設為拒絕/依例外允許
 
-
-            **SC-7 (5)** 資訊系統在受控介面預設為拒絕網路通訊流量，而且是依例外狀況允許網路通訊流量 (亦即全部拒絕、依例外允許)。
+**SC-7 (5)** 資訊系統在受控介面預設為拒絕網路通訊流量，而且是依例外狀況允許網路通訊流量 (亦即全部拒絕、依例外允許)。
 
 **責任：**`Customer Only`
 
@@ -271,10 +267,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="boundary-protection--route-traffic-to-authenticated-proxy-servers"></a>界限保護 | 將流量路由傳送到經驗證的 Proxy 伺服器
 
+**SC-7 (8)** 資訊系統透過經驗證的 Proxy 伺服器在受控介面將 [指派：組織定義的內部通訊流量] 路由傳送至 [指派：組織定義的外部網路]。
 
-            **SC-7 (8)** 資訊系統透過經驗證的 Proxy 伺服器在受控介面將 [指派：組織定義的內部通訊流量] 路由傳送至 [指派：組織定義的外部網路]。
-
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -314,8 +309,7 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="boundary-protection--isolation-of-security-tools--mechanisms--support-components"></a>界限保護 | 安全性工具隔離/機制/支援元件
 
-
-            **SC-7 (13)** 組織藉由實作實體區隔的子網路和存取系統其他元件的受控介面，將 [指派：組織定義的資訊安全性工具、機制和支援元件] 與其他內部資訊系統元件隔離。
+**SC-7 (13)** 組織藉由實作實體區隔的子網路和存取系統其他元件的受控介面，將 [指派：組織定義的資訊安全性工具、機制和支援元件] 與其他內部資訊系統元件隔離。
 
 **責任：**`Customer Only`
 
@@ -485,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-15.a** 資訊系統禁止遠端啟用共同作業計算裝置，但以下狀況除外：[指派：組織所定義允許遠端啟用的例外]。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -541,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-18.b** 組織建立使用限制，並實作可接受的行動程式碼和行動程式碼技術的指導方針。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|

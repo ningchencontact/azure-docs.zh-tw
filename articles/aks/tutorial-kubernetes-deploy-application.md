@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9fad9627be453fb00508d1f6ec9594bd2bde6fad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 79fc716f70fe0fb3273badd485e4c01ea5d04e1d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-run-applications-in-azure-container-service-aks"></a>教學課程：執行 Azure Container Service (AKS) 中的應用程式
 
@@ -115,7 +115,7 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 
 如果應用程式並未載入，可能是因為您的映像登錄發生授權問題。
 
-請依照下列步驟來[允許透過 Kubernetes 祕密存取](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret)。
+請依照下列步驟來[允許透過 Kubernetes 祕密存取](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret)。
 
 ## <a name="next-steps"></a>後續步驟
 

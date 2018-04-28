@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Nexonia 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Nexonia 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Nexonia 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Nexonia 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: a7a71eb4de1723be1fd32a35bee848885738b029
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 027b7ae5b87cc8349670b2270124c18d68242a9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>教學課程：Azure Active Directory 與 Nexonia 整合
 
@@ -58,7 +58,7 @@ Nexonia 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Nexonia，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -95,7 +95,7 @@ Nexonia 與 Azure AD 整合提供下列優點：
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，並在您的 Nexonia 應用程式中設定單一登入。
 
   > [!Note]
-   > 如果您在整合時遇到問題，請參閱此[連結](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery)以取得疑難排解指南。 如果仍找不到解決方案，請從 Azure 入口網站提出支援要求。
+   > 如果您在整合時遇到問題，請參閱此[連結](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery)以取得疑難排解指南。 如果仍找不到解決方案，請從 Azure 入口網站提出支援要求。
 
 **若要設定與 Nexonia 搭配運作的 Azure AD 單一登入，請執行下列步驟：**
 

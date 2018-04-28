@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory 裝置管理常見問題集 | Microsoft Docs"
-description: "Azure Active Directory 裝置管理常見問題集。"
+title: Azure Active Directory 裝置管理常見問題集 | Microsoft Docs
+description: Azure Active Directory 裝置管理常見問題集。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0ef5b84820cfcaf86f526ddd0565463e12b96331
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4358b57284721642957d56ad8cfeea2b0f53fd89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
@@ -41,47 +41,44 @@ ms.lasthandoff: 01/16/2018
 
 **問：我最近註冊了裝置。為什麼在 Azure 入口網站中我的使用者資訊底下看不到該裝置？**
 
-**答：**透過自動裝置註冊加入網域的 Windows 10 裝置不會顯示在 [使用者資訊] 底下。
+**答：**已加入混合式 Azure AD 的 Windows 10 裝置不會顯示在 [使用者裝置] 底下。
 您必須使用 PowerShell，才能看到所有裝置。 
 
-只有下列裝置會在 [使用者資訊] 底下列出：
+只有下列裝置會在 [使用者裝置] 底下列出：
 
-- 所有未加入企業的個人裝置 
-- 所有非 Windows 10/Windows Server 2016 裝置 
+- 所有未加入混合式 Azure AD 的個人裝置。 
+- 所有非 Windows 10/Windows Server 2016 裝置。
 - 所有非 Windows 裝置 
 
 ---
 
 **問：為什麼我在 Azure 入口網站中看不到在 Azure Active Directory 中註冊的所有裝置？** 
 
-**答：**目前無法在 Azure 入口網站中看到所有已註冊的裝置。 您可以使用 Azure PowerShell 來尋找所有裝置。 如需更多詳細資料，請參閱 [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) Cmdlet。
+**答：**您現在可以在 [Azure AD 目錄] -> [所有裝置] 功能表下看到它們。 您也可以使用 Azure PowerShell 來尋找所有裝置。 如需更多詳細資料，請參閱 [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) Cmdlet。
 
 --- 
 
 **問：我要如何知道用戶端的裝置註冊狀態為何？**
 
-**答：**裝置註冊狀態取決於：
+**答：**Windows 10 和 Windows Server 2016 或更新版本的裝置，請執行 dsregcmd.exe /status。
 
-- 裝置的類型
-- 裝置的註冊方式 
-- 裝置的任何相關詳細資料。 
- 
+舊版作業系統版本請執行 "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"。
 
 ---
 
 **問：為什麼我已在 Azure 入口網站中或使用 Windows PowerShell 刪除的裝置仍列為已註冊？**
 
-**答：**原先的設計就是如此。 該裝置將無法存取雲端中的資源。 如果您想要移除裝置並重新註冊它，就必須對該裝置採取手動動作。 
+**答：**原先的設計就是如此。 該裝置將無法存取雲端中的資源。 如果您想要重新註冊，就必須對該裝置採取手動動作。 
 
-針對已加入內部部署 AD 網域的 Windows 10 與 Windows Server 2016：
+若要清除加入狀態，針對已加入內部部署 AD 網域的 Windows 10 與 Windows Server 2016，做法是：
 
 1.  以系統管理員身分開啟命令提示字元。
 
 2.  輸入 `dsregcmd.exe /debug /leave`
 
-3.  登入並登出以觸發可重新註冊裝置的排定工作。 
+3.  登出再登入，以觸發向 Azure AD 重新註冊裝置的排定工作。 
 
-針對其他已加入內部部署 AD 網域的 Windows 平台：
+針對已加入內部部署 AD 網域的舊版 Windows 作業系統版本，做法是：
 
 1.  以系統管理員身分開啟命令提示字元。
 2.  輸入 `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`。
@@ -97,9 +94,9 @@ ms.lasthandoff: 01/16/2018
 
 -   如果您使用了 [新增工作或學校帳戶]，則每個使用 [新增工作或學校帳戶] 的 Windows 使用者都會以相同的裝置名稱建立一個新的裝置記錄。
 
--   其他使用自動註冊來加入內部部署 AD 網域的 Windows 平台，將會針對登入裝置的每個網域使用者，以相同的裝置名稱建立一個新的裝置記錄。 
+-   已使用自動註冊加入內部部署 AD 網域的舊版 Windows 作業系統版本，將會針對登入裝置的每個網域使用者，以相同的裝置名稱建立一個新的裝置記錄。 
 
--   已清除、重新安裝再以相同名稱重新加入的 AADJ 機器將會顯示成具有相同裝置名稱的另一筆記錄。
+-   已清除、重新安裝再以相同名稱重新加入的 Azure AD 機器將會顯示成具有相同裝置名稱的另一筆記錄。
 
 ---
 
@@ -108,21 +105,21 @@ ms.lasthandoff: 01/16/2018
 **答：**套用撤銷最多可能需要一小時的時間才能完成。
 
 >[!Note] 
->針對已遺失的裝置，建議您將裝置清除，以確保使用者無法存取該裝置。 如需更多詳細資料，請參閱[註冊裝置以在 Intune 中管理](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)。 
+>針對已註冊的裝置，建議您將裝置清除，以確保使用者無法存取該資源。 如需更多詳細資料，請參閱[註冊裝置以在 Intune 中管理](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)。 
 
 
 ---
 
 **問：為什麼我的使用者會看到「您無法從這裡前往該處」？**
 
-**答：**如果您已設定某些條件式存取規則來要求特定的裝置狀態，而該裝置未符合這些準則，使用者就會遭封鎖並看到此訊息。 請重新評估規則並確保該裝置能夠符合準則，以避免出現此訊息。
+**答：**如果您已設定某些條件式存取規則來要求特定的裝置狀態，而該裝置未符合這些準則，使用者就會遭封鎖並看到此訊息。 請重新評估條件式存取原則規則，確保該裝置能夠符合準則，以避免出現此訊息。
 
 ---
 
 
 **問：我在 Azure 入口網站中的 [使用者資訊] 底下看到裝置記錄，並且可以看到狀態為已在用戶端上註冊。我是否已針對使用條件式存取進行正確設定？**
 
-**答：**Azure 入口網站上的裝置記錄 (deviceID) 和狀態必須符合用戶端，以及滿足所有條件式存取評估準則。 如需更多詳細資料，請參閱[開始使用 Azure Active Directory 裝置註冊](active-directory-device-registration.md)。
+**答：**deviceID 反映出來的裝置加入狀態必須與 Azure AD 上的狀態相符，並滿足所有條件式存取的評估準則。 如需更多詳細資料，請參閱[開始使用 Azure Active Directory 裝置註冊](active-directory-device-registration.md)。
 
 ---
 
@@ -140,9 +137,9 @@ ms.lasthandoff: 01/16/2018
 
 ---
 
-**問：當我嘗試將電腦加入時，為什麼會看到「糟糕，發生錯誤!」？**
+**問：當我嘗試將電腦加入 Azure AD 時，為什麼會看到「糟糕，發生錯誤!」？**
 
-**答：**這是使用 Intune 來設定 Azure Active Directory 註冊的結果。 如需更多詳細資料，請參閱[設定 Windows 裝置管理](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment)。  
+**答：**這是使用 Intune 來設定 Azure Active Directory 註冊的結果。 請確定嘗試加入 Azure AD 的使用者已獲派正確的 Intune 授權。 如需更多詳細資料，請參閱[設定 Windows 裝置管理](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment)。  
 
 ---
 

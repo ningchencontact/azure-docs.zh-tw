@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 72e0ed535139c088c4235b43a12ea96da080dc8a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 86b0e78f362d1cf3c2480aad97ef5281c5f3bc95
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>設定 SQL 資料同步 (預覽)
 在本教學課程中，您將了解如何使用包含 Azure SQL Database 和 SQL Server 執行個體的混合式同步群組設定 Azure SQL 資料同步。 新的同步處理群組會依照您設定的排程完整設定和同步。
@@ -151,7 +151,7 @@ ms.lasthandoff: 04/06/2018
         ![輸入代理程式金鑰和伺服器認證](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   如果在此時收到防火牆錯誤，您必須在 Azure 上建立防火牆規則，以允許來自 SQL Server 電腦的傳入流量。 您可以在入口網站手動建立規則，但在 SQL Server Management Studio (SSMS) 中建立可能會更容易。 在 SSMS 中，嘗試連線到 Azure 上的中樞資料庫。 請將其名稱輸入為 \<hub_database_name\>.database.windows.net。 若要設定 Azure 防火牆規則，請按照對話方塊中的步驟操作。 然後返回用戶端同步代理程式應用程式。
+        >   如果在此時收到防火牆錯誤，您必須在 Azure 上建立防火牆規則，以允許來自 SQL Server 電腦的傳入流量。 您可以在入口網站手動建立規則，但在 SQL Server Management Studio (SSMS) 中建立可能會更容易。 在 SSMS 中，嘗試連線到 Azure 上的中樞資料庫。 請將其名稱輸入為 <hub_database_name>.database.windows.net。 若要設定 Azure 防火牆規則，請按照對話方塊中的步驟操作。 然後返回用戶端同步代理程式應用程式。
 
     9.  在用戶端同步代理程式應用程式中，按一下 [註冊]，以向代理程式註冊 SQL Server 資料庫。 [SQL Server 組態] 對話方塊隨即開啟。
 
@@ -225,7 +225,16 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>如何變更同步群組中的結構描述？
 
-您必須手動執行結構描述變更。
+您必須以手動方式進行及傳播所有結構描述變更。
+1. 以手動方式將結構描述變更複寫至中樞和所有的同步成員。
+2. 更新同步結構描述。
+
+**新增資料表和資料行**。 新的資料表和資料行不會影響目前的同步。資料同步會忽略新的資料表和資料行，直到您將它們新增至同步結構描述。 當您新增新的資料庫物件時，這是要遵循的最佳順序：
+1. 將新的資料表或資料行新增至中樞和所有的同步成員。
+2. 將新的資料表或資料行新增至同步結構描述。
+3. 開始將值插入新的資料表和資料行。
+
+**變更資料行的資料類型**。 當您變更現有資料行的資料類型時，只要新的值符合同步結構描述中定義的原始資料類型，資料同步就會繼續運作。 例如，如果您將來源資料庫中的類型從 **int** 變更為 **bigint**，資料同步就會繼續運作，直到您將對於 **int** 資料類型太大的值插入為止。 若要完成變更，請以手動方式將結構描述變更複寫至中樞和所有的同步成員，然後更新同步結構描述。
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>如何使用資料同步匯出和匯入資料庫？
 將資料庫匯出為 `.bacpac` 檔案，並將該檔案匯入以建立新資料庫之後，您必須執行下列兩個動作，才能在新的資料庫中使用資料同步：
