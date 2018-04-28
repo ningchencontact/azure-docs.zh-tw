@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 1fe07790bd534cbe18c25cb5fb1e0634f54ac9e2
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 2273a39f1c9da57072ca027e34c4acd6d86ea61a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>撰寫 Azure Functions 並在本機進行測試
 
@@ -31,45 +31,88 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="install-the-azure-functions-core-tools"></a>安裝 Azure Functions Core Tools
 
-[Azure Functions Core Tools] 是 Azure Functions 執行階段的本機版本，可讓您在本機開發電腦上執行。 它不是模擬器。 它與在 Azure 中提供 Functions 的執行階段是相同的執行階段。 Azure Functions Core Tools 有兩個版本，一個版本適用於 1.x 版的執行階段，一個版本則適用於 2.x 版。 這兩個版本都會提供為 [npm 套件](https://docs.npmjs.com/getting-started/what-is-npm)。
+[Azure Functions Core Tools] 是 Azure Functions 執行階段的本機版本，可讓您在本機開發電腦上執行。 它不是模擬器。 它與在 Azure 中提供 Functions 的執行階段是相同的執行階段。 Azure Functions Core Tools 有兩個版本：
 
->[!NOTE]  
-> 您必須[安裝 NodeJS](https://docs.npmjs.com/getting-started/installing-node) (內含 npm)，再安裝任一版本。 針對 2.x 版的工具，只支援 Node.js 8.5 和更新版本。 
++ [版本 1.x](#v1)：支援版本 1.x 的執行階段。 此版本只有在 Windows 電腦上提供支援，並且從 [npm 套件](https://docs.npmjs.com/getting-started/what-is-npm)進行安裝。
++ [版本 2.x](#v2)：支援版本 2.x 的執行階段。 此版本支援 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 使用平台專屬的套件管理員或 npm 進行安裝。 
 
-### <a name="version-2x-runtime"></a>2.x 版執行階段
+### <a name="v1"></a>版本 1.x
 
-工具的 2.x 版會使用以 .NET Core 為建置基礎的 Azure Functions 執行階段 2.x。 .NET Core 2.x 支援的所有平台都支援這個版本。 進行跨平台開發以及需要 Functions 執行階段 2.x 時，請使用這個版本。 
+工具的原始版本會使用 Functions 1.x 執行階段。 這個版本使用 .NET Framework (4.7.1)，並且只有在 Windows 電腦上提供支援。 安裝版本 1.x 工具之前，您必須先[安裝 NodeJS](https://docs.npmjs.com/getting-started/installing-node) (內含 npm)。
 
->[!IMPORTANT]   
-> 安裝 Azure Functions Core Tools 之前，請[安裝 .NET Core 2.0](https://www.microsoft.com/net/core)。  
->
-> Azure Functions 執行階段 2.0 為預覽版本，目前尚未完全支援 Azure Functions 的所有功能。 如需詳細資訊，請參閱 [Azure Functions 執行階段 2.0 已知問題](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues)。 
-
- 使用下列命令來安裝 2.0 版工具：
-
-```bash
-npm install -g azure-functions-core-tools@core
-```
-
-安裝在 Ubuntu 上時，請使用 `sudo`，如下所示：
-
-```bash
-sudo npm install -g azure-functions-core-tools@core
-```
-
-安裝在 macOS 和 Linux 上時，您可能需要包括 `unsafe-perm` 旗標，如下所示：
-
-```bash
-sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
-```
-
-### <a name="version-1x-runtime"></a>1.x 版執行階段
-
-工具的原始版本會使用 Functions 1.x 執行階段。 這個版本使用 .NET Framework，並且只有在 Windows 電腦上才予以支援。 使用下列命令來安裝 1.x 版工具：
+使用下列命令來安裝 1.x 版工具：
 
 ```bash
 npm install -g azure-functions-core-tools
 ```
+
+### <a name="v2"></a>版本 2.x
+
+>[!NOTE]
+> Azure Functions 執行階段 2.0 為預覽版本，目前尚未完全支援 Azure Functions 的所有功能。 如需詳細資訊，請參閱 [Azure Functions 版本](functions-versions.md)。 
+
+工具的 2.x 版會使用以 .NET Core 為建置基礎的 Azure Functions 執行階段 2.x。 .NET Core 2.x 支援的所有平台都支援這個版本，包括 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。
+
+#### <a name="windows-npm"></a>Windows
+
+下列步驟使用 npm 在 Windows 上安裝 Core Tools。 您也可以使用 [Chocolatey](https://chocolatey.org/)。 如需詳細資訊，請參閱 [Core Tools 讀我檔案](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)。
+
+1. 安裝[適用於 Windows 的 .NET Core 2.0](https://www.microsoft.com/net/download/windows)。
+
+2. 安裝 [Node.js] (內含 npm)。 針對 2.x 版的工具，只支援 Node.js 8.5 和更新版本。
+
+3. 安裝 Core Tools 套件：
+
+  ```bash
+  npm install -g azure-functions-core-tools@core
+  ```
+
+#### <a name="brew"></a>採用 Homebrew 的 MacOS
+
+下列步驟使用 Homebrew 在 macOS 上安裝 Core Tools。
+
+1. 安裝[適用於 macOS 的 .NET Core 2.0](https://www.microsoft.com/net/download/macos)。
+
+1. 如果尚未安裝 [Homebrew](https://brew.sh/)，請加以安裝。
+
+2. 安裝 Core Tools 套件：
+
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools 
+    ```
+
+#### <a name="linux"></a> 採用 APT 的 Linux (Ubuntu/Debian)
+
+下列步驟使用 [APT](https://wiki.debian.org/Apt) 在 Ubuntu/Debian Linux 散發套件上安裝 Core Tools。 若為其他 Linux 散發套件，請參閱 [Core Tools 讀我檔案](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)。
+
+1. 安裝[適用於 Linux 的 .NET Core 2.0](https://www.microsoft.com/net/download/linux)。
+
+1. 將 Microsoft 產品金鑰註冊為可信任：
+
+  ```bash
+  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+  ```
+
+2.  設定套件摘要，並以表格中的適當版本名稱取代下列命令中的 `<version>`：
+
+  ```bash
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
+  sudo apt-get update
+  ```
+
+  | Linux 散發套件 | `<version>` |
+  | --------------- | ----------- |
+  | Ubuntu 17.10    | `artful`    |
+  | Ubuntu 17.04    | `zesty`     |
+  | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
+
+3. 安裝 Core Tools 套件：
+
+  ```bash
+  sudo apt-get install azure-functions-core-tools
+  ```
 
 ## <a name="run-azure-functions-core-tools"></a>執行 Azure Functions Core Tools
  
@@ -137,15 +180,19 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 | 設定      | 說明                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | 設定為 **true** 時，所有的值都會使用本機電腦金鑰加密。 需搭配 `func settings` 命令使用。 預設值為 **false**。 |
-| **值** | 於本機執行時使用的應用程式設定集合。 **AzureWebJobsStorage** 和 **AzureWebJobsDashboard** 是範例；如需完整清單，請參閱[應用程式設定參考](functions-app-settings.md)。  |
+| **值** | 於本機執行時使用的應用程式設定集合。 **AzureWebJobsStorage** 和 **AzureWebJobsDashboard** 是範例；如需完整清單，請參閱[應用程式設定參考](functions-app-settings.md)。 許多觸發程序和繫結都有參考應用程式設定的屬性，例如 Blob 儲存體觸發程序的 [連線] 屬性。 對於這類屬性，您需要在 [值] 陣列中定義應用程式設定。 這也適用於您藉由以百分比符號包圍值而設定為應用程式設定名稱的任何繫結屬性，例如 `%AppSettingName%`。 |
 | **Host** | 此區段中的設定能自訂於本機執行的 Functions 主機處理序。 | 
 | **LocalHttpPort** | 設定於執行本機 Functions 主機 (`func host start` 和 `func run`) 時所使用的預設連接埠。 `--port` 命令列選項的優先順序高於此值。 |
 | **CORS** | 定義針對[跨來源資源共享 (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 所允許的來源。 來源是以不含空格的逗號分隔清單提供。 支援萬用字元值 (\*)，它允許來自任何來源的要求。 |
 | **ConnectionStrings** | 包含函式的資料庫連接字串。 此物件中的連接字串會新增至具有 **System.Data.SqlClient** 提供者類型的環境。  | 
 
-大部分的觸發程序和繫結都有 **Connection** 屬性，會對應至環境變數或應用程式設定的名稱。 針對每個連線屬性，都必須在 local.settings.json 檔案中定義應用程式設定。 
+這些設定也可以在您的程式碼中讀取為環境變數。 如需詳細資訊，請參閱這些特定語言參考主題的「環境變數」章節：
 
-這些設定也可以在您的程式碼中讀取為環境變數。 在 C# 中，請使用 [System.Environment.GetEnvironmentVariable](https://msdn.microsoft.com/library/system.environment.getenvironmentvariable(v=vs.110).aspx) \(機器翻譯\) 或 [ConfigurationManager.AppSettings](https://msdn.microsoft.com/library/system.configuration.configurationmanager.appsettings%28v=vs.110%29.aspx) \(機器翻譯\)。 在 JavaScript 中，使用 `process.env`。 指定為系統環境變數之設定的優先順序，將會高於 local.settings.json 檔案中的值。 
++ [先行編譯 C#](functions-dotnet-class-library.md#environment-variables)
++ [C# 指令碼 (.csx)](functions-reference-csharp.md#environment-variables)
++ [F#](functions-reference-fsharp.md#environment-variables)
++ [Java](functions-reference-java.md#environment-variables) 
++ [JavaScript](functions-reference-node.md#environment-variables)
 
 local.settings.json 檔案中的值，只會由於本機執行的 Functions 工具使用。 根據預設，在專案發佈至 Azure 時，這些設定將不會自動移轉。 請在[發佈時](#publish)使用 `--publish-local-settings` 參數，以確保這些設定會新增至 Azure 中的函式應用程式。
 
@@ -188,7 +235,7 @@ func new
 例如，若要建立 JavaScript HTTP 觸發程序，請執行：
 
 ```
-func new --language JavaScript --template HttpTrigger --name MyHttpTrigger
+func new --language JavaScript --template "HttpTrigger" --name MyHttpTrigger
 ```
 
 若要建立佇列所觸發的函式，請執行：
@@ -275,7 +322,7 @@ curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
-請注意，您可以從瀏覽器在查詢字串中傳遞資料來進行 GET 要求。 對於所有其他 HTTP 方法，您必須使用 cURL、Fiddler、Postman 或類似的 HTTP 測試工具。  
+您可以從瀏覽器在查詢字串中傳遞資料來進行 GET 要求。 對於所有其他 HTTP 方法，您必須使用 cURL、Fiddler、Postman 或類似的 HTTP 測試工具。  
 
 #### <a name="non-http-triggered-functions"></a>非 HTTP 觸發函式
 對於 HTTP 觸發程序和 Webhook 以外的所有函式類型，您可以呼叫管理端點在本機測試函式。 在本機伺服器上使用 HTTP POST 要求來呼叫此端點會觸發函式。 您可以在 POST 要求本文中選擇性地傳遞測試資料到執行程序。 這項功能類似於 Azure 入口網站中的 [測試] 索引標籤。  
@@ -361,3 +408,4 @@ Azure Functions Core Tools 是[開放原始碼且裝載於 GitHub 上](https://g
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure 入口網站]: https://portal.azure.com 
+[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

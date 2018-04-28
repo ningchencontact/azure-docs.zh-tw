@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 264befc6c60b87d41658b4da763e477fbb7e3f8c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bbda406633f97d9a6c90bc49374268df28b68f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用入口網站來建立可存取資源的 Active Directory 應用程式和服務主體
 
@@ -46,13 +46,13 @@ ms.lasthandoff: 03/23/2018
 
    ![檢視應用程式註冊](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. 如果應用程式註冊設定為 [否]，則只有系統管理員使用者才能註冊應用程式。 檢查帳戶是否為 Azure AD 租用戶的系統管理員。 選取 [概觀] 並查看您的使用者資訊。 如果您的帳戶指派給「使用者」角色，但應用程式註冊設定 (從先前步驟中) 僅限於系統管理員使用者，請洽詢系統管理員將您指派至系統管理員角色，或讓使用者可以註冊應用程式。
+1. 如果應用程式註冊設定為 [否]，只有[全域系統管理員](../active-directory/active-directory-assign-admin-roles-azure-portal.md)才能註冊應用程式。 檢查帳戶是否為 Azure AD 租用戶的系統管理員。 選取 [概觀] 並查看您的使用者資訊。 如果您的帳戶指派給「使用者」角色，但應用程式註冊設定 (從先前步驟中) 僅限於系統管理員使用者，請洽詢系統管理員將您指派為全域系統管理員角色，或讓使用者可以註冊應用程式。
 
    ![尋找使用者](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
 ### <a name="check-azure-subscription-permissions"></a>檢查 Azure 訂用帳戶權限
 
-在您的 Azure 訂用帳戶中，您的帳戶必須具有 `Microsoft.Authorization/*/Write` 存取權，才能將 AD 應用程式指派給角色。 此動作是[擁有者](../active-directory/role-based-access-built-in-roles.md#owner)角色或[使用者存取系統管理員](../active-directory/role-based-access-built-in-roles.md#user-access-administrator)角色來授與。 如果您的帳戶已指派給**參與者**角色，則您沒有足夠的權限。 當您嘗試將服務主體指派給角色時，您會收到錯誤。
+在您的 Azure 訂用帳戶中，您的帳戶必須具有 `Microsoft.Authorization/*/Write` 存取權，才能將 AD 應用程式指派給角色。 此動作是[擁有者](../role-based-access-control/built-in-roles.md#owner)角色或[使用者存取系統管理員](../role-based-access-control/built-in-roles.md#user-access-administrator)角色來授與。 如果您的帳戶已指派給**參與者**角色，則您沒有足夠的權限。 當您嘗試將服務主體指派給角色時，您會收到錯誤。
 
 若要檢查訂用帳戶權限：
 
@@ -135,7 +135,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="assign-application-to-role"></a>將應用程式指派給角色
 
-若要存取您的訂用帳戶中的資源，您必須將應用程式指派給角色。 決定哪個角色代表應用程式的正確權限。 若要深入了解可用的角色，請參閱 [RBAC：內建角色](../active-directory/role-based-access-built-in-roles.md)。
+若要存取您的訂用帳戶中的資源，您必須將應用程式指派給角色。 決定哪個角色代表應用程式的正確權限。 若要深入了解可用的角色，請參閱 [RBAC：內建角色](../role-based-access-control/built-in-roles.md)。
 
 您可以針對訂用帳戶、資源群組或資源的層級設定範圍。 較低的範圍層級會繼承較高層級的權限。 例如，為資源群組的讀取者角色新增應用程式，代表該角色可以讀取資源群組及其所包含的任何資源。
 
@@ -167,5 +167,5 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="next-steps"></a>後續步驟
 * 若要設定多租用戶應用程式，請參閱 [利用 Azure Resource Manager API 進行授權的開發人員指南](resource-manager-api-authentication.md)。
-* 若要了解如何指定安全性原則，請參閱 [Azure 角色型存取控制](../active-directory/role-based-access-control-configure.md)。  
-* 如需可授與或拒絕使用者的可用動作清單，請參閱 [Azure Resource Manager 資源提供者作業](../active-directory/role-based-access-control-resource-provider-operations.md)。
+* 若要了解如何指定安全性原則，請參閱 [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)。  
+* 如需可授與或拒絕使用者的可用動作清單，請參閱 [Azure Resource Manager 資源提供者作業](../role-based-access-control/resource-provider-operations.md)。

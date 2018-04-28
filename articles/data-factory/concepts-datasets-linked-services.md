@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: f9a3eeff7a44c98228f89a7519117b043217eefd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 17043ef3450554dd4ea272a4b7732367bae8e369
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Azure Data Factory 中的資料集和已連結的服務 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -193,7 +193,7 @@ structure 中的每個資料行都包含下列屬性︰
 name | 資料行的名稱。 | yes
 type | 資料行的資料類型。 Data Factory 支援將下列過渡期資料類型當作允許的值：**Int16、Int32、Int64、Single、Double、Decimal、Byte[]、Boolean、String、Guid、Datetime、Datetimeoffset 及 Timespan** | 否
 culture | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的 .NET 型文化特性。 預設值為 `en-us`。 | 否
-format | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的格式字串。 有關如何格式化日期時間的資訊，請參閱[自訂日期和時間格式字串](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings)。 | 否
+format | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的格式字串。 有關如何格式化日期時間的資訊，請參閱[自訂日期和時間格式字串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 | 否
 
 ### <a name="example"></a>範例
 在下列範例中，假設來源 Blob 資料是 CSV 格式，而且包含三個資料行：userid、name 和 lastlogindate。 這些是含有自訂日期時間格式 (使用法文縮寫星期幾名稱) 的 Int64、String 和 Datetime 類型。

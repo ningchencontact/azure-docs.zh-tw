@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 489d1044de49c63ac7e1423708cc0638355ab1b5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5fcf33d3d54b118c1c25f1467a496da3644a2345
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>使用 PowerShell 以建立虛擬服務端點和 Azure SQL Database 的規則
 
@@ -50,6 +50,9 @@ ms.lasthandoff: 03/16/2018
 - 您已經可以登入 Azure，例如透過 [Azure 入口網站][http-azure-portal-link-ref-477t]。
 - 您已經可以執行 PowerShell 指令碼。
 
+> [!NOTE]
+> 針對要新增至伺服器的 Vnet/子網路，請確認已開啟服務端點，否則建立 Vnet 防火牆規則將會失敗。
+
 #### <a name="one-script-divided-into-four-chunks"></a>分成四個區塊的單一指令碼
 
 示範的 PowerShell 指令碼會分割成一系列較小的指令碼。 分割指令碼有助於學習，並提供彈性。 指令碼需按照指定的順序執行。 如果您目前沒有時間執行指令碼，我們的實際測試輸出顯示在指令碼 4 的後面。
@@ -79,7 +82,7 @@ ms.lasthandoff: 03/16/2018
 ###########################################################
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 ###########################################################
 ##  Assignments to variables used by the later scripts.  ##
@@ -519,7 +522,7 @@ Completed script 4, the "Clean-Up".
 ### 1. LOG into to your Azure account, needed only once per PS session.  Assign variables.
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 # Assignments to variables used by the later scripts.
 # You can EDIT these values, if necessary.

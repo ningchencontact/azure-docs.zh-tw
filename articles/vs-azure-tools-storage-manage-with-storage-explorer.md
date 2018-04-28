@@ -1,6 +1,6 @@
 ---
-title: 開始使用儲存體總管 (預覽) | Microsoft Docs
-description: 使用儲存體總管管理 Azure 儲存體資源 (預覽)
+title: 開始使用儲存體總管 | Microsoft Docs
+description: 使用儲存體總管來管理 Azure 儲存體資源
 services: storage
 documentationcenter: na
 author: cawa
@@ -14,33 +14,60 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e8ebbd1a0ac2153913a2e5f506505ffb481b3822
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="get-started-with-storage-explorer-preview"></a>開始使用儲存體總管 (預覽)
+# <a name="get-started-with-storage-explorer"></a>開始使用儲存體總管
 ## <a name="overview"></a>概觀
-Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。 在本文中，您將了解連線及管理 Azure 儲存體帳戶的數種方式。
+Azure 儲存體總管是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。 在本文中，您將了解連線及管理 Azure 儲存體帳戶的數種方式。
 
-![Microsoft Azure 儲存體 Explorer (預覽)][0]
+![Microsoft Azure 儲存體總管][0]
 
 ## <a name="prerequisites"></a>先決條件
-* [下載並安裝儲存體總管 (預覽)](http://www.storageexplorer.com)
 
-> [!NOTE]
-> 針對 Ubuntu 16.04 以外的 Linux 散發版本，您可能需要手動安裝某些相依性。 一般而言，必要的套件如下：
-> * libgconf-2-4
-> * libsecret
-> * 最新的 GCC
->
-> 依據您的散發版本，您可能需要安裝其他套件。 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)包含某些散發版本的特定步驟。
->
->
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+下列的 Windows 版本支援 Azure 儲存體總管：
+
+* Windows 10 (建議採用)
+* Windows 8
+* Windows 7
+
+[下載並安裝儲存體總管](http://www.storageexplorer.com)
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+下列的 macOS 版本支援 Azure 儲存體總管：
+
+* macOS 10.12 "Sierra" 及更新版本
+
+[下載並安裝儲存體總管](http://www.storageexplorer.com)
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+下列的 Linux 發行版本支援 Azure 儲存體總管：
+
+* Ubuntu 16.04 x64 (建議採用)
+* Ubuntu 17.10 x64
+* Ubuntu 14.04 x64
+
+Azure 儲存體總管或許可以在其他發行版本上執行，但官方僅支援上面列出的發行版本。
+
+您也必須安裝下列的相依項/程式庫，才能在 Linux 上執行 Azure 儲存體總管:
+
+* [.NET Core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* ibsecret (注意：您的電腦上一定要有 libsecret 1.so.0。 如果您安裝不同版本的 libsecret，則可以嘗試將它的 libsecret .so 檔案軟式連結至 libsecret-1.so.0)
+* libgconf-2-4
+* 最新的 GCC
+
+Azure 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)包含某些發行版本的特定步驟。
+
+[下載並安裝儲存體總管](http://www.storageexplorer.com)
+
+---
 
 ## <a name="connect-to-a-storage-account-or-service"></a>連接到儲存體帳戶或服務
-儲存體總管 (預覽) 提供數種方式來連線至儲存體帳戶。 例如，您可以：
+儲存體總管提供數種方式來連線至儲存體帳戶。 例如，您可以：
 * 連線至與您的 Azure 訂用帳戶相關聯的儲存體帳戶。
 * 連線至從其他 Azure 訂用帳戶共用的儲存體帳戶和服務。
 * 使用 Azure 儲存體模擬器連線到本機儲存體並加以管理。 
@@ -60,7 +87,7 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 >
 >
 
-1. 在儲存體總管 (預覽) 中，選取 [管理帳戶] 以移至 [帳戶管理面板]。
+1. 在儲存體總管中，選取 [管理帳戶] 以移至 [帳戶管理面板]。
 
     ![管理帳戶][1]
 
@@ -79,7 +106,7 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
     ![已選取的 Azure 訂用帳戶][4]
 
 ## <a name="work-with-local-development-storage"></a>使用本機開發儲存體
-使用儲存體總管 (預覽)，您可以使用 Azure 儲存體模擬器來處理本機儲存體。 此方法可讓您模擬使用 Azure 儲存體，而不需在 Azure 上部署儲存體帳戶，因為 Azure 儲存體模擬器正在模擬儲存體帳戶。
+使用儲存體總管，您可以使用 Azure 儲存體模擬器來處理本機儲存體。 此方法可讓您模擬使用 Azure 儲存體，而不需在 Azure 上部署儲存體帳戶，因為 Azure 儲存體模擬器正在模擬儲存體帳戶。
 
 > [!NOTE]
 > Azure 儲存體模擬器目前只適用於 Windows。
@@ -91,7 +118,7 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 >
 >
 
-1. 在儲存體總管 (預覽) 的左窗格中，依序展開 [(本機連結)] > [儲存體帳戶] > [(開發)] > [Blob 容器] 節點。
+1. 在儲存體總管的左窗格中，依序展開 [(本機連結)] > [儲存體帳戶] > [(開發)] > [Blob 容器] 節點。
 
     ![本機開發節點][5]
 
@@ -102,12 +129,9 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 3. 安裝模擬器之後，您即可建立並使用本機 blob、佇列和資料表。 若要了解如何使用每個儲存體帳戶類型，請參閱下列指南：
 
     * [管理 Azure Blob 儲存體資源](vs-azure-tools-storage-explorer-blobs.md)
-    * 管理 Azure 檔案共用儲存體資源：敬請期待 
-    * 管理 Azure 佇列儲存體資源：敬請期待 
-    * 管理 Azure 表格儲存體資源：敬請期待 
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>附加或卸離外部儲存體帳戶
-使用儲存體總管 (預覽)，您可以連結至外部儲存體帳戶，因此可以輕鬆地共用儲存體帳戶。 本節說明如何附加至 (及卸離) 外部儲存體帳戶。
+使用儲存體總管，您可以連結至外部儲存體帳戶，因此可以輕鬆地共用儲存體帳戶。 本節說明如何附加至 (及卸離) 外部儲存體帳戶。
 
 ### <a name="get-the-storage-account-credentials"></a>取得儲存體帳戶認證
 若要共用外部儲存體帳戶，該帳戶的擁有者必須先取得帳戶的認證 (帳戶名稱和金鑰)，然後與想要連結至所述帳戶的人員分享該資訊。 執行下列步驟，即可透過 Azure 入口網站取得儲存體帳戶認證：
@@ -129,9 +153,9 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
     ![存取金鑰][8]
 
 ### <a name="attach-to-an-external-storage-account"></a>附加至外部儲存體帳戶
-若要附加至外部儲存體帳戶，您需要帳戶的名稱和金鑰。 「取得儲存體帳戶認證」一節說明如何從 Azure 入口網站取得這些值。 不過，在入口網站中，帳戶金鑰稱為 [金鑰1]。 因此，當儲存體總管 (預覽) 要求帳戶金鑰時，您會輸入 [金鑰 1] 值。
+若要附加至外部儲存體帳戶，您需要帳戶的名稱和金鑰。 「取得儲存體帳戶認證」一節說明如何從 Azure 入口網站取得這些值。 不過，在入口網站中，帳戶金鑰稱為 [金鑰1]。 因此，當儲存體總管要求帳戶金鑰時，您可輸入 [金鑰 1] 值。
 
-1. 在儲存體總管 (預覽) 中，開啟 [連線對話方塊]。
+1. 在儲存體總管中，開啟 [連線對話方塊]。
 
     ![連接至 Azure 儲存體選項][9]
 
@@ -172,10 +196,10 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 
 2. UserA 可與想要存取儲存體帳戶的人員 (在本例中為 UserB) 共用 SAS。  
 
-3. UserB 可透過儲存體總管 (預覽)，使用所提供的 SAS 來連結至屬於 UserA 的帳戶。
+3. UserB 可透過儲存體總管，使用所提供的 SAS 來連結至屬於 UserA 的帳戶。
 
 ### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>針對您要共用的帳戶產生 SAS 連接字串
-1. 在儲存體總管 (預覽) 中，以滑鼠右鍵按一下您要共用的儲存體帳戶，然後選取 [取得共用存取簽章...]。
+1. 在儲存體總管中，以滑鼠右鍵按一下您要共用的儲存體帳戶，然後選取 [取得共用存取簽章]。
 
     ![取得 SAS 內容功能表選項][14]
 
@@ -186,7 +210,7 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 3. 選取 [連接字串] 文字方塊旁的 [複製]，將它複製到剪貼簿，然後按一下 [關閉]。
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>使用 SAS 連接字串連結儲存體帳戶
-1. 在儲存體總管 (預覽) 中，開啟 [連線對話方塊]。
+1. 在儲存體總管中，開啟 [連線對話方塊]。
 
     ![連接至 Azure 儲存體選項][9]
 
@@ -213,12 +237,9 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 在此情況下，服務可以是 Blob 容器、佇列、資料表或檔案共用。 若要產生所列服務的 SAS，請參閱︰
 
 * [取得 Blob 容器的 SAS](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-* 取得檔案共用的 SAS：敬請期待
-* 取得佇列的 SAS：敬請期待
-* 取得資料表的 SAS：敬請期待
 
 ### <a name="attach-to-the-shared-account-service-by-using-a-sas-uri"></a>使用 SAS URI 連結至共用帳戶服務
-1. 在儲存體總管 (預覽) 中，開啟 [連線對話方塊]。
+1. 在儲存體總管中，開啟 [連線對話方塊]。
 
     ![連接至 Azure 儲存體選項][9]
 
@@ -251,7 +272,7 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 
  ## <a name="connect-to-azure-data-lake-store-by-uri"></a>以 URI 連線至 Azure Data Lake Store
 如果您想要取得資源的存取權，而這些資源不存在於您的訂用帳戶中， 但他人授權給您取得資源的 URI。 在此情況下，您可以在登入後使用 URI 連線至 Data Lake Store。 請參閱下列步驟。
-1. 開啟儲存體 Explorer (預覽)。
+1. 開啟儲存體總管。
 2. 在左窗格中，展開 [本機與已連結的資源]。
 3. 以滑鼠右鍵按一下 **Data Lake Store**，然後從內容功能表中選取 [連線至 Data Lake Store...]。
 
@@ -276,9 +297,9 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 >
 
 ## <a name="next-steps"></a>後續步驟
-* [使用儲存體總管 (預覽) 來管理 Azure Blob 儲存體資源](vs-azure-tools-storage-explorer-blobs.md)
+* [使用儲存體總管來管理 Azure Blob 儲存體資源](vs-azure-tools-storage-explorer-blobs.md)
 * [在 Azure 儲存體總管 (預覽) 中管理 Azure Cosmos DB](./cosmos-db/storage-explorer.md)
-* [使用儲存體總管來管理 Azure Data Lake Store 資源 (預覽)](./data-lake-store/data-lake-store-in-storage-explorer.md)
+* [使用儲存體總管來管理 Azure Data Lake Store 資源](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

@@ -12,15 +12,13 @@ ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e8dc802d67b4cd2e38ab195b771ceeaa07876e58
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -31,7 +29,7 @@ ms.lasthandoff: 03/28/2018
 
 需要有下列項目才能完成本文中的步驟：
 
-- HDInsight 叢集。  若要建立叢集，請參閱[開始使用 HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md)。
+- HDInsight 叢集。 若要建立叢集，請參閱[開始使用 HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md)。
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)。
 - [Mono](http://www.mono-project.com/docs/getting-started/install/)。 Linux 和 macOS 才需要 Mono。
 
@@ -102,7 +100,7 @@ ms.lasthandoff: 03/28/2018
     - 提交 PySpark 批次指令碼
     - 設定組態
 
-**連結叢集**
+<a id="linkcluster"></a>**連結叢集**
 
 您可以使用 Ambari 受控使用者名稱來連結正常的叢集，也可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結安全性 hadoop 叢集。
 1. 選取 **CTRL+SHIFT+P** 以開啟命令選擇區，然後輸入 **HDInsight: Link a cluster**。
@@ -114,7 +112,7 @@ ms.lasthandoff: 03/28/2018
    ![連結叢集對話方塊](./media/hdinsight-for-vscode/link-cluster-process.png)
 
    > [!NOTE]
-   > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的使用者名稱和密碼。 
+   > 如果叢集已登入 Azure 訂用帳戶並連結叢集，則會使用連結的使用者名稱和密碼。 
    
 3. 您可以使用 **List cluster** 命令來查看連結的叢集。 您現在可以將指令碼提交至此連結的叢集。
 
@@ -277,8 +275,50 @@ ms.lasthandoff: 03/28/2018
 
 在提交 Python 作業後，提交記錄會出現在 VS Code 的 [輸出] 視窗中。 此外也會顯示 **Spark UI URL** 和 **Yarn UI URL**。 您可以在網頁瀏覽器中開啟 URL 來追蹤作業狀態。
 
-
+>[!NOTE]
+>Livy 0.4 中不再支援 PySpark3 (其為 HDI Spark 2.2 叢集)。 “PySpark” 只支援 Python。 這是已知問題，會提交給 Spark 2.2，在與 Python3 搭配使用時會失敗。
    
+## <a name="livy-configuration"></a>Livy 設定
+支援 Livy 設定，您可以在工作空間資料夾的專案設定中加以設定。 如需詳細資料，請參閱 [Livy 讀我檔案](https://github.com/cloudera/livy/blob/master/README.rst )。
+
++ 專案設定：
+
+    ![Livy 設定](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+
++ 所支援的 Livy 設定：   
+
+    **POST /batches**   
+    要求本文
+
+    | name | 說明 | type | 
+    | :- | :- | :- | 
+    | file | 要執行的應用程式所在的檔案 | 路徑 (必要) | 
+    | proxyUser | 要在執行作業時模擬的使用者 | 字串 | 
+    | className | 應用程式 Java/Spark 主要類別 | 字串 |
+    | args | 應用程式的命令列引數 | 字串的清單 | 
+    | jars | 要在此工作階段中使用的 jar | 字串清單 | 
+    | pyFiles | 要在此工作階段中使用的 Python 檔案 | 字串清單 |
+    | 檔案 | 要在此工作階段中使用的檔案 | 字串清單 |
+    | driverMemory | 要用於驅動程式處理序的記憶體數量 | 字串 |
+    | driverCores | 要用於驅動程式處理序的核心數量 | int |
+    | executorMemory | 每一個執行程式處理序所要使用的記憶體數量 | 字串 |
+    | executorCores | 每個執行程式所要使用的核心數量 | int |
+    | numExecutors | 要為此工作階段啟動的執行程式數量 | int |
+    | archives | 要在此工作階段中使用的封存 | 字串清單 |
+    | 佇列 | 所提交到的 YARN 佇列名稱 | 字串 |
+    | name | 此工作階段的名稱 | 字串 |
+    | conf | Spark 組態屬性 | key=val 的對應 |
+
+    回應本文   
+    所建立的 Batch 物件。
+
+    | name | 說明 | type | 
+    | :- | :- | :- | 
+    | id | 工作階段識別碼 | int | 
+    | appId | 此工作階段的應用程式識別碼 |  字串 |
+    | appInfo | 詳細的應用程式資訊 | key=val 的對應 |
+    | log | 記錄行 | 字串的清單 |
+    | state |   批次狀態 | 字串 |
 
 
 ## <a name="additional-features"></a>其他功能

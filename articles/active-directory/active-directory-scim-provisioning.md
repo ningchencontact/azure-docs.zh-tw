@@ -17,10 +17,10 @@ ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -68,7 +68,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
   ![][2]
   圖 3：在 Azure 入口網站中設定佈建
     
-6. 在 [租用戶 URL] 欄位中，輸入應用程式 SCIM 端點的 URL。 範例：https://api.contoso.com/scim/v2/
+6. 在 [租用戶 URL] 欄位中，輸入應用程式 SCIM 端點的 URL。 範例： https://api.contoso.com/scim/v2/
 7. 如果 SCIM 端點需要來自非 Azure AD 簽發者的 OAuth 持有人權杖，那麼便將所需的 OAuth 持有人權杖複製到選擇性 [祕密權杖] 欄位。 如果此欄位保留空白，則 Azure AD 會在每個要求包含從 Azure AD 簽發的 OAuth 持有人權杖。 使用 Azure AD 作為識別提供者的應用程式，可以驗證此 Azure AD 簽發的權杖。
 8. 按一下 [測試連線] 按鈕，讓 Azure Active Directory 嘗試連線到 SCIM 端點。 如果嘗試失敗，則會顯示錯誤資訊。  
 9. 如果嘗試連線到應用程式成功，則按一下 [儲存] 以儲存管理員認證。
@@ -114,7 +114,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
 
 **若要建立範例 SCIM 端點：**
 
-1. 在 [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
+1. 請至 [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) 下載程式碼範例套件。
 2. 將套件解壓縮並將放在 Windows 電腦上的位置，例如 C:\AzureAD-BYOA-Provisioning-Samples\。
 3. 在此資料夾中，於 Visual Studio 中啟動 FileProvisioningAgent 方案。
 4. 選取 [工具] > [程式庫套件管理員] > [套件管理員主控台]，然後執行以下命令，讓 FileProvisioningAgent 專案解析方案參考：
@@ -168,7 +168,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
 2. [ExpressRoute 處理常式](http://expressjs.com/guide/routing.html)可剖析代表對 node.js Web 服務發出之呼叫 (如 SCIM 規格所定義) 的 node.js 要求物件。   
 
 ### <a name="building-a-custom-scim-endpoint"></a>建置自訂 SCIM 端點
-使用 CLI 程式庫，使用這些程式庫的開發人員可以將其服務託管在任何可執行的通用語言基礎結構組件內，或在網際網路資訊服務內。 以下是範例程式碼，此程式碼可將服務裝載於位於位址 http://localhost:9000 的可執行組件內： 
+使用 CLI 程式庫，使用這些程式庫的開發人員可以將其服務託管在任何可執行的通用語言基礎結構組件內，或在網際網路資訊服務內。 以下是範例程式碼，此程式碼可將服務裝載於位於 http://localhost:9000: 位址的可執行組件內： 
 
     private static void Main(string[] arguments)
     {
@@ -288,7 +288,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
     }
 
 ### <a name="handling-endpoint-authentication"></a>處理端點驗證
-來自 Azure Active Directory 的要求包括 OAuth 2.0 持有人權杖。   接收要求的任何服務應該代表預期的 Azure Active Directory 租用戶，將簽發者驗證為 Azure Active Directory，以存取 Azure Active Directory 圖形 Web 服務。  在 Token 中，簽發者是由 iss 宣告，例如："iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"。  在此範例中，宣告值的基礎位址 https://sts.windows.net 會將 Azure Active Directory 識別為簽發者，而相對位址區段 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 則是簽發權杖時所代表之 Azure Active Directory 租用戶的唯一識別碼。  如果發出的權杖要用於存取 Azure Active Directory 圖形 Web 服務，則該服務的識別項 00000002-0000-0000-c000-000000000000，應該位於權杖的 aud 宣告中的值。  
+來自 Azure Active Directory 的要求包括 OAuth 2.0 持有人權杖。   接收要求的任何服務應該代表預期的 Azure Active Directory 租用戶，將簽發者驗證為 Azure Active Directory，以存取 Azure Active Directory 圖形 Web 服務。  在權杖中，是用 iss 宣告識別簽發者，例如："iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"。  在此範例中，宣告值的基礎位址 https://sts.windows.net 會將 Azure Active Directory 識別為簽發者，而相對位址區段 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 則是簽發權杖時所代表之 Azure Active Directory 租用戶的唯一識別碼。  如果發出的權杖要用於存取 Azure Active Directory 圖形 Web 服務，則該服務的識別項 00000002-0000-0000-c000-000000000000，應該位於權杖的 aud 宣告中的值。  
 
 開發人員若使用 Microsoft 所提供的 CLA 程式庫來建置 SCIM 服務，可以依照下列步驟使用 Microsoft.Owin.Security.ActiveDirectory 套件以驗證來自 Azure Active Directory 的要求： 
 
@@ -347,9 +347,9 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
 ## <a name="user-and-group-schema"></a>使用者和群組結構描述
 Azure Active Directory 可以佈建兩種類型的資源至 SCIM Web 服務。  這些類型的資源是使用者和群組。  
 
-使用者資源是由結構描述識別碼 urn:ietf:params:scim:schemas:extension:enterprise:2.0:User 識別，此識別碼包含在下列通訊協定規格中：http://tools.ietf.org/html/draft-ietf-scim-core-schema。  以下的表 1 提供相對於urn:ietf:params:scim:schemas:extension:enterprise:2.0:User 資源的屬性，Azure Active Directory 中使用者屬性的預設對應。  
+用結構描述識別碼 urn:ietf:params:scim:schemas:extension:enterprise:2.0:User 識別使用者資源，此識別碼包含在下列通訊協定規格中：http://tools.ietf.org/html/draft-ietf-scim-core-schema。  以下的表 1 提供相對於urn:ietf:params:scim:schemas:extension:enterprise:2.0:User 資源的屬性，Azure Active Directory 中使用者屬性的預設對應。  
 
-群組資源是由結構描述識別碼 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 識別。  下面的表 2 顯示 Azure Active Directory 中的群組屬性與 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 資源之屬性的預設對應。  
+用結構描述識別碼 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 識別群組資源。  下面的表 2 顯示 Azure Active Directory 中的群組屬性與 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 資源屬性的預設對應。  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>表 1：預設使用者屬性對應
 | Azure Active Directory 使用者 | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |

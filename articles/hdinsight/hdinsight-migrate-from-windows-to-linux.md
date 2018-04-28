@@ -1,8 +1,8 @@
 ---
-title: "從以 Windows 為基礎的 HDInsight 移轉至以 Linux 為基礎的 HDInsight - Azure | Microsoft Docs"
-description: "了解如何從以 Windows 為基礎的 HDInsight 叢集移轉至以 Linux 為基礎的 HDInsight 叢集。"
+title: 從以 Windows 為基礎的 HDInsight 移轉至以 Linux 為基礎的 HDInsight - Azure | Microsoft Docs
+description: 了解如何從以 Windows 為基礎的 HDInsight 叢集移轉至以 Linux 為基礎的 HDInsight 叢集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dff9eaad252a71942b07212b7cfa9d9ddf346a3f
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6d4b537834b8a70f0015fc9c6316dae20af5dd5a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>從以 Windows 為基礎的 HDInsight 叢集移轉至以 Linux 為基礎的叢集
 
@@ -234,7 +232,7 @@ Oozie 工作流程允許殼層動作。 殼層動作會使用作業系統的預�
 | 以 Windows 為基礎時，我是使用... | 以 Linux 為基礎時... |
 | --- | --- |
 | Storm Dashboard |無法使用 Storm Dashboard。 請參閱 [在以 Linux 為基礎的 HDInsight 上部署與管理 Storm 拓撲](storm/apache-storm-deploy-monitor-topology-linux.md) ，以了解提交拓撲的方法。 |
-| Storm UI |Storm UI 可以在 https://CLUSTERNAME.azurehdinsight.net/stormui 使用 |
+| Storm UI |Storm UI 位於 https://CLUSTERNAME.azurehdinsight.net/stormui |
 | Visual Studio 以建立、部署及管理 C# 或混合式拓撲 |在以 Linux 作為基礎的 Storm on HDInsight 上，可以使用 Visual Studio 來建立、部署和管理 C# (SCP.NET) 或混合式拓撲。 僅能搭配使用 10/28/2016 之後建立的叢集。 |
 
 ## <a name="hbase"></a>hbase

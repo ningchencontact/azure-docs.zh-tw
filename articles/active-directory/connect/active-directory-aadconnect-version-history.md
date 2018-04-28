@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/16/2018
+ms.date: 04/17/2018
 ms.author: billmath
-ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
 
+
 本文旨在協助您追蹤已發行的版本，以及了解您是否需要更新為最新版本。
 
 下列為相關主題的清單︰
-
-
 
 話題 |  詳細資料
 --------- | --------- |
@@ -35,6 +34,21 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 所需的權限 | 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](./active-directory-aadconnect-accounts-permissions.md#upgrade)。
 
 下載 | [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)。
+
+## <a name="117510"></a>1.1.751.0
+4/12/2018 狀態：已發行，僅可供下載
+
+>[!NOTE]
+>這是 Azure AD Connect 的 Hotfix
+
+### <a name="azure-ad-connect-sync"></a>Azure AD Connect 同步處理
+#### <a name="fixed-issues"></a>已修正的問題
+已更正中國租用戶中自動 Azure 執行個體探索偶爾失敗的問題。  
+
+### <a name="ad-fs-management"></a>AD FS 管理
+#### <a name="fixed-issues"></a>已修正的問題
+
+組態重試邏輯有問題，該問題會造成表示「已新增具有相同索引鍵的項目」的 ArgumentException。  這會導致所有重試作業失敗。
 
 ## <a name="117500"></a>1.1.750.0
 2018/3/22 狀態：已發行，可供自動升級和下載。
@@ -99,8 +113,7 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 這些變更涵蓋：
 1. 快速安裝
 2. 含自動建立帳戶的自訂安裝
-
-* 修改了安裝程式，使其在全新安裝 Azure AD Connect 時不需要 SA 權限。
+3. 修改了安裝程式，使其在全新安裝 Azure AD Connect 時不需要 SA 權限。
 
 * 加入新的公用程式，可針對特定物件的同步處理問題進行疑難排解。 它位於 Azure AD Connect 精靈疑難排解其他工作的「針對物件同步處理進行疑難排解」選項底下。 目前，此公用程式會檢查下列各項：
 

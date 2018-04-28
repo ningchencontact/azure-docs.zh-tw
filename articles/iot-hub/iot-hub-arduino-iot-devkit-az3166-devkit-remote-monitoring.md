@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: b288595ca06c3a3cccb72082658f1927f2ae558a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 17b24244180436c2d1f97433e13a530dae565a10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>將 MXChip IoT DevKit 連線到 Azure IoT 套件以便進行遠端監視
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/03/2018
 
 有效的 Azure 訂用帳戶。 如果沒有，您可以透過下列兩種方法之一來註冊：
 
-* 啟動 [30 天免費試用 Microsoft Azure 帳戶](https://azure.microsoft.com/en-us/free/)
+* 啟動 [30 天免費試用 Microsoft Azure 帳戶](https://azure.microsoft.com/free/)
 * 如果您是 MSDN 或 Visual Studio 訂閱者，請認領您的 [Azure 點數](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
 ## <a name="create-an-azure-iot-suite"></a>建立 Azure IoT 套件
@@ -50,7 +50,7 @@ ms.lasthandoff: 04/03/2018
 3. 輸入解決方案名稱，選取訂用帳戶和區域，然後按一下 [建立解決方案]。 此解決方案可能需要一些時間才能完成佈建。
   ![建立解決方案](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
 
-4. 佈建完成後，按一下 [啟動]。 佈建程序進行期間會為解決方案建立一些模擬裝置。 按一下 **裝置** 將其簽出。![儀表板](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
+4. 佈建完成後，按一下 [啟動]。 佈建程序進行期間會為解決方案建立一些模擬裝置。 按一下 **[裝置]** 將其簽出。![儀表板](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
   ![主控台](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
 
 5. 按一下 [新增裝置]。
@@ -124,4 +124,4 @@ DevKit 會重新開機，然後開始執行程式碼。
 您已了解如何將 DevKit 裝置連接至 Azure IoT 套件並將感應器資料視覺化，以下是建議的後續步驟：
 
 * [Azure IoT 套件概觀](https://docs.microsoft.com/azure/iot-suite/)
-* [將 MXChip IoT DevKit 裝置連線到您的 Microsoft IoT Central 應用程式](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [將 MXChip IoT DevKit 裝置連線到您的 Microsoft IoT Central 應用程式](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

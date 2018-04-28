@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: cd11ea68f298395236abf83295b939462ba00964
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
 本文說明接管 Azure Active Directory (Azure AD) 之非受控目錄中 DNS 網域名稱的兩種方式。 當自助使用者註冊使用 Azure AD 的雲端服務時，系統會根據其電子郵件網域將其新增至非受控 Azure AD 目錄。 如需有關自助式或「病毒式」服務註冊的詳細資訊，請參閱[什麼是自助式 Azure Active Directory 註冊？]()
@@ -83,14 +83,12 @@ ms.lasthandoff: 03/29/2018
 - 使用者
 - 訂用帳戶
 - 授權指派
- 
-只有針對 Power BI 和 Azure RMS 這兩項服務，才支援用於網域名稱外部管理員接管的 [**ForceTakeover** 選項](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option)。
 
 ### <a name="support-for-external-admin-takeover"></a>對外部管理員接管的支援
 以下是支援外部管理員接管的線上服務：
 
 - Power BI
-- Azure Rights Management Service (RMS)
+- Azure Rights Management
 - Exchange Online
 
 支援的服務方案包括：
@@ -99,12 +97,19 @@ ms.lasthandoff: 03/29/2018
 - Power BI Pro
 - PowerApps Free
 - PowerFlow Free
-- Azure Rights Management Service Basic (RMS)
-- Azure Rights Management Service Enterprise (RMS)
+- 個人版 RMS
 - Microsoft Stream
 - Dynamics 365 免費試用版
 
-針對服務方案包括 SharePoint、OneDrive 或「商務用 Skype」(例如透過 Office 免費訂用帳戶或 Office Basic SKU) 的所有服務，都不支援外部管理員接管。
+針對服務方案中包括 SharePoint、OneDrive 或「商務用 Skype」(例如透過 Office 免費訂用帳戶或 Office Basic SKU) 的所有服務，都不支援外部管理員接管。 您可以選擇性地使用 [**ForceTakeover** 選項](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option)，將網域名稱從非受控租用戶移除，並在所需的租用戶上加以驗證。 此 ForceTakeover 選項不會移動使用者，也不會保留訂用帳戶的存取權。 相反地，此選項只會移動網域名稱。 
+
+#### <a name="more-information-about-rms-for-individuals"></a>個人版 RMS 的詳細資訊
+
+對於[個人版 RMS](/information-protection/understand-explore/rms-for-individuals)，當非受控租用戶與您擁有的租用戶位於相同區域中時，會額外移動自動建立的 [Azure 資訊保護租用戶金鑰](/information-protection/plan-design/plan-implement-tenant-key)和[預設保護範本](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates)並包含網域名稱。 
+
+當非受控租用戶位於不同的區域時，金鑰和範本並不會移動。 例如，非受控租用戶位於歐洲，而您擁有的租用戶位於北美洲。 
+
+雖然個人版 RMS 是針對支援 Azure AD 驗證來開啟受保護內容所設計，但它並不會阻止使用者同時保護內容。 如果使用者是使用個人版 RMS 訂用帳戶來保護內容，且金鑰和範本未移動，則在網域接管之後將無法存取該內容。    
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD 的 ForceTakeover 選項 PowerShell Cmdlet
 您可以在 [PowerShell 範例](#powershell-example)中看到使用這些 Cmdlet。

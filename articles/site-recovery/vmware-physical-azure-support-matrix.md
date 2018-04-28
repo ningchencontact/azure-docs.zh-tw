@@ -5,37 +5,57 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/29/2018
+ms.topic: conceptual
+ms.date: 04/08/2018
 ms.author: raynew
-ms.openlocfilehash: 28ddecc45faa213d1fd536b5ad8690e151037505
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b2a6e3052c64ab6a2865a0c24a4876cb2b98d1a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>將 VMware 和實體伺服器複寫至 Azure 的支援對照表
 
 本文摘要說明使用 [Azure Site Recovery](site-recovery-overview.md) 將 VMware VM 災害復原至 Azure 所支援的元件和設定。
 
-## <a name="supported-scenarios"></a>支援的案例
+## <a name="replication-scenario"></a>複寫案例
 
 **案例** | **詳細資料**
 --- | ---
-VMware VM | 您可以針對內部部署 VMware VM 執行災害復原至 Azure。 您可以在 Azure 入口網站中或使用 PowerShell 來部署此案例。
-實體伺服器 | 您可以針對內部部署 Windows/Linux 實體伺服器執行災害復原至 Azure。 您可以在 Azure 入口網站中部署此案例。
+VMware VM | 將內部部署 VMware 虛擬機器複寫至 Azure。 您可以在 Azure 入口網站中或使用 PowerShell 來部署此案例。
+實體伺服器 | 將內部部署 Windows/Linux 實體伺服器複寫至 Azure。 您可以在 Azure 入口網站中部署此案例。
 
 ## <a name="on-premises-virtualization-servers"></a>內部部署虛擬化伺服器
 
 **伺服器** | **需求** | **詳細資料**
 --- | --- | ---
-VMware | vCenter Server 6.5、6.0 或 5.5 或 vSphere 6.5、6.0 或 5.5 | 我們建議使用 vCenter 伺服器。
+VMware | vCenter Server 6.5、6.0 或 5.5 或 vSphere 6.5、6.0 或 5.5 | 我們建議使用 vCenter 伺服器。<br/><br/> 我們建議 vSphere 主機與 vCenter 伺服器應位於和處理序伺服器相同的網路中。 根據預設，處理序伺服器元件會在組態伺服器上執行，因此這是您在其中設定組態伺服器的網路，除非您設定專用處理序伺服器。 
 實體 | N/A
 
+## <a name="site-recovery-configuration-server"></a>Site Recovery 組態伺服器
+
+組態伺服器屬於內部部署機器，可執行 Site Recovery 元件，包括組態伺服器、處理序伺服器和主要目標伺服器。 針對以所有需求來設定組態伺服器的 VMware 複寫，請使用 OVF 範本來建立 VMware 虛擬機器。 針對實體伺服器複寫，請手動設定組態伺服器機器。
+
+**元件** | **需求**
+--- |---
+CPU 核心 | 8 
+RAM | 12 GB
+磁碟數量 | 3 個磁碟<br/><br/> 磁碟包括作業系統磁碟、處理序伺服器快取磁碟和用於容錯回復的保留磁碟機。
+磁碟可用空間 | 處理序伺服器快取需要 600 GB 的空間。
+磁碟可用空間 | 保留磁碟機需要 600 GB 的空間。
+作業系統  | Windows Server 2012 R2 或 Windows Server 2016 | 
+作業系統地區設定 | 英文 (en-us) 
+PowerCLI | 應該安裝 [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")。
+Windows Server 角色 | 未啟用： <br> - Active Directory Domain Services <br>- 網際網路資訊服務 <br> - Hyper-V |
+群組原則| 未啟用： <br> - 防止存取命令提示字元。 <br> - 防止存取登錄編輯工具。 <br> - 檔案附件的信任邏輯。 <br> - 開啟指令碼執行。 <br> [深入了解](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+IIS | 請確定您已執行下列動作：<br/><br/> - 沒有預先存在的預設網站 <br> - 啟用[匿名驗證](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - 啟用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 設定  <br> - 沒有預先存在的網站/應用程式接聽連接埠 443<br>
+NIC 類型 | VMXNET3 (部署為 VMware VM 時) 
+IP 位址類型 | 靜態 
+連接埠 | 443 (用於控制通道協調流程)<br>9443 (用於資料傳輸)
 
 ## <a name="replicated-machines"></a>複寫的電腦
 
-下表摘要說明 VMware VM 和實體伺服器的複寫支援。 Site Recovery 針對支援的作業系統電腦，支援其上執行的任何工作負載複寫。
+Site Recovery 支援複寫任何執行於所支援機器上的工作負載。
 
 **元件** | **詳細資料**
 --- | ---

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: ''
-ms.openlocfilehash: a7553e4155df0d4ee49b798f44ca636dc7ecdcd2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>使用新的警示 (預覽) 體驗建立活動記錄警示
 
@@ -103,13 +103,13 @@ ms.lasthandoff: 03/12/2018
 
     **警示邏輯**：
 
-        - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
-        - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
-        - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
+     - **事件層級** - 事件的安全性層級。**詳細資訊、資訊、警告、錯誤**或**重大**。
+     - **狀態**：事件的狀態。**已啟動、失敗**或**成功**。
+     - **事件起始者**：也稱為呼叫端；使用者 (執行作業者) 的電子郵件地址或 Azure Active Directory 識別碼。
 
-        **Sample signal graph with alert logic applied** :
+        **已套用警示邏輯的範例訊號圖表**：
 
-        ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ 選取的準則](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
 4. 在 [定義警示規則詳細資料] 下，提供下列詳細資料：
 

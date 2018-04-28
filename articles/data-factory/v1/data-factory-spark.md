@@ -1,11 +1,11 @@
 ---
-title: "從 Azure Data Factory 叫用 Spark 程式 | Microsoft Docs"
-description: "了解如何從 Azure Data Factory 使用 MapReduce 活動來叫用 Spark 程式。"
+title: 從 Azure Data Factory 叫用 Spark 程式 | Microsoft Docs
+description: 了解如何從 Azure Data Factory 使用 MapReduce 活動來叫用 Spark 程式。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9df8b0987378fef37c7ca8f24070a88cbfc42f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>從 Azure Data Factory 叫用 Spark 程式管線
 
@@ -59,7 +59,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
 2. 依照教學課程[在 HDInsight 中建立 Spark 叢集](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)中的指示，在 HDInsight 中建立 Spark 叢集。 將您在步驟 1 中建立的儲存體帳戶與此叢集產生關聯。
 
-3. 下載並檢閱位於 [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py) 的 Python 指令碼檔案 **test.py**。
+3. 下載並檢閱位於 [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py) 的 Python 指令檔 **test.py**。
 
 4. 將 **test.py** 上傳至您 Blob 儲存體 **adfspark** 容器中的 [pyFiles] 資料夾。 建立容器和資料夾 (如果不存在)。
 
@@ -84,7 +84,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 7. 選取 [建立] 。
 
    > [!IMPORTANT]
-   > 若要建立 Data Factory 執行個體，您必須是訂用帳戶/資源群組層級的 [Data Factory 參與者](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor)角色成員。
+   > 若要建立 Data Factory 執行個體，您必須是訂用帳戶/資源群組層級的 [Data Factory 參與者](../../role-based-access-control/built-in-roles.md#data-factory-contributor)角色成員。
 
 8. 您會在 Azure 入口網站的儀表板中看到所建立的資料處理站。
 

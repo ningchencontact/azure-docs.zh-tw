@@ -14,20 +14,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 7fa93e138bc9feb66c200597119bb12dbaf00480
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 865243a10bd5043ca04c392c043b37772271f68f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>使用 Machine Learning Management PowerShell Cmdlet 重新訓練以 Resource Manager 為基礎的新 Web 服務
-當您重新訓練新的 Web 服務時，可以更新預測性 Web 服務定義以參考新的訓練模型。  
+當您重新訓練新的 Web 服務時，可以更新預測性 Web 服務定義以參考新的訓練模型。
 
 ## <a name="prerequisites"></a>先決條件
-您必須設定訓練實驗與預測性實驗，如[以程式設計方式重新定型機器學習服務模型](retrain-models-programmatically.md)中所示。 
+您必須設定訓練實驗與預測性實驗，如[以程式設計方式重新定型機器學習服務模型](retrain-models-programmatically.md)中所示。
 
 > [!IMPORTANT]
-> 預測性實驗必須部署為 Azure Resource Manager (新) 型 Machine Learning Web 服務。 若要部署新的 Web 服務，您必須在要部署 Web 服務的訂用帳戶中具備足夠的權限。 如需詳細資訊，請參閱[使用 Azure Machine Learning Web 服務入口網站管理 Web 服務](manage-new-webservice.md)。 
+> 預測性實驗必須部署為 Azure Resource Manager (新) 型 Machine Learning Web 服務。
+> 若要部署新的 Web 服務，您必須在要部署 Web 服務的訂用帳戶中具備足夠的權限。 如需詳細資訊，請參閱[使用 Azure Machine Learning Web 服務入口網站管理 Web 服務](manage-new-webservice.md)。
 
 如需關於部署 Web 服務的其他資訊，請參閱[部署 Azure Machine Learning Web 服務](publish-a-machine-learning-web-service.md)。
 
@@ -48,7 +49,7 @@ ms.lasthandoff: 03/23/2018
 6. 使用新的 Web 服務定義更新 Web 服務
 
 ## <a name="sign-in-to-your-azure-resource-manager-account"></a>登入您的 Azure Resource Manager 帳戶
-您必須先在 PowerShell 環境中，使用 [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) Cmdlet 登入您的 Azure 帳戶。
+您必須先在 PowerShell 環境中，使用 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) Cmdlet 登入您的 Azure 帳戶。
 
 ## <a name="get-the-web-service-definition"></a>取得 Web 服務定義
 接下來，呼叫 [Get AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) Cmdlet 取得 Web 服務。 Web 服務定義是 Web 服務訓練模型的內部表示法，且不可直接修改。 請確定您要擷取的是預測性實驗 (而非訓練實驗) 的 Web 服務定義。

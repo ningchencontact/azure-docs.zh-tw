@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: davidmu
-ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 77f6ae1df8a364eecc5e7d6d6fe3a07dd215ac16
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則設定具有動態內容的 UI
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 使用 Azure Active Directory B2C (Azure AD B2C) 自訂原則，您可以在查詢字串中傳送參數。 將參數傳遞至您的 HTML 端點，即可動態變更網頁內容。 例如，視您從 Web 或行動裝置應用程式傳遞的參數而定，您可以變更 Azure AD B2C 註冊或登入背景影像。 
 
 ## <a name="prerequisites"></a>先決條件

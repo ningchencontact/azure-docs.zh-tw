@@ -1,27 +1,25 @@
 ---
-title: "Hadoop 元件和版本 - Azure HDInsight | Microsoft Docs"
-description: "了解 HDInsight 中的 Hadoop 元件和版本，以及此 Hortonworks Data Platform 雲端發佈的可用服務層級。"
-keywords: "hadoop 版本, hadoop 生態系統元件, hadoop 元件, 如何檢查 hadoop 版本"
+title: Hadoop 元件和版本 - Azure HDInsight | Microsoft Docs
+description: 了解 HDInsight 中的 Hadoop 元件和版本，以及此 Hortonworks Data Platform 雲端發佈的可用服務層級。
+keywords: hadoop 版本, hadoop 生態系統元件, hadoop 元件, 如何檢查 hadoop 版本
 services: hdinsight
 editor: cgronlun
 manager: asadk
 author: bprakash
 tags: azure-portal
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 35ded349e9ced6463ece876ca1fd92423d20c625
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 813b05c5be4378ea6e57cb0b14fd8110e2772998
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Hadoop 元件和版本有哪些？
 
@@ -109,7 +107,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>適用於 HDInsight 的企業安全性套件
 
-Azure HDInsight 是選擇性的套件，您可以在建立叢集工作流程時，新增於 HDInsight 叢集上。 企業安全性套件支援：
+企業安全性是選擇性的套件，您可以在建立叢集工作流程時，新增於 HDInsight 叢集上。 企業安全性套件支援：
 
 - 與 Active Directory 整合以進行驗證。
 

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1e94466d9d41bbc6a2100256d96e19d0d13600cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Microsoft Azure 匯入/匯出服務將資料傳入 Azure 儲存體
 在本文中，我們會提供使用 Azure 匯入/匯出服務的逐步指示，藉由將磁碟機運送到 Azure 資料中心，安全地將大量資料傳入 Azure Blob 儲存體和 Azure 檔案服務。 這項服務也能用來將資料從 Azure 儲存體傳輸到硬碟，然後運送到您的內部部署網站。 單一內部 SATA 磁碟機的資料可匯入到 Azure Blob 儲存體或 Azure 檔案服務。 
@@ -560,7 +560,7 @@ Azure 儲存體帳戶下的資料可以透過 Azure 入口網站或使用稱為�
 
 Azure 匯入/匯出服務預設會透過 AES 128 BitLocker 加密進行加密，但可在複製資料之前，以手動方式使用 BitLocker 進行加密以提高到 AES 256。 
 
-如果使用 [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)，以下是命令範例
+如果使用 [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)，以下是命令範例
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```

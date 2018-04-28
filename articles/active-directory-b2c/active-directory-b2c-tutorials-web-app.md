@@ -8,11 +8,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 59e23344d235bac8f69bba76cfff2922bc41fd0f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 10e7c6a8e9e92a559352886095e367585dc484ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>教學課程：讓 Web 應用程式能夠使用 Azure Active Directory B2C 向帳戶進行驗證
 
@@ -142,7 +142,7 @@ Azure AD B2C 原則會定義使用者工作流程。 例如，登入、註冊、
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-範例 ASP.NET Web 應用程式是用來建立和更新待辦事項清單的簡易工作清單應用程式。 應用程式會使用 [Microsoft OWIN 中介軟體元件](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/)，讓使用者註冊並使用您 Azure AD B2C 租用戶中的應用程式。 藉由建立 Azure AD B2C 原則，使用者將可使用社交帳戶，或建立帳戶以作為其存取應用程式的身分識別。 
+範例 ASP.NET Web 應用程式是用來建立和更新待辦事項清單的簡易工作清單應用程式。 應用程式會使用 [Microsoft OWIN 中介軟體元件](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/)，讓使用者註冊並使用您 Azure AD B2C 租用戶中的應用程式。 藉由建立 Azure AD B2C 原則，使用者將可使用社交帳戶，或建立帳戶以作為其存取應用程式的身分識別。 
 
 範例方案中有兩個專案：
 

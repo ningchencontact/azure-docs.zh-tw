@@ -1,11 +1,11 @@
 ---
-title: "媒體服務版本資訊 | Microsoft Docs"
-description: "媒體服務版本資訊"
+title: 媒體服務版本資訊 | Microsoft Docs
+description: 媒體服務版本資訊
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20a24aa19989370c6ce82a738193a78f24b0eba9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已知問題。
@@ -47,7 +47,7 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 
 ## <a name="october-2017-release"></a>2017 年 10 月版本
 > [!IMPORTANT] 
-> 媒體服務正逐漸停止對 Azure 存取控制服務驗證金鑰的支援。 自 2018 年 6 月 1 起，您將無法再使用存取控制服務金鑰透過程式碼對媒體服務後端進行驗證。 您必須依據[以Azure AD 為基礎的驗證](media-services-use-aad-auth-to-access-ams-api.md)更新您的程式碼，以使用 Azure Active Directory (Azure AD)。 請留意 Azure 入口網站中有關於這項變更的警告。
+> 媒體服務正逐漸停止對 Azure 存取控制服務驗證金鑰的支援。 自 2018 年 6 月 22 日起，您將無法再使用存取控制服務金鑰，透過程式碼對媒體服務後端進行驗證。 您必須依據[以Azure AD 為基礎的驗證](media-services-use-aad-auth-to-access-ams-api.md)更新您的程式碼，以使用 Azure Active Directory (Azure AD)。 請留意 Azure 入口網站中有關於這項變更的警告。
 
 ### <a name="updates-for-october-2017"></a>2017 年 10 月的更新
 #### <a name="sdks"></a>SDK

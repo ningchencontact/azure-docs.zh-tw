@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/23/2018
 ms.author: mamit
 ms.custom: ''
-ms.openlocfilehash: 16e0fc493a257504e2708336e05c30b36d4bea15
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c3622b4699ef532f204231c76aa3436be3676763
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="the-new-alerts-experience-in-azure-monitor"></a>Azure 監視器中的新警示體驗
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/03/2018
 
 警示有了新體驗。 舊版警示體驗現在位於 [警示 (傳統)] 索引標籤底下。與 [警示 (傳統)] 體驗相比，新的 [警示] 體驗具有下列優點：
 
--   **更好的通知系統**：所有新版警示都使用[動作群組]( https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups)，這些是可在多個警示中重複使用的具名通知及動作群組。  傳統計量警示及舊版 Log Analytics 警示並不使用動作群組。 
+-   **更好的通知系統**：所有新版警示都使用[動作群組]( https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)，這些是可在多個警示中重複使用的具名通知及動作群組。  傳統計量警示及舊版 Log Analytics 警示並不使用動作群組。 
 - **統一的撰寫體驗** -「Azure 監視器」、Log Analytics 及 Application Insights 之計量、記錄和活動記錄的所有警示建立作業都在一個地方完成。 
 - **在 Azure 入口網站中檢視引發的 Log Analytics 警示** - 您現在也能在訂用帳戶中查看引發的 Log Analytics 警示。 先前這些警示是在個別的入口網站中。 
 - **分隔引發的警示和警示規則** - 區分 [警示規則] (定義觸發警示的條件) 和 [引發的警示] (警示規則引發的執行個體)，因此將操作與設定檢視分開。
@@ -104,10 +104,10 @@ ms.lasthandoff: 04/03/2018
 | **訊號類型** | **監視來源** | **說明** | 
 |-------------|----------------|-------------|
 | 計量 | Azure 監視器 | 也稱為[近乎即時計量警示](monitoring-near-real-time-metric-alerts.md)，這些警示支援以 1 分鐘一次的頻率評估計量條件，並允許多計量及多維度規則。 所支援的資源類型清單可在[這裡](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)取得。 |
-| 計量 | Azure 監視器 | 新的警示體驗中不支援[舊版傳統計量警示](monitoring-overview-alerts.md)。 您可以在 Azure 入口網站中的 [警示 (傳統)] 底下找到它們。 傳統警示支援一些尚未移至新版警示的計量類型。 如需完整的清單，請參閱[支援的計量](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
+| 計量 | Azure 監視器 | 新的警示體驗中不支援[舊版傳統計量警示](monitoring-overview-alerts.md)。 您可以在 Azure 入口網站中的 [警示 (傳統)] 底下找到它們。 傳統警示支援一些尚未移至新版警示的計量類型。 如需完整的清單，請參閱[支援的計量](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
 | 記錄檔  | Log Analytics | 當記錄搜尋查詢高於計量和/或事件資料符合特定準則時，接收通知或執行自動化動作。 舊版 Log Analytics 警示仍然可供使用，但已[正在複製到新體驗中](monitoring-alerts-extend.md)。 此外，也有[預覽版的以 *Log Analytics 記錄作為計量*](monitoring-alerts-extend-tool.md)可供使用。 此預覽版可讓您將一些類型的記錄轉換成計量，然後使用新的警示體驗來針對它們發出警示。 如果您有想要與原生「Azure 監視器」計量搭配使用的非 Azure 記錄，此預覽版會相當有用。 |
-| 活動記錄 | 活動記錄 (一般) | 包含透過所選目標 (資源/資源群組/訂用帳戶) 執行之所有「建立」、「更新」及「刪除」動作的記錄。 |
-| 活動記錄  | 服務健康情況 | 在新的警示體驗中不支援。 請參閱[建立服務通知的活動記錄警示](monitoring-activity-log-alerts-on-service-notifications.md)。  |
+| 活動記錄檔 | 活動記錄 (一般) | 包含透過所選目標 (資源/資源群組/訂用帳戶) 執行之所有「建立」、「更新」及「刪除」動作的記錄。 |
+| 活動記錄檔  | 服務健康情況 | 在新的警示體驗中不支援。 請參閱[建立服務通知的活動記錄警示](monitoring-activity-log-alerts-on-service-notifications.md)。  |
 | 記錄檔  | Application Insights | 包含具有應用程式效能詳細資料的記錄。 您可以使用分析查詢，定義要根據應用程式資料來採取動作的條件。 |
 | 計量 | Application Insights | 在新的警示體驗中不支援。 請參閱[計量警示](../application-insights/app-insights-alerts.md) |
 | Web 可用性測試 | Application Insights | 在 [警示] 體驗中不支援。  請參閱 [Web 測試警示](../application-insights/app-insights-monitor-web-app-availability.md)。 可供任何經檢測可傳送資料給 Application Insights 的網站使用。 當網站的可用性或回應能力低於預期時收到通知。 |

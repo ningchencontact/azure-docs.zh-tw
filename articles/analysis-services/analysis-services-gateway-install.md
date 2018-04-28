@@ -1,25 +1,18 @@
 ---
 title: 安裝內部部署資料閘道 | Microsoft Docs
 description: 了解如何安裝及設定內部部署資料閘道。
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/03/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: b57ee7d9617f8bf2e54122ac37f351ae0cf9db26
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.reviewer: minewiskan
+ms.openlocfilehash: 5a923d3b5fbb5e7afe5f2a922ba083608ff35fd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
 如果相同區域中有一或多部 Analysis Services 伺服器連線到內部部署資料來源，則需要一個內部部署閘道。 若要深入了解閘道，請參閱[內部部署資料閘道](analysis-services-gateway.md)。
@@ -44,7 +37,7 @@ ms.lasthandoff: 04/05/2018
 * 請在電源維持開啟且不會進入睡眠狀態的電腦上安裝閘道。
 * 請勿將閘道安裝於採用無線網路的電腦上。 效能會因此降低。
 * 如果[租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)與您要註冊閘道的訂用帳戶相同，請以 Azure AD 中的帳戶登入 Azure。 安裝和註冊閘道時不支援 Azure B2B (來賓) 帳戶。
-* Azure Government (Fairfax) 不支援此處所述的 (統一) 閘道。 使用 Azure Analysis Services 的專用內部部署閘道。 專用閘道不支援其他服務，例如 Power BI 和 Power Apps。 專用閘道是在入口網站中的伺服器快速入門中進行安裝。
+* Azure Government、Azure Germany、Azure China 主權區域 不支援此處所述的 (統一) 閘道。 使用 **Azure Analysis Services 的專用內部部署閘道**，在入口網站中從伺服器的 [快速入門] 安裝。 
 
 
 ## <a name="download"></a>下載

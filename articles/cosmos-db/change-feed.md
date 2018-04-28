@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 8cc4d8110db0a650b8355f96fee490093826ac30
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: be59f1a9dc19fffdb6a952c7db73756909036bf6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的變更摘要支援
 
@@ -159,6 +159,11 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
             }
     }
     ```
+
+> [!NOTE]
+> 並非 `ChangeFeedOptions.PartitionKeyRangeId`，您可以使用 `ChangeFeedOptions.PartitionKey` 來指定要取得變更摘要的單一分割區索引鍵。 例如： `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`。
+> 
+>
 
 如果您有多個讀取器，可以使用 **ChangeFeedOptions** 將讀取負載分配至不同的執行緒或不同的用戶端。
 

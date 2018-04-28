@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f4323c4e68c639af9a5959af512c1cdd07cdf0c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>針對 Azure Event Grid 張貼到自訂主題
 
@@ -73,7 +73,7 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 ]
 ```
 
-如需這些屬性的說明，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。
+如需這些屬性的說明，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。 張貼事件到事件方格主題時，陣列總大小最大為 1 MB。 陣列中的每個事件會限制為 64 KB。
 
 例如，有效的事件資料結構描述為：
 
@@ -98,9 +98,10 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 |結果  |Response  |
 |---------|---------|
 |成功  | 200 確定  |
-|端點不正確 | 404 找不到 |
-|存取金鑰無效 | 401 未經授權 |
 |事件資料的格式不正確 | 400 不正確的要求 |
+|存取金鑰無效 | 401 未經授權 |
+|端點不正確 | 404 找不到 |
+|陣列或事件超過大小限制 | 413 承載太大 |
 
 對於錯誤，訊息內文的格式如下：
 

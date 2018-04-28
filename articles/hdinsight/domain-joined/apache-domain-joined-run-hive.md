@@ -1,26 +1,22 @@
 ---
-title: 在已加入網域的 HDInsight 中設定 Hive 原則 - Azure | Microsoft Docs
+title: 在已加入網域的 HDInsight 中設定 Hive 原則 - Azure
 description: 了解 ...
 services: hdinsight
-documentationcenter: ''
-author: saurinsh
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/25/2016
-ms.author: saurinsh
-ms.openlocfilehash: 919a0a45c4c8c94b19ed1d602ed20df0afabd09a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: bd99e5fda80663b37c60d972742b16c27b92cf55
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>在已加入網域的 HDInsight 中設定 Hive 原則
 了解如何針對 Hive 設定 Apache Ranger 原則。 在本文中，您會建立兩個 Ranger 原則來限制 hivesampletable 的存取權。 HDInsight 叢集隨附 hivesampletable。 設定原則之後，您可以使用 Excel 和 ODBC 驅動程式連接到 HDInsight 中的 Hive 資料表。

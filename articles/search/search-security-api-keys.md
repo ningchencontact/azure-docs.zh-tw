@@ -10,11 +10,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: heidist
-ms.openlocfilehash: 83a082eb7a18c65a5824bf272e0397b18883277f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4215795b7cd2a25427a3ce9b3cde16bfc69cb009
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>針對 Azure 搜尋服務建立及管理 API 金鑰
 
@@ -27,7 +27,7 @@ API 金鑰是由隨機產生的數字和字母所組成的字串。 透過[角�
 |Key|說明|限制|  
 |---------|-----------------|------------|  
 |Admin|授與所有作業的完整權限，包括能夠管理服務、建立和刪除索引、索引子及資料來源。<br /><br /> 當服務建立時，在入口網站中會產生兩個系統管理金鑰 (稱為「主要」和「次要」金鑰)，而且您可以視需要個別重新產生這些金鑰。 擁有兩個金鑰可讓您在變換一個金鑰時，使用第二個金鑰來繼續存取服務。<br /><br /> 指定管理金鑰時，只能在 HTTP 要求標頭中指定。 您無法將管理 API 金鑰放在 URL 中。|每個服務的上限為 2 個|  
-|查詢|授與索引和文件的唯讀存取權，且通常會分派給發出搜尋要求的用戶端應用程式。<br /><br /> 查詢金鑰是視需要建立的。 您可以在入口網站中手動建立這些金鑰，或是透過[管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/) \(英文\) 以程式設計方式建立這些金鑰。<br /><br /> 您可以在 HTTP 要求標頭中指定查詢金鑰，以進行查詢、建議或查閱作業。 或者，您也可以在 URL 上將查詢金鑰當作參數來傳遞。 視您用戶端應用程式制定要求的方式而定，將金鑰當作查詢參數來傳遞可能會較為簡單：<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|每個服務 50 個|  
+|查詢|授與索引和文件的唯讀存取權，且通常會分派給發出搜尋要求的用戶端應用程式。<br /><br /> 查詢金鑰是視需要建立的。 您可以在入口網站中手動建立這些金鑰，或是透過[管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/) \(英文\) 以程式設計方式建立這些金鑰。<br /><br /> 您可以在 HTTP 要求標頭中指定查詢金鑰，以進行查詢、建議或查閱作業。 或者，您也可以在 URL 上將查詢金鑰當作參數來傳遞。 視您用戶端應用程式制定要求的方式而定，將金鑰當作查詢參數來傳遞可能會較為簡單：<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11&api-key=[query key]`|每個服務 50 個|  
 
  管理金鑰或查詢金鑰在外觀上並無差別。 兩種金鑰都是由 32 個隨機產生的英數字元所組成。 如果您忘記在應用程式中指定的是哪種類型的金鑰，您可以[在入口網站中查看金鑰值](https://portal.azure.com)，或使用 [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) 來傳回值和金鑰類型。  
 

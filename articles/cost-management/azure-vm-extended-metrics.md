@@ -1,20 +1,20 @@
 ---
-title: "新增 Azure 虛擬機器的擴充計量 | Microsoft Docs"
-description: "這篇文章可協助您啟用及設定 Azure VM 的擴充診斷計量。"
+title: 新增 Azure 虛擬機器的擴充計量 | Microsoft Docs
+description: 這篇文章可協助您啟用及設定 Azure VM 的擴充診斷計量。
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 91797aaab1dca96e78643f57776eb16d336e894b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: 4b00baba44a4724ce8f6a45a80692f7f566a35ed
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>新增 Azure 虛擬機器的擴充計量
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="verify-that-metrics-are-enabled-on-vms"></a>確認 VM 上已啟用計量
 
-1. 登入 Azure 入口網站，網址是 http://portal.azure.com/。
+1. 在 http://portal.azure.com 上登入 Azure 入口網站。
 2. 在 [虛擬機器] 下選取 VM，然後在 [監視] 下選取 [計量]。 此時會顯示可用計量清單。
 3. 選取某些計量，隨即出現顯示資料的圖形。  
     ![計量範例 - 主機百分比 CPU](./media/azure-vm-extended-metrics/metric01.png)

@@ -19,8 +19,8 @@
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟 IoT 中樞。
 
-2. 按一下 [裝置總管]。
-3. 在 [裝置總管] 窗格中，按一下 [新增] 將裝置新增到 IoT 中樞。 然後執行以下動作：
+2. 按一下 [IoT 裝置]。
+3. 在 [IoT 裝置] 窗格中，按一下 [新增] 將裝置新增到 IoT 中樞。 然後執行以下動作：
 
    **裝置識別碼**︰輸入新裝置的識別碼。 裝置識別碼會區分大小寫。
 
@@ -30,12 +30,15 @@
 
    **將裝置連線至 IoT 中樞**：按一下 [啟用]。
 
-   ![在 IoT 中樞的裝置總管中新增裝置](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+   ![在 IoT 中樞的 [IoT 裝置] 中新增裝置](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-iot-devices-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. 按一下 [檔案] 。
-5. 建立裝置之後，請在 [裝置總管] 窗格中開啟裝置。
+5. 建立裝置之後，請在 [IoT 裝置] 窗格中開啟裝置。
+
+   ![IoT 中樞中的 IoT 裝置清單](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_device-list-in-iot-devices-portal.png)
+
 6. 記下連接字串的主索引鍵。
 
-   ![取得裝置連接字串](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)
+   ![取得裝置連接字串](../articles/iot-hub/media/iot-hub-create-hub-and-device/8_get-device-connection-string-in-iot-devices-portal.png)

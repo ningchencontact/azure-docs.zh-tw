@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: c8804dce7dd8291b65f704ba36aaa1cd05eb4518
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e0217080963502094800a8b62de9c781817aec61
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中建立 Azure-SSIS 整合執行階段
 本文提供在 Azure Data Factory 中佈建 Azure-SSIS Integration Runtime 的步驟。 接著，您可以使用 SQL Server Data Tools (SSDT) 或 SQL Server Management Studio (SSMS)，將 SQL Server Integration Services (SSIS) 套件部署到 Azure 上的此執行階段。
@@ -39,12 +39,12 @@ ms.lasthandoff: 04/03/2018
 
 當您建立 Azure-SSIS IR 時，Data Factory 會連線到您的 Azure SQL Database，以準備 SSIS 目錄資料庫 (SSISDB)。 若已指定，則指令碼也會設定您 VNet 的權限和設定，並將 Azure-SSIS 整合執行階段的新執行個體加入到 VNet。
 
-當您佈建 Azure-SSIS 整合執行階段的執行個體時，也會安裝適用於 SSIS 的 Azure Feature Pack 和 Access 可轉散發套件。 除了內建元件所支援的資料來源以外，這些元件還提供對 Excel 和 Access 檔案以及各種 Azure 資料來源的連線能力。 您此時無法安裝適用於 SSIS 的第三方元件 (包括來自 Microsoft 的第三方元件，例如 Attunity 所提供的 Oracle 和 Teradata 元件及 SAP BI 元件)。
+當您佈建 Azure-SSIS 整合執行階段的執行個體時，也會安裝適用於 SSIS 的 Azure Feature Pack 和 Access 可轉散發套件。 除了內建元件所支援的資料來源以外，這些元件還提供對 Excel 和 Access 檔案以及各種 Azure 資料來源的連線能力。 您也可以安裝其他元件。 如需詳細資訊，請參閱 [Azure-SSIS 整合執行階段自訂設定](how-to-configure-azure-ssis-ir-custom-setup.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
 - **Azure 訂用帳戶**。 如果您沒有訂用帳戶，則可以建立[免費試用](http://azure.microsoft.com/pricing/free-trial/)帳戶。
-- **Azure SQL Database 伺服器**或 **SQL Server 受控執行個體 (預覽) (延伸的私人預覽)**。 如果您還沒有資料庫伺服器，請在 Azure 入口網站中建立一個，然後再開始。 此伺服器裝載 SSIS 目錄資料庫 (SSISDB)。 建議於整合執行階段所在的相同 Azure 區域中建立資料庫伺服器。 此設定可讓整合執行階段將執行記錄寫入 SSISDB，而不需要跨 Azure 區域。 記下您的 Azure SQL 伺服器定價層。 如需 Azure SQL Database 支援的定價層清單，請參閱 [SQL Database 資源限制](../sql-database/sql-database-resource-limits.md)。
+- **Azure SQL Database 伺服器**或 **SQL Server 受控執行個體 (預覽)**。 如果您還沒有資料庫伺服器，請在 Azure 入口網站中建立一個，然後再開始。 此伺服器裝載 SSIS 目錄資料庫 (SSISDB)。 建議於整合執行階段所在的相同 Azure 區域中建立資料庫伺服器。 此設定可讓整合執行階段將執行記錄寫入 SSISDB，而不需要跨 Azure 區域。 記下您的 Azure SQL 伺服器定價層。 如需 Azure SQL Database 支援的定價層清單，請參閱 [SQL Database 資源限制](../sql-database/sql-database-resource-limits.md)。
 
     請確認您的 Azure SQL Database 伺服器或 SQL Server 受控執行個體 (預覽) 並無 SSIS 目錄 (SSIDB 資料庫)。 Azure-SSIS IR 的佈建不支援使用現有的 SSIS 目錄。
 - **傳統或 Azure Resource Manager 虛擬網路 (VNet) (選擇性)**。 如果至少有下列一個條件成立，則您必須具備 Azure 虛擬網路 (VNet)：
@@ -54,7 +54,7 @@ ms.lasthandoff: 04/03/2018
 
 > [!NOTE]
 > - 您可以在下列區域中建立第 2 版的資料處理站：美國東部、美國東部 2、東南亞和西歐。 
-> - 您可以在下列區域中建立 Azure-SSIS IR：美國東部、美國東部 2、美國中部、北歐、西歐和澳大利亞東部。
+> - 您可以在下列區域中建立 Azure-SSIS IR：美國東部、美國東部 2、美國中部、美國西部 2、北歐、西歐、英國南部和澳大利亞東部。
 
 ## <a name="azure-portal"></a>Azure 入口網站
 在本節中，會使用 Azure 入口網站 (特別是 Data Factory UI) 建立 Azure-SSIS IR。 
@@ -73,6 +73,7 @@ ms.lasthandoff: 04/03/2018
    Azure Data Factory 的名稱必須是 **全域唯一的**。 如果您收到下列錯誤，請變更資料處理站的名稱 (例如 yournameMyAzureSsisDataFactory)，然後試著重新建立。 請參閱 [Data Factory - 命名規則](naming-rules.md)一文，以了解 Data Factory 成品的命名規則。
   
        `Data factory name “MyAzureSsisDataFactory” is not available`
+
 3. 選取您要在其中建立資料處理站的 Azure **訂用帳戶**。 
 4. 針對 [資源群組]，請執行下列其中一個步驟︰
      
@@ -170,8 +171,10 @@ $DataFactoryLocation = "EastUS"
 # Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[your Azure-SSIS integration runtime name]"
 $AzureSSISDescription = "This is my Azure-SSIS integration runtime"
+# Azure-SSIS IR edition/license info: Standard or Enterprise 
+$AzureSSISEdition = "Standard" # Enterprise Edition supports advanced/premium features
 
-# You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, North Europe, West Europe, and Australia East.
+# You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, West US 2, North Europe, West Europe, UK South, and Australia East.
 $AzureSSISLocation = "EastUS" 
 # In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeSize = "Standard_D3_v2"
@@ -179,6 +182,9 @@ $AzureSSISNodeSize = "Standard_D3_v2"
 $AzureSSISNodeNumber = 2 
 # For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
+
+# Custom setup info
+$SetupScriptContainerSasUri = "" # OPTIONAL: SAS URI of blob container where your custom setup script and its associated files are stored
 
 # SSISDB info
 $SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (Preview) server endpoint]"
@@ -199,7 +205,7 @@ $SubnetName = "[your subnet name or leave it empty]"
 在指令碼中新增下列程式碼，以登入並選取您的 Azure 訂用帳戶： 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
@@ -278,10 +284,12 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -CatalogAdminCredential $serverCreds `
                                             -CatalogPricingTier $SSISDBPricingTier `
                                             -Description $AzureSSISDescription `
+                                            -Edition $AzureSSISEdition ` 
                                             -Location $AzureSSISLocation `
                                             -NodeSize $AzureSSISNodeSize `
                                             -NodeCount $AzureSSISNodeNumber `
-                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode
+                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+                                            -SetupScriptContainerSasUri $SetupScriptContainerSasUri
 ```
 
 您不需要傳遞 VNetId 和 Subnet 的值，除非您需要內部部署資料存取，也就是說，您的 SSIS 套件中有內部部署資料來源/目的地。 您必須傳遞 CatalogPricingTier 參數的值。 如需 Azure SQL Database 支援的定價層清單，請參閱 [SQL Database 資源限制](../sql-database/sql-database-resource-limits.md)。
@@ -298,10 +306,12 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -CatalogServerEndpoint $SSISDBServerEndpoint `
                                             -CatalogAdminCredential $serverCreds `
                                             -Description $AzureSSISDescription `
+                                            -Edition $AzureSSISEdition ` 
                                             -Location $AzureSSISLocation `
                                             -NodeSize $AzureSSISNodeSize `
                                             -NodeCount $AzureSSISNodeNumber `
                                             -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+                                            -SetupScriptContainerSasUri $SetupScriptContainerSasUri `
                                             -VnetId $VnetId `
                                             -Subnet $SubnetName
 ```
@@ -339,6 +349,9 @@ $DataFactoryLocation = "EastUS"
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "<Specify a name for your Azure-SSIS (IR)>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
+# Azure-SSIS IR edition/license info: Standard or Enterprise 
+$AzureSSISEdition = "Standard" # Enterprise Edition supports advanced/premium features
+
 $AzureSSISLocation = "EastUS" 
  # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
 $AzureSSISNodeSize = "Standard_D3_v2"
@@ -346,6 +359,9 @@ $AzureSSISNodeSize = "Standard_D3_v2"
 $AzureSSISNodeNumber = 2 
 # For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
+
+# Custom setup info
+$SetupScriptContainerSasUri = "" # OPTIONAL: SAS URI of blob container where your custom setup script and its associated files are stored
 
 # SSISDB info
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
@@ -372,7 +388,7 @@ Catch [System.Data.SqlClient.SqlException]
     } 
 }
 
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
@@ -389,10 +405,12 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -CatalogAdminCredential $serverCreds `
                                             -CatalogPricingTier $SSISDBPricingTier `
                                             -Description $AzureSSISDescription `
+                                            -Edition $AzureSSISEdition ` 
                                             -Location $AzureSSISLocation `
                                             -NodeSize $AzureSSISNodeSize `
                                             -NodeCount $AzureSSISNodeNumber `
-                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode
+                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+                                            -SetupScriptContainerSasUri $SetupScriptContainerSasUri
 
 write-host("##### Starting your Azure-SSIS integration runtime. This command takes 20 to 30 minutes to complete. #####")
 Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

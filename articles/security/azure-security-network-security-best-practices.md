@@ -1,6 +1,6 @@
 ---
-title: "Azure 網路安全性最佳作法 |Microsoft Docs"
-description: "本文提供使用內建 Azure 功能的一些網路安全性最佳作法。"
+title: Azure 網路安全性最佳作法 |Microsoft Docs
+description: 本文提供使用內建 Azure 功能的一些網路安全性最佳作法。
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 3dee3411dadbca5e88951dec2ed1836d440423c4
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d6d723f40cdc0382fa41a51eb32e7b59f0798627
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-network-security-best-practices"></a>Azure 網路安全性最佳作法
-Microsoft Azure 可讓您將虛擬機器和應用裝置放在 Azure 虛擬網路上，進而將它們連接到其他網路裝置。 Azure 虛擬網路是一種建構，可讓您將虛擬網路介面卡連線到虛擬網路，允許有網路功能的裝置之間進行以 TCP/IP 為基礎的通訊。 連接到 Azure 虛擬網路的 Azure 虛擬機器能夠連接到相同 Azure 虛擬網路、不同 Azure 虛擬網路、網際網路或甚至您自己的內部部署網路上的裝置。
+Microsoft Azure 可讓您將虛擬機器和應用裝置放在 Azure 虛擬網路上，進而將它們連接到其他網路裝置。 Azure 虛擬網路是一種建構，可讓您將虛擬網路介面卡連線到虛擬網路，允許有網路功能的裝置之間進行以 TCP/IP 為基礎的通訊。 連線到 Azure 虛擬網路的 Azure 虛擬機器能夠連線到相同 Azure 虛擬網路、不同 Azure 虛擬網路、網際網路或甚至您自己的內部部署網路上的裝置。
 
-本文將討論 Azure 網路安全性最佳作法的集合。 這些最佳作法衍生自我們的 Azure 網路經驗和客戶的經驗。
+本文將討論一系列的 Azure 網路安全性最佳做法。 這些最佳作法衍生自我們的 Azure 網路經驗和客戶的經驗。
 
-針對每個最佳作法，我們會說明︰
+針對每個最佳做法，本文說明：
 
 * 最佳作法是什麼
 * 您為何想要啟用該最佳作法
@@ -54,7 +54,7 @@ Microsoft Azure 可讓您將虛擬機器和應用裝置放在 Azure 虛擬網路
 
 類似於您在內部部署執行的作業，您應該將較大的位址空間分成子網路。 您可以使用 [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 型子網路原則來建立子網路。
 
-子網路之間的路由傳送會自動發生，您不需要手動設定路由表。 不過，預設設定是您在 Azure 虛擬網路上建立的子網路之間沒有任何網路存取控制。 若要建立子網路之間的網路存取控制，您必須在子網路之間放置一些項目。
+子網路之間的路由傳送將會自動發生，您不需手動設定路由表。 不過，預設設定是您在 Azure 虛擬網路上建立的子網路之間沒有任何網路存取控制。 若要建立子網路之間的網路存取控制，您必須在子網路之間放置一些項目。
 
 其中一項可用來完成這項工作的是[網路安全性群組](../virtual-network/virtual-networks-nsg.md) (NSG)。 NSG 會簡單具狀態封包檢查裝置，其使用 5 個 Tuple (來源 IP、來源連接埠、目的地 IP、目的地連接埠和第 4 層通訊協定) 的方法來建立網路流量的允許/拒絕規則。 您可以允許或拒絕單一 IP 位址、多個 IP 位址或甚至整個子網路的流量。
 
@@ -64,17 +64,17 @@ Microsoft Azure 可讓您將虛擬機器和應用裝置放在 Azure 虛擬網路
 * 應用程式邏輯虛擬機器只可以起始與資料庫層的連線，而且只可以接受來自 Web 層的連線
 * 資料庫層虛擬機器只可以起始與其本身子網路外部項目的連線，而且只可以接受來自應用程式邏輯層的連線
 
-若要深入了解網路安全性群組以及如何使用它們以邏輯方式分割您的 Azure 虛擬網路的詳細資訊，請參閱[什麼是網路安全性群組](../virtual-network/virtual-networks-nsg.md) (NSG) 一文。
+若要深入了解網路安全性群組以及如何使用它們以邏輯方式分割 Azure 虛擬網路的詳細資訊，請參閱[什麼是網路安全性群組](../virtual-network/virtual-networks-nsg.md) (NSG)。
 
 ## <a name="control-routing-behavior"></a>控制路由行為
-當您將虛擬機器置於 Azure 虛擬網路時，您會注意到虛擬機器可以連接到相同 Azure 虛擬網路上的任何其他虛擬機器，即使其他虛擬機器位於不同的子網路。 這種情況的可能原因是預設會啟用一些允許這種通訊類型的系統路由。 這些預設路由可讓相同 Azure 虛擬網路上的虛擬機器彼此起始連線，以及與網際網路連線 (僅適用於網際網路的輸出通訊)。
+當您將虛擬機器置於 Azure 虛擬網路時，您會注意到虛擬機器可以連接到相同 Azure 虛擬網路上的任何其他虛擬機器，即使其他虛擬機器位於不同的子網路。 這可能是因為預設會啟用允許這種類型通訊的系統路由集合。 這些預設路由可讓相同 Azure 虛擬網路上的虛擬機器彼此起始連線，以及與網際網路連線 (僅適用於網際網路的輸出通訊)。
 
 當預設系統路由適用於許多部署案例時，您有時會想為您的部署自訂路由組態。 這些自訂項目可讓您設定下一個躍點位址以連到特定的目的地。
 
-建議您在部署虛擬網路安全性應用裝置時設定「使用者定義的路由」，我們將在更新版的最佳作法中進行討論。
+建議您在部署虛擬網路安全性應用裝置時設定使用者定義的路由，我們將在後續的最佳做法中進行討論。
 
 > [!NOTE]
-> 不需要使用者定義的路由，而預設系統路由適用於大部分的情況。
+> 使用者定義的路由並非必要，預設的系統路由適用於大部分的情況。
 >
 >
 
@@ -84,19 +84,19 @@ Microsoft Azure 可讓您將虛擬機器和應用裝置放在 Azure 虛擬網路
 若要進一步了解強制通道，最好能了解「分割通道」是什麼。
 最常見的分割通道範例出現於 VPN 連線。 想像一下您從旅館房間建立對公司網路的 VPN 連線。 這個連線可讓您存取公司資源，以及通過 VPN 通道的所有公司網路通訊。
 
-當您要連接到網際網路上的資源時，會發生什麼事？ 啟用分割通道時，這些連線會直接連接到網際網路，而不會經過 VPN 通道。 某些安全性專家將此視為潛在的風險，因此建議停用分割通道，而以網際網路為目標和以公司資源為目標的所有連線都經過 VPN 通道。 這麼做的好處是對網際網路的連線會被迫通過公司網路安全性裝置，而如果 VPN 用戶端連接到 VPN 通道之外的網際網路，將不會發生這種情況。
+當您要連接到網際網路上的資源時，會發生什麼事？ 啟用分割通道時，這些連線會直接連接到網際網路，而不會經過 VPN 通道。 某些安全性專家會將此視為潛在風險，因此建議停用分割通道以及所有連線。 預定用於網際網路的連線和預定用於公司資源的連線均應透過 VPN 通道來進行。 這麼做的好處是對網際網路的連線會被迫通過公司網路安全性裝置，而如果 VPN 用戶端連接到 VPN 通道之外的網際網路，將不會發生這種情況。
 
 現在讓我們回到 Azure 虛擬網路上的虛擬機器。 Azure 虛擬網路的預設路由可讓虛擬機器起始對網際網路的流量。 這也可以代表安全性風險，這些輸出連線可能會增加虛擬機器的受攻擊面並遭到攻擊者利用。
-基於這個理由，當您的 Azure 虛擬網路與內部部署網路之間有跨單位連線時，建議您在虛擬機器上啟用強制通道。 我們稍後會在這份 Azure 網路最佳作法文件中討論跨單位的連線能力。
+基於這個理由，當您的 Azure 虛擬網路與內部部署網路之間有跨單位連線時，建議您在虛擬機器上啟用強制通道。 後續將在這篇 Azure 網路最佳做法文件中討論跨單位連線能力。
 
 如果沒有跨單位連線，請務必利用網路安全性群組 (稍早討論) 或 Azure 虛擬網路安全性應用裝置 (接下來討論) 來防止從 Azure 虛擬機器對網際網路的輸出連線。
 
-若要深入了解強制通道及其啟用方式，請參閱[使用 PowerShell 和 Azure Resource Manager 設定強制通道](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)一文。
+若要深入了解強制通道及其啟用方式，請參閱[使用 PowerShell 和 Azure Resource Manager 設定強制通道](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)。
 
 ## <a name="use-virtual-network-appliances"></a>使用虛擬網路應用裝置
-雖然網路安全性群組和使用者定義路由可以在 [OSI 模型](https://en.wikipedia.org/wiki/OSI_model)的網路和傳輸層提供特定網路安全性測量，但在某些情況下，您會想要或需要啟用高堆疊層級的安全性。 在這類情況下，建議您部署 Azure 合作夥伴所提供的虛擬網路安全性應用裝置。
+雖然網路安全性群組和使用者定義的路由可以在 [OSI 模型](https://en.wikipedia.org/wiki/OSI_model) \(英文\) 的網路和傳輸層提供特定的網路安全性測量，但在某些情況下，您將會想要或需要啟用高堆疊層級的安全性。 在這類情況下，建議您部署 Azure 合作夥伴所提供的虛擬網路安全性應用裝置。
 
-Azure 網路安全性應用裝置可透過網路層級控制項所提供的內容來提供大幅增強的安全性層級。 虛擬網路安全性應用裝置所提供的網路安全性功能包括︰
+Azure 網路安全性應用裝置可透過網路層級控制項所提供的內容來提供增強的安全性層級。 虛擬網路安全性應用裝置所提供的網路安全性功能包括︰
 
 * 防火牆
 * 入侵偵測/入侵預防
@@ -120,10 +120,10 @@ DMZ 非常實用，因為您可以將網路存取控制管理、監視、記錄�
 
 建議對所有的高安全性部署，考慮部署 DMZ 以增強您的 Azure 資源的網路安全性層級。
 
-若要深入了解 DMZ 及其在 Azure 中的部署方式，請參閱 [Microsoft Cloud 服務和網路安全性](../best-practices-network-security.md)一文。
+若要深入了解 DMZ 及其在 Azure 中的部署方式，請參閱 [Microsoft 雲端服務和網路安全性](../best-practices-network-security.md)。
 
 ## <a name="avoid-exposure-to-the-internet-with-dedicated-wan-links"></a>避免暴露於具有專用 WAN 連結的網際網路
-許多組織已選擇混合式 IT 路由。 在混合式 IT 中，有些公司的資訊資產是在 Azure 中，而有些公司則維持在內部部署上。 在許多情況下，服務的某些元件會在 Azure 中執行，而其他元件則維持在內部部署上。
+許多組織已選擇混合式 IT 路由。 在混合式 IT 中，有些公司的資訊資產是在 Azure 中，而有些公司則維持在內部部署上。 在許多情況下，服務的某些元件將會在 Azure 中執行，而其他元件則維持在內部部署上。
 
 在混合式 IT 案例中，通常會有某種類型的跨單位連線。 此種跨單位連線可讓公司將其內部部署網路連接到 Azure 虛擬網路。 可用的跨單位連線解決方案有兩個︰
 
@@ -132,11 +132,11 @@ DMZ 非常實用，因為您可以將網路存取控制管理、監視、記錄�
 
 [站對站 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) 代表您的內部部署網路和 Azure 虛擬網路之間的虛擬私人連線。 此連線透過網際網路進行，可讓您在您的網路與 Azure 之間的加密連結內的「輸送」資訊。 站對站 VPN 是安全成熟的技術，各種規模的企業已部署數十年。 使用 [IPsec 通道模式](https://technet.microsoft.com/library/cc786385.aspx)可執行通道加密。
 
-雖然站對站 VPN 是受信任、可靠且已確立的技術，通道中的流量會周遊網際網路。 此外，最大頻寬相對受限於大約 200Mbps。
+雖然站對站 VPN 是受信任、可靠且已確立的技術，通道中的流量會周遊網際網路。 此外，最大頻寬相對受限於大約 200 Mbps。
 
 如果您需要跨單位連線的例外安全性或效能層級，建議您對跨單位連線使用 Azure ExpressRoute。 ExpressRoute 是內部部署位置或 Exchange 主機服務提供者之間專用的 WAN 連結。 因為這是電信公司連線，所以您的資料不會透過網際網路傳輸，因此不會暴露於網際網路通訊固有的潛在風險。
 
-若要深入了解 Azure ExpressRoute 的運作方式和部署方式，請閱讀 [ExpressRoute 技術概觀](../expressroute/expressroute-introduction.md)一文。
+若要深入了解 Azure ExpressRoute 的運作方式和部署方式，請參閱 [ExpressRoute 技術概觀](../expressroute/expressroute-introduction.md)。
 
 ## <a name="optimize-uptime-and-performance"></a>將執行時間和效能最佳化
 機密性、完整性和可用性 (CIA) 三者構成現今最具影響力的安全性模型。 機密性有關於加密隱私權，完整性有關於確保資料不會遭到未經授權的人員變更，而可用性有關於確保經過授權的個人可以存取他們有權存取的資訊。 上述任何一個區域失敗都代表可能破壞安全性。
@@ -155,13 +155,13 @@ DMZ 非常實用，因為您可以將網路存取控制管理、監視、記錄�
 ## <a name="http-based-load-balancing"></a>以 HTTP 為基礎的負載平衡
 以 HTTP 為基礎的負載平衡會利用 HTTP 通訊協定的特性決定哪一部伺服器傳送連線。 Azure 有以應用程式閘道名稱為名的 HTTP 負載平衡器。
 
-建議您在下列情況使用 Azure 應用程式閘道︰
+建議您在下列情況中使用 Azure 應用程式閘道：
 
 * 需要要求來自相同使用者/用戶端工作階段，才能到達相同後端虛擬機器的應用程式。 此情況的範例為：購物車應用程式和網頁郵件伺服器。
 * 想要利用應用程式閘道的 [SSL 卸載](https://f5.com/glossary/ssl-offloading)功能，從 SSL 終止負荷釋出 Web 伺服器陣列的應用程式。
-* 內容傳遞網路之類的應用程式，需要將在相同的長時間執行 TCP 連接上的多個 HTTP 要求路由/負載平衡到不同的後端伺服器。
+* 在同一個長時間執行的 TCP 連線上必須要有多個 HTTP 要求才能路由傳送至或負載平衡至不同後端伺服器的應用程式 (例如內容傳遞網路)。
 
-若要深入了解 Azure 應用程式閘道的運作方式及其在您的部署中的使用方式，請閱讀[應用程式閘道概觀](../application-gateway/application-gateway-introduction.md)一文。
+若要深入了解 Azure 應用程式閘道的運作方式及其在您部署中的使用方式，請參閱[應用程式閘道概觀](../application-gateway/application-gateway-introduction.md)。
 
 ## <a name="external-load-balancing"></a>外部負載平衡
 來自網際網路的連入連線在位於 Azure 虛擬網路中的伺服器之間達到平衡負載時，就會進行外部負載平衡。 Azure 外部負載平衡器可以提供這項功能，建議您在不需要黏性工作階段或 SSL 卸載時使用。
@@ -170,14 +170,14 @@ DMZ 非常實用，因為您可以將網路存取控制管理、監視、記錄�
 
 只要有[無狀態應用程式](http://whatis.techtarget.com/definition/stateless-app)接受來自網際網路的連入要求時，建議您使用外部負載平衡。
 
-若要深入了解 Azure 外部負載平衡器的運作方式和部署方式，請閱讀[開始使用 PowerShell 在 Resource Manager 中建立網際網路面向的負載平衡器](../load-balancer/load-balancer-get-started-internet-arm-ps.md)。
+若要深入了解 Azure 外部負載平衡器的運作方式和部署方式，請參閱[開始使用 PowerShell 在 Resource Manager 中建立網際網路面向的負載平衡器](../load-balancer/load-balancer-get-started-internet-arm-ps.md)。
 
 ## <a name="internal-load-balancing"></a>內部負載平衡
 內部負載平衡類似於外部負載平衡，使用相同的機制對其背後伺服器的連線進行負載平衡。 唯一的差別在於，在此情況下的負載平衡器會接受來自不在網際網路上的虛擬機器的連線。 在大部分情況下，Azure 虛擬網路上的裝置會起始負載平衡可接受的連線。
 
 建議您將內部負載平衡用於將受益於此功能的案例，例如當您需要對 SQL 伺服器或內部 Web 伺服器的連線進行負載平衡時。
 
-若要深入了解 Azure 內部負載平衡的運作方式和部署方式，請閱讀[開始使用 PowerShell 在 Resource Manager 中建立網際網路面向的負載平衡器](../load-balancer/load-balancer-get-started-internet-arm-ps.md#update-an-existing-load-balancer)。
+若要深入了解 Azure 內部負載平衡的運作方式和部署方式，請參閱[開始使用 PowerShell 建立內部負載平衡器](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)。
 
 ## <a name="use-global-load-balancing"></a>使用全域負載平衡
 公用雲端運算可部署遍布全球的應用程式，而其元件位於世界各地的資料中心。 因為 Azure 有全域資料中心，在 Microsoft Azure 上才可行。 相對於先前所提的負載平衡技術，全域負載平衡可讓服務即使在整個資料中心可能無法使用時也能使用。
@@ -192,10 +192,10 @@ DMZ 非常實用，因為您可以將網路存取控制管理、監視、記錄�
 
 如果您所開發的雲端解決方案廣泛分散於多個區域且需要最高層級的執行時間，則建議使用流量管理員。
 
-若要了解 Azure 流量管理員及其部署方式的詳細資訊，請參閱[什麼是流量管理員](../traffic-manager/traffic-manager-overview.md)一文。
+若要深入了解 Azure 流量管理員和部署方式，請參閱[什麼是流量管理員](../traffic-manager/traffic-manager-overview.md)。
 
 ## <a name="disable-rdpssh-access-to-azure-virtual-machines"></a>停用 Azure 虛擬機器的 RDP/SSH 存取
-使用[遠端桌面通訊協定](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP) 和[安全殼層](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) 通訊協定可以連到 Azure 虛擬機器。 這些通訊協定可供從遠端位置管理虛擬機器，而且是資料中心運算的標準。
+使用[遠端桌面通訊協定](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP) \(英文\) 和[安全殼層](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) \(英文\) 通訊協定可以連到 Azure 虛擬機器。 這些通訊協定可供從遠端位置管理虛擬機器，而且是資料中心運算的標準。
 
 在網際網路上使用這些通訊協定的潛在安全性問題是，攻擊者可以使用各種[暴力密碼破解](https://en.wikipedia.org/wiki/Brute-force_attack)技術來存取 Azure 虛擬機器。 攻擊者一旦取得存取權，就可以使用您的虛擬機器做為破壞您的 Azure 虛擬網路上其他電腦的啟動點，或甚至攻擊 Azure 之外的網路裝置。
 
@@ -224,13 +224,13 @@ Azure 資訊安全中心藉由下列方式來協助您最佳化和監視網路�
 
 強烈建議您在所有的 Azure 部署上啟用 Azure 資訊安全中心。
 
-若要深入了解 Azure 資訊安全中心以及如何為您的部署進行啟用，請閱讀 [Azure 資訊安全中心簡介](../security-center/security-center-intro.md)一文。
+若要深入了解 Azure 資訊安全中心以及如何為您的部署進行啟用，請參閱 [Azure 資訊安全中心簡介](../security-center/security-center-intro.md)。
 
 ## <a name="securely-extend-your-datacenter-into-azure"></a>安全地將資料中心擴充至 Azure
-許多企業 IT 組織都希望擴充到雲端，而不是增加其內部部署資料中心。 此擴充代表將現有的 IT 基礎結構延伸至公用雲端。 利用跨單位連線選項，可將您的 Azure 虛擬網路視為內部部署網路基礎結構上的另一個子網路。
+許多企業 IT 組織都希望擴充到雲端，而不是增加其內部部署資料中心。 此擴充代表將現有的 IT 基礎結構延伸至公用雲端。 利用跨單位連線能力選項，可將您的 Azure 虛擬網路視為內部部署網路基礎結構上的另一個子網路。
 
-不過，必須先解決許多規劃和設計問題。 這點在網路安全性方面格外重要。 查看範例是了解如何著手處理此種設計的最佳方式之一。
+不過，必須先解決規劃與設計問題。 這點在網路安全性方面格外重要。 查看範例是了解如何著手處理此種設計的最佳方式之一。
 
 Microsoft 已建立[資料中心延伸參考架構圖表](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content)和支援相關資料，協助您了解這類資料中心延伸模組的外觀。 其中的提供範例參考實作，可用來規劃和設計安全的企業資料中心延伸至雲端。 我們建議您檢閱這份文件，以了解安全解決方案的重要元件。
 
-若要深入了解如何安全地將資料中心擴充至 Azure，請觀賞 [Extending Your Datacenter to Microsoft Azure (將資料中心擴充至 Microsoft Azure)](https://www.youtube.com/watch?v=Th1oQQCb2KA) 視訊。
+若要深入了解如何安全地將資料中心擴充至 Azure，請觀賞下列影片：[將資料中心擴充至 Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA) \(英文\)。

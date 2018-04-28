@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: edd3bbb5d47753890328ae86b15dc938dfcf7eb7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6c3eb1e86d2dd98590d3a17dedf76c2a694f1a6d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Databricks Notebook 活動執行 Databricks Notebook
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 04/05/2018
 
 3.  在 [新增資料處理站] 窗格的 [名稱] 下，輸入 **ADFTutorialDataFactory**。
 
-    Azure Data Factory 的名稱必須是 *全域唯一的*。 如果您看到下列錯誤，請變更資料處理站的名稱。 (例如，使用 **\<yourname\>ADFTutorialDataFactory**)。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory - 命名規則](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules)一文。
+    Azure Data Factory 的名稱必須是 *全域唯一的*。 如果您看到下列錯誤，請變更資料處理站的名稱。 (例如，使用 **\<yourname\>ADFTutorialDataFactory**)。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory - 命名規則](https://docs.microsoft.com/azure/data-factory/naming-rules)一文。
 
     ![提供新資料處理站的名稱](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image2.png)
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 04/05/2018
     
     - 選取 [建立新的] ，然後輸入資源群組的名稱。
 
-    本快速入門的某些步驟是假設您使用 **ADFTutorialResourceGroup** 作為資源群組名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)。
+    本快速入門的某些步驟是假設您使用 **ADFTutorialResourceGroup** 作為資源群組名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。
 
 1.  針對 [版本]，選取 [V2 (預覽版)]。
 

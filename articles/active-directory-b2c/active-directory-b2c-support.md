@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 2cb881e50b9a08c99b59796a23107bfafb847b75
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4f665985cbb1bb02d5f2378d1953de76303de04d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C：提出支援要求
 您可使用下列步驟，在 Azure 入口網站上提出 Azure Active Directory (Azure AD) B2C 的支援要求：
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/23/2018
    * [問題類型] 是 [技術]。
    * 選擇適當的 [訂用帳戶] 。
    * [服務] 是 [Active Directory]。
-   * 選擇適當的 [支援方案] 。 如果您沒有任何方案，可以在[這裡](https://azure.microsoft.com/en-us/support/plans/)註冊一個。
+   * 選擇適當的 [支援方案] 。 如果您沒有任何方案，可以在[這裡](https://azure.microsoft.com/support/plans/)註冊一個。
      
      ![支援 - 基本](./media/active-directory-b2c-support/support-basics.png)
 6. 在 [問題] 刀鋒視窗中，使用這些詳細資料，然後按 [下一步]。

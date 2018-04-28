@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure PowerShell 設定檔案上傳 | Microsoft Docs"
-description: "如何使用 Azure PowerShell Cmdlet 來設定 IoT 中樞，以便能夠從連接的裝置上傳檔案。 包含設定目的地 Azure 儲存體帳戶的相關資訊。"
+title: 使用 Azure PowerShell 設定檔案上傳 | Microsoft Docs
+description: 如何使用 Azure PowerShell Cmdlet 來設定 IoT 中樞，以便能夠從連接的裝置上傳檔案。 包含設定目的地 Azure 儲存體帳戶的相關資訊。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c6966fd4a60681643c2a690013035bde20abee78
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22d331342504aa7cc3d4fe86777ef9c2595a27ac
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>使用 PowerShell 設定 IoT 中樞檔案上傳
 
@@ -37,10 +37,10 @@ ms.lasthandoff: 11/18/2017
 
 登入您的 Azure 帳戶並選取您的訂用帳戶。
 
-1. 在 PowerShell 命令提示字元中，執行 **Login-AzureRmAccount** Cmdlet：
+1. 在 PowerShell 命令提示字元中，執行 **Connect-AzureRmAccount** Cmdlet：
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. 如果您有多個 Azure 訂用帳戶，則登入 Azure 即會為您授與和您認證相關聯之所有 Azure 訂用帳戶的存取權。 使用下列命令來列出可供您使用的 Azure 訂用帳戶：

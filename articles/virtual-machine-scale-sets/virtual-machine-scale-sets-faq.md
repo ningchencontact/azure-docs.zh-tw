@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虛擬機器擴展集常見問題集
 
@@ -170,7 +170,7 @@ ms.lasthandoff: 04/03/2018
     ```powershell
     Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
@@ -402,9 +402,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 您可以在 `$vmss` 中找到 extensionName 值。
    
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-operations-management-suite"></a>是否有與 Operations Management Suite 整合的虛擬機器擴展集範本範例？
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>是否有與 Log Analytics 整合的虛擬機器擴展集範本範例？
 
-如需與 Operations Management Suite 整合的虛擬機器擴展集範本範例，請參閱[部署 Azure Service Fabric 叢集並使用 Log Analytics 來啟用監視](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)中的第二個範例。
+如需與 Log Analytics 整合的虛擬機器擴展集範本範例，請參閱[部署 Azure Service Fabric 叢集並使用 Log Analytics 來啟用監視](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)中的第二個範例。
    
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>擴充功能似乎會在虛擬機器擴展集上平行執行。 這會導致自訂指令碼擴充功能失敗。 可以做什麼來修正這個問題？
 
@@ -693,9 +693,9 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 如需詳細資訊，請參閱[管理虛擬機器擴展集中的所有 VM](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set)。
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>是否有可能將擴展集與 Azure OMS (Operations Management Suite) 整合？
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>是否有可能將擴展集與 Azure Log Analytics 整合？
 
-是，您可以藉由在擴展集 VM 上安裝 OMS 擴充功能來整合。 Azure CLI 的範例如下：
+是，您可以藉由在擴展集 VM 上安裝 Log Analytics 擴充功能來整合。 Azure CLI 的範例如下：
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```

@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c9f7d4841846e41eacb66125bcdeeb29466bb0b8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>如何使用 SendGrid 透過 Java 傳送電子郵件
 本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。 相關範例是以 Java 撰寫的。 涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**、**新增附件**、**使用篩選器**及**更新屬性**。 如需有關 SendGrid 及傳送電子郵件的詳細資訊，請參閱[後續步驟](#next-steps)一節。
@@ -81,7 +81,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
 3. 建立郵件並指派 [收件者]、[寄件者]、[主旨] 和內容值。 這顯示在[如何：建立電子郵件](#how-to-create-an-email)一節中。
-4. 透過 *javax.mail.Transport* 物件傳送郵件。 這顯示在 [如何：傳送電子郵件][如何：傳送電子郵件] 一節中。
+4. 透過 *javax.mail.Transport* 物件傳送郵件。 這顯示在 [如何：傳送電子郵件][#how-to-send-an-email] 一節中。
 
 ## <a name="how-to-create-an-email"></a>如何：建立電子郵件
 下列程式碼顯示如何指定電子郵件的值。

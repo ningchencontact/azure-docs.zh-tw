@@ -1,13 +1,13 @@
 ---
-title: "如何使用 Azure Active Directory 中的群組型授權在產品授權之間安全地移轉使用者 | Microsoft Docs"
-description: "說明使用群組型授權在不同產品授權 (例如 Office 365 企業版 E1 和 E3) 之間移轉使用者時的建議程序"
+title: 如何使用 Azure Active Directory 中的群組型授權在產品授權之間安全地移轉使用者 | Microsoft Docs
+description: 說明使用群組型授權在不同產品授權 (例如 Office 365 企業版 E1 和 E3) 之間移轉使用者時的建議程序
 services: active-directory
-keywords: "Azure AD 授權"
-documentationcenter: 
+keywords: Azure AD 授權
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/07/2018
 ms.author: piotrci
-ms.openlocfilehash: bb27b3fb739bbcea56026733b41e6cadf21b8953
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 068457044af7af7a55bdbcc4043da3028a68b2d0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>如何使用群組型授權安全地在產品授權之間移轉使用者
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/24/2018
 
 -   未含有衝突服務方案之產品授權間的簡單移轉，例如在「Office 365 企業版 E3」與「Office 365 企業版 E5」之間移轉。
 
--   含有部分衝突服務方案之產品間的較複雜移轉，例如在「Office 365 企業版 E1」與「Office 365 企業版 E3」之間移轉。 如需有關衝突的詳細資訊，請參閱[衝突的服務方案](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans)和[無法同時指派的服務方案](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time)。
+-   含有部分衝突服務方案之產品間的較複雜移轉，例如在「Office 365 企業版 E1」與「Office 365 企業版 E3」之間移轉。 如需有關衝突的詳細資訊，請參閱[衝突的服務方案](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans)和[無法同時指派的服務方案](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time)。
 
 本文包括範例 PowerShell 程式碼，可用來執行移轉和驗證步驟。 此程式碼對於無法手動執行步驟的大規模作業特別有用。
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/24/2018
 -   使用者擁有以群組型授權指派的「來源授權」。 要作為移轉來源的產品授權是繼承自單一來源群組，而非以直接方式指派。
 
     >[!NOTE]
-    >如果授權也是直接指派的，它們可能會導致無法套用「目標授權」。 深入了解[直接和群組授權指派](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses)。 您可以使用 [PowerShell 指令碼](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group)來檢查使用者是否擁有直接授權。
+    >如果授權也是直接指派的，它們可能會導致無法套用「目標授權」。 深入了解[直接和群組授權指派](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses)。 您可以使用 [PowerShell 指令碼](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group)來檢查使用者是否擁有直接授權。
 
 -   您擁有目標產品的足夠可用授權。 如果您沒有足夠的授權，部分使用者可能會無法取得「目標授權」。 您可以[查看可用授權的數目](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)。
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/24/2018
 
 3.  將一批使用者新增至目標群組。 群組型授權會套用變更並指派「目標授權」。 視批次大小及租用戶中的其他活動而定，此程序可能需要相當長的時間。
 
-4.  確認群組型授權已完全處理該批使用者。 請確認每個使用者都已獲指派「目標授權」。 確認使用者最後並不是處於錯誤狀態，例如與其他產品發生衝突或缺乏足夠的授權。 如需與錯誤相關的詳細資訊，請參閱 [Active Directory 授權群組問題解決方式](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal)。
+4.  確認群組型授權已完全處理該批使用者。 請確認每個使用者都已獲指派「目標授權」。 確認使用者最後並不是處於錯誤狀態，例如與其他產品發生衝突或缺乏足夠的授權。 如需與錯誤相關的詳細資訊，請參閱 [Active Directory 授權群組問題解決方式](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal)。
 
 5.  此時，使用者會同時已獲指派「來源授權」和「目標授權」。
 
@@ -175,7 +175,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>在含有衝突服務方案的產品之間移轉使用者
-移轉目標是要使用群組型授權，將使用者授權從「來源授權」(在此範例中為「Office 365 企業版 E1」) 變更為「目標授權」(在此範例中為「Office 365 企業版 E3」)。 此案例中的兩個產品含有衝突的服務方案，因此您必須解決衝突，才能順暢地移轉使用者。 如需有關這些衝突的詳細資訊，請參閱 [Active Directory 授權群組問題解決方式：衝突的服務方案](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans)。 在移轉期間中的任何時間點，使用者都不會無法存取服務或資料。 移轉會以小「批次」的方式執行。 您可以驗證每個批次的結果，並將此程序中可能發生之任何問題的範圍縮減到最小。 整體而言，此程序如下：
+移轉目標是要使用群組型授權，將使用者授權從「來源授權」(在此範例中為「Office 365 企業版 E1」) 變更為「目標授權」(在此範例中為「Office 365 企業版 E3」)。 此案例中的兩個產品含有衝突的服務方案，因此您必須解決衝突，才能順暢地移轉使用者。 如需有關這些衝突的詳細資訊，請參閱 [Active Directory 授權群組問題解決方式：衝突的服務方案](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans)。 在移轉期間中的任何時間點，使用者都不會無法存取服務或資料。 移轉會以小「批次」的方式執行。 您可以驗證每個批次的結果，並將此程序中可能發生之任何問題的範圍縮減到最小。 整體而言，此程序如下：
 
 1.  使用者是來源群組的成員，並從該群組繼承「來源授權」。
 
@@ -183,7 +183,7 @@ Check passed for all users. Exiting check loop.
 
 3.  將一批使用者新增至目標群組。 群組型授權會套用變更並嘗試指派「目標授權」。 由於兩個產品中的服務之間有衝突，因此指派會失敗。 群組型授權會在每個使用者上將失敗記錄成錯誤。 視批次大小及租用戶中的其他活動而定，此程序可能需要相當長的時間。
 
-4.  確認群組型授權已完全處理該批使用者。 請確認已為每個使用者記錄衝突錯誤。 確認某些使用者最後並未處於非預期的錯誤狀態。 如需與錯誤相關的詳細資訊，請參閱 [Active Directory 授權群組問題解決方式](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal)。
+4.  確認群組型授權已完全處理該批使用者。 請確認已為每個使用者記錄衝突錯誤。 確認某些使用者最後並未處於非預期的錯誤狀態。 如需與錯誤相關的詳細資訊，請參閱 [Active Directory 授權群組問題解決方式](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal)。
 
 5.  此時，使用者仍擁有「來源授權」，而「目標授權」則有衝突錯誤。 使用者尚未獲指派「目標授權」。
 
@@ -317,7 +317,7 @@ Check passed for all users. Exiting check loop.
 >[!WARNING]
 >此程式碼是基於示範目的而提供的範例。 如果您想要在您的環境中使用它，請考慮先對程式碼進行小規模測試，或在個別的測試租用戶中進行測試。 您可能需要調整程式碼以符合您環境的特定需求。
 
-若要執行此程式碼，請使用 [Azure AD PowerShell v1.0 程式庫](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0) \(英文\)。 執行指令碼之前，請先執行 `connect-msolservice` Cmdlet 來登入租用戶。
+若要執行此程式碼，請使用 [Azure AD PowerShell v1.0 程式庫](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0) \(英文\)。 執行指令碼之前，請先執行 `connect-msolservice` Cmdlet 來登入租用戶。
 
 ```
 # BEGIN: Helper functions that are used in the scripts.

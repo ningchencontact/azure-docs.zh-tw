@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 9554c7f564836d9e7ac94367ade6719a1ee5b5c7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1ce5856a5ee2c37d96483df82836d2e8b2a61d4c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 利用 Azure 網路監看員進行連線疑難排解
 
@@ -272,4 +272,4 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 檢視[建立由警示觸發的封包擷取](network-watcher-alert-triggered-packet-capture.md)來了解如何透過虛擬機器警示自動化封包擷取
 
-造訪[檢查 IP 流量驗證](network-watcher-check-ip-flow-verify-portal.md)來得知 VM 是否允許特定流量流入或流出
+造訪[檢查 IP 流量驗證](diagnose-vm-network-traffic-filtering-problem.md)來得知 VM 是否允許特定流量流入或流出

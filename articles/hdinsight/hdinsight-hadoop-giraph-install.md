@@ -1,26 +1,24 @@
 ---
-title: "在 HDInsight 的 Hadoop 叢集上安裝和使用 Giraph - Azure | Microsoft Docs"
-description: "了解如何使用 Giraph 自訂 HDInsight 叢集，以及如何使用 Giraph。"
+title: 在 HDInsight 的 Hadoop 叢集上安裝和使用 Giraph - Azure | Microsoft Docs
+description: 了解如何使用 Giraph 自訂 HDInsight 叢集，以及如何使用 Giraph。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 77a1d0e0-55de-4e61-98a0-060914fb7ca0
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0eb5c1f457380600463a370043f03e6d655a02c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df7c5e175ecfd2eca2b1db7eb4ab056bb1588dda
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>在 Windows 型 HDInsight 叢集上安裝和使用 Giraph
 
@@ -30,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 本文件的步驟只適用於 Windows HDInsight 叢集。 Windows 上的 HDInsight 只提供低於 HDInsight 3.4 的版本。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需有關如何在 Linux 型 HDInsight 叢集上安裝 Giraph 的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝 Giraph (Linux)](hdinsight-hadoop-giraph-install-linux.md)。
 
 
-您也可以使用「指令碼動作」 ，在 Azure HDInsight 的任一類型的叢集 (Hadoop、Storm、HBase、Spark) 上安裝 Giraph。 您可以從一個唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Giraph 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)。 範例指令碼只能與 HDInsight 叢集版本 3.1 搭配使用。 如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
+您也可以使用「指令碼動作」 ，在 Azure HDInsight 的任一類型的叢集 (Hadoop、Storm、HBase、Spark) 上安裝 Giraph。 您可以從 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1) 的唯讀 Azure 儲存體 blob 中，取得用來在 HDInsight 叢集上安裝 Giraph 的範例指令碼。 範例指令碼只能與 HDInsight 叢集版本 3.1 搭配使用。 如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
 
 **相關文章**
 

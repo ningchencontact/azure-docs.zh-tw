@@ -1,25 +1,25 @@
 ---
-title: "設定 SharePoint Online 和 Exchange Online 以採用 Azure Active Directory 條件式存取 | Microsoft Docs"
-description: "了解如何設定 SharePoint Online 和 Exchange Online，以便採用 Azure Active Directory 條件式存取。"
+title: 設定 SharePoint Online 和 Exchange Online 以採用 Azure Active Directory 條件式存取 | Microsoft Docs
+description: 了解如何設定 SharePoint Online 和 Exchange Online，以便採用 Azure Active Directory 條件式存取。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 62349fba-3cc0-4ab5-babe-372b3389eff6
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c527d4511ab2dd3bb349c10c1defb24723fef59a
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: aff37c4b440fe545ba69a409b9dcd83deabf7660
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>設定 SharePoint Online 和 Exchange Online，以便採用 Azure Active Directory 條件式存取 
 
@@ -180,7 +180,11 @@ Exchange Active Sync 雖然支援新式驗證，不過有些與條件式存取�
 
 ## <a name="next-steps"></a>後續步驟
 
-如需詳細資訊，請參閱 [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)
+如需詳細資訊，請參閱 [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)。
+
+如需設定宣告規則的相關指示，請參閱[設定宣告規則](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-claim-rules)。 
+
+
 
 
 

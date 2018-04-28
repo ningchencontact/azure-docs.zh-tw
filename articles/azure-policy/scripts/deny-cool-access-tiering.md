@@ -1,25 +1,25 @@
 ---
-title: "Azure 原則 JSON 範例 - 針對儲存體帳戶拒絕使用非經常性存取層處理 | Microsoft Docs"
-description: "此 JSON 範例原則會針對 Blob 儲存體帳戶禁止使用非經常性存取層處理。"
+title: Azure 原則 JSON 範例 - 針對儲存體帳戶拒絕使用非經常性存取層處理 | Microsoft Docs
+description: 此 JSON 範例原則會針對 Blob 儲存體帳戶禁止使用非經常性存取層處理。
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 47de69aaa7938a813ff9866cec6e492a8ef3b7a5
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: a396d8c8c791ac2eb1f4f9f983e6224d0daa1bcf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deny-cool-access-tiering-for-storage-accounts"></a>針對儲存體帳戶拒絕使用非經常性存取層處理
 

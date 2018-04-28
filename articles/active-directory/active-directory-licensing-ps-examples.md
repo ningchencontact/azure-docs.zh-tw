@@ -1,25 +1,25 @@
 ---
-title: "Azure AD 群組型授權的 PowerShell 範例 | Microsoft Docs"
-description: "Azure Active Directory 群組型授權的 PowerShell 案例"
+title: Azure AD 群組型授權的 PowerShell 範例 | Microsoft Docs
+description: Azure Active Directory 群組型授權的 PowerShell 案例
 services: active-directory
-keywords: "Azure AD 授權"
-documentationcenter: 
+keywords: Azure AD 授權
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 04/23/2018
 ms.author: curtand
-ms.openlocfilehash: 6a518f9c7ddb11de2b459d5d28c404316eb62355
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60387840b9a155c3d8494efb2d41cc094d05504b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD 群組型授權的 PowerShell 範例
 
@@ -28,8 +28,8 @@ ms.lasthandoff: 02/24/2018
 > [!NOTE]
 > 在開始執行這些 Cmdlet 之前，請先確定您已藉由執行 `Connect-MsolService` Cmdlet 來連線到租用戶。
 
->[!WARNING]
->此程式碼是基於示範目的而提供的範例。 如果您需要在環境中使用它，請考量先進行小規模測試，或在個別的測試租用戶中進行測試。 您可能需要調整程式碼以符合您環境的特定需求。
+> [!WARNING]
+> 此程式碼是基於示範目的而提供的範例。 如果您需要在環境中使用它，請考量先進行小規模測試，或在個別的測試租用戶中進行測試。 您可能需要調整程式碼以符合您環境的特定需求。
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>檢視指派給群組的產品授權
 [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) Cmdlet 可用來擷取群組物件並檢查「授權」屬性︰它會列出目前指派給群組的所有產品授權。
@@ -202,17 +202,17 @@ Drew Fogarty     f2af28fc-db0b-4909-873d-ddd2ab1fd58c 1ebd5028-6092-41d0-9668-12
 以下是另一個版本的指令碼，它只會針對包含授權錯誤的群組進行搜尋。 這個指令碼可能更適合用於預期不會有多少群組有問題的情況。
 
 ```
-Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
-    $user = $_;
-    $user.IndirectLicenseErrors | % {
-            New-Object Object |
-                Add-Member -NotePropertyName UserName -NotePropertyValue $user.DisplayName -PassThru |
-                Add-Member -NotePropertyName UserId -NotePropertyValue $user.ObjectId -PassThru |
-                Add-Member -NotePropertyName GroupId -NotePropertyValue $_.ReferencedObjectId -PassThru |
-                Add-Member -NotePropertyName LicenseError -NotePropertyValue $_.Error -PassThru
-        }
-    }
-```
+$groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
+    foreach ($groupId in $groupIds) {
+    Get-MsolGroupMember -All -GroupObjectId $groupId.ObjectID |
+        Get-MsolUser -ObjectId {$_.ObjectId} |
+        Where {$_.IndirectLicenseErrors -and $_.IndirectLicenseErrors.ReferencedObjectId -eq $groupId.ObjectID} |
+        Select DisplayName, `
+               ObjectId, `
+               @{Name="LicenseError";Expression={$_.IndirectLicenseErrors | Where {$_.ReferencedObjectId -eq $groupId.ObjectID} | Select -ExpandProperty Error}}
+ 
+    } 
+``` 
 
 ## <a name="check-if-user-license-is-assigned-directly-or-inherited-from-a-group"></a>檢查使用者的授權是透過直接指派還是群組繼承而得到
 

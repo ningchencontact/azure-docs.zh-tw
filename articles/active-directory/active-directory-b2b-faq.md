@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 409bb14635afbfc6d31efd853837677c74851b41
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 共同作業常見問題集
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 03/08/2018
 是。 會傳送密碼重設郵件，讓使用者重設其 JIT 租用密碼。
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365 是否提供 Azure AD B2B 共同作業的線上支援？
-是，Dynamics 365 提供 Azure AD B2B 共同作業的線上支援。 如需詳細資訊，請參閱 Dynamics 365 文章[透過 Azure Active Directory B2B 共同作業邀請使用者](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration)。
+是，Dynamics 365 提供 Azure AD B2B 共同作業的線上支援。 如需詳細資訊，請參閱 Dynamics 365 文章[透過 Azure Active Directory B2B 共同作業邀請使用者](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration)。
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>什麼是新建立的 B2B 共同作業使用者之初始密碼存留期？
 Azure AD 有一組固定的字元、密碼強度，以及帳戶鎖定需求，可同樣適用於所有 Azure AD 雲端使用者帳戶。 雲端使用者帳戶是不與其他身分識別提供者聯盟的帳戶，例如 

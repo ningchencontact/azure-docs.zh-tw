@@ -1,11 +1,11 @@
 ---
-title: "Azure 通知中心"
-description: "了解如何使用 Azure 通知中樞新增推播通知功能。"
+title: Azure 通知中心
+description: 了解如何使用 Azure 通知中樞新增推播通知功能。
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 services: notification-hubs
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: fcfb0ce8-0e19-4fa8-b777-6b9f9cdda178
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 1/17/2017
 ms.author: yuaxu
-ms.openlocfilehash: a1be0b13cd1feb582a23965df142e44d90ac6851
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea8d569a8d51afee352860ab60a1fe311496b83c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-notification-hubs"></a>Azure 通知中心
 ## <a name="overview"></a>概觀
@@ -150,7 +150,7 @@ Mobile Apps 開發人員可以使用下列流程來利用通知中樞：
 [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
 [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
 [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-[App Service Mobile Apps]: https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/
+[App Service Mobile Apps]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/
 [templates]: notification-hubs-templates-cross-platform-push-messages.md
 [Azure 入口網站]: https://portal.azure.com
 [tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)

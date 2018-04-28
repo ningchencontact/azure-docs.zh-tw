@@ -1,24 +1,26 @@
 ---
-title: "Azure Event Grid 傳遞與重試"
-description: "說明 Azure Event Grid 如何傳遞事件，以及如何處理未傳遞的訊息。"
+title: Azure Event Grid 傳遞與重試
+description: 說明 Azure Event Grid 如何傳遞事件，以及如何處理未傳遞的訊息。
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 017cb5850788bd230c4a4ba256997f2776c07bec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 訊息傳遞與重試 
 
 本文章說明未確認傳遞時，Azure Event Grid 如何處理事件。
 
-Event Grid 提供持久的傳遞。 它針對每個訂用帳戶傳遞每則訊息至少一次。 事件會立即傳送到每個訂用帳戶的已註冊 Webhook。 如果 Webhook 在第一次嘗試傳遞的 60 秒內未確認接收事件，Event Grid 會重試傳遞事件。
+Event Grid 提供持久的傳遞。 它針對每個訂用帳戶傳遞每則訊息至少一次。 事件會立即傳送到每個訂用帳戶的已註冊 Webhook。 如果 Webhook 在第一次嘗試傳遞的 60 秒內未確認接收事件，Event Grid 會重試傳遞事件。 
+
+目前，事件方格會將每個事件個別傳送給訂閱者。 訂閱者會收到包含單一事件的陣列。
 
 ## <a name="message-delivery-status"></a>訊息傳遞狀態
 

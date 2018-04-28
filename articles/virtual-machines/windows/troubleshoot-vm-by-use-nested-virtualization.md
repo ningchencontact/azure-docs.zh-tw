@@ -12,31 +12,31 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/06/2018
 ms.author: genli
-ms.openlocfilehash: 2743a00404a2ee990147dfb6e73e9c2369eb4753
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9026b702e6e0d27817955c70c733bf372005dd4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>在 Azure 中使用巢狀虛擬化來疑難排解問題 Azure VM
 
-本文將說明如何在 Microsoft Azure 中建立巢狀虛擬化環境，以便您可以在 Hyper-V 主機 (復原 VM) 上掛接有問題 VM 的磁碟，以進行疑難排解。
+本文將說明如何在 Microsoft Azure 中建立巢狀虛擬化環境，以便您可以在 Hyper-V 主機 (救援 VM) 上掛接有問題 VM 的磁碟，以進行疑難排解。
 
-## <a name="prerequisite"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要掛接有問題的 VM，「復原 VM」必須符合下列必要條件：
+若要掛接有問題的 VM，「救援 VM」必須符合下列必要條件：
 
--   「復原 VM」必須與問題 VM 處於相同的位置。
+-   「救援 VM」必須與問題 VM 處於相同的位置。
 
--   「復原 VM」必須與問題 VM 處於相同的資元群組。
+-   「救援 VM」必須與問題 VM 處於相同的資源群組。
 
--   「復原 VM」必須使用與問題 VM 相同類型的儲存體帳戶 (標準或進階)。
+-   「救援 VM」必須使用與問題 VM 相同類型的儲存體帳戶 (標準或進階)。
 
-## <a name="step-1-create-a-recovery-vm-and-install-hyper-v-role"></a>步驟 1：建立復原 VM 並安裝 Hyper-V 角色
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>步驟 1：建立救援 VM 並安裝 Hyper-V 角色
 
-1.  建立新的「復原 VM」：
+1.  建立新的救援 VM：
 
     -  作業系統：Windows Server 2016 資料中心
 
@@ -46,13 +46,13 @@ ms.lasthandoff: 04/06/2018
 
     -  選取與問題 VM 相同的儲存體類型 (標準或進階)。
 
-2.  建立「復原 VM」之後，會建立「復原 VM」的遠端桌面。
+2.  建立「救援 VM」之後，建立「救援 VM」的遠端桌面。
 
 3.  在伺服器管理員中，選取 [管理] > [新增角色及功能]。
 
 4.  在 [安裝類型] 區段中，選取 [角色型或功能型安裝]。
 
-5.  在 [選取目的地伺服器] 區段中，確定已選取「復原 VM」。
+5.  在 [選取目的地伺服器] 區段中，確定已選取「救援 VM」。
 
 6.  選取 [Hyper-V 角色] > [新增功能]。
 
@@ -70,25 +70,25 @@ ms.lasthandoff: 04/06/2018
 
 13. 允許伺服器安裝 Hyper-V 角色。 這需要幾分鐘，而且伺服器會自動重新開機。
 
-## <a name="step-2-create-the-problem-vm-on-the-recovery-vms-hyper-v-server"></a>步驟 2：在「復原 VM」的 Hyper-V 伺服器上建立問題 VM
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>步驟 2：在「救援 VM」的 Hyper-V 伺服器上建立問題 VM
 
 1.  在問題 VM 中記錄磁碟名稱，然後刪除問題 VM。 請確定您保留所有連接的磁碟。 
 
-2.  連接問題 VM 的作業系統磁碟作為「復原 VM」的資料磁碟。
+2.  連結問題 VM 的作業系統磁碟，以作為「救援 VM」的資料磁碟。
 
-    1.  刪除問題 VM 之後，請移至「復原 VM」。
+    1.  刪除問題 VM 之後，請移至「救援 VM」。
 
     2.  選取 [磁碟]，然後選取 [新增資料磁碟]。
 
     3.  選取問題 VM 的磁碟，然後選取 [儲存]。
 
-3.  成功連接磁碟之後，會建立「復原 VM」的遠端桌面。
+3.  成功連結磁碟之後，建立「救援 VM」的遠端桌面。
 
 4.  開啟「磁碟管理」(diskmgmt.msc)。 請確定問題 VM 的磁碟已設定為 [離線]。
 
 5.  開啟 [Hyper-V 管理員]：在 [伺服器管理員] 中，選取 [Hyper-V 角色]。 以滑鼠右鍵按一下伺服器，然後選取 [Hyper-V 管理員]。
 
-6.  在 [Hyper-V 管理員] 中，以滑鼠右鍵按一下「復原 VM」，然後選取 [新增] > [虛擬機器] > [下一步]。
+6.  在 [Hyper-V 管理員] 中，以滑鼠右鍵按一下「救援 VM」，然後選取 [新增] > [虛擬機器] > [下一步]。
 
 7.  輸入 VM 的名稱，然後選取 [下一步]。
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 04/06/2018
 
 1.  讓 VM 恢復上線之後，在 Hyper-V 管理員中關閉 VM。
 
-2.  移至 [Azure 入口網站](https://portal.azure.com)，並選取 [復原 VM] > [磁碟]，複製磁碟的名稱。 您將會在後續步驟中使用此名稱。 將固定式磁碟從復原 VM 中斷連結。
+2.  移至 [Azure 入口網站](https://portal.azure.com)，並選取 [救援 VM] > [磁碟]，複製磁碟的名稱。 您將會在後續步驟中使用此名稱。 將固定式磁碟從救援 VM 中斷連結。
 
 3.  移至 [所有資源]，搜尋磁碟名稱，然後選取磁碟。
 

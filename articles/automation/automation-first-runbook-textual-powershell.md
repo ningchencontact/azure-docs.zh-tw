@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 61632bfc8848fb5a5bcbcda7c1e60e763448ce23
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 76d14b0d9bf14c6b9f342b0aae8fd42e871ea18d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="my-first-powershell-runbook"></a>我的第一個 PowerShell Runbook
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 03/23/2018
 12. 您可以按一下此作業，以開啟您啟動 Runbook 時所檢視的相同 [作業] 窗格。 這可讓您回到過去的時間並檢視針對特定 Runbook 所建立的任何工作的詳細資料。
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>步驟 5 - 加入驗證來管理 Azure 資源
-您已測試並發行您的 Runbook，但是到目前為止，它似乎並不實用。 您想要讓它管理 Azure 資源。 不過它無法辦到這點，除非您使用在[必要條件](#prerequisites)中提及的認證對其進行驗證。 您會利用 **Add-AzureRmAccount** Cmdlet 來執行。
+您已測試並發行您的 Runbook，但是到目前為止，它似乎並不實用。 您想要讓它管理 Azure 資源。 不過它無法辦到這點，除非您使用在[必要條件](#prerequisites)中提及的認證對其進行驗證。 您必須利用 **Connect-AzureRmAccount** Cmdlet 來執行。
 
 1. 按一下 MyFirstRunbook-PowerShell 分頁上的 [編輯] 來開啟文字式編輯器。
 2. 您不再需要 **Write-Output** 行，因此可以放心刪除。
@@ -89,7 +89,7 @@ ms.lasthandoff: 03/23/2018
    
    ```
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
    <br>
@@ -99,11 +99,11 @@ ms.lasthandoff: 03/23/2018
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>步驟 6 - 加入程式碼以啟動虛擬機器
 由於您的 Runbook 正在驗證您的 Azure 訂用帳戶，所以您可以管理資源。 您會新增一個命令以啟動虛擬機器。 您可以在您的 Azure 訂用帳戶中挑選任何虛擬機器，而現在您會在 Runbook 中將該名稱硬式編碼。
 
-1. 在 Add-AzureRmAccount 後面輸入 Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'，提供要啟動之虛擬機器的名稱和資源群組名稱。  
+1. 在 *Connect-AzureRmAccount* 後面輸入 Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'，提供所要啟動虛擬機器的名稱和資源群組名稱。  
    
    ```
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    ```
@@ -122,7 +122,7 @@ ms.lasthandoff: 03/23/2018
     [string]$ResourceGroupName
    )
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
    ```

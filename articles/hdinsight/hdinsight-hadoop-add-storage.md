@@ -1,25 +1,23 @@
 ---
-title: "將其他 Azure 儲存體帳戶新增至 HDInsight | Microsoft Docs"
-description: "了解如何將其他 Azure 儲存體帳戶新增至現有的 HDInsight 叢集。"
+title: 將其他 Azure 儲存體帳戶新增至 HDInsight | Microsoft Docs
+description: 了解如何將其他 Azure 儲存體帳戶新增至現有的 HDInsight 叢集。
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/22/2018
+ms.devlang: ''
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 72045d363516a2f16d45e3f8ee157ddd9d9242bd
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 1404b37725362a71ccb4a0a84dff0c7c4ca591e2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>將其他儲存體帳戶新增至 HDInsight
 
@@ -68,7 +66,7 @@ __需求__：
 > [!IMPORTANT]
 > 在使用自訂文件中提供的步驟時，請使用下列資訊來套用此指令碼：
 >
-> * 以這個指令碼的 URI 取代指令碼動作 URI 範例 (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)。
+> * 將所有的範例指令碼動作 URI 取代為此指令碼的 URI (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)。
 > * 以即將新增至叢集的儲存體帳戶的 Azure 儲存體帳戶名稱和金鑰取代範例參數。 如果使用 Azure 入口網站，則必須以空格分隔這些參數。
 > * 您不需要將此指令碼標示為 [已保存]，因為它會直接更新叢集的 Ambari 組態。
 
@@ -100,7 +98,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > 將 `$PASSWORD` 設定為叢集登入 (admin) 帳戶密碼。 將 `$CLUSTERNAME` 設定為 HDInsight 叢集的名稱。 將 `$STORAGEACCOUNTNAME` 設定為儲存體帳戶的名稱。
 >
-> 此範例會如何 [curl (http://curl.haxx.se/)](http://curl.haxx.se/) 和 [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/)，來擷取及剖析 JSON 資料。
+> 此範例會使用 [curl (http://curl.haxx.se/)](http://curl.haxx.se/) 和 [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) 來擷取及剖析 JSON 資料。
 
 使用此命令時，將 __CLUSTERNAME__ 替換為 HDInsight 叢集的名稱。 將 __PASSWORD__ 替換為叢集的 HTTP 登入密碼。 將 __STORAGEACCOUNT__ 替換為使用指令碼動作新增的儲存體帳戶名稱。 此命令傳回的資訊看起來類似下列文字：
 
@@ -116,7 +114,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 
 若要解決這個問題，您必須移除儲存體帳戶的現有項目。 執行下列步驟以移除現有項目：
 
-1. 在 Web 瀏覽器中，對您的 HDInsight 叢集開啟 Ambari Web UI。 URI 是 https://CLUSTERNAME.azurehdinsight.net。 將 __CLUSTERNAME__ 取代為您叢集的名稱。
+1. 在 Web 瀏覽器中，對您的 HDInsight 叢集開啟 Ambari Web UI。 URI 為 https://CLUSTERNAME.azurehdinsight.net。 將 __CLUSTERNAME__ 取代為您叢集的名稱。
 
     出現提示時，輸入您叢集的 HTTP 登入使用者和密碼。
 

@@ -1,12 +1,12 @@
 ---
-title: "使用 Power BI 工作區集合驗證和授權 | Microsoft Docs"
-description: "使用 Power BI 工作區集合驗證和授權。"
+title: 使用 Power BI 工作區集合驗證和授權 | Microsoft Docs
+description: 使用 Power BI 工作區集合驗證和授權。
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: ae9627c6bb5e7bb099598acaa2eb29375c35593e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>使用 Power BI 工作區集合驗證和授權
 
@@ -46,7 +46,7 @@ Power BI 工作區集合服務會使用**金鑰**和**應用程式權杖**進行
 | 宣告 | 說明 |
 | --- | --- |
 | **ver** |應用程式權杖的版本。 目前版本為 0.2.0。 |
-| **aud** |權杖的預定接收者。 對於 Power BI 工作區集合，使用：“https://analysis.windows.net/powerbi/api”。 |
+| **aud** |權杖的預定接收者。 針對 Power BI 工作區集合，請使用：「https://analysis.windows.net/powerbi/api」。 |
 | **iss** |字串，表示已發出權杖的應用程式。 |
 | **type** |正在建立的應用程式權杖類型。 目前唯一支援的類型為 **內嵌**。 |
 | **wcn** |為其發出權杖的工作區集合名稱。 |

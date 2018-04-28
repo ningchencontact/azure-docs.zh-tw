@@ -1,6 +1,6 @@
 ---
-title: "Azure 付款處理藍圖 - 監視需求"
-description: "PCI DSS 需求 10"
+title: Azure 付款處理藍圖 - 監視需求
+description: PCI DSS 需求 10
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 5fa1d17e68ce04b1f67081479518279be6cca099
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 708c57c1d7b79d3fd3c129de9a7ce4099ab6ac36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-requirements-for-pci-dss-compliant-environments"></a>符合 PCI DSS 規範之環境的監視需求 
 ## <a name="pci-dss-requirement-10"></a>PCI DSS 需求 10
@@ -145,7 +145,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | FIM 和 IDS 工具會實作於 Microsoft Azure 環境內。 Microsoft Azure 使用 EWS 以支援對其操作環境內的事件進行即時分析。 MA 和 AIMS 針對可能會危害系統的事件，產生近乎即時的相關警示。 <br /><br />已啟用針對服務、使用者和安全性事件 (Web 伺服器記錄、FTP 伺服器記錄等等) 的記錄，並集中保留。 Azure 會限制稽核記錄，僅允許依作業職責獲得授權的人員存取。 事件記錄檔會封存在 Azure 安全封存基礎結構上，並保留 180 天。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會對所有針對 OMS 的項目提供稽核。 備份到外部來源可由 [Azure 備份](https://azure.microsoft.com/services/backup/)執行。|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會對 Azure 稽核所有項目。 備份到外部來源可由 [Azure 備份](https://azure.microsoft.com/services/backup/)執行。|
 
 
 
@@ -158,7 +158,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | 請參閱[需求 10.5](#pci-dss-requirement-10-5) 的＜Microsoft Azure＞小節。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會對所有針對 OMS 的項目提供稽核。 備份到外部來源可由 [Azure 備份](https://azure.microsoft.com/services/backup/)執行。|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會對 Azure 稽核所有項目。 備份到外部來源可由 [Azure 備份](https://azure.microsoft.com/services/backup/)執行。|
 
 
 
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | 請參閱[需求 10.5](#pci-dss-requirement-10-5) 的＜Microsoft Azure＞小節。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會對所有針對 OMS 的項目提供稽核。 備份到外部來源可由 [Azure 備份](https://azure.microsoft.com/services/backup/)執行。|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會對 Azure 稽核所有項目。 備份到外部來源可由 [Azure 備份](https://azure.microsoft.com/services/backup/)執行。|
 
 
 
@@ -184,7 +184,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | 請參閱[需求 10.5](#pci-dss-requirement-10-5) 的＜Microsoft Azure＞小節。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會對所有針對 OMS 的項目提供稽核。 備份到外部來源可由 [Azure 備份](https://azure.microsoft.com/services/backup/)執行。|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會對 Azure 稽核所有項目。 備份到外部來源可由 [Azure 備份](https://azure.microsoft.com/services/backup/)執行。|
 
 
 
@@ -197,7 +197,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | 請參閱[需求 10.5](#pci-dss-requirement-10-5) 的＜Microsoft Azure＞小節。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會對所有針對 OMS 的項目提供稽核。 備份到外部來源可由 [Azure 備份](https://azure.microsoft.com/services/backup/)執行。|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會對 Azure 稽核所有項目。 備份到外部來源可由 [Azure 備份](https://azure.microsoft.com/services/backup/)執行。|
 
 
 
@@ -210,7 +210,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | 請參閱[需求 10.5](#pci-dss-requirement-10-5) 的＜Microsoft Azure＞小節。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會對所有針對 OMS 的項目提供稽核。 備份到外部來源可由 [Azure 備份](https://azure.microsoft.com/services/backup/)執行。|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會對 Azure 稽核所有項目。 備份到外部來源可由 [Azure 備份](https://azure.microsoft.com/services/backup/)執行。|
 
 
 

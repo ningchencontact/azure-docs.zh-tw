@@ -1,20 +1,20 @@
 ---
-title: 建立及查詢 Azure SQL 資料倉儲 - Azure 入口網站 | Microsoft Docs
-description: 在 Azure 入口網站中建立 Azure SQL 資料倉儲，然後加以查詢。
+title: 快速入門：建立和查詢 Azure SQL 資料倉儲 - Azure 入口網站 | Microsoft Docs
+description: 在 Azure 入口網站中透過 Azure SQL 資料倉儲建立和查詢資料倉儲。
 services: sql-data-warehouse
-author: hirokib
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.topic: quickstart
-ms.component: implement
-ms.date: 03/28/2018
-ms.author: elbutter
-ms.reviewer: jrj
-ms.openlocfilehash: 97738b37f81cac3e7eef263fecc2095c9ef4b7ff
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 284cfd3562a951da928697c91aa8234719056fa4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：如何在 Azure 入口網站中建立及查詢 Azure SQL 資料倉儲
 
@@ -22,9 +22,14 @@ ms.lasthandoff: 03/30/2018
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
+> [!NOTE]
+> 建立 SQL 資料倉儲可能會導致新的可計費服務。  如需詳細資訊，請參閱 [SQL 資料倉儲價格](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)。
+>
+>
+
 ## <a name="before-you-begin"></a>開始之前
 
-下載並安裝最新版的 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS)。
+下載並安裝最新版的 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -32,7 +37,7 @@ ms.lasthandoff: 03/30/2018
 
 ## <a name="create-a-data-warehouse"></a>建立資料倉儲
 
-Azure SQL 資料倉儲會使用一組定義的[計算資源](performance-tiers.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-features.md)內。 
+Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurrency-limits.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server)內。 
 
 依照下列步驟來建立包含 AdventureWorksDW 範例資料的 SQL 資料倉儲。 
 

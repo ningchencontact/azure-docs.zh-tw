@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: 0a24adb94930024f6eaaa5ac270ae7fc35520132
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 61f51063ea7542e11ec8488c1f526c0fff1e5e38
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>快速入門：安裝並開始使用 Azure Machine Learning 服務
 Azure Machine Learning 服務 (預覽) 是整合式端對端的資料科學和進階分析解決方案。 它可以協助專業資料科學家以雲端規模準備資料、開發測試及部署模型。
@@ -64,7 +64,7 @@ Azure Machine Learning 服務是 Microsoft Azure 產品組合的一部分，因�
    資源群組 | _您的資源群組_ | 在您的訂用帳戶中使用現有的資源群組，或輸入一個名稱來為此測試帳戶建立新的資源群組。 
    位置 | _最接近使用者的區域_ | 選擇最接近您的使用者與資料資源的位置。
    基座數目 | 2 | 輸入基座數目。 了解[基座如何影響定價](https://azure.microsoft.com/pricing/details/machine-learning/)。<br/><br/>在本快速入門中，您只需要兩個基座。 您可以視需要在 Azure 入口網站中可以新增或移除基座。
-   儲存體帳戶 | _唯一的名稱_ | 選取 [建立新的]，並且提供名稱以建立 [Azure 儲存體帳戶](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal)。 名稱必須為 3 到 24 個字元，且只能包含英數字元。 或者，選取 [使用現有的] ，然後從下拉式清單選取現有的儲存體帳戶。 需要儲存體帳戶，並且是用來儲存專案構件並執行歷程記錄資料。 
+   儲存體帳戶 | _唯一的名稱_ | 選取 [建立新的]，並且提供名稱以建立 [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal)。 名稱必須為 3 到 24 個字元，且只能包含英數字元。 或者，選取 [使用現有的] ，然後從下拉式清單選取現有的儲存體帳戶。 需要儲存體帳戶，並且是用來儲存專案構件並執行歷程記錄資料。 
    測試帳戶的工作區 | IrisGarden<br/>(教學課程中使用的名稱) | 提供此帳戶的工作區名稱。 這個名稱長度應介於 2 到 32 個字元之間。 應該只包含英數字元及虛線 (-) 字元。 此工作區包含您建立、管理及發行實驗所需的工具。
    指派工作區的擁有者 | _您的帳戶_ | 選取您自己的帳戶作為工作區擁有者。
    建立模型管理帳戶 | **檢查** |立即建立模型管理帳戶，當您想要將您的模型當作即時 Web 服務部署及管理時，即可使用此資源。 <br/><br/>隨為選擇性，但建議您在與測試帳戶的同時建立模型管理帳戶。
@@ -162,7 +162,7 @@ Azure Machine Learning Workbench 適用於 Windows 或 macOS。 請查看[支援
 
 1. 在 [專案儀表板] 頁面頂端的命令列中，選取 **local** 作為執行目標，以及選取 **iris_sklearn.py** 作為要執行的指令碼。 預設會預先選取這些值。 
 
-   範例中包含其他檔案，可供您稍後查看，但是在本快速入門中，我們只著重在 **iris_sklearn.py**。 
+   範例中包含其他檔案，可供您稍後簽出，但是在本快速入門中，我們對 **iris_sklearn.py** 感興趣。 
 
    ![命令列](./media/quickstart-installation/run_control.png)
 

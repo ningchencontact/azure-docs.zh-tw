@@ -1,24 +1,19 @@
 ---
-title: 使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集 - Azure | Microsoft Docs
+title: 使用 AAD-DS 設定已加入網域的 HDInsight 叢集
 description: 了解如何使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集
 services: hdinsight
-documentationcenter: ''
-author: bprakash
+author: omidm1
 manager: jhubbard
 editor: cgronlun
-tags: ''
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/20/2018
-ms.author: bhanupr
-ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 060ca8040f514ec1df48c2ca4568cbbb2a529267
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集
 
@@ -36,7 +31,10 @@ ms.lasthandoff: 03/23/2018
 > [!NOTE]
 > 只有租用戶的管理員具有建立網域服務的權限。 如果您使用 Azure Data Lake Storage (ADLS) 作為 HDInsight 的預設儲存體，則請確定 ADLS 的預設 Azure AD 租用戶與 HDInsight 叢集的網域相同。 為了讓這個設定能搭配 Azure Data Lake Store 使用，必須為具有叢集存取權的使用者停用多重要素驗證。
 
-佈建網域服務之後，您需要在 **Azure AD DC 管理員**群組中建立服務帳戶，用於建立 HDInsight 叢集。 服務帳戶必須是 Azure AD 的全域管理員。
+佈建 AAD 網域服務之後，您必須使用建立 HDInsight 叢集的適當權限在 AAD 中建立服務帳戶 (將同步到 AAD-DS)。 如果此服務帳戶已存在，您必須重設其密碼並等候其同步到 AAD DS 為止 (此重設將導致建立 Kerberos 密碼雜湊，最多可能需要 30 分鐘)。 此服務帳戶應該具有下列權限：
+
+- 將機器加入網域，並將機器主體放入您在建立叢集期間指定的 OU 中。
+- 在叢集建立期間，於您指定的 OU 中建立服務主體。
 
 您必須啟用 Azure AD 網域服務受控網域的安全 LDAP。 若要啟用安全 LDAP，請參閱[針對 Azure Active Directory Domain Services 受控網域設定安全的 LDAP (LDAPS)](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md)。
 
@@ -49,7 +47,7 @@ ms.lasthandoff: 03/23/2018
 建立已加入網域的 HDInsight 叢集時，必須提供下列參數：
 
 - **網域名稱**：與 Azure AD DS 相關聯的網域名稱。 例如，contoso.onmicrosoft.com。
-- **網域使用者名稱**：上一節在 Azure AD DC 系統管理員群組中建立的服務帳戶。 例如： hdiadmin@contoso.onmicrosoft.com。此網域使用者是這個已加入網域的 HDInsight 叢集的管理員。
+- **網域使用者名稱**：上一節在 Azure AD DC 中建立的服務帳戶。 例如： hdiadmin@contoso.onmicrosoft.com。此網域使用者將是這個已加入網域的 HDInsight 叢集的系統管理員。
 - **網域密碼**：服務帳戶的密碼。
 - **組織單位**︰HDInsight 叢集要搭配使用的組織單位 (OU) 的辨別名稱。 例如：OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com。如果此 OU 不存在，HDInsight 叢集會嘗試建立此 OU。 
 - **LDAPS URL**：例如 ldaps://contoso.onmicrosoft.com:636。

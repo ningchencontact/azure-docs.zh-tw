@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5d6118a47e10763373c9376ca08d328cf22ab3c8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8782befb1548606fe649909a7841eb648c15f1c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>如何使用 Azure 入口網站在適用於 MySQL 的 Azure 資料庫中備份和還原伺服器
 
@@ -85,6 +85,10 @@ ms.lasthandoff: 04/03/2018
 
 2. 在表單的 [選取來源] 下拉式清單中，選擇 [備份]。 這個動作會載入已啟用異地備援備份的伺服器清單。 選取其中一個備份來作為新伺服器的來源。
    ![選取來源：備份和異地備援備份清單](./media/howto-restore-server-portal/2-georestore.png)
+
+   > [!NOTE]
+   > 第一次建立伺服器時，可能無法立即用來進行異地還原。 必要的中繼資料可能需要幾小時才會填入。
+   >
 
 3. 根據您的需要填寫表單的其餘部分。 您可以選取任何**位置**。 選好位置之後，您可以選取 [定價層]。 根據預設，系統會顯示要作為還原來源的現有伺服器參數。 您可以按一下 [確定]，不進行任何變更地繼承這些設定。 或者，您可以變更**計算世代** (如果適用於您選擇的區域)、**虛擬核心**數目、**備份保留期限**及**備份備援選項**。 還原期間不支援變更**定價層** (基本、一般用途或記憶體最佳化) 或**儲存體**大小。
 

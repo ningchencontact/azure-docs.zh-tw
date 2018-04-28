@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 829095c7f9b92f64fd6204481e68b2594a3a0017
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d73869d1371247a269b6601c35b1a938d89176c0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>深度學習和 AI 架構
 [資料科學虛擬機器](http://aka.ms/dsvm) \(英文\) (DSVM) 和[深度學習 VM](http://aka.ms/dsvm/deeplearning) \(英文\) 支援數種深度學習架構，可協助建置具備預測性分析及能了解影像及語言之辨識能力的人工智慧 (AI) 應用程式。 
@@ -32,10 +32,11 @@ ms.lasthandoff: 03/28/2018
 | ------------- | ------------- |
 | 這是什麼？   | 深度學習架構      |
 | 支援的 DSVM 版本      | Windows、Linux     |
-| 它是如何在 DSVM 上設定/安裝的？  | Microsoft 辨識工具組 (CNTK) 是安裝在 Python 2.7 的 _root_ 環境中，以及 Python 3.5 的 _py35_ 環境中。   |
+| 它是如何在 DSVM 上設定/安裝的？  | Microsoft Cognitive Toolkit (CNTK) 安裝在 [Linux 和 Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 的 Python 3.5 中，以及安裝在 [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) 的 Python 3.6 中。   |
 | 範例的連結      | 已包含範例 Jupyter 筆記本。     |
 | DSVM 上的相關工具      | Keras      |
-| 如何使用/執行它？    | 開啟 Jupyter，然後尋找 CNTK 資料夾  |
+| 如何使用/執行它？    | * 在終端機：啟用正確的環境，然後執行 Python。 <br/>
+ * 在 Jupyter：連線到 [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) 或 [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後開啟 CNTK 目錄找出範例。 |
 
 ## <a name="tensorflow"></a>TensorFlow
 
@@ -43,10 +44,22 @@ ms.lasthandoff: 03/28/2018
 | ------------- | ------------- |
 | 這是什麼？   | 深度學習架構      |
 | 支援的 DSVM 版本      | Windows、Linux     |
-| 它是如何在 DSVM 上設定/安裝的？  | 在 Linux 上，TensorFlow 是安裝在 Python 2.7 (_root_) 及 Python 3.5 (_py35_) 環境中。 在 Windows 上，Tensorflow 是安裝在 Python 3.5(_py35_) 環境中。  |
+| 它是如何在 DSVM 上設定/安裝的？  | TensorFlow 安裝在 [Linux 和 Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 的 Python 3.5 中，以及安裝在 [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) 的 Python 3.6 中。  |
 | 範例的連結      | 已包含範例 Jupyter 筆記本。     |
 | DSVM 上的相關工具      | Keras      |
-| 如何使用/執行它？    | 開啟 Jupyter，然後尋找 TensorFlow 資料夾。  |
+| 如何使用/執行它？    | * 在終端機：啟用正確的環境，然後執行 Python。 <br/>
+ * 在 Jupyter：連線到 [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) 或 [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後開啟 TensorFlow 目錄找出範例。  |
+
+## <a name="horovod"></a>Horovod
+
+|    |           |
+| ------------- | ------------- |
+| 這是什麼？   | 適用於 TensorFlow 的分散式深度學習架構      |
+| 支援的 DSVM 版本      | Ubuntu     |
+| 它是如何在 DSVM 上設定/安裝的？  | Horovod 安裝在 [Ubuntu](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 的 Python 3.5 中。  |
+| 範例的連結      | [https://github.com/uber/horovod/tree/master/examples](https://github.com/uber/horovod/tree/master/examples)     |
+| DSVM 上的相關工具      | TensorFlow      |
+| 如何使用/執行它？    | 在終端機：啟用正確的環境，然後執行 Python。 |
 
 ## <a name="keras"></a>Keras
 
@@ -54,13 +67,11 @@ ms.lasthandoff: 03/28/2018
 | ------------- | ------------- |
 | 這是什麼？   | 深度學習架構      |
 | 支援的 DSVM 版本      | Windows、Linux     |
-| 它是如何在 DSVM 上設定/安裝的？  | Keras 是安裝在 Python 2.7 (_root_) 及 Python 3.5 (_py35_) 環境中。   |
+| 它是如何在 DSVM 上設定/安裝的？  | TensorFlow 安裝在 [Linux 和 Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 的 Python 3.5 中，以及安裝在 [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) 的 Python 3.6 中。 |
 | 範例的連結      | https://github.com/fchollet/keras/tree/master/examples      |
 | DSVM 上的相關工具      | Microsoft 辨識工具組、TensorFlow、Theano      |
-| 如何使用/執行它？    | 從 Github 位置下載範例，將範例複製到 ~/notebooks 底下的目錄，然後在 Jupyter 中開啟它   |
-
-
-
+| 如何使用/執行它？    | * 在終端機：啟用正確的環境，然後執行 Python。 <br/>
+ * 在 Jupyter：從 Github 位置下載範例，連線到 [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) 或 [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後開啟範例目錄。 |
 
 ## <a name="caffe"></a>Caffe
 
@@ -82,17 +93,19 @@ jupyter notebook
 
 具有範例筆記本的新瀏覽器視窗將會開啟。
 
+二進位檔安裝在 /opt/caffe/build/install/bin。 
+
 ## <a name="caffe2"></a>Caffe2
 
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 深度學習架構      |
 | 支援的 DSVM 版本      | Ubuntu     |
-| 它是如何在 DSVM 上設定/安裝的？  | Caffe2 是安裝在 `/opt/caffe2` 中。 它也針對 Python 2.7(_root_) Conda 環境提供。     |
-| 範例的連結      | 已包含範例 Jupyter 筆記本     |
+| 它是如何在 DSVM 上設定/安裝的？  | Caffe2 安裝在 [Python 2.7 (root) conda 環境](dsvm-languages.md#python-linux-and-windows-server-2012-edition)。 原始檔在 `/opt/caffe2`。 |
+| 範例的連結      | JupyterHub 中包含範例筆記本。 |
 | DSVM 上的相關工具      | Caffe      |
-| 如何使用/執行它？    | 開啟 Jupyter，然後瀏覽至 Caffe2 目錄以尋找範例筆記本。 某些筆記本會要求以 Python 程式碼設定 Caffe2 根，請輸入 /opt/caffe2。   |
-
+| 如何使用/執行它？    | * 在終端機：啟用 [root Python 環境](dsvm-languages.md#python-linux-and-windows-server-2012-edition)，啟動 Python，然後匯入 caffe2。 <br/> * 在 JupyterHub：[連線到 JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後瀏覽至 Caffe2 目錄以尋找範例筆記本。 某些筆記本會要求以 Python 程式碼設定 Caffe2 根，請輸入 /opt/caffe2。 |
+| 組建注意事項 | Caffe2 是從 Linux 上的原始檔組建，包括 CUDA、cuDNN 和 Intel MKL。 目前的認可是 0d9c0d48c6f20143d6404b99cc568efd29d5a4be，選取的理由是在測試的所有 GPU 和範例的穩定性。 |
 
 ## <a name="chainer"></a>Chainer
 
@@ -100,13 +113,11 @@ jupyter notebook
 | ------------- | ------------- |
 | 這是什麼？   | 深度學習架構      |
 | 支援的 DSVM 版本      | Windows、Linux     |
-| 它是如何在 DSVM 上設定/安裝的？  | Chainer 是安裝在 Python 2.7 (_root_) 及 Python 3.5 (_py35_) 環境中。 也會安裝 ChainerRL 和 ChainerCV。   |
-| 範例的連結      | 已包含範例 Jupyter 筆記本。      |
+| 它是如何在 DSVM 上設定/安裝的？  | Chainer 安裝在 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 中。 也會安裝 ChainerRL 和 ChainerCV。   |
+| 範例的連結      | JupyterHub 中包含範例筆記本。 |
 | DSVM 上的相關工具      | Caffe      |
-
-### <a name="how-to-use--run-it"></a>如何使用/執行它？  
-
-在終端機中，啟動所需的 Python 版本 (_root_或 _py35_)，執行 _python_，然後匯入 Chainer。 在 Jupyter 中，選取 [Python 2.7] 或 [Python 3.5] 核心，然後匯入 Chainer。
+| 如何使用/執行它？  | * 在終端機：啟用 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 環境，執行 _python_，然後匯入 Chainer。 <br/>
+* 在 JupyterHub：[連線到 JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後瀏覽至 Chainer 目錄以尋找範例筆記本。
 
 
 ## <a name="deep-water"></a>Deep Water
@@ -115,19 +126,22 @@ jupyter notebook
 | ------------- | ------------- |
 | 這是什麼？   | 適用於 H2O 的深度學習架構      |
 | 支援的 DSVM 版本      | Ubuntu     |
-| 它是如何在 DSVM 上設定/安裝的？  | Deep Water 是安裝在 `/dsvm/tools/deep_water` 中。   |
-| 範例的連結      | 範例可透過 Deep Water 伺服器取得。      |
+| 它是如何在 DSVM 上設定/安裝的？  | Deep Water 安裝在 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 中，`/dsvm/tools/deep_water` 中也提供。   |
+| 範例的連結      | JupyterHub 中包含範例筆記本。      |
 | DSVM 上的相關工具      | H2O、Sparkling Water      |
 
 ### <a name="how-to-use--run-it"></a>如何使用/執行它？  
 
-使用 X2Go 連線至 VM。 在終端機中，啟動 Deep Water 伺服器：
+Deep Water 需要 CUDA 8 搭配 cuDNN 5.1。 這不是在預設的程式庫路徑中，因為其他深度學習架構使用 CUDA 9 和 cuDNN 7。 為 Deep Water 使用 CUDA 8 + cuDNN 5.1：
 
-    java -jar /dsvm/tools/deep_water/h2o.jar
+```
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:${LD_LIBRARY_PATH}
+export CUDA_ROOT=/usr/local/cuda-8.0
+```
 
-然後開啟瀏覽器，並連線至 `http://localhost:54321`。
-
-
+使用 Deep Water：
+* * 在終端機：啟用 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 環境，然後執行 _python_。 <br/>
+* 在 JupyterHub：[連線到 JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後瀏覽至 deep_water 目錄以尋找範例筆記本。
 
 ## <a name="mxnet"></a>MXNet
 
@@ -135,10 +149,12 @@ jupyter notebook
 | ------------- | ------------- |
 | 這是什麼？   | 深度學習架構      |
 | 支援的 DSVM 版本      | Windows、Linux     |
-| 它是如何在 DSVM 上設定/安裝的？  | MXNet 是安裝在 Windows 上的 `C:\dsvm\tools\mxnet` 中，以及 Linux 上的 `/dsvm/tools/mxnet` 中。 Python 繫結是安裝在 Python 2.7 (_root_) 及 Python 3.5 (_py35_) 環境中。 也會安裝 R 繫結。   |
+| 它是如何在 DSVM 上設定/安裝的？  | MXNet 是安裝在 Windows 上的 `C:\dsvm\tools\mxnet` 中，以及 Linux 上的 `/dsvm/tools/mxnet` 中。 Python 繫結安裝在 [Linux 和 Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 的 Python 3.5 中，以及安裝在 [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) 的 Python 3.6 中。 R 繫結也會安裝在 Ubuntu 上。   |
 | 範例的連結      | 已包含範例 Jupyter 筆記本。    |
 | DSVM 上的相關工具      | Keras      |
-| 如何使用/執行它？    | 開啟 Jupyter，然後尋找 mxnet 資料夾  |
+| 如何使用/執行它？    | * 在終端機：啟用正確的環境，然後執行 Python。 <br/>
+ * 在 Jupyter：連線到 [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) 或 [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後開啟 mxnet 目錄找出範例。  |
+ | 組建注意事項 | MXNet 是從 Linux 上的原始檔組建。 這個組建包含 CUDA、cuDNN、NCCL 和 MKL。 |
 
 ## <a name="nvidia-digits"></a>NVIDIA DIGITS
 
@@ -176,7 +192,12 @@ jupyter notebook
 | 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | Theano 是安裝在 Python 2.7 (_root_) 及 Python 3.5 (_py35_) 環境中。   |
 | DSVM 上的相關工具      | Keras      |
-| 如何使用/執行它？    | 在終端機中，啟動所需的 Python 版本 (root 或 py35)，執行 Python，然後匯入 Theano。 在 Jupyter 中，選取 [Python 2.7] 或 [Python 3.5] 核心，然後匯入 Theano。  |
+| 如何使用/執行它？    | * 在終端機中，啟動所需的 Python 版本 (root 或 py35)，執行 Python，然後匯入 Theano。 <br/> 
+* 在 Jupyter 中，選取 [Python 2.7] 或 [Python 3.5] 核心，然後匯入 Theano。  
+<br/>
+若要解決最近的 MKL 錯誤 (bug)，您必須先設定 MKL 執行緒層：<br/><br/>
+_export MKL_THREADING_LAYER=GNU_
+|
 
 
 
@@ -196,14 +217,12 @@ jupyter notebook
 | ------------- | ------------- |
 | 這是什麼？   | 深度學習架構      |
 | 支援的 DSVM 版本      | Linux     |
-| 它是如何在 DSVM 上設定/安裝的？  | PyTorch 是安裝在 Python 3.5 (_py35_) 環境中。   |
+| 它是如何在 DSVM 上設定/安裝的？  | PyTorch 安裝在 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 中。  |
 | 範例的連結      | 隨附 Jupyter 筆記本範例，也可以在 /dsvm/samples/pytorch 中找到範例。      |
 | DSVM 上的相關工具      | Torch      |
-
-### <a name="how-to-use--run-it"></a>如何使用/執行它？  
-
-在終端機中執行 _python_，然後匯入 Torch。 在 Jupyter 中，選取 [Python 3.5] 核心，然後匯入 Torch。
-
+| 如何使用/執行它 | 
+* 在終端機：啟用正確的環境，然後執行 Python。 <br/>
+ * 在 Jupyter：連線到 [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後開啟 PyTorch 目錄找出範例。  |
 
 ## <a name="mxnet-model-server"></a>MXNet 模型伺服器
 
@@ -224,3 +243,16 @@ jupyter notebook
 | 它是如何在 DSVM 上設定/安裝的？  | 可在終端機上使用 _tensorflow_model_server_。   |
 | 範例的連結      | 可從[線上](https://www.tensorflow.org/serving/)取得範例。      |
 | DSVM 上的相關工具      | TensorFlow      |
+
+## <a name="tensorrt"></a>TensorRT
+
+|    |           |
+| ------------- | ------------- |
+| 這是什麼？   | NVIDIA 的深度學習推斷伺服器。 |
+| 支援的 DSVM 版本      | Ubuntu     |
+| 它是如何在 DSVM 上設定/安裝的？  | TensorRT 是安裝為 _apt_ 套件。   |
+| 範例的連結      | 可從[線上](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html#samples)取得範例。      |
+| DSVM 上的相關工具      | TensorFlow 服務、MXNet 模型伺服器  |
+
+
+

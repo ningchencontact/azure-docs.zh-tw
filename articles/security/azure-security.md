@@ -1,12 +1,12 @@
 ---
-title: "Azure 安全性簡介 | Microsoft Docs"
-description: "了解 Azure 安全性、它的服務及運作方式。"
+title: Azure 安全性簡介 | Microsoft Docs
+description: 了解 Azure 安全性、它的服務及運作方式。
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 68bba95e177fa8d0261b84f51b0f5285c7fb7417
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 51d0f1f6d2689e37c1c39bf4a5e8078a2482c76d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性簡介
 ## <a name="overview"></a>概觀
@@ -58,8 +58,8 @@ Azure 的基礎結構設計涵蓋設備與應用程式，可同時裝載數以�
 | [安全的平台](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [隱私權與控制](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[合規性](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [透明度](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [安全性開發週期 (英文)](https://www.microsoft.com/en-us/sdl/)、內建稽核 | [隨時管理您的資料 (英文)](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [信任中心](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Microsoft 如何保護 Azure 服務中的客戶資料 (英文)](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
-| [必要的安全性訓練、背景檢查 (英文)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc) |  [資料位置控制 (英文)](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Common Controls Hub (英文)](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Microsoft 如何管理 Azure 服務中的資料位置 (英文)](http://azuredatacentermap.azurewebsites.net/)|
-| [滲透測試 (英文)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc)、[入侵偵測、DDoS (英文)](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement)、[稽核和記錄(英文)](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [根據您的條款提供資料存取 (英文)](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [雲端服務審查評鑑檢查表 (英文)](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Microsoft 內部的哪些人員可根據哪些條款存取您的資料 (英文)](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
+| [必要的安全性訓練、背景檢查 (英文)](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [資料位置控制 (英文)](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Common Controls Hub (英文)](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Microsoft 如何管理 Azure 服務中的資料位置 (英文)](http://azuredatacentermap.azurewebsites.net/)|
+| [滲透測試 (英文)](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)、[入侵偵測、DDoS (英文)](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement)、[稽核和記錄(英文)](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [根據您的條款提供資料存取 (英文)](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [雲端服務審查評鑑檢查表 (英文)](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Microsoft 內部的哪些人員可根據哪些條款存取您的資料 (英文)](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [技術資料中心的狀態 (英文)](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)、實體安全性、[安全網路](https://docs.microsoft.com/azure/security/security-network-overview) | [回應執法機關 (英文)](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [依服務、位置和產業的合規性 (英文)](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Microsoft 如何保護 Azure 服務中的客戶資料 (英文)](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
 |  [安全性事件回應 (英文)](http://aka.ms/SecurityResponsepaper)[共同責任 (英文)](http://aka.ms/sharedresponsibility) |[嚴格的隱私權標準 (英文)](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [檢閱 Azure 服務的憑證、透明度中樞 (英文)](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
 
@@ -152,7 +152,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 本節提供關於 Azure 儲存體安全性中主要功能的其他資訊，以及這些功能的摘要資訊。
 
 ### <a name="role-based-access-control-rbac"></a>角色型存取控制 (RBAC)
-您可以使用角色型存取控制 (RBAC) 來保護儲存體帳戶。 對於想要強制執行資料存取安全性原則的組織，根據[需要知道 (英文)](https://en.wikipedia.org/wiki/Need_to_know) 和[最低權限 (英文)](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 安全性主體限制存取權限是必須做的事。 在特定範圍將適當的 RBAC 角色指派給群組和應用程式，即可授與這些存取權限。 您可以使用 [內建的 RBAC 角色](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)(例如儲存體帳戶參與者) 將權限指派給使用者。 使用 [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) 模型來存取儲存體帳戶的儲存體金鑰，可以透過角色型存取控制 (RBAC) 來控制。
+您可以使用角色型存取控制 (RBAC) 來保護儲存體帳戶。 對於想要強制執行資料存取安全性原則的組織，根據[需要知道 (英文)](https://en.wikipedia.org/wiki/Need_to_know) 和[最低權限 (英文)](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 安全性主體限制存取權限是必須做的事。 在特定範圍將適當的 RBAC 角色指派給群組和應用程式，即可授與這些存取權限。 您可以使用 [內建的 RBAC 角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)(例如儲存體帳戶參與者) 將權限指派給使用者。 使用 [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) 模型來存取儲存體帳戶的儲存體金鑰，可以透過角色型存取控制 (RBAC) 來控制。
 
 ### <a name="shared-access-signature"></a>共用存取簽章
 [共用存取簽章 (SAS)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 可提供您儲存體帳戶中資源的委派存取。 SAS 意謂著您可以將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定期間內使用一組指定的權限進行存取。 您可以在不須分享您帳戶存取金鑰的情況下，授與這些有限的權限。
@@ -356,7 +356,7 @@ Microsoft 在其產品與服務上使用多個安全性作法與技術來管理�
 
 -   [密碼原則強制執行](https://azure.microsoft.com/documentation/articles/active-directory-passwords-policy/)藉由加強長度和複雜度需求、強制定期循環，以及在失敗的驗證嘗試之後鎖定帳戶，來提高傳統密碼的安全性。
 
--   [權杖型驗證](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/)會透過 Active Directory 同盟服務 (AD FS) 或協力廠商的安全性權杖系統來啟用驗證。
+-   [權杖型驗證](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/)可透過 Azure Active Directory 啟用驗證。
 
 -   [角色型存取控制 (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) 可讓您根據使用者指派的角色來授與存取權限，以便輕鬆地只為使用者提供執行其作業內容所需的存取權限。 您可以針對每個組織的商務模型和風險承受度自訂 RBAC。
 

@@ -8,21 +8,22 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: f11aff2231a5ae6a58d5c9a3f53379a6849d226a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5f0961a99eac805e82cbc5e5d61c485f8661ba0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>您可以在 Data Science Virtual Machine 上做的十件事
+# <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>您可以在 Windows Data Science Virtual Machine 上做的十件事
 
-Microsoft Data Science Virtual Machine (DSVM) 是強大的資料科學開發環境，可讓您執行各種資料探索和模型分析工作。 此環境已內建數個熱門的資料分析工具，可方便您快速開始進行內部部署、雲端或混合式部署的分析。 DSVM 與多項 Azure 服務密切合作，並且能夠讀取及處理已儲存在 Azure SQL 資料倉儲、Azure Data Lake、Azure 儲存體或 Azure Cosmos DB 中的資料。 它也可以利用 Azure Machine Learning 和 Azure Data Factory 等其他分析工具。
+Windows Data Science Virtual Machine (DSVM) 是強大的資料科學開發環境，可讓您執行各種資料探索和模型分析工作。 此環境已內建數個熱門的資料分析工具，以便您快速開始進行內部部署或混合式部署的分析。 DSVM 與多項 Azure 服務密切合作，並且能夠讀取及處理已儲存在 Azure SQL 資料倉儲、Azure Data Lake、Azure 儲存體或 Azure Cosmos DB 中的資料。 它也可以利用 Azure Machine Learning 和 Azure Data Factory 等其他分析工具。
 
 在本文中，您將了解如何使用 DSVM 來執行各種資料科學工作，並與其他 Azure 服務互動。 以下是您可以在 DSVM 上做的一些事：
 
@@ -207,7 +208,7 @@ DSVM 不僅可讓您在虛擬機器本機建置分析解決方案，也可讓您
 您可以使用 Azure PowerShell 建立 Azure 檔案服務共用。 以下是可在 Azure PowerShell 下執行以建立 Azure 檔案服務共用的指令碼。
 
     # Authenticate to Azure.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     # Select your subscription
     Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
     # Create a new resource group.

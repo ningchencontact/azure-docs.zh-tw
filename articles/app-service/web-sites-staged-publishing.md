@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: a262ba335256878b03a9a2cce6f7ba6a3dae715c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c02b7a74eea6973d6ccfbc1cc59d15bfd5cb5b77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/16/2018
 * 先將應用程式部署至某個位置，然後再將它交換到生產位置，可確保該位置的所有執行個體在交換到生產位置之前都已準備就緒。 這麼做可以排除部署應用程式時的停機情況。 交換作業期間所有的流量都能順暢地重新導向，而且不會捨棄任何要求封包。 不需要預先交換驗證時，這整個工作流程可藉由設定 [自動交換](#Auto-Swap) 來自動化。
 * 交換之後，先前具有預備應用程式的位置，現在已經有之前的生產應用程式。 若交換到生產位置的變更不是您需要的變更，您可以立即執行相同的交換，以取回「上一個已知良好的網站」。
 
-每個 App Service 方案層所支援的部署位置個數都不一樣。 若要找出應用程式層所支援的位置個數，請參閱 [App Service 定價](https://azure.microsoft.com/pricing/details/app-service/)。
+每個 App Service 方案層所支援的部署位置個數都不一樣。 若要找出應用程式層所支援的位置個數，請參閱 [App Service 限制](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits)。
 
 * 當您的應用程式擁有多個位置時，就無法變更層級。
 * 非生產的位置無法使用調整規模。

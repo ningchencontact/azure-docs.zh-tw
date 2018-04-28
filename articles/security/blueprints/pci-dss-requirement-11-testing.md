@@ -1,6 +1,6 @@
 ---
-title: "Azure 付款處理藍圖 - 測試需求"
-description: "PCI DSS 需求 11"
+title: Azure 付款處理藍圖 - 測試需求
+description: PCI DSS 需求 11
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 57429741afd2ffd16c09a0f1485cb1cfbdda5571
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: db9f1022ecb3b727f08bb6f232a8df55476e0755
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="testing-requirements-for-pci-dss-compliant-environments"></a>PCI DSS 相容環境的測試需求 
 ## <a name="pci-dss-requirement-11"></a>PCI DSS 需求 11
@@ -178,7 +178,7 @@ ms.lasthandoff: 11/16/2017
 
 |||
 |---|---|
-| **提供者<br />(Microsoft&nbsp;Azure)** | Microsoft Azure 與獨立技術顧問簽約，以執行 Microsoft Azure 界限的滲透測試。 紅隊活動也會定期執行，而結果會用於進行安全性改善。 |
+| **提供者<br />(Microsoft&nbsp;Azure)** | Microsoft Azure 與獨立的技術顧問簽約，以執行 Microsoft Azure 界限的滲透測試。 紅隊活動也會定期執行，而結果會用於進行安全性改善。 |
 | **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 本身已經過滲透測試 (pen test) 及弱點掃描。 滲透測試結果可以透過使用常見工具 (如 nmap 或 pentest tools.com) 重複進行。滲透測試的結果將提供不明確的易受攻擊面，並且沒有可利用的項目。 此外，[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)和 [Azure Advisor](/azure/advisor/advisor-security-recommendations) 會提供弱點資訊與補救方法。|
 
 
@@ -214,7 +214,7 @@ ms.lasthandoff: 11/16/2017
 **11.3.4.1** 僅適用於服務提供者的其他需求：如果使用分割，請至少每六個月及變更任何分割控制項/方法後，透過在分割控制項上執行滲透測試來確認 PCI DSS 範圍。
 
 > [!NOTE]
-> 這項需求在 2018 年 1 月 31 日前是屬於最佳作法，該日期之後會變成需求。
+> 這項需求在 2018 年 1 月 31 日前為最佳做法，該日期之後會變成需求。
 
 
 **責任：&nbsp;&nbsp;`Shared`**
@@ -252,7 +252,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | 對於可能發生的變更和事件，Microsoft Azure 會進行維修並通知客戶，這些事項可能會影響整個線上服務儀表板的服務安全性或可用性。 當 Microsoft Azure 客戶的安全性承諾和安全性責任有所變更時，會及時更新在 Microsoft Azure 的網站上。<br /><br />僅限獲得授權的系統管理員可安裝或變更 Microsoft Azure 生產環境上的軟體，且須遵循變更管理程序。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 範例是種 PaaS 服務，並已使用 OMS 實作變更偵測。 如需詳細資訊，請參閱 [PCI 指引 - 預先安裝的 OMS 解決方案](payment-processing-blueprint.md#oms-solutions)。<br /><br />|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 範例是種 PaaS 服務，並已使用 Log Analytics 實作變更偵測。 如需詳細資訊，請參閱 [PCI 指引 - 預先安裝的管理解決方案](payment-processing-blueprint.md#management-solutions)。<br /><br />|
 
 
 
@@ -265,7 +265,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | Azure 監視事件規則會提供層級提升的高風險作業和資產監視。 受 Azure 管理的網路裝置會受到監視，以確保其符合建立的安全性標準。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | 變更 Contoso Webstore 的警示會由 OMS 實作提供。 如需詳細資訊，請參閱 [PCI 指引 - 預先安裝的 OMS 解決方案](payment-processing-blueprint.md#oms-solutions)。<br /><br /><br /><br />|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | 變更 Contoso Webstore 的警示會由 Log Analytics 實作提供。 如需詳細資訊，請參閱 [PCI 指引 - 預先安裝的管理解決方案](payment-processing-blueprint.md#management-solutions)。<br /><br /><br /><br />|
 
 
 
@@ -278,7 +278,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | 不適用。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | 變更 Contoso Webstore 的警示會由 OMS 實作提供。 如需詳細資訊，請參閱 [PCI 指引 - 預先安裝的 OMS 解決方案](payment-processing-blueprint.md#oms-solutions)。<br /><br /><br /><br />|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | 變更 Contoso Webstore 的警示會由 Log Analytics 實作提供。 如需詳細資訊，請參閱 [PCI 指引 - 預先安裝的管理解決方案](payment-processing-blueprint.md#management-solutions)。<br /><br /><br /><br />|
 
 
 

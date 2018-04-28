@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全性與合規性藍圖 - 符合 PCI DSS 規範的付款處理環境"
-description: "Azure 安全性與合規性藍圖 - 符合 PCI DSS 規範的付款處理環境"
+title: Azure 安全性與合規性藍圖 - 符合 PCI DSS 規範的付款處理環境
+description: Azure 安全性與合規性藍圖 - 符合 PCI DSS 規範的付款處理環境
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure 安全性與合規性藍圖 - 符合 PCI DSS 規範的付款處理環境
 
@@ -120,7 +120,7 @@ Edna Benson 是接待員和業務經理。 她負責確保客戶資訊正確且�
 >- 應用程式閘道
 >- Azure Active Directory
 >- App Service Environment v2
->- OMS Log Analytics
+>- Log Analytics
 >- Azure 金鑰保存庫
 >- 網路安全性群組
 >- Azure SQL DB
@@ -173,7 +173,7 @@ Edna Benson 是接待員和業務經理。 她負責確保客戶資訊正確且�
 
 每個 NSG 都具有特定連接埠及通訊協定，開放給安全且正確的解決方案工作使用。 此外，以下設定會針對每個 NSG 啟用：
 - 啟用的[診斷記錄和事件](/azure/virtual-network/virtual-network-nsg-manage-log)會儲存在儲存體帳戶 
-- 將 OMS Log Analytics 連線至 [NSG 的診斷](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- 將 Log Analytics 連線至 [NSG 的診斷](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 #### <a name="subnets"></a>子網路
  確認每個子網路都與對應的 NSG 相關聯。
@@ -203,12 +203,12 @@ Azure SQL Database 執行個體會使用下列資料庫安全性量值：
 
 ### <a name="logging-and-auditing"></a>記錄與稽核
 
-[Operations Management Suite (OMS)](/azure/operations-management-suite/) 可以提供所有系統和使用者活動的大量記錄給 Contoso Webstore ，包括持卡人資料記錄。 為確保正確性，您可以檢閱及驗證變更。 
+[Log Analytics](https://azure.microsoft.com/services/log-analytics) 可以提供所有系統和使用者活動的大量記錄給 Contoso Webstore ，包括持卡人資料記錄。 可對變更進行檢閱及驗證以確保正確性。 
 
 - **活動記錄：**  [活動記錄](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。
 - **診斷記錄：**[診斷記錄](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)是每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure Blob 儲存體、資料表和佇列記錄。
 - **防火牆記錄：**  應用程式閘道會提供完整的診斷和存取記錄。 防火牆記錄可供已啟用 WAF 的應用程式閘道資源使用。
-- **記錄封存：**  所有診斷記錄會設定為寫入到集中且加密的 Azure 儲存體帳戶進行封存，並包含定義的保留期間 (2 天)。 接著，記錄會連線至 Azure Log Analytics 以進行處理、儲存及進行儀表板管理。 [Log Analytics](https://azure.microsoft.com/services/log-analytics) 是種 OMS 服務，可協助您收集和分析雲端和內部部署環境中的資源所產生的資料。
+- **記錄封存：**  所有診斷記錄會設定為寫入到集中且加密的 Azure 儲存體帳戶進行封存，並包含定義的保留期間 (2 天)。 接著，記錄會連線至 Azure Log Analytics 以進行處理、儲存及進行儀表板管理。 [Log Analytics](https://azure.microsoft.com/services/log-analytics) 是種服務，可協助您收集和分析雲端和內部部署環境中的資源所產生的資料。
 
 ### <a name="encryption-and-secrets-management"></a>加密和密碼管理
 
@@ -224,7 +224,7 @@ Contoso Webstore 會將所有信用卡資料加密，並使用 Azure Key Vault �
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) 是 Microsoft 的多租用戶雲端式目錄和身分識別管理服務。 解決方案的所有使用者都是在 Azure Active Directory 中建立，包括存取 SQL Database 的使用者。
 - 應用程式的驗證是使用 Azure AD 執行。 如需詳細資訊，請參閱 [整合應用程式與 Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications)。 此外，資料庫資料行加密也會使用 Azure AD 向 Azure SQL Database 驗證應用程式。 如需詳細資訊，請參閱 [Always Encrypted：保護 SQL Database 中的敏感性資料](/azure/sql-database/sql-database-always-encrypted-azure-key-vault)。 
 - [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) 會偵測影響您組織身分識別的潛在弱點，並為偵測到的組織身分識別相關可疑活動設定自動回應，以及調查可疑事件並採取適當動作來解決這些可疑事件。
-- [Azure 角色型存取控制 (RBAC)](/azure/active-directory/role-based-access-control-configure) 可以對 Azure 進行精確且專注的存取權管理。 可存取訂用帳戶的身分會限制為訂用帳戶系統管理員，而可存取 Azure Key Vault 的身分則是限制為所有使用者。
+- [Azure 角色型存取控制 (RBAC)](/azure/role-based-access-control/role-assignments-portal) 可以對 Azure 進行精確且專注的存取權管理。 可存取訂用帳戶的身分會限制為訂用帳戶系統管理員，而可存取 Azure Key Vault 的身分則是限制為所有使用者。
 
 若要了解使用 Azure SQL Database 安全性功能的詳細資訊，請參閱 [Contoso 診所示範應用程式](https://github.com/Microsoft/azure-sql-security-sample)範例。
    
@@ -232,8 +232,7 @@ Contoso Webstore 會將所有信用卡資料加密，並使用 Azure Key Vault �
 
 #### <a name="app-service-environment"></a>App Service 環境
 
-
-            [Azure App Service](/azure/app-service/) 是受控服務，適用於部署 Web 應用程式。 Contoso Webstore 應用程式會部署為 [App Service Web 應用程式](/azure/app-service-web/app-service-web-overview)。
+[Azure App Service](/azure/app-service/) 是受控服務，適用於部署 Web 應用程式。 Contoso Webstore 應用程式會部署為 [App Service Web 應用程式](/azure/app-service-web/app-service-web-overview)。
 
 [Azure App Service Environment (ASE v2)](/azure/app-service/app-service-environment/intro) 是 App Service 的功能，可提供完全隔離和專用的環境，以便安全地大規模執行 App Service 應用程式。 此基礎結構會使用此進階服務方案來符合 PCI DSS 的規範。
 
@@ -279,11 +278,11 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) 是 Operations Management Suite (OMS) 中的一項服務，可協助您收集和分析雲端和內部部署環境中的資源所產生的資料。
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) 是 Azure 中的一項服務，可協助您收集和分析雲端和內部部署環境中的資源所產生的資料。
 
-#### <a name="oms-solutions"></a>OMS 解決方案
+#### <a name="management-solutions"></a>管理解決方案
 
-您應該考慮和設定這些額外的 OMS 解決方案：
+應考量以下額外的管理解決方案並進行設定：
 - [活動 Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [使用 Azure 網路分析](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL 分析](/azure/log-analytics/log-analytics-azure-sql)
@@ -339,9 +338,9 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
     
     如需詳細的使用方式指示，請參閱[指令碼指示 - 部署和設定 Azure 資源](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)。
     
-3. OMS 記錄和監視。 一旦部署方案後，[Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) 工作區即可開啟，並可使用解決方案存放庫中的範例範本來說明如何設定監視儀表板。 如範例 OMS 的範本，請參考 [omsDashboards 資料夾](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)。 請注意必須在 OMS 中收集資料，範本才能正確部署。 根據網站活動，這可能需要花費一小時以上。
+3. 記錄和監視。 一旦部署方案後，Log Analytics 工作區即可開啟，並可使用解決方案存放庫中的範例範本來說明如何設定監視儀表板。 如需範例範本，請參考 [omsDashboards 資料夾](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)。 請注意必須在 Log Analytics 中收集資料，範本才能正確部署。 根據網站活動，這可能需要花費一小時以上。
  
-    設定您的 OMS 記錄時，請考慮加入這些資源：
+    設定您的 Log Analytics 記錄時，請考慮加入這些資源：
  
     - Microsoft.Network/applicationGateways
     - Microsoft.Network/NetworkSecurityGroups

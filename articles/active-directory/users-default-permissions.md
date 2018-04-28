@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c4f6ef9d934a414ef805ddba6d2602b03bcbf16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的預設使用者權限
 
-在 Azure Active Directory (Azure AD) 中，所有使用者都會獲得一組預設權限。 使用者的存取權包含使用者類型、其[角色成員資格](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal)，以及個別物件的擁有權。 本文說明這些預設權限，並包含成員與來賓使用者預設值的比較。
+在 Azure Active Directory (Azure AD) 中，所有使用者都會獲得一組預設權限。 使用者的存取權包含使用者類型、其[角色成員資格](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal)，以及個別物件的擁有權。 本文說明這些預設權限，並包含成員與來賓使用者預設值的比較。
 
 ## <a name="member-and-guest-users"></a>成員和來賓使用者
 使用者所收到的預設權限集取決於使用者是租用戶的原生成員 (成員使用者)，還是 B2B 共同作業來賓 (來賓使用者)。 如需 B2B 共同作業的詳細資訊，請參閱[什麼是 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)。 

@@ -1,10 +1,10 @@
 ---
-title: "教學課程：Azure Active Directory 與 Compliance ELF 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Compliance ELF 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Compliance ELF 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Compliance ELF 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f05c43e2d8f6e777ae128e90040d8d5c270c212b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 32cb676393558079baad9bb0fc26d2c4daaa3519
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>教學課程：Azure Active Directory 與 Compliance ELF 整合
 
@@ -58,7 +58,7 @@ Compliance ELF 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Compliance ELF，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -101,7 +101,7 @@ Compliance ELF 與 Azure AD 整合提供下列優點：
     ![設定單一登入連結][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![單一登入對話方塊](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
 
 3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [Compliance ELF 網域及 URL] 區段上執行下列步驟：
@@ -119,34 +119,15 @@ Compliance ELF 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這不是真實的值。 使用實際的「登入 URL」來更新此值。 請連絡 [Compliance ELF 支援小組](mailto:support@complianceelf.com)以取得此值。
 
-5. 按一下 [儲存]  按鈕。
+5. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+    
+    ![設定單一登入](./media/active-directory-saas-complianceelf-tutorial/tutorial_metadataurl.png)
+     
+6. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-complianceelf-tutorial/tutorial_general_400.png)
 
-6. 若要產生**中繼資料** URL，執行下列步驟︰
-
-    a. 按一下 [應用程式註冊]。
-    
-    ![設定單一登入](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appregistrations.png)
-   
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
-    
-    ![設定單一登入](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpointicon.png)
-
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpoint.png)
-     
-    d. 現在，移至 [Compliance ELF] 的屬性頁面，使用 [複製] 按鈕複製 [應用程式識別碼]，並將它貼到 [記事本]。
- 
-    ![設定單一登入](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. 若要在 **Compliance ELF** 端設定單一登入，您必須將**中繼資料 URL** 傳送給 [Compliance ELF 支援小組](mailto:support@complianceelf.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. 若要在 **Compliance ELF** 端設定單一登入，您必須將「應用程式同盟中繼資料 URL」傳送給 [Compliance ELF 支援小組](mailto:support@complianceelf.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

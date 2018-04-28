@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/14/2018
 ms.topic: article
-ms.openlocfilehash: 799be6d2bb521de38af952376bf8ee14a18846de
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f29f4ec64b79738cae2ad684610f4817739825a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>使用 Ansible 來管理 Azure 動態清查
 您可以使用 Ansible 從各種來源 (包括如 Azure 等雲端來源) 將清查資訊提取至動態清查。 在本文中，您使用 [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) 來設定 Ansible Azure 動態清查，並在其中建立兩部虛擬機器、標記其中一部虛擬機器，然後在已標記的虛擬機器上安裝 Nginx。
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/08/2018
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
 
-1. 開啟 [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)。
+1. 開啟 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)。
 
 1. 建立 Azure 資源群組來保存此教學課程中的虛擬機器。
 

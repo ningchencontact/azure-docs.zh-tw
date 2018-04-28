@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: jdial
-ms.openlocfilehash: 55c8e6763b0c3d8bd3884a44695c25e62b8d9900
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cf7b71a49b63a95ed535210125120c6b76d9de8f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>使用 Azure 入口網站利用 Azure 網路監看員進行連線疑難排解
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 04/05/2018
 
 檢視[建立由警示觸發的封包擷取](network-watcher-alert-triggered-packet-capture.md)來了解如何透過虛擬機器警示自動化封包擷取
 
-造訪[檢查 IP 流量驗證](network-watcher-check-ip-flow-verify-portal.md)來得知 VM 是否允許特定流量流入或流出
+造訪[檢查 IP 流量驗證](diagnose-vm-network-traffic-filtering-problem.md)來得知 VM 是否允許特定流量流入或流出
 
 [1]: ./media/network-watcher-connectivity-portal/figure1.png
 [2]: ./media/network-watcher-connectivity-portal/figure2.png

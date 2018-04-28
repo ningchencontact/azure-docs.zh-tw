@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 49685d5b0e30356cab7f1f530bcc97e193d7fd90
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 72c3968b59fda10d81af553cbf2324a2683c596b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>建立、變更或刪除網路介面
 
@@ -34,10 +34,10 @@ ms.lasthandoff: 03/29/2018
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
-- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.2.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
-- 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.26 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.4.1 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+- 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.28 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
-您必須為用來登入 Azure 的帳戶指派您訂用帳戶網路參與者角色的最低權限。 若要深入了解如何將角色和權限指派給帳戶，請參閱 [Azure 角色型存取控制的內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)。
+您必須為用來登入 Azure 的帳戶指派您訂用帳戶網路參與者角色的最低權限。 若要深入了解如何將角色和權限指派給帳戶，請參閱 [Azure 角色型存取控制的內建角色](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)。
 
 ## <a name="create-a-network-interface"></a>建立網路介面
 
@@ -62,6 +62,8 @@ ms.lasthandoff: 03/29/2018
 
 當您建立網路介面時，入口網站並未提供將公用 IP 位址指派給網路介面的選項，然而在使用入口網站建立虛擬機器時，入口網站會建立公用 IP 位址，並將它指派給網路介面。 若要了解如何在建立網路介面之後對其新增公用 IP 位址，請參閱[管理 IP 位址](virtual-network-network-interface-addresses.md)。 如果您想要建立具有公用 IP 位址的網路介面，就必須使用 CLI 或 PowerShell 來建立網路介面。
 
+入口網站不會提供將網路介面指派給應用程式安全性群組的選項，但是 Azure CLI 和 PowerShell 會提供。 若要深入了解應用程式安全性群組，請參閱[應用程式安全性群組](security-overview.md#application-security-groups)。
+
 >[!Note]
 > 在網路介面連接至虛擬機器和虛擬機器第一次啟動後，Azure 才會指派 MAC 位址給網路介面。 您無法指定 Azure 指派給網路介面的 MAC 位址。 在網路介面遭到刪除或指派給主要網路介面之主要 IP 組態的私人 IP 位址遭到變更之前，MAC 位址會保持指派給網路介面。 若要深入了解 IP 位址和 IP 設定，請參閱[管理 IP 位址](virtual-network-network-interface-addresses.md)。
 
@@ -74,7 +76,7 @@ ms.lasthandoff: 03/29/2018
 
 ## <a name="view-network-interface-settings"></a>檢視網路介面設定
 
-您可以在網路介面建立後變更其大部分的設定。 入口網站不會顯示網路介面的 DNS 尾碼。 您可以使用 PowerShell 或 Azure CLI [命令](#view-settings-commands)來檢視 DNS 尾碼。
+您可以在網路介面建立後變更其大部分的設定。 入口網站不會顯示網路介面的 DNS 尾碼或應用程式安全性群組成員資格。 您可以使用 PowerShell 或 Azure CLI [命令](#view-settings-commands)來檢視 DNS 尾碼和應用程式安全性群組成員資格。
 
 1. 在 Azure 入口網站頂端包含「搜尋資源」文字的方塊中，輸入「網路介面」。 當**網路介面**出現於搜尋結果時，請選取它。
 2. 從清單中選取您要檢視或變更設定的網路介面。
@@ -82,10 +84,10 @@ ms.lasthandoff: 03/29/2018
     - **概觀：**提供網路介面相關資訊︰例如，為它指派的 IP 位址、為網路介面指派的虛擬網路/子網路，以及網路介面連接的虛擬機器 (如有連接)。 下圖顯示名為 **mywebserver256** 之網路介面的概觀設定：![網路介面概觀](./media/virtual-network-network-interface/nic-overview.png) 您可以選取**資源群組**或**訂用帳戶名稱**旁邊的 (**變更**)，以將網路介面移至不同的資源群組或訂用帳戶。 如果您移動網路介面，則必須移動和網路介面相關的所有資源。 例如，如果網路介面連接至虛擬機器，您也必須移動虛擬機器和其他虛擬機器相關資源。 若要移動網路介面，請參閱[將資源移至新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-portal)。 該文會列出必要條件，以及如何使用 Azure 入口網站、PowerShell 和 Azure CLI 來移動資源。
     - **IP 組態︰**此處列出指派給 IP 組態的公用與私人 IPv4 和 IPv6 位址。 如果指派給 IP 組態的是 IPv6 位址，則不會顯示位址。 若要深入了解 IP 設定以及如何新增和移除 IP 位址，請參閱[設定 Azure 網路介面的 IP 位址](virtual-network-network-interface-addresses.md)。 IP 轉送和子網路指派也會在這一節設定。 若要深入了解這些設定，請參閱[啟用或停用 IP 轉送](#enable-or-disable-ip-forwarding)和[變更子網路指派](#change-subnet-assignment)。
     - **DNS 伺服器︰**您可以指定由 Azure DHCP 伺服器指派給網路介面的 DNS 伺服器。 網路介面可以繼承為它指派之虛擬網路中的設定，或可擁有覆寫此設定的自訂設定。 若要修改所顯示的內容，請參閱[變更 DNS 伺服器](#change-dns-servers)。
-    - **網路安全性群組 (NSG)：**顯示與網路介面相關聯的 NSG (如果有的話)。 NSG 包含輸入和輸出規則，可篩選網路介面的網路流量。 如果 NSG 與網路介面相關聯，則會顯示相關聯 NSG 的名稱。 若要修改所顯示的內容，請完成[管理網路安全性群組關聯](virtual-network-manage-nsg-arm-portal.md#manage-associations)中的步驟。
+    - **網路安全性群組 (NSG)：**顯示與網路介面相關聯的 NSG (如果有的話)。 NSG 包含輸入和輸出規則，可篩選網路介面的網路流量。 如果 NSG 與網路介面相關聯，則會顯示相關聯 NSG 的名稱。 若要修改顯示的內容，請參閱[建立或取消與網路安全性群組的關聯](#associate-or-dissociate-a-network-security-group)。
     - **屬性︰**顯示有關網路介面的重要設定，包括其 MAC 位址 (如果網路介面未連結至虛擬機器，則位址會空白) 以及其所在的訂用帳戶。
-    - **有效安全性規則︰**如果網路介面已連結至執行中的虛擬機器，而且 NSG 與網路介面、為它指派的子網路或兩者相關聯，則會列出安全性規則。 若要深入了解所顯示的內容，請參閱[針對網路安全性群組進行疑難排解](virtual-network-nsg-troubleshoot-portal.md#nsg)。 若要深入了解 NSG，請參閱[網路安全性群組](virtual-networks-nsg.md)。
-    - **有效路由︰**如果網路介面已連結至執行中的虛擬機器，則會列出路由。 路由是下列各項的組合：Azure 預設路由、任何使用者定義的路由 (UDR)，以及為網路介面指派之子網路可能存在的任何 BGP 路由。 若要深入了解所顯示的內容，請參閱[針對路由進行疑難排解](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-network-interface)。 若要深入了解 Azure 預設值和 UDR，請參閱[使用者定義的路由](virtual-networks-udr-overview.md)。
+    - **有效安全性規則︰**如果網路介面已連結至執行中的虛擬機器，而且 NSG 與網路介面、為它指派的子網路或兩者相關聯，則會列出安全性規則。 若要深入了解顯示的內容，請參閱[檢視有效的安全性規則](#view-effective-security-rules)。 若要深入了解 NSG，請參閱[網路安全性群組](security-overview.md)。
+    - **有效路由︰**如果網路介面已連結至執行中的虛擬機器，則會列出路由。 路由是下列各項的組合：Azure 預設路由、任何使用者定義的路由，以及為網路介面所指派子網路的任何可能 BGP 路由。 若要深入了解所顯示的內容，請參閱[檢視有效的路由](#view-effective-routes)。 若要深入了解 Azure 預設路由和使用者定義的路由，請閱讀[路由概觀](virtual-networks-udr-overview.md)。
     - **一般 Azure Resource Manager 設定：**若要深入了解一般 Azure Resource Manager 設定，請參閱[活動記錄](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)、[存取控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)、[標記](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)、[鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[自動化指令碼](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)。
 
 <a name="view-settings-commands"></a>**命令**
@@ -157,10 +159,34 @@ IP 轉送讓網路介面連接的虛擬機器能夠：
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
+## <a name="add-to-or-remove-from-application-security-groups"></a>新增到應用程式安全性群組或從中移除
+
+入口網站不會提供將網路介面指派給應用程式安全性群組 (或從中移除網路介面) 的選項，但是 Azure CLI 和 PowerShell 會提供。 若要深入了解應用程式安全性群組，請參閱[應用程式安全性群組](security-overview.md#application-security-groups)和[建立應用程式安全性群組](#create-an-application-security-group)。
+
+**命令**
+
+|工具|命令|
+|---|---|
+|CLI|[az network nic update](/cli/azure/network/nic#az_network_nic_update)|
+|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
+
+## <a name="associate-or-dissociate-a-network-security-group"></a>建立或取消與網路安全性群組的關聯
+
+1. 在入口網站頂端的搜尋方塊中輸入「網路介面」。 當**網路介面**出現於搜尋結果時，請選取它。
+2. 在清單中選取您要與網路安全性群組建立關聯 (或取消關聯) 的網路介面。
+3. 選取 [設定] 下的 [網路安全性群組]。
+4. 選取 [編輯]。
+5. 選取 [網路安全性群組]，然後選取您要與網路介面建立關聯的網路安全性群組，或是選取 [無]，以取消與網路安全性群組的關聯。
+6. 選取 [ **儲存**]。
+
+**命令**
+
+- Azure CLI：[az network nic update](/cli/azure/network/nic#az-network-nic-update)
+- PowerShell：[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)
 
 ## <a name="delete-a-network-interface"></a>刪除網路介面
 
-只要網路介面未連接至虛擬機器，您便可將它刪除。 如果網路介面已連接至虛擬機器，您必須先讓虛擬機器進入已停止 (已解除配置) 狀態，接著在網路介面與虛擬機器中斷連結後，才能將它刪除。 若要讓網路介面與虛擬機器中斷連結，請完成[讓網路介面與虛擬機器中斷連結](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm)中的步驟。 刪除虛擬機器會中斷連結所有已連接的網路介面，但不會刪除網路介面。
+只要網路介面未連接至虛擬機器，您便可將它刪除。 如果網路介面已連接至虛擬機器，您必須先讓虛擬機器進入已停止 (已解除配置) 狀態，接著再中斷連結網路介面與虛擬機器。 若要讓網路介面與虛擬機器中斷連結，請完成[讓網路介面與虛擬機器中斷連結](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm)中的步驟。 但是，如果該網路介面是連接至虛擬機器的唯一網路介面，則無法將它從虛擬機器中斷連結。 虛擬機器必須一律至少有一個連接的網路介面。 刪除虛擬機器會中斷連結所有已連接的網路介面，但不會刪除網路介面。
 
 1. 在 Azure 入口網站頂端包含「搜尋資源」文字的方塊中，輸入「網路介面」。 當**網路介面**出現於搜尋結果時，請選取它。
 2. 選取要從網路介面清單中刪除之網路介面右邊的 [...]。
@@ -176,10 +202,46 @@ IP 轉送讓網路介面連接的虛擬機器能夠：
 |CLI|[az network nic delete](/cli/azure/network/nic#az_network_nic_delete)|
 |PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface)|
 
-## <a name="next-steps"></a>後續步驟
-若要建立具有多個網路介面或 IP 位址的虛擬機器，請參閱下列文章：
+## <a name="resolve-connectivity-issues"></a>解決連線問題
+
+如果您無法與虛擬機器進行通訊，則網路安全性群組安全規則或對網路介面有效的路由可能會導致此問題。 您有下列選項來協助您解決問題：
+
+### <a name="view-effective-security-rules"></a>檢視有效的安全性規則
+
+連接至虛擬機器的每個網路介面的有效安全性規則，是您在網路安全性群組和[預設安全性規則](security-overview.md#default-security-rules)中建立的規則組合。 了解網路介面的有效安全性規則，可協助您判斷為什麼無法與虛擬機器進行通訊的原因。 您可以檢視連結至執行中虛擬機器之任何網路介面的有效規則。
+
+1. 在入口網站頂端的搜尋方塊中，輸入您要檢視其有效安全性規則的虛擬機器名稱。 如果您不知道虛擬機器的名稱，請在搜尋方塊中輸入「虛擬機器」。 當搜尋結果中出現**虛擬機器**時加以選取，然後從清單中選取虛擬機器。
+2. 在 [設定] 底下，選取 [網路]。
+3. 選取網路介面的名稱。
+4. 在 [支援 + 疑難排解] 底下，選取 [有效的安全性規則]。
+5. 檢閱有效的安全性規則清單，以判斷您所需的輸入和輸出通訊是否存在正確的規則。 請參閱[網路安全性群組概觀](security-overview.md)，深入了解您在此清單中看到的內容。
+
+Azure 網路監看員的 IP 流程驗證功能，也可以協助您判斷安全規則是否阻止虛擬機器和端點之間的通訊。 若要深入了解，請參閱 [IP 流程驗證](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 **命令**
+
+- Azure CLI：[az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg)
+- PowerShell：[Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup) 
+
+### <a name="view-effective-routes"></a>檢視有效的路由
+
+連接至虛擬機器網路介面的有效路由是下列路由的組合：預設路由、您所建立的任何路由，以及透過 BGP 經由 Azure 虛擬網路閘道從內部部署網路傳播的任何路由。 了解網路介面的有效路由，可協助您判斷為什麼無法與虛擬機器進行通訊的原因。 您可以檢視連結至執行中虛擬機器之任何網路介面的有效路由。
+
+1. 在入口網站頂端的搜尋方塊中，輸入您要檢視其有效安全性規則的虛擬機器名稱。 如果您不知道虛擬機器的名稱，請在搜尋方塊中輸入「虛擬機器」。 當搜尋結果中出現**虛擬機器**時加以選取，然後從清單中選取虛擬機器。
+2. 在 [設定] 底下，選取 [網路]。
+3. 選取網路介面的名稱。
+4. 在 [支援 + 疑難排解] 底下，選取 [有效路由]。
+5. 檢閱有效的路由清單，以判斷您所需的輸入和輸出通訊是否存在正確的路由。 請參閱[路由概觀](virtual-networks-udr-overview.md)，深入了解您在此清單中看到的內容。
+
+Azure 網路監看員的下一個躍點功能，也可協助您判斷路由是否阻止虛擬機器和端點之間的通訊。 如需深入了解，請參閱[下一個躍點](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+
+**命令**
+
+- Azure CLI：[az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
+- PowerShell：[Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable)
+
+## <a name="next-steps"></a>後續步驟
+若要建立具有多個網路介面或 IP 位址的虛擬機器，請參閱下列文章：
 
 |Task|工具|
 |---|---|

@@ -1,8 +1,8 @@
 ---
-title: "開始使用 U-SQL 語言 | Microsoft Docs"
-description: "了解 U-SQL 語言的基礎概念。"
+title: 開始使用 U-SQL 語言 | Microsoft Docs
+description: 了解 U-SQL 語言的基礎概念。
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: 38c4e1b9bd24ef0b8a81f6154620f3f98d3b5ac1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7efdac8b032055b5344f34f5f9ad2679bddb107
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-u-sql"></a>開始使用 U-SQL
 U-SQL 是一種語言，結合了宣告式 SQL 與命令式 C#，可讓您處理任何規模的資料。 透過 U-SQL 的可調整分散式查詢功能，您可以有效率地分析各關聯式存放區 (Azure SQL Database) 中的資料。 使用 U-SQL，您可以藉由在讀取時套用結構描述並插入自訂邏輯和 UDF，來處理非結構化資料。 此外，U-SQL 所含有的擴充性可讓您細微控制如何大規模執行。 
@@ -226,7 +226,7 @@ U-SQL 的 HAVING 子句可以用來將輸出限制為符合 HAVING 條件的群�
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-如需進階的彙總案例，請參閱 U-SQL 的[彙總、分析及參考函式](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)參考文件
+如需進階的彙總案例，請參閱 U-SQL 的[彙總、分析及參考函式](https://msdn.microsoft.com/library/azure/mt621335.aspx)參考文件
 
 ## <a name="next-steps"></a>後續步驟
 * [Microsoft Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)

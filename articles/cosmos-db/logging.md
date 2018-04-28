@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 6bad6c7cd641a2ef5461ee37b89c0bdc6a221017
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 診斷記錄
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/19/2018
 
 ## <a name="logs-available-in-azure"></a>Azure 中可用的記錄
 
-在討論如何監視您的 Azure Cosmos DB 帳戶之前，讓我們釐清關於記錄和監視的一些事項。 Azure 平台上有不同類型的記錄。 我們有 [Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)、[Azure 診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)、[Azure 計量](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)、事件、活動訊號監視、作業記錄等。 記錄十分繁多。 您可以在 Azure 入口網站的 [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) 中查看完整記錄清單。 
+在討論如何監視您的 Azure Cosmos DB 帳戶之前，讓我們釐清關於記錄和監視的一些事項。 Azure 平台上有不同類型的記錄。 我們有 [Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)、[Azure 診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)、[Azure 計量](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)、事件、活動訊號監視、作業記錄等。 記錄十分繁多。 您可以在 Azure 入口網站的 [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) 中查看完整記錄清單。 
 
 下圖顯示不同種類的可用 Azure 記錄：
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/19/2018
 
 ### <a name="azure-metrics"></a>Azure 計量
 
-[Azure 計量](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics)具有由大多數 Azure 資源發出的關鍵 Azure 遙測資料 (也稱為_效能計數器_)。 計量可讓您檢視關於輸送量、儲存體、一致性、可用性和 Azure Cosmos DB 資源延遲的資訊。 如需詳細資訊，請參閱[使用 Azure Cosmos DB 中的計量監控及偵錯](use-metrics.md)。
+[Azure 計量](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)具有由大多數 Azure 資源發出的關鍵 Azure 遙測資料 (也稱為_效能計數器_)。 計量可讓您檢視關於輸送量、儲存體、一致性、可用性和 Azure Cosmos DB 資源延遲的資訊。 如需詳細資訊，請參閱[使用 Azure Cosmos DB 中的計量監控及偵錯](use-metrics.md)。
 
 ### <a name="azure-diagnostic-logs"></a>Azure 診斷記錄
 

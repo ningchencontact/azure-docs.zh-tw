@@ -1,7 +1,7 @@
 | **元件** | **需求** |
 | --- |---|
 | CPU 核心| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | 磁碟數量 | 3，包括作業系統磁碟、處理序伺服器快取磁碟和用於容錯回復的保留磁碟機 |
 | - 磁碟可用空間 (處理序伺服器快取) | 600 GB
 | 磁碟可用空間 (保留磁碟) | 600 GB|
@@ -13,5 +13,5 @@
 | IIS | - 沒有預先存在的預設網站 <br> - 啟用[匿名驗證](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) \(英文\) <br> - 啟用 [FastCGI](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx) 設定  <br> - 沒有預先存在的網站/應用程式接聽連接埠 443<br>|
 | NIC 類型 | VMXNET3 (部署為 VMware VM 時) |
 | IP 位址類型 | 靜態 |
-| 網際網路存取 | 伺服器需要存取這些 URL： <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (相應放大處理序伺服器不需要此項) <br> - time.nist.gov <br> - time.windows.com |
+| 網際網路存取 | 伺服器需要存取這些 URL： <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (不需要相應放大處理序伺服器) <br> - time.nist.gov <br> - time.windows.com |
 | 連接埠 | 443 (控制通道協調流程)<br>9443 (資料傳輸)|

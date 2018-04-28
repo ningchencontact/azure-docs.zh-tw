@@ -1,4 +1,26 @@
-
+---
+title: 包含檔案
+description: 包含檔案
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 794fd51c38f66b24193c7da7a145d58f7a225b30
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="setting-up-your-web-server-or-project"></a>設定您的 Web 伺服器或專案
 
 > 想要改為下載此範例的專案嗎？ 
@@ -7,7 +29,7 @@
 > 或
 > - [下載本機網頁伺服器的專案檔](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip)，例如 Python
 >
-> 然後跳至[設定步驟](#create-an-application-express)，以在執行之前先設定程式碼範例。
+> 然後跳至[設定步驟](#register-your-application)，以在執行之前先設定程式碼範例。
 
 ## <a name="prerequisites"></a>先決條件
 需要有本機網頁伺服器 (例如 [Python http.server](https://www.python.org/downloads/)、[http-server](https://www.npmjs.com/package/http-server/)、[.NET Core](https://www.microsoft.com/net/core) 或與 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 的 IIS Express 整合)，才能執行此指引設定。 

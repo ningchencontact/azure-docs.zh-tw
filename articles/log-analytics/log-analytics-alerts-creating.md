@@ -1,8 +1,8 @@
 ---
-title: "建立 OMS Log Analytics 中的警示 | Microsoft Docs"
-description: "Log Analytics 中的警示會識別您的 OMS 儲存機制中的重要資訊，並可主動通知您相關問題或叫用動作以嘗試更正問題。  本文描述如何建立警示規則及詳細說明可以採取的各種動作。"
+title: 建立 OMS Log Analytics 中的警示 | Microsoft Docs
+description: Log Analytics 中的警示會識別您的 OMS 儲存機制中的重要資訊，並可主動通知您相關問題或叫用動作以嘗試更正問題。  本文描述如何建立警示規則及詳細說明可以採取的各種動作。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,28 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 04/13/2018
 ms.author: bwren
-ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b692822660ab12f89b274cea75727fb808d673f8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>使用 Log Analytics 中的警示規則
+
+> [!NOTE]
+> 本文說明 OMS 入口網站中管理的傳統 Log Analytics 警示。  Log Analytics 中的警示[擴充至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。  完成之後，接著您將在 Azure 入口網站中建立並編輯警示規則，並留意使用本文中的程序。
+
+
 警示會由自動定期執行記錄搜尋的警示規則所建立。  如果結果符合特定準則，則會建立警示記錄。  此規則接著可以自動執行一或多個動作，以主動通知警示或叫用另一個處理序。   
 
 本文說明使用 OMS 入口網站建立和編輯警示規則的程序。  如需不同設定以及如何實作必要邏輯的詳細資訊，請參閱[了解 Log Analytics 中的警示](log-analytics-alerts.md)。
 
->[!NOTE]
-> 您目前無法使用 Azure 入口網站建立或修改警示規則。 
 
 ## <a name="create-an-alert-rule"></a>建立警示規則
 
 若要使用 OMS 入口網站建立警示規則，首先針對應叫用警示的記錄，建立記錄搜尋。  [警示]  按鈕將可供您使用，以便建立和設定警示規則。
 
 >[!NOTE]
-> 目前最多可以在 OMS 工作區中建立 250 個警示規則。 
+> 目前最多可以在 Log Analytics 工作區中建立 250 個警示規則。 
 
 1. 從 [OMS 概觀] 頁面，按一下 [記錄檔搜尋] 。
 2. 建立新的記錄檔搜尋查詢，或選取已儲存的記錄檔搜尋。 

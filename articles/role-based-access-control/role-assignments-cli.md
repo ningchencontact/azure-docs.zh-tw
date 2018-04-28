@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 9a4489c575de9f63740c68bda8cbf921592402ec
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f783b08b25b7dd00351537f4dd404d9c8d02044d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>使用 Azure 命令列介面管理角色型存取控制
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="list-role-definitions"></a>列出角色定義
 
-若要列出所有可用的角色定義，請使用 [az role definition list](/cli/azure/role/definition#az_role_definition_list):
+若要列出所有可用的角色定義，請使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list
@@ -95,7 +95,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 
 ### <a name="list-actions-of-a-role-definition"></a>列出角色定義的動作
 
-若要列出角色定義的動作，請使用 [az role definition list](/cli/azure/role/definition#az_role_definition_list):
+若要列出角色定義的動作，請使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list --name <role_name>
@@ -185,7 +185,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 
 ### <a name="list-role-assignments-for-a-user"></a>列出使用者的角色指派
 
-若要列出特定使用者的角色指派，請使用 [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list)：
+若要列出特定使用者的角色指派，請使用 [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list)：
 
 ```azurecli
 az role assignment list --assignee <assignee>
@@ -214,7 +214,7 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 
 ### <a name="list-role-assignments-for-a-resource-group"></a>列出資源群組的角色指派
 
-若要列出因資源群組而存在的角色指派，請使用 [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list)︰
+若要列出因資源群組而存在的角色指派，請使用 [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list)︰
 
 ```azurecli
 az role assignment list --resource-group <resource_group>
@@ -243,7 +243,7 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 
 ### <a name="create-a-role-assignment-for-a-user"></a>建立使用者的角色指派
 
-若要為資源群組範圍中的使用者建立角色指派，請使用 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)：
+若要為資源群組範圍中的使用者建立角色指派，請使用 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)：
 
 ```azurecli
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
@@ -257,13 +257,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee patlon
 
 ### <a name="create-a-role-assignment-for-a-group"></a>建立群組的角色指派
 
-若要為群組建立角色指派，請使用 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)：
+若要為群組建立角色指派，請使用 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)：
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-下列範例會將「讀者」角色指派給訂用帳戶範圍中識別碼為 22222222-2222-2222-2222-222222222222 的「Ann Mack 小組」群組。 若要取得群組的識別碼，您可以使用 [az ad group list](/cli/azure/ad/group#az_ad_group_list) 或 [az ad group show](/cli/azure/ad/group#az_ad_group_show)。
+下列範例會將「讀者」角色指派給訂用帳戶範圍中識別碼為 22222222-2222-2222-2222-222222222222 的「Ann Mack 小組」群組。 若要取得群組的識別碼，您可以使用 [az ad group list](/cli/azure/ad/group#az-ad-group-list) 或 [az ad group show](/cli/azure/ad/group#az-ad-group-show)。
 
 ```azurecli
 az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -277,13 +277,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ### <a name="create-a-role-assignment-for-an-application"></a>建立應用程式的角色指派
 
-若要為應用程式建立角色，請使用 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)：
+若要為應用程式建立角色，請使用 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)：
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-下列範例會將「虛擬機器參與者」角色指派給 pharma-sales-projectforecast 資源群組範圍中物件識別碼為 44444444-4444-4444-4444-444444444444 的應用程式。 若要取得應用程式的物件識別碼，您可以使用 [az ad app list](/cli/azure/ad/app#az_ad_app_list) 或 [az ad app show](/cli/azure/ad/app#az_ad_app_show)。
+下列範例會將「虛擬機器參與者」角色指派給 pharma-sales-projectforecast 資源群組範圍中物件識別碼為 44444444-4444-4444-4444-444444444444 的應用程式。 若要取得應用程式的物件識別碼，您可以使用 [az ad app list](/cli/azure/ad/app#az-ad-app-list) 或 [az ad app show](/cli/azure/ad/app#az-ad-app-show)。
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
@@ -291,7 +291,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ## <a name="remove-a-role-assignment"></a>移除角色指派
 
-若要移除角色指派，請使用 [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete)：
+若要移除角色指派，請使用 [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)：
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
@@ -303,7 +303,7 @@ az role assignment delete --assignee <assignee> --role <role> --resource-group <
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
 ```
 
-下列範例會將「讀者」角色從訂用帳戶範圍中識別碼為 22222222-2222-2222-2222-222222222222 的「Ann Mack 小組」群組中移除。 若要取得群組的識別碼，您可以使用 [az ad group list](/cli/azure/ad/group#az_ad_group_list) 或 [az ad group show](/cli/azure/ad/group#az_ad_group_show)。
+下列範例會將「讀者」角色從訂用帳戶範圍中識別碼為 22222222-2222-2222-2222-222222222222 的「Ann Mack 小組」群組中移除。 若要取得群組的識別碼，您可以使用 [az ad group list](/cli/azure/ad/group#az-ad-group-list) 或 [az ad group show](/cli/azure/ad/group#az-ad-group-show)。
 
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -313,7 +313,7 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ### <a name="list-custom-roles"></a>列出自訂角色
 
-若要列出範圍中可供指派的角色，請使用 [az role definition list](/cli/azure/role/definition#az_role_definition_list)。
+若要列出範圍中可供指派的角色，請使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list)。
 
 下列兩個範例都會列出目前訂用帳戶中的所有自訂角色：
 
@@ -344,7 +344,7 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 
 ### <a name="create-a-custom-role"></a>建立自訂角色
 
-若要建立自訂角色，請使用 [az role definition create](/cli/azure/role/definition#az_role_definition_create)。 角色定義可以是 JSON 描述或包含 JSON 描述的檔案路徑。
+若要建立自訂角色，請使用 [az role definition create](/cli/azure/role/definition#az-role-definition-create)。 角色定義可以是 JSON 描述或包含 JSON 描述的檔案路徑。
 
 ```azurecli
 az role definition create --role-definition <role_definition>
@@ -386,7 +386,7 @@ az role definition create --role-definition ~/roles/vmoperator.json
 
 ### <a name="update-a-custom-role"></a>更新自訂角色
 
-若要更新自訂角色，請先使用 [az role definition list](/cli/azure/role/definition#az_role_definition_list) 來擷取角色定義。 接著，對角色定義進行想要的變更。 最後，使用 [az role definition update](/cli/azure/role/definition#az_role_definition_update)儲存更新的角色定義。
+若要更新自訂角色，請先使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list) 來擷取角色定義。 接著，對角色定義進行想要的變更。 最後，使用 [az role definition update](/cli/azure/role/definition#az-role-definition-update)儲存更新的角色定義。
 
 ```azurecli
 az role definition update --role-definition <role_definition>
@@ -429,7 +429,7 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ### <a name="delete-a-custom-role"></a>刪除自訂角色
 
-若要刪除自訂角色，請使用 [az role definition delete](/cli/azure/role/definition#az_role_definition_delete)。 若要指定要刪除的角色，請使用角色名稱或角色識別碼。 若要決定角色識別碼，請使用 [az role definition list](/cli/azure/role/definition#az_role_definition_list)。
+若要刪除自訂角色，請使用 [az role definition delete](/cli/azure/role/definition#az-role-definition-delete)。 若要指定要刪除的角色，請使用角色名稱或角色識別碼。 若要決定角色識別碼，請使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list)。
 
 ```azurecli
 az role definition delete --name <role_name or role_id>

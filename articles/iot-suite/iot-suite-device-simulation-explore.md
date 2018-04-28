@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 2a9a6f3387b7f9fb4e3896fc55a06ac4a902ad24
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1452508822f08d4554f419a72f7e9e6018a52469
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="device-simulation-walkthrough"></a>裝置模擬逐步解說
 
@@ -69,22 +69,22 @@ Azure IoT 裝置模擬是一種工具，可用來協助開發和測試 IoT 解�
 
 「裝置模擬」提供三種預先設定的裝置型號。 提供適用於 Chillers、電梯和卡車的裝置型號。
 
-預先設定的裝置型號包含多個具有預先決定之遙測頻率的感應器。 您無法自訂這些裝置的遙測頻率。
+預先設定的裝置模型包含多個感應器與 JavaScript 檔案中定義的進階行為。 Web UI 中不支援這些自訂行為。 
 
 下表針對每個預先設定的裝置型號，顯示設定清單：
 
-| 裝置型號 | 感應器 | 單位 | 遙測頻率
-| -------------| ------ | -----| --------------------|
-| Chiller | 溼度 | % | 5 秒 |
-| | pressure | psig | 5 秒 |
-| | 溫度 | F | 5 秒 |
-| 電梯 | 樓層 | | 5 秒 |
-| | 震動 | mm | 5 秒 |
-| | 溫度 | F | 5 秒 |
-| 卡車 | 緯度 | | 3 秒 |
-| | 經度 | | 3 秒 |
-| | 速度 | 英哩/小時 | 5 秒 |
-| | cargotemperature | F | 5 秒 |
+| 裝置型號 | 感應器 | 單位 | 
+| -------------| ------ | -----| 
+| Chiller | 溼度 | % |
+| | pressure | psig | 
+| | 溫度 | F | 
+| 電梯 | 樓層 | 
+| | 震動 | mm | 
+| | 溫度 | F | 
+| 卡車 | 緯度 | |
+| | 經度 | | 
+| | 速度 | 英哩/小時 | 
+| | cargotemperature | F | 
 
 #### <a name="custom-device-model"></a>自訂裝置型號
 
@@ -106,7 +106,7 @@ Azure IoT 裝置模擬是一種工具，可用來協助開發和測試 IoT 解�
 
 ### <a name="number-of-devices"></a>裝置數目
 
-「裝置模擬」目前可讓您模擬最多 1,000 部裝置。
+「裝置模擬」目前可讓您模擬最多 20,000 部裝置。
 
 ![裝置數目](media/iot-suite-device-simulation-explore/numberofdevices.png)
 

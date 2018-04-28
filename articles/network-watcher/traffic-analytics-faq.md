@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常見問題集
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/28/2018
 12.  如果我收到下列訊息：「1) 正在對您的 NSG 流量記錄進行第一次分析。 此程序可能需要 20-30 分鐘才能完成。 請在一段時間過後再回來查看。 2) 如果上述步驟無效，且您的工作區屬於免費的 SKU，請在這裡檢查您的工作區使用量以進行配額驗證，或請參閱常見問題集以取得進一步資訊」，該如何解決？
 
         您可能會因為以下理由而收到錯誤：
-        - 流量分析可能是最近才啟用的，且可能正在先彙總足夠資料以衍生有意義的深入解析，然後才能產生報告。 在此情況下，請於 30 分鐘後再試一次
+        - 流量分析可能是最近才啟用的，而且可能尚未彙總到足夠資料來衍生有意義的見解。
         - 您的 OMS 工作區是處於免費的 SKU，並已超過配額限制。 在此情況下，您可能需要在較大容量的 SKU 中使用工作區。
     
         如果問題仍然存在，請在[使用者心聲 (User Voice) 論壇](https://feedback.azure.com/forums/217313-networking?category_id=195844)中提出考量。
@@ -104,11 +104,15 @@ ms.lasthandoff: 03/28/2018
 
         您會在儀表板上看到資源資訊；不過，不會有任何流程相關的統計資料。 資源之間沒有通訊流量，所以可能不會有資料。 請稍候 60 分鐘，然後重新檢查狀態。 如果您確定資源之間有通訊流程，請在[使用者心聲 (User Voice) 論壇](https://feedback.azure.com/forums/217313-networking?category_id=195844)中提出考量。
 
-14.  流量分析的價格為何？
+14. 可以使用 PowerShell 或 Azure Resource Manager 範本來設定流量分析嗎？
+
+    否，流量分析只能使用 Azure 入口網站來設定。
+
+15.  流量分析的價格為何？
 
         流量分析的計量方式可用來加強減少記錄檔，並且將增強型記錄檔儲存於 Log Analytics 工作區。 在預覽中，不會對於加強減少記錄檔收取流量分析的費用，不過，工作區中的資料保留只會以公佈的費率計費。 出現流量分析的價格後，就會更新此回應。
 
-15.  如何在地理地圖檢視中使用鍵盤來巡覽？
+16.  如何在地理地圖檢視中使用鍵盤來巡覽？
 
         地理地圖頁面包含兩大區段：
     

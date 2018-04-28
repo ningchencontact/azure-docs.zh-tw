@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0da6bd56a684657d8275ca8c781847f31f8e05c5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 10e0e0df4bf71c7a21a3cc06b5b1c16930d54ec6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>上架由 Azure 自動化 DSC 管理的機器
 
@@ -53,7 +53,7 @@ Azure 自動化 DSC 可以用來管理各種不同的機器：
 ```powershell
 # log in to both Azure Service Management and Azure Resource Manager
 Add-AzureAccount
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 # fill in correct values for your VM/Automation account here
 $VMName = ""
@@ -329,7 +329,7 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 如果 PowerShell DSC 本機設定管理員的預設值符合您的使用案例，且您想要將電腦上架同時從 Azure 自動化 DSC 提取並報告，Azure 自動化 Cmdlet 會提供簡單的方法，來產生所需的 DSC 中繼設定：
 
 1. 在您的本機環境的機器中，以系統管理員身分開啟 PowerShell 主控台或 PowerShell ISE。
-2. 使用 **Add-AzureRmAccount**
+2. 使用 **Connect-AzureRmAccount** 連線至 Azure Resource Manager
 3. 從您要上架節點的目標自動化帳戶下載您想要上架之電腦的 PowerShell DSC 中繼設定：
 
     ```powershell

@@ -1,25 +1,23 @@
 ---
-title: "在 HDInsight 叢集建立期間新增 Hive 程式庫 - Azure | Microsoft Docs"
-description: "了解如何在叢集建立期間將 Hive 程式庫 (jar 檔案) 新增至 HDInsight 叢集。"
+title: 在 HDInsight 叢集建立期間新增 Hive 程式庫 - Azure | Microsoft Docs
+description: 了解如何在叢集建立期間將 Hive 程式庫 (jar 檔案) 新增至 HDInsight 叢集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2fd74b8d-c006-45c6-a9e2-72ff5d2d978a
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 434c7d24f55c20cc763df3b83429e039bb5e8541
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 71e2859085dc4a9f4fa327d88faff4fecf5108ef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>建立 HDInsight 叢集時新增自訂 Hive 程式庫
 
@@ -76,7 +74,7 @@ ms.lasthandoff: 02/28/2018
 
    * **名稱**：輸入指令碼動作的易記名稱。
 
-   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **指令碼 URI**：https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
 
    * **HEAD**：勾選此選項。
 

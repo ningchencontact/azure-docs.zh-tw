@@ -2,7 +2,7 @@
 
 本節提供逐步指示，說明如何建立新的專案來示範整合 iOS 應用程式 (Swift) 與使用 Microsoft 登入，以便它可以查詢需要權杖的 Web API。
 
-> 想要改為下載此範例的 XCode 專案嗎？ [下載專案](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)並跳至[設定步驟](#create-an-application-express)，以在執行之前先設定程式碼範例。
+> 想要改為下載此範例的 XCode 專案嗎？ [下載專案](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)並跳至[設定步驟](#register-your-application)，以在執行之前先設定程式碼範例。
 
 
 ## <a name="install-carthage-to-download-and-build-msal"></a>安裝 Carthage 以下載並建置 MSAL

@@ -1,26 +1,24 @@
 ---
-title: "將 HBase 叢集移轉至新的版本 - Azure HDInsight | Microsoft Docs"
-description: "如何將 HBase 叢集移轉至新的版本。"
+title: 將 HBase 叢集移轉至新的版本 - Azure HDInsight | Microsoft Docs
+description: 如何將 HBase 叢集移轉至新的版本。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 15d23d0ccf816ca355103ad7fd0d6124f1c5c226
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 3ca982e7fc0ce56bee2ee2e193c82a78fac44362
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-an-hbase-cluster-to-a-new-version"></a>將 HBase 叢集移轉至新的版本
 
@@ -193,7 +191,7 @@ ms.lasthandoff: 02/01/2018
     
 4. 停止擷取舊的 HBase 叢集。
 5. 若要確定系統已排清 memstore 中的任何新資料，請再次執行上述指令碼。
-6. 在舊叢集上登入 Ambari (https://OLDCLUSTERNAME.azurehdidnsight.net)，然後停止 HBase 服務。 當系統提示您確認是否要停止服務時，請核取方塊以開啟 HBase 的維護模式。 如需連線至 Ambari 及使用 Ambari 的詳細資訊，請參閱[使用 Ambari Web UI 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari.md)。
+6. 在舊叢集上登入 Ambari (https://OLDCLUSTERNAME.azurehdidnsight.net) 並停止 HBase 服務。 當系統提示您確認是否要停止服務時，請核取方塊以開啟 HBase 的維護模式。 如需連線至 Ambari 及使用 Ambari 的詳細資訊，請參閱[使用 Ambari Web UI 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari.md)。
 
     ![在 Ambari 中，依序按一下 [服務] 索引標籤、左側功能表中的 [HBase]，及 [服務動作] 底下的 [停止]](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 

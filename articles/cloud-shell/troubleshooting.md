@@ -1,12 +1,12 @@
 ---
-title: "針對 Azure Cloud Shell 進行疑難排解 | Microsoft Docs"
-description: "針對 Azure Cloud Shell 進行疑難排解"
+title: 針對 Azure Cloud Shell 進行疑難排解 | Microsoft Docs
+description: 針對 Azure Cloud Shell 進行疑難排解
 services: azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendMSFT
 manager: angelc
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: 52ee832b643af573d8236b266df17d36e485ead2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3c01a31eae2b90ecb54cbfba7f565fd140db3773
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell 的疑難排解和限制
 
@@ -147,4 +147,30 @@ Cloud Shell 主要用於互動式的使用案例。 因此，任何長時間執�
 
 ### <a name="gui-applications-are-not-supported"></a>不支援 GUI 應用程式
 
-如果使用者執行的命令會建立 Windows 對話方塊，例如 `Connect-AzureAD` 或 `Login-AzureRMAccount`，其將會看到如下錯誤訊息：`Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`。
+如果使用者執行的命令會建立 Windows 對話方塊，例如 `Connect-AzureAD` 或 `Connect-AzureRmAccount`，其將會看到如下錯誤訊息：`Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`。
+
+## <a name="gdpr-compliance-for-cloud-shell"></a>Cloud Shell 的 GDPR 合規性
+
+Azure Cloud Shell 會謹慎處理您的個人資料，Azure Cloud Shell 服務擷取和儲存的資料是用於提供您專屬體驗的預設值，例如您最近使用的殼層、慣用字型大小、慣用字型及支援 clouddrive 的檔案共用。 若您想匯出或刪除這些資料，可參考下列指示。
+
+### <a name="export"></a>匯出
+若要匯出 Cloud Shell 為您儲存的使用者設定 (例如慣用殼層、字型大小和字型)，請執行下列命令。
+
+1. 啟動 Cloud Shell 中的 Bash
+2. 執行下列命令：
+```
+user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+user@Azure:~$ curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token" -s | jq
+```
+
+### <a name="delete"></a>刪除
+若要刪除 Cloud Shell 為您儲存的使用者設定 (例如慣用殼層、字型大小和字型)，請執行下列命令。 下次您啟動 Cloud Shell 時，系統會要求您再次設置檔案共用。 
+
+如果您刪除您的使用者設定，實際的 Azure 檔案共用將不會刪除，請移至 Azure 檔案以完成該動作。
+
+1. 啟動 Cloud Shell 中的 Bash
+2. 執行下列命令：
+```
+user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+user@Azure:~$ curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
+```

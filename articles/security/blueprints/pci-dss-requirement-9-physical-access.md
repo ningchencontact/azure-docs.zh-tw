@@ -1,6 +1,6 @@
 ---
-title: "Azure 付款處理藍圖 - 實際存取需求"
-description: "PCI DSS 需求 9"
+title: Azure 付款處理藍圖 - 實際存取需求
+description: PCI DSS 需求 9
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 89f7b20a130e988bfe4964d50ae97de788ca4623
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 2dbf4d9e2f4ff7b6cdf8e48c24eeee4d036fe195
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="physical-access-requirements-for-pci-dss-compliant-environments"></a>PCI DSS 相容環境的實際存取需求 
 ## <a name="pci-dss-requirement-9"></a>PCI DSS 需求 9
@@ -342,7 +342,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | 不適用。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會使用 OMS 來記錄系統的所有變更。<br /><br />[Operations Management Suite (OMS)](/azure/operations-management-suite/) 能提供廣泛的變更記錄。 可對變更進行檢閱及驗證以確保正確性。 如需更具體的指引，請參閱 [PCI 指引 - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing)。|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會使用 Azure 來記錄系統的所有變更。<br /><br />Log Analytics 會提供大量的變更記錄。 可對變更進行檢閱及驗證以確保正確性。 如需更具體的指導方針，請參閱 [PCI 指導方針 - 記錄與稽核](payment-processing-blueprint.md#logging-and-auditing)。|
 
 
 

@@ -1,3 +1,26 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 79b6b8e5d81d3885f9c125f971f3e32e695cf2b1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 04/28/2018
+---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>從 Windows 傳統型應用程式呼叫 Microsoft 圖形 API
 
 本指南示範原生 Windows Desktop .NET (XAML) 應用程式如何取得存取權杖，以及如何呼叫 Microsoft Graph API 或需要來自 Azure Active Directory v2 端點之存取權杖的其他 API。
@@ -7,7 +30,7 @@
 > [!NOTE] 
 > 本指南需要 Visual Studio 2015 Update 3 或 Visual Studio 2017。  沒有上述任一版本嗎？ [免費下載 Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 
-## <a name="how-this-guide-works"></a>本指南使用方式
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>本指南產生之範例應用程式的運作方式
 
 ![本指南使用方式](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.png)
 

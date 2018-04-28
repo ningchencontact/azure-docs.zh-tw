@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: quickstart
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6a42f4b5b54056424bc3e2d865408ad6711403e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>使用 Azure 成本管理啟動 Azure 訂用帳戶與帳戶
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 04/16/2018
 以下是修正問題的方法：
 
 1. 您的轉銷商必須為您的帳戶啟用「標記」。 如需指示，請參閱[間接客戶上線指南](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide)。
-2. 您要產生用於 Azure 成本管理的 Azure Enterprise 合約金鑰。 如需相關指示，請參閱[註冊 Azure Enterprise 合約並檢視成本資料](https://docs.microsoft.com/en-us/azure/cost-management/quick-register-ea)。
+2. 您要產生用於 Azure 成本管理的 Azure Enterprise 合約金鑰。 如需相關指示，請參閱[註冊 Azure Enterprise 合約並檢視成本資料](https://docs.microsoft.com/azure/cost-management/quick-register-ea)。
 
 只有 Azure 服務系統管理員可以啟用「成本管理」。 共同管理員的權限不足。
 

@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 74a87065416b397b4eebbcaa54c769711176708d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 94d34df771334319db36009053a7264f0aeacf46
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/23/2018
 
 - **[網路位置](active-directory-conditional-access-locations.md)**：從任何位置都可以存取 Azure AD。 如果執行存取嘗試的來源網路位置不在您的 IT 部門控制下，該怎麼辦？ 當對您資源的存取嘗試來自公司網路時，使用使用者名稱與密碼的組合可能就足以作為身分識別證明。 如果針對從世界上其他非預期國家或地區起始的存取嘗試，您要求提供更強力的證明，該怎麼辦？ 當您甚至想要封鎖來自特定位置的存取嘗試時，又該怎麼辦？  
 
-- **[裝置管理](active-directory-conditional-access-conditions.md#device-platforms)**在 Azure AD 中，使用者可以從種類廣泛的裝置 (包括行動裝置，還有個人裝置) 存取雲端應用程式。 如果您要求只有使用您 IT 部門所管理裝置的人才能嘗試存取，該怎麼辦？ 當您甚至想要封鎖特定裝置類型存取您環境中的雲端應用程式時，又該怎麼辦？ 
+- **[裝置管理](active-directory-conditional-access-conditions.md#device-platforms)** 在 Azure AD 中，使用者可以從種類廣泛的裝置 (包括行動裝置，還有個人裝置) 存取雲端應用程式。 如果您要求只有使用您 IT 部門所管理裝置的人才能嘗試存取，該怎麼辦？ 當您甚至想要封鎖特定裝置類型存取您環境中的雲端應用程式時，又該怎麼辦？ 
 
 - **[用戶端應用程式](active-directory-conditional-access-conditions.md#client-apps)**：現今，您可以使用各種不同的應用程式類型 (例如 Web 型應用程式、行動應用程式或傳統型應用程式) 來存取許多雲端應用程式。 如果存取嘗試是使用造成已知問題的用戶端應用程式類型來執行的，該怎麼辦？ 如果您要求必須使用 IT 部門所管理的裝置才能使用某些應用程式類型，又該怎麼辦？ 
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 03/23/2018
 
 ### <a name="license-requirements-for-using-conditional-access"></a>使用條件式存取的授權需求
 
-使用條件式存取需要 Azure AD Premium 授權。 若要尋找適用於您需求的正確授權，請參閱[比較 Free、Basic 及 Premium 版本的正式運作功能](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features)。
+使用條件式存取需要 Azure AD Premium 授權。 若要尋找適用於您需求的正確授權，請參閱[比較 Free、Basic 及 Premium 版本的正式運作功能](https://azure.microsoft.com/pricing/details/active-directory/)。
 
 
 ## <a name="next-steps"></a>後續步驟

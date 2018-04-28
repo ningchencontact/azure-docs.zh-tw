@@ -1,27 +1,25 @@
 ---
-title: "了解使用 Hadoop 沙箱 - 模擬器 - Azure HDInsight | Microsoft Docs"
-description: "若要開始了解 Hadoop 生態系統，您可以在 Azure 虛擬機器上從 Hortonworks 設定 Hadoop 沙箱。 "
-keywords: "hadoop 模擬器, hadoop 沙箱"
+title: 了解使用 Hadoop 沙箱 - 模擬器 - Azure HDInsight | Microsoft Docs
+description: '若要開始了解 Hadoop 生態系統，您可以在 Azure 虛擬機器上從 Hortonworks 設定 Hadoop 沙箱。 '
+keywords: hadoop 模擬器, hadoop 沙箱
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
 author: nitinme
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: d7df18a80470beb8dc25cf6add6b7a61f45dcfe7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0b4daa8c832d40457b19ffe4aee1a365796b2435
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>開始使用 Hadoop 沙箱，它是虛擬機器上的模擬器
 
@@ -52,7 +50,7 @@ ms.lasthandoff: 12/11/2017
 1. 選取「Hortonworks 沙箱」、按一下 [啟動]，然後選取 [正常啟動]。 虛擬機器完成開機程序後會顯示登入指示。
    
     ![正常啟動](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. 開啟網頁瀏覽器，並瀏覽至顯示的 URL (通常是 http://127.0.0.1:8888 )。
+2. 開啟網頁瀏覽器，並瀏覽至顯示的 URL (通常是 http://127.0.0.1:8888))。
 
 ## <a name="set-sandbox-passwords"></a>設定沙箱密碼
 

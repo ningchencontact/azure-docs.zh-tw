@@ -1,28 +1,28 @@
 ---
-title: 管理 Azure IoT 中樞裝置佈建服務的裝置存取 | Microsoft Docs
-description: 如何在 Azure 入口網站中撤銷 DPS 服務的裝置存取
+title: 如何從 Azure IoT 中樞裝置佈建服務中取消註冊裝置
+description: 如何消註冊裝置以避免透過 Azure IoT 中樞裝置佈建服務進行佈建
 services: iot-dps
 keywords: ''
-author: JimacoMS
-ms.author: v-jamebr
-ms.date: 12/22/2017
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/05/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 12aebf3a56aa7469a765ab6fc67aa65b254db71a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 50074eaecacf603d2bc6170183fd632b4a1ab2d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="revoke-device-access-to-your-provisioning-service-in-the-azure-portal"></a>在 Azure 入口網站中撤銷對佈建服務的裝置存取權
+# <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>如何從 Azure IoT 中樞裝置佈建服務中取消註冊裝置
 
-對於受到廣泛使用的系統 (例如 IoT 解決方案) 來說，適當地管理裝置認證是非常重要的。 適用於這類系統的最佳做法是清楚地規劃當裝置認證 (不論是共用存取簽章 (SAS) 權杖還是 X.509 憑證) 可能外洩時，如何撤銷裝置的存取權。 本文會說明如何在佈建步驟中撤銷裝置存取權。
+對於受到廣泛使用的系統 (例如 IoT 解決方案) 來說，適當地管理裝置認證是非常重要的。 適用於這類系統的最佳做法是清楚地規劃當裝置認證 (不論是共用存取簽章 (SAS) 權杖還是 X.509 憑證) 可能外洩時，如何撤銷裝置的存取權。 
 
-若要了解如何在佈建裝置後撤銷裝置對 IoT 中樞的存取權，請參閱[停用裝置](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices)。
+裝置佈建服務中的註冊功能可讓裝置[自動佈建](concepts-auto-provisioning.md)。 佈建的裝置是已向 IoT 中樞註冊的裝置，這讓裝置可以接收其最初的[裝置對應項](~/articles/iot-hub/iot-hub-devguide-device-twins.md)狀態，並開始回報遙測資料。 本文會說明如何從佈建服務執行個體中取消註冊裝置，使其之後無法再進行佈建。
 
 > [!NOTE] 
 > 針對您要撤銷其存取權的裝置，請注意這些裝置的重試原則。 例如，具有無限重試原則的裝置可能會持續嘗試向佈建服務進行註冊。 該情況會耗用服務資源，而且可能會影響效能。
@@ -37,10 +37,10 @@ ms.lasthandoff: 02/01/2018
 2. 在資源清單中，選取您要從中將裝置列入封鎖清單的佈建服務。
 3. 在您的佈建服務中，選取 [管理註冊]，然後選取 [個別註冊] 索引標籤。
 4. 選取您想要列入封鎖清單之裝置的註冊項目。 
-5. 選取 [啟用項目] 切換開關上的 [停用]，然後選取 [儲存]。  
+5. 捲動到底部，並選取 [啟用項目] 切換開關上的 [停用]，然後選取 [儲存]。  
 
-   ![在入口網站中停用個別註冊項目](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
-    
+   [![在入口網站中停用個別註冊項目](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+
 刪除裝置的註冊項目以將裝置永久列入封鎖清單：
 
 1. 登入 Azure 入口網站，然後在左側功能表中選取 [所有資源]。
@@ -64,9 +64,8 @@ X.509 憑證通常會配置在信任的信任鏈結中。 如果憑證在鏈結�
 1. 登入 Azure 入口網站，然後在左側功能表中選取 [所有資源]。
 2. 在資源清單中，選取您要從中將簽署憑證列入封鎖清單的佈建服務。
 3. 在佈建服務中，選取 [管理註冊]，然後選取 [註冊群組] 索引標籤。
-4. 選取您想要列入封鎖清單之憑證的註冊群組。
-5. 在註冊群組項目中，選取 [編輯群組]。
-6. 選取 [啟用項目] 切換開關上的 [停用]，然後選取 [儲存]。  
+4. 若有註冊群組使用您想要列入封鎖清單的憑證，則將其選取。
+5. 選取 [啟用項目] 切換開關上的 [停用]，然後選取 [儲存]。  
 
    ![在入口網站中停用註冊群組項目](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
@@ -96,12 +95,15 @@ X.509 憑證通常會配置在信任的信任鏈結中。 如果憑證在鏈結�
 2. 從資源清單中，選取包含您要列入封鎖清單之裝置註冊群組的佈建服務。
 3. 在您的佈建服務中，選取 [管理註冊]，然後選取 [個別註冊] 索引標籤。
 4. 選取位於頂端的 [新增] 按鈕。 
-5. 選取 [X.509] 作為裝置的安全性機制，然後上傳裝置憑證。 這是安裝在裝置上的已簽署終端實體憑證。 裝置會使用它來產生用於進行驗證的憑證。
+5. 選取 [X.509] 作為裝置的證明機制，然後上傳裝置憑證。 這是安裝在裝置上的已簽署終端實體憑證。 裝置會使用它來產生用於進行驗證的憑證。
 6. 針對 [IoT 中樞裝置識別碼]，輸入裝置的識別碼。 
 7. 選取 [啟用項目] 切換開關上的 [停用]，然後選取 [儲存]。 
 
-   ![在入口網站中停用個別註冊項目](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+    [![在入口網站中，使用停用的個別註冊項目來停用群組註冊中的裝置](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
 成功建立註冊時，您應該會看到裝置出現在 [個別註冊] 索引標籤上。
 
+## <a name="next-steps"></a>後續步驟
+
+取消註冊也屬於較大型的取消佈建程序。 取消佈建裝置包括從佈建服務取消註冊，以及從 IoT 中樞取消登錄。 若要深入了解完整程序，請參閱[如何取消佈建先前自動佈建的裝置](how-to-unprovision-devices.md) 
 

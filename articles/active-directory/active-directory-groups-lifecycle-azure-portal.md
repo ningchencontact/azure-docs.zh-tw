@@ -16,11 +16,11 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: aa8551db8c3982fa61b3d4731a8aac3e2832f1b1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1756ef0a1614c69d9490899969fc78c67b9e086f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>為 Office 365 群組設定到期原則
 
@@ -132,7 +132,7 @@ User | 可以更新它們所擁有的 Office 365 群組<br>可以還原它們所
   Remove-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”
   ````
   
-下列 Cmdlet 可用來更詳細地設定原則。 如需詳細資訊，請參閱 [PowerShell 文件](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups) \(英文\)。
+下列 Cmdlet 可用來更詳細地設定原則。 如需詳細資訊，請參閱 [PowerShell 文件](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups) \(英文\)。
 
 * Get-AzureADMSGroupLifecyclePolicy
 * New-AzureADMSGroupLifecyclePolicy

@@ -1,24 +1,18 @@
 ---
-title: "Azure Analysis Services 擴充 | Microsoft Docs"
-description: "使用擴充功能複寫 Azure Analysis Services 伺服器"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 擴充 | Microsoft Docs
+description: 使用擴充功能複寫 Azure Analysis Services 伺服器
 author: minewiskan
-manager: erikre
-editor: 
-ms.assetid: 
+manager: kfile
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/16/2018
 ms.author: owend
-ms.openlocfilehash: d00f6bbc285cca028f22ced69ad03d8a2814d76a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 擴充
 
@@ -28,7 +22,7 @@ ms.lasthandoff: 02/21/2018
 
 在一般伺服器部署中，一部伺服器會作為處理伺服器和查詢伺服器使用。 如果伺服器上對應模型的用戶端查詢數量超過伺服器方案的查詢處理器 (QPU)，或是模型的處理作業與高度的查詢工作負載同時發生，則效能可能會降低。 
 
-透過擴充，可以建立一個高達七個額外查詢複本的查詢集區 (加上您的伺服器總共八個)。 您可以調整查詢複本的數目，以符合關鍵時刻的 QPU 需求，並且可以隨時將處理伺服器與查詢集區分開。 
+透過擴充，可以建立一個高達七個額外查詢複本的查詢集區 (加上您的伺服器總共八個)。 您可以調整查詢複本的數目，以符合關鍵時刻的 QPU 需求，並且可以隨時將處理伺服器與查詢集區分開。 所有查詢複本都會建立在與伺服器相同的區域內。
 
 無論您在查詢集區中擁有多少個查詢複本，處理工作負載都不會分散在各查詢複本之間。 單一伺服器可作為處理伺服器使用。 查詢複本僅針對查詢集區中每個複本之間同步的模型提供查詢。 
 
@@ -79,7 +73,13 @@ ms.lasthandoff: 02/21/2018
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
-若要從 PowerShell 執行同步處理，請[更新至最新](https://github.com/Azure/azure-powershell/releases) 5.01 版或更高版本的 AzureRM 模組。 使用 [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance)。
+使用 PowerShell 之前，請[安裝或更新最新的 AzureRM 模組](https://github.com/Azure/azure-powershell/releases)。 
+
+若要設定查詢複本數目，請使用 [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)。 指定選擇性的 `-ReadonlyReplicaCount` 參數。
+
+若要執行同步處理，請使用 [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance)。
+
+
 
 ## <a name="connections"></a>連線
 

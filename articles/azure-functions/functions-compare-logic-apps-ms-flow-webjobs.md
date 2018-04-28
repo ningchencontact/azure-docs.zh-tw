@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/09/2018
 ms.author: tdykstra
 ms.custom: mvc
-ms.openlocfilehash: 23501eddc8921ed36a9e7d839660455e04ee9381
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6df97a40be7bf1c437c5228006d114ace768f8ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>比較 Flow、Logic Apps、Functions 和 WebJob
 
@@ -65,7 +65,7 @@ Functions 和 Logic Apps 都是可啟用無伺服器工作負載的 Azure 服務
 | 連線能力 | [約有十幾個內建繫結類型](functions-triggers-bindings.md#supported-bindings)、撰寫自訂繫結的程式碼 | [連接器的大型集合](../connectors/apis-list.md)、[適用於 B2B 的企業整合套件案例](../logic-apps/logic-apps-enterprise-integration-overview.md)、[建置自訂連接器](../logic-apps/custom-connector-overview.md) |
 | 動作 | 每個活動都是 Azure 函式；撰寫活動函式的程式碼 |[現成動作的大型集合](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | 監視 | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Azure 入口網站](../logic-apps/quickstart-create-first-logic-app-workflow.md)、[Operations Management Suite](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)、[Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
-| 管理 | [REST API](durable-functions-http-api.md)、[Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure 入口網站](../logic-apps/quickstart-create-first-logic-app-workflow.md)、[REST API](https://docs.microsoft.com/en-us/rest/api/logic/)[PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0)[Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
+| 管理 | [REST API](durable-functions-http-api.md)、[Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure 入口網站](../logic-apps/quickstart-create-first-logic-app-workflow.md)、[REST API](https://docs.microsoft.com/rest/api/logic/)[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0)[Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | 執行內容 | 可以在[本機](functions-runtime-overview.md)或雲端中執行。 | 只可在雲端中執行。|
 
 <a name="function"></a>

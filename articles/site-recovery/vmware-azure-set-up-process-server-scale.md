@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 9d9270d8c6d2ffc5e42dfc6f94818fdace89bfb5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7bbe690e749680edde08facadf6d5910d7896f7e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>在 Azure 中設定容錯回復的處理序伺服器
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="deploy-a-process-server-in-azure"></a>在 Azure 中部署處理序伺服器
 
-1. 在保存庫中，依序選取 [Site Recovery 基礎結構] >  [管理]  >  [組態伺服器]，然後按一下設定伺服器。
+1. 在保存庫中，依序選取 [Site Recovery 基礎結構]> [管理] > [組態伺服器]，然後按一下組態伺服器。
 2. 在伺服器頁面中，按一下 [+ 處理序伺服器]。
 3. 在 [新增處理序伺服器] 頁面中，選取在 Azure 中部署處理序伺服器。
 4. 指定 Azure 的設定，包括用於容錯移轉的訂用帳戶、資源群組、用於容錯移轉的 Azure 區域、Azure VM 所在的虛擬網路。 如果您使用多個 Azure 網路，每個網路中都要有一個處理序伺服器。

@@ -1,11 +1,11 @@
 ---
-title: "在 Operations Management Suite 追蹤 B2B 訊息 - Azure Logic Apps | Microsoft Docs"
-description: "使用 Azure Log Analytics 追蹤 Operations Management Suite (OMS) 中整合帳戶和邏輯應用程式的 B2B 通訊"
+title: 使用 Azure Log Analytics 追蹤 B2B 訊息 - Azure Logic Apps | Microsoft Docs
+description: 使用 Azure Log Analytics 追蹤整合帳戶和邏輯應用程式的 B2B 通訊
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: d62be25678044ead469f65362b6f47c1a2df893b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 48523e1f1bc8d5b810cc7c9d1a7308f1aaadf8bb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>在 Microsoft Operations Management Suite (OMS) 中追蹤 B2B 通訊
+# <a name="track-b2b-communication-with-azure-log-analytics"></a>使用 Azure Log Analytics 追蹤 B2B 通訊
 
-在您透過整合帳戶設定兩個執行中商務程序或應用程式之間的 B2B 通訊之後，這些實體也可以彼此交換訊息。 若要檢查是否正確處理這些訊息，您可以在 [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 中使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 追蹤 AS2、X12 和 EDIFACT 訊息。 例如，您可以使用這些網頁追蹤功能來追蹤訊息：
+在您透過整合帳戶設定兩個執行中商務程序或應用程式之間的 B2B 通訊之後，這些實體也可以彼此交換訊息。 若要檢查是否正確處理這些訊息，您可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 追蹤 AS2、X12 和 EDIFACT 訊息。 例如，您可以使用這些網頁追蹤功能來追蹤訊息：
 
 * 訊息計數和狀態
 * 通知狀態
@@ -36,30 +36,30 @@ ms.lasthandoff: 02/21/2018
 
 * 已設定監視和記錄的整合帳戶。 了解[如何建立整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)和[如何設定該帳戶的監視和記錄](../logic-apps/logic-apps-monitor-b2b-message.md)。
 
-* 如果您還沒有這麼做，請[在 OMS 中將診斷資料發佈至 Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
+* 如果您還沒有這麼做，請[將診斷資料發佈至 Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
 
 > [!NOTE]
-> 在您符合先前的需求之後，[Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 中應該有工作區。 您應該在 OMS 中使用相同的 OMS 工作區來追蹤 B2B 通訊。 
+> 在您符合先前的需求之後，Log Analytics 中應該有工作區。 您應該在 Log Analytics 中使用相同的工作區來追蹤 B2B 通訊。 
 >  
-> 如果您沒有 OMS 工作區，請了解[如何建立 OMS 工作區](../log-analytics/log-analytics-get-started.md)。
+> 如果您沒有 Log Analytics 工作區，請了解[如何建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。
 
-## <a name="add-the-logic-apps-b2b-solution-to-the-operations-management-suite-oms"></a>將 Logic Apps B2B 解決方案新增至 Operations Management Suite (OMS)
+## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>將 Logic Apps B2B 解決方案新增至 Log Analytics
 
-若要讓 OMS 追蹤邏輯應用程式的 B2B 訊息，您必須將 **Logic Apps B2B** 解決方案新增至 OMS 入口網站。 深入了解[將解決方案新增至 OMS](../log-analytics/log-analytics-get-started.md)。
+若要讓 Log Analytics 追蹤邏輯應用程式的 B2B 訊息，您必須將 **Logic Apps B2B** 解決方案新增至 OMS 入口網站。 深入了解[將解決方案新增至 Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選擇 [所有服務]。 搜尋 "log analytics"，然後選擇 [Log Analytics]，如下所示：
 
    ![尋找 Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
-2. 在 [Log Analytics] 下，尋找並選取 OMS 工作區。 
+2. 在 [Log Analytics] 下，尋找並選取 Log Analytics 工作區。 
 
-   ![選取 OMS 工作區](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![選取 Log Analytics 工作區](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
 3. 在 [管理] 下，選擇 [OMS 入口網站]。
 
    ![選擇 OMS 入口網站](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. 開啟 OMS 首頁之後，請選擇 [方案庫]。    
+4. 開啟首頁之後，請選擇 [方案庫]。    
 
    ![選取方案庫](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
 
@@ -71,21 +71,21 @@ ms.lasthandoff: 02/21/2018
 
    ![選擇 [新增]](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
 
-   在 OMS 首頁上，現在會顯示 [Logic Apps B2B 訊息] 的磚。 
+   在首頁上，現在會顯示 [Logic Apps B2B 訊息] 的圖格。 
    處理 B2B 訊息時，此磚會更新訊息計數。
 
-   ![OMS 首頁、[Logic Apps B2B 訊息] 磚](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
+   ![首頁、[Logic Apps B2B 訊息] 圖格](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
-## <a name="track-message-status-and-details-in-the-operations-management-suite"></a>在 Operations Management Suite 中追蹤訊息狀態和詳細資料
+## <a name="track-message-status-and-details-in-log-analytics"></a>在 Log Analytics 中追蹤訊息狀態和詳細資料
 
-1. 處理 B2B 訊息之後，即可檢視這些訊息的狀態和詳細資料。 在 OMS 首頁上，選擇 [Logic Apps B2B 訊息] 磚。
+1. 處理 B2B 訊息之後，即可檢視這些訊息的狀態和詳細資料。 在首頁上，選擇 [Logic Apps B2B 訊息] 圖格。
 
    ![更新的訊息計數](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
    > [!NOTE]
-   > [Logic Apps B2B 訊息] 磚預設會顯示以一天為基礎的資料。 若要將資料範圍變更為不同的間隔，請選擇 OMS 頁面頂端的範圍控制項：
+   > [Logic Apps B2B 訊息] 磚預設會顯示以一天為基礎的資料。 若要將資料範圍變更為不同的間隔，請選擇頁面頂端的範圍控制項：
    > 
    > ![變更資料範圍](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
    >
@@ -240,7 +240,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 Operations Management Suite 中查詢 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [查詢 Log Analytics 中的 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [AS2 追蹤結構描述](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12 追蹤結構描述](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [自訂追蹤結構描述](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

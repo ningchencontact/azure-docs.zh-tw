@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: markgal;trinadhk;sogup
+ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>在 Azure 中規劃 VM 備份基礎結構
 本文提供效能和資源方面的建議，以協助您規劃 VM 備份基礎結構。 本文也會定義備份服務的重要層面；這些層面對於決定架構、容量規劃及排程來說相當重要。 如果您已經[準備好環境](backup-azure-arm-vms-prepare.md)，則規劃是您開始[備份 VM](backup-azure-arm-vms.md) 之前的下一個步驟。 如果您需要 Azure 虛擬機器的詳細資訊，請參閱 [虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)。
@@ -99,7 +99,8 @@ Azure 備份提供指令碼架構。 為確保備份 Linux VM 時應用程式的
 
 * [安裝或更新備份擴充功能](backup-azure-arm-vms.md)所需要的時間。
 * 快照時間，即觸發快照所需的時間。 快照會在接近排定的備份時間觸發。
-* 佇列等候時間。 因為備份服務正在處理多個客戶的備份，所以從快照集複製備份資料到備份或復原服務保存庫可能不會立即啟動。 在尖峰負載時，等候時間會因為正在處理的備份數目而長達八小時。 不過，針對每日備份原則，VM 備份時間總計會小於 24 小時。
+* 佇列等候時間。 因為備份服務正在處理多個客戶的備份，所以從快照集複製備份資料到備份或復原服務保存庫可能不會立即啟動。 在尖峰負載時，等候時間會因為正在處理的備份數目而長達八小時。 不過，針對每日備份原則，VM 備份時間總計會小於 24 小時。 <br>
+**增量備份才會這樣，第一次備份就不是了。根據資料大小和製作備份的時間，第一次備份所需的時間會按比例增加，並可能大於 24 小時。**
 * 資料傳輸時間，備份服務計算上次備份的增量變更，並將這些變更傳輸到保存庫儲存體所需的時間。
 
 ### <a name="why-am-i-observing-longer12-hours-backup-time"></a>為何我看到的備份時間比較長 (大於 12 小時)？

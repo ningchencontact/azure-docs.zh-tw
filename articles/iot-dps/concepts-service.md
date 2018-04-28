@@ -1,28 +1,28 @@
 ---
-title: "Azure IoT 中樞裝置佈建服務的概念 | Microsoft Docs"
-description: "說明具有 DPS 和 IoT 中樞之裝置的特定服務佈建概念"
+title: Azure IoT 中樞裝置佈建服務的概念 | Microsoft Docs
+description: 說明具有 DPS 和 IoT 中樞之裝置的特定服務佈建概念
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 10/03/2017
+ms.date: 03/30/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 96c63e5d0379150ea619dbbe912a21e373f808af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2bc58514ea716954ec3ac96151549168fedc2ed
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT 中樞裝置佈建服務服務概念
 
-IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於設定在指定 IoT 中樞上的全自動佈建裝置作業。 這項裝置佈建服務可以讓您以安全且可調整的方式佈建數百萬個裝置。
+IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於設定在指定 IoT 中樞上的全自動佈建裝置作業。 這項裝置佈建服務可以讓您以安全且可調整的方式[自動佈建](concepts-auto-provisioning.md)數百萬個裝置。
 
-裝置佈建程序分為兩個部分。 第一個部分是*申請*裝置，以在裝置和 IoT 解決方案之間建立初始連線。 第二個部分是根據解決方案的特定需求套用正確的*設定*。 這兩個步驟都完成之後，該裝置才算*佈建*完成。 裝置佈建服務會自動進行這兩個步驟，以提供順暢的裝置佈建體驗。
+裝置佈建程序分為兩個部分。 第一個部分是*申請*裝置，以在裝置和 IoT 解決方案之間建立初始連線。 第二個部分是根據解決方案的特定需求套用正確的*設定*。 這兩個步驟都完成之後，就已完整「佈建」該裝置。 裝置佈建服務會自動進行這兩個步驟，以提供順暢的裝置佈建體驗。
 
 本文說明最適用於管理*服務*的佈建概念概觀。 本文與為裝置進行[雲端設定步驟](about-iot-dps.md#cloud-setup-step)，也就是部署準備工作的角色相關。
 
@@ -32,7 +32,7 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 
 ## <a name="device-provisioning-endpoint"></a>裝置佈建端點
 
-裝置佈建端點是讓所有裝置連接，以進行佈建的中央端點。 所有佈建服務都有相同的 URL，這樣就不需以供應鏈案例中的連線資訊重新刷新裝置。 [識別碼範圍](#id-scope)會確保租用戶隔離。
+裝置佈建端點是所有裝置用來自動佈建的單一端點。 所有佈建服務執行個體都有相同的 URL，這樣就不需以供應鏈案例中的連線資訊重新刷新裝置。 [識別碼範圍](#id-scope)會確保租用戶隔離。
 
 ## <a name="linked-iot-hubs"></a>連結的 IoT 中樞
 
@@ -47,21 +47,27 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 
 ## <a name="enrollment"></a>申請
 
-申請是記載某種程度上已註冊的裝置，或裝置群組的記錄。 申請記錄中有裝置或裝置群組的資訊，包含裝置的證明方法，也可能包含一開始的所需設定、所需 IoT 中樞和所需裝置識別碼。 裝置佈建服務支援兩種類型的申請。
+註冊是可透過自動佈建所註冊的裝置或裝置群組的記錄。 註冊記錄包含關於裝置或裝置群組的資訊，包括：
+- 裝置所使用的[證明機制](concepts-security.md#attestation-mechanism)
+- 選擇性初始所需的設定
+- 所需的 IoT 中樞
+- 所需的裝置識別碼
+
+裝置佈建服務支援兩種類型的註冊：
 
 ### <a name="enrollment-group"></a>申請群組
 
-申請群組為一組共用特定證明機制的裝置。 申請群組中的所有裝置都有相同根 CA 簽署的 X.509 憑證。 申請群組只能使用 X.509 證明機制。 註冊群組名稱和憑證名稱必須是英數字元、小寫字母且可包含連字號。
+申請群組為一組共用特定證明機制的裝置。 註冊群組中的所有裝置都有相同根或中繼 CA 簽署的 X.509 憑證。 申請群組只能使用 X.509 證明機制。 註冊群組名稱和憑證名稱必須是英數字元、小寫字母且可包含連字號。
 
 > [!TIP]
 > 對於一大批共用所需初始設定的裝置，或是全都設定為相同租用戶的裝置，我們建議使用申請群組。
 
 ### <a name="individual-enrollment"></a>個別申請
 
-個別申請為表示可能已註冊之單一裝置的項目。 個別申請可使用 X.509 憑證或 SAS 權杖 (適用於實際或虛擬 TPM) 作為證明機制。 個別註冊中的註冊識別碼為英數字元、小寫字母且可包含連字號。 個別申請可能會指定所需的 IoT 中樞裝置識別碼。
+個別申請為表示可能已註冊之單一裝置的項目。 個別註冊可使用 X.509 分葉憑證或 SAS 權杖 (從實際或虛擬的 TPM) 來作為證明機制。 個別註冊中的註冊識別碼為英數字元、小寫字母且可包含連字號。 個別申請可能會指定所需的 IoT 中樞裝置識別碼。
 
 > [!TIP]
-> 對於需要唯一初始設定的裝置，或是只能透過 TPM 或虛擬 TPM 使用 SAS 權杖作為證明機制的裝置，我們建議您使用個別申請。
+> 對於需要唯一初始設定的裝置，或是只能透過 TPM 證明使用 SAS 權杖進行驗證的裝置，建議您使用個別註冊。
 
 ## <a name="registration"></a>註冊
 

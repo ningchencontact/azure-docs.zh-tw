@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: johnkem; magoedte
-ms.openlocfilehash: 884acc4885da3a321477c51f6d7b76748d797d9b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 00b990181e5bb96f122ff1ae530dd027a772b210
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>收集並取用來自 Azure 資源的記錄資料
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 04/06/2018
 >
 
 > [!WARNING]
-> 客體 OS 層計算資源 (例如 VM 或 Service Fabric) 的診斷記錄和計量使用[不同機制來進行設定與選取輸出](../azure-diagnostics.md)。
+> 客體 OS 層計算資源 (例如 VM 或 Service Fabric) 的診斷記錄和計量會使用[不同機制來設定與選取輸出](../azure-diagnostics.md)。
 
 ## <a name="how-to-enable-collection-of-resource-diagnostic-logs"></a>如何啟用資源診斷記錄的收集
 

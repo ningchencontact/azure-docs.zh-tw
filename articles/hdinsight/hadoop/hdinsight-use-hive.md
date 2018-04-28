@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/26/2018
+ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: ddd27af47edd9bf4ffbf688ef6e5f12a34c681cf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9f67bc93758b98060efbef2cb7f1c200a62d7e65
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？
 
@@ -102,7 +102,7 @@ Hive 也支援自訂複雜或不規則結構化資料的 **序列化/反序列�
 
 ## <a name="user-defined-functions-udf"></a>使用者定義函數 (UDF)
 
-Hive 也可透過 **使用者定義函數 (UDF)**延伸。 UDF 可讓您在 HiveQL 中實作功能或不易模型化的邏輯。 如需將 UDF 與 Hive 搭配使用的範例，請參閱以下文件：
+Hive 也可透過 **使用者定義函數 (UDF)** 延伸。 UDF 可讓您在 HiveQL 中實作功能或不易模型化的邏輯。 如需將 UDF 與 Hive 搭配使用的範例，請參閱以下文件：
 
 * [將 Java 使用者定義的函式與 Hive 搭配使用](../hadoop/apache-hadoop-hive-java-udf.md)
 

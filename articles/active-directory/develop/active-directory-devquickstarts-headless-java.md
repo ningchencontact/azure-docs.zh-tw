@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Java 命令列入門 | Microsoft Docs"
-description: "如何建立一個將使用者登入以存取 API 的Java 命令列應用程式。"
+title: Azure AD Java 命令列入門 | Microsoft Docs
+description: 如何建立一個將使用者登入以存取 API 的Java 命令列應用程式。
 services: active-directory
 documentationcenter: java
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 51e1a8f9-6ff0-4643-a350-0ba794e26fd1
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0e12711e4a7e67861d61ae4575c4956531cf841
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>使用 Java 命令列應用程式存取具有 Azure AD 的 API
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,7 +46,7 @@ Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頂端列上按一下您的帳戶，然後在 [目錄] 清單底下，選擇您要註冊應用程式的 Active Directory 租用戶。
-3. 按一下左側瀏覽區中的 [所有服務]，然後選擇 [Azure Active Directory]。
+3. 按一下左側導覽區中的 [所有服務]，然後選擇 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選擇 [新增]。
 5. 遵照提示進行，並建立新的 **Web 應用程式和/或 WebAPI**。
   * 應用程式的 [ **名稱** ] 將對使用者說明您的應用程式
@@ -258,7 +258,7 @@ public class PublicClient {
 `http://localhost:8080/adal4jsample/`
 
 > [!NOTE]
-> 使用最新的 Tomcat 伺服器部署 WAR 非常容易。 只要瀏覽至 `http://localhost:8080/manager/` 並遵循上傳您的 adal4jsample.war 檔案的指示即可。 它會為您自動部署正確的端點。
+> 使用最新的 Tomcat 伺服器部署 WAR 非常容易。 只要瀏覽至 `http://localhost:8080/manager/` 並遵循上傳 `adal4jsample.war` 檔案的指示即可。 它會為您自動部署正確的端點。
 > 
 > 
 

@@ -1,11 +1,11 @@
 ---
-title: "安全存取 Azure Logic Apps | Microsoft Docs"
-description: "新增安全性以保護存取 Azure Logic Apps 中工作流程使用的觸發程序、輸入和輸出、動作參數和服務。"
+title: 安全存取 Azure Logic Apps | Microsoft Docs
+description: 新增安全性以保護存取 Azure Logic Apps 中工作流程使用的觸發程序、輸入和輸出、動作參數和服務。
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042fdaa037fe1928fdb81727968a532ddfae0a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-access-to-your-logic-apps"></a>安全存取您的邏輯應用程式
 
@@ -77,7 +77,7 @@ POST
 此設定可在邏輯應用程式設定中進行設定：
 
 1. 在 Azure 入口網站中，開啟您要新增 IP 位址限制的邏輯應用程式
-1. 按一下 [設定] 之下的 [存取控制設定] 功能表項目
+1. 按一下 [設定] 下的 [工作流程設定] 功能表項目
 1. 指定觸發程序可接受的 IP 位址範圍清單
 
 有效的 IP 位址範圍格式為 `192.168.1.1/255`。 如果您只想讓邏輯應用程式做為巢狀邏輯應用程式進行引發，請選取 [僅其他邏輯應用程式] 選項。 這個選項會將空陣列寫入資源，表示只能成功引發來自服務本身 (父邏輯應用程式) 的呼叫。
@@ -119,7 +119,7 @@ POST
 
 ## <a name="secure-access-to-manage-or-edit-logic-apps"></a>保護管理或編輯邏輯應用程式的存取
 
-您可以限制邏輯應用程式的管理作業存取，以便只有特定的使用者或群組能夠在資源上執行操作。 邏輯應用程式使用 Azure [角色型存取控制 (RBAC)](../active-directory/role-based-access-control-configure.md) 功能，並且能夠使用相同的工具進行自訂。  您也可以將一些內建的角色指派給訂用帳戶的成員：
+您可以限制邏輯應用程式的管理作業存取，以便只有特定的使用者或群組能夠在資源上執行操作。 邏輯應用程式使用 Azure [角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 功能，並且能夠使用相同的工具進行自訂。  您也可以將一些內建的角色指派給訂用帳戶的成員：
 
 * **邏輯應用程式參與者**：提供邏輯應用程式檢視、編輯和更新的存取權限。  無法移除資源或執行管理作業。
 * **邏輯應用程式操作員**：可以檢視邏輯應用程式和執行歷程記錄，以及啟用/停用。  無法編輯或更新定義。

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 6926ae6c67e3397006e95595a8dc28bab67256da
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 29fb74e49ad3fdca0bc54a431da40b02ef24882b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>使用 Azure Data Factory 從 ServiceNow 複製資料
 
@@ -45,7 +45,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | Type 屬性必須設定為：**ServiceNow** | yes |
-| endpoint | ServiceNow 伺服器的端點 (`http://ServiceNowData.com`)。  | yes |
+| endpoint | ServiceNow 伺服器的端點 (`http://<instance>.service-now.com`)。  | yes |
 | authenticationType | 要使用的驗證類型。 <br/>允許的值為：**Basic**、**OAuth2** | yes |
 | username | 用來連線到 ServiceNow 伺服器以進行 Basic 和 OAuth2 驗證的使用者名稱。  | 否 |
 | password | 對應至用於進行 Basic 和 OAuth2 驗證之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
@@ -63,7 +63,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
     "properties": {
         "type": "ServiceNow",
         "typeProperties": {
-            "endpoint" : "http://ServiceNowData.com",
+            "endpoint" : "http://<instance>.service-now.com",
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {

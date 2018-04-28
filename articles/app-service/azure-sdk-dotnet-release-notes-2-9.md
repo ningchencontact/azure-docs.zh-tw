@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 30013c0bd8ded31ccaf3cdc142bbf8dc6b375031
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Azure SDK for .NET 2.9 版本資訊
 
@@ -41,7 +41,7 @@ Azure SDK 2.9 在此版本中沒有重大變更。 在現有的雲端服務專�
  
 ### <a name="windows-server-2016-virtual-machines"></a>Windows Server 2016 虛擬機器
 
-- Visual Studio 現在支援將雲端服務部署到作業系統系列 5 (Windows Server 2016) 虛擬機器。 對於現有的雲端服務，您可以變更設定，以新的作業系統系列為目標。 建立新的雲端服務時，如果您選擇使用 .net 4.6 或更高版本建立服務，服務會預設為使用作業系統系列 5。  如需詳細資訊，您可以檢閱[客體 OS 系列支援資料表](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/)。
+- Visual Studio 現在支援將雲端服務部署到作業系統系列 5 (Windows Server 2016) 虛擬機器。 對於現有的雲端服務，您可以變更設定，以新的作業系統系列為目標。 建立新的雲端服務時，如果您選擇使用 .net 4.6 或更高版本建立服務，服務會預設為使用作業系統系列 5。  如需詳細資訊，您可以檢閱[客體 OS 系列支援資料表](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/)。
 
 #### <a name="known-issues"></a>已知問題
 
@@ -50,7 +50,7 @@ Azure SDK 2.9 在此版本中沒有重大變更。 在現有的雲端服務專�
  
 ### <a name="azure-in-role-cache"></a>Azure In-Role Cache 
 
-- 2016 年 11 月 30 日終止支援 Azure In-Role Cache。 如需詳細資訊，請按一下[這裡](https://azure.microsoft.com/en-us/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)。
+- 2016 年 11 月 30 日終止支援 Azure In-Role Cache。 如需詳細資訊，請按一下[這裡](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)。
 
 ### <a name="azure-resource-manager-templates-for-azure-stack"></a>適用於 Azure Stack 的 Azure Resource Manager 範本
 

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Active Directory 來授權開發人員帳戶 - Azure API 管理 | Microsoft Docs"
-description: "了解如何在 API 管理中使用 Azure Active Directory 來授權使用者。"
+title: 使用 Azure Active Directory 來授權開發人員帳戶 - Azure API 管理 | Microsoft Docs
+description: 了解如何在 API 管理中使用 Azure Active Directory 來授權使用者。
 services: api-management
 documentationcenter: API Management
-author: juliako
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d89257cba70fb82d56fb1beef8a8efe66a8af02d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 來授權開發人員帳戶
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 02/09/2018
     [建立] 窗格會出現在右邊。 您可以在這裡輸入 Azure AD 應用程式的相關資訊。
 17. 輸入應用程式的名稱。
 18. 選取 [Web 應用程式/API] 作為應用程式類型。
-19. 輸入開發人員入口網站的登入 URL 作為登入 URL。 在此範例中，登入 URL 是 https://apimwithaad.portal.azure-api.net/signin。
+19. 輸入開發人員入口網站的登入 URL 作為登入 URL。 在此範例中，登入 URL 為 https://apimwithaad.portal.azure-api.net/signin。
 20. 選取 [建立] 來建立應用程式。
 21. 若要尋找您的應用程式，請選取 [應用程式註冊] 並依名稱搜尋。
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 02/09/2018
 
     您可以在 [允許的租用戶] 區段中指定多個網域。 在使用者可透過與註冊應用程式之原始網域不同的網域登入前，不同網域的全域管理員必須授與權限，應用程式才能存取目錄資料。 若要授與權限，全域管理員應：
     
-    a. 前往 `https://<URL of your developer portal>/aadadminconsent` (例如，https://contoso.portal.azure-api.net/aadadminconsent)。
+    a. 移至 `https://<URL of your developer portal>/aadadminconsent` (例如，https://contoso.portal.azure-api.net/aadadminconsent)。
     
     b. 輸入想要授與存取權的 Azure AD 租用戶網域名稱。
     

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Data Factory 叫用 SSIS 套件 - 預存程序活動 | Microsoft Docs
-description: 本文描述如何使用預存程序活動從 Azure Data Factory 管線叫用 SQL Server Integration Services (SSIS) 封裝。
+title: 在 Azure Data Factory 中使用預存程序活動執行 SSIS 套件 | Microsoft Docs
+description: 本文描述如何使用預存程序活動，從 Azure Data Factory 管線執行 SQL Server Integration Services (SSIS) 套件。
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 00a4401a9116d8ebbfefa56194fe45802bcf198e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 283e1022abda083d73e8e4e5bca7872791cb4861
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 使用預存程序活動叫用 SSIS 套件
-本文描述如何使用預存程序活動從 Azure Data Factory 管線叫用 SSIS 封裝。 
+# <a name="run-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用預存程序活動執行 SSIS 套件
+本文描述如何使用預存程序活動，從 Azure Data Factory 管線執行 SSIS 套件。 
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱[使用第 1 版的預存程序活動叫用 SSIS 封裝](v1/how-to-invoke-ssis-package-stored-procedure-activity.md)。
@@ -85,12 +85,13 @@ ms.lasthandoff: 04/03/2018
 4. 在 [新增連結服務] 視窗中，執行下列步驟： 
 
     1. 選取 [類型] 的 [Azure SQL Database]。
-    2. 對於 [伺服器名稱] 欄位，選取主控 SSISDB 資料庫的 Azure SQL 伺服器。
-    3. 選取 [資料庫名稱] 的 [SSISDB]。
-    4. 對於 [使用者名稱]，輸入可存取資料庫的使用者名稱。
-    5. 對於 [密碼]，輸入使用者的密碼。 
-    6. 按一下 [測試連接] 按鈕以測試資料庫連接。
-    7. 按一下 [儲存] 按鈕以儲存連結服務。 
+    2. 選取**預設** Azure Integration Runtime，以連線到裝載 `SSISDB` 資料庫的 Azure SQL Database。
+    3. 針對 [伺服器名稱] 欄位，選取裝載 SSISDB 資料庫的 Azure SQL Database。
+    4. 選取 [資料庫名稱] 的 [SSISDB]。
+    5. 對於 [使用者名稱]，輸入可存取資料庫的使用者名稱。
+    6. 對於 [密碼]，輸入使用者的密碼。 
+    7. 按一下 [測試連接] 按鈕以測試資料庫連接。
+    8. 按一下 [儲存] 按鈕以儲存連結服務。 
 
         ![Azure SQL Database 的連結服務](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. 在 [屬性] 視窗中，從 [SQL 帳戶] 索引標籤切換到 [預存程序] 索引標籤，並執行下列步驟： 
@@ -121,14 +122,18 @@ ms.lasthandoff: 04/03/2018
 
 1. 若要觸發管線執行，按一下工具列上的 [觸發程序]，然後按一下 [立即觸發]。 
 
-    ![立即觸發](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+    ![立即觸發](media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+
 2. 在 [管線執行] 視窗中，選取 [完成]。 
 3. 切換至左側的 [監視] 索引標籤。 您會看到管線執行、其狀態，以及其他資訊 (例如執行開始時間)。 若要重新整理檢視，按一下 [重新整理]。
 
     ![管線執行](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+
 3. 按一下 [動作]資料行中的 [檢視活動執行] 連結。 管線只有一個活動 (預存程序活動) 時，您只會看到一個活動執行。
 
-    ![活動執行](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png) 4. 您可以依據 Azure SQL Server 中的 SSISDB 資料庫執行下列**查詢**，確認已執行封裝。 
+    ![活動執行](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
+
+4. 您可以依據 Azure SQL Server 中的 SSISDB 資料庫執行下列**查詢**，來確認套件已執行。 
 
     ```sql
     select * from catalog.executions

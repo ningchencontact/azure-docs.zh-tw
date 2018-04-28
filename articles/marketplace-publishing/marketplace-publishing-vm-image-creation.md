@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cb1d529f8e3eaabb4d49e8bbea03cab8e838cfa2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>建立 Azure Marketplace 的虛擬機器映像的指南
 本文的 **步驟 2**會逐步引導您準備您將部署到 Azure Marketplace 的虛擬硬碟 (VHD)。 您的 VHD 是 SKU 的基礎。 這個程序會因為您是否提供以 Linux 或 Windows 為基礎的 SKU 而有所不同。 本文將探討這兩種狀況。 這個程序可與[帳戶建立和註冊][link-acct-creation]同步執行。
@@ -446,7 +446,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
     b. **`<Storage Account Key>`**：提供您的儲存體帳戶金鑰
 
-    c. **`<Permission Start Date>`**：為了確保使用 UTC 時間，請選取目前日期之前的日期。 例如，如果目前日期為 2016 年 10 月 26 日，則值應該為 10/25/2016。 如果使用 Azure CLI 2.0 (az 命令)，請在 [開始日期] 和 [結束日期] 中提供日期和時間，例如：10-25-2016T00:00:00Z。
+    c. **`<Permission Start Date>`**：為了確保使用 UTC 時間，請選取目前日期之前的日期。 例如，如果目前日期為 2016 年 10 月 25 日，則值應該為 10/25/2016。 如果使用 Azure CLI 2.0 (az 命令)，請在 [開始日期] 和 [結束日期] 中提供日期和時間，例如：10-25-2016T00:00:00Z。
 
     d. **`<Permission End Date>`**：選取至少在 [開始日期] 之後 3 個星期的日期。 此值應該是 **11/02/2016**。 如果使用 Azure CLI 2.0 (az 命令)，請在 [開始日期] 和 [結束日期] 中同時提供日期和時間，例如：11-02-2016T00:00:00Z。
 

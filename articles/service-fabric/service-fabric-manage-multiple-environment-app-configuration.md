@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: a3d0770d3b9c8702dbe4dac86f86030bea4090c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3035d0e8642310698274e4351a95013e204e2f14
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>管理多個環境的應用程式
 
@@ -48,8 +48,8 @@ Azure Service Fabric 叢集可讓您使用任意數量的機器 (從一部至數
 
 在 Service Fabric 中建立具名的應用程式執行個體時，您可以傳入參數。 執行的方式取決於您如何建立應用程式執行個體。
 
-  - 在 PowerShell 中，[`New-ServiceFabricApplication`](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) Cmdlet 會將應用程式參數作為雜湊表。
-  - 使用 sfctl，[`sfctl application create`](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) 命令會將參數作為 JSON 字串。 install.sh 指令碼會使用 sfctl。
+  - 在 PowerShell 中，[`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) Cmdlet 會將應用程式參數作為雜湊表。
+  - 使用 sfctl，[`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) 命令會將參數作為 JSON 字串。 install.sh 指令碼會使用 sfctl。
   - Visual Studio 會在應用程式專案的 [參數] 資料夾中為您提供一組參數檔案。 當這些參數檔案從 Visual Studio 透過 Visual Studio Team Service 或 Team Foundation Server 發佈時，參數檔案會受到使用。 在 Visual Studio 中，參數檔案會傳遞至 Deploy-FabricApplication.ps1 指令碼。
 
 ## <a name="next-steps"></a>後續步驟

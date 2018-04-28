@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b4559afa9294111eaa1f20fdf295d1fb26dcc994
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bc6c98784195aaf80cb6ca32ef29f75666099b06
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>如何部署 Linux 混合式 Runbook 背景工作角色
 
@@ -36,7 +36,7 @@ Azure 自動化中的 Runbook 無法存取其他雲端或內部部署環境中�
 
 1.  在 Azure 中啟用 [自動化混合式背景工作角色] 解決方案。 執行方式可以是下列任一項：
 
-   1. 使用[將 Log Analytics 管理解決方案新增至您的工作區](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions)所述的程序，將**自動化混合式背景工作角色**解決方案新增至您的訂用帳戶。
+   1. 使用[將 Log Analytics 管理解決方案新增至您的工作區](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)所述的程序，將**自動化混合式背景工作角色**解決方案新增至您的訂用帳戶。
    2. 執行下列 Cmdlet：
 
         ```powershell

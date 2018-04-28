@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2ab79e3a6308d01d836a82f356f43eccb6af9791
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>使用 Draft 搭配 Azure Container Service (AKS)
 
@@ -33,10 +33,10 @@ Helm 也必須安裝在 AKS 叢集中。 如需如何安裝 Helm 的詳細資訊
 
 ## <a name="install-draft"></a>安裝 Draft
 
-Draft CLI 是在開發系統上執行的用戶端，可讓您將程式碼快速部署到 Kubernetes 叢集。 
+Draft CLI 是在開發系統上執行的用戶端，可讓您將程式碼快速部署到 Kubernetes 叢集。
 
-> [!NOTE] 
-> 如果您已安裝 0.12 版之前的 Draft，請先使用 `helm delete --purge draft` 從叢集中刪除 Draft，然後執行 `rm -rf ~/.draft` 以移除本機設定。 如果您在 MacOS 上，則可以執行 `brew upgrade draft`。
+> [!NOTE]
+> 如果您已安裝 0.12 版之前的 Draft，請先使用 `helm delete --purge draft` 從叢集中刪除 Draft，然後執行 `rm -rf ~/.draft` 以移除本機設定。 如果您在 MacOS 上，請執行 `brew upgrade draft`。
 
 若要在 Mac 上安裝 Draft CLI，請使用 `brew`。 如需其他安裝選項，請參閱 [Draft 安裝指南][install-draft] \(英文\)。
 
@@ -71,9 +71,9 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 
 現在，AKS 和 ACR 之間已有信任關係，下列步驟可讓您從 AKS 叢集使用 ACR。
 1. 執行 `draft config set registry <registry name>.azurecr.io` 以設定 Draft 設定 `registry` 值，其中 _&lt;登錄名稱&lt;_ 是 ACR 登錄的名稱。
-2. 執行 `az acr login -n <registry name>` 以登入 ACR 登錄。 
+2. 執行 `az acr login -n <registry name>` 以登入 ACR 登錄。
 
-因為您現在已登入 ACR 本機，並已在 AKS 與 ACR 之間建立信任關係，所以不需要密碼或秘密即可從 ACR 推送/提取至 AKS。 驗證會在 Azure Resource Manager 層級使用 Azure Active Directory 來進行。 
+因為您現在已登入 ACR 本機，並已在 AKS 與 ACR 之間建立信任關係，所以不需要密碼或秘密即可從 ACR 推送/提取至 AKS。 驗證會在 Azure Resource Manager 層級使用 Azure Active Directory 來進行。
 
 ## <a name="run-an-application"></a>執行應用程式
 
@@ -143,7 +143,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-您現在可以瀏覽至 http://localhost:46143 以測試應用程式 (在上述範例中，您的連接埠可能會不同)。 測試完應用程式時，請使用 `Control+C` 停止 Proxy 連線。
+現在請瀏覽至 http://localhost:46143 以測試應用程式 (在上述範例中，您的連接埠可能會不同)。 測試完應用程式時，請使用 `Control+C` 停止 Proxy 連線。
 
 > [!NOTE]
 > 您也可以使用 `draft up --auto-connect` 命令來建置和部署應用程式，並立即連線到第一個執行的容器以加快反覆運算週期。

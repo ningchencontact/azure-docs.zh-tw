@@ -1,23 +1,23 @@
 ---
-title: "了解 Azure IoT 中樞自訂端點 | Microsoft Docs"
-description: "開發人員指南 - 使用路由規則將裝置對雲端訊息路由傳送至自訂端點。"
+title: 了解 Azure IoT 中樞自訂端點 | Microsoft Docs
+description: 開發人員指南 - 使用路由規則將裝置對雲端訊息路由傳送至自訂端點。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: a40fa94260b488e9c01ac09b22da8c0677d73968
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3d54da43141dc2bdf34c9f71adc41dc7cf24ff10
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>針對裝置對雲端訊息使用訊息路由和自訂端點
 
@@ -31,6 +31,8 @@ IoT 中樞可讓您根據訊息屬性，將[裝置對雲端訊息][lnk-device-to
 | **端點**  | IoT 中樞傳送符合條件之訊息的目的地端點名稱。 端點應該與 IoT 中樞位於相同區域，否則您可能需要支付跨區域寫入費用。 |
 
 單一訊息可能符合多個路由規則的條件，在這種情況下 IoT 中樞會將訊息傳遞至與每個符合的規則相關聯的端點。 「IoT 中樞」也會自動刪除重複的訊息傳遞，因此，如果訊息符合多個具有相同目的地的規則，訊息就只會寫入到該目的地一次。
+
+## <a name="endpoints-and-routing"></a>端點和路由
 
 IoT 中樞具有預設[內建端點][lnk-built-in]。 您可以將訂用帳戶中的其他服務連結到中樞，來建立要路由傳送訊息的目標自訂端點。 IoT 中樞目前支援 Azure 儲存體容器、事件中樞、服務匯流排佇列，及服務匯流排主題作為自訂端點。
 
@@ -50,6 +52,12 @@ IoT 中樞具有預設[內建端點][lnk-built-in]。 您可以將訂用帳戶�
 * 從[事件中樞][lnk-getstarted-eh]讀取。
 * 從[服務匯流排佇列][lnk-getstarted-queue]讀取。
 * 從[服務匯流排主題][lnk-getstarted-topic]讀取。
+
+## <a name="latency"></a>Latency
+
+當您使用內建端點來路由傳送裝置到雲端的遙測訊息時，在建立第一個路由之後，端對端延遲會稍微增加。
+
+在大部分情況下，平均增加的延遲會少於一秒。 您可以使用 **d2c.endpoints.latency.builtIn.events** [IoT 中樞計量](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) 來監視延遲。 建立或刪除第一個之後的任何路由並不會影響端對端延遲。
 
 ### <a name="next-steps"></a>後續步驟
 

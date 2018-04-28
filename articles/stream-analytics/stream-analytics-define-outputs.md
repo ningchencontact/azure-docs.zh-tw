@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/18/2017
-ms.openlocfilehash: afaadc12d056f42a75795073d480fe26757649d8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/16/2018
+ms.openlocfilehash: 30fa7e081c24339b7fa9f572d9feb25a0f920a86
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>串流分析輸出︰儲存體和分析的選項
 當您在編寫串流分析作業時，請考慮所產生資料的取用方式。 如何檢視串流分析作業的結果，並將儲存於何處？
@@ -21,18 +21,19 @@ ms.lasthandoff: 04/06/2018
 為了要啟用各種應用程式模式，Azure 串流分析針對儲存輸出及檢視分析結果提供了數種不同的選項。 這讓您能輕鬆地檢視工作輸出，還讓您對於資料倉儲和其他用途之工作輸出的取用及儲存方式更有彈性。 任何在工作中設定的輸出，都必須在工作開始之前，以及在事件開始運作之前就已經存在。 例如，如果您將 Blob 儲存體作為輸出使用，作業就不會自動建立儲存體帳戶。 在串流分析作業開始之前，建立儲存體帳戶。
 
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
-串流分析支援 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。 此儲存體可讓您存放任何大小、類型和擷取速度的資料，以便進行運作和探究分析。 此外，串流分析需要經過授權，才能存取 Data Lake Store。 如需有關授權，以及如何註冊 Data Lake Store (如有需要) 的詳細資料，請參閱 [Data Lake 輸出](stream-analytics-data-lake-output.md)文章。
+串流分析支援 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。 Azure Data Lake Store 是容納巨量資料分析工作負載的企業級超大規模存放庫。 Data Lake Store 可讓您存放任何大小、類型和擷取速度的資料，以便進行運作和探究分析。 此外，串流分析需要經過授權，才能存取 Data Lake Store。
 
-### <a name="authorize-an-azure-data-lake-store"></a>授權 Azure Data Lake Store
-在 Azure 入口網站中選取 Data Lake Storage 作為輸出時，系統會提示您授權與現有 Data Lake Store 的連線。  
+### <a name="authorize-an-azure-data-lake-store-account"></a>授權 Azure Data Lake Store 帳戶
 
-![授權 Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+1. 在 Azure 入口網站中選取 Data Lake Storage 作為輸出時，系統會提示您授權與現有 Data Lake Store 的連線。  
 
-接著請填寫 Data Lake Store 輸出的屬性，如下所示︰
+   ![授權 Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
-![授權 Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+2. 如果您已經可以存取 Data Lake Store，按一下 [立即授權] 會出現一個頁面，指出「正在重新導向至授權」。 授權成功之後，您會看到設定 Data Lake Store 輸出的頁面。  
 
-下表列出建立 Data Lake Store 輸出所需的屬性名稱及其描述。
+3. 驗證 Data Lake Store 帳戶之後，您可以設定 Data Lake Store 輸出的屬性。 下表是設定 Data Lake Store 輸出的屬性名稱及其描述的清單。
+
+   ![授權 Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 <table>
 <tbody>
@@ -46,11 +47,11 @@ ms.lasthandoff: 04/06/2018
 </tr>
 <tr>
 <td>帳戶名稱</td>
-<td>您傳送輸出的 Data Lake Storage 帳戶名稱。 您會看到 Data Lake Store 帳戶的下拉式清單，登入入口網站的使用者可存取該下拉式清單。</td>
+<td>您傳送輸出的 Data Lake Storage 帳戶名稱。 您會看到您的訂用帳戶中可用的 Data Lake Store 帳戶的下拉式清單。</td>
 </tr>
 <tr>
 <td>路徑前置詞模式</td>
-<td>檔案命名會遵循下列慣例： <BR>{路徑前置詞模式}/schemaHashcode_Guid_Number.extension <BR> <BR>範例輸出檔案︰<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>此外，以下是建立新檔案的情況：<BR>1. 輸出結構描述變更 <BR>2. 從外部或內部重新啟動作業<BR><BR>此外，如果檔案路徑模式不包含尾端的 "/"，則會將檔案路徑中的最後一個模式視為檔案名稱前置詞。<BR><BR>範例：<BR>路徑模式為 folder1/logs/HH 時，產生的檔案可能看起來像這樣：folder1/logs/02_134343_gguid_1.csv</td>
+<td>用來在指定的 Data Lake Store 帳戶中寫入檔案的檔案路徑。 您可以指定一或多個 {date} 和 {time} 變數的執行個體。<BR> 範例 1：folder1/logs/{date}/{time}<BR>範例 2：folder1/logs/{date}<BR>此外，以下是建立新檔案的情況：<BR>1. 輸出結構描述變更 <BR>2. 從外部或內部重新啟動作業<BR><BR>此外，如果檔案路徑模式不包含尾端的 "/"，則會將檔案路徑中的最後一個模式視為檔案名稱前置詞。<BR></td>
 </tr>
 <tr>
 <td>日期格式 [<I>選用</I>]</td>
@@ -80,12 +81,14 @@ ms.lasthandoff: 04/06/2018
 </table>
 
 ### <a name="renew-data-lake-store-authorization"></a>更新 Data Lake Store 授權
-如果您在建立作業之後或上次驗證過後變更了密碼，則需要重新驗證您的 Data Lake Store 帳戶。
+如果您在建立作業之後或上次驗證過後變更了密碼，則需要重新驗證您的 Data Lake Store 帳戶。 如果您不重新驗證，您的工作就不會輸出結果，作業記錄檔中會記錄一個指出需要重新授權的錯誤。 目前有一個限制，即每隔 90 天必須針對 Data Lake Store 輸出的所有工作，以手動方式更新驗證 Token。 
+
+若要更新授權，請**停止**您的工作 > 移至 Data Lake Store 輸出 > 按一下 [更新授權] 連結，很快就會出現一個頁面，指出 「正在重新導向至授權...」。 此頁面將會自動關閉，而且如果成功，就會指出「已成功更新授權」。 接著，您必須按一下頁面底部的 [儲存]，然後可以從**上次停止的時間**重新開始您的工作繼續，以避免資料遺失。
 
 ![授權 Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Database
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 做為資料輸出。 串流分析作業會寫入至 Azure SQL Database 中的現有資料表。  資料表結構描述必須完全符合作業輸出的欄位及其類型。 您也可以透過 SQL Database 輸出選項，將 [Azure SQL 資料倉儲](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) 指定為輸出 (這是一個預覽功能)。 下表列出屬性名稱及其描述以建立 SQL Database 輸出。
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 做為資料輸出。 串流分析作業會寫入至 Azure SQL Database 中的現有資料表。  資料表結構描述必須完全符合作業輸出的欄位及其類型。 您也可以透過 SQL Database 輸出選項，將 [Azure SQL 資料倉儲](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)指定為輸出。 下表列出屬性名稱及其描述以建立 SQL Database 輸出。
 
 | 屬性名稱 | 說明 |
 | --- | --- |
@@ -287,6 +290,8 @@ DateTime | 字串 | 字串 |  DateTime | 字串
 | 分隔符號 |僅適用於 CSV 序列化。 串流分析可支援多種以 CSV 格式序列化資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
 | 格式 |僅適用於 JSON 類型。 分隔的行會指定輸出的格式化方式為利用新行分隔每個 JSON 物件。 陣列會指定輸出將會格式化為 JSON 物件的陣列。 |
 
+分割區數目是[根據服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分割區索引鍵是每個分割區的唯一整數值。
+
 ## <a name="service-bus-topics"></a>服務匯流排主題
 「服務匯流排佇列」提供從傳送者到接收者的一對一通訊方法，而 [服務匯流排主題](https://msdn.microsoft.com/library/azure/hh367516.aspx) 則是提供一對多的通訊形式。
 
@@ -303,22 +308,29 @@ DateTime | 字串 | 字串 |  DateTime | 字串
  | 編碼 |如果使用 CSV 或 JSON 格式，則必須指定編碼。 UTF-8 是目前唯一支援的編碼格式 |
 | 分隔符號 |僅適用於 CSV 序列化。 串流分析可支援多種以 CSV 格式序列化資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
 
+分割區數目是[根據服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分割區索引鍵是每個分割區的唯一整數值。
+
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 是全域散發的多模型資料庫服務，在全球各地提供無限的彈性調整、透過無從驗證結構描述資料模型的豐富查詢和自動索引、保證低延遲以及領先業界的完整 SLA。
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 是全域散發的多模型資料庫服務，在全球各地提供無限的彈性調整、透過無從驗證結構描述資料模型的豐富查詢和自動索引、保證低延遲以及領先業界的完整 SLA。 若要了解串流分析的 Cosmos DB 集合選項，請參閱[以 Cosmos DB 做為輸出的串流分析](stream-analytics-documentdb-output.md)一文。
 
-以下清單詳細說明用於建立 Azure Cosmos DB 輸出的屬性名稱及其描述。
+> [!Note]
+> 此時 Azure 串流分析僅支援使用 **SQL API** 連線至 CosmosDB。
+> 尚不支援其他 Azure Cosmos DB API。 如果您將 Azure Stream Analytics 指向使用其他 API 建立的 Azure Cosmos DB 帳戶，可能無法正確儲存資料。 
 
-* **輸出別名**：在您的串流分析查詢中參照此輸出時所用的別名  
-* **帳戶名稱**：Cosmos DB 帳戶的名稱或端點 URI。  
-* **帳戶金鑰**：Cosmos DB 帳戶的共用存取金鑰。  
-* **資料庫**：Cosmos DB 資料庫名稱。  
-* **集合名稱模式**：要使用之集合的集合名稱或其模式。 您可以使用選用的 {partition} 語彙基元來建構集合名稱的格式，其中的資料分割會從 0 開始。 以下是有效的範例輸入：  
-  1\) MyCollection – 必須要有一個名為 “MyCollection” 的集合存在。  
-  2\) MyCollection{partition} – 這些集合必須存在 – "MyCollection0”、“MyCollection1”、“MyCollection2” 等，依此類推。  
-* **資料分割索引鍵** - 選擇性。 只有當您在集合名稱模式中使用 partition 語彙基元時，才需要此索引鍵。 輸出事件中的欄位名稱會用來為跨集合的資料分割輸出指定索引鍵。 若為單一集合輸出，則可使用任何任意的輸出欄，例如 PartitionId。  
-* **文件識別碼** ：可省略。 輸出事件中的欄位名稱會用來指定主索引鍵，此為插入或更新作業的依據。  
+下表描述用來建立 Azure Cosmos DB 輸出的屬性。
+| 屬性名稱 | 說明 |
+| --- | --- |
+| 輸出別名 | 在您的串流分析查詢中參照此輸出時所用的別名。 |
+| 接收 | Cosmos DB |
+| 匯入選項 | 選擇 [從您的訂用帳戶選取 Cosmos DB]，或 [手動提供 Cosmos DB 設定]。
+| 帳戶識別碼 | Cosmos DB 帳戶的名稱或端點 URI。 |
+| 帳戶金鑰 | Cosmos DB 帳戶的共用存取金鑰。 |
+| 資料庫 | Cosmos DB 資料庫名稱。 |
+| 集合名稱模式 | 所要使用集合的集合名稱或其模式。 <br/>您可以使用選用的 {partition} 語彙基元來建構集合名稱的格式，其中的資料分割會從 0 開始。 兩個範例：  <br/>1._MyCollection_ – 必須要有一個名為 "MyCollection" 的集合。  <br/>2._MyCollection{partition}_ – 根據分割資料行。 <br/>分割資料行集合必須存在 – "MyCollection0"、"MyCollection1"、"MyCollection2" 等，依此類推。 |
+| 資料分割索引鍵 | 選用。 只有當您在集合名稱模式中使用 {partition} 權杖時，才需要此索引鍵。<br/> 分割索引鍵是輸出事件中的欄位名稱，用來指定跨集合分割輸出的索引鍵。<br/> 若為單一集合輸出，則可使用任何任意的輸出欄，例如 PartitionId。 |
+| 文件識別碼 |選用。 輸出事件中的欄位名稱會用來指定主索引鍵，此為插入或更新作業的依據。  
 
-## <a name="azure-functions-in-preview"></a>Azure Functions (處於預覽階段)
+## <a name="azure-functions"></a>Azure Functions
 Azure Functions 是無伺服器計算服務，可讓您依需求執行程式碼，無需明確佈建或管理基礎結構。 它可讓您實作在 Azure 或協力廠商服務中發生之事件所觸發的程式碼。  Azure Functions 回應觸發程序的這個功能使其自然輸出 Azure 串流分析。 此輸出配接器可讓使用者將串流分析連接至 Azure Functions，然後執行指令碼或程式碼片段，以回應各種不同的事件。
 
 Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 新的 Azure Functions 輸出配接器可搭配下列可設定屬性使用：
@@ -334,6 +346,23 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 新的 Az
 請注意，當 Azure 串流分析從 Azure 函式收到 413 (http 要求實體太大) 例外狀況時，它會縮減傳送至 Azure Functions 之批次的大小。 在 Azure 函式程式碼中，使用這個例外狀況可確保 Azure 串流分析不會傳送過大的批次。 此外，請確認函式中使用的最大批次計數和大小值都符合串流分析入口網站中輸入的值。 
 
 此外，如果在某個時間範圍內沒有登陸任何事件，則不會產生任何輸出。 如此一來，就不會呼叫 computeResult 函式。 此行為與內建的視窗型彙總函式一致。
+
+## <a name="partitioning"></a>分割
+
+下表摘要說明分割支援，和每個輸出類型的輸出寫入器數目：
+
+| 輸出類型 | 支援分割 | 資料分割索引鍵  | 輸出寫入器數目 | 
+| --- | --- | --- | --- |
+| Azure Data Lake Store | yes | 在路徑前置詞模式中使用 {date} 和 {time} 權杖。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用於時間格式。 | 與輸入相同。 | 
+| 連接字串 | 否 | None | 不適用。 | 
+| Azure Blob 儲存體 | yes | 在路徑模式中使用 {date} 和 {time} 權杖。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用於時間格式。 | 與輸入相同。 | 
+| Azure 事件中樞 | yes | yes | 與輸出事件中樞分割區相同。 |
+| Power BI | 否 | None | 不適用。 | 
+| Azure 資料表儲存體 | yes | 任何輸出資料行。  | 與輸入或上一個步驟相同。 | 
+| Azure 服務匯流排主題 | yes | 自動選擇。 分割區數目是根據[服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分割區索引鍵是每個分割區的唯一整數值。| 與輸出相同。  |
+| Azure 服務匯流排佇列 | yes | 自動選擇。 分割區數目是根據[服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分割區索引鍵是每個分割區的唯一整數值。| 與輸出相同。 |
+| Azure Cosmos DB | yes | 在集合名稱模式中使用 {partition} 權杖。 {partition} 值是根據查詢中讀得 PARTITION BY 子句。 | 與輸入相同。 |
+| Azure Functions | 否 | None | 不適用。 | 
 
 
 ## <a name="get-help"></a>取得說明

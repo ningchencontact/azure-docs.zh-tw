@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: f445a2c77b14477ea2ef4ff7722183d641275f08
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bfad3ff71be07026cf4a7dd6ad75df399349f844
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>適用於 Windows Server 的 Azure Hybrid Benefit
 對於擁有軟體保證的客戶，適用於 Windows Server 的 Azure Hybrid Benefit 讓您能夠以較低的成本來使用內部部署 Windows Server 授權，以及在 Azure 上執行 Windows 虛擬機器。 您可以使用適用於 Windows Server 的 Azure Hybrid Benefit，從任何 Azure 支援的平台 Windows Server 映像或 Windows 自訂映像來部署新的虛擬機器。 本文章會詳述使用適用於 Windows Server 的 Azure Hybrid Benefit 來部署新 VM 的步驟，以及您如何更新現有的執行中 VM。 如需有關適用於 Windows Server 之 Azure Hybrid Benefit 的授權和節省成本詳細資訊，請參閱[適用於 Windows Server 的 Azure Hybrid Benefit 授權頁面](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。
@@ -194,4 +194,4 @@ foreach ($vm in $vms) {"VM Name: " + $vm.Name, "   Azure Hybrid Benefit for Wind
 
 深入了解[在 Azure上使用多租用戶裝載權限的 Windows 10](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) \(英文\)
 
-深入了解[常見問題集](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)
+深入了解[常見問題集](#https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)

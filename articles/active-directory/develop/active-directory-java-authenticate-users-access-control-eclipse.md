@@ -1,25 +1,24 @@
 ---
-title: 如何使用存取控制 (Java) | Microsoft Docs
+title: 如何使用存取控制 (Java)
 description: 了解如何在 Azure 中利用 Java 來開發及使用存取控制。
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: mtillman
-editor: ''
+manager: mbaldwin
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bd65da490bf3d7e17bf6ff36e76e306842d50653
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者
 本指南說明如何在 Azure Toolkit for Eclipse 內使用 Azure 存取控制服務 (ACS)。 如需 ACS 的詳細資訊，請參閱 [後續步驟](#next_steps) 一節。
@@ -123,7 +122,7 @@ Azure 即會建立並啟動命名空間。 等到新命名空間的狀態變成 
    5. 在其餘的欄位中接受預設值。
 4. 按一下 [檔案] 。
 
-您現在已順利設定 Java Web 應用程式，當它在 Azure 計算模擬器 (在 http://localhost:8080/) 執行時，將成為 ACS 命名空間中的 RP。 接著，建立 ACS 用來為 RP 處理宣告的規則。
+您現在已順利設定 Java Web 應用程式，當它在 Azure 計算模擬器 (在 http://localhost:8080/)) 執行時，將成為 ACS 命名空間中的 RP。 接著，建立 ACS 用來為 RP 處理宣告的規則。
 
 ## <a name="create-rules"></a>建立規則
 在此工作中，您可以定義規則，驅使從 IP 傳遞至 RP 的宣告方法。 基於本指南的目的，我們只會將 ACS 設定成直接在輸出權杖中複製輸入宣告類型和值，而不會篩選或修改它們。

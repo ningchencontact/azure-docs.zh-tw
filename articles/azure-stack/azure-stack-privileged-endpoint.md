@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f176e0689c630a406ab6e2f82e9320a214ff8a1a
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9fb928b7cb8e1a83734b64a8b9c19bc3cf3203ba
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中具有特殊權限的端點
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-作為 Azure Stack 操作員，您應該在大部分的日常管理工作使用系統管理員入口網站、PowerShell 或 Azure Resource Manager API。 不過，針對較非一般的作業，您必須使用「具有特殊權限的端點」(PEP)。 PEP 是預先設定的遠端 PowerShell 主控台，能提供恰到好處的功能來協助您執行必要的工作。 此端點使用 [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/en-us/powershell/jea/overview) 來只公開一組有限的 Cmdlet。 若要存取 PEP 並叫用一組有限的 Cmdlet，可使用低權限的帳戶。 無須系統管理員帳戶。 為了增加安全性，不允許使用指令碼。
+作為 Azure Stack 操作員，您應該在大部分的日常管理工作使用系統管理員入口網站、PowerShell 或 Azure Resource Manager API。 不過，針對較非一般的作業，您必須使用「具有特殊權限的端點」(PEP)。 PEP 是預先設定的遠端 PowerShell 主控台，能提供恰到好處的功能來協助您執行必要的工作。 此端點使用 [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) 來只公開一組有限的 Cmdlet。 若要存取 PEP 並叫用一組有限的 Cmdlet，可使用低權限的帳戶。 無須系統管理員帳戶。 為了增加安全性，不允許使用指令碼。
 
 您可以使用 PEP 來執行如以下的工作：
 
@@ -108,7 +108,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>使用具有特殊權限端點的秘訣 
 
-如以上所述，PEP 是 [PowerShell JEA](https://docs.microsoft.com/en-us/powershell/jea/overview) 端點。 雖然 JEA 端點提供強大的安全性階層，但也縮減了一些 PowerShell 功能，例如指令碼處理或 TAB 鍵自動完成功能。 如果您嘗試任何一種指令碼作業，作業就會失敗，並出現錯誤 **ScriptsNotAllowed**。 這是預期行為。
+如以上所述，PEP 是 [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview) 端點。 雖然 JEA 端點提供強大的安全性階層，但也縮減了一些 PowerShell 功能，例如指令碼處理或 TAB 鍵自動完成功能。 如果您嘗試任何一種指令碼作業，作業就會失敗，並出現錯誤 **ScriptsNotAllowed**。 這是預期行為。
 
 因此，例如，若要取得特定 Cmdlet 的參數清單，您需執行下列命令：
 
@@ -116,7 +116,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
     Get-Command <cmdlet_name> -Syntax
 ```
 
-或者，您也可以使用 [Import-PSSession](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) Cmdlet，將所有 PEP Cmdlet 匯入到您本機電腦上的目前工作階段中。 如此一來，現在在本機電腦上就可使用 PEP 的所有 Cmdlet 和函式，連同 TAB 鍵自動完成功能，以及更廣泛來說，還有指令碼處理。 
+或者，您也可以使用 [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) Cmdlet，將所有 PEP Cmdlet 匯入到您本機電腦上的目前工作階段中。 如此一來，現在在本機電腦上就可使用 PEP 的所有 Cmdlet 和函式，連同 TAB 鍵自動完成功能，以及更廣泛來說，還有指令碼處理。 
 
 若要在本機電腦上匯入 PEP 工作階段，請執行下列步驟：
 

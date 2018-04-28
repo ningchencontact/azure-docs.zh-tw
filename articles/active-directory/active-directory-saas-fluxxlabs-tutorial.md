@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 5288ae3deaf82e76accb9c9584c250c7dbe2c9ca
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0bba820c14c5eddc6db99923e3fb1de58c110f4c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>教學課程：Azure Active Directory 與 Fluxx Labs 的整合
 
@@ -58,7 +58,7 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
 
 **若要從資源庫新增 Fluxx Labs，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -114,16 +114,14 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
     |-------------|------------|
     | Production | `https://<subdomain>.fluxx.io` |
     | 生產前 | `https://<subdomain>.preprod.fluxxlabs.com`|
-    | 預備    | `https://<subdomain>.stage.fluxxlabs.com`|
-    
+        
     b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
 
     | 環境 | URL 模式|
     |-------------|------------|
     | Production | `https://<subdomain>.fluxx.io/auth/saml/callback` |
     | 生產前 | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
-    | 預備    | `https://<subdomain>.stage.fluxxlabs.com/auth/saml/callback`|
-    
+        
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Fluxx Labs 支援小組](mailto:travis@fluxxlabs.com)以取得這些值。
 
@@ -141,11 +139,11 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
 
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Fluxx Labs 公司網站。
 
-8. 在頁面右上角按一下 [設定圖示]，然後按一下 [管理]。
+8. 選取 [設定] 區段下方的 [管理員]。
 
     ![Fluxx Labs 組態](./media/active-directory-saas-fluxxlabs-tutorial/config1.png)
 
-9. 在管理面板中選取 [外掛程式] > [整合]，然後選取 [SAML SSO - (已啟用)]
+9. 在管理面板中選取 [外掛程式] > [整合]，然後選取 [SAML SSO - (已停用)]
 
     ![Fluxx Labs 組態](./media/active-directory-saas-fluxxlabs-tutorial/config2.png)
     
@@ -159,13 +157,13 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
 
     c. 在 [回呼路徑] 文字方塊中，輸入 **/auth/saml/callback**。
 
-    d. 在 [判斷提示取用者服務 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
+    d. 在 [判斷提示取用者服務 URL (單一登入 URL)] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
 
-    e. 在 [簽發者] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
+    e. 在 [對象 (SP 實體識別碼)] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
 
-    f. 在記事本中開啟您的 Base-64 編碼的憑證，將其內容複製到剪貼簿，然後貼到 [IDP 憑證] 文字方塊。
+    f. 在記事本中開啟您的 base-64 編碼的憑證，將它的內容複製到您的剪貼簿，然後貼入 [識別提供者憑證] 文字方塊。
 
-    g.  在 [名稱識別碼格式] 文字方塊中，輸入 `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` 值。
+    g. 在 [名稱識別碼格式] 文字方塊中，輸入 `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` 值。
 
     h. 按一下 [檔案] 。
 
@@ -212,23 +210,21 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
 
 1. 以系統管理員身分登入您的 Fluxx Labs 公司網站。
 
-2. 在儀表板上，按一下下方顯示的圖示，以開啟 [新增人員] 卡片。
+2. 按一下下方顯示的**圖示**。
+
+    ![Fluxx Labs 組態](./media/active-directory-saas-fluxxlabs-tutorial/config6.png)
+
+3. 在儀表板上，按一下下方顯示的圖示，以開啟 [新增人員] 卡片。
 
     ![Fluxx Labs 組態](./media/active-directory-saas-fluxxlabs-tutorial/config4.png)
 
-3. 在 [新增人員] 區段上，執行下列步驟：
+4. 在 [新增人員] 區段上，執行下列步驟：
     
     ![Fluxx Labs 組態](./media/active-directory-saas-fluxxlabs-tutorial/config5.png)
 
-    a. 在 [登入] 文字方塊中，輸入使用者的電子郵件，例如 Azure_Admin。
+    a. Fluxx Labs 會使用電子郵件作為 SSO 登入的唯一識別碼。 在 [SSO UID] 欄位中，填入與使用者用作 SSO 登入的電子郵件地址相符的使用者電子郵件地址。
 
-    b. 在 [密碼] 文字方塊中，輸入 Azure_Admin 帳戶的密碼。
-
-    c. 在 [確認密碼] 文字方塊中，再次輸入 Azure_Admin 帳戶的密碼。
-
-    d. Fluxx Labs 會使用電子郵件作為 SSO 登入的唯一識別碼。 在 [SSO UID] 欄位中，填入與使用者用作 SSO 登入的電子郵件地址相符的使用者電子郵件地址。
-
-    e. 按一下 [建立人員]。
+    b. 按一下 [檔案] 。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -285,4 +281,3 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
 [201]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_203.png
-

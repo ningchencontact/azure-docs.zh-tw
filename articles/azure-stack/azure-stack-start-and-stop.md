@@ -1,28 +1,28 @@
 ---
-title: "啟動及停止 Azure Stack | Microsoft Docs"
-description: "了解如何啟動及關閉 Azure Stack。"
+title: 啟動及停止 Azure Stack | Microsoft Docs
+description: 了解如何啟動及關閉 Azure Stack。
 services: azure-stack
-documentationcenter: 
-author: mattbriggs
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 43BF9DCF-F1B7-49B5-ADC5-1DA3AF9668CA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
-ms.author: mabrigg
-ms.openlocfilehash: 98bf75f5883b734c785ed1a3ed924afca1737c56
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.date: 04/09/2018
+ms.author: jeffgilb
+ms.reviewer: misainat
+ms.openlocfilehash: 53015ba5c282bbe9c7b8185b080ffb6d834b6c75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>啟動及停止 Azure Stack
-
-*適用於：Azure Stack 整合系統 (1712 版或更新版本)*
+您應該遵循本文中的程序，適當地關閉然後重新啟動 Azure Stack 服務。 
 
 ## <a name="stop-azure-stack"></a>停止 Azure Stack 
 
@@ -86,4 +86,4 @@ ms.lasthandoff: 01/25/2018
 
 ## <a name="next-steps"></a>後續步驟 
 
-如需深入了解 Azure Stack 診斷工具和問題記錄的詳細資訊，請參閱 [Azure Stack 診斷工具。 Azure Stack 診斷工具。 Azure Stack 診斷工具。 Azure Stack 診斷工具。
+如需深入了解 Azure Stack 診斷工具和問題記錄的詳細資訊，請參閱 [Azure Stack 診斷工具](azure-stack-diagnostics.md)。

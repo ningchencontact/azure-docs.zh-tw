@@ -3,21 +3,20 @@ title: 使用 Azure Data Factory 中的 Hadoop MapReduce 活動轉換資料 | Mi
 description: 了解如何從 Azure Data Factory，在 Azure HDInsight 叢集上執行 Hadoop MapReduce 程式以處理資料。
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 7c736f08e35f217be1ab7eef0a06ce418025973a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: douglasl
+ms.openlocfilehash: ecaa9b612dcf7760987b8b8438808b0a961ef193
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop MapReduce 活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

@@ -1,24 +1,24 @@
 ---
-title: "使用 Azure Functions 將資料傳送到 Kafka on HDInsight | Microsoft Docs"
-description: "了解如何使用 Azure Functions 將資料寫入至 Kafka on HDInsight。"
+title: 使用 Azure Functions 將資料傳送到 Kafka on HDInsight | Microsoft Docs
+description: 了解如何使用 Azure Functions 將資料寫入至 Kafka on HDInsight。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: larryfr
-ms.openlocfilehash: c1c03cfcbcb7e0bfdb4a631b9e2ae568f0684069
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6c462f9fe5e152c82be1a2b8643ee35d260a90f6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-kafka-on-hdinsight-from-an-azure-function-app"></a>從 Azure 函式應用程式使用 Kafka on HDInsight
 
@@ -70,7 +70,7 @@ Kafka on HDInsight 包含在 Azure 虛擬網路中。 Azure Functions 可以使�
 
 Zookeeper 預設會將 Kafka 代理程式的網域名稱傳回給用戶端。 若沒有 DNS 伺服器，此組態無法運作，因為用戶端 (Azure Functions) 無法解析虛擬網路的名稱。 針對此設定，使用下列步驟來設定 Kafka 以公告 IP 位址而不是網域名稱：
 
-1. 使用網頁瀏覽器移至 https://CLUSTERNAME.azurehdinsight.net。 將 __CLUSTERNAME__ 取代為 HDInsight 叢集上 Kafka 的名稱。
+1. 使用網頁瀏覽器，移至 https://CLUSTERNAME.azurehdinsight.net。 將 __CLUSTERNAME__ 取代為 HDInsight 叢集上 Kafka 的名稱。
 
     出現提示時，請使用叢集的 HTTPS 使用者名稱和密碼。 此時會顯示叢集的 Ambari Web UI。
 

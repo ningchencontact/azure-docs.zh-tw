@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Tableau Server 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Tableau Server 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Tableau Server 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Tableau Server 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
 ms.openlocfilehash: 3b0390c8b95a46b2c134252532bef118ea4df52d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>教學課程：Azure Active Directory 與 Tableau Server 整合
 
@@ -57,7 +57,7 @@ Tableau Server 與 Azure AD 整合提供下列優點：
 
 **如要從資源庫新增 Tableau Server，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -158,7 +158,7 @@ Tableau Server 與 Azure AD 整合提供下列優點：
   
    b. 選取 [使用 SAML 進行單一登入] 的核取方塊。
    
-   c. Tableau Server 傳回 URL—Tableau Server 使用者將存取的 URL，例如 http://tableau_server。 不建議使用 http://localhost。 不支援使用包含結尾斜線的 URL (例如，http://tableau_server/)。 複製 [Tableau Server 傳回 URL]，並將其貼到 [Tableau Server 網域及 URL] 區段中的 Azure AD [單一登入 URL] 文字方塊。
+   c. Tableau Server 傳回 URL — Tableau Server 使用者將存取的 URL，例如 http://tableau_server。 不建議使用 http://localhost。 不支援使用包含結尾斜線的 URL (例如，http://tableau_server/))。 複製 [Tableau Server 傳回 URL]，並將其貼到 [Tableau Server 網域及 URL] 區段中的 Azure AD [單一登入 URL] 文字方塊。
    
    d. SAML 實體識別碼—實體識別碼可唯一識別安裝至 IdP 的 Tableau Server。 您可以依意願再次在這裡輸入 Tableau Server URL，但是它不一定是您的 Tableau Server URL。 複製 [SAML 實體識別碼]，並將其貼到 [Tableau Server 網域及 URL] 區段中的 Azure AD [識別碼] 文字方塊。
      

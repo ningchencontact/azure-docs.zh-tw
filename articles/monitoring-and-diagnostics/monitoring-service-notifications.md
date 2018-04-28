@@ -1,8 +1,8 @@
 ---
 title: 什麼是 Azure 服務健康情況通知？ | Microsoft Docs
 description: 藉由服務健康情況通知，您可以檢視由 Microsoft Azure 發佈的服務健康情況訊息。
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 4/12/2017
+ms.author: dukek
+ms.openlocfilehash: 6821828d3e39a87b8c93f74e7e0583bf9fe1fe4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>使用 Azure 入口網站檢視服務健康情況通知
 
@@ -41,7 +41,7 @@ Azure 會發佈服務健康情況通知，其中包含您訂用帳戶下資源�
 correlationId | 通常是字串格式的 GUID。 屬於相同動作的事件通常會共用同一個 correlationId。
 eventDataId | 事件的唯一識別碼。
 eventName | 事件的標題。
-層級 | 事件的層級。 下列其中一個值：**Critical**、**Error**、**Warning** 或 **Informational**。
+層級 | 事件的層級
 resourceProviderName | 受影響資源的資源提供者名稱。
 resourceType| 受影響資源的資源類型。
 子狀態 | 通常是對應 REST 呼叫的 HTTP 狀態碼，但也可以包含其他描述子狀態的字串。 例如：確定 (HTTP 狀態碼︰200)，已建立 (HTTP 狀態碼︰201)、接受 (HTTP 狀態碼︰202)、沒有內容 (HTTP 狀態碼︰204)、不正確的要求 (HTTP 狀態碼︰400)、找不到 (HTTP 狀態碼︰404)，衝突 (HTTP 狀態碼︰409)、內部伺服器錯誤 (HTTP 狀態碼︰500)、服務無法使用 (HTTP 狀態碼︰503) 和閘道逾時 (HTTP 狀態碼︰504)。
@@ -54,14 +54,52 @@ category | 此屬性一律為 **ServiceHealth**。
 ResourceId | 受影響資源的資源識別碼。
 Properties.title | 此通訊的當地語系化標題。 預設語言為英文。
 Properties.communication | 與 HTML 標記通訊的詳細資料 (已當地語系化)。 預設語言為英文。
-Properties.incidentType | 為下列其中一個值：**AssistedRecovery**、**ActionRequired**、**Information**、**Incident**、**Maintenance** 或 **Security**。
+Properties.incidentType | 為下列其中一個值：**ActionRequired**、**Information**、**Incident**、**Maintenance** 或 **Security**。
 Properties.trackingId | 與此事件 (event) 相關聯的附帶事件 (Incident)。 可用此屬性讓與附帶事件 (Incident) 有關的事件 (event) 相關聯。
 Properties.impactedServices | 逸出的 JSON blob，描述受到附帶事件 (Incident) 影響的服務和區域。 屬性包含服務清單 (每一份都有 **ServiceName**) 和受影響區域清單 (每一份都有 **RegionName**)。
 Properties.defaultLanguageTitle | 英文的通訊。
 Properties.defaultLanguageContent | 英文的通訊，如 html 標記或純文字。
-Properties.stage | **AssistedRecovery**、**ActionRequired**、**Information**、**Incident** 和 **Security** 的可能值為 **Active** 或 **Resolved**。 **Maintenance** 的可能值︰**Active**、**Planned**、**InProgress**、**Canceled**、**Rescheduled**、**Resolved** 或 **Complete**。
+Properties.stage | **Incident** 和 **Security** 的可能值為 **Active**、**Resolved** 或 **RCA**。 針對 **ActionRequired** 或 **Information**，唯一的值為 **Active**。 **Maintenance** 的可能值︰**Active**、**Planned**、**InProgress**、**Canceled**、**Rescheduled**、**Resolved** 或 **Complete**。
 Properties.communicationId | 與此事件相關聯的通訊。
 
+### <a name="details-on-service-health-level-information"></a>服務健康情況層級資訊的詳細資料
+  <ul>
+    <li><b>所需的動作</b> (properties.incidentType == ActionRequired) <dl>
+            <dt>資訊</dt>
+            <dd>避免影響現有服務所需的系統管理員動作</dd>
+        </dl>
+    </li>
+    <li><b>維護</b> (properties.incidentType == Maintenance) <dl>
+            <dt>警告</dt>
+            <dd>緊急維護<dd>
+            <dt>資訊</dt>
+            <dd>標準的計劃性維護</dd>
+        </dl>
+    </li>
+    <li><b>資訊</b> (properties.incidentType == Information) <dl>
+            <dt>資訊</dt>
+            <dd>系統管理員可能必須避免影響現有服務</dd>
+        </dl>
+    </li>
+    <li><b>安全性</b> (properties.incidentType == Security) <dl>
+            <dt>錯誤</dt>
+            <dd>跨多個區域存取多個服務的廣泛問題會影響廣泛的客戶。</dd>
+            <dt>警告</dt>
+            <dd>存取特定服務及/或特定區域的問題會影響一部分客戶。</dd>
+            <dt>資訊</dt>
+            <dd>影響管理作業和/或延遲的問題，不會影響服務可用性。</dd>
+        </dl>
+    </li>
+    <li><b>服務問題</b> (properties.incidentType == Incident) <dl>
+            <dt>錯誤</dt>
+            <dd>跨多個區域存取多個服務的廣泛問題會影響廣泛的客戶。</dd>
+            <dt>警告</dt>
+            <dd>存取特定服務及/或特定區域的問題會影響一部分客戶。</dd>
+            <dt>資訊</dt>
+            <dd>影響管理作業和/或延遲的問題，不會影響服務可用性。</dd>
+        </dl>
+    </li>
+  </ul>
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>在 Azure 入口網站中檢視您的服務健康情況通知
 1.  在 [Azure 入口網站](https://portal.azure.com)中，選取 [監視]。

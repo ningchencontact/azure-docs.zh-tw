@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8216dafdd846f10ca1c8fc33b710a093aca20c7b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -46,7 +46,21 @@ ms.lasthandoff: 04/05/2018
 
 回到 [開始使用] 刀鋒視窗，在 [建立資料表 API] 底下，選擇 [C#] 作為您的 [後端語言]。 按一下 [下載] ，將壓縮的專案檔案解壓縮至您的本機電腦，並在 Visual Studio 中開啟方案。
 
-### <a name="create-a-net-backend-using-visual-studio-2013-and-visual-studio-2015"></a>使用 Visual Studio 2013 和 Visual Studio 2015 建立 .NET 後端
+### <a name="create-a-net-backend-using-visual-studio-2017"></a>使用 Visual Studio 2017 建立 .NET 後端
+
+透過 Visual Studio 安裝程式安裝 Azure 工作負載，以從 Visual Studio 發佈至 Azure 行動應用程式專案。 當您安裝 SDK 之後，使用下列步驟建立 ASP.NET 應用程式：
+
+1. 開啟 [新增專案] 對話方塊 (從 [檔案]  >  [新增]  >  [專案...])。
+2. 展開 [Visual C#]，然後選取 [Web]。
+3. 選取 [ASP.NET Web 應用程式 (.NET Framework)]。
+4. 填入專案名稱。 然後按一下 [確定] 。
+5. 從範本清單選取 [Azure 行動應用程式]。
+6. 按一下 [確定] 以建立方案。
+7. 以滑鼠右鍵按一下 [方案總管] 中的專案，選擇 [發佈]，然後選擇 [應用程式服務] 作為發佈目標。
+8. 遵循提示進行驗證，並選擇新的或現有 Azure 應用程式服務來發佈。
+
+### <a name="create-a-net-backend-using-visual-studio-2015"></a>使用 Visual Studio 2015 建立 .NET 後端
+
 安裝 [Azure SDK for .NET][4] (2.9.0 版或更新版本)，以在 Visual Studio 中建立 Azure Mobile Apps 專案。 當您安裝 SDK 之後，使用下列步驟建立 ASP.NET 應用程式：
 
 1. 開啟 [新增專案] 對話方塊 (從 [檔案]  >  [新增]  >  [專案...])。
@@ -64,7 +78,7 @@ SDK 可於 [NuGet.org]取得。此封裝包含開始使用 SDK 所需的基本�
 
 ### <a name="server-project-setup"></a> 初始化伺服器專案
 初始化 .NET 後端伺服器專案的方式類似其他 ASP.NET 專案，可藉由包含 OWIN 啟動類別來完成。 請確定您已參考 NuGet 封裝 `Microsoft.Owin.Host.SystemWeb`。 若要在 Visual Studio 中新增這個類別，請在伺服器專案上按一下滑鼠右鍵，選取 **[新增]** >
-**[新項目]**，然後依序選取 **[Web]** > **[一般]** > **[OWIN 啟動類別]**。  隨即產生具有下列屬性的類別：
+ **[新項目]**，然後依序選取 **[Web]** > **[一般]** > **[OWIN 啟動類別]**。  隨即產生具有下列屬性的類別：
 
     [assembly: OwinStartup(typeof(YourServiceName.YourStartupClassName))]
 

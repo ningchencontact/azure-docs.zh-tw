@@ -1,6 +1,6 @@
 ---
-title: "建立 Azure 應用程式閘道 - 範本 | Microsoft Docs"
-description: "本頁面提供使用 Azure 資源管理員範本，建立 Azure 應用程式閘道的指示。"
+title: 建立 Azure 應用程式閘道 - 範本 | Microsoft Docs
+description: 本頁面提供使用 Azure 資源管理員範本，建立 Azure 應用程式閘道的指示。
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ba100189cec2060efa97914a2c90f7b0cccbc33f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure 資源管理員範本建立應用程式閘道
 
@@ -76,7 +76,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
    * **名稱**。 資源的名稱。 請注意 `[parameters('applicationGatewayName')]` 的用法，這表示此名稱是在部署期間由您輸入的內容，或是由參數檔案所提供。
    * **屬性**。 資源屬性的清單。 此範本會在應用程式閘道建立期間，使用虛擬網路與公用 IP 位址。
 
-1. 瀏覽回 [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
+1. 巡覽回 [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf)。
 1. 按一下 [azuredeploy-parameters.json]，然後按一下 [RAW]。
 1. 將檔案儲存至您電腦上的本機資料夾。
 1. 開啟您儲存的檔案，以編輯參數的值。 使用下列值來部署本文案例所述的應用程式閘道。
@@ -129,7 +129,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 1. 登入 PowerShell
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. 檢查帳戶的訂用帳戶。

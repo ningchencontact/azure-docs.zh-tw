@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure PowerShell 佈建 SQL Server VM 的指南 | Microsoft Docs"
-description: "提供使用 SQL Server 虛擬機器資源庫映像建立 Azure VM 的步驟和 PowerShell 命令。"
+title: 使用 Azure PowerShell 佈建 SQL Server VM 的指南 | Microsoft Docs
+description: 提供使用 SQL Server 虛擬機器資源庫映像建立 Azure VM 的步驟和 PowerShell 命令。
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 2f94cf2ab84179161c8d0a4f2ae6f73ded1d65c3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7dff9fd736b1b0c616ee2d4f2591d632345156b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>如何使用 Azure PowerShell 佈建 SQL Server 虛擬機器
 
@@ -31,10 +31,10 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="configure-your-subscription"></a>設定您的訂用帳戶
 
-1. 開啟 PowerShell 並執行 **Add-AzureRmAccount** 來建立您的 Azure 帳戶存取權限。
+1. 開啟 PowerShell 並執行 **Connect-AzureRmAccount** 來建立您的 Azure 帳戶存取權限。
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. 您會看到要輸入認證的登入畫面。 請使用與登入 Azure 入口網站相同的電子郵件和密碼。
@@ -327,7 +327,7 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 您也可以使用 **Remove-AzureRmResourceGroup**命令，將與虛擬機器相關聯的所有資源永久刪除。 這也會永久刪除虛擬機器，因此請小心使用此命令。
 
 ## <a name="example-script"></a>範例指令碼
-下列指令碼包含本教學課程的完整 PowerShell 指令碼。 假設您已經設定 Azure 訂用帳戶與 **Add-AzureRmAccount** 和 **Select-AzureRmSubscription** 命令搭配使用。
+下列指令碼包含本教學課程的完整 PowerShell 指令碼。 假設您已經設定 Azure 訂用帳戶與 **Connect-AzureRmAccount** 和 **Select-AzureRmSubscription** 命令搭配使用。
 
 ```PowerShell
 # Variables

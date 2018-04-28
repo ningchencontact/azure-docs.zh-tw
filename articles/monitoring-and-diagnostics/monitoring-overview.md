@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 404ede664f13900137c730034798fbb4b8307852
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>監視 Azure 應用程式和資源
 
@@ -161,6 +161,6 @@ Application Insights 和 Azure 資訊安全中心會將其資料儲存在 Log An
 ## <a name="next-steps"></a>後續步驟
 深入了解：
 
-* [Azure 監視器](https://azure.microsoft.com/en-us/services/monitor/)，以開始使用核心監視計量和警示。
+* [Azure 監視器](https://azure.microsoft.com/services/monitor/)，以開始使用核心監視計量和警示。
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/)，如果您正嘗試診斷 App Service Web 應用程式中的問題。
 * [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)，以分析所收集的監視資料和記錄。

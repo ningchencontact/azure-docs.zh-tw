@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: fe4a4962acce06a6448cef8d5c1af398e3965a33
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 806d0db3536a00dea4e421f847cf0f75bcfc218c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory 支援的計算環境
 本文說明您可用來處理或轉換資料的各種計算環境。 其中還提供在設定將這些計算環境連結至 Azure Data Factory 的連結服務時，Data Factory 所支援的不同組態 (隨選與自備) 的詳細資料。
@@ -426,6 +426,65 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | tenant               | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | yes                                      |
 | connectVia           | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否                                       |
 
+
+
+## <a name="azure-databricks-linked-service"></a>Azure Databricks 連結服務
+您可以建立 **Azure Databricks 連結服務**來註冊Databricks 工作區，之後您將使用此工作區執行 Databricks 工作負載 (Notebook)。
+
+### <a name="example---using-new-job-cluster-in-databricks"></a>範例 - 在 Databricks 中使用新的作業叢集
+
+```json
+{
+    "name": "AzureDatabricks_LS",
+    "properties": {
+        "type": "AzureDatabricks",
+        "typeProperties": {
+            "domain": "eastus.azuredatabricks.net",
+            "newClusterNodeType": "Standard_D3_v2",
+            "newClusterNumOfWorker": "1:10",
+            "newClusterVersion": "4.0.x-scala2.11",
+            "accessToken": {
+                "type": "SecureString",
+                "value": "dapif33c9c721144c3a790b35000b57f7124f"
+            }
+        }
+    }
+}
+
+```
+
+### <a name="example---using-existing-interactive-cluster-in-databricks"></a>範例 - 在 Databricks 中使用現有的互動式叢集
+
+```json
+{
+    "name": " AzureDataBricksLinedService",
+    "properties": {
+      "type": " AzureDatabricks",
+      "typeProperties": {
+        "domain": "https://westeurope.azuredatabricks.net",
+        "accessToken": {
+            "type": "SecureString", 
+            "value": "dapif33c9c72344c3a790b35000b57f7124f"
+          },
+        "existingClusterId": "{clusterId}"
+        }
+}
+
+```
+
+### <a name="properties"></a>properties
+
+| 屬性             | 說明                              | 必要                                 |
+| -------------------- | ---------------------------------------- | ---------------------------------------- |
+| name                 | 連結服務的名稱               | yes   |
+| type                 | type 屬性應設為：**AzureDatabricks**。 | yes                                      |
+| 網域               | 根據 Databricks 工作區的區域指定 Azure 區域。 範例： https://eastus.azuredatabricks.net | yes                                 |
+| accessToken          | Data Factory 需要有存取權杖才能向 Azure Databricks 進行驗證。 存取權杖必須由 Databricks 工作區產生。 有關尋找存取權杖的詳細步驟可在[這裡](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)找到。  | yes                                       |
+| existingClusterId    | 所有作業將在其上執行的現有叢集的叢集識別碼。 這應該是已建立的互動式叢集。 如果叢集停止回應，您可能需要手動重新啟動叢集。 Databricks 建議在新的叢集上執行作業以提高可靠度。 您可以在 Databricks 工作區 -> [叢集]-> [互動式叢集名稱]-> [設定]-> [標記] 找到互動式叢集的叢集識別碼。 [更多詳細資料](https://docs.databricks.com/user-guide/clusters/tags.html) | 否 
+| newClusterVersion    | 叢集的 Spark 版本。 這會在 Databricks 中建立一個作業叢集。 | 否  |
+| newClusterNumOfWorker| 此叢集應有的背景工作角色節點數目。 一個叢集有一個 Spark 驅動程式、num_workers 個執行程式、總共 num_workers + 1 個 Spark 節點 。 Int32 格式的字串，例如 "1" 表示 numOfWorker 為 1，或者 "1:10" 表示在最小值 1 和最大值 10 之間自動調整。  | 否                |
+| newClusterNodeType   | 此欄位透過單一值，將對此叢集中每個 Spark 節點可使用的資源編碼。 例如，Spark 節點可以佈建，並針對記憶體或計算密集型工作負載最佳化。新叢集的此欄位為必要欄位                | 否               |
+| newClusterSparkConf  | 一組選擇性的、使用者指定的 Spark 設定機碼值組。 使用者也可以用字串將額外的 JVM 選項分別透過 spark.driver.extraJavaOptions 和 spark.executor.extraJavaOptions 傳遞給驅動程式和執行程式。 | 否  |
 
 
 ## <a name="azure-sql-database-linked-service"></a>Azure SQL Database 的連結服務

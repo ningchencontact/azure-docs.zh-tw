@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure CLI 在 Azure 虛擬機器擴展集上設定 MSI"
-description: "使用 Azure CLI 在 Azure 虛擬機器擴展集上設定「受控服務身分識別 (MSI)」的逐步指示。"
+title: 使用 Azure CLI 在 Azure 虛擬機器擴展集上設定 MSI
+description: 使用 Azure CLI 在 Azure 虛擬機器擴展集上設定「受控服務身分識別 (MSI)」的逐步指示。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: d7a7b0c8b3f9bf0279282dbf1fed4fc8163d9170
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9cdf5225f2d87fffa2290e3edd09d4ae829aee21
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>使用 Azure CLI 設定虛擬機器擴展集的受控服務身分識別 (MSI)
 
@@ -71,10 +71,10 @@ ms.lasthandoff: 03/09/2018
    az login
    ```
 
-2. 使用 [az vmss assign-identity](/cli/azure/vm/#az_vmss_assign_identity)和 `--assign-identity` 參數將 MSI 新增至現有 VM：
+2. 使用 [az vmss identity assign](/cli/azure/vmss/identity/#az_vmss_identity_assign) 命令將 MSI 新增至現有的虛擬機器：
 
    ```azurecli-interactive
-   az vmss assign-identity -g myResourceGroup -n myVMSS
+   az vmss identity assign -g myResourceGroup -n myVMSS
    ```
 
 ## <a name="remove-msi-from-an-azure-virtual-machine-scale-set"></a>從 Azure 虛擬機器擴展集中移除 MSI
@@ -87,10 +87,10 @@ ms.lasthandoff: 03/09/2018
    az login
    ```
 
-2. 使用 `--identities` 參數和 [az vmss remove-identity](/cli/azure/vmss/#az_vmss_remove_identity) 移除 MSI：
+2. 使用 [az vmss identity remove](/cli/azure/vmss/identity/#az_vmss_remove_identity) 命令移除 MSI：
 
    ```azurecli-interactive
-   az vmss remove-identity -g myResourceGroup -n myVMSS --identities readerID writerID
+   az vmss identity remove -g myResourceGroup -n myVMSS --identities readerID writerID
    ```
 
 ## <a name="next-steps"></a>後續步驟

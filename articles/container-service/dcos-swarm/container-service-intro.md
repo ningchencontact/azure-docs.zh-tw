@@ -1,19 +1,19 @@
 ---
-title: "Azure 雲端中的 Docker 容器主控"
-description: "Azure Container Service 提供簡化建立、設定及管理虛擬機器叢集的方法，這些虛擬機器預先設定為執行容器化應用程式。"
+title: Azure 雲端中的 Docker 容器主控
+description: Azure Container Service 提供簡化建立、設定及管理虛擬機器叢集的方法，這些虛擬機器預先設定為執行容器化應用程式。
 services: container-service
 author: rgardler
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 94ae759803bc3a65ec7dc9a8e01486625a638368
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d89e9b4dcfe44648f1e3ddd95fb01b62a36295df
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>使用 Azure Container Service 的 Docker 容器主控解決方案簡介 
 

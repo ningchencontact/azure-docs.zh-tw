@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure 儲存體總管 (預覽) 版本資訊"
-description: "Microsoft Azure 儲存體總管 (預覽) 的版本資訊"
+title: Microsoft Azure 儲存體總管版本資訊
+description: Microsoft Azure 儲存體總管版本資訊
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 0e5523e297979a89ffd4b4ed51c8476fb1354419
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8ec74f69d2de7b167fcc66d0e2499d052f0bf18e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure 儲存體總管 (預覽) 版本資訊
+# <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure 儲存體總管版本資訊
 
 本文包含 Microsoft Azure 儲存體總管 0.9.6 (預覽) 和先前版本的版本資訊。
 
-[Microsoft Azure 儲存體總管 (預覽)](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立 App，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
+[Microsoft Azure 儲存體總管](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
 
 ## <a name="version-096"></a>0.9.6 版
 02/28/2018

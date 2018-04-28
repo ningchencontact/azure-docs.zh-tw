@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: f57a4b87c239126d248cba5106e005103d8372b2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 636f7be10850ff6a65aa6a2680bea148cb5ebd3d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="network-security"></a>網路安全性
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/16/2018
 - **輸入流量**：系統會先評估與網路介面所在子網路相關聯的網路安全性群組。 再由與網路介面相關聯的網路安全性群組，評估經由與子網路相關聯的網路安全性群組允許的任何流量。 例如，您可能需要從網際網路透過連接埠 80 對虛擬機器進行輸入存取。 如果您將網路安全性群組與網路介面和網路介面所在子網路產生關聯，則與子網路和網路介面相關聯的網路安全性群組必須允許連接埠 80。 如果您經由與子網路或子網路所在網路介面相關聯的網路安全性群組只允許連接埠 80，則通訊會因為預設安全性規則而失敗。 如需詳細資訊，請參閱[預設安全性規則](#default-security-rules)。 如果您只將網路安全性群組套用至子網路或網路介面，而且此網路安全性群組含有允許輸入連接埠 80 流量 (舉例來說) 的規則，則通訊會成功。 
 - **輸出流量**：系統會先評估與網路介面相關聯的網路安全性群組。 再由與子網路相關聯的網路安全性群組，評估經由與網路介面相關聯的網路安全性群組允許的任何流量。
 
-您可能永遠不會注意網路安全性群組何時同時套用至網路介面和子網路。 藉由檢視網路介面的[有效安全性規則](virtual-network-network-interface.md#view-effective-security-rules)，可以輕鬆地檢視套用至網路介面的彙總規則。 您也可以使用 Azure 網路監看員中的 [IP 流量確認](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)功能來判斷是否允許網路介面的雙向通訊。 此工具會告訴您是否允許通訊，以及哪個網路安全性規則允許或拒絕流量。
+您可能永遠不會注意網路安全性群組何時同時套用至網路介面和子網路。 藉由檢視網路介面的[有效安全性規則](virtual-network-network-interface.md#view-effective-security-rules)，可以輕鬆地檢視套用至網路介面的彙總規則。 您也可以使用 Azure 網路監看員中的 [IP 流量確認](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json)功能來判斷是否允許網路介面的雙向通訊。 此工具會告訴您是否允許通訊，以及哪個網路安全性規則允許或拒絕流量。
  
 > [!NOTE]
 > 網路安全性群組會與子網路或與部署傳統部署模型的虛擬機器和雲端服務相關聯，而不是與 Resource Manager 部署模型中的網路介面相關聯。 若要深入了解 Azure 部署模型，請參閱[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
@@ -119,7 +119,7 @@ ms.lasthandoff: 04/16/2018
 * **VirtualNetwork** (**Resource Manager) (適用於傳統部署的 VIRTUAL_NETWORK**)：這個標籤包含虛擬網路位址空間 (針對虛擬網路定義的所有 CIDR 範圍)、所有已連線的內部部署位址空間，以及[對等互連](virtual-network-peering-overview.md)的虛擬網路或已連線至[虛擬網路閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的虛擬網路。
 * **AzureLoadBalancer** (Resource Manager) (適用於傳統部署的 **AZURE_LOADBALANCER**)：這個標籤代表 Azure 基礎結構的負載平衡器。 此標籤會轉譯成作為 Azure 健康情況探查來源的 [Azure 資料中心 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653)。 如果您未使用 Azure 負載平衡器，則可以覆寫此規則。
 * **Internet** (Resource Manager) (適用於傳統部署的 **INTERNET**)：這個標籤代表虛擬網路以外且可以透過公用網際網路進行存取的 IP 位址空間。 此位址範圍也包括 [Azure 擁有的公用 IP 位址空間](https://www.microsoft.com/download/details.aspx?id=41653)。
-* **AzureTrafficManager** (僅限資源管理員)：此標籤代表 Azure 流量管理員探查 IP 的 IP 位址空間。 如需流量管理員探查 IP 的詳細資訊，請參閱 [Azure 流量管理員常見問題集](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs)。
+* **AzureTrafficManager** (僅限資源管理員)：此標籤代表 Azure 流量管理員探查 IP 的 IP 位址空間。 如需流量管理員探查 IP 的詳細資訊，請參閱 [Azure 流量管理員常見問題集](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)。
 * **Storage** (僅限 Resource Manager)：這個標籤代表 Azure 儲存體服務的 IP 位址空間。 如果您指定 *Storage* 值，則會允許或拒絕儲存體的流量。 如果您只想要允許存取特定[地區](https://azure.microsoft.com/regions)中的儲存體，您可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure 儲存體，您可以指定 *Storage.EastUS* 作為服務標籤。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure 儲存體服務，但不代表特定的 Azure 儲存體帳戶。
 * **Sql** (僅限 Resource Manager)：這個標籤代表 Azure SQL Database 和 Azure SQL 資料倉儲服務的位址前置詞。 如果您指定 Sql 作為值，就會允許或拒絕 Sql 的流量。 如果您只需要允許存取特定[地區](https://azure.microsoft.com/regions)中的 Sql，可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure SQL Database，您可以指定 *Sql.EastUS* 作為服務標籤。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 SQL Database 或伺服器服務，但不代表特定的 Azure SQL Database。
 

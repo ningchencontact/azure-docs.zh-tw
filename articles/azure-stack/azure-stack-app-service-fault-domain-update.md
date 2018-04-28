@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 34823b856b48af66ab81dda3359d2e50289f8d2f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 42adef66fb1b1141ab44aab3a1ccdaae022202b5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>如何跨容錯網域，在 Azure Stack 上轉散發 Azure App Service
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 04/19/2018
 2. 接下來相應放大每個擴展集。  例如，如果您在擴展集中有 3 個現有執行個體，您必須相應放大為 6 個，以便跨容錯網域佈建 3 個新執行個體。
     a. [在 PowerShell 中設定 Azure Stack 管理環境](azure-stack-powershell-configure-admin.md) b. 使用以下範例來相應放大擴展集的規模：
         ```powershell
-                Connect-AzureRmAccount -EnvironmentName AzureStackAdmin 
+                Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
 
                 # Get current scale set
                 $vmss = Get-AzureRmVmss -ResourceGroupName "AppService.local" -VMScaleSetName "SmallWorkerTierScaleSet"

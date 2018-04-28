@@ -1,31 +1,24 @@
 ---
-title: 教學課程：Polybase 資料載入 - 從 Azure 儲存體 Blob 到 Azure SQL 資料倉儲 | Microsoft Docs
-description: 本教學課程使用 Azure 入口網站和 SQL Server Management Studio，將紐約計程車資料從 Azure blob 儲存體載入 Azure SQL 資料倉儲中。
+title: 教學課程：將紐約計程車資料載入 Azure SQL 資料倉儲 | Microsoft Docs
+description: 教學課程使用 Azure 入口網站和 SQL Server Management Studio，將紐約計程車資料從公用 Azure Blob 載入 Azure SQL 資料倉儲中。
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/16/2018
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-ms.openlocfilehash: 77e1666a5c8cc51495f2058ff76b2b99a3212db0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.reviewer: igorstan
+ms.openlocfilehash: fb918cc70a3a3d21e86c9d530e264199794886f1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>教學課程：使用 PolyBase 將資料從 Azure Blob 儲存體載入 SQL 資料倉儲中
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教學課程：將紐約計程車資料載入 Azure SQL 資料倉儲
 
-PolyBase 是將資料放入 SQL 資料倉儲的標準載入技術。 本教學課程中，您可以使用 PolyBase 將紐約計程車資料從 Azure blob 儲存體載入 Azure SQL 資料倉儲中。 本教學課程是使用 [Azure 入口網站](https://portal.azure.com)和 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)： 
+本教學課程會使用 PolyBase 將紐約計程車資料從公用 Azure Blob 載入 Azure SQL 資料倉儲中。 本教學課程是使用 [Azure 入口網站](https://portal.azure.com)和 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)： 
 
 > [!div class="checklist"]
 > * 在 Azure 入口網站中建立資料倉儲
@@ -50,7 +43,7 @@ PolyBase 是將資料放入 SQL 資料倉儲的標準載入技術。 本教學�
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>建立空白的 SQL 資料倉儲
 
-Azure SQL 資料倉儲會使用一組定義的[計算資源](performance-tiers.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-features.md)內。 
+Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurrency-limits.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-features.md)內。 
 
 遵循以下步驟來建立空白 SQL 資料倉儲。 
 
@@ -170,7 +163,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 ## <a name="create-a-user-for-loading-data"></a>建立載入資料的使用者
 
-伺服器系統管理員帳戶旨在執行管理作業，並不適合用於在使用者資料上執行查詢。 載入資料是需要大量記憶體的作業。 [記憶體的最大值](performance-tiers.md#memory-maximums)是根據[效能層級](performance-tiers.md)和[資源類別](resource-classes-for-workload-management.md)來定義。 
+伺服器系統管理員帳戶旨在執行管理作業，並不適合用於在使用者資料上執行查詢。 載入資料是需要大量記憶體的作業。 記憶體的最大值是根據[效能層級](memory-and-concurrency-limits.md#performance-tiers)、[資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)和[資源類別](resource-classes-for-workload-management.md)來定義。 
 
 您最好建立載入資料專用的登入和使用者。 然後將載入使用者新增至可進行適當最大記憶體配置的[資源類別](resource-classes-for-workload-management.md)。
 
@@ -221,7 +214,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 ## <a name="create-external-tables-for-the-sample-data"></a>為範例資料建立外部資料表
 
-您已準備好開始將資料載入新資料倉儲的程序。 本教學課程會示範如何使用 [Polybase](/sql/relational-databases/polybase/polybase-guide)從 Azure 儲存體 blob 載入紐約市計程車資料。 如需日後參考，要了解如何將您的資料置於 Azure blob 儲存體，或直接從您的來源將資料載入 SQL 資料倉儲，請參閱[載入概觀](sql-data-warehouse-overview-load.md)。
+您已準備好開始將資料載入新資料倉儲的程序。 本教學課程會示範如何使用外部資料表從 Azure 儲存體 blob 載入紐約市計程車資料。 如需日後參考，要了解如何將您的資料置於 Azure blob 儲存體，或直接從您的來源將資料載入 SQL 資料倉儲，請參閱[載入概觀](sql-data-warehouse-overview-load.md)。
 
 執行下列 SQL 指令碼可指定您要載入之資料的相關資訊。 這項資訊包括資料所在位置、資料內容的格式，以及資料的資料表定義。 
 

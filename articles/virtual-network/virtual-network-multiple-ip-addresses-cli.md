@@ -1,13 +1,13 @@
 ---
-title: "使用 Azure CLI 建立具有多個 IP 位址的 VM | Microsoft Docs"
-description: "了解如何使用 Azure 命令列介面 (CLI) 將多個 IP 位址指派給虛擬機器。"
+title: 使用 Azure CLI 建立具有多個 IP 位址的 VM | Microsoft Docs
+description: 了解如何使用 Azure 命令列介面 (CLI) 將多個 IP 位址指派給虛擬機器。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: aa0f84299dcb4800cd332d8276785f6b08152060
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c11883156f53ab53ebe6f84d66232f81f8cf31ff
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>使用 Azure CLI 對虛擬機器指派多個 IP 位址
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/17/2017
 
 本文說明如何使用 Azure CLI 透過 Azure Resource Manager 部署模型建立虛擬機器 (VM)。 無法將多個 IP 位址指派給透過傳統部署模型建立的資源。 若要深入了解 Azure 部署模型，請參閱[了解部署模型](../resource-manager-deployment-model.md)文章。
 
-[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>建立有多個 IP 位址的 VM
 
@@ -167,7 +167,7 @@ az vm create \
 
 ## <a name="add"></a>將 IP 位址新增至 VM
 
-您可以完成後續步驟，將其他私用和公用 IP 位址新增至現有的 NIC。 範例以本文章所述的[案例](#Scenario)為基礎。
+您可以完成後續步驟，將其他私人和公用 IP 位址新增至現有的 Azure 網路介面。 範例以本文章所述的[案例](#Scenario)為基礎。
 
 1. 開啟命令殼層，並在單一工作階段內完成本章節的其餘步驟。 如果您尚未安裝和設定 Azure CLI，請完成 [Azure CLI 2.0 安裝](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json)文章中的步驟，並使用 `az-login` 命令登入 Azure 帳戶。
 

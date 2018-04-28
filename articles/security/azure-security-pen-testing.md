@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 5f2a72d133218e72d1db86b787c998cc50269d3a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1b7b6604de80beadf15dabe0d2da1d7a2e5fabd6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="pen-testing"></a>滲透測試
 使用 Azure 進行應用程式測試和部署的其中一個優點是您可以快速建立環境。  您無需購置、取得和組裝自己的內部部署硬體。
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/16/2018
 自 2017 年 6 月 15 日起，Microsoft 已不再要求需經過預先核准，才可對 Azure 資源進行滲透測試。 要對 Microsoft Azure 正式提出近期滲透測試合作申請的客戶，建議填寫 [Azure 服務滲透測試通知單](https://portal.msrc.microsoft.com/en-us/engage/pentest)。 此程序僅與 Microsoft Azure 相關，並不適用任何其他 Microsoft 雲端服務。 
 
 >[!IMPORTANT] 
->雖然通知 Microsoft 相關的滲透測試活動已不再需要，客戶仍須遵守 [Microsoft 雲端整合滲透測試的參與規則](https://technet.microsoft.com/en-us/mt784683)。 
+>雖然通知 Microsoft 相關的滲透測試活動已不再需要，客戶仍須遵守 [Microsoft 雲端整合滲透測試的參與規則](https://technet.microsoft.com/mt784683)。 
 
 您可以執行的標準測試包括：
 

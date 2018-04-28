@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 4eeff0d89fa8a73b8f7f4b73fb5bfb85cda26184
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5cb8dae7612ce188079b3a872fe2313ca8b7f623
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 一般用途的虛擬機器大小可讓 CPU 與記憶體比例達到平均。 適用於測試和開發、小型至中型資料庫，以及低至中流量 Web 伺服器。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量和網路頻寬的相關資訊。 
 
@@ -77,6 +77,7 @@ Dv3 系列大小以 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器或 2.3 G
 
 <sup>1</sup> Dv3 系列 VM 的功能 Intel® 超執行緒技術
 
+
 ## <a name="dsv2-series"></a>DSv2 系列
 
 ACU：210 - 250
@@ -95,15 +96,15 @@ ACU：210 - 250
 
 ACU：210 - 250
 
-| 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大暫存儲存體輸送量：IOPS / 讀取 MBps / 寫入 MBps | 最大資料磁碟 / 輸送量︰IOPS | 最大 NIC/預期的網路頻寬 (Mbps) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3.5 |4 |50 |3000 / 46 / 23 |4 / 4x500 |2 / 750 |
-| Standard_D2_v2 |2 |7 |8 |100 |6000 / 93 / 46 |8 / 8x500 |2 / 1500 |
-| Standard_D3_v2 |4 |14 |16 |200 |12000 / 187 / 93 |16 / 16x500 |4 / 3000 |
-| Standard_D4_v2 |8 |28 |32 |400 |24000 / 375 / 187  |32 / 32x500 |8 / 6000 |
-| Standard_D5_v2 |16 |56 |64 |800 |48000 / 750 / 375 |64 / 64x500 |8 / 12000 |
+| 大小           | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大暫存儲存體輸送量：IOPS / 讀取 MBps / 寫入 MBps | 最大資料磁碟 | 輸送量：IOPS | 最大 NIC/預期的網路頻寬 (Mbps) |
+|----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
+| Standard_D1_v2 | 1    | 3.5         | 50                     | 3000 / 46 / 23                                             | 4              | 4x500            | 2 / 750                                      |
+| Standard_D2_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 8              | 8x500            | 2 / 1500                                     |
+| Standard_D3_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 16             | 16x500           | 4 / 3000                                       |
+| Standard_D4_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 32             | 32x500           | 8 / 6000                                       |
+| Standard_D5_v2 | 16   | 56          | 800                    | 48000 / 750 / 375                                          | 64             | 64x500           | 8 / 12000                                    |
 
-<br>
+
 
 ## <a name="ds-series"></a>DS 系列
 

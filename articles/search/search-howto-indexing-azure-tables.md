@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/10/2017
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 6a065454e274abc9c032b0ac69f42dd72f059443
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a171bdd11cd2de030937927eef34d5ad9e0507af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>使用 Azure 搜尋服務對 Azure 表格儲存體編制索引
 本文章說明如何使用 Azure 搜尋服務來對儲存於 Azure 表格儲存體中的資料編制索引。
@@ -47,7 +47,7 @@ ms.lasthandoff: 04/23/2018
 
 若要建立資料來源：
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 04/23/2018
 
 若要建立索引：
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 04/23/2018
 
 建立索引和資料來源之後，您就可以開始建立索引子︰
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 04/23/2018
 
 若要指示必須從索引中移除特定文件，您可以使用虛刪除策略。 新增屬性來表示它已遭到刪除，而非刪除資料列，並在資料來源上設定虛刪除偵測原則。 例如，如果資料列有屬性 `IsDeleted` 的值為 `"true"`，則下列原則會認為已刪除資料列：
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

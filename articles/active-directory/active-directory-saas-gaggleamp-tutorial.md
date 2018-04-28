@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 GaggleAMP 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 GaggleAMP 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 GaggleAMP 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 GaggleAMP 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 04/06/2018
 ms.author: jeedes
-ms.openlocfilehash: ffa6a3d6cc1377277591de63c7224b23796b53d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f68fdd84acd95ccd2a400e02303247f246d876b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>教學課程：Azure Active Directory 與 GaggleAMP 整合
 
@@ -36,7 +36,7 @@ GaggleAMP 與 Azure AD 整合提供下列優點：
 若要設定 Azure AD 與 GaggleAMP 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
-- 啟用 GaggleAMP 單一登入的訂用帳戶
+- 已啟用 GaggleAMP 單一登入的訂用帳戶
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。
@@ -44,7 +44,7 @@ GaggleAMP 與 Azure AD 整合提供下列優點：
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
 - 除非必要，否則請勿使用生產環境。
-- 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
+- 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
@@ -57,7 +57,7 @@ GaggleAMP 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 GaggleAMP，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -106,44 +106,48 @@ GaggleAMP 與 Azure AD 整合提供下列優點：
  
     ![設定單一登入](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_samlbase.png)
 
-3. 在 [GaggleAMP 網域與 URL] 區段中，執行下列步驟：
+3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [GaggleAMP 網域與 URL] 區段上執行下列步驟：
 
     ![設定單一登入](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url.png)
 
-     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.gaggleamp.com`
+     在 [識別碼] 文字方塊中，輸入 URL：`https://accounts.gaggleamp.com/auth/saml/callback`
 
-    > [!NOTE] 
-    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [GaggleAMP 用戶端支援小組](mailto:sales@gaggleamp.com)以取得此值。 
+4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
+
+    ![設定單一登入](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url1.png)
+
+     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://gaggleamp.com/i/<customerid>`
+
+    > [!NOTE]
+    > [登入 URL] 的值不是真正的值。 使用實際的「登入 URL」來更新此值。 請連絡 [GaggleAMP 用戶端支援小組](mailto:sales@gaggleamp.com)以取得此值。
  
-4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+5. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_certificate.png) 
 
-5. 按一下 [儲存]  按鈕。
+6. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_400.png)
 
-6. 在 [GaggleAMP 組態] 區段上，按一下 [設定 GaggleAMP] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+7. 在 [GaggleAMP 組態] 區段上，按一下 [設定 GaggleAMP] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 實體 ID 和 SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_configure.png) 
 
-7. 在另一個瀏覽器執行個體中，瀏覽至 Gaggle 支援小組為您建立的 SAML SSO 頁面 (例如：https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit)。
+8. 在另一個瀏覽器執行個體中，瀏覽至 Gaggle 支援小組為您建立的 SAML SSO 頁面 (例如：*https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*)。
 
-8. 在您的 [SAML SSO]  頁面上，執行下列步驟：  
+9. 在您的 [SAML SSO]  頁面上，執行下列步驟：  
    
-    ![GaggleAMP 單一登入](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png) 
- 
-    a. 在 [識別提供者簽發者] 文字方塊中，貼上您從 Azure 入口網站複製的 [簽發者 URL] 值。 
- 
-    b. 在 [識別提供者單一登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [單一登入服務 URL] 值。 
+    ![GaggleAMP 單一登入](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png)
 
-    c. 按一下 [儲存]       
-
-    d. 將 [憑證 (Base64)/] 傳送給 [GaggleAMP 支援小組](mailto:sales@gaggleamp.com)。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    a. 從 [識別提供者] 下拉式功能表中，選取 [其他]。
+    
+    b. 在 [識別提供者簽發者] 文字方塊中，貼上您從 Azure 入口網站複製的 [簽發者 URL] 值。
+    
+    c. 在 [識別提供者單一登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [單一登入服務 URL] 值。
+    
+    d. 在記事本中開啟您下載的**憑證 (Base64)** 檔案，將其內容複製到剪貼簿，然後貼到 [X.509 憑證] 文字方塊中。
+    
+    e. 按一下 [檔案] 。
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
@@ -223,8 +227,6 @@ GaggleAMP 與 Azure AD 整合提供下列優點：
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_01.png
@@ -238,4 +240,3 @@ GaggleAMP 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_203.png
-

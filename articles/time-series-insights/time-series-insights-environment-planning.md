@@ -1,6 +1,6 @@
 ---
-title: "規劃調整您的 Azure 時間序列深入解析環境規模 | Microsoft Docs"
-description: "本文說明在規劃 Azure 時間序列深入解析環境 (包括儲存容量、資料保留、輸入容量和監視) 時，如何遵循最佳做法。"
+title: 規劃調整您的 Azure 時間序列深入解析環境規模 | Microsoft Docs
+description: 本文說明在規劃 Azure 時間序列深入解析環境 (包括儲存容量、資料保留、輸入容量和監視) 時，如何遵循最佳做法。
 services: time-series-insights
 ms.service: time-series-insights
 author: jasonwhowell
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 5fb158ba162dd199f419f9568de08a7a18c833dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 991db58db1bb07f338c0f80aa4db69ddb868dcab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>規劃 Azure 時間序列深入解析環境
 
@@ -32,6 +32,8 @@ ms.lasthandoff: 11/15/2017
 - 儲存體容量
 - 資料保留期間
 - 輸入容量 
+- 塑造您的事件
+- 確定您已備妥參考資料
 
 ## <a name="understand-storage-capacity"></a>了解儲存體容量
 依預設，時間序列深入解析會保留資料 以您已佈建的儲存體數量 (單位乘以每個單位的存放裝置數量) 和輸入。
@@ -74,15 +76,26 @@ ms.lasthandoff: 11/15/2017
 
 您可能不會事先知道需要推送多少資料。 在此情況下，您可以在 Azure 入口網站中找到 [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics)和 [Azure 事件中樞](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/)的資料遙測。 此遙測可協助您判斷如何佈建環境。 在 Azure 入口網站中使用個別事件來源的 [計量] 頁面以檢視其遙測。 如果您了解事件來源的計量，就可以更有效地規劃並佈建時間序列深入解析環境。
 
-## <a name="calculate-ingress-requirements"></a>計算輸入需求
+### <a name="calculate-ingress-requirements"></a>計算輸入需求
 
 - 確認您的輸入容量高於您每分鐘平均速率，且您的環境夠大，可在 1 小時內處理您預期的輸入，相當於您容量的 2 倍。
 
 - 如果發生持續超過 1 小時的輸入高峰，請使用高峰率作為平均值，並使用處理高峰率的容量來佈建環境。
  
-## <a name="mitigate-throttling-and-latency"></a>減少節流和延遲
+### <a name="mitigate-throttling-and-latency"></a>減少節流和延遲
 
 如需關於如何避免節流和延遲的資訊，請參閱[減少節流和延遲](time-series-insights-environment-mitigate-latency.md)。 
+
+## <a name="shaping-your-events"></a>塑造您的事件
+請務必確定您將事件傳送至 TSI 的方式可支援要佈建的環境大小 (反過來說，您可以將環境的大小對應至 TSI 可讀取的事件數目和每個事件的大小)。  同樣地，務必考量您在查詢資料時想要進行配量和篩選的屬性。  基於這一點，我們建議您檢閱「傳送事件」文件 [文件] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events) 中的「JSON 形式」一節。  該內容位於頁面底部。  
+
+## <a name="ensuring-you-have-reference-data-in-place"></a>確定您已備妥參考資料
+參考資料集是許多項目的集合，由這些項目來擴展您事件來源中的事件。 Time Series Insights 輸入引擎會將事件來源的每個事件和參考資料集中的對應資料聯結在一起。 然後此增強的事件可用於查詢。 這項聯結是以參考資料集中定義的主索引鍵資料行為基礎。
+
+請注意，參考資料不會回溯加入。 這表示一旦設定和上傳參考資料集之後，只會比對目前和未來的輸入資料並加入參考資料集中。  如果您打算將大量歷程記錄資料傳送至 TSI，但沒有先在 TSI 中上傳或建立參考資料，則您可能要重新執行您的工作 (提醒您，這可不有趣)。  
+
+若要深入了解如何在 TSI 中建立、上傳及管理您的參考資料，請移至我們的「參考資料」文件 [文件] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set)。
+
 
 ## <a name="next-steps"></a>後續步驟
 - [如何新增事件中樞的事件來源](time-series-insights-how-to-add-an-event-source-eventhub.md)

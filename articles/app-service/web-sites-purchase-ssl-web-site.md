@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 759bd1e8be8aaebbf98e1c02d67f3e56609354aa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 63592a1a1c20dd25e5eea66d501f26efeaf0cf21
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>購買並設定您的 Azure App Service 的 SSL 憑證
 
@@ -97,17 +97,17 @@ App Service 憑證支援 4 種網域驗證：App Service、網域、郵件和手
 > 在執行本節中的步驟之前，您必須先建立自訂網域名稱與應用程式的關聯。 如需詳細資訊，請參閱**[設定 Web 應用程式的自訂網域名稱。](app-service-web-tutorial-custom-domain.md)**
 >
 
-在 **[Azure 入口網站](https://portal.azure.com/)**中，按一下頁面左側的 [App Service] 選項。
+在 **[Azure 入口網站](https://portal.azure.com/)** 中，按一下頁面左側的 [App Service] 選項。
 
 按一下您要指派此憑證的應用程式的名稱。
 
-在 [設定] 中，按一下 [SSL 憑證]。
+在 [設定] 中，按一下 [SSL 設定]。
 
 按一下 [匯入 App Service 憑證] 並選取您剛購買的憑證。
 
 ![插入匯入憑證的影像](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-在 [SSL 繫結] 區段中，按一下 [新增繫結]，然後使用下拉式清單選取要以 SSL 保護的網域名稱，以及要使用的憑證。 您也可以選擇使用**[伺服器名稱指示 (SNI) ](http://en.wikipedia.org/wiki/Server_Name_Indication)**還是 IP SSL。
+在 [SSL 繫結] 區段中，按一下 [新增繫結]，然後使用下拉式清單選取要以 SSL 保護的網域名稱，以及要使用的憑證。 您也可以選擇使用**[伺服器名稱指示 (SNI) ](http://en.wikipedia.org/wiki/Server_Name_Indication)** 還是 IP SSL。
 
 ![插入 SSL 繫結的影像](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 
@@ -206,5 +206,7 @@ App Service 憑證另外支援 2 種類型的網域驗證：郵件和手動驗�
 
 ## <a name="more-resources"></a>其他資源
 
+* [強制使用 HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
+* [強制使用 TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)
 * [在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證](app-service-web-ssl-cert-load.md)
 * [常見問題集：App Service 憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

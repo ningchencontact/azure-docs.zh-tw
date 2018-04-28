@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: raynew
-ms.openlocfilehash: 3b10765894501791004e3a9221363f196cc0c91d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a7c1dcae5708164252fa04a0fd1471eb1ae9bf90
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>使用群組相依性對應調整群組
 
@@ -37,8 +37,8 @@ ms.lasthandoff: 03/13/2018
 1. 按兩下下載的代理程式。
 2. 在 [歡迎] 頁面中按 [下一步]。 在 [授權條款] 頁面上，按一下 [我同意] 以接受授權。
 3. 在 [目的地資料夾] 中，保留或修改預設的安裝資料夾 > [下一步]。 
-4. 在 [代理程式安裝選項] 中，選取 [Azure Log Analytics (OMS)] > [下一步]。 
-5. 按一下 [新增] 以新增新的 OMS 工作區。 貼上您從入口網站複製的工作區識別碼和金鑰。 按 [下一步] 。
+4. 在 [代理程式安裝選項] 中，選取 [Azure Log Analytics] > [下一步]。 
+5. 按一下 [新增] 以新增 Log Analytics 工作區。 貼上您從入口網站複製的工作區識別碼和金鑰。 按 [下一步] 。
 
 
 在 Linux 電腦上安裝代理程式：

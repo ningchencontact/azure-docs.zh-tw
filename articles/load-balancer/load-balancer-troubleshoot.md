@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 69b2caa6cd2fe6d2c89074614aaf28e2ad68a25a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>針對 Azure Load Balancer 進行疑難排解
 
@@ -103,9 +103,7 @@ ms.lasthandoff: 03/23/2018
 
 如果在子網路或 VM 上設定的一或多個網路安全性群組封鎖來源 IP 或連接埠，VM 就無法回應。
 
-* 列出在後端 VM 上設定的網路安全性群組。 如需詳細資訊，請參閱
-    -  [使用入口網站管理網路安全性群組](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
-    -  [使用 PowerShell 管理網路安全性群組](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
+* 列出在後端 VM 上設定的網路安全性群組。 如需詳細資訊，請參閱[管理網路安全性群組](../virtual-network/manage-network-security-group.md)。
 * 從網路安全性群組的清單中，檢查︰
     - 資料連接埠上的傳入或傳出流量是否有干擾。 
     - VM 之 NIC 上或子網路上的 [全部拒絕] 網路安全性群組規則的優先順序是否高於允許負載平衡器探查與流量的預設規則 (網路安全性群組必須允許 168.63.129.16 的負載平衡器 IP，亦即探查連接埠)。 

@@ -3,17 +3,17 @@ title: Azure 容器執行個體教學課程 - 部署應用程式
 description: Azure 容器執行個體教學課程第 3 部分 (共 3 部分) - 部署應用程式
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 29d7114f288f7387d0c7cd5c6afe2eaaa7a8c560
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2438914449ff609d149fca20f2f3756576877752
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>教學課程：將容器部署至 Azure Container Instances
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure 備份：使用 Azure 入口網站還原虛擬機器 | Microsoft Docs"
-description: "使用 Azure 入口網站從復原點還原 Azure 虛擬機器"
+title: Azure 備份：使用 Azure 入口網站還原虛擬機器 | Microsoft Docs
+description: 使用 Azure 入口網站從復原點還原 Azure 虛擬機器
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "還原備份；如何還原；復原點；"
+editor: ''
+keywords: 還原備份；如何還原；復原點；
 ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>使用 Azure 入口網站來還原虛擬機器
 於定義的間隔進行資料快照，來保護您的資料。 這些快照稱為復原點，而且儲存在復原服務保存庫中。 如果需要修復或重新建立虛擬機器 (VM)，您可以從任何已儲存的復原點還原 VM。 當您還原復原點時，您可以：
@@ -211,7 +211,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="restore-domain-controller-vms"></a>還原網域控制站 VM
 備份網域控制站 (DC) VM 是備份支援的案例。 不過，在還原程序進行期間請務必小心。 正確的還原程序取決於網域結構。 最簡單的情況是您在單一網域中擁有單一 DC。 而在生產環境的負載中，較常見的情況是您擁有單一網域且內含多個 DC，其中有些 DC 可能位於內部部署環境。 最後，您也可能擁有內含多個網域的樹系。 
 
-從 Active Directory 的觀點來看，Azure VM 就像是位於新式的受支援 Hypervisor 上的其他 VM。 與內部部署 Hypervisor 的主要差異是，Azure 沒有提供 VM 主控台。 在某些情況下，您必須使用主控台，例如使用裸機復原 (BMR) 類型的備份進行復原。 不過，從備份保存庫來還原 VM 可完整取代 BMR。 我們也提供了目錄服務還原模式 (DSRM)，因此，您可以進行所有的 Active Directory 復原案例。 如需詳細資訊，請參閱[虛擬網域控制站的備份和還原考量](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers)以及[規劃 Active Directory 樹系復原](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx)。
+從 Active Directory 的觀點來看，Azure VM 就像是位於新式的受支援 Hypervisor 上的其他 VM。 與內部部署 Hypervisor 的主要差異是，Azure 沒有提供 VM 主控台。 在某些情況下，您必須使用主控台，例如使用裸機復原 (BMR) 類型的備份進行復原。 不過，從備份保存庫來還原 VM 可完整取代 BMR。 我們也提供了目錄服務還原模式 (DSRM)，因此，您可以進行所有的 Active Directory 復原案例。 如需詳細資訊，請參閱[虛擬網域控制站的備份和還原考量](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers)以及[規劃 Active Directory 樹系復原](https://technet.microsoft.com/library/planning-active-directory-forest-recovery(v=ws.10).aspx)。
 
 ### <a name="single-dc-in-a-single-domain"></a>單一網域中的單一 DC
 VM 可以從 Azure 入口網站或使用 PowerShell 還原 (就像任何其他 VM)。
@@ -242,7 +242,7 @@ VM 可以從 Azure 入口網站或使用 PowerShell 還原 (就像任何其他 V
 
    a. 在具有[內部負載平衡器](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)的雲端服務中建立 VM。
 
-   b. 建立 VM 來連線至[網際網路面向負載平衡器](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/)。
+   b. 建立 VM 來連線至[網際網路面向負載平衡器](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)。
 
    c. 建立具有[多個 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/) 的 VM。
 

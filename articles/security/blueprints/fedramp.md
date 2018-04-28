@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化"
-description: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化"
+title: Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化
+description: Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 10ed297180f68fcaf006f2778990879be02f994d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化
 
@@ -76,10 +76,9 @@ ms.lasthandoff: 02/11/2018
 * **Azure Active Directory**
 * **Azure Resource Manager**
 * **Azure Log Analytics**
+    - (1) Log Analytics 工作區
 * **Azure 自動化**
     - (1) 自動化帳戶
-* **Operations Management Suite**
-    - (1) OMS 工作區
 
 ## <a name="deployment-architecture"></a>部署架構
 
@@ -136,7 +135,7 @@ SQL Database 設定成使用[透明資料加密 (TDE)](https://docs.microsoft.co
 
 ### <a name="logging-and-auditing"></a>記錄與稽核
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 提供系統、使用者活動及系統健康情況的廣泛記錄。 
+[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 提供系統、使用者活動及系統健康情況的廣泛記錄。 
 
 - **活動記錄：**  [活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。
 - **診斷記錄：**[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)是每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。
@@ -154,7 +153,7 @@ SQL Database 設定成使用[透明資料加密 (TDE)](https://docs.microsoft.co
 下列技術可在 Azure 環境中提供身分識別管理功能。
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) 是 Microsoft 的多租用戶雲端式目錄和身分識別管理服務。
 - 可以使用 Azure AD 執行對客戶部署之 Web 應用程式的驗證。 如需詳細資訊，請參閱[整合應用程式與 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)。  
-- [Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) 可以對 Azure 進行精確且專注的存取權管理。 訂用帳戶存取限於訂用帳戶系統管理員，而對資源的存取可根據使用者角色加以限制。
+- [Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 可以對 Azure 進行精確且專注的存取權管理。 訂用帳戶存取限於訂用帳戶系統管理員，而對資源的存取可根據使用者角色加以限制。
 - 部署的 IaaS Active Directory 執行個體提供適用於部署 IaaS 虛擬機器之 OS 層級的身分識別管理。
    
 ### <a name="compute-resources"></a>計算資源
@@ -182,17 +181,17 @@ SQL Database 設定成使用[透明資料加密 (TDE)](https://docs.microsoft.co
 
 ### <a name="patch-management"></a>修補程式管理
 
-根據預設，此「Azure 安全性與合規性藍圖自動化」所部署的 Windows 虛擬機器會設定為從 Windows Update 服務接收自動更新。 這個解決方案也會部署 OMS Azure 自動化解決方案，可透過此解決方案來建立更新部署，以在需要時將修補程式部署到 Windows 伺服器。
+根據預設，此「Azure 安全性與合規性藍圖自動化」所部署的 Windows 虛擬機器會設定為從 Windows Update 服務接收自動更新。 這個解決方案也會部署 Azure 自動化解決方案，可透過此解決方案來建立更新部署，以在需要時將修補程式部署到 Windows 伺服器。
 
 ### <a name="operations-management"></a>Operations Management
 
 #### <a name="log-analytics"></a>Log Analytics
 
-Log Analytics 是 [Operations Management Suite (OMS)](https://azure.microsoft.com/services/log-analytics/) 中的一個服務，可讓您收集及分析 Azure 和內部部署環境中的資源所產生的資料。
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) 是一個服務，可讓您收集及分析 Azure 和內部部署環境中的資源所產生的資料。
 
-#### <a name="oms-solutions"></a>OMS 解決方案
+#### <a name="management-solutions"></a>管理解決方案
 
-下列 OMS 解決方案已預先安裝，作為此解決方案的一部分：
+下列管理解決方案已預先安裝，作為此解決方案的一部分：
 - [AD 評估](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)
 - [反惡意程式碼評估](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware)
 - [Azure 自動化](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)

@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/17/2018
 ms.author: sashan
-ms.openlocfilehash: 26204d5bd61d193a3d08e26f98faf77ecc367a94
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6e82b851f7dc7e2b8c7fe996bff843c8f10f2978
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>使用唯讀複本對唯讀查詢工作負載進行負載平衡 (預覽)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/05/2018
 
 ## <a name="data-consistency"></a>資料一致性
 
-AlwasyON 的其中一個優點是複本一律處於交易一致狀態，但在不同的時間點，不同的複本之間可能會有些微延遲。 讀取相應放大支援工作階段層級一致性。 這表示，如果唯讀工作階段在無法使用複本所造成的連線錯誤之後重新連線，就可能會被重新導向至不是最新、且不含讀寫複本的複本。 同樣地，如果應用程式使用讀寫工作階段寫入資料，並且使用唯讀工作階段立即加以讀取，最新的資料可能無法立即顯示。 這是因為對複本執行的交易記錄重做不是同步的。
+Alwasy ON 的其中一個優點是複本一律處於交易一致狀態，但在不同的時間點，不同的複本之間可能會有些微延遲。 讀取相應放大支援工作階段層級一致性。 這表示，如果唯讀工作階段在無法使用複本所造成的連線錯誤之後重新連線，就可能會被重新導向至不是最新、且不含讀寫複本的複本。 同樣地，如果應用程式使用讀寫工作階段寫入資料，並且使用唯讀工作階段立即加以讀取，最新的資料可能無法立即顯示。 這是因為對複本執行的交易記錄重做不是同步的。
 
 > [!NOTE]
 > 區域內的複寫延遲較低，這種情況很罕見。

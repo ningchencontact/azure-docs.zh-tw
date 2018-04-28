@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5fa5d9e66912bdeffdf553ddc0cb7d3feb0a5b77
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 07e6e5beb96042c2da82ac8be19e391d6153eabd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>長期函式中的 HTTP API (Azure Functions)
 
@@ -55,13 +55,13 @@ ms.lasthandoff: 03/17/2018
 HTTP/1.1 202 Accepted
 Content-Length: 923
 Content-Type: application/json; charset=utf-8
-Location: https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+Location: https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 
 {
     "id":"34ce9a28a6834d8492ce6a295f1a80e2",
-    "statusQueryGetUri":"https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "sendEventPostUri":"https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "terminatePostUri":"https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
+    "statusQueryGetUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "sendEventPostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "terminatePostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
 > [!NOTE]
@@ -113,7 +113,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 Functions 2.0 格式具有完全相同的參數，但是 URL 首碼稍微不同：
 
 ```http
-GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
+GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>Response
@@ -207,7 +207,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
 Functions 2.0 格式具有完全相同的參數，但是 URL 首碼稍微不同：
 
 ```http
-POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
+POST /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
@@ -253,7 +253,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?r
 Functions 2.0 格式具有完全相同的參數，但是 URL 首碼稍微不同：
 
 ```http
-DELETE /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+DELETE /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數。

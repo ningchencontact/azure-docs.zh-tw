@@ -1,56 +1,50 @@
 ---
-title: 載入 - Azure Data Lake Store 到 SQL 資料倉儲 | Microsoft Docs
-description: 了解如何使用 PolyBase 外部資料表將資料從 Azure Data Lake Store 載入到 Azure SQL 資料倉儲。
+title: 教學課程：從 Azure Data Lake Store 載入到 Azure SQL 資料倉儲 | Microsoft Docs
+description: 使用 PolyBase 外部資料表將資料從 Azure Data Lake Store 載入到 Azure SQL 資料倉儲。
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
-manager: barbkess
-editor: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 3/14/2018
-ms.author: cakarst;barbkess
-ms.openlocfilehash: f8cd293236255e227f80a42e78d25aebd8789bdd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: e6bfe2423bfe97f53970283c113cd40b7f3ade25
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>將資料從 Azure Data Lake Store 載入到 SQL 資料倉儲
-本文件說明使用 PolyBase 將資料從 Azure Data Lake Store (ADLS) 載入到 SQL 資料倉儲時需要執行的所有步驟。
-雖然您能夠使用外部資料表對 ADLS 中儲存的資料執行臨機操作查詢，但是我們建議的最佳做法是將資料匯入到 SQL 資料倉儲。
+# <a name="load-data-from-azure-data-lake-store-to-sql-data-warehouse"></a>將資料從 Azure Data Lake Store 載入到 SQL 資料倉儲
+使用 PolyBase 外部資料表將資料從 Azure Data Lake Store 載入到 Azure SQL 資料倉儲。 雖然您可以針對 ADLS 中儲存的資料執行臨機操作查詢，但建議您將資料匯入至 SQL 資料倉儲，以獲得最佳效能。
 
-在本教學課程中，您將了解如何：
+> [!div class="checklist"]
+> * 建立所需的資料庫物件以從 Azure Data Lake Store 載入。
+> * 連接到 Azure Data Lake Store 目錄。
+> * 將資料載入到 Azure SQL 資料倉儲。
 
-1. 建立需要從 Azure Data Lake Store 載入的資料庫物件。
-2. 連接到 Azure Data Lake Store 目錄。
-3. 將資料載入到 Azure SQL 資料倉儲。
+如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="before-you-begin"></a>開始之前
+開始本教學課程之前，請下載並安裝最新版的 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。
+
 若要執行此教學課程，您需要：
 
-* Azure Active Directory 應用程式，用於服務對服務驗證。 若要建立，請依照 [Active Directory 驗證](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)中的指示執行
+* Azure Active Directory 應用程式，用於服務對服務驗證。 若要建立，請依照 [Active Directory 驗證](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)中的指示執行
 
 >[!NOTE] 
-> 您需要 Active Directory 應用程式的用戶端識別碼、金鑰及 OAuth2.0 Token 端點值，以便從 SQL 資料倉儲連接到 Azure Data Lake。 上面的連結提供如何取得這些值的詳細資訊。
->請注意，Azure Active Directory 應用程式註冊使用「應用程式識別碼」作為「用 戶端」。
+> 您需要 Active Directory 應用程式的用戶端識別碼、金鑰及 OAuth2.0 Token 端點值，以便從 SQL 資料倉儲連接到 Azure Data Lake。 上面的連結提供如何取得這些值的詳細資訊。 Azure Active Directory 應用程式註冊使用應用程式識別碼作為用戶端識別碼。
+> 
 
-* SQL Server Management Studio 或 SQL Server Data Tools，用來下載 SSMS 和連接，請參閱[查詢 SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
+* Azure SQL 資料倉儲。 請參閱[建立和查詢 Azure SQL 資料倉儲](create-data-warehouse-portal.md)。
 
-* Azure SQL 資料倉儲，請遵循 https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision 來加以建立
+* Azure Data Lake Store。 請參閱[開始使用 Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)。 
 
-* An Azure Data Lake Store，請遵循 https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal 來加以建立
+##  <a name="create-a-credential"></a>建立認證
+若要存取您的 Azure Data Lake Store，您將需要建立一個資料庫主要金鑰，以加密要在下一個步驟中使用的認證密碼。 接著，您必須建立資料庫範圍認證，其中儲存了在 AAD 中設定的服務主體認證。 對於使用 PolyBase 連接到 Windows Azure 儲存體 Blob 的人來說，請注意認證語法是不同的。
 
-
-###  <a name="create-a-credential"></a>建立認證
-若要存取您的 Azure Data Lake Store，您將需要建立一個資料庫主要金鑰，以加密要在下一個步驟中使用的認證密碼。
-接著，您必須建立資料庫範圍認證，其中儲存了在 AAD 中設定的服務主體認證。 對於使用 PolyBase 連接到 Windows Azure 儲存體 Blob 的人來說，請注意認證語法是不同的。
-若要連線到 Azure Data Lake Store，您必須**先**建立 Azure Active Directory 應用程式、建立存取金鑰，並對應用程式授與 Azure Data Lake 資源的存取權。 這些步驟的執行指示位於[這裡](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)。
+若要連線到 Azure Data Lake Store，您必須**先**建立 Azure Active Directory 應用程式、建立存取金鑰，並對應用程式授與 Azure Data Lake 資源的存取權。 如需相關指示，請參閱[使用 Active Directory 向 Azure Data Lake Store 進行驗證](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)。
 
 ```sql
 -- A: Create a Database Master Key.
@@ -80,9 +74,8 @@ WITH
 ;
 ```
 
-
-### <a name="create-the-external-data-source"></a>建立外部資料來源
-使用此 [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] 命令以儲存資料的位置。 
+## <a name="create-the-external-data-source"></a>建立外部資料來源
+使用此 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 命令以儲存資料的位置。 
 
 ```sql
 -- C: Create an external data source
@@ -100,7 +93,7 @@ WITH (
 
 ## <a name="configure-data-format"></a>設定資料格式
 若要從 ADLS 匯入資料，您需要指定外部檔案格式。 此物件會定義在 ADLS 中寫入檔案的方式。
-如需完整清單，請查閱我們的 T-SQL 文件＜[CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]＞
+如需完整清單，請查閱我們的 T-SQL 文件：[CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
 ```sql
 -- D: Create an external file format
@@ -160,7 +153,7 @@ REJECT_TYPE 和 REJECT_VALUE 選項可讓您定義最終的資料表中必須出
  Azure Data Lake Store 使用角色型存取控制 (RBAC) 來控制資料存取。 這表示服務主體必須具有在位置參數中所定義之目錄，以及最終目錄和檔案之子系的讀取權限。 這可讓 PolyBase 驗證及載入該資料。 
 
 ## <a name="load-the-data"></a>載入資料
-若要從 Azure Data Lake Store 載入資料，請使用 [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 陳述式。 
+若要從 Azure Data Lake Store 載入資料，請使用 [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 陳述式。 
 
 CTAS 建立新的資料表，並將選取陳述式的結果填入該資料表。 CTAS 定義新資料表，以使它擁有和選取陳述式之結果相同的資料行和資料類型。 如果您選取外部資料表上的所有資料行，則新資料表會是外部資料表中資料行和資料類型的複本。
 
@@ -177,7 +170,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## <a name="optimize-columnstore-compression"></a>最佳化資料行存放區壓縮
-根據預設，SQL 資料倉儲會將資料表儲存為叢集資料行存放區索引。 載入完成後，某些資料列可能不會被壓縮為資料行存放區。  有許多原因會導致發生此情況。 若要深入了解，請參閱[管理資料行存放區索引][manage columnstore indexes]。
+根據預設，SQL 資料倉儲會將資料表儲存為叢集資料行存放區索引。 載入完成後，某些資料列可能不會被壓縮為資料行存放區。  有許多原因會導致發生此情況。 若要深入了解，請參閱[管理資料行存放區索引](sql-data-warehouse-tables-index.md)。
 
 若要最佳化載入後的查詢效能和資料行存放區壓縮，請重建資料表以強制資料行存放區索引對所有資料列進行壓縮。
 
@@ -187,41 +180,31 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 ```
 
-如需維護資料行存放區索引的詳細資訊，請參閱[管理資料行存放區索引][manage columnstore indexes]一文。
-
 ## <a name="optimize-statistics"></a>最佳化統計資料
 您最好在載入後立刻建立單一資料行統計資料。 針對統計資料，您將會有一些選項。 例如，如果您在每個資料行上建立單一資料行統計資料，可能會需要很長的時間才能重建所有統計資料。 如果您知道某些資料行不會被包含在查詢述詞中，您可以略過為那些資料行建立統計資料。
 
-如果您決定要在每個資料表的每個資料行上建立單一資料行統計資料，您可以使用[統計資料][statistics]一文中的預存程序程式碼範例 `prc_sqldw_create_stats`。
+如果您決定要在每個資料表的每個資料行上建立單一資料行統計資料，便可以使用[統計資料](sql-data-warehouse-tables-statistics.md)一文中的預存程序程式碼範例 `prc_sqldw_create_stats`。
 
 下列範例為建立統計資料的好起點。 它會在維度資料表中的每個資料行上，以及在事實資料表中的每個聯結資料行上建立單一資料行統計資料。 您之後隨時可以將單一或多個資料行統計資料新增到其他事實資料表資料行上。
-
 
 ## <a name="achievement-unlocked"></a>成就解鎖！
 您已成功將資料載入到 Azure SQL 資料倉儲。 太棒了！
 
-## <a name="next-steps"></a>後續步驟
-載入資料是開發使用 SQL 資料倉儲之資料倉儲解決方案的第一步。 請查看我們在[資料表](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview)和 [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops) 上提供的開發資源。
+## <a name="next-steps"></a>後續步驟 
+在本教學課程中，您建立了外部資料表來定義儲存在 Azure Data Lake Store 中的資料結構，然後使用 PolyBase CREATE TABLE AS SELECT 陳述式將資料載入資料倉儲。 
+
+您進行了下列事項：
+> [!div class="checklist"]
+> * 建立需要從 Azure Data Lake Store 載入的資料庫物件。
+> * 連接到 Azure Data Lake Store 目錄。
+> * 將資料載入到 Azure SQL 資料倉儲。
+> 
+
+載入資料是開發使用 SQL 資料倉儲之資料倉儲解決方案的第一步。 請參閱我們的開發資源。
+
+> [!div class="nextstepaction"]
+>[了解如何開發 SQL 資料倉儲中的資料表](sql-data-warehouse-tables-overview.md)
 
 
-<!--Image references-->
 
-<!--Article references-->
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
-[manage columnstore indexes]: sql-data-warehouse-tables-index.md
-[Statistics]: sql-data-warehouse-tables-statistics.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-[label]: sql-data-warehouse-develop-label.md
 
-<!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
-[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
-
-<!--Other Web references-->
-[Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
-[Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md

@@ -1,19 +1,19 @@
 ---
-title: "部署 Docker 容器叢集 - Azure CLI"
-description: "在 Azure Container Service 中使用 Azure CLI 2.0 部署 Kubernetes、DC/OS，或 Docker Swarm 解決方案"
+title: 部署 Docker 容器叢集 - Azure CLI
+description: 在 Azure Container Service 中使用 Azure CLI 2.0 部署 Kubernetes、DC/OS，或 Docker Swarm 解決方案
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 03/01/2017
 ms.author: saudas
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 40d5ea0e7abce165659219db8842ab64ac75fda7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 037834fa94a4ef6ecf6ab87055ed1369a3c8f1fb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 部署 Docker 容器主控解決方案
 
@@ -46,7 +46,7 @@ az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
 
 
 ### <a name="create-a-resource-group"></a>建立資源群組
-建議您建立每個叢集的資源群組。 指定[可使用](https://azure.microsoft.com/en-us/regions/services/) Azure Container Service 的 Azure 區域。 例如︰
+建議您建立每個叢集的資源群組。 指定[可使用](https://azure.microsoft.com/regions/services/) Azure Container Service 的 Azure 區域。 例如︰
 
 ```azurecli
 az group create -n acsrg1 -l "westus"

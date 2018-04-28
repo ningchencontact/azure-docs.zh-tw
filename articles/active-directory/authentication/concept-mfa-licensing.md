@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: 5fbc42d11ccb9a36ce146deca173526536c9fc9e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c5ed3674c724b30962fbd52b9955ec89c35745d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 04/19/2018
 | 內部部署應用程式的 MFA | | |● |
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>如何開啟 Azure AD 系統管理員適用的 Azure Multi-Factor Authentication
-Azure AD 租用戶中指派為全域管理員角色的使用者，可以為其 Azure AD 全域系統管理員帳戶啟用雙步驟驗證，而不需要額外收費。 如果您使用 Microsoft 帳戶，您可以在[這裡](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification)註冊多重要素驗證。 如果您不是使用 Microsoft 帳戶，請在[這裡](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states)開啟全域系統管理員的多重要素驗證。
+Azure AD 租用戶中指派為全域管理員角色的使用者，可以為其 Azure AD 全域系統管理員帳戶啟用雙步驟驗證，而不需要額外收費。 如果您使用 Microsoft 帳戶，您可以在[這裡](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification)註冊多重要素驗證。 如果您不是使用 Microsoft 帳戶，請在[這裡](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states)開啟全域系統管理員的多重要素驗證。
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 如果您想要 Azure Multi-Factor Authentication 所提供的完整功能，有數個選項︰

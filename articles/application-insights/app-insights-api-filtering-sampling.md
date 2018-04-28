@@ -1,9 +1,9 @@
 ---
-title: "在 Application Insights SDK 中篩選及前置處理 | Microsoft Docs"
-description: "撰寫 SDK 的遙測處理器和遙測初始設定式來篩選屬性或將屬性新增至資料，再將遙測傳送至 Application Insights 入口網站。"
+title: 在 Application Insights SDK 中篩選及前置處理 | Microsoft Docs
+description: 撰寫 SDK 的遙測處理器和遙測初始設定式來篩選屬性或將屬性新增至資料，再將遙測傳送至 Application Insights 入口網站。
 services: application-insights
-documentationcenter: 
-author: beckylino
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: borooji;mbullwin
-ms.openlocfilehash: 3f621010c1c36445ad35d81d96a2e5aefc46b10c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: mbullwin; borooji
+ms.openlocfilehash: 06f116fc5096fe4bda9c8433c3a33726acb67eea
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>在 Application Insights SDK 中篩選及前置處理遙測
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 01/24/2018
 >
 >
 
-或者， 您也可以在程式碼中初始化篩選。 在適當的初始化類別中 - 例如在 Global.asax.cs 中的 AppStart - 插入您的處理器至鏈結：
+ ，您也可以在程式碼中初始化篩選。 在適當的初始化類別中 - 例如在 Global.asax.cs 中的 AppStart - 插入您的處理器至鏈結：
 
 ```csharp
 
@@ -218,7 +218,7 @@ public void Process(ITelemetry item)
 
 例如，Web 封裝的 Application Insights 會收集有關 HTTP 要求的遙測。 根據預設，它會將所有含 >= 400 回應碼的要求標記為失敗。 但如果您想將 400 視為成功，您可以提供設定 Success 屬性的遙測初始設定式。
 
-如果您提供遙測初始設定式，會在呼叫任何的 Track*() 方法時呼叫它。 這包括由標準遙測模組呼叫的方法。 依照慣例，這些模組不會設定任何已由初始設定式設定的屬性。
+如果您提供遙測初始設定式，則會在呼叫任何的 Track*() 方法時呼叫它。 這包括由標準遙測模組呼叫的方法。 依照慣例，這些模組不會設定任何已由初始設定式設定的屬性。
 
 **定義您的初始設定式**
 

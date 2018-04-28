@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 356eccac6af2780c02d1cd935d41891b5f89f1a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuration-management-cm"></a>組態管理 (CM)
 
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (1).c** 組織會採用自動化機制來醒目提示在 [指派：組織定義的時間週期] 之前尚未核准或拒絕的所提議資訊系統變更。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-5 (1)** 資訊系統會強制執行存取限制並支援稽核強制動作。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-5 (5).a** 組織會針對變更生產環境或操作環境內的資訊系統元件和系統相關資訊，限制權限。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -567,7 +567,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | 此藍圖會部署 Azure Automation DSC。 部分 Azure Operations Management Suite (OMS) (即 Automation DSC) 可以設定成在偵測到設定錯誤時產生警示或進行補救。 |
+| **客戶** | 此藍圖會部署 Azure Automation DSC。 Automation DSC 可以設定成在偵測到設定錯誤時產生警示或進行補救。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -643,7 +643,7 @@ ms.lasthandoff: 02/11/2018
 
  ### <a name="nist-800-53-control-cm-7-5a"></a>NIST 800-53 控制措施 CM-7 (5).a
 
-#### <a name="least-functionality--authorized-software--whitelisting"></a>最少的功能 | 已授權的軟體/加入允許清單
+#### <a name="least-functionality--authorized-software--whitelisting"></a>最少的功能 | 已授權的軟體/加入白名單
 
 **CM-7 (5).a** 組織會識別 [指派：已獲授權在資訊系統上執行的組織定義軟體程式]。
 
@@ -913,7 +913,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-11.a** 組織會建立管理使用者進行之軟體安裝的 [指派：組織定義的原則]。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -941,7 +941,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-11.c** 組織會依 [指派：組織定義的頻率] 來監視是否符合原則規範。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|

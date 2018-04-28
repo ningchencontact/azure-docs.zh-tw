@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c28216ced2a7cd2995c55a9faacb93cf27e60c65
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>執行 Azure Stack 的驗證測試
 
@@ -33,7 +33,8 @@ ms.lasthandoff: 03/08/2018
 2. 請連絡 Microsoft 客戶服務支援。
 3. 從具有特殊權限的端點執行 **Test-AzureStack**。
     1. 存取具有特殊權限的端點。 如需相關指示，請參閱[使用 Azure Stack 中具有特殊權限的端點](azure-stack-privileged-endpoint.md)。 
-    2. 以 **AzureStack\CloudAdmin** 身分登入管理主機。
+    2. 在 ASDK 上，以 **AzureStack\CloudAdmin** 身分登入管理主機。  
+    您必須在整合的系統上使用具特殊權限端點的 IP 位址，以進行 OEM 硬體廠商所提供給您的管理。
     3. 以系統管理員身分啟動 PowerShell。
     4. 執行： `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
     5. 執行： `Test-AzureStack`

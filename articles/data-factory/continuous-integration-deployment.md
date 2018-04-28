@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/11/2018
 ms.author: douglasl
-ms.openlocfilehash: e021403cd5544f0570e8ea3c73a17a57b241a65f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和部署
 
@@ -62,6 +62,8 @@ ms.lasthandoff: 04/03/2018
 
 以下是設定 VSTS 發行以將資料處理站自動部署至多個環境的步驟。
 
+![透過 VSTS 設定連續整合的圖表](media/continuous-integration-deployment/continuous-integration-image12.png)
+
 ### <a name="requirements"></a>需求
 
 -   使用 [*Azure Resource Manager 服務端點*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)連結至 Team Foundation Server 或 VSTS 的 Azure 訂用帳戶。
@@ -90,7 +92,7 @@ ms.lasthandoff: 04/03/2018
 
     a.  將密碼新增至參數檔案：
 
-        -   建立已上傳至發行分支的參數檔案複本，並以下列格式設定您想要從金鑰保存庫取得的參數值：
+       -   建立已上傳至發行分支的參數檔案複本，並以下列格式設定您想要從金鑰保存庫取得的參數值：
 
         ```json
         {
@@ -100,24 +102,24 @@ ms.lasthandoff: 04/03/2018
                         "keyVault": {
                             "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
                         },
-                        "secretName": " &lt secret - name &gt "
+                        "secretName": " < secret - name > "
                     }
-                }        
+                }
             }
         }
         ```
 
-        -   當您使用此方法時，系統會自動從金鑰保存庫提取密碼。
+       -   當您使用此方法時，系統會自動從金鑰保存庫提取密碼。
 
-        -   參數檔案也必須位於發行分支中。
+       -   參數檔案也必須位於發行分支中。
 
     b.  新增 [Azure Key Vault 工作](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault)：
 
-        -   選取 [工作] 索引標籤、建立新的工作、搜尋 **Azure Key Vault**，並加以新增。
+       -   選取 [工作] 索引標籤、建立新的工作、搜尋 **Azure Key Vault**，並加以新增。
 
-        -   在 Key Vault 工作中，選擇您用來建立金鑰保存庫的訂用帳戶、視需要提供認證，然後選擇金鑰保存庫。
+       -   在 Key Vault 工作中，選擇您用來建立金鑰保存庫的訂用帳戶、視需要提供認證，然後選擇金鑰保存庫。
 
-            ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  新增 Azure Resource Manager 部署工作：
 

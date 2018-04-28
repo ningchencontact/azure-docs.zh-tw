@@ -1,25 +1,25 @@
 ---
-title: "Azure 原則 JSON 範例 - 允許來自某個資源群組的自訂 VM 映像 | Microsoft Docs"
-description: "此 JSON 範例原則會要求自訂映像必須來自某個已核准的資源群組。"
+title: Azure 原則 JSON 範例 - 允許來自某個資源群組的自訂 VM 映像 | Microsoft Docs
+description: 此 JSON 範例原則會要求自訂映像必須來自某個已核准的資源群組。
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 3da9a459f7e3008fc6a75473cc1a239d9cd5749b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: ca2d25828bc184a783dd065df3cc8200a3af6ee3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="allow-custom-vm-image-from-a-resource-group"></a>允許來自某個資源群組的自訂 VM 映像
 

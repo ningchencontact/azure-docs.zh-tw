@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 54ec12f24ddbad6227a306aeae86658807f85b4e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>將警示從 OMS 入口網站擴充 (複製) 到 Azure
 Operations Management Suite (OMS) 入口網站只會顯示 Log Analytics 警示。  全新警示體驗現已整合 Microsoft Azure 中各種服務與組件間的警示體驗。 Azure 入口網站中的 Azure 監視器下提供的 [警示] 新體驗，包含 Log Analytics 和 Application Insights 的活動記錄警示、計量警示和記錄警示。 
@@ -43,7 +43,7 @@ Operations Management Suite (OMS) 入口網站只會顯示 Log Analytics 警示�
  ![在排程的期間，系統會將警示上的使用者動作重新導向至 Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> 如果您遵循 [Azure 監視器定價原則](https://azure.microsoft.com/en-us/pricing/details/monitor/)中所述的限制及條件，則將警示從 OMS 入口網站擴充至 Azure 時並不會收費，而且用於查詢式 Log Analytics 警示的 Azure 警示也不會計費  
+> 如果您遵循 [Azure 監視器定價原則](https://azure.microsoft.com/pricing/details/monitor/)中所述的限制及條件，則將警示從 OMS 入口網站擴充至 Azure 時並不會收費，而且用於查詢式 Log Analytics 警示的 Azure 警示也不會計費  
 
 在這個日期前，使用者只要主動選擇在 Azure 中管理自己的警示，即可享受擴充警示的好處。
 

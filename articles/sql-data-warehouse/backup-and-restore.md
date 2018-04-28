@@ -1,23 +1,23 @@
 ---
 title: Azure SQL 資料倉儲備份與還原 - 快照集、異地備援 | Microsoft Docs
-description: 了解「Azure SQL 資料倉儲」中備份與還原的運作方式。 使用資料倉儲備份將您的資料倉儲還原至主要區域中的某個還原點，或使用異地備援備份來還原至不同的地理區域。
+description: 了解「Azure SQL 資料倉儲」中備份與還原的運作方式。 使用資料倉儲備份來將您的資料倉儲還原至主要區域中的某一個還原點。 使用異地備援備份來還原至不同的地理區域。
 services: sql-data-warehouse
-author: ronortloff
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
-ms.date: 03/28/2018
-ms.author: rortloff
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f540bca0d2eb2c9009a386bd14a5beda2912014
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 535c16da137b114704aa9a2e97576ced5e9eba44
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的備份與還原
-了解「Azure SQL 資料倉儲」中備份與還原的運作方式。 使用資料倉儲備份將您的資料倉儲還原至主要區域中的某個還原點，或使用異地備援備份來還原至不同的地理區域。 
+了解「Azure SQL 資料倉儲」中備份與還原的運作方式。 使用資料倉儲備份來將您的資料倉儲還原至主要區域中的某一個還原點。 使用異地備援備份來還原至不同的地理區域。 
 
 ## <a name="what-is-backup-and-restore"></a>什麼是備份與還原？
 「資料倉儲備份」是您可以用來還原資料倉儲的資料庫複本。  由於 SQL 資料倉儲是一個分散式系統，所以一個資料倉儲備份會由位於 Azure 儲存體中的許多檔案組成。 資料倉儲備份包含本機資料庫快照集，以及與資料倉儲相關聯之所有資料庫和檔案的異地備份。 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a2b3dbce1d969eaa9937ad866fd055ae72e6529
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0ba58f1384d7c93af30f9b175a5a154811c9a1e0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/16/2018
 
 1. 如果您尚未這麼做，請[在 Web 應用程式中啟用 Application Insights](app-insights-asp-net.md)。
 
-2. 將 [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 套件納入您的應用程式。 
+2. 將 [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 套件納入您的應用程式。
 
 3. 檢閱套件已新增至 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 的預設選項：
 
@@ -92,10 +92,18 @@ ms.lasthandoff: 03/16/2018
 
 3. 修改您應用程式的 `Startup` 類別，以新增和設定快照集收集器的遙測處理器。
 
+    將下列 using 陳述式新增至 `Startup.cs`
+
    ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
-   ...
+   using Microsoft.ApplicationInsights.AspNetCore;
+   using Microsoft.ApplicationInsights.Extensibility;
+   ```
+
+   將下列 `SnapshotCollectorTelemetryProcessorFactory` 類別新增至 `Startup` 類別。
+
+   ```csharp
    class Startup
    {
        private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
@@ -111,11 +119,11 @@ ms.lasthandoff: 03/16/2018
                return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
            }
        }
+       ...
+    ```
+    將 `SnapshotCollectorConfiguration` 和 `SnapshotCollectorTelemetryProcessorFactory` 服務新增至啟動管線：
 
-       public Startup(IConfiguration configuration) => Configuration = configuration;
-
-       public IConfiguration Configuration { get; }
-
+    ```csharp
        // This method gets called by the runtime. Use this method to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
@@ -178,7 +186,7 @@ ms.lasthandoff: 03/16/2018
         }
    }
     ```
-    
+
 ## <a name="grant-permissions"></a>授與權限
 
 Azure 訂用帳戶的擁有者可以檢查快照集。 其他使用者必須由擁有者授與權限。
@@ -208,7 +216,7 @@ Azure 訂用帳戶的擁有者可以檢查快照集。 其他使用者必須由�
 快照集可能包含機密資訊，依預設為不可檢視。 若要檢視快照集，您必須有指派給您的 `Application Insights Snapshot Debugger` 角色。
 
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Visual Studio 2017 Enterprise 的偵錯快照集
-1. 按一下 [下載快照集] 按鈕，下載可利用 Visual Studio 2017 Enterprise 開啟的 `.diagsession` 檔案。 
+1. 按一下 [下載快照集] 按鈕，下載可利用 Visual Studio 2017 Enterprise 開啟的 `.diagsession` 檔案。
 
 2. 若要開啟 `.diagsession` 檔案，您必須先[下載並安裝 Visual Studio 的快照集偵錯工具擴充功能](https://aka.ms/snapshotdebugger)。
 
@@ -312,7 +320,7 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
 例如，如果您的應用程式使用 1 GB 的總工作集，則應該確定至少有 2 GB 的磁碟空間可儲存快照集。
 請遵循下列步驟，以使用快照集的專用本機資源來設定您的雲端服務角色。
 
-1. 編輯雲端服務定義 (.csdf) 檔案，以將新的本機資源新增至雲端服務。 下列範例定義稱為 `SnapshotStore` 且大小為 5 GB 的資源。
+1. 編輯雲端服務定義 (.csdef) 檔案，以將新的本機資源新增至雲端服務。 下列範例定義稱為 `SnapshotStore` 且大小為 5 GB 的資源。
    ```xml
    <LocalResources>
      <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
@@ -379,5 +387,5 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
 ## <a name="next-steps"></a>後續步驟
 
 * [在您的程式碼中設定 Snappoint](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) 以取得快照集，而不需等待例外狀況。
-* [診斷 Web Apps 中的例外狀況](app-insights-asp-net-exceptions.md)說明如何讓 Application Insights 看見更多的例外狀況。 
+* [診斷 Web Apps 中的例外狀況](app-insights-asp-net-exceptions.md)說明如何讓 Application Insights 看見更多的例外狀況。
 * [智慧型偵測](app-insights-proactive-diagnostics.md)會自動探索效能異常。

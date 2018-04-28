@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: e6b2b7f4c01a5280c2fb3a5c17158b8dcc2797d4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d50f96f3dea3646bb32a3a42d0248957dabf9f0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>使用作業圖表進行資料導向偵錯
 
@@ -76,11 +76,11 @@ ms.lasthandoff: 04/06/2018
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>讀取資料的速度太慢了嗎？
 
-*   **InputEventsSourcesBackloggedTotal** 會告訴您事件中樞及 Azure IoT 中樞輸入還需要讀取多少訊息數量。
+*   **Input Events Backlogged (Total)** 會告訴您事件中樞及 Azure IoT 中樞輸入還需要讀取多少訊息數量。 當這個數目大於 0 時，表示您的作業無法以資料進來的速度處理資料。 此時，您可能需要增加串流單位數目，並/或確定您的工作可平行處理。 您可以在[查詢平行化作業頁面](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization)參閱相關的詳細資訊。 
 
 
 ## <a name="get-help"></a>取得說明
-如需其他協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
+如需其他協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。 
 
 ## <a name="next-steps"></a>後續步驟
 * [串流分析介紹](stream-analytics-introduction.md)

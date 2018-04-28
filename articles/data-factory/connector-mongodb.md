@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 3c1e5dbf60c247399b620a437da92a166990087e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4d20ed753c2e53d6a7c117e0c00671ab05036b03
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/23/2018
 
 具體而言，這個 MongoDB 連接器支援：
 
-- MongoDB **2.4、2.6、3.0 及 3.2 版**。
+- MongoDB **2.4、2.6、3.0、3.2、3.4、3.6 版**。
 - 使用 **Basic** (基本) 或 **Anonymous** (匿名) 驗證來複製資料。
 
 ## <a name="prerequisites"></a>先決條件
@@ -63,6 +63,8 @@ ms.lasthandoff: 03/23/2018
 | username |用來存取 MongoDB 的使用者帳戶。 |是 (如果使用基本驗證)。 |
 | password |使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 (如果使用基本驗證)。 |
 | authSource |您想要用來檢查驗證所用之認證的 MongoDB 資料庫名稱。 |編號 就基本驗證而言，預設會使用以 databaseName 屬性指定的系統管理員帳戶和資料庫。 |
+| enableSsl | 指定是否使用 SSL 來加密與伺服器的連線。 預設值為 False。  | 否 |
+| allowSelfSignedServerCert | 指定是否允許來自伺服器的自我簽署憑證。 預設值為 False。  | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
@@ -116,7 +118,7 @@ ms.lasthandoff: 03/23/2018
             "collectionName": "<Collection name>"
         }
     }
-
+}
 ```
 
 ## <a name="copy-activity-properties"></a>複製活動屬性

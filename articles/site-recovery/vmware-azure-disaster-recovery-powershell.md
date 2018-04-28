@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: bsiva
-ms.openlocfilehash: cbb76aafe97e9e9b45c48a2b13bd1a6566b51fa5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2a0f183770a07cd05963e88c672452cfeb80e567
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>使用 PowerShell 將 VMware VM 複寫並容錯移轉至 Azure
 
@@ -42,10 +42,10 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>登入您的 Microsoft Azure 訂用帳戶
 
-使用 Login-AzureRmAccount Cmdlet 登入您的 Azure 訂用帳戶
+使用 Connect-AzureRmAccount Cmdlet 登入您的 Azure 訂用帳戶
 
 ```azurepowershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 選取作為 VMware 虛擬機器複寫目的地的 Azure 訂用帳戶。 您可以使用 Get AzureRmSubscription Cmdlet 取得您有存取權的 Azure 訂用帳戶的清單。 使用 Select-AzureRmSubscription Cmdlet 選取要使用的 Azure 訂用帳戶。
 
@@ -447,7 +447,7 @@ TestFailovervnet = Get-AzureRmVirtualNetwork -Name "V2TestNetwork" -ResourceGrou
 #Start the test failover operation
 $TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
 ```
-測試容錯移轉作業順利完成時，您會發現已經在 Azure 中建立名稱後面加上*"-Test"* (在此案例中，即為 Win2K12VM1-Test) 的虛擬機器。 
+測試容錯移轉作業順利完成時，您會發現已經在 Azure 中建立名稱後面加上 *"-Test"* (在此案例中，即為 Win2K12VM1-Test) 的虛擬機器。 
 
 您現在可以連接到測試容錯移轉虛擬機器，並驗證測試容錯移轉。
 

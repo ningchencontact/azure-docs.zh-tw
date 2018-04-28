@@ -1,12 +1,12 @@
 ---
-title: "Azure Resource Manager 範本函式 - 資源 | Microsoft Docs"
-description: "描述 Azure Resource Manager 範本中用來擷取資源相關值的函式。"
+title: Azure Resource Manager 範本函式 - 資源 | Microsoft Docs
+description: 描述 Azure Resource Manager 範本中用來擷取資源相關值的函式。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f2ff44fc6644f3a4294f7b2c752a7f3ab05f351d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的資源函式
 
 資源管理員提供下列函式以取得資源值：
 
-* [listKeys 和 list{Value}](#listkeys)
+* [listKeys](#listkeys)
+* [listSecrets](#list)
+* [list*](#list)
 * [提供者](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -36,12 +38,14 @@ ms.lasthandoff: 01/23/2018
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-and-listvalue"></a>listKeys 和 list{Value}
+## <a name="listkeys-listsecrets-and-list"></a>listKeys、listSecrets 及 list*
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
+
+`listSecrets(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-對支援 list 作業的任何資源類型傳回值。 最常見的用法是 `listKeys`。 
+對支援 list 作業的任何資源類型傳回值。 最常用的是 `listKeys` 和 `listSecrets`。 
 
 ### <a name="parameters"></a>參數
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams
-ms.openlocfilehash: f678cb9819a2c03f97bcca5a2092160212779328
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 24e6ab7e94d8a1bdbfa0b5ee9112aaaff7e358ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Cortana Intelligence 解決方案評估工具
 ## <a name="overview"></a>概觀
@@ -195,7 +195,7 @@ Azure Machine Learning (AzureML) 提供簡單易用的工具，以建立和部�
 如需使用 Azure Data Factory 自動化模型訓練程序的詳細資訊，請參閱[使用更新資源活動更新 Azure Machine Learning 模型](https://docs.microsoft.com/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity)。
 
 ## <a name="existing-documentation"></a>現有文件
-[Microsoft Azure 認證協助拓展您的雲端業務](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
+[Microsoft Azure 認證協助拓展您的雲端業務](https://azure.microsoft.com/marketplace/programs/certified/)
 
-[Microsoft Azure Cortana Intellignece 認證](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
+[Microsoft Azure Cortana Intellignece 認證](https://azure.microsoft.com/marketplace/programs/certified/cortana/)
 

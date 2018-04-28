@@ -3,17 +3,17 @@ title: 建立原則指派，以識別 Azure 環境中的不相容資源 | Micros
 description: 這篇文章會引導您逐步完成建立原則定義來識別不相容的資源。
 services: azure-policy
 keywords: ''
-author: bandersmsft
-ms.author: banders
+author: DCtheGeek
+ms.author: dacoulte
 ms.date: 04/18/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: e5b27bdc2aef15b619022d1c08fa3e6dccaa5736
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6bb9eddb6a663e1f230c9c46835661ad20c02cfd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>建立原則指派，以識別 Azure 環境中的不相容資源
 了解 Azure 中合規性的第一個步驟是識別您資源的狀態。 本快速入門會逐步引導您完成程序來建立原則指派，以識別出未使用受控磁碟的虛擬機器。

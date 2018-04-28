@@ -1,25 +1,22 @@
 ---
-title: Azure 應用程式閘道 Web 應用程式防火牆 CRS 規則群組與規則 | Microsoft Docs
+title: Azure 應用程式閘道 Web 應用程式防火牆 CRS 規則群組與規則
 description: 此頁面提供關於 Web 應用程式防火牆 CRS 規則群組與規則的資訊。
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
+author: vhorne
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-ms.author: davidmu
-ms.openlocfilehash: 9265be4ac4258115c9302189d84b20e4894d42bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/16/2018
+ms.author: victorh
+ms.openlocfilehash: 5ba291eaa93a48e3aadc11b1f0f7b48b01683b07
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>提供的 web 應用程式防火牆 CRS 規則群組與規則的清單
 
@@ -27,28 +24,8 @@ ms.lasthandoff: 10/11/2017
 
 下表是規則群組以及使用應用程式閘道搭配 web 應用程式防火牆時可供使用的規則。  每個資料表代表特定 CRS 版本的規則群組中找到的規則。
 
-##<a name="owasp30"></a> OWASP_3.0
+## <a name="owasp30"></a> OWASP_3.0
 
-### <a name="crs910"></a>  <p x-ms-format-detection="none">REQUEST-910-IP-REPUTATION</p>
-
-|RuleId|說明|
-|---|---|
-|910011|規則 910011|
-|910012|規則 910012|
-|910000|來自已知惡意用戶端 (根據先前流量違規) 的要求。|
-|910100|用戶端 IP 是來自高風險國家/地區位置。|
-|910120|規則 910120|
-|910130|規則 910130|
-|910150|搜尋引擎 IP 的 HTTP 封鎖清單相符項目|
-|910160|濫發垃圾郵件者 IP 的 HTTP 封鎖清單相符項目|
-|910170|可疑 IP 的 HTTP 封鎖清單相符項目|
-|910180|收割者 IP 的 HTTP 封鎖清單相符項目|
-|910013|規則 910013|
-|910014|規則 910014|
-|910015|規則 910015|
-|910016|規則 910016|
-|910017|規則 910017|
-|910018|規則 910018|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
@@ -64,26 +41,6 @@ ms.lasthandoff: 10/11/2017
 |911017|規則 911017|
 |911018|規則 911018|
 
-### <a name="crs912"></a> <p x-ms-format-detection="none">REQUEST-912-DOS-PROTECTION</p>
-
-|RuleId|說明|
-|---|---|
-|912100|規則 912100|
-|912012|規則 912012|
-|912120|從 %@{tx.real_ip} 識別到阻斷服務 (DoS) 攻擊 (自上一次警示起 %@{tx.dos_block_counter} 點擊數)|
-|912130|規則 912130|
-|912140|規則 912140|
-|912150|規則 912150|
-|912160|規則 912160|
-|912170|來自 %@{tx.real_ip} 的可能阻斷服務 (DoS) 攻擊 - # 個要求突發 = %@{ip.dos_burst_counter}|
-|912013|規則 912013|
-|912014|規則 912014|
-|912019|規則 912019|
-|912171|來自 %@{tx.real_ip} 的可能阻斷服務 (DoS) 攻擊 - # 個要求突發 = %@{ip.dos_burst_counter}|
-|912015|規則 912015|
-|912016|規則 912016|
-|912017|規則 912017|
-|912018|規則 912018|
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
@@ -268,7 +225,7 @@ ms.lasthandoff: 10/11/2017
 |941130|XSS 篩選器 - 類別 3 = 屬性向量|
 |941140|XSS 篩選器 - 類別 4 = JavaScript URI 向量|
 |941150|XSS 篩選器 - 類別 5 = 不允許的 HTML 屬性|
-|941180|節點狀態驗證封鎖清單關鍵字|
+|941180|節點狀態驗證黑名單關鍵字|
 |941190|IE XSS 篩選器 - 偵測到攻擊。|
 |941200|IE XSS 篩選器 - 偵測到攻擊。|
 |941210|IE XSS 篩選器 - 偵測到攻擊。|

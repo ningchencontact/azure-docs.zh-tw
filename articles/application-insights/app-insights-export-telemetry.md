@@ -1,8 +1,8 @@
 ---
-title: "從 Application Insights 連續匯出遙測 | Microsoft Docs"
-description: "匯出診斷和使用量資料至 Microsoft Azure 中的儲存體，並從那裡下載。"
+title: 從 Application Insights 連續匯出遙測 | Microsoft Docs
+description: 匯出診斷和使用量資料至 Microsoft Azure 中的儲存體，並從那裡下載。
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d1f648bc2c2a42cfbd668f180bce8f56ebd065b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 05d271eb7d046819bb8fc2be20623cba0000d8f4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="export-telemetry-from-application-insights"></a>從 Application Insights 匯出遙測
 想要讓遙測保留比標準保留期限還久的時間？ 或以某些特殊方式處理它？ 連續匯出很適合此用途。 在 Application Insights 入口網站中看見的事件，可以使用 JSON 格式匯出到 Microsoft Azure 中的儲存體。 從那裡，您可以下載資料並編寫處理所需的任何程式碼。  
@@ -31,6 +31,7 @@ ms.lasthandoff: 11/01/2017
 * [分析](app-insights-analytics.md) 可提供功能強大的遙測查詢語言。 它也可以匯出結果。
 * 如果您想要 [在 Power BI 中探索資料](app-insights-export-power-bi.md)，不需要用到「連續匯出」也可以這麼做。
 * [資料存取 REST API](https://dev.applicationinsights.io/) 可讓您以程式設計方式存取您的遙測。
+* 您也可以[透過 Powershell 存取連續匯出設定](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0)。
 
 在「連續匯出」將您的資料複製到儲存體 (資料可在此依您喜好的時間長短存放) 之後，資料仍然會在 Application Insights 中依一般的[保留期間](app-insights-data-retention-privacy.md)可供使用。
 

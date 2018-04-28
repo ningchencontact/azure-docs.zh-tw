@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 1963c4d7b2e895032862fae896c6d9ff7cf80806
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 090629874e75d75223e018b002cf04a02b1d1bb0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>使用 Resource Manager 範本在建立資源時自動啟用診斷設定
 在本文中，我們示範如何在建立資源時使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md) 設定診斷設定。 這可讓您在建立資源時，自動開始將您的診斷記錄檔和度量串流至事件中樞、將它們封存在儲存體帳戶中，或將它們傳送至 Log Analytics。
@@ -116,7 +116,7 @@ ms.lasthandoff: 04/23/2018
     ]
     ```
 
-診斷設定的屬性 blob 遵循 [這篇文章中所述的格式](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate)。 新增 `metrics` 屬性可讓您同時傳送資源計量到這些相同的輸出，但前提是[資源支援 Azure 監視器計量](monitoring-supported-metrics.md)。
+診斷設定的屬性 blob 遵循 [這篇文章中所述的格式](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)。 新增 `metrics` 屬性可讓您同時傳送資源計量到這些相同的輸出，但前提是[資源支援 Azure 監視器計量](monitoring-supported-metrics.md)。
 
 以下的完整範例會建立邏輯應用程式，並開啟串流至事件中樞和儲存體帳戶中的儲存體。
 
@@ -134,7 +134,7 @@ ms.lasthandoff: 04/23/2018
     },
     "testUri": {
       "type": "string",
-      "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
+      "defaultValue": "http://azure.microsoft.com/status/feed/"
     },
     "settingName": {
       "type": "string",

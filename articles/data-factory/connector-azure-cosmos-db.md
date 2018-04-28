@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 01de1020cd485b3cf91e5d5bc2e175df2bcad111
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 58e1c88629c21940e09efd6832d536c0b2b47ace
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Cosmos DB 或從該處複製資料
 
@@ -168,7 +168,6 @@ ms.lasthandoff: 03/23/2018
 |:--- |:--- |:--- |
 | type | 複製活動接收的 type 屬性必須設定為：**DocumentDbCollectionSink** |yes |
 | nestingSeparator |來源資料行名稱中用來表示需要巢狀文件的特殊字元。 <br/><br/>例如，當 nestedSeparator 是點號時，輸出資料集結構中的 `Name.First` 會在 Cosmos DB 文件中產生下列 JSON 結構：`"Name": {"First": "[value maps to this column from source]"}`。 |否 (預設為點號 `.`) |
-| writeBatchTimeout |在逾時前等待作業完成的時間。<br/><br/>允許的值為：時間範圍。 範例："00:30:00" (30 分鐘)。 |否 |
 
 **範例：**
 

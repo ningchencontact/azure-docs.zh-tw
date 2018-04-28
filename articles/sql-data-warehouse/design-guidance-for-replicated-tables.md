@@ -1,24 +1,20 @@
 ---
-title: "複寫資料表設計指引 - Azure SQL 資料倉儲 | Microsoft Docs"
-description: "針對在「Azure SQL 資料倉儲」結構描述中設計複寫資料表提供建議。"
+title: 複寫資料表設計指引 - Azure SQL 資料倉儲 | Microsoft Docs
+description: 針對在「Azure SQL 資料倉儲」結構描述中設計複寫資料表提供建議。
 services: sql-data-warehouse
-documentationcenter: NA
 author: ronortloff
-manager: jhubbard
-editor: 
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 10/23/2017
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: b1d60cc0a83c95c5e33fbaae6083572af3e183ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中使用複寫資料表的設計指引
 本文針對在「SQL 資料倉儲」結構描述中設計複寫資料表提供建議。 您可以使用這些建議來降低資料移動和查詢的複雜性，以提升查詢效能。
@@ -84,7 +80,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>將現有的循環配置資源資料表轉換成分散式資料表
 如果您已經有循環配置資源資料表，而且它們符合本文中所述的準則，建議您將它們轉換成複寫資料表。 複寫資料表可提升循環配置資源資料表的效能，因為它們不需進行資料移動。  循環配置資源資料表針對聯結一律需要進行資料移動。 
 
-此範例使用 [CTAS](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 將 DimSalesTerritory 資料表變更為複寫資料表。 不論 DimSalesTerritory 是雜湊分散式還是循環配置資源資料表，此範例都有效。
+此範例使用 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 將 DimSalesTerritory 資料表變更為複寫資料表。 不論 DimSalesTerritory 是雜湊分散式還是循環配置資源資料表，此範例都有效。
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]   
@@ -112,7 +108,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### <a name="query-performance-example-for-round-robin-versus-replicated"></a>循環配置資源與複寫之查詢效能比較範例 
 
-複寫資料表針對聯結不需要進行任何資料移動，因為整個資料表已經存在於每個計算節點上。 如果維度資料表是循環配置資源分散式資料表，聯結就會將整個維度資料表複製到每個計算節點。 為了移動資料，查詢計劃會包含一個名為 BroadcastMoveOperation 的作業。 這類資料移動作業會降低查詢效能，而使用複寫資料表則可免除這類作業。 若要檢視查詢計劃步驟，請使用 [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) 系統目錄檢視。 
+複寫資料表針對聯結不需要進行任何資料移動，因為整個資料表已經存在於每個計算節點上。 如果維度資料表是循環配置資源分散式資料表，聯結就會將整個維度資料表複製到每個計算節點。 為了移動資料，查詢計劃會包含一個名為 BroadcastMoveOperation 的作業。 這類資料移動作業會降低查詢效能，而使用複寫資料表則可免除這類作業。 若要檢視查詢計劃步驟，請使用 [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) 系統目錄檢視。 
 
 例如，在以下針對 AdventureWorks 結構描述執行的查詢中，` FactInternetSales` 資料表是雜湊分散式資料表。 `DimDate` 和 `DimSalesTerritory` 資料表是較小型的維度資料表。 此查詢會傳回 2004 會計年度北美的總銷售額：
  
@@ -140,7 +136,7 @@ WHERE d.FiscalYear = 2004
 
 在執行下列動作之後，必須進行重建：
 - 載入或修改資料
-- 將資料倉儲調整成不同的[服務等級](performance-tiers.md#service-levels)
+- 將資料倉儲調整成不同的等級
 - 更新資料表定義
 
 在執行下列動作之後，不須進行重建：
@@ -178,7 +174,7 @@ WHERE d.FiscalYear = 2004
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>在批次載入後重建複寫資料表
 為了確保查詢執行時間一致，建議您在批次載入後，強制重新整理複寫資料表。 否則，第一個查詢將必須等候資料表重新整理，其中包括重建索引。 視受影響的複寫資料表大小和數目而定，可能會有明顯的效能影響。  
 
-此查詢使用 [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV 來列出已修改但未重建的複寫資料表。
+此查詢使用 [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV 來列出已修改但未重建的複寫資料表。
 
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
@@ -200,8 +196,8 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ## <a name="next-steps"></a>後續步驟 
 若要建立複寫資料表，請使用下列其中一個陳述式：
 
-- [CREATE TABLE (Azure SQL 資料倉儲)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (Azure SQL 資料倉儲)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (Azure SQL 資料倉儲)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT (Azure SQL 資料倉儲)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 如需分散式資料表的概觀，請參閱[分散式資料表](sql-data-warehouse-tables-distribute.md)。
 

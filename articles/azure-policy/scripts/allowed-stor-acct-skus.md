@@ -1,25 +1,25 @@
 ---
-title: "Azure 原則 JSON 範例 - 允許的儲存體帳戶 SKU | Microsoft Docs"
-description: "此 JSON 範例原則會要求儲存體帳戶使用已核准的 SKU。"
+title: Azure 原則 JSON 範例 - 允許的儲存體帳戶 SKU | Microsoft Docs
+description: 此 JSON 範例原則會要求儲存體帳戶使用已核准的 SKU。
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: df1edf3c0e9e2b4738ae4f5d0038869eca9c8ca5
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 13670ea2a9df37420beca95706ebc2b85d914f3b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="allowed-storage-account-skus"></a>允許的儲存體帳戶 SKU
 

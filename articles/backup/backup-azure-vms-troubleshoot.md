@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: trinadhk;markgal;jpallavi;sogup
-ms.openlocfilehash: 93eb9a65e9d5733963f7d6269a06d5f3cde5e256
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 25008736dbff87aafe2f2ef2d13bbaf746e95e4d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
 您可以疑難排解將 Azure 備份使用於下表所列資訊時發生的錯誤。
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/16/2018
 | 虛擬機器不存在。 - 請確定該虛擬機器存在，或選取不同的虛擬機器。 |當刪除主要 VM 但備份原則繼續尋找 VM 來執行備份時，就會發生這種情況。 若要修正此錯誤： <ol><li> 重新建立具有相同名稱和相同資源群組名稱 [雲端服務名稱] 的虛擬機器，<br>(或)<br></li><li>停止保護虛擬機器，但不刪除備份資料。 [更多詳細資料](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | 命令執行失敗。 另一項作業目前正在此項目上進行。 請等到前一項作業完成，然後重試 |VM 上的現有備份正在執行中，而當現有作業正在執行時，無法啟動新的作業。 |
 | 從備份保存庫複製 VHD 已逾時 - 請在幾分鐘內重試此作業。 如果問題持續發生，請連絡 Microsoft 支援服務。 | 發生此問題的時機為儲存體端上產生暫時性錯誤，或者備份服務尚未從裝載 VM 的儲存體帳戶取得足夠的 IOPS，以便在逾時期限內將資料轉送到保存庫。 確定您在設定備份時已遵循[最佳作法](backup-azure-vms-introduction.md#best-practices)。 請嘗試將 VM 移至其他尚未載入的儲存體帳戶，然後重試備份。|
-| 備份因為內部錯誤而失敗 - 請在幾分鐘內重試此作業。 如果問題持續發生，請連絡 Microsoft 支援服務。 |這個錯誤的發生原因有 2 個： <ol><li> 存取 VM 儲存體時發生暫時性問題。 請檢查 [Azure 狀態](https://azure.microsoft.com/en-us/status/)，以查看該區域中目前是否有任何與計算、儲存體或網路相關的問題。 然後在問題解決後，立即重試備份作業。 <li>已刪除原始 VM，因此無法取得復原點。 若要保留已刪除 VM 的備份資料，但移除備份錯誤：請取消保護 VM 並選擇保留資料。 這個動作會停止排定的備份作業和週期性錯誤訊息。 |
+| 備份因為內部錯誤而失敗 - 請在幾分鐘內重試此作業。 如果問題持續發生，請連絡 Microsoft 支援服務。 |這個錯誤的發生原因有 2 個： <ol><li> 存取 VM 儲存體時發生暫時性問題。 請檢查 [Azure 狀態](https://azure.microsoft.com/status/)，以查看該區域中目前是否有任何與計算、儲存體或網路相關的問題。 然後在問題解決後，立即重試備份作業。 <li>已刪除原始 VM，因此無法取得復原點。 若要保留已刪除 VM 的備份資料，但移除備份錯誤：請取消保護 VM 並選擇保留資料。 這個動作會停止排定的備份作業和週期性錯誤訊息。 |
 | 無法在選取的項目上安裝 Azure 復原服務延伸模組 - VM 代理程式是 Azure 復原服務延伸模組的先決條件。 安裝 Azure VM 代理程式並重新啟動註冊作業 |<ol> <li>檢查是否已正確安裝 VM 代理程式。 <li>確定已正確設定 VM 組態中的旗標。</ol> [深入了解](#validating-vm-agent-installation)如何安裝 VM 代理程式，以及如何驗證 VM 代理程式安裝。 |
 | 擴充功能安裝失敗，發生錯誤「COM+ 無法與 Microsoft Distributed Transaction Coordinator 通話」 |這通常表示 COM+ 服務未執行。 請連絡 Microsoft 支援服務來協助解決此問題。 |
 | 快照集作業失敗，發生 VSS 作業錯誤「這個磁碟機已由 BitLocker 磁碟機加密鎖定」。 您必須至 [控制台] 解除鎖定這個磁碟機。 |對 VM 上的所有磁碟機關閉 BitLocker，並觀察是否已解決 VSS 問題 |

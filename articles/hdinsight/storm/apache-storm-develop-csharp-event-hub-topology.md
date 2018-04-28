@@ -1,26 +1,24 @@
 ---
-title: "在事件中樞內使用 Storm 來處理事件 - Azure HDInsight | Microsoft Docs"
-description: "了解如何利用在 Visual Studio 中使用 HDInsight Tools for Visual Studio 所建立之 C# Storm 拓撲來處理 Azure 事件中樞的資料。"
+title: 在事件中樞內使用 Storm 來處理事件 - Azure HDInsight | Microsoft Docs
+description: 了解如何利用在 Visual Studio 中使用 HDInsight Tools for Visual Studio 所建立之 C# Storm 拓撲來處理 Azure 事件中樞的資料。
 services: hdinsight,notification hubs
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: 
+ms.custom: ''
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: fe1cf3eab1f0ca930b516e4ab44f1e2439cb3e07
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 475a63937ed09b4ce875465c0eb3488ce92c38be
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)
 
@@ -51,7 +49,7 @@ C# 拓撲也必須以 .NET 4.5 為目標。
 
 ## <a name="how-to-work-with-event-hubs"></a>如何使用事件中樞
 
-Microsoft 提供一組可用來從 Storm 拓撲與事件中樞通訊的 Java 元件。 您可以在 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) 找到內含這些元件之 HDInsight 3.6 相容版本的 Java 封存檔 (JAR) 檔案。
+Microsoft 提供一組可用來從 Storm 拓撲與事件中樞通訊的 Java 元件。 您可以在 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) 上找到包含這些元件的 HDInsight 3.6 相容版本的 Java 封存檔案 (JAR)。
 
 > [!IMPORTANT]
 > 雖然元件是以 Java 所撰寫，您可以輕鬆地從 C# 拓撲使用它們。

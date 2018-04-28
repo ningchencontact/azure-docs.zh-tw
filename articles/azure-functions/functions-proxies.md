@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions Proxy
 
@@ -99,7 +99,7 @@ Proxy 的設定不需要是靜態。 您可以將它設定為使用來自原始�
 
 您也可以參考[針對函式應用程式定義的應用程式設定](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#develop)，只要以百分比符號 (%) 括住設定名稱即可。
 
-例如，後端 URL *https://%ORDER_PROCESSING_HOST%/api/orders* 中會以 ORDER_PROCESSING_HOST 設定的值取代 "%ORDER_PROCESSING_HOST%"。
+例如，https://%ORDER_PROCESSING_HOST%/api/orders 的後端 URL 會將 "%ORDER_PROCESSING_HOST%" 取代為 ORDER_PROCESSING_HOST 設定的值。
 
 > [!TIP] 
 > 當您有多個部署或測試環境時，請使用後端主機的應用程式設定。 這樣一來，您就可以確保一律與該環境保持正確的後端通訊。

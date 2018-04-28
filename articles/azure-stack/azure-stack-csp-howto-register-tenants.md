@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: fd5a8afe82bab5ca4e735a2483d90b84e234b8dc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>將用於使用量與帳單的租用戶新增至 Azure Stack
 
@@ -58,7 +58,7 @@ CSP 通常會為其 Azure Stack 部署上的多個客戶 (租用戶) 提供服�
 > 若要執行此步驟，您必須[已註冊 Azure Stack](azure-stack-register.md)。
 
 1. 使用提升權限提示字元開啟 Windows PowerShell，並執行：  
-    `Connect-AzureRmAccount`
+    `Add-AzureRmAccount`
 2. 輸入您的 Azure 認證。
 3. 在 PowerShell 工作階段中，執行：
 

@@ -1,11 +1,11 @@
 ---
-title: "透過 HTTP - Azure Logic Apps 與任何端點通訊 | Microsoft Docs"
-description: "建立可以透過 HTTP 與任何端點通訊的邏輯應用程式"
+title: 透過 HTTP - Azure Logic Apps 與任何端點通訊 | Microsoft Docs
+description: 建立可以透過 HTTP 與任何端點通訊的邏輯應用程式
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 355d1e02ef8195bcee469b77976f1a5834f192d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-the-http-action"></a>開始使用 HTTP 動作
 
@@ -150,7 +150,7 @@ Logic Apps 功能可讓您針對 HTTP 端點使用不同類型的驗證。 您�
 
 > [!TIP]
 > 如果您要使用無法從定義中擷取的密碼，請使用 `securestring` 參數和 `@parameters()` 
-> [工作流程定義函式](http://aka.ms/logicappdocs)。
+> [工作流程定義函式](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow)。
 
 例如︰
 
@@ -174,7 +174,7 @@ Logic Apps 功能可讓您針對 HTTP 端點使用不同類型的驗證。 您�
 
 > [!TIP]
 > 若要在儲存邏輯應用程式後，使用無法在定義中讀取的參數，您可以使用 `securestring` 參數和 `@parameters()`  
-> [工作流程定義函式](http://aka.ms/logicappdocs)。
+> [工作流程定義函式](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow)。
 
 例如︰
 
@@ -198,7 +198,7 @@ Logic Apps 功能可讓您針對 HTTP 端點使用不同類型的驗證。 您�
 | 密碼* |secret |要求權杖之用戶端的密碼 |
 
 > [!TIP]
-> 使用 `securestring` 參數和 `@parameters()` [工作流程定義函式](http://aka.ms/logicappdocs)，您就能在儲存後使用無法在定義中讀取的參數。
+> 使用 `securestring` 參數和 `@parameters()` [工作流程定義函式](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow)，您就能在儲存後使用無法在定義中讀取的參數。
 > 
 > 
 

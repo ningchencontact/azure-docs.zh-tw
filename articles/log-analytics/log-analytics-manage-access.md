@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: af648e97f5913ef7413f72db8e19aa5ea69d6d09
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 25a68fb535300e80efdf2adf9f3a8afe1b304667
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-workspaces"></a>管理工作區
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/16/2018
 ## <a name="determine-the-number-of-workspaces-you-need"></a>判斷您需要的工作區數目
 工作區是一種 Azure 資源，也是 Azure 入口網站中收集、彙總、分析及呈現資料的容器。
 
-每個 Azure 訂用帳戶可以有多個工作區，而且您可以存取多個工作區。 您先前只能分析來自目前工作區內的資料，這項限制讓您無法跨訂用帳戶中定義的多個工作區執行查詢。 現在，您可以[跨多個工作區執行查詢](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search)，這提供了一個全系統的資料檢視。 本節描述何時有利於建立多個工作區。
+每個 Azure 訂用帳戶可以有多個工作區，而且您可以存取多個工作區。 您先前只能分析來自目前工作區內的資料，這項限制讓您無法跨訂用帳戶中定義的多個工作區執行查詢。 現在，您可以[跨多個工作區執行查詢](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search)，這提供了一個全系統的資料檢視。 本節描述何時有利於建立多個工作區。
 
 現今的工作區可提供︰
 

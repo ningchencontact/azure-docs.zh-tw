@@ -1,24 +1,24 @@
 ---
-title: "使用 Resource Manager 範本建立 Azure 服務匯流排資源 | Microsoft Docs"
-description: "使用 Azure Resource Manager 範本自動建立服務匯流排資源"
+title: 使用 Resource Manager 範本建立 Azure 服務匯流排資源 | Microsoft Docs
+description: 使用 Azure Resource Manager 範本自動建立服務匯流排資源
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 04/11/2018
 ms.author: sethm
-ms.openlocfilehash: 0ceeb138a7432e51cabe2597c680cb01ea9eac4a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c8d84de608ccf3d9a9293c20c07c10a00b73da68
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立服務匯流排資源
 
@@ -61,7 +61,7 @@ Azure Resource Manager 範本會協助您定義要部署給解決方案的資源
 
 ### <a name="create-a-template"></a>建立範本
 
-從 GitHub 複製 [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) 範本：
+從 GitHub 複製儲存機制或複製 [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) 範本：
 
 ```json
 {
@@ -163,7 +163,7 @@ Azure Resource Manager 範本會協助您定義要部署給解決方案的資源
 從 PowerShell 提示字元中執行下列命令：
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 系統會提示您登入您的 Azure 帳戶。 登入之後，執行下列命令以檢視可用的訂用帳戶：

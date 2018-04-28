@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e47141d31d3876264eaf2bcb7dc562a4711048cc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>整合外部監視解決方案與 Azure Stack
 
@@ -92,14 +92,14 @@ Nagios 監視外掛程式隨著協力廠商 Cloudbase 解決方案開發，其�
 
 如果您不是使用 Operations Manager、Nagios 或以 Nagios 基礎的解決方案，可以使用 PowerShell 來啟用廣泛的監視解決方案，以與 Azure Stack 整合。
  
-1. 若要使用 PowerShell，請確定您已針對 Azure Stack 操作員環境[安裝和設定 PowerShell ](azure-stack-powershell-configure-quickstart.md)。 在可以連線 Resource Manager (系統管理員) 端點的本機電腦上安裝 PowerShell (https://adminmanagement.[region].[External_FQDN])。
+1. 若要使用 PowerShell，請確定您已針對 Azure Stack 操作員環境[安裝和設定 PowerShell ](azure-stack-powershell-configure-quickstart.md)。 在可以連線資源管理員 (系統管理員) 端點的本機電腦上安裝 PowerShell (https://adminmanagement.[region].[External_FQDN])。
 
 2. 以 Azure Stack 操作員身分執行下列命令以連線到 Azure Stack 環境：
 
    ```PowerShell
    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
-   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 3. 切換至隨著 PowerShell 安裝而安裝 [Azure Stack 工具](https://github.com/Azure/AzureStack-Tools)的所在目錄，例如 c:\azurestack-tools-master。 然後，切換至基礎結構目錄，然後執行下列命令以匯入基礎結構模組：
 
@@ -145,7 +145,7 @@ Nagios 監視外掛程式隨著協力廠商 Cloudbase 解決方案開發，其�
 
 |引數  |說明  |
 |---------|---------|
-|armendpoint     |  您的 Azure Stack 環境的 Azure Resource Manager 端點，採用格式：https://adminmanagement.{RegionName}.{External FQDN}。 例如，如果外部 FQDN 是 *azurestack.external*，而區域名稱是 *local*，那麼 Resource Manager 端點就是 https://adminmanagement.local.azurestack.external。       |
+|armendpoint     |  Azure Stack 環境的 Azure Resource Manager 端點 (https://adminmanagement.{RegionName}.{External FQDN 格式)。 例如，如果外部 FQDN 是 *azurestack.external*，而區域名稱是 *local*，那麼 Resource Manager 端點就是 https://adminmanagement.local.azurestack.external。       |
 |subid     |   正在進行呼叫之使用者的訂用帳戶識別碼。 您僅可以透過具有預設提供者訂用帳戶權限的使用者來使用此 API 進行查詢。      |
 |RegionName     |    Azure Stack 部署的區域名稱。     |
 |api-version     |  用來提出此要求的通訊協定版本。 您必須使用 2016-05-01。      |
@@ -248,7 +248,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |引數  |說明  |
 |---------|---------|
-|*armendpoint*     |   您的 Azure Stack 環境的 Resource Manager 端點，採用格式：https://adminmanagement.{RegionName}.{External FQDN}。 例如，如果外部 FQDN 是 *azurestack.external*，而區域名稱是 *local*，那麼 Resource Manager 端點就是 https://adminmanagement.local.azurestack.external。      |
+|*armendpoint*     |   Azure Stack 環境的資源管理員端點 (https://adminmanagement.{RegionName}.{External FQDN 格式)。 例如，如果外部 FQDN 是 *azurestack.external*，而區域名稱是 *local*，那麼 Resource Manager 端點就是 https://adminmanagement.local.azurestack.external。      |
 |*subid*     |    正在進行呼叫之使用者的訂用帳戶識別碼。 您僅可以透過具有預設提供者訂用帳戶權限的使用者來使用此 API 進行查詢。     |
 |*RegionName*     |   Azure Stack 部署的區域名稱。      |
 |*api-version*     |    用來提出此要求的通訊協定版本。 您必須使用 2016-05-01。     |
@@ -393,7 +393,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 
 |引數  |說明  |
 |---------|---------|
-|*armendpoint*     |    您的 Azure Stack 環境的 Resource Manager 端點，採用格式：https://adminmanagement.{RegionName}.{External FQDN}。 例如，如果外部 FQDN 是 azurestack.external，而區域名稱是 local，那麼 Resource Manager 端點就是 https://adminmanagement.local.azurestack.external。     |
+|*armendpoint*     |    Azure Stack 環境的資源管理員端點 (https://adminmanagement.{RegionName}.{External FQDN 格式)。 例如，如果外部 FQDN 是 azurestack.external，而區域名稱是 local，那麼 Resource Manager 端點就是 https://adminmanagement.local.azurestack.external。     |
 |*subid*     |     正在進行呼叫之使用者的訂用帳戶識別碼。 您僅可以透過具有預設提供者訂用帳戶權限的使用者來使用此 API 進行查詢。    |
 |*RegionName*     |     Azure Stack 部署的區域名稱。    |
 |*api-version*     |   用來提出此要求的通訊協定版本。 您必須使用 2016-05-01。      |
@@ -462,7 +462,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |引數  |說明  |
 |---------|---------|
-|*armendpoint*     |    您的 Azure Stack 環境的 Resource Manager 端點，採用格式：https://adminmanagement.{RegionName}.{External FQDN}。 例如，如果外部 FQDN 是 azurestack.external，而區域名稱是 local，那麼 Resource Manager 端點就是 https://adminmanagement.local.azurestack.external。     |
+|*armendpoint*     |    Azure Stack 環境的資源管理員端點 (https://adminmanagement.{RegionName}.{External FQDN 格式)。 例如，如果外部 FQDN 是 azurestack.external，而區域名稱是 local，那麼 Resource Manager 端點就是 https://adminmanagement.local.azurestack.external。     |
 |*subid*     |正在進行呼叫之使用者的訂用帳戶識別碼。 您僅可以透過具有預設提供者訂用帳戶權限的使用者來使用此 API 進行查詢。         |
 |*RegionName*     |  Azure Stack 部署的區域名稱。       |
 |*api-version*     |  用來提出此要求的通訊協定版本。 您必須使用 2016-05-01。       |

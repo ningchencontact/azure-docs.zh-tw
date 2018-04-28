@@ -1,26 +1,24 @@
 ---
-title: "使用 Apache Hive 分析 Twitter 資料 - Azure HDInsight | Microsoft Docs"
-description: "了解如何使用 HDInsight 上的 Hive 與 Hadoop，將原始 Twitter 資料轉換成可搜尋的 Hive 資料表。"
+title: 使用 Apache Hive 分析 Twitter 資料 - Azure HDInsight | Microsoft Docs
+description: 了解如何使用 HDInsight 上的 Hive 與 Hadoop，將原始 Twitter 資料轉換成可搜尋的 Hive 資料表。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b6e540576bc4a5876bc8546262a181bd82ad9727
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 1e3a9b12a9621baf91d49be48fb79a5d6bca1326
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>在 HDInsight 上使用 Hive 與 Hadoop 分析 Twitter 資料
 

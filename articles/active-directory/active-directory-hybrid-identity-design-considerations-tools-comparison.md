@@ -1,8 +1,8 @@
 ---
-title: "混合式身分識別：目錄整合工具比較 | Microsoft Docs"
-description: "本頁面提供完整資料表，供您比較各種可用於目錄整合的目錄整合工具。"
+title: 混合式身分識別：目錄整合工具比較 | Microsoft Docs
+description: 本頁面提供完整資料表，供您比較各種可用於目錄整合的目錄整合工具。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/09/2018
+ms.date: 04/27/2018
 ms.author: billmath
-ms.openlocfilehash: 78ca910b4dfd5a706d2f1df7f70291fb48f096f5
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 5d189af9b08f2b6e9ea194c15bfba683afc75a54
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>混合式身分識別目錄整合工具比較
 目錄整合工具已經經過多年的成長和發展。  本文件是為了整合檢視這些工具，並比較各個工具中所提供的功能。
@@ -43,16 +43,14 @@ PP = 公開預覽
 | 連接到單一內部部署 AD 樹系 |● |● |● |● |● |
 | 連接到多個內部部署 AD 樹系 |● |● | |● |● |
 | 連接到多個內部部署 Exchange 組織 |● | | | | |
-| 連接到單一內部部署 LDAP 目錄 |●* | | |● |● |
-| 連接到多個內部部署 LDAP 目錄 |●*  | | |● |● |
-| 連接到內部部署 AD 和內部部署 LDAP 目錄 |●* | | |● |● |
+| 連接到單一內部部署 LDAP 目錄 | | | |● |● |
+| 連接到多個內部部署 LDAP 目錄 |  | | |● |● |
+| 連接到內部部署 AD 和內部部署 LDAP 目錄 | | | |● |● |
 | 連接到自訂系統 (亦即 SQL、Oracle、MySQL 等) |FR | | |● |● |
 | 同步處理客戶定義的屬性 (目錄擴充功能) |● | | | | |
 | 連接到內部部署人力資源系統 (例如 SAP、Oracle eBusiness、PeopleSoft) |FR | | |● |● |
 | 支援 FIM 同步處理規則和連接器，以供佈建到內部部署系統。 | | | |● |● |
-&#42; 目前這有兩個支援的選項。  如下：
-   1. 您可以使用泛型 LDAP 連接器，並在 Azure AD Connect 之外啟用。  這很複雜，且需要夥伴才能上架，以及頂級支援合約來維護。  此選項可以處理單一和多個 LDAP 目錄。
-   2. 您可以開發自己的解決方案，將物件從 LDAP 移至 Active Directory。  然後使用 Azure AD Connect 將物件同步。  MIM 或 FIM 可用來作為移動物件的可能解決方案。
+
 
 ## <a name="cloud-to-on-premises-synchronization"></a>雲端至內部部署同步處理
 | 功能 | Azure Active Directory Connect | Azure Active Directory 同步處理服務 | Azure Active Directory 同步處理工具 (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |

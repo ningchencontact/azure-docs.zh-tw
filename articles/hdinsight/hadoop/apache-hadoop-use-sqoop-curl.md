@@ -1,8 +1,8 @@
 ---
-title: "在 HDInsight 中搭配使用 Hadoop Sqoop 與 Curl - Azure | Microsoft Docs"
-description: "了解如何使用 Curl 從遠端提交 Sqoop 工作到 HDInsight。"
+title: 在 HDInsight 中搭配使用 Hadoop Sqoop 與 Curl - Azure | Microsoft Docs
+description: 了解如何使用 Curl 從遠端提交 Sqoop 工作到 HDInsight。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 39798321-78ca-428c-bcfe-322e49af4059
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 08e7288d4d9d06f3a74464817892c2b03ae8a86c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 66c82cc22b9b460281928c4892dab8308ccf1098
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>使用 Curl 在 HDInsight 中以 Hadoop 執行 Sqoop 作業
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -63,7 +61,7 @@ ms.lasthandoff: 01/03/2018
    * **-u** - 用來驗證要求的使用者名稱和密碼。
    * **-G** - 指出這是 GET 要求。
      
-     所有要求的 URL 開頭 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** 都相同。 路徑 **/status** 指出要求是要傳回伺服器之 WebHCat (也稱為 Templeton) 的狀態。 
+     URL 的開頭 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** 適用於所有要求。 路徑 **/status** 指出要求是要傳回伺服器之 WebHCat (也稱為 Templeton) 的狀態。 
 2. 使用以下命令提交 Sqoop 作業：
 
     ```bash

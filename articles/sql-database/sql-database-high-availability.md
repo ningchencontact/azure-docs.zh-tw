@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 69d004ae4c2408e5749d0a7d21b996cec8dba722
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e85db04206927eaf17cf52c11b536c75a47a088e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>高可用性和 Azure SQL Database
 自推出 Azure SQL Database PaaS 供應項目以來，Microsoft 已對客戶承諾會在服務中內建「高可用性」(HA)，讓客戶無須針對 HA 進行操作、新增特殊邏輯或進行決策。 Microsoft 會保有 HA 系統設定和作業的完整控制權，為客戶提供 SLA。 HA SLA 會套用至區域中的 SQL 資料庫，而對於總區域因超出 Microsoft 可合理控制範圍的因素 (例如天然災害、戰爭、恐怖攻擊、暴動、政府行為，或是 Microsoft 資料中心外的網路或裝置故障，包括在客戶網站上或客戶網站與 Microsoft 資料中心之間) 而發生故障的情況，並不提供保護。
@@ -46,7 +46,7 @@ ms.lasthandoff: 04/05/2018
 
 ## <a name="data-redundancy"></a>資料備援
 
-SQL Database 中的高可用性解決方案是以 SQL Server 的 [Always ON 可用性群組](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)技術為基礎，使其能以極小的差異針對 LS 和 RS 資料庫運作。 在 LS 設定中，Always ON 可用性群組技術會用來提供持續性；而在 RS 中，則是用來提供可用性 (低 RTO)。 
+SQL Database 中的高可用性解決方案是以 SQL Server 的 [Always ON 可用性群組](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)技術為基礎，使其能以極小的差異針對 LS 和 RS 資料庫運作。 在 LS 設定中，Always ON 可用性群組技術會用來提供持續性；而在 RS 中，則是用來提供可用性 (作用中異地複寫提供的低 RTO)。 
 
 ## <a name="local-storage-configuration"></a>本機儲存體設定
 

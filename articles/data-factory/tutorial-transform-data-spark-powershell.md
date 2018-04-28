@@ -3,21 +3,20 @@ title: 使用 Azure Data Factory 中的 Spark 轉換資料 | Microsoft Docs
 description: 本教學課程提供逐步指示，說明如何使用 Azure Data Factory 中的 Spark 活動來轉換資料。
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: shengc
-ms.openlocfilehash: 861fe113ef9edd4417580821ef42fc913a4cb961
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: douglasl
+ms.openlocfilehash: c8676b4e7228105216f23de7c898c43c40fc2d0a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動來轉換雲端中的資料
 在本教學課程中，您會使用 Azure PowerShell 建立 Data Factory 管道，以使用 Spark 活動和隨選 HDInsight 連結服務來轉換資料。 您會在本教學課程中執行下列步驟：

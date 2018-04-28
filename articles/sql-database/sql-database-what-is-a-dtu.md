@@ -10,14 +10,14 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 178eba46e0d128c8d93f2ba664a4a0916889fbbd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 22337e412661172475a05f6fec31ae03683be988
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>資料庫交易單位 (DTU) 和彈性資料庫交易單位 (eDTU)
-本文說明資料庫交易單位 (DTU) 和彈性資料庫交易單位 (eDTU)，以及當您達到 DTU 或 eDTU 上限時會發生什麼狀況。  
+本文說明資料庫交易單位 (DTU) 和彈性資料庫交易單位 (eDTU)，以及當您達到 DTU 或 eDTU 上限時會發生什麼狀況。 如需特定的價格資訊，請參閱 [Azure SQL Database 價格](https://azure.microsoft.com/pricing/details/sql-database/single/)。
 
 ## <a name="what-are-database-transaction-units-dtus"></a>何謂資料庫交易單位 (DTU)？
 針對[服務層](sql-database-single-database-resources.md)中特定效能等級的單一 Azure SQL Database，Microsoft 保證該資料庫具備特定的資源層級 (與 Azure 雲端的其他任何資料庫無關)，並提供可預測的效能等級。 此資源數量會計算為資料庫交易單位 (DTU) 數量，且為計算、儲存體和 I/O 資源的配套測量。 這些資源的比率，原本是由專為一般實際 OLTP 工作負載所設計的 [OLTP 基準測試工作負載](sql-database-benchmark-overview.md)來判定。 若您的工作負載超過這些任一資源的數量，系統即會節流處理輸送量，因而導致效能變慢和逾時。 您工作負載使用的資源，不會影響到 Azure 雲端中其他 SQL Database 的可用資源，且其他工作負載所用的資源亦不會影響到您 SQL Database 的可用資源。

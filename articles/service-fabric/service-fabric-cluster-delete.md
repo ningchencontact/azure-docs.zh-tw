@@ -1,11 +1,11 @@
 ---
-title: "刪除 Azure 叢集和其資源 | Microsoft Docs"
-description: "了解如何透過刪除內含叢集的資源群組，或選擇性地刪除資源，完全刪除 Service Fabric 叢集。"
+title: 刪除 Azure 叢集和其資源 | Microsoft Docs
+description: 了解如何透過刪除內含叢集的資源群組，或選擇性地刪除資源，完全刪除 Service Fabric 叢集。
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de422950-2d22-4ddb-ac47-dd663a946a7e
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
-ms.author: chackdan
-ms.openlocfilehash: 7672aa12421fbe4ad86e7315d6a7a06c2ff5124d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: aljo
+ms.openlocfilehash: 1255574e6aae930b0e349ec8f36cc66ac2b7e49f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>刪除 Azure 上的 Service Fabric 叢集和其使用的資源
 Service Fabric 叢集是由叢集資源本身和許多其他 Azure 資源所構成。 因此，若要完全刪除 Service Fabric 叢集，您也必須刪除組成叢集的所有資源。
@@ -38,7 +38,7 @@ Service Fabric 叢集是由叢集資源本身和許多其他 Azure 資源所構�
 開啟 PowerShell 視窗，並執行下列 PS Cmdlet：
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
@@ -60,9 +60,9 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 
 如果您已使用入口網站或使用範本庫中的其中一個 Service Fabric Resource Manager 範本來部署叢集，則叢集所使用的所有資源都會標上下列兩個標記。 您可以使用它們來決定您想要刪除的資源。
 
-Tag#1：索引鍵 = clusterName，值 = '叢集的名稱'
+***Tag #1：***索引鍵 = clusterName，值 = '叢集的名稱'
 
-Tag#2：索引鍵 = resourceName，值 = ServiceFabric
+***Tag #2：***索引鍵 = resourceName，值 = ServiceFabric
 
 ### <a name="delete-specific-resources-in-the-azure-portal"></a>在 Azure 入口網站中刪除特定資源
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
@@ -82,15 +82,15 @@ Tag#2：索引鍵 = resourceName，值 = ServiceFabric
 開啟 PowerShell 視窗，並執行下列 PS Cmdlet：
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
-對於您想要刪除的每個資源，執行下列動作︰
+對於您想要刪除的每個資源，執行下列指令碼︰
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName "<name of the resource group>" -Force
 ```
 
-若要刪除叢集資源，請執行下列動作︰
+若要刪除叢集資源，請執行下列指令碼︰
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the resource group>" -Force

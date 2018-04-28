@@ -1,25 +1,25 @@
 ---
-title: "在 HDInsight 上安裝或更新 Mono - Azure | Microsoft Docs"
-description: "了解如何搭配 HDInsight 叢集使用特定版本的 Mono。 Mono 是用於在以 Linux 為基礎的 HDInsight 叢集上執行 .NET 應用程式。"
+title: 在 HDInsight 上安裝或更新 Mono - Azure | Microsoft Docs
+description: 了解如何搭配 HDInsight 叢集使用特定版本的 Mono。 Mono 是用於在以 Linux 為基礎的 HDInsight 叢集上執行 .NET 應用程式。
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 04/10/2018
 ms.author: larryfr
 ms.custom: hdinsightactive
-ms.openlocfilehash: 555f82ec9351c8c3610ad99a95159cc47d2ee539
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 165f1d8175c7c7b58a5eec02a208b81fe73cb5f9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>在 HDInsight 上安裝或更新 Mono
 

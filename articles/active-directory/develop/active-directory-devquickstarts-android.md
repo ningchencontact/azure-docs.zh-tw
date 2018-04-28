@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Android 入門 | Microsoft Docs"
-description: "如何建置 Android 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 2.0 呼叫受 Azure AD 保護的 API。"
+title: Azure AD Android 入門 | Microsoft Docs
+description: 如何建置 Android 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 2.0 呼叫受 Azure AD 保護的 API。
 services: active-directory
 documentationcenter: android
 author: danieldobalian
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 6c949c07c95c5d965b31725bce4ab2deac646bca
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 25a908c542bf8fdd8008841a1865cdfb40d847fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD Android 入門
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/21/2018
 
 對於需要存取受保護資源的 Android 用戶端，Azure AD 提供 Active Directory 驗證程式庫 (ADAL)。 ADAL 的唯一目的是為了讓您的應用程式輕鬆取得存取權杖。 為了示範究竟多麼簡單，我們將建置一個執行下列動作的 Android「待辦事項清單」應用程式：
 
-* 取得存取權杖來使用 [OAuth 2.0 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn645545.aspx)呼叫待辦事項清單 API。
+* 取得存取權杖，以便使用 [OAuth 2.0 驗證通訊協定](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)呼叫待辦事項清單 API。
 * 取得使用者的待辦事項清單。
 * 登出使用者。
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/21/2018
 ## <a name="step-1-download-and-run-the-nodejs-rest-api-todo-sample-server"></a>步驟 1：下載並執行 Node.js REST API TODO 範例伺服器
 我們特別撰寫 Node.js REST API TODO 範例，以有別於為 Azure AD 建置單一租用戶 To-Do REST API 的現有範例。 這是快速入門的必要條件。
 
-如需如何設置此 API 的資訊，請參閱現有範例[適用於 Node.js 的 Microsoft Azure Active Directory 範例 REST API 服務](active-directory-devquickstarts-webapi-nodejs.md)。
+如需如何設置此 API 的資訊，請參閱現有範例[適用於 Node.js 的 Azure Active Directory 範例 REST API 服務](active-directory-devquickstarts-webapi-nodejs.md)。
 
 
 ## <a name="step-2-register-your-web-api-with-your-azure-ad-tenant"></a>步驟 2：向 Azure AD 租用戶註冊 Web API
@@ -52,7 +52,7 @@ Active Directory 支援加入兩種類型的應用程式：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頂端列中，按一下您的帳戶。 在 [目錄] 清單中，選擇您要註冊應用程式的 Azure AD 租用戶。
-3. 按一下左側窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
+3. 按一下左窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選取 [新增]。
 5. 輸入應用程式的易記名稱，例如 **TodoListService**)，選取 [Web 應用程式和/或 Web API]，然後按 [下一步]。
 6. 在 [登入 URL] 中，輸入範例的基礎 URL。 依預設，這會是 `https://localhost:8080`。
@@ -70,7 +70,7 @@ Active Directory 支援加入兩種類型的應用程式：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頂端列中，按一下您的帳戶。 在 [目錄] 清單中，選擇您要註冊應用程式的 Azure AD 租用戶。
-3. 按一下左側窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
+3. 按一下左窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選取 [新增]。
 5. 輸入應用程式的易記名稱，例如 **TodoListClient-Android**，選取 [原生用戶端應用程式]，然後按 [下一步]。
 6. 在 [重新導向 URI] 中，輸入 `http://TodoListClient`。 按一下 [完成] 。
@@ -81,8 +81,8 @@ Active Directory 支援加入兩種類型的應用程式：
 
 1. 將此儲存機制複製到您選擇的目錄：
 
-  `$ git clone git@github.com:AzureADSamples/NativeClient-Android.git`  
-2. 請遵循[為 Android 設定 Maven 環境的必要條件](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android)中的步驟。
+  `$ git clone https://github.com/Azure-Samples/active-directory-android.git`  
+2. 請遵循[為 Android 設定 Maven 環境的必要條件](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Maven)中的步驟。
 3. 使用 SDK 19 設定模擬器。
 4. 移至您已複製儲存機制的根資料夾。
 5. 執行這個命令：`mvn clean install`
@@ -101,12 +101,12 @@ Active Directory 支援加入兩種類型的應用程式：
 * 如果您使用 Android Studio，可以使用 AAR 套件格式並參考二進位檔。
 
 ### <a name="option-1-source-zip"></a>選項 1：原始檔 Zip
-若要下載原始程式碼，按一下頁面右側的 [下載 ZIP]。 或者，可以[從 GitHub 下載](https://github.com/AzureAD/azure-activedirectory-library-for-android/archive/v1.0.9.tar.gz)。
+若要下載原始程式碼，按一下頁面右側的 [下載 ZIP]。 或者，可以[從 GitHub 下載](https://github.com/AzureAD/azure-activedirectory-library-for-android/releases)。
 
 ### <a name="option-2-source-via-git"></a>選項 2：透過 Git 取得原始檔
 若要透過 Git 取得 SDK 的原始程式碼，請輸入：
 
-    git clone git@github.com:AzureAD/azure-activedirectory-library-for-android.git
+    git clone https://github.com/AzureAD/azure-activedirectory-library-for-android.git
     cd ./azure-activedirectory-library-for-android/src
 
 ### <a name="option-3-binaries-via-gradle"></a>選項 3：透過 Gradle 取得二進位檔
@@ -167,7 +167,7 @@ dependencies {
             ....
         <application/>
 
-4. 在您的主要活動建立 AuthenticationContext 的執行個體。 此呼叫的詳細資料超出本主題的範圍，但您可以查看 [Android 原生用戶端範例](https://github.com/AzureADSamples/NativeClient-Android)，由此開始也很不錯。 在以下範例中，SharedPreferences 是預設快取，Authority 格式為 `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`：
+4. 在您的主要活動建立 AuthenticationContext 的執行個體。 此呼叫的詳細資料超出本主題的範圍，但您可以查看 [Android 原生用戶端範例](https://github.com/AzureAD/azure-activedirectory-library-for-android)，由此開始也很不錯。 在以下範例中，SharedPreferences 是預設快取，Authority 格式為 `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`：
 
     `mContext = new AuthenticationContext(MainActivity.this, authority, true); // mContext is a field in your activity`
 
@@ -232,27 +232,11 @@ dependencies {
 經過這個逐步解說，您應該已擁有與 Azure Active Directory 成功整合所需的項目。 如需此工作的更多範例，請瀏覽 GitHub 上的 AzureADSamples/ 儲存機制。
 
 ## <a name="important-information"></a>重要資訊
-### <a name="customization"></a>自訂
-您的應用程式資源可以覆寫程式庫專案資源。 當您建置應用程式時會發生這種情況。 基於這個理由，您可以依想要的方式自訂驗證活動配置。 請記下 ADAL 使用的控制項 (WebView) 的識別碼。
 
 ### <a name="broker"></a>Broker
-Microsoft Intune 公司入口網站應用程式提供「訊息代理程式」元件。 帳戶會在 AccountManager 中建立。 帳戶類型為 "com.microsoft.workaccount"。 AccountManager 只允許一個 SSO (單一登入) 帳戶。 完成其中一個應用程式的裝置挑戰之後，就會建立此使用者的 SSO Cookie。
+Intune 公司入口網站或 Microsoft Authenticator 應用程式會提供訊息代理程式元件。 帳戶會在 AccountManager 中建立。 帳戶類型為 "com.microsoft.workaccount"。 AccountManager 只允許一個 SSO (單一登入) 帳戶。 完成其中一個應用程式的裝置挑戰之後，就會建立此使用者的 SSO Cookie。
 
-如果在這個驗證器上建立使用者帳戶，且您選擇不要略過它，ADAL 會使用訊息代理程式帳戶。 您可以使用以下方法來略過訊息代理程式使用者：
-
-   `AuthenticationSettings.Instance.setSkipBroker(true);`
-
-您必須註冊特殊的 RedirectUri 供訊息代理程式使用。 RedirectUri 的格式為 `msauth://packagename/Base64UrlencodedSignature`。 您可以使用指令碼 brokerRedirectPrint.ps1 或使用 API 呼叫 mContext.getBrokerRedirectUri，以取得應用程式的 RedirectUri。 簽章與您的簽署憑證有關。
-
-目前的訊息代理程式模型僅能用於一位使用者。 AuthenticationContext 提供 API 方法來取得訊息代理程式使用者。
-
-   `String brokerAccount =  mContext.getBrokerUser(); //Broker user is returned if account is valid.`
-
-您的應用程式資訊清單應有下列權限才能使用 AccountManager 帳戶。 如需詳細資訊，請參閱[Android 網站上的 AccountManager 資訊](http://developer.android.com/reference/android/accounts/AccountManager.html)。
-
-* GET_ACCOUNTS
-* USE_CREDENTIALS
-* MANAGE_ACCOUNTS
+若要深入了解如何使用訊息代理程式進行設定，請查看[訊息代理程式 wiki 文章](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Broker)。 
 
 ### <a name="authority-url-and-ad-fs"></a>授權單位 URL 和 AD FS
 Active Directory 同盟服務 (AD FS) 不視為正式的 STS，因此您需要開啟執行個體探索，並在 AuthenticationContext 建構函式上傳遞 false。
@@ -287,69 +271,15 @@ ADAL 提供可指定提示行為的選項。 如果重新整理權杖無效，�
 
 請注意，相互關聯識別碼在程式庫中是診斷的核心。 如果您想要將 ADAL 要求與程式碼中其他的作業相互關聯，您可以依每一個要求來設定相互關聯識別碼。 如果您沒有設定相互關聯識別碼，ADAL 會隨機產生一個。 然後所有記錄訊息和網路呼叫加上相互關聯識別碼的戳記。 自行產生的識別碼隨每個要求而不同。
 
-#### <a name="exceptions"></a>例外狀況
+#### <a name="errors--exceptions"></a>錯誤和例外狀況
 例外狀況是第一個診斷。 我們試著提供有用的錯誤訊息。 如果您發現沒有幫助的錯誤訊息，請提出問題來告訴我們。 請同時提供裝置資訊，例如機型和 SDK 號碼。
+
+若要深入了解您的應用程式應處理哪些錯誤，請查看[錯誤處理最佳做法](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-adal-error-handling)。 
 
 #### <a name="logs"></a>記錄檔
 您可以設定程式庫來產生記錄訊息，用以協助診斷問題。 設定記錄時，請執行下列呼叫來設定回呼，供 ADAL 用來移交每一個產生的記錄訊息。
 
-    Logger.getInstance().setExternalLogger(new ILogger() {
-        @Override
-        public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) {
-        ...
-        // You can write this to log file depending on level or error code.
-        writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
-        }
-    }
-
-可以在自訂記錄檔中寫入訊息，如以下程式碼所示。 不幸的是，從裝置取得記錄檔沒有標準方法。 有一些服務可協助您處理這部份。 您可以也自創方法，例如將檔案傳送到伺服器。
-
-    private syncronized void writeToLogFile(Context ctx, String msg) {
-       File directory = ctx.getDir(ctx.getPackageName(), Context.MODE_PRIVATE);
-       File logFile = new File(directory, "logfile");
-       FileOutputStream outputStream = new FileOutputStream(logFile, true);
-       OutputStreamWriter osw = new OutputStreamWriter(outputStream);
-       osw.write(msg);
-       osw.flush();
-       osw.close();
-    }
-
-記錄層級分為：
-* Error (例外狀況)
-* Warn (警告)
-* Info (參考用途)
-* Verbose (更多詳細資料)
-
-設定記錄層級的方法如下：
-
-    Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
-
- 所有記錄訊息除了傳送至任何自訂記錄檔回呼，也會傳送至 logcat。
-您可以將記錄傳送至檔案形式 logcat，如下所示：
-
-    adb logcat > "C:\logmsg\logfile.txt"
-
- 如需有關 adb 命令的詳細資訊，請參閱 [Android 網站上的 logcat 資訊](https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat)。
-
-#### <a name="network-traces"></a>網路追蹤
-您可以使用各種工具來擷取 ADAL 產生的 HTTP 流量。  如果您熟悉 OAuth 通訊協定，或如果您需要提供診斷資訊給 Microsoft 或其他支援管道，這最有用。
-
-Fiddler 是最簡單的 HTTP 追蹤工具。 請使用下列連結來設定它，以正確記錄 ADAL 網路流量。 為了讓追蹤工具 (如 Fiddler、Charles) 更實用，必須將其設定為記錄未加密的 SSL 流量。  
-
-> [!NOTE]
-> 這種方式產生的追蹤可能包含極機密的資訊，例如存取權杖、使用者名稱和密碼。 如果您使用實際執行帳戶，請勿將這些追蹤洩漏給第三方。 如果您需要提供追蹤給某人以取得支援，請使用您不介意共用使用者名稱和密碼的暫時帳戶來重現問題。
-
-* 從 Telerik 網站：[設定適用於 Android 的 Fiddler](http://docs.telerik.com/fiddler/configure-fiddler/tasks/ConfigureForAndroid)
-* 從 GitHub：[設定適用於 ADAL 的 Fiddler 規則](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/How-to-listen-to-httpUrlConnection-in-Android-app-from-Fiddler)
-
-### <a name="dialog-mode"></a>對話方塊模式
-沒有活動的 acquireToken 方法支援對話方塊提示。
-
-### <a name="encryption"></a>加密
-根據預設，ADAL 會加密權杖並儲存在 SharedPreferences 中。 您可以在 StorageHelper 類別查看詳細資料。 Android 引進 Android KeyStore 4.3 (API 18) 安全儲存體來存放私密金鑰。 ADAL 對 API 18 和更新版本使用此機制。 如果您想要使用較低 SDK 版本的 ADAL，您需要在 AuthenticationSettings.INSTANCE.setSecretKey 提供秘密金鑰。
-
-### <a name="oauth2-bearer-challenge"></a>OAuth2 持有者挑戰
-AuthenticationParameters 類別提供從 OAuth2 持有者挑戰取得 authorization_uri 的功能。
+若要開啟記錄功能，請查看[記錄 wiki 文章](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Logging)。
 
 ### <a name="session-cookies-in-webview"></a>WebView 中的工作階段 Cookie
 在應用程式關閉後，Android WebView 不會清除工作階段 Cookie。 您可以使用以下範例程式碼來處理這部分：
@@ -360,17 +290,6 @@ AuthenticationParameters 類別提供從 OAuth2 持有者挑戰取得 authorizat
     CookieSyncManager.getInstance().sync();
 
 如需有關 Cookie 的詳細資訊，請參閱 [Android 網站上的 CookieSyncManager 資訊](http://developer.android.com/reference/android/webkit/CookieSyncManager.html)。
-
-### <a name="resource-overrides"></a>資源覆寫
-ADAL 程式庫包含 ProgressDialog 訊息的英文字串。 如果想要當地語系化的字串，您的應用程式應該覆寫這些英文字串。
-
-     <string name="app_loading">Loading...</string>
-     <string name="broker_processing">Broker is processing</string>
-     <string name="http_auth_dialog_username">Username</string>
-     <string name="http_auth_dialog_password">Password</string>
-     <string name="http_auth_dialog_title">Sign In</string>
-     <string name="http_auth_dialog_login">Login</string>
-     <string name="http_auth_dialog_cancel">Cancel</string>
 
 ### <a name="ntlm-dialog-box"></a>NTLM 對話方塊
 ADAL 1.1.0 版支援 NTLM 對話方塊，此對話方塊是透過 WebViewClient 的 onReceivedHttpAuthRequest 事件來處理。 您可以自訂對話方塊的版面配置和字串。

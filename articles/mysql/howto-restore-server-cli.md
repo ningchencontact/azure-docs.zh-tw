@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 322de1fb19461455a063d939ace3d5553ed1fc79
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5e8ac9da4df2428191e8a7e6402f2ac06e695503
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>如何使用 Azure CLI 在適用於 MySQL 的 Azure 資料庫中備份和還原伺服器
 
@@ -113,6 +113,10 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 如果您已將伺服器設定為使用異地備援備份，則可以從現有伺服器的備份建立新的伺服器。 您可以在任何可使用「適用於 MySQL 的 Azure 資料庫」的區域中建立這個新伺服器。  
 
 若要使用異地備援備份來建立伺服器，請使用 Azure CLI `az mysql server georestore` 命令。
+
+> [!NOTE]
+> 第一次建立伺服器時，可能無法立即用來進行異地還原。 必要的中繼資料可能需要幾小時才會填入。
+>
 
 若要異地還原伺服器，請在 Azure CLI 命令提示字元中輸入下列命令：
 

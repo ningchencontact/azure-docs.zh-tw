@@ -1,24 +1,22 @@
 ---
-title: "設定 Azure 虛擬網路中的 HBase 叢集複寫 | Microsoft Docs"
-description: "了解如何針對負載平衡、高可用性、零停機時間移轉和更新，以及災害復原來設定 HDInsight 版本之間的 HBase 複寫。"
+title: 設定 Azure 虛擬網路中的 HBase 叢集複寫 | Microsoft Docs
+description: 了解如何針對負載平衡、高可用性、零停機時間移轉和更新，以及災害復原來設定 HDInsight 版本之間的 HBase 複寫。
 services: hdinsight,virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b0a22815dc0bf0ea31e47efe5152498f9aa45de4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: c28c48b5842deec9d9c3898c5742c3d4d473094e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 HBase 叢集複寫
 

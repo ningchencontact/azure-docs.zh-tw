@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6aa0c08fad98eeff7c937f817ca0a8fa20238c4a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的設定和管理常見問題集
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 03/28/2018
 
 輸出 IP 位址清單隨即出現。
 
-如果您的網站裝載在 App Service Environment for PowerApps，若要深入了解如何取得輸出 IP 位址，請參閱[輸出網路位址](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses)。
+如果您的網站裝載在 App Service Environment，若要深入了解如何取得輸出 IP 位址，請參閱[輸出網路位址](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses)。
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>如何為 Web 應用程式取得保留或專用輸入 IP 位址？
 
@@ -268,7 +268,7 @@ Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provi
 如果您的 App Service 憑證在 24 小時後持續顯示此訊息，請執行下列 PowerShell 指令碼。 指令碼會直接連絡[憑證提供者](https://www.godaddy.com/)以解決此問題。
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"

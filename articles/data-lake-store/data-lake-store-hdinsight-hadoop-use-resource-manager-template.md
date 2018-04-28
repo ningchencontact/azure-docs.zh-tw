@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 範本建立 HDInsight 與 Data Lake Store | Microsoft Docs"
-description: "使用 Azure Resource Manager 範本來建立和使用搭配 Azure Data Lake Store 的 HDInsight 叢集"
+title: 使用 Azure 範本建立 HDInsight 與 Data Lake Store | Microsoft Docs
+description: 使用 Azure Resource Manager 範本來建立和使用搭配 Azure Data Lake Store 的 HDInsight 叢集
 services: data-lake-store,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 8c5afc96cc8101345f00b5d435e9f393d22672de
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bc20504865fa59cafc199305f9810fb4c3d99524
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本來建立搭配 Data Lake Store 的 HDInsight 叢集
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ GitHub 的[使用新的 Data Lake Store 來部署 HDInsight Linux 叢集](https:
 
 ```
 # Log in to your Azure account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List all the subscriptions associated to your account
 Get-AzureRmSubscription
@@ -80,7 +80,7 @@ Resource Manager 範本會建立一個新的 Data Lake Store 帳戶並將它與 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-store"></a>在 HDInsight 叢集上執行測試工作以使用 Data Lake Store
 設定 HDInsight 叢集之後，您可以在叢集上執行測試工作，以測試 HDInsight 叢集是否可以存取 Data Lake Store。 為了完成這個操作，我們將會執行範例 Hive 工作，該工作會使用您稍早上傳至 Data Lake Store 的範例資料建立資料表。
 
-在這一節中，您會透過 SSH 連線到 HDInsight Linux 叢集並執行範例 Hive 查詢。 如果您是使用 Windows 用戶端，建議使用 **PuTTY**，您可以從下列位置下載： [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)。
+在這一節中，您會透過 SSH 連線到 HDInsight Linux 叢集並執行範例 Hive 查詢。 如果您使用 Windows 用戶端，建議您使用 **PuTTY** (可從 [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)下載)。
 
 如需使用 PuTTY 的詳細資訊，請參閱 [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)。
 
@@ -116,7 +116,7 @@ Resource Manager 範本會建立一個新的 Data Lake Store 帳戶並將它與 
 ## <a name="access-data-lake-store-using-hdfs-commands"></a>使用 HDFS 命令存取 Data Lake Store
 一旦您已設定 HDInsight 叢集使用 Data Lake Store，您可以使用 HDFS 殼層命令來存取存放區。
 
-在本節中，您會透過 SSH 連線到 HDInsight Linux 叢集並執行 HDFS 命令。 如果您是使用 Windows 用戶端，建議使用 **PuTTY**，您可以從下列位置下載： [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)。
+在本節中，您會透過 SSH 連線到 HDInsight Linux 叢集並執行 HDFS 命令。 如果您使用 Windows 用戶端，建議您使用 **PuTTY** (可從 [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)下載)。
 
 如需使用 PuTTY 的詳細資訊，請參閱 [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)。
 

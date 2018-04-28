@@ -1,25 +1,25 @@
 ---
-title: "Azure 原則 JSON 範例 - 套用標籤及其預設值 | Microsoft Docs"
-description: "此 JSON 範例原則會附加指定的標籤名稱和值 (如果未提供該標籤)。"
+title: Azure 原則 JSON 範例 - 套用標籤及其預設值 | Microsoft Docs
+description: 此 JSON 範例原則會附加指定的標籤名稱和值 (如果未提供該標籤)。
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 63243c4c0874aac66166202168cd376151300ca7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 66219a12b3ee9bf03de047785e14796bbca13d84
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="apply-tag-and-its-default-value"></a>套用標籤及其預設值
 

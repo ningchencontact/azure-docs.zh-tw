@@ -1,24 +1,24 @@
 ---
-title: "資訊安全中心平台移轉常見問題集 | Microsoft Docs"
-description: "本常見問題集回答 Azure 資訊安全中心平台移轉的相關問題。"
+title: 資訊安全中心平台移轉常見問題集 | Microsoft Docs
+description: 本常見問題集回答 Azure 資訊安全中心平台移轉的相關問題。
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 04/13/2018
 ms.author: terrylan
-ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 6a88fbadd8fbf05a4942e42b535770f6f068af28
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-center-platform-migration-faq"></a>資訊安全中心平台移轉常見問題集
 在 2017 年 6 月初，Azure 資訊安全中心開始使用 Microsoft Monitoring Agent 來收集與儲存資料。 如需詳細資訊，請參閱 [Azure 資訊安全中心平台移轉](security-center-platform-migration.md)。 本常見問題集回答平台移轉的相關問題。
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/13/2017
 代理程式所收集的資料會儲存在連線到虛擬機器的既存 Log Analytics 工作區，或是在資訊安全中心建立的新工作區。 資訊安全中心建立新工作區時，會將虛擬機器的地理位置納入考量。
 
 > [!NOTE]
-> Microsoft Monitoring Agent 是 Operations Management Suite (OMS)、Log Analytics 服務及 System Center Operations Manager (SCOM) 所使用的代理程式。
+> Microsoft Monitoring Agent 是 Log Analytics 服務和 System Center Operations Manager (SCOM) 所使用的同一個代理程式。
 >
 >
 
@@ -64,8 +64,8 @@ ms.lasthandoff: 12/13/2017
 >
 >
 
-### <a name="am-i-billed-for-log-analytics-or-oms-on-the-workspaces-created-by-security-center"></a>資訊安全中心建立之工作區的 Log Analytics 或 OMS 是否需要付費？
-編號 資訊安全中心所建立的工作區雖然設定以每節點之 OMS 計費，但實際上不會產生 OMS 費用。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案：
+### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>資訊安全中心所建立工作區上的 Log Analytics 是否需要付費？
+編號 資訊安全中心所建立的工作區雖然設定以每個節點的 Log Analytics 來計費，但實際上不會產生 Log Analytics 費用。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案：
 
 - **免費層** – 資訊安全中心在預設工作區啟用 'SecurityCenterFree' 解決方案。 免費層不須付費。
 - **標準層** – 資訊安全中心在預設工作區啟用 'Security' 解決方案。
@@ -73,7 +73,7 @@ ms.lasthandoff: 12/13/2017
 如需詳細資訊，請參閱[資訊安全中心價格](https://azure.microsoft.com/pricing/details/security-center/)。 價格頁面反映了自 2017 年起 6 月起安全性資料儲存體及依比例計費的改變。
 
 > [!NOTE]
-> 資訊安全中心所建立之工作區的 OMS 定價層不會影響資訊安全中心的收費。
+> 資訊安全中心所建立工作區的 Log Analytics 定價層不會影響資訊安全中心的收費。
 >
 >
 
@@ -122,8 +122,6 @@ ms.lasthandoff: 12/13/2017
    >
 
    - 選取 [取消] 以取消作業。
-
-      ![重新設定監控的虛擬機器][6]
 
 ### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>如果虛擬機器上 Microsoft Monitoring Agent 已經以擴充功能的形式安裝了呢？
 資訊安全中心不會覆寫既存的使用者工作區連線。 資訊安全中心會將虛擬機器送出的資料儲存到已經連線的工作區。 資訊安全中心會更新擴充功能版本以包含虛擬機器的 Azure 資源識別碼，進而支援資訊安全中心的使用方式。
@@ -204,12 +202,12 @@ ms.lasthandoff: 12/13/2017
 >
 >
 
-## <a name="existing-oms-customers"></a>現有的 OMS 客戶
+## <a name="existing-log-analytics-customers"></a>現有的 Log Analytics 客戶
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>資訊安全中心是否會覆寫任何虛擬機器及工作區之間現有的連線？
 如果虛擬機器已經以擴充功能的形式安裝 Microsoft Monitoring Agent，資訊安全中心不會覆寫既存的工作區連線。 相反地，資訊安全中心會使用現有的工作區。
 
-資訊安全中心解決方案若尚未安裝，此時會安裝至工作區，且此解決方案只會套用至相關的虛擬機器。 當您新增解決方案時，依預設會該解決方案會自動部署到與您 Log Analytics 工作區連線的所有 Windows 與 Linux 代理程式。 [解決方案目標設定](../operations-management-suite/operations-management-suite-solution-targeting.md)是 OMS 的功能，讓您能將範圍套用至解決方案。
+資訊安全中心解決方案若尚未安裝，此時會安裝至工作區，且此解決方案只會套用至相關的虛擬機器。 當您新增解決方案時，依預設會該解決方案會自動部署到與您 Log Analytics 工作區連線的所有 Windows 與 Linux 代理程式。 [解決方案目標設定](../operations-management-suite/operations-management-suite-solution-targeting.md)讓您能將範圍套用至解決方案。
 
 如果 Microsoft Monitoring Agent 已經直接安裝在虛擬機器上 (而非作為 Azure 擴充功能)，資訊安全中心不會再安裝 Microsoft Monitoring Agent，且資訊安全監控的功能會受到限制。
 
@@ -220,18 +218,13 @@ ms.lasthandoff: 12/13/2017
 - 工作區連線中斷前，擴充功能所設定之工作區的 Azure 資源識別碼
 - 代理程式和先前已安裝的版本
 
-### <a name="does-security-center-install-solutions-on-my-existing-oms-workspaces-what-are-the-billing-implications"></a>資訊安全中心是否會在我現有的 OMS 工作區上安裝解決方案？ 這會對計費造成什麼影響？
+### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>資訊安全中心是否會在我現有的 Log Analytics 工作區上安裝解決方案？ 這會對計費造成什麼影響？
 當資訊安全中心發現已經有虛擬機器連線到您建立的工作區時，資訊安全中心會根據您的定價層啟用此工作區上的解決方案。 這些解決方案會透過[方案目標設定](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting)，只套用至相關的 Azure 虛擬機器，所以收費不會改變。
 
 - **免費層** – 資訊安全中心在工作區安裝 SecurityCenterFree 解決方案。 免費層不須付費。
 - **標準層** – 資訊安全中心在工作區安裝 'Security' 解決方案。
 
    ![預設工作區的解決方案][4]
-
-> [!NOTE]
-> Log Analytics 中的 Security 解決方案即為 OMS 中的 Security & Audit 解決方案。
->
->
 
 ### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>我的環境中已經有工作區，我是否能使用這些工作區來收集安全性資料？
 如果虛擬機器已經以擴充套件的形式安裝 Microsoft Monitoring Agent，資訊安全中心會使用現有已連線的工作區。 資訊安全中心解決方案若尚未安裝，此時會安裝至工作區，且透過[解決方案目標設定](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting)，此解決方案只會套用至相關的虛擬機器。
@@ -253,4 +246,3 @@ Security & Audit 解決方案會用來啟用 Azure 虛擬機器上資訊安全�
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
 [5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
-[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png

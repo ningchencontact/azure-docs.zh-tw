@@ -1,26 +1,24 @@
 ---
-title: "使用指令碼動作來自訂 HDInsight 叢集 - Azure | Microsoft Docs"
-description: "深入了解使用指令碼動作來自訂 HDInsight 叢集。"
+title: 使用指令碼動作來自訂 HDInsight 叢集 - Azure | Microsoft Docs
+description: 深入了解使用指令碼動作來自訂 HDInsight 叢集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 3a63e216-4163-40c1-aa04-6b42fd0162ad
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: ec95b6d66c71b4278dd1e16807fcc75f5e8b1c36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8c67c89f00362b0fc6a510a8117ac176bb3c8b6c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>使用指令碼動作自訂 Windows 型 HDInsight 叢集
 **指令碼動作** 可用來叫用 [自訂指令碼](hdinsight-hadoop-script-actions.md) 。
@@ -87,7 +85,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 接下來的這個 PowerShell 指令碼示範如何在以 Windows 為基礎的 HDInsight 叢集上安裝 Spark。  
 
     # Provide values for these variables
-    $subscriptionID = "<Azure Suscription ID>" # After "Login-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
+    $subscriptionID = "<Azure Suscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
     $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -110,7 +108,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
         Get-AzureRmSubscription
     }
     Catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
     Select-AzureRmSubscription -SubscriptionId $subscriptionID
 
@@ -297,7 +295,7 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 > [!WARNING]
 > 透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務將協助釐清與解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如：[Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 >
 >
 

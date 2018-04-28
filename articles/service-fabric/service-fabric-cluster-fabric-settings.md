@@ -1,11 +1,11 @@
 ---
-title: "變更 Azure Service Fabric 叢集設定 | Microsoft Docs"
-description: "本文說明您可以自訂的網狀架構設定和網狀架構升級原則。"
+title: 變更 Azure Service Fabric 叢集設定 | Microsoft Docs
+description: 本文說明您可以自訂的網狀架構設定和網狀架構升級原則。
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
-ms.author: chackdan
-ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: aljo
+ms.openlocfilehash: 7d32ebd54d501a2eb5d6e353d38834546200c813
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自訂 Service Fabric 叢集設定和網狀架構升級原則
 本文件將告訴您如何為 Service Fabric 叢集自訂各種網狀架構設定和網狀架構升級原則。 您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來進行自訂。
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/02/2018
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>使用 Resource Manager 範本自訂叢集設定
 下列步驟說明如何將新設定 *MaxDiskQuotaInMB* 新增至 *Diagnostics* 區段。
 
-1. 移至 https://resources.azure.com
+1. 移至 https://resources.azure.com。
 2. 瀏覽至您的訂用帳戶，方法為展開 [訂用帳戶] -> **\<您的訂用帳戶>** -> **resourceGroups** -> **\<您的資源群組>** -> [提供者] -> **Microsoft.ServiceFabric** -> [叢集] -> **\<您的叢集名稱>**
 3. 選取右上角的 [讀取/寫入]。
 4. 選取 [編輯]，並更新 `fabricSettings` JSON 元素，然後新增元素：
@@ -302,7 +302,7 @@ ms.lasthandoff: 03/02/2018
 |RemoveServiceResponseHeaders|字串，預設值為 L"Date; Server"|靜態|會在轉送到用戶端之前，從服務回應中移除之回應標頭的分號/逗號分隔清單。 如果此參數設定為空字串，則會傳遞由服務依原狀傳回的所有標頭。 亦即 不會覆寫日期和伺服器 |
 |ApplicationCertificateValidationPolicy|字串，預設值為 L"None"|靜態| ApplicationCertificateValidationPolicy：None：不驗證伺服器憑證，使要求成功。 ServiceCertificateThumbprints：請參閱 ServiceCertificateThumbprints 組態以取得反向 Proxy 可以信任的逗號分隔遠端憑證指紋清單。 ServiceCommonNameAndIssuer：請參閱 ServiceCommonNameAndIssuer 組態以取得反向 Proxy 可以信任之遠端憑證的主體名稱和簽發者指紋。 |
 |ServiceCertificateThumbprints|字串，預設值為 L""|動態| |
-|CrlCheckingFlag|單位，預設值為 0x40000000 |動態| 應用程式/服務憑證鏈結驗證旗標，例如 CRL 檢查 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單：http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
+|CrlCheckingFlag|單位，預設值為 0x40000000 |動態| 應用程式/服務信任鏈結驗證旗標，例如 CRL 檢查 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單：http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |IgnoreCrlOfflineError|布林值，預設值為 TRUE|動態|是否要忽略應用程式/服務憑證驗證的 CRL 離線錯誤。 |
 |SecureOnlyMode|布林值，預設值為 FALSE|動態| SecureOnlyMode：true：反向 Proxy 只會轉送至發行安全端點的服務。 false：反向 Proxy 可以將要求轉送至安全/不安全的端點。  |
 |ForwardClientCertificate|布林值，預設值為 FALSE|動態| |
@@ -451,7 +451,7 @@ ms.lasthandoff: 03/02/2018
 |ServerCertThumbprints|字串，預設值為 L""|動態|叢集用來與用戶端通訊的伺服器憑證指紋，用戶端會使用此指紋來驗證叢集。 這是以逗號分隔的名稱清單。 |
 |ClientCertThumbprints|字串，預設值為 L""|動態|用戶端用來與叢集通訊的憑證指紋，叢集會使用此指紋來授權連入連線。 這是以逗號分隔的名稱清單。 |
 |AdminClientCertThumbprints|字串，預設值為 L""|動態|系統管理員角色的用戶端所使用的憑證指紋。 這是以逗號分隔的名稱清單。 |
-|CrlCheckingFlag|單位，預設值為 0x40000000|動態|預設憑證鏈結驗證旗標，可能會由元件特定的旗標加以覆寫，例如，同盟/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單：http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
+|CrlCheckingFlag|單位，預設值為 0x40000000|動態|預設信任鏈結驗證旗標，可能會由元件專用的旗標加以覆寫，例如，同盟/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單：http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
 |IgnoreCrlOfflineError|布林值，預設值為 FALSE|動態|是否要在伺服器端驗證內送用戶端憑證時忽略 CRL 離線錯誤 |
 |IgnoreSvrCrlOfflineError|布林值，預設值為 TRUE|動態|是否要在用戶端驗證內送伺服器憑證時忽略 CRL 離線錯誤，預設為 true。 使用已撤銷的伺服器憑證來進行攻擊需要入侵 DNS，其難度比使用已撤銷的用戶端憑證更高。 |
 |CrlDisablePeriod|時間範圍，預設值為 Common::TimeSpan::FromMinutes(15)|動態|以秒為單位指定時間範圍。 如果 CRL 離線錯誤是可忽略的，則在遇到離線錯誤之後，要將給定憑證的 CRL 檢查停用多久。 |

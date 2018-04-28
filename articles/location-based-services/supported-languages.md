@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: cpendle
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8c284bb3637415186a12c63d4eeb088ab5f23e2e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f85a7b018085ce30550bec21fe41ca3f9253da80
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-location-based-services---supported-languages"></a>Azure LBS - 支援語言
 Azure LBS 已經跨服務當地語系化為各種語言。  下表提供每個服務的支援語言代碼。  
@@ -38,7 +38,7 @@ Azure LBS 已經跨服務當地語系化為各種語言。  下表提供每個�
 | hr-HR      | 克羅埃西亞文               |       |    ✓   |         |                   |                |     ✓     |
 | cs-CZ      | 捷克文                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | da-DK      | 丹麥文                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| nl-NL     | 荷蘭文                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| nl-NL      | 荷蘭文                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-BE      | 荷蘭文 (比利時)        |       |    ✓   |         |                   |                |     ✓     |
 | en         | English                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | 愛沙尼亞文               |       |    ✓   |         |         ✓         |                |     ✓     |

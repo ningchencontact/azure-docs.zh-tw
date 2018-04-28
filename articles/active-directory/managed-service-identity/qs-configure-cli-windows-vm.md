@@ -1,11 +1,11 @@
 ---
-title: "如何使用 Azure CLI 設定 Azure VM 上的 MSI"
-description: "使用 Azure CLI 在 Azure VM 上設定「受控服務身分識別 (MSI)」的逐步指示。"
+title: 如何使用 Azure CLI 設定 Azure VM 上的 MSI
+description: 使用 Azure CLI 在 Azure VM 上設定「受控服務身分識別 (MSI)」的逐步指示。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 0863d5bec71a79f28017582eaa111f6c4a97c1ec
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c76d53d32b297ff106c05bdd717a80a9f4b98814
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-azure-cli"></a>使用 Azure CLI 設定「VM 受控服務身分識別 (MSI)」
 
@@ -71,10 +71,10 @@ ms.lasthandoff: 03/09/2018
    az login
    ```
 
-2. 使用 [az vm assign-identity](/cli/azure/vm/#az_vm_assign_identity)和 `--assign-identity` 將 MSI 新增至現有 VM：
+2. 使用 [az vm identity assign](/cli/azure/vm/identity/#az_vm_identity_assign) 和 `identity assign` 命令將 MSI 新增至現有的虛擬機器：
 
    ```azurecli-interactive
-   az vm assign-identity -g myResourceGroup -n myVm
+   az vm identity assign -g myResourceGroup -n myVm
    ```
 
 ## <a name="remove-msi-from-an-azure-vm"></a>從 Azure VM 移除 MSI

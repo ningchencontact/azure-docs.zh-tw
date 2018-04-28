@@ -1,6 +1,6 @@
 ---
-title: "如何使用 Android 版 Azure Mobile Apps SDK | Microsoft Docs"
-description: "如何使用 Android 版 Azure Mobile Apps SDK"
+title: 如何使用 Android 版 Azure Mobile Apps SDK | Microsoft Docs
+description: 如何使用 Android 版 Azure Mobile Apps SDK
 services: app-service\mobile
 documentationcenter: android
 author: conceptdev
@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: f04f3fc7d2ff2e01baa78571b2ba267f8e4905c6
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 868ce171206fcd74ee0ecb099b67bf81970bc9ae
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用 Android 版 Azure Mobile Apps SDK
 
@@ -224,8 +224,8 @@ public class ToDoItem
 
     @com.google.gson.annotations.SerializedName("createdAt")
     private DateTimeOffset mCreatedAt;
-    public DateTimeOffset getUpdatedAt() { return mCreatedAt; }
-    protected DateTimeOffset setUpdatedAt(DateTimeOffset createdAt) { mCreatedAt = createdAt; }
+    public DateTimeOffset getCreatedAt() { return mCreatedAt; }
+    protected DateTimeOffset setCreatedAt(DateTimeOffset createdAt) { mCreatedAt = createdAt; }
 
     @com.google.gson.annotations.SerializedName("updatedAt")
     private DateTimeOffset mUpdatedAt;
@@ -1098,10 +1098,10 @@ dependencies {
 
 1. 將下列程式碼新增至您的應用程式，進行下列取代：
 
-* 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應該為 https://login.microsoftonline.com/contoso.onmicrosoft.com。
+* 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應為 https://login.microsoftonline.com/contoso.onmicrosoft.com。
 * 以您行動應用程式後端的用戶端識別碼取代 INSERT-RESOURCE-ID-HERE  。 您可以從入口網站 [Azure Active Directory 設定] 底下的 [進階] 索引標籤取得用戶端識別碼。
 * 以您從原生用戶端應用程式中複製的用戶端識別碼取代 INSERT-CLIENT-ID-HERE  。
-* 使用 HTTPS 配置，以您網站的 **/.auth/login/done** 端點取代 *INSERT-REDIRECT-URI-HERE* 。 此值應與 *https://contoso.azurewebsites.net/.auth/login/done* 類似。
+* 使用 HTTPS 配置，以您網站的 **/.auth/login/done** 端點取代 *INSERT-REDIRECT-URI-HERE* 。 此值應該類似 https://contoso.azurewebsites.net/.auth/login/done。
 
 ```java
 private AuthenticationContext mContext;

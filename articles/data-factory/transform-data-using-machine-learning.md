@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: bd72fd957948e77df6ffb0b310c590132c663235
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8d87facdf1724ddbcb3bb6d7c189d8ff41d44973
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>使用 Azure Machine Learning 和 Azure Data Factory 來建立預測管線
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,7 +51,9 @@ Azure Data Factory 可讓您輕鬆地建立管線，使用已發佈的 [Azure Ma
 
 ```JSON
 {
+    "type" : "linkedServices",
     "name": "AzureMLLinkedService",
+    "apiVersion" : "2017-09-01-preview",
     "properties": {
         "type": "AzureML",
         "typeProperties": {

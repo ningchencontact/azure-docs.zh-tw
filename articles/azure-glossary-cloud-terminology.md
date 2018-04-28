@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 953320734c1601c411144bd7a6496716a65e452e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 84766ba4cf9e844184752bc44d2e0a471b97db27
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 詞彙︰Azure 平台上的雲端術語字典
 
 Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請參閱：
 
-* [Microsoft Azure 和 Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Azure 服務及其 AWS 對應項目的定義。<!-- I propose to link to https://azure.microsoft.com/en-us/services/ instead of this -->
+* [Microsoft Azure 和 Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Azure 服務及其 AWS 對應項目的定義。<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [雲端運算詞彙](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - 一般產業雲端詞彙。
 
 ## <a name="account"></a>帳戶

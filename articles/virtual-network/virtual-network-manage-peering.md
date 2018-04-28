@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: ac9c762327dd8d2eb9e4dd9a79fc2bfa87241f14
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 52c910609930bbeecd21b75549c71ee9ed4e1e3b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>建立、變更或刪除虛擬網路對等互連
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/03/2018
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果使用入口網站，請開啟 https://portal.azure.com，並使用具有[必要的權限](#permissions)而可與對等互連搭配運作的帳戶來登入。
-- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.5.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您要在本機執行 PowerShell，則還需要使用具有[必要的權限](#permissions)而可與對等互連搭配運作的帳戶來執行 `Login-AzureRmAccount`，以建立與 Azure 的連線。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.5.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您要在本機執行 PowerShell，則還需要使用具有[必要的權限](#permissions)而可與對等互連搭配運作的帳戶來執行 `Connect-AzureRmAccount`，以建立與 Azure 的連線。
 - 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.29 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您要在本機執行 Azure CLI，則還需要使用具有[必要的權限](#permissions)而可與對等互連搭配運作的帳戶來執行 `az login`，以建立與 Azure 的連線。
 
 ## <a name="create-a-peering"></a>建立對等互連
@@ -129,8 +129,8 @@ ms.lasthandoff: 04/03/2018
 - 兩個您想要對等互連之虛擬網路所在的訂用帳戶，必須與相同的 Azure Active Directory 租用戶相關聯。 如果您還沒有 AD 租用戶，您可以快速地[建立一個](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant)。 您可以使用 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)，將兩個存在於與不同 Active Directory 租用戶相關聯之不同訂用帳戶中的虛擬網路加以連線。
 - 虛擬網路可以既與另一個虛擬網路對等互連，又同時連線到另一個具有 Azure 虛擬網路閘道的虛擬網路。 當虛擬網路同時透過對等互連和閘道進行連線時，虛擬網路之間的流量會透過對等互連組態來流動，而不會透過閘道。
 - 我們會針對使用虛擬網路對等互連的輸入和輸出流量收取少許費用。 如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/virtual-network)。
-* <a name="cross-region"></a>您可以將相同或不同區域中的虛擬網路對等互連。 兩個虛擬網路位於*相同*區域時不適用下列限制，但虛擬網路位於*不同*區域時則適用： 
-    - 虛擬網路只能存在於下列區域：韓國南部、英國南部、英國西部、加拿大東部、印度南部、印度中部、印度西部、美國中西部、加拿大中部和美國西部 2。
+* <a name="cross-region"></a>您可以將相同區域或不同區域中的虛擬網路對等互連。 兩個虛擬網路位於「相同」區域時不適用下列限制，但虛擬網路全域對等時則適用： 
+    - 虛擬網路只能存在於下列區域：美國中西部 (懷俄明州)、美國西部 2 (華盛頓州)、美國中部 (愛荷華州)、美國東部 2 (維吉尼亞州)、加拿大中部 (多倫多)、加拿大東部 (魁北克市)、東南亞 (新加坡)、南韓 (釜山)、印度南部 (辰內)、印度中部 (浦那)、印度西部 (孟買)、英國南部 (倫敦)、英國西部 (卡迪夫)、西歐 (荷蘭)
     - 一個虛擬網路中的資源無法與對等互連虛擬網路中 Azure 內部負載平衡器的 IP 位址通訊。 負載平衡器和與其通訊的資源必須位於相同的虛擬網路。
     - 您無法使用遠端閘道，也無法允許閘道傳輸。 若要使用遠端閘道或允許閘道傳輸，對等互連的兩個虛擬網路必須存在於相同區域。 
 
@@ -140,12 +140,12 @@ ms.lasthandoff: 04/03/2018
     
 |虛擬網路|部署模型|角色|權限|
 |---|---|---|---|
-|myVnetA|Resource Manager|[網路參與者](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |傳統|[傳統網路參與者](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
-|myVnetB|Resource Manager|[網路參與者](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||傳統|[傳統網路參與者](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+|myVnetA|Resource Manager|[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |傳統|[傳統網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
+|myVnetB|Resource Manager|[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+||傳統|[傳統網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
-深入了解[內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)以及如何對[自訂角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)指派特定權限 (僅限 Resource Manager)。
+深入了解[內建角色](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)以及如何對[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)指派特定權限 (僅限 Resource Manager)。
 
 ## <a name="next-steps"></a>後續步驟
 

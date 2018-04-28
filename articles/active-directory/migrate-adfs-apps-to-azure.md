@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: 5eb562901d73974765878024b1107e3b75e9abb5
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6303fdce65e460489c9f66e388c28383b9942627
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>將 AD FS 內部部署應用程式移轉至 Azure AD 
 
@@ -230,7 +230,7 @@ SAML 2.0 應用程式可以透過 Marketplace 中的 Azure AD 應用程式資源
 ![選取 Azure AD 作為驗證服務](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>選用：在 Azure AD 中設定使用者佈建
-如果您想要讓 Azure AD 直接處理 SaaS 應用程式的使用者佈建，請參閱[自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-app-provisioning)。
+如果您想要讓 Azure AD 直接處理 SaaS 應用程式的使用者佈建，請參閱[自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)。
 
 ## <a name="next-steps"></a>後續步驟
 

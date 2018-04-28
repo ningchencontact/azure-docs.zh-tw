@@ -51,7 +51,7 @@
 ### [疑難排解指南](dns-troubleshoot.md)
 
 # 參考
-## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
+## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=dns)
 ## [Azure PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)

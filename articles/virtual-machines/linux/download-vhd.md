@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: cynthn
-ms.openlocfilehash: d62fe702e42929fde2bb2a0dee4ea2cc8621ff99
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 93f165d08813506f9c4d4c0fbb885ddc958e8391
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>從 Azure 下載 Linux VHD
 
@@ -35,7 +35,7 @@ Azure 中的虛擬機器 (VM) 會使用[磁碟](../windows/managed-disks-overvie
 
 若要使用 VHD 作為映像來建立其他 VM，請完成下列步驟：
 
-1. 使用 SSH、帳戶名稱與 VM 的公用 IP 位址來連線至 VM，並取消佈建 VM。 您可以使用 [az network public-ip show](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show) 來尋找公用 IP 位址。 +user 參數也會移除最後一個佈建的使用者帳戶。 如果要將帳戶認證備份至 VM 中，請省略此 +user 參數。 下列範例會移除最後一個佈建的使用者帳戶：
+1. 使用 SSH、帳戶名稱與 VM 的公用 IP 位址來連線至 VM，並取消佈建 VM。 您可以使用 [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show) 來尋找公用 IP 位址。 +user 參數也會移除最後一個佈建的使用者帳戶。 如果要將帳戶認證備份至 VM 中，請省略此 +user 參數。 下列範例會移除最後一個佈建的使用者帳戶：
 
     ```bash
     ssh azureuser@<publicIpAddress>

@@ -1,6 +1,6 @@
 ---
-title: "Azure 付款處理藍圖 - 安全系統需求"
-description: "PCI DSS 需求 6"
+title: Azure 付款處理藍圖 - 安全系統需求
+description: PCI DSS 需求 6
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 24c8d90d3fec27258165472e99ba3d36ffcba733
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: cd9054afc359d7568fcd08f983f374e0b2bc3792
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-system-requirements-for-pci-dss-compliant-environments"></a>符合 PCI DSS 規範之環境的安全系統需求 
 ## <a name="pci-dss-requirement-6"></a>PCI DSS 需求 6
@@ -130,7 +130,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | Microsoft 遵循軟體開發中有關安全性考量的 NIST 指導方針，因為資訊安全性必須從系統初始就整合到 SDLC 中。 Microsoft SDL 中安全性做法的持續整合可以：<ul><li>提早識別及降低安全性弱點和錯誤設定</li><li>察覺由必要安全性控制措施所造成之潛在軟體程式碼撰寫挑戰</li><li>識別共用的安全性服務以及重複使用安全性最佳做法工具，如此可以透過經過驗證的方法與技術改善安全性狀態</li><li>強制執行 Microsoft 的完整風險管理計畫</li></ul>Microsoft Azure 已建立變更與發行管理程序，以控制重大變更的實作，包括：<ul><li>已規劃之變更的識別與文件</li><li>產品規劃期間之商務目標、優先順序和案例的識別</li><li>功能/元件設計的規格</li><li>根據預先定義準則/檢查清單評定整體風險/影響的作業整備檢閱</li><li>視情況而定，根據適用於 DEV (開發)、INT (整合測試)、STAGE (生產前) 和 PROD (生產) 環境的允入/允出準則進行的測試、授權和變更管理。 客戶必須負責自己在 Microsoft Azure 中裝載的應用程式。</li></ul> |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 示範提供一個已記錄且隔離的暫存服務。 <br /><br />每個網路層都有專用的網路安全性群組 [NSG]。 如需詳細資訊，請參閱 [PCI 指導方針 - 網路安全性群組](payment-processing-blueprint.md#network-security-groups)。<br /><br />變更會使用 Operations Management Suite 加以記錄，而 Runbook 用來收集記錄檔。 [Operations Management Suite (OMS)](/azure/operations-management-suite/) 能提供廣泛的變更記錄。 可對變更進行檢閱及驗證以確保正確性。 如需更具體的指導方針，請參閱 [PCI 指導方針 - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing)。|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 示範提供一個已記錄且隔離的暫存服務。 <br /><br />每個網路層都有專用的網路安全性群組 [NSG]。 如需詳細資訊，請參閱 [PCI 指導方針 - 網路安全性群組](payment-processing-blueprint.md#network-security-groups)。<br /><br />變更會使用 Operations Management Suite 加以記錄，而 Runbook 用來收集記錄檔。 Log Analytics 會提供大量的變更記錄。 可對變更進行檢閱及驗證以確保正確性。 如需更具體的指導方針，請參閱 [PCI 指導方針 - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing)。|
 
 
 

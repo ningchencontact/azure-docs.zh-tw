@@ -1,9 +1,9 @@
 ---
-title: "適用於使用中 Java Web 應用程式的 Application Insights"
-description: "開始監視已在伺服器上執行的 Web 應用程式"
+title: 適用於使用中 Java Web 應用程式的 Application Insights
+description: 開始監視已在伺服器上執行的 Web 應用程式
 services: application-insights
 documentationcenter: java
-author: harelbr
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 12f3dbb9-915f-4087-87c9-807286030b0b
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: 152e21bd9fc6db424c3caff4ce425e54ecab11e2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b8ddd43fb19b3800840180c458268301b5ec26f6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>適用於使用中 Java Web 應用程式的 Application Insights
 

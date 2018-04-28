@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dae4599db5127ac8fd266d5e0f299e1284fc9b9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>使用租用戶限制來管理對 SaaS 雲端應用程式的存取
 
@@ -28,7 +28,7 @@ Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「
 
 「租用戶限制」可讓組織指定允許其使用者存取的租用戶清單。 Azure AD 接著便可只授與對這些已允許之租用戶的存取權。
 
-本文將焦點放在 Office 365 的「租用戶限制」，但此功能應該適用於使用新式驗證通訊協定搭配 Azure AD 來進行單一登入的所有 SaaS 雲端應用程式。 如果您使用 SaaS 應用程式搭配與 Office 365 所用租用戶不同的 Azure AD 租用戶，請務必核准所有必要的租用戶。 如需有關 SaaS 雲端應用程式的詳細資訊，請參閱 [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/)。
+本文將焦點放在 Office 365 的「租用戶限制」，但此功能應該適用於使用新式驗證通訊協定搭配 Azure AD 來進行單一登入的所有 SaaS 雲端應用程式。 如果您使用 SaaS 應用程式搭配與 Office 365 所用租用戶不同的 Azure AD 租用戶，請務必核准所有必要的租用戶。 如需有關 SaaS 雲端應用程式的詳細資訊，請參閱 [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/)。
 
 ## <a name="how-it-works"></a>運作方式
 

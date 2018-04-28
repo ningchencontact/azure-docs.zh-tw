@@ -46,7 +46,7 @@
 ### [U-SQL 程式設計指南](data-lake-analytics-u-sql-programmability-guide.md)
 
 # 參考
-## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
+## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
@@ -59,7 +59,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [在 UserVoice 上提供意見反應](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [價格](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
+## [定價](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)

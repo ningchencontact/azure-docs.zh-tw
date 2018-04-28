@@ -1,24 +1,23 @@
 ---
-title: "將 Java 應用程式新增至 Azure App Service Web Apps"
-description: "本教學課程說明如何將頁面或應用程式新增至已設定為使用 Java 的 Azure App Service Web Apps 執行個體。"
+title: 將 Java 應用程式新增至 Azure App Service Web Apps
+description: 本教學課程說明如何將頁面或應用程式新增至已設定為使用 Java 的 Azure App Service Web Apps 執行個體。
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: 
+manager: mbaldwin
 ms.assetid: 9b46528b-e2d0-4f26-b8d7-af94bd8c31ef
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
-ms.openlocfilehash: 1309985d7f1b93230b38ada2ee2687b1db10a791
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71009370282fcfbd71c00b30d4ea22802035714d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-a-java-application-to-azure-app-service-web-apps"></a>將 Java 應用程式新增至 Azure App Service Web Apps
 在您已依照[在 Azure App Service 中建立 Java Web 應用程式](app-service-web-get-started-java.md)所述，在 [Azure App Service][Azure App Service] 中將 Java Web 應用程式初始化之後，就可以將 WAR 放在 [webapps] 資料夾中來上傳您的應用程式。

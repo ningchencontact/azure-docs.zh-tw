@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bfbcf8ff3f24b69b49b9a2bd5d567e1ead57d974
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>修改虛擬機器擴展集
 在應用程式的整個生命週期中，您可能需要修改或更新您的虛擬機器擴展集。 這些更新可能包括如何更新擴展集的組態，或者變更應用程式組態。 本文說明如何使用 REST API、Azure PowerShell 或 Azure CLI 2.0 來修改現有的擴展集。
@@ -347,6 +347,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 - 可用性區域
 - 映像參考發行者
 - 映像參考優惠
+- 受控 OS 磁碟儲存體帳戶類型
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>只能根據目前值變更的屬性
 有些屬性可以變更，但除非是根據目前的值。 這些屬性包括：

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 46d4962040a78942adbad443d5cbde64755ddadf
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 855cb159474836e4c015f84d7d57546b5e1a2e99
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>在 Azure Data Factory 中資料移動的安全性考量
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +68,7 @@ Azure Data Factory 除了用於雲端資料存放區的連結服務認證 (會�
 Azure SQL 資料倉儲中的透明資料加密 (TDE) 可以對待用資料執行即時加密和解密，協助防止惡意活動的威脅。 用戶端並不會察覺到這個過程。 如需詳細資訊，請參閱[保護 SQL 資料倉儲中的資料庫](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)。
 
 #### <a name="azure-sql-database"></a>連接字串
-Azure SQL Database 也支援透明資料加密 (TDE)，TDE 可在不需變更應用程式的情況下，對資料執行即時加密和解密，協助防止惡意活動的威脅。 用戶端並不會察覺到這個過程。 如需詳細資訊，請參閱 [SQL Database 和資料倉儲的透明資料加密](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)。
+Azure SQL Database 也支援透明資料加密 (TDE)，TDE 可在不需變更應用程式的情況下，對資料執行即時加密和解密，協助防止惡意活動的威脅。 用戶端並不會察覺到這個過程。 如需詳細資訊，請參閱 [SQL Database 和資料倉儲的透明資料加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)。
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Azure Data Lake Store 也針對儲存在帳戶中的資料提供加密功能。 啟用加密功能時，Data Lake Store 會在保存資料之前先自動加密資料，並在擷取資料之前先解密資料，因此存取該資料的用戶端並不會察覺這個過程。 如需詳細資訊，請參閱 [Azure Data Lake Store 安全性](../data-lake-store/data-lake-store-security-overview.md)。 
@@ -86,7 +86,7 @@ Amazon Redshift 支援叢集待用資料加密。 如需詳細資訊，請參閱
 Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件和自訂欄位。 如需詳細資訊，請參閱[了解 Web 伺服器 OAuth 驗證流程 (英文)](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm)。  
 
 ## <a name="hybrid-scenarios"></a>混合式案例
-混合式案例需要您在內部部署網路中或是虛擬網路 (Azure) 或虛擬私人雲端 (Amazon) 內安裝自我裝載整合執行階段。 自我裝載整合執行階段必須能夠存取本機資料存放區。 如需自我裝載整合執行階段的詳細資訊，請參閱[如何建立和設定自我裝載整合執行階段](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime)。 
+混合式案例需要您在內部部署網路中或是虛擬網路 (Azure) 或虛擬私人雲端 (Amazon) 內安裝自我裝載整合執行階段。 自我裝載整合執行階段必須能夠存取本機資料存放區。 如需自我裝載整合執行階段的詳細資訊，請參閱[如何建立和設定自我裝載整合執行階段](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)。 
 
 ![自我裝載整合執行階段通道](media/data-movement-security-considerations/data-management-gateway-channels.png)
 

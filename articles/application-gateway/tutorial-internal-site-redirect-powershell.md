@@ -1,6 +1,6 @@
 ---
-title: "建立具有內部重新導向的應用程式閘道 - Azure PowerShell | Microsoft Docs"
-description: "了解如何使用 Azure Powershell，建立會將內部 Web 流量重新導向至適當伺服器後端集區的應用程式閘道。"
+title: 建立具有內部重新導向的應用程式閘道 - Azure PowerShell | Microsoft Docs
+description: 了解如何使用 Azure Powershell，建立會將內部 Web 流量重新導向至適當伺服器後端集區的應用程式閘道。
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: davidmu
-ms.openlocfilehash: c319d4f9aa3f607bccdc7237ce1f678b338180d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c0da7920692673ce414d76932fe23280d3b217dd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>使用 Azure PowerShell 來建立具有內部重新導向的應用程式閘道
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/09/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組版本 3.6 或更新版本。 若要尋找版本，請執行 ` Get-Module -ListAvailable AzureRM`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組版本 3.6 或更新版本。 若要尋找版本，請執行 ` Get-Module -ListAvailable AzureRM`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -295,7 +295,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-在瀏覽器的網址列中輸入您的網域名稱。 例如 http://www.contoso.com。
+在瀏覽器的網址列中輸入您的網域名稱。 例如，http://www.contoso.com。
 
 ![在應用程式閘道中測試 contoso 網站](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 

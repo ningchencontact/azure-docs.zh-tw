@@ -5,24 +5,24 @@ services: machine-learning
 documentationcenter: ''
 author: bradsev
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4715384a0c6eb24a6a4208ca387b8c4a9871d5c7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
-適用於 Linux 的資料科學虛擬機器是以 Ubuntu 為基礎的虛擬機器映像，可幫助您在 Azure 上輕鬆展開深入學習。 深入學習工具包含：
+適用於 Linux 的資料科學虛擬機器是以 Ubuntu 為基礎的虛擬機器映像，可幫助您在 Azure 上輕鬆展開機器學習，包括深度學習。 深入學習工具包含：
 
   * [Caffe](http://caffe.berkeleyvision.org/)︰一種深入學習架構，講求速度、表現度及模組化
   * [Caffe2](https://github.com/caffe2/caffe2)：Caffe 的跨平台版本
@@ -31,6 +31,7 @@ ms.lasthandoff: 03/17/2018
   * [Keras](https://keras.io/)：以 Python 撰寫且適用於 Theano 和 TensorFlow 的高層級類神經網路 API
   * [MXNet](http://mxnet.io/)：彈性、有效率的深入學習程式庫，包含許多語言繫結
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits)：一種圖形化系統，可簡化常見的深入學習工作
+  * [PyTorch](http://pytorch.org/)：高層級的 Python 程式庫，支援動態網路
   * [TensorFlow](https://www.tensorflow.org/)︰Google 提供的機器智慧開放原始碼程式庫
   * [Theano](http://deeplearning.net/software/theano/)：一種 Python 程式庫，可定義、最佳化和有效地評估涉及多維陣列的數學運算式
   * [Torch](http://torch.ch/)︰廣泛支援機器學習演算法的科學運算架構
@@ -113,6 +114,14 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 佈建大約 5-10 分鐘。 在 Azure 入口網站中會顯示佈建的狀態。
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>如何存取 Linux 適用的資料科學虛擬機器
+
+您可以使用三種方法存取 Ubuntu DSVM：
+1. SSH (如果是終端機工作階段)
+2. X2Go (如果是圖形化工作階段)
+3. JupyterHub 和 JupyterLab (如果是 Jupyter 筆記本)
+
+### <a name="ssh"></a>SSH
+
 建立 VM 之後，您就可以使用 SSH 登入。 針對文字殼層介面，使用您在步驟 3 的 **基本** 區段中建立的帳戶認證。 在 Windows 上，您可以下載 SSH 用戶端工具，例如 [Putty](http://www.putty.org)。 如果您偏好圖形化桌面 (X Windows 系統)，您可以在 Putty 上使用 X11 轉寄或安裝 X2Go 用戶端。
 
 > [!NOTE]
@@ -120,7 +129,7 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 > 
 > 
 
-## <a name="installing-and-configuring-x2go-client"></a>安裝和設定 X2Go 用戶端
+### <a name="x2go"></a>X2Go
 Linux VM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若要連線到 Linux VM 圖形化桌面，請在用戶端上完成下列程序：
 
 1. 從 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)下載並安裝您用戶端平台適用的 X2Go 用戶端。    
@@ -134,6 +143,14 @@ Linux VM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若�
    * **共用資料夾**︰如果您想要用戶端機器的目錄掛接在 Linux VM 上，請在此索引標籤上加入要與 VM 分享的目錄。
 
 當您透過 X2Go 用戶端使用 SSH 用戶端或 XFCE 圖形化桌面登入 VM 之後，便可開始使用已安裝並設定於 VM 上的工具。 在 XFCE 上，您可以看到許多工具的應用程式功能表捷徑和桌面圖示。
+
+### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub 和 JupyterLab
+
+Ubuntu DSVM 執行 [JupyterHub](https://github.com/jupyterhub/jupyterhub)，這是一個多使用者的 Jupyter 伺服器。 若要連線，請在您的膝上型電腦或桌上型電腦瀏覽至 https://your-vm-ip:8000，輸入您用來建立 VM 的使用者名稱和密碼，然後登入。 有許多範例筆記本可供您瀏覽和嘗試。
+
+也提供 JupyterLab (新一代的 Jupyter 筆記本) 與 JupyterHub。 若要存取，請登入 JupyterHub，然後瀏覽至 URL https://your-vm-ip:8000/lab。 您可以在 /etc/jupyterhub/jupyterhub_config.py 中加入下面這一行，設定 JupyterLab 為預設的筆記本伺服器：
+
+    c.Spawner.default_url = '/lab'
 
 ## <a name="tools-installed-on-the-data-science-virtual-machine-for-linux"></a>適用於 Linux 的資料科學虛擬機器上所安裝的工具
 ### <a name="deep-learning-libraries"></a>深入學習程式庫
@@ -159,7 +176,7 @@ Caffe2 是來自 Facebook (以 Caffe 為基礎而建置) 的深入學習架構�
 您可以在 JupyterHub 找到一些範例筆記本。
 
 #### <a name="h2o"></a>H2O
-H2O 是快速、記憶體內的分散式機器學習和預測性分析平台。 Python 封裝同時安裝於根環境和 py35 Anaconda 環境中。 同時也會安裝 R 封裝。 若要從命令列啟動 H2O，請執行 `java -jar /dsvm/tools/h2o/current/h2o.jar`；有各種您可能會想要設定的[命令列選項](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) \(英文\)。 可以瀏覽至 http://localhost:54321 存取 Flow Web UI，以便開始。 您也可以在 JupyterHub 找到範例筆記本。
+H2O 是快速、記憶體內的分散式機器學習和預測性分析平台。 Python 封裝同時安裝於根環境和 py35 Anaconda 環境中。 同時也會安裝 R 封裝。 若要從命令列啟動 H2O，請執行 `java -jar /dsvm/tools/h2o/current/h2o.jar`；有各種您可能會想要設定的[命令列選項](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) \(英文\)。 可以瀏覽至 http://localhost:54321 存取 Flow Web UI 以開始使用。 您也可以在 JupyterHub 找到範例筆記本。
 
 #### <a name="keras"></a>Keras
 Keras 是以 Python 撰寫的高層級類神經網路 API，可在 TensorFlow 或 Theano 上執行。 它位於根環境和 py35 Python 環境中。 
@@ -193,35 +210,37 @@ R 是其中一種最受歡迎的資料分析和機器學習語言。 如果您�
 如果您想要的話，另外也會有 R 指令碼讓您安裝[最熱門的 20 個 R 套件](http://www.kdnuggets.com/2015/06/top-20-r-packages.html)。 當您位於 R 互動式介面 (在殼層中輸入 **R** (如上所述)，即可進入) 時，就可以執行這個指令碼。  
 
 ### <a name="python"></a>Python
-為了能夠使用 Python 進行開發，我們已安裝了 Anaconda Python 散佈 2.7 與 3.5。 這個散發套件包含基本的 Python 以及大約 300 個最受歡迎的數學運算、工程設計和資料分析封裝。 您可以使用預設的文字編輯器。 此外，您也可以使用 Spyder，這是與 Anaconda Python 散發套件配套的 Python IDE。 Spyder 需要圖形化桌面或 X11 轉寄。 圖形化桌面中提供了 Spyder 的捷徑。
+Anaconda Python 是隨著 Python 2.7 和 3.5 環境一起安裝。 2.7 環境稱為 _root_，而 3.5 環境稱為 _py35_。 這個散發套件包含基本的 Python 以及大約 300 個最受歡迎的數學運算、工程設計和資料分析封裝。 
 
-由於我們有 Python 2.7 和 3.5，您必須明確啟動您想要在目前工作階段中使用的 Python 版本 (conda 環境)。 啟動程序會將 PATH 變數設定為所需的 Python 版本。
+py35 環境是預設環境。 啟用 root (2.7) 環境：
 
-若要啟用 Python 2.7 conda 環境，請從殼層執行下列命令：
+    source activate root
 
-    source /anaconda/bin/activate root
+再次啟用 py35 環境：
 
-Python 2.7 安裝於「/anaconda/bin」 。
+    source activate py35
 
-若要啟用 Python 3.5 conda 環境，從殼層執行下列命令：
+若要叫用 Python 互動式工作階段，只需在殼層中輸入 **python** 。 
 
-    source /anaconda/bin/activate py35
+使用 ```conda``` 或 ````pip```` 安裝其他 Python 程式庫。 對於 pip，如果您不想要預設值，請先啟用正確的環境：
 
+    source activate root
+    pip install <package>
 
-Python 3.5 安裝於 */anaconda/envs/py35/bin*上。
+或指定 pip 的完整路徑：
 
-若要叫用 Python 互動式工作階段，只需在殼層中輸入 **python** 。 如果您位於圖形化介面，或已設定 X11 轉寄，則可輸入 **pycharm** 來啟動 PyCharm Python IDE。
+    /anaconda/bin/pip install <package>
+    
+對於 conda，您一律要指定環境名稱 (_py35_ 或 _root_)：
 
-若要安裝其他的 Python 程式庫，您需要在 sudo 底下執行 ```conda``` 或 ````pip```` 命令，並提供 Python 套件管理員的完整路徑 (conda 或 pip) 以安裝到正確的 Python 環境。 例如︰
+    conda install <package> -n py35
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
-
+如果您位於圖形化介面，或已設定 X11 轉寄，則可輸入 **pycharm** 來啟動 PyCharm Python IDE。 您可以使用預設的文字編輯器。 此外，您也可以使用 Spyder，這是與 Anaconda Python 散發套件配套的 Python IDE。 Spyder 需要圖形化桌面或 X11 轉寄。 圖形化桌面中提供了 Spyder 的捷徑。
 
 ### <a name="jupyter-notebook"></a>Jupyter 筆記本
 Jupyter Notebook 中也隨附 Anaconda 散發套件，這是一個共用程式碼與分析的環境。 Jupyter 筆記本是透過 JupyterHub 來存取。 您可以使用本機 Linux 使用者名稱和密碼來登入。
 
-Jupyter 筆記本伺服器已使用 Python 2、Python 3 及 R 核心進行預先設定。 有一個名為「Jupyter 筆記本」的桌面圖示可以啟動瀏覽器來存取 Notebook 伺服器。 如果您是透過 SSH 或 X2Go 用戶端進入 VM，您也可以造訪 [https://localhost:8000/](https://localhost:8000/) 來存取 Jupyter 筆記本伺服器。
+Jupyter 筆記本伺服器已使用 Python 2、Python 3 及 R 核心進行預先設定。 有一個名為「Jupyter 筆記本」的桌面圖示可以啟動瀏覽器來存取 Notebook 伺服器。 如果您透過 SSH 或 X2Go 用戶端進入 VM，則也可以造訪 [https://localhost:8000/](https://localhost:8000/) 來存取 Jupyter 筆記本伺服器。
 
 > [!NOTE]
 > 如果您收到任何憑證警告，請繼續。

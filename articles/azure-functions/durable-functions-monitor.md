@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9cb7a076ea922b9868bd439d160aec96f044e3b6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Durable Functions 中的監視器案例 - 天氣監看員範例
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/23/2018
 * 監視器可於某些條件成立時終止，或由其他程序加以終止。
 * 監視器可以採用參數。 此範例會示範如何將相同的天氣監視程序套用至任何要求的地點和電話號碼。
 * 監視器具有擴充性。 由於每個監視器都是協調流程執行個體，您可以建立多個監視器，而不必建立新函式或定義多個程式碼。
-* 監視器可輕鬆整合至大型工作流程。 監視器可以是更複雜之協調流程函式的一個區段，也可以是[子協調流程](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-sub-orchestrations)。
+* 監視器可輕鬆整合至大型工作流程。 監視器可以是更複雜之協調流程函式的一個區段，也可以是[子協調流程](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations)。
 
 ## <a name="configuring-twilio-integration"></a>設定 Twilio 整合
 

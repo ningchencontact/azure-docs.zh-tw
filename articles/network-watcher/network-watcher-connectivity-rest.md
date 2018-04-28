@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 26acb70ac5ac017fc8162e8abeec48b8b9ecfa7f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 848db5d0df63707eece4f9f7a2a69135bed2d389
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>使用 Azure REST API 利用 Azure 網路監看員進行連線疑難排解
 
@@ -468,7 +468,7 @@ null
 
 檢視[建立由警示觸發的封包擷取](network-watcher-alert-triggered-packet-capture.md)來了解如何透過虛擬機器警示將封包擷取自動化。
 
-造訪[檢查 IP 流量驗證](network-watcher-check-ip-flow-verify-portal.md)來得知 VM 是否允許特定流量流入或流出。
+造訪[檢查 IP 流量驗證](diagnose-vm-network-traffic-filtering-problem.md)來得知 VM 是否允許特定流量流入或流出。
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure 金鑰保存庫開發人員指南"
-description: "開發人員可以使用 Azure 金鑰保存庫來管理 Microsoft Azure 環境中的密碼編譯金鑰。"
+title: Azure 金鑰保存庫開發人員指南
+description: 開發人員可以使用 Azure 金鑰保存庫來管理 Microsoft Azure 環境中的密碼編譯金鑰。
 services: key-vault
 author: lleonard-msft
 manager: mbaldwin
@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
 ms.author: alleonar
-ms.openlocfilehash: 68a08f1f6e8036b9ca966e8d9596c09f2b2ccf81
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 35e84a22eabce0b7361c2227317baab62421c301
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 金鑰保存庫開發人員指南
 
@@ -109,7 +109,7 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 ### <a name="quick-start-guides"></a>快速入門指南
 
 - [建立金鑰保存庫](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [開始在 Node.js 中使用 Key Vault](https://azure.microsoft.com/en-us/resources/samples/key-vault-node-getting-started/)
+- [開始在 Node.js 中使用 Key Vault](https://azure.microsoft.com/resources/samples/key-vault-node-getting-started/)
 
 ### <a name="code-examples"></a>程式碼範例
 

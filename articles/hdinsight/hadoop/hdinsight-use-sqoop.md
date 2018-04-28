@@ -1,26 +1,24 @@
 ---
-title: "使用 Azure HDInsight (Hadoop) 執行 Apache Sqoop 作業 | Microsoft Docs"
-description: "了解如何從工作站使用 Azure PowerShell，在 HDInsight 叢集與 Azure SQL Database 之間執行 Sqoop 匯入和匯出。"
+title: 使用 Azure HDInsight (Hadoop) 執行 Apache Sqoop 作業 | Microsoft Docs
+description: 了解如何從工作站使用 Azure PowerShell，在 HDInsight 叢集與 Azure SQL Database 之間執行 Sqoop 匯入和匯出。
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 2fdcc6b7-6ad5-4397-a30b-e7e389b66c7a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e96003de4a0dd4a5d8b060bb5883e51291827316
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e72585906b972c3d7ffb2513fceb27e3e8bc1c5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>在 HDInsight 上將 Sqoop 與 Hadoop 搭配使用
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -62,7 +60,7 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 在本教學課程中，您要使用這兩個資料集測試 Sqoop 匯入和匯出。
 
 ## <a name="create-cluster-and-sql-database"></a>建立叢集與 SQL Database
-本節說明如何建立叢集、SQL Database 和 SQL Database 結構描述，以使用 Azure 入口網站和 Azure Resource Manager 範本來執行本教學課程。 範本可在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)中找到。 Resource Manager 範本會呼叫 bacpac 套件，以將資料表結構描述部署到 SQL Database。  Bacpac 套件位於公用 Blob 容器中，https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac。 如果您想要針對 Bacpac 檔案使用私用容器，請在範本中使用下列值︰
+本節說明如何建立叢集、SQL Database 和 SQL Database 結構描述，以使用 Azure 入口網站和 Azure Resource Manager 範本來執行本教學課程。 範本可在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)中找到。 Resource Manager 範本會呼叫 bacpac 套件，以將資料表結構描述部署到 SQL Database。  Bacpac 套件位於公用 Blob 容器中 (https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac)。 如果您想要針對 Bacpac 檔案使用私用容器，請在範本中使用下列值︰
    
 ```json
 "storageKeyType": "Primary",
@@ -308,7 +306,7 @@ $ErrorActionPreference = "Stop"
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 try{Get-AzureRmContext}
-catch{Login-AzureRmAccount}
+catch{Connect-AzureRmAccount}
 #endregion
 
 #region - Create Azure resouce group

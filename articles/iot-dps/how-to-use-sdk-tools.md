@@ -1,25 +1,25 @@
 ---
-title: "使用 Azure IoT 中樞裝置佈建服務 SDK 中提供的工具來簡化開發"
-description: "本文件將檢閱 Azure IoT 中樞裝置佈建服務 SDK 中提供來用於開發的工具"
+title: 使用 Azure IoT 中樞裝置佈建服務 SDK 中提供的工具來簡化開發
+description: 本文件將檢閱 Azure IoT 中樞裝置佈建服務 SDK 中提供來用於開發的工具
 services: iot-dps
-keywords: 
+keywords: ''
 author: yzhong94
 ms.author: yizhon
-ms.date: 01/18/2018
+ms.date: 04/09/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 76c6f64dea202f661691fafaa78a6d77b4a40f14
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a7e1a55bcfc8c7a8f76416fb12edf712340fadd2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>如何使用 SDK 中提供的工具來簡化開發以進行佈建
-IoT 中樞裝置佈建服務會以安全且可擴充的方式，透過零接觸的 Just-In-Time 佈建來簡化佈建程序。  需要有 X.509 憑證或信賴平台模組 (TPM) 形式的安全性證明。  Microsoft 也與[其他安全性硬體合作夥伴](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) \(英文\) 合作，以提升保護 IoT 部署安全的信心。 對於開發人員而言，了解硬體安全性需求可能會是相當大的挑戰。 我們提供一組 Azure IoT 佈建服務 SDK，讓開發人員能夠輕鬆撰寫要與佈建服務交談之用戶端。 SDK 也提供適用於常見案例的範例以及一組工具，來簡化開發中的安全性證明。
+IoT 中樞裝置佈建服務會以安全且可擴充的方式，透過零接觸的 Just-In-Time [自動佈建](concepts-auto-provisioning.md)來簡化佈建程序。  需要有 X.509 憑證或信賴平台模組 (TPM) 形式的安全性證明。  Microsoft 也與[其他安全性硬體合作夥伴](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) \(英文\) 合作，以提升保護 IoT 部署安全的信心。 對於開發人員而言，了解硬體安全性需求可能會是相當大的挑戰。 我們提供一組 Azure IoT 佈建服務 SDK，讓開發人員能夠輕鬆撰寫要與佈建服務交談之用戶端。 SDK 也提供適用於常見案例的範例以及一組工具，來簡化開發中的安全性證明。
 
 ## <a name="trusted-platform-module-tpm-simulator"></a>信賴平台模組 (TPM) 模擬器
 [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security#trusted-platform-module-tpm) 可以參考安全地儲存金鑰以驗證平台的標準，或者參考用來與實作標準之模組互動的 I/O 介面。 TPM 可以是獨立硬體、整合式硬體、韌體或軟體。  在生產環境中，TPM 位於裝置上，作為個別的硬體、整合式硬體，或是以韌體為基礎。 在測試階段，會針對開發人員提供以軟體為基礎的 TPM 模擬器。  這個模擬器目前只適合用來在 Windows 平台上進行開發。

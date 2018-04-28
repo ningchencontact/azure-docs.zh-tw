@@ -8,7 +8,7 @@
 1. 使用下列命令來登入您的 Azure 訂用帳戶：
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. 如果您有多個 Azure 訂用帳戶，則登入 Azure 即會為您授與和您認證相關聯之所有 Azure 訂用帳戶的存取權。 使用下列命令來列出可供您使用的 Azure 訂用帳戶：

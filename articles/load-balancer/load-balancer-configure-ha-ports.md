@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb305986982432d7a432204e3fae8a1dff6a5d74
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>設定內部負載平衡器的高可用性連接埠
 
@@ -39,12 +39,6 @@ ms.lasthandoff: 03/23/2018
 ![高可用性連接埠範例部署](./media/load-balancer-configure-ha-ports/haports.png)
 
 
-## <a name="preview-sign-up"></a>註冊預覽
-
-若要參加 Standard Azure Load Balancer 中高可用性連接埠功能的預覽，請使用 Azure CLI 2.0 或 PowerShell 來註冊您的訂用帳戶以取得存取。 註冊您的 [Standard Load Balancer 預覽版](https://aka.ms/lbpreview#preview-sign-up)訂用帳戶。
-
->[!NOTE]
->註冊 Standard Load Balancer 預覽版最多可能需要一小時的時間。
 
 ## <a name="configure-high-availability-ports"></a>設定高可用性連接埠
 

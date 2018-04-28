@@ -1,25 +1,25 @@
 ---
-title: "Azure 原則 JSON 範例 - 在沒有 Azure AD 系統管理員時稽核 | Microsoft Docs"
-description: "此 json 範例原則會在 SQL Server 沒有指派的 Azure Active Directory 系統管理員時稽核。"
+title: Azure 原則 JSON 範例 - 在沒有 Azure AD 系統管理員時稽核 | Microsoft Docs
+description: 此 json 範例原則會在 SQL Server 沒有指派的 Azure Active Directory 系統管理員時稽核。
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 11/13/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: ac114530c9f60fdff296b3a3cd198765c341f0f0
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 576916e9a5702a3c7c21f1dbf2276a81c96a908e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="audit-no-azure-active-directory-administrator"></a>在沒有 Azure Active Directory 系統管理員時稽核
 

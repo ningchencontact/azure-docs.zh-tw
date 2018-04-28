@@ -1,8 +1,8 @@
 ---
-title: "使用 SSH 通道存取 Azure HDInsight | Microsoft Docs"
-description: "了解如何使用 SSH 通道，安全地瀏覽以 Linux 為基礎的 HDInsight 節點上裝載的 Web 資源。"
+title: 使用 SSH 通道存取 Azure HDInsight | Microsoft Docs
+description: 了解如何使用 SSH 通道，安全地瀏覽以 Linux 為基礎的 HDInsight 節點上裝載的 Web 資源。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a6604cca4056acf3ce759eaf56bb9130ef672bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 05e06d6ed8c2a3bec0d12f81aae6f7022a56b942
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>使用 SSH 通道來存取 Ambari Web UI、JobHistory、NameNode、Oozie 及其他 Web UI
 
@@ -85,7 +83,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) 是適用於 Windows 的圖形化 SSH 用戶端。 使用下列步驟，利用 PuTTY 建立 SSH 通道：
 
-1. 開啟 PuTTY，並輸入連線資訊。 如果您不熟悉 PuTTY，請參閱 [PuTTY 文件 (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html) (英文)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)。
+1. 開啟 PuTTY，並輸入連線資訊。 如果您不熟悉 PuTTY，請參閱 [PuTTY 文件 (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)。
 
 2. 在對話方塊左側的 [類別] 區段中，依序展開 [連線] 和 [SSH]，然後選取 [通道]。
 
@@ -121,7 +119,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
 建立叢集後，請使用下列步驟來確認您可以從 Ambari Web 存取服務 Web UI：
 
-1. 在瀏覽器中，移至 http://headnodehost:8080 。 `headnodehost` 位址會透過通道傳送到叢集，並解析為執行 Ambari 的前端節點。 出現提示時，請輸入您叢集的管理員使用者名稱 (admin) 和密碼。 Ambari Web UI 可能會出現第二次的提示。 若是如此，請重新輸入資訊。
+1. 在瀏覽器中，前往 http://headnodehost:8080。 `headnodehost` 位址會透過通道傳送到叢集，並解析為執行 Ambari 的前端節點。 出現提示時，請輸入您叢集的管理員使用者名稱 (admin) 和密碼。 Ambari Web UI 可能會出現第二次的提示。 若是如此，請重新輸入資訊。
 
    > [!NOTE]
    > 使用 http://headnodehost:8080 位址連線至叢集時，表示您是透過通道進行連線。 通訊是使用 SSH 通道進行保護，而非 HTTPS。 若要透過 HTTPS 與網際網路連接，請使用 https://CLUSTERNAME.azurehdinsight.net，其中 **CLUSTERNAME** 是叢集的名稱。
@@ -144,7 +142,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
     ![NameNode UI 的影像](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]
-   > 請注意此頁面的 URL，它應該會類似於 **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**。 此 URI 使用節點的內部完整網域名稱 (FQDN)，而且必須使用 SSH 通道才能存取。
+   > 請注意此頁面的 URL；它應該類似於 **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**。 此 URI 使用節點的內部完整網域名稱 (FQDN)，而且必須使用 SSH 通道才能存取。
 
 ## <a name="next-steps"></a>後續步驟
 

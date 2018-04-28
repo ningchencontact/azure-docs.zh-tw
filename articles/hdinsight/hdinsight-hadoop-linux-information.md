@@ -1,8 +1,8 @@
 ---
-title: "在 Linux 架構的 HDInsight 上使用 Hadoop 的秘訣 - Azure | Microsoft Docs"
-description: "取得在 Azure 雲端中執行的熟悉 Linux 環境上使用 Linux 架構的 HDInsight (Hadoop) 叢集的實作秘訣。"
+title: 在 Linux 架構的 HDInsight 上使用 Hadoop 的秘訣 - Azure | Microsoft Docs
+description: 取得在 Azure 雲端中執行的熟悉 Linux 環境上使用 Linux 架構的 HDInsight (Hadoop) 叢集的實作秘訣。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: c41c611c-5798-4c14-81cc-bed1e26b5609
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 4449dfa1b189f51292d24af884ba9d2addf1fe24
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3ad7aa01200bf2bf4a63a380b2b883983c8622d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>在 Linux 上使用 HDInsight 的相關資訊
 
@@ -231,7 +229,7 @@ Azure 儲存體帳戶可以保存多達 4.75 TB 的資料，但個別 Blob (或�
 
     * **Storm UI**︰使用下列步驟來重新平衡使用 Storm UI 的拓撲。
 
-        1. 在網頁瀏覽器中開啟 **https://CLUSTERNAME.azurehdinsight.net/stormui**，其中 CLUSTERNAME 是 Storm 叢集的名稱。 出現提示時，輸入建立叢集時所指定的 HDInsight 叢集系統管理員 (管理員) 名稱和密碼。
+        1. 在您的網頁瀏覽器中開啟 **https://CLUSTERNAME.azurehdinsight.net/stormui**，其中 CLUSTERNAME 是 Storm 叢集的名稱。 出現提示時，輸入建立叢集時所指定的 HDInsight 叢集系統管理員 (管理員) 名稱和密碼。
         2. 選取您要重新平衡的拓撲，然後選取 [重新平衡] 按鈕。 在執行重新平衡作業之前輸入延遲。
 
 * **Kafka**：您應該在調整作業完成後重新平衡磁碟分割複本。 如需詳細資訊，請參閱[使用 HDInsight 上的 Kafka 確保資料的高可用性](./kafka/apache-kafka-high-availability.md)文件。
@@ -273,7 +271,7 @@ HDInsight 是受控服務。 如果 Azure 偵測到叢集問題，它可能會�
 > [!WARNING]
 > 透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務會協助釐清與解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如：[Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 
 ## <a name="next-steps"></a>後續步驟
 

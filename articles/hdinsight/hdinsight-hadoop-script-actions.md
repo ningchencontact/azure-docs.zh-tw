@@ -9,18 +9,16 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 836d68a8-8b21-4d69-8b61-281a7fe67f21
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ac2a087bb0a9d8cac15dfea2448a9c42cee4a1f4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 98040f10eb15245f36eb0b365dcdf0f5ba7f107a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>開發 HDInsight Windows 型叢集指令碼動作指令碼
 了解如何寫入 HDInsight 的指令碼動作指令碼 如需使用指令碼動作指令碼的資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。 如需針對 Linux 型 HDInsight 叢集撰寫的相同文章，請參閱[開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions-linux.md)。
@@ -178,7 +176,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
     為了獲得高可用性，HDInsight 具備主動/被動架構，在此架構中，有一個處於使用中模式的前端節點 (此節點正在執行 HDInsight 服務)，以及另一個處於待命模式的前端節點 (此節點未執行 HDInsight 服務)。 如果 HDInsight 服務中斷，這兩個節點就會切換主動和被動模式。 如果為了獲得高可用性，而使用指令碼動作在這兩個前端節點安裝服務，請注意 HDInsight 的容錯移轉機制並無法自動容錯移轉這些由使用者所安裝的服務。 因此使用者在 HDInsight 前端節點上所安裝的服務若想要有高可用性，則必須有自己的主動/被動模式時的容錯移轉機制，或是處於主動/被動模式。
 
-    已在 *ClusterRoleCollection* 參數中以指定前端節點角色做為值時，HDInsight 指令碼動作命令會同時在這兩個前端節點上執行。 因此，當您設計自訂指令碼時，請確定您的指令碼知道這項設定。 您不應該發生在這兩個前端節點上安裝並啟動相同的服務，而最終導致彼此競爭的問題。 此外也請注意，重新製作映像時，資料將會遺失，因此透過指令碼動作所安裝的軟體必須要能夠從這類事件復原。 應用程式在設計上應該要能夠與分散在眾多節點上的高可用性資料搭配運作。 請注意，最多可同時為叢集中 1/5 的節點重新製作映像。
+    已在 *ClusterRoleCollection* 參數中以指定前端節點角色做為值時，HDInsight 指令碼動作命令會同時在這兩個前端節點上執行。 因此，當您設計自訂指令碼時，請確定您的指令碼知道這項設定。 您不應該發生在這兩個前端節點上安裝並啟動相同的服務，而最終導致彼此競爭的問題。 此外也請注意，重新製作映像時，資料將會遺失，因此透過指令碼動作所安裝的軟體必須要能夠從這類事件復原。 應用程式在設計上應該要能夠與分散在眾多節點上的高可用性資料搭配運作。 最多可同時為叢集中 1/5 的節點重新製作映像。
 * 設定自訂元件來使用 Azure Blob 儲存體
 
     您安裝在叢集節點上的自訂元件可能有使用 Hadoop 分散式檔案系統 (HDFS) 儲存體的預設組態。 您應該變更此組態，使其改為使用 Azure Blob 儲存體。 在重新製作叢集映像時，會格式化 HDFS 檔案系統，因此您會遺失儲存在其中的所有資料。 改用 Azure Blob 儲存體可確保資料保留下來。
@@ -192,14 +190,14 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
     [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-此陳述式將環境變數 **MDS_RUNNER_CUSTOM_CLUSTER** 設為 'true' 值，並將此變數的範圍設為整個機器。 有時候您必須將環境變數設定在適當範圍 – 機器或使用者。 如需設定環境變數的詳細資訊，請參閱[這裡][1]。
+此陳述式將環境變數 **MDS_RUNNER_CUSTOM_CLUSTER** 設為 'true' 值，並將此變數的範圍設為整個機器。 您必須將環境變數設定在適當範圍 – 機器或使用者。 如需設定環境變數的詳細資訊，請參閱[這裡][1]。
 
 ### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>存取自訂指令碼儲存所在位置
-用來自訂叢集的指令碼必須位於叢集的預設儲存體帳戶，或是位於其他任何儲存體帳戶上的公用唯讀容器。 如果指令碼存取位於他處的資源，則這些資源必須是可公開存取的資源 (至少是公用唯讀狀態)。 例如，您可能會想要用 SaveFile-HDI 命令存取檔案並加以儲存。
+用來自訂叢集的指令碼必須位於叢集的預設儲存體帳戶，或是位於其他任何儲存體帳戶上的公用唯讀容器。 如果您的指令碼會存取位在其他位置的資源，這些資源必須可公開讀取。 例如，您可以用 SaveFile-HDI 命令存取檔案並加以儲存。
 
     Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
 
-在此範例中，您必須確定儲存體帳戶 'somestorageaccount' 中的容器 'somecontainer' 可公開存取。 否則，指令碼會擲回「找不到」例外狀況而失敗。
+在此範例中，您必須確定儲存體帳戶 `somestorageaccount` 中的容器 `somecontainer` 可公開存取。 否則，指令碼會擲回「找不到」例外狀況而失敗。
 
 ### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>傳遞參數到 Add-AzureRmHDInsightScriptAction Cmdlet
 若要將多個參數傳遞至 Add-AzureRmHDInsightScriptAction cmdlet，您必須先格式化字串值以包含指令碼的所有參數。 例如︰
@@ -238,9 +236,9 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 1. 將包含自訂指令碼的檔案放在叢集節點可於部署期間存取的位置。 此位置可以是部署叢集時所指定的預設或其他儲存體帳戶，或是其他任何可公開存取的儲存體容器。
 2. 在指令碼中加入檢查以確定它們以等冪方式執行，使得指令碼可以在相同的節點上執行多次。
-3. 使用 **Write-Output** Azure PowerShell Cmdlet 來列印至 STDOUT 以及 STDERR。 請勿使用 **Write-Host**。
-4. 使用暫存檔案資料夾 (例如 $env:TEMP) 來存放指令碼所使用的下載檔案，然後在執行完指令碼之後將這些檔案清除。
-5. 安裝自訂軟體，位置只能是 D:\ 或 C:\apps。 不應該使用 C: 磁碟機上的其他位置，因為它們已預留他用。 請注意，如果將檔案安裝在 C: 磁碟機上 C:\apps 資料夾以外的位置，可能會導致在重新製作節點映像期間設定失敗。
+3. 使用 `Write-Output` Azure PowerShell Cmdlet 來列印至 STDOUT 以及 STDERR。 請勿使用 `Write-Host`。
+4. 使用暫存檔案資料夾 (例如 `$env:TEMP`) 來存放指令碼所使用的下載檔案，然後在執行完指令碼之後將這些檔案清除。
+5. 安裝自訂軟體，位置只能是 D:\ 或 C:\apps。 不應該使用 C: 磁碟機上的其他位置，因為它們已預留他用。 如果將檔案安裝在 C: 磁碟機上 C:\apps 資料夾以外的位置，可能會導致在重新製作節點映像期間設定失敗。
 6. 如果作業系統層級設定或 Hadoop 服務組態檔已變更，您可能會想要重新啟動 HDInsight 服務，讓它們可以載入任何作業系統層級設定，例如指令碼中設定的環境變數。
 
 ## <a name="debug-custom-scripts"></a>偵錯自訂指令碼

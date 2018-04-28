@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mabrigg
-ms.openlocfilehash: 7a909a36597d9ceb31b6dc9f142c4a9d9d37b464
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 10df87ec6d30e74356b0ff0f44b8745f8c7b8bf3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>使用 Azure Stack 原則模組管理 Azure 原則
 
@@ -41,7 +41,7 @@ Azure Stack 原則模組可讓您將 Azure 訂用帳戶，設定與 Azure Stack 
 下列命令可針對您的 Azure 訂用帳戶來套用預設 Azure Stack 原則。 執行前，以您的 Azure 訂用帳戶取代 *Azure 訂用帳戶名稱*。
 
 ```PowerShell
-Connect-AzureRmAccount
+Add-AzureRmAccount
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
@@ -53,7 +53,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 您可能想要以更細微的方式套用原則。  例如，您在相同的訂用帳戶中可能有其他正在執行的資源。  您可以將原則應用程式領域套用至特定的資源群組，可讓您使用 Azure 資源測試 Azure Stack 的應用程式。 執行前，以您的 Azure 訂用帳戶名稱取代 *Azure 訂用帳戶名稱*。
 
 ```PowerShell
-Connect-AzureRmAccount
+Add-AzureRmAccount
 $rgName = 'myRG01'
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)

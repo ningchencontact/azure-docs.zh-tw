@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f47cf18f70572ad93f5075c2f2c883d80af8220e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓撲
 本文說明使用 Azure AD Connect 同步處理做為重要整合解決方案的各種內部部署和 Azure Active Directory (Azure AD) 拓撲。 本文包含受支援和不受支援的組態。
@@ -36,6 +36,11 @@ ms.lasthandoff: 02/28/2018
 | Azure AD |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | 不受支援的案例 |![不受支援的案例](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
 
+
+> [!IMPORTANT]
+> Microsoft 不支援在正式記載的組態或動作以外修改和操作 Azure AD Connect 同步處理。 任何這些組態或動作都可能導致 Azure AD Connect 同步處理發生不一致或不支援的狀態。如此一來，Microsoft 無法提供這類部署的技術支援人員。
+
+
 ## <a name="single-forest-single-azure-ad-tenant"></a>單一樹系、單一 Azure AD 租用戶
 ![單一樹系和單一租用戶的拓撲](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
@@ -51,7 +56,7 @@ ms.lasthandoff: 02/28/2018
 
 許多組織都有包含多個內部部署 Active Directory 樹系的環境。 擁有多個內部部署 Active Directory 的原因有很多。 常見的範例如包含帳戶資源樹系，和合併或收購的結果。
 
-當您擁有多個樹系，所有樹系必須可由單一 Azure AD Connect 同步處理伺服器連線。 您不需要將伺服器加入網域。 如有必要觸達所有的樹系，您可以將伺服器放置於周邊網路 (也稱為 DMZ 及遮蔽式子網路)。
+當您擁有多個樹系，所有樹系必須可由單一 Azure AD Connect 同步處理伺服器連線。 您不需要將伺服器加入網域。 如有必要觸達所有的樹系，您可以將伺服器放置於周邊網路 (也稱為 DMZ、非軍事區域及遮蔽式子網路)。
 
 Azure AD Connect 安裝精靈會提供數個選項以合併多個樹系中表示的使用者。 目標是使用者只會在 Azure AD 中顯示一次。 有一些常見的拓撲，您可以在安裝精靈中的自訂安裝路徑中設定。 在 [專門識別您的使用者] 頁面上，選取表示拓撲的對應選項。 只對使用者設定合併。 重複群組不會和預設組態合併。
 

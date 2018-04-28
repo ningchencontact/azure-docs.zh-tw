@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核也具備下列功能：
@@ -165,8 +165,18 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
 3. 返回稽核組態刀鋒視窗，將儲存體存取金鑰從次要切換成主要，然後按一下 [確定]。 然後按一下稽核組態刀鋒視窗頂端的 [儲存]。
 4. 返回儲存體組態刀鋒視窗，並重新產生次要存取金鑰 (為下一個金鑰重新整理週期做準備)。
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>使用 Azure PowerShell 管理 SQL 資料庫稽核
+## <a name="additional-information"></a>其他資訊
 
+* 如需有關記錄格式、儲存體資料夾階層和命名慣例的詳細資訊，請參閱 [Blob 稽核記錄格式參考](https://go.microsoft.com/fwlink/?linkid=829599)。
+
+   > [!IMPORTANT]
+   > Azure SQL Database 稽核會在稽核記錄中的字元欄位儲存 4000 個字元的資料。 當**陳述式**或從可稽核的動作傳回的 **data_sensitivity_information** 值包含超過 4000 個字元，超過前 4000 個字元的任何資料將會**截斷且不會稽核**。
+
+* 系統會將稽核記錄寫入 Azure 訂用帳戶中 Azure Blob 儲存體的**附加 Blob**。
+   * 附加 Blob 目前**不支援****進階儲存體**。
+   * 目前**不支援****VNet 中的儲存體**。
+
+## <a name="manage-sql-database-auditing-using-azure-powershell"></a>使用 Azure PowerShell 管理 SQL 資料庫稽核
 
 * **PowerShell Cmdlet**：
 

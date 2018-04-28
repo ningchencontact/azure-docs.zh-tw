@@ -1,25 +1,18 @@
 ---
-title: "使用 Excel 來連接到 Azure Analysis Services | Microsoft Docs"
-description: "了解如何使用 Excel 來連接到 Azure Analysis Services 伺服器。"
-services: analysis-services
-documentationcenter: 
+title: 使用 Excel 來連接到 Azure Analysis Services | Microsoft Docs
+description: 了解如何使用 Excel 來連接到 Azure Analysis Services 伺服器。
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: f5f77b70874f10a29b4ea4dba307a67361c8e2bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 8414597c2c394e0b642ff47cba79c87488f56b24
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-with-excel"></a>使用 Excel 進行連接
 
@@ -35,6 +28,9 @@ ms.lasthandoff: 02/21/2018
 1. 在 Excel 2016 中的 [資料] 功能區上，按一下 [取得外部資料] >  **[從其他來源]** > [從 Analysis Services]。
 
 2. 在 [資料連線精靈] 的 [伺服器名稱] 中，輸入包含通訊協定和 URI 的伺服器名稱。 然後在 [登入認證] 中，選取 [使用下列的使用者名稱和密碼]，接著輸入組織使用者名稱 (例如 nancy@adventureworks.com) 和密碼。
+
+    > [!NOTE]
+    > 如果您是使用 Microsoft 帳戶、Live ID、Yahoo、Gmail 等登入，或者是必須使用多重要素驗證登入，密碼欄位請空白。 您按 [下一步] 之後系統會提示您輸入密碼。
 
     ![從 Excel 登入來進行連接](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 

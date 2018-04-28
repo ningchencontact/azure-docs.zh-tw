@@ -1,25 +1,25 @@
 ---
-title: "適用於 Azure Stack 整合式系統的 Azure 中斷連線部署決策 | Microsoft Docs"
-description: "針對多節點 Azure Stack 的 Azure 連線部署，決定部署規劃決策。"
+title: 適用於 Azure Stack 整合式系統的 Azure 中斷連線部署決策 | Microsoft Docs
+description: 針對多節點 Azure Stack 的 Azure 連線部署，決定部署規劃決策。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8fbc489bacb3c8592ee99fc5a4486fd864f498ee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>適用於 Azure Stack 整合式系統的 Azure 中斷連線部署規劃決策
 在您決定[如何將 Azure Stack 整合到您的混合式雲端環境](azure-stack-connection-models.md)之後，即可接著完成您的 Azure Stack 部署決策。
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/09/2018
 |使用 Docker 擴充功能執行 Docker 命令的 VM 部署|受損 – Docker 會檢查網際網路中的最新版本，而且這項檢查會失敗。|
 |Azure Stack 入口網站中的文件連結|無法使用 – 使用網際網路 URL 的連結 (例如「提供意見反應」、「說明」、「快速入門」等) 將無法運作。|
 |參考線上補救指南的警示補救/緩和方法|無法使用 – 任何使用網際網路 URL 的警示補救連結將無法運作。|
-|Marketplace 摘要整合 – 能夠直接從 Azure Marketplace 選取及新增資源庫套件|無法使用 – 這項功能需要連線到 Azure 和 Azure Active Directory 帳戶。|
+|Marketplace 摘要整合 – 能夠直接從 Azure Marketplace 選取及新增資源庫套件|受損 – 當您在中斷連線的模式 (沒有任何網際網路連線) 中部署 Azure Stack 時，您無法透過 Azure Stack 入口網站下載 Marketplace 項目。 不過，您可使用 [Marketplace 摘要整合工具](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity)將 Marketplace 項目下載至具有網際網路連線的電腦，再將其傳輸至 Azure Stack 環境。|
 |使用 Azure Active Directory 同盟帳戶來管理 Azure Stack 部署|無法使用 – 這項功能需要連線到 Azure。 必須改為使用具有本機 Active Directory 執行個體的 AD FS。|
 |資源提供者，例如 WebApps 和 SQL|無法使用 - 資源提供者 (例如 WebApps 和 SQL) 需要透過網際網路存取內容。|
 |命令列介面 (CLI)|受損 – CLI 降低了服務準則在驗證和佈建方面的功能。|

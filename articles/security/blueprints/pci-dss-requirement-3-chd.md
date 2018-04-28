@@ -1,6 +1,6 @@
 ---
-title: "Azure 付款處理藍圖 - CHD 需求"
-description: "PCI DSS 需求 3"
+title: Azure 付款處理藍圖 - CHD 需求
+description: PCI DSS 需求 3
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 356599cbe1e4e1948a5ec16d0d504835fa7dcd43
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 3bbed692bfccaa2a3296ba4697c66e9069b6e914
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="chd-requirements-for-pci-dss-compliant-environments"></a>PCI DSS 相容環境的 CHD 需求
 ## <a name="pci-dss-requirement-3"></a>PCI DSS 需求 3
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | 不適用。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會加密所有儲存的資料，並且隔離流量，以防止提高 DevOps 函式的特殊權限。<br /><br />當 App Service 環境受到保護且鎖定時，會需要一個機制來允許任何可能必要的 DevOps 發行或變更，例如使用 Kudu 監視 Web 應用程式的功能。<br /><br />虛擬機器已透過下列設定建立為 jumpbox (防禦主機)：<br /><br /><ul><li>[反惡意程式碼軟體擴充功能](/azure/security/azure-security-antimalware)</li><li>[OMS 監視擴充功能](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[虛擬機器診斷擴充功能](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Bitlocker 已加密磁碟](/azure/security/azure-security-disk-encryption)</li></ul>使用 Azure Key Vault 遵循 Azure Government、PCI DSS 和 HIPAA 的需求。|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會加密所有儲存的資料，並且隔離流量，以防止提高 DevOps 函式的特殊權限。<br /><br />當 App Service 環境受到保護且鎖定時，會需要一個機制來允許任何可能必要的 DevOps 發行或變更，例如使用 Kudu 監視 Web 應用程式的功能。<br /><br />虛擬機器已透過下列設定建立為 jumpbox (防禦主機)：<br /><br /><ul><li>[反惡意程式碼軟體擴充功能](/azure/security/azure-security-antimalware)</li><li>[Log Analytics 監視擴充功能](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[虛擬機器診斷擴充功能](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Bitlocker 已加密磁碟](/azure/security/azure-security-disk-encryption)</li></ul>使用 Azure Key Vault 遵循 Azure Government、PCI DSS 和 HIPAA 的需求。|
 
 
 

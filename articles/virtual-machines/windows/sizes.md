@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: ca1c3950c4135f4120c1d361d23746f9bfe95d65
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 91cd1cc746952ef8f442165b167f88f626870c70
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虛擬機器的大小
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 04/06/2018
 
 
 
-## <a name="rest-api"></a>Rest API
+## <a name="rest-api"></a>REST API
 
 如需使用 REST API 來查詢 VM 大小的資訊，請參閱下列各項：
 
@@ -57,6 +57,10 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 
 深入了解 [Azure 計算單位 (ACU)](acu.md) 如何協助您比較各個 Azure SKU 的計算效能。
 
+## <a name="benchmark-scores"></a>基準測試分數
+
+深入了解如何使用 [CoreMark 基準分數](compute-benchmark-scores.md)來計算 Windows VM 的效能。
+
 ## <a name="next-steps"></a>後續步驟
 
 深入了解可用的不同 VM 大小：
@@ -66,6 +70,7 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 - [儲存體最佳化](../virtual-machines-windows-sizes-storage.md)
 - [GPU 最佳化](sizes-gpu.md)
 - [高效能計算](sizes-hpc.md)
+
 
 
 

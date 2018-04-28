@@ -1,21 +1,21 @@
 ---
-title: "使用 Azure 資料庫移轉服務的相關常見問題集 | Microsoft Docs"
-description: "了解使用 Azure 資料庫移轉服務來執行資料庫移轉的相關常見問題集。"
+title: 使用 Azure 資料庫移轉服務的相關常見問題集 | Microsoft Docs
+description: 了解使用 Azure 資料庫移轉服務來執行資料庫移轉的相關常見問題集。
 services: database-migration
 author: HJToland3
 ms.author: jtoland
-manager: 
-ms.reviewer: 
+manager: ''
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 85052e1363ebbfe21cd7d6d5b3720f79cec7c417
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務的相關常見問題集
 本文列出使用 Azure 資料庫移轉服務的相關常見問題集以及相關解答。
@@ -48,11 +48,11 @@ Azure 移轉服務可協助將內部部署虛擬機器移轉至 Azure IaaS。 �
 ### <a name="q-what-are-the-prerequisites-for-using-the-azure-database-migration-service"></a>問： 使用 Azure 資料庫移轉服務的必要條件為何？
 您必須注意數個必要條件，以確保在執行資料庫移轉時，Azure 資料庫移轉服務能順利執行。 某些必要條件會套用到服務所支援的所有案例 (來源目標組)，而有些必要條件則是特定案例獨有的。
 Azure 資料庫移轉服務必要條件在所有支援的移轉案例中都是通用的，包含以下需求：
-- 使用 Azure Resource Manager 部署模型來建立 Azure 資料庫移轉服務的 VNET，其使用 [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways) 提供站對站連線能力給您的內部部署來源伺服器。
-- 確定您的 Azure 虛擬網路 (VNET) 網路安全性群組規則不會封鎖下列通訊埠 443、53、9354、445、12000。 如需 Azure VNET NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg)。
+- 使用 Azure Resource Manager 部署模型來建立 Azure 資料庫移轉服務的 VNET，其使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 提供站對站連線能力給您的內部部署來源伺服器。
+- 確定您的 Azure 虛擬網路 (VNET) 網路安全性群組規則不會封鎖下列通訊埠 443、53、9354、445、12000。 如需 Azure VNET NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
 - 使用來源資料庫前面的防火牆應用裝置時，您可能必須新增防火牆規則，才能讓 Azure 資料庫移轉服務存取來源資料庫，以進行移轉。
  
-如需使用 Azure 資料庫移轉服務完成特定移轉案例所需的所有必要條件清單，請參閱 Azure 資料庫移轉服務[文件](https://docs.microsoft.com/en-us/azure/dms/dms-overview) (網址為 docs.microsoft.com) 中的相關教學課程。
+如需使用 Azure 資料庫移轉服務完成特定移轉案例所需的所有必要條件清單，請參閱 Azure 資料庫移轉服務[文件](https://docs.microsoft.com/azure/dms/dms-overview) (網址為 docs.microsoft.com) 中的相關教學課程。
 
 ### <a name="q-how-do-i-find-the-ip-address-for-the-azure-database-migration-service-so-that-i-can-create-an-allow-list-for-the-firewall-rules-used-to-access-my-source-database-for-migration"></a>問： 要如何找到 Azure 資料庫移轉服務的 IP 位址，以便建立用來存取移轉來源資料庫之防火牆規則的允許清單？
 請新增防火牆規則，允許 Azure 資料庫移轉服務存取移轉來源資料庫。 服務的 IP 位址是動態的，但如果您使用的是 Express Route，則會由公司網路私下指派此位址。 若要識別適當的 IP 位址，最簡單的方式是查看和所佈建 Azure 資料庫移轉服務資源相同的資源群組，以尋找相關聯的網路介面。 網路介面資源的名稱通常會以 NIC 前置詞作為開頭，後面接著獨特字元和數字序列，例如 NIC-jj6tnztnmarpsskr82rbndyp。 藉由選取此網路介面資源，您即可在 Azure 入口網站的 [資源概觀] 頁面上，看到必須包含在允許清單中的 IP 位址。
@@ -80,7 +80,7 @@ Azure 資料庫移轉服務必要條件在所有支援的移轉案例中都是�
 - 在資料移轉作業期間，暫時將 Azure SQL Database 目標執行個體相應增加為進階層 SKU，讓使用較低層級 SKU 時可能會影響資料轉送活動的 Azure SQL Database 節流減到最少。
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>問： 如何設定 Azure 虛擬網路？
-有多個 Microsoft 教學課程可逐步引導您完成 Azure VNET 的設定程序，至於官方文件，則會在 [Azure 虛擬網路](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)一文中出現。
+有多個 Microsoft 教學課程可逐步引導您完成 Azure VNET 的設定程序，至於官方文件，則會在 [Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)一文中出現。
 
 ### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>問： 為什麼我的 Azure 資料庫移轉服務無法使用或已停止？
 如果使用者明確地停止 Azure 資料庫移轉服務 (DMS) 或服務未使用達 24 小時，服務將會處於停止或自動暫停的狀態。 在每個情況下，服務都將無法使用並處於停止的狀態。  若要繼續使用中的移轉，請重新啟動服務。

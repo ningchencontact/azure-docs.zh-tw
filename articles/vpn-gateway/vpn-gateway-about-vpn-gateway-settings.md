@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9ecd8dc40e168c2fd37e3d58ee588a0d9626a04a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>關於 VPN 閘道組態設定
 
@@ -79,9 +79,9 @@ New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
 
-###  <a name="resizechange"></a>調整大小與變更 SKU
+###  <a name="resizechange"></a>調整大小或變更 SKU
 
-調整閘道 SKU 的大小很容易。 調整閘道的大小時，停機時間會相當短。 不過，關於調整大小有一些規則：
+如果您擁有 VPN 閘道，且您想要使用不同的閘道 SKU，您可選擇調整您的閘道 SKU，或是變更為另一個 SKU。 當您變更為另一個閘道 SKU 時，會完全刪除現有的閘道並建立一個新的閘道。 這項作業可能需要 45 分鐘的時間來建置。 相較之下，當您調整閘道 SKU 的大小時，將幾乎沒有停機時間，因為您不必刪除閘道並加以重建。 如果您可以選擇調整您閘道 SKU 的大小，而不必加以變更，建議您這麼做。 不過，關於調整大小有一些規則：
 
 1. 您可以調整 VpnGw1、VpnGw2 和 VpnGw3 SKU 之間的大小。
 2. 使用舊式閘道 SKU 時，您可以在基本、標準和高效能 SKU 之間調整大小。

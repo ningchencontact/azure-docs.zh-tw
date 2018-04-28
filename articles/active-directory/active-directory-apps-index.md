@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e5c99552b74861db6018093dccf736d08374204f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2c9a60aaa627a41d023e5d5d7464046df5b55b05
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory 中應用程式管理的文章索引
 本頁面提供一份完整清單，列出撰寫 Azure Active Directory (Azure AD) 中各種應用程式相關功能的所有文章。
@@ -186,7 +186,7 @@ Cloud App Discovery 是一項 [Azure AD Premium](https://azure.microsoft.com/pri
 | 將單一登入應用程式部署到使用者可用的各種選項比較 |[對使用者部署 Azure AD 整合應用程式](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
 | 存取面板和其行動對等 MyApps 的概觀 |[存取面板和 MyApps 簡介](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | 如何從 Office 365 網站存取 Azure AD 應用程式 |[使用 Office 365 應用程式啟動程式](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
-| 如何從 Intune Managed Browser 行動應用程式存取 Azure AD 應用程式 |[Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
+| 如何從 Intune Managed Browser 行動應用程式存取 Azure AD 應用程式 |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | 如何使用深層連結來存取 Azure AD 應用程式以起始單一登入 |[取得應用程式的直接登入連結](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 「存取面板」適用於 [所有版本的 Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)。

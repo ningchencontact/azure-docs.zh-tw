@@ -1,32 +1,26 @@
 ---
-title: "如何使用 iOS 中的 Azure Blob 儲存體 | Microsoft Docs"
-description: "使用 Azure Blob 儲存體 (物件儲存體) 在雲端中儲存非結構化資料。"
+title: 如何使用 iOS 的物件 (Blob) 儲存體 - Azure | Microsoft Docs
+description: 使用 Azure Blob 儲存體 (物件儲存體) 在雲端中儲存非結構化資料。
 services: storage
 documentationcenter: ios
 author: michaelhauss
-manager: vamshik
-editor: tysonn
-ms.assetid: df188021-86fc-4d31-a810-1b0e7bcd814b
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: f238804e6031fcf3f194695a06bf5b88733a27b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>如何使用 iOS 的 Blob 儲存體
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
+本文示範如何使用 Microsoft Azure Blob 儲存體執行一般案例。 這些範例均以 Objective-C 撰寫，並使用 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)。 所涵蓋的案例包括「上傳、列出、下載」及「刪除」Blob。 如需 Blob 的詳細資訊，請參閱 [後續步驟](#next-steps) 一節。 您也可以下載 [範例應用程式](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) ，以快速查看在 iOS 應用程式中使用 Azure 儲存體的方法。
 
-## <a name="overview"></a>概觀
-本文將示範如何使用 Microsoft Azure Blob 儲存體執行一般案例。 這些範例均以 Objective-C 撰寫，並使用 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)。 所涵蓋的案例包括**上傳**、**列出**、**下載**及**刪除** Blob。 如需 Blob 的詳細資訊，請參閱 [後續步驟](#next-steps) 一節。 您也可以下載 [範例應用程式](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) ，以快速查看在 iOS 應用程式中使用 Azure 儲存體的方法。
+## <a name="what-is-blob-storage"></a>什麼是 Blob 儲存體？
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 

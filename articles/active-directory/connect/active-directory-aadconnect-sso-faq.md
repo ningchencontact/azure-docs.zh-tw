@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: c34293796860e0ab72eecedab9cd8b023237050d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ba402847d14f7de6c70b545b74d7ba8c1aaddcb0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 無縫單一登入：常見問題集
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="what-sign-in-methods-do-seamless-sso-work-with"></a>無縫 SSO 與哪些登入方法搭配運作？
 
-無縫 SSO 可以與[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)或[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)登入方法合併使用。 然而，此功能無法搭配 Active Directory Federation Services (ADFS) 使用。
+無縫 SSO 可以與[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)或[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)登入方法合併使用。 然而，此功能無法搭配 Active Directory Federation Services (ADFS) 使用。
 
 ## <a name="is-seamless-sso-a-free-feature"></a>無縫 SSO 是免費功能嗎？
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 03/28/2018
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>步驟 1. 取得已啟用無縫 SSO 的 AD 樹系清單
 
 1. 首先，下載並安裝 [Microsoft Online Services 登入小幫手](http://go.microsoft.com/fwlink/?LinkID=286152)。
-2. 接著下載並安裝 [適用於 Windows PowerShell 的 64 位元 Azure Active Directory 模組](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)。
+2. 接著下載並安裝 [適用於 Windows PowerShell 的 64 位元 Azure Active Directory 模組](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)。
 3. 瀏覽到 `%programfiles%\Microsoft Azure Active Directory Connect` 資料夾。
 4. 使用此命令匯入順暢 SSO PowerShell 模組：`Import-Module .\AzureADSSO.psd1`。
 5. 以系統管理員身分執行 PowerShell。 在 PowerShell 中，呼叫 `New-AzureADSSOAuthenticationContext`。 此命令應提供一個快顯視窗，以便輸入租用戶的全域管理員認證。

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7df566ced755e1e817b3107dac8f17e9f6e9b8e4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 58b4c6769f6eb441e9ccaf041f3d56f4af9a0831
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>了解如何使用、設定以及重複使用 IoT Edge 模組 - 預覽
 
@@ -168,7 +168,7 @@ FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 
 如果您未在部署資訊清單中指定模組對應項的預期屬性，IoT 中樞就不會修改模組對應項，您將無法以程式設計方式設定預期屬性。
 
-您可以使用與修改裝置對應項相同的機制來修改模組對應項。 如需進一步資訊，請參閱[裝置對應項開發人員指南](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)。   
+您可以使用與修改裝置對應項相同的機制來修改模組對應項。 如需進一步資訊，請參閱[裝置對應項開發人員指南](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)。   
 
 ## <a name="deployment-manifest-example"></a>部署資訊清單範例
 

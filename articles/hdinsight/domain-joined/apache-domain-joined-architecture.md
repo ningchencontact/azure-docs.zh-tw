@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: omidm
-ms.openlocfilehash: e366a9b73ee678c78063240838b399c88ae633cc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 20d6dbad6fa1914c8b12f47bb48f6efba3895887
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>規劃 HDInsight 中已加入網域的 Azure Hadoop 叢集
 
@@ -49,8 +49,6 @@ HDInsight 不會建置自己的多使用者驗證和授權，而是依賴最受�
 
 - **Azure Active Directory Domain Services**：這項服務會提供與 Windows Server Active Directory 完全相容的受控 Active Directory 網域。 Microsoft 會負責管理、修補及監視 AD 網域。 您可以放心地部署叢集，不必擔心網域控制站的維護問題。 使用者、群組和密碼都會從 Azure Active Directory 同步過來，讓使用者使用其公司認證來登入叢集。 如需詳細資訊，請參閱[使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集](./apache-domain-joined-configure-using-azure-adds.md)。
 
-> [!NOTE]
-> Azure IaaS VM 上的 Active Directory 不再受支援。
 
 ## <a name="next-steps"></a>後續步驟
 * 若要管理已加入網域的 HDInsight 叢集，請參閱[管理已加入網域的 HDInisight 叢集](apache-domain-joined-manage.md)。

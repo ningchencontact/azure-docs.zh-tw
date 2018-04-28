@@ -1,11 +1,11 @@
 ---
-title: "安裝應用程式存取面板的瀏覽器擴充功能 - Azure | Microsoft Docs"
-description: "修正在安裝存取面板的瀏覽器擴充功能時所遇到的常見錯誤。"
+title: 安裝應用程式存取面板的瀏覽器擴充功能 - Azure | Microsoft Docs
+description: 修正在安裝存取面板的瀏覽器擴充功能時所遇到的常見錯誤。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: c49cfad5f362f4402be476066f0e8c0158f20d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-the-access-panel-browser-extension"></a>安裝存取面板的瀏覽器擴充功能
 
@@ -37,7 +37,6 @@ ms.lasthandoff: 01/29/2018
 - **Edge**：在 Windows 10 Anniversary Edition 或更新版本上。 
 - **Chrome**：在 Windows 7 或更新版本，和在 MacOS X 或更新版本上。
 - **Firefox 26.0 或更新版本**：在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上。
-- **Internet Explorer 8、9、10、11**：在 Windows 7 或更新版本上 (支援有限)。
 
 ## <a name="install-the-access-panel-browser-extension"></a>安裝存取面板的瀏覽器擴充功能
 
@@ -68,19 +67,19 @@ ms.lasthandoff: 01/29/2018
    1. 在尚未登入擴充功能時，以滑鼠右鍵按一下擴充功能圖示。
    2. 在功能表上，選取 [My Apps URL]。
    3. 選取預設 URL。
-   4. 按一下擴充功能圖示。
+   4. 選取擴充功能圖示。
    5. 若要登入擴充功能，請選取 [登入以開始使用]。
 
 * 若要直接從瀏覽器登入應用程式，請執行下列作業：
    1. 安裝擴充功能後，請選取 [登入以開始使用] 來登入擴充功能。
    2. 使用登入 URL 來登入應用程式。  
-       登入 URL 通常是顯示登入格式的應用程式 URL。
-      該擴充功能會變更狀態，並讓您知道密碼為可用。
+       登入 URL 通常是顯示登入表單之應用程式的 URL。
+      該擴充功能應該會變更狀態，並讓您知道有密碼可用。
    3. 若要登入，請選取擴充功能圖示。
 
 * 若要從擴充功能啟動應用程式，請執行下列動作：
    1. 安裝擴充功能後，請選取 [登入以開始使用] 來登入擴充功能。
-   2. 按一下擴充功能圖示將其功能表開啟。
+   2. 選取擴充功能圖示將其功能表開啟。
    3. 在 My Apps 入口網站中搜尋可用的應用程式。
    4. 在搜尋結果清單中，選取應用程式。  
        您所使用的最後三個應用程式會顯示在 [最近使用的] 捷徑清單中。

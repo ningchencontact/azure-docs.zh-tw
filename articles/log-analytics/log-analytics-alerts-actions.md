@@ -1,8 +1,8 @@
 ---
-title: "Azure Log Analytics 中的警示回應 | Microsoft Docs"
-description: "Log Analytics 中的警示會識別您 Azure 工作區中的重要資訊，並可主動通知您相關問題或叫用動作以嘗試更正問題。  本文描述如何建立警示規則及詳細說明可以採取的各種動作。"
+title: Azure Log Analytics 中的警示回應 | Microsoft Docs
+description: Log Analytics 中的警示會識別您 Azure 工作區中的重要資訊，並可主動通知您相關問題或叫用動作以嘗試更正問題。  本文描述如何建立警示規則及詳細說明可以採取的各種動作。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,16 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2018
+ms.date: 04/13/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 717adf1b19b9de8542ec507df3a01b187d0df8a5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>將動作新增至 Log Analytics 中的警示規則
+
+> [!NOTE]
+> Log Analytics 中的警示[擴充至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。  Azure 中的警示使用[動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)來定義其動作，而非本文中的資訊。
+
+
 [在 Log Analytics 中建立警示](log-analytics-alerts.md)後，您可以選擇[設定警示規則](log-analytics-alerts.md)以執行一或多個動作。  本文說明各種可用的動作以及設定每種動作的詳細資訊。
 
 | 動作 | 說明 |
@@ -32,7 +37,7 @@ ms.lasthandoff: 01/10/2018
 
 
 ## <a name="email-actions"></a>電子郵件動作
-電子郵件動作會傳送內含警示詳細資料的電子郵件給一或多位收件者。  您可以指定郵件的主旨，但其內容是由 Log Analytics 所編製的標準格式。  除了記錄檔搜尋所傳回的最多 10 筆記錄的詳細資料以外，其中還包括摘要資訊 (如警示名稱)。  此外，也包括 Log Analytics 中將從該查詢傳回整個記錄集的記錄檔搜尋的連結。   此郵件的寄件者為 *Microsoft Operations Management Suite Team &lt;noreply@oms.microsoft.com&gt;*。 
+電子郵件動作會傳送內含警示詳細資料的電子郵件給一或多位收件者。  您可以指定郵件的主旨，但其內容是由 Log Analytics 所編製的標準格式。  除了記錄檔搜尋所傳回的最多 10 筆記錄的詳細資料以外，其中還包括摘要資訊 (如警示名稱)。  此外，也包括 Log Analytics 中從該查詢傳回整個記錄集的記錄檔搜尋的連結。   此郵件的寄件者為 *Microsoft Operations Management Suite Team &lt;noreply@oms.microsoft.com&gt;*。 
 
 電子郵件動作需要下表中的屬性。
 
@@ -44,7 +49,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="webhook-actions"></a>Webhook 動作
 
-Webhook 動作可讓您透過單一 HTTP POST 要求叫用外部處理序。  被呼叫的服務應支援 Webhook，並判斷將如何使用所接收的承載。  只要此要求是 API 所認得的格式，您也可以呼叫不會特別支援 Webhook 的 REST API。  使用 Webhook 來回應警示的範例會在 [Slack](http://slack.com) 中傳送訊息，或在 [PagerDuty](http://pagerduty.com/) 中建立事件。  如需使用 Webhook 來呼叫 Slack 以建立警示規則的完整逐步解說，請參閱 [Log Analytics 警示中的 Webhook](log-analytics-alerts-webhooks.md)。
+Webhook 動作可讓您透過單一 HTTP POST 要求叫用外部處理序。  被呼叫的服務應支援 Webhook，並判斷它將如何使用所接收的承載。  只要此要求是 API 所認得的格式，您也可以呼叫不會特別支援 Webhook 的 REST API。  使用 Webhook 來回應警示的範例會在 [Slack](http://slack.com) 中傳送訊息，或在 [PagerDuty](http://pagerduty.com/) 中建立事件。  如需使用 Webhook 來呼叫 Slack 以建立警示規則的完整逐步解說，請參閱 [Log Analytics 警示中的 Webhook](log-analytics-alerts-webhooks.md)。
 
 Webhook 動作需要下表中的屬性。
 
@@ -56,8 +61,6 @@ Webhook 動作需要下表中的屬性。
 
 Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務的資料)。  根據預設，承載會包含下表中的值。  您可以選擇用自己的自訂承載來取代此承載。  在此情況下，您可以使用下表中每個參數的變數，將其值包含在您的自訂承載中。
 
->[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則 Webhook 承載已變更。  如需格式的詳細資訊，請參閱 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse) \(英文\)。  若要查看範例，請參閱下面的[範例](#sample-payload)。
 
 | 參數 | 變數 | 說明 |
 |:--- |:--- |:--- |
@@ -121,43 +124,12 @@ Runbook 動作會使用 [Webhook](../automation/automation-webhooks.md)來啟動
 |:--- |:--- |
 | id |搜尋的路徑和 GUID。 |
 | __metadata |警示的相關資訊，包括搜尋結果的記錄數和狀態。 |
-| value |搜尋結果中每一筆記錄的個別項目。  項目的詳細資料會符合記錄的屬性和記錄。 |
+| value |搜尋結果中每一筆記錄的個別項目。  項目的詳細資料符合記錄的屬性和記錄。 |
 
 例如，下列 Runbook 會擷取記錄搜尋所傳回的記錄，並根據每一筆記錄的類型來指派不同屬性。  請注意，Runbook 會開始從 JSON 轉換 **RequestBody**，讓它可以在 PowerShell 中當作物件來使用。
 
 >[!NOTE]
-> 這兩個 Runbook 會使用 **SearchResult** 屬性，該屬性包含具有標準承載之 Runbook 動作和 Webhook 動作的結果。  如果從使用自訂承載的 Webhook 回應呼叫 Runbook，您必須將此屬性變更為 **SearchResults**。
-
-下列 Runbook 將使用[舊版 Log Analytics 工作區](log-analytics-log-search-upgrade.md)中的承載。
-
-    param ( 
-        [object]$WebhookData
-    )
-
-    $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
-    $Records     = $RequestBody.SearchResult.value
-
-    foreach ($Record in $Records)
-    {
-        $Computer = $Record.Computer
-
-        if ($Record.Type -eq 'Event')
-        {
-            $EventNo    = $Record.EventID
-            $EventLevel = $Record.EventLevelName
-            $EventData  = $Record.EventData
-        }
-
-        if ($Record.Type -eq 'Perf')
-        {
-            $Object    = $Record.ObjectName
-            $Counter   = $Record.CounterName
-            $Instance  = $Record.InstanceName
-            $Value     = $Record.CounterValue
-        }
-    }
-
-下列 Runbook 將使用來自[已升級的 Log Analytics 工作區](log-analytics-log-search-upgrade.md)的承載。
+> 此 Runbook 使用 **SearchResult** 屬性，該屬性包含標準承載 Runbook 動作和 Webhook 動作的結果。  如果從使用自訂承載的 Webhook 回應呼叫 Runbook，您必須將此屬性變更為 **SearchResults**。
 
     param ( 
         [object]$WebhookData
@@ -208,88 +180,12 @@ Runbook 動作會使用 [Webhook](../automation/automation-webhooks.md)來啟動
 
 
 ## <a name="sample-payload"></a>範例承載
-本節將說明舊版及[已升級的 Log Analytics 工作區](log-analytics-log-search-upgrade.md)中 Webhook 和 Runbook 動作的範例承載。
+本節示範 Webhook 和 Runbook 動作的範例承載。
 
 ### <a name="webhook-actions"></a>Webhook 動作
-這兩個範例會使用 **SearchResult** 屬性，該屬性包含具有標準承載之 Webhook 動作的結果。  如果 Webhook 使用的自訂承載包含搜尋結果，則此屬性會是 **SearchResults**。
+此範例使用 **SearchResult** 屬性，該屬性包含標準承載 Webhook 動作的結果。  如果 Webhook 使用的自訂承載包含搜尋結果，則此屬性會是 **SearchResults**。
 
-#### <a name="legacy-workspace"></a>舊版工作區。
-以下是舊版工作區中 Webhook 動作的範例承載。
-
-    {
-    "WorkspaceId": "workspaceID",
-    "AlertRuleName": "WebhookAlert",
-    "SearchQuery": "Type=Usage",
-    "SearchResult": {
-        "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/SearchGUID|10.1.0.7|2017-09-27T10-30-38Z",
-        "__metadata": {
-        "resultType": "raw",
-        "total": 1,
-        "top": 2147483647,
-        "RequestId": "SearchID|10.1.0.7|2017-09-27T10-30-38Z",
-        "CoreSummaries": [
-            {
-            "Status": "Successful",
-            "NumberOfDocuments": 135000000
-            }
-        ],
-        "Status": "Successful",
-        "NumberOfDocuments": 135000000,
-        "StartTime": "2017-09-27T10:30:38.9453282Z",
-        "LastUpdated": "2017-09-27T10:30:44.0907473Z",
-        "ETag": "636421050440907473",
-        "sort": [
-            {
-            "name": "TimeGenerated",
-            "order": "desc"
-            }
-        ],
-        "requestTime": 361
-        },
-        "value": [
-        {
-            "Computer": "-",
-            "SourceSystem": "OMS",
-            "TimeGenerated": "2017-09-26T13:59:59Z",
-            "ResourceUri": "/subscriptions/df1ec963-d784-4d11-a779-1b3eeb9ecb78/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
-            "DataType": "Operation",
-            "StartTime": "2017-09-26T13:00:00Z",
-            "EndTime": "2017-09-26T13:59:59Z",
-            "Solution": "LogManagement",
-            "BatchesWithinSla": 8,
-            "BatchesOutsideSla": 0,
-            "BatchesCapped": 0,
-            "TotalBatches": 8,
-            "AvgLatencyInSeconds": 0.0,
-            "Quantity": 0.002502,
-            "QuantityUnit": "MBytes",
-            "IsBillable": false,
-            "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
-            "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
-            "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
-            "Type": "Usage",
-            "MG": "00000000-0000-0000-0000-000000000000",
-            "__metadata": {
-            "Type": "Usage",
-            "TimeGenerated": "2017-09-26T13:59:59Z"
-            }
-        }
-        ]
-    },
-    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 1,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Type%3DUsage",
-    "Description": null,
-    "Severity": "Low"
-    }
-
-
-#### <a name="upgraded-workspace"></a>已升級的工作區。
-以下是已升級的工作區中 Webhook 動作的範例承載。
+以下是 Webhook 動作的範例承載。
 
     {
     "WorkspaceId": "workspaceID",
@@ -427,64 +323,7 @@ Runbook 動作會使用 [Webhook](../automation/automation-webhooks.md)來啟動
 
 ### <a name="runbooks"></a>Runbook
 
-#### <a name="legacy-workspace"></a>舊版工作區
-以下是舊版工作區中 Runbook 動作的範例承載。
-
-    {
-        "SearchResult": {
-            "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
-            "__metadata": {
-                "resultType": "raw",
-                "total": 1,
-                "top": 2147483647,
-                "RequestId": "searchGUID|10.1.0.7|2017-09-27T10-51-43Z",
-                "CoreSummaries": [{
-                    "Status": "Successful",
-                    "NumberOfDocuments": 135000000
-                }],
-                "Status": "Successful",
-                "NumberOfDocuments": 135000000,
-                "StartTime": "2017-09-27T10:51:43.3075124Z",
-                "LastUpdated": "2017-09-27T10:51:51.1002092Z",
-                "ETag": "636421063111002092",
-                "sort": [{
-                    "name": "TimeGenerated",
-                    "order": "desc"
-                }],
-                "requestTime": 511
-            },
-            "value": [{
-                "Computer": "-",
-                "SourceSystem": "OMS",
-                "TimeGenerated": "2017-09-26T13:59:59Z",
-                "ResourceUri": "/subscriptions/AnotherSubscriptionID/resourcegroups/SampleResourceGroup/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
-                "DataType": "Operation",
-                "StartTime": "2017-09-26T13:00:00Z",
-                "EndTime": "2017-09-26T13:59:59Z",
-                "Solution": "LogManagement",
-                "BatchesWithinSla": 8,
-                "BatchesOutsideSla": 0,
-                "BatchesCapped": 0,
-                "TotalBatches": 8,
-                "AvgLatencyInSeconds": 0.0,
-                "Quantity": 0.002502,
-                "QuantityUnit": "MBytes",
-                "IsBillable": false,
-                "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
-                "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
-                "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
-                "Type": "Usage",
-                "MG": "00000000-0000-0000-0000-000000000000",
-                "__metadata": {
-                    "Type": "Usage",
-                    "TimeGenerated": "2017-09-26T13:59:59Z"
-                }
-            }]
-        }
-    }
-
-#### <a name="upgraded-workspace"></a>已升級的工作區
-以下是已升級的工作區中 Runbook 動作的範例承載。
+以下是 Runbook 動作的範例承載。
 
     {
     "WorkspaceId": "workspaceID",
@@ -603,6 +442,7 @@ Runbook 動作會使用 [Webhook](../automation/automation-webhooks.md)來啟動
                 "a4e29a95-5b4c-408b-80e3-113f9410566e",
                 "00000000-0000-0000-0000-000000000000",
                 "Usage"
+            ]
             ]
         }
         ]

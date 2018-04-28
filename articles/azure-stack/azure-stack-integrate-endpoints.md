@@ -1,20 +1,20 @@
 ---
-title: Azure Stack 資料中心整合 - 發佈端點
+title: Azure Stack 資料中心整合 - 發佈端點 | Microsoft Docs
 description: 了解如何在您的資料中心內發佈 Azure Stack 端點
 services: azure-stack
 author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 136d78be3cddfd6fd4e491d5ea3f5d51d0dc611f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 014dbf6ff6d30bfb988c404bfe35693fe68f22fd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 資料中心整合 - 發佈端點
 Azure Stack 會為其基礎結構角色設定虛擬 IP 位址 (VIP)。 這些 VIP 是從公用 IP 位址集區配置的。 針對每個 VIP，都會藉由軟體定義網路層中的存取控制清單 (ACL) 來提供保護。 ACL 也用於各個實體交換器 (TOR 和 BMC) 來進一步強化解決方案。 系統會針對在部署階段所指定外部 DNS 區域中的每個端點，都建立一個 DNS 項目。
@@ -63,11 +63,13 @@ Azure Stack 僅支援 Transparent Proxy 伺服器。 在 Transparent Proxy 上�
 
 |目的|URL|通訊協定|連接埠|
 |---------|---------|---------|---------|
-|身分識別|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net|HTTP<br>HTTPS|80<br>443|
+|身分識別|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com|HTTP<br>HTTPS|80<br>443|
 |Marketplace 摘要整合|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
 |修補程式和更新|https://&#42;.azureedge.net|HTTPS|443|
 |註冊|https://management.azure.com|HTTPS|443|
 |使用量|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
+
 
 
 ## <a name="next-steps"></a>後續步驟

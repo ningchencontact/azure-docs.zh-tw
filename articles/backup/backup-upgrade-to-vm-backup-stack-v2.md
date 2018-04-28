@@ -13,11 +13,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 6d214072bccb8b2b42828ee003dcf349985b4f43
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7e092dc1448a45277e01b1a8c6d2bc0e2a8a22a3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="upgrade-to-vm-backup-stack-v2"></a>升級至 VM 備份堆疊 V2
 虛擬機器 (VM) 備份堆疊 V2 升級提供下列增強功能：
@@ -49,7 +49,9 @@ ms.lasthandoff: 03/23/2018
 * 這是 VM 備份堆疊的單向升級。 因此，未來所有的備份都會採取此流程。 因為是**在訂用帳戶層級啟用，所有 VM 都會採取此流程**。 所有新增加的功能將會建置在相同堆疊之上。 未來的版本會推出在原則層級控制此功能的能力。 
 * 若 VM 使用進階磁碟，在第一次備份時，請確定直到第一次備份完成為止，儲存體帳戶中一直有 VM 大小的等量儲存空間可供使用。 
 * 因為快照集儲存在本機 (為了幫助復原點建立及加速還原)，在這七天的期間，您會看到與快照集相對應的儲存體成本。
+* 增量快照會儲存為分頁 Blob。 使用未受管理磁碟的所有客戶，將為儲存在客戶本機儲存體帳戶中 7 天的快照集付費。 根據目前的定價模式，使用受控磁碟的客戶無須付費。
 * 如果您從快照集的復原點還原進階 VM，您會看到在還原過程中建立 VM 時使用了暫時儲存位置。 
+* 如果是進階儲存體帳戶，立即復原的快照會佔用進階儲存體帳戶中配置的 10 TB 空間。
 
 ## <a name="how-to-upgrade"></a>如何升級？
 ### <a name="the-azure-portal"></a>Azure 入口網站
@@ -66,7 +68,7 @@ ms.lasthandoff: 03/23/2018
 1.  登入您的 Azure 帳戶。 
 
 ```
-PS C:> Login-AzureRmAccount
+PS C:> Connect-AzureRmAccount
 ```
 
 2.  選取您想要註冊預覽的訂用帳戶：
@@ -78,14 +80,14 @@ PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select
 3.  註冊此訂用帳戶以使用私人預覽：
 
 ```
-PS C:>  Register-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” –ProviderNamespace Microsoft.RecoveryServices
+PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
 ## <a name="verify-whether-the-upgrade-is-complete"></a>確認升級是否完成
 從提高權限的 PowerShell 終端機執行下列 Cmdlet︰
 
 ```
-Get-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” –ProviderNamespace Microsoft.RecoveryServices
+Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
 如果顯示 "Registered"，則您的訂用帳戶已升級至 VM 備份堆疊 V2。 

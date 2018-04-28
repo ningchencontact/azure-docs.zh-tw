@@ -1,26 +1,24 @@
 ---
-title: "調整叢集大小 - Azure HDInsight | Microsoft Docs"
-description: "調整 HDInsight 叢集以因應工作負載。"
+title: 調整叢集大小 - Azure HDInsight | Microsoft Docs
+description: 調整 HDInsight 叢集以因應工作負載。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 7e9ee660c07d6265e55e94cf79ed13334fcb3d16
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 8b76d7d0441a5c1c25ad17b73083ec0e4feef1fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scale-hdinsight-clusters"></a>調整 HDInsight 叢集
 
@@ -123,7 +121,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 * H070 無法開啟 Hive 工作階段。 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **無法建立目錄** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0。 **名稱節點處於安全模式**。 所報告的區塊 75 個還需要 12 個區塊才能觸達閾值 0.9900 (總計 87 個區塊)。 即時資料節點數目 10 個已觸達最小值 0 個。 一旦觸達閾值，安全模式就會自動關閉。
 
-* H100 無法提交陳述式顯示資料庫: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: 連線至 hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] 失敗: **拒絕連線** internal.cloudapp.net/1.1.1.1] failed: <bpt id="p1">**</bpt>Connection refused<ept id="p1">**</ept>
+* H100 無法提交陳述式顯示資料庫: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: 連線至 hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername。 internal.cloudapp.net/1.1.1.1] 失敗: **拒絕連線**
 
 * H020 無法連線至 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: 無法以 http 連線至 http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/。 org.apache.http.conn.HttpHostConnectException: 連線至 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] 失敗: 拒絕連線: org.apache.thrift.transport.TTransportException: 無法以 http 連線至 http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/。 org.apache.http.conn.HttpHostConnectException: 連線至 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] 失敗: **拒絕連線**
 

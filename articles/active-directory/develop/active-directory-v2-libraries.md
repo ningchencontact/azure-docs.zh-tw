@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 60abada0a6683ee5cc8118c37336fe67cd51b2f0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0d9e2831f9d8676eb3e7fac91c58f3977f2e0f32
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 驗證程式庫
 [Azure Active Directory (Azure AD) v2.0 端點](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare)支援業界標準 OAuth 2.0 和 OpenID Connect 1.0 通訊協定。 您可以使用 Microsoft 和其他廠商提供的各種程式庫搭配 v2.0 端點。
@@ -111,7 +111,7 @@ Azure AD v2.0 端點適用於兩種程式庫類型︰
 [ServerLib-Net4-Owin-Oidc-Sample]: active-directory-v2-devquickstarts-dotnet-web.md
 [ServerLib-Net4-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OAuth/
 [ServerLib-Net4-Owin-Oauth-Repo]: http://katanaproject.codeplex.com/
-[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
+[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
 [ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
 [ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet
 [ServerLib-Net-Jwt-Sample]:/
@@ -123,4 +123,4 @@ Azure AD v2.0 端點適用於兩種程式庫類型︰
 [ServerLib-NetCore-Owin-Oauth-Sample]:/
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
-[ServerLib-Node-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-node-web/
+[ServerLib-Node-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-node-web/

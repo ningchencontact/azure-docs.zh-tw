@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: 7c0b9c193f8f1c3a3043824186e337f942ebfd56
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c0164d9f1e40778d3ce0dc7e947f6d2807234468
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>開發 U-SQL 使用者定義的運算子 (UDO)
 了解如何開發使用者定義的運算子來處理 U-SQL 作業中的資料。
@@ -130,5 +130,5 @@ ms.lasthandoff: 03/16/2018
 2. 展開範例、展開輸出，然後按兩下 [Drivers.csv] 。
 
 ## <a name="see-also"></a>另請參閱
-* [使用使用者程式碼延伸 U-SQL 運算式](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
+* [使用使用者程式碼延伸 U-SQL 運算式](https://msdn.microsoft.com/library/azure/mt621316.aspx)
 * [使用適用於 Visual Studio 的 Data Lake 工具來開發 U-SQL 應用程式](data-lake-analytics-data-lake-tools-get-started.md)

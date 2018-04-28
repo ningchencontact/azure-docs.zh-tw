@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 89575f94e95c5ae378d95220d63c162e53158069
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ca9e2935f3d44952235a1669b3f5bebc7708f4bf
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>微調 Azure SQL Database 中的資料庫效能
 
@@ -28,7 +28,7 @@ Azure SQL Database 提供您可以用來改善資料庫效能的[建議](sql-dat
 
 ## <a name="increasing-performance-tier-of-your-database"></a>增加資料庫的效能層級
 
-Azure SQL Database 提供四個[服務層](sql-database-service-tiers.md)供您選擇：基本、標準和進階 (以資料庫輸送量單位 (簡稱 [DTU](sql-database-what-is-a-dtu.md)) 測量效能)。 每個服務層會嚴格地隔離出 SQL Database 可以使用的資源，並保證該服務層級會有可預測的效能。 在本文中，我們會提供指引來協助您選擇應用程式的服務層。 我們也會討論您可以微調應用程式以充分利用 Azure SQL Database 的方式。
+Azure SQL Database 提供兩種購買模型：以 DTU 為基礎的購買模型和以虛擬核心為基礎的購買模型。 每個模型都有多個[服務層](sql-database-service-tiers.md)，您可以從中選擇。 每個服務層會嚴格地隔離出 SQL Database 可以使用的資源，並保證該服務層級會有可預測的效能。 在本文中，我們會提供指引來協助您選擇應用程式的服務層。 我們也會討論您可以微調應用程式以充分利用 Azure SQL Database 的方式。
 
 > [!NOTE]
 > 本文著重在 Azure SQL Database 中單一資料庫的效能指引。 如需彈性集區的相關效能指引，請參閱[彈性集區的價格和效能考量](sql-database-elastic-pool-guidance.md)。 但請注意，您可以將本文的諸多微調建議套用到彈性集區中的資料庫，並獲得類似的效能優點。

@@ -1,23 +1,23 @@
 ---
-title: "教學課程：Azure Active Directory 與 DigiCert 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 DigiCert 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 DigiCert 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 DigiCert 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 646f3129-aa67-4875-9073-1d0b6a3173d9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 04/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 1eb3f6eda8603174fa5be5c76e16f7c2e3e58b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f291b69f084913808f4494c7379a0f753254e3f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>教學課程：Azure Active Directory 與 DigiCert 整合
 
@@ -57,7 +57,7 @@ DigiCert 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 DigiCert，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -106,9 +106,11 @@ DigiCert 與 Azure AD 整合提供下列優點：
  
     ![設定單一登入](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_samlbase.png)
 
-3. 在 [DigiCert 網域和 URL] 區段中，使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
+3. 在 [DigiCert 網域與 URL] 區段上，執行下列步驟：
 
     ![設定單一登入](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_url.png)
+    
+    在 [識別碼] 文字方塊中，輸入 URL：`https://www.digicert.com/sso`
 
 4. DigiCert 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 以下螢幕擷取畫面顯示此設定的範例。 
 
@@ -145,9 +147,6 @@ DigiCert 與 Azure AD 整合提供下列優點：
     ![設定單一登入](./media/active-directory-saas-digicert-tutorial/tutorial_general_400.png)
 
 8. 若要在 **DigiCert** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [DigiCert 支援小組](mailto:support@digicert.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。

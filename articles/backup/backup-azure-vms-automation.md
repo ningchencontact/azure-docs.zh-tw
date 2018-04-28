@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bac1e679aa46b280596ab09ba40da780c81cac5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3431db3844ca47ce6c2beafbd894a69f05e0311a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>使用 AzureRM.RecoveryServices.Backup Cmdlet 備份虛擬機器
 
@@ -79,9 +79,9 @@ ms.lasthandoff: 04/03/2018
     Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
     Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
     ```
-3. 使用 **Login-AzureRmAccount** 登入您的 Azure 帳戶。 此 Cmdlet 會開啟網頁，提示您輸入帳戶認證： 
-    - 或者，您也可以使用 **-Credential** 參數，以參數形式將您的帳戶認證加入 **Login-AzureRmAccount** Cmdlet。
-    - 如果您是代表租用戶工作的 CSP 合作夥伴，請使用客戶的 tenantID 或租用戶主要網域名稱將客戶指定為租用戶。 例如：**Login-AzureRmAccount -Tenant "fabrikam.com"**
+3. 使用 **Connect-AzureRmAccount** 登入您的 Azure 帳戶。 此 Cmdlet 會開啟網頁，提示您輸入帳戶認證： 
+    - 或者，您可以使用 **-Credential** 參數，以參數形式將您的帳戶認證加入 **Connect-AzureRmAccount** Cmdlet。
+    - 如果您是代表租用戶工作的 CSP 合作夥伴，請使用客戶的 tenantID 或租用戶主要網域名稱將客戶指定為租用戶。 例如：**Connect-AzureRmAccount -Tenant "fabrikam.com"**
 4. 由於一個帳戶可以有多個訂用帳戶，因此您必須將要使用的訂用帳戶與帳戶建立關聯：
 
     ```PS
@@ -362,7 +362,7 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 在您還原磁碟之後，使用下列步驟來從磁碟建立及設定虛擬機器。
 
 > [!NOTE]
-> 若要從預存的磁碟建立加密的 VM，您的 Azure 角色必須具備可執行 **Microsoft.KeyVault/vaults/deploy/action** 動作的權限。 如果您的角色並沒有此權限，請使用此動作來建立自訂角色。 如需詳細資訊，請參閱 [Azure RBAC 中的自訂角色](../active-directory/role-based-access-control-custom-roles.md)。
+> 若要從預存的磁碟建立加密的 VM，您的 Azure 角色必須具備可執行 **Microsoft.KeyVault/vaults/deploy/action** 動作的權限。 如果您的角色並沒有此權限，請使用此動作來建立自訂角色。 如需詳細資訊，請參閱 [Azure RBAC 中的自訂角色](../role-based-access-control/custom-roles.md)。
 >
 >
 

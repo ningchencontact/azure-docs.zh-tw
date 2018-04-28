@@ -1,11 +1,11 @@
 ---
-title: "相應縮小或放大 Service Fabric 叢集 | Microsoft Docs"
-description: "設定每個節點類型/虛擬機器擴展集的自動調整規模規則，以相應縮小或放大 Service Fabric 叢集使其符合需求。 新增或移除 Service Fabric 叢集的節點"
+title: 相應縮小或放大 Service Fabric 叢集 | Microsoft Docs
+description: 設定每個節點類型/虛擬機器擴展集的自動調整規模規則，以相應縮小或放大 Service Fabric 叢集使其符合需求。 新增或移除 Service Fabric 叢集的節點
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
-ms.author: chackdan
-ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: aljo
+ms.openlocfilehash: 506877e12d12ff3b1372cc0360a8df1a1d52744a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>使用自動調整規模規則相應縮小或放大 Service Fabric 叢集
-虛擬機器擴展集是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合加以部署和管理。 在 Service Fabric 叢集中定義的每個節點類型都會安裝為不同的虛擬機器擴展集。 然後每個節點類型可以獨立相應縮小或放大，可以開啟不同組的連接埠，並可以有不同的容量度量。 若要深入了解，請參閱 [Service Fabric 節點類型](service-fabric-cluster-nodetypes.md) 文件。 因為叢集中的 Service Fabric 節點類型是由後端的虛擬機器擴展集建立，所以您必須為每個節點類型/虛擬機器擴展集設定自動調整規模規則。
+# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>使用自動調整規則或以手動方式相應縮小或放大 Service Fabric 叢集
+虛擬機器擴展集是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合加以部署和管理。 在 Service Fabric 叢集中定義的每個節點類型都會安裝為不同的虛擬機器擴展集。 然後每個節點類型可以獨立相應縮小或放大，可以開啟不同組的連接埠，並可以有不同的容量度量。 若要深入了解，請參閱 [Service Fabric 節點類型](service-fabric-cluster-nodetypes.md) 文件。 因為叢集中的 Service Fabric 節點類型是由後端的虛擬機器擴展集建立，所以您必須為每個節點類型/虛擬機器擴展集設定自動調整規則。
 
 > [!NOTE]
 > 您的訂用帳戶必須要有足夠的核心，來新增構構成此叢集的虛擬機器。 目前沒有模型驗證，所以如果達到任一配額限制，就會收到部署時間失敗。
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/01/2018
 > 
 
 ## <a name="choose-the-node-typevirtual-machine-scale-set-to-scale"></a>選擇要調整規模的節點類型/虛擬機器擴展集
-目前，您不能使用入口網站指定虛擬機器擴展集的自動調整規模規則，所以請讓我們使用 Azure PowerShell (1.0+) 列出節點類型，然後將自動調整規模規則加入它們。
+目前，您不能使用入口網站指定虛擬機器擴展集的自動調整規則，所以請讓我們使用 Azure PowerShell (1.0+) 列出節點類型，然後向它們新增自動調整規則。
 
 若要取得建立叢集的虛擬機器擴展集清單，請執行下列 Cmdlet：
 
@@ -47,7 +47,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 > 
 > 
 
-自動調整規模功能目前不是由應用程式可能向 Service Fabric 報告的負載所驅動。 所以，您現在取得的自動調整規模只由每個虛擬機器擴展集執行個體所發出的效能計數器驅動。  
+自動調整規模功能目前不是由應用程式可能向 Service Fabric 報告的負載所驅動。 所以，您現在取得的自動調整只由每個虛擬機器擴展集執行個體所發出的效能計數器驅動。  
 
 請遵循下列指示[設定每個虛擬機器擴展集的自動調整規模](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md)。
 
@@ -74,7 +74,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 
 1. 執行 [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) 加上 'RemoveNode' 可停用您要移除的節點 (該節點類型的最高執行個體)。
 2. 執行 [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) 可確保節點已確實轉換為停用。 如果沒有，請等到節點停用。 您無法加快此步驟的速度。
-3. 請依照 [快速啟動範本庫](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) 的範例/指示變更該 Nodetype 的一個 VM。 移除的執行個體是最高的 VM 執行個體。 
+3. 請依照[快速啟動範本庫](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)的範例/指示變更該節點類型的一個 VM。 移除的執行個體是最高的 VM 執行個體。 
 4. 視需要重複步驟 1 到 3，但是請永遠不要將主要節點類型的執行個體數目相應減少到少於可靠性層級所需的數目。 請參閱 [可靠性層級的詳細資料](service-fabric-cluster-capacity.md)。 
 
 ## <a name="manually-remove-vms-from-the-non-primary-node-typevirtual-machine-scale-set"></a>手動從非主要節點類型/虛擬機器擴展集移除 VM
@@ -87,7 +87,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 
 1. 執行 [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) 加上 'RemoveNode' 可停用您要移除的節點 (該節點類型的最高執行個體)。
 2. 執行 [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) 可確保節點已確實轉換為停用。 如果沒有，請等到節點停用。 您無法加快此步驟的速度。
-3. 請依照 [快速啟動範本庫](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) 的範例/指示變更該 Nodetype 的一個 VM。 現在會移除最高的 VM 執行個體。 
+3. 請依照[快速啟動範本庫](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)的範例/指示變更該節點類型的一個 VM。 現在會移除最高的 VM 執行個體。 
 4. 視需要重複步驟 1 到 3，但是請永遠不要將主要節點類型的執行個體數目相應減少到少於可靠性層級所需的數目。 請參閱 [可靠性層級的詳細資料](service-fabric-cluster-capacity.md)。
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Service Fabric Explorer 可能出現的行為

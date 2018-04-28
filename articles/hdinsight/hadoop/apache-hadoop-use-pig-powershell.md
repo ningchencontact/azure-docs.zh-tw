@@ -1,8 +1,8 @@
 ---
-title: "在 HDInsight 中搭配使用 Hadoop Pig 與 PowerShell - Azure | Microsoft Docs"
-description: "了解如何使用 Azure PowerShell 將 Pig 工作提交至 HDInsight 上的 Hadoop 叢集。"
+title: 在 HDInsight 中搭配使用 Hadoop Pig 與 PowerShell - Azure | Microsoft Docs
+description: 了解如何使用 Azure PowerShell 將 Pig 工作提交至 HDInsight 上的 Hadoop 叢集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 737089c1-b494-4387-9def-7b4dac3be532
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 7fa50e206c86b307f7e2a90ff0938571b64f41bb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0c06289625ab18dad134c235fc28fd5c775955eb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>使用 Azure PowerShell 執行 Pig 工作與 HDInsight
 
@@ -46,7 +44,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Pi
 
 在遠端 HDInsight 叢集上執行 Pig 工作時，會使用下列 Cmdlet：
 
-* **Login-AzureRmAccount**：向您的 Azure 訂用帳戶驗證 Azure PowerShell。
+* **Connect-AzureRmAccount**：向您的 Azure 訂用帳戶驗證 Azure PowerShell。
 * **New-AzureRmHDInsightPigJobDefinition**：使用指定的 Pig Latin 陳述式建立「作業定義」。
 * **Start-AzureRmHDInsightJob**：將作業定義傳送到 HDInsight 並開始作業。 系統會傳回「作業」物件。
 * **Wait-AzureRmHDInsightJob**：使用工作物件來檢查工作的狀態。 它會等到作業完成，或超過等候時間。

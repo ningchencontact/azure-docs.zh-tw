@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: sujayt
-ms.openlocfilehash: 4ddad2d8e5c5323b632b65efaf87d3df7ce8d707
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: a20ec14181e49443b5caf6ed0bcfaedcd4601b1c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>從一個 Azure 區域複寫至另一個區域的支援矩陣
 
@@ -168,6 +168,8 @@ Azure 資源庫映像 - 第三方發行 | 支援 | 只要 VM 在 Site Recovery �
 Azure 磁碟加密 (ADE) | 不支援 |
 熱新增/移除磁碟 | 不支援 | 如果您在 VM 上新增或移除資料磁碟，需要停用複寫，然後再次為 VM 啟用複寫。
 排除磁碟 | 不支援|   預設排除暫存磁碟。
+儲存空間直接存取  | 不支援|
+向外延展檔案伺服器  | 不支援|
 LRS | 支援 |
 GRS | 支援 |
 RA-GRS | 支援 |

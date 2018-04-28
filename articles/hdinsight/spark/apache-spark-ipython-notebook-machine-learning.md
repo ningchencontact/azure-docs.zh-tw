@@ -1,8 +1,8 @@
 ---
-title: "在 Azure HDInsight 上建置 Apache Spark 機器學習服務應用程式 | Microsoft Docs"
-description: "逐步指示如何使用 Jupyter Notebook 在 HDInsight Spark 叢集上建置 Apache Spark 機器學習服務應用程式"
+title: 在 Azure HDInsight 上建置 Apache Spark 機器學習服務應用程式 | Microsoft Docs
+description: 逐步指示如何使用 Jupyter Notebook 在 HDInsight Spark 叢集上建置 Apache Spark 機器學習服務應用程式
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 2f7dcb9bea05a79a6647b549896c8107f9e830af
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 95daab2bd7bc57d01bc9e3c05404958edd71eecc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上建置 Apache Spark 機器學習服務應用程式
 
@@ -185,7 +183,7 @@ ms.lasthandoff: 02/21/2018
 10. 關閉 Notebook 來釋放資源。 若要這樣做，請從 Notebook 的 [檔案] 功能表中，按一下 [關閉並停止]。 這樣就能夠結束並關閉 Notebook。
 
 ## <a name="anaconda"></a>使用適用於 Spark 機器學習服務的 Anaconda scikit-learn 程式庫
-HDInsight 上的 Apache Spark 叢集包含 Anaconda 程式庫。 其中也包含適用於機器學習的 **scikit-learn** 程式庫。 此程式庫另包含用來直接從 Jupyter Notebook 建置範例應用程式的各種資料集。 如需使用 scikit-learn 程式庫的範例，請參閱 [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)。
+HDInsight 上的 Apache Spark 叢集包含 Anaconda 程式庫。 其中也包含適用於機器學習的 **scikit-learn** 程式庫。 此程式庫另包含用來直接從 Jupyter Notebook 建置範例應用程式的各種資料集。 如需使用 sscikit-learn 程式庫的詳細資訊，請參閱 [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)。
 
 ## <a name="seealso"></a>另請參閱
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)

@@ -3,17 +3,17 @@ title: 快速入門 - 適用於 Linux 的 Azure Docker Swarm 叢集
 description: 快速了解如何在 Azure Container Service 中使用 Azure CLI 建立適用於 Linux 容器的 Docker Swarm 叢集。
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7bd781d2fd71c6075cb458b222a93953a22892b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1d658449e688c007560489f1370219cebce09df1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-docker-swarm-cluster"></a>部署 Docker Swarm 叢集
 

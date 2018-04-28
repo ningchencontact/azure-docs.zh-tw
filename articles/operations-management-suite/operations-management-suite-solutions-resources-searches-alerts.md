@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/16/2018
-ms.author: bwren
+ms.date: 04/16/2018
+ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c43e262725bd7b4c4fe5680f514d80112766f991
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警示新增到管理解決方案 (預覽)
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/30/2018
 ## <a name="log-analytics-workspace"></a>Log Analytics 工作區
 Log Analytics 中的所有資源都包含於[工作區](../log-analytics/log-analytics-manage-access.md)中。  如 [Log Analytics 工作區和自動化帳戶](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account)所述，工作區不會包含於管理解決方案中，但在安裝解決方案前就必須存在。  如果無法使用，則解決方案安裝會失敗。
 
-工作區的名稱位於每個 Log Analytics 資源的名稱中。  這可在解決方案中使用**工作區**參數來完成，如下列 savedsearch 資源範例所示。
+工作區的名稱位於每個 Log Analytics 資源的名稱中。  這可在解決方案中使用**工作區**參數來完成，如下列 SavedSearch 資源範例所示。
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
@@ -86,17 +86,22 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | query | 要執行的查詢。 |
 
 > [!NOTE]
-> 如果查詢包含可解譯為 JSON 的字元，您可能需要在查詢中使用逸出字元。  例如，如果查詢為 **Type:AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**，就應該在方案檔中撰寫為 **Type:AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**。
+> 如果查詢包含可解譯為 JSON 的字元，您可能需要在查詢中使用逸出字元。  例如，如果查詢為 **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**，就應該在方案檔中撰寫為 **Type: AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**。
 
 ## <a name="alerts"></a>警示
 [Log Analytics 警示](../log-analytics/log-analytics-alerts.md)是由定期執行儲存之搜尋的警示規則所建立。  如果查詢的結果符合指定的準則，就會建立警示記錄，並執行一或多個動作。  
+
+> [!NOTE]
+> 從 2018 年 5 月 14 日開始，工作區中的所有警示都將自動開始延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動開始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 OMS 延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
 
 管理解決方案中的警示規則是由下列三個不同資源所組成。
 
 - **儲存的搜尋。**  定義所執行的記錄搜尋。  多個警示規則可以共用單一儲存的搜尋。
 - **排程。**  定義記錄搜尋的執行頻率。  每個警示規則都只能有一個排程。
-- **警示動作。**  每個警示規則都會有一個具有一種**警示**類型的動作資源，該類型會定義警示的詳細資料，像是建立警示記錄的時機及警示的嚴重性等準則。  動作資源將會選擇性地定義郵件和 runbook 回應。
-- **Webhook 動作 (選擇性)。**  如果警示規則呼叫 Webhook，則需要執行類型為 **Webhook** 的其他動作資源。    
+- **警示動作。**  每個警示規則都會有一個具有一種**警示**類型的動作群組資源或動作資源 (舊版)，該類型會定義警示的詳細資料，像是建立警示記錄的時機及警示的嚴重性等準則。 [動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)資源可以有一份設定來要在引發警示時採取的動作清單，例如，語音電話、SMS、電子郵件、Webhook、ITSM 工具、自動化 Runbook、邏輯應用程式等等。
+ 
+動作資源 (舊版) 將會選擇性地定義電子郵件和 Runbook 回應。
+- **Webhook 動作 (舊版)。**  如果警示規則呼叫 Webhook，則需要執行類型為 **Webhook** 的其他動作資源。    
 
 儲存的搜尋資源如上所述。  其他資源將在後續內容中加以說明。
 
@@ -133,20 +138,25 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 排程資源應該相依於儲存的搜尋，如此就會在排程之前建立該資源。
 
+> [!NOTE]
+> 排程名稱在指定工作區中必須是唯一的；兩個排程即使已儲存的相關聯搜尋不同，也不能有相同的識別碼。 此外，使用 Log Analytics API 建立並儲存的所有搜尋、排程和動作，都必須使用小寫名稱。
+
 
 ### <a name="actions"></a>動作
-**Type** 屬性會指定兩種類型的動作資源。  排程需要一個**警示**動作，其會定義警示規則的詳細資料，以及建立警示時要採取哪些動作。  如果必須從警示呼叫 Webhook，則它也可以包含 **Webhook** 動作。  
+一個排程可以有多個動作。 一個動作可能定義一或多個處理序來執行，例如傳送郵件或啟動 Runbook，或也可能定義臨界值來判斷搜尋結果是否符合某些準則。  某些動作會同時定義這兩者，以便符合臨界值時執行處理序。
 
-動作資源具有 `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions` 類型。  
+動作可以使用 [動作群組] 資源或動作資源來定義。
 
-#### <a name="alert-actions"></a>警示動作
+> [!NOTE]
+> 從 2018 年 5 月 14 日開始，工作區中的所有警示都將自動開始延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動開始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 OMS 延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
 
-每個排程都會有一個**警示**動作。  這會定義警示的詳細資料，以及選擇性地定義通知和修復動作的詳細資料。  通知會將電子郵件傳送到一或多個地址。  修復會在 Azure 自動化中啟動 Runbook，以嘗試修復偵測到的問題。
+
+**Type** 屬性會指定兩種類型的動作資源。  排程需要一個**警示**動作，其會定義警示規則的詳細資料，以及建立警示時要採取哪些動作。 動作資源具有 `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions` 類型。  
 
 警示動作具備下列結構。  這包括一般變數和參數，因此您可以將此程式碼片段複製並貼到您的解決方案檔，然後變更參數名稱。 
 
 
-
+```
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
@@ -167,20 +177,16 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
                     "triggerCondition": "[variables('Alert').Threshold.Trigger.Condition]",
                     "operator": "[variables('Alert').Trigger.Operator]",
                     "value": "[variables('Alert').Trigger.Value]"
-                },
-            },
-            "emailNotification": {
-                "recipients": [
-                    "[variables('Alert').Recipients]"
-                ],
-                "subject": "[variables('Alert').Subject]"
-            },
-            "remediation": {
-                "runbookName": "[variables('Alert').Remedition.RunbookName]",
-                "webhookUri": "[variables('Alert').Remedition.WebhookUri]"
-            }
+                  },
+              },
+      "AzNsNotification": {
+        "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
+        "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]",
+        "CustomWebhookPayload": "[variables('MyAlert').AzNsNotification.CustomWebhookPayload]"
+        }
         }
     }
+```
 
 下表會說明警示動作資源的屬性。
 
@@ -189,17 +195,16 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | 類型 | yes | 動作的類型。  這是適用於警示動作的**警示**。 |
 | Name | yes | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
 | 說明 | 否 | 警示的選擇性描述。 |
-| 嚴重性 | yes | 警示記錄的嚴重性有下列值：<br><br> **Critical**<br>**警告**<br>**Informational** |
+| 嚴重性 | yes | 警示記錄的嚴重性有下列值：<br><br> **Critical**<br>**警告**<br>**Informational**
 
 
-##### <a name="threshold"></a>閾值
+#### <a name="threshold"></a>閾值
 此為必要區段。  它會定義警示臨界值的屬性。
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
 | 運算子 | yes | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
 | 值 | yes | 要比較結果的值。 |
-
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 此為選擇性區段。  加入此區段以供計量計量警示使用。
@@ -213,12 +218,33 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | 運算子 | yes | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
 | 值 | yes | 必須符合準則以觸發警示的次數。 |
 
-##### <a name="throttling"></a>節流
+
+#### <a name="throttling"></a>節流
 此為選擇性區段。  如果您想要在建立警示之後的某一段時間內隱藏相同規則所產生的警示，請加入此區段。
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
 | DurationInMinutes | 如果包含 Throttling 元素，即為 Yes | 從同一個警示規則中建立一個警示之後隱藏警示的分鐘數。 |
+
+
+#### <a name="azure-action-group"></a>Azure 動作群組
+Azure 中的所有警示都使用「動作群組」作為處理動作的預設機制。 使用「動作群組」時，您可以指定您的動作一次，然後將動作群組與整個 Azure 中的多個警示建立關聯。 這樣就不需要一再地重複宣告相同的動作。 「動作群組」支援多個動作 - 包括電子郵件、、SMS、語音通話、ITSM 連線、自動化 Runbook、Webhook URI 等。 
+
+針對將警示延伸至 Azure 的使用者 - 排程的「動作群組」詳細資料現在應該與閾值一起傳遞，才能建立警示。 必須先在動作群組內定義電子郵件詳細資料、Webhook URL、Runbook 自動化詳細資料及其他動作，才能建立警示；使用者可以在入口網站中[從 Azure 監視器建立動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)，或使用[動作群組 - 資源範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來建立動作群組。
+
+| 元素名稱 | 必要 | 說明 |
+|:--|:--|:--|
+| AzNsNotification | yes | Azure 動作群組的資源識別碼，其會與警示相關聯，以便在符合警示準則時採取必要動作。 |
+| CustomEmailSubject | 否 | 電子郵件的自訂主旨列，該電子郵件會傳送到相關聯動作群組中指定的所有地址。 |
+| CustomWebhookPayload | 否 | 針對相關動作群組中定義的所有 Webhook 端點，要傳送到端點的自訂酬載。 格式取決於 Webhook 所預期的內容，而且必須是已序列化的有效 JSON。 |
+
+
+#### <a name="actions-for-oms-legacy"></a>OMS (舊版) 的動作
+
+每個排程都會有一個**警示**動作。  這會定義警示的詳細資料，以及選擇性地定義通知和修復動作的詳細資料。  通知會將電子郵件傳送到一或多個地址。  修復會在 Azure 自動化中啟動 Runbook，以嘗試修復偵測到的問題。
+
+> [!NOTE]
+> 從 2018 年 5 月 14 日開始，工作區中的所有警示都將自動開始延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動開始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 OMS 延伸至 Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)來擷取或新增動作。
 
 ##### <a name="emailnotification"></a>EmailNotification
  此為選擇性區段  如果您想要警示將郵件傳送給一或多位收件者，請包含此區段。
@@ -239,7 +265,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | WebhookUri | yes | Runbook 的 Webhook 的 Uri。 |
 | Expiry | 否 | 補救到期的日期和時間。 |
 
-#### <a name="webhook-actions"></a>Webhook 動作
+##### <a name="webhook-actions"></a>Webhook 動作
 
 Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動處理序。 這些動作類似於「補救」動作，不同之處在於它們用於可能叫用 Azure 自動化 Runbook 以外之處理序的 webhook。 它們還提供另一個選項，可指定要傳遞到遠端處理序的承載。
 
@@ -271,19 +297,17 @@ Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動�
 | customPayload | 否 | 要傳送至 webhook 的自訂內容。 格式取決於 Webhook 需要的內容。 |
 
 
-
-
 ## <a name="sample"></a>範例
 
 以下是解決方案的範例，其中包含下列資源：
 
 - 儲存的搜尋
 - 排程
-- 警示動作
-- Webhook 動作
+- 動作群組
 
 此範例會使用[標準的解決方案參數](operations-management-suite-solutions-solution-file.md#parameters)變數，相對於資源定義中的硬式編碼值，這類變數常用於解決方案中。
 
+```
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0",
@@ -294,34 +318,16 @@ Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動�
               "Description": "Name of Log Analytics workspace"
             }
           },
-          "accountName": {
-            "type": "string",
-            "metadata": {
-              "Description": "Name of Automation account"
-            }
-          },
           "workspaceregionId": {
             "type": "string",
             "metadata": {
               "Description": "Region of Log Analytics workspace"
             }
           },
-          "regionId": {
+          "actiongroup": {
             "type": "string",
             "metadata": {
-              "Description": "Region of Automation account"
-            }
-          },
-          "pricingTier": {
-            "type": "string",
-            "metadata": {
-              "Description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
-            }
-          },
-          "recipients": {
-            "type": "string",
-            "metadata": {
-              "Description": "List of recipients for the email alert separated by semicolon"
+              "Description": "List of action groups for alert actions separated by semicolon"
             }
           }
         },
@@ -331,7 +337,7 @@ Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動�
           "SolutionPublisher": "Contoso",
           "ProductName": "SampleSolution",
     
-          "LogAnalyticsApiVersion": "2015-11-01-preview",
+          "LogAnalyticsApiVersion": "2015-03-20",
     
           "MySearch": {
             "displayName": "Error records by hour",
@@ -357,20 +363,11 @@ Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動�
               "Value": 3
             },
             "ThrottleMinutes": 60,
-            "Notification": {
-              "Recipients": [
-                "[parameters('recipients')]"
+            "AzNsNotification": {
+              "GroupIds": [
+                "[parameters('actiongroup')]"
               ],
-              "Subject": "Sample alert"
-            },
-            "Remediation": {
-              "RunbookName": "MyRemediationRunbook",
-              "WebhookUri": "https://s1events.azure-automation.net/webhooks?token=TluBFH3GpX4IEAnFoImoAWLTULkjD%2bTS0yscyrr7ogw%3d"
-            },
-            "Webhook": {
-              "Name": "MyWebhook",
-              "Uri": "https://MyService.com/webhook",
-              "Payload": "{\"field1\":\"value1\",\"field2\":\"value2\"}"
+              "CustomEmailSubject": "Sample alert"
             }
           }
         },
@@ -394,8 +391,7 @@ Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動�
               "containedResources": [
                 "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
                 "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
-                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]",
-                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Webhook.Name)]"
+                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]"
               ]
             },
             "plan": {
@@ -458,39 +454,18 @@ Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動�
               "Throttling": {
                 "DurationInMinutes": "[variables('MyAlert').ThrottleMinutes]"
               },
-              "EmailNotification": {
-                "Recipients": "[variables('MyAlert').Notification.Recipients]",
-                "Subject": "[variables('MyAlert').Notification.Subject]",
-                "Attachment": "None"
-              },
-              "Remediation": {
-                "RunbookName": "[variables('MyAlert').Remediation.RunbookName]",
-                "WebhookUri": "[variables('MyAlert').Remediation.WebhookUri]"
-              }
-            }
-          },
-          {
-            "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/', variables('MyAlert').Schedule.Name, '/', variables('MyAlert').Webhook.Name)]",
-            "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-            "dependsOn": [
-              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name)]",
-              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name, '/actions/',variables('MyAlert').Name)]"
-            ],
-            "properties": {
-              "etag": "*",
-              "Type": "Webhook",
-              "Name": "[variables('MyAlert').Webhook.Name]",
-              "WebhookUri": "[variables('MyAlert').Webhook.Uri]",
-              "CustomPayload": "[variables('MyAlert').Webhook.Payload]"
+            "AzNsNotification": {
+              "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
+              "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]"
+            }             
             }
           }
         ]
     }
-
+```
 
 下列參數檔會提供此解決方案的範例值。
-
+```
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
@@ -510,12 +485,12 @@ Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動�
             "pricingTier": {
                 "value": "Free"
             },
-            "recipients": {
-                "value": "recipient1@contoso.com;recipient2@contoso.com"
+            "actiongroup": {
+                "value": "/subscriptions/3b540246-808d-4331-99aa-917b808a9166/resourcegroups/myTestGroup/providers/microsoft.insights/actiongroups/sample"
             }
         }
     }
-
+```
 
 ## <a name="next-steps"></a>後續步驟
 * 在您的管理解決方案中[新增檢視](operations-management-suite-solutions-resources-views.md)。

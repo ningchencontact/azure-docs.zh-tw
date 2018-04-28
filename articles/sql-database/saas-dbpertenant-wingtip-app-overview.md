@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 224639dcc7da950801c7a5959ec14fc5ac7313e0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cf54c789d766c4bd3d353028e75e34c961470070
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>搭配 SQL Database 使用每一租用戶一個資料庫模式的多租用戶 SaaS 應用程式簡介
 
@@ -24,7 +24,7 @@ Wingtip SaaS 應用程式是一個範例多租用戶應用程式。 此應用程
 
 ## <a name="application-architecture"></a>應用程式架構
 
-Wingtip SaaS 應用程式會使用每一租用戶一個資料庫的模型。 它會使用 SQL 彈性集區來發揮最高效率。 若要將租用戶佈建和對應至其資料，則會使用目錄資料庫。 核心 Wingtip SaaS 應用程式會使用具有三個範例租用戶的集區，再加上目錄資料庫。 在完成許多 Wingtip SaaS 教學課程之後，初始部署就會擁有附加元件。 導入的附加元件包括分析資料戶和跨資料庫結構描述管理等。
+Wingtip SaaS 應用程式會使用每一租用戶一個資料庫的模型。 它會使用 SQL 彈性集區來發揮最高效率。 若要將租用戶佈建和對應至其資料，則會使用目錄資料庫。 核心 Wingtip SaaS 應用程式會使用具有三個範例租用戶的集區，再加上目錄資料庫。 目錄和租用戶伺服器已透過 DNS 別名進行佈建。 這些別名會用來為 Wingtip 應用程式使用的作用中資源維護參考。 這些別名會更新為指向災害復原教學課程中的復原資源。 在完成許多 Wingtip SaaS 教學課程之後，初始部署就會擁有附加元件。 導入的附加元件包括分析資料戶和跨資料庫結構描述管理等。
 
 
 ![Wingtip SaaS 架構](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)

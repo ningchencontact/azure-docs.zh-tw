@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure REST API 建立 Hadoop 叢集 - Azure | Microsoft Docs"
-description: "了解如何將 Azure Resource Manager 範本提交至 Azure REST API 來建立 HDInsight 叢集。"
+title: 使用 Azure REST API 建立 Hadoop 叢集 - Azure | Microsoft Docs
+description: 了解如何將 Azure Resource Manager 範本提交至 Azure REST API 來建立 HDInsight 叢集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 98be5893-2c6f-4dfa-95ec-d4d8b5b7dcb5
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 4fcdde200fa9d54c7eb5b0ffe151aff3fbd0ed85
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a71a73d8d54e6a24c9a491bd02c7270f56823003
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>使用 Azure REST API 建立 Hadoop 叢集
 

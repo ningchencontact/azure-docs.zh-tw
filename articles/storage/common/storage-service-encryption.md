@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>待用資料的 Azure 儲存體服務加密
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 03/29/2018
 
 **問：建立儲存體帳戶時，是否會預設啟用「儲存體服務加密」？**
 
-答：是，預設會針對所有儲存體帳戶 (Azure Resource Manager 和傳統) 啟用「儲存體服務加密」(使用 Microsoft 管理的金鑰)。 也會針對所有服務 (Blob 儲存體、資料表儲存體、佇列儲存體，以及 Azure 檔案) 啟用此功能。
+答：是，預設會針對所有儲存體帳戶和所有 Azure 儲存體服務啟用「儲存體服務加密」。
 
 **問︰這項功能與 Azure 磁碟加密有什麼不同？**
 

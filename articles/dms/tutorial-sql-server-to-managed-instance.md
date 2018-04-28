@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 資料庫移轉服務將 SQL Server 遷移至 Azure SQL Database 受控執行個體 | Microsoft Docs
+title: 使用 DMS 遷移至 Azure SQL Database 受控執行個體 | Microsoft Docs
 description: 了解如何使用 Azure 資料庫移轉服務，從內部部署 SQL Server 遷移至 Azure SQL Database 受控執行個體。
 services: dms
 author: edmacauley
@@ -10,19 +10,21 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/29/2018
-ms.openlocfilehash: 8abf3bae3a2274ed5514a5c621675b4c9ec27ae2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.date: 04/10/2018
+ms.openlocfilehash: 6628ea218c4c7a9aacc0c2899c1ea4e5b6169b51
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance"></a>將 SQL Server 遷移至 Azure SQL Database 受控執行個體
-您可以使用 Azure 資料庫移轉服務，將內部部署 SQL Server 執行個體的資料庫移轉到 Azure SQL Database。 在本教學課程中，您要使用 Azure 資料庫移轉服務，將 **Adventureworks2012** 資料庫從內部部署 SQL Server 執行個體遷移至 Azure SQL Database。
+# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>使用 DMS 將 SQL Server 遷移至 Azure SQL Database 受控執行個體
+您可以使用 Azure 資料庫移轉服務，以接近零停機的方式將內部部署 SQL Server 執行個體的資料庫遷移至 [Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance.md)。 其他需要停機的方法，請參閱[將 SQL Server 執行個體遷移至 Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance-migrate.md)。
+
+在本教學課程中，您要使用 Azure 資料庫移轉服務，將 **Adventureworks2012** 資料庫從內部部署 SQL Server 執行個體遷移至 Azure SQL Database。
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
-> * 建立 Azure 資料庫移轉服務的執行個體。
+> * 建立 Azure 資料庫移轉服務執行個體。
 > * 使用 Azure 資料庫移轉服務來建立移轉專案。
 > * 執行移轉。
 > * 監視移轉。
@@ -36,12 +38,12 @@ ms.lasthandoff: 03/29/2018
 - 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 SQL Server，其預設會通過 TCP 連接埠 1433。
 - 如果您使用動態連接埠執行多個具名 SQL Server 執行個體，也許會想要啟用 SQL Browser 服務並允許通過防火牆存取 UDP 連接埠 1434，讓 Azure 資料庫移轉服務連線來源伺服器上的具名執行個體。
 - 如果您是在來源資料庫前面使用防火牆設備，您可能必須新增防火牆規則，才能讓 Azure 資料庫移轉服務存取用於進行移轉的來源資料庫，以及透過 SMB 連接埠 445 存取檔案。
-- 依照[在 Azure 入口網站中建立 Azure SQL Database 受控執行個體](https://aka.ms/sqldbmi)一文中的詳細資料來建立 Azure SQL Database 受控執行個體的執行個體。
+- 依照[在 Azure 入口網站中建立 Azure SQL Database 受控執行個體](https://aka.ms/sqldbmi) \(英文\) 一文中的詳細資料，建立 Azure SQL Database 受控執行個體。
 - 確定用來連線來源 SQL Server 和目標受控執行個體的登入是 sysadmin 伺服器角色的成員。
 - 建立 Azure 資料庫移轉服務可用來備份來源資料庫的網路共用。
 - 確定執行來源 SQL Server 執行個體的服務帳戶在您所建立的網路共用上具有寫入權限。
 - 記下在您上面所建立的網路共用上具有完整控制權限的 Windows 使用者 (和密碼)。 Azure 資料庫移轉服務會模擬該使用者認證，以便將備份檔案上傳至 Azure 儲存體容器以進行還原作業。
-- 使用[使用儲存體總管來管理 Azure Blob 儲存體資源 (預覽)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) 一文中的步驟來建立 blob 容器及取出其 SAS URI；在建立 SAS URI 時，請務必選取原則視窗上的所有權限 (讀取、寫入、刪除、列出)。 這會向 Azure 資料庫移轉服務提供您儲存體帳戶容器的存取權，以供上傳用於將資料庫移轉至 Azure SQL Database 受控執行個體的備份檔案
+- 使用[使用儲存體總管來管理 Azure Blob 儲存體資源](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) 一文中的步驟來建立 blob 容器及取出其 SAS URI；在建立 SAS URI 時，請務必選取原則視窗上的所有權限 (讀取、寫入、刪除、列出)。 這會向 Azure 資料庫移轉服務提供您儲存體帳戶容器的存取權，以供上傳用於將資料庫移轉至 Azure SQL Database 受控執行個體的備份檔案
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>註冊 Microsoft.DataMigration 資源提供者
 
@@ -54,7 +56,7 @@ ms.lasthandoff: 03/29/2018
 1.  搜尋移轉，然後在 [Microsoft.DataMigration] 的右邊，選取 [註冊]。
 ![註冊資源提供者](media\tutorial-sql-server-to-managed-instance\portal-register-resource-provider.png)    
 
-## <a name="create-an-instance"></a>建立執行個體
+## <a name="create-an-azure-database-migration-service-instance"></a>建立 Azure 資料庫移轉服務執行個體
 
 1.  在 Azure 入口網站中，選取 [+ 建立資源]，搜尋 [Azure 資料庫移轉服務]，然後從下拉式清單選取 [Azure 資料庫移轉服務]。
 
@@ -145,3 +147,9 @@ ms.lasthandoff: 03/29/2018
 
     ![監視移轉](media\tutorial-sql-server-to-managed-instance\dms-monitor-migration.png)
 
+## <a name="next-steps"></a>後續步驟
+
+- 如需如何使用 T-SQL 還原命令將資料庫遷移至受控執行個體的教學課程，請參閱[使用還原命令將備份還原到受控執行個體](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md)。
+- 如需從 BACPAC 檔案匯入資料庫的相關資訊，請參閱[將 BACPAC 檔案匯入到新的 Azure SQL Database](../sql-database/sql-database-import.md)。
+- 如需受控執行個體的詳細資訊，請參閱[受控執行個體是什麼](../sql-database/sql-database-managed-instance.md)。
+- 如需將應用程式連線至受控執行個體的相關資訊，請參閱[應用程式連線](../sql-database/sql-database-managed-instance-connect-app.md)。

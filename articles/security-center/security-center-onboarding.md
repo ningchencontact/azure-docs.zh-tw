@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: terrylan
-ms.openlocfilehash: a6394b1b02ebfe518dc2f2b7f65eb677bb0ba5f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d83beecfc5a8f6b8a01c64e809bc84c6fd0238bf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>上架到 Azure 資訊安全中心標準版以增強安全性
 升級至資訊安全中心標準版，讓您的混合式雲端工作負載能充分享有強化的安全性管理和威脅防護。  您可以免費試用「標準版」60 天。 如需詳細資訊，請參閱資訊安全中心[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 - **混合式安全性** – 取得您所有內部部署和雲端工作負載中安全性的統一檢視。 套用安全性原則，並持續評估您混合式雲端工作負載的安全性，以確保符合安全性標準。 從各種來源 (包括防火牆和其他合作夥伴解決方案) 收集、搜尋及分析安全性資料。
 - **進階威脅偵測** - 利用進階分析和 Microsoft Intelligent Security Graph 勝過不斷進化的網路攻擊。  有效率的調控內建行為分析和機器學習服務，以發現攻擊和零時差惡意探索。 監視網路、機器和雲端服務中是否有傳入攻擊和侵入後活動。 使用互動式工具和內容相關威脅情報來簡化調查。
-- **存取與應用程式控制** - 藉由套用依特定工作負載調整並由機器學習服務提供的允許清單建議，來封鎖惡意程式碼和其他不想要的應用程式。 利用即時控制存取減少網路攻擊面，以管理 Azure VM 上的連接埠，大幅減少暴力密碼破解攻擊和其他網路攻擊。
+- **存取與應用程式控制** - 藉由套用依特定工作負載調整並由機器學習服務提供的白名單建議，來封鎖惡意程式碼和其他不想要的應用程式。 利用即時控制存取減少網路攻擊面，以管理 Azure VM 上的連接埠，大幅減少暴力密碼破解攻擊和其他網路攻擊。
 
 ## <a name="detecting-unprotected-resources"></a>偵測未受保護的資源     
 資訊安全中心會自動偵測未向資訊安全中心標準版啟用的任何 Azure 訂用帳戶或工作區。 這包括使用未啟用安全性解決方案之資訊安全中心免費版和工作區的 Azure 訂用帳戶。

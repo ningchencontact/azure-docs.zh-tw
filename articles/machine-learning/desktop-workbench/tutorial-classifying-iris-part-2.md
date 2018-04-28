@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: b0d268937300abd105349d340f7bf1dae398fa8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 24ac4d699a511cc99936cb2cd4b245de01984163
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>教學課程 2：分類鳶尾花：建立模型
 Azure Machine Learning 服務 (預覽) 是一套整合式資料科學及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
@@ -280,7 +280,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合式資料科學及進階�
    >[!IMPORTANT]
    >您必須使用此 CLI 視窗來完成下一個步驟。
 
-1. 在 CLI 視窗中，登入 Azure。 [進一步了解 az 登入](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest)。
+1. 在 CLI 視窗中，登入 Azure。 [進一步了解 az 登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)。
 
    您可能已經登入。 在此情況下，您可以略過此步驟。
 

@@ -1,18 +1,18 @@
 ---
-title: "在 Azure 容器執行個體中掛接 gitRepo 磁碟區"
-description: "了解如何掛接 gitRepo 磁碟區，以將 Git 存放庫複製到您的容器執行個體中"
+title: 在 Azure 容器執行個體中掛接 gitRepo 磁碟區
+description: 了解如何掛接 gitRepo 磁碟區，以將 Git 存放庫複製到您的容器執行個體中
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/16/2018
 ms.author: marsma
-ms.openlocfilehash: 9acde9259fcb392458e7b2fa7d3369776978285e
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: e40d841c07534c9c0074c038d1e3c6e435265564
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>在 Azure 容器執行個體中掛接 gitRepo 磁碟區
 
@@ -33,14 +33,42 @@ ms.lasthandoff: 02/14/2018
 | `directory` | 否 | 要在其中複製存放庫的目錄。 路徑不能包含或開頭為 "`..`"。  如果您指定 "`.`"，存放庫會複製到磁碟區的目錄中。 否則，Git 存放庫會複製到磁碟區目錄內指定名稱的子目錄中。 |
 | `revision` | 否 | 要複製之修訂的認可雜湊。 如果未指定，則 `HEAD` 修訂已複製。 |
 
-## <a name="mount-a-gitrepo-volume"></a>掛接 gitRepo 磁碟區
+## <a name="mount-gitrepo-volume-azure-cli"></a>掛接 gitRepo 磁碟區：Azure CLI
 
-若要在容器執行個體中掛接 *gitRepo* 磁碟區，您必須使用 [Azure Resource Manager 範本](/azure/templates/microsoft.containerinstance/containergroups)進行部署。
+當您使用 [Azure CLI](/cli/azure) 部署容器執行個體時，若要掛接 gitRepo 磁碟區，請將 `--gitrepo-url` 和 `--gitrepo-mount-path` 參數提供給 [az container create][az-container-create] 命令。 您可以選擇性地指定磁碟區內要複製存放庫到其中的目錄 (`--gitrepo-dir`)，以及要複製的修訂認可雜湊 (`--gitrepo-revision`)。
 
-首先，填入範本的容器群組 `properties` 區段中的 `volumes` 陣列。 接下來，針對您想要掛接 *gitRepo* 磁碟區所在容器群組中的每個容器，填入容器定義之 `properties` 區段中的 `volumeMounts` 陣列。
+此範例命令會將 [aci-helloworld][aci-helloworld] 範例應用程式複製到容器執行個體中的 `/mnt/aci-helloworld`：
+
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name hellogitrepo \
+    --image microsoft/aci-helloworld \
+    --dns-name-label aci-demo \
+    --ports 80 \
+    --gitrepo-url https://github.com/Azure-Samples/aci-helloworld \
+    --gitrepo-mount-path /mnt/aci-helloworld
+```
+
+若要確認已掛接 gitRepo 磁碟區，請使用 [az container exec][az-container-exec] 來啟動容器中的 Shell 並列出目錄：
+
+```console
+$ az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh
+/usr/src/app # ls -l /mnt/aci-helloworld/
+total 16
+-rw-r--r--    1 root     root           144 Apr 16 16:35 Dockerfile
+-rw-r--r--    1 root     root          1162 Apr 16 16:35 LICENSE
+-rw-r--r--    1 root     root          1237 Apr 16 16:35 README.md
+drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
+```
+
+## <a name="mount-gitrepo-volume-resource-manager"></a>掛接 gitRepo 磁碟區：Resource Manager
+
+當您使用 [Azure Resource Manager 範本](/azure/templates/microsoft.containerinstance/containergroups)部署容器執行個體時，若要掛接 gitRepo 磁碟區，請先在範本的容器群組 `properties` 區段中填入 `volumes` 陣列。 然後，針對您想要掛接 gitRepo 磁碟區所在容器群組中的每個容器，填入容器定義 `properties` 區段中的 `volumeMounts` 陣列。
 
 例如，下列 Resource Manager 範本會建立一個由單一容器組成的容器群組。 容器會複製由 *gitRepo* 磁碟區區塊所指定的兩個 GitHub 存放庫。 第二個磁碟區包含指定要複製到其中之目錄的其他屬性，和要複製之指定修訂的認可雜湊。
 
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json -->
 [!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
 
 上述範本中定義的兩個已複製存放庫的結果目錄結構是：
@@ -59,3 +87,10 @@ ms.lasthandoff: 02/14/2018
 * [在 Azure 容器執行個體中掛接 Azure 檔案共用](container-instances-volume-azure-files.md)
 * [在 Azure 容器執行個體中掛接 emptyDir 磁碟區](container-instances-volume-emptydir.md)
 * [在 Azure 容器執行個體中掛接秘密磁碟區](container-instances-volume-secret.md)
+
+<!-- LINKS - External -->
+[aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
+
+<!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-exec]: /cli/azure/container#az-container-exec

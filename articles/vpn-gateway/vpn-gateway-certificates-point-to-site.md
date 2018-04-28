@@ -1,11 +1,11 @@
 ---
-title: "產生並匯出點對站的憑證：PowerShell：Azure | Microsoft Docs"
-description: "建立自我簽署的根憑證、匯出公開金鑰，以及使用 Windows 10 或 Windows Server 2016 中的 PowerShell 產生用戶端憑證。"
+title: 產生並匯出點對站的憑證：PowerShell：Azure | Microsoft Docs
+description: 建立自我簽署的根憑證、匯出公開金鑰，以及使用 Windows 10 或 Windows Server 2016 中的 PowerShell 產生用戶端憑證。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 27b99f7c-50dc-4f88-8a6e-d60080819a43
 ms.service: vpn-gateway
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/23/2018
+ms.date: 04/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 410fe05e0a545905024f223e6f7297066b326d14
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 385b6ed2e8104fd2e15e6e55d46dcd12b963ec6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>使用 Windows 10 或 Windows Server 2016 中的 PowerShell 產生並匯出用於點對站連線的憑證
+# <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>使用 PowerShell 來產生並匯出點對站的憑證
 
 點對站連線使用憑證進行驗證。 本文說明如何使用 Windows 10 或 Windows Server 2016 中的 PowerShell 建立自我簽署的根憑證，以及產生用戶端憑證。 如果您要尋找點對站設定步驟 (例如如何上傳根憑證)，請從下列清單中選取其中一篇＜設定點對站＞文章：
 

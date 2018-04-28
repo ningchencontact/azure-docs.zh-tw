@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 713b830717cce7b4b2b0fb1171596659c2275b85
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 13c3c948fbe24d5536b32967c8394060ee898377
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>將資料流處理資料輸入或參考資料新增至串流分析工作
 了解如何從事件中樞或 Blob 儲存體的參考資料，將資料來源連接至串流分析工作，以做為資料流處理資料輸入。
@@ -49,12 +49,12 @@ Azure 串流分析工作可以連線至一或多個資料輸入，且每個資�
     ![加入資料流資料輸入](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)  
 4. 在 [輸入別名] 方塊中，替這個輸出取一個易記的名稱。  此名稱稍後將在作業查詢中用作指稱輸入。
    
-    填寫其餘必要的連接屬性，以連接到資料來源。 這些欄位會因輸入類型和來源類型而有所不同，詳細定義請見 [此處](stream-analytics-create-a-job.md)。  
+    填寫其餘必要的連接屬性，以連接到資料來源。 
    
     ![新增事件中樞資料輸入](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)  
 5. 指定輸入資料的序列化設定：
    
-   * 若要確定查詢會依照您所預期的方式處理，請指定傳入資料的 **事件序列化格式** 。  支援的序列化格式為 JSON、CSV 及 Avro。
+   * 若要確定查詢會依照您所預期的方式處理，請指定傳入資料的 **事件序列化格式** 。  支援的序列化格式為 JSON、CSV 及 Avro。 請確認 JSON 格式與規格一致，並且不包含以 0 開頭的十進位數字。
    * 確認資料的 **編碼** 。  UTF-8 是目前唯一支援的編碼格式。
      
      ![資料輸入的資料序列化設定](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  

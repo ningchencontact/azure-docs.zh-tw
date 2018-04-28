@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 11f57f866981cd4d376705dd24e2f0c54126e337
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure Stack 1803 更新
 
@@ -44,10 +44,11 @@ Azure Stack 1803 更新組建編號為 **20180329.1**。
 
 
 ### <a name="post-update-steps"></a>更新後步驟
-在安裝 1803 之後，安裝任何適用的 Hotfix。 如需詳細資訊，請檢視下列知識庫文章，以及我們的[服務原則](azure-stack-servicing-policy.md)。
+- 在安裝 1803 之後，安裝任何適用的 Hotfix。 如需詳細資訊，請檢視下列知識庫文章，以及我們的[服務原則](azure-stack-servicing-policy.md)。
 
-- [KB 4103348 - 網路控制器 API 服務在您嘗試安裝 Azure Stack 更新時損毀](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4103348 - 網路控制器 API 服務在您嘗試安裝 Azure Stack 更新時損毀](https://support.microsoft.com/en-us/help/4103348)
 
+- 安裝此更新之後，請檢閱防火牆設定，確定已開啟[必要的連接埠](azure-stack-integrate-endpoints.md)。 例如，此更新引進的 Azure 監視器會變更活動記錄檔的稽核記錄檔。 而這項變更現在會使用連接埠 13012，您也必須開啟此連接埠。  
 
 ### <a name="new-features"></a>新功能 
 此更新包含下列適用於 Azure Stack 的改良功能與修正。
@@ -169,7 +170,7 @@ Azure Stack 1803 更新組建編號為 **20180329.1**。
     - *允許：*
  
       ```powershell    
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -199,7 +200,7 @@ Azure Stack 1803 更新組建編號為 **20180329.1**。
 
         ```powershell
         
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

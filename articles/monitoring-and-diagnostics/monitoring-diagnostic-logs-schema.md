@@ -1,9 +1,9 @@
 ---
-title: "Azure 診斷記錄支援的服務和結構描述 | Microsoft Docs"
-description: "了解 Azure 診斷記錄支援的服務和事件結構描述。"
+title: Azure 診斷記錄支援的服務和結構描述 | Microsoft Docs
+description: 了解 Azure 診斷記錄支援的服務和事件結構描述。
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/24/2018
+ms.date: 4/12/2018
 ms.author: johnkem
-ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91c3f1507bb4fb64d5395917e8e431951f77e72b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
@@ -73,6 +73,7 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.DataLakeAnalytics/accounts|要求|要求記錄檔|
 |Microsoft.DataLakeStore/accounts|稽核|稽核記錄|
 |Microsoft.DataLakeStore/accounts|Requests|要求記錄檔|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 伺服器記錄|
 |Microsoft.Devices/IotHubs|連線|連線|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|裝置遙測|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D 命令|
@@ -84,6 +85,7 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.Devices/IotHubs|TwinQueries|對應項查詢|
 |Microsoft.Devices/IotHubs|JobsOperations|作業的操作|
 |Microsoft.Devices/IotHubs|DirectMethods|直接方法|
+|Microsoft.Devices/IotHubs|E2EDiagnostics|E2E 診斷 (預覽)|
 |Microsoft.Devices/provisioningServices|DeviceOperations|裝置作業|
 |Microsoft.Devices/provisioningServices|ServiceOperations|服務作業|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -96,7 +98,6 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|整合帳戶追蹤事件|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|網路安全性群組事件|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|網路安全性群組規則計數器|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|網路安全性群組規則流程事件|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|負載平衡器警示事件|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|負載平衡器探查健全狀況狀態|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS 保護通知|
@@ -107,6 +108,8 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|閘道診斷記錄|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|通道診斷記錄|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|路由診斷記錄|
+|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE 診斷記錄|
+|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S 診斷記錄|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|流量管理員探查健康情況結果事件|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|GWM 計數器的資料表|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure 備份報表資料|
@@ -127,6 +130,7 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.Sql/servers/databases|區塊|區塊|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
 |Microsoft.Sql/servers/databases|稽核|稽核記錄|
+|Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL 安全性稽核事件|
 |Microsoft.StreamAnalytics/streamingjobs|執行|執行|
 |Microsoft.StreamAnalytics/streamingjobs|編寫|編寫|
 
