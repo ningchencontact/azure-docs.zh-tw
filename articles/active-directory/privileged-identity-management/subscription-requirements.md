@@ -1,8 +1,8 @@
 ---
-title: "Privileged Identity Management 訂用帳戶 - Azure| Microsoft Docs"
-description: "說明在租用戶中管理及使用 Azure AD Privileged Identity Management 的訂用帳戶和授權需求"
+title: Privileged Identity Management 訂用帳戶 - Azure| Microsoft Docs
+description: 說明在租用戶中管理及使用 Azure AD Privileged Identity Management 的訂用帳戶和授權需求
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
 editor: mwahl
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: b04544c6a1d288524783ed6d323146c0ef7bfe95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e49ddb8fca9ce193c92f27c307942d5f3d3d2fd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Azure Active Directory Privileged Identity Management 訂用帳戶需求
 
@@ -40,7 +40,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management 處於預覽狀
 
 如果此命令傳回一個資料行，其中的 SkuPartNumber 為 "AAD_PREMIUM_P2" 或 "EMSPREMIUM" 且 IsTrial 為 "True"，這表示 Azure AD Premium P2 試用版已存在於租用戶。  如果訂用帳戶狀態為未啟用，而且您未購買 Azure AD Premium P2 或 EMS E5 訂用帳戶，則您必須購買 Azure AD Premium P2 訂用帳戶或 EMS E5 訂用帳戶，才能繼續使用 Azure AD Privileged Identity Management。
 
-您可以透過 [Microsoft Enterprise 合約](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)、[Open Volume 授權方案](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)與[雲端解決方案提供者方案](https://partner.microsoft.com/en-US/cloud-solution-provider)取得 Azure AD Premium P2。 Azure 和 Office 365 訂閱者也可以線上購買 Azure AD Premium P2。  如需關於 Azure AD Premium 價格或線上訂購方式的詳細資訊，請瀏覽 [Azure Active Directory 價格](https://azure.microsoft.com/en-us/pricing/details/active-directory/)。
+您可以透過 [Microsoft Enterprise 合約](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)、[Open Volume 授權方案](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)與[雲端解決方案提供者方案](https://partner.microsoft.com/en-US/cloud-solution-provider)取得 Azure AD Premium P2。 Azure 和 Office 365 訂閱者也可以線上購買 Azure AD Premium P2。  如需關於 Azure AD Premium 價格或線上訂購方式的詳細資訊，請瀏覽 [Azure Active Directory 價格](https://azure.microsoft.com/pricing/details/active-directory/)。
 
 ## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>Azure AD Privileged Identity Management 不適用於租用戶
 

@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 962a9d32790638af7513e805424d8579b29f433e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 005470298a115a822350f345cdab6e9cafb15eda
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>深入學習預測性維護實際案例
 
@@ -151,7 +151,7 @@ LSTM_o16n.zip 部署檔案包含下列構件：
 * [使用 SQL R 服務的預測性維護建模指南](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [預測性維護建模指南 Python 筆記本](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [使用 PySpark 的預測性維護](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
-* [預測性維護真實案例](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance)
+* [預測性維護真實案例](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Cerner Central 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Cerner Central 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Cerner Central 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Cerner Central 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 391994b8df73657dc75e8c9790356f443341159d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6481a96956fe82d47c3c0bb2f7f69a0df8d5b993
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>教學課程：Azure Active Directory 與 Cerner Central 整合
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/11/2017
 
 **若要從資源庫新增 Cerner Central，執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 12/11/2017
     ![設定單一登入][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![設定單一登入](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_samlbase.png)
 
 3. 在 [Cerner Central 網域及 URL] 區段上，執行下列步驟：
@@ -115,46 +115,24 @@ ms.lasthandoff: 12/11/2017
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
     
-
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式輸入 URL： 
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式輸入 URL：
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
     
-
-    > [!NOTE] 
+    > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Cerner Central 支援小組](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations)以取得這些值。
- 
-4. 按一下 [儲存]  按鈕。
+
+4. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+    
+    ![設定單一登入](./media/active-directory-saas-cernercentral-tutorial/tutorial_metadataurl.png)
+     
+5. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/active-directory-saas-cernercentral-tutorial/tutorial_general_400.png)
 
-5. 若要產生**中繼資料** URL，執行下列步驟︰
-
-    a. 按一下 [應用程式註冊]。
-    
-    ![設定單一登入](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_appregistrations.png)
-   
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
-    
-    ![設定單一登入](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_endpointicon.png)
-
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_endpoint.png)
-     
-    d. 現在，移至 [Cerner Central] 的屬性頁面，使用 [複製] 按鈕複製 [應用程式識別碼]，並將它貼到 [記事本]。
- 
-    ![設定單一登入](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. 為了要在 **Cerner Central** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [Cerner Central 支援小組](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations)。 由他們設定應用程式端的單一登入以完成整合。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+6. 為了要在 **Cerner Central** 端設定單一登入，您必須將「應用程式同盟中繼資料 URL」傳送給 [Cerner Central 支援小組](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations) \(英文\)。 由他們設定應用程式端的單一登入以完成整合。
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。 
@@ -247,4 +225,3 @@ ms.lasthandoff: 12/11/2017
 [201]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_203.png
-

@@ -1,24 +1,24 @@
 ---
-title: "Log Analytics 資料安全性 | Microsoft Docs"
-description: "深入了解 Log Analytics 如何保護您的隱私權和保護您的資料安全。"
+title: Log Analytics 資料安全性 | Microsoft Docs
+description: 深入了解 Log Analytics 如何保護您的隱私權和保護您的資料安全。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 04/16/2018
 ms.author: magoedte
-ms.openlocfilehash: bfd9b3302c73e50408cdd68b25317630aa087d7f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f14b96b88a96f4bef24602bb9338a77352fbf375
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 資料安全性
 本文件旨在提供 Azure Log Analytics 的特定資訊，以補充 [Azure 信任中心](../security/security-microsoft-trust-center.md)上的資訊。  
@@ -157,7 +157,7 @@ Windows 或管理伺服器代理程式的快取資料會受到作業系統的認
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3.Log Analytics 服務接收和處理資料
 Log Analytics 服務會確保內送資料是來自信任的來源，方法是驗證憑證和與 Azure 驗證的資料完整性。 接著，未經處理的資料會儲存在 Azure 事件中樞，在資料最終會待用儲存的區域中。 所儲存的資料類型取決於匯入和用來收集資料的解決方案類型。 然後，Log Analytics 服務會處理未經處理的資料，並將這些資料內嵌至資料庫內。
 
-儲存在資料庫中的已收集資料之保留期會取決於建立工作區時選取的計劃。  對於付費層，收集的資料根據預設可供使用 31 天，但可以延長為 365 天。  此資料尚未待用加密，且計劃於 2018 年中進行。 
+儲存在資料庫中已收集資料的保留期，會取決於所選的定價方案。 對於*免費*層，收集的資料可使用 7 天。 對於*付費*層，收集的資料根據預設可供使用 31 天，但可以延長為 720 天。 資料會以加密方式靜態儲存在 Azure 儲存體中，以確保資料機密性。 過去兩週的資料也會儲存在以 SSD 為基礎的快取，而且此快取目前未加密。  我們計劃在 2018 年後半年支援這類加密。  
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4.使用 Log Analytics 來存取資料
 如需存取 Log Analytics 工作區，請使用組織帳戶或您先前設定的 Microsoft 帳戶來登入 Azure 入口網站。 入口網站與 Log Analytics 服務之間的所有流量都會透過安全的 HTTPS 通道傳送。 在使用入口網站時，使用者用戶端 (網頁瀏覽器) 上會產生工作階段識別碼，且資料會儲存在本機快取中，直到工作階段終止為止。 終止時便會刪除快取。 未包含個人識別資訊的用戶端 Cookie 不會自動移除。 工作階段 Cookie 會標示為 HTTPOnly，並受到保護。 經過預先決定的閒置時間後，Azure 入口網站工作階段就會終止。

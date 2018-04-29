@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 4ddb870d0513d6834aacf0964c240260f18df0fd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3a4026b56522da6c6efede4b8b7a542efc8a776d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>了解如何佈建新的租用戶並在目錄中註冊它們
 
@@ -63,7 +63,7 @@ SaaS 應用程式以外，目錄可以啟用資料庫工具。 在每一租用�
 
 每一租用戶一個資料庫的 Wingtip Tickets 應用程式會藉由複製目錄伺服器上所部署、名為 _basetenantdb_ 的範本資料庫，佈建新的租用戶。 您可以將佈建整合到應用程式作為註冊體驗的一部分。 此外，也可以藉由使用指令碼以離線方式支援。 本教學課程會使用 PowerShell 來探索佈建。 
 
-佈建指令碼會複製 _basetenantdb_ 資料庫，以在彈性集區中建立新的租用戶資料庫。 接著，指令碼會以租用戶特定資訊將資料庫初始化，然後在目錄分區對應中註冊該資料庫。 租用戶資料庫會根據租用戶名稱來命名。 此命名配置不是此模式的重要部分。 目錄會將租用戶金鑰與資料庫名稱對應，因此可以使用任何命名慣例。 
+佈建指令碼會複製 _basetenantdb_ 資料庫，以在彈性集區中建立新的租用戶資料庫。 租用戶資料庫會建立在與 _newtenant_ DNS 別名對應的租用戶伺服器中。 此別名會持續為用來佈建新租用戶的伺服器提供參考，並更新為指向災害復原教學課程 ([使用異地還原的 DR](saas-dbpertenant-dr-geo-restore.md)、[使用異地複寫的 DR](saas-dbpertenant-dr-geo-replication.md)) 中的復原租用戶伺服器。 接著，指令碼會以租用戶特定資訊將資料庫初始化，然後在目錄分區對應中註冊該資料庫。 租用戶資料庫會根據租用戶名稱來命名。 此命名配置不是此模式的重要部分。 目錄會將租用戶金鑰與資料庫名稱對應，因此可以使用任何命名慣例。 
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>取得每一租用戶一個資料庫的 Wingtip Tickets SaaS 應用程式指令碼

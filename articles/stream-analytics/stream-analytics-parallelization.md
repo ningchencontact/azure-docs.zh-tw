@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: fae9d7f871dbb20f19bfd61576e017b3910ee8f4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 串流分析中的查詢平行化作業
 本文會示範如何利用 Azure 串流分析中的平行化作業。 您可以了解如何透過設定輸入資料分割並調整分析查詢定義來調整串流分析工作。
@@ -29,21 +29,13 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="inputs"></a>輸入
 所有 Azure 串流分析輸入都可以利用資料分割：
--   事件中樞 (需要明確地設定資料分割索引鍵)
--   IoT 中樞 (需要明確地設定資料分割索引鍵)
+-   事件中樞 (需要明確地使用 PARTITION BY 關鍵字設定分割區索引鍵)
+-   IoT 中樞 (需要明確地使用 PARTITION BY 關鍵字設定分割區索引鍵)
 -   Blob 儲存體
 
 ### <a name="outputs"></a>輸出
 
-使用串流分析時，您可以利用輸出中的資料分割：
--   Azure Data Lake 儲存體
--   Azure Functions
--   Azure 資料表
--   Blob 儲存體
--   CosmosDB (需要明確地設定資料分割索引鍵)
--   事件中樞 (需要明確地設定資料分割索引鍵)
--   IoT 中樞 (需要明確地設定資料分割索引鍵)
--   服務匯流排
+使用串流分析時，您可以為大多數的輸出接收利用分割區。 輸出分割的詳細資訊位於[輸出頁面的分割區段](https://review.docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs?branch=master#partitioning)。
 
 PowerBI、SQL 和 SQL 資料倉儲輸出不支援資料分割。 不過，您仍然可以分割輸入，如[本節](#multi-step-query-with-different-partition-by-values)中所述 
 
@@ -56,7 +48,7 @@ PowerBI、SQL 和 SQL 資料倉儲輸出不支援資料分割。 不過，您仍
 ## <a name="embarrassingly-parallel-jobs"></a>窘迫平行作業
 「窘迫平行」作業是我們在 Azure 串流分析中調整性最高的情節。 它將對於查詢執行個體之輸入的某個資料分割，連接到輸出的某個資料分割。 此平行處理原則具有下列需求︰
 
-1. 如果查詢邏輯相依於同一個查詢執行個體所處理的相同索引鍵，則您必須確保事件會傳送至輸入的相同分割區。 對於事件中樞，這表示事件資料必須設定 **PartitionKey** 值。 或者，您可以使用分割的傳送者。 對於 Blob 儲存體，這表示事件會傳送至相同的磁碟分割資料夾。 如果查詢邏輯並不需要同一個查詢執行個體所處理的相同索引鍵，您可以忽略這項需求。 簡單的選取-投影-篩選查詢，即為此邏輯的一個例子。  
+1. 如果查詢邏輯相依於同一個查詢執行個體所處理的相同索引鍵，則您必須確保事件會傳送至輸入的相同分割區。 對於事件中樞或 IoT 中樞，這表示事件資料必須設定 **PartitionKey** 值。 或者，您可以使用分割的傳送者。 對於 Blob 儲存體，這表示事件會傳送至相同的磁碟分割資料夾。 如果查詢邏輯並不需要同一個查詢執行個體所處理的相同索引鍵，您可以忽略這項需求。 簡單的選取-投影-篩選查詢，即為此邏輯的一個例子。  
 
 2. 當資料放在輸入端時，您必須確保查詢已分割。 所有步驟中都必須使用 **PARTITION BY**。 您可以使用多個步驟，但全部都必須依相同的索引鍵來分割。 目前，資料分割索引鍵必須設定為 **PartitionId**，作業才能完全平行。  
 
@@ -66,6 +58,7 @@ PowerBI、SQL 和 SQL 資料倉儲輸出不支援資料分割。 不過，您仍
 
    * 8 個事件中樞輸入分割區和 8 個事件中樞輸出分割區
    * 8 個事件中樞輸入分割區和 blob 儲存體輸出  
+   * 8 個 IoT 中樞輸入分割區和 8 個事件中樞輸出分割區
    * 8 個 blob 儲存體輸入分割區和 blob 儲存體輸出  
    * 8 個 blob 儲存體輸入分割區和 8 個事件中樞輸出分割區  
 

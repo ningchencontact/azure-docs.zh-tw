@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: bdb9bfaa85f526af0c5e42294a75664fa7137849
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-storage-replication"></a>Azure 儲存體複寫
 
@@ -46,7 +46,7 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 > 進階儲存體僅支援本地備援儲存體 (LRS)。 如需進階儲存體的相關資訊，請參閱 [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../virtual-machines/windows/premium-storage.md)。
 
 ## <a name="changing-replication-strategy"></a>變更複寫策略
-您可以使用 [Azure 入口網站](https://portal.azure.com/)、[Azure Powershell](storage-powershell-guide-full.md)、[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) 或眾多 [Azure 用戶端程式庫](https://docs.microsoft.com/en-us/azure/index?view=azure-dotnet#pivot=sdkstools)其中之一，來變更儲存體帳戶的複寫策略。 變更儲存體帳戶的複寫類型並不會造成停機。
+您可以使用 [Azure 入口網站](https://portal.azure.com/)、[Azure Powershell](storage-powershell-guide-full.md)、[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 或眾多 [Azure 用戶端程式庫](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools)其中之一，來變更儲存體帳戶的複寫策略。 變更儲存體帳戶的複寫類型並不會造成停機。
 
    > [!NOTE]
    > 目前，您無法使用入口網站或 API 將帳戶轉換成 ZRS。 不過，我們計劃在 ZRS 正式運作之後，支援從 LRS、GRS 及 RA-GRS 移轉至 ZRS。 如需詳細資料，請參閱[區域備援儲存體 (ZRS)](storage-redundancy-zrs.md)。

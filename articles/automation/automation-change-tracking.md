@@ -9,11 +9,11 @@ ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a093a44106ad861449b6defb140532698fa668
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4abf8ae491c9992dd3d21a0d657ba9cd214b740
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
@@ -23,18 +23,19 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="enable-change-tracking-and-inventory"></a>啟用變更追蹤和清查
 
-
 若要開始追蹤變更，您必須為自動化帳戶啟用變更追蹤和清查解決方案。
 
 1. 在 Azure 入口網站中，瀏覽至您的自動化帳戶
 1. 選取 [組態] 下的 [變更追蹤]。
-2. 選取現有的 Log Analytics 工作區或 [建立新的工作區]，然後按一下 [啟用]。
+1. 選取現有的 Log Analytics 工作區或 [建立新的工作區]，然後按一下 [啟用]。
 
 這會為您的自動化帳戶啟用解決方案。 啟用解決方案可能需要 15 分鐘。 解決方案啟用時，會有藍色橫幅通知您。 瀏覽回 [變更追蹤] 頁面，以管理解決方案。
 
 ## <a name="configuring-change-tracking-and-inventory"></a>設定變更追蹤和清查
 
-若要了解如何將電腦登入解決方案，請瀏覽：[登入自動化解決方案](automation-onboard-solutions-from-automation-account.md)。 當您啟用新的檔案或登錄機碼加以追蹤時，其變更追蹤和清查都會啟用。
+若要了解如何將電腦登入解決方案，請瀏覽：[登入自動化解決方案](automation-onboard-solutions-from-automation-account.md)。 一旦您有已安裝變更追蹤和清查解決方案的機器，即可設定要追蹤的項目。當您啟用新的檔案或登錄機碼加以追蹤時，其變更追蹤和清查都會啟用。
+
+如需追蹤 Windows 和 Linux 上的檔案變更，則會使用檔案的 MD5 雜湊。 這些雜湊接著用來偵測自上次清查後是否已進行變更。
 
 ### <a name="configure-linux-files-to-track"></a>設定要追蹤的 Linux 檔案
 
@@ -109,6 +110,7 @@ ms.lasthandoff: 03/23/2018
 ## <a name="known-issues"></a>已知問題
 
 「變更追蹤」解決方案目前有下列問題︰
+
 * Windows 10 Creators Update 和 Windows Server 2016 Core RS3 機器不會收集 Hotfix 更新。
 
 ## <a name="change-tracking-data-collection-details"></a>「變更追蹤」資料收集詳細資訊
@@ -117,13 +119,13 @@ ms.lasthandoff: 03/23/2018
 
 | **變更類型** | **頻率** |
 | --- | --- |
-| Windows 登錄 | 50 分鐘 | 
-| Windows 檔案 | 30 分鐘 | 
-| Linux 檔案 | 15 分鐘 | 
-| Windows 服務 | 30 分鐘 | 
+| Windows 登錄 | 50 分鐘 |
+| Windows 檔案 | 30 分鐘 |
+| Linux 檔案 | 15 分鐘 |
+| Windows 服務 | 30 分鐘 |
 | Linux 精靈 | 5 分鐘 |
-| Windows 軟體 | 30 分鐘 | 
-| Linux 軟體軟體 | 5 分鐘 | 
+| Windows 軟體 | 30 分鐘 |
+| Linux 軟體軟體 | 5 分鐘 |
 
 ### <a name="registry-key-change-tracking"></a>登錄機碼變更追蹤
 

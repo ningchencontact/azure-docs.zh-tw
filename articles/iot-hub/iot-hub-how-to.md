@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中樞做法 | Microsoft Docs"
-description: "身為開發人員，如何使用各種 IoT 中樞功能？"
+title: Azure IoT 中樞做法 | Microsoft Docs
+description: 身為開發人員，如何使用各種 IoT 中樞功能？
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: b451ea2d42f0ff2f64746bcb296fb9128472fea8
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9b112d2d7fc1756b74e98335831175f5d4c13320
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-use-azure-iot-hub"></a>如何使用 Azure IoT 中樞
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/24/2017
 
 - [使用所需屬性來設定裝置][lnk-properties-tutorial]。 本教學課程說明如何使用裝置對應項的所需屬性以及報告屬性，從遠端設定您的裝置。
 
-- [使用裝置作業來起始裝置韌體更新][lnk-jobs-tutorial]。 本教學課程說明如何使用主要裝置管理功能，例如裝置對應項和直接方法。 了解如何使用這些功能以從遠端更新裝置的韌體。
+- [使用裝置管理更新裝置韌體][lnk-jobs-tutorial]。 本教學課程說明如何使用主要裝置管理功能，例如裝置對應項和直接方法。 了解如何使用這些功能以從遠端更新裝置的韌體。
 
 - [排程及廣播作業][lnk-schedule-tutorial]。 本教學課程說明如何使用所需屬性和直接方法，在排定的時間與多個裝置互動。
 

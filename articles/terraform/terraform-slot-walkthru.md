@@ -1,33 +1,35 @@
 ---
 title: Terraform 和 Azure 提供者部署位置
-description: Terraform 和 Azure 提供者部署位置教學課程
+description: 關於使用 Terraform 和 Azure 提供者部署位置的教學課程
 keywords: terraform, devops, 虛擬機器, Azure, 部署位置
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 4/05/2018
 ms.topic: article
-ms.openlocfilehash: 34b16b5fb2b5b574d166693db346ebba15eaa1f9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3a018dbaf90801604b13efcf8bd7afb6dbc68659
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="using-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>使用 Terraform 來佈建具有 Azure 部署位置的基礎結構
+# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>使用 Terraform 來佈建具有 Azure 部署位置的基礎結構
 
-[Azure 部署位置](/azure/app-service/web-sites-staged-publishing)可讓您交換不同版本的應用程式 (例如生產和預備)，以將中斷部署的影響降到最低。 本文逐步引導您透過 GitHub 和 Azure 部署兩個應用程式，以說明部署位置的使用範例。 有一個應用程式裝載於「生產位置」，而第二個應用程式則裝載於「預備」位置。 (「生產」和「預備」這兩個名稱都是隨意的名稱，可以是您想代表您的案例的任何事物。)設定部署位置後，您則可視需要使用 Terraform 來交換兩個位置。
+您可以使用 [Azure 部署位置](/azure/app-service/web-sites-staged-publishing)在不同版本的應用程式之間交換。 這項功能可協助您將中斷部署的影響降到最低。 
+
+本文逐步引導您透過 GitHub 和 Azure 部署兩個應用程式，以說明部署位置的使用範例。 一個應用程式會裝載在生產位置中。 第二個應用程式會裝載在預備位置中。 (「生產」和「預備」這兩個名稱都是隨意的名稱，可以是您想代表您的案例的任何事物。)設定部署位置後，您可視需要使用 Terraform 來交換兩個位置。
 
 ## <a name="prerequisites"></a>先決條件
 
-- **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
-- **GitHub 帳戶** - 需要 [GitHub](http://www.github.com) 帳戶才能派生和使用測試 GitHub 存放庫。
+- **GitHub 帳戶**：您需要 [GitHub](http://www.github.com) 帳戶才能派生和使用測試 GitHub 存放庫。
 
 ## <a name="create-and-apply-the-terraform-plan"></a>建立和套用 Terraform 計劃
 
-1. 瀏覽至 [Azure 入口網站](http://portal.azure.com)
+1. 瀏覽至 [Azure 入口網站](http://portal.azure.com)。
 
-1. 開啟 [Azure Cloud Shell](/azure/cloud-shell/overview)，然後選取  **Bach** 作為您的環境 (如果先前未這麼做)。
+1. 開啟 [Azure Cloud Shell](/azure/cloud-shell/overview)。 如果您先前未選取環境，請選取 **Bash** 作為您的環境。
 
     ![Cloud Shell 提示](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button-min.png)
 
@@ -49,7 +51,7 @@ ms.lasthandoff: 04/06/2018
     mkdir swap
     ```
 
-1. 使用 `ls` bash 命令來確認兩個目錄都已建立成功。
+1. 使用 `ls` bash 命令來確認您已成功建立這兩個目錄。
 
     ![建立目錄之後的 Cloud Shell](./media/terraform-slot-walkthru/cloud-shell-after-creating-dirs.png)
 
@@ -59,18 +61,18 @@ ms.lasthandoff: 04/06/2018
     cd deploy
     ```
 
-1. 使用 [vi 編輯器](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html)，建立名為 `deploy.tf` 的檔案，其中會包含 [Terraform 組態](https://www.terraform.io/docs/configuration/index.html)。
+1. 使用 [vi 編輯器](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html)，建立名為 `deploy.tf` 的檔案。 這個檔案會包含 [Terraform 組態](https://www.terraform.io/docs/configuration/index.html)。
 
     ```bash
     vi deploy.tf
     ```
 
-1. 按字母 `i` 鍵進入插入模式。
+1. 選取 I 鍵輸入插入模式。
 
 1. 將下列程式碼貼到編輯器中：
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     resource "azurerm_resource_group" "slotDemo" {
@@ -104,15 +106,15 @@ ms.lasthandoff: 04/06/2018
     }
     ```
 
-1. 按 **&lt;Esc>** 鍵結束插入模式。
+1. 選取 Esc 鍵結束插入模式。
 
-1. 輸入下列命令，接著按 **&lt;Enter>** 來儲存檔案及結束 vi 編輯器：
+1. 輸入下列命令來儲存檔案及結束 vi 編輯器：
 
     ```bash
     :wq
     ```
 
-1. 建立此檔案後，您即可確認其內容。
+1. 既然您已建立檔案，請確認其內容。
 
     ```bash
     cat deploy.tf
@@ -138,15 +140,15 @@ ms.lasthandoff: 04/06/2018
 
 1. 關閉 Cloud Shell 視窗。
 
-1. 在 Azure 入口網站主功能表上，選取 [資源群組]。
+1. 在 Azure 入口網站的主功能表上，選取 [資源群組]。
 
-    ![Azure 入口網站資源群組](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
+    ![入口網站中的「資源群組」選取項目](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
 
 1. 在 [資源群組] 索引標籤上，選取 [slotDemoResourceGroup]。
 
     ![Terraform 所建立的資源群組](./media/terraform-slot-walkthru/resource-group.png)
 
-完成時，您會看到 Terraform 建立的所有資源。
+現在，您會看到 Terraform 已建立的所有資源。
 
 ![Terraform 所建立的資源](./media/terraform-slot-walkthru/resources.png)
 
@@ -156,7 +158,7 @@ ms.lasthandoff: 04/06/2018
 
 1. 瀏覽至 [GitHub 上的 awesome-terraform 存放庫](https://github.com/Azure/awesome-terraform)。
 
-1. 派生 **awesome-terraform 存放庫**。
+1. 派生 **awesome-terraform** 存放庫。
 
     ![派生 GitHub awesome-terraform 存放庫](./media/terraform-slot-walkthru/fork-repo.png)
 
@@ -166,7 +168,7 @@ ms.lasthandoff: 04/06/2018
 
 派生測試專案存放庫之後，請透過下列步驟來設定部署位置：
 
-1. 在 Azure 入口網站主功能表上，選取 [資源群組]。
+1. 在 Azure 入口網站的主功能表上，選取 [資源群組]。
 
 1. 選取 [slotDemoResourceGroup]。
 
@@ -182,9 +184,9 @@ ms.lasthandoff: 04/06/2018
 
 1. 在 Azure 進行連線並顯示所有選項之後，請選取 [授權]。
 
-1. 在 [授權] 索引標籤上，選取 [授權]，並提供 Azure 存取您的 GitHub 帳戶所需的認證。 
+1. 在 [授權] 索引標籤上，選取 [授權]，並提供 Azure 存取您 GitHub 帳戶所需的認證。 
 
-1. 在 Azure 驗證您的 GitHub 認證之後，系統會顯示一則訊息，指出已完成授權程序。 選取 [確定] 以關閉 [授權] 索引標籤。
+1. Azure 在驗證您的 GitHub 認證之後，系統會顯示一則訊息，指出已完成授權程序。 選取 [確定] 以關閉 [授權] 索引標籤。
 
 1. 選取 [選擇您的組織] 並選取您的組織。
 
@@ -206,17 +208,17 @@ ms.lasthandoff: 04/06/2018
 
 - 在步驟 3 中，選取 [slotAppServiceSlotOne] 資源。
 
-- 在步驟 13 中，選取「工作」分支，而不是主要分支。
+- 在步驟 13 中，選取工作分支，而不是主要分支。
 
     ![選擇工作分支](./media/terraform-slot-walkthru/choose-branch-working.png)
 
 ## <a name="test-the-app-deployments"></a>測試應用程式部署
 
-在前面幾節中，您設定了兩個位置 (**slotAppService** 和 **slotAppServiceSlotOne**)，以從 GitHub 中不同的分支進行部署。 讓我們來預覽 Web 應用程式，以驗證這些應用程式是否已部署成功。
+在前面幾節中，您設定了兩個位置--**slotAppService** 和 **slotAppServiceSlotOne**--以從 GitHub 中不同的分支進行部署。 讓我們來預覽 Web 應用程式，以驗證這些應用程式是否已部署成功。
 
-執行下列步驟兩次：在步驟 3 中，您第一次會選取 [slotAppService]，然後第二次會選取 [slotAppServiceSlotOne]：
+請執行下列步驟兩次。 在步驟 3 中，您第一次會選取 [slotAppService]，然後第二次會選取 [slotAppServiceSlotOne]。
 
-1. 在 Azure 入口網站主功能表上，選取 [資源群組]。
+1. 在 Azure 入口網站的主功能表上，選取 [資源群組]。
 
 1. 選取 [slotDemoResourceGroup]。
 
@@ -257,12 +259,12 @@ ms.lasthandoff: 04/06/2018
     vi swap.tf
     ```
 
-1. 按字母 `i` 鍵進入插入模式。
+1. 選取 I 鍵輸入插入模式。
 
 1. 將下列程式碼貼到編輯器中：
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     # Swap the production slot and the staging slot
@@ -273,9 +275,9 @@ ms.lasthandoff: 04/06/2018
     }
     ```
 
-1. 按 **&lt;Esc>** 鍵結束插入模式。
+1. 選取 Esc 鍵結束插入模式。
 
-1. 輸入下列命令，接著按 **&lt;Enter>** 來儲存檔案及結束 vi 編輯器：
+1. 輸入下列命令來儲存檔案及結束 vi 編輯器：
 
     ```bash
     :wq
@@ -299,9 +301,9 @@ ms.lasthandoff: 04/06/2018
     terraform apply
     ```
 
-1. 一旦 Terraform 完成位置交換，請回到呈現 **slotAppService** Web 應用程式的瀏覽器並重新整理頁面。 
+1. 在 Terraform 完成位置交換後，請回到呈現 **slotAppService** Web 應用程式的瀏覽器並重新整理頁面。 
 
-**slotAppServiceSlotOne** 預備位置中的Web 應用程式已與生產位置交換，現在呈現綠色。 
+**slotAppServiceSlotOne** 預備位置中的 Web 應用程式已與生產位置交換，現在呈現綠色。 
 
 ![部署位置已經交換](./media/terraform-slot-walkthru/slots-swapped.png)
 
@@ -311,4 +313,4 @@ ms.lasthandoff: 04/06/2018
 terraform apply
 ```
 
-一旦交換，您就會看到原始組態。
+交換之後，您就會看到原始組態。

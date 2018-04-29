@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 501364f24e61c29ac0d5909a7dff1df9e93fe6a5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作負載的安全性最佳作法
 
@@ -166,7 +166,7 @@ Azure IaaS 中的所有虛擬機器都應該強化，使其只會公開已安裝
 
 Security Compliance Manager 是免費的工具。 它可讓您使用群組原則和 System Center Configuration Manager 快速設定及管理桌上型電腦、傳統資料中心、私人和公用雲端。
 
-Security Compliance Manager 可提供已準備好部署的原則和經過測試的 Desired Configuration Management 設定套件。 這些基準是以 [Microsoft 安全性指南](https://technet.microsoft.com/en-us/library/cc184906.aspx)的建議和業界最佳作法為基礎。 它們可協助您管理設定飄移 (Configuration Drift)、解決相容性需求及降低安全性威脅。
+Security Compliance Manager 可提供已準備好部署的原則和經過測試的 Desired Configuration Management 設定套件。 這些基準是以 [Microsoft 安全性指南](https://technet.microsoft.com/library/cc184906.aspx)的建議和業界最佳作法為基礎。 它們可協助您管理設定飄移 (Configuration Drift)、解決相容性需求及降低安全性威脅。
 
 您可以使用 Security Compliance Manager 以兩種不同的方法匯入目前的電腦組態。 第一種方法，您可以匯入以 Active Directory 為基礎的群組原則。 第二種方法，您可以使用 [LocalGPO 工具](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/)匯入 “Golden Master” 參考電腦的組態，以備份本機群組原則。 接著，將本機群組原則匯入 Security Compliance Manager。
 

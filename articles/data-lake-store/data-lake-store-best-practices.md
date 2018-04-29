@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7493c10407bfe83bdc7277c49dae1a7e9d7c39f2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>使用 Azure Data Lake Store 的最佳做法
 在本文中，您會了解使用 Azure Data Lake Store 的最佳做法和考量。 本文提供 Data Lake Store 的安全性、效能、恢復功能及監視作業等相關資訊。 尚未使用 Data Lake Store 之前，若要在 Azure HDInsight 這類服務中處理如此龐大的資料，過程會十分繁瑣。 您必須將資料分給多個 Blob 儲存體帳戶，才能達到該規模的 PB 儲存量和最佳效能。 Data Lake Store 能突破大小和效能等大部分的硬性限制。 不過，為了讓您可取得 Data Lake Store 的最佳效能，本文中仍包含了一些考量。 
@@ -26,11 +26,13 @@ ms.lasthandoff: 04/05/2018
 
 Azure Data Lake Store 針對 Azure Active Directory (Azure AD) 使用者、群組和服務主體提供了 POSIX 存取控制與詳細稽核。 您可以對現有檔案和資料夾設定這些存取控制。 存取控制也可用來建立能套用至新檔案或資料夾的預設值。 對現有資料夾及子物件設定權限時，權限必須以遞迴方式在每個物件上傳播。 如果檔案數量很大，則傳播權限可能需要較長的時間。 所費時間大約為每秒處理 30-50 個物件。 因此，請適當地規劃資料夾結構和使用者群組。 否則，當您使用您的資料時，這可能會導致非預期的延遲和問題。 
 
-假設您的資料夾有 100,000 個子物件。 如果以每秒處理 30 個物件的下限來計算，更新整個資料夾的權限可能需要一小時。 如需有關 Data Lake Store ACL 的更多詳細資料，可在[Azure Data Lake Store 中的存取控制](data-lake-store-access-control.md)中取得。 如需以遞迴方式指派 ACL 來取得提升的效能，您可以使用 Azure Data Lake 命令列工具。 此工具會建立多個執行緒和遞迴的瀏覽邏輯，以快速將 ACL 套用至數百萬個檔案。 此工具適用於 Linux 和 Windows，而這項工具的[文件](https://github.com/Azure/data-lake-adlstool)和[下載](http://aka.ms/adlstool-download)資訊可在 GitHub 上找到。
+假設您的資料夾有 100,000 個子物件。 如果以每秒處理 30 個物件的下限來計算，更新整個資料夾的權限可能需要一小時。 如需有關 Data Lake Store ACL 的更多詳細資料，可在[Azure Data Lake Store 中的存取控制](data-lake-store-access-control.md)中取得。 如需以遞迴方式指派 ACL 來取得提升的效能，您可以使用 Azure Data Lake 命令列工具。 此工具會建立多個執行緒和遞迴的瀏覽邏輯，以快速將 ACL 套用至數百萬個檔案。 此工具適用於 Linux 和 Windows，而這項工具的[文件](https://github.com/Azure/data-lake-adlstool)和[下載](http://aka.ms/adlstool-download)資訊可在 GitHub 上找到。 透過您自己使用 Data Lake Store [.NET](data-lake-store-data-operations-net-sdk.md) 和 [Java](data-lake-store-get-started-java-sdk.md) SDK 撰寫的工具，也可以獲得相同的效能改進。
 
 ### <a name="use-security-groups-versus-individual-users"></a>使用安全性群組與個別使用者 
 
-在 Data Lake Store 中使用巨量資料時，最有可能是使用服務主體來允許 Azure HDInsight 這類服務使用資料。 不過，也可能會有個別使用者需要存取資料的情況。 在這種情況下，您必須使用 Azure Active Directory 安全性群組，而不是將個別使用者指派至資料夾和檔案。 指派權限給安全性群組之後，在群組中新增或移除使用者皆不需要更新 Data Lake Store。 
+在 Data Lake Store 中使用巨量資料時，最有可能是使用服務主體來允許 Azure HDInsight 這類服務使用資料。 不過，也可能會有個別使用者需要存取資料的情況。 在這種情況下，您必須使用 Azure Active Directory [安全性群組](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory)，而不是將個別使用者指派至資料夾和檔案。 
+
+指派權限給安全性群組之後，在群組中新增或移除使用者皆不需要更新 Data Lake Store。 這也有助於確保您不會超過 [32 個存取和預設 ACL](../azure-subscription-service-limits.md#data-lake-store-limits) 的限制 (該數量包含 4 個 POSIX 樣式 ACL，它們一律與每個檔案和資料夾相關聯：[擁有使用者](data-lake-store-access-control.md#the-owning-user)、[擁有群組](data-lake-store-access-control.md#the-owning-group)、[遮罩](data-lake-store-access-control.md#the-mask-and-effective-permissions)等等)。
 
 ### <a name="security-for-groups"></a>群組的安全性 
 
@@ -65,7 +67,7 @@ Data Lake Store 中的 POSIX 權限和稽核會在處理大量小型檔案時，
 * 加快複製/複寫的速度
 * 更新 Data Lake Store POSIX 權限時處理的檔案更少 
 
-視服務和工作負載使用的資料而定，可考慮的合適檔案大小為 256 MB 到 1 GB，最理想的情況是不要低於 100 MB，或超過 2 GB。 如果檔案大小無法在置入 Data Lake Store 時進行批次處理，您可以個別執行壓縮作業，將這些檔案結合成較大的檔案。 如需有關檔案大小及如何在 Data Lake Store 中組織資料的詳細資訊和建議，請參閱[建構您的資料集](data-lake-store-performance-tuning-guidance.md#structure-your-data-set)。 
+視服務和工作負載使用的資料而定，可考慮的合適檔案大小為 256 MB 到 1 GB，最理想的情況是不要低於 100 MB，或超過 2 GB。。 如果檔案大小無法在置入 Data Lake Store 時進行批次處理，您可以個別執行壓縮作業，將這些檔案結合成較大的檔案。 如需有關檔案大小及如何在 Data Lake Store 中組織資料的詳細資訊和建議，請參閱[建構您的資料集](data-lake-store-performance-tuning-guidance.md#structure-your-data-set)。 
 
 ### <a name="large-file-sizes-and-potential-performance-impact"></a>大型檔案大小和潛在的效能影響 
 

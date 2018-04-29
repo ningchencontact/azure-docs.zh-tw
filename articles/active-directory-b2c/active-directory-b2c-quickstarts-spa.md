@@ -1,6 +1,6 @@
 ---
-title: 測試已啟用 Azure AD B2C 的單一頁面應用程式
-description: 試用範例單一頁面應用程式的快速入門，而該應用程式使用 Azure Active Directory B2C 來驗證和註冊使用者。
+title: 快速入門 - 使用 Azure Active Directory B2C 為單一頁面應用程式設定登入 | Microsoft Docs
+description: 執行範例單一頁面應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
 services: active-directory-b2c
 documentationcenter: ''
 author: davidmu1
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 02a0515ff7c461370f29a511ac576d857676cb2b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 96baf0297c3d2976f3d6fb112b0bd0ce077a186f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-single-page-app"></a>快速入門：測試已啟用 Azure AD B2C 的單一頁面應用程式
+# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>快速入門：使用 Azure Active Directory B2C 為單一頁面應用程式設定登入
 
 Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的應用程式、企業和客戶受到保護。 Azure AD B2C 可讓您的應用程式使用開放式標準通訊協定，向社交帳戶和企業帳戶進行驗證。
 

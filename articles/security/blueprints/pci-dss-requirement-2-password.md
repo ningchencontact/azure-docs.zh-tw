@@ -1,6 +1,6 @@
 ---
-title: "Azure 付款處理藍圖 - 密碼需求"
-description: "PCI DSS 需求 2"
+title: Azure 付款處理藍圖 - 密碼需求
+description: PCI DSS 需求 2
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 4ae9fc7d5b53d33f9feb98c450970e0560afa2af
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 8fafc277d7410ab3f8f54b0defee127fd6ec2f4d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="password-requirements-for-pci-dss-compliant-environments"></a>符合 PCI DSS 規範之環境的密碼需求 
 ## <a name="pci-dss-requirement-2"></a>PCI DSS 需求 2
@@ -71,7 +71,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | 針對 Microsoft Azure，OSSC 技術安全性服務小組會針對 Microsoft Azure 環境中的系統，開發與業界接受的強化標準一致的安全性設定標準。 這些設定會記錄於系統基準中，且會將相關的設定變更通知受影響的小組 (例如 IPAK 小組)。 會實作程序以監視針對安全性設定標準的合規性。 針對 Microsoft Azure 環境中系統的安全性設定標準會與業界接受的強化標準一致，且至少會每年進行檢閱。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會針對持卡人資料環境 (CDE) 範圍中的所有服務提供強化。 <br /><br />Contoso Webstore 也會部署 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)，其可提供所有 Azure 資源安全性狀態的集中式檢閱。 只需看一眼，您就可以確認安全性控制項是否已就緒並正確設定，且可以快速找出任何需要注意的資源。<br /><br />Contoso Webstore 會使用 Operations Management Suite 來記錄系統的所有變更。 [Operations Management Suite (OMS)](/azure/operations-management-suite/) 能提供廣泛的變更記錄。 可對變更進行檢閱及驗證以確保正確性。 如需更具體的指導方針，請參閱 [PCI 指導方針 - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing)。|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 會針對持卡人資料環境 (CDE) 範圍中的所有服務提供強化。 <br /><br />Contoso Webstore 也會部署 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)，其可提供所有 Azure 資源安全性狀態的集中式檢閱。 只需看一眼，您就可以確認安全性控制項是否已就緒並正確設定，且可以快速找出任何需要注意的資源。<br /><br />Contoso Webstore 會使用 Operations Management Suite 來記錄系統的所有變更。 Log Analytics 會提供大量的變更記錄。 可對變更進行檢閱及驗證以確保正確性。 如需更具體的指導方針，請參閱 [PCI 指導方針 - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing)。|
 
 
 
@@ -172,7 +172,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **提供者<br />(Microsoft&nbsp;Azure)** | 不適用。 |
-| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 的示範 PaaS 解決方案清查可於所提供的文件中檢閱。 如需詳細資訊，請參閱 [PCI 指引 - 預先安裝的 OMS 解決方案](payment-processing-blueprint.md#oms-solutions)。|
+| **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 的示範 PaaS 解決方案清查可於所提供的文件中檢閱。 如需詳細資訊，請參閱 [PCI 指引 - 預先安裝的管理解決方案](payment-processing-blueprint.md#management-solutions)。|
 
 
 

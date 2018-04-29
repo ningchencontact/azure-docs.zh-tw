@@ -1,11 +1,11 @@
 ---
-title: "新增或變更 Azure 系統管理員訂用帳戶角色| Microsoft Docs"
-description: "說明如何新增或變更 Azure 共同管理員、服務管理員和帳戶管理員"
-services: 
-documentationcenter: 
+title: 新增或變更 Azure 系統管理員訂用帳戶角色| Microsoft Docs
+description: 說明如何新增或變更 Azure 共同管理員、服務管理員和帳戶管理員
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
 ms.service: billing
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: dc09f29fec78d408e1560bfa0a943f16ab50c760
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ecee98e9b74613a4176d20d231b32e4cb99a721e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>新增或變更 Azure 訂用帳戶系統管理員
 
-Azure 傳統訂用帳戶管理員和 Azure [角色型存取控制 (RBAC)](../active-directory/role-based-access-control-what-is.md) 是管理 Azure 資源存取權的兩種系統：
+Azure 傳統訂用帳戶管理員和 Azure [角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 是管理 Azure 資源存取權的兩種系統：
 
 * 傳統訂用帳戶管理員角色提供基本的存取管理，並包含帳戶管理員、服務管理員及共同管理員。
     * 當您註冊新的 Azure 訂用帳戶時，預設會將您的帳戶設定為帳戶管理員和服務管理員。
@@ -41,10 +41,12 @@ Azure 傳統訂用帳戶管理員和 Azure [角色型存取控制 (RBAC)](../act
 
 1. 請造訪 [Azure 入口網站中的**訂用帳戶**](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
 2. 選取您要授與存取權的訂用帳戶。
-3. 在功能表中選取 [存取控制 (IAM)]。
-4. 在 [角色] 方塊中，選取 [擁有者]。 
-5. 在 [存取權指派對象為] 方塊中，選取 [Azure AD 使用者、群組或應用程式]。 
-6. 在 [選取] 方塊中，輸入要新增為擁有者的使用者電子郵件地址。 選取使用者，然後選取 [儲存]。
+3. 選取 [新增]  
+   (如果沒有 [新增] 按鈕，表示您沒有權限新增權限。)
+4. 在功能表中選取 [存取控制 (IAM)]。
+5. 在 [角色] 方塊中，選取 [擁有者]。 
+6. 在 [存取權指派對象為] 方塊中，選取 [Azure AD 使用者、群組或應用程式]。 
+7. 在 [選取] 方塊中，輸入要新增為擁有者的使用者電子郵件地址。 選取使用者，然後選取 [儲存]。
 
     ![顯示已選取 [擁有者] 角色的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
@@ -111,7 +113,7 @@ Azure 傳統訂用帳戶管理員和 Azure [角色型存取控制 (RBAC)](../act
  帳戶管理員、服務管理員和共同管理員是 Azure 中的三種傳統訂用帳戶管理員角色。 用來註冊 Azure 帳戶會自動設定為帳戶管理員和服務管理員。 接著，註冊之後才新增額外的共同管理員。 下表說明這三個系統管理角色之間的確切差異。 
 
 > [!TIP]
-> 為了能更容易控制和細部存取管理，建議您使用 Azure 角色型存取控制 (RBAC)，允許將使用者新增至多個角色。 若要深入了解，請參閱 [Azure Active Directory 角色型存取控制](../active-directory/role-based-access-control-what-is.md)。
+> 為了能更容易控制和細部存取管理，建議您使用 Azure 角色型存取控制 (RBAC)，允許將使用者新增至多個角色。 若要深入了解，請參閱 [Azure Active Directory 角色型存取控制](../role-based-access-control/overview.md)。
 
 | 傳統訂用帳戶管理員 | 限制 | 說明 |
 | --- | --- | --- |
@@ -121,7 +123,7 @@ Azure 傳統訂用帳戶管理員和 Azure [角色型存取控制 (RBAC)](../act
 
 ## <a name="learn-more-about-resource-access-control-and-active-directory"></a>深入了解資源存取控制和 Active Directory
 
-* 若要深入了解如何在 Microsoft Azure 中控制資源存取，請參閱[了解 Azure 中的資源存取](../active-directory/active-directory-understanding-resource-access.md)。
+* 若要深入了解如何在 Microsoft Azure 中控制資源存取，請參閱[了解 Azure 中的資源存取](../role-based-access-control/rbac-and-directory-admin-roles.md)。
 * 如需有關 Azure Active Directory 的詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](../active-directory/active-directory-how-subscriptions-associated-directory.md)和[指派 Azure Active Directory 中的管理員角色](../active-directory/active-directory-assign-admin-roles-azure-portal.md)。
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。

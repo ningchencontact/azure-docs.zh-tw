@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 3180b24454fc49a34a40bdf2873fad1d56173e3d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 資料中心整合 - 身分識別
 您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者來部署 Azure Stack。 請先選擇識別提供者，才能部署 Azure Stack。 使用 AD FS 的部署也稱為在中斷連線模式中部署 Azure Stack。
@@ -262,6 +262,9 @@ Microsoft 提供可設定信賴憑證者信任 (包括宣告轉換規則) 的指
    > 使用 Windows Server 2012 或 2012 R2 AD FS 時，必須使用 AD FS MMC 嵌入式管理單元來設定發行授權規則。
 
 4. 使用 Internet Explorer 或 Edge 瀏覽器來存取 Azure Stack 時，您必須忽略權杖繫結。 否則，登入嘗試會失敗。 在您的 AD FS 執行個體或伺服器陣列成員上，執行下列命令：
+
+   > [!note]  
+   > 使用 Windows Server 2012 或 2012 R2 AD FS 時，不適用此步驟。 您可以放心略過此命令，並繼續進行整合。
 
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true

@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 472a1746a338857d457a7b8d5e7fec3ddbf65895
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>整合應用程式與 Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -101,7 +101,7 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 和原生用
   > 使用 ADAL.js 的單一頁面應用程式 (SPA) 目前必須使用 [授與權限] 按鈕來授與明確的同意。 否則，應用程式會在要求存取權杖時失敗。   
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>設定用戶端應用程式以存取 Web API
-為了讓 Web/機密用戶端應用程式能夠參與需要驗證的授權授與流程 (及取得存取權杖)，用戶端必須建立安全的憑證。 Azure 入口網站支援的預設驗證方法為用戶端識別碼 + 祕密金鑰。 本節會討論為用戶端的認證提供秘密金鑰所需的設定步驟。
+為了讓 Web/機密用戶端應用程式能夠參與需要驗證的授權授與流程 (及取得存取權杖)，用戶端必須建立安全的憑證。 Azure 入口網站支援的預設驗證方法為用戶端識別碼 + 祕密金鑰。 本節會討論使用用戶端的認證提供秘密金鑰所需的設定步驟。
 
 此外，同意架構要先確保用戶端取得必要的權限授與 (根據所要求的權限)，用戶端才可以存取資源應用程式所公開的 Web API (例如 Microsoft Graph API)。 根據預設，所有應用程式都可以從「Windows Azure Active Directory」(圖形 API) 和「Windows Azure 服務管理 API」選擇權限。 依預設也會選取[圖形 API「登入及讀取使用者設定檔」權限](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails)。 如果您的用戶端將會註冊在擁有已訂閱 Office 365 之帳戶的租用戶中，則也可選取 SharePoint 與 Exchange Online 的 Web API 和權限。 針對每一個所要的 Web API，您可以從[兩種權限類型](active-directory-dev-glossary.md#permissions)中做選擇：
 
@@ -233,7 +233,7 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 和原生用
 如果您正在撰寫想要提供給組織外的客戶或合作夥伴使用的應用程式，您必須在 Azure 入口網站中更新應用程式定義。
 
 > [!IMPORTANT]
-> Azure AD 會要求多租用戶應用程式的應用程式識別碼 URI 必須是全域唯一的。 「應用程式識別碼 URI」是其中一種可在通訊協定訊息中識別應用程式的方式。 在單一租用戶應用程式中，只要該租用戶內有唯一的應用程式識別碼 URI 就已足夠。 就多租用戶應用程式而言，該 URI 則必須具全域唯一性，Azure AD 才能在所有租用戶中找到該應用程式。 系統會透過要求「應用程式識別碼 URI」必須具有與已驗證的 Azure AD 租用戶網域相符的主機名稱，來強制執行全域唯一性。 例如，如果租用戶的名稱是 contoso.onmicrosoft.com，則有效的「應用程式識別碼 URI」會是 https://contoso.onmicrosoft.com/myapp。 如果您的租用戶有驗證過的網域 contoso.com，則有效的應用程式識別碼 URI 也會是 https://contoso.com/myapp。 如果「應用程式識別碼 URI」沒有按照這個模式，將應用程式設定成多租用戶時就會失敗。
+> Azure AD 會要求多租用戶應用程式的應用程式識別碼 URI 必須是全域唯一的。 「應用程式識別碼 URI」是其中一種可在通訊協定訊息中識別應用程式的方式。 在單一租用戶應用程式中，只要該租用戶內有唯一的應用程式識別碼 URI 就已足夠。 就多租用戶應用程式而言，該 URI 則必須具全域唯一性，Azure AD 才能在所有租用戶中找到該應用程式。 系統會透過要求「應用程式識別碼 URI」必須具有與已驗證的 Azure AD 租用戶網域相符的主機名稱，來強制執行全域唯一性。 例如，如果租用戶的名稱是 contoso.onmicrosoft.com，則有效的應用程式識別碼 URI 會是 https://contoso.onmicrosoft.com/myapp。 如果租用戶的已驗證網域是 contoso.com，則有效的應用程式識別碼 URI 也會是 https://contoso.com/myapp。 如果「應用程式識別碼 URI」沒有按照這個模式，將應用程式設定成多租用戶時就會失敗。
 > 
 
 若要讓外部使用者能夠存取您的應用程式： 

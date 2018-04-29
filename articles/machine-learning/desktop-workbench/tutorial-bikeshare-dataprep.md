@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 77729ad52f101f0d57fe24115525795c6b4f2db2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>教學課程：使用 Azure Machine Learning Workbench 進行進階資料準備 (自行車共享資料)
 Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
@@ -35,7 +35,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 ## <a name="prerequisites"></a>先決條件
 
 * 在本機安裝 Azure Machine Learning Workbench。 如需詳細資訊，請遵循[安裝快速入門](../service/quickstart-installation.md)。
-* 如果您尚未安裝 Azure CLI，請遵循指示以[安裝最新的 Azure CLI 版本](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)。
+* 如果您尚未安裝 Azure CLI，請遵循指示以[安裝最新的 Azure CLI 版本](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 * 在 Azure 中建立的 [HDInsights Spark 叢集](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal)。
 * 一個 Azure 儲存體帳戶。
 * 熟悉如何在 Workbench 中建立新專案。

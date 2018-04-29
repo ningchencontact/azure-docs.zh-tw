@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 7a44c5d182aa3c66c07c3dad8c82e171429f2ee4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>將 App Service 資源提供者新增至中斷連線且受 AD FS 保護的 Azure Stack 環境
 
@@ -184,6 +184,19 @@ ms.lasthandoff: 03/12/2018
 2. 在狀態下的概觀，查看 [狀態]是否顯示為 [所有角色都已準備完成]。
 
     ![App Service 管理](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> 如果您選擇要部署到現有的虛擬網路並以內部 IP 位址連線到檔案伺服器，便必須新增輸出安全性規則，以啟用背景工作角色子網路與檔案伺服器之間的 SMB 流量。  若要這樣做，請移至管理入口網站中的 WorkersNsg，然後使用下列屬性新增輸出安全性規則：
+> * 來源：任何
+> * 來源連接埠範圍：*
+> * 目的地：IP 位址
+> * 目的地 IP 位址範圍：檔案伺服器的 IP 範圍
+> * 目的地連接埠範圍：445
+> * 通訊協定：TCP
+> * 動作：允許
+> * 優先順序：700
+> * 名稱：Outbound_Allow_SMB445
+>
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>測試 Azure Stack 上的 App Service
 

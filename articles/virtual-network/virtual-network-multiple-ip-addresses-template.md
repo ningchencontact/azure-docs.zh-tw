@@ -1,12 +1,12 @@
 ---
-title: "Azure 虛擬機器的多個 IP 位址 - 範本 | Microsoft Docs"
-description: "了解如何使用 Azure Resource Manager 範本將多個 IP 位址指派給虛擬機器。"
-documentationcenter: 
+title: Azure 虛擬機器的多個 IP 位址 - 範本 | Microsoft Docs
+description: 了解如何使用 Azure Resource Manager 範本將多個 IP 位址指派給虛擬機器。
+documentationcenter: ''
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 ms.openlocfilehash: d4b189fb23dda1167c4f6b17b618c718d32dd98f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本將多個 IP 位址指派給虛擬機器
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 10/11/2017
 
 若要使用 PowerShell 部署範本，請完成下列步驟：
 
-1. 藉由完成[使用 PowerShell 部署範本](../azure-resource-manager/resource-group-template-deploy-cli.md)文章中的步驟來部署範本。 本文章說明部署範本的多個選項。 如果您選擇使用 `-TemplateUri parameter` 進行部署，此範本的 URI 是 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*。 如果您選擇使用 `-TemplateFile` 參數進行部署，將[範本檔案](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json)的內容從 GitHub 複製到您的電腦上的新檔案。 視需要修改範本內容。 範本會部署這篇文章的[資源](#resources)一節所列出的資源和設定。 若要了解範本以及如何撰寫它們，請參閱[撰寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)文章。
+1. 藉由完成[使用 PowerShell 部署範本](../azure-resource-manager/resource-group-template-deploy-cli.md)文章中的步驟來部署範本。 本文章說明部署範本的多個選項。 如果您選擇使用 `-TemplateUri parameter` 來部署，此範本的 URI 是 https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json。 如果您選擇使用 `-TemplateFile` 參數進行部署，將[範本檔案](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json)的內容從 GitHub 複製到您的電腦上的新檔案。 視需要修改範本內容。 範本會部署這篇文章的[資源](#resources)一節所列出的資源和設定。 若要了解範本以及如何撰寫它們，請參閱[撰寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)文章。
 
     不論您選擇用來部署範本的選項為何，您必須提供這篇文章的[參數](#parameters)一節中所列的參數值。 如果您選擇使用參數檔案提供參數，將[參數檔案](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json)的內容從 GitHub 複製到您的電腦上的新檔案。 修改檔案中的值。 使用您建立的檔案做為 `-TemplateParameterFile` 參數的值。
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/11/2017
 
 若要使用 Azure CLI 1.0 部署範本，請完成下列步驟：
 
-1. 藉由完成[使用 Azure CLI 部署範本](../azure-resource-manager/resource-group-template-deploy-cli.md)文章中的步驟來部署範本。 本文章說明部署範本的多個選項。 如果您選擇使用 `--template-uri` (-f) 進行部署，此範本的 URI 是 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*。 如果您選擇使用 `--template-file` (-f) 參數進行部署，將[範本檔案](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json)的內容從 GitHub 複製到您的電腦上的新檔案。 視需要修改範本內容。 範本會部署這篇文章的[資源](#resources)一節所列出的資源和設定。 若要了解範本以及如何撰寫它們，請參閱[撰寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)文章。
+1. 藉由完成[使用 Azure CLI 部署範本](../azure-resource-manager/resource-group-template-deploy-cli.md)文章中的步驟來部署範本。 本文章說明部署範本的多個選項。 如果您選擇使用 `--template-uri` (-f) 來部署，此範本的 URI 是 https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json。 如果您選擇使用 `--template-file` (-f) 參數進行部署，將[範本檔案](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json)的內容從 GitHub 複製到您的電腦上的新檔案。 視需要修改範本內容。 範本會部署這篇文章的[資源](#resources)一節所列出的資源和設定。 若要了解範本以及如何撰寫它們，請參閱[撰寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)文章。
 
     不論您選擇用來部署範本的選項為何，您必須提供這篇文章的[參數](#parameters)一節中所列的參數值。 如果您選擇使用參數檔案提供參數，將[參數檔案](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json)的內容從 GitHub 複製到您的電腦上的新檔案。 修改檔案中的值。 使用您建立的檔案做為 `--parameters-file` (-e) 參數的值。
 

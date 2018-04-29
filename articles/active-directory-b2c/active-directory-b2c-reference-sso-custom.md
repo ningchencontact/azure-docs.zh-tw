@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: davidmu
-ms.openlocfilehash: 3d378d188d9acec06f37ca91e3c67e82fb31fc08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ca7160d39d5d26ca69345ce636f22afbe44b25db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C：單一登入 (SSO) 工作階段管理
 
@@ -47,6 +47,9 @@ SSO 管理類別是使用技術設定檔的 `<UseTechnicalProfileForSessionManag
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
 此提供者可以用於儲存工作階段中的宣告。 此提供者通常是在用於管理本機帳戶的技術設定檔中進行參照。 
+
+> [!NOTE]
+> 使用 DefaultSSOSessionProvider 在工作階段中儲存宣告時，您必須確定必須傳回給應用程式、或前置條件在後續步驟中所使用的任何宣告都會儲存在工作階段中，或是藉由目錄中的使用者設定檔讀取進行增強。 這可確保您的驗證歷程不會因遺失宣告而失敗。
 
 ```XML
 <TechnicalProfile Id="SM-AAD">

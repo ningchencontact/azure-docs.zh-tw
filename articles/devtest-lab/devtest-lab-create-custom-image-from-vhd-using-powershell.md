@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: v-craic
-ms.openlocfilehash: 2c542f9d47eb8011a13bf7156430324c53d238ce
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6bfb34c05a03ed02694210a5901f4f367e8a2fd3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>使用 PowerShell 從 VHD 檔案建立自訂映像
 
@@ -32,10 +32,10 @@ ms.lasthandoff: 03/23/2018
 
 下列步驟將逐步引導您使用 PowerShell 從 VHD 檔案建立自訂映像：
 
-1. 在 PowerShell 提示字元中，使用下列對 **Login-AzureRmAccount** Cmdlet 的呼叫來登入您的 Azure 帳戶。  
+1. 在 PowerShell 提示字元中，使用下列對 **Connect-AzureRmAccount** Cmdlet 的呼叫來登入您的 Azure 帳戶。  
     
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1.  呼叫 **Select-AzureRmSubscription** Cmdlet 來選取想要的 Azure 訂用帳戶。 以有效的 Azure 訂用帳戶 ID 取代 **$subscriptionId** 變數的下列預留位置。 
@@ -83,7 +83,7 @@ ms.lasthandoff: 03/23/2018
 
 ```PowerShell
 # Log in to your Azure account.  
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Select the desired Azure subscription. 
 $subscriptionId = '<Specify your subscription ID here>'

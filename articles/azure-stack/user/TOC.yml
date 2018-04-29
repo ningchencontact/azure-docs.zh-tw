@@ -110,6 +110,8 @@
                   href: azure-stack-version-profiles-azurecli2.md
                 - name: GO
                   href: azure-stack-version-profiles-go.md
+                - name: Ruby
+                  href: azure-stack-version-profiles-ruby.md
                 - name: 設定檔支援的資源提供者 API
                   href: azure-stack-profiles-azure-resource-manager-versions.md
         - name: 使用原則模組

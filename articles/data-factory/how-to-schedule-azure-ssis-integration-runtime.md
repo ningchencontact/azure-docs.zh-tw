@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 04/17/2018
 ms.author: douglasl
-ms.openlocfilehash: cc9ab244c784cab608a75092b542dea0a6f69f22
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3e69c147201ab7f3c5e2cf61e72bdb8073354e67
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>如何排程 Azure SSIS 整合執行階段的啟動和停止 
 執行 Azure SSIS (SQL Server Integration Services) 整合執行階段 (IR) 會產生相關費用。 因此，您只應在需要於 Azure 中執行 SSIS 套件時才執行 IR，而在不需要時即應加以停止。 您可以使用 Data Factory UI 或 Azure PowerShell，[以手動方式啟動或停止 Azure SSIS IR](manage-azure-ssis-integration-runtime.md)。 本文說明如何使用 Azure 自動化及 Azure Data Factory 來排程 Azure SSIS 整合執行階段 (IR) 的啟動和停止。 以下是本文說明的概要步驟：
@@ -123,7 +123,7 @@ ms.lasthandoff: 03/23/2018
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
     
         "Logging in to Azure..."
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -226,7 +226,7 @@ ms.lasthandoff: 03/23/2018
 您建立的管線包含下列三個活動。 
 
 1. 第一個 **Web** 活動會叫用第一個 Webhook，以啟動 Azure SSIS IR。 
-2. **預存程序**活動會執行 SQL 指令碼以執行 SSIS 套件。 第二個 **Web** 活動會停止 Azure SSIS IR。 如需如何使用預存程序活動從 Data Factory 管線叫用 SSIS 套件的詳細資訊，請參閱[叫用 SSIS 套件](how-to-invoke-ssis-package-stored-procedure-activity.md)。 
+2. **執行 SSIS 套件**活動或**預存程序**活動會執行 SSIS 套件。
 3. 第二個 **Web** 活動會叫用停止 Azure SSIS IR 的 Webhook。 
 
 在建立並測試管線後，您會建立排程觸發程序，並使其與管線產生關聯。 排程觸發程序會定義管線的排程。 假設您建立了排程於每天晚上 11 點執行的觸發程序。 此觸發程序會在每天晚上 11 點執行管線。 管線會啟動 Azure SSIS IR、執行 SSIS 套件，然後停止 Azure SSIS IR。 
@@ -278,69 +278,55 @@ ms.lasthandoff: 03/23/2018
     3. 針對 [本文]，輸入 `{"message":"hello world"}`。 
    
         ![第一個 Web 活動 - 設定索引標籤](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-settnigs-tab.png)
-5. 將 [活動] 工具箱的 [一般] 區段中拖放「預存程序」活動。 將活動的名稱設為 **RunSSISPackage**。 
-6. 在 [屬性] 視窗中切換至 [SQL 帳戶] 索引標籤。 
-7. 針對 [連結服務]，按一下 [+ 新增]。
-8. 在 [新增連結服務] 視窗中，執行下列動作： 
 
-    1. 選取 [類型] 的 [Azure SQL Database]。
-    2. 針對 [伺服器名稱] 欄位，選取裝載 **SSISDB** 資料庫的 Azure SQL 伺服器。 Azure SSIS IR 佈建程序會在您指定的 Azure SQL 伺服器中建立 SSIS 目錄 (SSISDB 資料庫)。
-    3. 選取 [資料庫名稱] 的 [SSISDB]。
-    4. 對於 [使用者名稱]，輸入可存取資料庫的使用者名稱。
-    5. 對於 [密碼]，輸入使用者的密碼。 
-    6. 按一下 [測試連接] 按鈕以測試資料庫連接。
-    7. 按一下 [儲存] 按鈕以儲存連結服務。
-9. 在 [屬性] 視窗中，從 [SQL 帳戶] 索引標籤切換至 [預存程序] 索引標籤，並執行下列步驟： 
+4. 從 [活動] 工具箱的 [一般] 區段中拖放「執行 SSIS 套件」活動或「預存程序」活動。 將活動的名稱設為 **RunSSISPackage**。 
 
-    1. 針對 [預存程序名稱] 選取 [編輯] 選項，然後輸入 **sp_executesql**。 
-    2. 選取 [預存程序參數] 區段中的 [+ 新增]。 
-    3. 對於參數的 [名稱]，輸入 **stmt**。 
-    4. 針對參數的 [類型]，輸入 [字串]。 
-    5. 針對參數的 [值]，輸入下列 SQL 查詢：
+5. 如果您選取「執行 SSIS 套件」活動，請依照[在 Azure Data Factory 中使用 SSIS 活動執行 SSIS 套件](how-to-invoke-ssis-package-ssis-activity.md)中的指示來完成活動建立。  確定您指定了足夠的重試次數，且該次數頻繁到足以等待 Azure-SSIS IR 的可用性，因為它最多需要 30 分鐘來啟動。 
 
-        在 SQL 查詢中，指定 **folder_name**、**project_name** 和 **package_name** 參數的正確值。 
+    ![重試設定](media/how-to-schedule-azure-ssis-integration-runtime/retry-settings.png)
 
-        ```sql
-        DECLARE       @return_value int, @exe_id bigint, @err_msg nvarchar(150)
+6. 如果您選取「預存程序」活動，請依照[在 Azure Data Factory 使用預存程序活動叫用 SSIS 套件](how-to-invoke-ssis-package-stored-procedure-activity.md)中的指示來完成活動建立。 確定您插入的 Transact-SQL 指令碼會等候 Azure-SSIS IR 的可用性，因為它最多需要 30 分鐘來啟動。
+    ```sql
+    DECLARE @return_value int, @exe_id bigint, @err_msg nvarchar(150)
 
-        -- Wait until Azure-SSIS IR is started
-        WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
-        BEGIN
-            WAITFOR DELAY '00:00:01';
-        END
+    -- Wait until Azure-SSIS IR is started
+    WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
+    BEGIN
+        WAITFOR DELAY '00:00:01';
+    END
 
-        EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
-            @project_name=N'YourProject', @package_name=N'YourPackage',
-            @use32bitruntime=0, @runincluster=1, @useanyworker=1,
-            @execution_id=@exe_id OUTPUT 
+    EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
+        @project_name=N'YourProject', @package_name=N'YourPackage',
+        @use32bitruntime=0, @runincluster=1, @useanyworker=1,
+        @execution_id=@exe_id OUTPUT 
 
-        EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
+    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
 
-        EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
+    EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
 
-        -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/failed (4)/
-        -- pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
-        IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
-        BEGIN
-            SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
-            RAISERROR(@err_msg, 15, 1)
-        END
+    -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/
+    -- failed (4)/pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
+    IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
+    BEGIN
+        SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
+        RAISERROR(@err_msg, 15, 1)
+    END
+    ```
 
-        ```
-10. 將 **Web** 活動連線至**預存程序**活動。 
+7. 將 **Web** 活動連線至**執行 SSIS 套件**或**預存程序**活動。 
 
     ![將 Web 和預存程序活動連線](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-sproc.png)
 
-11. 將另一個 **Web** 活動拖放到**預存程序**活動右側。 將活動的名稱設為 **StopIR**。 
-12. 切換 [屬性] 視窗中的 [設定] 索引標籤，並執行下列動作： 
+8. 將另一個 **Web** 活動拖放到**執行 SSIS 套件**或**預存程序**活動右側。 將活動的名稱設為 **StopIR**。 
+9. 切換 [屬性] 視窗中的 [設定] 索引標籤，並執行下列動作： 
 
     1. 針對 [URL]，貼上會停止 Azure SSIS IR 之 Webhook 的 URL。 
     2. 針對 [方法]，選取 [POST]。 
     3. 針對 [本文]，輸入 `{"message":"hello world"}`。  
-4. 將**預存程序**活動連線至最後一個 **Web** 活動。
+10. 將**執行 SSIS 套件**活動或**預存程序**活動連線至最後一個 **Web** 活動。
 
     ![完整管線](./media/how-to-schedule-azure-ssis-integration-runtime/full-pipeline.png)
-5. 按一下工具列上的 [驗證]，以驗證管線設定。 按一下 **>>** 按鈕，以關閉 [管線驗證報告]。 
+11. 按一下工具列上的 [驗證]，以驗證管線設定。 按一下 **>>** 按鈕，以關閉 [管線驗證報告]。 
 
     ![驗證管線](./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png)
 

@@ -1,14 +1,14 @@
 ---
-title: "使用 Azure 事件中樞為 Azure Logic Apps 設定事件監視 | Microsoft Docs"
-description: "使用 Azure 事件中樞和邏輯應用程式，來監視接收事件和傳送事件的資料流"
+title: 使用 Azure 事件中樞為 Azure Logic Apps 設定事件監視 | Microsoft Docs
+description: 使用 Azure 事件中樞和邏輯應用程式，來監視接收事件和傳送事件的資料流
 services: logic-apps
-keywords: "資料流、事件監視器、事件中樞"
+keywords: 資料流、事件監視器、事件中樞
 author: ecfan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 076f7dd11ca8c153046727861ecb755e88f32b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8de56cd64f38791fb27d9bcce1e16641fb162c2f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>使用事件中樞連接器來監視、接收及傳送事件
 
@@ -76,11 +76,28 @@ ms.lasthandoff: 02/09/2018
 3. 選取要監視的事件中樞，並設定檢查事件中樞的時間間隔和頻率。
 
     ![指定事件中樞或取用者群組](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
+    
+    > [!NOTE]
+    > 所有事件中樞觸發程序都是*長時間輪詢*觸發程序，這表示當引發觸發程序時，觸發程序會處理所有事件，然後等候 30 秒等事件中樞中出現更多事件。
+    > 如果在 30 秒內沒收到任何事件，就會略過觸發程序執行。 否則，觸發程序會繼續讀取事件，直到事件中樞沒有任何事件為止。
+    > 下一次的觸發程序輪詢，會根據觸發程序的屬性指定的循環間隔。
 
-    > [!TIP]
-    > 若要選擇性地選取取用者群組以便讀取事件，請選擇 [顯示進階選項]。
 
-4. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]。
+4. 若要選擇性地選取部分進階觸發程序選項，請選擇 [顯示進階選項]。
+
+    ![觸發程序進階選項](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
+
+    | 屬性 | 詳細資料 |
+    | --- | --- |
+    | 內容類型  |從下拉式清單中選取事件的內容類型。 預設會選取 application/octet-stream。 |
+    | 內容結構描述 |輸入從事件中樞所讀取事件的內容結構描述 (JSON 格式)。 |
+    | 取用者群組名稱 |輸入要讀取事件的事件中樞[取用者群組名稱](../event-hubs/event-hubs-features.md#consumer-groups)。 若未指定取用者群組名稱，會使用預設取用者群組。 |
+    | 最小分割區索引鍵 |輸入要讀取的最小[分割區](../event-hubs/event-hubs-features.md#partitions)識別碼。 預設會讀取所有分割區。 |
+    | 最大分割區索引鍵 |輸入要讀取的最大[分割區](../event-hubs/event-hubs-features.md#partitions)識別碼。 預設會讀取所有分割區。 |
+    | 最大事件計數 |輸入事件數目的最大值。 觸發程序傳回的事件數目會介於 1 到這個屬性指定的數目之間。 |
+    |||
+
+5. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]。
 
 現在，當邏輯應用程式檢查選取的事件中樞並發現新的事件後，觸發程序就會在邏輯應用程式中，針對找到的事件執行動作。
 

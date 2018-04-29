@@ -1,26 +1,26 @@
 ---
-title: "如何使用 Azure CLI 2.0 和 IoT 擴充功能來管理裝置佈建服務 | Microsoft Docs"
-description: "了解如何使用 Azure CLI 2.0 和 IoT 擴充功能來管理裝置佈建服務"
+title: 如何使用 Azure CLI 2.0 和 IoT 擴充功能來管理裝置佈建服務 | Microsoft Docs
+description: 了解如何使用 Azure CLI 2.0 和 IoT 擴充功能來管理裝置佈建服務
 services: iot-dps
-keywords: 
+keywords: ''
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a1224c48537441726c0e01134f6a9256cf3b71c6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8e8bbf5808c11709a49f1cb6ebeba410837e5810
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-cli-20-and-the-iot-extension-to-manage-device-provisioning-services"></a>如何使用 Azure CLI 2.0 和 IoT 擴充功能來管理裝置佈建服務
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) 是一個開放原始碼跨平台命令列工具，用來管理 Azure 資源 (例如 IoT Edge)。 Azure CLI 2.0 適用於 Windows、Linux 和 MacOS。 Azure CLI 2.0 可讓您管理 Azure IoT 中樞資源、裝置佈建服務執行個體，以及現成的連結中樞。
+[Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 是一個開放原始碼跨平台命令列工具，用來管理 Azure 資源 (例如 IoT Edge)。 Azure CLI 2.0 適用於 Windows、Linux 和 MacOS。 Azure CLI 2.0 可讓您管理 Azure IoT 中樞資源、裝置佈建服務執行個體，以及現成的連結中樞。
 
 IoT 擴充功能以裝置管理和完整 IoT Edge 功能來擴充 Azure CLI 2.0 的功能。
 
@@ -34,7 +34,7 @@ IoT 擴充功能以裝置管理和完整 IoT Edge 功能來擴充 Azure CLI 2.0 
 
 ### <a name="step-2---install-azure-cli-20"></a>步驟 2 - 安裝 Azure CLI 2.0
 
-請遵循[安裝指示](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)在您的環境中設定 Azure CLI 2.0。 您的 Azure CLI 2.0 版本至少必須是 2.0.24 或更新版本。 使用 `az –version` 進行驗證。 這個版本支援 az 擴充命令並引進 Knack 命令架構。 在 Windows 上進行安裝的最簡單方式就是下載並安裝 [MSI](https://aka.ms/InstallAzureCliWindows)。
+請遵循[安裝指示](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)在您的環境中設定 Azure CLI 2.0。 您的 Azure CLI 2.0 版本至少必須是 2.0.24 或更新版本。 使用 `az –version` 進行驗證。 這個版本支援 az 擴充命令並引進 Knack 命令架構。 在 Windows 上進行安裝的最簡單方式就是下載並安裝 [MSI](https://aka.ms/InstallAzureCliWindows)。
 
 ### <a name="step-3---install-iot-extension"></a>步驟 3 - 安裝 IoT 擴充功能
 

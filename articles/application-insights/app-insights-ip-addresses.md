@@ -1,6 +1,6 @@
 ---
-title: "Application Insights 和 Log Analytics 使用的 IP 位址 | Microsoft Docs"
-description: "Application Insights 所需的伺服器防火牆例外狀況"
+title: Application Insights 和 Log Analytics 使用的 IP 位址 | Microsoft Docs
+description: Application Insights 所需的伺服器防火牆例外狀況
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9b48b17b214f6ff22c7c68421ba8c89104c8b4b1
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f56810d6520edd19ce757a91712698714902e668
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 和 Log Analytics 使用的 IP 位址
 [Azure Application Insights](app-insights-overview.md) 服務會使用一些 IP 位址。 如果您所監視的應用程式裝載於防火牆後面，您可能需要知道這些位址。
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/05/2018
 | 組態 |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | 組態 |`auth.gfx.ms` | |`443` |
 | 組態 |`login.live.com` | |`443` |
-| 安裝 |`packages.nuget.org`、`nuget.org`、`api.nuget.org` | |`443` |
+| 安裝 |`packages.nuget.org`、`nuget.org`、`api.nuget.org`、`az320820.vo.msecnd.net` (NuGet 下載) | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
 | 目的 | URL | IP | 連接埠 |

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 993ff518a1987581ad7de4797611f104080c2c2f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3175b99c0e41cedf313115043b09608496adfdca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>設定 Azure SQL Database 受控執行個體的自訂 DNS
 
@@ -79,5 +79,5 @@ Azure SQL Database 受控執行個體 (預覽) 必須部署在 Azure [虛擬網�
 ## <a name="next-steps"></a>後續步驟
 
 - 如需概觀，請參閱[受控執行個體是什麼](sql-database-managed-instance.md)。
-- 如需建立 VNet 後再建立受控執行個體的範例，請參閱[建立受控執行個體](sql-database-managed-instance-tutorial-portal.md)。
-- 如需設定 VNet，請參閱[受控執行個體的 VNet 設定](sql-database-managed-instance-vnet-configuration.md)。
+- 如需示範如何新建受控執行個體的教學課程，請參閱[建立受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)。
+- 如需有關設定受控執行個體 VNet 的詳細資訊，請參閱[受控執行個體 VNet 組態](sql-database-managed-instance-vnet-configuration.md)

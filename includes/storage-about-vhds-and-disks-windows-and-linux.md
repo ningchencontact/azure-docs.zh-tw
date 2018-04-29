@@ -1,4 +1,19 @@
-
+---
+title: 包含檔案
+description: 包含檔案
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: b4d208ca28f6287489f104ba4e2ea9696e7a1f58
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 04/24/2018
+---
 ## <a name="about-vhds"></a>關於 VHD
 
 Azure 中使用的 VHD 是以分頁 Blob 儲存在 Azure 標準或進階儲存體帳戶中的 .vhd 檔案。 如需分頁 Blob 的詳細資訊，請參閱 [了解區塊 Blob 和分頁 Blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/)。 如需進階儲存體的詳細資訊，請參閱[高效能的進階儲存體和 Azure VM](../articles/virtual-machines/windows/premium-storage.md)。
@@ -10,10 +25,10 @@ Azure 中您想要用作建立磁碟或映像來源的所有 .vhd 檔案都是�
 當您從映像建立虛擬機器時，Azure 會以來源 .vhd 檔案複本為虛擬機器建立磁碟。 若要防止意外刪除，Azure 會在任何用來建立映像、作業系統磁碟或資料磁碟的來源 .vhd 檔案上加上租用。
 
 您必須先刪除磁碟或映像來移除租約，才能刪除來源 .vhd 檔案。 若要刪除虛擬機器做為作業系統磁碟使用的 .vhd 檔案，您只要刪除虛擬機器並刪除所有關聯的磁碟，就可以一次刪除虛擬機器、作業系統磁碟和來源 .vhd 檔案。 不過，刪除做為資料磁碟來源的 .vhd 檔案檔案需要依設定的順序執行幾個步驟。 首先，您需將磁碟與虛擬機器中斷連結，接著刪除磁碟，然後再刪除 .vhd 檔案。
-
 > [!WARNING]
 > 如果您刪除儲存體中的來源 .vhd 檔案從或刪除您的儲存體帳戶，Microsoft 便無法為您復原該資料。
 > 
+> 進階儲存體中的分頁 Blob 僅用來作為 VHD 使用。 Microsoft 不建議您在進階儲存體的分頁 Blob 中儲存其他資料類型，因為可能會使成本大幅增加。 使用區塊 Blob 來儲存不在 VHD 中的資料。
 
 ## <a name="types-of-disks"></a>磁碟類型 
 
@@ -30,7 +45,7 @@ Azure 磁碟設計成確保可用性達 99.999%。 Azure 磁碟一直提供企�
 
 ### <a name="premium-storage"></a>進階儲存體 
 
-進階儲存體是以 SSD 為後盾，可針對執行時需要大量 I/O 之工作負載的 VM 提供高效能、低延遲的磁碟支援。 進階儲存體可搭配 DS、DSv2、GS、Ls 或 FS 系列的 Azure VM 使用。 如需詳細資訊，請參閱[進階儲存體](../articles/virtual-machines/windows/premium-storage.md)。
+進階儲存體是以 SSD 為後盾，可針對執行時需要大量 I/O 之工作負載的 VM 提供高效能、低延遲的磁碟支援。 一般來說，您可以使用在系列名稱中包含 "s" 的大小來搭配進階儲存體。 例如，在 Dv3 系列和 Dsv3 系列中，能搭配進階儲存體使用的為 Dsv3 系列。  如需詳細資訊，請參閱[進階儲存體](../articles/virtual-machines/windows/premium-storage.md)。
 
 ### <a name="unmanaged-disks"></a>非受控磁碟
 

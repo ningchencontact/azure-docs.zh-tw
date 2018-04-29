@@ -3,8 +3,8 @@ title: 資料安全性和加密最佳作法 | Microsoft Docs
 description: 本文提供使用內建 Azure 功能的一些資料安全性和加密最佳作法。
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: barclayn
+manager: mbalwin
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 169234195fa75924a65680ce2f3fa6ee9633daae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 574ca8a68bf6e532331a4b6f1106e472c8ab0449
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 資料安全性和加密最佳作法
+
 在雲端保護資料的其中一個關鍵是考慮您的資料可能會發生的狀態，以及哪些控制項適用於該狀態。 基於 Azure 資料安全性和加密最佳作法的目的，相關建議將以下列資料狀態為主︰
 
 * 待用︰這包括實體媒體 (磁碟或光碟) 上以靜態方式存在的所有資訊儲存物件、容器和類型。
@@ -50,6 +51,7 @@ ms.lasthandoff: 04/23/2018
 * 強制執行檔案層級資料加密
 
 ## <a name="enforce-multi-factor-authentication"></a>強制執行 Multi-Factor Authentication
+
 在 Microsoft Azure 中存取和控制資料的第一個步驟是驗證使用者。 [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) 是除了使用使用者名稱與密碼之外，利用其他方法驗證使用者身分識別的驗證方法。 此驗證方法有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。
 
 為您的使用者啟用 Azure MFA，您可為使用者登入和交易增加第二層安全性。 在此情況下，交易可能會存取位於檔案伺服器或 SharePoint Online 中的文件。 Azure MFA 也可協助 IT 降低遭入侵的認證能夠存取公司資料的可能性。
@@ -61,6 +63,7 @@ ms.lasthandoff: 04/23/2018
 如需 Azure MFA 的詳細資訊，請參閱[開始在雲端中使用 Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)。
 
 ## <a name="use-role-based-access-control-rbac"></a>使用角色型存取控制 (RBAC)
+
 根據[需要知道](https://en.wikipedia.org/wiki/Need_to_know)和[最低權限](https://en.wikipedia.org/wiki/Principle_of_least_privilege)安全性原則限制存取權限。 對於想要強制執行資料存取安全性原則的組織，這是必須做的事。 Azure 角色型存取控制 (RBAC) 可用來指派權限給特定範圍的使用者、群組和應用程式。 角色指派的範圍可以是訂用帳戶、資源群組或單一資源。
 
 您可以利用 Azure 中[內建的 RBAC](../role-based-access-control/built-in-roles.md) 角色指派權限給使用者。 請考慮將*儲存體帳戶參與者*用於需要管理儲存體帳戶的雲端操作者，以及使用*傳統儲存體帳戶參與者*角色來管理傳統儲存體帳戶。 對於需要管理 VM 和儲存體帳戶的雲端操作者，請考慮將他們新增至*虛擬機器參與者*角色。
@@ -70,6 +73,7 @@ ms.lasthandoff: 04/23/2018
 若要深入了解 Azure RBAC，請閱讀 [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)一文。
 
 ## <a name="encrypt-azure-virtual-machines"></a>加密 Azure 虛擬機器
+
 對許多組織來說，[待用資料加密](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/)是達到資料隱私性、法規遵循及資料主權的必要步驟。 Azure 磁碟加密可讓 IT 管理員加密 Windows 和 Linux IaaS 虛擬機器 (VM) 磁碟。 Azure 磁碟加密利用 Windows 的業界標準 BitLocker 功能和 Linux 的 DM-Crypt 功能，為 OS 和資料磁碟提供磁碟區加密。
 
 您可以利用 Azure 磁碟加密來協助保護資料安全，以符合您的組織安全性和法規遵循承諾。 組織也應該考慮使用加密，協助降低與未經授權存取資料相關的風險。 此外，也建議您在將敏感性資料寫入磁碟機之前，先將磁碟機加密。
@@ -125,6 +129,7 @@ Azure 磁碟加密使用 [Azure 金鑰保存庫](https://azure.microsoft.com/ser
 若要深入了解 SQL TDE 加密，請閱讀 [Azure SQL Database 的透明資料加密](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx)一文。
 
 ## <a name="protect-data-in-transit"></a>保護傳輸中的資料
+
 保護傳輸中的資料應該是您的資料保護策略中不可或缺的部分。 由於資料會從許多位置來回移動，一般會建議您一律使用 SSL/TLS 通訊協定來交換不同位置的資料。 在某些情況下，建議您使用虛擬私人網路 (VPN)，隔離您的內部部署與雲端基礎結構之間的整個通訊通道。
 
 對於在內部部署基礎結構與 Azure 之間移動的資料，您應該考慮適當的防護措施，例如 HTTPS 或 VPN。
@@ -142,6 +147,7 @@ Azure 磁碟加密使用 [Azure 金鑰保存庫](https://azure.microsoft.com/ser
 若要深入了解 Azure VPN 選項，請閱讀[規劃與設計 VPN 閘道](../vpn-gateway/vpn-gateway-plan-design.md)一文。
 
 ## <a name="enforce-file-level-data-encryption"></a>強制執行檔案層級資料加密
+
 不論檔案的位置為何，可提高資料安全性層級的另一層保護，就是將檔案本身加密，。
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) 會使用加密、身分識別和授權原則，協助您保護檔案和電子郵件。 Azure RMS 可跨多個裝置運作 — 手機、平板電腦和 PC。保護您的組織內部和外部 因為 Azure RMS 新增資料所屬的保護層級，所以即使資料脫離您組織的範圍，這項功能仍然可行。

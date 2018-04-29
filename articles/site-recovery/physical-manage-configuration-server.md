@@ -1,17 +1,17 @@
 ---
 title: " 使用 Azure Site Recovery 管理實體伺服器災害復原的組態伺服器 | Microsoft Docs"
-description: "本文說明如何使用 Azure Site Recovery 服務管理將實體伺服器災害復原到 Azure 的現有組態伺服器。"
+description: 本文說明如何使用 Azure Site Recovery 服務管理將實體伺服器災害復原到 Azure 的現有組態伺服器。
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 580d32a51f6b38916ddccd46784b80b1179c29c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>管理實體伺服器災害復原的組態伺服器
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/08/2018
 | **元件** | **需求** |
 | --- |---|
 | CPU 核心| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | 磁碟數量 | 3，包括作業系統磁碟、處理序伺服器快取磁碟和用於容錯回復的保留磁碟機 |
 | - 磁碟可用空間 (處理序伺服器快取) | 600 GB
 | 磁碟可用空間 (保留磁碟) | 600 GB|
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/08/2018
 | IIS | - 沒有預先存在的預設網站 <br> - 啟用[匿名驗證](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) \(英文\) <br> - 啟用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 設定  <br> - 沒有預先存在的網站/應用程式接聽連接埠 443<br>|
 | NIC 類型 | VMXNET3 (部署為 VMware VM 時) |
 | IP 位址類型 | 靜態 |
-| 網際網路存取 | 伺服器需要存取這些 URL： <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (向外延展處理伺服器不需要此項) <br> - time.nist.gov <br> - time.windows.com |
+| 網際網路存取 | 伺服器需要存取這些 URL： <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (不需要相應放大處理序伺服器) <br> - time.nist.gov <br> - time.windows.com |
 | 連接埠 | 443 (控制通道協調流程)<br>9443 (資料傳輸)|
 
 ## <a name="download-the-latest-installation-file"></a>下載最新的安裝檔案
@@ -266,7 +266,7 @@ ProxyPassword="Password"
 1. [安裝](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模組
 2. 使用命令登入您的 Azure 帳戶
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. 選取保存庫所在的訂用帳戶
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

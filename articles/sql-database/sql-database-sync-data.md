@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: e66adb8b0485e30fded487e18af6b2030f9c7f5b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>使用 SQL 資料同步 (預覽) 跨多個雲端和內部部署資料庫同步資料
 
@@ -138,6 +138,11 @@ SQL 資料同步 (預覽) 適用於所有公用雲端區域。
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>資料同步能否僅在 SQL Server 內部部署資料庫之間同步？ 
 無法直接進行。 您可以間接在 SQL Server 內部部署資料庫之間同步，不過，必須先在 Azure 建立中樞資料庫，然後將內部部署資料庫新增到同步群組。
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>我可以使用資料同步在屬於不同訂用帳戶的 SQL Database 之間進行同步嗎？
+是。 您可以在不同訂用帳戶擁有的資源群組所屬的 SQL Database 之間進行同步。
+-   如果訂用帳戶屬於同一個租用戶，且您擁有所有訂用帳戶的權限，則可以在 Azure 入口網站中設定同步群組。
+-   否則，您必須使用 PowerShell 來新增屬於不同訂用帳戶的同步成員。
    
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>能否使用資料同步將生產環境資料庫的資料植入空白資料庫，然後讓資料保持同步？ 
 是。 請從原始結構描述編寫結構描述，藉此在新的資料庫中手動建立結構描述。 建立結構描述之後，請將資料表新增到同步群組，以複製資料並讓資料保持同步。
@@ -147,6 +152,12 @@ SQL 資料同步 (預覽) 適用於所有公用雲端區域。
 不建議使用 SQL 資料同步 (預覽) 來建立資料的備份。 您無法備份並還原到特定點時間，因為 SQL 資料同步 (預覽) 同步處理並未設定版本。 此外，SQL 資料同步 (預覽) 不會備份其他 SQL 物件 (例如預存程序)，而且不會快速進行同等的還原作業。
 
 如需建議的備份技術，請參閱[複製 Azure SQL Database](sql-database-copy.md)。
+
+### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>資料同步是否可以同步加密的資料表和資料行？
+
+-   如果資料庫是使用 Always Encrypted，您就只能同步「未」加密的資料表和資料行。 您無法同步加密的資料行，因為資料同步無法解密資料。
+
+-   如果資料行是使用資料行層級加密 (CLE)，則只要資料列大小小於 24 Mb 的大小上限，您就可以同步資料行。 資料同步會將金鑰加密的資料行 (CLE) 視為一般的二進位資料。 若要解密其他同步成員中的資料，您必須具有相同的憑證。
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>SQL 資料同步是否支援定序？
 

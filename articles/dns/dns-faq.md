@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2017
 ms.author: kumud
-ms.openlocfilehash: f07f914ccf8ea6df216e3f571e38d7628b2d7fb6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e0eb39ced1d88d2e0b6128493304f112f9c685fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常見問題集
 
@@ -47,6 +47,7 @@ Azure 保證有效的 DNS 要求至少有 99.99% 的時間都至少會從一部 
 
 網域是網域名稱系統中的唯一名稱，例如 'contoso.com'。
 
+
 DNS 區域用來裝載特定網域的 DNS 記錄。 例如，網域 'contoso.com' 可能包含數筆 DNS 記錄，例如 'mail.contoso.com' (用於郵件伺服器) 和 'www.contoso.com' (用於網站)。 這些記錄會裝載在 'contoso.com' DNS 區域中。
 
 網域名稱「只是一個名稱」，而 DNS 區域則是包含網域名稱之 DNS 記錄的資料資源。 Azure DNS 可讓您裝載 DNS 區域，並在 Azure 中管理網域的 DNS 記錄。 它也提供 DNS 名稱伺服器以回應來自網際網路的 DNS 查詢。
@@ -69,27 +70,35 @@ Azure DNS 僅支援裝載「靜態」DNS 網域，其中所指定 DNS 記錄的�
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>Azure DNS 是否支援網域名稱註冊？
 
-否。 Azure DNS 目前不支援購買網域名稱。 若想要購買網域，必須洽詢第三方網域名稱註冊機構。 註冊機構通常會收取些微年費。 然後便可以在 Azure DNS 裝載這些網域來管理 DNS 記錄。 如需詳細資訊，請參閱 [將網域委派給 Azure DNS](dns-domain-delegation.md) 。
+編號 Azure DNS 目前不支援購買網域名稱。 若想要購買網域，必須洽詢第三方網域名稱註冊機構。 註冊機構通常會收取些微年費。 然後便可以在 Azure DNS 裝載這些網域來管理 DNS 記錄。 如需詳細資訊，請參閱 [將網域委派給 Azure DNS](dns-domain-delegation.md) 。
 
 「網域購買」是我們目前正在 Azure 待辦項目上追蹤的功能。 您可以使用意見反應網站來[註冊此功能的支援](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar) \(英文\)。
 
 ### <a name="does-azure-dns-support-dnssec"></a>Azure DNS 是否支援 DNSSEC？
 
-否。 Azure DNS 目前不支援 DNSSEC。
+編號 Azure DNS 目前不支援 DNSSEC。
 
 DNSSEC 是我們目前正在 Azure DNS 待辦項目上追蹤的功能。 您可以使用意見反應網站來[註冊此功能的支援](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support) \(英文\)。
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>Azure DNS 是否支援區域傳輸 (AXFR/IXFR)？
 
-否。 Azure DNS 目前不支援區域傳輸。 您可以[使用 Azure CLI 將 DNS 區域匯入到 Azure DNS 中](dns-import-export.md)。 接著便可以透過 [Azure DNS 管理入口網站](dns-operations-recordsets-portal.md)、我們的 [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns)、[SDK](dns-sdk.md)、[PowerShell Cmdlet](dns-operations-recordsets.md) 或 [CLI 工具](dns-operations-recordsets-cli.md)，來管理 DNS 記錄。
+編號 Azure DNS 目前不支援區域傳輸。 您可以[使用 Azure CLI 將 DNS 區域匯入到 Azure DNS 中](dns-import-export.md)。 接著便可以透過 [Azure DNS 管理入口網站](dns-operations-recordsets-portal.md)、我們的 [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns)、[SDK](dns-sdk.md)、[PowerShell Cmdlet](dns-operations-recordsets.md) 或 [CLI 工具](dns-operations-recordsets-cli.md)，來管理 DNS 記錄。
 
 「區域傳輸」是我們目前正在 Azure DNS 待辦項目上追蹤的功能。 您可以使用意見反應網站來[註冊此功能的支援](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c) \(英文\)。
 
 ### <a name="does-azure-dns-support-url-redirects"></a>Azure DNS 是否支援 URL 重新導向？
 
-否。 URL 重新導向服務實際上並不是 DNS 服務，它們是在 HTTP 層級運作，而不是在 DNS 層級。 有些 DNS 提供者會將 URL 重新導向服務結合成其整體方案的一部分。 Azure DNS 目前不支援此做法。
+編號 URL 重新導向服務實際上並不是 DNS 服務，它們是在 HTTP 層級運作，而不是在 DNS 層級。 有些 DNS 提供者會將 URL 重新導向服務結合成其整體方案的一部分。 Azure DNS 目前不支援此做法。
 
 我們目前正在 Azure DNS 待辦項目上追蹤「URL 重新導向」功能。 您可以使用意見反應網站來[註冊此功能的支援](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape) \(英文\)。
+
+### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset-"></a>Azure DNS 支援在 TXT 資料錄集中使用延伸的 ASCII 編碼集 (8 位元) 嗎？
+
+是。 如果您使用最新版本的 Azure REST API、SDK、PowerShell、CLI ，Azure DNS 支援在 TXT 資料錄集中使用延伸的 ASCII 編碼集 (2017-10-01 以前的版本或 SDK 2.1 不支援延伸的 ASCII 集)。 例如，如果使用者提供字串作為 TXT 記錄的值，而此字串具有延伸的 ASCII 字元 \128 (例如："abcd\128efgh")，則 Azure DNS 在內部表示中會使用這個字元的位元組值 (即 128)。 而且在 DNS 解析時，會在回應中傳回此位元組的值。 也請注意，就解析而言，"abc" 和 "\097\098\099" 是可互換的。 
+
+針對 TXT 記錄，我們遵循 [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) 中的區域檔案主要格式逸出規則。 例如，根據 RFC，'\' 現在實際上會逸出所有東西。 如果您指定 "A\B" 作為 TXT 記錄的值，它就只會表示及解析為 "AB"。 如果您真的想讓 TXT 記錄解析成 "A\B"，則需要將 "\" 再次逸出，也就是 指定為 "A\\B"。 
+
+請注意，這項支援目前不適用於從 Azure 入口網站所建立的 TXT 記錄。 
 
 ## <a name="using-azure-dns"></a>使用 Azure DNS
 
@@ -163,19 +172,19 @@ Azure DNS 的管理是透過 Azure Resource Manager，因此享有 Azure Resourc
 是。 私人區域支援在跨 Azure 區域的虛擬網路之間進行 DNS 解析 (就算是沒有明確對虛擬網路進行對等也一樣)，前提是所有虛擬網路都必須針對私人區域指定為解析虛擬網路。 客戶可能需要對虛擬網路進行對等，來使 TCP/HTTP 流量能夠從某個區域流至另一個區域。 
 
 ### <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>針對私人區域，虛擬網路是否需要能夠連線至網際網路？
-否。 私人區域能與虛擬網路搭配運作，來讓客戶可以在虛擬網路內及虛擬網路之間管理虛擬機器或其他資源的網域。 名稱解析並不需要任何網際網路連線能力。 
+編號 私人區域能與虛擬網路搭配運作，來讓客戶可以在虛擬網路內及虛擬網路之間管理虛擬機器或其他資源的網域。 名稱解析並不需要任何網際網路連線能力。 
 
 ### <a name="can-the-same-private-zone-be-used-for-multiple-virtual-networks-for-resolution"></a>相同的私人區域是否可以用於多個虛擬網路以進行解析？ 
 是。 客戶可以將最多 10 個解析虛擬網路關聯至單一私人區域。
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>是否可以將屬於不同訂用帳戶的虛擬網路，作為解析虛擬網路新增至私人區域？ 
-是，前提是使用者在這兩個虛擬網路及私人 DNS 區域上皆擁有寫入作業權限。 請注意，寫入權限可以被指派給多個 RBAC 角色。 例如，傳統網路參與者 RBAC 角色便具有虛擬網路的寫入權限。 如需 RBAC 角色的詳細資訊，請參閱[角色型存取控制](../active-directory/role-based-access-control-what-is.md)
+是，前提是使用者在這兩個虛擬網路及私人 DNS 區域上皆擁有寫入作業權限。 請注意，寫入權限可以被指派給多個 RBAC 角色。 例如，傳統網路參與者 RBAC 角色便具有虛擬網路的寫入權限。 如需 RBAC 角色的詳細資訊，請參閱[角色型存取控制](../role-based-access-control/overview.md)
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>當客戶刪除虛擬機器時，是否也會自動刪除私人區域中之自動註冊的虛擬機器 DNS 記錄？
 是。 如果您刪除註冊虛擬網路內的虛擬機器，基於此為註冊虛擬網路的原因，我們將會自動刪除註冊至區域的 DNS 記錄。 
 
 ### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>(來自註冊虛擬網路的) 私人區域中之自動註冊的虛擬機器記錄是否可以手動刪除？ 
-否。 目前，從註冊虛擬網路自動註冊於私人區域中的虛擬機器 DNS 記錄，並無法由客戶查看或編輯。 不過，您可以將這些自動註冊的 DNS 記錄取代 (覆寫) 為於區域中手動建立的 DNS 記錄。 請參閱下列針對此議題的問題和解答。
+編號 目前，從註冊虛擬網路自動註冊於私人區域中的虛擬機器 DNS 記錄，並無法由客戶查看或編輯。 不過，您可以將這些自動註冊的 DNS 記錄取代 (覆寫) 為於區域中手動建立的 DNS 記錄。 請參閱下列針對此議題的問題和解答。
 
 ### <a name="what-happens-when-we-attempt-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>當我嘗試在具有和註冊虛擬網路中 (自動註冊的) 現有虛擬機器相同之主機名稱的私人區域中手動建立新的 DNS 記錄時，會發生什麼事？ 
 如果您嘗試在具有和註冊虛擬網路中現有 (自動註冊的) 虛擬機器相同之主機名稱的私人區域中手動建立新的 DNS 記錄，我們將會允許新的 DNS 記錄覆寫自動註冊的虛擬機器記錄。 此外，如果您隨後嘗試從區域刪除此手動建立的 DNS 記錄，只要虛擬機器仍然存在且有附加私人 IP，刪除將會成功，且自動註冊將會再次發生 (DNS 記錄將會在區域中自動重新建立)。 
@@ -190,7 +199,7 @@ Azure DNS 的管理是透過 Azure Resource Manager，因此享有 Azure Resourc
 是。 私人區域功能並不會取代使用由 Azure 所提供之 internal.cloudapp.net 區域的預設 DNS 解析，而是作為額外的性能或增強功能提供使用。 針對這兩種情況 (無論是仰賴由 Azure 所提供的 internal.cloudapp.net 或您自己的私人區域)，我們建議使用您想要解析之目標區域的 FQDN。 
 
 ### <a name="would-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>已連結虛擬網路內之虛擬機器上的 DNS 尾碼，是否會變更成私人區域的尾碼？ 
-否。 目前，您已連結虛擬網路中虛擬機器上的 DNS 尾碼將會保持為由 Azure 所提供的預設尾碼 ("*.internal.cloudapp.net")。 不過，您可以手動將虛擬機器上的 DNS 尾碼變更為私人區域的尾碼。 
+編號 目前，您已連結虛擬網路中虛擬機器上的 DNS 尾碼將會保持為由 Azure 所提供的預設尾碼 ("*.internal.cloudapp.net")。 不過，您可以手動將虛擬機器上的 DNS 尾碼變更為私人區域的尾碼。 
 
 ### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>此預覽期間的私人區域功能是否有任何限制？
 是。 在公開預覽其間，將會存在下列限制：
@@ -201,7 +210,7 @@ Azure DNS 的管理是透過 Azure Resource Manager，因此享有 Azure Resourc
 * 如果指定了註冊虛擬網路，在已註冊至私人區域的該虛擬網路中，將無法從 PowerShell/CLI/API 檢視或擷取來自該虛擬網路 VM 的 DNS 記錄，但 VM 記錄實際上已註冊，且將會成功解析
 * 反向 DNS 只適用於註冊虛擬網路中的私人 IP 空間
 * 未在私人區域中註冊之私人 IP (例如：在作為解析虛擬網路連結至私人區域的虛擬網路中，虛擬機器的私人 IP) 的反向 DNS 將會傳回 "internal.cloudapp.net" 作為 DNS 尾碼，但此尾碼將無法解析。   
-* 虛擬網路一開始 (也就是 第一次) 連結到私人區域作為註冊或解析虛擬網路時， 必須是空的 (也就是沒有任何已附加 NIC 的虛擬機器)。 不過，對於未來要作為註冊或解析虛擬網路連結到其他私人區域的虛擬網路，則可為非空白。 
+* 虛擬網路一開始 (也就是 第一次) 連結到私人區域作為註冊或解析虛擬網路時， 必須是空的 (也就是虛擬網路沒有附加任何 NIC)。 不過，對於未來要作為註冊或解析虛擬網路連結到其他私人區域的虛擬網路，則可為非空白。 
 * 此階段不支援條件式轉送，例如，啟用 Azure 和 OnPrem 網路之間的解析。 如需客戶可如何透過其他機制實現此案例的文件，請參閱 [VM 與角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>針對私人區域的區域或記錄，是否有任何配額或限制？

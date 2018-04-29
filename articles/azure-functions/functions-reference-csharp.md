@@ -1,25 +1,25 @@
 ---
-title: "Azure Functions C# 指令碼開發人員參考"
-description: "了解如何使用 C# 指令碼開發 Azure Functions。"
+title: Azure Functions C# 指令碼開發人員參考
+description: 了解如何使用 C# 指令碼開發 Azure Functions。
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構"
+editor: ''
+tags: ''
+keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
-ms.author: glenga
-ms.openlocfilehash: 683ef1ebffaec74df95b454d717857d55b8026dd
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.author: tdykstra
+ms.openlocfilehash: 91e85fb25f9324f9b8d83884fe34a014f280de0b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 指令碼 (.csx) 開發人員參考
 
@@ -80,7 +80,7 @@ public static void Run(CloudQueueMessage myQueueItem, TraceWriter log)
 
 ## <a name="referencing-custom-classes"></a>參考自訂類別
 
-如果您需要使用自訂純舊 CLR 物件 (POCO) 類別，則可以包含相同檔案內的類別定義，或將它放在個別檔案中。
+如果您需要使用自訂簡單的 CLR 物件 (POCO) 類別，則可以包含相同檔案內的類別定義，或將它放在個別檔案中。
 
 下列範例示範內含 POCO 類別定義的 run.csx 範例。
 
@@ -233,7 +233,7 @@ public static void Run(string myBlob, TraceWriter log)
 
 ## <a name="async"></a>非同步處理
 
-若要讓函式變成非同步，請使用 `async` 關鍵字並傳回 `Task` 物件。
+若要讓函式變成[非同步](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)，請使用 `async` 關鍵字並傳回 `Task` 物件。
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(

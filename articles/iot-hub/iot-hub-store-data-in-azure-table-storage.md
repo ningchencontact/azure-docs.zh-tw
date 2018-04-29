@@ -1,25 +1,25 @@
 ---
-title: "將 IoT 中樞訊息儲存至 Azure 資料儲存體 | Microsoft Docs"
-description: "使用 IoT 中樞訊息路由將 IoT 中樞訊息儲存至 Azure Blob 儲存體。 IoT 中樞訊息包含從 IoT 裝置傳送的資訊，例如感應器資料。"
+title: 將 IoT 中樞訊息儲存至 Azure 資料儲存體 | Microsoft Docs
+description: 使用 IoT 中樞訊息路由將 IoT 中樞訊息儲存至 Azure Blob 儲存體。 IoT 中樞訊息包含從 IoT 裝置傳送的資訊，例如感應器資料。
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "iot 資料儲存體, iot 感應器資料存儲存體"
+tags: ''
+keywords: iot 資料儲存體, iot 感應器資料存儲存體
 ms.assetid: 62fd14fd-aaaa-4b3d-8367-75c1111b6269
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
-ms.author: xshi
-ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 03111cd07364aa30f15ddcfdc196107d92d02e0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>將包含感應器資料的 IoT 中樞訊息儲存至 Azure Blob 儲存體
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="prepare-your-iot-hub-to-route-messages-to-storage"></a>準備 IoT 中樞以將訊息路由傳送至儲存體
 
-「IoT 中樞」原生支援將訊息路由傳送至 Azure 儲存體作為 Blob。
+「IoT 中樞」原生支援將訊息路由傳送至 Azure 儲存體作為 Blob。 若要深入了解 Azure IoT 中樞自訂端點，您可以參考[內建 IoT 中樞端點的清單](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints)。
 
 ### <a name="add-storage-as-a-custom-endpoint"></a>新增儲存體作為自訂端點
 
