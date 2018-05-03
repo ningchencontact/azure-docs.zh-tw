@@ -26,7 +26,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="add-cloud-based-users"></a>新增雲端式使用者
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。
-2. 選取 [Azure Active Directory]**Azure Active Directory**，然後選取 [使用者和群組]。
+2. 選取 [Azure Active Directory]，然後選取 [使用者和群組]。
 3. 在 [使用者和群組] 上，選取 [所有使用者]，然後選取 [新增使用者]。
    ![選取 [新增] 命令](./media/add-users-azure-active-directory/add-user.png)
 4. 輸入使用者的詳細資料，例如「名稱」和「使用者名稱」。 使用者名稱的網域名稱部分必須是初始預設網域名稱 "[網域名稱].onmicrosoft.com"，或是已驗證的非同盟[自訂網域名稱](add-custom-domain.md)，例如"contoso.com"。
