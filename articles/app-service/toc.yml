@@ -231,7 +231,7 @@
           href: 'https://msdn.microsoft.com/library/azure/dn407359.aspx'
         - name: Azure SDK for .NET 2.0
           href: 'https://msdn.microsoft.com/library/azure/dn169556.aspx'
-    - name: 最佳作法
+    - name: 最佳做法
       href: app-service-best-practices.md
     - name: 範例
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
@@ -253,6 +253,8 @@
           href: app-service-web-troubleshoot-http-502-http-503.md
         - name: 針對效能問題進行疑難排解
           href: app-service-web-troubleshoot-performance-degradation.md
+        - name: 針對網域和憑證問題進行疑難排解
+          href: app-service-web-troubleshoot-domain-ssl-certificates.md
         - name: 常見問題集
           items:
             - name: 可用性、效能和應用程式常見問題

@@ -1,6 +1,6 @@
 ---
-title: "Application Insights 遙測相互關聯 | Microsoft Docs"
-description: "Application Insights 遙測相互關聯"
+title: Application Insights 遙測相互關聯 | Microsoft Docs
+description: Application Insights 遙測相互關聯
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
@@ -10,13 +10,13 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9adecca35524962402d46169c531d135d0772bbd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
@@ -103,6 +103,31 @@ ASP.NET Core 2.0 支援擷取 Http 標頭和啟動新的活動。
 ASP.NET Classic 有新的 Http 模組 [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/)。 此模組會使用 DiagnosticsSource 來實作遙測相互關聯。 它會根據傳入的要求標頭來啟動活動。 還會將不同要求處理階段的遙測相互關聯。 即使是當 IIS 處理的每個階段在不同管理執行緒上執行時也一樣。
 
 Application Insights SDK 起始版本 `2.4.0-beta1` 會使用 DiagnosticsSource 和 Activity 來收集遙測，並將它與目前活動產生關聯。 
+
+<a name="java-correlation"></a>
+## <a name="telemetry-correlation-in-the-java-sdk"></a>Java SDK 中的遙測相互關聯
+自 `2.0.0` 版開始，[Application Insights Java SDK](app-insights-java-get-started.md) 支援遙測的自動相互關聯。 它會自動填入在要求範圍內發出的所有遙測 (追蹤、例外狀況、自訂事件等等) 的 `operation_id`。 如果有設定 [Java SDK 代理程式](app-insights-java-agent.md)，它也會負責透過 HTTP 傳播服務對服務呼叫的相互關聯標頭 (前述)。 請注意：相互關聯功能僅支援透過 Apache HTTP 用戶端所提出的呼叫。 如果您使用 Spring Rest 範本或 Feign，這兩者都可以在幕後搭配 Apache HTTP 用戶端。
+
+目前不支援跨訊息技術 (例如 Kafka、RabbitMQ、Azure 服務匯流排) 的自動內容傳播。 不過，使用 `trackDependency` 和 `trackRequest` API 以手動方式編寫這類案例的程式碼是可行的，藉由此方式，相依性遙測代表由產生者加入佇列的訊息，要求則代表取用者所處理的訊息。 在此情況下，`operation_id` 和 `operation_parentId` 應該同時在訊息的屬性中傳播。
+
+<a name="java-role-name"></a>
+### <a name="role-name"></a>角色名稱
+有時候，您可以自訂元件名稱在[應用程式對應](app-insights-app-map.md)中的顯示方式。 若要這樣做，您可以用下列其中一項動作手動設定 `cloud_roleName`：
+
+透過遙測初始設定式 (會標記所有遙測項目)
+```Java
+public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
+
+    @Override
+    protected void onInitializeTelemetry(Telemetry telemetry) {
+        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
+    }
+  }
+```
+透過[裝置內容類別](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (只會標記此遙測項目)
+```Java
+telemetry.getContext().getDevice().setRoleName("My Component Name");
+```
 
 ## <a name="next-steps"></a>後續步驟
 

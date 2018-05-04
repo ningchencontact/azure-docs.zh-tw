@@ -298,7 +298,7 @@ $dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistenta
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-如果路徑不符合我們想要從 API 管理啟用的路徑規則，則規則路徑對應設定也會設定名為 **dummyBackendPool** 的預設後端位址集區。 例如，http://api.contoso.net/calc/* 會前往 **dummyBackendPool**，因為它定義為不相符流量的預設集區。
+如果路徑不符合我們想要從 API 管理啟用的路徑規則，則規則路徑對應設定也會設定名為 **dummyBackendPool** 的預設後端位址集區。 例如， http://api.contoso.net/calc/* 會前往 **dummyBackendPool**，因為它定義為不相符流量的預設集區。
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting

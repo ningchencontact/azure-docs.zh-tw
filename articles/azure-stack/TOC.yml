@@ -190,18 +190,25 @@
               href: azure-stack-delegated-provider.md
             - name: 配額類型
               href: azure-stack-quota-types.md
-        - name: 提供 SQL 或 MySQL 做為 PaaS
+        - name: PaaS 服務概觀
+          href: azure-stack-tools-paas-services.md
+        - name: 提供 SQL 做為 PaaS
+          href: azure-stack-sql-resource-provider.md
           items:
-            - name: PaaS 服務概觀
-              href: azure-stack-tools-paas-services.md
-            - name: 部署 MySQL 資源提供者
-              href: azure-stack-mysql-resource-provider-deploy.md
-            - name: 部署 SQL 資源提供者
+            - name: 部署 SQL Server 資源提供者
               href: azure-stack-sql-resource-provider-deploy.md
             - name: 新增主機伺服器
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: 建立 SQL 資料庫
               href: azure-stack-sql-resource-provider-databases.md
+            - name: 更新 SQL Server 資源提供者
+              href: azure-stack-sql-resource-provider-update.md
+            - name: 維護 SQL Server 資源提供者
+              href: azure-stack-sql-resource-provider-maintain.md
+            - name: 移除 SQL Server 資源提供者
+              href: azure-stack-sql-resource-provider-remove.md
+        - name: 提供 MySQL 做為 PaaS
+          href: azure-stack-mysql-resource-provider-deploy.md
         - name: 提供 App Service 做為 PaaS
           items:
             - name: Azure Stack 概觀上的 App Service

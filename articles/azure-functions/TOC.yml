@@ -123,6 +123,8 @@
           href: durable-functions-versioning.md
         - name: 效能和延展性
           href: durable-functions-perf-and-scale.md
+        - name: 災難復原和異地複寫
+          href: durable-functions-disaster-recovery-geo-distribution.md
 - name: 使用說明指南
   items:
     - name: 開發

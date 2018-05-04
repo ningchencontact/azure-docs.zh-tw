@@ -1,11 +1,11 @@
 ---
-title: "上傳 Azure 服務管理憑證 | Microsoft Docs"
-description: "了解如何針對 Azure 入口網站上傳服務管理憑證。"
+title: 上傳 Azure 服務管理憑證 | Microsoft Docs
+description: 了解如何針對 Azure 入口網站上傳服務管理憑證。
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: na
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: a865290602f64335e8b7cbfadf00d83234ae812d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: be548a8e823d4c7109951183886764738a66ecea
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>上傳 Azure 服務管理憑證
 管理憑證可讓您使用 Azure 所提供的傳統部署模型進行驗證。 許多程式和工具 (例如 Visual Studio 或 Azure SDK) 會使用這些憑證，將各種 Azure 服務的設定與部署自動化。 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/21/2018
 
 如果您想要深入了解 Azure 憑證 (包括如何建立自我簽署憑證)，請參閱 [Azure 雲端服務的憑證概觀](cloud-services/cloud-services-certs-create.md#what-are-management-certificates)。
 
-您也可以使用 [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) 驗證用於自動化用途的用戶端程式碼。
+您也可以使用 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 驗證用於自動化用途的用戶端程式碼。
 
 **注意：**您必須是訂用帳戶的共同管理員，才能在 [管理憑證] 下執行任何作業。 [進一步了解](https://go.microsoft.com/fwlink/?linkid=849300)如何從新版 Azure 入口網站新增或移除共同管理員 
 

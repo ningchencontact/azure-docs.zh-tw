@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/19/2018
 ms.author: sngun
-ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8a0f50ad6df1135e05cd69be78e6b7f7820f90c6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB 的 Power BI 教學課程：使用 Power BI 連接器將資料視覺化
 [PowerBI.com](https://powerbi.microsoft.com/) 是一項線上服務，您可以在其中建立及共用具有您和組織之重要資料的儀表板和報告。  Power BI Desktop 是一項專用的報告撰寫工具，可讓您從各種資料來源擷取資料、合併和轉換資料、建立功能強大的報告和視覺效果，以及將報告發佈至 Power BI。  有了最新版的 Power BI Desktop，您現在可以透過 Power BI 的 Azure Cosmos DB 連接器連線到 Azure Cosmos DB 帳戶。   
@@ -103,9 +103,9 @@ ms.lasthandoff: 04/20/2018
     > [!NOTE] 
     > 如果您收到指出「找不到指定的資料庫」的錯誤， 請參閱此 [Power BI 問題](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200) \(英文\) 中的因應措施步驟。
     
-9. 順利連接帳戶後，會出現 [瀏覽器]  。  [瀏覽器]  會顯示帳戶下的資料庫清單。
-10. 按一下並展開作為報告資料來源的資料庫，如果您使用示範帳戶，請選取 [volcanodb] 。   
-11. 現在，選取您要從中擷取資料的集合。 如果您使用示範帳戶，請選取 **volcano1**。
+9. 順利連接帳戶後，會出現 [瀏覽器]  窗格。  [瀏覽器]  會顯示帳戶下的資料庫清單。
+10. 按一下並展開作為報告資料來源的資料庫，如果您使用示範帳戶，請選取 [volcanodb]。   
+11. 現在，選取要從中擷取資料的集合。 如果您使用示範帳戶，請選取 **volcano1**。
     
     [預覽] 窗格會顯示 [記錄]  項目的清單。  一份文件會顯示為 Power BI 中的 [記錄]  類型。 同樣地，文件內的巢狀 JSON 區塊也是 [記錄] 。
     
@@ -115,28 +115,29 @@ ms.lasthandoff: 04/20/2018
 ## <a name="flattening-and-transforming-json-documents"></a>簡維化和轉換 JSON 文件
 1. 切換至 [Power BI 查詢編輯器] 視窗，中央窗格內會顯示 [文件] 資料行。
    ![Power BI Desktop 查詢編輯器](./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
-2. 按一下位於 [文件]  資料行標頭右側的展開器。  此時會出現含有欄位清單的內容功能表。  選取您的報告所需的欄位，例如火山名稱、國家、區域、位置、高度、類型、狀態和已知的上次爆發時間，然後按一下 [確定]。
+2. 按一下位於 [文件]  資料行標頭右側的展開器。  此時會出現含有欄位清單的內容功能表。  選取您報告所需的欄位，例如火山名稱、國家、區域、位置、高度、類型、狀態和已知的上次爆發時間。 取消核取 [使用原始資料行名稱作為前置詞] 方塊，然後再按一下 [確定]。
    
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 展開文件](./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
 3. 中央窗格會顯示所選欄位的結果預覽。
    
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 壓平合併結果](./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png)
 4. 在我們的範例中，[位置] 屬性是文件中的 GeoJSON 區塊。  如您所見，[位置] 顯示為 Power BI Desktop 中的 [記錄]  類型。  
-5. 按一下位於 [位置] 資料行標頭右側的展開器。  此時會出現含有類型和座標欄位的內容功能表。  我們選取座標欄位，然後按一下 [確定] 。
+5. 按一下位於 [Document.Location] 資料行標頭右側的展開器。  此時會出現含有類型和座標欄位的內容功能表。  請選取座標欄位，並確定未選取 [使用原始資料行名稱作為前置詞]，然後按一下 [確定]。
    
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 位置記錄](./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png)
 6. 中央窗格現在會顯示 [清單]  類型的座標資料行。  如本教學課程一開始所說明，本教學課程中的 GeoJSON 資料屬於 Point 類型，具有座標陣列中所記錄的緯度和經度值。
    
     coordinates[0] 項目代表經度，coordinates[1] 則代表緯度。
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 座標清單](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
-7. 為了將座標陣列簡維化，我們將建立名為 LatLong 的 [自訂資料行]  。  選取 [新增資料行] 功能區，然後按一下 [新增自訂資料行]。  此時應會出現 [新增自訂資料行]  視窗。
+7. 為了將座標陣列壓平合併，請建立名為 LatLong 的 [自訂資料行]。  選取 [新增資料行] 功能區，然後按一下 [自訂資料行]。  [自訂資料行] 視窗會隨即出現。
 8. 提供新資料行的名稱，例如 LatLong。
 9. 接下來，指定新資料行的自訂公式。  在我們的範例中，我們將依照下列方式使用以下公式，串連以逗號分隔的緯度和經度值： `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`。 按一下 [SERVICEPRINCIPAL] 。
    
     如需資料分析運算式 (DAX) (包括 DAX 函數) 的詳細資訊，請瀏覽 [Power BI Desktop 中的 DAX 基礎](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop)。
    
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 新增自訂資料行](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
-10. 現在，中央窗格會顯示新的 LatLong 資料行，並且已填入以逗號分隔的緯度和經度值。
+
+10. 現在，中央窗格會顯示已填入值的新 LatLong 資料行。
     
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 自訂 LatLong 資料行](./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
     
@@ -145,10 +146,8 @@ ms.lasthandoff: 04/20/2018
     ![套用的步驟應該是來源、瀏覽、展開的文件、展開的 Document.Location、新增的自訂](./media/powerbi-visualize/power-bi-applied-steps.png)
     
     如果步驟不同，請刪除額外的步驟，然後再試一次新增自訂資料行。 
-11. 現在我們已將資料簡維化成表格式格式。  您可以利用查詢編輯器中所有可用的功能，將 Cosmos DB 中的資料圖形化及進行轉換。  如果您使用範例，請在 [首頁] 功能區上變更 [資料類型]，以將 [高度] 的資料類型變更為 [整數]。
-    
-    ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 變更資料行類型](./media/powerbi-visualize/power_bi_connector_pbichangetype.png)
-12. 按一下 [關閉並套用]  以儲存資料模型。
+
+11. 按一下 [關閉並套用]  以儲存資料模型。
     
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 關閉並套用](./media/powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
@@ -175,6 +174,7 @@ ms.lasthandoff: 04/20/2018
 6. 現在您已建立基本報告。  您可以新增更多視覺效果，以進一步自訂報告。  在本例中，我們新增 [火山類型] 交叉分析篩選器，讓報告更具互動性。  
    
     ![完成 Azure Cosmos DB 的 Power BI 教學課程後之最終 Power BI Desktop 報告的螢幕擷取畫面](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
+7. 在 [檔案] 功能表上按一下 [儲存]，並將檔案儲存為 PowerBITutorial.pbix。
 
 ## <a name="publish-and-share-your-report"></a>發佈和共用您的報告
 若要共用您的報告，您必須有 PowerBI.com 中的帳戶。
@@ -201,26 +201,26 @@ ms.lasthandoff: 04/20/2018
 
 您也可以對之前建立的儀表板進行臨機操作修改。 不過，建議您使用 Power BI Desktop 進行修改，再將報表重新發佈至 PowerBI.com。
 
-## <a name="refresh-data-in-powerbicom"></a>重新整理 PowerBI.com 中的資料
-有兩種方式可以重新整理資料：臨機操作和排程。
+<!-- ## Refresh data in PowerBI.com
+There are two ways to refresh data, ad hoc and scheduled.
 
-若以臨機操作方式重新整理，只要按一下**資料集** (例如 PowerBITutorial) 旁的刪節符號 (...)。 您應該會看到包括 [立即重新整理] 在內的動作清單。 按一下 [立即重新整理] 以重新整理資料。
+For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
 
-![PowerBI.com 中立即重新整理的螢幕擷取畫面](./media/powerbi-visualize/power-bi-refresh-now.png)
+![Screenshot of Refresh Now in PowerBI.com](./media/powerbi-visualize/power-bi-refresh-now.png)
 
-若以排程方式重新整理，執行下列動作。
+For a scheduled refresh, do the following.
 
-1. 按一下動作清單中的 [排程重新整理]  。 
+1. Click **Schedule Refresh** in the action list. 
 
-    ![PowerBI.com 中排程重新整理的螢幕擷取畫面](./media/powerbi-visualize/power-bi-schedule-refresh.png)
-2. 在 [設定] 頁面上，展開 [資料來源認證]。 
-3. 按一下 [編輯認證] 。 
+    ![Screenshot of the Schedule Refresh in PowerBI.com](./media/powerbi-visualize/power-bi-schedule-refresh.png)
+2. In the **Settings** page, expand **Data source credentials**. 
+3. Click on **Edit credentials**. 
    
-    [設定] 快顯視窗隨即出現。 
-4. 輸入金鑰以將該資料集連線到 Azure Cosmos DB 帳戶，然後按一下 [登入]。 
-5. 展開 [排程重新整理]  ，並設定您想要重新整理資料集的排程。 
-6. 按一下 [套用]  即完成排程重新整理的設定。
-
+    The Configure popup appears. 
+4. Enter the key to connect to the Azure Cosmos DB account for that data set, then click **Sign in**. 
+5. Expand **Schedule Refresh** and set up the schedule you want to refresh the dataset. 
+6. Click **Apply** and you are done setting up the scheduled refresh.
+-->
 ## <a name="next-steps"></a>後續步驟
 * 若要深入了解 Power BI，請參閱 [開始使用 Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)。
 * 若要深入了解 Azure Cosmos DB，請參閱 [Azure Cosmos DB 文件登陸頁面](https://azure.microsoft.com/documentation/services/cosmos-db/)。

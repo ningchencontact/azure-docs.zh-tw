@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 72bc8e95e5b77baec29247f5593a522bbe663368
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4fd1381594c77d8bba92027fee06c08376ee903b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式
 
@@ -145,6 +145,9 @@ ms.lasthandoff: 04/06/2018
 新增系統管理員使用者名稱和密碼。 如需密碼複雜性需求，請參閱[密碼原則](/sql/relational-databases/security/password-policy)。
 
 請記住這個使用者名稱和密碼。 您稍後需要它們以便管理邏輯伺服器執行個體。
+
+> [!IMPORTANT]
+> 即使您在連接字串中的密碼已經遮罩處理 (在 Visual Studio 以及 App Service 中)，但是它於某處受到維護的事實增加了您應用程式受到攻擊的可能性。 App Service 可以使用[受控服務識別](app-service-managed-service-identity.md)來降低此風險，方法是完全免除在您的程式碼或應用程式組態中維護祕密的需求。 如需詳細資訊，請參閱[後續步驟](#next-steps)。
 
 ![建立 SQL Server 執行個體](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
@@ -413,8 +416,6 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 [!INCLUDE [Clean up section](../../includes/clean-up-section-portal-web-app.md)]
 
-<a name="next"></a>
-
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解如何：
@@ -427,7 +428,7 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 > * 將記錄從 Azure 串流到終端機
 > * 在 Azure 入口網站中管理應用程式
 
-前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至 Web 應用程式。
+前進到下一個教學課程，以了解如何輕鬆改善 Azure SQL Database 連線的安全性。
 
 > [!div class="nextstepaction"]
-> [將現有的自訂 DNS 名稱對應至 Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [使用受控服務識別安全地存取 SQL Database](app-service-web-tutorial-connect-msi.md)

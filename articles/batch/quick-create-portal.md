@@ -1,6 +1,6 @@
 ---
-title: "Azure 快速入門 - 執行 Batch 作業 - 入口網站"
-description: "快速了解如何使用 Azure 入口網站執行 Batch 作業。"
+title: Azure 快速入門 - 執行 Batch 作業 - 入口網站
+description: 快速了解如何使用 Azure 入口網站執行 Batch 作業。
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a00c8ea07c31d2ab4ba2638f2a7e4adcf5ca4a10
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中執行您的第一個 Batch 作業
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="sign-in-to-azure"></a>登入 Azure 
 
-登入 Azure 入口網站，網址為 https://portal.azure.com。
+在 https://portal.azure.com 登入 Azure 入口網站。
 
 ## <a name="create-a-batch-account"></a>建立批次帳戶：
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/01/2018
 
 2. 輸入 [帳戶名稱] 和 [資源群組] 的值。 帳戶名稱必須是所選取 [Azure 位置] 中的唯一名稱，只能使用小寫字元或數字，而且包含 3-24 個字元。 
 
-3. 在 [儲存體帳戶] 中，選取現有的一般用途儲存體帳戶或建立新的儲存體帳戶。
+3. 在 [儲存體帳戶] 中，選取現有的儲存體帳戶或建立新的儲存體帳戶。
 
 4. 保留其餘設定的預設值，然後按一下 [建立] 以建立帳戶。
 

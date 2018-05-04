@@ -1,16 +1,16 @@
 ---
-title: "Azure Migrate 的相依性視覺效果 | Microsoft Docs"
-description: "概括介紹 Azure Migrate 服務中的評量計算。"
+title: Azure Migrate 的相依性視覺效果 | Microsoft Docs
+description: 概括介紹 Azure Migrate 服務中的評量計算。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d075ce9ee124d373a1284577324a50338245a03f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="dependency-visualization"></a>相依性視覺效果
 
@@ -24,7 +24,7 @@ Azure Migrate 的相依性視覺效果可建立用於移轉評估的群組，藉
 ## <a name="how-does-it-work"></a>運作方式
 
 為提供相依性的視覺效果，Azure Migrate 採用了 [Log Analytics](../log-analytics/log-analytics-overview.md) 的[服務對應](../operations-management-suite/operations-management-suite-service-map.md)解決方案。
-- 您建立 Azure 移轉專案時，會在您的訂用帳戶中建立 OMS Log Analytics 工作區。
+- 您建立 Azure 移轉專案時，會在您的訂用帳戶中建立 Log Analytics 工作區。
 - 工作區名稱是您為移轉專案指定的名稱，前面加上 **migrate-**，後面則可選擇要不要加數字。 
 - 從專案 [概觀] 頁面的 [基本資訊] 區段中，瀏覽至 Log Analytics 工作區。
 - 建立的工作區會以索引鍵 **MigrateProject** 和**專案名稱**的值標記。 您可以使用上述資訊在 Azure 入口網站進行搜尋。  

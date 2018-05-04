@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 071e0c2b802b1bb6ef68092362c61bf3960fd45a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 權杖參考
 Azure Active Directory (Azure AD) v2.0 端點會在每個[驗證流程](active-directory-v2-flows.md)中發出數種安全性權杖。 本參考文件說明每種權杖的格式、安全性特性及內容。
@@ -73,9 +73,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | 物件識別碼 |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | 物件在 Microsoft 身分識別系統中的不可變識別碼，在此案例為使用者帳戶。  它也可用來安全地執行授權檢查，以及做為資料庫資料表中的索引鍵。 此識別碼可跨應用程式唯一識別使用者，同一位使用者登入兩個不同的應用程式會在 `oid` 宣告中收到相同的值。  這表示在對 Microsoft 線上服務 (例如 Microsoft Graph) 進行查詢時可使用此識別碼。  Microsoft Graph 會傳回這個識別碼做為指定使用者帳戶的 `id` 屬性。  因為 `oid` 可讓多個應用程式相互關聯使用者，因此需要 `profile` 範圍才能接收此宣告。 請注意，如果單一使用者存在於多個租用戶，使用者將會在每個租用戶中包含不同的物件識別碼，它們會被視為不同帳戶，即使使用者使用相同認證來登入各個帳戶也是如此。 |
 
 ### <a name="access-tokens"></a>存取權杖
-目前 v2.0 端點所簽發的存取權杖僅供「Microsoft 服務」取用。 針對任何目前支援的案例，您的應用程式應該不需要執行任何存取權杖驗證或檢查。 您可以將存取權杖視為完全不透明。 它們只是您應用程式可以在 HTTP 要求中傳遞給 Microsoft 的字串。
 
-在不久的將來，v2.0 端點將引進可讓您的應用程式從其他用戶端接收存取權杖的功能。 屆時，本參考主題中的資訊將會更新為應用程式執行存取權杖驗證和其他類似工作所需的資訊。
+v2.0 端點可允許已向 Azure AD 註冊的第三方應用程式，針對受保護的資源發出存取權杖，例如 Web API。 如需如何設定應用程式以發出存取權杖的詳細資訊，請參閱[如何使用 v2.0 端點註冊 App](active-directory-v2-app-registration.md)。 使用 v2.0 端點註冊應用程式時，開發人員可以指定可針對其發出存取權杖的存取層級 (稱為**範圍**)。 例如，Microsoft Graph API 中所定義的 **calendars.read** 範圍可授與讀取使用者行事曆的權限。 當您的應用程式收到來自 v2.0 端點的存取權杖時，您必須根據您的案例來驗證權杖的簽章、簽發者、對象、到期時間和任何其他宣告。 
 
 當您向 v2.0 端點要求存取權杖時，v2.0 端點也會傳回存取權杖的相關中繼資料，以供您的應用程式使用。 此資訊包括存取權杖的到期時間以及其有效範圍。 您的應用程式可使用此中繼資料來執行存取權杖的智慧型快取，而不需剖析存取權杖本身。
 

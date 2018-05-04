@@ -1,12 +1,12 @@
 ---
-title: "Azure 建議程式效能建議 | Microsoft Docs"
-description: "使用 Advisor 將 Azure 部署的效能最佳化。"
+title: Azure 建議程式效能建議 | Microsoft Docs
+description: 使用 Advisor 將 Azure 部署的效能最佳化。
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: e32723cd3ef13829890a630f4bff308164e17674
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 00abb5aafc6f3aec2e2dd7326a307bee74d97cc1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="advisor-performance-recommendations"></a>建議程式效能建議
 
@@ -31,11 +31,11 @@ Advisor 效能建議有助於提升業務關鍵應用程式的速度和回應能
 > [!NOTE]
 > 若要取得建議，資料庫必須持續使用一週，而且那一週之內必須有一些一致的活動。 相較於隨機蹦出的活動，一致的查詢模式更有利於 SQL Database Advisor 最佳化。
 
-如需 SQL Database Advisor 的詳細資訊，請參閱 [SQL Database Advisor](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/)。
+如需 SQL Database Advisor 的詳細資訊，請參閱 [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)。
 
 ## <a name="improve-redis-cache-performance-and-reliability"></a>改善 Redis 快取的效能和可靠性
 
-Advisor 會識別高記憶體使用量、伺服器負載、網路頻寬或大量用戶端連線會對其效能造成負面影響的 Redis 快取執行個體。 Advisor 也提供最佳做法建議來協助您避免潛在的問題。 如需 Redis 快取建議的詳細資訊，請參閱 [Redis 快取建議程式](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#redis-cache-advisor)。
+Advisor 會識別高記憶體使用量、伺服器負載、網路頻寬或大量用戶端連線會對其效能造成負面影響的 Redis 快取執行個體。 Advisor 也提供最佳做法建議來協助您避免潛在的問題。 如需 Redis 快取建議的詳細資訊，請參閱 [Redis 快取建議程式](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)。
 
 
 ## <a name="improve-app-service-performance-and-reliability"></a>改善 App Service 的效能和可靠性
@@ -44,7 +44,7 @@ Azure 建議程式整合了最佳作法建議，以供提升應用程式服務�
 * 偵測應用程式執行階段與緩和選項已耗盡記憶體或 CPU 資源的執行個體。
 * 偵測共置資源 (如 Web 應用程式和資料庫) 可改善效能並降低成本的執行個體。 
 
-如需應用程式服務建議的詳細資訊，請參閱 [Azure App Service 的最佳作法](https://azure.microsoft.com/en-us/documentation/articles/app-service-best-practices/)。
+如需應用程式服務建議的詳細資訊，請參閱 [Azure App Service 的最佳作法](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)。
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>如何在建議程式中存取效能建議
 

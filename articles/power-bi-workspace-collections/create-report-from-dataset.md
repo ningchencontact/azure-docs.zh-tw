@@ -1,26 +1,26 @@
 ---
-title: "在 Power BI 工作區集合中從資料集建立新的報告 | Microsoft Docs"
-description: "您現在可以在自己的應用程式中，從資料集建立 Power BI 工作區集合報告。"
+title: 在 Power BI 工作區集合中從資料集建立新的報告 | Microsoft Docs
+description: 您現在可以在自己的應用程式中，從資料集建立 Power BI 工作區集合報告。
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: aa902cbc4992292420948b36d85e52fafc7224de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 5c6a52edd708b6077820f2004e83ac7dee945610
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>在 Power BI 工作區集合中，從資料集建立新的報告
 
@@ -63,7 +63,7 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="create-a-new-blank-report"></a>建立新的空白報告
 
-若要建立新報告，請提供建立組態。 這應該包括存取權杖、embedURL 和我們想要用來建立報告的 datasetID。 這需要您安裝 NuGet [Power BI JavaScript 套件](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)。 embedUrl 會是 https://embedded.powerbi.com/appTokenReportEmbed。
+若要建立新報告，請提供建立組態。 這應該包括存取權杖、embedURL 和我們想要用來建立報告的 datasetID。 這需要您安裝 NuGet [Power BI JavaScript 套件](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)。 embedUrl 將只是 https://embedded.powerbi.com/appTokenReportEmbed。
 
 > [!NOTE]
 > 您可以使用 [JavaScript 報告內嵌範例](https://microsoft.github.io/PowerBI-JavaScript/demo/)來測試功能。 它也會提供可用之不同作業的程式碼範例。

@@ -36,6 +36,7 @@
 ## [應用程式註冊](active-directory-integrating-applications.md)
 ## [多租用戶應用程式](active-directory-devhowto-multi-tenant-overview.md)
 ## [條件式存取](active-directory-conditional-access-developer.md)
+## [權限](active-directory-permissions.md)
 ## OAuth 和 OpenID Connect
 ### [OpenID Connect 通訊協定](active-directory-protocols-openid-connect-code.md)
 ### [OAuth 2.0 驗證碼授與](active-directory-protocols-oauth-code.md)
@@ -69,9 +70,9 @@
 ## [ACS 移轉](active-directory-acs-migration.md)
 ## [處理適用於 ADAL 的最佳做法時發生錯誤](active-directory-devhowto-adal-error-handling.md)
 # 參考
-## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [驗證程式庫 (ADAL)](active-directory-authentication-libraries.md)
-## [程式碼範例文章](active-directory-code-samples.md)
+## [依據案例的程式碼範例](active-directory-code-samples.md)
 ## [詞彙](active-directory-dev-glossary.md)
 ## [驗證通訊協定](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -97,7 +98,8 @@
 ### 行動和桌面應用程式
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [.NET (Windows Desktop)](guidedsetups/active-directory-windesktop.md)
+#### [Windows 桌面型 .NET](guidedsetups/active-directory-windesktop.md)
+#### [通用 Windows 平台](guidedsetups/active-directory-uwp-v2.md)
 ### Web 應用程式
 #### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
@@ -109,8 +111,10 @@
 #### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## 手冊
 ### [註冊應用程式](active-directory-v2-app-registration.md)
+### [App 註冊參考](active-directory-v2-registration-portal.md)
 ## 參考
 ### [驗證程式庫](active-directory-v2-libraries.md)
+### [依據案例的 v2.0 程式碼範例](active-directory-v2-code-samples.md)
 ### [v2.0 驗證通訊協定](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [OAuth 2.0 授權碼授與](active-directory-v2-protocols-oauth-code.md)

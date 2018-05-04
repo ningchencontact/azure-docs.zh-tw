@@ -36,7 +36,7 @@
 ##### [運作方式](active-directory-aadconnect-sso-how-it-works.md)
 ##### [常見問題集](active-directory-aadconnect-sso-faq.md)
 ##### [疑難排解](active-directory-aadconnect-troubleshoot-sso.md)
-##### [GDPR](active-directory-aadconnect-sso-gdpr.md)
+##### [使用者隱私權與 Azure AD 無縫單一登入](active-directory-aadconnect-sso-gdpr.md)
 #### [傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)
 ##### [快速入門](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [目前限制](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
@@ -46,7 +46,7 @@
 ##### [常見問題集](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [疑難排解](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [深入探討安全性](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
-##### [GDPR](active-directory-aadconnect-pass-through-authentication-gdpr.md)
+##### [使用者隱私權與 Azure Active Directory 傳遞驗證](active-directory-aadconnect-pass-through-authentication-gdpr.md)
 ### [對同盟的多網域支援](active-directory-aadconnect-multiple-domains.md)
 ### [自動升級](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [使用 SAML 2.0 識別提供者 (IdP) 來進行單一登入](active-directory-aadconnect-federation-saml-idp.md)
@@ -54,7 +54,8 @@
 
 
 ## 管理 Azure AD Connect 同步處理
-### [GDPR 相容性與 Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [使用者隱私權與 Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [O365 資源的偏好資料位置](active-directory-aadconnectsync-feature-preferreddatalocation.md)
 ### [防止意外刪除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Azure AD 服務帳戶](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -91,7 +92,7 @@
 ### [如何從 LocalDB 10-GB 的限制復原](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # 參考
-## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [身分識別同步處理和重複屬性恢復功能](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [混合式身分識別所需的連接埠和通訊協定](active-directory-aadconnect-ports.md)
 ## [預覽中的功能](active-directory-aadconnect-feature-preview.md)

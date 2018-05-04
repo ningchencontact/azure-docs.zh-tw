@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 稽核和權責"
-description: "FedRAMP Web 應用程式自動化 - 稽核和權責"
+title: Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 稽核和權責
+description: FedRAMP Web 應用程式自動化 - 稽核和權責
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: c37d027882882c637585d745ce81111ba30f6257
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: acb0677d48084108a9a5219f92dead10948228c8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="audit-and-accountability-au"></a>稽核和權責 (AU)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | 適用於這個藍圖的稽核功能是由 Azure 監視器和 OMS 中的 Log Analytics 服務所提供的。 Azure 監視器會提供有關與已部署資源相關聯之活動的詳細稽核記錄。 這些記錄和 OS 層級的記錄都會透過 Log Analytics 來收集，並儲存於 OMS 存放庫中。 Log Analytics 會跨由此解決方案部署的資源將稽核資料相互關聯，並且可以擴充到客戶部署的 Web 應用程式。 |
+| **客戶** | 適用於這個藍圖的稽核功能是由 Azure 監視器和 Log Analytics 服務所提供的。 Azure 監視器會提供有關與已部署資源相關聯之活動的詳細稽核記錄。 這些記錄和 OS 層級的記錄都會透過 Log Analytics 來收集，並儲存於 Log Analytics 工作區中。 Log Analytics 會跨由此解決方案部署的資源將稽核資料相互關聯，並且可以擴充到客戶部署的 Web 應用程式。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-2.d** 組織會判斷要在資訊系統內稽核下列事件：[指派：組織定義的稽核事件 (AU-2.a 中定義的可稽核事件子集) 以及針對每個識別出的事件 (或所需的情況) 進行稽核的頻率]。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -133,7 +133,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | Azure 活動記錄事件會使用詳細的結構描述，其中包含適用於超過 20 種類型之稽核資訊的欄位。 除了活動記錄，這個藍圖也會在 OMS 中部署 Log Analytics 解決方案，以支援不同的資料來源組合，包括 Windows 記錄、Linux 記錄、Azure 診斷記錄及客戶記錄。  |
+| **客戶** | Azure 活動記錄事件會使用詳細的結構描述，其中包含適用於超過 20 種類型之稽核資訊的欄位。 除了活動記錄，這個藍圖也會部署 Log Analytics 解決方案，以支援不同的資料來源組合，包括 Windows 記錄、Linux 記錄、Azure 診斷記錄及客戶記錄。  |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-6 (1)** 組織會採用自動化機制，來整合稽核檢閱、分析和報告程序，以支援用以調查與回應可疑活動的組織程序。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -273,7 +273,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | 這個藍圖會在 OMS 中實作 Log Analytics 解決方案，跨已部署的資源將稽核資料集中，以支援整個組織的局勢意識。 客戶可能會選擇進一步將 Log Analytics 與其他系統整合。 |
+| **客戶** | 這個藍圖會實作 Log Analytics 解決方案，跨已部署的資源將稽核資料集中，以支援整個組織的局勢意識。 客戶可能會選擇進一步將 Log Analytics 與其他系統整合。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | 這個藍圖會在 OMS 中實作 Log Analytics 解決方案，跨已部署的資源將稽核資料集中，以支援集中檢閱、分析和報告。 |
+| **客戶** | 這個藍圖會實作 Log Analytics 解決方案，跨已部署的資源將稽核資料集中，以支援集中檢閱、分析和報告。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | 這個藍圖會部署 OMS 安全性與稽核解決方案。 這個解決方案可提供安全性狀態的全面性檢視。 [安全性與稽核] 儀表板使用可跨已部署 OMS 解決方案取得的資料，來提供對於已部署資源 之安全性狀態的深入了解，以整合來自基準與修補評估的記錄資料與弱點資料。 |
+| **客戶** | 這個藍圖會部署安全性與稽核解決方案。 這個解決方案可提供安全性狀態的全面性檢視。 [安全性與稽核] 儀表板使用可跨已部署 Log Analytics 解決方案取得的資料，來提供對於已部署資源 之安全性狀態的深入了解，以整合來自基準與修補評估的記錄資料與弱點資料。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-6 (6)** 組織會將來自稽核記錄的資訊與從監視實際存取中取得的資訊相互關聯，以進一步增強識別可疑、不當、異常或惡意活動的能力。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|
@@ -357,7 +357,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | 這個藍圖會實作 OMS 中的 Log Analytics 解決方案。 Log Analytics 藉由將受控資源中的資料收集到中央存放庫，來提供 OMS 的監視服務。 所收集的資料即可用於警示、分析和匯出。 |
+| **客戶** | 這個藍圖會實作 Log Analytics 解決方案。 Log Analytics 藉由將受控資源中的資料收集到中央存放庫，來提供 Azure 的監視服務。 所收集的資料即可用於警示、分析和匯出。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | 這個藍圖會實作 OMS 中的 Log Analytics 解決方案。 Log Analytics 藉由將受控資源中的資料收集到中央存放庫，來提供 OMS 的監視服務。 稽核記錄的內容和時間順序不會在 Log Analytics 收集時改變。 |
+| **客戶** | 這個藍圖會實作 Log Analytics 解決方案。 Log Analytics 藉由將受控資源中的資料收集到中央存放庫，來提供 Azure 的監視服務。 稽核記錄的內容和時間順序不會在 Log Analytics 收集時改變。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | 這個藍圖會實作 OMS 中的 Log Analytics 解決方案。 Log Analytics 藉由將受控資源中的資料收集到中央存放庫，來提供 OMS 的監視服務。 所收集的資料即可用於警示、分析和匯出。 Log Analytics 包含強大的查詢語言，可擷取儲存機制中儲存的資料。 |
+| **客戶** | 這個藍圖會實作 Log Analytics 解決方案。 Log Analytics 藉由將受控資源中的資料收集到中央存放庫，來提供 Azure 的監視服務。 所收集的資料即可用於警示、分析和匯出。 Log Analytics 包含強大的查詢語言，可擷取儲存機制中儲存的資料。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-8.b** 資訊系統會記錄稽核記錄的時間戳記，其可對應至國際標準時間 (UTC) 或格林威治標準時間 (GMT)，並符合 [指派：組織定義的時間度量規模]。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -469,7 +469,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | 此藍圖會實作 OMS 中的 Log Analytics 服務。 已部署的 VM 和 Azure 診斷儲存體帳戶均為連線到 Log Analytics 的來源，並會與其來源分開保留。 資料是由 OMS 以接近即時的方式收集的。 |
+| **客戶** | 此藍圖會實作 Log Analytics 服務。 已部署的 VM 和 Azure 診斷儲存體帳戶均為連線到 Log Analytics 的來源，並會與其來源分開保留。 資料是由 Log Analytics 以接近即時的方式收集的。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | 此藍圖會實作 OMS 中的 Log Analytics 服務。 Log Analytics 透過 Azure 驗證來驗證憑證和資料完整性，以確保傳入的資料來自信任的來源。 |
+| **客戶** | 此藍圖會實作 Log Analytics 服務。 Log Analytics 透過 Azure 驗證來驗證憑證和資料完整性，以確保傳入的資料來自信任的來源。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -512,7 +512,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | 適用於這個藍圖的稽核功能是由 Azure 監視器和 OMS 中的 Log Analytics 服務所提供的。 Azure 監視器會提供有關與已部署資源相關聯之活動的詳細稽核記錄。 這些記錄和 OS 層級的記錄都會透過 Log Analytics 來收集，並儲存於 OMS 存放庫中。 這些記錄包含了資訊系統事件的詳細記錄，有助於防範不可否認性。 此外，會使用角色型存取控制來限制對於記錄資料的存取，以防止對記錄資料進行未經授權的修改或刪除。 |
+| **客戶** | 適用於這個藍圖的稽核功能是由 Azure 監視器和 Log Analytics 服務所提供的。 Azure 監視器會提供有關與已部署資源相關聯之活動的詳細稽核記錄。 這些記錄和 OS 層級的記錄都會透過 Log Analytics 來收集，並儲存於 Log Analytics 工作區中。 這些記錄包含了資訊系統事件的詳細記錄，有助於防範不可否認性。 此外，會使用角色型存取控制來限制對於記錄資料的存取，以防止對記錄資料進行未經授權的修改或刪除。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -526,7 +526,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | 此藍圖會實作 OMS 中的 Log Analytics 服務。 Log Analytics 藉由將受控資源中的資料收集到中央存放庫，來提供 OMS 的監視服務。 一旦收集完成之後，每個 Log Analytics 設定的資料都會保留一年。 |
+| **客戶** | 此藍圖會實作 Log Analytics 服務。 Log Analytics 藉由將受控資源中的資料收集到中央存放庫，來提供 Azure 的監視服務。 一旦收集完成之後，每個 Log Analytics 設定的資料都會保留一年。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 
@@ -582,7 +582,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **客戶** | 此藍圖會實作 OMS 中的 Log Analytics 服務。 Log Analytics 藉由將受控資源中的資料收集到中央存放庫，來提供 OMS 的監視服務。 稽核記錄的時間戳記不會改變，因此，稽核線索是時間相互關聯的。 |
+| **客戶** | 此藍圖會實作 Log Analytics 服務。 Log Analytics 藉由將受控資源中的資料收集到中央存放庫，來提供 Azure 的監視服務。 稽核記錄的時間戳記不會改變，因此，稽核線索是時間相互關聯的。 |
 | **提供者 (Microsoft Azure)** | 不適用 |
 
 

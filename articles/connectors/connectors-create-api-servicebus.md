@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 服務匯流排為 Azure Logic Apps 設定傳訊作業 | Microsoft Docs"
-description: "使用 Azure 服務匯流排透過邏輯應用程式傳送和接收訊息"
+title: 使用 Azure 服務匯流排為 Azure Logic Apps 設定傳訊作業 | Microsoft Docs
+description: 使用 Azure 服務匯流排透過邏輯應用程式傳送和接收訊息
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 02/06/2018
 ms.author: ladocs
-ms.openlocfilehash: e81580db17610adc6be534c9801881f9b68b14fd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d5a4760e1e0f38fd81fd779786985f5753d77eab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>使用 Azure 服務匯流排連接器來傳送及接收訊息
 
@@ -65,12 +65,17 @@ ms.lasthandoff: 02/09/2018
 
    ![選取服務匯流排觸發程序](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
+   > [!NOTE]
+   > 部分觸發程序會傳回一或多個訊息，像是 [服務匯流排 – 一或多個訊息到達佇列時 (自動完成)] 觸發程序。
+   > 引發這些觸發程序時，它們傳回的訊息數會介於 1 和此觸發程序**訊息計數上限**屬性指定的訊息數目之間。
+
    1. 如果您還沒有服務匯流排命名空間的連線，系統會提示您立即建立此連線。 為您的連線指定名稱，然後選取您想要使用的服務匯流排命名空間。
 
       ![建立服務匯流排連線](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
 
       或者，若要手動輸入連接字串，請選擇 [手動輸入連線資訊]。 
       了解[如何尋找您的連接字串](#permissions-connection-string)。
+      
 
    2. 現在請選取要使用的服務匯流排原則，並選擇 [建立]。
 
@@ -79,6 +84,11 @@ ms.lasthandoff: 02/09/2018
 4. 選取要使用的服務匯流排，並設定檢查佇列的時間間隔和頻率。
 
    ![選取服務匯流排佇列，並設定輪詢間隔](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+
+   > [!NOTE]
+   > 所有服務匯流排觸發程序都是**長時間輪詢**觸發程序，這表示當引發觸發程序時，觸發程序會處理所有訊息，然後等候 30 秒讓佇列或主題訂閱中出現更多訊息。
+   > 如果在 30 秒內沒收到任何訊息，就會略過觸發程序執行。 如果有，觸發程序會繼續讀取訊息，直到佇列或主題訂閱是空的。
+   > 下一次的觸發程序輪詢，會根據觸發程序的屬性指定的循環間隔。
 
 5. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]。
 

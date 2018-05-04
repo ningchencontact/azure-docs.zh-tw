@@ -5,7 +5,7 @@
 ## 適合您嗎？
 ### [與 Windows Server AD 比較](active-directory-ds-comparison.md)
 ### [與 Azure AD 聯結比較](active-directory-ds-compare-with-azure-ad-join.md)
-## [有哪些新功能？](https://azure.microsoft.com/updates/?product=active-directory-ds)
+## [新增功能？](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [特性](active-directory-ds-features.md)
 ## [案例](active-directory-ds-scenarios.md)
 ## [同步處理如何運作](active-directory-ds-synchronization.md)
@@ -16,7 +16,7 @@
 ## [工作 2：設定網路基本設定](active-directory-ds-getting-started-network.md)
 ## [工作 3：設定系統管理員群組並啟用 Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
 ## [工作 4：更新虛擬網路的 DNS 設定](active-directory-ds-getting-started-dns.md)
-## [工作 5：啟用密碼同步化](active-directory-ds-getting-started-password-sync.md)
+## [工作 5：啟用密碼雜湊同步處理](active-directory-ds-getting-started-password-sync.md)
 
 # 作法
 ## [檢查受控網域健康情況](active-directory-ds-check-health.md)
@@ -56,7 +56,7 @@
 
 
 # 參考
-## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # 相關參考
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

@@ -8,4 +8,4 @@ Azure App Service 的 Mobile Apps 使用 [Azure 通知中樞]來傳送推送，�
 現在您已將通知中樞連接到 Mobile Apps 後端專案。 稍後您要設定此通知中樞，使其連線到平台通知系統 (PNS) 以推播至裝置。
 
 [Azure 入口網站]: https://portal.azure.com/
-[Azure 通知中樞]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
+[Azure 通知中樞]: https://azure.microsoft.com/documentation/articles/notification-hubs-push-notification-overview/

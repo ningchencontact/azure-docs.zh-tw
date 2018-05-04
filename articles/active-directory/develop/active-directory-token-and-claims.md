@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 04/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3d8a4ddd98086252f36eeb7034248e909fec1ac0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 627b5bf39c066cd974b70f9db974fcf3fd73b251
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 權杖參考
-Azure Active Directory (Azure AD) 會在處理每個驗證流程時發出數種安全性權杖。 本文件說明每種權杖的格式、安全性特性和內容。
+Azure Active Directory (Azure AD) 會在處理每個驗證流程時發出數種安全性權杖。 本文件說明每種權杖的格式、安全性特性和內容。 
 
 ## <a name="types-of-tokens"></a>權杖的類型
 Azure AD 支援 [OAuth 2.0 授權通訊協定](active-directory-protocols-oauth-code.md)，該通訊協定會使用 access_tokens 和 refresh_tokens。  它也支援透過 [OpenID Connect](active-directory-protocols-openid-connect-code.md) 進行驗證和登入，這引進第三種類型的權杖 - id_token。  每個權杖都是以「持有人權杖」表示。
@@ -52,7 +52,6 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > [!div class="mx-codeBreakAll"]
 | JWT 宣告 | Name | 說明 |
 | --- | --- | --- |
-| `appid` |應用程式識別碼 |識別使用權杖來存取資源的應用程式。 應用程式代表本身或使用者行事。 應用程式識別碼通常代表應用程式物件，但也可以代表 Azure AD 中的服務主體物件。 <br><br> **範例 JWT 值**： <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |對象 |權杖的預定接收者。 接收權杖的應用程式必須確認對象值正確無誤，並拒絕任何適用於不同對象的權杖。 <br><br> **範例 SAML 值**： <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **範例 JWT 值**： <br> `"aud":"https://contoso.com"` |
 | `appidacr` |應用程式驗證內容類別參考 |指出如何驗證用戶端。 若為公用用戶端，此值為 0。 如果使用用戶端識別碼和用戶端密碼，此值為 1。 <br><br> **範例 JWT 值**： <br> `"appidacr": "0"` |
 | `acr` |驗證內容類別參考 |指出主體的驗證方式 (相對於應用程式驗證內容類別參考宣告中的用戶端)。 值為 "0" 表示使用者驗證不符合 ISO/IEC 29115 的需求。 <br><br> **範例 JWT 值**： <br> `"acr": "0"` |
@@ -163,9 +162,8 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
   * 自發性密碼變更：如果系統管理員強制使用者變更其密碼或加以重設，使用者的權杖若是使用其密碼取得的，則會失效。  請參閱下列附註以了解例外狀況。 
   * 安全性漏洞：發生安全性漏洞 (例如，密碼的內部部署儲存區遭到入侵) 時，管理員可以撤銷目前已發出的所有重新整理權杖。  這會強制所有使用者進行重新驗證。 
 
-注意： 
-
-如果是使用驗證的非密碼方法 (Windows Hello、驗證器應用程式、臉部或指紋之類的生物識別技術) 取得權杖，則變更使用者的密碼將不會強制使用者進行重新驗證 (但會強制其驗證器應用程式重新驗證)。  這是因為他們選擇的驗證輸入 (例如臉部) 並未變更，因此可以再次使用進行重新驗證。
+> [!NOTE]
+>如果是使用驗證的非密碼方法 (Windows Hello、驗證器應用程式、臉部或指紋之類的生物識別技術) 取得權杖，則變更使用者的密碼將不會強制使用者進行重新驗證 (但會強制其驗證器應用程式重新驗證)。  這是因為他們選擇的驗證輸入 (例如臉部) 並未變更，因此可以再次使用進行重新驗證。
 
 ## <a name="sample-tokens"></a>權杖範例
 
