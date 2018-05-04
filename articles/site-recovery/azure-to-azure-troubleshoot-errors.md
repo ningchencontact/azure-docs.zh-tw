@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ad0281df19ac1696ebb7cc913045d49c652be84a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
 
@@ -151,11 +151,11 @@ ms.lasthandoff: 02/24/2018
 
 **錯誤碼** | **可能的原因** | **建議**
 --- | --- | ---
-151037<br></br>**訊息**：無法向 Site Recovery 註冊 Azure 虛擬機器。 | - 您使用 NSG 控制傳出 VM 的存取，而且所需的 IP 範圍並未列在傳出存取的允許清單中。</br></br>- 您使用第三方防火牆工具，而且所需的 IP 範圍/URL 並未列在允許清單中。</br>| - 如果您使用防火牆 Proxy 控制 VM 上的傳出網路連線能力，請確定必要條件 URL 或資料中心 IP 範圍列在允許清單中。 如需資訊，請參閱[防火牆 Proxy 指引](https://aka.ms/a2a-firewall-proxy-guidance)。</br></br>- 如果您使用 NSG 規則控制 VM 上的傳出網路連線能力，請確定必要條件資料中心 IP 範圍列在允許清單中。 如需資訊，請參閱[網路安全性群組指引](https://aka.ms/a2a-nsg-guidance)。
-151072<br></br>**訊息**：Site Recovery 組態失敗。 | 無法在連線至 Site Recovery 服務端點。 | - 如果您使用防火牆 Proxy 控制 VM 上的傳出網路連線能力，請確定必要條件 URL 或資料中心 IP 範圍列在允許清單中。 如需資訊，請參閱[防火牆 Proxy 指引](https://aka.ms/a2a-firewall-proxy-guidance)。</br></br>- 如果您使用 NSG 規則控制 VM 上的傳出網路連線能力，請確定必要條件資料中心 IP 範圍列在允許清單中。 如需資訊，請參閱[網路安全性群組指引](https://aka.ms/a2a-nsg-guidance)。
+151037<br></br>**訊息**：無法向 Site Recovery 註冊 Azure 虛擬機器。 | - 您使用 NSG 控制傳出 VM 的存取，而且所需的 IP 範圍並未列在傳出存取的白名單中。</br></br>- 您使用第三方防火牆工具，而且所需的 IP 範圍/URL 並未列在允許清單中。</br>| - 如果您使用防火牆 Proxy 控制 VM 上的傳出網路連線能力，請確定必要條件 URL 或資料中心 IP 範圍列在白名單中。 如需資訊，請參閱[防火牆 Proxy 指引](https://aka.ms/a2a-firewall-proxy-guidance)。</br></br>- 如果您使用 NSG 規則控制 VM 上的傳出網路連線能力，請確定必要條件資料中心 IP 範圍列在白名單中。 如需資訊，請參閱[網路安全性群組指引](https://aka.ms/a2a-nsg-guidance)。
+151072<br></br>**訊息**：Site Recovery 組態失敗。 | 無法在連線至 Site Recovery 服務端點。 | - 如果您使用防火牆 Proxy 控制 VM 上的傳出網路連線能力，請確定必要條件 URL 或資料中心 IP 範圍列在允許清單中。 如需資訊，請參閱[防火牆 Proxy 指引](https://aka.ms/a2a-firewall-proxy-guidance)。</br></br>- 如果您使用 NSG 規則控制 VM 上的傳出網路連線能力，請確定必要條件資料中心 IP 範圍列在白名單中。 如需資訊，請參閱[網路安全性群組指引](https://aka.ms/a2a-nsg-guidance)。
 
 ### <a name="fix-the-problem"></a>修正問題
-若要將[所需的 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需的 IP 範圍](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)列入允許清單中，請依照[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)中的步驟進行。
+若要將[所需的 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需的 IP 範圍](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)列入白名單中，請依照[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)中的步驟進行。
 
 ## <a name="disk-not-found-in-the-machine-error-code-150039"></a>在機器中找不到磁碟 (錯誤碼 150039)
 
@@ -199,6 +199,17 @@ ms.lasthandoff: 02/24/2018
 
 - 如果 [provisioningState] 是「失敗」，請連絡支援人員以取得疑難排解的詳細資訊。
 - 如果 [provisioningState] 是「正在更新」，則可能有其他擴充功能正在部署。 檢查 VM 上是否有任何進行中的作業，等候它們完成然後重試失敗的 Site Recovery **啟用複寫**作業。
+
+
+## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM+/磁碟區陰影複製服務錯誤 (錯誤碼 151025)
+**錯誤碼** | **可能的原因** | **建議**
+--- | --- | ---
+151025<br></br>**訊息**：無法安裝站台復原擴充功能 | - 停用「COM+ 系統應用程式」服務。</br></br>- 停用「磁碟區陰影複製」服務。| 將「COM+ 系統應用程式」和「磁碟區陰影複製」服務設為自動或手動啟動模式。
+
+### <a name="fix-the-problem"></a>修正問題
+
+您可以開啟 [服務] 主控台，確定「COM+ 系統應用程式」和「磁碟區陰影複製」的 [啟動類型] 未設定為 [停用]。
+  ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
 ## <a name="next-steps"></a>後續步驟
 [複寫 Azure 虛擬機器](site-recovery-replicate-azure-to-azure.md)

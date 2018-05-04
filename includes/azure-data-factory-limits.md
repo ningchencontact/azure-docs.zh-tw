@@ -5,14 +5,14 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 03/27/2018
+ms.date: 04/27/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: e68e87bb19b8c64cf06c03831b22cf43d773efde
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 03b7ce49f935c36b0e0652925c41deea987a2a26
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 資料處理站是一種多租用戶服務，並具有以下的預設限制以確保客戶訂用帳戶不會受到彼此工作負載的影響。 您只要連絡支援人員，即可將您訂用帳戶的大部分限制調整至其最大限制。
 
@@ -26,12 +26,13 @@ ms.lasthandoff: 03/29/2018
 | 資料處理站內的觸發程序 | 2500 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 資料處理站內的已連結服務 | 2500 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 資料處理站內的整合執行階段<sup>4</sup> | 2500 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| 一個訂用帳戶下的 Azure SSIS Integration Runtime 總 CPU 核心數 | 100 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 每個管線的並行管線執行回合 | 20 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 每個管線的活動數目上限 | 20 | 30 |
 | 每個管線的參數數目上限 | 20 | 30 |
 | 管線物件的每個物件位元組大小<sup>1</sup> | 200 KB | 200 KB |
 | 資料集和已連結服務的每個物件位元組大小<sup>1</sup> | 100 KB | 2000 KB |
-| 雲端資料移動單位<sup>3</sup> | 256 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| 每次活動執行的雲端資料移動單位<sup>3</sup> | 256 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 管線活動執行的重試計數 | 1 天 (逾時) | 1 天 (逾時) |
 | 寫入 API 呼叫 | 2500 次/小時<br/><br/> 這是由 Azure Resource Manager 所加諸的限制，而不是 Azure Data Factory。 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
 | 讀取 API 呼叫 | 12,500 次/小時<br/><br/> 這是由 Azure Resource Manager 所加諸的限制，而不是 Azure Data Factory。 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
@@ -48,7 +49,7 @@ ms.lasthandoff: 03/29/2018
 | 管線物件的每個物件位元組大小<sup>1</sup> |200 KB |200 KB |
 | 資料集和已連結服務的每個物件位元組大小<sup>1</sup> |100 KB |2000 KB |
 | 訂用帳戶中的 HDInsight 隨選叢集核心<sup>2</sup> |60 |[請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| 雲端資料移動單位<sup>3</sup> |32 |[請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| 每次活動執行的雲端資料移動單位<sup>3</sup> |32 |[請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 管線活動執行的重試計數 |1000 |MaxInt (32 位元) |
 
 <sup>1</sup>管線、 資料集和連結的服務物件代表您工作負載的邏輯群組。 這些物件的限制與您可使用 Azure Data Factory 服務移動或處理的資料量無關。 資料處理站可視需要調整以處理數 PB 的資料。

@@ -1,10 +1,10 @@
 ---
-title: "教學課程：Azure Active Directory 與 Clever 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Clever 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Clever 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Clever 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 069ff13a-310e-4366-a147-d6ec5cca12a5
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 04/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 1aad242ff1e9161ad5dfbecd01a44d8fb3c93cbb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6531e6c8c97bfadac898c4aa4943855dcd32bdfe
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>教學課程：Azure Active Directory 與 Clever 整合
 
@@ -58,7 +58,7 @@ Clever 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Clever，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -101,7 +101,7 @@ Clever 與 Azure AD 整合提供下列優點：
     ![設定單一登入連結][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![單一登入對話方塊](./media/active-directory-saas-clever-tutorial/tutorial_clever_samlbase.png)
 
 3. 在 [Clever 網域及 URL] 區段上，執行下列步驟：
@@ -112,26 +112,26 @@ Clever 與 Azure AD 整合提供下列優點：
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://clever.com/<companyname>`
 
-    > [!NOTE] 
+    > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Clever 用戶端支援小組](https://clever.com/about/contact/)以取得這些值。
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
-
-    ![憑證下載連結](./media/active-directory-saas-clever-tutorial/tutorial_clever_certificate.png)
+4. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+    
+    ![設定單一登入](./media/active-directory-saas-clever-tutorial/tutorial_metadataurl.png)
 
 5. Clever 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應加入 **SAML Token 屬性**組態。
 
     以下螢幕擷取畫面顯示上述的範例。
 
-    ![設定單一登入](./media/active-directory-saas-clever-tutorial/tutorial_clever_07.png) 
+    ![設定單一登入](./media/active-directory-saas-clever-tutorial/tutorial_clever_07.png)
 
 6. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
     
     | 屬性名稱  | 屬性值 |
-    | --------------- | -------------------- |    
+    | --------------- | -------------------- |
     | clever.student.credentials.district\_username  | user.userprincipalname |
     | Firstname  | user.givenname |
-    | lastname  | user.surname |    
+    | lastname  | user.surname |
 
     a. 按一下 [新增屬性] 來開啟 [新增屬性] 對話方塊。
 
@@ -145,39 +145,19 @@ Clever 與 Azure AD 整合提供下列優點：
 
     d. [命名空間] 文字方塊保持空白。
     
-    d. 按一下 [確定] 。     
-
-5. 按一下 [儲存]  按鈕。
+    d. 按一下 [確定] 。
+    
+7. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-clever-tutorial/tutorial_general_400.png)
 
-8. 若要產生**中繼資料** URL，執行下列步驟︰
+8. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Clever 公司網站。
 
-    a. 按一下 [應用程式註冊]。
-    
-    ![設定單一登入](./media/active-directory-saas-clever-tutorial/tutorial_clever_appregistrations.png)
-   
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
-    
-    ![設定單一登入](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpointicon.png)
-
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpoint.png)
-     
-    d. 現在，移至 [Clever] 的屬性頁面，使用 [複製] 按鈕複製 [應用程式識別碼]，並將它貼到記事本。
- 
-    ![設定單一登入](./media/active-directory-saas-clever-tutorial/tutorial_clever_appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
-
-9. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Clever 公司網站。
-
-10. 在工具列中，按一下 [立即登入] 。
+9. 在工具列中，按一下 [立即登入] 。
 
     ![立即登入](./media/active-directory-saas-clever-tutorial/ic798984.png "立即登入")
 
-11. 在 [立即登入]  頁面上，執行下列步驟：
+10. 在 [立即登入]  頁面上，執行下列步驟：
       
       ![立即登入](./media/active-directory-saas-clever-tutorial/ic798985.png "立即登入")
       
@@ -188,13 +168,9 @@ Clever 與 Azure AD 整合提供下列優點：
       
       b. 針對 [識別系統]，選取 [ADFS]。
 
-      c. 在 [中繼資料 URL]文字方塊中輸入**中繼資料 URL**。
+      c. 在 [中繼資料 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [應用程式同盟中繼資料 Url] 值。
       
       d. 按一下 [檔案] 。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -227,12 +203,12 @@ Clever 與 Azure AD 整合提供下列優點：
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
     d. 按一下頁面底部的 [新增] 。
- 
+
 ### <a name="create-a-clever-test-user"></a>建立 Clever 測試使用者
 
 若要讓 Azure AD 使用者可以登入 Clever，必須將他們佈建到 Clever。
 
-對於 Clever，配合 [Clever Client 支援小組](https://clever.com/about/contact/)，在 Clever 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+對於 Clever，配合 [Clever Client 支援小組](https://clever.com/about/contact/)，在 Clever 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 >[!NOTE]
 >您可以使用任何其他的 Clever 使用者帳戶建立工具，或是使用 Clever 提供的 API 來佈建 Azure AD 使用者帳戶。
@@ -241,17 +217,17 @@ Clever 與 Azure AD 整合提供下列優點：
 
 在本節中，您會將 Clever 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-![指派使用者角色][200] 
+![指派使用者角色][200]
 
 **若要將 Britta Simon 指派給 Clever，請執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 
-    ![指派使用者][201] 
+    ![指派使用者][201]
 
 2. 在應用程式清單中，選取 [Clever]。
 
-    ![應用程式清單中的 Clever 連結](./media/active-directory-saas-clever-tutorial/tutorial_clever_app.png)  
+    ![應用程式清單中的 Clever 連結](./media/active-directory-saas-clever-tutorial/tutorial_clever_app.png)
 
 3. 在左側功能表中，按一下 [使用者和群組]。
 
@@ -266,13 +242,13 @@ Clever 與 Azure AD 整合提供下列優點：
 6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
 7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
-    
+
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 Clever 圖格時，應該會自動登入您的 Clever 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -1,23 +1,23 @@
 ---
-title: "教學課程：Azure Active Directory 與 IQNavigator VMS 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 IQNavigator VMS 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 IQNavigator VMS 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 IQNavigator VMS 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: a8a09b25-dfa5-4c31-aea2-53bf1853b365
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 82c91ba8fa340fb2b179d61200a69e94ab85b6d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddb2883c0b90aaffa82bbc701cdc20de1feb7e19
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>教學課程：Azure Active Directory 與 IQNavigator VMS 整合
 
@@ -57,7 +57,7 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 IQNavigator VMS，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -103,7 +103,7 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
     ![設定單一登入][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![設定單一登入](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_samlbase.png)
 
 3. 在 [IQNavigator VMS 網域及 URL] 區段中，執行下列步驟：
@@ -120,46 +120,26 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
     在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.iqnavigator.com`
 
-    > [!NOTE] 
-    > 這些都不是真正的值。 請使用實際的「回覆 URL」和「轉送狀態」來更新這些值。 請連絡 [IQNavigator VMS 客戶支援小組](https://www.beeline.com/iqn-product-support/)以取得這些值。 
+    > [!NOTE]
+    > 這些都不是真正的值。 請使用實際的「回覆 URL」和「轉送狀態」來更新這些值。 請連絡 [IQNavigator VMS 客戶支援小組](https://www.beeline.com/iqn-product-support/)以取得這些值。
 
-5. 按一下 [儲存]  按鈕。
-
-    ![設定單一登入](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_400.png)
-
-6. 若要產生**中繼資料** URL，執行下列步驟︰
-
-    a. 按一下 [應用程式註冊]。
+5. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
     
-    ![設定單一登入](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_appregistrations.png)
-   
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
-    
-    ![設定單一登入](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_endpointicon.png)
+    ![設定單一登入](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_metadataurl.png)
 
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_endpoint.png)
-     
-    d. 現在，移至 [IQNavigator VMS] 的屬性頁，使用 [複製] 按鈕複製 [應用程式識別碼]，並將它貼到 [記事本]。
- 
-    ![設定單一登入](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. IQNavigator 應用程式需要 [名稱識別碼] 宣告中有唯一的使用者識別碼值。 客戶可以為 [名稱識別碼] 宣告對應正確的值。 在此案例中，為了示範，我們已對應 user.UserPrincipalName。 但是，您應該根據組織的設定，對應正確的值。   
+6. IQNavigator 應用程式需要 [名稱識別碼] 宣告中有唯一的使用者識別碼值。 客戶可以為 [名稱識別碼] 宣告對應正確的值。 在此案例中，為了示範，我們已對應 user.UserPrincipalName。 但是，您應該根據組織的設定，對應正確的值。
 
     ![設定單一登入](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
 
+7. 按一下 [儲存]  按鈕。
+
+    ![設定單一登入](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_400.png)
+
 8. 在 [IQNavigator VMS 組態] 區段上，按一下 [設定 IQNavigator VMS] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
-    ![設定單一登入](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png) 
+    ![設定單一登入](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png)
 
-9. 若要在 **IQNavigator VMS** 端設定單一登入，您必須將**中繼資料 URL**、**登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL** 傳送給 [IQNavigator VMS 支援小組](https://www.beeline.com/iqn-product-support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+9. 若要在 **IQNavigator VMS** 端設定單一登入，您必須將**應用程式同盟中繼資料 Url**、**登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL** 傳送給 [IQNavigator VMS 支援小組](https://www.beeline.com/iqn-product-support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
@@ -174,11 +154,11 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
 2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
-    ![建立 Azure AD 測試使用者](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_02.png) 
+    ![建立 Azure AD 測試使用者](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_02.png)
 
 3. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
- 
-    ![建立 Azure AD 測試使用者](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_03.png) 
+
+    ![建立 Azure AD 測試使用者](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_03.png)
 
 4. 在 [使用者]  對話頁面上，執行下列步驟：
  
@@ -191,7 +171,7 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
     d. 按一下頁面底部的 [新增] 。
- 
+
 ### <a name="creating-a-iqnavigator-vms-test-user"></a>建立 IQNavigator VM 測試使用者
 
 本節的目標是要在 IQNavigator VMS 中建立名為 Britta Simon 的使用者。 請與 [IQNavigator VM 支援小組](https://www.beeline.com/iqn-product-support/)合作，在 IQNavigator VM 帳戶中新增使用者。
@@ -200,21 +180,21 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
 在本節中，您會將 IQNavigator VMS 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-![指派使用者][200] 
+![指派使用者][200]
 
 **若要將 Britta Simon 指派給 IQNavigator VMS，請執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 
-    ![指派使用者][201] 
+    ![指派使用者][201]
 
 2. 在應用程式清單中，選取 [IQNavigator VMS]。
 
-    ![設定單一登入](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_app.png) 
+    ![設定單一登入](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_app.png)
 
 3. 在左側功能表中，按一下 [使用者和群組]。
 
-    ![指派使用者][202] 
+    ![指派使用者][202]
 
 4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
@@ -237,8 +217,6 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

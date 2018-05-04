@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4aad45559d167e6c046822200c9bbb98113d463b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5bb758637d7b23f206f78d1604f985c2985d4410
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>快速入門：部署 Azure Container Service (AKS) 叢集
 
@@ -83,6 +83,11 @@ ms.lasthandoff: 03/23/2018
 
 ![Cloud Shell](media/container-service-walkthrough-portal/kubectl-cs.png)
 
+指定訂用帳戶 (如果尚未指定)
+```azurecli-interactive
+az account set -s SUBSCRIPTION_NAME
+```
+
 若要設定 kubectl 來連線到 Kubernetes 叢集，請使用 [az aks get-credentials][az-aks-get-credentials] 命令。
 
 複製以下命令並貼到 Cloud Shell 中。 視需要修改資源群組與叢集名稱。
@@ -110,7 +115,7 @@ aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
 
 Kubernetes 資訊清單檔會定義所需的叢集狀態，包括哪些容器映像應在執行中。 以此範例來說，您會使用資訊清單來建立執行 Azure 投票應用程式所需的所有物件。
 
-建立名為 `azure-vote.yaml` 的檔案，然後將下列 YAML 程式碼複製到其中。 如果您在 Azure Cloud Shell 中作業，您可以使用 vi 或 Nano 建立檔案，猶如使用虛擬或實體系統。
+建立名為 `azure-vote.yaml` 的檔案，然後將下列 YAML 程式碼複製到其中。 如果您在 Azure Cloud Shell 中作業，請使用 vi 或 Nano 建立檔案，如同在虛擬或實體系統上運作一般。
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -211,13 +216,13 @@ azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-您現在可以瀏覽至外部 IP 位址來查看 Azure 投票應用程式。
+現在可以瀏覽至外部 IP 位址來查看 Azure 投票應用程式。
 
 ![瀏覽至 Azure 投票的影像](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>刪除叢集
 
-當不再需要叢集時，您可以刪除叢集資源群組，此動作會刪除所有相關聯的資源。 在 Azure 入口網站中選取資源群組，然後按一下 [刪除] 按鈕，即可完成此動作。 或者，您可以在 Cloud Shell 中使用 [az group delete][az-group-delete] 命令。
+不再需要使用叢集時，請刪除叢集資源群組，而刪除所有相關聯的資源。 在 Azure 入口網站中選取資源群組，然後按一下 [刪除] 按鈕，即可完成此動作。 或者，您可以在 Cloud Shell 中使用 [az group delete][az-group-delete] 命令。
 
 ```azurecli-interactive
 az group delete --name myAKSCluster --no-wait

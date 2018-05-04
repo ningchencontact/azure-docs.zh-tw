@@ -1,11 +1,11 @@
 ---
-title: "關於 Azure Stack 的 VPN 閘道 | Microsoft Docs"
-description: "了解並設定您搭配 Azure Stack 使用的 VPN 閘道。"
+title: 關於 Azure Stack 的 VPN 閘道 | Microsoft Docs
+description: 了解並設定您搭配 Azure Stack 使用的 VPN 閘道。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ba9642d8c51f57623aded44b84d7127334806bc1
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 9c821f20ce5826666a05121e1a39882fae0930d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>關於 Azure Stack 的 VPN 閘道
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
@@ -87,13 +87,14 @@ Azure Stack 不支援專門搭配 Express Route 使用的超效能閘道 SKU。
 ## <a name="estimated-aggregate-throughput-by-sku"></a>依 SKU 列出的估計彙總輸送量
 下表依照閘道 SKU 顯示閘道類型和預估的彙總輸送量。
 
-|   | VPN 閘道輸送量 *(1)* |VPN 閘道最大 IPsec 通道 |
+|   | VPN 閘道輸送量 *(1)* | VPN 閘道最大 IPsec 通道數 *(2)* |
 |-------|-------|-------|
-|**基本 SKU** ***(2)***    | 100 Mbps  | 10    |
+|**基本 SKU** ***(3)***    | 100 Mbps  | 10    |
 |**標準 SKU**       | 100 Mbps  | 10    |
-|**高效能 SKU** | 200 Mbps    | 30    |
+|**高效能 SKU** | 200 Mbps    | 5 |
 ***(1)*** VPN 輸送量不是網際網路上跨單位連線的保證輸送量。 這是可能的最大輸送量測量。  
-***(2)*** 基本 SKU 不支援 BGP。
+***(2)*** 通道數目上限是每個 Azure Stack 部署的所有訂用帳戶總數。
+***(3)*** 基本 SKU 不支援 BGP。
 
 ## <a name="next-steps"></a>後續步驟
 了解 Azure Stack 的 [VPN 閘道設定](azure-stack-vpn-gateway-settings.md)。

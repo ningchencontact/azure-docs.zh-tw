@@ -14,9 +14,6 @@
 ## [單一執行個體 SAP HANA 安裝](hana-get-started.md)
 ## [S/4 HANA or BW/4 HANA SAP CAL 部署指南](cal-s4h.md)
 ## [Azure 上的 SAP HANA 作業指南](hana-vm-operations.md)
-### 作法
-
-#### [進行 SAP 部署的 Azure 寫入加速器](how-to-enable-write-accelerator.md)
 ## Azure 虛擬機器中的 SAP HANA 可用性
 ### [Azure 中的 SAP HANA 可用性概觀](sap-hana-availability-overview.md)
 ### [Azure 中的 SAP HANA 在單一 Azure 區域中的可用性概觀](sap-hana-availability-one-region.md)

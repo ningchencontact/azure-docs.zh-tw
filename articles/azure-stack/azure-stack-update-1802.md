@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 04/19/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 3bbfb4e9725b51aa5435f143045c33cbc8f2d1c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure Stack 1802 更新
 
@@ -56,9 +56,10 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 
 
 ### <a name="post-update-steps"></a>更新後步驟
-在安裝 1802 之後，安裝任何適用的 Hotfix。 如需詳細資訊，請檢視下列知識庫文章，以及我們的[服務原則](azure-stack-servicing-policy.md)。  
-- [KB 4103348 - 網路控制器 API 服務在您嘗試安裝 Azure Stack 更新時損毀](https://support.microsoft.com/help/4103348)
+在安裝 1802 之後，安裝任何適用的 Hotfix。 如需詳細資訊，請檢視下列知識庫文章，以及我們的[服務原則](azure-stack-servicing-policy.md)。 
+- Azure Stack Hotfix **1.0.180302.4**。 [KB 4131152 - 現有虛擬機器擴展集可能無法使用]( https://support.microsoft.com/help/4131152) 
 
+  此修正也能解決「[KB 4103348 - 網路控制器 API 服務在您嘗試安裝 Azure Stack 更新時損毀](https://support.microsoft.com/help/4103348)」中詳述的問題。
 
 
 ### <a name="new-features-and-fixes"></a>新功能和修正
@@ -193,7 +194,7 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
     - *允許：*
  
       ```powershell    
-      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -223,7 +224,7 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 
         ```powershell
         
-        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

@@ -1,3 +1,5 @@
+- name: Azure IoT 基礎
+  href: ../iot-fundamentals/index.yml
 - name: Azure IoT 中樞裝置佈建服務文件
   href: index.yml
 - name: 概觀
@@ -87,6 +89,8 @@
       href: concepts-security.md
     - name: 服務
       href: concepts-service.md
+    - name: TPM 證明
+      href: concepts-tpm-attestation.md
 - name: 使用說明指南
   items:
     - name: 將 MXChip IoT DevKit 連線到 IoT 中樞
@@ -117,6 +121,32 @@
   items:
     - name: REST
       href: /rest/api/iot-dps
+- name: 相關參考
+  items:
+    - name: 解決方案
+      items:
+        - name: IoT 套件預先設定解決方案
+          href: /azure/iot-suite
+        - name: IoT 中心
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: 平台服務
+      items:
+        - name: IoT 中樞
+          href: /azure/iot-hub
+        - name: IoT 中樞裝置佈建服務
+          href: /azure/iot-dps
+        - name: 位置服務
+          href: /azure/location-based-services
+        - name: 服務 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 裝置 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 資源
   items:
     - name: Azure IoT 中樞

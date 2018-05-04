@@ -1,12 +1,12 @@
 ---
-title: "迴圈 - 處理陣列或重複動作 - Azure Logic Apps | Microsoft Docs"
-description: "使用 \"for each\" 迴圈處理陣列或重複動作，直到符合邏輯應用程式中的特定條件"
+title: 迴圈 - 處理陣列或重複動作 - Azure Logic Apps | Microsoft Docs
+description: 使用 "for each" 迴圈處理陣列或重複動作，直到符合邏輯應用程式中的特定條件
 services: logic-apps
-keywords: "for each 迴圈"
-documentationcenter: 
+keywords: for each 迴圈
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: f634b1004fef2eb65c6b8134088ceead47c91890
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>迴圈：處理陣列或重複動作，直到符合條件
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 03/05/2018
 2. 在 RSS 觸發程序和傳送電子郵件動作之間，新增 "Foreach" 迴圈。 
 
    若要在步驟之間新增迴圈，請將指標移至您要新增迴圈的箭號上。 
-   選擇顯示的 **加號** \(**+**\)，然後選擇 [新增 for each]。
+   選擇顯示的 **加號** \(**+** \)，然後選擇 [新增 for each]。
 
    ![在兩個步驟之間新增 "Foreach" 迴圈](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
@@ -153,9 +153,6 @@ ms.lasthandoff: 03/05/2018
 
 * 呼叫端點，直到您獲得您想要的回應。
 * 在資料庫中建立一筆記錄，等到該記錄中的特定欄位獲得核准，然後繼續處理。 
-
-> [!NOTE]
-> "Until" 迴圈不能包含 "Foreach" 迴圈或其他 "Until" 迴圈。
 
 例如，每天上午 8:00，此邏輯應用程式會遞增變數，直到變數的值等於 10。 接著，邏輯應用程式傳送用來確認目前值的電子郵件。 雖然此範例使用 Office 365 Outlook，但您可以使用 Logic Apps 支援的任何電子郵件提供者 ([在此檢閱連接器清單](https://docs.microsoft.com/connectors/))。 如果您使用另一個電子郵件帳戶，則整體步驟相同，但您的 UI 可能稍有不同。 
 

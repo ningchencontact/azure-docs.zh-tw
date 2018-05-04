@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b4e123475679cf1afce09630c157377ee67b5202
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7d7d3f6a773fad0b0d4ba0593230af5ff5a1e443
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>快速入門：使用 T-SQL 調整 Azure SQL 資料倉儲中的計算
 
@@ -25,8 +25,6 @@ ms.lasthandoff: 04/18/2018
 ## <a name="before-you-begin"></a>開始之前
 
 下載並安裝最新版的 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS)。
-
-本文假設您已完成[快速入門：建立與連線 - 入口網站](create-data-warehouse-portal.md)。 完成「建立與連線」快速入門後，您就會知道如何連線至：建立名為 **mySampleDataWarehouse** 的資料倉儲，建立防火牆規則來允許用戶端存取已安裝的伺服器。
  
 ## <a name="create-a-data-warehouse"></a>建立資料倉儲
 
@@ -45,7 +43,7 @@ ms.lasthandoff: 04/18/2018
    | 伺服器類型 | 資料庫引擎 | 這是必要值 |
    | 伺服器名稱 | 完整伺服器名稱 | 範例如下：**mynewserver-20171113.database.windows.net**。 |
    | 驗證 | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
-   | 登入 | 伺服器管理帳戶 | 這是您在建立伺服器時所指定的帳戶。 |
+   | 登入 | 伺服器管理帳戶 | 您在建立伺服器時所指定的帳戶。 |
    | 密碼 | 伺服器管理帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
 
     ![連接到伺服器](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -91,11 +89,42 @@ ms.lasthandoff: 04/18/2018
 1. 以滑鼠右鍵按一下 [主要]，然後選取 [新增查詢]。
 2. 使用 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL 陳述式來修改服務目標。 執行下列查詢，將服務目標變更為 DW300。 
 
-```Sql
-ALTER DATABASE mySampleDataWarehouse
-MODIFY (SERVICE_OBJECTIVE = 'DW300')
-;
-```
+    ```Sql
+    ALTER DATABASE mySampleDataWarehouse
+    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    ;
+    ```
+
+## <a name="monitor-scale-change-request"></a>監視級別變更要求
+若要查看先前變更要求的進度，您可以使用 `WAITFORDELAY` T-SQL 語法來輪詢 sys.dm_operation_status 動態管理檢視 (DMV)。
+
+若要輪詢服務物件變更狀態：
+
+1. 以滑鼠右鍵按一下 [主要]，然後選取 [新增查詢]。
+2. 執行下列查詢，以輪詢 sys.dm_operation_status DMV。
+
+    ```sql
+    WHILE 
+    (
+        SELECT TOP 1 state_desc
+        FROM sys.dm_operation_status
+        WHERE 
+            1=1
+            AND resource_type_desc = 'Database'
+            AND major_resource_id = 'MySampleDataWarehouse'
+            AND operation = 'ALTER DATABASE'
+        ORDER BY
+            start_time DESC
+    ) = 'IN_PROGRESS'
+    BEGIN
+        RAISERROR('Scale operation in progress',0,0) WITH NOWAIT;
+        WAITFOR DELAY '00:00:05';
+    END
+    PRINT 'Complete';
+    ```
+3. 產生的輸出會顯示輪詢狀態的記錄。
+
+    ![作業狀態](media/quickstart-scale-compute-tsql/polling-output.png)
 
 ## <a name="check-data-warehouse-state"></a>檢查資料倉儲狀態
 
@@ -103,7 +132,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW300')
 
 ## <a name="check-operation-status"></a>檢查作業狀態
 
-若要傳回針對 SQL 資料倉儲所進行之各種管理作業的相關資訊，請對 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) DMV 執行下列查詢。 例如，它會傳回作業和作業狀態 (會是 IN_PROGRESS 或 COMPLETED)。
+若要傳回針對 SQL 資料倉儲所進行之各種管理作業的相關資訊，請對 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) DMV 執行下列查詢。 例如，它會傳回作業和作業狀態 (IN_PROGRESS 或 COMPLETED)。
 
 ```sql
 SELECT *
@@ -112,7 +141,7 @@ FROM
 WHERE
     resource_type_desc = 'Database'
 AND 
-    major_resource_id = 'MySQLDW'
+    major_resource_id = 'MySampleDataWarehouse'
 ```
 
 

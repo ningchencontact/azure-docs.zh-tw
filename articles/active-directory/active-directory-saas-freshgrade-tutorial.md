@@ -1,23 +1,23 @@
 ---
-title: "教學課程：Azure Active Directory 與 FreshGrade 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 FreshGrade 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 FreshGrade 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 FreshGrade 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: f9cdf73643a8aa18506e59eff513b98282f60832
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e4062f7c7a0f789cef6d0c415d73127d13e646f7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>教學課程：Azure Active Directory 與 FreshGrade 整合
 
@@ -57,7 +57,7 @@ FreshGrade 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 FreshGrade，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -103,66 +103,41 @@ FreshGrade 與 Azure AD 整合提供下列優點：
     ![設定單一登入][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![設定單一登入](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_samlbase.png)
 
 3. 在 [FreshGrade 網域與 URL] 區段上，執行下列步驟：
 
     ![設定單一登入](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ 
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
       | |
       |--|
-      | `https://<subdomain>.freshgrade.com/login` |    
+      | `https://<subdomain>.freshgrade.com/login` |
       | `https://<subdomain>.onboarding.freshgrade.com/login` |
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： 
+    b. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
       | |
       |--|
-      | `https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>` |      
+      | `https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>` |
       | `https://login.freshgrade.com:443/saml/metadata/alias/<instancename>` |
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [FreshGrade 用戶端支援小組](mailTo:support@freshgrade.com)以取得這些值。 
- 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [FreshGrade 用戶端支援小組](mailTo:support@freshgrade.com)以取得這些值。
 
-
-4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
-
-    ![設定單一登入](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_certificate.png) 
-
+4. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+    
+    ![設定單一登入](./media/active-directory-saas-freshgrade-tutorial/tutorial_metadataurl.png)
+     
 5. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/active-directory-saas-freshgrade-tutorial/tutorial_general_400.png)
 
 6. 在 [FreshGrade 設定] 區段中，按一下 [設定 FreshGrade] 可開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 單一登入服務 URL]。
 
-    ![設定單一登入](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_configure.png) 
+    ![設定單一登入](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_configure.png)
 
-7. 若要產生**中繼資料** URL，執行下列步驟︰
-
-    a. 按一下 [應用程式註冊]。
-    
-    ![設定單一登入](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_appregistrations.png)
-   
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
-    
-    ![設定單一登入](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_endpointicon.png)
-
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_endpoint.png)
-     
-    d. 現在，移至 [FreshGrade] 的屬性頁面，使用 [複製] 按鈕複製 [應用程式識別碼]，並將它貼到 [記事本]。
- 
-    ![設定單一登入](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-8. 若要在 **FreshGrade** 端設定單一登入，您必須將「中繼資料 URL」和「SAML 單一登入服務 URL」傳送給 [FreshGrade 支援小組](mailTo:support@freshgrade.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. 若要在 **FreshGrade** 端設定單一登入，您必須將「應用程式同盟中繼資料 Url」和「SAML 單一登入服務 URL」傳送給 [FreshGrade 支援小組](mailTo:support@freshgrade.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。

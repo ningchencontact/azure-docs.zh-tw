@@ -97,6 +97,8 @@
           href: durable-functions-bindings.md
         - name: 檢查點和重新執行
           href: durable-functions-checkpointing-and-replay.md
+        - name: 自訂協調流程狀態
+          href: durable-functions-custom-orchestration-status.md
         - name: 執行個體管理
           href: durable-functions-instance-management.md
         - name: HTTP API
@@ -181,6 +183,8 @@
           href: durable-functions-phone-verification.md
         - name: 單元測試
           href: durable-functions-unit-testing.md
+        - name: 事件發佈
+          href: durable-functions-event-publishing.md
 - name: 參考
   items:
     - name: 繫結

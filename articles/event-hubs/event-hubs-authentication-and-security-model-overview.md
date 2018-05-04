@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
-ms.author: sethm;clemensv
-ms.openlocfilehash: bfe7b95236c1a5336c1bb3a93d0eb5ca880adabf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/30/2018
+ms.author: sethm
+ms.openlocfilehash: 5264930dcb802c2a58abc179bdd0041acc9f58d0
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>事件中樞驗證和安全性模型概觀
 
@@ -36,7 +36,7 @@ Azure 事件中樞安全性模型符合下列需求：
 
 系統會為每個「事件中樞」用戶端指派一個唯一權杖，該權杖會上傳到用戶端。 權杖的產生機制讓每個唯一權杖都能授與相異唯一發佈者的存取權限。 擁有權杖的用戶端只能傳送到一個發行者，無法再傳送到任何其他發行者。 如果多個用戶端共用同一個權杖，它們每一個就會共用一個發行者。
 
-您可以讓裝置具備可授與事件中樞直接存取權的權杖，不過並不建議這樣做。 任何擁有此權杖的裝置都可以將訊息直接傳送到該事件中樞。 這類裝置將不受節流所約束。 此外，您也無法將這類裝置加入封鎖清單，以禁止其傳送到該事件中樞。
+您可以讓裝置具備可授與事件中樞直接存取權的權杖，不過並不建議這樣做。 任何擁有此權杖的裝置都可以將訊息直接傳送到該事件中樞。 這類裝置將不受節流所約束。 此外，您也無法將這類裝置加入黑名單，以禁止其傳送到該事件中樞。
 
 所有權杖都經過 SAS 金鑰簽署。 一般而言，所有權杖都會經過同一個金鑰簽署。 用戶端並不知道該金鑰；這可避免其他用戶端製造權杖。
 
@@ -94,9 +94,9 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 當用戶端將資料傳送到事件中樞時，會使用權杖標記自己傳送的要求。 為了防止攻擊者竊聽及竊取權杖，用戶端與事件中樞之間的通訊必須透過已加密的通道進行。
 
-### <a name="blacklisting-clients"></a>將用戶端列入封鎖清單
+### <a name="blacklisting-clients"></a>將用戶端列入黑名單
 
-如果權杖遭攻擊者竊取，攻擊者便可以模擬權杖遭竊的用戶端。 將用戶端列入封鎖清單可讓用戶端變成無法使用，直到它收到使用不同發行者的新權杖為止。
+如果權杖遭攻擊者竊取，攻擊者便可以模擬權杖遭竊的用戶端。 將用戶端列入黑名單可讓用戶端變成無法使用，直到它收到使用不同發行者的新權杖為止。
 
 ## <a name="authentication-of-back-end-applications"></a>後端應用程式的驗證
 

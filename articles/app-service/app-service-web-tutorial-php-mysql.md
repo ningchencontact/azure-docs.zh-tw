@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ecf83dd21b0803a6ceb4139d117a8b989b070403
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6e2803410c50b47fdaa80654e5e6e61a3807fb43
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>教學課程：在 Azure 中建置 PHP 和 MySQL Web 應用程式
 
@@ -164,10 +164,10 @@ php artisan serve
 
 在 Cloud Shell 中，使用 [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) 命令在適用於 MySQL 的 Azure 資料庫中建立伺服器。
 
-在下列命令中，在您看見 _&lt;mysql_server_name>_ 預留位置的地方，取代成您自己的 MySQL 伺服器名稱 (有效字元有 `a-z`、`0-9`、`-`)。 這個名稱是 MySQL 伺服器主機名稱 (`<mysql_server_name>.database.windows.net`) 的一部分，必須是全域唯一的。
+在下列命令中，使用唯一的伺服器名稱取代 \<mysql_server_name> 預留位置，使用使用者名稱取代 \<admin_user> 預留位置，並使用密碼取代 \<admin_password> 預留位置。 這個伺服器名稱會用來作為 PostgreSQL 端點 (`https://<mysql_server_name>.mysql.database.azure.com`) 的一部分，所以在 Azure 的所有伺服器中必須是唯一的名稱。
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
+az mysql server create --resource-group myResourceGroup --name mydemoserver --location "West Europe" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
 ```
 
 > [!NOTE]
@@ -179,14 +179,33 @@ az mysql server create --name <mysql_server_name> --resource-group myResourceGro
 
 ```json
 {
-  "administratorLogin": "adminuser",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql_server_name>.database.windows.net",
+  "additionalProperties": {},
+  "administratorLogin": "<admin_user>",
+  "earliestRestoreDate": "2018-04-19T22:56:40.990000+00:00",
+  "fullyQualifiedDomainName": "<mysql_server_name>.mysql.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
-  "location": "northeurope",
+  "location": "westeurope",
   "name": "<mysql_server_name>",
   "resourceGroup": "myResourceGroup",
-  ...
+  "sku": {
+    "additionalProperties": {},
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
+    "size": null,
+    "tier": "GeneralPurpose"
+  },
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "additionalProperties": {},
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
+  "tags": null,
+  "type": "Microsoft.DBforMySQL/servers",
+  "userVisibleState": "Ready",
+  "version": "5.7"
 }
 ```
 
@@ -198,12 +217,16 @@ az mysql server create --name <mysql_server_name> --resource-group myResourceGro
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
+> [!TIP] 
+> [僅使用您的應用程式所用的輸出 IP 位址](app-service-ip-addresses.md#find-outbound-ips)，讓您的防火牆規則更具限制性。
+>
+
 ### <a name="connect-to-production-mysql-server-locally"></a>在本機連線到生產環境 MySQL 伺服器
 
-在本機終端機視窗中，連線至 Azure 中的 MySQL 伺服器。 使用您先前為 _&lt;mysql_server_name>_ 指定的值。 當系統提示您輸入密碼時，使用您在 Azure 中建立資料庫時指定的 My5up3r$tr0ngPa$w0rd!。
+在本機終端機視窗中，連線至 Azure 中的 MySQL 伺服器。 使用您先前為 _&lt;mysql_server_name>_ 指定的值。 當系統提示您輸入密碼時，請使用您在 Azure 中建立資料庫時指定的密碼。
 
 ```bash
-mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
+mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com-P 3306 -p
 ```
 
 ### <a name="create-a-production-database"></a>建立生產環境資料庫
@@ -245,7 +268,7 @@ APP_DEBUG=true
 APP_KEY=
 
 DB_CONNECTION=mysql
-DB_HOST=<mysql_server_name>.database.windows.net
+DB_HOST=<mysql_server_name>.mysql.database.azure.com
 DB_DATABASE=sampledb
 DB_USERNAME=phpappuser@<mysql_server_name>
 DB_PASSWORD=MySQLAzure2017
@@ -255,7 +278,7 @@ MYSQL_SSL=true
 儲存變更。
 
 > [!TIP]
-> 為了保護您的 MySQL 連接資訊，Git 存放庫中已經排除此檔案 (請看_.gitignore_ 存放庫的根目錄)。 稍後，您將了解如何設定 App Service 中的環境變數，以連線至適用於 MySQL 的 Azure 資料庫。 使用環境變數，您在 App Service 中就不需要 *.env* 檔案。
+> 為了保護您的 MySQL 連接資訊，Git 存放庫中已經排除此檔案 (請看 _.gitignore_ 存放庫的根目錄)。 稍後，您將了解如何設定 App Service 中的環境變數，以連線至適用於 MySQL 的 Azure 資料庫。 使用環境變數，您在 App Service 中就不需要 *.env* 檔案。
 >
 
 ### <a name="configure-ssl-certificate"></a>設定 SSL 憑證
@@ -341,7 +364,7 @@ git commit -m "database.php updates"
 下列命令會設定 `DB_HOST`、`DB_DATABASE`、`DB_USERNAME`、`DB_PASSWORD` 應用程式設定。 取代預留位置 _&lt;appname>_ 和 _&lt;mysql_server_name>_。
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
 您可以使用 PHP [getenv](http://www.php.net/manual/function.getenv.php) 方法來存取這些設定。 Laravel 程式碼會透過 PHP `getenv` 使用 [env](https://laravel.com/docs/5.4/helpers#method-env) 包裝函式。 例如，在 _config/database.php_ 中的 MySQL 設定看起來像這樣︰

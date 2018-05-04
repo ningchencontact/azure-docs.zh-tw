@@ -1,11 +1,11 @@
 ---
-title: "開始在 Xamarin iOS 中使用行動應用程式的驗證"
-description: "了解如何使用行動應用程式透過眾多識別提供者驗證 Xamarin iOS 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。"
+title: 開始在 Xamarin iOS 中使用行動應用程式的驗證
+description: 了解如何使用行動應用程式透過眾多識別提供者驗證 Xamarin iOS 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.service: app-service-mobile
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: 1649d2bf4f3429f2f5f56bdabdfe9a015a115893
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: c2b77d7c9caab1c7ac13af5ccd50e992bcce1caf
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>將驗證新增至 Xamarin.iOS 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -116,7 +116,7 @@ ms.lasthandoff: 01/04/2018
             return ResumeWithURL != null && ResumeWithURL(url);
         }
 6. 開啟 **Info.plist** 檔案，瀏覽至 [進階] 區段中的 [URL 類型]。 立即設定 URL 類型的 [識別碼] 和 [URL 配置]，然後按一下 [新增 URL 類型]。 [URL 配置] 應該與您的 {url_scheme_of_your_app} 相同。
-7. 在 Visual Studio 或連線到您 Mac 上之 Xamarin 建置主機的 Xamarin Studio 中，以裝置或模擬器為目標執行用戶端專案。 確認應用程式未顯示資料。
+7. 在 Visual Studio 中，連接到 Mac 主機或 Visual Studio for Mac，執行以裝置或模擬器為目標的用戶端專案。 確認應用程式未顯示資料。
    
     將項目清單往下拉以執行重新整理動作，這會使登入畫面出現。 在您成功輸入有效認證後，應用程式將會顯示 todo 項目清單，且您可以對資料進行更新。
 

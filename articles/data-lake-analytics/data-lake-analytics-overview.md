@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: 4ee0bdf486fa59c2d32b0d28ee25618996a57c6e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a378c2185d94864435188b84155d2b300a23b657
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="overview-of-azure-data-lake-analytics"></a>Azure Data Lake Analytics 概觀
 
-Azure Data Lake Analytics 是隨選分析作業服務，可簡化巨量資料。 無需部署、設定及調整硬體，您只需寫入查詢便可轉換資料並擷取寶貴的深入見解。 透過針對所需的功能設定級別，此項分析服務便可立即處理任何規模的工作。 只有在作業進行時您才需要支付費用，十分符合成本效益。 分析服務支援包括 U-SQL，該語言可將 SQL 的優勢與命令式程式碼的能力結合在一起。 U-SQL 可讓您在 Azure、Azure SQL Database 及 Azure SQL 資料倉儲中分析橫跨 Data Lake Store、SQL Server 的資料。
+Azure Data Lake Analytics 是隨選分析作業服務，可簡化巨量資料。 無需部署、設定及調整硬體，您只需寫入查詢便可轉換資料並擷取寶貴的深入見解。 透過針對所需的功能設定級別，此項分析服務便可立即處理任何規模的工作。 只有在作業進行時您才需要支付費用，十分符合成本效益。 
 
 ### <a name="dynamic-scaling"></a>動態調整
   

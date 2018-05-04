@@ -299,10 +299,12 @@
     - name: 工作流程定義語言結構描述
       href: logic-apps-workflow-definition-language.md
       items:
+        - name: 工作流程動作與觸發程序
+          href: logic-apps-workflow-actions-triggers.md
+        - name: 工作流程定義語言函式
+          href: workflow-definition-language-functions-reference.md
         - name: GA - 結構描述記錄
           href: logic-apps-schema-2016-04-01.md
-    - name: 工作流程動作與觸發程序
-      href: logic-apps-workflow-actions-triggers.md
     - name: 追蹤結構描述
       items:
         - name: AS2 追蹤結構描述

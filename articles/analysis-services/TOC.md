@@ -1,18 +1,22 @@
 # [Analysis Services 文件](index.md)
 
 # 概觀
-## [關於 Analysis Services](analysis-services-overview.md)
-## [支援的資料來源](analysis-services-datasource.md)
-## [驗證和使用者權限](analysis-services-manage-users.md)
-## [連線至內部部署資料來源](analysis-services-gateway.md)
-## [相容性層級](analysis-services-compat-level.md)
-## [高可用性](analysis-services-bcdr.md)
+## [什麼是 Azure Analysis Services？](analysis-services-overview.md)
+
 
 # 開始使用
 ## [在 Azure 入口網站中建立伺服器](analysis-services-create-server.md)
 ## [使用 Azure PowerShell 建立伺服器](analysis-services-create-powershell.md)
 ## [從 Visual Studio 部署模型](analysis-services-deploy.md)
 ## [在 Azure 入口網站 (預覽) 中建立模型](analysis-services-create-model-portal.md)
+
+# 概念
+## [支援的資料來源](analysis-services-datasource.md)
+## [連線至內部部署資料來源](analysis-services-gateway.md)
+## [連線至伺服器](analysis-services-connect.md)
+## [驗證和使用者權限](analysis-services-manage-users.md)
+## [相容性層級](analysis-services-compat-level.md)
+## [高可用性](analysis-services-bcdr.md)
 
 # 作法 
 ## [安裝及設定內部部署資料閘道](analysis-services-gateway-install.md)
@@ -23,7 +27,7 @@
 ## 自動化管理工作
 ### [建立服務主體 - Azure 入口網站](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ### [建立服務主體 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-### [將服務主體加入伺服器管理員角色](analysis-services-addservprinc-admins.md)
+### [將服務主體新增至伺服器管理員角色](analysis-services-addservprinc-admins.md)
 ## 伺服器管理
 ### [設定伺服器名稱別名](analysis-services-server-alias.md)
 ### [管理伺服器](analysis-services-manage.md)
@@ -31,7 +35,7 @@
 ### [管理伺服器管理員](analysis-services-server-admins.md)
 ### [監視伺服器計量](analysis-services-monitor.md)
 ### [設定診斷記錄](analysis-services-logging.md)
-### [針對 VNET 上的資料來源使用閘道](analysis-services-vnet-gateway.md)
+### [針對 VNet 上的資料來源使用閘道](analysis-services-vnet-gateway.md)
 ## 連線
 ### [取得用戶端程式庫](analysis-services-data-providers.md)
 ### [與 Excel 連線](analysis-services-connect-excel.md)

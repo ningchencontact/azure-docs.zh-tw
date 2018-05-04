@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: fe6dd9545be17453be38ce9afd5836aa07882ce6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 24a1a04bf7170886b232611eefd7174192904ff0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -40,6 +40,9 @@ ms.lasthandoff: 04/16/2018
 |**目前支援的架構**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* 修正擱置的工作評估。
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * 穩定性改進。
@@ -74,6 +77,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |2018 年 4 月 18 日 |--- |
 | [1.3.1](#1.3.1) |2018 年 3 月 13 日 |--- |
 | [1.2.0](#1.2.0) |2017 年 10 月 31 日 |--- |
 | [1.1.1](#1.1.1) |2017 年 8 月 29 日 |--- |

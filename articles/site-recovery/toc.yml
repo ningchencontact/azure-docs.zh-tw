@@ -129,6 +129,8 @@
           items:
             - name: 移轉至 Azure 之後的 Azure 虛擬機器災害復原
               href: azure-to-azure-replicate-after-migration.md
+            - name: 使用 PowerShell 的 Azure 虛擬機器災害復原
+              href: azure-to-azure-powershell.md
         - name: 複寫、容錯移轉和容錯回復
           items:
             - name: 啟用 Azure 至 Azure 複寫

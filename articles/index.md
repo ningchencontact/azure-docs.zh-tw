@@ -6,11 +6,11 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: ea272619638c8794a17bcd62f818cc9f230167ef
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cd33973a4786b722ff4eafbf6be53ef9fb509f48
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -966,7 +966,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://azure.microsoft.com/en-us/features/xamarin">
+                                            <a href="https://azure.microsoft.com/features/xamarin">
                                                 <img src="media/index/logo_xamarin.svg" alt="" />
                                                 <p>Xamarin</p>
                                             </a>
@@ -975,9 +975,9 @@ Terraform </a>
                                     <h3>物聯網</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://azure.microsoft.com/develop/iot/">
+                                            <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>IoT 開發人員中心</p>
+                                                <p>IoT 基礎</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2637,7 +2637,7 @@ Terraform </a>
                         <a href="#iot">物聯網</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/develop/iot/">
+                                <a href="/azure/iot-fundamentals">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2647,7 +2647,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT 開發人員中心</h3>
+                                                    <h3>IoT 基礎</h3>
                                                     <p>開始連接裝置</p>
                                                 </div>
                                             </div>
@@ -3355,7 +3355,7 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/features/xamarin">
+                                <a href="https://azure.microsoft.com/features/xamarin">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3732,7 +3732,7 @@ Terraform </a>
                     </li>
                 </ul>
             </li>
-            <li>
+             <li>
                 <a href="#sdkstools">SDK/工具</a>
                 <ul id="sdkstools">
                     <li>
@@ -3754,8 +3754,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/dotnet/azure/dotnet-sdk-azure-install">取得適用於 .NET 的 Azure 程式庫</a>
-                                                </h3>
+適用於 .NET 開發人員的 Azure </h3>
                                                 <p>
                                                     <a href="/dotnet/azure">開始使用</a>
                                                 </p>
@@ -3778,8 +3777,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/python/azure">取得適用於 Python 的 Azure 程式庫</a>
-                                                </h3>
+適用於 Python 開發人員的 Azure </h3>
                                                 <p>
                                                     <a href="/python/azure">開始使用</a>
                                                 </p>
@@ -3802,8 +3800,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/nodejs/azure/">取得適用於 Node.js 的 Azure 程式庫</a>
-                                                </h3>
+適用於 Node.js 開發人員的 Azure </h3>
                                                 <p>
                                                     <a href="/javascript/azure/">開始使用</a>
                                                 </p>
@@ -3826,8 +3823,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/java/azure/java-sdk-azure-install">取得適用於 Java 的 Azure 程式庫</a>
-                                                </h3>
+適用於 Java 開發人員的 Azure </h3>
                                                 <p>
                                                     <a href="/java/azure">開始使用</a>
                                                 </p>
@@ -3845,47 +3841,17 @@ Terraform </a>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-5.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://rubygems.org/gems/azure">取得 Ruby SDK</a>
-                                                </h3>
+適用於 Go 開發人員的 Azure </h3>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">開始使用</a>
+                                                    <a href="/go/azure/">開始使用</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API 參考</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">取得範例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/ruby/">深入了解</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a href="/go/azure/">取得 Go SDK</a>
-                                                </h3>
-                                                <p>
-                                                    <a href="/go/azure/azure-sdk-go-qs-vm">開始使用</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">參考</a>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">API 參考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3903,13 +3869,9 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/rest/api/">開始使用 REST</a>
-                                                </h3>
+Azure REST API </h3>
                                                 <p>
-                                                    <a href="/rest/api">參考</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">取得範例</a>
+                                                    <a href="/rest/api">API 參考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3932,15 +3894,12 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-Azure CLI 2.0 </h3>
+Azure CLI </h3>
                                                 <p>
                                                     <a href="/cli/azure">開始使用</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azure/install-azure-cli">下載 Azure CLI 2.0</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/cli/azure">參考</a>
+                                                    <a href="/cli/azure/reference-index">參考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3957,47 +3916,12 @@ Azure CLI 2.0 </h3>
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>PowerShell</h3>
+                                                <h3>Azure PowerShell</h3>
                                                 <p>
                                                     <a href="/powershell/azure/get-started-azureps">開始使用</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/azure/install-azurerm-ps">下載 PowerShell</a>
-                                                </p>
-                                                <p>
                                                     <a href="/powershell/azure/overview">參考</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-7.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-Azure CLI </h3>
-                                                <p>
-                                                    <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">開始使用</a>
-                                                </p>
-                                                <p>
-                                                    <a href="http://aka.ms/linux-azure-cli">下載 Azure CLI for Linux</a>
-                                                </p>
-                                                <p>
-                                                    <a href="http://aka.ms/mac-azure-cli">下載 Azure CLI for Mac</a>
-                                                </p>
-                                                <p>
-                                                    <a href="http://aka.ms/webpi-azure-cli">下載 Azure CLI for Windows</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">參考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4015,15 +3939,24 @@ Azure CLI </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-9.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_vs-code.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools for Azure</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio Code</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">下載</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">App Service</a>
+                                                </p>
+                                                 <p>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Azure Functions</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">儲存體</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb">Cosmos DB</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4041,10 +3974,9 @@ Azure CLI </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Microsoft/DockerToolsDocs">Docker 工具</a>
-                                                </h3>
+Docker </h3>
                                                 <p>
-                                                    <a href="/dotnet/articles/core/docker/visual-studio-tools-for-docker">開始使用</a>
+                                                    <a href="/dotnet/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio Tools for Docker</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680">針對 Visual Studio 下載</a>
@@ -4066,15 +3998,44 @@ Azure CLI </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-8.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_java.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">PowerShell Tools for Visual Studio</a>
+Java 工具 </h3>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/java/api/overview/azure/maven/readme">Maven 外掛程式</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/java/azure/java-azure-tools">IntelliJ 和 Eclipse</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://code.visualstudio.com/docs/languages/java">Visual Studio Code</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure_dev-2.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="https://www.visualstudio.com/vs/python">Python 工具</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">下載</a>
+                                                    <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Visual Studio</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://code.visualstudio.com/docs/languages/python">Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4133,30 +4094,6 @@ SQL 工具 </h3>
                                                 </p>
                                                 <p>
                                                     <a href="http://go.microsoft.com/fwlink/?LinkId=708343">針對 Windows 下載</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-2.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Python 工具</a>
-                                                </h3>
-                                                <p>
-                                                    <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">開始使用 Visual Studio</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://code.visualstudio.com/docs/languages/python">開始使用 Visual Studio 程式碼</a>
                                                 </p>
                                             </div>
                                         </div>

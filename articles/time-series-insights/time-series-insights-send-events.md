@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 04/09/2018
-ms.openlocfilehash: c29b90e703a66cbbc25227f9a4307c74d82b03b5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b418d1114cf6b906dcdee46bbf7e094cbc4a0521
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>使用事件中樞將事件傳送至 Time Series Insights 環境
 本文說明如何建立和設定事件中樞，並執行應用程式範例以推送事件。 如果您現有的事件中樞內含 JSON 格式的事件，請跳過本教學課程，並在[時間序列深入解析](https://insights.timeseries.azure.com)檢視您的環境。
@@ -59,7 +59,7 @@ ms.lasthandoff: 04/16/2018
 
 若要管理參考資料，在 TSI 總管中有 Web 式使用者介面，且有程式設計 C# API。 TSI 總管具有視覺化使用者體驗，可透過 JSON 或 CSV 格式上傳檔案或貼上現有的參考資料集。 您可以透過 API，視需要建置自訂應用程式。
 
-如需有關如何在時間序列深入解析中管理參考資料的詳細資訊，請參閱[參考資料文章](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set)。
+如需有關如何在時間序列深入解析中管理參考資料的詳細資訊，請參閱[參考資料文章](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)。
 
 ## <a name="create-time-series-insights-event-source"></a>建立 Time Series Insights 事件來源
 1. 如果您尚未建立事件來源，請遵循[這些指示](time-series-insights-how-to-add-an-event-source-eventhub.md)來建立事件來源。
@@ -312,7 +312,7 @@ namespace Microsoft.Rdx.DataGenerator
 
 chId  Measure               Unit 24    Engine Oil Pressure   PSI 25    CALC Pump Rate        bbl/min
 
-如需有關如何在時間序列深入解析中管理參考資料的詳細資訊，請參閱[參考資料文章](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set)。
+如需有關如何在時間序列深入解析中管理參考資料的詳細資訊，請參閱[參考資料文章](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)。
 
 第一個承載的另一個問題是該時間戳記是以毫秒為單位。 TSI 只接受 ISO 格式的時間戳記。 其中一種解決方案是保留 TSI 中預設的時間戳記行為，也就是使用加入佇列的時間戳記。
 

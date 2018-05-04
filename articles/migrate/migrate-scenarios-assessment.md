@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 04/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1ac6c3e428148a6609b264b0b8f8cff416b0fa4d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 33e31c47a6125ac363410a9a78e9c9310c74d51e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>案例 1：評估要移轉至 Azure 的內部部署工作負載
 
@@ -285,7 +285,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 5. 在 [指定 vCenter Server 詳細資料] 中，執行下列動作：
     - 指定 vCenter Server 的名稱 (FQDN) 或 IP 位址。
     - 在 [使用者名稱] 和 [密碼] 中，指定收集器要用來探索 vCenter Server 上之 VM 的唯讀帳戶認證。
-    - 在 [選取範圍] 中，選取虛擬機器探索的範圍。 收集器只能探索指定範圍內的 VM。 範圍可以設定為特定資料夾、資料中心或叢集。 其不應包含超過 1000 個 VM。 
+    - 在 [選取範圍] 中，選取虛擬機器探索的範圍。 收集器只能探索指定範圍內的 VM。 範圍可以設定為特定資料夾、資料中心或叢集。 它不應包含超過 1500 個 VM。 
 
     ![連線到 vCenter](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
 

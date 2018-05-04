@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 LearnUpon 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 LearnUpon 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 LearnUpon 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 LearnUpon 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 40e6df0db7651488642e774512f55fbd6805809a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2796f280b2f95504be5f9691098bff07fdd93393
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>教學課程：Azure Active Directory 與 LearnUpon 整合
 
@@ -57,7 +57,7 @@ LearnUpon 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 LearnUpon，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ LearnUpon 與 Azure AD 整合提供下列優點：
 
 
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (原始)]，然後將憑證檔案儲存在您的電腦上。
+4. 在 [SAML 簽署憑證] 區段中，找出 [指紋] - 這會新增至您的 LearnUpon SAML 設定。
 
     ![設定單一登入](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_certificate.png) 
 

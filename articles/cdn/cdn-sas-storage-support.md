@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: v-deasim
-ms.openlocfilehash: 44c28f45b7be8fbaa47a16d8ab07892ab146c39e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8b609beb67cfb0873bf9926ca648f0ad5568ad2e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="using-azure-cdn-with-sas"></a>搭配 SAS 使用 Azure CDN
 
@@ -83,7 +83,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
    
    目的地：   
    ```
-   $1sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   $1?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
 
    ![CDN URL 重寫規則](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
@@ -93,7 +93,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
    例如︰   
    `https://demoendpoint.azureedge.net/container1/demo.jpg`
        
-   請注意，所有使用者 (不論是否使用 SAS 權杖) 現在都能存取 CDN 端點上的檔案。 
+   請注意，任何人 (無論是否使用 SAS 權杖) 現在都可存取 CDN 端點上的檔案。 
 
 3. 使用快取規則或在原始伺服器新增 `Cache-Control` 標頭來微調快取持續時間。 由於 Azure CDN 會將 SAS 權杖視為純查詢字串，因此最佳做法是，您應該設定一個在 SAS 到期時間或此時間之前到期的快取持續時間。 否則，如果檔案的快取持續時間比 SAS 的有效期長，便可能在過了 SAS 到期時間之後，從 Azure CDN 原始伺服器存取該檔案。 如果發生這種情況，而您想要讓已快取的檔案變成無法存取，就必須對該檔案執行清除作業，以將它從快取中清除。 如需有關在 Azure CDN 上設定快取持續時間的資訊，請參閱[使用快取規則來控制 Azure CDN 快取行為](cdn-caching-rules.md)。
 

@@ -296,27 +296,37 @@
         - name: Storm
           tocHref: /azure/hdinsight/storm
           topicHref: /azure/hdinsight/storm/apache-storm-overview
-    - name: IoT Edge
-      tocHref: /azure/iot-edge/
-      topicHref: /azure/iot-edge/
-    - name: IoT 中樞
-      tocHref: /azure/iot-hub/
-      topicHref: /azure/iot-hub/
-    - name: IoT 中樞裝置佈建服務
-      tocHref: /azure/iot-dps/
-      topicHref: /azure/iot-dps/
-    - name: IoT 套件
-      tocHref: /azure/iot-suite/
-      topicHref: /azure/iot-suite/
+    - name: 物聯網
+      tocHref: /azure/iot-fundamentals/
+      topicHref: /azure/iot-fundamentals/
+      items:
+        - name: IoT 基礎
+          tocHref: /azure/iot-fundamentals/
+          topicHref: /azure/iot-fundamentals/
+        - name: IoT Edge
+          tocHref: /azure/iot-edge/
+          topicHref: /azure/iot-edge/
+        - name: IoT 中樞
+          tocHref: /azure/iot-hub/
+          topicHref: /azure/iot-hub/
+        - name: IoT 中樞裝置佈建服務
+          tocHref: /azure/iot-dps/
+          topicHref: /azure/iot-dps/
+        - name: IoT 套件
+          tocHref: /azure/iot-suite/
+          topicHref: /azure/iot-suite/
+        - name: 位置服務
+          tocHref: /azure/location-based-services/
+          topicHref: /azure/location-based-services/
+        - name: Time Series Insights
+          tocHref: /azure/time-series-insights/
+          topicHref: /azure/time-series-insights/
     - name: Jenkins
       tocHref: /azure/jenkins/
       topicHref: /azure/jenkins/
     - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
-    - name: 位置服務
-      tocHref: /azure/location-based-services/
-      topicHref: /azure/location-based-services/
     - name: 負載平衡器
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
@@ -483,9 +493,6 @@
     - name: 串流分析
       tocHref: /azure/stream-analytics/
       topicHref: /azure/stream-analytics/
-    - name: Time Series Insights
-      tocHref: /azure/time-series-insights/
-      topicHref: /azure/time-series-insights/
     - name: 流量管理員
       tocHref: /azure/traffic-manager/
       topicHref: /azure/traffic-manager/

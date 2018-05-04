@@ -1,12 +1,12 @@
 ---
-title: "開始使用適用於 Xamarin.iOS 應用程式的 Azure 通知中樞 | Microsoft Docs"
-description: "在本教學課程中，您會了解如何使用 Azure 通知中樞將推播通知傳送至 Xamarin iOS 應用程式。"
+title: 開始使用適用於 Xamarin.iOS 應用程式的 Azure 通知中樞 | Microsoft Docs
+description: 在本教學課程中，您會了解如何使用 Azure 通知中樞將推播通知傳送至 Xamarin iOS 應用程式。
 services: notification-hubs
-keywords: "ios 推播通知,推播訊息,推播通知"
+keywords: ios 推播通知,推播訊息,推播通知
 documentationcenter: xamarin
 author: jwhiteDev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
 ms.workload: mobile
@@ -255,4 +255,4 @@ ms.lasthandoff: 03/05/2018
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
-[HttpTrigger Nodejs 函數]: https://portal.azure.com
+[Azure 入口網站]: https://portal.azure.com

@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory 入口網站中的登入活動報告錯誤碼 | Microsoft Docs"
-description: "登入活動報告錯誤碼參考。"
+title: Azure Active Directory 入口網站中的登入活動報告錯誤碼 | Microsoft Docs
+description: 登入活動報告錯誤碼參考。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1e5d477aa74d3d0588e33363888d84e860d4b2f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告錯誤碼
 
@@ -65,6 +65,7 @@ ms.lasthandoff: 02/11/2018
 |50055|無效的密碼，或輸入的密碼過期。|
 |50057|使用者帳戶已停用。|
 |50058|在所提供的認證中找不到使用者的身分識別相關資訊，或在租用戶中找不到使用者，或已傳送無訊息的登入要求，但沒有使用者登入或服務無法驗證使用者。|
+|50072|使用者需要註冊第二個因素驗證 (互動式)|
 |50074|使用者未通過 MFA 檢查。|
 |50079|使用者需要註冊第二個因素驗證。|
 |50089|流程權杖驗證失敗，因為流程權杖已過期。|
@@ -97,7 +98,6 @@ ms.lasthandoff: 02/11/2018
 |81013|找不到以使用者的 Kerberos 票證中資訊為基礎的使用者物件。|
 |90014|當認證中未出現預期的欄位時，使用於各種情況。|
 |90093|傳回的圖表包含要求的禁止錯誤碼。|
-
 
 
 ## <a name="next-steps"></a>後續步驟

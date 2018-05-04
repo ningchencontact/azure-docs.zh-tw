@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: a35da5c84e4e79d7bc6f2167ec7e172970992612
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 94b6864bec157694e0192597c0fecfa0d3e407ec
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>使用 ApplicationInsights.config 或 .xml 設定 Application Insights SDK
 Application Insights .NET SDK 是由數個 NuGet 封裝所組成。 [核心封裝](http://www.nuget.org/packages/Microsoft.ApplicationInsights) 提供 API，用於傳送遙測至 Application Insights。 [其他套件](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights)提供遙測*模組*和*初始設定式*，用於自動從您的應用程式和其內容追蹤遙測。 您可以藉由調整組態檔，來啟用或停用遙測模組和初始設定式，並為其設定一些參數。
@@ -263,6 +263,91 @@ Microsoft.ApplicationInsights 封裝提供 SDK 的 [核心 API](https://msdn.mic
 ```
 
 若要取得新的金鑰，請[在 Application Insights 入口網站中建立新的資源][new]。
+
+
+
+## <a name="applicationid-provider"></a>ApplicationId 提供者
+
+_從 v2.6.0 開始可供使用_
+
+提供者的用途是要查閱以檢測金鑰為基礎的應用程式識別碼。 應用程式識別碼包含在 RequestTelemetry 和 DependencyTelemetry 中，並且用來判斷入口網站中的相互關聯。
+
+可藉由在程式碼或組態中設定 `TelemetryConfiguration.ApplicationIdProvider` 來使用此功能。
+
+### <a name="interface-iapplicationidprovider"></a>介面：IApplicationIdProvider
+
+```csharp
+public interface IApplicationIdProvider
+{
+    bool TryGetApplicationId(string instrumentationKey, out string applicationId);
+}
+```
+
+
+我們在 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) SDK 中提供兩個實作：`ApplicationInsightsApplicationIdProvider` 和 `DictionaryApplicationIdProvider`。
+
+### <a name="applicationinsightsapplicationidprovider"></a>ApplicationInsightsApplicationIdProvider
+
+這是我們設定檔 API 的包裝函式。 它會對要求進行節流處理並快取結果。
+
+當您安裝 [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) 或 [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 時，此提供者會新增至組態檔
+
+此類別具有選擇性屬性 `ProfileQueryEndpoint`。
+依預設，這會設定為 `https://dc.services.visualstudio.com/api/profiles/{0}/appId`。
+如果您需要為此組態設定 Proxy，我們建議對基底位址 (Base Address) 使用 Proxy 並包括 "/api/profiles/{0}/appId"。 請注意，在每個要求的執行階段上，'{0}' 會替代為檢測金鑰。
+
+#### <a name="example-configuration-via-applicationinsightsconfig"></a>透過 ApplicationInsights.config 的範例組態：
+```xml
+<ApplicationInsights>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
+```
+
+#### <a name="example-configuration-via-code"></a>透過程式碼的範例組態：
+```csharp
+TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApplicationIdProvider();
+```
+
+### <a name="dictionaryapplicationidprovider"></a>DictionaryApplicationIdProvider
+
+這是靜態提供者，將依賴您設定的檢測金鑰 / 應用程式識別碼配對。
+
+此類別具有 `Defined` 屬性，也就是應用程式識別碼配對的檢測金鑰字典<string,string>。
+
+此類別具有選擇性的 `Next` 屬性，可在您組態中不存在要求的檢測金鑰時，用來設定其他提供者。
+
+#### <a name="example-configuration-via-applicationinsightsconfig"></a>透過 ApplicationInsights.config 的範例組態：
+```xml
+<ApplicationInsights>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.DictionaryApplicationIdProvider, Microsoft.ApplicationInsights">
+        <Defined>
+            <Type key="InstrumentationKey_1" value="ApplicationId_1"/>
+            <Type key="InstrumentationKey_2" value="ApplicationId_2"/>
+        </Defined>
+        <Next Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights" />
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
+```
+
+#### <a name="example-configuration-via-code"></a>透過程式碼的範例組態：
+```csharp
+TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationIdProvider{
+ Defined = new Dictionary<string, string>
+    {
+        {"InstrumentationKey_1", "ApplicationId_1"},
+        {"InstrumentationKey_2", "ApplicationId_2"}
+    }
+};
+```
+
+
+
 
 ## <a name="next-steps"></a>後續步驟
 [深入了解 API][api]。

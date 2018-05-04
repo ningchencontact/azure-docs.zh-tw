@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 47629350967026f6901441ff20d182cd7fd5be3a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2bb6e6199caf0d5fd001bc83b91eb1ed3a8c0fc5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Azure Cosmos DB 繫結
 
@@ -170,7 +170,13 @@ Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-d
 |**leaseCollectionName** | **LeaseCollectionName** | (選擇性) 用來儲存租用的集合名稱。 如果未設定，會使用 `leases` 值。 |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (選擇性) 設為 `true` 時，如果租用集合尚未存在，即會自動加以建立。 預設值為 `false`。 |
 |**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (選擇性) 定義要在建立租用集合時指派的要求單位數。 只有在將 `createLeaseCollectionIfNotExists` 設為 `true` 時才會使用此設定。 使用入口網站建立繫結時，會自動設定此參數。
-| |**LeaseOptions** | 在 [ChangeFeedHostOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor.changefeedhostoptions) 類別的執行個體中設定屬性來設定租用選項。
+|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (選擇性) 如果設定，將會為此函式對建立於租用集合中的租用加上前置詞，而有效地讓兩個不同的 Azure Functions 藉由使用不同的前置詞來共用相同的租用。
+|**feedPollDelay**| **FeedPollDelay**| (選擇性) 如果設定，將會以毫秒為單位定義在目前所有的變更都清空後，每次輪詢分割區以了解摘要上是否有新變更時所要延遲的時間。 預設值為 5000 (5 秒)。
+|**leaseAcquireInterval**| **LeaseAcquireInterval**| (選擇性) 如果設定，將會以毫秒為單位定義啟動工作以計算分割區是否平均分散到已知主機執行個體的間隔。 預設值為 13000 (13 秒)。
+|**leaseExpirationInterval**| **LeaseExpirationInterval**| (選擇性) 如果設定，將會以毫秒為單位定義租用代表分割區的間隔。 未在此間隔內更新的租用將會過期，且分割區的擁有權會移轉給另一個執行個體。 預設值為 60000 (60 秒)。
+|**leaseRenewInterval**| **LeaseRenewInterval**| (選擇性) 如果設定，將會以毫秒為單位定義目前由執行個體保有之分割區的所有租用所適用的更新間隔。 預設值為 17000 (17 秒)。
+|**checkpointFrequency**| **CheckpointFrequency**| (選擇性) 如果設定，將會以毫秒為單位定義租用檢查點的間隔。 預設值為一律在成功呼叫函式之後。
+|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (選擇性) 如果設定，將會自訂每個函式呼叫所接收的項目數量上限。
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

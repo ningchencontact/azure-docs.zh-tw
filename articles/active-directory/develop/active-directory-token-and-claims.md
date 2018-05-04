@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a28811437668488c2207535cef3aa4640f17aa54
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3d8a4ddd98086252f36eeb7034248e909fec1ac0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 權杖參考
 Azure Active Directory (Azure AD) 會在處理每個驗證流程時發出數種安全性權杖。 本文件說明每種權杖的格式、安全性特性和內容。
@@ -147,7 +147,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 * **Nonce** -降低權杖重新執行攻擊。
 * 不勝枚舉...
 
-如需您的應用程式應對 ID 權杖執行的完整宣告驗證清單，請參閱 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)。 先前的 [id_token 一節](#id-tokens)包含這些宣告的預期值的詳細資料。
+如需您的應用程式應對 ID 權杖執行的完整宣告驗證清單，請參閱 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)。 先前的 [id_token](#id-tokens) 一節包含這些宣告的預期值的詳細資料。
 
 ## <a name="token-revocation"></a>權杖撤銷
 

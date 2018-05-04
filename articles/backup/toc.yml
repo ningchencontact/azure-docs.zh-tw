@@ -69,16 +69,18 @@
               href: backup-mabs-unattended-install.md
         - name: 保護工作負載
           items:
-            - name: 使用 Azure 備份伺服器備份 VMware 伺服器
+            - name: VMware 伺服器
               href: backup-azure-backup-server-vmware.md
-            - name: 使用 Azure 備份伺服器備份 Exchange
+            - name: Exchange
               href: backup-azure-exchange-mabs.md
-            - name: 使用 Azure 備份伺服器備份 SharePoint 陣列
+            - name: SharePoint 伺服器陣列
               href: backup-azure-backup-sharepoint-mabs.md
-            - name: 使用 Azure 備份伺服器備份 SQL
+            - name: SQL Server
               href: backup-azure-sql-mabs.md
             - name: 保護系統狀態和裸機復原
               href: backup-mabs-system-state-and-bmr.md
+            - name: Azure Stack 上的檔案和應用程式
+              href: backup-mabs-files-applications-azure-stack.md
         - name: 從 Azure 備份伺服器復原資料
           href: backup-azure-alternate-dpm-server.md
     - name: Azure 檔案共用

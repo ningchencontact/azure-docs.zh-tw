@@ -59,6 +59,8 @@
       href: monitor-event-delivery.md
     - name: 查詢事件訂用帳戶
       href: query-event-subscriptions.md
+    - name: 使用 CloudEvents 結構描述
+      href: cloudevents-schema.md
 - name: 參考
   items:
     - name: Azure CLI

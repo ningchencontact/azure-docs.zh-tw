@@ -74,8 +74,10 @@
       href: sql-database-servers-databases.md
     - name: 受控執行個體
       href: sql-database-managed-instance.md
-    - name: 服務層
-      href: sql-database-service-tiers.md
+    - name: 以 DTU 為基礎的服務層
+      href: sql-database-service-tiers-dtu.md
+    - name: 以虛擬核心為基礎的服務層
+      href: sql-database-service-tiers-vcore.md
     - name: 讀取向外延展
       href: sql-database-read-scale-out.md
     - name: 以 DTU 為基礎的資源限制
@@ -412,8 +414,12 @@
               href: saas-tenancy-schema-management.md
             - name: 跨租用戶報告
               href: saas-tenancy-cross-tenant-reporting.md
-            - name: 供分析的 ETL
-              href: saas-tenancy-tenant-analytics.md
+            - name: 租用戶分析
+              items:
+                - name: 使用 SQL DB
+                  href: saas-tenancy-tenant-analytics.md
+                - name: 使用 SQL DW
+                  href: saas-tenancy-tenant-analytics-adf.md
             - name: 使用異地還原進行災害復原
               href: saas-dbpertenant-dr-geo-restore.md
             - name: 使用資料庫異地複寫進行災害復原

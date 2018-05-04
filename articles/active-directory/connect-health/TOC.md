@@ -19,7 +19,7 @@
 ## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health 版本歷程記錄](active-directory-aadconnect-health-version-history.md)
 ## [Azure AD Connect Health 警示目錄](active-directory-aadconnect-health-alert-catalog.md)
-## [GDPR 相容性與 Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
+## [使用者隱私權與 Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
 # 相關參考
 ## [整合內部部署身分識別與 Azure Active Directory](../active-directory-aadconnect.md)

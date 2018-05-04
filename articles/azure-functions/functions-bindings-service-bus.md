@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 02a34111fbab62884c9ecbfc084a55d21d775182
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ae24031922c2ef01c9274f6ecf572158a9a194d4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
 
@@ -236,6 +236,8 @@ module.exports = function(context, myQueueItem) {
 * `byte[]` - 適用於二進位資料。
 * 自訂類型 - 如果訊息包含 JSON，Azure Functions 會嘗試將 JSON 資料還原序列化。
 * `BrokeredMessage` - 利用 [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) 方法提供您還原序列化的訊息。
+
+這些參數適用於 Azure Functions 版本 1.x；針對 2.x，請使用 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)，而不是使用 `BrokeredMessage`。
 
 在 JavaScript 中，使用 `context.bindings.<name from function.json>` 來存取佇列或主題訊息。 服務匯流排訊息會以字串或 JSON 物件的形式傳遞至函式。
 
@@ -479,6 +481,8 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 * `ICollector<T>` 或 `IAsyncCollector<T>` - 適用於建立多個訊息。 當您呼叫 `Add` 方法時，就會建立一則訊息。
 
 在非同步函式中，使用傳回值或 `IAsyncCollector`，而不是 `out` 參數。
+
+這些參數適用於 Azure Functions 版本 1.x；針對 2.x，請使用 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)，而不是使用 `BrokeredMessage`。
 
 在 JavaScript 中，使用 `context.bindings.<name from function.json>` 來存取佇列或主題。 您可以指派字串、位元組陣列或 Javascript 物件 (還原序列化為 JSON) 給 `context.binding.<name>`。
 

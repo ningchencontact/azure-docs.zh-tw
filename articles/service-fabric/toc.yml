@@ -246,11 +246,13 @@
       items:
         - name: 監視概觀
           href: service-fabric-diagnostics-overview.md
-        - name: 叢集事件
+        - name: 叢集監視
           href: service-fabric-diagnostics-event-generation-infra.md
           items:
-            - name: 作業通道
-              href: service-fabric-diagnostics-event-generation-operational.md
+            - name: Service Fabric 事件
+              href: service-fabric-diagnostics-events.md
+            - name: EventStore 概觀
+              href: service-fabric-diagnostics-eventstore.md
             - name: Reliable Services 事件
               href: service-fabric-reliable-services-diagnostics.md
             - name: Reliable Actors 事件
@@ -507,6 +509,8 @@
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: Azure Resource Manager
                   href: service-fabric-cluster-creation-via-arm.md
+                - name: 使用憑證一般名稱的叢集
+                  href: service-fabric-create-cluster-using-cert-cn.md
             - name: 調整
               items:
                 - name: 手動
@@ -519,6 +523,10 @@
               href: service-fabric-cluster-security-roles.md
             - name: 在負載平衡器中開啟連接埠
               href: create-load-balancer-rule.md
+            - name: 將叢集憑證變更為一般名稱
+              href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+            - name: 手動變換叢集憑證
+              href: service-fabric-cluster-rollover-cert-cn.md
             - name: 管理叢集憑證
               href: service-fabric-cluster-security-update-certs-azure.md
             - name: 刪除
@@ -567,6 +575,8 @@
               href: service-fabric-diagnostics-oms-containers.md
         - name: 監視叢集
           items:
+            - name: 查詢 EventStore API
+              href: service-fabric-diagnostics-eventstore-query.md
             - name: Microsoft Azure 診斷
               href: service-fabric-diagnostics-event-aggregation-wad.md
             - name: Linux Azure 診斷
@@ -630,6 +640,8 @@
       href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
     - name: REST
       href: /rest/api/servicefabric
+    - name: Service Fabric 事件
+      href: service-fabric-diagnostics-event-generation-operational.md
     - name: 設定叢集設定和網狀架構升級原則
       href: service-fabric-cluster-fabric-settings.md
     - name: 服務模型 XML 結構描述

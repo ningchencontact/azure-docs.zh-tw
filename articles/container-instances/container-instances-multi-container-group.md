@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 58fd4c18df5ec0a5d02be0e6e89cb2b4af26b20e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4159aa9d7f19d700ea8dfd9fc15f5f0baa95be62
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="deploy-a-container-group"></a>部署容器群組
 
@@ -108,7 +108,7 @@ Azure 容器執行個體支援使用[容器群組](container-instances-container
 }
 ```
 
-若要使用私用容器映像登錄，請使用下列格式將物件新增至 JSON 文件。
+若要使用私用容器映像登錄，請使用下列格式將物件新增至 JSON 文件。 如需此設定的範例實作，請參閱 [ACI Resource Manager 範本參考][template-reference]文件。
 
 ```json
 "imageRegistryCredentials": [
@@ -210,3 +210,4 @@ Connection: keep-alive
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create
+[template-reference]: https://docs.microsoft.com/azure/templates/microsoft.containerinstance/containergroups

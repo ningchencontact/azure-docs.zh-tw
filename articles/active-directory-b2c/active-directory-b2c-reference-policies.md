@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: c733f919189dadcf1181ddbe2a1057b2bcf66fc4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce65b9b532ca6f594334f3eb0194d700aca1c735
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C：內建原則
 
@@ -62,7 +62,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>建立註冊或登入原則
 
-此原則可使用單一組態處理取用者註冊和登入經驗。 視內容而定，取用者會被引導到正確的路徑 (註冊或登入)。 此原則也會描述在成功註冊或登入時，應用程式將收到的權杖內容。您可以 [在這裡找到](active-directory-b2c-devquickstarts-web-dotnet-susi.md)註冊或登入原則的代碼範例。  建議您使用這個原則，而不要使用註冊原則和登入原則。  
+此原則可使用單一組態處理取用者註冊和登入經驗。 視內容而定，取用者會被引導到正確的路徑 (註冊或登入)。 此原則也會描述在成功註冊或登入時，應用程式將收到的權杖內容。您可以**在這裡找到**[註冊或登入](active-directory-b2c-devquickstarts-web-dotnet-susi.md)原則的程式碼範例。  建議您使用這個原則，而不要使用**註冊**原則或**登入**原則。  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
@@ -85,16 +85,16 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>如何將註冊或登入原則與密碼重設原則連結在一起？
-當您建立註冊或登入原則 (搭配本機帳戶) 時，您會在該體驗的第一個頁面上看到[忘記密碼?] 連結。 按一下此連結並不會自動觸發密碼重設原則。 
+當您建立**註冊或登入**原則 (搭配本機帳戶) 時，您會在該體驗的第一個頁面上看到[忘記密碼?] 連結。 按一下此連結並不會自動觸發密碼重設原則。 
 
 相反地，系統會將錯誤碼 **`AADB2C90118`** 傳回您的應用程式。 您的應用程式必須叫用特定的密碼重設原則來處理此錯誤碼。 如需詳細資訊，請參閱[示範連結原則方法的範例](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI)。
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>應該使用註冊原則、登入原則還是註冊原則加上登入原則？
-我們建議使用註冊原則或是登入原則，而不要使用註冊原則加上登入原則。  
+我們建議使用**註冊或登入**原則，而不要使用**註冊**原則和**登入**原則。  
 
-註冊原則或登入原則的功能比登入原則還多。 它也可讓您使用頁面 UI 自訂，並且對當地語系化有更強的支援。 
+**註冊或登入**原則的功能比**登入**原則還多。 它也可讓您使用頁面 UI 自訂，並且對當地語系化有更強的支援。 
 
-如果您不需要將原則當地語系化，只需要較少的自訂功能來設定商標，而且想要內建密碼重設功能，則建議您使用登入原則。
+如果您不需要將原則當地語系化，只需要較少的自訂功能來設定商標，而且想要內建密碼重設功能，則建議您使用**登入**原則。
 
 ## <a name="next-steps"></a>後續步驟
 * [權杖、工作階段及單一登入組態](active-directory-b2c-token-session-sso.md)

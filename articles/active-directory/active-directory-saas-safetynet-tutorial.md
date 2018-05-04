@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b304a198ce1791a14094eea4cad3b6de870c80ce
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: df0b578448e1f943d45233f7d36ebf4b9cb09fad
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-safetynet"></a>教學課程：Azure Active Directory 與 SafetyNet 整合
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 03/28/2018
 
 **若要從資源庫新增 SafetyNet，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -117,33 +117,17 @@ ms.lasthandoff: 03/28/2018
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.predictivesolutions.com`
      
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 請連絡 [SafetyNet 用戶端支援小組](mailto:dev@predictivesolutions.com)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 請連絡 [SafetyNet 用戶端支援小組](mailto:dev@predictivesolutions.com)以取得這些值。
 
-5. 按一下 [儲存]  按鈕。
+5. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+
+    ![憑證下載連結](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_certificate.png)
+
+6. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-safetynet-tutorial/tutorial_general_400.png)
 
-6. 若要產生**中繼資料 URL**，請執行下列步驟：
-
-    a. 按一下 [應用程式註冊]。
-    
-    ![設定單一登入](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_appregistrations.png)
-   
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
-    
-    ![設定單一登入](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_endpointicon.png)
-
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_endpoint.png)
-     
-    d. 現在，移至 **SafetyNet** 的屬性頁面，使用 [複製] 按鈕來複製 [應用程式識別碼] 並貼到記事本中。
- 
-    ![設定單一登入](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_appid.png)
-
-    e. 使用下列模式來產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-    
-7. 若要在 **SafetyNet** 端設定單一登入，您必須將已產生的**中繼資料 URL** 傳送給 [SafetyNet 支援小組](mailto:dev@predictivesolutions.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+7. 若要在 **SafetyNet** 端設定單一登入，您必須將**應用程式同盟中繼資料 Url** 傳送至 [SafetyNet 支援小組](mailto:dev@predictivesolutions.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

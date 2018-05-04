@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 072ce2952e3cdea47b02ef7656ca67d4bc0ae8f1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e93b3348c933f65067114bfce4ac517f1204af34
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
 
@@ -79,7 +79,7 @@ API 是跨所有平台統一的，除了一些小變化形式。
 
 TelemetryClient 具備執行緒安全。
 
-針對 ASP.NET 和 Java 專案，系統會自動擷取傳入 HTTP 要求。 您可以為應用程式的其他模組建立額外的 TelemetryClient 執行個體。 比方說，您可以在中介軟體類別中配置一個 TelemetryClient 執行個體，用來報告商業邏輯事件。 您可以設定 UserId 和 DeviceId 等屬性，藉此辨識機器。 這些資訊會附加至執行個體所傳送的所有事件。 
+針對 ASP.NET 和 Java 專案，系統會自動擷取傳入 HTTP 要求。 您可以為應用程式的其他模組建立額外的 TelemetryClient 執行個體。 比方說，您可以在中介軟體類別中配置一個 TelemetryClient 執行個體，用來報告商業邏輯事件。 您可以設定 UserId 和 DeviceId 等屬性，藉此辨識機器。 這項資訊會附加至執行個體所傳送的所有事件。 
 
 *C#*
 

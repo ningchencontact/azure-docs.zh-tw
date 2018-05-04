@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 055d8b1c9884c9525ba15ea9508ab00a5f48a048
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59d6b960a40910b8b2fe72f6c3b149608ee8b8ad
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>在 Azure 上搭配 Linux 資料科學虛擬機器來運用資料科學
 本逐步解說示範如何使用 Linux 資料科學 VM 執行數個常見的資料科學工作。 Linux 資料科學虛擬機器 (DSVM) 是 Azure 提供的虛擬機器映像，其中預先安裝了一組常用於執行資料分析和機器學習服務的工具。 重要的軟體元件可在 [佈建 Linux 資料科學虛擬機器](linux-dsvm-intro.md) 主題中找到明細。 VM 映像可讓使用者輕鬆地在幾分鐘內開始執行資料科學，而不需要個別安裝和設定每個工具。 您可以在需要時輕鬆地相應增加 VM，並在不使用時加以停止。 因此，這項資源既有彈性，又符合成本效益。
@@ -264,7 +264,7 @@ XGBoost 也可以從 Python 或命令列進行呼叫。
 為了能夠使用 Python 進行開發，Anaconda Python 散發套件 2.7 與 3.5 已安裝在 DSVM 中。
 
 > [!NOTE]
-> Anaconda 散發套件包含 [Condas](http://conda.pydata.org/docs/index.html)，可用來為 Python 建立已安裝不同版本和 (或) 封裝的自訂環境。
+> Anaconda 散發套件包含 [Conda](http://conda.pydata.org/docs/index.html)，可用來為 Python 建立已安裝不同版本和 (或) 封裝的自訂環境。
 >
 >
 
@@ -316,6 +316,24 @@ XGBoost 也可以從 Python 或命令列進行呼叫。
 
 ## <a name="jupyterhub"></a>Jupyterhub
 DSVM 中的 Anaconda 散發套件隨附 Jupyter Notebook，此跨平台環境可用來共用 Python、R 或 Julia 程式碼和分析。 Jupyter 筆記本是透過 JupyterHub 來存取。 您可以在 ***https://\<VM DNS 名稱或 IP 位址\>:8000/*** 使用本機 Linux 使用者名稱和密碼來登入。 JupyterHub 的所有組態檔可在 **eg /etc/ jupyterhub**目錄中找到。
+
+> [!NOTE]
+> 若要從目前核心中的 Jupyter 筆記本使用 Python 套件管理員 (透過 `pip` 命令)，則可在程式碼單元中使用下列命令，例如：
+```python
+   import sys
+   ! {sys.executable} -m pip install numpy -y
+```
+>
+>
+
+> [!NOTE]
+> 若要從目前核心中的 Jupyter 筆記本使用 Conda 安裝程式 (透過 `conda` 命令)，則可在程式碼單元中使用下列命令，例如：
+```python
+   import sys
+   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+```
+>
+>
 
 VM 上已安裝數個 Notebook 範例︰
 

@@ -9,11 +9,11 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: e7f894733546fa8949902a82f4ae3a9c62b749c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 102fa06be3734fa6993616f752922433ee0dee7f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choosing-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>針對 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法 
 
@@ -87,7 +87,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法：
 
 * **使用者體驗：**建議組織搭配傳遞驗證部署無縫單一登入，藉由避免在使用者登入之後出現不必要的提示來改善其登入體驗。
 
-* **進階案例：**傳遞驗證可確保在內部部署使用者的帳戶狀態為已停用、鎖定或密碼過期時，會立即拒絕驗證要求。 如果組織需要搭配傳遞驗證使用多重要素驗證，就必須使用 Azure AD Multi-Factor Authentication，而且無法使用協力廠商或內部部署的多重要素驗證方法。 不論您是否選擇了傳遞驗證，進階功能 (例如 Identity Protection 的認證外洩報表) 都需要部署密碼雜湊同步處理。
+* **進階案例：**傳遞驗證可確保在內部部署使用者的帳戶狀態為已停用、鎖定、密碼過期，或超出對使用者允許的登入時數時，會立即拒絕驗證要求。 如果組織需要搭配傳遞驗證使用多重要素驗證，就必須使用 Azure AD Multi-Factor Authentication，而且無法使用協力廠商或內部部署的多重要素驗證方法。 不論您是否選擇了傳遞驗證，進階功能 (例如 Identity Protection 的認證外洩報表) 都需要部署密碼雜湊同步處理。
 
 * **商務持續性：**除了 Azure AD Connect 伺服器上的第一個代理程式之外，建議您部署兩個額外的傳遞代理程式，以確保驗證要求的高可用性。 當您部署三個代理程式時，其中一個代理程式仍可在另一個代理程式關閉以進行維護時失敗。 除了傳遞驗證之外，部署密碼雜湊同步處理的另一個優點是，當主要驗證方法不再可用時 (例如，當內部部署伺服器無法使用時)，它可以用來作為備份驗證方法。
 

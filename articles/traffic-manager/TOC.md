@@ -35,7 +35,7 @@
 ### [針對 Azure 流量管理員上的已降級狀態進行疑難排解](traffic-manager-troubleshooting-degraded.md)
 
 # 參考
-## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
+## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=traffic-manager)
 ## [Azure PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
@@ -53,7 +53,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [部落格](https://azure.microsoft.com/blog/topics/networking/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [價格](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [定價](https://azure.microsoft.com/pricing/details/traffic-manager/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務限制](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [服務更新](https://azure.microsoft.com/updates/?product=traffic-manager)

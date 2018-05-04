@@ -5,6 +5,7 @@
     - name: 關於虛擬網路
       href: virtual-networks-overview.md
 - name: 快速入門
+  expanded: true
   items:
     - name: 建立虛擬網路 - 入口網站
       href: quick-create-portal.md

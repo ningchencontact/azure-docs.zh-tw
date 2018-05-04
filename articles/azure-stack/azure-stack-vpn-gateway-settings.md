@@ -1,11 +1,11 @@
 ---
-title: "Azure Stack 的 VPN 閘道設定 | Microsoft Docs"
-description: "了解您搭配 Azure Stack 使用的 VPN 閘道設定。"
+title: Azure Stack 的 VPN 閘道設定 | Microsoft Docs
+description: 了解您搭配 Azure Stack 使用的 VPN 閘道設定。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: fa8d3adc-8f5a-4b4f-8227-4381cf952c56
 ms.service: azure-stack
 ms.workload: na
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b732770b2eace07690d112e81c6916b16b2cb5b0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 閘道組態設定
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 VPN 閘道是一種虛擬網路閘道，可在 Azure Stack 中的虛擬網路與遠端 VPN 閘道之間傳送加密流量。 遠端 VPN 閘道可位於 Azure 中、您資料中心的裝置中或另一個網站的裝置中。  如果兩個端點之間有網路連線，您可以在這兩個網路之間建立安全的站對站 (S2S) VPN 連線。
 
@@ -160,7 +160,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 |IKE 版本 |IKEv2 |
 |加密與雜湊演算法 (加密)     | GCMAES256|
 |加密與雜湊演算法 (驗證) | GCMAES256|
-|SA 存留期 (時間)  | 14,400 秒 |
+|SA 存留期 (時間)  | 27,700 秒 |
 |SA 存留期 (位元組) | 819,200       |
 |完整轉寄密碼 (PFS) |PFS2048 |
 |停用的對等偵測 | 支援|  

@@ -9,18 +9,18 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: cfad53a3f86450163b2e29d5e4d4ed2726ecb0bc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fe3864c3f765ff4858deede798d5641a55dd8aef
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>使用 Azure Active Directory 驗證向 SQL Database、受控執行個體或 SQL 資料倉儲進行驗證
 Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身分識別連接到 Microsoft Azure SQL Database 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 的機制。 您可以使用 Azure AD 驗證，在單一中央位置集中管理資料庫使用者和其他 Microsoft 服務的身分識別。 中央識別碼管理提供單一位置以管理資料庫使用者並簡化權限管理。 包括以下優點：
 
 * 它提供 SQL Server 驗證的替代方案。
 * 協助停止跨資料庫伺服器使用過多的使用者身分識別。
-* 允許在單一位置的密碼替換
+* 允許在單一位置變換密碼。
 * 客戶可以使用外部 (Azure AD) 群組來管理資料庫權限。
 * 它可以藉由啟用整合式 Windows 驗證和 Azure Active Directory 支援的其他形式驗證來避免儲存密碼。
 * Azure AD 驗證會使用自主資料庫使用者，在資料庫層級驗證身分。
@@ -75,7 +75,7 @@ Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身�
 - 只有 Azure AD 系統管理員可以建立資料庫，Azure AD 使用者的範圍僅限於單一 DB 而不具備此權限
 - 資料庫擁有權：
   - Azure AD 主體無法變更資料庫的擁有權 (ALTER AUTHORIZATION ON DATABASE)，也無法被設定為擁有者。
-  - 針對 Azure AD 系統管理員所建立的資料庫，不會設定任何擁有權 (sys.sysdatabases 中的 owner_sid 欄位為 0x1)
+  - 針對 Azure AD 系統管理員所建立的資料庫，不會設定任何擁有權 (sys.sysdatabases 中的 owner_sid 欄位為 0x1)。
 - 使用 Azure AD 主體登入時，無法管理「SQL 代理程式」。 
 - 無法使用 EXECUTE AS 來模擬 Azure AD 系統管理員
 - 使用 Azure AD 主體時，不支援 DAC 連線。 

@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 1f512cdbb0275e9ae2d868a326df0e4e5dd2ee24
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 54bf692f35e2529fe7d0b14684c9acc7d66b9903
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>控制和授與資料庫存取權
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 03/17/2018
 1. 使用系統管理員帳戶，連接至 master 資料庫。
 2. 選擇性步驟︰使用 [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 陳述式來建立 SQL Server 驗證登入。 範例陳述式︰
    
-   ```
+   ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
    ```
    
@@ -86,15 +86,15 @@ ms.lasthandoff: 03/17/2018
 
 3. 在 master 資料庫中，藉由使用 [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) 陳述式來建立使用者。 使用者可以是 Azure Active Directory 驗證自主資料庫使用者 (如果您已針對 Azure AD 驗證設定您的環境)，或 SQL Server 驗證自主資料庫使用者，或根據 SQL Server 驗證登入 (在上一個步驟中建立) 的 SQL Server 驗證使用者。範例陳述式︰
    
-   ```
-   CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
-   CREATE USER Tran WITH PASSWORD = '<strong_password>';
-   CREATE USER Mary FROM LOGIN Mary; 
+   ```sql
+   CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
+   CREATE USER Tran WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
+   CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
 4. 藉由使用 **ALTER ROLE** 陳述式，將新的使用者新增至 [dbmanager](https://msdn.microsoft.com/library/ms189775.aspx) 資料庫角色。 範例陳述式︰
    
-   ```
+   ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
    ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
    ```
@@ -114,21 +114,25 @@ ms.lasthandoff: 03/17/2018
 
 若要建立使用者，請連線到資料庫，然後執行類似以下範例的陳述式︰
 
-```
+```sql
 CREATE USER Mary FROM LOGIN Mary; 
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
 一開始，只有其中一個系統管理員或資料庫擁有者可以建立使用者。 若要授權讓其他使用者建立新的使用者，請授與該選取的使用者 `ALTER ANY USER` 權限，例如使用下列陳述式︰
 
-```
+```sql
 GRANT ALTER ANY USER TO Mary;
 ```
 
 若要將資料庫的完整控制權提供給其他使用者，請使用 `ALTER ROLE` 陳述式，讓他們成為 **db_owner** 固定資料庫角色的成員。
 
+```sql
+ALTER ROLE db_owner ADD MEMBER Mary; 
+```
+
 > [!NOTE]
-> 要根據登入建立資料庫使用者的最常見原因，是為了應付有 SQL Server 驗證使用者需要存取多個資料庫的情況。 根據登入的使用者會繫結至登入，只會針對該登入維護一個密碼。 在個別資料庫中的自主資料庫使用者是個別的實體，而且各個都會維護它自己的密碼。 如果它們不會維護各自的密碼相同，會造成自主資料庫使用者的混淆。
+> 需根據邏輯伺服器登入來建立資料庫使用者的其中一個常見原因是，使用者需要存取多個資料庫。 由於自主資料庫使用者是個別的實體，所以每個資料庫都會維護它自己的使用者和密碼。 如果使用者之後必須記住每個資料庫的每組密碼，如此會造成額外負擔，而且在必須變更多個資料庫的多組密碼時這會變得不可行。 不過，使用 SQL Server 登入和高可用性 (作用中的地理複寫和容錯移轉群組) 時，必須手動設定每個伺服器的 SQL Server 登入。 否則，發生容錯移轉之後，資料庫使用者將無法再對應到伺服器登入，而且在容錯移轉後將無法存取資料庫。 如需有關設定用於異地複寫的登入詳細資訊，請參閱[設定和管理異地還原或容錯移轉的 Azure SQL Database 安全性](sql-database-geo-replication-security-config.md)。
 
 ### <a name="configuring-the-database-level-firewall"></a>設定資料庫層級防火牆規則
 最佳做法是，非系統管理員的使用者應該只能透過防火牆來存取所使用的資料庫。 做法是不透過伺服器層級防火牆授權其 IP 位址來讓他們存取所有資料庫，而是改用 [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) 陳述式來設定資料庫層級防火牆。 無法藉由使用入口網站設定資料庫層級防火牆。
@@ -164,7 +168,7 @@ GRANT ALTER ANY USER TO Mary;
 * 在 ADO.NET 應用程式中執行 `CREATE/ALTER/DROP LOGIN` 和 `CREATE/ALTER/DROP DATABASE` 陳述式時，不允許使用參數化的命令。 如需詳細資訊，請參閱 [命令和參數](https://msdn.microsoft.com/library/ms254953.aspx)。
 * 執行 `CREATE/ALTER/DROP DATABASE` 和 `CREATE/ALTER/DROP LOGIN` 陳述式時，這其中每一個陳述式在 Transact-SQL 批次中都必須是唯一的陳述式。 否則便會發生錯誤。 例如，下列 Transact-SQL 會檢查資料庫是否存在。 如果資料庫存在，則會呼叫 `DROP DATABASE` 陳述式來移除資料庫。 因為 `DROP DATABASE` 陳述式不是批次中唯一的陳述式，所以執行下列 Transact-SQL 陳述式時會產生錯誤。
 
-  ```
+  ```sql
   IF EXISTS (SELECT [name]
            FROM   [sys].[databases]
            WHERE  [name] = N'database_name')

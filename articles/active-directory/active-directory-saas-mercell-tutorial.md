@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 8d009e8bdf513b10198aac826236ff44376ed630
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 60432e18c9496ff6fc5431fcd7b73aa5f4c9696c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercell"></a>教學課程：Azure Active Directory 與 Mercell 整合
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 03/23/2018
 
 **若要從資源庫新增 Mercell，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 03/23/2018
     ![設定單一登入連結][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![單一登入對話方塊](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_samlbase.png)
 
 3. 在 [Mercell 網域及 URL] 區段上，執行下列步驟：
@@ -107,36 +107,16 @@ ms.lasthandoff: 03/23/2018
     ![Mercell 網域及 URL 單一登入資訊](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_url.png)
 
     在 [識別碼] 文字方塊中，輸入 URL：`https://my.mercell.com/`
- 
-4. 按一下 [儲存]  按鈕。
+
+4. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+    
+    ![設定單一登入](./media/active-directory-saas-mercell-tutorial/tutorial_metadataurl.png)
+     
+5. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-mercell-tutorial/tutorial_general_400.png)
 
-5. 若要產生**中繼資料 URL**，請執行下列步驟：
-
-    a. 按一下 [應用程式註冊]。
-    
-    ![設定單一登入](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_appregistrations.png)
-   
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
-    
-    ![設定單一登入](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_endpointicon.png)
-
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_endpoint.png)
-     
-    d. 現在，移至 **Mercell** 的屬性頁面，使用 [複製] 按鈕來複製 [應用程式識別碼] 並貼到記事本中。
- 
-    ![設定單一登入](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. 若要在 **Mercell** 端設定單一登入，您必須將已產生的**中繼資料 URL** 傳送給 [Mercell 支援小組](mailto:webmaster@mercell.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+6. 若要在 **Mercell** 端設定單一登入，您必須將所產生的**應用程式同盟中繼資料 Url** 傳送給 [Mercell 支援小組](mailto:webmaster@mercell.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

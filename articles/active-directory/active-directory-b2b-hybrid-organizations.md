@@ -1,47 +1,53 @@
 ---
-title: "混合式組織的 Azure Active Directory B2B 共同作業 | Microsoft Docs"
-description: "透過 Azure AD B2B 共同作業對夥伴提供本機和雲端資源的存取權"
+title: 混合式組織的 B2B 共同作業 - Azure Active Directory | Microsoft Docs
+description: 透過 Azure AD B2B 共同作業對夥伴提供內部部署和雲端資源的存取權。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.date: 12/15/2017
+ms.date: 04/20/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 2e690eeea6a9f7e1cc10830a913774daa3c66689
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0ccf3eb381f42849b48f3d149942be13380b3670
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>混合式組織的 Azure Active Directory B2B 共同作業
 
-在同時擁有內部部署和雲端資源的混合式組織中，您可以對外部夥伴提供本機和雲端資源的存取權。 針對本機資源的存取權，您可以在內部部署 Active Directory 環境的本機中管理夥伴的帳戶。 夥伴可以使用其夥伴帳戶認證來登入，以存取貴組織的資源。 若要使用同樣的認證對夥伴提供雲端資源的存取權，您現在可以使用 Azure Active Directory (Azure AD) Connect 將夥伴帳戶同步至雲端來作為 Azure AD B2B 使用者 (亦即，UserType = Guest 的使用者)。
+Azure Active Directory (Azure AD) B2B 共同作業可讓您輕鬆地對外部夥伴提供組織中應用程式和資源的存取權。 即使是在同時擁有內部部署和雲端式資源的混合式組態中，也是如此。 如果您目前是在內部部署身分識別系統本機管理外部夥伴帳戶，或如果您是以 Azure AD B2B 使用者身分在雲端中管理外部帳戶，都沒有關係。 您現在可以使用和這兩種環境相同的登入認證，對這些使用者授與任一位置資源的存取權。
 
-## <a name="identify-unique-attributes-for-usertype"></a>識別 UserType 的獨特屬性
+## <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-apps"></a>對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權
 
-在啟用 UserType 屬性的同步處理之前，您必須先決定要如何從內部部署 Active Directory 衍生 UserType 屬性。 換句話說，內部部署環境中的哪些參數是外部共同作業者所獨有的？ 請決定可供區分這些外部共同作業者與貴組織成員的參數。
+如果您的組織使用 Azure AD B2B 共同作業功能邀請夥伴組織的來賓使用者進入您 Azure AD，您現在可以對這些 B2B 使用者提供內部部署應用程式的存取權。
 
-針對此一目的，常見的方法有二：
+對於使用 SAML 型驗證的應用程式，您可以透過 Azure 入口網站將這些應用程式提供給 B2B 使用者，並使用 AD 應用程式 Proxy 進行驗證。
 
-- 指定未使用的內部部署 Active Directory 屬性 (例如 extensionAttribute1) 來作為來源屬性。 
-- 或者，從其他屬性衍生 UserType 屬性的值。 例如，如果使用者的內部部署 Active Directory UserPrincipalName 屬性是以 *@partners.fabrikam123.org* 網域作為結尾，您就需要以 Guest 身分來同步處理所有使用者。
+對於搭配使用整合式 Windows 驗證 (IWA) 和 Kerberos 限制委派 (KCD) 的應用程式，您也可以使用 Azure AD Proxy 來進行驗證。 不過，若要讓驗證運作，內部部署 Windows Server Active Directory 中必須要有使用者物件。 有兩種方法可用來建立代表 B2B 來賓使用者的本機使用者物件。
+
+- 您可以使用 Microsoft Identity Manager (MIM) 2016 SP1 和 Microsoft Graph 的 MIM 管理代理程式。 (這需要 Azure AD Premium 1 訂用帳戶)。
+- 您可以使用 PowerShell 指令碼。 (此解決方案不需要 MIM 或 AD Premium)。
+
+如需如何實作這些解決方案的詳細資訊，請參閱[對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權](active-directory-b2b-hybrid-cloud-to-on-premises.md)。
+
+## <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources"></a>對本機管理的夥伴帳戶授與雲端資源的存取權
+
+在 Azure AD 之前，具有內部部署身分識別系統的組織傳統上是在其內部部署目錄中管理夥伴帳戶的。 如果您是這類組織，請確定您在將應用程式和其他資源移至雲端後，您的夥伴仍繼續擁有存取權。 在理想情況下，建議您讓這些使用者使用同一組認證來存取雲端和內部部署資源。 
+
+我們現在提供方法讓您使用 Azure AD Connect 以「來賓使用者」身分將這些本機帳戶同步至雲端，這些帳戶的行為就和 Azure AD B2B 使用者一樣。 即使您擁有的內部部署身分識別系統可讓夥伴使用他們自己的外部電子郵件地址作為其登入名稱，此解決方案仍有效。
+
+若要協助保護公司資料，您可以控制存取權只能存取正確的資源，並設定授權原則以不同於您員工的方式來對待這些來賓使用者。
+
+如需實作詳細資料，請參閱[使用 Azure AD B2B 共同作業對本機管理的夥伴帳戶授與雲端資源的存取權](active-directory-b2b-hybrid-on-premises-to-cloud.md)。
  
-如需詳細的屬性需求，請參閱[啟用 UserType 的同步處理](connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype)。 
-
-## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>設定 Azure AD Connect 以將使用者同步至雲端
-
-在識別獨有屬性後，您可以設定 Azure AD Connect 來將這些使用者同步處理至雲端以作為 Azure AD B2B 使用者 (亦即，UserType = Guest 的使用者)。 從授權的觀點來看，這些使用者與透過 Azure AD B2B 共同作業邀請程序所建立的 B2B 使用者並無不同。
-
-如需實作指示，請參閱[啟用 UserType 的同步處理](connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype)。
-
 ## <a name="next-steps"></a>後續步驟
 
-- 如需 Azure AD B2B 共同作業的概觀，請參閱[何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
-- 如需 Azure AD Connect 的概觀，請參閱[整合您的內部部署目錄與 Azure Active Directory](connect/active-directory-aadconnect.md)。
+- [對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權](active-directory-b2b-hybrid-cloud-to-on-premises.md)
+- [使用 Azure AD B2B 共同作業對本機管理的夥伴帳戶授與雲端資源的存取權](active-directory-b2b-hybrid-on-premises-to-cloud.md)。
 

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 8f212797decdd967154584927984bc0a4e58f4ba
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7065ec97e1e02dfb4ee873993caac584f6a63ba6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>使用混合式 Runbook 背景工作角色將資料中心內或雲端的資源自動化
 
@@ -148,6 +148,12 @@ Runbook 可以使用 Azure 自動化環境中安裝的模組中定義的任何�
 1. 在 Azure 入口網站中，瀏覽至您的自動化帳戶。
 2. 從 [設定] 刀鋒視窗中，選取 [金鑰]，記下欄位 [URL] 和 [主要存取金鑰] 的值。 下一個步驟需要此資訊。
 3. 在系統管理員模式中開啟 PowerShell 工作階段，並執行下列命令 - `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`。 使用 **-Verbose** 參數可取得移除程序的詳細記錄。
+
+若要從混合式背景工作角色群組中移除過時的機器，請使用選擇性的 `machineName` 參數。
+
+```powershell-interactive
+Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
+```
 
 > [!NOTE]
 > 這不會移除電腦上的 Microsoft Monitoring Agent，只會移除 Hybrid Runbook 背景工作角色的功能和組態。

@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory 入口網站中的登入活動報告 | Microsoft Docs"
-description: "介紹 Azure Active Directory 入口網站中的登入活動報告"
+title: Azure Active Directory 入口網站中的登入活動報告 | Microsoft Docs
+description: 介紹 Azure Active Directory 入口網站中的登入活動報告
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ad7b1aae4ee14e46a5df6be0ebc29bfd455852d4
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: cd057704197eb4bf66eff33d3c83a2ca9d5712d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告
 
@@ -28,10 +28,8 @@ ms.lasthandoff: 01/16/2018
 Azure Active Directory 中的報告架構包含下列元件：
 
 - **活動** 
-    - 
-            **登入活動** – 受控應用程式和使用者登入活動的使用情況相關資訊
-    - 
-            **稽核記錄** - 關於使用者和群組管理、受控應用程式和目錄活動的系統活動資訊。
+    - **登入活動** – 受控應用程式和使用者登入活動的使用情況相關資訊
+    - **稽核記錄** - 關於使用者和群組管理、受控應用程式和目錄活動的系統活動資訊。
 - **Security** 
     - **有風險的登入** - 有風險的登入表示非使用者帳戶合法擁有者的某人嘗試登入。 如需詳細資訊，請參閱＜有風險的登入＞。
     - **標幟為有風險的使用者** - 有風險的使用者表示可能被盜用的使用者帳戶。 如需詳細資訊，請參閱＜標幟為有風險的使用者＞。
@@ -201,4 +199,3 @@ Azure Active Directory 中的報告架構包含下列元件：
 ## <a name="next-steps"></a>後續步驟
 
 如果您想深入了解登入活動錯誤碼，請參閱 [Azure Active Directory 入口網站中的登入活動報告錯誤碼](active-directory-reporting-activity-sign-ins-errors.md)。
-

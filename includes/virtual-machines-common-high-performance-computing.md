@@ -181,7 +181,7 @@ Azure 虛擬機器、虛擬機器擴展集、Batch 和相關的運算服務是�
 * 深入了解適用於[工程模擬](https://simulation.azure.com/)、[轉譯](https://simulation.azure.com/)、[銀行與資本市場](https://finance.azure.com/)和[基因體學](https://enterprise.microsoft.com/en-us/industries/health/genomics/)的 Big Compute 解決方案。
 * 如需最新公告，請參閱 [Microsoft HPC 和 Batch 小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](https://azure.microsoft.com/blog/tag/hpc/)。
 
-* 使用受控和可擴充的 Azure [Batch](https://azure.microsoft.com/services/batch/) 服務來執行需要大量運算的工作負載，而不需要管理基礎結構[進一步了解](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
+* 使用受控和可擴充的 Azure [Batch](https://azure.microsoft.com/services/batch/) 服務來執行需要大量運算的工作負載，而不需要管理基礎結構[進一步了解](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)
 
 
 

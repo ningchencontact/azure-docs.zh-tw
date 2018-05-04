@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 9f75ba47dd0e076041c7c9c69ef6cfb29178fdd3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b8079c5dffd4d426d62267e77f226d2dda183665
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>密碼原則和 Azure Active Directory 中的限制
 
@@ -96,7 +96,7 @@ Microsoft 會針對任何 Azure 管理員角色強制執行強式預設*兩個�
 | 屬性 | 需求 |
 | --- | --- |
 | 允許的字元 |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| 不允許的字元 |<ul><li>Unicode 字元。</li><li>空格。</li><li> 僅限使用強式密碼："\@\" 符號前面不可包含緊鄰的點字元 "."。</li></ul> |
+| 不允許的字元 |<ul><li>Unicode 字元。</li><li>空格。</li><li> 僅限強式密碼</li></ul> |
 | 密碼限制 |<ul><li>最少 8 個字元和最多 16 個字元。</li><li>僅限使用增強式密碼︰需要下列四種字元中的三種：<ul><li>小寫字元。</li><li>大寫字元。</li><li>數字 (0-9)。</li><li>符號 (請參閱先前的密碼限制)。</li></ul></li></ul> |
 | 密碼到期時間 |<ul><li>預設值：**90** 天。</li><li>可透過適用於 Windows PowerShell 的 Azure Active Directory 模組使用 `Set-MsolPasswordPolicy` Cmdlet 設定該值。</li></ul> |
 | 密碼到期通知 |<ul><li>預設值：**14** 天 (密碼到期之前)。</li><li>可使用 `Set-MsolPasswordPolicy` Cmdlet 設定此值。</li></ul> |
@@ -156,7 +156,7 @@ Microsoft 雲端服務的全域管理員可以使用「適用於 Windows PowerSh
 * [您有授權問題嗎？](concept-sspr-licensing.md)
 * [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](howto-sspr-authenticationdata.md)
 * [哪些驗證方法可供使用者使用？](concept-sspr-howitworks.md#authentication-methods)
-* [什麼是密碼回寫，且為什麼我需要了解它？](../active-directory-passwords-writeback.md)
+* [什麼是密碼回寫，且為什麼我需要了解它？](howto-sspr-writeback.md)
 * [如何回報 SSPR 中的活動？](howto-sspr-reporting.md)
 * [SSPR 中的所有選項有哪些，以及它們有何意義？](concept-sspr-howitworks.md)
 * [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)

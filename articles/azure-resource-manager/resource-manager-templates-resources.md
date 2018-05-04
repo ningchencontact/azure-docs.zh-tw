@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager 範本結構和語法 | Microsoft Docs
-description: 使用宣告式 JSON 語法描述 Azure Resource Manager 範本的結構和屬性。
+title: Azure Resource Manager 範本資源 | Microsoft Docs
+description: 使用宣告式 JSON 語法說明 Azure Resource Manager 範本的資源區段。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: b5438080f71fa8f5c4f03006b75b826f1cfa576a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 74830a5220a75408398af2224204f8195ab27cc6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 範本的 Resources 區段
 
@@ -42,9 +42,9 @@ ms.lasthandoff: 03/16/2018
       "comments": "<your-reference-notes>",
       "copy": {
           "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>",
+          "count": <number-of-iterations>,
           "mode": "<serial-or-parallel>",
-          "batchSize": "<number-to-deploy-serially>"
+          "batchSize": <number-to-deploy-serially>
       },
       "dependsOn": [
           "<array-of-related-resource-names>"
@@ -58,6 +58,21 @@ ms.lasthandoff: 03/16/2018
                   "input": {}
               }
           ]
+      },
+      "sku": {
+          "name": "<sku-name>",
+          "tier": "<sku-tier>",
+          "size": "<sku-size>",
+          "family": "<sku-family>",
+          "capacity": <sku-capacity>
+      },
+      "kind": "<type-of-resource>",
+      "plan": {
+          "name": "<plan-name>",
+          "promotionCode": "<plan-promotion-code>",
+          "publisher": "<plan-publisher>",
+          "product": "<plan-product>",
+          "version": "<plan-version>"
       },
       "resources": [
           "<array-of-child-resources>"
@@ -78,11 +93,14 @@ ms.lasthandoff: 03/16/2018
 | copy |否 |如果需要多個執行個體，要建立的資源數目。 預設模式為平行。 如果您不想要同時部署所有或某些資源，請指定序列模式。 如需詳細資訊，請參閱[在 Azure Resource Manager 中建立資源的多個執行個體](resource-group-create-multiple.md)。 |
 | dependsOn |否 |在部署這項資源之前必須部署的資源。 Resource Manager 會評估資源之間的相依性，並依正確的順序進行部署。 資源若不互相依賴，則會平行部署資源。 值可以是以逗號分隔的資源名稱或資源唯一識別碼清單。 只會列出此範本中已部署的資源。 此範本中未定義的資源必須已經存在。 避免加入不必要的相依性，因為可能會降低部署速度並產生循環相依性。 如需設定相依性的指引，請參閱[定義 Azure Resource Manager 範本中的相依性](resource-group-define-dependencies.md)。 |
 | properties |否 |資源特定的組態設定。 屬性的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是一樣的。 您也可以指定複本陣列，以建立屬性的多個執行個體。 |
+| sku | 否 | 某些資源允許以值定義要部署的 SKU。 例如，您可以指定儲存體帳戶的備援類型。 |
+| kind | 否 | 某些資源允許以值定義您所部署的資源類型。 例如，您可以指定要建立的 Cosmos DB 類型。 |
+| 計劃 | 否 | 某些資源允許以值定義要部署的計劃。 例如，您可以指定虛擬機器的 Marketplace 映像。 | 
 | resources |否 |與正在定義的資源相依的下層資源。 只提供父資源的結構描述允許的資源類型。 子資源的完整類型包含父資源類型，例如 **Microsoft.Web/sites/extensions**。 沒有隱含父資源的相依性。 您必須明確定義該相依性。 |
 
 ## <a name="resource-specific-values"></a>資源特定的值
 
-每個資源類型的 **apiVersion**、**type** 和 **properties** 都不同。 若要判斷這些屬性的值，請參閱[範本參考](/azure/templates/)。
+每個資源類型的 **apiVersion**、**type** 和 **properties** 元素都不同。 **sku**、**kind** 和 **plan** 元素適用於某些資源類型，但並非全部。 若要判斷這些屬性的值，請參閱[範本參考](/azure/templates/)。
 
 ## <a name="resource-names"></a>資源名稱
 通常，您會使用 Resource Manager 中的三種資源名稱︰

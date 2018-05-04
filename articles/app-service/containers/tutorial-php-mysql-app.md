@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: fb1823836513bbf05bd2aacc441cb863511994b2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 593f89071f03cb2e2b8ed9d7eda2cc7cb3971128
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 PHP 和 MySQL Web 應用程式
 
@@ -190,6 +190,10 @@ az mysql server create --name <mysql_server_name> --resource-group myResourceGro
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
+> [!TIP] 
+> [僅使用您的應用程式所用的輸出 IP 位址](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)，讓您的防火牆規則更具限制性。
+>
+
 ### <a name="connect-to-production-mysql-server-locally"></a>在本機連線到生產環境 MySQL 伺服器
 
 在終端機視窗中，連線至 Azure 中的 MySQL 伺服器。 使用您先前為 _&lt;mysql_server_name>_ 指定的值。
@@ -249,7 +253,7 @@ MYSQL_SSL=true
 儲存變更。
 
 > [!TIP]
-> 為了保護您的 MySQL 連接資訊，Git 存放庫中已經排除此檔案 (請看_.gitignore_ 存放庫的根目錄)。 稍後，您將了解如何設定 App Service 中的環境變數，來連線至適用於 MySQL 的 Azure 資料庫 (預覽)。 使用環境變數，您在 App Service 中就不需要 *.env* 檔案。
+> 為了保護您的 MySQL 連接資訊，Git 存放庫中已經排除此檔案 (請看 _.gitignore_ 存放庫的根目錄)。 稍後，您將了解如何設定 App Service 中的環境變數，來連線至適用於 MySQL 的 Azure 資料庫 (預覽)。 使用環境變數，您在 App Service 中就不需要 *.env* 檔案。
 >
 
 ### <a name="configure-ssl-certificate"></a>設定 SSL 憑證

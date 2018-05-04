@@ -1,12 +1,12 @@
 ---
-title: "使用持續整合 (Team Services) 部署 Azure Service Fabric 應用程式 |Microsoft Docs"
-description: "在本教學課程中，您會了解如何使用 Visual Studio Team Services 設定 Service Fabric 應用程式的持續整合和部署。  將應用程式部署到 Azure 中的 Service Fabric 叢集。"
+title: 使用持續整合 (Team Services) 部署 Azure Service Fabric 應用程式 |Microsoft Docs
+description: 在本教學課程中，您會了解如何使用 Visual Studio Team Services 設定 Service Fabric 應用程式的持續整合和部署。  將應用程式部署到 Azure 中的 Service Fabric 叢集。
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 3f5ccd40e2b46cc68b4f7aeb67577fb66dbd5355
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5b61b7f89c127b297f058082d86952f2a45d766a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>教學課程：將搭配 CI/CD 的應用程式部署到 Service Fabric 叢集
-本教學課程是系列中的第三部分，說明如何使用 Visual Studio Team Services (VSTS) 設定 Azure Service Fabric 應用程式的持續整合和部署。  需要現有的 Service Fabric 應用程式，在[建置 .NET 應用程式](service-fabric-tutorial-create-dotnet-app.md)中建立的應用程式將做為範例。
+本教學課程是系列中的第四部分，說明如何使用 Visual Studio Team Services (VSTS) 設定 Azure Service Fabric 應用程式的持續整合和部署。  需要現有的 Service Fabric 應用程式，在[建置 .NET 應用程式](service-fabric-tutorial-create-dotnet-app.md)中建立的應用程式將做為範例。
 
 在系列的第三部分中，您將了解如何：
 
@@ -36,6 +36,7 @@ ms.lasthandoff: 02/24/2018
 > [!div class="checklist"]
 > * [建置 .NET Service Fabric 應用程式](service-fabric-tutorial-create-dotnet-app.md)
 > * [將應用程式部署到遠端叢集](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [將 HTTPS 端點新增至 ASP.NET Core 前端服務](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * 使用 Visual Studio Team Services 設定 CI/CD
 > * [設定應用程式的監視和診斷](service-fabric-tutorial-monitoring-aspnet.md)
 
@@ -124,7 +125,7 @@ Team Services 發行定義描述將應用程式封裝部署到叢集的工作流
 
 ![啟用觸發程序][enable-trigger]
 
-選取 [+ 發行] -> [建立發行] -> [建立] 可手動建立發行。  確認部署成功，而且應用程式在叢集中執行。  開啟網頁瀏覽器，並瀏覽至 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)。  請注意應用程式版本，在此範例中是「1.0.0.20170616.3」。 
+選取 [+ 發行] -> [建立發行] -> [建立] 可手動建立發行。  確認部署成功，而且應用程式在叢集中執行。  開啟瀏覽器並巡覽至 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)。  請注意應用程式版本，在此範例中是「1.0.0.20170616.3」。 
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>認可並推送變更，觸發發行程序
 簽入某些程式碼變更至 Team Services，確認持續整合管線正常運作。    
@@ -143,7 +144,7 @@ Team Services 發行定義描述將應用程式封裝部署到叢集的工作流
 
 若要檢查組建進度，請切換到 **Team Explorer** Visual Studio 中的 [組建] 索引標籤。  您確認組建執行成功，請定義將應用程式部署至叢集的發行定義。
 
-確認部署成功，而且應用程式在叢集中執行。  開啟網頁瀏覽器，並瀏覽至 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)。  請注意應用程式版本，在此範例中是 "1.0.0.20170815.3"。
+確認部署成功，而且應用程式在叢集中執行。  開啟瀏覽器並巡覽至 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)。  請注意應用程式版本，在此範例中是 "1.0.0.20170815.3"。
 
 ![Service Fabric Explorer][sfx1]
 

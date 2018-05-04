@@ -10,23 +10,23 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: adc2436bfe74fed343ac2796dec51ae90619312d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d785436f157fb694ccf4447db91f28b25c9f2a3a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>使用 .NET (C#) 搭配 Visual Studio 連線及查詢 Azure SQL database
 
-此快速入門教學課程示範如何使用 [.NET framework](https://www.microsoft.com/net/) 搭配 Visual Studio 來建立 C# 程式以連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。
+此快速入門示範如何搭配使用 [.NET Framework](https://www.microsoft.com/net/) 與 Visual Studio 建立 C# 程式以連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。
 
 ## <a name="prerequisites"></a>先決條件
 
-若要完成本快速入門教學課程，請確定您具有下列項目︰
+若要完成本快速入門，請確定您具備下列項目︰
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 在此快速入門教學課程中，您所使用電腦的公用 IP 位址[伺服器層級防火牆規則](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
+- 在此快速入門中，您所使用電腦的公用 IP 位址[伺服器層級防火牆規則](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
 
 - 安裝 [Visual Studio Community 2017、Visual Studio Professional 2017 或 Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/)。
 

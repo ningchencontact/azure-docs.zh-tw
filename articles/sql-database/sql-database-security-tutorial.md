@@ -9,15 +9,22 @@ ms.custom: mvc,security
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: daredis
-ms.openlocfilehash: 4d2f5ce387a1e9b36fd1625210f42525a272c270
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>保護 Azure SQL Database
 
-SQL Database 使用防火牆規則、要求使用者證明其身分的驗證機制，以及透過角色型成員資格與權限和透過資料列層級安全性與動態資料遮罩的資料授權來限制資料庫的存取，進而保護您的資料。
+SQL Database 保護您資料的方式： 
+- 使用防火牆規則限制資料庫的存取權 
+- 使用需要其身分識別的驗證機制
+- 透過以角色為基礎的成員資格和權限進行資料授權 
+- 資料列層級安全性
+- 動態資料遮罩
+
+SQL Database 也具有複雜的監視、稽核和威脅偵測功能。 
 
 只需要幾個簡單步驟，您就可以讓資料庫預防惡意使用者或未經授權的存取。 您會在本教學課程中學到： 
 
@@ -155,7 +162,7 @@ Azure SQL Database 透明資料加密 (TDE) 會自動為您的待用資料加密
 
 3. 如有必要，請將 [資料加密] 設為「開啟」，然後按一下 [儲存]。
 
-加密程序會在背景中啟動。 您可以使用 [SQL Server Management Studio](./sql-database-connect-query-ssms.md) 來連線至 SQL Database，並查詢 `sys.dm_database_encryption_keys` 檢視的 encryption_state 資料行，以監視進度。
+加密程序會在背景中啟動。 使用 [SQL Server Management Studio](./sql-database-connect-query-ssms.md) 連線至 SQL Database，以及查詢 [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) 檢視的 encryption_state 資料欄，即可監視進度。 狀態 3 表示資料庫已加密。 
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>啟用 SQL Database 稽核 (如有必要)
 
@@ -167,7 +174,7 @@ Azure SQL Database 稽核會追蹤資料庫事件並將事件寫入您 Azure 儲
 
     ![稽核刀鋒視窗](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
-3. 如果您想要啟用的稽核類型 (或位置？) 與伺服器層級所指定的類型不同，請**開啟**稽核，並選擇 [Blob] 稽核類型。 如果已經啟用伺服器 Blob 稽核，資料庫設定的稽核將會與伺服器 Blob 稽核並存。
+3. 如果您想要啟用的稽核類型 (或位置？) 與伺服器層級所指定的類型不同，請**開啟**稽核，並選擇 [Blob] 稽核類型。 如果已啟用伺服器 Blob 稽核，資料庫設定的稽核將會與伺服器 Blob 稽核並存。
 
     ![開啟稽核](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 

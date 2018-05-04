@@ -12,24 +12,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/30/2018
+ms.date: 4/03/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: af09df52fe733b69cfe4470de2fd6e978f126ca0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3d6a47ba184b4bbbd290a61c581ae8b83b9361af
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>為叢集設定 Log Analytics
 
-您可以透過 Azure Resource Manager、PowerShell 或 Azure Marketplace 設定 Log Analytics 工作區。 如果要維護您的部署的 Resource Manager 更新範本，以供未來使用，請使用相同的範本來設定您的 OMS 環境。 如果已經在啟用診斷的情況下部署叢集，則透過 Marketplace 部署會更輕鬆。 如果要部署 OMS 的帳戶中沒有訂用帳戶層級的存取權，請使用 PowerShell 或 Resource Manager 範本進行部署。
+建議您使用 Log Analytics 來監視叢集層級事件。 您可以透過 Azure Resource Manager、PowerShell 或 Azure Marketplace 來設定 Log Analytics 工作區。 如果要維護部署的 Resource Manager 更新範本以供未來使用，請使用相同的範本來設定您的 Log Analytics 環境。 如果已經在啟用診斷的情況下部署叢集，則透過 Marketplace 部署會更輕鬆。 如果您要用來部署的帳戶中沒有訂用帳戶層級的存取權，請使用 PowerShell 或 Resource Manager 範本進行部署。
 
 > [!NOTE]
-> 若要設定 Log Analytics 來監視您的叢集，您需要啟用診斷，才能檢視叢集層級或平台層級事件。
+> 若要設定 Log Analytics 來監視您的叢集，您需要啟用診斷，才能檢視叢集層級或平台層級事件。 請參閱[如何在 Windows 叢集中設定診斷功能](service-fabric-diagnostics-event-aggregation-wad.md)和[如何在 Linux 叢集中設定診斷功能](service-fabric-diagnostics-event-aggregation-lad.md)，以取得詳細資訊
 
-## <a name="deploy-oms-by-using-azure-marketplace"></a>使用 Azure Marketplace 部署 OMS
+## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>使用 Azure Marketplace 部署 Log Analytics 工作區
 
-如果您想要在部署叢集之後新增 OMS 工作區，請在入口網站中前往 Azure Marketplace 並尋找 **Service Fabric 分析**：
+如果您想要在部署叢集之後新增 Log Analytics 工作區，請在入口網站中前往 Azure Marketplace，並尋找 **Service Fabric 分析**。 這是具有 Service Fabric 特有資料且適用於 Service Fabric 部署的自訂解決方案。 在此程序中，您將建立解決方案 (用來檢視深入解析的儀表板) 和工作區 (基礎叢集資料的彙總)。
 
 1. 在左側導覽功能表上選取 [新增]。 
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 04/19/2018
 
     ![Marketplace 中的 OMS SF 分析](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. 在 Service Fabric 分析建立視窗中，針對 [OMS 工作區] 欄位選取 [選取工作區]，然後按一下 [建立新的工作區]。 填寫必要的項目。 這裡唯一的需求是 Service Fabric 叢集的訂用帳戶與 OMS 工作區相同。 所有項目都經過驗證後，您的 OMS 工作區就會開始部署。 部署只需要幾分鐘的時間。
+4. 在 Service Fabric 分析建立視窗中，針對 [OMS 工作區] 欄位選取 [選取工作區]，然後按一下 [建立新的工作區]。 填寫必要的項目。 這裡唯一的需求是 Service Fabric 叢集與工作區的訂用帳戶必須相同。 所有項目都經過驗證後，您的工作區就會開始部署。 部署只需要幾分鐘的時間。
 
 5. 完成時，再次選取 Service Fabric 分析建立視窗底部的 [建立]。 請確認新的工作區顯示在 [OMS 工作區] 底下。 此動作會將解決方案新增至您建立的工作區。
 
@@ -48,9 +48,9 @@ ms.lasthandoff: 04/19/2018
 >[!NOTE]
 >目前尚未對 Linux 叢集實施此體驗。 
 
-### <a name="connect-the-oms-workspace-to-your-cluster"></a>將 OMS 工作區連線至叢集 
+### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>將 Log Analytics 工作區連線至叢集 
 
-1. 工作區需要連線到來自叢集的診斷資料。 移至您建立 Service Fabric 分析解決方案所在的資源群組。 選取 **ServiceFabric\<nameOfOMSWorkspace\>** 並移至其概觀頁面。 您可以從那裡變更解決方案設定、工作區設定，並存取 OMS 入口網站。
+1. 工作區需要連線到來自叢集的診斷資料。 移至您建立 Service Fabric 分析解決方案所在的資源群組。 選取 **ServiceFabric\<nameOfWorkspace\>**，並移至其概觀頁面。 您可以從那裡變更解決方案設定、工作區設定，並存取 OMS 入口網站。
 
 2. 在左側導覽功能表，選取 [工作區資料來源] 底下的 [儲存體帳戶記錄]。
 

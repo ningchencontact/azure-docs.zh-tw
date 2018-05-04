@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 50a86a01c22450ae2d92e6743fb6de7e652d4017
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9db01b4ea9a4f0d307db8bb9f8b6d6437a06815d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>教學課程：Azure Active Directory 與 SignalFx 整合
 
@@ -58,7 +58,7 @@ SignalFx 與 Azure AD 的整合可提供下列優點：
 
 **若要從資源庫新增 SignalFx，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -140,49 +140,33 @@ SignalFx 與 Azure AD 的整合可提供下列優點：
     
     e. 按一下 [確定] 。
  
-6. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+6. 在 [SAML 簽署憑證] 區段上，執行下列步驟： 
 
-    ![憑證下載連結](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png) 
+    ![憑證下載連結](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png)
+
+    a. 按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+
+    b. 按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
 7. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-signalfx-tutorial/tutorial_general_400.png)
 
-8. 若要產生**中繼資料 URL**，請執行下列步驟：
-
-    a. 按一下 [應用程式註冊]。
-    
-    ![設定單一登入](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appregistrations.png)
-   
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
-    
-    ![設定單一登入](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpointicon.png)
-
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpoint.png)
-     
-    d. 現在，移至 [SignalFx] 的屬性頁面，使用 [複製] 按鈕複製 [應用程式識別碼]，並將它貼到記事本。
- 
-    ![設定單一登入](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-9. 在 [SignalFx 組態] 區段上，按一下 [設定 SignalFx] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 實體識別碼]。
+8. 在 [SignalFx 組態] 區段上，按一下 [設定 SignalFx] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 實體識別碼]。
 
     ![SignalFx 組態](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_configure.png) 
 
-10. 以系統管理員身分登入您的 SignalFx 公司網站。
+9. 以系統管理員身分登入您的 SignalFx 公司網站。
 
-11. 在 SignalFx 頂端按一下 [整合]，以開啟 [整合] 頁面。
+10. 在 SignalFx 頂端按一下 [整合]，以開啟 [整合] 頁面。
 
     ![SignalFx 整合](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_intg.png)
 
-12. 按一下 [登入服務] 區段下的 [Azure Active Directory] 圖格。
+11. 按一下 [登入服務] 區段下的 [Azure Active Directory] 圖格。
  
     ![SignalFx saml](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_saml.png)
 
-13. 按一下 [新增整合]，並在 [安裝] 索引標籤下執行下列步驟：
+12. 按一下 [新增整合]，並在 [安裝] 索引標籤下執行下列步驟：
  
     ![SignalFx samlintgpage](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -194,12 +178,9 @@ SignalFx 與 Azure AD 的整合可提供下列優點：
 
     d. 在 [簽發者 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
 
-    e. 在 [中繼資料 URL] 文字方塊中，貼上您從 Azure 入口網站產生的 [中繼資料 URL] 模式。
+    e. 在 [中繼資料 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [應用程式同盟中繼資料 Url]。
 
     f. 按一下 [檔案] 。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

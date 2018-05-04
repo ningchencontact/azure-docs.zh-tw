@@ -94,6 +94,8 @@
       items:
         - name: 設定識別提供者
           items:
+            - name: 自訂 OpenID Connect
+              href: active-directory-b2c-setup-oidc-idp.md
             - name: Microsoft 帳戶
               href: active-directory-b2c-setup-msa-app.md
             - name: Facebook
@@ -159,6 +161,8 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
+                - name: 多租用戶
+                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: 設定 SAML 提供者
               items:
                 - name: ADFS
@@ -195,12 +199,12 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: 啟用讓我保持登入
                   href: active-directory-b2c-reference-kmsi-custom.md
-            - name: 追蹤使用者行為
-              href: active-directory-b2c-custom-guide-eventlogger-appins.md
             - name: 疑難排解
               items:
                 - name: 使用 Application Insights 收集記錄
                   href: active-directory-b2c-troubleshoot-custom.md
+                - name: 追蹤使用者行為
+                  href: active-directory-b2c-custom-guide-eventlogger-appins.md
         - name: 參考
           items:
             - name: 版本資訊

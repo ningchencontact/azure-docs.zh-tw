@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 0b56b15af7c573304db9a1b6e6e9f37453a63458
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8eb6470afb44ba1b41e0077a890a36601db5387e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>教學課程 3：分類鳶尾花：部署模型
 Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家使用。 資料科學家可用來以雲端規模準備資料、開發測試及部署模型。
@@ -120,7 +120,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
 現在您已準備好要準備讓您的環境將模型作業化。
 
-## <a name="prepare-to-operationalize-locally"></a>準備在本機作業化
+## <a name="prepare-to-operationalize-locally-for-development-and-testing-your-service"></a>準備進行本機運作 [適用於服務的開發和測試]
 使用_本機模式_部署，於本機電腦上的 Docker 容器中執行。
 
 您可以對開發和測試使用_本機模式_。 Docker 引擎必須在本機執行，才能完成將模型作業化的下列步驟。 您可以在每個命令的結尾處使用 `-h` 旗標，以顯示對應的說明訊息。
@@ -257,7 +257,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    docker ps
    ```
 
-## <a name="create-a-real-time-web-service-by-using-separate-commands"></a>使用個別命令建立即時 Web 服務
+## <a name="optional-alternative-create-a-real-time-web-service-by-using-separate-commands"></a>[選用替代方式] 使用個別命令建立即時 Web 服務
 您也可以個別執行步驟，作為以上所示 **az ml service create realtime** 命令的替代方式。 
 
 首先，註冊模型。 然後產生資訊清單、建立 Docker 映像及建立 web 服務。 此逐步解說方法在每個步驟中提供您更大的彈性。 此外，您可以重複使用先前步驟中產生的實體，並只在需要時重建實體。

@@ -15,15 +15,15 @@ ms.date: 03/08/2018
 ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: aa3c6bb9196a17ae41c05458533f73f3ec315bd8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e9c152fddbfcd603a84caf2c168ec4f12368dcfa
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 應用程式常見問題集
 
-本文回答我們收到有關 Microsoft 驗證器應用程式的常見問題。 如果您沒有看到您問題的解答，請移至 [Microsoft 驗證器應用程式論壇](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)。 我們也有另一個關於應用程式特定功能的常見問題集，[使用您的電話常見問題集登入](microsoft-authenticator-app-phone-signin-faq.md)。
+本文將回答有關 Microsoft Authenticator 應用程式的常見問題。 如果您沒有看到您問題的解答，請移至 [Microsoft 驗證器應用程式論壇](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)。 此外，您可以檢閱另一個關於應用程式特定功能的常見問題集：[使用電話登入的常見問題集](microsoft-authenticator-app-phone-signin-faq.md)。
 
 Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式，當您使用 Azure Multi-Factor Authentication 時，建議使用此應用程式。 Microsoft Authenticator 應用程式適用於 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)。
 
@@ -33,9 +33,9 @@ Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式�
 
 Microsoft Authenticator 會儲存當您新增帳戶時所建立的帳戶資訊。 當您使用 Authenticator 時，即會基於偵錯目的建立診斷記錄，並儲存可協助 Microsoft 診斷所發生之任何未預期問題的實用資料。 您可以開啟 [說明] > [傳送記錄] > [檢視記錄] 來存取記錄資料。
 
-您可以藉由刪除帳戶磚來刪除資料。 這將會刪除應用程式正在使用的所有帳戶資訊 (包含記錄在內)。 
+您可以藉由刪除帳戶磚來刪除資料。 刪除帳戶磚也會刪除應用程式正在使用的所有帳戶資訊 (包含記錄在內)。 
 
-如需 Microsoft 如何使用您資料的詳細資訊，請造訪：https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
+如需有關 Microsoft 如何使用您資料的詳細資訊，請造訪：https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
 
 ### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>應用程式中的程式碼有什麼作用？ 為什麼數字持續倒數計時？
 
@@ -57,7 +57,7 @@ Microsoft Authenticator 會儲存當您新增帳戶時所建立的帳戶資訊�
 - 您可以接收來自其他應用程式的通知嗎？ 如果接收不到，則可能是電話的網路連線或是 Android 或 Apple 的通知通道發生問題。 您可以在電話設定中解決第一個選項，但可能需要連絡服務提供者，以取得第二個選項的協助。
 - 您可以在應用程式上接收到某些帳戶的通知，但接收不到其他帳戶的通知嗎？ 如果是，請從應用程式中移除有問題的帳戶，並再次新增該帳戶，以啟用推播通知。
 
-如果嘗試了上述疑難排解的建議但仍有問題，請將您的記錄傳送給我們以供診斷。 移至應用程式設定，然後選取 [說明與意見反應] 和 [傳送記錄]。 接著，請移至 [Microsoft 驗證器應用程式論壇](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)，讓我們了解您遇到的問題，以及目前為止已採取的步驟。
+如果嘗試了上述疑難排解的建議但仍有問題，請傳送您的記錄以供診斷。 移至應用程式設定，然後選取 [說明與意見反應] 和 [傳送記錄]。 接著，請移至 [Microsoft 驗證器應用程式論壇](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)，讓我們了解您遇到的問題，以及目前為止已採取的步驟。
 
 ### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>我已經使用 Microsoft Authenticator 應用程式做為驗證碼。 如何切換到單鍵推播通知？
 透過推播通知核准登入僅適用於個人的 Microsoft 帳戶或是工作和學校 Microsoft 帳戶，而不適用於 Google 或 Facebook 這類協力廠商帳戶。 如果您擁有工作或學校 Microsoft 帳戶，則您的組織可以選擇停用此選項。
@@ -69,13 +69,15 @@ Microsoft Authenticator 會儲存當您新增帳戶時所建立的帳戶資訊�
 ### <a name="do-one-click-push-notifications-work-for-non-microsoft-accounts"></a>單鍵推播通知適用於非 Microsoft 帳戶嗎？
 不適用，推播通知只適用於 Microsoft 帳戶與 Azure Active Directory 帳戶。 如果您的工作或學校使用 Azure AD 帳戶，它們可能會停用這項功能。  
 
-### <a name="i-restored-my-device-from-a-backup-and-my-account-codes-are-missing-or-not-working-what-happened"></a>我從備份還原了我的裝置，但我的帳戶代碼遺漏或無法運作。 發生什麼情形？
-基於安全考量，我們不會從應用程式的備份還原帳戶。  還原應用程式之後，請刪除您的帳戶，然後重新新增。
+### <a name="i-got-a-new-device-or-restored-my-device-from-a-backup-how-do-i-set-up-my-accounts-in-the-microsoft-authenticator-app-again"></a>我取得新的裝置或已從備份還原我的裝置。 我要如何重新設定 Microsoft Authenticator 應用程式中的帳戶？
+如果您是執行已開啟 [自動備份] 的 iOS 裝置，並已在舊裝置上建立帳戶備份；您可以使用該備份在新裝置上復原您的帳戶認證。 如需詳細資訊，請參閱[使用 Microsoft Authenticator 應用程式來備份和復原帳戶認證](microsoft-authenticator-app-backup-and-recovery.md)一文。 
 
-### <a name="i-got-a-new-device-how-do-i-remove-the-microsoft-authenticator-app-from-my-old-device-and-move-to-the-new-one"></a>我收到新的裝置。 如何移除舊裝置的 Microsoft Authenticator 應用程式並移到新裝置？
-將 Microsoft Authenticator 應用程式新增至新裝置，並不會自動從任何其他裝置將它移除。 若要管理針對您帳戶所設定的裝置，請瀏覽您用來管理雙步驟驗證的相同網站，並選擇移除舊的應用程式。
+### <a name="i-lost-my-device-or-moved-on-to-a-new-device-how-do-i-make-sure-notifications-dont-continue-to-go-to-my-old-device"></a>我遺失了我的裝置，或已移動至新的裝置。 如何確定通知不會繼續傳送到舊裝置？  
+將 Microsoft Authenticator 應用程式新增至新的 iOS 裝置並不會自動移除舊裝置上的應用程式。 縱使從舊裝置上刪除應用程式也不能完全刪除。 您必須從舊裝置中刪除應用程式，並告訴 Microsoft 或您的組織捨棄舊裝置，然後從您的帳戶中將裝置取消註冊。
+- **從使用個人 Microsoft 帳戶的裝置中移除應用程式。** 移至您[帳戶安全性](https://account.microsoft.com/security) 頁面上的雙步驟驗證區域，然後選擇關閉舊裝置的驗證。  
+- **從使用公司或學校 Microsoft 帳戶的裝置中移除應用程式。** 移至 [MyApps](https://myapps.microsoft.com/) 頁面上的雙步驟驗證區域，或移至組織的自訂入口網站，然後選擇關閉舊裝置的驗證。 
 
-針對個人 Microsoft 帳戶，這個網站是您的[帳戶安全性](https://account.microsoft.com/security)頁面。 針對工作或學校 Microsoft 帳戶，這個網站可能是 [MyApps](https://myapps.microsoft.com) 或您的組織已設定的自訂入口網站。
+
 
 ### <a name="how-do-i-remove-an-account-from-the-app"></a>如何從應用程式移除帳戶？
 * iOS︰從主畫面中，在帳戶圖格上往左撥動。 選取 [刪除] 。
@@ -85,14 +87,14 @@ Microsoft Authenticator 會儲存當您新增帳戶時所建立的帳戶資訊�
 如果已向您的組織註冊您的裝置，您可能需要完成額外的步驟才能移除您的帳戶。 在這些裝置上，Microsoft Authenticator 應用程式會自動註冊為裝置系統管理員。 如果您想要完全解除安裝應用程式，則需要先在應用程式設定中取消註冊應用程式。
 
 ### <a name="why-does-the-app-request-so-many-permissions"></a>為什麼應用程式要求這麼多權限？
-以下是我們要求的完整權限清單，以及權限在應用程式中的使用方式。 您看到的特定權限取決於您擁有的電話類型。
+以下是可要求的完整權限清單，以及權限在應用程式中的使用方式。 您看到的特定權限取決於您擁有的電話類型。
 
 * **相機**︰在您新增工作、學校或非 Microsoft 帳戶時，將會使用相機來掃描 QR 代碼。
-* **連絡人和手機**：當您使用個人 Microsoft 帳戶登入時，我們嘗試尋找您在手機上使用的現有帳戶來簡化程序。
-* **SMS**︰當您第一次使用個人 Microsoft 帳戶登入時，我們必須確定您的電話號碼符合我們記錄的電話號碼。 我們會將簡訊傳送到先前下載應用程式的手機。 這個訊息包含 6-8 位數的驗證碼。 我們會在簡訊中找到這個驗證碼，而不是要求您找到它，並將它輸入應用程式中。
-* **透過其他應用程式進行**：當您收到確認您身分識別的通知時，我們會透過任何其他執行中應用程式來顯示該通知。
+* **連絡人和手機**：當您使用個人 Microsoft 帳戶登入時，此項目會用來尋找手機上現有帳戶以簡化程序。
+* **SMS**：用來確定您的電話號碼符合記錄上的號碼。 當您第一次使用個人 Microsoft 帳戶登入時。  我們會將簡訊傳送到先前下載應用程式的手機，其中會包含 6-8 個數字的驗證碼。 我們會在簡訊中找到這個驗證碼，而不是要求您找到它，並將它輸入應用程式中。
+* **透過其他應用程式進行**：用來驗證您身分識別的通知也會顯示在其他可能正在執行的應用程式上。
 * **從網際網路接收資料**：需要有此權限，才能傳送通知。
-* **防止手機進入休眠**：如果您向組織註冊裝置，則他們可以在您的手機上變更這個原則。
+* **防止手機進入休眠**：如果您向組織註冊裝置，則組織可以在您的手機上變更這個原則。
 * **控制震動**︰您可以選擇是否要在收到確認身分識別的通知時震動。
 * **使用指紋硬體**︰確認身分識別時，部分工作和學校帳戶需要額外的 PIN。 為了簡化此程序，我們可讓您使用指紋，而不是輸入 PIN。
 * **檢視網路連接**︰當您新增 Microsoft 帳戶時，應用程式需要網路/網際網路連接。

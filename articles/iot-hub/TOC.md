@@ -1,7 +1,7 @@
+# [Azure IoT 基礎](../iot-fundamentals/index.yml)
 # [IoT 中樞文件](index.md)
 
 # 概觀
-## [Azure 和 IoT](iot-hub-what-is-azure-iot.md)
 ## [何謂 Azure IoT 中樞？](iot-hub-what-is-iot-hub.md)
 ## [裝置管理概觀](iot-hub-device-management-overview.md)
 
@@ -169,7 +169,7 @@
 ##### [建立憑證 - PowerShell](iot-hub-security-x509-create-certificates.md)
 
 # 參考
-## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
+## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (服務)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (裝置)](/dotnet/api/microsoft.azure.devices.client)
@@ -186,11 +186,18 @@
 ## [REST (作業)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # 相關參考
-## [Azure IoT 套件](https://azure.microsoft.com/documentation/suites/iot-suite/)
-## [Azure IoT 中樞裝置佈建服務](https://azure.microsoft.com/documentation/services/iot-dps/)
-## [Azure 事件中樞](https://azure.microsoft.com/documentation/services/event-hubs/)
-## [串流分析](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
+## 解決方案 
+### [IoT 套件預先設定解決方案](/azure/iot-suite) 
+### [IoT 中心](https://docs.microsoft.com/microsoft-iot-central/) 
+## 平台服務 
+### [IoT 中心](/azure/iot-hub) 
+### [IoT 中樞裝置佈建服務](/azure/iot-dps)
+### [IoT 服務 SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [位置服務](/azure/location-based-services) 
+### [時間序列深入解析](/azure/time-series-insights) 
+## Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [IoT 裝置 SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # 資源
 ## [Azure IoT 認證裝置目錄](https://catalog.azureiotsuite.com/)
@@ -201,7 +208,7 @@
 ## [iothub-explorer 工具](https://github.com/Azure/iothub-explorer)
 ## [學習路徑](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [價格](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [定價](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)

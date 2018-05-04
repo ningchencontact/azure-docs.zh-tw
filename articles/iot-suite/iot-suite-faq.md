@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT Suite 常見問題集 | Microsoft Docs"
-description: "IoT 套件的常見問題集"
+title: Azure IoT Suite 常見問題集 | Microsoft Docs
+description: IoT 套件的常見問題集
 services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: c79c90c4f6c28153d4d299015a06a6bc37145081
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 49e94e771deb4582b922400d81e8388faf164f40
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT 套件的常見問題集
 
@@ -33,6 +33,12 @@ ms.lasthandoff: 02/21/2018
 * [遠端監視預先設定的解決方案 (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) \(英文\)
 * [預先設定的預防性維護的解決方案](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [連線處理站預先設定的解決方案](https://github.com/Azure/azure-iot-connected-factory)
+
+### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-preconfigured-solutions"></a>我可以使用哪些 SDK 為預先設定的解決方案開發裝置用戶端？
+
+您可以在 [Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) GitHub 存放庫中找到不同語言 (C、.NET、Java、Node.js、Python) 的 IoT 裝置 SDK 連結。
+
+如果您使用 DevKit 裝置，您可以在 [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk) GitHub 存放庫中找到資源和範例。
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-preconfigured-solutions"></a>新的微服務架構是否適用於這三個預先設定的解決方案？
 

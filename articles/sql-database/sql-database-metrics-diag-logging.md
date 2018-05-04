@@ -10,18 +10,18 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: b1ac34c97d94f0b8759cb3e6f229ba0f7a2be7c9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b6ecedac8e5d040c2e75d28e1dc8e8309f359a1c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄 
 Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
 
 * **Azure 儲存體**：用於封存大量遙測資料，價格低廉。
 * **Azure 事件中樞**：用於整合 SQL Database 遙測與自訂監視解決方案或管線。
-* **Azure Log Analytics**：用於具有報告、警示及緩和功能的現成監視解決方案。
+* **Azure Log Analytics**：用於具有報告、警示及緩和功能的現成監視解決方案。 這是 [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 的功能
 
     ![架構](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -61,7 +61,7 @@ Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-1. 若要在入口網站中啟用計量和診斷記錄收集功能，請移至您的 SSQL Database 或彈性集區分頁，然後選取 [診斷設定]。
+1. 若要在入口網站中啟用計量和診斷記錄收集功能，請移至您的 SQL Database 或彈性集區分頁，然後選取 [診斷設定]。
 
    ![在 Azure 入口網站中啟用](./media/sql-database-metrics-diag-logging/enable-portal.png)
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: ceb36b78b72c45e9af59724d1f1c79789ef24b24
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ade72311977d1a9f40eb0750afd9d906b883d6c6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira"></a>教學課程：Azure Active Directory 與適用於 JIRA 的 Microsoft Azure Active Directory 單一登入整合
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 03/16/2018
 
 **若要從資源庫新增適用於 JIRA 的 Microsoft Azure Active Directory 單一登入，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 03/16/2018
     ![設定單一登入連結][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![單一登入對話方塊](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_samlbase.png)
 
 3. 在 [適用於 JIRA 的 Microsoft Azure Active Directory 單一登入網域及 URL] 區段中，執行下列步驟：
@@ -128,29 +128,13 @@ ms.lasthandoff: 03/16/2018
 
     c. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<domain:port>/plugins/servlet/saml/auth`
 
-    > [!NOTE] 
+    > [!NOTE]
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 如果連接埠是具名 URL，則為選擇性。 在設定 Jira 外掛程式 (本教學課程稍後會說明) 期間會收到這些值。
- 
-4. 若要產生**中繼資料** URL，執行下列步驟︰
 
-    a. 按一下 [應用程式註冊]。
+4. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
     
-    ![設定單一登入](.\media\active-directory-saas-msaadssojira-tutorial\appregistrations.png)
-   
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
-    
-    ![設定單一登入](.\media\active-directory-saas-msaadssojira-tutorial\endpointicon.png)
-
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](.\media\active-directory-saas-msaadssojira-tutorial\endpoint.png)
+    ![設定單一登入](./media/active-directory-saas-msaadssojira-tutorial/tutorial_metadataurl.png)
      
-    d. 現在，移至 [適用於 JIRA 的 Microsoft Azure Active Directory 單一登入] 的屬性頁，使用 [複製] 按鈕複製 [應用程式識別碼]，並將它貼到記事本。
- 
-    ![設定單一登入](.\media\active-directory-saas-msaadssojira-tutorial\appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**：`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`，並將此值複製到 [記事本]，稍後會用來設定外掛程式。
-
 5. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_400.png)
@@ -175,34 +159,30 @@ ms.lasthandoff: 03/16/2018
 
     > [!TIP]
     > 請確定只有一個對應至應用程式的憑證，解析中繼資料時就不會發生錯誤。 如果有多個憑證，則解析中繼資料時，管理員會遇到錯誤。
- 
-    a. 在 [中繼資料 URL] 中，貼上從 Azure AD 產生的**中繼資料 URL**，然後按一下 [解析] 按鈕。 這樣會讀取 IdP 中繼資料 URL 並填入所有欄位資訊。
+
+    a. 在 [中繼資料 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**應用程式同盟中繼資料 Url**值，然後按一下 [解析] 按鈕。 這樣會讀取 IdP 中繼資料 URL 並填入所有欄位資訊。
 
     b. 複製 [識別碼]、[回覆 URL] 和 [登入 URL] 值，然後在 Azure 入口網站的 [適用於 JIRA 的 Microsoft Azure Active Directory 單一登入網域及 URL] 中，分別貼到 [識別碼]、[回覆 URL] 和 [登入 URL] 文字方塊。
 
     c. 在 [登入按鈕名稱] 中，輸入您的組織要讓使用者在登入畫面上看到的按鈕名稱。
 
-    d. 在 [SAML 使用者識別碼位置] 中，選取 [使用者識別碼在 Subject 陳述式的 NameIdentifier 元素中] 或 [使用者識別碼在 Attribute 元素中]。  此識別碼必須為 JIRA 使用者識別碼。如果使用者識別碼不符，系統將不會允許使用者登入。 
+    d. 在 [SAML 使用者識別碼位置] 中，選取 [使用者識別碼在 Subject 陳述式的 NameIdentifier 元素中] 或 [使用者識別碼在 Attribute 元素中]。  此識別碼必須為 JIRA 使用者識別碼。如果使用者識別碼不符，系統將不會允許使用者登入。
 
     > [!Note]
     > 預設 SAML 使用者識別碼位置是名稱識別碼。 您可以將它變更為屬性選項，並輸入適當的屬性名稱。
 
-    e. 如果您選取 [使用者識別碼在 Attribute 元素中] 選項，請在 [屬性名稱] 文字方塊中，輸入需要使用者識別碼的屬性名稱。 
+    e. 如果您選取 [使用者識別碼在 Attribute 元素中] 選項，請在 [屬性名稱] 文字方塊中，輸入需要使用者識別碼的屬性名稱。
 
     f. 如果您使用同盟網域 (例如 ADFS 等) 搭配 Azure AD，請按一下 [啟用主領域探索] 選項，並設定 [網域名稱]。
     
     g. 在 [網域名稱] 中，如果是使用以 ADFS 為基礎的登入，請在此輸入網域名稱。
 
-    h. 如果您想要在使用者登出 JIRA 時登出 Azure AD，請勾選 [啟用單一登出]。 
+    h. 如果您想要在使用者登出 JIRA 時登出 Azure AD，請勾選 [啟用單一登出]。
 
     i. 按一下 [儲存] 按鈕以儲存設定。
 
     > [!NOTE]
     > 如需有關安裝和疑難排解的詳細資訊，請瀏覽 [MS JIRA SSO 連接器管理指南](ms-confluence-jira-plugin-adminguide.md)，另外也有[常見問題集](ms-confluence-jira-plugin-faq.md)可協助您
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

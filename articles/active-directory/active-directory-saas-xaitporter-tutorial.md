@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 XaitPorter 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 2012d990f7cdcb8c12da5f16db518b261b06a5b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5e18850d902e5a11da904af719e598c4e247ce0d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>教學課程：Azure Active Directory 與 XaitPorter 整合
 
@@ -58,7 +58,7 @@ XaitPorter 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 XaitPorter，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -113,33 +113,17 @@ XaitPorter 與 Azure AD 整合提供下列優點：
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.xaitporter.com`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [XaitPorter 用戶端支援小組](https://www.xait.com/support/)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [XaitPorter 用戶端支援小組](https://www.xait.com/support/)以取得這些值。
+     
+4. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。 
 
-4. 按一下 [儲存]  按鈕。
+    ![憑證下載連結](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_certificate.png) 
+
+5. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-xaitporter-tutorial/tutorial_general_400.png)
 
-5. 若要產生**中繼資料** URL，執行下列步驟︰
-
-    a. 按一下 [應用程式註冊]。
-    
-    ![設定單一登入](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appregistrations.png)
-   
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
-    
-    ![設定單一登入](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpointicon.png)
-
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpoint.png)
-     
-    d. 現在，移至 [XaitPorter] 的屬性頁面，使用 [複製] 按鈕複製 [應用程式識別碼]，並將它貼到 [記事本]。
- 
-    ![設定單一登入](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. 將 **IP 位址**或**中繼資料 URL** 提供給 [SmartRecruiters 支援小組](https://www.smartrecruiters.com/about-us/contact-us/)，讓 XaitPorter 自行設定允許清單，以確保可以從您 XaitPorter 執行個體可觸達 IP 位址。 
+6. 將 **IP 位址**或**應用程式同盟中繼資料 Url** 提供給 [SmartRecruiters 支援小組](https://www.smartrecruiters.com/about-us/contact-us/)，讓 XaitPorter 自行設定允許清單，以確保可以從您 XaitPorter 執行個體可觸達 IP 位址。 
 
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 XaitPorter 公司網站。
 
@@ -157,15 +141,11 @@ XaitPorter 與 Azure AD 整合提供下列優點：
 
     a. 選取 [啟用單一登入驗證]。
 
-    b. 在 [識別提供者設定] 文字方塊中，貼上您從 Azure 複製的**中繼資料 URL**，然後按一下 [擷取]。
+    b. 在 [識別提供者設定] 文字方塊中，貼上您從 Azure 入口網站複製的**應用程式同盟中繼資料 Url**，然後按一下 [擷取]。
 
     c. 選取 [啟用自動建立使用者]。
 
     d. 按一下 [SERVICEPRINCIPAL] 。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

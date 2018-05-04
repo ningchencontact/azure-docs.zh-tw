@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 0b216b334f07a59f7c159bc804116f2190f3bf6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 758da9ceb86e26d373f71e4f89a47d67d1cefe2d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>使用 Azure Data Factory 從 Hive 複製資料 
 
@@ -46,7 +46,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 |:--- |:--- |:--- |
 | type | 類型屬性必須設為：**Hive** | yes |
 | host | Hive 伺服器的 IP 位址和主機名稱，如果有多個主機請以「;」分隔 (僅限啟用 serviceDiscoveryMode 時)。  | yes |
-| 連接埠 | Hive 伺服器用來接聽用戶端連線的 TCP 連接埠。  | 否 |
+| 連接埠 | Hive 伺服器用來接聽用戶端連線的 TCP 連接埠。 如果您連線到 Azure HDInsights，請將連接埠指定為 443。 | yes |
 | serverType | Hive 伺服器的類型。 <br/>允許的值為：**HiveServer1**、**HiveServer2****HiveThriftServer** | 否 |
 | thriftTransportProtocol | Thrift 層中使用的傳輸通訊協定。 <br/>允許的值為：**Binary**、**SASL**、**HTTP** | 否 |
 | authenticationType | 用來存取 Hive 伺服器的驗證方法。 <br/>允許的值為：**Anonymous**、**Username****UsernameAndPassword****WindowsAzureHDInsightService** | yes |
@@ -78,8 +78,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
             "password": {
                  "type": "SecureString",
                  "value": "<password>"
-            },
-            "httpPath" : "gateway/sandbox/spark"
+            }
         }
     }
 }

@@ -1,8 +1,8 @@
 ---
-title: "使用 Windows VM MSI 存取 Azure 儲存體"
-description: "此教學課程引導您使用 Windows VM 受控服務識別 (MSI) 來存取 Azure 儲存體的程序。"
+title: 使用 Windows VM MSI 存取 Azure 儲存體
+description: 此教學課程引導您使用 Windows VM 受控服務識別 (MSI) 來存取 Azure 儲存體的程序。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 2e78fb3344d77f33907c97e66ce262f79d13f778
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 848033f79674e6ad1457d885c75215fc5c434d93
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>使用 Windows VM 受控服務識別，透過存取金鑰存取 Azure 儲存體
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Windows 虛擬機器
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI
 
-虛擬機器 MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 實際上，啟用 MSI 會執行兩項工作：在您的 VM 上安裝 MSI VM 延伸模組，並啟用虛擬機器的 MSI。  
+虛擬機器 MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 實際上，啟用 MSI 會執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受控身分識別，它就會在 VM 上設定身分識別。
 
 1. 巡覽 至新虛擬機器的資源群組，並選取您在上一個步驟中建立的虛擬機器。
 2. 在左側的 VM [ 設定] 下，按一下 [設定]。
@@ -64,10 +64,6 @@ ms.lasthandoff: 03/08/2018
 4. 按一下 [儲存] 確認儲存設定。
 
     ![替代映像文字](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. 如果您想要檢查哪些延伸模組會在此 VM 上，請按一下 [延伸模組]。 如果 MSI 已啟用，則 **ManagedIdentityExtensionforWindows** 會出現在清單中。
-
-    ![替代映像文字](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶 
 
@@ -119,7 +115,7 @@ Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用 M
 4. 使用 Powershell 的 Invoke-WebRequest，向本機 MSI 端點提出要求來取得 Azure Resource Manager 的存取權杖。
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]

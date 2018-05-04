@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/18/2018
 ms.author: jlian
-ms.openlocfilehash: 5ec67c0d51d24a7bb93a3f11bf3b73a223e8b583
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8d495bf89697a5e14ff79953ab98f241ef8972e8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>以程式設計方式建立 Azure 企業版訂用帳戶 (預覽)
 
@@ -88,10 +88,10 @@ Azure 會以您可以存取的所有註冊帳戶清單來回應：
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-使用 [Get-EnrollmentAccount 命令](/powershell/module/azurerm.billing/get-azurermenrollmentaccount)來列出您可以存取的所有註冊帳戶。
+使用 [Get-AzureRmEnrollmentAccount 命令](/powershell/module/azurerm.billing/get-azurermenrollmentaccount)列出您可以存取的所有註冊帳戶。
 
 ```azurepowershell-interactive
-Get-EnrollmentAccount
+Get-AzureRmEnrollmentAccount
 ```
 
 Azure 會以帳戶的「物件識別碼」和電子郵件清單來回應。

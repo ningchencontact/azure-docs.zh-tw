@@ -5,15 +5,15 @@ services: azure-policy
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/18/2018
+ms.date: 04/19/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: a3d47abcbf41133b9bc7194fd97f9b66a70003ff
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e50c2330c03e5fc36e608b672fe8390a1f19e99b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
@@ -345,7 +345,7 @@ az policy definition list
    - 需要 SQL Server 12.0 版
    - 在資訊安全中心監視未受保護的 Web 應用程式。
    - 監視整個資訊安全中心的寬鬆網路。
-   - 監視資訊安全中心的可能應用程式允許清單。
+   - 監視資訊安全中心的可能應用程式白名單。
    - 監視資訊安全中心的未加密 VM 磁碟。
 
    ![計畫定義](media/create-manage-policy/initiative-definition-2.png)
@@ -372,7 +372,7 @@ az policy definition list
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>使用排除來免除不相容或拒絕的資源
 
-遵循上述的範例，在指派原則定義需要 SQL Server 12.0 版之後，使用不同版本建立的 SQL Server 就會遭到拒絕。 在本節中，您可藉由要求排除，逐步解決建立不同 SQL Server 版本的被拒絕嘗試。 排除基本上可防止原則強制執行。 排除可以套用至資源群組，或者您可將排除範圍縮小為個別的資源。
+遵循上述範例，在指派原則定義需要 SQL Server 12.0 版之後，使用 12.0 以外版本建立的 SQL Server 就會遭到拒絕。 在本節中，您可藉由要求排除特定資源，逐步解決建立 SQL Server 的被拒絕嘗試。 排除基本上可防止原則強制執行。 在下列範例中，允許使用任何 SQL Server 版本。 排除可以套用至資源群組，或者您可將排除範圍縮小為個別的資源。
 
 1. 選取左窗格中的 [指派]。
 2. 瀏覽所有原則指派，並開啟 [需要 SQL Server 12.0 版] 指派。
@@ -384,7 +384,7 @@ az policy definition list
 
 4. 按一下 [指派]。
 
-在本節中，您藉由要求排除資源，來解決拒絕您嘗試建立 SQL Server 12.0 版。
+在本節中，您藉由要求排除資源，解決了拒絕您嘗試建立 SQL Server 的問題。
 
 ## <a name="clean-up-resources"></a>清除資源
 

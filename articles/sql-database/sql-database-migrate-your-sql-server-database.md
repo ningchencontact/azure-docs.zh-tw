@@ -9,11 +9,11 @@ ms.custom: mvc,migrate
 ms.topic: tutorial
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 14e9949fe0c292a366fa55e3f16d14d885606f6b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 36548e4d088b809f4fb16d89aaa3ef0a802d6d5c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>使用 DMS 將 SQL Server 資料庫遷移至 Azure SQL Database
 
@@ -112,7 +112,7 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
 
 1. 部署完成之後，按一下左側功能表中的 [SQL Database]，然後按一下 [SQL Database] 頁面上的 [mySampleDatabase]。 資料庫的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver-20170824.database.windows.net**)，並提供進一步的組態選項。 
 
-2. 在後續的快速入門教學課程中，請複製此完整伺服器名稱，以用來連線至您的伺服器及其資料庫。 
+2. 在後續的快速入門中，請複製此完整伺服器名稱，才能用來連線到伺服器及其資料庫。 
 
    ![伺服器名稱](./media/sql-database-get-started-portal/server-name.png) 
 

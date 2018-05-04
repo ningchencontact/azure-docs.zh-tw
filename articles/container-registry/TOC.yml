@@ -21,6 +21,14 @@
       href: ../aks/tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+    - name: 建置容器映像 (預覽)
+      items:
+        - name: 1 - 在 Azure 中建置映像
+          href: container-registry-tutorial-quick-build.md
+        - name: 2 - 自動化映像建置
+          href: container-registry-tutorial-build-task.md
+        - name: 3 - 基底映像更新建置
+          href: container-registry-tutorial-base-image-update.md
     - name: 異地複寫 (預覽)
       items:
         - name: 1 - 準備容器登錄

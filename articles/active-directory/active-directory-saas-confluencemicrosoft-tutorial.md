@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 5b81ca4f5a9f30b2882d86639ca9386e7bbc09e8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c89be4917bb266bcd0244f2409bfa703dd3e523c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>教學課程：Azure Active Directory 與 Confluence SAML SSO by Microsoft 整合
 
@@ -74,7 +74,7 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Confluence SAML SSO by Microsoft，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -118,7 +118,7 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
     ![設定單一登入][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![設定單一登入](./media/active-directory-saas-confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_samlbase.png)
 
 3. 在 [Confluence SAML SSO by Microsoft 網域及 URL] 區段中，執行下列步驟：
@@ -131,29 +131,13 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
     c. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<domain:port>/plugins/servlet/saml/auth`
 
-    > [!NOTE] 
+    > [!NOTE]
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 如果連接埠是具名 URL，則為選擇性。 在設定 Confluence 外掛程式 (本教學課程稍後會說明) 期間會收到這些值。
 
-4. 若要產生**中繼資料** URL，執行下列步驟︰
-
-    a. 按一下 [應用程式註冊]。
+4. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
     
-    ![設定單一登入](./media/active-directory-saas-Confluencemicrosoft-tutorial/appregistrations.png)
-   
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
-    
-    ![設定單一登入](./media/active-directory-saas-Confluencemicrosoft-tutorial/endpointicon.png)
-
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](./media/active-directory-saas-Confluencemicrosoft-tutorial/endpoint.png)
+    ![設定單一登入](./media/active-directory-saas-Confluencemicrosoft-tutorial/tutorial_metadataurl.png)
      
-    d. 現在，移至 [Confluence SAML SSO by Microsoft] 的屬性頁，使用 [複製] 按鈕複製 [應用程式識別碼]，並將它貼到 [記事本]。
- 
-    ![設定單一登入](./media/active-directory-saas-Confluencemicrosoft-tutorial/appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**：`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`，並將此值複製到 [記事本]，稍後會用來設定外掛程式。
-
 5. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/active-directory-saas-Confluencemicrosoft-tutorial/tutorial_general_400.png)
@@ -175,11 +159,11 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 10. 在設定頁面上執行下列步驟：
 
     ![設定單一登入](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon52.png)
- 
+
     > [!TIP]
     > 請確定只有一個對應至應用程式的憑證，解析中繼資料時就不會發生錯誤。 如果有多個憑證，則在解析中繼資料時，管理員會收到錯誤。
 
-    a. 在 [中繼資料 URL] 中，貼上從 Azure AD 產生的**中繼資料 URL**，然後按一下 [解析] 按鈕。 這樣會讀取 IdP 中繼資料 URL 並填入所有欄位資訊。
+    a. 在 [中繼資料 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**應用程式同盟中繼資料 Url**值，然後按一下 [解析] 按鈕。 這樣會讀取 IdP 中繼資料 URL 並填入所有欄位資訊。
 
     b. 複製 [識別碼]、[回覆 URL] 和 [登入 URL] 值，然後在 Azure 入口網站的 [Confluence SAML SSO by Microsoft 網域及 URL] 中，分別貼到 [識別碼]、[回覆 URL] 和 [登入 URL] 文字方塊。
 
@@ -202,10 +186,6 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
     > [!NOTE]
     > 如需有關安裝和疑難排解的詳細資訊，請瀏覽 [MS Confluence SSO 連接器管理指南](ms-confluence-jira-plugin-adminguide.md)，另外也有[常見問題集](ms-confluence-jira-plugin-faq.md)可協助您
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
@@ -323,4 +303,3 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-confluencemicrosoft-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-confluencemicrosoft-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-confluencemicrosoft-tutorial/tutorial_general_203.png
-

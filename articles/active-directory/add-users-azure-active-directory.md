@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Active Directory 中新增或刪除使用者 | Microsoft Docs"
-description: "說明如何在 Azure Active Directory 中新增使用者或刪除現有的使用者"
+title: 在 Azure Active Directory 中新增或刪除使用者 | Microsoft Docs
+description: 說明如何在 Azure Active Directory 中新增使用者或刪除現有的使用者
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

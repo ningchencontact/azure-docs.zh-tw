@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: mbaldwin
-ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 69da37cbf5691fe94b9550200e259711e9e201d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>建立 Microsoft 開發人員帳戶
 本文將逐步引導您完成要成為 Azure Marketplace 核准的 Microsoft 開發人員所必須執行的帳戶建立和註冊程序。
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/16/2018
 建立公司帳戶時，如果有多人需要以開啟該帳戶的 Microsoft 帳戶進行登入來存取該帳戶，請遵循下列指導方針。
 
 > [!Important]
-> 重要事項：若要允許多個使用者存取您的開發人員中心帳戶，建議使用 Azure Active Directory 將角色指派給個別使用者，該使用者可使用其個別 Azure AD 認證進行登入以存取該帳戶。 如需詳細資訊，請參閱[管理帳戶使用者](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users)。
+> 重要事項：若要允許多個使用者存取您的開發人員中心帳戶，建議使用 Azure Active Directory 將角色指派給個別使用者，該使用者可使用其個別 Azure AD 認證進行登入以存取該帳戶。 如需詳細資訊，請參閱[管理帳戶使用者](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users)。
 
 * 使用屬於貴公司網域，但不屬於單一個人的電子郵件地址，建立您的 Microsoft 帳戶 — 例如，windowsapps@fabrikam.com。
 * 將此 Microsoft 帳戶的存取限制為可能最少的開發人員。
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/16/2018
 
 您的開發人員帳戶主要應從受信任的電腦存取。 這點很重要，因為每個帳戶每週產生的安全碼數目有所限制。 此外，也可提供最順暢的登入體驗。
 
-如需其他開發人員帳戶指導方針和安全性的詳細資訊，請按一下[這裡](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts)。
+如需其他開發人員帳戶指導方針和安全性的詳細資訊，請按一下[這裡](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts)。
 
 ### <a name="instructions"></a>範例的指示
 1. 開啟新的 Chrome Incognito 或 Internet Explorer InPrivate 瀏覽工作階段，確定您未登入現有帳戶。

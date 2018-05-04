@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: cbaca20c5226cd38b11288738b40cf7bf280e849
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7840dc86ec7753980bb2c35f932f132c50d65f9e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教學課程：建立和部署含有 ASP.NET Core Web API 前端服務和具狀態後端服務的應用程式
 本教學課程是一個系列的第一部分。  您將了解如何建立含有 ASP.NET Core Web API 前端和具狀態後端服務的 Azure Service Fabric 應用程式來儲存您的資料。 當您完成時，您會有一個投票應用程式，其 ASP.NET Core Web 前端會將投票結果儲存在叢集中具狀態的後端服務。 如果您不需要以手動建立投票應用程式，可以[下載已完成應用程式的原始程式碼](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)並直接前往[逐步解說投票範例應用程式](#walkthrough_anchor)。  您也可以視需要觀看本教學課程的[視訊逐步解說](https://channel9.msdn.com/Events/Connect/2017/E100)。
@@ -37,6 +37,7 @@ ms.lasthandoff: 03/29/2018
 > [!div class="checklist"]
 > * 建置 .NET Service Fabric 應用程式
 > * [將應用程式部署到遠端叢集](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [將 HTTPS 端點新增至 ASP.NET Core 前端服務](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [使用 Visual Studio Team Services 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [設定應用程式的監視和診斷](service-fabric-tutorial-monitoring-aspnet.md)
 

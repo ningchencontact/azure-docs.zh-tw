@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: d893b55e2e771035bbd1097da678830fafb24e7a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bc5b41da83f183aaf62723212f7197fb50dc536d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>教學課程：Azure Active Directory 與 ServiceNow 整合
 
@@ -61,7 +61,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 ServiceNow，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -119,37 +119,21 @@ ServiceNow 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這些都不是真正的值。 您將從實際的登入 URL 和識別碼更新這些值，本教學課程稍後將會說明。
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+4. 在 [SAML 簽署憑證] 區段上，執行下列步驟： 
 
-    ![憑證下載連結](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png) 
+    ![憑證下載連結](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+
+    a. 按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 Url]，並將它貼到記事本，因為本教學課程稍後會使用這個應用程式同盟中繼資料 Url。
+
+    b. 按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
 5. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-servicenow-tutorial/tutorial_general_400.png)
 
-6. 若要產生**中繼資料** URL，執行下列步驟︰
+6. 以系統管理員身分登入您的 ServiceNow 應用程式。
 
-    a. 按一下 [應用程式註冊]。
-    
-    ![設定單一登入](./media/active-directory-saas-servicenow-tutorial/appregistrations.png)
-
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。
-    
-    ![設定單一登入](./media/active-directory-saas-servicenow-tutorial/endpointicon.png)
-    
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-
-    ![設定單一登入](./media/active-directory-saas-servicenow-tutorial/endpoint.png)
-
-    d. 現在，移至 [ServiceNow] 屬性，使用 [複製] 按鈕複製 [應用程式識別碼]，並將它貼到記事本。
-
-    ![設定單一登入](./media/active-directory-saas-servicenow-tutorial/appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`。  將產生的值複製到記事本，因為本教學課程後續的內容將會使用到這個中繼資料 URL。
-
-7. 以系統管理員身分登入您的 ServiceNow 應用程式。
-
-8. 遵循下一個步驟，啟動 [整合 - 多個提供者單一登入安裝程式] 外掛程式︰
+7. 遵循下一個步驟，啟動 [整合 - 多個提供者單一登入安裝程式] 外掛程式︰
 
     a. 在左側導覽窗格中，從搜尋列搜尋 [系統定義] 區段，然後按一下 [外掛程式]。
 
@@ -163,9 +147,9 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
     d. 按一下 [啟用] 按鈕。
 
-9. 有兩種方式可分別對 **ServiceNow** 進行自動和手動設定。
+8. 有兩種方式可分別對 **ServiceNow** 進行自動和手動設定。
 
-10. 若要自動設定 **ServiceNow**，請遵循下列步驟
+9. 若要自動設定 **ServiceNow**，請遵循下列步驟
 
     a. 返回 Azure 入口網站中的 [ServiceNow 單一登入] 頁面。
 
@@ -201,15 +185,15 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
     * 在頁面右上角按一下 [啟動]。
 
-11. 若要手動設定 **ServiceNow**，請遵循下列步驟
+10. 若要手動設定 **ServiceNow**，請遵循下列步驟
 
-12. 以系統管理員身分登入您的 ServiceNow 應用程式。
+11. 以系統管理員身分登入您的 ServiceNow 應用程式。
 
-13. 在左側導覽窗格中，從搜尋列搜尋 [多重提供者 SSO] 區段，然後按一下 [屬性]。
+12. 在左側導覽窗格中，從搜尋列搜尋 [多重提供者 SSO] 區段，然後按一下 [屬性]。
 
     ![設定應用程式 URL](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "設定應用程式 URL")
 
-14. 在 [多個提供者 SSO 內容]  對話方塊上，執行下列步驟：
+13. 在 [多個提供者 SSO 內容]  對話方塊上，執行下列步驟：
 
     ![設定應用程式 URL](./media/active-directory-saas-servicenow-tutorial/ic7694981.png "設定應用程式 URL")
 
@@ -265,7 +249,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
     a. 在 [匯入識別提供者中繼資料]對話方塊中，選取 [URL] 選項。
 
-    b. 輸入從 Azure 入口網站產生的**中繼資料 URL**。
+    b. 輸入您從 Azure 入口網站複製的 [應用程式同盟中繼資料 URL]。
 
     c. 按一下 [匯入] 。
 
@@ -358,7 +342,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
-    ![設定單一登入](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+    ![設定單一登入](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificates.png)
 
 5. 按一下 [儲存]  按鈕。
 
@@ -459,11 +443,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
     > 移至 Azure 入口網站的 [ServiceNow] > [屬性] > [單一登入] 區段，並將所要的欄位對應至 [nameidentifier] 屬性，即可設定 Azure AD 以發出 Azure AD 使用者識別碼 (使用者主體名稱) 或電子郵件地址做為 SAML 權杖中的唯一識別碼。 所選屬性儲存在 Azure AD 中的值 (例如使用者主體名稱) 必須符合所輸入欄位 (例如 user_name) 儲存在 ServiceNow 中的值
 
     f. 按一下 [檔案] 。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！ 從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
+ 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。

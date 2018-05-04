@@ -7,14 +7,14 @@ author: MightyPen
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/19/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d6b8ddaa0eaf560352bc0aa0127b33f32ee4574a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>對 Azure SQL Database 使用虛擬網路服務端點和規則
 
@@ -140,7 +140,7 @@ RBAC 替代方案：
 使用 Azure SQL Database 的服務端點時，請檢閱下列注意事項：
 
 - **輸出至 Azure SQL Database 公用 IP 是必需的**：必須針對 Azure SQL Database IP 開啟網路安全性群組 (NSG)，才能夠進行連線。 為了完成此操作，您可以使用適用於 Azure SQL Database 的 NSG [服務標籤](../virtual-network/security-overview.md#service-tags)。
-- **不支援適用於 PostgreSQL 和 MySQL 的 Azure 資料庫**：不支援適用於 PostgreSQL 和 MySQL 之 Azure 資料庫的服務端點。 啟用 SQL Database 的服務端點會中斷這些服務的連線。 我們有方法可降低這種情況的風險，請連絡 *dmalik@microsoft.com*。
+- **不支援適用於 PostgreSQL 和 MySQL 的 Azure 資料庫**：不支援適用於 PostgreSQL 和 MySQL 之 Azure 資料庫的服務端點。 啟用 SQL Database 的服務端點會中斷這些服務的連線。 目前沒有方法可降低此風險，您可以連絡 *dmalik@microsoft.com* 以了解詳細資訊。
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -178,7 +178,7 @@ Azure 儲存體已實作功能，可讓您限制連線至儲存體帳戶的連�
 如果您選擇使用這項功能，並使用 Azure SQL Server 正在使用的儲存體帳戶，可能會遇到問題。 接下來是受此影響的 Azure SQLDB 功能的清單和討論。
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase 通常用於將資料從儲存體帳戶載入 Azure SQLDW。 如果您正在載入資料的來源儲存體帳戶限制只能存取一組 VNet 子網路，從 PolyBase 到帳戶的連線會中斷。 沒有方法可降低這種情況的風險，請連絡 *dmalik@microsoft.com* 以了解詳細資訊。
+PolyBase 通常用於將資料從儲存體帳戶載入 Azure SQLDW。 如果您正在載入資料的來源儲存體帳戶限制只能存取一組 VNet 子網路，從 PolyBase 到帳戶的連線會中斷。 目前沒有方法可降低此風險，您可以連絡 *dmalik@microsoft.com* 以了解詳細資訊。
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob 稽核
 Blob 稽核會將稽核記錄推送到您自己的儲存體帳戶。 如果這個儲存體帳戶使用 VENT 服務端點功能，則 Azure SQLDB 與儲存體帳戶的連線將會中斷。
@@ -227,8 +227,9 @@ Blob 稽核會將稽核記錄推送到您自己的儲存體帳戶。 如果這�
 本節說明如何使用 [Azure 入口網站][http-azure-portal-link-ref-477t]在 Azure SQL Database 中建立「虛擬網路規則」。 此規則會指示 SQL Database 接受一個標記為「虛擬網路服務端點」的特定子網路所傳來的通訊。
 
 > [!NOTE]
-> 針對要新增至伺服器 VNET 防火牆規則的 VNET/子網路，請確認已開啟服務端點。
-> 如果沒有針對 VNET/子網路開啟服務端點，入口網站會要求您啟用它們，請在要新增規則的刀鋒視窗上按一下啟用。
+> 如果您想要將服務端點新增至 Azure SQL Database 伺服器的 VNet 防火牆規則，請先確認已為子網路開啟服務端點。
+>
+> 若未在子網路上開啟服務端點，入口網站將會要求您加以啟用。 在您新增規則的相同刀鋒視窗上，按一下 [啟用] 按鈕。
 
 #### <a name="powershell-alternative"></a>PowerShell 替代方案
 

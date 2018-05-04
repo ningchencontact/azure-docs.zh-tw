@@ -3,21 +3,20 @@ title: 使用 Azure Data Factory 建立預測資料管線 | Microsoft Docs
 description: 了解如何在 Azure Data Factory 中使用 Azure Machine Learning - 批次執行活動建立預測管線。
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 8d87facdf1724ddbcb3bb6d7c189d8ff41d44973
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: douglasl
+ms.openlocfilehash: 1bb4ec7cbe9e5b4ab51b4929fc63401c543d5244
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>使用 Azure Machine Learning 和 Azure Data Factory 來建立預測管線
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

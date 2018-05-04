@@ -24,6 +24,8 @@
           href: migrate-scenarios-overview.md
         - name: 案例 1 - 存取內部部署資源以移轉至 Azure
           href: migrate-scenarios-assessment.md
+        - name: 案例 2 - 隨即移轉至 Azure
+          href: migrate-scenarios-lift-and-shift.md
     - name: 探索及評定大型環境
       href: how-to-scale-assessment.md
     - name: 群組機器

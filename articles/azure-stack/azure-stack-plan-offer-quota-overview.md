@@ -1,25 +1,25 @@
 ---
-title: "Azure Stack 方案、供應項目、配額和訂用帳戶概觀 | Microsoft Docs"
-description: "身為雲端操作員，我想要了解 Azure Stack 方案、供應項目、配額和訂用帳戶。"
+title: Azure Stack 方案、供應項目、配額和訂用帳戶概觀 | Microsoft Docs
+description: 身為雲端操作員，我想要了解 Azure Stack 方案、供應項目、配額和訂用帳戶。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/22/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: ''
+ms.openlocfilehash: fcf19f486ebdc739f3d5c7b25215ba8726462a56
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>方案、優惠、配頭和訂用帳戶概觀
 
@@ -32,10 +32,10 @@ ms.lasthandoff: 02/21/2018
 - 使用者可以取用這些資源的數量
 - 可以存取資源的區域
 
-當您提供服務時，將遵循下列大致步驟：
+當您提供服務時，請遵循下列重要步驟：
 
 1. 新增您要提供給使用者的服務。
-2. 建立包含一個或多個服務的方案。 建立方案時，您將會選取或建立配額，以定義方案中每個服務的資源限制。
+2. 建立包含一個或多個服務的方案。 建立方案時，請選取或建立配額，以定義方案中每個服務的資源限制。
 3. 建立包含一個或多個方案 (包含基本方案及選擇性的附加方案) 的供應項目。
 
 建立供應項目之後，您的使用者就可以訂閱供應項目，以存取它所提供的服務和資源。 使用者可以訂閱所需的任意數量供應項目。 下圖顯示的簡單範例是已訂閱兩個供應項目的使用者。 每個供應項目都有一個或兩個方案，而且每個方案都能提供對服務的存取權。
@@ -52,13 +52,15 @@ ms.lasthandoff: 02/21/2018
 
 配額可依地區設定。 例如，包含來自區域 A 計算服務的方案，其配額可能是兩部虛擬機器、4-GB RAM 與 10 個 CPU 核心。 在 Azure Stack 開發套件中，只有一個區域 (名為 *local*) 可供使用。
 
+深入了解 [Azure Stack 中的配額類型](azure-stack-quota-types.md)。 
+
 ### <a name="base-plan"></a>基本方案
 
 建立供應項目時，服務系統管理員可以包含基本方案。 當使用者訂閱該供應項目時，預設會包含這些基本方案。 當使用者訂閱時，即可存取這些基本方案中所指定的所有資源提供者 (同時受到對應的配額限制)。
 
 ### <a name="add-on-plans"></a>附加方案
 
-您也可以在供應項目中包含選擇性的附加方案。 訂用帳戶中預設不會包含加購方案。 供應項目中提供的附加方案屬於額外的方案 (具有配額)，訂閱者可將其加入其訂用帳戶中。 例如，您可以提供資源有限的基本方案以供試用，並為決定採用服務的客戶提供更多實質資源的附加方案。
+附加方案是您新增至供應項目的選擇性方案。 訂用帳戶中預設不會包含加購方案。 供應項目中提供的附加方案屬於額外的方案 (具有配額)，訂閱者可將其加入其訂用帳戶中。 例如，您可以提供資源有限的基本方案以供試用，並為決定採用服務的客戶提供更多實質資源的附加方案。
 
 ## <a name="offers"></a>優惠
 

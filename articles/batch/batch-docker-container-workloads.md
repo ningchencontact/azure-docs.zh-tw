@@ -1,6 +1,6 @@
 ---
-title: "Azure Batch 上的容器工作負載 | Microsoft Docs"
-description: "了解如何在 Azure Batch 上透過容器映像執行應用程式。"
+title: Azure Batch 上的容器工作負載 | Microsoft Docs
+description: 了解如何在 Azure Batch 上透過容器映像執行應用程式。
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: fc8af53b0e0cfbe19a6509e8d126646badd0abbb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>在 Azure Batch 上執行容器應用程式
 
@@ -34,7 +34,7 @@ Azure Batch 可讓您在 Azure 上執行及縮放大量批次運算作業。 到
     * Batch Java SDK 3.0 版
     * Batch Node.js SDK 3.0 版
 
-* 帳戶：在您的 Azure 帳戶中，您需要建立 Batch 帳戶以及選擇性地建立一般用途的儲存體帳戶。
+* 帳戶：在您的 Azure 帳戶中，您需要建立 Batch 帳戶，並選擇性地建立 Azure 儲存體帳戶。
 
 * 支援的虛擬機器映像。 只有從下一節＜支援的虛擬機器映像＞中所述的映像，使用虛擬機器設定建立的集區，才可支援容器。
 

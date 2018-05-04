@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: hero-article
 ms.date: 03/28/2017
-ms.openlocfilehash: 491b0fdba464e5b0c6225a75c534ca6abb710855
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8bee80647d692b60898880a85652189a684426f7
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>開始使用 Azure 串流分析來處理 IoT 裝置的資料
 在本教學課程中，您將學習如何建立串流處理邏輯，以從物聯網 (IoT) 裝置收集資料。 我們將使用真實世界的物聯網 (IoT) 使用案例以示範如何快速且經濟地建置您的解決方案。
@@ -27,19 +27,21 @@ Contoso 是一家工業自動化空間的公司，他們已完全自動化其製
 
 這裡的資料是從 Texas Instrument 的感應器標籤裝置產生。 資料的承載格式是 JSON，如下所示：
 
-    {
-        "time": "2016-01-26T20:47:53.0000000",  
-        "dspl": "sensorE",  
-        "temp": 123,  
-        "hmdt": 34  
-    }  
+```json
+{
+    "time": "2016-01-26T20:47:53.0000000",  
+    "dspl": "sensorE",  
+    "temp": 123,  
+    "hmdt": 34  
+}  
+```
 
 在真實世界的案例中，您可以擁有數百個此類感應器，產生事件作為串流。 在理想情況下，閘道器裝置會執行程式碼，以將這些事件推送至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)或 [Azure IoT 中樞](https://azure.microsoft.com/services/iot-hub/)。 串流分析作業會從事件中樞擷取這些事件，並針對串流執行即時分析查詢。 接著，您可以將結果傳送至其中一個[支援輸出](stream-analytics-define-outputs.md)。
 
 為了方便使用，本入門指南會提供擷取自實際感應器標籤裝置的範例資料檔。 您可以對範例資料執行查詢，然後查看結果。 在後續教學課程中，您將了解如何將您的作業連接至輸入和輸出，並將它們部署到 Azure 服務。
 
 ## <a name="create-a-stream-analytics-job"></a>建立串流分析作業
-1. 在 [Azure 入口網站](http://portal.azure.com)中，按一下加號然後在右側文字視窗中輸入 **STREAM ANALYTICS**。 然後在結果清單中選取 [串流分析作業]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下加號然後在右側文字視窗中輸入 **STREAM ANALYTICS**。 然後在結果清單中選取 [串流分析作業]。
    
     ![建立新的串流分析作業](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 2. 輸入唯一的工作名稱，並確認訂用帳戶為您作業適用的正確訂用帳戶。 然後建立新的資源群組，或在您的訂用帳戶上選取現有的資源群組。

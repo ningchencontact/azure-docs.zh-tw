@@ -1,4 +1,4 @@
-若要在您的應用程式中啟用註冊功能，您必須建立註冊原則。 此原則描述取用者在註冊期間將會經歷的體驗，以及應用程式在成功註冊時會收到的權杖內容。
+如果您只想在您的應用程式中啟用註冊功能，您可使用**註冊**原則。 此原則描述客戶在註冊期間將會經歷的體驗，以及應用程式在成功註冊時會收到的權杖內容。
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

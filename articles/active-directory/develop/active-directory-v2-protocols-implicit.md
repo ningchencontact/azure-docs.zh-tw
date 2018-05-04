@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure AD v2.0 隱含流程保護單一頁面應用程式的安全 | Microsoft Docs"
-description: "使用針對單一頁面應用程式的隱含流程的 Azure AD v2.0 實作，建置 Web 應用程式。"
+title: 使用 Azure AD v2.0 隱含流程保護單一頁面應用程式的安全 | Microsoft Docs
+description: 使用針對單一頁面應用程式的隱含流程的 Azure AD v2.0 實作，建置 Web 應用程式。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
 ms.workload: identity
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 7ecc9de6a9eb910ac4c31290710530555441890d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b855dcaae99e16aa21a0e19ad37d933cb18c678a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>2.0 通訊協定 - 使用隱含流程的 SPA
-使用 v2.0 端點，您可以讓具有 Microsoft 的個人和工作/學校帳戶的使用者登入您的單一頁面 app。  主要在瀏覽器上執行的單一頁面和其他 JavaScript 應用程式，在驗證時會面臨一些有趣的挑戰：
+使用 v2.0 端點，您可以讓具有 Microsoft 的個人和工作/學校帳戶的使用者登入您的單一頁面 app。 主要在瀏覽器上執行的單一頁面和其他 JavaScript 應用程式，在驗證時會面臨一些有趣的挑戰：
 
-* 這些應用程式的安全性特性與傳統的伺服器架構 Web 應用程式大不相同。
+* 這些應用程式的安全性特性與傳統伺服器型 Web 應用程式大不相同。
 * 許多授權伺服器與身分識別提供者不支援 CORS 要求。
 * 重新導向離開應用程式的完整網頁瀏覽器變得對使用者經驗特別有侵入性。
 
@@ -70,15 +70,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --- | --- | --- |
 | tenant |必要 |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。  允許的值為 `common`、`organizations`、`consumers` 及租用戶識別碼。  如需更多詳細資訊，請參閱 [通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。 |
 | client_id |必要 |註冊入口網站 ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) 指派給應用程式的應用程式識別碼。 |
-| response_type |必要 |必須包含 OpenID Connect 登入的 `id_token` 。  它也可能包含 response_type `token`。 這裡使用 `token` ，讓您的應用程式能夠立即從授權端點接收存取權杖，而不需要向授權端點進行第二次要求。  如果您使用 `token` response_type，`scope` 參數必須包含範圍，以指出要對哪個資源發出權杖。 |
-| redirect_uri |建議使用 |應用程式的 redirect_uri，您的應用程式可在此傳送及接收驗證回應。  其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 |
-| scope |必要 |範圍的空格分隔清單。  針對 OpenID Connect，即必須包含範圍 `openid`，其會在同意 UI 中轉譯成「讓您登入」權限。  (選擇性) 建議您也可以納入 `email` 或 `profile` [範圍](active-directory-v2-scopes.md)，以授與其他使用者資料的存取權。  您也可以在此要求中包含其他範圍，以要求同意各種資源。 |
-| response_mode |建議使用 |指定將產生的權杖送回到應用程式所應該使用的方法。  對於隱含流程應該是 `fragment` 。 |
-| state |建議使用 |同樣會隨權杖回應傳回之要求中所包含的值。  其可以是您想要之任何內容的字串。  隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](http://tools.ietf.org/html/rfc6749#section-10.12)。  此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
-| nonce |必要 |由應用程式產生且包含在要求中的值，會以宣告方式包含在產生的 id_token 中。  應用程式接著便可確認此值，以減少權杖重新執行攻擊。  此值通常是隨機的唯一字串，可用以識別要求的來源。 |
-| prompt |選用 |表示需要的使用者互動類型。  此時的有效值為「登入」、「無」和「同意」。  `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。  `prompt=none` 則相反 - 它會確保不會對使用者顯示任何互動式提示。  如果要求無法透過單一登入以無訊息方式完成，v2.0 端點會傳回錯誤。  `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
-| login_hint |選用 |如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。  通常應用程式會在重新驗證期間使用此參數，已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。 |
-| domain_hint |選用 |可以是 `consumers` 或 `organizations` 其中一個。  如果包含，它會略過使用者在 v2.0 登入頁面上經歷的以電子郵件為基礎的探索程序，導致稍微更佳流暢的使用者經驗。  通常應用程式會在重新驗證期間使用此參數，方法是從 id_token 擷取 `tid` 宣告。  如果 `tid` 宣告值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，您應該使用 `domain_hint=consumers`。  否則，使用 `domain_hint=organizations`。 |
+| response_type |必要 |必須包含 OpenID Connect 登入的 `id_token` 。  它也可能包含 response_type `token`。 這裡使用 `token` ，讓您的應用程式能夠立即從授權端點接收存取權杖，而不需要向授權端點進行第二次要求。 如果您使用 `token` response_type，`scope` 參數必須包含範圍，以指出要對哪個資源發出權杖。 |
+| redirect_uri |建議使用 |應用程式的 redirect_uri，您的應用程式可在此傳送及接收驗證回應。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 |
+| scope |必要 |範圍的空格分隔清單。 針對 OpenID Connect，即必須包含範圍 `openid`，其會在同意 UI 中轉譯成「讓您登入」權限。 (選擇性) 建議您也可以納入 `email` 或 `profile` [範圍](active-directory-v2-scopes.md)，以授與其他使用者資料的存取權。 您也可以在此要求中包含其他範圍，以要求同意各種資源。 |
+| response_mode |建議使用 |指定將產生的權杖送回到應用程式所應該使用的方法。 對於隱含流程應該是 `fragment` 。 |
+| state |建議使用 |同樣會隨權杖回應傳回之要求中所包含的值。 其可以是您想要之任何內容的字串。  隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](http://tools.ietf.org/html/rfc6749#section-10.12)。 此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
+| nonce |必要 |由應用程式產生且包含在要求中的值，會以宣告方式包含在產生的 id_token 中。  應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 |
+| prompt |選用 |表示需要的使用者互動類型。 此時的有效值為「登入」、「無」和「同意」。  `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。  `prompt=none` 則相反 - 它會確保不會對使用者顯示任何互動式提示。 如果要求無法透過單一登入以無訊息方式完成，v2.0 端點會傳回錯誤。  `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
+| login_hint |選用 |如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 通常應用程式會在重新驗證期間使用此參數，已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。 |
+| domain_hint |選用 |可以是 `consumers` 或 `organizations` 其中一個。 如果包含，它會略過使用者在 v2.0 登入頁面上經歷的以電子郵件為基礎的探索程序，導致稍微更佳流暢的使用者經驗。  通常應用程式會在重新驗證期間使用此參數，方法是從 id_token 擷取 `tid` 宣告。  如果 `tid` 宣告值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，您應該使用 `domain_hint=consumers`。  否則，使用 `domain_hint=organizations`。 |
 
 此時，會要求使用者輸入其認證並完成驗證。  v2.0 端點也會確保使用者已經同意 `scope` 查詢參數所示的權限。  如果使用者未曾同意這些權限的任何一項，就會要求使用者同意要求的權限。  [這裡提供權限、同意與多租用戶應用程式](active-directory-v2-scopes.md)的詳細資料。
 
@@ -99,12 +99,12 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | 參數 | 說明 |
 | --- | --- |
-| access_token |如果 `response_type` 包含 `token` 則納入。 應用程式要求的存取權杖，在此案例中為 Microsoft Graph 的存取權杖。  存取權杖不得進行解碼或檢查，可被視為不透明的字串。 |
-| token_type |如果 `response_type` 包含 `token` 則納入。  一律為 `Bearer`。 |
-| expires_in |如果 `response_type` 包含 `token` 則納入。  表示權杖有效的秒數 (針對快取目的)。 |
+| access_token |如果 `response_type` 包含 `token` 則納入。 應用程式要求的存取權杖，在此案例中為 Microsoft Graph 的存取權杖。 存取權杖不得進行解碼或檢查，可被視為不透明的字串。 |
+| token_type |如果 `response_type` 包含 `token` 則納入。 一律為 `Bearer`。 |
+| expires_in |如果 `response_type` 包含 `token` 則納入。 表示權杖有效的秒數 (針對快取目的)。 |
 | scope |如果 `response_type` 包含 `token` 則納入。  表示在 access_token 的有效範圍。 |
 | id_token |應用程式要求的 id_token。 您可以使用 id_token 確認使用者的身分識別，並以使用者開始工作階段。  如需 id_token 及其內容的詳細資訊，請參閱 [v2.0 端點權杖參考](active-directory-v2-tokens.md)。 |
-| state |如果要求中包含狀態參數，回應中就應該出現相同的值。 應用程式應確認要求和回應中的狀態值完全相同。 |
+| state |如果要求中包含狀態參數，回應中就應該出現相同的值。 應用程式應該確認要求和回應中的狀態值完全相同。 |
 
 #### <a name="error-response"></a>錯誤回應
 錯誤回應可能也會傳送至 `redirect_uri` ，讓應用程式可以適當地處理：
@@ -215,6 +215,16 @@ error=user_authentication_required
 | error_description |協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
 
 如果您在 iframe 要求中收到此錯誤，使用者必須再次以互動方式登入以擷取新的權杖。  您可以選擇對於您的應用程式合理的任何方式處理這種情況。
+
+## <a name="validating-access-tokens"></a>驗證存取權杖
+
+一旦您收到 access_token，請務必要驗證權杖的簽章以及下列宣告。 您也可以選擇根據您的案例驗證其他宣告。 
+
+* **對象**宣告，用以確定權杖預定要提供給您的應用程式
+* **簽發者**宣告 - 用以確認權杖是由 v2.0 端點簽發給您的應用程式
+* **生效時間**和**到期時間**宣告，用以確認權杖尚未過期
+
+如需存取權杖中所出示宣告的詳細資訊，請參閱 [v2.0 端點權杖參考](active-directory-v2-tokens.md)
 
 ## <a name="refreshing-tokens"></a>重新整理權杖
 `id_token` 和 `access_token` 馬上就會到期，因此您的應用程式必須準備好定期重新整理這些權杖。  若要重新整理其中任何一個類型的權杖，您可以使用 `prompt=none` 參數來控制 Azure AD 的行為，執行上述的相同隱藏的 iframe 要求。  如果您想要收到新的 `id_token`，務必使用 `response_type=id_token` 和 `scope=openid`，以及 `nonce` 參數。

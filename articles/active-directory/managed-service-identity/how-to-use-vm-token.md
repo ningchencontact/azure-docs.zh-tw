@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 947e26aadd06e1420e95a6d25ff96e631265db3f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 541055eeae5e2c0eaff2fb88d8e83fdc43ba08b0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>如何使用 Azure 虛擬機器受控服務識別 (MSI) 來取得權杖 
 
@@ -59,18 +59,18 @@ ms.lasthandoff: 04/18/2018
 使用 MSI 執行個體中繼資料服務 (IMDS) 端點 (建議) 的範例要求：
 
 ```
-GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
+GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1 Metadata: true
 ```
 
 | 元素 | 說明 |
 | ------- | ----------- |
 | `GET` | HTTP 指令動詞，指出您想要擷取端點中的資料。 在此案例中是 OAuth 存取權杖。 | 
 | `http://169.254.169.254/metadata/identity/oauth2/token` | 執行個體中繼資料服務的 MSI 端點。 |
-| `api-version`  | 一個查詢字串參數，指出 IMDS 端點的 API 版本。  |
+| `api-version`  | 一個查詢字串參數，指出 IMDS 端點的 API 版本。 請使用 API `2018-02-01` 版或更新版本。 |
 | `resource` | 查詢字串參數，指出目標資源的應用程式識別碼 URI。 也會出現在所核發權杖的 `aud` (對象) 宣告中。 此範例會要求用來存取 Azure Resource Manager 的權杖，其中包含應用程式識別碼 URI https://management.azure.com/。 |
 | `Metadata` | HTTP 要求標頭欄位，MSI 需此元素以減輕伺服器端偽造要求 (SSRF) 攻擊。 此值必須設定為 "true" (全部小寫)。
 
-使用 MSI VM 延伸模組端點 (淘汰計劃即將到來) 的範例要求：
+使用 MSI VM 延伸模組端點 *(即將被取代)* 的範例要求：
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -230,6 +230,11 @@ func main() {
 2. 使用存取權杖來呼叫 Azure Resource Manager REST API，並取得虛擬機器的相關資訊。 請務必以您的訂用帳戶識別碼、資源群組名稱和虛擬機器名稱各別取代 `<SUBSCRIPTION-ID>`、`<RESOURCE-GROUP>` 和 `<VM-NAME>`。
 
 ```azurepowershell
+Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Headers @{Metadata="true"}
+```
+
+說明如何對回應中的存取權杖進行剖析的範例：
+```azurepowershell
 # Get an access token for the MSI
 $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F `
                               -Headers @{Metadata="true"}
@@ -247,7 +252,14 @@ echo $vmInfoRest
 ## <a name="get-a-token-using-curl"></a>使用 CURL 取得權杖
 
 ```bash
-response=$(curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H Metadata:true -s)
+curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s
+```
+
+
+說明如何對回應中的存取權杖進行剖析的範例：
+
+```bash
+response=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s)
 access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
 echo The MSI access token is $access_token
 ```
@@ -281,7 +293,7 @@ MSI 端點會透過 HTTP 回應訊息標頭的狀態碼欄位 (如 4xx 或 5xx �
 
 本節會說明可能的錯誤回應。 「200 確定」狀態是成功的回應，而且存取權杖會包含在回應主體 JSON 中 (在 access_token 元素中)。
 
-| 狀態碼 | 錯誤 | 錯誤說明 | 解決方法 |
+| 狀態碼 | Error | 錯誤說明 | 解決方法 |
 | ----------- | ----- | ----------------- | -------- |
 | 400 不正確的要求 | invalid_resource | AADSTS50001：在名為 \<TENANT-ID\> 的租用戶中找不到名為 \<URI\> 的應用程式。 如果租用戶的系統管理員尚未安裝此應用程式或租用戶中的任何使用者尚未同意使用此應用程式，也可能會發生此錯誤。 您可能會將驗證要求傳送至錯誤的租用戶。\ | (僅限 Linux) |
 | 400 不正確的要求 | bad_request_102 | 未指定必要的中繼資料標頭 | 要求中遺漏 `Metadata` 要求標頭欄位，或欄位的格式不正確。 值必須指定為 `true` (全部小寫)。 相關範例請參閱[前一節 REST](#rest) 中的「範例要求」。|
@@ -310,7 +322,7 @@ MSI 端點會透過 HTTP 回應訊息標頭的狀態碼欄位 (如 4xx 或 5xx �
 
 ## <a name="related-content"></a>相關內容
 
-- 若要在 Azure VM 上啟用 MSI，請參閱[使用 Azure 入口網站設定「VM 受控服務識別 (MSI)」](qs-configure-portal-windows-vm.md)。
+- 若要在 Azure VM 上啟用 MSI，請參閱[使用 Azure 入口網站設定「VM 受控服務身分識別 (MSI)」](qs-configure-portal-windows-vm.md)。
 
 使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。
 

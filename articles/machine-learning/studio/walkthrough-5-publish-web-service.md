@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 416a6d1c151fae01a00d00282ab9118e7391fbb7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6472b795c9b3651160af4d1520bfd1c90a500b5f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>逐步解說步驟 5：部署 Azure Machine Learning Web 服務
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)
@@ -106,7 +106,7 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 > 
 > 
 
-最後一次執行實驗 (按一下 **執行**)。如果要確認模型仍然有效，請按一下 [評分模型][score-model]模組的輸出結果，並選取 [檢視結果]。 您可以看到原始資料出現，也會看到信用風險值 ("Scored Labels") 和評分機率值 ("Scored Probabilities")。 
+最後一次執行實驗 (按一下 [執行])。如果要確認模型仍然有效，請按一下 [評分模型][][score-model]模組的輸出結果，並選取 [檢視結果]。 您可以看到原始資料出現，也會看到信用風險值 ("Scored Labels") 和評分機率值 ("Scored Probabilities")。 
 
 ## <a name="deploy-the-web-service"></a>部署 Web 服務
 您可以將實驗部署為傳統 Web 服務或架構在 Azure Resource Manager 上的新式 Web 服務。
@@ -220,4 +220,4 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/20/2018
 ms.author: larryfr
-ms.openlocfilehash: b96f457bc13ae3e412580096a1f9be865e64cb74
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 970ccf19b5668bd57118fcabc5018c60352ebde7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>使用 Beeline 用戶端搭配 Apache Hive
 
@@ -252,10 +252,17 @@ Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 
 
 Spark 提供自己的 HiveServer2 實作，這有時是指 Spark Thrift 伺服器。 此服務會使用 Spark SQL 來解析查詢而不是 Hive，並可能提供更佳的效能 (視您的查詢而定)。
 
-若要連線到 HDInsight 叢集上 Spark 的 Spark Thrift 伺服器，請使用連接埠 `10002` 而不是 `10001`。 例如： `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`。
+透過網際網路連線時使用的__連接字串__會稍有不同。 不是包含 `httpPath=/hive2`，而是 `httpPath/sparkhive2`。 以下是透過網際網路連線的範例：
 
-> [!IMPORTANT]
-> 無法透過網際網路直接存取 Spark Thrift 伺服器。 您只能從 SSH 工作階段或在與 HDInsight 叢集相同的 Azure 虛擬網路內連線到它。
+```bash 
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+直接從叢集前端節點，或是從 Azure 虛擬網路 (與 HDInsight 叢集相同) 內的資源進行連線時，應對 Spark Thrift 伺服器使用連接埠 `10002`，而非 `10001`。 以下是直接連線到前端節點的範例：
+
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+```
 
 ## <a id="summary"></a><a id="nextsteps"></a>後續步驟
 

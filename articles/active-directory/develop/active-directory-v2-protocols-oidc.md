@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 2.0 版和 OpenID Connect 通訊協定 | Microsoft Docs"
-description: "使用 Azure AD v2.0 的 OpenID Connect 驗證通訊協定實作來建置 Web 應用程式。"
+title: Azure Active Directory 2.0 版和 OpenID Connect 通訊協定 | Microsoft Docs
+description: 使用 Azure AD v2.0 的 OpenID Connect 驗證通訊協定實作來建置 Web 應用程式。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 568c2128a12abd4f3c366eae943e3ea8c1af2532
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3f5b6a68cf6ee38d1dc2317381ec33f035c57569
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory 2.0 和 OpenID Connect 通訊協定
 OpenID Connect 在 OAuth 2.0 上建置的驗證通訊協定，可用來讓使用者安全地登入 Web 應用程式。 當您使用 v2.0 端點的 OpenID Connect 實作時，可以在您的 Web 型應用程式中新增登入和 API 存取。 在本文中，我們將示範如何在不受語言限制的情況下執行此操作。 我們將說明如何傳送及接收 HTTP 訊息，但不使用任何 Microsoft 開放原始碼程式庫。
@@ -29,7 +29,7 @@ OpenID Connect 在 OAuth 2.0 上建置的驗證通訊協定，可用來讓使用
 > 
 > 
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 將 OAuth 2.0「授權」通訊協定延伸來當作「驗證」通訊協定使用，以便讓您能夠使用 OAuth 來執行單一登入。 OpenID Connect 引進了「識別碼權杖」的概念，這是一種安全性權杖，可讓用戶端確認使用者的身分識別。 識別碼權杖也會取得使用者的相關基本設定檔資訊。 由於 OpenID Connect 延伸了 OAuth 2.0，因此應用程式可以安全地取得「存取權杖」，而這些權杖可用來存取受[授權伺服器](active-directory-v2-protocols.md#the-basics)保護的資源。 如果您要建置裝載於伺服器上且透過瀏覽器存取的 [Web 應用程式](active-directory-v2-flows.md#web-apps)，建議您使用 OpenID Connect。
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 將 OAuth 2.0「授權」通訊協定延伸來當作「驗證」通訊協定使用，以便讓您能夠使用 OAuth 來執行單一登入。 OpenID Connect 引進了「識別碼權杖」的概念，這是一種安全性權杖，可讓用戶端確認使用者的身分識別。 識別碼權杖也會取得使用者的相關基本設定檔資訊。 由於 OpenID Connect 延伸了 OAuth 2.0，因此應用程式可以安全地取得「存取權杖」，而這些權杖可用來存取受[授權伺服器](active-directory-v2-protocols.md#the-basics)保護的資源。 v2.0 端點也可允許已向 Azure AD 註冊的第三方應用程式，針對受保護的資源發出存取權杖，例如 Web API。 如需如何設定應用程式以發出存取權杖的詳細資訊，請參閱[如何使用 v2.0 端點註冊 App](active-directory-v2-app-registration.md)。 如果您要建置裝載於伺服器上且透過瀏覽器存取的 [Web 應用程式](active-directory-v2-flows.md#web-apps)，建議您使用 OpenID Connect。
 
 ## <a name="protocol-diagram-sign-in"></a>通訊協定圖表：登入
 最基本的登入流程包含下圖中顯示的步驟。 我們會在本文中詳細說明每個步驟。
@@ -221,7 +221,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 ```
 
 > [!TIP]
-> 請按一下以下連結來執行此要求。 登入之後，您的瀏覽器將會重新導向至 https://localhost/myapp/，網址列中會有識別碼權杖和代碼。 請注意，此要求會使用 `response_mode=query` (僅限用於示範)。 建議您使用 `response_mode=form_post`。
+> 請按一下以下連結來執行此要求。 登入之後，您的瀏覽器將會重新導向至 https://localhost/myapp/，且網址列中會有識別碼權杖和代碼。 請注意，此要求會使用 `response_mode=query` (僅限用於示範)。 建議您使用 `response_mode=form_post`。
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 

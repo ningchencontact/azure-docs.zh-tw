@@ -1,8 +1,8 @@
 ---
-title: "什麼是 Azure Application Insights？ | Microsoft Docs"
-description: "即時 Web 應用程式的應用程式效能管理和使用量追蹤。  偵測、分級和診斷問題，了解人們如何使用您的應用程式。"
+title: 什麼是 Azure Application Insights？ | Microsoft Docs
+description: 即時 Web 應用程式的應用程式效能管理和使用量追蹤。  偵測、分級和診斷問題，了解人們如何使用您的應用程式。
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
@@ -14,11 +14,11 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 05/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2e2a9e8491ad56bcbc42be64729715016f7ed17b
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 6e4cc8b399a3d3b1db1c52aafc8a73edb784d13b
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="what-is-application-insights"></a>什麼是 Application Insights？
 Application Insights 是多個平台上的 Web 開發人員所適用的可延伸「應用程式效能管理」(APM) 服務。 您可以使用它來監視即時 Web 應用程式。 它將會自動偵測效能異常。 其中包括強大的分析工具可協助您診斷問題，並了解使用者實際如何運用您的應用程式。  它是設計來協助您持續改善效能和可用性。 它適用於各種不同平台上的應用程式，包括裝載在內部部署或雲端的 .NET、Node.js 和 J2EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。 透過整合 VVisual Studio App Center 與 HockeyApp，還可以從行動應用程式監視並分析遙測資料。
@@ -70,7 +70,7 @@ Application Insights 是以開發小組為目標，以協助您了解您的應�
 | [**使用量分析**](app-insights-usage-overview.md)<br/>分析使用者區隔和保留期。|![保留期工具](./media/app-insights-overview/retention.png) |
 | [**執行個體資料的診斷搜尋**](app-insights-diagnostic-search.md)<br/>搜尋和篩選事件，例如要求、例外狀況、相依性呼叫、記錄追蹤，以及頁面檢視。  |![搜尋遙測](./media/app-insights-overview/search-tn.png) |
 | [**彙總資料的計量瀏覽器**](app-insights-metrics-explorer.md)<br/>瀏覽、篩選和分割彙總的資料，例如，要求、錯誤和例外狀況的比率；回應時間、頁面載入時間。 |![度量](./media/app-insights-overview/metrics-tn.png) |
-| [**儀表板**](app-insights-dashboards.md#dashboards)<br/>來自多個資源的交互式資料並與其他人員共用。 非常適用於多元件的應用程式，以及小組聊天室中的連續顯示。 |![儀表板範例](./media/app-insights-overview/dashboard-tn.png) |
+| [** 儀表板**](app-insights-dashboards.md#dashboards)<br/>來自多個資源的交互式資料並與其他人員共用。 非常適用於多元件的應用程式，以及小組聊天室中的連續顯示。 |![儀表板範例](./media/app-insights-overview/dashboard-tn.png) |
 | [**即時計量串流**](app-insights-live-stream.md)<br/>當您部署新的組建時，請觀看這些近乎即時的效能指標，以確定一切如預期運作。 |![即時計量範例](./media/app-insights-overview/live-metrics-tn.png) |
 | [**分析**](app-insights-analytics.md)<br/>使用這個功能強大的查詢語言，回答有關您應用程式效能和使用方式的艱難問題。 |![分析範例](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](app-insights-visual-studio.md)<br/>查看程式碼中的效能資料。 從堆疊追蹤移至程式碼。|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
@@ -116,7 +116,7 @@ Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙
   * [Eclipse](app-insights-java-eclipse.md) 或 [其他工具](app-insights-java-get-started.md) 中的 Java
   * [Node.js](app-insights-nodejs.md)
   * [其他平台](app-insights-platforms.md)
-* **[檢測您的網頁](app-insights-javascript.md)**的頁面檢視、AJAX 和其他用戶端遙測。
+* **[檢測您的網頁](app-insights-javascript.md)** 的頁面檢視、AJAX 和其他用戶端遙測。
 * 藉由與 Visual Studio App Center 整合，來**[分析行動應用程式使用方式](app-insights-mobile-center-quickstart.md)**。
 * **[可用性集合](app-insights-monitor-web-app-availability.md)** - 定期從我們的伺服器 ping 您的網站。
 
@@ -151,13 +151,13 @@ Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙
 
 <!--Link references-->
 
-[android]: https://github.com/Microsoft/ApplicationInsights-Android
+[android]: app-insights-mobile-center-quickstart.md
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
 [greenbrown]: app-insights-asp-net.md
-[ios]: https://github.com/Microsoft/ApplicationInsights-iOS
+[ios]: app-insights-mobile-center-quickstart.md
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: app-insights-platforms.md

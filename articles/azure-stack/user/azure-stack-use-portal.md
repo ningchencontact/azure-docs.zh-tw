@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/18/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2e66a65665fe2021d1154990ed1156f8d168b5c3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 279722cc53889cb0a261fcffde0c7e0f86be6dc5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>使用 Azure Stack 入口網站
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 04/18/2018
 
 如果您需要其他支援，請連絡您的組織或服務提供者以取得協助。
 
-如果您使用的是「Azure Stack 開發套件」，則 [Azure Stack 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)是唯一的支援方式。
+如果您使用「Azure Stack 開發套件」，則 [Azure Stack 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)是唯一的支援來源。
 
 ## <a name="next-steps"></a>後續步驟
 

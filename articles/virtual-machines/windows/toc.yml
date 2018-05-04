@@ -102,8 +102,14 @@
           href: disk-scalability-targets.md
         - name: 磁碟備份和災害復原
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: 如何啟用寫入加速器
+          href: how-to-enable-write-accelerator.md
         - name: 針對連接的 VHD 進行疑難排解
-          href: troubleshoot-vhds.md
+          items:
+            - name: 儲存體資源刪除發生錯誤
+              href: storage-resource-deletion-errors.md
+            - name: 包含連結 VHD 的 VM 非預期重新開機
+              href: unexpected-reboots-attached-vhds.md
     - name: 網路
       href: network-overview.md
     - name: 自動調整應用程式
@@ -187,6 +193,8 @@
           href: move-vm.md
         - name: 變更 VM 大小
           href: resize-vm.md
+        - name: 交換 OS 磁碟
+          href: os-disk-swap.md
         - name: 標記 VM
           href: tag.md
         - name: 在 VM 上執行指令碼

@@ -62,7 +62,7 @@ Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install**
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell 預期狀態設定 (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) 是一個管理平台，可定義目標電腦的設定。 也可透過 [Open Management Infrastructure (OMI) 伺服器](https://collaboration.opengroup.org/omi/)在 Linux 上使用 DSC。
+[PowerShell 預期狀態設定 (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) 是一個管理平台，可定義目標電腦的設定。 也可透過 [Open Management Infrastructure (OMI) 伺服器](https://collaboration.opengroup.org/omi/)在 Linux 上使用 DSC。
 
 DSC 設定會定義要在電腦上安裝的項目，以及設定主機的方式。 本機設定管理員 (LCM) 引擎會在每個目標節點上執行，這些節點會以推送組態作為基礎來處理要求的動作。 提取伺服器是一項在中央主機上執行的 web 服務，可儲存 DSC 設定和相關聯的資源。 提取伺服器會與每個目標主機上的 LCM 引擎通訊，以提供必要的合規性相關設定和報告。
 

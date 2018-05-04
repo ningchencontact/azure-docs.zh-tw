@@ -1,26 +1,26 @@
 ---
-title: "Azure Active Directory 條件式存取中的條件 | Microsoft Docs"
-description: "了解如何在 Azure Active Directory 條件式存取中使用指派來觸發原則。"
+title: Azure Active Directory 條件式存取中的條件 | Microsoft Docs
+description: 了解如何在 Azure Active Directory 條件式存取中使用指派來觸發原則。
 services: active-directory
-keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
-documentationcenter: 
+keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的條件 
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 02/13/2018
 
 您可以選取：
 
-- [所有雲端應用程式]，以針對要套用至整個組織的原則設定基準。 此選項的其中一個常見使用案例，就是在偵測到任何雲端應用程式有登入風險時，要求執行多重要素驗證的原則。
+- [所有雲端應用程式]，以針對要套用至整個組織的原則設定基準。 此選項的其中一個常見使用案例，就是在偵測到任何雲端應用程式有登入風險時，要求執行多重要素驗證的原則。 套用至**所有雲端應用程式**的原則，也會套用至所有網站和服務的存取。 此設定並非僅限於 [選取雲端應用程式] 清單上出現的雲端應用程式。
 
 - 個別雲端應用程式，以依據原則將特定服務當作目標。 例如，您可以要求使用者必須具備[符合規範的裝置](active-directory-conditional-access-policy-connected-applications.md)，才能存取 SharePoint Online。 當使用者存取 SharePoint 內容 (例如 Microsoft Teams) 時，此原則也會套用至其他服務。 
 

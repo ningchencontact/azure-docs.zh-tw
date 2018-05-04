@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5a6fd54e4d20e55116bc0fa771e039e5ea2bb30b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fd68658d2549e47f69005af4012c2c328e192631
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教學課程：將現有的自訂 SSL 憑證繫結至 Azure Web Apps
 
@@ -232,9 +232,17 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 在 Web 應用程式頁面的左側導覽列中，選取 [SSL 設定]。 然後，在 [TLS 版本] 中，選取您想要的最低 TLS 版本。
 
-![強制使用 HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+![強制使用 TLS 1.1 或 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 當作業完成時，您的應用程式會拒絕與較低 TLS 版本的所有連線。
+
+## <a name="renew-certificates"></a>更新憑證
+
+當您刪除繫結時，您可以變更輸入 IP 位址，即使該繫結是以 IP 為基礎亦然。 當您更新已在以 IP 為基礎的繫結中的憑證時，這一點更為重要。 若要避免變更應用程式的 IP 位址，請依序執行下列步驟：
+
+1. 上傳新憑證。
+2. 將新的憑證繫結至您要的自訂網域，而不刪除舊憑證。 此動作會取代繫結，而不會移除舊的繫結。
+3. 刪除舊憑證。 
 
 ## <a name="automate-with-scripts"></a>使用指令碼進行自動化
 
@@ -278,7 +286,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>公開憑證 (選擇性)
-您可以將[公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)上傳至 Web 應用程式。 您也可以在 App Service Environment 中使用應用程式的公開憑證。 如果您需要將憑證儲存在 LocalMachine 憑證存放區中，就必須使用 App Service Environment 上的 Web 應用程式。 如需詳細資訊，請參閱[如何設定 Web 應用程式的公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)。
+您可以將[公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)上傳至 Web 應用程式，讓應用程式能夠存取需要驗證憑證的外部服務。  如需關於在應用程式中載入及使用公開憑證的詳細資訊，請參閱[在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load)。  您也可以在 App Service Environment 中對應用程式使用公開憑證。 如果您需要將憑證儲存在 LocalMachine 憑證存放區中，就必須使用 App Service Environment 上的 Web 應用程式。 如需詳細資訊，請參閱[如何設定 Web 應用程式的公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)。
 
 ![上傳公開憑證](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3f5ad64a73bddbb64556ae7a329f91f93b99b016
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -121,7 +121,6 @@ ms.lasthandoff: 04/16/2018
 * 認知服務
 * 內容仲裁
 * 資料目錄
-* Data Factory
 * 資料湖分析
 * Data Lake Store
 * DNS
@@ -163,11 +162,14 @@ ms.lasthandoff: 04/16/2018
 * AD Domain Services
 * AD 混合式健康狀態服務
 * 應用程式閘道
+* 適用於 MySQL 的 Azure 資料庫
 * BizTalk 服務
+* 憑證 - App Service 憑證可以移動，但上傳的憑證則有其[限制](#app-service-limitations)。
 * 容器服務
-* ExpressRoute
+* Data Factory
 * DevTest Labs - 已啟用移動至相同訂用帳戶中新資源群組的功能，但未啟用跨訂用帳戶之間的移動。
 * Dynamics LCS
+* ExpressRoute
 * Load Balancer - 請參閱 [Load Balancer 限制](#lb-limitations)
 * 受控應用程式
 * 受控磁碟 - 請參閱[虛擬機器限制](#virtual-machines-limitations)

@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 04/19/2018
 ms.author: jgao
-ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>在 HDInsight 中的 Hadoop 叢集上使用空白邊緣節點
 
@@ -69,6 +69,9 @@ ms.lasthandoff: 04/16/2018
 >
 > 如果您使用 Apache 技術，您可以透過位於 [http://apache.org](http://apache.org) 的 Apache 專案網站 (例如 [Hadoop](http://hadoop.apache.org/) 網站) 尋求協助。
 
+> [!NOTE]
+> 和叢集一樣，邊緣節點也會受到修補程式的管理。  如需詳細資訊，請參閱 [HDInsight 的作業系統修補](./hdinsight-os-patching.md)。
+
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>將邊緣節點新增至現有叢集
 在本節中，您會使用 Resource Manager 範本將邊緣節點新增至現有 HDInsight 叢集。  Resource Manager 範本可在 [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/)中找到。 Resource Manager 範本會呼叫位於 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh 的指令碼動作。此指令碼不會執行任何動作。  其目的只是為了示範從 Resource Manager 範本呼叫指令碼動作。
 
@@ -115,6 +118,10 @@ ms.lasthandoff: 04/16/2018
      
      某些屬性已被硬式編碼在範本中︰叢集類型、叢集背景工作角色節點計數、邊緣節點大小與邊緣節點名稱。
 4. 核取 [我同意上方所述的條款及條件]，然後按一下 [購買] 以建立具有邊緣節點的叢集。
+
+## <a name="add-multiple-edge-nodes"></a>新增多個邊緣節點
+
+您可以將多個邊緣節點新增至 HDInsight 叢集。  多個邊緣節點的設定只能使用 Azure Resource Manager 範本來執行。  請參閱本文開頭處的範本範例。  您必須更新 **targetInstanceCount**，以反映您要建立的邊緣節點數目。
 
 ## <a name="access-an-edge-node"></a>存取邊緣節點
 邊緣節點 ssh 端點是 &lt;EdgeNodeName>.&lt;ClusterName>-ssh.azurehdinsight.net:22。  例如，new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22。

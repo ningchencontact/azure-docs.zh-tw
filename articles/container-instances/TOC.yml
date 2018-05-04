@@ -45,6 +45,8 @@
       href: container-instances-troubleshooting.md
     - name: ACI 上的 Jenkins 組建代理程式
       href: container-instances-jenkins.md
+    - name: 監視 CPU 和記憶體使用量
+      href: container-instances-monitor.md
     - name: 設定資料磁碟區
       items:
         - name: Azure 檔案

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8f41d8f508bb6ee5b50b7f304c703c4d9bed75d8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8f3d97e26b71c2e17753943f7004d7eb7ee19e44
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>教學課程：Azure Active Directory 與 Cisco Cloud 整合
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 04/05/2018
 
 **若要從資源庫新增 Cisco Cloud，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -117,33 +117,17 @@ ms.lasthandoff: 04/05/2018
     在 [登入 URL] 文字方塊中，輸入 URL：`https://<subdomain>.cloudapps.cisco.com`
      
     > [!NOTE] 
-    > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」和「登入 URL」更新這些值。 請連絡 [Cisco Cloud 用戶端支援小組](mailto:cpr-ops@cisco.com)以取得這些值。 
+    > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」和「登入 URL」更新這些值。 請連絡 [Cisco Cloud 用戶端支援小組](mailto:cpr-ops@cisco.com)以取得這些值。
 
-5. 按一下 [儲存]  按鈕。
+5. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+
+    ![憑證下載連結](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
+
+6. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-ciscocloud-tutorial/tutorial_general_400.png)
 
-6. 若要產生**中繼資料 URL**，請執行下列步驟：
-
-    a. 按一下 [應用程式註冊]。
-    
-    ![設定單一登入](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_appregistrations.png)
-   
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
-    
-    ![設定單一登入](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_endpointicon.png)
-
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_endpoint.png)
-     
-    d. 現在，移至 [Cisco Cloud] 的屬性頁面，使用 [複製] 按鈕複製 [應用程式識別碼]，並將它貼到記事本。
- 
-    ![設定單一登入](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. 若要在 **Cisco Cloud** 端設定單一登入，您必須將已下載的**中繼資料 URL** 傳送給 [Cisco Cloud 支援小組](mailto:cpr-ops@cisco.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+7. 若要在 **Cisco Cloud** 端設定單一登入，您必須將**應用程式同盟中繼資料 Url** 傳送給 [Cisco Cloud 支援小組](mailto:cpr-ops@cisco.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

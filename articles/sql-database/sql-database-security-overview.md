@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 6a66c9fe3716935a717dca984d1995ca371d9499
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b45e1434d648096a67c2f12046960926d2c7640d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-your-sql-database"></a>保護您的 SQL Database
 
@@ -39,7 +39,7 @@ SQL Database 會使用[傳輸層安全性](https://support.microsoft.com/kb/3135
 資料探索與分類 (目前處於預覽階段) 提供內建於 Azure SQL Database 的進階功能，可用於探索、分類、標記和保護您資料庫中的敏感性資料。 探索與分類您最具敏感性的資料 (商業/財務、醫療保健及 PII 等)，可在您組織的資訊保護方面扮演著關鍵角色。 它可以作為以下的基礎結構：
 
 - 各種安全性案例，例如針對敏感性資料異常存取的監視 (稽核) 及警示。
-- 對包含高度敏感性資料之資料庫進行存取控制並強化安全性。
+- 對包含高度敏感性資料的資料庫進行存取控制並強化安全性。
 - 協助符合資料隱私標準和法規合規性需求。
 
 如需詳細資訊，請參閱[開始使用 SQL DB 資料探索與分類](sql-database-data-discovery-and-classification.md)。 
@@ -66,7 +66,7 @@ SQL Database 驗證是指連線到資料庫時如何證明身分識別。 SQL Da
 資料列層級安全性讓客戶能夠根據執行查詢之使用者的特性 (例如，群組成員資格或執行內容) 來控制資料庫資料表中的資料列存取。 如需詳細資訊，請參閱[資料列層級安全性](https://msdn.microsoft.com/library/dn765131)。
 
 ### <a name="dynamic-data-masking"></a>動態資料遮罩 
-SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用者無法看見機密資料。 動態資料遮罩會自動探索 Azure SQL Database 中的可能敏感性資料，並提供可動作的建議來為這些欄位加上遮罩，盡量避免對應用程式層造成影響。 其運作方式為針對指定的資料庫欄位隱匿查詢結果集中的敏感性資料，而不變更資料庫中的資料。 如需詳細資訊，請參閱[開始使用 SQL Database 動態資料遮罩](sql-database-dynamic-data-masking-get-started.md)，其可以用來限制敏感性資料的公開。
+SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用者無法看見機密資料。 動態資料遮罩會自動探索 Azure SQL Database 中的可能敏感性資料，並提供可動作的建議來為這些欄位加上遮罩，盡量避免對應用程式層造成影響。 其運作方式為針對指定的資料庫欄位隱匿查詢結果集中的敏感性資料，而不變更資料庫中的資料。 如需詳細資訊，請參閱[開始使用 SQL Database 動態資料遮罩](sql-database-dynamic-data-masking-get-started.md)。
 
 ## <a name="proactive-monitoring"></a>主動監視
 SQL Database 可藉由提供稽核和威脅偵測功能來保護您的資料。 

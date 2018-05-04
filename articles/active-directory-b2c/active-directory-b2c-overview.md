@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: davidmu
-ms.openlocfilehash: 4f2c47f3e2debe0dc2b919858af9c347da00be5b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ca9e45a214639da86cf8e0c4a39b3e3d6b6d6491
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>什麼是 Azure Active Directory B2C？
 
@@ -72,7 +72,7 @@ Azure AD B2C 可透過多種方式防止對您的應用程式發動的拒絕服�
 
 #### <a name="custom-policies"></a>自訂原則 
 
-自訂原則是一種組態檔，可定義 Azure AD B2C 租用戶中的身分識別體驗架構的行為。 自訂原則可完整編輯以完成多項工作。 自訂原則以一或多個 XML 格式的檔案表示，各檔案在階層鏈中彼此參考。 
+[自訂原則](active-directory-b2c-overview-custom.md)是一種組態檔，可定義 Azure AD B2C 租用戶中的身分識別體驗架構的行為。 自訂原則可完整編輯以完成多項工作。 自訂原則以一或多個 XML 格式的檔案表示，各檔案在階層鏈中彼此參考。 
 
 您可以視需要在 Azure AD B2C 租用戶中使用不同類型的多個自訂原則，並且可以跨應用程式重複使用。 此一彈性可讓您在稍微變更或完全不變更程式碼的情況下，定義及修改客戶的身分識別體驗。 您可以在 HTTP 驗證要求中新增特定查詢參數，以使用原則。
 

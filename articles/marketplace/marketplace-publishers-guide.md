@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 999c9bc04cffcfe3e352d877ebf9e19fc7c7df35
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 和 AppSource 發行者指南
 
@@ -253,7 +253,7 @@ Microsoft 客戶有時會使用 Enterprise 合約來支付 Microsoft 產品，�
 
 |**需求**  | **詳細資料**  |**發行選項**  |
 |---------|---------|---------|
-|**免費試用期與試用版體驗**     |  客戶必須能在限時內免費使用您的應用程式。<br><br>這表示，客戶不需要支付產品的授權或訂用帳戶費用或基礎的 Microsoft 第一方產品或服務成本。 由於所有試用版選項都部署在發行者的 Microsoft 產品訂用帳戶，因此試用版成本最佳化與管理完全由發行者掌控。<br><br>您可以選擇免費試用版、互動式示範或試用產品。 無論您的選擇為何，免費試用版都必須讓客戶能以最短的時間試用應用程式，無須支付額外費用。<br><br>若要開始建立試用產品的程序，請與 cloudmarketplace@microsoft.com 聯繫。 <br><br>請注意，Azure Marketplace SaaS 試用版體驗必須允許使用者以其 Active Directory 工作認證登入。 [深入了解](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences)。 |   試用版      | 
+|**免費試用期與試用版體驗**     |  客戶必須能在限時內免費使用您的應用程式。<br><br>這表示，客戶不需要支付產品的授權或訂用帳戶費用或基礎的 Microsoft 第一方產品或服務成本。 由於所有試用版選項都部署在發行者的 Microsoft 產品訂用帳戶，因此試用版成本最佳化與管理完全由發行者掌控。<br><br>您可以選擇免費試用版、互動式示範或試用產品。 無論您的選擇為何，免費試用版都必須讓客戶能以最短的時間試用應用程式，無須支付額外費用。<br><br>若要開始建立試用產品的程序，請與 cloudmarketplace@microsoft.com 聯繫。 <br><br>請注意，Azure Marketplace SaaS 試用版體驗必須允許使用者以其 Active Directory 工作認證登入。 [深入了解](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences)。 |   試用版      | 
 | **可輕鬆設定的周全解決方案**    |  應用程式的設定和安全必須既簡單又快速。       |  試用版       |
 |**可用性/執行時間**    |    SaaS 應用程式或平台的執行時間必須至少達到 99.9%。     |    試用版     |
 |**Azure Active Directory**    |    供應項目必須允許 Azure Active Directory (Azure AD) 同盟單一登入 (SSO) 並同意啟用。      |  試用版|
@@ -264,7 +264,7 @@ Microsoft 客戶有時會使用 Enterprise 合約來支付 Microsoft 產品，�
 |**需求**  |**詳細資料** |**發行選項**  |
 |---------|---------|---------|
 |**計費和計量**    |  虛擬機器必須支援自備授權或依使用量每月計費。       |    交易    |
-|**Azure 相容的虛擬硬碟 (VHD)**     |   虛擬機器必須內建在 [Windows](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) 或 [Linux](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) 上。    |   交易      |
+|**Azure 相容的虛擬硬碟 (VHD)**     |   虛擬機器必須內建在 [Windows](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) 或 [Linux](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) 上。    |   交易      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>諮詢服務發行特有的必要條件
 
@@ -277,7 +277,7 @@ Microsoft 客戶有時會使用 Enterprise 合約來支付 Microsoft 產品，�
 ## <a name="using-azure-active-directory-to-enable-trials"></a>使用 Azure Active Directory 啟用試用版
 Azure Active Directory 是一種雲端識別服務，可使用以下業界標準通訊協定以 Microsoft 公司或學校帳戶進行驗證：OAuth 與 OpenID Connect。 在[產品網頁](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features)上深入瞭解 Azure AD。 
 
-Microsoft 會使用 AAD 來驗證所有 Marketplace 使用者。 已驗證的使用者點選試用版清單並重新導向至試用版環境時，您可以將使用者直接佈建置至試用版，而不需要額外的登入步驟。 [您的應用程式在驗證期間從 Azure AD 收到的權杖](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens)，包含可用以在應用程式中建立使用者帳戶的寶貴使用者資訊。 其後，您可以將佈建體驗自動化，並增加轉換的可能性。 
+Microsoft 會使用 AAD 來驗證所有 Marketplace 使用者。 已驗證的使用者點選試用版清單並重新導向至試用版環境時，您可以將使用者直接佈建置至試用版，而不需要額外的登入步驟。 [您的應用程式在驗證期間從 Azure AD 收到的權杖](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens)，包含可用以在應用程式中建立使用者帳戶的寶貴使用者資訊。 其後，您可以將佈建體驗自動化，並增加轉換的可能性。 
 
 使用 Azure AD 對應用程式或試用版啟用單鍵驗證：
 
@@ -292,20 +292,20 @@ Microsoft 會使用 AAD 來驗證所有 Marketplace 使用者。 已驗證的使
 
 - 在 Azure 入口網站中註冊您的應用程式。
 - 在 Azure AD 中啟用多租用戶支援功能，以獲得單鍵試用體驗。
-- [深入了解](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)。
+- [深入了解](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)。
 
 如果您剛剛接觸 Azure AD 同盟 SSO：
 
 - 在 Azure 入口網站中註冊您的應用程式。
-- 使用 [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 或 [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)，開發透過 Azure AD 的 SSO。
+- 使用 [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 或 [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)，開發透過 Azure AD 的 SSO。
 - 在 Azure AD 中啟用多租用戶支援功能，以獲得單鍵試用體驗。
-- [深入了解](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified)。
+- [深入了解](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified)。
 
 ### <a name="certify-your-azure-ad-integration-for-the-marketplace-single-tenant-applications"></a>認證您的 Azure AD 與 Marketplace 的整合：單一租用戶應用程式
 
 單一租用戶應用程式有多個選項：
 
-- 使用 [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) 將使用者新增至目錄作為來賓使用者。
+- 使用 [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) 將使用者新增至目錄作為來賓使用者。
 - 透過「與我連絡」為客戶手動佈建試用版。
 - 開發每個客戶的「試用產品」。
 - 建置使用 SSO 的多租用戶範例示範應用程式。
@@ -316,11 +316,11 @@ Microsoft 會使用 AAD 來驗證所有 Marketplace 使用者。 已驗證的使
 
 |產品 |發行資訊  |
 |---------|---------|
-|Office 365     |    檢閱[發佈程序和指導方針]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store)。     |
-|Dynamics 365 for Finance and Operations  |   建置 Enterprise Edition 時，請檢閱[發行程序和指導方針](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)。      |
-|Dynamics 365 for Customer Engagement |檢閱[發佈程序和指導方針](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource)。 |
-|Power BI   |     檢閱[發佈程序和指導方針]( https://docs.microsoft.com/en-us/power-bi/developer/office-store)。    |
-|Cortana Intelligence     |    深入了解 [AppSource 中的 Cortana](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide)。     |
+|Office 365     |    檢閱[發佈程序和指導方針]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store)。     |
+|Dynamics 365 for Finance and Operations  |   建置 Enterprise Edition 時，請檢閱[發行程序和指導方針](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)。      |
+|Dynamics 365 for Customer Engagement |檢閱[發佈程序和指導方針](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource)。 |
+|Power BI   |     檢閱[發佈程序和指導方針]( https://docs.microsoft.com/power-bi/developer/office-store)。    |
+|Cortana Intelligence     |    深入了解 [AppSource 中的 Cortana](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide)。     |
 |AppSource 諮詢供應項目     |  檢閱[指導方針並了解如何提交您的供應項目](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)。    |
 
 
@@ -522,11 +522,11 @@ Microsoft 會使用 AAD 來驗證所有 Marketplace 使用者。 已驗證的使
 
 您的開發人員帳戶主要應從受信任的電腦存取。 這點很重要，因為每個帳戶每週產生的安全碼數目有所限制。 使用受信任的電腦也可提供最順暢的登入體驗。
 
-如需其他開發人員帳戶指導方針和安全性的詳細資訊，請參閱[開啟開發人員帳戶](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account)。
+如需其他開發人員帳戶指導方針和安全性的詳細資訊，請參閱[開啟開發人員帳戶](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account)。
 
 ### <a name="guidance-for-microsoft-ids-in-an-azure-ad-federated-domain"></a>Azure AD 同盟網域中的 Microsoft ID 指導方針
 
-您的公司帳戶可透過 [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/) 進行同盟。 如果您嘗試以公司電子郵件地址來建立 Microsoft ID，就會傳回錯誤。 如果您收到錯誤，請先向 IT 團隊洽詢，確定是這種情況。 這是已知問題，我們正在努力解決中。 
+您的公司帳戶可透過 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) 進行同盟。 如果您嘗試以公司電子郵件地址來建立 Microsoft ID，就會傳回錯誤。 如果您收到錯誤，請先向 IT 團隊洽詢，確定是這種情況。 這是已知問題，我們正在努力解決中。 
 
 為因應此問題，建議您在 @outlook.com 網域中建立新的電子郵件地址，並建立規則。 請遵循下列步驟：
 
@@ -562,7 +562,7 @@ Microsoft 會使用 AAD 來驗證所有 Marketplace 使用者。 已驗證的使
 5. 針對 [帳戶類型] 選取 [公司]，然後選取 [下一步] 按鈕。
 
    >[!IMPORTANT]
-   >若要進一步了解帳戶類型，以及何者最適合您的選擇，請參閱[帳戶類型、位置和費用](https://docs.microsoft.com/en-us/windows/uwp/publish/account-types-locations-and-fees)。
+   >若要進一步了解帳戶類型，以及何者最適合您的選擇，請參閱[帳戶類型、位置和費用](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees)。
 
 6. 針對 [發行者顯示名稱]，輸入適當的顯示名稱 (通常是公司的名稱)。
 

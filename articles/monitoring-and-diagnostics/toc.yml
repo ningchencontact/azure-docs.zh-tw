@@ -67,6 +67,8 @@
           href: insights-alerts-powershell.md
         - name: Webhook 動作記錄警示
           href: monitor-alerts-unified-log-webhook.md
+        - name: 使用 Resource Manager 範本建立較新的計量警示
+          href: monitoring-create-metric-alerts-with-templates.md
         - name: 使用 Resource Manager 範本建立傳統計量警示
           href: monitoring-enable-alerts-using-template.md
         - name: 將警示從 OMS 入口網站複製到 Azure 入口網站
@@ -133,7 +135,7 @@
           href: monitoring-autoscale-get-started.md
         - name: 了解自動調整設定
           href: monitoring-understanding-autoscale-settings.md
-        - name: 最佳作法
+        - name: 最佳做法
           href: insights-autoscale-best-practices.md
         - name: 常見計量
           href: insights-autoscale-common-metrics.md
@@ -169,7 +171,7 @@
       href: monitoring-diagnostic-logs-schema.md
     - name: 活動記錄事件結構描述
       href: monitoring-activity-log-schema.md
-    - name: Azure 診斷延伸結構描述
+    - name: Azure 診斷擴充功能結構描述
       href: azure-diagnostics-schema.md
 - name: 資源
   items:

@@ -9,11 +9,11 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 03/07/2018
 ms.author: carlrab
-ms.openlocfilehash: a3b703c96e309294e5327fb7fb013cbf28c369e4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2b47dfbac3ee5c91e416fb234468fe22aa936c4c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什麼是 Azure SQL Database 服務？ 
 
@@ -72,9 +72,9 @@ SQL Database 受控執行個體目前處於預覽狀態並提供單一服務層�
 
 此外，SQL Database 可以[發出計量和診斷記錄](sql-database-metrics-diag-logging.md)以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
 
-- **Azure 儲存體**：用於封存大量遙測資料，價格低廉
-- **Azure 事件中樞**：用於整合 SQL Database 遙測與自訂監視解決方案或管線
-- **Azure Log Analytics**：適用於具有報告、警示及緩和功能的內建監視解決方案
+- **Azure 儲存體**：用於封存大量遙測，價格實惠。
+- **Azure 事件中樞**：用於整合 SQL Database 遙測與自訂監視解決方案或管線。
+- **Azure Log Analytics**：適用於具有報告、警示及緩和功能的內建監視解決方案。 這是 [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 的功能。
 
     ![架構](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -84,8 +84,8 @@ Azure 領先業界的 99.99% 可用性服務等級協定 [(SLA)](http://azure.mi
 
 - **[自動備份](sql-database-automated-backups.md)**：SQL Database 會自動執行完整、差異及交易記錄備份。
 - **[時間點還原](sql-database-recovery-using-backups.md)**：SQL Database 支援復原到自動備份保留期間內的任何時間點。
-- **[主動式異地複寫](sql-database-geo-replication-overview.md)**：SQL Database 可讓您在相同或全域分散的 Azure 資料中心最多設定 4 個可讀取的次要資料庫。  例如，如果 SaaS 應用程式的目錄資料庫有大量的並行唯讀交易，請使用主動式異地複寫功能來啟用全域讀取範圍，並移除主要資料庫上因為讀取工作負載所造成的瓶頸。 
-- **[容錯移轉群組](sql-database-geo-replication-overview.md)**：SQL Database 可讓您全面啟用高可用性和負載平衡，包括大量資料庫與彈性集區的透明異地複寫和容錯移轉。 容錯移轉群組和主動式異地複寫能夠建立全域分散的 SaaS 應用程式，其管理負擔最小，可讓 SQL Database 處理所有複雜的監視、路由傳送及容錯移轉協調流程。
+- **[主動式異地複寫](sql-database-geo-replication-overview.md)**：SQL Database 可讓您在相同或全域分散的 Azure 資料中心最多設定 4 個可讀取的次要資料庫。  例如，如果 SaaS 應用程式的目錄資料庫有大量的並行唯讀交易，請使用主動式異地複寫功能來啟用全域讀取範圍，並移除主要資料庫上因為讀取工作負載所造成的瓶頸。 作用中異地複寫能夠進行單一資料庫的容錯移轉。 
+- **[容錯移轉群組](sql-database-geo-replication-overview.md)**：SQL Database 可讓您全面啟用高可用性和負載平衡，包括大量資料庫與彈性集區的透明異地複寫和容錯移轉。 容錯移轉群組和主動式異地複寫能夠建立全域分散的 SaaS 應用程式，其管理負擔最小，可讓 SQL Database 處理所有複雜的監視、路由傳送及容錯移轉協調流程。 容錯移轉群組能夠在單一群組內進行多個資料庫的容錯移轉。 
 - **[區域備援資料庫](sql-database-high-availability.md)**：SQL Database 可讓您跨多個可用性區域佈建進階或業務關鍵 (預覽) 資料庫或彈性集區。 由於這些資料庫和彈性集區有多個備援複本可提供高可用性，所以將這些複本放入多個可用性區域即可提供更高的復原能力，包括能夠從資料中心規模的失敗自動復原，而不會遺失任何資料。 此功能目前為預覽狀態。 
 
 ## <a name="built-in-intelligence"></a>內建智慧
@@ -96,9 +96,9 @@ Azure 領先業界的 99.99% 可用性服務等級協定 [(SLA)](http://azure.mi
 
 SQL Database 會提供您需要監視之查詢的詳細解析。 SQL Database 會了解您的資料庫模式，並可讓您根據您的工作負載調整資料庫結構描述。 SQL Database 提供[效能微調建議](sql-database-advisor.md)，您可以在其中檢閱微調動作並加以套用。 
 
-不過，持續監視資料庫是冗長乏味的艱辛工作，尤其是在處理許多資料庫時。 [智慧型深入解析](sql-database-intelligent-insights.md)會自動地大規模監視 SQL Database 效能來替您代勞，並通知效能降低的問題，還會識別問題的根本原因，然後盡可能提供效能改善建議。
+不過，持續監視資料庫是冗長乏味的艱辛工作，尤其是在處理許多資料庫時。 [智慧型深入解析](sql-database-intelligent-insights.md)會自動地大規模監視 SQL Database 效能來替您代勞，並通知效能降低的問題。 然後 Intelligent Insights 可識別問題的根本原因，然後盡可能提供效能改善建議。 
 
-即使使用 SQL Database 和 Azure 入口網站提供的所有可用工具和報告，都可能無法有效率地管理大量資料庫。 除了手動監視和調整資料庫，您也可以考慮使用[自動調整](sql-database-automatic-tuning.md)，將一些監視和微調動作委派給 SQL Database。 SQL Database 會自動套用建議、測試及驗證每個調整動作，以確保持續改善效能。 如此一來，SQL Database 會以受控制且安全的方式自動調整您的工作負載。 自動調整表示在每個調整動作前後，資料庫效能都會受到仔細的監控和比較，而如果效能沒有改善，則會還原調整動作。
+即使使用 SQL Database 和 Azure 入口網站提供的所有可用工具和報告，都可能無法有效率地管理大量資料庫。 除了手動監視和調整資料庫，您也可以考慮使用[自動調整](sql-database-automatic-tuning.md)，將一些監視和微調動作委派給 SQL Database。 SQL Database 會自動套用建議事項，再進行測試以確認效能已改善。 如此一來，SQL Database 即可以受控制且安全的方式自動調整您的工作負載。 此自動調整表示在每個調整動作前後，資料庫效能都會受到仔細的監控和比較，而如果效能沒有改善，則會還原調整動作。
 
 現今，在 SQL Database 之上執行 [SaaS 多租用戶應用程式](sql-database-design-patterns-multi-tenancy-saas-applications.md)的許多合作夥伴都依賴自動效能微調，來確保其應用程式始終擁有穩定且可預測的效能。 對他們而言，這項功能可大幅降低夜間發生效能事件的風險。 此外，由於其部分客戶也使用 SQL Server，所以他們會使用 SQL Database 所提供的相同索引建議來協助其 SQL Server 客戶。
 
@@ -170,7 +170,7 @@ SQL Database 支援在 MacOS、Linux 和 Windows 上使用 Python、Java、Node.
 
 - 如需單一資料庫及彈性資料庫的成本比較和計算機，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。
 
-- 請參閱下列快速入門教學課程，以開始使用產品：
+- 請參閱下列快速入門，以便開始使用產品：
 
   - [在 Azure 入口網站中建立 SQL Database](sql-database-get-started-portal.md)  
   - [使用 Azure CLI 建立 SQL Database](sql-database-get-started-cli.md)

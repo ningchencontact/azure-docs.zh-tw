@@ -6,7 +6,7 @@
 ## [啟用作業安全性](../azure-operational-security.md)
 ## [在 Azure 中控管](../governance-in-azure.md)
 ## [Azure 雲端中的隔離](../azure-isolation.md)
-## [安全混合式網路架構](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
+## [安全混合式網路架構](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
 ## [安全性技術功能](../azure-security-technical-capabilities.md)
 
 # [資料安全性與加密](../security-azure-encryption-overview.md)

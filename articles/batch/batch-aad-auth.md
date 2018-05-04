@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 09/28/2017
+ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: e67ae32902c989f74cee0c1d223dacc770c0d387
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c28af5a9773cc362663831346b58f599aed6ea9a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 驗證 Batch 服務解決方案
 
@@ -65,7 +65,7 @@ Azure Batch 支援使用 [Azure Active Directory][aad_about] (Azure AD)進行驗
 
 使用 Azure AD 進行驗證的第一個步驟是在 Azure AD 租用戶中註冊您的應用程式。 註冊您的應用程式，可讓您從程式碼中呼叫 Azure [Active Directory Authentication Library] [aad_adal] (ADAL)。 ADAL 提供 API，從您的應用程式使用 Azure AD 進行驗證。 不論您是否計劃使用整合式驗證或服務主體，都需要註冊您的應用程式。
 
-當您註冊應用程式時，會向 Azure AD 提供應用程式的相關資訊。 Azure AD 接著會提供您在執行階段用來將應用程式與 Azure AD 產生關聯的應用程式識別碼。 若要深入了解應用程式識別碼，請參閱[Azure Active Directory 中的應用程式物件和服務主體物件之間的關聯性討論](../active-directory/develop/active-directory-application-objects.md)。
+當您註冊應用程式時，會向 Azure AD 提供應用程式的相關資訊。 Azure AD 接著會提供您在執行階段用來將應用程式與 Azure AD 產生關聯的應用程式識別碼 (也稱為「用戶端識別碼」)。 若要深入了解應用程式識別碼，請參閱[Azure Active Directory 中的應用程式物件和服務主體物件之間的關聯性討論](../active-directory/develop/active-directory-application-objects.md)。
 
 若要註冊 Batch 應用程式，遵循[整合應用程式與 Azure Active Directory][aad_integrate] 之[新增應用程式](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application)一節中的步驟。 如果您將應用程式註冊為原生應用程式，就能為**重新導向 URI** 指定任何有效的 URI。 它不需要是實際的端點。
 
@@ -81,7 +81,7 @@ Azure Batch 支援使用 [Azure Active Directory][aad_about] (Azure AD)進行驗
 
 1. 在 Azure 入口網站中，選取您的 Active Directory。
 2. 按一下 [內容] 。
-3. 複製針對目錄識別碼提供的 GUID 值。 此值也稱為租用戶識別碼。
+3. 複製針對**目錄識別碼**提供的 GUID 值。 此值也稱為租用戶識別碼。
 
 ![複製目錄識別碼](./media/batch-aad-auth/aad-directory-id.png)
 
@@ -97,17 +97,17 @@ Azure Batch 支援使用 [Azure Active Directory][aad_about] (Azure AD)進行驗
 
     ![搜尋您的應用程式名稱](./media/batch-aad-auth/search-app-registration.png)
 
-3. 開啟應用程式的 [設定] 刀鋒視窗。 在 [API 存取] 區段中，選取 [必要權限]。
+3. 按一下應用程式，然後按一下 [設定]。 在 [API 存取] 區段中，選取 [必要權限]。
 4. 在 [必要權限] 刀鋒視窗中，按一下 [新增] 按鈕。
-5. 在步驟 1 中，搜尋 Batch API。 搜尋這些字串，直到您找到 API 為止：
+5. 在 [選取 API] 中，搜尋 Batch API。 搜尋這些字串，直到您找到 API 為止：
     1. **MicrosoftAzureBatch**。
     2. **Microsoft Azure Batch**。 較新的 Azure AD 租用戶可以使用這個名稱。
     3. **ddbf3205-c6bd-46ae-8127-60eb93363864** 是 Batch API 的識別碼。 
-6. 一旦您找到 Batch API，請選取它，然後按一下 [選取] 按鈕。
-6. 在步驟 2 中，選取 [存取 Azure Batch 服務] 旁的核取方塊，然後按一下 [選取] 按鈕。
-7. 按一下 [完成] 按鈕。
+6. 一旦您找到 Batch API 之後，請選取它，然後按一下 [選取]。
+7. 在 [選取權限] 中選取 [存取 Azure Batch 服務] 旁的核取方塊，然後按一下 [選取]。
+8. 按一下 [完成] 。
 
-[必要權限] 刀鋒視窗現在會顯示您的 Azure AD 應用程式具備 ADAL 與 Batch 服務 API 的存取權限。 當您第一次向 Azure AD 註冊應用程式時，會自動將權限授與 ADAL。
+[必要權限] 視窗現在會顯示出您的 Azure AD 應用程式具備 ADAL 與 Batch 服務 API 的存取權限。 當您第一次向 Azure AD 註冊應用程式時，會自動將權限授與 ADAL。
 
 ![授與 API 權限](./media/batch-aad-auth/required-permissions-data-plane.png)
 
@@ -126,7 +126,7 @@ Azure Batch 支援使用 [Azure Active Directory][aad_about] (Azure AD)進行驗
 
 1. 在 Azure 入口網站的左側導覽窗格中，選擇 [所有服務]。 按一下 [應用程式註冊]。
 2. 在應用程式註冊清單中搜尋您應用程式的名稱。
-3. 顯示 [設定] 刀鋒視窗。 在 [API 存取] 區段中，選取 [金鑰]。
+3. 按一下應用程式，然後按一下 [設定]。 在 [API 存取] 區段中，選取 [金鑰]。
 4. 若要建立金鑰，請輸入金鑰的描述。 接著選取一或兩年的金鑰持續期間。 
 5. 按一下 [儲存] 按鈕以建立並顯示金鑰。 將金鑰值複製到安全的地方，因為當您離開此刀鋒視窗之後，再也無法存取它。 
 
@@ -152,14 +152,14 @@ Azure Batch 支援使用 [Azure Active Directory][aad_about] (Azure AD)進行驗
 
 1. 在 Azure 入口網站中，選取您的 Active Directory。
 2. 按一下 [內容] 。
-3. 複製針對目錄識別碼提供的 GUID 值。 此值也稱為租用戶識別碼。
+3. 複製針對**目錄識別碼**提供的 GUID 值。 此值也稱為租用戶識別碼。
 
 ![複製目錄識別碼](./media/batch-aad-auth/aad-directory-id.png)
 
 
 ## <a name="code-examples"></a>程式碼範例
 
-本節中的程式碼範例示範如何使用整合式驗證搭配 Azure AD 進行驗證，以及使用服務主體進行驗證。 這些程式碼範例會使用 .NET，但概念類似其他語言。
+本節中的程式碼範例示範如何使用整合式驗證搭配 Azure AD 進行驗證，以及使用服務主體進行驗證。 這些程式碼範例大部分會使用 .NET，但概念類似其他語言。
 
 > [!NOTE]
 > Azure AD 驗證權杖會在一小時後過期。 使用長時間執行 **BatchClient** 物件時，我們建議您在每個要求從 ADAL 擷取權杖，以確保您一律擁有有效的權杖。 
@@ -205,7 +205,7 @@ private const string BatchAccountUrl = "https://myaccount.mylocation.batch.azure
 private const string ClientId = "<application-id>";
 ```
 
-同時，複製您在註冊程序期間指定的重新導向 URI。 您程式碼中指定的重新導向 URI 必須符合您註冊應用程式時所提供的重新導向 URI：
+如果您以原生應用程式的形式來註冊應用程式，也請複製指定的重新導向 URI。 您程式碼中指定的重新導向 URI 必須符合您註冊應用程式時所提供的重新導向 URI：
 
 ```csharp
 private const string RedirectUri = "http://mybatchdatasample";
@@ -296,7 +296,7 @@ public static async Task<string> GetAuthenticationTokenAsync()
 }
 ```
 
-建構接受委派做為參數的 **BatchTokenCredentials** 物件。 使用這些認證來開啟 **BatchClient** 物件。 接著，您可以針對 Batch 服務的後續作業使用該 **BatchClient** 物件：
+建構接受委派做為參數的 **BatchTokenCredentials** 物件。 使用這些認證來開啟 **BatchClient** 物件。 然後針對 Batch 服務的後續作業使用該 **BatchClient** 物件：
 
 ```csharp
 public static async Task PerformBatchOperations()
@@ -308,6 +308,65 @@ public static async Task PerformBatchOperations()
         await client.JobOperations.ListJobs().ToListAsync();
     }
 }
+```
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>程式碼範例︰搭配 Batch Python 使用 Azure AD 服務主體
+
+若要從 Batch Python 向服務主體進行驗證，請安裝並參考 [azure-batch](https://pypi.org/project/azure-batch/) 和 [azure-common](https://pypi.org/project/azure-common/) 模組。
+
+
+```python
+from azure.batch import BatchServiceClient
+from azure.common.credentials import ServicePrincipalCredentials
+```
+
+使用服務主體時，您必須提供租用戶識別碼。 若要擷取租用戶識別碼，請依照[取得 Azure Active Directory 的租用戶識別碼](#get-the-tenant-id-for-your-active-directory)所述的步驟執行：
+
+```python
+TENANT_ID = "<tenant-id>";
+```
+
+參考 Batch 服務資源端點：  
+
+```python
+RESOURCE = "https://batch.core.windows.net/";
+```
+
+參考您的 Batch 帳戶：
+
+```python
+BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com";
+```
+
+指定您應用程式的應用程式識別碼 (用戶端識別碼)。 應用程式識別碼可在 Azure 入口網站中，從您的應用程式註冊取得：
+
+```python
+CLIENT_ID = "<application-id>";
+```
+
+指定您從 Azure 入口網站中複製的祕密金鑰：
+
+```python
+SECRET = "<secret-key>";
+```
+
+建立 **ServicePrincipalCredentials** 物件：
+
+```python
+credentials = ServicePrincipalCredentials(
+    client_id=CLIENT_ID,
+    secret=SECRET,
+    tenant=TENANT_ID,
+    resource=RESOURCE
+)
+```
+
+使用服務主體認證來開啟 **BatchServiceClient** 物件。 接著，針對 Batch 服務的後續作業使用該 **BatchServiceClient** 物件。
+
+```python
+    batch_client = BatchServiceClient(
+    credentials,
+    base_url=BATCH_ACCOUNT_URL
+)
 ```
 
 ## <a name="next-steps"></a>後續步驟

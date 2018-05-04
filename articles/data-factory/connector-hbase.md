@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ee4fe897bc8b0b1c969ea2fbfc1289d6a5bba7c2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ba2317e588b570acc1a4f24c89e892729f29b54b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>使用 Azure Data Factory 從 HBase 複製資料 
 
@@ -46,7 +46,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 |:--- |:--- |:--- |
 | type | 類型屬性必須設為：**HBase** | yes |
 | host | HBase 伺服器的 IP 位址或主機名稱。 (也就是 192.168.222.160，[clustername].azurehdinsight.net)  | yes |
-| 連接埠 | HBase 執行個體用來接聽用戶端連線的 TCP 連接埠。 預設值為 9090。  | 否 |
+| 連接埠 | HBase 執行個體用來接聽用戶端連線的 TCP 連接埠。 預設值為 9090。 如果您連線到 Azure HDInsights，請將連接埠指定為 443。 | 否 |
 | httpPath | 對應至 HBase 伺服器的部分 URL。 (亦即 /gateway/sandbox/hbase/version)  | 否 |
 | authenticationType | 用來連線到 HBase 伺服器的驗證機制。 <br/>允許的值為：**Anonymous**、**Basic** | yes |
 | username | 用來連線到 HBase 執行個體的使用者名稱。  | 否 |

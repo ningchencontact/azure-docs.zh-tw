@@ -6,18 +6,18 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 02/05/2018
+ms.date: 04/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f8a93e873f79e99777fe2d8675c9426f5fc5ecda
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5cd4ce6b04f9257de13aad6e59eb772fbe2fa558
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教學課程：使用 Azure Batch 轉譯場景 
 
-Azure Batch 提供了按使用次數付費的雲端規模轉譯功能。 Batch 轉譯服務可支援 Autodesk Maya、3ds Max、Arnold 和 V-Ray。 本教學課程會示範使用 Azure 命令列介面透過 Batch 轉譯小型場景的步驟。 您會了解如何：
+Azure Batch 提供了按使用次數付費的雲端規模轉譯功能。 Batch 轉譯服務可支援 Autodesk Maya、3ds Max、Arnold 和 V-Ray 等應用程式的轉譯。 本教學課程會示範使用 Azure 命令列介面透過 Batch 轉譯小型場景的步驟。 您會了解如何：
 
 > [!div class="checklist"]
 > * 將場景上傳至 Azure 儲存體
@@ -36,7 +36,7 @@ Azure Batch 提供了按使用次數付費的雲端規模轉譯功能。 Batch �
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.20 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.20 版或更新版本。 執行 `az --version` 以找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
 
 ## <a name="create-a-batch-account"></a>建立批次帳戶：
 
@@ -123,7 +123,7 @@ az storage blob upload-batch \
       "publisher": "batch",
       "offer": "rendering-windows2016",
       "sku": "rendering",
-      "version": "latest"
+      "version": "1.2.1"
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },
@@ -213,7 +213,7 @@ az batch job create \
 ```json
 {
   "id": "myrendertask",
-  "commandLine": "cmd /c \"3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 MotionBlur-DragonFlying.max\"",
+  "commandLine": "cmd /c \"%3DSMAX_2018%3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 MotionBlur-DragonFlying.max\"",
   "resourceFiles": [
     {
         "blobSource": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",

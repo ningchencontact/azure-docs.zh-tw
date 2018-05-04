@@ -1,11 +1,11 @@
 ---
-title: "如何為不在資源庫內的應用程式設定密碼單一登入 | Microsoft Docs"
-description: "當不在資源庫內的自訂應用程式未列在 Azure AD 應用程式庫時，如何為它設定以密碼為基礎的安全單一登入"
+title: 如何為不在資源庫內的應用程式設定密碼單一登入 | Microsoft Docs
+description: 當不在資源庫內的自訂應用程式未列在 Azure AD 應用程式庫時，如何為它設定以密碼為基礎的安全單一登入
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: fd93b3fa5b601a276047feab67758fe1a29d4e27
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b928d71fbff232ae93dbf3d24517e7efc4cf8bfd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>如何為不在資源庫內的應用程式設定密碼單一登入
 
@@ -45,9 +45,9 @@ ms.lasthandoff: 02/21/2018
 
 -   允許**商務群組的成員**使用[自助應用程式存取](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)功能，指定要指派給使用者的使用者名稱和密碼
 
--   允許**管理員**在[將使用者指派至應用程式](#_How_to_configure_1)時，使用更新憑證功能指定要指派給使用者的使用者名稱和密碼
+-   允許**管理員**在[將使用者指派至應用程式](#_How_to_configure_1)時，使用更新認證功能指定要指派給使用者的使用者名稱和密碼
 
--   允許**管理員**在[將群組指派至應用程式](#assign-an-application-to-a-group-directly)時，使用更新憑證功能指定一群人使用的共用使用者名稱或密碼
+-   允許**管理員**在[將群組指派至應用程式](#assign-an-application-to-a-group-directly)時，使用更新認證功能指定一群人使用的共用使用者名稱或密碼
 
 下一節說明如何針對您使用**新增不在資源庫內的應用程式**經驗所新增的任何應用程式，啟用[以密碼為基礎的單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work)。
 
@@ -71,11 +71,11 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [企業應用程式] 窗格右上角的 [新增] 按鈕。
 
@@ -91,11 +91,11 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 02/21/2018
 
 6.  選取您要設定單一登入的應用程式。
 
-7.  應用程式載入後，按一下應用程式的左側瀏覽功能表中的 [單一登入]。
+7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
 8.  選取 [以密碼為基礎的登入] 模式。
 
@@ -113,17 +113,19 @@ ms.lasthandoff: 02/21/2018
 
 11. 此外，您也可以選取使用者資料列，按一下 [更新認證]，然後代表使用者輸入使用者名稱和密碼，以代表使用者提供認證。 否則，系統會提示使用者在啟動時自行輸入認證。
 
+12. **選擇性：**對於某些社交媒體應用程式 (如 Twitter 與 Facebook)，另外還有適用的選項可為應用程式啟用依選取的頻率執行的自動密碼變換。 若要啟用此功能，請在代表使用者或群組輸入認證時，選取 [我希望 Azure AD 自動管理此使用者或群組的密碼]。 然後，選取 [變換頻率 (週)]。
+
 ## <a name="assign-a-user-to-an-application-directly"></a>將使用者直接指派至應用程式
 
-若要直接將一或多個使用者指派至應用程式，請遵循下列步驟︰
+若要直接將一或多個使用者指派給應用程式，請遵循下列步驟︰
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -131,9 +133,9 @@ ms.lasthandoff: 02/21/2018
 
 6.  從清單中選取您想要指派使用者的應用程式。
 
-7.  應用程式載入之後，按一下應用程式左邊瀏覽功能表中的 [使用者和群組]。
+7.  應用程式載入之後，按一下應用程式左側導覽功能表中的 [使用者和群組]。
 
-8.  若要開啟 [新增指派] 窗格，按一下 [使用者和群組] 清單頂端的 [新增] 按鈕。
+8.  若要開啟 [新增指派] 窗格，請按一下 [使用者和群組] 清單頂端的 [新增] 按鈕。
 
 9.  按一下 [新增指派] 窗格中的 [使用者和群組] 選取器。
 
@@ -155,11 +157,11 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -167,9 +169,9 @@ ms.lasthandoff: 02/21/2018
 
 6.  從清單中選取您想要指派使用者的應用程式。
 
-7.  應用程式載入之後，按一下應用程式左邊瀏覽功能表中的 [使用者和群組]。
+7.  應用程式載入之後，按一下應用程式左側導覽功能表中的 [使用者和群組]。
 
-8.  若要開啟 [新增指派] 窗格，按一下 [使用者和群組] 清單頂端的 [新增] 按鈕。
+8.  若要開啟 [新增指派] 窗格，請按一下 [使用者和群組] 清單頂端的 [新增] 按鈕。
 
 9.  按一下 [新增指派] 窗格中的 [使用者和群組] 選取器。
 

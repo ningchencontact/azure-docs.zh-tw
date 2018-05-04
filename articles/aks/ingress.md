@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b0bc6035c3004587ae50f1c331dd3976883e9d34
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: dbb37c6fc2b5db8b2799eaacbfb4864c4e04fee7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>Azure Container Service (AKS) 上的 HTTPS 輸入
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="install-an-ingress-controller"></a>安裝輸入控制器
 
-使用 Helm 安裝 NGINX 輸入控制器。 如需詳細的部署資訊，請參閱 NGINX 輸入控制器[文件][nginx-ingress]。 
+使用 Helm 安裝 NGINX 輸入控制器。 如需詳細的部署資訊，請參閱 NGINX 輸入控制器[文件][nginx-ingress]。
 
 更新圖表存放庫。
 
@@ -76,13 +76,7 @@ PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAdd
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
 ```
 
-如有需要，請執行下列命令以擷取 FQDN。 以您輸入控制器的 IP 位址值更新 IP 位址值。
-
-```azurecli
-az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
-```
-
-輸入控制器現在已可透過 FQDN 來存取。
+輸入控制器現在應可透過 FQDN 來存取。
 
 ## <a name="install-kube-lego"></a>安裝 KUBE-LEGO
 
@@ -181,14 +175,14 @@ kubectl apply -f hello-world-ingress.yaml
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解本文所示範的軟體。 
+深入了解本文所示範的軟體。
 
 - [Helm CLI][helm-cli]
 - [NGINX 輸入控制器][nginx-ingress]
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
-[helm-cli]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
+[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: 26a5ab93c82b523063632c4899daadbde70dd7d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a72e870b1c98ec363b217030cf1e2f61ceaad5d9
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="import-and-publish-your-first-api"></a>匯入和發佈您的第一個 API 
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 03/23/2018
     |要為此 API 設定版本嗎?||如需版本設定的詳細資訊，請參閱[發佈多個 API 版本](api-management-get-started-publish-versions.md)。|
     
     >[!NOTE]
-    > 若要發佈 API，您必須使它與產品產生關連。 您可以從 [設定] 頁面執行此作業。
+    > 若要發佈 API，您必須將它與產品產生關連。 您可以從 [設定] 頁面執行此作業。
     
 3. 選取 [建立] 。
 

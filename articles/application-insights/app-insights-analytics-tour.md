@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2017
+ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9727e3b715334837b959f22dd526caba221be62c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 81c5b6051b8e1b1812e47cfcb64538c25ee8bfe5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application Insights 中分析的教學課程
 [分析](app-insights-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。 這些分頁說明 Log Analytics 查詢語言。
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/18/2018
 
 ![開啟 portal.azure.com，開啟您的 Application Insights 資源，然後按一下 [分析]。](./media/app-insights-analytics-tour/001.png)
 
-## <a name="takehttpsdocsloganalyticsioquerylanguagequerylanguagetakeoperatorhtml-show-me-n-rows"></a>[Take](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html)：顯示 n 個資料列
+## <a name="takehttpsdocsloganalyticsiodocslanguage-referencetabular-operators-show-me-n-rows"></a>[Take](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators)：顯示 n 個資料列
 記錄使用者作業的資料點 (通常是 Web 應用程式收到的 HTTP 要求) 會儲存在名為 `requests`的資料表。 每個資料列都是從應用程式中的 Application Insights SDK 接收的遙測資料點。
 
 讓我們先檢查資料表的幾個範例資料列︰
@@ -68,7 +68,7 @@ ms.lasthandoff: 04/18/2018
     
 ```
 
-## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 和 [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
+## <a name="tophttpsdocsloganalyticsiodocslanguage-referencetabular-operatorstop-operator-and-sorthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssort-operator"></a>[Top](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 和 [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator)
 `take` 可用來取得快速的結果範例，但它不會依特定順序顯示資料表中的資料列。 若要取得已排序的檢視，請使用 `top` (適用於某個範例) 或 `sort` (整個資料表)。
 
 顯示前 n 個資料列 (依特定資料行排序)︰
@@ -94,7 +94,7 @@ ms.lasthandoff: 04/18/2018
 
 資料表檢視中的資料行標頭也可用來排序畫面上的結果。 當然，如果您已使用 `take` 或 `top` 只擷取部分的資料表，按一下資料行標頭只會重新排列您所擷取的記錄。
 
-## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)︰篩選條件
+## <a name="wherehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorswhere-operator-filtering-on-a-condition"></a>[Where](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)︰篩選條件
 
 讓我們看一下傳回特定結果碼的要求︰
 
@@ -173,7 +173,7 @@ ms.lasthandoff: 04/18/2018
 [日期和時間參考](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime)。
 
 
-## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Project](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html)：選取、重新命名和計算資料行
+## <a name="projecthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorsproject-operator-select-rename-and-compute-columns"></a>[Project](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator)：選取、重新命名和計算資料行
 使用 [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) ，只挑出您想要的資料行：
 
 ```AIQL
@@ -207,7 +207,7 @@ ms.lasthandoff: 04/18/2018
 運算式可以包含所有常見的運算子 (`+`、`-`...)，而且有一系列的實用函式。
 
 ## <a name="extend"></a>Extend
-如果您只要將資料行加入現有的資料行，請使用 [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html)：
+如果您只要將資料行加入現有的資料行，請使用 [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator)：
 
 ```AIQL
 
@@ -216,7 +216,7 @@ ms.lasthandoff: 04/18/2018
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-如果您要保留所有現有的資料行，使用 [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html) 比 [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) 精簡。
+如果您要保留所有現有的資料行，使用 [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator) 比 [`project`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) 精簡。
 
 ### <a name="convert-to-local-time"></a>轉換為當地時間
 
@@ -229,8 +229,7 @@ ms.lasthandoff: 04/18/2018
     | extend localTime = timestamp - 8h
 ```
 
-
-## <a name="summarizehttpsdocsloganalyticsioquerylanguagequerylanguagesummarizeoperatorhtml-aggregate-groups-of-rows"></a>[Summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html)：彙總資料列群組
+## <a name="summarizehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssummarize-operator-aggregate-groups-of-rows"></a>[Summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator)：彙總資料列群組
 `Summarize` 會對資料列群組套用指定的「彙總函式」。
 
 例如，Web 應用程式回應要求所花的時間會在 `duration`欄位中報告。 我們來看看所有要求的平均回應時間︰
@@ -268,7 +267,7 @@ ms.lasthandoff: 04/18/2018
 
 另外還有 `count()` 彙總 (以及計數運算)，適用於您確實想要計算群組中的資料列數目的情況。
 
-目前提供一系列的 [彙總函式](https://docs.loganalytics.io/learn/tutorials/aggregations.html)。
+目前提供一系列的 [彙總函式](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions)。
 
 ## <a name="charting-the-results"></a>製作結果圖表
 ```AIQL
@@ -409,7 +408,7 @@ ms.lasthandoff: 04/18/2018
 
 ![](./media/app-insights-analytics-tour/290.png)
 
-## <a name="percentileshttpsdocsloganalyticsioquerylanguagequerylanguagepercentilesaggfunctionhtml"></a>[百分位數](https://docs.loganalytics.io/queryLanguage/query_language_percentiles_aggfunction.html)
+## <a name="percentileshttpsdocsloganalyticsiodocslanguage-referenceaggregation-functionspercentiles"></a>[百分位數](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/percentiles())
 哪些持續時間範圍涵蓋不同的工作階段百分比？
 
 使用上述查詢，但取代最後一行︰
@@ -470,7 +469,7 @@ ms.lasthandoff: 04/18/2018
 在執行聯結之前，使用 `project` 只選取我們需要的資料行是相當好的做法。
 在相同的子句中，我們會將時間戳記資料行重新命名。
 
-## <a name="lethttpsdocsloganalyticsioquerylanguagequerylanguageletstatementhtml-assign-a-result-to-a-variable"></a>[Let](https://docs.loganalytics.io/queryLanguage/query_language_letstatement.html)︰將結果指派給變數
+## <a name="lethttpsdocsloganalyticsiodocslanguage-referencequery-statementslet-statement-assign-a-result-to-a-variable"></a>[Let](https://docs.loganalytics.io/docs/Language-Reference/Query-statements/Let-statement)︰將結果指派給變數
 
 使用 `let` 來分隔前一個運算式的各個部分。 結果不變：
 
@@ -567,7 +566,7 @@ requests
 
 ### <a name="special-characters"></a>特殊字元
 
-對於名稱中使用特殊字元或語言關鍵字的識別碼，您需要透過 `['` 和 `']` 或使用 `["` 和 `"]` 進行存取。
+對於名稱中使用特殊字元或語言關鍵字的識別碼，您需要透過 `['` 和 `']` 或使用 `["` 和 `"]` 加以存取。
 
 ```AIQL
 

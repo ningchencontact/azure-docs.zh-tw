@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: dd2ff95c23b149cd8d5becf086c021060b0ec5a8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fdd8ee942667a57ccb7c9211e9aa00ee19a9e522
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB：使用圖形 API 來建置 .NET Framework 或 Core 應用程式
 
@@ -68,10 +68,11 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 5. 在專案中還原 NuGet 套件。 這應該包含 Gremlin.Net 驅動程式，以及 Newtonsoft.Json 套件。
 
-6. 您也可以使用 Nuget 套件管理員或 [nuget 命令列公用程式](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools)，手動安裝 Gremlin.Net 驅動程式 3.2.7 版： 
+
+6. 您也可以使用 Nuget 套件管理員或 [nuget 命令列公用程式](https://docs.microsoft.com/nuget/install-nuget-client-tools)，手動安裝 Gremlin.Net 驅動程式： 
 
     ```bash
-    nuget install Gremlin.Net -Version 3.2.7
+    nuget install Gremlin.Net
     ```
 
 ## <a name="review-the-code"></a>檢閱程式碼

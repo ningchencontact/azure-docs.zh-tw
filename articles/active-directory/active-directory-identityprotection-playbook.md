@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory Identity Protection 腳本 | Microsoft Docs"
-description: "了解 Azure AD Identity Protection 如何讓您限制攻擊者利用遭入侵的身分識別或裝置的能力，以及保護先前疑似或已知遭到入侵的身分識別或裝置。"
+title: Azure Active Directory Identity Protection 腳本 | Microsoft Docs
+description: 了解 Azure AD Identity Protection 如何讓您限制攻擊者利用遭入侵的身分識別或裝置的能力，以及保護先前疑似或已知遭到入侵的身分識別或裝置。
 services: active-directory
-keywords: "azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則"
-documentationcenter: 
+keywords: azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f4240c9196796c2e83c408271fe81b20842ab722
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 210d097f0719725a0ecf145ce536875a383b04e6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection 腳本
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/21/2018
 
 **若要模擬從匿名 IP 登入，請執行下列步驟**：
 
-1. 使用 [Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en)，導覽至 [https://myapps.microsoft.com](https://myapps.microsoft.com)。   
+1. 使用 [Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en)，瀏覽至 [https://myapps.microsoft.com](https://myapps.microsoft.com)。   
 2. 輸入您要在 [從匿名 IP 位址登入]  報告中顯示之帳戶的認證。
 
 登入將會在 10 - 15 分鐘內顯示於 [身分識別保護] 儀表板上。 
@@ -94,14 +94,14 @@ ms.lasthandoff: 02/21/2018
 2. 輸入您想要對其產生不可能移動風險事件之帳戶的認證。
 3. 變更您的使用者代理程式。 您可以在 Internet Explorer 中從 [開發人員工具] 變更使用者代理程式，或在 Firefox 或 Chrome 中使用使用者代理程式切換器附加元件來變更您的使用者代理程式。
 4. 變更您的 IP 位址。 使用 VPN、Tor 附加元件，或在不同資料中心於 Azure 中啟動新機器，即可變更您的 IP 位址。
-5. 在前次登入之後的幾分鐘內，使用與之前相同的認證登入 [https://myapps.microsoft.com](https://myapps.microsoft.com)
+5. 在前次登入之後的幾分鐘內，使用與之前相同的認證登入 [https://myapps.microsoft.com](https://myapps.microsoft.com)。
 
 登入會在 2-4 小時內顯示於 [身分識別保護] 儀表板上。
 
 ## <a name="simulating-vulnerabilities"></a>模擬弱點
 弱點是 Azure AD 環境中不良執行者可以利用的弱點。 Azure AD Identity Protection 中目前顯示 3 種會運用其他 Azure AD 功能的弱點。 一旦設定好這些功能，這些弱點就會自動顯示在 Identity Protection 儀表板上。
 
-* Azure AD [多重要素驗證](../multi-factor-authentication/multi-factor-authentication.md)
+* Azure AD [多重要素驗證](authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)。
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)。 
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 02/21/2018
 
 **若要測試使用者風險安全性原則，請執行下列步驟**：
 
-1. 使用租用戶的全域管理員認證來登入 [https://portal.azure.com](https://portal.azure.com) 。
+1. 使用租用戶的全域管理員認證來登入 [https://portal.azure.com](https://portal.azure.com)。
 2. 瀏覽至 [Identity Protection] 。 
 3. 在 [Azure AD Identity Protection] 頁面上，按一下 [使用者風險原則]。
 4. 在 [指派] 區段中，選取所需的使用者 (與群組) 和使用者風險層級。
@@ -145,7 +145,7 @@ ms.lasthandoff: 02/21/2018
 
 **若要測試登入風險原則，請執行下列步驟：**
 
-1. 使用租用戶的全域管理員認證來登入 [https://portal.azure.com ](https://portal.azure.com) 。
+1. 使用租用戶的全域管理員認證來登入 [https://portal.azure.com](https://portal.azure.com)。
 
 2. 導覽至 **Azure AD Identity Protection**。
 

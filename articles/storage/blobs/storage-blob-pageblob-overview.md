@@ -6,13 +6,13 @@ author: anasouma
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/30/2018
 ms.author: wielriac
-ms.openlocfilehash: 5d1ad1555cb1e01e363456af5c50ecd090ce7147
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 79590e1987ee29ca06f9fb103f548518b2c1c57e
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Azure 分頁 Blob 的獨特功能
 
@@ -21,9 +21,6 @@ Azure 儲存體提供三種類型的 Blob 儲存體：區塊 Blob、附加 Blob 
 分頁 Blob 是 512 位元組分頁的集合，可提供讀取/寫入任意位元組範圍的功能。 因此，分頁 Blob 適合用於儲存索引式和疏鬆檔案結構，例如虛擬機器和資料庫的 OS 和資料磁碟。 例如，Azure SQL DB 會使用分頁 Blob 作為其資料庫的基礎永續性儲存體。 此外，分頁 Blob 也經常用於具有範圍型更新的檔案。  
 
 Azure 分頁 Blob 的主要功能包括其 REST 介面、基礎儲存體的持久性，以及能順暢移轉至 Azure 的能力。 下一節將更深入討論這些功能。 此外，Azure 分頁 Blob 目前支援兩種類型的儲存體：進階儲存體和標準儲存體。 進階儲存體是特別針對需要持續高效能與低延遲的工作負載設計，使得進階分頁 Blob 很適合用於高效能資料儲存體資料庫。  標準儲存體對於執行較不注重延遲的工作負載而言，較符合成本效益。
-
-> [!WARNING]
-> 進階儲存體中的分頁 Blob 僅用來作為 VHD 使用。 Microsoft 不建議您在進階儲存體的分頁 Blob 中儲存其他資料類型，因為可能會使成本大幅增加。 使用區塊 Blob 來儲存不在 VHD 中的資料。
 
 ## <a name="sample-use-cases"></a>範例使用案例
 

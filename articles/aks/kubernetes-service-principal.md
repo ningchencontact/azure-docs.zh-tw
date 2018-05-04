@@ -1,23 +1,23 @@
 ---
-title: "Azure Kubernetes 叢集的服務主體"
-description: "在 AKS 中建立和管理 Kubernetes 叢集的 Azure Active Directory 服務主體"
+title: Azure Kubernetes 叢集的服務主體
+description: 在 AKS 中建立和管理 Kubernetes 叢集的 Azure Active Directory 服務主體
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 02/24/2018
+ms.date: 04/19/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a7c80b64a33f4f71c694f80bf3e68f39ecd01828
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 81f455668e81c2a6c21b66d85199da3f475e7265
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>服務主體與 Azure Container Service (AKS)
 
-AKS 叢集需要 [Azure Active Directory 服務主體][aad-service-principal]，才能與 Azure API 進行互動。 需要服務主體，才能以動態方式管理資源，例如[使用者定義的路由][user-defined-routes]及[第 4 層 Azure Load Balancer][azure-load-balancer-overview]。
+AKS 叢集需要 [Azure Active Directory 服務主體][aad-service-principal]，才能與 Azure API 進行互動。 需要服務主體，才能以動態方式建立和管理資源，例如 [Azure Load Balancer][azure-load-balancer-overview]。
 
 本文說明為 AKS 中 Kubernetes 叢集設定服務主體的各種選項。
 
@@ -80,10 +80,10 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --service-pri
 
 * Kubernetes 的服務主體是叢集組態的一部分。 不過，請勿使用身分識別來部署叢集。
 * 每個服務主體都會與 Azure AD 應用程式相關聯。 Kubernetes 叢集的服務主體可與任何有效的 Azure AD 應用程式名稱相關聯 (例如：`https://www.contoso.org/example`)。 應用程式的 URL 不一定是實際端點。
-* 指定服務主體的 [用戶端識別碼] 時，您可以使用 `appId` 的值 (如本文所示) 或對應的服務主體`name` (例如，`https://www.contoso.org/example`)。
+* 指定服務主體的 [用戶端識別碼] 時，使用 `appId` 的值 (如本文所示) 或對應的服務主體 `name` (例如，`https://www.contoso.org/example`)。
 * 在 Kubernetes 叢集中的主要和節點 VM 上，服務主體認證會儲存在 `/etc/kubernetes/azure.json` 檔案中。
-* 當您使用 `az aks create` 命令自動產生服務主體時，服務主體認證會寫入用來執行命令之電腦上的 `~/.azure/acsServicePrincipal.json` 檔案。
-* 刪除 `az aks create` 所建立的 AKS 叢集時，將不會刪除自動建立的服務主體。 您可以使用 `az ad sp delete --id $clientID` 將它刪除。
+* 當您使用 `az aks create` 命令自動產生服務主體時，服務主體認證會寫入用來執行命令之電腦上的 `~/.azure/aksServicePrincipal.json` 檔案。
+* 刪除 `az aks create` 所建立的 AKS 叢集時，將不會刪除自動建立的服務主體。 使用 `az ad sp delete --id $clientID` 將它刪除。
 
 ## <a name="next-steps"></a>後續步驟
 

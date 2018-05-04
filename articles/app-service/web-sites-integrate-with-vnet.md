@@ -1,8 +1,8 @@
 ---
-title: "將應用程式與 Azure 虛擬網路整合"
-description: "示範如何將 Azure App Service 中的應用程式連接到新的或現有的 Azure 虛擬網路"
+title: 將應用程式與 Azure 虛擬網路整合
+description: 示範如何將 Azure App Service 中的應用程式連接到新的或現有的 Azure 虛擬網路
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
 editor: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83f5c64926eb9b718463c415a5478af374245f31
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
 本文件說明 Azure App Service 虛擬網路整合功能，以及示範如何使用 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)中的應用程式來設定此功能。 如果您不熟悉 Azure 虛擬網路 (VNet)，這是一種功能，可讓您在非網際網路可路由網路中放置許多您可控制其存取的 Azure 資源。 接著，可以使用各種 VPN 技術，將這些網路連接到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀][VNETOverview]。 
@@ -57,7 +57,8 @@ VNet 整合不支援的事項包括：
 
 * VNet 整合僅會使用**標準**、**進階**或**隔離**價格方案中的應用程式。 如果您啟用此功能，然後將您的 App Service 方案調整為不支援的價格方案，則您的應用程式會失去與其正在使用之 VNet 的連接。 
 * 如果目標虛擬網路已存在，您必須先以動態路由閘道器啟用其點對站 VPN，才能使該虛擬網路與應用程式連接。 如果您以靜態路由設定閘道，便無法啟用點對站的虛擬私人網路 (VPN)。
-* VNet 與您的 App Service 方案 (ASP) 必須位於同一個訂用帳戶中。 
+* VNet 與您的 App Service 方案 (ASP) 必須位於同一個訂用帳戶中。
+* 如果您的閘道存在並已啟用點對站功能，而且不是處於基本 SKU 中，則必須停用點對站組態中的 IKEV2。
 * 與 VNet 整合的應用程式將使用指定給該 VNet 的 DNS。
 * 依預設，應用程式整合只會根據 VNet 中定義的路由，將流量路由傳送至 VNet。 
 

@@ -1,11 +1,11 @@
 ---
-title: "準備 Azure 虛擬機器映像以搭配 cloud-init 使用 |Microsoft Docs"
-description: "如何準備現有的 Azure 虛擬機器映像，以便使用 cloud-init 進行部署"
+title: 準備 Azure 虛擬機器映像以搭配 cloud-init 使用 |Microsoft Docs
+description: 如何準備現有的 Azure 虛擬機器映像，以便使用 cloud-init 進行部署
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 2eb7510d4e76e4996e83f351a62c0b025b487df2
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: dda444e77f588cd1ba5989b393e9a3987241ef9a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>準備現有的 Linux Azure 虛擬機器映像以搭配 cloud-init 使用
 本文會示範如何讓現有的 Azure 虛擬機器準備好進行重新部署，並且可使用 cloud-init。 所產生的映像可用來部署新的虛擬機器或虛擬機器擴展集 - 之後這兩者都可進一步使用 cloud-init 在部署期間進行自訂。  一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。 如需深入了解 cloud-init 如何以原生方式在 Azure 和支援的 Linux 散發版本中運作，請參閱 [cloud-init 概觀](using-cloud-init.md)
@@ -43,22 +43,20 @@ sudo yum install cloud-init -y
 
 以下範例是一般用途的 `cloud_init_modules` 區段看起來的樣子。
 ```bash
- cloud_config_modules:
- - mounts
- - locale
- - set-passwords
- - rh_subscription
- - yum-add-repo
- - package-update-upgrade-install
- - timezone
- - puppet
- - chef
- - salt-minion
- - mcollective
- - disable-ec2-metadata
- - runcmd
+cloud_init_modules:
+ - migrator
+ - bootcmd
+ - write-files
+ - growpart
+ - resizefs
  - disk_setup
  - mounts
+ - set_hostname
+ - update_hostname
+ - update_etc_hosts
+ - rsyslog
+ - users-groups
+ - ssh
 ```
 與佈建和處理暫時磁碟相關的許多工作都需要在 `/etc/waagent.conf` 中進行更新。 執行下列命令來更新適當設定。 
 ```bash
@@ -72,6 +70,28 @@ sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.co
 ```bash
 # This configuration file is provided by the WALinuxAgent package.
 datasource_list: [ Azure ]
+```
+
+新增組態來解決待處理的主機名稱註冊錯誤 (bug)。
+```bash
+cat > /etc/cloud/hostnamectl-wrapper.sh <<\EOF
+#!/bin/bash -e
+if [[ -n $1 ]]; then
+  hostnamectl set-hostname $1
+else
+  hostname
+fi
+EOF
+
+chmod 0755 /etc/cloud/hostnamectl-wrapper.sh
+
+cat > /etc/cloud/cloud.cfg.d/90-hostnamectl-workaround-azure.cfg <<EOF
+# local fix to ensure hostname is registered
+datasource:
+  Azure:
+    hostname_bounce:
+      hostname_command: /etc/cloud/hostnamectl-wrapper.sh
+EOF
 ```
 
 如果您現有的 Azure 映像已設定分頁檔，但您想要使用 cloud-init 來變更新映像的分頁檔設定，那麼就必須移除現有的分頁檔。

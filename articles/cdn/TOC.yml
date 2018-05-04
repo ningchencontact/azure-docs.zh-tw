@@ -16,6 +16,8 @@
       href: cdn-map-content-to-custom-domain.md
     - name: 在自訂網域上設定 HTTPS
       href: cdn-custom-ssl.md
+    - name: 設定快取規則
+      href: cdn-caching-rules-tutorial.md
 - name: 範例
   items:
     - name: 程式碼範例
@@ -156,6 +158,8 @@
           href: cdn-pop-locations.md
         - name: 依縮寫的 POP 位置
           href: cdn-pop-abbreviations.md
+    - name: 了解 Azure CDN 計費
+      href: cdn-billing.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
     - name: MSDN 論壇

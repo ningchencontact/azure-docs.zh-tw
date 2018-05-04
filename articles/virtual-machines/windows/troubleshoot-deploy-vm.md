@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 84363a92445991d08a2593bb3ade863db06b8670
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 622d9f1f498435ae36d1b35b938b513849efc3c5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>針對 Azure 中的 Windows 虛擬機器部署問題進行疑難排解
 
@@ -95,10 +95,6 @@ Windows 型 VM 的驅動程式位於[這裡](n-series-driver-setup.md)。
 ## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>在我的 N 系列 VM 內找不到 GPU 執行個體
 
 若要利用 Azure N 系列 VM (執行 Windows Server 2016 或 Windows Server 2012 R2) 的 GPU 功能，您必須在部署之後於每個 VM 上安裝 NVIDIA 圖形驅動程式。 您可以取得 [Windows VM](n-series-driver-setup.md) 和 [Linux VM](../linux/n-series-driver-setup.md) 的驅動程式設定資訊。
-
-## <a name="are-client-images-supported-for-n-series"></a>是否支援 N 系列的用戶端映像？
-
-目前 Azure 僅支援執行 Windows Server 和 Linux 作業系統之 VM 上的 N 系列。
 
 ## <a name="is-n-series-vms-available-in-my-region"></a>我的區域是否有提供 N 系列 VM？
 

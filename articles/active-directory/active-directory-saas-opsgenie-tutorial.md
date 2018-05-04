@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b0cd54c7750e85eb7b4e1ba6be309c585d5a7b4e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d57c80e8e965e15d92736ec482247f02064f6009
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>教學課程：Azure Active Directory 與 OpsGenie 整合
 
@@ -57,7 +57,7 @@ OpsGenie 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 OpsGenie，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -112,33 +112,17 @@ OpsGenie 與 Azure AD 整合提供下列優點：
 
     在 [登入 URL] 文字方塊中，輸入 URL：`https://app.opsgenie.com/auth/login`
 
-4. 按一下 [儲存]  按鈕。
+4. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+
+    ![憑證下載連結](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_certificate.png)
+
+5. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/active-directory-saas-opsgenie-tutorial/tutorial_general_400.png)
 
-5. 在 [OpsGenie 組態] 區段上，按一下 [設定 OpsGenie] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 **SAML 單一登入服務 URL**。
+6. 在 [OpsGenie 組態] 區段上，按一下 [設定 OpsGenie] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 **SAML 單一登入服務 URL**。
 
     ![設定單一登入](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png)
-
-6. 若要產生**中繼資料 URL**，請執行下列步驟：
-
-    a. 按一下 [應用程式註冊]。
-    
-    ![設定單一登入](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appregistrations.png)
-   
-    b. 按一下 [端點] 以開啟 [端點] 對話方塊。  
-    
-    ![設定單一登入](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpointicon.png)
-
-    c. 按一下複製按鈕複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpoint.png)
-     
-    d. 現在，移至 [OpsGenie] 的屬性頁面，使用 [複製] 按鈕複製**應用程式識別碼**，並將它貼到 [記事本]。
- 
-    ![設定單一登入](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 7. 開啟另一個瀏覽器執行個體，然後以系統管理員身分登入 OpsGenie。
 
@@ -160,13 +144,9 @@ OpsGenie 與 Azure AD 整合提供下列優點：
     
     a. 在 [SAML 2.0 端點] 文字方塊中，貼上您從 Azure 入口網站複製的**單一登入服務 URL**值。
     
-    b. 在 [中繼資料 URL:] 文字方塊中，貼上您從 Azure 入口網站複製的**中繼資料 URL** 值。
+    b. 在 [中繼資料 Url:] 文字方塊中，貼上您從 Azure 入口網站複製的 [應用程式同盟中繼資料 Url] 值。
     
     c. 按一下 [儲存變更] 。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。

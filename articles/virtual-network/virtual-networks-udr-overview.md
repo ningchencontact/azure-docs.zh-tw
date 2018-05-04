@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 014c9ea34f35e915c6c4eac5a96c55201549e18a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
 
@@ -122,7 +122,9 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
 - **VPN**：您可以選擇性地使用 BGP。 如需詳細資訊，請參閱[BGP 與站台對站 VPN 連線](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 當您使用 BGP 交換 Azure 與路由時，系統會針對每個公佈的首碼，將個別路由新增至虛擬網路中的所有子網路路由表。 新增路由的來源和下一個躍點類型會列為*虛擬網路閘道*。 
- 
+
+在路由表上使用屬性，即可在子網路上停用 BGP 路由傳播。 當您使用 BGP 與 Azure 交換路由時，路由不會新增至已停用 BGP 傳播的所有子網路路由表。 使用下一個躍點類型為 VPN 的自訂路由 (#custom-routes) 即可進行 VPN 連線。 如需詳細資訊，請參閱[如何停用 BGP 路由傳播](/manage-route-table#create-a-route-table.md)。
+
 ## <a name="how-azure-selects-a-route"></a>Azure 如何選取路由
 
 當輸出流量從子網路送出時，Azure 會根據目的地 IP 位址選取路由 (使用最長的首碼比對演算法)。 例如，路由表有兩個路由：一個路由指定 10.0.0.0/24 位址首碼，而其他路由指定 10.0.0.0/16 位址首碼。 Azure 會將 10.0.0.5 指定流量路由至位址首碼為 10.0.0.0/24 之路由中指定的下一個躍點類型，因為 10.0.0.5 雖然都在兩個位址首碼中，但比起 10.0.0.0/16，10.0.0.0/24 是較長的首碼。 Azure 會將 10.0.1.5 指定流量路由至位址首碼為 10.0.0.0/16 之路由中指定的下一個躍點類型，因為 10.0.1.5 不包含在 10.0.0.0/24 位址首碼中，因此位址首碼為 10.0.0.0/16 的路由是符合的最長首碼。

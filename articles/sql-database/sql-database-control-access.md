@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: f7865ab165f1ef9377817b8110e35d516e01c0e0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 1844abbff660b175ea78d09bd2256aa5ba83ed83
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-access-control"></a>Azure SQL Database 存取控制
 為了提供安全性，SQL Database 會透過以下機制來控制存取：依 IP 位址限制連線的防火牆規則、要求使用者證明其身分識別的驗證機制，以及將使用者限制在特定動作和資料的授權機制。 
@@ -37,7 +37,7 @@ SQL Database 支援兩種驗證類型：
 
 資料庫引擎會關閉保持閒置超過 30 分鐘的連接。 必須重新登入才能使用連接。 持續作用中的 SQL Database 連接，需要至少每 10 個小時重新授權一次 (由資料庫引擎執行)。 資料庫引擎嘗試重新授權時，會使用原本送出的密碼，但不需要使用者輸入。 基於效能考量，當在 SQL Database 中重設密碼時，並不會重新驗證連線，即使因連線共用而重設連線時也一樣。 這點與內部部署 SQL Server 的行為不同。 如果連接經過初始授權後，密碼已經變更，則必須終止連接並使用新密碼建立新的連接。 具有 `KILL DATABASE CONNECTION` 權限的使用者可以使用 [KILL](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql) 命令，明確地終止 SQL Database 的連線。
 
-使用者帳戶可以建立在主要資料庫中，並獲得伺服器上所有資料庫的權限，或者，可將帳戶建立在資料庫自身當中 (稱為自主使用者)。 如需建立和管理登入的資訊，請參閱[管理登入](sql-database-manage-logins.md)。 若要提升可攜性和延展性，請使用自主資料庫使用者來增強延展性。 如需自主使用者的詳細資訊，請參閱[自主的資料庫使用者 - 使資料庫可攜](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)、[CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) 及[自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)。
+使用者帳戶可以建立在主要資料庫中，並獲得伺服器上所有資料庫的權限，或者，可將帳戶建立在資料庫自身當中 (稱為自主使用者)。 如需建立和管理登入的資訊，請參閱[管理登入](sql-database-manage-logins.md)。 使用自主資料庫來提升可攜性和延展性。 如需自主使用者的詳細資訊，請參閱[自主的資料庫使用者 - 使資料庫可攜](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)、[CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) 及[自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)。
 
 最佳作法是，您的應用程式應該使用專用帳戶進行驗證，因為萬一應用程式的程式碼容易受到 SQL 插入式攻擊，您就可以限制授與應用程式的權限，並降低惡意活動的風險。 建議的方法是建立[自主資料庫使用者](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)，讓您的應用程式直接與資料庫進行驗證。 
 

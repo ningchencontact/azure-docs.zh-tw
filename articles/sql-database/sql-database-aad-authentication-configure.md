@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 6e6f925f325dff74544464d8a888aa6c3ed092d5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1f5f4a4ece116503c8ddb5eaa4998b5b1a407bb1
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>搭配 SQL Database、受控執行個體或 SQL 資料倉儲來設定及管理 Azure Active Directory 驗證
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 04/19/2018
 下列兩個程序會示範如何在 Azure 入口網站以及使用 PowerShell，佈建 Azure SQL 伺服器的 Azure Active Directory 系統管理員。
 
 ### <a name="azure-portal"></a>Azure 入口網站
-1. 在 [Azure 入口網站](https://portal.azure.com/)的右上角，按一下您的連線以拉下可能的 Active Directory 清單。 選擇正確的 Active Directory 做為預設 Azure AD。 此步驟利用 Azure SQL 伺服器連結與 Active Directory 相關聯的訂用帳戶，確定 Azure AD 和 SQL Server 使用相同的訂用帳戶。 (Azure SQL 伺服器可以裝載 Azure SQL Database 或 Azure SQL 資料倉儲。)   
+1. 在 [Azure 入口網站](https://portal.azure.com/)的右上角，按一下您的連線以拉下可能的 Active Directory 清單。 選擇正確的 Active Directory 做為預設 Azure AD。 此步驟會連結與訂用帳戶相關聯的 Active Directory 和 Azure SQL 伺服器，確定 Azure AD 和 SQL Server 使用相同的訂用帳戶。 (Azure SQL 伺服器可以裝載 Azure SQL Database 或 Azure SQL 資料倉儲。)   
     ![choose-ad][8]   
     
 2. 在左邊的橫幅中，選取 [SQL Server]，接著選取您的 **SQL Server**，然後在 [SQL Server] 頁面中按一下 [Active Directory 系統管理員]。   
@@ -208,7 +208,7 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 Azure Active Directory 驗證需要建立資料庫使用者做為自主資料庫使用者。 以 Azure AD 身分識別為基礎的自主資料庫使用者係指在 master 資料庫中沒有登入身分的資料庫使用者，並且此使用者會對應至 Azure AD 目錄中與資料庫關聯的身分識別。 Azure AD 身分識別可以是個別的使用者帳戶或群組。 如需有關自主資料庫使用者的詳細資訊，請參閱 [自主資料庫使用者 - 使資料庫可攜](https://msdn.microsoft.com/library/ff929188.aspx)。
 
 > [!NOTE]
-> 您無法使用入口網站來建立資料庫使用者 (系統管理員除外)。 RBAC 角色不會傳播至 SQL Server、SQL Database 或「SQL 資料倉儲」。 Azure RBAC 角色可用來管理 Azure 資源，並不會套用到資料庫權限。 例如，「SQL Server 參與者」  角色不會授與可連線到 SQL Database 或「SQL 資料倉儲」的存取權。 存取權限必須使用 Transact-SQL 陳述式直接在資料庫中授與。
+> 您無法使用 Azure 入口網站建立資料庫使用者 (系統管理員除外)。 RBAC 角色不會傳播至 SQL Server、SQL Database 或「SQL 資料倉儲」。 Azure RBAC 角色可用來管理 Azure 資源，並不會套用到資料庫權限。 例如，「SQL Server 參與者」  角色不會授與可連線到 SQL Database 或「SQL 資料倉儲」的存取權。 存取權限必須使用 Transact-SQL 陳述式直接在資料庫中授與。
 >
 
 若要建立以 Azure AD 為基礎的自主資料庫使用者 (而非擁有資料庫的伺服器系統管理員)，請以至少具有 **ALTER ANY USER** 權限的使用者身分，使用 Azure AD 身分識別來連線到資料庫。 然後使用下列的 Transact-SQL 語法：
@@ -281,7 +281,8 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 
 使用 Azure AD 受控網域連接到 Azure AD 主體名稱時，請使用這個方法。 您也可以將其用於沒有網域存取權的同盟帳戶，例如在遠端運作時。
 
-如果您使用認證從未與 Azure 建立同盟的網域登入 Windows，或在使用 Azure AD 驗證時使用以初始或用戶端網域為基礎的 Azure AD，請使用這個方法。
+使用此方法，可讓原生的同盟 Azure AD 使用者透過 Azure AD 對 SQL DB/DW 進行驗證。
+原生使用者是在 Azure AD 中明確建立，且透過使用者名稱和密碼進行驗證的使用者，而同盟使用者則是將網域與 Azure AD 同盟的 Windows 使用者。 如果使用者想要使用此 Windows 認證，但其本機電腦未加入網域 (即使用遠端存取)，則可以使用後一種方法 (利用使用者和密碼)。 在此情況下，Windows 使用者可以指定其網域帳戶和密碼，並且可使用同盟認證對 SQL DB/DW 進行驗證。
 
 1. 啟動 Management Studio 或 Data Tools，並在 [連線到伺服器] \(或 [連線到 Database Engine]) 對話方塊的 [驗證] 方塊中，選取 [Active Directory - 密碼]。
 2. 在 [使用者名稱] 方塊中，以 **username@domain.com** 格式輸入您的 Azure Active Directory 使用者名稱。這必須是來自 Azure Active Directory 的帳戶或來自與 Azure Active Directory 建立同盟之網域的帳戶。

@@ -10,23 +10,23 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 483fe0fe4478de5edaf19f18626ada07d5a049ad
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 238bd98ee4b2c39a30508602384828526c866172
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>使用 PHP 查詢 Azure SQL 資料庫
 
-此快速入門教學課程示範如何使用 [PHP](http://php.net/manual/en/intro-whatis.php) 來建立程式以連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。
+此快速入門示範如何使用 [PHP](http://php.net/manual/en/intro-whatis.php) 建立程式以連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。
 
 ## <a name="prerequisites"></a>先決條件
 
-若要完成本快速入門教學課程，請確定您具有下列項目︰
+若要完成本快速入門，請確定您具備下列項目︰
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 在此快速入門教學課程中，您所使用電腦的公用 IP 位址[伺服器層級防火牆規則](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
+- 在此快速入門中，您所使用電腦的公用 IP 位址[伺服器層級防火牆規則](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
 
 - 您已安裝適用於您作業系統的 PHP 和相關軟體：
 

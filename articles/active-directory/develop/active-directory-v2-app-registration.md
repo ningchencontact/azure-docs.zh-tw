@@ -1,11 +1,11 @@
 ---
-title: "使用入口網站向 Azure AD v2.0 端點註冊應用程式 | Microsoft Docs"
-description: "如何向 Microsoft 註冊 app，以使用 v2.0 端點啟用登入及存取 Microsoft 服務"
+title: 使用入口網站向 Azure AD v2.0 端點註冊應用程式 | Microsoft Docs
+description: 如何向 Microsoft 註冊 app，以使用 v2.0 端點啟用登入及存取 Microsoft 服務
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: lnalepa
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: eba8ecd27542b23676c08b8ce072c91134d27fa5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da9dd5099d8175f1f7347cb022f149979b618909
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>如何使用 v2.0 端點註冊 App
 若要建置同時接受 MSA 與 Azure AD 登入的應用程式，您必須先向 Microsoft 註冊應用程式。  您目前無法使用任何現有的 app 搭配 Azure AD 或 MSA - 您需要建立一個全新的 app。
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 > 
 
 ## <a name="visit-the-microsoft-app-registration-portal"></a>造訪 Microsoft App 註冊入口網站
-第一件事就是先瀏覽至 [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)。  這是新的 app 註冊入口網站，可供您管理有關 Microsoft app 的所有一切。
+首先，瀏覽至 [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)。  這是新的 app 註冊入口網站，可供您管理有關 Microsoft app 的所有一切。
 
 使用個人或公司或學校的 Microsoft 帳戶進行登入。  如果您沒有任何帳戶，請註冊新的個人帳戶。 請繼續進行，這不需要很長的時間 - 我們會在此等候。
 
@@ -40,8 +40,10 @@ ms.lasthandoff: 12/11/2017
 
 接下來，加入您的 app 將使用的平台。
 
-* 針對 web 架構的 app，提供可傳送登入訊息的 **重新導向 URI** 。
+* 針對 Web 架構的應用程式，提供可傳送登入訊息的**重新導向 URI**。
 * 針對行動應用程式，複製系統自動為您建立的預設重新導向 URI。
+* 針對 Web API，系統會自動為您建立用來存取 Web API 的預設範圍。 您可以選擇使用 [新增範圍] 按鈕新增其他範圍。 您也可以使用 [已預先授權應用程式] 表單新增任何已預先獲得授權可以使用您 Web API 的應用程式。 
+
 
 (選擇性) 您可以在 [設定檔] 區段中自訂登入頁面的外觀及操作方式。  繼續之前，請務必按一下 [儲存]  。
 
@@ -50,8 +52,8 @@ ms.lasthandoff: 12/11/2017
 > 
 > 
 
-## <a name="build-a-quick-start-app"></a>建置快速啟動應用程式
-您現在已有 Microsoft app，您可以完成我們提供的其中一個 v2.0 快速啟動教學課程。  以下是一些建議：
+## <a name="build-a-quickstart-app"></a>建置快速入門應用程式
+您現在已有 Microsoft app，您可以完成我們提供的其中一個 v2.0 快速入門教學課程。  以下是一些建議：
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
 

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: barclayn
-ms.openlocfilehash: fea235ed057517840515f1ad0543dba1b1c46dd0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4b2d785f5b9095a2decfc65ec46808ff6f65c38e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architecture"></a>Azure DDoS 保護：最佳做法與參考架構
 
@@ -167,7 +167,7 @@ DDoS 保護標準會在啟用 DDoS 的 VNET 中，針對受保護資源的每個
 
 - 訓練您的網路安全性小組
 
-網路安全性是一場在防禦上需要不斷創新的持續戰鬥。 Azure 的 DDoS 標準保護是一項最先進的技術，可提供有效的解決方案來為日益複雜的 DDoS 攻擊提供防護。
+網路安全性是一場在防禦上需要不斷創新的持續戰鬥。 Azure 的 DDoS 標準保護是一項最先進的技術，可為客戶提供有效的解決方案來防禦日益複雜的 DDoS 攻擊。
 
 ## <a name="components-of-a-ddos-response-strategy"></a>DDoS 回應策略的元件
 

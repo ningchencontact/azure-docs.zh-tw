@@ -13,22 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2018
+ms.date: 04/19/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 21862bb110801a43f13e3e65811e10726c188614
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 24723f268e59103c712b98b4bd895472b034afc0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>允許或封鎖對特定組織的 B2B 使用者的邀請
 
 您可以使用允許清單或拒絕清單，以允許或封鎖對特定組織的 B2B 使用者的邀請。 例如，如果您想要封鎖個人電子郵件地址網域，您可以設定包含 Gmail.com 和 Outlook.com 等網域的拒絕清單。或者，如果您的企業與其他企業 (如 Contoso.com、Fabrikam.com 和 Litware.com) 有合作關係，而您想要將邀請僅限定於這些組織，則您可以將 Contoso.com、Fabrikam.com 和 Litware.com 新增至您的允許清單中。
   
-> [!NOTE]
-> 目前，您只能使用拒絕清單。 使用允許清單的功能將於近期推出。
-
 ## <a name="important-considerations"></a>重要考量︰
 
 - 您可以建立允許清單或拒絕清單。 您無法同時設定這兩種清單。 根據預設，未列入允許清單的網域即會列於拒絕清單中，反之亦然。 
@@ -50,22 +47,34 @@ ms.lasthandoff: 04/18/2018
 2. 選取 [Azure Active Directory] > [使用者] > [使用者設定]。
 3. 在 [外部使用者] 下，選取 [管理外部共同作業設定]。
 4. 在 [共同作業限制] 下，選取 [拒絕對指定網域的邀請]。
-5. 在 [目標網域] 下，輸入您要封鎖的網域之一的名稱。 若有多個網域，請將每個網域輸入於不同行。
+5. 在 [目標網域] 下，輸入您要封鎖的網域之一的名稱。 若有多個網域，請將每個網域輸入於不同行。 例如︰
 
    ![顯示已新增網域的拒絕選項](./media/active-directory-b2b-allow-deny-list/DenyListSettings.png)
  
 6. 完成後，按一下 [儲存] 。
 
-設定原則後，如果您嘗試邀請來自封鎖網域的使用者，則會顯示一則訊息，指出您的邀請原則目前已封鎖該使用者。
+設定原則後，如果您嘗試邀請來自封鎖網域的使用者，則會顯示一則訊息，指出您的邀請原則目前已封鎖該使用者的網域。
  
 ### <a name="add-an-allow-list"></a>新增允許清單
-
-> [!NOTE]
-> [僅允許對指定網域的邀請 (限制性最高)] 設定目前尚無法使用。 使用允許清單的功能將於近期推出。
 
 這是限制性較高的組態，可讓您在允許清單中設定特定網域，並限制對未提及的任何其他組織或網域發出邀請。 
 
 如果您想要使用允許清單，請務必審慎而完整地評估您的業務需求為何。 如果您讓此原則的限制過多，使用者有可能會選擇透過電子郵件傳送文件，或尋求以其他非 IT 認可的方法進行共同作業。
+
+
+若要新增允許清單：
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 選取 [Azure Active Directory] > [使用者] > [使用者設定]。
+3. 在 [外部使用者] 下，選取 [管理外部共同作業設定]。
+4. 在 [共同作業限制] 下，選取 [僅允許對指定網域的邀請 (限制性最高)]。
+5. 在 [目標網域] 下，輸入您要允許的網域之一的名稱。 若有多個網域，請將每個網域輸入於不同行。 例如︰
+
+   ![顯示已新增網域的允許選項](./media/active-directory-b2b-allow-deny-list/AllowListSettings.png)
+ 
+6. 完成後，按一下 [儲存] 。
+
+設定原則後，如果您嘗試使用者，且使用者來自不在允許清單上的網域，則會顯示一則訊息，指出您的邀請原則目前已封鎖該使用者的網域。
 
 ### <a name="switch-from-allow-to-deny-list-and-vice-versa"></a>從允許清單切換為拒絕清單，或反向作業 
 
@@ -115,9 +124,6 @@ ms.lasthandoff: 04/18/2018
     ````
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>使用 AzureADPolicy Cmdlet 設定原則
-
-> [!NOTE]
-> 目前，您只能設定拒絕清單。 使用允許清單的功能將於近期推出。
 
 若要建立允許或拒絕清單，請使用 [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) Cmdlet。 下列範例說明如何設定會封鎖 "live.com" 網域的拒絕清單。
 

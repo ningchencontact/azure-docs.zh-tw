@@ -4,7 +4,7 @@
 
 ## <a name="create-a-blank-sql-database"></a>建立空白 SQL Database
 
-Azure SQL Database 會使用一組定義的[計算和儲存體資源](../articles/sql-database/sql-database-service-tiers.md)建立。 此資料庫建立於 [Azure 資源群組](../articles/azure-resource-manager/resource-group-overview.md)和 [Azure SQL Database 邏輯伺服器](../articles/sql-database/sql-database-features.md)內。 
+Azure SQL Database 會使用一組定義的[計算和儲存體資源](../articles/sql-database/sql-database-service-tiers-dtu.md)建立。 此資料庫建立於 [Azure 資源群組](../articles/azure-resource-manager/resource-group-overview.md)和 [Azure SQL Database 邏輯伺服器](../articles/sql-database/sql-database-features.md)內。 
 
 遵循以下步驟來建立空白 SQL 資料庫。 
 

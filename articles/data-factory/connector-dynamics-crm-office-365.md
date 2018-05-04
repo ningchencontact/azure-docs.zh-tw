@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/20/2018
 ms.author: jingwang
-ms.openlocfilehash: ea69fdab9ec510f6060b280db3afffb7533a4bda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f56443eb41e2a7f723e95f86f39c5cc47e82f6f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Dynamics 365 (Common Data Service) 複製資料以及複製資料至 Dynamics 365
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 03/23/2018
 |:--- |:--- |:--- |
 | type | type 屬性必須設定為 **Dynamics**。 | yes |
 | deploymentType | Dynamics 執行個體的部署類型。 如果是 Dynamics Online，就必須是 **"Online"**。 | yes |
-| organizationName | Dynamics 執行個體的組織名稱。 | 否，當與使用者關聯的 Dynamics 執行個體超過一個時，則應該指定 |
+| serviceUri | 您 Dynamics 執行個體的服務 URL，例如 `https://adfdynamics.crm.dynamics.com`。 | yes |
 | authenticationType | 連線到 Dynamics 伺服器時所使用的驗證類型。 如果是 Dynamics Online，請指定 **"Office365"**。 | yes |
 | username | 指定要連線到 Dynamics 的使用者名稱。 | yes |
 | password | 指定您為 username 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
@@ -71,6 +71,9 @@ ms.lasthandoff: 03/23/2018
 
 >[!IMPORTANT]
 >將資料複製到 Dynamics 時，預設的 Azure Integration Runtime 無法用來執行複製。 換句話說，如果來源連結服務沒有指定的整合執行階段，請使用 Dynamics 執行個體附近的位置明確[建立 Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir)。 在 Dynamics 連結服務中建立關聯，如下列範例所示。
+
+>[!NOTE]
+>您可利用 Dynamics 連接器來使用選擇性 "organizationName" 屬性，以識別您的 Dynamics CRM/365 Online 執行個體。 在其持續運作的同時，建議您改為指定新的 "serviceUri" 屬性，以取得更好的效能來探索執行個體。
 
 **範例：使用 Office365 驗證的 Dynamics 線上版**
 
@@ -82,7 +85,7 @@ ms.lasthandoff: 03/23/2018
         "description": "Dynamics online linked service using Office365 authentication",
         "typeProperties": {
             "deploymentType": "Online",
-            "organizationName": "orga02d9c75",
+            "serviceUri": "https://adfdynamics.crm.dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -207,7 +210,7 @@ ms.lasthandoff: 03/23/2018
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 type 屬性必須設定為 **DynamicsSource**。 | yes |
-| query | FetchXML 是在 Dynamics (線上版和內部部署版) 中使用的專屬查詢語言。 請參閱下列範例。 若要深入了解，請參閱[使用 FetchXML 建置查詢](https://msdn.microsoft.com/en-us/library/gg328332.aspx)。 | 否 (如果已指定資料集中的 "entityName") |
+| query | FetchXML 是在 Dynamics (線上版和內部部署版) 中使用的專屬查詢語言。 請參閱下列範例。 若要深入了解，請參閱[使用 FetchXML 建置查詢](https://msdn.microsoft.com/library/gg328332.aspx)。 | 否 (如果已指定資料集中的 "entityName") |
 
 **範例：**
 

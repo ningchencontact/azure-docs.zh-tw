@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: f53ffdaa6c99d63bdab91f30ffa6b2b182c53848
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e342a10c2f3b6c32d8d0bc727bf3325c26fb53d6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>教學課程：在 Azure 中建置 Python 和 PostgreSQL Web 應用程式
 
@@ -134,35 +134,43 @@ Flask 範例應用程式會將使用者資料儲存於資料庫中。 如果您�
 
 使用 [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) 命令來建立 PostgreSQL 伺服器。
 
-在下列命令中，使用唯一的伺服器名稱取代 \<postgresql_name> 預留位置，以及用使用者名稱取代 \<admin_username> 預留位置。 這個伺服器名稱會用來作為 PostgreSQL 端點 (`https://<postgresql_name>.postgres.database.azure.com`) 的一部分，所以在 Azure 的所有伺服器中必須是唯一的名稱。 使用者名稱是用於初始資料庫管理使用者帳戶。 系統會提示您選取此使用者的密碼。
+在下列命令中，使用唯一的伺服器名稱取代 \<postgresql_name> 預留位置，用使用者名稱取代 \<admin_username> 預留位置，並使用密碼取代 \<admin_password> 預留位置。 這個伺服器名稱會用來作為 PostgreSQL 端點 (`https://<postgresql_name>.postgres.database.azure.com`) 的一部分，所以在 Azure 的所有伺服器中必須是唯一的名稱。
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>  --storage-size 51200
+az postgres server create --resource-group myResourceGroup --name mydemoserver --location "West Europe" --admin-user <admin_username> --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
 建立適用於 PostgreSQL 的 Azure 資料庫伺服器後，Azure CLI 會顯示類似下列範例的資訊：
 
 ```json
 {
+  "additionalProperties": {},
   "administratorLogin": "<my_admin_username>",
+  "earliestRestoreDate": "2018-04-19T22:51:05.340000+00:00",
   "fullyQualifiedDomainName": "<postgresql_name>.postgres.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>",
-  "location": "westus",
+  "location": "westeurope",
   "name": "<postgresql_name>",
   "resourceGroup": "myResourceGroup",
   "sku": {
-    "capacity": 100,
-    "family": null,
-    "name": "PGSQLS3M100",
+    "additionalProperties": {},
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "sslEnforcement": null,
-  "storageMb": 2048,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "additionalProperties": {},
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforPostgreSQL/servers",
   "userVisibleState": "Ready",
-  "version": null
+  "version": "9.6"
 }
 ```
 
@@ -178,14 +186,19 @@ Azure CLI 確認防火牆規則建立，具有類似下列範例的輸出：
 
 ```json
 {
-  "endIpAddress": "0.0.0.0",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAzureIPs",
-  "name": "AllowAzureIPs",
-  "resourceGroup": "myResourceGroup",
+  "additionalProperties": {},
+  "endIpAddress": "255.255.255.255",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAllIPs",
+  "name": "AllowAllIPs",
+ "resourceGroup": "myResourceGroup",
   "startIpAddress": "0.0.0.0",
   "type": "Microsoft.DBforPostgreSQL/servers/firewallRules"
 }
 ```
+
+> [!TIP] 
+> [僅使用您的應用程式所用的輸出 IP 位址](app-service-ip-addresses.md#find-outbound-ips)，讓您的防火牆規則更具限制性。
+>
 
 ### <a name="create-a-production-database-and-user"></a>建立生產環境資料庫和使用者
 
@@ -194,7 +207,7 @@ Azure CLI 確認防火牆規則建立，具有類似下列範例的輸出：
 連線至資料庫 (系統會提示您輸入管理員密碼)。
 
 ```bash
-psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
+psql -h <postgresql_name>.postgres.database.azure.com -U <admin_username>@<postgresql_name> postgres
 ```
 
 從 PostgreSQL CLI 建立資料庫和使用者。

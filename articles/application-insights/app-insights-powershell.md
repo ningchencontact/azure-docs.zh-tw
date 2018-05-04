@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 56a2b95aa11a7cea3c7b60bd1d3f2835e7dd17a8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d6bc4f69386cc8a9119aa852693456f6465f59ce
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>使用 PowerShell 建立 Application Insights 資源
 本文說明如何使用 Azure 資源管理，自動將 [Application Insights](app-insights-overview.md) 資源的建立和更新自動化。 例如，您可能建置程序中這麼做。 除了基本的 Application Insights 資源外，您可以建立[可用性 Web 測試](app-insights-monitor-web-app-availability.md)、設定[警示](app-insights-alerts.md)、設定[價格配置](app-insights-pricing.md)和建立其他 Azure 資源。
@@ -52,7 +52,6 @@ ms.lasthandoff: 04/19/2018
                 "allowedValues": [
                     "web",
                     "java",
-                    "HockeyAppBridge",
                     "other"
                 ],
                 "metadata": {

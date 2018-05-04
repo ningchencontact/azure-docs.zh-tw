@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 31951b609f7d819b532e6fa8cb02c702e9457253
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 0f88ca7c0353c4ab63bf4f6ca5509b0e4504929f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>教學課程：在 Azure 中建置 Java 和 MySQL Web 應用程式
 
@@ -137,25 +137,50 @@ az group create --name myResourceGroup --location "North Europe"
 
 ### <a name="create-a-mysql-server"></a>建立 MySQL 伺服器
 
-在 Cloud Shell 中，使用 [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create) 命令在適用於 MySQL 的 Azure 資料庫中建立伺服器。 在您看見 `<mysql_server_name>` 預留位置的地方，替代成您自己的唯一 MySQL 伺服器名稱。 這個名稱是 MySQL 伺服器主機名稱 `<mysql_server_name>.mysql.database.azure.com` 的一部分，因此它必須是全域唯一的。 另外，請將 `<admin_user>` 和 `<admin_password>` 替代成您自己的值。
+在 Cloud Shell 中，使用 [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) 命令在適用於 MySQL 的 Azure 資料庫中建立伺服器。
+
+在下列命令中，使用唯一的伺服器名稱取代 \<mysql_name> 預留位置，使用使用者名稱取代 \<admin_user> 預留位置，並使用密碼取代 \<admin_password> 預留位置。 這個伺服器名稱會用來作為 PostgreSQL 端點 (`https://<mysql_name>.mysql.database.azure.com`) 的一部分，所以在 Azure 的所有伺服器中必須是唯一的名稱。
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
+az mysql server create --resource-group myResourceGroup --name mydemoserver --location "West Europe" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
 ```
+
+> [!NOTE]
+> 由於在本教學課程有數個認證需要談討，以避免產生混淆，`--admin-user` 和 `--admin-password` 會設為空值。 在生產環境中，為 Azure MySQL 伺服器選擇良好的使用者名稱和密碼時，請遵循安全性最佳做法。
+>
+>
 
 建立 MySQL 伺服器後，Azure CLI 會顯示類似下列範例的資訊：
 
 ```json
 {
-  "administratorLogin": "admin_user",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "mysql_server_name.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/mysql_server_name",
-  "location": "northeurope",
-  "name": "mysql_server_name",
-  "resourceGroup": "mysqlJavaResourceGroup",
-  ...
-  < Output has been truncated for readability >
+  "additionalProperties": {},
+  "administratorLogin": "<admin_user>",
+  "earliestRestoreDate": "2018-04-19T22:56:40.990000+00:00",
+  "fullyQualifiedDomainName": "<mysql_name>.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
+  "location": "westeurope",
+  "name": "<mysql_server_name>",
+  "resourceGroup": "myResourceGroup",
+  "sku": {
+    "additionalProperties": {},
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
+    "size": null,
+    "tier": "GeneralPurpose"
+  },
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "additionalProperties": {},
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
+  "tags": null,
+  "type": "Microsoft.DBforMySQL/servers",
+  "userVisibleState": "Ready",
+  "version": "5.7"
 }
 ```
 
@@ -167,9 +192,13 @@ az mysql server create --name <mysql_server_name> --resource-group myResourceGro
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
+> [!TIP] 
+> [僅使用您的應用程式所用的輸出 IP 位址](app-service-ip-addresses.md#find-outbound-ips)，讓您的防火牆規則更具限制性。
+>
+
 ## <a name="configure-the-azure-mysql-database"></a>設定 Azure MySQL 資料庫
 
-在本機終端機視窗中，連線至 Azure 中的 MySQL 伺服器。 針對 `<admin_user>` 和 `<mysql_server_name>`，使用您先前指定的值。
+在本機終端機視窗中，連線至 Azure 中的 MySQL 伺服器。 使用您先前為 _&lt;mysql_server_name>_ 指定的值。 當系統提示您輸入密碼時，請使用您在 Azure 中建立資料庫時指定的密碼。
 
 ```bash
 mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p

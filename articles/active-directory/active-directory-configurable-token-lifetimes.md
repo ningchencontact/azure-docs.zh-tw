@@ -16,17 +16,17 @@ ms.date: 07/20/2017
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 840cd28b1b5781428e23f36fe5904cd445942e69
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 480c1984219a5e2fb79e8eb81ed87710c79611e4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory 中可設定的權杖存留期 (公開預覽版)
 您可以指定 Azure Active Directory (Azure AD) 所簽發的權杖存留期。 不論是針對組織中所有的應用程式、針對多租用戶 (多組織) 應用程式，還是針對組織中特定的服務主體，都可以設定權杖存留期。
 
-> [!NOTE]
-> 這項功能目前為公開預覽版。 您應做好將任何變更還原或移除的準備。 公用預覽版期間功能可用於任何 Azure Active Directory 訂用帳戶。 不過，當功能正式推出時，功能的某些層面可能需要 [Azure Active Directory Premium](active-directory-get-started-premium.md) 訂用帳戶。
+> [!IMPORTANT]
+> 這種控制權杖存留期的方法將會被取代。  雖然此方法在替代功能推出之前仍可供使用，但在被取代之後，使用此方法建立的權杖存留期原則即會停止運作。 
 >
 >
 

@@ -1,4 +1,4 @@
-若要在您的應用程式中啟用設定檔編輯功能，您必須建立設定檔編輯原則。 此原則描述取用者在設定檔編輯期間將會經歷的體驗，以及成功完成時，應用程式將收到的權杖內容。
+如果您要在您的應用程式中啟用設定檔編輯功能，您可使用**設定檔編輯**原則。 此原則描述客戶在設定檔編輯期間將會經歷的體驗，以及成功完成時，應用程式將收到的權杖內容。
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
