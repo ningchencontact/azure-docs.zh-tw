@@ -75,7 +75,7 @@ ms.lasthandoff: 04/16/2018
 
 1. 您現在是帳戶管理員。請檢閱並更新服務管理員、共同管理員和其他 RBAC 角色。 若要深入了解，請參閱[新增或變更管理訂用帳戶或服務的 Azure 系統管理員角色](billing-add-change-azure-subscription-administrator.md)。
 1. 更新與此訂用帳戶服務相關聯的認證，包括：
-   1. 可將使用者管理權限授與給訂用帳戶資源的管理憑證。 如需詳細資訊，請參閱 [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
+   1. 可將使用者管理權限授與給訂用帳戶資源的管理憑證。 如需詳細資訊，請參閱[建立和上傳 Azure 的管理憑證](../cloud-services/cloud-services-certs-create.md)。
    1. 服務 (例如儲存體) 的存取金鑰。 如需詳細資訊，請參閱[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)
    1. 服務 (例如 Azure 虛擬機器) 的遠端存取認證。 
 1. 若要[更新此訂用帳戶的計費警示](https://account.windowsazure.com/Subscriptions)，請至 [Azure 帳戶中心](billing-set-up-alerts.md)。 

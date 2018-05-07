@@ -1,8 +1,8 @@
 ---
-title: "使用 Linux VM MSI 透過 SAS 認證存取 Azure 儲存體"
-description: "該教學課程說明如何使用 Linux VM 受控服務身分識別 (MSI) 存取 Azure 儲存體，並使用 SAS 認證而非儲存體帳戶存取金鑰。"
+title: 使用 Linux VM MSI 透過 SAS 認證存取 Azure 儲存體
+description: 該教學課程說明如何使用 Linux VM 受控服務身分識別 (MSI) 存取 Azure 儲存體，並使用 SAS 認證而非儲存體帳戶存取金鑰。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba

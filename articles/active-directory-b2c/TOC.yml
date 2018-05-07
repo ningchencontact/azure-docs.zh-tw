@@ -94,8 +94,6 @@
       items:
         - name: 設定識別提供者
           items:
-            - name: 自訂 OpenID Connect
-              href: active-directory-b2c-setup-oidc-idp.md
             - name: Microsoft 帳戶
               href: active-directory-b2c-setup-msa-app.md
             - name: Facebook
@@ -114,6 +112,10 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: 微信
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD (單一租用戶)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
+            - name: 自訂 OpenID Connect
+              href: active-directory-b2c-setup-oidc-idp.md
         - name: 設定自助密碼重設
           href: active-directory-b2c-reference-sspr.md
         - name: 自訂 UI
@@ -139,8 +141,14 @@
           href: active-directory-b2c-reference-language-customization.md
         - name: 使用報告 API
           href: active-directory-b2c-reference-usage-reporting-api.md
+        - name: 存取稽核記錄
+          href: active-directory-b2c-reference-audit-logs.md
         - name: 移轉使用者
           href: active-directory-b2c-user-migration.md
+        - name: 使用 b2clogin.com
+          href: b2clogin.md
+        - name: 使用年齡控制
+          href: basic-age-gating.md
     - name: 身分識別體驗架構
       items:
         - name: 自訂原則
@@ -151,8 +159,10 @@
               href: active-directory-b2c-get-started-custom.md
             - name: 設定 OIDC/OAUTH 提供者
               items:
-                - name: Azure AD
+                - name: Azure AD (單一租用戶)
                   href: active-directory-b2c-setup-aad-custom.md
+                - name: Azure AD (多租用戶)
+                  href: active-directory-b2c-setup-commonaad-custom.md
                 - name: Microsoft 帳戶
                   href: active-directory-b2c-custom-setup-msa-idp.md
                 - name: Google+
@@ -161,8 +171,6 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
-                - name: 多租用戶
-                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: 設定 SAML 提供者
               items:
                 - name: ADFS

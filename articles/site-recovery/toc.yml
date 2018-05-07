@@ -111,6 +111,8 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: 關於站台復原的 Azure 流量管理員
       href: concepts-traffic-manager-with-site-recovery.md
+    - name: 關於使用 Site Recovery 的 ExpressRoute
+      href: concepts-expressroute-with-site-recovery.md
     - name: 常見問題集
       href: site-recovery-faq.md
 - name: 使用說明指南
@@ -119,12 +121,14 @@
       items:
         - name: 網路
           items:
-            - name: 管理 Azure VM 災害復原 (預覽) 的網路功能
+            - name: 管理 Azure 虛擬機器災害復原的網路功能
               href: azure-to-azure-about-networking.md
             - name: 準備 Azure VM 災害復原中的網路對應功能
               href: azure-to-azure-network-mapping.md
             - name: 設定容錯移轉的 IP 位址
               href: site-recovery-retain-ip-azure-vm-failover.md
+            - name: 含 Azure 虛擬機器災害復原的 ExpressRoute
+              href: azure-vm-disaster-recovery-with-expressroute.md
         - name: 災害復原
           items:
             - name: 移轉至 Azure 之後的 Azure 虛擬機器災害復原
@@ -141,6 +145,12 @@
           items:
             - name: Azure 至 Azure 複寫的疑難排解
               href: azure-to-azure-troubleshoot-errors.md
+            - name: 針對 Azure Site Recovery 擴充功能進行疑難排解
+              href: site-recovery-extension-troubleshoot.md
+        - name: 管理
+          items:
+            - name: 行動服務擴充功能自動更新
+              href: azure-to-azure-autoupdate.md
     - name: VMware/實體至 Azure
       items:
         - name: 網路

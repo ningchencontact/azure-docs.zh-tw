@@ -71,6 +71,7 @@
 #### [管理裝置身分識別](iot-hub-devguide-identity-registry.md)
 #### [控制 IoT 中樞的存取權](iot-hub-devguide-security.md)
 #### [了解攣生裝置](iot-hub-devguide-device-twins.md)
+#### [了解模組對應項](iot-hub-devguide-module-twins.md)
 #### [叫用裝置上的直接方法](iot-hub-devguide-direct-methods.md)
 #### [排程多個裝置上的作業](iot-hub-devguide-jobs.md)
 #### [IoT 中樞端點](iot-hub-devguide-endpoints.md)
@@ -78,6 +79,7 @@
 #### [配額和節流](iot-hub-devguide-quotas-throttling.md)
 #### [計費範例](iot-hub-devguide-pricing.md)
 #### [裝置與服務 SDK](iot-hub-devguide-sdks.md)
+#### [為行動裝置而開發](iot-hub-how-to-develop-for-mobile-devices.md)
 #### [MQTT 支援](iot-hub-mqtt-support.md)
 #### [詞彙](iot-hub-devguide-glossary.md)
 ### [使用適用於 C 的 IoT 裝置 SDK](iot-hub-device-sdk-c-intro.md)
@@ -105,6 +107,9 @@
 #### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java 後端/Java 裝置](iot-hub-java-java-twin-getstarted.md)
 #### [Python 後端/Python 裝置](iot-hub-python-twin-getstarted.md)
+### 開始使用模組對應項
+#### [入口網站後端/.NET 裝置](iot-hub-portal-csharp-module-twin-getstarted.md)
+#### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-module-twin-getstarted.md)
 ### 使用直接方法
 #### [Node.js 後端/Node.js 裝置](iot-hub-node-node-direct-methods.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-direct-methods.md)

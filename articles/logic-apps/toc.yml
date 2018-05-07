@@ -61,6 +61,8 @@
           href: logic-apps-content-type.md
         - name: 處理錯誤和例外狀況
           href: logic-apps-exception-handling.md
+        - name: 處理大型訊息
+          href: logic-apps-handle-large-messages.md
         - name: 保護邏輯應用程式
           href: logic-apps-securing-a-logic-app.md
         - name: 開發自訂連接器

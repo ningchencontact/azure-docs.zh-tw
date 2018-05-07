@@ -187,6 +187,10 @@
           href: web-sites-create-web-jobs.md
         - name: 使用 VS 開發 WebJobs
           href: websites-dotnet-deploy-webjobs.md
+        - name: 開始使用 WebJobs SDK
+          href: webjobs-sdk-get-started.md
+        - name: 使用 WebJobs SDK
+          href: webjobs-sdk-how-to.md
 - name: 參考
   items:
     - name: Azure CLI
@@ -231,7 +235,7 @@
           href: 'https://msdn.microsoft.com/library/azure/dn407359.aspx'
         - name: Azure SDK for .NET 2.0
           href: 'https://msdn.microsoft.com/library/azure/dn169556.aspx'
-    - name: 最佳做法
+    - name: 最佳作法
       href: app-service-best-practices.md
     - name: 範例
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
