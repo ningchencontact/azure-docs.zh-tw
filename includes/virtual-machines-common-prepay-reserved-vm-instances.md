@@ -1,3 +1,11 @@
+---
+ms.topic: include
+ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/03/2018
+---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>預付具有保留的 VM 執行個體的虛擬機器
 
 預付虛擬機器，並使用保留的虛擬機器執行個體節省成本。 如需詳細資訊，請參閱[保留的虛擬機器執行個體供應項目](https://azure.microsoft.com/pricing/reserved-vm-instances/)。
@@ -41,4 +49,4 @@
 - [了解保留執行個體折扣如何套用](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [了解預付型方案的保留執行個體使用量](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊之保留執行個體的使用方式](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
-- [Windows 軟體的成本不包括在保留執行個體內](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [Windows 軟體的成本不包括在保留的執行個體內](../articles/billing/billing-reserved-instance-windows-software-costs.md)

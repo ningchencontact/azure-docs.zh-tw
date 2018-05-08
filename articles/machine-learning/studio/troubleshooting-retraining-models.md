@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 011/01/2017
-ms.openlocfilehash: f5b826decd360ea0e8c2394c4205fafcf6cb16d0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 11/01/2017
+ms.openlocfilehash: 302049003e9bebe48d70bf800baaa98b951abbeb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>針對 Azure Machine Learning 傳統 Web 服務的重新訓練進行疑難排解
 ## <a name="retraining-overview"></a>重新訓練概觀
