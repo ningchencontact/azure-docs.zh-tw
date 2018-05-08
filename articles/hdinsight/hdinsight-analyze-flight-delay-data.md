@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0e91cf994306c115911d9dd9cf0018f7947502d8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: eec5d0eb3c9cb0ae6e3e7f4eadfc58c4ab039cfd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>在 HDInsight 上使用 Hadoop 分析航班延誤資料
 Hive 可透過一種類似 SQL 的指令碼語言 (稱為 *[HiveQL][hadoop-hiveql]*) 來執行 Hadoop MapReduce 作業，可用來彙總、查詢和分析大量資料。
@@ -259,7 +259,8 @@ Hadoop MapReduce 是批次處理。 執行 Hive 工作時，最具成本效益�
     <tr><td>篩選期間</td><td>一月</td></tr>
     <tr><td>欄位</td><td>*Year*、*FlightDate*、*UniqueCarrier*、*Carrier*、*FlightNum*、*OriginAirportID*、*Origin*、*OriginCityName*、*OriginState*、*DestAirportID*、*Dest*、*DestCityName*、*DestState*、*DepDelayMinutes*、*ArrDelay*、*ArrDelayMinutes*、*CarrierDelay*、*WeatherDelay*、*NASDelay*、*SecurityDelay*、*LateAircraftDelay* (請清除其餘所有欄位)</td></tr>
     </table>
-3. 按一下 **下載**。
+
+3. 按一下 [下載] 。
 4. 將檔案解壓縮至 **C:\Tutorials\FlightDelay\2013Data** 資料夾。 每個檔案皆為 CSV 檔案，大小約為 60 GB。
 5. 將檔案重新命名為檔案資料所屬月份的名稱。 例如，包含一月份資料的檔案，應命名為 *January.csv*。
 6. 重複步驟 2 到 5，以下載 2013 年 12 個月份的檔案。 至少要有一個檔案，才能執行此教學課程。
@@ -273,6 +274,7 @@ Hadoop MapReduce 是批次處理。 執行 Hive 工作時，最具成本效益�
     <tr><td>$storageAccountName</td><td>您要上傳資料的 Azure 儲存體帳戶。</td></tr>
     <tr><td>$blobContainerName</td><td>您要上傳資料的 Blob 容器。</td></tr>
     </table>
+    
 2. 開啟 Azure PowerShell ISE。
 3. 將下列指令碼貼到指令碼窗格中：
 

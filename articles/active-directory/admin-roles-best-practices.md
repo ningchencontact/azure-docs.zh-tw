@@ -9,13 +9,14 @@ ms.date: 03/09/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
+ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 45a0cf104df6d29515ed1a94c78c8cc1e42a2223
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
@@ -240,7 +241,7 @@ Azure AD Identity Protection 是一種以演算法為基礎的監視和報告工
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>以專用的工作站處理 Azure AD 的管理工作
 
-攻擊者可能嘗試以特殊權限帳戶作為目標來取得組織資料和系統的存取，進而能夠透過會更改程式邏輯或對輸入認證的管理員進行刺探的惡意程式碼，來干擾資料的完整性和真實性。 特殊權限存取工作站 (PAW) 提供敏感性工作的專用作業系統，以免遭受網際網路攻擊和威脅載體攻擊。 將這些敏感性工作和帳戶與日常使用的工作站和裝置分隔，可提供非常強大的防護功能，以免遭受網路釣魚攻擊、應用程式和作業系統弱點、各種模擬攻擊以及認證盜用攻擊，例如按鍵輸入記錄、傳遞雜湊 (Pass-the-Hash) 和傳遞票證 (Pass-The-Ticket) 等攻擊。 藉由部署特殊權限存取工作站，您可以降低管理員在未經強化的桌面環境中輸入管理員認證的風險。 如需詳細資訊，請參閱[特殊權限存取工作站](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/privileged-access-workstations)。
+攻擊者可能嘗試以特殊權限帳戶作為目標來取得組織資料和系統的存取，進而能夠透過會更改程式邏輯或對輸入認證的管理員進行刺探的惡意程式碼，來干擾資料的完整性和真實性。 特殊權限存取工作站 (PAW) 提供敏感性工作的專用作業系統，以免遭受網際網路攻擊和威脅載體攻擊。 將這些敏感性工作和帳戶與日常使用的工作站和裝置分隔，可提供非常強大的防護功能，以免遭受網路釣魚攻擊、應用程式和作業系統弱點、各種模擬攻擊以及認證盜用攻擊，例如按鍵輸入記錄、傳遞雜湊 (Pass-the-Hash) 和傳遞票證 (Pass-The-Ticket) 等攻擊。 藉由部署特殊權限存取工作站，您可以降低管理員在未經強化的桌面環境中輸入管理員認證的風險。 如需詳細資訊，請參閱[特殊權限存取工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)。
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>檢閱美國國家標準技術局的事件處理建議 
 

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure AD 驗證搭配 REST 存取 Azure 媒體服務 API | Microsoft Docs"
-description: "了解如何使用 Azure Active Directory 驗證搭配 REST 存取 Azure 媒體服務 API。"
+title: 使用 Azure AD 驗證搭配 REST 存取 Azure 媒體服務 API | Microsoft Docs
+description: 了解如何使用 Azure Active Directory 驗證搭配 REST 存取 Azure 媒體服務 API。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: willzhan
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>使用 Azure AD 驗證搭配 REST 存取 Azure 媒體服務 API
 

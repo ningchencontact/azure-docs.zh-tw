@@ -1,11 +1,11 @@
 ---
-title: "設定 Haivision KB 編碼器來將單一位元速率即時串流傳送到 Azure | Microsoft Docs"
-description: "本主題示範如何設定 Haivision KB 即時編碼器，以將單一位元速率串流傳送到已啟用即時編碼的 AMS 通道。"
+title: 設定 Haivision KB 編碼器來將單一位元速率即時串流傳送到 Azure | Microsoft Docs
+description: 本主題示範如何設定 Haivision KB 即時編碼器，以將單一位元速率串流傳送到已啟用即時編碼的 AMS 通道。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: dbgeorge
 manager: vsood
-editor: 
+editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: juliako;dbgeorge
 ms.openlocfilehash: 25077cd9338a2764c6dff9e755812033685f6641
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Haivision KB 即時編碼器來傳送單一位元速率即時串流
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/01/2018
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 
-此主題說明如何設定 [Havision KB 即時編碼器](https://www.haivision.com/products/kb-series/)來傳送單一位元速率串流到已啟用即時編碼的 AMS 通道。 如需詳細資訊，請參閱[使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
+此主題說明如何設定 [Havision KB 即時編碼器](https://www.haivision.com/products/kb-series/)來傳送單一位元速率串流到已啟用即時編碼的 AMS 通道。 如需詳細資訊，請參閱 [使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
 本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。 此工具只會在 Windows 電腦上執行。 如果您是用 Mac 或 Linux，請使用 Azure 入口網站建立[通道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[程式](media-services-portal-creating-live-encoder-enabled-channel.md)。
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/01/2018
 * [建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)
 * 確定有執行中的「串流端點」。 如需詳細資訊，請參閱 [在媒體服務帳戶中管理串流端點](media-services-portal-manage-streaming-endpoints.md)
 * 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
-* 啟動工具並連線到您的 AMS 帳戶。
+* 啟動工具並連接到您的 AMS 帳戶。
 
 ## <a name="tips"></a>祕訣
 * 請盡可能使用實體的有線網際網路連線。
@@ -55,7 +55,7 @@ ms.lasthandoff: 02/01/2018
 > 通道約需 20 分鐘的時間即可啟動。
 
 ## <a name="configure-the-haivision-kb-encoder"></a>設定 Haivision KB 編碼器
-在本教學課程中，我們會使用下列輸出設定。 本節的其餘部分將詳細說明設定步驟。
+在本教學課程中，我們會使用下列輸出設定。 本章節的其餘部分將詳細說明組態步驟。
 
 視訊：
 -   轉碼器：H.264
@@ -90,7 +90,7 @@ ms.lasthandoff: 02/01/2018
 ## <a name="test-playback"></a>測試播放
 瀏覽至 AMSE 工具，然後以滑鼠右鍵按一下要測試的通道。 在功能表中，將滑鼠游標停留在 [播放預覽] \(Playback the Preview\) 上方，並選取 [使用 Azure 媒體播放器] \(with Azure Media Player\)。
 
-如果播放器中出現串流，則編碼器已妥善設定為連線到 AMS。
+如果播放器中出現串流，則編碼器已妥善設定為連接到 AMS。
 
 如果收到錯誤，則必須重設通道，且編碼器設定需要調整。 如需 指導方針，請參閱疑難排解一文。
 

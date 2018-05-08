@@ -8,11 +8,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/05/2017
 ms.author: heidist
-ms.openlocfilehash: ca0a00d078cd63aa8736ba9f9822fd812823304f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4b40e8c9f681b7489c0ab2ffe7b369cc869c73e2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-search-traffic-analytics"></a>什麼是搜尋流量分析
 搜尋流量分析是一種模式，可用來實作搜尋服務的意見反應管道。 這個模式描述必要的資料，以及如何使用監視多平台服務中的業界領導者 Application Insights 來加以收集。
@@ -151,7 +151,7 @@ Azure 搜尋服務所提供的遙測解決方案可整合 Azure Application Insi
 
 *JavaScript*
 
-    appInsights.TrackEvent("Click", {
+    appInsights.trackEvent("Click", {
         SearchServiceName: <service name>,
         SearchId: <search id>,
         ClickedDocId: <clicked document id>,

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2498c8b1acff79d50f34c703af77c555a00fd1a2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作負載的安全性最佳作法
 
@@ -85,7 +85,7 @@ PAW 方法是完善且建議之作法的延伸，可使用個別指派的系統�
 
 [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) 服務會使用 [Azure 角色型存取控制](../role-based-access-control/overview.md) (RBAC)。 透過使用 RBAC，您可以將小組內的職責區隔為各種角色，而僅授與使用者執行其作業所需的存取層級。 RBAC 隨附預先定義的角色 (擁有者、實驗室使用者和參與者)。 您甚至可以使用這些角色來指派權限給外部合作夥伴，大幅簡化共同作業。
 
-由於 DevTest Labs 使用 RBAC，所以可能建立其他[自訂角色](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md)。 DevTest Labs 不僅可簡化權限管理，也能夠簡化佈建環境的程序。 它還能協助您處理小組在開發與測試環境上所面臨的其他典型挑戰。 這需要一些準備工作，但長期來看，它會讓您的小組更輕鬆地作業。
+由於 DevTest Labs 使用 RBAC，所以可能建立其他[自訂角色](../lab-services/devtest-lab-grant-user-permissions-to-specific-lab-policies.md)。 DevTest Labs 不僅可簡化權限管理，也能夠簡化佈建環境的程序。 它還能協助您處理小組在開發與測試環境上所面臨的其他典型挑戰。 這需要一些準備工作，但長期來看，它會讓您的小組更輕鬆地作業。
 
 Azure DevTest Labs 的功能包括︰
 

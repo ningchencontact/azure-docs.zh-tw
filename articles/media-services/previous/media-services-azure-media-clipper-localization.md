@@ -1,8 +1,8 @@
 ---
-title: "設定 Azure Media Clipper 當地語系化 | Microsoft Docs"
-description: "了解 Azure Media Clipper 支援的語言和當地語系化支援"
+title: 設定 Azure Media Clipper 當地語系化 | Microsoft Docs
+description: 了解 Azure Media Clipper 支援的語言和當地語系化支援
 services: media-services
-keywords: "clip;subclip;encoding;media;剪輯;子剪輯;編碼;媒體"
+keywords: clip;subclip;encoding;media;剪輯;子剪輯;編碼;媒體
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: dd0fc87741befd92cc41d0129fafcbc64db7ec9e
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configure-localization"></a>設定當地語系化
 Azure Media Clipper 有 18 種語言。 若要設定小工具語言，您必須在初始化期間定義 `language` 參數。 從下列清單傳入想要的語言代碼字串：
