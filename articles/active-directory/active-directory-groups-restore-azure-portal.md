@@ -1,26 +1,24 @@
 ---
-title: "在 Azure Active Directory 中還原已刪除的 Office 365 群組 | Microsoft Docs"
-description: "如何還原已刪除的群組、檢視可還原的群組，以及永久刪除 Azure Active Directory 中的群組"
+title: 在 Azure Active Directory 中還原已刪除的 Office 365 群組 | Microsoft Docs
+description: 如何還原已刪除的群組、檢視可還原的群組，以及永久刪除 Azure Active Directory 中的群組
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: cc5f232a-1e77-45c2-b28b-1fcb4621725c
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 66b76b9bfd63f270c1bb86454908e2bae0897d04
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 388c5617a040da396cb0c6a05b5697fb5fd22248
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>在 Azure Active Directory 中還原已刪除的 Office 365 群組
 

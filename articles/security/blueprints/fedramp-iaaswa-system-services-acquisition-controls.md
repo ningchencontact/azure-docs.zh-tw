@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 系統和服務擷取"
-description: "FedRAMP Web 應用程式自動化 - 系統和服務擷取"
+title: Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 系統和服務擷取
+description: FedRAMP Web 應用程式自動化 - 系統和服務擷取
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>系統和服務擷取 (SA)
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-4 (1)** 組織會要求資訊系統、系統元件或資訊系統服務的開發人員提供所採用安全性控制項的功能屬性描述。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-5.e** 組織會向 [指派：組織定義的人員或角色] 發佈文件。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-16** 組織會要求資訊系統、系統元件或資訊系統服務的開發人員提供關於 [指派：組織定義的定型] 的正確使用及作業之實作安全性函式、控制項和/或機制。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-17.b** 組織會要求資訊系統、系統元件或資訊系統服務的開發人員產生設計規格和安全性架構，正確且完整地描述所需的安全性功能，以及實體和邏輯元件之間安全性控制項的配置。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|

@@ -1,27 +1,27 @@
 ---
-title: "為 Azure 訂用帳戶設定計費或信用額度警示 | Microsoft Docs"
-description: "描述如何設定您的 Azure 帳單上的警示，以避免計費出現意外的狀況。"
-keywords: "信用額度警示, 計費警示"
-services: 
-documentationcenter: 
+title: 為 Azure 訂用帳戶設定計費或信用額度警示 | Microsoft Docs
+description: 描述如何設定您的 Azure 帳單上的警示，以避免計費出現意外的狀況。
+keywords: 信用額度警示, 計費警示
+services: ''
+documentationcenter: ''
 author: vikdesai
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/9/2017
 ms.author: vikdesai
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fc0cb2b036e835450ee0fc404cce12439fabc77
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8606efc4e0d3050ddd72b6bf8ec87f6ddd84fa2e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>為您的 Microsoft Azure 訂用帳戶設定計費或信用額度警示
 如果您是 Azure 訂用帳戶的帳戶管理員，您可以使用「Azure 計費警示服務」來建立自訂計費警示，以協助您監視和管理您 Azure 帳戶的計費活動。

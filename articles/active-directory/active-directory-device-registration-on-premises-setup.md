@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0ce4497a8bebf9078363509c1f962728ab4189f8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>使用 Azure Active Directory 裝置註冊來設定內部部署條件式存取
 當您要求使用者在工作場所將其個人裝置加入至 Azure Active Directory (Azure AD) 裝置註冊服務時，他們的裝置便可標示為組織已知的裝置。 以下是一個逐步指南，說明如何在 Windows Server 2012 R2 中使用 Active Directory Federation Services (AD FS)，來啟用對內部部署應用程式的條件式存取。
@@ -86,7 +86,7 @@ ms.lasthandoff: 04/19/2018
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>第 3 部分：在 Azure AD 中啟用裝置回寫
 | Task | 參考 |
 | --- | --- |
-| 完成「在 Azure AD Connect 中啟用裝置回寫」的第 2 部分。 完成之後，請返回本指南。 |[在 Azure AD Connect 中啟用裝置回寫](#upgrade-your-active-directory-domain-services-schema) |
+| 完成「在 Azure AD Connect 中啟用裝置回寫」的第 2 部分。 完成之後，請返回本指南。 |[在 Azure AD Connect 中啟用裝置回寫](./connect/active-directory-aadconnect-feature-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[選擇性] 第 4 部分：啟用 Multi-Factor Authentication
 強烈建議您設定數個 Multi-Factor Authentication 選項其中之一。 如果您想要要求 Multi-Factor Authentication，請參閱[選擇您的 Multi-Factor Authentication 安全性解決方案](authentication/concept-mfa-whichversion.md)。 它包含每個解決方案的描述，以及可協助您設定您所選解決方案的連結。

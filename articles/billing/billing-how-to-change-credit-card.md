@@ -1,4 +1,4 @@
-﻿---
+---
 title: 變更用於支付 Azure 訂閱費的信用卡 | Microsoft Docs
 description: 描述如何變更用來支付 Azure 訂用帳戶的信用卡
 services: ''
@@ -12,14 +12,14 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: d1239b04bbdaf4e98323fbaaad688b2d238c1a38
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>新增、更新或移除用於支付 Azure 訂閱費的信用卡或轉帳卡
 

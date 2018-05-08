@@ -1,26 +1,24 @@
 ---
-title: "在 Azure Active Directory 中檢視所有現有的群組 | Microsoft Docs"
-description: "如何在 Azure Active Directory 中檢視或搜尋群組"
+title: 在 Azure Active Directory 中檢視所有現有的群組 | Microsoft Docs
+description: 如何在 Azure Active Directory 中檢視或搜尋群組
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 72686ee9-9f91-4fcc-86da-b990a1b6d4f2
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 25ab1da5a07874596bf5ec62313e672af83a9bb9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 03a25d933a302d7e1e9d3e9efa1ff2cb6fe9091f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>在 Azure Active Directory 中檢視或搜尋使用者群組
 本文說明如何在 Azure Active Directory (Azure AD) 中檢視所有群組。 Azure AD 使用者管理的其中一項功能就是您可以使用群組來執行管理工作，例如一次指派授權或權限給多名使用者。

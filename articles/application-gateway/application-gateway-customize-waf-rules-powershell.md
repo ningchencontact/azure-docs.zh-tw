@@ -1,24 +1,24 @@
 ---
-title: "在 Azure 應用程式閘道中自訂 Web 應用程式防火牆規則 - PowerShell | Microsoft Docs"
-description: "本文提供如何透過 PowerShell，在應用程式閘道中自訂 Web 應用程式防火牆規則的相關資訊。"
+title: 在 Azure 應用程式閘道中自訂 Web 應用程式防火牆規則 - PowerShell | Microsoft Docs
+description: 本文提供如何透過 PowerShell，在應用程式閘道中自訂 Web 應用程式防火牆規則的相關資訊。
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: davidmu
-ms.openlocfilehash: 4595864a7bc624375ba2ff6ace09ebae5b0f843a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: victorh
+ms.openlocfilehash: f992fbf9ab223e18c24c27ce0577b1af2017281a
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>透過 PowerShell 自訂 Web 應用程式防火牆規則
 

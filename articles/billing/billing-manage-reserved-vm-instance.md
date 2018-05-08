@@ -8,16 +8,16 @@ manager: vikramdesai01
 editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: f3f5f974630c4bf1c68599e26612ed729b55bcfc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 003abb3ddf632261dc372549209ba664cb8f8398
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>管理 Azure 保留執行個體
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 02/21/2018
 - [了解保留執行個體折扣如何套用](billing-understand-vm-reservation-charges.md)
 - [了解預付型方案的保留執行個體使用量](billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊之保留執行個體的使用方式](billing-understand-reserved-instance-usage-ea.md)
-- [Windows 軟體的成本不包括在保留執行個體內](billing-reserved-instance-windows-software-costs.md)
+- [Windows 軟體的成本不包括在保留的執行個體內](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 

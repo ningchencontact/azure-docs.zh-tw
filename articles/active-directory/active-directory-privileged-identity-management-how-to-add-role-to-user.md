@@ -1,23 +1,22 @@
 ---
-title: "如何新增或移除使用者角色 | Microsoft Docs"
-description: "了解如何使用 Azure Active Directory Privileged Identity Management 應用程式來將角色新增到特殊權限身分識別。"
+title: 如何新增或移除使用者角色 | Microsoft Docs
+description: 了解如何使用 Azure Active Directory Privileged Identity Management 應用程式來將角色新增到特殊權限身分識別。
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 01/03/2018
-ms.author: billmath
-ms.openlocfilehash: 53deb04a33a5f878c5e3f765099c54d30e6ac005
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.author: curtand
+ms.openlocfilehash: 6024016d7c59551e5678069cb6a6e1e7ab45ad6e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management：如何新增或移除使用者角色
 使用 Azure Active Directory (AD)，全域系統管理員 (或公司系統管理員) 可以更新哪些使用者獲 **永久** 指派 Azure AD 的角色。 做法是使用 PowerShell Cmdlet，如 `Add-MsolRoleMember` 和 `Remove-MsolRoleMember`。 或是可以依照[在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles.md)所述，使用 Azure 入口網站。

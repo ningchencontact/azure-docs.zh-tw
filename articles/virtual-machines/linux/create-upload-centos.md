@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: e2af462d6fe0a6a9811e885199d70a182bf145c7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d7c35b79dcdf75dbb3f891dc4c66cbf893b61c03
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>準備適用於 Azure 的 CentOS 型虛擬機器
 * [準備適用於 Azure 的 CentOS 6.x 虛擬機器](#centos-6x)
@@ -305,7 +305,7 @@ ms.lasthandoff: 04/06/2018
    
    重建 initramfs：
    
-        # sudo dracut –f -v
+        # sudo dracut -f -v
 
 11. 安裝 Azure Linux 代理程式與相依性：
 

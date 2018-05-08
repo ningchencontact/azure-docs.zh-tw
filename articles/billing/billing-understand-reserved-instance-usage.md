@@ -1,24 +1,24 @@
 ---
-title: "了解預付型方案訂用帳戶的 Azure 保留執行個體使用量 |Microsoft Docs"
-description: "了解如何讀取您的使用量，以了解預付型方案的保留執行個體應用"
+title: 了解預付型方案訂用帳戶的 Azure 保留執行個體使用量 |Microsoft Docs
+description: 了解如何讀取您的使用量，以了解預付型方案的保留執行個體應用
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 29f153803d5eb74e2d287d97cf9436e81b2a3e20
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 142e172b3f4ab4b88bb3733f70d5e0fb252854ca
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>了解預付型方案的保留執行個體使用量
 

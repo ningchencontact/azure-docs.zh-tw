@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3acfa51351ac49456f5f9fcac8aa4f4f339b9ea3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 94b451f66d286426f6dd2cc556e8c6785c3f743e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>針對 Azure Active Directory 中的企業應用程式設定 SAML 權杖中發出的角色宣告
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 04/18/2018
 
 5. 新增應用程式之後，移至 [屬性] 頁面，然後複製 [物件識別碼]。
 
-    ![屬性頁面](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
+    ![屬性頁面](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.PNG)
 
 6. 在另一個視窗中開啟 [Azure AD Graph 總管](https://developer.microsoft.com/graph/graph-explorer)。
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 04/18/2018
             "origin": "ServicePrincipal",
             "value": "Administrator"
         }
-    ],
+    ]
     }
     ```
     > [!Note]
@@ -253,7 +253,7 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-如需了解其他步驟，請參閱[應用程式文件](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list)。
+如需了解其他步驟，請參閱[應用程式文件](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)。
 
 <!--Image references-->
 <!--Image references-->

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/01/2018
 ms.author: bwren
-ms.openlocfilehash: 2a8313640d2d0bd678d0e10da39c87de8cfce00b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cab92187c6c36dc4670e202b15b35db8ad510239
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure 中管理解決方案的資料收集詳細資料
 本文包含 Microsoft 所提供的[管理解決方案清單](monitoring-solutions.md)，以及其詳細文件的連結。  此外，還提供資料收集到 Log Analytics 中的方法和頻率相關資訊。  您可以使用本文中的資訊來識別不同的可用解決方案，以及了解不同管理解決方案的資料流程和連線需求。 
@@ -53,7 +53,7 @@ ms.lasthandoff: 04/23/2018
 | [Azure 應用程式閘道分析](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | 與通知同時 |
 | **管理解決方案** | **平台** | **Microsoft Monitoring Agent** | **Operations Manager 代理程式** | **Azure 儲存體** | **是否需要 Operations Manager？** | **透過管理群組傳送的 Operations Manager 代理程式資料** | **收集頻率** |
 | [Azure 網路安全性群組分析](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | 與通知同時 |
-| [Azure SQL Analytics (預覽)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 10 分鐘 |
+| [Azure SQL Analytics (預覽)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 分鐘 |
 | [備份](../backup/backup-introduction-to-azure-backup.md) | Azure |  |  |  |  |  | n/a |
 | [容量與效能 (預覽)](../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |與抵達同時 |
 | [變更追蹤](../log-analytics/log-analytics-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |每小時 |

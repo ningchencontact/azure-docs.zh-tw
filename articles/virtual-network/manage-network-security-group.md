@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: f9de86f33fcedacad9ccde074a252111df62c992
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>建立、變更或刪除網路安全性群組
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 04/19/2018
 ### <a name="change-a-network-security-group"></a>變更網路安全性群組
 
 1. 在入口網站頂端的搜尋方塊中，輸入「網路安全性群組」。 當**網路安全性群組**出現在搜尋結果中時，請選取它。
-2. 選取您想要變更的網路安全性群組。 最常見的變更是[新增](#create-a-security-rule)或[移除](#delete-a-security-rule)安全性規則，以及[讓網路安全性群組與子網路或網路介面建立關聯或中斷關聯](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource)。
+2. 選取您想要變更的網路安全性群組。 最常見的變更是[新增](#create-a-security-rule)或[移除](#delete-a-security-rule)安全性規則，以及[讓網路安全性群組與子網路或網路介面建立關聯或中斷關聯](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface)。
 
 **命令**
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 04/19/2018
     |通訊協定     | 選取 [任何]、[TCP] 或 [UDP]。        |         |
     |動作     | 選取 [允許] 或 [拒絕]。        |         |
     |優先順序     | 輸入一個介於 100 到 4096 且對網路安全性群組內的所有安全性規則而言具唯一性的值。 |規則會依照優先順序進行處理。 編號愈低，優先順序愈高。 建議您在建立規則時，於優先順序編號之間保留間距，例如 100、200、300。 保留間距可方便您未來新增比現有規則優先順序更高或更低的規則。         |
-    |名稱     | 網路安全性群組內規則的唯一名稱。        |  此名稱最多可有 80 個字元。 它必須以字母或數字為開頭、以字母、數字或底線為結尾，且只能包含字母、數字、底線、句點或連字號。       |
+    |Name     | 網路安全性群組內規則的唯一名稱。        |  此名稱最多可有 80 個字元。 它必須以字母或數字為開頭、以字母、數字或底線為結尾，且只能包含字母、數字、底線、句點或連字號。       |
     |說明     | 選擇性的描述。        |         |
 
     您可以使用入口網站，針對 [來源] 和 [目的地] 設定指定[應用程式安全性群組](#work-with-application-security-groups)。 不過，您也可以使用 Azure CLI 或 PowerShell。 [輸出安全性規則] 的設定類似，因此不個別說明。

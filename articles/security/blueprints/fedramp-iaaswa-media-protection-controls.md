@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 媒體保護"
-description: "FedRAMP Web 應用程式自動化 - 媒體保護"
+title: Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 媒體保護
+description: FedRAMP Web 應用程式自動化 - 媒體保護
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 37812c2f7ee79685f9014a7999b4355e649ca6e1
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="media-protection-mp"></a>媒體保護 (MP)
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-5.b** 組織會在資訊系統媒體於管制區外傳輸時持續為其負責。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-5.c** 組織會記載與資訊系統媒體傳輸相關的活動。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6.b** 組織會採用強度和完整性與資訊的安全性類別或分類相當的清理機制。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6 (1)** 組織會檢閱、核准、追蹤、記載及驗證媒體清理與處置動作。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6 (2)** 組織會依 [指派：組織定義的頻率] 來測試清理設備和程序，以確認達成所需的清理。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|

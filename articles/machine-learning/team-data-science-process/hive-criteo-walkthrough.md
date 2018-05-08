@@ -3,7 +3,7 @@ title: Team Data Science Process 實務 - 在 1 TB 資料集上使用 Azure HDIn
 description: 對採用 HDInsight Hadoop 叢集來建置和部署使用大型 (1 TB) 公開可用資料集模型的端對端案例使用 Team Data Science Process
 services: machine-learning,hdinsight
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 72d958c4-3205-49b9-ad82-47998d400d2b
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 760e08643fb3e71478fc899278591569da1d515b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: deguhath
+ms.openlocfilehash: 187171d75a6bcc54a48c891aa2eafd8408b06ddb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process 實務 - 在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集
 
@@ -80,9 +80,9 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 
 1. 這個公用 Blob 儲存體中的資料是由所解壓縮資料的三個子資料夾所組成。
    
-   1. 子資料夾 *raw/count/*包含前 21 天的資料 - 從 day\_00 到 day\_20
-   2. 子資料夾 *raw/train/*由單一天 day\_21 的資料組成
-   3. 子資料夾 *raw/test/*由兩天 day\_22 和 day\_23 的資料組成
+   1. 子資料夾 *raw/count/* 包含前 21 天的資料 - 從 day\_00 到 day\_20
+   2. 子資料夾 *raw/train/* 由單一天 day\_21 的資料組成
+   3. 子資料夾 *raw/test/* 由兩天 day\_22 和 day\_23 的資料組成
 2. 對於想要從原始 gzip 資料開始的使用者，這些也可以在主要資料夾 *raw/* 取得，形式為 day_NN.gz，其中 NN 從 00 到 23。
 
 本逐步解說中稍後會在我們建立 Hive 資料表時說明存取、瀏覽和模型化此資料而不需要任何本機下載的另一種方法。

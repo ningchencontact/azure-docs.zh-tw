@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 實際與環境保護"
-description: "FedRAMP Web 應用程式自動化 - 實際與環境保護"
+title: Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 實際與環境保護
+description: FedRAMP Web 應用程式自動化 - 實際與環境保護
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 792b9da0f4e5ec73c39f56a6e4805cf3c37133c4
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="physical-and-environmental-protection-pe"></a>實際與環境保護 (PE)
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-2.d** 不再需要存取時，組織就會從設施存取清單中移除個人。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-3.b** 組織會針對 [指派：組織定義的進入/結束點] 維護實際存取稽核記錄。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-3.f** 組織每隔 [指派：組織定義的頻率] 就會清查 [指派：組織定義的實體存取裝置]。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-6 (4)** 除了對於作為 [指派：包含資訊系統一或多個元件之組織定義的實體空間] 之設施的實際存取監視之外，組織還會監視對資訊系統的實際存取。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-8 (1)** 組織採用自動化機制，以協助維護與檢閱訪客存取記錄。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-10.b** 組織將緊急關閉開關或裝置設置於 [指派：組織依資訊系統或系統元件定義的位置]，以方便人員透過安全又簡單的方式來存取。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-13** 組織會針對資訊系統，採用並維護由獨立能源所支援的滅火和火警探測裝置/系統。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|

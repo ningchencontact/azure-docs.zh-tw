@@ -1,24 +1,24 @@
 ---
-title: "了解 Enterprise 適用之 Azure 保留執行個體的使用方式 | Microsoft Docs"
-description: "了解如何讀取您的使用方式，以了解您 Enterprise 註冊之保留執行個體的應用程式。"
+title: 了解 Enterprise 適用之 Azure 保留執行個體的使用方式 | Microsoft Docs
+description: 了解如何讀取您的使用方式，以了解您 Enterprise 註冊之保留執行個體的應用程式。
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cf79926e6497c50156f2a0191997ca06bc605c16
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>了解 Enterprise 註冊之保留執行個體的使用方式
 從[保留頁面](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade )使用 ReservationId，以及從 [EA入口網站](https://ea.azure.com) \(英文\) 使用使用方式檔案，了解保留執行個體的使用情況。 您也可以在 [EA 入口網站 ](https://ea.azure.com) \(英文\) 的使用情況摘要區段中查看保留使用情況。
@@ -65,7 +65,7 @@ EA 入口網站的使用情況摘要區段 (![EA 使用情況摘要](./media/bil
 - [使用 Azure 保留的虛擬機器執行個體以節省虛擬機器的成本](billing-save-compute-costs-reservations.md)
 - [了解保留執行個體折扣如何套用](billing-understand-vm-reservation-charges.md)
 - [了解預付型方案的保留執行個體使用量](billing-understand-reserved-instance-usage.md)
-- [Windows 軟體的成本不包括在保留執行個體內](billing-reserved-instance-windows-software-costs.md)
+- [Windows 軟體的成本不包括在保留的執行個體內](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 

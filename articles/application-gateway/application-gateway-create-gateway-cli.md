@@ -1,22 +1,22 @@
 ---
-title: "建立應用程式閘道 - Azure CLI | Microsoft Docs"
-description: "了解如何使用 Azure CLI 來建立應用程式閘道。"
+title: 建立應用程式閘道 - Azure CLI | Microsoft Docs
+description: 了解如何使用 Azure CLI 來建立應用程式閘道。
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: azurecli
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: bf7e22e86e593045d25a9f31166aebe992caeb45
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 791cc8bca95fc2264b485c23f30e24254067f513
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>使用 Azure CLI 建立應用程式閘道
 
@@ -153,8 +153,8 @@ az network application-gateway create \
 可能需要幾分鐘的時間來建立應用程式閘道。 建立應用程式閘道後，您可以看到它的這些功能：
 
 - appGatewayBackendPool - 應用程式閘道必須至少有一個後端位址集區。
-- appGatewayBackendHttpSettings - 指定連接埠 80 和 HTTP 通訊協定用來進行通訊。
-- appGatewayHttpListener - 與 *appGatewayBackendPool* 相關聯的預設接聽程式。
+- appGatewayBackendHttpSettings - 指定以連接埠 80 和 HTTP 通訊協定來進行通訊。
+- appGatewayHttpListener - 與 appGatewayBackendPool 相關聯的預設接聽程式。
 - appGatewayFrontendIP - 將 myAGPublicIPAddress 指派給 appGatewayHttpListener。
 - rule1 - 與 appGatewayHttpListener 相關聯的預設路由規則。
 
@@ -182,5 +182,5 @@ az group delete --name myResourceGroupAG
  
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已建立資源群組、網路資源和後端伺服器。 接著，您會使用這些資源來建立應用程式閘道。 若要深入了解應用程式閘道和其相關聯的資源，請繼續進行說明文章。
+在本快速入門中，您已建立資源群組、網路資源和後端伺服器。 接著，您更使用這些資源來建立應用程式閘道。 若要深入了解應用程式閘道和其相關聯的資源，請繼續進行操作說明文章。
 

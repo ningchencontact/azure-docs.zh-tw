@@ -1,21 +1,21 @@
 ---
-title: "建立包含 SSL 終止的應用程式閘道 - Azure 入口網站 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站建立應用程式閘道，並新增 SSL 終止的憑證。"
+title: 建立包含 SSL 終止的應用程式閘道 - Azure 入口網站 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站建立應用程式閘道，並新增 SSL 終止的憑證。
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: daab3ada5ef0cc20883130e4c12b1dc3570e63b1
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 10796000f913428e39a0ffbd0aa2cbe0c515eb7a
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 SSL 終止的應用程式閘道
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/29/2018
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，網址是 [http://portal.azure.com](http://portal.azure.com)
+在 [http://portal.azure.com](http://portal.azure.com) 上登入 Azure 入口網站
 
 ## <a name="create-a-self-signed-certificate"></a>建立自我簽署憑證
 
@@ -68,7 +68,7 @@ Export-PfxCertificate \
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
-需要虛擬網路，才能在您所建立的資源之間進行通訊。 這個範例中會建立兩個子網路：一個是適用於應用程式閘道，另一個則是適用於後端伺服器。 您建立應用程式閘道時，可以同時建立虛擬網路。
+需要虛擬網路，才能在您所建立的資源之間進行通訊。 這個範例中會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。 您建立應用程式閘道時，可以同時建立虛擬網路。
 
 1. 按一下 Azure 入口網站左上角的 [新增]。
 2. 在「精選」清單中選取 [網路]，然後選取 [應用程式閘道]。
@@ -109,7 +109,7 @@ Export-PfxCertificate \
 ### <a name="create-a-virtual-machine"></a>建立虛擬機器
 
 1. 按一下 [新增] 。
-2. 按一下 [計算]，然後選取「精選」清單中的 [Windows Server 2016 Datacenter]。
+2. 按一下 [計算]，然後選取 [精選] 清單中的 [Windows Server 2016 Datacenter]。
 3. 針對虛擬機器，請輸入這些值：
 
     - myVM - 作為虛擬機器的名稱。
@@ -117,9 +117,9 @@ Export-PfxCertificate \
     - *Azure123456!* 作為密碼。
     - 選取 [使用現有的]，然後選取 [myResourceGroupAG]。
 
-4. 按一下 [SERVICEPRINCIPAL] 。
+4. 按一下 [確定]。
 5. 選取 [DS1_V2] 作為虛擬機器的大小，然後按一下 [選取]。
-6. 請確定您已選取 [myVNet] 作為虛擬網路，及選取 [myBackendSubnet] 作為子網路。 
+6. 確定您已選取 [myVNet] 作為虛擬網路，而且子網路是 [myBackendSubnet]。 
 7. 按一下 [停用] 來停用開機診斷。
 8. 按一下 [確定]，檢閱 [摘要] 頁面上的設定，然後按一下 [建立]。
 
@@ -127,7 +127,7 @@ Export-PfxCertificate \
 
 1. 開啟互動式殼層，並確定它是設定為 **PowerShell**。
 
-    ![安裝自訂擴充功能](./media/application-gateway-ssl-portal/application-gateway-extension.png)
+    ![安裝自訂延伸模組](./media/application-gateway-ssl-portal/application-gateway-extension.png)
 
 2. 執行下列命令以在虛擬機器上安裝 IIS： 
 
@@ -143,7 +143,7 @@ Export-PfxCertificate \
       -Location EastUS
     ```
 
-3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 myVM2 作為其名稱，及作為 AzureRmVMExtension 中的 VMName。
+3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 myVM2 作為其名稱，及作為 Set-AzureRmVMExtension 中的 VMName。
 
 ### <a name="add-backend-servers"></a>新增後端伺服器
 

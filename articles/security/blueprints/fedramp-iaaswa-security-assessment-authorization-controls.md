@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 安全性評定和授權"
-description: "FedRAMP Web 應用程式自動化 - 安全性評定和授權"
+title: Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 安全性評定和授權
+description: FedRAMP Web 應用程式自動化 - 安全性評定和授權
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>安全性評定和授權 (CA)
 
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-6.a** 組織會將高階主管或經理指派為資訊系統的授權官方人員。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.g** 組織會開發連續監視策略，並實作連續監視計畫，其中包含向 [指派：組織定義的個人或角色] 報告組織和資訊系統之安全性狀態的 [指派：組織定義的頻率]。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|

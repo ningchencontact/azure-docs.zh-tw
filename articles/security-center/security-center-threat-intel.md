@@ -1,11 +1,11 @@
 ---
-title: "Azure 資訊安全中心內的威脅情報 | Microsoft Docs"
-description: "了解如何使用 Azure 資訊安全中心內的威脅情報功能，來識別您 VM 和電腦中的潛在威脅。"
+title: Azure 資訊安全中心內的威脅情報 | Microsoft Docs
+description: 了解如何使用 Azure 資訊安全中心內的威脅情報功能，來識別您 VM 和電腦中的潛在威脅。
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: yurid
-ms.openlocfilehash: b5bdeb1c70893c2477413df02c7b1a4a07999e93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9654c25bf6b51d48dc195d6a536b61312fdcbeff
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Azure 資訊安全中心內的威脅情報
 這篇文章可協助您使用 Azure 資訊安全中心威脅情報來解決安全性相關問題。
