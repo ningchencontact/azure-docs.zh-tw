@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 識別與驗證"
-description: "FedRAMP Web 應用程式自動化 - 識別與驗證"
+title: Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 識別與驗證
+description: FedRAMP Web 應用程式自動化 - 識別與驗證
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="identification-and-authentication-ia"></a>識別與驗證 (IA)
 
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (11)** 資訊系統針對硬體權杖型驗證採用滿足 [指派：組織定義的權杖品質需求] 的機制。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: a4f1c7c3342a2a78a2a5b765bd688bed4c85392f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 47ee22df081b71e7bafa40210a9c4cac0a844825
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-networking"></a>Azure 網路
 
@@ -155,7 +155,7 @@ Azure 提供下列工具來監視和管理網路功能︰
 
 ## <a name="pricing"></a>價格
 
-有些 Azure 網路服務需要收費，其他則是免費提供。 如需詳細資訊，請參閱[虛擬網路](https://azure.microsoft.com/pricing/details/virtual-network)、[VPN 閘道](https://azure.microsoft.com/pricing/details/vpn-gateway)、[應用程式閘道](https://azure.microsoft.com/en-us/pricing/details/application-gateway/)、[負載平衡器](https://azure.microsoft.com/pricing/details/load-balancer)、[網路監看員](https://azure.microsoft.com/pricing/details/network-watcher)、[DNS](https://azure.microsoft.com/pricing/details/dns)、[流量管理員](https://azure.microsoft.com/pricing/details/traffic-manager) 和 [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) 的定價頁面。
+有些 Azure 網路服務需要收費，其他則是免費提供。 如需詳細資訊，請參閱[虛擬網路](https://azure.microsoft.com/pricing/details/virtual-network)、[VPN 閘道](https://azure.microsoft.com/pricing/details/vpn-gateway)、[應用程式閘道](https://azure.microsoft.com/pricing/details/application-gateway/)、[負載平衡器](https://azure.microsoft.com/pricing/details/load-balancer)、[網路監看員](https://azure.microsoft.com/pricing/details/network-watcher)、[DNS](https://azure.microsoft.com/pricing/details/dns)、[流量管理員](https://azure.microsoft.com/pricing/details/traffic-manager) 和 [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) 的定價頁面。
 
 ## <a name="next-steps"></a>後續步驟
 

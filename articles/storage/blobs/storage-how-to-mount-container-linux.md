@@ -1,6 +1,6 @@
 ---
-title: "如何在 Linux 上將 Azure Blob 儲存體掛接為檔案系統 | Microsoft Docs"
-description: "在 Linux 上使用 FUSE 掛接 Azure Blob 儲存體容器"
+title: 如何在 Linux 上將 Azure Blob 儲存體掛接為檔案系統 | Microsoft Docs
+description: 在 Linux 上使用 FUSE 掛接 Azure Blob 儲存體容器
 services: storage
 documentationcenter: linux
 author: seguler
@@ -10,11 +10,11 @@ ms.devlang: bash
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: seguler
-ms.openlocfilehash: 299b96c783fb3606347bb448d00d44f0071da429
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 44b0c36ad366d50480212adff9cdb8b10a17db05
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse-preview"></a>如何使用 Blobfuse 將 Blob 儲存體掛接為檔案系統 (預覽)
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 01/23/2018
 本指南示範如何使用 Blobfuse，以及如何在 Linux 上掛接 Blob 儲存體容器並存取資料。 若要深入了解 Blobfuse，請閱讀 [Blobfuse 存放庫](https://github.com/Azure/azure-storage-fuse)中的詳細資料。
 
 > [!WARNING]
-> Blobfuse 不保證 100% 合乎 POSIX 的規範，因為它只會將要求轉譯成 [Blob REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api)。 例如，重新命名作業在 POSIX 中不可部分完成，不過在 Blobfuse 中並非如此。
+> Blobfuse 不保證 100% 合乎 POSIX 的規範，因為它只會將要求轉譯成 [Blob REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)。 例如，重新命名作業在 POSIX 中不可部分完成，不過在 Blobfuse 中並非如此。
 > 如需原生檔案系統與 Blobfuse 之間差異的完整清單，請造訪 [Blobfuse 原始程式碼存放庫](https://github.com/azure/azure-storage-fuse)。
 > 
 

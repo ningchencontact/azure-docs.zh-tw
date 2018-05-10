@@ -1,7 +1,7 @@
 ---
-title: "使用 SAS (而非儲存體帳戶金鑰) 提交工作流程 | Microsoft Docs"
+title: 使用 SAS (而非儲存體帳戶金鑰) 提交工作流程 | Microsoft Docs
 titleSuffix: Azure
-description: "本快速入門假設您已安裝 msgen 用戶端，並已透過服務成功地執行範例資料。"
+description: 本快速入門假設您已安裝 msgen 用戶端，並已透過服務成功地執行範例資料。
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -11,11 +11,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: b6d84428749d8f5f78374efcca22ef913ee96c5e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 802e300ac453baa4ea9bd9183223315abced2ea1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="submit-a-workflow-using-a-sas-instead-of-a-storage-account-key"></a>使用 SAS (而非儲存體帳戶金鑰) 提交工作流程
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 03/08/2018
 
 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)是一個工具，可管理您儲存在 Azure 儲存體中的資源。  您可以在[這裡](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)進一步了解如何使用 Azure 儲存體總管。
 
-輸入檔案的 SAS 應受限於特定輸入檔案 (blob)。 若要建立 SAS 權杖，請遵循[這些指示](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures)。 建立 SAS 後，會提供包含查詢字串的完整 URL 以及其本身的查詢字串，並可從畫面中加以複製。
+輸入檔案的 SAS 應受限於特定輸入檔案 (blob)。 若要建立 SAS 權杖，請遵循[這些指示](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures)。 建立 SAS 後，會提供包含查詢字串的完整 URL 以及其本身的查詢字串，並可從畫面中加以複製。
 
  ![Genomics SAS 儲存體總管](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS 儲存體總管")
 

@@ -13,12 +13,14 @@
 
 ## 管理 Data Lake Analytics
 ### [Azure 入口網站](data-lake-analytics-manage-use-portal.md)
-### [Azure CLI](data-lake-analytics-manage-use-cli.md)
-### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
-### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### 命令列
+#### [Azure CLI](data-lake-analytics-manage-use-cli.md)
+#### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+### SDK
+#### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+#### [Python](data-lake-analytics-manage-use-python-sdk.md)
+#### [Java](data-lake-analytics-manage-use-java-sdk.md)
+#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [原則](data-lake-analytics-policies.md)
 ### [存取診斷記錄檔](data-lake-analytics-diagnostic-logs.md)
 ### [調整配額限制](data-lake-analytics-quota-limits.md)
@@ -36,6 +38,7 @@
 #### [可程式性指南](data-lake-analytics-u-sql-programmability-guide.md)
 
 ### Visual Studio
+#### [安裝](data-lake-analytics-data-lake-tools-install.md)
 #### [瀏覽和檢視作業](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [偵錯自訂 C# 程式碼](data-lake-analytics-debug-u-sql-jobs.md)
 #### [週期性作業疑難排解](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: e23d0a70cdfcc1b37f02d86dd6418aa28c5bbf2c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6bfe48df685952d2b465d9549e2f1c086c1c490
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 期望狀態組態擴充功能處理常式簡介
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/06/2018
 
 「Azure VM 代理程式」和相關的延伸模組是 Microsoft Azure 基礎結構服務的一部分。 VM 延伸模組是可延伸 VM 功能及簡化各種 VM 管理作業的軟體元件。
 
-Azure 預期狀態設定 (DSC) 延伸模組的主要使用案例是要將 VM 啟動載入至 [Azure Automation DSC 服務](../../automation/automation-dsc-overview.md)。 啟動載入 VM 可提供一些[優點](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#pull-service)，包括持續管理 VM 設定及與其他操作工具 (例如「Azure 監視」) 整合。
+Azure 預期狀態設定 (DSC) 延伸模組的主要使用案例是要將 VM 啟動載入至 [Azure Automation DSC 服務](../../automation/automation-dsc-overview.md)。 啟動載入 VM 可提供一些[優點](https://docs.microsoft.com/powershell/dsc/metaconfig#pull-service)，包括持續管理 VM 設定及與其他操作工具 (例如「Azure 監視」) 整合。
 
 您可以脫離 Automation DSC 服務來單獨使用 DSC 延伸模組。 不過，這涉及部署時所進行的單一動作。 除了在 VM 本機之外，沒有任何持續報告或設定管理可供使用。
 
@@ -49,7 +49,7 @@ Azure 預期狀態設定 (DSC) 延伸模組的主要使用案例是要將 VM 啟
 
 ## <a name="architecture"></a>架構
 
-Azure DSC 擴充功能會使用「Azure VM 代理程式」架構來傳遞、套用在 Azure VM 上執行的 DSC 組態，並針對這些組態提出報告。 DSC 擴充功能接受設定文件和一組參數。 如果未提供任何檔案，就會隨延伸模組內嵌一個[預設設定指令碼](#default-configuration-script)。 預設設定指令碼只用來在[本機設定管理員](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig)中設定中繼資料。
+Azure DSC 擴充功能會使用「Azure VM 代理程式」架構來傳遞、套用在 Azure VM 上執行的 DSC 組態，並針對這些組態提出報告。 DSC 擴充功能接受設定文件和一組參數。 如果未提供任何檔案，就會隨延伸模組內嵌一個[預設設定指令碼](#default-configuration-script)。 預設設定指令碼只用來在[本機設定管理員](https://docs.microsoft.com/powershell/dsc/metaconfig)中設定中繼資料。
 
 第一次呼叫延伸模組 時，會使用下列邏輯來安裝某個版本的 WMF︰
 
@@ -61,7 +61,7 @@ Azure DSC 擴充功能會使用「Azure VM 代理程式」架構來傳遞、套�
 
 ### <a name="default-configuration-script"></a>預設設定指令碼
 
-Azure DSC 延伸模組包含預設設定指令碼，可在將 VM 上線至 Azure Automation DSC 服務時使用。 指令碼參數會對齊[本機設定管理員](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig)的可設定屬性。 如需了解指令碼參數，請參閱[採用 Azure Resource Manager 範本的預期狀態設定延伸模組](extensions-dsc-template.md)中的[預設設定指令碼](extensions-dsc-template.md#default-configuration-script)。 如需完整的指令碼，請參閱 [GitHub 中的 Azure 快速入門範本](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true)。
+Azure DSC 延伸模組包含預設設定指令碼，可在將 VM 上線至 Azure Automation DSC 服務時使用。 指令碼參數會對齊[本機設定管理員](https://docs.microsoft.com/powershell/dsc/metaconfig)的可設定屬性。 如需了解指令碼參數，請參閱[採用 Azure Resource Manager 範本的預期狀態設定延伸模組](extensions-dsc-template.md)中的[預設設定指令碼](extensions-dsc-template.md#default-configuration-script)。 如需完整的指令碼，請參閱 [GitHub 中的 Azure 快速入門範本](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true)。
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Resource Manager 範本中的 DSC 延伸模組
 

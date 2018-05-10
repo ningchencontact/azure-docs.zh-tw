@@ -1,10 +1,10 @@
 ---
-title: "設定 SSL 卸載 - Azure 應用程式閘道 - PowerShell 傳統 | Microsoft Docs"
-description: "本文提供使用 Azure 傳統部署模型建立具有 SSL 卸載之應用程式閘道的指示"
+title: 設定 SSL 卸載 - Azure 應用程式閘道 - PowerShell 傳統 | Microsoft Docs
+description: 本文提供使用 Azure 傳統部署模型建立具有 SSL 卸載之應用程式閘道的指示
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.assetid: 63f28d96-9c47-410e-97dd-f5ca1ad1b8a4
 ms.service: application-gateway
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: davidmu
-ms.openlocfilehash: 9540522a945e1ea2a09456b42d64b7b94753791f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: e620730b86d648c1ac9db7a9e6faa7a2d206b46e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>使用傳統部署模型設定適用於 SSL 卸載的應用程式閘道
 

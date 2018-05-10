@@ -4,7 +4,7 @@ description: Microsoft Azure 上的私人 DNS 主機服務概觀。
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jennoc
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: dns
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 7f1bd8cdcab7bdd61b3f006acf6090c53db8eda6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1c805819a22d26e650d13b0e41ebac00c4e52d91
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="using-azure-dns-for-private-domains"></a>將 Azure DNS 用於私人網域
 「網域名稱系統」(DNS) 會負責將服務名稱轉譯 (或解析) 為其 IP 位址。 Azure DNS 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構來提供名稱解析。  除了網際網路對向 DNS 網域之外，Azure DNS 現在也支援私人 DNS 網域作為預覽版功能。  

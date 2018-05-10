@@ -10,14 +10,14 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: jodebrui
-ms.openlocfilehash: cd76f475f330c49dec737d2c4a25aa75a18b41a7
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 19ddcdf9a7d27535172c1e9ccfa89b3836589c84
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>使用記憶體內部 OLTP 改善 SQL Database 中的應用程式效能
-在[進階和業務關鍵層](sql-database-service-tiers.md)資料庫中，[記憶體內部 OLTP](sql-database-in-memory.md) 可用來改善交易處理、資料擷取和暫時性資料案例的效能，而無須增加定價層。 
+在[進階和業務關鍵層](sql-database-service-tiers-vcore.md)資料庫中，[記憶體內部 OLTP](sql-database-in-memory.md) 可用來改善交易處理、資料擷取和暫時性資料案例的效能，而無須增加定價層。 
 
 > [!NOTE] 
 > [了解仲裁如何透過 SQL Database 讓重要資料庫的工作負載加倍，同時降低 70% 的 DTU](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)

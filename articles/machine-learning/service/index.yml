@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/18/2018
   ms.author: garye
-  ms.openlocfilehash: dfd5d283afd61126bca4348bf02ffb8e968fd19f
-  ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+  ms.openlocfilehash: 24a4fcff8cac84361de08aa4add9b3dfbd2055fb
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 04/19/2018
+  ms.lasthandoff: 05/07/2018
 abstract:
   description: Azure Machine Learning 服務 (預覽) 能夠使用任何 Python 工具和程式庫來建置、部署和管理機器學習服務和 AI 模型。 您可以在 Azure 中使用各種不同的資料和計算服務來儲存和處理資料。
 sections:
@@ -64,6 +64,8 @@ sections:
     style: cards
     className: cardsD
     items:
+    - title: 封裝
+      html: <p><a href="reference-python-package-overview#amlpcv">電腦視覺</a></p><p><a href="reference-python-package-overview#amlpf">預測</a></p><p><a href="reference-python-package-overview#amlrealtimeai">FPGA 加速</a></p><p><a href="reference-python-package-overview#amlpta">文字分析</a></p>
     - title: 語言
       html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
     - title: REST

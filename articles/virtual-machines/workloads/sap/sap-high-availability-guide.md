@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e65f38b6fb4f5434c840af1866ccf09671111f3e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器高可用性
 
@@ -443,7 +443,7 @@ _**圖 11：**設定 SAP 高可用性 Azure Resource Manager 參數_
 >
 
 ### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> 使用公司網路連線能力 (跨單位) 部署虛擬機器以用於生產環境中
-針對生產環境 SAP 系統，使用 Azure 站對站 VPN 或 Azure ExpressRoute，部署具有 [公司網路連線能力 (跨單位)][][planning-guide-2.2] 的 Azure 虛擬機器。
+針對生產環境 SAP 系統，使用 Azure 站對站 VPN 或 Azure ExpressRoute，部署具有 [公司網路連線能力 (跨單位)][planning-guide-2.2] 的 Azure 虛擬機器。
 
 > [!NOTE]
 > 您可以使用您的 Azure 虛擬網路執行個體。 虛擬網路和子網路已建立並備妥。
@@ -773,7 +773,7 @@ Azure Load Balancer 具有內部負載平衡器，會在連線閒置一段時間
 | 變數名稱 |`KeepAliveTime` |
 | 變數類型 |REG_DWORD (十進位) |
 | 值 |120000 |
-| 文件連結 |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| 文件連結 |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**表 3：**變更第一個 TCP/IP 參數_
 
@@ -784,7 +784,7 @@ _**表 3：**變更第一個 TCP/IP 參數_
 | 變數名稱 |`KeepAliveInterval` |
 | 變數類型 |REG_DWORD (十進位) |
 | 值 |120000 |
-| 文件連結 |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| 文件連結 |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**表 4：**變更第二個 TCP/IP 參數_
 

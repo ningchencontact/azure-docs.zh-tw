@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: dbe859a2d069a20ba2e02d009dfb99b6126f8dea
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-appsource"></a>什麼是 AppSource
 AppSource 可讓 Microsoft 合作夥伴透過 Microsoft 支援的線上店面，讓客戶找到他們的技術與服務。 身為 AppSource 發行者，您可讓商務使用者參與 AppSource 以尋找、嘗試及取得企業營運 SaaS 應用程式與實作服務，以協助推動商務成果並縮短創造價值的時程： 
@@ -42,23 +42,23 @@ AppSource 可讓 Microsoft 合作夥伴透過 Microsoft 支援的線上店面，
 *   **Office 365**：位於雲端的現代化工作場所。 免費與 Microsoft Word、PowerPoint、Excel 和 OneNote 共同作業。
 
 ### <a name="office-365"></a>Office 365
-適用於 Office 的應用程式現在可在 AppSource 中取得！ 檢閱[發佈程序和指導方針]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store "Office 365 - AppSource")。
+適用於 Office 的應用程式現在可在 AppSource 中取得！ 檢閱[發佈程序和指導方針]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store "Office 365 - AppSource")。
 
 ### <a name="dynamics-365-for-finance-and-operations"></a>Dynamics 365 for Finance and Operations
-針對 Enterprise Edition 建置時，請檢閱[發佈程序和指導方針](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source "Dynamics 365 Enterprise Edition - AppSource")。  
+針對 Enterprise Edition 建置時，請檢閱[發佈程序和指導方針](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source "Dynamics 365 Enterprise Edition - AppSource")。  
 
 ### <a name="dynamics-365-for-customer-engagement"></a>Dynamics 365 for Customer Engagement
-檢閱[發佈程序和指導方針](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource "Dynamics 365 - AppSource")。
+檢閱[發佈程序和指導方針](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource "Dynamics 365 - AppSource")。
 
 ### <a name="power-bi"></a>Power BI
-建立自訂視覺效果，並使其可透過 AppSource 取得。 檢閱[發佈程序和指導方針](https://docs.microsoft.com/en-us/power-bi/developer/office-store "Power BI - AppSource")。
+建立自訂視覺效果，並使其可透過 AppSource 取得。 檢閱[發佈程序和指導方針](https://docs.microsoft.com/power-bi/developer/office-store "Power BI - AppSource")。
 
 ### <a name="consulting-offers"></a>諮詢供應項目
 如果您提供的服務是協助客戶簡化數位轉換或實作解決方案或應用程式，那麼您可以提供此服務，作為在 AppSource 上的諮詢供應項目。 
 [檢閱指導方針並了解如何提交您的供應項目](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf "AppSource - 合作夥伴清單指導方針")。
 
 ### <a name="cortana-intelligence"></a>Cortana Intelligence
-[Cortana Intelligence AppSource 發佈指南](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide "Cortana Intelligence AppSource - 發佈指南")
+[Cortana Intelligence AppSource 發佈指南](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide "Cortana Intelligence AppSource - 發佈指南")
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory 整合
 需要某些 AppSource 店面應用程式，才能與 Azure Active Directory (Azure AD) 整合並發佈。 與 Azure AD 整合的應用程式已有完善的記載，Microsoft 提供多個 SDK 和額外資源來滿足您的需求。 
@@ -71,22 +71,22 @@ AppSource 可讓 Microsoft 合作夥伴透過 Microsoft 支援的線上店面，
 | Dynamics NAV 受控服務 | 否 | 授權型供應項目不需要 Azure AD 整合 |
 | Power BI | 否 | 授權型供應項目不需要 Azure AD 整合 |
 | 諮詢供應項目 | 否 | 服務是透過合作夥伴協調，而不是透過 Web 體驗 |
-| Cortana Intelligence | 是 | Azure AD 是確保無縫式客戶經驗及促進最高品質潛在客戶的最佳做法 |
+| Cortana Intelligence | yes | Azure AD 是確保無縫式客戶經驗及促進最高品質潛在客戶的最佳做法 |
 | SaaS 應用程式 (前身為 Web Apps) | 慣用 | Azure AD 是確保無縫式客戶經驗及促進最高品質潛在客戶的最佳做法 |
 ###### <a name="table-appsource-offerings-that-require-azure-active-directory-integration"></a>表格：需要 Azure Active Directory 整合的 AppSource 供應項目
 
 一開始，我們建議**您設定專用於 Azure Marketplace 發行的訂用帳戶***，以便讓您的工作與其他計劃分開進行。 此外，如果尚未安裝下列工具，那麼建議您將下列工具新增到您的開發環境： 
-*   [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
-*   [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell - Azure")
+*   [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
+*   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell - Azure")
 *   在 [Azure 開發人員工具](https://azure.microsoft.com/tools/ "Azure - 開發人員工具")頁面中檢閱可用工具
 *   [Visual Studio Code](https://code.visualstudio.com/ "Visual Studio Code - 主要")
 
 如果您要開始使用 Azure AD，下列連結是您的最佳資源： 
 
-**文件**
-*   [Azure Active Directory 開發人員指南](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide "Azure AD - 開發人員指南")
-*   [與 Azure Active Directory 整合](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate "整合 - Azure AD")
-*   [整合應用程式與 Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications "整合應用程式 - Azure AD")
+**Documentation**
+*   [Azure Active Directory 開發人員指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide "Azure AD - 開發人員指南")
+*   [與 Azure Active Directory 整合](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate "整合 - Azure AD")
+*   [整合應用程式與 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications "整合應用程式 - Azure AD")
 *   [Azure 藍圖 - 安全性與身分識別](https://azure.microsoft.com/roadmap/?category=security-identity "Azure 藍圖 - 安全性與身分識別")
 
 **影片**

@@ -7,18 +7,18 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
-ms.date: 04/17/2018
+ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c5b47a2d30f4533455b4e0eaacb777299aff4d43
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 48428ef329de4719a25afd20c21ac102bba540a8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>使用 Azure Functions 來管理 Azure SQL 資料倉儲中的計算資源
 
-本教學課程使用 Azure Functions 來管理 Azure SQL 資料倉儲中的資料倉儲計算資源。 建議將這些架構搭配 SQL 資料倉儲 [Optimized for Elasticity][Performance Tiers] 使用。
+本教學課程使用 Azure Functions 來管理 Azure SQL 資料倉儲中的資料倉儲計算資源。
 
 若要搭配使用 Azure 函式應用程式與 SQL 資料倉儲，您必須建立[服務主體帳戶](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)，其在與您的資料倉儲執行個體相同的訂用帳戶之下，具有參與者存取權。 
 
@@ -183,5 +183,3 @@ ms.lasthandoff: 04/18/2018
 
 [Application Settings]: ../azure-functions/functions-how-to-use-azure-function-app-settings.md
 [Add a new trigger function]: manage-compute-with-azure-functions.md#add-a-new-trigger-function
-
-[Performance Tiers]: memory-and-concurrency-limits.md#performance-tiers

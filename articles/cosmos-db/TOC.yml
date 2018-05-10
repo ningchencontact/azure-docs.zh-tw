@@ -80,6 +80,8 @@ items:
         href: unique-keys.md
       - name: 無伺服器資料庫
         href: serverless-computing-database.md
+      - name: BulkExecutor 概觀
+        href: bulk-executor-overview.md
       - name: 安全性
         href: database-security.md
         items:
@@ -87,8 +89,6 @@ items:
             href: database-encryption-at-rest.md
           - name: 保護資料存取
             href: secure-access-to-data.md
-      - name: TCO
-        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: 使用案例
         href: use-cases.md
         items:
@@ -171,6 +171,10 @@ items:
                 href: multi-region-writers.md
           - name: 使用說明指南
             items:
+              - name: BulkExecutor - .NET
+                href: bulk-executor-dot-net.md
+              - name: BulkExecutor - Java
+                href: bulk-executor-java.md
               - name: 查詢
                 items:
                   - name: 執行 SQL 查詢
@@ -247,6 +251,10 @@ items:
                 href: sql-api-sdk-node.md
               - name: Python
                 href: sql-api-sdk-python.md
+              - name: BulkExecutor - .NET
+                href: sql-api-sdk-bulk-executor-dot-net.md
+              - name: BulkExecutor - Java
+                href: sql-api-sdk-bulk-executor-java.md
               - name: REST
                 href: /rest/api/cosmos-db/
               - name: REST 資源提供者
@@ -257,8 +265,6 @@ items:
             items:
               - name: Visual Studio Code 擴充功能
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
-              - name: 結構描述無從驗證索引文件
-                href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
               - name: SQL 園地
                 href: 'https://aka.ms/cosmos-db-playground'
       - name: MongoDB API 文件
@@ -433,6 +439,8 @@ items:
         href: set-throughput.md
       - name: 防火牆支援
         href: firewall-support.md
+      - name: 設定虛擬網路服務端點
+        href: vnet-service-endpoint.md
       - name: 度量
         href: use-metrics.md
       - name: 監視 SLA
@@ -465,3 +473,5 @@ items:
         href: faq.md
       - name: 透過棒球說明資料一致性
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+      - name: 技術白皮書
+        href: whitepapers.md

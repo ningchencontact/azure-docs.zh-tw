@@ -55,6 +55,8 @@
       href: app-service-web-tutorial-content-delivery-network.md
     - name: 驗證使用者
       href: app-service-web-tutorial-auth-aad.md
+    - name: 使用 VSTS 和 CI/CD 將應用程式部署到 Azure App Service
+      href: 'https://docs.microsoft.com/learn/deploy-apps-to-azure/index'
 - name: 範例
   items:
     - name: Azure CLI
@@ -177,6 +179,8 @@
           href: web-sites-backup.md
         - name: 還原備份
           href: web-sites-restore.md
+        - name: 還原快照集
+          href: app-service-web-restore-snapshots.md
         - name: 複製應用程式
           href: app-service-web-app-cloning.md
         - name: 移動資源

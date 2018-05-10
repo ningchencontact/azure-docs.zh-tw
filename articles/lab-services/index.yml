@@ -1,0 +1,61 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure 實驗室服務 (先前稱為 DevTest 實驗室) 預覽文件
+metadata:
+  title: Azure 實驗室服務文件 - 教學課程和 API 參考 | Microsoft Docs
+  description: 了解如何使用 Azure 實驗室服務為雲端中的小組或學生，快速地設定開發、測試、Hackathon 或教室實驗室。 Azure 教學課程、範例等會示範如何建立、管理及保護實驗室。
+  services: lab-services
+  author: spelluru
+  manager: 
+  ms.service: lab-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/06/2018
+  ms.author: spelluru
+  ms.openlocfilehash: f06102399cac6ef1b6b31155dff32999a923e173
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 05/07/2018
+abstract:
+  description: 了解如何使用 Azure 實驗室服務為雲端中的小組或學生，快速地設定開發、測試、Hackathon 或教室實驗室。 Azure 教學課程、範例等會示範如何建立、管理及保護實驗室。
+sections:
+- title: 逐步教學課程
+  items:
+  - type: paragraph
+    text: 了解如何透過使用 Azure 實驗室服務來建立和使用<b>教室實驗室</b>。
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/lab-services/tutorial-setup-lab-account">設定實驗室帳戶</a>
+    - html: <a href="/azure/lab-services/tutorial-setup-classroom-lab">設定教室實驗室</a>
+    - html: <a href="/azure/lab-services/tutorial-connect-virtual-machine-classroom-lab">存取教室實驗室</a>
+  - type: paragraph
+    text: 了解如何透過使用 Azure 實驗室服務來建立和使用<b>自訂實驗室</b>。
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/lab-services/tutorial-create-custom-lab">設定自訂實驗室</a>
+    - html: <a href="/azure/lab-services/tutorial-use-custom-lab">存取自訂實驗室</a>
+- title: 範例
+  items:
+  - type: paragraph
+    text: 使用下列範例來使用實驗室服務。
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://github.com/Azure/azure-devtestlab/tree/master/Samples">Resource Manager 範本</a>
+    - html: <a href="/azure/lab-services/samples-cli">Azure CLI</a>
+    - html: <a href="/azure/lab-services/samples-powershell">Azure PowerShell</a>
+- title: 參考
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: 命令列
+      html: <p><a href="/cli/azure/lab">Azure CLI</a></p><p><a href="/powershell/module/azurerm.devtestlabs/#devtest_labs">Azure PowerShell</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/dtl">REST API</a></p>

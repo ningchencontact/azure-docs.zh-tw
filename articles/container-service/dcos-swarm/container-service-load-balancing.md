@@ -1,19 +1,19 @@
 ---
-title: "Azure DC/OS 叢集中的負載平衡容器"
-description: "Azure Container Service DC/OS 叢集中多個容器的負載平衡。"
+title: Azure DC/OS 叢集中的負載平衡容器
+description: Azure Container Service DC/OS 叢集中多個容器的負載平衡。
 services: container-service
 author: rgardler
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 6f5467d0fbcc577a548f1100ed6e4d380fe38759
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 62967636a4d80f72f731a666947d5d4d5e47f7e5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 叢集中容器的負載平衡
 

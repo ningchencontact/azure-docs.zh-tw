@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: 8ea768c6ba8b404978b78f2cbd272f98af3fa70b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c2233ab32314655c510c8c884641293ae3325ef5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>經 Azure 背書的 Linux 發佈
-合作夥伴會在 Azure Marketplace 中提供 Linux 映像。 我們與各個 Linux 社群合作，以便為經背書的發佈清單新增更多版本選項。 在此同時，針對 Marketplace 未提供的發佈，您一律可以將自己的 Linux 帶入，方法是遵循[建立和上傳包含 Linux 作業系統的虛擬硬碟](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-upload-generic)中的指導方針。
+合作夥伴會在 Azure Marketplace 中提供 Linux 映像。 我們與各個 Linux 社群合作，以便為經背書的發佈清單新增更多版本選項。 在此同時，針對 Marketplace 未提供的發佈，您一律可以將自己的 Linux 帶入，方法是遵循[建立和上傳包含 Linux 作業系統的虛擬硬碟](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)中的指導方針。
 
 ## <a name="supported-distributions-and-versions"></a>支援的發佈和版本
 下表列出 Azure 上支援的 Linux 散發套件和版本。 請參閱[Microsoft Azure 中的 Linux 映像支援](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)，進一步了解 Azure 中支援 Linux 和開放原始碼技術的詳細資訊。

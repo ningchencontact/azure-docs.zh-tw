@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: bfbcf8ff3f24b69b49b9a2bd5d567e1ead57d974
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 662cea7ac47e411b127540faf5cab8b3c4d8964a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>修改虛擬機器擴展集
 在應用程式的整個生命週期中，您可能需要修改或更新您的虛擬機器擴展集。 這些更新可能包括如何更新擴展集的組態，或者變更應用程式組態。 本文說明如何使用 REST API、Azure PowerShell 或 Azure CLI 2.0 來修改現有的擴展集。
@@ -373,12 +373,12 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 透過自訂映像來部署應用程式也是常見的做法。 在下一節中將會探討此案例。
 
 ### <a name="os-updates"></a>OS 更新
-如果您使用 Azure 平台映像，您可以修改 imageReference (如需詳細資訊，請參閱 [REST API 文件](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)) 來更新映像。
+如果您使用 Azure 平台映像，您可以修改 imageReference (如需詳細資訊，請參閱 [REST API 文件](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)) 來更新映像。
 
 >[!NOTE]
 > 使用平台映像時，通常會指定 "latest" 作為映像參考版本。 當您建立、相應放大及重新安裝映像時，會使用最新可用版本來建立虛擬機器。 不過，這**並不**意謂著作業系統映像會隨著時間在新映像版本發行時自動更新。 獨立的功能目前為預覽狀態，可提供自動的作業系統升級。 如需詳細資訊，請參閱 [自動作業系統升級文件](virtual-machine-scale-sets-automatic-upgrade.md)。
 
-如果您使用自訂映像，您可以更新 imageReference 識別碼 (如需詳細資訊，請參閱 [REST API 文件](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)) 來更新映像。
+如果您使用自訂映像，您可以更新 imageReference 識別碼 (如需詳細資訊，請參閱 [REST API 文件](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)) 來更新映像。
 
 ## <a name="examples"></a>範例
 

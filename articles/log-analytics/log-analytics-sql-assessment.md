@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Log Analytics 最佳化 SQL Server 環境 | Microsoft Docs"
-description: "透過 Azure Log Analytics，您可以使用 SQL 健康情況檢查方案，定期評估環境的風險和健康狀況。"
+title: 使用 Azure Log Analytics 最佳化 SQL Server 環境 | Microsoft Docs
+description: 透過 Azure Log Analytics，您可以使用 SQL 健康情況檢查方案，定期評估環境的風險和健康狀況。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47f912932f9a0e1383ef5f82d1d3e33b5ababa9c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>在 Log Analytics 中使用 SQL Server 健康情況檢查方案最佳化 SQL 環境
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/13/2018
 
 1. 如果 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 已不再監視伺服器，則安裝 [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md)。
 2. 如果伺服器受到 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 監視，而管理群組未與 Log Analytics 服務整合，則該伺服器可以是具有 Log Analytics 的多重主目錄，以便收集資料並轉送至該服務，且仍然受到 Operations Manager 監視。  
-3. 除此之外，如果您的 Operations Manager 管理群組已與服務整合，則在工作區中啟用方案後，您需要讓服務依循[新增代理程式的受控電腦](log-analytics-om-agents.md#connecting-operations-manager-to-oms)下的步驟，來新增網域控制站以收集資料。  
+3. 除此之外，如果您的 Operations Manager 管理群組已與服務整合，則在工作區中啟用方案後，您需要讓服務依循[新增代理程式的受控電腦](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics)下的步驟，來新增網域控制站以收集資料。  
 
 SQL Server 上的代理程式會向 Operations Manager 管理群組報告、收集資料、轉送至其指派的管理伺服器，然後直接從管理伺服器傳送至 Log Analytics 服務。  資料並不會寫入 Operations Manager 資料庫。  
 
@@ -163,7 +163,7 @@ Log Analytics 會使用 Operations Manager 代理程式及管理群組來收集�
 檢視基礎結構的總結法務遵循評估結果，然後再深入鑽研建議事項。
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>檢視的焦點區域的建議並採取更正措施
-1. 登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。
+1. 在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站。
 2. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 3. 在 [Log Analytics 訂用帳戶] 窗格中，選取工作區，然後按一下 [概觀] 圖格。  
 4. 在 [概觀] 頁面上，按一下 [SQL 健康情況檢查] 圖格。

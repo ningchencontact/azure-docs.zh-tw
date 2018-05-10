@@ -3,8 +3,8 @@ title: 開始使用 Microsoft Azure 安全性 | Microsoft Docs
 description: 本文提供 Microsoft Azure 安全性功能的概觀，和將資產移轉至雲端提供者的組織所需的一般考量。
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: barclayn
+manager: mbaldwin
 editor: TomSh
 ms.assetid: 8d8a0088-c85a-48e7-bd04-2bc7b78b0691
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 7d3fab20ec238bff0664fc98c2067c919e97a7c2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: d0443128064332a37c95d5c39cd73b759a002cca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>開始使用 Microsoft Azure 安全性
+
 當您建置 IT 資產或將其移轉至雲端提供者時，您可以依賴該組織的能力來保護您的應用程式和資料，並利用他們所提供的安全性控制來管理您雲端架構資產的安全性。
 
 Azure 的基礎結構設計涵蓋設備與應用程式，可同時裝載數以百萬計的客戶，並提供可靠的基礎供企業符合其安全性需求。 此外，Azure 也為您提供各式各樣可設定的安全性選項及加以控制的功能，讓您可以自訂安全性以符合部署的特殊需求。
@@ -31,6 +32,7 @@ Azure 的基礎結構設計涵蓋設備與應用程式，可同時裝載數以�
 * Microsoft 如何保護 Azure 基礎結構以保護您的資料和應用程式。
 
 ## <a name="identity-and-access-management"></a>身分識別和存取管理
+
 控制對 IT 基礎結構、資料和應用程式的存取，是很重要的。 Microsoft Azure 提供這些功能，例如 Azure Active Directory (Azure AD)、Azure 儲存體等服務，並且支援多項標準和 API。
 
 [Azure AD](../active-directory/active-directory-whatis.md) 是一種身分識別儲存機制和引擎，可提供組織的使用者、群組和物件的驗證、授權和存取控制功能。 Azure AD 也為開發人員提供了有效方式，可在其應用程式中整合身分識別管理。 業界標準通訊協定如 [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0)、[WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx) 和 [OpenID Connect](http://openid.net/connect/) 讓您得以憑藉 .NET、Java、Node.js 和 PHP 的平台實作登入功能。
@@ -38,6 +40,7 @@ Azure 的基礎結構設計涵蓋設備與應用程式，可同時裝載數以�
 REST 型圖形 API 可讓開發人員從任何平台讀取及寫入目錄。 透過所提供的 [OAuth 2.0](http://oauth.net/2/) 支援，開發人員不僅可以建置整合了 Microsoft 與第三方 Web API 的行動應用程式及 Web 應用程式，還可建置自己的安全 Web API。 現已提供各種適用於 .Net、Windows 市集、iOS 和 Android 的開放原始碼用戶端程式庫，而且另有更多的程式庫仍在開發當中。
 
 ### <a name="how-azure-enables-identity-and-access-management"></a>Azure 如何啟用身分識別與存取管理
+
 Azure AD 可以作為組織的獨立式雲端目錄，或在您現有的內部部署 Active Directory 中作為整合式解決方案。 整合功能包括目錄同步和單一登入 (SSO)。 這些功能使您現有的內部部署身分識別得以延伸至雲端，並改善了系統管理員和使用者經驗。
 
 身分識別與存取管理的一些其他功能包括：
@@ -50,6 +53,7 @@ Azure AD 可以作為組織的獨立式雲端目錄，或在您現有的內部�
 * [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) 所提供的高可用性全域身分識別管理服務，可用於處理數億個身分識別的消費者端應用程式。 此服務可跨行動及 Web 平台進行整合。 可自訂的使用經驗讓您的消費者可以使用其現有的社交帳戶，或是建立新的認證來登入您所有的應用程式。
 
 ## <a name="data-access-control-and-encryption"></a>資料存取控制與加密
+
 Microsoft 對於 Azure 作業採取「責任區分」原則和[最小權限](https://en.wikipedia.org/wiki/Principle_of_least_privilege)原則。 Azure 支援人員的資料存取需要您明確的授權，且授權以具有記錄和稽核的「當下」為基礎，在工作處理完成後即撤銷。
 
 Azure 也提供多個功能，在資料傳輸和待用時保護資料。 這包括資料、檔案、應用程式、服務、通訊和磁碟機的加密。 您可以先將資訊加密再將其放入 Azure 中，並將金鑰存放在內部部署資料中心內。
@@ -57,6 +61,7 @@ Azure 也提供多個功能，在資料傳輸和待用時保護資料。 這包�
 ![Azure 中的 Microsoft Antimalware](./media/azure-security-getting-started/sec-azgsfig1.PNG)
 
 ### <a name="azure-encryption-technologies"></a>Azure 加密技術
+
 您可以使用 [Azure AD 報告](../active-directory/active-directory-reporting-audit-events.md)，收集訂用帳戶環境的系統管理存取權詳細資料。 您可以在包含 Azure 敏感資訊的 VHD 上設定 [BitLocker 磁碟機加密](https://technet.microsoft.com/library/cc732774.aspx)。
 
 Azure 中其他可協助您保護資料的功能包括：
@@ -70,6 +75,7 @@ Azure 中其他可協助您保護資料的功能包括：
 * Azure 支援和使用多種加密機制，包括 SSL/TLS、IPsec 和 AES，視資料類型與容器和傳輸而定。
 
 ## <a name="virtualization"></a>虛擬化
+
 Azure 平台使用虛擬化環境。 使用者執行個體以未存取實體主機伺服器的獨立虛擬機器形式運作，而此隔離會使用實體[處理器 (信號-0/信號-3) 權限層級](https://en.wikipedia.org/wiki/Protection_ring)來強制執行。
 
 信號 0 是最高權限，3 是最低。 客體 OS 會在權限較低的信號 1 中執行，應用程式則在權限最低的信號 3 中執行。 實體資源的這種虛擬化可讓客體 OS 與 Hypervisor 之間明確區隔，進而使兩者之間的安全性有進一步的區隔。
@@ -79,6 +85,7 @@ Azure Hypervisor 作用相當於微核心，可將來自客體虛擬機器的所
 ![Azure 中的 Microsoft Antimalware](./media/azure-security-getting-started/sec-azgsfig2.PNG)
 
 ### <a name="how-azure-implements-virtualization"></a>Azure 如何實作虛擬化
+
 Azure 會使用 Hypervisor 防火牆 (封包篩選器)；此防火牆會在 Hypervisor 中實作，並由網狀架構控制器代理程式設定。 這有助於防止租用戶受到未經授權的存取。 根據預設，虛擬機器建立時會封鎖所有流量，隨後，網狀架構控制器代理程式會設定封包篩選器，以新增*規則和例外狀況*來允許授權的流量。
 
 在此介紹兩種規則：
@@ -87,6 +94,7 @@ Azure 會使用 Hypervisor 防火牆 (封包篩選器)；此防火牆會在 Hype
 * **角色組態檔**：這會根據租用戶的服務模型定義輸入存取控制清單 (ACL)。 例如，如果租用戶在特定虛擬機器的連接埠 80 上有 Web 前端，當您在 [Azure 傳統部署模型](../azure-resource-manager/resource-manager-deployment-model.md)中設定端點時，Azure 會將 TCP 連接埠 80 開放給所有 IP。 如果虛擬機器上執行後端或背景工作角色，則它只會對相同租用戶中的虛擬機器開啟背景工作角色。
 
 ## <a name="isolation"></a>隔離
+
 另一個重要的雲端安全性需求是區隔性，以防止部署與共用的多租用戶架構之間未經授權和非預期的資訊傳輸。
 
 Azure 會透過 VLAN 隔離、ACL、負載平衡器和 IP 篩選器，實作[網路存取控制](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)和隔離。 它會限制外部流量輸入您定義的虛擬機器上的連接埠和通訊協定。 Azure 會實作網路篩選以防止假冒流量，並將傳入和傳出的流量限定於信任的平台元件。 對於依預設拒絕流量的界限保護裝置，會實作流量原則。
@@ -98,6 +106,7 @@ Azure 會透過 VLAN 隔離、ACL、負載平衡器和 IP 篩選器，實作[網
 對 Azure 虛擬機器的外部流量會在路由器、負載平衡器和第 3 層交換器上透過 ACL 進行防火牆處理。 只有特定的已知通訊協定可被允許。 設定的 ACL 會限制從客體虛擬機器到用於管理的其他 VLAN 的流量。 此外也會透過主機 OS 上的 IP 篩選器來篩選流量，進一步限制資料連結與網路層級上的流量。
 
 ### <a name="how-azure-implements-isolation"></a>Azure 如何實作隔離
+
 Azure 網狀架構控制器會負責配置基礎結構資源給租用戶工作負載，以及管理從主機到虛擬機器的單向通訊。 Azure hypervisor 會強制執行虛擬機器之間的記憶體和程序區隔，並安全地將網路流量路由傳送至客體 OS 租用戶。 Azure 也會實作租用戶、儲存體和虛擬網路的隔離。
 
 * 各個 Azure AD 租用戶在邏輯上會以安全性界限進行隔離。
@@ -105,6 +114,7 @@ Azure 網狀架構控制器會負責配置基礎結構資源給租用戶工作�
 * 虛擬網路會以邏輯方式透過唯一的私人 IP 位址、防火牆和 IP ACL 的組合進行隔離。 負載平衡器會根據端點定義，將流量路由傳送至適當的租用戶。
 
 ## <a name="virtual-networks-and-firewalls"></a>虛擬網路和防火牆
+
 Azure 說明中的[分散式和虛擬網路](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx)可確保您的私人網路流量會以邏輯方式與其他 Azure 虛擬網路上的流量隔離。
 
 ![Azure 中的 Microsoft Antimalware](./media/azure-security-getting-started/sec-azgsfig4.PNG)
@@ -134,6 +144,7 @@ IP 篩選器有助於防止客體虛擬機器：
 * [**合作夥伴網路安全性解決方案**](https://azure.microsoft.com/marketplace/)。 您可以從 Azure Marketplace 存取許多合作夥伴網路安全性解決方案。
 
 ### <a name="how-azure-implements-virtual-networks-and-firewalls"></a>Azure 如何實作虛擬網路和防火牆
+
 根據預設，Azure 會在所有主機和客體虛擬機器上實作封包篩選防火牆。 Azure Marketplace 中的 Windows OS 映像依預設也會啟用 Windows 防火牆。 位於 Azure 公開網路周邊的負載平衡器會根據客戶的系統管理員所管理的 IP ACL 來控制通訊。
 
 當 Azure 在正常作業中或嚴重損壞期間移動客戶的資料時，它會使用私人、加密的通訊通道來進行。 Azure 運用在虛擬網路和防火牆中的其他功能包括：
@@ -145,6 +156,7 @@ IP 篩選器有助於防止客體虛擬機器：
 * **虛擬網路閘道**：[Azure 虛擬網路閘道](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)可作為將您在 Azure 虛擬網路中的工作負載連接到內部部署網站的跨單位閘道。 它必須透過 [IPsec 站對站 VPN 通道](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)或透過 [ExpressRoute](../expressroute/expressroute-introduction.md) 線路連接到內部部署網站。 就 IPsec/IKE VPN 通道而言，這些閘道會執行 IKE 交握，並建立虛擬網路和內部部署網站之間的 IPsec S2S VPN 通道。 虛擬網路閘道也會終止[點對站 VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md)。
 
 ## <a name="secure-remote-access"></a>安全的遠端存取
+
 儲存在雲端中的資料必須啟用足夠的保護措施，以防止入侵和維護傳輸時的機密性與完整性。 這包括與組織的原則型、可稽核的身分識別和存取管理機制相連結的網路控制。
 
 內建的密碼編譯技術可讓您對部署內部與各部署間的通訊、Azure 區域之間的通訊，以及 Azure 對內部部署資料中心的通訊進行加密。 系統管理員可透過[遠端桌面工作階段](../virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)、[遠端 Windows PowerShell](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) 來存取虛擬機器，且 Azure 入口網站一律會加密。
@@ -152,11 +164,13 @@ IP 篩選器有助於防止客體虛擬機器：
 為了讓您安全地將內部部署資料中心擴充到雲端，Azure 提供了[站對站 VPN](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) 和[點對站 VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md)，以及具有 [ExpressRoute](../expressroute/expressroute-introduction.md) 的專用連結 (透過 VPN 的 Azure 虛擬網路連線會進行加密)。
 
 ### <a name="how-azure-implements-secure-remote-access"></a>Azure 如何實作安全的遠端存取
+
 對 Azure 入口網站的連線一律必須經過驗證，且需要 SSL/TLS。 您可以設定管理憑證來啟用安全管理。 如 [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) 和 [IPsec](https://en.wikipedia.org/wiki/IPsec) 的業界標準安全性通訊協定會受到完整支援。
 
 [Azure ExpressRoute](../expressroute/expressroute-introduction.md) 可讓您在 Azure 資料中心和內部部署或共置環境中的基礎結構之間建立私人連線。 ExpressRoute 連線不會經過公用網際網路。 相較於一般網際網路連結，這可以提供更可靠、更快速、延遲更短和更安全的連接。 在某些情況下，使用 ExpressRoute 連線在內部部署裝置和 Azure 之間傳輸資料，也可以產生重大的成本效益。
 
 ## <a name="logging-and-monitoring"></a>記錄和監視
+
 Azure 針對會產生稽核追蹤的安全性相關事件提供已驗證的記錄，並設計為能防止竄改。 這包括系統資訊，例如 Azure 基礎結構虛擬機器與 Azure AD 中的安全性事件記錄檔。 安全性事件監視包含對於如下事件的收集：變更 DHCP 或 DNS 伺服器 IP 位址、嘗試存取依設計封鎖的連接埠、通訊協定或 IP 位址、變更安全性原則或防火牆設定、建立帳戶或群組、非預期的程序或驅動程式安裝等。
 
 ![Azure 中的 Microsoft Antimalware](./media/azure-security-getting-started/sec-azgsfig5.PNG)
@@ -164,6 +178,7 @@ Azure 針對會產生稽核追蹤的安全性相關事件提供已驗證的記�
 記錄特殊權限使用者存取和活動的稽核記錄檔、授權和未授權的存取嘗試、系統例外狀況和資訊安全性事件會保留一段時間。 記錄檔的保留由您自行斟酌，因為您可以根據自己的需求設定記錄檔收集和保留。
 
 ### <a name="how-azure-implements-logging-and-monitoring"></a>Azure 如何實作記錄和監視
+
 Azure 會將管理代理程式 (MA) 和 Azure 安全性監視器 (ASM) 代理程式部署至每個受到管理的計算、儲存或網狀架構節點，無論是原生或虛擬。 每個管理代理程式都會設定為必須使用從 Azure 憑證存放區取得的憑證向服務小組儲存體帳戶進行驗證，並將預先設定的診斷和事件資料轉送至儲存體帳戶。 這些代理程式不會部署到客戶的虛擬機器。
 
 Azure 系統管理員會透過對於記錄檔的存取經過驗證且受到控制的 Web 入口網站，來存取記錄檔。 系統管理員可以剖析、篩選、相互關聯及分析記錄檔。 Azure 在記錄檔方面的服務小組儲存體帳戶會受到保護而無法由系統管理員直接存取，以防止記錄遭到竄改。
@@ -173,11 +188,13 @@ Microsoft 會使用 Syslog 通訊協定從網路裝置收集記錄檔，並使�
 [Azure 診斷](https://msdn.microsoft.com/library/azure/gg433048.aspx)是一項 Azure 功能，可讓您收集來自在 Azure 中執行之應用程式的診斷資料。 這項診斷資料可用來進行偵錯和疑難排解、測量效能、監視資源使用量、流量分析和容量規劃以及稽核。 收集到的診斷資料可以傳輸到 Azure 儲存體帳戶，以進行保存。 傳輸可以是排程或隨選的。
 
 ## <a name="threat-mitigation"></a>威脅防護
+
 除了隔離、加密和篩選以外，Azure 也採用多種威脅防護機制和程序來保護基礎結構和服務。 其中包括用來偵測及補救進階威脅 (如 DDoS、權限提升和 [OWASP Top-10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)) 的內部控制和技術。
 
 Microsoft 用來保護其雲端基礎結構的安全性控制和風險管理程序，可降低安全性事件的風險。 在事件發生時，Microsoft 線上安全性服務和符合性 (OSSC) 小組內的安全性事件管理 (SIM) 小組可隨時加以因應。
 
 ### <a name="how-azure-implements-threat-mitigation"></a>Azure 如何實作威脅防護
+
 Azure 有安全性控制可實作威脅防護功能，並協助客戶降低其環境中的潛在威脅。 下列清單摘要說明 Azure 所提供的威脅防護功能：
 
 * [Azure Antimalware](azure-security-antimalware.md) 依預設會在所有基礎結構伺服器上啟用。 您可以選擇性地在自己的虛擬機器內加以啟用。
@@ -187,6 +204,7 @@ Azure 有安全性控制可實作威脅防護功能，並協助客戶降低其�
 * 整合的部署系統會管理整個 Azure 平台的安全性修補程式的散發與安裝。
 
 ## <a name="next-steps"></a>後續步驟
+
 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/)
 
 [Azure 安全性小組部落格](http://blogs.msdn.com/b/azuresecurity/)

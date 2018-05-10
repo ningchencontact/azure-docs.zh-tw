@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>使用 Linux 診斷擴充功能監視 Linux VM 的效能和診斷資料
 
@@ -53,7 +53,7 @@ Linux 診斷延伸模組可協助使用者監視在 Microsoft Azure 上執行的
 
 使用 [Azure 入口網站](https://portal.azure.com/#)、Azure PowerShell 或 Azure CLI 指令碼，可以啟用此擴充功能。
 
-若要直接從 Azure 入口網站檢視和設定系統和效能資料，請遵循 [Azure 部落格上的這些步驟](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)進行。
+若要直接從 Azure 入口網站檢視和設定系統和效能資料，請遵循 [Azure 部落格上的這些步驟](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)進行。
 
 本文著重於如何使用 Azure CLI 命令來啟用及設定延伸模組。 這可讓您直接從儲存體資料表讀取和檢視資料。
 

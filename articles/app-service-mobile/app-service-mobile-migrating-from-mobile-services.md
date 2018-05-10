@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5001704f47af0c7b07744f1dceb7aa58bdb6448c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="article-top"></a>將您現有的 Azure 行動服務移轉至 Azure App Service
 透過 [Azure App Service 的公開上市版]，Azure 行動服務網站將可輕易地就地移轉，以使用 Azure App Service 的所有功能。  本文件說明將您的網站從 Azure 行動服務移轉至 Azure App Service 時的情形。
@@ -372,16 +372,16 @@ Azure App Service 通常會停用 [診斷記錄]。  若要啟用診斷記錄：
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[App Service 價格]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[App Service 價格]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [自動調整]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-web-overview.md
 [Azure 傳統入口網站]: https://manage.windowsazure.com
 [Azure 入口網站]: https://portal.azure.com
-[Azure Region]: https://azure.microsoft.com/en-us/regions/
+[Azure Region]: https://azure.microsoft.com/regions/
 [Azure 排程器方案]: ../scheduler/scheduler-plans-billing.md
 [連續部署]: ../app-service/app-service-continuous-deployment.md
-[轉換混合式命名空間]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[轉換混合式命名空間]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [自訂網域名稱]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: http://www.telerik.com/fiddler

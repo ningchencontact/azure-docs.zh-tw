@@ -1,22 +1,22 @@
 ---
-title: "Azure LBS 中的路況涵蓋範圍 | Microsoft Docs"
-description: "了解 Azure LBS 中的路況涵蓋範圍"
+title: Azure LBS 中的路況涵蓋範圍 | Microsoft Docs
+description: 了解 Azure LBS 中的路況涵蓋範圍
 services: location-based-services
-keywords: 
+keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 251c736e0f607ffeea144639f437900eb337b6ea
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6d061d5b1100051a2a06e838dc16912119efb6c9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-location-based-services---traffic-coverage"></a>Azure LBS - 路況涵蓋範圍
 
@@ -31,6 +31,7 @@ Azure LBS (LBS) 會以車流量和事故的形式提供豐富的路況資訊，�
 |巴林     |         |✓         |
 |比利時     |✓         |✓         |
 |巴西     |✓         |✓         |
+|保加利亞     |✓         |✓         |
 |加拿大     |✓         |✓         |
 |智利     |✓         |✓         |
 |哥倫比亞      |         |✓         |

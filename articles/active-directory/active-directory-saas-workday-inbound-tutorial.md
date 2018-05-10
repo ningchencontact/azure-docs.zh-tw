@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程︰設定 Workday 來自動佈建使用者
 
@@ -468,7 +468,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 **代理程式疑難排解**
 
-裝載代理程式的 Windows Server 機器上的 [Windows 事件記錄檔](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx)中，包含了所有代理程式所執行的作業事件。 若要檢視這些事件：
+裝載代理程式的 Windows Server 機器上的 [Windows 事件記錄檔](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx)中，包含了所有代理程式所執行的作業事件。 若要檢視這些事件：
     
 1. 請開啟 **Eventvwr.msc**。
 2. 選取 [Windows 記錄檔 > 應用程式]。
@@ -491,7 +491,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 4. 您可隨時檢查 Azure 入口網站中的 [稽核記錄] 索引標籤，查看佈建服務執行了哪些動作。 稽核記錄會列出佈建服務執行的所有個別同步處理事件，例如從 Workday 外部讀取了哪些使用者，接著又新增到或更新到 Active Directory 中。 **[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](active-directory-saas-provisioning-reporting.md)**
 
-5.  請檢查裝載代理程式的 Windows Server 機器上的 [Windows 事件記錄檔](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx)中，有哪些新錯誤或警告。 可透過在伺服器上啟動 **Eventvwr.msc** 並選取 [Windows 記錄檔 > 應用程式]，來檢視這些事件。 所有佈建相關的訊息都會記錄在來源 **AADSyncAgent** 底下。 
+5.  請檢查裝載代理程式的 Windows Server 機器上的 [Windows 事件記錄檔](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx)中，有哪些新錯誤或警告。 可透過在伺服器上啟動 **Eventvwr.msc** 並選取 [Windows 記錄檔 > 應用程式]，來檢視這些事件。 所有佈建相關的訊息都會記錄在來源 **AADSyncAgent** 底下。 
     
 
 6. 完成之後，其會寫入 [佈建] 索引標籤中的稽核摘要報告內，如下所示。
@@ -819,7 +819,7 @@ Azure AD 佈建服務連同其餘 Microsoft 服務和功能都符合 GDPR 規範
 1. 在收到要求時，擷取使用者的資料，然後從 Windows 事件記錄檔中移除該使用者的資料。 
 2. 將來自 AADSyncAgent 處理序之 Windows 事件記錄檔的保留期維持在 48 小時以內
 
-如需有關如何設定 Windows 事件記錄檔之資料保留期的資訊，請參閱[事件記錄檔的設定](https://technet.microsoft.com/en-us/library/cc952132.aspx) \(英文\)。 如需有關 Windows 事件記錄檔的一般資訊，請參閱[這篇文章](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx)。
+如需有關如何設定 Windows 事件記錄檔之資料保留期的資訊，請參閱[事件記錄檔的設定](https://technet.microsoft.com/library/cc952132.aspx) \(英文\)。 如需有關 Windows 事件記錄檔的一般資訊，請參閱[這篇文章](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx)。
 
 
 ## <a name="next-steps"></a>後續步驟

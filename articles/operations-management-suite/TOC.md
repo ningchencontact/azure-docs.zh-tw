@@ -18,7 +18,7 @@
 ## 自動化
 ### [Azure 自動化概觀](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
-## Backup 
+## 備份
 ### [備份概觀](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Site Recovery 概觀](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -32,8 +32,8 @@
 ### [Web 基準評估](oms-security-web-baseline-assessment.md)
 
 ## 使用解決方案
-### [管理解決方案](operations-management-suite-solutions.md)
-### [目標解決方案](operations-management-suite-solution-targeting.md)
+### [管理解決方案](../monitoring/monitoring-solutions.md)
+### [目標解決方案](../monitoring/monitoring-solution-targeting.md)
 ### 深入解析與分析
 #### [AD 評估](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD 複寫狀態](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -46,10 +46,10 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric 分析](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### 服務對應
-##### [逐步介紹](operations-management-suite-walkthrough-servicemap.md)
-##### [使用](operations-management-suite-service-map.md)
-##### [設定](operations-management-suite-service-map-configure.md)
-##### [與 Operations Manager 整合](operations-management-suite-service-map-scom.md)
+##### [逐步介紹](../monitoring/monitoring-walkthrough-servicemap.md)
+##### [使用](../monitoring/monitoring-service-map.md)
+##### [設定](../monitoring/monitoring-service-map-configure.md)
+##### [與 Operations Manager 整合](../monitoring/monitoring-service-map-scom.md)
 #### [SQL 評估](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [升級分析](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -62,12 +62,12 @@
 #### [反惡意程式碼評估](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## 建立解決方案
-### [設計和建置](operations-management-suite-solutions-creating.md)
-### [解決方案檔案](operations-management-suite-solutions-solution-file.md)
-### [自動化資源](operations-management-suite-solutions-resources-automation.md)
-### [記錄搜尋與警示](operations-management-suite-solutions-resources-searches-alerts.md)
-### [檢視](operations-management-suite-solutions-resources-views.md)
-### [最佳做法](operations-management-suite-solutions-best-practices.md)
+### [設計和建置](../monitoring/monitoring-solutions-creating.md)
+### [解決方案檔案](../monitoring/monitoring-solutions-solution-file.md)
+### [自動化資源](../monitoring/monitoring-solutions-resources-automation.md)
+### [記錄搜尋與警示](../monitoring/monitoring-solutions-resources-searches-alerts.md)
+### [檢視](../monitoring/monitoring-solutions-resources-views.md)
+### [最佳做法](../monitoring/monitoring-solutions-best-practices.md)
 
 ## 管理案例
 ### [從 Runbook 收集分析資料](operations-management-suite-runbook-datacollect.md)

@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 人員安全性"
-description: "FedRAMP Web 應用程式自動化 - 人員安全性"
+title: Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 人員安全性
+description: FedRAMP Web 應用程式自動化 - 人員安全性
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 2b9095d0420987f9cad758e3c883a9e2b5cd60c4
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="personnel-security-ps"></a>人員安全性 (PS)
 

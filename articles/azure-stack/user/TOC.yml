@@ -21,8 +21,12 @@
       href: azure-stack-quick-create-vm-linux-cli.md
 - name: 教學課程
   items:
-    - name: 將應用程式部署到 Azure 和 Azure Stack
+    - name: 將應用程式部署至 Azure 和 Azure Stack
       href: azure-stack-solution-pipeline.md
+    - name: 設定混合式雲端身分識別
+      href: azure-stack-solution-hybrid-identity.md
+    - name: 設定混合式雲端連線
+      href: azure-stack-solution-hybrid-connectivity.md
 - name: 使用說明指南
   items:
     - name: 使用 Azure Stack 入口網站
@@ -87,6 +91,10 @@
               href: azure-stack-kv-push-secret-into-vm.md
             - name: KeyVault 範例應用程式
               href: azure-stack-kv-sample-app.md
+            - name: 解決方案範本
+              items:
+                - name: 部署 Service Fabric 叢集
+                  href: azure-stack-solution-template-service-fabric-cluster.md
     - name: 建置應用程式
       items:
         - name: 開發 Azure Stack

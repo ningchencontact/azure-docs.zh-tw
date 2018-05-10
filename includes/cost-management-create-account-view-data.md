@@ -1,3 +1,20 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: cost-management
+author: bandersmsft
+ms.service: cost-management
+ms.topic: include
+ms.date: 04/26/2018
+ms.author: banders
+manager: dougeby
+ms.custom: include file
+ms.openlocfilehash: 1b65775ef5ad40ca9e9c1e2c96fe1c2b8d92afdc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="view-cost-data"></a>檢視成本資料
 
 Cloudyn 的 Azure 成本管理可讓您存取您的所有雲端資源資料。 您可以從儀表板的報告中找到以索引標籤式檢視呈現的標準和自訂報告。 以下是可立即向您顯示成本資料的常見儀表板和報告範例。

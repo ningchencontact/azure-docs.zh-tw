@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0cef0a261b0362fcb9776e63c10e96aedc408b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
 
@@ -134,7 +134,7 @@ Azure 身分識別管理核心功能如下：
 
 #### <a name="device-registration"></a>裝置註冊
 
-[Azure AD 裝置註冊](https://docs.microsoft.com/en-us/azure/active-directory/device-management-introduction) \(機器翻譯\) 是裝置型[條件式存取](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup)案例的基礎。 當裝置已註冊時，Azure AD 裝置註冊會在使用者登入時，對裝置提供用來驗證裝置的身分識別。 然後已驗證的裝置和裝置的屬性即可用來對裝載於雲端和內部部署的應用程式，強制執行條件式存取原則。
+[Azure AD 裝置註冊](https://docs.microsoft.com/azure/active-directory/device-management-introduction) \(機器翻譯\) 是裝置型[條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)案例的基礎。 當裝置已註冊時，Azure AD 裝置註冊會在使用者登入時，對裝置提供用來驗證裝置的身分識別。 然後已驗證的裝置和裝置的屬性即可用來對裝載於雲端和內部部署的應用程式，強制執行條件式存取原則。
 
 與 Intune 這類的[行動裝置管理 (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) 解決方案結合時，將會以裝置的其他相關資訊更新 Azure Active Directory 中的裝置屬性。 這可讓您建立條件式存取規則，強制讓裝置的存取符合您的安全性和相容性標準。
 

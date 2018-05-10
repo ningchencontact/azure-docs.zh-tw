@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store 效能微調指導方針 | Microsoft Docs"
-description: "Azure Data Lake Store 效能微調指導方針"
+title: Azure Data Lake Store 效能微調指導方針 | Microsoft Docs
+description: Azure Data Lake Store 效能微調指導方針
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>針對效能目的調整 Azure Data Lake Store
 
@@ -42,7 +42,7 @@ Azure Data Lake Store 可以調整以提供所有分析案例的需要輸送量�
 
 ### <a name="network-connectivity-to-azure-data-lake-store"></a>與 Azure Data Lake Store 的網路連線
 
-您的來源資料與 Azure Data Lake Store 之間的網路連線有時可能是瓶頸。 當您的來源資料是內部部署時，請考慮使用與 [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) 的專用連結。 如果您的來源資料是在 Azure 中，當資料位於與 Data Lake Store 相同的 Azure 區域時，效能最佳。
+您的來源資料與 Azure Data Lake Store 之間的網路連線有時可能是瓶頸。 當您的來源資料是內部部署時，請考慮使用與 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) 的專用連結。 如果您的來源資料是在 Azure 中，當資料位於與 Data Lake Store 相同的 Azure 區域時，效能最佳。
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>設定最大平行處理的資料擷取工具
 

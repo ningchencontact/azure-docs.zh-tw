@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 資源群組專案在 Visual Studio Team Services中進行連續整合 | Microsoft Docs"
-description: "使用 Azure 資源群組部署專案在 Visual Studio Team Services 中進行連續整合"
+title: 使用 Azure 資源群組專案在 Visual Studio Team Services中進行連續整合 | Microsoft Docs
+description: 使用 Azure 資源群組部署專案在 Visual Studio Team Services 中進行連續整合
 services: visual-studio-online
 documentationcenter: na
 author: mlearned
 manager: erickson-doug
-editor: 
+editor: ''
 ms.assetid: b81c172a-be87-4adc-861e-d20b94be9e38
 ms.service: azure-resource-manager
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc5a45c899cd72c051dd08f7db039565a57381a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>使用 Azure 資源群組部署專案在 Visual Studio Team Services 中進行連續整合
 若要部署 Azure 範本，您需要執行各種階段的工作：組建、測試、複製到 Azure (也稱為「暫存」) 及部署範本。 有兩種不同的方式可將範本部署至 Visual Studio Team Services (VS Team Services)。 兩種方法所產生的結果都相同，因此請選擇最符合您工作流程的方法。
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
    
    | 參數 | 說明 |
    | --- | --- |
-   | -ResourceGroupLocation |資源群組所在的地理位置，例如 **eastus** 或**美國東部**。 (如果名稱中有空間，請加入單引號。)如需詳細資訊，請參閱 [Azure 區域](https://azure.microsoft.com/en-us/regions/)。 |
+   | -ResourceGroupLocation |資源群組所在的地理位置，例如 **eastus** 或**美國東部**。 (如果名稱中有空間，請加入單引號。)如需詳細資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |
    | -ResourceGroupName |此部署使用的資源群組名稱。 |
    | -UploadArtifacts |此參數出現時，可指定需要從本機系統上傳到 Azure 的構件。 您只需要在範本部署需要您希望暫存的其他構件時，使用 PowerShell 指令碼設定此轉換 (例如組態指令碼或巢狀範本) 即可。 |
    | -StorageAccountName |用來暫存此部署之構件的儲存體帳戶名稱。 僅在您執行部署的成品時才會使用這個參數。 如果提供這個參數，則如果指令碼在先前部署期間尚未建立儲存體帳戶，便會建立新的儲存體帳戶。 如果指定參數，則儲存體帳戶必須已經存在。 |

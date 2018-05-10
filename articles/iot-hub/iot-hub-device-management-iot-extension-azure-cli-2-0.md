@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: ceace7331c7548c5b4e27f8529152fd69d5469cd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1bf2c10c5267157f6d74962c00d587a6956fc574
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>使用 Azure CLI 2.0 的 IoT 擴充功能來管理 Azure IoT 中樞裝置
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/03/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[適用於 Azure CLI 2.0 的 IoT 延伸模組](https://github.com/Azure/azure-iot-cli-extension)是新增到 [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) 功能的全新開放原始碼 IoT 延伸模組。 Azure CLI 2.0 包含能與 Azure Resource Manager 和管理端點互動的命令。 例如，您可以使用 Azure CLI 2.0 來建立 Azure VM 或 IoT 中樞。 CLI 擴充功能可讓 Azure 服務強化 Azure CLI，讓您能存取其他服務專屬的功能。 IoT 擴充功能可讓 IoT 開發人員命令列存取所有的 IoT 中樞、IoT Edge 與 IoT 中樞裝置佈建服務功能。
+[適用於 Azure CLI 2.0 的 IoT 延伸模組](https://github.com/Azure/azure-iot-cli-extension)是新增到 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) 功能的全新開放原始碼 IoT 延伸模組。 Azure CLI 2.0 包含能與 Azure Resource Manager 和管理端點互動的命令。 例如，您可以使用 Azure CLI 2.0 來建立 Azure VM 或 IoT 中樞。 CLI 擴充功能可讓 Azure 服務強化 Azure CLI，讓您能存取其他服務專屬的功能。 IoT 擴充功能可讓 IoT 開發人員命令列存取所有的 IoT 中樞、IoT Edge 與 IoT 中樞裝置佈建服務功能。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 04/03/2018
 
 - [Python 2.7x 或 Python 3.x](https://www.python.org/downloads/)
 
-- 安裝 Azure CLI 2.0。 在 Windows 上進行安裝的最簡單方式，就是下載並安裝 [MSI](https://aka.ms/InstallAzureCliWindows)。 您也可以遵循 [Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) 上的安裝指示，在環境中設定 Azure CLI 2.0。 您的 Azure CLI 2.0 版本至少必須是 2.0.24 或更新版本。 使用 `az –version` 進行驗證。 
+- 安裝 Azure CLI 2.0。 在 Windows 上進行安裝的最簡單方式，就是下載並安裝 [MSI](https://aka.ms/InstallAzureCliWindows)。 您也可以遵循 [Microsoft Docs](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 上的安裝指示，在環境中設定 Azure CLI 2.0。 您的 Azure CLI 2.0 版本至少必須是 2.0.24 或更新版本。 使用 `az –version` 進行驗證。 
 
 - 安裝 IoT 擴充功能。 最簡單的方式就是執行 `az extension add --name azure-cli-iot-ext`。 [IoT 擴充功能讀我檔案](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)說明安裝此擴充功能的數種方式。
 

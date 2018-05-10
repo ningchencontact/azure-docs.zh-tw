@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e47141d31d3876264eaf2bcb7dc562a4711048cc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4188d114aa86086821b2c640d7f2d98a78bcbf4e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>整合外部監視解決方案與 Azure Stack
 
@@ -99,7 +99,7 @@ Nagios 監視外掛程式隨著協力廠商 Cloudbase 解決方案開發，其�
    ```PowerShell
    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
-   Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 3. 切換至隨著 PowerShell 安裝而安裝 [Azure Stack 工具](https://github.com/Azure/AzureStack-Tools)的所在目錄，例如 c:\azurestack-tools-master。 然後，切換至基礎結構目錄，然後執行下列命令以匯入基礎結構模組：
 

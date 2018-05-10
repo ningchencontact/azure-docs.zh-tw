@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d9fbfd07de9a5d536cf458dc478aade851d4b23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0440eccbdf76fc58fadf46de2508d362c0de6cc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>從 Amazon Web Services (AWS) 和其他平台移轉至 Azure 中的受控磁碟
 
@@ -96,7 +96,7 @@ Azure 受控磁碟可免除管理儲存體帳戶的需求，進而簡化 VM 管�
 
 ### <a name="pricing"></a>價格
 
-請檢閱[受控磁碟的價格](https://azure.microsoft.com/en-us/pricing/details/managed-disks/)。 進階受控磁碟與進階非受控磁碟的價格相同。 但標準受控磁碟與標準非受控磁碟的價格不同。
+請檢閱[受控磁碟的價格](https://azure.microsoft.com/pricing/details/managed-disks/)。 進階受控磁碟與進階非受控磁碟的價格相同。 但標準受控磁碟與標準非受控磁碟的價格不同。
 
 
 ## <a name="next-steps"></a>後續步驟

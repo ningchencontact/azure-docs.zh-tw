@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 維護"
-description: "FedRAMP Web 應用程式自動化 - 維護"
+title: Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 維護
+description: FedRAMP Web 應用程式自動化 - 維護
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: de7dd5b4651f7f74d90d9d026af71cd676c720e6
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="maintenance-ma"></a>維護 (MA)
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-3** 組織會核准、控制及監視資訊系統維護工具。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|

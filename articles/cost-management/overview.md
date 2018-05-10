@@ -5,22 +5,22 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/26/2018
 ms.topic: overview
 ms.service: cost-management
-manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 3e5caff5ff1af79154baddf39bf465ddea5aadae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: 05e53688e1350052fdbbc61451df8a51dc3349cd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-cost-management"></a>什麼是 Azure 成本管理？
 
 由 Cloudyn (Microsoft 子公司) 授權的 Azure 成本管理，可讓您針對 Azure 資源及包含 AWS 和 Google 在內的其他雲端服務提供者，追蹤雲端使用量和費用。 淺顯易懂的儀表板報告有助於成本配置和回報 (showback)/計費 (chargeback)。 「成本管理」可以識別未充分使用的資源，以便您管理及調整，藉此最佳化雲端消費。
 
-若要觀看簡介影片，請觀看 [Azure 成本管理簡介](https://azure.microsoft.com/en-us/resources/videos/azure-cost-management-overview-and-demo)。
+若要觀看簡介影片，請觀看 [Azure 成本管理簡介](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo)。
 
 ## <a name="monitor-usage-and-spending"></a>監視使用量和消費
 

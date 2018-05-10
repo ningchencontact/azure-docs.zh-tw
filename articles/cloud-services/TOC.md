@@ -72,7 +72,7 @@
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [在 Azure 儲存體中儲存和檢視診斷資料](cloud-services-dotnet-diagnostics-storage.md)
+### [在 Azure 儲存體中儲存和檢視診斷資料](../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=%2fazure%2fcloud-services%2ftoc.json )
 ### [使用診斷追蹤雲端服務](cloud-services-dotnet-diagnostics-trace-flow.md)
 
 ## 疑難排解

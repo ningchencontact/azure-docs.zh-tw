@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: d092f5f6c59351530941d47565ee2c4905ddd2e7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
 
@@ -400,7 +400,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 ### <a name="add-code-files"></a>加入程式碼檔案
 在本節中，您會將檔案從所下載的方案複製到新方案。 下一節將示範和說明此程式碼的重要部分。
 
-若要加入檔案到專案或資料夾，請以滑鼠右鍵按一下專案或資料夾，然後按一下 [**新增** - **現有項目**]。 選取您需要的檔案，然後按一下 [加入] 。 如果詢問您是否要取代現有的檔案，請按一下 [是] 。
+若要加入檔案到專案或資料夾，請以滑鼠右鍵按一下專案或資料夾，然後按一下   - **現有項目**。 選取您需要的檔案，然後按一下 [加入] 。 如果詢問您是否要取代現有的檔案，請按一下 [是] 。
 
 1. 在 ContosoAdsCommon 專案中，刪除 *Class1.cs* 檔案，並在其位置新增來自所下載專案的 *Ad.cs* 和 *ContosoAdscontext.cs* 檔案。
 2. 在 ContosoAdsWeb 專案中，從所下載的專案加入下列檔案。
@@ -767,7 +767,6 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。 �
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)。 概念類似 Contoso Ads，但實作更多功能和更多真實世界程式碼編寫實務。
 * [具有表格、佇列和 Blob 的 Azure 雲端服務多層式應用程式](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)。 介紹 Azure 儲存體資料表以及 Blob 和佇列。 根據舊版的 Azure SDK for .NET，將需要一些修改，以使用目前的版本。
-* [Microsoft Azure 中的雲端服務基礎](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)。 完整範例示範由 Microsoft 模式和作法小組提供的許多最佳作法。
 
 如需針對雲端進行開發的一般資訊，請參閱「 [使用 Azure 建置實際的雲端應用程式](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)」。
 
@@ -777,5 +776,5 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。 �
 
 * [Azure 雲端服務第 1 部分：簡介](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [如何管理雲端服務](cloud-services-how-to-manage-portal.md)
-* [Azure 儲存體](/documentation/services/storage/)
+* [Azure 儲存體](https://docs.microsoft.com/azure/storage/)
 * [如何選擇雲端服務提供者](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

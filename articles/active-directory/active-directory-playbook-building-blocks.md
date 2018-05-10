@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -275,7 +275,7 @@ ms.lasthandoff: 04/23/2018
 | 必要條件 | 資源 |
 | --- | --- |
 | 已安裝及設定 Azure AD Connect | 構成要素：[目錄同步作業 - 密碼雜湊同步處理](#directory-synchronization--password-hash-sync-phs--new-installation) |
-| 符合需求的 ADLDS 執行個體 | [一般 LDAP 連接器技術參考：一般 LDAP 連接器概觀](./connect/active-directory-aadconnectsync-connector-genericldap.md#overview-of-the-generic-ldap-connector) |
+| 符合需求的 ADLDS 執行個體 | [一般 LDAP 連接器技術參考：一般 LDAP 連接器概觀](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#overview-of-the-generic-ldap-connector) |
 | 使用者所使用之工作負載及與這些工作負載關聯之屬性的清單 | [Azure AD Connect 同步處理：同步處理至 Azure Active Directory 的屬性](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
 
 
@@ -283,7 +283,7 @@ ms.lasthandoff: 04/23/2018
 
 | 步驟 | 資源 |
 | --- | --- |
-| 新增一般 LDAP 連接器 | [一般 LDAP 連接器技術參考：建立新的連接器](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
+| 新增一般 LDAP 連接器 | [一般 LDAP 連接器技術參考：建立新的連接器](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#create-a-new-connector) |
 | 為已建立的連接器建立執行設定檔 (完整匯入、差異匯入、完整同步處理、差異同步處理、匯出) | [建立管理代理程式執行設定檔 (英文)](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [使用連接器搭配 Auzre AD Connect Sync Service Manager](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | 執行完整匯入設定檔，並確認連接器空間中有物件 | [搜尋連接器空間物件](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[使用連接器搭配 Auzre AD Connect Sync Service Manager：搜尋連接器空間](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
 | 建立同步處理規則，讓 Metaverse 中的物件具有必要的工作負載屬性 | [Azure AD Connect 同步處理：變更預設組態的最佳做法：同步處理規則的變更](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect 同步處理：了解宣告式佈建](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect 同步處理：了解宣告式佈建運算式](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |

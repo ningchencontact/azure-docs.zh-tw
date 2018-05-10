@@ -1,27 +1,32 @@
 - name: Azure HDInsight 文件
   href: /azure/hdinsight
-- name: HDInsight 上的 Spark
+- name: 概觀
   items:
-    - name: 概觀
+    - name: 關於 HDInsight 上的 Spark
       href: apache-spark-overview.md
     - name: HDInsight 上的 Hadoop 元件
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: 開始使用
+- name: 快速入門
   items:
-    - name: 建立 Spark 叢集
+    - name: 建立 Spark 叢集 - 入口網站
+      href: apache-spark-jupyter-spark-sql-use-portal.md
+    - name: 建立 Spark 叢集 - PowerShell
+      href: apache-spark-jupyter-spark-sql-use-powershell.md
+    - name: 建立 Spark 叢集 - 範本
       href: apache-spark-jupyter-spark-sql.md
+- name: 教學課程
+  items:
     - name: 在 Spark 叢集上執行查詢
       href: apache-spark-load-data-run-query.md
     - name: 使用 BI 工具分析資料
       href: apache-spark-use-bi-tools.md
-    - name: 管理叢集資源
-      href: apache-spark-resource-manager.md
-    - name: 為 Spark 工作偵錯
-      href: apache-spark-job-debugging.md
-    - name: 安裝 HDInsight 應用程式
-      href: ../hdinsight-apps-install-applications.md
-      maintainContext: true
+    - name: 執行串流作業
+      href: apache-spark-eventhub-streaming.md
+    - name: 建立機器學習應用程式
+      href: apache-spark-ipython-notebook-machine-learning.md
+    - name: 使用 IntelliJ 建立 Spark 應用程式
+      href: apache-spark-create-standalone-application.md
 - name: 作法
   items:
     - name: 使用叢集儲存體
@@ -34,8 +39,6 @@
           maintainContext: true
     - name: 開發
       items:
-        - name: 建立獨立應用程式
-          href: apache-spark-create-standalone-application.md
         - name: 使用互動式 Spark Shell
           href: apache-spark-shell.md
         - name: 使用 Livy 的遠端工作
@@ -110,8 +113,6 @@
           href: apache-spark-streaming-exactly-once.md
     - name: Spark 和機器學習服務
       items:
-        - name: 預測 HVAC 效能
-          href: apache-spark-ipython-notebook-machine-learning.md
         - name: 預測食品檢查結果
           href: apache-spark-machine-learning-mllib-ipython.md
         - name: 分析網站記錄
@@ -205,6 +206,8 @@
           maintainContext: true
     - name: 管理
       items:
+        - name: 管理叢集資源
+          href: apache-spark-resource-manager.md
         - name: 設定 Spark 設定
           href: apache-spark-settings.md
         - name: 最佳化 Spark 作業
@@ -311,6 +314,8 @@
           maintainContext: true
     - name: 疑難排解
       items:
+        - name: 為 Spark 工作偵錯
+          href: apache-spark-job-debugging.md
         - name: 針對速度變慢或失敗的 HDInsight 叢集進行疑難排解
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true

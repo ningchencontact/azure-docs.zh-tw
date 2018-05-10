@@ -3,7 +3,7 @@ title: 滲透測試 | Microsoft Docs
 description: 本文提供滲透測試 (pentest) 程序和如何對 Azure 基礎結構中執行的應用程式執行滲透測試的概觀。
 services: security
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: swadhwa
 editor: TomSh
 ms.assetid: 695d918c-a9ac-4eba-8692-af4526734ccc
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 1b7b6604de80beadf15dabe0d2da1d7a2e5fabd6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27737c2b8b36772fc48db7a9cf97cb9a69c44cfc
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="pen-testing"></a>滲透測試
 使用 Azure 進行應用程式測試和部署的其中一個優點是您可以快速建立環境。  您無需購置、取得和組裝自己的內部部署硬體。

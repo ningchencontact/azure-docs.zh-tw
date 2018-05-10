@@ -1,25 +1,23 @@
 ---
-title: "在 Azure Active Directory 中將使用者指派給系統管理員角色 | Microsoft Docs"
-description: "說明如何在 Azure Active Directory 中變更使用者系統管理資訊"
+title: 在 Azure Active Directory 中將使用者指派給系統管理員角色 | Microsoft Docs
+description: 說明如何在 Azure Active Directory 中變更使用者系統管理資訊
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: a1ca1a53-50d8-4bf0-ae8f-73fa1253e2d9
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: dcb52e9de98d881474007410f3db599682e151ce
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 61662acb10a6f2085d297eae473e1330c619d48d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中將使用者指派給系統管理員角色
 本文說明如何在 Azure Active Directory (Azure AD) 中將系統管理角色指派給使用者。 如需有關在您組織中新增新使用者的資訊，請參閱[將新的使用者新增到 Azure Active Directory](active-directory-users-create-azure-portal.md)。 新增的使用者預設不會有系統管理員權限，但是您可以隨時指派角色給他們。

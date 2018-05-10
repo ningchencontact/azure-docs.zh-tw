@@ -3,7 +3,7 @@ title: Azure 資訊安全中心疑難排解指南 | Microsoft Docs
 description: 本文件有助於在 Azure 資訊安全中心排解疑難問題。
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
 ms.author: yurid
-ms.openlocfilehash: 0c5f7a932cef904abbca25b63cf8e0d96db73c29
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0cbc0db7e982ad85dd1e3514def8cf13be595f24
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure 資訊安全中心疑難排解指南
 本指南適用於組織目前採用 Azure 資訊安全中心，且需要針對資訊安全中心相關問題進行疑難排解的資訊技術 (IT) 專業人員、資訊安全性分析師和雲端系統管理員。

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 213888ff47db56be8bfb99a816da4da245c39211
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ce858553a67bce714ceae43a5bb2f86839d9c507
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>建立、變更或刪除虛擬網路
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/19/2018
 
 1. 選取 [+ 建立資源] > [網路] > [虛擬網路]。
 2. 輸入或選取下列設定的值，然後選取 [建立]：
-    - **名稱**：您選取用來建立虛擬網路的[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)名稱必須是唯一的。 虛擬網路建立後，就不能再變更其名稱。 您可以隨著時間建立多個虛擬網路。 如需命名建議，請參閱[命名慣例](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions)。 下列命名慣例有協助於輕鬆管理多個虛擬網路。
+    - **名稱**：您選取用來建立虛擬網路的[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)名稱必須是唯一的。 虛擬網路建立後，就不能再變更其名稱。 您可以隨著時間建立多個虛擬網路。 如需命名建議，請參閱[命名慣例](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions)。 下列命名慣例有協助於輕鬆管理多個虛擬網路。
     - **位址空間**：虛擬網路的位址空間由一或多個以 CIDR 標記法指定的非重疊位址範圍所組成。 您可以定義公用或私人的位址範圍 (RFC 1918)。 不論您定義的是公用或私人的位址範圍，您都只能從虛擬網路、互連的虛擬網路，以及任何已連線到虛擬網路的內部部署網路來連線到位址空間。 您無法新增下列位址範圍︰
         - 224.0.0.0/4 (多點傳送)
         - 255.255.255.255/32 (廣播)

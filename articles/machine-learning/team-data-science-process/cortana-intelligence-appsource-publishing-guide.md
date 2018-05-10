@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams
-ms.openlocfilehash: 1a5671eda967c1bba585d31b001bb465526709f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3817d58cd61fb349d7815984420d0deb1ae0edd9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Cortana Intelligence AppSource 發佈指南
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/28/2018
 AppSource 是業務決策者 (BDM) 能探索及順利嘗試由合作夥伴所建置，並由 Microsoft 所評估之業務解決方案/應用程式的單一目的地。 觀看[這段影片](https://youtu.be/hpq_Y9LuIB8) \(英文\) 以了解 AppSource 的運作方式。 
 
 身為 Microsoft 合作夥伴，如果您符合以下項目，即可透過在 AppSource 上發佈獲得各種好處：
-- 使用 [Cortana Intelligence 套件](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/?cdn=disable)建置智慧型解決方案/應用程式。
+- 使用 [Cortana Intelligence 套件](https://azure.microsoft.com/suites/cortana-intelligence-suite/?cdn=disable)建置智慧型解決方案/應用程式。
 - 您的解決方案或應用程式可解決特定業務問題。
 - 您所建置的模組或智慧財產，允許客戶以可預測的方式相對快速地重複使用。
 

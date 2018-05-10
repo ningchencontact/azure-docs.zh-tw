@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: df13f23908aa787bfcc579340ed0aa6cb0d5ed29
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 813124ae7c0dd76a27dcbaea6f0d7aa19bc1e49c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密
 Microsoft Azure 強烈承諾確保您的資料隱私權、資料主權，並透過一系列進階技術來加密、控制和管理加密金鑰、控制和稽核資料存取，讓您控制您的 Azure 託管資料。 這會提供 Azure 客戶靈活度，可選擇最符合其商務需求的解決方案。 本文中，我們將為您介紹新的技術解決方案「Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密」，以協助保護及保障您的資料，以便符合組織的安全性和符合性的承諾。 本文提供有關如何使用 Azure 磁碟加密功能的詳細指引，包括支援的案例和使用者體驗。
@@ -141,7 +141,7 @@ Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密解決方案包含：
 > [!NOTE]
 > 針對 Windows Server 2008 R2，您必須先安裝 .NET Framework 4.5，才能在 Azure 中啟用加密。 您可以透過安裝選用的更新 Windows Server 2008 R2 x64 型系統的 Microsoft .NET Framework 4.5.2 ([KB2901983](https://support.microsoft.com/kb/2901983))，從 Windows Update 安裝它。
 
-* 只有特定以 Azure 資源庫為基礎的 Linux 伺服器散發套件和版本可支援 Azure 磁碟加密。  如需目前支援的版本清單，請參閱 [Azure 磁碟加密常見問題集](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq)。
+* 只有特定以 Azure 資源庫為基礎的 Linux 伺服器散發套件和版本可支援 Azure 磁碟加密。  如需目前支援的版本清單，請參閱 [Azure 磁碟加密常見問題集](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq)。
 
 * Azure 磁碟加密需要您的金鑰保存庫和 VM 位於相同的 Azure 區域和訂用帳戶中。
 
@@ -783,7 +783,7 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 的設定值設定為 _Encrypted_，�
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>OS 磁碟加密的必要條件
 
-* VM 必須使用與 OS 磁碟加密相容的散發套件，如 [Azure 磁碟加密常見問題集](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support)中所列示。 
+* VM 必須使用與 OS 磁碟加密相容的散發套件，如 [Azure 磁碟加密常見問題集](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support)中所列示。 
 * 必須從 Azure Resource Manager 的Marketplace 映像建立 VM。
 * 具有至少 4 GB RAM 的 Azure VM (建議大小為 7 GB)。
 * (適用於 RHEL 和 CentOS) 停用 SELinux。 若要停用 SELinux，請參閱「4.4.2. 停用 SELinux」，其位於 VM 上的 [SELinux 使用者和系統管理員指南](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux)。

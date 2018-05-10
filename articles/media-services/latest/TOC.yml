@@ -1,0 +1,73 @@
+- name: 媒體服務文件
+  href: ./index.yml
+- name: 概觀
+  items:
+    - name: 關於媒體服務
+      href: media-services-overview.md
+- name: 快速入門
+  expanded: true
+  items:
+    - name: 使用 .NET 來串流影片檔案
+      href: stream-files-dotnet-quickstart.md
+- name: 教學課程
+  items:
+    - name: 上傳、編碼和串流
+      href: stream-files-tutorial-with-api.md
+    - name: 分析您的影片
+      href: analyze-videos-tutorial-with-api.md
+- name: 範例
+  items:
+    - name: Azure 程式碼範例
+      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+    - name: Azure CLI
+      href: cli-samples.md
+- name: 概念
+  items:
+    - name: Assets
+      href: assets-concept.md
+    - name: Autogen 彈性位元速率階梯
+      href: autogen-bitrate-ladder.md
+    - name: 媒體智慧
+      href: intelligence-concept.md
+    - name: 儲存體帳戶
+      href: storage-account-concept.md
+    - name: 轉換和作業
+      href: transform-concept.md
+    - name: 回應事件
+      href: reacting-to-media-services-events.md
+- name: 使用說明指南
+  items:
+    - name: 建立帳戶 - CLI
+      href: create-account-cli-how-to.md
+    - name: 存取 API - CLI
+      href: access-api-cli-how-to.md
+    - name: 作業狀態事件 - CLI
+      href: job-state-events-cli-how-to.md
+    - name: 上傳內容 - .NET
+      items:
+        - name: 起始 HTTP
+          href: job-input-from-http-how-to.md
+        - name: 從本機檔案
+          href: job-input-from-local-file-how-to.md
+- name: 參考
+  items:
+    - name: Azure CLI 2.0
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
+    - name: REST
+      href: 'https://go.microsoft.com/fwlink/p/?linkid=873030'
+    - name: 事件結構描述
+      href: media-services-event-schemas.md
+- name: 資源
+  items:
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: 區域可用性
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 影片
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
+    - name: 版本資訊
+      href: release-notes.md
+    - name: 配額和限制
+      href: limits-quotas-constraints.md

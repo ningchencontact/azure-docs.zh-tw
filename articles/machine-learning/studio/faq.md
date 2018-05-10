@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: ceec69ee822e118adfa3825620a31575109894ea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ea48300e83e1faa1250d2fba7c37a82825c820f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 常見問題集：計費、功能、限制及支援
 以下是有關 Azure Machine Learning 的一些常見問題和對應解答，而 Azure Machine Learning 是適合透過 Web 服務開發預測性模型和運作方案的雲端服務。 這個常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -372,7 +372,7 @@ Resource Manager 架構 Web 服務提供多個層級供您佈建計費方案。 
 
 **Machine Learning 是否支援高可用性？**
 
-是。 如需詳細資訊，請參閱[機器學習服務價格](https://azure.microsoft.com/en-us/pricing/details/machine-learning/)，以取得服務等級協定 (SLA) 的說明。
+是。 如需詳細資訊，請參閱[機器學習服務價格](https://azure.microsoft.com/pricing/details/machine-learning/)，以取得服務等級協定 (SLA) 的說明。
 
 **我的生產 API 呼叫將使用哪些特定種類的計算資源來執行？**
 

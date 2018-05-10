@@ -1,11 +1,11 @@
 ---
-title: "使用 Aspera 將檔案上傳至 Azure 媒體服務帳戶 | Microsoft Docs"
-description: "本教學課程將引導您逐步進行以下步驟：使用 Azure 上的 **Aspera Server On Demand** 服務，將檔案上傳到與媒體服務帳戶相關聯的儲存體帳戶。"
+title: 使用 Aspera 將檔案上傳至 Azure 媒體服務帳戶 | Microsoft Docs
+description: 本教學課程將引導您逐步進行以下步驟：使用 Azure 上的 **Aspera Server On Demand** 服務，將檔案上傳到與媒體服務帳戶相關聯的儲存體帳戶。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: johndeu
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 58fec9746828863c4d0bff223fb6e9fb122256c3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>使用 Azure 上的 Aspera Server On Demand 服務，將檔案上傳至媒體服務帳戶
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/08/2018
 
 **Aspera** 是高速檔案傳輸軟體。 適用於 Azure 的 **Aspera Server On Demand** 可讓大型檔案直接高速上傳和下載到 Azure Blob 物件儲存體。 如需有關 **Aspera On Demand** 的相關資訊，請參閱 [Aspera 雲端](http://cloud.asperasoft.com/)網站。 
   
-適用於 **Aspera Server On Demand** 可從 [Azure marketplace](https://azure.microsoft.com/en-us/marketplace/) 中購買。 若要完成購買適用於 Azure 的**Aspera Server On Demand**，請使用 Windows Live ID 來登入 Azure Marketplace。
+適用於 **Aspera Server On Demand** 可從 [Azure marketplace](https://azure.microsoft.com/marketplace/) 中購買。 若要完成購買適用於 Azure 的**Aspera Server On Demand**，請使用 Windows Live ID 來登入 Azure Marketplace。
 
 本教學課程將引導您逐步進行以下步驟：使用 Azure 上的 **Aspera Server On Demand** 服務，將檔案上傳到與媒體服務帳戶相關聯的儲存體帳戶。 
 

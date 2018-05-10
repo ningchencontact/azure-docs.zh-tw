@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 6753b52b02373d03a9ed5fec775c899a806aff3e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5cb2d1cea80488970ef82071275b6c38e7f97cee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="storsimple-solution-support"></a>StorSimple 解決方案支援
 
@@ -83,7 +83,7 @@ Microsoft 為 StorSimple 企業儲存區客戶提供具彈性之支援選項。 
 除了英文之外，下列語言會在當地營業時間提供當地語言支援：日文、韓文、台語，以及繁體中文。
 
 ## <a name="support-scope"></a>支援範圍 
-所有支援層級均提供帳單及訂用帳戶管理相關的問題支援服務。 客戶若想取得 StorSimple 支援，必須主動註冊 StorSimple 標準版或進階版支援方案。 StorSimple 支援小組將負責解決影響 StorSimple 解決方案的所有問題。 客戶若想取得與 StorSimple 沒有直接關係的 Azure 相關問題支援，需註冊適當的 Azure 支援方案。 請參閱[此處](https://azure.microsoft.com/en-us/support/plans/)了解詳細資訊。 支援小組根據 Azure 支援的客戶權利，將非 StorSimple 支援案例提交給 Azure 團隊進行後續追蹤。 
+所有支援層級均提供帳單及訂用帳戶管理相關的問題支援服務。 客戶若想取得 StorSimple 支援，必須主動註冊 StorSimple 標準版或進階版支援方案。 StorSimple 支援小組將負責解決影響 StorSimple 解決方案的所有問題。 客戶若想取得與 StorSimple 沒有直接關係的 Azure 相關問題支援，需註冊適當的 Azure 支援方案。 請參閱[此處](https://azure.microsoft.com/support/plans/)了解詳細資訊。 支援小組根據 Azure 支援的客戶權利，將非 StorSimple 支援案例提交給 Azure 團隊進行後續追蹤。 
 
 
 | **嚴重性** |**客戶的狀況**                                                                                                                                | 預期的 MICROSOFT 回應 <sup>2                                                                                       | 預期的客戶回應                                                                                                                                                       |

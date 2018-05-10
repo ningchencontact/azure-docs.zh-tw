@@ -6,13 +6,13 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: cb011ee54894f53cda81d9d116899dcaeb558b6d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 278539a2451eb15c7148b75497798e81f5370a57
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>在 Azure 搜尋服務中建立多種語言的文件索引
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ ms.lasthandoff: 04/23/2018
 
 如果已知發出查詢之代理程式的語言，則可使用 **searchFields** 查詢參數將搜尋要求的範圍限制為特定欄位。 下列查詢只會針對波蘭文描述發出：
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2017-11-11`
 
 您可以使用 [搜尋總管]  貼上類似上述的查詢，便可從入口網站查詢您的索引。 從服務刀鋒視窗的命令列可以存取搜尋總管。 如需詳細資料，請參閱 [在入口網站查詢 Azure 搜尋服務索引](search-explorer.md) 。
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 04/23/2018
       }
     ]
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
 如果您是 .NET 開發人員，請注意您可以使用 [Azure 搜尋服務 .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Search)來設定語言分析器。 最新版本包含對 Microsoft 語言分析器的支援。
 

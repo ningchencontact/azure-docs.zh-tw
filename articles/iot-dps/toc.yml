@@ -135,11 +135,11 @@
           href: /azure/iot-hub
         - name: IoT 中樞裝置佈建服務
           href: /azure/iot-dps
-        - name: 位置服務
-          href: /azure/location-based-services
+        - name: 地圖
+          href: /azure/azure-maps
         - name: 服務 SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Time Series Insights
+        - name: 時間序列深入解析
           href: /azure/time-series-insights
     - name: Edge
       items:

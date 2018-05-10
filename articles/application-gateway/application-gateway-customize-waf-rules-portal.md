@@ -1,25 +1,25 @@
 ---
-title: "在 Azure 應用程式閘道中自訂 Web 應用程式防火牆規則 - Azure 入口網站 | Microsoft Docs"
-description: "本文提供如何透過 Azure 入口網站，在應用程式閘道中自訂 Web 應用程式防火牆規則的相關資訊。"
+title: 在 Azure 應用程式閘道中自訂 Web 應用程式防火牆規則 - Azure 入口網站 | Microsoft Docs
+description: 本文提供如何透過 Azure 入口網站，在應用程式閘道中自訂 Web 應用程式防火牆規則的相關資訊。
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.assetid: 1159500b-17ba-41e7-88d6-b96986795084
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
-ms.author: davidmu
-ms.openlocfilehash: 406e491aa54806b3534ef0f500d6aea03434e2c2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: ae61e3a8308e95c16ccde71de37fb10666ef0df9
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>透過 Azure 入口網站自訂 Web 應用程式防火牆規則
 

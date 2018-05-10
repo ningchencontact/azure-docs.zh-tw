@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 919b1bef1f1337ad188e26476da8c5a5ef029224
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 133c09ad1f81a122d089485f8793d7dddbd1488a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>將一般化 VHD 上傳，並使用它在 Azure 中建立新的 VM
 
@@ -107,7 +107,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
     匯入/匯出可用來複製到標準儲存體帳戶。 您必須使用 AzCopy 之類的工具，從 Standard 儲存體帳戶複製到進階儲存體帳戶。
 
 > [!IMPORTANT]
-> 如果您是使用 AzCopy 來將 VHD 上傳至 Azure，請確定您在執行上傳指令碼之前已設定 [/BlobType:page](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append)。 如果目的地是 Blob 且未指定此選項，則 AzCopy 預設會建立區塊 Blob。
+> 如果您是使用 AzCopy 來將 VHD 上傳至 Azure，請確定您在執行上傳指令碼之前已設定 [/BlobType:page](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append)。 如果目的地是 Blob 且未指定此選項，則 AzCopy 預設會建立區塊 Blob。
 > 
 > 
 

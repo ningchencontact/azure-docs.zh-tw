@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: e6d1e093fafc6ea74dfcdfa498810ff33d27d89f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b202f30e5fb47bcd16f25c5961f8345dd0324139
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C：自訂 Azure AD B2C 使用者介面 (UI)
 
@@ -332,7 +332,17 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="localizing-your-html-content"></a>將 HTML 內容當地語系化
 
-您可以開啟[「語言自訂」](active-directory-b2c-reference-language-customization.md)，將 HTML 內容當地語系化。  啟用此功能會讓 Azure AD B2C 將 Open ID Connect 參數 `ui-locales` 轉送給端點。  內容伺服器可以使用這個參數來提供語言特定的自訂 HTML 頁面。
+有兩種方法可將您的 HTML 內容當地語系化。 一種方式是開啟[語言自訂](active-directory-b2c-reference-language-customization.md)。 啟用此功能會讓 Azure AD B2C 將 Open ID Connect 參數 `ui-locales` 轉送給端點。  內容伺服器可以使用這個參數來提供語言特定的自訂 HTML 頁面。
+
+或者，您也可以根據所使用的地區設定，從不同的地方提取內容。 在已啟用 CORS 的端點中，您可以針對特定語言設定主機內容的資料夾結構。 如果您使用萬用字元值 `{Culture:RFC5646}`，則會呼叫正確的語言。  例如，假設這是您的自訂頁面 URI：
+
+```
+https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
+```
+您可以用 `fr` 載入頁面。 當頁面提取 HTML 和 CSS 內容時，它會從下列位置提取：
+```
+https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
+```
 
 ## <a name="things-to-remember-when-building-your-own-content"></a>建置自己的內容時的注意事項
 

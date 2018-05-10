@@ -2,11 +2,13 @@
   href: index.yml
 - name: 概觀
   items:
-    - name: 關於 Azure 搜尋服務
+    - name: 何謂 Azure 搜尋服務？
       href: search-what-is-azure-search.md
 - name: 快速入門
   expanded: true
   items:
+    - name: 試用認知搜尋
+      href: cognitive-search-quickstart-blob.md
     - name: 建立服務
       href: search-create-service-portal.md
     - name: 入口網站
@@ -37,13 +39,15 @@
           href: search-fiddler.md
 - name: 教學課程
   items:
-    - name: 1 - 為 Azure SQL Database 編製索引
+    - name: 使用認知搜尋編製索引
+      href: cognitive-search-tutorial-blob.md
+    - name: 為 Azure SQL Database 編製索引
       href: search-indexer-tutorial.md
-    - name: 2 - 為 Azure Blob 編製索引
+    - name: 為 Azure Blob 編製索引
       href: search-semi-structured-data.md
-    - name: 3 - 在 .NET 中加入同義字
+    - name: 在 .NET 中新增同義字
       href: search-synonyms-tutorial-sdk.md
-    - name: 4 - 入口網站逐步解說
+    - name: 入口網站逐步解說
       href: search-get-started-portal.md
 - name: 範例
   items:
@@ -53,14 +57,18 @@
       href: 'https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search'
 - name: 概念
   items:
+    - name: 認知搜尋 (預覽)
+      href: cognitive-search-concept-intro.md
     - name: 全文檢索搜尋
       href: search-lucene-query-architecture.md
+    - name: 語言分析
+      href: search-analyzers.md
     - name: 編製索引
       href: search-what-is-data-import.md
     - name: 索引定義
       href: search-what-is-an-index.md
-    - name: 語言分析
-      href: search-analyzers.md
+    - name: 索引子
+      href: search-indexer-overview.md
 - name: 使用說明指南
   items:
     - name: 計劃與設計
@@ -123,8 +131,6 @@
           href: 'https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search'
     - name: 索引資料
       items:
-        - name: 索引器概觀
-          href: search-indexer-overview.md
         - name: Azure Blob 儲存體索引子
           href: search-howto-indexing-azure-blob-storage.md
         - name: Azure 資料表儲存體索引子
@@ -141,7 +147,25 @@
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: 索引器中的欄位對應
           href: search-indexer-field-mappings.md
-    - name: Search
+        - name: 重建索引
+          href: search-howto-reindex.md
+    - name: 認知搜尋 (預覽)
+      items:
+        - name: 定義技能集
+          href: cognitive-search-defining-skillset.md
+        - name: 參考註釋
+          href: cognitive-search-concept-annotations-syntax.md
+        - name: 對應至索引欄位
+          href: cognitive-search-output-field-mapping.md
+        - name: 從映像處理及擷取資訊
+          href: cognitive-search-concept-image-scenarios.md
+        - name: 整合自訂技術
+          href: cognitive-search-custom-skill-interface.md
+        - name: 範例 - 自訂技術
+          href: cognitive-search-create-custom-skill-example.md
+        - name: 疑難排解秘訣
+          href: cognitive-search-concept-troubleshooting.md
+    - name: 全文檢索搜尋
       items:
         - name: 基本查詢建構
           href: search-query-overview.md
@@ -157,7 +181,7 @@
           href: 'https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index'
         - name: 建議
           href: 'https://docs.microsoft.com/rest/api/searchservice/suggesters'
-        - name: 同義字 (預覽狀態)
+        - name: 同義字 (預覽)
           href: search-synonyms.md
     - name: 篩選器
       items:
@@ -165,7 +189,7 @@
           href: search-filters.md
         - name: Facet 篩選條件
           href: search-filters-facets.md
-        - name: OData 運算式語法
+        - name: 篩選運算式語法
           href: 'https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search'
     - name: 管理和分析
       items:
@@ -187,10 +211,41 @@
       href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html'
     - name: REST
       href: /rest/api/searchservice
+      items:
+        - name: 2016-09-01-Preview
+          href: search-api-2016-09-01-preview.md
     - name: REST (管理)
       href: /rest/api/searchmanagement
-    - name: 服務 REST (預覽)
-      href: search-api-2016-09-01-preview.md
+    - name: 認知搜尋 (預覽)
+      items:
+        - name: 2017-11-11-Preview (REST)
+          href: search-api-2017-11-11-preview.md
+          items:
+            - name: 建立技能集 (預覽)
+              href: ref-create-skillset.md
+            - name: 建立索引子 (預覽)
+              href: ref-create-indexer.md
+        - name: 預先定義的技術
+          href: cognitive-search-predefined-skills.md
+          items:
+            - name: 關鍵片語擷取
+              href: cognitive-search-skill-keyphrases.md
+            - name: 語言偵測
+              href: cognitive-search-skill-language-detection.md
+            - name: 具名實體辨識
+              href: cognitive-search-skill-named-entity-recognition.md
+            - name: 文字合併
+              href: cognitive-search-skill-textmerger.md
+            - name: 文字分割
+              href: cognitive-search-skill-textsplit.md
+            - name: 情感
+              href: cognitive-search-skill-sentiment.md
+            - name: 映像分析
+              href: cognitive-search-skill-image-analysis.md
+            - name: OCR
+              href: cognitive-search-skill-ocr.md
+            - name: 塑形器
+              href: cognitive-search-skill-shaper.md
 - name: 資源
   items:
     - name: FAQ - 常見問題
@@ -199,6 +254,8 @@
       href: 'https://azure.microsoft.com/pricing/details/search/'
     - name: 服務更新
       href: 'https://azure.microsoft.com/updates/?product=search'
+    - name: 認知搜尋文件
+      href: cognitive-search-resources-documentation.md
     - name: 課程工具與教學課程
       items:
         - name: 影片和教學課程

@@ -6,11 +6,11 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: bbd593b58e137485a44048f3625edeaee9ccda9a
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ec0c45cd36394dfac5066e1616226ced75161459
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -269,7 +269,7 @@ Terraform </a>
                             <li></li>
                             <li></li>
                             <li class="bottomRightItem">
-                                <a href="https://aka.ms/j3wr7y">
+                                <a href="https://docs.microsoft.com/azure/index#pivot=products&panel=all">
                                     <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">檢視所有 Azure 服務<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
                                 </a>
                             </li>
@@ -344,7 +344,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/aks/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Azure Container Service (AKS)</p>
+                                                <p>Azure Kubernetes Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -470,7 +470,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/aks/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Azure Container Service (AKS)</p>
+                                                <p>Azure Kubernetes Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -710,6 +710,12 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/search/">
+                                                <img src="media/index/Search.svg" alt="" />
+                                                <p>Azure 搜尋服務</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cognitive-services/computer-vision/">
                                                 <img src="media/index/API_Computer_Vision.svg" alt="" />
                                                 <p>Computer Vision API</p>
@@ -746,9 +752,15 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/cognitive-services/speech-service/overview">
+                                                <img src="media/index/API_Speech_Service.svg" alt="" />
+                                                <p>語音服務</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cognitive-services/speech/home">
                                                 <img src="media/index/API_Bing_Speech.svg" alt="" />
-                                                <p>Bing 語音 API</p>
+                                                <p>Speech API</p>
                                             </a>
                                         </li>
                                         <li>
@@ -842,6 +854,30 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/cognitive-services/labs/url-preview/overview">
+                                                <img src="media/index/API_URL_Preview.svg" alt="" />
+                                                <p>URL 預覽</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/labs/answer-search/overview">
+                                                <img src="media/index/API_Answer_Search.svg" alt="" />
+                                                <p>答案搜尋</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/labs/anomaly-finder/overview">
+                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" /> 
+                                                <p>異常搜尋工具</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/labs/conversation-learner/overview">
+                                                <img src="media/index/API_Conversation_Learner.svg" alt="" />
+                                                <p>對話學習模組</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cognitive-services/bing-news-search/">
                                                 <img src="media/index/API_Bing_News_Search.svg" alt="" />
                                                 <p>Bing 新聞搜尋 API</p>
@@ -859,6 +895,14 @@ Terraform </a>
                                                 <p>Bing Web 搜尋 API</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-visual-search/">
+                                                <img src="media/index/API_Bing_Visual_Search.svg" alt="" />
+                                                <p>Bing 圖像式搜尋 API</p>
+                                            </a>
+                                        </li>
+
+
                                         <li>
                                             <a href="/azure/cognitive-services/Bing-Autosuggest/">
                                                 <img src="media/index/API_Bing_AutoSuggest.svg" alt="" />
@@ -1086,9 +1130,9 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/devtest-lab/">
+                                            <a href="/azure/lab-services/">
                                                 <img src="media/index/DevTestLabs.svg" alt="" />
-                                                <p>Azure DevTest Labs</p>
+                                                <p>Azure 實驗室服務</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1158,9 +1202,45 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/iot-hub/">
+                                                <img src="media/index/IoTHub.svg" alt="" />
+                                                <p>IoT 中樞</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/iot-edge/">
+                                                <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                <p>IoT Edge</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/iot-central/">
                                                 <img src="media/index/IoT-central.svg" alt="" />
                                                 <p>IoT 中心</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/iot-suite/">
+                                                <img src="media/index/iot-suite.svg" alt="" />
+                                                <p>IoT 解決方案加速器</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/time-series-insights/">
+                                                <img src="media/index/time-series-insights.svg" alt="" />
+                                                <p>時間序列深入解析</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/iot-dps/">
+                                                <img src="media/index/dps.svg" alt="" />
+                                                <p>IoT 中樞裝置佈建服務</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-maps/">
+                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                <p>Azure 地圖服務</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1170,27 +1250,9 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cosmos-db/">
-                                                <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Azure Cosmos DB</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/api-management/">
-                                                <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>API 管理</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/iot-hub/">
-                                                <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>IoT 中樞</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/iot-dps/">
-                                                <img src="media/index/dps.svg" alt="" />
-                                                <p>IoT 中樞裝置佈建服務</p>
+                                            <a href="/azure/event-grid/">
+                                                <img src="media/index/azure_event_grid.svg" alt="" />
+                                                <p>Event Grid</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1218,45 +1280,27 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/notification-hubs/">
-                                                <img src="media/index/NotificationHubs.svg" alt="" />
-                                                <p>通知中樞</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/iot-suite/">
-                                                <img src="media/index/iot-suite.svg" alt="" />
-                                                <p>IoT 套件</p>
+                                            <a href="/azure/notification-hubs/">
+                                                <img src="media/index/NotificationHubs.svg" alt="" />
+                                                <p>通知中樞</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/time-series-insights/">
-                                                <img src="media/index/time-series-insights.svg" alt="" />
-                                                <p>時間序列深入解析</p>
+                                            <a href="/azure/cosmos-db/">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>Azure Cosmos DB</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/event-grid/">
-                                                <img src="media/index/azure_event_grid.svg" alt="" />
-                                                <p>Event Grid</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/iot-edge/">
-                                                <img src="media/index/IOT_edge_50.svg" alt="" />
-                                                <p>IoT Edge</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://docs.microsoft.com/azure/location-based-services/">
-                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
-                                                <p>Azure LBS</p>
+                                            <a href="/azure/api-management/">
+                                                <img src="media/index/APIManagement.svg" alt="" />
+                                                <p>API 管理</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1396,6 +1440,12 @@ Terraform </a>
                                                 <p>Azure 進階威脅防護</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/security/">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>安全性資訊</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>身分識別</h3>
                                     <ul>
@@ -1429,6 +1479,15 @@ Terraform </a>
                                                 <p>Azure Active Directory B2C</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/security/">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>安全性資訊</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>管理工具</h3>
+                                    <ul>
                                         <li>
                                             <a href="/azure/security/">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
@@ -1754,7 +1813,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <h3>Azure Kubernetes Service (AKS)</h3>
                                                     <p>簡化 Kubernetes 的部署、管理與作業</p>
                                                 </div>
                                             </div>
@@ -2577,7 +2636,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <h3>Azure Kubernetes Service (AKS)</h3>
                                                     <p>簡化 Kubernetes 的部署、管理與作業</p>
                                                 </div>
                                             </div>
@@ -3249,6 +3308,25 @@ Terraform </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/search/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Search.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure 搜尋服務</h3>
+                                                    <p>完全受控的搜尋即服務</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                             <li class="fullSpan">
                                 <h2 style="margin-top:24px;margin-bottom:18px;">認知服務 API</h2>
                                 <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
@@ -3373,6 +3451,33 @@ Terraform </a>
                                                                     <span>實體連結智慧服務 API</span>
                                                                 </a>
                                                             </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/url-preview/overview">
+                                                                    <img src="media/index/API_URL_Preview.svg" alt="" />
+                                                                    <span>URL 預覽</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/answer-search/overview">
+                                                                    <img src="media/index/API_Answer_Search.svg" alt="" />
+                                                                    <span>答案搜尋</span>
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview">
+                                                                    <img src="media/index/API_Anomaly_Finder.svg" alt="" />
+                                                                    <span>異常搜尋工具</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/conversation-learner/overview">
+                                                                    <img src="media/index/API_Conversation_Learner.svg" alt="" />
+                                                                    <span>對話學習模組</span>
+                                                                </a>
+                                                            </li>
+
+
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -3394,6 +3499,9 @@ Terraform </a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Bing Web 搜尋 API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-visual-search/"><img src="media/index/API_Bing_Visual_Search.svg" alt="" />Bing 圖像式搜尋 API </a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Bing 自動建議 API</a>
@@ -3440,6 +3548,44 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/iot-hub/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/IoTHub.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT 中樞</h3>
+                                                    <p>連接、監視並控制數十億個 IoT 資產</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-edge/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Edge</h3>
+                                                    <p>將雲端智慧擴充到邊緣裝置</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/iot-central/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3452,6 +3598,82 @@ Terraform </a>
                                                 <div class="cardText">
                                                     <h3>IoT 中心</h3>
                                                     <p>無需任何雲端專長即可體驗 IoT 的 SaaS</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-suite/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/iot-suite.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT 解決方案加速器</h3>
+                                                    <p>擷取並分析未開發的資料來改善商務結果</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/time-series-insights/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/time-series-insights.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>時間序列深入解析</h3>
+                                                    <p>立即探索及分析時間序列資料</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-dps/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/dps.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT 中樞裝置佈建服務</h3>
+                                                    <p>零接觸、適用於 Azure IoT 中樞的 Just-In-Time 佈建</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-maps/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure 地圖服務</h3>
+                                                    <p>簡單又安全的位置 API，可為資料提供地理空間內容</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3478,75 +3700,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cosmos-db/">
+                                <a href="/azure/event-grid/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
+                                                        <img src="media/index/azure_event_grid.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Cosmos DB</h3>
-                                                    <p>全域散發的多模型資料庫，適用於任何規模</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/api-management/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/apimanagement.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>API 管理</h3>
-                                                    <p>透過安全且大規模的方式將 API 發佈給開發人員、合作夥伴和員工</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/iot-hub/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/IoTHub.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>IoT 中樞</h3>
-                                                    <p>連接、監視並控制數十億個 IoT 資產</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/iot-dps/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/dps.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>IoT 中樞裝置佈建服務</h3>
-                                                    <p>零接觸、適用於 Azure IoT 中樞的 Just-In-Time 佈建</p>
+                                                    <h3>Event Grid</h3>
+                                                    <p>取得可靠的大規模事件傳遞</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3630,25 +3795,6 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/notification-hubs/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/NotificationHubs.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>通知中樞</h3>
-                                                    <p>從任何後端將推播通知傳送至任何平台</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/logic-apps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3668,18 +3814,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/iot-suite/">
+                                <a href="/azure/notification-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/iot-suite.svg" alt="" />
+                                                        <img src="media/index/NotificationHubs.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT 套件</h3>
-                                                    <p>擷取並分析未開發的資料來改善商務結果</p>
+                                                    <h3>通知中樞</h3>
+                                                    <p>從任何後端將推播通知傳送至任何平台</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3687,18 +3833,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/time-series-insights/">
+                                <a href="/azure/cosmos-db/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/time-series-insights.svg" alt="" />
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>時間序列深入解析</h3>
-                                                    <p>立即探索及分析時間序列資料</p>
+                                                    <h3>Azure Cosmos DB</h3>
+                                                    <p>全域散發的多模型資料庫，適用於任何規模</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3706,56 +3852,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/event-grid/">
+                                <a href="/azure/api-management/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure_event_grid.svg" alt="" />
+                                                        <img src="media/index/apimanagement.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Event Grid</h3>
-                                                    <p>取得可靠的大規模事件傳遞</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/iot-edge/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/IOT_edge_50.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>IoT Edge</h3>
-                                                    <p>將雲端智慧擴充到邊緣裝置</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://docs.microsoft.com/azure/location-based-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure LBS</h3>
-                                                    <p>簡單又安全的位置 API，可為資料提供地理空間內容</p>
+                                                    <h3>API 管理</h3>
+                                                    <p>透過安全且大規模的方式將 API 發佈給開發人員、合作夥伴和員工</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4157,6 +4265,25 @@ Terraform </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/security/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/SecurityCenter.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>安全性資訊</h3>
+                                                    <p>了解 Azure 如何提供安全的基礎結構以建置雲端解決方案</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -4201,7 +4328,7 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/devtest-lab/">
+                                <a href="/azure/lab-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4211,8 +4338,8 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure DevTest Labs</h3>
-                                                    <p>使用可重複使用的範本及構件來快速建立環境</p>
+                                                    <h3>Azure 實驗室服務</h3>
+                                                    <p>在雲端中為教室、開發與測試及其他案例建立實驗室 (先前稱為 DevTest 實驗室)</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5388,7 +5515,7 @@ Azure CLI </h3>
                                                 <h3>
 Docker </h3>
                                                 <p>
-                                                    <a href="/dotnet/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio Tools for Docker</a>
+                                                    <a href="/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio Tools for Docker</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680">針對 Visual Studio 下載</a>

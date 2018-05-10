@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT 套件的預先設定解決方案概觀 | Microsoft Docs"
-description: "說明 Azure IoT 套件的預先設定解決方案及其架構，且包含其他資源的連結。"
-services: 
+title: Azure IoT 套件的預先設定解決方案概觀 | Microsoft Docs
+description: 說明 Azure IoT 套件的預先設定解決方案及其架構，且包含其他資源的連結。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: b29c5fe9543c5fe6da9ff52da6549fdcacff868f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b7b9f61a8fb46d5d591b317049cfd60b723a7e77
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>什麼是 Azure IoT 套件？
 
@@ -97,7 +97,7 @@ Azure IoT 套件是一組「預先設定的解決方案」，其特色如下：
 * [Azure 時間序列深入解析](../time-series-insights/index.yml)。 預先設定解決方案會使用此服務來分析及顯示來自您裝置的遙測資料。
 * [Azure Container Service](../container-service/index.yml)。 此服務會主控及管理預先設定解決方案中的微服務。
 * 用於資料儲存的 [Azure Cosmos DB](../cosmos-db/index.yml) 和 [Azure 儲存體](../storage/index.yml)。
-* [Azure 串流分析](../stream-analytics/index.md)。 預測性維護的預先設定解決方案會使用這項服務來處理內送的遙測資料、執行彙總，以及偵測事件。 此預先設定解決方案也會使用串流分析來處理資訊訊息，它包含像是中繼資料或是從裝置回應的命令的資料。
+* [Azure 串流分析](../stream-analytics/index.yml)。 預測性維護的預先設定解決方案會使用這項服務來處理內送的遙測資料、執行彙總，以及偵測事件。 此預先設定解決方案也會使用串流分析來處理資訊訊息，它包含像是中繼資料或是從裝置回應的命令的資料。
 * [Azure Web Apps](../app-service/index.yml)，主控預先設定解決方案中的自訂應用程式程式碼。
 
 如需典型 IoT 解決方案架構的概觀，請參閱 [Microsoft Azure 和物聯網 (IoT)](iot-suite-what-is-azure-iot.md)。

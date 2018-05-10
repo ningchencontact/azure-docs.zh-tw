@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure Resource Manager 範本建立多個 VM 環境和 PaaS 資源 | Microsoft Docs"
-description: "了解如何從 Azure Resource Manager 範本在 Azure DevTest Labs 中建立多個 VM 環境和 PaaS 資源"
+title: 使用 Azure Resource Manager 範本建立多個 VM 環境和 PaaS 資源 | Microsoft Docs
+description: 了解如何從 Azure Resource Manager 範本在 Azure DevTest Labs 中建立多個 VM 環境和 PaaS 資源
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 38e048e9ec4985d16632f8891e42c2b6394c83d6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立多個 VM 環境和 PaaS 資源
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 02/21/2018
 
     ![選擇基底](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
-1. 在 [新增] 窗格中，輸入**環境名稱**值。 環境名稱是實驗室中向您使用者顯示的內容。 會在 Azure Resource Manager 範本中定義其餘的輸入欄位。 如果在範本中定義預設值或 `azuredeploy.parameter.json` 檔案存在，則預設值會顯示在這些輸入欄位中。 針對安全字串類型的參數，您可以使用儲存在實驗室中的[個人密碼存放區](https://azure.microsoft.com/en-us/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store)的密碼。
+1. 在 [新增] 窗格中，輸入**環境名稱**值。 環境名稱是實驗室中向您使用者顯示的內容。 會在 Azure Resource Manager 範本中定義其餘的輸入欄位。 如果在範本中定義預設值或 `azuredeploy.parameter.json` 檔案存在，則預設值會顯示在這些輸入欄位中。 針對安全字串類型的參數，您可以使用儲存在實驗室中的[個人密碼存放區](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store)的密碼。
 
     ![新增窗格](./media/devtest-lab-create-environment-from-arm/add.png)
 

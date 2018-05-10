@@ -1,17 +1,17 @@
 - name: VPN 閘道文件
-  href: index.md
+  href: index.yml
 - name: 概觀
   items:
     - name: 關於 VPN 閘道
       href: vpn-gateway-about-vpngateways.md
-- name: 範例
-  items:
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: 教學課程
   items:
     - name: 建立和管理 VPN 閘道
       href: vpn-gateway-tutorial-create-gateway-powershell.md
+- name: 範例
+  items:
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: 概念
   items:
     - name: 規劃與設計 VPN 閘道

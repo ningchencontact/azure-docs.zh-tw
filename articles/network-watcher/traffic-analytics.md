@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ffb13d1190535dacbe3a0781a1d3b425a970d26e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -42,7 +42,7 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 - **網路安全性群組 (NSG) 流量記錄**：可讓您檢視透過網路安全性群組傳輸之輸入和輸出 IP 流量的相關資訊。 NSG 流量記錄是以 json 格式撰寫，會顯示每一規則的輸出和輸入流量、套用流量的 NIC、關於流量的 5 個 Tuple 資訊 (來源/目的地 IP 位址、來源/目的地連接埠、通訊協定)，以及流量是被允許或拒絕。 如須 NSG 流量記錄的詳細資訊，請參閱 [NSG 流量記錄](network-watcher-nsg-flow-logging-overview.md)。
 - **Log Analytics**：一項 Azure 服務，會收集監視資料並將其儲存在中央存放庫中。 此資料可能包含事件、效能資料，或透過 Azure API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。 網路效能監視器和流量分析等監視應用程式皆以 Log Analytics 作為建置基礎。 如需詳細資訊，請參閱 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 - **Log Analytics 工作區**：一個 Log Analytics 執行個體，會儲存 Azure 帳戶的相關資料。 如需 Log Analytics 工作區的詳細資訊，請參閱[建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
-- **網路監看員**：一項區域性服務，可讓您監視與診斷 Azure 中的網路案例層級情況。 您可以透過網路監看員將 NSG 流量記錄開啟和關閉。 如需詳細資訊，請參閱[網路監看員](network-watcher-monitoring-overview.md#network-watcher)。
+- **網路監看員**：一項區域性服務，可讓您監視與診斷 Azure 中的網路案例層級情況。 您可以透過網路監看員將 NSG 流量記錄開啟和關閉。 如需詳細資訊，請參閱[網路監看員](network-watcher-monitoring-overview.md)。
 
 ## <a name="how-traffic-analytics-works"></a>流量分析的運作方式 
 

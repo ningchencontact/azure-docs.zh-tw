@@ -10,15 +10,15 @@ ms.custom: saas apps
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: c6f3da52643caa9aa1172db5b884c5336c409715
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3b2b1b767b26d844046d545e3d587621c5d14995
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>使用資料庫異地複寫進行多租用戶 SaaS 應用程式的災害復原
 
-在本教學課程中，您將針對使用每一租用戶一個資料庫的模型實作的多租用戶 SaaS 應用程式，探索其完整的災害復原案例。 若要防止應用程式中斷，您應使用[_異地複寫_](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview)，在替代的復原區域中建立目錄和租用戶資料庫的複本。 如果發生中斷的情況，您將可快速地容錯移轉至這些複本，以繼續進行正常的商務作業。 在容錯移轉時，原始區域中的資料庫會成為復原區域中資料庫的次要複本。 這些複本在重新上線後，將會自動更新至復原區域中資料庫的狀態。 中斷的問題解決後，您即可容錯回復至原始生產區域中的資料庫。
+在本教學課程中，您將針對使用每一租用戶一個資料庫的模型實作的多租用戶 SaaS 應用程式，探索其完整的災害復原案例。 若要防止應用程式中斷，您應使用[_異地複寫_](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)，在替代的復原區域中建立目錄和租用戶資料庫的複本。 如果發生中斷的情況，您將可快速地容錯移轉至這些複本，以繼續進行正常的商務作業。 在容錯移轉時，原始區域中的資料庫會成為復原區域中資料庫的次要複本。 這些複本在重新上線後，將會自動更新至復原區域中資料庫的狀態。 中斷的問題解決後，您即可容錯回復至原始生產區域中的資料庫。
 
 本教學課程會探索容錯移轉和容錯回復的工作流程。 您將學習如何：
 > [!div classs="checklist"]
@@ -82,7 +82,7 @@ ms.lasthandoff: 04/20/2018
 隨後，在個別的回復步驟中，您會將復原區域中的目錄和租用戶資料庫容錯移轉至原始區域。 在整個回復期間，應用程式和資料庫皆可供使用。 完成後，應用程式會在原始區域中正常運作。
 
 > [!Note]
-> 應用程式會復原到部署應用程式之區域的_配對區域_中。 如需詳細資訊，請參閱 [Azure 配對區域](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions)。
+> 應用程式會復原到部署應用程式之區域的_配對區域_中。 如需詳細資訊，請參閱 [Azure 配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
 
 ## <a name="review-the-healthy-state-of-the-application"></a>檢視應用程式的健康狀態
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 04/20/2018
 在此工作中，您會開始進行將伺服器、彈性集區和資料庫的組態同步至租用戶目錄中的程序。 此程序會將目錄中的這些資訊保持在最新狀態。  此程序會處理使用中的目錄，無論目錄位於原始區域還是復原區域中。 組態資訊會作為復原程序的一部分，以確保復原環境與原始環境的一致性，並且在隨後的回復期間確保原始區域會透過在復原環境中所做的任何變更保有一致性。 此目錄也可用來追蹤租用戶資源的復原狀態
 
 > [!IMPORTANT]
-> 為了方便說明，在這些教學課程中，一律會以在您的用戶端使用者登入下執行的本機 Powershell 作業或工作階段，來實作同步程序和其他長時間執行的復原與回復程序。 在您登入時核發的驗證權杖將在數小時後到期，屆時作業即會失敗。 在生產環境中，應以某種可靠、在服務主體下執行的 Azure 服務來實作長時間執行的程序。 請參閱[使用 Azure PowerShell 建立具有憑證的服務主體](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)。
+> 為了方便說明，在這些教學課程中，一律會以在您的用戶端使用者登入下執行的本機 Powershell 作業或工作階段，來實作同步程序和其他長時間執行的復原與回復程序。 在您登入時核發的驗證權杖將在數小時後到期，屆時作業即會失敗。 在生產環境中，應以某種可靠、在服務主體下執行的 Azure 服務來實作長時間執行的程序。 請參閱[使用 Azure PowerShell 建立具有憑證的服務主體](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)。
 
 1. 在 _PowerShell ISE_ 中，開啟 ...\Learning Modules\UserConfig.psm1 檔案。 請將第 10 和 11 行上的 `<resourcegroup>` 與 `<user>` 取代為您部署應用程式時所使用的值。  儲存檔案。
 
@@ -181,7 +181,7 @@ ms.lasthandoff: 04/20/2018
 
 2. 按 **F5** 以執行指令碼。  
     * 此指令碼會在新的 PowerShell 視窗中開啟，然後啟動一系列平行執行的 PowerShell 作業。 這些作業會將租用戶資料庫容錯移轉至復原區域。
-    * 復原區域是與您的應用程式部署所在的 Azure 區域相關聯的_配對區域_。 如需詳細資訊，請參閱 [Azure 配對區域](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions)。 
+    * 復原區域是與您的應用程式部署所在的 Azure 區域相關聯的_配對區域_。 如需詳細資訊，請參閱 [Azure 配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 
 
 3. 在 PowerShell 視窗中監視復原程序的狀態。
     ![容錯移轉程序](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
@@ -218,7 +218,7 @@ ms.lasthandoff: 04/20/2018
     * 如果您在其他租用戶還原之前即佈建 Hawthorn Hall，其他租用戶可能仍處於離線狀態。
 
 
-## <a name="review-the-recovered-state-of-the-application"></a>檢視應用程式的復原狀態
+## <a name="review-the-recovered-state-of-the-application"></a>檢閱應用程式的復原狀態
 
 復原程序完成時，應用程式和所有租用戶均可在復原區域中正常運作。 
 
@@ -229,7 +229,7 @@ ms.lasthandoff: 04/20/2018
 2. 在 [Azure 入口網站](https://portal.azure.com)中，開啟資源群組的清單。  
     * 請查看您已部署的資源群組，以及具有 _-recovery_ 尾碼的復原資源群組。  復原資源群組中包含所有在復原程序期間建立的資源，以及在中斷期間建立的新資源。  
 
-3. 開啟復原資源群組，請查看下列項目：
+3. 開啟復原資源群組，並請查看下列項目：
     * 目錄的復原版本和 tenants1 伺服器 (具有 _-recovery_ 尾碼)。  這些伺服器上已還原的目錄和租用戶資料庫都具有在原始區域中使用的名稱。
 
     * _tenants2-dpt-&lt;user&gt;-recovery_ SQL 伺服器。  這是在中斷期間用來佈建新租用戶的伺服器。
@@ -291,9 +291,9 @@ ms.lasthandoff: 04/20/2018
 
 
 ## <a name="designing-the-application-to-ensure-app-and-database-are-colocated"></a>設計應用程式以確保應用程式和資料庫的共置 
-應用程式經過適當設計，因此應用程式的連線一律會來自租用戶資料庫所在之相同區域的執行個體。 此設計可降低應用程式與資料庫之間的延遲。 此最佳化假設應用程式對資料庫的互動比使用者對應用程式的互動更為頻繁。  
+應用程式經過適當設計，因此應用程式的連線一律會來自租用戶資料庫所在相同區域的執行個體。 此設計可降低應用程式與資料庫之間的延遲。 此最佳化假設應用程式對資料庫的互動比使用者對應用程式的互動更為頻繁。  
 
-在回復期間的某些時刻，租用戶資料庫可能分散於復原和原始區域間。 對於各個資料庫，應用程式會執行租用戶伺服器名稱的 DNS 查閱，以查閱資料庫所在的區域。 在 SQL Database 中，伺服器名稱會是別名。 使用別名的伺服器名稱會包含區域名稱。 應用程式若位於與資料庫不同的區域，則會重新導向至資料庫伺服器所在之相同區域中的執行個體。  重新導向至資料庫所在之相同區域中的執行個體，可盡量縮短應用程式與資料庫之間的延遲。 
+在回復期間的某些時刻，租用戶資料庫可能分散於復原和原始區域間。 對於各個資料庫，應用程式會執行租用戶伺服器名稱的 DNS 查閱，以查閱資料庫所在的區域。 在 SQL Database 中，伺服器名稱會是別名。 使用別名的伺服器名稱會包含區域名稱。 應用程式若位於與資料庫不同的區域，則會重新導向至資料庫伺服器所在相同區域中的執行個體。  重新導向至資料庫所在之相同區域中的執行個體，可盡量縮短應用程式與資料庫之間的延遲。 
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -310,4 +310,4 @@ ms.lasthandoff: 04/20/2018
 
 ## <a name="additional-resources"></a>其他資源
 
-* [其他以 Wingtip SaaS 應用程式為基礎的教學課程](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [其他以 Wingtip SaaS 應用程式為基礎的教學課程](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)

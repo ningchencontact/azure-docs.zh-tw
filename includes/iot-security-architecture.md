@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 62856d4743d853d5685503b5c21faedc46575e55
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/07/2018
+---
 # <a name="internet-of-things-security-architecture"></a>物聯網安全性架構
 
 在設計系統時，我們應了解該系統的潛在威脅並加入適當的防禦機制，以妥善設計系統與其架構。 在一開始設計產品時就先考量安全性是很重要的，因為了解攻擊者可能如何破壞系統，有助於從一開始就備妥適當的安全防護功能。

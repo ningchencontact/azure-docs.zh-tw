@@ -289,6 +289,7 @@
 ## 保護您的身分識別
 ### [條件式存取](active-directory-conditional-access-azure-portal.md)
 #### [條件](active-directory-conditional-access-conditions.md)
+#### [位置條件](active-directory-conditional-access-locations.md)
 #### [控制項](active-directory-conditional-access-controls.md)
 #### [開始使用](active-directory-conditional-access-azure-portal-get-started.md)
 #### [最佳做法](active-directory-conditional-access-best-practices.md)

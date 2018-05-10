@@ -65,14 +65,20 @@
           href: insights-alerts-command-line-interface.md
         - name: 使用 Azure PowerShell 設定傳統警示
           href: insights-alerts-powershell.md
+        - name: 讓傳統計量警示呼叫 Webhook
+          href: insights-webhooks-alerts.md
         - name: Webhook 動作記錄警示
           href: monitor-alerts-unified-log-webhook.md
+        - name: 使用 Resource Manager 範本建立記錄警示
+          href: monitor-alerts-unified-log-template.md
         - name: 使用 Resource Manager 範本建立較新的計量警示
           href: monitoring-create-metric-alerts-with-templates.md
         - name: 使用 Resource Manager 範本建立傳統計量警示
           href: monitoring-enable-alerts-using-template.md
         - name: 將警示從 OMS 入口網站複製到 Azure 入口網站
           href: monitoring-alerts-extend-tool.md
+        - name: 搭配動態閾值的警示
+          href: monitoring-alerts-dynamic-thresholds.md
     - name: 使用動作群組搭配警示
       items:
         - name: 了解 Webhook 結構描述
@@ -83,6 +89,8 @@
           href: monitoring-alerts-rate-limiting.md
         - name: 使用 Resource Manager 建立動作群組
           href: monitoring-create-action-group-with-resource-manager-template.md
+        - name: 實作邏輯應用程式動作
+          href: monitoring-action-groups-logic-app.md
     - name: 使用診斷記錄
       items:
         - name: 封存
@@ -123,6 +131,8 @@
           href: insights-powershell-samples.md
     - name: 使用 Azure 診斷擴充功能
       items:
+        - name: 傳送到 Azure 儲存體
+          href: azure-diagnostics-storage.md
         - name: 傳送至 Application Insights
           href: azure-diagnostics-configure-application-insights.md
         - name: 傳送至事件中樞
@@ -135,7 +145,7 @@
           href: monitoring-autoscale-get-started.md
         - name: 了解自動調整設定
           href: monitoring-understanding-autoscale-settings.md
-        - name: 最佳做法
+        - name: 最佳作法
           href: insights-autoscale-best-practices.md
         - name: 常見計量
           href: insights-autoscale-common-metrics.md
@@ -171,8 +181,15 @@
       href: monitoring-diagnostic-logs-schema.md
     - name: 活動記錄事件結構描述
       href: monitoring-activity-log-schema.md
-    - name: Azure 診斷擴充功能結構描述
+    - name: Azure 診斷延伸結構描述
       href: azure-diagnostics-schema.md
+      items:
+        - name: 1.3 和更新版本
+          href: azure-diagnostics-schema-1dot3-and-later.md
+        - name: 1.2
+          href: azure-diagnostics-schema-1dot2.md
+        - name: 1
+          href: azure-diagnostics-schema-1dot0.md
 - name: 資源
   items:
     - name: Azure 藍圖

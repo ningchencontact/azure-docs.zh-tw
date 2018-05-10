@@ -316,22 +316,24 @@
           href: compute-linked-services.md
     - name: 控制流程
       items:
-        - name: If 條件活動
-          href: control-flow-if-condition-activity.md
-        - name: Until 活動
-          href: control-flow-until-activity.md
-        - name: 網路活動
-          href: control-flow-web-activity.md
-        - name: 查閱活動
-          href: control-flow-lookup-activity.md
-        - name: 取得中繼資料活動
-          href: control-flow-get-metadata-activity.md
         - name: 執行管線活動
           href: control-flow-execute-pipeline-activity.md
+        - name: 篩選活動
+          href: control-flow-filter-activity.md
         - name: For Each 活動
           href: control-flow-for-each-activity.md
+        - name: 取得中繼資料活動
+          href: control-flow-get-metadata-activity.md
+        - name: If 條件活動
+          href: control-flow-if-condition-activity.md
+        - name: 查閱活動
+          href: control-flow-lookup-activity.md
+        - name: Until 活動
+          href: control-flow-until-activity.md
         - name: Wait 活動
           href: control-flow-wait-activity.md
+        - name: 網路活動
+          href: control-flow-web-activity.md
         - name: 運算式語言
           href: control-flow-expression-language-functions.md
         - name: 系統變數

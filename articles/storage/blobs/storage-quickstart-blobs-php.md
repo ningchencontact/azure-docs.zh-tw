@@ -10,11 +10,11 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 03aaa6b3440c1e20028078ee3d45c13cdd16cfea
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 463b6051009ab79013f9bef958fcadec2ef3cd16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>使用 PHP 在 Azure Blob 儲存體之間傳送物件
 在本快速入門中，您會了解如何使用 PHP 在 Azure Blob 儲存體容器中上傳、下載及列出區塊 Blob。 
@@ -211,7 +211,7 @@ Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 最常使用的�
 在此快速入門中，您已了解如何使用 PHP 在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。 若要深入了解 PHP 的用法，請繼續使用我們的 PHP 開發人員中心。
 
 > [!div class="nextstepaction"]
-> [PHP 開發人員中心](https://azure.microsoft.com/en-us/develop/php/)
+> [PHP 開發人員中心](https://azure.microsoft.com/develop/php/)
 
 
 如需儲存體總管和 Blob 的詳細資訊，請參閱[使用儲存體總管管理 Azure Blob 儲存體資源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。

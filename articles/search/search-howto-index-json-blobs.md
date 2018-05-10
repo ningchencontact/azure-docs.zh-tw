@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 09/07/2017
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: aa0c26a722ecddabee70127bf4b4fd67855a1523
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 64d16182ce1992ec312ad1620d9d5cf11e0ddea8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>使用 Azure 搜尋服務 Blob 索引子編製索引 JSON Blob
 本文說明如何設定 Azure 搜尋服務 Blob 索引子，從 Azure Blob 儲存體中的 JSON blob 擷取結構化的內容。
@@ -36,7 +36,7 @@ JSON blob 的索引編製類似於一般文件擷取，是 Azure 搜尋服務中
 
 第一個步驟是提供索引子使用的資料來源連線資訊。 資料來源類型 (在此指定為 `azureblob`) 決定了索引子會叫用哪一些資料擷取行為。 針對編製 JSON blob 索引，JSON 文件和陣列的資料來源定義是相同的。 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -88,7 +88,7 @@ JSON blob 的索引編製類似於一般文件擷取，是 Azure 搜尋服務中
 
 完整指定的要求看起來如下：
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -190,7 +190,7 @@ JSON blob 的索引編製類似於一般文件擷取，是 Azure 搜尋服務中
 
 下列範例是完整指定的索引子內容，包括欄位對應：
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

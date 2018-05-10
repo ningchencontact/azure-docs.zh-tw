@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: 1e94466d9d41bbc6a2100256d96e19d0d13600cb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4d6177fe0a50c531ba6c4b3e87eaa08299af2ddd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Microsoft Azure 匯入/匯出服務將資料傳入 Azure 儲存體
 在本文中，我們會提供使用 Azure 匯入/匯出服務的逐步指示，藉由將磁碟機運送到 Azure 資料中心，安全地將大量資料傳入 Azure Blob 儲存體和 Azure 檔案服務。 這項服務也能用來將資料從 Azure 儲存體傳輸到硬碟，然後運送到您的內部部署網站。 單一內部 SATA 磁碟機的資料可匯入到 Azure Blob 儲存體或 Azure 檔案服務。 
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/16/2018
 2.  根據資料的大小總計，採購所需的 2.5 英吋 SSD 或 2.5 英吋/3.5 英吋 SATA II/III 硬碟機數目。
 3.  直接使用 SATA 或外接式 USB 轉接器，將硬碟連結到 Windows 電腦。
 1.  在每個硬碟上建立單一 NTFS 磁碟區，並為磁碟區指派磁碟機代號。 沒有裝載點。
-2.  若要在 Windows 電腦上啟用加密，請在 NTFS 磁碟區上啟用 BitLocker 加密。 使用 https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx 上的指示。
+2.  若要在 Windows 電腦上啟用加密，請在 NTFS 磁碟區上啟用 BitLocker 加密。 使用 https://technet.microsoft.com/library/cc731549(v=ws.10).aspx 上的指示。
 3.  使用複製與貼上、拖曳和置放，或是 Robocopy 或任何類似的工具，完整地將資料複製到這些已加密的單一 NTFS 磁碟區。
 7.  從 https://www.microsoft.com/en-us/download/details.aspx?id=42659 下載 WAImportExport V1
 8.  將檔案解壓縮至預設資料夾 waimportexportv1。 例如，C:\WaImportExportV1  

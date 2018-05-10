@@ -1,11 +1,11 @@
 ---
-title: "將 Azure 雲端服務應用程式轉換成微服務 | Microsoft Docs"
-description: "本指南會比較雲端服務的 Web 角色和背景工作角色以及 Service Fabric 的無狀態服務，以協助您從雲端服務移轉到 Service Fabric。"
+title: 將 Azure 雲端服務應用程式轉換成微服務 | Microsoft Docs
+description: 本指南會比較雲端服務的 Web 角色和背景工作角色以及 Service Fabric 的無狀態服務，以協助您從雲端服務移轉到 Service Fabric。
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bb8f2f8a6f0905716c34796a5b16c38f406ae64c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>將 Web 角色和背景工作角色轉換成 Service Fabric 無狀態服務的指南
 本文說明如何將雲端服務的 Web 角色和背景工作角色移轉至 Service Fabric 無狀態服務。 對於整體架構會大致保持相同的應用程式來說，這是最簡單的雲端服務至 Service Fabric 移轉路徑。
@@ -207,7 +207,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="startup-tasks"></a>啟動工作
 啟動工作是應用程式啟動前所採取的動作。 啟動工作通常用來以提高的權限執行安裝指令碼。 雲端服務和 Service Fabric 皆支援啟動工作。 兩者的主要差異是，雲端服務中的啟動工作繫結至 VM，因為它是角色執行個體的一部分，而 Service Fabric 中的啟動工作則繫結至服務，而不會繫結至任何特定 VM。
 
-| 雲端服務 | Service Fabric |
+| Service Fabric | 雲端服務 |
 | --- | --- | --- |
 | 組態位置 |ServiceDefinition.csdef |
 | 權限 |「有限」或「提高」 |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: sutalasi
-ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 48a8f6d35c3ea1266880f05d12ebf4efd855df41
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 複寫多層式 SharePoint 應用程式以便進行災害復原
 
@@ -53,7 +53,7 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
 
 ## <a name="sharepoint-architecture"></a>SharePoint 架構
 
-可以使用分層式拓撲和伺服器角色在一或多部伺服器上部署 SharePoint，以實作符合特定目標的伺服器陣列設計。 支援大量並行使用者和大量內容項目的典型大型、高需求 SharePoint 伺服器陣列，會使用服務群組作為其延展性策略的一部分。 這種方法涉及在專用伺服器上執行服務、將這些服務群組在一起，然後將伺服器相應放大為群組。 下列拓撲說明三層式 SharePoint 伺服器陣列的服務與伺服器群組。 如需不同 SharePoint 拓撲的詳細指引，請參閱 SharePoint 文件集和產品線架構。 您可以在[這份文件](https://technet.microsoft.com/en-us/library/cc303422.aspx)中找到有關 SharePoint 2013 部署的詳細資訊。
+可以使用分層式拓撲和伺服器角色在一或多部伺服器上部署 SharePoint，以實作符合特定目標的伺服器陣列設計。 支援大量並行使用者和大量內容項目的典型大型、高需求 SharePoint 伺服器陣列，會使用服務群組作為其延展性策略的一部分。 這種方法涉及在專用伺服器上執行服務、將這些服務群組在一起，然後將伺服器相應放大為群組。 下列拓撲說明三層式 SharePoint 伺服器陣列的服務與伺服器群組。 如需不同 SharePoint 拓撲的詳細指引，請參閱 SharePoint 文件集和產品線架構。 您可以在[這份文件](https://technet.microsoft.com/library/cc303422.aspx)中找到有關 SharePoint 2013 部署的詳細資訊。
 
 
 

@@ -8,8 +8,10 @@
 ## [建立命名空間](relay-create-namespace-portal.md)
 ## [建立混合式內部部署/雲端應用程式](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## 混合式連線
-### [.NET](relay-hybrid-connections-dotnet-get-started.md)
-### [Node](relay-hybrid-connections-node-get-started.md)
+### [.NET WebSocket](relay-hybrid-connections-dotnet-get-started.md)
+### [.NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+### [Node WebSocket](relay-hybrid-connections-node-get-started.md)
+### [節點 HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
 ## [WCF 轉送](relay-wcf-dotnet-get-started.md)
 ## [WCF 轉送教學課程](service-bus-relay-tutorial.md)
 ## [WCF 轉送的 REST 教學課程](service-bus-relay-rest-tutorial.md)
@@ -37,7 +39,7 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [部落格](https://blogs.msdn.microsoft.com/servicebus/)
-## [價格](https://azure.microsoft.com/pricing/details/service-bus/)
+## [定價](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [範例](https://github.com/azure/azure-relay/tree/master/samples)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e203787bffa80b324508f7df8f8e7a8c62355695
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ef8b5b30edaef61eca1be0cf80c5defd09c4dac2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>關於 Azure 檔案服務的常見問題集
 [Azure 檔案服務](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準的[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) \(英文\) (也稱為 Common Internet File System 或 CIFS) 存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步 (預覽)，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
@@ -257,7 +257,7 @@ ms.lasthandoff: 03/29/2018
     是。 Azure 檔案服務最多可保留 200 個共用快照集。 共用快照集不會計入共用配額，因此，所有共用快照集所使用的總空間沒有每個共用的限制。 但儲存體帳戶限制依然有效。 保留 200 個共用快照集之後，必須先刪除舊的快照集，才能建立新的共用快照集。
 * <a id="snapshot-cost"></a>
 **共用快照集需要多少費用？**  
-    使用快照集的費用包括標準交易成本和標準儲存體的費用。 快照集具有累加性質。 基底快照集便是共用本身。 所有後續的快照集都是累加的，而且只會儲存與上一個快照集相異之處。 這表示如果您的工作負載變換程度不高，帳單中列示的差異變更也不會太多。 如果需要標準 Azure 檔案的定價資訊，請參閱[定價頁面](https://azure.microsoft.com/en-us/pricing/details/storage/files/)。 現在判斷共用快照集耗用大小的方式，是比較計費的容量與已使用的容量。 目前正在設法開發改善報告功能的工具。
+    使用快照集的費用包括標準交易成本和標準儲存體的費用。 快照集具有累加性質。 基底快照集便是共用本身。 所有後續的快照集都是累加的，而且只會儲存與上一個快照集相異之處。 這表示如果您的工作負載變換程度不高，帳單中列示的差異變更也不會太多。 如果需要標準 Azure 檔案的定價資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/storage/files/)。 現在判斷共用快照集耗用大小的方式，是比較計費的容量與已使用的容量。 目前正在設法開發改善報告功能的工具。
 
 
 ### <a name="create-share-snapshots"></a>建立共用快照集

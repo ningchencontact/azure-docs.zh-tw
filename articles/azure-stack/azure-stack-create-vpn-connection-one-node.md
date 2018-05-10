@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: brenduns
 ms.reviewer: scottnap
-ms.openlocfilehash: 8bb10be63ef31ebe6241c15a79dafe71923a4cf7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e6520da6b866ebddd66604dd8f27acfc5a9bcef4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>在不同 Azure Stack 開發套件環境中的兩個虛擬網路之間建立站對站 VPN 連線
 ## <a name="overview"></a>概觀
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/23/2018
 若要完成連線組態，請務必在開始前備妥下列項目：
 
 * 兩部符合如[快速入門：評估 Azure Stack 開發套件](azure-stack-deploy-overview.md)所述之 Azure Stack 開發套件硬體需求的伺服器和其他先決條件。 
-* [Azure Stack 開發套件](https://azure.microsoft.com/en-us/overview/azure-stack/try/)部署套件。
+* [Azure Stack 開發套件](https://azure.microsoft.com/overview/azure-stack/try/)部署套件。
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>部署 Azure Stack 開發套件環境
 若要完成連線組態，您必須部署兩個「Azure Stack 開發套件」環境。

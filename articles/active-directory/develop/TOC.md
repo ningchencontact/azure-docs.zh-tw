@@ -102,14 +102,13 @@
 ### Web 應用程式
 #### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2)
-#### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+#### [NodeJS](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs)
 ### Web API
 #### [ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
 #### [ASP.NET Core](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-native-aspnetcore-v2)
+#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
 ### 單一頁面應用程式
 #### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
-### Web API
-#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
 ### 服務對服務
 #### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## 手冊

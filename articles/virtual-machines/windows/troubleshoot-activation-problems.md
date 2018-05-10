@@ -1,11 +1,11 @@
 ---
-title: "針對 Azure 中的 Windows 虛擬機器啟用問題進行疑難排解 | Microsoft Docs"
-description: "針對 Azure 中的 Windows 虛擬機器啟用問題提供疑難排解步驟"
+title: 針對 Azure 中的 Windows 虛擬機器啟用問題進行疑難排解 | Microsoft Docs
+description: 針對 Azure 中的 Windows 虛擬機器啟用問題提供疑難排解步驟
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3926522c8359587798ea540d13b157832551f24d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>針對 Azure Windows 虛擬機器啟用問題進行疑難排解
 
@@ -78,7 +78,7 @@ Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 �
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>步驟 2：確認 VM 與 Azure KMS 服務之間的連線
 
-1. 下載 [Psping](http:/technet.microsoft.com/en-us/sysinternals/jj729731.aspx) 工具並將它解壓縮至未啟用之 VM 中的本機資料夾。 
+1. 下載 [Psping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) 工具並將它解壓縮至未啟用之 VM 中的本機資料夾。 
 
 2. 移至 [開始]，搜尋 Windows PowerShell，在 [Windows PowerShell] 上按一下滑鼠右鍵，然後選取 [以系統管理員身分執行]。
 
@@ -126,7 +126,7 @@ Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 �
  
 ### <a name="what-happens-if-windows-activation-period-expires"></a>如果 Windows 啟用期間已到期，會發生什麼情況？ 
  
-當寬限期已到期而 Windows 仍然未啟用時，Windows Server 2008 R2 和更新版的 Windows 將會顯示與啟用相關的額外通知。 桌面桌布會維持黑色，而 Windows Update 將只會安裝安全性和重大更新，而不會安裝選用更新。 請參閱[授權條件](http://technet.microsoft.com/en-us/library/ff793403.aspx)頁面底部的＜通知＞一節。   
+當寬限期已到期而 Windows 仍然未啟用時，Windows Server 2008 R2 和更新版的 Windows 將會顯示與啟用相關的額外通知。 桌面桌布會維持黑色，而 Windows Update 將只會安裝安全性和重大更新，而不會安裝選用更新。 請參閱[授權條件](http://technet.microsoft.com/library/ff793403.aspx)頁面底部的＜通知＞一節。   
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

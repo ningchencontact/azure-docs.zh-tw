@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 應變計劃"
-description: "FedRAMP Web 應用程式自動化 - 應變計劃"
+title: Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 應變計劃
+description: FedRAMP Web 應用程式自動化 - 應變計劃
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="contingency-planning-cp"></a>應變計劃 (CP)
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.c** 組織會協調應變計劃活動與事件處理活動。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.d** 組織會依 [指派：組織定義的頻率] 來檢閱資訊系統的應變計劃。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8** 在主要或替代處理或儲存地點無法使用主要電信功能時，組織會建立包含必要協議的替代電信服務，以允許在 [指派：組織定義的時間週期] 內恢復基本任務和企業功能的 [指派：組織定義的資訊系統作業]。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (3)** 組織會從與主要服務提供者隔離的提供者取得替代電信服務，以降低相同威脅的易受感染性。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (1)** 組織會依 [指派：組織定義的頻率] 測試備份資訊，以驗證媒體可靠性和資訊完整性。
 
-**職責：**`Azure Only`
+**責任：**`Azure Only`
 
 |||
 |---|---|

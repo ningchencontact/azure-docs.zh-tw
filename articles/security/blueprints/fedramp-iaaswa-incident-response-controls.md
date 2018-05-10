@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 事件回應"
-description: "FedRAMP Web 應用程式自動化 - 事件回應"
+title: Azure 安全性與合規性藍圖 - FedRAMP Web 應用程式自動化 - 事件回應
+description: FedRAMP Web 應用程式自動化 - 事件回應
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: bcdb2b151c4d14af59e8133bd871ef6c3c0b9f73
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="incident-response-ir"></a>事件回應 (IR)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-1** 組織會針對 [指派：組織定義的人員或角色]，開發、記載及散佈因應目的、範圍、角色、職責、管理承諾、組織實體間之協調合作及合規性的事件回應原則，以及可協助實作事件回應原則和相關事件回應控制措施的程序；並檢閱和更新目前的事件回應原則 (依 [指派：組織定義的頻率]) 與事件回應程序 (依 [指派：組織定義的頻率])。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-2 (2)** 組織會採用自動化機制來提供更完整且實際的事件回應訓練環境。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-4 (4)** 組織會將事件資訊與個別事件回應相互關聯，以在事件意識與回應方面達成一個全組織觀點。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|
@@ -466,7 +466,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-8.f** 組織會防止事件回應計畫遭受未經授權的公開和修改。
 
-**職責：**`Customer Only`
+**責任：**`Customer Only`
 
 |||
 |---|---|

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 66994dfcd84db1de0ba072e9e3a45e7ec11fcec0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2053ed8cc420183d493097eeb2cd2ad93c82c70c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>使用深度學習虛擬機器
 
@@ -35,7 +35,7 @@ Deep Learning VM for AI 上提供許多工具。 [深度學習和 AI 架構頁�
 
 - [建置端對端解決方案在影像內偵測產品的操作說明指南](https://github.com/Azure/cortana-intelligence-product-detection-from-images)：影像偵測是一種可在影像內找出並分類物體的技術。 這項技術在許多現實生活商業領域中潛藏龐大的商機。 例如，零售商可以利用這項技術來判斷客戶從貨架上挑選什麼產品。 這項資訊進而有助於商店管理產品庫存。 
 
-- [從 PubMed 摘要的具名實體擷取](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) 本教學課程示範如何從非結構化文字中擷取具名實體，例如藥物名稱或疾病名稱。 它會在 1800 萬筆 PubMed 摘要的文字語料庫上訓練自訂字組內嵌、使用該模型針對實體擷取建立長短期記憶 (LSTM) 遞迴式類神經網路模型，並示範該特定領域字組內嵌模型在實體擷取的表現可優於一般字組內嵌。
+- [從 PubMed 摘要的具名實體擷取](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) 本教學課程示範如何從非結構化文字中擷取具名實體，例如藥物名稱或疾病名稱。 它會在 1800 萬筆 PubMed 摘要的文字語料庫上訓練自訂字組內嵌、使用該模型針對實體擷取建立長短期記憶 (LSTM) 遞迴式類神經網路模型，並示範該特定領域字組內嵌模型在實體擷取的表現可優於一般字組內嵌。
 
 - [音訊的深度學習](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) 本教學課程示範如何在[都市音效資料集](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html)偵測音訊事件來訓練深度學習模型，並提供如何使用音訊資料的概觀。
 

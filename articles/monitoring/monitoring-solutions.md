@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: bwren
-ms.openlocfilehash: 1e22aab85976fcab8ec270bdea1b8988b4d3bfe7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="management-solutions-in-azure"></a>在 Azure 中的管理解決方案
 管理解決方案會運用 Azure 中的服務，提供特定應用程式或服務的額外作業見解。 本文提供 Azure 中管理解決方案的簡短概觀，以及使用和安裝它們的詳細資料。
 
 管理解決方案通常會將資訊收集到 Log Analytics 中，並提供記錄搜尋和檢視以分析所收集的資料。 它們也會運用 Azure 自動化等其他服務，執行應用程式或服務相關的動作。
 
-您可以針對您使用的任何應用程式和服務，將管理解決方案新增至您的 Azure 訂用帳戶。 這些管理解決方案通常免費提供，但是會收集可能造成使用費用的資料。 除了 [Microsoft 所提供的解決方案](../operations-management-suite/operations-management-suite-solutions-creating.md)，合作夥伴和客戶可以建立要用於其自己的環境中或可透過社群供您客戶使用的管理解決方案。
+您可以針對您使用的任何應用程式和服務，將管理解決方案新增至您的 Azure 訂用帳戶。 這些管理解決方案通常免費提供，但是會收集可能造成使用費用的資料。 除了 [Microsoft 所提供的解決方案](../monitoring/monitoring-solutions-creating.md)，合作夥伴和客戶可以建立要用於其自己的環境中或可透過社群供您客戶使用的管理解決方案。
 
 ## <a name="using-management-solutions"></a>使用管理解決方案
 每個 Log Analytics 工作區的 [概觀] 頁面會針對工作區中安裝的每個解決方案顯示一個圖格。 按一下解決方案的圖格，以開啟其檢視，其中包含所收集資料的更詳細分析。

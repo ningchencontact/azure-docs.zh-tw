@@ -1,11 +1,11 @@
 ---
-title: "Log Analytics 中的連線資料方案 | Microsoft Docs"
-description: "網路資料是來自具有 OMS 代理程式 (包括 Operations Manager 和 Windows 連線的代理程式) 的電腦的網路和效能彙總資料。 網路資料結合記錄資料可協助您將資料相互關聯。"
+title: Log Analytics 中的連線資料方案 | Microsoft Docs
+description: 網路資料是來自具有 OMS 代理程式 (包括 Operations Manager 和 Windows 連線的代理程式) 的電腦的網路和效能彙總資料。 網路資料結合記錄資料可協助您將資料相互關聯。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 658d92900763249aeeb3542132f4fe0c43ba005f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: d824272f5b5569971eddcf0a43bd5ba97f60f506
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics 中的 Wire Data 2.0 (預覽) 解決方案
 
@@ -58,8 +58,8 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 相依性代�
 
 | **連線的來源** | **支援** | **說明** |
 | --- | --- | --- |
-| Windows 代理程式 | yes | Wire Data 會分析並收集來自 Windows 代理程式電腦的資料。 <br><br> 除了 [OMS 代理程式](log-analytics-windows-agent.md)外，Windows 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems)。 |
-| Linux 代理程式 | yes | Wire Data 會分析並收集來自 Linux 代理程式電腦的資料。<br><br> 除了 [OMS 代理程式](log-analytics-quick-collect-linux-computer.md)外，Linux 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems)。 |
+| Windows 代理程式 | yes | Wire Data 會分析並收集來自 Windows 代理程式電腦的資料。 <br><br> 除了 [OMS 代理程式](log-analytics-windows-agent.md)外，Windows 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](../monitoring/monitoring-service-map-configure.md#supported-operating-systems)。 |
+| Linux 代理程式 | yes | Wire Data 會分析並收集來自 Linux 代理程式電腦的資料。<br><br> 除了 [OMS 代理程式](log-analytics-quick-collect-linux-computer.md)外，Linux 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](../monitoring/monitoring-service-map-configure.md#supported-operating-systems)。 |
 | System Center Operations Manager 管理群組 | yes | Wire Data 會在連線的 [System Center Operations Manager 管理群組](log-analytics-om-agents.md)中，分析並收集來自 Windows 和 Linux 代理程式的資料。 <br><br> System Center Operations Manager 代理程式電腦必須直接連線到 Log Analytics。 資料會從管理群組轉送至 Log Analytics。 |
 | Azure 儲存體帳戶 | 否 | Wire Data 會收集來自代理程式電腦的資料，因此沒有要從 Azure 儲存體收集的資料。 |
 

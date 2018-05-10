@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 3bbcf7b637a0f32751dc15664a1b7479e65503eb
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 909b53e65fd893575a944d714f99698c7e45387d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>最大化資料行存放區的資料列群組品質
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/23/2018
 
 當記憶體不足，無法將至少 10,000 個資料列壓縮到每個資料列群組時，SQL 資料倉儲會產生錯誤。
 
-如需有關大量載入的詳細資訊，請參閱[大量載入叢集資料行存放區索引](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index)。
+如需有關大量載入的詳細資訊，請參閱[大量載入叢集資料行存放區索引](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index)。
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>如何監視資料列群組品質
 

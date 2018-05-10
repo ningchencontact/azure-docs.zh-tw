@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
 ms.author: davidste
-ms.openlocfilehash: e46a816b9a0d66991b8f619135b657a0d51ba395
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 039e21cb3c35f8eb024ad2fca56e8a59e3182d3a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connector-version-release-history"></a>連接器版本發行歷程記錄
 適用於 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的連接器會經常更新。
@@ -32,11 +32,11 @@ ms.lasthandoff: 04/28/2018
 相關連結：
 
 * [下載最新的連接器](http://go.microsoft.com/fwlink/?LinkId=717495)
-* [一般 LDAP 連接器](active-directory-aadconnectsync-connector-genericldap.md) 參考文件
-* [一般 SQL 連接器](active-directory-aadconnectsync-connector-genericsql.md) 參考文件
+* [一般 LDAP 連接器](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 參考文件
+* [一般 SQL 連接器](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) 參考文件
 * [Web 服務連接器](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) 參考文件
-* [PowerShell 連接器](active-directory-aadconnectsync-connector-powershell.md) 參考文件
-* [Lotus Domino 連接器](active-directory-aadconnectsync-connector-domino.md) 參考文件
+* [PowerShell 連接器](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell) 參考文件
+* [Lotus Domino 連接器](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino) 參考文件
 
 
 ## <a name="118300"></a>1.1.830.0
@@ -117,7 +117,7 @@ ms.lasthandoff: 04/28/2018
 
 * 一般 SQL：
   * **情節：重新設計的實作：** "*" 功能
-  * **解決方案說明：**已變更[多重值參照屬性處理方法](active-directory-aadconnectsync-connector-genericsql.md)。
+  * **解決方案說明：**已變更[多重值參照屬性處理方法](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)。
 
 
 ### <a name="fixed-issues"></a>已修正的問題：
@@ -194,7 +194,7 @@ LDAP MA。 頁面上只會顯示來自 RootDSE 資料分割的物件。
 發行日期：2016 年 3 月
 
 **一般 SQL 連接器**  
-的 [一般 SQL 連接器](active-directory-aadconnectsync-connector-genericsql.md)初始版本。
+的 [一般 SQL 連接器](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)初始版本。
 
 **新功能︰**
 

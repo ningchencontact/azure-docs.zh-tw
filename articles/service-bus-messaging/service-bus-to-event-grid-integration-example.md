@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: fd30a8eb5149647a24ff04e099bf5c3e187459ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Azure 服務匯流排與 Azure Event Grid 的整合範例
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 03/16/2018
 
 在處理整個案例之前，至少設定一個小型測試函式，以便用來偵錯及觀察哪些事件正在流動。
 
-1. 在 Azure 入口網站中，建立新的 Azure Functions 應用程式。 若要了解 Azure Functions 的基本概念，請參閱 [Azure Functions 文件](https://docs.microsoft.com/en-us/azure/azure-functions/)。
+1. 在 Azure 入口網站中，建立新的 Azure Functions 應用程式。 若要了解 Azure Functions 的基本概念，請參閱 [Azure Functions 文件](https://docs.microsoft.com/azure/azure-functions/)。
 
 2. 在您新建立的函式中，選取加號 (+) 以新增 HTTP 觸發程序函式：
 
