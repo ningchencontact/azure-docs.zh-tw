@@ -208,7 +208,7 @@
         - name: Azure VM 代理程式
           items:
             - name: 概觀
-              href: agent-user-guide.md
+              href: ../extensions/agent-linux.md
             - name: 代理程式更新
               href: update-agent.md
         - name: 預定的維修
@@ -434,7 +434,7 @@
         - name: VMAccess 延伸模組
           href: using-vmaccess-extension.md
         - name: 限制延伸模組安裝
-          href: extensions-rmpolicy-howto-cli.md
+          href: ../extensions/extensions-rmpolicy-howto-cli.md
     - name: 移轉 VM
       items:
         - name: 移轉 AWS 和內部部署 VM

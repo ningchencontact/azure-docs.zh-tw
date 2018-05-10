@@ -206,7 +206,7 @@
         - name: 下載範本
           href: download-template.md
         - name: Azure VM 代理程式
-          href: agent-user-guide.md
+          href: ../extensions/agent-windows.md
         - name: 預定的維修
           href: maintenance-notifications.md
         - name: 減輕風險的理論式執行
@@ -369,7 +369,7 @@
         - name: 網路監看員代理程式
           href: extensions-nwa.md
         - name: 限制延伸模組安裝
-          href: extensions-rmpolicy-howto-ps.md
+          href: ../extensions/extensions-rmpolicy-howto-ps.md
     - name: 移轉 VM
       items:
         - name: 移轉 AWS 和內部部署 VM
