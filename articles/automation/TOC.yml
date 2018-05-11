@@ -115,16 +115,14 @@
           href: automation-pass-json-string.md
     - name: Hybrid Runbook Worker
       items:
-        - name: 部署混合式 Runbook 背景工作
+        - name: 混合式 Runbook 背景工作概觀
           href: automation-hybrid-runbook-worker.md
-        - name: Azure 自動化 Windows 混合式 Runbook 背景工作
+        - name: 部署 Windows 混合式 Runbook 背景工作
           href: automation-windows-hrw-install.md
-        - name: Azure 自動化 Linux 混合式 Runbook 背景工作
+        - name: 部署 Linux 混合式 Runbook 背景工作
           href: automation-linux-hrw-install.md
-        - name: 在背景工作執行 Runbook
+        - name: 在混合式 Runbook 背景工作上啟動 Runbook
           href: automation-hrw-run-runbooks.md
-        - name: 移除 Azure 自動化混合式 Runbook 背景工作角色
-          href: automation-remove-hrw.md
     - name: 部署組態管理 (DSC)
       items:
         - name: 期望狀態組態 (DSC) 概觀

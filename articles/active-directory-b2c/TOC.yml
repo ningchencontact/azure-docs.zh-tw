@@ -62,38 +62,42 @@
               href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop'
             - name: Xamarin
               href: 'https://github.com/Azure-Samples/active-directory-b2c-xamarin-native'
-        - name: Web 應用程式
-          items:
-            - name: 概觀
-              href: active-directory-b2c-reference-oidc.md
-            - name: ASP.NET
-              href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
-            - name: ASP.NET Core
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp'
-            - name: Node.js
-              href: active-directory-b2c-devquickstarts-web-node.md
-        - name: 單一頁面應用程式
-          items:
-            - name: 概觀
-              href: active-directory-b2c-reference-spa.md
-            - name: 使用 MSAL 的 JavaScript
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp'
-            - name: 使用 Hello 的 JavaScript
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi'
-        - name: Web API
-          items:
-            - name: ASP.NET
-              href: active-directory-b2c-devquickstarts-api-dotnet.md
-            - name: ASP.NET Core
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi'
-            - name: Node.js
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi'
-            - name: 呼叫 .NET Web API
-              href: active-directory-b2c-devquickstarts-web-api-dotnet.md
+        - name: 資源擁有者密碼認證
+          href: configure-ropc.md
+    - name: Web 應用程式
+      items:
+        - name: 概觀
+          href: active-directory-b2c-reference-oidc.md
+        - name: ASP.NET
+          href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
+        - name: ASP.NET Core
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp'
+        - name: Node.js
+          href: active-directory-b2c-devquickstarts-web-node.md
+    - name: 單一頁面應用程式
+      items:
+        - name: 概觀
+          href: active-directory-b2c-reference-spa.md
+        - name: 使用 MSAL 的 JavaScript
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp'
+        - name: 使用 Hello 的 JavaScript
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi'
+    - name: Web API
+      items:
+        - name: ASP.NET
+          href: active-directory-b2c-devquickstarts-api-dotnet.md
+        - name: ASP.NET Core
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi'
+        - name: Node.js
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi'
+        - name: 呼叫 .NET Web API
+          href: active-directory-b2c-devquickstarts-web-api-dotnet.md
     - name: 手冊
       items:
         - name: 設定識別提供者
           items:
+            - name: 自訂 OpenID Connect
+              href: active-directory-b2c-setup-oidc-idp.md
             - name: Microsoft 帳戶
               href: active-directory-b2c-setup-msa-app.md
             - name: Facebook
@@ -102,7 +106,7 @@
               href: active-directory-b2c-setup-goog-app.md
             - name: Amazon
               href: active-directory-b2c-setup-amzn-app.md
-            - name: LinkdIn
+            - name: LinkedIn
               href: active-directory-b2c-setup-li-app.md
             - name: Twitter
               href: active-directory-b2c-setup-twitter-app.md
@@ -112,10 +116,6 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: 微信
               href: active-directory-b2c-setup-wechat-app.md
-            - name: Azure AD (單一租用戶)
-              href: active-directory-b2c-setup-oidc-azure-active-directory.md
-            - name: 自訂 OpenID Connect
-              href: active-directory-b2c-setup-oidc-idp.md
         - name: 設定自助密碼重設
           href: active-directory-b2c-reference-sspr.md
         - name: 自訂 UI
@@ -141,10 +141,12 @@
           href: active-directory-b2c-reference-language-customization.md
         - name: 使用報告 API
           href: active-directory-b2c-reference-usage-reporting-api.md
-        - name: 存取稽核記錄
-          href: active-directory-b2c-reference-audit-logs.md
+        - name: 管理使用者資料
+          href: manage-user-data.md
         - name: 移轉使用者
           href: active-directory-b2c-user-migration.md
+        - name: 遷移具有社交身分識別的使用者
+          href: active-directory-b2c-social-migration.md
         - name: 使用 b2clogin.com
           href: b2clogin.md
         - name: 使用年齡控制
@@ -159,10 +161,8 @@
               href: active-directory-b2c-get-started-custom.md
             - name: 設定 OIDC/OAUTH 提供者
               items:
-                - name: Azure AD (單一租用戶)
+                - name: Azure AD
                   href: active-directory-b2c-setup-aad-custom.md
-                - name: Azure AD (多租用戶)
-                  href: active-directory-b2c-setup-commonaad-custom.md
                 - name: Microsoft 帳戶
                   href: active-directory-b2c-custom-setup-msa-idp.md
                 - name: Google+
@@ -171,6 +171,8 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
+                - name: 多租用戶
+                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: 設定 SAML 提供者
               items:
                 - name: ADFS
@@ -207,6 +209,8 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: 啟用讓我保持登入
                   href: active-directory-b2c-reference-kmsi-custom.md
+            - name: 管理使用者的存取
+              href: manage-user-access.md
             - name: 疑難排解
               items:
                 - name: 使用 Application Insights 收集記錄

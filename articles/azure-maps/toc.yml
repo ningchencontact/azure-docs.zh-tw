@@ -30,6 +30,8 @@
       href: render-coverage.md
     - name: 路由涵蓋範圍
       href: routing-coverage.md
+    - name: 搜尋類別
+      href: search-categories.md
     - name: 支援的語言
       href: supported-languages.md
 - name: 使用說明指南

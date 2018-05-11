@@ -8,6 +8,8 @@
   items:
     - name: 建立和管理 VPN 閘道
       href: vpn-gateway-tutorial-create-gateway-powershell.md
+    - name: 建立和管理 S2S VPN 連線
+      href: vpn-gateway-tutorial-vpnconnection-powershell.md
 - name: 範例
   items:
     - name: Azure PowerShell

@@ -91,6 +91,8 @@
       href: tutorial-url-route-powershell.md
     - name: 使用 Azure PowerShell 重新導向網路流量
       href: tutorial-url-redirect-powershell.md
+    - name: 建立區域備援應用程式閘道
+      href: create-zone-redundant.md
 - name: 參考
   items:
     - name: Azure CLI

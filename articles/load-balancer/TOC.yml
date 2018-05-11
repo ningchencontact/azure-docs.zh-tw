@@ -76,7 +76,6 @@
         - name: 以 IPv6 建立公用 Load Balancer (範本)
           href: load-balancer-ipv6-internet-template.md
     - name: 設定內部 Load Balancer
-      href: load-balancer-get-started-ilb-arm-portal.md
       items:
         - name: 設定內部 Load Balancer (PowerShell)
           href: load-balancer-get-started-ilb-arm-ps.md

@@ -29,6 +29,8 @@
 ### [Azure CLI 2.0](tutorial-autoscale-cli.md)
 ### [Azure PowerShell](tutorial-autoscale-powershell.md)
 ### [範本](tutorial-autoscale-template.md)
+## 使用自訂 Packer 映像將應用程式部署至 Azure 虛擬機器擴展集
+### [Azure CLI 2.0](https://docs.microsoft.com/learn/deploy-custom-vmss-app/index)
 
 # 範例
 ## [Azure CLI 2.0](cli-samples.md)

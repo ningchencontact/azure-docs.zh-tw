@@ -1,0 +1,95 @@
+- name: VM 延伸模組文件
+  href: ../index.md
+- name: 概觀
+  items:
+    - name: 關於 Azure 擴充功能
+      href: overview.md
+    - name: Linux VM 代理程式
+      href: agent-linux.md
+    - name: Windows VM 代理程式
+      href: agent-windows.md
+- name: 快速入門
+  expanded: true
+  items:
+    - name: 使用自訂指令碼擴充功能
+      href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+      maintainContext: true
+- name: 概念
+  items:
+    - name: Linux
+      href: features-linux.md
+    - name: Windows
+      href: features-windows.md
+- name: 使用說明指南
+  items:
+    - name: 自訂指令碼擴充功能
+      items:
+        - name: Linux - 第 2 版
+          href: custom-script-linux.md
+        - name: Linux - 第 1 版 (OSTC)
+          href: custom-script-linuxOstc.md
+        - name: Windows
+          href: custom-script-windows.md
+    - name: OMS 擴充功能
+      items:
+        - name: Linux
+          href: oms-linux.md
+        - name: Windows
+          href: oms-windows.md
+    - name: 診斷擴充功能
+      items:
+        - name: Linux
+          href: diagnostics-linux.md
+        - name: Windows
+          href: diagnostics-windows.md
+        - name: 使用範本
+          href: diagnostics-template.md
+    - name: 網路監看員代理程式
+      items:
+        - name: Linux
+          href: network-watcher-linux.md
+        - name: Windows
+          href: network-watcher-windows.md
+    - name: PowerShell DSC 擴充功能
+      href: dsc-overview.md
+      items:
+        - name: DSC 和 Windows
+          href: dsc-windows.md
+        - name: 處理認證
+          href: dsc-credentials.md
+        - name: 使用範本
+          href: dsc-template.md
+    - name: 適用於 Windows 的 IaaS 反惡意程式碼軟體
+      href: iaas-antimalware-windows.md
+    - name: Key Vault 擴充功能
+      href: key-vault-windows.md
+    - name: VM Snapshot 擴充功能
+      items:
+        - name: Linux
+          href: vmsnapshot-linux.md
+        - name: Windows
+          href: vmsnapshot-windows.md
+    - name: 第三方擴充功能
+      items:
+        - name: Stackify Retrace
+          href: stackify-retrace-linux.md
+        - name: Symantec
+          href: symantec.md
+    - name: 已取代的擴充功能
+      items:
+        - name: 記錄收集器擴充功能
+          href: log-collector.md
+        - name: Trend Micro Deep Security
+          href: trend.md
+    - name: 限制延伸模組安裝
+      items:
+        - name: Linux
+          href: extensions-rmpolicy-howto-cli.md
+        - name: Windows
+          href: extensions-rmpolicy-howto-ps.md
+    - name: 更新 Linux 代理程式
+      href: update-linux-agent.md
+    - name: 匯出擴充功能
+      href: export-templates.md
+    - name: 疑難排解
+      href: troubleshoot.md

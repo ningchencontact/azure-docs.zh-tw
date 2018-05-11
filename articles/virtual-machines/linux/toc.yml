@@ -51,6 +51,8 @@
       href: tutorial-mean-stack.md
     - name: 16 - 使用 SSL 保護網路伺服器
       href: tutorial-secure-web-server.md
+    - name: 將 Packer 映像和應用程式部署至擴展集
+      href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: 範例
   items:
     - name: Azure CLI

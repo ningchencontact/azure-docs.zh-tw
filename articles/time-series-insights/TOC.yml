@@ -7,10 +7,13 @@
     - name: 關於時間序列深入解析
       href: time-series-insights-overview.md
 - name: 快速入門
-  expanded: true
   items:
     - name: 探索時間序列深入解析
       href: time-series-quickstart.md
+- name: 教學課程
+  items:
+    - name: 探索 TSI JavaScript 用戶端程式庫
+      href: tutorial-explore-js-client-lib.md
 - name: 概念
   items:
     - name: 規劃您的環境

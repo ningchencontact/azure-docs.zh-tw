@@ -406,19 +406,19 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: 資源
   items:
-    - name: 常見問題集
-      href: frequently-asked-questions.md
-    - name: Azure 藍圖
-      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
-    - name: 價格
-      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
-    - name: MSDN 論壇
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
-    - name: 堆疊溢位
+    - name: 提出問題 - MSDN 論壇
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
+    - name: 提出問題 - Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: 要求功能
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: 區域可用性
-      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 常見問題集
+      href: frequently-asked-questions.md
+    - name: 藍圖
+      href: 'https://azure.microsoft.com/en-us/roadmap/?tag=data-factory'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+    - name: 依區域的可用性
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: 支援選項
       href: 'https://azure.microsoft.com/support/options/'

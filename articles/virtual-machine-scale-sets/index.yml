@@ -12,11 +12,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/14/2018
   ms.author: carolz
-  ms.openlocfilehash: ea8437adf7224c4605f31ccdea281669b89bb7c9
-  ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+  ms.openlocfilehash: d26c3a94c166a91644397e4a31aeede55ec29284
+  ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 03/28/2018
+  ms.lasthandoff: 05/10/2018
 abstract:
   description: Azure 虛擬機器擴展集可讓您建立和管理一組負載平衡且可自動調整的相同 VM。 了解如何使用快速入門、教學課程和範例來建立、設定、管理和自動調整虛擬機器擴展集。
 sections:
@@ -51,6 +51,7 @@ sections:
     - html: 透過 <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-cli">Azure CLI 2.0</a> 或 <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure PowerShell</a> 使用自訂 VM 映像
     - html: 使用 <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-cli">Azure CLI 2.0</a> 或 <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure PowerShell</a> 將應用程式部署到擴展集
     - html: 使用 <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-cli">Azure CLI 2.0</a> 或 <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure PowerShell</a> 來自動調整擴展集
+    - html: <a href="https://docs.microsoft.com/learn/deploy-custom-vmss-app/index">使用自訂 Packer 映像將應用程式部署至 Azure 虛擬機器擴展集</a>
 - title: 範例
   items:
   - type: paragraph

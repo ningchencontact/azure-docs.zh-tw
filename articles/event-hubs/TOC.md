@@ -28,6 +28,11 @@
 ### [可用性和一致性](event-hubs-availability-and-consistency.md)
 ### [自動調整輸送量單位](event-hubs-auto-inflate.md)
 ### [整合 Apache Spark 與事件中樞](event-hubs-spark-connector.md)
+## 適用於 Kafka 的事件中樞
+### [適用於 Kafka 生態系統的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
+### [建立啟用 Kafka 的事件中樞](event-hubs-create-kafka-enabled.md) 
+### [串流至適用於 Kafka 生態系統的 Azure 事件中樞](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+### [使用 Kafka MirrorMaker 搭配適用於 Kafka 生態系統的 Azure 事件中樞](event-hubs-kafka-mirror-maker-tutorial.md)
 ## 開發
 ### [使用 .NET Framework 傳送事件](event-hubs-dotnet-framework-getstarted-send.md)
 ### [使用 .NET Framework 接收事件](event-hubs-dotnet-framework-getstarted-receive-eph.md)

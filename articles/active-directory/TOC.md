@@ -167,16 +167,16 @@
 #### [混合式 Azure AD 已加入舊版 Windows 裝置](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## 管理應用程式
-### [概觀](active-directory-enable-sso-scenario.md)
-### [開始使用](active-directory-integrating-applications-getting-started.md)
+### [概觀](manage-apps/what-is-application-management.md)
+### [開始使用](manage-apps/plan-an-application-integration.md)
 ### [SaaS 應用程式整合教學課程](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-get-started.md)
-#### [建立快照集報告](cloudappdiscovery-set-up-snapshots.md)
+### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
+#### [建立快照集報告](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [設定連續報告](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [使用自訂記錄剖析器](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 
-### [透過 App Proxy 遠端存取應用程式](active-directory-application-proxy-get-started.md)
+### [透過 App Proxy 遠端存取應用程式](manage-apps/application-proxy.md)
 #### 開始使用
 ##### [啟用應用程式 Proxy](active-directory-application-proxy-enable.md)
 ##### [發佈應用程式](application-proxy-publish-azure-portal.md)

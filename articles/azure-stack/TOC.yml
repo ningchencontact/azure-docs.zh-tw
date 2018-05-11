@@ -61,8 +61,22 @@
               href: azure-stack-prepare-pki-certs.md
             - name: 驗證 PKI 憑證
               href: azure-stack-validate-pki-certs.md
-        - name: 身分識別整合
-          href: azure-stack-integrate-identity.md
+            - name: 修復 PKI 憑證
+              href: azure-stack-remediate-certs.md
+            - name: 部署資源
+              items:
+                - name: Start-AzsReadiness Cmdlet 參考
+                  href: azure-stack-azsreadiness-cmdlet.md
+                - name: 檢視整備報表
+                  href: azure-stack-validation-report.md
+            - name: 身分識別整合
+              items:
+                - name: 選擇身分識別提供者
+                  href: azure-stack-integrate-identity.md
+                - name: 驗證 Azure 身分識別
+                  href: azure-stack-validate-identity.md
+        - name: 驗證 Azure 註冊
+          href: azure-stack-validate-registration.md
         - name: 外部監視
           href: azure-stack-integrate-monitor.md
         - name: 安全性整合
@@ -123,7 +137,7 @@
               href: azure-stack-manage-storage-accounts.md
             - name: 管理儲存體容量
               href: azure-stack-manage-storage-shares.md
-            - name: 管理 Azure Stack 的實際儲存體容量
+            - name: 管理實際記憶體容量
               href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: 更換硬體
           items:
@@ -253,6 +267,10 @@
               href: azure-stack-compute-add-scalesets.md
             - name: 提供 Linux 虛擬機器
               href: azure-stack-linux.md
+            - name: 新增 Red Hat 虛擬機器
+              href: azure-stack-redhat-create-upload-vhd.md
+            - name: 提供 Kubernetes 叢集
+              href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: 使用量與計費
           items:
             - name: 概觀

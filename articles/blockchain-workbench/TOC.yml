@@ -24,23 +24,27 @@
       href: blockchain-workbench-use-API.md
     - name: 針對應用程式進行疑難排解
       href: blockchain-workbench-troubleshooting.md
-    - name: 取得 Workbench DB 詳細資料
-      href: blockchain-workbench-getdb-details.md
-    - name: 設定 Workbench SQL DB 防火牆
-      href: blockchain-workbench-database-firewall.md
-    - name: 在 Excel 中使用 Workbench 資料
-      href: blockchain-workbench-data-excel.md
-    - name: 在 Power BI 中使用 Workbench 資料
-      href: blockchain-workbench-data-powerbi.md
-    - name: 在 SQL Management Studio 中使用 Workbench 資料
-      href: blockchain-workbench-data-sql-management-studio.md
+    - name: 使用 Workbench 資料
+      items:
+        - name: 設定 DB 防火牆
+          href: blockchain-workbench-database-firewall.md
+        - name: 取得 DB 詳細資料
+          href: blockchain-workbench-getdb-details.md
+        - name: 在 Excel 中使用資料
+          href: blockchain-workbench-data-excel.md
+        - name: 在 Power BI 中使用資料
+          href: blockchain-workbench-data-powerbi.md
+        - name: 在 SQL Management Studio 中使用資料
+          href: blockchain-workbench-data-sql-management-studio.md
 - name: 參考
   items:
+    - name: 程式碼範例
+      href: 'https://github.com/Azure-Samples/blockchain'
     - name: 組態
       href: blockchain-workbench-configuration-overview.md
     - name: 資料庫檢視
       href: blockchain-workbench-database-views.md
-    - name: REST API
-      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
     - name: 傳訊 API
       href: blockchain-workbench-messages-overview.md
+    - name: REST API
+      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
