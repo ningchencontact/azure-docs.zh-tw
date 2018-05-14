@@ -34,6 +34,8 @@
       href: search-categories.md
     - name: 支援的語言
       href: supported-languages.md
+    - name: 耗用模型
+      href: consumption-model.md
 - name: 使用說明指南
   items:
     - name: 管理地圖服務帳戶
@@ -115,7 +117,7 @@
     - name: 服務更新
       href: 'https://azure.microsoft.com/updates'
     - name: 堆疊溢位
-      href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
+      href: 'http://stackoverflow.com/questions/tagged/azure-maps'
     - name: 技術案例研究
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: 影片
