@@ -14,10 +14,10 @@
   items:
     - name: 部署 Workbench
       href: blockchain-workbench-deploy.md
-    - name: 管理 Workbench 使用者
-      href: blockchain-workbench-manage-users.md
     - name: 建立區塊鏈應用程式
       href: blockchain-workbench-create-app.md
+    - name: 管理 Workbench 使用者
+      href: blockchain-workbench-manage-users.md
     - name: 使用區塊鏈應用程式
       href: blockchain-workbench-use.md
     - name: 使用 Workbench API

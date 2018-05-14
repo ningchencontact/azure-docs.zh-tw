@@ -111,8 +111,6 @@
               href: azure-stack-powershell-download.md
             - name: 設定 PowerShell - 雲端運算子
               href: azure-stack-powershell-configure-admin.md
-            - name: 透過 PowerShell 執行
-              href: azure-stack-powershell-configure-quickstart.md
         - name: 存取具有特殊權限的端點
           href: azure-stack-privileged-endpoint.md
         - name: 管理更新
