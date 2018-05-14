@@ -178,11 +178,11 @@
 
 ### [透過 App Proxy 遠端存取應用程式](manage-apps/application-proxy.md)
 #### 開始使用
-##### [啟用應用程式 Proxy](active-directory-application-proxy-enable.md)
-##### [發佈應用程式](application-proxy-publish-azure-portal.md)
-##### [自訂網域](active-directory-application-proxy-custom-domains.md)
-#### [單一登入](application-proxy-sso-overview.md)
-##### [搭配 KCD 的 SSO](active-directory-application-proxy-sso-using-kcd.md)
+##### [啟用應用程式 Proxy](manage-apps/application-proxy-enable.md)
+##### [發佈應用程式](manage-apps/application-proxy-publish-azure-portal.md)
+##### [自訂網域](manage-apps/application-proxy-configure-custom-domain.md)
+#### [單一登入](manage-apps/application-proxy-single-sign-on.md)
+##### [搭配 KCD 的 SSO](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 ##### [搭配標頭的 SSO](application-proxy-ping-access.md)
 ##### [搭配密碼保存庫的 SSO](application-proxy-sso-azure-portal.md)
 #### 概念

@@ -73,7 +73,7 @@ Azure 容器執行個體可提供隨選高載的隔離環境，以便執行容�
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
-讓 SSH 工作階段和通道保持執行狀態，並且在瀏覽器中巡覽至 http://localhost:8080。 將初始管理員密碼貼到欄位中，如下列影像所示。 完成時選取 [繼續]。
+讓 SSH 工作階段和通道保持執行狀態，並且在瀏覽器中巡覽至 http://localhost:8080 。 將初始管理員密碼貼到欄位中，如下列影像所示。 完成時選取 [繼續]。
 
 ![將 Jenkins 解除鎖定](./media/container-instances-jenkins/jenkins-portal-05.png)
 
