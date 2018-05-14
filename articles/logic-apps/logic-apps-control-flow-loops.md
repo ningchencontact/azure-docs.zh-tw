@@ -26,7 +26,7 @@ ms.lasthandoff: 04/28/2018
 若要逐一查看邏輯應用程式中的陣列，您可以使用 ["Foreach" 迴圈](#foreach-loop)或[循序 "Foreach" 迴圈](#sequential-foreach-loop)。 標準 "Foreach" 迴圈中的循環會平行執行，而循序 "Foreach" 迴圈中的循環為每一次執行一個。 如需 "Foreach" 迴圈在單一邏輯應用程式中可處理的陣列項目數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。 
 
 > [!TIP] 
-> 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 **SplitOn** 觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」[。 
+> 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 [**SplitOn** 觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」。 
   
 若要重複動作直到條件符合或某些狀態改變，請使用 ["Until" 迴圈](#until-loop)。 邏輯應用程式會先執行迴圈內所有動作，然後將檢查條件當作最後一個步驟。 如果符合條件，則迴圈會停止。 否則，迴圈會重複。 如需單一邏輯應用程式中可執行的 "Until" 迴圈數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。 
 
