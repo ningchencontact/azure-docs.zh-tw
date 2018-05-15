@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: nitinme
-ms.openlocfilehash: 6ef0b1ce589bd19693d45a9e4f579ef260530a40
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 63bf7d5a0ad988ff7a6b498b4e91e90de97b507b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 叢集對 Azure SQL 資料庫讀取及寫入資料
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/18/2018
 
     按 **SHIFT + ENTER** 以執行程式碼單元。  
 
-2. 下列程式碼片段會建置可傳遞至 Spark 資料框架 API 的 JDBC URL，並建立用來存放參數的 `Properties` 物件。 請在程式碼單元中貼上此程式碼片段，然後按 **SHIFT + ENTER** 加以執行。
+2. 使用下列程式碼片段來建置可傳遞至 Spark 資料框架 API 的 JDBC URL，並建立用來存放參數的 `Properties` 物件。 請在程式碼單元中貼上此程式碼片段，然後按 **SHIFT + ENTER** 加以執行。
 
        import java.util.Properties
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 04/18/2018
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")         
 
-3. 下列程式碼片段會使用您 Azure SQL 資料庫中的資料表所包含的資料，建立資料框架。 在此程式碼片段中，我們使用可納入 **AdventureWorksLT** 資料庫中的 **SalesLT.Address** 資料表。 請在程式碼單元中貼上此程式碼片段，然後按 **SHIFT + ENTER** 加以執行。
+3. 使用下列程式碼片段，利用您 Azure SQL Database 中的資料表所包含的資料來建立資料框架。 在此程式碼片段中，我們使用可納入 **AdventureWorksLT** 資料庫中的 **SalesLT.Address** 資料表。 請在程式碼單元中貼上此程式碼片段，然後按 **SHIFT + ENTER** 加以執行。
 
        val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 04/18/2018
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")
 
-3. 下列程式碼片段會對 HVAC.csv 中的資料擷取結構描述，並使用該結構描述從資料框架 `readDf` 中的 CSV 載入資料。 請在程式碼單元中貼上此程式碼片段，然後按 **SHIFT + ENTER** 加以執行。
+3. 使用下列程式碼片段來擷取 HVAC.csv 中資料的結構描述，並使用該結構描述，從資料框架 `readDf` 中的 CSV 載入資料。 請在程式碼單元中貼上此程式碼片段，然後按 **SHIFT + ENTER** 加以執行。
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readDf = spark.read.format("csv").schema(userSchema).load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -165,6 +165,10 @@ ms.lasthandoff: 04/18/2018
 
     ![使用 SSMS 連線至 SQL 資料庫](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "使用 SSMS 連線至 SQL 資料庫")
 
+7. 在 SSMS 中執行查詢，以查看資料表中的資料行。
+
+        SELECT * from hvactable
+
 ## <a name="stream-data-into-azure-sql-database"></a>將資料串流至 Azure SQL 資料庫
 
 在本節中，我們會將資料串流至您在上一節建立於 Azure SQL 資料庫中的 **hvactable**。
@@ -184,7 +188,7 @@ ms.lasthandoff: 04/18/2018
 3. 我們要將 **HVAC.csv** 中的資料串流至 hvactable。 HVAC.csv 檔案可從叢集上的 /HdiSamples/HdiSamples/SensorSampleData/HVAC/ 取得。 在下列程式碼片段中，我們會先取得要串流處理之資料的結構描述。 接著，我們會使用該結構描述建立串流資料框架。 請在程式碼單元中貼上此程式碼片段，然後按 **SHIFT + ENTER** 加以執行。
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
-       val readStreamDf = spark.readStream.schema(userSchema1).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
+       val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
        readStreamDf.printSchema
 
 4. 輸出會顯示 **HVAC.csv** 的結構描述。 **Hvactable** 也具有相同的結構描述。 輸出會列出資料表中的資料行。

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c1c3191ba198b56386f813b6f9d2588b895633c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 50f95dc1af334468db25bce68f2ca00e0965a28b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>IoT 中樞的裝置到雲端及雲端到裝置傳訊
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/28/2018
 
 IoT 中樞傳訊功能的核心屬性是訊息的可靠性和持久性。 這些屬性可在裝置端上恢復間歇性連線，以及在雲端恢復事件處理的負載尖峰。 IoT 中樞會針對裝置到雲端和雲端到裝置訊息，實作「至少一次」  傳遞保證。
 
-如需 IoT 中樞功能的簡介，請參閱 [Azure 和物聯網][lnk-azure-iot]及 [Azure IoT 中樞服務的概觀][lnk-iot-hub-overview]等文章。
+如需 IoT 中樞功能的簡介，請參閱 [Azure IoT 中樞服務的概觀][lnk-iot-hub-overview]。
 
 ## <a name="when-to-use-iot-hub-messaging"></a>使用 IoT 中樞傳訊時
 

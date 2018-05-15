@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: a84393c5c53b8f8e4a8b688a462f433b2d611b0e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 50ce34cb3289e346e7b637d917730dac8e8a097b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>搖一搖以獲取推文 -- 使用 Azure Functions 來取出 Twitter 訊息！
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/03/2018
 
 有效的 Azure 訂用帳戶。 如果沒有，您可以透過下列這些方法之一來註冊：
 
-* 啟動 [30 天免費試用 Microsoft Azure 帳戶](https://azure.microsoft.com/en-us/free/)
+* 啟動 [30 天免費試用 Microsoft Azure 帳戶](https://azure.microsoft.com/free/)
 * 如果您是 MSDN 或 Visual Studio 訂閱者，請認領您的 [Azure 點數](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
 ## <a name="open-the-project-folder"></a>開啟專案資料夾
@@ -44,10 +44,6 @@ ms.lasthandoff: 04/03/2018
 - 啟動 VS Code。
 - 將 DevKit 連接到您的電腦。
 
-VS Code 會自動尋找您的 DevKit，並顯示簡介頁面：
-
-![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_start.png)
-
 > [!NOTE]
 > 當您啟動 VS Code 時，您可能會收到錯誤訊息，指出找不到 Arduino IDE 或相關的面板套件。 如果發生這個錯誤，請關閉 VS Code，然後再次啟動 Arduino IDE。 VS Code 現在應該就會正確找到 Arduino IDE 路徑。
 
@@ -57,7 +53,8 @@ VS Code 會自動尋找您的 DevKit，並顯示簡介頁面：
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-如果您不小心關閉該窗格，可予以重新開啟。 請使用 `Ctrl+Shift+P` (macOS：`Cmd+Shift+P`) 來開啟命令選擇區，輸入 **Arduino**，然後尋找並選取 [Arduino: Examples] \(Arduino: 範例\)。
+> [!NOTE]
+> 您也可以從命令選擇區開啟範例。 請使用 `Ctrl+Shift+P` (macOS：`Cmd+Shift+P`) 來開啟命令選擇區，輸入 **Arduino**，然後尋找並選取 [Arduino: Examples] \(Arduino: 範例\)。
 
 ## <a name="provision-azure-services"></a>佈建 Azure 服務
 
@@ -68,7 +65,7 @@ VS Code 終端機中會有互動式命令列來引導您佈建所需的 Azure �
 ![cloud-provision](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
-> 如果頁面在嘗試登入 Azure 時於載入中狀態停止回應，請參閱此 [常見問題集步驟]({{"/docs/faq/#page-hangs-when-log-in-azure" | 
+> 如果在嘗試登入 Azure 時，頁面於載入中狀態停止回應，請參閱此[常見問題集步驟](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure)。
  
 ## <a name="modify-the-hashtag"></a>修改 #主題標籤
 
@@ -191,6 +188,6 @@ Arduino 草圖會將事件傳送至 Azure IoT 中樞。 此事件會觸發 Azure
 
 ## <a name="next-steps"></a>後續步驟
 
-現在您已了解如何將 DevKit 裝置連線到 Azure IoT 套件並取出推文，以下是建議的後續步驟：
+您已了解如何將 DevKit 裝置連線至 Azure IoT 遠端監視解決方案加速器並擷取推文，以下是建議的後續步驟：
 
-* [Azure IoT 套件概觀](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IoT 遠端監視解決方案加速器概觀](https://docs.microsoft.com/azure/iot-suite/)

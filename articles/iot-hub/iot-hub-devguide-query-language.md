@@ -1,6 +1,6 @@
 ---
 title: 了解 Azure IoT 中樞查詢語言 | Microsoft Docs
-description: 開發人員指南 - 說明類似 SQL 的 IoT 中樞查詢語言，用於從 IoT 中樞擷取裝置對應項和作業的相關資訊。
+description: 開發人員指南 - 說明類似 SQL 的 IoT 中樞查詢語言，用於從 IoT 中樞擷取裝置/模組對應項和作業的相關資訊。
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>裝置對應項、作業和訊息路由的 IoT 中樞查詢語言
+# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>裝置與模組對應項、作業和訊息路由的 IoT 中樞查詢語言
 
 IoT 中樞提供功能強大、類似 SQL 的語言，來擷取有關[裝置對應項][lnk-twins]、[作業][lnk-jobs]和[訊息路由][lnk-devguide-messaging-routes]的資訊。 本文提供︰
 
@@ -29,9 +29,9 @@ IoT 中樞提供功能強大、類似 SQL 的語言，來擷取有關[裝置對�
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="device-twin-queries"></a>裝置對應項查詢
-[裝置對應項][lnk-twins]可以包含標籤和屬性形式的任意 JSON 物件。 IoT 中樞可讓您以包含所有裝置對應項資訊的單一 JSON 文件形式查詢裝置對應項。
-比方說，假設您的 IoT 中樞裝置對應項有下列結構︰
+## <a name="device-and-module-twin-queries"></a>裝置與模組對應項查詢
+[裝置對應項][lnk-twins]與模組對應項可以包含標籤和屬性形式的任意 JSON 物件。 IoT 中樞可讓您以包含所有對應項資訊的單一 JSON 文件形式查詢裝置對應項與模組對應項。
+例如，假設 IoT 中樞裝置對應項有下列結構 (模組對應項很類似，只是具有額外的 moduleId)：
 
 ```json
 {
@@ -82,6 +82,8 @@ IoT 中樞提供功能強大、類似 SQL 的語言，來擷取有關[裝置對�
     }
 }
 ```
+
+### <a name="device-twin-queries"></a>裝置對應項查詢
 
 IoT 中樞可以將裝置對應項公開為稱為**裝置**的文件集合。
 因此，下列查詢會擷取整組裝置對應項︰
@@ -158,6 +160,26 @@ GROUP BY properties.reported.telemetryConfig.status
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+```
+
+### <a name="module-twin-queries"></a>模組對應項查詢
+
+查詢模組對應項和查詢裝置對應項很類似，但使用不同的集合/命名空間，也就是不用您可以查詢的 “from devices”
+
+```sql
+SELECT * FROM devices.modules
+```
+
+我們不允許 devices 與 devices.modules 集合之間的聯結。 如果您想要跨裝置查詢模組對應項，可以根據標籤來執行。 此查詢會傳回所有裝置上具有 scanning 狀態的所有模組對應項：
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning'
+```
+
+此查詢會傳回具有 scanning 狀態的所有模組對應項，但僅以指定的裝置子集為限。
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>C# 範例

@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中樞術語詞彙 | Microsoft Docs"
-description: "開發人員指南 - Azure IoT 中樞相關的常用術語詞彙表。"
+title: Azure IoT 中樞術語詞彙 | Microsoft Docs
+description: 開發人員指南 - Azure IoT 中樞相關的常用術語詞彙表。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,17 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 7576077ede7c1c18bcba3853b3b4a2ee0b561968
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aae72618da42db53304075506b4969945ff0165f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中樞術語詞彙
 本文會列出 IoT 中樞文章中使用的一些常見術語。
 
 ## <a name="advanced-message-queueing-protocol"></a>進階訊息佇列通訊協定
 [進階訊息佇列通訊協定 (AMQP)](https://www.amqp.org/) 是 [IoT 中樞](#iot-hub)支援用來與裝置通訊的其中一種傳訊通訊協定。 如需 IoT 中樞支援的傳訊通訊協定詳細資訊，請參閱[使用 IoT 中樞傳送及接收訊息](iot-hub-devguide-messaging.md)。
+
+## <a name="automatic-device-management"></a>自動裝置管理
+Azure IoT 中樞中的自動裝置管理可將管理大批裝置生命週期全程的許多重複且複雜的工作自動化。 使用自動裝置管理時，您可以根據其屬性以一組裝置為目標，定義所需的設定，並讓 IoT 中樞更新進入範圍的裝置。  包含[自動裝置設定](iot-hub-auto-device-config.md)和 [IoT Edge 自動部署](../iot-edge/how-to-deploy-monitor.md)。
+
+## <a name="automatic-device-configuration"></a>自動裝置設定
+解決方案後端可以使用[自動裝置設定](iot-hub-auto-device-config.md)來將所需屬性指派給一組[裝置對應項](#device-twin)，以及使用系統計量與自訂計量來報告狀態。 
 
 ## <a name="azure-cli"></a>Azure CLI
 [Azure CLI](../cli-install-nodejs.md) 是跨平台、開放原始碼的命令介面式命令工具，用於建立和管理 Microsoft Azure 中的資源。 這個版本的 CLI 是使用 Node.js 來實作。
@@ -65,6 +71,9 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="cloud-to-device"></a>雲端到裝置
 意指從 IoT 中樞傳送到連線裝置的訊息。 這些訊息通常是指示裝置採取行動的命令。 如需詳細資訊，請參閱[使用 IoT 中樞傳送及接收訊息](iot-hub-devguide-messaging.md)。
+
+## <a name="configuration"></a>組態
+在[自動裝置設定](iot-hub-auto-device-config.md)的內容中，IoT 中樞內的設定會為一組裝置對應項定義所需的設定，並提供一組計量來報告狀態與進度。
 
 ## <a name="connection-string"></a>連接字串
 您可以在應用程式程式碼中使用連接字串，以封裝連接至端點所需的資訊。 連接字串通常包含端點位址和安全性資訊，但連接字串的格式會因服務而不同。 IoT 中樞服務有兩種相關的連接字串︰
@@ -110,6 +119,9 @@ ms.lasthandoff: 02/01/2018
 ## <a name="device-identity"></a>裝置身分識別
 裝置識別身分是指派給每個在[身分識別登錄](#identity-registry)中註冊之裝置的唯一識別碼。
 
+## <a name="module-identity"></a>模組身分識別
+模組身分識別是針對屬於裝置的每個模組所指派的唯一識別碼。 模組身分識別也會登錄在[身分識別登錄](#identity-registry)中。
+
 ## <a name="device-management"></a>裝置管理
 裝置管理涵蓋與管理 IoT 方案中的裝置相關聯的完整生命週期，包括規劃、佈建、設定、監視及淘汰。
 
@@ -125,14 +137,17 @@ ms.lasthandoff: 02/01/2018
 ## <a name="device-twin"></a>裝置對應項
 [裝置對應項](iot-hub-devguide-device-twins.md)是存放裝置狀態資訊 (例如中繼資料、組態和狀況) 的 JSON 文件。 [IoT 中樞](#iot-hub)會為您在 IoT 中樞佈建的每個裝置保存裝置對應項。 裝置對應項可讓您同步處理裝置與解決方案後端之間的[裝置狀況](#device-condition)和組態。 您可以查詢裝置對應項，以找出特定裝置和查詢長時間執行作業的狀態。
 
-## <a name="device-twin-queries"></a>裝置對應項查詢
-[裝置對應項查詢](iot-hub-devguide-query-language.md)使用類似 SQL 的 IoT 中樞查詢語言，從裝置對應項擷取資訊。 您可以使用相同的 IoT 中樞查詢語言來擷取在 IoT 中樞執行之[作業](#job)的相關資訊。
+## <a name="module-twin"></a>模組對應項
+和裝置對應項類似，模組對應項是存放模組狀態資訊 (例如中繼資料、組態和狀況) 的 JSON 文件。 IoT 中樞會為您在 IoT 中樞的裝置身分識別下所佈建的每個模組身分識別，都存留一個模組對應項。 模組對應項可讓您同步處理模組與解決方案後端之間的模組條件和設定。 您可以查詢模組對應項，以找出特定模組和查詢長時間執行作業的狀態。
+
+## <a name="twin-queries"></a>對應項查詢
+[裝置與模組對應項查詢](iot-hub-devguide-query-language.md)使用類似 SQL 的 IoT 中樞查詢語言，從裝置對應項或模組對應項擷取資訊。 您可以使用相同的 IoT 中樞查詢語言來擷取在 IoT 中樞執行之[作業](#job)的相關資訊。
 
 ## <a name="device-twin-rest-api"></a>裝置對應項 REST API
 您可以從解決方案後端使用[裝置對應項 REST API](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) 來管理您的裝置對應項。 該 API 可讓您擷取及更新[裝置對應項](#device-twin)屬性，及叫用[直接方法](#direct-method)。 您通常應該使用如 IoT 中樞教學課程中所示的其中一個較高層級的[服務 SDK](#azure-iot-service-sdks)。
 
-## <a name="device-twin-synchronization"></a>裝置對應項同步處理
-裝置對應項同步處理會使用裝置對應項中的[所需屬性](#desired-properties)來設定您的裝置，並從裝置擷取[報告屬性](#reported-properties)以儲存在裝置對應項中。
+## <a name="twin-synchronization"></a>對應項同步處理
+對應項同步處理會使用裝置對應項或模組對應項中的[所需屬性](#desired-properties)來設定您的裝置或模組，並從其中擷取[報告屬性](#reported-properties)以儲存在對應項中。
 
 ## <a name="direct-method"></a>直接方法
 [直接方法](iot-hub-devguide-direct-methods.md)可讓您藉由叫用 IoT 中樞上的 API，觸發方法以在裝置上執行。
@@ -175,8 +190,8 @@ IoT 中樞是一項完全受控的 Azure 服務，可在數百萬個裝置和一
 ## <a name="iot-hub-resource-provider-rest-api"></a>IoT 中樞資源提供者 REST API
 您可以使用 [IoT 中樞資源提供者 REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)，管理 [Azure 訂用帳戶](#subscription)中執行建立、更新及刪除中樞等作業的 IoT 中樞。
 
-## <a name="iot-suite"></a>IoT 套件
-Azure IoT 套件會使用預先設定的解決方案將多項 Azure 服務封裝在一起。 這些預先設定的解決方案可讓您快速開始使用常見 IoT 案例的端對端實作。 如需詳細資訊，請參閱[什麼是 Azure IoT 套件？](../iot-suite/iot-suite-overview.md)
+## <a name="iot-solution-accelerators"></a>IoT 解決方案加速器
+Azure IoT 解決方案加速器將多個 Azure 服務封裝在一起成為解決方案。 這些解決方案可讓您快速開始使用常見 IoT 案例的端對端實作。 如需詳細資訊，請參閱[什麼是 Azure IoT 解決方案加速器？](../iot-suite/iot-suite-overview.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0 的 IoT 擴充功能
 [Azure CLI 2.0 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension)是跨平台的命令列工具。 此工具可讓您管理[身分識別登錄](#identity-registry)中的裝置、傳送及接收裝置的訊息和檔案，以及監視 IoT 中樞作業。

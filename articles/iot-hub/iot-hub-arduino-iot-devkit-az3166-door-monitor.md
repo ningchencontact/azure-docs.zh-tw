@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: ba02e877fe7152d759085e3d25090459cd2459fc
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d25948aeab4170e67133a8e7f538089fca28407d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="door-monitor"></a>門戶監視          
 
@@ -44,7 +44,7 @@ MXChip IoT DevKit 包含內建的磁性感應器。 在此專案中，您會偵�
 
 有效的 Azure 訂用帳戶。 如果沒有，您可以透過下列方法之一來註冊：
 
-* 啟動 [30 天免費試用 Microsoft Azure 帳戶](https://azure.microsoft.com/en-us/free/)。
+* 啟動 [30 天免費試用 Microsoft Azure 帳戶](https://azure.microsoft.com/free/)。
 * 如果您是 MSDN 或 Visual Studio 訂閱者，請認領您的 [Azure 點數](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
 ## <a name="deploy-sendgrid-service-in-azure"></a>在 Azure 中部署 SendGrid 服務
@@ -69,7 +69,7 @@ MXChip IoT DevKit 包含內建的磁性感應器。 在此專案中，您會偵�
 
 完成註冊表單：
 
-  * **資源群組**：建立用以裝載 SendGrid 服務的資源群組，或使用現有資源群組。 請參閱[使用資源群組來管理您的 Azure 資源](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal)。
+  * **資源群組**：建立用以裝載 SendGrid 服務的資源群組，或使用現有資源群組。 請參閱[使用資源群組來管理您的 Azure 資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)。
 
   * **名稱**：SendGrid 服務的名稱。 請選擇與您可能有的其他服務不同的唯一名稱。
 
@@ -111,7 +111,7 @@ MXChip IoT DevKit 包含內建的磁性感應器。 在此專案中，您會偵�
 
 完成註冊表單：
 
-  * **資源群組**：建立用以裝載 SendGrid 服務的資源群組，或使用現有資源群組。 請參閱[使用資源群組來管理您的 Azure 資源](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal)。
+  * **資源群組**：建立用以裝載 SendGrid 服務的資源群組，或使用現有資源群組。 請參閱[使用資源群組來管理您的 Azure 資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)。
 
   * **IoT 中樞名稱**：IoT 中樞的名稱。 請選擇與您可能有的其他服務不同的唯一名稱。
 
@@ -132,10 +132,6 @@ MXChip IoT DevKit 包含內建的磁性感應器。 在此專案中，您會偵�
 - 啟動 VS Code。
 - 將 DevKit 連接到您的電腦。
 
-VS Code 會自動偵測您的 DevKit，並開啟簡介頁面：
-
-![VSCode](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-start.png)
-
 > [!NOTE]
 > 當您啟動 VS Code 時，您可能會收到錯誤訊息，指出找不到 Arduino IDE 或相關面板套件。 如果收到此錯誤，請關閉 VS Code，再重新啟動 Arduino IDE，VS Code 應該會正確找出 Arduino IDE 路徑。
 
@@ -145,7 +141,8 @@ VS Code 會自動偵測您的 DevKit，並開啟簡介頁面：
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-如果您不小心關閉該窗格，可予以重新開啟。 請使用 `Ctrl+Shift+P` (macOS：`Cmd+Shift+P`) 來開啟命令選擇區，輸入 **Arduino**，然後尋找並選取 [Arduino: Examples] \(Arduino: 範例\)。
+> [!NOTE]
+> 您也可以從命令選擇區開啟範例。 請使用 `Ctrl+Shift+P` (macOS：`Cmd+Shift+P`) 來開啟命令選擇區，輸入 **Arduino**，然後尋找並選取 [Arduino: Examples] \(Arduino: 範例\)。
 
 ### <a name="provision-azure-services"></a>佈建 Azure 服務
 
@@ -213,7 +210,7 @@ DevKit 會重新開機，然後開始執行程式碼。
 
 ## <a name="next-steps"></a>後續步驟
 
-您已了解如何將 DevKit 裝置連線至 Azure IoT 套件，並使用 SendGrid 服務傳送電子郵件。 以下是建議的後續步驟：
+您已了解如何將 DevKit 裝置連線至 Azure IoT 遠端監視解決方案加速器，並使用 SendGrid 服務傳送電子郵件。 以下是建議的後續步驟：
 
-* [Azure IoT 套件概觀](https://docs.microsoft.com/azure/iot-suite/)
-* [將 MXChip IoT DevKit 裝置連線到您的 Microsoft IoT Central 應用程式](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT 遠端監視解決方案加速器概觀](https://docs.microsoft.com/azure/iot-suite/)
+* [將 MXChip IoT DevKit 裝置連線到您的 Microsoft IoT Central 應用程式](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

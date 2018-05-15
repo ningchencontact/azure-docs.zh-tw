@@ -12,17 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: b70b626ca618fbfb7cbe25a4fcbc9aae797ce157
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>檢視所有 Azure Web 應用程式資源之間的計量分析資料
 
 ![Web Apps 符號](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
+
+> [!NOTE]
+> Azure Web Apps 分析解決方案已被取代。  已安裝此解決方案的客戶可以繼續使用，但無法將 Azure Web Apps 分析加入至任何新的工作區。
+
 Azure Web Apps 分析 (預覽) 解決方案會收集所有 Azure Web 應用程式資源之間的不同計量，以深入了解 [Azure Web Apps](../app-service/app-service-web-overview.md)。 透過此解決方案，您可以分析與搜尋 Web 應用程式資源計量資料。
 
 使用此解決方案，您可以檢視：
@@ -53,7 +57,7 @@ Azure Web Apps 分析 (預覽) 解決方案會收集所有 Azure Web 應用程�
 執行下列步驟為您的工作區設定 Azure Web Apps 分析解決方案。
 
 1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) 或使用[從方案庫加入 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，啟用 Azure Web Apps 分析解決方案。
-2. [使用 PowerShell 允許 Azure 資源計量記錄至 OMS (Enable Azure resource metrics logging to OMS using PowerShell)](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell)。
+2. [使用 PowerShell 允許 Azure 資源計量記錄至 Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell)。
 
 Azure Web Apps 分析解決方案會從 Azure 收集兩組計量：
 
@@ -73,10 +77,6 @@ Azure Web Apps 分析解決方案會從 Azure 收集兩組計量：
   - 記憶體百分比
 
 如果您使用的是專用的服務方案，則只會收集 App Service 方案計量。 這不適用於免費或共用的 App Service 方案。
-
-如果您使用 OMS 入口網站新增解決方案，會看見下列圖格。 您必須[使用 PowerShell 允許 Azure 資源計量記錄至 OMS (enable Azure resource metrics logging to OMS using PowerShell)](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell)。
-
-![執行評估通知](./media/log-analytics-azure-web-apps-analytics/performing-assessment.png)
 
 在您設定解決方案後，資料應會在 15 分鐘內開始流向您的工作區。
 

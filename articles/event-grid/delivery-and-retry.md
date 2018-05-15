@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 017cb5850788bd230c4a4ba256997f2776c07bec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: db16a4ba2177e92fa4500af0969c44471004ba73
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 訊息傳遞與重試 
 
@@ -35,7 +35,7 @@ Event Grid 使用 HTTP 回應碼以確認接收事件。
 
 ### <a name="failure-codes"></a>失敗碼
 
-下列 HTTP 回應碼表示事件傳遞嘗試失敗。 Event Grid 會再次嘗試傳送事件。 
+下列 HTTP 回應碼表示事件傳遞嘗試失敗。 
 
 - 400 不正確的要求
 - 401 未經授權
@@ -46,9 +46,9 @@ Event Grid 使用 HTTP 回應碼以確認接收事件。
 - 503 服務無法使用
 - 504 閘道逾時
 
-任何其他回應碼或回應缺少回應表示失敗。 Event Grid 會重試傳遞。 
+如果事件格線收到錯誤，指出端點目前無法使用，則它會嘗試重新傳送事件。 
 
-## <a name="retry-intervals"></a>重試間隔
+## <a name="retry-intervals-and-duration"></a>重試間隔和持續時間
 
 Event Grid 針對事件傳遞使用指數輪詢重試原則。 如果您的 Webhook 沒有回應，或是傳回失敗碼，Event Grid 會於下列排程重試傳遞：
 
@@ -62,9 +62,7 @@ Event Grid 針對事件傳遞使用指數輪詢重試原則。 如果您的 Webh
 
 Event Grid 會將小型隨機加入所有重試間隔。 一個小時之後，事件傳遞會每小時重試一次。
 
-## <a name="retry-duration"></a>重試持續時間
-
-Azure Event Grid 會讓所有未在 24 小時內傳遞的事件變成過期事件。
+根據預設，事件格線會讓所有未在 24 小時內傳遞的事件變成過期事件。
 
 ## <a name="next-steps"></a>後續步驟
 

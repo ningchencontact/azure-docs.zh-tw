@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 93ef76729123c7187c3dd616419b5771324fe2cb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 83ce49d9ac368404edcc2d68859493476e74869e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>從 Web 應用程式使用 Azure 金鑰保存庫
 
@@ -157,7 +157,7 @@ pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>將憑證與 Azure AD 應用程式產生關聯
 
-既然您已經有憑證，現在就必須讓憑證與 Azure AD 應用程式產生關聯。 目前 Azure 入口網站並不支援此工作流程；您可以透過 PowerShell 來完成此工作流程。 請執行下列命令將憑證與 Azure AD 應用程式建立關聯：
+既然您已經有憑證，現在就必須讓憑證與 Azure AD 應用程式產生關聯。 目前 Azure 入口網站並不支援此工作流程；您可以透過 PowerShell 來完成此工作流程。 請執行下列命令，將憑證關聯至 Azure AD 應用程式：
 
 ```ps
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2

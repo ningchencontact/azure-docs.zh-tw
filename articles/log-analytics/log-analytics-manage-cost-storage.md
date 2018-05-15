@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 9a360b41b24f4aca3c3aba29387ecd55faf881b7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0e4c4c9e950610526a29e02d70827a1279d9686a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>藉由控制 Log Analytics 中的資料量與保留期來管理成本
 Log Analytics 是為縮放及支援每日大量資料的收集、索引編製和儲存而設計，這些資料來源可能位於您企業內部或部署於 Azure 中。  雖然這可能是您組織的主要推動力，但成本效率終究是最基本的推動力。 為此，務必了解 Log Analytisc 工作區的成本不只是以收集的資料量為基礎，也取決於選取的方案，以及您為連線來源所產生的資料選擇多長儲存時間。  
@@ -33,14 +33,15 @@ Log Analytics 是為縮放及支援每日大量資料的收集、索引編製和
 - 在工作區中保留資料的期限  
 - 已啟用的管理解決方案數目、資料來源及收集頻率 
 
-請參閱每個解決方案的文件，因為它會提供所收集資料數量的預估值。   
+> [!NOTE]
+> 請參閱每個解決方案的文件，因為它會提供所收集資料數量的預估值。   
 
-如果您使用的是「免費」定價層，則資料的保留期僅限 7 天。 對於「每 GB (獨立)」或「每節點 (OMS)」層，可收集過去 31 天內的資料，且保留期可增加到 2 年。 如果您選取一個較長的保留期，就需要支付費用。 免費方案有每日 500 MB 的擷取限制，如果發現一直超出所允許的數量，您可以將工作區變更成每 GB 或每節點層，以收集超出此限制的資料。 您可以隨時變更方案類型，如需有關定價的詳細資訊，請參閱[定價詳細資料](https://azure.microsoft.com/pricing/details/log-analytics/)。 
+如果您使用的是 [免費] 方案，則資料的保留期僅限 7 天。 如果是 [獨立] 或 [付費] 層，則可提供過去 31 天收集的資料。 [免費] 方案有每日 500 MB 的擷取限制，如果發現一直超出所允許的數量，您可以將工作區變更成付費方案，以收集超出此限制的資料。 
 
 > [!NOTE]
-> 我們在 2018 年 4 月[推出](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)新的 Azure 監視定價模型。 這個模型在完整的監視服務組合之間採用簡單的「隨用隨付」模型。 深入了解[新的定價模型](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs)、如何根據您的使用模式[評估移到這個模型的影響](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model)，以及[如何加入新的模型](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)。 
+> 如果您選擇為付費層選取一個較長的保留期，就需要支付費用。 您可以隨時變更方案類型，如需有關定價的詳細資訊，請參閱[定價詳細資料](https://azure.microsoft.com/pricing/details/log-analytics/)。 
 
-不論定價模型或階層，管理資料量對於控制成本至關重要。 除了特定解決方案的選擇和設定之外，Log Analytics 內限制資料量並協助控制成本的兩種方式為設定每日上限和資料保留期。  
+限制資料量並協助控制成本的兩種方式為設定每日上限和資料保留期。  
 
 ## <a name="review-estimated-cost"></a>檢閱估計成本
 Log Analytics 可讓您根據最近的使用模式來輕鬆地了解可能的成本。  若要這樣做，請執行下列步驟。  
@@ -54,9 +55,9 @@ Log Analytics 可讓您根據最近的使用模式來輕鬆地了解可能的成
 Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入口網站中的 [帳務] 區段下，或在 [Azure 計費入口網站](https://account.windowsazure.com/Subscriptions)中，查看 Azure 帳單的詳細資料。  
 
 ## <a name="daily-cap"></a>每日上限
-如果從 Azure 入口網站建立 Log Analytics 工作區，並選擇「免費」方案，則工作區會有每天 500 MB 的限制。 其他定價方案則沒有任何限制。 您可以為工作區設定每日上限和限制每日擷取，但請謹慎使用，因為您的目標是不要達到每日限制。  否則到那時，您會遺失一天中剩餘時間的資料，且會影響到您能否觀察資源在支援 IT 服務時的健康情況。  每日上限旨在用來管理受控資源中未預期的資料量增加，以及保持在您的限制範圍內，或是純粹用於限制意外產生的工作區費用。  
+如果從 Azure 入口網站建立 Log Analytics 工作區，並選擇「免費」方案，則工作區會有每天 500 MB 的限制。 其他定價方案則沒有任何限制。 您可以為工作區設定每日上限和限制每日擷取，但請謹慎使用，因為您的目標是不要達到每日限制。  否則，您會遺失當天其餘時間的資料，這可能會影響其功能取決於工作區中一直在提供的最新資料的其他 Azure 服務和解決方案。  如此一來，您在資源健全狀況支援 IT 服務時觀察和接收警示的功能會受到影響。  每日上限旨在用來管理受控資源中未預期的資料量增加，以及保持在您的限制範圍內，或是純粹用於限制意外產生的工作區費用。  
 
-若達到每日限制，將停止收集當天剩餘時間的需計費資料類型。  在所選取的 Log Analytics 工作區中，頁面頂端會出現警告橫幅，且系統會將作業事件傳送至 **LogManagement** 類別下的「Operation」 資料表。 一旦過了「每日限制的設定時間」下定義的重設時間後，資料收集就會繼續執行。 我們建議您根據此作業事件定義警示規則，設定為在達到每日資料限制時發出通知。 
+若達到每日限制，將停止收集當天剩餘時間的需計費資料類型。 在所選取的 Log Analytics 工作區中，頁面頂端會出現警告橫幅，且系統會將作業事件傳送至 **LogManagement** 類別下的「Operation」 資料表。 一旦過了「每日限制的設定時間」下定義的重設時間後，資料收集就會繼續執行。 我們建議您根據此作業事件定義警示規則，設定為在達到每日資料限制時發出通知。 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>識別要定義的每日資料限制 
 檢閱 [Log Analytics 使用量和估計成本](log-analytics-usage.md)，以了解資料擷取趨勢及要定義的每日資料量上限。 此謹慎考量，因為達到限制之後，您將無法監視您的資源。 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>使用 Azure SQL Database (預覽) 監視 Log Analytics 中的 Azure SQL Database
 
@@ -136,7 +136,8 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 
 ### <a name="analyze-data-and-create-alerts"></a>分析資料並建立警示
 
-您可以使用來自 Azure SQL Database 資源的資料，輕鬆建立警示。 以下是您可用於警示的一些實用[記錄搜尋](log-analytics-log-searches.md)查詢：
+您可以使用來自 Azure SQL Database 資源的資料，輕鬆[建立警示](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)。 以下是您可以搭配記錄警示使用的一些實用[記錄搜尋](log-analytics-log-searches.md)查詢：
+
 
 
 Azure SQL Database 上的高 DTU
@@ -157,18 +158,7 @@ AzureMetrics
 | render timechart
 ```
 
-您可以針對 Azure SQL Database 和彈性集區，使用這些警示型查詢發出特定閾值警示。 若要設定 Log Analytics 工作區的警示：
 
-#### <a name="to-configure-an-alert-for-your-workspace"></a>若要設定您工作區的警示
-
-1. 前往 [OMS 入口網站](http://mms.microsoft.com/)並登入。
-2. 開啟您針對解決方案所設定之工作區。
-3. 在 [概觀] 頁面上，按一下 [Azure SQL 分析 (預覽)] 圖格。
-4. 執行其中一個範例查詢。
-5. 在記錄搜尋中，按一下 [警示]。  
-![在搜尋中建立警示](./media/log-analytics-azure-sql/create-alert01.png)
-6. 在 [新增警示規則] 頁面上，設定您要的適當屬性和特定臨界值，然後按一下 [儲存]。 
-![新增警示規則](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>後續步驟
 
