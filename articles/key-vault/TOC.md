@@ -1,7 +1,7 @@
 # [Key Vault 文件](index.yml)
 
 # 概觀
-## [Key Vault 概觀](key-vault-overview.md)
+## [關於 Key Vault](key-vault-overview.md)
 
 # 快速入門
 ## [建立 Key Vault - CLI](quick-create-cli.md)
@@ -65,8 +65,8 @@
 ## [服務概觀](https://azure.microsoft.com/services/key-vault/)
 ## [關於金鑰、祕密與憑證](about-keys-secrets-and-certificates.md)
 ### [開始使用憑證](certificate-scenarios.md)
-#### [憑證建立方式](create-certificate.md)
-#### [監視和管理憑證建立](create-certificate-scenarios.md)
+### [憑證建立方式](create-certificate.md)
+### [監視和管理憑證建立](create-certificate-scenarios.md)
 ## [驗證、要求和回應](authentication-requests-and-responses.md)
 ## [通用參數和標題](common-parameters-and-headers.md)
 ## [Key Vault 版本](key-vault-versions.md)

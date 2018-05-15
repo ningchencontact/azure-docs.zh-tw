@@ -153,6 +153,8 @@
           href: security-center-events-dashboard.md
         - name: Search
           href: security-center-search.md
+        - name: 檢視合規性 (REST)
+          href: security-center-review-policy-compliance.md
     - name: 案例
       items:
         - name: 事件回應

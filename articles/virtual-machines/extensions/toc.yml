@@ -22,7 +22,7 @@
       href: features-windows.md
 - name: 使用說明指南
   items:
-    - name: 自訂指令碼擴充功能
+    - name: Custom Script
       items:
         - name: Linux - 第 2 版
           href: custom-script-linux.md
@@ -30,13 +30,13 @@
           href: custom-script-linuxOstc.md
         - name: Windows
           href: custom-script-windows.md
-    - name: OMS 擴充功能
+    - name: Operations Management Suite
       items:
         - name: Linux
           href: oms-linux.md
         - name: Windows
           href: oms-windows.md
-    - name: 診斷擴充功能
+    - name: 診斷
       items:
         - name: Linux
           href: diagnostics-linux.md
@@ -50,7 +50,7 @@
           href: network-watcher-linux.md
         - name: Windows
           href: network-watcher-windows.md
-    - name: PowerShell DSC 擴充功能
+    - name: PowerShell DSC
       href: dsc-overview.md
       items:
         - name: DSC 和 Windows
@@ -61,9 +61,9 @@
           href: dsc-template.md
     - name: 適用於 Windows 的 IaaS 反惡意程式碼軟體
       href: iaas-antimalware-windows.md
-    - name: Key Vault 擴充功能
+    - name: Key Vault
       href: key-vault-windows.md
-    - name: VM Snapshot 擴充功能
+    - name: VM Snapshot
       items:
         - name: Linux
           href: vmsnapshot-linux.md
@@ -77,7 +77,7 @@
           href: symantec.md
     - name: 已取代的擴充功能
       items:
-        - name: 記錄收集器擴充功能
+        - name: 記錄收集器
           href: log-collector.md
         - name: Trend Micro Deep Security
           href: trend.md

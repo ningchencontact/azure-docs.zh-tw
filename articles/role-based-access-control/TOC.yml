@@ -25,7 +25,7 @@
       href: role-assignments-external-users.md
     - name: 活動記錄
       href: change-history-report.md
-    - name: 評估租用戶管理員存取權
+    - name: 提升全域管理員的存取權限
       href: elevate-access-global-admin.md
     - name: 疑難排解
       href: troubleshooting.md

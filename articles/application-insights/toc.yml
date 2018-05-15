@@ -228,6 +228,8 @@
           href: app-insights-automate-with-flow.md
         - name: 透過 Azure Logic App 進行自動化
           href: automate-with-logic-apps.md
+        - name: 自訂電子郵件報告
+          href: automate-custom-reports.md
     - name: 開發
       items:
         - name: 自訂事件和度量的 API

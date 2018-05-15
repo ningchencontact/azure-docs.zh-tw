@@ -49,6 +49,10 @@
         - name: 使用 Hadoop 的 Hive
           href: hdinsight-use-hive.md
           items:
+            - name: 使用適用於 VSCode 的 HDInsight 工具
+              href: ../hdinsight-for-vscode.md
+            - name: 使用 HDInsight tools for Visual Studio
+              href: apache-hadoop-use-hive-visual-studio.md
             - name: 使用 Hive 檢視
               href: apache-hadoop-use-hive-ambari-view.md
             - name: 使用 BeeLine
@@ -59,8 +63,6 @@
               href: apache-hadoop-use-hive-powershell.md
             - name: 使用 .NET SDK
               href: apache-hadoop-use-hive-dotnet-sdk.md
-            - name: 使用 HDInsight tools for Visual Studio
-              href: apache-hadoop-use-hive-visual-studio.md
             - name: 使用遠端桌面
               href: apache-hadoop-use-hive-remote-desktop.md
             - name: 使用查詢主控台

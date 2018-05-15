@@ -17,6 +17,12 @@
   items:
     - name: 診斷虛擬機器路由問題
       href: diagnose-vm-network-routing-problem.md
+    - name: 監視 VM 間的通訊
+      href: connection-monitor.md
+    - name: 診斷網路間的通訊問題
+      href: diagnose-communication-problem-between-networks.md
+    - name: 記錄 VM 網路流量
+      href: network-watcher-nsg-flow-logging-portal.md
 - name: 概念
   items:
     - name: 診斷虛擬機器網路流量篩選問題
@@ -33,8 +39,8 @@
       href: network-watcher-nsg-flow-logging-overview.md
     - name: 網路安全性群組檢視
       href: network-watcher-security-group-view-overview.md
-    - name: 檢視網路拓撲
-      href: network-watcher-topology-overview.md
+    - name: 角色型存取控制權限
+      href: required-rbac-permissions.md
 - name: 使用說明指南
   items:
     - name: 設定網路監看員
@@ -87,14 +93,10 @@
                   href: network-watcher-intrusion-detection-open-source-tools.md
                 - name: 使用開放原始碼工具視覺化流量模式
                   href: network-watcher-using-open-source-tools.md
-    - name: 監視網路連線
-      href: connection-monitor.md
     - name: 使用網路安全性群組
       items:
         - name: 設定 NSG 流量記錄
           items:
-            - name: Azure 入口網站
-              href: network-watcher-nsg-flow-logging-portal.md
             - name: Azure PowerShell
               href: network-watcher-nsg-flow-logging-powershell.md
             - name: Azure CLI
@@ -136,8 +138,6 @@
       items:
         - name: 疑難排解
           items:
-            - name: Azure 入口網站
-              href: network-watcher-troubleshoot-manage-portal.md
             - name: Azure PowerShell
               href: network-watcher-troubleshoot-manage-powershell.md
             - name: Azure CLI
@@ -150,16 +150,8 @@
           href: network-watcher-monitor-with-azure-automation.md
         - name: 透過 VPN 閘道診斷內部部署連線能力
           href: network-watcher-diagnose-on-premises-connectivity.md
-    - name: 檢視您的網路拓撲
-      items:
-        - name: Azure PowerShell
-          href: network-watcher-topology-powershell.md
-        - name: Azure CLI
-          href: network-watcher-topology-cli.md
-        - name: Azure CLI 1.0
-          href: network-watcher-topology-cli-nodejs.md
-        - name: REST
-          href: network-watcher-topology-rest.md
+    - name: 檢視網路拓撲
+      href: view-network-topology.md
     - name: 判斷位置和 Azure 區域間的相對延遲
       href: view-relative-latencies.md
 - name: 參考

@@ -45,6 +45,8 @@
       href: ssl-overview.md
     - name: URL 重新導向
       href: redirect-overview.md
+    - name: 健康狀況監視
+      href: application-gateway-probe-overview.md
 - name: 使用說明指南
   items:
     - name: 建立應用程式閘道
@@ -93,6 +95,20 @@
       href: tutorial-url-redirect-powershell.md
     - name: 建立區域備援應用程式閘道
       href: create-zone-redundant.md
+    - name: 自訂探查
+      items:
+        - name: 入口網站
+          href: application-gateway-create-probe-portal.md
+        - name: 傳統 PowerShell
+          href: application-gateway-create-probe-classic-ps.md
+        - name: 資源管理員 PowerShell
+          href: application-gateway-create-probe-ps.md
+    - name: 疑難排解
+      items:
+        - name: 針對不正確的閘道 (502) 錯誤進行疑難排解
+          href: application-gateway-troubleshooting-502.md
+        - name: 診斷
+          href: application-gateway-diagnostics.md
 - name: 參考
   items:
     - name: Azure CLI
