@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0be2952dc39064eaf2814806e81f16e882a6a6fe
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 簡介
 
@@ -24,11 +24,15 @@ Event Grid 目前支援下列區域：
 
 * 東南亞
 * 東亞
+* 澳洲東部
+* 澳大利亞東南部
 * 美國中部
 *   美國東部
 *   美國東部 2
 * 西歐
 * 北歐
+* 日本東部
+* 日本西部
 *   美國中西部
 *   美國西部
 *   美國西部 2
@@ -45,10 +49,13 @@ Event Grid 目前支援下列區域：
 * 自訂主題
 * 事件中樞
 * IoT 中樞
+* 媒體服務
 * 資源群組 (管理作業)
 * 服務匯流排
 * 儲存體 Blob
 * 儲存體一般用途 v2 (GPv2)
+
+如需說明如何使用各個事件來源之文章的連結，請參閱 [Azure 事件方格中的事件來源](event-sources.md)。
 
 ## <a name="event-handlers"></a>事件處理常式
 
@@ -57,11 +64,15 @@ Event Grid 目前支援下列區域：
 * Azure 自動化
 * Azure Functions
 * 事件中樞
+* 混合式連線
 * Logic Apps
 * Microsoft Flow
+* 佇列儲存體
 * Webhook
 
 使用 Azure Functions 作為處理常式時，請使用 Event Grid 觸發程序而不是泛型 HTTP 觸發程序。 Event Grid 會自動驗證 Event Grid 函式的觸發程序。 若要使用 HTTP 觸發程序，您必須實作[驗證回應](security-authentication.md#webhook-event-delivery)。
+
+如需說明如何使用各個事件處理常式之文章的連結，請參閱 [Azure 事件方格中的事件處理常式](event-handlers.md)。
 
 ## <a name="concepts"></a>概念
 

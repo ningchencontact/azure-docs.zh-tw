@@ -1,26 +1,20 @@
 ---
-title: "Azure Active Directory B2B 共同作業的限制 | Microsoft Docs"
-description: "Azure Active Directory B2B 共同作業目前的限制"
+title: Azure Active Directory B2B 共同作業的限制 | Microsoft Docs
+description: Azure Active Directory B2B 共同作業目前的限制
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/23/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7d455b587c013e7a03fe640406e751910456665d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d4efa6ad1d2768a41a670fae4c490942b5a814ad
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Azure AD B2B 共同作業的限制
 Azure Active Directory (Azure AD) B2B 共同作業目前受限於本文所述的限制。
@@ -33,15 +27,8 @@ Azure Active Directory (Azure AD) B2B 共同作業目前受限於本文所述的
 
 ## <a name="next-steps"></a>後續步驟
 
-請瀏覽有關 Azure AD B2B 共同作業的其他文章：
+請參閱下列有關 Azure AD B2B 共同作業的文章：
 
-* [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B 共同作業使用者屬性](active-directory-b2b-user-properties.md)
-* [將 B2B 共同作業使用者新增至角色](active-directory-b2b-add-guest-to-role.md)
-* [委派 B2B 共同作業邀請](active-directory-b2b-delegate-invitations.md)
-* [動態群組與 B2B 共同作業](active-directory-b2b-dynamic-groups.md)
-* [B2B 共同作業程式碼與 PowerShell 範例](active-directory-b2b-code-samples.md)
-* [設定適用於 B2B 共同作業的 SaaS 應用程式](active-directory-b2b-configure-saas-apps.md)
-* [B2B 共同作業使用者權杖](active-directory-b2b-user-token.md)
-* [B2B 共同作業使用者宣告對應](active-directory-b2b-claims-mapping.md)
-* [Office 365 外部共用](active-directory-b2b-o365-external-user.md)
+- [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [委派 B2B 共同作業邀請](active-directory-b2b-delegate-invitations.md)
+

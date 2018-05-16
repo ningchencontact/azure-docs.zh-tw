@@ -1,8 +1,8 @@
 ---
-title: "Python：Azure Data Lake Store 的檔案系統作業 | Microsoft Docs"
-description: "了解如何利用 Python SDK 來處理 Data Lake Store 檔案系統。"
+title: Python：Azure Data Lake Store 的檔案系統作業 | Microsoft Docs
+description: 了解如何利用 Python SDK 來處理 Data Lake Store 檔案系統。
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 19e41cb0bb22bf27db4581954f1f6e68b8a941c2
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6e92eed5e4083c9b8063318b2a9139e20f53de1a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-python"></a>使用 Python 在 Azure Data Lake Store 上進行檔案系統作業
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ ms.lasthandoff: 01/19/2018
 若要透過 Python 使用 Data Lake Store，您需要安裝三個模組。
 
 * `azure-mgmt-resource` 模組，這包括適用於 Active Directory 等等的 Azure 模組。
-* `azure-mgmt-datalake-store` 模組，這包括 Azure Data Lake Store 帳戶管理作業。 如需關於此模組的詳細資訊，請參閱 [Azure Data Lake Store Management module reference (Azure Data Lake Store 管理模組參考)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)。
+* `azure-mgmt-datalake-store` 模組，這包括 Azure Data Lake Store 帳戶管理作業。 如需關於此模組的詳細資訊，請參閱 [Azure Data Lake Store Management module reference (Azure Data Lake Store 管理模組參考)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)。
 * `azure-datalake-store` 模組，這包括 Azure Data Lake Store 檔案系統作業。 如需關於此模組的詳細資訊，請參閱 [Azure Data Lake Store Filesystem module reference (Azure Data Lake Store 檔案系統模組參考)](http://azure-datalake-store.readthedocs.io/en/latest/)。
 
 使用下列命令來安裝新模組。

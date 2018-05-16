@@ -1,23 +1,24 @@
 ---
-title: "如何使用 Azure 入口網站將 MSI 存取權指派給 Azure 資源"
-description: "提供如何使用 Azure 入口網站將一個資源的 MSI 存取權指派給另一個資源的逐步指示。"
+title: 如何使用 Azure 入口網站將 MSI 存取權指派給 Azure 資源
+description: 提供如何使用 Azure 入口網站將一個資源的 MSI 存取權指派給另一個資源的逐步指示。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 9120104955aac8ca8a0568e4519c99e1bd786541
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 06f316a7c96ff266e9f4593fa3a9ac871b2979aa
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>使用 Azure 入口網站將受控服務識別 (MSI) 存取權指派給資源
 

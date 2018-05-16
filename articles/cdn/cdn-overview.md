@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/06/2018
-ms.author: rli
+ms.date: 04/20/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 2da919a880332be928c211a2493f2c0b09a0fcbb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 36de1011e48f274759c0aeebde74bd26c6604e19
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>什麼是 Azure 上的內容傳遞網路？
 內容傳遞網路 (CDN) 是可以有效率地將 Web 內容傳遞給使用者的分散式伺服器網路。 CDN 會將快取的內容儲存在使用者附近的邊緣伺服器上的存在點 (POP) 位置中，以將延遲降至最低。 
@@ -50,7 +50,7 @@ Azure 內容傳遞網路 (CDN) 為開發人員提供一套全域解決方案，�
 6. 如果檔案的 TTL 尚未過期，邊緣伺服器便會直接從快取傳回檔案。 此程序會產生更快、更靈敏回應的使用者經驗。
 
 ## <a name="requirements"></a>需求
-若要使用 Azure CDN，您至少必須有一個 Azure 訂用帳戶。 您也必須建立至少一個 CDN 設定檔，作為 CDN 端點的集合。 每個 CDN 端點分別代表內容傳遞行為和存取一個的特定組態。 若要依網際網路網域、Web 應用程式或其他準則來組織您的 CDN 端點，您可以使用多個設定檔。 由於 [Azure CDN 定價](https://azure.microsoft.com/pricing/details/cdn/)會套用於 CDN 設定檔層級，因此如果您想要使用混合的定價層，則必須建立多個 CDN 設定檔。
+若要使用 Azure CDN，您至少必須有一個 Azure 訂用帳戶。 您也必須建立至少一個 CDN 設定檔，作為 CDN 端點的集合。 每個 CDN 端點分別代表內容傳遞行為和存取一個的特定組態。 若要依網際網路網域、Web 應用程式或其他準則來組織您的 CDN 端點，您可以使用多個設定檔。 由於 [Azure CDN 定價](https://azure.microsoft.com/pricing/details/cdn/)會套用於 CDN 設定檔層級，因此如果您想要使用混合的定價層，則必須建立多個 CDN 設定檔。 如需 Azure CDN 計費結構的相關資訊，請參閱[了解 Azure CDN 計費](cdn-billing.md)。
 
 ### <a name="limitations"></a>限制
 每個 Azure 訂用帳戶都具有下列資源的預設限制：
@@ -77,4 +77,5 @@ Azure CDN 提供下列主要功能︰
 - 透過 [Microsoft Azure 入口網站](https://portal.azure.com)或 [PowerShell](cdn-manage-powershell.md) 管理您的 CDN 端點。
 - 了解如何透過 [.NET](cdn-app-dev-net.md) 或 [Node.js](cdn-app-dev-node.md) 自動化 Azure CDN。
 - 若要查看作用中的 Azure CDN，請觀看 [Azure CDN 視訊](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest)。
+- 如需最新 Azure CDN 功能的相關資訊，請參閱 [Azure CDN 部落格](https://azure.microsoft.com/blog/tag/azure-cdn/)。
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: iainfou
-ms.openlocfilehash: 660f75440d7d93562a3a17f646d5d284196e073d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: cc91366bda4dd443392c78cd61e5cc0ddb261fe2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>建立使用可用性區域的虛擬機器擴展集
 
@@ -57,9 +57,9 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>單一區域和區域備援擴展集
 
-在部署虛擬機器擴展集時，您可以選擇使用一個區域中的單一可用性區域，或是使用多個區域。
+在 Azure 區域中部署虛擬機器擴展集時，您可以選擇要使用一或多個可用性區域。
 
-當您在單一區域中建立擴展集時，您可以控制要在哪個區域執行所有 VM 執行個體，且擴展集只會在該區域內進行管理並自動調整。 區域備援擴展集可讓您建立跨多個區域的單一擴展集。 當您建立 VM 執行個體時，系統預設會將它們平均分散到各個區域。 若其中一個區域發生中斷，擴展集不會自動相應放大來增加容量。 最佳做法是設定以 CPU 或記憶體使用量為基礎的自動調整規則。 自動調整規則可讓擴展集在該區域發生 VM 執行個體遺失時，於其餘運作中的區域相應放大新的執行個體，來作為回應。
+當您在單一區域中建立擴展集時，您可以控制要在哪個區域執行所有 VM 執行個體，且擴展集只會在該區域內進行管理並自動調整。 區域備援擴展集可讓您建立跨多個區域的單一擴展集。 當您建立 VM 執行個體時，系統預設會將它們平均分散到各個區域。 若其中一個區域發生中斷，擴展集不會為了增加容量而自動相應放大。 最佳做法是設定以 CPU 或記憶體使用量為基礎的自動調整規則。 自動調整規則可讓擴展集在該區域遺失 VM 執行個體時，於其餘運作中的區域相應增加新的執行個體，來作為回應。
 
 若要使用可用性區域，您必須在[支援的 Azure 區域](../availability-zones/az-overview.md#regions-that-support-availability-zones)中建立擴展集。 您可以使用下列其中一個方法，來建立使用可用性區域的擴展集：
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="use-the-azure-cli-20"></a>使用 Azure CLI 2.0
 
-建立使用可用性區域之擴展集的流程，與[使用者入門文章](quick-create-cli.md)中所述的流程相同。 若要使用可用性區域，您必須在支援的 Azure 區域中建立擴展集，並且已[註冊可用性區域預覽](http://aka.ms/azenroll)。
+建立使用可用性區域之擴展集的流程，與[使用者入門文章](quick-create-cli.md)中所述的流程相同。 若要使用可用性區域，您必須在支援的 Azure 區域中建立擴展集。
 
 將 `--zones` 參數新增至 [az vmss create](/cli/azure/vmss#az_vmss_create) 命令，並指定要使用的區域 (例如區域 1、2 或 3)。 下列範例會在區域 1 中建立名為 myScaleSet 的單一區域擴展集：
 
@@ -194,7 +194,7 @@ New-AzureRmVmss `
 }
 ```
 
-如需單一區域擴展集和網路資源的完整範例，請參閱[這個 Resource Manager 範本範例](https://github.com/Azure/vm-scale-sets/blob/master/zones/singlezone.json)
+如需單一區域擴展集和網路資源的完整範例，請參閱[這個 Resource Manager 範本範例](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/singlezone.json)
 
 ### <a name="zone-redundant-scale-set"></a>區域備援擴展集
 
@@ -216,7 +216,7 @@ New-AzureRmVmss `
 
 如果您建立的是公用 IP 位址或負載平衡器，請指定「"sku": { "name": "Standard" }"」屬性，以建立區域備援網路資源。 您還必須建立網路安全性群組和規則，以便允許所有流量。 如需詳細資訊，請參閱 [Azure Load Balancer Standard 概觀](../load-balancer/load-balancer-standard-overview.md)。
 
-如需區域備援擴展集和網路資源的完整範例，請參閱[這個 Resource Manager 範本範例](https://github.com/Azure/vm-scale-sets/blob/master/zones/multizone.json)
+如需區域備援擴展集和網路資源的完整範例，請參閱[這個 Resource Manager 範本範例](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 
 ## <a name="next-steps"></a>後續步驟
 

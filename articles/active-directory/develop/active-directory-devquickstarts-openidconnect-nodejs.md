@@ -3,23 +3,25 @@ title: Azure AD Node.js Web 應用程式快速入門 | Microsoft Docs
 description: 了解如何建立可整合 Azure AD 以進行登入的 Node.js Express MVS Web 應用程式。
 services: active-directory
 documentationcenter: nodejs
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7e92c50525efdf2854710d7e62781a5c6efb2cf3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8068e193ac267ef23bdaab1fc23bc7bf9b0d330b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js Web 應用程式快速入門
 在此我們使用 Passport 來執行下列動作：
@@ -37,7 +39,7 @@ Passport 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且�
 3. 使用 Passport，向 Azure AD 發出登入和登出要求。
 4. 列印使用者的相關資料。
 
-本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS)。  若要遵循執行，您可以[下載應用程式基本架構的 .zip 檔](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip)，或複製基本架構：
+本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS)。 若要遵循執行，您可以[下載應用程式基本架構的 .zip 檔](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip)，或複製基本架構：
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
@@ -55,7 +57,7 @@ Passport 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且�
 5. 遵照提示建立 **Web 應用程式**和/或 **Web API**。
   * 應用程式的 [名稱] 對使用者說明您的應用程式。
 
-  * [ **登入 URL** ] 是指應用程式的基底 URL。  基本架構的預設值是 `http://localhost:3000/auth/openid/return`。
+  * [ **登入 URL** ] 是指應用程式的基底 URL。 基本架構的預設值是 `http://localhost:3000/auth/openid/return`。
 
 6. 註冊之後，Azure AD 會指派唯一的應用程式識別碼給您的應用程式。 您會在後續章節中用到這個值，所以請從應用程式頁面中複製此值。
 7. 從應用程式的 [設定]  ->  [屬性] 頁面，更新應用程式識別碼 URI。 [ **應用程式識別碼 URI** ] 是指應用程式的唯一識別碼。 慣例是使用 `https://<tenant-domain>/<app-name>` 格式，例如：`https://contoso.onmicrosoft.com/my-first-aad-app`。
@@ -78,7 +80,7 @@ Passport 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且�
 這會安裝 `passport-azure-ad` 所仰賴的程式庫。
 
 ## <a name="step-3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>步驟 3︰設定應用程式使用 passport-node-js 策略
-在這裡，我們將設定 Express 使用 OpenID Connect 驗證通訊協定。  Passport 用來做許多事，包括發出登入和登出要求、管理使用者的工作階段，以及取得使用者相關資訊。
+在這裡，我們將設定 Express 使用 OpenID Connect 驗證通訊協定。 Passport 用來做許多事，包括發出登入和登出要求、管理使用者的工作階段，以及取得使用者相關資訊。
 
 1. 若要開始，開啟專案根目錄中的 `config.js` 檔案，並在 `exports.creds` 區段中輸入應用程式的組態值。
 
@@ -181,7 +183,7 @@ Passport 會使用適用於它的所有策略 (Twitter、Facebook 等) 且所有
             };
     ```
 
-5.  接下來，加入可載入 Express 引擎的程式碼。 在此處可看到我們使用 Express 所提供的預設 /views 和 /routes 模式。
+5. 接下來，加入可載入 Express 引擎的程式碼。 在此處可看到我們使用 Express 所提供的預設 /views 和 /routes 模式。
 
     ```JavaScript
 
@@ -252,7 +254,7 @@ Passport 會使用適用於它的所有策略 (Twitter、Facebook 等) 且所有
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>步驟 4：使用 Passport，向 Azure AD 發出登入和登出要求
-您的應用程式現在已正確設定，將使用 OpenID Connect 驗證通訊協定與端點通訊。  `passport-azure-ad` 已經處理有關製作驗證訊息、驗證 Azure AD 的權杖及維護使用者工作階段的所有細節。 剩下的工作就是讓使用者有辦法登入和登出，以及收集關於已登入使用者的其他資訊。
+您的應用程式現在已正確設定，將使用 OpenID Connect 驗證通訊協定與端點通訊。 `passport-azure-ad` 已經處理有關製作驗證訊息、驗證 Azure AD 的權杖及維護使用者工作階段的所有細節。 剩下的工作就是讓使用者有辦法登入和登出，以及收集關於已登入使用者的其他資訊。
 
 1. 首先，在 `app.js` 檔案中加入預設、登入、帳戶和登出方法：
 
@@ -282,7 +284,7 @@ Passport 會使用適用於它的所有策略 (Twitter、Facebook 等) 且所有
 
     ```
 
-2.  讓我們詳細檢閱這些方法：
+2. 讓我們詳細檢閱這些方法：
 
   * `/` 路由將重新導向至 index.ejs 檢視，並在要求中傳遞使用者 (若有的話)。
   * `/account` 路由會先「確定我們已通過驗證」 (我們將在以下範例中實作)，然後在要求中傳遞使用者，讓我們能夠取得關於該使用者的其他資訊。

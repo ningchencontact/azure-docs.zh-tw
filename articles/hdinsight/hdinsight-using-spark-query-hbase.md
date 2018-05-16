@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: acad1058cbff2099a67603cc547a19d6cac022be
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7cfc7f586e8a92c29736a7c4cff0b12796be430a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>使用 Spark 來讀取和寫入 HBase 資料
 
@@ -129,7 +129,7 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Phoeni
 1. 使用 SSH 連線到 Spark 叢集的前端節點。
 2. 啟動 Spark Shell，指定 Spark HBase Connector 套件：
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/coroups/public/
 
 3. 讓此 Spark Shell 執行個體保持開啟，並且繼續進行下一個步驟。
 

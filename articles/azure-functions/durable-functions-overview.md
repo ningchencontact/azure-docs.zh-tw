@@ -1,5 +1,5 @@
 ---
-title: Durable Functions 概觀 - Azure (預覽)
+title: Durable Functions 概觀 - Azure
 description: Azure Functions 的 Durable Functions 擴充簡介。
 services: functions
 author: cgillum
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d253562e0ecb0d53739a4cdc5f9747e33d7e1171
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="durable-functions-overview-preview"></a>Durable Functions 概觀 (預覽)
+# <a name="durable-functions-overview"></a>Durable Functions 概觀
 
 *Durable Functions* 是 [Azure Functions](functions-overview.md) 和 [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) 的擴充功能，可讓您在無伺服器環境中撰寫具狀態函式。 此擴充功能會為您管理狀態、設定檢查點和重新啟動。
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/17/2018
 * 協調器函式每次在進行等候時，都會自動設定其進度的檢查點。 如果處理序回收或 VM 重新開機，本機狀態永遠不會消失。
 
 > [!NOTE]
-> 處於預覽狀態的 Durable Functions 是 Azure Functions 的進階擴充功能，並非所有應用程式都適用。 本文其餘部分會假設您已非常熟悉無伺服器應用程式開發過程中所涉及的 [Azure Functions](functions-overview.md) 概念和挑戰。
+> Durable Functions 是 Azure Functions 的進階擴充功能，因此並非所有應用程式都適用。 本文其餘部分會假設您已非常熟悉無伺服器應用程式開發過程中所涉及的 [Azure Functions](functions-overview.md) 概念和挑戰。
 
 Durable Functions 主要用來簡化無伺服器應用程式中複雜的具狀態協調問題。 下列各節會說明一些可因為 Durable Functions 而受益的典型應用程式模式。
 
@@ -42,6 +42,8 @@ Durable Functions 主要用來簡化無伺服器應用程式中複雜的具狀�
 ![函式鏈結圖](media/durable-functions-overview/function-chaining.png)
 
 Durable Functions 可讓您利用程式碼簡潔地實作此模式。
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -60,6 +62,19 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+
+```js
+const df = require("durable-functions");
+
+module.exports = df(function*(ctx) {
+    const x = yield ctx.df.callActivityAsync("F1");
+    const y = yield ctx.df.callActivityAsync("F2", x);
+    const z = yield ctx.df.callActivityAsync("F3", y);
+    return yield ctx.df.callActivityAsync("F4", z);
+});
+```
+
 "F1"、"F2"、"F3" 和 "F4" 是函式應用程式中其他函式的名稱。 控制流程可使用一般的命令式編碼建構來加以實作。 也就是說，程式碼會由上而下地執行，並可包含現有語言的控制流程語意，例如條件和迴圈。  錯誤處理邏輯則可包含在 try/catch/finally 區塊中。
 
 `ctx` 參數 ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) 可提供方法來依名稱叫用其他函式、傳遞參數以及傳回函式的輸出。 每當程式碼呼叫 `await` 時，Durable Functions 架構便會對目前函式執行個體的進度「設定檢查點」。 如果處理序或 VM 在執行途中回收，函式執行個體便會從先前的 `await` 呼叫繼續執行。 之後會有更多關於此重新啟動行為的資訊。
@@ -71,6 +86,8 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 ![展開傳送/收合傳送圖](media/durable-functions-overview/fan-out-fan-in.png)
 
 在標準函式中，可藉由讓函式傳送多個訊息給佇列來進行展開傳送。 不過，反過來的收合傳送則困難得多。 您必須撰寫程式碼來追蹤佇列所觸發的函式何時結束，並儲存函式的輸出。 Durable Functions 擴充功能會以較簡單的程式碼處理此模式。
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -91,6 +108,28 @@ public static async Task Run(DurableOrchestrationContext ctx)
     int sum = parallelTasks.Sum(t => t.Result);
     await ctx.CallActivityAsync("F3", sum);
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+
+```js
+const df = require("durable-functions");
+
+module.exports = df(function*(ctx) {
+    const parallelTasks = [];
+
+    // get a list of N work items to process in parallel
+    const workBatch = yield ctx.df.callActivityAsync("F1");
+    for (let i = 0; i < workBatch.length; i++) {
+        parallelTasks.push(ctx.df.callActivityAsync("F2", workBatch[i]));
+    }
+
+    yield ctx.df.task.all(parallelTasks);
+
+    // aggregate all N outputs and send result to F3
+    const sum = parallelTasks.reduce((prev, curr) => prev + curr, 0);
+    yield ctx.df.callActivityAsync("F3", sum);
+});
 ```
 
 展開傳送工作會分派給 `F2` 函式的多個執行個體，並使用動態工作清單來追蹤該工作。 系統會呼叫 .NET `Task.WhenAll` API 來等候所有已呼叫的函式完成。 然後，`F2` 函式的輸出會從動態工作清單彙總起來並傳遞給 `F3` 函式。
@@ -151,7 +190,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-[DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` 參數是來自 `orchestrationClient` 輸出繫結 (此繫結是 Durable Functions 擴充功能的一部分) 的值。 它可提供方法來啟動、終止、和查詢新的或現有的協調器函式執行個體，以及對其傳送事件。 在上述範例中，HTTP 所觸發的函式會從傳入 URL 取得 `functionName` 值，並將該值傳遞到 [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)。 這個繫結 API 接著會傳回回應，回應中包含了 `Location` 標頭和其他有關執行個體的資訊，以在稍後用來查詢已啟動之執行個體的狀態或將該執行個體終止。
+[DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` 參數是來自 `orchestrationClient` 輸出繫結 (此繫結是 Durable Functions 擴充功能的一部分) 的值。 它可提供方法來啟動、終止、和查詢新的或現有的協調器函式執行個體，以及對其傳送事件。 在前一個範例中，HTTP 所觸發的函式會從傳入 URL 取得 `functionName` 值，並將該值傳遞到 [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)。 這個繫結 API 接著會傳回回應，回應中包含了 `Location` 標頭和其他有關執行個體的資訊，以在稍後用來查詢已啟動之執行個體的狀態或將該執行個體終止。
 
 ## <a name="pattern-4-monitoring"></a>模式 #4：監視
 
@@ -162,6 +201,8 @@ public static async Task<HttpResponseMessage> Run(
 ![監視器圖表](media/durable-functions-overview/monitor.png)
 
 使用 Durable Functions，只需幾行程式碼即可建立觀察任意端點的多個監視器。 監視器可以在某些條件符合時結束執行，或是由 [DurableOrchestrationClient](durable-functions-instance-management.md) 終止，而且其等候間隔可根據某些條件變更 (也就是指數輪詢)。下列程式碼會實作基本的監視器。
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -189,6 +230,34 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+
+```js
+const df = require("durable-functions");
+const df = require("moment");
+
+module.exports = df(function*(ctx) {
+    const jobId = ctx.df.getInput();
+    const pollingInternal = getPollingInterval();
+    const expiryTime = getExpiryTime();
+
+    while (moment.utc(ctx.df.currentUtcDateTime).isBefore(expiryTime)) {
+        const jobStatus = yield ctx.df.callActivityAsync("GetJobStatus", jobId);
+        if (jobStatus === "Completed") {
+            // Perform action when condition met
+            yield ctx.df.callActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        const nextCheck = moment.utc(ctx.df.currentUtcDateTime).add(pollingInterval, 's');
+        yield ctx.df.createTimer(nextCheck.toDate());
+    }
+
+    // Perform further work here, or let the orchestration end
+});
+```
+
 收到要求時，系統會針對該作業識別碼建立新的協調流程執行個體。 執行個體會輪詢狀態，直到符合條件且迴圈結束為止。 長期計時器可用來控制輪詢間隔。 接著可執行進一步作業，否則協調流程可能會結束。 當 `ctx.CurrentUtcDateTime` 超過 `expiryTime` 時，監視器會結束。
 
 ## <a name="pattern-5-human-interaction"></a>模式 #5：人為互動
@@ -200,6 +269,8 @@ public static async Task Run(DurableOrchestrationContext ctx)
 ![人為互動圖](media/durable-functions-overview/approval.png)
 
 使用協調器函式即可實作此模式。 協調器會使用[長期計時器](durable-functions-timers.md)來要求核准，並在逾時後向上呈報。 它會等候[外部事件](durable-functions-external-events.md)，例如某些人為互動所產生的通知。
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -224,7 +295,39 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+
+```js
+const df = require("durable-functions");
+const moment = require('moment');
+
+module.exports = df(function*(ctx) {
+    yield ctx.df.callActivityAsync("RequestApproval");
+
+    const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
+    const durableTimeout = ctx.df.createTimer(dueTime.toDate());
+
+    const approvalEvent = ctx.df.waitForExternalEvent("ApprovalEvent");
+    if (approvalEvent === yield ctx.df.Task.any([approvalEvent, durableTimeout])) {
+        durableTimeout.cancel();
+        yield ctx.df.callActivityAsync("ProcessApproval", approvalEvent.result);
+    } else {
+        yield ctx.df.callActivityAsync("Escalate");
+    }
+});
+```
+
 呼叫 `ctx.CreateTimer` 即可建立長期計時器。 通知則由 `ctx.WaitForExternalEvent` 接收。 此外，還會呼叫 `Task.WhenAny` 以決定是要向上呈報 (先發生逾時) 還是處理核准 (逾時前收到核准)。
+
+外部用戶端可以從另一個函式使用[內建 HTTP API](durable-functions-http-api.md#raise-event) 或使用 [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) API，將事件通知傳遞至等候的協調器函式：
+
+```csharp
+public static async Task Run(string instanceId, DurableOrchestrationClient client)
+{
+    bool isApproved = true;
+    await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
+}
+```
 
 ## <a name="the-technology"></a>技術
 
@@ -244,7 +347,7 @@ Durable Functions 擴充功能其實是以[長期工作架構](https://github.co
 
 ## <a name="language-support"></a>語言支援
 
-Durable Functions 目前僅支援 C# 語言。 這包括協調器函式和活動函式。 未來，我們會對 Azure Functions 所支援的所有語言皆新增支援。 請參閱 Azure Functions 的 [GitHub 存放庫問題清單](https://github.com/Azure/azure-functions-durable-extension/issues)，以查看其他語言支援工作的最新狀態。
+目前 C# (Functions v1 和 v2) 和 JavaScript (僅限 Functions v2) 是 Durable Functions 唯獨支援的語言。 這包括協調器函式和活動函式。 未來，我們會對 Azure Functions 所支援的所有語言皆新增支援。 請參閱 Azure Functions 的 [GitHub 存放庫問題清單](https://github.com/Azure/azure-functions-durable-extension/issues)，以查看其他語言支援工作的最新狀態。
 
 ## <a name="monitoring-and-diagnostics"></a>監視和診斷
 
@@ -275,7 +378,7 @@ Durable Functions 擴充功能會使用 Azure 儲存體佇列、資料表和 Blo
 
 ## <a name="known-issues-and-faq"></a>已知問題和常見問題集
 
-一般來說，[GitHub 問題](https://github.com/Azure/azure-functions-durable-extension/issues)清單中應該會追蹤所有的已知問題。 如果您遇到問題，但在 GitHub 中卻找不到此問題，請開啟新的問題，並包含問題的詳細說明。 即使您只是想要提出問題，也歡迎您開啟 GitHub 問題，並將其標記為提問。
+[GitHub 問題](https://github.com/Azure/azure-functions-durable-extension/issues)清單應可追蹤所有的已知問題。 如果您遇到問題，但在 GitHub 中卻找不到此問題，請開啟新的問題，並包含問題的詳細說明。
 
 ## <a name="next-steps"></a>後續步驟
 

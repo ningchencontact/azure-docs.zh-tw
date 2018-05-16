@@ -1,0 +1,119 @@
+---
+title: 將 Azure 事件方格的自訂事件傳送至儲存體佇列 | Microsoft Docs
+description: 使用 Azure 事件格線和 Azure CLI 來發佈主題，以及訂閱該事件。 儲存體佇列會用於端點。
+services: event-grid
+keywords: ''
+author: tfitzmac
+ms.author: tomfitz
+ms.date: 04/30/2018
+ms.topic: hero-article
+ms.service: event-grid
+ms.openlocfilehash: 6b408dd8c8f0bfd7f7180b10cc9a4882d6950981
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/07/2018
+---
+# <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>使用 Azure CLI 和事件方格將自訂事件路由至 Azure 佇列
+
+Azure Event Grid 是一項雲端事件服務。 Azure 佇列儲存體是其中一個支援的事件處理常式。 在本文中，您可使用 Azure CLI 建立自訂主題、訂閱主題，以及觸發事件來檢視結果。 您會將事件傳送至佇列儲存體。
+
+[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+如果您選擇在本機安裝和使用 CLI，本文會要求您執行最新版的 Azure CLI (2.0.24 或更新版本)。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+
+如果您未使用 Cloud Shell，必須先使用 `az login` 登入。
+
+## <a name="create-a-resource-group"></a>建立資源群組
+
+Event Grid 為 Azure 資源，必須放入 Azure 資源群組中。 資源群組是在其中部署與管理 Azure 資源的邏輯集合。
+
+使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 
+
+下列範例會在 westus2 位置建立名為 gridResourceGroup 的資源群組。
+
+```azurecli-interactive
+az group create --name gridResourceGroup --location westus2
+```
+
+## <a name="create-a-custom-topic"></a>建立自訂主題
+
+Event Grid 主題會提供使用者定義的端點，作為您發佈事件的目的地。 下列範例可在您的資源群組中建立自訂主題。 以主題的唯一名稱取代 `<topic_name>`。 主題名稱必須是唯一的，因為它由 DNS 項目表示。
+
+```azurecli-interactive
+az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
+```
+
+## <a name="create-queue-storage"></a>建立佇列儲存體
+
+訂閱主題之前，讓我們建立事件訊息的端點。 您將建立佇列儲存體來收集事件。
+
+```azurecli-interactive
+storagename="<unique-storage-name>"
+queuename="eventqueue"
+
+az storage account create -n $storagename -g gridResourceGroup -l westus2 --sku Standard_LRS
+az storage queue create --name $queuename --account-name $storagename
+```
+
+## <a name="subscribe-to-a-topic"></a>訂閱主題
+
+您可訂閱主題，告知 Event Grid 您想要追蹤的事件。下列範例可訂閱您所建立的主題，以及傳遞端點的佇列儲存體資源識別碼。 佇列儲存識別碼的格式：
+
+`/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/queueservices/default/queues/<queue-name>`
+
+下列指令碼會取得佇列的儲存體帳戶資源識別碼。 它會建構佇列儲存體的識別碼，並訂閱事件方格主題。 並將端點類型設為 `storagequeue`，然後使用端點的佇列識別碼。
+
+```azurecli-interactive
+storageid=$(az storage account show --name $storagename --resource-group gridResourceGroup --query id --output tsv)
+queueid="$storageid/queueservices/default/queues/$queuename"
+
+az eventgrid event-subscription create \
+  --topic-name <topic_name> \
+  -g gridResourceGroup \
+  --name <event_subscription_name> \
+  --endpoint-type storagequeue \
+  --endpoint $queueid
+```
+
+## <a name="send-an-event-to-your-topic"></a>將事件傳送至主題
+
+讓我們觸發事件以了解 Event Grid 如何將訊息散發至您的端點。 首先，讓我們取得自訂主題的 URL 和金鑰。 再次，將您的主題名稱用於 `<topic_name>`。
+
+```azurecli-interactive
+endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
+key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
+```
+
+若要簡化這篇文章，您可使用要傳送至主題的範例事件資料。 一般而言，應用程式或 Azure 服務就會傳送事件資料。 CURL 是可傳送 HTTP 要求的公用程式。 本文使用 CURL 將事件傳送到主題。  下列範例會將三個事件傳送至事件方格主題：
+
+```azurecli-interactive
+for i in 1 2 3
+do
+   body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+   curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+done
+```
+
+請在入口網站中瀏覽至佇列，並注意事件方格會傳送這三個事件至佇列。
+
+![顯示訊息](./media/custom-event-to-queue-storage/messages.png)
+
+
+## <a name="clean-up-resources"></a>清除資源
+如果您打算繼續使用此事件，請勿清除在本文中建立的資源。 否則，請使用下列命令來刪除您在本文建立的資源。
+
+```azurecli-interactive
+az group delete --name gridResourceGroup
+```
+
+## <a name="next-steps"></a>後續步驟
+
+您現在知道如何建立主題和事件訂閱，深入了解 Event Grid 可協助您：
+
+- [關於 Event Grid](overview.md)
+- [將 Blob 儲存體事件路由至自訂的 Web 端點](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+- [使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更](monitor-virtual-machine-changes-event-grid-logic-app.md)
+- [將巨量資料串流處理至資料倉儲](event-grid-event-hubs-integration.md)

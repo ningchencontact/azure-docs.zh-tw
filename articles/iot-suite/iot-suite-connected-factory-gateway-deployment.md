@@ -1,12 +1,12 @@
 ---
-title: "部署連線處理站閘道 - Azure | Microsoft Docs"
-description: "如何在 Windows 或 Linux 上部署閘道以啟用連線處理站預先設定解決方案的連線。"
-services: 
+title: 部署連線處理站閘道 - Azure | Microsoft Docs
+description: 如何在 Windows 或 Linux 上部署閘道，以啟用與連線處理站解決方案加速器的連線。
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 956da99a5d67d7a2225ab3ea64b4e5a9d41ee3a1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>在 Windows 或 Linux 上部署連線處理站預先設定解決方案的 Edge 閘道
+# <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>在 Windows 或 Linux 上部署連線處理站解決方案加速器的 Edge 閘道
 
-您需要兩個軟體元件以針對「連線處理站」預先設定解決方案部署 Edge 閘道：
+您需要兩個軟體元件，以針對「連線處理站」解決方案加速器部署 Edge 閘道：
 
-- OPC Proxy 會建立與連線處理站的連線。 然後 OPC Proxy 會等待在連線處理站解決方案入口網站中執行之整合式 OPC 瀏覽器的命令和控制訊息。
+- *OPC Proxy* 會建立與連線處理站的連線。 然後 OPC Proxy 會等待在連線處理站解決方案入口網站中所執行整合式 OPC 瀏覽器的命令和控制訊息。
 
 - 「OPC 發行者」會連線到現有的內部部署 OPC UA 伺服器，並將它們的遙測訊息轉送到連線處理站。 您可以使用[適用於 OPC UA 的 OPC 傳統配接器](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md)連線 OPC 傳統裝置。
 
@@ -37,14 +37,14 @@ ms.lasthandoff: 01/17/2018
 
 針對各個元件，您都不需要公開 IP 位址或閘道防火牆中的開放輸入連接埠。 OPC Proxy 和 OPC 發行者元件僅使用輸出連接埠 443。
 
-本文中的步驟示範如何在 Windows 或 Linux 上使用 Docker 部署 Edge 閘道。 閘道會啟用連線處理站預先設定解決方案的連線。 您也可以使用沒有連線處理站的元件。
+本文中的步驟示範如何在 Windows 或 Linux 上使用 Docker 部署 Edge 閘道。 閘道會啟用與連線處理站解決方案加速器的連線。 您也可以使用沒有連線處理站的元件。
 
 > [!NOTE]
 > 這兩個元件可作為 [Azure IoT Edge](https://github.com/Azure/iot-edge) 的模組。
 
 ## <a name="choose-a-gateway-device"></a>選擇閘道裝置
 
-如果您還沒有閘道裝置，Microsoft 建議您向合作夥伴購買商業閘道。 如需與連線處理站解決方案相容之閘道裝置的清單，請造訪 [Azure IoT 裝置目錄](https://catalog.azureiotsuite.com/?q=opc)。 依照裝置隨附的指示來設定閘道。
+如果您還沒有閘道裝置，Microsoft 建議您向合作夥伴購買商業閘道。 如需與連線處理站解決方案相容的閘道裝置清單，請造訪 [Azure IoT 裝置目錄](https://catalog.azureiotsuite.com/?q=opc)。 依照裝置隨附的指示來設定閘道。
 
 或者，使用下列指示手動設定現有閘道裝置。
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 01/17/2018
 
 安裝 OPC 元件之前，請完成下列步驟來準備您的環境：
 
-1. 若要完成閘道部署，您在連線處理站部署中需要 IoT 中樞的 **iothubowner** 連接字串。 在 [Azure 入口網站](http://portal.azure.com/)中，瀏覽至您在部署連線處理站解決方案時所建立之資源群組中的 IoT 中樞。 按一下 [共用存取原則] 以存取 **iothubowner** 連接字串︰
+1. 若要完成閘道部署，您在連線處理站部署中需要 IoT 中樞的 **iothubowner** 連接字串。 在 [Azure 入口網站](http://portal.azure.com/)中，瀏覽至您在部署連線處理站解決方案時所建立資源群組中的 IoT 中樞。 按一下 [共用存取原則] 以存取 **iothubowner** 連接字串︰
 
     ![找出 IoT 中樞連接字串](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
 
@@ -143,7 +143,7 @@ OPC Proxy 會在安裝期間儲存連接字串。 在後續的執行中應該省
 
 ## <a name="enable-your-gateway"></a>啟用您的閘道
 
-完成下列步驟，以在連線處理站預先設定解決方案中啟用閘道：
+完成下列步驟，以在連線處理站解決方案加速器中啟用閘道：
 
 1. 當兩個元件都在執行時，瀏覽至連線處理站解決方案入口網站中的 [連線您自己的 OPC UA 伺服器] 頁面。 只有解決方案的系統管理員才能使用此頁面。 輸入發行者端點 URL (opc.tcp://publisher:62222)，並按一下 [連線]。
 
@@ -153,23 +153,23 @@ OPC Proxy 會在安裝期間儲存連接字串。 在後續的執行中應該省
 
 ## <a name="add-your-own-opc-ua-servers"></a>新增自己的 OPC UA 伺服器
 
-若要將自己的 OPC UA 伺服器新增至連線處理站預先設定解決方案：
+將自己的 OPC UA 伺服器新增至連線處理站解決方案加速器：
 
 1. 瀏覽至連線處理站解決方案入口網站中的 [連線您自己的 OPC UA 伺服器] 頁面。
 
     1. 啟動您想要連線的 OPC UA 伺服器。 確保可從在容器中執行的 OPC 發行者和 OPC Proxy 連線到您的 OPC UA 伺服器 (請參閱先前有關名稱解析的註解)。
     1. 輸入 OPC UA 伺服器的端點 URL (`opc.tcp://<host>:<port>`)，然後按一下 [連線]。
-    1. 在連線設定期間，會在 [連線的工廠] 入口網站 (OPC UA 用戶端) 和您嘗試連線的 OPC UA 伺服器之間建立信任關係。 在 [連線的工廠] 儀表板中，您會得到 [Certificate of the server you want to connect cannot be verified] \(無法驗證您想要連線之伺服器的憑證\) 警告。 當您看到憑證警告時，按一下 [繼續]。
-    1. 更難設定的是您正嘗試連線之 OPC UA 伺服器的憑證設定。 對於以電腦為基礎的 OPC UA 伺服器，可能只會在儀表板中顯示一個您可以確認的警告對話方塊。 對於內嵌的 OPC UA 伺服器系統，請參閱 OPC UA 伺服器的文件，以查閱如何完成這項工作。 您可能需要 [連線的工廠] 入口網站之 OPC UA 用戶端的憑證，才能完成這項工作。 系統管理員可以在 [連接您自己的 OPC UA 伺服器] 頁面上下載此憑證：
+    1. 在連線設定期間，會在連線處理站入口網站 (OPC UA 用戶端) 和您嘗試連線的 OPC UA 伺服器之間建立信任關係。 在連線處理站儀表板中，您會得到 [無法驗證您所要連線伺服器的憑證] 警告。 當您看到憑證警告時，按一下 [繼續]。
+    1. 更難設定的是您正嘗試連線之 OPC UA 伺服器的憑證設定。 對於以電腦為基礎的 OPC UA 伺服器，可能只會在儀表板中顯示一個您可以確認的警告對話方塊。 對於內嵌的 OPC UA 伺服器系統，請參閱 OPC UA 伺服器的文件，以查閱如何完成這項工作。 您可能需要連線處理站入口網站的 OPC UA 用戶端憑證，才能完成這項工作。 系統管理員可以在 [連接您自己的 OPC UA 伺服器] 頁面上下載此憑證：
 
         ![解決方案入口網站](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
 
-1. 瀏覽 OPC UA 伺服器的 OPC UA 節點樹狀結構、以滑鼠右鍵按一下您想要傳送值至「連線的工廠」的 OPC 節點，然後選取 [發行]。
+1. 瀏覽 OPC UA 伺服器的 OPC UA 節點樹狀結構、以滑鼠右鍵按一下您想要傳送值到連線處理站的 OPC 節點，然後選取 [發行]。
 
-1. 現在會從閘道裝置傳送遙測。 您可以在連線處理站入口網站位於 [新處理站] 之下的 [處理站位置] 中檢視遙測。
+1. 現在會從閘道裝置傳送遙測。 您可以在連線處理站入口網站，位於 [新增處理站] 之下的 [處理站位置] 中檢視遙測。
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解連線處理站預先設定解決方案的架構，請參閱[連線處理站預先設定的解決方案逐步解說](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough)。
+若要深入了解連線處理站解決方案加速器的架構，請參閱[連線處理站解決方案加速器逐步解說](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough)。
 
 了解 [OPC 發行者參考實作](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher)。

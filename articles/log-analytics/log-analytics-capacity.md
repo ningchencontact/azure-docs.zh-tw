@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 99c29afec7d06a458ed6d34071f1b6acbba1f03b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: db38678a05afbc764dec20f2a475e00856a1aeee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>使用容量和效能解決方案來規劃 Hyper-V 虛擬機器容量 (預覽)
 
 ![容量與效能符號](./media/log-analytics-capacity/capacity-solution.png)
+
+> [!NOTE]
+> 容量與效能解決方案已取代。  已安裝此解決方案的客戶可以繼續使用，但無法將「容量與效能」加入任何新的工作區。
 
 您可以使用 Log Analytics 中的容量和效能解決方案，來協助您了解 Hyper-V 伺服器的容量。 這個解決方案可顯示主機以及在這些 Hyper-V 主機上執行之 VM 的整體使用率 (CPU、記憶體和磁碟)，以讓您深入了解 Hyper-V 環境。 系統會跨所有主機和在其上執行的 VM 來收集 CPU、記憶體和磁碟的計量。
 

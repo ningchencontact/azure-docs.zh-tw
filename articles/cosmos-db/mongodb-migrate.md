@@ -3,7 +3,7 @@ title: 使用 mongoimport 和 mongorestore 搭配適用於 MongoDB 的 Azure Cos
 description: 了解如何使用 mongoimport 和 mongorestore 將資料匯入適用於 MongoDB 的 API 帳戶
 keywords: mongoimport, mongorestore
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
-ms.author: anhoh
+ms.date: 05/07/2018
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 5c87483e384a09591aca496292638d7b68476beb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 36d098a76e57b65ba82c24ed81ebbe3d21489a9f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB：匯入 MongoDB 資料 
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/06/2018
 * 從 [MongoDB 下載中心](https://www.mongodb.com/download-center)下載 *mongoimport.exe* 或*mongorestore.exe*。
 * 取得[適用於 MongoDB 的 API 連接字串](connect-mongodb-account.md)。
 
-如果您從 MongoDB 匯入資料，而且想要將這些資料用於 Azure Cosmos DB，則必須使用[資料移轉工具](import-data.md)匯入資料。
+如果您從 MongoDB 匯入資料，而且想要將這些資料用於 Azure Cosmos DB SQL API，則必須使用[資料移轉工具](import-data.md)匯入資料。
 
 本教學課程涵蓋下列工作：
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="prerequisites"></a>先決條件
 
-* 增加輸送量︰資料移轉的時間長短取決於您為集合設定的輸送量。 針對較大資料移轉，請務必增加輸送量。 完成移轉之後，再降低輸送量以節省成本。 如需在 [Azure 入口網站](https://portal.azure.com)增加輸送量的詳細資訊，請參閱 [Azure Cosmos DB 中的效能等級和定價層](performance-levels.md)。
+* 增加輸送量︰資料移轉的時間長短取決於您為個別集合或一組集合設定的輸送量。 針對較大資料移轉，請務必增加輸送量。 完成移轉之後，再降低輸送量以節省成本。 如需在 [Azure 入口網站](https://portal.azure.com)增加輸送量的詳細資訊，請參閱 [Azure Cosmos DB 中的效能等級和定價層](performance-levels.md)。
 
 * 啟用 SSL：Azure Cosmos DB 有嚴格的安全性需求和標準。 與您的帳戶互動時，請務必啟用 SSL。 本文其他部分的程序包括如何針對 mongoimport 和 mongorestore 啟用 SSL。
 
@@ -47,10 +47,11 @@ ms.lasthandoff: 04/06/2018
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的左窗格中，按一下 [Azure Cosmos DB] 項目。
 2. 在 [訂用帳戶] 窗格中，選取您的帳戶名稱。
-3. 在 [連接字串] 刀鋒視窗中，按一下 [連接字串]。  
-右窗格中有您成功連接到您的帳戶所需的所有資訊。
+3. 在 [連接字串] 刀鋒視窗中，按一下 [連接字串]。
 
-    ![[連接字串] 刀鋒視窗](./media/mongodb-migrate/ConnectionStringBlade.png)
+   右窗格中有您成功連接到您的帳戶所需的所有資訊。
+
+   ![[連接字串] 刀鋒視窗](./media/mongodb-migrate/ConnectionStringBlade.png)
 
 ## <a name="import-data-to-the-api-for-mongodb-by-using-mongoimport"></a>使用 mongoimport 將資料匯入適用於 MongoDB 的 API
 
@@ -80,9 +81,27 @@ ms.lasthandoff: 04/06/2018
 
 1. 預先建立並調整您的集合：
         
-    * 根據預設，Azure Cosmos DB 會佈建含 1,000 個要求單位 (RU) 的新 MongoDB 集合。 使用 mongoimport、mongorestore 或 mongomirror 開始移轉之前，請從 [Azure 入口網站](https://portal.azure.com)或 MongoDB 驅動程式與工具預先建立您的所有集合。 如果您的集合大於 10 GB，請務必使用適當的分區金鑰建立[分區/分割集合](partition-data.md)。
+    * 根據預設，Azure Cosmos DB 會佈建含 1,000 個要求單位 (RU/秒) 的新 MongoDB 集合。 使用 mongoimport、mongorestore 或 mongomirror 開始移轉之前，請從 [Azure 入口網站](https://portal.azure.com)或 MongoDB 驅動程式與工具預先建立您的所有集合。 如果您的集合大於 10 GB，請務必使用適當的分區金鑰建立[分區/分割集合](partition-data.md)。
 
-    * 在 [Azure 入口網站](https://portal.azure.com)，僅針對移轉來增加集合的輸送量，單一分割區集合從 1,000 RU 起，分區集合則從 2,500 RU 起。 藉由較高的輸送量，您可以避免節流，並花費較少的時間進行移轉。 由於 Azure Cosmos DB 是以每小時計費，所以您可以在移轉之後立即減少輸送量以節省成本。
+    * 在 [Azure 入口網站](https://portal.azure.com)，僅針對移轉來增加集合的輸送量，單一分割區集合從 1,000 RU/秒起，分區集合則從 2,500 RU/秒起。 藉由較高的輸送量，您可以避免節流，並花費較少的時間進行移轉。 由於 Azure Cosmos DB 是以每小時計費，所以您可以在移轉之後立即減少輸送量以節省成本。
+
+    * 除了佈建集合層級的 Ru/秒，您也可以為一組集合佈建父資料庫層級的 RU/秒。 這必須預先建立資料庫和集合，並定義每個集合的分區索引鍵。
+
+    * 您可以透過您慣用的工具、驅動程式或 SDK 來建立分區化集合。 在此範例中，我們使用 Mongo 殼層來建立分區化集合：
+
+        ```
+        db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+        ```
+    
+        結果：
+
+        ```JSON
+        {
+            "_t" : "ShardCollectionResponse",
+            "ok" : 1,
+            "collectionsharded" : "admin.people"
+        }
+        ```
 
 2. 估算單一文件消耗的 RU：
 
@@ -92,7 +111,7 @@ ms.lasthandoff: 04/06/2018
     
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
-    c. 執行 ```db.runCommand({getLastRequestStatistics: 1})```，您會收到如下的回應：
+    c. 執行 ```db.runCommand({getLastRequestStatistics: 1})```，您將會收到如下的回應：
      
         ```
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
@@ -111,7 +130,7 @@ ms.lasthandoff: 04/06/2018
     
     a. 從 MongoDB 殼層使用此命令，以啟用詳細資訊記錄：```setVerboseShell(true)```
     
-    b. 對資料庫執行簡單的查詢：```db.coll.find().limit(1)```。 您會收到如下的回應：
+    b. 對資料庫執行簡單的查詢：```db.coll.find().limit(1)```。 您將會收到如下的回應：
 
         ```
         Fetched 1 record(s) in 100(ms)

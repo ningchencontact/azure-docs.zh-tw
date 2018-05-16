@@ -1,6 +1,6 @@
 ---
 title: 使用 C 將 Raspberry Pi 佈建到遠端監視 - Azure | Microsoft Docs
-description: 描述如何使用 C 中已寫入的應用程式，將 Raspberry Pi 裝置連線至 Azure IoT 套件預先設定遠端監視方案。
+description: 描述如何使用以 C 編寫的應用程式，將 Raspberry Pi 裝置連線到遠端監視解決方案加速器。
 services: iot-suite
 suite: iot-suite
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: e3fb95bc5084bb633541f70a5e68cc8d6af83298
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9de7616ec7174f6c55888a659e9a12bca1e07f94
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>將 Raspberry Pi 裝置連線至遠端監視預先設定方案 (C)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>將 Raspberry Pi 裝置連線到遠端監視解決方案加速器 (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-本教學課程會示範如何將實體裝置連線到遠端監視預先設定的解決方案。 如同大部分在受條件約束裝置上執行的內嵌應用程式，Raspberry Pi 裝置應用程式的用戶端程式碼是以 C 撰寫的。在此教學課程中，您要在執行 Raspbian OS 的 Raspberry Pi 上建置應用程式。
+本教學課程示範如何將實體裝置連線到遠端監視解決方案加速器。 如同大部分在受條件約束裝置上執行的內嵌應用程式，Raspberry Pi 裝置應用程式的用戶端程式碼是以 C 撰寫的。在此教學課程中，您要在執行 Raspbian OS 的 Raspberry Pi 上建置應用程式。
 
 ### <a name="required-hardware"></a>必要的硬體
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/16/2018
 
 本文假設您已將最新版的 [Raspbian OS 安裝在 Raspberry Pi 上](https://www.raspberrypi.org/learning/software-guide/quickstart/)。
 
-下列步驟說明如何準備 Raspberry Pi 以建置連線到預先設定方案的 C 應用程式：
+下列步驟說明如何準備 Raspberry Pi，以建置連線到解決方案加速器的 C 應用程式：
 
 1. 使用 **ssh** 連線至您的 Raspberry Pi。 如需詳細資訊，請參閱 [Raspberry Pi 網站](https://www.raspberrypi.org/)上的 [SSH (安全殼層)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)。
 
@@ -174,16 +174,17 @@ int main(void)
     add_executable(sample_app ${sample_application_c_files} ${sample_application_h_files})
 
     target_link_libraries(sample_app
-        serializer
-        iothub_client
-        iothub_client_mqtt_transport
-        aziotsharedutil
-        umqtt
-        pthread
-        curl
-        ssl
-        crypto
-        m
+      serializer
+      iothub_client_mqtt_transport
+      umqtt
+      iothub_client
+      aziotsharedutil
+      parson
+      pthread
+      curl
+      ssl
+      crypto
+      m
     )
     ```
 

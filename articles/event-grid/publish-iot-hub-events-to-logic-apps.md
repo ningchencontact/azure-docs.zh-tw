@@ -1,22 +1,22 @@
 ---
-title: "使用 IoT 中樞事件來觸發 Azure Logic Apps | Microsoft Docs"
-description: "使用 Azure Event Grid 的事件路由服務，建立自動化程序以根據 IoT 中樞事件執行 Azure Logic Apps 動作。"
+title: 使用 IoT 中樞事件來觸發 Azure Logic Apps | Microsoft Docs
+description: 使用 Azure Event Grid 的事件路由服務，建立自動化程序以根據 IoT 中樞事件執行 Azure Logic Apps 動作。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: f54db95b0dfe5dc39c8e2a85375e56a93d1562ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4fed42a45f8d291bd3ba1e4fd5d636b7d0b0fbfc
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>使用 Logic Apps 來傳送 Azure IoT 中樞事件的相關電子郵件通知
 
@@ -156,7 +156,7 @@ Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回
 在本節中，您可將 IoT 中樞設定為在事件發生時進行發佈。 
 
 1. 在 Azure 入口網站中，瀏覽至您的 IoT 中樞。 
-2. 選取 **Event Grid**。
+2. 選取 [事件]。
 
    ![開啟 Event Grid 詳細資料](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory 網域服務︰部署 Azure Active Directory 應用程式 Proxy | Microsoft Docs"
-description: "在 Active Directory Domain Services 受控網域上使用 Azure AD 應用程式"
+title: Azure Active Directory 網域服務︰部署 Azure Active Directory 應用程式 Proxy | Microsoft Docs
+description: 在 Active Directory Domain Services 受控網域上使用 Azure AD 應用程式
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: bd79644c6a13ccaab8eb7e14131465cc7c3165d3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eee20271c27f596ee6aefd0b7280c7862c53b289
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>在 Azure Active Directory Domain Services 受控網域上部署 Azure AD 應用程式
 Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網路存取的內部部署應用程式，協助您支援遠端背景工作角色。 使用 Azure AD 網域服務，您現在可以提升執行內部部署的舊版應用程式並隨即轉移至 Azure 基礎結構服務。 然後，您可以使用 Azure AD 應用程式 Proxy 發佈這些應用程式，為您組織中的使用者提供安全遠端存取。
 
-如果您是 Azure AD 應用程式 Proxy 的新手，可至下列文章：[如何為內部部署應用程式提供安全的遠端存取](../active-directory/active-directory-application-proxy-get-started.md)深入了解這個功能。
+如果您是 Azure AD 應用程式 Proxy 的新手，可至下列文章：[如何為內部部署應用程式提供安全的遠端存取](../active-directory/manage-apps/application-proxy.md)深入了解這個功能。
 
 
 ## <a name="before-you-begin"></a>開始之前
@@ -93,10 +93,9 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
 ## <a name="next-steps"></a>後續步驟
 您已設定 Azure AD 應用程式 Proxy，並將其與您 Azure Active Directory Domain Services 的受控網域進行整合。
 
-* 
-            **將您的應用程式移轉到 Azure 虛擬機器︰**您可以從內部部署伺服器提升應用程式並隨即轉移到加入至受控網域的 Azure 虛擬機器。 如此一來，可協助您刪掉執行伺服器內部部署的基礎結構成本。
+* **將您的應用程式移轉到 Azure 虛擬機器︰** 您可以從內部部署伺服器提升應用程式並隨即轉移到加入至受控網域的 Azure 虛擬機器。 如此一來，可協助您刪掉執行伺服器內部部署的基礎結構成本。
 
-* **使用 Azure AD 應用程式 Proxy 發佈應用程式︰**使用 Azure AD 應用程式 Proxy 發佈您的 Azure 虛擬機器上所執行的應用程式。 如需詳細資訊，請參閱[使用 Azure AD 應用程式 Proxy 發佈應用程式](../active-directory/application-proxy-publish-azure-portal.md)
+* **使用 Azure AD 應用程式 Proxy 發佈應用程式︰** 使用 Azure AD 應用程式 Proxy 發佈您的 Azure 虛擬機器上所執行的應用程式。 如需詳細資訊，請參閱[使用 Azure AD 應用程式 Proxy 發佈應用程式](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>部署附註 - 使用 Azure AD 應用程式 Proxy 發佈 IWA (整合式 Windows 驗證) 應用程式
@@ -128,6 +127,5 @@ Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateTo
 
 ## <a name="related-content"></a>相關內容
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
-* 
-            [在受控網域上設定 Kerberos 限制委派](active-directory-ds-enable-kcd.md)
+* [在受控網域上設定 Kerberos 限制委派](active-directory-ds-enable-kcd.md)
 * [Kerberos 限制委派概觀](https://technet.microsoft.com/library/jj553400.aspx)

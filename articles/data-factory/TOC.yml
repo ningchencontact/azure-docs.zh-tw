@@ -350,16 +350,18 @@
           href: data-factory-service-identity.md
     - name: 監視及管理
       items:
-        - name: 使用 SDK
-          href: monitor-programmatically.md
-        - name: 使用 Azure 監視器
-          href: monitor-using-azure-monitor.md
         - name: 以視覺化方式監視
           href: monitor-visually.md
-        - name: 管理 Azure-SSIS 整合執行階段
-          href: manage-azure-ssis-integration-runtime.md
+        - name: 使用 Azure 監視器進行監視
+          href: monitor-using-azure-monitor.md
+        - name: 使用 SDK 進行監視
+          href: monitor-programmatically.md
         - name: 監視 Azure 整合執行階段
           href: monitor-integration-runtime.md
+        - name: 監視 Azure-SSIS 整合執行階段
+          href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
+        - name: 管理 Azure-SSIS 整合執行階段
+          href: manage-azure-ssis-integration-runtime.md
     - name: 建立整合執行階段
       items:
         - name: Azure 整合執行階段
@@ -370,24 +372,22 @@
           href: create-azure-ssis-integration-runtime.md
     - name: 在 Azure 中執行 SSIS 套件
       items:
-        - name: Azure-SSIS 整合執行階段自訂設定
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: 佈建 Azure-SSIS 整合執行階段的 Enterprise Edition
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: 將 Azure SSIS 整合執行階段新增至 VNET
           href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: 管理 Azure-SSIS 整合執行階段
-          href: manage-azure-ssis-integration-runtime.md
-        - name: 設定 Azure-SSIS 整合執行階段效能設定
+        - name: 設定 Azure-SSIS 整合執行階段以獲得高效能
           href: configure-azure-ssis-integration-runtime-performance.md
+        - name: 佈建 Azure-SSIS 整合執行階段的 Enterprise Edition
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Azure-SSIS 整合執行階段自訂設定
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: 部署 Azure-SSIS 整合執行階段的授權元件
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: 使用 SSIS 活動執行 SSIS 套件
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: 使用預存程序活動執行 SSIS 套件
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: 排程 Azure-SSIS 整合執行階段
           href: how-to-schedule-azure-ssis-integration-runtime.md
-        - name: 開發 Azure-SSIS 整合執行階段的授權元件
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: 建立觸發程序
       items:
         - name: 建立排程觸發程序

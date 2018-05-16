@@ -3,29 +3,31 @@ title: 開始使用 Azure AD AngularJS | Microsoft Docs
 description: 如何建置 AngularJS 單一頁面應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。
 services: active-directory
 documentationcenter: ''
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2f78a6b17a512ab54ffab4554ccc0f3f1486f27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5b99ce605d9ecea6c7d67ab9a2ea679d531787d7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>開始使用 Azure AD AngularJS
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory (Azure AD) 可讓您簡單又直截了當地新增登入、登出，並保護對單一頁面應用程式的 OAuth API 呼叫。  它也可讓您的應用程式以使用者的 Windows Server Active Directory 帳戶來驗證使用者，並取用 Azure AD 保護的任何 Web API，例如 Office 365 API 或 Azure API。
+Azure Active Directory (Azure AD) 可讓您簡單又直截了當地新增登入、登出，並保護對單一頁面應用程式的 OAuth API 呼叫。 它也可讓您的應用程式以使用者的 Windows Server Active Directory 帳戶來驗證使用者，並取用 Azure AD 保護的任何 Web API，例如 Office 365 API 或 Azure API。
 
 對於在瀏覽器中執行的 JavaScript 應用程式，Azure AD 提供 Active Directory 驗證程式庫 (ADAL)，又稱為 adal.js。 adal.js 的唯一目的是為了讓您的應用程式輕鬆取得存取權杖。 為了示範究竟多麼簡單，我們將建置一個執行下列動作的 AngularJS 待辦事項清單應用程式：
 
@@ -53,7 +55,7 @@ Azure Active Directory (Azure AD) 可讓您簡單又直截了當地新增登入�
 5. 遵照提示進行，並建立新的 Web 應用程式和/或 Web API：
   * **名稱**向使用者描述您的應用程式。
   * **登入 URL** 是供 Azure AD 傳回權杖的位置。 此範例中的預設位置是 `https://localhost:44326/`。
-6. 完成註冊之後，Azure AD 會為應用程式指派一個唯一的應用程式識別碼。  您會在後續小節中用到這個值，所以請從應用程式索引標籤中複製此值。
+6. 完成註冊之後，Azure AD 會為應用程式指派一個唯一的應用程式識別碼。 您會在後續小節中用到這個值，所以請從應用程式索引標籤中複製此值。
 7. Adal.js 會使用 OAuth 隱含流程來與 Azure AD 通訊。 您必須為您的應用程式啟用隱含流程：
   1. 按一下應用程式，選取 [資訊清單] 以開啟內嵌資訊清單編輯器。
   2. 找出 `oauth2AllowImplicitFlow` 屬性。 將值設為 `true`。
@@ -118,11 +120,11 @@ adal.js 與 AngularJS 路由和 HTTP 提供者整合，因此您可以保護單�
     ```
 
 ## <a name="summary"></a>總結
-您現在有了一個安全的單一頁面應用程式，能夠將使用者登入，並將以持有人權杖保護的要求發給其後端 API。 當使用者按一下 **TodoList** 連結時，需要的話，adal.js 會自動重新導向至 Azure AD 進行登入。 此外，adal.js 將會自動將 access_token 附加至任何傳送至應用程式後端的 Ajax 要求。  
+您現在有了一個安全的單一頁面應用程式，能夠將使用者登入，並將以持有人權杖保護的要求發給其後端 API。 當使用者按一下 **TodoList** 連結時，需要的話，adal.js 會自動重新導向至 Azure AD 進行登入。 此外，adal.js 將會自動將 access_token 附加至任何傳送至應用程式後端的 Ajax 要求。 
 
 前述步驟是使用 adal.js 建置單一頁面應用程式的最低必要程序。 但單一頁面應用程式中還有其他幾項很有用的功能︰
 
-* 若要明確發出登入和登出要求，您可以在控制器中定義函式來叫用 adal.js。  在 `App/Scripts/homeCtrl.js`中：
+* 若要明確發出登入和登出要求，您可以在控制器中定義函式來叫用 adal.js。 在 `App/Scripts/homeCtrl.js`中：
 
     ```js
     ...
@@ -143,7 +145,7 @@ adal.js 與 AngularJS 路由和 HTTP 提供者整合，因此您可以保護單�
     ...
     ```
 
-* 在許多情況下，您也可能想知道使用者是否已登入。 您也可以使用 `userInfo` 物件來收集此資訊。  例如，在 `index.html` 中，您可以根據驗證狀態顯示 [登入] 或 [登出] 按鈕：
+* 在許多情況下，您也可能想知道使用者是否已登入。 您也可以使用 `userInfo` 物件來收集此資訊。 例如，在 `index.html` 中，您可以根據驗證狀態顯示 [登入] 或 [登出] 按鈕：
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>

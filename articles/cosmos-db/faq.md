@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 0118e78ee7240c139ff808582d6b9b47c6b64b4b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
@@ -114,7 +114,7 @@ PreferredLocations 值可以設定為任何提供 Cosmos DB 的 Azure 區域。 
 ### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-the-world-via-the-azure-datacenters"></a>當我透過 Azure 的資料中心在世界各地散發資料時，應注意哪些事項？ 
 所有的 Azure 區域均提供 Azure Cosmos DB ，如同 [Azure 區域](https://azure.microsoft.com/regions/)頁面所指出。 由於它是核心服務，因此每個新資料中心都會有一個 Azure Cosmos DB。 
 
-設定區域時，請記住 Azure Cosmos DB 涉及主權和政府雲端。 也就是如果您在主權區域中建立帳戶，便無法覆寫到該主權區域之外的位置。 同樣地，您也無法從外部帳戶覆寫到其他主權位置。 
+設定區域時，請記住 Azure Cosmos DB 涉及主權和政府雲端。 也就是如果您在[主權區域](https://azure.microsoft.com/global-infrastructure/)中建立帳戶，便無法覆寫到該[主權區域](https://azure.microsoft.com/global-infrastructure/)之外的位置。 同樣地，您也無法從外部帳戶覆寫到其他主權位置。 
 
 ## <a name="develop-against-the-sql-api"></a>針對 SQL API 進行開發
 
@@ -170,6 +170,9 @@ SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交
 ### <a name="is-a-local-instance-of-sql-api-available"></a>SQL API 的本機執行個體可供使用嗎？
 是。 [Azure Cosmos DB 模擬器](local-emulator.md)提供 Cosmos DB 服務的高逼真度模擬。 它支援與 Azure Cosmos DB 完全相同的功能，包括支援建立和查詢 JSON 文件、佈建和擴充集合，以及執行預存程序和觸發程序。 您可以使用 Azure Cosmos DB 模擬器來開發及測試應用程式，並且只需對 Azure Cosmos DB 的連接端點進行單一組態變更，就能將它們部署至全球規模的 Azure。
 
+### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>在入口網站中從資料總管檢視文件中的長浮點值時，這些值為何會四捨五入。 
+這是 JavaScript 的限制。 JavaScript 會使用 IEEE 754 中指定的雙精確度浮點格式數值，且只能夠安全地表示 -(253 - 1) 與 253 – 1 (即 9007199254740991) 之間的數值。
+
 ## <a name="develop-against-the-api-for-mongodb"></a>針對 MongoDB 開發 API
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>什麼是適用於 MongoDB 的 Azure Cosmos DB API？
 適用於 MongoDB 的 Azure Cosmos DB API 是一個相容性層級，可讓應用程式使用社群支援的現有 Apache MongoDB API 和驅動程式，輕鬆且透明地與原生 Azure Cosmos DB 資料庫引擎通訊。 開發人員現在可以使用現有的 MongoDB 工具鏈結和技術，建置充分利用 Azure Cosmos DB 的應用程式。 開發人員能從 Azure Cosmos DB 的獨特功能受益，包括自動編製索引、備份維護、有金錢補償的服務等級協定 (SLA) 等。
@@ -187,7 +190,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 
 | Error               | 代碼  | 說明  | 解決方法  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | 取用的要求單位總數已超過針對集合佈建的要求單位率並已進行節流。 | 請考慮從 Azure 入口網站調整集合的輸送量或重試一次。 |
+| TooManyRequests     | 16500 | 取用的要求單位總數已超過針對集合佈建的要求單位率並已進行節流。 | 請考慮從 Azure 入口網站調整指派給容器或容器集的輸送量，或重試一次。 |
 | ExceededMemoryLimit | 16501 | 做為多租用戶服務，作業已超出用戶端的記憶體配額。 | 透過更嚴格的查詢準則來縮小作業的範圍，或經由 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡支援人員。 <br><br>範例：*&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>利用資料表 API 進行開發
@@ -211,6 +214,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 * 資料表名稱在 Azure 資料表儲存體中不區分大小寫，但在 Azure Cosmos DB 資料表 API 中則有區分
 * 部分 Azure Cosmos DB 用於編碼資訊 (例如二進位欄位) 的內部格式，目前不如預期地有效率。 因此這會對資料大小造成非預期的限制。 例如，目前無法使用資料表實體的完整 1 Meg 來儲存二進位資料，因為編碼方式增加了資料的大小。
 * 目前不支援實體屬性名稱 “Id”
+* TableQuery TakeCount 未限制為 1000
 
 就 REST API 來說，Azure Cosmos DB 資料表 API 並不支援某些端點/查詢選項：
 | REST 方法 | REST 端點/查詢選項 | 文件 URL | 說明 |
@@ -382,7 +386,7 @@ Azure Cosmos DB 會在當地區域持久認可資料，並在幾毫秒內立即�
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>我何時應該變更資料表 API 的 TableThroughput？
 滿足以下任一條件時，您應該變更 TableThroughput：
 * 您即將要執行資料擷取、轉換及載入 (ETL)，或想要在短時間內上傳大量資料。 
-* 您需要更多來自後端容器的輸送量。 例如，您發現使用的輸送量比佈建的輸送量還多，而您正要開始進行節流。 如需詳細資訊，請參閱[設定 Azure Cosmos DB 容器輸送量](set-throughput.md)。
+* 您需要更多來自後端容器或容器集的輸送量。 例如，您發現使用的輸送量比佈建的輸送量還多，而您正要開始進行節流。 如需詳細資訊，請參閱[設定 Azure Cosmos DB 容器輸送量](set-throughput.md)。
 
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-table"></a>我可以相應增加或減少資料表 API 資料表的輸送量嗎？ 
 是，您可以使用 Azure Cosmos DB 入口網站的調整窗格來調整輸送量。 如需詳細資訊，請參閱[設定輸送量](set-throughput.md)。
@@ -397,7 +401,7 @@ Azure Cosmos DB 會在當地區域持久認可資料，並在幾毫秒內立即�
 價格取決於配置的 TableThroughput。 
 
 ### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>如何在資料表 API 供應項目中處理資料表上的任何節流？ 
-如果要求速率超過基礎容器所佈建的輸送量容量，您就會收到錯誤，而 SDK 會套用重試原則來重試呼叫。
+如果要求速率超過為基礎容器或容器集佈建的輸送量容量，您就會收到錯誤，而 SDK 會套用重試原則來重試呼叫。
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>為何我需要選擇 PartitionKey 和 RowKey 以外的輸送量，才能運用 Azure Cosmos DB 的資料表 API 供應項目？
 如果您未在 app.config 或透過入口網站提供輸送量，Azure Cosmos DB 將為您的容器設定預設輸送量。 

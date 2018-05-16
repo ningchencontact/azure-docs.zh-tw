@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2b69b3b5fee0d1148a762f817d9c5a8bc67806e7
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7290c12e7d96ac01c66d97103920793f98120b38
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的要求單位
 
@@ -32,9 +32,9 @@ Azure Cosmos DB 的貨幣是**要求單位 (RU)**。 使用 RU 時，您不需�
 閱讀本文後，您將能夠回答下列問題：  
 
 * Azure Cosmos DB 中的要求單位和要求費用是什麼？
-* 如何指定 Azure Cosmos DB 中容器的要求單位容量？
+* 如何指定 Azure Cosmos DB 中的容器或一組容器的要求單位容量？
 * 如何估計應用程式的要求單位需求？
-* 如果超過 Azure Cosmos DB 中容器的要求單位容量，會發生什麼情況？
+* 如果超過 Azure Cosmos DB 中的容器或一組容器的要求單位容量，會發生什麼情況？
 
 因為 Azure Cosmos DB 是多模型資料庫，請留意這篇文章是適用於 Azure Cosmos DB 中的所有資料模型和 API。 本文會使用一般詞彙 (例如*容器*和*項目*) 來分別統稱集合、圖形或資料表和文件、節點或實體。
 
@@ -50,14 +50,19 @@ Azure Cosmos DB 藉由「保留」資源以滿足應用程式的輸送量需求�
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中指定要求單位容量
-開始新的容器時，您需指定所要保留的每秒要求單位數 (每秒 RU)。 Azure Cosmos DB 會根據所佈建的輸送量，配置實體分割區來裝載您的容器，並隨著輸送量的成長來跨分割區分割/重新平衡資料。
 
-Azure Cosmos DB 容器可以建立為固定或無限制。 固定大小的容器具有上限為 10 GB 和 10,000 RU/秒的輸送量。 若要建立無限制的容器，您必須指定最小輸送量 1,000 RU/秒和[分割區索引鍵](partition-data.md)。 由於您的資料可能必須分散在多個分割區，因此必須挑選基數高 (100 個到數百萬個相異值) 的分割區索引鍵。 藉由選取具有許多相異值的分割區索引鍵，您便可確保 Azure Cosmos DB 可以一致地調整您的容器/資料表/圖表和要求。 
+您可以指定要為個別容器或一組容器保留的每秒要求單位數 (每秒 RU)。 Azure Cosmos DB 會根據所佈建的輸送量，配置實體分割區來裝載您的容器，並隨著輸送量的成長來跨分割區分割/重新平衡資料。
+
+指派個別容器層級的 RU/秒時，容器可以建立為*固定*或*無限制的*形式。 固定大小的容器具有上限為 10 GB 和 10,000 RU/秒的輸送量。 若要建立無限制的容器，您必須指定最小輸送量 1,000 RU/s 和[分割區索引鍵](partition-data.md)。 由於您的資料可能必須分散在多個分割區，因此必須挑選基數高 (100 個到數百萬個相異值) 的分割區索引鍵。 藉由選取具有許多相異值的分割區索引鍵，您便可確保 Azure Cosmos DB 可以一致地調整您的容器/資料表/圖表和要求。 
+
+指派跨一組容器的 RU/秒時，屬於這組容器的容器會視為*無限制的*容器，且必須指定分割區索引鍵。
+
+![佈建個別容器和一組容器的要求單位][6]
 
 > [!NOTE]
 > 資料分割索引鍵是一種邏輯界限，而不是實體界限。 因此，您不需要限制不同資料分割索引鍵值的數目。 事實上，最好能擁有較多不同的資料分割索引鍵值，Azure Cosmos DB 才有更多的負載平衡選項。
 
-以下程式碼片段會使用 .NET SDK 來建立一個具有每秒 3,000 個要求單位的容器：
+以下程式碼片段會使用 SQL API 的 .NET SDK，為個別容器建立一個具有每秒 3,000 個要求單位的容器：
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -70,12 +75,41 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
+以下程式碼片段會使用 SQL API 的 .NET SDK，在一組容器間佈建每秒 100,000 個要求單位：
+
+```csharp
+// Provision 100,000 RU/sec at the database level. 
+// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
+// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
+Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
+
+DocumentCollection sharedCollection1 = new DocumentCollection();
+sharedCollection1.Id = "sharedCollection1";
+sharedCollection1.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
+
+DocumentCollection sharedCollection2 = new DocumentCollection();
+sharedCollection2.Id = "sharedCollection2";
+sharedCollection2.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
+
+DocumentCollection dedicatedCollection = new DocumentCollection();
+dedicatedCollection.Id = "dedicatedCollection";
+dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
+```
+
+
 Azure Cosmos DB 針對輸送量會以保留模型的方式運作。 也就是說，您需要針對所「保留」的輸送量支付費用，而不論該輸送量中有多少數量是主動「使用」的。 當您應用程式的負載、資料及使用方式模式變更時，您可以透過 SDK 或使用 [Azure 入口網站](https://portal.azure.com)，輕鬆地相應增加和減少保留 RU 的數量。
 
-每個容器都會對應至 Azure Cosmos DB 中的一個 `Offer` 資源，其中有所佈建輸送量的相關中繼資料。 藉由查閱容器的對應 offer 資源，然後使用新的輸送量值加以更新，即可變更已配置的輸送量。 以下程式碼片段會使用 .NET SDK 將容器的輸送量變更為每秒 5,000 個要求單位：
+每個容器或一組容器會對應至 Azure Cosmos DB 中的一個 `Offer` 資源，其中有所佈建輸送量的相關中繼資料。 藉由查閱容器的對應 offer 資源，然後使用新的輸送量值加以更新，即可變更已配置的輸送量。 以下程式碼片段會使用 .NET SDK 將容器的輸送量變更為每秒 5,000 個要求單位：
 
 ```csharp
 // Fetch the resource to be updated
+// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
 Offer offer = client.CreateOfferQuery()
                 .Where(r => r.ResourceLink == collection.SelfLink)    
                 .AsEnumerable()
@@ -88,28 +122,28 @@ offer = new OfferV2(offer, 5000);
 await client.ReplaceOfferAsync(offer);
 ```
 
-當您變更輸送量時，不會影響容器的可用性。 新保留的輸送量通常會在套用新輸送量的數秒內於生效。
+當您變更輸送量時，不會影響容器或一組容器的可用性。 新保留的輸送量通常會在套用新輸送量的數秒內於生效。
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>輸送量隔離是分散在世界各地的資料庫
 
 當您將資料庫複寫至多個區域後，Azure Cosmos DB 會提供輸送量隔離，以確保一個區域的 RU 使用量不會影響另一個地區的 RU 使用量。 例如，如果您將資料寫入至一個區域，並從另一個區域讀取資料，則用於在區域 *A* 執行寫入作業的 RU，將不會減少用於在區域 *B* 執行讀取作業的 RU。RU 不會分散於已部署的多個區域。 複製資料庫的每個區域都已佈建充分的 RU 數量。 如需全域複寫的詳細資訊，請參閱[如何使用 Azure Cosmos DB 在全域散發資料](distribute-data-globally.md)。
 
 ## <a name="request-unit-considerations"></a>要求單位的考量
-在估計要針對您的 Azure Cosmos DB 容器佈建的要求單位數量時，請務必考量下列變數：
+在估計要佈建的要求單位數量時，請務必考量下列變數：
 
 * **項目大小**。 大小增加時，讀取或寫入資料所耗用的要求單位也會增加。
 * **項目屬性計數**。 假設預設會編製所有屬性的索引，撰寫文件/節點/實體所耗用的單位將會隨著屬性計數增加而增加。
 * **資料一致性**。 當使用「強式」或「限定過期」的資料一致性模型時，會耗用額外要求單位來讀取項目。
-* **已編製索引的屬性**。 每個容器上的索引原則會判定預設要編製哪些索引的屬性。 您可以限制已編製索引的屬性數目或讓索引延遲編製，以減少要求單位的耗用量。
+* **已編製索引的屬性**。 每個容器上的索引原則會判定預設要編製哪些索引的屬性。 您可以限制已編製索引的屬性數目或讓索引延遲編製，以減少寫入作業的要求單位耗用量。
 * **編製文件索引**。 預設會自動編製每個項目的索引。 如果您選擇不要編製某些項目的索引，則會耗用較少的要求單位。
-* **查詢模式**。 查詢的複雜性會影響針對作業所耗用的要求單位數量。 述詞數目、述詞性質、預測、UDF 數目，以及來源資料的大小，全都會影響查詢作業的成本。
+* **查詢模式**。 查詢的複雜性會影響針對作業所耗用的要求單位數量。 查詢結果數目、述詞數目、述詞性質、預測、UDF 數目，以及來源資料的大小，全都會影響查詢作業的成本。
 * **指令碼使用方式**。  查詢、預存程序和觸發程序會根據所執行作業的複雜度來耗用要求單位。 開發應用程式時，請檢查要求費用標頭，進一步了解每項作業如何耗用要求單位容量。
 
 ## <a name="estimating-throughput-needs"></a>估計輸送量需求
 要求單位是要求處理成本的標準化量值。 單一要求單位代表讀取 (透過自我連結或識別碼) 由 10 個唯一屬性值 (不包括系統屬性) 所組成的單一 1KB 項目所需的處理容量。 建立 (插入)、取代或刪除相同項目的要求將會耗用服務的更多處理，因此會耗用更多的要求單位。   
 
 > [!NOTE]
-> 1 KB 項目搭配 1 個要求單位的基準，可與依據項目自我連結或識別碼的簡單 GET 對應。
+> 1 KB 項目 1 個要求單位的基準，可與依據項目自我連結或識別碼的簡單 GET 對應。
 > 
 > 
 
@@ -177,8 +211,8 @@ await client.ReplaceOfferAsync(offer);
 1. 上傳一或多個具代表性的項目 (例如範例 JSON 文件)。
    
     ![將項目上傳至要求單位計算機][2]
-2. 若要預估資料儲存需求，請輸入您預期要儲存的項目 (例如文件、資料表或圖形) 總數。
-3. 輸入您需要的建立、讀取、更新和刪除作業數 (以每秒為單位)。 若要預估項目更新作業的要求單位費用，請上傳一份上述步驟 1 中包含一般欄位更新的範例項目。  例如，如果項目更新通常會修改名為 *lastLogin* 和 *userVisits* 的兩個屬性，則只要複製範例項目，更新那兩個屬性的值，並上傳複製的項目。
+2. 若要預估資料儲存需求，請輸入您預期要儲存的項目 (例如文件、資料列或頂點) 總數。
+3. 輸入您需要的建立、讀取、更新和刪除作業數 (以每秒為單位)。 若要預估項目更新作業的要求單位費用，請上傳一份上述步驟 1 中包含一般欄位更新的範例項目。  例如，如果項目更新通常會修改名為 *lastLogin* 和 *userVisits* 的兩個屬性，請複製範例項目，更新那兩個屬性的值，並上傳複製的項目。
    
     ![在要求單位計算機中輸入輸送量需求][3]
 4. 按一下計算，並檢查結果。
@@ -299,7 +333,7 @@ Azure Cosmos DB 服務的每個回應都會包括自訂標頭 (`x-ms-request-cha
 | 依食物群組選取 |10 |700 |
 | 選取前 10 個 |15 |總共 150 個 |
 
-在此情況下，您會預期平均輸送量需求為 1,275 RU/秒。  如果四捨五入至最接近 100 的數目，您就會針對此應用程式的容器佈建 1,300 RU/秒。
+在此情況下，您會預期平均輸送量需求為 1,275 RU/秒。  如果四捨五入至最接近 100 的數目，您就會針對此應用程式的容器 (或一組容器) 佈建 1,300 RU/s。
 
 ## <a id="RequestRateTooLarge"></a> 超過 Azure Cosmos DB 中保留的輸送量限制
 您應該記得，要求單位耗用量是以每秒的速率來估算。 如果應用程式超過佈建的要求單位速率，要求便會受到速率限制，直到該速率降到佈建的輸送量層級以下。 當要求受到速率限制時，伺服器會使用 `RequestRateTooLargeException` (HTTP 狀態碼 429) 來提前結束要求，並傳回 `x-ms-retry-after-ms` 標頭，以指出使用者重新嘗試要求之前必須等候的時間量 (以毫秒為單位)。
@@ -310,7 +344,7 @@ Azure Cosmos DB 服務的每個回應都會包括自訂標頭 (`x-ms-request-cha
 
 如果您使用 .NET 用戶端 SDK 和 LINQ 查詢，則在大部分時間都不會需要處理這個例外狀況，因為目前版本的 .NET 用戶端 SDK 會隱含地攔截這個回應，遵守伺服器指定的 retry-after 標頭，然後自動重試要求。 除非有多個用戶端同時存取您的帳戶，否則下次重試將會成功。
 
-如果您有多個用戶端會以高於要求速率的方式累積運作，則預設的重試行為可能會不敷使用，且用戶端將會擲回具有狀態碼 429 的 `DocumentClientException` 到應用程式。 在類似這樣的情況下，您可以考慮在應用程式的錯誤處理常式中處理重試行為和邏輯，或為容器提高佈建的輸送量。
+如果您有多個用戶端會以高於要求速率的方式累積運作，則預設的重試行為可能會不敷使用，且用戶端將會擲回具有狀態碼 429 的 `DocumentClientException` 到應用程式。 在類似這樣的情況下，您可以考慮在應用程式的錯誤處理常式中處理重試行為和邏輯，或為容器 (或一組容器) 提高佈建的輸送量。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解透過 Azure Cosmos DB 資料庫保留輸送量的方式，請探索下列資源：
@@ -326,3 +360,4 @@ Azure Cosmos DB 服務的每個回應都會包括自訂標頭 (`x-ms-request-cha
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+[6]: ./media/request-units/provisioning_set_containers.png

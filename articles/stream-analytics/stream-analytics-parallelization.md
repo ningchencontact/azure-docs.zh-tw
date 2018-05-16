@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/22/2017
-ms.openlocfilehash: fae9d7f871dbb20f19bfd61576e017b3910ee8f4
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 05/07/2018
+ms.openlocfilehash: 44a7c0721d8a0683162d2219bff0e4a4ecb117e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 串流分析中的查詢平行化作業
 本文會示範如何利用 Azure 串流分析中的平行化作業。 您可以了解如何透過設定輸入資料分割並調整分析查詢定義來調整串流分析工作。
@@ -35,7 +35,15 @@ ms.lasthandoff: 04/18/2018
 
 ### <a name="outputs"></a>輸出
 
-使用串流分析時，您可以為大多數的輸出接收利用分割區。 輸出分割的詳細資訊位於[輸出頁面的分割區段](https://review.docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs?branch=master#partitioning)。
+使用串流分析時，您可以利用輸出中的資料分割：
+-   Azure Data Lake 儲存體
+-   Azure Functions
+-   Azure 資料表
+-   Blob 儲存體 (可明確地設定資料分割索引鍵)
+-   CosmosDB (需要明確地設定資料分割索引鍵)
+-   事件中樞 (需要明確地設定資料分割索引鍵)
+-   IoT 中樞 (需要明確地設定資料分割索引鍵)
+-   服務匯流排
 
 PowerBI、SQL 和 SQL 資料倉儲輸出不支援資料分割。 不過，您仍然可以分割輸入，如[本節](#multi-step-query-with-different-partition-by-values)中所述 
 
@@ -54,13 +62,13 @@ PowerBI、SQL 和 SQL 資料倉儲輸出不支援資料分割。 不過，您仍
 
 3. 我們大部分的輸出都可以利用資料分割，不過，如果您使用不支援資料分割的輸出類型，您的作業將無法進行平行處理。 如需詳細資訊，請參閱[輸出](#outputs)一節。
 
-4. 輸入分割區的數目必須等於輸出分割區的數目。 Blob 儲存體輸出目前不支援分割區。 但是沒關係，因為它會繼承上游查詢的資料分割配置。 以下是允許完全平行作業的分割區值範例：  
+4. 輸入分割區的數目必須等於輸出分割區的數目。 Blob 儲存體輸出可支援資料分割，並繼承上游查詢的資料分割配置。 當針對 Blob 儲存體指定資料分割索引鍵時，資料會依每個輸入分割區進行分割，因此結果仍然是完全平行。 以下是允許完全平行作業的分割區值範例：
 
    * 8 個事件中樞輸入分割區和 8 個事件中樞輸出分割區
-   * 8 個事件中樞輸入分割區和 blob 儲存體輸出  
-   * 8 個 IoT 中樞輸入分割區和 8 個事件中樞輸出分割區
-   * 8 個 blob 儲存體輸入分割區和 blob 儲存體輸出  
-   * 8 個 blob 儲存體輸入分割區和 8 個事件中樞輸出分割區  
+   * 8 個事件中樞輸入分割區和 blob 儲存體輸出
+   * 8 個事件中樞輸入分割區和 Blob 儲存體輸出，依含有任意基數的自訂欄位分割
+   * 8 個 blob 儲存體輸入分割區和 blob 儲存體輸出
+   * 8 個 blob 儲存體輸入分割區和 8 個事件中樞輸出分割區
 
 以下幾節討論一些窘迫平行的範例情節。
 

@@ -5,18 +5,18 @@ services: iot-dps
 keywords: ''
 author: bryanla
 ms.author: v-jamebr;bryanla
-ms.date: 04/06/2018
+ms.date: 05/11/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 439d4ffa8eec12481f52bd15f0060800411f316e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 87932c1ae1676d36ea0eb1ba7885f2ac455949ae
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>如何取消佈建先前自動佈建的裝置 
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/16/2018
    - 若要了解如何取消註冊裝置，請參閱[如何從 Azure IoT 中樞裝置佈建服務中取消註冊裝置](how-to-revoke-device-access-portal.md)。
    - 若要了解如何以程式設計方式使用其中一種佈建服務 SDK 來取消註冊裝置，請參閱[使用服務 SDK 管理裝置註冊](how-to-manage-enrollments-sdks.md)。
 
-2. 從您的 IoT 中樞取消登錄裝置，以避免未來產生通訊和資料轉送。 同樣地，您可以針對已佈建裝置的 IoT 中樞，暫時停用或永久刪除其身分識別登錄中的裝置項目。 請參閱[停用裝置](/azure/iot-hub/iot-hub-devguide-identity-registry.md#disable-devices)以深入了解停用作業。 請在 [Azure 入口網站](https://portal.azure.com)中參閱 IoT 中樞資源的「裝置管理/IoT 裝置」。
+2. 從您的 IoT 中樞取消登錄裝置，以避免未來產生通訊和資料轉送。 同樣地，您可以針對已佈建裝置的 IoT 中樞，暫時停用或永久刪除其身分識別登錄中的裝置項目。 請參閱[停用裝置](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices)以深入了解停用作業。 請在 [Azure 入口網站](https://portal.azure.com)中參閱 IoT 中樞資源的「裝置管理/IoT 裝置」。
 
 取消佈建裝置的確切步驟取決於其證明機制，以及其適用的註冊項目與您的佈建服務。 下列各節將根據註冊和證明類型提供程序概觀。
 

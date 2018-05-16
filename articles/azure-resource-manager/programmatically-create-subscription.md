@@ -8,16 +8,16 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/18/2018
+ms.date: 4/30/2018
 ms.author: jlian
-ms.openlocfilehash: 8d495bf89697a5e14ff79953ab98f241ef8972e8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f55f878d53b3813ea2ff2510998d47820de76a6a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>以程式設計方式建立 Azure 企業版訂用帳戶 (預覽)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 04/23/2018
 - 您有一或多個 EA 或 EA 開發/測試訂用帳戶，也就是說，您已至少手動註冊過一次
 - 您已登入「帳戶擁有者」的「主目錄」 (建立訂用帳戶時預設的所在目錄)
 
-如果符合上述兩個條件，就會傳回 `enrollmentAccount` 資源，而您就能開始在該帳戶下建立訂用帳戶。 所有在該帳戶下所建立訂用帳戶的費用，都會由該帳戶所在的 EA 註冊支付。
+如果符合上述三個條件，就會傳回 `enrollmentAccount` 資源，而您就能開始在該帳戶下建立訂用帳戶。 所有在該帳戶下所建立訂用帳戶的費用，都會由該帳戶所在的 EA 註冊支付。
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
@@ -65,19 +65,19 @@ Azure 會以您可以存取的所有註冊帳戶清單來回應：
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -98,8 +98,8 @@ Azure 會以帳戶的「物件識別碼」和電子郵件清單來回應。
 
 ```azurepowershell
 ObjectId                               | PrincipalName
-<enrollmentAccountId>   | MobileOnboardingEng@contoso.com
-<enrollmentAccountId>   | MobileBackendEng@contoso.com
+747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -117,19 +117,19 @@ Azure 會以帳戶的「物件識別碼」和電子郵件清單來回應。
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -142,14 +142,14 @@ Azure 會以帳戶的「物件識別碼」和電子郵件清單來回應。
 
 ## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>在特定的註冊帳戶下建立訂用帳戶 
 
-下列範例會建立一個要求來建立名為 *Dev Team Subscription* 的訂用帳戶，而訂用帳戶優惠方案則為 *MS-AZR-0017P* (一般 EA)。 註冊帳戶為 `<enrollmentAccountId>`，這是 MobileOnboardingEng@contoso.com 的註冊帳戶。這也會依選擇新增兩個使用者作為該訂用帳戶的「RBAC 擁有者」。
+下列範例會建立一個要求來建立名為 *Dev Team Subscription* 的訂用帳戶，而訂用帳戶優惠方案則為 *MS-AZR-0017P* (一般 EA)。 註冊帳戶為 `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (預留位置值，這是 GUID)，這是 SignUpEngineering@contoso.com 的註冊帳戶。這也會依選擇新增兩個使用者作為該訂用帳戶的「RBAC 擁有者」。
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
 在要求的路徑中使用 `enrollmentAccount` 的 `id` 來建立訂用帳戶。
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
 
 {
   "displayName": "Dev Team Subscription",
@@ -177,16 +177,17 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 若要使用此預覽板模組，請先執行 `Install-Module AzureRM.Subscription -AllowPrerelease` 來安裝它。 若要確認 `-AllowPrerelease` 是否可運作，請從[取得 PowerShellGet 模組](/powershell/gallery/psget/get_psget_module)安裝最新版的 PowerShellGet。
 
-使用 [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) 搭配以 `enrollmentAccount` 名稱作為 `EnrollmentAccountObjectId` 參數來建立新的訂用帳戶。 
+使用 [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) 搭配以 `enrollmentAccount` 物件識別碼作為 `EnrollmentAccountObjectId` 參數來建立新的訂用帳戶。 
 
 ```azurepowershell-interactive
-New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountId> -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
 ```
 
 | 元素名稱  | 必要 | 類型   | 說明                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | 否      | 字串 | 訂用帳戶的顯示名稱。 如果未指定，這會設定為優惠方案的名稱，例如 "Microsoft Azure Enterprise"。                                 |
 | `OfferType`   | yes      | 字串 | 訂用帳戶的優惠方案。 EA 的兩個選項為 [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (生產環境使用) 和 [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (開發/測試環境使用，必須[使用 EA 入口網站來開啟](https://ea.azure.com/helpdocs/DevOrTestOffer))。                |
+| `EnrollmentAccountObjectId`      | yes       | 字串 | 用來建立訂用帳戶並加以收費的註冊帳戶物件識別碼。 這是您從 `Get-AzureRmEnrollmentAccount` 取得的 GUID 值。 |
 | `OwnerObjectId`      | 否       | 字串 | 在建立訂用帳戶之後，任何您想要在該訂用帳戶上新增為「RBAC 擁有者」之使用者的「物件識別碼」。  |
 | `OwnerSignInName`    | 否       | 字串 | 在建立訂用帳戶之後，任何您想要在該訂用帳戶上新增為「RBAC 擁有者」之使用者的電子郵件地址。 您可以使用此參數來取代 `OwnerObjectId`。|
 | `OwnerApplicationId` | 否       | 字串 | 在建立訂用帳戶之後，任何您想要在該訂用帳戶上新增為「RBAC 擁有者」之服務主體的「應用程式識別碼」。 您可以使用此參數來取代 `OwnerObjectId`。| 
@@ -197,16 +198,17 @@ New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -E
 
 若要使用此預覽板延伸模組，請先執行 `az extension add --name subscription` 來安裝它。
 
-使用 [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) 搭配以 `enrollmentAccount` 名稱作為 `enrollment_account_name` 參數來建立新的訂用帳戶。
+使用 [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) 搭配以 `enrollmentAccount` 物件識別碼作為 `enrollment-account-object-id` 參數來建立新的訂用帳戶。
 
 ```azurecli-interactive 
-az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-name "<enrollmentAccountId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
 | 元素名稱  | 必要 | 類型   | 說明                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | 否      | 字串 | 訂用帳戶的顯示名稱。 如果未指定，這會設定為優惠方案的名稱，例如 "Microsoft Azure Enterprise"。                                 |
 | `offer-type`   | yes      | 字串 | 訂用帳戶的優惠方案。 EA 的兩個選項為 [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (生產環境使用) 和 [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (開發/測試環境使用，必須[使用 EA 入口網站來開啟](https://ea.azure.com/helpdocs/DevOrTestOffer))。                |
+| `enrollment-account-object-id`      | yes       | 字串 | 用來建立訂用帳戶並加以收費的註冊帳戶物件識別碼。 這是您從 `az billing enrollment-account list` 取得的 GUID 值。 |
 | `owner-object-id`      | 否       | 字串 | 在建立訂用帳戶之後，任何您想要在該訂用帳戶上新增為「RBAC 擁有者」之使用者的「物件識別碼」。  |
 | `owner-upn`    | 否       | 字串 | 在建立訂用帳戶之後，任何您想要在該訂用帳戶上新增為「RBAC 擁有者」之使用者的電子郵件地址。 您可以使用此參數來取代 `owner-object-id`。|
 | `owner-spn` | 否       | 字串 | 在建立訂用帳戶之後，任何您想要在該訂用帳戶上新增為「RBAC 擁有者」之服務主體的「應用程式識別碼」。 您可以使用此參數來取代 `owner-object-id`。| 
@@ -217,12 +219,12 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 
 ## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>使用 RBAC 來委派註冊帳戶的存取權
 
-若要讓另一個使用者或服務主體能夠針對特定帳戶建立訂用帳戶，請[將註冊帳戶範圍的 RBAC 擁有者角色授與他們](../active-directory/role-based-access-control-manage-access-rest.md)。 下列範例會將註冊帳戶上的「擁有者」角色授與租用帳戶中 `principalId` 為 `<userObjectId>` (用於 MobileOnboardingEng@contoso.com) 的使用者。 
+若要讓另一個使用者或服務主體能夠針對特定帳戶建立訂用帳戶，請[將註冊帳戶範圍的 RBAC 擁有者角色授與他們](../active-directory/role-based-access-control-manage-access-rest.md)。 下列範例會將註冊帳戶上的「擁有者」角色授與租用帳戶中 `principalId` 為 `<userObjectId>` (用於 SignUpEngineering@contoso.com) 的使用者。 
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
+PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
 
 {
   "properties": {
@@ -238,7 +240,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   "properties": {
     "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
     "principalId": "<userObjectId>",
-    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
+    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "createdOn": "2018-03-05T08:36:26.4014813Z",
     "updatedOn": "2018-03-05T08:36:26.4014813Z",
     "createdBy": "<assignerObjectId>",
@@ -255,7 +257,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 使用 [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) 將您註冊帳戶的「擁有者」存取權授與另一個使用者。
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -263,7 +265,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Sc
 使用 [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli.md) 將您註冊帳戶的「擁有者」存取權授與另一個使用者。
 
 ```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ----

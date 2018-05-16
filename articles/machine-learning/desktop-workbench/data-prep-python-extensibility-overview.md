@@ -4,19 +4,17 @@ description: 本文件提供如何使用 Python 程式碼來擴充資料準備�
 services: machine-learning
 author: euangMS
 ms.author: euang
-manager: lanceo
-ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 02/01/2018
-ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 05/09/2018
+ms.openlocfilehash: 6363d39b2dfbd36ccebff6780e35caf58ca84dda
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="data-preparations-python-extensions"></a>資料準備 Python 延伸模組
 資料準備可用來作為填補內建功能之間功能落差的方法，Azure Machine Learning 資料準備包含多個層級的擴充性。 在本文件中，我們將透過 Python 指令碼概述擴充性。 
@@ -24,14 +22,10 @@ ms.lasthandoff: 04/19/2018
 ## <a name="custom-code-steps"></a>自訂程式碼步驟 
 資料準備包含下列自訂步驟，使用者可在這些步驟中撰寫程式碼：
 
-* 檔案讀取器*
-* 寫入器*
 * 新增資料行
 * 進階篩選
 * 轉換資料流程
 * 轉換分割區
-
-*Spark 執行中目前不支援這些步驟。
 
 ## <a name="code-block-types"></a>程式碼區塊類型 
 針對這其中每個步驟，我們支援兩種程式碼區塊類型。 首先，我們支援依原樣執行的未包裝 Python 運算式。 其次，支援 Python 模組，我們會在您提供的程式碼內使用已知簽章來呼叫特定函式。
@@ -158,74 +152,6 @@ def newvalue(row):
     row.ColumnA + row.ColumnB  
     row["ColumnA"] + row["ColumnB"]
 ```
-
-## <a name="file-reader"></a>檔案讀取器 
-### <a name="purpose"></a>目的 
-檔案讀取器擴充點可讓您完全掌控將檔案讀入資料流程的程序。 系統會呼叫您的程式碼，並傳遞您應該處理的檔案清單。 您的程式碼必須建立並傳回 Pandas 資料框架。 
-
->[!NOTE]
->這個擴充點無法在 Spark 中運作。 
-
-
-### <a name="how-to-use"></a>使用方式 
-您可以從 [開啟資料來源] 精靈存取這個擴充點。 選擇第一個頁面上的 [檔案]，然後選擇檔案位置。 在 [選擇檔案參數] 頁面上的 [檔案類型] 下拉式清單中，選擇 [自訂檔案 (指令碼)]。 
-
-系統會為您的程式碼指定名為 "df" 的 Pandas 資料框架，其中包含您需要讀取之檔案的相關資訊。 如果您選擇開啟包含多個檔案的目錄，資料框架就會包含一個以上的資料列。  
-
-這個資料框架具有下列資料行：
-
-- Path：要讀取的檔案。
-- PathHint：告訴您檔案所在位置。 值：Local、AzureBlobStorage 和 AzureDataLakeStorage。
-- AuthenticationType：用來存取檔案的驗證類型。 值：None、SasToken 和 OAuthToken。
-- AuthentAuthenticationValue：包含 None 或要使用的語彙基元。
-
-### <a name="syntax"></a>語法 
-運算是 
-
-```python
-    paths = df['Path'].tolist()  
-    df = pd.read_csv(paths[0])
-```
-
-
-模組  
-```python
-PathHint = Local  
-def read(df):  
-    paths = df['Path'].tolist()  
-    filedf = pd.read_csv(paths[0])  
-    return filedf  
-```
- 
-
-## <a name="writer"></a>寫入器 
-### <a name="purpose"></a>目的 
-這個寫入器可讓您完全掌控從資料流程寫入資料的程序。 系統會呼叫您的程式碼並傳入資料框架中。 但您的程式碼可在需要時使用資料框架來寫入資料。 
-
->[!NOTE]
->這個寫入器擴充點無法在 Spark 中運作。
-
-
-### <a name="how-to-use"></a>使用方式 
-您可以使用 [寫入資料流程 (指令碼)] 區塊來新增這個擴充點。 您可以在最上層的 [轉換] 功能表上取得它。
-
-### <a name="syntax"></a>語法 
-運算是
-
-```python
-    df.to_csv('c:\\temp\\output.csv')
-```
-
-模組
-
-```python
-def write(df):  
-    df.to_csv('c:\\temp\\output.csv')  
-    return df
-```
- 
- 
-這個自訂寫入區塊可存在步驟清單的中央。 如果您使用模組，則您的寫入函式必須傳回的資料框架是所遵循步驟的輸入。 
 
 ## <a name="add-column"></a>新增資料行 
 ### <a name="purpose"></a>目的

@@ -1,0 +1,107 @@
+---
+title: 將 Azure 事件方格的自訂事件傳送至混合式連線 | Microsoft Docs
+description: 使用 Azure 事件格線和 Azure CLI 來發佈主題，以及訂閱該事件。 混合式連線用於端點。
+services: event-grid
+keywords: ''
+author: tfitzmac
+ms.author: tomfitz
+ms.date: 05/04/2018
+ms.topic: article
+ms.service: event-grid
+ms.openlocfilehash: c95cfee787244367688b82959474e2a8028b7ff6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/11/2018
+---
+# <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>使用 Azure CLI 和事件方格將自訂事件路由至 Azure 轉送混合式連線
+
+Azure Event Grid 是一項雲端事件服務。 Azure 轉送混合式連線是支援的事件處理常式之一。 當您需要從沒有公用端點的應用程式處理事件時，您可以使用混式連線作為事件處理常式。 這些應用程式可能位在您公司的企業網路中。 在本文中，您可使用 Azure CLI 建立自訂主題、訂閱主題，以及觸發事件來檢視結果。 您將事件傳送到混合式連線。
+
+## <a name="prerequisites"></a>先決條件
+
+本文假設您已經有混合式連線和接聽項應用程式。 若要開始使用混合式連線，請參閱[開始使用轉送混合式連線 - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) (英文)，或[開始使用轉送混合式連線 - 節點](../service-bus-relay/relay-hybrid-connections-node-get-started.md) (英文)。
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+
+## <a name="create-a-resource-group"></a>建立資源群組
+
+Event Grid 為 Azure 資源，必須放入 Azure 資源群組中。 資源群組是在其中部署與管理 Azure 資源的邏輯集合。
+
+使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 
+
+下列範例會在 westus2 位置建立名為 gridResourceGroup 的資源群組。
+
+```azurecli-interactive
+az group create --name gridResourceGroup --location westus2
+```
+
+## <a name="create-a-custom-topic"></a>建立自訂主題
+
+Event Grid 主題會提供使用者定義的端點，作為您發佈事件的目的地。 下列範例可在您的資源群組中建立自訂主題。 以主題的唯一名稱取代 `<topic_name>`。 主題名稱必須是唯一的，因為它由 DNS 項目表示。
+
+```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
+```
+
+## <a name="subscribe-to-a-topic"></a>訂閱主題
+
+您可訂閱主題，告知 Event Grid 您想要追蹤的事件。下列範例可訂閱您所建立的主題，以及傳遞端點的混合式連線資源識別碼。 混合式連線識別碼的格式為：
+
+`/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
+
+下列指令碼會取得轉送命名空間的資源識別碼。 它會建構混合式連線的識別碼，並訂閱事件方格主題。 它會將端點類型設為 `hybridconnection`，並為端點使用混合型連線識別碼。
+
+```azurecli-interactive
+relayname=<namespace-name>
+relayrg=<resource-group-for-relay>
+hybridname=<hybrid-name>
+
+relayid=$(az resource show --name $relayname --resource-group $relayrg --resource-type Microsoft.Relay/namespaces --query id --output tsv)
+hybridid="$relayid/hybridConnections/$hybridname"
+
+az eventgrid event-subscription create \
+  --topic-name <topic_name> \
+  -g gridResourceGroup \
+  --name <event_subscription_name> \
+  --endpoint-type hybridconnection \
+  --endpoint $hybridid
+```
+
+## <a name="send-an-event-to-your-topic"></a>將事件傳送至主題
+
+讓我們觸發事件以了解 Event Grid 如何將訊息散發至您的端點。 首先，讓我們取得自訂主題的 URL 和金鑰。 再次，將您的主題名稱用於 `<topic_name>`。
+
+```azurecli-interactive
+endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
+key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
+```
+
+若要簡化這篇文章，您可使用要傳送至主題的範例事件資料。 一般而言，應用程式或 Azure 服務就會傳送事件資料。 CURL 是可傳送 HTTP 要求的公用程式。 本文使用 CURL 將事件傳送到主題。  下列範例會將三個事件傳送至事件方格主題：
+
+```azurecli-interactive
+body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+```
+
+您的接聽項應用程式應該會收到事件訊息。
+
+## <a name="clean-up-resources"></a>清除資源
+如果您打算繼續使用此事件，請勿清除在本文中建立的資源。 否則，請使用下列命令來刪除您在本文建立的資源。
+
+```azurecli-interactive
+az group delete --name gridResourceGroup
+```
+
+## <a name="next-steps"></a>後續步驟
+
+您現在知道如何建立主題和事件訂閱，深入了解 Event Grid 可協助您：
+
+- [關於 Event Grid](overview.md)
+- [將 Blob 儲存體事件路由至自訂的 Web 端點](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+- [使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更](monitor-virtual-machine-changes-event-grid-logic-app.md)
+- [將巨量資料串流處理至資料倉儲](event-grid-event-hubs-integration.md)

@@ -102,6 +102,7 @@
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [管理個人資料](resource-manager-personal-data.md)
 ## [節流要求](resource-manager-request-limits.md)
 ## [追蹤非同步作業](resource-manager-async-operations.md)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)

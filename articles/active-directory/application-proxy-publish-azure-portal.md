@@ -3,23 +3,23 @@ title: 使用 Azure AD 應用程式 Proxy 發佈應用程式 | Microsoft Docs
 description: 在 Azure 入口網站中使用 Azure AD 應用程式 Proxy 將內部部署應用程式發佈至雲端。
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
-ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1bf72b450747e98e254db77514fc7a902bbe70cc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b9750212925294dec2220e6ef3e6e19d3bc7c3c6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈應用程式
 
@@ -27,7 +27,7 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
 
 本文會逐步引導您完成使用應用程式 Proxy 發佈內部部署應用程式。 完成本文之後，您的使用者將能夠從遠端存取您的應用程式。 且您可以設定應用程式的單一登入、個人化資訊或安全性需求等額外功能。
 
-如果您是應用程式 Proxy 的新手，可至[如何為內部部署應用程式提供安全的遠端存取](active-directory-application-proxy-get-started.md)深入了解這個功能。
+如果您是應用程式 Proxy 的新手，可至[如何為內部部署應用程式提供安全的遠端存取](manage-apps/application-proxy.md)深入了解這個功能。
 
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>發佈可遠端存取的內部部署應用程式

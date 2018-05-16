@@ -4,16 +4,17 @@ description: 本文說明如何在 Azure 自動化中為 Runbook 建立 Azure AD
 keywords: azure active directory 使用者, azure 服務管理, azure ad 使用者帳戶
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 43490b8ec2139b5e9f62def614dc67e4274304c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 07fb9284372020ba2aadb3758d0ab46682b50831
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>使用 Azure 傳統部署和 Resource Manager 驗證 Runbook
 本文說明要為針對 Azure 傳統部署模型或 Azure Resource Manager 資源執行的 Azure 自動化 Runbook 設定 Azure AD 使用者帳戶，所必須執行的步驟。 雖然這仍是您 Azure Resource Manager 型 Runbook 支援的驗證身分識別，但建議的方法是使用 Azure 執行身分帳戶。       

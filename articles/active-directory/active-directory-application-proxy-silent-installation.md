@@ -1,12 +1,12 @@
 ---
-title: "以無訊息方式安裝 Azure AD 應用程式 Proxy 連接器 | Microsoft Docs"
-description: "涵蓋如何執行自動安裝 Azure AD 應用程式 Proxy 連接器，為內部部署的應用程式提供安全的遠端存取。"
+title: 以無訊息方式安裝 Azure AD 應用程式 Proxy 連接器 | Microsoft Docs
+description: 涵蓋如何執行自動安裝 Azure AD 應用程式 Proxy 連接器，為內部部署的應用程式提供安全的遠端存取。
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dbda2448c5bf2b6998d120a082e036d7e0125a1f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b9d8535be51601f2ca438f2d22c18656c5ff0dc0
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>建立 Azure AD 應用程式 Proxy 連接器的自動安裝指令碼
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 03/08/2018
 * 使用離線時建立的權杖註冊連接器
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>使用 Windows PowerShell 認證物件註冊連接器
-1. 建立 Windows PowerShell 認證物件 `$cred`，其中含有目錄的系統管理使用者名稱和密碼。 執行下列命令，取代 *\<使用者名稱\>*和*\<密碼\>*：
+1. 建立 Windows PowerShell 認證物件 `$cred`，其中含有目錄的系統管理使用者名稱和密碼。 執行下列命令，取代 *\<使用者名稱\>* 和*\<密碼\>*：
    
         $User = "<username>"
         $PlainPassword = '<password>'
@@ -127,8 +127,8 @@ ms.lasthandoff: 03/08/2018
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 
 ## <a name="next-steps"></a>後續步驟 
-* [使用您自己的網域名稱發行應用程式](active-directory-application-proxy-custom-domains.md)
-* [啟用單一登入](active-directory-application-proxy-sso-using-kcd.md)
+* [使用您自己的網域名稱發行應用程式](manage-apps/application-proxy-configure-custom-domain.md)
+* [啟用單一登入](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [使用應用程式 Proxy 疑難排解您遇到的問題](active-directory-application-proxy-troubleshoot.md)
 
 

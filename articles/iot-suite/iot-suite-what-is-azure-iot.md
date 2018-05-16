@@ -1,12 +1,12 @@
 ---
-title: "Azure 的物聯網解決方案 (IoT 套件) | Microsoft Docs"
-description: "Azure 上的 IoT 概觀，包括範例解決方案架構，以及它如何與 Azure IoT 套件及預先設定解決方案相關聯。"
-services: 
+title: 適用於物聯網的 Azure 解決方案 | Microsoft Docs
+description: Azure 上的 IoT 概觀，包括範例解決方案架構，以及它與 Azure IoT 解決方案加速器的關聯性，和解決方案加速器。
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 437d2655-896f-4a9e-a4a8-b864790d3ef8
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: c72108434bf25c56000361caeb570435a86dc78f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 88a39f0dec80429bae70077391b9039f6d1cd2c9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
@@ -29,6 +29,6 @@ ms.lasthandoff: 03/12/2018
 
 若要深入了解個別 Azure IoT 服務的詳細資訊，請參閱：
 
-* [何謂 Azure IoT 套件？](iot-suite-what-are-preconfigured-solutions.md)
+* [IoT 解決方案加速器是什麼？](iot-suite-what-are-solution-accelerators.md)
 * [何謂 Microsoft IoT 中心？](https://docs.microsoft.com/microsoft-iot-central/overview-iot-central)
 * [何謂 Azure IoT 中樞？](../iot-hub/iot-hub-what-is-iot-hub.md)

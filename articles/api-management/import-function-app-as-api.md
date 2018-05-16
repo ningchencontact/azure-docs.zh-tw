@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 入口網站匯入函式應用程式作為 API | Microsoft Docs"
-description: "本教學課程示範如何使用 API 管理 (APIM) 來匯入函式應用程式作為 API。"
+title: 使用 Azure 入口網站匯入函式應用程式作為 API | Microsoft Docs
+description: 本教學課程示範如何使用 API 管理 (APIM) 來匯入函式應用程式作為 API。
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: c6c7b1f3c2cba9d9f99f7ee1a8e0518bc30f0d27
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 1962a4aac8e2d15caf4ec33998da1985d3b8a9af
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="import-a-function-app-as-an-api"></a>匯入函式應用程式作為 API
 

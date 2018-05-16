@@ -3,21 +3,21 @@ title: 搭配 AKS 使用 Azure 檔案
 description: 搭配 AKS 使用 Azure 磁碟
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 04380e5e9e0f1f9b0c88fdba8d21b3e7e8e8a358
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e0e62d37fbcc8f296deaee8e0f6658c0f72321ad
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="volumes-with-azure-files"></a>包含 Azure 檔案的磁碟區
 
-容器型應用程式常常需要存取和保存外部資料磁碟區中的資料。 Azure 檔案可用來作為這個外部資料存放區。 本文將詳細說明如何在 Azure Container Service 中使用 Azure 檔案作為 Kubernetes 磁碟區。
+容器型應用程式常常需要存取和保存外部資料磁碟區中的資料。 Azure 檔案可用來作為這個外部資料存放區。 本文將詳細說明如何在 Azure Kubernetes Service 中使用 Azure 檔案作為 Kubernetes 磁碟區。
 
 如需有關 Kubernetes 磁碟區的詳細資訊，請參閱 [Kubernetes 磁碟區][kubernetes-volumes]。
 

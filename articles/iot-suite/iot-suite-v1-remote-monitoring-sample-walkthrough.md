@@ -1,12 +1,12 @@
 ---
-title: "遠端監視預先設定解決方案逐步解說 | Microsoft Docs"
-description: "說明 Azure IoT 預先設定解決方案遠端監視及其架構。"
-services: 
+title: 遠端監視預先設定解決方案逐步解說 | Microsoft Docs
+description: 說明 Azure IoT 預先設定解決方案遠端監視及其架構。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 7cef60998cf9e46a8d89f8ad53edd0382e3ce76e
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>遠端監視預先設定解決方案逐步解說
 
@@ -35,7 +35,17 @@ IoT 套件遠端監視[預先設定解決方案][lnk-preconfigured-solutions]是
 
 下圖概述預先設定解決方案的邏輯元件：
 
-![邏輯架構](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![邏輯架構](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+
+## <a name="microservices--docker-containers"></a>微服務和 Docker 容器
+遠端監視是我們第一項運用微服務架構的預先設定解決方案。 此解決方案在 [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) 和 [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) 中均適用。
+微服務問世以來即是廣受使用的模式，可提供調整能力和彈性 (藉由允許個別調整容器)，且不必犧牲開發速度。
+微服務可區隔程式碼，並提供妥善定義的介面，使解決方案更易於了解且更為靈活。 它也進一步擴充了選項，讓合作夥伴在想要擴充我們目前的解決方案加速器以建置可獲利的完整解決方案時，能有所選擇。
+
+**深入了解 Docker 容器**
+* [安裝 Docker](https://docs.docker.com/engine/installation/)
+* [遠端監視常用 Docker 命令](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#common-docker-commands)
+* [Docker 使用者入門](https://docs.docker.com/get-started/)
 
 ## <a name="simulated-devices"></a>模擬的裝置
 

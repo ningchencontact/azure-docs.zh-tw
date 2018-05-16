@@ -53,11 +53,19 @@
 ### [已停用企業成本檢視](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 # 參考
-## [API 概觀](billing-usage-rate-card-overview.md)
-## [Enterprise 報表 API 概觀](billing-enterprise-api.md)
-## [發票 REST](/rest/api/billing)
-## [使用情況和 RateCard REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
-## [合作夥伴解決方案：Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## [Azure 計費 API 概觀](billing-usage-rate-card-overview.md)
+### [Azure 計費 REST API](https://docs.microsoft.com/rest/api/billing)
+### [合作夥伴解決方案 - Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## Azure 使用量 API
+### [Azure 使用量 REST API](https://docs.microsoft.com/rest/api/consumption) 
+### [RateCard REST API](https://msdn.microsoft.com/library/azure/mt219005.aspx)
+### [使用方式 REST API](https://msdn.microsoft.com/library/azure/mt219003.aspx)
+## [Enterprise 報表概觀](billing-enterprise-api.md)
+### [Enterprise 報表 REST API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)
+## 計費程式碼範例
+### [發票 API 程式碼範例 (英文)](https://github.com/Azure-Samples/billing-dotnet-core-invoice-download)
+### [使用情況 API 程式碼範例 (英文)](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+### [RateCard API 程式碼範例 (英文)](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)

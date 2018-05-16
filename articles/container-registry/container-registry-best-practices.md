@@ -6,13 +6,13 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/20/2017
+ms.date: 04/10/2018
 ms.author: marsma
-ms.openlocfilehash: c993e55193ffb140f6c3aabfa7626b501ab24b9d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1272a4b547a4ba650678ce083a44bde3a5a3e583
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry 的最佳做法
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="geo-replicate-multi-region-deployments"></a>異地複寫多區域部署
 
-如果您要將容器部署到多個區域，請使用 Azure Container Registry 的[異地複寫](container-registry-geo-replication.md)功能。 不論您是要從區域資料中心為全球客戶提供服務，還是您的開發小組位於不同位置，您都可以藉由異地複寫登錄來簡化登錄管理並將延遲降到最低。 目前在預覽版中，此功能是[進階](container-registry-skus.md)登錄提供的功能。
+如果您要將容器部署到多個區域，請使用 Azure Container Registry 的[異地複寫](container-registry-geo-replication.md)功能。 不論您是要從區域資料中心為全球客戶提供服務，還是您的開發小組位於不同位置，您都可以藉由異地複寫登錄來簡化登錄管理並將延遲降到最低。 只有[進階](container-registry-skus.md)註冊才能使用異地複寫功能。
 
 若要了解如何使用異地複寫，請參閱由三部分組成的教學課程 [Azure Container Registry 中的異地複寫](container-registry-tutorial-prepare-registry.md)。
 

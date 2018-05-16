@@ -1,7 +1,7 @@
 ---
-title: "自訂遠端監視解決方案 - Azure | Microsoft Docs"
-description: "本文章提供有關如何存取遠端監視預先設定解決方案之原始碼的資訊。"
-services: 
+title: 自訂遠端監視解決方案 UI - Azure | Microsoft Docs
+description: 本文提供如何存取遠端監視解決方案加速器 UI 的原始程式碼並進行某些自訂的相關資訊。
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,256 +12,457 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: be20d45b380f66208884f15f4644f36f2a403837
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="customize-the-remote-monitoring-preconfigured-solution"></a>自訂遠端監視預先設定解決方案
+# <a name="customize-the-remote-monitoring-solution-accelerator"></a>自訂遠端監視解決方案加速器
 
-本文章提供有關如何存取原始碼，並自訂遠端監視預先設定解決方案的資訊。 本文章說明：
+本文提供如何存取原始程式碼並自訂遠端監視解決方案加速器 UI 的相關資訊。 本文章說明：
 
-* 包含原始碼和資源的 GitHub 存放庫，適用於組成預先設定解決方案的微服務。
-* 常見的自訂情節，例如新增裝置類型。
+## <a name="prepare-a-local-development-environment-for-the-ui"></a>準備適用於 UI 的本機開發環境
 
-下列影片提供自訂遠端監視預先設定解決方案的選項概觀：
+遠端監視解決方案加速器 UI 程式碼是使用 React.js 架構來實作。 您可以在 [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) \(英文\) GitHub 存放庫中找到此原始程式碼。
 
->[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
+若要對 UI 做出變更，您可以在本機執行它的複本。 本機複本會連線到解決方案的已部署執行個體，以執行像是擷取遙測等動作。
 
-## <a name="project-overview"></a>專案概觀
+下列步驟會概述設定本機環境以進行 UI 開發的程序：
 
-### <a name="implementations"></a>實作
+1. 使用 **pcs** CLI 來部署解決方案加速器的**基本**執行個體。 記下部署的名稱以及您為虛擬機器提供的認證。 如需詳細資訊，請參閱[使用 CLI 進行部署](iot-suite-remote-monitoring-deploy-cli.md)。
 
-遠端監視解決方案有 .NET 和 Java 實作。 這兩項實作都會提供類似的功能，且依賴相同的基礎 Azure 服務。 您可以在這裡找到最上層 GitHub 存放庫：
+1. 使用 Azure 入口網站或 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 來針對裝載解決方案中微服務的虛擬機器啟用 SSH 存取。 例如︰
 
-* [.NET 解決方案](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Java 解決方案](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+    ```sh
+    az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
+    ```
 
-### <a name="microservices"></a>微服務
+1. 使用 Azure 入口網站或 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 來尋找虛擬機器的名稱和公用 IP 位址。 例如︰
 
-如果您需要解決方案的特定功能，可以存取每個個別微服務的 GitHub 存放庫。 每個微服務都會實作不同部分的解決方案功能。 若要了解有關整體架構的詳細資訊，請參閱[遠端監視預先設定解決方案架構](iot-suite-remote-monitoring-sample-walkthrough.md)。
+    ```sh
+    az resource list --resource-group {your solution name} -o table
+    az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
+    ```
 
-本表會摘要說明每種語言每個微服務的目前可用性：
+1. 使用 SSH 來利用上一個步驟的 IP 位址，以及您執行 **pcs** 來部署解決方案時所提供的認證，以連線到您的虛擬機器。
 
-<!-- please add links for each of the repos in the table, you can find them here https://github.com/Azure/azure-iot-pcs-team/wiki/Repositories-->
+1. 若要讓本機 UX 能夠連線，請在虛擬機器中的 Bash 殼層中執行下列命令：
 
-| 微服務      | 說明 | Java | .NET |
-| ----------------- | ----------- | ---- | ---- |
-| Web UI            | 遠端監視解決方案的 Web 應用程式。 使用 React.js 架構實作 UI。 | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
-| IoT 中樞管理員   | 使用 IoT 中樞處理通訊。        | [可用](https://github.com/Azure/iothub-manager-java) | [可用](https://github.com/Azure/iothub-manager-dotnet)   |
-| 驗證    |  管理 Azure Active Directory 整合。  | 尚未提供 | [可用](https://github.com/Azure/pcs-auth-dotnet)   |
-| 裝置模擬 | 管理模擬裝置的集區。 | 尚未提供 | [可用](https://github.com/Azure/device-simulation-dotnet)   |
-| 遙測         | 讓裝置遙測可供 UI 使用。 | [可用](https://github.com/Azure/device-telemetry-java) | [可用](https://github.com/Azure/device-telemetry-dotnet)   |
-| 遙測代理程式   | 分析遙測串流、儲存來自 Azure IoT 中樞的訊息，並根據定義的規則產生警示。  | [可用](https://github.com/Azure/telemetry-agent-java) | [可用](https://github.com/Azure/telemetry-agent-dotnet)   |
-| UI 設定         | 從 UI 管理組態資料。 | [可用](https://github.com/azure/pcs-ui-config-java) | [可用](https://github.com/azure/pcs-ui-config-dotnet)   |
-| 儲存體介面卡   |  管理與儲存體服務之間的互動。   | [可用](https://github.com/azure/pcs-storage-adapter-java) | [可用](https://github.com/azure/pcs-storage-adapter-dotnet)   |
-| 反向 proxy     | 透過唯一端點，以受控方式公開私人資源。 | 尚未提供 | [可用](https://github.com/Azure/reverse-proxy-dotnet)   |
+    ```sh
+    cd /app
+    sudo ./start.sh --unsafe
+    ```
 
-Java 解決方案目前使用 .NET 驗證、模擬及反向 Proxy 微服務。 Java 版本上市時就會立即取代這些微服務。
+1. 當您看到命令完成且網站啟動之後，就可以從虛擬機器中斷連線。
 
-## <a name="presentation-and-visualization"></a>簡報和虛擬化
+1. 在 [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) \(英文\) 存放庫的本機複本中，編輯 **.env** 檔案以新增已部署解決方案的 URL：
 
-下列章節會說明在遠端監視解決方案中自訂簡報和視覺效果層級的選項：
+    ```config
+    NODE_PATH = src/
+    REACT_APP_BASE_SERVICE_URL=https://{your solution name}.azurewebsites.net/
+    ```
 
-### <a name="change-the-logo-in-the-ui"></a>變更 UI 中的標誌
-
-預設的部署會使用 UI 中的 Contoso 公司名稱和標誌。 若要變更這些 UI 元素以顯示您的公司名稱和標誌：
-
-1. 使用下列命令來複製 Web UI 存放庫：
+1. 在 `azure-iot-pcs-remote-monitoring-webui` 資料夾本機複本的命令提示字元中，執行下列命令以安裝必要的程式庫，並在本機執行 UI：
 
     ```cmd/sh
-    git clone https://github.com/Azure/pcs-remote-monitoring-webui.git
+    npm install
+    npm start
     ```
 
-1. 若要變更公司名稱，請在文字編輯器中開啟 `src/common/lang.js` 檔案。
+1. 上一個命令會在本機於 http://localhost:3000/dashboard 執行 UI。 您可以在網站執行期間編輯程式碼，並看到它動態更新。
 
-1. 在檔案中找到下列行：
+## <a name="customize-the-layout"></a>自訂版面配置
 
-    ```js
-    CONTOSO: 'Contoso',
+遠端監視解決方案中的每個頁面都是由一組控制項所組成，這在原始程式碼中稱為*面板*。 例如，[儀表板] 頁面是由五個面板所組成：概觀、地圖、警示、遙測及 KPI。 您可以在 [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) \(英文\) GitHub 存放庫中找到定義每個頁面及其面板的原始程式碼。 例如，定義 [儀表板] 頁面、其版面配置，以及頁面上面板的程式碼位於 [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) \(英文\) 資料夾中。
+
+由於面板會管理自己的版面配置及大小，因此您可以輕易地修改頁面的版面配置。 例如，下列針對 `src/components/pages/dashboard/dashboard.js` 檔案中 **PageContent** 元素所做的變更，會調換地圖與遙測面板的位置，然後變更地圖與 KPI 面板的相對寬度：
+
+```nodejs
+<PageContent className="dashboard-container" key="page-content">
+  <Grid>
+    <Cell className="col-1 devices-overview-cell">
+      <OverviewPanel
+        openWarningCount={openWarningCount}
+        openCriticalCount={openCriticalCount}
+        onlineDeviceCount={onlineDeviceCount}
+        offlineDeviceCount={offlineDeviceCount}
+        isPending={kpisIsPending || devicesIsPending}
+        error={devicesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-5">
+      <TelemetryPanel
+        telemetry={telemetry}
+        isPending={telemetryIsPending}
+        error={telemetryError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+    <Cell className="col-3">
+      <CustAlarmsPanel
+        alarms={currentActiveAlarmsWithName}
+        isPending={kpisIsPending || rulesIsPending}
+        error={rulesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-4">
+    <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
+        <MapPanel
+          azureMapsKey={azureMapsKey}
+          devices={devices}
+          devicesInAlarm={devicesInAlarm}
+          mapKeyIsPending={azureMapsKeyIsPending}
+          isPending={devicesIsPending || kpisIsPending}
+          error={azureMapsKeyError || devicesError || kpisError}
+          t={t} />
+      </PanelErrorBoundary>
+    </Cell>
+    <Cell className="col-6">
+      <KpisPanel
+        topAlarms={topAlarmsWithName}
+        alarmsPerDeviceId={alarmsPerDeviceType}
+        criticalAlarmsChange={criticalAlarmsChange}
+        warningAlarmsChange={warningAlarmsChange}
+        isPending={kpisIsPending || rulesIsPending || devicesIsPending}
+        error={devicesError || rulesError || kpisError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+  </Grid>
+</PageContent>
+```
+
+![變更面板版面配置](media/iot-suite-remote-monitoring-customize/layout.png)
+
+> [!NOTE]
+> 本機部署中並未設定地圖。
+
+您也可以新增相同面板的多個執行個體，或在[複製和自訂面板](#duplicate-and-customize-an-existing-control)的情況下新增相同面板的多個版本。 下列範例示範如何藉由編輯 `src/components/pages/dashboard/dashboard.js` 檔案來新增遙測面板的兩個執行個體：
+
+```nodejs
+<PageContent className="dashboard-container" key="page-content">
+  <Grid>
+    <Cell className="col-1 devices-overview-cell">
+      <OverviewPanel
+        openWarningCount={openWarningCount}
+        openCriticalCount={openCriticalCount}
+        onlineDeviceCount={onlineDeviceCount}
+        offlineDeviceCount={offlineDeviceCount}
+        isPending={kpisIsPending || devicesIsPending}
+        error={devicesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-3">
+      <TelemetryPanel
+        telemetry={telemetry}
+        isPending={telemetryIsPending}
+        error={telemetryError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+    <Cell className="col-3">
+      <TelemetryPanel
+        telemetry={telemetry}
+        isPending={telemetryIsPending}
+        error={telemetryError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+    <Cell className="col-2">
+      <CustAlarmsPanel
+        alarms={currentActiveAlarmsWithName}
+        isPending={kpisIsPending || rulesIsPending}
+        error={rulesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-4">
+    <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
+        <MapPanel
+          azureMapsKey={azureMapsKey}
+          devices={devices}
+          devicesInAlarm={devicesInAlarm}
+          mapKeyIsPending={azureMapsKeyIsPending}
+          isPending={devicesIsPending || kpisIsPending}
+          error={azureMapsKeyError || devicesError || kpisError}
+          t={t} />
+      </PanelErrorBoundary>
+    </Cell>
+    <Cell className="col-6">
+      <KpisPanel
+        topAlarms={topAlarmsWithName}
+        alarmsPerDeviceId={alarmsPerDeviceType}
+        criticalAlarmsChange={criticalAlarmsChange}
+        warningAlarmsChange={warningAlarmsChange}
+        isPending={kpisIsPending || rulesIsPending || devicesIsPending}
+        error={devicesError || rulesError || kpisError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+  </Grid>
+</PageContent>
+```
+
+您接著可以在每個面板中檢視不同的遙測：
+
+![多個遙測面板](media/iot-suite-remote-monitoring-customize/multiple-telemetry.png)
+
+> [!NOTE]
+> 本機部署中並未設定地圖。
+
+## <a name="duplicate-and-customize-an-existing-control"></a>複製和自訂現有的控制項
+
+下列步驟會概述如何使用**警示**面板，來示範如何複製現有的面板、對它進行修改，以及使用修改後的版本：
+
+1. 在存放庫的本機複本中，複製 `src/components/pages/dashboard/panels` 資料夾中的 **alarms** 資料夾。 將新的複本命名為 **cust_alarms**。
+
+1. 在 **cust_alarms** 資料夾的 **alarmsPanel.js** 檔案中，將類別的名稱編輯為 **CustAlarmsPanel**：
+
+    ```nodejs
+    export class CustAlarmsPanel extends Component {
     ```
 
-1. 將 `Contoso` 取代為您的公司名稱。 例如︰
+1. 在 `src/components/pages/dashboard/panels/index.js` 檔案中新增以下文字行：
 
-    ```js
-    CONTOSO: 'YourCo',
+    ```nodejs
+    export * from './cust_alarms';
     ```
 
-1. 儲存檔案。
+1. 在 `src/components/pages/dashboard/dashboard.js` 檔案中，使用 `CustAlarmsPanel` 來取代 `AlarmsPanel`：
 
-1. 若要更新標誌，請將新的 SVG 檔案新增至 `assets/icons` 資料夾。 現有的標誌為 `assets/icons/Contoso.svg` 檔案。
+    ```nodejs
+    import {
+      OverviewPanel,
+      CustAlarmsPanel,
+      TelemetryPanel,
+      KpisPanel,
+      MapPanel,
+      transformTelemetryResponse,
+      chartColors
+    } from './panels';
 
-1. 在文字編輯器中開啟 `src/components/layout/leftNav/leftNav.js` 檔案。
+    ...
 
-1. 在檔案中找到下列行：
-
-    ```js
-    import ContosoIcon from '../../../assets/icons/Contoso.svg';
+    <Cell className="col-3">
+      <CustAlarmsPanel
+        alarms={currentActiveAlarmsWithName}
+        isPending={kpisIsPending || rulesIsPending}
+        error={rulesError || kpisError}
+        t={t} />
+    </Cell>
     ```
 
-1. 將 `Contoso.svg` 取代為您的標誌檔案名稱。 例如︰
+您現在已使用名為 **CustAlarms** 的複本來取代原始的**警示**面板。 此複本與原始版本完全相同。 您現在可以修改此複本。 例如，若要在**警示**面板中變更資料行順序：
 
-    ```js
-    import ContosoIcon from '../../../assets/icons/YourCo.svg';
+1. 開啟 `src/components/pages/dashboard/panels/cust_alarms/alarmsPanel.js` 檔案。
+
+1. 修改資料行定義，如下列程式碼片段所示：
+
+    ```nodejs
+    this.columnDefs = [
+      rulesColumnDefs.severity,
+      {
+        headerName: 'rules.grid.count',
+        field: 'count'
+      },
+      {
+        ...rulesColumnDefs.ruleName,
+        minWidth: 200
+      },
+      rulesColumnDefs.explore
+    ];
     ```
 
-1. 在檔案中找到下列行：
+下列螢幕擷取畫面會顯示新版本的**警示**面板：
 
-    ```js
-    alt="ContosoIcon"
+![警示面板已更新](media/iot-suite-remote-monitoring-customize/reorder-columns.png)
+
+## <a name="customize-the-telemetry-chart"></a>自訂遙測圖表
+
+[儀表板] 頁面上的遙測圖表是由 `src/components/pages/dashboard/panels/telemtry` 資料夾中的資料所定義。 UI 會從解決方案後端的 `src/services/telemetryService.js` 檔案中擷取遙測。 下列步驟示範如何將遙測圖表上顯示的時間週期從 15 分鐘變更為 5 分鐘：
+
+1. 在 `src/services/telemetryService.js` 檔案中，找出名為 **getTelemetryByDeviceIdP15M** 的函式。 複製此函式並修改複本，如下所示：
+
+    ```nodejs
+    static getTelemetryByDeviceIdP5M(devices = []) {
+      return TelemetryService.getTelemetryByMessages({
+        from: 'NOW-PT5M',
+        to: 'NOW',
+        order: 'desc',
+        devices
+      });
+    }
     ```
 
-1. 將 `ContosoIcon` 取代為您的 `alt` 文字。 例如︰
+1. 若要使用這個新的函式來填入遙測圖表，請開啟 `src/components/pages/dashboard/dashboard.js` 檔案。 找到將遙測資料流初始化的那一行並進行修改，如下所示：
 
-    ```js
-    alt="YourCoIcon"
+    ```node.js
+    const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
     ```
 
-1. 儲存檔案。
+遙測圖表現在會顯示五分鐘的遙測資料：
 
-1. 若要測試變更，您可以在本機電腦上執行更新的 `webui`。 若要了解如何在本機建置和執行 `webui` 解決方案，請參閱 `webui` GitHub 存放庫讀我檔案中的[在本機建置、執行及測試](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/README.md#build-run-and-test-locally)。
+![顯示一天的遙測圖表](media/iot-suite-remote-monitoring-customize/telemetry-period.png)
 
-1. 若要部署您的變更，請參閱[開發人員參考指南](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)。
+## <a name="add-a-new-kpi"></a>新增 KPI
 
-<!--
+[儀表板] 頁面會在 [系統 KPI] 面板中顯示 KPI。 這些 KPI 是在 `src/components/pages/dashboard/dashboard.js` 檔案中計算的。 KPI 會由 `src/components/pages/dashboard/panels/kpis/kpisPanel.js` 檔案來呈現。 下列步驟說明如何在 [儀表板] 頁面上計算並呈現新的 KPI 值。 顯示的範例會在警告警示 KPI 中新增百分比變更：
 
-### Add a new KPI to the Dashboard page
+1. 開啟 `src/components/pages/dashboard/dashboard.js` 檔案。 修改 **initialState** 物件以包含 **warningAlarmsChange** 屬性，如下所示：
 
-The following steps describe how to add a new KPI to display on the **Dashboard** page. The new KPI shows information about the number of alarms with specific status values as a pie chart:
+    ```nodejs
+    const initialState = {
+      ...
 
-1. Step 1
+      // Kpis data
+      currentActiveAlarms: [],
+      topAlarms: [],
+      alarmsPerDeviceId: {},
+      criticalAlarmsChange: 0,
+      warningAlarmsChange: 0,
+      kpisIsPending: true,
+      kpisError: null,
 
-1. Step 2
--->
+      ...
+    };
+    ```
 
-### <a name="customize-the-map"></a>自訂地圖
+1. 修改 **currentAlarmsStats** 物件以包含 **totalWarningCount** 作為屬性：
+
+    ```nodejs
+    return {
+      openWarningCount: (acc.openWarningCount || 0) + (isWarning && isOpen ? 1 : 0),
+      openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
+      totalWarningCount: (acc.totalWarningCount || 0) + (isWarning ? 1 : 0),
+      totalCriticalCount: (acc.totalCriticalCount || 0) + (isCritical ? 1 : 0),
+      alarmsPerDeviceId: updatedAlarmsPerDeviceId
+    };
+    ```
+
+1. 計算新的 KPI。 尋找適用於重要警示計數的計算。 複製程式碼並修改複本，如下所示：
+
+    ```nodejs
+    // ================== Warning Alarms Count - START
+    const currentWarningAlarms = currentAlarmsStats.totalWarningCount;
+    const previousWarningAlarms = previousAlarms.reduce(
+      (cnt, { severity }) => severity === 'warning' ? cnt + 1 : cnt,
+      0
+    );
+    const warningAlarmsChange = ((currentWarningAlarms - previousWarningAlarms) / currentWarningAlarms * 100).toFixed(2);
+    // ================== Warning Alarms Count - END
+    ```
+
+1. 在 KPI 資料流中包含新的 **warningAlarmsChange** KPI：
+
+    ```nodejs
+    return ({
+      kpisIsPending: false,
+
+      // Kpis data
+      currentActiveAlarms,
+      topAlarms,
+      criticalAlarmsChange,
+      warningAlarmsChange,
+      alarmsPerDeviceId: currentAlarmsStats.alarmsPerDeviceId,
+
+      ...
+    });
+
+1. Include the new **warningAlarmsChange** KPI in the state data used to render the UI:
+
+    ```nodejs
+    const {
+      ...
+
+      currentActiveAlarms,
+      topAlarms,
+      alarmsPerDeviceId,
+      criticalAlarmsChange,
+      warningAlarmsChange,
+      kpisIsPending,
+      kpisError,
+
+      ...
+    } = this.state;
+    ```
+
+1. 更新傳送到 KPI 面板的資料：
+
+    ```node.js
+    <KpisPanel
+      topAlarms={topAlarmsWithName}
+      alarmsPerDeviceId={alarmsPerDeviceType}
+      criticalAlarmsChange={criticalAlarmsChange}
+      warningAlarmsChange={warningAlarmsChange}
+      isPending={kpisIsPending || rulesIsPending || devicesIsPending}
+      error={devicesError || rulesError || kpisError}
+      colors={chartColorObjects}
+      t={t} />
+    ```
+
+您現在已完成 `src/components/pages/dashboard/dashboard.js` 檔案中的變更。 下列步驟說明如何在 `src/components/pages/dashboard/panels/kpis/kpisPanel.js` 檔案中進行變更，以顯示新的 KPI：
+
+1. 修改下列程式碼行以擷取新的 KPI 值，如下所示：
+
+    ```nodejs
+    const { t, isPending, criticalAlarmsChange, warningAlarmsChange, error } = this.props;
+    ```
+
+1. 修改標記以顯示新的 KPI 值，如下所示：
+
+    ```nodejs
+    <div className="kpi-cell">
+      <div className="kpi-header">{t('dashboard.panels.kpis.criticalAlarms')}</div>
+      <div className="critical-alarms">
+        {
+          criticalAlarmsChange !== 0 &&
+            <div className="kpi-percentage-container">
+              <div className="kpi-value">{ criticalAlarmsChange }</div>
+              <div className="kpi-percentage-sign">%</div>
+            </div>
+        }
+      </div>
+      <div className="kpi-header">{t('Warning alarms')}</div>
+      <div className="critical-alarms">
+        {
+          warningAlarmsChange !== 0 &&
+            <div className="kpi-percentage-container">
+              <div className="kpi-value">{ warningAlarmsChange }</div>
+              <div className="kpi-percentage-sign">%</div>
+            </div>
+        }
+      </div>
+    </div>
+    ```
+
+[儀表板] 頁面現在會顯示新的 KPI 值：
+
+![警告 KPI](media/iot-suite-remote-monitoring-customize/new-kpi.png)
+
+## <a name="customize-the-map"></a>自訂地圖
 
 如需解決方案中地圖元件的詳細資料，請參閱 GitHub 中的[自訂地圖](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map)頁面。
 
 <!--
-### Customize the telemetry chart
-
-See the [Customize telemetry chart](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of the telemetry chart components in the solution.
-
 ### Connect an external visualization tool
 
 See the [Connect an external visualization tool](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to connect an external visualization tool.
 
-### Duplicate an existing control
-
-To duplicate an existing UI element such as a chart or alert, see the [Duplicate a control](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub.
-
 -->
 
-### <a name="other-customization-options"></a>其他自訂選項
+## <a name="other-customization-options"></a>其他自訂選項
 
-若要進一步修改遠端監視解決方案中的簡報和視覺效果層級，您可以編輯程式碼。 相關的 GitHub 存放庫為：
+若要進一步修改遠端監視解決方案中的呈現方式和視覺效果層級，您可以編輯程式碼。 相關的 GitHub 存放庫為：
 
-* [UIConfig (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
-* [UIConfig (Java)](https://github.com/Azure/pcs-ui-config-java/)
-* [Azure PCS 遠端監視 WebUI](https://github.com/Azure/pcs-remote-monitoring-webui)
-
-## <a name="device-connectivity-and-streaming"></a>裝置連線能力和串流
-
-下列章節會說明在遠端監視解決方案中自訂裝置連線能力和串流層級的選項。 [裝置型號](https://github.com/Azure/device-simulation-dotnet/wiki/Device-Models)會描述解決方案中的裝置類型和遙測。 您可以使用模擬和實體裝置的裝置型號。
-
-如需實體裝置實作的範例，請參閱[將裝置連線至遠端監視預先設定解決方案](iot-suite-connecting-devices-node.md)。
-
-如果您是使用_實體裝置_，就必須向用戶端應用程式提供裝置型號，當中包含裝置中繼資料和遙測規格。
-
-下列各節將討論使用模擬裝置的裝置型號：
-
-### <a name="add-a-telemetry-type"></a>新增遙測類型
-
-Contoso 示範解決方案中的裝置類型會指定每個裝置類型所傳送的遙測。 若要指定其他遙測類型，裝置可以將遙測定義作為中繼資料傳送至解決方案。 如果您是使用此格式，儀表板就會以動態方式使用您的裝置遙測和可用的方法，您無需修改 UI。 或者，您可以修改解決方案中的裝置類型定義。
-
-若要了解如何在_裝置模擬器_微服務中新增自訂遙測，請參閱[使用模擬裝置來測試您的解決方案](iot-suite-remote-monitoring-test.md)。
-
-### <a name="add-a-device-type"></a>新增裝置類型
-
-Contoso 示範解決方案會定義某些範例裝置類型。 解決方案可讓您定義自訂的裝置類型，以符合特定的應用程式需求。 例如，貴公司可能會使用工業閘道作為主要裝置來連線至解決方案。
-
-若要建立裝置的精確表示，您需要修改裝置上執行的應用程式以符合裝置需求。
-
-若要了解如何在_裝置模擬器_微服務中新增新的裝置類型，請參閱[使用模擬裝置來測試您的解決方案](iot-suite-remote-monitoring-test.md)。
-
-### <a name="define-custom-methods-for-simulated-devices"></a>定義模擬裝置的自訂方法
-
-若要深入了解如何在遠端監視解決方案中定義模擬裝置的自訂方法，請參閱 GitHub 存放庫中的[裝置型號](https://github.com/Azure/device-simulation-dotnet/wiki/%5BAPI-Specifications%5D-Device-Models)。
-
-<!--
-#### Using the simulator service
-
-TODO: add steps for the simulator microservice here
--->
-
-#### <a name="using-a-physical-device"></a>使用實體裝置
-
-若要實作實體裝置上的方法和作業，請參閱下列 IoT 中樞文件：
-
-* [了解 IoT 中樞的直接方法並從中樞叫用直接方法](../iot-hub/iot-hub-devguide-direct-methods.md)。
-* [排程多個裝置上的作業](../iot-hub/iot-hub-devguide-jobs.md)。
-
-### <a name="other-customization-options"></a>其他自訂選項
-
-若要進一步修改遠端監視解決方案中的裝置連線能力和串流層級，您可以編輯程式碼。 相關的 GitHub 存放庫為：
-
-* [裝置遙測 (.NET)](https://github.com/Azure/device-telemetry-dotnet)
-* [裝置遙測 (Java)](https://github.com/Azure/device-telemetry-java)
-* [遙測代理程式 (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
-* [遙測代理程式 (Java)](https://github.com/Azure/telemetry-agent-java)
-
-## <a name="data-processing-and-analytics"></a>資料處理和分析
-
-<!--
-The following sections describe options to customize the data processing and analytics layer in the remote monitoring solution:
-
-### Rules and actions
-
-See the [Customize rules and actions](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to customize the rules and actions in solution.
-
-
-### Other customization options
--->
-
-若要修改遠端監視解決方案中的資料處理和分析層級，您可以編輯程式碼。 相關的 GitHub 存放庫為：
-
-* [遙測代理程式 (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
-* [遙測代理程式 (Java)](https://github.com/Azure/telemetry-agent-java)
-
-## <a name="infrastructure"></a>基礎結構
-
-<!--
-The following sections describe options for customizing the infrastructure services in the remote monitoring solution:
-
-### Change storage
-
-The default storage service for the remote monitoring solution is Cosmos DB. See the [Customize storage service](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to change the storage service the solution uses.
-
-### Change log storage
-
-The default storage service for logs is Cosmos DB. See the [Customize log storage service](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to change the storage service the solution uses for logging.
-
-### Other customization options
--->
-
-若要修改遠端監視解決方案中的基礎結構，您可以編輯程式碼。 相關的 GitHub 存放庫為：
-
-* [IoTHub 管理員 (.NET)](https://github.com/Azure/iothub-manager-dotnet)
-* [IoTHub 管理員 (Java)](https://github.com/Azure/iothub-manager-java)
-* [儲存體介面卡 (.NET)](https://github.com/Azure/pcs-storage-adapter-dotnet)
-* [儲存體介面卡 (Java)](https://github.com/Azure/pcs-storage-adapter-java)
+* [適用於 Azure IoT 解決方案的設定微服務 (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/) \(英文\)
+* [適用於 Azure IoT 解決方案的設定微服務 (Java)](https://github.com/Azure/pcs-ui-config-java/) \(英文\)
+* [Azure IoT PCS 遠端監視 Web UI](https://github.com/Azure/pcs-remote-monitoring-webui) \(英文\)
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解有關可用來協助您自訂預先設定解決方案的資源。
+在本文中，您已了解可用來協助您在遠端監視解決方案加速器中自訂 Web UI 的資源。
 
-如需關於遠端監視預先設定解決方案的詳細概念資訊，請參閱[遠端監視架構](iot-suite-remote-monitoring-sample-walkthrough.md)
+如需關於遠端監視解決方案加速器的詳細概念資訊，請參閱[遠端監視架構](iot-suite-remote-monitoring-sample-walkthrough.md)
 
-如需關於自訂遠端監視解決方案的詳細資訊，請參閱：
-
-* [開發人員參考指南](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
-* [開發人員疑難排解指南](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-
+如需關於自訂遠端監視解決方案的詳細資訊，請參閱[自訂和重新部署微服務](iot-suite-microservices-example.md)。
 <!-- Next tutorials in the sequence -->

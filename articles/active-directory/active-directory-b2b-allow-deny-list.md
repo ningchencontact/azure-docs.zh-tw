@@ -2,25 +2,19 @@
 title: 允許或封鎖對特定組織的 B2B 使用者的邀請 - Azure Active Directory |Microsoft Docs
 description: 說明系統管理員如何使用 Azure 入口網站或 PowerShell 設定存取或拒絕清單，以允許或封鎖來自特定網域的 B2B 使用者。
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 04/19/2018
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 24723f268e59103c712b98b4bd895472b034afc0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7e89bf47f592e4698a6e50fced78aeab0152ebc6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>允許或封鎖對特定組織的 B2B 使用者的邀請
 
@@ -145,7 +139,7 @@ New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedA
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ````
 
-若要取得原則，請使用 [Get-AzureADPolicy](https://docs.microsoft.com/en-us/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) Cmdlet。 例如︰
+若要取得原則，請使用 [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) Cmdlet。 例如︰
 
 ````powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 

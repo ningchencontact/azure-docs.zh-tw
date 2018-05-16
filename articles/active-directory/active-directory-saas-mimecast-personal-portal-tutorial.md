@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Mimecast Personal Portal 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Mimecast Personal Portal 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Mimecast Personal Portal 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Mimecast Personal Portal 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 4f2c5f7323d9d10b6a784da8f45577ccf774b78f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7d8a746df9bea22970da9dc47b5e436a94335f49
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>教學課程：Azure Active Directory 與 Mimecast Personal Portal 整合
 
@@ -58,7 +58,7 @@ Mimecast Personal Portal 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Mimecast Personal Portal，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -79,8 +79,6 @@ Mimecast Personal Portal 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 "Britta Simon" 的測試使用者身分，設定及測試與 Mimecast Personal Portal 搭配運作的 Azure AD 單一登入。
 
 若要讓單一登入運作，Azure AD 必須知道 Mimecast Personal Portal 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者和 Mimecast Personal Portal 中的相關使用者之間，建立連結關聯性。
-
-在 Mimecast Personal Portal 中，將 Azure AD 中**使用者名稱**的值指派為 **Username** 的值，以建立連結關聯性。
 
 若要設定及測試與 Mimecast Personal Portal 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
@@ -127,6 +125,16 @@ Mimecast Personal Portal 與 Azure AD 整合提供下列優點：
     | 南非    | `https://za-api.mimecast.com/sso/<accountcode>`|
     | 澳大利亞       | `https://au-api.mimecast.com/sso/<accountcode>`|
     | 海外        | `https://jer-api.mimecast.com/sso/<accountcode>`|
+
+    c. 在 [回覆 URL] 文字方塊中輸入 URL： 
+
+    | 區域  |  值 | 
+    | --------------- | --------------- | 
+    | 歐洲          | `https://eu-api.mimecast.com/login/saml`|
+    | 美國   | `https://us-api.mimecast.com/login/saml`|
+    | 南非    | `https://za-api.mimecast.com/login/saml`|
+    | 澳大利亞       | `https://au-api.mimecast.com/login/saml`|
+    | 海外        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
     > 識別碼值不是實際值。 請使用實際的「識別碼」來更新此值。 請連絡 [Mimecast Personal Portal 客戶支援小組](http://www.mimecast.com/customer-success/technical-support/)以取得此值。 
@@ -178,10 +186,6 @@ Mimecast Personal Portal 與 Azure AD 整合提供下列優點：
     h. 選取 [允許單一登入] 。
    
     i. 按一下 [檔案] 。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

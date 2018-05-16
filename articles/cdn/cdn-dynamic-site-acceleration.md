@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>透過 Azure CDN 進行動態網站加速
 
@@ -183,9 +183,6 @@ JPEG 壓縮 | .jpg、.jpeg、.jpe、.jig、.jgig、.jgi
 此外，您可以使用兩個 CDN 端點：一個使用 DSA 最佳化的端點用來傳遞動態資產，另一個使用靜態最佳化類型 (例如一般 Web 傳遞) 最佳化的端點用來傳遞可快取的資產。 將網頁 URL 修改為直接連結至您打算使用之 CDN 端點上的資產。 
 
 例如：`mydynamic.azureedge.net/index.html` 是從 DSA 端點載入的動態網頁。  HTML 網頁會參考多個靜態資產 (例如 JavaScript 程式庫)，或參考從靜態 CDN 端點載入的映像 (例如 `mystatic.azureedge.net/banner.jpg` 和 `mystatic.azureedge.net/scripts.js`)。 
-
-如需有關如何在 ASP.NET Web 應用程式中使用控制器，以透過特定 CDN URL 提供內容的範例，請參閱[透過 Azure CDN 從控制器動作項目提供內容](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller)。
-
 
 
 

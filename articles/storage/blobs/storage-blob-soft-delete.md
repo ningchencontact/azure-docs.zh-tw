@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: mihauss
-ms.openlocfilehash: 649838af1d4c753ac1d82a66c855ef313f14e85b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="soft-delete-for-azure-storage-blobs-preview"></a>Azure 儲存體 Blob 的虛刪除 (預覽)
 
@@ -292,7 +292,7 @@ blockBlob.StartCopy(copySource);
 
 **如果我在開啟虛刪除的情況下刪除整個帳戶或容器，是否會儲存所有相關聯的 Blob？**
 
-不會，如果您刪除整個帳戶或容器，將會永久刪除所有相關聯的 Blob。 若要深入了解如何防止意外刪除儲存體帳戶，請參閱 Azure Resource Manager 文章[鎖定資源以防止非預期的變更](/azure-resource-manager/resource-group-lock-resources.md)。
+不會，如果您刪除整個帳戶或容器，將會永久刪除所有相關聯的 Blob。 若要深入了解如何防止意外刪除儲存體帳戶，請參閱 Azure Resource Manager 文章[鎖定資源以防止非預期的變更](../../azure-resource-manager/resource-group-lock-resources.md)。
 
 **我可以檢視已刪除資料的容量計量嗎？**
 

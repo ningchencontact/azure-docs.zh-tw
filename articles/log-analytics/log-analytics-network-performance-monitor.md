@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 6e81f2cdd0cd3f62d93c85c1a073e0b9df542ec7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1d12df7c37c4c96198865479326851040b46986a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的網路效能監控解決方案
 
@@ -102,7 +102,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) 將網路效能監視器解決方案新增至您的 OMS 工作區。 您也可以使用[從方案庫新增 Log Analytics 解決方案](log-analytics-add-solutions.md)中說明的程序。 
 2. 開啟 Log Analytics 工作區，然後選取 [概觀] 圖格。 
-3. 選取含有「解決方案需要其他設定」 **訊息的 [網路效能監視器]  圖格。
+3. 選取含有「解決方案需要其他設定」 ** 訊息的 [網路效能監視器]  圖格。
 
    ![網路效能監視器圖格](media/log-analytics-network-performance-monitor/npm-config.png)
 
@@ -249,6 +249,24 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 ## <a name="log-analytics-search"></a>Log Analytics 搜尋 
 
 以圖形方式透過網路效能監視器儀表板和深入鑽研頁面公開的所有資料，也都可以在 [Log Analytics 搜尋](log-analytics-log-search-new.md)中取得。 您可以對存放庫中的資料執行互動式分析，並且讓不同來源的資料相互關聯。 您也可以建立自訂警示和檢視，並將資料匯出至 Excel、Power BI 或可共用的連結。 儀表板中的 [常用查詢] ****  區域有一些實用的查詢，您可以使用這些查詢作為起點來建立自己的查詢和報告。 
+
+## <a name="alerts"></a>警示
+
+網路效能監控使用 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)的警示功能。
+
+這表示所有警示都可以透過[動作群組](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview)加以管理。  
+
+如果您是透過 OMS 建立警示的 NPM 使用者： 
+1. 將您重新導向 Azure 入口網站的連結將會出現。 按一下可存取入口網站。
+2. 按一下 [網路效能監控] 解決方案圖格。 
+3. 導覽至 [設定]。  
+4. 選取您要建立警示的測試，然後遵循下文所述的步驟。
+
+如果您是透過 Azure 入口網站建立警示的 NPM 使用者：  
+1. 您可以選擇直接輸入電子郵件，或選擇透過動作群組建立警示。
+2. 如果您選擇直接輸入電子郵件，系統會建立名為 **NPM 電子郵件動作群組**的動作群組，並將電子郵件識別碼加入該動作群組。
+3. 如果您選擇使用動作群組，必須選取先前建立的動作群組。 您可以在[這裡](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal)了解如何建立動作群組。 
+4. 成功建立警示後，您可以使用「管理警示」連結管理警示。 
 
 ##<a name="pricing"></a>價格
 

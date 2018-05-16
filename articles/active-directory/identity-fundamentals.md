@@ -1,29 +1,29 @@
 ---
-title: "Azure 身分識別管理的基本概念"
-description: "雲端型身分識別現在是持續控制與查看使用者以何種方式及在何時存取公司應用程式和資料的最佳方式。"
-keywords: 
+title: Azure 身分識別管理的基本概念
+description: 雲端型身分識別現在是持續控制與查看使用者以何種方式及在何時存取公司應用程式和資料的最佳方式。
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewr: jsnow
 ms.author: jeffgilb
 ms.date: 07/05/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: a7eb669aac109ae8cde6d75129004d322c270651
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 7c00ccf214cfd683d04a76cc3cfad9bd27080561
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Azure 身分識別管理的基本概念
 
 隨著存放在公司網路外部 (雲端及裝置) 的公司數位資源日益增多，絕佳的雲端身分識別和存取管理解決方案更加不可或缺。 雲端型身分識別現在是持續控制與查看使用者以何種方式及在何時存取公司應用程式和資料的最佳方式。
 
-十多年來，Microsoft 一直保護雲端架構身分識別的安全，而現在透過 [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions) 持續為您提供相同的保護系統。 使用 Azure AD，企業系統管理員可透過前所未有的更佳安全性和監管，輕易地確保使用者和系統管理員負有責任。
+十多年來，Microsoft 一直保護雲端架構身分識別的安全，而現在透過 [Azure Active Directory (AD)](active-directory-whatis.md) 持續為您提供相同的保護系統。 使用 Azure AD，企業系統管理員可透過前所未有的更佳安全性和監管，輕易地確保使用者和系統管理員負有責任。
 
 Azure AD Premium 是雲端架構身分識別和存取管理解決方案，其具備可對所有應用程式啟用一個安全身分識別的進階保護功能、身分識別保護 (由 [Microsoft 智慧安全性圖表](https://www.microsoft.com/en-us/security/intelligence)增強)，以及 Privileged Identity Management。 Azure AD Premium 不只是另一個監視或報告工具，還可即時保護使用者的身分識別，並可讓您建立以風險為基礎的調適性存取原則來保護您組織的資料。
 

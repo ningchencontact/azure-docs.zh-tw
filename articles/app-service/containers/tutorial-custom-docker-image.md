@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: acfe066d9ad4882bcff85b7fd51dc7d3b2278235
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 887ed316605ab423159ef0d2e07f0960c702ed8b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>針對用於容器的 Web 應用程式使用自訂 Docker 映像
 
@@ -42,7 +42,6 @@ ms.lasthandoff: 03/16/2018
 若要完成本教學課程，您需要：
 
 * [Git](https://git-scm.com/downloads)
-* 有效的 [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * [Docker](https://docs.docker.com/get-started/#setup)
 * [Docker Hub 帳戶](https://docs.docker.com/docker-id/)
 
@@ -125,6 +124,10 @@ docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
 驗證 web 應用程式和容器是否會正常運作，方法是瀏覽至 `http://localhost:2222`。
 
 ![在本機測試 Web 應用程式](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
+
+> [!NOTE] 
+> 您也可以使用 SSH、SFTP 或 Visual Studio Code (適用於 Node.js 應用程式即時偵錯)，直接從本機開發電腦連線到應用程式容器。 如需詳細資訊，請參閱 [Linux 上 App Service 中的遠端偵錯和 SSH](https://aka.ms/linux-debug)。
+>
 
 ## <a name="push-the-docker-image-to-docker-hub"></a>將 Docker 映像推送至 Docker Hub
 

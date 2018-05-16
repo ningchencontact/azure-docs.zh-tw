@@ -8,16 +8,14 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/19/2018
-ms.openlocfilehash: 5ebf2d1025c8f9469a83a408cb79e3d944a601bc
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/27/2018
+ms.openlocfilehash: 2b2ef68622f96d87a25d203d3d67aa0877397072
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>將資料作為輸入串流處理至串流分析中
-
-串流分析接受來自數種事件來源的資料。 輸入串流分析作業中的資料連線稱為作業的「輸入」。 
 
 串流分析與 Azure 資料流做了絕佳的整合，並透過三種資源將其作為輸入：
 - [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)
@@ -25,17 +23,6 @@ ms.lasthandoff: 04/23/2018
 - [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/) 
 
 這些輸入來源可存在於與串流分析作業相同的 Azure 訂用帳戶中，或來自不同的訂用帳戶。
-
-## <a name="compare-stream-and-reference-inputs"></a>比較資料流和參考輸入
-當資料發送到資料來源時，串流分析作業會即時取用並處理該資料。 輸入分為兩種類型：資料流輸入和參考資料輸入。
-
-### <a name="data-stream-input"></a>資料流輸入
-資料流是一段時間內發生的無限制事件序列。 串流分析作業必須包含至少一個資料流輸入。 支援將事件中樞、IoT 中樞和 Blob 儲存體當成資料流輸入來源。 事件中樞用來從多個裝置和服務收集事件資料流。 這些資料流可能包括社交媒體活動摘要、股票交易資訊或來自感應器的資料。 IoT 中心經過最佳化，最適合從物聯網 (IoT) 案例中相互連接的裝置收集資料。  Blob 儲存體可作為輸入來源，將大量資料內嵌為資料流，例如記錄檔。  
-
-### <a name="reference-data-input"></a>參考資料輸入
-串流分析也支援稱為「參考資料」的輸入。 這是靜態或緩慢變更的輔助資料。 參考資料通常用來執行相互關聯和查閱。 比方說，您可能會將資料流輸入中的資料聯結至參考資料中的資料，很像是執行 SQL 聯結來查詢靜態值。 在預覽版本中，Azure Blob 儲存體是目前唯一支援當成參考資料的輸入來源。 參考資料來源 Blob 的大小以 100 MB 為限。
-
-若要了解如何建立參考資料輸入，請參閱[使用參考資料](stream-analytics-use-reference-data.md)。  
 
 ### <a name="compression"></a>壓縮
 串流分析支援跨所有資料流輸入來源的壓縮。 目前支援的參考類型為：[無]、[GZip] 和 [Deflate] 壓縮。 支援壓縮無法用於參考資料。 如果輸入格式為已壓縮的 Avro 資料，資料將以透明的方式處理。 您不需要使用 Avro 序列化來指定壓縮類型。 
@@ -50,7 +37,6 @@ ms.lasthandoff: 04/23/2018
 7. 在輸入詳細資料頁面上選取 [測試]，以確認連線選項有效並且運作中。 
 8. 以滑鼠右鍵按一下現有輸入的名稱，然後視需要選取 [來自輸入的範例資料] 以進一步測試。
 
-您也可以使用 [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput)，[.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions)、[REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input) 和 [Visual Studio](stream-analytics-tools-for-visual-studio.md) 來建立、編輯及測試串流分析作業輸入。
 
 ## <a name="stream-data-from-event-hubs"></a>來自事件中樞的串流資料
 
@@ -59,7 +45,7 @@ Azure 事件中樞提供高延展性的發佈-訂閱事件擷取器。 事件中
 在串流分析中，來自事件中樞的事件預設時間戳記是事件抵達事件中樞的時間戳記，也就是 `EventEnqueuedUtcTime`。 若要使用事件裝載中的時間戳記，將資料當作資料流處理，您必須使用 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 關鍵字。
 
 ### <a name="consumer-groups"></a>用戶群組
-您應該將每一個串流分析事件中樞輸入設定為有自己的取用者群組。 當作業包含自我聯結或有多個輸入時，某些輸入可能由下游的多個讀取器所讀取。 這種情況會影響單一取用者群組中的讀取器數目。 若要避免超出每個分割區的每個取用者群組最多有 5 個讀取器的事件中樞限制，最好為每個串流分析作業指定取用者群組。 另外也限制每一個事件中樞最多有 20 個取用者群組。 如需詳細資訊，請參閱[事件中樞程式設計指南](../event-hubs/event-hubs-programming-guide.md)。
+您應該將每一個串流分析事件中樞輸入設定為有自己的取用者群組。 當作業包含自我聯結或有多個輸入時，某些輸入可能由下游的多個讀取器所讀取。 這種情況會影響單一取用者群組中的讀取器數目。 若要避免超出每個分割區的每個取用者群組最多有 5 個讀取器的事件中樞限制，最好為每個串流分析作業指定取用者群組。 另外也限制每一個事件中樞最多有 20 個取用者群組。 如需詳細資訊，請參閱[利用事件中樞接收器為 Azure 串流分析進行疑難排解](stream-analytics-event-hub-consumer-groups.md) (英文)。
 
 ### <a name="stream-data-from-event-hubs"></a>來自事件中樞的串流資料
 下表說明 Azure 入口網站的 [新的輸入] 頁面中用來從事件中樞串流處理資料輸入的每個屬性：
@@ -72,7 +58,7 @@ Azure 事件中樞提供高延展性的發佈-訂閱事件擷取器。 事件中
 | **事件中樞名稱** | 作為輸入的事件中樞名稱。 |
 | **事件中樞原則名稱** | 支援存取事件中樞的共用存取原則。 每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 此選項會自動填入，除非您選取手動提供事件中樞設定的選項。|
 | **事件中樞取用者群組** (建議使用) | 強烈建議您為每一個串流分析作業使用不同的取用者群組。 此字串可識別要用來從事件中樞擷取資料的取用者群組。 若未指定取用者群組，串流分析作業會使用 $Default 取用者群組。  |
-| **事件序列化格式** | 傳入資料流的序列化格式 (JSON、CSV 或 Avro)。 |
+| **事件序列化格式** | 傳入資料流的序列化格式 (JSON、CSV 或 Avro)。  確認 JSON 格式與規格一致，並且不包含以 0 開頭的十進位數字。 |
 | **編碼** | UTF-8 是目前唯一支援的編碼格式。 |
 | **事件壓縮類型** | 用來讀取內送資料流的壓縮類型，例如無 (預設值)、GZip 或 Deflate。 |
 
@@ -95,7 +81,7 @@ FROM Input
 ```
 
 > [!NOTE]
-> 將事件中樞作為 IoT 中樞路由的端點時，您可以使用 [GetMetadataPropertyValue 函式](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx)存取 IoT 中樞中繼資料。
+> 將事件中樞作為 IoT 中樞路由的端點時，您可以使用 [GetMetadataPropertyValue 函式](https://msdn.microsoft.com/library/azure/mt793845.aspx)存取 IoT 中樞中繼資料。
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>來自 IoT 中樞的串流資料
@@ -122,7 +108,7 @@ Azure IoT 中樞是已針對 IoT 案例最佳化的高延展性發佈/訂閱事�
 | **共用存取原則名稱** | 支援存取 IoT 中樞的共用存取原則。 每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 |
 | **共用存取原則金鑰** | 用來授與 IoT 中樞存取權的共用存取金鑰。  此選項會自動填入，除非您選取手動提供 IoT 中樞設定的選項。 |
 | **取用者群組** | 強烈建議讓每個串流分析作業使用不同的取用者群組。 用來從 IoT 中樞擷取資料的取用者群組。 串流分析會使用 $Default 取用者群組，除非您另有指定。  |
-| **事件序列化格式** | 傳入資料流的序列化格式 (JSON、CSV 或 Avro)。 |
+| **事件序列化格式** | 傳入資料流的序列化格式 (JSON、CSV 或 Avro)。  確認 JSON 格式與規格一致，並且不包含以 0 開頭的十進位數字。 |
 | **編碼** | UTF-8 是目前唯一支援的編碼格式。 |
 | **事件壓縮類型** | 用來讀取內送資料流的壓縮類型，例如無 (預設值)、GZip 或 Deflate。 |
 
@@ -171,7 +157,7 @@ CSV 格式的輸入*需要*以標頭資料列來定義資料集的欄位，且�
 | **路徑模式** (選用) | 用來在指定的容器中找出 blob 的檔案路徑。 在該路徑內，您可以指定下列三個變數的一個或多個執行個體：`{date}`、`{time}` 或 `{partition}`<br/><br/>範例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>範例 2：`cluster1/logs/{date}`<br/><br/>`*` 字元不是路徑前置詞允許的值。 僅允許有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 字元</a>。 |
 | **日期格式** (選用) | 在路徑中使用日期變數時，用來組織檔案的日期格式。 範例： `YYYY/MM/DD` |
 | **時間格式** (選用) |  在路徑中使用時間變數時，用來組織檔案的時間格式。 目前唯一支援的值為 `HH` (表示小時)。 |
-| **事件序列化格式** | 傳入資料流的序列化格式 (JSON、CSV 或 Avro)。 |
+| **事件序列化格式** | 傳入資料流的序列化格式 (JSON、CSV 或 Avro)。  確認 JSON 格式與規格一致，並且不包含以 0 開頭的十進位數字。 |
 | **編碼** | 對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式。 |
 | **壓縮** | 用來讀取內送資料流的壓縮類型，例如無 (預設值)、GZip 或 Deflate。 |
 
@@ -195,12 +181,8 @@ FROM Input
 ```
 
 ## <a name="next-steps"></a>後續步驟
-您已經了解自己串流分析工作的資料連線選項。 若要深入了解串流分析，請參閱：
-
-* [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+> [!div class="nextstepaction"]
+> [快速入門：使用 Azure 入口網站建立串流分析作業](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

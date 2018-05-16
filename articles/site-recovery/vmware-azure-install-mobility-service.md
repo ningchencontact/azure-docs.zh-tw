@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 445a5f10eac0959dab57e10680659c0792ad6fba
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3279dbc2eeecd3a3f0f36a47d8dd51ef4f3f503f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="install-the-mobility-service"></a>安裝行動服務 
 
@@ -27,7 +27,7 @@ Azure Site Recovery 行動服務安裝在您想要複寫到 Azure 的 VMware VM 
 
 
 >[!IMPORTANT]
-> 從版本 9.7.0.0 開始，在 Windows VM 上，行動服務安裝程式也會安裝最新可用的 [Azure VM 代理程式](../virtual-machines/windows/extensions-features.md#azure-vm-agent)。 當電腦容錯移轉至 Azure 時，該電腦必須符合代理程式安裝必要條件，才能使用任何 VM 擴充功能。
+> 從版本 9.7.0.0 開始，在 Windows VM 上，行動服務安裝程式也會安裝最新可用的 [Azure VM 代理程式](../virtual-machines/extensions/features-windows.md#azure-vm-agent)。 當電腦容錯移轉至 Azure 時，該電腦必須符合代理程式安裝必要條件，才能使用任何 VM 擴充功能。
 
 ## <a name="prerequisites"></a>先決條件
 在伺服器上手動安裝行動服務之前，必須先完成下列必要條件步驟：

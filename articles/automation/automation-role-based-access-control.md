@@ -4,16 +4,17 @@ description: 角色型存取控制 (RBAC) 可以啟用對 Azure 資源的存取�
 keywords: 自動化 rbac, 角色型存取控制, azure rbac
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f8b7062f85a7130c73c6493f6f0c277c90374f11
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 93a4befce1f54dcc06d9a8faf31b04e5c0280276
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自動化中的角色型存取控制
 
@@ -337,7 +338,7 @@ AssignableScopes : {/}
 ```
 
 [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) 會列出在指定範圍的 Azure AD RBAC 角色指派。 如果沒有任何參數，此命令會傳回在訂用帳戶下所做的所有角色指派。 使用 **ExpandPrincipalGroups** 參數，列出指定使用者以及使用者為其成員之群組的存取權指派。
-    **範例：**使用下列命令來列出自動化帳戶中的所有使用者以及其角色。
+    **範例：** 使用下列命令來列出自動化帳戶中的所有使用者以及其角色。
 
 ```azurepowershell-interactive
 Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -358,7 +359,7 @@ ObjectType         : User
 ```
 
 [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) 可將特定範圍的存取權指派給使用者、群組及應用程式。
-    **範例：**請使用下列命令來為「自動化帳戶」範圍內的使用者指派「自動化運算子」角色。
+    **範例：** 請使用下列命令來為「自動化帳戶」範圍內的使用者指派「自動化運算子」角色。
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -379,7 +380,7 @@ ObjectType         : User
 ```
 
 使用 [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) 從特定範圍移除所指定使用者、群組或應用程式的存取權。
-    **範例：**請使用下列命令，從「自動化」帳戶範圍內的「自動化操作員」角色中移除使用者。
+    **範例：** 請使用下列命令，從「自動化」帳戶範圍內的「自動化操作員」角色中移除使用者。
 
 ```azurepowershell-interactive
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'

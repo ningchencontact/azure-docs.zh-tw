@@ -15,15 +15,15 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: ebea5662017672ccbe911d4b9e7471aa081dd1bb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ea6817f80925c1989db13488472457e44801e7a8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 應用程式 Proxy 中的萬用字元應用程式 
 
-在 Azure Active Directory (Azure AD) 中，設定大量內部部署應用程式很快會變得難以管理，而且如果其中有多個需要相同設定，則會引入設定錯誤的不必要風險。 您可以使用 [Azure AD 應用程式 Proxy](active-directory-application-proxy-get-started.md)，藉由使用發行的萬用字元應用程式來一次發行及管理許多應用程式，以解決這個問題。 這是解決方案，可讓您：
+在 Azure Active Directory (Azure AD) 中，設定大量內部部署應用程式很快會變得難以管理，而且如果其中有多個需要相同設定，則會引入設定錯誤的不必要風險。 您可以使用 [Azure AD 應用程式 Proxy](manage-apps/application-proxy.md)，藉由使用發行的萬用字元應用程式來一次發行及管理許多應用程式，以解決這個問題。 這是解決方案，可讓您：
 
 -   簡化系統管理負荷
 -   減少潛在設定錯誤數目
@@ -48,14 +48,14 @@ ms.lasthandoff: 04/28/2018
 
 如果您有其他應用程式使用不同組態設定，您必須將這些例外狀況發行為個別應用程式，以覆寫萬用字元的預設設定。 不含萬用字元的應用程式不一定優先於萬用字元應用程式。 從設定觀點來看，這些「只是」一般應用程式。
 
-建立萬用字元應用程式是根據可用於所有其他應用程式的相同[應用程式發行流程](application-proxy-publish-azure-portal.md)。 唯一的差別是您在 URL (也可能在 SSO 設定) 中包含萬用字元。
+建立萬用字元應用程式是根據可用於所有其他應用程式的相同[應用程式發行流程](manage-apps/application-proxy-publish-azure-portal.md)。 唯一的差別是您在 URL (也可能在 SSO 設定) 中包含萬用字元。
 
 
 ## <a name="prerequisites"></a>先決條件
 
 ### <a name="custom-domains"></a>自訂網域
 
-雖然[自訂網域](active-directory-application-proxy-custom-domains.md)對於所有其他應用程式是選擇性的，它們是萬用字元應用程式的必要條件。 建立自訂網域需要您：
+雖然[自訂網域](manage-apps/application-proxy-configure-custom-domain.md)對於所有其他應用程式是選擇性的，它們是萬用字元應用程式的必要條件。 建立自訂網域需要您：
 
 1. 在 Azure 中建立已驗證的網域 
 2. 將 SSL 憑證以 PFX 格式上傳至您的應用程式 Proxy。
@@ -112,12 +112,12 @@ ms.lasthandoff: 04/28/2018
 
 萬用字元應用程式在 [MyApps 面板](https://myapps.microsoft.com)中僅以一個圖格表示。 此圖格預設會隱藏。 若要顯示圖格並讓使用者登陸在特定分頁上：
 
-1. 請遵循[設定首頁 URL](application-proxy-office365-app-launcher.md) 的指導方針。
+1. 請遵循[設定首頁 URL](manage-apps/application-proxy-configure-custom-home-page.md) 的指導方針。
 2. 在應用程式屬性分頁上將 [顯示應用程式] 設為 **true**。
 
 ### <a name="kerberos-constrained-delegation"></a>Kerberos 限制委派
 
-對於使用 [kerberos 限制委派 (KCD) 作為 SSO 方法](active-directory-application-proxy-sso-using-kcd.md)的應用程式，針對 SSO 方法列出的 SPN 可能也需要萬用字元。 例如，SPN 可能是：`HTTP/*.adventure-works.com`。 您仍然需要在後端伺服器上設定個別 SPN (例如，`http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`)。
+對於使用 [kerberos 限制委派 (KCD) 作為 SSO 方法](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)的應用程式，針對 SSO 方法列出的 SPN 可能也需要萬用字元。 例如，SPN 可能是：`HTTP/*.adventure-works.com`。 您仍然需要在後端伺服器上設定個別 SPN (例如，`http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`)。
 
 
 
@@ -136,7 +136,7 @@ ms.lasthandoff: 04/28/2018
 - 具有相同的屬性
 
 
-您可以使用[使用 Azure AD 應用程式 Proxy 發行應用程式](application-proxy-publish-azure-portal.md)中概述的步驟發行萬用字元應用程式。 此案例假設：
+您可以使用[使用 Azure AD 應用程式 Proxy 發行應用程式](manage-apps/application-proxy-publish-azure-portal.md)中概述的步驟發行萬用字元應用程式。 此案例假設：
 
 - 租用戶具有下列 ID：`000aa000-11b1-2ccc-d333-4444eee4444e` 
 
@@ -144,7 +144,7 @@ ms.lasthandoff: 04/28/2018
 
 - 已建立將 `*.adventure-works.com` 指向 `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` 的 **CNAME** 項目。
 
-遵循[記載步驟](application-proxy-publish-azure-portal.md)，您會在租用戶中建立新的應用程式 Proxy 應用程式。 在此範例中，萬用字元是在下列欄位：
+遵循[記載步驟](manage-apps/application-proxy-publish-azure-portal.md)，您會在租用戶中建立新的應用程式 Proxy 應用程式。 在此範例中，萬用字元是在下列欄位：
 
 - 內部 URL：
 
@@ -183,7 +183,7 @@ ms.lasthandoff: 04/28/2018
 
 您必須確定 CNAME 記錄存在且將 `finance.adventure-works.com` 指向應用程式特定端點，在應用程式的應用程式 Proxy 分頁上指定。 對於此案例，將 `finance.adventure-works.com` 指向 `https://finance-awcycles.msappproxy.net/`。 
 
-遵循[記載步驟](application-proxy-publish-azure-portal.md)，此案例需要下列設定：
+遵循[記載步驟](manage-apps/application-proxy-publish-azure-portal.md)，此案例需要下列設定：
 
 
 - 在 [內部 URL] 中，您設定 **finance** 而不是萬用字元。 
@@ -212,8 +212,8 @@ ms.lasthandoff: 04/28/2018
 
 如需下列詳細資訊︰
 
-- **自訂網域**，請參閱[在 Azure AD 應用程式 Proxy 中使用自訂網域](active-directory-application-proxy-custom-domains.md)。
+- **自訂網域**，請參閱[在 Azure AD 應用程式 Proxy 中使用自訂網域](manage-apps/application-proxy-configure-custom-domain.md)。
 
-- **發行應用程式**，請參閱[使用 Azure AD 應用程式 Proxy 發行應用程式](application-proxy-publish-azure-portal.md)
+- **發行應用程式**，請參閱[使用 Azure AD 應用程式 Proxy 發行應用程式](manage-apps/application-proxy-publish-azure-portal.md)
 
 

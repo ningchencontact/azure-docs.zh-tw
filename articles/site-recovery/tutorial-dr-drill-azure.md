@@ -1,17 +1,17 @@
 ---
-title: "深入了解如何使用 Azure Site Recovery 為內部部署電腦及 Azure 執行災害復原演練 | Microsoft 文件"
-description: "深入了解如何使用 Azure Site Recovery 為內部部署電腦及 Azure 執行災害復原演練"
+title: 深入了解如何使用 Azure Site Recovery 為內部部署電腦及 Azure 執行災害復原演練 | Microsoft 文件
+description: 深入了解如何使用 Azure Site Recovery 為內部部署電腦及 Azure 執行災害復原演練
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: 2ac15e4da411efa6f018a3e3fb620023bc8964cc
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 98612730405e63c251bbba2daf770b5394db1514
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>執行 Azure 的災害復原演練
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 03/09/2018
 2. 為本教學課程選取**最後處理的**復原點。 這會將 VM 容錯移轉至最後可用的時間點。 隨即顯示時間戳記。 使用此選項時，無須花費時間處理資料，因此它會提供低 RTO (復原時間目標)。
 3. 在 [測試容錯移轉] 中，選取 Azure VM 在容錯移轉之後要連線的目標 Azure 網路。
 4. 按一下 [確定]  即可開始容錯移轉。 您可以按一下 VM 開啟其屬性以追蹤進度。 或者，您也可以按一下保存庫名稱中的 **[測試容錯移轉]** 工作 > **[設定]** > **[工作]** >
-   **[Site Recovery 工作]**。
+    **[Site Recovery 工作]**。
 5. 容錯移轉完成之後，複本 Azure VM 會出現在 Azure 入口網站> [虛擬機器] 中。 確認 VM 為適當的大小、其已連線到正確的網路，而且正在執行中。
 6. 您現在應該能夠連線到 Azure 中複寫的 VM。
 7. 若要刪除測試容錯移轉期間建立的 Azure VM，請按一下 VM 上的 [清除測試容錯移轉]。 在 [記事] 中，記錄並儲存關於測試容錯移轉的任何觀察。

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 0ba379fb14945a59a6a1897118fd21d5f5dee758
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ad250ca2e641ebbf1e280e25aa53ff6f0ad6bd6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 1. 在新的瀏覽器視窗中，登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下 [建立資源] > [資料庫] > [Azure Cosmos DB]。
@@ -23,7 +23,7 @@ ms.lasthandoff: 04/16/2018
  
     設定|建議的值|說明
     ---|---|---
-    ID|*輸入唯一名稱*|輸入唯一名稱來識別此 Azure Cosmos DB 帳戶。 因為 documents.azure.com 會附加到您所提供的識別碼以建立接觸點，請使用可供辨識的唯一識別碼。<br><br>識別碼只能包含小寫字母、數字及連字號 (-) 字元，且必須包含 3 到 50 個字元。
+    ID|*輸入唯一名稱*|輸入唯一名稱來識別此 Azure Cosmos DB 帳戶。 因為 *cassandra.cosmosdb.azure.com* 會附加到您所提供的識別碼以建立接觸點，請使用可供辨識的唯一識別碼。<br><br>識別碼只能包含小寫字母、數字及連字號 (-) 字元，且必須包含 3 到 50 個字元。
     API|Cassandra|API 會決定要建立的帳戶類型。 Azure Cosmos DB 會提供五個 API，以符合應用程式的需求︰SQL (文件資料庫)、Gremlin (圖形資料庫)、MongoDB (文件資料庫)、Azure 資料表及 Cassandra，目前各自需要個別的帳戶。 <br><br>選取 **Cassandra**，因為在本快速入門中，您會使用 CQL 語法建立寬欄 (wide-column) 資料庫。<br><br>如果 Cassandra (寬欄) 不會顯示在清單中，則您需要[套用聯結](../articles/cosmos-db/cassandra-introduction.md#sign-up-now) Cassandra API 預覽計畫。<br><br> [深入了解 Cassandra API](../articles/cosmos-db/cassandra-introduction.md)|
     訂用帳戶|*您的訂用帳戶*|選取您要用於此 Azure Cosmos DB 帳戶的 Azure 訂用帳戶。 
     資源群組|新建<br><br>*然後輸入上面識別碼中所提供的同一個唯一名稱*|選取 [新建]，然後為您的帳戶輸入新的資源群組名稱。 為求簡化，您可以使用和識別碼相同的名稱。 

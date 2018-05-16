@@ -1,11 +1,11 @@
 ---
-title: "如何將使用者指派至應用程式 | Microsoft Docs"
-description: "了解如何將使用者指派至租用戶中的應用程式"
+title: 如何將使用者指派至應用程式 | Microsoft Docs
+description: 了解如何將使用者指派至租用戶中的應用程式
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 6681131f24dd36ccc5881d50f3efdf9806b15c58
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eff24ddcb02f4aa4cac28d722e73222ca2e686e4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-assign-users-to-applications"></a>將使用者指派至應用程式
 
@@ -58,4 +58,4 @@ ms.lasthandoff: 12/11/2017
 10. 使用者本身登入應用程式以[同意應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
 
 ## <a name="next-steps"></a>後續步驟
-[使用 Azure Active Directory 管理應用程式](active-directory-enable-sso-scenario.md)
+[使用 Azure Active Directory 管理應用程式](manage-apps/what-is-application-management.md)

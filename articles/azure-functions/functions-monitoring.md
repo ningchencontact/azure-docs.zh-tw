@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: cbdb4691bac01843a451c988e09d77dd10f97461
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
@@ -29,34 +29,46 @@ ms.lasthandoff: 03/30/2018
 
 ![Application Insights 計量瀏覽器](media/functions-monitoring/metrics-explorer.png)
 
-Functions 也有未使用 Application Insights 的內建監視。 我們建議使用 Application Insights，因為它提供更多資料和更好的方法來分析資料。 如需內建監視的相關資訊，請參閱[本文的最後一節](#monitoring-without-application-insights)。
+Functions 也有[未使用 Application Insights 的內建監視](#monitoring-without-application-insights)。 我們建議使用 Application Insights，因為它提供更多資料和更好的方法來分析資料。
 
-## <a name="enable-application-insights-integration"></a>啟用 Application Insights 整合
+## <a name="application-insights-pricing-and-limits"></a>Application Insights 定價和限制
 
-針對將資料傳送至 Application Insights 的函式應用程式，它需要知道 Application Insights 執行個體的檢測金鑰。 在 [Azure 入口網站](https://portal.azure.com)中建立連線的方式有兩種：
+您可以免費嘗試 Azure Application Insights 與 Function Apps 整合。 不過，還有可以免費處理多少資料的每日限制，而且您可能會在測試期間達到該限制。 當您趨近每日限制時，Azure 會提供入口網站及電子郵件通知。  但是，如果您錯過這些警示並達到該限制，Application Insights 查詢中就不會出現新記錄。 因此請留意限制，以避免不必要的疑難排解時間。 如需詳細資訊，請參閱[管理 Application Insights 中的價格和資料磁碟區](../application-insights/app-insights-pricing.md)。
 
-* [當您建立函式應用程式時建立連接的 Application Insights 執行個體](#new-function-app)。
-* [將 Application Insights 執行個體連接到現有的函式應用程式](#existing-function-app)。
+## <a name="enable-app-insights-integration"></a>啟用 Application Insights 整合
+
+針對將資料傳送至 Application Insights 的函式應用程式，它需要知道 Application Insights 資源的檢測金鑰。 必須在名為 APPINSIGHTS_INSTRUMENTATIONKEY 的應用程式設定中提供此金鑰。
+
+您無法在 [Azure 入口網站](https://portal.azure.com)中建立此連線：
+
+* [自動新的函式應用程式](#new-function-app)
+* [手動連線 App Insights 資源](#manually-connect-an-app-insights-resource)
 
 ### <a name="new-function-app"></a>新的函式應用程式
 
-在函式應用程式的 [建立] 頁面上啟用 Application Insights：
+1. 移至函式應用程式 [建立] 頁面。
 
 1. 將 [Application Insights] 參數設為 [開啟]。
 
 2. 選取 **Application Insights 位置**。
 
+   在您想要儲存資料的 [Azure 地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)中，選擇最接近函式應用程式區域的區域。
+
    ![建立函式應用程式時啟用 Application Insights](media/functions-monitoring/enable-ai-new-function-app.png)
 
-### <a name="existing-function-app"></a>現有的函式應用程式
+3. 輸入其他必要資訊。
 
-取得檢測金鑰，並將它儲存在函式應用程式中：
+1. 選取 [建立] 。
 
-1. 建立 Application Insights 執行個體。 將應用程式類型設為 [一般]。
+下一個步驟式[停用內建記錄功能](#disable-built-in-logging)。
 
-   ![建立 Application Insights 執行個體，輸入 [一般]](media/functions-monitoring/ai-general.png)
+### <a name="manually-connect-an-app-insights-resource"></a>手動連線 App Insights 資源 
 
-2. 從 Application Insights 執行個體的 [程式集] 頁面複製檢測金鑰。 將滑鼠停留在所顯示金鑰值的結尾處，以取得 [按一下以複製] 按鈕。
+1. 建立 Application Insights 資源。 將應用程式類型設為 [一般]。
+
+   ![建立 Application Insights 資源，輸入 [一般]](media/functions-monitoring/ai-general.png)
+
+2. 從 Application Insights 資源的 [程式集] 頁面複製檢測金鑰。 將滑鼠停留在所顯示金鑰值的結尾處，以取得 [按一下以複製] 按鈕。
 
    ![複製 Application Insights 檢測金鑰](media/functions-monitoring/copy-ai-key.png)
 
@@ -70,13 +82,46 @@ Functions 也有未使用 Application Insights 的內建監視。 我們建議�
 
 如果您啟用 Application Insights，我們建議您停用[使用 Azure 儲存體的內建記錄](#logging-to-storage)。 內建記錄適合用來測試少量的工作負載，但不適用於負載繁重的生產環境。 若要監控生產環境，建議您使用 Application Insights。 如果將內建記錄用於生產環境，記錄內容可能會因為 Azure 儲存體的節流而有所佚失。
 
-若要停用內建記錄，請刪除 `AzureWebJobsDashboard` 應用程式設定。 如需在 Azure 入口網站中刪除應用程式設定的相關資訊，請參閱[如何管理函式應用程式](functions-how-to-use-azure-function-app-settings.md#settings)的**應用程式設定**。
+若要停用內建記錄，請刪除 `AzureWebJobsDashboard` 應用程式設定。 如需在 Azure 入口網站中刪除應用程式設定的相關資訊，請參閱[如何管理函式應用程式](functions-how-to-use-azure-function-app-settings.md#settings)的**應用程式設定**。 在刪除應用程式設定之前，請確定相同的函式應用程式中沒有現有函式將它使用於 Azure 儲存體觸發程序或繫結。
 
-當您啟用 Application Insights 和停用內建記錄時，Azure 入口網站中函式的 [監視] 索引標籤會帶您前往 Application Insights。
+## <a name="view-telemetry-in-monitor-tab"></a>在監視索引標籤中檢視遙測
 
-## <a name="view-telemetry-data"></a>檢視遙測資料
+在您設定如上一節所示的 Application Insights 整合之後，您可以在 [監視器] 索引標籤中檢視遙測資料。
 
-若要在入口網站中從函式應用程式瀏覽至已連線的 Application Insights 執行個體，選取函式應用程式 [概觀] 頁面上的 [Application Insights] 連結。
+1. 在函式應用程式頁面中，選取在 Application Insights 設定之後至少執行一次的函式，然後選取 [監視] 索引標籤。
+
+   ![選取監視索引標籤](media/functions-monitoring/monitor-tab.png)
+
+2. 定期選取 [重新整理]，直到函式引動過程清單出現為止。
+
+   由於遙測用戶端將資料分批傳輸到伺服器的方式，此清單可能需要 5 分鐘的時間才會出現。 (此延遲不適用於[即時計量資料流](../application-insights/app-insights-live-stream.md)。 當您載入頁面時，該服務會連線到函式主機，讓記錄直接串流處理至頁面。)
+
+   ![引動過程清單](media/functions-monitoring/monitor-tab-ai-invocations.png)
+
+2. 若要查看特定函式引動過程的記錄，請選取該引動過程的 [日期] 資料行連結。
+
+   ![引動過程詳細資料連結](media/functions-monitoring/invocation-details-link-ai.png)
+
+   該引動過程的記錄輸出會顯示在新頁面中。
+
+   ![引動過程詳細資料](media/functions-monitoring/invocation-details-ai.png)
+
+這兩個頁面 (引動過程清單和詳細資料) 都會連結至 Application Insights 分析查詢以擷取資料：
+
+![在 Application Insights 中執行](media/functions-monitoring/run-in-ai.png)
+
+![Application Insights 分析引動過程清單](media/functions-monitoring/ai-analytics-invocation-list.png)
+
+從這些查詢中，您可以看到引動過程清單受限於最近 30 天，不能超過 20 個資料列 (`where timestamp > ago(30d) | take 20`)，而引動過程詳細資料清單則為過去 30 天且沒有限制。
+
+如需詳細資訊，請參閱本文稍後的[查詢遙測資料](#query-telemetry-data)。
+
+## <a name="view-telemetry-in-app-insights"></a>在 Application Insights 中檢視遙測
+
+若要在 Azure 入口網站中從函式應用程式開啟 Application Insights，請選取函式應用程式 [概觀] 頁面的 [已設定的功能] 區段中的 [Application Insights] 連結。
+
+![概觀頁面上的 Application Insights 連結](media/functions-monitoring/ai-link.png)
+
 
 如需如何使用 Application Insights 的相關資訊，請參閱 [Application Insights 文件](https://docs.microsoft.com/azure/application-insights/)。 本節示範一些如何在 Application Insights 中檢視資料的範例。 如果您已經熟悉 Application Insights，就可以直接前往[關於設定和自訂遙測資料的小節](#configure-categories-and-log-levels)。
 
@@ -256,7 +301,7 @@ Azure Functions 記錄器也包含具有每個記錄的「記錄層級」。 [Lo
 
 ## <a name="configure-sampling"></a>設定取樣
 
-Application Insights 具有[取樣](../application-insights/app-insights-sampling.md)功能，可以提供保護，避免在尖峰負載的情況下產生過多的遙測資料。 當遙測項目數超過指定的比率時，Application Insights 就會開始隨機忽略部分傳入的項目。 您可以在 *host.json* 中設定取樣。  以下是範例：
+Application Insights 具有[取樣](../application-insights/app-insights-sampling.md)功能，可以提供保護，避免在尖峰負載的情況下產生過多的遙測資料。 當遙測項目數超過指定的比率時，Application Insights 就會開始隨機忽略部分傳入的項目。 每秒的項目數上限的預設值為 5。 您可以在 *host.json* 中設定取樣。  以下是範例：
 
 ```json
 {
@@ -489,13 +534,19 @@ module.exports = function (context, req) {
 
 ## <a name="monitoring-without-application-insights"></a>不使用 Application Insights 來監視
 
-我們建議使用 Application Insights 來監視函式，因為它提供更多資料和更好的方法來分析資料。 但是，您也可以在 Azure 入口網站頁面中尋找函式應用程式的記錄和遙測資料。
+我們建議使用 Application Insights 來監視函式，因為它提供更多資料和更好的方法來分析資料。 但如果您偏好使用 Azure 儲存體的內建記錄系統，您可以繼續使用它。
 
 ### <a name="logging-to-storage"></a>記錄到儲存體
 
-內建記錄使用 `AzureWebJobsDashboard` 應用程式設定中由連接字串所指定的儲存體帳戶。 如果您配置該應用程式設定，便可以在 Azure 入口網站中查看記錄資料。 在儲存體資源中，移至 [檔案]、選取適用於函式的檔案服務，然後移至 `LogFiles > Application > Functions > Function > your_function`，即可查看記錄檔。 在函式應用程式頁面中，依序選取函式和 [監視] 索引標籤，函式執行清單隨即會出現。 選取函式執行，以檢閱持續時間、輸入資料、錯誤和相關聯的記錄檔。
+內建記錄使用 `AzureWebJobsDashboard` 應用程式設定中由連接字串所指定的儲存體帳戶。 在函式應用程式頁面中，依序選取函式和 [監視] 索引標籤，然後選擇讓它保留在傳統檢視中。
 
-如果您使用 Application Insights 並已[停用內建記錄](#disable-built-in-logging)，[監視] 索引標籤會帶您前往 Application Insights。
+![切換至傳統檢視](media/functions-monitoring/switch-to-classic-view.png)
+
+ 您會取得函式執行清單。 選取函式執行，以檢閱持續時間、輸入資料、錯誤和相關聯的記錄檔。
+
+如果您先前已啟用 Application Insights，但現在想要移至內建記錄功能，請手動停用 Application Insights，然後選取 [監視] 索引標籤。若要停用 Application Insights 整合，請刪除 APPINSIGHTS_INSTRUMENTATIONKEY 應用程式設定。
+
+即使 [監視] 索引標籤顯示 Application Insights 資料，只要您尚未[停用內建記錄功能](#disable-built-in-logging)，就可以檢視檔案系統中的記錄資料。 在儲存體資源中，移至 [檔案]、選取適用於函式的檔案服務，然後移至 `LogFiles > Application > Functions > Function > your_function`，即可查看記錄檔。
 
 ### <a name="real-time-monitoring"></a>即時監視
 

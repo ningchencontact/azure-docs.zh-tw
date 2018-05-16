@@ -3,8 +3,8 @@ title: Azure 診斷記錄 | Microsoft Docs
 description: 客戶可以啟用 Azure CDN 的記錄分析功能。
 services: cdn
 documentationcenter: ''
-author: ''
-manager: ''
+author: dksimpson
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: v-deasim
-ms.openlocfilehash: c367cffa8f0453a0f7e230571d861d039122c291
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: rli
+ms.openlocfilehash: 73c19383b791438c2ae899b45e1b4635e9cd5802
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 診斷記錄
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/19/2018
  - Azure 事件中心
  - [Log Analytics 工作區](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
-這項功能適用於所有屬於 Verizon (標準與進階) 及 Akamai (標準) CDN 設定檔的 CDN 端點。 
+這項功能適用於所有定價層的 CDN 端點。 
 
 Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各種來源，讓您可以使用自訂的方式取用。 例如，您可以執行下列幾種資料匯出作業：
 
@@ -156,10 +156,10 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 
 **欄位說明：**
 
-|value|說明|
+|值|說明|
 |-------|---------|
 |訂用帳戶識別碼    |使用 GUID 格式的 Azure 訂用帳戶識別碼。|
-|資源 |群組名稱   CDN 資源所屬資源群組的名稱。|
+|資源群組名稱 |CDN 資源所屬資源群組的名稱。|
 |設定檔名稱 |CDN 設定檔名稱|
 |端點名稱 |CDN 端點名稱|
 |Year|  4 位數的年份表示法，例如 2017|
@@ -276,47 +276,49 @@ Log Analytics 是 Azure 中的一項服務，可監視您的雲端和內部部�
     
 ## <a name="log-data-delays"></a>記錄資料延遲
 
-Verizon 記錄資料延遲 | Akamai 記錄資料延遲
---- | ---
-Verizon 記錄資料會延遲 1 小時，端點傳播完成後需花費最多 2 小時才會開始出現。 | Akamai 記錄資料會延遲 24 小時，如果資料是在 24 小時前建立的，則需花費最多 2 小時才會開始出現。 如果記錄是剛建立的，則最多需要 25 小時才會開始出現。
+下表顯示**來自 Microsoft 的標準 Azure CDN**、**來自 Akamai 的標準 Azure CDN**和**來自 Verizon 的標準 Azure CDN** 的記錄資料延遲。
+
+Microsoft 記錄資料延遲 | Verizon 記錄資料延遲 | Akamai 記錄資料延遲
+--- | --- | ---
+延遲 1 小時。 | 延遲 1 小時，而且在端點傳播完成後需花費最多 2 小時才會開始出現。 | 延遲 24 小時，如果資料是在 24 小時前建立的，則需花費最多 2 小時才會開始出現。 如果記錄是剛建立的，則最多需要 25 小時才會開始出現。
 
 ## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>CDN Core Analytics 的診斷記錄類型
 
 我們目前僅提供 Core Analytics 記錄，其中包含的計量會顯示 HTTP 回應統計資料和輸出統計資料，如從 CDN POP/邊緣所見。
 
 ### <a name="core-analytics-metrics-details"></a>Core Analytics 計量詳細資料
-下表說明 Core Analytics 記錄中可用計量的清單。 並非所有提供者的所有計量皆可用，雖然這樣的差異極少。 下表也會顯示某個提供者是否有提供指定的計量。 請注意，計量僅適用於有流量的 CDN 端點。
+下表顯示**來自 Microsoft 的標準 Azure CDN**、**來自 Akamai 的標準 Azure CDN**和**來自 Verizon 的標準/進階 Azure CDN** 的核心分析記錄中可用的計量清單。 並非所有提供者的所有計量皆可用，雖然這樣的差異極少。 下表也顯示提供者是否提供指定的計量。 請注意，計量僅適用於有流量的 CDN 端點。
 
 
-|計量                     | 說明   | Verizon  | Akamai 
-|---------------------------|---------------|---|---|
-| RequestCountTotal         |這段期間要求命中總數| yes  |yes   |
-| RequestCountHttpStatus2xx |產生 2xx HTTP 代碼 (例如 200、202) 的所有要求計數              | yes  |yes   |
-| RequestCountHttpStatus3xx | 產生 3xx HTTP 代碼 (例如 300、302) 的所有要求計數              | yes  |yes   |
-| RequestCountHttpStatus4xx |產生 4xx HTTP 代碼 (例如 400、404) 的所有要求計數               | yes   |yes   |
-| RequestCountHttpStatus5xx | 產生 5xx HTTP 代碼 (例如 500、504) 的所有要求計數              | yes  |yes   |
-| RequestCountHttpStatusOthers |  所有其他 HTTP 代碼 (2xx-5xx 以外) 的計數 | yes  |yes   |
-| RequestCountHttpStatus200 | 產生 200 HTTP 代碼回應的所有要求計數              |否   |yes   |
-| RequestCountHttpStatus206 | 產生 206 HTTP 代碼回應的所有要求計數              |否   |yes   |
-| RequestCountHttpStatus302 | 產生 302 HTTP 代碼回應的所有要求計數              |否   |yes   |
-| RequestCountHttpStatus304 |  產生 304 HTTP 代碼回應的所有要求計數             |否   |yes   |
-| RequestCountHttpStatus404 | 產生 404 HTTP 代碼回應的所有要求計數              |否   |yes   |
-| RequestCountCacheHit |產生快取命中的所有要求計數。 資產是從 POP 直接提供給用戶端。               | yes  |否   |
-| RequestCountCacheMiss | 產生快取遺漏的所有要求計數。 這表示最靠近用戶端的 POP 上找不到資產，且因此從來源擷取。              |yes   | 否  |
-| RequestCountCacheNoCache | 因為邊緣上的使用者組態之故，而無法予以快取的所有資產要求計數。              |yes   | 否  |
-| RequestCountCacheUncacheable | 無法由資產的 Cache-Control 與 Expires 標頭快取的所有資產要求計數，這表示不應在 POP 上或由 HTTP 用戶端快取要求                |yes   |否   |
-| RequestCountCacheOthers | 非上述快取狀態的所有要求計數。              |yes   | 否  |
-| EgressTotal | 輸出資料傳輸 (單位 GB)              |yes   |yes   |
-| EgressHttpStatus2xx | 狀態代碼為 2xx HTTP 之回應的輸出資料傳輸* (單位為 GB)            |yes   |否   |
-| EgressHttpStatus3xx | 狀態代碼為 3xx HTTP 之回應的輸出資料傳輸 (單位為 GB)              |yes   |否   |
-| EgressHttpStatus4xx | 狀態代碼為 4xx HTTP 之回應的輸出資料傳輸 (單位為 GB)               |yes   | 否  |
-| EgressHttpStatus5xx | 狀態代碼為 5xx HTTP 之回應的輸出資料傳輸 (單位為 GB)               |yes   |  否 |
-| EgressHttpStatusOthers | 狀態代碼為其他 HTTP 之回應的輸出資料傳輸 (單位為 GB)                |yes   |否   |
-| EgressCacheHit |  直接從 CDN POP/邊緣上 CDN 快取所傳遞回應的輸出資料傳輸  |yes   |  否 |
-| EgressCacheMiss | 在最靠近的 POP 伺服器上找不到和從原始伺服器擷取之回應的輸出資料傳輸              |yes   |  否 |
-| EgressCacheNoCache | 因為邊緣上使用者組態之故而無法予以快取的資產輸出資料傳輸。                |yes   |否   |
-| EgressCacheUncacheable | 無法由資產的 Cache-Control 和/或 Expires 標頭快取的資產輸出資料傳輸。 表示應該不會在 POP 上加以快取或由 HTTP 用戶端進行快取。                   |yes   | 否  |
-| EgressCacheOthers |  其他快取案例的輸出資料傳輸。             |yes   | 否  |
+|計量                     | 說明 | Microsoft | Verizon | Akamai |
+|---------------------------|-------------|----------|---------|--------|
+| RequestCountTotal         | 這段期間要求命中總數。 | yes | yes |yes |
+| RequestCountHttpStatus2xx | 產生 2xx HTTP 代碼 (例如 200、202) 的所有要求計數。 | yes | yes |yes |
+| RequestCountHttpStatus3xx | 產生 3xx HTTP 代碼 (例如 300、302) 的所有要求計數。 | yes | yes |yes |
+| RequestCountHttpStatus4xx | 產生 4xx HTTP 代碼 (例如 400、404) 的所有要求計數。 | yes | yes |yes |
+| RequestCountHttpStatus5xx | 產生 5xx HTTP 代碼 (例如 500、504) 的所有要求計數。 | yes | yes |yes |
+| RequestCountHttpStatusOthers | 所有其他 HTTP 代碼 (2xx-5xx 以外) 的計數。 | yes | yes |yes |
+| RequestCountHttpStatus200 | 產生 200 HTTP 代碼回應的所有要求計數。 | yes | 否  |yes |
+| RequestCountHttpStatus206 | 產生 206 HTTP 代碼回應的所有要求計數。 | yes | 否  |yes |
+| RequestCountHttpStatus302 | 產生 302 HTTP 代碼回應的所有要求計數。 | yes | 否  |yes |
+| RequestCountHttpStatus304 | 產生 304 HTTP 代碼回應的所有要求計數。 | yes | 否  |yes |
+| RequestCountHttpStatus404 | 產生 404 HTTP 代碼回應的所有要求計數。 | yes | 否  |yes |
+| RequestCountCacheHit | 產生快取命中的所有要求計數。 資產是從 POP 直接提供給用戶端。 | yes | yes | 否  |
+| RequestCountCacheMiss | 產生快取遺漏的所有要求計數。 這表示最靠近用戶端的 POP 上找不到資產，且因此從來源擷取。 | yes | yes | 否 |
+| RequestCountCacheNoCache | 因為邊緣上的使用者組態之故，而無法予以快取的所有資產要求計數。 | yes | yes | 否 |
+| RequestCountCacheUncacheable | 無法由資產的 Cache-Control 與 Expires 標頭快取的所有資產要求計數，這表示不應在 POP 上或由 HTTP 用戶端快取要求。 | yes | yes | 否 |
+| RequestCountCacheOthers | 非上述快取狀態的所有要求計數。 | 否 | yes | 否  |
+| EgressTotal | 輸出資料傳輸 (單位 GB) | yes |yes |yes |
+| EgressHttpStatus2xx | 狀態代碼為 2xx HTTP 之回應的輸出資料傳輸* (單位為 GB)。 | yes | yes | 否  |
+| EgressHttpStatus3xx | 狀態代碼為 3xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | yes | yes | 否  |
+| EgressHttpStatus4xx | 狀態代碼為 4xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | yes | yes | 否  |
+| EgressHttpStatus5xx | 狀態代碼為 5xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | yes | yes | 否 |
+| EgressHttpStatusOthers | 狀態代碼為其他 HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | yes | yes | 否  |
+| EgressCacheHit | 直接從 CDN POP/邊緣上 CDN 快取所傳遞回應的輸出資料傳輸。 | yes | yes | 否 |
+| EgressCacheMiss。 | 在最靠近的 POP 伺服器上找不到和從原始伺服器擷取之回應的輸出資料傳輸。 | yes | yes | 否 |
+| EgressCacheNoCache | 因為邊緣上使用者組態之故而無法予以快取的資產輸出資料傳輸。 | yes | yes | 否 |
+| EgressCacheUncacheable | 無法由資產的 Cache-Control 和/或 Expires 標頭快取的資產輸出資料傳輸。 表示應該不會在 POP 上加以快取或由 HTTP 用戶端進行快取。 | yes | yes | 否 |
+| EgressCacheOthers | 其他快取案例的輸出資料傳輸。 | 否 | yes | 否 |
 
 *輸出資料傳輸是指從 CDN POP 伺服器傳遞到用戶端的流量。
 
@@ -368,7 +370,7 @@ Verizon 記錄資料會延遲 1 小時，端點傳播完成後需花費最多 2 
 }
 ```
 
-其中 ‘time’ 代表報告某段時間統計資料時該時間範圍的開始時間。 當 CDN 提供者不支援計量時，而非雙精確度值或整數值，則將會有 null 值。 此 null 值表示沒有計量，且與 0 值不同。 各網域會在端點上有一組這類計量設定。
+其中 time 代表報告某段時間統計資料時該時間範圍的開始時間。 當 CDN 提供者不支援計量時，而非雙精確度值或整數值，則將會有 null 值。 此 null 值表示沒有計量，且與 0 值不同。 各網域會在端點上有一組這類計量設定。
 
 範例屬性︰
 

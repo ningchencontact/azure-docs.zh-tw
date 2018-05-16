@@ -14,11 +14,11 @@ ms.date: 02/20/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 636de232e38a7d940a5f20a1c9d37971942fae34
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d61907ddbd6eaecc8aeae8d2f1cea204f287daea
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>設定群組設定的 Azure Active Directory Cmdlet
 本文包含使用 Azure Active Directory (Azure AD) PowerShell Cmdlet 以建立和更新群組的指示。 本內容僅適用於 Office 365 群組 (又稱為整合群組)。 
@@ -72,7 +72,7 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
 4. 然後更新使用方針值：
   
   ```
-  $setting["UsageGuidelinesUrl"] = "<https://guideline.com>"
+  $setting["UsageGuidelinesUrl"] = "https://guideline.com"
   ```  
 5. 最後，套用設定：
   
@@ -141,7 +141,7 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
   GuestUsageGuidelinesUrl
   GroupCreationAllowedGroupId
   AllowToAddGuests              True
-  UsageGuidelinesUrl            <https://guideline.com>
+  UsageGuidelinesUrl            https://guideline.com
   ClassificationList
   EnableGroupCreation           True
   ```

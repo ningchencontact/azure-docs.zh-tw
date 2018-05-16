@@ -1,11 +1,11 @@
 ---
-title: "Azure 事件中樞常見問題集 | Microsoft Docs"
-description: "Azure 事件中樞常見問題集 (FAQ)"
+title: Azure 事件中樞常見問題集 | Microsoft Docs
+description: Azure 事件中樞常見問題集 (FAQ)
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6bdcbbe37613d5384017409f3be2772085e276ae
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中樞常見問題集
 
@@ -112,7 +112,7 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
 事件中樞支援兩種類型的[診斷記錄](event-hubs-diagnostic-logs.md) - 擷取錯誤記錄和作業記錄 - 兩種記錄都是以 JSON 格式代表，且可以透過 Azure 入口網站開啟。
 
 ### <a name="support-and-sla"></a>支援與 SLA
-事件中樞的技術支援可透過[社群論壇](https://social.msdn.microsoft.com/forums/azure/home)取得。 計費及訂用帳戶管理支援均為免費提供。
+事件中樞的技術支援可透過[社群論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus)取得。 計費及訂用帳戶管理支援均為免費提供。
 
 若要深入了解 SLA，請參閱[服務等級協定](https://azure.microsoft.com/support/legal/sla/)頁面。
 

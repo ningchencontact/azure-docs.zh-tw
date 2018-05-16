@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Container Service 中搭配 Kubernetes 進行 Jenkins 持續部署
-description: 如何使用 Jenkins 將持續部署自動化，在 Azure Container Service 中部署和升級 Kubernetes 上的容器化應用程式
+title: 在 Azure Kubernetes Service 中搭配 Kubernetes 進行 Jenkins 持續部署
+description: 如何使用 Jenkins 將持續部署自動化，在 Azure Kubernetes Service 中部署和升級 Kubernetes 上的容器化應用程式
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7ebe7a88fcb0a0785b72c512e64a2d9aeb5fc506
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: efdb89c5f4c6bdb9b007b7c0020cbdb8f6034eed
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>使用 Jenkins 和 Azure Container Service 來進行持續部署
+# <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>透過 Jenkins 與 Azure Kubernetes Service 持續部署
 
-本文示範如何設定 Jenkins 與 Azure Container Service (AKS) 叢集之間的基本持續部署工作流程。
+本文示範如何設定 Jenkins 與 Azure Kubernetes Service (AKS) 叢集之間的基本持續部署工作流程。
 
 範例工作流程包含下列步驟：
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/19/2018
 您需要下列項目，才能完成本文中的步驟。
 
 - 對 Kubernetes、Git、CI/CD 及 Azure Container Registry (ACR) 的基本了解。
-- [Azure Container Service (AKS) 叢集][aks-quickstart]，並在開發系統上[設定 AKS 認證][aks-credentials]。
+- [Azure Kubernetes Service (AKS) 叢集][aks-quickstart]，並在您的開發系統上設定好 [AKS 認證][aks-credentials]。
 - [Azure Container Registry (ACR) 登錄][acr-quickstart]、ACR 登入伺服器名稱，以及具備推送和提取存取權的 [ACR 認證][acr-authentication]。
 - 在您的開發系統上安裝 Azure CLI。
 - 在您的開發系統上安裝 Docker。

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 8a642b569389d960e7a3a1fa2c7cb0f2d87bd809
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 707f25a71a22f136a3cfc537ec3dd939e06dea08
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Solr
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/16/2018
     如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
      > [!IMPORTANT]
-     > 本文件中稍後的步驟會使用 SSL 通道以連線至 Solr Web UI。 為使用這些步驟，您必須建立 SSL 通道，然後設定您的瀏覽器以使用它。
+     > 本文件中稍後的步驟會使用 SSH 通道以連線至 Solr Web UI。 您必須先建立 SSH 通道，將您的瀏覽器設定為可以使用此通道，然後才能使用這些步驟。
      >
      > 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH 通道](hdinsight-linux-ambari-ssh-tunnel.md)文件。
 

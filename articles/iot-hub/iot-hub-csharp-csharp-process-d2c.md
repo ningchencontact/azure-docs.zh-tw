@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT 中樞路由傳送訊息 (.NET) | Microsoft Docs"
-description: "如何使用路由規則和自訂端點來處理 Azure IoT 中樞的裝置到雲端訊息，以將訊息分派至其他後端服務。"
+title: 使用 Azure IoT 中樞路由傳送訊息 (.NET) | Microsoft Docs
+description: 如何使用路由規則和自訂端點來處理 Azure IoT 中樞的裝置到雲端訊息，以將訊息分派至其他後端服務。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5177bac9-722f-47ef-8a14-b201142ba4bc
 ms.service: iot-hub
 ms.devlang: csharp
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 4794f81787fd575c34fa8a2ef66431d85dcf4a5d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 84a74a59417d3d1b9ebe0e2ede6c105b6fb3a576
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-messages-with-iot-hub-net"></a>使用 IoT 中樞路由傳送訊息 (.NET)
 
@@ -214,7 +214,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 
 [如何使用 IoT 中樞傳送雲端到裝置訊息][lnk-c2d]示範如何從解決方案後端將訊息傳送至您的裝置。
 
-若要查看使用 IoT 中樞的完整端對端解決方案範例，請參閱 [Azure IoT 套件][lnk-suite]。
+若要查看使用 IoT 中樞的完整端對端解決方案範例，請參閱 [Azure IoT 遠端監視解決方案加速器][lnk-suite]。
 
 若要深入了解如何使用 IoT 中樞開發解決方案，請參閱 [IoT 中樞開發人員指南]。
 

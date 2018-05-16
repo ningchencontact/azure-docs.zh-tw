@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b2eeb7d2cca124abd811859077d7e5e55a36c521
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>建立及使用內部負載平衡器與 App Service Environment #
 
@@ -63,6 +63,8 @@ ms.lasthandoff: 04/05/2018
 
 4. 選取或建立 VNet。
 
+    * 如果您選取新的 VNet，就可以指定名稱和位置。 如果您打算在此 ASE 上裝載 Linux 應用程式，目前只支援 6 個區域：**美國西部、美國東部、西歐、北歐、澳洲東部以及東南亞。** 
+
 5. 如果您選取現有的 VNet，則需要建立子網路來存放 ASE。 確定將子網路的大小設為足以容納 ASE 的任何未來成長。 建議的大小是 `/25`，具有 128 個位址，而且可以處理最大大小的 ASE。 您可以選取的大小下限是 `/28`。 達到基礎結構的需求之後，此大小最多只能調整至 3 個執行個體。
 
     * 超過您的 App Service 方案中的預設上限 100 個執行個體。
@@ -106,7 +108,7 @@ ms.lasthandoff: 04/05/2018
 
 在 ILB ASE 中建立應用程式的做法，與在 ASE 中建立應用程式相同。
 
-1. 在 Azure 入口網站中，選取 [建立資源] > [Web + 行動] > [Web] 或 [行動] 或 [API 應用程式]。
+1. 在 Azure 入口網站中，選取 [建立資源] >  [Web + 行動] > [Web 應用程式]。
 
 2. 輸入應用程式的名稱。
 
@@ -114,9 +116,13 @@ ms.lasthandoff: 04/05/2018
 
 4. 選取或建立資源群組。
 
-5. 選取或建立 App Service 方案。 如果您想建立新的 App Service 方案，請選取您的 ASE 作為位置。 選取您想要建立 App Service 方案的背景工作集區。 當您建立 App Service 方案時，選取您的 ASE 作為位置與背景工作角色集區。 指定應用程式的名稱時，會看見您的應用程式名稱底下的網域已被您的 ASE 網域取代。
+5. 選取您的作業系統。 
 
-6. 選取 [建立] 。 如果希望應用程式顯示在儀表板上，選取 [釘選到儀表板] 核取方塊。
+    * 如果您想要使用自訂的 Docker 容器建立 Linux 應用程式，則可以使用這裡的指示以使用自己的容器。 
+
+6. 選取或建立 App Service 方案。 如果您想建立新的 App Service 方案，請選取您的 ASE 作為位置。 選取您想要建立 App Service 方案的背景工作集區。 當您建立 App Service 方案時，選取您的 ASE 作為位置與背景工作角色集區。 指定應用程式的名稱時，會看見您的應用程式名稱底下的網域已被您的 ASE 網域取代。
+
+7. 選取 [建立] 。 如果希望應用程式顯示在儀表板上，選取 [釘選到儀表板] 核取方塊。
 
     ![App Service 方案建立][2]
 

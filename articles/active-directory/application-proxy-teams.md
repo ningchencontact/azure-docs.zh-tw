@@ -1,25 +1,25 @@
 ---
-title: "存取 Teams 中的 Azure AD App Proxy 應用程式 | Microsoft Docs"
-description: "使用 Azure AD Application Proxy 透過 Microsoft Teams 存取內部部署應用程式。"
+title: 存取 Teams 中的 Azure AD App Proxy 應用程式 | Microsoft Docs
+description: 使用 Azure AD Application Proxy 透過 Microsoft Teams 存取內部部署應用程式。
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a8dca307bb97898f229b39710a3b566ee913fcca
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 974c364588d34631c8214352be7821c69e5f7aa7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>透過 Microsoft Teams 存取內部部署應用程式
 
@@ -30,7 +30,7 @@ Azure Active Directory Application Proxy 可讓您從任何地方單一登入內
 
 ## <a name="install-the-application-proxy-connector-and-publish-your-app"></a>安裝 Application Proxy 連接器並發佈您的應用程式
 
-如果您尚未這麼做，請[設定租用戶的 Application Proxy 並安裝連接器](active-directory-application-proxy-enable.md)。 然後，[發佈內部部署應用程式](application-proxy-publish-azure-portal.md)以供遠端存取。 當您要發佈應用程式時，請記下外部 URL，因為這會用於將應用程式新增至 Teams。
+如果您尚未這麼做，請[設定租用戶的 Application Proxy 並安裝連接器](manage-apps/application-proxy-enable.md)。 然後，[發佈內部部署應用程式](manage-apps/application-proxy-publish-azure-portal.md)以供遠端存取。 當您要發佈應用程式時，請記下外部 URL，因為這會用於將應用程式新增至 Teams。
 
 如果您已經發佈應用程式，但不記得其外部 URL，請在 [Azure 入口網站](https://portal.azure.com)中查閱。 登入，然後瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式] > 選取您的應用程式 > [Application Proxy]。
 
@@ -54,5 +54,5 @@ Azure Active Directory Application Proxy 可讓您從任何地方單一登入內
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何透過 Application Proxy [發佈內部部署 SharePoint 網站](application-proxy-enable-remote-access-sharepoint.md)。
-- 將您的應用程式設定為將[自訂網域](active-directory-application-proxy-custom-domains.md)用於其外部 URL。 
+- 了解如何透過 Application Proxy [發佈內部部署 SharePoint 網站](manage-apps/application-proxy-integrate-with-sharepoint-server.md)。
+- 將您的應用程式設定為將[自訂網域](manage-apps/application-proxy-configure-custom-domain.md)用於其外部 URL。 

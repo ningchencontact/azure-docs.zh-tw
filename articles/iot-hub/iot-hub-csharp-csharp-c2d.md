@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: f3110e81a7229f8f279609a64949c7f0ce78d338
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b867976c637cdd4dd9b696382103c63f1af2e8b3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中樞將訊息從雲端傳送至裝置 (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -176,7 +176,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已了解如何傳送和接收雲端到裝置的訊息。 
 
-若要查看使用 IoT 中樞的完整端對端解決方案範例，請參閱 [Azure IoT 套件]。
+若要查看使用 IoT 中樞的完整端對端解決方案範例，請參閱 [Azure IoT 遠端監視解決方案加速器]。
 
 若要深入了解如何使用 IoT 中樞開發解決方案，請參閱 [Azure IoT 中樞開發人員指南]。
 
@@ -195,5 +195,5 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 [Azure IoT 中樞開發人員指南]: iot-hub-devguide.md
 [開始使用 IoT 中樞]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[Azure IoT 套件]: https://docs.microsoft.com/azure/iot-suite/
+[Azure IoT 遠端監視解決方案加速器]: https://docs.microsoft.com/azure/iot-suite/
 [Azure IoT 裝置 SDK]: iot-hub-devguide-sdks.md

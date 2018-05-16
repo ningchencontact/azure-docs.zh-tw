@@ -1,9 +1,9 @@
 ---
-title: "Azure 付款處理藍圖 - 身分識別需求"
-description: "PCI DSS 需求 8"
+title: Azure 付款處理藍圖 - 身分識別需求
+description: PCI DSS 需求 8
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 1a398601-8c48-4f8e-b3d4-eba94edad61c
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: f77cc3c9926b5316913c70e5f4412383e55c5193
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: a83040a6b5174307ea73e5473165835458d217f6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="identity-requirements-for-pci-dss-compliant-environments"></a>PCI DSS 相容環境的身分識別需求 
 ## <a name="pci-dss-requirement-8"></a>PCI DSS 需求 8
@@ -333,7 +333,7 @@ ms.lasthandoff: 11/16/2017
 
 ### <a name="pci-dss-requirement-851"></a>PCI DSS 需求 8.5.1
 
-**8.5.1** **僅適用於服務提供者的其他需求：**服務提供者若從遠端存取客戶所在場所 (例如，支援 POS 系統或伺服器所需)，則必須針對每個客戶使用唯一的驗證認證 (例如密碼/複雜密碼)。 
+**8.5.1** **僅適用於服務提供者的其他需求：** 服務提供者若從遠端存取客戶所在場所 (例如，支援 POS 系統或伺服器所需)，則必須針對每個客戶使用唯一的驗證認證 (例如密碼/複雜密碼)。 
 
 > [!NOTE]
 > 這項需求不適用於讓共用裝載的提供者存取自有裝載環境，因為其中裝載多個客戶環境。

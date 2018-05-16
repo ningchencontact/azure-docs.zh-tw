@@ -1,24 +1,24 @@
 ---
-title: "使用 Azure 通知中樞向使用者傳送跨平台通知 (ASP.NET)"
-description: "了解如何使用通知中樞範本，在單一要求中傳送以所有平台為目標的跨平台通知。"
+title: 使用 Azure 通知中樞向使用者傳送跨平台通知 (ASP.NET)
+description: 了解如何使用通知中樞範本，在單一要求中傳送以所有平台為目標的跨平台通知。
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: 3c6dde338cb154f0cbe02642e4ff0f81d070aa25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 95793aac3c25563e3af39f3c47cebdd06e25e35f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>使用通知中心向使用者傳送跨平台通知
 在之前的[使用通知中心來通知使用者]教學課程中，您已了解如何將通知推播至所有由特定經驗證使用者所註冊的裝置。 在該教學課程中，需要用多個要求來傳送通知給每個支援的用戶端平台。 Azure 通知中心可支援範本，讓您指定特定裝置接收通知的方式。 此方法使得傳送跨平台通知變得更簡單。 
@@ -88,7 +88,7 @@ ms.lasthandoff: 10/11/2017
 5. 重新執行用戶端應用程式，然後驗證註冊已成功。
 
 6. (選用) 將此用戶端應用程式部署到第二個裝置，然後執行此應用程式。
-    請留意到，每個裝置上都會顯示通知。
+    每個裝置上都會顯示通知。
 
 ## <a name="next-steps"></a>後續步驟
 您已完成本教學課程，現在可參閱下列主題進一步了解通知中心和範本：

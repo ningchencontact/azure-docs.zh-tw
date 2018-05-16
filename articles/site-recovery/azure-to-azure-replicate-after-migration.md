@@ -1,17 +1,17 @@
 ---
-title: "使用 Azure Site Recovery 移轉至 Azure 之後，設定 Azure VM 的災害復原 | Microsoft Docs"
-description: "本文說明如何準備機器，以在使用 Azure Site Recovery 移轉至 Azure 之後，設定 Azure 區域之間的災害復原。"
+title: 使用 Azure Site Recovery 移轉至 Azure 之後，設定 Azure VM 的災害復原 | Microsoft Docs
+description: 本文說明如何準備機器，以在使用 Azure Site Recovery 移轉至 Azure 之後，設定 Azure 區域之間的災害復原。
 services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
 ms.date: 01/07/2018
 ms.author: ponatara
-ms.openlocfilehash: c06af21cd6e273b98c004e8bd0e6eac61ba7d644
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 034052c0406ee51f33c598634f92d27867c7cbe7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>移轉至 Azure 之後，設定 Azure VM 的災害復原 
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="install-the-azure-vm-agent"></a>安裝 Azure VM 代理程式
 
-VM 上必須安裝 Azure [VM 代理程式](../virtual-machines/windows/agent-user-guide.md)，Site Recovery 才能加以複寫。
+VM 上必須安裝 Azure [VM 代理程式](../virtual-machines/extensions/agent-windows.md)，Site Recovery 才能加以複寫。
 
 
 1. 若要在執行 Windows 的 VM 上安裝 VM 代理程式，請下載並執行[代理程式安裝程式](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 您需要有 VM 的系統管理員權限，才能完成安裝。
-2. 若要在執行 Linux 的 VM 上安裝 VM 代理程式，請安裝最新的 [Linux 代理程式](../virtual-machines/linux/agent-user-guide.md)。 您需要有系統管理員權限，才能完成安裝。 建議您從散發存放庫進行安裝。 不建議您直接從 GitHub 安裝 Linux VM 代理程式。 
+2. 若要在執行 Linux 的 VM 上安裝 VM 代理程式，請安裝最新的 [Linux 代理程式](../virtual-machines/extensions/agent-linux.md)。 您需要有系統管理員權限，才能完成安裝。 建議您從散發存放庫進行安裝。 不建議您直接從 GitHub 安裝 Linux VM 代理程式。 
 
 
 ## <a name="validate-the-installation-on-windows-vms"></a>驗證 Windows VM 上的安裝

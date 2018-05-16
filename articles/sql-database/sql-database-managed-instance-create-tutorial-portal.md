@@ -8,14 +8,14 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 1e04b12241121d3894e2d71df423bae4f000a60d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>在 Azure 入口網站中建立 Azure SQL Database 受控執行個體
 
@@ -107,7 +107,7 @@ ms.lasthandoff: 04/19/2018
    |**訂用帳戶**|您的訂用帳戶|如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。|
    |**資源群組**|選取您在上一個程序中建立的資源群組|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|
    |**位置**|選取您在上一個程序中指定的位置| 如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。|
-   |**停用 BCP 路由傳播**|已停用||
+   |**停用 BCP 路由傳播**|已啟用||
    ||||
 
    ![路由表建立表單](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
@@ -132,7 +132,7 @@ ms.lasthandoff: 04/19/2018
 
     ![路由](./media/sql-database-managed-instance-tutorial/route.png)
 
-8. 按一下 [SERVICEPRINCIPAL] 。
+8. 按一下 [確定]。
 
 ## <a name="apply-the-route-table-to-the-managed-instance-subnet"></a>將路由表套用到受控執行個體子網路
 
@@ -221,7 +221,7 @@ ms.lasthandoff: 04/19/2018
 
    ![VM 子網路詳細資料](./media/sql-database-managed-instance-tutorial/vm-subnet-details.png)
 
-4. 按一下 [SERVICEPRINCIPAL] 。
+4. 按一下 [確定]。
 
 ## <a name="create-a-virtual-machine-in-the-new-subnet-in-the-vnet"></a>在 VNet 的新子網路中建立虛擬機器
 
@@ -248,7 +248,7 @@ ms.lasthandoff: 04/19/2018
 
    ![虛擬機器建立表單](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
-3. 按一下 [SERVICEPRINCIPAL] 。
+3. 按一下 [確定]。
 4. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在本教學課程中，您只需要小型虛擬機器。
 
     ![VM 大小](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
@@ -258,7 +258,7 @@ ms.lasthandoff: 04/19/2018
 
     ![VM 設定](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
-7. 按一下 [SERVICEPRINCIPAL] 。
+7. 按一下 [確定]。
 8. 在摘要頁面上，檢閱供應項目詳細資料，然後按一下 [建立] 開始進行虛擬機器部署。
  
 ## <a name="connect-to-virtual-machine"></a>連線至虛擬機器

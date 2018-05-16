@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: b8df65c969a37eb22589c297ecb9b0d0b840a52c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4bc41727c30d4dd213baca1d7c56cdfdf741692d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>什麼是 Azure AD Privileged Identity Management？
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 05/07/2018
 >- 指派給具有「及時」或「直接」(時間型) 指派的 Azure 資源角色  
 >- 指派給存取檢閱
 >
->如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+>如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-whatis.md)。
 
 組織想要將能夠存取安全資訊或資源的人數降到最低，因為這樣可以降低惡意使用者取得該存取權，或者授權使用者無意中影響到敏感資源的機率。  不過，使用者仍然需要在 Azure AD、Azure、Office 365 或 SaaS 應用程式中執行特殊權限作業。 組織可以提供使用者特殊權限以存取 Azure 資源，如訂用帳戶和 Azure AD。 需要針對這些使用者使用其系統管理權限的方式進行監督。 Azure AD Privileged Identity Management 可協助減少過多、不必要或誤用的存取權限風險。
 

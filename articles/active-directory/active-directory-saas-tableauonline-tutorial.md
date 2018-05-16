@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Tableau Online 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Tableau Online 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Tableau Online 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Tableau Online 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 47ae9dbde509726065da7eaee2c7aec491389f45
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e7de7946769eb2aeeac1c8b21448efa142728bb
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>教學課程：Azure Active Directory 與 Tableau Online 整合
 
@@ -57,7 +57,7 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 
 **如要從資源庫新增 Tableau Online，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -112,7 +112,7 @@ Tableau Online 與 Azure AD 整合提供下列優點：
     
     a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://sso.online.tableau.com`
 
-    b. 在 [識別碼] 文字方塊中，輸入 URL：`https://sso.online.tableau.com/public/sp/<instancename>`
+    b. 在 [識別碼] 文字方塊中，輸入 URL：`https://sso.online.tableau.com/public/sp/metadata?alias=<entityid> `
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -160,10 +160,6 @@ Tableau Online 與 Azure AD 整合提供下列優點：
      * 姓氏︰ **surname**
    
    ![設定單一登入](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_14.png)
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
@@ -262,4 +258,3 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_203.png
-

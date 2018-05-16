@@ -1,24 +1,24 @@
 ---
-title: "使用 PowerShell 來部署和管理通知中樞"
-description: "如何使用 PowerShell 來進行自動化的通知中樞建立和管理"
+title: 使用 PowerShell 來部署和管理通知中樞
+description: 如何使用 PowerShell 來進行自動化的通知中樞建立和管理
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 7c58f2c8-0399-42bc-9e1e-a7f073426451
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 4db058e4bd91dc287b14e887abc6c378c65c4a2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: d2350d8021925278d6362c8227d408476a569319
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>使用 PowerShell 來部署和管理通知中樞
 ## <a name="overview"></a>概觀
@@ -32,7 +32,6 @@ ms.lasthandoff: 10/11/2017
 Azure PowerShell 隨附的 Cmdlet 無法直接支援「管理通知中樞」。 從 PowerShell 進行的最佳方法，是參考 Microsoft.Azure.NotificationHubs.dll 組件。 組件隨附於 [Microsoft Azure 通知中樞 NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
 
 ## <a name="prerequisites"></a>先決條件
-開始閱讀本文之前，您必須符合下列必要條件：
 
 * Azure 訂用帳戶。 Azure 是訂閱型平台。 如需取得訂用帳戶的詳細資訊，請參閱[購買選項]、[成員優惠]或[免費試用版]。
 * 具備 Azure PowerShell 的電腦。 如需指示，請參閱 [安裝並設定 Azure PowerShell]。
@@ -73,7 +72,7 @@ catch [System.Exception]
 ## <a name="create-the-namespacemanager-class"></a>建立 NamespaceManager 類別
 若要佈建通知中樞，請從 SDK 建立 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) 類別的執行個體。 
 
-您可以使用 Azure PowerShell 隨附的 [Get-AzureSBAuthorizationRule] Cmdlet 來擷取用來提供連接字串的授權規則。 我們將會在 `$NamespaceManager` 變數中儲存對 `NamespaceManager` 執行個體的參照。 我們將使用 `$NamespaceManager` 佈建通知中樞。
+您可以使用 Azure PowerShell 隨附的 [Get-AzureSBAuthorizationRule] Cmdlet 來擷取用來提供連接字串的授權規則。 `$NamespaceManager` 變數會儲存 `NamespaceManager` 執行個體的參照。 使用 `$NamespaceManager` 佈建通知中樞。
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -87,12 +86,12 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 ## <a name="provisioning-a-new-notification-hub"></a>佈建新的通知中樞
 若要佈建新的通知中樞，請使用 [通知中樞的 .NET API]。
 
-您會在指令碼的這個部分設定四個本機變數。 
+您會在指令碼的這個部分設定四個區域變數。 
 
 1. `$Namespace` ：將此變數設定為要建立通知中樞之命名空間的名稱。
 2. `$Path` ：將此路徑設定為新的通知中樞之名稱。  例如，"MyHub"。    
-3. `$WnsPackageSid` ：從 [Windows 開發人員中心](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)將此變數設定為 Windows 應用程式的封裝 SID。
-4. `$WnsSecretkey`：從 [Windows 開發人員中心](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)將此變數設定為 Windows 應用程式的祕密金鑰。
+3. `$WnsPackageSid`：從 [Windows 開發人員中心](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)，將此變數設定為 Windows 應用程式的套件 SID。
+4. `$WnsSecretkey`：從 [Windows 開發人員中心](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)，將此變數設定為 Windows 應用程式的祕密金鑰。
 
 這些變數可用以連接命名空間，以及建立新的通知中樞，並將其設定為利用 WNS 認證，為 Windows 應用程式處理 Windows Notification Services (WNS) 通知。 如需取得封裝 SID 與祕密金鑰的相關資訊，請參閱 [開始使用通知中樞](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 教學課程。 
 

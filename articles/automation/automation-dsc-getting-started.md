@@ -3,16 +3,17 @@ title: 開始使用 Azure 自動化 DSC
 description: Azure 自動化預期狀態設定 (DSC) 中最常見工作的說明和範例
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0a00050712aa62f3b12e4af4c3da3a1dc0e60219
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7ab5c7f2f3676392b8fa0cc0b2a1c8f66d8ef3a9
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>開始使用 Azure 自動化 DSC
 
@@ -74,7 +75,7 @@ ms.lasthandoff: 04/05/2018
 1. 在 [匯入設定] 頁面上，瀏覽至您電腦上的 `TestConfig.ps1` 檔案。
 
     ![[匯入組態] 刀鋒視窗的螢幕擷取畫面](./media/automation-dsc-getting-started/AddConfig.png)
-1. 按一下 [SERVICEPRINCIPAL] 。
+1. 按一下 [確定]。
 
 ## <a name="viewing-a-configuration-in-azure-automation"></a>在 Azure 自動化中檢視組態
 

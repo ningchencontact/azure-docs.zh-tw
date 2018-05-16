@@ -7,6 +7,7 @@ author: rmcmurray
 manager: mbaldwin
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
@@ -14,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: bd65da490bf3d7e17bf6ff36e76e306842d50653
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 67a185f4478ab343f93b055a3c54e44ad0bd6889
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者
 本指南說明如何在 Azure Toolkit for Eclipse 內使用 Azure 存取控制服務 (ACS)。 如需 ACS 的詳細資訊，請參閱 [後續步驟](#next_steps) 一節。
@@ -256,7 +257,7 @@ Azure 即會建立並啟動命名空間。 等到新命名空間的狀態變成 
    4. 您的 [新增元件]  對話方塊應該看起來如下。
       
        ![Add certificate component][add_cert_component]
-   5. 按一下 [SERVICEPRINCIPAL] 。
+   5. 按一下 [確定]。
 
 此時，您的憑證將併入部署中。 請注意，無論您是否將憑證內含在 WAR 檔案，或將它當作元件新增至部署，都需要依[將憑證上傳至 ACS 命名空間][Upload a certificate to your ACS namespace]一節所述，將憑證上傳至命名空間。
 

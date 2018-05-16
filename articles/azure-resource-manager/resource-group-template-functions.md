@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 834488e259caf60ae96450fcf7c8188c5ffb0bc5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e21a8251cc4a85232b92faa05d01d0f73410e496
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure 資源管理員範本函數
 本文描述您可以在Azure Resource Manager 範本中使用的所有函式。
@@ -28,6 +28,8 @@ ms.lasthandoff: 04/16/2018
 範本運算式不能超過 24,576 個字元。
 
 範本函數和其參數不區分大小寫。 例如，Resource Manager 在解析 **variables('var1')** 和 **VARIABLES('VAR1')** 時，會將它們視為相同。 評估時，除非函式明確修改大小寫 (例如 toUpper 或 toLower)，否則函式將會保留大小寫。 特定資源類型可能有與評估函式方式無關的大小寫需求。
+
+若要建立自己的函式，請參閱[使用者定義的函式](resource-group-authoring-templates.md#functions)。
 
 <a id="array" />
 <a id="coalesce" />

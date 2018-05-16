@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 04/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 391985f3ad0e07c4559545e9d0c5fffc45fe27d2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 942c2bce3a5907917b8d1cc9e8c251b5779542b5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站來建立 Key Vault
 
@@ -87,4 +87,4 @@ Azure Key Vault 是一項雲端服務，可作為安全的祕密存放區。 您
 在本快速入門中，您已建立 Key Vault 並儲存祕密。 若要深入了解 Key Vault 以及如何使用它搭配您的應用程式，請繼續進行 Web 應用程式搭配 Key Vault 運作的教學課程。
 
 > [!div class="nextstepaction"]
-> [從 Web 應用程式使用 Azure Key Vault](key-vault-use-from-web-application.md) 若要了解如何讓 Web 應用程式使用[受控服務識別](/active-directory/managed-service-identity/overview.md)從 Key Vault 讀取祕密，請繼續進行下列教學課程：[將 Azure Web 應用程式設定為從 Key Vault 讀取祕密](tutorial-web-application-keyvault.md)
+> 若要了解如何自使用受控服務身分識別的 Web 應用程式讀取 Key Vault 中的祕密，請繼續進行以下教學課程[將 Azure Web 應用程式設定為從 Key Vault 讀取祕密](tutorial-web-application-keyvault.md)。

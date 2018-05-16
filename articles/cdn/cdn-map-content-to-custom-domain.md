@@ -6,20 +6,19 @@ documentationcenter: ''
 author: dksimpson
 manager: akucer
 editor: ''
-ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/06/2018
-ms.author: mazha
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: dad9866a3d61421987bc4a62057498e004f65e7f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f57cfe19fd2eee0952a20fabcaa0d73ca96894ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>教學課程：將自訂網域新增至 Azure CDN 端點
 本教學課程說明如何將自訂網域新增至 Azure 內容傳遞網路 (CDN) 端點。 使用 CDN 端點來傳遞內容時，如果您想要在 CDN URL 中顯示您自己的網域名稱，則需要自訂網域。 有可見的網域名稱對您的客戶而言較為方便，並且也有助於宣傳商標。 
@@ -28,9 +27,9 @@ ms.lasthandoff: 04/16/2018
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
-> - 建立 CNAME DNS 記錄
-> - 將自訂網域與您的 CDN 端點產生關聯
-> - 驗證自訂網域
+> - 建立 CNAME DNS 記錄。
+> - 將自訂網域與您的 CDN 端點產生關聯。
+> - 驗證自訂網域。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -211,16 +210,16 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-您已了解如何︰
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
-> - 建立 CNAME DNS 記錄
-> - 將自訂網域與您的 CDN 端點產生關聯
-> - 驗證自訂網域
+> - 建立 CNAME DNS 記錄。
+> - 將自訂網域與您的 CDN 端點產生關聯。
+> - 驗證自訂網域。
 
 請移至下一個教學課程，以了解如何在 Azure CDN 自訂網域上設定 HTTPS。
 
 > [!div class="nextstepaction"]
-> [在 Azure CDN 自訂網域上設定 HTTPS](cdn-custom-ssl.md)
+> [教學課程：在 Azure CDN 自訂網域上設定 HTTPS](cdn-custom-ssl.md)
 
 

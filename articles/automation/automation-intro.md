@@ -3,17 +3,18 @@ title: Azure 自動化概觀
 description: 了解如何使用 Azure 自動化，將基礎結構和應用程式的生命週期自動化。
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: eamonoreilly
 ms.author: eamono
 keywords: azure 自動化, DSC, powershell, Desired State Configuration, 更新管理, 變更追蹤, 清查, Runbook, python, 圖形
 ms.date: 03/15/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: c44968dbceee2fdd29818a65e14f5b64ffcccade
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ce30a9eb11cd951ca7d8197c15c3becba333f5a9
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure 自動化簡介
 

@@ -1,6 +1,6 @@
 ---
-title: "建立 Azure Container Service (AKS) 叢集"
-description: "使用 CLI 或 Azure 入口網站來建立 AKS 叢集。"
+title: 建立 Azure Kubernetes Service (AKS) 叢集
+description: 使用 CLI 或 Azure 入口網站來建立 AKS 叢集。
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 37d6dfc0aa6b3e4fcd88a53e83a3a3d7f2157681
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 46c2f718911f27ad8f51423589c6fdda100a68d2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="create-an-azure-container-service-aks-cluster"></a>建立 Azure Container Service (AKS) 叢集
+# <a name="create-an-azure-kubernetes-service-aks-cluster"></a>建立 Azure Kubernetes Service (AKS) 叢集
 
-您可以使用 Azure CLI 或 Azure 入口網站來建立 Azure Container Service (AKS) 叢集。
+您可以使用 Azure CLI 或 Azure 入口網站來建立 Azure Kubernetes Service (AKS) 叢集。
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -32,7 +32,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster
 | 引數 | 說明 | 必要 |
 |---|---|:---:|
 | `--name` `-n` | 受控叢集的資源名稱。 | 是 |
-| `--resource-group` `-g` | Azure Container Service 資源群組的名稱。 | 是 |
+| `--resource-group` `-g` | Azure Kubernetes Service 資源群組的名稱。 | 是 |
 | `--admin-username` `-u` | Linux 虛擬機器的使用者名稱。  預設值：azureuser。 | no |
 | ` --client-secret` | 與服務主體關聯的密碼。 | no |
 | `--dns-name-prefix` `-p` | 叢集公用 IP 位址的 DNS 首碼。 | no |
@@ -48,7 +48,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
-如需有關使用 Azure 入口網站來部署 AKS 叢集的指示，請參閱 Azure Container Service (AKS) [Azure 入口網站快速入門][aks-portal-quickstart]。 
+如需有關使用 Azure 入口網站來部署 AKS 叢集的指示，請參閱 Azure Kubernetes Service (AKS) [Azure 入口網站快速入門][aks-portal-quickstart]。
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create

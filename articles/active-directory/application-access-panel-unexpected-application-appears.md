@@ -1,11 +1,11 @@
 ---
-title: "應用程式如何出現在存取面板上 | Microsoft Docs"
-description: "針對應用程式為什麼出現在存取面板上進行疑難排解"
+title: 應用程式如何出現在存取面板上 | Microsoft Docs
+description: 針對應用程式為什麼出現在存取面板上進行疑難排解
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewr: japere
-ms.openlocfilehash: 25e8bd404bc5b622568b8885f241c743f82f59cc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d4203ea39adf027d783a482198f523e18cbc246
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>應用程式如何出現在存取面板上
 
@@ -45,11 +45,11 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -151,4 +151,4 @@ ms.lasthandoff: 02/21/2018
 -   Fiddler 追蹤
 
 ## <a name="next-steps"></a>後續步驟
-[使用 Azure Active Directory 管理應用程式](active-directory-enable-sso-scenario.md)
+[使用 Azure Active Directory 管理應用程式](manage-apps/what-is-application-management.md)

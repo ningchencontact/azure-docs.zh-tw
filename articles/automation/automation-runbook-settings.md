@@ -3,16 +3,17 @@ title: Azure 自動化的 Runbook 設定
 description: 描述「Azure 自動化」中 Runbook 的組態設定，以及如何使用 Azure 入口網站和 Windows PowerShell 來變更這些設定。
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 548a168055a63ee8cb5147b56fb77ef0bc801e17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 064fdc6b50bf21b78d122c650ae22f8b4f70c608
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="runbook-settings"></a>Runbook 設定
 Azure 自動化中的每個 Runbook 具備多個有助於識別其本身及變更其記錄行為的設定。 以下會說明這些設定，後面則是如何加以修改的程序。

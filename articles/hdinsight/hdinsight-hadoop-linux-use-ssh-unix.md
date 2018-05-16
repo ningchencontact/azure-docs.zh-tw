@@ -1,27 +1,27 @@
 ---
-title: "使用 SSH 搭配 Hadoop - Azure HDInsight | Microsoft Docs"
-description: "您可以使用安全殼層 (SSH) 存取 HDInsight。 本文提供從 Windows、Linux、Unix 或 macOS 用戶端使用 ssh 和 scp 命令連線到 HDInsight 的資訊。"
+title: 使用 SSH 搭配 Hadoop - Azure HDInsight | Microsoft Docs
+description: 您可以使用安全殼層 (SSH) 存取 HDInsight。 本文提供從 Windows、Linux、Unix 或 macOS 用戶端使用 ssh 和 scp 命令連線到 HDInsight 的資訊。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
-keywords: "linux 中的 hadoop 命令,hadoop linux 命令,hadoop macos,ssh hadoop,ssh hadoop 叢集"
+keywords: linux 中的 hadoop 命令,hadoop linux 命令,hadoop macos,ssh hadoop,ssh hadoop 叢集
 ms.assetid: a6a16405-a4a7-4151-9bbf-ab26972216c5
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/07/2018
+ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 1a1fbac1eb4c529ea89f0f4c72b3317718ac45ea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 359b458d5fa9089fd7f35f94cd3f0265dc8ea3c9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>使用 SSH 連線到 HDInsight (Hadoop)
 
@@ -69,7 +69,7 @@ Microsoft Windows 預設不會安裝任何 SSH 用戶端。 `ssh` 和 `scp` 用�
 
 * [Git (https://git-scm.com/)](https://git-scm.com/)：`ssh` 和 `scp` 命令可透過 GitBash 命令列來取得。
 
-另外還有數個圖形化 SSH 用戶端，例如 [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) 和 [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/)。 雖然這些用戶端可用來連線到 HDInsight，但連線的程序與使用 `ssh` 公用程式時不同。 如需詳細資訊，請參閱您使用之圖形化用戶端的文件。
+另有數個圖形化的 SSH 用戶端，如 [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) 和 [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/)。 雖然這些用戶端可用來連線到 HDInsight，但連線的程序與使用 `ssh` 公用程式時不同。 如需詳細資訊，請參閱您使用之圖形化用戶端的文件。
 
 ## <a id="sshkey"></a>驗證︰SSH 金鑰
 
@@ -117,6 +117,9 @@ SSH 金鑰會使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key
 
 > [!WARNING]
 > Microsoft 不建議對 SSH 使用密碼驗證。 密碼可以猜到，因此很容易遭受暴力密碼破解攻擊。 相反地，我們會建議您使用 [SSH 金鑰來進行驗證](#sshkey)。
+
+> [!IMPORTANT]
+> SSH 帳戶密碼會在 HDInsight 叢集建立後 70 天到期。 如果密碼到期，您可以使用[管理 HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) 文件中的資訊更換。
 
 ### <a name="create-hdinsight-using-a-password"></a>使用密碼建立 HDInsight
 
@@ -209,7 +212,7 @@ SSH 金鑰會使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    如果未傳回任何資訊，表示 `ssh-agent` 未執行。 如需詳細資訊，請參閱[透過 ssh 使用 ssh-agent (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) 的代理程式啟動指令碼資訊，或參閱 SSH 用戶端文件。
+    如果未傳回任何資訊，表示 `ssh-agent` 未執行。 如需詳細資訊，請參閱[透過 ssh 使用 ssh-agent (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh)) 的代理程式啟動指令碼資訊，或參閱 SSH 用戶端文件。
 
 4. 一旦確認 **ssh-agent** 正在執行，請使用下列項目將您的 SSH 私密金鑰新增至代理程式：
 

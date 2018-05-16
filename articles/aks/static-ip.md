@@ -1,6 +1,6 @@
 ---
-title: "搭配 Azure Container Service (AKS) 負載平衡器使用靜態 IP 位址"
-description: "搭配 Azure Container Service (AKS) 負載平衡器使用靜態 IP 位址。"
+title: 搭配 Azure Kubernetes Service (AKS) 負載平衡器使用靜態 IP 位址
+description: 搭配 Azure Kubernetes Service (AKS) 負載平衡器使用靜態 IP 位址。
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 2/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 945132dd5f7e51f05ceda89a9cb16315aabbda8a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: da1fc4cd31a4b4f13da5b527e2a62e147799bfef
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-a-static-ip-address-with-the-azure-container-service-aks-load-balancer"></a>搭配 Azure Container Service (AKS) 負載平衡器使用靜態 IP 位址
+# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>搭配 Azure Kubernetes Service (AKS) 負載平衡器使用靜態 IP 位址
 
-在某些情況下，例如重新建立 Azure Container Service (AKS) 負載平衡器或重新建立類型為 LoadBalancer 的 Kubernetes 服務時，Kubernetes 服務的公用 IP 位址可能會變更。 本文件將詳細說明如何為您的 Kubernetes 服務設定靜態 IP 位址。
+在某些情況下，例如重新建立 Azure Kubernetes Service (AKS) 負載平衡器或重新建立類型為 LoadBalancer 的 Kubernetes 服務時，Kubernetes 服務的公用 IP 位址可能會變更。 本文件將詳細說明如何為您的 Kubernetes 服務設定靜態 IP 位址。
 
 ## <a name="create-static-ip-address"></a>建立靜態 IP 位址
 
@@ -59,9 +59,11 @@ az network public-ip create --resource-group MC_myResourceGRoup_myAKSCluster_eas
 
  如有需要，可以使用 [az network public-ip list][az-network-public-ip-list] 命令來擷取此位址。
 
-```console
-$ az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```azurecli-interactive
+az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```
 
+```console
 40.121.183.52
 ```
 
@@ -87,9 +89,11 @@ spec:
 
 如果靜態 IP 位址已建立或建立在錯誤的資源群組中，服務建立作業就會失敗。 若要進行疑難排解，請使用 [kubectl describe][kubectl-describe] 命令來傳回服務建立事件。
 
-```console
-$ kubectl describe service azure-vote-front
+```azurecli-interactive
+kubectl describe service azure-vote-front
+```
 
+```console
 Name:                     azure-vote-front
 Namespace:                default
 Labels:                   <none>
@@ -112,7 +116,7 @@ Events:
 ```
 
 <!-- LINKS - External -->
-[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/ 
+[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

@@ -1,29 +1,29 @@
 ---
-title: "標頭型驗證搭配 Azure AD 應用程式 Proxy 的 PingAccess | Microsoft Docs"
-description: "使用 PingAccess 與應用程式 Proxy 來發行應用程式可支援標頭型驗證。"
+title: 標頭型驗證搭配 Azure AD 應用程式 Proxy 的 PingAccess | Microsoft Docs
+description: 使用 PingAccess 與應用程式 Proxy 來發行應用程式可支援標頭型驗證。
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 5554260ad2b47cf4c66046c95007c95e44f188bd
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>使用應用程式 Proxy 與 PingAccess 的單一登入之標頭式驗證
 
-Azure Active Directory 應用程式 Proxy 和 PingAccess 通力合作，為 Azure Active Directory 客戶提供甚至更多應用程式的存取權。 PingAccess 會展開[現有應用程式 Proxy 供應項目](active-directory-application-proxy-get-started.md)以包含單一登入存取使用標頭進行驗證的應用程式。
+Azure Active Directory 應用程式 Proxy 和 PingAccess 通力合作，為 Azure Active Directory 客戶提供甚至更多應用程式的存取權。 PingAccess 會展開[現有應用程式 Proxy 供應項目](manage-apps/application-proxy.md)以包含單一登入存取使用標頭進行驗證的應用程式。
 
 ## <a name="what-is-pingaccess-for-azure-ad"></a>什麼是 Azure AD 的 PingAccess？
 
@@ -50,7 +50,7 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 
 如果您已啟用應用程式 Proxy 並已安裝連接器，可以跳過本節並移至[使用應用程式 Proxy 將您的應用程式新增至 Azure AD](#add-your-app-to-azure-ad-with-application-proxy)。
 
-應用程式 Proxy 連接器是 Windows Server 服務，可將流量從您的遠端員工引導至發行的應用程式。 如需細安裝指示，請參閱[在 Azure 入口網站中啟用應用程式 Proxy](active-directory-application-proxy-enable.md)。
+應用程式 Proxy 連接器是 Windows Server 服務，可將流量從您的遠端員工引導至發行的應用程式。 如需細安裝指示，請參閱[在 Azure 入口網站中啟用應用程式 Proxy](manage-apps/application-proxy-enable.md)。
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 選取 **Azure Active Directory** > **應用程式 Proxy**。
@@ -65,7 +65,7 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 
 您需要在 Azure 入口網站中採取兩個動作。 首先，您必須使用應用程式 Proxy 發佈應用程式。 然後，您需要收集一些關於應用程式的資訊，可供您在 PingAccess 步驟期間使用。
 
-請遵循下列步驟來發佈您的應用程式。 如需步驟 1-8 的更詳細逐步解說，請參閱[使用 Azure AD Application Proxy 發佈應用程式](application-proxy-publish-azure-portal.md)。
+請遵循下列步驟來發佈您的應用程式。 如需步驟 1-8 的更詳細逐步解說，請參閱[使用 Azure AD Application Proxy 發佈應用程式](manage-apps/application-proxy-publish-azure-portal.md)。
 
 1. 如果您在上一節中未登入，請以全域系統管理員的身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 選取 [Azure Active Directory]  >  [企業應用程式]。
@@ -181,5 +181,5 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 ## <a name="next-steps"></a>後續步驟
 
 - [設定 Azure AD 的 PingAccess](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
-- [Azure AD 應用程式 Proxy 如何提供單一登入？](application-proxy-sso-overview.md)
+- [Azure AD 應用程式 Proxy 如何提供單一登入？](manage-apps/application-proxy-single-sign-on.md)
 - [疑難排解應用程式 Proxy](active-directory-application-proxy-troubleshoot.md)

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure CDN 中壓縮檔案以改善效能 | Microsoft Docs"
-description: "了解如何藉由在 Azure CDN 中壓縮檔案來改善檔案傳輸速度並增加頁面載入效能。"
+title: 在 Azure CDN 中壓縮檔案以改善效能 | Microsoft Docs
+description: 了解如何藉由在 Azure CDN 中壓縮檔案來改善檔案傳輸速度並增加頁面載入效能。
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: mazha
-ms.openlocfilehash: 743d1db803cdb58ae8fa37430ccffa10ca003f93
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 41e40c7e740e06654e7660c208db52fc2617d4b5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>在 Azure CDN 中壓縮檔案以改善效能
 檔案壓縮是簡單且有效的方法，可提升檔案傳輸速度，並且在檔案從伺服器傳送出去之前先減少其大小，以增加頁面載入效能。 檔案壓縮可降低頻寬成本，並提供回應速度更快的體驗給使用者。
@@ -26,19 +26,24 @@ ms.lasthandoff: 02/13/2018
 有兩種方式可啟用檔案壓縮︰
 
 - 在原始伺服器上啟用壓縮。 在此情況下，CDN 會傳遞壓縮的檔案，遞交給提出要求的用戶端。
-- 直接在 CDN Edge Server 上啟用壓縮。 在此情況下，CDN 會壓縮檔案並將其提供給終端使用者，即使原始伺服器未壓縮這些檔案也是如此。
+- 直接在 CDN POP 伺服器上啟用壓縮 (「動態壓縮」)。 在此情況下，CDN 會壓縮檔案並將其提供給終端使用者，即使原始伺服器未壓縮這些檔案也是如此。
 
 > [!IMPORTANT]
-> CDN 組態變更會需要一些時間才能傳播至整個網路。 若為 **來自 Akamai 的 Azure CDN** 設定檔，通常會在一分鐘之內完成傳播。  若為 **來自 Verizon 的 Azure CDN** 設定檔，通常會在 90 分鐘之內完成傳播。 如果這是您第一次設定 CDN 端點壓縮，請先等候 1-2 小時再進行疑難排解，確定壓縮設定已傳播至 POP。
+> CDN 組態變更會需要一些時間才能傳播至整個網路： 
+- 若為 **來自 Microsoft 的標準 Azure CDN** 設定檔，通常會在 10 分鐘內完成傳播。 
+- 若為**來自 Akamai 的標準 Azure CDN** 設定檔，通常會在一分鐘內完成傳播。 
+- 若為**來自 Verizon 的標準 Azure CDN** 和**來自 Verizon 的進階 Azure CDN** 設定檔，通常會在 90 分鐘內完成傳播。 
+>
+> 如果這是您第一次設定 CDN 端點壓縮，請先等候 1-2 小時再進行疑難排解，確定壓縮設定已傳播至 POP。
 > 
 > 
 
 ## <a name="enabling-compression"></a>啟用壓縮
 標準和高階 CDN 層提供相同的壓縮功能，但兩者的使用者介面不同。 如需有關標準和高階 CDN 層之間差異的詳細資訊，請參閱 [Azure CDN 概觀](cdn-overview.md)。
 
-### <a name="standard-tier"></a>標準層
+### <a name="standard-cdn-profiles"></a>標準 CDN 設定檔 
 > [!NOTE]
-> 本節適用於**來自 Verizon 的 Azure CDN 標準**和**來自 Akamai 的 Azure CDN 標準**設定檔。
+> 本節適用於**來自 Microsoft 的標準 Azure CDN**、**來自 Verizon 的標準 Azure CDN** 及**來自 Akamai 的標準 Azure CDN** 設定檔。
 > 
 > 
 
@@ -63,7 +68,7 @@ ms.lasthandoff: 02/13/2018
  
 5. 完成變更之後，請選取 [儲存]。
 
-### <a name="premium-tier"></a>高階層
+### <a name="premium-cdn-profiles"></a>進階 CDN 設定檔
 > [!NOTE]
 > 本節僅適用於**來自 Verizon 的 Azure CDN 進階**設定檔。
 > 
@@ -90,9 +95,21 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="compression-rules"></a>壓縮規則
 
-### <a name="azure-cdn-from-verizon-profiles-both-standard-and-premium-tiers"></a>來自 Verizon 的 Azure CDN 設定檔 (標準與進階層兩者)
+### <a name="azure-cdn-standard-from-microsoft-profiles"></a>來自 Microsoft 的標準 Azure CDN
 
-若為**來自 Verizon 的 Azure CDN** 設定檔，只會壓縮合格的檔案。 若要符合壓縮，檔案必須︰
+若為**來自 Microsoft 的標準 Azure CDN** 設定檔，所有檔案都符合壓縮資格。 然而，檔案必須為已[設定壓縮](#enabling-compression)的 MIME 類型。
+
+這些設定檔支援下列壓縮編碼：
+- gzip (GNU zip)
+- brotli 
+ 
+如果該要求支援多種壓縮類型，那些壓縮類型的優先順序均高於 brotli 壓縮。
+
+當資產的要求指定 gzip 壓縮且快取中的要求結果遺失時，Azure CDN 會在原始伺服器上對資產執行 gzip 壓縮。 之後會從快取提供壓縮的檔案。
+
+### <a name="azure-cdn-from-verizon-profiles"></a>來自 Verizon 的 Azure CDN 設定檔
+
+若為**來自 Verizon 的標準 Azure CDN** 和**來自 Verizon 的進階 Azure CDN** 設定檔，只會壓縮合格的檔案。 若要符合壓縮，檔案必須︰
 - 超過 128 個位元組
 - 小於 1 MB
  
@@ -104,11 +121,11 @@ ms.lasthandoff: 02/13/2018
  
 如果該要求支援多種壓縮類型，那些壓縮類型的優先順序均高於 brotli 壓縮。
 
-當資產的要求指定 brotli 壓縮 (`Accept-Encoding: br` HTTP 標頭) 且快取中的要求結果遺失時，Azure CDN 會在原始伺服器上對資產執行 brotli 壓縮。 之後，會直接從快取提供壓縮的檔案。
+當資產的要求指定 brotli 壓縮 (HTTP 標頭為 `Accept-Encoding: br`) 且快取中的要求結果遺失時，Azure CDN 會直接在 POP 伺服器上對資產執行 brotli 壓縮。 之後會從快取提供壓縮的檔案。
 
-### <a name="azure-cdn-from-akamai-profiles"></a>來自 Akamai 的 Azure CDN 設定檔
+### <a name="azure-cdn-standard-from-akamai-profiles"></a>來自 Akamai 的標準 Azure CDN 設定檔
 
-若為**來自 Akamai 的 Azure CDN** 設定檔，所有檔案都符合壓縮資格。 然而，檔案必須為已[設定壓縮](#enabling-compression)的 MIME 類型。
+若為**來自 Akamai 的標準 Azure CDN** 設定檔，所有檔案都符合壓縮資格。 然而，檔案必須為已[設定壓縮](#enabling-compression)的 MIME 類型。
 
 這些設定檔只支援 gzip 壓縮編碼。 當設定檔端點要求 gzip 編碼檔案時，一律都是要求來自原點的檔案，不論用戶端是否提出要求。 
 
@@ -130,7 +147,7 @@ ms.lasthandoff: 02/13/2018
 | --- | --- | --- | --- |
 | 已壓縮 |已壓縮 |已壓縮 |支援格式之間的 CDN 轉碼。 |
 | 已壓縮 |未壓縮 |已壓縮 |CDN 執行壓縮。 |
-| 已壓縮 |不快取 |已壓縮 |如果原點傳回未壓縮的檔案，則 CDN 會執行壓縮。 <br/>**來自 Verizon 的 Azure CDN** 會傳遞第一次要求中的未壓縮檔案，然後壓縮及快取檔案以供後續要求之需。 <br/>具有 Cache-Control: no-cache 標頭的檔案永遠不會經過壓縮。 |
+| 已壓縮 |不快取 |已壓縮 |如果原點傳回未壓縮的檔案，則 CDN 會執行壓縮。 <br/>**來自 Verizon 的 Azure CDN** 會傳遞第一次要求中的未壓縮檔案，然後壓縮及快取檔案以供後續要求之需。 <br/>具有 `Cache-Control: no-cache` 標頭的檔案永遠不會經過壓縮。 |
 | 未壓縮 |已壓縮 |未壓縮 |CDN 執行解壓縮。 |
 | 未壓縮 |未壓縮 |未壓縮 | |
 | 未壓縮 |不快取 |未壓縮 | |

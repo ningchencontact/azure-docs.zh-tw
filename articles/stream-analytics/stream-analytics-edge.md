@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 1c02f8f7b086d0441c2def0e92c54cce72fad85e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9a9608825cf041007c000729becb34e9a3063f92
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge 上的 Azure 串流分析 (預覽)
 
@@ -60,11 +60,10 @@ ASA 會使用 IoT 中樞將 Edge 作業部署到裝置。 關於 [IoT Edge 部�
 
 
 #### <a name="create-an-asa-edge-job"></a>建立 ASA Edge 作業
-1. 從 Azure 入口網站中，建立新的「串流分析作業」。 [在這裡導向連結以建立新的 ASA 作業](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob)。
-
 > [!Note]
-> 您可以在 ASA 支援的所有地區建立 Edge 作業，**除了「美國西部 2」區域之外**。
-> 這項限制很快將會移除。
+> 本教學課程著重於使用 Azure 入口網站建立 ASA 作業。 您也可以[使用 Visual Studio 外掛程式建立 ASA Edge 作業](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+
+1. 從 Azure 入口網站中，建立新的「串流分析作業」。 [在這裡導向連結以建立新的 ASA 作業](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob)。
 
 2. 在 [建立] 畫面中，選取 **Edge** 作為 **裝載環境**(請參閱下圖) ![作業建立](media/stream-analytics-edge/ASAEdge_create.png)
 3. 作業定義
@@ -147,7 +146,6 @@ ASA 作業中建立的輸入和輸出名稱可用來作為路由的端點。
 * Azure ML 函式。
 * 在單一步驟中使用超過 14 個彙總。
 * 輸入/輸出的 AVRO 格式。 目前僅支援 CSV 和 JSON。
-* JSON 壓縮的輸入。
 * 下列 SQL 運算子：
     * AnomalyDetection
     * 地理空間運算子：
@@ -210,6 +208,7 @@ ASA Edge 作業可以從 IoT Edge 裝置上執行的其他模組取得輸入和�
 * [Azure Iot Edge 的詳細資訊](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [ASA IoT Edge 教學課程](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [使用這個調查將意見反應傳送給小組](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [使用 Visual Studio 工具來開發串流分析 Edge 作業](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

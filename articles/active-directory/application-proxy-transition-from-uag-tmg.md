@@ -3,23 +3,23 @@ title: 升級到 Azure AD 應用程式 Proxy | Microsoft Docs
 description: 如果您是從 Microsoft Forefront 或 Unified Access Gateway 升級，選擇哪一個 Proxy 解決方案最適合。
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5323a9225adb9a9bfca2dccec5c84f288c4fd25d
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e6764a0eeb27b8bff24140ff2c12e9e66b06b48b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="compare-remote-access-solutions"></a>比較遠端存取解決方案
 
@@ -45,7 +45,7 @@ Azure Active Directory 應用程式 Proxy 是 Microsoft 提供的兩個遠端存
 | 使用標頭進行驗證 | - | yes | - | 是，使用 PingAccess | 
 | 雲端級別安全性 | - | - | - | yes | 
 | 條件式存取 | - | yes | - | yes |
-| 周邊網路 (DMZ) 中沒有任何元件 | - | - | - | yes |
+| 非軍事區域 (DMZ) 中沒有任何元件 | - | - | - | yes |
 | 沒有輸入連線 | - | - | - | yes |
 
 大部分情節中，建議將 Azure AD 應用程式作為現代化解決方案。 Web 應用程式 Proxy 只建議用在需要 AD FS Proxy 伺服器的情節中，而且您無法使用 Azure Active Directory 中的自訂網域。 
@@ -55,12 +55,12 @@ Azure Active Directory 應用程式 Proxy 是 Microsoft 提供的兩個遠端存
 - 將 Azure AD 擴充至內部部署資源
    - 雲端級別安全性和保護
    - 可輕鬆地啟用諸如條件式存取和 Multi-Factor Authentication 等功能
-- 周邊網路中沒有任何元件
+- 非軍事區域中沒有任何元件
 - 沒有所需的輸入連線
 - 您的使用者可以使用其所有應用程式的單一存取面板，包括 O365、Azure AD 整合式 SaaS 應用程式，以及您的內部部署 Web 應用程式。 
 
 
 ## <a name="next-steps"></a>後續步驟
 
-- [使用 Azure AD 應用程式提供對內部部署應用程式的安全遠端存取](active-directory-application-proxy-get-started.md)
+- [使用 Azure AD 應用程式提供對內部部署應用程式的安全遠端存取](manage-apps/application-proxy.md)
 - [從 Forefront TMG 和 UAG 轉換至應用程式 Proxy](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/)。

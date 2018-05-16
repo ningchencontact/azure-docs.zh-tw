@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 25ae6bde2ca89b2f944a8879c746dcedcf798ec2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e6fd51cb2550549e14934c3f4774a40d42281247
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 伺服器端程式設計：預存程序、資料庫觸發程序和 UDF
 
-了解 Azure Cosmos DB 的語言整合式、交易式 JavaScript 執行如何讓開發人員使用 [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript 以原生方式撰寫**預存程序**、**觸發程序**及**使用者定義函式 (UDF)**。 此 Javascript 整合可讓您撰寫能直接在資料庫儲存體分割區上傳送和執行的資料庫程式應用程式邏輯。 
+了解 Azure Cosmos DB 的語言整合式、交易式 JavaScript 執行如何讓開發人員使用 [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript 以原生方式撰寫**預存程序**、**觸發程序**及**使用者定義函式 (UDF)**。 Javascript 整合可讓您撰寫能夠直接在資料庫儲存體分割區內傳送和執行的程式邏輯。 
 
 我們建議使用者從觀看下列影片開始入門，Andrew Liu 在其中提供了 Azure Cosmos DB 的伺服器端資料庫程式設計模型的簡介。 
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 04/06/2018
 本教學課程使用 [Node.js SDK 搭配 Q Promises](http://azure.github.io/azure-documentdb-node-q/) 來說明預存程序、觸發程序及 UDF 的語法和用法。   
 
 ## <a name="stored-procedures"></a>預存程序
-### <a name="example-write-a-simple-stored-procedure"></a>範例：撰寫簡易預存程序
+### <a name="example-write-a-stored-procedure"></a>範例：撰寫預存程序
 我們先來看看簡單的預存程序，此程序會傳回 "Hello World" 回應。
 
     var helloWorldStoredProc = {
@@ -96,7 +96,7 @@ ms.lasthandoff: 04/06/2018
         });
 
 
-內容物件提供可對 Cosmos DB 儲存體執行之所有作業的存取權，以及要求和回應物件的存取權。 在此例中，我們使用回應物件來設定傳回給用戶端的回應本文。 如需詳細資料，請參閱 [Azure Cosmos DB JavaScript 伺服器 SDK 文件](http://azure.github.io/azure-documentdb-js-server/) \(英文\)。  
+內容物件提供可對 Cosmos DB 儲存體執行之所有作業的存取權，以及要求和回應物件的存取權。 在此案例中，您會使用回應物件來設定傳回給用戶端的回應本文。 如需詳細資料，請參閱 [Azure Cosmos DB JavaScript 伺服器 SDK 文件](http://azure.github.io/azure-documentdb-js-server/) \(英文\)。  
 
 我們將以這個範例為基礎進行擴充，將更多資料庫相關功能新增到預存程序中。 預存程序可以建立、更新、讀取、查詢及刪除集合內的文件和附件。    
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 04/06/2018
 
 此預存程序將 documentToCreate (要在目前集合中建立的文件本文) 做為輸入。 所有這類作業都是非同步的，而且需仰賴 JavaScript 函數回呼。 回呼函數有兩個參數，一個用於作業失敗時的錯誤物件，一個用於已建立的物件。 在回呼內，使用者可以處理例外狀況或擲回錯誤。 如果未提供回呼，而且發生錯誤，則 Azure Cosmos DB 執行階段會擲回錯誤。   
 
-在上面的範例中，回呼會在作業失敗時擲回錯誤。 否則，會將已建立之文件的 ID 設定為用戶端回應的本文。 此預存程序與輸入參數搭配執行的方式如下。
+在上面的範例中，回呼會在作業失敗時擲回錯誤。 否則，會將已建立之文件的識別碼設定為用戶端回應的本文。 此預存程序與輸入參數搭配執行的方式如下。
 
     // register the stored procedure
     client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
@@ -148,16 +148,16 @@ ms.lasthandoff: 04/06/2018
     });
 
 
-請注意，您可以修改此預存程序，將一批文件本文做為輸入，並將這些本文全都建立在相同的預存程序執行內，而不是用多個網路要求個別建立這些本文。 您可以用這種方式來實作有效率的 Cosmos DB 大量匯入工具 (本教學課程稍後會有討論)。   
+您可以修改此預存程序，將一批文件本文作為輸入，並將這些本文全都建立在相同的預存程序執行內，而不是用多個要求個別建立這些本文。 您可以使用此預存程序來實作有效率的 Cosmos DB 大量匯入工具 (本教學課程稍後將會討論)。   
 
-上面描述的範例已示範如何使用預存程序。 本教學課程稍後會討論觸發程序和使用者定義函式 (UDF)。
+上面描述的範例已示範如何使用預存程序。 接著，您將在本教學課程後續的內容中了解觸發程序和使用者定義函式 (UDF)。
 
 ## <a name="database-program-transactions"></a>資料庫程式交易
 一般資料庫中的交易可以定義為以單一工作邏輯單位執行的一連串作業。 每個交易都提供「ACID 保證」 。 ACID 是一個已知的縮寫，代表四個屬性：不可部分完成性 (Atomicity)、一致性 (Consistency)、隔離性 (Isolation) 及耐用性 (Durability)。  
 
 簡言之，不可部分完成的作業保證會將交易內完成的所有工作視為單一單位，所有工作不是全部認可就是一個都不認可。 「一致性」確保資料在交易中一律處於良好內部狀態。 「隔離」保證兩個交易不會彼此干擾；一般而言，大部分的商業系統都會提供多個可以根據應用程式的需要來使用的隔離等級。 「持久性」確保資料庫中所認可的任何變更一律會存在。   
 
-在 Cosmos DB 中，會在與資料庫相同的記憶體空間中裝載 JavaScript。 因此，在預存程序和觸發程序內提出的要求會在資料庫工作階段的相同範圍中執行。 這讓 Cosmos DB 能夠為屬於單一預存程序/觸發程序的所有作業提供 ACID 保證。 我們看一下下列預存程序定義：
+在 Cosmos DB 中，會在與資料庫相同的記憶體空間中裝載 JavaScript。 因此，在預存程序和觸發程序內提出的要求會在資料庫工作階段的相同範圍中執行。 此功能讓 Cosmos DB 能夠為屬於單一預存程序/觸發程序的所有作業提供 ACID 保證。 我們看一下下列預存程序定義：
 
     // JavaScript source code
     var exchangeItemsSproc = {
@@ -232,14 +232,14 @@ ms.lasthandoff: 04/06/2018
 如果有任何透過指令碼傳播的例外狀況，則 Cosmos DB 的 JavaScript 執行階段將會復原整個交易。 如稍早的範例所示，擲回例外狀況的作用等同於 Cosmos DB 中的 "ROLLBACK TRANSACTION"。
 
 ### <a name="data-consistency"></a>資料一致性
-預存程序和觸發程序一律會在 Azure Cosmos DB 容器的主要複本上執行。 這確保從預存程序讀取的資料有強式一致性。 使用「使用者定義函式」的查詢可以在主要或任何次要複本上執行，但是我們會透過選擇適當的複本，確保符合所要求的一致性層級。
+預存程序和觸發程序一律會在 Azure Cosmos DB 容器的主要複本上執行。 這確保從預存程序讀取的資料有強式一致性。 使用「使用者定義函式」的查詢可以在主要或任何次要複本上執行，但是您會透過選擇適當的複本，確保符合所要求的一致性層級。
 
 ## <a name="bounded-execution"></a>界限執行
 所有 Cosmos DB 作業都必須在伺服器指定的要求逾時期間內完成。 此條件約束也適用於 JavaScript 函式 (預存程序、觸發程序和使用者定義函式)。 如果作業未在該時限內完成，則會回復交易。 JavaScript 函式必須在時限內完成，或實作接續式模型來批次處理/繼續執行。  
 
 若要簡化預存程序和觸發程序的開發流程以因應此時限，集合物件下的所有函數 (用於建立、讀取、取代與刪除文件和附件) 都會傳回布林值，以指出該作業是否會完成。 如果此值是 false，則表示即將到達時限，該程序必須包裝執行作業。  如果預存程序及時完成，而且佇列中已無其他要求，則在第一個不被接受之儲存作業之前排入佇列的作業保證會完成。  
 
-JavaScript 函數能使用的資源也受到限制。 Cosmos DB 會根據所佈建的資料庫帳戶大小預留每個集合的輸送量。 輸送量是以 CPU、記憶體和 IO 使用量的標準單位 (稱為要求單位或 RU) 來表示。 JavaScript 函數有可能會在短時間內使用大量 RU，如果達到集合限制，速率便會受到限制。 系統也可能隔離使用大量資源的預存程序，以確保基本資料庫作業的可用性。  
+JavaScript 函數能使用的資源也受到限制。 Cosmos DB 會保留每一集合或一組容器的輸送量。 輸送量是以 CPU、記憶體和 IO 使用量的標準單位 (稱為要求單位或 RU) 來表示。 JavaScript 函數有可能會在短時間內使用大量 RU，如果達到集合限制，速率便會受到限制。 系統也可能隔離使用大量資源的預存程序，以確保基本資料庫作業的可用性。  
 
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>範例：將大量資料匯入資料庫程式
 以下的預存程序範例，其撰寫目的是要將文件大量匯入集合之中。 請注意預存程序如何透過檢查 createDocument 所傳回的布林值處理界限執行，然後使用每次叫用預存程序時所插入的文件計數來追蹤和繼續各批次的進度。
@@ -349,7 +349,7 @@ Cosmos DB 提供作業在文件上執行或觸發的觸發程序。 例如，您
 
 預先觸發程序不能有任何輸入參數。 要求物件可以用來操作與作業相關聯的要求訊息。 在這裡，預先觸發程序會在建立文件時執行，而且要求訊息本文包含要以 JSON 格式建立的文件。   
 
-註冊觸發程序時，使用者可以指定與之搭配執行的作業。 此觸發程序是使用 TriggerOperation.Create 所建立，這表示不允許下列作業。
+註冊觸發程序時，使用者可以指定與之搭配執行的作業。 此觸發程序是使用 TriggerOperation.Create 所建立，這表示不允許在下列程式碼中將觸發程序用於取代作業中。
 
     var options = { preTriggerInclude: "validateDocumentContents" };
 
@@ -434,7 +434,7 @@ Cosmos DB 提供作業在文件上執行或觸發的觸發程序。 例如，您
 
 此觸發程序會查詢中繼資料文件，並使用新建立之文件的詳細資料加以更新。  
 
-有一點務必要注意，那就是在 Cosmos DB 中觸發程序的「交易式」執行。 此後續觸發程序會在與建立原始文件時的相同交易過程中執行。 因此，如果從後續觸發程序擲出例外狀況 (例如，如果我們無法更新中繼資料文件的話)，則整個交易會失敗並予以回復。 此時不會建立任何文件，並且會傳回例外狀況。  
+有一點務必要注意，那就是在 Cosmos DB 中觸發程序的「交易式」執行。 此後續觸發程序會在與建立原始文件時的相同交易過程中執行。 因此，如果從後續觸發程序擲出例外狀況 (例如，如果您無法更新中繼資料文件的話)，則整個交易會失敗並予以回復。 此時不會建立任何文件，並且會傳回例外狀況。  
 
 ## <a id="udf"></a>使用者定義函數
 使用者定義的函式 (UDF) 可用來擴充 Azure Cosmos DB SQL 查詢語言文法及實作自訂商務邏輯。 UDF 只能從內部查詢進行呼叫。 它們無法存取內容物件，只能做為計算用途的 JavaScript。 因此，UDF 可以在 Cosmos DB 服務的次要複本上執行。  
@@ -503,7 +503,7 @@ Cosmos DB 提供作業在文件上執行或觸發的觸發程序。 例如，您
 <b>filter(predicateFunction [, options] [, callback])</b>
 <ul>
 <li>
-使用述詞函式來篩選輸入，此函式會傳回 true/false 以在結果集內篩出/篩除輸入文件。 此行為類似 SQL 中的 WHERE 子句。
+使用述詞函式來篩選輸入，此函式會傳回 true/false 以在結果集內篩出/篩除輸入文件。 此函式的行為類似於 SQL 中的 WHERE 子句。
 </li>
 </ul>
 </li>
@@ -511,7 +511,7 @@ Cosmos DB 提供作業在文件上執行或觸發的觸發程序。 例如，您
 <b>map(transformationFunction [, options] [, callback])</b>
 <ul>
 <li>
-套用投射，其中提供了一個會將每個輸入項目對應至 JavaScript 物件或值的轉換函式。 此行為類似 SQL 中的 SELECT 子句。
+套用投射，其中提供了一個會將每個輸入項目對應至 JavaScript 物件或值的轉換函式。 此函式的行為類似於 SQL 中的 SELECT 子句。
 </li>
 </ul>
 </li>
@@ -519,7 +519,7 @@ Cosmos DB 提供作業在文件上執行或觸發的觸發程序。 例如，您
 <b>pluck([propertyName] [, options] [, callback])</b>
 <ul>
 <li>
-這是一個對應的捷徑，此對應會從每個輸入項目擷取單一屬性值。
+此函式是一個對應的捷徑，此對應會從每個輸入項目擷取單一屬性值。
 </li>
 </ul>
 </li>
@@ -527,7 +527,7 @@ Cosmos DB 提供作業在文件上執行或觸發的觸發程序。 例如，您
 <b>flatten([isShallow] [, options] [, callback])</b>
 <ul>
 <li>
-合併並且壓平每個輸入項目的陣列成為單一陣列。 此行為類似 LINQ 中的 SelectMany。
+合併並且壓平每個輸入項目的陣列成為單一陣列。 此函式的行為類似於 LINQ 中的 SelectMany。
 </li>
 </ul>
 </li>
@@ -535,7 +535,7 @@ Cosmos DB 提供作業在文件上執行或觸發的觸發程序。 例如，您
 <b>sortBy([predicate] [, options] [, callback])</b>
 <ul>
 <li>
-使用指定述詞以遞增順序排序輸入文件串流中的文件，產生一組新的文件。 此行為類似 SQL 中的 ORDER BY 子句。
+使用指定述詞以遞增順序排序輸入文件串流中的文件，產生一組新的文件。 此函式的行為類似於 SQL 中的 ORDER BY 子句。
 </li>
 </ul>
 </li>
@@ -543,7 +543,7 @@ Cosmos DB 提供作業在文件上執行或觸發的觸發程序。 例如，您
 <b>sortByDescending([predicate] [, options] [, callback])</b>
 <ul>
 <li>
-使用指定述詞以遞減順序排序輸入文件串流中的文件，產生一組新的文件。 此行為類似 SQL 中的 ORDER BY x DESC 子句。
+使用指定述詞以遞減順序排序輸入文件串流中的文件，產生一組新的文件。 此函式的行為類似於 SQL 中的 ORDER BY x DESC 子句。
 </li>
 </ul>
 </li>
@@ -553,7 +553,7 @@ Cosmos DB 提供作業在文件上執行或觸發的觸發程序。 例如，您
 當裡面包含述詞和/或選取器函式時，下列 JavaScript 建構會自動取得最佳化，以便直接在 Azure Cosmos DB 索引上執行：
 
 * 簡單運算子：= + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
-* 常值，包括 literal: {} 物件
+* 常值，包含物件常值：{}
 * var、return
 
 下列 JavaScript 建構不會取得 Azure Cosmos DB 索引的最佳化：
@@ -648,7 +648,7 @@ Azure Cosmos DB [JavaScript 伺服器端 API](http://azure.github.io/azure-docum
 JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料庫層級的快照交易隔離機制，否則某個指令碼的效果不會傳遞到另一個指令碼。 每次執行之後，都會對執行階段環境進行集區化處理，但會清除內容。 因此，環境與環境彼此之間絕對不會有任何未預期的副作用。
 
 ### <a name="pre-compilation"></a>預先編譯
-預存程序、觸發程序和 UDF 會隱含地預先編譯成位元組程式碼格式，以避免在每次叫用指令碼時產生編譯成本。 這種作法可確保能夠快速叫用預存程序，且只需耗費少量資源。
+預存程序、觸發程序和 UDF 會隱含地預先編譯成位元組程式碼格式，以避免在每次叫用指令碼時產生編譯成本。 預先編譯可確保能夠快速叫用預存程序，且只需耗費少量資源。
 
 ## <a name="client-sdk-support"></a>用戶端 SDK 支援
 除了 Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API 之外，Azure Cosmos DB 也具有適用於 SQL API 的 [.NET](sql-api-sdk-dotnet.md)、[.NET Core](sql-api-sdk-dotnet-core.md)、[Java](sql-api-sdk-java.md)、[JavaScript](http://azure.github.io/azure-documentdb-js/) 和 [Python SDK](sql-api-sdk-python.md)。 您也可以使用上述任何 SDK 來建立和執行預存程序、觸發程序和 UDF。 下列範例說明如何使用 .NET 用戶端建立和執行預存程序。 請注意 .NET 類型是如何在預存程序中以 JSON 形式傳入及讀回。
@@ -723,7 +723,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
     }
 
 ## <a name="rest-api"></a>REST API
-所有 Azure Cosmos DB 作業都可以用 RESTful 方式來執行。 您可以使用 HTTP POST，將預存程序、觸發程序及使用者定義函式註冊在某個集合下。 下列是如何註冊預存程序的範例：
+所有 Azure Cosmos DB 作業都可以用 RESTful 方式來執行。 您可以使用 HTTP POST，將預存程序、觸發程序及使用者定義函式註冊在某個集合下。 下列範例說明如何註冊預存程序：
 
     POST https://<url>/sprocs/ HTTP/1.1
     authorization: <<auth>>
@@ -757,7 +757,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
     [ { "name": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
 
 
-在這裡，預存程序的輸入會傳入要求本文中。 請注意，輸入會以 JSON 輸入參數陣列的形式傳遞。 預存程序會將第一個輸入做為文件 (即回應本文)。 我們收到的回應如下：
+在這裡，預存程序的輸入會傳入要求本文中。 輸入會以 JSON 輸入參數陣列的形式傳遞。 預存程序會將第一個輸入做為文件 (即回應本文)。 您收到的回應如下：
 
     HTTP/1.1 200 OK
 
@@ -773,7 +773,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
     }
 
 
-觸發程序與預存程序不同，無法直接執行， 而是在對文件執行作業時執行。 我們可以使用 HTTP 標頭指定要與要求搭配執行的觸發程序。 下列程式碼示範建立文件的要求。
+觸發程序與預存程序不同，無法直接執行， 而是在對文件執行作業時執行。 您可以使用 HTTP 標頭指定要與要求搭配執行的觸發程序。 下列程式碼示範建立文件的要求。
 
     POST https://<url>/docs/ HTTP/1.1
     authorization: <<auth>>
@@ -793,9 +793,9 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 在這裏，要與要求搭配執行的預先觸發程序指定於 x-ms-documentdb-pre-trigger-include 標頭中。 相對應地，後續觸發程序則是指定於 x-ms-documentdb-post-trigger-include 標頭中。 您可以為指定的要求指定預先和後續觸發程序。
 
 ## <a name="sample-code"></a>範例程式碼
-您可以在我們的 [GitHub 存放庫](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples)上找到更多的伺服器端程式碼範例 (包括 [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) 和 [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js))。
+您可以在 [GitHub 存放庫](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples)中找到更多的伺服器端程式碼範例 (包括 [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) 和 [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js))。
 
-想要共用您絕佳的預存程序嗎？ 請傳送提取要求給我們！ 
+要共用您絕佳的預存程序嗎？請參與存放庫的製作，並建立提取要求！ 
 
 ## <a name="next-steps"></a>後續步驟
 一旦您建立一或多個預存程序、觸發程序和使用者定義函數，您可以使用資料總管在 Azure 入口網站中載入並檢視這些項目。

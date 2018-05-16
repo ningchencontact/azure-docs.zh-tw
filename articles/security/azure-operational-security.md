@@ -1,12 +1,12 @@
 ---
-title: "Azure 作業安全性 | Microsoft Docs"
-description: "了解 Microsoft Operations Management Suite (OMS)、它的服務及運作方式。"
+title: Azure 作業安全性 | Microsoft Docs
+description: 了解 Microsoft Operations Management Suite (OMS)、它的服務及運作方式。
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8528eeb4eac8397beaa3d0dca37ce9eb33167b32
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d5bea758a0b2a950f51ec443707d9d32dee9cbc4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-operational-security"></a>Azure 作業安全性
 ## <a name="introduction"></a>簡介
@@ -68,7 +68,7 @@ OMS 的核心功能是由在 Azure 中執行的一組服務所提供。 每個�
 | :------------- | :-------------|
 | Log Analytics | 監視及分析不同資源 (包括實體和虛擬機器) 的可用性和效能。 |
 |自動化 | 讓手動程序自動化，並強制設定實體和虛擬機器。 |
-| Backup  | 備份及還原重要資料。 |
+| 備份 | 備份及還原重要資料。 |
 | Site Recovery | 為重要應用程式提供高可用性。 |
 
 ### <a name="log-analytics"></a>Log Analytics

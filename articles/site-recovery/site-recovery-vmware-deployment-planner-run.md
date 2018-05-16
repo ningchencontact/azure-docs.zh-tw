@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/09/2018
+ms.date: 05/02/2018
 ms.author: nisoneji
-ms.openlocfilehash: d7b65771555fcada741b594c14b98e87e7448b24
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1d9fa845171ffa5a40ce569170dfbb577ea4e8c8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>針對 VMware 到 Azure 執行 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery Deployment Planner 使用者指南。
@@ -86,7 +86,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Port|(選用) 要連線到 vCenter/ESXi 主機的連接埠號碼。 預設連接埠為 443。|
 |-Protocol| (選用) 指定用來連線至 vCenter 的通訊協定 ('http' 或 'https')。 預設通訊協定為 https。|
 | -StorageAccountName | (選用) 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫可達成的輸送量。 此工具會將測試資料上傳到此儲存體帳戶，以計算輸送量。 儲存體帳戶必須是一般用途 v1 或 storageV2 (一般用途 v2)|
-| -StorageAccountKey | (選用) 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 [Azure 入口網站] > [儲存體帳戶] > [<儲存體帳戶名稱>] > [設定] > [存取金鑰] > [Key1]。 |
+| -StorageAccountKey | (選用) 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 [Azure 入口網站] > *儲存體帳戶*儲存體帳戶名稱設定存取金鑰Key1 。 |
 | -Environment | (選擇性) 這是您的目標 Azure 儲存體帳戶環境。 可以是下列三個值之一 - AzureCloud、AzureUSGovernment、AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure China 雲端時，請使用此參數。 |
 
 

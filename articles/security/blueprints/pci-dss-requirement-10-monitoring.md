@@ -3,7 +3,7 @@ title: Azure 付款處理藍圖 - 監視需求
 description: PCI DSS 需求 10
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 293a1673-54bc-478c-9400-231074004eee
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 708c57c1d7b79d3fd3c129de9a7ce4099ab6ac36
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: d3d26d31c592c34d1e51c3e2c2d6501edefa8dce
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="monitoring-requirements-for-pci-dss-compliant-environments"></a>符合 PCI DSS 規範之環境的監視需求 
 ## <a name="pci-dss-requirement-10"></a>PCI DSS 需求 10
@@ -288,7 +288,7 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="pci-dss-requirement-108"></a>PCI DSS 需求 10.8
 
-**10.8** **僅適用於服務提供者的額外需求：**實作能及時偵測並報告重大安全性控制系統失敗的程序，失敗項目包括但不限於：
+**10.8** **僅適用於服務提供者的額外需求：** 實作能及時偵測並報告重大安全性控制系統失敗的程序，失敗項目包括但不限於：
 - 防火牆
 - IDS/IPS
 - FIM
@@ -314,7 +314,7 @@ ms.lasthandoff: 04/16/2018
 
 ### <a name="pci-dss-requirement-1081"></a>PCI DSS 需求 10.8.1
 
-**10.8.1** **適用於服務提供者的額外需求：**及時回應任何重大安全性控制的失敗。 回應安全性控制失敗的程序必須包括：
+**10.8.1** **適用於服務提供者的額外需求：** 及時回應任何重大安全性控制的失敗。 回應安全性控制失敗的程序必須包括：
 - 還原安全性功能
 - 識別並記錄安全性失敗的持續時間 (開始至結束的日期和時間)
 - 識別並記錄失敗的原因 (包括根本原因)，並記錄處理根本原因所需的補救步驟

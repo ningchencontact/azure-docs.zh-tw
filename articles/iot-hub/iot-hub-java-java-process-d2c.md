@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT 中樞路由傳送訊息 (Java) | Microsoft Docs"
-description: "如何使用路由規則和自訂端點來處理 Azure IoT 中樞裝置到雲端的訊息，以將訊息分派至其他後端服務。"
+title: 使用 Azure IoT 中樞路由傳送訊息 (Java) | Microsoft Docs
+description: 如何使用路由規則和自訂端點來處理 Azure IoT 中樞裝置到雲端的訊息，以將訊息分派至其他後端服務。
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bd9af5f9-a740-4780-a2a6-8c0e2752cf48
 ms.service: iot-hub
 ms.devlang: java
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: 92ab10e5b8487e03d92b69114a2e3c5302f95ed6
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ff45e9d717b93f89eb8f751294788f08a2fd4592
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-messages-with-iot-hub-java"></a>使用 IoT 中樞路由傳送訊息 (Java)
 
@@ -208,7 +208,7 @@ Azure IoT 中樞是一項完全受控的服務，可在數百萬個裝置和一�
 
 [如何使用 IoT 中樞傳送雲端到裝置訊息][lnk-c2d]示範如何從解決方案後端將訊息傳送至您的裝置。
 
-若要查看使用 IoT 中樞的完整端對端解決方案範例，請參閱 [Azure IoT 套件][lnk-suite]。
+若要查看使用 IoT 中樞的完整端對端解決方案範例，請參閱 [Azure IoT 遠端監視解決方案加速器][lnk-suite]。
 
 若要深入了解如何使用 IoT 中樞開發解決方案，請參閱 [IoT 中樞開發人員指南]。
 

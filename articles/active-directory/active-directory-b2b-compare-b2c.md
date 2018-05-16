@@ -2,25 +2,19 @@
 title: 比較 Azure Active Directory 的 B2B 共同作業和 B2C | Microsoft Docs
 description: Azure Active Directory B2B 共同作業和 Azure AD B2C 有何不同？
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 03/15/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 32d7d135e67a05b59279e647c1fb2aa8c9686cef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0e8781fcf2710b00ba352bff29a370cbb73e0648
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>比較 Azure Active Directory 的 B2B 共同作業和 B2C
 
@@ -41,16 +35,6 @@ B2B 共同作業 |     Azure AD B2C 獨立供應項目
 
 ### <a name="next-steps"></a>後續步驟
 
-請瀏覽有關 Azure AD B2B 共同作業的其他文章：
+- [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [B2B 共同作業使用者屬性](active-directory-b2b-user-properties.md)
 
-* [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B 共同作業使用者屬性](active-directory-b2b-user-properties.md)
-* [將 B2B 共同作業使用者新增至角色](active-directory-b2b-add-guest-to-role.md)
-* [委派 B2B 共同作業邀請](active-directory-b2b-delegate-invitations.md)
-* [動態群組和 B2B 共同作業](active-directory-b2b-dynamic-groups.md)
-* [設定適用於 B2B 共同作業的 SaaS 應用程式](active-directory-b2b-configure-saas-apps.md)
-* [B2B 共同作業使用者權杖](active-directory-b2b-user-token.md)
-* [B2B 共同作業使用者宣告對應](active-directory-b2b-claims-mapping.md)
-* [Office 365 外部共用](active-directory-b2b-o365-external-user.md)
-* [B2B 共同作業目前的限制](active-directory-b2b-current-limitations.md)
-* [取得 B2B 共同作業的支援](active-directory-b2b-support.md)

@@ -2,26 +2,22 @@
 title: 搭配 AD FS 2.0 使用 Azure MFA Server | Microsoft Docs
 description: 這是說明如何開始使用 Azure MFA 和 AD FS 2.0 的 Azure Multi-Factor Authentication 頁面。
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: 96168849-241a-4499-a224-d829913caa7e
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 06/14/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: a638992c37a5af9fc8433ae6afc25d01aa6b49d9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 71591bb543eedc200cb47bc5871d157f4d5ff2c5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>設定 Azure Multi-Factor Authentication Server 以與 AD FS 2.0 搭配運作
+
 本文適用對象為使用 Azure Active Directory 進行同盟，並想要保護內部部署資源或雲端資源的組織。 請使用 Azure Multi-factor Authentication Server 保護您的資源，並將其設定為可與 AD FS 搭配運作，以便觸發雙步驟驗證來獲得高價值的端點。
 
 這份文件將說明如何搭配 AD FS 2.0 使用 Azure Multi-Factor Authentication Server。 如需 AD FS 的相關資訊，請參閱[搭配 Windows Server 2012 R2 AD FS 使用 Azure Multi-Factor Authentication Server 保護雲端和內部部署資源](howto-mfaserver-adfs-2012.md)。
@@ -98,7 +94,7 @@ ms.lasthandoff: 04/23/2018
 
    <center>![設定](./media/howto-mfaserver-adfs-2/noproxy.png)</center>
 
-8. 按一下 [SERVICEPRINCIPAL] 。
+8. 按一下 [確定]。
 9. 按一下 [原生模組] 索引標籤，然後選取伺服器、網站 (例如 [預設網站]) 或 AD FS 應用程式 (例如 "adfs" 之下的 "ls")，以在所需的層級啟用 IIS 外掛程式。
 10. 按一下畫面頂端的 [啟用 IIS 驗證] 方塊。
 

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 66f0d0064fe59c6e1d249eb69c1b433fe661c513
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3391213600300067ad1685e4f8cccacbf52de86e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配圖形 API 進行開發
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
@@ -121,7 +121,7 @@ Azure Cosmos DB 使用 [GraphSON 電傳格式](gremlin-support.md)，此格式�
 `Microsoft.Azure.Graphs.Elements` 命名空間提供 `Vertex`、`Edge`、`Property` 及 `VertexProperty` 類別來將 GraphSON 回應還原序列化為已妥善定義的 .NET 物件。
 
 ## <a name="run-gremlin-using-creategremlinquery"></a>使用 CreateGremlinQuery 來執行 Gremlin
-Gremlin (例如 SQL) 支援讀取、寫入及查詢作業。 例如，下列程式碼片段說明如何建立頂點、邊緣、使用 `CreateGremlinQuery<T>` 來執行一些範例查詢，以及使用 `ExecuteNextAsync` 和 HasMoreResults 以非同步方式逐一查看這些結果。
+Gremlin (例如 SQL) 支援讀取、寫入及查詢作業。 例如，下列程式碼片段說明如何建立頂點、邊緣、使用 `CreateGremlinQuery<T>` 來執行一些範例查詢，以及使用 `ExecuteNextAsync` 和 `HasMoreResults` 以非同步方式逐一查看這些結果。
 
 ```cs
 Dictionary<string, string> gremlinQueries = new Dictionary<string, string>

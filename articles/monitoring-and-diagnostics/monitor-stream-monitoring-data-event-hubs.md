@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>將 Azure 監視資料串流至事件中樞以供外部工具取用
 
@@ -27,12 +27,12 @@ Azure 監視器有提供單一管道以存取 Azure 環境的所有監視資料�
 
 Azure 環境內有數個「層級」的監視資料，而存取每一層資料的方法都略有不同。 一般而言，針對各層的描述如下：
 
-- **應用程式監視資料：**您所撰寫並在 Azure 上執行之程式碼的效能和功能相關資料。 應用程式監視資料的範例包括效能追蹤、應用程式記錄，以及使用者遙測。 應用程式監視資料通常會以下列其中一種方式收集：
+- **應用程式監視資料：** 您所撰寫並在 Azure 上執行之程式碼的效能和功能相關資料。 應用程式監視資料的範例包括效能追蹤、應用程式記錄，以及使用者遙測。 應用程式監視資料通常會以下列其中一種方式收集：
   - 透過使用 [Application Insights SDK](../application-insights/app-insights-overview.md) 之類的 SDK 來檢測程式碼。
   - 透過執行會在執行應用程式的電腦上接聽新應用程式記錄的監視代理程式，例如 [Windows Azure 診斷代理程式](./azure-diagnostics.md)或 [Linux Azure 診斷代理程式](../virtual-machines/linux/diagnostic-extension.md)。
-- **客體 OS 監視資料：**有關執行應用程式之作業系統的資料。 客體 OS 監視資料的範例為 Linux syslog 或 Windows 系統事件。 若要收集這類資料，您必須安裝像是 [Windows Azure 診斷代理程式](./azure-diagnostics.md)或 [Linux Azure 診斷代理程式](../virtual-machines/linux/diagnostic-extension.md) 這類的代理程式。
-- **Azure 資源監視資料：**有關 Azure 資源之作業的資料。 針對某些 Azure 資源類型 (例如虛擬機器)，在該 Azure 服務內會有要監視的客體 OS 與應用程式。 針對其他 Azure 資源 (例如網路安全性群組)，資源監視資料是最高層級的可用資料 (因為在那些資源中沒有執行任何客體 OS 或應用程式)。 這類資料可使用[資源診斷設定](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)來收集。
-- **Azure 平台監視資料：**有關 Azure 訂用帳戶或租用戶之作業和管理的資料，以及有關 Azure 本身之健康情況和作業的資料。 [活動記錄](./monitoring-overview-activity-logs.md)包括服務健康情況資料，而 Active Directory 稽核則是平台監視資料的範例。 這類資料也可以使用診斷設定來收集。
+- **客體 OS 監視資料：** 有關執行應用程式之作業系統的資料。 客體 OS 監視資料的範例為 Linux syslog 或 Windows 系統事件。 若要收集這類資料，您必須安裝像是 [Windows Azure 診斷代理程式](./azure-diagnostics.md)或 [Linux Azure 診斷代理程式](../virtual-machines/linux/diagnostic-extension.md) 這類的代理程式。
+- **Azure 資源監視資料：** 有關 Azure 資源之作業的資料。 針對某些 Azure 資源類型 (例如虛擬機器)，在該 Azure 服務內會有要監視的客體 OS 與應用程式。 針對其他 Azure 資源 (例如網路安全性群組)，資源監視資料是最高層級的可用資料 (因為在那些資源中沒有執行任何客體 OS 或應用程式)。 這類資料可使用[資源診斷設定](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)來收集。
+- **Azure 平台監視資料：** 有關 Azure 訂用帳戶或租用戶之作業和管理的資料，以及有關 Azure 本身之健康情況和作業的資料。 [活動記錄](./monitoring-overview-activity-logs.md)包括服務健康情況資料，而 Active Directory 稽核則是平台監視資料的範例。 這類資料也可以使用診斷設定來收集。
 
 來自任何層的資料都能傳送至事件中樞，然後再提取至夥伴工具。 以下幾節說明如何設定來自每一層的資料，以串流至事件中樞。 當中的步驟均假設您在要監視的層級皆已具有資產。
 
@@ -79,7 +79,7 @@ Azure 資源會發出兩種監視資料：
 
 ### <a name="stream-linux-data-to-an-event-hub"></a>將 Linux 資料串流至事件中樞
 
-[Linux Azure 診斷代理程式](../virtual-machines/linux/diagnostic-extension.md)可用來將 Linux 電腦的監視資料傳送至事件中樞。 若要執行此動作，請在 LAD 設定檔保護的設定 JSON 中，將事件中樞新增為接收裝置。 [請參閱此文章以深入了解將事件中樞接收新增至 Linux Azure 診斷代理程式](../virtual-machines/linux/diagnostic-extension.md#protected-settings)。
+[Linux Azure 診斷代理程式](../virtual-machines/extensions/diagnostics-linux.md)可用來將 Linux 電腦的監視資料傳送至事件中樞。 若要執行此動作，請在 LAD 設定檔保護的設定 JSON 中，將事件中樞新增為接收裝置。 [請參閱此文章以深入了解將事件中樞接收新增至 Linux Azure 診斷代理程式](../virtual-machines/extensions/diagnostics-linux.md#protected-settings)。
 
 > [!NOTE]
 > 您無法在入口網站中進行將客體 OS 監視資料串流至事件中樞的設定。 相反地，您必須手動編輯設定檔。

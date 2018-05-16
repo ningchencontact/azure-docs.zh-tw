@@ -1,12 +1,12 @@
 ---
-title: "預防性維護解決方案的逐步解說 - Azure | Microsoft Docs"
-description: "預先設定之 Azure IoT 預測性維護解決方案的逐步解說。"
-services: 
+title: 預測性維護解決方案加速器的逐步解說 - Azure | Microsoft Docs
+description: Azure IoT 預測性維護解決方案加速器的逐步解說。
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3c48a716-b805-4c99-8177-414cc4bec3de
 ms.service: iot-suite
 ms.devlang: na
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: e9e0024c645d0e04e7cf9b17e440d7d8c10af232
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 397ac3c8b9caa5c392aff4683df2db3b2144899b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>預先設定的預測性維護解決方案逐步解說
+# <a name="predictive-maintenance-solution-accelerator-walkthrough"></a>預測性維護解決方案加速器的逐步解說
 
-預先設定的預測性維護解決方案是一個端對端解決方案，適用於預測可能發生失敗之時間點的商務案例。 您可以針對最佳化維護等活動，主動使用此預先設定的解決方案。 此解決方案結合了主要 Azure IoT 套件服務，例如 IoT 中樞、串流分析和 [Azure Machine Learning][lnk-machine-learning] 工作區。 此工作區包含以公開範例資料集為基礎的模型，用來預測飛機引擎的剩餘使用年限 (RUL)。 此解決方案完整提供 IoT 商務案例的實作作為起點，讓您規劃和實作能滿足特定商務需求的解決方案。
+預測性維護解決方案加速器是一個端對端解決方案，適用於預測可能發生失敗之時間點的商務案例。 您可以針對最佳化維護等活動，主動使用此解決方案加速器。 此解決方案結合了主要 Azure IoT 解決方案加速器服務，例如 IoT 中樞、串流分析和 [Azure Machine Learning][lnk-machine-learning] 工作區。 此工作區包含以公開範例資料集為基礎的模型，用來預測飛機引擎的剩餘使用年限 (RUL)。 此解決方案完整提供 IoT 商務案例的實作作為起點，讓您規劃和實作能滿足特定商務需求的解決方案。
 
 ## <a name="logical-architecture"></a>邏輯架構
 
-下圖概述預先設定解決方案的邏輯元件：
+下圖概述解決方案加速器的邏輯元件：
 
 ![][img-architecture]
 
-藍色項目是在您佈建預先設定之解決方案的區域中所佈建的 Azure 服務。 您可以在其中部署預先設定之解決方案的地區清單會顯示於[佈建頁面][lnk-azureiotsuite]。
+藍色項目是在您佈建解決方案加速器的區域中所佈建的 Azure 服務。 您可以在其中部署解決方案加速器的地區清單會顯示於[佈建頁面][lnk-azureiotsuite]。
 
 綠色項目是表示飛機引擎的模擬裝置。 您可以在[模擬裝置](#simulated-devices)一節中進一步了解這些模擬裝置。
 
-灰色項目代表可實作「裝置管理」功能的元件。 目前預先設定的預測性維護解決方案版本不會佈建這些資源。 若要深入了解裝置管理，請參閱[遠端監視預先設定的解決方案][lnk-remote-monitoring]。
+灰色項目代表可實作「裝置管理」功能的元件。 目前的預測性維護解決方案加速器版本不會佈建這些資源。 若要深入了解裝置管理，請參閱[遠端監視預先設定的解決方案][lnk-remote-monitoring]。
 
 ## <a name="simulated-devices"></a>模擬的裝置
 
-在預先設定的解決方案中，模擬裝置代表飛機引擎。 此解決方案已佈建兩個對應至單一飛機的引擎。 每個引擎會發出四種類型的遙測：感應器 9、感應器 11、感應器 14 和感應器 15 會提供 Machine Learning 模型來計算該引擎的 RUL 所需的資料。 每個模擬的裝置會將下列遙測訊息傳送至 IoT 中樞：
+在解決方案加速器中，模擬裝置代表飛機引擎。 此解決方案已佈建兩個對應至單一飛機的引擎。 每個引擎會發出四種類型的遙測：感應器 9、感應器 11、感應器 14 和感應器 15 會提供 Machine Learning 模型來計算該引擎的 RUL 所需的資料。 每個模擬的裝置會將下列遙測訊息傳送至 IoT 中樞：
 
 *週期計數*。 週期表示已完成持續期間介於 2 小時與 10 小時之間的飛行。 在飛行期間，每半小時擷取一次遙測資料。
 
-*遙測*。 有四個代表引擎屬性的感應器。 這些感應器會一般會標示為感應器 9、感應器 11、感應器 14 和感應器 15。 這 4 個感應器代表足以從 RUL 模型取得有用結果的遙測。 用於預先設定之解決方案中的模型是根據包含實際引擎感應器資料的公用資料集建立而來。 如需有關如何從原始資料集建立模型的詳細資訊，請參閱 [Cortana Intelligence Gallery 預測性維護範本][lnk-cortana-analytics]。
+*遙測*。 有四個代表引擎屬性的感應器。 這些感應器會一般會標示為感應器 9、感應器 11、感應器 14 和感應器 15。 這 4 個感應器代表足以從 RUL 模型取得有用結果的遙測。 用於解決方案加速器中的模型是根據包含實際引擎感應器資料的公用資料集建立而來。 如需有關如何從原始資料集建立模型的詳細資訊，請參閱 [Cortana Intelligence Gallery 預測性維護範本][lnk-cortana-analytics]。
 
 模擬的裝置可以處理從解決方案中 IoT 中樞傳送的下列命令：
 
@@ -69,11 +69,11 @@ Machine Learning 元件使用的模型衍生自從真實飛機引擎收集而來
 
 
 ## <a name="next-steps"></a>後續步驟
-您現在已看到預先設定之預測性維護解決方案的主要元件，您可加以自訂。 請參閱[自訂預先設定的解決方案指引][lnk-customize]。
+您現在已看到預測性維護解決方案加速器的主要元件，您可加以自訂。 請參閱[自訂解決方案加速器指引][lnk-customize]。
 
-您也可以瀏覽一些其他功能和預先設定的 IoT 套件解決方案的功能︰
+您也可以探索 IoT 解決方案加速器的一些其他特性與功能：
 
-* [IoT 套件的常見問題集][lnk-faq]
+* [IoT 解決方案加速器的常見問題集][lnk-faq]
 * [從頭建立 IoT 安全性][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png

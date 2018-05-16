@@ -1,6 +1,6 @@
 ---
-title: Azure Container Service (AKS) 上的 GPU
-description: 在 Azure Container Service (AKS) 上使用 GPU
+title: Azure Kubernetes Service (AKS) 上的 GPU
+description: 在 Azure Kubernetes Service (AKS) 上使用 GPU
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 6c30c966ad88f904ee652d88abd1717819077d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1e07845591583c7159958d4e2eb7eeb2f126b75f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-gpus-on-aks"></a>在 AKS 上使用 GPU
 
@@ -22,7 +22,7 @@ AKS 支援建立已啟用 GPU 的節點集區。 Azure 目前提供單一或多�
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
 
 計算密集型工作負載 (例如圖形密集型和視覺效果工作負載) 通常需要 GPU。 請參考下列[文件](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu)以判斷您工作負載的正確虛擬機器大小。
-針對您的 Azure Container Service (AKS) 節點，我們建議使用 `Standard_NC6` 大小的最小值。
+針對您的 Azure Kubernetes Service (AKS) 節點，我們建議使用 `Standard_NC6` 大小的最小值。
 
 > [!NOTE]
 > 已啟用 GPU 的虛擬機器包含特定硬體，該特定硬體受限於較高的定價和區域可用性。 如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/)工具和[區域可用性](https://azure.microsoft.com/global-infrastructure/services/)網站。
@@ -50,7 +50,7 @@ az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
 
 ## <a name="confirm-gpus-are-schedulable"></a>確認 GPU 可排程
 
-執行下列命令以確認 GPU 可以透過 Kubernetes 進行排程。 
+執行下列命令以確認 GPU 可以透過 Kubernetes 進行排程。
 
 取得目前的節點清單。
 
@@ -165,7 +165,7 @@ spec:
       volumes:
         - name: nvidia
           hostPath:
-            path: /usr/local/nvidia         
+            path: /usr/local/nvidia
 ```
 
 使用 [kubectl create][kubectl-create] 命令來執行作業。 此命令會剖析資訊清單檔，並建立已定義的 Kubernetes 物件。

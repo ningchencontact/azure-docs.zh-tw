@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: ed87eab6250eea753bc3b0abd97182d1b869420c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>自訂 Azure App Service 中的驗證與授權
 
@@ -25,7 +25,8 @@ ms.lasthandoff: 04/16/2018
 
 若要快速開始，請參閱下列其中一個教學課程︰
 
-* [教學課程：在 Azure App Service 中端對端驗證和授權使用者](app-service-web-tutorial-auth-aad.md)
+* [教學課程：在 Azure App Service 中端對端驗證和授權使用者 (Windows)](app-service-web-tutorial-auth-aad.md)
+* [教學課程：在適用於 Linux 的 Azure App Service 中端對端驗證和授權使用者](containers/tutorial-auth-aad.md)
 * [如何設定您的 App 以使用 Azure Active Directory 登入](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [如何設定 App 以使用 Facebook 登入](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [如何設定 App 以使用 Google 登入](app-service-mobile-how-to-configure-google-authentication.md)
@@ -148,4 +149,5 @@ Microsoft 帳戶和 Azure Active Directory 都可讓您從多個網域登入。 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [教學課程：端對端驗證和授權使用者](app-service-web-tutorial-auth-aad.md)
+> [教學課程：端對端驗證和授權使用者 (Windows)](app-service-web-tutorial-auth-aad.md)
+> [教學課程：端對端驗證和授權使用者 (Linux)](containers/tutorial-auth-aad.md)

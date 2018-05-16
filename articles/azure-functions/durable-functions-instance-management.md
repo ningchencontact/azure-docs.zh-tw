@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e573b4973ea30b990043b54c5cdcf0805135a40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>在 Durable Functions (Azure Functions) 中管理執行個體
 
@@ -50,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-使用非 .NET 語言時，函式輸出繫結也可以用來啟動新的執行個體。 在此情況下，有上述三個參數作為欄位的任何 JSON 可序列化物件都可使用。 例如，假設有下列 Node.js 函式：
+使用非 .NET 語言時，函式輸出繫結也可以用來啟動新的執行個體。 在此情況下，有上述三個參數作為欄位的任何 JSON 可序列化物件都可使用。 例如，假設有下列 JavaScript 函式：
 
 ```js
 module.exports = function (context, input) {
@@ -77,6 +77,7 @@ module.exports = function (context, input) {
 * **CreatedTime**：協調器函式開始執行的時間。
 * **LastUpdatedTime**：協調流程前次執行檢查點檢查的時間。
 * **Input**：函式的 JSON 值輸入。
+* **CustomStatus**：JSON 格式的自訂協調流程狀態。 
 * **Output**：函式的 JSON 值輸出 (如果函式已完成)。 如果協調器函式失敗，此屬性會包含失敗詳細資料。 如果協調器函式終止，此屬性會包含提供的終止原因 (如果有的話)。
 * **RuntimeStatus**：下列其中一個值：
     * **Running**：執行個體已開始執行。
@@ -99,9 +100,6 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> 目前只有 C# 協調器函式才支援查詢執行個體。
-
 ## <a name="terminating-instances"></a>終止執行個體
 
 您可以使用 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) 類別的 [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) 方法來終止執行中的協調流程執行個體。 兩個參數是 `instanceId` 和 `reason` 字串，將會寫入記錄和執行個體狀態中。 終止的執行個體會在到達下一個 `await` 點時就停止執行，但如果已處於 `await`，則會立即終止。 
@@ -116,9 +114,6 @@ public static Task Run(
     return client.TerminateAsync(instanceId, reason);
 }
 ```
-
-> [!NOTE]
-> 目前只有 C# 協調器函式才支援終止執行個體。
 
 > [!NOTE]
 > 執行個體終止目前未傳播。 無論呼叫活動函式和子協調流程的協調流程執行個體是否已終止，這些活動函式和子協調流程皆會執行到完成為止。
@@ -145,9 +140,6 @@ public static Task Run(
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
 }
 ```
-
-> [!NOTE]
-> 目前只有 C# 協調器函式才支援引發事件。
 
 > [!WARNING]
 > 如果沒有協調流程執行個體具有指定的「執行個體識別碼」，或執行個體並未等候指定的「事件名稱」，則會捨棄事件訊息。 如需這個行為的詳細資訊，請參閱 [GitHub 問題](https://github.com/Azure/azure-functions-durable-extension/issues/29)。

@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager 範本結構和語法 | Microsoft Docs"
-description: "使用宣告式 JSON 語法描述 Azure Resource Manager 範本的結構和屬性。"
+title: Azure Resource Manager 範本結構和語法 | Microsoft Docs
+description: 使用宣告式 JSON 語法描述 Azure Resource Manager 範本的結構和屬性。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 05/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: b0bc5abd768be0fa5876aaef108cd71a15d94510
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 3b70817f973f0bfbdcec2aa8c76a431eec308bcf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 本文說明 Azure Resource Manager 範本的結構。 它會呈現範本的不同區段，以及這些區段中可用的屬性。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。 如需建立範本的逐步教學課程，請參閱[建立第一個 Azure Resource Manager 範本](resource-manager-create-first-template.md)。
@@ -32,6 +32,7 @@ ms.lasthandoff: 12/15/2017
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
+    "functions": {  },
     "resources": [  ],
     "outputs": {  }
 }
@@ -43,6 +44,7 @@ ms.lasthandoff: 12/15/2017
 | contentVersion |yes |範本版本 (例如 1.0.0.0)。 您可以為此元素提供任何值。 使用範本部署資源時，這個值可用來確定使用的是正確的範本。 |
 | parameters |否 |執行部署以自訂資源部署時所提供的值。 |
 | variables |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
+| functions |否 |範本中可用的使用者定義函式。 |
 | resources |yes |在資源群組中部署或更新的資源類型。 |
 | outputs |否 |部署後傳回的值。 |
 
@@ -92,6 +94,25 @@ ms.lasthandoff: 12/15/2017
             }
         ]
     },
+    "functions": [
+      {
+        "namespace": "<namespace-for-your-function>",
+        "members": {
+          "<function-name>": {
+            "parameters": [
+              {
+                "name": "<parameter-name>",
+                "type": "<type-of-parameter-value>"
+              }
+            ],
+            "output": {
+              "type": "<type-of-output-value>",
+              "value": "<function-expression>"
+            }
+          }
+        }
+      }
+    ],
     "resources": [
       {
           "condition": "<boolean-value-whether-to-deploy>",
@@ -184,6 +205,59 @@ ms.lasthandoff: 12/15/2017
 ```
 
 如需定義變數的詳細資訊，請參閱 [Azure Resource Manager 範本的 Variables 區段](resource-manager-templates-variables.md)。
+
+## <a name="functions"></a>Functions
+
+在您的範本內，您可以建立自己的函式。 這些函式可供您在範本中使用。 您通常會定義不想在整個範本中重複使用的複雜運算式。 您會從範本中支援的運算式和[函式](resource-group-template-functions.md)建立使用者定義的函式。
+
+在定義使用者函式時，有一些限制：
+
+* 此函式無法存取變數。
+* 此函式不能使用[參考函式](resource-group-template-functions-resource.md#reference)。
+* 函式的參數不能有預設值。
+
+您的函式需要命名空間值，以避免範本函式發生命名衝突。 下列範例說明可傳回儲存體帳戶名稱的函式：
+
+```json
+"functions": [
+  {
+    "namespace": "contoso",
+    "members": {
+      "uniqueName": {
+        "parameters": [
+          {
+            "name": "namePrefix",
+            "type": "string"
+          }
+        ],
+        "output": {
+          "type": "string",
+          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
+        }
+      }
+    }
+  }
+],
+```
+
+您呼叫函式的方式：
+
+```json
+"resources": [
+  {
+    "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2016-01-01",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "location": "South Central US",
+    "tags": {},
+    "properties": {}
+  }
+]
+```
 
 ## <a name="resources"></a>資源
 在資源區段中，您會定義要部署或更新的資源。 此區段會變得複雜，因為您必須了解您要部署的類型才能提供正確的值。

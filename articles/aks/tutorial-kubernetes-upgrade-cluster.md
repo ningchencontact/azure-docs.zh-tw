@@ -3,21 +3,21 @@ title: Azure 上的 Kubernetes 教學課程 - 更新叢集
 description: Azure 上的 Kubernetes 教學課程 - 更新叢集
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8340ca9d95e7600e2500755de252e7f6c6de9343
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0886d13b62b6b8ad1c0dcd430ce48bcc51d6d465
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-upgrade-kubernetes-in-azure-container-service-aks"></a>教學課程：在 Azure Container Service (AKS) 中升級 Kubernetes
+# <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>教學課程：在 Azure Kubernetes Service (AKS) 中升級 Kubernetes
 
-使用 Azure CLI 可以升級 Azure Container Service (AKS) 叢集。 在升級過程中，會仔細地[隔離並清空][kubernetes-drain] Kubernetes 節點，將執行應用程式的中斷情況降到最低。
+使用 Azure CLI 可以升級 Azure Kubernetes Service (AKS) 叢集。 在升級過程中，會仔細地[隔離並清空][kubernetes-drain] Kubernetes 節點，將執行應用程式的中斷情況降到最低。
 
 在本教學課程 (八個章節的第八部分) 中升級了 Kubernetes 叢集。 您完成的工作包括：
 

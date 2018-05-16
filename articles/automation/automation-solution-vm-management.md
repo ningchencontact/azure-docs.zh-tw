@@ -3,16 +3,17 @@ title: 「停機期間啟動/停止 VM」解決方案 (預覽)
 description: 此虛擬機器管理解決方案會依照排程啟動和停止 Azure Resource Manager 虛擬機器，並從 Log Analytics 主動監視。
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 41a5ff2613706b7454a96daa52c7cb20c734c394
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 410f76d406ab65ff1732525a501fe007eeeb5f6a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案 (預覽)
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/19/2018
 
 ## <a name="prerequisites"></a>先決條件
 
-* Runbook 會使用 [Azure 執行身分帳戶](automation-offering-get-started.md#authentication-methods)。 執行身分帳戶是慣用的驗證方法，因為它使用憑證驗證，而不是會過期或經常變更的密碼。
+* Runbook 會使用 [Azure 執行身分帳戶](automation-create-runas-account.md)。 執行身分帳戶是慣用的驗證方法，因為它使用憑證驗證，而不是會過期或經常變更的密碼。
 * 這個解決方案只管理與 Azure 自動化帳戶位於相同訂用帳戶中的虛擬機器。
 * 這個解決方案只能部署到下列 Azure 區域：澳大利亞東南部、加拿大中部、印度中部、美國東部、日本東部、東南亞、英國南部和西歐。
 
@@ -80,8 +81,8 @@ ms.lasthandoff: 04/19/2018
    * 選取**排程**。 這是一個週期性日期和時間，可用於啟動及停止目標資源群組中的虛擬機器。 根據預設，排程會設定為 UTC 時區。 無法選取不同的區域。 在設定解決方案後，若要將排程設定為特定時區，請參閱[修改啟動和關機排程](#modify-the-startup-and-shutdown-schedule)。
    * 若要從 SendGrid 接收**電子郵件通知**，請接受預設值 [是]，並提供有效的電子郵件地址。 如果您選取 [否]，但在日後決定想要收到電子郵件通知，您可以使用以逗號分隔的有效電子郵件地址更新 **External_EmailToAddress** 變數，然後將變數 **External_IsSendEmail** 的值修改為 [是]。
 
-> [!IMPORTANT]
-> 「目標資源群組名稱」的預設值為 **&ast;**。 這樣會以訂用帳戶中的所有 VM 為目標。 如果您不想解決方案以您訂用帳戶中的所有 VM 為目標，在啟用排程之前，必須先將此值更新為資源群組名稱清單。
+    > [!IMPORTANT]
+    > 「目標資源群組名稱」的預設值為 **&ast;**。 這樣會以訂用帳戶中的所有 VM 為目標。 如果您不想解決方案以您訂用帳戶中的所有 VM 為目標，在啟用排程之前，必須先將此值更新為資源群組名稱清單。
 
 1. 設定好解決方案所需的初始設定後，按一下 [確定] 以關閉 [參數] 頁面，然後選取 [建立]。 驗證過所有設定之後，解決方案即會部署到您的訂用帳戶。 此程序需要幾秒鐘才能完成，您可以在功能表的 [通知] 底下追蹤其進度。
 
@@ -218,7 +219,7 @@ ms.lasthandoff: 04/19/2018
 
 ### <a name="schedules"></a>排程
 
-下表列出在您的自動化帳戶中建立的各個預設排程。  您可以修改它們，或建立自己的自訂排程。 這些排程預設皆為停用，除了 **Scheduled_StartVM** 和 **Scheduled_StopVM** 之外。
+下表列出在您的自動化帳戶中建立的各個預設排程。 您可以修改它們，或建立自己的自訂排程。 這些排程預設皆為停用，除了 **Scheduled_StartVM** 和 **Scheduled_StopVM** 之外。
 
 您不應啟用所有排程，因為這樣可能會產生重疊的排程動作。 最好能先判斷要執行哪些最佳化，並據以做出相對應的修改。 如需進一步說明，請參閱＜概觀＞一節中的範例案例。
 
@@ -226,7 +227,7 @@ ms.lasthandoff: 04/19/2018
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | 每 8 小時 | 每隔 8 小時會執行 AutoStop_CreateAlert_Parent Runbook，這會停止在 Azure 自動化變數中 External_Start_ResourceGroupNames、External_Stop_ResourceGroupNames 和 External_ExcludeVMNames 中的虛擬機器基底值。 或者，您可以使用 VMList 參數指定以逗號分隔的虛擬機器清單。|
 |Scheduled_StopVM | 使用者定義，每日 | 每天會在指定時間搭配 *Stop* 參數執行 Scheduled_Parent Runbook。 會自動停止符合由資產變數所定義之規則的所有虛擬機器。 您應啟用相關排程 **Scheduled-StartVM**。|
-|Scheduled_StartVM | 使用者定義，每日 | 每天會在指定時間搭配 *Start* 參數執行 Scheduled_Parent Runbook。  會自動啟動符合由適當變數所定義之規則的所有虛擬機器。 您應啟用相關排程 **Scheduled-StopVM**。|
+|Scheduled_StartVM | 使用者定義，每日 | 每天會在指定時間搭配 *Start* 參數執行 Scheduled_Parent Runbook。 會自動啟動符合由適當變數所定義之規則的所有虛擬機器。 您應啟用相關排程 **Scheduled-StopVM**。|
 |Sequenced-StopVM | 上午 1:00 (UTC)，每星期五 | 每星期五會在指定時間搭配參數 *Stop* 執行 Sequenced_Parent Runbook。 會以循序方式 (遞增) 停止具有由適當變數定義之 **SequenceStop** 標記的所有虛擬機器。 如需標記值和資產變數的詳細資料，請參閱＜Runbook＞一節。 您應啟用相關排程 **Sequenced-StartVM**。|
 |Sequenced-StartVM | 下午 1:00 (UTC)，每星期一 | 每星期一會在指定時間搭配參數 *Start* 執行 Sequenced_Parent Runbook。 會以循序方式 (遞減) 啟動具有由適當變數定義之 **SequenceStart** 標記的所有虛擬機器。 如需標記值和資產變數的詳細資料，請參閱＜Runbook＞一節。 您應啟用相關排程 **Sequenced-StopVM**。|
 

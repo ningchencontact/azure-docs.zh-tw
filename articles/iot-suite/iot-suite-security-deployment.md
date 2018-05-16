@@ -1,12 +1,12 @@
 ---
-title: "保護您的物聯網 (IoT) 部署 | Microsoft Docs"
-description: "本文將詳細說明如何保護您的 IoT 部署"
-services: 
+title: 保護您的物聯網 (IoT) 部署 | Microsoft Docs
+description: 本文將詳細說明如何保護您的 IoT 部署
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 95c23341-16b0-4954-b3f2-d2e82ab7b367
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 3c2c5c045ad4786ed656fbaf99373644de244570
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c14d2082854fe88df9d1139c619b061699e443aa
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
-## <a name="iot-suite-cipher-suites"></a>IoT 套件加密套件
+## <a name="iot-solution-accelerator-cipher-suites"></a>IoT 解決方案加速器的加密套件
 
-Azure IoT 套件支援下列加密套件 (依此順序)。
+IoT 解決方案加速器會依照此順序支援下列加密套件。
 
 | 加密套件 | 長度 |
 | --- | --- |
@@ -42,10 +42,10 @@ Azure IoT 套件支援下列加密套件 (依此順序)。
 | TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
 
 ## <a name="see-also"></a>另請參閱
-您也可以瀏覽一些其他功能和預先設定的 IoT 套件解決方案的功能︰
+您也可以探索 IoT 解決方案加速器的一些其他特性與功能：
 
-* [預先設定的預防性維護解決方案概觀][lnk-predictive-overview]
-* [IoT 套件的常見問題集][lnk-faq]
+* [預測性維護解決方案加速器概觀][lnk-predictive-overview]
+* [IoT 解決方案加速器的常見問題集][lnk-faq]
 
 您可以在 IoT 中樞開發人員指南的[控制 IoT 中樞的存取權][lnk-devguide-security]中閱讀關於 IoT 中樞安全性的資訊。
 

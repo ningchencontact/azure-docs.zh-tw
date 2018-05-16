@@ -15,11 +15,11 @@ ms.date: 02/16/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5e99fba2f226e1e9b401bd8ef5b3b85a5e8c6a7c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a3df15743b4918d72fac5f8769a2d3ee721a452f
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="gdpr-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 應用程式 Proxy 中的 GDPR  
 
@@ -80,5 +80,5 @@ Azure Active Directory (Azure AD) 應用程式 Proxy 以及所有其他 Microsof
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 Azure AD 應用程式 proxy 的概觀，請參閱[如何為內部部署應用程式提供安全的遠端存取](active-directory-application-proxy-get-started.md)。
+如需 Azure AD 應用程式 proxy 的概觀，請參閱[如何為內部部署應用程式提供安全的遠端存取](manage-apps/application-proxy.md)。
 

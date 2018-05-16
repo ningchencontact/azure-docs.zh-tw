@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 8187a4bc6278f917c28418baf3cda2d75ea4e3d8
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d1dec6f2da4f6fcbeb38585fc6a1cfcd9d622c4a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure Functions 的 host.json 參考
 
@@ -142,6 +142,46 @@ ms.lasthandoff: 04/06/2018
 |isEnabled|true|啟用或停用取樣。| 
 |maxTelemetryItemsPerSecond|5|取樣的開始臨界值。| 
 
+## <a name="durabletask"></a>durableTask
+
+[Durable Functions](durable-functions-overview.md) 的組態設定。
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub",
+    "ControlQueueBatchSize": 32,
+    "PartitionCount": 4,
+    "ControlQueueVisibilityTimeout": "00:05:00",
+    "WorkItemQueueVisibilityTimeout": "00:05:00",
+    "MaxConcurrentActivityFunctions": 10,
+    "MaxConcurrentOrchestratorFunctions": 10,
+    "AzureStorageConnectionStringName": "AzureWebJobsStorage",
+    "TraceInputsAndOutputs": false,
+    "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+    "EventGridKeySettingName":  "EventGridKey"
+  }
+}
+```
+
+工作中樞名稱必須以字母開頭，且只包含字母和數字。 如果未指定，函式應用程式的預設工作中樞名稱是 **DurableFunctionsHub**。 如需詳細資訊，請參閱[工作中樞](durable-functions-task-hubs.md)。
+
+|屬性  |預設值 | 說明 |
+|---------|---------|---------|
+|HubName|DurableFunctionsHub|替代[工作中樞](durable-functions-task-hubs.md)名稱可用來彼此隔離多個 Durable Functions 應用程式，即使它們使用相同的儲存體後端。|
+|ControlQueueBatchSize|32|要從控制佇列中一次提取的訊息數。|
+|PartitionCount |4|控制佇列的資料分割計數。 必須是介於 1 到 16 之間的正整數。|
+|ControlQueueVisibilityTimeout |5 分鐘|已從控制佇列中清除之訊息的可見度逾時。|
+|WorkItemQueueVisibilityTimeout |5 分鐘|已從工作項目佇列中清除之訊息的可見度逾時。|
+|MaxConcurrentActivityFunctions |目前電腦上的 10 倍處理器數目|可以在單一主機執行個體上同時處理的活動函式數目上限。|
+|MaxConcurrentOrchestratorFunctions |目前電腦上的 10 倍處理器數目|可以在單一主機執行個體上同時處理的活動函式數目上限。|
+|AzureStorageConnectionStringName |AzureWebJobsStorage|具有 Azure 儲存體連接字串的應用程式設定名稱，而該連接字串用來管理基礎的 Azure 儲存體資源。|
+|TraceInputsAndOutputs |false|此值指出是否要追蹤函式呼叫的輸入和輸出。 追蹤函式執行事件時的預設行為就是在函式呼叫的序列化輸入和輸出中包含位元組數目。 這可提供輸入和輸出的最基本資訊，而不會讓記錄變大，或者不小心在記錄中公開敏感性資訊。 將此屬性設定為 true，會導致預設函式記錄功能記錄函式輸入和輸出的整個內容。|
+|EventGridTopicEndpoint ||Azure 事件方格自訂主題端點的 URL。 若已設定這個屬性，協調流程生命週期通知事件就會發佈到此端點。|
+|EventGridKeySettingName ||應用程式設定的名稱，其中包含在 `EventGridTopicEndpoint` 用來向 Azure 事件方格自訂主題進行驗證的金鑰。
+
+上述許多屬性適用於將效能最佳化。 如需詳細資訊，請參閱[效能和級別](durable-functions-perf-and-scale.md)。
+
 ## <a name="eventhub"></a>eventHub
 
 [事件中樞觸發程序和繫結](functions-bindings-event-hubs.md)的組態設定。
@@ -150,7 +190,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="functions"></a>functions
 
-工作主機將執行的函式清單。  空陣列表示已執行所有函式。  預定只能在[本機執行](functions-run-local.md)時使用。 在函式應用程式中，使用 *function.json* `disabled` 屬性，而不是 *host.json* 中的這個屬性。
+工作主機將執行的函式清單。 空陣列表示已執行所有函式。 預定只能在[本機執行](functions-run-local.md)時使用。 在函式應用程式中，使用 *function.json* `disabled` 屬性，而不是 *host.json* 中的這個屬性。
 
 ```json
 {
@@ -299,21 +339,6 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
     "watchDirectories": [ "Shared" ]
 }
 ```
-
-## <a name="durabletask"></a>durableTask
-
-[長期函式](durable-functions-overview.md)的[工作中樞](durable-functions-task-hubs.md)名稱。
-
-```json
-{
-  "durableTask": {
-    "HubName": "MyTaskHub"
-  }
-}
-```
-
-工作中樞名稱必須以字母開頭，僅包含字母和數字。 如果未指定，函式應用程式的預設工作中樞名稱是 **DurableFunctionsHub**。 如需詳細資訊，請參閱[工作中樞](durable-functions-task-hubs.md)。
-
 
 ## <a name="next-steps"></a>後續步驟
 

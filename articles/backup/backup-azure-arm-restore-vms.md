@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a25a2f40e93c291d4c69ee726c732468005d2cd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>使用 Azure 入口網站來還原虛擬機器
 於定義的間隔進行資料快照，來保護您的資料。 這些快照稱為復原點，而且儲存在復原服務保存庫中。 如果需要修復或重新建立虛擬機器 (VM)，您可以從任何已儲存的復原點還原 VM。 當您還原復原點時，您可以：
@@ -90,12 +90,12 @@ ms.lasthandoff: 04/28/2018
 
     [還原] 刀鋒視窗會顯示已設定還原點。
 
-9. 如果您尚未到達該位置，請移至 [還原] 刀鋒視窗。 確定[已選取還原點](#select-restore-point-for-restore)，然後選取**還原組態**。 [還原組態] 刀鋒視窗隨即開啟。
+9. 如果您尚未到達該位置，請移至 [還原] 刀鋒視窗。 確定[已選取還原點](#select-a-restore-point-for-restore)，然後選取**還原組態**。 [還原組態] 刀鋒視窗隨即開啟。
 
 ## <a name="choose-a-vm-restore-configuration"></a>選擇 VM 還原組態
 在選取還原點之後，請選擇 VM 還原組態。 若要設定還原的 VM，您可以使用 Azure 入口網站或 PowerShell。
 
-1. 如果您尚未到達該位置，請移至 [還原] 刀鋒視窗。 確定[已選取還原點](#select-restore-point-for-restore)，然後選取**還原組態**。 [還原組態] 刀鋒視窗隨即開啟。
+1. 如果您尚未到達該位置，請移至 [還原] 刀鋒視窗。 確定[已選取還原點](#select-a-restore-point-for-restore)，然後選取**還原組態**。 [還原組態] 刀鋒視窗隨即開啟。
 
     ![還原組態精靈](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. 在 [還原組態] 刀鋒視窗上有兩個選擇︰

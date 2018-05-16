@@ -3,7 +3,7 @@ title: 在 Azure API 管理開發人員入口網站上自訂網頁樣式 | Micro
 description: 若要在 Azure API 管理開發人員入口網站上自訂元素樣式，請遵循此快速入門中的步驟。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 15012317d3d0a4d3e50d56966bf8d26b0ef48118
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d1f638c9825ea5eedf6eaee0e0ca2ccfd5a491bc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>自訂開發人員入口網站頁面的風格
 

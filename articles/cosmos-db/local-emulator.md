@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2018
+ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 810e3e8af5295348ba73b4f7433e3203f47f4554
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 109bd61963b918f2a20c48a5bf7bd89dc353db96
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos DB 模擬器進行本機開發和測試
 
@@ -478,6 +478,10 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 ## <a name="change-list"></a>變更清單
 
 以滑鼠右鍵按一下工作列上的本機模擬器圖示，然後按一下關於功能表項目，以檢查版本號碼。
+
+### <a name="1220-released-on-april-20-2018"></a>1.22.0. 於 2018 年 4 月 20 日發行
+
+除了更新與 Cosmos DB 雲端服務進行同位檢查的模擬器服務，我們還加入改良過 PowerShell 文件和幾個各式各樣的錯誤修正。
 
 ### <a name="12106-released-on-march-27-2018"></a>已於 2018 年 3 月 27 日發行 1.21.0.6 版
 

@@ -9,15 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b929eaf17255210a5c813e3e91478f9202941b64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>一般串流分析使用模式的查詢範例
+
 ## <a name="introduction"></a>簡介
-Azure 串流分析的查詢會以類似 SQL 的查詢語言表達。 這些查詢記載在[串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)指南中。 本文章根據真實世界案例概述幾個常見查詢模式的解決方案。 這是進行中的工作，會繼續不間斷使用新模式進行更新。
+Azure 串流分析的查詢會以類似 SQL 的查詢語言表達。 語言建構記載在[串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)指南中。 
+
+查詢設計能傳達簡單的傳遞邏輯，將事件資料從某個輸入資料流移動到輸出資料存放區。 也可以執行豐富的模式比對和時態分析，計算不同時間範圍內的彙總值 (如 TollApp 範例所示)。 您可以聯結多個輸入的資料來合併串流事件，以及查閱靜態參考資料，從而擴充事件值。 此外，您也可以將資料寫入多個輸出。
+
+本文章根據真實世界案例概述幾個常見查詢模式的解決方案。 這是進行中的工作，會繼續不間斷使用新模式進行更新。
 
 ## <a name="query-example-convert-data-types"></a>查詢範例：轉換資料類型
 **描述**：在輸入資料流上定義屬性類型。
@@ -571,7 +576,7 @@ WHERE
     AND t2.maxPower > 10
 ````
 
-**說明**：第一個查詢 `max_power_during_last_3_mins` 會使用[滑動時間範圍](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics)來尋找過去 3 分鐘內每個裝置的功率感應器最大值。 系統會將第二個查詢加入第一個查詢，以找出目前事件最近相關時間範圍內的功率值。 然後，假如條件符合，就會針對裝置產生警示。
+**說明**：第一個查詢 `max_power_during_last_3_mins` 會使用[滑動時間範圍](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics)來尋找過去 3 分鐘內每個裝置的功率感應器最大值。 系統會將第二個查詢加入第一個查詢，以找出目前事件最近相關時間範圍內的功率值。 然後，假如條件符合，就會針對裝置產生警示。
 
 
 ## <a name="get-help"></a>取得說明

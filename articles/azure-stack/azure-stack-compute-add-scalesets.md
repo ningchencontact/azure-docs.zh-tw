@@ -5,18 +5,16 @@ services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
-ms.reviewer: anajod
-keywords: ''
-ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: kivenkat
+ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器擴展集
 
@@ -38,14 +36,15 @@ Azure Stack 上的虛擬機器擴展集就像是 Azure 上的虛擬機器擴展�
    安裝和設定適用於 Azure Stack 的 PowerShell 和 Azure Stack 工具。 請參閱[在 Azure Stack 使用 PowerShell 啟動和執行](azure-stack-powershell-configure-quickstart.md)。
 
    安裝 Azure Stack 工具之後，請確定您匯入下列 PowerShell 模組 (AzureStack-Tools-master 資料夾中 \ComputeAdmin 資料夾的相對路徑)：
-
+  ````PowerShell
         Import-Module .\AzureStack.ComputeAdmin.psm1
+  ````
 
 * **作業系統映像**
 
    如果您尚未新增至您的 Azure Stack Marketplace 作業系統映像，請參閱[Windows Server 2016 VM 映像新增至 Azure Stack Marketplace](azure-stack-add-default-image.md)。
 
-   如需 Linux 支援，請下載 Ubuntu Server 16.04，並將使用 ```Add-AzsVMImage``` 搭配下列參數來新增它：```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```。
+   如需 Linux 支援，請下載 Ubuntu Server 16.04，並將使用 ```Add-AzsPlatformImage``` 搭配下列參數來新增它：```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```。
 
 
 ## <a name="add-the-virtual-machine-scale-set"></a>新增虛擬機器擴展集
@@ -54,7 +53,7 @@ Azure Stack 上的虛擬機器擴展集就像是 Azure 上的虛擬機器擴展�
 
 ``$User`` 是您用來連線系統管理員入口網站的帳戶。 例如： serviceadmin@contoso.onmicrosoft.com。
 
-```
+````PowerShell  
 $Arm = "https://adminmanagement.local.azurestack.external"
 $Location = "local"
 
@@ -72,7 +71,7 @@ $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
-```
+````
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>更新虛擬機器擴展集中的映像 
 建立虛擬機器擴展集之後，使用者可以更新擴展集中的映像，而不必重新建立擴展集。 更新映像的程序取決於下列案例：
@@ -83,12 +82,14 @@ Add-AzsVMSSGalleryItem -Location $Location
 
    以下是指定 latest 的範例：  
 
-          "imageReference": {
-             "publisher": "[parameters('osImagePublisher')]",
-             "offer": "[parameters('osImageOffer')]",
-             "sku": "[parameters('osImageSku')]",
-             "version": "latest"
-             }
+    ```Json  
+    "imageReference": {
+        "publisher": "[parameters('osImagePublisher')]",
+        "offer": "[parameters('osImageOffer')]",
+        "sku": "[parameters('osImageSku')]",
+        "version": "latest"
+        }
+    ```
 
    您必須先下載新映像，相應放大才可使用這個新映像：  
 
@@ -110,12 +111,12 @@ Add-AzsVMSSGalleryItem -Location $Location
 
 若要移除虛擬機器擴充集資源庫項目，請執行下列 PowerShell 命令：
 
+```PowerShell  
     Remove-AzsVMSSGalleryItem
+````
 
 > [!NOTE]
 > 資源庫項目可能不會立即移除。 您可能需要重新整理入口網站數次，項目才會顯示已從 Marketplace 中移除。
 
-
 ## <a name="next-steps"></a>後續步驟
 [Azure Stack 的常見問題集](azure-stack-faq.md)
-

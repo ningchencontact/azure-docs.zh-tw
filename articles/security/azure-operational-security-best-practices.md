@@ -4,7 +4,7 @@ description: 本文提供一組 Azure 作業安全性的最佳做法。
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: bb7e0df046ecc2ffcd3fa59ac53edf36095933c7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 75f0d7ffaf92558b16605c29cd99ee439ab2e3d8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 作業安全性最佳做法
 Azure 作業安全性是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制及功能。 Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能獲得的知識，包括 Microsoft 安全性開發週期 (SDL)、Microsoft Security Response Center 方案，以及對網路安全性威脅型態的深層認知。
@@ -166,11 +166,11 @@ Azure Active Directory (Azure AD) 是全方位[身分識別與存取管理雲端
 ## <a name="secure-deployment-using-proven-devops-tools"></a>使用經證實的 DevOps 工具進行安全的部署
 此 Microsoft Cloud 空間中列出其中一些 Azure DevOps 實作，可提高企業和團隊的生產力和效率。
 
--   **基礎結構即程式碼 (IaC)：**基礎結構即程式碼是一組技術和實作，可協助 IT 專業人員減輕與每日建置及管理模組化基礎結構相關的負擔。 它可讓 IT 專業人員建立及維護其新式伺服器環境，就像是軟體開發人員建立及維護應用程式程式碼一樣。 在 Azure 中，[Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) 可讓您使用宣告式範本佈建應用程式。 在單一的範本中，您可以部署多個服務及其相依性。 您可以使用相同的範本，在應用程式生命週期的每個階段重複部署應用程式。
--   **持續整合和持續部署：**您可以將 Visual Studio Team Services (VSTS) Team 專案設定為[自動建置和部署](https://www.visualstudio.com/docs/build/overview)至 Azure Web Apps 或雲端服務。 VSTS 會在對 Azure 執行組建之後，將二進位檔自動部署至每個程式碼簽入後面。 此處所述的套件建置程序等同於 Visual Studio 中的 [封裝] 命令，而發佈步驟等同於 Visual Studio 中的 [發佈] 命令。
--   **Release Management：**Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) 是自動化多階段部署及管理發行程序的絕佳解決方案。 建立受控持續部署管線以快速、輕鬆且經常發行。 使用 Release Management，我們可以將發行程序大幅自動化，而且可以具有預先定義的核准工作流程。 在內部部署及部署至雲端、擴充，並視需要自訂。
--   **應用程式效能監視：**偵測問題、解決問題並持續改善您的應用程式。 快速診斷即時應用程式中的任何問題。 了解您的使用者與其有無任何關係？ 新增 JS 程式碼和 webconfig 項目是簡單的設定，幾分鐘之內就能在入口網站中看到附有所有詳細資料的結果。[App Insights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) 協助企業更快偵測問題並進行修正。
--   **負載測試和自動縮放：**我們可以在應用程式中找出效能問題，從而改善部署品質，並確保應用程式一律保持最新狀態，或使用符合商務需求。 請確定您的應用程式可以處理後續上市或行銷活動的流量。 使用 VSTS 幾近立即開始執行雲端式[負載測試](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing)。
+-   **基礎結構即程式碼 (IaC)：** 基礎結構即程式碼是一組技術和實作，可協助 IT 專業人員減輕與每日建置及管理模組化基礎結構相關的負擔。 它可讓 IT 專業人員建立及維護其新式伺服器環境，就像是軟體開發人員建立及維護應用程式程式碼一樣。 在 Azure 中，[Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) 可讓您使用宣告式範本佈建應用程式。 在單一的範本中，您可以部署多個服務及其相依性。 您可以使用相同的範本，在應用程式生命週期的每個階段重複部署應用程式。
+-   **持續整合和持續部署：** 您可以將 Visual Studio Team Services (VSTS) Team 專案設定為[自動建置和部署](https://www.visualstudio.com/docs/build/overview)至 Azure Web Apps 或雲端服務。 VSTS 會在對 Azure 執行組建之後，將二進位檔自動部署至每個程式碼簽入後面。 此處所述的套件建置程序等同於 Visual Studio 中的 [封裝] 命令，而發佈步驟等同於 Visual Studio 中的 [發佈] 命令。
+-   **Release Management：** Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) 是自動化多階段部署及管理發行程序的絕佳解決方案。 建立受控持續部署管線以快速、輕鬆且經常發行。 使用 Release Management，我們可以將發行程序大幅自動化，而且可以具有預先定義的核准工作流程。 在內部部署及部署至雲端、擴充，並視需要自訂。
+-   **應用程式效能監視：** 偵測問題、解決問題並持續改善您的應用程式。 快速診斷即時應用程式中的任何問題。 了解您的使用者與其有無任何關係？ 新增 JS 程式碼和 webconfig 項目是簡單的設定，幾分鐘之內就能在入口網站中看到附有所有詳細資料的結果。[App Insights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) 協助企業更快偵測問題並進行修正。
+-   **負載測試和自動縮放：** 我們可以在應用程式中找出效能問題，從而改善部署品質，並確保應用程式一律保持最新狀態，或使用符合商務需求。 請確定您的應用程式可以處理後續上市或行銷活動的流量。 使用 VSTS 幾近立即開始執行雲端式[負載測試](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing)。
 
 ## <a name="next-steps"></a>後續步驟
 - 深入了解 [Azure 作業安全性](https://docs.microsoft.com/azure/security/azure-operational-security)。

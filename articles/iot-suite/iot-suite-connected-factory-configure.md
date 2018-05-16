@@ -1,12 +1,12 @@
 ---
-title: "設定連線的工廠拓撲 | Microsoft Docs"
-description: "如何設定連線的工廠拓撲預先設定的解決方案。"
-services: 
+title: 設定連線的處理站拓撲 | Microsoft Docs
+description: 如何設定連線處理站解決方案加速器的拓撲。
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 19e0f48ab817428a1f953c80296b2e23effe5a8a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 4230914c6fb35201a8c162e2e7ecb31262d2bdca
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="configure-the-connected-factory-preconfigured-solution"></a>設定連線的工廠預先設定的解決方案
+# <a name="configure-the-connected-factory-solution-accelerator"></a>設定連線的處理站解決方案加速器
 
-連線的工廠預先設定的解決方案會針對虛構公司 Contoso 顯示模擬的儀表板。 此公司在全球許多地點都有工廠。
+連線的處理站解決方案加速器會針對虛構公司 Contoso 顯示模擬的儀表板。 此公司在全球許多地點都有工廠。
 
-此文章使用 Contoso 作為範例，描述如何為連線的工廠解決方案設定拓撲。
+本文使用 Contoso 作為範例，來說明如何設定連線處理站解決方案的拓撲。
 
 ## <a name="simulated-factories-configuration"></a>模擬的工廠設定
 
@@ -34,19 +34,19 @@ ms.lasthandoff: 01/02/2018
 * 測試站台
 * 封裝站台
 
-這些 OPC UA 伺服器會讓 OPC UA 節點和 [OPC 發行者](https://github.com/Azure/iot-edge-opc-publisher)將這些節點的值傳送至連線的工廠。 其中包括：
+這些 OPC UA 伺服器會讓 OPC UA 節點和 [OPC 發行者](https://github.com/Azure/iot-edge-opc-publisher) \(英文\) 將這些節點的值傳送至連線的處理站。 其中包括：
 
 * 目前的操作狀態，例如目前的耗電量。
 * 生產資訊，例如所生產的產品數目。
 
-您可以使用儀表板將 Contoso 工廠拓撲從全球檢視向下鑽研到站台層級檢視。 連線的工廠儀表板允許：
+您可以使用儀表板將 Contoso 工廠拓撲從全球檢視向下鑽研到站台層級檢視。 連線的處理站儀表板允許：
 
 * 針對拓撲中的每個圖層，將 OEE 和 KPI 數據視覺化。
 * 將站台中 OPC UA 節點的目前值視覺化。
 * 將 OEE 和 KPI 數據從站台層級彙總到全球層級。
 * 在值達到特定閾值時，將警示和要執行的動作視覺化。
 
-## <a name="connected-factory-topology"></a>連線的工廠拓撲
+## <a name="connected-factory-topology"></a>連線的處理站拓撲
 
 工廠、生產線和站台的拓撲是階層式：
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="topology-configuration-file"></a>拓撲設定檔
 
-為設定上一節中所列的屬性，連線的工廠解決方案會使用稱為 [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json) 的設定檔。
+為了設定上一節中所列的屬性，連線的處理站解決方案會使用稱為 [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json) 的設定檔。
 
 您可以在 `WebApp/Contoso/Topology` 資料夾的解決方案原始程式碼中找到這個檔案。
 
@@ -193,7 +193,7 @@ ms.lasthandoff: 01/02/2018
   * **CallOpcMethod**：以「父節點的 NodeId、要呼叫之方法的 NodeId、OPC UA 伺服器的 URI」格式呼叫之 OPC UA 方法的節點資訊與參數。
   * **OpenWebPage**：要在瀏覽器視窗中顯示的 URL。
 
-`<opc_node_description>` 包含站台 (OPC UA 伺服器) 中 OPC UA 節點的相關資訊。 代表沒有現有 OPC UA 節點，但會當作連線工廠之計算邏輯中的儲存體使用的也有效。 它具有下列屬性：
+`<opc_node_description>` 包含站台 (OPC UA 伺服器) 中 OPC UA 節點的相關資訊。 目前未呈現任何 OPC UA 節點，但要在連線處理站計算邏輯中用來作為儲存體的節點也有效。 它具有下列屬性：
 
 * **NodeId** (字串類型)
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 01/02/2018
 
   定義可當作最大值警示回應所採取的一組動作。
 
-在站台層級中，您也會看到**模擬**物件。 這些物件只用於設定連線的工廠模擬，因此不應該用於設定實際拓撲。
+在站台層級中，您也會看到**模擬**物件。 這些物件只能用於設定連線的處理站模擬，不應用於設定實際拓撲。
 
 ## <a name="how-the-configuration-data-is-used-at-runtime"></a>設定資料在執行階段的使用方式
 
@@ -267,14 +267,14 @@ ms.lasthandoff: 01/02/2018
 
 ### <a name="visual-appearance"></a>視覺外觀
 
-此類別中的屬性會定義連線的工廠儀表板的視覺外觀。 範例包括：
+此分類中的屬性會定義連線處理站儀表板的視覺外觀。 範例包括：
 
 * Name
-* Description
-* Image
-* Location
+* 說明
+* 映像
+* 位置
 * Units
-* Visible
+* 可見
 
 ### <a name="internal-topology-tree-addressing"></a>內部拓樸樹狀結構定址
 
@@ -282,27 +282,27 @@ WebApp 可維護其中包含所有拓撲節點相關資訊的內部資料字典�
 
 ### <a name="oeekpi-computation"></a>OEE/KPI 計算
 
-連線的工廠模擬的 OEE/KPI 數據是透過下列值參數化：
+連線處理站模擬的 OEE/KPI 數據會透過下列值進行參數化：
 
 * 要包含在計算中的 OPC UA 節點值。
 * 如何從遙測值計算數據。
 
-連線的工廠使用 OEE 公式，如 http://oeeindustrystandard.oeefoundation.org 所發佈。
+連線的處理站會使用如 http://oeeindustrystandard.oeefoundation.org 所發行的 OEE 公式。
 
 站台中的 OPC UA 節點物件會啟用可在 OEE/KPI 計算中使用的標記。 **Relevance** 屬性指出 OPC UA 節點值應該用於哪個 OEE/KPI 數據。 **OpCode** 屬性定義如何將值包含在計算中。
 
 ### <a name="alert-handling"></a>警示處理
 
-連線的工廠支援簡易的最小/最大閾值型警示產生機制。 為回應那些警示，有數個可以設定的預先定義動作。 下列屬性可控制這個機制：
+連線的處理站支援簡易的最小/最大閾值型警示產生機制。 為回應那些警示，有數個可以設定的預先定義動作。 下列屬性可控制這個機制：
 
-* Maximum
-* Minimum
+* 最大值
+* 最小值
 * MaximumAlertActions
 * MinimumAlertActions
 
 ## <a name="correlating-to-telemetry-data"></a>與遙測資料相互關聯
 
-針對某些作業 (例如，將最後一個值視覺化，或建立「時間序列深入解析」查詢)，WebApp 需要定址配置，以供內嵌的遙測資料使用。 傳送至連線工廠的遙測也必須儲存在內部資料結構中。 啟用這些作業的兩個屬性分別位於站台 (OPC UA 伺服器) 和 OPC UA 節點層級：
+針對某些作業 (例如，將最後一個值視覺化，或建立「時間序列深入解析」查詢)，WebApp 需要定址配置，以供內嵌的遙測資料使用。 傳送至連線處理站的遙測也必須儲存於內部資料結構中。 啟用這些作業的兩個屬性分別位於站台 (OPC UA 伺服器) 和 OPC UA 節點層級：
 
 * **OpcUri**
 
@@ -312,13 +312,13 @@ WebApp 可維護其中包含所有拓撲節點相關資訊的內部資料字典�
 
   識別 OPC UA 伺服器中的節點值。 此屬性的格式必須是如在 OPC UA 規格中所指定。 在內嵌訊息中，此屬性會當作 **NodeId** 傳送。
 
-如需有關如何使用 OPC 發行者將遙測資料內嵌至連線的工廠的詳細資訊，請查閱[這個](https://github.com/Azure/iot-edge-opc-publisher) GitHub 頁面。
+如需如何使用 OPC 發行者來將遙測資料內嵌於連線處理站的詳細資訊，請查閱[這個](https://github.com/Azure/iot-edge-opc-publisher) \(英文\) GitHub 頁面。
 
 ## <a name="example-how-kpi1-is-calculated"></a>範例：如何計算 KPI1
 
 `ContosoTopologyDescription.json` 檔案中的設定可控制 OEE/KPI 數據的計算方式。 下列範例會示範此檔案中的屬性如何控制 KPI1 的計算。
 
-在連線的工廠中，KPI1 用於測量過去一小時內成功製造的產品數目。 連線的工廠模擬中的每個站台 (OPC UA 伺服器) 都提供一個 OPC UA 節點 (`NodeId: "ns=2;i=385"`)，這個節點可提供用來計算此 KPI 的遙測。
+在連線的處理站中，KPI1 用於測量過去一小時內成功製造的產品數目。 連線處理站模擬中的每個站台 (OPC UA 伺服器) 都提供一個 OPC UA 節點 (`NodeId: "ns=2;i=385"`)，此節點可提供用來計算此 KPI 的遙測。
 
 此 OPC UA 節點的設定看起來像下列程式碼片段︰
 
@@ -339,10 +339,10 @@ WebApp 可維護其中包含所有拓撲節點相關資訊的內部資料字典�
 * 所有值的平均值。
 * 指定的時間範圍內，所有唯一 **OpcUri** (**ApplicationUri**)、**NodeId** 組中的所有值總和。
 
-**NumberOfManufactureredProducts** 節點值的其中一個特性是它只會增加。 為計算時間範圍內製造的產品數目，連線的工廠會使用 **OpCode** **SubMaxMin**。 計算會在時間範圍開始時擷取最小值，並在時間範圍結束時擷取最大值。
+**NumberOfManufactureredProducts** 節點值的其中一個特性是它只會增加。 為了計算時間範圍內製造的產品數目，連線的處理站會使用 **OpCode** **SubMaxMin**。 計算會在時間範圍開始時擷取最小值，並在時間範圍結束時擷取最大值。
 
 設定中的 **OpCode** 會設定計算邏輯，以計算最大值和最小值差異的結果。 接著，這些結果會由下而上累積到根 (全球) 層級，並顯示在儀表板中。
 
 ## <a name="next-steps"></a>後續步驟
 
-建議採取的後續步驟，是了解如何[在 Windows 或 Linux 上部署連線處理站預先設定解決方案的閘道](iot-suite-connected-factory-gateway-deployment.md)。
+下一個建議步驟是了解如何[在 Windows 或 Linux 上部署連線的處理站解決方案加速器的閘道](iot-suite-connected-factory-gateway-deployment.md)。

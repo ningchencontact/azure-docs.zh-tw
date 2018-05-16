@@ -9,13 +9,13 @@ ms.topic: get-started-article
 ms.date: 04/19/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 81f455668e81c2a6c21b66d85199da3f475e7265
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ffcc3a1a40973a4cf3b096ed82d35e21c9b20a44
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="service-principals-with-azure-container-service-aks"></a>服務主體與 Azure Container Service (AKS)
+# <a name="service-principals-with-azure-kubernetes-service-aks"></a>服務主體與 Azure Kubernetes Service (AKS)
 
 AKS 叢集需要 [Azure Active Directory 服務主體][aad-service-principal]，才能與 Azure API 進行互動。 需要服務主體，才能以動態方式建立和管理資源，例如 [Azure Load Balancer][azure-load-balancer-overview]。
 

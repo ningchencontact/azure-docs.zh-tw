@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 報告通知"
-description: "如何使用 Azure Active Directory 報告通知找出可疑登入。"
+title: Azure Active Directory 報告通知
+description: 如何使用 Azure Active Directory 報告通知找出可疑登入。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c279b923ed4e63d810861c579dd54b3a2b7f415e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Azure Active Directory 報告通知
 ## <a name="what-reports-generate-email-notifications"></a>哪些報告會產生電子郵件通知
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/05/2018
 當您按一下連結時，系統會將您重新導向至 Azure 入口網站中的報告頁面。 若要存取報告，您必須同時是：
 
 * 您的 Azure 訂用帳戶的管理員或共同管理員
-* 目錄中的全域管理員，並獲得指派的 Active Directory Premium 授權。 如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+* 目錄中的全域管理員，並獲得指派的 Active Directory Premium 授權。 如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-whatis.md)。
 
 ## <a name="can-i-turn-off-these-emails"></a>我可以關閉這些電子郵件嗎？
 是，若要關閉 Azure 入口網站中異常登入的相關通知，請按一下 [設定]，然後選取 [通知] 區段之下的 [已停用]。

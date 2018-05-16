@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8a2c2e53ed04cf00cc02135c5e5f82ded18fc2bc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 87f407aba40d4896ed8fb61b5528ed624afb80cb
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="tutorial-prepare-application-for-azure-container-service-aks"></a>教學課程：準備 Azure Container Service (AKS) 的應用程式
+# <a name="tutorial-prepare-application-for-azure-kubernetes-service-aks"></a>教學課程：準備 Azure Kubernetes Service (AKS) 的應用程式
 
-在本教學課程 (八個章節的第一部分) 中，多容器應用程式已準備好用於 Kubernetes。 完成的步驟包括：  
+在本教學課程 (八個章節的第一部分) 中，多容器應用程式已準備好用於 Kubernetes。 完成的步驟包括：
 
 > [!div class="checklist"]
-> * 從 GitHub 複製應用程式來源  
+> * 從 GitHub 複製應用程式來源
 > * 從應用程式來源建立容器映像
 > * 在本機 Docker 環境中測試應用程式
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="before-you-begin"></a>開始之前
 
-本教學課程假設使用者對核心 Docker 概念有基本認識，例如容器、容器映像和基本 Docker 命令。 如有需要，請參閱[開始使用 Docker][docker-get-started] 以取得容器基本概念入門。 
+本教學課程假設使用者對核心 Docker 概念有基本認識，例如容器、容器映像和基本 Docker 命令。 如有需要，請參閱[開始使用 Docker][docker-get-started] 以取得容器基本概念入門。
 
 若要完成本教學課程，您需要 Docker 開發環境。 Docker 提供可輕鬆在 [Mac][docker-for-mac]、[Windows][docker-for-windows] 或 [Linux][docker-for-linux] 系統上設定 Docker 的套件。
 
@@ -40,7 +40,7 @@ Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元
 
 ## <a name="get-application-code"></a>取得應用程式程式碼
 
-本教學課程中使用的範例應用程式是基本投票應用程式。 應用程式是由前端 Web 元件和後端 Redis 執行個體所組成。 Web 元件會封裝至自訂容器映像。 Redis 執行個體會從 Docker Hub 使用未修改的映像。  
+本教學課程中使用的範例應用程式是基本投票應用程式。 應用程式是由前端 Web 元件和後端 Redis 執行個體所組成。 Web 元件會封裝至自訂容器映像。 Redis 執行個體會從 Docker Hub 使用未修改的映像。
 
 使用 git 將應用程式的複本下載至您的開發環境。
 
@@ -54,7 +54,7 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 cd azure-voting-app-redis
 ```
 
-目錄內有應用程式原始程式碼、預先建立的 Docker Compose 檔案和 Kubernetes 資訊清單檔。 整套教學課程都會使用到這些檔案。 
+目錄內有應用程式原始程式碼、預先建立的 Docker Compose 檔案和 Kubernetes 資訊清單檔。 整套教學課程都會使用到這些檔案。
 
 ## <a name="create-container-images"></a>建立容器映像
 
@@ -124,7 +124,7 @@ docker-compose down
 在本教學課程中，應用程式已經過測試並已建立應用程式的容器映像。 已完成下列步驟：
 
 > [!div class="checklist"]
-> * 從 GitHub 複製應用程式來源  
+> * 從 GitHub 複製應用程式來源
 > * 已從應用程式來源建立容器映像
 > * 已在本機 Docker 環境中測試應用程式
 

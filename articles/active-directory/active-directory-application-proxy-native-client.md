@@ -3,23 +3,23 @@ title: 發佈原生用戶端應用程式 - Azure AD | Microsoft Docs
 description: 涵蓋如何讓原生用戶端應用程式與 Azure AD 應用程式 Proxy 連接器通訊，為內部部署的應用程式提供安全的遠端存取。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 823939e76bcf982d37b58595795dca84c1830e19
-ms.sourcegitcommit: 4bc2aa08a116a0acca0af3b02b5c1d144d3cf9b1
+ms.openlocfilehash: 79ee3aca783d7c29959c2730696a313bf821b3bc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>如何讓原生用戶端應用程式與 Proxy 應用程式互動
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/30/2018
 本文引導您完成使用應用程式 Proxy 和 Azure AD 驗證程式庫發佈原生應用程式的四個步驟。 
 
 ## <a name="step-1-publish-your-application"></a>步驟 1：發佈您的應用程式
-如同任何其他應用程式一般，發佈您的 Proxy 應用程式，並指派使用者以存取您的應用程式。 如需詳細資訊，請參閱[使用應用程式 Proxy 發佈應用程式](active-directory-application-proxy-publish.md)。
+如同任何其他應用程式一般，發佈您的 Proxy 應用程式，並指派使用者以存取您的應用程式。 如需詳細資訊，請參閱[使用應用程式 Proxy 發佈應用程式](manage-apps/application-proxy-publish-azure-portal.md)。
 
 ## <a name="step-2-configure-your-application"></a>步驟 2：設定您的應用程式
 以下列方式設定原生應用程式：
@@ -47,7 +47,7 @@ ms.lasthandoff: 04/30/2018
    ![建立新的應用程式註冊](./media/active-directory-application-proxy-native-client/create.png)
 5. 選取 [建立] 。
 
-如需建立新應用程式註冊的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](.//develop/active-directory-integrating-applications.md)。
+如需建立新應用程式註冊的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](./develop/active-directory-integrating-applications.md)。
 
 
 ## <a name="step-3-grant-access-to-other-applications"></a>步驟 3：授與其他應用程式存取權
@@ -97,4 +97,4 @@ HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >"
 
 如需原生應用程式流程的詳細資訊，請參閱[原生應用程式到 Web API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)。
 
-深入了解設定[應用程式 Proxy 的單一登入](application-proxy-sso-overview.md)
+深入了解設定[應用程式 Proxy 的單一登入](manage-apps/application-proxy-single-sign-on.md)

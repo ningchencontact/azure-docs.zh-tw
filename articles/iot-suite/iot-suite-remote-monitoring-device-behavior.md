@@ -1,7 +1,7 @@
 ---
-title: "遠端監視解決方案中的模擬裝置行為 - Azure | Microsoft Docs"
-description: "本文說明如何使用 JavaScript 定義模擬裝置在遠端監視解決方案中的行為。"
-services: 
+title: 遠端監視解決方案中的模擬裝置行為 - Azure | Microsoft Docs
+description: 本文說明如何使用 JavaScript 定義模擬裝置在遠端監視解決方案中的行為。
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e5846893166c3e65b75e84d02849c2b8ab78e079
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2a2cbe5379adbd2c4ad6534b621871ecc30bfc81
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="implement-the-device-model-behavior"></a>實作裝置模型行為
 
@@ -53,10 +53,10 @@ ms.lasthandoff: 02/09/2018
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:05",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -66,7 +66,7 @@ ms.lasthandoff: 02/09/2018
 以下示範典型 `main` 函式的外框：
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   // Use the previous device state to
   // generate the new device state
@@ -108,7 +108,7 @@ function restoreState(previousState) {
   }
 }
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   restoreState(previousState);
 
@@ -133,7 +133,7 @@ function vary(avg, percentage, min, max) {
 }
 
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     restoreState(previousState);
 
@@ -192,7 +192,7 @@ function main(context, previousState) {
 以下示範典型 `main` 函式的外框：
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
 }
 ```
@@ -205,15 +205,18 @@ function main(context, previousState) {
 
 `state` 參數包含裝置的狀態，如裝置模擬服務中所維護。
 
-有兩個全域函式可以用來協助實作方法的行為：
+`properties` 參數包含已編寫為要向 IoT 中樞裝置對應項報告之屬性的裝置屬性。
+
+有三個全域函式可以用來協助實作此方法的行為：
 
 - `updateState` 可更新模擬服務所保留的狀態。
+- `updateProperty` 可更新單一裝置屬性。
 - `sleep` 可暫停執行，以模擬長時間執行的工作。
 
 下列範例顯示模擬的 Chiller 裝置所使用的縮寫版 **IncreasePressure method.js** 指令碼：
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     log("Starting 'Increase Pressure' method simulation (5 seconds)");
 

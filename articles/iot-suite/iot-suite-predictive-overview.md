@@ -1,12 +1,12 @@
 ---
-title: "預防性維護解決方案的概觀 - Azure | Microsoft Docs"
-description: "預先設定之 Azure IoT 套件預測性維護解決方案的說明。"
-services: 
+title: 預測性維護解決方案加速器概觀 - Azure | Microsoft Docs
+description: Azure 預測性維護解決方案加速器的說明。
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b370b3d7-2ce5-4906-9818-3aeedd471ee3
 ms.service: iot-suite
 ms.devlang: na
@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 36cae39b7eaa0aff5f47f6a2511c7a0593f70b26
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 1a2750232f9396d8bc27e4fbb72eacf8790a1c52
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="predictive-maintenance-preconfigured-solution-overview"></a>預先設定的預測性維護解決方案概觀
+# <a name="predictive-maintenance-solution-accelerator-overview"></a>預測性維護解決方案加速器概觀
 
-預先設定的「預測性維護」[解決方案][lnk_preconfigured_solutions]是 [Microsoft Azure IoT 套件][lnk_iot_suite]預先設定的解決方案之一。 此解決方案應用了 [Azure Machine Learning][lnk-machine-learning]，整合了即時裝置遙測集合與預測模型。
+「預測性維護」[解決方案加速器][lnk_preconfigured_solutions]是 [Microsoft Azure IoT 解決方案加速器][lnk_iot_suite]之一。 此解決方案應用了 [Azure Machine Learning][lnk-machine-learning]，整合了即時裝置遙測集合與預測模型。
 
-有了 Azure IoT 套件，您可以又快又方便地連接和監視資產，並在儀表板和視覺效果中即時分析遙測資料。 在預測性維護解決方案中，儀表板和視覺效果提供新的情報，可提升效率並增加收益流。
+透過 Azure IoT 解決方案加速器，您可以又快又方便地連線和監視資產，並在儀表板和視覺效果中即時分析遙測資料。 在預測性維護解決方案加速器中，儀表板和視覺效果會提供新的情報，可提升效率並增加收益流。
 
 ## <a name="the-scenario"></a>案例
 
 Fabrikam 是區域性航空公司，而以優惠的價格為客戶提供優良的服務，是該公司努力的目標。 維護問題是造成航班延誤的原因之一，而引擎維護又是其中最為棘手的項目。 Fabrikam 必須嚴防飛行期間發生引擎故障，所以會定期檢查其引擎，並根據計劃安排維護時間表。 但因為飛機引擎的問題不一， 所以有一些引擎維護工作並非必要。 但嚴重者若在執行維護工作之前發生問題，可能會造成飛機停飛。 如果飛機所在地點缺少適當的技術人員或備品零件，這些問題會更嚴重。
 
-Fabrikam 飛機的引擎由各種感應器進行檢測，而這些感應器會監視飛行期間的引擎狀況。 Fabrikam 使用預測性維護解決方案來收集飛行期間所收集的感應器資料。 經過多年累積引擎運作資料與失敗資料之後，Fabrikam 的資料科學家製做出了一個模型，可以預測飛機引擎的剩餘使用壽命 (RUL)。 此模型會在四個引擎感應器的資料和最終導致故障的引擎耗損之間找出相互關聯。 Fabrikam 現在除了繼續執行定期檢查來確保安全之外，還會在每次飛行後，使用這些模型來計算每具引擎的 RUL。 這些模型會使用在飛行期間從引擎收集而來的遙測資料。 Fabrikam 現在已可以預測未來的失敗點，並預先規劃維護及維修計劃。
+Fabrikam 飛機的引擎由各種感應器進行檢測，而這些感應器會監視飛行期間的引擎狀況。 Fabrikam 使用預測性維護解決方案加速器來收集飛行期間所收集的感應器資料。 經過多年累積引擎運作資料與失敗資料之後，Fabrikam 的資料科學家製做出了一個模型，可以預測飛機引擎的剩餘使用壽命 (RUL)。 此模型會在四個引擎感應器的資料和最終導致故障的引擎耗損之間找出相互關聯。 Fabrikam 現在除了繼續執行定期檢查來確保安全之外，還會在每次飛行後，使用這些模型來計算每具引擎的 RUL。 這些模型會使用在飛行期間從引擎收集而來的遙測資料。 Fabrikam 現在已可以預測未來的失敗點，並預先規劃維護及維修計劃。
 
 > [!NOTE]
 > 解決方案模型會使用實際的引擎損耗資料。
@@ -48,19 +48,19 @@ Fabrikam 飛機的引擎由各種感應器進行檢測，而這些感應器會�
 
 這些活動可讓 Fabrikam 將飛機停飛時間縮到最短，並降低營運成本，同時確保乘客與機組員的安全。
 
-如需了解 [Azure IoT 套件][lnk_iot_suite]如何提供這些功能，客戶必須先了解預測性維護，請檢閱這張[資訊圖][lnk_infographic]。
+若想了解 [Azure IoT 解決方案加速器][lnk_iot_suite]如何讓客戶能夠理解預測性維護的潛在能力，請檢閱此[資訊圖][lnk_infographic]。
 
-## <a name="how-the-predictive-maintenance-solution-is-built"></a>預測性維護解決方案的建置方式
+## <a name="how-the-predictive-maintenance-solution-accelerator-is-built"></a>預測性維護解決方案加速器的建置方式
 
-解決方案會使用可作為範例的現有 Azure Machine Learning 模型，示範這些功能如何運用透過 IoT 套件服務收集而來的裝置遙測資料。 Microsoft 已根據公開可用的資料<sup>\[1\]</sup>，以及如何使用模型的逐步指引，建置了一套飛機引擎的[迴歸模型][lnk_regression_model]。
+解決方案會使用可作為範本的現有 Azure Machine Learning 模型，示範這些功能如何運用透過 IoT 解決方案加速器服務收集而來的裝置遙測資料。 Microsoft 已根據公開可用的資料<sup>\[1\]</sup>，以及如何使用模型的逐步指引，建置了一套飛機引擎的[迴歸模型][lnk_regression_model]。
 
-Azure IoT 預測性維護解決方案會利用從這個範本所建立的迴歸模型。 此模型會部署到您的 Azure 訂用帳戶，並透過自動產生的 API 加以公開。 此解決方案包含了代表 4 具 (全部共 100 具) 引擎之測試資料與 4 個 (全部共 21 個) 感應器之資料流的交集。 此資料足以從定型的模型提供精確的結果。
+Azure IoT 預測性維護解決方案加速器會利用從這個範本建立的迴歸模型。 此模型會部署到您的 Azure 訂用帳戶，並透過自動產生的 API 加以公開。 此解決方案包含了代表 4 具 (全部共 100 具) 引擎之測試資料與 4 個 (全部共 21 個) 感應器之資料流的交集。 此資料足以從定型的模型提供精確的結果。
 
 *\[1\] A. Saxena and K. Goebel (2008)。《渦輪風扇發動機性能下降模擬資料集》(Turbofan Engine Degradation Simulation Data Set)，NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="get-started-with-predictive-maintenance"></a>開始使用預測性維護
 
-本教學課程示範如何佈建預測性維護解決方案。 其中也逐步說明預測性維護解決方案的基本功能。 您可以透過隨預先設定解決方案部署的解決方案儀表板來存取多項功能。
+本教學課程說明如何佈建預測性維護解決方案加速器。 此外也會逐步說明預測性維護解決方案加速器的基本功能。 您可以透過隨解決方案加速器部署的解決方案儀表板來存取多項功能。
 
 若要完成此教學課程，您需要一個有效的 Azure 訂用帳戶。
 
@@ -69,7 +69,7 @@ Azure IoT 預測性維護解決方案會利用從這個範本所建立的迴歸�
 
 1. 使用 Azure 帳戶認證登入 [azureiotsuite.com][lnk-azureiotsuite]，然後按一下 **+** 建立新的解決方案。
 1. 按一下 [選取預測性維護] 圖格。
-1. 輸入預先設定的預測性維護解決方案的 [解決方案名稱]。
+1. 輸入預測性維護解決方案加速器的 [解決方案名稱]。
 1. 選取您想要用來佈建解決方案的 [區域] 和 [訂用帳戶]。
 1. 按一下 [建立解決方案]  開始佈建程序。 此程序通常需要數分鐘的執行時間。
 
@@ -81,7 +81,7 @@ Azure IoT 預測性維護解決方案會利用從這個範本所建立的迴歸�
 1. 按一下圖格，就會在右邊窗格中看到解決方案的詳細資料。 在此窗格中，您可以啟動方案儀表板並存取 Machine Learning 工作區。
 
 > [!NOTE]
-> 如果您在佈建預先設定的解決方案時遇到問題，請參閱 [azureiotsuite.com 網站的權限][lnk-permissions]和[常見問題集][lnk-faq]。 如果問題持續發生，請在[入口網站][lnk-portal]建立服務票證。
+> 如果您在佈建解決方案加速器時遇到問題，請參閱 [azureiotsuite.com 網站的權限][lnk-permissions]和[常見問題集][lnk-faq]。 如果問題持續發生，請在[入口網站][lnk-portal]建立服務票證。
 
 是否有您預期會看到但沒有列出的解決方案詳細資料？ 請在[使用者心聲](https://feedback.azure.com/forums/321918-azure-iot)中提供功能建議。
 
@@ -102,7 +102,7 @@ Web 應用程式中的此頁面會使用 PowerBI JavaScript 控制項 (請參閱
 
 ![][img-resource-group]
 
-當您佈建預先設定的解決方案，您會收到一封電子郵件，其中包含機器學習服務工作區的連結。 您也可以從已佈建之解決方案的 [azureiotsuite.com][lnk-azureiotsuite] 頁面瀏覽至 Machine Learning 工作區。 當解決方案處於**就緒**狀態時，此頁面上會出現一個圖格。
+當您佈建解決方案加速器時，您會收到一封電子郵件，其中包含機器學習服務工作區的連結。 您也可以從已佈建之解決方案的 [azureiotsuite.com][lnk-azureiotsuite] 頁面瀏覽至 Machine Learning 工作區。 當解決方案處於**就緒**狀態時，此頁面上會出現一個圖格。
 
 ![][img-machine-learning]
 
@@ -128,11 +128,11 @@ Web 應用程式中的此頁面會使用 PowerBI JavaScript 控制項 (請參閱
 
 如需深入了解 Azure IoT 如何實現預測性維護的案例，請參閱[擷取物聯網的價值][lnk_capture_value]。
 
-進行預測性維護解決方案的[逐步解說][lnk-predictive-walkthrough]。
+取得預測性維護解決方案加速器的[逐步解說][lnk-predictive-walkthrough]。
 
-您也可以瀏覽一些其他功能和預先設定的 IoT 套件解決方案的功能︰
+您也可以探索 IoT 解決方案加速器的一些其他特性與功能：
 
-* [IoT 套件的常見問題集][lnk-faq]
+* [IoT 解決方案加速器的常見問題集][lnk-faq]
 * [從頭建立 IoT 安全性][lnk-security-groundup]
 
 [img-resource-group]: media/iot-suite-predictive-overview/resource-group.png
@@ -143,7 +143,7 @@ Web 應用程式中的此頁面會使用 PowerBI JavaScript 控制項 (請參閱
 
 [lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals
 [lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
-[lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk_preconfigured_solutions]: iot-suite-what-are-solution-accelerators.md
 [lnk_iot_suite]: iot-suite-options.md
 [lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3

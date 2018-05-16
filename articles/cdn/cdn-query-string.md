@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: ed6f0b2c021fc4b31b85986c07df0502dba826f2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fcb4676325066dd6960070d996b1779fb3471dd9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>使用查詢字串來控制 Azure CDN 快取行為 - 標準層
 > [!div class="op_single_selector"]
@@ -27,11 +27,10 @@ ms.lasthandoff: 04/05/2018
 > 
 
 ## <a name="overview"></a>概觀
-使用查詢字串快取時，「Azure 內容傳遞網路」(CDN) 可針對包含查詢字串的 Web 要求，控制快取檔案的方式。 在包含查詢字串的 Web 要求中，查詢字串是要求中問號 (?) 之後的部分。 查詢字串可以包含一或多個索引鍵/值組，其中的欄位名稱與其值是以等號 (=) 分隔。 每個索引鍵/值組是以 & 符號分隔。 例如 http:\//www.contoso.com/content.mov?field1=value1&field2=value2。 如果要求的查詢字串中有不止一個索引鍵/值組，其順序無關緊要。 
+使用 Azure 內容傳遞網路 (CDN)，可以控制 Web 要求內含查詢字串時的檔案快取方式。 在包含查詢字串的 Web 要求中，查詢字串是要求中問號 (?) 之後的部分。 查詢字串可以包含一或多個索引鍵/值組，其中的欄位名稱與其值是以等號 (=) 分隔。 每個索引鍵/值組是以 & 符號分隔。 例如 http:\//www.contoso.com/content.mov?field1=value1&field2=value2。 如果要求的查詢字串中有不止一個索引鍵/值組，其順序無關緊要。 
 
-> [!NOTE]
-> Azure CDN 的標準和進階產品提供相同的查詢字串快取功能，但使用者介面不同。  本文描述**來自 Akamai 的 Azure CDN 標準**和**來自 Verizon 的 Azure CDN 標準**的介面。 如需了解使用**來自 Verizon 的進階 Azure CDN** 來進行的查詢字串快取，請參閱[使用查詢字串來控制 Azure CDN 快取行為 - 進階層](cdn-query-string-premium.md)。
->
+> [!IMPORTANT]
+> Azure CDN 的標準和進階產品提供相同的查詢字串快取功能，但使用者介面不同。 本文說明**來自 Microsoft 的標準 Azure CDN**、**來自 Akamai 的標準 Azure CDN**和**來自 Verizon 的標準 Azure CDN** 的介面。 如需了解使用**來自 Verizon 的進階 Azure CDN** 來進行的查詢字串快取，請參閱[使用查詢字串來控制 Azure CDN 快取行為 - 進階層](cdn-query-string-premium.md)。
 
 查詢字串模式有三種：
 
@@ -58,9 +57,10 @@ ms.lasthandoff: 04/05/2018
    ![CDN 查詢字串快取選項](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
-> 由於註冊資訊需要一些時間才能傳播至整個 CDN，因此可能無法立即顯示快取字串設定變更： 
+> 由於註冊資訊需要一些時間才能傳播至整個 CDN，因此可能無法立即顯示快取字串設定變更：
+> - 若為 **來自 Microsoft 的標準 Azure CDN** 設定檔，通常會在 10 分鐘內完成傳播。 
 > - 若為**來自 Akamai 的標準 Azure CDN** 設定檔，通常會在一分鐘內完成傳播。 
-> - 若為**來自 Verizon 的標準 Azure CDN** 設定檔，則通常會在 90 分鐘內完成傳播。
->
+> - 若為**來自 Verizon 的標準 Azure CDN** 和**來自 Verizon 的進階 Azure CDN** 設定檔，通常會在 90 分鐘內完成傳播。 
+
 
 

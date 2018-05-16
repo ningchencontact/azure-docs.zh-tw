@@ -1,8 +1,8 @@
 ---
-title: "航太在航太工業中使用 Azure - Cortana Intelligence 解決方案進行預測性維護的範本 | Microsoft Docs"
-description: "航太、公用事業和運輸中預測性維護的 Microsoft Cortana Intelligence 解決方案範本。"
+title: 適用於預測性維護的 Azure AI Playbook 解決方案 | Microsoft Docs
+description: 資料科學的完整描述，可提供多個垂直產業的預測性維護解決方案。
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 05/01/2018
 ms.author: fboylu
-ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad06617fb8c14928dca7d9ce18ad86190e8255fe
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>航太與其他業務中預測性維護的 Cortana Intelligence 解決方案範本的腳本
+# <a name="azure-ai-playbook-for-predictive-maintenance-solutions"></a>適用於預測性維護的 Azure AI Playbook 解決方案 
 ## <a name="executive-summary"></a>執行摘要
 預測性維護是要求最高的預測性分析應用程式之一，其優點不容置疑，包括大幅節省成本。 本腳本旨在提供預測性維護解決方案的參考資料，著重於主要使用案例。
 它能夠讓讀者了解預測性維護的最常見商務案例、減輕這類解決方案之商務問題的挑戰、解決這些商務問題所需的資料，以及使用這類資料和最佳作法搭配範例解決方案架構來建置解決方案的預測性模型化技巧。

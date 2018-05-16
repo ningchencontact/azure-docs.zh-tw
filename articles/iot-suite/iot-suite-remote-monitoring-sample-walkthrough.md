@@ -1,12 +1,12 @@
 ---
-title: "遠端監視解決方案架構 - Azure | Microsoft Docs"
-description: "遠端監視預先設定解決方案架構的逐步解說。"
-services: 
+title: 遠端監視解決方案架構 - Azure | Microsoft Docs
+description: 遠端監視解決方案加速器架構的逐步解說。
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: e19ba9c88e4fbe4f065c45ce7029247436f7155c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 3eaaa1ec09e9bd593a2d14e4a3bc751c431869d0
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="remote-monitoring-preconfigured-solution-architecture"></a>遠端監視預先設定解決方案架構
+# <a name="remote-monitoring-solution-accelerator-architecture"></a>遠端監視解決方案加速器架構
 
-IoT 套件遠端監視[預先設定解決方案](iot-suite-what-are-preconfigured-solutions.md)會在遠端位置實作多部機器的端對端監視解決方案。 此解決方案結合了主要的 Azure 服務以提供一般的商務案例實作。 您可以將此解決方案作為自己實作的起點並加以[自訂](iot-suite-remote-monitoring-customize.md)，以符合自己特有的商務需求。
+遠端監視[解決方案加速器](iot-suite-what-are-solution-accelerators.md)會在遠端位置實作多部機器的端對端監視解決方案。 此解決方案結合了主要的 Azure 服務以提供一般的商務案例實作。 您可以將此解決方案作為自己實作的起點並加以[自訂](iot-suite-remote-monitoring-customize.md)，以符合自己特有的商務需求。
 
 本文將逐步介紹遠端監視解決方案的一些重要元素，讓您瞭解它的運作方式。 這項知識能協助您︰
 
@@ -33,13 +33,13 @@ IoT 套件遠端監視[預先設定解決方案](iot-suite-what-are-preconfigure
 
 ## <a name="logical-architecture"></a>邏輯架構
 
-下圖概述 [IoT 架構](iot-suite-what-is-azure-iot.md)上重疊的遠端監視預先設定解決方案之邏輯元件：
+下圖概述 [IoT 架構](iot-suite-what-is-azure-iot.md)上重疊的遠端監視解決方案加速器的邏輯元件：
 
 ![邏輯架構](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="why-microservices"></a>使用微服務的理由？
 
-從 Microsoft 發行第一個預先設定的解決方案開始，就已發展雲端架構。 [微服務](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)問世以來都是經證實的做法，可達成延展及彈性，而不必犧牲開發速度。 多項在內部使用此架構模式的 Microsoft 服務，都獲得絕佳的可靠性與延展性結果。 更新的預先設定解決方案放已將這些知識加以實施，因此您也可以從中獲益。
+從 Microsoft 發行第一個解決方案加速器開始，就已發展雲端架構。 [微服務](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)問世以來都是經證實的做法，可達成延展及彈性，而不必犧牲開發速度。 多項在內部使用此架構模式的 Microsoft 服務，都獲得絕佳的可靠性與延展性結果。 更新的解決方案加速器已將這些知識付諸實現，因此您也可以從中獲益。
 
 > [!TIP]
 > 若要了解微服務架構的詳細資訊，請參閱 [.NET 應用程式架構](https://www.microsoft.com/net/learn/architecture)和[微服務︰採用雲端技術的應用程式革命](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)。
@@ -67,7 +67,7 @@ IoT 套件遠端監視[預先設定解決方案](iot-suite-what-are-preconfigure
 
 ### <a name="iot-hub-and-the-iot-manager-microservice"></a>IoT 中樞與 IoT 管理員微服務
 
-[IoT 中樞](../iot-hub/index.md)會內嵌從裝置傳送至雲端的資料，並提供給 `telemetry-agent` 微服務。
+[IoT 中樞](../iot-hub/index.yml)會內嵌從裝置傳送至雲端的資料，並提供給 `telemetry-agent` 微服務。
 
 解決方案中的 IoT 中樞也可︰
 
@@ -112,11 +112,11 @@ IoT 套件遠端監視[預先設定解決方案](iot-suite-what-are-preconfigure
 
 ### <a name="storage"></a>儲存體
 
-[storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) 微服務是主要儲存體服務前面的配接器，可用於預先設定的解決方案。 它提供簡單的集合和機碼值儲存體。
+[storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) \(英文\) 微服務是主要儲存體服務前面的配接器，可用於解決方案加速器。 它提供簡單的集合和機碼值儲存體。
 
-預先設定解決方案的標準部署會使用 Cosmos DB 作為其主要的儲存體服務。
+解決方案加速器的標準部署會使用 Cosmos DB 作為其主要的儲存體服務。
 
-Cosmos DB 資料庫會儲存預先設定解決方案中的資料。 **storage-adapter** 微服務在解決方案中是作為其他微服務的配接器，以存取儲存體服務。
+Cosmos DB 資料庫會將資料儲存於解決方案加速器中。 **storage-adapter** 微服務在解決方案中是作為其他微服務的配接器，以存取儲存體服務。
 
 ## <a name="presentation"></a>展示
 
@@ -128,7 +128,7 @@ Cosmos DB 資料庫會儲存預先設定解決方案中的資料。 **storage-ad
 * CSS 樣式。
 * 會透過 AJAX 呼叫與公眾對應的微服務互動。
 
-使用者介面會提供所有預先設定的解決方案功能，並與其他服務互動，例如：
+使用者介面會呈現所有解決方案加速器功能，並與其他服務互動，例如：
 
 * [authentication](https://github.com/Azure/pcs-auth-dotnet) 微服務可保護使用者資料。
 * [iothub-manager](https://github.com/Azure/iothub-manager-dotnet) 微服務可列出並管理 IoT 裝置。
@@ -139,8 +139,8 @@ Cosmos DB 資料庫會儲存預先設定解決方案中的資料。 **storage-ad
 
 如果您需要探索來源程式碼和開發人員文件，請開始使用兩個主要的 GitHub 存放庫其中之一：
 
-* [使用 Azure IoT (.NET) 的遠端監視預先設定解決方案](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/)。
-* [使用 Azure IoT (Java) 的遠端監視預先設定解決方案](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)。
-* [遠端監視架構的預先設定解決方案](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture)。
+* [使用 Azure IoT 的遠端監視解決方案加速器 (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/) \(英文\)。
+* [使用 Azure IoT 的遠端監視解決方案加速器 (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) \(英文\)。
+* [遠端監視架構的解決方案加速器](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture) \(英文\)。
 
-如需關於遠端監視預先設定解決方案的詳細概念資訊，請參閱[自訂預先設定的解決方案](iot-suite-remote-monitoring-customize.md)。
+如需關於遠端監視解決方案加速器的詳細概念資訊，請參閱[自訂解決方案加速器](iot-suite-remote-monitoring-customize.md)。

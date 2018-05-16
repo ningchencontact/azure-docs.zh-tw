@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/04/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: fa04e7a3c0d6f19603befed026b316eba6e46eb7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ef7517e91965b0d7444d158f041b1d2bddea6bd2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>使用 Application Insights 進行事件分析和視覺效果
 
@@ -32,7 +32,7 @@ Azure Application Insights 是監視和診斷應用程式的擴充式平台。 �
 
 ## <a name="monitoring-in-app-insights"></a>App Insights 中的監視
 
-Application Insights 具有許多可與 Service Fabric 搭配使用的現成功能。 在概觀頁面中，AI 會提供您有關服務的重要資訊，例如回應時間和處理的要求數目。 按一下頂端 [搜尋] 按鈕，您可以看見應用程式中的最新要求清單。 此外，您也可以在此查看失敗的要求，並診斷可能發生哪些錯誤。
+Application Insights 具有許多使用 Service Fabric 時可使用的現成功能。 在概觀頁面中，AI 會提供您有關服務的重要資訊，例如回應時間和處理的要求數目。 按一下頂端 [搜尋] 按鈕，您可以看見應用程式中的最新要求清單。 此外，您也可以在此查看失敗的要求，並診斷可能發生哪些錯誤。
 
 ![AI 概觀](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 61db8f85e73d2c071bdec0ace60911813fa4f0e8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>利用存留時間讓 Azure Cosmos DB 集合中的資料自動過期
 應用程式可以產生並儲存大量資料。 其中有些資料，例如電腦產生的事件資料、記錄檔和使用者工作階段資訊只能在有限的期間內使用。 一旦資料超過應用程式的需求，即可放心清除此資料並減少應用程式的儲存體需求。
@@ -124,7 +124,7 @@ TTL 功能是由兩個層級 (集合層級和文件層級) 的 TTL 屬性所控�
     Document readDocument = response.Resource;
     readDocument.TimeToLive = 60 * 30 * 30; // update time to live
     
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="removing-ttl-from-a-document"></a>從文件移除 TTL
 如果文件上已設定 TTL，而您不再希望文件會到期，您可以擷取此文件、移除 TTL 欄位，然後取代伺服器上的文件。 移除文件的 TTL 欄位後，將會套用集合的預設值。 若要阻止文件到期且不要繼承集合的值，您必須將 TTL 值設定為 -1。
@@ -136,7 +136,7 @@ TTL 功能是由兩個層級 (集合層級和文件層級) 的 TTL 屬性所控�
     Document readDocument = response.Resource;
     readDocument.TimeToLive = null; // inherit the default TTL of the collection
     
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="disabling-ttl"></a>停用 TTL
 若要在集合上完全停用 TTL 並阻止背景處理程序尋找過期的文件，則應刪除集合上的 DefaultTTL 屬性。 刪除此屬性與將它設定為 -1 不同。 設定為 -1，表示加入至集合的新文件會永遠存留，但是您可以在集合中的特定文件上覆寫此值。 從集合中完全移除此屬性，表示即使有已明確覆寫先前預設值的文件，所有文件也都不會過期。

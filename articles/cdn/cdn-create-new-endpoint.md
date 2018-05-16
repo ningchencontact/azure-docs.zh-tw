@@ -1,5 +1,5 @@
 ---
-title: 建立 Azure CDN 設定檔和端點 | Microsoft Docs
+title: 快速入門 - 建立 Azure CDN 設定檔和端點 | Microsoft Docs
 description: 此快速入門說明如何藉由建立新的 CDN 設定檔和端點來啟用 Azure CDN。
 services: cdn
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 03/13/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: 6237b47be878217115849b87ebcd3d980665643a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2f2d34db2bb18b93ee4d8b78a135caecde5a293b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>快速入門：建立 Azure CDN 設定檔和端點
 在此快速入門中，您會藉由建立新的 CDN 設定檔和端點來啟用 Azure 內容傳遞網路 (CDN)。 在建立設定檔和端點後，您即可開始將內容傳遞給您的客戶。
@@ -69,8 +69,10 @@ ms.lasthandoff: 04/05/2018
     
    ![CDN 端點](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   因為需要一段時間才能傳播註冊，所以端點不會立即可供使用。 
-
+   因為需要一段時間才能傳播註冊，所以端點不會立即可供使用： 
+   - 若為**來自 Microsoft 的標準 Azure CDN** 設定檔，通常會在 10 分鐘內完成傳播。 
+   - 若為**來自 Akamai 的標準 Azure CDN** 設定檔，通常會在一分鐘內完成傳播。 
+   - 若為**來自 Verizon 的標準 Azure CDN** 和**來自 Verizon 的進階 Azure CDN** 設定檔，通常會在 90 分鐘內完成傳播。 
 
 ## <a name="clean-up-resources"></a>清除資源
 在前述步驟中，您在資源群組中建立了 CDN 設定檔和端點。 如果您想移至[後續步驟](#next-steps)並了解如何將自訂網域新增至您的端點，請儲存這些資源。 不過，如果您認為未來不需要使用這些資源，可以藉由刪除資源群組的方式將其刪除，以避免額外的費用：
@@ -85,6 +87,6 @@ ms.lasthandoff: 04/05/2018
 若要了解如何將自訂網域新增至您的 CDN 端點，請參閱下列教學課程：
 
 > [!div class="nextstepaction"]
-> [新增自訂網域](cdn-map-content-to-custom-domain.md)
+> [教學課程：將自訂網域新增至 Azure CDN 端點](cdn-map-content-to-custom-domain.md)
 
 

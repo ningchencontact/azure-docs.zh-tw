@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 04/23/2018
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  如果來源和目的地訂用帳戶的租用戶識別碼不相同，請使用下列方法來協調租用戶識別碼： 
+  如果來源和目的地訂用帳戶的租用戶識別碼不相同，請使用下列方法來協調租用戶識別碼：
 
   * [將 Azure 訂用帳戶的擁有權轉移給另一個帳戶](../billing/billing-subscription-transfer.md)
   * [如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
@@ -121,7 +121,8 @@ ms.lasthandoff: 04/23/2018
 * 認知服務
 * 內容仲裁
 * 資料目錄
-* 資料湖分析
+* Data Factory - 可移動 V1，但不支援移動 V2 (預覽)
+* Data Lake Analytics
 * Data Lake Store
 * DNS
 * 事件中樞
@@ -147,7 +148,7 @@ ms.lasthandoff: 04/23/2018
 * 儲存體
 * 儲存體 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 * 串流分析 - 無法移動執行中狀態的串流分析作業。
-* SQL Database 伺服器 - 資料庫和伺服器必須位於相同的資源群組。 當您移動 SQL 伺服器時，其所有資料庫也會跟著移動。
+* SQL Database 伺服器 - 資料庫和伺服器必須位於相同的資源群組。 當您移動 SQL 伺服器時，其所有資料庫也會跟著移動。 這包括 Azure SQL Database 和 Azure SQL Data Warehouse 資料庫。 
 * 流量管理員
 * 虛擬機器 - VM 具有無法移動的受控磁碟。 請參閱[虛擬機器限制](#virtual-machines-limitations)
 * 虛擬機器 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
@@ -165,8 +166,7 @@ ms.lasthandoff: 04/23/2018
 * 適用於 MySQL 的 Azure 資料庫
 * BizTalk 服務
 * 憑證 - App Service 憑證可以移動，但上傳的憑證則有其[限制](#app-service-limitations)。
-* 容器服務
-* Data Factory
+* Kubernetes 服務
 * DevTest Labs - 已啟用移動至相同訂用帳戶中新資源群組的功能，但未啟用跨訂用帳戶之間的移動。
 * Dynamics LCS
 * ExpressRoute
@@ -203,13 +203,13 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="app-service-limitations"></a>App Service 限制
 
-根據您是要移動訂用帳戶內的資源還是將資源移到新的訂用帳戶，移動 App Service 資源的限制會有所不同。 
+根據您是要移動訂用帳戶內的資源還是將資源移到新的訂用帳戶，移動 App Service 資源的限制會有所不同。
 
 這幾節所述的限制適用於上傳憑證，不適用於 App Service 憑證。 您可以將 App Service 憑證移至新資源群組或訂用帳戶，沒有任何限制。 如果您有多個 Web 應用程式使用相同的 App Service 憑證，請先移動所有的 Web 應用程式，再移動憑證。
 
 ### <a name="moving-within-the-same-subscription"></a>在相同的訂用帳戶內移動
 
-在_相同訂用帳戶內_移動 Web 應用程式時，您無法移動已上傳的 SSL 憑證。 不過，您可以只將 Web 應用程式移至新的資源群組，而不移動其上傳的 SSL 憑證，而且您應用程式的 SSL 功能仍可正常運作。 
+在_相同訂用帳戶內_移動 Web 應用程式時，您無法移動已上傳的 SSL 憑證。 不過，您可以只將 Web 應用程式移至新的資源群組，而不移動其上傳的 SSL 憑證，而且您應用程式的 SSL 功能仍可正常運作。
 
 如果您想在移動 Web 應用程式時一併移動 SSL 憑證，請遵循下列步驟：
 
@@ -227,7 +227,7 @@ ms.lasthandoff: 04/23/2018
     - 已上傳或已匯的入 SSL 憑證
     - App Service 環境
 - 資源群組中的所有 App Service 資源必須一起移動。
-- 只能從其最初建立 App Service 資源的資源群組中移動 App Service 資源。 如果 App Service 資源已不存在於其原始的資源群組中，則必須將其移回原始資源群組，然後才可以在訂用帳戶間移動。 
+- 只能從其最初建立 App Service 資源的資源群組中移動 App Service 資源。 如果 App Service 資源已不存在於其原始的資源群組中，則必須將其移回原始資源群組，然後才可以在訂用帳戶間移動。
 
 ## <a name="classic-deployment-limitations"></a>傳統部署限制
 

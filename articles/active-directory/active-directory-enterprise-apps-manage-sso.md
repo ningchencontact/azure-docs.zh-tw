@@ -3,23 +3,23 @@ title: 在 Azure Active Directory 中管理企業應用程式的單一登入 | M
 description: 從 Azure Active Directory 應用程式庫管理公司內企業應用程式的單一登入設定
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 45141551c502c89311ab7e43b53af50450d8babd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>管理企業應用程式的單一登入
 
@@ -28,13 +28,13 @@ ms.lasthandoff: 03/23/2018
 ## <a name="finding-your-apps-in-the-portal"></a>在入口網站中尋找您的應用程式
 在 Azure 入口網站中可以檢視及管理針對單一登入設定的所有企業應用程式。 這些應用程式可在入口網站的 [所有服務] &gt; [企業應用程式] 區段中找到。 
 
-![企業應用程式刀鋒視窗][1]
+![企業應用程式刀鋒視窗](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.png)
 
 選取 [所有應用程式] 以檢視已設定的所有應用程式清單。 選取應用程式會顯示該應用程式的資源，您可以在其中檢視該應用程式的報告，且可管理各種設定。
 
 若要管理單一登入設定，請選取 [單一登入] 。
 
-![應用程式資源刀鋒視窗][2]
+![應用程式資源刀鋒視窗](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.png)
 
 ## <a name="single-sign-on-modes"></a>單一登入模式
 [單一登入] 一開始是 [模式] 功能表，可在此設定單一登入模式。 可用的選項包括：
@@ -76,24 +76,19 @@ ms.lasthandoff: 03/23/2018
 > 
 > 
 
-![內嵌的文件][3]
+![內嵌的文件](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>密碼型登入
 如果應用程式支援此種登入，選取密碼型 SSO 模式，然後選取 [儲存]  ，即可立即將它設定為進行密碼型 SSO。 如需部署密碼型 SSO 的詳細資訊，請參閱 [單一登入如何搭配 Azure Active Directory 運作](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)。
 
-![密碼型登入][4]
+![密碼型登入](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>連結型登入
 如果應用程式支援此種登入，選取連結的 SSO 模式可讓您輸入 URL，做為當使用者按一下此應用程式時您想要 Azure AD 存取面板或 Office 365 重新導向的目標。 如需連結型 SSO (以前稱為「現有 SSO」) 的詳細資訊，請參閱 [單一登入如何搭配 Azure Active Directory 運作](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)。
 
-![連結型登入][5]
+![連結型登入](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 
 ## <a name="feedback"></a>意見反應
 
 我們希望您喜歡使用改進後的 Azure AD 經驗。 請繼續提供意見反應！ 請將您的意見反應和改進想法張貼在我們的[意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal)的**管理員入口網站**區段中。  我們每天都很期待發展酷炫的新功能，並依照您的指導來塑造和定義我們接下來所要發展的項目。
 
-[1]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.PNG
-[2]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.PNG
-[3]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.PNG
-[4]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.PNG
-[5]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.PNG

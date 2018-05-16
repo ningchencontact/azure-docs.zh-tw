@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-ms.openlocfilehash: 342aeee25a7cb9f6a0f5af055d04e67d0c52db80
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c180dcf5d769245f3fa2485ccee2cbc18ecf5f67
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證與授權
 
@@ -138,7 +138,8 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 
 ## <a name="more-resources"></a>其他資源
 
-[教學課程：在 Azure App Service 中端對端驗證和授權使用者](app-service-web-tutorial-auth-aad.md)  
+[教學課程：在 Azure App Service 中端對端驗證和授權使用者 (Windows)](app-service-web-tutorial-auth-aad.md)  
+[教學課程：在適用於 Linux 的 Azure App Service 中端對端驗證和授權使用者](containers/tutorial-auth-aad.md)  
 [自訂 App Service 中的驗證與授權](app-service-authentication-how-to.md)
 
 提供者專屬的使用說明指南：

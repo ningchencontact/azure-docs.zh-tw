@@ -1,22 +1,22 @@
 ---
-title: "針對遠端監視解決方案中的裝置進行疑難排解 - Azure | Microsoft Docs"
-description: "本教學課程會示範如何針對遠端監視解決方案中的裝置問題進行疑難排解及加以補救。"
-services: 
+title: 針對遠端監視解決方案中的裝置進行疑難排解 - Azure | Microsoft Docs
+description: 本教學課程會示範如何針對遠端監視解決方案中的裝置問題進行疑難排解及加以補救。
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: a959276ea61ec0e44ad45197019dfc80f26b768e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>針對裝置問題進行疑難排解和補救
 
@@ -34,31 +34,31 @@ Contoso 會在現場測試新的**原型**裝置。 身為 Contoso 操作員，�
 
 若要依循本教學課程進行操作，您需要在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案執行個體。
 
-如果您尚未部署遠端監視解決方案，應該先完成[部署遠端監視預先設定的解決方案](iot-suite-remote-monitoring-deploy.md)教學課程。
+如果您尚未部署遠端監視解決方案，應該先完成[部署遠端監視解決方案加速器](iot-suite-remote-monitoring-deploy.md)教學課程。
 
 ## <a name="use-the-maintenance-dashboard"></a>使用維護儀表板
 
 在 [儀表板] 頁面上，您會注意到有非預期的溫度警示來自與**原型**裝置相關聯的規則：
 
-![在儀表板上顯示的警示](media/iot-suite-remote-monitoring-maintain/dashboardalarm.png)
+![儀表板上顯示的警示](media/iot-suite-remote-monitoring-maintain/dashboardalarm.png)
 
 如需進一步調查問題，請選擇警示旁的 [探索警示] 選項：
 
 ![從儀表板探索警示](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-警報的詳細資料檢視會顯示：
+警示的詳細資料檢視會顯示：
 
-* 當觸發警示時
-* 與警示相關聯之裝置的狀態資訊
-* 與警示相關聯之裝置的遙測
+* 觸發警示的時機
+* 與警示相關聯裝置的狀態資訊
+* 來自與警示相關聯裝置的遙測
 
 ![警示詳細資料](media/iot-suite-remote-monitoring-maintain/maintenancealarmdetail.png)
 
-若要認知警示，請選取 [警示出現]，然後選擇 [認知]。 這個動作可讓其他操作員看到您已看過警示並正在加以處理。
+若要認可警示，選取 [警示發生項目]，然後選擇 [認可]。 這個動作可讓其他操作員看到您已看過警示且正在進行處理。
 
-![認知警示](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
+![認可警示](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
-在您認可警示之後，發生項目的狀態就會變更為 [已認可]。
+當您認可警示之後，發生項目的狀態就會變更為 [已認可]。
 
 在清單中，您可以看到負責引發溫度警示的**原型**裝置：
 
@@ -68,7 +68,7 @@ Contoso 會在現場測試新的**原型**裝置。 身為 Contoso 操作員，�
 
 若要使用**原型**裝置補救問題，您必須在裝置上呼叫 **DecreaseTemperature** 方法。
 
-若要在裝置上採取行動，請在裝置清單中選取它，然後選擇 [排程]。 **原型**裝置型號會指定裝置必須支援的四種方法：
+若要在裝置上採取行動，在裝置清單中選取它，然後選擇 [作業]。 **原型**裝置型號會指定裝置必須支援的六種方法：
 
 ![檢視裝置支援的方法](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 

@@ -2,23 +2,19 @@
 title: 使用 Azure MFA 與 AD FS 保護雲端資源 | Microsoft Docs
 description: 這是說明如何在雲端開始使用 Azure MFA 和 AD FS 的 Azure Multi-Factor Authentication 頁面。
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: 0927fc67-8090-4fdd-913a-b3cfed3fbe77
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: joflore
-ms.openlocfilehash: 3389dcd36eb4012e863335c34d5727c3530e2c61
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: 3f1d6b00652270d143f7df48b0f690c5f33433e9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>使用 Azure Multi-Factor Authentication 與 AD FS 保護雲端資源
 如果您的組織與 Azure Active Directory 同盟，請使用 Azure Multi-factor Authentication 或 Active Directory Federation Services (AD FS) 來保護 Azure AD 存取的資源。 使用下列程序可利用 Azure Multi-Factor Authentication 或 Active Directory Federation Services 來保護 Azure Active Directory 資源。
@@ -57,7 +53,7 @@ ms.lasthandoff: 04/19/2018
 
 1. 開啟 [AD FS 管理]。
 2. 在左側選取 [信賴憑證者信任]。
-3. 以滑鼠右鍵按一下**[Microsoft Office 365 身分識別平台]**，然後選取 **[編輯宣告規則...]**。
+3. 以滑鼠右鍵按一下 **[Microsoft Office 365 身分識別平台]**，然後選取 **[編輯宣告規則...]**。
    ![雲端](./media/howto-mfa-adfs/trustedip1.png)
 4. 在 [發佈轉換規則] 上，按一下 **[新增規則]**。
    ![雲端](./media/howto-mfa-adfs/trustedip2.png)

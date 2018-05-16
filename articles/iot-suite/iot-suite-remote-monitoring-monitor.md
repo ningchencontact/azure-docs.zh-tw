@@ -1,7 +1,7 @@
 ---
-title: "遠端監視解決方案中的進階監視 - Azure | Microsoft Docs"
-description: "本教學課程會示範如何使用遠端監視解決方案儀表板來監視裝置。"
-services: 
+title: 遠端監視解決方案中的進階監視 - Azure | Microsoft Docs
+description: 本教學課程會示範如何使用遠端監視解決方案儀表板來監視裝置。
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,17 +12,17 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fe0d936b4ee0d7703222c86c00959869b99f7851
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 63d5d8de82d97e7f8ca65ad04cdd4357cace0be1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>使用遠端監視解決方案執行進階監視
 
 本教學課程會示範遠端監視儀表板的功能。 為了介紹這些功能，本教學課程會使用 Contoso IoT 應用程式中的情節。
 
-在本教學課程中，您會使用兩個模擬的 Contoso 卡車裝置，了解如何從預先設定的解決方案儀表板監視您的裝置。 作為 Contoso 操作員，您必須在現場監視您卡車的位置和行為。
+在本教學課程中，您會使用兩個模擬的 Contoso 卡車裝置，了解如何從解決方案加速器儀表板監視您的裝置。 作為 Contoso 操作員，您必須在現場監視您卡車的位置和行為。
 
 在本教學課程中，您了解如何：
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/27/2018
 
 若要依循本教學課程進行操作，您需要在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案執行個體。
 
-如果您尚未部署遠端監視解決方案，應該先完成[部署遠端監視預先設定的解決方案](iot-suite-remote-monitoring-deploy.md)教學課程。
+如果您尚未部署遠端監視解決方案，應該先完成[部署遠端監視解決方案加速器](iot-suite-remote-monitoring-deploy.md)教學課程。
 
 ## <a name="choose-the-devices-to-display"></a>選擇要顯示的裝置
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 02/27/2018
 
 ## <a name="view-real-time-telemetry"></a>檢視即時遙測
 
-預先設定的解決方案會在 [儀表板] 頁面的圖表中繪製詳細的即時遙測資料。 遙測圖表會依目前的篩選條件顯示所選取裝置的遙測資訊：
+解決方案加速器會在 [儀表板] 頁面的圖表中繪製詳細的即時遙測資料。 遙測圖表會依目前的篩選條件顯示所選取裝置的遙測資訊：
 
 ![卡車遙測繪圖](media/iot-suite-remote-monitoring-monitor/dashboardtelemetryview.png)
 
@@ -65,29 +65,31 @@ ms.lasthandoff: 02/27/2018
 
 ![卡車遙測繪圖](media/iot-suite-remote-monitoring-monitor/dashboardselecttelemetry.png)
 
-若要暫停即時遙測顯示，請選擇 [流動]。 若要重新啟動即時顯示，請選擇 [暫停]：
+<!-- 05/01 - this features appears to have been removed
+To pause the live telemetry display, choose **Flowing**. To re-enable the live display, choose **Pause**:
 
-![暫停及重新啟動遙測顯示](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)
+![Pause and restart telemetry display](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)-->
 
 ## <a name="use-the-map"></a>使用地圖
 
-地圖會顯示目前篩選條件所選取之模擬卡車的相關資訊。 您可以縮放及移動瀏覽地圖，以顯示更多或更少詳細資料的位置。 地圖上的裝置圖示會指出裝置的任何作用中 [警示] 或 [警告]。 [警示] 和 [警告] 的數目摘要會顯示在地圖的左邊。
+地圖會顯示目前篩選條件所選取之模擬卡車的相關資訊。 您可以縮放及移動瀏覽地圖，以顯示更多或更少詳細資料的位置。 地圖上的裝置圖示會指出裝置的任何作用中**警示**或**警告**。 **警示**和**警告**的數目摘要會顯示在地圖左邊。
 
-若要檢視裝置詳細資料，請移動瀏覽及縮放地圖來找出裝置，然後按一下地圖上的裝置。 詳細資料包括：
+<!-- 05/01 - cannot select a deice on the map
+To view the device details, pan and zoom the map to locate the devices, then click the device on the map. The details include:
 
-* 最近的遙測值
-* 裝置支援的方法
-* 裝置屬性
+* Recent telemetry values
+* Methods the device supports
+* Device properties
 
-![在儀表板上檢視裝置詳細資料](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)
+![View device details on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)-->
 
-## <a name="view-alarms-from-your-devices"></a>從您的裝置檢視警示
+## <a name="view-alerts-from-your-devices"></a>從您的裝置檢視警示
 
-地圖會以 [警示] 和 [警告] 來反白顯示目前篩選條件中的裝置。 [系統警示] 面板會顯示關於您裝置中最新警示的詳細資訊：
+地圖會以**警示**和**警告**醒目提示目前篩選條件中的裝置。 [警示] 面板會顯示關於您裝置中最新警示的詳細資訊：
 
 ![在儀表板上檢視系統警示](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
 
-您可以使用 [系統警示] 篩選條件來調整最近警示的時間範圍。 依預設，面板會顯示過去一小時內的警示：
+您可以使用 [儀表板] 篩選條件來調整最近警示的時間範圍。 根據預設，面板會顯示過去一小時內的警示：
 
 ![依時間篩選警示](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
 
@@ -95,9 +97,9 @@ ms.lasthandoff: 02/27/2018
 
 [儀表板] 頁面會顯示系統 KPI：
 
-![依時間篩選警示](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
+![儀表板 KPI](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
 
-您可以使用 [系統 KPI] 篩選條件來調整 KPI 彙總的時間範圍。 依預設，面板會顯示過去一小時內彙總的 KPI。
+您可以使用 [儀表板] 篩選條件來調整 KPI 彙總的時間範圍。 依預設，面板會顯示過去一小時內彙總的 KPI。
 
 ## <a name="next-steps"></a>後續步驟
 

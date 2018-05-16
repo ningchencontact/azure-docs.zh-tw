@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT Suite 和 Azure Active Directory | Microsoft Docs"
-description: "描述 Azure IoT Suite 如何使用 Azure Active Directory 來管理權限。"
-services: 
+title: Azure IoT 解決方案加速器和 Azure Active Directory | Microsoft Docs
+description: 描述 Azure IoT 解決方案加速器如何使用 Azure Active Directory 來管理使用權限。
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: e5804cda921e9d598d0ed02c4fafccdb40fbe7a5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b7360ca4df63cac114b0eb1f93375367da6735cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>azureiotsuite.com 網站的權限
 
@@ -29,35 +29,35 @@ ms.lasthandoff: 12/18/2017
 
 1. 首先，若要填入您的使用者名稱旁邊顯示的租用戶清單，此網站會先從 Azure 找出您所屬的 AAD 租用戶。 目前，網站一次只能取得一個租用戶的使用者權杖。 因此，當您使用右上角下拉式清單切換租用戶時，此網站會讓您重新登入該租用戶，以取得該租用戶的權杖。
 
-2. 接下來，網站會從 Azure 找出與所選租用戶有關聯的訂用帳戶。 當您建立預先設定的新方案時，您會看到可用的訂用帳戶。
+2. 接下來，網站會從 Azure 找出與所選租用戶有關聯的訂用帳戶。 當您建立新的解決方案加速器時，會看到可用的訂用帳戶。
 
-3. 最後，網站會擷取訂用帳戶中的所有資源以及標記為預先設定之方案的資源群組，並在首頁上填入動態磚。
+3. 最後，網站會擷取訂用帳戶中的所有資源以及標記為解決方案加速器的資源群組，並在首頁填入動態磚。
 
-下列各節說明的角色可控制預先設定之方案的存取。
+下列各節說明的角色可控制對解決方案加速器的存取。
 
 ## <a name="aad-roles"></a>AAD 角色
 
-AAD 角色控制在預先設定的方案中佈建預先設定的方案以及管理使用者的能力。
+AAD 角色能夠控制佈建解決方案加速器，以及在解決方案加速器中管理使用者。
 
-您可以在[在 Azure AD 中指派系統管理員角色][lnk-aad-admin]中的 AAD 找到有關使用者和系統管理員角色的詳細資訊。 目前的文章內容著重於預先設定的解決方案所使用的**全域管理員**和**使用者**目錄角色。
+您可以在[在 Azure AD 中指派系統管理員角色][lnk-aad-admin]中的 AAD 找到有關使用者和系統管理員角色的詳細資訊。 目前的文章內容著重於解決方案加速器所使用的**全域管理員**和**使用者**目錄角色。
 
 ### <a name="global-administrator"></a>全域管理員
 
 每個 AAD 租用戶可以有很多全域系統管理員：
 
 * 當您建立 AAD 租用戶時，您會預設為該租用戶的全域管理員。
-* 全域管理員可以佈建基本和標準的預先設定解決方案。
+* 全域管理員可以佈建基本和標準的解決方案加速器。
 
 ### <a name="domain-user"></a>網域使用者
 
 每一個 AAD 租用戶可以有很多網域使用者：
 
-* 網域使用者可以透過 [azureiotsuite.com][lnk-azureiotsuite] 網站佈建標準的預先設定解決方案。
-* 網域使用者可以使用 CLI 建立基本的預先設定解決方案。
+* 網域使用者可以透過 [azureiotsuite.com][lnk-azureiotsuite] 網站佈建基本的解決方案加速器。
+* 網域使用者可以使用 CLI 來建立基本的解決方案加速器。
 
 ### <a name="guest-user"></a>來賓使用者
 
-每一個 AAD 租用戶可以有很多來賓使用者。 來賓使用者在 AAD 租用戶中有一組受限的權限。 因此，來賓使用者無法在 AAD 租用戶中佈建預先設定的方案。
+每一個 AAD 租用戶可以有很多來賓使用者。 來賓使用者在 AAD 租用戶中有一組受限的權限。 因此，來賓使用者無法在 AAD 租用戶中佈建解決方案加速器。
 
 如需有關 AAD 中使用者和角色的詳細資訊，請參閱下列資源：
 
@@ -94,7 +94,7 @@ Azure 管理員角色可控制將 Azure 訂用帳戶對應至 AD 租用戶的能
 如果您確定有 Azure 訂用帳戶，請驗證您的訂用帳戶的租用戶對應，並確保已在下拉式清單中選取正確的租用戶。 如果您已驗證所需的租用戶是否正確，請遵循先前圖表並驗證您的訂用帳戶與此 AAD 租用戶的對應。
 
 ## <a name="next-steps"></a>後續步驟
-若要繼續了解 IoT 套件，請參閱如何[自訂預先設定的解決方案][lnk-customize]。
+若要繼續了解 IoT 解決方案加速器，請參閱如何[自訂解決方案加速器][lnk-customize]。
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 

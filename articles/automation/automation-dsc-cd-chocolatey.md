@@ -3,16 +3,17 @@ title: Azure 自動化 DSC 持續部署與 Chocolatey
 description: 使用 Azure 自動化 DSC 和 Chocolatey 封裝管理員執行 DevOps 持續部署。  具有完整 JSON ARM 範本與 PowerShell 原始檔的範例。
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: bf535dfae4c5f710a423343bc3d76c81d83df2ae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9c3cb5a00433a76e8cc444cc48c648cb2749a2ae
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>使用範例：使用 Automation DSC 和 Chocolatey 持續部署至虛擬機器
 DevOps 領域中有許多工具可協助處理持續整合管線中的各個點。  Azure 自動化預期狀態設定 (DSC) 是 DevOps 團隊可以採用的新選項。  本文示範如何為 Windows 電腦設定持續部署 (CD)。  您可以輕鬆地擴充技術，在角色 (例如網站) 中依需要加入更多 Windows 電腦，還能從該角色再延伸至其他角色。

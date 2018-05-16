@@ -1,6 +1,6 @@
 ---
-title: 建立 Azure Container Service (AKS) 內部負載平衡器
-description: 搭配 Azure Container Service (AKS) 使用內部負載平衡器。
+title: 建立 Azure Kubernetes Service (AKS) 內部負載平衡器
+description: 搭配 Azure Kubernetes Service (AKS) 使用內部負載平衡器。
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 3/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7b9ecdb5364f7c0f5bb68ce693e53bc2c5327337
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 6a657df82e1670f7a9d604dd5166ab53bb38bf74
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-an-internal-load-balancer-with-azure-container-service-aks"></a>搭配 Azure Container Service (AKS) 使用內部負載平衡器
+# <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>搭配 Azure Kubernetes Service (AKS) 使用內部負載平衡器
 
-內部負載平衡讓 Kubernetes 服務可供在與 Kubernetes 叢集相同之虛擬網路中執行的應用程式存取。 本文詳述如何使用 Azure Container Service (AKS) 建立內部負載平衡器。
+內部負載平衡讓 Kubernetes 服務可供在與 Kubernetes 叢集相同之虛擬網路中執行的應用程式存取。 本文詳述如何使用 Azure Kubernetes Service (AKS) 建立內部負載平衡器。
 
 ## <a name="create-internal-load-balancer"></a>建立內部負載平衡器
 
@@ -38,11 +38,11 @@ spec:
     app: azure-vote-front
 ```
 
-一旦部署之後， Azure 負載平衡器即會建立，並且可在與 AKS 叢集相同的虛擬網路上使用。 
+一旦部署之後， Azure 負載平衡器即會建立，並且可在與 AKS 叢集相同的虛擬網路上使用。
 
 ![AKS 內部負載平衡器的影像](media/internal-lb/internal-lb.png)
 
-擷取服務詳細資料時，`EXTERNAL-IP` 欄中的 IP 位址是內部負載平衡器的 IP 位址。 
+擷取服務詳細資料時，`EXTERNAL-IP` 欄中的 IP 位址是內部負載平衡器的 IP 位址。
 
 ```console
 $ kubectl get service azure-vote-front
@@ -71,7 +71,7 @@ spec:
     app: azure-vote-front
 ```
 
-擷取服務詳細資料時，`EXTERNAL-IP` 上的 IP 位址應該反映指定的 IP 位址。 
+擷取服務詳細資料時，`EXTERNAL-IP` 上的 IP 位址應該反映指定的 IP 位址。
 
 ```console
 $ kubectl get service azure-vote-front

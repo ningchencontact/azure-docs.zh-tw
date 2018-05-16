@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 4715384a0c6eb24a6a4208ca387b8c4a9871d5c7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 18465463e924c10ddc35d619992655773e12cc82
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
@@ -95,7 +95,7 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
    
    b. ：
    
-   * 選取其中一個符合您的功能性需求和成本條件約束的伺服器類型。 選取 [檢視全部]  以查看更多 VM 大小的選項。 針對 GPU 訓練選取一個 NC 類別的 VM。
+   * 選取其中一個符合您的功能性需求和成本條件約束的伺服器類型。 選取 [檢視全部]  以查看更多 VM 大小的選項。 針對 GPU 訓練選取一個 NC 或 ND 類別的 VM。 [依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)頁面會列出使用 GPU 的區域。
    
    c. **設定**：
    

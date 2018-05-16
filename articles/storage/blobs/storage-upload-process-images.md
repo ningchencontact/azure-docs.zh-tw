@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 儲存體在雲端中上傳影像資料 | Microsoft Docs"
-description: "使用 Azure Blob 儲存體與 Web 應用程式儲存應用程式資料"
+title: 使用 Azure 儲存體在雲端中上傳影像資料 | Microsoft Docs
+description: 使用 Azure Blob 儲存體與 Web 應用程式儲存應用程式資料
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: jeconnoc
 ms.service: storage
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 29accb3394e9a2f6939a657172c1a5c2e411706a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>使用 Azure 儲存體在雲端中上傳影像資料
 
@@ -72,7 +72,7 @@ az storage account create --name <blob_storage_account> \
 在本例中，`<blob_storage_account>` 是您建立的 Blob 儲存體帳戶名稱。 [影像] 容器的公用存取設為 `off`，[縮圖] 容器的公用存取設為 `container`。 `container` 公用存取設定可讓瀏覽網頁的人看到縮圖。
  
 ```azurecli-interactive 
-blobStorageAccount=<blob_storage_account>
+$blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 

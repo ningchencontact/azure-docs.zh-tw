@@ -83,7 +83,8 @@
 
 
 ## 疑難排解
-### [連線能力](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [使用 Azure AD Connect 的 Azure AD 連線能力](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [SQL 連線能力](active-directory-aadconnect-tshoot-sql-connectivity.md)
 ### [同步處理期間的錯誤](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [物件未同步處理](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [使用疑難排解工作的物件同步](active-directory-aadconnect-troubleshoot-objectsync.md)

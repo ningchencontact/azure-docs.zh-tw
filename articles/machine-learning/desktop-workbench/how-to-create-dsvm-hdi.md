@@ -1,6 +1,6 @@
 ---
-title: "如何建立 DSVM 和 HDI 作為 Azure ML 的計算目標"
-description: "建立 DSVM 和 HDI Spark 叢集作為 Azure ML 實驗的計算目標。"
+title: 如何建立 DSVM 和 HDI 作為 Azure ML 的計算目標
+description: 建立 DSVM 和 HDI Spark 叢集作為 Azure ML 實驗的計算目標。
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 15cdee0fb3994874c88b16bebec35f5eae9f8de2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1229a66ec84b4272337a5dd1e17942e46b25e9a0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>建立 DSVM 及 HDI Spark 叢集作為計算目標
 
@@ -148,7 +148,7 @@ $ az vm start -g <resource group name> -n <vm name>
 ```
 
 ## <a name="expand-the-dsvm-os-disk"></a>延伸 DSVM OS 磁碟
-Azure 中的 Linux VM 通常會隨附 30-GB 作業系統磁碟。 用作 Azure ML 的計算目標時，拉下 Docker 映像並在其上建置 conda 層的 Docker 引擎可能會快速地用完它。 最好將 OS 磁碟擴充到較大的大小 (例如 200 GB)，避免您在執行時發生「磁碟已滿」錯誤。 請參閱[如何使用 Azure CLI 擴充 Linux VM 上的虛擬硬碟](../../virtual-machines/linux/expand-disks.md)，以了解如何輕鬆地從 azure-cli 完成此動作。 
+Ubuntu DSVM 隨附 50 GB OS 磁碟和 100 GB 資料磁碟。 Docker 將映像儲存在資料磁碟上，因為該磁碟提供更多空間。 用作 Azure ML 的計算目標時，Docker 引擎拉下 Docker 映像並在其上建置 conda 層可能會將磁碟空間用完。 您可能需要將該磁碟擴充到較大的大小 (例如 200 GB)，避免您在執行時發生「磁碟已滿」錯誤。 請參閱[如何使用 Azure CLI 擴充 Linux VM 上的虛擬硬碟](../../virtual-machines/linux/expand-disks.md)，以了解如何輕鬆地從 azure-cli 完成此動作。 
 
 ## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>在 Azure 入口網站中建立 Apache Spark for Azure HDInsight 叢集
 

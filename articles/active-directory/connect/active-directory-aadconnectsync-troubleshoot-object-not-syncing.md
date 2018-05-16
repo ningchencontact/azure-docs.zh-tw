@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 05b60b091fe87620c88ad9eb761f1028c24d5730
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5bc0fd3854488704f5368bfe1134d8fa9c959c9b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>針對未同步至 Azure AD 的物件進行疑難排解
 
@@ -139,7 +139,7 @@ Synchronization Service Manager 中的 [作業] 索引標籤是您應該開始�
 - 每個呈現出使用者的 Active Directory 樹系。 這項呈現可以包括 foreignSecurityPrincipals 和 Contact 物件。
 - Azure AD 中的連接器。
 
-如果您沒有連至 Azure AD 的連接器，則請閱讀 [MV 屬性](#MV-attributes)，以確認佈建到 Azure AD 所需符合的準則。
+如果您沒有連至 Azure AD 的連接器，則請閱讀 [MV 屬性](#mv-attributes)，以確認佈建到 Azure AD 所需符合的準則。
 
 此索引標籤也可讓您瀏覽至[連接器空間物件](#connector-space-object-properties)。 請選取一個資料列，然後按一下 [屬性]。
 

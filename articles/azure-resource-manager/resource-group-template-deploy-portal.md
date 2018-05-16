@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 入口網站部署 Azure 資源 | Microsoft Docs"
-description: "使用 Azure 入口網站和 Azure Resource Manager 來部署資源。"
+title: 使用 Azure 入口網站部署 Azure 資源 | Microsoft Docs
+description: 使用 Azure 入口網站和 Azure Resource Manager 來部署資源。
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0174f688cb3fd04fdd41714d54a7371319bae951
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 範本與 Azure 入口網站來部署資源
 
 本主題示範如何使用 [Azure 入口網站](https://portal.azure.com)搭配 [Azure Resource Manager](resource-group-overview.md) 來部署您的 Azure 資源。 若要了解如何管理您的資源，請參閱 [透過入口網站管理 Azure 資源](resource-group-portal.md)。
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="create-resource-group"></a>建立資源群組
 

@@ -1,13 +1,13 @@
 ---
-title: "連線處理站解決方案概觀 - Azure | Microsoft Docs"
-description: "Azure IoT 套件連線處理站預先設定的解決方案說明。"
-services: 
+title: 連線的處理站解決方案的概觀 - Azure | Microsoft Docs
+description: 說明 Azure IoT 連線的處理站解決方案加速器。
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: bd68859e3837f7e5adbe911518631cb7abc2c2ce
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c5fe6cf6dff6fd8951a949761739cb12f98834bf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>開始使用 Azure IoT 套件連線處理站預先設定的解決方案
+# <a name="get-started-with-the-connected-factory-solution-accelerator"></a>開始使用連線的處理站解決方案加速器
 
-Azure IoT 套件[預先設定的解決方案][lnk-preconfigured-solutions]結合了多項 Azure IoT 服務，以提供可實作常見 IoT 商務案例的端對端解決方案。 「連線處理站廠」預先設定的解決方案會連線並監視您的工業裝置。 您可以使用此解決方案來分析裝置的資料流，以及提升營運生產力和獲利率。
+Azure IoT 解決方案加速器[解決方案加速器][lnk-preconfigured-solutions]結合了多項 Azure IoT 服務，以提供可實作常見 IoT 商務案例的端對端解決方案。 「連線的處理站」解決方案加速器會連線並監視您的企業裝置。 您可以使用此解決方案來分析裝置的資料流，以及提升營運生產力和獲利率。
 
-本教學課程示範如何佈建連線處理站預先設定的解決方案。 其中也逐步說明預先設定解決方案的基本功能。 您可以從隨預先設定解決方案一起部署的解決方案儀表板中，存取其中許多功能：
+本教學課程示範如何佈建連線的處理站解決方案加速器。 此外也會逐步說明解決方案加速器的基本功能。 您可以在隨解決方案加速器一起部署的解決方案儀表板中，存取其中的許多功能：
 
-![連線處理站預先設定的解決方案儀表板][img-cf-home]
+![連線的處理站解決方案加速器儀表板][img-cf-home]
 
 若要完成此教學課程，您需要一個有效的 Azure 訂用帳戶。
 
@@ -38,7 +38,7 @@ Azure IoT 套件[預先設定的解決方案][lnk-preconfigured-solutions]結合
 
 1. 使用 Azure 帳戶認證登入 azureiotsuite.com，然後按一下 "**+**" 以建立解決方案。
 2. 按一下 [連線處理站] 圖格上的 [選取]。
-3. 輸入連線處理站預先設定的解決方案的 [解決方案名稱]。
+3. 輸入連線的處理站解決方案加速器的 [解決方案名稱]。
 4. 選取您要用來佈建解決方案的 [訂用帳戶] 和 [區域]。
 5. 按一下 [建立解決方案]  開始佈建程序。 此程序通常需要數分鐘的執行時間。
 
@@ -50,13 +50,13 @@ Azure IoT 套件[預先設定的解決方案][lnk-preconfigured-solutions]結合
 4. 按一下圖格，就會在右邊窗格中看到解決方案的詳細資料。
 
 > [!NOTE]
-> 如果您在佈建預先設定的解決方案時遇到問題，請參閱 [azureiotsuite.com 網站的權限][lnk-permissions]和[連線的處理站常見問題集](iot-suite-faq-cf.md)。 如果問題持續發生，請在[入口網站][lnk-portal]建立服務票證。
+> 如果您在佈建解決方案加速器時遇到問題，請參閱 [azureiotsuite.com 網站的權限][lnk-permissions]和[連線的處理站常見問題集](iot-suite-faq-cf.md)。 如果問題持續發生，請在[入口網站][lnk-portal]建立服務票證。
 
 是否有您預期會看到但沒有列出的解決方案詳細資料？ 請在[使用者心聲](https://feedback.azure.com/forums/321918-azure-iot)中提供功能建議。
 
 ## <a name="scenario-overview"></a>案例概觀
 
-當您部署連線處理站預先設定的解決方案時，它會預先填入可讓您逐步執行常見產業案例的資源。 在此案例中，連線至解決方案的數個工廠會報告計算整體設備效率 (OEE) 和關鍵效能指標 (KPI) 所需的資料值。 下列各節將示範如何：
+當您部署連線的處理站解決方案加速器時，它會預先填入可讓您逐步執行常見產業案例的資源。 在此案例中，連線至解決方案的數個工廠會報告計算整體設備效率 (OEE) 和關鍵效能指標 (KPI) 所需的資料值。 下列各節將示範如何：
 
 * 監視處理站、生產線、站區 OEE 和 KPI 值
 * 使用 Azure Time Series Insights 分析這些裝置產生的遙測資料
@@ -68,13 +68,13 @@ Azure IoT 套件[預先設定的解決方案][lnk-preconfigured-solutions]結合
 
 解決方案儀表板可讓您管理部署的解決方案。 它是全域處理站組態的階層式表示法。 例如，您可以檢視 OEE 和 KPI、針對遙測和動作警示發佈新節點。
 
-1. 當佈建完成且預先設定解決方案的圖格指示 [就緒] 時，選擇 [啟動] 以在新的索引標籤中開啟連線處理站解決方案入口網站。
+1. 當佈建完成且解決方案加速器的圖格指示 [就緒] 時，請選擇 [啟動]，以在新的索引標籤中開啟連線的處理站解決方案入口網站。
 
-    ![啟動預先設定的解決方案][img-launch-solution]
+    ![啟動解決方案加速器][img-launch-solution]
 
 1. 根據預設，此解決方案入口網站會顯示儀表板。 若要瀏覽至入口網站的其他區域，請使用頁面左側的功能表。
 
-    ![連線處理站預先設定的解決方案儀表板][cf-img-menu]
+    ![連線的處理站解決方案加速器儀表板][cf-img-menu]
 
 儀表板會顯示下列資訊：
 
@@ -88,7 +88,7 @@ Azure IoT 套件[預先設定的解決方案][lnk-preconfigured-solutions]結合
 
 [處理站位置] 面板，可顯示解決方案中所有工廠的地理位置、其狀態和目前的生產組態。 從 [位置] 清單，您可以瀏覽至解決方案階層中的其他層級。 清單中的資料列是一些超連結，可連結該位置的生產線詳細資料。 您可以接著深入探詢生產線詳細資料，並向下切入到站區層級檢視。 您也可以將篩選條件套用至清單。
 
-![連線處理站預先設定的解決方案處理站][cf-img-factories]
+![連線的處理站解決方案加速器處理站][cf-img-factories]
 
 1. **處理站面板**會顯示此解決方案的處理站清單。
 
@@ -106,7 +106,7 @@ Azure IoT 套件[預先設定的解決方案][lnk-preconfigured-solutions]結合
 
 如果您的訂用帳戶可存取 Bing 地圖服務 API，則「工廠」地圖會顯示解決方案中所有工廠的地理位置和狀態。 若要深入探詢位置詳細資料，請按一下地圖上顯示的位置。
 
-![連線處理站預先設定的解決方案地圖][cf-img-map]
+![連線的處理站解決方案加速器地圖][cf-img-map]
 
 ## <a name="view-alarms"></a>檢視警示
 
@@ -121,10 +121,10 @@ Azure IoT 套件[預先設定的解決方案][lnk-preconfigured-solutions]結合
 * 在裝置上呼叫 OPC UA 方法，以緩和警示的原因。
 * 隱藏預設動作的可用性。
 
-    ![連線處理站預先設定的解決方案警示][cf-img-alerts]
+    ![連線的處理站解決方案加速器警示][cf-img-alerts]
 
 > [!NOTE]
-> 這些警示是由預先設定之解決方案中的組態檔中指定的規則所產生。 當 OEE 或 KPI 數字或 OPC UA 節點值超過其設定的閾值時，這些規則即可產生警示。
+> 這些警示是由解決方案加速器中的組態檔指定的規則所產生。 當 OEE 或 KPI 數字或 OPC UA 節點值超過其設定的閾值時，這些規則即可產生警示。
 
 1. [警示] 面板會顯示在此解決方案中產生的警示。
 
@@ -138,23 +138,23 @@ Azure IoT 套件[預先設定的解決方案][lnk-preconfigured-solutions]結合
 
 OEE 會使用重要生產相關作業參數來評比製造程序的效率。 OEE 是一種業界標準量值，其計算方式是將可用率、效能率和品質率相乘︰OEE = 可用項 x 效能 x 品質。
 
-![連線處理站預先設定的解決方案 OEE][cf-img-oee]
+![連線的處理站解決方案加速器 OEE][cf-img-oee]
 
 1. 若要檢視階層中任何層級的 OEE，請瀏覽至您所需的特定檢視。 適用於該檢視的 OEE 會連同構成 OEE 百分比的每個元素顯示在面板中。
 
 2. 若要進一步分析階層資料中任何層級的 OEE，請按一下 OEE、可用性、效能或品質百分比。 內容面板會以 Time Series Insights 支援的視覺效果呈現，其中顯示過去一小時、過去 24 小時和過去 7 天的資料。
 
-    ![連線處理站預先設定的解決方案 TSI 視覺效果][cf-img-tsi-visualization]
+    ![連線的處理站解決方案加速器 TSI 視覺效果][cf-img-tsi-visualization]
 
 3. 若要進一步分析警示資料，請按一下警示面板上的圖表。 這個動作會開啟 Time Series Insights 總管環境。
 
-    ![連線處理站預先設定的解決方案 TSI 總管][cf-img-tsi-explorer]
+    ![連線的處理站解決方案加速器 TSI 總管][cf-img-tsi-explorer]
 
 ## <a name="view-key-performance-indicators"></a>檢視關鍵效能指標
 
 此解決方案會提供兩個關鍵效能指標：「每小時單位數」和「所用能源 (kwh)」。
 
-![連線處理站預先設定的解決方案 KPI][cf-img-kpi]
+![連線的處理站解決方案加速器 KPI][cf-img-kpi]
 
 1. 若要檢視階層中任何層級的每小時單位數或所用能源，請瀏覽至您所需的特定檢視。 每小時單位數和所用能源會顯示在面板中。
 
@@ -166,7 +166,7 @@ OEE 會使用重要生產相關作業參數來評比製造程序的效率。 OEE
 
 ## <a name="other-features"></a>其他功能
 
-下列各節說明連線的處理站解決方案的一些其他功能，這些功能在前一個情節中並未說明。
+下列各節說明連線的處理站解決方案的一些其他功能，這些功能在前一個案例中並未說明。
 
 ## <a name="apply-filters"></a>套用篩選條件
 
@@ -174,13 +174,13 @@ OEE 會使用重要生產相關作業參數來評比製造程序的效率。 OEE
 
 2. [篩選條件] 面板隨即為您顯示。
 
-    ![連線處理站預先設定的解決方案篩選條件][cf-img-alert-filter]
+    ![連線的處理站解決方案加速器篩選條件][cf-img-alert-filter]
 
 3. 選擇您需要的篩選條件。 也可以在篩選欄位中輸入任意文字。
 
 4. 接著會為您套用此篩選條件。 透過工廠和警示資料表中顯示的漏斗圖示，篩選條件狀態也會顯示在儀表板中。
 
-    ![連線處理站預先設定的解決方案篩選條件][cf-img-alert-filter-funnel]
+    ![連線的處理站解決方案加速器篩選條件][cf-img-alert-filter-funnel]
 
     > [!NOTE]
     > 使用中篩選條件不會影響已顯示的 OEE 和 KPI 值，它只會篩選清單內容。
@@ -189,27 +189,27 @@ OEE 會使用重要生產相關作業參數來評比製造程序的效率。 OEE
 
 ## <a name="browse-an-opc-ua-server"></a>瀏覽 OPC UA 伺服器
 
-當您部署預先設定的解決方案時，會自動佈建您可透過解決方案瀏覽器瀏覽的模擬 OPC UA 伺服器。 這些伺服器是「模擬的 OPC UA 伺服器」。 模擬伺服器可讓您輕鬆對預先設定的解決方案進行實驗，而不需要部署真實的實體伺服器。 若要將真實 OPC UA 伺服器連線至解決方案，請參閱[將 OPC UA 裝置連線至連線處理站預先設定的解決方案][lnk-connect-cf]教學課程。
+當您部署解決方案加速器時，會自動佈建您可透過解決方案瀏覽器瀏覽的模擬 OPC UA 伺服器。 這些伺服器是「模擬的 OPC UA 伺服器」。 模擬伺服器可讓您輕鬆對解決方案加速器進行實驗，而不需要部署真實的實體伺服器。 若要將真實 OPC UA 伺服器連線至解決方案，請參閱[將 OPC UA 裝置連線至連線的處理站解決方案加速器][lnk-connect-cf]教學課程。
 
 1. 按一下儀表板導覽列中的**瀏覽器圖示**。
 
-    ![連線處理站預先設定的解決方案伺服器瀏覽器][cf-img-server-browser]
+    ![連線的處理站解決方案加速器伺服器瀏覽器][cf-img-server-browser]
 
-2. 從預先設定的清單中選擇其中一部伺服器。 這份清單會顯示在預先設定的解決方案中為您部署的伺服器。
+2. 從預先設定的清單中選擇其中一部伺服器。 這份清單會顯示在解決方案加速器中為您部署的伺服器。
 
-    ![連線處理站預先設定的解決方案伺服器選取][cf-img-server-choice]
+    ![連線的處理站解決方案加速器伺服器選取][cf-img-server-choice]
 
 3. 按一下 [連線]，[安全性] 對話方塊隨即顯示。 若要進行模擬，您可以放心按一下 [繼續]
 
 4. 若要展開伺服器樹狀目錄中的任何節點，請按一下該節點。 正在發佈遙測的節點旁邊有勾號。
 
-    ![連線處理站預先設定的解決方案伺服器樹狀目錄][cf-img-server-tree]
+    ![連線的處理站解決方案加速器伺服器樹狀目錄][cf-img-server-tree]
 
 5. 以滑鼠右鍵按一下要讀取、寫入、發佈或呼叫該節點的項目。 您可使用的動作取決於您的節點權限和屬性。 讀取選項會顯示一個內容面板，以顯示特定節點的值。 寫入選項會顯示一個內容面板，您可以在此輸入新值。 呼叫選項會顯示一個節點，您可以在此輸入呼叫的參數。
 
 ## <a name="publish-a-node"></a>發佈節點
 
-當您瀏覽*模擬的 OPC UA 伺服器*時，也可以選擇發佈新的節點。 您可以分析解決方案中這些節點的遙測資料。 這些「模擬的 OPC UA 伺服器」可讓您輕鬆對解決方案進行實驗，而不需要部署真實的實體裝置。
+當您瀏覽*模擬的 OPC UA 伺服器*時，也可以選擇發佈新的節點。 您可以分析解決方案中這些節點的遙測資料。 這些「模擬的 OPC UA 伺服器」可讓您輕鬆對解決方案加速器進行實驗，而不需要部署真實的實體裝置。
 
 1. 瀏覽至 OPC UA 伺服器瀏覽器樹狀目錄中您想要發佈的節點。
 
@@ -225,7 +225,7 @@ OEE 會使用重要生產相關作業參數來評比製造程序的效率。 OEE
 
 ## <a name="command-and-control"></a>命令與控制
 
-連線處理站可讓您直接從雲端指揮及控制您的工業裝置。 您可以使用這項功能來回應裝置所產生的警示。 例如，您可以從雲端將命令傳送到裝置。 您可以在 OPC UA 伺服器瀏覽器樹狀目錄的 **StationCommands** 節點中找到可用的命令。 在此情節中，您會開啟慕尼黑生產線的裝配站上的洩壓閥。 若要使用命令與控制功能，您必須具備預先設定解決方案部署的 [系統管理員] 角色。
+連線的處理站可讓您直接從雲端指揮及控制您的企業裝置。 您可以使用這項功能來回應裝置所產生的警示。 例如，您可以從雲端將命令傳送到裝置。 您可以在 OPC UA 伺服器瀏覽器樹狀目錄的 **StationCommands** 節點中找到可用的命令。 在此情節中，您會開啟慕尼黑生產線的裝配站上的洩壓閥。 若要使用命令與控制功能，您必須具備解決方案加速器部署的 [系統管理員] 角色。
 
 1. 瀏覽至 OPC UA 伺服器瀏覽器樹狀目錄中的 **StationCommands** 節點。
 
@@ -235,39 +235,39 @@ OEE 會使用重要生產相關作業參數來評比製造程序的效率。 OEE
 
 4. 選擇 [呼叫]。
 
-    ![連線處理站預先設定的解決方案呼叫命令][cf-img-call-command]
+    ![連線的處理站解決方案加速器呼叫命令][cf-img-call-command]
 
 5. 隨即顯示一個內容面板，告知您即將呼叫的方法以及適用的任何參數詳細資料。
 
 6. 選擇 [呼叫]。
 
-    ![連線處理站預先設定的解決方案呼叫內容][cf-img-call-context]
+    ![連線的處理站解決方案加速器呼叫內容][cf-img-call-context]
 
 7. 內容面板會進行更新，告知您方法呼叫成功。 您可以讀取因為呼叫而更新的壓力節點值，藉此確認呼叫成功。
 
-    ![連線處理站預先設定的解決方案呼叫成功][cf-img-call-success]
+    ![連線的處理站解決方案加速器呼叫成功][cf-img-call-success]
 
 ## <a name="behind-the-scenes"></a>在幕後
 
-當您部署預先設定的解決方案時，部署程序會在您選取的 Azure 訂用帳戶中建立多個資源。 您可以在 Azure [入口網站][lnk-portal]中檢視這些資源。 部署程序會建立 **資源群組** ，其名稱是以您為預先設定的解決方案選擇的名稱為基礎︰
+當您部署解決方案加速器時，部署程序會在您選取的 Azure 訂用帳戶中建立多個資源。 您可以在 Azure [入口網站][lnk-portal]中檢視這些資源。 部署程序會建立 **資源群組** ，其名稱是以您為解決方案加速器選擇的名稱為基礎︰
 
-![Azure 入口網站中的預先設定解決方案][img-cf-portal]
+![Azure 入口網站中的解決方案加速器][img-cf-portal]
 
 選取資源群組中的資源清單中的資源，即可檢視該資源的設定。
 
-您也可以檢視預先設定的解決方案的原始程式碼。 連線處理站預先設定的解決方案原始程式碼位於 [azure-iot-connected-factory][lnk-cfgithub] GitHub 存放庫中：
+您也可以檢視解決方案加速器的原始程式碼。 連線的處理站解決方案加速器的原始程式碼位於 [azure-iot-connected-factory][lnk-cfgithub] GitHub 存放庫中：
 
-完成之後，您可以從 [azureiotsuite.com][lnk-azureiotsuite] 網站上的 Azure 訂用帳戶中刪除預先設定解決方案。 這個網站可讓您輕鬆刪除在建立預先設定解決方案時已佈建的所有資源。
+完成之後，您可以從 [azureiotsuite.com][lnk-azureiotsuite] 網站上的 Azure 訂用帳戶中刪除解決方案加速器。 這個網站可讓您輕鬆刪除在建立解決方案加速器時已佈建的所有資源。
 
 > [!NOTE]
-> 若要確保您刪除與預先設定解決方案相關的所有項目，請在 [azureiotsuite.com][lnk-azureiotsuite] 網站上進行刪除。 請勿刪除入口網站中的資源群組。
+> 若要確保您會刪除與解決方案加速器相關的所有項目，請在 [azureiotsuite.com][lnk-azureiotsuite] 網站上進行刪除。 請勿刪除入口網站中的資源群組。
 
 ## <a name="next-steps"></a>後續步驟
 
-您現已部署運作中預先設定的解決方案，您可以繼續閱讀下列文章，了解如何開始使用 IoT 套件︰
+您現已部署運作中的解決方案加速器，您可以繼續閱讀下列文章，了解如何開始使用 IoT 解決方案加速器︰
 
-* [連線處理站預先設定的解決方案逐步解說][lnk-rm-walkthrough]
-* [將裝置連線至連線處理站預先設定的解決方案][lnk-connect-cf]
+* [連線的處理站解決方案加速器的逐步解說][lnk-rm-walkthrough]
+* [將裝置連線至連線的處理站解決方案加速器][lnk-connect-cf]
 * [azureiotsuite.com 網站的權限][lnk-permissions]
 
 [img-cf-home]:media/iot-suite-connected-factory-overview/cf-dashboard.png
@@ -293,7 +293,7 @@ OEE 會使用重要生產相關作業參數來評比製造程序的效率。 OEE
 [cf-img-alert-filter-funnel]:media/iot-suite-connected-factory-overview/cf-filter-funnel.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-preconfigured-solutions]: iot-suite-what-are-solution-accelerators.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory

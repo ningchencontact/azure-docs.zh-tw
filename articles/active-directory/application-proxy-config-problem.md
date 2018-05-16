@@ -1,11 +1,11 @@
 ---
-title: "建立應用程式 Proxy 應用程式時發生問題 | Microsoft Docs"
-description: "如何針對在 Azure AD 管理入口網站中建立應用程式 Proxy 應用程式時所發生的問題進行疑難排解"
+title: 建立應用程式 Proxy 應用程式時發生問題 | Microsoft Docs
+description: 如何針對在 Azure AD 管理入口網站中建立應用程式 Proxy 應用程式時所發生的問題進行疑難排解
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 5b8346ee2e02ea62b7a11b88a790cff56a7d13f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 376925715e954904cfdadccb060d0ca242bbec4a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>建立應用程式 Proxy 應用程式時發生問題 
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="recommended-documents"></a>建議的文件 
 
-若要深入了解透過管理入口網站建立應用程式 Proxy 應用程式，請參閱[使用 Azure AD 應用程式 Proxy 發佈應用程式](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal)。
+若要深入了解透過管理入口網站建立應用程式 Proxy 應用程式，請參閱[使用 Azure AD 應用程式 Proxy 發佈應用程式](manage-apps/application-proxy-publish-azure-portal.md)。
 
 如果您依照該文件中的步驟，並在建立應用程式時發生錯誤，請查看錯誤詳細資料，以取得修正應用程式的資訊及建議。 大部分的錯誤訊息都包含建議的修正。 
 
@@ -48,4 +48,4 @@ ms.lasthandoff: 12/11/2017
    ![通知提示](./media/application-proxy-config-problem/error-message.png)
 
 ## <a name="next-steps"></a>後續步驟
-[在 Azure 入口網站中啟用應用程式 Proxy](active-directory-application-proxy-enable.md)
+[在 Azure 入口網站中啟用應用程式 Proxy](manage-apps/application-proxy-enable.md)

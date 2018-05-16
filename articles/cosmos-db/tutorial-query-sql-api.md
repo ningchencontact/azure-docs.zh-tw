@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: 74ea4753e36da7686ac88d4426391a38dac0b436
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 131296d5219dffb2c4d7602b61b3c69b390e211e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>教學課程：使用 SQL API 查詢 Azure Cosmos DB
 
@@ -72,7 +72,7 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支援使用 SQL 來查詢
 
 ## <a name="prerequisites"></a>先決條件
 
-本教學課程會假設您具備 Azure Cosmos DB 帳戶和集合。 不符合上述其中任何一項條件嗎？ 請完成 [5 分鐘快速入門](create-mongodb-nodejs.md)或[開發人員教學課程](tutorial-develop-mongodb.md)，以建立帳戶和集合。
+本教學課程會假設您具備 Azure Cosmos DB 帳戶和集合。 不符合上述其中任何一項條件嗎？ 完成 [5 分鐘快速入門](create-mongodb-nodejs.md)。
 
 ## <a name="example-query-1"></a>範例查詢 1
 

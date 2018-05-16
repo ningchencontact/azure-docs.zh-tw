@@ -5,24 +5,24 @@ services: key-vault
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
-ms.assetid: ''
+ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: aaf8b93a41399b7754fb458d7d1d278a64f82139
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ae8957e5bf87fc190076db87d4eaca0e7a757c5e
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-create-an-azure-key-vault-using-the-cli"></a>快速入門：使用 CLI 建立 Azure Key Vault
 
-Azure Key Vault 是一項雲端服務，可作為安全的祕密存放區。 您也可以安全地儲存金鑰、密碼、憑證和其他祕密。 如需 Key Vault 的詳細資訊，您可以檢閱[概觀](key-vault-overview.md)。 Azure CLI 可供使用命令列或指令碼來建立和管理 Azure 資源。 在本文中，您會建立 Key Vault。 在本快速入門中，您會建立金鑰保存庫。 一旦完成該作業，您就會儲存祕密。
+Azure Key Vault 是一項雲端服務，可作為安全的祕密存放區。 您也可以安全地儲存金鑰、密碼、憑證和其他祕密。 如需 Key Vault 的詳細資訊，您可以檢閱[概觀](key-vault-overview.md)。 Azure CLI 可供使用命令列或指令碼來建立和管理 Azure 資源。 在本快速入門中，您會建立金鑰保存庫。 一旦完成該作業，您就會儲存祕密。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -99,4 +99,4 @@ az group delete --name ContosoResourceGroup
 在本快速入門中，您已建立 Key Vault 並在其中儲存祕密。 若要深入了解 Key Vault 以及如何使用它搭配您的應用程式，請繼續進行 Web 應用程式搭配 Key Vault 運作的教學課程。
 
 > [!div class="nextstepaction"]
-> [從 Web 應用程式使用 Azure Key Vault](key-vault-use-from-web-application.md) 若要了解如何讓 Web 應用程式使用[受控服務識別](/active-directory/managed-service-identity/overview.md)從 Key Vault 讀取祕密，請繼續進行下列教學課程：[將 Azure Web 應用程式設定為從 Key Vault 讀取祕密](tutorial-web-application-keyvault.md)
+> 若要了解如何讀取 Key Vault 中 Web 應用程式 (使用受控服務身分識別) 的祕密，請繼續進行以下教學課程[將 Azure Web 應用程式設定為從 Key Vault 讀取祕密](tutorial-web-application-keyvault.md)

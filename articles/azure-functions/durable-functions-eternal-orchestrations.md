@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cb4115b98091f55a0324ea795ffcc83cb29223a4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f42526430599e47e673d359433e91b4687cbeb9e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的永久性協調流程
 
@@ -36,6 +36,9 @@ ms.lasthandoff: 03/17/2018
 
 > [!NOTE]
 > 「永久性工作架構」會維護相同的執行個體識別碼，但在內部會為 `ContinueAsNew` 所重設的協調器函式建立新的「執行識別碼」。 此執行識別碼通常不對外公開，但可能很助於了解偵錯協調流程執行。
+
+> [!NOTE]
+> `ContinueAsNew` 方法尚無法使用於 JavaScript。
 
 ## <a name="periodic-work-example"></a>定期工作範例
 

@@ -1,25 +1,25 @@
 ---
-title: "使用 Azure 通知中樞和 Node.js 傳送推播通知"
-description: "了解如何使用通知中樞，從 Node.js 應用程式傳送推播通知。"
-keywords: "推播通知, 推播通知, node.js 推播,ios 推播"
+title: 使用 Azure 通知中樞和 Node.js 傳送推播通知
+description: 了解如何使用通知中樞，從 Node.js 應用程式傳送推播通知。
+keywords: 推播通知, 推播通知, node.js 推播,ios 推播
 services: notification-hubs
 documentationcenter: nodejs
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: yuaxu
-ms.openlocfilehash: ff2dd0c2ededa3664c48b5ff77b05466fceb4b3f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 7463d41382c59e4f7f03b58dbcbc3f5c45e9d15c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中樞和 Node.js 傳送推播通知
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/12/2017
 > 
 > 
 
-本指南將會示範如何透過 Azure 通知中樞的協助，直接從 Node.js 應用程式傳送推播通知。 
+本指南會示範如何透過 Azure 通知中樞的協助，直接從 Node.js 應用程式傳送推播通知。 
 
 涵蓋的案例包括在下列平台將推播通知傳送至應用程式：
 
@@ -65,12 +65,12 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 
     var azure = require('azure');
 
-### <a name="setup-an-azure-notification-hub-connection"></a>設定 Azure 通知中樞連線
+### <a name="set-up-an-azure-notification-hub-connection"></a>設定 Azure 通知中樞連線
 **NotificationHubService** 物件可讓您使用通知中心。 下列程式碼會為名為 **hubname** 的通知中樞建立 **NotificationHubService** 物件。 請將程式碼新增至 **server.js** 檔案的頂端附近，放置在匯入 azure 模型的陳述式後方：
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-執行下列步驟，即可從 **Azure 入口網站** 取得連線的 [connectionstring] 值：
+執行下列步驟，即可從 **Azure 入口網站**取得連線的 [connectionstring] 值：
 
 1. 在左導覽窗格中，按一下 [瀏覽] 。
 2. 選取 [通知中樞] ，然後尋找您要用於範例的中樞。 如果您需要建立新通知中樞的說明，您可以參考 [Windows 市集開始使用教學課程](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 。
@@ -95,7 +95,7 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 ### <a name="how-to-send-push-notifications-to-android-applications"></a>做法：將推播通知傳送至 Android 應用程式
 **GcmService** 物件會提供可用來將推播通知傳送至 Android 應用程式的 **send** 方法。 此 **send** 方法可接受下列參數：
 
-* **Tags** - 標籤識別碼。 若未提供標籤，通知將會傳送至所有用戶端。
+* **Tags** - 標籤識別碼。 若未提供標籤，通知會傳送至所有用戶端。
 * **Payload** - 訊息的 JSON 或原始字串承載。
 * **Callback** - 回呼函數。
 
@@ -117,7 +117,7 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 ### <a name="how-to-send-push-notifications-to-ios-applications"></a>做法：將推播通知傳送至 iOS 應用程式
 與上述的 Android 應用程式一樣，**ApnsService** 物件會提供可用來將推播通知傳送至 iOS 應用程式的 **send** 方法。 此 **send** 方法可接受下列參數：
 
-* **Tags** - 標籤識別碼。 若未提供標籤，通知將會傳送至所有用戶端。
+* **Tags** - 標籤識別碼。 若未提供標籤，通知會傳送至所有用戶端。
 * **Payload** - 訊息的 JSON 或字串承載。
 * **Callback** - 回呼函數。
 
@@ -137,7 +137,7 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 ### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>做法：將推播通知傳送至 Windows Phone 應用程式
 **MpnsService** 物件會提供可用來將推播通知傳送至 Windows Phone 應用程式的 **send** 方法。 此 **send** 方法可接受下列參數：
 
-* **Tags** - 標籤識別碼。 若未提供標籤，通知將會傳送至所有用戶端。
+* **Tags** - 標籤識別碼。 若未提供標籤，通知會傳送至所有用戶端。
 * **Payload** - 訊息的 XML 承載。
 * **TargetName** - 快顯通知的 `toast`。 `token` 代表磚通知。
 * **NotificationClass** - 通知的優先順序。 如需有效值，請參閱[來自伺服器的推播通知](http://msdn.microsoft.com/library/hh221551.aspx)文件的＜HTTP 標頭元素＞一節。
@@ -158,7 +158,7 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 ### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>做法：將推播通知傳送至通用 Windows 平台 (UWP) 應用程式
 **WnsService** 物件會提供可用來將推播通知傳送至「通用 Windows 平台」應用程式的 **send** 方法。  此 **send** 方法可接受下列參數：
 
-* **Tags** - 標籤識別碼。 若未提供標籤，通知將會傳送至所有註冊的用戶端。
+* **Tags** - 標籤識別碼。 若未提供標籤，通知會傳送至所有已註冊的用戶端。
 * **Payload** - XML 訊息承載。
 * **Type** - 通知類型。
 * **Options** - 選用的要求標頭。
@@ -210,4 +210,4 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
-[connectionstring]: https://portal.azure.com
+[Azure 入口網站]: https://portal.azure.com

@@ -1,12 +1,12 @@
 ---
-title: "設定帳戶以離線串流受 Widevine 保護的內容 - Azure"
-description: "本主題說明如何設定 Azure 媒體服務帳戶，以離線串流受 Widevine 保護的內容。"
+title: 設定帳戶以離線串流受 Widevine 保護的內容 - Azure
+description: 本主題說明如何設定 Azure 媒體服務帳戶，以離線串流受 Widevine 保護的內容。
 services: media-services
-keywords: "DASH, DRM, Widevine Offline Mode, ExoPlayer, Android, Widevine 離線模式"
-documentationcenter: 
+keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android, Widevine 離線模式
+documentationcenter: ''
 author: willzhan
 manager: steveng
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: b27ffcbf5749d612e63ba08df0adad72f357a83a
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: 158b58c13aee4d6241900db4a5e2b3fe8a45cc3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="offline-widevine-streaming-for-android"></a>適用於 Android 的離線 Widevine 串流
 
@@ -122,7 +122,7 @@ ExoPlayer 2.6 版及更新版本包括許多支援離線 Widevine DRM 播放的�
 
 對於較舊的 Android 裝置，您必須針對下列 **policy_overrides** 屬性 (定義於 [Widevine 授權範本](media-services-widevine-license-template-overview.md)) 設定值：**rental_duration_seconds**、**playback_duration_seconds** 及 **license_duration_seconds**。 或者，您可以將它們設定為零，表示無限長/無限制的持續時間。  
 
-請務必設定這些值，以避免發生整數溢位錯誤。 如需此問題的詳細說明，請參閱 https://github.com/google/ExoPlayer/issues/3150 \(英文\) 和 https://github.com/google/ExoPlayer/issues/3112 \(英文\)。 <br/>如果您未明確設定這些值，系統將會為 **PlaybackDurationRemaining** 與 **LicenseDurationRemaining** 指定非常大的值 (例如 9223372036854775807，其為 64 位元整數的最大正值 )。 這會導致 Widevine 授權呈現過期，因此不會進行解密。 
+請務必設定這些值，以避免發生整數溢位錯誤。 如需此問題的詳細說明，請參閱 https://github.com/google/ExoPlayer/issues/3150 和 https://github.com/google/ExoPlayer/issues/3112。 <br/>如果您未明確設定這些值，系統將會為 **PlaybackDurationRemaining** 與 **LicenseDurationRemaining** 指定非常大的值 (例如 9223372036854775807，其為 64 位元整數的最大正值 )。 這會導致 Widevine 授權呈現過期，因此不會進行解密。 
 
 Android 5.0 Lollipop 或更新版本不會發生此問題，因為 Android 5.0 是第一個完全支援 ARMv8 ([Advanced RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) 與 64 位元平台的 Android 版本，而 Android 4.4 KitKat 和其他舊版 Android 則原本設計為支援 ARMv7 與 32 位元平台。
 
@@ -148,7 +148,7 @@ Android 5.0 Lollipop 或更新版本不會發生此問題，因為 Android 5.0 �
 
 上述的開放原始碼 PWA 應用程式是以 Node.js 撰寫。 如果您想在 Ubuntu 伺服器上裝載自己的版本，請留意下列會阻礙播放的常見問題：
 
-1. CORS 問題：範例應用程式中的範例影片是裝載於 https://storage.googleapis.com/biograf-video-files/videos/。 Google 已為所有裝載於 Google Cloud Storage 貯體中的測試範例設定 CORS。 它們也會搭配 CORS 標頭提供，明確指定出 CORS 項目：https://biograf-155113.appspot.com (Google 用來裝載其範例的網域)，防止由其他網站存取。 如果您試圖存取，將會看到下列 HTTP 錯誤：無法載入 https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd：要求的資源上沒有 'Access-Control-Allow-Origin' 標頭。 因此不允許存取來源 ' https://13.85.80.81:8080 '。 如果不透明回應適合您的需求，請將要求的模式設定為 'no-cors' 以在停用 CORS 之下擷取資源。
+1. CORS 問題：範例應用程式中的範例視訊是裝載於 https://storage.googleapis.com/biograf-video-files/videos/。 Google 已為所有裝載於 Google Cloud Storage 貯體中的測試範例設定 CORS。 它們也會搭配 CORS 標頭提供，明確指定出 CORS 項目 https://biograf-155113.appspot.com (Google 用來裝載其範例的網域)，防止由其他網站存取。 如果您試圖存取，將會看到下列 HTTP 錯誤：無法載入 https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 要求的資源上沒有 'Access-Control-Allow-Origin' 標頭。 因此不允許存取來源 'https://13.85.80.81:8080'。 如果不透明回應適合您的需求，請將要求的模式設定為 'no-cors' 以在停用 CORS 之下擷取資源。
 2. 憑證問題：從 Chrome v 58 開始，針對 Widevine 的 EME 將要求使用 HTTPS。 因此，您必須搭配 X509 憑證透過 HTTPS 裝載範例應用程式。 由於下列需求使得一般測試憑證沒有作用：您必須先取得符合以下最低需求的憑證：
     - Chrome 和 Firefox 都需要憑證中存在 SAN (主體別名) 設定
     - 憑證必須要有信任的 CA，自我簽署的開發憑證將不會有作用
@@ -172,7 +172,7 @@ Android 5.0 Lollipop 或更新版本不會發生此問題，因為 Android 5.0 �
 
 ### <a name="question"></a>問題
 
-Google 的 [Widevine DRM 架構概觀](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) /(英文/) 文件將 Widevine 安全性層級定義為三個不同的安全性層級。 然而，[關於 Widevine 授權範本的 Azure 媒體服務文件](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview)則將安全性層級分成五個不同的層級。 這兩組不同的安全性層級之間有什麼關聯和對應？
+Google 的 [Widevine DRM 架構概觀](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) /(英文/) 文件將 Widevine 安全性層級定義為三個不同的安全性層級。 然而，[關於 Widevine 授權範本的 Azure 媒體服務文件](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview)則將安全性層級分成五個不同的層級。 這兩組不同的安全性層級之間有什麼關聯和對應？
 
 ### <a name="answer"></a>Answer
 
@@ -182,7 +182,7 @@ Google 的 [Widevine DRM 架構概觀](https://storage.googleapis.com/wvdocs/Wid
 2.  安全性層級 2：在 TEE 內執行密碼編譯 (但非視訊處理)：解密的緩衝區會傳回應用程式網域，並透過個別的視訊硬體或軟體進行處理。 不過，層級 2 中的密碼編譯資訊仍然只會在 TEE 內處理。
 3.  安全性層級 3：裝置上沒有 TEE。 可採取適當的措施以保護主機作業系統上的密碼編譯資訊和解密內容。 層級 3 實作也可能包括硬體密碼編譯引擎，但那只會提升效能，而非安全性。
 
-同時，在[關於 Widevine 授權範本的 Azure 媒體服務文件](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview)中，content_key_specs 的 security_level 屬性可以有下列五個不同的值 (針對播放的用戶端穩健性需求)：
+同時，在[關於 Widevine 授權範本的 Azure 媒體服務文件](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview)中，content_key_specs 的 security_level 屬性可以有下列五個不同的值 (針對播放的用戶端穩健性需求)：
 
 1.  以軟體為基礎的白箱加密為必要。
 2.  軟體加密和模糊化的解碼器為必要。

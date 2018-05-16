@@ -1,11 +1,11 @@
 ---
-title: "使用深層連結登入應用程式的問題 | Microsoft Docs"
-description: "如何為使用 Azure AD 從深層連結 URL 存取應用程式的問題疑難排解"
+title: 使用深層連結登入應用程式的問題 | Microsoft Docs
+description: 如何為使用 Azure AD 從深層連結 URL 存取應用程式的問題疑難排解
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: f4c67961316c4b78b691a46b35bd0c19bb409fd8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3bf357fef2aad85c45abb1fa8e06ff4420a6f14a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>使用深層連結登入應用程式的問題
 
@@ -55,11 +55,11 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -67,11 +67,11 @@ ms.lasthandoff: 02/21/2018
 
 6.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-7.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+7.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 8.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-9.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+9.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 10. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>如何安裝存取面板的瀏覽器延伸模組
 
-若要安裝存取面板的瀏覽器延伸模組，請遵循下列步驟：
+若要安裝存取面板的瀏覽器擴充功能，請遵循下列步驟：
 
 1.  在其中一種支援的瀏覽器中開啟[存取面板](https://myapps.microsoft.com)，然後在您的 Azure AD 中以**使用者**身分登入。
 
@@ -119,11 +119,11 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [企業應用程式] 窗格右上角的 [新增] 按鈕。
 
@@ -143,11 +143,11 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 02/21/2018
 
 6.  選取您要設定單一登入的應用程式。
 
-7.  應用程式載入後，按一下應用程式的左側瀏覽功能表中的 [單一登入]。
+7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
 8.  選取 [以密碼為基礎的登入] 模式。
 
@@ -177,11 +177,11 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [企業應用程式] 窗格右上角的 [新增] 按鈕。
 
@@ -197,11 +197,11 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -209,11 +209,11 @@ ms.lasthandoff: 02/21/2018
 
 6.  選取您要設定單一登入的應用程式。
 
-7.  應用程式載入後，按一下應用程式的左側瀏覽功能表中的 [單一登入]。
+7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
 8.  選取 [以密碼為基礎的登入] 模式。
 
-9.  輸入 [登入 URL]，使用者將在該處輸入其使用者名稱和密碼進行登入。 請確定在此 URL 看得到登入欄位。
+9.  輸入 [登入 URL]，使用者將在該處輸入其使用者名稱和密碼進行登入。 請確保在此 URL 看得到登入欄位。
 
 10. 將使用者指派至應用程式。
 
@@ -221,15 +221,15 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="how-to-assign-a-user-to-an-application-directly"></a>如何將使用者直接指派至應用程式
 
-若要直接將一或多個使用者指派至應用程式，請遵循下列步驟︰
+若要直接將一或多個使用者指派給應用程式，請遵循下列步驟︰
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
 5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
@@ -237,7 +237,7 @@ ms.lasthandoff: 02/21/2018
 
 6.  從清單中選取您想要指派使用者的應用程式。
 
-7.  應用程式載入之後，按一下應用程式左邊瀏覽功能表中的 [使用者和群組]。
+7.  應用程式載入之後，按一下應用程式左側導覽功能表中的 [使用者和群組]。
 
 8.  按一下 [使用者和群組] 清單頂端的 [新增] 按鈕，以開啟 [新增指派] 窗格。
 
@@ -247,11 +247,11 @@ ms.lasthandoff: 02/21/2018
 
 11. 將滑鼠停留在清單中的**使用者**上方，以顯示**核取方塊**。 若要將您的使用者新增至 [已選取] 清單，按一下使用者設定檔照片或標誌旁邊的核取方塊。
 
-12. **選擇性︰**如果您想要**新增多位使用者**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**全名**或**電子郵件地址**，然後按一下核取方塊，將此使用者新增至 [已選取] 清單。
+12. **選擇性︰** 如果您想要**新增多位使用者**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**全名**或**電子郵件地址**，然後按一下核取方塊，將此使用者新增至 [已選取] 清單。
 
 13. 當您完成選取使用者時，按一下 [選取] 按鈕，將他們新增到要指派至應用程式的使用者和群組清單。
 
-14. **選擇性︰**按一下 [新增指派] 窗格中的 [選取角色] 選取器，以選取要指派給您已選取之使用者的角色。
+14. **選擇性︰** 按一下 [新增指派] 窗格中的 [選取角色] 選取器，以選取要指派給您已選取之使用者的角色。
 
 15. 按一下 [指派] 按鈕，將應用程式指派給選取的使用者。
 
@@ -274,4 +274,4 @@ ms.lasthandoff: 02/21/2018
 -   Fiddler 追蹤
 
 ## <a name="next-steps"></a>後續步驟
-[使用應用程式 Proxy 提供單一登入應用程式](active-directory-application-proxy-sso-using-kcd.md)
+[使用應用程式 Proxy 提供單一登入應用程式](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

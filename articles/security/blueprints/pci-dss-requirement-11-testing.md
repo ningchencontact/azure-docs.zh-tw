@@ -3,7 +3,7 @@ title: Azure 付款處理藍圖 - 測試需求
 description: PCI DSS 需求 11
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 9753853b-ad80-4be4-9416-2583b8fd2029
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: db9f1022ecb3b727f08bb6f232a8df55476e0755
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: 21cb854ba35adcf7576874e3c6c7149fbd33d998
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="testing-requirements-for-pci-dss-compliant-environments"></a>PCI DSS 相容環境的測試需求 
 ## <a name="pci-dss-requirement-11"></a>PCI DSS 需求 11
@@ -178,7 +178,7 @@ ms.lasthandoff: 04/16/2018
 
 |||
 |---|---|
-| **提供者<br />(Microsoft&nbsp;Azure)** | Microsoft Azure 與獨立的技術顧問簽約，以執行 Microsoft Azure 界限的滲透測試。 紅隊活動也會定期執行，而結果會用於進行安全性改善。 |
+| **提供者<br />(Microsoft&nbsp;Azure)** | Microsoft Azure 與獨立技術顧問簽約，以執行 Microsoft Azure 界限的滲透測試。 紅隊活動也會定期執行，而結果會用於進行安全性改善。 |
 | **客戶<br />(PCI&#8209;DSS&nbsp;藍圖)** | Contoso Webstore 本身已經過滲透測試 (pen test) 及弱點掃描。 滲透測試結果可以透過使用常見工具 (如 nmap 或 pentest tools.com) 重複進行。滲透測試的結果將提供不明確的易受攻擊面，並且沒有可利用的項目。 此外，[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)和 [Azure Advisor](/azure/advisor/advisor-security-recommendations) 會提供弱點資訊與補救方法。|
 
 
@@ -214,7 +214,7 @@ ms.lasthandoff: 04/16/2018
 **11.3.4.1** 僅適用於服務提供者的其他需求：如果使用分割，請至少每六個月及變更任何分割控制項/方法後，透過在分割控制項上執行滲透測試來確認 PCI DSS 範圍。
 
 > [!NOTE]
-> 這項需求在 2018 年 1 月 31 日前為最佳做法，該日期之後會變成需求。
+> 這項需求在 2018 年 1 月 31 日前是屬於最佳作法，該日期之後會變成需求。
 
 
 **責任：&nbsp;&nbsp;`Shared`**

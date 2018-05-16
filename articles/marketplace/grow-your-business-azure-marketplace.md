@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: fd51ad8289ac03bf7b4d2a5bd0222db98bcf6737
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 24d7c206211e85fc4418e0381a40c8da3e94a69e
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>使用 Azure Marketplace 拓展業務
 
@@ -46,11 +46,11 @@ ms.lasthandoff: 04/28/2018
 
 您在 Marketplace 的清單有時會是您與潛在客戶的初次互動。 就像任何第一印象，您想讓目標對象留下強烈印象並想要繼續追蹤。 您可進行一些重要事項以協助在 Marketplace 留下良好的第一印象：
 
-- **找得到：**使用買方會用來搜尋的關鍵字和字詞來撰寫供應項目描述。 
-- **視覺化：**影像和影片有助於向使用者顯示您的重要功能，並可協助說明體驗。 請考慮顯示可協助傳遞價值主張或回應買方首要問題的項目。
-- **提供體驗：**客戶喜歡在購買之前先試用。 從示範、試用版及試用產品開發而來的潛在客戶，可達成更多客戶交易。 提供的試用版體驗越優秀，開發的潛在客戶越易成交。 我們發現試用產品的潛在客戶 (平均) 有 40% 會完成交易。
-- **幫助目標對象學習：**雖然建議您將概觀空間保持簡潔，但還是有許多空間可用來指向產品的其他相關資源。 使用此空間提供簡明扼要的訊息說明產品用途與為何符合客戶需求。 建議您將客戶導向可深入了解的其他資源。 如果這些學習教材或連結能追蹤到您的內容行銷策略更好，如此可讓您和潛在客戶持續加強關係。
-- **利用評等和評論：**讓客戶為您銷售產品。 客戶敘述會是最大的銷售助力，而且買方經常會先查看該敘述，再深入了解產品。 有多篇推薦評論也有助於讓您的供應項目在搜尋結果躍居前茅，並進入重要的精選區域。
+- **找得到：** 使用買方會用來搜尋的關鍵字和字詞來撰寫供應項目描述。 
+- **視覺化：** 影像和影片有助於向使用者顯示您的重要功能，並可協助說明體驗。 請考慮顯示可協助傳遞價值主張或回應買方首要問題的項目。
+- **提供體驗：** 客戶喜歡在購買之前先試用。 從示範、試用版及試用產品開發而來的潛在客戶，可達成更多客戶交易。 提供的試用版體驗越優秀，開發的潛在客戶越易成交。 我們發現試用產品的潛在客戶 (平均) 有 40% 會完成交易。
+- **幫助目標對象學習：** 雖然建議您將概觀空間保持簡潔，但還是有許多空間可用來指向產品的其他相關資源。 使用此空間提供簡明扼要的訊息說明產品用途與為何符合客戶需求。 建議您將客戶導向可深入了解的其他資源。 如果這些學習教材或連結能追蹤到您的內容行銷策略更好，如此可讓您和潛在客戶持續加強關係。
+- **利用評等和評論：** 讓客戶為您銷售產品。 客戶敘述會是最大的銷售助力，而且買方經常會先查看該敘述，再深入了解產品。 有多篇推薦評論也有助於讓您的供應項目在搜尋結果躍居前茅，並進入重要的精選區域。
 
 ### <a name="build-a-great-landing-page"></a>建置絕佳的登陸頁面
 貴公司網站的登陸頁面是從創造需求的活動前往 Azure Marketplace 清單的途徑。 
@@ -129,8 +129,7 @@ ms.lasthandoff: 04/28/2018
 >[!NOTE]
 >One Commercial Partner Catalog (OCP 目錄) 是 Microsoft 合作夥伴網路中的成員權益。 
 
-[Marketplace GTM 權益](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
-
+![Marketplace GTM 權益](./media/marketplace-publishers-guide/gtmmay2018.png)
 
 如需支援，請瀏覽 [Microsoft Go To Market](https://www.microsoftgotomarket.com)。 您可以在該網站上找到可推廣業務的範本、Web 內容、訓練及工具。
 

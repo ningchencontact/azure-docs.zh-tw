@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: fea9ccc53bd019039cf1e989d72db7a218e4517c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e0bd023e73088897303fe0f9de47641cd6ea0389
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-iot-suite-connected-factory"></a>什麼是 Azure IoT 套件的連線處理站？
 
@@ -65,11 +65,11 @@ ms.lasthandoff: 04/23/2018
 ## <a name="customizability"></a>自訂能力
 
 - [自訂](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)解決方案以滿足特定的業務需求。
-- 完整的解決方案原始程式碼可在 GitHub 上取得。 請參閱[連線處理站的預先設定解決方案](https://github.com/Azure/azure-iot-connected-factory)存放庫。
+- 完整的解決方案原始程式碼可在 GitHub 上取得。 請參閱[連線處理站預先設定的解決方案](https://github.com/Azure/azure-iot-connected-factory) \(英文\) 存放庫。
 
 ## <a name="next-steps"></a>後續步驟
 
-閱讀下列文章，深入了解連線工廠預先設定的解決方案︰
+閱讀下列文章，深入了解連線處理站預先設定的解決方案：
 
-* [連線處理站的預先設定解決方案逐步解說](iot-suite-connected-factory-sample-walkthrough.md)
-* [為連線處理站部署閘道]( iot-suite-connected-factory-gateway-deployment.md)
+* [連線處理站預先設定的解決方案逐步解說](iot-suite-connected-factory-sample-walkthrough.md)
+* [為連線的處理站部署閘道]( iot-suite-connected-factory-gateway-deployment.md)

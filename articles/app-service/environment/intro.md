@@ -11,26 +11,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/20/2018
+ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6be6bb3b6b75b278a7c28307d93d6273c5bb18d6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service 環境簡介 #
  
 ## <a name="overview"></a>概觀 ##
 
-Azure App Service Environment 是 Azure App Service 的功能，可提供完全隔離和專用的環境，以便安全地大規模執行 App Service 應用程式。 此功能可裝載 Web 應用程式、[行動裝置應用程式][mobileapps]、API 應用程式及[函式][Functions]。
+Azure App Service Environment 是 Azure App Service 的功能，可提供完全隔離和專用的環境，以便安全地大規模執行 App Service 應用程式。 此功能可以裝載您的：
+
+* Windows Web 應用程式
+* Linux Web 應用程式 (預覽)
+* Docker 容器 (預覽)
+* 行動應用程式
+* Functions
 
 App Service Environment (ASE) 適合需要下列項目的應用程式工作負載：
 
-- 非常高的延展性。
-- 隔離和安全的網路存取。
-- 高記憶體使用率。
+* 非常高的延展性。
+* 隔離和安全的網路存取。
+* 高記憶體使用率。
 
 客戶可以在單一 Azure 區域中或跨多個 Azure 區域建立多個 ASE。 這種彈性讓 ASE 很適合用於水平調整無狀態應用程式層的規模，以支援高 RPS 的工作負載。
 
@@ -39,7 +45,7 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
 * ASE 可透過安全的網路存取，提供高延展性的應用程式裝載。 如需詳細資訊，請參閱為 ASE 提供的 [AzureCon 深入探討](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) (英文)。
 * 您可以使用多個 ASE 進行水平調整。 如需詳細資訊，請參閱[如何設定異地分散應用程式使用量](app-service-app-service-environment-geo-distributed-scale.md)。
 * 您可以將 ASE 用於設定安全性架構，如 AzureCon 深入探討所示。 若要了解 AzureCon 深入探討中示範之安全性架構的設定方式，請參閱有關如何透過 App Service Environment [實行分層安全性架構的文章](app-service-app-service-environment-layered-security.md)。
-* 在 ASE 中執行之應用程式的存取權可能會受到 Web 應用程式防火牆 (WAF) 等上游裝置的管制。 如需詳細資訊，請參閱[設定 App Service Environment 的 WAF](app-service-app-service-environment-web-application-firewall.md)。
+* 在 ASE 中執行之應用程式的存取權可能會受到 Web 應用程式防火牆 (WAF) 等上游裝置的管制。 如需詳細資訊，請參閱[整合 ILB App Service Environment 與 Azure 應用程式閘道][AppGW]。
 
 ## <a name="dedicated-environment"></a>專用的環境 ##
 
@@ -59,7 +65,7 @@ ASE 會有一般每月費率來支付基礎結構，且不會依 ASE 的大小�
 
 ## <a name="virtual-network-support"></a>虛擬網路支援 ##
 
-您只能在 Azure Resource Manager 虛擬網路中建立 ASE。 若要深入了解 Azure 虛擬網路，請參閱 [Azure 虛擬網路常見問題集](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/)。 ASE 一律存在於虛擬網路；更精確地說，是虛擬網路的子網路內。 您可以使用虛擬網路的安全性功能控制應用程式的輸入和輸出網路通訊。
+ASE 功能是將 Azure App Service 直接部署到客戶 Azure Resource Manager 虛擬網路的部署。 若要深入了解 Azure 虛擬網路，請參閱 [Azure 虛擬網路常見問題集](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/)。 ASE 一律存在於虛擬網路；更精確地說，是虛擬網路的子網路內。 您可以使用虛擬網路的安全性功能控制應用程式的輸入和輸出網路通訊。
 
 ASE 可以是具有公用 IP 位址的網際網路對應，或只具有 Azure 內部負載平衡器 (ILB) 位址的內部對應。
 

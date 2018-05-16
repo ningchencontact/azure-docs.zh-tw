@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: bwren
-ms.openlocfilehash: 5e01ea901f1ba07c0ee5a99720c00c5f03574365
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: cf1842c6abbbfd767184d8f480a5f3a5fd654ed0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>了解 Log Analytics 中的警示
 
@@ -67,7 +67,7 @@ Log Analytics 中的警示會識別您的 Log Analytics 儲存機制中的重要
  
     - **誤判警示**。 有時會設計警示查詢來識別事件不存在。 其中一個範例是藉由搜尋遺漏的活動訊號，來偵測虛擬機器離線的時間。 如上方所述，如果無法在警示時間間隔內使用活動訊號，則會因活動訊號資料尚無法搜尋而產生警示，因此會不存在。 這會與 VM 已合法離線且未產生活動訊號資料的結果相同。 在正確時間間隔後隔天執行查詢會顯示有活動訊號且警示失敗。 事實上，活動訊號尚無法供搜尋，因為警示時間間隔設為太小。
 
-- **頻率**。  指定查詢應執行、以及可用來使警示在一般情況下更有效回應的頻率。 值可介於 5 分鐘到 24 小時之間，且應該等於或小於警示時間間隔。  如果值大於時間範圍，則您可能有遺漏記錄的風險。<br>如果目標是讓最多 30 分鐘的延遲保持可靠，且標準延遲為 10 分鐘，時間間隔應該是一小時，且頻率值應為 10 分鐘。 這會在警示資料產生時的 10 到 20 分鐘之間，透過具有 10 分鐘擷取延遲的資料觸發警示。<br>若要避免由於時間間隔太寬而針對相同資料建立多個警示，可以使用 [抑制警示](log-analytics-tutorial-response.md#create-alerts) 選項來將警示抑制為至少與時間間隔一樣長。
+- **頻率**。  指定查詢應執行、以及可用來使警示在一般情況下更有效回應的頻率。 值可介於 5 分鐘到 24 小時之間，且應該等於或小於警示時間間隔。  如果值大於時間範圍，則您可能有遺漏記錄的風險。<br>如果目標是讓最多 30 分鐘的延遲保持可靠，且標準延遲為 10 分鐘，時間間隔應該是一小時，且頻率值應為 10 分鐘。 這會在警示資料產生時的 10 到 20 分鐘之間，透過具有 10 分鐘擷取延遲的資料觸發警示。<br>若要避免由於時間間隔太寬而針對相同資料建立多個警示，可以使用 [抑制警示] 選項將警示抑制為至少與時間間隔一樣長。
   
 - **閾值**。 系統會評估記錄搜尋的結果，以判斷是否應該建立警示。 不同類型的警示規則會有不同的閾值。
 
@@ -132,17 +132,17 @@ Log Analytics 中的各個警示規則是兩種類型其中之一。 下列各�
 #### <a name="example"></a>範例
 假設您想要在任何電腦於過去 30 分鐘內發生三次處理器使用率超過 90% 時收到警示。 您可以建立詳細資料如下的警示規則。
 
-**查詢：**Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer Interval 5minute<br>
-**時間範圍︰**30 分鐘<br>
-**警示頻率︰**5 分鐘<br>
-**彙總值︰**大於 90<br>
-**警示觸發依據︰**違規總數大於 5<br>
+**查詢：** Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer Interval 5minute<br>
+**時間範圍︰** 30 分鐘<br>
+**警示頻率︰** 5 分鐘<br>
+**彙總值︰** 大於 90<br>
+**警示觸發依據︰** 違規總數大於 5<br>
 
 查詢會以 5 分鐘為間隔為每部電腦建立平均值。 此查詢會每隔 5 分鐘針對在先前 30 分鐘內所收集的資料來執行。 三部電腦的資料範例如下所示。
 
 ![查詢結果範例](media/log-analytics-alerts/metrics-measurement-sample-graph.png)
 
-在此範例中，系統會為 srv02 和 srv03 建立個別警示，因為它們在時間範圍內違反 90% 閾值 3 次。 如果**警示觸發依據︰**變更為**連續**，則系統只會為 srv03 建立警示，因為它違反了 3 個連續取樣的閾值。
+在此範例中，系統會為 srv02 和 srv03 建立個別警示，因為它們在時間範圍內違反 90% 閾值 3 次。 如果**警示觸發依據︰** 變更為**連續**，則系統只會為 srv03 建立警示，因為它違反了 3 個連續取樣的閾值。
 
 ## <a name="alert-records"></a>警示記錄
 在 Log Analytics 中由警示規則建立的警示記錄，**Type** 為 **Alert**，**SourceSystem** 為 **OMS**。 其屬性如下表所示。

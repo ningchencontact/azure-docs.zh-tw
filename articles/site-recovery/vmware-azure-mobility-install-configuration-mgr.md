@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 8382fadc02a7e80b6f28bd777f423013aed9add3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 50328fc3b594a9162ffb9f82f699f43f9106640f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>使用 System Center Configuration Manager 自動進行行動服務安裝
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 04/05/2018
 4. 將 **MobSvc.passphrase** 檔案複製到網路共用上的 **MobSvcWindows** 資料夾。
 5. 執行下列命令，以瀏覽至設定伺服器上的安裝程式存放庫：
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. 將 **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe** 複製到網路共用上的 **MobSvcWindows** 資料夾。
 7. 複製下列程式碼，儲存為 **install.bat** 放在 **MobSvcWindows** 資料夾中。
@@ -230,7 +230,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 4. 將 **MobSvc.passphrase** 檔案複製到網路共用上的 **MobSvcLinux** 資料夾。
 5. 執行命令以瀏覽至設定伺服器上的安裝程式存放庫：
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. 將下列檔案複製到網路共用上的 **MobSvcLinux** 資料夾：
    * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz

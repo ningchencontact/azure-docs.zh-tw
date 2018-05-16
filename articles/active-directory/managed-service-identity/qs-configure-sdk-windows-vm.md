@@ -1,23 +1,24 @@
 ---
-title: "如何使用 Azure SDK 設定已啟用 MSI 的 Azure VM"
-description: "提供如何使用 Azure SDK 在 Azure VM 上設定及使用「受控服務識別 (MSI)」的逐步指示。"
+title: 如何使用 Azure SDK 設定已啟用 MSI 的 Azure VM
+description: 提供如何使用 Azure SDK 在 Azure VM 上設定及使用「受控服務識別 (MSI)」的逐步指示。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
 ms.author: daveba
-ms.openlocfilehash: 42a238d0fda8d5ac87fbb23ab5c191452ef6e2be
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 781f332b2892d9af536bf9a6f81642842285927b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>使用 Azure SDK 設定虛擬機器受控服務識別 (MSI)
 

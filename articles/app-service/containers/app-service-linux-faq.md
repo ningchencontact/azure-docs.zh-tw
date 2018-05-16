@@ -1,13 +1,13 @@
 ---
-title: "Linux 上的 Azure App Service 常見問題集 | Microsoft Docs"
-description: "Linux 上的 Azure App Service 常見問題集。"
-keywords: "azure app service, web 應用程式, 常見問題集, linux, oss"
+title: Linux 上的 Azure App Service 常見問題集 | Microsoft Docs
+description: Linux 上的 Azure App Service 常見問題集。
+keywords: azure app service, web 應用程式, 常見問題集, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -46,6 +46,10 @@ ms.lasthandoff: 12/08/2017
 **我是否可以使用「安全殼層」(SSH) 來連線到應用程式容器虛擬機器 (VM)？**
 
 是的，您可以透過原始檔控制管理 (SCM) 網站執行該動作。
+
+> [!NOTE] 
+> 您也可以使用 SSH、SFTP 或 Visual Studio Code (適用於 Node.js 應用程式即時偵錯)，直接從本機開發電腦連線到應用程式容器。 如需詳細資訊，請參閱 [Linux 上 App Service 中的遠端偵錯和 SSH](https://aka.ms/linux-debug)。
+>
 
 **我如何透過 SDK 或 Azure Resource Manager 範本建立 Linux App Service 方案？**
 

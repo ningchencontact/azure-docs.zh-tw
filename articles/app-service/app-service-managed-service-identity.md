@@ -11,16 +11,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: 800105d29fa284531e02ce80db69eff3a9915652
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ed2db5fd48c60601b90fc7ffb1094b8d89573b1f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>如何在 App Service 和 Azure Functions 中使用 Azure 受控服務身分識別 (公開預覽)
 
 > [!NOTE] 
 > 適用於 App Service 和 Azure Functions 的受控服務識別目前為預覽版本。 目前在 Linux 和適用於容器的 Web 應用程式上不支援 App Service。
+
+
+> [!Important] 
+> 如果您跨越訂用帳戶/租用戶遷移應用程式，App Service 和 Azure Functions 的受控服務識別將無法正常運作。 應用程式將需要取得新的身分識別，而若不刪除網站本身，就無法正確刪除現有的身分識別。 您將需要重新建立具有新身分識別的應用程式，也需要更新下游資源的存取原則，才能使用新身分識別。
+
 
 本主題示範如何為 App Service 和 Azure Functions 應用程式建立受控應用程式身分識別，以及如何使用它來存取其他資源。 Azure Active Directory 的受控服務識別，可讓應用程式輕鬆存取其他受到 AAD 保護的資源 (如 Azure Key Vault)。 身分識別由 Azure 平台負責管理，因此您不需要佈建或輪替任何密碼。 如需受控服務識別的詳細資訊，請參閱[受控服務識別概觀](../active-directory/managed-service-identity/overview.md)。
 

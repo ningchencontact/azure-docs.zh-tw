@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 9c4908775ab9a471201cc4bb0c35ab863f5d6d50
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cd9c5888724b634002d3029cccd42cfda4a433af
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB：資料移轉工具
 
@@ -433,7 +433,7 @@ Azure Cosmos DB 連接字串的格式如下：
 指定集合名稱之後，請選擇所需的集合輸送量 (400 RU 到 250,000 RU)。 為了達到最佳的匯入效能，請選擇較高的輸送量。 如需效能層級的詳細資訊，請參閱 [Azure Cosmos DB 中的效能層級](performance-levels.md)。 任何輸送量 >10000 RU 的集合匯入作業都需要資料分割索引鍵。 如果您選擇擁有 250,000 以上的 RU，您需要在入口網站中提出要求來提升您的帳戶。
 
 > [!NOTE]
-> 輸送量設定僅適用於建立集合。 如果指定的集合已經存在，將不會修改其輸送量。
+> 輸送量設定僅適用於集合或資料庫的建立。 如果指定的集合已經存在，將不會修改其輸送量。
 > 
 > 
 

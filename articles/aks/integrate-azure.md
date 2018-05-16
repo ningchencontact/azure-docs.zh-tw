@@ -3,16 +3,16 @@ title: 使用 Open Service Broker for Azure (OSBA) 與 Azure 受控服務整合
 description: 使用 Open Service Broker for Azure (OSBA) 與 Azure 受控服務整合
 services: container-service
 author: sozercan
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: a29a3f27f7c9ab41724d400c9eb787e6888bedc4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a881b08874a157b0d6781ec3859b05eeaeba6676
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>使用 Open Service Broker for Azure (OSBA) 與 Azure 受控服務整合
 
@@ -27,7 +27,7 @@ Open Service Broker for Azure (OSBA) 可以與 [Kubernetes 服務類別目錄][k
 
 * 在 Azure 訂用帳戶上使用參與者角色建立服務主體的權限
 
-* 現有的 Azure Container Service (AKS) 叢集。 如果您需要 AKS 叢集，請依照[建立 AKS 叢集][create-aks-cluster]快速入門進行。
+* 現有的 Azure Kubernetes Service (AKS) 叢集。 如果您需要 AKS 叢集，請依照[建立 AKS 叢集][create-aks-cluster]快速入門進行。
 
 ## <a name="install-service-catalog"></a>安裝服務類別目錄
 
@@ -182,7 +182,7 @@ kubectl get secrets -n wordpress -o yaml
 
 ## <a name="next-steps"></a>後續步驟
 
-依照本文件，將 Service Catalog 部署至 Azure Container Service (AKS) 叢集。 您要使用 Open Service Broker for Azure，部署使用 Azure 受控服務的 WordPress 安裝，在此案例中為適用於 MySQL 的 Azure 資料庫。
+依照本文件，將 Service Catalog 部署至 Azure Kubernetes Service (AKS) 叢集。 您要使用 Open Service Broker for Azure，部署使用 Azure 受控服務的 WordPress 安裝，在此案例中為適用於 MySQL 的 Azure 資料庫。
 
 若要存取其他更新的 OSBA 型 Helm 圖表，請參閱 [Azure/helm-charts][helm-charts] 存放庫。 如果您要建立使用 OSBA 的圖表，請參閱[建立新的圖表][helm-create-new-chart]。
 

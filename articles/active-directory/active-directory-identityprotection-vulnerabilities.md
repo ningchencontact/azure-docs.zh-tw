@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 90fb659abfcff09eb715fcc29bbfb7e4facd3a6b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0cb37a29847e69dae4a0e0682591bae092b38360
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection 偵測到的弱點
 弱點是您的環境中攻擊者可以利用的弱點。 我們建議您處理這些弱點，以改善組織的安全性狀態，並防止攻擊者利用這些弱點。
@@ -47,7 +47,7 @@ Azure Multi-Factor Authentication 會為使用者驗證提供第二層安全性�
 
 我們建議您的組織部署 Cloud App Discovery 來探索非受控雲端應用程式，以及管理這些使用 Azure Active Directory 的應用程式。
 
-如需詳細資訊，請參閱 [使用 Cloud App Discovery 尋找非受控雲端應用程式](active-directory-cloudappdiscovery-whatis.md)。
+如需詳細資訊，請參閱 [使用 Cloud App Discovery 尋找非受控雲端應用程式](manage-apps/cloud-app-discovery.md)。
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>來自 Privileged Identity Management 的安全性警示
 此弱點可協助您找出並解決有關您組織中特殊權限身分識別的警示。  

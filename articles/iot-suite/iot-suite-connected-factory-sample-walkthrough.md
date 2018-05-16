@@ -1,12 +1,12 @@
 ---
-title: "連線處理站解決方案的逐步解說 - Azure | Microsoft Docs"
-description: "說明 Azure IoT 預先設定的解決方案連線處理站及其架構。"
-services: 
+title: 連線的處理站解決方案的逐步解說 - Azure | Microsoft Docs
+description: 說明 Azure IoT 解決方案加速器連線處理站及其架構。
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 10497097bfda36a0a8a2b6b677ac26394217d8b4
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 65eb24cf5f995570b7b1752fc850b596209ea59a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connected-factory-preconfigured-solution-walkthrough"></a>連線處理站預先設定的解決方案逐步解說
+# <a name="connected-factory-solution-accelerator-walkthrough"></a>連線的處理站解決方案加速器的逐步解說
 
-IoT 套件連線處理站[預先設定的解決方案][lnk-preconfigured-solutions]是端對端企業解決方案的實作︰
+連線的處理站[解決方案加速器][lnk-preconfigured-solutions]是端對端企業解決方案的實作，能夠︰
 
 * 連線至模擬處理站生產線中執行 OPC UA 的模擬工業裝置，和實際的 OPC UA 伺服器裝置。 如需 OPC UA 的詳細資訊，請參閱[連線的處理站常見問題集](iot-suite-faq-cf.md)。
 * 顯示作業 KPI 和這些裝置與生產線的 OEE。
@@ -34,7 +34,7 @@ IoT 套件連線處理站[預先設定的解決方案][lnk-preconfigured-solutio
 
 您可以將此解決方案做為自己實作的起點，並加以[自訂][lnk-customize]以符合自己特有的商務需求。
 
-本文將逐步介紹連線處理站解決方案的一些重要元素，讓您了解它的運作方式。 本文也描述資料如何流經此解決方案。 這項知識能協助您︰
+本文將逐步說明連線的處理站解決方案的一些重要元素，讓您了解其運作方式。 本文也描述資料如何流經此解決方案。 這項知識能協助您︰
 
 * 在解決方案中進行疑難排解。
 * 規劃如何自訂解決方案以滿足您的特定需求。
@@ -44,7 +44,7 @@ IoT 套件連線處理站[預先設定的解決方案][lnk-preconfigured-solutio
 
 ## <a name="logical-architecture"></a>邏輯架構
 
-下圖概述預先設定解決方案的邏輯元件：
+下圖概述解決方案加速器的邏輯元件：
 
 ![連線處理站的邏輯架構][connected-factory-logical]
 
@@ -122,7 +122,7 @@ TSI 會使用 **SearchSpan** (**Time.From**、**Time.To**) 針對節點資料進
 解決方案會使用 Azure Blob 儲存體作為 VM 的磁碟儲存體，及用來儲存部署資料。
 
 ## <a name="web-app"></a>Web 應用程式
-部署作為預先設定解決方案一部分的 Web 應用程式中，包含整合式的 OPC UA 用戶端、警示處理和遙測視覺效果。
+部署作為解決方案加速器一部分的 Web 應用程式，包含整合式 OPC UA 用戶端、警示處理和遙測視覺效果。
 
 ## <a name="telemetry-data-flow"></a>遙測資料流程
 
@@ -162,15 +162,15 @@ TSI 會使用 **SearchSpan** (**Time.From**、**Time.To**) 針對節點資料進
 
 9. TSI 中的待用資料。
 
-10. Azure AppService 中連線的處理站 WebApp 會查詢 TSI 的必要資料。
+10. Azure AppService 中連線的處理站 WebApp 從 TSI 查詢所需的資料。
     - 使用 TCP/TLS 安全通訊。
     - 這個步驟是在資料中心內部。
 
 11. 網頁瀏覽器連線至連線的處理站 WebApp。
     - 轉譯連線的處理站儀表板。
     - 透過 HTTPS 連線。
-    - 存取連線的處理站應用程式必須透過 Azure Active Directory 驗證使用者。
-    - 對於連線的處理站應用程式的任何 WebApi 呼叫都受到反偽造 Token 保護。
+    - 存取連線的處理站應用程式時必須透過 Azure Active Directory 來驗證使用者。
+    - 對於連線的處理站應用程式的任何 WebApi 呼叫，都受到防偽權杖的保護。
 
 12. 在資料更新時，連線的處理站 WebApp 會將更新資料傳送至網頁瀏覽器。
     - 使用 SignalR 通訊協定。
@@ -190,7 +190,7 @@ TSI 會使用 **SearchSpan** (**Time.From**、**Time.To**) 針對節點資料進
     - 從 IoT 中樞讀取所有已知裝置。
     - 使用 MQTT over TLS over Socket 或 Secure Websocket。
 
-3. 網頁瀏覽器會連線到連線的處理站 WebApp，並且轉譯連線的處理站儀表板。
+3. 網頁瀏覽器會連線至連線的處理站 WebApp，並且轉譯連線的處理站儀表板。
     - 使用 HTTPS。
     - 使用者會選取要連線的 OPC UA 伺服器。
 
@@ -199,7 +199,7 @@ TSI 會使用 **SearchSpan** (**Time.From**、**Time.To**) 針對節點資料進
 
 5. OPC Proxy 傳輸會收到來自 OPC UA 堆疊的要求，以建立與 OPC UA 伺服器的 TCP 通訊端連線。
     - 它只會擷取 TCP 裝載，並且保持原狀使用它。
-    - 這個步驟是在連線的處理站 WebApp 內部。
+    - 這是連線的處理站 WebApp 內部的步驟。
 
 6. OPC Proxy (用戶端元件) 會查閱 IoT 中樞裝置登錄中的 OPC Proxy (伺服器元件) 裝置。 然後呼叫 IoT 中樞中 OPC Proxy (伺服器元件) 裝置的裝置方法。
     - 使用 HTTPS over TCP/TLS 來查閱 OPC Proxy。
@@ -217,27 +217,27 @@ TSI 會使用 **SearchSpan** (**Time.From**、**Time.To**) 針對節點資料進
     - OPC Proxy 會以裝置方法的傳回值將資料傳送到 IoT 中樞與 OPC Proxy (用戶端元件)。
     - 這項資料會傳遞到連線的處理站應用程式中的 OPC UA 堆疊。
 
-11. 連線的處理站 WebApp 會將具有來自 OPC UA 伺服器之 OPC UA 特定資訊的豐富 OPC 瀏覽器 UX，傳回至網頁瀏覽器以轉譯它。
-    - 在瀏覽 OPC 位址空間以及將函式套用至 OPC 位址空間中的節點時，OPC 瀏覽器 UX 用戶端組件會透過以反偽造 Token 保護的 HTTPS 使用 AJAX 呼叫，從連線的處理站 WebApp 取得資料。
+11. 連線的處理站 WebApp 會將接收自 OPC UA 伺服器、以 OPC UA 特定資訊增補的 OPC 瀏覽器 UX 傳回至網頁瀏覽器，加以轉譯。
+    - 在瀏覽 OPC 位址空間以及將函式套用至 OPC 位址空間中的節點時，OPC 瀏覽器 UX 用戶端組件會透過以防偽權杖保護的 HTTPS 使用 AJAX 呼叫，從連線的處理站 WebApp 取得資料。
     - 必要時，用戶端會使用步驟 4 到 10 所述的通訊，與 OPC UA 伺服器交換資訊。
 
 > [!NOTE]
 > OPC Proxy (伺服器元件) 和 OPC Proxy (用戶端) 元件會針對與 OPC UA 通訊有關的所有 TCP 流量，完成步驟 #4 到 #10。
 
 > [!NOTE]
-> 針對連線的處理站 WebApp 內的 OPC UA 伺服器和 OPC UA 堆疊，OPC Proxy 通訊是透明的，且會套用所有適用於驗證和加密的 OPC UA 安全性功能。
+> 對於連線的處理站 WebApp 內的 OPC UA 伺服器和 OPC UA 堆疊，OPC Proxy 通訊是透明的，且會套用所有適用於驗證和加密的 OPC UA 安全性功能。
 
 ## <a name="next-steps"></a>後續步驟
 
-您可以繼續閱讀下列文章，了解如何開始使用 IoT 套件︰
+您可以繼續閱讀下列文章，了解如何開始使用 IoT 解決方案加速器︰
 
 * [azureiotsuite.com 網站的權限][lnk-permissions]
-* [在 Windows 或 Linux 上部署連線處理站預先設定解決方案的閘道](iot-suite-connected-factory-gateway-deployment.md)
+* [在 Windows 或 Linux 上部署連線的處理站解決方案加速器的閘道](iot-suite-connected-factory-gateway-deployment.md)
 * [OPC 發行者參考實作](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)。
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-preconfigured-solutions]: iot-suite-what-are-solution-accelerators.md
 [lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

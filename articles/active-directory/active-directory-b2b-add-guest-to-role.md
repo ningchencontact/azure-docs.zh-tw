@@ -1,27 +1,20 @@
 ---
-title: "新增 Azure Active Directory B2B 共同作業使用者到角色 | Microsoft Docs"
-description: "將來賓使用者新增至 Azure Active Directory 中的角色"
+title: 新增 Azure Active Directory B2B 共同作業使用者到角色 | Microsoft Docs
+description: 將來賓使用者新增至 Azure Active Directory 中的角色
 services: active-directory
-documentationcenter: 
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/08/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 03/15/2017
-ms.author: twooley
 ms.reviewer: sasubram
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b788b003299ff11bcbdcb11a2c7a21ac5081d634
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d9889a15bd4e09863640e8c8e7ea03220d23bb23
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>從 Azure Active Directory 租用戶中的合作夥伴組織授與權限給使用者
 
@@ -41,15 +34,5 @@ Azure Active Directory (Azure AD) B2B 共同作業使用者是以來賓使用者
 
 ## <a name="next-steps"></a>後續步驟
 
-請瀏覽有關 Azure AD B2B 共同作業的其他文章：
-
-* [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B 共同作業使用者屬性](active-directory-b2b-user-properties.md)
-* [委派 B2B 共同作業邀請](active-directory-b2b-delegate-invitations.md)
-* [動態群組與 B2B 共同作業](active-directory-b2b-dynamic-groups.md)
-* [B2B 共同作業程式碼與 PowerShell 範例](active-directory-b2b-code-samples.md)
-* [設定適用於 B2B 共同作業的 SaaS 應用程式](active-directory-b2b-configure-saas-apps.md)
-* [B2B 共同作業使用者權杖](active-directory-b2b-user-token.md)
-* [B2B 共同作業使用者宣告對應](active-directory-b2b-claims-mapping.md)
-* [Office 365 外部共用](active-directory-b2b-o365-external-user.md)
-* [B2B 共同作業目前的限制](active-directory-b2b-current-limitations.md)
+- [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [B2B 共同作業使用者屬性](active-directory-b2b-user-properties.md)

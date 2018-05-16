@@ -4,7 +4,7 @@ description: 了解 Azure 安全性、它的服務及運作方式。
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 51d0f1f6d2689e37c1c39bf4a5e8078a2482c76d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a7b8c480291360cb50af1ce4ae36cd406f0ddc21
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性簡介
 ## <a name="overview"></a>概觀
@@ -98,7 +98,7 @@ Application Insights 會建立圖表和資料表為您顯示多種資訊，例�
 
 Log Analytics 在鑑識和其他安全性分析方面是一個非常實用的工具，因為此工具可讓您利用彈性查詢方法快速搜尋大量的安全性相關項目。 此外，內部部署的[防火牆和 Proxy 記錄可匯出到 Azure，並使用 Log Analytics 來分析它們。](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
-### <a name="azure-advisor"></a>Azure 建議程式
+### <a name="azure-advisor"></a>Azure Advisor
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/) 是個人化雲端顧問，可協助您將 Azure 部署最佳化。 它會分析您的資源及用量遙測， 接著會建議解決方案，以協助改善資源的[效能](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations)、[安全性](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations)及[高可用性](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations)，同時尋找[降低整體 Azure 費用](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations)的機會。 Azure Advisor 提供安全性建議，讓您能夠大幅改善您部署於 Azure 中之解決方案的整體安全性狀態。 這些建議均取自 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)所執行的安全性分析。
 
 ### <a name="azure-security-center"></a>Azure 資訊安全中心

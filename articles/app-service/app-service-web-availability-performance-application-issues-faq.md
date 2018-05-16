@@ -1,11 +1,11 @@
 ---
-title: "Azure Web 應用程式的應用程式效能常見問題集 | Microsoft Docs"
-description: "對於 Azure App Service 的 Web 應用程式功能之中的可用性、效能和應用程式問題的常見問題集獲得解答。"
+title: Azure Web 應用程式的應用程式效能常見問題集 | Microsoft Docs
+description: 對於 Azure App Service 的 Web 應用程式功能之中的可用性、效能和應用程式問題的常見問題集獲得解答。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 926005eace0acde27e26619a2787368ba0954351
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9c8eda1c4a65465a93b9c3f9caf23a6663073f26
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web 應用程式的應用程式效能常見問題集
 

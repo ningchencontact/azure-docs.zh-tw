@@ -1,24 +1,20 @@
 ---
-title: "B2B 共同作業邀請電子郵件的元素 - Azure Active Directory | Microsoft Docs"
-description: "Azure Active Directory B2B 共同作業邀請電子郵件範本"
+title: B2B 共同作業邀請電子郵件的元素 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory B2B 共同作業邀請電子郵件範本
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.custom: seohack1
 ms.service: active-directory
+ms.component: B2B
 ms.topic: article
-ms.workload: identity
 ms.date: 05/23/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 0d26fc4758b2defc3f1b8b5643daafdac4d2baac
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3767a2ce457f7aa976620fb2df217d7f0823fe99
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B 共同作業邀請電子郵件的元素 - Azure Active Directory
 
@@ -72,16 +68,10 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-請瀏覽有關 Azure AD B2B 共同作業的其他文章：
+請參閱下列有關 Azure AD B2B 共同作業的文章：
 
-* [什麼是 Azure AD B2B 共同作業](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者？](active-directory-b2b-admin-add-users.md)
-* [資訊工作者如何新增 B2B 共同作業使用者？](active-directory-b2b-iw-add-users.md)
-* [B2B 共同作業邀請兌換](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B 共同作業授權](active-directory-b2b-licensing.md)
-* [針對 Azure Active Directory B2B 共同作業問題進行疑難排解](active-directory-b2b-troubleshooting.md)
-* [Azure Active Directory B2B 共同作業常見問題 (FAQ)](active-directory-b2b-faq.md)
-* [Azure Active Directory B2B 共同作業 API 和自訂](active-directory-b2b-api.md)
-* [適用於 B2B 共同作業使用者的多重要素驗證](active-directory-b2b-mfa-instructions.md)
-* [在沒有邀請的情況下新增 B2B 共同作業使用者](active-directory-b2b-add-user-without-invite.md)
-* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [什麼是 Azure AD B2B 共同作業](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者？](active-directory-b2b-admin-add-users.md)
+- [資訊工作者如何新增 B2B 共同作業使用者？](active-directory-b2b-iw-add-users.md)
+- [B2B 共同作業邀請兌換](active-directory-b2b-redemption-experience.md)
+- [在沒有邀請的情況下新增 B2B 共同作業使用者](active-directory-b2b-add-user-without-invite.md)

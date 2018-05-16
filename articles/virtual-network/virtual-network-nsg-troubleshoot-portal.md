@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: b053993bec74d358dd7a0a8889fa05885b563b16
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: be400d674068d89f60d3c999006bc9291944ab1c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>使用 Azure 入口網站為網路安全性群組疑難排解
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ NSG 可讓您控制流入和流出虛擬機器 (VM) 的流量類型。 您可對
 
 您可以從 VM 本身檢視 NIC 上完整的有效安全性規則清單。 如果您有權限，也可以從有效規則的刀鋒視窗新增、修改和刪除 NIC 和子網路的 NSG 規則。
 
-1. 使用 Azure 帳戶來登入 Azure 入口網站，網址為 https://portal.azure.com。 您的帳戶必須獲指派網路介面的 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 作業。 若要了解如何將作業指派給帳戶，請參閱[建立 Azure 角色型存取控制的自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)。
+1. 使用 Azure 帳戶來登入 Azure 入口網站，網址為 https://portal.azure.com。 您的帳戶必須獲指派網路介面的 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 作業。 若要了解如何將作業指派給帳戶，請參閱[建立 Azure 角色型存取控制的自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 2. 按一下 [所有服務]，然後在出現的清單中按一下 [虛擬機器]。
 3. 從出現的清單中選取要進行疑難排解的 VM，此時會出現一個有選項的 VM 刀鋒視窗。
 4. 按一下 [診斷並解決問題]，然後選取常見的問題。 例如選取了 [我無法連接到我的 Windows VM]  。 
@@ -127,8 +127,8 @@ NSG 可讓您控制流入和流出虛擬機器 (VM) 的流量類型。 您可對
      > 如果只對空白子網路套用 NSG，則不會列出 VM。 如果對與 VM 無關的 NIC 套用 NSG，也不會列出這些 NIC。 
      > 
      > 
-   * **網路介面：**一個 VM 可以有多個網路介面。 您可以選取附加至所選 VM 的網路介面。
-   * **AssociatedNSGs：**一個 NIC 在任何時候最多可以有兩個有效的 NSG，一個套用到 NIC，一個套用到子網路。 雖然範圍選取了 VM1-nsg，但如果 NIC 有有效的子網路 NSG，輸出會顯示兩個 NSG。
+   * **網路介面：** 一個 VM 可以有多個網路介面。 您可以選取附加至所選 VM 的網路介面。
+   * **AssociatedNSGs：** 一個 NIC 在任何時候最多可以有兩個有效的 NSG，一個套用到 NIC，一個套用到子網路。 雖然範圍選取了 VM1-nsg，但如果 NIC 有有效的子網路 NSG，輸出會顯示兩個 NSG。
 4. 您可以直接編輯與 NIC 或子網路相關聯之 NSG 的規則。 若要了解如何進行，請閱讀＜檢視虛擬機器的有效安全性規則＞  一節的步驟 8。
 
 若要深入了解所顯示的其他資訊，請閱讀本文＜檢視虛擬機器的有效安全性規則＞  一節的步驟 6。

@@ -3,23 +3,23 @@ title: 了解 Azure AD 應用程式 Proxy 連接器 | Microsoft Docs
 description: 涵蓋 Azure AD 應用程式 Proxy 連接器的基本概念。
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
-ms.author: billmath
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: fe8d5c40249431be60dc8844adf7efa1b8e87c5f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c7f27d3fd8a5785017d580df02007abaac503c39
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>了解 Azure AD 應用程式 Proxy 連接器
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 
 若要成功部署應用程式 Proxy，您至少需要一個連接器，但我們建議兩個以上可獲得較佳的復原功能。 在 Windows Server 2012 R2 或 2016 電腦上安裝連接器。 連接器必須能夠與應用程式 Proxy 服務以及您發佈的內部部署應用程式進行通訊。 
 
-如需連接器伺服器之網路需求的詳細資訊，請參閱[開始使用應用程式 Proxy 並安裝連接器](active-directory-application-proxy-enable.md)。
+如需連接器伺服器之網路需求的詳細資訊，請參閱[開始使用應用程式 Proxy 並安裝連接器](manage-apps/application-proxy-enable.md)。
 
 ## <a name="maintenance"></a>維護 
 連接器和服務會負責所有高可用性的工作。 它們可以動態新增或移除。 每當新要求抵達時，它會路由傳送至其中一個目前可用的連接器。 如果連接器暫時無法使用，則不會回應此流量。
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="automatic-updates"></a>自動更新
 
-Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程式 Proxy 連接器更新程式服務正在執行，您的連接器便會自動更新。 如果您在伺服器上沒有看到連接器更新程式服務，則需要[重新安裝您的連接器](active-directory-application-proxy-enable.md)以取得任何更新。 
+Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程式 Proxy 連接器更新程式服務正在執行，您的連接器便會自動更新。 如果您在伺服器上沒有看到連接器更新程式服務，則需要[重新安裝您的連接器](manage-apps/application-proxy-enable.md)以取得任何更新。 
 
 如果不想等候您的連接器自動更新，您可以執行手動升級。 移至您的連接器所在伺服器上的[連接器下載頁面](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)並選取 [下載]。 此流程就會開始進行本機連接器的升級。 
 
@@ -85,7 +85,7 @@ Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程�
 
 ## <a name="security-and-networking"></a>安全性和網路服務
 
-在允許連接器將要求傳送至應用程式 Proxy 服務的網路上，任何地方都可以安裝連接器。 重點是執行連接器的電腦也可存取您的應用程式。 您可以在貴公司網路內或在雲端中執行的虛擬機器上安裝連接器。 可以在周邊網路 (DMZ) 內執行連接器，但並非必要，因為所有流量都是輸出的，因此您的網路都能保持安全。
+在允許連接器將要求傳送至應用程式 Proxy 服務的網路上，任何地方都可以安裝連接器。 重點是執行連接器的電腦也可存取您的應用程式。 您可以在貴公司網路內或在雲端中執行的虛擬機器上安裝連接器。 可以在非軍事區域 (DMZ) 內執行連接器，但並非必要，因為所有流量都是輸出的，因此您的網路都能保持安全。
 
 連接器僅會傳送輸出要求。 輸出流量會傳送到應用程式 Proxy 服務和已發佈應用程式。 不需要開啟輸入連接埠，因為建立工作階段後，流量就會雙向流動。 不需要設定連接器之間的負載平衡，或透過您的防火牆設定內部存取。 
 
@@ -108,7 +108,7 @@ Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程�
 影響效能的另一個因素是連接器之間的網路品質，包括︰ 
 
 * **線上服務**：Azure 的應用程式 Proxy 服務連線變慢或高度延遲都會影響連接器效能。 為了達到最佳效能，請使用 Express Route 將貴組織連線到 Azure。 否則，請網路服務小組確定與 Azure 的連線盡可能以有效方式處理。 
-* **後端應用程式︰**在某些情況下，連接器和後端應用程式之間有其他 Proxy，可能會使連線變慢或無法連線。 若要針對此情節進行疑難排解，可從連接器伺服器開啟瀏覽器，並嘗試存取應用程式。 如果您在 Azure 中執行連接器，但應用程式為內部部署，體驗就可能無法如您的使用者所預期。
+* **後端應用程式︰** 在某些情況下，連接器和後端應用程式之間有其他 Proxy，可能會使連線變慢或無法連線。 若要針對此情節進行疑難排解，可從連接器伺服器開啟瀏覽器，並嘗試存取應用程式。 如果您在 Azure 中執行連接器，但應用程式為內部部署，體驗就可能無法如您的使用者所預期。
 * **網域控制器**︰如果連接器使用 Kerberos 限制委派來執行 SSO，它們會先連絡網域控制器後，才將要求傳送至後端。 連接器有 Kerberos 票證的快取 (但是在忙碌環境中)，網域控制器的回應速度可能會影響效能。 在 Azure 中執行、但與內部部署之網域控制器通訊的連接器會更常發生這個問題。 
 
 如需將您網路最佳化的詳細資訊，請參閱[使用 Azure Active Directory 應用程式 Proxy 時的網路拓撲考量](application-proxy-network-topology-considerations.md)。
@@ -123,7 +123,7 @@ Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程�
 
 連接器部署通常都直截了當，不需要特殊組態。 不過，應該考量一些獨特的情況︰
 
-* 限制傳出流量的組織必須[開啟必要的連接埠](active-directory-application-proxy-enable.md#open-your-ports)。
+* 限制傳出流量的組織必須[開啟必要的連接埠](manage-apps/application-proxy-enable.md#open-your-ports)。
 * 符合 FIPS 規範的電腦可能需要變更設定，以允許連接器程序產生憑證並加以儲存。
 * 根據發出網路要求的處理程序鎖定其環境的組織，必須確定已啟用兩個連接器服務才可存取所有必要的連接埠和 IP。
 * 在某些情況下，輸出的正向 Proxy 可能會中斷雙向憑證驗證，並造成失敗的通訊。

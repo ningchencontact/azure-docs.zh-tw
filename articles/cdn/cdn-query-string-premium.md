@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: 9d92602ef5071579e0c741dd24a4e3e9f7b2c747
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a1ef5f3e502b5383343dbec2c427d36054a3edc4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>使用查詢字串來控制 Azure CDN 快取行為 - 進階層
 > [!div class="op_single_selector"]
@@ -28,10 +28,10 @@ ms.lasthandoff: 04/05/2018
 > 
 
 ## <a name="overview"></a>概觀
-使用查詢字串快取時，「Azure 內容傳遞網路」(CDN) 可針對包含查詢字串的 Web 要求，控制快取檔案的方式。 在包含查詢字串的 Web 要求中，查詢字串是要求中問號 (?) 之後的部分。 查詢字串可以包含一或多個索引鍵/值組，其中的欄位名稱與其值是以等號 (=) 分隔。 每個索引鍵/值組是以 & 符號分隔。 例如 http:\//www.contoso.com/content.mov?field1=value1&field2=value2。 如果要求的查詢字串中有不止一個索引鍵/值組，其順序無關緊要。 
+使用 Azure 內容傳遞網路 (CDN)，可以控制 Web 要求內含查詢字串時的檔案快取方式。 在包含查詢字串的 Web 要求中，查詢字串是要求中問號 (?) 之後的部分。 查詢字串可以包含一或多個索引鍵/值組，其中的欄位名稱與其值是以等號 (=) 分隔。 每個索引鍵/值組是以 & 符號分隔。 例如 http:\//www.contoso.com/content.mov?field1=value1&field2=value2。 如果要求的查詢字串中有不止一個索引鍵/值組，其順序無關緊要。 
 
-> [!NOTE]
-> Azure CDN 的標準和進階產品提供相同的查詢字串快取功能，但使用者介面不同。  本文描述**來自 Verizon 的進階 Azure CDN** 介面。 如需了解使用**來自 Akamai 的標準 Azure CDN** 和**來自 Verizon 的標準 Azure CDN** 來進行的查詢字串快取，請參閱[使用查詢字串來控制 Azure CDN 快取行為 - 標準層](cdn-query-string.md)。
+> [!IMPORTANT]
+> 「標準」與「進階」CDN 產品提供相同的查詢字串快取功能，但兩者的使用者介面不同。 本文描述**來自 Verizon 的進階 Azure CDN** 介面。 如需了解使用 Azure CDN 標準產品進行的查詢字串快取，請參閱[使用查詢字串控制 Azure CDN 快取行為 - 標準層](cdn-query-string.md)。
 >
 
 

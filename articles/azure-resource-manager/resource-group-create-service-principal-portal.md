@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: bbda406633f97d9a6c90bc49374268df28b68f2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5d93963dddb4acb1147042ae338b32cb5d7646f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用入口網站來建立可存取資源的 Active Directory 應用程式和服務主體
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 04/16/2018
 
    ![新增應用程式](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. 提供應用程式的名稱和 URL。 針對您想要建立的應用程式類型，選取 [Web 應用程式/API]。 您無法建立[原生應用程式](../active-directory/active-directory-application-proxy-native-client.md)的認證，因此，該類型無法用於自動化應用程式。 設定值之後，選取 [建立]。
+1. 提供應用程式的名稱和 URL。 針對您想要建立的應用程式類型，選取 [Web 應用程式/API]。 您無法建立[原生應用程式](../active-directory/manage-apps/application-proxy-configure-native-client-application.md)的認證，因此，該類型無法用於自動化應用程式。 設定值之後，選取 [建立]。
 
    ![名稱應用程式](./media/resource-group-create-service-principal-portal/create-app.png)
 

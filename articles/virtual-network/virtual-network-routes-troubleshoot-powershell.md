@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 2d501419dde633f89a5760af9f82604006de6b6f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4ef1387e3c8573a2bfa64c166f08bf47723eca62
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>使用 Azure PowerShell 對路由進行疑難排解
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ ms.lasthandoff: 04/16/2018
 ### <a name="view-effective-routes-for-a-network-interface"></a>檢視網路介面的有效路由
 若要查看套用到網路介面的彙總路由，請完成下列步驟︰
 
-1. 啟動 Azure PowerShell 工作階段並登入 Azure。 如果您不熟悉 Azure PowerShell，請閱讀 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 文章。 您的帳戶必須獲指派網路介面的 *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* 作業。 若要了解如何將作業指派給帳戶，請參閱[建立 Azure 角色型存取控制的自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)。
+1. 啟動 Azure PowerShell 工作階段並登入 Azure。 如果您不熟悉 Azure PowerShell，請閱讀 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 文章。 您的帳戶必須獲指派網路介面的 *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* 作業。 若要了解如何將作業指派給帳戶，請參閱[建立 Azure 角色型存取控制的自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 2. 下列命令會傳回套用到資源群組 *RG1* 中名為 *VM1-NIC1* 之網路介面的所有路由。
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

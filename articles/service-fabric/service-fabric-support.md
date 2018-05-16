@@ -1,12 +1,12 @@
 ---
-title: "了解 Azure Service Fabric 支援選項 | Microsoft Docs"
-description: "支援的 Azure Service Fabric 叢集版本和檔案支援票證連結"
+title: 了解 Azure Service Fabric 支援選項 | Microsoft Docs
+description: 支援的 Azure Service Fabric 叢集版本和檔案支援票證連結
 services: service-fabric
 documentationcenter: .net
 author: pkcsf
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/26/2018
 ms.author: pkc
-ms.openlocfilehash: 970f1ff59560beaf898f22eb4e701088a6d5902a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ec634dd19cf1e944c768e1d368f114f66e9c38a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支援選項
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/01/2018
 
 深入了解：
  
-- [Microsoft 對於 Azure 的支援](https://azure.microsoft.com/en-us/support/plans/?b=16.44)。
+- [Microsoft 對於 Azure 的支援](https://azure.microsoft.com/support/plans/?b=16.44)。
 - [Microsoft 頂級支援](https://support.microsoft.com/en-us/premier)。
 
 <a id="getlivesitesupportonprem"></a>
@@ -77,7 +77,8 @@ ms.lasthandoff: 02/01/2018
 | 5.6.* | 5.4.164.* |小於或等於 2.6 版本 |2017 年 10 月 13 日   |
 | 5.7.* | 5.4.164.* |小於或等於 2.7 版 |2017 年 12 月 15 日  |
 | 6.0.* | 5.6.205.* |小於或等於 2.8 版 |2018 年 3 月 30 日     | 
-| 6.1.* | 5.7.221.* |小於或等於 3.0 版 |目前版本，沒有結束日期 |
+| 6.1.* | 5.7.221.* |小於或等於 3.0 版 |2018 年 6 月 15 日      |
+| 6.2.* | 6.0.232.* |小於或等於 3.1 版 |目前版本，沒有結束日期 |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 預覽版本 - 不支援用於生產環境。
 有時候，我們會以預覽形式發行包含我們想得到意見反應之重要功能的版本。 這些預覽版本只能用於測試目的。 您的生產叢集應一律執行支援的穩定 Service Fabric 版本。 預覽版本一律從 255 作為主要和次要版本號碼的開頭。 例如，如果您看到 Service Fabric 版本 255.255.5703.949，該發行版本只能使用於測試叢集並處於預覽狀態。 這些預覽版本也會在 [Service Fabric 小組部落格](https://blogs.msdn.microsoft.com/azureservicefabric)上宣告，並且有內含功能的詳細資料。

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 70d2f159c5485009e36aa80dfa8b73f9b3cf4ec1
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>安裝應用程式 Proxy 代理程式連接器時遇到問題
 
@@ -35,7 +35,7 @@ Microsoft AAD 應用程式 Proxy 連接器是內部網域元件，它會使用�
 
 ## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>確認與雲端應用程式 Proxy 服務和 Microsoft 登入頁面之間連線
 
-**目標：**確認連接器電腦可以連線到 AAD 應用程式 Proxy 註冊端點以及 Microsoft 登入頁面。
+**目標：** 確認連接器電腦可以連線到 AAD 應用程式 Proxy 註冊端點以及 Microsoft 登入頁面。
 
 1.  開啟瀏覽器並前往下列網頁：<https://aadap-portcheck.connectorporttest.msappproxy.net>，確認可透過連接埠 80 和 443 與美國中部與美國東部資料中心進行連線。
 
@@ -45,7 +45,7 @@ Microsoft AAD 應用程式 Proxy 連接器是內部網域元件，它會使用�
 
 ## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>確認電腦和後端元件支援應用程式 Prxoy 信任憑證
 
-**目標︰**確認連接器電腦、後端 Proxy 和防火牆可支援由連接器針對未來信任所建立的憑證。
+**目標︰** 確認連接器電腦、後端 Proxy 和防火牆可支援由連接器針對未來信任所建立的憑證。
 
 >[!NOTE]
 >連接器會嘗試建立由 TLS1.2 所支援的 SHA512 憑證。 如果電腦或後端防火牆及 Proxy 不支援 TLS1.2，則安裝會失敗。
@@ -60,7 +60,7 @@ Microsoft AAD 應用程式 Proxy 連接器是內部網域元件，它會使用�
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>確認是以系統管理員身分安裝連接器
 
-**目標︰**確認嘗試安裝連接器的使用者是具有正確認證的系統管理員。 目前使用者必須是全域管理員，安裝才會成功。
+**目標︰** 確認嘗試安裝連接器的使用者是具有正確認證的系統管理員。 目前使用者必須是全域管理員，安裝才會成功。
 
 **確認認證是否正確：**
 
@@ -69,4 +69,4 @@ Microsoft AAD 應用程式 Proxy 連接器是內部網域元件，它會使用�
 選取您的使用者帳戶，然後在產生的功能表中選取 [目錄角色]。 確認所選取的角色為 [全域管理員]。 如果您無法存取這些步驟上的任何頁面，您就不是全域管理員。
 
 ## <a name="next-steps"></a>後續步驟
-[了解 Azure AD 應用程式 Proxy 連接器](application-proxy-understand-connectors.md)
+[了解 Azure AD 應用程式 Proxy 連接器](manage-apps/application-proxy-connectors.md)

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: e7f587f6126f60f18bb4c6f184ec58cf7efc1a81
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 07b7f16cc019f993df90b217abd0c7ad16db75e1
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>如何將資料磁碟連接至 Linux 虛擬機器
 > [!IMPORTANT] 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/05/2018
 
 > [!NOTE]
 > 最好使用一或多個不同的磁碟來儲存虛擬機器的資料。 當您建立 Azure 虛擬機器時，它會有作業系統磁碟和暫存磁碟。 **請勿使用暫存磁碟來儲存持續資料。** 顧名思義，它只提供暫存儲存空間。 它並不提供備援或備份，因為它不在 Azure 儲存體內。
-> 暫存磁碟通常是由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的**/mnt**)。 另一方面，Linux 核心可能會將資料磁碟命名為 `/dev/sdc`之類的名稱，而您必須分割、格式化及掛接此資源。 如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南][Agent]。
+> 暫存磁碟通常是由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的 **/mnt**)。 另一方面，Linux 核心可能會將資料磁碟命名為 `/dev/sdc`之類的名稱，而您必須分割、格式化及掛接此資源。 如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南][Agent]。
 > 
 > 
 
@@ -233,5 +233,5 @@ ms.lasthandoff: 04/05/2018
 * [設定 Azure 中 Linux VM 的 LVM](../configure-lvm.md)
 
 <!--Link references-->
-[Agent]:../agent-user-guide.md
+[Agent]:../../extensions/agent-linux.md
 [Logon]:../mac-create-ssh-keys.md

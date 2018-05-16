@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 1625b37a41082f8536d103701b1356a13a5dd837
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 140779ca1786bc9fa2afcfd08fdac0857580e8cf
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory 中的運算式和函式
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -215,7 +215,7 @@ ms.lasthandoff: 04/20/2018
 |-------------------|-----------------|  
 |int|將參數轉換成整數。 例如，下列運算式會傳回 100 做為數字，而不是字串︰`int('100')`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰值<br /><br /> **描述**︰必要。 轉換成整數的值。|  
 |字串|將參數轉換成字串。 例如，下列運算式會傳回 `'10'`：`string(10)`您也可以將物件轉換為字串，例如，如果 **foo** 參數是具有 `bar : baz` 屬性的物件，則下列範例會傳回 `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰值<br /><br /> **描述**︰必要。 轉換成字串的值。|  
-|json|將參數轉換成 JSON 類型值， 並且與 string() 相反。 例如，下列運算式會傳回 `[1,2,3]` 做為數字，而不是字串︰<br /><br /> `parse('[1,2,3]')`<br /><br /> 同樣地，您可以將字串轉換成物件。 例如，`json('{"bar" : "baz"}')` 會傳回：<br /><br /> `{ "bar" : "baz" }`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 轉換成原生類型值的字串。<br /><br /> JSON 函式也支援 XML 輸入。 例如，參數值︰<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> 轉換為下列 JSON：<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|json|將參數轉換成 JSON 類型值， 並且與 string() 相反。 例如，下列運算式會傳回 `[1,2,3]` 做為數字，而不是字串︰<br /><br /> `json('[1,2,3]')`<br /><br /> 同樣地，您可以將字串轉換成物件。 例如，`json('{"bar" : "baz"}')` 會傳回：<br /><br /> `{ "bar" : "baz" }`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 轉換成原生類型值的字串。<br /><br /> JSON 函式也支援 XML 輸入。 例如，參數值︰<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> 轉換為下列 JSON：<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|將參數引數轉換成浮點數。 例如，下列運算式會傳回 `10.333`：`float('10.333')`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰值<br /><br /> **描述**︰必要。 轉換成浮點數的值。|  
 |布林|將參數轉換成布林值。 例如，下列運算式會傳回 `false`：`bool(0)`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰值<br /><br /> **描述**︰必要。 轉換成布林值的值。|  
 |coalesce|傳回傳入的引數中第一個非 null 的物件。 注意︰空字串不是 null。 例如，如果未定義參數 1 和 2，此範例會傳回 `fallback`：`coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **參數編號**：1 ... n<br /><br /> **名稱**︰物件 n<br /><br /> **描述**︰必要。 要檢查其是否有 `null` 的物件。|  

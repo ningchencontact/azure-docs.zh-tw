@@ -1,24 +1,24 @@
 ---
-title: "為您的應用程式服務應用程式設定 Azure Active Directory 驗證"
-description: "了解如何為您的應用程式服務應用程式設定 Azure Active Directory 驗證。"
+title: 為您的應用程式服務應用程式設定 Azure Active Directory 驗證
+description: 了解如何為您的應用程式服務應用程式設定 Azure Active Directory 驗證。
 author: mattchenderson
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 990fab9aeea71b8cf344b9a49a5ed438db6663c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2530cb55cb054c02df5d55ccb86e959a061e2499
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>設定 App Service 應用程式使用 Azure Active Directory 登入
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -65,7 +65,7 @@ Azure Active Directory 也可讓您註冊更能控制權限對應的原生用戶
 1. 請瀏覽到 [Azure 入口網站]中的 [Azure Active Directory]。
 2. 在左側瀏覽區域中，選取 [應用程式註冊]。 按一下上方的 [新增應用程式註冊]。
 4. 在 [建立] 頁面中，輸入應用程式註冊的**名稱**。 在 [應用程式類型] 中選取 [原生]。
-5. 在 [重新導向 URI] 方塊中，使用 HTTPS 配置輸入您網站的 /.auth/login/done 端點。 此值應與 *https://contoso.azurewebsites.net/.auth/login/done* 類似。 如果是建立 Windows 應用程式，請改用 [封裝 SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) 作為 URI。
+5. 在 [重新導向 URI] 方塊中，使用 HTTPS 配置輸入您網站的 /.auth/login/done 端點。 此值應該類似 https://contoso.azurewebsites.net/.auth/login/done。 如果是建立 Windows 應用程式，請改用 [封裝 SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) 作為 URI。
 5. 按一下頁面底部的 [新增] 。
 6. 新增應用程式註冊之後，選取它以開啟。 找到 [應用程式識別碼]，並記下此值。
 7. 按一下 [所有設定] > [必要權限] > [新增] > [選取 API]。

@@ -1,6 +1,6 @@
 ---
-title: 透過 SSH 連線至 Azure Container Service (AKS) 叢集
-description: 建立 Azure Container Service (AKS) 叢集節點的 SSH 連線
+title: 透過 SSH 連線至 Azure Kubernetes Service (AKS) 叢集
+description: 建立 Azure Kubernetes Service (AKS) 叢集節點的 SSH 連線
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>透過 SSH 連線至 Azure Container Service (AKS) 叢集
+# <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>透過 SSH 連線至 Azure Kubernetes Service (AKS) 叢集
 
-有時候，您可能需要存取 Azure Container Service (AKS) 節點以進行維護、記錄收集或其他疑難排解作業。 Azure Container Service (AKS) 節點不會公開至網際網路。 請使用本文詳述的步驟建立 AKS 節點的 SSH 連線。
+有時候，您可能需要存取 Azure Kubernetes Service (AKS) 節點以進行維護、記錄收集或其他疑難排解作業。 Azure Kubernetes Service (AKS) 節點不會公開至網際網路。 請使用本文詳述的步驟建立 AKS 節點的 SSH 連線。
 
 ## <a name="get-aks-node-address"></a>取得 AKS 節點位址
 

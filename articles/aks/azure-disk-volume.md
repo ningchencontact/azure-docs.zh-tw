@@ -3,21 +3,21 @@ title: 搭配 AKS 使用 Azure 磁碟
 description: 搭配 AKS 使用 Azure 磁碟
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a2f46aba80ad47335b7cd9b5e8d615c1d895cccb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b790213e19b9f2aaef74a3f670c89246f54fd6d7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="volumes-with-azure-disks"></a>包含 Azure 磁碟的磁碟區
 
-容器型應用程式常常需要存取和保存外部資料磁碟區中的資料。 Azure 磁碟可用來作為這個外部資料存放區。 本文將詳細說明如何在 Azure Container Service (AKS) 叢集中使用 Azure 磁碟作為 Kubernetes 磁碟區。
+容器型應用程式常常需要存取和保存外部資料磁碟區中的資料。 Azure 磁碟可用來作為這個外部資料存放區。 本文將詳細說明如何在 Azure Kubernetes Service (AKS) 叢集中使用 Azure 磁碟作為 Kubernetes 磁碟區。
 
 如需有關 Kubernetes 磁碟區的詳細資訊，請參閱 [Kubernetes 磁碟區][kubernetes-volumes]。
 
@@ -38,7 +38,7 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-使用 [az disk create][az-disk-create] 命令來建立 Azure 磁碟。 
+使用 [az disk create][az-disk-create] 命令來建立 Azure 磁碟。
 
 使用此範例時，請將 `--resource-group` 更新成資源群組的名稱，並將 `--name` 更新成您選擇的名稱。
 
@@ -58,7 +58,7 @@ az disk create \
 
 ## <a name="mount-disk-as-volume"></a>將磁碟掛接為磁碟區
 
-藉由在容器規格中設定磁碟區，將 Azure 磁碟掛接至您的 Pod。 
+藉由在容器規格中設定磁碟區，將 Azure 磁碟掛接至您的 Pod。
 
 建立一個名為 `azure-disk-pod.yaml` 且含有下列內容的新檔案。 使用新建立的磁碟名稱更新 `diskName`，以及使用磁碟識別碼更新 `diskURI`。 此外，請記下 `mountPath`，這是 Pod 中 Azure 磁碟掛接所在的路徑。
 

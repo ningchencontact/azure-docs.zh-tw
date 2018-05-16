@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dcfc295de39e909bf157edee4fec1ba51a583750
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d07ad69b3a1f6023cf70bb0b9a82cd54defc5c49
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure 身分識別管理安全性概觀
 Microsoft 身分識別與存取管理解決方案會協助 IT 保護應用程式和跨公司資料中心和到雲端的存取，啟用其他層級的驗證，例如 Multi-Factor Authentication 和條件式存取原則。 透過進階的安全性報告、稽核和警示來監視可疑活動，有助於減緩潛在的安全性問題。 [Azure Active Directory Premium](../active-directory/active-directory-editions.md) 可以提供數千個雲端 (SaaS) 應用程式的單一登入及存取您在內部部署執行的 Web 應用程式。
@@ -64,10 +64,10 @@ Azure AD 應用程式 Proxy 可讓您在私人網路內發佈內部部署應用�
 
 深入了解：
 
-* [啟用 Azure AD 應用程式 Proxy](../active-directory/active-directory-application-proxy-enable.md)
+* [啟用 Azure AD 應用程式 Proxy](../active-directory/manage-apps/application-proxy-enable.md)
 * [使用 Azure AD 應用程式 Proxy 發佈應用程式](../active-directory/active-directory-application-proxy-publish.md)
-* [使用應用程式 Proxy 進行單一登入](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-* [使用條件式存取](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
+* [使用應用程式 Proxy 進行單一登入](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [使用條件式存取](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 Azure Multi-Factor Authentication (MFA) 是需要使用多種驗證方法，並在使用者登入和交易中新增重要的第二層安全性的驗證方法。 MFA 有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。 它可以透過一些驗證選項 (例如電話、文字訊息，或行動應用程式通知或驗證代碼，以及第三方 OAuth 權杖) 來提供強大的驗證功能。

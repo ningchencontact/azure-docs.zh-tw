@@ -1,18 +1,18 @@
 ---
-title: "Azure Event Grid 和事件中樞整合"
-description: "說明如何使用 Azure Event Grid 和事件中樞將資料移轉到 SQL 資料倉儲"
+title: Azure Event Grid 和事件中樞整合
+description: 說明如何使用 Azure Event Grid 和事件中樞將資料移轉到 SQL 資料倉儲
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 60857327685fca9a5f97588ab51909ce2537d68f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>將巨量資料串流處理至資料倉儲
 
@@ -118,67 +118,41 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 1. 在 Visual Studio 2017 (15.3.2 或更新版本) 中開啟 [EventHubsCaptureEventGridDemo 範例專案](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)。
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 [FunctionDWDumper]，然後選取 [發佈]。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 [FunctionEGDWDumper]，然後選取 [發佈]。
 
    ![發佈函數應用程式](media/event-grid-event-hubs-integration/publish-function-app.png)
 
-3. 選取 [Azure 函數應用程式] 和 [選取現有的]。 選取 [確定] 。
+1. 選取 [Azure 函數應用程式] 和 [選取現有的]。 選取 [發佈] 。
 
    ![目標函數應用程式](media/event-grid-event-hubs-integration/pick-target.png)
 
-4. 選取透過範本部署的函數應用程式。 選取 [確定] 。
+1. 選取透過範本部署的函數應用程式。 選取 [確定] 。
 
    ![選取函數應用程式](media/event-grid-event-hubs-integration/select-function-app.png)
 
-5. 當 Visual Studio 完成設定檔設定時，選取 [發佈]。
+1. 當 Visual Studio 完成設定檔設定時，選取 [發佈]。
 
    ![Select publish](media/event-grid-event-hubs-integration/select-publish.png)
 
-6. 發佈函式後，移至 [Azure 入口網站](https://portal.azure.com/)。 選取您的資源群組和函數應用程式。
-
-   ![檢視函數應用程式](media/event-grid-event-hubs-integration/view-function-app.png)
-
-7. 選取函式。
-
-   ![選取函式](media/event-grid-event-hubs-integration/select-function.png)
-
-8. 取得函式的 URL。 建立事件訂閱時，您需要這個 URL。
-
-   ![取得函式 URL](media/event-grid-event-hubs-integration/get-function-url.png)
-
-9. 複製值。
-
-   ![複製 URL](media/event-grid-event-hubs-integration/copy-url.png)
+發行函式之後，您已準備好訂閱事件。
 
 ## <a name="subscribe-to-the-event"></a>訂閱事件
 
-您可以使用 Azure CLI 或入口網站來訂閱事件。 本文章說明這兩種方法。
+1. 移至 [Azure 入口網站](https://portal.azure.com/)。 選取您的資源群組和函數應用程式。
 
-### <a name="portal"></a>入口網站
+   ![檢視函數應用程式](media/event-grid-event-hubs-integration/view-function-app.png)
 
-1. 在事件中樞命名空間中，選取左側的 [Event Grid]。
+1. 選取函式。
 
-   ![選取 Event Grid](media/event-grid-event-hubs-integration/select-event-grid.png)
+   ![選取函式](media/event-grid-event-hubs-integration/select-function.png)
 
-2. 新增事件訂閱。
+1. 選取 [新增事件方格訂用帳戶]。
 
-   ![新增事件訂閱](media/event-grid-event-hubs-integration/add-event-subscription.png)
+   ![加入訂閱](media/event-grid-event-hubs-integration/add-event-grid-subscription.png)
 
-3. 提供事件訂閱的值。 使用您複製的 Azure Functions URL。 選取 [建立] 。
+9. 為事件方格訂用帳戶指定名稱。 使用 [事件中樞命名空間] 作為事件類型。 提供值以選取您的事件中樞命名空間執行個體。 將訂閱者端點保留為提供的值。 選取 [建立] 。
 
-   ![提供訂閱值](media/event-grid-event-hubs-integration/provide-values.png)
-
-### <a name="azure-cli"></a>Azure CLI
-
-若要訂閱事件，請執行下列命令 (需要 2.0.24 版本或更新版本的 Azure CLI)：
-
-```azurecli-interactive
-namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
-az eventgrid event-subscription create \
-  --resource-id $namespaceid \
-  --name captureEventSub \
-  --endpoint <your-function-endpoint>
-```
+   ![建立訂用帳戶](media/event-grid-event-hubs-integration/set-subscription-values.png)
 
 ## <a name="run-the-app-to-generate-data"></a>執行應用程式以產生資料
 
@@ -198,10 +172,10 @@ az eventgrid event-subscription create \
 
 4. 返回 Visual Studio 專案。 在 WindTurbineDataGenerator 專案中，開啟 **program.cs**。
 
-5. 取代兩個常數值。 使用複製的值來取代 **EventHubConnectionString**。 使用事件中樞名稱來取代 **EventHubName**。
+5. 取代兩個常數值。 使用複製的值來取代 **EventHubConnectionString**。 使用 **hubdatamigration** 作為事件中樞名稱。
 
    ```cs
-   private const string EventHubConnectionString = "Endpoint=sb://tfdatamigratens.servicebus.windows.net/...";
+   private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";
    private const string EventHubName = "hubdatamigration";
    ```
 

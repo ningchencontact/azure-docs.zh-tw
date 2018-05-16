@@ -1,6 +1,6 @@
 ---
-title: Azure Container Service 的常見問題集
-description: 提供一些關於 Azure Container Service 常見問題的解答。
+title: Azure Kubernetes Service 的常見問題集
+description: 提供一些關於 Azure Kubernetes Service 常見問題的解答。
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -8,21 +8,21 @@ ms.service: container-service
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: nepeters
-ms.openlocfilehash: 5eb949e420d9b055d014b973d452dc95fc358f83
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 55006a3f0193c96849c52f87ab01dc13ac0c7a16
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-about-azure-container-service-aks"></a>關於 Azure Container Service (AKS) 的常見問題集
+# <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
-本文將說明關於 Azure Container Service (AKS) 的常見問題。
+本文將說明關於 Azure Kubernetes Service (AKS) 的常見問題。
 
 > [!IMPORTANT]
-> Azure Container Service (AKS) 目前為**預覽**狀態。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+> Azure Kubernetes Service (AKS) 目前為**預覽**狀態。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 >
 
-## <a name="which-azure-regions-provide-the-azure-container-service-aks-today"></a>目前，哪些 Azure 區域提供 Azure Container Service (AKS)？
+## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>目前，哪些 Azure 區域提供 Azure Kubernetes Service (AKS)？
 
 - 加拿大中部
 - 加拿大東部

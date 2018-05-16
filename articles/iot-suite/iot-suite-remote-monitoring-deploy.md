@@ -1,33 +1,33 @@
 ---
-title: "部署遠端監視解決方案架構 - Azure | Microsoft Docs"
-description: "本教學課程示範如何從 azureiotsuite.com 佈建遠端監視預先設定的解決方案。"
-services: 
+title: 部署遠端監視解決方案架構 - Azure | Microsoft Docs
+description: 本教學課程示範如何從 azureiotsuite.com 佈建遠端監視解決方案加速器。
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fa08817c870372488b1e03a2c282add2eaa85478
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: eb78ce91755c43f1c6fedf62a70238df911b940f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>部署遠端監視預先設定解決方案
+# <a name="deploy-the-remote-monitoring-solution-accelerator"></a>部署遠端監視解決方案加速器
 
-本教學課程示範如何佈建遠端監視預先設定的解決方案。 您要從 azureiotsuite.com 部署解決方案。您也可以使用 CLI 部署解決方案來了解此選項，請參閱[從命令列部署預先設定的解決方案](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#deploy-a-pcs-from-the-command-line)。
+本教學課程示範如何佈建遠端監視解決方案加速器。 您要從 azureiotsuite.com 部署解決方案。您也可以使用 CLI 部署解決方案，若要了解此選項，請參閱[從命令列部署解決方案加速器](iot-suite-remote-monitoring-deploy-cli.md)。
 
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 設定預先設定的解決方案
-> * 部署預先設定的解決方案
-> * 登入預先設定的解決方案
+> * 設定解決方案加速器
+> * 部署解決方案加速器
+> * 登入解決方案加速器
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -35,19 +35,17 @@ ms.lasthandoff: 02/23/2018
 
 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
-## <a name="deploy-the-preconfigured-solution"></a>部署預先設定的解決方案
+## <a name="deploy-the-solution-accelerator"></a>部署解決方案加速器
 
-您必須選擇一些設定選項，才能將預先設定的解決方案部署到 Azure 訂用帳戶：
+您必須先選擇一些設定選項，才能將解決方案加速器部署到 Azure 訂用帳戶：
 
-1. 使用 Azure 帳戶認證登入 [azureiotsuite.com](https://www.azureiotsuite.com)，然後按一下 **+** 以建立新的解決方案：
+1. 使用您的 Azure 帳戶認證登入 [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators)。
 
-    ![建立新解決方案](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
-
-1. 按一下 [遠端監視預覽] 圖格上的 [選取]。
+1. 按一下 [遠端監視] 圖格上的 [立即試用]。
 
     ![選擇遠端監視](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
-1. 在 [建立遠端監視解決方案] 頁面上，輸入遠端監視預先設定的解決方案的 [解決方案名稱]。
+1. 在 [建立遠端監視解決方案] 頁面上，輸入遠端監視解決方案加速器的**解決方案名稱**。
 
 1. 選取**基本**或**標準**部署。 如果您要部署解決方案來了解其運作方式或是執行示範，請選擇 [基本] 選項來將成本降至最低。
 
@@ -59,13 +57,13 @@ ms.lasthandoff: 02/23/2018
 
 1. 按一下 [建立解決方案]  開始佈建程序。 此程序通常需要數分鐘的執行時間：
 
-    ![遠端監視解決方案詳細資料](media/iot-suite-remote-monitoring-deploy/createform.png)
+    ![遠端監視解決方案的詳細資料](media/iot-suite-remote-monitoring-deploy/createform.png)
 
 如需疑難排解資訊，請參閱 GitHub 存放庫中的[部署失敗時該怎麼辦](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails)。
 
-## <a name="sign-in-to-the-preconfigured-solution"></a>登入預先設定的解決方案
+## <a name="sign-in-to-the-solution-accelerator"></a>登入解決方案加速器
 
-佈建程序完成時，您可以登入遠端監視預先設定解決方案。
+完成佈建程序之後，您就能登入遠端監視解決方案加速器。
 
 1. 在 [佈建解決方案] 頁面上，選擇新的遠端監視解決方案：
 
@@ -85,9 +83,9 @@ ms.lasthandoff: 02/23/2018
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
-> * 設定預先設定的解決方案
-> * 部署預先設定的解決方案
-> * 登入預先設定的解決方案
+> * 設定解決方案加速器
+> * 部署解決方案加速器
+> * 登入解決方案加速器
 
 既然您已部署遠端監視解決方案，下一步便是[探索解決方案儀表板的功能](./iot-suite-remote-monitoring-explore.md)。
 

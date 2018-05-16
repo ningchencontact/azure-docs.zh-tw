@@ -1,322 +1,118 @@
 ---
-title: 使用 Azure Cosmos DB 的多重主機資料庫架構 | Microsoft Docs
-description: 了解如何設計應用程式架構，使用 Azure Cosmos DB 在多個地理區域進行本機讀取和寫入。
+title: 以全球規模使用 Azure Cosmos DB 的多重主機 | Microsoft Docs
+description: ''
 services: cosmos-db
-documentationcenter: ''
-author: SnehaGunda
+author: rimman
 manager: kfile
-ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
 ms.service: cosmos-db
-ms.devlang: multiple
+ms.workload: data-services
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/23/2017
-ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e8853d521173a9a8d3c925361e43ce469471918
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 05/07/2018
+ms.author: rimman
+ms.openlocfilehash: 2446fac7526015d11737529c26d54e910643b750
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 的多重主機全域複寫資料庫架構
-Azure Cosmos DB 支援周全的[全域複寫](distribute-data-globally.md)，可讓您以低延遲存取工作負載中的任何位置，將資料散發到多個區域。 此模型通常用於發行者/取用者工作負載，寫入器在單一地理區域中，而讀取器 (讀取) 分散在世界各地的其他區域。 
+# <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>以全球規模使用 Azure Cosmos DB 的多重主機 
+ 
+要開發散布於世界各地，且能夠因應本機延遲，同時又能讓全球各地資料的檢視保有一致性的應用程式，是一項難題。 客戶需要改善資料存取延遲、達到高度資料可用性、確保可靠的災害復原功能，以及符合其商務需求，因此會使用散布於世界各地的資料庫。 Azure Cosmos DB 中的多重主機可提供高度可用性 (99.999%)、寫入資料時的個位數毫秒延遲，以及透過完整而彈性的內建衝突解決支援達到的延展性。 這些功能大幅簡化了對散布於世界各地的應用程式進行開發的工作。 對散布於世界各地的應用程式而言，多重主機支援是非常重要的。 
 
-您也可以使用 Azure Cosmos DB 的全域複寫支援，建置其寫入器和讀取器遍布全球的應用程式。 本文概述的模式可讓使用 Azure Cosmos DB 的分散式寫入器達成本機寫入及本機讀取存取。
+![多重主機架構](./media/multi-region-writers/multi-master-architecture.png)
 
-## <a id="ExampleScenario"></a>內容發佈 - 範例案例
-讓我們看看真實世界的案例，說明如何利用 Azure Cosmos DB 使用分散在世界各地多重區域/多重主機讀寫模式。 以建置在 Azure Cosmos DB 上的內容發佈平台為例。 這個平台必須符合以下一些需求，才能獲得絕佳發行者和取用者使用者體驗。
+透過 Azure Cosmos DB 多重主機支援，您可以對散布於世界各地的資料容器 (例如集合、圖形、表格) 執行寫入。 您可以更新與您的資料庫帳戶相關聯的任何區域中的資料。 這些資料更新可用非同步方式傳播。 除了可讓您快速存取資料和縮短資料寫入延遲以外，多重主機也針對容錯移轉和負載平衡問題提供了實際的解決方案。 簡言之，您可以利用 Azure Cosmos DB 在世界上 99% 的地區獲得低於 10 毫秒的寫入延遲、在世界各地獲得 99.999% 的寫入與讀取可用性，並且可在世界各地調整寫入和讀取的輸送量。   
 
-* 作者與訂閱者都分散在世界各地 
-* 作者必須將 (寫入) 文章發佈到其本機 (最接近) 的區域
-* 作者文章的讀取器/訂閱者遍及全球。 
-* 發佈新文章時，訂閱者應該收到通知。
-* 訂閱者必須能從其本機區域讀取文章。 他們也能將評論加入這些文章。 
-* 包括文章作者在內的任何人都可以從本機區域檢視所有文章附加的評論。 
+## <a name="a-simple-multi-master-example--content-publishing"></a>多重主機的簡單範例 – 內容發佈  
 
-假設有數百萬取用者與發行者，而文章有數十億篇，我們很快會面臨調整規模以及保證本機存取的問題。 和大部分擴充性問題一樣，解決方案就是要有良好的資料分割策略。 接下來，讓我們看看如何將文章、評論及通知的模型建立為文件、設定 Azure Cosmos DB 帳戶以及實作資料存取層。 
+我們要以真實世界的實例，說明如何透過 Azure Cosmos DB 使用多重主機支援。 以建置在 Azure Cosmos DB 上的內容發佈平台為例。 這個平台必須符合以下一些需求，才能獲得絕佳發行者和取用者使用者體驗。 
 
-如果您想要深入了解資料分割和資料分割索引鍵，請參閱 [Azure Cosmos DB 的資料分割與調整規模](partition-data.md)。
+* 作者與訂閱者都分散在世界各地。  
 
-## <a id="ModelingNotifications"></a>建立模型通知
-通知是使用者特有的資料輸入。 因此，通知文件的存取模式都是以單一使用者而言。 例如，您可以「發佈給使用者的通知」或「擷取指定使用者的所有通知」。 因此，這類資料分割索引鍵的最佳選擇會是 `UserId`。
+* 作者必須將 (寫入) 文章發佈到其本機 (最接近) 的區域。  
 
-    class Notification 
-    { 
-        // Unique ID for Notification. 
-        public string Id { get; set; }
+* 作者文章的讀取器/訂閱者遍及全球。  
 
-        // The user Id for which notification is addressed to. 
-        public string UserId { get; set; }
+* 發佈新文章時，訂閱者應該收到通知。  
 
-        // The partition Key for the resource. 
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.UserId; 
-            }
-        }
+* 訂閱者必須能從其本機區域讀取文章。 他們也能將評論加入這些文章。  
 
-        // Subscription for which this notification is raised. 
-        public string SubscriptionFilter { get; set; }
+* 包括文章作者在內的任何人都可以從本機區域檢視所有文章附加的評論。  
 
-        // Subject of the notification. 
-        public string ArticleId { get; set; } 
-    }
+假設有數百萬取用者與發行者，而文章有數十億篇，我們很快會面臨調整規模以及保證本機存取的問題。 這種使用案例很適合用來討論 Azure Cosmos DB 多重主機。 
 
-## <a id="ModelingSubscriptions"></a>建立模型訂閱
-針對感興趣的特定文章類別或特定發行者的各種準則來建立訂閱。 因此 `SubscriptionFilter` 會是不錯的資料分割索引鍵選擇。
+## <a name="benefits-of-having-multi-master-support"></a>具有多重主機支援的優點 
 
-    class Subscriptions 
-    { 
-        // Unique ID for Subscription 
-        public string Id { get; set; }
+對散布於世界各地的應用程式而言，多重主機支援是不可或缺的。 多重主機由均等參與隨處寫入模型 (主動-主動模式) 的[多個主要區域](distribute-data-globally.md)組成，可用來確保資料在您需要的時候都可供您使用。 對個別區域所做的更新會以非同步方式傳播到所有其他區域 (屆時這些區域也會成為其本身的主要區域)。 在多重主機組態中作為主要區域的 Azure Cosmos DB 區域，會自動運作以彙整所有複本的資料，並確保[全域一致性和資料完整性](consistency-levels.md)。 下圖顯示單一主機和多重主機的讀取/寫入複寫。
 
-        // Subscription source. Could be Author | Category etc. 
-        public string SubscriptionFilter { get; set; }
+![單一主機和多重主機](./media/multi-region-writers/single-vs-multi-master.png)
 
-        // subscribing User. 
-        public string UserId { get; set; }
+自行實作多重主機會增加開發人員的負擔。 嘗試自行實作多重主機的大規模客戶可能需要花費數百個小時來設定及測試全球各地的多重主機組態，而其中有許多客戶都會有一組專責的工程師，其唯一工作就是監視及維護多重主機複寫。 自行建立和管理多重主機設定會十分耗時，且資源不易用在應用程式的創新，相關成本也更高。 Azure Cosmos DB 提供「現成可用的」多重主機支援，為開發人員免除了前述負擔。  
 
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.SubscriptionFilter; 
-            } 
-        } 
-    }
+簡言之，多重主機具有下列優點：
 
-## <a id="ModelingArticles"></a>建立模型文件
-一旦透過通知來識別文章，後續查詢通常會以 `Article.Id` 為基礎。 因此選擇 `Article.Id` 當成資料分割索引鍵，可提供在 Azure Cosmos DB 集合內儲存文章最佳的發佈方式。 
+* **更好的災害復原、寫入可用性和容錯移轉** - 多重主機可用來將關鍵任務資料庫的高可用性維持在更高程度。 例如，多重主機資料庫可在主要區域因停電或地區性災害而無法使用時，將資料從一個區域複寫至容錯移轉區域。 這種容錯移轉區域將作為完全正常運作的主要區域，以支援應用程式。 多重主機可在天災、停電或人為破壞方面提供更高的「生存能力」保護，因為其餘區域可能是地理位置不同、且保證寫入可用性可高於 99.999% 的多重主機區域。 
 
-    class Article 
-    { 
-        // Unique ID for Article 
-        public string Id { get; set; }
-        
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.Id; 
-            } 
-        }
-        
-        // Author of the article
-        public string Author { get; set; }
+* **改善使用者的寫入延遲** - 您所提供的資料愈接近使用者，其體驗會越好。 例如，如果您有在歐洲的使用者，但您的資料庫是位於美國或澳洲，則這兩個區域分別會增加約 140 毫秒和 300 毫秒的延遲。 延遲會使得許多受歡迎的遊戲、銀行需求或互動式應用程式 (Web 或行動裝置版) 無法啟動。 延遲也會嚴重影響到使用者對高品質體驗的認知，且經證實也會對使用者行為產生相當程度的影響。 隨著科技的演進，特別是 AR、VR 和 MR 的問世，沈浸式和實境體驗的需求更甚以往，開發人員現在設計的軟體系統都必須能滿足嚴苛的延遲需求。 因此，擁有可在本機上使用的應用程式和資料 (應用程式的內容)，是更加重要的。 透過 Azure Cosmos DB 中的多重主機，將可保有與一般本機讀取和寫入同等的快速效能，並且可藉由地理位置分散提升全域效能。  
 
-        // Category/genre of the article
-        public string Category { get; set; }
+* **改善寫入延展性及寫入輸送量** - 多重主機可提供更大的輸送量，更高的使用率，同時透過正確性保證和 SLA 的支援提供多個一致性模型。 
 
-        // Tags associated with the article
-        public string[] Tags { get; set; }
+  ![透過多重主機調整寫入輸送量](./media/multi-region-writers/scale-write-throughput.png)
 
-        // Title of the article
-        public string Title { get; set; }
-        
-        //... 
-    }
+* **為中斷連線的環境 (例如邊緣裝置) 提供更理想的支援** - 多重主機可讓使用者從邊緣裝置將所有或部分資料複寫至與中斷連線的環境最接近的區域。 此案例常出現在銷售人員自動化系統上；在此環境中，個人的筆記型電腦 (中斷連線的裝置) 會儲存個別銷售人員的相關資料子集。 雲端中位於世界各地的主要區域可作為從遠端邊緣裝置複製的目標。  
 
-## <a id="ModelingReviews"></a>建立模型評論
-和文章一樣，評論大部分可在文章內容中撰寫和讀取。 選擇 `ArticleId` 當成資料分割索引鍵，可提供和文章相關聯的評論最佳的發佈方式並有效存取。 
+* **負載平衡** - 透過多重主機，整個應用程式的負載將可重新平衡，只要將使用者/工作負載從負載繁重的區域移至負載平均分散的區域即可。 寫入容量也可以輕易擴充，只要新增區域，然後將某些寫入作業移轉至新區域即可。 
 
-    class Review 
-    { 
-        // Unique ID for Review 
-        public string Id { get; set; }
+* **更有效地使用已佈建的容量** - 透過多重主機，您可以針對寫入繁重和混合的工作負載，在多個區域使用已佈建的容量。  在某些情況下，您可以更平均地重新分配讀取和寫入負載，使其所需佈建的輸送量較少，而為客戶達到節省成本的效益。  
 
-        // Article Id of the review 
-        public string ArticleId { get; set; }
+* **更簡單且更有彈性的應用程式架構** - 轉移至多重主機組態的應用程式可獲得有保證的資料恢復能力。  Azure Cosmos DB 消除了所有複雜性，因而能夠大幅簡化應用程式的設計和架構。 
 
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.ArticleId; 
-            } 
-        }
-        
-        //Reviewer Id 
-        public string UserId { get; set; }
-        public string ReviewText { get; set; }
-        
-        public int Rating { get; set; } }
-    }
+* **無風險容錯移轉測試** - 容錯移轉測試不會導致寫入輸送量降低。 使用多重主機實，其他所有區域都會成為完整主機，因此容錯移轉將不會對寫入輸送量造成太多影響。  
 
-## <a id="DataAccessMethods"></a>資料存取層方法
-現在來看看我們必須實作的主要資料存取方法。 以下是 `ContentPublishDatabase` 需要的方法清單︰
+* **降低擁有權總成本 (TCO) 和 DevOps** - 要達到延展性、效能、全域散發、復原時間等方面的目標，通常需付出昂貴成本，因為附加元件屬於更成本，或是必須維護在災害發生前都持續待用的備份基礎結構。 透過受到領先業界的 SLA 支援的 Azure Cosmos DB 多重主機，開發人員不再需要自行建置與維護「後端黏附邏輯」，並且可安心執行其關鍵任務工作負載。 
 
-    class ContentPublishDatabase 
-    { 
-        public async Task CreateSubscriptionAsync(string userId, string category);
-    
-        public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId);
-    
-        public async Task<Article> ReadArticleAsync(string articleId);
-    
-        public async Task WriteReviewAsync(string articleId, string userId, string reviewText, int rating);
-    
-        public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
-    }
+## <a name="use-cases-where-multi-master-support-is-needed"></a>需要多重主機支援的使用案例
 
-## <a id="Architecture"></a>Azure Cosmos DB 帳戶組態
-若要保證本機讀取和寫入，不只要針對資料分割索引鍵，也要根據區域的地理存取模式來分割資料。 模型依存於每個區域的異地複寫 Azure Cosmos DB 資料庫帳戶。 以兩個區域為例，多重區域寫入設定如下︰
+有許多使用案例都需要 Azure Cosmos DB 中的多重主機： 
 
-| 帳戶名稱 | 寫入區域 | 讀取區域 |
-| --- | --- | --- |
-| `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
-| `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
+* **IoT** - Azure Cosmos DB 多重主機可讓簡化 IoT 資料處理的分散式實作。 使用 CRDT 無衝突複寫資料類型的地理位置分散邊緣部署，通常需要從多個位置追蹤時間序列資料。 每個裝置可以隸屬於其中最接近的一個區域，且裝置可進行周遊 (例如汽車)，以及動態地重新隸屬以寫入至其他區域。  
 
-下圖顯示如何以這種設定在一般應用程式中執行讀取和寫入︰
+* **電子商務** - 要確保使用者在電子商務案例中能有良好的體驗，需要有高度可用性和失敗發生後的恢復能力。 當某個區域失敗時，使用者工作階段、購物車、使用中的願望清單都必須能順暢地收取至另一個區域，且不會遺失狀態。 在過渡期間，使用者所做的更新必須適當地處理 (例如，對購物車進行的新增和移除必須要轉移)。 透過多重主機，Azure Cosmos DB 將可在作用中區域之間的平順地轉移，同時讓使用者保有一致的檢視，而在正常程序下處理此類情況。 
 
-![Azure Cosmos DB 多重主機架構](./media/multi-region-writers/multi-master.png)
+* **詐騙/異常偵測** - 監視使用者活動或帳戶活動的應用程式通常會散布於各地，且必須同時追蹤多個事件。 在建立及維護使用者的評分時，來自不同地理區域的動作必須同時更新評分，以保有正確的風險度量。 Azure Cosmos DB 可確保開發人員不需要處理應用程式層級的衝突狀況。 
 
-如何在`West US`區域中執行的 DAL 中，初始化用戶端的程式碼片段如下。
-    
-    ConnectionPolicy writeClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
-    writeClientPolicy.PreferredLocations.Add(LocationNames.WestUS);
-    writeClientPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
+* **共同作業** - 適用於根據文章熱門程度 (例如，關於特價商品或要使用的媒體) 排名的應用程式。跨地理區域追蹤熱門程度可能會是複雜的工作，特別是在需要支付忠誠度費用或進行即時廣告決策時。 透過 Azure Cosmos DB 跨全球多個區域即時進行排名、排序和報告，可讓開發人員輕鬆交付功能，而不會有延遲的危害。 
 
-    DocumentClient writeClient = new DocumentClient(
-        new Uri("https://contentpubdatabase-usa.documents.azure.com"), 
-        writeRegionAuthKey,
-        writeClientPolicy);
+* **計量** - 使用量 (例如 API 呼叫、每秒交易數、使用分鐘數) 的計算和控管，可以使用 Azure Cosmos DB 多重主機輕鬆地全域實作。 內建的衝突解決功能可即時兼顧計數和法規的正確性。 
 
-    ConnectionPolicy readClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
-    readClientPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
-    readClientPolicy.PreferredLocations.Add(LocationNames.WestUS);
+* **個人化** - 無論您是要維護地理位置分散的計數器，用來觸發忠誠度點數獎勵之類的動作，還是要實作個人化使用者工作階段檢視，Azure Cosmos DB 所提供的高可用性和簡化的地理分散計數，都可讓應用程式輕易提供高效能。 
 
-    DocumentClient readClient = new DocumentClient(
-        new Uri("https://contentpubdatabase-europe.documents.azure.com"),
-        readRegionAuthKey,
-        readClientPolicy);
+## <a name="conflict-resolution-with-multi-master"></a>多重主機的衝突解決 
 
-利用上述設定，資料存取層可以根據部署位置，將所有寫入轉送至本機帳戶。 藉由讀取這兩個帳戶，以取得資料的整體觀點來執行讀取。 這種方法可以擴充到所需的各個區域。 例如，以下是三個地區設定︰
+使用多重主機時，挑戰常會來自於同一筆記錄的兩個 (或多個) 複本可能會同時由兩個或多個不同的區域中不同的寫入器進行更新。 同時寫入可能會導致同一筆記錄出現兩個不同版本，且若沒有內建的衝突解決功能，應用程式就必須自行執行衝突解決作業來解決此不一致的狀況。  
 
-| 帳戶名稱 | 寫入區域 | 讀取區域 1 | 讀取區域 2 |
-| --- | --- | --- | --- |
-| `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |`Southeast Asia` |
-| `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
-| `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
+**範例** - 我們假設您使用 Azure Cosmos DB 作為購物車應用程式的持續性存放區，且這個應用程式部署於兩個區域中：美國東部和美國西部。  如果大約在同一時間，位於舊金山的使用者在其購物車中新增了某項目 (例如書籍)，而美國東部的清查管理程序針對該名使用者驗證了不同購物車的項目 (例如新手機)，以回應指出發行日期延遲的供應商通知。 在時間點 T1，兩個區域的購物車記錄會不相同。 資料庫將使用其複寫和衝突解決機制來解決這項不一致，且最終將會選取兩種購物車版本的其中之一。 衝突解決啟發學習法的採用大多是由多重主機資料庫所套用的 (例如，以最後寫入的為準)，使用者或應用程式無法預測將會選取哪一個版本。 在任一情況下，資料都會遺失，或可能會發生非預期的行為。 如果選取了東部區域版本，則使用者新選購的項目 (即書籍) 就會遺失，而如果選取西部區域版本，則先前選擇的項目 (也就是電話) 仍會保留在購物車中。 無論如何，資訊都會遺失。 最後，任何在時間點 T1 和 T2 之間檢查購物車的其他程序，也都會查看不具決定性的行為。 例如，選取供貨倉儲並更新運送成本的背景程序，將會產生與購物車的最終內容衝突的結果。 如果該程序在西部區域執行，且替代方案 1 成為現實，它就會計算兩個項目的運送成本，即使購物車中可能很快就只剩下一個項目 (書籍) 亦然。 
 
-## <a id="DataAccessImplementation"></a>資料存取層實作
-現在讓我們來對有兩個可寫入區域的應用程式實作資料存取層 (DAL)。 DAL 必須實作下列步驟︰
+Azure Cosmos DB 實作適當邏輯來處理資料庫引擎本身的內部寫入衝突。 Azure Cosmos DB 提供**完整且彈性的衝突解決支援**；它提供數個衝突解決模型，包括自動 (CRDT - 無衝突複寫資料類型)、以最後寫入的為準 (LWW)、自訂 (預存程序) 和手動，以自動解決衝突。 衝突解決模型提供正確性與一致性保證，且讓開發人員不用費心思考應如何處理異地容錯移轉和跨區域寫入衝突時的一致性、可用性、效能、複寫延遲和事件的複雜組合。  
 
-* 為每個帳戶建立 `DocumentClient` 的多個執行個體。 使用兩個區域，每個 DAL 執行個體會有一個 `writeClient` 和一個 `readClient`。 
-* 根據已部署應用程式的區域，設定 `writeclient` 和 `readClient` 的端點。 例如，部署在 `West US` 的 DAL 使用 `contentpubdatabase-usa.documents.azure.com` 執行寫入。 部署在 `NorthEurope`的 DAL 使用 `contentpubdatabase-europ.documents.azure.com` 寫入。
+  ![多重主機的衝突解決功能](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
 
-使用上述設定，就可以實作資料存取方法。 寫入作業會將寫入轉送到對應的 `writeClient`。
+您將取得 Azure Cosmos DB 提供的三種衝突解決模型。 衝突解決模型的語意如下所示： 
 
-    public async Task CreateSubscriptionAsync(string userId, string category)
-    {
-        await this.writeClient.CreateDocumentAsync(this.contentCollection, new Subscriptions
-        {
-            UserId = userId,
-            SubscriptionFilter = category
-        });
-    }
+**自動** - 這是預設的衝突解決原則。 選取此原則，會使 Azure Cosmos DB 自動解決伺服器端的更新衝突，並提供強式最終一致性保證。 在內部，Azure Cosmos DB 會在資料庫引擎內運用無衝突複寫資料類型 (CRDT)，來實作自動衝突解決機制。  
 
-    public async Task WriteReviewAsync(string articleId, string userId, string reviewText, int rating)
-    {
-        await this.writeClient.CreateDocumentAsync(this.contentCollection, new Review
-        {
-            UserId = userId,
-            ArticleId = articleId,
-            ReviewText = reviewText,
-            Rating = rating
-        });
-    }
+**以最後寫入的為準 (LWW)** - 選擇此原則可讓您根據系統定義的已同步處理戳記屬性，或是發生衝突的記錄版本來解決衝突。 衝突解決會在伺服器端上進行，而具有最新時間戳記的版本會選為優勝者。  
 
-對於讀取通知和評論，您必須從區域和聯集兩者來讀取，結果如下列程式碼片段所示︰
+**自訂** - 您可以藉由註冊預存程序來註冊應用程式定義的衝突解決邏輯。 在伺服器端偵測到資料庫交易的支援下有更新衝突時，就會叫用此預存程序。 如果您選取此選項，但無法註冊預存程序 (或預存程序在執行階段擲回例外狀況)，您可以透過「衝突摘要」存取所有衝突的版本，並個別加以解決。  
 
-    public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId)
-    {
-        IDocumentQuery<Notification> writeAccountNotification = (
-            from notification in this.writeClient.CreateDocumentQuery<Notification>(this.contentCollection) 
-            where notification.UserId == userId 
-            select notification).AsDocumentQuery();
-        
-        IDocumentQuery<Notification> readAccountNotification = (
-            from notification in this.readClient.CreateDocumentQuery<Notification>(this.contentCollection) 
-            where notification.UserId == userId 
-            select notification).AsDocumentQuery();
+## <a name="next-steps"></a>後續步驟  
 
-        List<Notification> notifications = new List<Notification>();
+在本文中，您已了解如何透過 Azure Cosmos DB 使用散布於世界各地的多重主機。 接著，請參閱下列資源： 
 
-        while (writeAccountNotification.HasMoreResults || readAccountNotification.HasMoreResults)
-        {
-            IList<Task<FeedResponse<Notification>>> results = new List<Task<FeedResponse<Notification>>>();
+* [了解 Azure Cosmos DB 如何支援全域散發](distribute-data-globally.md)  
 
-            if (writeAccountNotification.HasMoreResults)
-            {
-                results.Add(writeAccountNotification.ExecuteNextAsync<Notification>());
-            }
+* [了解 Azure Cosmos DB 中的自動化和手動容錯移轉](regional-failover.md)  
 
-            if (readAccountNotification.HasMoreResults)
-            {
-                results.Add(readAccountNotification.ExecuteNextAsync<Notification>());
-            }
+* [了解 Azure Cosmos DB 的全域一致性](consistency-levels.md)  
 
-            IList<FeedResponse<Notification>> notificationFeedResult = await Task.WhenAll(results);
-
-            foreach (FeedResponse<Notification> feed in notificationFeedResult)
-            {
-                notifications.AddRange(feed);
-            }
-        }
-        return notifications;
-    }
-
-    public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId)
-    {
-        IDocumentQuery<Review> writeAccountReviews = (
-            from review in this.writeClient.CreateDocumentQuery<Review>(this.contentCollection) 
-            where review.ArticleId == articleId 
-            select review).AsDocumentQuery();
-        
-        IDocumentQuery<Review> readAccountReviews = (
-            from review in this.readClient.CreateDocumentQuery<Review>(this.contentCollection) 
-            where review.ArticleId == articleId 
-            select review).AsDocumentQuery();
-
-        List<Review> reviews = new List<Review>();
-        
-        while (writeAccountReviews.HasMoreResults || readAccountReviews.HasMoreResults)
-        {
-            IList<Task<FeedResponse<Review>>> results = new List<Task<FeedResponse<Review>>>();
-
-            if (writeAccountReviews.HasMoreResults)
-            {
-                results.Add(writeAccountReviews.ExecuteNextAsync<Review>());
-            }
-
-            if (readAccountReviews.HasMoreResults)
-            {
-                results.Add(readAccountReviews.ExecuteNextAsync<Review>());
-            }
-
-            IList<FeedResponse<Review>> notificationFeedResult = await Task.WhenAll(results);
-
-            foreach (FeedResponse<Review> feed in notificationFeedResult)
-            {
-                reviews.AddRange(feed);
-            }
-        }
-
-        return reviews;
-    }
-
-因此，選擇良好的分割索引鍵和靜態帳戶型的資料分割，您就可以使用 Azure Cosmos DB 達到多重區域本機寫入和讀取。
-
-## <a id="NextSteps"></a>後續步驟
-我們會在本文說明如何使用發佈為範例案例的內容，利用 Azure Cosmos DB 使用分散在世界各地的多重區域讀取和寫入模式。
-
-* 了解 Azure Cosmos DB 如何支援[全域發佈](distribute-data-globally.md)
-* 了解 [Azure Cosmos DB 中的自動化和手動容錯移轉](regional-failover.md)
-* 了解 [Azure Cosmos DB 的全域一致性](consistency-levels.md)
-* 使用 [Azure Cosmos DB - SQL API](tutorial-global-distribution-sql-api.md) 進行多區域開發
-* 使用 [Azure Cosmos DB - MongoDB API](tutorial-global-distribution-MongoDB.md) 進行多區域開發
-* 使用 [Azure Cosmos DB - Table API](tutorial-global-distribution-table.md) 進行多區域開發
+* 使用 Azure Cosmos DB 進行多區域開發 - [SQL API](tutorial-global-distribution-sql-api.md)、[MongoDB API](tutorial-global-distribution-mongodb.md) 或[資料表 API](tutorial-global-distribution-table.md)  

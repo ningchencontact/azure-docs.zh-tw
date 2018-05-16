@@ -5,20 +5,20 @@ services: key-vault
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
-ms.assetid: ''
+ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 05/08/2018
 ms.author: barclayn
-ms.openlocfilehash: d31318b1c2a2cd2b9f3b17e77d8deb66d5de21a5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f9648e15c720c076a65e84a95f4160f27eec598d
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-azure-key-vault"></a>什麼是 Azure 金鑰保存庫？
 
@@ -57,8 +57,6 @@ Azure Key Vault 可能受軟體或硬體 HSM 保護。 在您需要加強保證�
 - 封存至儲存體帳戶。
 - 串流至事件中樞。
 - 將記錄傳送至 Log Analytics。
-
-![顯示 Key Vault 屬性的頁面](./media/key-vault-overview/key-vault-overview.png)
 
 您可以控制您的記錄，藉由限制存取權來保護它們，也可以刪除您不再需要的記錄。
 

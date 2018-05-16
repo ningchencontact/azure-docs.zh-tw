@@ -1,11 +1,11 @@
 ---
-title: "為 Azure AD 資源庫應用程式設定同盟單一登入時遇到的問題 | Microsoft Docs"
-description: "解決您可能會在為 Azure AD 應用程式庫中所列的應用程式，使用 SAML 設定同盟單一登入時遇到的一些常見問題"
+title: 為 Azure AD 資源庫應用程式設定同盟單一登入時遇到的問題 | Microsoft Docs
+description: 解決您可能會在為 Azure AD 應用程式庫中所列的應用程式，使用 SAML 設定同盟單一登入時遇到的一些常見問題
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 86ddb91ae16da797e32c6e1a8a8b2cd8fca989a8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 581b3c4ff7cc7b25f238602560f30280efa34edd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>為 Azure AD 資源庫應用程式設定同盟單一登入時遇到的問題
 
@@ -108,4 +108,4 @@ Azure AD 不提供取得中繼資料的 URL。 只能將中繼資料擷取為 XM
 若要了解如何自訂傳送至應用程式的 SAML 屬性宣告，請參閱 [Azure Active Directory 中的宣告對應](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)以取得詳細資訊。
 
 ## <a name="next-steps"></a>後續步驟
-[使用 Azure Active Directory 管理應用程式](active-directory-enable-sso-scenario.md)
+[使用 Azure Active Directory 管理應用程式](manage-apps/what-is-application-management.md)

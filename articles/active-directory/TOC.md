@@ -16,6 +16,7 @@
 ## [在 Azure AD 中新增使用者](add-users-azure-active-directory.md)
 ## [將授權指派給使用者](license-users-groups.md)
 ## [啟用自助式密碼重設](authentication/quickstart-sspr.md)
+## [在 Azure AD 中新增貴組織的隱私權資訊](active-directory-properties-area.md)
 
 
 # 作法
@@ -58,6 +59,7 @@
 #### [B2B 共用原則](active-directory-b2b-delegate-invitations.md)
 #### [將 B2B 使用者新增至角色](active-directory-b2b-add-guest-to-role.md)
 #### [動態群組和 B2B 使用者](active-directory-b2b-dynamic-groups.md)
+#### [離開組織](active-directory-b2b-leave-the-organization.md)
 #### [稽核與報告](active-directory-b2b-auditing-and-reporting.md)
 #### [適用於混合式組織的 B2B](active-directory-b2b-hybrid-organizations.md)
 ##### [授與 B2B 使用者本機應用程式的存取權限](active-directory-b2b-hybrid-cloud-to-on-premises.md)
@@ -183,27 +185,27 @@
 ##### [自訂網域](manage-apps/application-proxy-configure-custom-domain.md)
 #### [單一登入](manage-apps/application-proxy-single-sign-on.md)
 ##### [搭配 KCD 的 SSO](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-##### [搭配標頭的 SSO](application-proxy-ping-access.md)
-##### [搭配密碼保存庫的 SSO](application-proxy-sso-azure-portal.md)
+##### [搭配標頭的 SSO](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md)
+##### [搭配密碼保存庫的 SSO](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 #### 概念
-##### [連接器](application-proxy-understand-connectors.md)
-##### [Security](application-proxy-security-considerations.md)
-##### [網路](application-proxy-network-topology-considerations.md)
+##### [連接器](manage-apps/application-proxy-connectors.md)
+##### [Security](manage-apps/application-proxy-security.md)
+##### [網路](manage-apps/application-proxy-network-topology.md)
 
 
-##### [從 TMG 或 UAG 升級](application-proxy-transition-from-uag-tmg.md)
+##### [從 TMG 或 UAG 升級](manage-apps/application-proxy-migration.md)
 
 #### 進階組態
-##### [在不同網路上發佈](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Proxy 伺服器](application-proxy-working-with-proxy-servers.md)
-##### [宣告感知應用程式](active-directory-application-proxy-claims-aware-apps.md)
-##### [原生用戶端應用程式](active-directory-application-proxy-native-client.md)
-##### [無訊息安裝](active-directory-application-proxy-silent-installation.md)
-##### [自訂首頁](application-proxy-office365-app-launcher.md)
-##### [翻譯內嵌連結](application-proxy-link-translation.md)
+##### [在不同網路上發佈](manage-apps/application-proxy-connector-groups.md)
+##### [Proxy 伺服器](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
+##### [宣告感知應用程式](manage-apps/application-proxy-configure-for-claims-aware-applications.md)
+##### [原生用戶端應用程式](manage-apps/application-proxy-configure-native-client-application.md)
+##### [無訊息安裝](manage-apps/application-proxy-register-connector-powershell.md)
+##### [自訂首頁](manage-apps/application-proxy-configure-custom-home-page.md)
+##### [翻譯內嵌連結](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
 #### 發佈逐步解說
-##### [遠端桌面](application-proxy-publish-remote-desktop.md)
-##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [遠端桌面](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
+##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
 

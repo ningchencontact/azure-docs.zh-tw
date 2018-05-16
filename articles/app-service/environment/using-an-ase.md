@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure App Service Environment"
-description: "如何在 Azure App Service Environment 中建立、發佈及調整應用程式"
+title: 使用 Azure App Service Environment
+description: 如何在 Azure App Service Environment 中建立、發佈及調整應用程式
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4aaef3fb6748eb974bc9d129b2bd8d42393e1cb8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-an-app-service-environment"></a>使用 App Service Environment #
 
@@ -58,19 +58,28 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
 
 4. 輸入新資源群組的名稱，或選取 [使用現有] 並從下拉式清單中挑選一個。
 
+5. 選取您的作業系統。 
+
+    * 在 ASE 中裝載 Linux 應用程式是新的預覽功能，因此建議您不要將 Linux 應用程式新增到目前執行生產工作負載的 ASE。 
+    * 將 Linux 應用程式新增至 ASE，表示 ASE 也會處於預覽模式。 
+
 5. 選取 ASE 中現有的 App Service 方案，或透過下列步驟建立一個新的方案：
 
     a. 選取 [新建]。
 
     b. 輸入 App Service 方案的名稱。
 
-    c. 在 [位置] 下拉式清單中選取您的 ASE。
+    c. 在 [位置] 下拉式清單中選取您的 ASE。 在 ASE 中裝載 Linux 應用程式目前只能在 6 個區域中進行：**美國西部、美國東部、西歐、北歐、澳洲東部以及東南亞。** 
 
     d. 選取 [隔離] 定價層。 選取 [選取] 。
 
     e. 選取 [確定] 。
     
     ![隔離定價層][2]
+
+    > [!NOTE]
+    > Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service Environment 中。 
+    >
 
 6. 選取 [建立] 。
 

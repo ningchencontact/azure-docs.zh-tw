@@ -1,6 +1,6 @@
 ---
-title: Azure IoT 套件遠端監視常見問題集 | Microsoft Docs
-description: IoT 套件遠端監視預先設定之解決方案的常見問題集
+title: 遠端監視解決方案加速器的常見問題集 | Microsoft Docs
+description: 遠端監視解決方案加速器的常見問題集
 services: iot-suite
 suite: iot-suite
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: b0d6dbb567f66537c599d7ac3e4337988b3374c0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d1cc260710d025428a1ca77c41c104dc172447e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite-remote-monitoring-preconfigured-solution"></a>IoT 套件遠端監視預先設定之解決方案的常見問題集
+# <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>遠端監視解決方案加速器的常見問題集
 
 另請參閱，一般[常見問題集](iot-suite-faq.md)。
 
 ### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>佈建新的遠端監視解決方案需要多少成本？
 
-新的預先設定解決方案會提供兩種部署選項：
+新的解決方案加速器提供兩種部署選項：
 
 * 基本選項，是針對尋求降低開發成本的開發人員，或需要建置示範或概念證明的客戶所設計。
 * 標準選項，是針對需要部署備妥基礎結構的企業而設計。
@@ -44,15 +44,11 @@ ms.lasthandoff: 04/23/2018
 
 如需詳細資訊，請參閱[升級地圖索引鍵以在動態地圖上顯示裝置](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) \(英文\)。
 
-### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>我可以在一個訂用帳戶中佈建多少個免費 Bing 地圖服務 API？
-
-2 個。 您只可以在 Azure 訂用帳戶中針對 Enterprise 方案建立兩個內部交易層級 1 Bing 地圖。 根據預設，遠端監視方案會隨著內部交易層級 1 方案一起佈建。 因此，您只可以在一個訂用帳戶中最多佈建 2 個遠端監視方案。
-
 ### <a name="next-steps"></a>後續步驟
 
-您也可以瀏覽一些其他功能和預先設定的 IoT 套件解決方案的功能︰
+您也可以探索 IoT 解決方案加速器的一些其他特性與功能：
 
-* [探索遠端監視預先設定解決方案的功能](iot-suite-remote-monitoring-explore.md)
-* [預測性維護預先設定的解決方案概觀](iot-suite-predictive-overview.md)
-* [連線處理站預先設定的解決方案概觀](iot-suite-connected-factory-overview.md)
+* [探索遠端監視解決方案加速器的功能](iot-suite-remote-monitoring-explore.md)
+* [預測性維護解決方案加速器概觀](iot-suite-predictive-overview.md)
+* [連線的處理站解決方案加速器概觀](iot-suite-connected-factory-overview.md)
 * [從頭建立 IoT 安全性](securing-iot-ground-up.md)

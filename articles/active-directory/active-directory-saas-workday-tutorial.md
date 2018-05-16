@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5f3c3bbb23b9d4439188286342d80eb1cc1d0833
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>教學課程：Azure Active Directory 與 Workday 整合
 
@@ -174,19 +174,17 @@ Workday 與 Azure AD 整合提供下列優點：
 
     ![SAML 身分識別提供者](./media/active-directory-saas-workday-tutorial/IC7829272.png "SAML 身分識別提供者")
    
-    c. 選取 [啟用 IDP 起始的登出]。
-   
-    d. 在 Azure 入口網站的 [設定登入] 視窗上，複製 [登出 URL] 值，然後將它貼至 [登出回應 URL] 文字方塊中。
+    c. 在 Azure 入口網站的 [設定登入] 視窗上，複製 [登出 URL] 值，然後將它貼至 [登出回應 URL] 文字方塊中。
 
-    e. 在 Azure 入口網站的 [設定登入] 視窗上，複製 [SAML 單一登入服務 URL] 值，然後將它貼至 [IdP SSO 服務 URL] 文字方塊中。
+    d. 在 Azure 入口網站的 [設定登入] 視窗上，複製 [SAML 單一登入服務 URL] 值，然後將它貼至 [IdP SSO 服務 URL] 文字方塊中。
 
-    f. 在 [Used for Environments] \(用於環境\) 文字方塊中，選取環境名稱。
+    e. 在 [Used for Environments] \(用於環境\) 文字方塊中，選取環境名稱。
 
-    g. 按一下 [識別提供者公開金鑰憑證]，然後按一下 [建立]。 
+    f. 按一下 [識別提供者公開金鑰憑證]，然後按一下 [建立]。 
 
     ![建立](./media/active-directory-saas-workday-tutorial/IC782928.png "建立")
 
-    h. 按一下 [建立 x509 公開金鑰]。 
+    g. 按一下 [建立 x509 公開金鑰]。 
 
     ![建立](./media/active-directory-saas-workday-tutorial/IC782929.png "建立")
 
@@ -209,7 +207,7 @@ Workday 與 Azure AD 整合提供下列優點：
    
     e.  在 [憑證] 文字方塊中貼上剪貼簿的內容。
    
-    f.  按一下 [SERVICEPRINCIPAL] 。
+    f.  按一下 [確定]。
 
 14. 執行下列步驟： 
    
@@ -223,7 +221,7 @@ Workday 與 Azure AD 整合提供下列優點：
    
     ![驗證要求簽章方法](./media/active-directory-saas-workday-tutorial/WorkdaySSOConfiguration.png "驗證要求簽章方法") 
    
-    d. 按一下 [SERVICEPRINCIPAL] 。 
+    d. 按一下 [確定]。 
    
     ![確定](./media/active-directory-saas-workday-tutorial/IC782933.png "確定")
 

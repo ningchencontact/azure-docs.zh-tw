@@ -1,7 +1,7 @@
 ---
-title: "遠端監視解決方案中的裝置模擬 - Azure | Microsoft Docs"
-description: "本教學課程會示範如何使用裝置模擬器搭配遠端監視預先設定的解決方案。"
-services: 
+title: 遠端監視解決方案中的裝置模擬 - Azure | Microsoft Docs
+description: 本教學課程示範如何搭配遠端監視解決方案加速器使用裝置模擬器。
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,15 +12,19 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 905e64d004c02db663634eb784cacf6fab805193
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-a-new-simulated-device"></a>建立新的模擬裝置
 
-本教學課程會示範如何自訂遠端監視預先設定解決方案中的裝置模擬器微服務。 為說明裝置模擬器的功能，本教學課程會使用 Contoso IoT 應用程式中的兩個情節。
+本教學課程示範如何在遠端監視解決方案加速器中自訂裝置模擬器微服務。 為說明裝置模擬器的功能，本教學課程會使用 Contoso IoT 應用程式中的兩個情節。
+
+下列影片提供自訂裝置模擬器微服務的選項概觀：
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 在第一個情節中，Contoso 需要測試新的智慧型燈泡裝置。 若要執行測試，您可以建立具有下列特性的新模擬裝置：
 
@@ -68,7 +72,7 @@ ms.lasthandoff: 03/09/2018
 
 在第二個情節中，您要將新的遙測類型新增至 Contoso 的現有 **Chiller** 裝置。
 
-本教學課程會示範如何使用裝置模擬器搭配遠端監視預先設定的解決方案：
+本教學課程示範如何搭配遠端監視解決方案加速器使用裝置模擬器：
 
 在本教學課程中，您了解如何：
 
@@ -86,7 +90,7 @@ ms.lasthandoff: 03/09/2018
 
 為了依循本教學課程進行操作，您需要：
 
-* 在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案執行個體。 如果您尚未部署遠端監視解決方案，應該先完成[部署遠端監視預先設定的解決方案](iot-suite-remote-monitoring-deploy.md)教學課程。
+* 在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案執行個體。 如果您尚未部署遠端監視解決方案，應該先完成[部署遠端監視解決方案加速器](iot-suite-remote-monitoring-deploy.md)教學課程。
 
 * Visual Studio 2017。 如果尚未安裝 Visual Studio 2017，可以下載免費的 [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) 版本。
 
@@ -289,10 +293,10 @@ ms.lasthandoff: 03/09/2018
         "temperature_unit": "F",
         "status": "on"
       },
-      "Script": {
+      "Interval": "00:00:20",
+      "Scripts": {
         "Type": "javascript",
-        "Path": "lightbulb-01-state.js",
-        "Interval": "00:00:20"
+        "Path": "lightbulb-01-state.js"
       }
     },
     ```
@@ -474,7 +478,7 @@ ms.lasthandoff: 03/09/2018
 
     ![連線的裝置數目](media/iot-suite-remote-monitoring-test/connecteddevices.png)
 
-1. 在您的瀏覽器中，瀏覽至遠端監視解決方案的 [儀表板]。 在 [儀表板] 的遙測面板上，選取 [溫度]。 兩個模擬裝置的溫度會顯示在圖表上：
+1. 在您的瀏覽器中，瀏覽至遠端監視解決方案的 [儀表板]。 在 [儀表板] 的遙測面板上，選取 [溫度]。 您所有模擬裝置的溫度均會顯示於圖表上：
 
     ![溫度遙測](media/iot-suite-remote-monitoring-test/telemetry.png)
 

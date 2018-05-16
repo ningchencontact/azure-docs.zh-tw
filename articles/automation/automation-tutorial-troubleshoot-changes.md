@@ -1,19 +1,21 @@
 ---
-title: "針對 Azure 虛擬機器上的變更進行疑難排解 | Microsoft Docs"
-description: "使用變更追蹤來針對 Azure 虛擬機器上的變更進行疑難排解。"
+title: 針對 Azure 虛擬機器上的變更進行疑難排解 | Microsoft Docs
+description: 使用變更追蹤來針對 Azure 虛擬機器上的變更進行疑難排解。
 services: automation
-keywords: "變更, 追蹤, 自動化"
+ms.service: automation
+ms.component: change-inventory-management
+keywords: 變更, 追蹤, 自動化
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 62d34f82749900e161bebdb7a1a8d470b2e85bbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>針對您環境中的變更進行疑難排解
 
@@ -40,7 +42,7 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，網址是 http://portal.azure.com/。
+在 http://portal.azure.com 上登入 Azure 入口網站。
 
 ## <a name="enable-change-tracking-and-inventory"></a>啟用變更追蹤和清查
 
@@ -109,7 +111,7 @@ ConfigurationChange
 |已啟用     | 判斷是否已套用設定        |
 |項目名稱     | 所要追蹤檔案的易記名稱        |
 |群組     | 用於將檔案以邏輯方式分組的群組名稱        |
-|輸入路徑     | 要檢查檔案的路徑。例如："c:\temp\myfile.txt"       |
+|輸入路徑     | 要檢查檔案的路徑，例如："c:\temp\myfile.txt"       |
 
 ### <a name="add-a-linux-file"></a>新增 Linux 檔案
 

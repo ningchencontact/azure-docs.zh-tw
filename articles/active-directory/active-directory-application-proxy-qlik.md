@@ -12,11 +12,11 @@ ms.date: 04/03/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e10fefdd3bd46aeb90fd2cfc82d4fee3b17d867b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ab029420ab9aa81b585c9b0315537bff2d9aaa6d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>應用程式 Proxy 和 Qlik Sense 
 Azure Active Directory 應用程式 Proxy 和 Qlik Sense 已搭配運作，可確保您能夠輕鬆使用「應用程式 Proxy」來為 Qlik Sense 部署提供遠端存取。  
@@ -25,13 +25,13 @@ Azure Active Directory 應用程式 Proxy 和 Qlik Sense 已搭配運作，可�
 本案例的其餘部分假設您已完成下列操作：
  
 - 已設定 [Qlik Sense](https://community.qlik.com/docs/DOC-19822)。 
-- [已安裝應用程式 Proxy 連接器](active-directory-application-proxy-enable.md#install-and-register-a-connector) 
+- [已安裝應用程式 Proxy 連接器](manage-apps/application-proxy-enable.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>在 Azure 中發佈應用程式 
 若要發佈 QlikSense，您將需要在 Azure 中發佈兩個應用程式。  
 
 ### <a name="application-1"></a>應用程式 #1： 
-請遵循下列步驟來發佈您的應用程式。 如需步驟 1-8 的更詳細逐步解說，請參閱[使用 Azure AD Application Proxy 發佈應用程式](application-proxy-publish-azure-portal.md)。 
+請遵循下列步驟來發佈您的應用程式。 如需步驟 1-8 的更詳細逐步解說，請參閱[使用 Azure AD Application Proxy 發佈應用程式](manage-apps/application-proxy-publish-azure-portal.md)。 
 
 
 1. 以系統管理員身分登入 Azure 入口網站。 
@@ -50,7 +50,7 @@ Azure Active Directory 應用程式 Proxy 和 Qlik Sense 已搭配運作，可�
 請依照用於第 1 個應用程式的相同步驟進行操作，但下列除外： 
 
 **步驟 #5**：「內部 URL」現在應該是 QlikSense URL 搭配應用程式所使用的驗證連接埠。 HTTPS 的預設值為 **4244**，HTTP 的預設值為 4248。 例如：**https&#58;//demo.qlik.com:4244**</br></br> 
-**步驟 #10：**請勿設定 SSO，讓**單一登入保持停用**
+**步驟 #10：** 請勿設定 SSO，讓**單一登入保持停用**
  
  
 ## <a name="testing"></a>測試 
@@ -58,5 +58,5 @@ Azure Active Directory 應用程式 Proxy 和 Qlik Sense 已搭配運作，可�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [使用應用程式 Proxy 發行應用程式](application-proxy-publish-azure-portal.md)
-- [使用應用程式 Proxy 連接器](active-directory-application-proxy-connectors-azure-portal.md)。
+- [使用應用程式 Proxy 發行應用程式](manage-apps/application-proxy-publish-azure-portal.md)
+- [使用應用程式 Proxy 連接器](manage-apps/application-proxy-connector-groups.md)。

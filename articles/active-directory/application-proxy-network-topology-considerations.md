@@ -1,25 +1,25 @@
 ---
-title: "使用 Azure Active Directory 應用程式 Proxy 時的網路拓撲考量 | Microsoft Docs"
-description: "涵蓋使用 Azure AD 應用程式 Proxy 時的網路拓撲考量。"
+title: 使用 Azure Active Directory 應用程式 Proxy 時的網路拓撲考量 | Microsoft Docs
+description: 涵蓋使用 Azure AD 應用程式 Proxy 時的網路拓撲考量。
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f4ca4856333bf8b10a00952356080ed332dc266b
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e8f292f41c61ef208c316325f768dbdeaac88d84
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>使用 Azure Active Directory 應用程式 Proxy 時的網路拓撲考量
 
@@ -116,9 +116,9 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="use-case-1"></a>使用案例 1
 
-**案例︰**應用程式在美國組織的網路中，其使用者位於相同的區域中。 Azure 資料中心與公司網路之間沒有 ExpressRoute 或 VPN 存在。
+**案例︰** 應用程式在美國組織的網路中，其使用者位於相同的區域中。 Azure 資料中心與公司網路之間沒有 ExpressRoute 或 VPN 存在。
 
-**建議︰**遵循模式 1，如上一節所述。 如需改良的延遲，請視需要考慮使用 ExpressRoute。
+**建議︰** 遵循模式 1，如上一節所述。 如需改良的延遲，請視需要考慮使用 ExpressRoute。
 
 這是簡單的模式。 將連接器放在應用程式附近，以最佳化躍點 3。 這是也很自然的選擇，因為連接器通常安裝在直視應用程式及資料中心以執行 KCD 作業。
 
@@ -126,9 +126,9 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="use-case-2"></a>使用案例 2
 
-**案例︰**應用程式在美國組織的網路中，其使用者分散於全球各地。 Azure 資料中心與公司網路之間沒有 ExpressRoute 或 VPN 存在。
+**案例︰** 應用程式在美國組織的網路中，其使用者分散於全球各地。 Azure 資料中心與公司網路之間沒有 ExpressRoute 或 VPN 存在。
 
-**建議︰**遵循模式 1，如上一節所述。 
+**建議︰** 遵循模式 1，如上一節所述。 
 
 同樣地，最常見的模式是最佳化躍點 3，您將連接器放在應用程式附近的位置。 躍點 3 通常不是高成本，如果全部都在相同區域內。 不過，躍點 1 可能會根據使用者所在的位置而更高成本，因為世界各地的使用者必須存取美國的應用程式 Proxy 執行個體。 值得注意的是，就散佈於全球的使用者而言，任何 Proxy 解決方案會有相似特性。
 
@@ -136,9 +136,9 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="use-case-3"></a>使用案例 3
 
-**案例︰**應用程式在美國組織的網路中。 Azure 與公司網路之間存在 ExpressRoute 與公用對等互連。
+**案例︰** 應用程式在美國組織的網路中。 Azure 與公司網路之間存在 ExpressRoute 與公用對等互連。
 
-**建議︰**遵循模式 1 和 2，如上一節所述。
+**建議︰** 遵循模式 1 和 2，如上一節所述。
 
 首先，盡可能將連接器放置接近應用程式。 然後，系統會自動使用躍點 2 的 ExpressRoute。 
 
@@ -148,9 +148,9 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="use-case-4"></a>使用案例 4
 
-**案例︰**應用程式在美國組織的網路中。 Azure 與公司網路之間存在 ExpressRoute 與私人對等互連。
+**案例︰** 應用程式在美國組織的網路中。 Azure 與公司網路之間存在 ExpressRoute 與私人對等互連。
 
-**建議︰**遵循模式 3，如上一節所述。
+**建議︰** 遵循模式 3，如上一節所述。
 
 將連接器放置於透過 ExpressRoute 私人對等互連連線到公司網路的 Azure 資料中心。 
 
@@ -160,9 +160,9 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="use-case-5"></a>使用案例 5
 
-**案例︰**用程式在歐盟組織的網路中，而應用程式 Proxy 執行個體與大部分使用者位於美國。
+**案例︰** 用程式在歐盟組織的網路中，而應用程式 Proxy 執行個體與大部分使用者位於美國。
 
-**建議︰**將連接器放置在應用程式附近。 因為美國使用者會存取剛好在相同區域中的應用程式 Proxy 執行個體，躍點 1 並不過於昂貴。 躍點 3 已最佳化。 請考慮使用 ExpressRoute 將躍點 2 最佳化。 
+**建議︰** 將連接器放置在應用程式附近。 因為美國使用者會存取剛好在相同區域中的應用程式 Proxy 執行個體，躍點 1 並不過於昂貴。 躍點 3 已最佳化。 請考慮使用 ExpressRoute 將躍點 2 最佳化。 
 
 ![圖表顯示使用者和 Proxy 在美國，而連接器與應用程式在歐盟](./media/application-proxy-network-topologies/application-proxy-pattern5b.png)
 
@@ -172,7 +172,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-- [啟用應用程式 Proxy](active-directory-application-proxy-enable.md)
-- [啟用單一登入](active-directory-application-proxy-sso-using-kcd.md)
+- [啟用應用程式 Proxy](manage-apps/application-proxy-enable.md)
+- [啟用單一登入](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 - [啟用條件式存取](application-proxy-enable-remote-access-sharepoint.md)
 - [使用應用程式 Proxy 疑難排解您遇到的問題](active-directory-application-proxy-troubleshoot.md)

@@ -9,21 +9,32 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: e30943426ad68171e1464f828a9c8672b06c975a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1eb4e7859ae62fca4e4a11f69abda3f767ab9596
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Azure Machine Learning 新增功能
 
-本文章會說明 [Azure Machine Learning 服務](../service/overview-what-is-azure-ml.md)的新版本。 
+在本文中，了解 [Azure Machine Learning](../service/overview-what-is-azure-ml.md) 的新版本。 
+
+
+## <a name="2018-05-sprint-5"></a>2018-05 (Sprint 5)
+
+透過此版本的 Azure Machine Learning，您可以：
++ 利用量化版本的 ResNet 50 將影像功能化、根據這些功能為分類器定型，並[將該模型部署到 Azure 上的 FPGA](../service/how-to-deploy-fpga-web-service.md)，以達到超低延遲推斷。
+
++ 針對下列網域使用[自訂 Azure Machine Learning 套件](../service/reference-python-package-overview.md)快速建置並部署高度精確的機器學習和深入學習模型：
+  + [電腦視覺](../service/how-to-build-deploy-image-classification-models.md)
+  + [文字分析](../service/how-to-build-deploy-text-classification-models.md)
+  + [預測](../service/how-to-build-deploy-forecast-models.md)
 
 ## <a name="2018-03-sprint-4"></a>2018-03 (Sprint 4)
 **版本號碼**：0.1.1801.24353  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([尋找您的版本](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
-歡迎使用 Azure Machine Learning Workbench 的第五次更新。 以下的更新有許多是直接來自您的意見反應。 請繼續提供您的意見！
+以下的更新有許多是直接來自您的意見反應。 請繼續提供您的意見！
 
 **重要新功能和變更**
 

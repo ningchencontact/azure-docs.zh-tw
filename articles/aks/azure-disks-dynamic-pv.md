@@ -8,17 +8,17 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: a6bc79d0556299634a78c5232bbab4e20810172c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5c82659e4dd980b9285d81d51eb17b227ec33035
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>包含 Azure 磁碟的永續性磁碟區
 
 永續性磁碟區代表一塊已佈建來與 Kubernetes Pod 搭配使用的儲存體。 永續性磁碟區可供一個或多個 Pod 使用，且可以動態或靜態方式佈建。 如需有關 Kubernetes 永續性磁碟區的詳細資訊，請參閱 [Kubernetes 永續性磁碟區][kubernetes-volumes]。
 
-本文件詳述如何在 Azure Container Service (AKS) 叢集內搭配 Azure 磁碟使用永續性磁碟區。
+本文件詳述如何在 Azure Kubernetes Service (AKS) 叢集內搭配 Azure 磁碟使用永續性磁碟區。
 
 > [!NOTE]
 > 您只能使用存取模式類型 ReadWriteOnce 來掛接 Azure 磁碟，以讓它僅供單一 AKS 節點使用。 如果您需要在多個節點之間共用永續性磁碟區，請考慮使用 [Azure 檔案][azure-files-pvc]。
@@ -96,7 +96,7 @@ spec:
 kubectl create -f azure-pvc-disk.yaml
 ```
 
-您現在已有一個 Azure 磁碟掛接在 `/mnt/azure` 目錄中的執行中 Pod。 當您透過 `kubectl describe pod mypod` 檢查 pod 時，可以看到這項設定。
+您現在已有一個 Azure 磁碟掛接在 `/mnt/azure` 目錄中的執行中 Pod。 當您透過 `kubectl describe pod mypod` 檢查 Pod 時，可以看到這項設定。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,6 +1,6 @@
 ---
-title: "使用 Web UI 管理 Azure Kubernetes 叢集"
-description: "使用 AKS 中的 Kubernetes 儀表板"
+title: 使用 Web UI 管理 Azure Kubernetes 叢集
+description: 使用 AKS 中的 Kubernetes 儀表板
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 47608993320d987822422ea103e4e2043de2d2e8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ab137c8397f747ba07475910cd4461d88951d6be
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Kubernetes 儀表板和 Azure Container Service (AKS)
+# <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Kubernetes 儀表板與 Azure Kubernetes Service (AKS)
 
 您可以使用 Azure CLI 啟動 Kubernetes 儀表板。 本文件會逐步示範以 Azure CLI 啟動 Kubernetes 儀表板，以及逐步說明某些基本的儀表板作業。 如需 Kubernetes 儀表板的詳細資訊，請參閱 [Kubernetes Web UI 儀表板][kubernetes-dashboard]。
 

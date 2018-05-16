@@ -1,6 +1,6 @@
 ---
-title: "建立外部 Azure App Service 環境"
-description: "說明如何在建立應用程式或獨立時建立 App Service 環境"
+title: 建立外部 Azure App Service 環境
+description: 說明如何在建立應用程式或獨立時建立 App Service 環境
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 439fadeb01ccad58642492eb49ef25f866a9a9dd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: debfff03ea9a4de4fb2cd69779d58709a6a3a34f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>建立外部 App Service 環境 #
 
@@ -55,7 +55,7 @@ Azure App Service Environment (ASE) 是將 Azure App Service 部署到客戶 Azu
 
 ## <a name="create-an-ase-and-an-app-service-plan-together"></a>一起建立 ASE 和 App Service 方案 ##
 
-App Service 方案是應用程式的容器。 當您在 App Service 中建立應用程式時，要選擇或建立 App Service 方案。 容器模型環境會保存 App Service 方案，和保存應用程式的 App Service 方案。
+App Service 方案是應用程式的容器。 當您在 App Service 中建立應用程式時，要選擇或建立 App Service 方案。 App Service Environment 可保存 App Service 方案，而 App Service 方案可保存應用程式。
 
 若要在建立 App Service 方案時建立 ASE：
 
@@ -67,13 +67,66 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
 3. 選取或建立資源群組。 您可以使用資源群組來管理相關的一組 Azure 資源。 當您為應用程式建立角色型存取控制規則時，資源群組也十分實用。 如需詳細資訊，請參閱 [Azure Resource Manager 概觀][ARMOverview]。
 
-4. 選取 App Service 方案，然後選取 [新建]。
+4. 選取您的作業系統。 
+
+    * 在 ASE 中裝載 Linux 應用程式是新的預覽功能，因此建議您不要將 Linux 應用程式新增到目前執行生產工作負載的 ASE。 
+    * 將 Linux 應用程式新增至 ASE，表示 ASE 也會處於預覽模式。 
+
+5. 選取 App Service 方案，然後選取 [新建]。 Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service Environment 中。 
 
     ![新增 App Service 方案][2]
 
+6. 在 [位置] 下拉式清單中，選取您需要建立 ASE 的區域。 如果您選取現有的 ASE，就不會建立新的 ASE。 會在您選取的 ASE 中建立 App Service 方案。 
+
+    > [!NOTE]
+    > Linux 版 ASE 目前只能在 6 個區域中使用：**美國西部、美國東部、西歐、北歐、澳洲東部以及東南亞。** 由於 Linux 版 ASE 是預覽功能，請勿選取您在此預覽之前建立的 ASE。
+    >
+
+7. 選取**定價層**，然後選擇其中一個**隔離的**定價 SKU。 如果您選擇**隔離** SKU 卡以及非 ASE 的位置，就會在該位置中建立新的 ASE。 若要啟動建立 ASE 的流程，請選取 [選取]。 **隔離** SKU 僅供與 ASE 搭配使用。 您也無法在 ASE 中使用**隔離**以外的其他任何定價 SKU。 
+
+    * 在 Linux 版 ASE 預覽中，隔離的 SKU 會套用 50% 折扣 (ASE 本身的一般費用沒有任何折扣)。
+
+    ![定價層選取項目][3]
+
+8. 輸入 ASE 的名稱。 此名稱是用於應用程式的可定址名稱。 如果 ASE 的名稱是 _appsvcenvdemo_，則網域名稱會是 .appsvcenvdemo.p.azurewebsites.net。 如果您建立名為 mytestapp 的應用程式，則可定址於 mytestapp.appsvcenvdemo.p.azurewebsites.net。 您無法在名稱中使用空白字元。 如果您使用大寫字元，則網域名稱會是該名稱的全小寫版本。
+
+    ![新增 App Service 方案名稱][4]
+
+9. 指定 Azure 虛擬網路詳細資料。 選取 [新建] 或 [選取現有]。 僅在選取的區域擁有 VNet 時，才可以使用選取現有 VNet 的選項。 如果您選取 [新建]，請輸入 VNet 的名稱。 會建立具有該名稱的 Resource Manager VNet。 它會使用選取區域中的位址空間 `192.168.250.0/23`。 如果您選取 [選取現有]，您需要：
+
+    a. 如果您有多個位址區塊，請選取 VNet 位址區塊。
+
+    b. 輸入新的子網路名稱。
+
+    c. 選取子網路的大小。 請記得選取大小足以容納未來成長的 ASE。 建議是 `/25`，具有 128 個位址，而且可以處理最大大小的 ASE。 例如，不建議 `/28`，因為只有 16 個位址可供使用。 基礎結構會使用至少 7 個位址，而 Azure 網路會使用另外 5 個。 在 `/28` 子網路中，外部 ASE 只有最多 4 個 App Service 方案執行個體的規模，而 ILB ASE 只有 3 個 App Service 方案執行個體。
+
+    d. 選取子網路 IP 範圍。
+
+10. 選取 [建立] 以建立 ASE。 此流程也會建立 App Service 方案和應用程式。 ASE、App Service 方案和應用程式會在相同的訂用帳戶底下，同時在相同的資源群組中。 如果您的 ASE 需要個別資源群組，或如果您需要 ILB ASE，請遵循步驟讓 ASE 自行建立。
+
+## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>使用自訂 Docker 映像一起建立 ASE 和 Linux Web 應用程式
+
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [建立資源] > [Web + 行動] > [適用於容器的 Web 應用程式]。 
+
+    ![建立 Web 應用程式][7]
+
+2. 選取您的訂用帳戶。 會在相同的訂用帳戶中建立應用程式和 ASE。
+
+3. 選取或建立資源群組。 您可以使用資源群組來管理相關的一組 Azure 資源。 當您為應用程式建立角色型存取控制規則時，資源群組也十分實用。 如需詳細資訊，請參閱 [Azure Resource Manager 概觀][ARMOverview]。
+
+4. 選取 App Service 方案，然後選取 [新建]。 Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service Environment 中。 
+
+    ![新增 App Service 方案][8]
+
 5. 在 [位置] 下拉式清單中，選取您需要建立 ASE 的區域。 如果您選取現有的 ASE，就不會建立新的 ASE。 會在您選取的 ASE 中建立 App Service 方案。 
 
-6. 選取**定價層**，然後選擇其中一個**隔離的**定價 SKU。 如果您選擇**隔離** SKU 卡以及非 ASE 的位置，就會在該位置中建立新的 ASE。 若要啟動建立 ASE 的流程，請選取 [選取]。 **隔離** SKU 僅供與 ASE 搭配使用。 您也無法在 ASE 中使用**隔離**以外的其他任何定價 SKU。
+    > [!NOTE]
+    > Linux 版 ASE 目前只能在 6 個區域中使用：**美國西部、美國東部、西歐、北歐、澳洲東部以及東南亞。** 由於 Linux 版 ASE 是預覽功能，請勿選取您在此預覽之前建立的 ASE。
+    >
+
+6. 選取**定價層**，然後選擇其中一個**隔離的**定價 SKU。 如果您選擇**隔離** SKU 卡以及非 ASE 的位置，就會在該位置中建立新的 ASE。 若要啟動建立 ASE 的流程，請選取 [選取]。 **隔離** SKU 僅供與 ASE 搭配使用。 您也無法在 ASE 中使用**隔離**以外的其他任何定價 SKU。 
+
+    * 在 Linux 版 ASE 預覽中，隔離的 SKU 會套用 50% 折扣 (ASE 本身的一般費用沒有任何折扣)。
 
     ![定價層選取項目][3]
 
@@ -91,7 +144,13 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
     d. 選取子網路 IP 範圍。
 
-9. 選取 [建立] 以建立 ASE。 此流程也會建立 App Service 方案和應用程式。 ASE、App Service 方案和應用程式會在相同的訂用帳戶底下，同時在相同的資源群組中。 如果您的 ASE 需要個別資源群組，或如果您需要 ILB ASE，請遵循步驟讓 ASE 自行建立。
+9.  選取 [設定容器]。
+    * 輸入您的自訂映像名稱 (您可以使用 Azure Container Registry、Docker Hub 和自己的私人登錄)。 如果您不想使用自己的自訂容器，您可以依照上述指示，只要自備程式碼並且在 Linux 上使用內建映像搭配 App Service。 
+
+    ![設定容器][9]
+
+10. 選取 [建立] 以建立 ASE。 此流程也會建立 App Service 方案和應用程式。 ASE、App Service 方案和應用程式會在相同的訂用帳戶底下，同時在相同的資源群組中。 如果您的 ASE 需要個別資源群組，或如果您需要 ILB ASE，請遵循步驟讓 ASE 自行建立。
+
 
 ## <a name="create-an-ase-by-itself"></a>由 ASE 本身建立 ##
 
@@ -111,7 +170,9 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
 5. 選取您的 VNet 和位置。 您可以建立新的 VNet 或選取現有的 VNet： 
 
-    * 如果您選取新的 VNet，就可以指定名稱和位置。 新的 VNet 會有位址範圍 192.168.250.0/23，和名為 default 的子網路。 子網路定義為 192.168.250.0/24。 您只能選取 Resource Manager VNet。 [VIP 類型] 選取項目會決定您的 ASE 是否可以從網際網路 (外部) 直接存取，或者它是使用 ILB。 若要深入了解這些選項，請參閱[在 App Service 環境中建立及使用內部負載平衡器][MakeILBASE]。 
+    * 如果您選取新的 VNet，就可以指定名稱和位置。 如果您打算在此 ASE 上裝載 Linux 應用程式，目前只支援 6 個區域：**美國西部、美國東部、西歐、北歐、澳洲東部以及東南亞。** 
+    
+    * 新的 VNet 會有位址範圍 192.168.250.0/23，和名為 default 的子網路。 子網路定義為 192.168.250.0/24。 您只能選取 Resource Manager VNet。 [VIP 類型] 選取項目會決定您的 ASE 是否可以從網際網路 (外部) 直接存取，或者它是使用 ILB。 若要深入了解這些選項，請參閱[在 App Service 環境中建立及使用內部負載平衡器][MakeILBASE]。 
 
       * 如果您針對 VIP 類型選取 [外部]，則可以選取系統針對以 IP 為主的 SSL 用途會建立幾個外部 IP 位址。 
     
@@ -132,6 +193,9 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 [4]: ./media/how_to_create_an_external_app_service_environment/createexternalase-embeddedcreate.png
 [5]: ./media/how_to_create_an_external_app_service_environment/createexternalase-standalonecreate.png
 [6]: ./media/how_to_create_an_external_app_service_environment/createexternalase-network.png
+[7]: ./media/how_to_create_an_external_app_service_environment/createexternalase-createwafc.png
+[8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-aspcreatewafc.png
+[8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
 
 
 

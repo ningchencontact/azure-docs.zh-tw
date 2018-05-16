@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: be5f5a6c39e27ae7fedab32fea12f5cf9b7cd3bd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e12487c519a927b18574310b7af04a1811befd38
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) �
 ## <a name="access-azure-and-azure-active-directory"></a>存取 Azure 和 Azure Active Directory
 **問︰當我嘗試在 Azure 入口網站中存取 Azure AD 時，為何會收到「找不到訂用帳戶」的訊息？**
 
-**答：**若要存取 Azure 入口網站，每位使用者都必須擁有 Azure 訂用帳戶的權限。 如果您有付費的 Office 365 或 Azure AD 訂用帳戶，請移至 [https://aka.ms/accessAAD](https://aka.ms/accessAAD) 以進行一次性啟用步驟。 否則，您必須啟用免費 [Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)或付費的訂用帳戶。
+**答：** 若要存取 Azure 入口網站，每位使用者都必須擁有 Azure 訂用帳戶的權限。 如果您有付費的 Office 365 或 Azure AD 訂用帳戶，請移至 [https://aka.ms/accessAAD](https://aka.ms/accessAAD) 以進行一次性啟用步驟。 否則，您必須啟用免費 [Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)或付費的訂用帳戶。
 
 如需詳細資訊，請參閱
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) �
 - - -
 **問︰Azure AD、Office 365 和 Azure 之間有何關聯性？**
 
-**答：**Azure AD 可提供您所有 Web 服務的常見身分識別和存取功能。 無論您是使用 Office 365、Microsoft Azure、Intune 或其他服務，您都已是使用 Azure AD 協助上述所有服務的登入和存取管理功能。
+**答：** Azure AD 可提供您所有 Web 服務的常見身分識別和存取功能。 無論您是使用 Office 365、Microsoft Azure、Intune 或其他服務，您都已是使用 Azure AD 協助上述所有服務的登入和存取管理功能。
 
 所有設定要使用 Web 服務的使用者都會定義為一或多個 Azure AD 執行個體中的使用者帳戶。 您可以為這些帳戶設定免費的 Azure AD 功能，如雲端應用程式存取。
 
@@ -49,7 +49,7 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 
 **問︰訂用帳戶管理員和目錄管理員有何差異？**
 
-**問：**根據預設，當您註冊 Azure 時會指派訂用帳戶管理員角色給您。 訂用帳戶管理員可以使用 Azure 訂用帳戶相關聯目錄中的 Microsoft 帳戶或是公司或學校帳戶。  此角色經過授權，可管理 Azure 入口網站上的服務。
+**問：** 根據預設，當您註冊 Azure 時會指派訂用帳戶管理員角色給您。 訂用帳戶管理員可以使用 Azure 訂用帳戶相關聯目錄中的 Microsoft 帳戶或是公司或學校帳戶。  此角色經過授權，可管理 Azure 入口網站上的服務。
 
 如果其他人必須使用相同的訂用帳戶來登入和存取服務，您可以將他們新增為共同管理員。 此角色的存取權限與服務管理員相同，但無法變更訂用帳戶與 Azure 目錄的關聯。  如需訂用帳戶管理員的詳細資訊，請參閱[如何新增或變更 Azure 系統管理員角色](../billing-add-change-azure-subscription-administrator.md)和 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory-how-subscriptions-associated-directory.md)。
 
@@ -61,7 +61,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 - - -
 **問︰是否有報告可顯示 Azure AD 使用者授權何時即將過期？**
 
-**答：**否。  目前無法使用此功能。
+**答：** 否。  目前無法使用此功能。
 
 - - -
 
@@ -70,18 +70,18 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 **問︰當我新增為共同作業人員時如何離開租用戶？**
 
-**答︰**當您新增為另一個組織租用戶的共同作業人員時，您可以使用右上方的「租用戶切換器」來切換租用戶。  目前沒有任何方法可離開邀請組織，Microsoft 正在努力提供此功能。  在這項功能可用之前，您可以要求邀請組織將您從其租用戶中移除。
+**答︰** 當您新增為另一個組織租用戶的共同作業人員時，您可以使用右上方的「租用戶切換器」來切換租用戶。  目前沒有任何方法可離開邀請組織，Microsoft 正在努力提供此功能。  在這項功能可用之前，您可以要求邀請組織將您從其租用戶中移除。
 - - -
 **問︰如何將內部部署目錄連接至 Azure AD？**
 
-**答︰**您可以使用 Azure AD Connect 將內部部署目錄連接至 Azure AD。
+**答︰** 您可以使用 Azure AD Connect 將內部部署目錄連接至 Azure AD。
 
 如需詳細資訊，請參閱[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
 - - -
 **問︰如何設定內部部署目錄與雲端應用程式之間的 SSO？**
 
-**答：**您只需要在內部部署目錄與 Azure AD 之間設定單一登入 (SSO)。 只要您透過 Azure AD 存取雲端應用程式，該服務就會自動讓使用者使用其內部部署認證正確地進行驗證。
+**答：** 您只需要在內部部署目錄與 Azure AD 之間設定單一登入 (SSO)。 只要您透過 Azure AD 存取雲端應用程式，該服務就會自動讓使用者使用其內部部署認證正確地進行驗證。
 
 透過同盟解決方案 (例如 Active Directory Federation Services (AD FS)) 或藉由設定密碼雜湊同步處理，就能輕鬆實現從內部部署實作 SSO。您可以使用 Azure AD Connect 組態精靈輕鬆部署這兩個選項。
 
@@ -105,12 +105,12 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 ## <a name="password-management"></a>密碼管理
 **問︰是否可以使用 Azure AD 密碼回寫，但不使用密碼同步處理？(在此案例中，可以搭配使用 Azure AD 自助式密碼重設 (SSPR) 和密碼回寫，而不在雲端儲存密碼嗎？)**
 
-**答：**想要啟用回寫功能，並不需要將 Active Directory 密碼同步處理至 Azure AD。 在同盟環境中，Azure AD 單一登入 (SSO) 會依靠內部部署目錄來驗證使用者。 在這種情況下，並不需要在 Azure AD 中追蹤內部部署密碼。
+**答：** 想要啟用回寫功能，並不需要將 Active Directory 密碼同步處理至 Azure AD。 在同盟環境中，Azure AD 單一登入 (SSO) 會依靠內部部署目錄來驗證使用者。 在這種情況下，並不需要在 Azure AD 中追蹤內部部署密碼。
 
 - - -
 **問︰需要多久時間才能將密碼回寫至 Active Directory 內部部署？**
 
-**答：**密碼回寫會即時運作。
+**答：** 密碼回寫會即時運作。
 
 如需詳細資訊，請參閱[開始使用密碼管理](authentication/quickstart-sspr.md)。
 
@@ -123,7 +123,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 - - -
 **問︰如果我在嘗試變更密碼時不記得現有的 Office 365/Azure AD 密碼，我可以做什麼？**
 
-**答︰**在這種情況下有幾種做法。  使用自助式密碼重設 (SSPR) (如果可用的話)。  SSPR 能否運作取決於其設定方式。  如需詳細資訊，請參閱[密碼重設入口網站的運作方式](authentication/howto-sspr-deployment.md)。
+**答︰** 在這種情況下有幾種做法。  使用自助式密碼重設 (SSPR) (如果可用的話)。  SSPR 能否運作取決於其設定方式。  如需詳細資訊，請參閱[密碼重設入口網站的運作方式](authentication/howto-sspr-deployment.md)。
 
 對於 Office 365 使用者，您的系統管理員可以使用[重設使用者密碼](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)所述的步驟重設密碼。
 
@@ -158,7 +158,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 - - -
 **問︰如果 Azure AD Marketplace 內沒有我需要的應用程式，該怎麼辦？**
 
-**答：**若您使用 Azure AD Premium，就可以新增及設定您想要的任何應用程式。 視應用程式功能和您的喜好設定而定，您可以設定 SSO 和自動化佈建。  
+**答：** 若您使用 Azure AD Premium，就可以新增及設定您想要的任何應用程式。 視應用程式功能和您的喜好設定而定，您可以設定 SSO 和自動化佈建。  
 
 如需詳細資訊，請參閱
 
@@ -180,7 +180,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 - - -
 **問︰Azure AD 可透過哪些不同方式來啟用應用程式的驗證和單一登入？**
 
-**答：**Azure AD 針對驗證和授權支援許多標準化的通訊協定，例如 SAML 2.0、OpenID Connect、OAuth 2.0 和 WS-同盟。 Azure AD 也可針對僅支援表單型驗證的應用程式，支援密碼存放和自動化登入功能。  
+**答：** Azure AD 針對驗證和授權支援許多標準化的通訊協定，例如 SAML 2.0、OpenID Connect、OAuth 2.0 和 WS-同盟。 Azure AD 也可針對僅支援表單型驗證的應用程式，支援密碼存放和自動化登入功能。  
 
 如需詳細資訊，請參閱
 
@@ -193,7 +193,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 **答：** Azure AD 應用程式 Proxy 可讓您簡單又安全地存取您選擇的內部部署 Web 應用程式。 正如同存取 Azure AD 中的軟體即服務 (SaaS) 應用程式一般，相同的方式也可以用來存取這些應用程式。 並不需要 VPN 或變更網路基礎結構。  
 
-如需詳細資訊，請參閱[如何為內部部署應用程式提供安全的遠端存取](active-directory-application-proxy-get-started.md)。
+如需詳細資訊，請參閱[如何為內部部署應用程式提供安全的遠端存取](manage-apps/application-proxy.md)。
 
 - - -
 **問︰如何對存取特定應用程式的使用者要求 Multi-Factor Authentication？**
@@ -205,11 +205,11 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 - - -
 **問︰SaaS 應用程式的自動化使用者佈建是什麼？**
 
-**答：**使用 Azure AD 可讓您在許多熱門雲端 (SaaS) 應用程式中自動建立、維護和移除使用者身分識別。
+**答：** 使用 Azure AD 可讓您在許多熱門雲端 (SaaS) 應用程式中自動建立、維護和移除使用者身分識別。
 
 如需詳細資訊，請參閱[使用 Azure Active Directory 自動進行 SaaS 應用程式的使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)。
 
 - - -
 **問︰是否可以設定與 Azure AD 之間的安全 LDAP 連線？**
 
-**答：**否。 Azure AD 不支援 LDAP 通訊協定。
+**答：** 否。 Azure AD 不支援 LDAP 通訊協定。

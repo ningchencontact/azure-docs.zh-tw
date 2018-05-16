@@ -1,12 +1,12 @@
 ---
-title: "Linux 上的 Azure App Service 支援 SSH | Microsoft Docs"
-description: "了解如何使用 SSH 搭配 Linux 上的 Azure App Service。"
-keywords: "azure app service, web 應用程式, linux, oss"
+title: Linux 上的 Azure App Service 支援 SSH | Microsoft Docs
+description: 了解如何使用 SSH 搭配 Linux 上的 Azure App Service。
+keywords: azure app service, web 應用程式, linux, oss
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cf27e852f5ec9b7e12b0c678e9940596bc57b385
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 支援 SSH
 
@@ -30,6 +30,10 @@ Linux 上的 App Service 會利用每個用於新 Web 應用程式的「執行�
 ![執行階段堆疊](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
 您也可以使用 SSH 搭配自訂 Docker 映像，方法是將 SSH 伺服器納入映像，並如本文中所述將它進行設定。
+
+> [!NOTE] 
+> 您也可以使用 SSH、SFTP 或 Visual Studio Code (適用於 Node.js 應用程式即時偵錯)，直接從本機開發電腦連線到應用程式容器。 如需詳細資訊，請參閱 [Linux 上 App Service 中的遠端偵錯和 SSH](https://aka.ms/linux-debug)。
+>
 
 ## <a name="making-a-client-connection"></a>建立用戶端連線
 

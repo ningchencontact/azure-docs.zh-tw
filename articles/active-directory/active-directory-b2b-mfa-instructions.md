@@ -1,26 +1,20 @@
 ---
-title: "Azure Active Directory B2B 共同作業使用者的條件式存取 | Microsoft Docs"
-description: "Azure Active Directory B2B 共同作業支援多重要素驗證 (MFA) 以對您的公司應用程式進行選擇性存取"
+title: Azure Active Directory B2B 共同作業使用者的條件式存取 | Microsoft Docs
+description: Azure Active Directory B2B 共同作業支援多重要素驗證 (MFA) 以對您的公司應用程式進行選擇性存取
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 09/11/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 4c8827bdf18d59fbe6ba92593513e25e493974b5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2fed28bb7f7b61556a36b11b325ace9773f89991
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 共同作業使用者的條件式存取
 
@@ -107,16 +101,8 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-請瀏覽有關 Azure AD B2B 共同作業的其他文章：
+請參閱下列有關 Azure AD B2B 共同作業的文章：
 
 * [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者？](active-directory-b2b-admin-add-users.md)
-* [資訊工作者如何新增 B2B 共同作業使用者？](active-directory-b2b-iw-add-users.md)
-* [B2B 共同作業邀請電子郵件的元素](active-directory-b2b-invitation-email.md)
-* [B2B 共同作業邀請兌換](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B 共同作業授權](active-directory-b2b-licensing.md)
-* [針對 Azure Active Directory B2B 共同作業問題進行疑難排解](active-directory-b2b-troubleshooting.md)
 * [Azure Active Directory B2B 共同作業常見問題 (FAQ)](active-directory-b2b-faq.md)
-* [Azure Active Directory B2B 共同作業 API 和自訂](active-directory-b2b-api.md)
-* [在沒有邀請的情況下新增 B2B 共同作業使用者](active-directory-b2b-add-user-without-invite.md)
-* [Azure Active Directory 中應用程式管理的文件索引](active-directory-apps-index.md)

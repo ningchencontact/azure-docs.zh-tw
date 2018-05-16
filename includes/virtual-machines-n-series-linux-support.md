@@ -5,14 +5,14 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 04/03/2018
+ms.date: 05/01/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: e925dba3805ec8994aeba730e325c407468a5c87
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7139ec67536a1c0e41c991db6d867b956f995c11
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2018
+ms.lasthandoff: 05/03/2018
 ---
 ## <a name="supported-distributions-and-drivers"></a>支援的散發套件和驅動程式
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/24/2018
 
 | 配送映像 | 驅動程式 |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 或 7.4<br/><br/> CentOS 7.3 或 7.4、CentOS 型 7.4 HPC | NVIDIA CUDA 9.1，驅動程式分支 R390 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 或 7.4<br/><br/> CentOS 型 7.3 或 7.4、CentOS 型 7.4 HPC | NVIDIA CUDA 9.1，驅動程式分支 R390 |
 
 ### <a name="nv-series---nvidia-grid-drivers"></a>NV 系列 - NVIDIA GRID 驅動程式
 
@@ -33,7 +33,7 @@ Microsoft 會為 NV 虛擬機器重新發佈 NVIDIA GRID 驅動程式安裝程�
 
 | 配送映像 | 驅動程式 |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS 型 7.3 | NVIDIA GRID 6.0，驅動程式分支 R390|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 或 7.4<br/><br/>CentOS 型 7.3 或 7.4 | NVIDIA GRID 6.0，驅動程式分支 R390|
 
 
 

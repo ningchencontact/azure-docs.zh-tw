@@ -3,22 +3,22 @@ title: Azure Active Directory 中應用程式管理的文章索引 | Microsoft A
 description: 了解如何自訂同盟憑證的到期日期，以及如何更新即將到期的憑證。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2c9a60aaa627a41d023e5d5d7464046df5b55b05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 07e638fbce863833eeb75ce6e680af3d1d6339eb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory 中應用程式管理的文章索引
 本頁面提供一份完整清單，列出撰寫 Azure Active Directory (Azure AD) 中各種應用程式相關功能的所有文章。
@@ -30,9 +30,9 @@ ms.lasthandoff: 04/28/2018
 
 | 文章指南 |  |
 |:---:| --- |
-| 簡介 Azure AD 解決的應用程式管理問題 |[使用 Azure Active Directory (AD) 管理應用程式](active-directory-enable-sso-scenario.md) |
+| 簡介 Azure AD 解決的應用程式管理問題 |[使用 Azure Active Directory (AD) 管理應用程式](manage-apps/what-is-application-management.md) |
 | Azure AD 中與啟用單一登入、定義有權存取應用程式的人員，以及使用者如何啟動應用程式相關的各種功能概觀 |[Azure Active Directory 中的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md) |
-| 探討將應用程式整合至 Azure AD 時所涉及的不同步驟 |[整合 Azure Active Directory 與應用程式](active-directory-integrating-applications-getting-started.md)<br /><br />[啟用對 SaaS 應用程式的單一登入](active-directory-enterprise-apps-manage-sso.md)<br /><br />[管理應用程式的存取](active-directory-managing-access-to-apps.md) |
+| 探討將應用程式整合至 Azure AD 時所涉及的不同步驟 |[整合 Azure Active Directory 與應用程式](manage-apps/plan-an-application-integration.md)<br /><br />[啟用對 SaaS 應用程式的單一登入](active-directory-enterprise-apps-manage-sso.md)<br /><br />[管理應用程式的存取](active-directory-managing-access-to-apps.md) |
 | 如何在 Azure AD 中表示應用程式的技術說明 |[將應用程式加入 Azure AD 的方式和原因](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>疑難排解文章
@@ -78,10 +78,10 @@ ms.lasthandoff: 04/28/2018
 
 | 文章指南 |  |
 |:---:| --- |
-| Azure AD 應用程式 Proxy 及其運作方式的概觀 |[提供安全的內部部署應用程式遠端存取](active-directory-application-proxy-get-started.md) |
-| 如何設定應用程式 Proxy 以及如何發佈第一個應用程式的教學課程 |[如何設定 Azure AD 應用程式 Proxy](active-directory-application-proxy-enable.md)<br /><br />[如何以無訊息方式安裝應用程式 Proxy 連接器](active-directory-application-proxy-silent-installation.md)<br /><br />[如何使用應用程式 Proxy 發佈應用程式](active-directory-application-proxy-publish.md)<br /><br />[如何使用您自己的網域名稱](active-directory-application-proxy-custom-domains.md) |
-| 如何對使用應用程式 Proxy 發佈的應用程式啟用單一登入和條件式存取 |[使用應用程式 Proxy 進行單一登入](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[條件式存取和應用程式 Proxy](application-proxy-enable-remote-access-sharepoint.md) |
-| 如何對下列案例使用應用程式 Proxy 的指引 |[如何支援原生用戶端應用程式](active-directory-application-proxy-native-client.md)<br /><br />[如何支援宣告感知應用程式](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[如何支援在個別網路和位置上發行的應用程式](active-directory-application-proxy-connectors-azure-portal.md) |
+| Azure AD 應用程式 Proxy 及其運作方式的概觀 |[提供安全的內部部署應用程式遠端存取](manage-apps/application-proxy.md) |
+| 如何設定應用程式 Proxy 以及如何發佈第一個應用程式的教學課程 |[如何設定 Azure AD 應用程式 Proxy](manage-apps/application-proxy-enable.md)<br /><br />[如何以無訊息方式安裝應用程式 Proxy 連接器](manage-apps/application-proxy-register-connector-powershell.md)<br /><br />[如何使用應用程式 Proxy 發佈應用程式](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[如何使用您自己的網域名稱](manage-apps/application-proxy-configure-custom-domain.md) |
+| 如何對使用應用程式 Proxy 發佈的應用程式啟用單一登入和條件式存取 |[使用應用程式 Proxy 進行單一登入](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[條件式存取和應用程式 Proxy](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
+| 如何對下列案例使用應用程式 Proxy 的指引 |[如何支援原生用戶端應用程式](manage-apps/application-proxy-configure-native-client-application.md)<br /><br />[如何支援宣告感知應用程式](manage-apps/application-proxy-configure-for-claims-aware-applications.md)<br /><br />[如何支援在個別網路和位置上發行的應用程式](manage-apps/application-proxy-connector-groups.md) |
 | 應用程式 Proxy 的疑難排解指南 |[應用程式 Proxy 疑難排解指南](active-directory-application-proxy-troubleshoot.md) |
 
 應用程式 Proxy 適用於所有版本的 Azure AD，每個使用者最多十個應用程式。 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 支援無限多個應用程式。 如果您的組織具有 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 或 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)，您就可以[使用群組來指派對應用程式的存取權](#managing-access-to-applications)。
@@ -108,7 +108,7 @@ Azure AD Connect 適用於 [所有版本的 Azure Active Directory](https://azur
 | 文章指南 |  |
 |:---:| --- |
 | 簡介跨 Azure AD、Office365 和 Intune 提供的條件式存取功能 |[使用條件式存取管理風險](active-directory-conditional-access-azure-portal.md) |
-| 如何為下列類型的資源啟用條件式存取 |[SaaS 應用程式的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Office 365 服務的條件式存取](active-directory-conditional-access-device-policies.md)<br /><br />[內部部署應用程式的條件式存取](active-directory-conditional-access-azure-portal.md)<br /><br />[透過 Azure AD 應用程式 Proxy 發佈之內部部署應用程式的條件式存取](application-proxy-enable-remote-access-sharepoint.md) |
+| 如何為下列類型的資源啟用條件式存取 |[SaaS 應用程式的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Office 365 服務的條件式存取](active-directory-conditional-access-device-policies.md)<br /><br />[內部部署應用程式的條件式存取](active-directory-conditional-access-azure-portal.md)<br /><br />[透過 Azure AD 應用程式 Proxy 發佈之內部部署應用程式的條件式存取](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | 如何向 Azure Active Directory 註冊裝置，以便啟用裝置型條件式存取原則 |[Azure Active Directory 裝置註冊概觀](active-directory-conditional-access-device-registration-overview.md)<br /><br />[如何為加入網域的 Windows 裝置啟用自動註冊裝置](active-directory-conditional-access-automatic-device-registration.md)<br />— [適用於 Windows 8.1 裝置的步驟](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [適用於 Windows 7 裝置的步驟](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | 如何使用 Microsoft Authenticator 應用程式進行雙步驟驗證 | [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
@@ -121,7 +121,7 @@ Cloud App Discovery 有助於 IT 部門了解整個組織正在使用哪些 SaaS
 
 | 文章指南 |  |
 |:---:| --- |
-| 其運作方式的一般概觀 |[使用 Cloud App Discovery 尋找未經約束的雲端應用程式](active-directory-cloudappdiscovery-whatis.md) |
+| 其運作方式的一般概觀 |[使用 Cloud App Discovery 尋找未經約束的雲端應用程式](manage-apps/cloud-app-discovery.md) |
 | 深入探討其運作方式，並回答隱私權問題 |[安全性和隱私權考量](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
 | 常見問題集 |[Cloud App Discovery 的常見問題集](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
 | 部署 Cloud App Discovery 的教學課程 |[群組原則部署指南](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[System Center 部署指南](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[在具有自訂連接埠的 Proxy 伺服器上安裝](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |

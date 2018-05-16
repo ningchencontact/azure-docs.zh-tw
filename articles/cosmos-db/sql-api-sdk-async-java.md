@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: a8e4ac763b9a16210d62fc080aaf8917c1eefc33
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 04/16/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 資源提供者](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 SQL API Async Java SDK 與 SQL API Java SDK 的不同之處在於會提供非同步作業，並且支援 [Netty 程式庫](http://netty.io/)。 預先存在的 [SQL API Java SDK](sql-api-sdk-java.md) 不支援非同步作業。 
 
@@ -55,13 +55,23 @@ SQL API Async Java SDK 與 SQL API Java SDK 的不同之處在於會提供非同
 
 ## <a name="release-notes"></a>版本資訊
 
+### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
+* 已在查詢中新增背部壓力支援。
+* 已在查詢中新增分割區索引鍵範圍識別碼的支援。
+* 進行修正以在要求標頭中允許較大的接續權杖 (bugfix github #24)。
+* Netty 相依性已升級至 4.1.22.Final，以確保 JVM 會在主執行緒完成後關閉。
+* 進行修正以避免在讀取主要資源時傳遞工作階段權杖。
+* 已新增更多範例。
+* 已新增更多效能評定案例。
+* 已修正 Java 標頭檔以產生適當的 java 文件。
+
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * 在閘道模式中使用 [Netty 程式庫](http://netty.io/)，端對端支援非封鎖 IO 的 GA SDK。 
 
 ## <a name="release-and-retirement-dates"></a>發行和停用日期
 Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供順利轉換至較新/支援的版本。
 
-新的功能與最佳化項目只會新增至目前的 SDK，因此建議您一律盡早升級至最新的 SDK 版本。
+新的特性和功能與最佳化僅新增至目前的 SDK。 因此，建議您務必盡早升級至最新的 SDK 版本。
 
 服務將會拒絕使用已停用 SDK 的任何 Cosmos DB 要求。
 
@@ -69,6 +79,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.0.1](#1.0.1) |2018 年 4 月 20 日|--- |
 | [1.0.0](#1.0.0) |2018 年 2 月 27 日|--- |
 
 ## <a name="faq"></a>常見問題集

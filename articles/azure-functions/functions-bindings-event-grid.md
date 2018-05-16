@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 52654704662b736811f429a811e10669a752b75a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions 的 Event Grid 觸發程序
 
@@ -337,6 +337,9 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 
 ## <a name="local-testing-with-requestbin"></a>使用 RequestBin 進行本機測試
 
+> [!NOTE]
+> RequestBin 網站目前無法使用，不過您可改用這個方法搭配 https://hookbin.com。 如果網站已關閉，您可以使用 [ngrok](#local-testing-with-ngrok)。
+
 若要在本機測試 Event Grid 觸發程序，您必須取得從雲端中的原有位置傳遞到本機電腦的 Event Grid HTTP 要求。 其中一種方式是在線上擷取要求，然後手動將其重新傳送至您的本機電腦：
 
 2. [建立 RequestBin 端點](#create-a-RequestBin-endpoint)。
@@ -348,7 +351,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 
 ### <a name="create-a-requestbin-endpoint"></a>建立 RequestBin 端點
 
-RequestBin 是一種可接受 HTTP 要求並為您顯示要求本文的開放原始碼工具。 Azure Event Grid 會以特殊方式處理 http://requestb.in URL。 為了簡化測試，Event Grid 會將事件傳送至 RequestBin URL，而不需要正確回應訂用帳戶驗證要求。 其他兩種測試工具也會以相同方式處理：http://webhookinbox.com 和 http://hookbin.com。
+RequestBin 是一種可接受 HTTP 要求並為您顯示要求本文的開放原始碼工具。 Azure Event Grid 會以特殊方式處理 http://requestb.in URL。 為了簡化測試，Event Grid 會將事件傳送至 RequestBin URL，而不需要正確回應訂用帳戶驗證要求。 另一種測試工具也會以相同方式處理：http://hookbin.com。
 
 RequestBin 不適用於高輸送量的用途。 如果您一次推送多個事件，則可能看不到工具中的所有事件。
 

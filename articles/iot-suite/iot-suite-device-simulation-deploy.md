@@ -1,6 +1,6 @@
 ---
-title: "部署裝置模擬解決方案 - Azure | Microsoft Docs"
-description: "本教學課程示範如何從 azureiotsuite.com 佈建裝置模擬解決方案。"
+title: 部署裝置模擬解決方案 - Azure | Microsoft Docs
+description: 本教學課程示範如何從 azureiotsuite.com 佈建裝置模擬解決方案。
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: da9fb95ed5d3387c98c3274a53769d3f5f945371
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 52890c51b06777a2d74fcf143bee4e5e8919ba75
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-the-azure-iot-device-simulation-solution"></a>部署 Azure IoT 裝置模擬解決方案
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/20/2017
 
     ![選擇裝置模擬](media/iot-suite-device-simulation-deploy/select.png)
 
-1. 在 [建立裝置模擬解決方案] 頁面上，輸入裝置模擬解決方案的 [解決方案名稱]。
+1. 在 [建立裝置模擬解決方案] 頁面上，輸入裝置模擬解決方案的**解決方案名稱**。
 
 1. 選取您要用來佈建解決方案的 [訂用帳戶] 和 [區域]。
 

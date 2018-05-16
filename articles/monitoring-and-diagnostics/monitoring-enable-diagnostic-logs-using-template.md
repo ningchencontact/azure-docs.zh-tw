@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 76021642073c7463254f51e84efd9af459af2244
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5b372ae5a7ff2ad26e4bb83675f592df3f08931b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>使用 Resource Manager 範本在建立資源時自動啟用診斷設定
 在本文中，我們示範如何在建立資源時使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md) 設定診斷設定。 這可讓您在建立資源時，自動開始將您的診斷記錄檔和度量串流至事件中樞、將它們封存在儲存體帳戶中，或將它們傳送至 Log Analytics。
@@ -259,7 +259,7 @@ ms.lasthandoff: 05/03/2018
 3. 將 WADCfg XML 檔案的內容加入 XMLCfg 屬性，適當地逸出所有 XML 字元。
 
 > [!WARNING]
-> 這最後一個步驟要做得正確可能會有點棘手。 [請參閱這篇文章](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) 的範例，將診斷組態結構描述分割成正確逸出和格式正確的變數。
+> 這最後一個步驟要做得正確可能會有點棘手。 [請參閱這篇文章](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) 的範例，將診斷組態結構描述分割成正確逸出和格式正確的變數。
 > 
 > 
 

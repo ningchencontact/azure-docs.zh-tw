@@ -1,25 +1,27 @@
 ---
-title: "針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告 | Microsoft Docs"
-description: "了解如何針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告"
+title: 針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告 | Microsoft Docs
+description: 了解如何針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告
 services: active-directory
-documentationcenter: 
-author: jeevansd
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: jeedes
+ms.author: celested
+ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 7394857f55493b072e6ea549c8eeec54a808f5e5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 485e4c52751b390ebd440718e7a55de7b5b5ffd7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告
 現在，Azure Active Directory 已支援大部分企業應用程式的單一登入，包括 Azure AD 資源庫中預先整合的應用程式，以及自訂應用程式。 當使用者利用 SAML 2.0 通訊協定來透過 Azure AD 向應用程式驗證時，Azure AD 會將權杖傳送給應用程式 (透過 HTTP POST)。 然後，應用程式會驗證並使用權杖將使用者登入，而不會提示輸入使用者名稱和密碼。 這些 SAML 權杖包含關於使用者的資訊片段 (稱為「宣告」)。
@@ -40,7 +42,7 @@ ms.lasthandoff: 12/11/2017
 
 ![編輯使用者屬性][2]
 
-您也可以使用快顯功能表來移除宣告 (除了 NameIdentifier 以外)，按一下 [...] 圖示即可開啟該功能表。  使用 [新增屬性] 按鈕，也可以新增宣告。
+您也可以使用快顯功能表來移除宣告 (除了 NameIdentifier 以外)，按一下 [...] 圖示即可開啟該功能表。 使用 [新增屬性] 按鈕，也可以新增宣告。
 
 ![編輯使用者屬性][3]
 

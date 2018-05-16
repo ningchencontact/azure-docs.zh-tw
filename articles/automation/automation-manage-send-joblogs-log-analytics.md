@@ -3,16 +3,17 @@ title: 將 Azure 自動化作業資料轉送到 Log Analytics
 description: 本文示範如何將作業狀態和 Runbook 作業串流傳送到 Azure Log Analytics，以提供額外的深入解析和管理。
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 116096fb27af299545a0f9a6adf57d794bbb2f6e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: f96419ea1e6cb8a6f15ba67948b2a139f647dd6c
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>從「自動化」將工作狀態和工作資料流轉送到 Log Analytics
 「自動化」可以將 Runebook 工作狀態和工作資料流傳送到您的 Log Analytics 工作區。 作業記錄和作業串流會顯示於 Azure 入口網站中，或是使用 PowerShell，針對個別作業，而這可讓您執行簡單的調查。 現在透過 Log Analytics，您可以：
