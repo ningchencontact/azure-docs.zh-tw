@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 83eadb3f88c2d83bf2ce39ec67550e602308ff0e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -114,6 +114,7 @@ ms.lasthandoff: 05/07/2018
 * Application Insights
 * 自動化
 * Azure Cosmos DB
+* Azure 轉送
 * Batch
 * Bing 地圖
 * CDN
@@ -130,6 +131,7 @@ ms.lasthandoff: 05/07/2018
 * IoT 中樞
 * Key Vault
 * Load Balancer - 請參閱 [Load Balancer 限制](#lb-limitations)
+* Log Analytics
 * Logic Apps
 * Machine Learning：Machine Learning Studio Web 服務可以移至相同訂用帳戶 (而非不同的訂用帳戶) 中的資源群組。 其他 Machine Learning 資源可以在訂用帳戶之間移動。
 * 媒體服務
@@ -137,7 +139,7 @@ ms.lasthandoff: 05/07/2018
 * 通知中樞
 * Operational Insights
 * Operations Management
-* Power BI
+* Power BI - Power BI Embedded 和 Power BI 工作區集合
 * 公用 IP - 請參閱[公用 IP 限制](#pip-limitations)
 * Redis 快取
 * 排程器
@@ -148,7 +150,7 @@ ms.lasthandoff: 05/07/2018
 * 儲存體
 * 儲存體 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 * 串流分析 - 無法移動執行中狀態的串流分析作業。
-* SQL Database 伺服器 - 資料庫和伺服器必須位於相同的資源群組。 當您移動 SQL 伺服器時，其所有資料庫也會跟著移動。 這包括 Azure SQL Database 和 Azure SQL Data Warehouse 資料庫。 
+* SQL Database 伺服器 - 資料庫和伺服器必須位於相同的資源群組。 當您移動 SQL 伺服器時，其所有資料庫也會跟著移動。 此行為會套用至 Azure SQL Database 和 Azure SQL Data Warehouse 資料庫。 
 * 流量管理員
 * 虛擬機器 - VM 具有無法移動的受控磁碟。 請參閱[虛擬機器限制](#virtual-machines-limitations)
 * 虛擬機器 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
@@ -164,6 +166,8 @@ ms.lasthandoff: 05/07/2018
 * AD 混合式健康狀態服務
 * 應用程式閘道
 * 適用於 MySQL 的 Azure 資料庫
+* 適用於 PostgreSQL 的 Azure 資料庫
+* Azure Migrate
 * BizTalk 服務
 * 憑證 - App Service 憑證可以移動，但上傳的憑證則有其[限制](#app-service-limitations)。
 * Kubernetes 服務
@@ -189,6 +193,11 @@ ms.lasthandoff: 05/07/2018
 * 從受控磁碟建立的快照集
 * 具有使用受控磁碟之虛擬機器的可用性設定組
 
+雖然您無法移動受控磁碟，但可以建立複本，再從現有的受控磁碟建立新的虛擬機器。 如需詳細資訊，請參閱
+
+* 使用 [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) 或 [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md) 複製相同訂用帳戶或不同訂用帳戶中的受控磁碟
+* 使用現有受控 OS 磁碟搭配 [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) 或 [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md) 以建立虛擬機器。
+
 從 Marketplace 資源建立且附加方案的虛擬機器無法在資源群組或訂用帳戶之間移動。 在目前的訂用帳戶中取消佈建虛擬機器，然後於新訂用帳戶中再次部署。
 
 憑證儲存在 Key Vault 中的虛擬機器可以移動至相同訂用帳戶中的新資源群組，但是無法跨訂用帳戶移動。
@@ -200,6 +209,8 @@ ms.lasthandoff: 05/07/2018
 若要移動對等虛擬網路，您必須先停用虛擬網路對等互連。 停用之後，您可以移動虛擬網路。 移動之後，重新啟用虛擬網路對等互連。
 
 如果虛擬網路包含有資源導覽連結的子網路，則無法將虛擬網路移動到其他訂用帳戶。 例如，如果 Redis 快取資源部署到子網路，該子網路具有資源導覽連結。
+
+如果虛擬網路包含自訂 DNS 伺服器，則無法將虛擬網路移動到其他訂用帳戶。 若要移動虛擬網路，請將它設定為預設 (Azure 所提供的) DNS 伺服器。 移動後，重新設定自訂 DNS 伺服器。
 
 ## <a name="app-service-limitations"></a>App Service 限制
 
