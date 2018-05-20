@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f64f25713dd05ece018138624a06c225218f68e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 95f73dd702b3fffcefbdea28d58ad36bf8eb7eb5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>教學課程：在 Azure CDN 自訂網域上設定 HTTPS
 
@@ -74,13 +74,20 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 4. 在憑證管理類型底下，選取 [CDN 管理]。
 
-4. 選取 [開啟] 以啟用 HTTPS。
+5. 選取 [開啟] 以啟用 HTTPS。
 
     ![自訂網域 HTTPS 狀態](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
+6. 繼續[驗證網域](#validate-the-domain)。
+
 
 ## <a name="option-2-enable-the-https-feature-with-your-own-certificate"></a>選項 2：使用自己的憑證啟用 HTTPS 功能 
+
+> [!IMPORTANT]
+> 這項功能只能與**來自 Microsoft 的 Azure CDN 標準**設定檔搭配使用。 
+>
  
+
 您可以在 Azure CDN 上使用自己的憑證，透過 HTTPS 傳遞內容。 此程序是透過與 Azure Key Vault 整合來進行。 Azure Key Vault 可讓客戶安全地儲存它們的憑證。 Azure CDN 服務會利用此安全機制來取得憑證。 使用自己的憑證時，需要執行一些額外的步驟。
 
 ### <a name="step-1-prepare-your-azure-key-vault-account-and-certificate"></a>步驟 1：準備您的 Azure Key Vault 帳戶和憑證
@@ -89,9 +96,23 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
  
 2. Azure Key Vault 憑證：如果您已擁有憑證，您可以將它直接上傳至您的 Azure Key Vault 帳戶，也可以從與 Azure Key Vault 整合的其中一個合作夥伴憑證授權單位 (CA) 透過 Azure Key Vault 建立新憑證。 
 
-### <a name="step-2-grant-azure-cdn-access-to-your-key-vault"></a>步驟 2：將 Azure CDN 存取權授與給金鑰保存庫
+### <a name="step-2-register-azure-cdn"></a>步驟 2：註冊 Azure CDN
+
+透過 PowerShell，將 Azure CDN 註冊為 Azure Active Directory 中的應用程式。
+
+1. 如有需要，請在本機電腦的 PowerShell 中安裝 [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0)。
+
+2. 在 PowerShell 中執行下列命令：
+
+     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+
+    ![在 PowerShell 中註冊 Azure CDN](./media/cdn-custom-ssl/cdn-register-powershell.png)
+              
+
+### <a name="step-3-grant-azure-cdn-access-to-your-key-vault"></a>步驟 3：將 Azure CDN 存取權授與金鑰保存庫
  
-您必須授與 Azure CDN 權限，以存取您的 Azure Key Vault 帳戶中的憑證 (祕密)。
+授與 Azure CDN 權限，以存取您 Azure Key Vault 帳戶中的憑證 (祕密)。
+
 1. 在您的金鑰保存庫帳戶中，於 [設定] 之下選取 [存取原則]，然後選取 [新增] 以建立新原則。
 
     ![建立新的存取原則](./media/cdn-custom-ssl/cdn-new-access-policy.png)
@@ -106,7 +127,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
     Azure CDN 現在可以存取此金鑰保存庫和此金鑰保存庫中儲存的憑證 (祕密)。
  
-### <a name="step-3-select-the-certificate-for-azure-cdn-to-deploy"></a>步驟 3：選取憑證以供 Azure CDN 部署
+### <a name="step-4-select-the-certificate-for-azure-cdn-to-deploy"></a>步驟 4：選取憑證以部署 Azure CDN
  
 1. 返回 Azure CDN 入口網站，然後選取您要啟用自訂 HTTPS 的設定檔和 CDN 端點。 
 
@@ -126,16 +147,20 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
     - 可用的憑證版本。 
  
 5. 選取 [開啟] 以啟用 HTTPS。
+  
+6. 當您使用自己的憑證時，不需要進行網域驗證。 請繼續進行[等待傳播](#wait-for-propagation)。
 
 
 ## <a name="validate-the-domain"></a>驗證網域
 
-如果您已經有使用中的自訂網域經由 CNAME 記錄對應至您的自訂端點，請繼續進行  
+如果您已經有使用中的自訂網域經由 CNAME 記錄對應至自訂端點，或使用自己的憑證，則請繼續進行  
 [自訂網域已對應至您的 CDN 端點](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record)。 如果您端點的 CNAME 記錄項目已不存在或包含 cdnverify 子網域，請繼續進行[自訂網域未對應至您的 CDN 端點](#custom-domain-is-not-mapped-to-your-cdn-endpoint)。
 
 ### <a name="custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record"></a>自訂網域已經由 CNAME 記錄對應至您的 CDN 端點
 
-當您為端點新增自訂網域時，便已在網域註冊機構的 DNS 表格中建立 CNAME 記錄，以將它對應至 CDN 端點主機名稱。 如果該 CNAME 記錄仍然存在且不包含 cdnverify 子網域，DigiCert 憑證授權單位 (CA) 就會使用它來驗證您自訂網域的擁有權。 
+當您為端點新增自訂網域時，便已在網域註冊機構的 DNS 表格中建立 CNAME 記錄，以將它對應至 CDN 端點主機名稱。 如果該 CNAME 記錄仍然存在且不包含 cdnverify 子網域，則 DigiCert 憑證授權單位 (CA) 會使用它來自動驗證您自訂網域的擁有權。 
+
+如果您使用自己的憑證，則不需要進行網域驗證。
 
 您的 CNAME 記錄應該採用下列格式，其中「名稱」是您的自訂網域名稱，而「值」則是您的 CDN 端點主機名稱：
 

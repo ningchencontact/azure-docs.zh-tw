@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ns
 ms.date: 04/20//2018
 ms.author: kgremban
-ms.openlocfilehash: 8b95bb18f2e8941c10f7bcdf6a60e7fda6ab0ea5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0f1d3a5f714a2202836f477e78a30aa080947239
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="send-telemetry-from-a-device-to-an-iot-hub-swift"></a>將遙測從裝置傳送到 IoT 中樞 (Swift)
 
@@ -79,6 +79,8 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
    az extension add --name azure-cli-iot-ext
    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
    ```
+
+    如果您為裝置選擇不同的名稱，請先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
 1. 執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
 

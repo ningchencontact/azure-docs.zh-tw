@@ -1,25 +1,27 @@
 ---
-title: "Azure AD v2.0 .NET AngularJS 單一頁面應用程式入門 | Microsoft Docs"
-description: "如何建置可在個人 Microsoft 帳戶及工作或學校帳戶登入使用者的 Angular JS 單一頁面應用程式。"
+title: Azure AD v2.0 .NET AngularJS 單一頁面應用程式入門 | Microsoft Docs
+description: 如何建置可在個人 Microsoft 帳戶及工作或學校帳戶登入使用者的 Angular JS 單一頁面應用程式。
 services: active-directory
-documentationcenter: 
-author: jmprieur
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a341781-278f-461b-92ca-7572a06e6852
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d2a2108fb2205f646b2ac807922a90939bdee9f6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d1ddeb957096dc506bc76e1aac600eaa5bc2fbc
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>將登入新增至 AngularJS 單一頁面應用程式 - .NET
 在本文中，我們將使用 Azure Active Directory v2.0 端點，將 Microsoft 帳戶的登入新增至 AngularJS 應用程式。  v2.0 端點可讓您在您的應用程式中執行單一整合，以及以個人和工作/學校帳戶驗證使用者。

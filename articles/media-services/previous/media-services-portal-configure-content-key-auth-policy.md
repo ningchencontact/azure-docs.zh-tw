@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 33b958b97a5883d585bbfda167db35107c0c5997
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: db0117b0b4ddee002fc69d71e78eca2b9008e4f6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>設定內容金鑰授權原則
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -58,7 +58,7 @@ Open 限制表示系統會傳送金鑰給提出金鑰要求的任何人。 這�
 
 權杖限制原則必須伴隨 Security Token Service (STS) 所發出的權杖。 媒體服務支援使用簡單 Web 權杖 ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) 和 JSON Web 權杖 (JWT) 格式的權杖。 如需詳細資訊，請參閱 [JWT 驗證](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)。
 
-媒體服務不提供 STS。 您可以建立自訂 STS，或使用 Azure 存取控制服務來發行權杖。 STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。 如果權杖有效，且權杖中的宣告符合為內容金鑰設定的宣告，媒體服務金鑰傳遞服務會將加密金鑰傳回給用戶端。 如需詳細資訊，請參閱[使用 Azure 存取控制服務來發行權杖](http://mingfeiy.com/acs-with-key-services)。
+媒體服務不提供 STS。 您可以建立自訂的 STS 來核發權杖。 STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。 如果權杖有效，且權杖中的宣告符合為內容金鑰設定的宣告，媒體服務金鑰傳遞服務會將加密金鑰傳回給用戶端。
 
 設定權杖限制的原則時，您必須指定主要驗證金鑰、簽發者和對象參數。 主要驗證金鑰包含簽署權杖用的金鑰。 簽發者為發行權杖的 STS。 對象 (有時稱為範圍) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
 

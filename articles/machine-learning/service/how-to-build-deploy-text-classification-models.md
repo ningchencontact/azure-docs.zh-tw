@@ -9,11 +9,11 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
-ms.openlocfilehash: 66d316f50f161c2e905c3f76da30580b44a63a23
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a970bd889e6994833b2e34adc90af594f9db4d6b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 來建置和部署文字分類模型
 
@@ -420,13 +420,14 @@ text_classifier.fit(df_train)
             text_callable_list=None, text_cols=['text'], text_regex_list=None,
             weight_col=None)
 
-### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>檢查並設定不同管線步驟的參數
 
-雖然是在調整 scikit-learn 模型，但是在使用前置處理器和特徵器 (轉換) 步驟的管線進行調整之前，已經先完成前置處理。 因此「管線」的參考乃是供定型之用。 在評估期間，測試資料集會套用完整的管線，包括前置處理和 scikit-learn 模型預測。
+在訓練期間，您必須具有文字和標籤資料行。 不過，進行預測只需要文字資料行。 
+
+### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>檢查並設定不同管線步驟的參數
+    
+一般而言，您會在調整模型之前設定參數。 
 
 ***顯示 text_word_ngrams 的範例*** 
-
-一般而言，您會在調整模型之前設定參數。 
 
 下列程式碼範例會示範如何使用預設管線和模型參數來定型模型。 
 

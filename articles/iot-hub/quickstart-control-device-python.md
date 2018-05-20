@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 42d70fe28b07f81f4f417612e323359c6dec9468
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b6b8eb7150f276c754e45113b81b4e7fb61cb7ee
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>快速入門：控制連線到 IoT 中樞的裝置 (Python)
 
@@ -68,8 +68,10 @@ python3 --version
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyPythonDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
+
+    如果您為裝置選擇不同的名稱，請先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
 1. 執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
 

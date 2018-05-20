@@ -5,14 +5,14 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 04/30/2018
+ms.date: 05/09/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 6b408dd8c8f0bfd7f7180b10cc9a4882d6950981
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 37427a9d8fedbb379557983c5251a6df9ac96a08
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>使用 Azure CLI 和事件方格將自訂事件路由至 Azure 佇列
 
@@ -20,11 +20,7 @@ Azure Event Grid 是一項雲端事件服務。 Azure 佇列儲存體是其中�
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-如果您選擇在本機安裝和使用 CLI，本文會要求您執行最新版的 Azure CLI (2.0.24 或更新版本)。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
-
-如果您未使用 Cloud Shell，必須先使用 `az login` 登入。
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -43,6 +39,10 @@ az group create --name gridResourceGroup --location westus2
 Event Grid 主題會提供使用者定義的端點，作為您發佈事件的目的地。 下列範例可在您的資源群組中建立自訂主題。 以主題的唯一名稱取代 `<topic_name>`。 主題名稱必須是唯一的，因為它由 DNS 項目表示。
 
 ```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 
@@ -60,7 +60,7 @@ az storage queue create --name $queuename --account-name $storagename
 
 ## <a name="subscribe-to-a-topic"></a>訂閱主題
 
-您可訂閱主題，告知 Event Grid 您想要追蹤的事件。下列範例可訂閱您所建立的主題，以及傳遞端點的佇列儲存體資源識別碼。 佇列儲存識別碼的格式：
+您可訂閱主題，告知 Event Grid 您想要追蹤的事件。下列範例可訂閱您所建立的主題，以及傳遞端點的佇列儲存體資源識別碼。 利用 Azure CLI，您可以傳遞佇列儲存體識別碼作為端點。 端點的格式如下：
 
 `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/queueservices/default/queues/<queue-name>`
 
@@ -76,6 +76,18 @@ az eventgrid event-subscription create \
   --name <event_subscription_name> \
   --endpoint-type storagequeue \
   --endpoint $queueid
+```
+
+如果您使用 REST API 來建立訂用帳戶時，可以傳遞儲存體帳戶的識別碼和佇列的名稱作為個別參數。
+
+```json
+"destination": {
+  "endpointType": "storagequeue",
+  "properties": {
+    "queueName":"eventqueue",
+    "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>"
+  }
+  ...
 ```
 
 ## <a name="send-an-event-to-your-topic"></a>將事件傳送至主題

@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 8c601d13f0f4d7c44db5735c2f89f570faa4f0c9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d539475d376e2c3e38c2cbd38de0a10645fcabe4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
@@ -26,7 +26,9 @@ Azure Event Grid 有三種驗證方法：
 
 Webhook 是從 Azure Event Grid 接收事件的眾多方法之一。 當新的事件準備好時，Event Grid Webhook 就會對設定的 HTTP 端點傳送 HTTP 要求，在本文內夾帶事件。
 
-當您使用 Event Grid 註冊自己的 WebHook 端點時，Event Grid 會將帶有簡單驗證碼的 POST 要求傳送給您，以證明端點的所有權。 您的應用程式需要回傳驗證碼作為回應。 Event Grid 不會將未經驗證的事件傳遞至 WebHook 端點。 如果您使用協力廠商 API 服務 (例如 [Zapier](https://zapier.com) \(英文\) 或 [IFTTT](https://ifttt.com/) \(英文\))，可能就無法以程式設計方式回應驗證程式碼。 針對那些服務，您可以使用要在訂用帳戶驗證事件中傳送的驗證 URL，以手動方式驗證訂用帳戶。 複製該 URL，並透過 REST 用戶端或您的網頁瀏覽器傳送 GET 要求。
+當您使用 Event Grid 註冊自己的 WebHook 端點時，Event Grid 會將帶有簡單驗證碼的 POST 要求傳送給您，以證明端點的所有權。 您的應用程式需要回傳驗證碼作為回應。 Event Grid 不會將未經驗證的事件傳遞至 WebHook 端點。 如果您使用第三方 API 服務 (例如 [Zapier](https://zapier.com) 或 [IFTTT](https://ifttt.com/))，可能就無法以程式設計方式回應驗證程式碼。 針對那些服務，您可以使用要在訂用帳戶驗證事件中傳送的驗證 URL，以手動方式驗證訂用帳戶。 複製該 URL，並透過 REST 用戶端或您的網頁瀏覽器傳送 GET 要求。
+
+手動驗證為預覽狀態。 若要使用它，您必須為 [AZ CLI 2.0](/cli/azure/install-azure-cli) 安裝[事件格線延伸模組](/cli/azure/azure-cli-extensions-list)。 您可以使用 `az extension add --name eventgrid` 進行安裝。 如果您使用的是 REST API，請確定使用的是 `api-version=2018-05-01-preview`。
 
 ### <a name="validation-details"></a>驗證詳細資料
 

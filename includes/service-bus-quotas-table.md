@@ -5,14 +5,14 @@ services: service-bus-messaging
 author: sethmanheim
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/12/2018
+ms.date: 05/10/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 74732008b336dc1b95ec96e8550d218105973ca4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3be379c2513fa20c1a84b547333a4ef2139bb45d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 下表列出服務匯流排訊息的特定配額資訊。 如需有關服務匯流排的價格及其他配額的詳細資訊，請參閱 [服務匯流排價格](https://azure.microsoft.com/pricing/details/service-bus/) 概觀。
 
@@ -20,7 +20,7 @@ ms.lasthandoff: 04/05/2018
 | --- | --- | --- | --- | --- |
 | 每個 Azure 訂用帳戶的基本/標準命名空間數目上限 |命名空間 |入口網站會拒絕後續對於更多基本/標準命名空間的要求。 |100|
 | 每個 Azure 訂用帳戶的進階命名空間數目上限 |命名空間 |入口網站會拒絕後續對於更多進階命名空間的要求。 |10 |
-| 佇列/主題大小 |實體 |在建立佇列/主題時定義。 <br/><br/> 後續內送訊息會遭到拒絕，而且呼叫端程式碼會收到例外狀況。 |1、2、3、4 或 5 GB。<br /><br />如果啟用[分割](../articles/service-bus-messaging/service-bus-partitioning.md)，則佇列/主題大小上限為 80 GB。 |
+| 佇列/主題大小 |實體 |在建立佇列/主題時定義。 <br/><br/> 後續內送訊息會遭到拒絕，而且呼叫端程式碼會收到例外狀況。 |1、2、3、4 或 5 GB。<br /><br />在進階 SKU，以及啟用[分割](../articles/service-bus-messaging/service-bus-partitioning.md)的標準 SKU 中，佇列/主題大小上限為 80 GB。 |
 | 命名空間上的並行連線數目 |命名空間 |後續對更多連線的要求將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 REST 作業不會計入並行 TCP 連線內。 |NetMessaging: 1,000<br /><br />AMQP: 5,000 |
 | 佇列/主題/訂用帳戶實體上的並行接收要求數目 |實體 |後續接收要求會遭到拒絕，而且呼叫端程式碼會收到例外狀況。 這個配額套用至一個主題的所有訂用帳戶的並行接收作業數目合計。 |5,000 |
 | 每個服務命名空間的主題/佇列數目 |命名空間 |後續要求在服務命名空間上建立新主題或佇列會遭到拒絕。 因此，如果透過 [Azure 入口網站][Azure portal]設定，則會產生錯誤訊息。 如果從管理 API 進行呼叫，則呼叫端程式碼會收到例外狀況。 |10,000<br /><br />服務命名空間中主題和佇列的總數必須小於或等於 10,000。<br/>這不適用於進階層，因為所有實體都已分割。 |

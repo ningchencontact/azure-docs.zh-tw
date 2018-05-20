@@ -112,7 +112,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-在瀏覽器中，瀏覽至 `http://localhost:5000`。 按一下 [註冊!] 並且建立測試使用者。
+在瀏覽器中，瀏覽至 `http://localhost:5000` 。 按一下 [註冊!] 並且建立測試使用者。
 
 ![在本機執行的 Python Flask 應用程式](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -236,7 +236,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-在瀏覽器中，瀏覽至 http://localhost:5000。 按一下 [註冊!] 並且建立測試註冊。 現在您要將資料寫入 Azure 中的資料庫。
+在瀏覽器中，瀏覽至 http://localhost:5000 。 按一下 [註冊!] 並且建立測試註冊。 現在您要將資料寫入 Azure 中的資料庫。
 
 ![在本機執行的 Python Flask 應用程式](./media/tutorial-docker-python-postgresql-app/local-app.png)
 

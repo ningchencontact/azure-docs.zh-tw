@@ -143,24 +143,14 @@
       href: ./blueprints/financial-services-regulated-workloads.md
     - name: GDPR
       items:
-        - name: 管理個人資料
-          href: manage-personal-data-azure.md
-        - name: 探索、識別、分類個人資料
-          href: how-to-discover-classify-personal-data-azure.md
-        - name: 保護 Azure 中的個人資料
-          href: protect-personal-data-azure.md
-        - name: 透過資訊安全中心保護個人資料
-          href: protect-personal-data-azure-security-center.md
-        - name: 透過應用程式閘道保護個人資料
-          href: protect-personal-data-network-security.md
-        - name: 使用識別和存取控制來保護個人資料
-          href: protect-personal-data-identity-access-controls.md
-        - name: 使用加密來保護待用的個人資料
-          href: protect-personal-data-at-rest.md
-        - name: 使用加密來保護傳輸中的個人資料
-          href: protect-personal-data-in-transit-encryption.md
-        - name: 使用 Azure 報告工具來保護個人資料
-          href: protection-personal-data-azure-reporting-tools.md
+        - name: 資料分析
+          href: ./blueprints/gdpr-analytics-overview.md
+        - name: 資料倉儲
+          href: ./blueprints/gdpr-datawarehouse-overview.md
+        - name: IaaS Web 應用程式
+          href: ./blueprints/gdpr-iaaswa-overview.md
+        - name: PaaS Web 應用程式
+          href: ./blueprints/gdpr-paaswa-overview.md
     - name: FedRAMP
       items:
         - name: 資料分析

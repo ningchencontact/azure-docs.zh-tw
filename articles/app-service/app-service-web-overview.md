@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 85a3898145f7aea5d3f668caeafb62286006230d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 79828193e283f0dcb80035cae0c11b050a1639ea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="web-apps-overview"></a>Web 應用程式概觀
 
@@ -37,7 +37,7 @@ Web Apps 不只能將 Microsoft Azure 的功能新增到您的應用程式，例
 * **DevOps 最佳化** - 使用 Visual Studio Team Services、GitHub、BitBucket、Docker Hub 或 Azure Container Registry 設定[持續整合和部署](app-service-continuous-deployment.md)。 透過 [測試和預備環境](web-sites-staged-publishing.md)升級更新。 使用 [Azure PowerShell](/powershell/azureps-cmdlets-docs) 或[跨平台命令列介面 (CLI)](/cli/azure/install-azure-cli)，在 Web Apps 中管理您的應用程式。
 * **具高可用性的全域調整** - 以手動或自動方式相應[增加](web-sites-scale.md)或[放大](../monitoring-and-diagnostics/insights-how-to-scale.md)。 在 Microsoft 的通用資料中心基礎結構中隨處裝載您的應用程式，而 App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) 會承諾高可用性。
 * **SaaS 平台和內部部署資料的連線** - 有超過 50 種適用於企業系統 (例如 SAP)、SaaS 服務 (例如 Salesforce) 和網際網路服務 (例如 Facebook) 的[連接器](../connectors/apis-list.md)可供選擇。 使用[混合式連線](../biztalk-services/integration-hybrid-connection-overview.md)和 [Azure 虛擬網路](web-sites-integrate-with-vnet.md)存取內部部署資料。
-* **安全性和法規遵循** - App Service 為 [ISO、SOC 和 PCI 相容](https://www.microsoft.com/TrustCenter/)。 可使用 [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) 或社交登入 ([Google](app-service-mobile-how-to-configure-google-authentication.md)、[Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)、[Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) 和 [Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)) 驗證使用者。 建立 [IP 位址限制](app-service-ip-restrictions.md)和[管理服務身分識別](app-service-managed-service-identity.md)。
+* **安全性和法規遵循** - App Service 為 [ISO、SOC 和 PCI 相容](https://www.microsoft.com/en-us/trustcenter)。 可使用 [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) 或社交登入 ([Google](app-service-mobile-how-to-configure-google-authentication.md)、[Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)、[Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) 和 [Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)) 驗證使用者。 建立 [IP 位址限制](app-service-ip-restrictions.md)和[管理服務身分識別](app-service-managed-service-identity.md)。
 * **應用程式範本** - 從 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 中的廣泛應用程式範本清單中進行選擇，例如 WordPress、Joomla 和 Drupal。
 * **Visual Studio 整合** - Visual Studio 中的專用工具可簡化建立、部署和偵錯的工作。
 * **API 和行動功能** - Web Apps 可提供適用於 RESTful API 案例的現成 CORS 支援，並可藉由啟用驗證、離線資料同步和推播通知等功能，簡化行動應用程式案例。
@@ -50,10 +50,16 @@ Web Apps 不只能將 Microsoft Azure 的功能新增到您的應用程式，例
 建立您的第一個 Web 應用程式。
 
 > [!div class="nextstepaction"]
-> [ASP.NET](app-service-web-get-started-dotnet.md)
+> [ASP.NET Core](app-service-web-get-started-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [ASP.NET](app-service-web-get-started-dotnet-framework.md)
 
 > [!div class="nextstepaction"]
 > [PHP](app-service-web-get-started-php.md)
+
+> [!div class="nextstepaction"]
+> [Ruby (在 Linux 上)](containers/quickstart-ruby.md)
 
 > [!div class="nextstepaction"]
 > [Node.js](app-service-web-get-started-nodejs.md)

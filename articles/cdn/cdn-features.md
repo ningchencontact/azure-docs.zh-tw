@@ -1,10 +1,10 @@
 ---
-title: Azure 內容傳遞網路 (CDN) 產品功能 | Microsoft Docs
+title: 比較 Azure 內容傳遞網路 (CDN) 產品功能 | Microsoft Docs
 description: 了解每項 Azure 內容傳遞網路 (CDN) 產品所支援的功能。
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,20 +12,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/25/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: ae57d4e9feb23f67bb4f05148d87fec96f055a7f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 01396ceba142a91a88040ac28c51275734476e5d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="azure-cdn-product-features"></a>Azure CDN 產品功能
+# <a name="compare-azure-cdn-product-features"></a>比較 Azure CDN 產品功能
 
-Azure 內容傳遞網路 (CDN) 包含四種產品：**來自 Microsoft 的標準 Azure CDN**、**來自 Akamai 的 Azure CDN 標準**、**來自 Verizon 的 Azure CDN 標準**和**來自 Verizon 的 Azure CDN 進階**。 下表將比較各項產品的可用功能。
+Azure 內容傳遞網路 (CDN) 包含四種產品：**來自 Microsoft 的標準 Azure CDN** (預覽狀態)、**來自 Akamai 的 Azure CDN 標準**、**來自 Verizon 的 Azure CDN 標準**和**來自 Verizon 的 Azure CDN 進階**。 
 
-| **效能功能和最佳化** | **標準 Microsoft** | **標準 Akamai** | **標準 Verizon** | **進階 Verizon** |
+下表將比較各項產品的可用功能。
+
+| **效能功能和最佳化** | **標準 Microsoft (預覽)** | **標準 Akamai** | **標準 Verizon** | **進階 Verizon** |
 | --- | --- | --- | --- | --- |
 | [動態網站加速](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[動態網站加速 - 調整映像壓縮](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only)  |  | **&#x2713;**  |  |  |
@@ -61,7 +63,7 @@ Azure 內容傳遞網路 (CDN) 包含四種產品：**來自 Microsoft 的標準
 | [即時警示](cdn-real-time-alerts.md)  |  | | |**&#x2713;** |
 ||||
 | **容易使用** | **標準 Microsoft** | **標準 Akamai** | **標準 Verizon** | **進階 Verizon** | 
-| 很容易與[儲存體](cdn-create-a-storage-account-with-cdn.md)、[雲端服務](cdn-cloud-service-with-cdn.md)、[Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md) 和[媒體服務](../media-services/media-services-portal-manage-streaming-endpoints.md)等 Azure 服務整合  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| 輕鬆地與 Azure 服務 (例如[儲存體](cdn-create-a-storage-account-with-cdn.md)、[Web Apps](app-service-web-tutorial-content-delivery-network.md) 和[媒體服務](../media-services/media-services-portal-manage-streaming-endpoints.md)) 整合  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | 透過 [REST API](https://msdn.microsoft.com/library/mt634456.aspx)、[.NET](cdn-app-dev-net.md)、[Node.js](cdn-app-dev-node.md) 或 [PowerShell](cdn-manage-powershell.md) 管理  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [可自訂的、規則式內容傳遞引擎](cdn-rules-engine.md)  |  | | |**&#x2713;** |
 | URL 重新導向/重寫 (使用 [規則引擎](cdn-rules-engine.md))  |  | | |**&#x2713;** |

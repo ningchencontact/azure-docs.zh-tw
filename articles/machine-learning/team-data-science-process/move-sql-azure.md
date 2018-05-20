@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ce349aedc6b733d34ab61eb2e23b378727e01800
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>移動資料至 Azure 機器學習的 Azure SQL Database
 本主題概述從一般檔案 (CSV 或 TSV 格式) 或儲存在內部部署 SQL Server 中的資料，將資料移動至 Azure SQL 資料庫的選項。 將資料移到雲端的這些工作是 Team Data Science Process 的一部分。
@@ -33,8 +33,8 @@ ms.lasthandoff: 05/03/2018
 
 | <b>來源</b> | <b>目的地：Azure SQL Database</b> |
 | --- | --- |
-| <b>一般檔案 (CSV 或 TSV 格式)</b> |<a href="#bulk-insert-sql-query">大量插入 SQL 查詢 |
-| <b>內部部署 SQL Server</b> |1.<a href="#export-flat-file">匯出至一般檔案<br> 2.<a href="#insert-tables-bcp">SQL Database 移轉精靈<br> 3.<a href="#db-migration">資料庫備份和還原<br> 4.<a href="#adf">Azure Data Factory |
+| <b>一般檔案 (CSV 或 TSV 格式)</b> |[大量插入 SQL 查詢](#bulk-insert-sql-query) |
+| <b>內部部署 SQL Server</b> |1.[匯出至一般檔案](#export-flat-file)<br> 2.[SQL Database 移轉精靈](#insert-tables-bcp)<br> 3.[資料庫備份和還原](#db-migration)<br> 4.[Azure Data Factory](#adf) |
 
 ## <a name="prereqs"></a>必要條件
 此處概述的程序要求您須擁有：

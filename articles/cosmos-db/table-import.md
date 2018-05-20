@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 7a8eaaaaa8bbfa8cf9397ce52dfa93d71b0df30c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b6e912d450e1a2fed98fab5b18ba835396257ac9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>匯入資料以用於 Azure Cosmos DB 資料表 API
 
@@ -29,6 +29,10 @@ ms.lasthandoff: 04/16/2018
 > * 使用資料移轉工具匯入資料
 > * 使用 AzCopy 匯入資料
 > * 從資料表 API (預覽) 移轉至資料表 API 
+
+## <a name="prerequisites"></a>先決條件
+
+* 增加輸送量︰資料移轉的時間長短取決於您為個別集合或一組集合設定的輸送量。 針對較大資料移轉，請務必增加輸送量。 完成移轉之後，再降低輸送量以節省成本。 如需在 Azure 入口網站增加輸送量的詳細資訊，請參閱 Azure Cosmos DB 中的效能等級和定價層。
 
 ## <a name="data-migration-tool"></a>資料移轉工具
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 91e85fb25f9324f9b8d83884fe34a014f280de0b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9de8119cbde486800639bc5f3559a1a2859ec204
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 指令碼 (.csx) 開發人員參考
 
@@ -335,7 +335,7 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 ## <a name="referencing-custom-assemblies"></a>參考自訂組件
 
 若要參考自訂組件，您可以使用「共用」組件或「私人」組件：
-- 共用組件會共用於函式應用程式內的所有函式。 若要參考自訂組件上，請將組件上傳至應用程式函式，例如在函式應用程式根目錄的 `bin` 資料夾中。 
+- 共用組件會共用於函式應用程式內的所有函式。 若要參考自訂組件，請將組件上傳至[函式應用程式根資料夾](functions-reference.md#folder-structure) (wwwroot) 中名為 `bin` 的資料夾。 
 - 私人組件屬於所指定函式的內容，而且支援不同版本的側載。 應該在函式目錄的 `bin` 資料夾中上傳私人組件。 使用檔案名稱 (例如 `#r "MyAssembly.dll"`) 參考組件。 
 
 如需如何將檔案上傳至函式資料夾的資訊，請參閱[套件管理](#using-nuget-packages)一節。

@@ -1,25 +1,25 @@
 ---
-title: "使用 Azure AD App Proxy 發佈遠端桌面 | Microsoft Docs"
-description: "涵蓋 Azure AD 應用程式 Proxy 連接器的基本概念。"
+title: 使用 Azure AD App Proxy 發佈遠端桌面 | Microsoft Docs
+description: 涵蓋 Azure AD 應用程式 Proxy 連接器的基本概念。
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: daveba
+ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 44b54ad4331d48202044316486a5b1d1ef9202d2
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c24781ad432a4682ebb0afcb95390bdcf8962d90
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈遠端桌面
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/05/2018
 
 - RD Web 和 RD 閘道端點必須位於相同的電腦上，並具有一般的根。 將 RD Web 和 RD 閘道發佈為單一應用程式並搭配應用程式 Proxy，如此便能在這兩個應用程式之間擁有單一登入的體驗。
 
-- 您應該已經[部署 RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) 並[啟用應用程式 Proxy](active-directory-application-proxy-enable.md)。
+- 您應該已經[部署 RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) 並[啟用應用程式 Proxy](manage-apps/application-proxy-enable.md)。
 
 - 此案例假設您的終端使用者在透過 RD 網頁連線的 Windows 7 或 Windows 10 桌上型電腦上使用 Internet Explorer。 如果您需要支援其他作業系統，請參閱[其他用戶端設定的支援](#support-for-other-client-configurations)。
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="publish-the-rd-host-endpoint"></a>發佈 RD 主機端點
 
-1. 使用下列值[發佈新的應用程式 Proxy 應用程式](application-proxy-publish-azure-portal.md)︰
+1. 使用下列值[發佈新的應用程式 Proxy 應用程式](manage-apps/application-proxy-publish-azure-portal.md)︰
    - 內部 URL：https://\<rdhost\>.com/，其中 \<rdhost\> 是 RD Web 和 RD 閘道共用的共同根。
    - 外部 URL︰會根據應用程式名稱自動填入這個欄位，但您可以修改它。 您的使用者在存取 RDS 時，將會移到此 URL。
    - 預先驗證方法︰Azure Active Directory
@@ -121,8 +121,8 @@ ms.lasthandoff: 01/05/2018
 預先驗證流程的安全性優點多於通道流程。 使用預先驗證，您可以使用內部部署資源的 Azure AD 驗證功能，例如單一登入、條件式存取和雙步驟驗證。 您也可以確定只有驗證過的流量到達您的網路。
 
 若要使用通道驗證，只需要對本文中所列的步驟進行兩項修改：
-1. 在 [Publish the RD host endpoint ](#publish-the-rd-host-endpoint)(發佈 RD 主機端點) 步驟 1 中，請將預先驗證方法設為 **通道**。
-2. 在 [Direct RDS traffic to Application Proxy](#direct-rds-traffic-to-application-proxy) (將 RDS 流量導向應用程式 Proxy) 中，完全略過步驟 8。
+1. 在 [Publish the RD host endpoint] (發佈 RD 主機端點)[](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 [通道]。
+2. 在 [Direct RDS traffic to Application Proxy] (將 RDS 流量導向應用程式 Proxy)[](#direct-rds-traffic-to-application-proxy) 中，完全略過步驟 8。
 
 ## <a name="next-steps"></a>後續步驟
 

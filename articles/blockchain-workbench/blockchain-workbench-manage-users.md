@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: c17a406a0fd6f1172599ac0379c6afc139403148
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 80f20e438b1d923e688aeef9e6b353642bd74c27
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>在 Azure Blockchain Workbench 中管理使用者
 
@@ -43,7 +43,7 @@ Blockchain Workbench 使用者必須存在於 Azure AD 租用戶中，才能將�
 
 ## <a name="manage-blockchain-workbench-administrators"></a>管理 Blockchain Workbench 系統管理員
 
-將使用者新增至目錄後，下一個步驟是選擇要讓哪些使用者成為 Blockchain Workbench 系統管理員。 **系統管理員**群組中的使用者會與 Blockchain Workbench 中的**系統管理員應用程式角色** 相關聯。 系統管理員可以新增或移除使用者、將使用者指派至特定案例，以及建立新的應用程式。
+將使用者新增至目錄後，下一個步驟是選擇要讓哪些使用者成為 Blockchain Workbench 系統管理員。 **系統管理員**群組中的使用者會與 Blockchain Workbench 中的**系統管理員應用程式角色**相關聯。 系統管理員可以新增或移除使用者、將使用者指派至特定案例，以及建立新的應用程式。
 
 若要將使用者新增到 Azure AD 目錄中的**系統管理員**群組：
 
@@ -68,20 +68,18 @@ Blockchain Workbench 使用者必須存在於 Azure AD 租用戶中，才能將�
 
 使用 Blockchain Workbench 應用程式來管理屬於協會一分子的使用者和組織。 您可以對應用程式和角色新增或移除使用者。
 
-在瀏覽器中[開啟 Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url)，然後以系統管理員身分登入。
+1. 在瀏覽器中[開啟 Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url)，然後以系統管理員身分登入。
 
-![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
+    ![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
 
-### <a name="managing-members-in-applications"></a>管理應用程式中的成員
+    成員會新增至每個應用程式。 成員可以有一或多個用來起始合約或採取動作的應用程式角色。
 
-成員會新增至每個應用程式。 成員可以有一或多個用來起始合約或採取動作的應用程式角色。
+2. 若要管理應用程式的成員，請在 [應用程式] 窗格中選取某個應用程式圖格。
 
-若要將成員新增至應用程式，請在 [應用程式] 窗格中選取某個應用程式圖格。
+    與選取的應用程式相關聯的成員數目會反映在成員圖格中。
 
-![選取應用程式](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
+    ![選取應用程式](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
 
-> [!NOTE]
-> 與選取的應用程式相關聯的成員數目會反映在成員圖格中。
 
 #### <a name="add-member-to-application"></a>將成員新增至應用程式
 
@@ -116,4 +114,7 @@ Blockchain Workbench 使用者必須存在於 Azure AD 租用戶中，才能將�
 
 ## <a name="next-steps"></a>後續步驟
 
-[在 Azure Blockchain Workbench 中建立區塊鏈應用程式](blockchain-workbench-create-app.md)
+在這篇操作說明文章中，您已了解如何管理 Azure Blockchain Workbench 的使用者。 若要了解如何建立區塊鏈應用程式，請繼續閱讀下一篇操作說明文章。
+
+> [!div class="nextstepaction"]
+> [在 Azure Blockchain Workbench 中建立區塊鏈應用程式](blockchain-workbench-create-app.md)

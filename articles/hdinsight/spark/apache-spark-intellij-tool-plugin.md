@@ -11,14 +11,14 @@ ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: d663756c52a23096888b9ee568fea23163d33aa9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cb78808b515bb3385f7cf56725441a2b228f0aba
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用適用於 IntelliJ 的 Azure 工具組建立適用於 HDInsight 叢集的 Spark 應用程式
 
@@ -283,11 +283,15 @@ ms.lasthandoff: 05/07/2018
 ![IntelliJ 中的將選項新增至 [VM 選項] 方塊](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## <a name="faq"></a>常見問題集
-若要將應用程式提交至 Azure Data Lake Store，請在 Azure 登入程序期間，選擇 [互動] 模式。 如果您選取 [自動] 模式，可能會發生錯誤。
+連結叢集時，建議您提供儲存體認證。
 
-![interative-signin](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![連結叢集，提供儲存體認證](./media/apache-spark-intellij-tool-plugin/link-cluster-with-storage-credential-intellij.png)
 
-現在，我們已解決了。 您可以選擇要使用任何登入方法提交您應用程式的 Azure Data Lake 叢集。
+提交工作有兩種模式。 如果提供儲存體認證，將使用批次模式提交工作。 否則，將使用互動模式。 如果叢集忙碌，您可能會收到以下錯誤。
+
+![Intellij 會在叢集忙碌時收到錯誤](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
+
+![Intellij 會在叢集忙碌時收到錯誤](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback-and-known-issues"></a>意見反應和已知問題
 目前，不支援直接檢視 Spark 輸出。

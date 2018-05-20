@@ -3,23 +3,25 @@ title: 使用 OAuth2.0 進行 Azure AD 服務對服務驗證 | Microsoft Docs
 description: 本文說明如何使用 HTTP 訊息，以利用 OAuth2.0 用戶端認證授與流程實作服務對服務驗證。
 services: active-directory
 documentationcenter: .net
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: da657fb6072c0655e47623c58e7051e8dd462049
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1a4da1af61be4b632b51f5b8f921f6f48e925559
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>使用用戶端認證 (共用密碼或憑證) 的服務對服務呼叫
 OAuth 2.0 用戶端認證授與流程可允許 Web 服務 (「機密用戶端」) 在呼叫另一個 Web 服務時，使用它自己的認證來進行驗證，而不是模擬使用者。 在此案例中，用戶端通常是中介層 Web 服務、精靈服務或網站。 對於較高層級的保證，Azure AD 也可讓呼叫服務使用憑證 (而非共用密碼) 做為認證。

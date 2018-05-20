@@ -12,17 +12,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/15/2018
+ms.date: 05/11/2018
 ms.author: juliako
-ms.openlocfilehash: def590fa8253d81f3477c3953db684c160e25cd9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 783dc0fd37f98a12d9240ad4b3ee72aa98212eff
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>CLI 範例：建立 Azure 媒體服務帳戶
 
-此指令碼會建立 Azure 媒體服務帳戶。
+本主題中的 Azure CLI 指令碼會示範如何建立 Azure 媒體服務帳戶。
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
@@ -30,14 +30,14 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="example-script"></a>範例指令碼
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/media-services/media-services-create-account/media-services-create-account.sh "Create Account")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/media-services/media-services-create-account/Create-Account.sh "Create Account")]
 
 ## <a name="clean-up-deployment"></a>清除部署
 
 執行下列命令來移除資源群組及其所有相關聯的資源。
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name amsResourceGroup
 ```
 
 ## <a name="script-explanation"></a>指令碼說明
@@ -48,9 +48,10 @@ az group delete --name myResourceGroup
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
 | [az storage account create](/cli/azure/storage/account#az_storage_account_create) | 建立儲存體帳戶。 |
-| **az ams account create** | 建立媒體服務帳戶。 |
-| **az ams account sp create** | 建立具有密碼的服務主體，並將其存取權設定給 Azure 媒體服務帳戶。 |
+| [az ams account create](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest#az-ams-account-create) | 建立媒體服務帳戶。 |
+| [az ams account sp create](https://docs.microsoft.com/cli/azure/ams/account/sp?view=azure-cli-latest#az-ams-account-sp-create) | 建立具有密碼的服務主體，並將其存取權設定給 Azure 媒體服務帳戶。 
 | [az group delete](/cli/azure/group#az_group_delete) | 刪除資源群組，包括所有的巢狀資源。 |
+
 
 ## <a name="next-steps"></a>後續步驟
 

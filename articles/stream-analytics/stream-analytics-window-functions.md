@@ -8,19 +8,19 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/30/2018
-ms.openlocfilehash: dfc59c8d976720ddb313c2e9d29e68c56a8d49f6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/07/2018
+ms.openlocfilehash: 2650058e277bc0338c779655ce381be046fb120a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>串流分析時間範圍函式簡介
 在即時串流案例中，針對時間範圍中內含的資料執行作業是常見的模式。 串流分析具備對時間範圍函式的原生支援，可讓開發人員輕鬆地撰寫複雜的串流處理工作。
 
-您有四種時間範圍可以選擇：[**輪轉**](https://msdn.microsoft.com/library/dn835055.aspx)、[**跳動**](https://msdn.microsoft.com/library/dn835041.aspx)、[**滑動**](https://msdn.microsoft.com/library/dn835051.aspx)以及**工作階段**時間範圍。  您要在串流分析工作的查詢語法子句 [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx) 中使用時間範圍函式。
+您可以選擇四種時間範圍：[**輪轉**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics)、[**跳動**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics)、[**滑動**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics)以及[**工作階段**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics)時間範圍。  您要在串流分析工作的查詢語法子句 [**GROUP BY**](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) 中使用時間範圍函式。
 
-所有[時間範圍](https://msdn.microsoft.com/library/dn835019.aspx)作業都會在時間範圍**結束**時輸出結果。 時間範圍的輸出會是以使用的彙總函式為基礎的單一事件。 此輸出事件會有時間範圍結束的時間戳記，所有時間範圍函式都是以固定長度定義。 
+所有[時間範圍](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics)作業都會在時間範圍**結束**時輸出結果。 時間範圍的輸出會是以使用的彙總函式為基礎的單一事件。 此輸出事件會有時間範圍結束的時間戳記，所有時間範圍函式都是以固定長度定義。 
 
 ![串流分析時間範圍函式概念](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 

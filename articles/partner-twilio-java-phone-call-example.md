@@ -1,7 +1,7 @@
 ---
-title: "如何從 Twilio 撥打電話 (Java) | Microsoft Docs"
-description: "了解如何在 Azure 上的 Java 應用程式中使用 Twilio 從網頁撥打電話。"
-services: 
+title: 如何從 Twilio 撥打電話 (Java) | Microsoft Docs
+description: 了解如何在 Azure 上的 Java 應用程式中使用 Twilio 從網頁撥打電話。
+services: ''
 documentationcenter: java
 author: devinrader
 manager: twilio
@@ -175,7 +175,7 @@ ms.lasthandoff: 10/11/2017
 5. 開啟瀏覽器，然後執行 **http://localhost:8080/TwilioCloud/callform.jsp**。
 6. 輸入表單中的值，按一下 [Make this call] ，然後在 makecall.jsp 中檢視結果。
 
-當您做好部署至 Azure 的準備後，您可以針對雲端環境重新編譯部署、部署至 Azure，以及在瀏覽器中執行 http://your_hosted_name.cloudapp.net/TwilioCloud/callform.jsp (請將 your_hosted_name 取代為您的值)。
+當您做好部署至 Azure 的準備後，您可以針對雲端環境重新編譯部署、部署至 Azure，以及在瀏覽器中執行 http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp (請將 *your_hosted_name* 取代為您的值)。
 
 ## <a name="next-steps"></a>後續步驟
 此程式可說明在 Azure 上的 Java 中使用 Twilio 的基本功能。 在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。 例如︰

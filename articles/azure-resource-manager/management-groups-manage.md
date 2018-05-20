@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2018
+ms.date: 5/10/2018
 ms.author: rithorn
-ms.openlocfilehash: b69dce94e2e0bfaa413af9a95c5ef858f766ff1c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b68223830ca6c4e178447074bfbebd1322cb9477
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>利用管理群組來管理您的資源 
 管理群組是可協助您跨多個訂用帳戶管理容器存取、原則及合規性的容器。 您可以變更、刪除及管理這些容器，來取得可與 [Azure 原則](../azure-policy/azure-policy-introduction.md)和 [Azure 角色型存取控制](../role-based-access-control/overview.md)搭配使用的階層。 如需了解有關管理群組的詳細資訊，請參閱[使用 Azure 管理群組來組織資源](management-groups-overview.md)。
@@ -103,9 +103,9 @@ C:\> az account management-group delete --group-name Contoso
 ### <a name="view-in-the-portal"></a>在入口網站中檢視
 1. 登入 [Azure 入口網站](https://portal.azure.com)
 2. 選取 [所有服務] > [管理群組] 
-3. [管理群組階層] 頁面會隨即載入，其中會顯示您可以存取的所有群組。 
+3. [管理群組階層] 頁面隨即會載入，供您探索所有可存取的管理群組和訂用帳戶。 選取群組名稱即可前往階層中的下一個層級。 瀏覽方式與檔案總管相同。 
     ![主要](media/management-groups/main.png)
-4. 選取個別的管理群組以取得詳細資料  
+4. 若要查看管理群組的詳細資訊，請選取管理群組標題旁的 **(詳細資料)** 連結。 如果此連結無法使用，表示您沒有檢視該管理群組的權限。  
 
 ### <a name="view-in-powershell"></a>在 PowerShell 中檢視
 您可以使用 Get-AzureRmManagementGroup 命令來擷取所有群組。  

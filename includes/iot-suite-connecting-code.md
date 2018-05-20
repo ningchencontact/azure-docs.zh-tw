@@ -1,3 +1,19 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: e15016da271d512fd9b87d5c14091305a92770b5
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/10/2018
+---
 ## <a name="specify-the-behavior-of-the-iot-device"></a>指定 IoT 裝置的行為
 
 IoT 中樞序列化程式用戶端程式庫會使用模型來指定裝置與 IoT 中樞交換之訊息的格式。
@@ -78,7 +94,7 @@ IoT 中樞序列化程式用戶端程式庫會使用模型來指定裝置與 IoT
 
 現在，請新增程式碼來實作模型中所定義的行為。
 
-1. 新增下列回呼處理常式，此處理常式會在裝置將新回報的屬性值傳送給預先設定的解決方案後執行：
+1. 新增下列回呼處理常式，此處理常式會在裝置將新回報的屬性值傳送給解決方案加速器後執行：
 
     ```c
     /* Callback after sending reported properties */
@@ -124,7 +140,8 @@ IoT 中樞序列化程式用戶端程式庫會使用模型來指定裝置與 IoT
       }
       ThreadAPI_Sleep(5000);
 
-      chiller->Firmware = _strdup(chiller->new_firmware_version);
+    #pragma warning(suppress : 4996)
+      chiller->Firmware = strdup(chiller->new_firmware_version);
       chiller->FirmwareUpdateStatus = "waiting";
       /* Send reported properties to IoT Hub */
       if (IoTHubDeviceTwin_SendReportedStateChiller(chiller, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
@@ -171,8 +188,10 @@ IoT 中樞序列化程式用戶端程式庫會使用模型來指定裝置與 IoT
       }
       else
       {
-        chiller->new_firmware_version = _strdup(Firmware);
-        chiller->new_firmware_URI = _strdup(FirmwareUri);
+    #pragma warning(suppress : 4996)
+        chiller->new_firmware_version = strdup(Firmware);
+    #pragma warning(suppress : 4996)
+        chiller->new_firmware_URI = strdup(FirmwareUri);
         THREAD_HANDLE thread_apply;
         THREADAPI_RESULT t_result = ThreadAPI_Create(&thread_apply, do_firmware_update, chiller);
         if (t_result == THREADAPI_OK)
@@ -221,7 +240,7 @@ IoT 中樞序列化程式用戶端程式庫會使用模型來指定裝置與 IoT
     }
     ```
 
-1. 新增下列函式，此函式會傳送包含屬性的訊息給預先設定的解決方案：
+1. 新增下列函式，此函式會傳送包含屬性的訊息給解決方案加速器：
 
     ```c
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size, char* schema)
@@ -260,7 +279,7 @@ IoT 中樞序列化程式用戶端程式庫會使用模型來指定裝置與 IoT
     }
     ```
 
-1. 新增下列函式，以將您的裝置連接到雲端中的預先設定解決方案，然後交換資料。 此函式會執行下列步驟：
+1. 新增下列函式，以將您的裝置連接到雲端中的解決方案加速器，然後交換資料。 此函式會執行下列步驟：
 
     - 將平台初始化。
     - 使用序列化程式庫來註冊 Contoso 命名空間。
@@ -396,7 +415,7 @@ IoT 中樞序列化程式用戶端程式庫會使用模型來指定裝置與 IoT
     }
     ```
 
-    以下是一個傳送給預先設定之解決方案的範例「遙測」訊息，可供您參考：
+    以下是一個傳送給解決方案加速器的範例「遙測」訊息，可供您參考：
 
     ```
     Device: [myCDevice],

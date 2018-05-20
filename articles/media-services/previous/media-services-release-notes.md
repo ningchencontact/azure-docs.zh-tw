@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: b36c9150ef251939c9c484da93bc8a086b869676
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62f5ae4a9152d3f1b1641cc69136bf472527ba2a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已知問題。
@@ -44,6 +44,10 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本歷程記錄
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
+
+## <a name="may-2018"></a>2018 年 5 月 
+
+從 2018 年 5 月 12 日開始，即時通道將不再支援 RTP/MPEG-2 傳輸串流內嵌通訊協定。 請從 RTP/MPEG-2 移轉到 RTMP 或分散式 MP4 (Smooth Streaming) 內嵌通訊協定。
 
 ## <a name="october-2017-release"></a>2017 年 10 月版本
 > [!IMPORTANT] 

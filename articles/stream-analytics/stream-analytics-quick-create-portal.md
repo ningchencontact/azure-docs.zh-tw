@@ -2,23 +2,22 @@
 title: 使用 Azure 入口網站建立串流分析作業 | Microsoft Docs
 description: 本快速入門會示範如何開始建立串流分析作業、設定輸入與輸出及定義查詢。
 services: stream-analytics
-keywords: 串流分析、雲端作業、Azure 入口網站、作業輸入、作業輸出、作業轉換
-author: SnehaGunda
-ms.author: sngun
-ms.date: 03/16/2018
+author: mamccrea
+ms.author: mamccrea
+ms.date: 05/11/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: c421ab96585da011cdaef9933ceb8a78ffe356a9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 86d4bab282db0ffc7b48813b9817eed0b45c3199
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立串流分析作業
 
-本快速入門會示範如何開始建立串流分析作業。 在本快速入門中，您將定義串流分析作業來讀取感應器資料範例，並篩選出每 30 秒中平均溫度大於 100 的資料列。 在本文中，您會從 blob 儲存體讀取資料並轉換資料，然後將資料寫回相同 blob 儲存體中的不同容器。
+本快速入門會示範如何開始建立串流分析作業。 在本快速入門中，您將定義串流分析作業來讀取感應器資料範例，並篩選出每 30 秒中平均溫度大於 100 的資料列。 在本文中，您會從 blob 儲存體讀取資料並轉換資料，然後將資料寫回相同 blob 儲存體中的不同容器。 本快速入門中所使用的輸入資料檔案包含僅供說明之用的靜態資料。 在實際案例中，您可以使用串流輸入資料來進行串流分析作業。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -28,43 +27,43 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="prepare-the-input-data"></a>準備輸入資料
 
-定義串流分析作業前，您應先準備設定為作業輸入的資料。 請執行下列步驟以準備作業所需的輸入資料：
+定義串流分析作業前，您應先準備設定為作業輸入的資料。 為了準備作業所需的輸入資料，請執行下列步驟：
 
-1. 從 GitHub 下載[感應器資料範例](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json)。 範例資料包含下列 JSON 格式的感應器資訊：  
+1. 從 GitHub 下載[感應器資料範例](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json)。 範例資料包含下列 JSON 格式的感應器資訊：  
 
    ```json
    {
-     "time": "2016-01-26T21:18:52.0000000",
+     "time": "2018-01-26T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
    }
    ```
-2. 登入 Azure 入口網站  
+2. 登入 Azure 入口網站。  
 
-3. 從 Azure 入口網站的左上角，選取 [建立資源] > [儲存體] > [儲存體帳戶]。 填寫儲存體帳戶作業刀鋒視窗，將 [名稱] 設為 "myasastorageaccount"、[位置] 設為「美國西部 2」、[資源群組] 設為 "MyRG" (將儲存體帳戶裝載在與串流作業相同的資源群組中可增加效能)。 其餘設定可以保留預設值。  
+3. 從 Azure 入口網站的左上角，選取 [建立資源] > [儲存體] > [儲存體帳戶]。 填寫儲存體帳戶作業頁面，將 [名稱] 設為 "myasastorageaccount"、[位置] 設為「美國西部 2」、[資源群組] 設為 "MyRG" (將儲存體帳戶裝載在與串流作業相同的資源群組中可增加效能)。 其餘設定可以保留預設值。  
 
    ![建立儲存體帳戶](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
-4. 從 [所有資源] 刀鋒視窗中，找出您在上一個步驟中建立的儲存體帳戶。 依序開啟 [概觀] 刀鋒視窗及 [Blob]圖格。  
+4. 從 [所有資源] 頁面中，找出您在上一個步驟中建立的儲存體帳戶。 依序開啟 [概觀] 頁面及 [Blob] 圖格。  
 
-5. 從 [Blob 服務] 刀鋒視窗中選取 [容器]，並為容器提供**名稱**，例如 container1，然後將 [公用存取層級] 變更為 Blob (僅限以匿名讀取存取 blob) > 選取 [確定]。  
+5. 從 [Blob 服務] 頁面中選取 [容器]，並為容器提供**名稱**，例如 container1，然後將 [公用存取層級] 變更為 Blob (僅限以匿名讀取存取 blob) > 選取 [確定]。  
 
    ![建立容器](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 
-6. 移至您在上一個步驟中建立的容器，選取 [上傳] 並上傳您在步驟 1 取得的感應器資料。  
+6. 移至您在上一個步驟所建立的容器。 選取 [上傳] 並上傳您從第一個步驟取得的感應器資料。  
 
    ![將範例資料上傳至 blob](./media/stream-analytics-quick-create-portal/upload-sample-data-to-blob.png)
 
 ## <a name="create-a-stream-analytics-job"></a>建立串流分析作業
 
-1. 登入 Azure 入口網站  
+1. 登入 Azure 入口網站。
 
 2. 選取 Azure 入口網站左上角的 [建立資源]。  
 
 3. 從結果清單中選取 [資料 + 分析] > [串流分析作業]。  
 
-4. 填寫串流分析作業刀鋒視窗，並提供下列資訊：
+4. 填寫串流分析作業頁面，並提供下列資訊：
 
    |**設定**  |**建議的值**  |**說明**  |
    |---------|---------|---------|
@@ -91,7 +90,7 @@ ms.lasthandoff: 04/16/2018
 
 2. 選取 [輸入] > [新增串流輸入] > [Blob 儲存體]。  
 
-3. 使用下列值填寫 [Blob 儲存體] 刀鋒視窗：
+3. 使用下列值填寫 [Blob 儲存體] 頁面：
 
    |**設定**  |**建議的值**  |**說明**  |
    |---------|---------|---------|
@@ -110,7 +109,7 @@ ms.lasthandoff: 04/16/2018
 
 2. 選取 [輸出] > [新增] > [Blob 儲存體]。  
 
-3. 使用下列值填寫 [Blob 儲存體] 刀鋒視窗：
+3. 使用下列值填寫 [Blob 儲存體] 頁面：
 
    |**設定**  |**建議的值**  |**說明**  |
    |---------|---------|---------|
@@ -135,9 +134,9 @@ ms.lasthandoff: 04/16/2018
    dspl AS SensorName,
    Avg(temp) AS AvgTemperature
    INTO
-     MyBlobOutput
+     BlobOutput
    FROM
-     MyBlobInput TIMESTAMP BY time
+     BlobInput TIMESTAMP BY time
    GROUP BY TumblingWindow(second,30),dspl
    HAVING Avg(temp)>100
    ```
@@ -148,9 +147,9 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>啟動串流分析工作並查看輸出
 
-1. 回到作業概觀刀鋒視窗，然後選取 [啟動]  
+1. 回到作業概觀頁面，然後選取 [啟動]。
 
-2. 在 [啟動作業] 下，針對 [啟動時間] 欄位選取 [自訂]。 選取您將檔案上傳到 blob 儲存體那天的前一天，因為上傳檔案的時間會早於目前時間。 完成時，選取 [啟動]。  
+2. 在 [啟動作業] 下，針對 [啟動時間] 欄位選取 [自訂]。 選取 `2018-01-24` 作為開始日期，但不要變更時間。 之所以選擇這個開始日期，是因為它位於範例資料的事件時間戳記之前。 完成時，選取 [啟動]。
 
    ![啟動工作](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
@@ -168,7 +167,7 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已部署了簡單的串流分析作業，若要了解如何設定其他輸入來源及執行即時偵測，請前往下列文章：
+在本快速入門中，您已部署了簡單的串流分析作業。 若要了解如何設定其他輸入來源及執行即時偵測，請前往下列文章：
 
 > [!div class="nextstepaction"]
 > [使用 Azure 串流分析進行即時詐騙偵測](stream-analytics-real-time-fraud-detection.md)

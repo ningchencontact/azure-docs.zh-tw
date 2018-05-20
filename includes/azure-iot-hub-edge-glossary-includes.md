@@ -1,3 +1,6 @@
+## <a name="automatic-device-management"></a>自動裝置管理
+Azure IoT 中樞中的自動裝置管理，可將管理大群大型裝置的許多重複且複雜的工作自動化，並且管理範圍橫跨裝置的完整生命週期。 使用自動裝置管理時，您可以根據其屬性以一組裝置為目標，定義所需的設定，並讓 IoT 中樞更新進入範圍的裝置。  包含[自動裝置設定](/articles/iot-hub/iot-hub-auto-device-config.md)和 [IoT Edge 自動部署](/articles/iot-edge/how-to-deploy-monitor.md)。
+
 ## <a name="iot-edge"></a>IoT Edge
 Azure IoT Edge 能針對內部部署裝置，實現 Azure 服務的雲端驅動部署及解決方案特定程式碼。 IoT Edge 裝置可以在其他裝置的資料被傳送至雲端之前，對這些資料進行彙總來執行計算和分析。 如需詳細資訊，請參閱 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/)。
 
@@ -7,8 +10,8 @@ IoT Edge 執行階段負責部署及監視模組的部分。
 ## <a name="iot-edge-device"></a>IoT Edge 裝置
 已安裝 IoT Edge 執行階段並在裝置詳細資料中被標記為「IoT Edge 裝置」的 IoT Edge 裝置。 了解如何[在 Linux 中的模擬裝置上部署 Azure IoT Edge - 預覽](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)。
 
-## <a name="iot-edge-deployment"></a>IoT Edge 部署
-IoT Edge 部署會設定一組目標 IoT Edge 裝置，以執行 IoT Edge 模組集合。 每個部署都會持續確保符合其目標條件的所有裝置都正在執行指定的模組集合，即使在建立新裝置或是將新裝置修改成符合目標條件的情況下也一樣。 每個 IoT Edge 裝置都只會接收符合其條件的最高優先順序部署。 深入了解 [IoT Edge 部署](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring)。
+## <a name="iot-edge-automatic-deployment"></a>IoT Edge 自動部署
+IoT Edge 自動部署會設定一組目標 IoT Edge 裝置，以執行 IoT Edge 模組。 每個部署都會持續確保符合其目標條件的所有裝置都正在執行指定的模組集合，即使在建立新裝置或是將新裝置修改成符合目標條件的情況下也一樣。 每個 IoT Edge 裝置都只會接收符合其條件的最高優先順序部署。 深入了解 [IoT Edge 自動部署](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring)。
 
 ## <a name="iot-edge-deployment-manifest"></a>IoT Edge 部署資訊清單
 JSON 文件，包含要在一個或多個 IoT Edge 裝置之模組對應項中複製的資訊，以部署一組模組、路由及相關模組所需屬性。

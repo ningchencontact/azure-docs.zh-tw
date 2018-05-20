@@ -3,17 +3,17 @@ title: 刪除 Azure Kubernetes Service (AKS) 叢集
 description: 使用 CLI 或 Azure 入口網站來刪除 AKS 叢集。
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 2/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e006466d1450471900a8635c49d3bc6c3a73d476
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6391e36eff60634e07a90c1e6b5f0f44ee60d46b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="delete-an-azure-kubernetes-service-aks-cluster"></a>刪除 Azure Kubernetes Service (AKS) 叢集
 

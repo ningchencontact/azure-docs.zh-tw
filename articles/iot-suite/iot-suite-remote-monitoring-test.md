@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 905e64d004c02db663634eb784cacf6fab805193
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d2523502c20a7cdc4fb4ec388f167f1640919717
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-new-simulated-device"></a>建立新的模擬裝置
 
@@ -225,7 +225,7 @@ ms.lasthandoff: 05/07/2018
 1. 若要複製 .NET 版本的 **storage-adapter** 存放庫，請執行下列命令：
 
     ```cmd
-    git clone https://github.com/Azure/storage-adapter.git
+    git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
     裝置模擬服務會使用儲存體配接器 (storage adapter) 服務連線到 Azure 中的 Cosmos DB 服務。 遠端監視解決方案會將模擬裝置的設定資料儲存在 Cosmos DB 資料庫中。
@@ -258,7 +258,11 @@ ms.lasthandoff: 05/07/2018
 
 1. 在 [環境變數] 區段中，編輯 **PCS\_IOTHUB\_CONNSTRING** 變數的值，改為您先前記下的 IoT 中樞連接字串。 然後儲存您的變更。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 [device-simulation] 解決方案，然後選擇 [設定啟始專案]。 選擇 [單一啟始專案]，然後選取 [SimulationAgent]。 然後按一下 [確定] 。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 [WebService] 專案，選擇 [屬性]，然後選擇 [偵錯]。
+
+1. 在 [環境變數] 區段中，編輯 **PCS\_IOTHUB\_CONNSTRING** 變數的值，改為您先前記下的 IoT 中樞連接字串。 然後儲存您的變更。
+
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 [device-simulation] 解決方案，然後選擇 [設定啟始專案]。 選擇 [單一啟始專案]，然後選取 [WebService]。 然後按一下 [確定] 。
 
 1. 在 **Services/data/devicemodels** 資料夾中，每種裝置類型都有 JSON 模型檔案和相關聯的指令碼。 在 [方案總管] 中，複製 **Chiller** 檔案，以建立 **Lightbulb** 檔案，如下表所示：
 
@@ -294,10 +298,12 @@ ms.lasthandoff: 05/07/2018
         "status": "on"
       },
       "Interval": "00:00:20",
-      "Scripts": {
-        "Type": "javascript",
-        "Path": "lightbulb-01-state.js"
-      }
+      "Scripts": [
+        {
+          "Type": "javascript",
+          "Path": "lightbulb-01-state.js"
+        }
+      ]
     },
     ```
 
@@ -468,7 +474,7 @@ ms.lasthandoff: 05/07/2018
 
 您現在可以開始在本機執行裝置模擬專案，測試新的模擬燈泡類型。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 [SimulationAgent]，選擇 [偵錯]，然後選擇 [開始新執行個體]。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 [WebService]，選擇 [偵錯]，然後選擇 [開始新執行個體]。
 
 1. 若要檢查兩個模擬裝置是否已連線到 IoT 中樞，在您的瀏覽器中開啟 Azure 入口網站。
 

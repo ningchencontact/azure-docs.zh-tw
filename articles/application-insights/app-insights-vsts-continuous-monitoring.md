@@ -1,8 +1,8 @@
 ---
-title: "使用 VSTS 和 Azure Application Insights 連續監視您的 DevOps 發行管線 | Microsoft Docs"
-description: "提供指示說明如何快速設定使用 Application Insights 來連續監視"
+title: 使用 VSTS 和 Azure Application Insights 連續監視您的 DevOps 發行管線 | Microsoft Docs
+description: 提供指示說明如何快速設定使用 Application Insights 來連續監視
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/13/2017
@@ -71,7 +71,7 @@ VSTS 現在支援連續監視，發行管線可以從 Application Insights 和�
 
 2. 將 [閘道] 設定為 [啟用]  >  **核准閘道** > 按一下 [新增]。
 
-3. 選取 [Azure 監視器] (此選項可讓您存取 Azure 監視器和 Application Insights 兩者的警示)
+3. 選取 [Azure 監視器] \(此選項可讓您存取 Azure 監視器和 Application Insights 兩者的警示)
 
     ![Azure 監視器](.\media\app-insights-continuous-monitoring\005.png)
 

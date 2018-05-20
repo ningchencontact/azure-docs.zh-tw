@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 7290c12e7d96ac01c66d97103920793f98120b38
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0aa87aeaf852d7309c29c1298e326c101a944904
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的要求單位
 
@@ -48,81 +48,6 @@ Azure Cosmos DB 藉由「保留」資源以滿足應用程式的輸送量需求�
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
-
-## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中指定要求單位容量
-
-您可以指定要為個別容器或一組容器保留的每秒要求單位數 (每秒 RU)。 Azure Cosmos DB 會根據所佈建的輸送量，配置實體分割區來裝載您的容器，並隨著輸送量的成長來跨分割區分割/重新平衡資料。
-
-指派個別容器層級的 RU/秒時，容器可以建立為*固定*或*無限制的*形式。 固定大小的容器具有上限為 10 GB 和 10,000 RU/秒的輸送量。 若要建立無限制的容器，您必須指定最小輸送量 1,000 RU/s 和[分割區索引鍵](partition-data.md)。 由於您的資料可能必須分散在多個分割區，因此必須挑選基數高 (100 個到數百萬個相異值) 的分割區索引鍵。 藉由選取具有許多相異值的分割區索引鍵，您便可確保 Azure Cosmos DB 可以一致地調整您的容器/資料表/圖表和要求。 
-
-指派跨一組容器的 RU/秒時，屬於這組容器的容器會視為*無限制的*容器，且必須指定分割區索引鍵。
-
-![佈建個別容器和一組容器的要求單位][6]
-
-> [!NOTE]
-> 資料分割索引鍵是一種邏輯界限，而不是實體界限。 因此，您不需要限制不同資料分割索引鍵值的數目。 事實上，最好能擁有較多不同的資料分割索引鍵值，Azure Cosmos DB 才有更多的負載平衡選項。
-
-以下程式碼片段會使用 SQL API 的 .NET SDK，為個別容器建立一個具有每秒 3,000 個要求單位的容器：
-
-```csharp
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 3000 });
-```
-
-以下程式碼片段會使用 SQL API 的 .NET SDK，在一組容器間佈建每秒 100,000 個要求單位：
-
-```csharp
-// Provision 100,000 RU/sec at the database level. 
-// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
-// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
-
-DocumentCollection sharedCollection1 = new DocumentCollection();
-sharedCollection1.Id = "sharedCollection1";
-sharedCollection1.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
-
-DocumentCollection sharedCollection2 = new DocumentCollection();
-sharedCollection2.Id = "sharedCollection2";
-sharedCollection2.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
-
-DocumentCollection dedicatedCollection = new DocumentCollection();
-dedicatedCollection.Id = "dedicatedCollection";
-dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
-```
-
-
-Azure Cosmos DB 針對輸送量會以保留模型的方式運作。 也就是說，您需要針對所「保留」的輸送量支付費用，而不論該輸送量中有多少數量是主動「使用」的。 當您應用程式的負載、資料及使用方式模式變更時，您可以透過 SDK 或使用 [Azure 入口網站](https://portal.azure.com)，輕鬆地相應增加和減少保留 RU 的數量。
-
-每個容器或一組容器會對應至 Azure Cosmos DB 中的一個 `Offer` 資源，其中有所佈建輸送量的相關中繼資料。 藉由查閱容器的對應 offer 資源，然後使用新的輸送量值加以更新，即可變更已配置的輸送量。 以下程式碼片段會使用 .NET SDK 將容器的輸送量變更為每秒 5,000 個要求單位：
-
-```csharp
-// Fetch the resource to be updated
-// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
-Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
-
-// Set the throughput to 5000 request units per second
-offer = new OfferV2(offer, 5000);
-
-// Now persist these changes to the database by replacing the original resource
-await client.ReplaceOfferAsync(offer);
-```
-
-當您變更輸送量時，不會影響容器或一組容器的可用性。 新保留的輸送量通常會在套用新輸送量的數秒內於生效。
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>輸送量隔離是分散在世界各地的資料庫
 
@@ -347,6 +272,11 @@ Azure Cosmos DB 服務的每個回應都會包括自訂標頭 (`x-ms-request-cha
 如果您有多個用戶端會以高於要求速率的方式累積運作，則預設的重試行為可能會不敷使用，且用戶端將會擲回具有狀態碼 429 的 `DocumentClientException` 到應用程式。 在類似這樣的情況下，您可以考慮在應用程式的錯誤處理常式中處理重試行為和邏輯，或為容器 (或一組容器) 提高佈建的輸送量。
 
 ## <a name="next-steps"></a>後續步驟
+ 
+若要深入了解如何使用 Azure 入口網站和 SDK 來設定和取得輸送量，請參閱：
+
+* [設定及取得 Azure Cosmos DB 的輸送量](set-throughput.md)
+
 若要深入了解透過 Azure Cosmos DB 資料庫保留輸送量的方式，請探索下列資源：
 
 * [Azure Cosmos DB 定價](https://azure.microsoft.com/pricing/details/cosmos-db/)
@@ -360,4 +290,4 @@ Azure Cosmos DB 服務的每個回應都會包括自訂標頭 (`x-ms-request-cha
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
-[6]: ./media/request-units/provisioning_set_containers.png
+

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 560ad6049391be1b9618f41a35f46510329a16e7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9feade4407f800312556a1db39ce6c315c9330c2
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式從中樞讀取遙測 (C#)
 
@@ -57,13 +57,15 @@ dotnet --version
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyDotnetDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDotnetDevice
     ```
+
+    如果您為裝置選擇不同的名稱，請先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
 1. 執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
     ```
 
     記下裝置連接字串，它看似 `Hostname=...=`。 您稍後會在快速入門中使用此值。

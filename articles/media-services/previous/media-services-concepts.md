@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: cfc8ac74f626ada30dda72b58e4b4bc7f0d9e806
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f9d51869b9a6ba63c73637c50f5a19e864bc23e4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒體服務概念
 本主題提供媒體服務概念的最重要概觀。
@@ -108,7 +108,7 @@ Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 在 Azure 媒體服務中，通道代表處理即時串流內容的管線。 通道會以兩種方式之一收到即時輸入串流：
 
 * 內部部署即時編碼器會傳送多位元速率 RTMP 或 Smooth Streaming (分散的 MP4) 到通道。 您可以使用下列輸出多位元速率 Smooth Streaming 的即時編碼器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco 和 Elemental。 下列即時編碼器會輸出 RTMP：Adobe Flash Live Encoder、Telestream Wirecast、Teradek、Haivision 和 Tricaster 編碼器。 內嵌的串流會通過「通道」，而不需任何進一步的轉碼和編碼。 接到要求時，媒體服務會傳遞串流給客戶。
-* 單一位元速率串流 (下列格式之一：RTP (MPEG-TS))、RTMP 或 Smooth Streaming (分散的 MP4)) 會傳送至通道來執行啟用的通道來以媒體服務執行即時編碼。 通道接著會執行即時編碼，將連入的單一位元速率串流編碼成多位元速率 (自動調整) 視訊串流。 接到要求時，媒體服務會傳遞串流給客戶。
+* 單一位元速率串流 (下列格式之一：RTMP 或 Smooth Streaming (分散的 MP4)) 會傳送至已啟用媒體服務執行即時編碼的通道。 通道接著會執行即時編碼，將連入的單一位元速率串流編碼成多位元速率 (自動調整) 視訊串流。 接到要求時，媒體服務會傳遞串流給客戶。
 
 ### <a name="channel"></a>通道
 在媒體服務中， [通道](https://docs.microsoft.com/rest/api/media/operations/channel)負責處理即時資料流內容。 通道會提供輸入端點 (內嵌 URL)，接著您再提供給即時轉碼器。 通道從即時轉碼器接收即時輸入資料流，再透過一或多個 StreamingEndpoint 進行串流處理。 通道也會提供預覽端點 (預覽 URL)，您可在進一步處理和傳遞之前先用來預覽及驗證您的資料流。

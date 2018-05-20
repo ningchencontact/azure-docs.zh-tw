@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: db79629c5f806fe50d22200574c29052a485dd06
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4d88004f37b40fa92e617545e1a94656744a7db0
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>接收 HTTP 端點的事件
 
@@ -48,6 +48,8 @@ ms.lasthandoff: 05/07/2018
 ## <a name="endpoint-validation"></a>端點驗證
 
 首先您應該做的是處理 `Microsoft.EventGrid.SubscriptionValidationEvent` 事件。 每次有人訂閱事件時，事件方格即會將驗證事件傳送至在資料承載中具有 `validationCode` 的端點。 需要端點才能在回應主體中回應以[證明端點有效且為您所擁有](security-authentication.md#webhook-event-delivery)。 如果您使用[事件格線觸發程序](../azure-functions/functions-bindings-event-grid.md)而非 WebHook 觸發函式，系統會為您處理端點驗證。 如果您使用第三方 API 服務 (例如 [Zapier](https://zapier.com) 或 [IFTTT](https://ifttt.com/))，可能就無法以程式設計方式回應驗證程式碼。 針對那些服務，您可以使用要在訂用帳戶驗證事件中傳送的驗證 URL，以手動方式驗證訂用帳戶。 在 `validationUrl` 屬性中複製該 URL，並透過 REST 用戶端或您的網頁瀏覽器傳送 GET 要求。
+
+手動驗證為預覽狀態。 若要使用它，您必須為 [AZ CLI 2.0](/cli/azure/install-azure-cli) 安裝[事件格線延伸模組](/cli/azure/azure-cli-extensions-list)。 您可以使用 `az extension add --name eventgrid` 進行安裝。 如果您使用的是 REST API，請確定使用的是 `api-version=2018-05-01-preview`。
 
 若要以程式設計方式回應驗證程式碼，請使用下列程式碼：
 

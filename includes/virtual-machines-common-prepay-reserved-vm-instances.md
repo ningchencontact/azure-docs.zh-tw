@@ -1,10 +1,10 @@
 ---
 ms.topic: include
-ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 31b0d0018129ee65bb124c8008759cc6c7c8510e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>預付具有保留的 VM 執行個體的虛擬機器
 
@@ -13,6 +13,7 @@ ms.lasthandoff: 05/03/2018
 您可以在 [Azure 入口網站](https://portal.azure.com)中購買保留的虛擬機器執行個體。 購買保留的虛擬機器執行個體：
 -   您必須至少為一個企業或預付型方案訂用帳戶的「擁有者」角色。
 -   針對企業訂用帳戶，必須在 [EA 入口網站](https://ea.azure.com)中啟用保留項目購買。
+-   針對雲端解決方案提供者 (CSP) 程式，只有系統管理員代表或銷售代表可以購買保留項目。
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>購買保留的虛擬機器執行個體
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
@@ -50,3 +51,4 @@ ms.lasthandoff: 05/03/2018
 - [了解預付型方案的保留執行個體使用量](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊之保留執行個體的使用方式](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Windows 軟體的成本不包括在保留的執行個體內](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [合作夥伴中心雲端解決方案提供者 (CSP) 程式中的保留執行個體](https://docs.microsoft.com/partner-center/azure-reservations)

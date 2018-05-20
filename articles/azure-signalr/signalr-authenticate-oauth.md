@@ -14,17 +14,19 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: e7107e5c75d79714ae8d2d78d35e2cd3742ac674
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 748e5839233b9d71b9ed072d0cfe45f018471c52
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>教學課程：Azure SignalR 服務驗證
 
+Microsoft Azure SignalR 服務目前處於[公用預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)狀態。
+
 本教學課程會以快速入門中所介紹的聊天室應用程式為基礎。 如果您尚未完成[使用 SignalR 服務建立聊天室](signalr-quickstart-dotnet-core.md)，請先完成該項練習。 
 
-在本教學課程中，您將了解如何實作您自己的驗證服務，並讓該服務與 Azure SignalR 服務進行整合。 
+在本教學課程中，您將了解如何實作自己的驗證，並讓它與 Microsoft Azure SignalR 服務進行整合。 
 
 對於真實案例來說，快速入門的聊天室應用程式最初所使用的驗證服務過於簡單。 該應用程式可讓每個用戶端宣告其身分，而伺服器就只會接受該項宣告。 這個方法不太適用於真實應用程式，因為惡意使用者會模擬其他人來存取敏感性資料。 
 
@@ -32,7 +34,7 @@ ms.lasthandoff: 05/07/2018
 
 若要深入了解透過 GitHub 所提供的 OAuth 驗證 API，請參閱[驗證的基本概念](https://developer.github.com/v3/guides/basics-of-authentication/)。
 
-您可以使用任何程式碼編輯器來完成本快速入門中的步驟。 不過，Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 會是不錯的選擇。
+您可以使用任何程式碼編輯器來完成本快速入門中的步驟。 不過，於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) \(英文\) 是項不錯的選擇。
 
 本教學課程的程式碼可於 [AzureSignalR-samples GitHub 存放庫](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat)下載。
 
@@ -585,7 +587,7 @@ az webapp deployment source config-local-git --name $WebAppName \
 否則，如果您已完成快速入門範例應用程式，便可以將在此快速入門中所建立的 Azure 資源刪除，以避免衍生費用。 
 
 > [!IMPORTANT]
-> 刪除資源群組是無法回復的動作，資源群組和其內的所有資源將會永久刪除。 請確定您不會不小心刪除錯誤的資源群組或資源。 如果您是在包含有需要保留之資源的現有資源群組內，建立用來裝載此範例的資源，您可以從每個資源各自的刀鋒視窗中個別刪除每個資源，而不必刪除正個資源群組。
+> 刪除資源群組是無法回復的動作，資源群組和其內的所有資源將會永久刪除。 請確定您不會不小心刪除錯誤的資源群組或資源。 如果您是在包含有需要保留之資源的現有資源群組內，建立用來裝載此範例的資源，則可以從每個資源各自的刀鋒視窗中個別刪除每個資源，而不必刪除正個資源群組。
 > 
 > 
 
@@ -603,9 +605,7 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已新增使用 OAuth 的驗證，以提供更好的方法來使用 Azure SignalR 服務進行驗證。 若要深入了解 Azure SignalR 伺服器的使用，請繼續進行下一個會示範 Azure Functions 整合的教學課程。
+在本教學課程中，您已新增使用 OAuth 的驗證，以提供更好的方法來使用 Azure SignalR 服務進行驗證。 若要深入了解如何使用 Azure SignalR 伺服器，請繼續進行 SignalR 服務的 Azure CLI 範例。
 
 > [!div class="nextstepaction"]
-> [整合 Azure Functions 與 Azure SignalR 服務](./signalr-integrate-functions.md)
-
-
+> [Azure SignalR CLI 範例](./signalr-cli-samples.md)

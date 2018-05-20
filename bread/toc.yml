@@ -339,6 +339,9 @@
         - name: IoT 解決方案加速器
           tocHref: /azure/iot-suite/
           topicHref: /azure/iot-suite/
+        - name: IoT 中心
+          tocHref: /azure/iot-central/
+          topicHref: /azure/iot-central/
         - name: 地圖
           tocHref: /azure/azure-maps/
           topicHref: /azure/azure-maps/

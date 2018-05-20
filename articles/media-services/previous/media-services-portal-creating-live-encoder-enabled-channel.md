@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 4f512d906f9d35efbc602b104d8742bdedba7261
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b9ac1696594ab9f7cb67bb0e340c6a80158e67e2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>如何使用 Azure 媒體服務執行即時串流，以使用 Azure 入口網站建立多位元速率串流
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ ms.lasthandoff: 05/07/2018
 > 
 > 
 
-1. 將攝影機連接到電腦。 啟動和設定可使用下列其中一種通訊協定輸出單一位元速率串流的內部部署即時編碼器：RTMP、Smooth Streaming 或 RTP (MPEG-TS)。 如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](http://go.microsoft.com/fwlink/?LinkId=532824)。
+1. 將攝影機連接到電腦。 啟動和設定可使用下列其中一種通訊協定輸出單一位元速率串流的內部部署即時編碼器：RTMP 或 Smooth Streaming。 如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](http://go.microsoft.com/fwlink/?LinkId=532824)。
    
     此步驟也可以在您建立通道之後執行。
 2. 建立並啟動通道。 
@@ -95,7 +95,6 @@ ms.lasthandoff: 05/07/2018
       
       * 單一位元速率的分散 MP4 (Smooth Streaming)
       * 單一位元速率 RTMP
-      * RTP (MPEG-TS)：透過 RTP 的 MPEG-2 傳輸串流。
         
         如需每個通訊協定的詳細說明，請參閱 [使用 Azure 媒體服務的即時串流，以建立多位元速率串流](media-services-manage-live-encoder-enabled-channels.md)。
         

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20af4611920328ddcaa6e658101184451217a011
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 69ee7baeda524647dd259ea22bb948b0168fd913
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 階層式資源模型和核心概念
 
@@ -50,7 +50,7 @@ Azure Cosmos DB 管理的資料庫實體稱為「資源」。 每個資源可透
 ![Azure Cosmos DB 階層式資源模型][1]  
 **階層式資源模型**   
 
-若要開始使用資源，您必須使用 Azure 訂用帳戶[建立資料庫帳戶](create-sql-api-dotnet.md)。 資料庫帳戶包含一組**資料庫**，而每個資料庫都包含多個**集合**，且各集合因此包含預存程序、觸發程序、UDF、文件和相關**附件**。 資料庫也有相關聯的**使用者**，其中每位使用者都有一組可存取集合、預存程序、觸發程序、UDF、文件或附件的**權限**。 雖然資料庫、使用者、權限和集合都是具有已知結構描述的系統定義資源，但是文件和附件包含任意使用者定義 JSON 內容。  
+若要開始使用資源，您必須使用 Azure 訂用帳戶[建立資料庫帳戶](create-sql-api-dotnet.md)。 資料庫帳戶包含一組**資料庫**，而每個資料庫都包含多個**集合**，且各集合因此包含**預存程序、觸發程序、UDF、文件和相關附件**。 資料庫也有相關聯的**使用者**，其中每位使用者都有一組可存取集合、預存程序、觸發程序、UDF、文件或附件的**權限**。 雖然資料庫、使用者、權限和集合都是具有已知結構描述的系統定義資源，但是文件和附件包含任意使用者定義 JSON 內容。  
 
 | 資源 | 說明 |
 | --- | --- |

@@ -3,21 +3,35 @@ title: 透過 SSH 連線至 Azure Kubernetes Service (AKS) 叢集
 description: 建立 Azure Kubernetes Service (AKS) 叢集節點的 SSH 連線
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 95b385e9847a7809492bbb74bd1eba616df90d72
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>透過 SSH 連線至 Azure Kubernetes Service (AKS) 叢集
 
-有時候，您可能需要存取 Azure Kubernetes Service (AKS) 節點以進行維護、記錄收集或其他疑難排解作業。 Azure Kubernetes Service (AKS) 節點不會公開至網際網路。 請使用本文詳述的步驟建立 AKS 節點的 SSH 連線。
+有時候，您可能需要存取 Azure Kubernetes Service (AKS) 節點以進行維護、記錄收集或其他疑難排解作業。 AKS 節點不會公開至網際網路。 請使用本文詳述的步驟建立 AKS 節點的 SSH 連線。
+
+## <a name="reset-ssh-keys"></a>重設 SSH 金鑰
+
+如果您已部署 AKS 卻沒有 SSH 金鑰，或是沒有適當 SSH 金鑰的存取權，則可以使用 Azure 入口網站重設這些金鑰。
+
+瀏覽至 AKS 叢集、選取 AKS 節點 (虛擬機器)，然後選取 [重設密碼] 以重設 SSH 公開金鑰。
+
+![AKS 虛擬機器與重設密碼按鈕](media/aks-ssh/reset-password.png)
+
+選取 [重設 SSH 公開金鑰]、輸入 AKS 叢集使用者名稱 (也就是預設的 **azueruser**)，然後複製 SSH 公開金鑰。 完成後請選取 [更新]。
+
+![AKS 入口網站虛擬機器與重設密碼按鈕](media/aks-ssh/reset-password-2.png)
+
+重設 SSH 金鑰後，您就可以使用對應的私密金鑰建立 SSH 連線。
 
 ## <a name="get-aks-node-address"></a>取得 AKS 節點位址
 
@@ -56,7 +70,7 @@ NAME                       READY     STATUS    RESTARTS   AGE
 aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
 ```
 
-將 SSH 金鑰複製到 Pod，然後將 Pod 名稱取代為適當的值。
+將私密 SSH 金鑰複製到 Pod，然後將 Pod 名稱取代為適當的值。
 
 ```console
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa

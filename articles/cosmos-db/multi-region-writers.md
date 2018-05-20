@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2446fac7526015d11737529c26d54e910643b750
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>以全球規模使用 Azure Cosmos DB 的多重主機 
  
@@ -22,6 +22,25 @@ ms.lasthandoff: 05/07/2018
 ![多重主機架構](./media/multi-region-writers/multi-master-architecture.png)
 
 透過 Azure Cosmos DB 多重主機支援，您可以對散布於世界各地的資料容器 (例如集合、圖形、表格) 執行寫入。 您可以更新與您的資料庫帳戶相關聯的任何區域中的資料。 這些資料更新可用非同步方式傳播。 除了可讓您快速存取資料和縮短資料寫入延遲以外，多重主機也針對容錯移轉和負載平衡問題提供了實際的解決方案。 簡言之，您可以利用 Azure Cosmos DB 在世界上 99% 的地區獲得低於 10 毫秒的寫入延遲、在世界各地獲得 99.999% 的寫入與讀取可用性，並且可在世界各地調整寫入和讀取的輸送量。   
+
+> [!IMPORTANT]
+> 多重主機支援目前為私人預覽中，若要使用預覽版本，請立即[註冊](#sign-up-for-multi-master-support)。
+
+## <a name="sign-up-for-multi-master-support"></a>註冊多重主機支援
+
+如果您已經有 Azure 訂用帳戶，就可以在 Azure 入口網站中註冊加入多重主機預覽計劃。 如果您剛接觸到 Azure，可註冊[免費試用版](https://azure.microsoft.com/free)來取得 12 個月的免費 Azure Cosmos DB 存取權。 請完成下列步驟以要求多重主機預覽計劃的存取權。
+
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [建立資源]  >  [資料庫]  >  [Azure Cosmos DB]。  
+
+2. 在 [新帳戶] 頁面中，提供您的 Azure Cosmos DB 帳戶的名稱，選擇 API、訂用帳戶、資源群組和位置。  
+
+3. 接下來選取 [多重主機預覽] 欄位下面的 [立即註冊以預覽]。  
+
+   ![註冊多重主要預覽](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
+
+4. 在 [立即註冊以預覽] 窗格中，按一下 [確定]。 在您提交要求之後，帳戶建立刀鋒視窗中的狀態就會變更為 [待核准]。  
+
+提交要求之後，您會收到一封電子郵件通知，其中指出您的要求已核准。 由於要求的數目非常龐大，因此您應該會在一週內收到通知。 您並不需要建立支援票證來完成要求。 我們將會依照收到要求的先後順序來檢閱要求。
 
 ## <a name="a-simple-multi-master-example--content-publishing"></a>多重主機的簡單範例 – 內容發佈  
 
@@ -93,7 +112,7 @@ ms.lasthandoff: 05/07/2018
 
 **範例** - 我們假設您使用 Azure Cosmos DB 作為購物車應用程式的持續性存放區，且這個應用程式部署於兩個區域中：美國東部和美國西部。  如果大約在同一時間，位於舊金山的使用者在其購物車中新增了某項目 (例如書籍)，而美國東部的清查管理程序針對該名使用者驗證了不同購物車的項目 (例如新手機)，以回應指出發行日期延遲的供應商通知。 在時間點 T1，兩個區域的購物車記錄會不相同。 資料庫將使用其複寫和衝突解決機制來解決這項不一致，且最終將會選取兩種購物車版本的其中之一。 衝突解決啟發學習法的採用大多是由多重主機資料庫所套用的 (例如，以最後寫入的為準)，使用者或應用程式無法預測將會選取哪一個版本。 在任一情況下，資料都會遺失，或可能會發生非預期的行為。 如果選取了東部區域版本，則使用者新選購的項目 (即書籍) 就會遺失，而如果選取西部區域版本，則先前選擇的項目 (也就是電話) 仍會保留在購物車中。 無論如何，資訊都會遺失。 最後，任何在時間點 T1 和 T2 之間檢查購物車的其他程序，也都會查看不具決定性的行為。 例如，選取供貨倉儲並更新運送成本的背景程序，將會產生與購物車的最終內容衝突的結果。 如果該程序在西部區域執行，且替代方案 1 成為現實，它就會計算兩個項目的運送成本，即使購物車中可能很快就只剩下一個項目 (書籍) 亦然。 
 
-Azure Cosmos DB 實作適當邏輯來處理資料庫引擎本身的內部寫入衝突。 Azure Cosmos DB 提供**完整且彈性的衝突解決支援**；它提供數個衝突解決模型，包括自動 (CRDT - 無衝突複寫資料類型)、以最後寫入的為準 (LWW)、自訂 (預存程序) 和手動，以自動解決衝突。 衝突解決模型提供正確性與一致性保證，且讓開發人員不用費心思考應如何處理異地容錯移轉和跨區域寫入衝突時的一致性、可用性、效能、複寫延遲和事件的複雜組合。  
+Azure Cosmos DB 實作適當邏輯來處理資料庫引擎本身的內部寫入衝突。 Azure Cosmos DB 提供**完整且彈性的衝突解決支援**；它提供數個衝突解決模型，包括自動 (CRDT - 無衝突複寫資料類型)、以最後寫入的為準 (LWW)、以及自訂 (預存程序) 以自動解決衝突。 衝突解決模型提供正確性與一致性保證，且讓開發人員不用費心思考應如何處理異地容錯移轉和跨區域寫入衝突時的一致性、可用性、效能、複寫延遲和事件的複雜組合。  
 
   ![多重主機的衝突解決功能](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
 
@@ -111,7 +130,7 @@ Azure Cosmos DB 實作適當邏輯來處理資料庫引擎本身的內部寫入�
 
 * [了解 Azure Cosmos DB 如何支援全域散發](distribute-data-globally.md)  
 
-* [了解 Azure Cosmos DB 中的自動化和手動容錯移轉](regional-failover.md)  
+* [了解 Azure Cosmos DB 中的自動化容錯移轉](regional-failover.md)  
 
 * [了解 Azure Cosmos DB 的全域一致性](consistency-levels.md)  
 

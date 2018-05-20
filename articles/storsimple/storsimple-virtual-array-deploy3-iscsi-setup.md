@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure StorSimple Virtual Array iSCSI 伺服器設定 | Microsoft Docs"
-description: "說明如何執行初始安裝程序、為 StorSimple iSCSI 伺服器註冊，以及完成裝置安裝程序。"
+title: Microsoft Azure StorSimple Virtual Array iSCSI 伺服器設定 | Microsoft Docs
+description: 說明如何執行初始安裝程序、為 StorSimple iSCSI 伺服器註冊，以及完成裝置安裝程序。
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 4db116d1-978b-48e8-b572-a719a8425dbc
 ms.service: storsimple
 ms.devlang: NA
@@ -153,7 +153,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="step-3-add-a-volume"></a>步驟 3：新增磁碟區
 
-1. 在 [裝置] 刀鋒視窗中，選取您剛設定為 iSCSI 伺服器的裝置。 按一下 [...] (或以滑鼠右鍵按一下此資料列)，然後從操作功能表中選取 [新增磁碟區]。 您也可以從命令列按一下 [+ 新增磁碟區]。 這會開啟 [新增磁碟區] 刀鋒視窗。
+1. 在 [裝置] 刀鋒視窗中，選取您剛設定為 iSCSI 伺服器的裝置。 按一下 [...] \(或以滑鼠右鍵按一下此資料列)，然後從操作功能表中選取 [新增磁碟區]。 您也可以從命令列按一下 [+ 新增磁碟區]。 這會開啟 [新增磁碟區] 刀鋒視窗。
    
     ![新增磁碟區](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis10m.png)
 2. 在 [新增磁碟區] 刀鋒視窗中，執行下列動作：

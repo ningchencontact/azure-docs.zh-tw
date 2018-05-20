@@ -112,14 +112,6 @@
           href: disk-scalability-targets.md
         - name: 磁碟備份和災害復原
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: 如何啟用寫入加速器
-          href: how-to-enable-write-accelerator.md
-        - name: 針對連接的 VHD 進行疑難排解
-          items:
-            - name: 儲存體資源刪除發生錯誤
-              href: storage-resource-deletion-errors.md
-            - name: 包含連結 VHD 的 VM 非預期重新開機
-              href: unexpected-reboots-attached-vhds.md
     - name: 網路
       href: network-overview.md
     - name: 自動調整應用程式
@@ -393,6 +385,8 @@
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: 透過範本部署磁碟
           href: using-managed-disks-template-deployments.md
+        - name: 啟用寫入加速器
+          href: how-to-enable-write-accelerator.md
         - name: 效能最佳化
           href: optimization.md
           items:
@@ -500,6 +494,12 @@
               href: troubleshoot-recovery-disks.md
             - name: Azure 入口網站
               href: troubleshoot-recovery-disks-portal.md
+        - name: 連結的 VHD
+          items:
+            - name: 儲存體資源刪除發生錯誤
+              href: storage-resource-deletion-errors.md
+            - name: 包含連結 VHD 的 VM 非預期重新開機
+              href: unexpected-reboots-attached-vhds.md
 - name: 參考
   items:
     - name: Azure CLI

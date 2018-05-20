@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: e1a7c3cec7925c6fb01aafba152dde2383cee442
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>使用會建立多位元速率串流的內部部署編碼器執行即時串流
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 05/07/2018
   > 使用傳遞方法是進行即時串流的最經濟實惠方式。
 
 
-* 內部部署即時編碼器會傳送單一位元速率串流至通道，可以使用下列格式之一，以媒體服務執行即時編碼：RTP (MPEG-TS)、RTMP 或 Smooth Streaming (分散的 MP4)。 通道接著會執行即時編碼，將連入的單一位元速率串流編碼成多位元速率 (自動調整) 視訊串流。 媒體服務會將串流傳遞給要求的客戶。
+* 內部部署即時編碼器會將單一位元速率串流傳送至通道，可以使用下列格式之一，以媒體服務執行即時編碼：RTMP 或 Smooth Streaming (分散的 MP4)。 通道接著會執行即時編碼，將連入的單一位元速率串流編碼成多位元速率 (自動調整) 視訊串流。 媒體服務會將串流傳遞給要求的客戶。
 
 從媒體服務 2.10 版起，當您建立通道時，可以指定您的通道接收輸入串流的方式。 您也可以指定是否要讓通道執行您串流的即時編碼。 您有兩個選擇：
 

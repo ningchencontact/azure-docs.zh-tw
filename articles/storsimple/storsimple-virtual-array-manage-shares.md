@@ -1,11 +1,11 @@
 ---
-title: "管理 StorSimple Virtual Array 共用 | Microsoft Docs"
-description: "描述 StorSimple 裝置管理員，並說明如何使用它來管理 StorSimple Virtual Array 上的共用。"
+title: 管理 StorSimple Virtual Array 共用 | Microsoft Docs
+description: 描述 StorSimple 裝置管理員，並說明如何使用它來管理 StorSimple Virtual Array 上的共用。
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 0a799c83-fde5-4f3f-af0e-67535d1882b6
 ms.service: storsimple
 ms.devlang: na
@@ -116,7 +116,7 @@ StorSimple 服務摘要刀鋒視窗的 [共用] 功能表會顯示給定 StorSim
    
     1. 從 StorSimple 服務摘要刀鋒視窗的 [共用] 設定中，選取您想要設為離線的共用所在的虛擬陣列。
 
-    2. **選取** 共用，從操作功能表中按一下 [...] (或以滑鼠右鍵按一下此資料列)，然後選取 [離線]。
+    2. **選取** 共用，從操作功能表中按一下 [...] \(或以滑鼠右鍵按一下此資料列)，然後選取 [離線]。
      
         ![離線共用](./media/storsimple-virtual-array-manage-shares/shares-offline.png)
 
@@ -135,7 +135,7 @@ StorSimple 服務摘要刀鋒視窗的 [共用] 功能表會顯示給定 StorSim
 #### <a name="to-delete-a-share"></a>若要刪除共用
 
 1. 從 StorSimple 服務摘要刀鋒視窗的 [共用] 設定中，選取您想要刪除的共用所在的虛擬陣列。
-2. **選取** 共用，從操作功能表中按一下 [...] (或以滑鼠右鍵按一下此資料列)，然後選取 [刪除]。
+2. **選取** 共用，從操作功能表中按一下 [...] \(或以滑鼠右鍵按一下此資料列)，然後選取 [刪除]。
    
     ![刪除共用](./media/storsimple-virtual-array-manage-shares/share-delete.png)
 3. 檢查您想要刪除之共用的狀態。 如果您想要刪除的共用未離線，請先讓它離線。 請遵循[讓共用離線](#take-a-share-offline)中的步驟進行。

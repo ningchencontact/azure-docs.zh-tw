@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2c16c0414ddf023e7055a8b57c514fc069f3112a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>實作 Azure 企業 Scaffold 的範例
-本主題提供企業如何實作 [Azure 企業 Scaffold](resource-manager-subscription-governance.md)建議的範例。 它會使用名為 Contoso 的虛構公司來說明常見案例的最佳作法。
+本文提供企業如何實作 [Azure 企業 Scaffold](resource-manager-subscription-governance.md) 建議的範例。 它會使用名為 Contoso 的虛構公司來說明常見案例的最佳作法。
 
 ## <a name="background"></a>背景
-Contoso 是一家全球性公司，為客戶提供供應鏈解決方案。從「軟體即服務」模型到內部部署的封裝模型。  它們在全球各地開發軟體，並在印度、美國和加拿大設立重要的開發中心。
+Contoso 是一家全球性公司，為客戶提供供應鏈解決方案。 從「軟體即服務」模型到內部部署的封裝模型，都在其所提供的解決方案範圍內。  它們在全球各地開發軟體，並在印度、美國和加拿大設立重要的開發中心。
 
 該公司的 ISV 部份分為數個獨立的業務單位，負責管理重要業務的產品。 每個業務單位都有自己的開發人員、產品經理和架構設計人員。
 
 Enterprise Technology Services (ETS) 業務單位提供集中式的 IT 功能，可管理業務單位託管其應用程式的數個資料中心。 除了管理資料中心，ETS 組織還提供和管理集中式共同作業 (例如電子郵件和網站) 和網路/電話語音服務。 它們也會為沒有操作人員的較小業務單位管理客戶面向工作負載。
 
-本主題中使用下列人物︰
+本文會使用下列人物︰
 
 * Dave 是 ETS Azure 系統管理員。
 * Alice 是 Contoso 供應鏈業務單位的開發主管。
 
-Contoso 需要建置企業營運應用程式和客戶面向應用程式。 它已決定要在 Azure 上執行應用程式。 Dave 閱讀了[規定的訂用帳戶治理](resource-manager-subscription-governance.md)主題，現在已準備好實作各項建議。
+Contoso 需要建置企業營運應用程式和客戶面向應用程式。 它已決定要在 Azure 上執行應用程式。 Dave 閱讀了[規定的訂用帳戶治理](resource-manager-subscription-governance.md)一文，現在已準備好實作各項建議。
 
 ## <a name="scenario-1-line-of-business-application"></a>案例 1︰企業營運應用程式
-Contoso 正在建置原始程式碼管理系統 (BitBucket)，以供世界各地的開發人員使用。  此應用程式使用基礎結構即服務 (IaaS) 進行裝載，並由 Web 伺服器和資料庫伺服器所組成。 開發人員會存取其開發環境中的伺服器，但不需要存取 Azure 中的伺服器。 Contoso ETS 希望應用程式擁有者和小組都能管理應用程式。 此應用程式只能在 Contoso 的公司網路上使用。 Dave 必須為此應用程式設定訂用帳戶。 訂用帳戶在未來也會裝載其他開發人員相關的軟體。  
+Contoso 正在建置原始程式碼管理系統 (BitBucket)，以供世界各地的開發人員使用。  此應用程式使用基礎結構即服務 (IaaS) 進行裝載，並由 Web 伺服器和資料庫伺服器所組成。 開發人員會存取其開發環境中的伺服器，但不需要存取 Azure 中的伺服器。 Contoso ETS 想要讓應用程式擁有者和小組都能管理應用程式。 此應用程式只能在 Contoso 的公司網路上使用。 Dave 必須為此應用程式設定訂用帳戶。 訂用帳戶在未來也會裝載其他開發人員相關的軟體。  
 
 ### <a name="naming-standards--resource-groups"></a>命名標準與資源群組
-Dave 會建立一個訂用帳戶，以支援所有業務單位常見的開發人員工具。 他需要針對訂用帳戶和資源群組建立有意義的名稱 (適用於應用程式和網路)。 他會建立下列訂用帳戶和資源群組︰
+Dave 會建立一個訂用帳戶，以支援所有業務單位常見的開發人員工具。 Dave 需要針對訂用帳戶和資源群組建立有意義的名稱 (適用於應用程式和網路)。 他會建立下列訂用帳戶和資源群組︰
 
 | Item | Name | 說明 |
 | --- | --- | --- |
@@ -57,7 +57,7 @@ Dave 為訂用帳戶指派下列角色︰
 | 角色 | 指派對象 | 說明 |
 | --- | --- | --- |
 | [擁有者](../role-based-access-control/built-in-roles.md#owner) |Contoso AD 提供的受控識別碼 |此識別碼會透過 Contoso 的身分識別管理工具進行即時 (JIT) 存取控制，可確保完整稽核訂用帳戶擁有者存取權 |
-| [安全性管理員](../role-based-access-control/built-in-roles.md#security-manager) |安全性和風險管理部門 |此角色可讓使用者查看 Azure 資訊安全中心和資源的狀態 |
+| [安全性讀取者](../role-based-access-control/built-in-roles.md#security-reader) |安全性和風險管理部門 |此角色可讓使用者查看 Azure 資訊安全中心和資源的狀態 |
 | [網路參與者](../role-based-access-control/built-in-roles.md#network-contributor) |網路小組 |此角色可讓 Contoso 的網路小組管理站對站 VPN 和虛擬網路 |
 | *自訂角色* |應用程式擁有者 |Dave 會建立一個角色，以授與修改資源群組內資源的能力。 如需詳細資訊，請參閱 [Azure RBAC 中的自訂角色](../role-based-access-control/custom-roles.md) |
 
@@ -72,7 +72,7 @@ Dave 管理訂用帳戶中資源的需求如下︰
 
 | 欄位 | 效果 | 說明 |
 | --- | --- | --- |
-| location |稽核 |稽核在任何區域中的資源建立 |
+| 位置 |稽核 |稽核在任何區域中的資源建立 |
 | type |deny |拒絕建立 G 系列虛擬機器 |
 | tags |deny |需要應用程式擁有者標籤 |
 | tags |deny |需要成本中心標籤 |
@@ -115,7 +115,7 @@ Dave 無法自動執行此應用程式。 雖然他建立了 Azure 自動化帳�
 ### <a name="azure-security-center"></a>Azure 資訊安全中心
 Contoso IT 服務管理部門需要快速識別及處理威脅。 他們也想要了解可能存在的問題。  
 
-為了滿足這些需求，Dave 啟用了 [Azure 資訊安全中心](../security-center/security-center-intro.md)，並提供安全性管理員角色的存取權。
+為了滿足這些需求，Dave 啟用了 [Azure 資訊安全中心](../security-center/security-center-intro.md)，並提供安全性讀取者角色的存取權。
 
 ## <a name="scenario-2-customer-facing-app"></a>案例 2︰客戶面向應用程式
 供應鏈業務單位的業務領導者已找出利用忠誠卡來增加 Contoso 客戶參與的各種機會。 Alice 的小組必須建立此應用程式，並決定 Azure 可提高其滿足商務需求的能力。 Alice 與來自 ETS 組織的 Dave 一起設定兩個可供開發和操作此應用程式的訂用帳戶。
@@ -135,7 +135,7 @@ Dave 和 Alice 一起討論應用程式並認定此應用程式只為北美地�
 
 | 欄位 | 效果 | 說明 |
 | --- | --- | --- |
-| location |稽核 |稽核在任何區域中的資源建立 |
+| 位置 |稽核 |稽核在任何區域中的資源建立 |
 
 他們不會限制使用者可以在開發環境中建立的 SKU 類型，而且不需要任何資源群組或資源的標籤。
 
@@ -143,7 +143,7 @@ Dave 和 Alice 一起討論應用程式並認定此應用程式只為北美地�
 
 | 欄位 | 效果 | 說明 |
 | --- | --- | --- |
-| location |deny |拒絕在美國資料中心以外建立任何資源 |
+| 位置 |deny |拒絕在美國資料中心以外建立任何資源 |
 | tags |deny |需要應用程式擁有者標籤 |
 | tags |deny |需要部門標籤 |
 | tags |附加 |將標籤附加至每個表示生產環境的資源群組 |

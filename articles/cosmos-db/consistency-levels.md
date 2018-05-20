@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0f38d05dc720dd596c81a51abf7040ac062e8158
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 Tunable 資料一致性層級
 Azure Cosmos DB 是針對每個資料模型考量到全球發佈的全新設計。 它的設計目的是提供可預測的低延遲保證，以及多個定義完善且寬鬆的一致性層級模型。 Azure Cosmos DB 目前提供五種一致性層級：強式、限定過期、工作階段、一致的前置和最終。 限定過期、工作階段、一致前置詞、最終，統稱為「寬鬆的一致性模型」，因為它們提供的一致性比強式更小，後者是最高一致性的模型。 
@@ -44,7 +44,7 @@ Azure Cosmos DB 是針對每個資料模型考量到全球發佈的全新設計�
 | 一致性層級 | 保證 |
 | --- | --- |
 | 強式 | 線性化能力。 保證讀取一定會傳回最新版本的項目。|
-| 限定過期 | 一致前置詞。 讀取落後寫入 (k 前置詞或 t 間隔) |
+| 限定過期 | 一致前置詞。 讀取延遲寫入 (最多 k 前置詞或 t 間隔) |
 | 工作階段   | 一致前置詞。 單純讀取、單純寫入、讀取您的寫入、讀取後接寫入 |
 | 一致前置詞 | 傳回的更新是所有更新的部分前置詞 (沒有間隔) |
 | 最終  | 次序錯誤讀取 |

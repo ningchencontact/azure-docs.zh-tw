@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: e593f58f6b92e562067401381cfce06d5fb18e29
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 78f29cd4a20861e40bb7f7f398979b8d93387a7b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
 
@@ -302,7 +302,7 @@ module.exports = function(context) {
 您應該定義函式應用程式根目錄的 `package.json` 檔案。 定義檔案可讓應用程式中的所有函式共用相同的快取套件，以提供最佳效能。 發生版本衝突時，您可以在特定函式的資料夾中新增 `package.json` 檔案來解決它。  
 
 ## <a name="environment-variables"></a>環境變數
-若要取得環境變數或應用程式設定值，請使用 `process.env`，如下列程式碼範例所示：
+若要取得環境變數或應用程式設定值，請使用 `process.env`，如下列 `GetEnvironmentVariable` 函式中所示：
 
 ```javascript
 module.exports = function (context, myTimer) {

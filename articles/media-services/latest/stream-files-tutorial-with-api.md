@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 1f0ce5599cce7fc830075e57af1bcba80d0e69e7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7e5054d6f59bb3e06e4148bd9cfb3caed9fec970
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>教學課程：使用 API 上傳、編碼和串流影片
 
@@ -66,17 +66,7 @@ ms.lasthandoff: 05/07/2018
 
 若要開始搭配使用媒體服務 API 與 .NET，您需要建立 **AzureMediaServicesClient** 物件。 若要建立物件，您需要提供必要的認證，讓用戶端使用 Azure AD 連線至 Azure。 您必須先取得權杖，然後從傳回的權杖中建立 **ClientCredential** 物件。 在文章一開始所複製的程式碼中，**ArmClientCredential** 物件會用來取得權杖。  
 
-```csharp
-private static IAzureMediaServicesClient CreateMediaServicesClient(ConfigWrapper config)
-{
-    ArmClientCredentials credentials = new ArmClientCredentials(config);
-
-    return new AzureMediaServicesClient(config.ArmEndpoint, credentials)
-    {
-        SubscriptionId = config.SubscriptionId,
-    };
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateMediaServicesClient)]
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>建立輸入資產並將本機檔案上傳到其中 
 
@@ -90,61 +80,13 @@ private static IAzureMediaServicesClient CreateMediaServicesClient(ConfigWrapper
 * 取得可寫入的 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)，以存取[儲存體中的資產容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
 * 使用 SAS URL，將檔案上傳至儲存體中的容器
 
-```csharp
-private static Asset CreateInputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName, string fileToUpload)
-{
-    // Check if an Asset already exists.
-    Asset asset = client.Assets.Get(resourceGroupName, accountName, assetName);
-
-    if (asset == null)
-    {
-        asset = client.Assets.CreateOrUpdate(resourceGroupName, accountName, assetName, new Asset());
-
-        var response = client.Assets.ListContainerSas(
-                resourceGroupName,
-                accountName,
-                assetName,
-                permissions: AssetContainerPermission.ReadWrite,
-                expiryTime: DateTime.UtcNow.AddHours(4).ToUniversalTime()
-            );
-
-        var sasUri = new Uri(response.AssetContainerSasUrls.First());
-        CloudBlobContainer container = new CloudBlobContainer(sasUri);
-        var blob = container.GetBlockBlobReference(Path.GetFileName(fileToUpload));
-        blob.UploadFromFile(fileToUpload);
-    }
-
-    // In this sample method, we are going to assume that if an Asset already exists with the desired name, 
-    // then we can go ahead an use it for encoding or analyzing.
-
-    return asset;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
 ### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>建立要儲存作業結果的輸出資產 
 
 輸出資產會儲存您的編碼作業結果。 專案會定義 **DownloadResults** 函式，以將結果從此輸出資產下載至「輸出」資料夾，因此您可以看到結果。
 
-```csharp
-private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName)
-{
-    // Check if an Asset already exists
-    Asset outputAsset = client.Assets.Get(resourceGroupName, accountName, assetName);
-    Asset asset = new Asset();
-    string outputAssetName = assetName;
-
-    if (outputAsset != null)
-    {
-        // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
-        // Note that the returned Asset can have a different name than the one specified as an input parameter.
-        // You may want to update this part to throw an Exception instead, and handle name collisions differently.
-        string uniqueness = @"-" + Guid.NewGuid().ToString();
-        outputAssetName += uniqueness;
-    }
-
-    return client.Assets.CreateOrUpdate(resourceGroupName, accountName, outputAssetName, asset);
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
 ### <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>建立轉換和編碼上傳檔案的作業
 在媒體服務中編碼或處理內容時，將編碼設定設為配方 (recipe) 是很常見的模式。 然後您可以透過提交**作業**，將該配方套用到影片。 藉由為每部新影片提交新的作業，您可以將該配方套用到媒體櫃中的所有影片。 配方在媒體服務中稱為「**轉換 (Transform)**」。 如需詳細資訊，請參閱[轉換和作業](transform-concept.md)。 本教學課程中所述的範例會定義編碼影片的配方，以便將影片串流到各種 iOS 和 Android 裝置。 
@@ -157,36 +99,7 @@ private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string 
 
 建立**轉換**時，您應該先使用 **Get** 方法檢查是否已有轉換存在，如下列程式碼所示。  在媒體服務 v3 中，如果實體不存在，對實體執行的 **Get** 方法會傳回 **null** (檢查名稱時不區分大小寫)。
 
-```csharp
-private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
-    string resourceGroupName,
-    string accountName,
-    string transformName)
-{
-    // Does a Transform already exist with the desired name? Assume that an existing Transform with the desired name
-    // also uses the same recipe or Preset for processing content.
-    Transform transform = client.Transforms.Get(resourceGroupName, accountName, transformName);
-
-    if (transform == null)
-    {
-        // Start by defining the desired outputs.
-        TransformOutput[] outputs = new TransformOutput[]
-        {
-            new TransformOutput
-            {
-                Preset = new BuiltInStandardEncoderPreset()
-                {
-                    PresetName = EncoderNamedPreset.AdaptiveStreaming
-                }
-            }
-        };
-
-        transform = client.Transforms.CreateOrUpdate(resourceGroupName, accountName, transformName, outputs);
-    }
-
-    return transform;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#EnsureTransformExists)]
 
 #### <a name="job"></a>工作 (Job)
 
@@ -194,44 +107,7 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
 
 在此範例中，輸入影片已從本機電腦上傳。 如果您想要了解如何從 HTTPS URL 進行編碼，請參閱[這篇](job-input-from-http-how-to.md)文章。
 
-```csharp
-private static Job SubmitJob(IAzureMediaServicesClient client, 
-    string resourceGroupName, 
-    string accountName, 
-    string transformName, 
-    string jobName, 
-    JobInput jobInput, 
-    string outputAssetName)
-{
-    string uniqueJobName = jobName;
-    Job job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
-
-    if (job != null)
-    {
-        // Job already exists with the same name, so let's append a GUID
-        string uniqueness = @"-" + Guid.NewGuid().ToString();
-        uniqueJobName += uniqueness;
-    }
-
-    JobOutput[] jobOutputs =
-    {
-        new JobOutputAsset(outputAssetName),
-    };
-
-    job = client.Jobs.Create(
-        resourceGroupName,
-        accountName,
-        transformName,
-        jobName,
-        new Job
-        {
-            Input = jobInput,
-            Outputs = jobOutputs,
-        });
-
-    return job;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
 
 ### <a name="wait-for-the-job-to-complete"></a>請等待作業完成
 
@@ -241,43 +117,7 @@ private static Job SubmitJob(IAzureMediaServicesClient client,
 
 **作業**通常會經歷下列狀態：**已排程**、**已排入佇列**、**正在處理**、**已完成** (最後一個狀態)。 如果作業發生錯誤，您會收到**錯誤**狀態。 如果正在取消作業，您會收到**正在取消**的狀態，以及完成時的**已取消**狀態。
 
-```csharp
-private static Job WaitForJobToFinish(IAzureMediaServicesClient client,
-    string resourceGroupName,
-    string accountName,
-    string transformName,
-    string jobName)
-{
-    int SleepInterval = 60 * 1000;
-
-    Job job = null;
-
-    while (true)
-    {
-        job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
-
-        if (job.State == JobState.Finished || job.State == JobState.Error || job.State == JobState.Canceled)
-        {
-            break;
-        }
-
-        Console.WriteLine($"Job is {job.State}.");
-        for (int i = 0; i < job.Outputs.Count; i++)
-        {
-            JobOutput output = job.Outputs[i];
-            Console.Write($"\tJobOutput[{i}] is {output.State}.");
-            if (output.State == JobState.Processing)
-            {
-                Console.Write($"  Progress: {output.Progress}");
-            }
-            Console.WriteLine();
-        }
-        System.Threading.Thread.Sleep(SleepInterval);
-    }
-
-    return job;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
 
 ### <a name="get-a-streaminglocator"></a>取得 StreamingLocator
 
@@ -292,26 +132,7 @@ private static Job WaitForJobToFinish(IAzureMediaServicesClient client,
 
 下列程式碼假設您要呼叫具有唯一 locatorName 的函式。
 
-```csharp
-private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client,
-                                                        string resourceGroup,
-                                                        string accountName,
-                                                        string assetName,
-                                                        string locatorName)
-{
-    StreamingLocator locator =
-        client.StreamingLocators.Create(resourceGroup,
-        accountName,
-        locatorName,
-        new StreamingLocator()
-        {
-            AssetName = assetName,
-            StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly,
-        });
-
-    return locator;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateStreamingLocator)]
 
 雖然本主題中的範例是在討論串流處理，但您可以使用相同的呼叫來建立 StreamingLocator，以透過漸進式下載來傳遞影片。
 
@@ -322,57 +143,13 @@ private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient
 > [!NOTE]
 > 在此方法中，您需要 locatorName，也就是為輸出資產建立 **StreamingLocator** 時所使用的項目。
 
-```csharp
-static IList<string> GetStreamingURLs(
-    IAzureMediaServicesClient client,
-    string resourceGroupName,
-    string accountName,
-    String locatorName)
-{
-    IList<string> streamingURLs = new List<string>();
-
-    string streamingUrlPrefx = "";
-
-    StreamingEndpoint streamingEndpoint = client.StreamingEndpoints.Get(resourceGroupName, accountName, "default");
-
-    if (streamingEndpoint != null)
-    {
-        streamingUrlPrefx = streamingEndpoint.HostName;
-
-        if (streamingEndpoint.ResourceState != StreamingEndpointResourceState.Running)
-            client.StreamingEndpoints.Start(resourceGroupName, accountName, "default");
-    }
-
-    foreach (var path in client.StreamingLocators.ListPaths(resourceGroupName, accountName, locatorName).StreamingPaths)
-    {
-        streamingURLs.Add("http://" + streamingUrlPrefx + path.Paths[0].ToString());
-    }
-
-    return streamingURLs;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#GetStreamingURLs)]
 
 ### <a name="clean-up-resources-in-your-media-services-account"></a>清除媒體服務帳戶中的資源
 
 一般而言，您應清除所有項目，只保留想要重複使用的物件 (您通常會重複使用轉換並且保存 StreamingLocators 等)。 如果您想要在實驗之後有乾淨的帳戶，您應刪除不打算重複使用的資源。  例如，下列程式碼會刪除作業。
 
-```csharp
-static void CleanUp(IAzureMediaServicesClient client,
-        string resourceGroupName,
-        string accountName,
-        string transformName)
-{
-    foreach (var job in client.Jobs.List(resourceGroupName, accountName, transformName))
-    {
-        client.Jobs.Delete(resourceGroupName, accountName, transformName, job.Name);
-    }
-
-    foreach (var asset in client.Assets.List(resourceGroupName, accountName))
-    {
-        client.Assets.Delete(resourceGroupName, accountName, asset.Name);
-    }
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CleanUp)]
 
 ## <a name="run-the-sample-app"></a>執行範例應用程式
 

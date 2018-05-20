@@ -3,17 +3,17 @@ title: Azure 上的 Kubernetes 教學課程 - 調整應用程式
 description: AKS 教學課程 - 調整應用程式
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 6af564a1dc33b6382e70aaad107122034377a95e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7b962ccd8349996cd33cc3960391cba8fce549ad
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-scale-application-in-azure-kubernetes-service-aks"></a>教學課程：調整 Azure Kubernetes Service (AKS) 中的應用程式
 

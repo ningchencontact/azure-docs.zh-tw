@@ -11,11 +11,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: omidm
-ms.openlocfilehash: 9875d9884f04d26ebfbd44e858beb272c2306958
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 31b58176a75918cf68cda695f27216031670493e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>管理已加入網域的 HDInsight 叢集
 認識已加入網域的 HDInsight 叢集中的使用者和角色，了解如何管理已加入網域的 HDInsight 叢集。
@@ -101,6 +101,8 @@ ms.lasthandoff: 04/19/2018
 |互動式查詢 (LLAP)|互動式|<ul><li>[Beeline](#beeline)</li><li>[Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio 工具](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |任意|安裝自訂應用程式|<ul><li>[指令碼動作](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
+   > [!NOTE]
+   > 企業安全性套件不會安裝/支援 Jupyter。
 
 從安全性觀點來說，使用標準 API 會有所幫助。 此外，還有下列優點：
 

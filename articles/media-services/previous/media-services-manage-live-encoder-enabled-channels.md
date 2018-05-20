@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 05/08/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: f5bee7b85a423ba7a1b0b36b4b6910275551849c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c4d5533c443d27afa56471ce048efc5a375f6780
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒體服務執行即時串流，以建立多位元速率串流
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/07/2018
 ## <a name="overview"></a>概觀
 在 Azure 媒體服務 (AMS) 中， **通道** 代表一個管線，負責處理即時資料流內容。 **通道** 會以兩種方式之一收到即時輸入串流：
 
-* 內部部署即時編碼器會傳送單一位元速率串流至通道，可以使用下列格式之一，以媒體服務執行即時編碼：RTP (MPEG-TS)、RTMP 或 Smooth Streaming (分散的 MP4) 。 通道接著會執行即時編碼，將連入的單一位元速率串流編碼成多位元速率 (自動調整) 視訊串流。 接到要求時，媒體服務會傳遞串流給客戶。
+* 內部部署即時編碼器會將單一位元速率串流傳送至通道，可以使用下列格式之一，以媒體服務執行即時編碼：RTMP 或 Smooth Streaming (分散的 MP4)。 通道接著會執行即時編碼，將連入的單一位元速率串流編碼成多位元速率 (自動調整) 視訊串流。 接到要求時，媒體服務會傳遞串流給客戶。
 * 內部部署即時編碼器會將多位元速率 **RTMP** 或 **Smooth Streaming** (分散式 MP4) 傳送到未啟用執行 AMS 即時編碼的通道。 內嵌的串流會通過 **通道**，而不需任何進一步處理。 此方法稱為 **傳遞**。 您可以使用下列輸出多位元速率 Smooth Streaming 的即時編碼器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco 和 Elemental。 下列即時編碼器會輸出 RTMP：Adobe Flash Media Live Encoder (FMLE)、Telestream Wirecast、Haivision、Teradek 和 Tricaster 編碼器。  即時編碼器也會將單一位元速率串流傳送至無法用於即時編碼的通道，但是不建議您使用此方法。 接到要求時，媒體服務會傳遞串流給客戶。
   
   > [!NOTE]
@@ -79,7 +79,7 @@ ms.lasthandoff: 05/07/2018
 未使用時間的臨界值在表面上是 12 小時，但這是可以變更的。
 
 ## <a name="live-encoding-workflow"></a>即時編碼工作流程
-下圖代表即時串流工作流程，其中通道可使用下列其中一種通訊協定接收單一位元速率串流：RTMP、Smooth Streaming 或 RTP (MPEG-TS)；然後它會將串流編碼為多位元速率串流。 
+下圖代表即時串流工作流程，其中通道可使用下列其中一種通訊協定接收單一位元速率串流：RTMP 或 Smooth Streaming；然後它會將串流編碼為多位元速率串流。 
 
 ![即時工作流程][live-overview]
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 05/07/2018
 > 
 > 
 
-1. 將攝影機連接到電腦。 啟動和設定可使用下列其中一種通訊協定輸出 **單一** 位元速率串流的內部部署即時編碼器：RTMP、Smooth Streaming 或 RTP (MPEG-TS)。 
+1. 將攝影機連接到電腦。 啟動和設定可使用下列其中一種通訊協定輸出 **單一** 位元速率串流的內部部署即時編碼器：RTMP 或 Smooth Streaming。 
    
     此步驟也可以在您建立通道之後執行。
 2. 建立並啟動通道。 
@@ -125,48 +125,8 @@ ms.lasthandoff: 05/07/2018
 ### <a id="Ingest_Protocols"></a>嵌入串流通訊協定
 如果**編碼器類型**設為**標準**，有效的選項如下：
 
-* **RTP** (MPEG-TS)：透過 RTP 的 MPEG-2 傳輸串流。  
 * 單一位元速率 **RTMP**
 * 單一位元速率 **分散的 MP4** (Smooth Streaming)
-
-#### <a name="rtp-mpeg-ts---mpeg-2-transport-stream-over-rtp"></a>RTP (MPEG-TS) - 透過 RTP 的 MPEG-2 傳輸串流。
-典型的使用案例： 
-
-專業的廣播器通常使用供應商 (如 Elemental Technologies、Ericsson、Ateme、Imagine 或 Envivio) 提供的高階內部部署即時編碼器來傳送串流。 通常會和 IT 部門和私人網路一起使用。
-
-考量：
-
-* 強烈建議使用單一程式傳輸串流 (SPTS) 輸入。 
-* 您可以透過 RTP 使用 MPEG-2 TS 輸入最多 8 個音訊串流。 
-* 視訊串流的平均位元速率應低於 15 Mbps
-* 視訊串流的彙總平均位元速率應低於 1 Mbps
-* 以下是支援的轉碼器：
-  
-  * Mpeg-2 / H.262 視訊 
-    
-    * 主要設定檔 (4:2:0)
-    * 高設定檔 (4:2:0, 4:2:2)
-    * 422 設定檔 (4:2:0, 4:2:2)
-  * MPEG-4 AVC / H.264 視訊  
-    
-    * 基準、主要、高設定檔 (8-bit 4:2:0)
-    * 高 10 設定檔 (10 位元 4:2:0)
-    * 高 422 設定檔 (10 位元 4:2:2)
-  * Mpeg-2 AAC-LC 音訊 
-    
-    * 單聲道、立體聲、環繞 (5.1、7.1)
-    * MPEG-2 樣式 ADTS 封裝
-  * Dolby Digital (AC-3) 音訊 
-    
-    * 單聲道、立體聲、環繞 (5.1、7.1)
-  * MPEG 音訊 (Layer II 和 III) 
-    
-    * 單聲道、立體聲
-* 建議的廣播編碼器包含：
-  
-  * Imagine Communications Selenio ENC 1
-  * Imagine Communications Selenio ENC 2
-  * Elemental Live
 
 #### <a id="single_bitrate_RTMP"></a>單一位元速率 RTMP
 考量：
@@ -232,36 +192,21 @@ ms.lasthandoff: 05/07/2018
 本節說明通道的**編碼類型**設為**標準**時，如何調整通道中即時編碼器的設定。
 
 > [!NOTE]
-> 使用 Azure 輸入多個語言資料軌及執行即時編碼時，多語言輸入僅支援 RTP。 您可以透過 RTP 使用 MPEG-2 TS 定義最多 8 個音訊串流。 目前不支援使用 RTMP 或 Smooth Streaming 內嵌多個音軌。 使用 [內部部署即時編碼器](media-services-live-streaming-with-onprem-encoders.md)執行即時編碼時，並沒有這類限制，因為傳送至 AMS 的所有項目都會通過通道，而不需要進一步處理。
+> 發佈摘要只能包含單一的音訊播放軌，目前不支援擷取多個音訊音軌。 當使用[內部部署即時編碼](media-services-live-streaming-with-onprem-encoders.md)進行即時編碼時，您可以透過 Smooth Streaming 通訊協定傳送發佈摘要且包含多個音訊音軌。
 > 
 > 
 
 ### <a name="ad-marker-source"></a>Ad 標記來源
 您可以指定 ad 標記信號的來源。 預設值為 **Api**，其指出通道內的即時編碼器應該接聽非同步 **Ad 標記 API**。
 
-另一個有效的選項是 **Scte35** (只有內嵌串流通訊協定設為 RTP (MPEG-TS) 時才允許。 指定 Scte35 時，即時編碼器將會剖析來自輸入 RTP (MPEG-TS) 串流的 SCTE 35 信號。
-
 ### <a name="cea-708-closed-captions"></a>CEA 708 隱藏式輔助字幕
 選擇性旗標會通知即時編碼器略過任何內嵌於連入視訊的 CEA 708 字幕資料。 當旗標設為 false (預設值) 時，編碼器會偵測 CEA 708 資料並將其重新插入至輸出視訊串流。
-
-### <a name="video-stream"></a>視訊串流
-選用。 描述輸入視訊串流。 如果未指定此欄位，則會使用預設值。 輸入串流通訊協定設為 RTP (MPEG-TS) 時，才允許這項設定。
-
-#### <a name="index"></a>索引
-以零起始的索引，會指定通道內的即時編碼器應處理哪一個輸入視訊串流。 只有當內嵌串流通訊協定是 RTP (MPEG-TS) 時才適用此設定。
-
-預設值為零。 建議您傳送單一程式傳輸串流 (SPTS)。 如果輸入串流包含多個程式，即時編碼器會剖析輸入中的程式對應資料表 (PMT)、識別具有串流類型名稱 MPEG-2 視訊或 H.264 的輸入，並以 PMT 中指定的順序加以排列。 接著會使用以零起始的索引，在排列中挑選第 n 個項目。
-
-### <a name="audio-stream"></a>音訊串流
-選用。 描述輸入音訊串流。 如果未指定此欄位，則會套用預設值。 輸入串流通訊協定設為 RTP (MPEG-TS) 時，才允許這項設定。
 
 #### <a name="index"></a>索引
 建議您傳送單一程式傳輸串流 (SPTS)。 如果輸入串流包含多個程式，通道內的即時編碼器會剖析輸入中的程式對應資料表 (PMT)、識別具有串流類型名稱 MPEG-2 AAC ADTS 或 AC-3 System-A 或 AC-3 System-B 或 MPEG-2 Private PES 或 MPEG-1 音訊或 MPEG-2 音訊的輸入，並以 PMT 中指定的順序加以排列。 接著會使用以零起始的索引，在排列中挑選第 n 個項目。
 
 #### <a name="language"></a>語言
 音訊串流的語言識別碼，符合 ISO 639-2，例如 ENG。 如果不存在，則預設為 UND (未定義)。
-
-如果通道的輸入是透過 RTP 的 MPEG-2，則可指定高達 8 個音訊串流集。 不過，不會有具備相同索引值的兩個項目。
 
 ### <a id="preset"></a>系統預設
 指定由此通道內之即時編碼器所使用的預設內容。 目前，唯一允許的值是 **Default720p** (預設值)。
@@ -387,13 +332,11 @@ slate 的持續時間，以秒為單位。 必須為非零的正整數值才能�
 * 只有當您的通道處於 **執行中** 狀態時，才會向您計費。 若需詳細資訊，請參閱 [這個](media-services-manage-live-encoder-enabled-channels.md#states) 章節。
 * 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amslived@microsoft.com。
 * 確定您想要串流內容的串流端點已處於 [執行中] 狀態。
-* 使用 Azure 輸入多個語言資料軌及執行即時編碼時，多語言輸入僅支援 RTP。 您可以透過 RTP 使用 MPEG-2 TS 定義最多 8 個音訊串流。 目前不支援使用 RTMP 或 Smooth Streaming 內嵌多個音軌。 使用 [內部部署即時編碼器](media-services-live-streaming-with-onprem-encoders.md)執行即時編碼時，並沒有這類限制，因為傳送至 AMS 的所有項目都會通過通道，而不需要進一步處理。
 * 編碼預設採用「畫面播放速率上限」30fps 的概念。 因此，如果輸入是 60fps/59.97i，輸入畫面會降低/去交錯為 30/29.97 fps。 如果輸入是 50fps/50i，輸入畫面會降低/去交錯為 25 fps。 如果輸入是 25 fps，輸出會保持為 25 fps。
 * 切記在完成時停止您的通道。 如果您忘記，計費會繼續。
 
 ## <a name="known-issues"></a>已知問題
 * 通道啟動時間也改進至平均 2 分鐘，但是有時候因為需求增加，可能仍然需要多達 20 分鐘以上的時間。
-* 為專業的廣播者建立 RTP 支援。 請先檢閱 [這個](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) 部落格中的 RTP 注意事項。
 * 靜態圖像映像應該符合 [這裡](media-services-manage-live-encoder-enabled-channels.md#default_slate)所述的限制。 如果您嘗試建立預設 slate 大於 1920 x 1080 的通道，要求最後將會發生錯誤。
 * 再次重申....切記在完成串流時停止您的通道。 如果您忘記，計費會繼續。
 

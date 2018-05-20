@@ -104,6 +104,16 @@
       items:
         - name: 概觀
           href: sql-database-security-overview.md
+        - name: 進階威脅防護
+          href: sql-advanced-threat-protection.md
+        - name: 資料探索與分類
+          href: sql-database-data-discovery-and-classification.md
+        - name: 弱點評估
+          href: sql-vulnerability-assessment.md
+        - name: 威脅偵測 - SQL Database
+          href: sql-database-threat-detection.md
+        - name: 威脅偵測 - 受控執行個體
+          href: sql-database-managed-instance-threat-detection.md
         - name: 防火牆規則
           href: sql-database-firewall-configure.md
         - name: 防火牆虛擬網路規則
@@ -120,18 +130,10 @@
           href: sql-database-auditing.md
         - name: 稽核 - 受控執行個體
           href: sql-database-managed-instance-auditing.md
-        - name: 威脅偵測 - SQL Database
-          href: sql-database-threat-detection.md
-        - name: 威脅偵測 - 受控執行個體
-          href: sql-database-managed-instance-threat-detection.md
         - name: 資料表稽核與 TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: 動態資料遮罩
           href: sql-database-dynamic-data-masking-get-started.md
-        - name: 弱點評估
-          href: sql-vulnerability-assessment.md
-        - name: 資料探索與分類
-          href: sql-database-data-discovery-and-classification.md
     - name: 業務持續性
       items:
         - name: 概觀

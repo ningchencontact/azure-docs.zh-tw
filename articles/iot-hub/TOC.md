@@ -292,6 +292,7 @@
 # 資源
 ## [Azure IoT 認證裝置目錄](https://catalog.azureiotsuite.com/)
 ## [Azure IoT 開發人員中心](https://azure.microsoft.com/develop/iot/)
+## [客戶資料要求](iot-hub-customer-data-requests.md)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [DeviceExplorer 工具](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics 工具](https://github.com/Azure/iothub-diagnostics)

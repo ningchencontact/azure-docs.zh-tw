@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: a228443a787db2cc71a7700b978d8f52edb59e14
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 54c49645722b6545d8ae872151b9b82674d44523
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>教學課程：使用 Azure 媒體服務分析影片 
 
@@ -62,42 +62,14 @@ ms.lasthandoff: 05/07/2018
 
 若要開始搭配使用媒體服務 API 與 .NET，您需要建立 **AzureMediaServicesClient** 物件。 若要建立物件，您需要提供必要的認證，讓用戶端使用 Azure AD 連線至 Azure。 您必須先取得權杖，然後從傳回的權杖中建立 **ClientCredential** 物件。 在文章一開始所複製的程式碼中，**ArmClientCredential** 物件會用來取得權杖。  
 
-```csharp
-private static IAzureMediaServicesClient CreateMediaServicesClient(ConfigWrapper config)
-{
-    ArmClientCredentials credentials = new ArmClientCredentials(config);
-
-    return new AzureMediaServicesClient(config.ArmEndpoint, credentials)
-    {
-        SubscriptionId = config.SubscriptionId,
-    };
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateMediaServicesClient)]
 
 ### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>建立要儲存作業結果的輸出資產 
 
 輸出資產會儲存您的作業結果。 專案會定義 **DownloadResults** 函式，以將結果從此輸出資產下載至「輸出」資料夾，因此您可以看到結果。
 
-```csharp
-private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName)
-{
-    // Check if an Asset already exists
-    Asset outputAsset = client.Assets.Get(resourceGroupName, accountName, assetName);
-    Asset asset = new Asset();
-    string outputAssetName = assetName;
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateOutputAsset)]
 
-    if (outputAsset != null)
-    {
-        // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
-        // Note that the returned Asset can have a different name than the one specified as an input parameter.
-        // You may want to update this part to throw an Exception instead, and handle name collisions differently.
-        string uniqueness = @"-" + Guid.NewGuid().ToString();
-        outputAssetName += uniqueness;
-    }
-
-    return client.Assets.CreateOrUpdate(resourceGroupName, accountName, outputAssetName, asset);
-}
-```
 ### <a name="create-a-transform-and-a-job-that-analyzes-videos"></a>建立分析影片的轉換和作業
 
 在媒體服務中編碼或處理內容時，將編碼設定設為配方 (recipe) 是很常見的模式。 然後您可以透過提交**作業**，將該配方套用到影片。 藉由為每部新影片提交新的作業，您可以將該配方套用到媒體櫃中的所有影片。 配方在媒體服務中稱為「**轉換 (Transform)**」。 如需詳細資訊，請參閱[轉換和作業](transform-concept.md)。 本教學課程中所述的範例會定義用來分析指定影片的配方。 
@@ -108,73 +80,15 @@ private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string 
 
 建立**轉換**時，您應該先使用 **Get** 方法檢查是否已有轉換存在，如下列程式碼所示。  在媒體服務 v3 中，如果實體不存在，對實體執行的 **Get** 方法會傳回 **null** (檢查名稱時不區分大小寫)。
 
-```csharp
-private static Transform EnsureTransformExists(IAzureMediaServicesClient client, 
-    string resourceGroupName, 
-    string accountName, 
-    string transformName, 
-    Preset preset)
-{
-    // Does a Transform already exist with the desired name? Assume that an existing Transform with the desired name
-    // also uses the same recipe or Preset for processing content.
-    Transform transform = client.Transforms.Get(resourceGroupName, accountName, transformName);
-
-    if (transform == null)
-    {
-        // Start by defining the desired outputs.
-        TransformOutput[] outputs = new TransformOutput[]
-        {
-            new TransformOutput(preset),
-        };
-
-        transform = client.Transforms.CreateOrUpdate(resourceGroupName, accountName, transformName, outputs);
-    }
-
-    return transform;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#EnsureTransformExists)]
 
 #### <a name="job"></a>工作 (Job)
 
 如同前面所述，**轉換**物件是配方，而**作業**則是實際要求媒體服務，將**轉換**套用至指定的輸入影片或音訊內容。 **作業**會指定輸入影片的位置、輸出的位置等資訊。 您可以使用下列項目指定影片的位置：HTTPS URL、SAS URL 或媒體服務帳戶的資產。 
 
-在此範例中，輸入影片會從指定的 HTTPS URL 上傳。  
+在此範例中，工作輸入是本機影片。  
 
-```csharp
-private static Job SubmitJob(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, string jobName, string outputAssetName)
-{
-    JobInputHttp jobInput =
-        new JobInputHttp(files: new[] { "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4" });
-            
-    string uniqueJobName = jobName;
-    Job job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
-
-    if (job != null)
-    {
-        // Job already exists with the same name, so let's append a GUID
-        string uniqueness = @"-" + Guid.NewGuid().ToString();
-        uniqueJobName += uniqueness;
-    }
-
-    JobOutput[] jobOutputs =
-    {
-        new JobOutputAsset(outputAssetName),
-    };
-
-    job = client.Jobs.Create(
-                resourceGroupName,
-                accountName,
-                transformName,
-                uniqueJobName,
-                new Job
-                {
-                    Input = jobInput,
-                    Outputs = jobOutputs,
-                });
-
-    return job;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#SubmitJob)]
 
 ### <a name="wait-for-the-job-to-complete"></a>請等待作業完成
 
@@ -186,107 +100,19 @@ private static Job SubmitJob(IAzureMediaServicesClient client, string resourceGr
 
 **作業**通常會經歷下列狀態：**已排程**、**已排入佇列**、**正在處理**、**已完成** (最後一個狀態)。 如果作業發生錯誤，您會收到**錯誤**狀態。 如果正在取消作業，您會收到**正在取消**的狀態，以及完成時的**已取消**狀態。
 
-```csharp
-private static Job WaitForJobToFinish(IAzureMediaServicesClient client,
-    string resourceGroupName,
-    string accountName,
-    string transformName,
-    string jobName)
-{
-    int SleepInterval = 60 * 1000;
-
-    Job job = null;
-
-    while (true)
-    {
-        job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
-
-        if (job.State == JobState.Finished || job.State == JobState.Error || job.State == JobState.Canceled)
-        {
-            break;
-        }
-
-        Console.WriteLine($"Job is {job.State}.");
-        for (int i = 0; i < job.Outputs.Count; i++)
-        {
-            JobOutput output = job.Outputs[i];
-            Console.Write($"\tJobOutput[{i}] is {output.State}.");
-            if (output.State == JobState.Processing)
-            {
-                Console.Write($"  Progress: {output.Progress}");
-            }
-            Console.WriteLine();
-        }
-        System.Threading.Thread.Sleep(SleepInterval);
-    }
-
-    return job;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#WaitForJobToFinish)]
 
 ### <a name="download-the-result-of-the-job"></a>下載作業結果
 
- 下列函式會將結果從輸出資產下載至「輸出」資料夾，因此您可以檢查作業的結果。 
+下列函式會將結果從輸出資產下載至「輸出」資料夾，因此您可以檢查作業的結果。 
 
-```csharp
-private static void DownloadResults(IAzureMediaServicesClient client,
-    string resourceGroup,
-    string accountName,
-    string assetName,
-    string resultsFolder)
-{
-    AssetContainerSas assetContainerSas = client.Assets.ListContainerSas(
-            resourceGroup,
-            accountName,
-            assetName,
-            permissions: AssetContainerPermission.Read,
-            expiryTime: DateTime.UtcNow.AddHours(1).ToUniversalTime()
-            );
-
-    Uri containerSasUrl = new Uri(assetContainerSas.AssetContainerSasUrls.FirstOrDefault());
-    CloudBlobContainer container = new CloudBlobContainer(containerSasUrl);
-
-    string directory = Path.Combine(resultsFolder, assetName);
-    Directory.CreateDirectory(directory);
-
-    Console.WriteLine("Downloading results to {0}.", directory);
-
-    foreach (IListBlobItem blobItem in container.ListBlobs(null, true, BlobListingDetails.None))
-    {
-        if (blobItem is CloudBlockBlob)
-        {
-            CloudBlockBlob blob = blobItem as CloudBlockBlob;
-            string filename = Path.Combine(directory, blob.Name);
-
-            blob.DownloadToFile(filename, FileMode.Create);
-        }
-    }
-
-    Console.WriteLine("Download complete.");
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 
 ### <a name="clean-up-resource-in-your-media-services-account"></a>清除媒體服務帳戶中的資源
 
 一般而言，您應清除所有項目，只保留想要重複使用的物件 (您通常會重複使用轉換並且保存 StreamingLocators 等)。 如果您想要在實驗之後有乾淨的帳戶，您應刪除不打算重複使用的資源。 例如，下列程式碼會刪除作業。
 
-```csharp
-static void CleanUp(IAzureMediaServicesClient client,
-        string resourceGroupName,
-        string accountName, 
-        string transformName)
-{
-    foreach (var job in client.Jobs.List(resourceGroupName, accountName, transformName))
-    {
-        client.Jobs.Delete(resourceGroupName, accountName, transformName, job.Name);
-    }
-
-    foreach (var asset in client.Assets.List(resourceGroupName, accountName))
-    {
-        client.Assets.Delete(resourceGroupName, accountName, asset.Name);
-    }
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
 
 ## <a name="run-the-sample-app"></a>執行範例應用程式
 

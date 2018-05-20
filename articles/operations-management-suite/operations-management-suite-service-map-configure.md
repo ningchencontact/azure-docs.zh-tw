@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c01d18b17906a2b243a46241a6ec5c4b1d9ab8d9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 90a1a7c836c0cd75adf003e8f7cdad4f90f42f51
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中設定服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/28/2018
 | 檔案 | 作業系統 | 版本 | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.0 | 4125A88E60650FF168D6254AB4FCD14CDD3CC1C7B4CF168F3F5F3C1AF30895DD  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
 
 
 ## <a name="connected-sources"></a>連接的來源

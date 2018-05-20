@@ -5,14 +5,14 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/30/2018
+ms.date: 5/9/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 4fe1f2ad4bad9d670094bbb4eed188baf28108ea
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 4db9fe907ab6625fcad74ceae59f17115458a3ea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="write-accelerator"></a>寫入加速器
 寫入加速器在具有 Azure 受控磁碟的進階儲存體上，是 M 系列虛擬機器 (VM) 專屬的磁碟功能。 如同名稱所示，這個功能的目的是針對 Azure 進階儲存體改善寫入的 I/O 延遲。 需要記錄檔更新，才能以高效能的方式保存到新式資料庫的磁碟時，寫入加速器是最理想的選擇。
@@ -164,6 +164,21 @@ Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 
 ![Azure 入口網站上的寫入加速器](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
+### <a name="enabling-through-azure-cli"></a>透過 Azure CLI 啟用
+您可以使用 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) 啟用寫入加速器。 
+
+若要在現有磁碟上啟用寫入加速器，請使用下列命令，將 diskName、VMName 和 ResourceGroup 取代為您自己的值： 
+```
+az vm update -g group1 -n vm1 –write-accelerator 1=true
+```
+若要連接啟用了寫入加速器的磁碟，請使用下列命令和您的值：
+```
+az vm disk attach -g group1 –vm-name vm1 –disk d1 --enable-write-accelerator
+```
+若要停用寫入加速器，請將該屬性設定為 false： 
+```
+az vm update -g group1 -n vm1 –write-accelerator 0=false 1=false
+```
 
 ### <a name="enabling-through-rest-apis"></a>透過 Rest API 啟用
 若要透過 Azure Rest API 部署，您需要安裝 Azure ARMClient

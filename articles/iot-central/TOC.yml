@@ -1,0 +1,109 @@
+- name: Azure IoT 基礎
+  href: /azure/iot-fundamentals
+- name: Azure IoT Central 文件
+  href: index.yml
+- name: 概觀
+  items:
+    - name: 何謂 Azure IoT Central
+      href: overview-iot-central.md
+    - name: IoT 解決方案選項
+      href: overview-iot-options.md
+    - name: UI 導覽
+      href: overview-iot-central-tour.md
+- name: 快速入門
+  expanded: true
+  items:
+    - name: 建立新的應用程式
+      href: quick-deploy-iot-central.md
+- name: 教學課程
+  items:
+    - name: 建立器
+      items:
+        - name: 1 - 定義新的裝置類型
+          href: tutorial-define-device-type.md
+        - name: 2 - 設定規則
+          href: tutorial-configure-rules.md
+        - name: 3 - 自訂操作者檢視
+          href: tutorial-customize-operator.md
+    - name: 操作者
+      items:
+        - name: 4 - 監視您的裝置
+          href: tutorial-monitor-devices.md
+        - name: 5 - 新增裝置
+          href: tutorial-add-device.md
+- name: 概念
+  items:
+    - name: 架構
+      href: concepts-architecture.md
+    - name: 連線能力
+      href: concepts-connectivity.md
+- name: 使用說明指南
+  items:
+    - name: 管理員
+      items:
+        - name: 建立應用程式
+          href: howto-create-application.md
+        - name: 管理您的應用程式
+          href: howto-administer.md
+    - name: 建立器
+      items:
+        - name: 設定裝置範本
+          href: howto-set-up-template.md
+        - name: 版本裝置範本
+          href: howto-version-devicetemplate.md
+        - name: 建立遙測規則
+          href: howto-create-telemetry-rules.md
+        - name: 建立事件規則
+          href: howto-create-event-rules.md
+        - name: 準備及上傳映像
+          href: howto-prepare-images.md
+    - name: 運算子
+      items:
+        - name: 管理您的裝置
+          href: howto-manage-devices.md
+        - name: 使用裝置設定
+          href: howto-use-device-sets.md
+        - name: 建立自訂分析
+          href: howto-create-analytics.md
+    - name: 裝置開發人員
+      items:
+        - name: 準備及連線 Node.js (一般) 應用程式
+          href: howto-connect-nodejs.md
+        - name: 準備及連線 MXChip IoT DevKit
+          href: howto-connect-devkit.md
+        - name: 準備及連線 Raspberry Pi (Python)
+          href: howto-connect-raspberry-pi-python.md
+        - name: '準備及連線 Raspberry Pi (C#)'
+          href: howto-connect-raspberry-pi-csharp.md
+        - name: 準備及連線 Windows IoT Core 裝置
+          href: howto-connect-windowsiotcore.md
+- name: 相關參考
+  items:
+    - name: 解決方案
+      items:
+        - name: IoT 套件預先設定解決方案
+          href: /azure/iot-suite
+        - name: IoT 中心
+          href: /microsoft-iot-central
+    - name: 平台服務
+      items:
+        - name: IoT 中樞
+          href: /azure/iot-hub
+        - name: IoT 中樞裝置佈建服務
+          href: /azure/iot-dps
+        - name: 位置服務
+          href: /azure/location-based-services
+        - name: 服務 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: 時間序列深入解析
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 裝置 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+- name: 資源
+  items:
+    - name: 堆疊溢位
+      href: 'https://stackoverflow.com/questions/tagged/azure-iot-central'

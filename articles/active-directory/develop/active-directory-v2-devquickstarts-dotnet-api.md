@@ -1,38 +1,40 @@
 ---
-title: "使用 Azure AD v2.0 端點將登入新增至 .NET MVC Web API | Microsoft Docs"
-description: "如何建置 .NET MVC Web 應用程式，以從個人 Microsoft 帳戶及公司或學校帳戶接受權杖。"
+title: 使用 Azure AD v2.0 端點將登入新增至 .NET MVC Web API | Microsoft Docs
+description: 如何建置 .NET MVC Web 應用程式，以從個人 Microsoft 帳戶及公司或學校帳戶接受權杖。
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e77bc4e0-d0c9-4075-a3f6-769e2c810206
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 65f25e2496065ca1aaba443a9d6b3e29239e0218
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: aa73e918cbd49fee850e402859708ba0c4185a19
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="secure-an-mvc-web-api"></a>保護 MVC web API
 Azure Active Directory 的 v2.0 端點可讓您使用 [OAuth 2.0](active-directory-v2-protocols.md) 存取權杖保護 Web API，具有個人 Microsoft 帳戶以及公司或學校帳戶的使用者，也能夠安全地存取您的 Web API。
 
 > [!NOTE]
-> v2.0 端點並非支援每個 Azure Active Directory 案例和功能。  如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
+> v2.0 端點並非支援每個 Azure Active Directory 案例和功能。 如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
 >
 >
 
-在 ASP.NET Web API 中，您可以使用隨附於 .NET Framework 4.5 的 Microsoft OWIN 中介軟體來完成此項作業。  在這裡，我們將使用 OWIN 組建可讓用戶端透過使用者待辦事項清單建立和讀取工作的「待辦事項清單」MVC Web API。  Web API 會驗證傳入的要求是否包含有效的存取權杖，以及拒絕所有受保護路由上未通過驗證的要求。  這個範例是使用 Visual Studio 2015 建置的。
+在 ASP.NET Web API 中，您可以使用隨附於 .NET Framework 4.5 的 Microsoft OWIN 中介軟體來完成此項作業。 在這裡，我們將使用 OWIN 組建可讓用戶端透過使用者待辦事項清單建立和讀取工作的「待辦事項清單」MVC Web API。 Web API 會驗證傳入的要求是否包含有效的存取權杖，以及拒絕所有受保護路由上未通過驗證的要求。 這個範例是使用 Visual Studio 2015 建置的。
 
 ## <a name="download"></a>下載
-本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet)上。  若要遵循執行，您可以 [用 .zip 格式下載應用程式的基本架構](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) ，或複製基本架構：
+本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet)上。 若要遵循執行，您可以 [用 .zip 格式下載應用程式的基本架構](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) ，或複製基本架構：
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -45,11 +47,11 @@ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
 ## <a name="register-an-app"></a>註冊應用程式
-在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。  請確定：
+在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。 請確定：
 
 * 將指派給您應用程式的 **應用程式識別碼** 複製起來，您很快會需要用到這些識別碼。
 
-本 Visual Studio 方案也包含了「TodoListClient」，這是一個簡單的 WPF 應用程式。  TodoListClient 可用來示範使用者如何登入，以及如何向您的 Web API 發出要求。  在此案例中，TodoListClient 和 TodoListService 都由相同的應用程式代表。  如需設定 TodoListClient，您也應該：
+本 Visual Studio 方案也包含了「TodoListClient」，這是一個簡單的 WPF 應用程式。 TodoListClient 可用來示範使用者如何登入，以及如何向您的 Web API 發出要求。 在此案例中，TodoListClient 和 TodoListService 都由相同的應用程式代表。 如需設定 TodoListClient，您也應該：
 
 * 為您的應用程式新增 **行動** 平台。
 
@@ -66,8 +68,8 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 ```
 
 ## <a name="configure-oauth-authentication"></a>設定 OAuth 驗證
-* 將 OWIN 啟動類別加入至名為 `Startup.cs`的 TodoListService 專案。  以滑鼠右鍵按一下專案 --> [新增]  -->  [新增項目] --> 搜尋 "OWIN"。  OWIN 中介軟體將會在應用程式啟動時叫用 `Configuration(…)` 方法。
-* 將類別宣告變更為 `public partial class Startup`，我們已為您在另一個檔案中實作了此類別的一部分。  在 `Configuration(…)` 方法中，請呼叫 ConfgureAuth(...) 以設定您的 Web 應用程式驗證。
+* 將 OWIN 啟動類別加入至名為 `Startup.cs`的 TodoListService 專案。 以滑鼠右鍵按一下專案 --> [新增]  -->  [新增項目] --> 搜尋 "OWIN"。 OWIN 中介軟體將會在應用程式啟動時叫用 `Configuration(…)` 方法。
+* 將類別宣告變更為 `public partial class Startup`，我們已為您在另一個檔案中實作了此類別的一部分。 在 `Configuration(…)` 方法中，請呼叫 ConfgureAuth(...) 以設定您的 Web 應用程式驗證。
 
 ```csharp
 public partial class Startup
@@ -95,7 +97,7 @@ public void ConfigureAuth(IAppBuilder app)
 
                 // In a real applicaiton, you might use issuer validation to
                 // verify that the user's organization (if applicable) has
-                // signed up for the app.  Here, we'll just turn it off.
+                // signed up for the app. Here, we'll just turn it off.
 
                 ValidateIssuer = false,
         };
@@ -105,7 +107,7 @@ public void ConfigureAuth(IAppBuilder app)
         // that will be recieved, which are JWTs for the v2.0 endpoint.
 
         // NOTE: The usual WindowsAzureActiveDirectoryBearerAuthenticaitonMiddleware uses a
-        // metadata endpoint which is not supported by the v2.0 endpoint.  Instead, this
+        // metadata endpoint which is not supported by the v2.0 endpoint. Instead, this
         // OpenIdConenctCachingSecurityTokenProvider can be used to fetch & use the OpenIdConnect
         // metadata document.
 
@@ -116,7 +118,7 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
-* 現在，您可以使用 `[Authorize]` 屬性並搭配 OAuth 2.0 承載驗證來保護您的控制器和動作。  使用授權標記裝飾 `Controllers\TodoListController.cs` 類別。  這樣會強制使用者在存取該頁面之前必須先登入。
+* 現在，您可以使用 `[Authorize]` 屬性並搭配 OAuth 2.0 承載驗證來保護您的控制器和動作。 使用授權標記裝飾 `Controllers\TodoListController.cs` 類別。 這樣會強制使用者在存取該頁面之前必須先登入。
 
 ```csharp
 [Authorize]
@@ -124,13 +126,13 @@ public class TodoListController : ApiController
 {
 ```
 
-* 當授權的呼叫者成功叫用其中一個 `TodoListController` API 時，此動作可能需要存取呼叫者的相關資訊。  OWIN 可讓您透過 `ClaimsPrincipal` 物件存取持有人權杖內部的宣告。  
+* 當授權的呼叫者成功叫用其中一個 `TodoListController` API 時，此動作可能需要存取呼叫者的相關資訊。 OWIN 可讓您透過 `ClaimsPrincipal` 物件存取持有人權杖內部的宣告。 
 
 ```csharp
 public IEnumerable<TodoItem> Get()
 {
     // You can use the ClaimsPrincipal to access information about the
-    // user making the call.  In this case, we use the 'sub' or
+    // user making the call. In this case, we use the 'sub' or
     // NameIdentifier claim to serve as a key for the tasks in the data store.
 
     Claim subject = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier);
@@ -150,14 +152,14 @@ public IEnumerable<TodoItem> Get()
 * 在 TodoListClient 專案中，開啟 `App.config` 並在 [`<appSettings>`] 區段中輸入您的設定值。
   * 您從入口網站複製的 `ida:ClientId` 應用程式識別碼。
 
-最後，清除、建置並執行每個專案！  您現在已有 .NET MVC Web API，可從個人 Microsoft 帳戶及公司或學校帳戶接受權杖。  登入 TodoListClient，然後呼叫 web api 以將工作加入至使用者的待辦事項清單。
+最後，清除、建置並執行每個專案！  您現在已有 .NET MVC Web API，可從個人 Microsoft 帳戶及公司或學校帳戶接受權杖。 登入 TodoListClient，然後呼叫 web api 以將工作加入至使用者的待辦事項清單。
 
 如需參考， [此處以 .zip 格式提供](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip)完整範例 (不含您的組態值)，您也可以從 GitHub 予以複製：
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
 ## <a name="next-steps"></a>後續步驟
-您現在可以繼續探索其他主題。  您可以嘗試：
+您現在可以繼續探索其他主題。 您可以嘗試：
 
 [從 Web 應用程式呼叫 Web API >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 

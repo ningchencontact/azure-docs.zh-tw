@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 05/09/2018
 ms.author: magoedte
-ms.openlocfilehash: d824272f5b5569971eddcf0a43bd5ba97f60f506
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c86d1274ed46ff725c9db3093a8852fbae7f67ff
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics 中的 Wire Data 2.0 (預覽) 解決方案
 
@@ -379,7 +379,7 @@ rpm -e dependency-agent dependency-agent-connector
 
 ## <a name="using-the-wire-data-20-solution"></a>使用 Wire Data 2.0 解決方案
 
-在 OMS 入口網站中，按一下 [Wire Data 2.0] 磚以開啟 Wire Data 儀表板。 此儀表板包含下表中的刀鋒視窗。 每個刀鋒視窗最多會列出 10 個與該刀鋒視窗中指定範圍和時間範圍的準則相符的項目。 您可以按一下刀鋒視窗底部的 [查看全部]，或按一下刀鋒視窗標頭，以執行記錄搜尋來傳回所有記錄。
+在 Azure 入口網站 Log Analytics 工作區的 [概觀] 頁面中，按一下 [Wire Data 2.0] 磚以開啟 [Wire Data] 儀表板。 此儀表板包含下表中的刀鋒視窗。 每個刀鋒視窗最多會列出 10 個與該刀鋒視窗中指定範圍和時間範圍的準則相符的項目。 您可以按一下刀鋒視窗底部的 [查看全部]，或按一下刀鋒視窗標頭，以執行記錄搜尋來傳回所有記錄。
 
 | **刀鋒視窗** | **說明** |
 | --- | --- |

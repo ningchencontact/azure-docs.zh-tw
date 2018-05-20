@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 5af348bfdccb9392948af962cf582e33ebd40872
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 347b7d183839868f3b52adbdfd00b38cee3f3fbc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services-formerly-azure-devtest-labs"></a>教學課程：使用 Azure 實驗室服務 (先前稱為 DevTest Labs) 來設定實驗室帳戶
 在本教學課程中，您會以實驗室管理員的身分，使用 Azure 實驗室服務來建立實驗室帳戶。 然後，您會提供授課者可在此實驗室帳戶中為其班級建立實驗室的權限。 授課者可以使用 [Azure 實驗室服務網站](https://labs.azure.com) 來設定班級的實驗室。   
@@ -29,16 +29,15 @@ ms.lasthandoff: 05/07/2018
 > * 建立實驗室帳戶
 > * 將使用者新增至實驗室建立者角色
 
-## <a name="prerequisites"></a>先決條件
-
-- 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
-- Azure 實驗室服務目前處於有限預覽階段。 若要建立實驗室帳戶，[請註冊預覽版](https://aka.ms/azlabspreviewsignup)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
 ## <a name="create-a-lab-account"></a>建立實驗室帳戶
 下列步驟將說明如何透過 Azure 入口網站使用 Azure 實驗室服務，來建立實驗室。 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 從左邊的主功能表中，選取 [建立資源] (位於清單的頂端)，指向 [開發人員工具]，然後按一下 [實驗室服務] \(預覽\)。
+2. 在左側主功能表中，選取 [建立資源]。
+3. 在 Azure Marketplace 中搜尋 [Lab Services] \(實驗室服務\)，然後選取下拉式清單中的 [Lab Services] \(實驗室服務\)。 
+4. 在篩選的服務清單中，選取 [Lab Services (Preview)] \(實驗室服務 (預覽)\)。 
 1. 在 [建立實驗室帳戶] 視窗中，選取 [建立]。
 2. 在 [實驗室帳戶] 視窗中，執行下列動作： 
     1. 針對 [實驗室帳戶名稱] 輸入名稱。 

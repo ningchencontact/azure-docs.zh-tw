@@ -3,16 +3,16 @@ title: Azure Kubernetes Service 的常見問題集
 description: 提供一些關於 Azure Kubernetes Service 常見問題的解答。
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 2/14/2018
+ms.date: 05/09/2018
 ms.author: nepeters
-ms.openlocfilehash: 55006a3f0193c96849c52f87ab01dc13ac0c7a16
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3152dc69bc8fb9a94111f85976e5d999c4b18261
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -28,9 +28,7 @@ ms.lasthandoff: 05/07/2018
 - 加拿大東部
 - 美國中部
 - 美國東部
-- 東南亞
 - 西歐
-- 美國西部 2
 
 ## <a name="when-will-additional-regions-be-added"></a>何時會新增其他區域？
 
@@ -42,7 +40,7 @@ Azure 會透過夜間排程將安全性修補程式自動套用至叢集中的�
 
 - 手動、透過 Azure 入口網站，或透過 Azure CLI。
 - 藉由升級 AKS 叢集。 叢集會自動升級 [cordon 和 drain 節點](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/)，然後使用最新的 Ubuntu 映像加以備份。 在節點上更新作業系統映像，無需透過在 `az aks upgrade` 指定目前叢集版本以變更 Kubernetes 版本。
-- 使用 [Kured](https://github.com/weaveworks/kured)，這是一款針對 Kubernetes 所推出的的開放原始碼重新啟動精靈。 Kured 會以 [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) 執行，並監視每個節點，查看是否有檔案指示需重新啟動。 然後按照先前所述的相同的 cordon 和 drain 程序，在整個叢集中協調這些重新啟動作業。
+- 使用 [Kured](https://github.com/weaveworks/kured)，這是一款針對 Kubernetes 所推出的開放原始碼重新啟動精靈。 Kured 會以 [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) 執行，並監視每個節點，查看是否有檔案指示需重新啟動。 然後按照先前所述的相同的 cordon 和 drain 程序，在整個叢集中協調這些重新啟動作業。
 
 ## <a name="do-you-recommend-customers-use-acs-or-aks"></a>是否建議客戶使用 ACS 或 AKS？
 
@@ -62,7 +60,7 @@ Azure 會透過夜間排程將安全性修補程式自動套用至叢集中的�
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>可以將 AKS 部署到我現有的虛擬網路嗎？
 
-無法，這項功能尚無法使用，但即將可行。
+是，透過[進階網路功能](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md)即可支援此操作。
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault 是否會與 AKS 整合？
 
@@ -70,7 +68,7 @@ Azure 會透過夜間排程將安全性修補程式自動套用至叢集中的�
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>我是否可以在 AKS 上執行 Windows Server 容器？
 
-不可以，AKS 目前未提供以 Windows Server 為基礎的代理程式節點，因此您無法執行 Windows Server 容器。 如果您需要在 Azure 中的 Kubernetes 上執行 Windows Server 容器，請參閱 [acs 引擎的說明文件](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md)。
+若要執行 Windows Server 容器，您需要執行以 Windows Server 為基礎的節點。 以 Windows Server 為基礎的節點目前為[個人預覽版](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/)。 如果您需要在非預覽版 Azure 中的 Kubernetes 上執行 Windows Server 容器，請參閱 [acs 引擎的說明文件](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md)。
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>為何會使用 AKS 建立兩個資源群組？
 

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ba73f386a19cc8bedb8879e6f7eea316154b7a57
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fcbeb6bbd090fc31febb326d3cbef90187d3e7e3
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 記憶體最佳化的虛擬機器大小的記憶體與 CPU 比例相當高，最適合關聯式資料庫伺服器、中型到大型快取，以及記憶體內部分析。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量和網路頻寬的相關資訊。 
 
@@ -26,9 +26,11 @@ ms.lasthandoff: 04/23/2018
 
 * Ev3 系列以超執行緒組態搭配 E5-2673 v4 2.3 GHz (Broadwell) 處理器，可為多數一般用途的工作負載提供更好的價值主張，並且讓 Ev3 更為符合其他多數雲端的一般用途 VM 的需求。  除了記憶體已擴充 (從 7 GiB/vCPU 到 8 GiB/vCPU)，磁碟和網路限制也已就個別核心進行調整，以符合移轉至超執行緒的需求。  Ev3 承襲了 D/Dv2 系列的高記憶體 VM 大小。
 
-## <a name="esv3-series-sup1sup"></a>Esv3 系列 <sup>1</sup>
+* Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制，而且為單一客戶專用。  這些虛擬機器大小最適合需要與其他客戶高度隔離，且涉及合規性和法規要求等元素的工作負載。  客戶也可以選擇使用 [Azure 的巢狀虛擬機器支援](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/)，進一步細分這些隔離虛擬機器的資源。  請參閱下方的虛擬機器系列表格，了解您的隔離 VM 選項。
 
-ACU：160-190
+## <a name="esv3-series"></a>Esv3 系列 
+
+ACU：160-190 <sup>1</sup>
 
 ESv3 系列執行個體以 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 處理器為基礎，且搭配 Intel 渦輪加速技術 2.0 可達 3.5 GHz 並可使用進階儲存體。 Ev3 系列執行個體很適合記憶體密集型的企業應用程式。
 
@@ -51,16 +53,16 @@ ESv3 系列執行個體以 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 處理�
 <sup>3</sup> 執行個體會隔離至單一客戶專用的硬體。
 
 
-## <a name="ev3-series-sup1sup"></a>Ev3 系列 <sup>1</sup>
+## <a name="ev3-series"></a>Ev3 系列 
 
-ACU：160 - 190 
+ACU：160 - 190 <sup>1</sup>
 
 Ev3 系列執行個體以 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 處理器為基礎，且搭配 Intel 渦輪加速技術 2.0 可達 3.5 GHz。 Ev3 系列執行個體很適合記憶體密集型的企業應用程式。
 
 資料磁碟儲存體與虛擬機器分開計費。 若要使用進階儲存體磁碟，請使用 ESv3 大小。 ESv3 大小的定價及計費方式與 Ev3 系列相同。 
 
 
-| 大小            | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大暫存儲存體輸送量：IOPS / 讀取 MBps / 寫入 MBps | 最大 NIC/網路頻寬 |
+| 大小            | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大暫存儲存體輸送量：IOPS / 讀取 MBps / 寫入 MBps | 最大 NIC / 網路頻寬 |
 |-----------------|-----------|-------------|----------------|----------------|----------------------------------------------------------|------------------------------|
 | Standard_E2_v3  | 2         | 16          | 50             | 4              | 3000/46/23                                               | 2 / 1,000                 |
 | Standard_E4_v3  | 4         | 32          | 100            | 8              | 6000/93/46                                               | 2 / 2,000                 |
@@ -75,9 +77,9 @@ Ev3 系列執行個體以 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 處理器
 <sup>2</sup> 可用限制核心大小。 
 
 
-## <a name="m-series-sup1sup"></a>M 系列 <sup>1</sup>
+## <a name="m-series"></a>M 系列 
 
-ACU：160-180
+ACU：160-180 <sup>1</sup>
 
 | 大小            | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量︰IOPS / MBps (以 GiB 為單位的快取大小) | 最大取消快取的磁碟輸送量︰IOPS / MBps | 最大 NIC/預期的網路頻寬 (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
@@ -95,9 +97,9 @@ ACU：160-180
 <sup>4</sup> 執行個體會隔離至單一客戶專用的硬體。
 <br>
 
-## <a name="gs-series-sup1sup"></a>GS 系列 <sup>1</sup>
+## <a name="gs-series"></a>GS 系列 
 
-ACU：180 - 240
+ACU：180 - 240 <sup>1</sup>
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量︰IOPS / MBps (以 GiB 為單位的快取大小) | 最大取消快取的磁碟輸送量︰IOPS / MBps | 最大 NIC/預期的網路頻寬 (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -131,9 +133,9 @@ ACU：180 - 240
 <br>
 
 
-## <a name="dsv2-series-sup1sup"></a>DSv2 系列 <sup>1</sup>
+## <a name="dsv2-series"></a>DSv2 系列 
 
-ACU：210 - 250
+ACU：210 - 250 <sup>1</sup>
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量︰IOPS / MBps (以 GiB 為單位的快取大小) | 最大取消快取的磁碟輸送量︰IOPS / MBps | 最大 NIC/預期的網路頻寬 (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -174,9 +176,9 @@ ACU：210 - 250
 
 <br>
 
-## <a name="ds-series-sup1sup"></a>DS 系列 <sup>1</sup>
+## <a name="ds-series"></a>DS 系列 
 
-ACU：160
+ACU：160 <sup>1</sup>
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量︰IOPS / MBps (以 GiB 為單位的快取大小) | 最大取消快取的磁碟輸送量︰IOPS / MBps | 最大 NIC/預期的網路頻寬 (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

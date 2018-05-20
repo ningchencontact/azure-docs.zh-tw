@@ -39,7 +39,7 @@
           href: search-fiddler.md
 - name: 教學課程
   items:
-    - name: 使用認知搜尋編製索引
+    - name: 認知搜尋開發
       href: cognitive-search-tutorial-blob.md
     - name: 為 Azure SQL Database 編製索引
       href: search-indexer-tutorial.md
@@ -73,11 +73,11 @@
   items:
     - name: 計劃與設計
       items:
-        - name: 選擇 SKU
+        - name: 選擇階層。
           href: search-sku-tier.md
         - name: 服務限制
           href: search-limits-quotas-capacity.md
-        - name: 服務延展性
+        - name: 配置分割區和複本
           href: search-capacity-planning.md
         - name: 多組織用戶的樣式
           href: search-modeling-multitenant-saas-applications.md

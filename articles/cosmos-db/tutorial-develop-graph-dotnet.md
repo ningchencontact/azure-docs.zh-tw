@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 3391213600300067ad1685e4f8cccacbf52de86e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a442b6c3c8e2b8a781ee54f41a2e0db5b44b7395
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配圖形 API 進行開發
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
@@ -110,7 +110,7 @@ Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { I
 DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync( 
     UriFactory.CreateDatabaseUri("graphdb"), 
     new DocumentCollection { Id = "graphcollz" }, 
-    new RequestOptions { OfferThroughput = 1000 }); 
+    new RequestOptions { OfferThroughput = 400 }); 
 ``` 
 
 ## <a id="serializing"></a>將頂點和邊緣序列化為 .NET 物件

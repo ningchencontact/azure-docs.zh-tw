@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 5569a7608a61b4e79a03264e0ccf62682782264b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6318b6aafda972242239ce91abb0f67a15721e1e
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench 組態參考
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 05/07/2018
 | properties | [識別碼](#identifiers)的集合。 代表可在使用者體驗工具中進行鏈結關閉讀取或視覺化的資料。 | yes |
 | 建構函式 | 定義用於建立工作流程執行個體的輸入參數。 | yes |
 | Functions | 可在工作流程中執行的[函式](#functions)集合。 | yes |
-| States | 工作流程[狀態](#states)的集合。 | yes |
+| 狀態 | 工作流程[狀態](#states)的集合。 | yes |
 
 如需範例，請參閱[組態檔範例](#configuration-file-example)。
 
@@ -176,7 +176,7 @@ ms.lasthandoff: 05/07/2018
 | 說明 | 狀態的說明。 | 否 |
 | PercentComplete | Blockchain Workbench 使用者介面中所顯示的整數值，用來顯示商務邏輯控制流程內的進度。 | yes |
 | Style | 指出狀態是表示成功還是失敗狀態的視覺提示。 有效值有兩個：`Success` 或 `Failure`。 | yes |
-| Transitions | 可從目前狀態進入到下一組狀態的[轉換](#transitions)集合。 | 否 |
+| 轉換 | 可從目前狀態進入到下一組狀態的[轉換](#transitions)集合。 | 否 |
 
 ### <a name="states-example"></a>狀態範例
 
@@ -491,5 +491,6 @@ ms.lasthandoff: 05/07/2018
 ```
 ## <a name="next-steps"></a>後續步驟
 
-[部署 Azure Blockchain Workbench](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [部署 Azure Blockchain Workbench](blockchain-workbench-deploy.md)
 

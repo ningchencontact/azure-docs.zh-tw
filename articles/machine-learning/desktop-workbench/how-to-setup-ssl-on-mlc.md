@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: 444803eeb77e79a8bfe3271ddf27bd428042c875
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 81649277c0cb2f4b00ce856be5efcce6121b1be4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>在 Azure Machine Learning 計算 (MLC) 叢集上啟用 SSL 
 
@@ -47,7 +47,15 @@ az ml env create -c -g <resource group name> -n <cluster name> --cert-cname <CNA
 
 ## <a name="set-up-an-ssl-certificate-on-an-existing-acs-cluster"></a>在現有 ACS 叢集上設定 SSL 憑證
 
-如果您的目標叢集在建立時未附加 SSL，您可以使用 Azure PowerShell Cmdlet 新增憑證： 
+如果您的目標叢集在建立時未附加 SSL，您可以使用 Azure PowerShell Cmdlet 新增憑證。
+
+您需要提供原始 PEM 格式的金鑰和憑證。 上述項目可讀入為 PowerShell 變數：
+
+```
+$keyValueInPemFormat = [IO.File]::ReadAllText('<path to key.pem file>')
+$certValueInPemFormat = [IO.File]::ReadAllText('<path to cert.pem file>')
+```
+將憑證新增至叢集： 
 
 ```
 Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enabled -SslCertificate $certValueInPemFormat -SslKey $keyValueInPemFormat -SslCName foo.mycompany.com

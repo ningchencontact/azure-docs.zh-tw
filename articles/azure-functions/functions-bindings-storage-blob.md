@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 447f9867649c7c3a44c8a0ba894e037040023f79
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
@@ -31,23 +31,42 @@ ms.lasthandoff: 04/23/2018
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!NOTE]
-> Blob 觸發程序不支援[僅限 Blob 的儲存體帳戶](../storage/common/storage-create-storage-account.md#blob-storage-accounts)。 Blob 儲存體觸發程序需要一般用途的儲存體帳戶。 對於輸入和輸出繫結，您可以使用僅限 Blob 的儲存體帳戶。
-
 ## <a name="packages"></a>封裝
 
 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 套件中提供 Blob 儲存體繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub 存放庫中。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+> [!NOTE]
+> 在僅限 Blob 的儲存體帳戶上以 Event Grid 觸發程序取代 Blob 儲存體觸發程序，可獲得高延展性，也能避免冷啟動延遲。 如需詳細資訊，請參閱下列**觸發程序**一節。 
+
 ## <a name="trigger"></a>觸發程序
 
-偵測到新的或已更新的 Blob 時，使用 Blob 儲存體觸發程序啟動函數。 Blob 內容會當成函式輸入提供。
+偵測到新的或已更新的 Blob 時，Blob 儲存體觸發程序會啟動函式。 Blob 內容會當成函式輸入提供。
 
-> [!NOTE]
-> 當您在使用情況方案中使用 blob 觸發程序時，函數應用程式進入閒置狀態之後，處理新 blob 最多會有 10 分鐘的延遲。 在函數應用程式開始執行之後，會立即處理 blob。 為了避免發生此初始延遲，請考慮下列做法︰
-> - 使用 App Service 方案並啟用「永遠開啟」。
-> - 使用其他機制來觸發 blob 處理，像是包含 blob 名稱的佇列訊息。 如需範例，請參閱[本文中稍後說明的 Blob 輸入繫結範例](#input---example)。
+[Event Grid 觸發程序](functions-bindings-event-grid.md)內建對 [Blob 事件](../storage/blobs/storage-blob-event-overview.md)的支援，也能用於在偵測到全新或更新的 Blob 時啟動函式。 如需範例，請參閱[使用 Event Grid 進行映像大小調整](../event-grid/resize-images-on-storage-blob-upload-event.md)教學課程。
+
+請使用 Event Grid 來因應以下情節的需求，避免使用 Blob 儲存體觸發程序：
+
+* 僅限 Blob 的儲存體帳戶
+* 高延展性
+* 冷啟動延遲
+
+### <a name="blob-only-storage-accounts"></a>僅限 Blob 的儲存體帳戶
+
+[僅限 Blob 的儲存體帳戶](../storage/common/storage-create-storage-account.md#blob-storage-accounts)支援 Blob 輸入和輸出繫結，但不支援 Blob 觸發程序。 Blob 儲存體觸發程序需要一般用途的儲存體帳戶。
+
+### <a name="high-scale"></a>高延展性
+
+可將高延展性寬鬆地定義為可容納超過 100,000 個 Blob 的容器，或每秒 Blob 更新超過 100 次的儲存體帳戶。
+
+### <a name="cold-start-delay"></a>冷啟動延遲
+
+如果函式應用程式採用取用方案，當其進入閒置狀態，處理新 Blob 時最多會有 10 分鐘的延遲。 若要避免這樣的冷啟動延遲，您可以切換為 App Service 方案並啟用 Always On，或使用不同的觸發程序類型。
+
+### <a name="queue-storage-trigger"></a>佇列儲存體觸發程序
+
+除了 Event Grid 之外，處理 Blob 的另一個替代方式是佇列儲存體觸發程序，不過其並未內建 Blob 事件支援。 在建立或更新 Blob 時，必須建立佇列訊息。 有些範例預設您已符合前述需求，可參閱[本文章後續的 Blob 輸入繫結範例](#input---example)。
 
 ## <a name="trigger---example"></a>觸發程序 - 範例
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 672628ced506ae4c26b69e935e1cee3f78bd1a6b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 946de42c499182f8785866f362677779b105760d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>如何使用 Azure 媒體服務執行即時串流，以使用 .NET 建立多位元速率串流
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.lasthandoff: 05/07/2018
 > 
 > 
 
-1. 將攝影機連接到電腦。 啟動和設定可使用下列其中一種通訊協定輸出單一位元速率串流的內部部署即時編碼器：RTMP、Smooth Streaming 或 RTP (MPEG-TS)。 如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](http://go.microsoft.com/fwlink/?LinkId=532824)。
+1. 將攝影機連接到電腦。 啟動和設定可使用下列其中一種通訊協定輸出單一位元速率串流的內部部署即時編碼器：RTMP 或 Smooth Streaming。 如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](http://go.microsoft.com/fwlink/?LinkId=532824)。
 
     此步驟也可以在您建立通道之後執行。
 
@@ -228,18 +228,18 @@ namespace EncodeLiveStreamWithAmsClear
         {
             return new ChannelInput
             {
-                StreamingProtocol = StreamingProtocol.RTPMPEG2TS,
+                StreamingProtocol = StreamingProtocol.FragmentedMP4,
                 AccessControl = new ChannelAccessControl
                 {
                     IPAllowList = new List<IPRange>
-                {
-                    new IPRange
                     {
-                    Name = "TestChannelInput001",
-                    Address = IPAddress.Parse("0.0.0.0"),
-                    SubnetPrefixLength = 0
+                        new IPRange
+                        {
+                        Name = "TestChannelInput001",
+                        Address = IPAddress.Parse("0.0.0.0"),
+                        SubnetPrefixLength = 0
+                        }
                     }
-                }
                 }
             };
         }
@@ -277,9 +277,7 @@ namespace EncodeLiveStreamWithAmsClear
             {
                 SystemPreset = "Default720p",
                 IgnoreCea708ClosedCaptions = false,
-                AdMarkerSource = AdMarkerSource.Api,
-                // You can only set audio if streaming protocol is set to StreamingProtocol.RTPMPEG2TS.
-                AudioStreams = new List<AudioStream> { new AudioStream { Index = 103, Language = "eng" } }.AsReadOnly()
+                AdMarkerSource = AdMarkerSource.Api
             };
         }
 

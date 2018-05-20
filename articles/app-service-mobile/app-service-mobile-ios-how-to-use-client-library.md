@@ -1,11 +1,11 @@
 ---
-title: "如何使用適用於 Azure Mobile Apps 的 iOS SDK"
-description: "如何使用適用於 Azure Mobile Apps 的 iOS SDK"
+title: 如何使用適用於 Azure Mobile Apps 的 iOS SDK
+description: 如何使用適用於 Azure Mobile Apps 的 iOS SDK
 services: app-service\mobile
 documentationcenter: ios
 author: ysxu
 manager: yochayk
-editor: 
+editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -546,7 +546,7 @@ if (error.code == MSErrorPreconditionFailed) {
 3. 使用終端機，從包含您專案的目錄執行 `pod install`，然後開啟產生的 Xcode 工作區 (而不是專案)。
 4. 根據您使用的語言，將下列程式碼新增至您的應用程式。 取代每個程式碼的以下項目：
 
-   * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應該為 https://login.microsoftonline.com/contoso.onmicrosoft.com。您可以從 [Azure 入口網站]之 Azure Active Directory 的 [網域] 索引標籤中複製這個值。
+   * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應該為 https://login.microsoftonline.com/contoso.onmicrosoft.com。 您可以從 [Azure 入口網站]之 Azure Active Directory 的 [網域] 索引標籤中複製這個值。
    * 以您行動應用程式後端的用戶端識別碼取代 INSERT-RESOURCE-ID-HERE  。 您可以從入口網站 [Azure Active Directory 設定] 底下的 [進階] 索引標籤取得用戶端識別碼。
    * 以您從原生用戶端應用程式中複製的用戶端識別碼取代 INSERT-CLIENT-ID-HERE  。
    * 使用 HTTPS 配置，以您網站的 **/.auth/login/done** 端點取代 *INSERT-REDIRECT-URI-HERE* 。 此值應與 *https://contoso.azurewebsites.net/.auth/login/done* 類似。

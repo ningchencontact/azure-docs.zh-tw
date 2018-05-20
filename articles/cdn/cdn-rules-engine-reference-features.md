@@ -4,7 +4,7 @@ description: Azure CDN 規則引擎功能的參考文件。
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN 規則引擎功能
 本本會針對 Azure 內容傳遞網路 (CDN) [規則引擎](cdn-rules-engine.md)列出可用功能的詳細說明。
@@ -194,7 +194,7 @@ Name | 目的
 
 ---
 ### <a name="bandwidth-parameters"></a>頻寬參數
-**目的：**判斷是否使用頻寬節流參數 (例如 ec_rate 和 ec_prebuf)。
+**目的：** 判斷是否使用頻寬節流參數 (例如 ec_rate 和 ec_prebuf)。
 
 頻寬節流參數會判斷是否要將用戶端要求的資料傳輸速率限制為自訂的速率。
 
@@ -203,7 +203,7 @@ Name | 目的
 已啟用|允許 POP 接受頻寬節流設定要求。
 已停用|導致 POP 忽略頻寬節流設定參數。 通常會提供要求的內容 (亦即，不需頻寬節流)。
 
-**預設行為：**已啟用。
+**預設行為：** 已啟用。
  
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -211,7 +211,7 @@ Name | 目的
 
 ---
 ### <a name="bandwidth-throttling"></a>頻寬節流設定
-**目的：**針對 POP 所提供的回應進行頻寬節流。
+**目的：** 針對 POP 所提供的回應進行頻寬節流。
 
 您必須定義下列這兩個選項，才能正確設定頻寬節流設定。
 
@@ -220,7 +220,7 @@ Name | 目的
 每秒 KB 數|將此選項設定為可能用來傳遞回應的最大頻寬 (每秒 KB 數)。
 Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數。 這段不受頻寬限制之期間的用意是防止媒體播放器因為頻寬節流設定而遇到間斷或緩衝處理問題。
 
-**預設行為：**已停用。
+**預設行為：** 已停用。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -228,7 +228,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 ---
 ### <a name="bypass-cache"></a>略過快取
-**目的：**判斷要求是否應略過快取。
+**目的：** 判斷要求是否應略過快取。
 
 值|結果
 --|--
@@ -237,7 +237,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 **預設行為：**
 
-- **HTTP 大型︰**已停用
+- **HTTP 大型︰** 已停用
 
 <!---
 - **ADN:** Enabled
@@ -250,7 +250,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 ---
 ### <a name="cacheable-http-methods"></a>可快取的 HTTP 方法
-**目的：**判斷一組可在網路上快取的其他 HTTP 方法。
+**目的：** 判斷一組可在網路上快取的其他 HTTP 方法。
 
 重要資訊：
 
@@ -258,7 +258,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 - 此功能僅支援 POST HTTP 方法。 將此功能設定為 `POST`，以啟用 POST 回應快取。
 - 根據預設，只會快取主體小於 14 Kb 的要求。 使用 [可快取的要求主體大小] 功能來設定要求主體大小上限。
 
-**預設行為︰**只會快取 GET 回應。
+**預設行為︰** 只會快取 GET 回應。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -266,7 +266,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 ---
 ### <a name="cacheable-request-body-size"></a>可快取的要求主體大小
-**目的：**定義用以判斷是否可快取 POST 回應的臨界值。
+**目的：** 定義用以判斷是否可快取 POST 回應的臨界值。
 
 此臨界值是藉由指定要求主體大小上限來決定。 系統不會快取包含較大要求主體的要求。
 
@@ -277,10 +277,10 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
     - x-www-form-urlencoded 值
     - 確保唯一的快取索引鍵
 - 定義大型的要求主體大小上限可能會影響資料傳遞效能。
-    - **建議值：**14 Kb
-    - **最小值︰**1 Kb
+    - **建議值：** 14 Kb
+    - **最小值︰** 1 Kb
 
-**預設行為︰**14 Kb
+**預設行為︰** 14 Kb
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -288,7 +288,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 ---
 ### <a name="cache-control-header-treatment"></a>Cache-Control 標頭處理
-**目的：**當 [外部最大壽命] 功能為作用中時，透過 POP 來控制 `Cache-Control` 標頭的產生。
+**目的：** 當 [外部最大壽命] 功能為作用中時，透過 POP 來控制 `Cache-Control` 標頭的產生。
 
 完成這類型組態的最簡單方式是將 [外部最大壽命] 和 [Cache-Control 標頭處理] 功能放在同一個陳述式中。
 
@@ -299,7 +299,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 如果遺失則加入|如果 `Cache-Control` 標頭不是接收自原始伺服器，則此選項會新增 [外部最大壽命] 功能所產生的 `Cache-Control` 標頭。 若要確保為所有資產指派 `Cache-Control` 標頭，此選項非常有用。
 移除| 此選項可確保標頭回應中不會包含 `Cache-Control` 標頭。 如果已經指派 `Cache-Control` 標頭，則會從標頭回應中移除它。
 
-**預設行為：**覆寫。
+**預設行為：** 覆寫。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -307,7 +307,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 ---
 ### <a name="cache-key-query-string"></a>快取索引鍵查詢字串
-**目的：**判斷快取索引鍵會包含或排除與要求相關聯的佇列字串參數。
+**目的：** 判斷快取索引鍵會包含或排除與要求相關聯的佇列字串參數。
 
 重要資訊：
 
@@ -339,8 +339,8 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 範例組態：
 
-- **類型︰**包括
-- **參數︰**語言
+- **類型︰** 包括
+- **參數︰** 語言
 
 這類型的組態會產生下列查詢字串參數快取索引鍵：
 
@@ -350,7 +350,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 範例組態：
 
-- **類型︰**全部包括
+- **類型︰** 全部包括
 
 這類型的組態會產生下列查詢字串參數快取索引鍵：
 
@@ -360,8 +360,8 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 範例組態：
 
-- **類型︰**排除
-- **參數︰**工作階段識別碼的使用者識別碼
+- **類型︰** 排除
+- **參數︰** 工作階段識別碼的使用者識別碼
 
 這類型的組態會產生下列查詢字串參數快取索引鍵：
 
@@ -371,7 +371,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 範例組態：
 
-- **類型︰**全部排除
+- **類型︰** 全部排除
 
 這類型的組態會產生下列查詢字串參數快取索引鍵：
 
@@ -383,7 +383,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 ---
 ### <a name="cache-key-rewrite"></a>快取索引鍵重寫
-**目的：**重寫與要求相關聯的快取索引鍵。
+**目的：** 重寫與要求相關聯的快取索引鍵。
 
 快取索引鍵是基於快取目的識別資產的相對路徑。 換句話說，伺服器會根據資產的路徑 (如其快取索引鍵所定義) 來檢查它的快取版本。
 
@@ -392,8 +392,8 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 選項|說明
 --|--
 原始路徑| 定義將重寫快取索引鍵之要求類型的相對路徑。 相對路徑可藉由選取基底原始路徑，然後定義規則運算式模式來定義。
-新路徑|定義新快取索引鍵的相對路徑。 相對路徑可藉由選取基底原始路徑，然後定義規則運算式模式來定義。 此相對路徑可使用 HTTP 變數來動態建構
-**預設行為︰**要求的快取索引鍵是依要求 URI 來判斷。
+新路徑|定義新快取索引鍵的相對路徑。 相對路徑可藉由選取基底原始路徑，然後定義規則運算式模式來定義。 此相對路徑可使用 [HTTP 變數](cdn-http-variables.md)來動態建構。
+**預設行為︰** 要求的快取索引鍵是依要求 URI 來判斷。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -401,7 +401,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 ---
 ### <a name="comment"></a>註解
-**目的：**能夠在規則中加入附註。
+**目的：** 能夠在規則中加入附註。
 
 此功能的用途之一是提供一般用途的規則，或是為何要將特定比對條件或功能加入至規則的其他相關資訊。
 
@@ -417,7 +417,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 ---
 ### <a name="complete-cache-fill"></a>完成快取填滿
-**目的：**決定當要求導致在 POP 上發生部分快取遺失時要執行的動作。
+**目的：** 決定當要求導致在 POP 上發生部分快取遺失時要執行的動作。
 
 部分快取遺失描述的是未完全下載至 POP 之資產的快取狀態。 如果資產只有部分快取在 POP 上，則會將該資產的下一個要求再次轉送給原始伺服器。
 <!---
@@ -433,7 +433,7 @@ This feature is not available for the ADN platform. The typical traffic on this 
 已啟用|還原預設行為。 預設行為是強制 POP 在背景從原始伺服器起始資產擷取。 之後，資產就會在 POP 的本機快取中。
 已停用|防止 POP 在背景執行資產擷取。 結果是從該區域對該資產發出下一個要求時，會導致 POP 向客戶原始伺服器要求該資產。
 
-**預設行為：**已啟用。
+**預設行為：** 已啟用。
 
 #### <a name="compatibility"></a>相容性
 由於追蹤快取設定的行為，因而導致此功能無法與下列比對條件產生關聯： 
@@ -461,7 +461,7 @@ This feature is not available for the ADN platform. The typical traffic on this 
 
 ---
 ### <a name="compress-file-types"></a>壓縮檔案類型
-**目的：**定義將在伺服器上壓縮的檔案之檔案格式。
+**目的：** 定義將在伺服器上壓縮的檔案之檔案格式。
 
 您可以使用檔案格式的網際網路媒體類型 (例如，內容類型) 來指定檔案格式。 網際網路媒體類型是與平台無關的中繼資料，讓伺服器能夠識別特定資產的檔案格式。 以下提供常用的網際網路媒體類型清單。
 
@@ -486,7 +486,7 @@ application/javascript|Javascript
 
 ---
 ### <a name="custom-log-field-1"></a>自訂記錄欄位 1
-**目的：**判斷將指派給原始記錄檔中自訂記錄欄位的格式和內容。
+**目的：** 判斷將指派給原始記錄檔中自訂記錄欄位的格式和內容。
 
 此自訂欄位可讓您判斷哪些要求和回應標頭值會儲存於記錄檔中。
 
@@ -515,7 +515,7 @@ application/javascript|Javascript
 
 ---
 ### <a name="debug-cache-response-headers"></a>偵錯快取回應標頭
-**目的：**判斷回應是否包含 [X-EC-Debug 回應標頭](cdn-http-debug-headers.md)，其可在快取原則上提供所要求資產的相關資訊。
+**目的：** 判斷回應是否包含 [X-EC-Debug 回應標頭](cdn-http-debug-headers.md)，其可在快取原則上提供所要求資產的相關資訊。
 
 符合下列兩種情況時，將會在回應中包含偵錯快取回應標頭：
 
@@ -535,7 +535,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 已啟用|偵錯快取回應標頭的要求將傳回包含 X-EC-Debug 標頭的回應。
 已停用|X-EC-Debug 回應標頭將會從回應中排除。
 
-**預設行為：**已停用。
+**預設行為：** 已停用。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -543,7 +543,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="default-internal-max-age"></a>預設的內部最大壽命
-**目的：**決定 POP 向原始伺服器重新驗證快取之前的預設最大壽命間隔。 換句話說，就是 POP 檢查所快取資產是否符合原始伺服器上所儲存資產之前將經歷的時間長度。
+**目的：** 決定 POP 向原始伺服器重新驗證快取之前的預設最大壽命間隔。 換句話說，就是 POP 檢查所快取資產是否符合原始伺服器上所儲存資產之前將經歷的時間長度。
 
 重要資訊：
 
@@ -557,7 +557,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 - 設定為「關閉」的時間單位，將針對未在其 `Cache-Control` 或 `Expires` 標頭中指派最大壽命指示的要求，指派 7 天的預設內部最大壽命間隔。
 
-**預設值：**7 天
+**預設值：** 7 天
 
 #### <a name="compatibility"></a>相容性
 由於追蹤快取設定的行為，因而導致此功能無法與下列比對條件產生關聯： 
@@ -603,7 +603,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="expires-header-treatment"></a>Expires 標頭處理
-**目的：**當 [外部最大壽命] 功能為作用中時，透過 POP 來控制 `Expires` 標頭的產生。
+**目的：** 當 [外部最大壽命] 功能為作用中時，透過 POP 來控制 `Expires` 標頭的產生。
 
 完成這類型組態的最簡單方式是將 [外部最大壽命] 和 [Expires 標頭處理] 功能放在同一個陳述式中。
 
@@ -614,7 +614,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 如果遺失則加入| 如果 `Expires` 標頭不是接收自原始伺服器，則此選項會新增 [外部最大壽命] 功能所產生的 `Expires` 標頭。 若要確保會為所有資產指派 `Expires` 標頭，此選項非常有用。
 移除| 確保標頭回應中不會包含 `Expires` 標頭。 如果已經指派 `Expires` 標頭，則會從標頭回應中移除它。
 
-**預設行為：**覆寫
+**預設行為：** 覆寫
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -622,7 +622,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="external-max-age"></a>外部最大壽命
-**目的：**決定瀏覽器向 POP 重新驗證快取之前的最大壽命間隔。 換句話說，就是瀏覽器可向 POP 檢查是否有新版資產之前將經歷的時間長度。
+**目的：** 決定瀏覽器向 POP 重新驗證快取之前的最大壽命間隔。 換句話說，就是瀏覽器可向 POP 檢查是否有新版資產之前將經歷的時間長度。
 
 啟用此功能會從 POP 產生 `Cache-Control: max-age` 和 `Expires` 標頭，並將它們傳送給 HTTP 用戶端。 根據預設，這些標頭將會覆寫原始伺服器所建立的標頭。 不過，可能會使用 [Cache-Control 標頭處理] 和 [Expires 標頭處理] 功能來改變此行為。
 
@@ -633,7 +633,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 - 將此功能設定為負數值時，會導致 POP 將過去利用每個回應設定的 `Cache-Control: no-cache` 和 `Expires` 時間傳送給瀏覽器。 儘管 HTTP 用戶端將不會快取回應，但此設定並不影響 POP 從原始伺服器快取回應的能力。
 - 將時間單位設為「關閉」，即會停用此功能。 使用原始伺服器回應快取的 `Cache-Control` 和 `Expires` 標頭將會傳遞到瀏覽器。
 
-**預設行為：**關閉
+**預設行為：** 關閉
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -641,7 +641,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="follow-redirects"></a>遵循重新導向
-**目的：**判斷是否可將要求重新導向至定義於客戶原始伺服器所傳回之位置標頭中的主機名稱。
+**目的：** 判斷是否可將要求重新導向至定義於客戶原始伺服器所傳回之位置標頭中的主機名稱。
 
 重要資訊：
 
@@ -652,7 +652,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 已啟用|要求可重新導向。
 已停用|要求將不會重新導向。
 
-**預設行為：**已停用。
+**預設行為：** 已停用。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -660,7 +660,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="force-internal-max-age"></a>強制執行內部最大壽命
-**目的：**決定 POP 向原始伺服器重新驗證快取之前的最大壽命間隔。 換句話說，就是 POP 可檢查所快取資產是否符合原始伺服器上所儲存資產之前將經歷的時間長度。
+**目的：** 決定 POP 向原始伺服器重新驗證快取之前的最大壽命間隔。 換句話說，就是 POP 可檢查所快取資產是否符合原始伺服器上所儲存資產之前將經歷的時間長度。
 
 重要資訊：
 
@@ -673,7 +673,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 - 將時間單位設為「關閉」，即會停用此功能。 系統不會將內部最大壽命間隔指派給要求的資產。 如果原始標頭未包含快取指示，則將根據 [預設內部最大壽命] 功能的作用中設定來快取資產。
 
-**預設行為：**關閉
+**預設行為：** 關閉
 
 #### <a name="compatibility"></a>相容性
 由於追蹤快取設定的行為，因而導致此功能無法與下列比對條件產生關聯： 
@@ -701,14 +701,14 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="h264-support-http-progressive-download"></a>H.264 支援 (HTTP 漸進式下載)
-**目的：**判斷可能用於串流處理內容的 H.264 檔案格式類型。
+**目的：** 判斷可能用於串流處理內容的 H.264 檔案格式類型。
 
 重要資訊：
 
 - 在 [副檔名] 選項中，定義一組允許的 H.264 副檔名 (以空格分隔)。 [副檔名] 選項將會覆寫預設行為。 在設定此選項時包括這些副檔名，藉以保有 MP4 和 F4V 支援。 
 - 指定每個副檔名 (例如 _.mp4_、_.f4v_) 時，請包含一個句點。
 
-**預設行為︰**HTTP 漸進式下載預設支援 MP4 和 F4V 媒體。
+**預設行為︰** HTTP 漸進式下載預設支援 MP4 和 F4V 媒體。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -716,7 +716,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="honor-no-cache-request"></a>接受 No-Cache 要求
-**目的：**判斷是否要將 HTTP 用戶端的 no-cache 要求轉送到原始伺服器。
+**目的：** 判斷是否要將 HTTP 用戶端的 no-cache 要求轉送到原始伺服器。
 
 當 HTTP 用戶端在 HTTP 要求中傳送 `Cache-Control: no-cache` 和/或 `Pragma: no-cache` 標題時，即會發生 no-cache 要求。
 
@@ -729,7 +729,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 針對因此功能而得以轉送至原始伺服器的要求，報告的快取狀態為 `TCP_Client_Refresh_Miss`。 快取狀態報表 (可在 [核心報告] 模組中取得) 會依快取狀態提供統計資訊。 這份報告讓您能夠追蹤因此功能而轉送至原始伺服器的要求數目和百分比。
 
-**預設行為：**已停用。
+**預設行為：** 已停用。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -737,7 +737,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="ignore-origin-no-cache"></a>忽略原始的 No-Cache
-**目的：**判斷 CDN 是否將忽略原始伺服器所提供的特定指示詞：
+**目的：** 判斷 CDN 是否將忽略原始伺服器所提供的特定指示詞：
 
 - `Cache-Control: private`
 - `Cache-Control: no-store`
@@ -750,7 +750,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 - 以下是此功能的有效狀態碼集合︰200、203、300、301、302、305、307、400、401、402、403、404、405、406、407、408、409、410、411、412、413、414、415、416、417、500、501、502、503、504 和 505。
 - 藉由將其設為空白值來停用此功能。
 
-**預設行為︰**預設行為是採用上述指示詞。
+**預設行為︰** 預設行為是採用上述指示詞。
 
 #### <a name="compatibility"></a>相容性
 由於追蹤快取設定的行為，因而導致此功能無法與下列比對條件產生關聯： 
@@ -778,7 +778,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="ignore-unsatisfiable-ranges"></a>忽略無法滿足的範圍 
-**目的：**判斷在要求產生 [416 無法滿足的要求範圍] 狀態代碼時將傳回用戶端的要求。
+**目的：** 判斷在要求產生 [416 無法滿足的要求範圍] 狀態代碼時將傳回用戶端的要求。
 
 根據預設，當 POP 無法滿足指定的位元組範圍要求，且未指定 If-Range 要求標頭欄位時，即會傳回此狀態碼。
 
@@ -787,7 +787,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 已啟用|防止 POP 使用「416 無法滿足的要求範圍」狀態碼來回應無效的位元組範圍要求。 伺服器將改為傳遞要求的資產，並將 [200 確定] 傳回用戶端。
 已停用|還原預設行為。 預設行為是接受 [416 無法滿足的要求範圍] 狀態碼。
 
-**預設行為：**已停用。
+**預設行為：** 已停用。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -795,7 +795,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="internal-max-stale"></a>內部最大過時
-**目的：**控制當 POP 無法向原始伺服器重新驗證所快取的資產時，在過了標準到期時間多久之後仍可從 POP 提供所快取的資產。
+**目的：** 控制當 POP 無法向原始伺服器重新驗證所快取的資產時，在過了標準到期時間多久之後仍可從 POP 提供所快取的資產。
 
 一般來說，當資產的最大壽命時間到期時，POP 會向原始伺服器傳送重新驗證要求。 接著，原始伺服器會使用「304 未修改」來回應，為 POP 提供所快取資產的全新租用，或使用「200 確定」來為 POP 提供所快取資產的已更新版本。
 
@@ -813,7 +813,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 - 將時間單位設為「關閉」，即會停用此功能。 系統將不會在快取的資產超過一般到期時間之後為其提供服務。
 
-**預設行為：**兩分鐘
+**預設行為：** 兩分鐘
 
 #### <a name="compatibility"></a>相容性
 由於追蹤快取設定的行為，因而導致此功能無法與下列比對條件產生關聯： 
@@ -841,14 +841,14 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="log-query-string"></a>記錄查詢字串
-**目的：**判斷查詢字串是否將與 URL 一起儲存於存取記錄中。
+**目的：** 判斷查詢字串是否將與 URL 一起儲存於存取記錄中。
 
 值|結果
 -|-
 已啟用|在存取記錄中記錄 URL 時，允許儲存查詢字串。 如果 URL 未包含查詢字串，則此選項將不會有任何作用。
 已停用|還原預設行為。 預設行為是在存取記錄中記錄 URL 時忽略查詢字串。
 
-**預設行為：**已停用。
+**預設行為：** 已停用。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -856,7 +856,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="maximum-keep-alive-requests"></a>Keep-Alive 要求的最大值
-**目的：**判斷在關閉 Keep-Alive 連線之前，適用於該連線的最大要求數目。
+**目的：** 判斷在關閉 Keep-Alive 連線之前，適用於該連線的最大要求數目。
 
 建議您不要將要求數目上限設為較低的值，這樣可能會導致效能變差。
 
@@ -865,7 +865,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 - 將此值指定為整數。
 - 請勿在指定的值中包含逗號或句號。
 
-**預設值︰**10,000 個要求
+**預設值︰** 10,000 個要求
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -873,7 +873,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ---
 ### <a name="modify-client-request-header"></a>修改用戶端要求標頭
-**目的︰**每個要求都包含一組說明其本身的要求標頭。 此功能可以：
+**目的︰** 每個要求都包含一組說明其本身的要求標頭。 此功能可以：
 
 - 附加或覆寫指派給要求標頭的值。 如果指定的要求標頭不存在，則此功能會將其加入至要求。
 - 刪除要求的要求標頭。
@@ -884,9 +884,9 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 選項|說明|範例
 -|-|-
-Append|指定的值會新增至現有要求標頭值的結尾。|**要求標頭值 (用戶端)：**Value1 <br/> **要求標頭值 (HTTP 規則引擎)：**Value2 <br/>**新的要求標頭值：**Value1Value2
-覆寫|要求標頭值將會設定為指定的值。|**要求標頭值 (用戶端)：**Value1 <br/>**要求標頭值 (HTTP 規則引擎)：**Value2 <br/>**新的要求標頭值：**Value2 <br/>
-刪除|刪除指定的要求標頭。|**要求標頭值 (用戶端)：**Value1 <br/> **修改用戶端要求標頭組態：**刪除有問題的要求標頭。 <br/>**結果︰**指定的要求標頭將不會轉送到原始伺服器。
+Append|指定的值會新增至現有要求標頭值的結尾。|**要求標頭值 (用戶端)：**<br/>Value1<br/>**要求標頭值 (規則引擎)：**<br/>Value2 <br/>**新的要求標頭值：** <br/>Value1Value2
+覆寫|要求標頭值將會設定為指定的值。|**要求標頭值 (用戶端)：**<br/>Value1<br/>**要求標頭值 (規則引擎)：**<br/>Value2<br/>**新的要求標頭值：**<br/> Value2 <br/>
+刪除|刪除指定的要求標頭。|**要求標頭值 (用戶端)：**<br/>Value1<br/>**修改用戶端要求標頭設定：**<br/>刪除指定的要求標頭。<br/>**結果︰**<br/>指定的要求標頭將不會轉送到原始伺服器。
 
 重要資訊：
 
@@ -922,9 +922,9 @@ Append|指定的值會新增至現有要求標頭值的結尾。|**要求標頭�
 
 選項|說明|範例
 -|-|-
-Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭值 (用戶端)：**Value1 <br/> **回應標頭值 (HTTP 規則引擎)：**Value2 <br/>**新的回應標頭值：**Value1Value2
-覆寫|回應標頭值將會設定為指定的值。|**回應標頭值 (用戶端)：**Value1 <br/>**回應標頭值 (HTTP 規則引擎)：**Value2 <br/>**新的回應標頭值：**Value2 <br/>
-刪除|刪除指定的回應標頭。|**回應標頭值 (用戶端)：**Value1 <br/> **修改用戶端回應標頭組態：**刪除有問題的回應標頭。 <br/>**結果︰**指定的回應標頭將不會轉送給要求者。
+Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭值 (用戶端)：**<br />Value1<br/>**回應標頭值 (規則引擎)：**<br/>Value2<br/>**新的回應標頭值：**<br/>Value1Value2
+覆寫|回應標頭值將會設定為指定的值。|**回應標頭值 (用戶端)：**<br/>Value1<br/>**回應標頭值 (規則引擎)：**<br/>Value2 <br/>**新的回應標頭值：**<br/>Value2 <br/>
+刪除|刪除指定的回應標頭。|**回應標頭值 (用戶端)：**<br/>Value1<br/>**修改用戶端回應標頭設定：**<br/>刪除指定的回應標頭。<br/>**結果︰**<br/>指定的回應標頭將不會轉送給要求者。
 
 重要資訊：
 
@@ -957,7 +957,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 ---
 ### <a name="partial-cache-sharing"></a>部分快取共用
-**目的：**判斷要求是否可以產生部分快取的內容。
+**目的：** 判斷要求是否可以產生部分快取的內容。
 
 接著可能會使用這個部分快取來滿足該內容的新要求，直到完全快取要求的內容為止。
 
@@ -966,7 +966,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 已啟用|要求可以產生部分快取的內容。
 已停用|要求只能產生所要求內容的完整快取版本。
 
-**預設行為：**已停用。
+**預設行為：** 已停用。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -974,7 +974,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 ---
 ### <a name="prevalidate-cached-content"></a>預先驗證快取的內容
-**目的：**在快取內容的 TTL 到期之前，判斷其是否適用進行早期重新驗證。
+**目的：** 在快取內容的 TTL 到期之前，判斷其是否適用進行早期重新驗證。
 
 定義在要求內容的 TTL 到期之前的時間長度，而要求的內容在這段期間將適用進行早期驗證。
 
@@ -982,7 +982,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 - 選取「關閉」做為時間單位，需要在快取內容的 TTL 到期之後進行重新驗證。 不應指定時間，且將會予以忽略。
 
-**預設行為：**關閉。 重新驗證可能只會在快取內容的 TTL 到期之後進行。
+**預設行為：** 關閉。 重新驗證可能只會在快取內容的 TTL 到期之後進行。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -990,7 +990,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 ---
 ### <a name="proxy-special-headers"></a>Proxy 特定的標頭
-**目的：**定義一組將從 POP 轉送給原始伺服器的 [Verizon 特定 HTTP 要求標頭](cdn-verizon-http-headers.md)。
+**目的：** 定義一組將從 POP 轉送給原始伺服器的 [Verizon 特定 HTTP 要求標頭](cdn-verizon-http-headers.md)。
 
 重要資訊：
 
@@ -1007,7 +1007,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 - X-EC-Name
 - Host
 
-**預設行為︰**所有 CDN 特定的要求標頭都將轉送到原始伺服器。
+**預設行為︰** 所有 CDN 特定的要求標頭都將轉送到原始伺服器。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -1015,7 +1015,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 ---
 ### <a name="refresh-zero-byte-cache-files"></a>重新整理零位元組的快取檔案
-**目的：**決定 POP 如何處理 HTTP 用戶端的 0 位元組快取資產要求。
+**目的：** 決定 POP 如何處理 HTTP 用戶端的 0 位元組快取資產要求。
 
 有效值為：
 
@@ -1027,7 +1027,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 則此功能可防止將這些類型的資產提供給用戶端。
 
-**預設行為：**已停用。
+**預設行為：** 已停用。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -1035,7 +1035,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 ---
 ### <a name="set-cacheable-status-codes"></a>設定可快取的狀態碼
-**目的：**定義一組可產生快取內容的狀態碼。
+**目的：** 定義一組可產生快取內容的狀態碼。
 
 根據預設，只會針對 [200 確定] 回應啟用快取。
 
@@ -1047,7 +1047,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 - 以下是此功能的有效狀態碼集合︰203、300、301、302、305、307、400、401、402、403、404、405、406、407、408、409、410、411、412、413、414、415、416、417、500、501、502、503、504 和 505。
 - 此功能無法用來針對產生 [200 確定] 狀態碼的回應停用快取。
 
-**預設行為︰**只會針對產生 [200 確定] 狀態碼的回應啟用快取。
+**預設行為︰** 只會針對產生 [200 確定] 狀態碼的回應啟用快取。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -1055,7 +1055,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 ---
 ### <a name="set-client-ip-custom-header"></a>設定用戶端 IP 自訂標頭
-**目的︰**依 IP 位址識別要求用戶端的自訂標頭加入至要求。
+**目的︰** 依 IP 位址識別要求用戶端的自訂標頭加入至要求。
 
 [標頭名稱] 選項會定義儲存用戶端 IP 位址的自訂要求標頭名稱。
 
@@ -1079,14 +1079,14 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 ---
 ### <a name="stale-content-delivery-on-error"></a>發生錯誤時傳遞過時的內容
-**目的：**判斷在快取重新驗證期間發生錯誤時，或者在接收到來自客戶原始伺服器的要求內容時，是否要傳遞到期的快取內容。
+**目的：** 判斷在快取重新驗證期間發生錯誤時，或者在接收到來自客戶原始伺服器的要求內容時，是否要傳遞到期的快取內容。
 
 值|結果
 -|-
 已啟用|與原始伺服器連接期間發生錯誤時，即會將過時的內容提供給要求者。
 已停用|系統會將原始伺服器的錯誤轉送給要求者。
 
-**預設行為：**已停用
+**預設行為：** 已停用
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -1094,16 +1094,16 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 ---
 ### <a name="stale-while-revalidate"></a>在重新驗證時過期
-**目的：**藉由允許 POP 在進行重新驗證時提供過時的內容給要求者來改善效能。
+**目的：** 藉由允許 POP 在進行重新驗證時提供過時的內容給要求者來改善效能。
 
 重要資訊：
 
 - 此功能的行為會根據選取的時間單位而不同。
-    - **時間單位︰**指定的時間長度，然後選取允許過時內容傳遞的時間單位 (例如，秒、分鐘、小時等)。 這類型的設定可讓 CDN 根據下列公式，延長在要求驗證之前可傳遞內容的時間長度：**TTL** + **重新驗證時過時時間** 
-    - **關閉：**選取「關閉」，以便在可能提供過時內容的要求之前，要求重新驗證。
+    - **時間單位︰** 指定的時間長度，然後選取允許過時內容傳遞的時間單位 (例如，秒、分鐘、小時等)。 這類型的設定可讓 CDN 根據下列公式，延長在要求驗證之前可傳遞內容的時間長度：**TTL** + **重新驗證時過時時間** 
+    - **關閉：** 選取「關閉」，以便在可能提供過時內容的要求之前，要求重新驗證。
         - 請勿指定時間長度，因為它不適用且將會遭到忽略。
 
-**預設行為：**關閉。 重新驗證必須在可提供要求的內容之前進行。
+**預設行為：** 關閉。 重新驗證必須在可提供要求的內容之前進行。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -1117,7 +1117,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 用於加密和解密權杖值的加密金鑰，是根據 [權杖驗證] 頁面上的 [主要金鑰] 和 [備份金鑰] 選項來決定。 請記住，加密金鑰是特定平台的。
 
-**預設行為：**已停用。
+**預設行為：** 已停用。
 
 這項功能的優先順序高於大部分功能 (URL 重寫功能除外)。
 
@@ -1135,7 +1135,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 ---
 ### <a name="token-auth-denial-code"></a>權杖驗證拒絕代碼
-**目的：**判斷在要求因權杖型驗證而遭到拒絕時，將傳回給使用者的回應類型。
+**目的：** 判斷在要求因權杖型驗證而遭到拒絕時，將傳回給使用者的回應類型。
 
 下表中列出可用的回應碼。
 
@@ -1183,7 +1183,7 @@ WWW-Authenticate 標頭只適用於 401 回應碼。
 
 ---
 ### <a name="token-auth-ignore-url-case"></a>權杖驗證會忽略 URL 的大小寫
-**目的：**判斷透過權杖型驗證所做的 URL 比較是否區分大小寫。
+**目的：** 判斷透過權杖型驗證所做的 URL 比較是否區分大小寫。
 
 受此功能影響的參數如下：
 
@@ -1198,7 +1198,7 @@ WWW-Authenticate 標頭只適用於 401 回應碼。
 已啟用|導致 POP 在比較「權杖型驗證」參數的 URL 時忽略大小寫。
 已停用|還原預設行為。 預設行為是在進行權杖型驗證的 URL 比較時會區分大小寫。
 
-**預設行為：**已停用。
+**預設行為：** 已停用。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -1206,7 +1206,7 @@ WWW-Authenticate 標頭只適用於 401 回應碼。
 
 ---
 ### <a name="token-auth-parameter"></a>權杖驗證參數
-**目的：**判斷是否應將權杖型驗證查詢字串參數重新命名。
+**目的：** 判斷是否應將權杖型驗證查詢字串參數重新命名。
 
 重要資訊：
 
@@ -1219,7 +1219,7 @@ WWW-Authenticate 標頭只適用於 401 回應碼。
 已啟用|[值] 選項會定義應透過其定義權杖的查詢字串參數名稱。
 已停用|您可以指定權杖做為要求 URL 中未定義的查詢字串參數。
 
-**預設行為：**已停用。 您可以指定權杖做為要求 URL 中未定義的查詢字串參數。
+**預設行為：** 已停用。 您可以指定權杖做為要求 URL 中未定義的查詢字串參數。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 
@@ -1227,38 +1227,38 @@ WWW-Authenticate 標頭只適用於 401 回應碼。
 
 ---
 ### <a name="url-redirect"></a>[URL 重新導向]
-**目的：**透過位置標頭來將要求重新導向。
+**目的：** 透過位置標頭來將要求重新導向。
 
 此功能的組態必須設定下列選項：
 
 選項|說明
 -|-
 代碼|選取將傳回給要求者的回應碼。
-來源與模式| 這些設定會定義要求 URI 模式，此模式會識別可能要重新導向的要求類型。 只會重新導向 URL 符合下列這兩個準則的要求： <br/> <br/> **來源 (或內容存取點)：**選取識別原始伺服器的相對路徑。 此路徑是 /XXXX/ 區段和您的端點名稱。 <br/> **來源 (模式)︰**必須定義依相對路徑識別要求的模式。 這個規則運算式模式必須定義一個路徑，該路徑會在先前選取的內容存取點 (請參閱上述內容) 之後直接啟動。 <br/> - 確定先前定義的要求 URI 準則 (亦即，[來源與模式]) 不會與針對此功能所定義的任何比對條件相衝突。 <br/> - 指定模式；如果您是使用空白值作為模式，所有字串都會相符。
-目的地| 定義要將上述要求重新導向至其中的 URL。 <br/> 使用下列方式來動態建構此 URL： <br/> - 規則運算式模式 <br/>- HTTP 變數 <br/> 使用 $_n_，將擷取自來源模式的值替代至目的地模式，其中_n_ 可依擷取的順序來識別值。 例如，$1 表示擷取自來源模式的第一個值，而 $2 代表第二個值。 <br/> 
+來源與模式| 這些設定會定義要求 URI 模式，此模式會識別可能要重新導向的要求類型。 只會重新導向 URL 符合下列這兩個準則的要求： <br/> <br/> **來源 (或內容存取點)：** 選取識別原始伺服器的相對路徑。 此路徑是 /XXXX/ 區段和您的端點名稱。 <br/><br/> **來源 (模式)︰** 必須定義依相對路徑識別要求的模式。 這個規則運算式模式必須定義一個路徑，該路徑會在先前選取的內容存取點 (請參閱上述內容) 之後直接啟動。 <br/> - 確定先前定義的要求 URI 準則 (亦即，[來源與模式]) 不會與針對此功能所定義的任何比對條件相衝突。 <br/> - 指定模式；如果您是使用空白值作為模式，所有字串都會相符。
+目的地| 定義要將上述要求重新導向至其中的 URL。 <br/><br/> 使用下列方式來動態建構此 URL： <br/> - 規則運算式模式 <br/>- [HTTP 變數](cdn-http-variables.md) <br/><br/> 使用 $_n_，將擷取自來源模式的值替代至目的地模式，其中_n_ 可依擷取的順序來識別值。 例如，$1 表示擷取自來源模式的第一個值，而 $2 代表第二個值。 <br/> 
 強烈建議使用絕對 URL。 使用相對 URL 可能會將 CDN URL 重新導向至不正確的路徑。
 
 **範例案例**
 
-此範例示範如何將解析為下列基底 CDN URL 的 Edge CNAME URL 重新導向：http://marketing.azureedge.net/brochures
+此範例示範如何將解析為下列基底 CDN URL 的 Edge CNAME URL 重新導向：http:\//marketing.azureedge.net/brochures
 
-符合資格的要求將會重新導向至此基底 Edge CNAME URL：http://cdn.mydomain.com/resources
+符合資格的要求將會被重新導向至此基底邊緣 CNAME URL：http:\//cdn.mydomain.com/resources
 
-此 URL 重新導向可透過下列組態來達成：![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+此 URL 重新導向可透過下列設定來達成：![URL 重新導向](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **重點︰**
 
 - [URL 重新導向] 功能會定義將重新導向的要求 URL。 如此一來，就不需要額外的比對條件。 雖然將比對條件定義為 [一律]，但只會重新導向指向 [marketing] 客戶原始伺服器上 [brochures] 資料夾的要求。 
 - 所有相符的要求都將重新導向到 [目的地] 選項中所定義的 Edge CNAME URL。 
     - 範例案例 1： 
-        - 範例要求 (CDN URL)：http://marketing.azureedge.net/brochures/widgets.pdf 
-        - 要求 URL (重新導向後)：http://cdn.mydomain.com/resources/widgets.pdf  
+        - 範例要求 (CDN URL)：http:\//marketing.azureedge.net/brochures/widgets.pdf 
+        - 要求 URL (重新導向之後)：http:\//cdn.mydomain.com/resources/widgets.pdf  
     - 範例案例 2： 
-        - 範例要求 (Edge CNAME URL)：http://marketing.mydomain.com/brochures/widgets.pdf 
-        - 要求 URL (重新導向後)：http://cdn.mydomain.com/resources/widgets.pdf  範例案例
+        - 範例要求 (邊緣 CNAME URL)：http:\//marketing.mydomain.com/brochures/widgets.pdf 
+        - 要求 URL (重新導向之後)：http:\//cdn.mydomain.com/resources/widgets.pdf 範例案例
     - 範例案例 3： 
-        - 範例要求 (Edge CNAME URL)：http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - 要求 URL (重新導向後)：http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - 範例要求 (邊緣 CNAME URL)：http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
+        - 要求 URL (重新導向之後)：http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - 要求配置 (%{scheme}) 變數會運用在 [目的地] 選項，以確保重新導向之後要求的配置維持不變。
 - 擷取自要求的 URL 區段會透過「$1」附加到新的 URL。
 
@@ -1268,7 +1268,7 @@ WWW-Authenticate 標頭只適用於 401 回應碼。
 
 ---
 ### <a name="url-rewrite"></a>URL 重寫
-**目的：**重寫要求 URL。
+**目的：** 重寫要求 URL。
 
 重要資訊：
 
@@ -1276,23 +1276,23 @@ WWW-Authenticate 標頭只適用於 401 回應碼。
 
 選項|說明
 -|-
- 來源與模式 | 這些設定會定義要求 URI 模式，此模式會識別可能要重寫的要求類型。 只會重寫 URL 符合下列這兩個準則的要求： <br/>     - **來源 (或內容存取點)：**選取識別原始伺服器的相對路徑。 此路徑是 /XXXX/ 區段和您的端點名稱。 <br/> - **來源 (模式)︰**必須定義依相對路徑識別要求的模式。 這個規則運算式模式必須定義一個路徑，該路徑會在先前選取的內容存取點 (請參閱上述內容) 之後直接啟動。 <br/> - 確認先前定義的要求 URI 準則 (亦即，[來源與模式]) 不會與針對此功能所定義的任何比對條件相衝突。 指定模式；如果您是使用空白值作為模式，所有字串都會相符。 
- 目的地  |使用下列方式來定義要將上述要求重寫至其中的相對 URL： <br/>    1.選取可識別原始伺服器的內容存取點。 <br/>    2.使用下列方式來定義相對路徑： <br/>        - 規則運算式模式 <br/>        - HTTP 變數 <br/> <br/> 使用 $_n_，將擷取自來源模式的值替代至目的地模式，其中_n_ 可依擷取的順序來識別值。 例如，$1 表示擷取自來源模式的第一個值，而 $2 代表第二個值。 
+ 來源與模式 | 這些設定會定義要求 URI 模式，此模式會識別可能要重寫的要求類型。 只會重寫 URL 符合下列這兩個準則的要求： <br/><br/>  - **來源 (或內容存取點)：** 選取識別原始伺服器的相對路徑。 此路徑是 /XXXX/ 區段和您的端點名稱。 <br/><br/> - **來源 (模式)︰** 必須定義依相對路徑識別要求的模式。 這個規則運算式模式必須定義一個路徑，該路徑會在先前選取的內容存取點 (請參閱上述內容) 之後直接啟動。 <br/> - 確認先前定義的要求 URI 準則 (亦即，[來源與模式]) 不會與針對此功能所定義的任何比對條件相衝突。 指定模式；如果您是使用空白值作為模式，所有字串都會相符。 
+ 目的地  |使用下列方式來定義要將上述要求重寫至其中的相對 URL： <br/>    1.選取可識別原始伺服器的內容存取點。 <br/>    2.使用下列方式來定義相對路徑： <br/>        - 規則運算式模式 <br/>        - [HTTP 變數](cdn-http-variables.md) <br/> <br/> 使用 $_n_，將擷取自來源模式的值替代至目的地模式，其中_n_ 可依擷取的順序來識別值。 例如，$1 表示擷取自來源模式的第一個值，而 $2 代表第二個值。 
  此功能可讓 POP 不需執行傳統的重新導向就能重寫 URL。 也就是，如果收到重寫 URL 的要求，要求者會收到相同的回應碼。
 
 **範例案例 1**
 
-此範例示範如何將解析為下列基底 CDN URL 的 Edge CNAME URL 重新導向：http://marketing.azureedge.net/brochures/
+此範例示範如何重新導向解析為下列基底 CDN URL 的邊緣 CNAME URL：http:\//marketing.azureedge.net/brochures/
 
-符合資格的要求將會重新導向至此基底 Edge CNAME URL：http://MyOrigin.azureedge.net/resources/
+符合資格的要求將會重新導向至此基底邊緣 CNAME URL：http:\//MyOrigin.azureedge.net/resources/
 
-此 URL 重新導向可透過下列組態來達成：![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+此 URL 重新導向可透過下列設定來達成：![URL 重新導向](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **範例案例 2**
 
 此範例示範如何使用規則運算式，將邊緣 CNAME URL 從「大寫」重新導向到小寫。
 
-此 URL 重新導向可透過下列組態來達成：![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+此 URL 重新導向可透過下列設定來達成：![URL 重新導向](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **重點︰**
@@ -1326,7 +1326,7 @@ WWW-Authenticate 標頭只適用於 401 回應碼。
 
 ---
 ### <a name="user-variable"></a>User 變數
-**目的：**僅供內部使用。
+**目的：** 僅供內部使用。
 
 [回到頁首](#azure-cdn-rules-engine-features)
 

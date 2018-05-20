@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: cd9c5888724b634002d3029cccd42cfda4a433af
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a14dbaffe6bfa68e7606d117823195144250c230
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB：資料移轉工具
 
@@ -43,6 +43,8 @@ ms.lasthandoff: 05/07/2018
 在依照本文中的指示進行之前，請確定已安裝下列項目：
 
 * [Microsoft.NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) 或更高版本。
+
+* 增加輸送量︰資料移轉的時間長短取決於您為個別集合或一組集合設定的輸送量。 針對較大資料移轉，請務必增加輸送量。 完成移轉之後，再降低輸送量以節省成本。 如需在 Azure 入口網站增加輸送量的詳細資訊，請參閱 Azure Cosmos DB 中的效能等級和定價層。
 
 ## <a id="Overviewl"></a>概觀
 資料移轉工具是一個開放原始碼解決方案，可將資料從各種來源匯入到 Azure Cosmos DB，來源包括：

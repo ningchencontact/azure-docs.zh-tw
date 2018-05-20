@@ -11,6 +11,7 @@
 ## [在 Azure 入口網站 (預覽) 中建立模型](analysis-services-create-model-portal.md)
 
 # 概念
+## [使用服務主體進行自動化](analysis-services-service-principal.md)
 ## [支援的資料來源](analysis-services-datasource.md)
 ## [連線至內部部署資料來源](analysis-services-gateway.md)
 ## [連線至伺服器](analysis-services-connect.md)

@@ -126,7 +126,7 @@ Microsoft 開發人員中心用於註冊一次公司資訊。 註冊者必須是
 9. 輸入您的付款資訊以支付您的帳戶。 如果您有涵蓋註冊成本的促銷代碼，您可以在此處輸入。 否則，請提供您的信用卡資訊 (或受支援市場的 PayPal)。 當您完成時，按一下 [下一步] 以移至 [檢閱] 畫面。
 
     ![繪圖](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
-10. 檢閱您的帳戶資訊，並確認所有項目都正確。 然後，閱讀並接受「Microsoft Azure Marketplace 發佈者合約」 [](http://go.microsoft.com/fwlink/?LinkID=699560)的條款和條件。 勾選方塊以表示您已閱讀並接受這些條款。
+10. 檢閱您的帳戶資訊，並確認所有項目都正確。 然後，閱讀並接受「[Microsoft Azure Marketplace 發佈者合約](http://go.microsoft.com/fwlink/?LinkID=699560)」 的條款和條件。 勾選方塊以表示您已閱讀並接受這些條款。
 11. 按一下 [完成]  以確認您的註冊。 我們會傳送一則確認訊息到您的電子郵件地址。
 12. 如果您只打算發佈免費供應項目，按一下 [移至 Azure Marketplace 發佈入口網站]  即可跳到第 3 節， [在發佈入口網站中註冊您的帳戶](#3-register-your-account-in-the-publishing-portal)。
 

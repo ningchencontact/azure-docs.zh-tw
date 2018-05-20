@@ -7,17 +7,17 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 直接網路流量 - 入口網站
+    - name: 管理網路流量 - 入口網站
       href: quick-create-portal.md
-    - name: 直接網路流量 - PowerShell
+    - name: 管理網路流量 - PowerShell
       href: quick-create-powershell.md
-    - name: 直接網路流量 - Azure CLI
+    - name: 管理網路流量 - Azure CLI
       href: quick-create-cli.md
 - name: 教學課程
   items:
     - name: 管理網路流量
       href: tutorial-manage-web-traffic-cli.md
-    - name: 限制網路流量
+    - name: 啟用 Web 應用程式防火牆
       href: tutorial-restrict-web-traffic-cli.md
     - name: 使用 SSL 保護
       href: tutorial-ssl-cli.md
@@ -35,18 +35,23 @@
       href: cli-samples.md
 - name: 概念
   items:
+    - name: SSL 終止
+      href: ssl-overview.md
+    - name: SSL 原則概觀
+      href: application-gateway-ssl-policy-overview.md
     - name: Web 應用程式防火牆
       href: waf-overview.md
     - name: URL 路由
       href: url-route-overview.md
     - name: 多網站裝載
       href: multiple-site-overview.md
-    - name: SSL 終止
-      href: ssl-overview.md
-    - name: URL 重新導向
+    - name: 重新支援
       href: redirect-overview.md
+    - name: 多租用戶支援
     - name: 健康狀況監視
       href: application-gateway-probe-overview.md
+    - name: WebSocket 支援
+      href: application-gateway-websocket.md
 - name: 使用說明指南
   items:
     - name: 建立應用程式閘道
@@ -55,10 +60,20 @@
           href: create-vmss-template.md
         - name: Web 應用程式 - PowerShell
           href: create-web-app.md
-    - name: 啟用 SSL 終止 - 入口網站
+        - name: 設定內部負載平衡
+          href: application-gateway-ilb.md
+    - name: 設定 SSL 終止 - 入口網站
       href: create-ssl-portal.md
     - name: 裝載多個網站 - 入口網站
       href: create-multiple-sites-portal.md
+    - name: 自訂 WAF 規則
+      items:
+        - name: Azure 入口網站
+          href: application-gateway-customize-waf-rules-portal.md
+        - name: Azure PowerShell
+          href: application-gateway-customize-waf-rules-powershell.md
+        - name: Azure CLI
+          href: application-gateway-customize-waf-rules-cli.md
     - name: 重新導向外部流量
       items:
         - name: Azure PowerShell
@@ -111,6 +126,8 @@
           href: application-gateway-diagnostics.md
 - name: 參考
   items:
+    - name: CRS 規則
+      href: application-gateway-crs-rulegroups-rules.md
     - name: Azure CLI
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell

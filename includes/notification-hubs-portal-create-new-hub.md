@@ -1,5 +1,19 @@
-
-
+---
+title: 包含檔案
+description: 包含檔案
+services: notification-hubs
+author: spelluru
+ms.service: notification-hubs
+ms.topic: include
+ms.date: 03/28/2018
+ms.author: spelluru
+ms.custom: include file
+ms.openlocfilehash: c718fa972b9d6cba13a13edd3c7e8df29fa63207
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/07/2018
+---
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 選取 [建立資源] > **[Web + 行動]** > [通知中樞]。
@@ -18,10 +32,9 @@
    
       ![Azure 入口網站 - 設定通知中樞屬性](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. 在建立了命名空間與通知中樞後，選取 [所有資源] 來加以開啟，然後從清單中選取所建立的通知中樞。 
-   
-      ![Azure 入口網站 - 通知中樞入口網站頁面](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-resources.png)
+4. 選取 [通知] (鈴鐺圖示)，然後選取 [前往資源]。 
 
+      ![Azure 入口網站 - 通知 -> 前往資源](./media/notification-hubs-portal-create-new-hub/notification-go-to-resource.png)    
 5. 從清單中選取 [存取原則]。 請記下您可使用的兩個連接字串。 您稍後需要用到這些連接字串來處理推播通知。
 
       >[!IMPORTANT]

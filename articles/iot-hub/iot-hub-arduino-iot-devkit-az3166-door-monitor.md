@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: d25948aeab4170e67133a8e7f538089fca28407d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4eb13a588f0ffd1377caf3ce9bac4886f052a22f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="door-monitor"></a>門戶監視          
 
@@ -213,4 +213,4 @@ DevKit 會重新開機，然後開始執行程式碼。
 您已了解如何將 DevKit 裝置連線至 Azure IoT 遠端監視解決方案加速器，並使用 SendGrid 服務傳送電子郵件。 以下是建議的後續步驟：
 
 * [Azure IoT 遠端監視解決方案加速器概觀](https://docs.microsoft.com/azure/iot-suite/)
-* [將 MXChip IoT DevKit 裝置連線到您的 Microsoft IoT Central 應用程式](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

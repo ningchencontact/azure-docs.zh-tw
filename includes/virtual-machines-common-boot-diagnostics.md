@@ -1,8 +1,8 @@
-Azure 現在提供兩個偵錯功能的支援︰Azure 虛擬機器 Resource Manager 部署模型的主控台輸出和螢幕擷取畫面支援。 
+Azure 現在支援兩種偵錯功能︰Azure 虛擬機器 Resource Manager 部署模型的主控台輸出和螢幕擷取畫面支援。 
 
 將自己的映像送至 Azure 或甚至啟動其中一個平台映像時，虛擬機器進入不可開機狀態的原因有很多。 這些功能可讓您輕鬆地診斷及復原開機失敗的虛擬機器。
 
-若為 Linux 虛擬機器，您可以從入口網站輕鬆地檢視主控台記錄的輸出︰
+若為 Linux 虛擬機器，您可以在入口網站輕鬆地檢視主控台記錄的輸出︰
 
 ![Azure 入口網站](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
  
@@ -29,15 +29,20 @@ Azure 現在提供兩個偵錯功能的支援︰Azure 虛擬機器 Resource Mana
 - [開機失敗或 INACCESSIBLE_BOOT_DEVICE](https://support.microsoft.com/help/4010143)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>在新的虛擬機器上啟用診斷
-1. 從預覽入口網站建立新的虛擬機器時，從部署模型下拉式清單中選取 [Azure Resource Manager]︰
+1. 在 Azure 入口網站建立新的虛擬機器時，請在部署模型下拉式清單中選取 [Azure Resource Manager]︰
  
     ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
 
-2. 設定 [監視] 選項來選取您想要放置這些診斷檔案的儲存體帳戶。
+2. 在 [設定] 中啟用 [開機診斷]，然後選取要放置這些診斷檔案的儲存體帳戶。
  
-    ![建立 VM](./media/virtual-machines-common-boot-diagnostics/screenshot4.jpg)
+    ![建立 VM](./media/virtual-machines-common-boot-diagnostics/create-storage-account.png)
 
-3. 如果您正從 Azure Resource Manager 範本進行部署，請瀏覽至您的虛擬機器的資源並附加診斷設定檔區段。 請記得使用 “2015-06-15” API 版本標頭。
+    > [!NOTE]
+    > 開機診斷功能不支援進階儲存體帳戶。 如果您使用進階儲存體帳戶來進行開機診斷，可能會在啟動虛擬機器時收到 StorageAccountTypeNotSupported 錯誤。
+    >
+    > 
+
+3. 如果您正以 Azure Resource Manager 範本進行部署，請瀏覽至您的虛擬機器的資源並附加診斷設定檔區段。 請記得使用 “2015-06-15” API 版本標頭。
 
     ```json
     {
@@ -59,11 +64,18 @@ Azure 現在提供兩個偵錯功能的支援︰Azure 虛擬機器 Resource Mana
         }
     ```
 
-若要在已啟用開機診斷的情況下部署範例虛擬機器，請在此查看我們的存放庫。
+若要在已啟用開機診斷的情況下部署範例虛擬機器，請至此查看我們的存放庫。
 
-## <a name="update-an-existing-virtual-machine"></a>更新現有的虛擬機器 ##
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>在現有的虛擬機器上啟用開機診斷 
 
-若要透過入口網站啟用開機診斷，您也可以透過入口網站更新現有的虛擬機器。 選取 [開機診斷] 選項和 [儲存]。 重新啟動 VM 才會生效。
+若要在現有的虛擬機器上啟用開機診斷功能，請遵循下列步驟：
 
-![更新現有的 VM](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後選取虛擬機器。
+2. 在 [支援 + 疑難排解] 中，選取 [開機診斷]  >  [設定]，將狀態變更為 [開啟]，然後選取儲存體帳戶。 
+4. 確認 [開機診斷] 選項已選取，然後儲存變更。
+
+    ![更新現有的 VM](./media/virtual-machines-common-boot-diagnostics/enable-for-existing-vm.png)
+
+3. 重新啟動 VM 才會生效。
+
 

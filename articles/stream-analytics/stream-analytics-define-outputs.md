@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.openlocfilehash: 54bf0cd80d1fcc6d761f977484a1a5539d581361
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/11/2018
+ms.openlocfilehash: 030af72951e226d3484706e627bc8b74d5469670
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 本文說明適用於 Azure 串流分析作業的不同輸出類型。 輸出可讓您存放並儲存串流分析作業的結果。 透過使用輸出資料，您可以對資料進行進一步的商務分析及資料倉儲處理。 
@@ -86,7 +86,7 @@ ms.lasthandoff: 05/07/2018
 | 儲存體帳戶 | 您傳送輸出的儲存體帳戶名稱。 |
 | 儲存體帳戶金鑰 | 與儲存體帳戶相關聯的密碼金鑰。 |
 | 儲存體容器 | 容器提供邏輯分組給儲存在 Microsoft Azure Blob 服務中的 blob。 當您將 blob 上傳至 Blob 服務時，您必須指定該 blob 的容器。 |
-| 路徑模式 | 選用。 用來在指定容器中寫入 Blob 的檔案路徑模式。 </br></br> 在路徑模式中，您也可以選擇使用日期時間變數的一或多個執行個體，來指定 blob 的寫入頻率： </br> {date}、{time} </br> </br>您也可以從資料指定單一欄位 {column} 名稱來對 blob 進行分割，其中欄位名稱的格式為英數字元，並可以包含空格、連字號及底線。 自訂欄位的限制包含下列各項： <ul><li>不區分大小寫 (無法分辨資料行 "ID" 和資料行 "id")</li><li>不允許巢狀欄位 (改為在作業查詢中使用別名來「壓平」欄位)</li><li>運算式不能作為欄位名稱使用</li></ul>範例： <ul><li>範例 1：cluster1/logs/{date}/{time}</li><li>範例 2：cluster1/logs/{date}</li><li>範例 3：cluster1/{client_id}/{date}/{time}</li><li>範例 4：cluster1/{myField} 其中查詢為：SELECT data.myField AS myField FROM Input;</li></ul><BR> 檔案命名會遵循下列慣例： </br> {路徑前置詞模式}/schemaHashcode_Guid_Number.extension </br></br> 範例輸出檔案︰ </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
+| 路徑模式 | 選用。 用來在指定容器中寫入 Blob 的檔案路徑模式。 </br></br> 在路徑模式中，您也可以選擇使用日期時間變數的一或多個執行個體，來指定 blob 的寫入頻率： </br> {date}、{time} </br> </br>您也可以從事件資料指定一個自訂 {field} 名稱來對 Blob 進行分割，其中欄位名稱的格式為英數字元，並可以包含空格、連字號及底線。 自訂欄位的限制包含下列各項： <ul><li>不區分大小寫 (無法分辨資料行 "ID" 和資料行 "id")</li><li>不允許巢狀欄位 (改為在作業查詢中使用別名來「壓平」欄位)</li><li>運算式不能作為欄位名稱使用</li></ul>範例： <ul><li>範例 1：cluster1/logs/{date}/{time}</li><li>範例 2：cluster1/logs/{date}</li><li>範例 3：cluster1/{client_id}/{date}/{time}</li><li>範例 4：cluster1/{myField} 其中查詢為：SELECT data.myField AS myField FROM Input;</li></ul><BR> 檔案命名會遵循下列慣例： </br> {路徑前置詞模式}/schemaHashcode_Guid_Number.extension </br></br> 範例輸出檔案︰ </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | 日期格式 | 選用。 如果前置詞路徑中使用日期權杖，您可以選取組織檔案要用的日期格式。 範例：YYYY/MM/DD |
 | 時間格式 | 選用。 如果前置詞路徑中使用時間權杖，請指定組織檔案要用的時間格式。 目前唯一支援的值為 HH。 |
 | 事件序列化格式 | 輸出資料的序列化格式。  支援 JSON、CSV 和 Avro。
@@ -288,8 +288,8 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 新的 Az
 | 輸出類型 | 支援分割 | 資料分割索引鍵  | 輸出寫入器數目 | 
 | --- | --- | --- | --- |
 | Azure Data Lake Store | yes | 在路徑前置詞模式中使用 {date} 和 {time} 權杖。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用於時間格式。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 | 
-| 連接字串 | 否 | None | 不適用。 | 
-| Azure Blob 儲存體 | yes | 在路徑模式中使用 {date} 和 {time} 權杖。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用於時間格式。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 | 
+| Azure SQL Database | 否 | None | 不適用。 | 
+| Azure Blob 儲存體 | yes | 使用 {date} 和 {time} 權杖，或來自路徑模式中事件欄位的單一 {fieldname}。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用於時間格式。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 | 
 | Azure 事件中樞 | yes | yes | 根據分割區對齊方式而有所不同。</br> 當輸出事件中樞分割區索引鍵與上游 (先前的) 查詢步驟同等對齊時，寫入器的數目將會和輸出事件中樞分割區的數目相同。 每個寫入器都會使用事件中樞的 [EventHubSender 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)來將事件傳送至特定的分割區。 </br> 當輸出事件中樞分割區索引鍵沒有與上游 (先前的) 查詢步驟同等對齊時，寫入器的數目將會和先前步驟中的分割區數目相同。 每個寫入器會使用 EventHubClient [SendBatchAsync 類別](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) \(英文\) 來將事件傳送至所有輸出分割區。 |
 | Power BI | 否 | None | 不適用。 | 
 | Azure 資料表儲存體 | yes | 任何輸出資料行。  | 遵循[完整平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 | 
@@ -306,7 +306,7 @@ Azure 串流分析使用可變大小批次來處理事件及寫入至輸出。 �
 | 輸出類型 | 訊息大小上限 | 批次大小最佳化 |
 | :--- | :--- | :--- | 
 | Azure Data Lake Store | 請參閱 [Data Lake 儲存體限制](../azure-subscription-service-limits.md#data-lake-store-limits) | 每個寫入作業最多 4 MB |
-| 連接字串 | 每個單一大量插入最多 10,000 個資料列</br>每個單一大量插入最少 100 個資料列 </br>另請參閱 [Azure SQL 限制](../sql-database/sql-database-resource-limits.md) |  每個批次一開始都會搭配批次大小上限進行大量插入，並可能會根據來自 SQL 的可重試錯誤，將批次分割成一半 (以批次大小下限為限)。 |
+| Azure SQL Database | 每個單一大量插入最多 10,000 個資料列</br>每個單一大量插入最少 100 個資料列 </br>另請參閱 [Azure SQL 限制](../sql-database/sql-database-resource-limits.md) |  每個批次一開始都會搭配批次大小上限進行大量插入，並可能會根據來自 SQL 的可重試錯誤，將批次分割成一半 (以批次大小下限為限)。 |
 | Azure Blob 儲存體 | 請參閱 [Azure 儲存體限制](../azure-subscription-service-limits.md#storage-limits) | Blob 區塊大小上限為 4 MB</br>Blob 區塊計數上限為 50000 |
 | Azure 事件中樞   | 每個訊息 256 KB </br>另請參閱[事件中樞限制](../event-hubs/event-hubs-quotas.md) |    當輸入輸出資料分割沒有對齊時，每個事件會個別封裝於 EventData 中，並在以訊息大小上限 (針對進階 SKU 為 1 MB) 為限的情況下，以批次的方式傳送。 </br></br>  當輸入-輸出資料分割有對齊時，多個事件會封裝為單一 EventData (以訊息大小上限為限) 並傳送。    |
 | Power BI | 請參閱 [Power BI Rest API 限制](https://msdn.microsoft.com/library/dn950053.aspx) |

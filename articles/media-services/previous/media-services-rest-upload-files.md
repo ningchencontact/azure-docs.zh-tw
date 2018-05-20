@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/10/2018
 ms.author: juliako
-ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e51439ec0a6c6658b28ae0f02ff3eaeb4c551e4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 將檔案上傳至媒體服務帳戶
 > [!div class="op_single_selector"]
@@ -87,11 +87,11 @@ ms.lasthandoff: 05/07/2018
     ```
 4. 在 **Postman** 視窗的左側，按一下 [1.取得 AAD 驗證權杖] -> [取得服務主體的 Azure AD 權杖]。
 
-    URL 部分填入 **AzureADSTSEndpoint** 環境變數 (您稍早在本教學課程中設定的值)。
-    
-5. 按 [傳送]。
+    URL 部分會填入 **AzureADSTSEndpoint** 環境變數 (在稍早的教學課程中，您已設定了支援[集合](#configure-the-collection)[環境變數](#configure-the-environment)的值)。
 
     ![上傳檔案](./media/media-services-rest-upload-files/postment-get-token.png)
+
+5. 按 [傳送]。
 
     您可以看到包含 "access_token" 的回應。 "test" 指令碼會採用此值，並設定 **AccessToken** 環境變數 (如上方所述)。 如果檢查您的環境變數，您會看到此變數現在包含其餘作業中使用的存取權杖 (持有人權杖) 值。 
 

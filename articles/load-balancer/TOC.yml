@@ -49,7 +49,7 @@
 - name: 作法
   items:
     - name: 建立區域備援公用標準 Load Balancer
-      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+      href: load-balancer-get-started-internet-az-portal.md
       items:
         - name: 建立區域備援公用標準 Load Balancer (PowerShell)
           href: load-balancer-get-started-internet-az-powershell.md

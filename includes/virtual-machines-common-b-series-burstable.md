@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 95a78df20f5bed07213dfa3cc2c9b35e283f54e7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7372a0c49f6e41ef4d336188ceb5cf4393f4c982
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 B 系列 VM 系列可讓您選擇能為您的工作負載提供所需基本層級效能的 VM 大小，並且能夠使 CPU 效能高載高達 Intel® Broadwell E5-2673 v4 2.3 GHz 或 Intel® Haswell 2.4 GHz E5-2673 v3 處理器 vCPU 的 100%。
 
@@ -58,7 +58,8 @@ B 系列隨附下列六個 VM 大小：
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>問：B 系列是否支援進階儲存體資料磁碟？
 **答**：是的，所有 B 系列大小都支援進階儲存體資料磁碟。   
     
-
+### <a name="q-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>問：在重新部署或停止/啟動之後，剩餘信用額度會設定為 0。
+**答**：當虛擬機器「重新部署」時，也就是虛擬機器移到另一個節點時，累積的信用額度會遺失。 如果虛擬機器停止/啟動，但仍留在相同節點上，則虛擬機器會保留累積的信用額度。 每當虛擬機器在節點上以全新方式啟動時，它會取得初始信用額度，如果是 Standard_B8ms，額度為 240 分鐘。
 
     
 

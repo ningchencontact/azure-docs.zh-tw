@@ -5,19 +5,20 @@ services: active-directory
 documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-ms.author: bryanla
+ms.author: celested
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: 2b4c945f5707c158c76c8edbd233d1a8b034111f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 27315262ff64b640acc3af16a26fc3887d852a00
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法
 
@@ -74,7 +75,7 @@ catch (AdalSilentTokenAcquisitionException e) {
     // Exception: AdalSilentTokenAcquisitionException
     // Caused when there are no tokens in the cache or a required refresh failed. 
 
-    // Action: Case 1, resolvable with an interactive request.  
+    // Action: Case 1, resolvable with an interactive request. 
 } 
 
 catch(AdalServiceException e) {
@@ -157,7 +158,7 @@ public void onError(Exception e) {
             // Error: AD_ERROR_CACHE_MULTIPLE_USERS
             // Description: There was ambiguity in the silent request resulting in multiple cache items.
             // Action: Special Case, application should perform another silent request and specify the user using ADUserIdentifier. 
-            // Can be caused in cases of a multi-user application.  
+            // Can be caused in cases of a multi-user application. 
 
             // Action: Case 2, not resolvable with an interactive request.
             // Attempt retry after some time or user action.
@@ -170,9 +171,9 @@ public void onError(Exception e) {
 
 ## <a name="acquiretoken"></a>AcquireToken
 
-AcquireToken 是用來取得權杖的預設 ADAL 方法。 在需要使用者身分識別的情況下，AcquireToken 會嘗試先以無訊息模式取得權杖，然後視需要顯示 UI (除非通過 PromptBehavior.Never)。 在需要應用程式識別碼的情況下，AcquireToken 會嘗試取得權杖，但不會顯示 UI，因為沒有終端使用者。  
+AcquireToken 是用來取得權杖的預設 ADAL 方法。 在需要使用者身分識別的情況下，AcquireToken 會嘗試先以無訊息模式取得權杖，然後視需要顯示 UI (除非通過 PromptBehavior.Never)。 在需要應用程式識別碼的情況下，AcquireToken 會嘗試取得權杖，但不會顯示 UI，因為沒有終端使用者。 
 
-處理 AcquireToken 錯誤時，錯誤處理會取決於平台和應用程式嘗試達到的情況。  
+處理 AcquireToken 錯誤時，錯誤處理會取決於平台和應用程式嘗試達到的情況。 
 
 作業系統也可能產生一組錯誤，其需要的錯誤處理取決於特定應用程式。 如需詳細資訊，請參閱[錯誤和記錄參考](#error-and-logging-reference)中的「作業系統錯誤」。 
 
@@ -187,7 +188,7 @@ AcquireToken 是用來取得權杖的預設 ADAL 方法。 在需要使用者身
 
 ### <a name="error-cases-and-actionable-steps-native-client-applications"></a>錯誤案例和可採取動作的步驟：原生用戶端應用程式
 
-如果您正在建置原生用戶端應用程式，則需考量幾個錯誤處理案例，而這些案例與網路問題、暫時性失敗和其他平台特有錯誤相關。 在大部分情況下，應用程式不應該執行立即重試，而是等候會產生登入提示的終端使用者互動。  
+如果您正在建置原生用戶端應用程式，則需考量幾個錯誤處理案例，而這些案例與網路問題、暫時性失敗和其他平台特有錯誤相關。 在大部分情況下，應用程式不應該執行立即重試，而是等候會產生登入提示的終端使用者互動。 
 
 在幾個特殊案例中，一次重試即可解決此問題。 例如，使用者必須啟用裝置上的資料時，或在第一次失敗後完成 Azure AD 訊息代理程式的下載時。 
 
@@ -365,7 +366,7 @@ catch (AdalException e) {
 
 ### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>錯誤案例和可採取動作的步驟：單頁應用程式 (adal.js)
 
-如果您要使用 adal.js 與 AcquireToken 建置單頁應用程式，錯誤處理程式碼則與一般無訊息呼叫類似。  尤其在 adal.js 中，AcquireToken 永遠不會顯示 UI。 
+如果您要使用 adal.js 與 AcquireToken 建置單頁應用程式，錯誤處理程式碼則與一般無訊息呼叫類似。 尤其在 adal.js 中，AcquireToken 永遠不會顯示 UI。 
 
 失敗的 AcquireToken 案例如下所示：
 
@@ -512,7 +513,7 @@ Logger.getInstance().setExternalLogger(new ILogger() {
     @Override   
     public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) { 
     // …
-    // You can write this to logfile depending on level or errorcode.     
+    // You can write this to logfile depending on level or errorcode. 
     writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);    
     }
 }
