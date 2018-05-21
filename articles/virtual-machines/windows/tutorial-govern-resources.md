@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure PowerShell 控管 Azure 虛擬機器 | Microsoft Docs
-description: 教學課程 - 藉由使用 Azure PowerShell 來套用 RBAC、原則、鎖定和標籤以管理 Azure 虛擬機器
+title: 教學課程 - 使用 Azure PowerShell 控管 Azure 虛擬機器 | Microsoft Docs
+description: 在本教學課程中，您會了解如何使用 Azure PowerShell 來套用 RBAC、原則、鎖定和標籤以管理 Azure 虛擬機器
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -10,16 +10,17 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: d4e09eb11ea04c31b7e302b7f66f8e67c13e8252
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.custom: mvc
+ms.openlocfilehash: 154ba47881c65d963729f9074d93c7bb61020389
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="virtual-machine-governance-with-azure-powershell"></a>使用 Azure PowerShell 控管虛擬機器
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-powershell"></a>教學課程：了解如何使用 Azure PowerShell 來控管 Linux 虛擬機器
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 

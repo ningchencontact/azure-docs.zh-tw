@@ -1,6 +1,6 @@
 ---
-title: "監視 Windows 傳統型應用程式的使用情況和效能"
-description: "使用 HockeyApp 和 Application Insights 分析 Windows 傳統型應用程式的使用情况和效能。"
+title: 監視 Windows 傳統型應用程式的使用情況和效能
+description: 使用 Application Insights 分析 Windows 傳統型應用程式的使用情况和效能。
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -11,25 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/26/2016
+ms.date: 04/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3b91996c12a27847befcacf6daf14457a0e066aa
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 5b325fd4326f2594a7386c65dea17a3da19abde8
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>監視 Windows 傳統型應用程式的使用情況和效能
 
-
-[Azure Application Insights](app-insights-overview.md) 和 [HockeyApp](https://hockeyapp.net) 可讓您監視所部署之應用程式的使用情況和效能。
-
-> [!IMPORTANT]
-> 我們建議使用 [HockeyApp](https://hockeyapp.net) 來發佈和監視傳統型應用程式和裝置應用程式。 使用 HockeyApp，您可以管理發佈、即時測試和使用者意見，以及監視使用情況和當機報告。 您也可以 [使用分析匯出及查詢遙測](app-insights-hockeyapp-bridge-app.md)。
-> 
-> 雖然遙測可以從傳統型應用程式傳送至 Application Insights，但這主要是用來進行偵錯和實驗性用途。
-> 
-> 
+雖然遙測可以從傳統型應用程式傳送至 Application Insights，但這主要是用來進行偵錯和實驗性用途。
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-windows-application"></a>若要從 Windows 應用程式將遙測傳送至 Application Insights
 1. 在 [Azure 入口網站](https://portal.azure.com)中，建立 [Application Insights 資源](app-insights-create-new-resource.md)。 針對應用程式類型，選擇 ASP.NET 應用程式。

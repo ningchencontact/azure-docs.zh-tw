@@ -7,13 +7,13 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 12/04/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: f24777fe5bb482eb74aba4acbd7313665f22c38b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9ee88b254131b40fdf1e01b771afa92127734e18
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>在入口網站中建立、查詢和篩選 Azure 搜尋服務索引
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/23/2018
 + 在 [搜尋總管] 中測試查詢和剖析器語法
 + 檢視已發佈至您服務的現有索引並查詢其屬性
 
-**估計時間︰**大約 15 分鐘，但如果還需要註冊帳戶或服務，則時間較長。 
+**估計時間︰** 大約 15 分鐘，但如果還需要註冊帳戶或服務，則時間較長。 
 
 另外，加強使用 [.NET 中程式設計 Azure 搜尋服務的程式碼型簡介](search-howto-dotnet-sdk.md)。
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 04/23/2018
 
    ![索引和 API 命令][6]
 
-3. 按一下命令列上的 [設定 API 版本] 以查看可用的 REST API。 預覽 API 可讓您存取尚未公開發行的新功能。 對於下列查詢，除非另有指示，否則使用公開上市版本 (2016-09-01)。 
+3. 按一下命令列上的 [設定 API 版本] 以查看可用的 REST API。 預覽 API 可讓您存取尚未公開發行的新功能。 對於下列查詢，除非另有指示，否則使用公開上市版本 (2017-11-11)。 
 
     > [!NOTE]
     > [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 和 [.NET 程式庫](search-howto-dotnet-sdk.md#core-scenarios)完全相等，但**搜尋總管**只能用於處理 REST 呼叫。 它可接受[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)和[完整 Lucene 查詢剖析器](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)的語法，以及[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents)作業中可用的所有搜尋參數。

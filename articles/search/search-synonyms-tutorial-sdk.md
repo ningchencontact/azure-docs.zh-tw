@@ -1,27 +1,27 @@
 ---
-title: Azure 搜尋服務的同義字預覽教學課程 | Microsoft Docs
-description: 將同義字預覽功能新增至 Azure 搜尋服務中的索引。
+title: Azure 搜尋服務的同義字教學課程 | Microsoft Docs
+description: 將同義字功能新增至 Azure 搜尋服務中的索引。
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 03/31/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 0f082397f832883b272a2ca38850a340b618adde
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5482185a4a4cc8b76c1094ce12a7ac52985ec57c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="synonym-preview-c-tutorial-for-azure-search"></a>Azure 搜尋服務的同義字 (預覽) C# 教學課程
+# <a name="synonym-c-tutorial-for-azure-search"></a>Azure 搜尋服務的同義字 C# 教學課程
 
 同義字可藉由比對在語意上視為等於輸入詞彙的詞彙來展開查詢。 例如，您可能希望 "car" 比對包含 "automobile" 或 "vehicle" 詞彙的文件。
 
 在 Azure 搜尋服務中，同義字會定義於*同義字對應*中，透過*對應規則*讓相等的詞彙產生關聯。 您可以建立多個同義字對應、將它們張貼為可供任何索引使用的全服務資源，然後參照哪一個要在欄位層級使用。 查詢時，除了搜尋索引，Azure 搜尋服務會查閱同義字對應 (如果在查詢中使用的欄位上指定一個同義字對應)。
 
 > [!NOTE]
-> 同義字功能目前處於預覽狀態，只在最新的預覽 API 和 SDK 版本 (api-version=2016-09-01-Preview, SDK version 4.x-preview) 中提供支援。 這一次沒有 Azure 入口網站支援。 預覽 API 不受 SLA 約束，且預覽功能可能會變更，因此不建議在生產應用程式中使用它們。
+> 最新的 API 和 SDK 版本 (api-version=2017-11-11、SDK 5.0.0 版) 支援同義字功能。 目前 Azure 入口網站並不支援此功能。 如果 Azure 入口網站的同義字支援對您很有用，請在 [UserVoice](https://feedback.azure.com/forums/263029-azure-search) 上提供您的意見反應
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/23/2018
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure 搜尋服務](search-create-service-portal.md)
-* [預覽版本的 Microsoft.Azure.Search .NET 程式庫](https://aka.ms/search-sdk-preview)
+* [Microsoft.Azure.Search .NET 程式庫](https://aka.ms/search-sdk)
 * [如何從 .NET 應用程式使用 Azure 搜尋服務](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>概觀
