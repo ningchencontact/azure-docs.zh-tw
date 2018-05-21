@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 2498c8b1acff79d50f34c703af77c555a00fd1a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1a6ff01274c4a47730ffe45275aed9d122994260
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作負載的安全性最佳作法
 
@@ -106,7 +106,7 @@ Azure DevTest Labs 的功能包括︰
 
 在 Azure 中裝載實驗室或生產系統，表示必須能夠從網際網路存取您的系統。 根據預設，新 Windows 虛擬機器的 RDP 連接埠可經由網際網路存取，而 Linux 虛擬機器已開放 SSH 連接埠。 必須採取相關步驟來限制公開的端點，以將未經授權存取的風險降至最低。
 
-Azure 中的技術可協助您限制這些系統管理端點的存取。 在 Azure 中，您可以使用[網路安全性群組](../virtual-network/virtual-networks-nsg.md) (NSG)。 當您使用 Azure Resource Manager 進行部署時，NSG 會將來自所有網路的存取侷限於管理端點 (RDP 或 SSH)。 當您想到 NSG 時，您就會想到路由器 ACL。 您可以使用它們來嚴格控制 Azure 網路的各種區段之間的網路通訊。 這類似於在周邊網路或其他隔離的網路中建立網路。 它們不會檢查流量，但有助於與網路分割。
+Azure 中的技術可協助您限制這些系統管理端點的存取。 在 Azure 中，您可以使用[網路安全性群組](../virtual-network/security-overview.md) (NSG)。 當您使用 Azure Resource Manager 進行部署時，NSG 會將來自所有網路的存取侷限於管理端點 (RDP 或 SSH)。 當您想到 NSG 時，您就會想到路由器 ACL。 您可以使用它們來嚴格控制 Azure 網路的各種區段之間的網路通訊。 這類似於在周邊網路或其他隔離的網路中建立網路。 它們不會檢查流量，但有助於與網路分割。
 
 
 在 Azure 中，您可以設定從內部部署網路進行的[網站間 VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)。 網站間 VPN 會將您的內部部署網路擴充至雲端。 這會提供給您使用 NSG 的另一個機會，因為您也可以修改 NSG，不允許從區域網路以外的任何地方進行存取。 然後，您可以要求先透過 VPN 連線到 Azure 網路來進行管理。

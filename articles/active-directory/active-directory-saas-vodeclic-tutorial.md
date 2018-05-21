@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 940c7bb5040fb91a03b01dc43ee07d52e3d4e63b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: bc889919f2d869478843881cc8eae06fc9cb232c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>教學課程：Azure Active Directory 與 Vodeclic 整合
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/14/2017
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Vodeclic (單一登入，或稱 SSO)。
 - 您可以在 Azure 入口網站集中管理您的帳戶。
 
-若您想了解 SaaS 應用程式與 Azure AD 整合的更多詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
+若您想了解 SaaS 應用程式與 Azure AD 整合的更多詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/14/2017
 若要測試本教學課程中的步驟，請遵循下列建議：
 
 - 除非必要，否則請勿使用生產環境。
-- 如果您沒有 Azure AD 試用環境，您可以[取得一個月免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+- 如果您沒有 Azure AD 試用環境，[取得一個月免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
@@ -121,7 +121,7 @@ ms.lasthandoff: 12/14/2017
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的識別碼、回覆 URL 及登入 URL 來更新這些值。 請連絡 [Vodeclic 用戶端支援小組](mailto:hotline@vodeclic.com)以取得這些值。
 
-5. 在 [SAML 簽署憑證] 區段中，選取 [中繼資料 XML]。 然後，將中繼資料檔案儲存在您的電腦上。
+5. 在 [SAML 簽章憑證] 區段中，選取 [中繼資料 XML]。 然後，將中繼資料檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/active-directory-saas-vodeclic-tutorial/tutorial_vodeclic_certificate.png) 
 
@@ -214,7 +214,7 @@ ms.lasthandoff: 12/14/2017
 ## <a name="additional-resources"></a>其他資源
 
 * [如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 
 

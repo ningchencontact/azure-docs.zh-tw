@@ -2,7 +2,7 @@
 title: Azure 雲端服務定義。WebRole 結構描述 | Microsoft Docs
 ms.custom: ''
 ms.date: 04/14/2015
-ms.prod: azure
+services: cloud-services
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -13,11 +13,11 @@ caps.latest.revision: 60
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: b2873f61dcab9a14089949f27f40ca5bedaf14ee
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6db3edef937dc0b5cdd805d0045897e02b985e7b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure 雲端服務定義 WebRole 結構描述
 Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (例如，ASP.NET、PHP、Windows Communication Foundation 及 FastCGI) 所自訂的角色。
@@ -223,7 +223,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 |連接埠|int|必要。 外部端點的連接埠。 您可以指定所選擇的任何通訊埠編號，但服務中每個角色指定的連接埠號碼必須是唯一的。<br /><br /> 可能的值範圍介於 1 到 65535 (含) (Azure SDK 1.7 版或更高版本)。|  
 |憑證|字串|HTTPS 端點的必要項。 `Certificate` 元素所定義的憑證名稱。|  
 |localPort|int|選用。 指定用於端點上內部連線的通訊埠。 `localPort` 屬性會將端點上的外部連接埠對應至角色上的內部連接埠。 這對於一個角色必須與不同於對外連接埠之連接埠上的內部元件通訊的情節很有用。<br /><br /> 如果未指定，`localPort` 的值會與 `port` 屬性相同。 將 `localPort` 的值設定為 “*”，可使用執行階段 API 自動指派可探索的未配置連接埠。<br /><br /> 可能的值範圍介於 1 到 65535 (含) (Azure SDK 1.7 版或更高版本)。<br /><br /> 在使用 Azure SDK 1.3 版或更新版本時，才能使用 `localPort` 屬性。|  
-|ignoreRoleInstanceStatus|布林值|選用。 當這個屬性的值設定為 `true` 時，就會忽略服務的狀態，且負載平衡器不會移除端點。 將此值設定為 `true` 適用於服務的偵錯忙碌執行個體。 預設值為 `false`。 **注意：**即使角色不是處於就緒狀態，端點仍可以接收流量。|  
+|ignoreRoleInstanceStatus|布林值|選用。 當這個屬性的值設定為 `true` 時，就會忽略服務的狀態，且負載平衡器不會移除端點。 將此值設定為 `true` 適用於服務的偵錯忙碌執行個體。 預設值為 `false`。 **注意：** 即使角色不是處於就緒狀態，端點仍可以接收流量。|  
 |loadBalancerProbe|字串|選用。 與輸入端點相關聯之負載平衡器探查的名稱。 如需詳細資訊，請參閱 [LoadBalancerProbe 結構描述](schema-csdef-loadbalancerprobe.md)。|  
 
 ##  <a name="InternalEndpoint"></a> InternalEndpoint  

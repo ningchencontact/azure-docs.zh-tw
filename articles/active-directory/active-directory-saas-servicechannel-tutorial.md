@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 ServiceChannel 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 ServiceChannel 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 ServiceChannel 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 ServiceChannel 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
-ms.openlocfilehash: b744b8e197c918e7fe3a0e6e7eeab6a70cc6e34a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2b1c7461cb1ed232290cf78a03449611f9ef95da
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>教學課程：Azure Active Directory 與 ServiceChannel 整合
 
@@ -29,7 +29,7 @@ ServiceChannel 與 Azure AD 整合提供下列優點：
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 ServiceChannel (單一登入)
 - 您可以在 Azure 管理入口網站中集中管理您的帳戶
 
-若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -57,7 +57,7 @@ ServiceChannel 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 ServiceChannel，請執行下列步驟：**
 
-1. 在 **[Azure 管理入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 管理入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ ServiceChannel 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 請注意這些不是真正的值。 您必須使用實際的識別碼和回覆 URL 更新這些值。 在此建議您在 [識別碼] 中使用唯一的字串值。 請連絡 [ServiceChannel 支援小組](https://servicechannel.zendesk.com/hc/en-us)以取得這些值。
 
-4. ServiceChannel 應用程式需要特定格式的 SAML 判斷提示，所以您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示上述的範例。 **NameIdentifier(使用者識別碼)**是唯一的強制宣告，預設值是 **user.userprincipalname**，但 ServiceChannel 會需要此值對應至 **user.mail**。 如果您打算啟用 Just In Time 使用者佈建，則應該新增下列宣告，如下所示。 **角色**宣告需要對應到 **user.assignedroles**，其中包含使用者的角色。  
+4. ServiceChannel 應用程式需要特定格式的 SAML 判斷提示，所以您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示上述的範例。 **NameIdentifier(使用者識別碼)** 是唯一的強制宣告，預設值是 **user.userprincipalname**，但 ServiceChannel 會需要此值對應至 **user.mail**。 如果您打算啟用 Just In Time 使用者佈建，則應該新增下列宣告，如下所示。 **角色**宣告需要對應到 **user.assignedroles**，其中包含使用者的角色。  
 
     您可以參考[這裡](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example)的 ServiceChannel 指南，以取得宣告的詳細指引。
     
@@ -154,7 +154,7 @@ ServiceChannel 與 Azure AD 整合提供下列優點：
 
 8. 在 [ServiceChannel 組態] 區段上，按一下 [設定 ServiceChannel] 以開啟 [設定登入] 視窗。 請記下 [快速參考] 區段中的 [SAML 實體識別碼]。
 
-9. 若要在 **ServiceChannel** 端設定單一登入，您需要將已下載的**憑證 (Base64)**和 **SAML 實體識別碼**傳送給 [ServiceChannel 支援小組](https://servicechannel.zendesk.com/hc/en-us)。 他們將會設定妥當，讓兩端的 SAML SSO 連線都設定正確。
+9. 若要在 **ServiceChannel** 端設定單一登入，您需要將已下載的**憑證 (Base64)** 和 **SAML 實體識別碼**傳送給 [ServiceChannel 支援小組](https://servicechannel.zendesk.com/hc/en-us)。 他們將會設定妥當，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節目標是在 Azure 管理入口網站中建立名為 Britta Simon 的測試使用者。
@@ -230,7 +230,7 @@ ServiceChannel 與 Azure AD 整合提供下列優點：
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->
