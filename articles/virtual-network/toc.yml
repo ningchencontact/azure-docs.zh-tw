@@ -61,12 +61,10 @@
           href: virtual-networks-acl.md
 - name: 使用說明指南
   items:
-    - name: 規劃和設計
+    - name: 規劃
       items:
         - name: 虛擬網路
           href: virtual-network-vnet-plan-design-arm.md
-        - name: 網路安全性群組
-          href: virtual-networks-nsg.md
     - name: 部署
       items:
         - name: 網路安全性群組
