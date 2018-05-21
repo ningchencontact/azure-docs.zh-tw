@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 7112b8af792dc245c1a2a68e130328d82b4958b3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 73baef03f7b240e7bb33f3d5f827b1fc72c985f2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>整合您的內部部署目錄與 Azure Active Directory
 Azure AD Connect 會整合您的內部部署目錄與 Azure Active Directory。 這可讓您為與 Azure AD 整合之 Office 365、Azure 和 SaaS 應用程式的使用者提供通用身分識別。 本主題將引導您完成規劃、部署和作業步驟。 其中集結了與此領域相關的主題連結。
@@ -64,7 +64,7 @@ Azure Active Directory Connect 由三個主要元件組成︰同步處理服務�
 | --- | --- |
 | 開始之前 - [硬體和必要條件](active-directory-aadconnect-prerequisites.md) |<li>開始安裝 Azure AD Connect 之前所應完成的步驟。</li> |
 | [快速設定](active-directory-aadconnect-get-started-express.md) |<li>如果您有單一樹系 AD，則這是建議使用的選項。</li> <li>使用密碼同步處理以相同的密碼進行使用者登入。</li> |
-| [自訂設定](active-directory-aadconnect-get-started-custom.md) |<li>有多個樹系時使用。 支援許多內部部署[拓撲](active-directory-aadconnect-topologies.md)。</li> <li>自訂您登入的選項，例如同盟的 ADFS 或使用第三方身分識別提供者。</li> <li>自訂同步處理功能，例如篩選和回寫。</li> |
+| [自訂設定](active-directory-aadconnect-get-started-custom.md) |<li>有多個樹系時使用。 支援許多內部部署[拓撲](active-directory-aadconnect-topologies.md)。</li> <li>自訂您登入的選項，例如傳遞驗證、同盟的 ADFS 或使用第三方識別提供者。</li> <li>自訂同步處理功能，例如篩選和回寫。</li> |
 | [從 DirSync 升級](active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>在您有已在執行中的現有 DirSync 伺服器時使用。</li> |
 | [從 Azure AD Sync 或 Azure AD Connect 升級](active-directory-aadconnect-upgrade-previous-version.md) |<li>視您的偏好而定會有數種不同的方法。</li> |
 
