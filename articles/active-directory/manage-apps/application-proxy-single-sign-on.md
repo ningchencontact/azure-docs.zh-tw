@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d1c9f4dd8504c2409663cb87b0c0d56164229ed2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1d31b11c3307cc2e54b91e68e1e1a3811ae2ef96
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Azure AD 應用程式 Proxy 如何提供單一登入？
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 05/14/2018
 
 如果您已經有為您的內部部署身分識別設定的單一登入解決方案，請選擇 [連結型登入]。 此選項可讓 Azure Active Directory 運用現有的 SSO 解決方案，但仍可讓使用者遠端存取應用程式。 
 
-如需連結登入 (先前稱為現有單一登入) 的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)。
+如需連結登入 (先前稱為現有單一登入) 的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)。
 
 ## <a name="integrated-windows-authentication"></a>整合式 Windows 驗證
 

@@ -29,7 +29,11 @@
 ## [管理 Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [O365 和 Azure AD 更新憑證](active-directory-aadconnect-o365-certs.md)
 ### [更新適用於 Active Directory 同盟服務 (AD FS) 伺服器陣列的 SSL 憑證](active-directory-aadconnectfed-ssl-update.md)
-### [啟用裝置回寫](active-directory-aadconnect-feature-device-writeback.md)
+
+### [裝置選項](active-directory-azure-ad-connect-device-options.md)
+#### [啟用裝置回寫](active-directory-aadconnect-feature-device-writeback.md)
+#### [混合式 Azure AD 聯結組態後續工作](active-directory-azure-ad-connect-hybrid-azure-ad-join-post-config-tasks.md)
+
 ### [使用者單一登入選項](active-directory-aadconnect-user-signin.md)
 #### [順暢單一登入](active-directory-aadconnect-sso.md)
 ##### [快速入門](active-directory-aadconnect-sso-quick-start.md)

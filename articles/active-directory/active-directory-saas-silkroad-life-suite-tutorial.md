@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 SilkRoad Life Suite 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 SilkRoad Life Suite 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 SilkRoad Life Suite 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 SilkRoad Life Suite 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 0d6af7af7d6b28ff3ea9d518a65b8267a83b71b4
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 96f57f8dca4826840ccb04db25506fb9e45c59ef
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>教學課程：Azure Active Directory 與 SilkRoad Life Suite 整合
 
 在本教學課程中，您將了解如何整合 SilkRoad Life Suite 與 Azure Active Directory (Azure AD)。
 
-將 SilkRoad Life Suite 與 Azure AD 整合提供下列優點：
+SilkRoad Life Suite 與 Azure AD 整合提供下列優點：
 
 - 您可以在 Azure AD 中控制可存取 SilkRoad Life Suite 的人員。
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 SilkRoad Life Suite (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -54,11 +54,11 @@ ms.lasthandoff: 12/13/2017
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-silkroad-life-suite-from-the-gallery"></a>從資源庫加入 SilkRoad Life Suite
-若要設定將 SilkRoad Life Suite 整合到 Azure AD 中，您需要將 SilkRoad Life Suite 從資源庫新增到受控 SaaS 應用程式清單。
+若要設定 SilkRoad Life Suite 與 Azure AD 整合，您需要從資源庫將 SilkRoad Life Suite 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 SilkRoad Life Suite，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -78,11 +78,11 @@ ms.lasthandoff: 12/13/2017
 
 在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 SilkRoad Life Suite 搭配運作的 Azure AD 單一登入。
 
-若要讓單一登入能夠運作，Azure AD 必須知道 SilkRoad Life Suite 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者與 SilkRoad Life Suite 中的相關使用者之間建立連結關聯性。
+若要讓單一登入能夠運作，Azure AD 必須知道 SilkRoad Life Suite 與 Azure AD 中互相對應的使用者。 換句話說，Azure AD 使用者和 SilkRoad Life Suite 中的相關使用者之間必須建立連結關聯性。
 
 在 SilkRoad Life Suite 中，指派 Azure AD 中的**使用者名稱**值作為 [Username] \(使用者名稱\) 的值，以建立連結關聯性。
 
-若要設定及測試與 SilkRoad Life Suite 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試對 SilkRoad Life Suite 的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
@@ -273,7 +273,7 @@ ms.lasthandoff: 12/13/2017
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 
 

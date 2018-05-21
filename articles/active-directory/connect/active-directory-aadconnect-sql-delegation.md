@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/18/2018
 ms.author: billmath
-ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9cb32d137334141183831e703fb11cd3e6bd5a73
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>使用 SQL 委派的管理員權限安裝 Azure AD Connect
 最新的 Azure AD Connect 組建之前的版本在部署需要 SQL 的設定時不支援管理委派。  想要安裝 Azure AD Connect 的使用者必須在 SQL 伺服器上擁有伺服器管理員 (SA) 權限。
@@ -42,7 +42,7 @@ Azure AD Connect 系統管理員|安裝 Azure AD Connect，並在自訂安裝期
 
 
 1.  讓 SQL 系統管理員使用不區分大小寫的定序序列 **(Latin1_General_CI_AS)** 建立 ADSync 資料庫。  資料庫必須命名為 **ADSync**。  在安裝 Azure AD Connect 時，復原模式、相容性層級和內含項目類型會更新為正確的值。  不過，SQL 系統管理員必須正確設定定序序列，否則 Azure AD Connect 會阻止安裝。  若要復原 SA，就必須先刪除再重新建立資料庫。</br>
-![定序](media/active-directory-aadconnect-sql-delegation/sql1.png)
+![定序](media/active-directory-aadconnect-sql-delegation/sql4.png)
 2.  對 Azure AD Connect 系統管理員和網域服務帳戶授與下列權限：
     - SQL 登入 
     - **資料庫擁有者 (dbo)** 權限。  </br>

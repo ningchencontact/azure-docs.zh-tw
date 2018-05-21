@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 TOPdesk - Secure 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 TOPdesk - Secure 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 TOPdesk - Secure 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 TOPdesk - Secure 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: ca3362bc3f966adaf9940f6eb4bec5235c6ea7d8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 34296313753eb795bee5d93a8d8f1c8ae5efac9f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>教學課程：Azure Active Directory 與 TOPdesk - Secure 整合
 
@@ -30,14 +30,14 @@ ms.lasthandoff: 12/13/2017
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 TOPdesk - Secure (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 TOPdesk - Secure 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
-- 已啟用 TOPdesk - Secure 單一登入的訂用帳戶
+- 已啟用 TOPdesk - Secure 單一登入功能的訂用帳戶
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/13/2017
 
 **若要從資源庫新增 TOPdesk - Secure，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -291,7 +291,7 @@ TOPdesk - Secure 需以手動的方式佈建。
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

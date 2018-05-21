@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 523508bc2caeb4315caa6597662174aa0fdeb47b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: ac3438f0c706988323318146965a87461dcce1e8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>整合 Azure Active Directory 與應用程式入門指南
 ## <a name="overview"></a>概觀
@@ -64,7 +64,7 @@ ms.lasthandoff: 05/11/2018
 如上所述，可能有應用程式到目前為止仍未受到組織的管理。  作為清查程序的一部分，您可以找到未經約束的雲端應用程式。 請參閱 [使用 Cloud App Discovery 尋找未經約束的雲端應用程式](cloud-app-discovery.md)。
 
 ### <a name="authentication-types"></a>驗證類型
-每個應用程式可能有不同的驗證需求。 利用 Azure AD，可將簽署憑證用於使用 SAML 2.0、WS-同盟或 OpenID Connect 通訊協定，以及密碼單一登入的應用程式。 如需要與 Azure AD 搭配使用的應用程式驗證類型的詳細資訊，請參閱[在 Azure Active Directory 中管理同盟單一登入的憑證](../active-directory-sso-certs.md)和[密碼式單一登入](../active-directory-appssoaccess-whatis.md)。
+每個應用程式可能有不同的驗證需求。 利用 Azure AD，可將簽署憑證用於使用 SAML 2.0、WS-同盟或 OpenID Connect 通訊協定，以及密碼單一登入的應用程式。 如需要與 Azure AD 搭配使用的應用程式驗證類型的詳細資訊，請參閱[在 Azure Active Directory 中管理同盟單一登入的憑證](../active-directory-sso-certs.md)和[密碼式單一登入](what-is-single-sign-on.md)。
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>使用 Azure AD 應用程式 Proxy 啟用 SSO
 透過 Microsoft Azure AD 應用程式 Proxy，您可以從任何地方及任何裝置上安全地為位於您的私人網路上的應用程式提供存取。 在您的環境中安裝應用程式 Proxy 連接器之後，可以輕鬆地使用 Azure AD 來加以設定。
@@ -73,7 +73,7 @@ ms.lasthandoff: 05/11/2018
 以下文章將討論整合應用程式與 Azure AD 的各種不同方式，並提供一些指引。
 
 * [決定要使用的 Active Directory](../active-directory-administer.md)
-* [使用 Azure 應用程式資源庫中的應用程式](../active-directory-appssoaccess-whatis.md)
+* [使用 Azure 應用程式資源庫中的應用程式](what-is-single-sign-on.md)
 * [整合 SaaS 應用程式教學課程清單](../active-directory-saas-tutorial-list.md)
 
 ## <a name="managing-access-to-applications"></a>管理應用程式的存取

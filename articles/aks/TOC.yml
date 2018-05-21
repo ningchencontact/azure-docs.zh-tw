@@ -45,13 +45,13 @@
           href: delete-cluster.md
     - name: 設定資料磁碟區
       items:
-        - name: AzureDisk 動態佈建
+        - name: Azure 磁碟 - 動態
           href: azure-disks-dynamic-pv.md
-        - name: AzureDisk 靜態佈建
+        - name: Azure 磁碟 - 靜態
           href: azure-disk-volume.md
-        - name: AzureFile 動態佈建
+        - name: Azure 檔案 - 動態
           href: azure-files-dynamic-pv.md
-        - name: AzureFile 靜態佈建
+        - name: Azure 檔案 - 靜態
           href: azure-files-volume.md
     - name: 設定網路功能
       items:

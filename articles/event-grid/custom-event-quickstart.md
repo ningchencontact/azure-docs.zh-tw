@@ -6,13 +6,13 @@ keywords: ''
 author: tfitzmac
 ms.author: tomfitz
 ms.date: 03/20/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: be98fa88727a867e0fca0ca3587db276f8a2d7f2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d68df064614c262bd9755be0688841fdb64af762
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="create-and-route-custom-events-with-azure-cli-and-event-grid"></a>使用 Azure CLI 和事件格線建立和路由傳送自訂事件
 
@@ -45,7 +45,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>建立自訂主題
 
-Event Grid 主題會提供您張貼事件之使用者定義的端點。 下列範例可在您的資源群組中建立自訂主題。 以主題的唯一名稱取代 `<topic_name>`。 主題名稱必須是唯一的，因為它由 DNS 項目表示。
+Event Grid 主題會提供使用者定義的端點，作為您發佈事件的目的地。 下列範例可在您的資源群組中建立自訂主題。 以主題的唯一名稱取代 `<topic_name>`。 主題名稱必須是唯一的，因為它由 DNS 項目表示。
 
 ```azurecli-interactive
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
@@ -109,7 +109,7 @@ curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
 ## <a name="clean-up-resources"></a>清除資源
-如果您打算繼續使用此事件，請勿清除在此本文中建立的資源。 否則，請使用下列命令來刪除您在本文建立的資源。
+如果您打算繼續使用此事件，請勿清除在本文中建立的資源。 否則，請使用下列命令來刪除您在本文建立的資源。
 
 ```azurecli-interactive
 az group delete --name gridResourceGroup
