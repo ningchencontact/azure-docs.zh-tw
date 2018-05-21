@@ -2,25 +2,19 @@
 title: 自助式密碼重設快速入門 - Azure Active Directory
 description: 快速部署 Azure AD 自助式密碼重設
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 6add6e71c9acf6d63858ea921ec85924b4e6c60f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>快速部署 Azure AD 自助式密碼重設
 
@@ -33,11 +27,13 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>啟用 Azure AD 租用戶的 SSPR
 
+> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+
 1. 從您現有的 Azure AD 租用戶，在 [Azure 入口網站] 上的 [Azure Active Directory] 下選取 [密碼重設]。
 
 2. 從 [屬性] 頁面的 [已啟用自助式密碼重設] 之下，選擇下列其中一項：
    * **無**：沒有人能夠使用 SSPR 功能。
-   * **已選取**：只有您所選的特定 Azure AD 群組成員可以使用 SSPR 功能。 我們建議您定義使用者群組，並在部署此功能以用於概念證明時，使用這項設定。
+   * **已選取**：只有您所選的特定 Azure AD 群組成員可以使用 SSPR 功能。 我們建議您定義使用者群組，並在部署此功能以用於概念證明時，使用這項設定。 這裡支援安全性群組的巢狀。
    * **全部**：在您的 Azure AD 租用戶中具有帳戶的所有使用者都可以使用 SSPR 功能。 我們建議當您完成概念證明之後，準備要將此功能部署至整個租用戶時，使用這項設定。
 
    > [!IMPORTANT]

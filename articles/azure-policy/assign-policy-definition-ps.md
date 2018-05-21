@@ -1,19 +1,19 @@
 ---
-title: 快速入門 - 使用 PowerShell 建立原則指派，以識別 Azure 環境中不符合規範的資源 | Microsoft Docs
+title: 快速入門 - 使用 PowerShell 建立原則指派，以識別 Azure 環境中不符合規範的資源
 description: 在本快速入門中，您會使用 PowerShell 建立 Azure 原則指派，以識別不符合規範的資源。
 services: azure-policy
 keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/10/2018
+ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: f39177f5a2e5878570ed750a42009c2203257b13
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f24dc2a28acfbd3fd80578fed17c6d57275366f0
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>快速入門：使用 Azure RM PowerShell 模組建立原則指派，以識別不符合規範的資源
 
@@ -29,8 +29,8 @@ AzureRM PowerShell 模組用於從命令列或在指令碼中建立和管理 Azu
 - 將您的 AzureRM PowerShell 模組更新為最新版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 - 使用 Azure PowerShell 註冊 Policy Insights 資源提供者。 註冊資源提供者，以確保您的訂用帳戶可搭配它使用。 若要註冊資源提供者，您必須有權執行資源提供者的註冊動作作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
 
-  ```
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
   如需註冊及檢視資源提供者的詳細資訊，請參閱[資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)
@@ -41,10 +41,10 @@ AzureRM PowerShell 模組用於從命令列或在指令碼中建立和管理 Azu
 
 執行下列命令以建立新的原則指派：
 
-```powershell
-$rg = Get-AzureRmResourceGroup -Name "<resourceGroupName>"
-$definition = Get-AzureRmPolicyDefinition | where {$_.properties.displayName -eq "Audit VMs that do not use managed disks"}
-New-AzureRMPolicyAssignment -Name "Audit Virtual Machines without Managed Disks" -Scope $rg.ResourceId -PolicyDefinition $definition -Sku @{Name='A1';Tier='Standard'}
+```azurepowershell-interactive
+$rg = Get-AzureRmResourceGroup -Name '<resourceGroupName>'
+$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
+New-AzureRmPolicyAssignment -Name 'Audit Virtual Machines without Managed Disks' -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 上述命令會使用下列資訊：
@@ -52,8 +52,6 @@ New-AzureRMPolicyAssignment -Name "Audit Virtual Machines without Managed Disks"
 - **名稱** - 原則指派的顯示名稱。 在此案例中，您會使用 Audit Virtual Machines without Managed Disks (稽核沒有受控磁碟指派的虛擬機器)。
 - **定義** – 原則定義，這是您用來建立指派的根基。 在此案例中，即為原則定義 – *Audit Virtual Machines without Managed Disks* (稽核沒有受控磁碟的虛擬機器)。
 - **範圍** – 範圍會決定在哪些資源或資源群組上強制執行原則指派。 範圍從訂用帳戶到資源群組。 請務必將 &lt;scope&gt; 取代為您的資源群組。
-- **Sku** – 此命令會建立具有標準層的原則指派。 標準層可讓您達到大規模管理、合規性評估和補救。 如需定價層的其他詳細資訊，請參閱 [Azure 原則定價](https://azure.microsoft.com/pricing/details/azure-policy)。
-
 
 您現在可以識別不相容的資源，以了解環境的相容性狀態。
 
@@ -61,58 +59,53 @@ New-AzureRMPolicyAssignment -Name "Audit Virtual Machines without Managed Disks"
 
 使用下列資訊來識別不符合您所建立之原則指派的資源。 執行下列命令：
 
-```powershell
-$policyAssignment = Get-AzureRmPolicyAssignment | where {$_.properties.displayName -eq "Audit Virtual Machines without Managed Disks"}
-```
-
-```powershell
+```azurepowershell-interactive
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks' }
 $policyAssignment.PolicyAssignmentId
 ```
 
-如需有關原則指派識別碼的詳細資訊，請參閱 [Get-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/get-azurermpolicyassignment)。
+如需有關原則指派識別碼的詳細資訊，請參閱 [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/get-azurermpolicyassignment)。
 
 接下來，執行下列命令，以取得不合規資源的資源識別碼，而這些識別碼會輸出到 JSON 檔案中：
 
-```powershell
+```
 armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
+
 您的結果類似下列範例：
 
+```json
+{
+    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
+    "@odata.count": 3,
+    "value": [{
+            "@odata.id": null,
+            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachineId>"
+        },
+        {
+            "@odata.id": null,
+            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine2Id>"
+        },
+        {
+            "@odata.id": null,
+            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+            "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine3ID>"
+        }
 
-```
-{
-"@odata.context":"https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-"@odata.count": 3,
-"value": [
-{
-    "@odata.id": null,
-    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-      "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachineId>"
-    },
-    {
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-      "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine2Id>"
-         },
-{
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-      "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine3ID>"
-         }
-
-]
+    ]
 }
 ```
 
 結果類似於您通常在 Azure 入口網站檢視中看到列在 [不符合規範的資源] 之下的內容。
 
-
 ## <a name="clean-up-resources"></a>清除資源
 
 此集合中的後續指南是以本快速入門為基礎。 如果您打算繼續進行其他教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，您可藉由執行以下命令來刪除您所建立的指派：
 
-```powershell
-Remove-AzureRmPolicyAssignment -Name "Audit Virtual Machines without Managed Disks Assignment" -Scope /subscriptions/<subscriptionID>/<resourceGroupName>
+```azurepowershell-interactive
+Remove-AzureRmPolicyAssignment -Name 'Audit Virtual Machines without Managed Disks Assignment' -Scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
 
 ## <a name="next-steps"></a>後續步驟
@@ -122,4 +115,4 @@ Remove-AzureRmPolicyAssignment -Name "Audit Virtual Machines without Managed Dis
 若要深入了解如何指派原則並確保所建立的**未來**資源是符合規範，請繼續進行教學課程：
 
 > [!div class="nextstepaction"]
-> [建立及管理原則](./create-manage-policy.md)
+> [建立及管理原則](create-manage-policy.md)

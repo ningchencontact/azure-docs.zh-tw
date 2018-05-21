@@ -1,11 +1,11 @@
 ---
-title: "使用大型的 Azure 虛擬機器擴展集 | Microsoft Docs"
-description: "大型 Azure 虛擬機器擴展集的使用須知"
+title: 使用大型的 Azure 虛擬機器擴展集 | Microsoft Docs
+description: 大型 Azure 虛擬機器擴展集的使用須知
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
 ms.author: negat
-ms.openlocfilehash: 192f2c01be0992e22ce67e3df6d641ba707e22fd
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 17c8fdd0bc85b9d1a4e1b50cf422b28f32862a7e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>使用大型的虛擬機器擴展集
 您現在可以建立容量多達 1,000 個 VM 的 Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)。 本文件將_大型虛擬機器擴展集_定義為能夠調整到 100 個 VM 以上的擴展集。 此容量是由擴展集屬性 (_singlePlacementGroup=False_) 所設定。 
@@ -77,10 +77,10 @@ az vmss create --help
       "mode": "Automatic"
     }
 ```
-如需完整的大型擴展集範本範例，請參閱 [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json)。
+如需大型擴展集範本的完整範例，請參閱 [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json)。
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>將現有擴展集轉換為橫跨多個放置群組
-若要讓現有虛擬機器擴展集能夠調整為 100 個以上的 VM，您必須將擴展集模型中的 [singplePlacementGroup] 屬性變更為 [false]。 您可以使用 [Azure 資源總管](https://resources.azure.com/)測試此屬性的變更。 找到現有擴展集，選取 [編輯]，然後變更 [singlePlacementGroup] 屬性。 如果未看到此屬性，您可能是以舊版 Microsoft.Compute API 在檢視擴展集。
+若要讓現有虛擬機器擴展集能夠調整為 100 個以上的 VM，您必須將擴展集模型中的 _singlePlacementGroup_ 屬性變更為 _false_。 您可以使用 [Azure 資源總管](https://resources.azure.com/)測試此屬性的變更。 找到現有擴展集，選取 [編輯]，然後變更 [singlePlacementGroup] 屬性。 如果未看到此屬性，您可能是以舊版 Microsoft.Compute API 在檢視擴展集。
 
 >[!NOTE] 
 您只能將擴展集從支援單一放置群組 (預設行為) 變更為支援多個放置群組，而無法進行相反方向的轉換。 因此在轉換之前，請確定您已了解大型擴展集的屬性。

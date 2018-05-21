@@ -116,7 +116,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 | * / 1886 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|將健康情況狀態發佈至 [資源健康狀態] 時所需 |外部和內部 |
 | * / 25028 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|連線到 SMTP 轉送以便傳送電子郵件 |外部和內部 |
 | * / 6381 - 6383 |輸入和輸出 |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|存取 RoleInstances 之間的 Redis 快取執行個體 |外部和內部 |
-| * / * | 輸入 |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure 基礎結構負載平衡器 |外部和內部 |
+| * / \* | 輸入 |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure 基礎結構負載平衡器 |外部和內部 |
 
 >[!IMPORTANT]
 > 要成功部署 API 管理服務，就必須有以**粗體**表示其「目的」的連接埠。 不過，封鎖其他連接埠將會降低使用和監視執行中服務的能力。

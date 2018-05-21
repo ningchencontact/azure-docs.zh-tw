@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: 66c82cc22b9b460281928c4892dab8308ccf1098
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a83b87f1ed052c6d21d337eb37bc560efbf118ba
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>使用 Curl 在 HDInsight 中以 Hadoop 執行 Sqoop 作業
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -61,7 +61,7 @@ ms.lasthandoff: 04/16/2018
    * **-u** - 用來驗證要求的使用者名稱和密碼。
    * **-G** - 指出這是 GET 要求。
      
-     URL 的開頭 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** 適用於所有要求。 路徑 **/status** 指出要求是要傳回伺服器之 WebHCat (也稱為 Templeton) 的狀態。 
+     URL 的開頭 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** 適用於所有的要求。 路徑 **/status** 指出要求是要傳回伺服器之 WebHCat (也稱為 Templeton) 的狀態。 
 2. 使用以下命令提交 Sqoop 作業：
 
     ```bash

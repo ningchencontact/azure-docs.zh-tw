@@ -1,24 +1,20 @@
 ---
 title: 選擇 Azure MFA 雲端或伺服器 | Microsoft Docs
-description: 藉由提出我要保護什麼和使用者所在位置等問題，選擇最合適的 Multi-Factor Authentication 安全性解決方案。  然後選擇雲端、MFA Server 或 AD FS。
+description: 藉由提出我要保護什麼和使用者所在位置等問題，選擇最合適的 Multi-Factor Authentication 安全性解決方案。
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ec2270ea-13d7-4ebc-8a00-fa75ce6c746d
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 04fdd2df070ac347d5ef0a328da39141956c1df8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8314d72aa2cc6787d3f65dd48cd693a0ac332c0a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>選擇您的 Azure Multi-Factor Authentication 方案
 因為 Azure Multi-Factor Authentication (MFA) 的種類繁多，我們必須回答幾個問題，以找出最合適的版本。  這些問題如下：
@@ -47,8 +43,8 @@ ms.lasthandoff: 04/23/2018
 | --- |:---:|:---:|
 | Azure Active Directory |● | |
 | Azure AD 和使用 AD FS 同盟的內部部署 AD |● |● |
-| Azure AD 和使用 DirSync、Azure AD Sync、Azure AD Connect 的內部部署 AD - 而沒有密碼同步 |● |● |
-| Azure AD 和使用 DirSync、Azure AD Sync、Azure AD Connect 的內部部署 AD - 使用密碼同步 |● | |
+| Azure AD 和使用 DirSync、Azure AD 同步、Azure AD Connect 的內部部署 AD - 沒有密碼雜湊同步或傳遞驗證 |● |● |
+| Azure AD 和使用 DirSync、Azure AD 同步、Azure AD Connect 的內部部署 AD - 具有密碼雜湊同步或傳遞驗證 |● | |
 | 內部部署 Active Directory | |● |
 
 ## <a name="what-features-do-i-need"></a>我需要哪些功能？
@@ -81,4 +77,4 @@ ms.lasthandoff: 04/23/2018
 
 <center>
 
-[![雲端 MFA](./media/concept-mfa-whichversion/cloud2.png)](howto-mfa-getstarted.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![MFA Server](howto-mfaserver-deploy.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>
+[![雲端 MFA](./media/concept-mfa-whichversion/cloud2.png)](howto-mfa-getstarted.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![MFA Server](./media/concept-mfa-whichversion/server2.png)](howto-mfaserver-deploy.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>

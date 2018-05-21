@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d416c8953f1e41c04a39141c79e0b1568c1dccb3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5b17b4e8581daa5b19aaafd911765d843a9f3fe4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>使用 Azure AD Connect Health 監視 AD FS
 下列文件適用於使用 Azure AD Connect Health 來監視 AD FS 基礎結構。 如需使用 Azure AD Connect Health 來監視 Azure AD Connect (同步處理) 的詳細資訊，請參閱 [使用適用於同步處理的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)。此外，如需使用 Azure AD Connect Health 來監視 Active Directory 網域服務的詳細資訊，請參閱 [在 AD DS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adds.md)。
@@ -116,7 +116,7 @@ Azure AD Connect Health for ADFS 會提供一份報告，內容有關因為使�
 >
 >
 
-## <a name="risky-ip-report"></a>具風險的 IP 報告 
+## <a name="risky-ip-report-public-preview"></a>具風險的 IP 報告 (公開預覽)
 AD FS 客戶可能會向網際網路公開密碼驗證端點，以提供驗證服務讓終端使用者能夠存取 Office 365 之類的 SaaS 應用程式。 在此情況下，不良執行者便有機會嘗試登入您的 AD FS 系統，以猜出終端使用者的密碼並存取應用程式資源。 自 Windows Server 2012 R2 中的 AD FS 開始，AD FS 會提供外部網路帳戶鎖定功能以避免這類攻擊。 如果您使用較低的版本，我們強烈建議您將 AD FS 系統升級至 Windows Server 2016。 <br />
 此外，單一 IP 位址也有可能會嘗試多次登入多個使用者。 在這些情況下，每位使用者的嘗試次數可能會低於 AD FS 中帳戶鎖定保護的閾值。 Azure AD Connect Health 現在提供「具風險的 IP 報告」，此報告會偵測這種狀況，並在發生此狀況時通知系統管理員。 此報告的主要優點如下： 
 - 可偵測到超過失敗密碼型登入閾值的 IP 位址
@@ -152,10 +152,12 @@ AD FS 客戶可能會向網際網路公開密碼驗證端點，以提供驗證�
 > - 此警示報告不會顯示 Exchange IP 位址或私人 IP 位址。 它們仍是包含在匯出清單中。 
 >
 
-
 ![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health-adfs/report4c.png)
 
-### <a name="download-risky-ip-report"></a>下載具風險的 IP 報告
+### <a name="load-balancer-ip-addresses-in-the-list"></a>清單中的負載平衡器 IP 位址
+負載平衡器會彙總失敗的登入活動，並觸發警示閾值。 如果您看見負載平衡器 IP 位址，則很可能表示您的外部負載平衡器未在將要求傳遞至 Web 應用程式 Proxy 伺服器時傳送用戶端 IP 位址。 請正確設定您的負載平衡器，以傳遞轉送用戶端 IP 位址。 
+
+### <a name="download-risky-ip-report"></a>下載具風險的 IP 報告 
 使用**下載**功能，即可從 Connect Health 入口網站匯出過去 30 天內的整個「具風險的 IP 位址」清單。匯出結果會包含每個偵測時間範圍中的所有失敗 AD FS 登入活動，以供您在匯出後自訂篩選。 除了入口網站中醒目提示的彙總外，匯出結果還會顯示有關每一 IP 位址之失敗登入活動的更多詳細資料：
 
 |  報告項目  |  說明  | 
@@ -196,12 +198,14 @@ AD FS 客戶可能會向網際網路公開密碼驗證端點，以提供驗證�
 
 3. 我該如何封鎖 IP 位址？  <br />
 請將已識別出的惡意 IP 位址新增至防火牆，或在 Exchange 中封鎖。   <br />
-對於 AD FS 2016 + 1803.C+ QFE，您可以直接在 AD FS 中封鎖 IP 位址。 
 
 4. 為何我未在此報告中看到任何項目？ <br />
    - 失敗登入活動未超過閾值設定。 
    - 請確定 AD FS 伺服器清單中沒有作用中的「健康情況服務不是最新狀態」警示。  深入了解[如何針對此警示進行疑難排解](active-directory-aadconnect-health-data-freshness.md)。
    - AD FS 伺服器陣列中未啟用稽核。
+ 
+5. 為何我看不到對報告的存取？  <br />
+需要全域管理員或[安全性讀取者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader)權限。 請連絡您的全域管理員以取得存取權。
 
 
 ## <a name="related-links"></a>相關連結

@@ -10,17 +10,16 @@ ms.assetid: 8917af15-8e37-46cf-87ad-4e6d5d67ecdb
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 81074d303fbcefdf396de09510f69067eac3f3f6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2a9f2e9c2634173cf2feb9ded2e87e49f9c8d1e4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-as-default-storage-by-using-powershell"></a>使用 PowerShell 建立以 Data Lake Store 做為預設儲存體的 HDInsight 叢集
+
 > [!div class="op_single_selector"]
 > * [使用 Azure 入口網站](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [使用 PowerShell (針對預設儲存體)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
@@ -38,11 +37,12 @@ ms.lasthandoff: 04/19/2018
 若要使用 PowerShell 來設定 HDInsight 搭配 Data Lake Store 運作，請遵循接下來五小節中的指示操作。
 
 ## <a name="prerequisites"></a>先決條件
+
 開始本教學課程之前，請確定您符合下列需求：
 
 * **Azure 訂用帳戶**：請移至[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure PowerShell 1.0 或更新版本**：請參閱 [如何安裝和設定 PowerShell](/powershell/azure/overview)。
-* **Windows 軟體開發套件 (SDK)**︰若要安裝 Windows SDK，請移至 [Windows 10 下載和工具](https://dev.windows.com/en-us/downloads)。 SDK 是用來建立安全性憑證。
+* **Windows 軟體開發套件 (SDK)**︰若要安裝 Windows SDK，請移至 [Windows 10 下載和工具](https://dev.windows.com/downloads)。 SDK 是用來建立安全性憑證。
 * **Azure Active Directory 服務主體**︰本教學課程說明如何在 Azure Active Directory (Azure AD) 中建立服務主體。 不過，您必須是 Azure AD 系統管理員，才能建立服務主體。 如果您是系統管理員，就可以略過這項先決條件並繼續進行本教學課程。
 
     >[!NOTE]
@@ -50,6 +50,7 @@ ms.lasthandoff: 04/19/2018
     >
 
 ## <a name="create-a-data-lake-store-account"></a>建立 Data Lake Store 帳戶
+
 若要建立 Data Lake Store 帳戶，請執行下列作業︰
 
 1. 從您的桌面開啟 PowerShell 視窗，然後輸入下列程式碼片段。 當系統提示您登入時，請以其中一個訂用帳戶管理員或擁有者身分登入。 
@@ -142,7 +143,7 @@ ms.lasthandoff: 04/19/2018
 
         $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-        $password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
+        $password = Read-Host -Prompt "Enter the password" # This is the password you specified for the .pfx file
 
         $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 

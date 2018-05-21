@@ -1,6 +1,6 @@
 ---
-title: 備份 Azure Linux VM | Microsoft Docs
-description: 使用 Azure 備份來備份並保護 Linux VM。
+title: 教學課程 - 在 Azure 入口網站中備份 Linux 虛擬機器 | Microsoft Docs
+description: 在本教學課程中，您會學習如何使用 Azure 入口網站，以 Azure 備份保護 Linux 虛擬機器。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,22 +16,20 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4bd532a570a978715ba61880047f3a7e49b446ba
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="back-up-linux--virtual-machines-in-azure"></a>備份 Azure 中的 Linux 虛擬機器
+# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>教學課程：在 Azure 中備份和還原 Linux 虛擬機器的檔案
 
-您可以定期建立備份以保護您的資料。 Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當您從復原點還原時，可以還原整個 VM 或只還原特定檔案。 本文說明如何將單一檔案還原成執行 nginx 的 Linux VM。 如果您還沒有 VM 可以使用，請用 [Linux 快速入門](quick-create-cli.md)中的步驟建立一個。 在本教學課程中，您將了解如何：
+您可以定期建立備份以保護您的資料。 Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當您從復原點還原時，可以還原整個 VM 或特定檔案。 本文說明如何將單一檔案還原成執行 nginx 的 Linux VM。 如果您還沒有 VM 可以使用，請用 [Linux 快速入門](quick-create-cli.md)中的步驟建立一個。 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 建立 VM 的備份
 > * 排定每日備份
 > * 從備份還原檔案
-
-
 
 ## <a name="backup-overview"></a>備份概觀
 
@@ -43,7 +41,7 @@ Azure 備份服務開始備份時，會觸發備份擴充功能以建立時間�
 
 
 ## <a name="create-a-backup"></a>建立備份
-建立復原服務保存庫的簡單排程每日備份。 
+建立復原服務保存庫的排程每日備份：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在左邊的功能表上，選取 [虛擬機器]。 
@@ -62,7 +60,7 @@ Azure 備份服務開始備份時，會觸發備份擴充功能以建立時間�
 
 ## <a name="restore-a-file"></a>還原檔案
 
-如果您不小心刪除或變更某個檔案，可以使用「檔案復原」從您的備份保存庫復原檔案。 檔案復原使用在虛擬機器上執行的指令碼，將復原點掛接為本機磁碟機。 這些磁碟機將保持掛接達 12 小時，讓您可以從復原點複製檔案，並將它們還原至 VM。  
+如果您不小心刪除或變更某個檔案，可以使用「檔案復原」從您的備份保存庫復原檔案。 檔案復原使用在虛擬機器上執行的指令碼，將復原點掛接為本機磁碟機。 這些磁碟機會保持掛接達 12 小時，讓您可以從復原點複製檔案，並將它們還原至 VM。  
 
 在此範例中，我們會示範如何復原預設的 nginx 網頁 /var/www/html/index.nginx-debian.html。 我們的 VM 在範例中的公用 IP 位址是 13.69.75.209。 您可以使用以下命令找到您的 VM 的 IP 位址︰
 

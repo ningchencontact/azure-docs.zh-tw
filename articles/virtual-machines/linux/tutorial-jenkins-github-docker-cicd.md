@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中使用 Jenkins 建立開發管線 | Microsoft Docs
-description: 了解如何在 Azure 中建立 Jenkins 虛擬機器，用於在每次程式碼認可時從 GitHub 提取資料，並建立新的 Docker 容器來執行應用程式
+title: 教學課程 - 在 Azure 中使用 Jenkins 建立開發管線 | Microsoft Docs
+description: 教學課程 - 在本教學課程中，您會了解如何在 Azure 中建立 Jenkins 虛擬機器，用於在每次程式碼認可時從 GitHub 提取資料，並建立新的 Docker 容器來執行應用程式。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9250e40c491257b554333f4606cbf0b476d8db21
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0bb5db0d0569cbd8a2f5aa1651522dfd117868eb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>如何在 Azure 中的 Linux VM 上以 Jenkins、GitHub 及 Docker 建立開發基礎結構
+# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>教學課程：在 Azure 中的 Linux VM 上以 Jenkins、GitHub 及 Docker 建立開發基礎結構
+
 若要將應用程式開發的組建和測試階段自動化，可以使用持續整合和部署 (CI/CD) 管線。 在本教學課程中，您會在 Azure VM 上建立 CI/CD 管線，包括如何︰
 
 > [!div class="checklist"]
@@ -33,10 +34,9 @@ ms.lasthandoff: 03/28/2018
 > * 建立應用程式的 Docker 映像
 > * 確認 GitHub 已認可組建的新 Docker 映像，並更新了執行中的應用程式
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.22 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="create-jenkins-instance"></a>建立 Jenkins 執行個體
 在[如何在首次開機時自訂 Linux 虛擬機器](tutorial-automate-vm-deployment.md)的先前教學課程中，您已了解如何使用 cloud-init 自動進行 VM 自訂。 本教學課程使用 cloud-init 檔案在 VM 上安裝 Jenkins 和 Docker。 Jenkins 是熱門的開放原始碼 Automation 伺服程式，可順暢地與 Azure 整合，以進行持續整合 (CI) 及持續傳遞 (CD)。 如需如何使用 Jenkins 的更多教學課程，請參閱 [Azure 中樞中的 Jenkins](https://docs.microsoft.com/azure/jenkins/)。

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2018
+ms.date: 05/02/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1bc6fcb17732da7f6b0985122dd2cff3c2c9cdf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ca1f8fcd3a69e3f2e287c3d627f41c0f493bea1f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>設定 Azure VM 到次要 Azure 區域的災害復原 (預覽)
 
@@ -120,7 +120,7 @@ Azure Site Recovery 提供 3 種內建角色，以控制 Site Recovery 管理作
 Site Recovery 會擷取與訂用帳戶和資源群組/雲端服務相關聯的 VM 清單。
 
 1. 在 [虛擬機器] 中，選取您要複寫的 VM。
-2. 按一下 [SERVICEPRINCIPAL] 。
+2. 按一下 [確定]。
 
 ### <a name="configure-replication-settings"></a>設定複寫設定
 
@@ -134,7 +134,7 @@ Site Recovery 會設定目標區域的預設設定和複寫原則。 您可以�
 
 - **目標位置**：用於災害復原的目標區域。 我們建議目標位置符合 Site Recovery 保存庫的位置。
 
-- **目標資源群組**：目標區域中在容錯移轉後保留 Azure VM 的資源群組。 根據預設，Site Recovery 會在目標區域中建立具有 "asr" 尾碼的新資源群組。
+- **目標資源群組**：目標區域中在容錯移轉後保留 Azure VM 的資源群組。 根據預設，Site Recovery 會在目標區域中建立具有 "asr" 尾碼的新資源群組。 目標資源群組的資源群組位置可以是任何區域，但是裝載您來源虛擬機器所在的區域除外。 
 
 - **目標虛擬網路**：目標區域中 VM 在容錯移轉後所在的網路。
   根據預設，Site Recovery 會在目標區域中建立具有 "asr" 尾碼的新虛擬網路 (和子網路)。

@@ -8,18 +8,17 @@ editor: cgronlun
 ms.assetid: 164ada5a-222e-4be2-bd32-e51dbe993bc0
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 9591da6826c0bdd369792e8a9fe125619a091f29
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4c08dac95a2d2b52f1a1d28f6933b94ad4db10b7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>使用 Azure PowerShell 建立 HDInsight 叢集搭配 Data Lake Store (做為附加儲存體)
+
 > [!div class="op_single_selector"]
 > * [使用入口網站](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [使用 PowerShell (針對預設儲存體)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
@@ -122,6 +121,7 @@ Data Lake Store 對於支援的叢集類型，是做為預設儲存體或額外�
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-store"></a>設定 Data Lake Store 以角色為基礎的存取的驗證
+
 每一個 Azure 訂用帳戶都與 Azure Active Directory 相關聯。 透過 Azure 入口網站或 Azure Resource Manager API 來存取訂用帳戶資源的使用者與服務，都必須先向 Azure Active Directory 進行驗證。 您可以在 Azure 資源上為 Azure 訂用帳戶和服務指派適當的角色，以授與其存取權限。  對於服務，服務主體會識別 Azure Active Directory (AAD) 中的服務。 本章節將說明如何將 Azure 資源 (您稍早建立的 Azure Data Lake Store 帳戶) 的存取權授與像是 HDInsight 的應用程式服務，方法是建立應用程式的服務主體，並透過 Azure PowerShell 將角色指派給它。
 
 若要設定 Azure Data Lake 的 Active Directory 驗證，您必須執行下列工作。
@@ -130,6 +130,7 @@ Data Lake Store 對於支援的叢集類型，是做為預設儲存體或額外�
 * 在 Azure Active Directory 和服務主體中建立應用程式
 
 ### <a name="create-a-self-signed-certificate"></a>建立自我簽署憑證
+
 進行本節中的步驟之前，請確定您已安裝 [Windows SDK](https://dev.windows.com/en-us/downloads)。 您也必須建立一個目錄 (例如 **C:\mycertdir**)，以在其中建立憑證。
 
 1. 在 PowerShell 視窗中，瀏覽至您安裝 Windows SDK 的位置 (通常是 `C:\Program Files (x86)\Windows Kits\10\bin\x86`)，並使用 [MakeCert][makecert] 公用程式來建立自我簽署的憑證和私密金鑰。 使用下列命令。
@@ -147,13 +148,14 @@ Data Lake Store 對於支援的叢集類型，是做為預設儲存體或額外�
     系統提示時，輸入您稍早指定的私密金鑰密碼。 您針對 **-po** 參數指定的值是與 .pfx 檔案相關聯的密碼。 命令成功完成之後，您應該也會在您指定的憑證目錄中看到 CertFile.pfx。
 
 ### <a name="create-an-azure-active-directory-and-a-service-principal"></a>建立 Azure Active Directory 和服務主體
+
 在這一節中，您將執行相關步驟來建立 Azure Active Directory 應用程式的服務主體、指派角色給服務主體，並藉由提供憑證驗證為服務主體。 執行下列命令以在 Azure Active Directory 中建立應用程式。
 
 1. 在 PowerShell 主控台視窗中貼上下列 Cmdlet。 請確定您針對 **-DisplayName** 屬性指定的值是唯一的。 此外，**-HomePage** 和 **-IdentiferUris** 的值是預留位置值而不會受到驗證。
 
         $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-        $password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
+        $password = Read-Host -Prompt "Enter the password" # This is the password you specified for the .pfx file
 
         $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 

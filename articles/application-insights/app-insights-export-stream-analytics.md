@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure Application Insights 中的串流分析匯出 | Microsoft Docs"
-description: "串流分析可以持續轉換、篩選和路由傳送您從 Application Insights 匯出的資料。"
+title: 使用 Azure Application Insights 中的串流分析匯出 | Microsoft Docs
+description: 串流分析可以持續轉換、篩選和路由傳送您從 Application Insights 匯出的資料。
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 31594221-17bd-4e5e-9534-950f3b022209
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c898e43cb1334bf7fb1836554fb92708033d3f7d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>使用串流分析來處理從 Application Insights 匯出的資料
 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)是處理[從 Application Insights 匯出](app-insights-export-telemetry.md)之資料的理想工具。 串流分析可以從各種來源提取資料。 它可以轉換和篩選資料，然後將它路由傳送至各種接收。

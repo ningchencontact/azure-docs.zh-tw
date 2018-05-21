@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2018
+ms.date: 05/02/2018
 ms.author: billmath
-ms.openlocfilehash: 14d2a29e65bf2f3a974f2713f36d9b9fa497ee1c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>自訂 Azure AD Connect 安裝
 當您想要更多安裝選項時，可使用 Azure AD Connect **自訂設定** 。 如果您有多個樹系，或如果您想要設定未涵蓋在快速安裝中的選用功能，可使用它。 只要是[**快速安裝**](active-directory-aadconnect-get-started-express.md)選項不能滿足部署或拓撲的情況，就可使用它。
@@ -45,13 +45,14 @@ ms.lasthandoff: 04/23/2018
 ### <a name="user-sign-in"></a>使用者登入
 在安裝必要元件後，系統會要求您選取使用者的單一登入方法。 下表提供可用選項的簡短說明。 如需登入方法的完整說明，請參閱[使用者登入](active-directory-aadconnect-user-signin.md)。
 
-![使用者登入](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
+![使用者登入](./media/active-directory-aadconnect-get-started-custom/usersignin4.png)
 
 | 單一登入選項 | 說明 |
 | --- | --- |
 | 密碼雜湊同步處理 |使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。 使用者密碼會以密碼雜湊的形式同步至 Azure AD，並在雲端中進行驗證。 如需詳細資訊，請參閱[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)。 |
 |傳遞驗證|使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。  使用者密碼會傳遞至內部部署 Active Directory 網域控制站進行驗證。
 | 與 AD FS 同盟 |使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。  系統會將使用者重新導向至他們的內部部署 AD FS 執行個體以進行登入，並在內部部署中進行驗證。 |
+| 與 PingFederate 同盟|使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。  系統會將使用者重新導向至他們的內部部署 PingFederate 執行個體以進行登入，並在內部部署中進行驗證。 |
 | 請勿設定 |不會安裝和設定任何使用者登入功能。 如果您已經有第三方的同盟伺服器或另一個現有的適當方案，請選擇此選項。 |
 |啟用單一登入|此選項同時適用於密碼同步處理和傳遞驗證，並可為公司網路上的桌上型電腦使用者提供單一登入體驗。 如需詳細資訊，請參閱[單一登入](active-directory-aadconnect-sso.md)。 </br>請注意，AD FS 客戶無法使用此選項，因為 AD FS 已提供相同層級的單一登入。</br>
 
@@ -301,6 +302,39 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 >
 >
 
+## <a name="configuring-federation-with-pingfederate"></a>設定與 PingFederate 的同盟
+只要簡單按幾下，即可使用 Azure AD Connect 設定 PingFederate。 進行設定之前必須先具備下列項目。  但您必須符合下列必要條件。
+- PingFederate 8.4 或更新版本。  如需詳細資訊，請參閱 [PingFederate 與 Azure Active Directory 和 Office 365 的整合](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
+- 您想要使用的 Federation Service 名稱 (例如 sts.contoso.com) 的 SSL 憑證
+
+### <a name="verify-the-domain"></a>驗證網域
+選取 [與 PingFederate 同盟] 後，系統會要求您驗證要建立同盟的網域。  從下拉式方塊中選取網域。
+
+![驗證網域](./media/active-directory-aadconnect-get-started-custom/ping1.png)
+
+### <a name="export-the-pingfederate-settings"></a>匯出 PingFederate 設定
+
+
+PingFederate 必須設定為每個同盟 Azure 網域的同盟伺服器。  按一下 [匯出設定] 按鈕，然後與 PingFederate 管理員共用這項資訊。  同盟伺服器管理員會更新組態，然後提供 PingFederate 伺服器的 URL 和連接埠號碼，讓 Azure AD Connect 能夠驗證中繼資料設定。  
+
+![驗證網域](./media/active-directory-aadconnect-get-started-custom/ping2.png)
+
+若有任何驗證問題，請連絡您的 PingFederate 管理員加以解決。  下列範例說明與 Azure 之間沒有有效信任關係的 PingFederate 伺服器：
+
+![信任](./media/active-directory-aadconnect-get-started-custom/ping5.png)
+
+
+
+
+### <a name="verify-federation-connectivity"></a>驗證同盟連線能力
+Azure AD Connect 會嘗試驗證在上一個步驟中從 PingFederate 中繼資料擷取的驗證端點。  Azure AD Connect 會先嘗試使用本機 DNS 伺服器解析這些端點。  接著，它會嘗試使用外部 DNS 提供者解析端點。  若有任何驗證問題，請連絡您的 PingFederate 管理員加以解決。  
+
+![驗證連線能力](./media/active-directory-aadconnect-get-started-custom/ping3.png)
+
+### <a name="verify-federation-login"></a>驗證同盟登入
+最後，您可以藉由登入同盟網域，來驗證新設定的同盟登入流程。 如果登入成功，即表示與 PingFederate 的同盟已成功設定。
+![驗證登入](./media/active-directory-aadconnect-get-started-custom/ping4.png)
+
 ## <a name="configure-and-verify-pages"></a>設定並確認頁面
 設定會在此頁面上進行。
 
@@ -308,6 +342,7 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 > 在繼續安裝之前，如果已設定同盟，請確定您已設定[同盟伺服器的名稱解析](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers)。
 >
 >
+
 
 ![準備設定](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -336,8 +371,9 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 ![驗證](./media/active-directory-aadconnect-get-started-custom/adfs7.png)
 
-此外，請執行下列驗證步驟：
+若要驗證端對端驗證已成功執行，您應手動執行下列一或多項測試：
 
+* 在同步處理完成後，請使用「在 Azure AD Connect 中驗證同盟登入的其他工作」，對您選擇的內部部署使用者帳戶進行驗證。
 * 驗證您可以在內部網路中從已加入網域的電腦使用瀏覽器進行登入：連線至 https://myapps.microsoft.com，並使用您已登入的帳戶驗證登入。 內建的 AD DS 系統管理員帳戶未同步處理，不能用於驗證。
 * 驗證您可以從外部網路的裝置登入。 在家用電腦或行動裝置上連線至 https://myapps.microsoft.com，並提供您的認證。
 * 驗證豐富型用戶端登入。 連線至 https://testconnectivity.microsoft.com，選擇 [Office 365] 索引標籤，然後選擇 [Office 365 單一登入測試]。
