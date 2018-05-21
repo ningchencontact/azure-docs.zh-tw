@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: af01676276232f4dba5a11c219a3b83259945dfb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6632ab962f3df0cfee8d28d7dad40bad8baf3f50
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure 身分識別管理和存取控制安全性最佳作法
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 04/28/2018
 
 當您有多個目錄要管理時，這不只會成為 IT 的系統管理問題，對於必須記住多組密碼的使用者而言也是個問題。 使用 [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) \(英文\)，為使用者提供使用同一組認證來登入和存取所需資源的能力，而不論此資源位於內部部署或雲端。
 
-使用 SSO 讓使用者根據其在 Azure AD 中的組織帳戶存取其 [SaaS 應用程式](../active-directory/active-directory-appssoaccess-whatis.md)。 這不只適用於 Microsoft SaaS 應用程式，也適用於其他應用程式，例如 [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) 和 [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md)。 您的應用程式可以設定為使用 Azure AD 作為 [SAML 型身分識別提供者](../active-directory/fundamentals-identity.md)。 為了控制安全性，Azure AD 不會核發允許他們登入應用程式的權杖，除非他們已使用 Azure AD 獲得存取存取權。 您可以直接授與存取權，或透過其所屬的群組授與。
+使用 SSO 讓使用者根據其在 Azure AD 中的組織帳戶存取其 [SaaS 應用程式](../active-directory/manage-apps/what-is-single-sign-on.md)。 這不只適用於 Microsoft SaaS 應用程式，也適用於其他應用程式，例如 [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) 和 [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md)。 您的應用程式可以設定為使用 Azure AD 作為 [SAML 型身分識別提供者](../active-directory/fundamentals-identity.md)。 為了控制安全性，Azure AD 不會核發允許他們登入應用程式的權杖，除非他們已使用 Azure AD 獲得存取存取權。 您可以直接授與存取權，或透過其所屬的群組授與。
 
 > [!NOTE]
 > 使用 SSO 的決策會影響您整合內部部署目錄與雲端目錄的方式。 如果您想要 SSO，則必須使用同盟，因為目錄同步處理只會提供[相同的登入體驗](../active-directory/active-directory-aadconnect.md)。

@@ -1,12 +1,12 @@
 ---
-title: "Azure VM 的詳細 SSH 疑難排解 | Microsoft Docs"
-description: "針對連線到 Azure 虛擬機器的問題更詳細的 SSH 疑難排解步驟"
-keywords: "ssh 連線被拒, ssh 錯誤, azure ssh, SSH 連線失敗"
+title: Azure VM 的詳細 SSH 疑難排解 | Microsoft Docs
+description: 針對連線到 Azure 虛擬機器的問題更詳細的 SSH 疑難排解步驟
+keywords: ssh 連線被拒, ssh 錯誤, azure ssh, SSH 連線失敗
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 66fc8bac46decacdd2214475e94980c447045935
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 88f3ca3202359f9f45f5b9a5054ab95b40558520
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>連線到 Azure 中 Linux VM 之問題的詳細 SSH 疑難排解步驟
 SSH 用戶端無法連線至 VM 上的 SSH 服務，可能涉及許多原因。 如果您已經完成較為 [一般的 SSH 疑難排解步驟](troubleshoot-ssh-connection.md)，您必須進一步針對連線問題進行疑難排解。 這篇文章會引導您完成詳細的疑難排解步驟，以判斷 SSH 連線失敗的位置和解決方法。
@@ -39,7 +39,7 @@ SSH 用戶端無法連線至 VM 上的 SSH 服務，可能涉及許多原因。 
 
 2. 選取 [設定]  以檢查端點、IP 位址、網路安全性群組及其他設定。
 
-   VM 應該有一個為 SSH 流量定義的端點，您可以在 [端點] 或**[網路安全性群組](../../virtual-network/virtual-networks-nsg.md)**中檢視該端點。 使用 Resource Manager 來建立之 VM 中的端點會儲存在網路安全性群組中。 請確認是否已將規則套用至網路安全性群組，以及子網路中是否有參考這些規則。
+   VM 應該有一個為 SSH 流量定義的端點，您可以在 [端點] 或**[網路安全性群組](../../virtual-network/security-overview.md)** 中檢視該端點。 使用 Resource Manager 來建立之 VM 中的端點會儲存在網路安全性群組中。 請確認是否已將規則套用至網路安全性群組，以及子網路中是否有參考這些規則。
 
 若要確認網路連線，請檢查設定的端點，並判斷您是否可以透過另一個通訊協定 (例如 HTTP 或另一個服務) 連線到 VM。
 
@@ -111,7 +111,7 @@ SSH 用戶端無法連線至 VM 上的 SSH 服務，可能涉及許多原因。 
 
 ## <a name="source-4-network-security-groups"></a>來源 4：網路安全性群組
 網路安全性群組可讓您更精確地控制受允許的輸入和輸出流量。 您可以在 Azure 虛擬網路中建立跨越子網路和雲端服務的規則。 請檢查您的網路安全性群組規則，以確保允許往來網際網路的 SSH 流量。
-如需詳細資訊，請參閱 [關於網路安全性群組](../../virtual-network/virtual-networks-nsg.md)。
+如需詳細資訊，請參閱 [關於網路安全性群組](../../virtual-network/security-overview.md)。
 
 您也可以使用「IP 確認」來驗證 NSG 組態。 如需詳細資訊，請參閱 [Azure 網路監視概觀](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)。 
 

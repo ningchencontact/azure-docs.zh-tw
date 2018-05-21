@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 6c8c920a801e223e2a8f557ffb7f820a8b6db605
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 64ae39e630897c69155ee85347c90421aca394a3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>教學課程：Azure Active Directory 與 ADP
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/30/2018
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 ADP (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 03/30/2018
 
 1.  以系統管理員身分登入您的 Microsoft Azure 身分識別提供者環境。
 
-2. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+2. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 03/30/2018
 > 您的員工如果需要對 ADP 服務進行同盟存取，您就必須將其指派給 ADP 服務應用程式，接著再將其重新指派給特定的 ADP 服務。
 從您的 ADP 代表收到確認之後，請設定您的 ADP 服務並指派/管理使用者，以控制使用者對特定 ADP 服務的存取權。
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -314,7 +314,7 @@ ms.lasthandoff: 03/30/2018
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 
 
