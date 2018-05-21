@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3b0ea0e55653e7b6087e21bd531ba3f6649d4967
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 當您建立 Azure 虛擬機器 (VM) 時，您必須建立[虛擬網路](../articles/virtual-network/virtual-networks-overview.md) (VNet)，或使用現有的 VNet。 您也需要決定如何在 VNet 上存取您的 VM。 請務必[在建立資源前進行規劃](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)，並確定您已了解[網路資源的限制](../articles/azure-subscription-service-limits.md#networking-limits)。
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="network-security-groups"></a>網路安全性群組
 
-[網路安全性群組 (NSG)](../articles/virtual-network/virtual-networks-nsg.md) 包含存取控制清單 (ACL) 規則的清單，可允許或拒絕子網路、NIC 或兩者的網路流量。 NSG 可與子網路或連接到子網路的個別 VM 相關聯。 當 NSG 與子網路相關聯時，ACL 規則便會套用至該子網路中的所有 VM。 此外，將 NSG 直接關聯至 NIC，即可限制個別 NIC 的流量。
+[網路安全性群組 (NSG)](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) 包含存取控制清單 (ACL) 規則的清單，可允許或拒絕子網路、NIC 或兩者的網路流量。 NSG 可與子網路或連接到子網路的個別 VM 相關聯。 當 NSG 與子網路相關聯時，ACL 規則便會套用至該子網路中的所有 VM。 此外，將 NSG 直接關聯至 NIC，即可限制個別 NIC 的流量。
 
 NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集合中必須是唯一的。 每個規則都有通訊協定、來源和目的地連接埠範圍、位址前置詞、流量方向、優先順序和存取類型的屬性。 
 
@@ -103,7 +103,7 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 
 當您將 NSG 與 NIC 建立關聯時，NSG 中的網路存取規則只會套用到該 NIC。 如果 NSG 已套用到多重 NIC VM 上的單一 NIC，則不會影響其他 NIC 的流量。 您可以將不同的 NSG 與 NIC (或 VM，根據部署模型而定) 和 NIC 或 VM 所繫結的子網路建立關聯。 優先順序是根據流量的方向來提供。
 
-請務必在規劃 VM 和 VNet 時[規劃](../articles/virtual-network/virtual-networks-nsg.md#planning) NSG。
+請務必在規劃 VM 和 VNet 時[規劃](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) NSG。
 
 下表列出可用於建立網路安全性群組的方法。
 

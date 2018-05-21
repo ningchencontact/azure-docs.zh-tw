@@ -5,14 +5,14 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 03/30/2018
+ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 99766ca4cc9d77927030f81cff6bb9c009874f89
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8f104ab046fad8dfd9086525b8f942f3d2941821
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
 ---
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.lasthandoff: 04/03/2018
 | 每一訂用帳戶每一區域的[儲存體帳戶](../articles/storage/common/storage-create-storage-account.md)<sup>2</sup> |200 |250 |
 | [雲端服務](../articles/cloud-services/cloud-services-choose-me.md)  |20 |200 |
 | [區域網路](http://msdn.microsoft.com/library/jj157100.aspx)  |10 |500 |
-| 每一訂用帳戶的 SQL Database 伺服器 |6 |150 |
+| 每一訂用帳戶的 SQL Database 伺服器 |6 |200 |
 | 每一訂閱的 DNS 伺服器 |9 |100 |
 | 每一訂用帳戶的保留 IP |20 |100 |
 | 每一訂用帳戶託管服務的憑證 |199 |199 |

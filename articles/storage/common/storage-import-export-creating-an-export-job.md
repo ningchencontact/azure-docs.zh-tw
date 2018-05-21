@@ -1,11 +1,11 @@
 ---
-title: "建立 Azure 匯入/匯出的匯出作業 | Microsoft Docs"
-description: "了解如何建立 Microsoft Azure 匯入/匯出服務的匯出作業。"
+title: 建立 Azure 匯入/匯出的匯出作業 | Microsoft Docs
+description: 了解如何建立 Microsoft Azure 匯入/匯出服務的匯出作業。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 613d480b-a8ef-4b28-8f54-54174d59b3f4
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 3fb3f2af5e5cebcac21f4372bc9d9dc9ee837202
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>建立 Azure 匯入/匯出服務的匯出作業
 使用 REST API 建立 Microsoft Azure 匯入/匯出服務的匯出作業包含下列步驟︰
@@ -91,6 +91,8 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="receiving-the-package"></a>接收包裹
  匯出作業處理完成之後，會將您的磁碟機退回給您，並包含您的加密資料。 您也可以藉由呼叫 [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) 作業來擷取每個磁碟機的 BitLocker 金鑰。 然後您就可以使用金鑰來解除鎖定磁碟機。 每個磁碟機上的磁碟機資訊清單檔案包含磁碟機上的檔案清單，以及每個檔案的原始 blob 位址。
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Sedgwick CMS 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Sedgwick CMS 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Sedgwick CMS 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Sedgwick CMS 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: a704026dfe39457212f4237435c997996656db8f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: c088319aedb4fecc8f46ad636cfd6cf5fa7b7c0a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>教學課程：Azure Active Directory 與 Sedgwick CMS 整合
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/13/2018
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Sedgwick CMS (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 02/13/2018
 
 **若要從資源庫新增 Sedgwick CMS，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 02/13/2018
     | `https://claimlookup.com/Voe/sso` |
 
     > [!NOTE] 
-    > 這些都不是真正的值。 請使用實際的「識別碼」和「回覆 URL」來更新這些值。 請連絡 [Sedgwick CMS 支援小組](https://www.sedgwick.com/contact/Pages/contactform.aspx) \(英文\) 以取得這些值。
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Sedgwick CMS 支援小組](https://www.sedgwick.com/contact/Pages/contactform.aspx) \(英文\) 以取得這些值。
  
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/13/2018
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 
 

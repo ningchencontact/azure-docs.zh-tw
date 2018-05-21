@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 899e0fc0c1eb93d68c79c92c9cc042462ebc2fef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a6da27740efd613b8a81ffa85092d6b00b3e47d8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack 的身分識別架構
 在您選擇要搭配 Azure Stack 使用的身分識別提供者之前，請先了解 Azure Active Directory (Azure AD) 與 Active Directory Federation Services (AD FS) 之間選項的重要差異。 
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/16/2018
 |------------------------------|----------|-------|
 |已連線至網際網路     |yes       |選用|
 |支援多租用戶     |yes       |否      |
-|Marketplace 摘要整合       |yes       |是。 要求使用[離線 Marketplace 摘要整合](azure-stack-download-azure-marketplace-item.md#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity)工具。|
+|Marketplace 摘要整合       |yes       |是。 要求使用[離線 Marketplace 摘要整合](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)工具。|
 |支援 Active Directory 驗證程式庫 (ADAL) |yes |yes|
 |支援 Azure CLI、Visual Studio 和 PowerShell 等工具  |yes |yes|
 |透過 Azure 入口網站建立服務主體     |yes |否|

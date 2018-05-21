@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 18549a8606285238f26d2c8cec54793e26e3e8d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d53305aae3b12c0de983dced85a9626cf98c6309
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>設定 Linux RDMA 叢集以執行 MPI 應用程式
 了解如何使用[高效能運算 VM 大小](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)在 Azure 中設定 Linux RDMA 叢集，以執行平行訊息傳遞介面 (MPI) 應用程式。 本文提供準備 Linux HPC 映像以在叢集上執行 Intel MPI 的步驟。 準備之後，您會使用此映像和其中一個支援 RDMA 的 Azure VM 大小 (目前為 H16r、H16mr、A8 或 A9) 來部署 VM 的叢集。 請使用此叢集來執行透過低延遲、高輸送量網路有效率地進行通訊的 MPI 應用程式，此網路是以遠端直接記憶體存取 (RDMA) 技術為基礎。
@@ -210,7 +210,7 @@ done
 
 從社群所貢獻的範例指令碼位於 [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) 上，以在 CentOS 型 HPC 叢集上啟用簡單使用者驗證。 請使用下列步驟來下載和使用此指令碼。 您也可以修改此指令碼，或使用任何其他方法來建立叢集計算節點之間的無密碼 SSH 驗證。
 
-    wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
+    wget https://raw.githubusercontent.com/tanewill/utils/master/user_authentication.sh
 
 若要執行此指令碼，您必須知道子網路 IP 位址的首碼。 請在其中一個叢集節點上執行下列命令來取得首碼。 您的輸出應該看起來像 10.1.3.5，而首碼是 10.1.3 部分。
 

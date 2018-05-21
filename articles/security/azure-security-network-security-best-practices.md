@@ -4,7 +4,7 @@ description: 本文提供使用內建 Azure 功能的一些網路安全性最佳
 services: security
 documentationcenter: na
 author: TomShinder
-manager: swadhwa
+manager: mbaldwin
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d6d723f40cdc0382fa41a51eb32e7b59f0798627
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5ebeadd9c0805ac5f6ac543a49cb9ff63d8ded3f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-network-security-best-practices"></a>Azure 網路安全性最佳作法
 Microsoft Azure 可讓您將虛擬機器和應用裝置放在 Azure 虛擬網路上，進而將它們連接到其他網路裝置。 Azure 虛擬網路是一種建構，可讓您將虛擬網路介面卡連線到虛擬網路，允許有網路功能的裝置之間進行以 TCP/IP 為基礎的通訊。 連線到 Azure 虛擬網路的 Azure 虛擬機器能夠連線到相同 Azure 虛擬網路、不同 Azure 虛擬網路、網際網路或甚至您自己的內部部署網路上的裝置。
@@ -56,7 +56,7 @@ Microsoft Azure 可讓您將虛擬機器和應用裝置放在 Azure 虛擬網路
 
 子網路之間的路由傳送將會自動發生，您不需手動設定路由表。 不過，預設設定是您在 Azure 虛擬網路上建立的子網路之間沒有任何網路存取控制。 若要建立子網路之間的網路存取控制，您必須在子網路之間放置一些項目。
 
-其中一項可用來完成這項工作的是[網路安全性群組](../virtual-network/virtual-networks-nsg.md) (NSG)。 NSG 會簡單具狀態封包檢查裝置，其使用 5 個 Tuple (來源 IP、來源連接埠、目的地 IP、目的地連接埠和第 4 層通訊協定) 的方法來建立網路流量的允許/拒絕規則。 您可以允許或拒絕單一 IP 位址、多個 IP 位址或甚至整個子網路的流量。
+其中一項可用來完成這項工作的是[網路安全性群組](../virtual-network/security-overview.md) (NSG)。 NSG 會簡單具狀態封包檢查裝置，其使用 5 個 Tuple (來源 IP、來源連接埠、目的地 IP、目的地連接埠和第 4 層通訊協定) 的方法來建立網路流量的允許/拒絕規則。 您可以允許或拒絕單一 IP 位址、多個 IP 位址或甚至整個子網路的流量。
 
 將 NSG 用於子網路之間的網路存取控制，可讓您將屬於相同安全性區域或角色的資源置於其本身的子網路中。 例如，簡單的 3 層式應用程式具有 Web 層、應用程式邏輯層和資料庫層。 您可將屬於上述各層的虛擬機器置於其自己的子網路中。 然後您可使用 NSG 來控制子網路之間的流量︰
 
@@ -64,7 +64,7 @@ Microsoft Azure 可讓您將虛擬機器和應用裝置放在 Azure 虛擬網路
 * 應用程式邏輯虛擬機器只可以起始與資料庫層的連線，而且只可以接受來自 Web 層的連線
 * 資料庫層虛擬機器只可以起始與其本身子網路外部項目的連線，而且只可以接受來自應用程式邏輯層的連線
 
-若要深入了解網路安全性群組以及如何使用它們以邏輯方式分割 Azure 虛擬網路的詳細資訊，請參閱[什麼是網路安全性群組](../virtual-network/virtual-networks-nsg.md) (NSG)。
+若要深入了解網路安全性群組以及如何使用它們以邏輯方式分割 Azure 虛擬網路的詳細資訊，請參閱[什麼是網路安全性群組](../virtual-network/security-overview.md) (NSG)。
 
 ## <a name="control-routing-behavior"></a>控制路由行為
 當您將虛擬機器置於 Azure 虛擬網路時，您會注意到虛擬機器可以連接到相同 Azure 虛擬網路上的任何其他虛擬機器，即使其他虛擬機器位於不同的子網路。 這可能是因為預設會啟用允許這種類型通訊的系統路由集合。 這些預設路由可讓相同 Azure 虛擬網路上的虛擬機器彼此起始連線，以及與網際網路連線 (僅適用於網際網路的輸出通訊)。

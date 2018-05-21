@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: 4d6177fe0a50c531ba6c4b3e87eaa08299af2ddd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6dc104470ca2bfd738ca9bfc334a1c1325f7318
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Microsoft Azure 匯入/匯出服務將資料傳入 Azure 儲存體
 在本文中，我們會提供使用 Azure 匯入/匯出服務的逐步指示，藉由將磁碟機運送到 Azure 資料中心，安全地將大量資料傳入 Azure Blob 儲存體和 Azure 檔案服務。 這項服務也能用來將資料從 Azure 儲存體傳輸到硬碟，然後運送到您的內部部署網站。 單一內部 SATA 磁碟機的資料可匯入到 Azure Blob 儲存體或 Azure 檔案服務。 
@@ -125,7 +125,7 @@ WAImportExport 工具只與 64 位元 Windows 作業系統相容。 請參閱 [�
 下載最新版的 [WAImportExport 工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip)。 如需使用 WAImportExport 工具的詳細資訊，請參閱[使用 WAImportExport 工具](storage-import-export-tool-how-to.md)。
 
 >[!NOTE]
->**前一版本︰**您可以[下載 WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) 版本的工具，並參考 [WAImportExpot V1 使用指南](storage-import-export-tool-how-to-v1.md)。 當資料已預先寫入磁碟時，WAImportExpot V1 版本的工具提供**準備磁碟的支援**。 如果可用的唯一金鑰是 SAS 金鑰，您需要使用 WAImportExpot V1 工具。
+>**前一版本︰** 您可以[下載 WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) 版本的工具，並參考 [WAImportExpot V1 使用指南](storage-import-export-tool-how-to-v1.md)。 當資料已預先寫入磁碟時，WAImportExpot V1 版本的工具提供**準備磁碟的支援**。 如果可用的唯一金鑰是 SAS 金鑰，您需要使用 WAImportExpot V1 工具。
 
 >
 
@@ -569,6 +569,9 @@ WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <Targ
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
+
 ## <a name="next-steps"></a>後續步驟
 
 * [設定 WAImportExport 工具](storage-import-export-tool-how-to.md)

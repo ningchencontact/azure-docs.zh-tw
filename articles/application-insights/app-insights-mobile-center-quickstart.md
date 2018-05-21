@@ -1,20 +1,20 @@
 ---
-title: "Azure Application Insights 快速入門 | Microsoft Docs"
-description: "提供指示說明如何快速設定行動應用程式，以透過 Application Insights 和 App Center 來監視"
+title: Azure Application Insights 快速入門 | Microsoft Docs
+description: 提供指示說明如何快速設定行動應用程式，以透過 Application Insights 和 App Center 來監視
 services: application-insights
-keywords: 
-author: numberbycolors
-ms.author: daviste
+keywords: ''
+author: mrbullwinkle
+ms.author: daviste; mbullwin
 ms.date: 10/05/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 04e379e1bbd84929fca68cf2de8ebfcc217a51d2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 252d16a5c4ef2d1f8230746dff681f7fbf5f44b1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>開始使用 App Center 和 Application Insights 分析您的行動應用程式
 

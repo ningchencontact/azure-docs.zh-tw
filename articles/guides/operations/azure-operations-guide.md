@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 231e8110dc6e1844108502e5c2277edc3ba77132
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>雲端運算和 Microsoft Azure 簡介
 
@@ -509,7 +509,7 @@ Azure 網路有不同的使用案例。
 
 ### <a name="access-and-security-for-virtual-networks"></a>虛擬網路的存取權與安全性
 
-您可以使用網路安全性群組，協助保護 Azure 虛擬網路。 NSG 包含存取控制清單 (ACL) 規則的清單，可允許或拒絕虛擬網路中 VM 執行個體的網路流量。 您可以讓 NSG 與子網路或該子網路內的個別 VM 執行個體產生關聯。 當您讓 NSG 與子網路產生關聯時，ACL 規則便會套用至該子網路中的所有 VM 執行個體。 此外，讓 NSG 直接與該 VM 產生關聯，即可進一步限制個別 VM 的流量。 如需詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](../../virtual-network/virtual-networks-nsg.md)。
+您可以使用網路安全性群組，協助保護 Azure 虛擬網路。 NSG 包含存取控制清單 (ACL) 規則的清單，可允許或拒絕虛擬網路中 VM 執行個體的網路流量。 您可以讓 NSG 與子網路或該子網路內的個別 VM 執行個體產生關聯。 當您讓 NSG 與子網路產生關聯時，ACL 規則便會套用至該子網路中的所有 VM 執行個體。 此外，讓 NSG 直接與該 VM 產生關聯，即可進一步限制個別 VM 的流量。 如需詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](../../virtual-network/security-overview.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
