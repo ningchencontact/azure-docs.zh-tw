@@ -6,19 +6,21 @@ author: brenduns
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 04/19/2018
+ms.date: 04/23/2018
 ms.author: brenduns
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: ec9005e5efbf26f8969c87c17d2bf7ae7708e7d6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5776fc472483018eb2c9e4f8962d0b1e8bce8081
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>快速入門：使用 Azure Stack 入口網站建立 Windows 虛擬機器
+# <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>快速入門：使用 Azure Stack 入口網站建立 Windows Server 虛擬機器
 
-您可以使用 Azure Stack 入口網站建立 Windows 虛擬機器。 入口網站是以瀏覽器作為基礎的使用者介面，您可以在其中建立、設定和管理資源。
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+
+您可以使用 Azure Stack 入口網站建立 Windows Server 2016 虛擬機器。 請遵循本文中的步驟建立和使用虛擬機器。
 
 ## <a name="sign-in-to-the-azure-stack-portal"></a>登入 Azure Stack 入口網站
 
@@ -30,6 +32,7 @@ ms.lasthandoff: 04/23/2018
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
 
 1. 按一下 [+ 新增] > [計算] > [Windows Server 2016 Datacenter Eval] > [建立]。 如果您沒有看到 [Windows Server 2016 Datacenter Eval] 項目，請連絡您的 Azure Stack 操作員。 如[將 Windows Server 2016 VM 映像新增到 Azure Stack 市集](../azure-stack-add-default-image.md)文章中所述，請要求他們將它新增至市集。
+
     ![在入口網站中建立 Windows 虛擬機器的步驟](media/azure-stack-quick-windows-portal/image01.png)
 2. 在 [基本] 中，輸入 [名稱]、[使用者名稱] 與 [密碼]。 選擇 [訂用帳戶] 。 建立 [資源群組] 或選取現有的資源群組，選取 [位置]，然後按一下 [確定]。
 
@@ -40,13 +43,13 @@ ms.lasthandoff: 04/23/2018
     ![設定虛擬機器設定](media/azure-stack-quick-windows-portal/image04.png)
 5. 在 [摘要] 下，按一下 [確定]，以建立虛擬機器。
     ![檢視摘要及建立虛擬機器](media/azure-stack-quick-windows-portal/image05.png)
-6. 若要查看您的新虛擬機器，請按一下 [所有資源]，然後搜尋虛擬機器並按一下其名稱。
+6. 若要查看您的新虛擬機器，請按一下 [所有資源]，搜尋虛擬機器名稱，然後在搜尋結果中按一下其名稱。
     ![查看虛擬機器](media/azure-stack-quick-windows-portal/image06.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 
-不再需要虛擬機器時，可刪除虛擬機器和相關資源。 若要這樣做，請從虛擬機器頁面選取資源群組，然後按一下 [刪除]。
+當您使用完虛擬機器時，請刪除虛擬機器及其資源。 若要這樣做，請在虛擬機器頁面上選取資源群組，然後按一下 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 
-在這個快速入門中，您已部署簡單的 Windows 虛擬機器。 若要深入了解 Azure Stack 虛擬機器，請繼續移至 [Azure Stack 中虛擬機器的考量](azure-stack-vm-considerations.md)。
+在這個快速入門中，您已部署基本 Windows Server 虛擬機器。 若要深入了解 Azure Stack 虛擬機器，請繼續移至 [Azure Stack 中虛擬機器的考量](azure-stack-vm-considerations.md)。

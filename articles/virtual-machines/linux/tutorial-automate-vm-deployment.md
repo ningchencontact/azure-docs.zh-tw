@@ -1,13 +1,13 @@
 ---
-title: "在 Azure 中初次開機時自訂 Linux VM | Microsoft Docs"
-description: "了解如何使用 cloud-init 和 Key Vault，以便在 Linux VM 初次於 Azure 中開機時加以自訂"
+title: 教學課程 - 在 Azure 中使用 cloud-init 自訂 Linux VM | Microsoft Docs
+description: 在本教學課程中，您會了解如何使用 cloud-init 和 Key Vault，以便在 Linux VM 初次於 Azure 中開機時加以自訂
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 79d87b5d332597f2c0faf3c585eee49aba3e03bc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e3c1c0552b379ff99f27053d8f0ca8a76766a016
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>如何在初次開機時自訂 Linux 虛擬機器
+# <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>教學課程 - 如何使用 cloud-init 在首次開機時於 Azure 中自訂 Linux 虛擬機器
+
 在先前的教學課程中，您學到了如何以 SSH 連線到虛擬機器 (VM) 並手動安裝 NGINX。 若要以快速且一致的方式建立 VM，您通常需要借助某種形式的自動化。 在初次開機時自訂 VM 的常見方法是使用 [cloud-init (英文)](https://cloudinit.readthedocs.io)。 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
@@ -32,12 +33,9 @@ ms.lasthandoff: 02/09/2018
 > * 使用 Key Vault 安全地儲存憑證
 > * 使用 Cloud-init 來安全地自動部署 NGINX
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。  
-
-
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="cloud-init-overview"></a>Cloud-Init 概觀
 [Cloud-init (英文)](https://cloudinit.readthedocs.io) 是在 Linux VM 初次開機時，廣泛用來自訂它們的方法。 您可以使用 cloud-init 來安裝封裝和寫入檔案，或者設定使用者和安全性。 當 cloud-init 在初次開機程序期間執行時，不需要使用任何額外的步驟或必要的代理程式來套用您的組態。
@@ -104,7 +102,7 @@ runcmd:
 
 如需 Cloud-init 組態選項的詳細資訊，請參閱 [Cloud-init 組態範例](https://cloudinit.readthedocs.io/en/latest/topics/examples.html) \(英文\)。
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>建立虛擬機器
 建立 VM 之前，請先使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroupAutomate 的資源群組：
 
 ```azurecli-interactive 

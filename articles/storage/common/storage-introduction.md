@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: tamram
-ms.openlocfilehash: 071b209ffa8ffeb8ef6d998f08bcd68868e29911
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8fc94db3e44fc5388063b507cf240863fcc26a3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 儲存體簡介
 
@@ -179,7 +179,7 @@ Azure 匯入/匯出服務可用於從儲存體帳戶匯入或匯出大量 blob �
 * [儲存體服務 REST API](https://docs.microsoft.com/rest/api/storageservices/)
 * [適用於 .NET 的儲存體用戶端程式庫](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [適用於 Java/Android 的儲存體用戶端程式庫](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [適用於 Node.js 的儲存體用戶端程式庫](https://docs.microsoft.com/en-us/javascript/api/azure-storage)
+* [適用於 Node.js 的儲存體用戶端程式庫](https://docs.microsoft.com/javascript/api/azure-storage)
 * [適用於 Python 的儲存體用戶端程式庫](https://github.com/Azure/azure-storage-python)
 * [適用於 PHP 的儲存體用戶端程式庫](https://github.com/Azure/azure-storage-php)
 * [適用於 Ruby 的儲存體用戶端程式庫](https://github.com/Azure/azure-storage-ruby)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: dcb46c7127590f1986fe1fd66c2f6ac4fd8b107d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 24d739e45ddaa7669fe1836eea53f0b091383d1e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 04/19/2018
 
 ![虛擬網路對等互連傳輸](./media/virtual-networks-peering-overview/figure04.png)
 
-透過不同部署模型或在不同區域所建立之虛擬網路之間的對等互連關聯性不支援閘道傳輸。 對等互連關聯性中的兩個虛擬網路都必須是透過 Resource Manager 所建立的且位於相同區域中，閘道傳輸才能運作。
+在不同區域所建立的虛擬網路之間，對等互連關聯性不支援閘道傳輸。 對等互連關聯性的兩個虛擬網路必須存在於相同區域，才能進行閘道傳輸。 當閘道位於虛擬網路 (Resource Manager) 時，才支援在透過不同部署模型 (Resource Manager 和傳統) 所建立的虛擬網路之間進行閘道傳輸。 若要深入了解如何使用閘道來進行傳輸，請參閱[設定 VPN 閘道以在虛擬網路對等互連中進行傳輸](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 當共用單一 Azure ExpressRoute 連線的虛擬網路已對等互連時，它們之間的流量會經過對等互連關聯性 (也就是透過 Azure 骨幹網路)。 您依然可以在每個虛擬網路中使用本機閘道來連線內部部署線路。 此外，您也可以使用共用閘道並設定內部部署連線的傳輸。
 

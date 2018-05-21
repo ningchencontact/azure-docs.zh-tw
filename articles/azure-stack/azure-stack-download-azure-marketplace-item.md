@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdadf48aa23e3dd76d8a511794f00725f073611d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2e92dc96a69400f689e49b70d1b855c955084362
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>將市集項目從 Azure 下載到 Azure Stack
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/28/2018
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>在連線的案例 (具有網際網路連線能力) 中下載 Marketplace 項目
 
 1. 若要下載市集項目，您必須先[向 Azure 註冊 Azure Stack](azure-stack-register.md)。
-2. 登入 Azure Stack 系統管理員入口網站 (https://portal.local.azurestack.external))。
+2. 登入 Azure Stack 系統管理員入口網站 (若使用 ASDK，請使用 https://portal.local.azurestack.external)。
 3. 有些 Marketplace 項目可能很大。 按一下 [資源提供者] > [儲存體] 來檢查，以確定您的系統上有足夠的空間。
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
@@ -60,7 +60,7 @@ ms.lasthandoff: 04/28/2018
 
 從具有網際網路連線的電腦，使用下列步驟來下載必要的 Marketplace 項目：
 
-1. 以系統管理員身分開啟 PowerShell 主控台，然後[安裝 Azure Stack 特有的 PowerShell 模組](azure-stack-powershell-install.md)。 請確定您已安裝 **PowerShell 1.2.11 版或更高版本**。  
+1. 以系統管理員身分開啟 PowerShell 主控台，然後[安裝 Azure Stack 特有的 PowerShell 模組](azure-stack-powershell-install.md)。 請確定您已安裝 **Azure Stack PowerShell 模組 1.2.11 版或更高版本**。  
 
 2. 新增您用來註冊 Azure Stack 的 Azure 帳戶。 若要新增帳戶，請執行未使用任何參數的 **Add-AzureRmAccount** Cmdlet。 當系統提示您輸入 Azure 帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。  
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 04/28/2018
 5. 匯入摘要整合模組並執行下列命令來啟動工具：  
 
    ```powershell
-   Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
+   Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
      -destination "<Destination folder path>" `
@@ -106,15 +106,22 @@ ms.lasthandoff: 04/28/2018
 
 7. 選取您想要下載的映像，並記下映像版本。 您可以按住 Ctrl 鍵來選取多個映像。 您可以使用映像版本，在下一節中匯入映像。  接著，按一下 [確定]，然後按一下 [是] 接受法律條款。 您也可以使用 [新增條件] 選項來篩選映像清單。 
 
-   視映像的大小而定，下載需要一些時間。 下載映像後，可以在您先前提供的目的地路徑中取得該映像。 此下載包含 Azpkg 格式的 VHD 檔案和資源庫項目。
+   視映像的大小而定，下載需要一些時間。 下載映像後，可以在您先前提供的目的地路徑中取得該映像。 此下載包含 VHD 檔案 (用於虛擬機器) 或 .ZIP 檔案 (用於虛擬機器擴充功能)，以及 Azpkg 格式的資源庫項目。
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>匯入映像並將它發佈至 Azure Stack Marketplace
+市集中有三種不同類型的項目：虛擬機器、虛擬機器擴充功能、解決方案範本。 以下討論解決方案範本。
+> [!NOTE]
+> 目前無法在 Azure Stack 中新增虛擬機器擴充功能。
 
 1. 下載映像和資源庫套件之後，將它們及 AzureStack-Tools-master 資料夾中的內容儲存到卸除式磁碟機，並且複製到 Azure Stack 環境 (您可以將它複製到本機任何位置，例如:"C:\MarketplaceImages")。     
 
 2. 匯入映像之前，您必須使用[設定 Azure Stack 操作人員的 PowerShell 環境](azure-stack-powershell-configure-admin.md)中所述的步驟來連線到 Azure Stack 操作人員的環境。  
 
-3. 使用新增 Add-AzsVMImage Cmdlet 將映像匯入至 Azure Stack。 使用此 Cmdlet 時，務必以您所匯入映像的值，取代 publisher、offer 及其他參數值。 您可以從先前下載之 Azpkg 檔案的 imageReference 物件中取得映像的 publisher、offer和 sku 值，以及從上一節中的步驟 6 取得 version 版。
+3. 如果下載中包含名為 fixed3.vhd 的 3MB VHD 小型檔案，它就是解決方案範本。 不需要這個檔案，跳至步驟 5。 請確定您已依照下載說明的指示下載所有相依項目。
+
+4. 使用新增 Add-AzsVMImage Cmdlet 將映像匯入至 Azure Stack。 使用此 Cmdlet 時，務必以您所匯入映像的值，取代 publisher、offer 及其他參數值。 您可以從先前下載之 Azpkg 檔案的 imageReference 物件中取得映像的 publisher、offer和 sku 值，以及從上一節中的步驟 6 取得 version 版。
+
+若要尋找 imageReference，您需要將 AZPKG 檔案重新命名為 .ZIP 副檔名，將它解壓縮至暫存位置，並使用文字編輯器開啟 DeploymentTemplates\CreateUiDefinition.json 檔案。 找出此區段：
 
    ```json
    "imageReference": {
@@ -140,9 +147,9 @@ ms.lasthandoff: 04/28/2018
     -Location Local
    ```
 
-4. 使用入口網站將您的 Marketplace 項目 (.Azpkg) 上傳至 Azure Stack Blob 儲存體。 您可以上傳至本機 Azure Stack 儲存體，或上傳至 Azure 儲存體。 (它是套件的暫存位置。)請確定 Blob 可公開存取並記下 URI。  
+5. 使用入口網站將您的 Marketplace 項目 (.Azpkg) 上傳至 Azure Stack Blob 儲存體。 您可以上傳至本機 Azure Stack 儲存體，或上傳至 Azure 儲存體。 (它是套件的暫存位置。)請確定 Blob 可公開存取並記下 URI。  
 
-5. 使用 **Add-AzsGalleryItem**，將 Marketplace 項目發佈至 Azure Stack。 例如︰
+6. 使用 **Add-AzsGalleryItem**，將 Marketplace 項目發佈至 Azure Stack。 例如︰
 
    ```powershell
    Add-AzsGalleryItem `
@@ -150,7 +157,7 @@ ms.lasthandoff: 04/28/2018
      –Verbose
    ```
 
-6. 發佈資源庫項目之後，您可以從 [新增] > [Marketplace] 窗格進行檢視。  
+7. 發佈資源庫項目之後，您可以從 [新增] > [Marketplace] 窗格進行檢視。 如果您的下載是解決方案範本，請確定您也下載了相依的 VHD 映像。
 
    ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
 

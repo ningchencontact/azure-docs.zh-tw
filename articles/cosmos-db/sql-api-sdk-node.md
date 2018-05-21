@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4c219820fd5b8d5502bae394142dfbe80db1f59
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 271b090468dee306dc0bf2567aeff08eb0526642
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/07/2018
 
 <tr><td>**下載 SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
 
-<tr><td>**API 文件**</td><td>[Node.js API 參考文件](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
+<tr><td>**API 文件**</td><td>[Node.js API 參考文件](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
 
 <tr><td>**SDK 安裝指示**</td><td>[安裝指示](http://azure.github.io/azure-documentdb-node/)</td></tr>
 
@@ -61,6 +61,16 @@ ms.lasthandoff: 05/07/2018
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="1.14.4"/>1.14.4</a>
+* 修正的 npm 文件。
+
+### <a name="1.14.3"/>1.14.3</a>
+* 已新增對連線問題預設重試次數的支援。
+* 已新增對讀取集合變更摘要的支援。
+* 已修正間歇造成「無法讀取工作階段」的工作階段一致性錯誤。
+* 已新增對查詢度量資訊的支援。
+* 已修正 http 代理程式的最大連接數目。
 
 ### <a name="1.14.2"/>1.14.2</a>
 * 更新參考 Azure Cosmos DB 而非 Azure DocumentDB 的文件。
@@ -193,6 +203,8 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.14.4](#1.14.4) |2018 年 5 月 3 日 |--- |
+| [1.14.3](#1.14.3) |2018 年 5 月 3 日 |--- |
 | [1.14.2](#1.14.2) |2017 年 12 月 21 日 |--- |
 | [1.14.1](#1.14.1) |2017 年 11 月 10 日 |--- |
 | [1.14.0](#1.14.0) |2017 年 11 月 9 日 |--- |

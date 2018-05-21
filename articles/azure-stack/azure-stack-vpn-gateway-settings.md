@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: b732770b2eace07690d112e81c6916b16b2cb5b0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 閘道組態設定
 
@@ -45,16 +45,13 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 ### <a name="gateway-skus"></a>閘道 SKU
 建立虛擬網路閘道時，您必須指定想要使用的閘道 SKU。 根據工作負載、輸送量、功能和 SLA 的類型，選取符合您需求的 SKU。
 
->[!NOTE]
-> 傳統虛擬網路應該繼續使用舊式 SKU。 如需舊式閘道 SKU 的詳細資訊，請參閱[使用虛擬網路閘道 SKU (舊式)](/azure/vpn-gateway/vpn-gateway-about-skus-legacy)。
-
 Azure Stack 會提供下列 VPN 閘道 SKU：
 
 |   | VPN 閘道輸送量 |VPN 閘道最大 IPsec 通道 |
 |-------|-------|-------|
 |**基本 SKU**  | 100 Mbps  | 10    |
 |**標準 SKU**           | 100 Mbps  | 10    |
-|**高效能 SKU** | 200 Mbps    | 30    |
+|**高效能 SKU** | 200 Mbps    | 5 |
 
 ### <a name="resizing-gateway-skus"></a>調整閘道 SKU 的大小
 Azure Stack 不支援在所支援的舊版 SKU 之間調整 SKU 大小。
@@ -90,11 +87,11 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 當您為 VPN 閘道組態建立虛擬網路閘道時，必須指定 VPN 類型。 您所選擇的 VPN 類型取決於您想要建立的連線拓撲。  VPN 類型也取決於您使用的硬體。 S2S 組態需要 VPN 裝置。 有些 VPN 裝置僅支援特定 VPN 類型。
 
 > [!IMPORTANT]  
-> 此時，Azure Stack 只支援路由式 VPN 類型。 如果您的裝置僅支援原則式 VPN，則不支援從 Azure Stack 連線到這些裝置。
+> 此時，Azure Stack 只支援路由式 VPN 類型。 如果您的裝置僅支援原則式 VPN，則不支援從 Azure Stack 連線到這些裝置。  此外，Azure Stack 此時不支援將原則式流量選取器使用於路由型閘道，因為尚未支援自訂 IPSec/IKE 原則組態。
 
 - **原則式**：*(Azure 可支援，但 Azure Stack 不支援)* 原則式 VPN 會根據使用內部部署網路與 Azure Stack VNet 之間的位址首碼組合所設定的 IPsec 原則，透過 IPsec 通道加密和導向封包。 原則 (或流量選取器) 通常定義為 VPN 裝置組態中的存取清單。
 
-- **路由式**：路由式 VPN 會使用 IP 轉送或路由表中的「路由」，直接封包至其對應的通道介面。 然後，通道介面會加密或解密輸入和輸出通道的封包。 路由式 VPN 的原則或流量選取器會設定為任何對任何 (或萬用字元)。 路由式 VPN 類型的值是路由式。
+- **路由式**：路由式 VPN 會使用 IP 轉送或路由表中的「路由」，直接封包至其對應的通道介面。 然後，通道介面會加密或解密輸入和輸出通道的封包。 路由式 VPN 的原則 (或流量選取器) 預設會設定為任何對任何 (或萬用字元)，且無法變更。 路由式 VPN 類型的值是路由式。
 
 下列 PowerShell 範例將 -VpnType 指定為 RouteBased。 在建立閘道時，您必須確定用於組態的 -VpnType 是正確的。
 
@@ -110,7 +107,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 |--|--|--|--|--|
 | **站對站連線能力 (S2S 連線能力)** | 不支援 | RouteBased VPN 組態 | RouteBased VPN 組態 | RouteBased VPN 組態 |
 | **驗證方法**  | 不支援 | S2S 連線的預先共用金鑰  | S2S 連線的預先共用金鑰  | S2S 連線的預先共用金鑰  |   
-| **S2S 連接的數目上限**  | 不支援 | 10 | 10| 30|
+| **S2S 連接的數目上限**  | 不支援 | 10 | 10| 5|
 |**作用中路由支援 (BGP)** | 不支援 | 不支援 | 支援 | 支援 |
 
 ### <a name="gateway-subnet"></a>閘道器子網路
@@ -160,7 +157,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 |IKE 版本 |IKEv2 |
 |加密與雜湊演算法 (加密)     | GCMAES256|
 |加密與雜湊演算法 (驗證) | GCMAES256|
-|SA 存留期 (時間)  | 27,700 秒 |
+|SA 存留期 (時間)  | 27,000 秒 |
 |SA 存留期 (位元組) | 819,200       |
 |完整轉寄密碼 (PFS) |PFS2048 |
 |停用的對等偵測 | 支援|  

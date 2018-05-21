@@ -1,6 +1,6 @@
 ---
-title: 自訂 Azure 中的 Windows VM | Microsoft Docs
-description: 了解如何使用自訂指令碼擴充功能在 Azure 中的 Windows VM 上自動安裝應用程式
+title: 教學課程 - 在 Azure 中的 Windows VM 上安裝應用程式 | Microsoft Docs
+description: 在本教學課程中，您會了解如何使用自訂指令碼擴充功能執行指令碼，以及將應用程式部署至 Azure 中的 Windows 虛擬機器。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6afb5757e11108eec856d821d92afed9681a2668
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 51a66d524e72968d95f3415b890567015165063a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>如何自訂 Azure 中的 Windows 虛擬機器
+# <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>教學課程 - 使用自訂指令碼擴充功能將應用程式部署至 Azure 中的 Windows 虛擬機器
+
 若要以快速且一致的方式設定虛擬機器 (VM)，通常需要某種形式的自動化。 自訂 Windows VM 的常見方法是使用 [Windows 的自訂指令碼擴充功能](extensions-customscript.md)。 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/19/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，必須使用 Azure PowerShell 模組 5.3 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。 
+如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 
 ## <a name="custom-script-extension-overview"></a>自訂指令碼擴充功能概觀

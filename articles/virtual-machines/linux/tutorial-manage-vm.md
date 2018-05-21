@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 來建立和管理 Linux VM | Microsoft Docs
-description: 教學課程 - 使用 Azure CLI 來建立和管理 Linux VM
+title: 教學課程 - 使用 Azure CLI 來建立和管理 Linux VM | Microsoft Docs
+description: 在本教學課程中，您會了解如何使用 Azure CLI 2.0 在 Azure 中建立和管理 Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a3826db21d2e4ed447e1ef8d4016ff1dbbf75b1c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4e8be3af81ce74b033b2a15ceaf857540c1d9a6e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>使用 Azure CLI 來建立和管理 Linux VM
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>教學課程：使用 Azure CLI 2.0 來建立和管理 Linux VM
 
 Azure 虛擬機器提供完全可設定且彈性的計算環境。 本教學課程涵蓋基本的「Azure 虛擬機器」部署項目，例如選取 VM 大小、選取 VM 映像、部署 VM。 您會了解如何：
 
@@ -33,10 +33,9 @@ Azure 虛擬機器提供完全可設定且彈性的計算環境。 本教學課�
 > * 調整 VM 的大小
 > * 檢視及了解 VM 狀態
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="create-resource-group"></a>建立資源群組
 
@@ -85,7 +84,7 @@ az vm create \
 您現在可以在 Azure Cloud Shell 中使用 SSH 連線到 VM，也可以從本機電腦與 VM 連線。 請使用先前步驟中記下的 `publicIpAddress` 來取代範例 IP 位址。
 
 ```bash
-ssh 52.174.34.95
+ssh azureuser@52.174.34.95
 ```
 
 在登入 VM 後，您就可以安裝和設定應用程式。 完成時，請像平常一樣地關閉 SSH 工作階段：

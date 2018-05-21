@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack 儲存體：差異與考量"
-description: "了解「Azure Stack 儲存體」與「Azure 儲存體」之間的差異，以及 Azure Stack 部署考量。"
+title: Azure Stack 儲存體：差異與考量
+description: 了解「Azure Stack 儲存體」與「Azure 儲存體」之間的差異，以及 Azure Stack 部署考量。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
 ms.reviwer: xiaofmao
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/21/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 7c4f030018f388302c3b60a41086bbd97c86513d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 儲存體：差異與考量
 
@@ -47,6 +47,7 @@ Blob 儲存體的虛刪除|預覽|尚不支援。
 |分頁 Blob 大小上限|8 TB|1 TB
 |分頁 Blob 分頁大小|512 個位元組|4 KB
 |資料表分割區索引鍵和資料列索引鍵大小|1,024 個字元 (2,048 個位元組)|400 個字元 (800 個位元組)
+|Blob 快照集|一個 blob 的快照集數目沒有上限。|一個 blob 的快照集數目上限為 1,000。|
 
 ### <a name="metrics"></a>度量
 儲存體度量也有一些差異：
@@ -59,14 +60,14 @@ Blob 儲存體的虛刪除|預覽|尚不支援。
 Azure 儲存體服務 API：
 
 1802 更新或更新版本：
- - [2017-04-17](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+ - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08 ](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 舊版：
- - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 
 Azure 儲存體服務管理 API：

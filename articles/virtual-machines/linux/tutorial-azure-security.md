@@ -1,12 +1,12 @@
 ---
-title: Azure 資訊安全中心和 Azure 中的 Linux 虛擬機器 | Microsoft Docs
-description: 了解如何使用 Azure 資訊安全中心來確保 Azure Linux 虛擬機器的安全性。
+title: 教學課程 - 針對 Azure 中的 Linux VM 使用 Azure 資訊安全中心 | Microsoft Docs
+description: 在本教學課程中，您會了解 Azure 資訊安全中心的功能，以協助保護 Azure 中的 Linux 虛擬機器。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/07/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 41fb802dd8f5dd7bec2c481f3719f304b0c8d0ac
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e049bed6336f87d8077726843bbc870be90c633f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>使用 Azure 資訊安全中心來監視虛擬機器
+# <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>教學課程：使用 Azure 資訊安全中心來監視 Linux 虛擬機器
 
 Azure 資訊安全中心可協助您了解 Azure 資源的安全性作法。 資訊安全中心提供了整合式的安全性監視功能。 它可以偵測到可能不會被察覺的威脅。 在本教學課程中，您將會了解 Azure 資訊安全中心，以及要如何︰
  
@@ -30,7 +30,7 @@ Azure 資訊安全中心可協助您了解 Azure 資源的安全性作法。 資
 > * 設定資料收集功能
 > * 設定安全性原則
 > * 檢視及修正組態的健康狀態問題
-> * 檢閱所偵測到的威脅  
+> * 檢閱所偵測到的威脅
 
 ## <a name="security-center-overview"></a>資訊安全中心概觀
 

@@ -1,11 +1,11 @@
 ---
-title: "透過 Team Services 將 CI/CD 從 Jenkins 部署到 Azure VM | Microsoft Docs"
-description: "透過 Visual Studio Team Services 或 Microsoft Team Foundation Server 中的 Release Management，使用 Jenkins 將 Node.js 應用程式的持續整合 (CI) 和持續部署 (CD) 安裝至 Azure VM"
+title: 教學課程 - 透過 Team Services 將 CI/CD 從 Jenkins 部署到 Azure VM | Microsoft Docs
+description: 在本教學課程中，您會了解如何透過 Visual Studio Team Services 或 Microsoft Team Foundation Server 中的 Release Management，使用 Jenkins 將 Node.js 應用程式的持續整合 (CI) 和持續部署 (CD) 安裝至 Azure VM
 author: ahomer
 manager: douge
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -14,19 +14,17 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fc301edf13f8e6874f0b77440e2b0dc01b2a55fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>使用 Jenkins 和 Team Services 將您的應用程式部署至 Linux VM
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>教學課程：使用 Jenkins 和 Visual Studio Team Services 在 Azure 中將應用程式部署至 Linux 虛擬機器
 
 持續整合 (CI) 與持續部署 (CD) 形成一個您可以建置、發行和部署程式碼的管道。 Visual Studio Team Services 提供了一組完整且功能齊全的 CI/CD 自動化工具以供部署至 Azure。 Jenkins 是廣為使用的第三方 CI/CD 伺服器型工具，也提供 CI/CD 自動化。 您可以同時使用 Team Services 和 Jenkins 來自訂雲端應用程式或服務的傳遞方式。
 
-在本教學課程中，您可以使用 Jenkins 來建置 Node.js Web 應用程式。 接著，使用 Team Services 或 Team Foundation Server，將其部署至包含 Linux 虛擬機器 (VM) 的[部署群組](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/)。
-
-您將：
+在本教學課程中，您可以使用 Jenkins 來建置 Node.js Web 應用程式。 接著，使用 Team Services 或 Team Foundation Server，將其部署至包含 Linux 虛擬機器 (VM) 的[部署群組](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/)。 您會了解如何：
 
 > [!div class="checklist"]
 > * 取得範例應用程式。

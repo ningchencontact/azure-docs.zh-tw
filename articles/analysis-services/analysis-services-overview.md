@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: da2ab7b0d8b83238def346790362b680cd8eda23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2a2818be8ef609946e53f585aadb0a5b4ac0f3a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-analysis-services-overview"></a>Azure Analysis Services 概觀
+# <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services 在雲端提供企業級資料模型化。 這是完全受控的平台即服務 (PaaS)，與 Azure 資料平台服務整合。 
 
-使用 Analysis Services，您可以混搭和結合來自多個來源的資料、定義計量，以及在單一受信任的語意資料模型中保護您的資料。 資料模型提供更方便、更快速的方式，以供使用者透過用戶端應用程式 (例如 Power BI、Excel、Reporting Services、第三方和自訂應用程式) 瀏覽大量資料。
+使用 Analysis Services，您可以混搭和結合來自多個資料來源的資料、定義計量，以及在單一受信任的語意資料模型中保護您的資料。 資料模型提供更方便、更快速的方式，以供使用者透過用戶端應用程式 (例如 Power BI、Excel、Reporting Services、第三方和自訂應用程式) 瀏覽大量資料。
 
 ![資料來源](./media/analysis-services-overview/aas-overview-data-sources.png)
 
@@ -96,7 +96,7 @@ Azure Analysis Services 利用 Azure Blob 儲存體來保留 Analysis Services �
 
 #### <a name="firewall"></a>防火牆
 
-Azure Analysis Services 防火牆會封鎖規則中所指定以外的所有用戶端連線。 設定指定依個別用戶端 IP 或依範圍允許之 IP 位址的規則。 Power BI (服務) 連線也可以允許或封鎖允許。 
+Azure Analysis Services 防火牆會封鎖規則中所指定以外的所有用戶端連線。 設定指定依個別用戶端 IP 或依範圍允許之 IP 位址的規則。 也可以允許或封鎖 Power BI (服務) 連線。 
 
 #### <a name="on-premises-data-sources"></a>內部部署資料來源
 透過安裝和設定[內部部署資料閘道](analysis-services-gateway.md)，即可安全地存取您組織中的內部部署資料。 閘道提供直接查詢和記憶體內部模式的資料存取。 當 Azure Analysis Services 模型連接至內部部署資料來源時，會建立一個查詢，以及內部部署資料來源的加密認證。 閘道雲端服務會分析該查詢，並將要求推送至 Azure 服務匯流排。 內部部署閘道會輪詢 Azure 服務匯流排是否有待處理的要求。 閘道接著收到查詢、解密認證，並連接至資料來源來執行。 結果會從資料來源傳送回閘道，然後再到 Azure Analysis Services 資料庫。
@@ -134,4 +134,5 @@ Analysis Services 有活躍的使用者社群。 在 [Azure Analysis Services �
 您對文件有何建議嗎？ 您可以使用每篇文章下方的 Livefyre 新增留言。
 
 ## <a name="next-steps"></a>後續步驟
-在深入了解後，您現在可以開始使用 Azure Analysis Services。 了解如何在 Azure 中[建立伺服器](analysis-services-create-server.md)。 當您的伺服器準備就緒時，逐步執行 [Adventure Works 教學課程](tutorials/aas-adventure-works-tutorial.md)以了解如何建立功能完整的表格式模型，並將它部署到您的伺服器。
+了解如何在 Azure 中[建立伺服器](analysis-services-create-server.md)。   
+在您建立伺服器後，[新增範例模型](analysis-services-create-sample-model.md)。   

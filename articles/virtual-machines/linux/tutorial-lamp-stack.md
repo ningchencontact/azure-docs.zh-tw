@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 的 Linux 虛擬機器上部署 LAMP | Microsoft Docs
-description: 教學課程 - 在 Azure 中的 Linux VM 上安裝 LAMP 堆疊
+title: 教學課程 - 在 Azure 的 Linux 虛擬機器上部署 LAMP | Microsoft Docs
+description: 在本教學課程中，您會了解如何在 Azure 中的 Linux 虛擬機器上安裝 LAMP 堆疊。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -15,13 +15,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: 21790a44ff60bd11202814efd5c0f32e8b614ec4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bd102645e7546d9ad9d3ce6b064ae9fa0ce415bd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="install-a-lamp-web-server-on-an-azure-vm"></a>在 Azure VM 上安裝 LAMP 網頁伺服器
+# <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中的 Linux 虛擬機器上安裝 LAMP 網頁伺服器
+
 本文會逐步引導您在 Azure 中的 Ubuntu VM 上部署 Apache 網頁伺服器、MySQL 和 PHP (LAMP 堆疊)。 如果您偏好使用 NGINX 網頁伺服器，請參閱 [LEMP 堆疊](tutorial-lemp-stack.md)教學課程。 若要查看作用中的 LAMP 伺服器，您可以選擇安裝及設定 WordPress 網站。 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
@@ -31,12 +32,11 @@ ms.lasthandoff: 04/06/2018
 > * 驗證安裝和設定
 > * 在 LAMP 伺服器上安裝 WordPress
 
-
 此安裝程式適用於快速測試或概念證明。 如需 LAMP 堆疊的詳細資訊 (包括適用於生產環境的建議)，請參閱 [Ubuntu 文件](https://help.ubuntu.com/community/ApacheMySQLPHP)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 

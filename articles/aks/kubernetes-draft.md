@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bb80d68d7ac37c8930626b5163597dc0e492a0d2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a5dfecefb6ce1d74e02c64371a864a6d3b07a2e1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>使用 Draft 搭配 Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ Draft CLI 是在開發系統上執行的用戶端，可讓您將程式碼快速�
 > [!NOTE]
 > 如果您已安裝 0.12 版之前的 Draft，請先使用 `helm delete --purge draft` 從叢集中刪除 Draft，然後執行 `rm -rf ~/.draft` 以移除本機設定。 如果您在 MacOS 上，請執行 `brew upgrade draft`。
 
-若要在 Mac 上安裝 Draft CLI，請使用 `brew`。 如需其他安裝選項，請參閱 [Draft 安裝指南][install-draft] \(英文\)。
+若要在 Mac 上安裝 Draft CLI，請使用 `brew`。 如需其他安裝選項，請參閱 [Draft 安裝指南][draft-documentation] \(英文\)。
 
 ```console
 brew tap azure/draft
@@ -288,7 +288,6 @@ Hello World, I'm Java in AKS!
 
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
-[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
 [kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
