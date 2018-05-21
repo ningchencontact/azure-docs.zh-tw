@@ -10,17 +10,20 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: f69b818e86e84a797ef6cad6eb178c6310017bb5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 1560ba95b0d53bd74f0cb2b35e5af2c6a3c66342
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>在 Azure 入口網站中建立 Azure SQL Database
 
-本快速入門將逐步解說如何使用[以 DTU 為基礎的購買模型](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)在 Azure 中建立 SQL 資料庫。 Azure SQL Database 是可讓您在雲端中執行及調整高可用性 SQL Server 資料庫的「資料庫即服務」供應項目。 此快速入門說明如何使用 Azure 入口網站建立 SQL 資料庫以開始使用產品。
+本快速入門將逐步解說如何使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)在 Azure 中建立 SQL 資料庫。 Azure SQL Database 是可讓您在雲端中執行及調整高可用性 SQL Server 資料庫的「資料庫即服務」供應項目。 此快速入門說明如何使用 Azure 入口網站建立 SQL 資料庫以開始使用產品。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+
+  >[!NOTE]
+  >本教學課程使用以 DTU 為基礎的購買模型，但[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md) 也可供使用。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -28,7 +31,7 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="create-a-sql-database"></a>建立 SQL 資料庫
 
-Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-database-service-tiers.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL Database 邏輯伺服器](sql-database-features.md)內。
+Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-database-service-tiers-dtu.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL Database 邏輯伺服器](sql-database-features.md)內。
 
 請遵循下列步驟來建立包含 Adventure Works LT 範例資料的 SQL Database。
 
@@ -73,10 +76,9 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-databa
 6. 按一下 [定價層] 可指定服務層、DTU 數目和儲存體數量。 瀏覽 DTU 數量的選項，以及可供您每個服務層使用的儲存體。
 
    > [!IMPORTANT]
-   > \* 大於內含儲存體數量的儲存體大小尚在預覽中，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。
-   >
-   >\* 在進階層，目前於下列區域中提供超過 1 TB 的儲存體：澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、韓國中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
-   >
+   > -  大於內含儲存體數量的儲存體大小為預覽版，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。
+   >-  在進階層，目前於下列區域中提供超過 1 TB 的儲存體：澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、韓國中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+
 
 7. 在此快速入門中，選取 [標準] 服務層，然後使用滑桿選取 **10 DTU (S0)** 和 **1** GB 的儲存體。
 
@@ -85,9 +87,9 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-databa
 8. 若要使用 [附加元件儲存體] 選項，請接受預覽條款。
 
    > [!IMPORTANT]
-   > \* 大於內含儲存體數量的儲存體大小尚在預覽中，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。
+   > - 大於內含儲存體數量的儲存體大小為預覽版，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。
    >
-   >\* 在進階層，目前於下列區域中提供超過 1 TB 的儲存體：巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、韓國中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+   >- 在進階層，目前於下列區域中提供超過 1 TB 的儲存體：巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、韓國中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
    >
 
 9. 在選取伺服器層、DTU 數目和儲存體數量之後，按一下 [套用]。  

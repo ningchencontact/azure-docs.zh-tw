@@ -1,24 +1,22 @@
 ---
-title: "將來自串流分析的資料串流處理至 Data Lake Store | Microsoft Docs"
-description: "使用 Azure 串流分析將資料串流處理至 Azure Data Lake Store"
+title: 將來自串流分析的資料串流處理至 Data Lake Store | Microsoft Docs
+description: 使用 Azure 串流分析將資料串流處理至 Azure Data Lake Store
 services: data-lake-store,stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8ced5aff33ed23aee3f3399d876c1ed62d2b5707
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7ff59957cf7700af79425aa005444a135b7ee098
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>使用 Azure 串流分析將來自 Azure 儲存體 Blob 的資料串流處理至 Data Lake Store
 在這篇文章中，您將了解如何使用 Azure Data Lake Store 做為 Azure 串流分析作業的輸出。 這篇文章示範從 Azure 儲存體 Blob (輸入) 讀取資料以及將資料寫入至 Data Lake Store (輸出) 的簡單案例。

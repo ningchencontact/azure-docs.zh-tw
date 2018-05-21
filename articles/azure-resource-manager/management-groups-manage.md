@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/10/2018
+ms.date: 5/15/2018
 ms.author: rithorn
-ms.openlocfilehash: b68223830ca6c4e178447074bfbebd1322cb9477
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 822a2df113b848f07e616f155881f345028cee1d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>利用管理群組來管理您的資源 
 管理群組是可協助您跨多個訂用帳戶管理容器存取、原則及合規性的容器。 您可以變更、刪除及管理這些容器，來取得可與 [Azure 原則](../azure-policy/azure-policy-introduction.md)和 [Azure 角色型存取控制](../role-based-access-control/overview.md)搭配使用的階層。 如需了解有關管理群組的詳細資訊，請參閱[使用 Azure 管理群組來組織資源](management-groups-overview.md)。
@@ -24,6 +24,8 @@ ms.lasthandoff: 05/11/2018
 公開預覽中提供管理群組功能。 若要開始使用管理群組，請登入 [Azure 入口網站](https://portal.azure.com)，或者可以使用 [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)、[Azure CLI](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available) 或 [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) 來管理您的管理群組。
 
 若要變更管理群組，您在管理群組上必須具有「擁有者」或「參與者」角色。 若要查看您有哪些權限，請選取管理群組，然後選取 **IAM**。 若要深入了解 RBAC 角色，請參閱[使用 RBAC 管理存取權與權限](../role-based-access-control/overview.md)。
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="change-the-name-of-a-management-group"></a>變更管理群組的名稱 
 您可以使用入口網站、PowerShell 或 Azure CLI 來變更管理群組的名稱。

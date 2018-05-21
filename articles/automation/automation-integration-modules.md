@@ -7,13 +7,13 @@ ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 470f513260cef516fd53ad213138480bd056456a
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: e7135e620ab799131f772c16f6799ed80be312e0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-automation-integration-modules"></a>Azure 自動化整合模組
 PowerShell 是 Azure 自動化背後的基本技術。 由於 Azure 自動化的基礎是 PowerShell，PowerShell 模組會是 Azure 自動化的擴充性關鍵。 本文會引導您了解 Azure 自動化在使用 PowerShell 模組 (稱為「整合模組」) 方面的細節以及用來建立自有 PowerShell 模組的最佳做法，以確保 PowerShell 模組可作為 Azure 自動化內的整合模組。 
