@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: c41a1057bb87c70362477d221b69ca3f5137dec4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a2e2075a735b63588352f3bcdc97e2d6410660fe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>建立有多個子網路的虛擬網路 (傳統)
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 04/23/2018
 4. 當您在入口網站中建立虛擬網路時，您只能建立一個子網路。 在本教學課程中，您會在建立虛擬網路後建立第二個子網路。 稍後您可能會在**公用**子網路中建立可從網際網路存取的資源。 您也可能會在**私人**子網路中建立無法從網際網路存取的資源。 若要建立第二個子網路，在入口網站頂端的 [搜尋資源] 方塊中輸入 **myVnet**。 當 myVnet 出現在搜尋結果中時，按一下 [myVnet]。
 5. 在出現的 [建立虛擬網路 (傳統)] 窗格中，按一下 [設定] 區段中的 [子網路]。
 6. 在出現的 [myVnet - 子網路] 窗格中，按一下 [+ 新增]。
-7. 在 [新增子網路] 窗格中的 [名稱] 輸入**私人**。 在 [位址範圍] 輸入 **10.0.1.0/24**。  按一下 [SERVICEPRINCIPAL] 。
+7. 在 [新增子網路] 窗格中的 [名稱] 輸入**私人**。 在 [位址範圍] 輸入 **10.0.1.0/24**。  按一下 [確定]。
 8. 您就會在 [myVnet - 子網路] 窗格中看到您建立的 [公用] 和 [私人] 子網路。
 9. **選用**：當您完成本教學課程後，可能會想刪除您所建立的資源，以免產生使用費：
     - 按一下 [myVnet] 窗格上的 [概觀]。
@@ -162,7 +162,6 @@ ms.lasthandoff: 04/23/2018
 ## <a name="next-steps"></a>後續步驟
 
 - 若要了解所有虛擬網路和子網路的設定，請參閱[管理虛擬網路](manage-virtual-network.md)和[管理虛擬網路子網路](virtual-network-manage-subnet.md)。 您有各種選項可在生產環境中使用虛擬網路和子網路，以便符合不同的需求。
-- 若要篩選輸入和輸出的子網路流量，請對子網路建立和套用[網路安全性群組](virtual-networks-nsg.md)。
 - 建立 [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器，然後將它連線至現有的虛擬網路。
 - 若要將同一個 Azure 位置中的兩個虛擬網路連線，請在兩個虛擬網路之間建立[虛擬網路對等互連](create-peering-different-deployment-models.md)。 您可以對等互連虛擬網路 (Resource Manager) 與虛擬網路 (傳統)，但無法對等互連兩個虛擬網路 (傳統)。
 - 使用 [VPN 閘道](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或 [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 線路將虛擬網路連線至內部部署網路。
