@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: 0afb1259465189034a69ab7197cdea6fc0f517a3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: be2b6e27e097ea5206e1faceed75ec212406d330
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>使用 Power Query 將 Excel 連接到 Hadoop
 Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智慧 (BI) 元件與 Azure HDInsight 上的 Hadoop 叢集相整合。 舉例來說，可讓您使用 Microsoft Power Query for Excel 增益集，將 Excel 連接到包含 Hadoop 叢集相關聯資料的 Azure 儲存體帳戶。 本文將逐步解說如何設定及使用 Power Query，以查詢受 HDInsight 管理的 Hadoop 叢集相關聯資料。
@@ -56,7 +56,7 @@ Power Query add-in for Excel 可協助您將 HDInsight 叢集中的資料匯入�
    
         ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
-        **附註：**如果 [Power Query] 功能表未顯示，請移至 [檔案] > [選項] > [增益集]，然後從頁面底部的下拉式 [管理] 方塊中，選取 [COM 增益集]。 選取 [移至...] 按鈕，並驗證 Power Query for Excel 增益集的方塊已勾選。
+        **附註：** 如果 [Power Query] 功能表未顯示，請移至 [檔案] > [選項] > [增益集]，然後從頁面底部的下拉式 [管理] 方塊中，選取 [COM 增益集]。 選取 [移至...] 按鈕，並驗證 Power Query for Excel 增益集的方塊已勾選。
        
         **附註：** Power Query 也可讓您從 HDFS 匯入資料，方法是按一下 [從其他來源]。
 4. 對於 [帳戶名稱]，輸入叢集相關 Azure Blob 儲存體帳戶的名稱，然後按一下 [確定]。 此帳戶可以是[預設儲存體帳戶](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account)或連結儲存體帳戶。  其格式為 *https://&lt;StorageAccountName>.blob.core.windows.net/*。

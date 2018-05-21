@@ -1,25 +1,20 @@
 ---
 title: IIS 驗證和 Azure MFA Server | Microsoft Docs
-description: 此 Azure Multi-Factor Authentication 頁面協助您部署 IIS 驗證與 Azure Multi-Factor Authentication Server。
+description: 部署 IIS 驗證與 Azure Multi-Factor Authentication Server。
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: d1bf1c8a-2c10-4ae6-9f4b-75f0c3df43eb
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 06/16/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: H1Hack27Feb2017,it-pro
-ms.openlocfilehash: 00d40b27d9cdbc1ad157ddbfc029da68542b09b8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 1cf75d498c8a6c8d54fd832f17f5db1580c18286
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>針對 IIS Web 應用程式設定 Azure Multi-Factor Authentication Server
 
@@ -47,7 +42,7 @@ ms.lasthandoff: 04/23/2018
   - 選取驗證主要認證時是要對照 Windows 網域、LDAP 目錄 還是 RADIUS 伺服器來進行驗證。
 
 12. 按一下 [確定] 以返回 [新增表單架構網站] 對話方塊。
-13. 按一下 [SERVICEPRINCIPAL] 。
+13. 按一下 [確定]。
 14. 偵測到或已輸入 URL 和頁面變數後，網站資料就會顯示在表單架構面板中。
 
 ## <a name="using-integrated-windows-authentication-with-azure-multi-factor-authentication-server"></a>搭配 Azure Multi-Factor Authentication Server 使用整合式 Windows 驗證
@@ -60,7 +55,7 @@ ms.lasthandoff: 04/23/2018
 5. 調整 [閒置逾時] 和 [最長工作階段時間] \(如果預設值不足夠)。
 6. 如果所有使用者都已經或將要匯入到伺服器中，且必須接受多重要素驗證，請選取 [需要進行 Multi-Factor Authentication 使用者比對] 方塊。 如果有大量使用者尚未匯入伺服器及/或將免除多重要素驗證，請勿核取此方塊。
 7. 視需要選取 [Cookie 快取] 方塊。
-8. 按一下 [SERVICEPRINCIPAL] 。
+8. 按一下 [確定]。
 
 ## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>啟用 Azure Multi-Factor Authentication Server 的 IIS 外掛程式
 設定表單架構驗證或 HTTP 驗證 URL 及設定之後，請在 IIS 中選取應該載入和啟用 Azure Multi-Factor Authentication IIS 外掛程式的位置。 請使用下列程序：

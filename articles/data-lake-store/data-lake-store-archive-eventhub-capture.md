@@ -8,16 +8,14 @@ manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 9f91acf8c26fdec0c8d128f598f218cff091c7aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cff2ca87ab2916c9d5aa8bb308325cb7a0227d75
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>使用 Azure Data Lake Store 從事件中樞擷取資料
 
@@ -81,7 +79,7 @@ ms.lasthandoff: 04/16/2018
 
     ![為 Data Lake Store 資料夾指派權限](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "為 Data Lake Store 資料夾指派權限")
     
-    按一下 [SERVICEPRINCIPAL] 。 
+    按一下 [確定]。 
 
 ## <a name="configure-event-hubs-to-capture-data-to-data-lake-store"></a>設定事件中樞，以將資料擷取到 Data Lake Store
 

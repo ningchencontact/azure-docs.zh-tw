@@ -9,15 +9,13 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: 7493c10407bfe83bdc7277c49dae1a7e9d7c39f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ac0a01ed7a067688732aa54eb1b76e0e299e4263
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>使用 Azure Data Lake Store 的最佳做法
 在本文中，您會了解使用 Azure Data Lake Store 的最佳做法和考量。 本文提供 Data Lake Store 的安全性、效能、恢復功能及監視作業等相關資訊。 尚未使用 Data Lake Store 之前，若要在 Azure HDInsight 這類服務中處理如此龐大的資料，過程會十分繁瑣。 您必須將資料分給多個 Blob 儲存體帳戶，才能達到該規模的 PB 儲存量和最佳效能。 Data Lake Store 能突破大小和效能等大部分的硬性限制。 不過，為了讓您可取得 Data Lake Store 的最佳效能，本文中仍包含了一些考量。 
@@ -67,7 +65,7 @@ Data Lake Store 中的 POSIX 權限和稽核會在處理大量小型檔案時，
 * 加快複製/複寫的速度
 * 更新 Data Lake Store POSIX 權限時處理的檔案更少 
 
-視服務和工作負載使用的資料而定，可考慮的合適檔案大小為 256 MB 到 1 GB，最理想的情況是不要低於 100 MB，或超過 2 GB。。 如果檔案大小無法在置入 Data Lake Store 時進行批次處理，您可以個別執行壓縮作業，將這些檔案結合成較大的檔案。 如需有關檔案大小及如何在 Data Lake Store 中組織資料的詳細資訊和建議，請參閱[建構您的資料集](data-lake-store-performance-tuning-guidance.md#structure-your-data-set)。 
+視服務和工作負載使用的資料而定，可考慮的合適檔案大小為 256 MB 到 1 GB，最理想的情況是不要低於 100 MB，或超過 2 GB。 如果檔案大小無法在置入 Data Lake Store 時進行批次處理，您可以個別執行壓縮作業，將這些檔案結合成較大的檔案。 如需有關檔案大小及如何在 Data Lake Store 中組織資料的詳細資訊和建議，請參閱[建構您的資料集](data-lake-store-performance-tuning-guidance.md#structure-your-data-set)。 
 
 ### <a name="large-file-sizes-and-potential-performance-impact"></a>大型檔案大小和潛在的效能影響 
 

@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: de422950-2d22-4ddb-ac47-dd663a946a7e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
 ms.author: aljo
-ms.openlocfilehash: 1255574e6aae930b0e349ec8f36cc66ac2b7e49f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 55840dc4b9f25c7e2676cff936390a0542eb239d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>刪除 Azure 上的 Service Fabric 叢集和其使用的資源
 Service Fabric 叢集是由叢集資源本身和許多其他 Azure 資源所構成。 因此，若要完全刪除 Service Fabric 叢集，您也必須刪除組成叢集的所有資源。
@@ -60,9 +60,9 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 
 如果您已使用入口網站或使用範本庫中的其中一個 Service Fabric Resource Manager 範本來部署叢集，則叢集所使用的所有資源都會標上下列兩個標記。 您可以使用它們來決定您想要刪除的資源。
 
-***Tag #1：***索引鍵 = clusterName，值 = '叢集的名稱'
+***Tag #1：*** 索引鍵 = clusterName，值 = '叢集的名稱'
 
-***Tag #2：***索引鍵 = resourceName，值 = ServiceFabric
+***Tag #2：*** 索引鍵 = resourceName，值 = ServiceFabric
 
 ### <a name="delete-specific-resources-in-the-azure-portal"></a>在 Azure 入口網站中刪除特定資源
 1. 登入 [Azure 入口網站](https://portal.azure.com)。

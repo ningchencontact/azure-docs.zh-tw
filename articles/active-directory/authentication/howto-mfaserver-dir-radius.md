@@ -1,25 +1,20 @@
 ---
 title: RADIUS 驗證和 Azure MFA Server | Microsoft Docs
-description: 此 Azure Multi-Factor Authentication 頁面協助您部署 RADIUS 驗證與 Azure Multi-Factor Authentication Server。
+description: 部署 RADIUS 驗證與 Azure Multi-Factor Authentication Server。
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: f4ba0fb2-2be9-477e-9bea-04c7340c8bce
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.reviewer: alexwe
-ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 72456bd8b1e76760b9efd23e85aed3fc363d6709
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: 4f61f1dedd8ddc984df89dbb7577b284c1da04f5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>將 RADIUS 驗證與 Azure Multi-Factor Authentication Server 整合
 
@@ -47,7 +42,7 @@ RADIUS 是接受驗證要求並處理這些要求的標準通訊協定。 Azure 
 
 6. 如果所有使用者都已經匯入伺服器中，且必須接受多重要素驗證，請選取 [需要進行 Multi-Factor Authentication 使用者比對] 方塊。 如果有大量使用者尚未匯入伺服器或將免除雙步驟驗證，請勿核取此方塊。
 7. 如果您想要使用來自行動驗證應用程式的 OATH 密碼作為備份方法，請核取 [啟用遞補 OATH 權杖] 方塊。
-8. 按一下 [SERVICEPRINCIPAL] 。
+8. 按一下 [確定]。
 
 請重複步驟 4 到 8 以視需要新增多個其他 RADIUS 用戶端。
 
@@ -65,7 +60,7 @@ RADIUS 是接受驗證要求並處理這些要求的標準通訊協定。 Azure 
 
   共用密碼在 Azure Multi-Factor Authentication Server 和 RADIUS 伺服器上必須相同。 如果 RADIUS 伺服器使用不同的通訊埠，請變更 [驗證連接埠] 和 [帳戶處理連接埠]。
 
-7. 按一下 [SERVICEPRINCIPAL] 。
+7. 按一下 [確定]。
 8. 在另一部 RADIUS 伺服器中新增 Azure MFA Server 作為 RADIUS 用戶端，如此它才能夠處理從 Azure MFA Server 傳送給它的存取要求。 請使用 Azure Multi-Factor Authentication Server 中設定的相同共用密碼。
 
 重複這些步驟來新增更多 RADIUS 伺服器。 使用 [上移] 和 [下移] 按鈕來設定 Azure MFA Server 應呼叫它們的順序。
