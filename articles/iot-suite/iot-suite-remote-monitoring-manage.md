@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d05b7ca2ab1d5b2f3d3fd3973eefe1b3ec5a1c04
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 599f8327e9939f400ca18c87fa6193ac3c1e4a61
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>管理及設定您的裝置
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/07/2018
 
 Contoso 已排序新的機制，延伸其中一個設備來增加輸出。 當您等待傳遞新的機制時，您需要執行模擬來驗證您解決方案的行為。 身為操作員，您需要管理和設定遠端監視解決方案中的裝置。
 
-為提供可延伸的方式來管理和設定裝置，遠端監視解決方案會使用 IoT 中樞功能，例如[作業](../iot-hub/iot-hub-devguide-jobs.md)和[直接方法](../iot-hub/iot-hub-devguide-direct-methods.md)。 若要了解裝置開發人員如何在實體裝置上實作方法，請參閱[自訂遠端監視解決方案加速器](iot-suite-remote-monitoring-customize.md)。
+為提供可延伸的方式來管理和設定裝置，遠端監視解決方案會使用 IoT 中樞功能，例如[作業](../iot-hub/iot-hub-devguide-jobs.md)和[直接方法](../iot-hub/iot-hub-devguide-direct-methods.md)。 若要了解裝置開發人員如何在實體裝置上實作方法，請參閱[自訂遠端監視解決方案加速器](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)。
 
 在本教學課程中，您了解如何：
 
@@ -38,7 +38,7 @@ Contoso 已排序新的機制，延伸其中一個設備來增加輸出。 當�
 
 若要依循本教學課程進行操作，您需要在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案執行個體。
 
-如果您尚未部署遠端監視解決方案，應該先完成[部署遠端監視解決方案加速器](iot-suite-remote-monitoring-deploy.md)教學課程。
+如果您尚未部署遠端監視解決方案，應該先完成[部署遠端監視解決方案加速器](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)教學課程。
 
 ## <a name="add-a-simulated-device"></a>新增模擬裝置
 
