@@ -47,48 +47,48 @@
 ### [預測性維護解決方案加速器逐步解說](../iot-suite/iot-suite-predictive-walkthrough.md)
 
 ## 連線的處理站
-### [連線的處理站是什麼？](../iot-suite/iot-suite-connected-factory-features.md)
-### [連線的處理站解決方案概觀](../iot-suite/iot-suite-connected-factory-overview.md)
-### [連線的處理站解決方案逐步解說](../iot-suite/iot-suite-connected-factory-sample-walkthrough.md)
+### [連線的處理站是什麼？](iot-accelerators-connected-factory-features.md)
+### [連線的處理站解決方案概觀](iot-accelerators-connected-factory-overview.md)
+### [連線的處理站解決方案逐步解說](iot-accelerators-connected-factory-sample-walkthrough.md)
 
 ## 裝置模擬
-### [部署裝置模擬](../iot-suite/iot-suite-device-simulation-deploy.md)
-### [探索裝置模擬](../iot-suite/iot-suite-device-simulation-explore.md)
+### [部署裝置模擬](iot-accelerators-device-simulation-deploy.md)
+### [探索裝置模擬](iot-accelerators-device-simulation-explore.md)
 
 # 使用說明指南
 ## 遠端監視
-### [執行進階監視](../iot-suite/iot-suite-remote-monitoring-monitor.md)
+### [執行進階監視](iot-accelerators-remote-monitoring-monitor.md)
 ### [用規則來偵測問題](iot-accelerators-remote-monitoring-automate.md)
-### [整合 SIM 卡資料](../iot-suite/iot-suite-remote-monitoring-telefonica-sim.md)
-### [管理您的裝置](../iot-suite/iot-suite-remote-monitoring-manage.md)
-### [針對裝置問題進行疑難排解](../iot-suite/iot-suite-remote-monitoring-maintain.md)
-### [了解裝置模型結構描述](../iot-suite/iot-suite-remote-monitoring-device-schema.md)
-### [了解裝置模型行為](../iot-suite/iot-suite-remote-monitoring-device-behavior.md)
-### [建立新的模擬裝置](../iot-suite/iot-suite-remote-monitoring-test.md)
-### [使用 Power BI 將資料視覺化](../iot-suite/iot-suite-integrate-data-powerbi.md)
+### [整合 SIM 卡資料](iot-accelerators-remote-monitoring-telefonica-sim.md)
+### [管理您的裝置](iot-accelerators-remote-monitoring-manage.md)
+### [針對裝置問題進行疑難排解](iot-accelerators-remote-monitoring-maintain.md)
+### [了解裝置模型結構描述](iot-accelerators-remote-monitoring-device-schema.md)
+### [了解裝置模型行為](iot-accelerators-remote-monitoring-device-behavior.md)
+### [建立新的模擬裝置](iot-accelerators-remote-monitoring-test.md)
+### [使用 Power BI 將資料視覺化](iot-accelerators-integrate-data-powerbi.md)
 ### [自訂解決方案 UI](iot-accelerators-remote-monitoring-customize.md)
-### [自訂和重新部署微服務](../iot-suite/iot-suite-microservices-example.md)
+### [自訂和重新部署微服務](iot-accelerators-microservices-example.md)
 ### [使用 CLI 進行部署](iot-accelerators-remote-monitoring-deploy-cli.md)
 ### [本機部署](iot-accelerators-remote-monitoring-deploy-local.md)
 ### [使用時間序列深入解析將資料視覺化](../iot-suite/iot-suite-time-series-insights.md)
-### [與 Data Lake 整合](../iot-suite/iot-suite-integrate-data-lake.md)
+### [與 Data Lake 整合](iot-accelerators-integrate-data-lake.md)
 ### 連線實體裝置
-#### [Windows 上的 C](../iot-suite/iot-suite-connecting-devices.md)
-#### [Linux 上的 C](../iot-suite/iot-suite-connecting-devices-linux.md)
-#### [Node.js (一般)](../iot-suite/iot-suite-connecting-devices-node.md)
-#### [Raspberry Pi 上的 Node.js](../iot-suite/iot-suite-connecting-pi-node.md)
-#### [Raspberry Pi 上的 C](../iot-suite/iot-suite-connecting-pi-c.md)
+#### [Windows 上的 C](iot-accelerators-connecting-devices.md)
+#### [Linux 上的 C](iot-accelerators-connecting-devices-linux.md)
+#### [Node.js (一般)](iot-accelerators-connecting-devices-node.md)
+#### [Raspberry Pi 上的 Node.js](iot-accelerators-connecting-pi-node.md)
+#### [Raspberry Pi 上的 C](iot-accelerators-connecting-pi-c.md)
 #### [MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### 概念
-#### [遠端監視實作詳細資料](../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [遠端監視實作詳細資料](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 #### [遠端監視架構選擇](iot-accelerators-remote-monitoring-architectural-choices.md)
 
 ## 連線的處理站
-### [為連線的處理站部署閘道](../iot-suite/iot-suite-connected-factory-gateway-deployment.md)
-### [自訂連線的處理站](../iot-suite/iot-suite-connected-factory-customize.md)
+### [為連線的處理站部署閘道](iot-accelerators-connected-factory-gateway-deployment.md)
+### [自訂連線的處理站](iot-accelerators-connected-factory-customize.md)
 ### [針對連線的處理站使用 OPC 發行者](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
-### [設定連線的處理站](../iot-suite/iot-suite-connected-factory-configure.md)
+### [設定連線的處理站](iot-accelerators-connected-factory-configure.md)
 ## [azureiotsuite.com 的權限](../iot-suite/iot-suite-permissions.md)
 
 # 參考
@@ -118,8 +118,8 @@
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
-## [常見問題集](../iot-suite/iot-suite-faq.md)
-## [遠端監視常見問題集](../iot-suite/iot-suite-faq-rm-v2.md)
-## [連線的處理站常見問題集](../iot-suite/iot-suite-faq-cf.md)
+## [常見問題集](iot-accelerators-faq.md)
+## [遠端監視常見問題集](iot-accelerators-faq-rm-v2.md)
+## [連線的處理站常見問題集](iot-accelerators-faq-cf.md)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [IoT 解決方案加速器學習路徑](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
