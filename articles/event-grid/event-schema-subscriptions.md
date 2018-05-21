@@ -1,18 +1,18 @@
 ---
-title: "Azure 事件格線訂用帳戶的事件結構描述"
-description: "描述 Azure 事件格線針對訂用帳戶事件所提供的屬性"
+title: Azure 事件格線訂用帳戶的事件結構描述
+description: 描述 Azure 事件格線針對訂用帳戶事件所提供的屬性
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 23249b92b4e99628d49bbd811b4ad1f1dc9cc9b0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 04bcc3018346e9cf162d26b0a23147c88e902e1e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>針對訂用帳戶的 Azure 事件格線事件結構描述
 

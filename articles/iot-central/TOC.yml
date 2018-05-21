@@ -25,7 +25,7 @@
           href: tutorial-configure-rules.md
         - name: 3 - 自訂操作者檢視
           href: tutorial-customize-operator.md
-    - name: 操作者
+    - name: 運算子
       items:
         - name: 4 - 監視您的裝置
           href: tutorial-monitor-devices.md
@@ -105,5 +105,7 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 資源
   items:
+    - name: 客戶資料要求
+      href: iot-central-customer-data-requests.md
     - name: 堆疊溢位
       href: 'https://stackoverflow.com/questions/tagged/azure-iot-central'
