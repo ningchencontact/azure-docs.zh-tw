@@ -2,35 +2,31 @@
 title: 自助式密碼重設部署指南 - Azure Active Directory
 description: 成功推出 Azure AD 自助式密碼重設的祕訣
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 4d3e07c6c395645ef34b1707f33a4e37a20bf05d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>如何成功推出自助式密碼重設
 
 為確保 Azure Active Directory (Azure AD) 自助式密碼重設 (SSPR) 功能順利推出，大部分的客戶會完成下列步驟：
 
+> [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
+
 1. [在您的目錄中啟用密碼重設](quickstart-sspr.md)。
 2. [設定密碼回寫的內部部署 Active Directory 權限](howto-sspr-writeback.md#active-directory-permissions)。
 3. [設定密碼回寫](howto-sspr-writeback.md#configure-password-writeback)以將密碼從 Azure AD 回寫到您的內部部署目錄。
 4. [指派和驗證所需的授權](concept-sspr-licensing.md)。
-5. 決定您是否需要進行漸進式推出。 如果您需要漸進式地推出 SSPR，可以限制使用者群組的存取權，讓您可以對特定群組試驗程式。 若要推出至特定群組，請將 [已啟用自助式密碼重設] 切換為 [選取]，並選取您需要能夠使用密碼重設的安全性群組。 
+5. 決定您是否需要進行漸進式推出。 如果您需要漸進式地推出 SSPR，可以限制使用者群組的存取權，讓您可以對特定群組試驗程式。 若要推出至特定群組，請將 [已啟用自助式密碼重設] 切換為 [選取]，並選取您需要能夠使用密碼重設的安全性群組。  這裡支援安全性群組的巢狀。
 6. 為您的使用者填入註冊所需的[驗證資料](howto-sspr-authenticationdata.md)，例如其辦公室電話、行動電話和備用電子郵件地址。
 7. [自訂 Azure AD 登入體驗以包含您公司的商標](concept-sspr-customization.md)。
 8. 教導您的使用者如何使用 SSPR。 傳送指示給他們，說明如何註冊和重設其密碼。
@@ -66,6 +62,10 @@ ms.lasthandoff: 04/23/2018
 * 其他組織特定資訊
 
 您送出的任何電子郵件或傳單都可以包含一個品牌化、令人印象深刻的 URL，使用者可以在需要使用服務時前往該 URL。 為方便您使用，我們建立了[範例密碼重設頁面](https://github.com/ajamess/password-reset-page)，您可以使用並根據組織需求加以自訂。
+
+## <a name="step-by-step-deployment-plan"></a>逐步部署方案
+
+Azure Active Directory 產品群組已建立[逐步部署方案](https://aka.ms/SSPRDeploymentPlan)，組織能平行使用此方案，並搭配在此網站中找到的文件，來製作業務案例及規劃自助式重設密碼的部署。
 
 ## <a name="use-enforced-registration"></a>使用強制註冊
 

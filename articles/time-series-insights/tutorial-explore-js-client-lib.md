@@ -1,0 +1,281 @@
+---
+title: 探索時間序列深入解析 JavaScript 用戶端程式庫
+description: 了解時間序列深入解析 JavaScript 用戶端程式庫和相關的程式設計模型。
+documentationcenter: ''
+services: time-series-insights
+author: BryanLa
+manager: timlt
+editor: ''
+tags: ''
+ms.assetid: ''
+ms.service: time-series-insights
+ms.workload: na
+ms.tgt_pltfrm: ''
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 05/10/2018
+ms.author: bryanla
+ms.openlocfilehash: 5b845f36dbb65b38d0e4ac2a118277027239b3d6
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/14/2018
+---
+# <a name="tutorial-explore-the-time-series-insights-javascript-client-library"></a>教學課程：探索時間序列深入解析 JavaScript 用戶端程式庫
+
+為了協助開發人員查詢時間序列深入解析 (TSI) 中所儲存的資料並將資料視覺化，我們開發出以 JavaScript D3 為基礎的控制項程式庫，來簡化這項工作。 本教學課程會使用 Web 應用程式範例，來引導您探索 TSI JavaScript 用戶端程式庫，以及相關的程式設計模型。 
+
+課程中所討論的各個主題會讓您有機會進行試驗、更加深入地了解如何存取 TSI 資料，以及使用圖表控制項來轉譯資料並加以視覺化。 課程目標是要讓您獲得足夠的詳細資料，以供您在 Web 應用程式中使用程式庫。
+
+在本教學課程中，您會了解：
+
+> [!div class="checklist"]
+> * TSI 應用程式範例 
+> * TSI JavaScript 用戶端程式庫
+> * 應用程式範例如何使用程式庫來將 TSI 資料視覺化
+
+## <a name="prerequisites"></a>先決條件
+
+本教學課程使用大多數新式網頁瀏覽器 (例如，[Edge](/microsoft-edge/devtools-guide)、[Chrome](https://developers.google.com/web/tools/chrome-devtools/)、[FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)、[Safari](https://developer.apple.com/safari/tools/) 等等) 中皆能找到的「開發人員工具」功能 (也稱為 DevTools 或 F12)。 如果您不熟悉，建議您先在瀏覽器中瀏覽這項功能，然後再繼續。 
+
+## <a name="the-time-series-insights-sample-application"></a>時間序列深入解析應用程式範例
+
+本教學課程通篇使用時間序列深入解析應用程式範例來瀏覽應用程式背後的原始程式碼，包括 TSI JavaScript 用戶端程式庫的使用方式。 應用程式是單頁 Web 應用程式 (SPA)，會展示如何使用程式庫來查詢 TSI 環境範例中的資料並加以視覺化。 
+
+1. 瀏覽至[時間序列深入解析應用程式範例](https://insights.timeseries.azure.com/clientsample)。 您會看到類似下面的網頁提示您進行登入：![TSI 用戶端範例的登入提示](media/tutorial-explore-js-client-lib/tcs-sign-in.png)
+
+2. 按一下 [登入] 按鈕，然後輸入或選取認證。 您可以使用企業/組織帳戶 (Azure Active Directory) 或個人帳戶 (Microsoft 帳戶或 MSA)。 
+
+   ![TSI 用戶端範例的認證提示](media/tutorial-explore-js-client-lib/tcs-sign-in-enter-account.png)
+
+3. 成功登入之後，您會看到類似下面的網頁，其中包含數種樣式的圖表範例，並已填入 TSI 資料。 也請注意右上方的使用者帳戶及 [登出] 連結：![TSI 用戶端範例的登入後主網頁](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png)
+
+### <a name="page-source-and-structure"></a>網頁原始碼和結構
+
+讓我們先檢視瀏覽器所轉譯網頁背後的 HTML 和 JavaScript 原始程式碼。 我們不會帶您看過所有元素，但您會了解各主要區段，以便對網頁的運作方式有所概念：
+
+1. 在瀏覽器中開啟「開發人員工具」，並檢查組成目前網頁的 HTML 元素 (又稱為 HTML 或 DOM 樹狀結構)。
+
+2. 展開 `<head>` 和 `<body>` 元素，並注意下列各節：
+   - 在 `<head>` 底下，您會找到一些元素，這些元素會提取其他檔案以協助網頁運作：
+     - 參考 Azure Active Directory Authentication Library 的 `<script>` 元素 (adal.min.js) - 也稱為 ADAL，這是 JavaScript 程式庫，會提供用來存取 API 的 OAuth 2.0 驗證 (登入) 和權杖取得：
+     - 樣式表的 `<link>` 元素 (sampleStyles.css, tsiclient.css) - 又稱為 CSS，可用來控制視覺效果網頁樣式詳細資料，例如色彩、字型、間距等等。 
+     - 參考 TSI 用戶端程式庫的 `<script>` 元素 (tsiclient.js) - 網頁所使用的 JavaScript 程式庫，目的是要呼叫 TSI 服務 API 並轉譯網頁上的圖表控制項。
+
+     >[!NOTE]
+     > ADAL JavaScript 程式庫的原始程式碼可從 [azure-activedirectory-library-for-js 存放庫](https://github.com/AzureAD/azure-activedirectory-library-for-js)取得。  
+     > TSI 用戶端 JavaScript 程式庫的原始程式碼可從 [tsiclient 存放庫](https://github.com/Microsoft/tsiclient)取得。
+
+   - 在 `<body>` 底下，您會找到 `<div>` 元素 (作為容器來定義網頁上項目的版面配置) 以及另一個 `<script>` 元素：
+     - 第一個 `<div>` 會指定「登入」對話方塊 (`id="loginModal"`)。
+     - 第二個 `<div>` 則會作為下列元素的父項：
+       - 標頭 `<div>`，用於頁面頂端附近的狀態訊息和登入資訊 (`class="header"`)。
+       - 網頁主體元素其餘部分的 `<div>`，包括所有圖表 (`class="chartsWrapper"`)。
+       - `<script>` 區段，其中包含所有用來控制網頁的 JavaScript。
+
+   [![搭配 DevTools 使用的 TSI 用戶端範例](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
+
+3. 展開 `<div class="chartsWrapper">` 元素，您會發現更多子 `<div>` 元素，這些元素會用來將每個圖表控制項範例定位。 請注意其中有好幾對 `<div>` 元素，每個圖表範例各會使用一對：
+   - 第一個 (`class="rowOfCardsTitle"`) 包含用來彙總圖表所述項目的敘述性標題。 例如：「靜態折線圖與完整大小的圖例」
+   - 第二個 (`class="rowOfCards"`) 是父系，包含其他用來將資料列中實際圖表控制項定位的子 `<div>` 元素。 
+
+  ![檢視主體 "divs"](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
+
+4. 現在展開 `<div class="chartsWrapper">` 元素正下方的 `<script type="text/javascript">` 元素。 您會看到網頁層級 JavaScript 區段的開頭，其可用來處理各項工作的網頁邏輯，這些工作包括驗證、呼叫 TSI 服務 API、轉譯圖表控制項等等：
+
+  ![檢視主體指令碼](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)
+
+## <a name="tsi-client-javascript-library-concepts"></a>TSI 用戶端 JavaScript 程式庫概念
+
+雖然我們不會詳細檢閱 TSI 用戶端程式庫 (tsclient.js)，但基本上此程式庫提供兩個重要類別的抽象概念：
+
+- **用於呼叫 TSI 查詢 API 的包裝函式方法** - 可讓您使用彙總運算式來查詢 TSI 資料的 REST API，並且會組織在程式庫的 `TsiClient.Server` 命名空間底下。 
+- **用於建立和填入數種圖表控制項類型的方法** - 用於在網頁中轉譯 TSI 彙總資料，並且會組織在程式庫的 `TsiClient.UX` 命名空間底下。 
+
+下列概念是通用的，且一般會適用於 TSI 用戶端程式庫 API。 
+
+### <a name="authentication"></a>驗證
+
+如先前所述，此範例是單頁應用程式，會在 ADAL 中使用 OAuth 2.0 支援來驗證使用者。 以下是這個指令碼區段中的一些重點：
+
+1. 使用 ADAL 進行驗證需要用戶端應用程式在 Azure Active Directory (Azure AD) 應用程式登錄中註冊其本身。 作為 SPA，此應用程式會註冊為使用「隱含」的 OAuth 2.0 授權授與流程。 作為對應，應用程式會在執行階段指定一些註冊屬性 (例如，用戶端識別碼 GUID (`clientId`) 和重新導向 URI (`postLogoutRedirectUri`))，以參與該流程。
+
+2. 之後，應用程式會從 Azure AD 要求「存取權杖」。 系統會對特定服務/API 識別碼 (https://insights.timeseries.azure.com) (也稱為權杖「對象」) 發出一組有限權限的存取權杖。 這些權杖權限是由系統代表所登入的使用者來發出。 服務/API 的識別碼仍是應用程式的 Azure AD 註冊中所包含的另一個屬性。 ADAL 將存取權杖傳回給應用程式後，系統在存取 TSI 服務 API 時就會以「持有人權杖」的形式來傳遞存取權杖。 
+
+   [!code-javascript[head-sample](~/samples-javascript/pages/index.html?range=140-199&highlight=4-9,36-39)]
+
+### <a name="control-identification"></a>控制項識別
+
+如先前所述，`<body>` 內的 `<div>` 元素會提供網頁上示範的所有圖表控制項的版面配置。 這些元素各自都會針對圖表控制項的位置和視覺效果屬性指定相關屬性，包括 `id` 屬性。 `id` 屬性會提供唯一識別碼，可用於 JavaScript 程式碼以找出並繫結至每個用於轉譯和更新的控制項。 
+
+### <a name="aggregate-expressions"></a>彙總運算式
+
+TSI 用戶端程式庫 API 會大量使用彙總運算式。 彙總運算式可讓您建構一或多個「搜尋字詞」。 API 類似於[時間序列深入解析總管](https://insights.timeseries.azure.com/demo)使用搜尋範圍、WHERE 述詞、量值和 split-by 值的方式。 大多數的程式庫 API 採用彙總運算式陣列，以供服務用來建置 TSI 資料查詢。
+
+### <a name="call-pattern"></a>呼叫模式
+
+圖表控制項的填入和轉譯會遵循一般模式。 您會發現整個網頁 JavaScript 一直在使用這個模式，以將 TSI 應用程式範例控制項具現化和載入：
+
+1. 宣告陣列來保存一或多個 TSI 彙總運算式。  
+
+   ```javascript
+   var aes =  [];
+   ```
+
+2. 建置 1 到 n 個彙總運算式物件，並將其新增到彙總運算式陣列。  
+
+   ```javascript
+   var ae = new tsiClient.ux.aggregateExpression(predicateObject, measureObject, measureTypes, searchSpan, splitByObject, color, alias, contextMenuActions);
+   aes.push(ae);
+   ```
+   **aggregateExpression 參數**
+
+   | 參數 | 說明 | 範例 |
+   | --------- | ----------- | ------- |
+   | predicateObject | 資料篩選運算式。 |`{predicateString: "Factory = 'Factory3'"}` |
+   | measureObject   | 使用中量值的屬性名稱。 | `{property: 'Temperature', type: "Double"}` |
+   | measureTypes    | 量值屬性所需的彙總。 | `['avg', 'min']` |
+   | searchSpan      | 彙總運算式的持續時間和間隔大小。 | `{from: startDate, to: endDate, bucketSize: '2m'}` |
+   | splitByObject   | 您想要作為分割依據的字串屬性 (選擇性 - 可為 null)。 | `{property: 'Station', type: 'String'}` |
+   | color           | 所要轉譯物件的色彩。 | `'pink'` |
+   | alias           | 彙總運算式的易記名稱。 | `'Factory3Temperature'` |
+   | contextMenuActions | 要繫結至視覺效果中時間序列物件的動作陣列 (選擇性)。 | 請參閱[進階功能一節中的快顯功能表。](#popup-context-menus) |
+
+3. 使用 `TsiClient.Server` API 呼叫 TSI 查詢以要求彙總資料。  
+
+   ```javascript
+   tsiClient.server.getAggregates(token, envFQDN, aeTsxArray);
+   ```
+   **getAggregates 參數**
+
+   | 參數 | 說明 | 範例 |
+   | --------- | ----------- | ------- |
+   | token     | TSI API 的存取權杖 | `authContext.getTsiToken()` 請參閱[驗證一節。](#authentication) |
+   | envFQDN     | TSI 環境的完整網域名稱 | 從 Azure 入口網站，例如 `10000000-0000-0000-0000-100000000108.env.timeseries.azure.com` |
+   | aeTsxArray | TSI 查詢運算式的陣列 | 如先前所述使用 `aes` 變數：`aes.map(function(ae){return ae.toTsx()}` |
+
+4. 將 TSI 查詢所傳回的壓縮結果轉換為視覺效果的 JSON。
+
+   ```javascript
+   var transformedResult = tsiClient.ux.transformAggregatesForVisualization(result, aes);
+   ```
+
+5. 使用 `TsiClient.UX` API 建立圖表控制項，並將它繫結至網頁上的其中一個 `<div>` 元素。
+
+   ```javascript
+   var lineChart = new tsiClient.ux.BarChart(document.getElementById('chart3'));
+   ```
+
+6. 使用轉換後的 JSON 資料物件填入圖表控制項，並將其轉譯在網頁上。
+
+   ```javascript
+   lineChart.render(transformedResult, {grid: true, legend: 'compact', theme: 'light'}, aes);
+   ```
+
+## <a name="rendering-controls"></a>轉譯控制項
+
+程式庫目前會公開八個唯一的分析控制項。 這些控制項包含折線圖、圓形圖、橫條圖、熱度圖、階層控制項、可存取的方格、離散事件時間軸和狀態轉換時間軸。   
+
+### <a name="line-bar-pie-chart-examples"></a>折線圖、橫條圖、圓形圖範例 
+
+我們首先看一下應用程式中所示範的一些標準圖表控制項背後的程式碼，以及用於建立這些控制項的程式設計模型/模式。 具體來說，您可以檢查 `// Example 3/4/5` 註解底下的 HTML 區段，其會轉譯識別碼值為 `chart3`、`chart4` 和 `chart5` 的控制項。 
+
+回想一下[網頁原始碼和結構一節](#page-source-and-structure)中的步驟 3，圖表控制項會在網頁上成列排列，每個控制項各有一個敘述性標題資料列。 在此範例中，所填入的三個圖表全都位於「資料範例中的多個圖表類型」標題 `<div>` 底下，繫結至其下的三個 `<div>` 元素：
+
+[!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/index.html?range=60-74&highlight=1,5,9,13)]
+
+接下來的 JavaScript 程式碼區段會使用稍早所述的模式來建置 TSI 彙總運算式，使用這些運算式來查詢 TSI 資料，然後轉譯三個圖表。 請注意從 `tsiClient.ux` 命名空間、`LineChart`、`BarChart`、`PieChart` 所用來建立及轉譯個別圖表的三種類型。 也請注意這三個圖表全都能使用相同的彙總運算式資料 `transformedResult`：
+
+[!code-javascript[code-sample2-line-bar-pie](~/samples-javascript/pages/index.html?range=236-257&highlight=13-14,16-17,19-20)]
+
+三個圖表在轉譯時會呈現如下：
+
+[![資料範例中的多個圖表類型](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png)](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png#lightbox)
+
+## <a name="advanced-features"></a>進階功能
+
+程式庫也會公開一些選擇性的進階功能以供您利用。  
+
+### <a name="states-and-events"></a>狀態和事件
+
+所提供的其中一個進階功能範例是能夠將狀態轉換和離散事件新增至圖表。 這項功能可用於醒目提示事件、警示和狀態切換，例如開啟/關閉。 
+
+在此，您可以看一下 `// Example 10` 註解底下的 HTML 區段背後的程式碼。 程式碼會轉譯「具有多個序列類型的折線圖」標題底下的線條控制項，將其繫結至識別碼值為 `chart10` 的 `<div>`：
+
+1. 先定義名為 `events4` 的結構，以保存要追蹤的狀態變更元素。 它包含：
+   - 名為 `"Component States"` 的字串索引鍵 
+   - 代表狀態的值物件陣列，這些物件各包含：
+     - 包含 JavaScript ISO 時間戳記的字串索引鍵
+     - 包含狀態特性的陣列
+       - 色彩
+       - 描述
+
+2. 然後，為 `"Incidents"` 定義 `events5` 結構，其保有要追蹤的事件元素陣列。 陣列結構的圖形和針對 `events4` 所概述的圖形相同。 
+
+3. 最後轉譯折線圖，傳入兩個具有圖表選項參數的結構：`events:` 和 `states:`。 請注意其他用於指定 `tooltip:`、`theme:` 或 `grid:` 的選項參數。 
+
+[!code-javascript[code-sample-states-events](~/samples-javascript/pages/index.html?range=332-384&highlight=5,26,51)]
+
+透過視覺化方式，菱形標記/快顯可用來表示事件，而時間刻度上的彩色橫條/快顯則表示狀態變更：
+
+[![具有多個序列類型的折線圖](media/tutorial-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png)](media/tutorial-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png#lightbox)
+
+### <a name="popup-context-menus"></a>快顯功能表
+
+另一個進階功能範例是自訂快顯功能表 (點按滑鼠右鍵所出現的快顯功能表)，其可用於在應用程式範圍內啟用動作和邏輯上的後續步驟。
+
+在此，我們看一下 `// Example 13/14/15` 底下的 HTML 背後的程式碼。 此程式碼一開始會轉譯「有快顯功能表可供建立圓形圖/橫條圖的折線圖」標題底下的折線圖，此圖繫結至識別碼值為 `chart13` 的 `<div>` 元素。 使用快顯功能表，折線圖就可讓您動態建立圓形圖和橫條圖，這些圖繫結至識別碼為 `chart14` 和 `chart15` 的 `<div>` 元素。 此外，圓形圖和橫條圖也都會使用快顯功能表來啟用自己的功能：分別能夠將圓形圖的資料複製到橫條圖，以及將橫條圖的資料列印至瀏覽器的主控台視窗。
+
+1. 先定義一系列的自訂動作。 每個動作各包含具有一或多個元素的陣列，其中的每個元素會定義單一快顯功能表項目： 
+   - `barChartActions`：定義圓形圖的快顯功能表，其包含一個元素來定義單一項目：
+     - `name`：用於功能表項目的文字：「將參數列印至主控台」
+     - `action`：與功能表項目相關聯的動作，其一律是匿名函式，會根據用來建立圖表的彙總運算式採用三個引數。 在此情況下，這些引數會寫入至瀏覽器的主控台視窗：
+       - `ae`：彙總運算式陣列
+       - `splitBy`：splitBy 值
+       - `timestamp`：時間戳記
+   - `pieChartActions`：定義橫條圖的快顯功能表，其包含一個元素來定義單一項目。 圖形和結構描述和先前的 `barChartActions` 相同，但請注意 `action` 函式極為不同，因為它會將橫條圖具現化並轉譯。 也請注意此函式會使用 `ae` 引數來指定彙總運算式陣列，此陣列會在功能表項目快顯期間於執行階段傳遞。 此函式也會對 `barChartActions` 快顯功能表設定 `ae.contextMenu` 屬性。
+   - `contextMenuActions`：定義折線圖的快顯功能表，其包含三個元素來定義三個功能表項目。 每個元素的形狀和結構描述與先前的相同。 和 `barChartActions` 一樣，第一個項目會將三個函式引數寫入至瀏覽器主控台視窗。 與 `pieChartActions` 類似，第二的兩個項目會分別將圓形圖和橫條圖具現化與轉譯。 第二的兩個項目也會分別對 `pieChartActions` 和 `barChartActions` 快顯功能表設定其 `ae.contextMenu` 屬性。
+
+2. 然後，系統會將兩個彙總運算式推送到 `aes` 彙總運算式陣列，為每個運算式指定 `contextMenuActions` 陣列。 這些運算式會與折線圖控制項搭配使用。
+
+3. 最後，一開始只會轉譯折線圖，然後可在執行階段從中轉譯出圓形圖和橫條圖。
+
+[!code-javascript[code-sample-context-menus](~/samples-javascript/pages/index.html?range=456-535&highlight=7,16,29,61-64,78)]
+
+螢幕擷取畫面顯示這些圖表，以及其各自的快顯功能表。 系統會使用折線圖快顯功能表選項，以動態方式建立圓形圖和橫條圖：
+
+[![有快顯功能表可供建立圓形圖/橫條圖的折線圖](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png)](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png#lightbox)
+
+### <a name="brushes"></a>筆刷
+
+筆刷可用來界定時間範圍，以定義縮放和瀏覽等動作。 
+
+前面的「有快顯功能表可供建立圓形圖/橫條圖的折線圖」範例也有顯示用來說明筆刷的程式碼，並涵蓋[快顯功能表](#popup-context-menus-section)。 
+
+1. 筆刷動作與快顯功能表極為類似，會定義筆刷的一系列自訂動作。 每個動作各包含具有一或多個元素的陣列，其中的每個元素會定義單一快顯功能表項目：
+   - `name`：用於功能表項目的文字：「將參數列印至主控台」
+   - `action`：與功能表項目相關聯的動作，其一律是匿名函式，會採用兩個引數。 在此情況下，這些引數會寫入至瀏覽器的主控台視窗：
+      - `fromTime`：筆刷選取項目的「從」時間戳記
+      - `toTime`：筆刷選取項目的「到」時間戳記
+
+2. 筆刷動作會新增為另一個圖表選項屬性。 請注意會傳遞至 `linechart.Render` 呼叫的 `brushContextMenuActions: brushActions` 屬性。
+
+[!code-javascript[code-sample-brushes](~/samples-javascript/pages/index.html?range=521-535&highlight=1,13)]
+
+![有快顯功能表可供使用筆刷建立圓形圖/橫條圖的折線圖](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)
+
+## <a name="next-steps"></a>後續步驟
+
+在本教學課程中，您已了解如何：
+
+> [!div class="checklist"]
+> * 登入並瀏覽 TSI 應用程式範例和其來源
+> * 使用 TSI JavaScript 用戶端程式庫中的 API
+> * 使用 JavaScript 來以 TSI 資料建立和填入圖表控制項
+
+如前所述，TSI 應用程式範例會使用示範資料集。 若要深入了解如何建立自己的 TSI 環境和資料集，請前進到下列文章：
+
+> [!div class="nextstepaction"]
+> [規劃 Azure 時間序列深入解析環境](time-series-insights-environment-planning.md)
+
+
