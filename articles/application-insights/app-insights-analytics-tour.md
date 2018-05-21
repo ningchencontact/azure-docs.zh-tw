@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 81c5b6051b8e1b1812e47cfcb64538c25ee8bfe5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b57683f5b0634c27e8604c26496a3421ae386439
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application Insights 中分析的教學課程
 [分析](app-insights-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。 這些分頁說明 Log Analytics 查詢語言。
@@ -168,6 +168,11 @@ ms.lasthandoff: 04/23/2018
     | where timestamp > datetime(2016-11-19) and timestamp < datetime(2016-11-21)
     | top 5 by duration
 
+    // Between specific day/time range
+    requests
+    | where timestamp > datetime(2018-05-17T17:06:19.892Z) and timestamp <= datetime(2018-05-18T17:06:19.892Z)
+    | where duration > 0
+
 ```
 
 [日期和時間參考](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime)。
@@ -285,7 +290,7 @@ ms.lasthandoff: 04/23/2018
 
 ![按一下 [圖表]，然後選擇 [直條圖] 並指派 x 和 y 軸](./media/app-insights-analytics-tour/230.png)
 
-請注意，雖然我們並未依時間排序結果 (如資料表顯示中所示)，但圖表顯示一律會以正確的順序顯示日期時間。
+請注意，雖然我們並未依時間排序結果 (如資料表顯示中所示），但圖表顯示一律會以正確的順序顯示日期時間。
 
 
 ## <a name="timecharts"></a>時間表

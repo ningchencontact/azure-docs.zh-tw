@@ -1,11 +1,11 @@
 ---
-title: "取消及刪除 Azure 匯入/匯出作業 | Microsoft Docs"
-description: "了解如何取消及刪除 Microsoft Azure 匯入/匯出服務的作業。"
+title: 取消及刪除 Azure 匯入/匯出作業 | Microsoft Docs
+description: 了解如何取消及刪除 Microsoft Azure 匯入/匯出服務的作業。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: fd3d66f0-1dbb-4c75-9223-307d5abaeefc
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 1e989c72fc03697bf6d2e515ff53003703665d1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3524f1677baaa218b009b8498b851390c7b9da9a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="canceling-and-deleting-azure-importexport-jobs"></a>取消及刪除 Azure 匯入/匯出作業
 
@@ -27,6 +27,8 @@ ms.lasthandoff: 10/11/2017
  取消的作業會進入 `Completed` 狀態並保留 90 天，90 天過後就會遭到刪除。
 
  若要刪除作業，在傳送作業之前請先呼叫 [Delete Job](/rest/api/storageimportexport/jobs#Jobs_Delete) 作業，(也就是當作業處於 `Creating` 狀態時)。 您也可以在作業為 `Completed` 狀態時將它刪除。 作業遭到刪除後，便無法再透過 REST API 或 Azure 入口網站存取其資訊和狀態。
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

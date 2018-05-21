@@ -159,6 +159,8 @@
       items:
         - name: Runbook 資源庫
           href: automation-runbook-gallery.md
+        - name: 使用活動記錄監視 Runbook
+          href: automation-alert-activity-log.md
         - name: 從 Azure 警示中啟動 Runbook
           href: automation-create-alert-triggered-runbook.md
         - name: 建立 Amazon Web Service VM

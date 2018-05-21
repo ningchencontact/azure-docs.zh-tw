@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: d0443128064332a37c95d5c39cd73b759a002cca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a908c242b5d41d5cd61d8775bdbe53f3cdddd3ec
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>開始使用 Microsoft Azure 安全性
 
@@ -136,7 +136,7 @@ IP 篩選器有助於防止客體虛擬機器：
 
 您可以利用下列 Azure 虛擬網路技術來保護虛擬網路上的通訊安全：
 
-* [網路安全性群組 (NSG)](../virtual-network/virtual-networks-nsg.md)。 您可以在虛擬網路中，使用 NSG 控制傳輸至一個或多個虛擬機器執行個體的流量。 NSG 包含存取控制規則，可根據流量方向、通訊協定、來源位址和連接埠與目的地位址和連接埠，允許或拒絕流量。
+* [網路安全性群組 (NSG)](../virtual-network/security-overview.md)。 您可以在虛擬網路中，使用 NSG 控制傳輸至一個或多個虛擬機器執行個體的流量。 NSG 包含存取控制規則，可根據流量方向、通訊協定、來源位址和連接埠與目的地位址和連接埠，允許或拒絕流量。
 * [使用者定義的路由](../virtual-network/virtual-networks-udr-overview.md)。 您可以透過虛擬應用裝置來控制封包的路由，方法是建立使用者定義的路由，為流向指定子網路的封包指定流向虛擬網路安全性應用裝置的下一個躍點。
 * [**IP 轉送**](../virtual-network/virtual-networks-udr-overview.md)。 虛擬網路安全性應用裝置必須能夠接收未定址到其本身的傳入流量。 若要讓虛擬機器接收定址到其他目的地的流量，您必須針對虛擬機器啟用 IP 轉送。
 * [**強制通道**](../vpn-gateway/vpn-gateway-about-forced-tunneling.md)。 強制通道可讓您透過站對站 VPN 通道，重新導向或「強制」您在虛擬網路中的虛擬機器所產生的所有網際網路繫結流量傳回內部部署位置，以便進行檢查和稽核。

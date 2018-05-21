@@ -14,11 +14,11 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3719a86a88fa17e00a95b8c014fdf5a876a59a84
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: b97ec4ffacead7630c267284f79f954ef03eff61
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>使用 Azure AD 共用帳戶
 ## <a name="overview"></a>概觀
@@ -50,7 +50,7 @@ Azure AD 支援的共用帳戶適用於任何 Enterprise Mobility Suite (EMS)、
 
 啟用帳戶共用的 Azure AD 功能包括：
 
-* [密碼單一登入](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
+* [密碼單一登入](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
 * 密碼單一登入代理程式
 * [群組指派](active-directory-accessmanagement-self-service-group-management.md)
 * 自訂密碼應用程式
