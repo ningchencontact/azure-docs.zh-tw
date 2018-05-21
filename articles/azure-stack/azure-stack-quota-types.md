@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: xiaofmao
-ms.openlocfilehash: b68a963dae4b3621bfd9ecdcbc20146d7b20c457
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 52d469236d607a145430134c24c4237346dafb4c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配額類型
 
@@ -44,9 +44,9 @@ ms.lasthandoff: 04/23/2018
 | 儲存體帳戶的總數 |20 |訂用帳戶可以在這個位置建立的儲存體帳戶數目上限。 |
 
 > [!NOTE]  
-> 最多可能需要兩個小時，才會強制使用新的儲存體配額。 
+> 最多可能需要兩個小時，才會強制使用儲存體配額。 
 > 
-> 
+
 
 ## <a name="network-quota-types"></a>網路配額類型
 | **Item** | **預設值** | **說明** |

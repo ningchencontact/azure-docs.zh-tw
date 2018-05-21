@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 07e638fbce863833eeb75ce6e680af3d1d6339eb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 71c2463a38f2115bd3aeff82b100e3f2c20e7708
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory 中應用程式管理的文章索引
 本頁面提供一份完整清單，列出撰寫 Azure Active Directory (Azure AD) 中各種應用程式相關功能的所有文章。
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/14/2018
 | 文章指南 |  |
 |:---:| --- |
 | 簡介 Azure AD 解決的應用程式管理問題 |[使用 Azure Active Directory (AD) 管理應用程式](manage-apps/what-is-application-management.md) |
-| Azure AD 中與啟用單一登入、定義有權存取應用程式的人員，以及使用者如何啟動應用程式相關的各種功能概觀 |[Azure Active Directory 中的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md) |
+| Azure AD 中與啟用單一登入、定義有權存取應用程式的人員，以及使用者如何啟動應用程式相關的各種功能概觀 |[Azure Active Directory 中的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md) |
 | 探討將應用程式整合至 Azure AD 時所涉及的不同步驟 |[整合 Azure Active Directory 與應用程式](manage-apps/plan-an-application-integration.md)<br /><br />[啟用對 SaaS 應用程式的單一登入](active-directory-enterprise-apps-manage-sso.md)<br /><br />[管理應用程式的存取](active-directory-managing-access-to-apps.md) |
 | 如何在 Azure AD 中表示應用程式的技術說明 |[將應用程式加入 Azure AD 的方式和原因](active-directory-how-applications-are-added.md) |
 
@@ -52,8 +52,8 @@ ms.lasthandoff: 05/14/2018
 
 | 文章指南 |  |
 |:---:| --- |
-| 簡介同盟和其他類型的登入 |[使用 Azure AD 進行單一登入](active-directory-appssoaccess-whatis.md) |
-| 透過已簡化摸單一登入設定步驟，與 Azure AD 預先整合的數千個 SaaS 應用程式 |[開始使用 Azure AD 應用程式庫](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[支援同盟的預先整合應用程式完整清單](active-directory-saas-tutorial-list.md)<br /><br />[如何將您的應用程式新增至 Azure AD 應用程式庫](active-directory-app-gallery-listing.md) |
+| 簡介同盟和其他類型的登入 |[使用 Azure AD 進行單一登入](manage-apps/what-is-single-sign-on.md) |
+| 透過已簡化摸單一登入設定步驟，與 Azure AD 預先整合的數千個 SaaS 應用程式 |[開始使用 Azure AD 應用程式庫](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[支援同盟的預先整合應用程式完整清單](active-directory-saas-tutorial-list.md)<br /><br />[如何將您的應用程式新增至 Azure AD 應用程式庫](active-directory-app-gallery-listing.md) |
 | 超過 150 個應用程式教學課程，教導您如何為 [Salesforce](active-directory-saas-salesforce-tutorial.md)、[ServiceNow](active-directory-saas-servicenow-tutorial.md)、[Google Apps](active-directory-saas-google-apps-tutorial.md)、[Workday](active-directory-saas-workday-tutorial.md) 等應用程式設定單一登入 |[如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md) |
 | 如何手動設定及自訂您的單一登入設定 |[如何設定對不在 Azure Active Directory 應用程式庫中之應用程式的同盟單一登入](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[如何為預先整合的應用程式自訂在 SAML 權杖中發出的宣告](active-directory-saml-claims-customization.md) |
 | 使用 SAML 通訊協定的同盟應用程式疑難排解指南 |[對 SAML 型單一登入進行疑難排解](active-directory-saml-debugging.md) |
@@ -66,7 +66,7 @@ ms.lasthandoff: 05/14/2018
 
 | 文章指南 |  |
 |:---:| --- |
-| 密碼型 SSO 運作方式的簡介以及簡要的技術概觀 |[使用 Azure AD 進行密碼型單一登入](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
+| 密碼型 SSO 運作方式的簡介以及簡要的技術概觀 |[使用 Azure AD 進行密碼型單一登入](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | 與共用帳戶相關的案例以及 Azure AD 如何解決這些問題的摘要 |[使用 Azure AD 共用帳戶](active-directory-sharing-accounts.md) |
 | 自動定期變更特定應用程式的密碼 |[自動密碼變換 (預覽)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Internet Explorer 版本的 Azure AD 密碼管理擴充功能的部署和疑難排解指南 |[如何使用群組原則部署 Internet Explorer 的存取面板擴充功能](active-directory-saas-ie-group-policy.md)<br /><br />[疑難排解 Internet explorer 的存取面板擴充功能](active-directory-saas-ie-troubleshooting.md) |
@@ -183,11 +183,11 @@ Cloud App Discovery 是一項 [Azure AD Premium](https://azure.microsoft.com/pri
 
 | 文章指南 |  |
 |:---:| --- |
-| 將單一登入應用程式部署到使用者可用的各種選項比較 |[對使用者部署 Azure AD 整合應用程式](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
+| 將單一登入應用程式部署到使用者可用的各種選項比較 |[對使用者部署 Azure AD 整合應用程式](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
 | 存取面板和其行動對等 MyApps 的概觀 |[存取面板和 MyApps 簡介](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | 如何從 Office 365 網站存取 Azure AD 應用程式 |[使用 Office 365 應用程式啟動程式](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | 如何從 Intune Managed Browser 行動應用程式存取 Azure AD 應用程式 |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
-| 如何使用深層連結來存取 Azure AD 應用程式以起始單一登入 |[取得應用程式的直接登入連結](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
+| 如何使用深層連結來存取 Azure AD 應用程式以起始單一登入 |[取得應用程式的直接登入連結](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 「存取面板」適用於 [所有版本的 Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)。
 

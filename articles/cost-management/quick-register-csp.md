@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: 839f99153e0b7458d205c1afb61a05c75cbe0fb7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b9dc2064a4d90b924730e2615378892b17340baf
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>註冊 CSP 合作夥伴計劃並檢視成本資料
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 04/28/2018
 
 若要啟用間接 CSP 客戶或合作夥伴的存取，依照[建立試用版註冊](#create-a-trial-registration)中的的步驟設定試用版註冊。 接下來，使用 Cloudyn 實體群組，完成下列步驟以分割間接 CSP 的資料。 然後，將適當的使用者權限指派給實體群組。
 
-1. 在[建立實體](tutorial-user-access.md#create-entities)提供資訊建立實體群組。
+1. 在[建立實體](tutorial-user-access.md#create-and-manage-entities)提供資訊建立實體群組。
 2. 遵循[將訂用帳戶指派給成本實體](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities)的步驟。 將間接 CSP 客戶的帳戶及其 Azure 訂用帳戶，與您先前建立的實體產生關聯。
 3. 依照[建立具有系統管理員存取權的使用者](tutorial-user-access.md#create-a-user-with-admin-access)的步驟，建立具有系統管理員存取權的使用者帳戶。 接著，確定此使用者帳戶具有特定實體 (您先前為間接帳戶建立) 的系統管理員存取權。
 

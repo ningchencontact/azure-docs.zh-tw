@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Aha! | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Aha! 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Aha! | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Aha! 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 420e6bbbd03c3219467a351e509ee226cf874c5d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d143b04e424336bda8b38f4458448230277ac837
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aha"></a>教學課程：Azure Active Directory 與 Aha!
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/11/2017
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Aha! (單一登入)
 - 您可以在 Azure 入口網站中集中管理您的帳戶
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/11/2017
 
 **若要從資源庫新增 Aha!，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -238,7 +238,7 @@ Aha! 的佈建是自動化工作。 沒有您適用的動作項目。
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

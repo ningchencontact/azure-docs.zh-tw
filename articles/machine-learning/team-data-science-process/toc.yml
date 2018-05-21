@@ -56,6 +56,9 @@
         - name: 生物醫學實體辨識
           href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
+        - name: 皮膚癌影像分類
+          href: isic-image-classification.md
+          maintainContext: true
     - name: Spark 與 PySpark 和 Scala
       href: walkthroughs-spark.md
       items:
