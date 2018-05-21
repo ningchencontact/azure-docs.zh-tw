@@ -3,7 +3,7 @@ title: Microsoft Dynamics CRM 和 Azure Application Insights | Microsoft Docs
 description: 使用 Application Insights 取得 Microsoft Dynamics CRM Online 遙測。 設定、取得資料、視覺化與匯出的逐步解說。
 services: application-insights
 documentationcenter: ''
-author: mazharmicrosoft
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
-ms.author: mbullwin
-ms.openlocfilehash: ced4f62b4f27ede28c61e8d2670432ddd7b76f9b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: mbullwin; mazhar
+ms.openlocfilehash: 0080217f718d8df9b62c7bc305fbc1365477cc4d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>逐步解說：使用 Application Insights 啟用Microsoft Dynamics CRM Online 遙測
 本文說明如何使用 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 從 [Microsoft Dynamics CRM Online](https://www.dynamics.com/) 取得遙測資料。 我們會逐步解說將 Application Insights 指令碼加入至您的應用程式、擷取資料和資料視覺化的完整程序。

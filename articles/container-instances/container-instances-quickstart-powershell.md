@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8670de00e3ab66ec4a5fa5c0c340e38182fd1ffd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4a1d338304dbd5e2845768b7bf0273eed23af0ec
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>快速入門：在 Azure Container Instances 中建立您的第一個容器
 
@@ -21,7 +21,7 @@ Azure Container Instances 能讓您在 Azure 中輕鬆建立及管理 Docker 容
 
 ![在瀏覽器中檢視使用 Azure Container Instances 所部署的應用程式][qs-powershell-01]
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -81,9 +81,9 @@ Events                   : {}
 
 ![在瀏覽器中檢視使用 Azure Container Instances 所部署的 IIS][qs-powershell-01]
 
-## <a name="delete-the-container"></a>刪除容器
+## <a name="clean-up-resources"></a>清除資源
 
-當容器使用完畢後，您可以使用 [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] Cmdlet 來移除容器：
+當容器使用完畢後，請使用 [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] Cmdlet 加以移除：
 
  ```azurepowershell-interactive
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -91,7 +91,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已在 Azure Container Instances 中啟動預先建立的 Windows 容器。 如果您想要嘗試自行建置容器，並使用 Azure Container Registry 將它部署至 Azure Container Instances，請繼續進行 Azure Container Instances 教學課程。
+在本快速入門中，您已透過來自公用 Docker Hub 登錄中的映像建立 Azure 容器執行個體。 如果您想要自行建置容器映像，並從私人的 Azure 容器登錄將其部署至 Azure 容器執行個體，請繼續進行 Azure 容器執行個體教學課程。
 
 > [!div class="nextstepaction"]
 > [Azure 容器執行個體教學課程](./container-instances-tutorial-prepare-app.md)

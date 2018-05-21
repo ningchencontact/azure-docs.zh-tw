@@ -1,27 +1,23 @@
 ---
 title: Windows 驗證和 Azure MFA Server | Microsoft Docs
-description: 此 Azure Multi-Factor Authentication 頁面協助您部署 Windows 驗證與 Azure Multi-Factor Authentication Server。
+description: 部署 Windows 驗證與 Azure Multi-Factor Authentication Server。
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: 19a4043f-c4ce-43c0-80e7-2548ee92cb74
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 06/06/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: d7d0536c5504d559e8623083bfcd8c49832a8e48
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a72a045efe916c2aa89822984898bac5e43ea1cf
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows 驗證與 Azure Multi-Factor Authentication Server
+
 使用 Azure Multi-Factor Authentication Server 的 [Windows 驗證] 區段來啟用及設定應用程式的 Windows 驗證。 在設定 Windows 驗證之前，請注意下列清單︰
 
 * 設定之後，重新啟動 Azure Multi-Factor Authentication，「終端機服務」才會生效。
@@ -36,14 +32,14 @@ ms.lasthandoff: 04/23/2018
    ![Windows 驗證](./media/howto-mfaserver-windows/windowsauth.png)
 2. 核取 [啟用 Windows 驗證] 核取方塊。 預設不核取此方塊。
 3. [應用程式] 索引標籤可讓系統管理員設定一或多個應用程式要經過 Windows 驗證。
-4. 選取伺服器或應用程式 – 指定是否啟用伺服器/應用程式。 按一下 [SERVICEPRINCIPAL] 。
+4. 選取伺服器或應用程式 – 指定是否啟用伺服器/應用程式。 按一下 [確定]。
 5. 按一下 [新增...]
 6. [信任的 IP] 索引標籤可讓您針對來自特定 IP 的 Windows 工作階段，略過 Azure Multi-Factor Authentication。 例如，如果員工從辦公室和家裡使用應用程式，您可能決定當他們在辦公室時不要響起 Azure Multi-Factor Authentication 的電話。 為此，您可以將辦公室子網路指定為信任的 IP 項目。
 7. 按一下 [新增...]
 8. 如果您想要跳過單一 IP 位址，請選取 [單一 IP]。
 9. 如果您想要跳過整個 IP 範圍，請選取 [IP 範圍]。 範例：10.63.193.1-10.63.193.100。
 10. 如果您想要使用子網路標記法指定 IP 範圍，請選取 [子網路]。 輸入子網路的起始 IP，並從下拉式清單中挑選適當的網路遮罩。
-11. 按一下 [SERVICEPRINCIPAL] 。
+11. 按一下 [確定]。
 
 ## <a name="next-steps"></a>後續步驟
 

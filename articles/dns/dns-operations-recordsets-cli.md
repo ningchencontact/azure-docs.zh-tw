@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 05/15/2018
 ms.author: kumud
-ms.openlocfilehash: 3b083f8c090fda861def7099479985419a698856
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d7a90cb46c25e4e01b89bbf4da563685e92a7249
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 記錄和記錄集
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 05/03/2018
 
 ## <a name="create-a-dns-record"></a>建立 DNS 記錄
 
-若要建立 DNS 記錄，請使用 `az network dns record-set <record-type> set-record` 命令 (其中 `<record-type>` 是記錄的類型，亦即 a、srv、txt 等等。)如需協助，請參閱 `az network dns record-set --help`。
+若要建立 DNS 記錄，請使用 `az network dns record-set <record-type> add-record` 命令 (其中 `<record-type>` 是記錄的類型，亦即 a、srv、txt 等等。)如需協助，請參閱 `az network dns record-set --help`。
 
 建立記錄時，您必須指定資源群組名稱、區域名稱、記錄集名稱、記錄類型，以及所建立記錄的詳細資料。 提供的記錄集名稱必須是「相對」名稱，表示它不能包含區域名稱。
 
@@ -52,13 +52,13 @@ ms.lasthandoff: 05/03/2018
 下列範例會在 MyResourceGroup 資源群組的 contoso.com 區域中建立稱為 www 的 A 記錄。 A 記錄的 IP 位址是 1.2.3.4。
 
 ```azurecli
-az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
 若要在區域頂點 (在此案例中為 "contoso.com") 建立記錄集，請使用記錄名稱 "\@\" (包括引號)：
 
 ```azurecli
-az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
 ```
 
 ## <a name="create-a-dns-record-set"></a>建立 DNS 記錄集
@@ -81,13 +81,13 @@ az network dns record-set a create --resource-group myresourcegroup --zone-name 
 az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --metadata "dept=finance" "environment=production"
 ```
 
-建立好空白記錄集之後，可依[建立 DNS 記錄](#create-a-dns-record)所述使用 `azure network dns record-set <record-type> set-record` 新增記錄。
+建立好空白記錄集之後，可依[建立 DNS 記錄](#create-a-dns-record)所述使用 `azure network dns record-set <record-type> add-record` 新增記錄。
 
 ## <a name="create-records-of-other-types"></a>建立其他類型的記錄
 
 參閱如何建立 'A' 記錄的詳細資訊後，下列範例會示範如何建立 Azure DNS 所支援其他記錄類型的記錄。
 
-用來指定記錄資料的參數，根據記錄的類型而所有不同。 例如，對於類型 "A" 的記錄，您可使用參數 `--ipv4-address <IPv4 address>` 指定 IPv4 位址。 每個記錄類型的參數可以使用 `az network dns record-set <record-type> set-record --help` 列出。
+用來指定記錄資料的參數，根據記錄的類型而所有不同。 例如，對於類型 "A" 的記錄，您可使用參數 `--ipv4-address <IPv4 address>` 指定 IPv4 位址。 每個記錄類型的參數可以使用 `az network dns record-set <record-type> add-record --help` 列出。
 
 在每個案例中，我們會說明如何建立單一記錄。 記錄會新增至現有記錄集，或者會以隱含方式建立記錄集。 如需明確建立記錄集和定義記錄集參數的詳細資訊，請參閱[建立 DNS 記錄集](#create-a-dns-record-set)。
 
@@ -96,7 +96,7 @@ az network dns record-set a create --resource-group myresourcegroup --zone-name 
 ### <a name="create-an-aaaa-record"></a>建立 AAAA 記錄
 
 ```azurecli
-az network dns record-set aaaa set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
+az network dns record-set aaaa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
 ```
 
 ### <a name="create-an-caa-record"></a>建立 CAA 記錄
@@ -118,16 +118,16 @@ az network dns record-set cname set-record --resource-group myresourcegroup --zo
 
 ### <a name="create-an-mx-record"></a>建立 MX 記錄
 
-此範例會使用記錄集名稱 "\@\"，在區域頂點 (在此案例中，"contoso.com") 建立 MX 記錄。
+此範例會使用記錄集名稱 "@"，在區域頂點 (在此案例中，"contoso.com") 建立 MX 記錄。
 
 ```azurecli
-az network dns record-set mx set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
+az network dns record-set mx add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
 ```
 
 ### <a name="create-an-ns-record"></a>建立 NS 記錄
 
 ```azurecli
-az network dns record-set ns set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
 ```
 
 ### <a name="create-a-ptr-record"></a>建立 PTR 記錄
@@ -135,15 +135,15 @@ az network dns record-set ns set-record --resource-group myresourcegroup --zone-
 在此情況下，'my-arpa-zone.com' 代表表示您 IP 範圍的 ARPA 區域。 此區域中的每個 PTR 記錄集都與此 IP 範圍內的一個 IP 位址相對應。  記錄名稱 '10' 是此記錄所代表的這個 IP 範圍內 IP 位址的最後一個八位元。
 
 ```azurecli
-az network dns record-set ptr set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name my-arpa.zone.com --ptrdname myservice.contoso.com
+az network dns record-set ptr add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name my-arpa.zone.com --ptrdname myservice.contoso.com
 ```
 
 ### <a name="create-an-srv-record"></a>建立 SRV 記錄
 
-建立 [SRV 記錄集](dns-zones-records.md#srv-records)時，指定記錄集名稱中的 *\_服務* 和 *\_通訊協定*。 在區域頂點建立一筆 SRV 記錄集時，不需要在記錄集名稱中包含 "\@\"。
+建立 [SRV 記錄集](dns-zones-records.md#srv-records)時，指定記錄集名稱中的 *\_服務* 和 *\_通訊協定*。 在區域頂點建立一筆 SRV 記錄集時，不需要在記錄集名稱中包含 "@"。
 
 ```azurecli
-az network dns record-set srv set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
+az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
 ```
 
 ### <a name="create-a-txt-record"></a>建立 TXT 記錄
@@ -151,7 +151,7 @@ az network dns record-set srv set-record --resource-group myresourcegroup --zone
 下列範例示範如何建立 TXT 記錄。 如需 TXT 記錄中，所支援字串長度上限的相關資訊，請參閱 [TXT 記錄](dns-zones-records.md#txt-records)。
 
 ```azurecli
-az network dns record-set txt set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-txt --value "This is a TXT record"
+az network dns record-set txt add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-txt --value "This is a TXT record"
 ```
 
 ## <a name="get-a-record-set"></a>取得記錄集
@@ -184,7 +184,7 @@ az network dns record-set a list --resource-group myresourcegroup --zone-name co
 
 ## <a name="add-a-record-to-an-existing-record-set"></a>將記錄新增至現有的記錄集
 
-您可以使用 `az network dns record-set <record-type> set-record` 在新的記錄集內建立記錄，或用它將記錄新增至現有記錄集。
+您可以使用 `az network dns record-set <record-type> add-record` 在新的記錄集內建立記錄，或用它將記錄新增至現有記錄集。
 
 如需詳細資訊，請參閱上面的[建立 DNS 記錄](#create-a-dns-record)和[建立其他類型的記錄](#create-records-of-other-types)。
 
@@ -194,7 +194,7 @@ az network dns record-set a list --resource-group myresourcegroup --zone-name co
 
 此命令會刪除記錄集內的 DNS 記錄。 如果記錄集內的最後一個記錄遭到刪除，記錄集本身也會遭到刪除。 若要改為保留空白記錄集，請使用 `--keep-empty-record-set` 選項。
 
-您必須使用和使用 `az network dns record-set <record-type> set-record` 建立記錄時相同的參數，指定要刪除的記錄和應從哪個區域中刪除。 這些參數在上面的[建立 DNS 記錄](#create-a-dns-record)和[建立其他類型的記錄](#create-records-of-other-types)中有所說明。
+您必須使用和使用 `az network dns record-set <record-type> add-record` 建立記錄時相同的參數，指定要刪除的記錄和應從哪個區域中刪除。 這些參數在上面的[建立 DNS 記錄](#create-a-dns-record)和[建立其他類型的記錄](#create-records-of-other-types)中有所說明。
 
 下列範例會在 MyResourceGroup 資源群組的 contoso.com 區域中，刪除名為 www 之記錄集內值為 '1.2.3.4' 的 A 記錄。
 
@@ -213,7 +213,7 @@ az network dns record-set a remove-record --resource-group myresourcegroup --zon
 下列範例說明如何修改 'A' 記錄，從 IP 位址 1.2.3.4 到 IP 位址 5.6.7.8：
 
 ```azurecli
-az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
@@ -254,7 +254,7 @@ az network dns record-set soa update --resource-group myresourcegroup --zone-nam
 下列範例顯示如何將其他的名稱伺服器新增至在區域頂點的 NS 記錄集：
 
 ```azurecli
-az network dns record-set ns set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
 ```
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>修改現有記錄集的 TTL

@@ -1,24 +1,24 @@
 ---
-title: "VMware 到 Azure 的 Azure Site Recovery Deployment Planner | Microsoft Docs"
-description: "這是 Azure Site Recovery Deployment Planner 使用者指南。"
+title: VMware 到 Azure 的 Azure Site Recovery Deployment Planner | Microsoft Docs
+description: 這是 Azure Site Recovery Deployment Planner 使用者指南。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/09/2018
+ms.date: 05/02/2018
 ms.author: nisoneji
-ms.openlocfilehash: 77e76e5f9960f8a7c54ebcb82321784be5c1aa99
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d14d7af39af59bb0b4fbcd5857e8686176afb71
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware 到 Azure 的 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery 部署規劃工具使用者指南。
@@ -105,9 +105,9 @@ ms.lasthandoff: 03/12/2018
 此資料夾包含多個檔案和子資料夾。 可執行檔是父資料夾中的 ASRDeploymentPlanner.exe。
 
     範例：將 .zip 檔案複製到 E:\ 磁碟機並將它解壓縮。
-    E:\ASR Deployment Planner_v2.1zip
+    E:\ASR Deployment Planner_v2.2.zip
 
-    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>更新至最新版的部署規劃工具
 如果您的部署規劃工具是舊版的，請執行下列任一動作：
@@ -123,7 +123,7 @@ ms.lasthandoff: 03/12/2018
 
 
 ## <a name="version-history"></a>版本歷程記錄
-Site Recovery 部署規劃工具的最新版本為 2.1。
+Site Recovery 部署規劃工具的最新版本為 2.2。
 請參閱 [部署規劃工具版本記錄](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx)頁面，了解每個更新中所新增的修正。
 
 ## <a name="next-steps"></a>後續步驟

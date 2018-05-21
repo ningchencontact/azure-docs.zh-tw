@@ -1,25 +1,25 @@
 ---
-title: "管理 Azure Stack 中的儲存體容量 | Microsoft Docs"
-description: "監視和管理 Azure Stack 可用的儲存空間。"
+title: 管理 Azure Stack 中的儲存體容量 | Microsoft Docs
+description: 監視和管理 Azure Stack 可用的儲存空間。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: b0e694e4-3575-424c-afda-7d48c2025a62
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.reviewer: jiahan
-ms.openlocfilehash: 749a02b38d6b074d4136bc7bb44910ee7c947b05
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: xiaofmao
+ms.openlocfilehash: da6bb00d7538c1a26e1ed4be29d3c882aa378e9e
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>管理 Azure Stack 的儲存體容量
 
@@ -136,51 +136,65 @@ VM 磁碟包含作業系統磁碟，並由租用戶新增至容器。 VM 也可�
 1. 確認您[已安裝並設定 Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/)。 如需詳細資訊，請參閱 [將 Azure PowerShell 與 Azure 資源管理員搭配使用](http://go.microsoft.com/fwlink/?LinkId=394767)。
 2.  檢查容器以了解您打算移轉的共用上有哪些資料。 若要識別可在磁碟區中移轉的最佳候選容器，請使用 **Get-AzsStorageContainer** Cmdlet：
 
-    ```
-    $shares = Get-AzsStorageShare
-    $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -Intent Migration
-    ```
+    ````PowerShell  
+    $farm_name = (Get-AzsStorageFarm)[0].name
+    $shares = Get-AzsStorageShare -FarmName $farm_name
+    $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
+    ````
     接著，檢查 $containers：
-    ```
+
+    ````PowerShell
     $containers
-    ```
+    ````
+
     ![範例：$Containers](media/azure-stack-manage-storage-shares/containers.png)
 
 3.  找出最佳目的地共用以保存您移轉的容器：
-    ```
+
+    ````PowerShell
     $destinationshares = Get-AzsStorageShare -SourceShareName
     $shares[0].ShareName -Intent ContainerMigration
-    ```
-    接著，檢查 $destinationshares：
-    ```
-    $destinationshares
-    ```    
-    ![範例：$destination shares](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
+    ````
 
-4. 開始移轉容器。 移轉不是同步進行。 如果您在第一次移轉完成之前開始移轉其他容器，請使用作業識別碼來追蹤每個容器的狀態。
-  ```
-  $jobId = Start-AzsStorageContainerMigration -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares[0].UncPath
-  ```
+    接著，檢查 $destinationshares：
+
+    ````PowerShell $destinationshares
+    ````
+
+    ![Example: $destination shares](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
+
+4. Start migration for a container. Migration is asynchronous. If you start migration of additional containers before the first migration completes, use the job id to track the status of each.
+
+  ````PowerShell
+  $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
+  ````
+
   接著，檢查 $jobId。 在下列範例中，以您想要檢查的作業識別碼取代 d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0：
-  ```
+
+  ````PowerShell
   $jobId
   d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
-  ```
+  ````
+
 5. 使用作業識別碼來檢查移轉作業的狀態。 當容器移轉完成時，**MigrationStatus** 會設定為 **Complete**。
-  ```
-  Get-AzsStorageContainerMigrationStatus -JobId $jobId
-  ```
+
+  ````PowerShell 
+  Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
+  ````
+
   ![範例：移轉狀態](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6.  您可以取消進行中的移轉工作。 已取消的移轉作業會以非同步方式處理。 您可以使用 $jobid 追蹤取消作業：
 
-  ```
-  Stop-AzsStorageContainerMigration -JobId $jobId
-  ```
+  ````PowerShell
+  Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
+  ````
+
   ![範例：復原狀態](media/azure-stack-manage-storage-shares/rollback.png)
 
 7. 您可以再次執行步驟 6 中的命令，直到狀態確認移轉作業為 **Canceled** 為止：  
-    ![範例：已取消的狀態](media/azure-stack-manage-storage-shares/cancelled.png)
+
+    ![範例：已取消狀態](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>移動 VM 磁碟
 *此選項只適用於多重節點的部署。*

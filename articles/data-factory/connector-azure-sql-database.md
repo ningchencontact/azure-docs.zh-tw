@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: c4f27f59412fbfc72e193f916895c3e67091f5f6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0503b355089fe6bbcc7632ac93fd21e71f268032
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -100,7 +100,7 @@ ms.lasthandoff: 04/16/2018
     - 應用程式金鑰
     - 租用戶識別碼
 
-2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL Server **[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**。 AAD 系統管理員必須是 AAD 使用者或 AAD 群組，但不得為服務主體。 此步驟必須完成，如此您才可以在後續步驟中使用 AAD 身分識別來為服務主體建立自主資料庫使用者。
+2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL Server **[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 AAD 系統管理員必須是 AAD 使用者或 AAD 群組，但不得為服務主體。 此步驟必須完成，如此您才可以在後續步驟中使用 AAD 身分識別來為服務主體建立自主資料庫使用者。
 
 3. **針對服務主體建立自主資料庫使用者**，方法是以至少具有 ALTER ANY USER 權限的 AAD 身分識別，使用 SSMS 之類的工具連線至您想要將資料複製到其中或從中複製資料的資料庫，然後執行下列 T-SQL。 從[這裡](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)深入了解自主資料庫使用者。
     
@@ -111,7 +111,7 @@ ms.lasthandoff: 04/16/2018
 4. 像您一般對 SQL 使用者所做的一樣，**授與服務主體所需的權限**，例如藉由執行以下動作：
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. 在 ADF 中，設定 Azure SQL Database 連結服務。
@@ -160,7 +160,7 @@ ms.lasthandoff: 04/16/2018
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL Server **[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**。 AAD 系統管理員可以是 AAD 使用者或 AAD 群組。 如果您將系統管理員角色授與具有 MSI 的群組，請略過下面的步驟 3 和 4，因為系統管理員具有資料庫的完整存取權。
+2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL Server **[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 AAD 系統管理員可以是 AAD 使用者或 AAD 群組。 如果您將系統管理員角色授與具有 MSI 的群組，請略過下面的步驟 3 和 4，因為系統管理員具有資料庫的完整存取權。
 
 3. **針對 AAD 群組建立自主資料庫使用者**，方法是以至少具有 ALTER ANY USER 權限的 AAD 身分識別，使用 SSMS 之類的工具連線至您想要將資料複製到其中或從中複製資料的資料庫，然後執行下列 T-SQL。 從[這裡](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)深入了解自主資料庫使用者。
     
@@ -171,7 +171,7 @@ ms.lasthandoff: 04/16/2018
 4. 像您一般對 SQL 使用者所做的一樣，**授與 AAD 群組所需的權限**，例如藉由執行以下動作：
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. 在 ADF 中，設定 Azure SQL Database 連結服務。

@@ -2,35 +2,29 @@
 title: Windows 10 登入畫面中的 Azure AD SSPR | Microsoft Docs
 description: 設定 Windows 10 登入畫面 Azure AD 密碼重設和我忘記 PIN 碼
 services: active-directory
-keywords: ''
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: get-started-article
+ms.date: 04/27/2018
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: ''
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: a85cb6aea1027d657d38007a397321de10e16d07
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>從登入畫面重設 Azure AD 密碼
 
 您已經部署 Azure AD 自助式密碼重設 (SSPR)，但您的使用者仍會在忘記其密碼時打電話給技術服務人員。 他們因為無法取得網頁瀏覽器來存取 SSPR，所以才會打電話給技術服務人員。
 
-透過新的 Windows 10 Fall Creators Update，具有已加入 Azure AD 之裝置的使用者可以在其登入畫面上看到 [重設密碼] 連結。 當使用者按一下此連結時，他們就可以享受熟悉的相同自助式密碼重設 (SSPR) 體驗。
+透過新的 Windows 10 2018 年 4 月更新，具有**已加入 Azure AD** 或**已加入混合式 Azure AD** 之裝置的使用者，可以在其登入畫面上看到及使用 [重設密碼] 連結。 當使用者按一下此連結時，他們就可以享受熟悉的相同自助式密碼重設 (SSPR) 體驗。
 
 若要讓使用者能夠從 Windows 10 登入畫面重設其 Azure AD 密碼，必須符合下列需求：
 
-* Windows 10 版本 1709，或[已加入 Azure AD ](../device-management-azure-portal.md) 的更新版用戶端。
+* Windows 10 2018 年 4 月更新，或者[已加入 Azure AD](../device-management-azure-portal.md) 或[已加入混合式 Azure AD](../device-management-hybrid-azuread-joined-devices-setup.md) 的較新用戶端。
 * 必須啟用 Azure AD 自助式密碼重設。
 * 設定及部署設定，以透過下列其中一種方法來啟用 [重設密碼] 連結：
    * [Intune 裝置組態設定檔](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
@@ -66,7 +60,7 @@ ms.lasthandoff: 04/23/2018
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [Azure Active Directory]。
 2. 瀏覽至 [使用者和群組] > [所有群組] > [新增群組]
-3. 提供群組的名稱，然後在 [成員資格類型] 之下選擇 [已指派] 
+3. 提供群組的名稱，然後在 [成員資格類型] 之下選擇 [已指派]
    * 在 [成員] 之下，選擇您要套用原則之已加入 Azure AD 的 Windows 10 裝置。
    * 按一下 [選取]
 4. 按一下 [建立] 
@@ -117,6 +111,7 @@ ms.lasthandoff: 04/23/2018
 * 目前不支援從遠端桌面進行密碼重設。
 
 ## <a name="next-steps"></a>後續步驟
+
 下列連結提供有關使用 Azure AD 重設密碼的其他資訊
 
 * [如何部署 SSPR？](howto-sspr-deployment.md)

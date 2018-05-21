@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9246fccb1713f69d2c6c655b09f0daf51055596f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b999792876f82de9500dccf9e6263f85e3e3105e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="https-ingress-on-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 上的 HTTPS 輸入
 
@@ -38,7 +38,7 @@ helm repo update
 安裝 NGINX 輸入控制器。 此範例將控制器安裝在 `kube-system` 命名空間，這可以修改為您選擇的命名空間。
 
 ```
-helm install stable/nginx-ingress --namespace kube-system
+helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
 
 在安裝期間，會為輸入控制器建立 Azure 公用 IP 位址。 若要取公用 IP 位址，請使用 kubectl get service 命令。 將 IP 位址指派給服務可能需要一些時間。

@@ -1,22 +1,22 @@
 ---
-title: "Azure Batch 轉譯服務 - 雲端規模轉譯 | Microsoft Docs"
-description: "Azure 虛擬機器上的轉譯作業直接由 Maya 提供且按使用次數付費。"
+title: Azure Batch 轉譯服務 - 雲端規模轉譯 | Microsoft Docs
+description: Azure 虛擬機器上的轉譯作業直接由 Maya 提供且按使用次數付費。
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: hero-article
-ms.date: 09/14/2017
+ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: f1aa8de26afd8b54746c706047a6b6b21cbf311c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: df1b2da7628e6c3f9f4bcbb02a936c33aad49698
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>開始使用 Batch 轉譯服務
 
-Azure Batch 轉譯服務提供了按使用次數付費的雲端規模轉譯功能。 Batch 轉譯服務會處理作業排程和佇列、管理失敗和重試，以及針對轉譯作業進行自動調整。 Batch 轉譯服務可支援 [Autodesk Maya](https://www.autodesk.com/products/maya/overview)、[3ds Max](https://www.autodesk.com/products/3ds-max/overview)、[Arnold](https://www.autodesk.com/products/arnold/overview) 和 [V-Ray](https://www.chaosgroup.com/vray/maya)。 適用於 Maya 2017 的 Batch 外掛程式可直接從您的桌面輕鬆地在 Azure 上啟動轉譯作業。
+Azure Batch 轉譯服務提供了按使用次數付費的雲端規模轉譯功能。 Batch 轉譯服務會處理作業排程和佇列、管理失敗和重試，以及針對轉譯作業進行自動調整。 Batch 轉譯服務可支援 [Autodesk Maya](https://www.autodesk.com/products/maya/overview)、[3ds Max](https://www.autodesk.com/products/3ds-max/overview)、[Arnold](https://www.autodesk.com/products/arnold/overview) 和 [V-Ray](https://www.chaosgroup.com/vray/maya) 等應用程式的轉譯。 適用於 Maya 2017 的 Batch 外掛程式可直接從您的桌面輕鬆地在 Azure 上啟動轉譯作業。
 
 有了 Maya 和 3ds Max，您可以使用 [Batch Labs](https://github.com/Azure/BatchLabs) 桌面應用程式或 [Batch 範本 CLI](batch-cli-templates.md) 執行作業。 使用 Azure Batch CLI，您可以直接執行 Batch 作業而不需要撰寫程式碼。 相反地，您可以使用範本檔案來建立 Batch 集區、作業和工作。 如需詳細資訊，請參閱[使用 Azure Batch CLI 範本和檔案傳輸](batch-cli-templates.md)。
 
@@ -25,7 +25,25 @@ Azure Batch 轉譯服務提供了按使用次數付費的雲端規模轉譯功�
 
 Batch 轉譯服務目前支援下列應用程式：
 
-•   Autodesk Maya I/O 2017 Update 4 (17.4.5459 版) •   Autodesk 3ds Max I/O 2018 Update 1 (20.1.0.238 版) •   Autodesk Arnold for Maya (5.0.1.1 版) •   Autodesk Arnold for 3ds Max (1.0.836 版) •   Chaos Group V-Ray for Maya (3.52.03 版) •   Chaos Group V-Ray for 3ds Max (3.60.02 版)
+在轉譯節點的 CentOS 7 上：
+- Autodesk Maya I/O 2017 Update 5 (201708032230 版)
+- Autodesk Maya I/O 2018 Update 2 (201711281015 版)
+- Autodesk Arnold for Maya 2017 (Arnold 5.0.1.1 版) MtoA-2.0.1.1-2017
+- Autodesk Arnold for Maya 2018 (Arnold 5.0.1.4 版) MtoA-2.1.0.3-2018
+- Chaos Group V-Ray for Maya 2017 (3.60.04 版) 
+- Chaos Group V-Ray for Maya 2018 (3.60.04 版) 
+- Blender (2.68)
+
+在轉譯節點的 Windows Server 2016 上：
+- Autodesk Maya I/O 2017 Update 5 (17.4.5459 版) 
+- Autodesk Maya I/O 2018 Update 2 (18.2.0.6476 版) 
+- Autodesk 3ds Max I/O 2018 Update 4 (20.4.0.4254 版) 
+- Autodesk Arnold for Maya (Arnold 5.0.1.1 版) MtoA-2.0.1.1-2017
+- Autodesk Arnold for Maya (Arnold 5.0.1.4 版) MtoA-2.0.2.3-2018
+- Autodesk Arnold for 3ds Max (Arnold 5.0.2.4 版) (1.2.926 版) 
+- Chaos Group V-Ray for Maya (3.52.03 版) 
+- Chaos Group V-Ray for 3ds Max (3.60.02 版)
+- Blender (2.79)
 
 
 ## <a name="prerequisites"></a>先決條件
@@ -33,8 +51,9 @@ Batch 轉譯服務目前支援下列應用程式：
 若要使用 Batch 轉譯服務，您需要：
 
 - [Azure 帳戶](https://azure.microsoft.com/free/)。
-- **Azure Batch 帳戶**。 如需在 Azure 入口網站中建立 Batch 帳戶的指引，請參閱[使用 Azure 入口網站建立 Batch 帳戶](batch-account-create-portal.md)。
-- **Azure 儲存體帳戶**。 轉譯作業所用的資產會儲存在 Azure 儲存體中。 當您設定 Batch 帳戶時，可以自動建立儲存體帳戶。 您也可以使用現有的儲存體帳戶。 若要深入了解儲存體帳戶，請參閱[如何在 Azure 入口網站中建立、管理或刪除儲存體帳戶](https://docs.microsoft.com/azure/storage/storage-create-storage-account)。
+- **Azure Batch 帳戶** 如需在 Azure 入口網站中建立 Batch 帳戶的指引，請參閱[使用 Azure 入口網站建立 Batch 帳戶](batch-account-create-portal.md)。
+- **Azure 儲存體帳戶** 轉譯作業所使用的資產通常會儲存在 Azure 儲存體中。 當您設定 Batch 帳戶時，可以自動建立儲存體帳戶。 您也可以使用現有的儲存體帳戶。 如需 Batch 中的儲存體帳戶選項，請參閱 [Batch 功能概觀](batch-api-basics.md#azure-storage-account)。
+- **環境變數**。 如果您的解決方案修改了環境變數，請確定在呼叫上述已授權的任何應用程式時，`AZ_BATCH_ACCOUNT_URL` 和 `AZ_BATCH_SOFTWARE_ENTITLEMENT_TOKEN` 的值均保持不變而且存在。 否則，可能會發生軟體啟用問題。
 - **BatchLabs** (選擇性)。 [BatchLabs](https://azure.github.io/BatchLabs) 是免費、功能豐富、獨立用戶端的工具，可以協助建立、偵錯及監視 Azure Batch 應用程式。 雖然使用轉譯服務時不需要，但是在開發和偵錯您的 Batch 解決方案時是很有用的選項。
 
 若要使用適用於 Maya 的 Batch 外掛程式，您需要：
@@ -54,7 +73,7 @@ Batch 是一項平台服務，用於在**計算節點**的**集區**上執行計
 
 ### <a name="jobs"></a>工作
 
-Batch **作業** 是在集區中計算節點上執行的工作集合。 當您提交轉譯作業時，Batch 會將作業分成數個工作，並將這些工作散發到集區內的計算節點進行執行。
+Batch **作業** 是在集區中計算節點上執行的工作集合。 當您提交轉譯作業時，Batch 會將作業分成數個工作，並將這些工作分配到集區內的計算節點執行。
 
 藉由下載應用程式記錄並使用 RDP 或 SSH 從遠端連線至個別的虛擬機器，即可使用 [Azure 入口網站](https://ms.portal.azure.com/)來監視作業及診斷失敗的工作。 您也可以使用 [Batch Labs 工具](https://azure.github.io/BatchLabs)管理、監視以及偵錯。
 
@@ -72,18 +91,11 @@ Azure 針對 Windows 和 Linux 映像各預先安裝一個版本的 Maya、3ds M
 
 ![選取 Batch 帳戶的映像類型](./media/batch-rendering-service/add-pool.png)
 
-向下捲動並按一下 [圖形和轉譯授權]，以開啟 [選擇授權] 刀鋒視窗，然後選取一或多個軟體授權：
+向下捲動，並在 [圖形和轉譯授權] 下按一下 [選取軟體和定價]。 選擇一或多個軟體授權：
 
 ![選取集區的圖形和轉譯授權](./media/batch-rendering-service/graphics-licensing.png)
 
-提供的特定授權版本如下所示：
-
-- Maya 2017
-- 3ds Max 2018
-- Arnold for Maya 5.0.1.1
-- Arnold for 3ds Max 1.0.836
-- V-Ray for Maya 3.52.03
-- V-Ray for 3ds Max 3.60.01
+提供的特定授權版本符合先前「支援的應用程式」一節中的版本。
 
 ### <a name="custom-images"></a>自訂映像
 
@@ -175,12 +187,12 @@ Batch 外掛程式位於 [GitHub](https://github.com/Azure/azure-batch-maya/rele
 
 |作業系統  |映像  |
 |---------|---------|
-|Linux     |Batch CentOS 預覽 |
-|Windows     |Batch Windows 預覽 |
+|Linux     |Batch CentOS |
+|Windows     |Batch Windows |
 
 #### <a name="choose-a-vm-size"></a>選擇 VM 大小
 
-您可以在 [環境] 索引標籤上指定 VM 大小。如需可用 VM 大小的詳細資訊，請參閱 [Azure 中的 Linux VM 大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)和 [Azure 中的 Windows VM 大小](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)。 
+您可以在 [環境] 索引標籤上指定 VM 大小。如需可用 VM 大小的詳細資訊，請參閱 [Azure 中的 Linux VM 大小](../virtual-machines/linux/sizes.md)和 [Azure 中的 Windows VM 大小](../virtual-machines/windows/sizes.md)。 
 
 ![在 [環境] 索引標籤上指定 VM OS 映像和大小](./media/batch-rendering-service/environment.png)
 

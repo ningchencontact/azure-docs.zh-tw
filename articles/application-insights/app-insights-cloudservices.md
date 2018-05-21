@@ -1,9 +1,9 @@
 ---
-title: "Azure 雲端服務的 Application Insights | Microsoft Docs"
-description: "使用 Application Insights 有效地監視您的 Web 和背景工作角色"
+title: Azure 雲端服務的 Application Insights | Microsoft Docs
+description: 使用 Application Insights 有效地監視您的 Web 和背景工作角色
 services: application-insights
-documentationcenter: 
-keywords: "WAD2AI, Azure 診斷"
+documentationcenter: ''
+keywords: WAD2AI, Azure 診斷
 author: mrbullwinkle
 manager: carmonm
 editor: alancameronwills
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: dd35ef2239469be6ecf478f44a7e97389e5c5dd3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure 雲端服務的 Application Insights
 您可以透過 [Application Insights][start] 來監視 [Microsoft Azure 雲端服務應用程式](https://azure.microsoft.com/services/cloud-services/)，它會結合 Application Insights SDK 的資料與雲端服務的 [Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)資料，來讓您了解應用程式的可用性、效能、失敗和使用情形。 當您取得有關應用程式在現實世界的效能和效率的意見反應時，您可以在每個開發生命週期中針對設計方向做出明智的抉擇。
@@ -223,7 +223,7 @@ ms.lasthandoff: 01/24/2018
 
 如果您的系統使用其他 Azure 服務 (例如「串流分析」)，請將它們的監視圖表一併納入。 
 
-如果您有用戶端行動應用程式，請插入一些會在進行主要使用者操作時傳送自訂事件的程式碼，並建立 [HockeyApp bridge](app-insights-hockeyapp-bridge-app.md)。 請在[分析](app-insights-analytics.md)中建立查詢以顯示事件計數，並將它們釘選到儀表板。
+如果您有用戶端行動應用程式，請使用 [App Center](app-insights-mobile-center-quickstart.md)。 請在[分析](app-insights-analytics.md)中建立查詢以顯示事件計數，並將它們釘選到儀表板。
 
 ## <a name="example"></a>範例
 [此範例](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) 監視具有 Web 角色和兩個背景工作角色的服務。

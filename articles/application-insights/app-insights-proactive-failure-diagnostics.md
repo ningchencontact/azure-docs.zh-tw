@@ -1,9 +1,9 @@
 ---
-title: "智慧型偵測 - Application Insights 中的失敗異常 | Microsoft Docs"
-description: "針對 Web 應用程式失敗要求比率的不尋常變化對您發出警示，並提供診斷分析。 不需要設定。"
+title: 智慧型偵測 - Application Insights 中的失敗異常 | Microsoft Docs
+description: 針對 Web 應用程式失敗要求比率的不尋常變化對您發出警示，並提供診斷分析。 不需要設定。
 services: application-insights
-documentationcenter: 
-author: yorac
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: mbullwin
-ms.openlocfilehash: ca484f4d11cf8ab18db2d0c6152f369a90311f10
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; yossiy
+ms.openlocfilehash: 29ae81551d4bd4be4123c8e7780b8b5ecc259f09
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="smart-detection---failure-anomalies"></a>智慧型偵測 - 失敗異常
 當 Web 應用程式的失敗要求比率異常增加時，[Application Insights](app-insights-overview.md) 會以幾乎即時的方式自動通知您。 它偵測到回報為失敗的 HTTP 要求率異常提高或相依性呼叫。 對於要求，失敗的要求通常是回應碼為 400 或更高的要求。 為了協助您分級並診斷問題，通知中會提供失敗的特性分析與相關遙測。 其中也有 Application Insights 入口網站的連結，以供進一步診斷。 不需要設定該功能，因為它是使用機器學習演算法來預測一般失敗率。

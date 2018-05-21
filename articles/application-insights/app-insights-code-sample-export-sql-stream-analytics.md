@@ -1,11 +1,10 @@
 ---
-title: "從 Azure Application Insights 匯出至 SQL | Microsoft Docs"
-description: "使用 Stream Analytics 持續將 Application Insights 資料匯出至 SQL。"
+title: 從 Azure Application Insights 匯出至 SQL | Microsoft Docs
+description: 使用 Stream Analytics 持續將 Application Insights 資料匯出至 SQL。
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
-editor: mrbullwinkle
 ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
 ms.workload: tbd
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: e410bb87d017a7659c3eaffbedef378aaf7f5716
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>逐步解說：使用串流分析從 Application Insights 匯出至 SQL
 本文將說明如何使用[連續匯出][export]和 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)，將您的遙測資料從 [Azure Application Insights][start] 移入 Azure SQL Database。 

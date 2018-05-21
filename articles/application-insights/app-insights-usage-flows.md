@@ -1,9 +1,9 @@
 ---
-title: "在 Azure Application Insights 中使用使用者流程分析使用者瀏覽模式 | Microsoft docs"
-description: "分析使用者如何在 Web 應用程式的分頁和功能之間進行瀏覽。"
+title: 在 Azure Application Insights 中使用使用者流程分析使用者瀏覽模式 | Microsoft docs
+description: 分析使用者如何在 Web 應用程式的分頁和功能之間進行瀏覽。
 services: application-insights
-documentationcenter: 
-author: numberbycolors
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: mbullwin; daviste
-ms.openlocfilehash: 63139bfb190959284cb5d25df1a8dd91bd7d913f
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 5913039d3ab288c2fc8366073b340538989512ee
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>在 Application Insights 中使用使用者流程分析使用者瀏覽模式
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/25/2018
 
 若要開始使用「使用者流程」工具回答問題，請選擇初始網頁檢視、自訂事件或例外狀況來作為視覺效果的起點：
 
-1. 按一下**使用者在...之後要怎麼做？**標題中的連結，或按一下 [編輯] 按鈕。
+1. 按一下**使用者在...之後要怎麼做？** 標題中的連結，或按一下 [編輯] 按鈕。
 2. 從 [初始事件] 下拉式清單選取網頁檢視、自訂事件或例外狀況。
 3. 按一下 [建立圖形]。
 

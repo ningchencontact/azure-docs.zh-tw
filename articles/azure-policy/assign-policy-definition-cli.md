@@ -1,19 +1,19 @@
 ---
-title: 使用 Azure CLI 建立原則指派，以識別 Azure 環境中的不相容資源 | Microsoft Docs
+title: 使用 Azure CLI 建立原則指派，以識別 Azure 環境中的不相容資源
 description: 使用 PowerShell 建立 Azure 原則指派，以識別不相容資源。
 services: azure-policy
 keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/03/2018
+ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 5c376cc2445253197dd51d8bdd89b341d3130f1a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d4d92dc56a9320a4deb0adf611edded0c018df3f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>使用 Azure CLI 建立原則指派，以識別 Azure 環境中的不相容資源
 
@@ -27,17 +27,17 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-本快速入門會要求您執行 Azure CLI 2.0.4 版或更新版本，以在本機安裝和使用 CLI。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+本快速入門會要求您執行 Azure CLI 2.0.4 版或更新版本，以在本機安裝和使用 CLI。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
 
 ## <a name="prerequisites"></a>先決條件
 
 使用 Azure CLI 註冊 Policy Insights 資源提供者。 註冊資源提供者，以確保您的訂用帳戶可搭配它使用。 若要註冊資源提供者，您必須有權執行資源提供者的註冊動作作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
 
-```
+```azurecli-interactive
 az provider register –-namespace 'Microsoft.PolicyInsights'
 ```
-如需註冊及檢視資源提供者的詳細資訊，請參閱[資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)
 
+如需註冊及檢視資源提供者的詳細資訊，請參閱[資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)
 
 ## <a name="create-a-policy-assignment"></a>建立原則指派
 
@@ -45,8 +45,8 @@ az provider register –-namespace 'Microsoft.PolicyInsights'
 
 執行下列命令以建立原則指派：
 
-```
-az policy assignment create --name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
+```azurecli-interactive
+az policy assignment create --name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
 ```
 
 上述命令會使用下列資訊：
@@ -54,18 +54,13 @@ az policy assignment create --name 'Audit Virtual Machines without Managed Disks
 - **名稱** - 原則指派的顯示名稱。 在此案例中，您會使用 Audit Virtual Machines without Managed Disks (稽核沒有受控磁碟指派的虛擬機器)。
 - **原則** – 原則定義識別碼，這是您用來建立指派的根基。 在此案例中，即為原則定義 – Audit Virtual Machines without Managed Disks (稽核沒有受控磁碟的虛擬機器)。 若要取得原則定義識別碼，請執行此命令：`az policy definition show --name 'Audit Virtual Machines without Managed Disks Assignment'`
 - **範圍** – 範圍會決定在哪些資源或資源群組上強制執行原則指派。 範圍從訂用帳戶到資源群組。 請務必將 &lt;scope&gt; 取代為您的資源群組。
-- **Sku** – 此命令會建立具有標準層的原則指派。 標準層可讓您達到大規模管理、合規性評估和補救。 如需定價層的其他詳細資訊，請參閱 [Azure 原則定價](https://azure.microsoft.com/pricing/details/azure-policy)。
-
 
 ## <a name="identify-non-compliant-resources"></a>識別不相容的資源
 
 若要檢視這個新指派之下不符合規範的資源，請執行下列命令來取得原則指派識別碼：
 
-```
-$policyAssignment = Get-AzureRmPolicyAssignment | where {$_.properties.displayName -eq "Audit Virtual Machines without Managed Disks"}
-```
-
-```
+```azurepowershell-interactive
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks' }
 $policyAssignment.PolicyAssignmentId
 ```
 
@@ -79,30 +74,28 @@ armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/provider
 
 您的結果類似下列範例：
 
-```
+```json
 {
-"@odata.context":"https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-"@odata.count": 3,
-"value": [
-{
-    "@odata.id": null,
-    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-      "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachineId>"
-    },
-    {
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-      "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine2Id>"
-         },
-{
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-      "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine3ID>"
-         }
+    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
+    "@odata.count": 3,
+    "value": [{
+            "@odata.id": null,
+            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachineId>"
+        },
+        {
+            "@odata.id": null,
+            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine2Id>"
+        },
+        {
+            "@odata.id": null,
+            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+            "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine3ID>"
+        }
 
-]
+    ]
 }
-
 ```
 
 結果類似於您通常在 Azure 入口網站檢視中看到列在 [不符合規範的資源] 之下的內容。
@@ -111,8 +104,8 @@ armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/provider
 
 此集合中的其他指南是以本快速入門為基礎。 如果您打算繼續進行後續的教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，請藉由執行以下命令來刪除您所建立的指派：
 
-```azurecli
-az policy assignment delete –name Audit Virtual Machines without Managed Disks Assignment --scope /subscriptions/ <subscriptionID> / <resourceGroupName>
+```azurecli-interactive
+az policy assignment delete –name 'Audit Virtual Machines without Managed Disks Assignment' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
 
 ## <a name="next-steps"></a>後續步驟
@@ -122,4 +115,4 @@ az policy assignment delete –name Audit Virtual Machines without Managed Disks
 若要深入了解如何指派原則並確保您在**未來**建立的資源符合規範，請繼續進行教學課程：
 
 > [!div class="nextstepaction"]
-> [建立及管理原則](./create-manage-policy.md)
+> [建立及管理原則](create-manage-policy.md)

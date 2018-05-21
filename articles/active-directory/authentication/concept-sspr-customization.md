@@ -2,25 +2,19 @@
 title: 自助式密碼重設自訂 - Azure Active Directory
 description: Azure AD 自助式密碼重設的自訂選項
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: bcc4ab2f4383f16d64858e50c1857c6fa0e87bcf
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: ffd12d03dffb5deafc8605cc7352bd71d588d235
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>自訂 Azure AD 的自助式密碼重設功能
 
@@ -92,7 +86,7 @@ ms.lasthandoff: 04/19/2018
 * [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](howto-sspr-authenticationdata.md)
 * [哪些驗證方法可供使用者使用？](concept-sspr-howitworks.md#authentication-methods)
 * [使用 SSPR 的原則選項有哪些？](concept-sspr-policy.md)
-* [什麼是密碼回寫，且為什麼我需要了解它？](../active-directory-passwords-writeback.md)
+* [什麼是密碼回寫，且為什麼我需要了解它？](howto-sspr-writeback.md)
 * [如何回報 SSPR 中的活動？](howto-sspr-reporting.md)
 * [SSPR 中的所有選項有哪些，以及它們有何意義？](concept-sspr-howitworks.md)
 * [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)
