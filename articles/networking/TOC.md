@@ -10,7 +10,6 @@
 ### [合併負載平衡方法](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## 規劃和設計
 ### [虛擬網路](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [流量篩選](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [跨單位連線 - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [跨單位連線 - 專用私人](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
@@ -70,7 +69,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
 ## [社群範本](https://azure.microsoft.com/resources/templates/)
 ## [網路部落格](http://azure.microsoft.com/blog/topics/networking)
-## [價格](https://azure.microsoft.com/pricing)
+## [定價](https://azure.microsoft.com/pricing)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [區域可用性](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

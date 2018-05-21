@@ -1,6 +1,6 @@
 ---
-title: Azure 虛擬網路和 Linux 虛擬機器 | Microsoft Docs
-description: 教學課程 - 使用 Azure CLI 來管理 Azure 虛擬網路和 Linux 虛擬機器
+title: 教學課程 - 建立和管理適用於 Linux VM 的 Azure 虛擬網路 | Microsoft Docs
+description: 在本教學課程中，了解如何使用 Azure CLI 2.0 來建立及管理 Linux 虛擬機器的 Azure 虛擬網路
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4fc6779472a0c680c53d7f25e6fe412ab386fc32
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 306d33dd5b5910e990caf80dae4c37fee020f7a1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>使用 Azure CLI 來管理 Azure 虛擬網路和 Linux 虛擬機器
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli-20"></a>教學課程：使用 Azure CLI 2.0 來建立和管理 Linux 虛擬機器的 Azure 虛擬網路
 
 Azure 虛擬機器會使用 Azure 網路進行內部和外部的網路通訊。 本教學課程會逐步部署兩部虛擬機器 (VM)，並設定這兩部 VM 的 Azure 網路功能。 本教學課程中的範例假設 VM 已裝載 Web 應用程式與資料庫後端，不過應用程式的部署不在本教學課程範圍中。 在本教學課程中，您了解如何：
 
@@ -33,7 +33,15 @@ Azure 虛擬機器會使用 Azure 網路進行內部和外部的網路通訊。 
 > * 保護網路流量
 > * 建立後端 VM
 
-完成本教學課程時，您可以看到這些建立的資源：
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+
+## <a name="vm-networking-overview"></a>VM 網路概觀
+
+Azure 虛擬網路可以讓虛擬機器、網際網路與其他 Azure 服務 (例如 Azure SQL database) 之間的網路連線更安全。 虛擬網路會被分割成邏輯區段，稱為子網路。 子網路是用來控制網路流量，並作為安全性界限。 在部署 VM 時，通常會包含連結至子網路的虛擬網路介面。
+
+完成本教學課程時會建立下列虛擬網路資源：
 
 ![具有兩個子網路的虛擬網路](./media/tutorial-virtual-network/networktutorial.png)
 
@@ -46,15 +54,6 @@ Azure 虛擬機器會使用 Azure 網路進行內部和外部的網路通訊。 
 - *myBackendSubnet* - 與 *myBackendNSG* 相關聯且由後端資源所使用的子網路。
 - *myBackendNic* - *myBackendVM* 與 *myFrontendVM* 進行通訊所使用的網路介面。
 - *myBackendVM* - 使用連接埠 22 和 3306 與 *myFrontendVM* 進行通訊的 VM。
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
-
-## <a name="vm-networking-overview"></a>VM 網路概觀
-
-Azure 虛擬網路可以讓虛擬機器、網際網路與其他 Azure 服務 (例如 Azure SQL database) 之間的網路連線更安全。 虛擬網路會被分割成邏輯區段，稱為子網路。 子網路是用來控制網路流量，並作為安全性界限。 在部署 VM 時，通常會包含連結至子網路的虛擬網路介面。
 
 ## <a name="create-a-virtual-network-and-subnet"></a>建立虛擬網路和子網路
 

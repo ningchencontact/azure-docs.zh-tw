@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d417f26eb9bad47b9742921156ff232e65ffd5aa
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 75d973388bb8a37cc0b796b1621f847b047d70f9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="migrate-automation-account-and-resources"></a>移轉自動化帳戶和資源
 對於您在 Azure 入口網站中建立並且想要在資源群組或訂用帳戶之間移轉的自動化帳戶及其相關資源 (亦即，資產、Runbook、模組等)，您可以使用 Azure 入口網站中可用的[移動資源](../azure-resource-manager/resource-group-move-resources.md)功能，輕鬆完成這項作業。 不過，在繼續此動作之前，您應該先檢閱下列[移動資源之前的檢查清單](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources)，還有以下特別關於自動化的清單。  

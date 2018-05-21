@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric 災害復原 | Microsoft Docs"
-description: "Azure Service Fabric 提供處理各類型災害所需的功能。 本文說明可能會發生的災害類型以及如何加以處理。"
+title: Azure Service Fabric 災害復原 | Microsoft Docs
+description: Azure Service Fabric 提供處理各類型災害所需的功能。 本文說明可能會發生的災害類型以及如何加以處理。
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5346e331d76149ac3aed7aaf11eb3171e0ac5cfc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 295772b70529f79c7a4c135d8ea7c12a1c661fe6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service Fabric 中的災害復原
 提供高可用性的關鍵在於確保服務能夠承受所有不同類型的故障。 這對於預料之外且無法控制的故障而言特別重要。 本文說明一些常見的故障模式，如果沒有未正確建立模型和管理，可能會造成嚴重損壞。 此外，本文也會探討發生災害時應採取的緩解措施和行動。 目標是發生故障 (無論計劃與否) 時，限制或排除停機或資料遺失的風險。

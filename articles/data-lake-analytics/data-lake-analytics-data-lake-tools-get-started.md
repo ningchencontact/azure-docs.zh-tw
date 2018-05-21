@@ -1,5 +1,5 @@
 ---
-title: 使用適用於 Visual Studio 的 Data Lake 工具開發 U-SQL 指令碼 | Microsoft Docs
+title: 使用 Visual Studio 開始使用 Azure Data Lake Analytics | Microsoft Docs
 description: 了解如何安裝適用於 Visual Studio 的 Data Lake 工具，如何開發和測試 U-SQL 指令碼。
 services: data-lake-analytics
 documentationcenter: ''
@@ -12,19 +12,33 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/28/2017
+ms.date: 05/02/2018
 ms.author: saveenr, yanacai
-ms.openlocfilehash: b94c035083a00867139b6c58bc8b2ded08e970b0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d0974e3258e0def09fe12d348180dcedf216401c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>使用適用於 Visual Studio 的 Data Lake 工具來開發 U-SQL 指令碼
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 
 了解如何使用 Visual Studio 建立 Azure Data Lake Analytics 帳戶、在 [U-SQL](data-lake-analytics-u-sql-get-started.md) 中定義作業，以及將作業提交至 Data Lake Analytics 服務。 如需有關 Data Lake Analytics 的詳細資訊，請參閱 [Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)。
+
+>[!IMPORTANT]
+>
+>在準備即將於 2018 年 5 月 25 日生效的最新一般資料保護規定 (GDPR) 時，建議 Azure Data Lake Tools for Visual Studio 的使用者升級至 2.3.3000.4 版或更新版本。 此版本包含根據最新資料保護需求所做的變更。 請注意，舊版不再提供下載，且將會遭到取代。 
+>
+>**我需要做什麼事嗎？**
+>
+>1. 請檢查您是否使用比 2.3.3000.4 版 Azure Data Lake Tools for Visual Studio 還要舊的版本。 
+>   
+>   ![檢查工具版本](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-about-data-lake.png)
+> 
+>2. 如果您的版本比 2.3.3000.4 版還要舊，請藉由造訪下載中心來更新您的 Azure Data Lake Tools for Visual Studio： 
+>    - [針對 Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
+>    - [針對 Visual Studio 2013 和 2015](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
 
 
 ## <a name="prerequisites"></a>先決條件

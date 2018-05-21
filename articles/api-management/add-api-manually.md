@@ -3,7 +3,7 @@ title: 使用 Azure 入口網站手動新增 API | Microsoft Docs
 description: 本教學課程示範如何使用 API 管理 (APIM) 來手動新增 API。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 9426839f88daece1bb688a2079b7854ccaebdc57
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="add-an-api-manually"></a>手動新增 API 
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/04/2017
     |**名稱**|**值**|**說明**|
     |---|---|---|
     |**顯示名稱**|「*空白 API*」 |此名稱會顯示於開發人員入口網站中。|
-    |**Web 服務 URL** (選擇性)| "*http://httpbin.org*"| 如果您想要模擬 API，您可以不輸入任何項目。 <br/>在此案例中，我們輸入 [http://httpbin.org](http://httpbin.org)。這是公用的測試服務。 <br/>如果您想要匯入會自動對應至後端的 API，請參閱[相關主題](#related-topics)一節中的其中一個主題。|
+    |**Web 服務 URL** (選擇性)| 「http://httpbin.org」| 如果您想要模擬 API，您可以不輸入任何項目。 <br/>在此案例中，我們會輸入 [http://httpbin.org](http://httpbin.org)。這是公用的測試服務。 <br/>如果您想要匯入會自動對應至後端的 API，請參閱[相關主題](#related-topics)一節中的其中一個主題。|
     |**URL 配置**|"*HTTPS*"|在此案例中，即使後端有不安全的 HTTP 存取，我們還是會指定安全的 HTTPS APIM 存取給後端。 <br/>這種狀況 (HTTPS 至 HTTP) 稱為 HTTPS 終止。 如果您的 API 存在於虛擬網路中 (而您知道存取是安全的，即使不使用 HTTPS)，您就可以這麼做。 <br/>您可以使用「HTTPS 終止」來減少一些 CPU 循環。|
     |**URL 尾碼**|"*hbin*"| 此尾碼是用來在這個 APIM 執行個體中識別此特定 API 的名稱。 它在這個 APIM 執行個體中必須是唯一的。|
     |**產品**|"*無限制*" |透過將 API 關聯至某個產品來發佈 API。 如果您想要發佈 API 以供開發人員使用，請將它新增至產品。 您可以在 API 建立期間執行此動作，或稍後設定它。<br/><br/>產品是一或多個 API 的關聯。 您可以包括數個 API，並透過開發人員入口網站將它們提供給開發人員。 <br/>開發人員必須先訂閱產品，才能取得 API 的存取權。 當他們訂閱時，就能取得適用於該產品中任何 API 的中訂用帳戶金鑰。 如果您建立了 APIM 執行個體，您就已經是系統管理員，因此根據預設，您已訂閱每一個產品。<br/><br/> 根據預設，每個「API 管理」執行個體都隨附兩個範例產品：**入門**與**無限制**。| 
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/04/2017
 此時，APIM 中沒有對應至後端 API 中任何作業的作業。 如果您呼叫透過後端公開的作業，而不是呼叫透過 APIM 公開的作業，您會收到 **404**。 
 
 >[!NOTE] 
-> 依預設，當您新增 API 時 (即使 API 已連線到某些後端服務)，APIM 不會公開任何作業，直到您將作業加入允許清單。 若要將您的後端服務作業加入允許清單，請建立對應至後端作業的 APIM 作業。
+> 依預設，當您新增 API 時 (即使 API 已連線到某些後端服務)，APIM 不會公開任何作業，直到您將作業加入白名單。 若要將您的後端服務作業加入白名單，請建立對應至後端作業的 APIM 作業。
 >
 
 ## <a name="add-and-test-an-operation"></a>新增和測試作業
