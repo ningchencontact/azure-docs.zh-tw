@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 71c60c8d29e4db8aab1932a1bece03396a12e4da
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3b45f46197467dd7b83bd986604338e14daa8107
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>擷取在 Azure 上執行的 Linux 虛擬機器
 請遵循本文中的步驟，在 Resource Manager 部署模型中一般化和擷取 Azure Linux 虛擬機器 (VM)。 當您一般化 VM 時，需移除個人帳戶資訊，並準備要做為映像的 VM。 您接著擷取作業系統的一般化虛擬硬碟 (VHD) 映像、連接資料磁碟的 VHD 以及新 VM 部署的 [Resource Manager 範本](../../azure-resource-manager/resource-group-overview.md)。 本文詳細說明如何針對使用非受控磁碟的 VM，透過 Azure CLI 1.0 擷取 VM 映像。 您也可以[透過 Azure CLI 2.0 使用 Azure 受控磁碟擷取 VM](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 受控磁碟是由 Azure 平台處理，不需要任何準備或位置來儲存它們。 如需詳細資訊，請參閱 [Azure 受控磁碟概觀](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
@@ -44,7 +44,7 @@ ms.lasthandoff: 04/05/2018
 * **Azure CLI** - 在本機電腦上安裝 [Azure CLI](../../cli-install-nodejs.md)。
 
 ## <a name="step-1-remove-the-azure-linux-agent"></a>步驟 1：移除 Azure Linux 代理程式
-首先，在 Linux VM 上執行 **waagent** 命令並搭配 **deprovision**參數。 此命令會刪除檔案與資料，使 VM 準備好進行一般化。 如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+首先，在 Linux VM 上執行 **waagent** 命令並搭配 **deprovision**參數。 此命令會刪除檔案與資料，使 VM 準備好進行一般化。 如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南](../extensions/agent-windows.md)。
 
 1. 使用 SSH 用戶端連線到 Linux VM。
 2. 在 SSH 視窗中，輸入下列命令：
@@ -185,7 +185,7 @@ azure network public-ip show myResourceGroup1 myPublicIP
 如果您要在從映像建立 VM 時自動設定網路，可以在範本中指定這些資源。 例如，請從 GitHub 參閱 [101-vm-from-user-image template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)。 此範本會從自訂映像和必要的虛擬網路、公用 IP 位址和 NIC 資源建立 VM。 如需在 Azure 入口網站中使用範本的逐步解說，請參閱 [如何從使用 Resource Manager 範本的自訂映像建立虛擬機器](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/)。
 
 ### <a name="use-the-azure-vm-create-command"></a>使用 azure vm create 命令
-通常最簡單的方式是使用 Resource Manager 範本從映像建立 VM。 不過，您可以使用 **azure vm create** 命令搭配 **-Q** (**--image-urn**) 參數，以*「命令方式」*建立 VM。 如果您使用此方法，您也要傳遞 **-d** (**--os-disk-vhd**) 參數來指定新 VM 的 OS .vhd 檔案位置。 此檔案必須位於儲存映像 VHD 檔案之儲存體帳戶的 vhds 容器中。 此命令會自動將新 VM 的 VHD 複製到 **vhds** 容器。
+通常最簡單的方式是使用 Resource Manager 範本從映像建立 VM。 不過，您可以使用 **azure vm create** 命令搭配 **-Q** (**--image-urn**) 參數，以 *「命令方式」* 建立 VM。 如果您使用此方法，您也要傳遞 **-d** (**--os-disk-vhd**) 參數來指定新 VM 的 OS .vhd 檔案位置。 此檔案必須位於儲存映像 VHD 檔案之儲存體帳戶的 vhds 容器中。 此命令會自動將新 VM 的 VHD 複製到 **vhds** 容器。
 
 對映像執行 **azure vm create** 之前，請完成下列步驟：
 

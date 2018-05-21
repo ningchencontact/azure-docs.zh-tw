@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Site Recovery 將內部部署機器移轉至 Azure | Microsoft Docs"
-description: "本文說明如何使用 Azure Site Recovery 將內部部署機器移轉至 Azure。"
+title: 使用 Azure Site Recovery 將內部部署機器移轉至 Azure | Microsoft Docs
+description: 本文說明如何使用 Azure Site Recovery 將內部部署機器移轉至 Azure。
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 656ba02401d9ba610d0ebe33a683164af0b871f0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3e82983ff171e638415d6e7cafe0cb034dd978af
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>將內部部署機器移轉至 Azure
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/28/2018
 這是本系列的第三個教學課程。 本教學課程假設您已經完成了先前教學課程中的工作：
 
 1. [準備 Azure](tutorial-prepare-azure.md)
-2. 準備內部部署 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 或 Hyper-V 伺服器。
+2. 準備內部部署 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 或 [Hyper-V] (hyper-v-prepare-on-premises-tutorial.md) 伺服器。
 
 開始之前，最好先針對災害復原檢閱 [VMware](vmware-azure-architecture.md) 或 [Hyper-V](hyper-v-azure-architecture.md) 架構。
 

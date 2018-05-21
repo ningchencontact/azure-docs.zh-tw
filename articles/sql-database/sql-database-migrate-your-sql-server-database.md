@@ -1,6 +1,6 @@
 ---
-title: 使用 DMS 將 SQL Server DB 遷移至 Azure SQL Database | Microsoft Docs
-description: 學習如何使用 DMS 將 SQL Server 資料庫遷移至 Azure SQL Database。
+title: 使用 DMA 將 SQL Server DB 遷移至 Azure SQL Database | Microsoft Docs
+description: 學習如何使用 DMA 將 SQL Server 資料庫遷移至 Azure SQL Database。
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,13 +9,13 @@ ms.custom: mvc,migrate
 ms.topic: tutorial
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 36548e4d088b809f4fb16d89aaa3ef0a802d6d5c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e714667183704670807fd2f62767b75f62978a38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>使用 DMS 將 SQL Server 資料庫遷移至 Azure SQL Database
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>使用 DMA 將 SQL Server 資料庫遷移至 Azure SQL Database
 
 將 SQL Server 資料庫移到 Azure SQL Database 的單一資料庫很簡單，只要在 Azure 中建立的空 SQL 資料庫，然後使用[資料移轉小幫手](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) 將資料庫匯入 Azure。 如需其他移轉選項，請參閱[將資料庫遷移至 Azure SQL Database](sql-database-cloud-migrate.md)。
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="create-a-blank-sql-database"></a>建立空白 SQL Database
 
-Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-database-service-tiers.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL Database 邏輯伺服器](sql-database-features.md)內。 
+Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-database-service-tiers-dtu.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL Database 邏輯伺服器](sql-database-features.md)內。 
 
 遵循以下步驟來建立空白 SQL 資料庫。 
 
@@ -87,9 +87,9 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-databa
 8. 若要使用 [附加元件儲存體] 選項，請接受預覽條款。 
 
    > [!IMPORTANT]
-   > \* 大於內含儲存體數量的儲存體大小尚在預覽中，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
+   > - 大於內含儲存體數量的儲存體大小為預覽版，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
    >
-   >\* 在進階層，目前於下列區域中提供超過 1 TB 的儲存體：巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、韓國中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+   > - 在進階層，目前於下列區域中提供超過 1 TB 的儲存體：巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、韓國中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
    > 
 
 9. 在選取伺服器層、DTU 數目和儲存體數量之後，按一下 [套用]。  

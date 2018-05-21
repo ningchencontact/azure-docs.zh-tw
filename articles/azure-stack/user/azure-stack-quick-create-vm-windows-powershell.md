@@ -12,20 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 4f0d07d2c64650091b5fc654a645785a12c3c3de
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9f5752a969ff6a191ec60e175494316aea4abcaf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入門：在 Azure Stack 中使用 PowerShell 建立 Windows 虛擬機器
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入門：在 Azure Stack 中使用 PowerShell 建立 Windows Server 虛擬機器
 
-「適用於：Azure Stack 整合系統」
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-本指南詳細說明如何使用 PowerShell 在 Azure Stack 中建立 Windows Server 2016 虛擬機器。 您可以從 Azure Stack 開發套件，或從以 Windows 為基礎的外部用戶端 (如果您透過 VPN 連線) 來執行這篇文章中所述的步驟。
+您可以使用 Azure Stack PowerShell 建立 Windows Server 2016 虛擬機器。 請遵循本文中的步驟建立和使用虛擬機器。 本文也提供下列操作的步驟：
+
+* 使用遠端用戶端連線到虛擬機器。
+* 安裝 IIS 網頁伺服器，並且檢視預設首頁。
+* 清除資源。
+
+>[!NOTE]
+ 您可以從 Azure Stack 開發套件，或從 Windows 型外部用戶端 (如果您透過 VPN 連線) 來執行這篇文章中所述的步驟。
 
 ## <a name="prerequisites"></a>先決條件
 

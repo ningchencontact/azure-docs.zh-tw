@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: other
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/30/2018
 ms.author: subramar
-ms.openlocfilehash: d4751182cac9b5b952ef9a9dd125408267c1f8d0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2d98cff1a5869091aa81097bbb34da6e525a2ad5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure 檔案服務磁碟區驅動程式 (預覽)
 Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https://docs.docker.com/engine/extend/plugins_volume/) \(英文\)，針對 Docker 容器提供以 [Azure 檔案服務](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)為基礎的磁碟區。 此 Docker 磁碟區外掛程式會封裝為可部署至 Service Fabric 叢集的 Service Fabric 應用程式。 其目的是為部署至叢集的其他 Service Fabric 容器應用程式，提供以 Azure 檔案服務為基礎的磁碟區。

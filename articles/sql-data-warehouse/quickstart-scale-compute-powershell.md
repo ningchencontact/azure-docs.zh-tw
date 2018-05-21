@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 40fa33aad8bf5ac042f9d80493b97a914fe770bb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0718365153390f525b22ef07559a822c777c2ff4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>快速入門：在 PowerShell 中調整 Azure SQL 資料倉儲中的計算
 
@@ -55,19 +55,19 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 遵循下列步驟來尋找您資料倉儲的位置資訊。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料庫]。
-3. 從 [SQL 資料庫] 頁面中，選取 [mySampleDataWarehouse]。 這會開啟資料倉儲。
+2. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料倉儲]。
+3. 從 [SQL 資料倉儲] 頁面中，選取 [mySampleDataWarehouse]。 這會開啟資料倉儲。
 
     ![伺服器名稱和資源群組](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
 4. 記下資料倉儲名稱，這將作為資料庫名稱使用。 請記住，資料倉儲是一種資料庫。 也請記下伺服器名稱與資源群組。 您將會在暫停與繼續命令中使用它們。
-5. 如果您的伺服器是 foo.database.windows.net，請只在 PowerShell Cmdlet 中使用其第一個部分作為伺服器名稱。 在上述映像中，完整伺服器名稱是 newserver 20171113.database.windows.net。 我們會在 PowerShell Cmdlet 中使用 **newserver-20171113** 作為伺服器名稱。
+5. 如果您的伺服器是 foo.database.windows.net，請只在 PowerShell Cmdlet 中使用其第一個部分作為伺服器名稱。 在上述映像中，完整伺服器名稱是 newserver 20171113.database.windows.net。 我們會在 PowerShell Cmdlet 中使用 **newserver-20180430** 作為伺服器名稱。
 
 ## <a name="scale-compute"></a>調整計算
 
 在 SQL 資料倉儲中，您可以藉由調整資料倉儲單位來增加或減少計算資源。 [建立與連線 - 入口網站](create-data-warehouse-portal.md)已建立 **mySampleDataWarehouse**，並以 400 DWU 加以初始化。 下列步驟會調整 **mySampleDataWarehouse** 的 DWU。
 
-若要變更資料倉儲單位，請使用 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell Cmdlet。 下列範例將資料庫 **mySampleDataWarehouse** 的資料倉儲單位設定為 DW300，此資料庫裝載於伺服器 **mynewserver-20171113** 上的資源群組 **myResourceGroup** 中。
+若要變更資料倉儲單位，請使用 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell Cmdlet。 下列範例將資料庫 **mySampleDataWarehouse** 的資料倉儲單位設定為 DW300，此資料庫裝載於伺服器 **mynewserver-20180430** 上的資源群組 **myResourceGroup** 中。
 
 ```Powershell
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
@@ -75,7 +75,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySam
 
 ## <a name="check-data-warehouse-state"></a>檢查資料倉儲狀態
 
-若要查看資料倉儲的目前狀態，請使用 [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell Cmdlet。 這會取得資源群組 **myResourceGroup** 和伺服器 **mynewserver-20171113.database.windows.net** 中 **mySampleDataWarehouse** 資料庫的狀態。
+若要查看資料倉儲的目前狀態，請使用 [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell Cmdlet。 這會取得資源群組 **myResourceGroup** 和伺服器 **mynewserver-20180430.database.windows.net** 中 **mySampleDataWarehouse** 資料庫的狀態。
 
 ```powershell
 $database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse

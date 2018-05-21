@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.service: backup
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: fb455fe6f1b481ad2dc855d147860cb2c7898779
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c0261b4f89647a8db3b7bf452a8827d40fdc1911
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 本文提供有關備份 Azure 檔案服務的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -23,7 +23,7 @@ ms.lasthandoff: 04/06/2018
 ## <a name="configuring-the-backup-job-for-azure-files"></a>設定 Azure 檔案服務的備份作業
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-azure-file-shares-br"></a>為何看不到某些我想要保護且包含有效 Azure 檔案共用的儲存體帳戶？ <br/>
-在預覽期間，Azure 檔案共用的備份不支援所有的儲存體帳戶類型。 請參閱[這裡](troubleshoot-azure-files.md#preview-boundaries)的清單，以查看支援的儲存體帳戶清單。
+在預覽期間，Azure 檔案共用的備份不支援所有的儲存體帳戶類型。 請參閱[這裡](troubleshoot-azure-files.md#preview-boundaries)的清單，以查看支援的儲存體帳戶清單。 您所尋找的儲存體帳戶也可能已經受保護或向另一個保存庫註冊。 從保存庫[取消註冊](troubleshoot-azure-files.md#configuring-backup)，以探索其他保存庫中用於保護的儲存體帳戶。
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>為何我在嘗試設定備份時，在儲存體帳戶中看不到某些 Azure 檔案共用？ <br/>
 請確認 Azure 檔案共用是否已在相同的復原服務保存庫中受到保護，或是否已於近期刪除。
@@ -52,6 +52,7 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 - 日本西部 (JPW)
 -   印度中部 (INC) 
 - 印度南部 (INS)
+- 韓國中部 (KRC)
 - 南韓 (KRS)
 -   美國中北部 (NCUS) 
 -   北歐 (NE) 

@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
-ms.author: mfussell;mikhegn
-ms.openlocfilehash: 9d1e2f801db2ed7edf262f8a5f221057ef791106
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: mfussell
+ms.openlocfilehash: 99d34d59bb9d55ff074d454fe4544917c4e91110
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>將現有可執行檔封裝和部署至 Service Fabric
 在封裝現有可執行檔作為[來賓可執行檔](service-fabric-guest-executables-introduction.md)時，您可以選擇使用 Visual Studio 專案範本，或是[手動建立應用程式套件](#manually)。 使用 Visual Studio 時，就可讓 [新增專案範本] 為您建立應用程式套件的結構和資訊清單檔案。

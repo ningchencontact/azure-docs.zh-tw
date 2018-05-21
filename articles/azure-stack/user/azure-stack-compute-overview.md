@@ -1,6 +1,6 @@
 ---
-title: "Azure Stack 虛擬機器簡介"
-description: "了解 Azure Stack 虛擬機器"
+title: Azure Stack 虛擬機器簡介
+description: 了解 Azure Stack 虛擬機器
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -8,11 +8,11 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 41e75a6806cc5ff13fad64fd415344376e0d6e88
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 虛擬機器簡介
 
@@ -21,9 +21,9 @@ ms.lasthandoff: 03/02/2018
 ## <a name="overview"></a>概觀
 Azure Stack 虛擬機器 (VM) 是 Azure Stack 提供的一種依需求、可調整的計算資源。 一般而言，當您對於運算環境所需的控制權比其他選擇可提供的還要多時，則您會選擇 VM。 本文提供您在建立 VM 之前應該的事項、建立方式及管理方式的相關資訊。
 
-Azure Stack VM 供虛擬化的彈性，您不需要管理個別的叢集或機器。 不過，您仍然需要執行工作來維護 VM，例如設定、修補和安裝在 VM 上執行的軟體。
+Azure Stack VM 供虛擬化的彈性，您不需要管理叢集或個別機器。 不過，您仍然需要執行工作來維護 VM，例如設定、修補和安裝在 VM 上執行的軟體。
 
-Azure Stack 虛擬機器有各種用途。 例如︰
+Azure Stack 虛擬機器有多種用途。 例如︰
 
 * **開發和測試** – Azure Stack VM 提供快速又簡單的方法來建立電腦，讓電腦具備撰寫和測試應用程式所需的特定設定。
 
@@ -31,18 +31,18 @@ Azure Stack 虛擬機器有各種用途。 例如︰
 
 * **擴充的資料中心** – Azure Stack 虛擬網路中的虛擬機器很容易連線至組織的網路或 Azure。
 
-您的應用程式所使用的 VM 數目可以相應增加及相應放大為符合您需求的任何內容。
+您的應用程式所使用的 VM 數目可以相應增加或相應放大為符合個人需求的任何內容。
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>我在建立 VM 之前需要先考慮什麼？
 
-當您在 Azure Stack 中建置應用程式基礎結構時，一定會面臨許多設計考量。 在您開始之前，仔細考量 VM 的這些層面很重要︰
+當您在 Azure Stack 中建置應用程式基礎結構時，一定會面臨許多設計考量。 在您開始建立基礎結構之前，仔細考量 VM 的下列層面是很重要的︰
 
-- 應用程式資源的名稱
-- VM 的大小
-- 可建立的 VM 數目上限
-- VM 上執行的作業系統
-- VM 啟動後的設定 
-- VM 需要的相關資源
+* 應用程式資源的名稱。
+* VM 的大小。
+* 可建立的 VM 數目上限。
+* VM 執行的作業系統。
+* VM 啟動後的設定。
+* VM 需要的相關資源。
 
 ### <a name="naming"></a>命名
 
@@ -64,7 +64,6 @@ Azure Stack 虛擬機器有各種用途。 例如︰
 Azure Stack 提供一個市集，適用於各種版本和類型的作業系統。 Marketplace 映像是依映像發行者、優惠、SKU 和版本 (版本通常會指定為最新版本) 來識別。
 
 下表顯示一些方法讓您找到映像的資訊：
-
 
 |方法|說明|
 |---------|---------|
@@ -112,7 +111,12 @@ VM 擴充可透過部署後設定及自動化工作，讓您的 VM 有更多功�
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>如何管理我所建立的 VM？
 
-可以使用以瀏覽器為基礎的入口網站、支援指令碼處理的命令列工具，或直接透過 API 管理 VM。 您可能會執行的一些一般管理工作為取得 VM 的相關資訊、登入 VM、管理可用性，以及進行備份。
+您可以使用以瀏覽器為基礎的入口網站、支援指令碼處理的命令列工具，或直接透過 API 管理 VM。 您可能會執行的一般管理工作包括：
+
+* 取得 VM 的相關資訊
+* 連線至 VM
+* 管理可用性
+* 建立備份
 
 ### <a name="get-information-about-a-vm"></a>取得 VM 的相關資訊
 
@@ -130,5 +134,5 @@ VM 擴充可透過部署後設定及自動化工作，讓您的 VM 有更多功�
 在 Azure Stack 入口網站中，您可以使用 [連線] 按鈕來連線至 VM。
 
 ## <a name="next-steps"></a>後續步驟
-* [Azure Stack 中虛擬機器的考量](azure-stack-vm-considerations.md)
 
+* [Azure Stack 中虛擬機器的考量](azure-stack-vm-considerations.md)

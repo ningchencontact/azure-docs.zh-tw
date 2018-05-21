@@ -1,35 +1,42 @@
 ---
-title: "使用安全地存放在 Azure Stack 上的密碼部署 VM | Microsoft Docs"
-description: "了解如何使用存放在 Azure Stack Key Vault 中的密碼部署 VM"
+title: 使用安全地存放在 Azure Stack 上的密碼部署 VM | Microsoft Docs
+description: 了解如何使用存放在 Azure Stack Key Vault 中的密碼部署 VM
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2017
+ms.date: 05/07/2018
 ms.author: mabrigg
-ms.openlocfilehash: 8d9a2cebd7a28ca13cf88518a7c83b217af4c0e1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4239eb31afd4abc8b3555f0ee353f5d96716d623
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>擷取存放在 Key Vault 中的密碼來建立虛擬機器
+# <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>使用存放在 Azure Stack Key Vault 中的安全密碼建立虛擬機器
 
-當您需要在部署期間傳遞安全值 (例如密碼) 時，可以將該值儲存為 Azure Stack Key Vault 中的祕密，並在 Azure Resource Manager 範本中加以參考。 您不需要在每次部署資源時手動輸入祕密，您也可以指定哪些使用者或服務主體可以存取祕密。 
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-在本文中，我們會針對如何擷取存放在 Key Vault 中的密碼，以完成在 Azure Stack 中部署 Windows 虛擬機器，逐步說明所需的步驟。 因此，密碼絕不會以純文字的形式，放在範本參數檔案中。 您可以從 Azure Stack 開發套件，或從外部用戶端 (如果是透過 VPN 連線) 來使用這些步驟。
+此文將逐步解說如何使用存放在 Azure Stack Key Vault 中的密碼部署 Windows Server 虛擬機器。 使用金鑰保存庫密碼比傳遞純文字密碼更為安全。
+
+## <a name="overview"></a>概觀
+
+您可以將密碼之類的值儲存為 Azure Stack 金鑰保存庫中的密碼。 建立密碼之後，您可以在 Azure Resource Manager 範本中加以參考。 透過資源管理員使用密碼有下列優點︰
+
+* 您不需要在每次部署資源時手動輸入密碼。
+* 您可以指定哪些使用者或服務主體可以存取密碼。
 
 ## <a name="prerequisites"></a>先決條件
- 
-* 您必須訂閱包含 Key Vault 服務的供應項目。  
-* [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)  
+
+* 您必須訂閱包含 Key Vault 服務的供應項目。
+* [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
 * [設定 Azure Stack 使用者的 PowerShell 環境。](azure-stack-powershell-configure-user.md)
 
 下列步驟說明擷取存放在 Key Vault 中的密碼來建立虛擬機器所需的程序：
@@ -37,6 +44,8 @@ ms.lasthandoff: 12/11/2017
 1. 建立 Key Vault 祕密。
 2. 更新 azuredeploy.parameters.json 檔案。
 3. 部署範本。
+
+>[NOTE] 您可以從 Azure Stack 開發套件，或從外部用戶端 (如果是透過 VPN 連線) 來使用這些步驟。
 
 ## <a name="create-a-key-vault-secret"></a>建立 Key Vault 祕密
 
@@ -74,7 +83,7 @@ Set-AzureKeyVaultSecret `
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>更新 azuredeploy.parameters.json 檔案
 
-根據您的環境，以 KeyVault URI、secretName、虛擬機器 adminUsername 的值來更新 azuredeploy.parameters.json 檔案。 下列 JSON 檔案會顯示範本參數檔案的範例： 
+根據您的環境，以 KeyVault URI、secretName、虛擬機器 adminUsername 的值來更新 azuredeploy.parameters.json 檔案。 下列 JSON 檔案會顯示範本參數檔案的範例：
 
 ```json
 {
@@ -114,13 +123,13 @@ New-AzureRmResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+
 成功部署範本之後，會產生下列輸出：
 
 ![部署輸出](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
 
-
 ## <a name="next-steps"></a>後續步驟
+
 [使用 Key Vault 部署範例應用程式](azure-stack-kv-sample-app.md)
 
 [使用 Key Vault 憑證部署 VM](azure-stack-kv-push-secret-into-vm.md)
-

@@ -9,16 +9,14 @@ editor: cgronlun
 ms.assetid: ca35e65f-3986-4f1b-bf93-9af6066bb716
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 5d91d8d00a37422dcead195354447d602b801f9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5b83f02c55d0aa7b2e122d7fc8c9ef5734cdd924
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>保護儲存在 Azure 資料湖儲存區中的資料
 保護儲存在 Azure 資料湖儲存區中的資料，其方法有三步驟。  必須設定角色型存取控制 (RBAC) 和存取控制清單 (ACL) 都，才能完整啟用使用者和安全性群組之資料的存取權。
@@ -103,7 +101,7 @@ ms.lasthandoff: 04/16/2018
 4. 按一下 [新增] 圖示，以開啟 [指派權限] 刀鋒視窗。 在此刀鋒視窗中，按一下 [選取使用者或群組]，然後在 [選取使用者或群組] 刀鋒視窗中，搜尋您稍早在 Azure Active Directory 中建立的安全性群組。 若您需要搜尋大量的群組，請使用頂端的文字方塊來篩選群組名稱。 按一下您要新增的群組，然後按一下 [選取] 。
    
     ![加入群組](./media/data-lake-store-secure-data/adl.acl.3.png "加入群組")
-5. 按一下 [選取權限]，選取權限、權限是否應該以遞迴方式套用，以及您想要將權限指派為存取 ACL、預設 ACL 或兩者並用。 按一下 [SERVICEPRINCIPAL] 。
+5. 按一下 [選取權限]，選取權限、權限是否應該以遞迴方式套用，以及您想要將權限指派為存取 ACL、預設 ACL 或兩者並用。 按一下 [確定]。
    
     ![將權限指派至群組](./media/data-lake-store-secure-data/adl.acl.4.png "將權限指派至群組")
    

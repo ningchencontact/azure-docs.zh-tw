@@ -1,13 +1,13 @@
 ---
-title: "在 Azure 中建立 Linux 的虛擬機器擴展集 | Microsoft Docs"
-description: "在 Linux VM 上使用虛擬機器擴展集，建立及部署高可用性應用程式。"
+title: 教學課程 - 在 Azure 中建立 Linux 的虛擬機器擴展集 | Microsoft Docs
+description: 在本教學課程中，您會了解如何使用 Azure CLI 2.0 在 Linux VM 上使用虛擬機器擴展集，建立及部署高可用性應用程式
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: azure-resource-manager
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -15,13 +15,15 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 263983017e08dcc9a8e614c159ef5afaaf1d924e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: mvc
+ms.openlocfilehash: 741cabd37a5a508257f0307dfec25b5bb2d25153
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>在 Linux 上建立虛擬機器擴展集及部署高可用性應用程式
+# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli-20"></a>教學課程：使用 Azure CLI 2.0 在 Linux 上建立虛擬機器擴展集及部署高可用性應用程式
+
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據如 CPU、記憶體需求或網路流量的資源使用量來自動調整。 在本教學課程中，您將會在 Azure 部署虛擬機器擴展集。 您會了解如何：
 
 > [!div class="checklist"]
@@ -32,10 +34,9 @@ ms.lasthandoff: 02/09/2018
 > * 檢視擴展集執行個體的連線資訊
 > * 在擴展集內使用資料磁碟
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.22 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="scale-set-overview"></a>擴展集概觀
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 擴展集中的 VM 會分散於一或多個放置群組中的邏輯容錯網域和更新網域。 這些是類似設定 VM 的群組，類似於[可用性設定組](tutorial-availability-sets.md)。
@@ -187,7 +188,7 @@ az vmss show \
     --output table
 ```
 
-然後，您可以使用 [az vmss scale](/cli/azure/vmss#az_vmss_scale)，手動增加或減少擴展集中的虛擬機器數目。 下列範例會將擴展集中的 VM 數目設定為 3：
+然後，您可以使用 [az vmss scale](/cli/azure/vmss#az_vmss_scale)，手動增加或減少擴展集中的虛擬機器數目。 下列範例會將擴展集中的 VM 數目設定為 *3*：
 
 ```azurecli-interactive 
 az vmss scale \

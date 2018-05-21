@@ -1,79 +1,79 @@
 ---
-title: 使用 Azure 原則來建立和管理原則以強制執行組織相容性 | Microsoft Docs
+title: 使用 Azure 原則來建立和管理原則以強制執行組織合規性
 description: 使用 Azure 原則來強制執行標準、符合法規合規性與稽核需求、控制成本、維護安全性與效能一致性，並且強制整個企業的設計原則。
 services: azure-policy
 keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/19/2018
+ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 0b6e77d080ce4e4483709b9a5e47dca21c22e1d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2e04e08d22890246e2b68a55d79e82864201ef9d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
 了解如何在 Azure 中建立和管理原則，對於保持符合公司標準和服務等級協定而言，相當重要。 在本教學課程中，您將了解如何使用 Azure 原則在整個組織執行與建立、指派及管理原則相關的某些常見工作，例如：
 
 > [!div class="checklist"]
-> * 指派原則來強制執行您在未來建立的資源條件
-> * 建立及指派計畫定義，以追蹤多個資源的相容性
-> * 解決不相容或拒絕的資源
-> * 在整個組織中實作新的原則
+> - 指派原則來強制執行您在未來建立的資源條件
+> - 建立及指派計畫定義，以追蹤多個資源的相容性
+> - 解決不相容或拒絕的資源
+> - 在整個組織中實作新的原則
 
-如果您想要指派原則以識別現有資源的目前合規性狀態，快速入門文章會說明如何執行這項操作。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您想要指派原則以識別現有資源的目前合規性狀態，快速入門文章會說明如何執行這項操作。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
 ## <a name="assign-a-policy"></a>指派原則
 
-使用 Azure 原則強制執行相容性的第一步是指派原則定義。 原則定義會定義在何種條件下強制執行原則，以及要採取什麼動作。 在此範例中，指派稱為「需要 SQL Server 12.0 版」的內建原則定義，以強制執行所有 SQL Server 資料庫都必須是 v12.0 才能相容的條件。
+使用 Azure 原則強制執行相容性的第一步是指派原則定義。 原則定義會定義在何種條件下強制執行原則，以及要發揮什麼作用。 在此範例中，指派稱為「需要 SQL Server 12.0 版」的內建原則定義，以強制執行所有 SQL Server 資料庫都必須是 v12.0 才能相容的條件。
 
-1. 藉由搜尋並選取左窗格中的 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
+1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
 
-   ![搜尋原則](media/assign-policy-definition/search-policy.png)
+   ![搜尋原則](media/create-manage-policy/search-policy.png)
 
-2. 選取 Azure 原則分頁左窗格上的 [指派]。 指派是已指派在特定範圍內發生的原則。
-3. 從 [指派] 窗格頂端選取 [指派原則]。
+2. 選取 Azure 原則分頁左側的 [指派]。 指派是已指派在特定範圍內發生的原則。
+3. 從 [原則 - 指派] 分頁頂端選取 [指派原則]。
 
    ![指派原則定義](media/create-manage-policy/select-assign-policy.png)
 
-4. 在 [指派原則] 分頁上，按一下 [原則] 欄位旁的![原則定義按鈕](media/assign-policy-definition/definitions-button.png)，以開啟可用定義的清單。 您可以將原則定義 [類型] 篩選為 [BuiltIn]，以檢視所有項目並閱讀其描述。
+4. 在 [指派原則] 分頁上，按一下省略符號，然後選取訂用帳戶 (必要) 和資源群組 (選擇性)，以選取 [範圍]。 範圍會決定在哪些資源或資源群組上強制執行原則指派。  然後，按一下位於 [範圍] 分頁底部的 [選取]。
 
-   ![開啟可用原則定義](media/create-manage-policy/open-policy-definitions.png)
+   這個範例會使用 **Contoso 訂用帳戶**。 您的訂用帳戶不同。
 
-5. 選取 [需要 SQL Server 12.0 版]。 如果您無法立即找到它，請在搜尋方塊中輸入 [需要 SQL Server 12.0 版]，然後按 ENTER 鍵。
+5. 如果您要排除一或多個資源群組 (如果您只有界定訂用帳戶的範圍) 或資源群組內的特定資源 (任一個界定範圍的情況)，您可以從原則指派設定 [排除]。 目前將其保留為空白。
+
+6. 選取 [原則定義] 省略符號以開啟可用定義的清單。 您可以將原則定義 [類型] 篩選為 [內建]，以檢視所有項目並閱讀其描述。
+
+7. 選取 [需要 SQL Server 12.0 版]。 如果您無法立即找到它，請在搜尋方塊中輸入 [需要 SQL Server]，然後按 ENTER 鍵或按一下 [搜尋] 方塊外面。 一旦您找到並選取原則定義後，請按一下 [可用的定義] 分頁底部的 [選取]。
 
    ![找出原則](media/create-manage-policy/select-available-definition.png)
 
-6. 系統會自動填入顯示的 [名稱]，但您可加以變更。 在此範例中，使用「需要 SQL Server 12.0 版」。 您也可以新增選擇性的 [描述]。 描述會提供有關此原則指派如何確保在此環境中建立的所有 SQL Server 都是 12.0 版的詳細資料。
+8. [指派名稱] 會自動填入您選取的原則名稱，但您可加以變更。 在此範例中，請保留「需要 SQL Server 12.0 版」。 您也可以新增選擇性的 [描述]。 描述會提供有關此原則指派的詳細資料。
 
-7. 將定價層變更為**標準**，以確保原則套用至現有的資源。
-
-   Azure 原則有兩個定價層 – 免費和標準。 使用免費層次，您只能在未來的資源上強制執行原則，而使用標準層，您也能在現有資源上強制執行這些原則，以更加了解相容性狀態。 因為 Azure 原則是預覽版本，所以尚未發行定價模式，因此您選取「標準」也不會收到帳單。 若要深入了解定價，請參閱 [Azure 原則定價](https://azure.microsoft.com/pricing/details/azure-policy)。
-
-8. 選取 [範圍]：您先前註冊的訂用帳戶 (或資源群組)。 範圍會決定在哪些資源或資源群組上強制執行原則指派。 範圍從訂用帳戶到資源群組。
-
-   此範例使用 **Azure Analytics Capacity Dev** 訂用帳戶。 您的訂用帳戶不同。
-
-10. 選取 [指派]。
+9. 按一下 [指派]。
 
 ## <a name="implement-a-new-custom-policy"></a>實作新的自訂原則
 
 既然您已指派內建原則定義，可以進一步利用 Azure 原則。 接下來，建立新的自訂原則，藉由確保在您的環境中建立的 VM 不是 G 系列來節省成本。 如此一來，每次您組織中的使用者嘗試建立 G 系列的 VM 時，要求就會遭到拒絕。
 
-1. 選取左窗格中 [製作] 底下的 [定義]。
+1. 選取 Azure 原則分頁左側 [製作] 下的 [定義]。
 
    ![定義正在製作中](media/create-manage-policy/definition-under-authoring.png)
 
-2. 選取 [+ 原則定義]。
+2. 選取分頁頂端的 [+ 原則定義]。 這會開啟至 [原則定義] 分頁。
 3. 輸入以下資訊：
+
+   - 原則定義儲存所在的管理群組或訂用帳戶。 使用 [定義位置] 上的省略符號加以選取。
+
+     > [!NOTE]
+     > 如果您計劃要將此原則定義套用至多個訂用帳戶，則作為位置的管理群組必須包含您要對其指派原則的訂用帳戶。 計畫定義也是如此。
 
    - 原則定義的名稱 - 需要小於 G 系列的 VM SKU
    - 原則定義目的的描述 – 此原則定義會強制讓此範圍中建立的所有 VM，具有比 G 系列小的 SKU，以降低成本。
-   - 原則定義所在的訂用帳戶。 在此例中，原則定義位於 **Advisor Analytics Capacity Dev** 中。 您的訂用帳戶清單不同。
    - 從現有選項進行選擇，或為此原則定義建立新類別。
    - 複製下列 json 程式碼，然後針對您的需求進行更新：
       - 原則參數。
@@ -83,30 +83,29 @@ ms.lasthandoff: 04/28/2018
     以下是 json 應該會有的外觀。 將修改過的程式碼貼到 Azure 入口網站中。
 
     ```json
-{
-    "policyRule": {
-      "if": {
-        "allOf": [
-          {
-            "field": "type",
-            "equals": "Microsoft.Compute/virtualMachines"
-          },
-          {
-            "field": "Microsoft.Compute/virtualMachines/sku.name",
-            "like": "Standard_G*"
-          }
-        ]
-      },
-      "then": {
-        "effect": "deny"
-      }
+    {
+        "policyRule": {
+            "if": {
+                "allOf": [{
+                        "field": "type",
+                        "equals": "Microsoft.Compute/virtualMachines"
+                    },
+                    {
+                        "field": "Microsoft.Compute/virtualMachines/sku.name",
+                        "like": "Standard_G*"
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
     }
-}
     ```
 
-    原則規則中欄位屬性的值必須是下列其中一項：Name、Type、Location、Tags 或別名。 例如： `"Microsoft.Compute/VirtualMachines/Size"`。
+    原則規則中欄位屬性的值必須是下列其中一項：Name、Type、Location、Tags 或別名。 可能的別名範例為 `"Microsoft.Compute/VirtualMachines/Size"`。
 
-    若要檢視更多 json 程式碼範例，請參閱 [Azure 原則的範本](json-samples.md)一文。
+    若要檢視更多的 Azure 原則範例，請參閱 [Azure 原則的範本](json-samples.md)。
 
 4. 選取 [ **儲存**]。
 
@@ -115,39 +114,39 @@ ms.lasthandoff: 04/28/2018
 您可以使用「適用於原則定義的 REST API」來建立原則。 REST API 可讓您建立和刪除原則定義，以及取得現有定義的相關資訊。
 若要建立原則定義，請使用下列範例：
 
-```
+```http-interactive
 PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
-
 ```
+
 納入如下範例的要求內文：
 
-```
+```json
 {
-  "properties": {
-    "parameters": {
-      "allowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that can be specified when deploying resources",
-          "strongType": "location",
-          "displayName": "Allowed locations"
+    "properties": {
+        "parameters": {
+            "allowedLocations": {
+                "type": "array",
+                "metadata": {
+                    "description": "The list of locations that can be specified when deploying resources",
+                    "strongType": "location",
+                    "displayName": "Allowed locations"
+                }
+            }
+        },
+        "displayName": "Allowed locations",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+        "policyRule": {
+            "if": {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters('allowedLocations')]"
+                }
+            },
+            "then": {
+                "effect": "deny"
+            }
         }
-      }
-    },
-    "displayName": "Allowed locations",
-    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "not": {
-          "field": "location",
-          "in": "[parameters('allowedLocations')]"
-        }
-      },
-      "then": {
-        "effect": "deny"
-      }
     }
-  }
 }
 ```
 
@@ -159,58 +158,56 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Micro
 
 若要從檔案建立原則定義，請將路徑傳遞至檔案。 針對外部檔案，請使用下列範例：
 
-```
+```azurepowershell-interactive
 $definition = New-AzureRmPolicyDefinition `
-    -Name denyCoolTiering `
-    -DisplayName "Deny cool access tiering for storage" `
+    -Name 'denyCoolTiering' `
+    -DisplayName 'Deny cool access tiering for storage' `
     -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
 ```
 
 針對本機檔案，請使用下列範例：
 
-```
+```azurepowershell-interactive
 $definition = New-AzureRmPolicyDefinition `
-    -Name denyCoolTiering `
-    -Description "Deny cool access tiering for storage" `
-    -Policy "c:\policies\coolAccessTier.json"
+    -Name 'denyCoolTiering' `
+    -Description 'Deny cool access tiering for storage' `
+    -Policy 'c:\policies\coolAccessTier.json'
 ```
 
 若要建立具有內嵌規則的原則定義，請使用下列範例：
 
-```
-$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
-  "if": {
-    "allOf": [
-      {
-        "field": "type",
-        "equals": "Microsoft.Storage/storageAccounts"
-      },
-      {
-        "field": "kind",
-        "equals": "BlobStorage"
-      },
-      {
-        "not": {
-          "field": "Microsoft.Storage/storageAccounts/accessTier",
-          "equals": "cool"
-        }
-      }
-    ]
-  },
-  "then": {
-    "effect": "deny"
-  }
+```azurepowershell-interactive
+$definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
+    "if": {
+        "allOf": [{
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "field": "kind",
+                "equals": "BlobStorage"
+            },
+            {
+                "not": {
+                    "field": "Microsoft.Storage/storageAccounts/accessTier",
+                    "equals": "cool"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
 }'
 ```
 
 輸出會儲存在於原則指派期間使用的 `$definition` 物件中。
 下列範例建立了包含參數的原則定義：
 
-```
+```azurepowershell-interactive
 $policy = '{
     "if": {
-        "allOf": [
-            {
+        "allOf": [{
                 "field": "type",
                 "equals": "Microsoft.Storage/storageAccounts"
             },
@@ -231,21 +228,21 @@ $parameters = '{
     "allowedLocations": {
         "type": "array",
         "metadata": {
-          "description": "The list of locations that can be specified when deploying storage accounts.",
-          "strongType": "location",
-          "displayName": "Allowed locations"
+            "description": "The list of locations that can be specified when deploying storage accounts.",
+            "strongType": "location",
+            "displayName": "Allowed locations"
         }
     }
 }'
 
-$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters
+$definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
 ```
 
-## <a name="view-policy-definitions"></a>檢視原則定義
+### <a name="view-policy-definitions-with-powershell"></a>使用 PowerShell 檢視原則定義
 
 若要查看訂用帳戶中的所有原則定義，請使用下列命令：
 
-```
+```azurepowershell-interactive
 Get-AzureRmPolicyDefinition
 ```
 
@@ -267,142 +264,166 @@ PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962
 您可以使用 Azure CLI 搭配原則定義命令來建立原則定義。
 若要建立具有內嵌規則的原則定義，請使用下列範例：
 
-```
-az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
-  "if": {
-    "allOf": [
-      {
-        "field": "type",
-        "equals": "Microsoft.Storage/storageAccounts"
-      },
-      {
-        "field": "kind",
-        "equals": "BlobStorage"
-      },
-      {
-        "not": {
-          "field": "Microsoft.Storage/storageAccounts/accessTier",
-          "equals": "cool"
-        }
-      }
-    ]
-  },
-  "then": {
-    "effect": "deny"
-  }
+```azurecli-interactive
+az policy definition create --name 'denyCoolTiering' --description 'Deny cool access tiering for storage' --rules '{
+    "if": {
+        "allOf": [{
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "field": "kind",
+                "equals": "BlobStorage"
+            },
+            {
+                "not": {
+                    "field": "Microsoft.Storage/storageAccounts/accessTier",
+                    "equals": "cool"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
 }'
 ```
 
-## <a name="view-policy-definitions"></a>檢視原則定義
+### <a name="view-policy-definitions-with-azure-cli"></a>使用 Azure CLI 檢視原則定義
 
 若要查看訂用帳戶中的所有原則定義，請使用下列命令：
 
-```
+```azurecli-interactive
 az policy definition list
 ```
 
 它會傳回所有可用的原則定義，包括內建原則。 每個原則都以下列格式傳回：
 
-```
-{                                                            
-  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
-  "displayName": "Allowed locations",
-  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
-  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
-  "policyRule": {
-    "if": {
-      "not": {
-        "field": "location",
-        "in": "[parameters('listOfAllowedLocations')]"
-      }
+```json
+{
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
+    "displayName": "Allowed locations",
+    "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+    "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+    "policyRule": {
+        "if": {
+            "not": {
+                "field": "location",
+                "in": "[parameters('listOfAllowedLocations')]"
+            }
+        },
+        "then": {
+            "effect": "Deny"
+        }
     },
-    "then": {
-      "effect": "Deny"
-    }
-  },
-  "policyType": "BuiltIn"
+    "policyType": "BuiltIn"
 }
 ```
 
 ## <a name="create-and-assign-an-initiative-definition"></a>建立並指派計畫定義
 
-使用計畫定義，您可以群組數個原則定義，以達成一個總體目標。 您建立計畫定義，以確保定義範圍內的資源保持與組成計畫定義的原則定義相容。  請參閱 [Azure 原則概觀](./azure-policy-introduction.md)，以取得計畫定義的詳細資訊。
+使用計畫定義，您可以群組數個原則定義，以達成一個總體目標。 您建立計畫定義，以確保定義範圍內的資源保持與組成計畫定義的原則定義相容。  如需關於計畫定義的詳細資訊，請參閱 [Azure 原則概觀](azure-policy-introduction.md)。
 
 ### <a name="create-an-initiative-definition"></a>建立計畫定義
 
-1. 選取左窗格中 [製作] 底下的 [定義]。
+1. 選取 Azure 原則分頁左側 [製作] 下的 [定義]。
 
    ![選取定義](media/create-manage-policy/select-definitions.png)
 
-2. 選取分頁頂端的 [計畫定義]，這個選項會帶您前往 [計畫定義] 表單。
-3. 輸入計畫的名稱和說明。
-
-   在此範例中，確保資源都符合保障安全的原則定義。 因此，計畫的名稱會是**保障安全**，描述是：**已經建立計畫以處理與保護資源安全相關聯的所有原則定義**。
+2. 選取分頁頂端的 [+ 計畫定義]，可開啟 [計畫定義] 分頁。
 
    ![計畫定義](media/create-manage-policy/initiative-definition.png)
 
-4. 瀏覽 [可用定義] 的清單，並選取您想要新增至該計畫的原則定義。 針對我們的**保障安全**計畫，**新增**下列內建原則定義：
+3. 使用 [定義位置] 省略符號來選取要儲存定義的訂用帳戶。
+
+4. 輸入計畫的 [名稱] 和 [說明]。
+
+   此範例會確保資源都符合保障安全的原則定義。 因此，計畫的名稱會是**保障安全**，描述是：**已經建立計畫以處理與保護資源安全相關聯的所有原則定義**。
+
+5. 針對 [類別]，從現有選項進行選擇，或建立新的類別。
+
+6. 瀏覽 [可用定義] ([計畫定義] 分頁的右半部) 的清單，並選取您想要新增至此計畫的原則定義。 針對 [保障安全] 計畫，按一下原則定義資訊旁的 [+]，或按一下原則定義資料列，然後按一下詳細資料頁面中的 [+ 新增] 選項，以新增下列內建原則定義：
    - 需要 SQL Server 12.0 版
-   - 在資訊安全中心監視未受保護的 Web 應用程式。
-   - 監視整個資訊安全中心的寬鬆網路。
-   - 監視資訊安全中心的可能應用程式白名單。
-   - 監視資訊安全中心的未加密 VM 磁碟。
+   - [Preview]: Monitor unprotected web applications in Security Center.
+   - [Preview]: Monitor permissive network across in Security Center.
+   - [Preview]: Monitor possible app Whitelisting in Security Center.
+   - [Preview]: Monitor unencrypted VM Disks in Security Center.
+
+   從清單中選取原則定義之後，系統會將該定義新增到 [原則和參數] 底下。
 
    ![計畫定義](media/create-manage-policy/initiative-definition-2.png)
 
-   從清單中選取原則定義之後，您會在 [原則和參數] 底下看到它，如上圖所示。
-
-5. 使用 [定義位置] 來選取要儲存定義的訂用帳戶。 選取 [ **儲存**]。
+7. 按一下 [檔案] 。
 
 ### <a name="assign-an-initiative-definition"></a>指派計畫定義
 
-1. 移至 [製作] 底下的 [定義] 索引標籤。
-2. 搜尋您建立的**保障安全**計畫定義。
-3. 選取計畫定義，然後選取 [指派]。
+1. 選取 Azure 原則分頁左側 [製作] 下的 [定義]。
+2. 找出您先前建立的 [保障安全] 計畫定義並加以選取。
+3. 選取分頁頂端的 [指派] 以開啟至 [保障安全: 指派計畫] 分頁。
 
    ![指派定義](media/create-manage-policy/assign-definition.png)
 
-4. 輸入下列範例資訊，以填寫 [指派] 表單。 您可以使用自己的資訊。
-   - 名稱：保障安全指派
-   - 描述：此計畫指派適合在 **Azure Advisor Capacity Dev** 訂用帳戶中強制執行此原則定義群組。
-   - 定價層：標準
-   - 您想要套用此指派的範圍：**Azure Advisor Capacity Dev**。 您可以選擇自己的訂用帳戶和資源群組。
+   或者，您也可以用滑鼠右鍵按一下選取的資料列，或用滑鼠左鍵按一下資料列結尾的省略符號，以顯示快顯功能表。  然後選取 [指派]。
 
-5. 選取 [指派]。
+   ![以滑鼠右鍵按一下資料列](media/create-manage-policy/select-right-click.png)
+
+4. 輸入下列範例資訊，以填寫 [保障安全: 指派計畫] 分頁。 您可以使用自己的資訊。
+
+   - 範圍：您在其中儲存計畫的訂用帳戶將成為預設值。  您可以變更範圍，將計畫指派給訂用帳戶儲存位置內的資源群組。
+   - 排除項目：設定範圍內的任何資源，以防止計畫指派套用至這些資源。
+   - 計畫定義和指派名稱：保障安全 (預先填入作為所指派計畫的名稱)。
+   - 描述：此計畫指派適合強制執行此原則定義群組。
+
+5. 按一下 [指派]。
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>使用排除來免除不相容或拒絕的資源
 
-遵循上述範例，在指派原則定義需要 SQL Server 12.0 版之後，使用 12.0 以外版本建立的 SQL Server 就會遭到拒絕。 在本節中，您可藉由要求排除特定資源，逐步解決建立 SQL Server 的被拒絕嘗試。 排除基本上可防止原則強制執行。 在下列範例中，允許使用任何 SQL Server 版本。 排除可以套用至資源群組，或者您可將排除範圍縮小為個別的資源。
+遵循上述範例，在指派原則定義需要 SQL Server 12.0 版之後，使用 12.0 以外版本建立的 SQL Server 就會遭到拒絕。 在本節中，您可藉由在單一資源群組中建立排除項目，以逐步解決建立 SQL Server 的被拒絕嘗試。 排除項目會防止對該資源強制執行原則 (或計畫)。 在下列範例中，單一資源群組中允許任何 SQL 伺服器版本。 排除可以套用至資源群組，或者您可將排除範圍縮小為個別的資源。
 
-1. 選取左窗格中的 [指派]。
+由於指派的原則或計畫可在兩個位置中檢視，因此無法部署：
+
+- 在作為部署目標的資源群組上：選取分頁左側的 [部署]，並按一下失敗部署的 [部署名稱]。 遭拒的資源將會以 [禁止] 狀態列出。 若要判斷拒絕資源的是原則或計畫還是指派，請在 [部署概觀] 分頁上按一下 [失敗。如需詳細資訊，請按一下這裡 ->]。 視窗會在分頁右側開啟，並附上錯誤資訊。 在 [錯誤詳細資料] 下，會有相關原則物件的 GUID。
+
+   ![部署遭原則指派拒絕](media/create-manage-policy/rg-deployment-denied.png)
+
+- 在 Azure 原則分頁上：選取分頁左側的 [合規性]，並按一下 [需要 SQL Server 12.0 版] 原則。 在開啟的頁面上，您會看到 [拒絕] 計數增加。 在 [事件] 索引標籤下，您也會看到哪些人員所嘗試的部署遭到原則拒絕。
+
+   ![指派原則的合規性概觀](media/create-manage-policy/compliance-overview.png)
+
+在此範例中，Trent Baker 是 Contoso 的其中一名資深虛擬化專家，他正在執行必要的工作。 我們必須授與他例外狀況，但我們在任何資源群組中不需要非 12.0 版 SQL 伺服器。 我們建立了新的資源群組 **SQLServers_Excluded**，且現在將授與此群組對此原則指派的例外狀況。
+
+### <a name="update-assignment-with-exclusion"></a>使用排除項目更新指派
+
+1. 選取 Azure 原則分頁左側 [製作] 下的 [指派]。
 2. 瀏覽所有原則指派，並開啟 [需要 SQL Server 12.0 版] 指派。
-3. 針對您嘗試建立 SQL Server 的資源群組中的資源，**選取**排除。 在此範例中，排除 Microsoft.Sql/servers/databases：azuremetrictest/testdb 和 azuremetrictest/testdb2。
+3. 按一下省略符號並選取要排除的資源群組 (在此範例中為 SQLServers_Excluded) 以設定 [排除]。
 
    ![要求排除](media/create-manage-policy/request-exclusion.png)
 
-   您解決被拒絕資源的其他方法包括：如果您有強烈的理由需要建立的 SQL Server，則洽詢與原則相關聯的連絡人，如果您有存取權就直接編輯原則。
+   > [!NOTE]
+   > 根據原則及其效果，也可將排除授與給指派範圍內資源群組中的特定資源。 由於此教學課程中使用 [拒絕] 效果，因此對已經存在的特定資源設定排除將沒有意義。
 
-4. 按一下 [指派]。
+4. 依序按一下 [選取] 和 [儲存]。
 
-在本節中，您藉由要求排除資源，解決了拒絕您嘗試建立 SQL Server 的問題。
+在本節中，您可藉由在單一資源群組中建立排除，來解決拒絕嘗試建立禁止的 SQL 伺服器版本。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算繼續進行後續的教學課程，請勿清除在此指南中建立的資源。 如果您不打算繼續，請使用下列步驟來刪除前面建立的任何指派或定義：
+如果您已完成使用本教學課程中的資源，請使用下列步驟來刪除前面建立的任何指派或定義：
 
-1. 選取左窗格中的 [定義] \(或 [指派]，如果您嘗試刪除指派)。
-2. 搜尋您剛剛建立的新計畫或原則定義 (或指派)。
-3. 選取定義或指派結尾的省略符號，然後選取 [刪除定義] \(或 [刪除指派])。
+1. 選取 Azure 原則分頁左側 [製作] 下的 [定義] (或 [指派]，如果您嘗試刪除指派)。
+2. 搜尋您要移除的新計畫或原則定義 (或指派)。
+3. 以滑鼠右鍵按一下資料列，或選取定義 (或指派) 結尾的省略符號，然後選取 [刪除定義] (或 [刪除指派])。
 
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已成功完成下列項目：
 
 > [!div class="checklist"]
-> * 指派原則來強制執行您在未來建立的資源條件
-> * 建立及指派計畫定義，以追蹤多個資源的相容性
-> * 解決不相容或拒絕的資源
-> * 在整個組織中實作新的原則
+> - 指派原則來強制執行您在未來建立的資源條件
+> - 建立及指派計畫定義，以追蹤多個資源的相容性
+> - 解決不相容或拒絕的資源
+> - 在整個組織中實作新的原則
 
 若要深入了解原則定義的結構，請閱讀這篇文章：
 

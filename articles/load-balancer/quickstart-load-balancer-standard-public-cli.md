@@ -1,12 +1,13 @@
 ---
-title: 建立公用標準負載平衡器 - Azure CLI | Microsoft Docs
-description: 了解如何使用 Azure CLI 建立公用負載平衡器
+title: 快速入門：建立公用標準負載平衡器 - Azure CLI | Microsoft Docs
+description: 本快速入門說明如何使用 Azure CLI 建立公用負載平衡器
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
 ms.service: load-balancer
 ms.devlang: na
@@ -15,13 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: ee2e70e710be9badda7318aec307325da66e4c58
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: 997129d1c67a690fb4890aeb2de9f45a681e3efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>使用 Azure CLI 2.0 建立標準負載平衡器以平衡 VM 的負載
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>快速入門：使用 Azure CLI 2.0 建立標準負載平衡器以平衡 VM 的負載
 
 本快速入門示範如何建立標準負載平衡器。 若要測試負載平衡器，您要部署兩部執行 Ubuntu 伺服器的虛擬機器 (VM)，並平衡兩個 VM 間 Web 應用程式的負載。
 
