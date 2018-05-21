@@ -9,21 +9,21 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 7e401a310ce9a5f59473353227a9ce36767aac3c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1d235d5a75975c8d58cad1bbde0f16df2b1b3e7a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="eventstore-service-overview"></a>EventStore 服務概觀
 
 >[!NOTE]
->截至 Service Fabric 6.2 版為止， EventStore API 目前為預覽版本，僅適用於 Azure 上執行的 Windows 叢集。 我們正在將這個功能和我們的獨立叢集移植到 Linux。
+>截至 Service Fabric 6.2 版為止， EventStore API 目前為預覽版本，僅適用於在 Azure 上執行的 Windows 叢集。 我們正在將這個功能和我們的獨立叢集移植到 Linux。
 
 ## <a name="overview"></a>概觀
 

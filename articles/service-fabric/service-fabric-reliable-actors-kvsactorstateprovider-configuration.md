@@ -1,24 +1,24 @@
 ---
-title: "變更 Azure 微服務中的 KVSActorStateProvider 設定 | Microsoft Docs"
-description: "了解設定 KVSActorStateProvider 類型的 Azure Service Fabric 可設定狀態的動作項目。"
+title: 變更 Azure 微服務中的 KVSActorStateProvider 設定 | Microsoft Docs
+description: 了解設定 KVSActorStateProvider 類型的 Azure Service Fabric 可設定狀態的動作項目。
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: d3424aa7a8e0f6011bbef4aa61274c1f598f5c86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f29754c73db74f02214522a4de15904e65df0e98
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>設定 Reliable Actors - KVSActorStateProvider
 您可以在指定之動作項目的 Config 資料夾下，變更 Microsoft Visual Studio 封裝根中所產生的 settings.xml，來修改 KVSActorStateProvider 的預設組態。

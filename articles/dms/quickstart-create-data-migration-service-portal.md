@@ -1,21 +1,21 @@
 ---
-title: "使用 Azure 入口網站建立 Azure 資料庫移轉服務執行個體 | Microsoft Docs"
-description: "使用 Azure 入口網站建立 Azure 資料庫移轉服務的執行個體"
+title: 使用 Azure 入口網站建立 Azure 資料庫移轉服務執行個體 | Microsoft Docs
+description: 使用 Azure 入口網站建立 Azure 資料庫移轉服務的執行個體
 services: database-migration
 author: edmacauley
 ms.author: edmaca
 manager: craigg
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/13/2017
-ms.openlocfilehash: 9dea80b0a6848bd69541aa9f7e0a0fe111fa0a28
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.date: 05/01/2018
+ms.openlocfilehash: 7669ee678f4049c938c6e249c26997d993fd7c6a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>使用 Azure 入口網站建立 Azure 資料庫移轉服務的執行個體
 在本快速入門中，使用 Azure 入口網站建立 Azure 資料庫移轉服務的執行個體。  建立服務之後，您可以使用它來將資料從內部部署 SQL Server 移轉到 Azure SQL Database。
@@ -39,9 +39,9 @@ ms.lasthandoff: 12/13/2017
 ![註冊資源提供者](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>建立服務執行個體
-1. 按一下 [+ 建立資源] 以建立 Azure 資料庫移轉服務執行個體，此執行個體目前為預覽狀態。
+1. 按一下 [+ 建立資源] 以建立 Azure 資料庫移轉服務執行個體。
 
-2. 搜尋適合「移轉」的市集，選取 [Azure 資料庫移轉服務]，並在 **Azure 資料庫移轉服務 (預覽)** 畫面中，按一下 [建立]。
+2. 搜尋適合「移轉」的市集，選取 [Azure 資料庫移轉服務]，並在 **Azure 資料庫移轉服務**畫面中，按一下 [建立]。
 
 3. 在**資料庫移轉服務**畫面上： 
 
