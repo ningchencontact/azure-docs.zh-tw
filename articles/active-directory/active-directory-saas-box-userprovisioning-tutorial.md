@@ -1,6 +1,6 @@
 ---
-title: "教學課程︰以 Azure Active Directory 設定 Box 來自動佈建使用者 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Box 之間的單一登入。"
+title: 教學課程︰以 Azure Active Directory 設定 Box 來自動佈建使用者 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Box 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: d1bbafdb8bbd5ea7bfa193832992d56016b6ee5e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c615e3d0f144080a02f6f8d95603ecac4341f0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>教學課程︰設定 Box 來自動佈建使用者
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/09/2018
 本教學課程中說明的案例假設您已經具有下列項目：
 
 *   Azure Active Directory 租用戶。
-*   已啟用 Box 單一登入的訂用帳戶。
+*   已啟用 Box 單一登入功能的訂用帳戶。
 *   具有小組系統管理員權限的 Box 使用者帳戶。
 
 ## <a name="assigning-users-to-box"></a>將使用者指派給 Box 
@@ -43,7 +43,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 Azure 入口網站的 [Box] > [使用者和群組] 索引標籤可讓您指定應該授與哪些使用者和群組 Box 的存取權。 指派使用者或群組會導致下列事項發生︰
 
 * Azure AD 允許指派的使用者 (直接指派或群組成員資格) 驗證 Box。 如果使用者未經指派，則 Azure AD 不會允許他們登入 Box，並會在 Azure AD 登入分頁傳回錯誤。
-* Box 的應用程式圖格會加入使用者的 [應用程式啟動程式](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)中。
+* Box 的應用程式圖格會加入使用者的 [應用程式啟動程式](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)中。
 * 如已啟用自動佈建，則指派的使用者及/或群組就會加入佈建佇列進行自動佈建。
   
   * 如果只設定要佈建使用者物件，則所有直接指派的使用者都會放在佈建佇列中，而任何指派群組成員的所有使用者也會放在佈建佇列中。 
@@ -120,5 +120,5 @@ Azure 入口網站的 [Box] > [使用者和群組] 索引標籤可讓您指定�
 ## <a name="additional-resources"></a>其他資源
 
 * [管理企業應用程式的使用者帳戶佈建](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 * [設定單一登入](active-directory-saas-box-tutorial.md)
