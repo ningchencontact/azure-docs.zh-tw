@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 636f7be10850ff6a65aa6a2680bea148cb5ebd3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 618ed0f72886fff1c2de11e2fd856f6cc065a7b3
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="network-security"></a>網路安全性
 
@@ -56,7 +56,10 @@ ms.lasthandoff: 04/28/2018
 |連接埠範圍     |您可以指定個別連接埠或連接埠範圍。 例如，您可以指定 80 或 10000-10005。 指定範圍可讓您建立較少的安全性規則。 增強型安全性規則只可以在透過 Resource Manager 部署模型建立的網路安全性群組中建立。 您無法在透過傳統部署模型建立之網路安全性群組的相同安全性規則中指定多個連接埠與連接埠範圍。   |
 |動作     | 允許或拒絕        |
 
-安全性規則具有狀態。 如果您將輸出安全性規則指定至任何透過連接埠 80 (舉例來說) 的位址，則不必為了回應輸出流量來指定輸入安全性規則。 如果在外部起始通訊，您只需要指定輸入安全性規則。 反之亦然。 如果允許透過連接埠傳送輸入流量，則不必指定輸出安全性規則來透過連接埠回應流量。 若要了解建立安全性規則時的相關限制，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+系統會依優先順序使用 5 項 Tuple 資訊 (來源、來源連接埠、目的地、目的地連接埠和通訊協定) 來評估 NSG 安全性規則，以允許或拒絕流量。 對於現有的連線會建立流量記錄，根據流量記錄的連線狀態來允許或拒絕通訊，而使得 NSG 具有狀態。 如果您將輸出安全性規則指定至任何透過連接埠 80 (舉例來說) 的位址，則不必為了回應輸出流量來指定輸入安全性規則。 如果在外部起始通訊，您只需要指定輸入安全性規則。 反之亦然。 如果允許透過連接埠傳送輸入流量，則不必指定輸出安全性規則來透過連接埠回應流量。
+當您移除啟用流量的安全性規則時，現有的連線不會中斷。 當連線停止，且兩個方向至少有數分鐘都沒有流量時，流量即會中斷。
+
+若要了解建立安全性規則時的相關限制，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
 ## <a name="augmented-security-rules"></a>增強型安全性規則
 
@@ -120,8 +123,13 @@ ms.lasthandoff: 04/28/2018
 * **AzureLoadBalancer** (Resource Manager) (適用於傳統部署的 **AZURE_LOADBALANCER**)：這個標籤代表 Azure 基礎結構的負載平衡器。 此標籤會轉譯成作為 Azure 健康情況探查來源的 [Azure 資料中心 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653)。 如果您未使用 Azure 負載平衡器，則可以覆寫此規則。
 * **Internet** (Resource Manager) (適用於傳統部署的 **INTERNET**)：這個標籤代表虛擬網路以外且可以透過公用網際網路進行存取的 IP 位址空間。 此位址範圍也包括 [Azure 擁有的公用 IP 位址空間](https://www.microsoft.com/download/details.aspx?id=41653)。
 * **AzureTrafficManager** (僅限資源管理員)：此標籤代表 Azure 流量管理員探查 IP 的 IP 位址空間。 如需流量管理員探查 IP 的詳細資訊，請參閱 [Azure 流量管理員常見問題集](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)。
-* **Storage** (僅限 Resource Manager)：這個標籤代表 Azure 儲存體服務的 IP 位址空間。 如果您指定 *Storage* 值，則會允許或拒絕儲存體的流量。 如果您只想要允許存取特定[地區](https://azure.microsoft.com/regions)中的儲存體，您可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure 儲存體，您可以指定 *Storage.EastUS* 作為服務標籤。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure 儲存體服務，但不代表特定的 Azure 儲存體帳戶。
-* **Sql** (僅限 Resource Manager)：這個標籤代表 Azure SQL Database 和 Azure SQL 資料倉儲服務的位址前置詞。 如果您指定 Sql 作為值，就會允許或拒絕 Sql 的流量。 如果您只需要允許存取特定[地區](https://azure.microsoft.com/regions)中的 Sql，可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure SQL Database，您可以指定 *Sql.EastUS* 作為服務標籤。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 SQL Database 或伺服器服務，但不代表特定的 Azure SQL Database。
+* **Storage** (僅限 Resource Manager)：這個標籤代表 Azure 儲存體服務的 IP 位址空間。 如果您指定 *Storage* 值，則會允許或拒絕儲存體的流量。 如果您只想要允許存取特定[地區](https://azure.microsoft.com/regions)中的儲存體，您可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure 儲存體，您可以指定 *Storage.EastUS* 作為服務標籤。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure 儲存體服務，但不代表特定的 Azure 儲存體帳戶。 此標記所表示的所有位址前置詞，也都可用**網際網路**標記表示。
+* **Sql** (僅限 Resource Manager)：這個標籤代表 Azure SQL Database 和 Azure SQL 資料倉儲服務的位址前置詞。 如果您指定 Sql 作為值，就會允許或拒絕 Sql 的流量。 如果您只需要允許存取特定[地區](https://azure.microsoft.com/regions)中的 Sql，可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure SQL Database，您可以指定 *Sql.EastUS* 作為服務標籤。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 SQL Database 或伺服器服務，但不代表特定的 Azure SQL Database。 此標記所表示的所有位址前置詞，也都可用**網際網路**標記表示。
+* **AzureCosmosDB** (僅限資源管理員)：此標記代表 Azure Cosmos Database 服務的位址前置詞。 如果您指定 *AzureCosmosDB* 作為值，就會允許或拒絕 AzureCosmosDB 的流量。 如果您只要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureCosmosDB，您可以用 AzureCosmosDB.[region name] 的格式指定區域。
+* **AzureKeyVault** (僅限資源管理員)：此標記代表 Azure KeyVault 服務的位址前置詞。 如果您指定 *AzureKeyVault* 作為值，就會允許或拒絕 AzureKeyVault 的流量。 如果您只要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureKeyVault，您可以用 AzureKeyVault.[region name] 的格式指定區域。
+
+> [!NOTE]
+> Azure 服務的服務標記代表所使用之特定雲端中的位址前置詞。 區域服務標記在國家雲端中不受支援，而只有全域格式可支援，例如儲存體、SQL。
 
 > [!NOTE]
 > 如果您對服務 (例如 Azure 儲存體或 Azure SQL Database) 實作[虛擬網路服務端點](virtual-network-service-endpoints-overview.md)，Azure 會將路由新增至服務的虛擬網路子網路。 路由中的位址前置詞為相同的位址前置詞，或 CIDR 範圍，以及對應的服務標籤。
@@ -143,7 +151,7 @@ ms.lasthandoff: 04/28/2018
 
 應用程式安全性群組具有下列條件約束：
 
--   應用程式安全性群組內的所有網路介面都必須存在於相同的虛擬網路。 您無法將不同虛擬網路的網路介面新增至相同的應用程式安全性群組。 第一個網路介面指派至應用程式安全性群組的虛擬網路，是用來定義後續的所有虛擬網路 - 指派的網路介面必須存在其中。
+-   指派給應用程式安全性群組的所有網路介面，都必須存在於指派給應用程式安全性群組的第一個網路介面所在的相同虛擬網路中。 例如，如果指派給應用程式安全性群組 *ASG1* 的第一個網路介面位於名為 *VNet1* 的虛擬網路中，則後續所有指派給 *ASG1* 的網路介面都必須存在於 *VNet1* 中。 您無法將不同虛擬網路的網路介面新增至相同的應用程式安全性群組。
 - 如果您指定安全性群組作為安全性規則中的來源和目的地，兩個應用程式安全性群組中的網路介面都必須在相同的虛擬網路中。 例如，如果 ASG1 包含來自 VNet1 的網路介面，而 ASG2 包含來自 VNet2 的網路介面，您無法在規則中將 ASG1 指派為來源，將 ASG2 指派為目的地，所有網路介面都必須存在於 VNet1 中。
 
 ## <a name="azure-platform-considerations"></a>Azure 平台的考量
@@ -157,7 +165,7 @@ ms.lasthandoff: 04/28/2018
   如果您在 2017 年 11 月 15 日前建立了 Azure 訂用帳戶，除了能夠使用 SMTP 轉送服務，您還可以直接透過 TCP 連接埠 25 傳送電子郵件。 如果您在 2017 年 11 月 15 日後建立了訂用帳戶，您可能無法直接透過連接埠 25 傳送電子郵件。 透過連接埠 25 的連出通訊行為取決於您擁有的訂用帳戶類型，如下所示：
 
      - **Enterprise 合約**：允許輸出通訊埠 25 通訊。 您能夠從虛擬機器將外寄電子郵件直接傳送到外部電子郵件提供者 (Azure 平台沒有限制)。 
-     - **預付型方案：**所有資源的輸出連接埠 25 通訊都遭到封鎖。 如果您需要將電子郵件從虛擬機器直接傳送給外部電子郵件提供者 (不使用已驗證的 SMTP 轉送)，可以提出移除限制的要求。 要求是在 Microsoft 的斟酌之下審查與核准，而且只會在執行反詐騙檢查之後授權。 若要提出要求，請開啟問題類型為 [技術]、[虛擬網路連線]、[無法傳送電子郵件 (SMTP/連接埠 25)] 的支援案例。 在您的支援案例中，請包含訂用帳戶需要將電子郵件直接傳送到郵件提供者，而不需經過已驗證 SMTP 轉送之原因的詳細資料。 如果您的訂用帳戶獲得豁免，則只有在豁免日期之後建立的虛擬機器能夠透過連接埠 25 對外通訊。
+     - **預付型方案：** 所有資源的輸出連接埠 25 通訊都遭到封鎖。 如果您需要將電子郵件從虛擬機器直接傳送給外部電子郵件提供者 (不使用已驗證的 SMTP 轉送)，可以提出移除限制的要求。 要求是在 Microsoft 的斟酌之下審查與核准，而且只會在執行反詐騙檢查之後授權。 若要提出要求，請開啟問題類型為 [技術]、[虛擬網路連線]、[無法傳送電子郵件 (SMTP/連接埠 25)] 的支援案例。 在您的支援案例中，請包含訂用帳戶需要將電子郵件直接傳送到郵件提供者，而不需經過已驗證 SMTP 轉送之原因的詳細資料。 如果您的訂用帳戶獲得豁免，則只有在豁免日期之後建立的虛擬機器能夠透過連接埠 25 對外通訊。
      - **雲端服務提供者 (CSP)、MSDN、Azure Pass、Azure in Open、Education、BizSpark 和免費試用**：所有資源的輸出連接埠 25 通訊都遭到封鎖。 無法進行任何移除限制的要求，因為要求未獲授權。 如果您必須從虛擬機器傳送電子郵件，就必須使用 SMTP 轉送服務。
 
   如果 Azure 允許您透過連接埠 25 傳送電子郵件，Microsoft 無法保證電子郵件提供者會接受您虛擬機器所發出的內送電子郵件。 如果特定提供者拒絕來自虛擬機器的郵件，您必須直接與提供者合作以解決任何訊息傳遞或垃圾郵件篩選問題，或使用已驗證的 SMTP 轉送服務。 

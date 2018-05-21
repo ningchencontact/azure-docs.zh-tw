@@ -6,21 +6,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6664a2b9bb6375314090bf4dae9190c7d52565d2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory
 
@@ -53,6 +51,8 @@ ms.lasthandoff: 04/16/2018
 
     ![顯示切換器的螢幕擷取畫面](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
 
+
+您擁有的任何 Azure 金鑰保存庫也會受到訂用帳戶移動的影響，所以請在繼續作業之前[變更金鑰保存庫租用戶識別碼](../key-vault/key-vault-subscription-move-fix.md)。
 
 變更訂用帳戶目錄是一項服務層級作業。 它並不會影響訂用帳戶帳單擁有權，而帳戶管理員仍然可以透過[帳戶中心](https://account.azure.com/subscriptions)變更服務管理員。 如果您想要刪除原始目錄，您必須將訂用帳戶的帳單擁有權轉移給新的帳戶管理員。若要深入了解如何移轉帳單擁有權，請參閱[將 Azure 訂用帳戶的擁有權轉移轉至另一個帳戶](../billing/billing-subscription-transfer.md)。 
 

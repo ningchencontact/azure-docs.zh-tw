@@ -92,6 +92,8 @@
       href: /azure/stream-analytics/
 - name: 資源
   items:
+    - name: 客戶資料要求
+      href: time-series-insights-customer-data-requests.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: 價格
