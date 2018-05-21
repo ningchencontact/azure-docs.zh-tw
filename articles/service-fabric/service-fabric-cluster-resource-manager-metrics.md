@@ -1,24 +1,24 @@
 ---
-title: "使用計量來管理 Azure 微服務負載 | Microsoft Docs"
-description: "了解如何在 Service Fabric 中設定及使用計量，以管理服務資源耗用量。"
+title: 使用計量來管理 Azure 微服務負載 | Microsoft Docs
+description: 了解如何在 Service Fabric 中設定及使用計量，以管理服務資源耗用量。
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5c291ef864518b2366c61c9e5c11fac9e8468a00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>在 Service Fabric 中使用度量管理資源耗用量和負載
 *計量*是您的服務所關切的資源，且是由叢集中的節點提供。 計量就是任何您想要管理，以便改善或監視服務效能的項目。 例如，您可能會監看記憶體耗用量以得知您的服務是否為多載。 另一個用法是，了解服務是否能夠移至記憶體限制較小的其他位置，以取得更佳的效能。
