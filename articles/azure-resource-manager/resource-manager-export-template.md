@@ -1,8 +1,8 @@
 ---
-title: "匯出 Azure Resource Manager 範本 | Microsoft Docs"
-description: "使用 Azure Resource Manager 從現有資源群組匯出範本。"
+title: 匯出 Azure Resource Manager 範本 | Microsoft Docs
+description: 使用 Azure Resource Manager 從現有資源群組匯出範本。
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -11,14 +11,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7ac553a3608df41548f845e27c545ff63886e37c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 14aa54277cac3369df739a1d84580624f2d3b401
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>從現有資源匯出 Azure Resource Manager 範本
 在本文中，您將了解如何從您訂用帳戶中的現有資源匯出 Resource Manager 範本。 您可以使用這個產生的範本，來深入了解範本語法。
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/27/2018
 有兩種方式可以匯出範本：
 
 * 您可以匯出**用於部署的實際範本**。 匯出的範本包含與原始範本完全相同的所有參數和變數。 如果您透過入口網站部署資源，而且想要知道範本如何建立這些資源，則這種方法十分有用。 此範本立即可用。 
-* 您可以匯出**代表資源群組目前狀態的已產生範本**。 匯出的範本不是以任何用於部署的範本為基礎。 相反地，它所建立的範本是資源群組的「快照集」或「備份」。 匯出的範本會有許多硬式編碼值，但數量可能不如您通常會定義的參數數量。 使用此選項來將資源重新部署至相同的資源群組。 若要對其他資源群組使用此範本，您可能必須大幅修改它。
+* 您可以匯出**代表資源群組目前狀態的已產生範本**。 匯出的範本不是以任何用於部署的範本為基礎。 反而，它所建立的範本是資源群組的「快照集」或「備份」。 匯出的範本會有許多硬式編碼值，但數量可能不如您通常會定義的參數數量。 使用此選項來將資源重新部署至相同的資源群組。 若要對其他資源群組使用此範本，您可能必須大幅修改它。
 
 本文說明透過入口網站的兩種方法。
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 02/27/2018
 此範本是用來建立 Web 應用程式和 SQL 資料庫的實際範本。 請注意，其中包含的參數可讓您在部署期間提供不同的值。 若要深入了解範本的結構，請參閱 [編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。
 
 ## <a name="export-the-template-from-resource-group"></a>從資源群組匯出範本
-如果您已手動變更資源或在多個部署中新增資源，則從部署記錄中擷取範本並不會反映資源群組的目前狀態。 本節說明您如何匯出反映資源群組目前狀態的範本。 其目的在作為資源群組的快照集，您可以用來重新部署至相同的資源群組。 若要對其他解決方案使用匯出的範本，您必須大幅加以修改。
+如果您已手動變更資源或在多個部署中新增資源，則從部署記錄中擷取範本並不會反映資源群組的目前狀態。 本節說明您如何匯出反映資源群組目前狀態的範本。 其目的在作為資源群組的快照集，以供您用來重新部署至相同的資源群組。 若要對其他解決方案使用匯出的範本，您必須大幅加以修改。
 
 > [!NOTE]
 > 您無法針對具有超過 200 個資源的資源群組匯出範本。

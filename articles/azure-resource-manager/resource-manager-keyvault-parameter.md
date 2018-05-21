@@ -1,23 +1,23 @@
 ---
 title: 金鑰保存庫密碼與 Azure Resource Manager 範本 | Microsoft Docs
 description: 示範如何在部署期間從金鑰保存庫中傳遞密碼做為參數。
-services: azure-resource-manager,key-vault
+services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2643f79bb1e5e2603b1bd50b04c8ee3e7496f1f7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6a6c1f10b5a46633785d9c26a766df9334fe1cb0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署期間使用 Azure Key Vault 以傳遞安全的參數值
 
