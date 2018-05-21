@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 的 Linux 虛擬機器上部署 LEMP | Microsoft Docs
-description: 教學課程 - 在 Azure 中的 Linux VM 上安裝 LEMP 堆疊
+title: 教學課程 - 在 Azure 的 Linux 虛擬機器上部署 LEMP | Microsoft Docs
+description: 在本教學課程中，您會了解如何在 Azure 中的 Linux 虛擬機器上安裝 LEMP 堆疊
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -15,13 +15,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: f907b468a409135d4b45e76297fc7cd86eeead78
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1f4c74ab96fc9494d1b3c7dd626265516533330b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="install-a-lemp-web-server-on-an-azure-vm"></a>在 Azure VM 上安裝 LEMP 網頁伺服器
+# <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中的 Linux 虛擬機器上安裝 LEMP 網頁伺服器
+
 本文會逐步引導您在 Azure 中的 Ubuntu VM 上部署 NGINX 網頁伺服器、MySQL 和 PHP (LEMP 堆疊)。 LEMP 堆疊可替代熱門的 [LAMP 堆疊](tutorial-lamp-stack.md) (後者也可以安裝在 Azure 中)。 若要查看作用中的 LEMP 伺服器，您可以選擇安裝及設定 WordPress 網站。 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
@@ -31,12 +32,11 @@ ms.lasthandoff: 04/06/2018
 > * 驗證安裝和設定
 > * 在 LEMP 伺服器上安裝 WordPress
 
-
 此安裝程式適用於快速測試或概念證明。
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 

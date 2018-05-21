@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/01/2018
+ms.date: 04/24/2018
 ms.author: daredis
-ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 54ec3c1386d6ce2023106367a6af1915e754948f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>保護 Azure SQL Database
 
@@ -106,7 +106,7 @@ Azure 的防火牆會保護 SQL Database。 依預設，伺服器與其內部資
 - 要求加密的連線，並且
 - 不要信任伺服器憑證。 
 
-此動作會建立使用傳輸層安全性 (TLS) 的連線，並降低發生攔截式攻擊的風險。 從 Azure 入口網站，您可以取得受支援用戶端驅動程式的 SQL Database 連接字串 (已正確設定)，如同此螢幕截圖中的 ADO.net 所示。
+此動作會建立使用傳輸層安全性 (TLS) 的連線，並降低發生攔截式攻擊的風險。 從 Azure 入口網站，您可以取得受支援用戶端驅動程式的 SQL Database 連接字串 (已正確設定)，如同此螢幕截圖中的 ADO.net 所示。 如需 TLS 和連線能力的相關資訊，請參閱 [TLS 考量](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)。
 
 1. 從左側功能表中選取 [SQL Database]，按一下 [SQL Database] 頁面上您的資料庫。
 

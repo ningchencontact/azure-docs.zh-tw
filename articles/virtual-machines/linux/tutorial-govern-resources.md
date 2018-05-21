@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 控管 Azure 虛擬機器 | Microsoft Docs
-description: 教學課程 - 藉由使用 Azure CLI 來套用 RBAC、原則、鎖定和標籤以管理 Azure 虛擬機器
+title: 教學課程 - 使用 Azure CLI 2.0 控管 Azure 虛擬機器 | Microsoft Docs
+description: 在本教學課程中，您會了解如何使用 Azure CLI 2.0 來套用 RBAC、原則、鎖定和標籤以管理 Azure 虛擬機器
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -10,22 +10,23 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a7d44e421162cf5784dde58f757e235d12b63cba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.custom: mvc
+ms.openlocfilehash: 4ce2b133ed4266028f1d99151939538fb8ce60f5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="virtual-machine-governance-with-azure-cli"></a>使用 Azure CLI 控管虛擬機器
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>教學課程：了解如何使用 Azure CLI 2.0 來控管 Linux 虛擬機器
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-若要在本機安裝並使用 CLI，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="understand-scope"></a>了解範圍
 

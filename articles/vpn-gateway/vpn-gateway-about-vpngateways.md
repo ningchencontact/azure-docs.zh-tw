@@ -7,7 +7,7 @@ author: cherylmc
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
+Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 30a2029fdf169747570d8c07915270ffae8ef8f5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 01052d8058d1b1e3a03f584ad66da2ad79f4c425
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-vpn-gateway"></a>什麼是 VPN 閘道？
 
@@ -28,9 +28,9 @@ VPN 閘道是特定的虛擬網路閘道類型，可透過公用網際網路在 
 
 ## <a name="whatis"></a>什麼是虛擬網路閘道？
 
-虛擬網路閘道是由部署到特定子網路 (稱為「閘道子網路」) 的兩部或多部虛擬機器所組成。 當您建立虛擬網路閘道時，會建立位於閘道子網路中的 VM。 虛擬網路閘道 VM 會設定為包含閘道特有的路由表和閘道服務。 您無法直接設定屬於虛擬網路閘道的 VM，您不該將額外的資源部署至閘道子網路。
+虛擬網路閘道是由部署到您所建立的特定子網路 (稱為「閘道子網路」) 的兩部以上虛擬機器所組成。 當您建立虛擬網路閘道時，會建立位於閘道子網路中的 VM。 虛擬網路閘道 VM 會設定為包含閘道特有的路由表和閘道服務。 您無法直接設定屬於虛擬網路閘道的 VM，您不該將額外的資源部署至閘道子網路。
 
-建立 VPN 閘道可能需要 45 分鐘的時間才能完成。 建立 VPN 閘道時，閘道 VM 會部署到閘道子網路，並使用您指定的設定進行設定。 建立 VPN 閘道之後，您可以在 VPN 閘道與另一個 VPN 閘道 (VNet 對 VNet) 之間建立 IPsec/IKE VPN 通道連線，或在 VPN 閘道與內部部署 VPN 裝置 (站對站) 之間建立跨單位 IPsec/IKE VPN 通道連線。 您也可以建立點對站 VPN 連線 (透過 IKEv2 或 SSTP 的 VPN)，它可讓您從遠端位置連線到您的虛擬網路，例如從會議或住家。
+建立虛擬網路閘道最多可能需要花費 45 分鐘的時間來完成。 建立虛擬網路閘道時，閘道 VM 會部署到閘道子網路，並使用您指定的設定進行設定。 您所設定的其中一個設定是閘道類型。 閘道類型 'vpn' 會指定所建立虛擬網路閘道的類型是 VPN 閘道。 建立 VPN 閘道之後，您可以在 VPN 閘道與另一個 VPN 閘道 (VNet 對 VNet) 之間建立 IPsec/IKE VPN 通道連線，或在 VPN 閘道與內部部署 VPN 裝置 (站對站) 之間建立跨單位 IPsec/IKE VPN 通道連線。 您也可以建立點對站 VPN 連線 (透過 IKEv2 或 SSTP 的 VPN)，它可讓您從遠端位置連線到您的虛擬網路，例如從會議或住家。
 
 ## <a name="configuring"></a>設定 VPN 閘道
 
