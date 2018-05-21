@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bb64d0c5d94bb198b6ece2ea50a7fc248b93c7dd
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 740e3c16d3d9ce9e1aadb3e04ac2667e908bf51e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 Webhook 啟動 Azure 自動化 Runbook
 *Webhook* 可讓您在 Azure 自動化中透過單一 HTTP 要求啟動特定的 Runbook。 這可讓 Visual Studio Team Services、GitHub、Azure Log Analytics 或自訂應用程式等外部服務不需使用 Azure 自動化 API 實作完整的解決方案，即可啟動 Runbook。  

@@ -3,17 +3,17 @@ title: 快速入門 - 建立您的第一個 Azure Container Instances 容器
 description: 在本快速入門中，您會使用 Azure CLI 在 Azure Container Instances 中部署容器
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b85c38bb561e4f1dc9a0545595590719ce1883e4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b68468cd8174d658d04d8e67433a8f18884493bd
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>快速入門：在 Azure Container Instances 中建立您的第一個容器
 
@@ -64,19 +64,21 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-一旦容器轉為 [成功] 狀態，您就可以在瀏覽器中瀏覽至其 FQDN 來連線至容器：
+容器變更為 [成功] 狀態後，請在瀏覽器中瀏覽至其 FQDN：
 
 ![顯示在 Azure 容器執行個體中執行之應用程式的瀏覽器螢幕擷取畫面][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>提取容器記錄
 
-您可以使用 [az container logs][az-container-logs] 命令來提取您所建立之容器的記錄：
+在對您的容器或其執行的應用程式排解問題時，檢視的容器執行個體的記錄會很有幫助。
+
+使用 [az container logs][az-container-logs] 命令提取容器的記錄：
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-您應該會看到如下所示的輸出：
+輸出會顯示容器的記錄，且應該會顯示您在瀏覽器中檢視應用程式時產生的 HTTP GET 要求。
 
 ```console
 $ az container logs --resource-group myResourceGroup -n mycontainer
@@ -113,9 +115,9 @@ listening on port 80
 ::ffff:10.240.255.107 - - [15/Mar/2018:21:18:47 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
 ```
 
-## <a name="delete-the-container"></a>刪除容器
+## <a name="clean-up-resources"></a>清除資源
 
-當容器使用完畢後，您可以使用 [az container delete][az-container-delete] 命令來移除容器：
+當容器使用完畢後，請使用 [az container delete][az-container-delete] 命令來移除容器：
 
 ```azurecli-interactive
 az container delete --resource-group myResourceGroup --name mycontainer
@@ -131,19 +133,19 @@ az container list --resource-group myResourceGroup --output table
 
 ## <a name="next-steps"></a>後續步驟
 
-本快速入門中所使用之容器的所有程式碼，連帶其 Dockerfile，都可以[在 GitHub 上][app-github-repo]取得。 如果您想要自行建置它，並使用 Azure Container Registry 將它部署至 Azure Container Instances，請繼續進行 Azure Container Instances 教學課程。
+在本快速入門中，您已透過來自公用 Docker Hub 登錄中的映像建立 Azure 容器執行個體。 如果您想要自行建置容器映像，並從私人的 Azure 容器登錄將其部署至 Azure 容器執行個體，請繼續進行 Azure 容器執行個體教學課程。
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances 教學課程](./container-instances-tutorial-prepare-app.md)
+> [Azure 容器執行個體教學課程](./container-instances-tutorial-prepare-app.md)
 
-若要試用在 Azure 上的協調流程系統中執行容器的選項，請參閱 [Service Fabric][service-fabric] 或 [Azure Container Service (ACS)][container-service] 快速入門。
+若要試用在 Azure 上的協調流程系統中執行容器的選項，請參閱 [Service Fabric][service-fabric] 或 [Azure Kubernetes Service (ACS)][container-service] 快速入門。
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
-[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[azure-account]: https://azure.microsoft.com/free/
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->

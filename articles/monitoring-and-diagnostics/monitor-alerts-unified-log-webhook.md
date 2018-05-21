@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: a786ac2e241657cc0020ecfe9438e3d1a5e4c5fa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 28c8e6ab6a23a46bdea31c71b08b9c6a28d1be33
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook 動作記錄警示規則
 [在 Azure 中建立警示](monitor-alerts-unified-usage.md)後，您可以選擇[使用動作群組設定](monitoring-action-groups.md)以執行一或多個動作。  本文說明各種可用的 Webhook 動作以及設定自訂 JSON 型 Webhook 的詳細資訊。
@@ -161,9 +161,6 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
     }
 }
 ```
-
-> [!NOTE]
-> Application Insights 的記錄警示目前處於公開預覽狀態 - 功能和使用者體驗可能會有變動。
 
 #### <a name="log-alert-with-custom-json-payload"></a>含有自訂 JSON 承載的記錄警示
 例如，若要建立只包含警示名稱和搜尋結果的自訂承載，您可以使用下列程式碼： 

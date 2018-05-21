@@ -1,34 +1,36 @@
 ---
-title: "什麼是 Azure 轉送和為什麼使用的概觀 | Microsoft Docs"
-description: "Azure 轉送的概觀"
+title: 什麼是 Azure 轉送和為什麼使用的概觀 | Microsoft Docs
+description: Azure 轉送的概觀
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
 ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 12/20/2017
+ms.date: 05/02/2018
 ms.author: sethm
-ms.openlocfilehash: d1b1c0661458669dc8f05a49037943320de2ecb3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2b179f8f5de9a0020ea6457c11bb6f48f3a51320
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="what-is-azure-relay"></a>什麼是 Azure 轉送？
 
 Azure 轉送服務可執行混合式應用程式，方法是讓您以安全的方式向公用雲端公開位於企業網路內部的服務，而無需開啟防火牆連線或要求對企業網路基礎結構的進行侵入式變更。 轉送支援各種不同的傳輸通訊協定和 Web 服務標準。
 
-轉送服務支援傳統的單向、要求/回應以及對等式流量。 它也支援網際網路範圍內的事件散發，以啟用發佈/訂閱案例和雙向通訊端通訊來提高點對點效率。 
+轉送服務支援傳統的單向、要求/回應以及對等式流量。 它也支援網際網路範圍內的事件散發，以啟用發佈/訂閱案例和雙向通訊端通訊來提高點對點效率。
 
 在轉送的資料傳輸模式中，內部部署服務會透過輸出連接埠連接到轉送服務，並且針對繫結至特定聚合位址的通訊建立雙向通訊端。 用戶端接著可將流量傳送至以會合位址為目標的轉送服務，藉此與內部部署服務通訊。 轉送服務接著會透過每個用戶端專用的雙向通訊端，將資料「轉送」至內部部署服務。 用戶端不需要直接連線到內部部署服務，不需要知道服務所在的位置，而且內部部署服務不需要在防火牆上開啟任何輸入連接埠。
 
-轉送所提供的重要功能元素是利用類似 TCP 的節流、端點探索、連線狀態和重疊端點安全性，進行跨越網路界限且未經緩衝處理的雙向通訊。 轉送功能與網路層級整合技術 (例如 VPN) 不同，轉送的範圍可以限定於單一電腦上的單一應用程式端點，而 VPN 技術則比較屬於侵入式，因為其依賴於改變網路環境。
+轉送所提供的重要功能元素是利用類似 TCP 的節流、端點探索、連線狀態和重疊端點安全性，進行跨越網路界限且未經緩衝處理的雙向通訊。
+
+轉送功能與網路層級整合技術 (例如 VPN) 不同，轉送的範圍可以限定於單一電腦上的單一應用程式端點，而 VPN 技術則比較屬於侵入式，因為其依賴於改變網路環境。
 
 Azure 轉送有兩項功能︰
 
@@ -48,7 +50,9 @@ Azure 轉送有兩項功能︰
 
 ## <a name="hybrid-connections"></a>混合式連線
 
-[Azure 轉送混合式連線](relay-hybrid-connections-protocol.md)功能是現有轉送功能的安全、開放式通訊協定演化，可以在任何平台上以任何具有基本 WebSocket 功能的語言實作，而基本 WebSocket 功能會明確地將 WebSocket API 納入一般網頁瀏覽器中。 混合式連線是以 HTTP 和 Websocket 為基礎。
+Azure 轉送混合式連線功能是現有轉送功能的安全、開放式通訊協定演化，可以在任何平台上以任何語言實作。 混合式連線可以轉送 WebSocket 以及 HTTP(S) 要求和回應。 這些功能都可以與常用網頁瀏覽器中的 WebSocket API 相容。 混合式連線是以 HTTP 和 Websocket 為基礎。
+
+通訊協定完整記錄在[混合式連線通訊協定指南](relay-hybrid-connections-protocol.md)中，允許針對任何執行階段和語言，使用混合式連線轉送與絕大部分的 Websocket 文件庫。
 
 ### <a name="service-history"></a>服務歷程記錄
 
@@ -70,6 +74,8 @@ WCF 轉送適用於完整的 .NET Framework (NETFX) 和 WCF。 您在內部部�
 
 * [轉送常見問題集](relay-faq.md)
 * [建立命名空間](relay-create-namespace-portal.md)
-* [開始使用 .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [開始使用 Node](relay-hybrid-connections-node-get-started.md)
+* [開始使用 .NET Websocket](relay-hybrid-connections-dotnet-get-started.md)
+* [開始使用 .NET HTTP 要求](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+* [開始使用 Node Websocket](relay-hybrid-connections-node-get-started.md)
+* [開始使用 Node HTTP 要求](relay-hybrid-connections-http-requests-node-get-started.md)
 

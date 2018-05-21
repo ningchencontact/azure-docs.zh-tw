@@ -1,39 +1,50 @@
 ---
-title: 可用性區域間的 Load Balancer VM - Azure 入口網站 | Microsoft Docs
-description: 使用 Azure 入口網站以區域備援前端建立標準 Load Balancer，將 VM 的負載平均分配至多個可用性區域
+title: 教學課程：可用性區域間的 Load Balancer VM - Azure 入口網站 | Microsoft Docs
+description: 此教學課程示範如何使用 Azure 入口網站以區域備援前端建立標準負載平衡器，來平衡多可用性區域間的 VM 負載。
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: ''
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/18
+ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: ad476922342844a908961960407eb344711932f5
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: 9ff0b53f6c6f10a2e97bd3158f874fa5cfe33bb6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>使用 Azure 入口網站透過標準 Load Balancer 將 VM 的負載平均分配至多個可用性區域
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過標準負載平衡器來平衡可用性區域間的 VM 負載
 
-本文會逐步說明如何在不倚賴多個 DNS 記錄的情況下，以區域備援前端建立公用 Load Balancer Standard 來達到區域備援能力。 標準 Load Balancer 中的單一前端 IP 位址會自動具備區域備援能力。 現在，藉由將區域備援前端用於您的負載平衡器，您只需要單一 IP 位址，即可跨所有可用性區域連線至某區域內的區域網路中的任何 VM。 萬一整個資料中心失敗或遺失，使用可用性區域可保護您的應用程式和資料免於受害。 透過區域備援，即便有一或多個可用性區域可能失敗，但區域中只要有一個區域維持良好狀況，資料路徑就得以存留。 
+負載平衡會將傳入要求分散到多部虛擬機器，藉此提供高可用性。 此教學課程逐步說明如何建立公用負載平衡器標準，以便平衡可用性區域間的 VM 負載。 萬一整個資料中心失敗或遺失，這有助於保護您的應用程式和資料免於受害。 透過區域備援，即便有一或多個可用性區域可能失敗，但是地區中只要有一個區域維持良好狀況，資料路徑就得以存留。 您會了解如何：
+
+> [!div class="checklist"]
+> * 建立標準負載平衡器
+> * 建立網路安全性群組以定義連入流量規則
+> * 建立跨多個區域的區域備援 VM 並連結至負載平衡器
+> * 建立負載平衡器健康狀態探查
+> * 建立負載平衡器流量規則
+> * 建立基本 IIS 網站
+> * 檢視作用中的負載平衡器
 
 如需關於搭配使用可用性區域和標準 Load Balancer 的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [http://portal.azure.com](http://portal.azure.com) 上登入 Azure 入口網站。
+在 [http://portal.azure.com](http://portal.azure.com) 登入 Azure 入口網站。
 
-## <a name="create-a-public-standard-load-balancer"></a>建立公用標準 Load Balancer
+## <a name="create-a-standard-load-balancer"></a>建立標準負載平衡器
 
 標準負載平衡器只支援標準公用 IP 位址。 當您在建立負載平衡器期間建立新的公用 IP 時，它會自動設定為標準 SKU 版本，而且也會自動具備區域備援能力。
 
@@ -51,9 +62,11 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="create-backend-servers"></a>建立後端伺服器
 
-在本節中，您會建立一個虛擬網路、在區域的不同區域 (區域 1、區域 2 和區域 3) 中建立要新增至負載平衡器後端集區的虛擬機器，然後在虛擬機器上安裝 IIS，以便測試區域備援負載平衡器。 因此，如果某個區域失敗，相同區域中的 VM 健康情況探查也失敗，其他區域中的 VM 將繼續為流量提供服務。
+本節中，您會建立一個虛擬網路、在地區的不同區域中建立虛擬機器，然後在虛擬機器上安裝 IIS，協助測試區域備援的負載平衡器。 因此，如果某個區域失敗，相同區域中的 VM 健康情況探查也失敗，其他區域中的 VM 將繼續為流量提供服務。
 
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
+建立虛擬網路以便部署您的後端伺服器。
+
 1. 在畫面左上方按一下 [建立資源] > [網路] > [虛擬網路]，然後輸入虛擬網路的下列值：
     - myVnet - 作為虛擬網路的名稱。
     - myResourceGroupLBAZ - 作為現有資源群組的名稱
@@ -64,6 +77,8 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="create-a-network-security-group"></a>建立網路安全性群組
 
+建立網路安全性群組，以定義虛擬網路的輸入連線。
+
 1. 在畫面左上方按一下 [建立資源]，在搜尋方塊中輸入 *Network Security Group*，然後在網路安全性群組頁面上按一下 [建立]。
 2. 在 [建立網路安全性群組] 頁面中，輸入下列值：
     - myNetworkSecurityGroup - 作為網路安全性群組的名稱。
@@ -71,9 +86,9 @@ ms.lasthandoff: 04/18/2018
    
 ![建立虛擬網路](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
-### <a name="create-nsg-rules"></a>建立 NSG 規則
+### <a name="create-network-security-group-rules"></a>建立網路安全性群組規則
 
-在本節中，您會建立 NSG 規則，以允許在 Azure 入口網站中使用 HTTP 與 RDP 進行輸入連線。
+在本節中，您會建立網路安全性群組規則，以允許在 Azure 入口網站中使用 HTTP 與 RDP 進行輸入連線。
 
 1. 在 Azure 入口網站中按一下左側功能表中的 [所有資源]，然後搜尋並按一下位於 **myResourceGroupLBAZ** 資源群組中的 **myNetworkSecurityGroup**。
 2. 在 [設定] 底下，按一下 [輸入安全性規則]，然後按一下 [新增]。
@@ -84,8 +99,8 @@ ms.lasthandoff: 04/18/2018
     - TCP - 作為 [通訊協定]
     - 允許 - 作為 [動作]
     - 100 作為 [優先順序]
-    - myHTTPRule 作為名稱
-    - 允許 HTTP - 作為描述
+    - myHTTPRule - 負載平衡器規則的名稱。
+    - 允許 HTTP - 負載平衡器規則的描述。
 4. 按一下 [SERVICEPRINCIPAL] 。
  
  ![建立虛擬網路](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
@@ -99,8 +114,9 @@ ms.lasthandoff: 04/18/2018
     - myRDPRule 作為名稱
     - 允許 RDP - 作為描述
 
-
 ### <a name="create-virtual-machines"></a>建立虛擬機器
+
+在地區的不同區域 (區域 1、區域 2 和區域 3) 中建立虛擬機器，以作為負載平衡器的後端伺服器。
 
 1. 在畫面左上方按一下 [建立資源] > [計算] > [Windows Server 2016 Datacenter]，然後輸入虛擬網路的下列值：
     - myVM1 - 作為虛擬機器的名稱。        
@@ -145,12 +161,12 @@ ms.lasthandoff: 04/18/2018
 
 ### <a name="create-a-backend-address-pool"></a>建立後端位址集區
 
-若要將流量分散至 VM，後端位址集區包含已連線至負載平衡器之虛擬 (NIC) 的 IP 位址。 建立後端位址集區 myBackendPool 以納入 VM1 和 VM2。
+若要將流量分散至 VM，後端位址集區包含已連線至負載平衡器之虛擬 (NIC) 的 IP 位址。 建立後端位址集區 myBackendPool 以納入 VM1、VM2 和 VM3。
 
 1. 按一下左側功能表中的 [所有資源]，然後從資源清單按一下 [myLoadBalancer]。
 2. 在 [設定] 之下，依序按一下 [後端集區] 和 [新增]。
 3. 在 [新增後端集區] 頁面上，執行下列操作：
-    - 針對名稱，輸入 *myBackEndPool，作為您後端集區的名稱。
+    - 針對名稱，輸入 myBackEndPool，作為您後端集區的名稱。
     - 針對 [虛擬網路]，在下拉式功能表中按一下[myVNet]
     - 針對 [虛擬機器]，在下拉式功能表中按一下[myVM1]。
     - 針對 [IP 位址]，在下拉式功能表中按一下 myVM1 的 IP 位址。
@@ -200,6 +216,8 @@ ms.lasthandoff: 04/18/2018
 2. 將公用 IP 位址複製並貼到您瀏覽器的網址列。 IIS Web 伺服器的預設頁面會顯示在瀏覽器上。
 
       ![IIS Web 伺服器](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+
+若要查看負載平衡器如何將流量分散到整個區域中的 VM，您可以強制重新整理您的網頁瀏覽器。
 
 ## <a name="clean-up-resources"></a>清除資源
 

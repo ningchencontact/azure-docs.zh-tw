@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中監視和更新 Linux 虛擬機器 | Microsoft Docs
-description: 了解如何在 Azure 中監視 Linux 虛擬機器上的開機診斷和效能計量及管理套件更新
+title: 教學課程 - 在 Azure 中監視和更新 Linux 虛擬機器 | Microsoft Docs
+description: 在本教學課程中，您會了解如何監視 Linux 虛擬機器上的開機診斷和效能計量及管理套件更新
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d5fb239ffd6a957cbb088bf4843819e2c886cee8
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0dc403d92855902daef09c91a5dd022beb23fd71
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>如何在 Azure 中監視和更新 Linux 虛擬機器
+# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中監視和更新 Linux 虛擬機器
 
 為了確保您的虛擬機器 (VM) 在 Azure 中正確執行，您可以檢閱開機診斷、效能計量及管理套件更新。 在本教學課程中，您了解如何：
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/30/2018
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="create-vm"></a>建立 VM
 
@@ -298,7 +298,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 您可以使用 [Azure 自動化](../../automation/automation-intro.md)所提供的「更新管理」和「變更」與「清查」等解決方案，來進行更進階的 VM 監視。
 
-當您能夠存取 Log Analytics 工作區時，便可以藉由選取 [設定] 底下的 [進階設定]，找出工作區金鑰和工作區識別碼。 將 \<workspace-key\> 和 \<workspace-id\> 取代為您的 Log Analytics 工作區的值，然後您可以使用 **az vm extension set** 將擴充功能新增至 VM：
+當您能夠存取 Log Analytics 工作區時，便可以藉由選取 [設定] 底下的 [進階設定]，找出工作區金鑰和工作區識別碼。 用 Log Analytics 工作區的值取代 \<workspace-key\> 和 \<workspace-id\>，然後您可以使用 **az vm extension set** 將擴充功能新增至 VM：
 
 ```azurecli-interactive
 az vm extension set \
