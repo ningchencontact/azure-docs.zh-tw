@@ -1,24 +1,24 @@
 ---
-title: "擲回的常見 FabricClient 例外狀況 | Microsoft Docs"
-description: "描述 FabricClient API 可在執行應用程式和叢集管理作業時擲回的常見例外狀況和錯誤。"
+title: 擲回的常見 FabricClient 例外狀況 | Microsoft Docs
+description: 描述 FabricClient API 可在執行應用程式和叢集管理作業時擲回的常見例外狀況和錯誤。
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bb821313-b221-479f-b08e-36cf07e60a07
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/18/2017
 ms.author: ryanwi
-ms.openlocfilehash: f07b1bce2e9ccc82e3dcbfe0f2cfe2311d968505
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 31defde289643b2adfd6e15bb8417b5498ba65d1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>使用 FabricClient API 時常見的例外狀況和錯誤
 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API 可讓叢集和應用程式系統管理員對 Service Fabric 應用程式、服務或叢集執行系統管理工作。 例如，應用程式部署、升級和移除、檢查叢集的健康狀態，或測試服務。 應用程式開發人員和叢集系統管理員可以使用 FabricClient API，來開發用於管理 Service Fabric 叢集和應用程式的工具。

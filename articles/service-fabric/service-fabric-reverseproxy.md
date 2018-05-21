@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 反向 Proxy | Microsoft Docs"
-description: "使用 Service Fabric 反向 Proxy 從叢集內部和外部與微服務進行通訊。"
+title: Azure Service Fabric 反向 Proxy | Microsoft Docs
+description: 使用 Service Fabric 反向 Proxy 從叢集內部和外部與微服務進行通訊。
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 21e1e3041d7b1f4dc205355f6c0b8d4fd2e82775
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向 Proxy
 Azure Service Fabric 內建的反向 Proxy 可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 http 端點的服務通訊。
@@ -69,19 +69,19 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 ```
 
 * **http(s)：** 反向 Proxy 可設定為接受 HTTP 或 HTTPS 流量。 對於 HTTPS 轉送，在您設定反向 Proxy 於 HTTPS 接聽後，請參閱[使用反向 Proxy 連線安全的服務](service-fabric-reverseproxy-configure-secure-communication.md)。
-* **叢集完整網域名稱 (FQDN) | 內部 IP：**如果是外部用戶端，您可以設定反向 Proxy 讓其可透過叢集網域 (例如 mycluster.eastus.cloudapp.azure.com) 來聯繫到。根據預設，反向 Proxy 會在每個節點上執行。 如果是內部流量，反向 Proxy 可在 localhost 或任何內部節點 IP (例如 10.0.0.1) 上聯繫到。
-* **連接埠︰**這是為反向 Proxy 指定的連接埠，例如 19081。
-* **ServiceInstanceName：**這是您嘗試不使用「fabric:/」配置來連線到之已部署服務執行個體的完整名稱。 例如，若要連線到 fabric:/myapp/myservice/ 服務，可以使用 myapp/myservice。
+* **叢集完整網域名稱 (FQDN) | 內部 IP：** 如果是外部用戶端，您可以設定反向 Proxy 讓其可透過叢集網域 (例如 mycluster.eastus.cloudapp.azure.com) 來聯繫到。根據預設，反向 Proxy 會在每個節點上執行。 如果是內部流量，反向 Proxy 可在 localhost 或任何內部節點 IP (例如 10.0.0.1) 上聯繫到。
+* **連接埠︰** 這是為反向 Proxy 指定的連接埠，例如 19081。
+* **ServiceInstanceName：** 這是您嘗試不使用「fabric:/」配置來連線到之已部署服務執行個體的完整名稱。 例如，若要連線到 fabric:/myapp/myservice/ 服務，可以使用 myapp/myservice。
 
     服務執行個體名稱區分大小寫。 對於 URL 中的服務執行個體名稱使用不同的大小寫，會導致要求失敗，並顯示「404 (找不到)」。
-* **尾碼路徑︰**這是要連線到之服務的實際 URL 路徑，例如 myapi/values/add/3。
-* **PartitionKey：**若為資料分割服務，這是您想要連線的資料分割計算資料分割金鑰。 請注意，這不是  資料分割識別碼 GUID。 使用單一資料分割配置的服務不需要這個參數。
-* **PartitionKind：**這是服務資料分割配置。 這可以是 'Int64Range' 或 'Named'。 使用單一資料分割配置的服務不需要這個參數。
+* **尾碼路徑︰** 這是要連線到之服務的實際 URL 路徑，例如 myapi/values/add/3。
+* **PartitionKey：** 若為資料分割服務，這是您想要連線的資料分割計算資料分割金鑰。 請注意，這不是  資料分割識別碼 GUID。 使用單一資料分割配置的服務不需要這個參數。
+* **PartitionKind：** 這是服務資料分割配置。 這可以是 'Int64Range' 或 'Named'。 使用單一資料分割配置的服務不需要這個參數。
 * **ListenerName** 服務傳回的端點格式為 {"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}。 當服務公開多個端點時，這可識別用戶端要求應該轉送至哪個端點。 如果服務只有一個接聽程式，這可省略。
 * **TargetReplicaSelector** 這指定應該如何選取目標複本或執行個體。
   * 當目標服務具狀態時，TargetReplicaSelector 可以是下列其中一個：'PrimaryReplica'、'RandomSecondaryReplica' 或 'RandomReplica'。 未指定此參數時，預設值是 'PrimaryReplica'。
   * 當目標服務無狀態時，反向 Proxy 會挑選服務資料分割的隨機執行個體，將要求轉送至此執行個體。
-* **逾時︰**指定由反向 Proxy 建立的 HTTP 要求代替用戶端要求傳送到服務的逾時。 預設值為 60 秒。 這是選擇性參數。
+* **逾時︰** 指定由反向 Proxy 建立的 HTTP 要求代替用戶端要求傳送到服務的逾時。 預設值為 60 秒。 這是選擇性參數。
 
 ### <a name="example-usage"></a>使用方式範例
 例如，讓我們採用在下列 URL 上開啟 HTTP 接聽程式的 fabric:/MyApp/MyService 服務：

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/07/2018
+ms.date: 05/04/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: e91e27da5ef80236768d19c5870ac96f19f6b074
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
@@ -27,14 +27,12 @@ ms.lasthandoff: 04/16/2018
 
 這項功能會在下列 Azure 服務和區域中提供：
 
-- **Azure 儲存體**：正式推出。 Azure 公用雲端和 Azure Government 中的所有區域。
-- **Azure SQL Database**：已在所有 Azure 區域正式推出。 
-- **Azure SQL 資料倉儲**：預覽。 Azure 公用雲端中的所有區域。
+- **Azure 儲存體**：已在所有 Azure 區域正式推出
+- **Azure SQL Database**：已在所有 Azure 區域正式推出
+- **Azure Cosmos DB**：已在所有 Azure 公用雲端區域正式推出 
+- **Azure SQL 資料倉儲**：在所有 Azure 公用雲端區域為預覽狀態
 
-如需此預覽的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。
-
->[!NOTE]
-> 在預覽階段，功能可能沒有與正式發行版本功能相同層級的可用性和可靠性。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+如需最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。
 
 ## <a name="key-benefits"></a>主要權益
 
@@ -50,7 +48,7 @@ ms.lasthandoff: 04/16/2018
 
 - 這項功能僅適用於透過 Azure Resource Manager 部署模型所部署的虛擬網路。
 - 端點會在 Azure 虛擬網路中設定的子網路上啟用。 無法將端點使用於從內部部署環境到 Azure 服務的流量。 如需詳細資訊，請參閱[保護來自內部部署環境的 Azure 服務存取](#securing-azure-services-to-virtual-networks)。
-- 服務端點只適用於虛擬網路區域內的 Azure 服務流量。 為了支援 Azure 儲存體的 RA-GRS 和 GRS 流量，端點也會擴充為包含虛擬網路部署所在的配對區域。 深入了解 [Azure 配對地區](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)
+- 針對 Azure SQL，服務端點只適用於虛擬網路區域內的 Azure 服務流量。 針對 Azure 儲存體，為了支援 RA-GRS 和 GRS 流量，端點也會擴充為包含虛擬網路部署所在的配對區域。 深入了解 [Azure 配對區域](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)。
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>將 Azure 服務放到虛擬網路保護
 
@@ -68,7 +66,7 @@ ms.lasthandoff: 04/16/2018
 
 - 服務端點設定於虛擬網路的子網路上。 端點會使用在子網路內執行之任何類型的計算執行個體。
 - 您可以對子網路上所有支援的 Azure 服務 (例如 Azure 儲存體或 Azure SQL Database) 設定多個服務端點。
-- 虛擬網路必須位於與 Azure 服務資源相同的區域中。 如果使用 GRS 和 RA-GRS Azure 儲存體帳戶，則主要帳戶必須位在與虛擬網路相同的區域中。
+- 針對 Azure SQL，虛擬網路必須位於與 Azure 服務資源相同的區域中。 如果使用 GRS 和 RA-GRS Azure 儲存體帳戶，則主要帳戶必須位在與虛擬網路相同的區域中。 針對其他所有服務，Azure 服務資源可以安全地放置在任何區域中的虛擬網路。 
 - 端點設定所在的虛擬網路可以位於與 Azure 服務資源相同或不同的訂用帳戶中。 如需設定端點和保護 Azure 服務所需權限的詳細資訊，請參閱[佈建](#Provisioning)。
 - 對於支援的服務，您可以使用服務端點，將新的或現有資源放到虛擬網路保護。
 
@@ -112,7 +110,7 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="pricing-and-limits"></a>價格和限制
 
-使用服務端點不會額外收費。 Azure 服務 (Azure 儲存體、Azure SQL Database) 的目前定價模型照常適用。
+使用服務端點不會額外收費。 Azure 服務 (Azure 儲存體、Azure SQL Database 等等) 的目前定價模型照常適用。
 
 虛擬網路中的服務端點總數沒有限制。
 
@@ -124,5 +122,5 @@ ms.lasthandoff: 04/16/2018
 - 了解如何[將 Azure 儲存體帳戶放到虛擬網路保護](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - 了解如何[將 Azure SQL Database 放到虛擬網路保護](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - 了解[虛擬網路中的 Azure 服務整合](virtual-network-for-azure-services.md)
--  快速入門：[Azure Resource Manager 範本](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) 可設定 VNet 子網路上的服務端點，並保護該子網路的 Azure 儲存體帳戶。
+-  快速入門：[Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) 可設定 VNet 子網路上的服務端點，並保護該子網路的 Azure 儲存體帳戶。
 

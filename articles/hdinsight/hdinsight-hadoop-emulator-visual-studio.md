@@ -4,20 +4,20 @@ description: 了解如何搭配在本機 VM 中執行的 Hortonworks 沙箱使�
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 05/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 51438f70fa5ab4a3ee088033ec2da51697f8e273
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4c1f5a8100d5d4017e56ef129aa4f4826746868
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>搭配 Hortonworks 沙箱使用 Azure Data Lake tools for Visual Studio
 

@@ -2,18 +2,18 @@
 title: Azure 儲存體帳戶選項 | Microsoft Docs
 description: 了解使用 Azure 儲存體的選項。
 services: storage
-author: jirwin
+author: hux
 manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 01/17/2018
-ms.author: jirwin
-ms.openlocfilehash: 75d1580df5e36b2c88939fde9077c5a1948f6348
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.date: 05/02/2018
+ms.author: hux
+ms.openlocfilehash: 69da15b98e6c519a3a8352cc7ca7212286cb4e52
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-storage-account-options"></a>Azure 儲存體帳戶選項
 
@@ -32,7 +32,7 @@ Azure 儲存體提供三種不同的帳戶選項，各自支援不同的價格�
 
 一般用途 v2 (GPv2) 帳戶是可支援 Blob、檔案、佇列和資料表之各種最新功能的儲存體帳戶。 GPv2 帳戶支援 GPv1 和 Blob 儲存體帳戶可支援的所有 API 和功能。 它們也支援這些帳戶類型的相同耐久性、可用性、延展性和效能功能。 GPv2 帳戶的定價依其設計可提供每 GB 最低的價格，以及具產業競爭力的交易價格。
 
-您可以使用 PowerShell 或 Azure CLI 將 GPv1 帳戶升級至 GPv2 帳戶。 
+您可以使用 Azure 入口網站、PowerShell 或 Azure CLI 將 GPv1 帳戶升級至 GPv2 帳戶。 
 
 對於 GPv2 儲存體帳戶中的區塊 Blob，您可以根據存取模式，在帳戶層級選擇經常性存取或非經常性存取層，或在 Blob 層級選擇經常性存取、非經常性存取或封存層。 將經常、不常和很少存取的資料分別放在經常性存取、非經常性存取和封存儲存層，可將成本最佳化。 
 
@@ -72,8 +72,6 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 ### <a name="blob-storage-accounts"></a>Blob 儲存體帳戶
 
 Blob 儲存體帳戶支援與 GPv2 完全相同的區塊 Blob 功能，但僅限於支援區塊 Blob。 定價大致上與一般用途 v2 帳戶的定價相仿。 客戶應評量 Blob 儲存體帳戶與 GPv2 之間的定價差異，並考慮升級至 GPv2。 此升級無法復原。
-
-我們即將推出將 Blob 儲存體帳戶升級至 GPv2 的功能。
 
 > [!NOTE]
 > Blob 儲存體帳戶僅支援區塊和附加 Blob，不支援分頁 Blob。
@@ -115,9 +113,10 @@ Blob 儲存體帳戶支援與 GPv2 完全相同的區塊 Blob 功能，但僅限
 
 在這一節中，我們會使用 Azure 入口網站示範下列案例︰
 
-* 如何建立 GPv2 儲存體帳戶。
-* 如何將 GPv1 或 Blob 儲存體帳戶轉換為 GPv2 儲存體帳戶。
-* 如何在 GPv2 儲存體帳戶中設定帳戶和 blob 層。
+* [如何建立 GPv2 儲存體帳戶。](#create-a-gpv2-storage-account-using-the-azure-portal)
+* [如何將 GPv1 或 Blob 儲存體帳戶轉換為 GPv2 儲存體帳戶。](#convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal)
+* [如何在 GPv2 儲存體帳戶中設定帳戶。](#change-the-storage-tier-of-a-gpv2-storage-account-using-the-azure-portal)
+* [如何在 Blob 儲存體或 GPv2 儲存體帳戶中設定 Blob 層。](#change-the-storage-tier-of-a-blob-using-the-azure-portal)
 
 您無法設定要在下列範例中封存的存取層，因為此設定會套用到整個儲存體帳戶。 您只能在特定 blob 上設定封存。
 
@@ -141,7 +140,7 @@ Blob 儲存體帳戶支援與 GPv2 完全相同的區塊 Blob 功能，但僅限
 
 6. 選取儲存體帳戶的複寫選項︰**LRS**、**ZRS**、**GRS** 或 **RA-GRS**。 預設值是 [RA-GRS] 。
 
-    LRS = 本地備援儲存體；ZRS = 區域備援儲存體；GRS = 異地備援儲存體 (兩個區域)；RA-GRS 是讀取權限異地備援儲存體 (兩個區域，具有第二個區域的讀取權限)。
+    LRS = 本地備援儲存體；ZRS = 區域備援儲存體；GRS = 異地備援儲存體 (兩個區域)；RA-GRS = 讀取權限異地備援儲存體 (兩個區域，具有第二個區域的讀取權限)。
 
     如需 Azure 儲存體複寫選項的詳細資訊，請參閱 [Azure 儲存體複寫](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
@@ -155,7 +154,7 @@ Blob 儲存體帳戶支援與 GPv2 完全相同的區塊 Blob 功能，但僅限
 
 11. 按一下 [建立]  建立儲存體帳戶。
 
-### <a name="convert-a-gpv1-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>使用 Azure 入口網站將 GPv1 帳戶轉換為 GPv2 儲存體帳戶。
+### <a name="convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>使用 Azure 入口網站，將 GPv1 或 Blob 儲存體帳戶轉換為 GPv2 儲存體帳戶
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -315,7 +314,7 @@ GPv2 儲存體帳戶專門用來提供最低的 GB 儲存成本，同時提供�
 
 **是否可以將現有的儲存體帳戶升級至 GPv2 儲存體帳戶？**
 
-是。 您可以在入口網站或使用 PowerShell 或 CLI，輕鬆地將 GPv1 帳戶升級至 GPv2。 您可以使用 PowerShell 或 CLI 將 Blob 儲存體帳戶升級為 GPv2。 我們即將推出在入口網站中將 Blob 儲存體帳戶升級至 GPv2 的功能。
+是。 您可以在入口網站或使用 PowerShell 或 CLI，輕鬆地將 GPv1 或 Blob 儲存體帳戶升級至 GPv2。 
 
 系統不支援從 GPv2 降級，因此在將您的帳戶升級至 GPv2 前，請考慮所有的價格影響。
 
@@ -329,7 +328,7 @@ GPv2 儲存體帳戶專門用來提供最低的 GB 儲存成本，同時提供�
 
 **可以變更 Blob 儲存體帳戶的儲存層的頻率為何？**
 
-雖然我們不會強制執行可以變更儲存層的頻率限制，但請留意，將儲存層從非經常性存取變更為經常性存取會產生明顯的費用。 不建議經常變更儲存層。
+雖然不會強制執行可以變更儲存層的頻率限制，但請留意，將儲存層從非經常性存取變更為經常性存取會產生明顯的費用。 不建議經常變更儲存層。
 
 **非經常性存取儲存層中的 Blob 與經常性存取儲存層中的 Blob 的行為有所不同嗎？**
 
