@@ -1,24 +1,22 @@
 ---
-title: "使用 Power BI 分析 Data Lake Store 中的資料 | Microsoft Docs"
-description: "使用 Power BI 分析 Azure Data Lake Store 中所儲存的資料"
+title: 使用 Power BI 分析 Data Lake Store 中的資料 | Microsoft Docs
+description: 使用 Power BI 分析 Azure Data Lake Store 中所儲存的資料
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 57d19d27-e135-49d9-a7ea-46c48ef4e3bd
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 4a10dac1eca85b54ef144a91445af6dad3b5d93e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 08660bd1c434c9404fa53a33be209b7a3c4d9372
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>使用 Power BI 分析 Data Lake Store 中的資料
 在本文中，您將了解如何使用 Power BI Desktop 分析 Azure Data Lake Store 中所儲存的資料並加以視覺化。

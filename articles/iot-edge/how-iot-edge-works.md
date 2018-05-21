@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: ''
-ms.openlocfilehash: 9071caedd9ab3b63527c2c0bdab38db2efadb17c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>什麼是 Azure IoT Edge - 預覽
 
 Azure IoT Edge 將雲端分析和自訂商務邏輯移至裝置，讓您的組織可以專注於商業洞見而非資料管理。 設定 IoT 軟體、透過標準容器將它部署到裝置，並從雲端進行全面監視，讓您實現真正的解決方案。
 
 >[!NOTE]
->Azure IoT Edge 僅適用於 IoT 中樞的標準層。 如需有關基本和標準層的詳細資訊，請參閱[如何選擇適合的 IoT 中樞層](../iot-hub/iot-hub-scaling.md)。
+>Azure IoT Edge 適用於 IoT 中樞的免費和標準層。 免費層僅供測試和評估之用。 如需有關基本和標準層的詳細資訊，請參閱[如何選擇適合的 IoT 中樞層](../iot-hub/iot-hub-scaling.md)。
 
 進行分析可促進 IoT 解決方案的商務價值，但並非所有分析都必須在雲端進行。 如果您希望裝置能盡快回應緊急事件，您可以在裝置本身執行異常偵測。 同樣地，如果您想要降低頻寬成本，並避免傳送數 TB 的原始資料，您可以在本機執行資料清除和彙總。 然後將深入解析傳送至雲端。 
 

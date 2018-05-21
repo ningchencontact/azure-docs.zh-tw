@@ -65,7 +65,7 @@ ms.lasthandoff: 04/19/2018
 ### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>問題：輸入配量永遠處於 Waiting 狀態
 配量可能因各種原因而處於**等候中**狀態。 其中一個常見的原因是 **external** 屬性未設定為 **true**。 在 Azure Data Factory 範圍外產生的任何資料集，都應該標示 **external** 屬性。 此屬性可指出資料為外部資料，並未受到 Data Factory 內的任何管線支持。 一旦資料在個別的存放區可用，資料配量就會標示為 [就緒]。
 
-關於 **external** 屬性的用法，請參閱下列範例。 當您將 external 設定為 true 時，可以視需要指定 **externalData***。
+關於 **external** 屬性的用法，請參閱下列範例。 當您將 external 設定為 true 時，可以視需要指定 **externalData**\*。
 
 如需此屬性的詳細資訊，請參閱 [資料集](data-factory-create-datasets.md) 文章。
 

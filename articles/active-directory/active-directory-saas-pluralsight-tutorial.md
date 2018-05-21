@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Pluralsight 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Pluralsight 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Pluralsight 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Pluralsight 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 62d148d78d9f98b6a3ddf1259177936b3976aeab
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: ec199b665f0f9ed34ac6763855cfa9d35b80a7e2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>教學課程：Azure Active Directory 與 Pluralsight 整合
 
-在本教學課程中，您將了解如何整合 Pluralsight 與 Azure Active Directory (Azure AD)。
+在本教學課程中，您會了解如何整合 Pluralsight 與 Azure Active Directory (Azure AD)。
 
-將 Pluralsight 與 Azure AD 整合可提供下列優點：
+Pluralsight 與 Azure AD 整合提供下列優點：
 
 - 您可以在 Azure AD 中控制可存取 Pluralsight 的人員。
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Pluralsight (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
-若要設定 Azure AD 與 Pluralsight 整合，您需要下列項目：
+若要設定與 Pluralsight 的 Azure AD 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
 - 已啟用 Pluralsight 單一登入的訂用帳戶
@@ -54,11 +54,11 @@ ms.lasthandoff: 12/22/2017
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-pluralsight-from-the-gallery"></a>從資源庫新增 Pluralsight
-若要設定將 Pluralsight 整合到 Azure AD 中，您需要將 Pluralsight 從資源庫新增到受控 SaaS 應用程式清單。
+若要設定 Pluralsight 與 Azure AD 整合，您需要從資源庫將 Pluralsight 加入到受控 SaaS 應用程式清單。
 
-**若要從資源庫新增 Pluralsight，請執行下列步驟：**
+**若要從資源庫加入 Pluralsight，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -76,13 +76,13 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Pluralsight 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 "Britta Simon" 的測試使用者身分，使用 Pluralsight 設定及測試 Azure AD 單一登入。
 
-若要讓單一登入能夠運作，Azure AD 必須知道 Pluralsight 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者與 Pluralsight 中的相關使用者之間建立連結關聯性。
+若要讓單一登入運作，Azure AD 必須知道 Pluralsight 與 Azure AD 中互相對應的使用者。 換句話說，必須建立 Azure AD 使用者和 Pluralsight 中相關使用者之間的連結關聯性。
 
-在 Pluralsight 中，指派 Azure AD 中**使用者名稱**的值作為 [Username] \(使用者名稱\) 的值，以建立連結關聯性。
+在 Pluralsight 中，將 Azure AD 中**使用者名稱**的值，指派為 **Username** 的值，以建立連結關聯性。
 
-若要設定及測試與 Pluralsight 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試對 Pluralsight 的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
@@ -92,7 +92,7 @@ ms.lasthandoff: 12/22/2017
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，然後在您的 Pluralsight 應用程式中設定單一登入。
+在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，並在您的 Pluralsight 應用程式中設定單一登入。
 
 **若要設定與 Pluralsight 搭配運作的 Azure AD 單一登入，請執行下列步驟：**
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 12/22/2017
     c. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<instancename>.pluralsight.com/sp/ACS.saml2`
      
     > [!NOTE] 
-    > 這些都不是真正的值。 請使用實際的「回覆 URL」和「登入 URL」來更新這些值。 請連絡 [Pluralsight 用戶端支援小組](mailto:support@pluralsight.com)以取得此值。 
+    > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [Pluralsight 用戶端支援小組](mailto:support@pluralsight.com)以取得此值。 
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -199,13 +199,13 @@ ms.lasthandoff: 12/22/2017
 
 ![指派使用者角色][200] 
 
-**若要將 Britta Simon 指派給 Pluralsight，請執行以下步驟：**
+**若要將 Britta Simon 指派到 Pluralsight，請執行以下步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Pluralsight]。
+2. 在應用程式清單中，選取 [Pluralsight] 。
 
     ![應用程式清單中的 Pluralsight 連結](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_app.png)  
 
@@ -227,13 +227,13 @@ ms.lasthandoff: 12/22/2017
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 [Pluralsight] 圖格時，應該會自動登入您的 Pluralsight 應用程式。
+當您在存取面板中按一下 Pluralsight 圖格時，應該會自動登入您的 Pluralsight 應用程式。
 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

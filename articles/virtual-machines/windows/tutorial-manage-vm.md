@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure PowerShell 模組建立和管理 Windows VM | Microsoft Docs
-description: 教學課程 - 使用 Azure PowerShell 模組建立和管理 Windows VM
+title: 教學課程 - 使用 Azure PowerShell 建立和管理 Windows VM | Microsoft Docs
+description: 在本教學課程中，您將了解如何使用 Azure PowerShell 在 Azure 中建立和管理 Windows VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cce3fd003888c76490cb402b658f5c3aa76ab11e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8eeba3b38e4a78bc33b995ee06f76116601c4d12
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>使用 Azure PowerShell 模組建立和管理 Windows VM
+# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立和管理 Windows VM
 
 Azure 虛擬機器提供完全可設定且彈性的計算環境。 本教學課程涵蓋基本的「Azure 虛擬機器」部署項目，例如選取 VM 大小、選取 VM 映像、部署 VM。 您會了解如何：
 
@@ -33,10 +33,9 @@ Azure 虛擬機器提供完全可設定且彈性的計算環境。 本教學課�
 > * 調整 VM 的大小
 > * 檢視及了解 VM 狀態
 
-
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，必須使用 Azure PowerShell 模組 5.3 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。 
+如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-resource-group"></a>建立資源群組
 
@@ -94,11 +93,11 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="understand-vm-images"></a>了解 VM 映像
 
-Azure Marketplace 包含許多可用來建立新虛擬機器的虛擬機器映像。 在先前步驟中，已使用 Windows Server 2016-Datacenter 映像建立虛擬機器。 在此步驟中，PowerShell 模組用來搜尋 Marketplace 中的其他 Windows 映像，其也可用來作為新 VM 的基底。 這個程序包含尋找發行者、提供者、SKU 和版本號碼 (選擇性) 來[識別](cli-ps-findimage.md#terminology)映像。 
+Azure Marketplace 包含許多可用來建立新虛擬機器的虛擬機器映像。 在先前步驟中，已使用 Windows Server 2016 Datacenter 映像建立虛擬機器。 在此步驟中，PowerShell 模組用來搜尋 Marketplace 中的其他 Windows 映像，其也可用來作為新 VM 的基底。 這個程序包含尋找發行者、提供者、SKU 和版本號碼 (選擇性) 來[識別](cli-ps-findimage.md#terminology)映像。 
 
 使用 [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) 命令傳回映像發行者清單：
 
-```powersehll
+```powershell
 Get-AzureRmVMImagePublisher -Location "EastUS"
 ```
 
@@ -157,7 +156,7 @@ New-AzureRmVm `
     -AsJob
 ```
 
-`-AsJob` 參數會以背景工作建立 VM，因此會傳回 PowerShell 提示。 您可以使用 `Job` Cmdlet 檢視背景作業的詳細資料。
+`-AsJob` 參數會以背景工作建立 VM，因此會傳回 PowerShell 提示。 您可以使用 `Get-Job` Cmdlet 檢視背景作業的詳細資料。
 
 
 ## <a name="understand-vm-sizes"></a>了解 VM 大小
