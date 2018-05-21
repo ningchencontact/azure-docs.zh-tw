@@ -658,6 +658,17 @@
       href: service-fabric-cluster-fabric-settings.md
     - name: 服務模型 XML 結構描述
       href: service-fabric-service-model-schema.md
+      items:
+        - name: 元素
+          href: service-fabric-service-model-schema-elements.md
+        - name: 複雜類型
+          href: service-fabric-service-model-schema-complex-types.md
+        - name: 屬性群組
+          href: service-fabric-service-model-schema-attribute-groups.md
+        - name: 簡單型別
+          href: service-fabric-service-model-schema-simple-types.md
+        - name: 元素群組
+          href: service-fabric-service-model-schema-element-groups.md
     - name: 環境變數
       href: service-fabric-environment-variables-reference.md
 - name: 資源

@@ -1,25 +1,25 @@
 ---
-title: "Azure 原則 JSON 範例 - 已核准的 VM 映像 | Microsoft Docs"
-description: "此 JSON 範例原則會要求只能在環境中部署已核准的自訂映像。"
+title: Azure 原則 JSON 範例 - 已核准的 VM 映像 | Microsoft Docs
+description: 此 JSON 範例原則會要求只能在環境中部署已核准的自訂映像。
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: dcf43b5b820b41ec8722d843f1484c1607cfbde8
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: f20fc596783e348805977e2a8dceb29cd5cf6fb8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="approved-vm-images"></a>已核准的 VM 映像
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/13/2017
 
 [!code-json[main](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.json "Approved VM images")]
 
-您可以使用 [Azure 入口網站](#deploy-with-the-portal)[PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 來部署此範本。
+您可以使用 [Azure 入口網站](#deploy-with-the-portal) [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 來部署此範本。
 
 ## <a name="deploy-with-the-portal"></a>使用入口網站部署
 
@@ -76,4 +76,5 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>後續步驟
 
-- 其他「Azure 原則」範本範例都位於[Azure 原則的範本](../json-samples.md)。
+- 其他 Azure 原則範本範例都位於[Azure 原則的範本](../json-samples.md)
+- 虛擬機器的其他 Azure 原則範例位於[將原則套用到 Windows VM](/azure/virtual-machines/windows/policy)

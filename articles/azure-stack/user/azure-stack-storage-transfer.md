@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/17/2018
+ms.date: 04/25/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 860a381e5ec2054cd6243901a8e172832e6ada53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2876565f3d6a3411eb170d4da640166fa3e607eb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Azure Stack 儲存體適用的工具
 
@@ -47,41 +47,88 @@ Microsoft Azure Stack 提供磁碟、Blob、資料表、佇列和帳戶管理功
 
 
 ## <a name="azcopy"></a>AzCopy
-AzCopy 是一個命令列公用程式，可以使用簡單命令高效率地將資料複製到和複製自 Microsoft Azure Blob 和資料表儲存體。 您可以從儲存體帳戶內或是在儲存體帳戶之間，從一個物件複製資料到另一個物件。 AzCopy 公用程式有兩個版本：Windows 上的 AzCopy 和 Linux 上的 AzCopy。 Azure Stack 僅支援 Windows 版本。 
- 
-### <a name="download-and-install-azcopy"></a>下載並安裝 AzCopy 
 
-[下載](https://aka.ms/azcopyforazurestack) Azure Stack 支援的 Windows 版 AzCopy。 在 Azure Stack 和在 Azure 上安裝與使用 AzCopy 的方式一樣。 若要深入了解，請參閱[使用 AzCopy 命令列公用程式傳輸資料](../../storage/common/storage-use-azcopy.md)。 
+AzCopy 是一個命令列公用程式，可以使用簡單命令高效率地將資料複製到和複製自 Microsoft Azure Blob 和資料表儲存體。 您可以從儲存體帳戶內或是在儲存體帳戶之間，從一個物件複製資料到另一個物件。
 
- - 如果是 1802 更新或更新版本，請[下載 AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417)。
- - 如果是舊版，請[下載 AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20150405)。
+### <a name="download-and-install-azcopy"></a>下載並安裝 AzCopy
+
+AzCopy 公用程式有兩個版本：Windows 上的 AzCopy 和 Linux 上的 AzCopy。
+
+ - **AzCopy on Windows**  
+    - 下載 Azure Stack 支援的 AzCopy 版本。 在 Azure Stack 和在 Azure 上安裝與使用 AzCopy 的方式一樣。 若要進一步了解，請參閱 [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)。
+        - 如果是 1802 更新或更新版本，請[下載 AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417)。
+        - 如果是舊版，請[下載 AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20170417)。
+
+ - **AzCopy on Linux**  
+
+    - AzCopy on Linux 支援 Azure Stack 1802 更新或更新版本。 在 Azure Stack 和在 Azure 上安裝與使用 AzCopy 的方式一樣。 如需深入了解，請參閱 [AzCopy on Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)。
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>資料傳輸適用的 AzCopy 命令範例
 
-下列範例會示範將資料複製至 Azure Stack Blob 以及從 Azure Stack Blob 複製資料的典型案例。 若要深入了解，請參閱[使用 AzCopy 命令列公用程式傳輸資料](../../storage/storage-use-azcopy.md)。 
+下列範例會遵循將資料複製至 Azure Stack Blob 以及從 Azure Stack Blob 複製資料的典型案例。 如需深入了解，請參閱 [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) 和 [AzCopy on Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)。
 
-#### <a name="download-all-blobs-to-local-disk"></a>將所有 Blob 下載至本機磁碟
+### <a name="download-all-blobs-to-a-local-disk"></a>將所有 Blob 下載至本機磁碟
 
-```azcopy  
+**Windows**
+
+````AzCopy  
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
-```
+````
 
-#### <a name="upload-single-file-to-virtual-directory"></a>上傳單一檔案到虛擬目錄 
-```azcopy  
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source https://myaccount.blob.local.azurestack.external/mycontainer \
+    --destination /mnt/myfiles \
+    --source-key <key> \
+    --recursive
+````
+
+### <a name="upload-single-file-to-virtual-directory"></a>上傳單一檔案到虛擬目錄
+
+**Windows**
+
+```AzCopy  
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
-#### <a name="move-data-between-azure-and-azure-stack-storage"></a>在 Azure 和 Azure Stack 儲存體之間移動資料 
-不支援在 Azure 儲存體和 Azure Stack 之間的非同步資料傳輸。 您必須使用 **/SyncCopy** 選項來指定傳輸。 
+**Linux**
 
-```azcopy  
+````AzCopy  
+azcopy \
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
+    --dest-key <key>
+````
+
+### <a name="move-data-between-azure-and-azure-stack-storage"></a>在 Azure 和 Azure Stack 儲存體之間移動資料
+
+不支援在 Azure 儲存體和 Azure Stack 之間的非同步資料傳輸。 您必須使用 **/SyncCopy** 或 **--sync-copy** 選項來指定傳輸。
+
+**Windows**
+
+````AzCopy  
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-```
+````
+
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
+    --destination https://myaccount2.blob.core.windows.net/myContainer/ \
+    --source-key <key1> \
+    --dest-key <key2> \
+    --include "abc.txt" \
+    --sync-copy
+````
+
 ### <a name="azcopy-known-issues"></a>Azcopy 的已知問題
 
  - 檔案儲存體還無法在 Azure Stack 中使用，因此檔案存放區上沒有任何可用的 AzCopy 作業。
  - 不支援在 Azure 儲存體和 Azure Stack 之間的非同步資料傳輸。 您可以使用 **/SyncCopy** 選項指定傳輸來複製資料。
- - Azure Stack 儲存體不支援 Linux 版本的 Azcopy。 
+ - Azcopy 的 Linux 版本只支援 1802 更新或更新版本。 它不支援表格服務。
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -132,7 +179,7 @@ Set-AzureRmEnvironment -Name $ARMEvnName -GraphEndpoint $GraphAudience
 
 # Login
 $TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
-Connect-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+Add-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
 
 # Set a default Azure subscription.
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName

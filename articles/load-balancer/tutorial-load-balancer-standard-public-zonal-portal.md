@@ -1,29 +1,41 @@
 ---
-title: 區域內的 Load Balancer VM - Azure 入口網站 | Microsoft Docs
-description: 使用 Azure 入口網站以區域前端建立標準 Load Balancer，將 VM 的負載平均分配至可用性區域內的 VM
+title: 教學課程：區域內的 Load Balancer VM - Azure 入口網站 | Microsoft Docs
+description: 本教學課程示範如何使用 Azure 入口網站以區域前端建立標準負載平衡器，來平衡可用性區域內的 VM 負載
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: ''
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: 41a33436cb0d2c4c2bbfef4888bb704c62e2b91e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: mvc
+ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>使用 Azure 入口網站透過標準 Load Balancer 將 VM 的負載平均分配至可用性區域內的 VM
+# <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過標準負載平衡器來平衡可用性區域內的 VM 負載
 
-本文會逐步說明如何從 Azure 入口網站使用標準公用 IP 位址，來建立具有區域前端的公用[標準 Load Balancer](https://aka.ms/azureloadbalancerstandard)。 在此案例中，您需為前端和後端執行個體指定特定區域，以讓您的資料路徑和資源與特定區域搭配運作。
+本教學課程會逐步說明如何透過 Azure 入口網站使用標準公用 IP 位址，來建立具有區域前端的公用[標準負載平衡器](https://aka.ms/azureloadbalancerstandard)。 在此案例中，您需為前端和後端執行個體指定特定區域，以讓您的資料路徑和資源與特定區域搭配運作。 您會了解如何：
+
+> [!div class="checklist"]
+> * 建立具有區域前端的 Azure 標準負載平衡器
+> * 建立網路安全性群組以定義連入流量規則
+> * 建立區域虛擬機器並連結至負載平衡器
+> * 建立負載平衡器健康狀態探查
+> * 建立負載平衡器流量規則
+> * 建立基本 IIS 網站
+> * 檢視作用中的負載平衡器
+
 如需關於搭配使用可用性區域和標準 Load Balancer 的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
 
 如果您想要，您可以使用 [Azure CLI](load-balancer-standard-public-zonal-cli.md) 完成本教學課程。

@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d93ea939a938fa88615161d3d048ee1881dd319a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d707b9a4b7b683e75bb9313dae2611fd59dbb155
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中調整 Azure SQL 資料倉儲中的計算
 
@@ -36,8 +36,8 @@ ms.lasthandoff: 04/18/2018
 
 若要變更資料倉儲單位：
 
-1. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料庫]。
-2. 從 [SQL 資料庫] 頁面中，選取 [mySampleDataWarehouse]。 資料倉儲隨即開啟。
+1. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料倉儲]。
+2. 從 [SQL 資料倉儲] 頁面中，選取 [mySampleDataWarehouse]。 資料倉儲隨即開啟。
 3. 按一下 [調整] 。
 
     ![按一下 [調整]](media/quickstart-scale-compute-portal/click-scale.png)

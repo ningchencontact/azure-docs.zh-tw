@@ -1,5 +1,5 @@
 ---
-title: 使用 SSMS 設計您的第一個 Azure SQL 資料庫 | Microsoft Docs
+title: 教學課程：使用 SSMS 設計您的第一個 Azure SQL 資料庫 | Microsoft Docs
 description: 了解如何利用 SQL Server Management Studio 設計您的第一個 Azure SQL 資料庫。
 services: sql-database
 author: CarlRabeler
@@ -7,28 +7,30 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 1415edf8ea70b3835e99daa1691d278fe833b950
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ba14208e971d712184052e7470757ce48ac26879
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="design-your-first-azure-sql-database-using-ssms"></a>使用 SSMS 設計您的第一個 Azure SQL 資料庫
+# <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>教學課程：使用 SSMS 設計您的第一個 Azure SQL 資料庫
 
 Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務 (DBaaS)。 在本教學課程中，您會了解如何使用 Azure 入口網站和 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)： 
 
 > [!div class="checklist"]
-> * 在 Azure 入口網站中建立資料庫
+> * 在 Azure 入口網站中建立資料庫*
 > * 在 Azure 入口網站中設定伺服器層級的防火牆規則
 > * 使用 SSMS 連接到資料庫
 > * 使用 SSMS 建立資料表
 > * 使用 BCP 大量載入資料
 > * 使用 SSMS 查詢該資料
-> * 在 Azure 入口網站中將資料庫還原到先前的[時間點還原](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+
+   >[!NOTE]
+   > 為了進行此教學課程，我們會使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)，但您也可以選擇[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)。 
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -42,13 +44,13 @@ Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 
 ## <a name="create-a-blank-sql-database"></a>建立空白 SQL Database
 
-Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-database-service-tiers.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL Database 邏輯伺服器](sql-database-features.md)內。 
+Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-database-service-tiers-dtu.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL Database 邏輯伺服器](sql-database-features.md)內。 
 
 遵循以下步驟來建立空白 SQL 資料庫。 
 
 1. 按一下 Azure 入口網站左上角的 [建立資源]。
 
-2. 從 [新增] 頁面中選取 [資料庫]，然後在 [新增] 頁面的 [SQL Database] 下選取 [建立]。
+2. 在 [新增] 頁面上，選取 [Azure Marketplace] 區段中的 [資料庫]，然後按一下 [精選] 區段中的 [SQL Database]。
 
    ![建立空白資料庫](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -74,7 +76,7 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-databa
 
 5. 按一下 [選取] 。
 
-6. 按一下 [定價層] 可指定服務層、DTU 或 vCore 的數目，以及儲存體數量。 瀏覽 DTU/vCore 數目的選項，以及可供您每個服務層使用的儲存體。 
+6. 按一下 [定價層] 可指定服務層、DTU 或 vCore 的數目，以及儲存體數量。 瀏覽 DTU/vCore 數目的選項，以及可供您每個服務層使用的儲存體。 為了進行此教學課程，我們會使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)，但您也可以選擇[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)。 
 
 7. 在此教學課程中，選取 [標準] 服務層，然後使用滑桿選取 **100 DTU (S3)** 和 **400** GB 的儲存體。
 
@@ -83,10 +85,9 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-databa
 8. 若要使用 [附加元件儲存體] 選項，請接受預覽條款。 
 
    > [!IMPORTANT]
-   > \* 大於內含儲存體數量的儲存體大小尚在預覽中，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
-   >
-   >\* 在進階層，目前於下列區域中提供超過 1 TB 的儲存體：澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、韓國中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
-   > 
+   > -  大於內含儲存體數量的儲存體大小為預覽版，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
+   >-  在進階層，目前於下列區域中提供超過 1 TB 的儲存體：澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、韓國中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+
 
 9. 在選取伺服器層、DTU 數目和儲存體數量之後，按一下 [套用]。  
 
@@ -108,7 +109,7 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
 
 1. 部署完成之後，按一下左側功能表中的 [SQL Database]，然後按一下 [SQL Database] 頁面上的 [mySampleDatabase]。 資料庫的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver-20170824.database.windows.net**)，並提供進一步的組態選項。 
 
-2. 在後續的快速入門中，請複製此完整伺服器名稱，才能用來連線到伺服器及其資料庫。 
+2. 在後續的教學課程和快速入門中，請複製此完整伺服器名稱，以用來連線至您的伺服器及其資料庫。 
 
    ![伺服器名稱](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -147,7 +148,7 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
 
    | 設定       | 建議的值 | 說明 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | 伺服器類型 | 資料庫引擎 | 需要此值。 |
+   | 伺服器類型 | 資料庫引擎 | 這是必要值 |
    | 伺服器名稱 | 完整伺服器名稱 | 名稱應該類似這樣︰**mynewserver20170824.database.windows.net**。 |
    | 驗證 | SQL Server 驗證 | 在本教學課程中，我們只設定了 SQL 驗證這個驗證類型。 |
    | 登入 | 伺服器管理帳戶 | 這是您在建立伺服器時所指定的帳戶。 |
@@ -297,26 +298,6 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
    AND person.LastName = 'Coleman'
    ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time"></a>將資料庫還原至先前的時間點
-
-假設您不小心刪除了資料表。 這是您無法輕易復原的情況。 Azure SQL Database 可讓您返回至最長過去 35 天內的任何時間點，並將此時間點還原至新資料庫。 您可使用此資料庫來復原已刪除的資料。 下列步驟會將範例資料庫還原至新增資料表之前的時間點。
-
-1. 在資料庫的 [SQL Database] 頁面上，按一下工具列上的 [還原]。 [還原] 頁面隨即開啟。
-
-   ![還原](./media/sql-database-design-first-database/restore.png)
-
-2. 在 [還原] 表單中填入必要資訊︰
-    * 資料庫名稱︰提供資料庫名稱 
-    * 時間點：選取 [還原] 表單上的 [時間點] 索引標籤 
-    * 還原點：選取一個在變更資料庫之前的時間
-    * 目標伺服器︰還原資料庫時，您無法變更此值 
-    * 彈性資料庫集區：選取 [無]  
-    * 定價層：選取 [20 DTU] 和 [40 GB] 的儲存體。
-
-   ![還原點](./media/sql-database-design-first-database/restore-point.png)
-
-3. 按一下 [確定]，以將資料庫[還原至新增資料表之前的時間點](sql-database-recovery-using-backups.md#point-in-time-restore)。 若將資料庫還原至不同的時間點，系統即會從您指定的時間點 (只要位於[服務層](sql-database-service-tiers.md)的保留期限內) 開始，在與原始資料庫相同的伺服器中建立重複的資料庫。
-
 ## <a name="next-steps"></a>後續步驟 
 在本教學課程中，您已了解基本的資料庫工作，例如建立資料庫和資料表、載入和查詢資料，以及將資料庫還原至先前的時間點。 您已了解如何︰
 > [!div class="checklist"]
@@ -326,7 +307,6 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
 > * 建立資料表
 > * 大量載入資料
 > * 查詢該資料
-> * 使用 SQL Database [還原時間點](sql-database-recovery-using-backups.md#point-in-time-restore)功能，將資料庫還原至先前的時間點
 
 前進到下一個教學課程，了解如何使用 Visual Studio 和 C# 設計資料庫。
 

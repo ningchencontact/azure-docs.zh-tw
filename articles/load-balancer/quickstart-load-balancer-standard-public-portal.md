@@ -1,27 +1,29 @@
 ---
-title: 建立標準負載平衡器 - Azure 入口網站 | Microsoft Docs
-description: 了解如何使用 Azure 入口網站建立標準負載平衡器。
+title: 快速入門：建立標準負載平衡器 - Azure 入口網站 | Microsoft Docs
+description: 本快速入門說明如何使用 Azure 入口網站建立標準負載平衡器。
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
+Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/18
 ms.author: kumud
-ms.openlocfilehash: f67da7dc84878ca7418eb644daec1a9681e2f6f2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: dc7d8a4cc5b755504c2430be187d3ab2b46c51d1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>使用 Azure 入口網站建立標準負載平衡器以平衡 VM 的負載
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立標準負載平衡器以平衡 VM 的負載
 
 負載平衡會將傳入要求分散於多部虛擬機器，藉此提供高可用性和範圍。 您可使用 Azure 入口網站建立負載平衡器，以平衡虛擬機器 (VM) 的負載。 本快速入門示範如何使用標準負載平衡器來平衡 VM 的負載。
 
@@ -66,7 +68,7 @@ ms.lasthandoff: 04/18/2018
     - myVM1 - 作為虛擬機器的名稱。        
     - azureuser - 作為系統管理員使用者名稱。    
     - myResourceGroupSLB - 針對 [資源群組]，選取 [使用現有的]，然後選取 myResourceGroupSLB。
-2. 按一下 [SERVICEPRINCIPAL] 。
+2. 按一下 [確定]。
 3. 選取 [DS1_V2] 作為虛擬機器的大小，然後按一下 [選取]。
 4. 輸入 VM 設定的下列值：
     - myAvailabilitySet - 作為您新建立的可用性設定組名稱。
@@ -92,7 +94,7 @@ ms.lasthandoff: 04/18/2018
     - 100 作為 [優先順序]
     - myHTTPRule 作為名稱
     - 允許 HTTP - 作為描述
-4. 按一下 [SERVICEPRINCIPAL] 。
+4. 按一下 [確定]。
  
  ![建立虛擬網路](./media/load-balancer-standard-public-portal/8-load-balancer-nsg-rules.png)
 5. 重複步驟 2 到 4 來建立另一個名為 myRDPRule 的規則，以允許使用連接埠 3389 的輸入 RDP 連線，其具有下列值：
@@ -135,7 +137,7 @@ ms.lasthandoff: 04/18/2018
     - 針對 [關聯對象]，從下拉式功能表按一下 [可用性設定組]
     - 針對 [可用性設定組]，按一下 [myAvailabilitySet]。
     - 按一下 [新增目標網路 IP 組態]，將您建立的每部虛擬機器 (myVM1 & myVM2) 新增至後端集區。
-    - 按一下 [SERVICEPRINCIPAL] 。
+    - 按一下 [確定]。
 
     ![新增至後端位址集區 ](./media/load-balancer-standard-public-portal/3-load-balancer-backend-02.png)
 
@@ -153,7 +155,7 @@ ms.lasthandoff: 04/18/2018
     - 80 - 作為連接埠號碼。
     - 15 - 探查嘗試的 [間隔] 秒數。
     - 2 - 作為 [狀況不良閾值]，或將 VM 視為狀況不良之前，必須達到的連續探查失敗次數。
-4. 按一下 [SERVICEPRINCIPAL] 。
+4. 按一下 [確定]。
 
    ![新增探查](./media/load-balancer-standard-public-portal/4-load-balancer-probes.png)
 
@@ -170,7 +172,7 @@ ms.lasthandoff: 04/18/2018
     - 80 - 作為後端連接埠。
     - myBackendPool - 作為後端集區的名稱。
     - myHealthProbe - 作為健康狀態探查的名稱。
-4. 按一下 [SERVICEPRINCIPAL] 。
+4. 按一下 [確定]。
     
     ![新增負載平衡規則](./media/load-balancer-standard-public-portal/5-load-balancing-rules.png)
 

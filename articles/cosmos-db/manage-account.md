@@ -64,7 +64,7 @@ ms.lasthandoff: 04/16/2018
 
 1. 更新應用程式程式碼中的存取金鑰，以參考 Azure Cosmos DB 帳戶的次要存取金鑰。
 2. 重新產生 Azure Cosmos DB 帳戶的主要存取金鑰。 在 [Azure 入口網站](https://portal.azure.com/)中，存取您的 Azure Cosmos DB 帳戶。
-3. 在 [Azure Cosmos DB 帳戶] 頁面中，按一下 [金鑰] \(若為 MongoDB 帳戶，則按一下 [連接字串])。
+3. 在 [Azure Cosmos DB 帳戶] 頁面中，按一下 [金鑰] \(若為 MongoDB 帳戶\*\*，則按一下 [連接字串])。
 4. 在 [金鑰]/[連接字串] 頁面中，按一下 [重新產生] 按鈕，然後按一下 [確定] 以確認要產生新的金鑰。
     ![重新產生存取金鑰](./media/manage-account/regenerate-keys.png)
 5. 一旦確認新的金鑰可供使用後 (重新產生後約五分鐘)，更新應用程式程式碼中的存取金鑰，以參考新的主要存取金鑰。

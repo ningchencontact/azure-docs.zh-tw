@@ -1,36 +1,36 @@
 ---
-title: Azure 資訊安全中心和 Azure 中的 Windows 虛擬機器 | Microsoft Docs
-description: 了解如何使用 Azure 資訊安全中心來確保 Azure Windows 虛擬機器的安全性。
+title: 教學課程 - 針對 Azure 中的 Windows VM 使用 Azure 資訊安全中心 | Microsoft Docs
+description: 在本教學課程中，您會了解 Azure 資訊安全中心的功能，以協助保護 Azure 中的 Windows 虛擬機器。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35b6c8910b0dd5e8d1c388ee83223ce77a08f6d1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b573208107b07b47b471d9c5247b362ef144099e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>使用 Azure 資訊安全中心來監視虛擬機器
+# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>教學課程：使用 Azure 資訊安全中心來監視 Windows 虛擬機器
 
 Azure 資訊安全中心可協助您了解 Azure 資源的安全性作法。 資訊安全中心提供了整合式的安全性監視功能。 它可以偵測到可能不會被察覺的威脅。 在本教學課程中，您將會了解 Azure 資訊安全中心，以及要如何︰
- 
+
 > [!div class="checklist"]
 > * 設定資料收集功能
 > * 設定安全性原則
 > * 檢視及修正組態的健康狀態問題
-> * 檢閱所偵測到的威脅  
+> * 檢閱所偵測到的威脅
 
 ## <a name="security-center-overview"></a>資訊安全中心概觀
 

@@ -82,7 +82,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
    * 若要自訂功能表，請在功能表上的任意處按一下滑鼠右鍵，然後按一下 [自訂] 。
    * **設定**和**所有設定**：顯示該叢集的 [設定] 刀鋒視窗，可讓您存取該叢集的詳細組態資訊。
-   * **儀表板**、**叢集儀表板**和 **URL：這些是存取叢集儀表板 (也就是適用於以 Linux 為基礎之叢集的 Ambari Web) 的所有方法。-**安全殼層︰顯示使用安全殼層 (SSH) 連線連接到叢集的指示。
+   * **儀表板**、**叢集儀表板**和 **URL：這些是存取叢集儀表板 (也就是適用於以 Linux 為基礎之叢集的 Ambari Web) 的所有方法。-** 安全殼層\*\*︰顯示使用安全殼層 (SSH) 連線連接到叢集的指示。
    * **調整叢集**：可讓您變更此叢集的背景工作節點數目。
    * **刪除**：刪除叢集。
    * **快速啟動**：顯示可協助您開始使用 HDInsight 的資訊。
@@ -276,7 +276,7 @@ HDInsight 查詢主控台包括下列功能：
 
     ![HDInsight portal job history](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    按一下 [查詢名稱] 來顯示詳細資料，包括工作屬性、[作業查詢] 和 [作業輸出]。 您也可以將查詢和輸出下載至您的工作站。
+    按一下 [查詢名稱] 來顯示詳細資料，包括工作屬性、[作業查詢] 和 \*\*[作業輸出]。 您也可以將查詢和輸出下載至您的工作站。
 * **檔案瀏覽器**：瀏覽預設的儲存體帳戶和連結的儲存體帳戶。
 
     ![HDInsight portal file browser browse](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
@@ -286,7 +286,7 @@ HDInsight 查詢主控台包括下列功能：
 
     ![HDInsight portal Hadoop UI](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
 
-    從「Hadoop UI」，您可以瀏覽檔案，並檢查記錄檔。
+    從\*「Hadoop UI」，您可以瀏覽檔案，並檢查記錄檔。
 * **Yarn UI**。
 
     ![HDInsight portal YARN UI](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
