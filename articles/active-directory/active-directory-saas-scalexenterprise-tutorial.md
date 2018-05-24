@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 ScaleX Enterprise 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 ScaleX Enterprise 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 ScaleX Enterprise 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 ScaleX Enterprise 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: f83d817647a5339176260bfcf73005045f9ead54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 94c30d39a5d72a022dd77d65141f1af679cf3dd3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>教學課程：Azure Active Directory 與 ScaleX Enterprise 整合
 
@@ -29,7 +29,7 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 - 您可以讓使用者使用其 Azure AD 帳戶自動登入 ScaleX Enterprise (單一登入)
 - 您可以在 Azure 入口網站中集中管理您的帳戶
 
-如果您想要知道與 Azure AD 整合的 SaaS 應用程式詳細資訊，請參閱： 什麼是搭配 [Azure Active Directory](active-directory-appssoaccess-whatis.md) 的應用程式存取和單一登入？
+如果您想要知道與 Azure AD 整合的 SaaS 應用程式詳細資訊，請參閱： 什麼是搭配 [Azure Active Directory](manage-apps/what-is-single-sign-on.md) 的應用程式存取和單一登入？
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -57,7 +57,7 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 ScaleX Enterprise，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -170,11 +170,11 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 
     c. **ACS 回應中的識別提供者電子郵件欄位的名稱**︰將 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 值貼上
 
-    d. **識別提供者的 EntityDescriptor 實體識別碼︰**將您從 Azure 入口網站複製的 **SAML 實體識別碼**值貼上。
+    d. **識別提供者的 EntityDescriptor 實體識別碼︰** 將您從 Azure 入口網站複製的 **SAML 實體識別碼**值貼上。
 
-    e. **識別提供者 SingleSignOnService URL：**從 Azure 入口網站將 **SAML 單一登入服務 URL** 貼上。
+    e. **識別提供者 SingleSignOnService URL：** 從 Azure 入口網站將 **SAML 單一登入服務 URL** 貼上。
 
-    f. **識別提供者公開 X509 憑證︰**在記事本中，將您從 Azure下載的 X509 憑證開啟，並在此方塊中將內容貼上。 確定憑證內容中沒有任何分行符號。
+    f. **識別提供者公開 X509 憑證︰** 在記事本中，將您從 Azure下載的 X509 憑證開啟，並在此方塊中將內容貼上。 確定憑證內容中沒有任何分行符號。
     
     g. 請勾選下列核取方塊︰[已啟用]、[加密 NameID] 和 [簽署 AuthnRequests]。
 
@@ -259,7 +259,7 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 
 
