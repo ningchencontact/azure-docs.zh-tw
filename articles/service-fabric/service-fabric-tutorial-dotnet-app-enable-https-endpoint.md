@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7446de27c306f795d885b4d929d7a8f75c3dcf23
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a07e3ed3363ad968156aab2233073406d05b7dba
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364602"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>教學課程：將 HTTPS 端點新增至 ASP.NET Core Web API 前端服務
 本教學課程是一個系列課程的第三部分。  您將了解如何在 Service Fabric 上執行的 ASP.NET Core 服務中啟用 HTTPS。 當您完成時，您會有一個投票應用程式，其啟用 HTTPS 的 ASP.NET Core Web 前端會在連接埠 443 上接聽。 如果您不想要在[建置 .NET Service Fabric 應用程式](service-fabric-tutorial-deploy-app-to-party-cluster.md)中手動建立投票應用程式，可以針對已完成的應用程式[下載原始程式碼](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)。
@@ -49,7 +50,7 @@ ms.lasthandoff: 05/03/2018
 - [安裝 Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>取得憑證或建立自我簽署的開發憑證
-您需要數位憑證。  對於生產應用程式，使用[憑證授權單位 (CA)](https://wikipedia.org/wiki/Certificate_authority) 提供的憑證。 基於開發和測試目的，您可以建立和使用自我簽署憑證。 Service Fabric SDK 會提供 CertSetup.ps1指令碼，該指令碼可建立自我簽署的憑證並將它匯入到 `Cert:\LocalMachine\My` 憑證存放區中。 以系統管理員身分開啟命令提示字元，然後執行下列命令來建立主體為 "CN=localhost" 的憑證：
+對於生產應用程式，使用[憑證授權單位 (CA)](https://wikipedia.org/wiki/Certificate_authority) 提供的憑證。 基於開發和測試目的，您可以建立和使用自我簽署憑證。 Service Fabric SDK 會提供 CertSetup.ps1指令碼，該指令碼可建立自我簽署的憑證並將它匯入到 `Cert:\LocalMachine\My` 憑證存放區中。 以系統管理員身分開啟命令提示字元，然後執行下列命令來建立主體為 "CN=localhost" 的憑證：
 
 ```powershell
 PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost

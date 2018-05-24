@@ -3,19 +3,20 @@ title: 適用於 SQL Database 的 Azure CLI 指令碼範例 | Microsoft Docs
 description: Azure CLI 指令碼範例可以建立和管理 Azure SQL Database 伺服器、彈性集區、資料庫和防火牆。
 services: sql-database
 author: CarlRabeler
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.service: sql-database
 ms.custom: overview-samples, mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: af6e5282aba844be022c0f15a869652ed8c5ea31
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.author: carlrab
+ms.openlocfilehash: e74c9dd6c02c5cd98f62d04e7d6c37dfefcf9804
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365979"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure SQL Database 的 Azure CLI 範例
 

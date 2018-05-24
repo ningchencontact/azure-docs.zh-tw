@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 347b7d183839868f3b52adbdfd00b38cee3f3fbc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 22a9e90404475e8ff1f1ea72c233b1abfed938f6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361370"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services-formerly-azure-devtest-labs"></a>教學課程：使用 Azure 實驗室服務 (先前稱為 DevTest Labs) 來設定實驗室帳戶
 在本教學課程中，您會以實驗室管理員的身分，使用 Azure 實驗室服務來建立實驗室帳戶。 然後，您會提供授課者可在此實驗室帳戶中為其班級建立實驗室的權限。 授課者可以使用 [Azure 實驗室服務網站](https://labs.azure.com) 來設定班級的實驗室。   
