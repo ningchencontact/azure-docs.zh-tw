@@ -9,11 +9,12 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 95c5793bec228e2da8c98ea9263475f55de739d9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072162"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核也具備下列功能：
@@ -73,11 +74,11 @@ Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 
 
     ![瀏覽窗格][3]
 5. 若要開啟 [稽核記錄儲存體] 刀鋒視窗，請選取 [儲存體詳細資料]。 選取將儲存記錄的 Azure 儲存體帳戶，然後選取保留期間。 舊的記錄將被刪除。 然後按一下 [確定] 。
-   >[!TIP]
-   >若要充分利用稽核報告範本，請讓所有稽核的資料庫都使用相同的儲存體帳戶。
+    >[!TIP]
+    >若要充分利用稽核報告範本，請讓所有稽核的資料庫都使用相同的儲存體帳戶。
 
     <a id="storage-screenshot"></a> ![導覽窗格][4]
-6. 如果您想要自訂稽核的事件，您可以透過 PowerShell 或 REST API 來自訂。
+6. 如果您想要自訂稽核的事件，您可以透過 [PowerShell Cmdlet](#subheading-7) 或 [REST API](#subheading-9) 來自訂。
 7. 設定您的稽核設定之後，您可以開啟新的威脅偵測功能，並設定電子郵件以接收安全性警示。 使用威脅偵測時，您會接收與指示潛在安全性威脅的異常資料庫活動相關的主動式警示。 如需詳細資訊，請參閱[開始使用威脅偵測](sql-database-threat-detection-get-started.md)。
 8. 按一下 [檔案] 。
 
@@ -149,8 +150,8 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
    * 必須在「主要資料庫本身」 (而不是在伺服器上) 啟用 Blob 稽核。
    * 在主要資料庫上啟用 Blob 稽核之後，它也會在次要資料庫上變成啟用狀態。
 
-     >[!IMPORTANT]
-     >使用資料庫層級稽核時，次要資料庫的儲存體設定將會和主要資料庫上的設定完全相同，這會導致跨地區流量。 建議您只啟用伺服器層級稽核，並讓所有資料庫的資料庫層級稽核保留在停用狀態。
+    >[!IMPORTANT]
+    >使用資料庫層級稽核時，次要資料庫的儲存體設定將會和主要資料庫上的設定完全相同，這會導致跨地區流量。 建議您只啟用伺服器層級稽核，並讓所有資料庫的資料庫層級稽核保留在停用狀態。
 <br>
 
 ### <a id="subheading-6">儲存體金鑰重新產生</a>
@@ -169,33 +170,41 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
 
 * 如需有關記錄格式、儲存體資料夾階層和命名慣例的詳細資訊，請參閱 [Blob 稽核記錄格式參考](https://go.microsoft.com/fwlink/?linkid=829599)。
 
-   > [!IMPORTANT]
-   > Azure SQL Database 稽核會在稽核記錄中的字元欄位儲存 4000 個字元的資料。 當**陳述式**或從可稽核的動作傳回的 **data_sensitivity_information** 值包含超過 4000 個字元，超過前 4000 個字元的任何資料將會**截斷且不會稽核**。
+    > [!IMPORTANT]
+    > Azure SQL Database 稽核會在稽核記錄中的字元欄位儲存 4000 個字元的資料。 當**陳述式**或從可稽核的動作傳回的 **data_sensitivity_information** 值包含超過 4000 個字元，超過前 4000 個字元的任何資料將會**截斷且不會稽核**。
 
-* 系統會將稽核記錄寫入 Azure 訂用帳戶中 Azure Blob 儲存體的**附加 Blob**。
-   * 附加 Blob 目前**不支援****進階儲存體**。
-   * 目前**不支援****VNet 中的儲存體**。
+* 系統會將稽核記錄寫入 Azure 訂用帳戶中 Azure Blob 儲存體的**附加 Blob**：
+    * 附加 Blob 目前**不支援****進階儲存體**。
+    * 目前**不支援****VNet 中的儲存體**。
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>使用 Azure PowerShell 管理 SQL 資料庫稽核
+* 預設稽核原則包含所有動作和下列一組動作群組，這會稽核對資料庫執行的所有查詢和預存程序，以及成功和失敗的登入：
 
-* **PowerShell Cmdlet**：
+    BATCH_COMPLETED_GROUP<br>
+    SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP<br>
+    FAILED_DATABASE_AUTHENTICATION_GROUP
 
-   * [Get-AzureRMSqlDatabaseAuditing][101]
-   * [Get-AzureRMSqlServerAuditing][102]
-   * [Set-AzureRMSqlDatabaseAuditing][105]
-   * [Set-AzureRMSqlServerAuditing][106]
+    您可以使用 PowerShell 設定不同動作和動作群組類型的稽核，如[使用 Azure PowerShell 管理 SQL 資料庫稽核](#subheading-7)一節中所述。
 
-   如需指令碼範例，請參閱[使用 PowerShell 設定稽核與威脅偵測](scripts/sql-database-auditing-and-threat-detection-powershell.md)。
+## <a id="subheading-7"></a>使用 Azure PowerShell 管理 SQL 資料庫稽核
 
-## <a name="manage-sql-database-auditing-using-rest-api"></a>使用 REST API 管理 SQL 資料庫稽核
+**PowerShell Cmdlet**：
 
-* **REST API - Blob 稽核**：
+* [建立或更新資料庫 Blob 稽核原則 (Set-AzureRMSqlDatabaseAuditing)][105]
+* [建立或更新伺服器 Blob 稽核原則 (Set-AzureRMSqlServerAuditing)][106]
+* [取得資料庫稽核原則 (Get-AzureRMSqlDatabaseAuditing)][101]
+* [取得伺服器 Blob 稽核原則 (Get-AzureRMSqlServerAuditing)][102]
 
-   * [建立或更新資料庫 Blob 稽核原則](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-   * [建立或更新伺服器 Blob 稽核原則](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-   * [取得資料庫 Blob 稽核原則](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-   * [取得伺服器 Blob 稽核原則](https://msdn.microsoft.com/library/azure/mt771860.aspx)
-   * [取得伺服器 Blob 稽核操作結果](https://msdn.microsoft.com/library/azure/mt771862.aspx)
+如需指令碼範例，請參閱[使用 PowerShell 設定稽核與威脅偵測](scripts/sql-database-auditing-and-threat-detection-powershell.md)。
+
+## <a id="subheading-9"></a>使用 REST API 管理 SQL 資料庫稽核
+
+**REST API - Blob 稽核**：
+
+* [建立或更新資料庫 Blob 稽核原則](https://msdn.microsoft.com/library/azure/mt695939.aspx)
+* [建立或更新伺服器 Blob 稽核原則](https://msdn.microsoft.com/library/azure/mt771861.aspx)
+* [取得資料庫 Blob 稽核原則](https://msdn.microsoft.com/library/azure/mt695938.aspx)
+* [取得伺服器 Blob 稽核原則](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [取得伺服器 Blob 稽核操作結果](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 
 <!--Anchors-->
@@ -204,8 +213,9 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Automation (PowerShell / REST API)]: #subheading-7
+[Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
+[Manage SQL database auditing using REST API]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

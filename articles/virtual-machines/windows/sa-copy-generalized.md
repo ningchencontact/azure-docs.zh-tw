@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3737ea08e593ae1018489633e23e80e1099296ae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b416acd9a2a3b03502b7eca11eade9dbd56f3afe
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072044"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何從 Azure VM 建立非受控 VM 映像
 
@@ -48,7 +49,7 @@ ms.lasthandoff: 04/19/2018
 2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 **%windir%\system32\sysprep** 目錄，然後執行 `sysprep.exe`。
 3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已勾選 [一般化] 核取方塊。
 4. 在 [關機選項] 中選取 [關機]。
-5. 按一下 [SERVICEPRINCIPAL] 。
+5. 按一下 [確定]。
    
     ![啟動 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Sysprep 完成時，會關閉虛擬機器。 
@@ -78,6 +79,11 @@ ms.lasthandoff: 04/19/2018
     ```
 
 ## <a name="deallocate-the-vm-and-set-the-state-to-generalized"></a>解除配置 VM 並將狀態設定為一般化
+
+> [!IMPORTANT] 
+> 一旦將標記標示為一般化之後，您就無法從 VM 新增、編輯或移除標記。 如果您要將標記新增至 VM，請確定先新增標記，再將其標示為一般化。
+> 
+
 1. 解除配置 VM 資源。
    
     ```powershell

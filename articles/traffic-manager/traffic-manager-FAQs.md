@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 18a0ca32f51e6c1be01e59c3899bc2e625868cad
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942351"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理員常見問題集 (FAQ)
 
@@ -29,6 +30,10 @@ ms.lasthandoff: 04/16/2018
 如[流量管理員的運作方式](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)所述，流量管理員是在 DNS 層級運作。 它會傳送 DNS 回應，將用戶端導向適當的服務端點。 用戶端會接著直接連線到服務端點，而不會透過「流量管理員」。
 
 因此，「流量管理員」並不提供端點或 IP 位址來供用戶端連線。 如果您的服務需要靜態 IP 位址，就必須在服務上設定，而不是在「流量管理員」中設定。
+
+### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>哪種類型的流量可以使用流量管理員路由傳送？
+如[流量管理員的運作方式](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)中所述，流量管理員端點可以是 Azure 內部或外部裝載的任何網際網路對向服務。 因此，流量管理員可以將源自公用網際網路的流量路由傳送至一組也是網際網路面向的端點。 如果您的端點是在私人網路內部 (例如，內部版本的 [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer))，或是讓使用者從這類內部網路提出 DNS 要求，則無法將流量管理員用於這些流量。
+
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>流量管理員是否支援「黏性」工作階段？
 

@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 07d720db85a152f08cfeb278b91cce3b10d73800
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c1db81594f44f805cf50523b449af62d76099a08
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33771043"
 ---
 # <a name="data-management-gateway"></a>資料管理閘道
 > [!NOTE]
@@ -276,30 +277,30 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 
 [適用於單一節點閘道]
 1. 在閘道電腦上啟動 Windows PowerShell。
-2. 切換至 C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript 資料夾。
+2. 切換至 C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ 資料夾。
 3. 執行下列命令，將自動更新功能關閉 (停用)。   
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -off
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off
     ```
 4. 若要將它重新開啟：
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -on  
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
 [適用於多節點高度可用且可調整的閘道 (預覽)](data-factory-data-management-gateway-high-availability-scalability.md)
 1. 在閘道電腦上啟動 Windows PowerShell。
-2. 切換至 C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript 資料夾。
+2. 切換至 C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ 資料夾。
 3. 執行下列命令，將自動更新功能關閉 (停用)。   
 
     對於具備高可用性功能的閘道 (預覽)，需要額外的 AuthKey 參數。
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```
 4. 若要將它重新開啟：
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
     ```
 
 ## <a name="configuration-manager"></a>組態管理員

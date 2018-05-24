@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/27/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 6ccb095f3739a90bdab2408965a742f9cbc19359
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c4a4a82eedc41b7690af005faecc1505257183ab
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778108"
 ---
 # <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Azure 入口網站中 Azure 服務的新版計量警示
 Azure 監視器現在支援新的計量警示類型。 新版警示在幾個方面與[傳統計量警示](insights-alerts-portal.md)不同：
@@ -35,7 +36,7 @@ Azure 監視器現在支援新的計量警示類型。 新版警示在幾個方�
 
 
 ## <a name="portal-powershell-cli-rest-support"></a>入口網站、PowerShell、CLI、REST 支援
-目前，您只能在 Azure 入口網站或 REST API 中建立新版計量警示。 即將支援使用 PowerShell 和 Azure 命令列介面 (Azure CLI 2.0) 來設定新版警示。
+目前，您只能在 Azure 入口網站、[REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) 或 [Resource Manager 範本](monitoring-create-metric-alerts-with-templates.md)中建立新版計量警示。 即將支援使用 PowerShell 和 Azure 命令列介面 (Azure CLI 2.0) 來設定新版警示。
 
 ## <a name="metrics-and-dimensions-supported"></a>支援的計量和維度
 新版計量警示支援針對使用維度的計量發出警示。 您可以使用維度來將計量篩選到正確層級。 從 [Azure 監視器 - 計量瀏覽器 (預覽)](monitoring-metric-charts.md)，即可探索並以視覺化方式檢視所有支援的計量及適用的維度。
@@ -50,13 +51,19 @@ Azure 監視器現在支援新的計量警示類型。 新版警示在幾個方�
 |Microsoft.Cache/Redis     |    N/A     |[Redis 快取](monitoring-supported-metrics.md#microsoftcacheredis)|
 |Microsoft.Compute/virtualMachines     |    N/A     | [虛擬機器](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets     |   N/A      |[虛擬機器擴展集](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.ContainerInstance/containerGroups | yes| [容器群組](monitoring-supported-metrics.md#microsoftcontainerinstancecontainergroups)|
+|Microsoft.DataFactory/datafactories| yes| [資料處理站 V1](monitoring-supported-metrics.md#microsoftdatafactorydatafactories)|
 |Microsoft.DataFactory/factories     |   yes     |[資料處理站 (V2)](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
 |Microsoft.DBforMySQL/servers     |   N/A      |[適用於 MySQL 的 DB](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers     |    N/A     | [適用於 PostgreSQL 的 DB](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
 |Microsoft.EventHub/namespaces     |  yes      |[事件中樞](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
+|Microsoft.KeyVault/vaults| 否 | [保存庫](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/A    |[Logic Apps](monitoring-supported-metrics.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    N/A     | [應用程式閘道](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/dnsZones | N/A| [DNS 區域](monitoring-supported-metrics.md#microsoftnetworkdnszones) |
+|Microsoft.Network/loadBalancers (僅適用於標準 SKU)| yes| [負載平衡器](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/publicipaddresses     |  N/A       |[公用 IP 位址](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.PowerBIDedicated/capacities | N/A | [容量](monitoring-supported-metrics.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Search/searchServices     |   N/A      |[搜尋服務](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces     |  yes       |[服務匯流排](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
 |Microsoft.Storage/storageAccounts     |    yes     | [儲存體帳戶](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|

@@ -1,28 +1,23 @@
 ---
 title: 使用 MFA NPS 擴充功能來整合遠端桌面閘道 | Microsoft Docs
-description: 本文探討如何使用 Microsoft Azure 的網路原則伺服器 (NPS) 擴充功能來整合遠端桌面閘道基礎結構與 Azure MFA。
-services: active-directory
-keywords: Azure MFA, 整合遠端桌面閘道, Azure Active Directory, 網路原則伺服器擴充功能
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
+description: 使用 Microsoft Azure 的網路原則伺服器延伸模組，來整合遠端桌面閘道基礎結構與 Azure MFA
+services: multi-factor-authentication
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 0c050ee237650be7d43be2454a2bc3c07f096b8c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fbca491e845ad96ecafc6afb5f40d46b99c047bf
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33932093"
 ---
-#  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>使用網路原則伺服器 (NPS) 擴充功能和 Azure AD 整合遠端桌面閘道基礎結構
+# <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>使用網路原則伺服器 (NPS) 擴充功能和 Azure AD 整合遠端桌面閘道基礎結構
 
 本文提供使用 Microsoft Azure 的網路原則伺服器 (NPS) 擴充功能來整合遠端桌面閘道基礎結構與 Azure Multi-Factor Authentication (MFA) 的詳細資訊。 
 
@@ -150,8 +145,8 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 若要使用此指令碼，請為擴充功能提供您的 Azure AD 系統管理認證以及您之前複製的 Azure AD 租用戶識別碼。 在已安裝 NPS 擴充功能的每個 NPS 伺服器上執行此指令碼。 然後執行以下動作：
 
 1. 開啟系統管理 Windows PowerShell 提示字元。
-2. 在 PowerShell 提示字元中輸入 **cd ‘c:\Program Files\Microsoft\AzureMfa\Config’**，然後按 **ENTER**。
-3. 輸入 _.\AzureMfsNpsExtnConfigSetup.ps1_，然後按 **ENTER**。 此指令碼會檢查您是否已安裝 Azure Active Directory PowerShell 模組。 如果尚未安裝此模組，指令碼就會為您安裝。
+2. 在 PowerShell 提示字元中，輸入 `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`，然後按 **ENTER** 鍵。
+3. 輸入 `.\AzureMfsNpsExtnConfigSetup.ps1`，然後按 **ENTER** 鍵。 此指令碼會檢查您是否已安裝 Azure Active Directory PowerShell 模組。 如果尚未安裝此模組，指令碼就會為您安裝。
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
@@ -292,7 +287,7 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 
  ![條件](./media/howto-mfa-nps-extension-rdg/image23.png)
 
-7. 按一下 [SERVICEPRINCIPAL] 。 當系統提示您檢視對應的說明主題時，請按一下 [否]。
+7. 按一下 [確定]。 當系統提示您檢視對應的說明主題時，請按一下 [否]。
 8. 請確定新原則位於清單的頂端，已啟用原則，而且它會授與存取權。
 
  ![網路原則](./media/howto-mfa-nps-extension-rdg/image24.png)

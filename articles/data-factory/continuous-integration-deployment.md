@@ -10,19 +10,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 16eec117514d040dc91b5d18b73d4cc6025c901e
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310973"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和部署
 
 持續整合是指進行相關實作，以自動並及早測試對您的程式碼基底所做的每項變更。 在持續整合期間執行測試，並將變更推送至暫存或生產系統後，就會進行持續部署。
 
 就 Azure Data Factory 而言，持續整合和部署是指將一個環境 (開發、測試、生產) 中的 Data Factory 管線移至另一個環境。 若要進行持續整合和部署，您可以使用 Data Factory UI 整合與 Azure Resource Manager 範本。 當您選取 [ARM 範本] 選項時，Data Factory UI 可產生 Resource Manager 範本。 當您選取 [匯出 ARM 範本] 時，入口網站將會產生資料處理站的 Resource Manager 範本，以及包含您所有連接字串和其他參數的組態檔。 然後，您必須為每個環境 (開發、測試、生產) 建立一個組態檔。 所有環境的主要 Resource Manager 範本檔案會保持相同。
+
+如需此功能的 9 分鐘簡介與示範，請觀看下列影片：
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>為每個環境建立 Resource Manager 範本
 選取 [匯出 ARM 範本]，在開發環境中匯出資料處理站的 Resource Manager 範本。

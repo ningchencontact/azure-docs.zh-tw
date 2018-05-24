@@ -2,25 +2,20 @@
 title: 針對 Azure Active Directory B2B 共同作業問題進行疑難排解 | Microsoft Docs
 description: Azure Active Directory B2B 共同作業常見問題的補救方式
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 82c171c59b7f465afd760d50b36d17912ee7c8e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3ced3319087091242d1250a98cb5baddb7bb1832
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33928586"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>針對 Azure Active Directory B2B 共同作業問題進行疑難排解
 
@@ -84,16 +79,4 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-請瀏覽有關 Azure AD B2B 共同作業的其他文章：
-
-* [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者？](active-directory-b2b-admin-add-users.md)
-* [資訊工作者如何新增 B2B 共同作業使用者？](active-directory-b2b-iw-add-users.md)
-* [B2B 共同作業邀請電子郵件的元素](active-directory-b2b-invitation-email.md)
-* [B2B 共同作業邀請兌換](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B 共同作業授權](active-directory-b2b-licensing.md)
-* [Azure Active Directory B2B 共同作業常見問題 (FAQ)](active-directory-b2b-faq.md)
-* [Azure Active Directory B2B 共同作業 API 和自訂](active-directory-b2b-api.md)
-* [適用於 B2B 共同作業使用者的多重要素驗證](active-directory-b2b-mfa-instructions.md)
-* [在沒有邀請的情況下新增 B2B 共同作業使用者](active-directory-b2b-add-user-without-invite.md)
-* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [取得 B2B 共同作業的支援](active-directory-b2b-support.md)

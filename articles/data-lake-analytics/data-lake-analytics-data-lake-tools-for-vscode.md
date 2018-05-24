@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: fcd821c91a8c94792eeed83940abe1c72d0b2fb8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f35aa14286874d7c152509a69bd171b95b19e22b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011266"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>使用 Azure Data Lake Tools for Visual Studio Code
 
@@ -384,7 +385,7 @@ Azure Data Lake Tool 支援多個自訂程式碼，如需指示，請參閱[針�
 
 瀏覽至 **Data Lake Store**
 
- - 在資料夾節點上，您可以在滑鼠右鍵內容功能表中重新整理、刪除、上傳**、上傳資料夾****、複製相對路徑****、複製完整路徑**。
+ - 在資料夾節點上，您可以在滑鼠右鍵內容功能表中重新整理、刪除、上傳 **、上傳資料夾****、複製相對路徑****、複製完整路徑**。
 
    ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
@@ -449,6 +450,10 @@ Data Lake Tools for VSCode 支援下列功能︰
 
     ![Data Lake Tools for Visual Studio Code 語法醒目顯示](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
+   >[!NOTE]
+   >在準備即將於 2018 年 5 月 25 日生效的最新一般資料保護規定 (GDPR) 時，建議 Azure Data Lake Tools for Visual Studio Code 的使用者升級至 0.2.13 版或更新版本。 此版本包含根據最新資料保護需求所做的變更。 請注意，舊版不再提供下載，且將會遭到取代。 
+ 
+   
 ## <a name="next-steps"></a>後續步驟
 - [針對 VSCode 中的 Azure Data Lake Analytics 使用 Python、R、CSharp 開發 U-SQL](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [使用 Visual Studio Code 來進行 U-SQL 本機執行和本機偵錯](data-lake-tools-for-vscode-local-run-and-debug.md)

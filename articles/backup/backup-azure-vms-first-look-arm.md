@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: markgal;jimpark
+ms.author: markgal;jimpark;sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a29e184a47e3b4304f9c4683e76feab3e75dd4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 701accb107931bd1f4472d8999102fecb4fd6373
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310599"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>將 Azure 虛擬機器備份到復原服務保存庫
 
@@ -39,7 +40,9 @@ ms.lasthandoff: 04/19/2018
 若要深入了解可備份和無法備份哪些項目，請參閱[預備好備份 Azure VM 的環境](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)。
 
 > [!NOTE]
-> 本教學課程假設您的 Azure 訂用帳戶中已有 VM，且您已採取措施以允許備份服務存取 VM。
+> 備份服務會建立與 VM 資源群組不同的資源群組，來儲存還原點集合。 建議客戶請勿鎖定建立給備份服務使用的資源群組。
+備份服務建立的資源群組命名格式為：AzureBackupRG_`<Geo>`_`<number>`
+<br>例如：AzureBackupRG_northeurope_1
 >
 >
 

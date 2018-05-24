@@ -2,24 +2,20 @@
 title: Azure AD 自助式密碼重設概觀 | Microsoft Docs
 description: Azure AD 自助式密碼重設可為貴組織做些什麼？
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 77d26d860462b1a82315bf1385bccf62047e3da3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866663"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>適用於 IT 專業人員的 Azure AD 自助式密碼重設
 
@@ -32,6 +28,8 @@ ms.lasthandoff: 04/23/2018
    * 傳送電子郵件給已驗證的次要電子郵件帳戶。
    * 回答其安全性問題。
 * **自助帳戶解除鎖定**：使用者無法使用其密碼登入並且已被鎖定。使用者需要在不需系統管理員介入的情況下，使用其驗證方法來解除鎖定其帳戶。
+
+> [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
 
 ## <a name="why-choose-azure-ad-sspr"></a>為什麼要選擇 Azure AD SSPR
 
@@ -50,7 +48,7 @@ Azure AD SSPR 可協助您：
 
 * **Azure AD Free**：僅限雲端的系統管理員可以重設自己的密碼。
 * **Azure AD Basic** 或任何**付費 Office 365 訂用帳戶**：僅限雲端的使用者可以重設自己的密碼。
-* **Azure AD Premium**：任何使用者或系統管理員，包括僅限雲端、同盟或密碼同步使用者可以重設自己的密碼。 內部部署密碼需要啟用密碼回寫。
+* **Azure AD Premium**：任何使用者或管理員 (包括僅限雲端、同盟、傳遞驗證或密碼雜湊同步處理使用者) 均可重設自己的密碼。 內部部署密碼需要啟用密碼回寫。
 
 ## <a name="azure-ad-pricing-sla-updates-and-roadmap"></a>Azure AD 價格、SLA、更新和藍圖
 

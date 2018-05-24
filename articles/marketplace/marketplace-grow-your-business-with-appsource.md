@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0af34a725849acf6fbb6523f03e90a85ce5ba719
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940361"
 ---
 # <a name="grow-your-business-with-appsource"></a>使用 AppSource 拓展您的業務
 Azure Marketplace 和 AppSource 是與 Microsoft 共同進行上市活動的跳板，也是業務成長的推動力。 利用上市推廣、創造需求及聯合銷售與行銷，您的市集供應項目可成為雲端商務引擎的中心。 參與無需任何費用。 Microsoft 客戶每天都會瀏覽我們的雲端市集，尋找適當的應用程式和服務以協助提升業務。 我們的目標是要連結組織與 Microsoft 客戶和合作夥伴生態系統所提供的解決方案和服務。 
@@ -45,7 +46,7 @@ Azure Marketplace 和 AppSource 是與 Microsoft 共同進行上市活動的跳�
 * **請注意 Microsoft 商標和品牌指導方針。** 當為您的應用程式命名及參考 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 [Microsoft 商標和品牌指導方針](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx)以及相關的特定產品指導方針。 
 * **為您的應用程式啟用立即取得體驗、免費試用供應項目，或是試用產品體驗。** 商務使用者希望親身體驗您的應用程式。 
 * **建立強大的價值主張。** 找出您的潛在客戶是誰，以及您的解決方案與使用者目前執行的有何不同。
-* **讓您的應用程式清單脫穎而出。**您的應用程式登陸頁面是商務使用者獲得的第一印象。 根據您的應用程式清單，他們會決定是否要進一步了解並試用您的應用程式。 
+* **讓您的應用程式清單脫穎而出。** 您的應用程式登陸頁面是商務使用者獲得的第一印象。 根據您的應用程式清單，他們會決定是否要進一步了解並試用您的應用程式。 
 * **將您的清單最佳化，以協助提升搜尋引擎順位。** 請確認您將搜尋關鍵字併入您的應用程式名稱、摘要和清單中，並將它們包含在三個搜尋關鍵字中。
 * **商務使用者很依賴客戶意見反應。** 請提醒客戶提交評分和評論。 當使用者開始使用試用版之後，會收到分享他們體驗的電子郵件。
 * **宣傳您的應用程式可在 AppSource 上取得。** 在您的網站上使用 AppSource 徽章連結到 AppSource 上您的應用程式清單，並在每次連結到您的應用程式時使用 URL 標記。
@@ -88,7 +89,7 @@ Azure Marketplace 和 AppSource 是與 Microsoft 共同進行上市活動的跳�
 **店面詳細資料 - 行銷構件**
 | 店面設定       | 最佳作法          | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **供應項目標誌 (.png 格式，58x48)**    | 您的標誌應該針對數位媒體加以設計及最佳化。<br>上傳供應項目搜尋頁面的 PNG 格式標誌。 |
+| **供應項目標誌 (.png 格式，48x48)**    | 您的標誌應該針對數位媒體加以設計及最佳化。<br>上傳供應項目搜尋頁面的 PNG 格式標誌。 |
 | **供應項目標誌 (.png。216 x 216)**     | 您的標誌應該針對數位媒體加以設計及最佳化。 <br>上傳供應項目應用程式詳細資料清單頁面的 PNG 格式標誌。 |
 | **深入了解**   | 在「深入了解」之下包含支援銷售和行銷資產，例如白皮書、摺頁冊、檢查清單、PowerPoint 簡報等。 所有檔案都應該為 PDF 格式。 與其銷售，不如教育潛在客戶。 <br>將您應用程式登陸頁面的連結新增到您的所有文件，並加入 URL 參數以協助您追蹤訪客和試用版。 |
 | **影片**       | 至少要上傳一個影片，最多允許四個影片。 影片應該傳達您供應項目的價值。 確認影片故事的英雄是潛在客戶，而非您的公司。 您的影片應該說明核心決策者角色的主要挑戰與目標。 <br>建議長度：60-90 秒。 將您的關鍵搜尋文字包含在影片名稱中。<br>請考慮新增其他影片，例如使用說明影片、使用者入門影片或是客戶推薦影片。 |
@@ -98,7 +99,7 @@ Azure Marketplace 和 AppSource 是與 Microsoft 共同進行上市活動的跳�
 
 當您的供應項目列在 AppSource 上時，您便獲得在網站上顯示「可在 AppSource 上取得」徽章的權限。 
 
-    ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
+ ![AppSource 徽章](./media/marketplace-appsource/appsourcebadge.png)
     
 在您網站上新增此徽章，可宣傳您在 AppSource 上的供應項目，而且可以將潛在客戶直接連結到清單頁面。 AppSource 徽章有三種大小。 您可以在[在 Microsoft AppSource 上宣傳您應用程式的可用性](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource)下載徽章，以及如何使用的指導方針。
 
@@ -111,7 +112,7 @@ Azure Marketplace 和 AppSource 是與 Microsoft 共同進行上市活動的跳�
 
 https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12 
 
-**重要：**當您準備 URL 時，請勿包含語言代碼，例如 /en-us/。 
+**重要：** 當您準備 URL 時，請勿包含語言代碼，例如 /en-us/。 
 
 在您的 AppSource URL 加入這些參數可讓您在 Cloud Partner 入口網站的分析儀表板中的檢閱您的活動效益。 
 

@@ -9,11 +9,12 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b4f8388fdf104253aad07de77e89c30df4e4b128
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195163"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>使用 SQL Database 中的記憶體內部技術將效能最佳化
 
@@ -43,7 +44,7 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 
 資料行存放區和記憶體內部 OLTP 已分別於 2012 年和 2014 年起納入成為 SQL Server 產品的一部分。 Azure SQL Database 和 SQL Server 共用相同的記憶體內部技術實作。 未來，這些技術的新功能會先在 Azure SQL Database 中推出，然後才在 SQL Server 中推出。
 
-本主題從各個面向說明 Azure SQL Database 特有的記憶體內部 OLTP 和資料行存放區索引，還包含範例：
+本文從各個面向說明 Azure SQL Database 特有的記憶體內部 OLTP 和資料行存放區索引，還包含範例：
 - 您將了解這些技術對儲存體和資料大小限制的影響。
 - 您將了解如何管理在不同定價層之間移動採用這些技術的資料庫。
 - 您將看到兩個範例，其分別示範如何在 Azure SQL Database 中使用記憶體內部 OLTP 以及資料行存放區索引。
@@ -71,7 +72,7 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 
 記憶體內部 OLTP 包含記憶體最佳化資料表，以用來儲存使用者資料。 這些資料表必須可容納於記憶體。 因為您是直接在 SQL Database 服務中管理記憶體，我們有使用者資料配額的概念。 這個概念稱為「記憶體內部 OLAP 儲存體」。
 
-每個受支援的獨立資料庫定價層以及每個彈性集區定價層都包含一定數量的記憶體內部 OLTP 儲存體。 請參閱[以 DTU 為基礎的資源限制](sql-database-dtu-resource-limits.md)和[以虛擬核心為基礎的資源限制](sql-database-vcore-resource-limits.md)。
+每個受支援的獨立資料庫定價層以及每個彈性集區定價層都包含一定數量的記憶體內部 OLTP 儲存體。 請參閱[DTU 架構的資源限制](sql-database-dtu-resource-limits.md)和 [vCore 架構的資源限制](sql-database-vcore-resource-limits.md)。
 
 下列項目計入記憶體內部 OLTP 儲存體容量上限︰
 
@@ -92,7 +93,7 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>資料行存放區索引的資料大小和儲存體
 
-資料行存放區索引不需要納入記憶體中。 因此，索引大小的唯一上限是整體資料庫大小上限，相關說明請參閱 [SQL Database 服務層](sql-database-service-tiers.md)一文。
+資料行存放區索引不需要納入記憶體中。 因此，索引大小的唯一上限是整體資料庫大小上限，相關說明請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md) 一文。
 
 當您使用叢集資料行存放區索引時，基底表格儲存體會使用單資料行式壓縮。 壓縮可大幅降低使用者資料的儲存體使用量，這表示您可以在資料庫中容納更多資料。 若要再進一步壓縮，您可以使用[單資料行式封存壓縮](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression)。 能達到多大壓縮量取決於資料性質，但 10 倍的壓縮並不罕見。
 
@@ -223,8 +224,8 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 下列兩個預存程序  的唯一差別在於第一個程序會使用記憶體最佳化資料表版本，而第二個程序會使用一般磁碟資料表：
 
-- SalesLT**.**usp_InsertSalesOrder**_inmem**
-- SalesLT**.**usp_InsertSalesOrder**_ondisk**
+- SalesLT **.** usp_InsertSalesOrder **_inmem**
+- SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
 
 在本節中，您會了解如何使用便利的 **ostress.exe** 公用程式，在壓力層級執行兩個預存程序。 您可以比較完成兩個壓力回合所需的時間。

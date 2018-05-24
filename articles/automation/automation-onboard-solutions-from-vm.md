@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f8c9cb33eb90232f5eb241add284f7ea7b64bc05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 39febc947f4ab6dc406290273e5e1fc1c58a59e2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053419"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>從 Azure 虛擬機器登入更新管理、變更追蹤和清查解決方案
 
@@ -42,7 +43,13 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 每個解決方案都會使用工作區中的範圍設定，來設定取得解決方案的電腦。 範圍設定是一或多個已儲存搜尋的群組，用以將解決方案的範圍限定於特定電腦。 若要存取範圍設定，請在您自動化帳戶中的 [相關資源] 下選取 [工作區]，然後在工作區的 [工作區資料來源] 下選取 [範圍設定]。
 
-依預設建立的兩個範圍設定為 **MicrosoftDefaultScopeConfig-ChangeTracking** 和 **MicrosoftDefaultScopeConfig-Updates**。
+如果選取的工作區還沒有 [更新管理] 或 [變更追蹤] 解決方案，則系統會建立以下範圍設定：
+
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig-Updates**
+
+如果選取的工作區已經有該解決方案。 系統不會重新部署解決方案，範圍設定也不會新增至解決方案。
 
 按一下任何設定上的省略符號 (...)，然後選取 [編輯]。 在 [編輯範圍設定] 頁面上選取 [選取電腦群組]，以開啟 [電腦群組] 頁面。 此頁面會顯示用來建立範圍設定的已儲存搜尋。
 

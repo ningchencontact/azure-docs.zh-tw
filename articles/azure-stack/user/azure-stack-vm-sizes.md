@@ -12,20 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 05/11/2018
 ms.author: brenduns
-ms.openlocfilehash: fd352d6d073c5eff0ddf17588df022ffa3caef8c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1c22eb17ffcd070c1c5529033eeaa73dc7bd3859
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077236"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack 中支援的虛擬機器大小
 
-本文列出 Azure Stack 所支援的虛擬機器 (VM) 大小。 
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
+本文列出 Azure Stack 中可用的虛擬機器 (VM) 大小。
 
 ## <a name="general-purpose"></a>一般用途
+
+一般用途的 VM 大小可讓 CPU 與記憶體的比例平均。 可用於測試和開發、小型至中型資料庫，以及低至中流量網頁伺服器。
 
 ### <a name="basic-a"></a>基本 A
 |大小 - 大小\名稱 |vCPU     |記憶體 | 暫存磁碟大小上限 | 最大 OS 磁碟輸送量︰(IOPS) | 最大暫存儲存體輸送量 (IOPS) | 最大資料磁碟輸送量 (IOPS) | 最大 NIC |    
@@ -84,8 +88,9 @@ ms.lasthandoff: 03/16/2018
 |**Standard_DS4_v2** |8   |28  |56  |1000 |32000 |32 / 32x2300 |8 / 6000 |
 |**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64 / 64x2300 |8 / 10000 |
 
-
 ## <a name="memory-optimized"></a>記憶體最佳化
+
+記憶體最佳化的 VM 大小的記憶體與 CPU 比例相當高，專為關聯式資料庫伺服器、中型到大型快取，以及記憶體內部分析所設計。
 
 ### <a name="mo-d"></a>D 系列
 |大小     |vCPU     |記憶體 (GiB) | 暫存儲存體 (GiB)  | 最大 OS 磁碟輸送量 (IOPS) | 最大暫存儲存體輸送量 (IOPS) | 最大資料磁碟/輸送量 (IOPS) | 最大 NIC/預期的網路頻寬 (Mbps) |
@@ -119,7 +124,6 @@ ms.lasthandoff: 03/16/2018
 |**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |16 / 16x2300  |4 / 3000 |
 |**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |32 / 32x2300  |8 / 6000 |
 |**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |64 / 64x2300  |8 / 10000 |
-
 
 ## <a name="next-steps"></a>後續步驟
 

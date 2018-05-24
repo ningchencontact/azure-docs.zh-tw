@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: dukek
-ms.openlocfilehash: a1f163acea4e1965ab90b32e23e502b13f8908be
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 07e3c1a95aa223121117f3deba0269fb6cc280c2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32170371"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
 ## <a name="overview"></a>概觀 ##
@@ -37,7 +38,7 @@ ms.lasthandoff: 04/23/2018
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>使用 Azure 入口網站建立動作群組 ##
 1. 在 [入口網站](https://portal.azure.com) 中，選取 **監視**。 [監視] 刀鋒視窗會將所有監視設定和資料合併在一個檢視中。
 
-    ![「監視」服務](./media/monitoring-action-groups/home-monitor.png)
+    ![監視」服務](./media/monitoring-action-groups/home-monitor.png)
 2. 在 [設定] 區段上，選取 [動作群組]。
 
     ![使用 [動作群組] 索引標籤](./media/monitoring-action-groups/action-groups-blade.png)
@@ -93,7 +94,7 @@ ms.lasthandoff: 04/23/2018
 
 <dt>Webhook</dt>
 <dd>您在動作群組中最多可擁有 10 個 Webhook 動作
-<dd>重試邏輯 - 傳回下列 HTTP 狀態碼或 HTTP 端點未回應時，最多會重試 2 次 Webhook 呼叫：408、429、503、504。 第一次重試會在 10 秒後執行。 第二次和最後一次重試會在 100 秒後執行。</dd>
+<dd>重試邏輯：回應的逾時期限為 10 秒。 傳回下列 HTTP 狀態碼或 HTTP 端點未回應時，最多會重試 2 次 Webhook 呼叫：408、429、503、504。 第一次重試會在 10 秒後執行。 第二次和最後一次重試會在 100 秒後執行。</dd>
 </dl>
 
 ## <a name="manage-your-action-groups"></a>管理您的動作群組 ##

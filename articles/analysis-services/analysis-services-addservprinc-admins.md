@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9c6417e069bbed38b1f6e9317636a10834ce7197
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f1cc563cc13a9102dbdac7bd505b4dd844ff8247
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149258"
 ---
-# <a name="add-a-service-principle-to-the-server-administrator-role"></a>將服務主體加入伺服器管理員角色 
+# <a name="add-a-service-principal-to-the-server-administrator-role"></a>將服務主體新增至伺服器管理員角色 
 
  若要將無人看管的 PowerShell 工作自動化，服務主體必須擁有受控 Analysis Services 伺服器的**伺服器管理員**權限。 本文說明如何將服務主體新增至 Azure AS 伺服器上的伺服器管理員角色。
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/16/2018
 ## <a name="required-permissions"></a>所需的權限
 若要完成這項工作，您必須擁有 Azure AS 伺服器的[伺服器管理員](analysis-services-server-admins.md)權限。 
 
-## <a name="add-service-principle-to-server-administrators-role"></a>將服務主體新增至伺服器管理員角色
+## <a name="add-service-principal-to-server-administrators-role"></a>將服務主體加入至伺服器管理員角色
 
 1. 在 SSMS 中，連線至 Azure AS 伺服器。
 2. 在 [伺服器屬性]  >  [安全性] 中，按一下 [新增]。

@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c2c6979d56eb19ff2ba4fb647c7c51e52e51ac6
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076209"
 ---
 # <a name="azure-storage-replication"></a>Azure 儲存體複寫
 
@@ -31,14 +32,14 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 
 下表快速簡要說明針對所指定類型的事件 (或具有類似影響的事件)，每個複寫策略將為您提供的持久性和可用性範圍。
 
-| 案例 | LRS | ZRS | GRS | RA-GRS |
-|:--- |:--- |:--- |:--- |:--- |
-| 資料中心內的節點無法供使用 |yes |yes |yes |yes
-| 整個資料中心 (區域或非區域) 變成無法供使用 |否 |yes |yes |yes |
-| 全區域服務中斷 |否 |否 |yes |yes |
-| 在全區域服務無法供使用的情況下對資料 (位於遠端、異地複寫區域) 進行讀取存取 |否 |否 |否 |yes |
-| 設計為可在指定的一年中讓物件持久性達到 ___ |至少 99.999999999% (11 個 9)|至少 99.9999999999% (12 個 9)|至少 99.99999999999999% (16 個 9)|至少 99.99999999999999% (16 個 9)|
-| 在 ___ 儲存體帳戶類型中可供使用 |GPv1、GPv2、Blob |GPv2 |GPv1、GPv2、Blob |GPv1、GPv2、Blob
+| 案例                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
+| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
+| 資料中心內的節點無法供使用                                                                 | yes                             | yes                              | yes                                  | yes                                  |
+| 整個資料中心 (區域或非區域) 變成無法供使用                                           | 否                              | yes                              | yes                                  | yes                                  |
+| 全區域服務中斷                                                                                     | 否                              | 否                               | yes                                  | yes                                  |
+| 在全區域服務無法供使用的情況下對資料 (位於遠端、異地複寫區域) 進行讀取存取 | 否                              | 否                               | 否                                   | yes                                  |
+| 設計為可在指定的一年中讓物件持久性達到 ___                                          | 至少 99.999999999% (11 個 9) | 至少 99.9999999999% (12 個 9) | 至少 99.99999999999999% (16 個 9) | 至少 99.99999999999999% (16 個 9) |
+| 支援的儲存體帳戶類型                                                                   | GPv1、GPv2、Blob                | GPv2                             | GPv1、GPv2、Blob                     | GPv1、GPv2、Blob                     |
 
 如需有關不同備援選項的定價資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。
 
@@ -49,7 +50,7 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 您可以使用 [Azure 入口網站](https://portal.azure.com/)、[Azure Powershell](storage-powershell-guide-full.md)、[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 或眾多 [Azure 用戶端程式庫](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools)其中之一，來變更儲存體帳戶的複寫策略。 變更儲存體帳戶的複寫類型並不會造成停機。
 
    > [!NOTE]
-   > 目前，您無法使用入口網站或 API 將帳戶轉換成 ZRS。 不過，我們計劃在 ZRS 正式運作之後，支援從 LRS、GRS 及 RA-GRS 移轉至 ZRS。 如需詳細資料，請參閱[區域備援儲存體 (ZRS)](storage-redundancy-zrs.md)。
+   > 目前，您無法使用入口網站或 API 將帳戶轉換成 ZRS。 如果您想要將帳戶的複寫轉換成 ZRS，請參閱[區域備援儲存體 (ZRS)](storage-redundancy-zrs.md) 以取得詳細資料。
     
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>變更我帳戶的複寫策略是否會產生任何費用？
 這取決於您的轉換途徑。 從費用最低到費用最高的備援方案依序為 LRS、ZRS、GRS 及 RA-GRS。 例如，「從」LRS 傳換成任何方案都會產生額外費用，因為是移至更複雜的備援層級。 移「至」GRS 或 RA-GRS 會產生輸出頻寬費用，因為您的資料 (在您的主要區域中) 會複寫至遠端次要區域。 這是在初始設定時所收取的一次性費用。 在複製資料之後，即沒有任何進一步的轉換費用。 您將只有在複寫任何新資料或對現有資料的更新時，才需支付費用。 如需有關頻寬費用的詳細資料，請參閱 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)找到。

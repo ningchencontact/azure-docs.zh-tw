@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: v-ant-msft
-ms.openlocfilehash: 0f1cadfb7c78c32071083d5e2efa3299ba08fb3a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e0b945a99766ee52cb357f54d7135fbbdf1fada2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32161381"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34353784"
 ---
 # <a name="tutorial-configure-xmatters-ondemand-for-automatic-user-provisioning"></a>教學課程︰設定 xMatters OnDemand 來自動佈建使用者
 
@@ -106,7 +106,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 5. 在 [管理員認證] 區段下，輸入 xMatters OnDemand 帳戶的**管理員使用者名稱**、**管理員密碼**和**網域**。
 
-    *   在 [管理員使用者名稱] 欄位中，填入 xMatters OnDemand 租用戶中系統管理帳戶的使用者名稱。 範例：admin@contoso.com。
+    *   在 [管理員使用者名稱] 欄位中，填入 xMatters OnDemand 租用戶中系統管理帳戶的使用者名稱。 範例： admin@contoso.com.
 
     *   在 [管理員密碼] 欄位中，填入與管理員使用者名稱相對應的密碼。
 
@@ -121,7 +121,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![xMatters OnDemand 佈建](./media/active-directory-saas-xmatters-ondemand-provisioning-tutorial/EmailNotification.png)
 
-8. 按一下 [檔案]。
+8. 按一下 [檔案] 。
 
 9. 在 [對應] 區段下方，選取 [將 Azure Active Directory 使用者同步至 xMatters OnDemand]。
 
@@ -160,11 +160,11 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 ## <a name="additional-resources"></a>其他資源
 
 * [管理企業應用程式的使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [了解如何針對佈建活動檢閱記錄和取得報告](active-directory-saas-provisioning-reporting.md)
+* [瞭解如何針對佈建活動檢閱記錄和取得報告](active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-xmatters-ondemand-provisioning-tutorial/tutorial_general_01.png

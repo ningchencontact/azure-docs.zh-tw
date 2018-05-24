@@ -15,20 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: ce858553a67bce714ceae43a5bb2f86839d9c507
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 56839c38de135a805c51bb96ad5d7abc41ebcad7
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895354"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>建立、變更或刪除虛擬網路
 
-了解如何建立和刪除虛擬網路以及變更現有虛擬網路的設定，例如 DNS 伺服器和 IP 位址空間。
-
-虛擬網路是您的網路在雲端中的身分。 虛擬網路是專屬於您訂用帳戶的 Azure 雲端。 對於您建立的每個虛擬網路，您可以：
-- 選擇要指派的位址空間。 位址空間包含使用無類別網域間路由 (CIDR) 表示法所定義的一或多個位址範圍，例如 10.0.0.0/16。
-- 選擇使用 Azure 所提供的 DNS 伺服器，或您自己的 DNS 伺服器。 系統會對連線至虛擬網路的所有資源指派此 DNS 伺服器，以解析虛擬網路中的名稱。
-- 將虛擬網路分成多個子網路，讓每個子網路都有自己的位址範圍 (在虛擬網路的位址空間內)。 若要了解如何建立、變更和刪除子網路，請參閱[新增、變更或刪除子網路](virtual-network-manage-subnet.md)。
+了解如何建立和刪除虛擬網路以及變更現有虛擬網路的設定，例如 DNS 伺服器和 IP 位址空間。 如果您不熟悉虛擬網路，您可以在[虛擬網路概觀](virtual-networks-overview.md)中或透過完成[教學課程](quick-create-portal.md)來深入了解。 虛擬網路包含子網路。 若要了解如何建立、變更和刪除子網路，請參閱[管理子網路](virtual-network-manage-subnet.md)。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -36,8 +32,9 @@ ms.lasthandoff: 04/28/2018
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
-- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.2.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
-- 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.26 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+- 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
+- 您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)中所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
@@ -94,7 +91,7 @@ ms.lasthandoff: 04/28/2018
     - **一般 Azure 設定**：若要深入了解 Azure 的一般設定，請參閱下列資訊：
         *   [活動記錄檔](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
         *   [存取控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-        *   [標記](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+        *   [標記](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [自動化指令碼](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -167,17 +164,15 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="permissions"></a>權限
 
-若要針對虛擬網路執行工作，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色或為已指派下表所列適當權限的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
+若要針對虛擬網路執行工作，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派下表中所列適當動作的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
 
-|作業                                    |   作業名稱                    |
-|-------------------------------------------  |   --------------------------------  |
-|Microsoft.Network/virtualNetworks/read       |   取得虛擬網路               |
-|Microsoft.Network/virtualNetworks/write      |   建立或更新虛擬網路  |
-|Microsoft.Network/virtualNetworks/delete     |   刪除虛擬網路            |
+| 動作                                  |   Name                                |
+|---------------------------------------- |   --------------------------------    |
+|Microsoft.Network/virtualNetworks/read   |   讀取虛擬網路              |
+|Microsoft.Network/virtualNetworks/write  |   建立或更新虛擬網路  |
+|Microsoft.Network/virtualNetworks/delete |   刪除虛擬網路            |
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要建立 VM 並將它連線到虛擬網路，請參閱[建立虛擬網路並連線 VM](quick-create-portal.md#create-virtual-machines)。
-- 若要篩選虛擬網路之間的網路流量，請參閱[建立網路安全性群組](virtual-networks-create-nsg-arm-pportal.md)。
-- 若要讓兩個虛擬交換器對等互連，請參閱[建立虛擬網路對等互連](tutorial-connect-virtual-networks-portal.md)。
-- 若要了解用於將虛擬網路連線到內部部署網路的選項，請參閱[關於 VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams)。
+- 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 範例指令碼，或使用 Azure [Resource Manager 範本](template-samples.md)建立虛擬網路
+- 為虛擬網路建立及套用 [Azure 原則](policy-samples.md)

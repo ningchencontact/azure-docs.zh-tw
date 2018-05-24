@@ -1,11 +1,11 @@
 ---
-title: "登入存取面板網站時遇到問題 | Microsoft Docs"
-description: "針對您嘗試登入使用存取面板時可能遇到的問題進行疑難排解的指引"
+title: 登入存取面板網站時遇到問題 | Microsoft Docs
+description: 針對您嘗試登入使用存取面板時可能遇到的問題進行疑難排解的指引
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.openlocfilehash: 83c3a893fe18f2de2acc4fdbc9b048c92cc71d15
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1820ab1e2295e6e0c7795c9d014d001d294bb337
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069607"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>登入存取面板網站時遇到問題
 
@@ -36,7 +37,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="general-issues-to-check-first"></a>首先檢查的一般問題 
 
--   確定使用者登入**正確 URL**：<https://myapps.microsoft.com>
+-   確定使用者登入**正確的 URL**：<https://myapps.microsoft.com>
 
 -   確定使用者的瀏覽器已將此 URL 新增至**信任的網站**
 
@@ -97,7 +98,7 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -115,7 +116,7 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -135,7 +136,7 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -167,7 +168,7 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -175,7 +176,7 @@ ms.lasthandoff: 02/21/2018
 
 5.  按一下 [所有使用者]。
 
-6.  按一下窗格頂端的 [多重要素驗證] 按鈕。
+6.  按一下窗格頂端的 [Multi-Factor Authentication] 按鈕。
 
 7.  當 **Multi-Factor Authentication 管理網站**載入後，請確定您位於 [使用者] 索引標籤上。
 
@@ -194,7 +195,7 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -216,7 +217,7 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -234,7 +235,7 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -252,7 +253,7 @@ ms.lasthandoff: 02/21/2018
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 擴充功能]。
+2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -289,4 +290,4 @@ ms.lasthandoff: 02/21/2018
 -   Fiddler 追蹤
 
 ## <a name="next-steps"></a>後續步驟
-[使用應用程式 Proxy 提供單一登入應用程式](active-directory-application-proxy-sso-using-kcd.md)
+[使用應用程式 Proxy 提供單一登入應用程式](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

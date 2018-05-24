@@ -10,11 +10,12 @@ ms.custom: security
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 18afebefaee9117244767e0a00e293a297bbf9af
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 375142b0e55c741e6ab914e969751833f989d2fb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161068"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 的資料探索與分類
 資料探索與分類 (目前處於預覽階段) 提供內建於 Azure SQL Database 的進階功能，可用於**探索**、**分類**、**標記** & **保護**資料庫中的敏感性資料。
@@ -22,6 +23,9 @@ ms.lasthandoff: 03/16/2018
 * 協助符合資料隱私標準和法規合規性需求，例如 GDPR。
 * 各種安全性案例，例如針對敏感性資料異常存取的監視 (稽核) 及警示。
 * 控制對包含高度敏感性資料之資料庫的存取，並強化安全性。
+
+> [!NOTE]
+> 這份文件只與 Azure SQL Database 相關。 若是 SQL Server (內部部署)，請參閱 [SQL 資料探索與分類](https://go.microsoft.com/fwlink/?linkid=866999)。
 
 ## <a id="subheading-1"></a>概觀
 資料探索與分類導入一組進階服務和新的 SQL 功能，構成目標是保護資料而不只是資料庫的全新 SQL 資訊保護典範：

@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 02c380c78fa773b56a3c8b666e890836a3d8e54b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942048"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>設定及使用 Log Analytics 搭配多租用戶 SQL Database SaaS 應用程式
 
@@ -65,7 +66,7 @@ ms.lasthandoff: 04/20/2018
 
 Log Analytics 是一項必須設定的個別服務。 Log Analytics 會將記錄資料、遙測及計量收集至 Log Analytics 工作區中。 就像 Azure 中的其他資源一樣，Log Analytics 工作區是必須建立的資源。 工作區不一定要建立在與其監視之應用程式相同的資源群組中。 不過，這麼做通常最有意義。 針對 Wingtip Tickets 應用程式，請使用單一資源群組，以確保工作區會隨著應用程式一起刪除。
 
-1. 在 PowerShell ISE 中，開啟 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\**Demo-LogAnalytics.ps1***。
+1. 在 PowerShell ISE 中，開啟 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*。
 2. 若要執行指令碼，請按 F5。
 
 現在，您便可以在 Azure 入口網站或 Operations Management Suite 入口網站中開啟 Log Analytics。 需要幾分鐘的時間才能將遙測資料收集至 Log Analytics 工作區中並顯示出來。 您讓系統收集診斷資料的時間越長，體驗就會更有趣。 

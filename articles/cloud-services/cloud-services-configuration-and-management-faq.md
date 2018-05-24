@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8cb7cd84e68420006e7c598c224580c9150ab1c7
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070493"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
 
@@ -34,6 +35,7 @@ ms.lasthandoff: 04/16/2018
 - [如何能夠產生憑證簽署要求 (CSR)，而不 "RDP" 到執行個體中？](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [我的雲端服務管理憑證即將到期。要如何續訂？](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [如何將主要 SSL 憑證 (.pfx) 和中繼憑證 (.p7b) 的安裝自動化？](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [「適用於 MachineKey 的 Microsoft Azure 服務管理」憑證的用途為何？](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **監視和記錄**
 
@@ -103,6 +105,10 @@ CSR 只是文字檔。 不必從最終會使用憑證的電腦建立它。 雖
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>如何將主要 SSL 憑證 (.pfx) 和中繼憑證 (.p7b) 的安裝自動化？
 
 您可以使用啟動指令碼 (batch/cmd/PowerShell) 將這項工作自動化，並在服務定義檔中註冊該啟動指令碼。 將啟動指令碼和憑證 (.p7b 檔案) 新增至與啟動指令碼相同目錄的專案資料夾中。
+
+### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>「適用於 MachineKey 的 Microsoft Azure 服務管理」憑證的用途為何？
+
+此憑證用來加密 Azure Web 角色上的電腦金鑰。 若要進一步了解，請參閱此諮詢[https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731]。
 
 如需詳細資訊，請參閱下列文章：
 - [如何設定和執行雲端服務的啟動工作](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)

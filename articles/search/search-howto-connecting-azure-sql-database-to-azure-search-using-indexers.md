@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 02b4e8cb4963a5c12b528630e8e7906d6c5307fe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5545b2e40777496ab8c808a8c2692b346d3509c5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778336"
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務
 
@@ -61,7 +62,7 @@ ms.lasthandoff: 04/23/2018
 1. 建立資料來源：
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2016-09-01
+    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 
@@ -80,7 +81,7 @@ ms.lasthandoff: 04/23/2018
 3. 利用命名及參考資料來源和目標索引來建立索引子：
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2016-09-01
+    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 
@@ -93,7 +94,7 @@ ms.lasthandoff: 04/23/2018
 
 以這種方式建立索引子不需依照排程。 索引子一旦建立好就會自動執行。 您可以在任何時候使用 **執行索引子** 要求再執行一次：
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2016-09-01
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
     api-key: admin-key
 
 您可以自訂數個層面的索引子行為，例如，批次處理大小，以及在索引子執行失敗前可略過多少份文件。 如需詳細資訊，請參閱[建立索引子 API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)。
@@ -102,7 +103,7 @@ ms.lasthandoff: 04/23/2018
 
 若要監視索引子狀態及執行歷程紀錄 (項目索引編製數量、失敗等)，請使用 **索引子狀態** 要求：
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2016-09-01
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
     api-key: admin-key
 
 回應看起來應該如下所示：
@@ -144,7 +145,7 @@ ms.lasthandoff: 04/23/2018
 ## <a name="run-indexers-on-a-schedule"></a>依照排程執行索引子
 您也可以排列索引子，依照排程定期執行。 若要執行此工作，請在建立或更新索引子時新增**排程**屬性。 下方範例顯示以 PUT 要求更新索引子：
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2016-09-01
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 3bf2f793baec4a0fdacadd7fb6d3d6784aa17f29
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940182"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>使用 Azure 入口網站在多個 IP 組態上進行負載平衡
 
@@ -120,7 +121,7 @@ ms.lasthandoff: 03/29/2018
 
 4. 選取要新增前端 IP 集區的負載平衡器 (**mylb**)。
 
-5. 在 [設定] 底下選取 [前端集區]。 在下一個窗格中，選取頂端附近的 [新增]。
+5. 在 [設定] 底下選取 [前端 IP 組態]。 在下一個窗格中，選取頂端附近的 [新增]。
 
 6. 輸入前端 IP 位址的名稱 (例如 **contosofe** 或 **fabrikamfe**)。
 
@@ -128,7 +129,7 @@ ms.lasthandoff: 03/29/2018
 
 8. 重複本節中的<a href="#step3-3">步驟 3</a> 到<a href="#step3-7">步驟 7</a>，以建立第二個前端 IP 位址。
 
-設定前端集區之後，IP 位址會顯示在負載平衡器的 [前端 IP 集區] 設定之下。 
+設定前端集區之後，IP 位址會顯示在負載平衡器的 [前端 IP 組態] 設定之下。 
     
 ### <a name="step-4-configure-the-back-end-pool"></a>步驟 4：設定後端集區
 

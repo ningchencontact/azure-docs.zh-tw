@@ -1,24 +1,25 @@
 ---
-title: "Azure AD v1 ASP.NET Web 伺服器快速入門 | Microsoft Docs"
-description: "使用 OpenID Connect 標準，搭配傳統網頁瀏覽器型應用程式，在 ASP.NET 方案上實作 Microsoft 登入"
+title: Azure AD v1 ASP.NET Web 伺服器快速入門 | Microsoft Docs
+description: 使用 OpenID Connect 標準，搭配傳統網頁瀏覽器型應用程式，在 ASP.NET 方案上實作 Microsoft 登入
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/08/2017
+ms.date: 04/09/2018
 ms.author: andret
-ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00fef27529dd1d69c13ceaf22e16d2b7cd47801f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32156456"
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式
@@ -250,7 +251,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <!--start-test-->
 ## <a name="test-your-code"></a>測試您的程式碼
 
-按 `F5` 以在 Visual Studio 中執行您的專案。 瀏覽器將會開啟並將您導向至 *http://localhost:{port}*，其中會顯示 [使用 Microsoft 帳戶登入] 按鈕。 接著請按一下該按鈕來登入。
+按 `F5` 以在 Visual Studio 中執行您的專案。 瀏覽器隨即開啟並將您導向至 *http://localhost:{port}*，其中會顯示 [使用 Microsoft 帳戶登入] 按鈕。 接著請按一下該按鈕來登入。
 
 當您準備好進行測試時，請使用公司帳戶 (Azure Active Directory) 來登入。 
 

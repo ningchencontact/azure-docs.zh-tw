@@ -3,7 +3,7 @@ title: Microsoft Azure 資料靜態加密 | Microsoft Docs
 description: 本文提供 Microsoft Azure 資料靜態加密概觀、整體功能及一般考量。
 services: security
 documentationcenter: na
-author: YuriDio
+author: barclayn
 manager: mbaldwin
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 54dc97c0d20f90d3b57b715fb21714a11e5a1525
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312571"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 資料靜態加密
 在 Microsoft Azure 內有多個工具，可根據貴公司的安全性和法規遵循需求來保護資料。 本文著重於：
@@ -236,10 +237,10 @@ Azure 中支援的模型如先前所述區分成兩個主要群組：「用戶�
 
 #### <a name="azure-storage"></a>Azure 儲存體
 
-Azure Blob 和檔案支援伺服器端加密情節，以及客戶加密資料 (用戶端加密) 的靜態加密。
+所有 Azure 儲存體服務 (Blob 儲存體、佇列儲存體、資料表儲存體和 Azure 檔案) 都支援伺服器端靜態加密，某些服務支援客戶管理的金鑰和用戶端加密。  
 
-- 伺服器端：使用 Azure Blob 儲存體的客戶可以在每個 Azure 儲存體資源帳戶上啟用靜態加密。 一旦啟用後，就會透明地對應用程式進行伺服器端加密。 如需詳細資訊，請參閱[靜態加密的 Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/storage-service-encryption)。
-- 用戶端：受支援 Azure Blob 的用戶端加密。 當您使用用戶端加密時，客戶會將資料加密，並上傳資料作為加密的 blob。 金鑰管理是由客戶完成。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault](https://docs.microsoft.com/azure/storage/storage-client-side-encryption)。
+- 伺服器端：所有 Azure 儲存體服務預設會使用服務管理的金鑰啟用伺服器端加密，這對應用程式是透明的。 如需詳細資訊，請參閱[待用資料的 Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/storage-service-encryption)。 Azure Blob 儲存體和 Azure 檔案也支援 Azure Key Vault 中客戶管理的金鑰。 如需詳細資訊，請參閱[使用 Azure Key Vault 中客戶管理的金鑰進行儲存體服務加密](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys)。
+- 用戶端：Azure Blob、資料表和佇列支援用戶端加密。 當您使用用戶端加密時，客戶會將資料加密，並上傳資料做為加密的 blob。 金鑰管理是由客戶完成。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault](https://docs.microsoft.com/azure/storage/storage-client-side-encryption)。
 
 
 #### <a name="sql-azure"></a>SQL Azure
@@ -257,13 +258,13 @@ SQL Azure 目前支援 Microsoft 受控服務端和用戶端加密情節的靜�
 | **儲存體和資料庫**            |                |                     |                              |                              |        |
 | 磁碟 (IaaS)                      |                | -                   | yes                          | 是*                         | -      |
 | SQL Server (IaaS)                |                | yes                 | yes                          | yes                          | yes    |
-| SQL Azure (PaaS)                 |                | yes                 | 預覽                      | -                            | yes    |
-| Azure 儲存體 (區塊/分頁 Blob) |                | yes                 | 預覽                      | -                            | yes    |
-| Azure 儲存體 (檔案)            |                | yes                 | -                            | -                            | -      |
-| Azure 儲存體 (資料表、佇列)   |                | -                   | -                            | -                            | yes    |
+| SQL Azure (PaaS)                 |                | yes                 | yes                          | -                            | yes    |
+| Azure 儲存體 (區塊/分頁 Blob) |                | yes                 | yes                          | -                            | yes    |
+| Azure 儲存體 (檔案)            |                | yes                 | yes                          | -                            | -      |
+| Azure 儲存體 (資料表、佇列)   |                | yes                 | -                            | -                            | yes    |
 | Cosmos DB (文件 DB)          |                | yes                 | -                            | -                            | -      |
 | StorSimple                       |                | yes                 | -                            | -                            | yes    |
-| Backup                            |                | -                   | -                            | -                            | yes    |
+| 備份                           |                | -                   | -                            | -                            | yes    |
 | **智慧和分析**       |                |                     |                              |                              |        |
 | Azure Data Factory               |                | yes                 | -                            | -                            | -      |
 | Azure Machine Learning           |                | -                   | 預覽                      | -                            | -      |
@@ -275,7 +276,7 @@ SQL Azure 目前支援 Microsoft 受控服務端和用戶端加密情節的靜�
 | Power BI                         |                | yes                 | -                            | -                            | -      |
 | **IoT 服務**                     |                |                     |                              |                              |        |
 | IoT 中樞                          |                | -                   | -                            | -                            | yes    |
-| 服務匯流排                      |                | 是 (進階層)              | -                            | -                            | yes    |
+| 服務匯流排                      |                | yes              | -                            | -                            | yes    |
 | 事件中樞                       |                | yes             | -                            | -                            | -      |
 
 

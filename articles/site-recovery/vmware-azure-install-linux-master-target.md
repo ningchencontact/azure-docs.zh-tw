@@ -7,13 +7,14 @@ author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072431"
 ---
 # <a name="install-a-linux-master-target-server"></a>安裝 Linux 主要目標伺服器
 您可以在將虛擬機器容錯移轉至 Azure 之後，將虛擬機器容錯回復至內部部署網站。 若要進行容錯回復，您需要在從 Azure 到內部部署網站的過程中重新保護虛擬機器。 針對此程序，您需要內部部署的主要目標伺服器以接收流量。 
@@ -240,18 +241,13 @@ Azure Site Recovery 主要目標伺服器需要特定版本的 Ubuntu，因此�
 
 1. 將新的 1-TB 磁碟連結至 Linux 主要目標虛擬機器，然後啟動機器。
 
-2. 使用 **multipath -ll** 命令以便得知保留磁碟的多重路徑識別碼。
-    
-     `multipath -ll`
+2. 使用 **multipath -ll** 命令以便得知保留磁碟的多重路徑識別碼：**multipath -ll**
 
-        ![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![多重路徑識別碼](./media/vmware-azure-install-linux-master-target/image22.png)
 
-3. 格式化磁碟機，並在新的磁碟機上建立檔案系統。
-
+3. 格式化磁碟機，然後在新的磁碟機上建立一個檔案系統：**mkfs.ext4 /dev/mapper/<保留磁碟的多重路徑識別碼>**。
     
-    `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-    
-    ![在磁碟機上建立檔案系統](./media/vmware-azure-install-linux-master-target/image23-centos.png)
+    ![檔案系統](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. 建立檔案系統之後，掛接保留磁碟。
 
@@ -335,9 +331,9 @@ Azure Site Recovery 主要目標伺服器需要特定版本的 Ubuntu，因此�
      等候指令碼完成。 如果主要目標註冊成功，主要目標會列在入口網站的 [Site Recovery 基礎結構] 頁面上。
 
 
-### <a name="install-vmware-tools-on-the-master-target-server"></a>在主要目標伺服器上安裝 VMware 工具
+### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>在主要目標伺服器上安裝 VMware 工具 / open-vm-tools
 
-您必須將 VMware 工具安裝在主要目標上，以便其探索資料存放區。 如果未安裝工具，重新保護畫面就不會列出資料存放區。 安裝 VMware 工具之後，您必須重新開機。
+您必須將 VMware 工具或 open-vm-tools 安裝在主要目標上，以便其探索資料存放區。 如果未安裝工具，重新保護畫面就不會列出資料存放區。 安裝 VMware 工具之後，您必須重新開機。
 
 ### <a name="upgrade-the-master-target-server"></a>升級主要目標伺服器
 

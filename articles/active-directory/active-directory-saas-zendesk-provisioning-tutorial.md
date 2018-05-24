@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 342c535464ad4145137c89fe38281e85c9dd0463
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 87ed987b53b45ef9dacb771d8dd057432712fb16
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32161371"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34354110"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>教學課程︰設定 Zendesk 來自動佈建使用者
 
@@ -167,7 +167,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 ## <a name="additional-resources"></a>其他資源
 
 * [管理企業應用程式的使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>後續步驟
 

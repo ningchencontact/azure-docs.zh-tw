@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2183576e87aa2fb31f8be8f676a5aee7d52f68df
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4b58f3496b25e4fc04761b9df6e27f8313b35fe9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204627"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 安裝後設定工作
 [安裝 ASDK ](asdk-install.md)後，建議您進行一些安裝後設定變更。 
@@ -37,7 +38,10 @@ Set-PSRepository `
 
  透過 API 版本設定檔安裝 Azure Stack 相容的 AzureRM 模組。 Azure Stack 需要 2017-03-09-profile API 版本設定檔 (可藉由安裝 AzureRM.Bootstrapper 模組取得)。 
  
- 不論是否能透過網際網路連線至 ASDK 主機電腦，您都可以安裝 Azure Stack PowerShell：
+ 不論是否有對 ASDK 的主控電腦的網際網路連線能力，您都可以安裝最新的 Azure Stack PowerShell 模組：
+
+> [!IMPORTANT]
+> 在安裝必要版本之前，請務必[解除安裝任何現有的 Azure PowerShell 模組](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell)。
 
 - **具有來自 ASDK 主機電腦的網際網路連線**。 執行下列 PowerShell 指令碼，以在開發套件安裝上安裝這些模組：
 

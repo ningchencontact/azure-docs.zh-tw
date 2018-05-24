@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b1dcbfc51e63a5bca9186b62c871b2623653bbab
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33935626"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
 
@@ -35,7 +36,7 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 ## <a name="certificate-requirements"></a>憑證需求
 下列清單描述部署 Azure Stack 時所需的憑證需求： 
 - 憑證必須由內部憑證授權單位或公用憑證授權單位發出。 如果使用公用憑證授權單位，它必須包含在基礎作業系統映像中成為 Microsoft 信任根授權單位方案的一部分。 您可以在這裡找到完整清單：https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- 您的 Azure Stack 基礎結構必須能夠存取用來簽署憑證的網路憑證授權單位
+- 您的 Azure Stack 基礎結構必須能透過網路來存取憑證中所發佈憑證授權單位的憑證撤銷清單 (CRL) 位置。 這個 CRL 必須是 http 端點
 - 旋轉憑證時，憑證必須是與從用來簽署憑證 (在部署時提供) 相同的內部憑證授權單位，或上述任何公用憑證授權單位發行
 - 不支援使用自我簽署憑證
 - 憑證可以是單一萬用字元憑證，其中涵蓋主體別名 (SAN) 欄位中的所有命名空間。 或者，您可以針對需要憑證的端點 (例如 **acs**、Key Vault)，使用採用萬用字元的個別憑證。 
@@ -45,6 +46,7 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 - 憑證 pfx 檔案的 [增強金鑰使用方法] 欄位中必須有 [伺服器驗證 (1.3.6.1.5.5.7.3.1)] 和 [用戶端驗證 (1.3.6.1.5.5.7.3.2)]。
 - 憑證的 [核發給：] 欄位不能與 [核發者：] 欄位相同。
 - 部署時，所有憑證 pfx 檔案的密碼都必須相同
+- 憑證 pfx 的密碼必須是複雜密碼。
 - 確定所有憑證的 [主體名稱] 和 [主體別名] 都必須符合本文中所述的規格，以免部署失敗。
 
 > [!NOTE]
@@ -70,7 +72,7 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 | Azure Resource Manager (公用) | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | Azure Resource Manager (管理員) | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | Blob 儲存體 | blob.&lt;region>.&lt;fqdn> |
-| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | 資料表儲存體 | table.&lt;region>.&lt;fqdn> |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | 表格儲存體 | table.&lt;region>.&lt;fqdn> |
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | 佇列儲存體 | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | Key Vault | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) |  內部金鑰保存庫 |  adminvault.&lt;region>.&lt;fqdn> |

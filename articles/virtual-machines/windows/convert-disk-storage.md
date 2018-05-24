@@ -1,13 +1,13 @@
 ---
-title: "將 Azure 受控磁碟儲存體從標準轉換至進階，反之亦然 | Microsoft Docs"
-description: "如何使用 Azure PowerShell 將 Azure 受控磁碟從標準轉換至進階，反之亦然。"
+title: 將 Azure 受控磁碟儲存體從標準轉換至進階，反之亦然 | Microsoft Docs
+description: 如何使用 Azure PowerShell 將 Azure 受控磁碟從標準轉換至進階，反之亦然。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: ramankum
 manager: kavithag
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.openlocfilehash: 407cfe7d9eee4e226938f383c04bb359a17290fc
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ac3f1368fb6d3f31b75b581d56e07fe11c3722b3
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33944329"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>將 Azure 受控磁碟儲存體從標準轉換至進階，反之亦然
 
@@ -31,6 +32,7 @@ ms.lasthandoff: 01/09/2018
 
 * 轉換需要重新啟動 VM，因此請在預先存在的維護期間排定磁碟儲存體移轉。 
 * 如果您使用非受控磁碟，請先[轉換為受控磁碟](convert-unmanaged-to-managed-disks.md)，以使用本文在兩個儲存體選項之間切換。 
+* 本文需要 Azure PowerShell 模組 6.0.0 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 您也需要執行 `Connect-AzureRmAccount` 來建立與 Azure 的連線。
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>將 VM 的所有受控磁碟從標準轉換至進階，反之亦然
@@ -44,8 +46,8 @@ $rgName = 'yourResourceGroup'
 # Name of the your virtual machine
 $vmName = 'yourVM'
 
-# Choose between StandardLRS and PremiumLRS based on your scenario
-$storageType = 'PremiumLRS'
+# Choose between Standard_LRS and Premium_LRS based on your scenario
+$storageType = 'Premium_LRS'
 
 # Premium capable size
 # Required only if converting storage from standard to premium
@@ -86,8 +88,8 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 $diskName = 'yourDiskName'
 # resource group that contains the managed disk
 $rgName = 'yourResourceGroupName'
-# Choose between StandardLRS and PremiumLRS based on your scenario
-$storageType = 'PremiumLRS'
+# Choose between Standard_LRS and Premium_LRS based on your scenario
+$storageType = 'Premium_LRS'
 # Premium capable size 
 $size = 'Standard_DS2_v2'
 

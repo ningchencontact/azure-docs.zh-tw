@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: bf9069df55352b4d7884e989be741fc42e06bfdf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7e3b084f833b6d84e5c5102555eb586e306e9de8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895566"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比較：Azure SQL Database 與 SQL Server 
 
@@ -51,7 +52,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [自主使用者](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | yes | yes |
 | [控制流程語言關鍵字](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | yes | yes |
 | [跨資料庫查詢](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 - 請參閱[彈性查詢](sql-database-elastic-query-overview.md) | 是，再加上[彈性查詢](sql-database-elastic-query-overview.md) |
-| [跨資料庫交易](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 | yes |
+| [跨資料庫交易](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 | 是 - 請參閱[連結的伺服器差異](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#linked-servers) |
 | [資料指標](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | yes |yes | 
 | [資料壓縮](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | yes |yes |
 | [Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | 否 | yes |
@@ -69,8 +70,8 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [DML 陳述式](https://docs.microsoft.com/sql/t-sql/queries/queries) | yes | yes |
 | [DML 觸發程序](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | 大部分 - 請參閱個別陳述式 |  yes |
 | [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | 大部分 - 請參閱個別 DMV |  是 - 請參閱 [T-SQL 差異](sql-database-managed-instance-transact-sql-information.md) |
-|[動態資料遮罩](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[是](sql-database-dynamic-data-masking-get-started.md)| yes |
-| [彈性集區](sql-database-elastic-pool.md) | yes | 單一「受控執行個體」可以有共用相同資源集區的多個資料庫 |
+|[動態資料遮罩](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[是](sql-database-dynamic-data-masking-get-started.md)| [是](sql-database-dynamic-data-masking-get-started.md) |
+| [彈性集區](sql-database-elastic-pool.md) | yes | 內建 - 單一「受控執行個體」可以有共用相同資源集區的多個資料庫 |
 | [事件通知](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | 否 - 請參閱[警示](sql-database-insights-alerts-portal.md) | yes |
 | [運算式](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |yes | yes |
 | [擴充事件](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 部分請參閱 [SQL Database 中的擴充事件](sql-database-xevent-db-diff-from-svr.md) | 是 - 請參閱[擴充事件差異](sql-database-managed-instance-transact-sql-information.md#extended-events) |
@@ -83,7 +84,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [異地複寫](sql-database-geo-replication-overview.md) | yes | 否 |
 | [圖表處理](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | yes | yes |
 | [記憶體內部最佳化](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 是 - [僅限進階和業務關鍵層](sql-database-in-memory.md) | 否 |
-| [JSON 資料支援](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | yes | yes |
+| [JSON 資料支援](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [是](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [是](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |
 | [語言元素](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | 大部分 - 請參閱個別元素 |  是 - 請參閱 [T-SQL 差異](sql-database-managed-instance-transact-sql-information.md) |
 | [連結的伺服器](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 - 請參閱[彈性查詢](sql-database-elastic-query-horizontal-partitioning.md) | 僅供 SQL Server 及 SQL Database |
 | [記錄傳送](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | 每個資料庫皆隨附[高可用性](sql-database-high-availability.md)。 [Azure SQL Database 的業務連續性概觀](sql-database-business-continuity.md)會討論災害復原 |每個資料庫皆隨附[高可用性](sql-database-high-availability.md)。 [Azure SQL Database 的業務連續性概觀](sql-database-business-continuity.md)會討論災害復原 |
@@ -103,7 +104,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [原則式管理](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | 否 | 否 |
 | [述詞](https://docs.microsoft.com/sql/t-sql/queries/predicates) | yes | yes |
 | [R 服務](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | 預覽版；請參閱[機器學習服務的新功能](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | 否 |
-| [資源管理員](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | 否 | 否 |
+| [資源管理員](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | 否 | yes |
 | [RESTORE 陳述式](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | 否 | 是 - 請參閱[還原差異](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [從備份還原資料庫](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 僅限從自動備份 - 請參閱[SQL Database 復原](sql-database-recovery-using-backups.md) | 從自動備份 - 請參閱 [SQL Database 復原](sql-database-recovery-using-backups.md)和從完整備份 - 請參閱[備份差異](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [資料列層級安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) | yes | yes |
@@ -132,7 +133,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [系統資料表](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | 部分 - 請參閱個別資料表 | 是 - 請參閱 [T-SQL 差異](sql-database-managed-instance-transact-sql-information.md) |
 | [系統目錄檢視](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | 部分 - 請參閱個別檢視 | 是 - 請參閱 [T-SQL 差異](sql-database-managed-instance-transact-sql-information.md) |
 | [暫存資料表](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | 本機和資料庫範圍的全域暫存資料表 | 本機和執行個體範圍的全域暫存資料表 |
-| [暫存資料表](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | yes | yes |
+| [暫存資料表](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [是](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables) | [是](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables) |
 |威脅偵測|  [是](sql-database-threat-detection.md)|[是](sql-database-managed-instance-threat-detection.md)|
 | [追蹤旗標](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) \(機器翻譯\) | 否 | 否 |
 | [變數](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | yes | yes |

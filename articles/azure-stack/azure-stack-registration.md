@@ -12,20 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/11/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: 0d8c1ebe9688f32c460ef689119313b0682a0a68
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f34c4697439685ce6ea0ce3f2c7e954ee81b5079
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077185"
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 向 Azure 註冊 [Azure Stack](azure-stack-poc.md)，即可從 Azure 下載市集項目，並設定向 Microsoft 回報商務資料的功能。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務報告，您可以在註冊所用的訂用帳戶中查看報告。 
 
 > [!IMPORTANT]
-> 如果您選擇使用時付費計費模型，則必須註冊。 否則，您將違反 Azure Stack 部署的授權條款，因為未報告使用量。
+> 必須註冊才能支援完整的 Azure 堆疊功能，包括 Marketplace 摘要整合。 此外，如果您在使用隨用隨付計費模型時未註冊，則會違反 Azure Stack 授權條款。 若要深入了解 Azure Stack 授權模型，請參閱[如何購買頁面](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)。
 
 ## <a name="prerequisites"></a>先決條件
 使用 Azure 註冊 Azure Stack 之前，您必須：

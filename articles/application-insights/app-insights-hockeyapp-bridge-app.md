@@ -1,6 +1,6 @@
 ---
-title: "在 Azure Application Insights 中探索 HockeyApp 資料 | Microsoft Docs"
-description: "使用 Application Insights 分析 Azure 應用程式的使用量和效能。"
+title: 在 Azure Application Insights 中探索 HockeyApp 資料 | Microsoft Docs
+description: 使用 Application Insights 分析 Azure 應用程式的使用量和效能。
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -13,18 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: bec2b2dc8a29e5c94e3d3c7f2f0333e07bfe3a4f
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: cd185d799be5051340c2bfea44a1d1e69a1eb002
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32309839"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>在 Application Insights 中探索 HockeyApp 資料
 
 > [!NOTE]
-> Visual Studio App Center 現在是 Microsoft 中建議用來監視最新行動應用程式的服務。 [了解如何使用 App Center 和 Application Insights 設定您的應用程式](app-insights-mobile-center-quickstart.md)。
-> 
-> 
+> HockeyApp 不再適用於新的應用程式。 現有的 HockeyApp 部署將會繼續運作。 Visual Studio App Center 現在是 Microsoft 中建議用來監視最新行動應用程式的服務。 [了解如何使用 App Center 和 Application Insights 設定您的應用程式](app-insights-mobile-center-quickstart.md)。
 
 [HockeyApp](https://azure.microsoft.com/services/hockeyapp/) 是監視即時桌面和行動應用程式的服務。 您可以從 HockeyApp 傳送自訂和追蹤遙測，以便監視使用情況和協助診斷 (除了取得損毀資料以外)。 使用 [Azure Application Insights](app-insights-overview.md) 的強大[分析](app-insights-analytics.md)功能，即可查詢此遙測資料流。 此外，您可以 [匯出自訂和追蹤遙測](app-insights-export-telemetry.md)。 若要啟用這些功能，您可設定橋接器，以將 HockeyApp 自訂資料轉送至 Application Insights。
 

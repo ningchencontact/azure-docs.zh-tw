@@ -1,11 +1,11 @@
 ---
-title: "為應用程式 Proxy 疑難排解 Kerberos 限制委派設定 | Microsoft Docs"
-description: "為應用程式 Proxy 疑難排解 Kerberos 限制委派設定。"
+title: 為應用程式 Proxy 疑難排解 Kerberos 限制委派設定 | Microsoft Docs
+description: 為應用程式 Proxy 疑難排解 Kerberos 限制委派設定。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: harshja
-ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3ba089123198631c443a759ad62cb0ae5ca40ad3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068263"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>為應用程式 Proxy 疑難排解 Kerberos 限制委派設定
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 02/22/2018
 
 本文會做出以下假設：
 
--   Azure 應用程式 Proxy 已根據[文件](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable)進行部署，且針對非 KCD 應用程式的一般存取都能夠正常運作。
+-   Azure 應用程式 Proxy 已根據[文件](manage-apps/application-proxy-enable.md)進行部署，且針對非 KCD 應用程式的一般存取都能夠正常運作。
 
 -   已發佈的目標應用程式是以 IIS 和 Microsoft 的 Kerberos 實作為基礎。
 
@@ -42,7 +43,7 @@ ms.lasthandoff: 02/22/2018
 
 Azure 應用程式 Proxy 可以部署到許多類型的基礎結構或環境，且架構當然會隨組織而有所不同。 造成 KCD 相關問題最常見的一個原因並不是環境本身，而僅僅是設定錯誤或一般性的疏忽。
 
-基於這個理由，最好在開始進行疑難排解之前，先確定您已滿足[使用 KCD SSO 搭配應用程式 Proxy 文章](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd)中所述的所有必要條件。
+基於這個理由，最好在開始進行疑難排解之前，先確定您已滿足[使用 KCD SSO 搭配應用程式 Proxy 文章](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)中所述的所有必要條件。
 
 特別是在 2012R2 上設定 KCD 的小節，因為這會採用與在舊版 Windows 上設定 KCD 完全不同的方式。但同時您也應留意其他數個考量：
 
@@ -68,13 +69,13 @@ Azure 應用程式 Proxy 可以部署到許多類型的基礎結構或環境，�
 
 ## <a name="troubleshooting"></a>疑難排解
 
-接著，您必須根據問題與觀察到的徵狀來進行疑難排解。 在進一步之前，請研究一下以下連結，其中可能包含您尚未了解的有用資訊：
+您必須根據問題與觀察到的徵兆進行疑難排解。 在進一步之前，請研究一下以下連結，其中可能包含您尚未了解的有用資訊：
 
--   [針對應用程式 Proxy 問題和錯誤訊息進行疑難排解](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
+-   [針對應用程式 Proxy 問題和錯誤訊息進行疑難排解](active-directory-application-proxy-troubleshoot.md)
 
--   [Kerberos 錯誤與徵狀](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#kerberos-errors)
+-   [Kerberos 錯誤與徵狀](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
 
--   [在內部部署和雲端身分識別不相同時使用 SSO](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd#working-with-sso-when-on-premises-and-cloud-identities-are-not-identical)
+-   [在內部部署和雲端身分識別不相同時使用 SSO](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
 如果您已經進行到這裡，則必然存在主要問題。 首先，需將流程分為可以進行疑難排解的三個不同階段。
 
@@ -98,7 +99,7 @@ KCD SSO 若要運作，必須要能夠向 Azure 進行預先驗證。 如有任�
 
 -   在您的內部 DNS 中針對應用程式位址使用 A 記錄，而非 CName
 
--   重新確認連接器主機已授與權限以委派至指定目標帳戶的 SPN，而且已選取 [使用任何驗證通訊協定]。 如需本主題的詳細資訊，請參閱 [SSO 組態文章](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd)
+-   重新確認連接器主機已授與權限以委派至指定目標帳戶的 SPN，而且已選取 [使用任何驗證通訊協定]。 如需本主題的詳細資訊，請參閱 [SSO 組態文章](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 
 -   確定 AD 中只存在單一 SPN 執行個體，方法是從任何網域成員主機上的命令提示字元發出 `setspn -x`
 
@@ -122,7 +123,7 @@ KCD SSO 若要運作，必須要能夠向 Azure 進行預先驗證。 如有任�
 
      ![瀏覽器網路檢查視窗](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
 
-    *圖：*由於這個開頭不是 TIRMTVNTUAAB，所以 Kerberos 在此範例中可以使用。 這是 Kerberos Blob 開頭不是 YII 的範例。
+    *圖：* 由於這個開頭不是 TIRMTVNTUAAB，所以 Kerberos 在此範例中可以使用。 這是 Kerberos Blob 開頭不是 YII 的範例。
 
 2.  暫時從 IIS 網站上的提供者清單移除 NTLM，然後直接從連接器主機上的 IE 存取應用程式。 當提供者清單中不存在 NTLM 時，您應該便只能使用 Kerberos 存取應用程式。 如果失敗，則表示應用程式的設定有問題，且 Kerberos 驗證無法正常運作。
 
@@ -179,5 +180,4 @@ Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'N
 -   雙躍點驗證：常用於應用程式已分層並具有後端與前端，且兩者皆需要驗證的案例 (例如 SQL Reporting Services)。
 
 ## <a name="next-steps"></a>後續步驟
-
-            [在受控網域上設定 Kerberos 限制委派 (KCD)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
+[在受控網域上設定 Kerberos 限制委派 (KCD)](../active-directory-domain-services/active-directory-ds-enable-kcd.md)

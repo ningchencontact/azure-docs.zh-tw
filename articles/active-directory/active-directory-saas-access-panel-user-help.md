@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33931259"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>針對存取和使用 My Apps 入口網站的問題進行疑難排解
 
@@ -55,7 +56,7 @@ My Apps 入口網站需要支援 JavaScript 且已啟用 CSS 的瀏覽器。 如
 - **Edge**：在 Windows 10 Anniversary Edition 或更新版本上。
 - **Chrome**：在 Windows 7 或更新版本，和在 MacOS X 或更新版本上。
 - **Firefox 26.0 或更新版本**：在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上。
-- **Internet Explorer 8、9、10、11**：在 Windows 7 或更新版本上 (支援有限)。
+- **Internet Explorer 11**：在 Windows 7 或更新版本上 (部分支援)。
 
 您也可以直接從下列網站下載適用於 Chrome 和 Edge 的擴充功能：
 

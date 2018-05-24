@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
-ms.openlocfilehash: 9a6e63e95b833c960356b82a19127ec91a791b98
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 595abcaafdea5cde3f868567bac7fb9cf0ee424b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936100"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>整合內部 VNET 中的 API 管理與應用程式閘道 
 
@@ -57,13 +58,13 @@ API 管理服務可以內部模式設定於虛擬網路中，因此只能從虛�
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>在 API 管理和應用程式閘道之間建立整合的所需條件為何？
 
-* **後端伺服器集區︰**這是 API 管理服務的內部虛擬 IP 位址。
+* **後端伺服器集區︰** 這是 API 管理服務的內部虛擬 IP 位址。
 * **後端伺服器集區設定：** 每個集區都包括一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質性。 這些設定會套用至集區內所有伺服器。
-* **前端連接埠：**這是在應用程式閘道上開啟的公用連接埠。 到達的流量會重新導向至其中一個後端伺服器。
+* **前端連接埠：** 這是在應用程式閘道上開啟的公用連接埠。 到達的流量會重新導向至其中一個後端伺服器。
 * **接聽程式：** 接聽程式具有前端連接埠、通訊協定 (Http 或 Https，這些值都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。
-* **規則︰**規則會繫結接聽程式至後端伺服器集區。
-* **自訂健全狀況探查︰**應用程式閘道預設會使用 IP 位址型探查，來找出 BackendAddressPool 中有哪些伺服器正在作用中。 API 管理服務只會回應具有正確主機標頭的要求，因此預設探查會失敗。 需要定義自訂的健全狀況探查以協助應用程式閘道判斷服務正在執行，因此它應該轉送要求。
-* **自訂網域憑證︰**若要從網際網路存取 API 管理，您需要建立其主機名稱和應用程式閘道前端 DNS 名稱的 CNAME 對應。 這可確保主機名稱的標頭和憑證傳送到轉送至 API 管理的應用程式閘道，是 APIM 可以辨識為有效的。
+* **規則︰** 規則會繫結接聽程式至後端伺服器集區。
+* **自訂健全狀況探查︰** 應用程式閘道預設會使用 IP 位址型探查，來找出 BackendAddressPool 中有哪些伺服器正在作用中。 API 管理服務只會回應具有正確主機標頭的要求，因此預設探查會失敗。 需要定義自訂的健全狀況探查以協助應用程式閘道判斷服務正在執行，因此它應該轉送要求。
+* **自訂網域憑證︰** 若要從網際網路存取 API 管理，您需要建立其主機名稱和應用程式閘道前端 DNS 名稱的 CNAME 對應。 這可確保主機名稱的標頭和憑證傳送到轉送至 API 管理的應用程式閘道，是 APIM 可以辨識為有效的。
 
 ## <a name="overview-steps"></a>整合 API 管理和應用程式閘道的所需步驟 
 
@@ -298,7 +299,7 @@ $dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistenta
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-如果路徑不符合我們想要從 API 管理啟用的路徑規則，則規則路徑對應設定也會設定名為 **dummyBackendPool** 的預設後端位址集區。 例如， http://api.contoso.net/calc/* 會前往 **dummyBackendPool**，因為它定義為不相符流量的預設集區。
+如果路徑不符合我們想要從 API 管理啟用的路徑規則，則規則路徑對應設定也會設定名為 **dummyBackendPool** 的預設後端位址集區。 例如，http://api.contoso.net/calc/sum 會前往 **dummyBackendPool**，因為它定義為不相符流量的預設集區。
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting

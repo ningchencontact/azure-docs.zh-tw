@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 409ed4618b8ddf022cfc3457851cf434ba810b94
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160541"
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM 安全性的最佳作法
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 04/28/2018
 
 - [虛擬機器參與者](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)：可以管理 VM，但無法管理他們連接的虛擬網路或儲存體帳戶。
 - [傳統虛擬機器參與者](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor)：可以管理使用傳統的部署模型建立的 VM，但無法管理 VM 連接的虛擬網路或儲存體帳戶。
-- [安全性管理員](../role-based-access-control/built-in-roles.md#security-manager)：可以管理安全性元件、安全性原則及 VM。
+- [安全性系統管理員](../role-based-access-control/built-in-roles.md#security-admin)：可以管理安全性元件及安全性原則。
 - [DevTest Labs 使用者](../role-based-access-control/built-in-roles.md#devtest-labs-user)：可以檢視所有項目，並連接、啟動、重新啟動和關閉 VM。
 
 請勿讓系統管理員共用帳戶和密碼，且請勿在多個使用者帳戶或服務上重複使用密碼，特別是用於社交媒體或其他非系統管理活動的密碼。 在理想情況下，您應該使用 [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) 範本，安全地設定您的 VM。 您可以藉由使用這種方法，來強化部署選項，並強制執行整個部署的安全性設定。

@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: delhan
-ms.openlocfilehash: 0183da348a515787d9382df6db3df8524d584d93
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 38cc806cb77af60cda10f3aeac2e5ed13b445b8c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941848"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>如何使用開機診斷為 Azure 中的 Linux 虛擬機器進行疑難排解
 
@@ -44,15 +45,20 @@ Azure 現在提供兩個偵錯功能的支援︰Azure 虛擬機器 Resource Mana
 - [FSTAB 錯誤](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>在新的虛擬機器上啟用診斷
-1. 從預覽入口網站建立新的虛擬機器時，從部署模型下拉式清單中選取 [Azure Resource Manager]︰
+1. 在 Azure 入口網站建立新的虛擬機器時，請在部署模型下拉式清單中選取 [Azure Resource Manager]︰
  
     ![Resource Manager](./media/boot-diagnostics/screenshot3.jpg)
 
-2. 設定 [監視] 選項來選取您想要放置這些診斷檔案的儲存體帳戶。
+2. 在 [設定] 中啟用 [開機診斷]，然後選取要放置這些診斷檔案的儲存體帳戶。
  
-    ![建立 VM](./media/boot-diagnostics/screenshot4.jpg)
+    ![建立 VM](./media/boot-diagnostics/create-storage-account.png)
 
-3. 如果您正從 Azure Resource Manager 範本進行部署，請瀏覽至您的虛擬機器的資源並附加診斷設定檔區段。 請記得使用 “2015-06-15” API 版本標頭。
+    > [!NOTE]
+    > 開機診斷功能不支援進階儲存體帳戶。 如果您使用進階儲存體帳戶來進行開機診斷，可能會在啟動虛擬機器時收到 StorageAccountTypeNotSupported 錯誤。 
+    >
+    > 
+
+3. 如果您正以 Azure Resource Manager 範本進行部署，請巡覽至您的虛擬機器的資源並附加診斷設定檔區段。 請記得使用 “2015-06-15” API 版本標頭。
 
     ```json
     {
@@ -74,11 +80,19 @@ Azure 現在提供兩個偵錯功能的支援︰Azure 虛擬機器 Resource Mana
         }
     ```
 
-## <a name="update-an-existing-virtual-machine"></a>更新現有的虛擬機器
+若要在已啟用開機診斷的情況下部署範例虛擬機器，請至此查看我們的存放庫。
 
-若要透過入口網站啟用開機診斷，您也可以透過入口網站更新現有的虛擬機器。 選取 [開機診斷] 選項和 [儲存]。 重新啟動 VM 才會生效。
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>在現有的虛擬機器上啟用開機診斷 
 
-![更新現有的 VM](./media/boot-diagnostics/screenshot5.png)
+若要在現有的虛擬機器上啟用開機診斷功能，請遵循下列步驟：
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後選取虛擬機器。
+2. 在 [支援 + 疑難排解] 中，選取 [開機診斷]  > [設定]，將狀態變更為 [開啟]，然後選取儲存體帳戶。 
+4. 確認 [開機診斷] 選項已選取，然後儲存變更。
+
+    ![更新現有的 VM](./media/boot-diagnostics/enable-for-existing-vm.png)
+
+3. 重新啟動 VM 才會生效。
 
 ## <a name="next-steps"></a>後續步驟
 

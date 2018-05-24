@@ -12,16 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/6/2018
+ms.date: 5/4/2018
 ms.author: raiye
-ms.openlocfilehash: 5631fb8df6453cf7a1806947f0e29ab7fff7093e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ea7c01075d9f65ed262681c216f5770d19466507
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33765827"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 已引進更新的特定[系列][family-explain]會持續推出更新。
+
+## <a name="april-guest-os"></a>四月客體 OS
+| 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| --- | --- | --- | --- | --- |
+| Rel 18-04 | [4093119] |Windows 10 安全性 |5.18 |2018 年 4 月 10 日 |
+| Rel 18-04 | [4093108] |只有 Windows 安全性 |2.73 |2018 年 4 月 10 日 |
+| Rel 18-04 | [4093122] |只有 Windows 安全性 |3.60 |2018 年 4 月 10 日 |
+| Rel 18-04 | [4093115] |只有 Windows 安全性 |4.53 |2018 年 4 月 10 日 |
+| Rel 18-04 | [4092946] |Internet Explorer |2.73、3.60、4.53 |2018 年 4 月 10 日 |
+| Rel 18-04 | [4093110] |閃爍 |3.60、4.53、5.18 |2018 年 4 月 10 日 |
+| N/A | [4088875] |三月份非安全性彙總套件 |2.73 |2018 年 3 月 13 日 |
+| N/A | [4099950] |三月份非安全性彙總套件必要條件|2.73 |2018 年 3 月 13 日 |
+| N/A | [4088877] |三月份非安全性彙總套件 |3.60 |2018 年 3 月 13 日 |
+| N/A | [4088876] |三月份非安全性彙總套件 |4.53 |2018 年 3 月 13 日 |
 
 ## <a name="march-guest-os"></a>三月客體作業系統
 | 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
@@ -614,6 +629,18 @@ ms.lasthandoff: 04/06/2018
 | N/A |[2999802] |在 Windows 中列印虛線時會變成實線 |4.15、3.22,、2.34 |2015 年 1 月 13 日 |
 | N/A |[2896881] |在 Windows 中於登入程序期間使用 AddPrinterConnection VBScript 命令對應使用者印表機時，登入時間過長 |4.15、3.22,、2.34 |2015 年 1 月 13 日 |
 
+
+[4093119]: http://support.microsoft.com/kb/4093119
+[4093108]: http://support.microsoft.com/kb/4093108 
+[4093122]: http://support.microsoft.com/kb/4093122
+[4093115]: http://support.microsoft.com/kb/4093115
+[4092946]: http://support.microsoft.com/kb/4092946
+[4093110]: http://support.microsoft.com/kb/4093110
+[4088875]: http://support.microsoft.com/kb/4088875
+[4099950]: http://support.microsoft.com/kb/4099950
+[4088877]: http://support.microsoft.com/kb/4088877
+[4088876]: http://support.microsoft.com/kb/4088876
+
 [4088787]: http://support.microsoft.com/kb/4088787
 [4088776]: http://support.microsoft.com/kb/4088776 
 [4088878]: http://support.microsoft.com/kb/4088878
@@ -790,9 +817,9 @@ ms.lasthandoff: 04/06/2018
 [4014567]: http://support.microsoft.com/kb/4014567
 [4015550]: http://support.microsoft.com/kb/4015550
 [4013418]: http://support.microsoft.com/kb/4013418
-[4022345]: https://technet.microsoft.com/en-us/library/security/4022345.aspx
-[4022344]: https://technet.microsoft.com/en-us/library/security/4022344.aspx
-[4021279]: https://technet.microsoft.com/en-us/library/security/4021279.aspx
+[4022345]: https://technet.microsoft.com/library/security/4022345.aspx
+[4022344]: https://technet.microsoft.com/library/security/4022344.aspx
+[4021279]: https://technet.microsoft.com/library/security/4021279.aspx
 
 
 [4015217]: http://support.microsoft.com/kb/4015217

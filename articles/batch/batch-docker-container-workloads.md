@@ -10,11 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: fc8af53b0e0cfbe19a6509e8d126646badd0abbb
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 128bf85fae71b44b0deebb3974d4a9b317e6a380
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310820"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>在 Azure Batch 上執行容器應用程式
 
@@ -138,7 +139,7 @@ pool.Commit();
 
 ### <a name="prefetch-images-for-container-configuration"></a>為容器設定預先擷取映像
 
-若要在集區上預先擷取容器映像，請將容器映像清單 (`containerImageNames`) 新增至 `ContainerConfiguration`，並提供映像清單的名稱。 下列範例假設您使用自訂 Ubuntu 16.04 LTS 映像、從 [Docker Hub](https://hub.docker.com) 預先擷取 TensorFlow 映像，以及在啟動工作中啟動 TensorFlow。
+若要在集區上預先擷取容器映像，請將容器映像清單 (`containerImageNames`) 新增至 `ContainerConfiguration`，並提供映像清單的名稱。 下列範例假設您使用自訂 Ubuntu 16.04 LTS 映像，並從 [Docker Hub](https://hub.docker.com) 預先擷取 TensorFlow 映像。 此範例包含在集區節點上 VM 主機中執行的啟動工作。 舉例而言，這樣做的目的，是為了掛接容器可以存取的檔案伺服器。
 
 ```csharp
 // Specify container configuration, prefetching Docker images
@@ -151,15 +152,8 @@ VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConf
     containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
 
-// Set a native command line start task
+// Set a native host command line start task
 StartTask startTaskNative = new StartTask( CommandLine: "<native-host-command-line>" );
-
-// Define container settings
-TaskContainerSettings startTaskContainerSettings = new TaskContainerSettings (
-    imageName: "tensorflow/tensorflow:latest-gpu");
-StartTask startTaskContainer = new StartTask(
-    CommandLine: "<docker-image-command-line>",
-    TaskContainerSettings: startTaskContainerSettings);
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(

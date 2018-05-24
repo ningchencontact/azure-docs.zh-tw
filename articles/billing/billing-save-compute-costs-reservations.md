@@ -3,8 +3,8 @@ title: 預先支付 Azure 虛擬機器以節省成本 - Azure | Microsoft Docs
 description: 深入了解 Azure 保留的虛擬機器執行個體以節省虛擬機器的成本。
 services: billing
 documentationcenter: ''
-author: vikramdesai01
-manager: vikramdesai01
+author: yashesvi
+manager: yashesvi
 editor: ''
 ms.service: billing
 ms.devlang: na
@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
-ms.author: vikdesai
-ms.openlocfilehash: 7d85d3500014962a90ae596598332a95f4aa557e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: yashar
+ms.openlocfilehash: 9c73102f09e252b449f78603debaf707b3c89c3b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34056681"
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>使用 Azure 保留的虛擬機器執行個體以節省虛擬機器的成本 
 保留的虛擬機器執行個體可讓您預先支付一年或三年的計算容量，以獲得所使用之虛擬機器的折扣。 這樣可以大幅降低虛擬機器成本，一年或三年預先承諾最高可達隨用隨付價格的 72%。 保留的虛擬機器執行個體會以折扣價格計費，而且不會影響虛擬機器的執行階段狀態。
@@ -35,6 +36,7 @@ ms.lasthandoff: 05/03/2018
 -   Enterprise 合約訂用帳戶優惠類型 (MS-AZR-0017P)。
 -   [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/)訂用帳戶優惠類型 (MS-AZR-003P)。
 您必須具有訂用帳戶中的「擁有者」角色，才能購買保留的執行個體。 如果要在企業註冊中購買保留，企業系統管理員必須在 EA 入口網站啟用保留購買，此選項預設為啟用。
+-   雲端方案提供者 (CSP) 合作夥伴可以使用 Azure 管理入口網站或[合作夥伴中心](https://docs.microsoft.com/partner-center/azure-reservations)購買保留項目。
 
 ## <a name="how-is-a-reserved-virtual-machine-instances-purchase-billed"></a>保留的虛擬機器執行個體購買如何計費？
 保留購買會計費至與訂用帳戶繫結的付款方式。 如果您有 Enterprise 訂用帳戶，保留成本是從您的預付餘額扣除。 如果您的預付餘額未涵蓋保留的成本，您會支付超額部分。
@@ -69,5 +71,7 @@ ms.lasthandoff: 05/03/2018
 - [了解預付型方案的保留執行個體使用量](billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊之保留執行個體的使用方式](billing-understand-reserved-instance-usage-ea.md)
 - [Windows 軟體的成本不包括在保留的執行個體內](billing-reserved-instance-windows-software-costs.md)
+- [合作夥伴中心雲端解決方案提供者 (CSP) 程式中的保留執行個體](https://docs.microsoft.com/partner-center/azure-reservations)
 
+## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 如果需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

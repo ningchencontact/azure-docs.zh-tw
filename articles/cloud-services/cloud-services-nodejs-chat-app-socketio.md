@@ -1,11 +1,11 @@
 ---
-title: "使用 Socket.io 的 Node.js 應用程式 - Azure"
-description: "學習如何在裝載於 Azure 的 node.js 應用程式中使用 socket.io。"
+title: 使用 Socket.io 的 Node.js 應用程式 - Azure
+description: 學習如何在裝載於 Azure 的 node.js 應用程式中使用 socket.io。
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011310"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 交談應用程式
 
@@ -61,7 +62,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
 
 1. 使用 [Clone]  按鈕來建立儲存機制的本機複本。 您也可以使用 [ZIP]  按鈕來下載專案。
    
-   ![A browser window viewing https://github.com/LearnBoost/socket.io/tree/master/examples/chat, with the ZIP download icon highlighted][chat-example-view]
+   ![檢視 https://github.com/LearnBoost/socket.io/tree/master/examples/chat 的瀏覽器視窗，且 ZIP 下載圖示反白顯示][chat-example-view]
 2. 瀏覽本機儲存機制的目錄結構，直到找到 **examples\\chat** 目錄為止。 將此目錄的內容複製到稍早建立的 **C:\\node\\chatapp\\WorkerRole1** 目錄。
    
    ![總管，會顯示擷取自封存的 examples\\chat 目錄內容][chat-contents]

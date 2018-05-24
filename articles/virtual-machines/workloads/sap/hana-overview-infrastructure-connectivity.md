@@ -14,24 +14,25 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778285"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Azure 上 SAP HANA (大型執行個體) 的基礎結構和連接 
 
 閱讀本指南之前請先了解某些預先定義。 我們在 [Azure 上 SAP HANA (大型執行個體) 的概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)中引進了兩種不同類別的 HANA 大型執行個體單位：
 
 - S72、S72m、S144、S144m、S192 和 S192m，稱之為「類型 I 類別」的 SKU。
-- S384、S384m、S384xm、S576、S768 和 S960，稱之為「類型 II 類別」的 SKU。
+- S384、S384m、S384xm、S576m、S768m 和 S960m，稱之為「類型 II 類別」的 SKU。
 
 在整個 HANA 大型執行個體文件中都會使用類別規範，最終以 HANA 大型執行個體 SKU 為基礎指向不同的功能和需求。
 
 其他常用定義包括：
-- **大型執行個體戳記︰**經 SAP HANA TDI 認證並專門用來執行 Azure 內 SAP HANA 執行個體的硬體基礎結構堆疊。
-- **SAP HANA on Azure (大型執行個體)：**Azure 中產品方案的正式名稱，此產品方案可在經 SAP HANA TDI 認證並部署在不同 Azure 區域之「大型執行個體」戳記中的硬體上執行 HANA 執行個體。 **HANA 大型執行個體**是 SAP HANA on Azure (大型執行個體) 的相關詞彙簡稱，並在本技術部署指南中廣泛使用。
+- **大型執行個體戳記︰** 經 SAP HANA TDI 認證並專門用來執行 Azure 內 SAP HANA 執行個體的硬體基礎結構堆疊。
+- **SAP HANA on Azure (大型執行個體)：** Azure 中產品方案的正式名稱，此產品方案可在經 SAP HANA TDI 認證並部署在不同 Azure 區域之「大型執行個體」戳記中的硬體上執行 HANA 執行個體。 **HANA 大型執行個體**是 SAP HANA on Azure (大型執行個體) 的相關詞彙簡稱，並在本技術部署指南中廣泛使用。
  
 
 在您與 Microsoft 企業帳戶小組之間的 SAP HANA on Azure (大型執行個體) 購買程序完成之後，Microsoft 需要下列資訊才能部署「HANA 大型執行個體單位」：
@@ -119,18 +120,18 @@ ms.lasthandoff: 04/06/2018
 
 前幾節中已介紹一些部署 HANA 大型執行個體所需的 IP 位址範圍。 但仍有一些其他重要的 IP 位址。 讓我們來瀏覽一些進一步的詳細資料。 傳送初始部署要求之前，必須定義下列 IP 位址，這些 IP 位址並非全都必須提交給 Microsoft：
 
-- **VNet 位址空間：**如前文所介紹，這是您在連接到 SAP HANA 大型執行個體環境的 Azure 虛擬網路 (VNet) 中，已指派 (或打算指派) 給位址空間參數的 IP 位址範圍。 建議此位址空間參數採用由 Azure VM 子網路範圍和 Azure 閘道子網路範圍所組成的多行值，如前文圖中所示。 此範圍「不得」與您的內部部署或伺服器 IP 集區或 ER-P2P 位址範圍重疊。 如何取得 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一或多個網路內未使用的 IP 位址範圍。 範例：如果您的 Azure VM 子網路 (參見前文) 是 10.0.1.0/24，而 Azure 閘道子網路 (參見後方) 是 10.0.2.0/28，則建議 Azure VNet 位址空間採用兩行，即 10.0.1.0/24 和 10.0.2.0/28。 雖然位址空間值可以彙總，但建議讓它們符合子網路範圍，以避免日後在網路中的其他地方，不小心重複使用在較大位址範圍內未使用的 IP 位址範圍。 **VNET 位址範圍是要求初始部署時，所必須提交給 Microsoft 的 IP 位址範圍**
+- **VNet 位址空間：** 如前文所介紹，這是您在連接到 SAP HANA 大型執行個體環境的 Azure 虛擬網路 (VNet) 中，已指派 (或打算指派) 給位址空間參數的 IP 位址範圍。 建議此位址空間參數採用由 Azure VM 子網路範圍和 Azure 閘道子網路範圍所組成的多行值，如前文圖中所示。 此範圍「不得」與您的內部部署或伺服器 IP 集區或 ER-P2P 位址範圍重疊。 如何取得 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一或多個網路內未使用的 IP 位址範圍。 範例：如果您的 Azure VM 子網路 (參見前文) 是 10.0.1.0/24，而 Azure 閘道子網路 (參見後方) 是 10.0.2.0/28，則建議 Azure VNet 位址空間採用兩行，即 10.0.1.0/24 和 10.0.2.0/28。 雖然位址空間值可以彙總，但建議讓它們符合子網路範圍，以避免日後在網路中的其他地方，不小心重複使用在較大位址範圍內未使用的 IP 位址範圍。 **VNET 位址範圍是要求初始部署時，所必須提交給 Microsoft 的 IP 位址範圍**
 
-- **Azure VM 子網路 IP 位址空間：**如前文所述，這是您在連接到 SAP HANA 大型執行個體環境的 Azure VNET 中，已指派 (或打算指派) 給 Azure VNet 子網路參數的 IP 位址範圍。 此 IP 位址範圍可用來將 IP 位址指派給您的 Azure VM。 超出此範圍的 IP 位址可以連接到您的 SAP HANA 大型執行個體伺服器。 如果需要，可以使用多個 Azure VM 子網路。 Microsoft 建議為每個「Azure VM 子網路」指定 /24 CIDR 區塊。 此位址範圍必須是「Azure VNet 位址空間」中所使用值的一部分。 如何取得此 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一個目前網路內未使用的 IP 位址範圍。
+- **Azure VM 子網路 IP 位址空間：** 如前文所述，這是您在連接到 SAP HANA 大型執行個體環境的 Azure VNET 中，已指派 (或打算指派) 給 Azure VNet 子網路參數的 IP 位址範圍。 此 IP 位址範圍可用來將 IP 位址指派給您的 Azure VM。 超出此範圍的 IP 位址可以連接到您的 SAP HANA 大型執行個體伺服器。 如果需要，可以使用多個 Azure VM 子網路。 Microsoft 建議為每個「Azure VM 子網路」指定 /24 CIDR 區塊。 此位址範圍必須是「Azure VNet 位址空間」中所使用值的一部分。 如何取得此 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一個目前網路內未使用的 IP 位址範圍。
 
-- **VNet 閘道子網路 IP 位址範圍︰**根據您打算使用的功能，建議的大小為︰
+- **VNet 閘道子網路 IP 位址範圍︰** 根據您打算使用的功能，建議的大小為︰
    - 強效 ExpressRoute 閘道：/26 位址區塊 - 類型 II 類別的 SKU
    - 與使用高效能 ExpressRoute 閘道 (或更小) 的 VPN 和 ExpressRoute 共存：/27 位址區塊
    - 所有其他情況：/28 位址區塊。 此位址範圍必須是「VNet 位址空間」值中所使用之值的一部分。 此位址範圍必須是您需要提交給 Microsoft 之「Azure VNet 位址空間」值中所使用值的一部分。 如何取得此 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一個目前網路內未使用的 IP 位址範圍。 
 
-- **ER-P2P 連線的位址範圍：**這是您 SAP HANA 大型執行個體 ExpressRoute (ER) P2P 連線的 IP 範圍。 此 IP 位址範圍必須是 /29 CIDR IP 位址範圍。 此範圍「不得」與您的內部部署或其他 Azure IP 位址範圍重疊。 此 IP 位址可用來設定從 Azure VNet ExpressRoute 閘道到 SAP HANA 大型執行個體伺服器的 ER 連線。 如何取得此 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一個目前網路內未使用的 IP 位址範圍。 **此範圍是要求初始部署時，需要提交給 Microsoft 的 IP 位址範圍**
+- **ER-P2P 連線的位址範圍：** 這是您 SAP HANA 大型執行個體 ExpressRoute (ER) P2P 連線的 IP 範圍。 此 IP 位址範圍必須是 /29 CIDR IP 位址範圍。 此範圍「不得」與您的內部部署或其他 Azure IP 位址範圍重疊。 此 IP 位址可用來設定從 Azure VNet ExpressRoute 閘道到 SAP HANA 大型執行個體伺服器的 ER 連線。 如何取得此 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一個目前網路內未使用的 IP 位址範圍。 **此範圍是要求初始部署時，需要提交給 Microsoft 的 IP 位址範圍**
   
-- **伺服器 IP 集區位址範圍︰**此 IP 位址範圍可用來將個別 IP 位址指派給 HANA 大型執行個體伺服器。 建議的子網路大小是 /24 CIDR 區塊 - 但如果需要，它也可以小到最小僅提供 64 個 IP 位址。 在這個範圍中，前 30 個 IP 位址要保留供 Microsoft 使用。 選擇範圍的大小時，請確定已將此實況納入考量。 此範圍「不得」與您的內部部署或其他 Azure IP 位址重疊。 如何取得此 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一個目前網路內未使用的「IP 位址範圍」。 要用於指派 SAP HANA on Azure (大型執行個體) 所需之特定 IP 位址的 /24 (建議使用) 唯一 CIDR 區塊。 **此範圍是要求初始部署時，需要提交給 Microsoft 的 IP 位址範圍**
+- **伺服器 IP 集區位址範圍︰** 此 IP 位址範圍可用來將個別 IP 位址指派給 HANA 大型執行個體伺服器。 建議的子網路大小是 /24 CIDR 區塊 - 但如果需要，它也可以小到最小僅提供 64 個 IP 位址。 在這個範圍中，前 30 個 IP 位址要保留供 Microsoft 使用。 選擇範圍的大小時，請確定已將此實況納入考量。 此範圍「不得」與您的內部部署或其他 Azure IP 位址重疊。 如何取得此 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一個目前網路內未使用的「IP 位址範圍」。 要用於指派 SAP HANA on Azure (大型執行個體) 所需之特定 IP 位址的 /24 (建議使用) 唯一 CIDR 區塊。 **此範圍是要求初始部署時，需要提交給 Microsoft 的 IP 位址範圍**
  
 雖然您需要定義和規劃上述的 IP 位址範圍，但並非全都需要傳送給 Microsoft。 總結以上所述，您必須列舉給 Microsoft 的 IP 位址範圍包括：
 
@@ -213,7 +214,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 在此範例中，使用了 HighPerformance 閘道 SKU。 您的選項為 HighPerformance 或 UltraPerformance，因為 SAP HANA on Azure (大型執行個體) 僅支援這些閘道 SKU。
 
 > [!IMPORTANT]
-> 若為 SKU 類型 S384、S384m、S384xm、S576、S768 和 S960 (類型 II 類別的 SKU) 的 HANA 大型執行個體，強制使用強效閘道 SKU。
+> 若為 SKU 類型 S384、S384m、S384xm、S576m、S768m 和 S960m (類型 II 類別的 SKU) 的 HANA 大型執行個體，強制使用強效閘道 SKU。
 
 ### <a name="linking-vnets"></a>連結 VNet
 

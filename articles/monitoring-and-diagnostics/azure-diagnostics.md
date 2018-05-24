@@ -1,11 +1,11 @@
 ---
-title: "Azure 診斷概觀 | Microsoft Docs"
-description: "使用 Azure 診斷來在雲端服務、虛擬機器及 Service Fabric 中進行偵錯、測量效能、監視、流量分析等。"
+title: Azure 診斷概觀 | Microsoft Docs
+description: 使用 Azure 診斷來在雲端服務、虛擬機器及 Service Fabric 中進行偵錯、測量效能、監視、流量分析等。
 services: multiple
 documentationcenter: .net
 author: rboucher
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: baad40d8-c915-4f93-b486-8b160bf33463
 ms.service: multiple
 ms.workload: na
@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0231a6c1d78818b948bb24d0c406fb2f2da17a0f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32169130"
 ---
 # <a name="what-is-azure-diagnostics"></a>什麼是 Azure 診斷
-Azure 診斷是 Azure 中可對部署的應用程式啟用診斷資料收集的功能。 您可以使用來自許多不同來源的診斷延伸模組。 目前支援的有 Azure 雲端服務 Web 和背景工作角色、執行 Microsoft Windows 的 Azure 虛擬機器，以及 Service Fabric。 其他 Azure 服務都有自己個別的診斷。
+Azure 診斷是 Azure 中可對部署的應用程式啟用診斷資料收集的功能。 您可以使用來自許多不同來源的診斷延伸模組。 目前支援 Azure 雲端服務 (傳統) Web 和背景工作角色、虛擬機器、虛擬機器擴展集和 Service Fabric。 其他 Azure 服務有不同的診斷方法。 請參閱 [Azure 中的監視概觀](monitoring-overview.md)。 
 
 ## <a name="data-you-can-collect"></a>您可以收集的資料
 Azure 診斷可收集下列資料類型：
@@ -38,16 +39,13 @@ Azure 診斷可收集下列資料類型：
 | 自訂錯誤記錄檔 |您的應用程式或服務所建立的記錄檔 |
 | Azure 診斷基礎結構記錄檔 |診斷本身的相關資訊 |
 
-Azure 診斷擴充可以將這項資料傳送到 Azure 儲存體帳戶，或傳送到 [Application Insights](../application-insights/app-insights-cloudservices.md) 之類的服務。 資料可用來進行偵錯和疑難排解、測量效能、監視資源使用量、流量分析和容量規劃，以及稽核。
+Azure 診斷擴充功能可以將這項資料傳送到 Azure 儲存體帳戶，或傳送到 [Application Insights](../application-insights/app-insights-cloudservices.md)。 您也可以將資料串流到[事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)，以便讓您將資料傳送到非 Azure 監視的服務。 資料可用來進行偵錯和疑難排解、測量效能、監視資源使用量、流量分析和容量規劃，以及稽核。
 
 ## <a name="versioning"></a>版本控制
 請參閱 [Azure 診斷版本歷程記錄](azure-diagnostics-versioning-history.md)。
 
 ## <a name="next-steps"></a>後續步驟
 請選擇您嘗試要在哪個服務上收集診斷資料，並使用下列文件來開始。 如需特定工作的參考，請使用一般的 Azure 診斷連結。
-
-## <a name="web-apps"></a>Web 應用程式
-請注意，Web Apps 不會使用 Azure 診斷。 在 [Web Apps](../app-service/web-sites-enable-diagnostic-log.md) 上尋找同等的資訊
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>使用 Azure 診斷的雲端服務
 * 如果您使用 Visual Studio，請參閱[使用 Visual Studio 來追蹤雲端服務應用程式](../vs-azure-tools-debug-cloud-services-virtual-machines.md)來開始。 否則，請參閱

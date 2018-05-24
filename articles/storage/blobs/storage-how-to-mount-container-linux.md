@@ -8,15 +8,16 @@ manager: jahogg
 ms.service: storage
 ms.devlang: bash
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 05/10/2018
 ms.author: seguler
-ms.openlocfilehash: 44b0c36ad366d50480212adff9cdb8b10a17db05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1098eef15b559c30ef436d8e13bbe02bddb78649
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072087"
 ---
-# <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse-preview"></a>如何使用 Blobfuse 將 Blob 儲存體掛接為檔案系統 (預覽)
+# <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>如何使用 Blobfuse 將 Blob 儲存體掛接為檔案系統
 
 ## <a name="overview"></a>概觀
 [Blobfuse](https://github.com/Azure/azure-storage-fuse) 是 Azure Blob 儲存體的虛擬檔案系統驅動程式，能讓您透過 Linux 檔案系統存取儲存體帳戶中現有的區塊 Blob 資料。 Azure Blob 儲存體是物件儲存體服務，因此沒有階層式的命名空間。 透過使用虛擬目錄配置，再將正斜線 '/' 當做分隔符號，Blobfuse 遂能提供此種命名空間。  

@@ -1,26 +1,21 @@
 ---
-title: "為 Azure Active Directory 中的 B2B 共同作業設定 SaaS 應用程式 | Microsoft Docs"
-description: "Azure Active Directory B2B 共同作業的程式碼與 PowerShell 範例"
+title: 為 Azure Active Directory 中的 B2B 共同作業設定 SaaS 應用程式 | Microsoft Docs
+description: Azure Active Directory B2B 共同作業的程式碼與 PowerShell 範例
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/23/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: e2206ca8ddee867b9ea48911f70793010989ad69
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 36fe82311b180a1dbe4fb81b78f10482cb8bb4ac
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33928791"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>為 B2B 共同作業設定 SaaS 應用程式
 
@@ -84,7 +79,7 @@ Azure Active Directory (Azure AD) B2B 共同作業可搭配與 Azure AD 整合�
 
   ![設定 Box 單一登入](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
- a. 在 [登入 URL] 方塊中，確定已在 Azure 入口網站中針對 Box 適當設定登入 URL。 此 URL 是 Box.com 租用戶的 URL。 它應該遵循命名慣例 https://.box.com。  
+ a. 在 [登入 URL] 方塊中，確定已在 Azure 入口網站中針對 Box 適當設定登入 URL。 此 URL 是 Box.com 租用戶的 URL。 它應該遵循命名慣例 *https://.box.com*。  
  [識別碼] 不適用於此應用程式，但它仍會顯示為必要欄位。
 
  b. 在 [使用者識別碼] 方塊中，輸入 **user.mail** (適用於來賓帳戶的 SSO)。
@@ -105,13 +100,8 @@ Azure Active Directory (Azure AD) B2B 共同作業可搭配與 Azure AD 整合�
 
 請參閱下列有關 Azure AD B2B 共同作業的文章：
 
-* [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B 共同作業使用者屬性](active-directory-b2b-user-properties.md)
-* [將 B2B 共同作業使用者新增至角色](active-directory-b2b-add-guest-to-role.md)
-* [委派 B2B 共同作業邀請](active-directory-b2b-delegate-invitations.md)
-* [動態群組與 B2B 共同作業](active-directory-b2b-dynamic-groups.md)
-* [B2B 共同作業程式碼與 PowerShell 範例](active-directory-b2b-code-samples.md)
-* [B2B 共同作業使用者權杖](active-directory-b2b-user-token.md)
-* [B2B 共同作業使用者宣告對應](active-directory-b2b-claims-mapping.md)
-* [Office 365 外部共用](active-directory-b2b-o365-external-user.md)
-* [B2B 共同作業目前的限制](active-directory-b2b-current-limitations.md)
+- [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [動態群組與 B2B 共同作業](active-directory-b2b-dynamic-groups.md)
+- [B2B 共同作業使用者宣告對應](active-directory-b2b-claims-mapping.md)
+- [Office 365 外部共用](active-directory-b2b-o365-external-user.md)
+

@@ -2,7 +2,7 @@
 title: Azure 監視器 CLI 2.0 快速入門範例。 | Microsoft Docs
 description: Azure 監視器功能的範例 CLI 2.0 命令。 Azure 監視器是一項 Microsoft Azure 服務，可讓您根據設定的遙測資料值、自動調整雲端服務、虛擬機器和 Web Apps，傳送警示通知或呼叫 Web URL。
 author: kamathashwin
-manager: orenr
+manager: ''
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/09/2018
 ms.author: ashwink
-ms.openlocfilehash: e429ba460a97daed4a7bdf71895fe24c1619a645
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a9c6cc0fb81b094e1c980e4c209184a0c0ebd428
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34009753"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Azure 監視器 CLI 2.0 快速入門範例
 本文說明可協助您存取 Azure 監視器 功能的命令列介面 (CLI) 命令範例。 Azure 監視器可讓您根據設定的遙測資料值、自動調整雲端服務、虛擬機器和 Web Apps，以及傳送警示通知，或呼叫 Web URL。
@@ -89,18 +90,17 @@ az monitor activity-log list --resource-provider Microsoft.Web \
     --end-time 2016-03-16T00:00:00Z
 ```
 
-## <a name="work-with-alerts"></a>使用警示
+## <a name="work-with-alerts"></a>使用警示 
+[!NOTE] 目前在 CLI 中僅支援警示 (傳統)。 
 
-您可以在此區段中運用資訊來使用警示。
-
-### <a name="get-alert-rules-in-a-resource-group"></a>取得資源群組中的警示規則
+### <a name="get-alert-classic-rules-in-a-resource-group"></a>取得資源群組中的警示 (傳統) 規則
 
 ```azurecli
 az monitor activity-log alert list --resource-group <group name>
 az monitor activity-log alert show --resource-group <group name> --name <alert name>
 ```
 
-### <a name="create-a-metric-alert-rule"></a>建立度量警示規則
+### <a name="create-a-metric-alert-classic-rule"></a>建立計量警示 (傳統) 規則
 
 ```azurecli
 az monitor alert create --name <alert name> --resource-group <group name> \
@@ -110,7 +110,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
     --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
-### <a name="delete-an-alert-rule"></a>刪除警示規則
+### <a name="delete-an-alert-classic-rule"></a>刪除警示 (傳統) 規則
 
 ```azurecli
 az monitor alert delete --name <alert name> --resource-group <group name>
@@ -206,7 +206,7 @@ az monitor autoscale list --resource-group <group name>
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### <a name="set-auotoscale-settings"></a>設定自動調整設定
+### <a name="set-autoscale-settings"></a>設定自動調整設定
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

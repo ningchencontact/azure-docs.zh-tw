@@ -15,53 +15,56 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: jdial
-ms.openlocfilehash: 81f26dc72e7a1194cd7c0a5c4997e64b0f61d444
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: dd094f2b9cdb9b5eb164dda2925d094cafa7cd89
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895607"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>使用 Azure 入口網站管理 Azure DDoS Protection Standard
 
 了解如何啟用和停用分散式阻斷服務 (DDoS) 保護，並使用遙測技術透過 Azure DDoS Protection Standard 來降低 DDoS 攻擊。 DDoS Protection Standard 會保護任何與 Azure [公用 IP 位址](virtual-network-public-ip-address.md)相關聯的 Azure 資源，例如虛擬機器、負載平衡器和應用程式閘道。 若要了解有關 DDoS Protection Standard 和其功能的詳細資訊，請參閱 [DDoS Protection Standard 概觀](ddos-protection-overview.md)。
 
-在完成本教學課程中的任何步驟之前，請先登入 Azure 入口網站，網址為：https://portal.azure.com。如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+在完成本教學課程中的任何步驟之前，請先使用指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色或為已指派[權限](#permissions)中所列適當動作之[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的帳戶，登入 Azure 入口網站 (網址為 https://portal.azure.com)。
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="create-a-ddos-protection-plan"></a>建立 DDoS 保護計劃
 
 DDoS 保護計劃會定義一組跨訂用帳戶且已啟用標準 DDoS 保護的虛擬網路。 您可以為組織設定一個 DDoS 保護計劃，然後將來自多個訂用帳戶的虛擬網路連結至該相同計劃。 「DDoS 保護計劃」本身也會與您在建立計劃時所選取的訂用帳戶產生關聯。 計劃所關聯的訂用帳戶會為該計劃帶來每月的週期性帳單，也會在受保護的公用 IP 位址數目超過 100 時衍生超額費用。 如需有關 DDoS 定價的詳細資訊，請參閱[價格詳細資料](https://azure.microsoft.com/pricing/details/ddos-protection/)。
 
 對大多數組織來說，並沒有必要建立多個計劃。 計劃無法在訂用帳戶之間移動。 如果您想要變更計劃所在的訂用帳戶，就必須[刪除現有的計劃](#work-with-ddos-protection-plans)，再建立一個新計劃。
- 
+
 1. 選取 Azure 入口網站中左上角的 [建立資源]。
 2. 搜尋 *DDoS*。 當 **DDoS 保護計劃**出現在搜尋結果中時，請選取它。
 3. 選取 [建立] 。
-4. 輸入或選取您自己的值，或是輸入或選取下列範例值，然後選取 [建立]：
+4. 輸入或選取您自己的值，或者輸入或選取下列範例值，然後選取 [建立]：
 
-    |設定  |值  |
-    |---------|---------|
-    |Name     | myDdosProtectionPlan         |
-    |訂用帳戶     | 選取您的訂用帳戶。        |
-    |資源群組     | 選取 [新建]，然後輸入 *myResourceGroup*        |
-    |位置     | 美國東部        |
+    |設定        |值                                              |
+    |---------      |---------                                          |
+    |Name           | myDdosProtectionPlan                              |
+    |訂用帳戶   | 選取您的訂用帳戶。                         |
+    |資源群組 | 選取 [新建]，然後輸入 *myResourceGroup* |
+    |位置       | 美國東部                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>為新虛擬網路啟用 DDoS
 
 1. 選取 Azure 入口網站中左上角的 [建立資源]。
 2. 選取 [網絡]，然後選取 [虛擬網路]。
 3. 輸入或選取您自己的值，或是輸入或選取下列範例值，接受其餘預設值，然後選取 [建立]：
- 
-    |設定  |值  |
-    |---------|---------|
-    |Name     | myVirtualNetwork         |
-    |訂用帳戶     | 選取您的訂用帳戶。        |
-    |資源群組     | 選取 [使用現有的]，然後選取 [myResourceGroup]        |
-    |位置     | 美國東部        |
-    |DDoS 保護| 選取 [標準]，然後在 [DDoS 保護] 底下，選取 [myDdosProtectionPlan]。 您所選取的計劃可以與虛擬網路位於相同或不同的訂用帳戶中，但兩個訂用帳戶必須都與同一個 Azure Active Directory 租用戶關聯。|
+
+    | 設定         | 值                                                        |
+    | ---------       | ---------                                                    |
+    | Name            | myVirtualNetwork                                             |
+    | 訂用帳戶    | 選取您的訂用帳戶。                                    |
+    | 資源群組  | 選取 [使用現有的]，然後選取 [myResourceGroup] |
+    | 位置        | 美國東部                                                      |
+    | DDoS 保護 | 選取 [標準]，然後在 [DDoS 保護] 底下，選取 [myDdosProtectionPlan]。 您所選取的計劃可以與虛擬網路位於相同或不同的訂用帳戶中，但兩個訂用帳戶必須都與同一個 Azure Active Directory 租用戶關聯。|
 
 已為虛擬網路啟用「標準 DDoS」時，您無法將虛擬網路移到另一個資源群組或訂用帳戶。 如果您需要移動已啟用「標準 DDoS」的虛擬網路，請先將「標準 DDoS」停用，移動虛擬網路，然後再啟用「標準 DDoS」。 移動之後，就會重設虛擬網路中所有受保護公用 IP 位址的自動調整原則閾值。
 
-## <a name="enable-ddos-for-an-existing-virtual-network"></a>為現有的虛擬網路啟用 DDoS 保護 
+## <a name="enable-ddos-for-an-existing-virtual-network"></a>為現有的虛擬網路啟用 DDoS 保護
 
 1. 如果您沒有現有的 DDoS 保護計劃，請完成[建立 DDoS 保護計劃](#create-a-ddos-protection-plan)中的步驟來建立 DDoS 保護計劃。
 2. 選取 Azure 入口網站中左上角的 [建立資源]。
@@ -87,22 +90,22 @@ DDoS 保護計劃會定義一組跨訂用帳戶且已啟用標準 DDoS 保護的
 
 透過使用「Azure 監視器」警示設定，您可以選取任何可用的 DDoS 保護計量，以在攻擊期間有作用中的風險降低措施時向您發出警示。 當條件符合時，指定的地址會收到警示電子郵件：
 
-1. 選取入口網站左上角的 [所有服務]。 
+1. 選取入口網站左上角的 [所有服務]。
 2. 在 [篩選] 方塊中，輸入「監視器」。 當**監視器**出現在搜尋結果中時，請選取它。
 3. 選取 [共用服務] 底下的 [計量]。
 4. 輸入或選取您自己的值，或是輸入下列範例值，接受其餘預設值，然後選取 [確定]：
 
-    |設定  |值 |
-    |---------|---------|
-    |Name     | myDdosAlert        |
-    |訂用帳戶     | 選取包含您想要接收警示之公用 IP 位址的訂用帳戶。        |
-    |資源群組     |  選取包含您想要接收警示之公用 IP 位址的資源群組。       |
-    |資源     |    選取包含您想要接收警示之公用 IP 位址的公用 IP 位址。 DDoS 會監視指派給虛擬網路內資源的公用 IP 位址。 如果您在虛擬網路中沒有任何具有公用 IP 位址的資源，就必須先建立一個具有公用 IP 位址的資源。 針對 [Azure 服務的虛擬網路](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)中所列出透過 Resource Manager (非傳統) 部署的所有資源，您可以監視資源的公用 IP 位址，但「Azure App Service 環境」和「Azure VPN 閘道」除外。 若要繼續進行本教學課程，您可以快速建立一個 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器。    |
-    |計量     | 是否正遭受 DDoS 攻擊 |
-    |閾值     |1 - **1** 表示您正遭受攻擊。 **0** 表示您並未遭受攻擊。     |
-    |期間     | 選取您選擇的任何值。 |
-    |透過電子郵件通知     |  勾選此核取方塊       |
-    |其他系統管理員 | 如果您不是訂用帳戶的電子郵件擁有者、參與者或讀者，請輸入您的電子郵件地址。|
+    |設定                  |值                                                                                               |
+    |---------                |---------                                                                                           |
+    |Name                     | myDdosAlert                                                                                        |
+    |訂用帳戶             | 選取包含您想要接收警示之公用 IP 位址的訂用帳戶。        |
+    |資源群組           | 選取包含您想要接收警示之公用 IP 位址的資源群組。      |
+    |資源                 | 選取包含您想要接收警示之公用 IP 位址的公用 IP 位址。 DDoS 會監視指派給虛擬網路內資源的公用 IP 位址。 如果您在虛擬網路中沒有任何具有公用 IP 位址的資源，就必須先建立一個具有公用 IP 位址的資源。 針對 [Azure 服務的虛擬網路](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)中所列出透過 Resource Manager (非傳統) 部署的所有資源，您可以監視資源的公用 IP 位址，但「Azure App Service 環境」和「Azure VPN 閘道」除外。 若要繼續進行本教學課程，您可以快速建立一個 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器。                   |
+    |計量                   | 是否正遭受 DDoS 攻擊                                                                            |
+    |閾值                | 1 - **1** 表示您正遭受攻擊。 **0** 表示您並未遭受攻擊。                         |
+    |期間                   | 選取您選擇的任何值。                                                                   |
+    |透過電子郵件通知         | 勾選此核取方塊                                                                                  |
+    |其他系統管理員 | 如果您不是訂用帳戶的電子郵件擁有者、參與者或讀者，請輸入您的電子郵件地址。 |
 
     在進行攻擊偵測的幾分鐘內，您會從「Azure 監視器」收到看似下圖的電子郵件：
 
@@ -163,3 +166,20 @@ Microsoft 已與 [BreakingPoint Cloud](https://www.ixiacom.com/products/breaking
 - 將遭受 DDoS 攻擊時的事件回應程序最佳化
 - 記載 DDoS 合規性
 - 訓練您的網路安全性小組
+
+## <a name="permissions"></a>權限
+
+若要使用 DDoS 保護計劃，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派下表中所列適當動作的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
+
+| 動作                                            | Name                                     |
+| ---------                                         | -------------                            |
+| Microsoft.Network/ddosProtectionPlans/read        | 讀取 DDoS 保護計劃              |
+| Microsoft.Network/ddosProtectionPlans/write       | 建立或更新 DDoS 保護計劃  |
+| Microsoft.Network/ddosProtectionPlans/delete      | 刪除 DDoS 保護計劃            |
+| Microsoft.Network/ddosProtectionPlans/join/action | 加入 DDoS 保護計劃              |
+
+若要啟用虛擬網路的 DDoS 保護，您的帳戶也必須指派[虛擬網路的適當動作](manage-virtual-network.md#permissions)。
+
+## <a name="next-steps"></a>後續步驟
+
+- 為虛擬網路建立及套用 [Azure 原則](policy-samples.md)

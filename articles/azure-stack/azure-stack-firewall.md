@@ -1,25 +1,26 @@
 ---
-title: "適用於 Azure Stack 整合式系統的 Azure Stack 防火牆規劃 | Microsoft Docs"
-description: "說明多節點 Azure Stack Azure 連線部署的 Azure Stack 防火牆考量。"
+title: 適用於 Azure Stack 整合式系統的 Azure Stack 防火牆規劃 | Microsoft Docs
+description: 說明多節點 Azure Stack Azure 連線部署的 Azure Stack 防火牆考量。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 05/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3d8a02cc540251d77b61cf0e5b7e2aa8292f1f5f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936148"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack 防火牆整合
 建議您使用防火牆裝置來協助保護 Azure Stack 安全。 雖然防火牆有助於防堵分散式阻斷服務 (DDOS) 攻擊、入侵偵測及內容檢查等，但也會成為 Azure 儲存體服務 (例如 Blob、資料表及佇列) 的輸送量瓶頸。
@@ -44,7 +45,7 @@ NAT 也可以是外部網路上公用 IP 位址或公用 VIP 的替代方案。 
 目前建議在所有 Azure Stack 流量上停用 SSL 解密。 如果未來更新支援該功能，指引中將會提供如何為 Azure Stack 啟用 SSL 解密的相關資訊。
 
 ## <a name="edge-firewall-scenario"></a>邊緣防火牆案例
-在邊緣部署中，Azure Stack 會直接部署在邊緣路由器或防火牆後面。 在這些案例中，支援讓防火牆位於邊界之上，或如果防火牆可藉由 BGP 或靜態路由支援「等價多路徑」(ECMP)，則也支援讓防火牆作為邊界裝置。
+在邊緣部署中，Azure Stack 會直接部署在邊緣路由器或防火牆後面。 在這些情況下，它支援防火牆在邊界之上 (案例 1)，此時它支援「主動-主動」和「被動-主動」防火牆設定，或者當作邊界裝置 (案例 2)，此時它僅支援「主動-主動」防火牆設定，且依賴等價多重路徑 (ECMP) 與 BGP 或靜態路由進行容錯移轉。
 
 一般而言，在部署階段，會從外部網路為公用 VIP 集區指定公用的可路由傳送 IP 位址。 在邊緣案例中，不建議在任何其他網路上，針對安全性目的使用公用可路由傳送 IP 位址。 此案例會讓使用者能夠享有像在 Azure 這類公用雲端一樣的完全自我控制雲端體驗。  
 
