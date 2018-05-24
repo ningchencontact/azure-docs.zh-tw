@@ -5,14 +5,14 @@ services: log-analytics
 author: MGoedtel
 ms.service: log-analytics
 ms.topic: include
-ms.date: 03/29/2018
+ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 29256b3bcfedb7fe5045ff4c6c3842eb25e00a28
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 66cd09df128d454973d008adf4ffc5dd1017a18f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 下列限制適用於每個訂用帳戶的 Log Analytics 資源：
 
@@ -39,5 +39,5 @@ ms.lasthandoff: 04/03/2018
 | 類別 | 限制 | 註解
 | --- | --- | --- |
 | 資料收集器 API | 單一篇文章的大小上限為 30 MB<br>欄位值的大小上限為 32 KB | 將較大的磁碟區分割成多篇文章<br>超過 32 KB 的欄位會被截斷。 |
-| 搜尋 API | 傳回非彙總資料的 5000 筆記錄<br>彙總資料的 500000 筆記錄 | 彙總資料是包含 `measure` 命令的搜尋
+| 搜尋 API | 傳回非彙總資料的 5000 筆記錄<br>彙總資料的 500000 筆記錄 | 彙總資料是包含 `summarize` 命令的搜尋
  

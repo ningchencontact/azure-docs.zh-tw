@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Evernote 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Evernote 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Evernote 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Evernote 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c0dda5288d7985669afef5464bf2f9a34f9e8e8c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6926472cad5e124ec3e8636df057044b792827c6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>教學課程：Azure Active Directory 與 Evernote 整合
 
@@ -30,7 +30,7 @@ Evernote 與 Azure AD 整合提供下列優點：
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Evernote (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -58,7 +58,7 @@ Evernote 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Evernote，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -142,7 +142,7 @@ Evernote 與 Azure AD 整合提供下列優點：
 
     ![憑證設定](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_certx.png)
     
-    a.  **啟用 SSO：**預設會啟用 SSO (按一下 [停用單一登入] 以移除 SSO 需求)
+    a.  **啟用 SSO：** 預設會啟用 SSO (按一下 [停用單一登入] 以移除 SSO 需求)
 
     b. 將您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值，貼到 [SAML HTTP 要求 URL] 文字方塊中。
 
@@ -248,7 +248,7 @@ Evernote 需以手動的方式佈建。
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 
 

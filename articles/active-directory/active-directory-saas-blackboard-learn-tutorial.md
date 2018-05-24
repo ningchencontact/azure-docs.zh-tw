@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Blackboard Learn 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Blackboard Learn 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Blackboard Learn 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Blackboard Learn 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 0c0cd547a9a33ee83883058623e4905ea0af4031
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 52cb6eccc85dd6c00ee1ab3b97f7410c43aef91d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>教學課程：Azure Active Directory 與 Blackboard Learn 整合
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/11/2017
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Blackboard Learn (單一登入)
 - 您可以在 Azure 入口網站中集中管理您的帳戶
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/11/2017
 
 **若要從資源庫中新增 Blackboard Learn，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -191,7 +191,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="creating-a-blackboard-learn-test-user"></a>建立 Blackboard Learn 測試使用者
 在本節中，您會在 Blackboard Learn 中建立名為 Britta Simon 的使用者。 
 
-Blackboard Learn 應用程式支援即時使用者佈建。 請確定您已依照**[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)**一節所述的方式設定宣告
+Blackboard Learn 應用程式支援即時使用者佈建。 請確定您已依照**[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** 一節所述的方式設定宣告
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 Blackboard Learn 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
@@ -231,7 +231,7 @@ Blackboard Learn 應用程式支援即時使用者佈建。 請確定您已依�
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

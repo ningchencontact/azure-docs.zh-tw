@@ -1,20 +1,20 @@
 ---
-title: "IoT 中樞的 Azure Event Grid 結構描述 | Microsoft Docs"
-description: "IoT 中樞之事件結構描述格式與屬性的參考頁面"
+title: IoT 中樞的 Azure Event Grid 結構描述 | Microsoft Docs
+description: IoT 中樞之事件結構描述格式與屬性的參考頁面
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 29ad1233a344c3085286c27cb925b2dc9fb41f7e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 812ca3ba546112f54a76319fda853d441ce34f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>IoT 中樞的 Azure Event Grid 事件結構描述
 
@@ -87,7 +87,7 @@ DeviceCreated 和 DeviceDeleted 事件的結構描述具有相同的結構。 �
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
 | id | 字串 | 事件的唯一識別碼。 |
-| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 會提供此值。 |
+| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
 | 主旨 | 字串 | 發行者定義事件主體的路徑。 |
 | eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
 | eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |

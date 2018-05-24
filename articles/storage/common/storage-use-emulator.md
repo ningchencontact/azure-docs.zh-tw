@@ -2,23 +2,17 @@
 title: 使用 Azure 儲存體模擬器進行開發和測試 | Microsoft Docs
 description: Azure 儲存體模擬器提供免費的本機開發環境，針對 Azure 儲存體應用程式進行開發和測試。 了解如何驗證要求、如何從應用程式連接到模擬器，以及如何使用命令列工具。
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: f480b059-df8a-4a63-b05a-7f2f5d1f5c2a
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: f98b8c3a8217b60fd0ba3754ac4ba72e09039f24
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 儲存體模擬器進行開發和測試
 
@@ -44,17 +38,10 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>啟動及初始化儲存體模擬器
 
-### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[在 Docker 執行 Azure 儲存體模擬器](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
-```
-docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
-```
-
-### <a name="using-sdk"></a>使用 SDK
-
 啟動 Azure 儲存體模擬器：
 1. 選取 [開始] 按鈕或按下 [Windows] 鍵。
-1. 開始輸入 `Azure Storage Emulator`。
-1. 從顯示的應用程式清單中選取模擬器。
+2. 開始輸入 `Azure Storage Emulator`。
+3. 從顯示的應用程式清單中選取模擬器。
 
 當儲存體模擬器啟動時，將會出現 [命令列提示字元] 視窗。 您可以使用此主控台視窗，來啟動和停止儲存體模擬器、清除資料、取得狀態，以及初始化模擬器。 如需詳細資訊，請參閱本文稍後的[儲存體模擬器命令列工具參考](#storage-emulator-command-line-tool-reference)一節。
 
@@ -71,6 +58,7 @@ docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>初始化儲存體模擬器以使用不同的 SQL 資料庫
+
 您可以使用儲存體模擬器命令列工具來初始化儲存體模擬器，以指向預設 LocalDB 執行個體以外的 SQL 資料庫執行個體：
 
 1. 開啟 [儲存體模擬器] 主控台視窗，如[啟動及初始化儲存體模擬器](#start-and-initialize-the-storage-emulator)一節中所述。

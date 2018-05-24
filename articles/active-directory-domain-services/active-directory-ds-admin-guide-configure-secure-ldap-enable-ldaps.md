@@ -1,8 +1,8 @@
 ---
-title: "在 Azure AD Domain Services 中設定安全的 LDAP (LDAPS) | Microsoft Docs"
-description: "針對 Azure Active Directory Domain Services 受控網域設定安全的 LDAP (LDAPS)"
+title: 在 Azure AD Domain Services 中設定安全的 LDAP (LDAPS) | Microsoft Docs
+description: 針對 Azure Active Directory Domain Services 受控網域設定安全的 LDAP (LDAPS)
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8da03990ace37b527553b0fe3ff0032515e1b812
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD 網域服務受控網域設定安全的 LDAP (LDAPS)
 
@@ -71,8 +71,7 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="task-4---configure-dns-to-access-the-managed-domain-from-the-internet"></a>工作 4 - 設定 DNS 以從網際網路存取受控網域
 > [!NOTE]
-> 
-            **選擇性工作** - 如果您不打算使用 LDAPS 來透過網際網路存取受控網域，請略過這項設定工作。
+> **選擇性工作** - 如果您不打算使用 LDAPS 來透過網際網路存取受控網域，請略過這項設定工作。
 >
 >
 
@@ -106,7 +105,7 @@ ms.lasthandoff: 02/24/2018
 
 ![透過網際網路之安全 LDAP 存取的範例 NSG](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
-**詳細資訊** - [網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
+**詳細資訊** - [網路安全性群組](../virtual-network/security-overview.md)。
 
 <br>
 
@@ -127,9 +126,7 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="related-content"></a>相關內容
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
-* 
-            [Administer an Azure AD Domain Services managed domain (管理 Azure AD 網域服務受控網域)](active-directory-ds-admin-guide-administer-domain.md)
-* 
-            [管理 Azure AD Domain Services 受控網域上的群組原則](active-directory-ds-admin-guide-administer-group-policy.md)
-* [網路安全性群組](../virtual-network/virtual-networks-nsg.md)
+* [Administer an Azure AD Domain Services managed domain (管理 Azure AD 網域服務受控網域)](active-directory-ds-admin-guide-administer-domain.md)
+* [管理 Azure AD Domain Services 受控網域上的群組原則](active-directory-ds-admin-guide-administer-group-policy.md)
+* [網路安全性群組](../virtual-network/security-overview.md)
 * [建立網路安全性群組](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

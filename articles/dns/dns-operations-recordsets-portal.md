@@ -106,7 +106,7 @@ ms.lasthandoff: 05/03/2018
 
 ### <a name="modify-soa-records"></a>修改 SOA 記錄
 
-您無法在區域頂點 (名稱 = "@") 自動建立的 SOA 記錄集中新增或移除記錄。 不過，您可以修改 SOA 記錄 (「主機」除外) 和記錄集 TTL 內的任何參數。
+您無法在區域頂點 (名稱 = "\@\") 自動建立的 SOA 記錄集中新增或移除記錄。 不過，您可以修改 SOA 記錄 (「主機」除外) 和記錄集 TTL 內的任何參數。
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>在區域頂點修改 NS 記錄
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 05/03/2018
 
 ### <a name="delete-soa-or-ns-record-sets"></a>刪除 SOA 或 NS 記錄集
 
-您無法在建立區域時所自動建立的區域頂點 (名稱 = "@") 刪除 SOA 和 NS 記錄集。 當您刪除該區域時，就會自動刪除它們。
+您無法在建立區域時所自動建立的區域頂點 (名稱 = "\@\") 刪除 SOA 和 NS 記錄集。 當您刪除該區域時，就會自動刪除它們。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Boomi 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Boomi 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Boomi 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Boomi 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 6d1af05f40d6e57b2f6128261828791be7e516c7
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: bd0b5cd66718ca0eeb9fa90366b90a899181e912
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>教學課程：Azure Active Directory 與 Boomi 整合
 
-在本教學課程中，您將了解如何整合 Boomi 與 Azure Active Directory (Azure AD)。
+在本教學課程中，您會了解如何整合 Boomi 與 Azure Active Directory (Azure AD)。
 
-將 Boomi 與 Azure AD 整合可提供下列優點：
+Boomi 與 Azure AD 整合提供下列優點：
 
 - 您可以在 Azure AD 中控制可存取 Boomi 的人員。
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Boomi (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Boomi 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
-- 已啟用 Boomi 單一登入的訂用帳戶
+- 啟用 Boomi 單一登入的訂用帳戶
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。
@@ -54,11 +54,11 @@ ms.lasthandoff: 01/05/2018
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-boomi-from-the-gallery"></a>從資源庫新增 Boomi
-若要設定將 Boomi 整合到 Azure AD 中，您需要將 Boomi 從資源庫新增到受控 SaaS 應用程式清單。
+若要設定將 Boomi 整合至 Azure AD 中，您需要從資源庫將 Boomi 新增至受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Boomi，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -76,13 +76,13 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Boomi 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 "Britta Simon" 的測試使用者身分，使用 Boomi 設定及測試 Azure AD 單一登入。
 
-若要讓單一登入能夠運作，Azure AD 必須知道 Boomi 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者與 Boomi 中的相關使用者之間建立連結關聯性。
+若要讓單一登入運作，Azure AD 必須知道 Boomi 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者與 Boomi 中的相關使用者之間建立連結關聯性。
 
-在 BeeLine 中，指派 Azure AD 中**使用者名稱**的值作為 [Username] \(使用者名稱\) 的值，以建立連結關聯性。
+在 BeeLine 中，將 Azure AD 中**使用者名稱**的值，指派為 **Username** 的值，以建立連結關聯性。
 
-若要設定及測試與 Boomi 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 Boomi 搭配運作的 Azure AD 單一登入，您需要完成下列基本工作：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
@@ -92,7 +92,7 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，然後在您的 Boomi 應用程式中設定單一登入。
+在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，並在您的 Boomi 應用程式中設定單一登入。
 
 **若要設定與 Boomi 搭配運作的 Azure AD 單一登入，請執行下列步驟：**
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 01/05/2018
  
     ![單一登入對話方塊](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_samlbase.png)
 
-3. 在 [Boomi 網域及 URL] 區段上，執行下列步驟：
+3. 在 [Boomi 網域與 URL] 區段中，執行下列步驟：
 
     ![Boomi 網域及 URL 單一登入資訊](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
 
@@ -204,7 +204,7 @@ ms.lasthandoff: 01/05/2018
   
 ### <a name="create-a-boomi-test-user"></a>建立 Boomi 測試使用者
 
-若要讓 Azure AD 使用者能夠登入 Boomi，必須將他們佈建到 Boomi 中。 就 Boomi 而言，必須以手動方式佈建。
+若要讓 Azure AD 使用者可以登入 Boomi，必須將他們佈建到 Boomi。 Boomi 需以手動方式佈建。
 
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>若要佈建使用者帳戶，請執行下列步驟：
 
@@ -230,7 +230,7 @@ ms.lasthandoff: 01/05/2018
     
     e. 指派 [標準使用者] 角色給使用者。 請勿指派系統管理員角色，因為這樣他會取得正常 Atmosphere 存取權和單一登入存取權。
     
-    f. 按一下 [SERVICEPRINCIPAL] 。
+    f. 按一下 [確定]。
     
     > [!NOTE]
     > 使用者的密碼是透過識別提供者來管理，他不會收到附上 AtomSphere 帳戶登入密碼的歡迎通知電子郵件。 您可以使用任何其他的 Boomi 使用者帳戶建立工具或 Boomi 提供的 API 來佈建 AAD 使用者帳戶。
@@ -241,7 +241,7 @@ ms.lasthandoff: 01/05/2018
 
 ![指派使用者角色][200] 
 
-**若要將 Britta Simon 指派給 Boomi，請執行下列步驟：**
+**若要將 Britta Simon 指派至 Boomi，請執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 
@@ -275,7 +275,7 @@ ms.lasthandoff: 01/05/2018
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 
 

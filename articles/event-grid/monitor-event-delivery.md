@@ -1,18 +1,18 @@
 ---
-title: "監視 Azure 事件格線訊息傳遞"
-description: "說明如何監視 Azure 事件格線訊息的傳遞。"
+title: 監視 Azure 事件格線訊息傳遞
+description: 說明如何監視 Azure 事件格線訊息的傳遞。
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f726959a10eb6bf57153746a901cbba747a68e5f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f9719bb1f1563c55537c7ef32278411a2034bd75
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="monitor-event-grid-message-delivery"></a>監視事件格線訊息傳遞 
 

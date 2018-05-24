@@ -16,12 +16,11 @@
 # 範例
 ## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=key-vault)
 # 概念
-## [什麼是金鑰保存庫？](key-vault-whatis.md)
 ## [安全性環境](key-vault-ovw-security-worlds.md)
 ## [虛刪除](key-vault-ovw-soft-delete.md)
 ## [儲存體帳戶金鑰](key-vault-ovw-storage-keys.md)
 ## [節流](key-vault-ovw-throttling.md)
-
+## [什麼是金鑰保存庫？](key-vault-whatis.md)
 
 # 使用說明指南
 ## 管理
@@ -69,12 +68,11 @@
 ### [憑證建立方式](create-certificate.md)
 ### [監視和管理憑證建立](create-certificate-scenarios.md)
 ## [驗證、要求和回應](authentication-requests-and-responses.md)
-## [客戶資料功能](key-vault-customer-data.md)
 ## [通用參數和標題](common-parameters-and-headers.md)
 ## [Key Vault 版本](key-vault-versions.md)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [部落格](http://blogs.technet.com/b/kv/)
-## [程式碼範例](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault&type=&language=)
+## [程式碼範例](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 ## [定價](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)

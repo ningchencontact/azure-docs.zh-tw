@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3eaaa1ec09e9bd593a2d14e4a3bc751c431869d0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71b0405975d88e69d3ecea6090983bc3c779395d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>遠端監視解決方案加速器架構
 
-遠端監視[解決方案加速器](iot-suite-what-are-solution-accelerators.md)會在遠端位置實作多部機器的端對端監視解決方案。 此解決方案結合了主要的 Azure 服務以提供一般的商務案例實作。 您可以將此解決方案作為自己實作的起點並加以[自訂](iot-suite-remote-monitoring-customize.md)，以符合自己特有的商務需求。
+遠端監視[解決方案加速器](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)會在遠端位置實作多部機器的端對端監視解決方案。 此解決方案結合了主要的 Azure 服務以提供一般的商務案例實作。 您可以將此解決方案作為自己實作的起點並加以[自訂](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)，以符合自己特有的商務需求。
 
 本文將逐步介紹遠端監視解決方案的一些重要元素，讓您瞭解它的運作方式。 這項知識能協助您︰
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="logical-architecture"></a>邏輯架構
 
-下圖概述 [IoT 架構](iot-suite-what-is-azure-iot.md)上重疊的遠端監視解決方案加速器的邏輯元件：
+下圖概述 [IoT 架構](../iot-accelerators/iot-accelerators-what-is-azure-iot.md)上重疊的遠端監視解決方案加速器的邏輯元件：
 
 ![邏輯架構](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -143,4 +143,4 @@ Cosmos DB 資料庫會將資料儲存於解決方案加速器中。 **storage-ad
 * [使用 Azure IoT 的遠端監視解決方案加速器 (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) \(英文\)。
 * [遠端監視架構的解決方案加速器](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture) \(英文\)。
 
-如需關於遠端監視解決方案加速器的詳細概念資訊，請參閱[自訂解決方案加速器](iot-suite-remote-monitoring-customize.md)。
+如需關於遠端監視解決方案加速器的詳細概念資訊，請參閱[自訂解決方案加速器](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)。
