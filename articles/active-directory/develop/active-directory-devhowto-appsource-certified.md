@@ -17,11 +17,11 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 72516ce84fc9a4cf2657548be4ef98e75e46d550
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 844c19803f57987f4435d013cd12aa3d1ef8aeb8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>如何讓 AppSource 取得 Azure Active Directory 認證
 [Microsoft AppSource](https://appsource.microsoft.com/) 是企業用戶探索、嘗試，及管理企業營運 SaaS 應用程式 (獨立 SaaS 和現有 Microsoft SaaS 產品的附加元件) 的目的地。
@@ -43,7 +43,7 @@ ms.lasthandoff: 05/14/2018
 如需多重租用的詳細資訊，請參閱：[如何使用多租用戶應用程式模式登入任何 Azure Active Directory (AD) 使用者](./active-directory-devhowto-multi-tenant-overview.md)。
 
 ### <a name="single-tenant-applications"></a>單一租用戶應用程式
-此應用程式僅接受來自定義之 Azure Active Directory 執行個體 (稱為*單一租用戶應用程式*) 的使用者登入。 將每個使用者以*來賓帳戶*的身分新增至應用程式註冊的 Azure Active Directory 執行個體之後，外部使用者 (包括來自其他組織的公司或學校帳戶，或個人帳戶) 可以登入單一租用戶應用程式。 您可以透過 [*Azure AD B2B 共同作業*](../active-directory-b2b-what-is-azure-ad-b2b.md)將使用者以來賓帳戶的身分新增至 Azure Active Directory - 而且可以使用[程式設計的方式](../active-directory-b2b-code-samples.md)來完成。 當您以來賓帳戶的身分，將使用者新增至 Azure Active Directory 時，會向使用者寄送邀請電子郵件，使用者必須按一下邀請電子郵件中的連結，才可接受邀請。 如果傳送邀請給邀請組織中的其他使用者也屬於合作夥伴組織的成員，則不需要接受邀請即可登入。
+此應用程式僅接受來自定義之 Azure Active Directory 執行個體 (稱為*單一租用戶應用程式*) 的使用者登入。 將每個使用者以*來賓帳戶*的身分新增至應用程式註冊的 Azure Active Directory 執行個體之後，外部使用者 (包括來自其他組織的公司或學校帳戶，或個人帳戶) 可以登入單一租用戶應用程式。 您可以透過 [*Azure AD B2B 共同作業*](../b2b/what-is-b2b.md)將使用者以來賓帳戶的身分新增至 Azure Active Directory - 而且可以使用[程式設計的方式](../b2b/code-samples.md)來完成。 當您以來賓帳戶的身分，將使用者新增至 Azure Active Directory 時，會向使用者寄送邀請電子郵件，使用者必須按一下邀請電子郵件中的連結，才可接受邀請。 如果傳送邀請給邀請組織中的其他使用者也屬於合作夥伴組織的成員，則不需要接受邀請即可登入。
 
 單一租用戶應用程式可啟用*與我連絡*體驗，但如果您想要啟用 AppSource 建議的單鍵/免費試用體驗，可改在您的應用程式上啟用多重租用。
 

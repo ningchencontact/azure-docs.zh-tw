@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Help Scout 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Help Scout 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Help Scout 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Help Scout 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 5608df300ad3b5d3fd42bd904a52d43d115ebf53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 596a1ba27516755e586d88ab56a20a1daed63fc2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>教學課程：Azure Active Directory 與 Help Scout 整合
 
@@ -30,7 +30,7 @@ Help Scout 與 Azure AD 整合提供下列優點：
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Help Scout (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -55,7 +55,7 @@ Help Scout 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Help Scout，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -105,9 +105,9 @@ Help Scout 使用電子郵件地址來登入，因此若要建立連結關聯性
 
     ![Help Scout 網域與 URL 單一登入資訊](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url.png)
 
-    a. **識別碼**是 Help Scout 的**「對象 URI (服務提供者實體識別碼)」**，以 `urn:` 開始
+    a. **識別碼**是 Help Scout 的 **「對象 URI (服務提供者實體識別碼)」**，以 `urn:` 開始
 
-    b. **回覆 URL** 是 Help Scout 的**「回傳 URL (判斷提示取用者服務 URL)」**，以 `https://` 開始 
+    b. **回覆 URL** 是 Help Scout 的 **「回傳 URL (判斷提示取用者服務 URL)」**，以 `https://` 開始 
 
     > [!NOTE] 
     > 這些 URL 中的值僅供示範。 您必須從實際的「回覆 URL」和「識別碼」來更新這些值。 您可以從 [驗證] 區段下的 [單一登入] 索引標籤取得這些值，本教學課程稍後會說明。
@@ -244,7 +244,7 @@ Help Scout 使用電子郵件地址來登入，因此若要建立連結關聯性
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 
 

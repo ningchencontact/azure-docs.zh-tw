@@ -9,11 +9,11 @@ description: 了解如何使用 Azure 串流分析作業來整合遠端監視解
 +ms.date: 04/029/2018
 +ms.topic: article
 +ms.service: iot-suite
-ms.openlocfilehash: 701dd51d13ec1880f23c48cc5e8b368b15d0deca
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 75ad9e9ac79dca4db902d7e72511a384dd769463
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>整合遠端監視解決方案與 Azure Data Lake Store
 
@@ -25,11 +25,11 @@ ms.lasthandoff: 05/07/2018
 
 若要完成本操作說明，您需要下列各項：
 
-* [部署遠端監視預先設定解決方案](/iot-suite/iot-suite-remote-monitoring-deploy)。
+* [部署遠端監視預先設定解決方案](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)。
   * 遠端監視解決方案會將要在本文中使用的 IoT 中樞與 Azure 串流分析作業部署到您的 Azure 訂用帳戶。
-* [部署 Azure Data Lake Store](/data-lake-store/data-lake-store-get-started-portal)
+* [部署 Azure Data Lake Store](/data-lake-store/data-lake-store-get-started-portal.md)
   * 您的 Data Lake Store 應該要部署到與您遠端監視解決方案相同的區域。
-  * 在您的帳戶中[建立資料夾](/data-lake-store/data-lake-store-get-started-portal#createfolder)，並將它命名為 "streaming"。
+  * 在您的帳戶中[建立資料夾](/data-lake-store/data-lake-store-get-started-portal.md#createfolder)，並將它命名為 "streaming"。
 
 ## <a name="create-a-consumer-group"></a>建立取用者群組
 

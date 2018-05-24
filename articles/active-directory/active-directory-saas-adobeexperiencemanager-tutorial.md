@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Adobe Experience Manager 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Adobe Experience Manager 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Adobe Experience Manager 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Adobe Experience Manager 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: c366e314b77cd3344a90826b22b96a45e35b0b4e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: d63ee16df9b49517c93cdc405cd2525f578d2a7f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>教學課程：Azure Active Directory 與 Adobe Experience Manager 整合
 
 在本教學課程中，您將了解如何整合 Adobe Experience Manager 與 Azure Active Directory (Azure AD)。
 
-將 Adobe Experience Manager 與 Azure AD 整合可提供下列優點：
+Adobe Experience Manager 與 Azure AD 整合提供下列優點：
 
 - 您可以在 Azure AD 中控制可存取 Adobe Experience Manager 的人員。
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Adobe Experience Manager。
 - 您可以在 Azure 入口網站集中管理您的帳戶。
 
-如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
+如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/13/2018
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="add-adobe-experience-manager-from-the-gallery"></a>從資源庫新增 Adobe Experience Manager
-若要設定將 Adobe Experience Manager 整合到 Azure AD 中，您需要將 Adobe Experience Manager 從資源庫新增到受控 SaaS 應用程式清單。
+若要設定 Adobe Experience Manager 與 Azure AD 整合，您需要從資源庫將 Adobe Experience Manager 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Adobe Experience Manager，請執行下列步驟：**
 
@@ -281,7 +281,7 @@ ms.lasthandoff: 02/13/2018
 ## <a name="additional-resources"></a>其他資源
 
 * [如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 
 

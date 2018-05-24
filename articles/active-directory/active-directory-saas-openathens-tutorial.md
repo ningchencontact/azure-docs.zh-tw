@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 OpenAthens 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 OpenAthens 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 OpenAthens 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 OpenAthens 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: af26e007c953c4157f5ee7a4251a52e9c45a6eac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b19f3c7ed84a63f48320a2c7af8d06a9cc5deb4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>教學課程：Azure Active Directory 與 OpenAthens 整合
 
@@ -30,7 +30,7 @@ OpenAthens 與 Azure AD 整合提供下列優點：
 - 您可以讓使用者使用其 Azure AD 帳戶自動登入 OpenAthens (單一登入)。
 - 您可以在 Azure 入口網站集中管理您的帳戶。
 
-如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
+如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -224,7 +224,7 @@ OpenAthens 支援 Just-In-Time 佈建，使用者在成功通過驗證後會自�
 ## <a name="additional-resources"></a>其他資源
 
 * 有關如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單，請參閱[搭配 Azure AD 的 SaaS 應用程式整合教學課程](active-directory-saas-tutorial-list.md)。
-* 有關搭配 Azure Active Directory 的應用程式存取和單一登入的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
+* 有關搭配 Azure Active Directory 的應用程式存取和單一登入的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)。
 
 <!--Image references-->
 

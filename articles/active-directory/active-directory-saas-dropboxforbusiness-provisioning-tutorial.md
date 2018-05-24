@@ -1,6 +1,6 @@
 ---
-title: "教學課程︰以 Azure Active Directory 設定 Dropbox 來自動佈建使用者 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Dropbox for Business 之間的單一登入。"
+title: 教學課程︰以 Azure Active Directory 設定 Dropbox 來自動佈建使用者 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Dropbox for Business 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6b082127f74ff5f823506c0f75f40c4b4246dcfe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bdac910b5011237e26a39f3e45f3e7ad6176bc83
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>教學課程︰設定 Dropbox for Business 來自動佈建使用者
 
@@ -74,7 +74,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
     
       ![使用者佈建](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/ic769519.png "使用者佈建")
 
-8. 在 Azure 入口網站中，按一下 [測試連線]以確保 Azure AD 可以連線到您的 Dropbox for Business 應用程式。 如果連線失敗，請確定您的 Dropbox for Business 帳戶具有小組系統管理員權限，並再試一次**「授權」**步驟。
+8. 在 Azure 入口網站中，按一下 [測試連線]以確保 Azure AD 可以連線到您的 Dropbox for Business 應用程式。 如果連線失敗，請確定您的 Dropbox for Business 帳戶具有小組系統管理員權限，並再試一次 **「授權」** 步驟。
 
 9. 在 [通知電子郵件] 欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選核取方塊。
 
@@ -96,5 +96,5 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 ## <a name="additional-resources"></a>其他資源
 
 * [管理企業應用程式的使用者帳戶佈建](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 * [設定單一登入](active-directory-saas-dropboxforbusiness-tutorial.md)
