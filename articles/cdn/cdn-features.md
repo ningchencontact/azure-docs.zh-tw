@@ -20,6 +20,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257864"
 ---
 # <a name="compare-azure-cdn-product-features"></a>比較 Azure CDN 產品功能
 

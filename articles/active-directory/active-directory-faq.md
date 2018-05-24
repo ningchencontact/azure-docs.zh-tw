@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: e12487c519a927b18574310b7af04a1811befd38
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 285961279a35d2770f05eb66b961f64e6781d9df
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34336546"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -175,7 +176,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 * 直接登入同盟應用程式
 * 同盟、密碼或現有應用程式的深層連結
 
-如需詳細資訊，請參閱 [對使用者部署 Azure AD 整合應用程式](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)。
+如需詳細資訊，請參閱 [對使用者部署 Azure AD 整合應用程式](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)。
 
 - - -
 **問︰Azure AD 可透過哪些不同方式來啟用應用程式的驗證和單一登入？**
@@ -186,7 +187,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 * [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)
 * [Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [單一登入如何搭配 Azure Active Directory 運作？](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [單一登入如何搭配 Azure Active Directory 運作？](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -
 **問︰是否可以新增在內部部署中執行的應用程式？**

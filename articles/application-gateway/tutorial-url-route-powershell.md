@@ -10,15 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 3/20/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 63533319d555e79c86d4fe3cdae0b168115e7ec5
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9aa0eec9036e32d6f3462886dfc7a796ed1844b8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356285"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>使用 Azure PowerShell 根據 URL 路由網路流量
 
-您可以使用 Azure PowerShell，根據用來存取您應用程式的 URL，將網路流量設定為路由到特定可調整的伺服器集區。 在本教學課程中，您可以使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)來建立具有 3 個後端集區的 [Azure 應用程式閘道](application-gateway-introduction.md)。 每個後端集區都有特定用途，例如處理一般資料、影像和影片。  將流量路由到個別集區，可確保您的客戶在需要時取得資訊。
+您可以使用 Azure PowerShell，根據用來存取您應用程式的 URL，將網路流量設定為路由到特定可調整的伺服器集區。 在本教學課程中，您可以使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)來建立具有 3 個後端集區的 [Azure 應用程式閘道](application-gateway-introduction.md)。 每個後端集區都有特定用途，例如處理常見資料、影像和影片。  將流量路由到個別集區，可確保您的客戶在需要時取得資訊。
 
 若要啟用流量路由，請建立指派給接聽程式的[路由規則](application-gateway-url-route-overview.md)，接聽程式會接聽特定連接埠，以確保網路流量抵達集區中的適當伺服器。
 
@@ -385,7 +386,7 @@ for ($i=1; $i -le 3; $i++)
 每個擴展集會包含兩個其中安裝 IIS 的虛擬機器執行個體，IIS 會執行範例頁面，以測試應用程式閘道是否可運作。
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 for ($i=1; $i -le 3; $i++)

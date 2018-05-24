@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f5630c8cb9c0ca13210c62652f8d7f2e98f94438
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366642"
 ---
 # <a name="security-management-in-azure"></a>Azure 的安全性管理
 Azure 訂閱者可從多種裝置管理其雲端環境，這些裝置包括管理工作站、開發人員的電腦，甚至是具有工作專用權限的特殊權限使用者裝置。 有時候，管理功能是透過 Web 式主控台來執行，例如 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)。 至於其他時候，則可能會從內部部署系統，透過虛擬私人網路 (VPN)、終端機服務、用戶端應用程式通訊協定或 Azure 服務管理 API (SMAPI) (以程式設計方式) 直接連線至 Azure。 此外，用戶端端點也可以加入網域或是遭到隔離且非受控，例如平板電腦或智慧型手機。
@@ -111,7 +112,7 @@ Azure 雲端服務組態是透過 Azure 入口網站或 SMAPI，經由 Windows P
 * 設定[用戶端連線授權原則](http://technet.microsoft.com/library/cc753324.aspx)，讓 RD 閘道驗證用戶端電腦名稱是否有效 (已加入網域)，並允許存取 Azure 入口網站。
 * 針對 [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) 使用 IPsec 以進一步防止管理流量遭到竊聽以及權杖遭竊，或考慮使用透過 [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) 的隔離網際網路連結。
 * 針對透過 RD 閘道登入的系統管理員啟用 Multi-Factor Authentication (透過 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)) 或智慧卡驗證。
-* 在 Azure 中設定來源 [IP 位址限制](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/)或[網路安全性群組](../virtual-network/virtual-networks-nsg.md)以將允許的管理端點數目降到最低。
+* 在 Azure 中設定來源 [IP 位址限制](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/)或[網路安全性群組](../virtual-network/security-overview.md)以將允許的管理端點數目降到最低。
 
 ## <a name="security-guidelines"></a>安全性方針
 協助保護搭配雲端使用之系統管理員工作站的做法，通常會與用於任何內部部署工作站的做法類似 - 例如，最小化的組建和嚴格的權限。 雲端管理的幾項特點則更類似於遠端或頻外企業管理。 這些特點包括使用和稽核認證、增強安全性的遠端存取以及威脅偵測和回應。
