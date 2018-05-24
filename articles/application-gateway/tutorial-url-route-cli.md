@@ -10,15 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8c87206f75114cb3947d57180f570f8defaf41ea
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 411baa24cc796a40f83e8530ab797f3e377ee5f6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356234"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>教學課程：使用 Azure CLI 根據 URL 路由傳送網路流量
 
-您可以使用 Azure CLI，根據用來存取您應用程式的 URL，將網路流量設定為路由傳送到特定可調整伺服器集區。 在本教學課程中，您可以使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)來建立具有 3 個後端集區的 [Azure 應用程式閘道](application-gateway-introduction.md)。 每個後端集區都有特定用途，例如處理常見資料、影像和影片。  將流量路由傳送到個別集區，可確保您的客戶在需要時取得資訊。
+您可以使用 Azure CLI，根據用來存取您應用程式的 URL，將網路流量設定為路由傳送到特定可調整伺服器集區。 在本教學課程中，您可以使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)來建立具有 3 個後端集區的 [Azure 應用程式閘道](application-gateway-introduction.md)。 每個後端集區都有特定用途，例如處理常見資料、影像和影片。  將流量路由到個別集區，可確保您的客戶在需要時取得資訊。
 
 若要啟用流量路由，請建立指派給接聽程式的[路由規則](application-gateway-url-route-overview.md)，接聽程式會接聽特定連接埠，以確保網路流量抵達集區中的適當伺服器。
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/04/2018
 > [!div class="checklist"]
 > * 設定網路
 > * 建立接聽程式、URL 路徑對應與規則
-> * 建立可調整後端集區
+> * 建立可調整的後端集區
 
 
 ![URL 路由範例](./media/tutorial-url-route-cli/scenario.png)
@@ -227,7 +228,7 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 

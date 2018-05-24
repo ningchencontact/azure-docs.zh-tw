@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 65eb24cf5f995570b7b1752fc850b596209ea59a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 68ed75a9ef2faee408e65c0991182b7d95bb17a8
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303499"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>連線的處理站解決方案加速器的逐步解說
 
@@ -237,7 +238,7 @@ TSI 會使用 **SearchSpan** (**Time.From**、**Time.To**) 針對節點資料進
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
-[lnk-preconfigured-solutions]: iot-suite-what-are-solution-accelerators.md
+[lnk-preconfigured-solutions]:../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
 [lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

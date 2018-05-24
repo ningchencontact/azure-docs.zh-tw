@@ -20,6 +20,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257483"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack 的身分識別架構
 在您選擇要搭配 Azure Stack 使用的身分識別提供者之前，請先了解 Azure Active Directory (Azure AD) 與 Active Directory Federation Services (AD FS) 之間選項的重要差異。 

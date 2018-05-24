@@ -1,21 +1,22 @@
 ---
-title: "監視虛擬機器變更 - Azure Event Grid 和 Logic Apps | Microsoft Docs"
-description: "使用 Azure Event Grid 和 Logic Apps 來檢查虛擬機器 (VM) 的組態變更"
-keywords: "logic apps, event grids, 虛擬機器, VM"
+title: 監視虛擬機器變更 - Azure Event Grid 和 Logic Apps | Microsoft Docs
+description: 使用 Azure Event Grid 和 Logic Apps 來檢查虛擬機器 (VM) 的組態變更
+keywords: logic apps, event grids, 虛擬機器, VM
 services: logic-apps
 author: ecfan
 manager: anneta
-ms.assetid: 
+ms.assetid: ''
 ms.workload: logic-apps
 ms.service: logic-apps
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 3d99dabe778b9b9234db9fe130ba503cd8b57834
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ea3063b5c445dab85a7ef1e5663c40efc34f961e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303108"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更
 

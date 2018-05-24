@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359735"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager vs. 傳統部署：了解資源的部署模型和狀態
 在本文中，您將了解 Azure Resource Manager 與傳統部署模型。 Resource Manager 和傳統部署模型代表部署和管理 Azure 解決方案的兩個不同方式。 您會透過兩個不同的 API 集使用它們，而所部署的資源可能包含重要的差異。 兩個模型彼此無法相容。 本文將說明這些差異。

@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358654"
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>使用 Visual Studio Code 擴充功能來建立 Azure Resource Manager 範本
 本文說明在 Visual Studio Code 中安裝和使用 Azure Resource Manager Tools 擴充功能的優點。 不需使用擴充功能，即可在 VS Code 中建立 Resource Manager 範本，但擴充功能會提供可簡化範本開發的自動完成選項。 它會建議範本中可用的函式、參數和變數。

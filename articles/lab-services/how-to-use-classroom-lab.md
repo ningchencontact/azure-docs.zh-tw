@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3a24c826ffdd3e368b6b16f6e78fbafc50c54b1e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 362967ca9ed9e246f39a6f8ceae4783d1e2cbf13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361160"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>如何存取 Azure 實驗室服務中的教室實驗室
 本文將說明如何存取教室實驗室、連線到實驗室中的 VM，以及停止 VM。 
@@ -49,7 +50,7 @@ ms.lasthandoff: 05/07/2018
 在代表教室實驗室的圖格上選取 [停止]。 當 VM 停止時，在圖格上的 [啟動] 按鈕會啟用。 
 
 ## <a name="next-steps"></a>後續步驟
-開始使用 Azure 實驗室服務設定實驗室：
+使用 Azure 實驗室服務以設定實驗室的入門：
 
 - [設定教室實驗室](how-to-manage-classroom-labs.md)
 - [設定自訂實驗室](tutorial-create-custom-lab.md)

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303550"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>在傳遞訊息的 Azure 服務之間進行選擇
 

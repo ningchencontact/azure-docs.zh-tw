@@ -10,11 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a563d31cdde781cb17eb738a6ce153adecaee672
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 2ca90677f7aff0b6664a67e73128a987c8f3f36c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355911"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>使用 Azure PowerShell 以應用程式閘道管理網路流量
 
@@ -74,7 +75,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 - IP 組態和前端連接埠 - 將您先前建立的子網路與應用程式閘道產生關聯，並且指派用來存取它的連接埠。
 - 預設集區 - 所有應用程式閘道都必須具有至少一個伺服器後端集區。
-- 預設接聽程式和規則 - 預設接聽程式會接聽已指派連接埠上的流量，預設規則會將流量傳送到預設集區。
+- 預設接聽程式和規則 - 預設接聽程式會接聽所指派連接埠上的流量，而預設規則會將流量傳送到預設集區。
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>建立 IP 設定與前端連接埠
 
@@ -215,7 +216,7 @@ New-AzureRmVmss `
 ### <a name="install-iis"></a>安裝 IIS
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss

@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bb981bcfb391362bad80aabf5808fd085e937232
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b9adae07bc95e385e9932250f7eb91115396f275
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193449"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教學課程：將現有的自訂 SSL 憑證繫結至 Azure Web Apps
 
@@ -303,6 +304,6 @@ New-AzureRmWebAppSSLBinding `
 前進至下一個教學課程，以了解如何使用 Azure 內容傳遞網路。
 
 > [!div class="nextstepaction"]
-> [將內容傳遞網路 (CDN) 新增至 Azure App Service](../cdn/app-service-web-tutorial-content-delivery-network.md)
+> [將內容傳遞網路 (CDN) 新增至 Azure App Service](../cdn/cdn-add-to-web-app.md)
 
 如需詳細資訊，請參閱[在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證](app-service-web-ssl-cert-load.md)。

@@ -1,11 +1,11 @@
 ---
-title: "在 Linux 上建立 Azure Service Fabric Reliable Actors Java 應用程式 | Microsoft Docs"
-description: "了解如何在五分鐘內建立和部署 Java Service Fabric Reliable Actors 應用程式。"
+title: 在 Linux 上建立 Azure Service Fabric Reliable Actors Java 應用程式 | Microsoft Docs
+description: 了解如何在五分鐘內建立和部署 Java Service Fabric Reliable Actors 應用程式。
 services: service-fabric
 documentationcenter: java
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: abbcb246ada9974e53c677eed37a1ab9ce48d6c5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 01f085a7ec69780fe3558c6892e254ed3a7e2fb0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205683"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>在 Linux 上建立第一個 Java Service Fabric Reliable Actors 應用程式
 > [!div class="op_single_selector"]

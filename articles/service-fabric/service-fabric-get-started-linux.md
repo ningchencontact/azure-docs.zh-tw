@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 6609239cb859cb39f72fbdd7f76609b5dc8e1eca
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 11f4e8286dc95a233efd724e272911892b75a725
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367336"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -208,8 +209,8 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 
     * Ubuntu
         ```bash
-        sudo apt-get install npm
-        sudo apt install nodejs-legacy
+        curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+        sudo apt-get install -y nodejs 
         ```
 
     * Red Hat Enterprise Linux 7.4 (Service Fabric 預覽支援)

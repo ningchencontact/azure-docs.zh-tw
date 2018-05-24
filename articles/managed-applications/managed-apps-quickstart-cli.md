@@ -15,6 +15,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305288"
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>使用 Azure CLI 建立及部署 Azure 受控應用程式
 

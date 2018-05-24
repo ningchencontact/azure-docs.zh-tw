@@ -17,11 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 63dfa89af64e500e8ed0292ab282150636e57ab3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 165bd6770109348bd19ebb4fa1735bedf83004b1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261312"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>教學課程：使用 PowerShell 透過網路安全性群組篩選網路流量
 
@@ -146,14 +147,19 @@ $virtualNetwork = Get-AzureRmVirtualNetwork `
 ```
 使用 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) 建立每個 VM 的公用 IP 位址：
 
+```powershell-interactive
 $publicIpWeb = New-AzureRmPublicIpAddress `
-  -AllocationMethod Dynamic ` -ResourceGroupName myResourceGroup `
-  -Location eastus ` -Name myVmWeb
+  -AllocationMethod Dynamic `
+  -ResourceGroupName myResourceGroup `
+  -Location eastus `
+  -Name myVmWeb
 
 $publicIpMgmt = New-AzureRmPublicIpAddress `
-  -AllocationMethod Dynamic ` -ResourceGroupName myResourceGroup `
-  -Location eastus ` -Name myVmMgmt
-
+  -AllocationMethod Dynamic `
+  -ResourceGroupName myResourceGroup `
+  -Location eastus `
+  -Name myVmMgmt
+```
 
 使用 [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) 建立兩個網路介面，並將公用 IP 位址指派給網路介面。 下列範例會建立網路介面、將其與 myVmWeb 公用 IP 位址產生關聯，並使其成為 myAsgWebServers 應用程式安全性群組的成員：
 
