@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Site Recovery 部署 VMware 災害復原的組態伺服器 | Microsoft Docs"
-description: "本文說明如何使用 Azure Site Recovery 部署 VMware 災害復原的組態伺服器"
+title: 使用 Azure Site Recovery 部署 VMware 災害復原的組態伺服器 | Microsoft Docs
+description: 本文說明如何使用 Azure Site Recovery 部署 VMware 災害復原的組態伺服器
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 99b368ca364bd7c5bebfc00c2df0f04333293388
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2389ff6824a005db46c04bd1b45eabfd5ce50481
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188475"
 ---
 # <a name="deploy-a-configuration-server"></a>部署設定伺服器
 
@@ -108,6 +109,11 @@ Site Recovery 提供了可下載的範本，供您將組態伺服器設定為高
 8. 在 [設定虛擬機器認證] 中，輸入要用於在電腦上自動安裝 Azure Site Recovery 行動服務的使用者名稱和密碼 (已啟用複寫時)。 若為 Windows 電腦，此帳戶需具備您要複寫之機器的本機系統管理員權限。 若為 Linux，請提供根帳戶的詳細資料。
 9. 選取 [完成設定] 以完成註冊。 
 10. 註冊完成後，在 Azure 入口網站中確認組態伺服器和 VMware 伺服器都已列在保存庫中的 [來源] 頁面上。 然後選取 [確定] 以設定目標設定。
+
+
+## <a name="upgrade-the-configuration-server"></a>升級設定伺服器
+
+若要將組態伺服器升級為最新版本，請閱讀[此處](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)的步驟
 
 
 ## <a name="troubleshoot-deployment-issues"></a>為部署問題進行疑難排解

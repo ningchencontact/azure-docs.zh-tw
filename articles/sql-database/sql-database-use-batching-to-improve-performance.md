@@ -9,11 +9,12 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d534e138af7a22b32fbf64e2200016091beac62f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194966"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>如何使用批次處理來改善 SQL Database 應用程式效能
 批次處理 Azure SQL Database 的作業可大幅改善應用程式的效能和延展性。 為了瞭解優點，本文的第一個部分涵蓋一些範例測試結果，其中比較 SQL Database 的循序和批次要求。 本文其餘部分說明技術、案例和考量因素，協助您在 Azure 應用程式中順利使用批次處理。
@@ -32,9 +33,9 @@ ms.lasthandoff: 04/06/2018
 本文的第一個部分針對使用 SQL Database 的 .NET 應用程式，探討各種批次處理技術。 最後兩節涵蓋批次處理方針和案例。
 
 ## <a name="batching-strategies"></a>批次處理策略
-### <a name="note-about-timing-results-in-this-topic"></a>有關本主題中計時結果的注意事項
+### <a name="note-about-timing-results-in-this-article"></a>有關本文中計時結果的注意事項
 > [!NOTE]
-> 結果並不是基準，主要是示範 **相對效能**。 計時至少根據 10 個測試回合的平均值。 作業插入至空的資料表。 這些測試是在 V12 以前的版本中測量，不見得符合您在 V12 資料庫中使用新的 [服務層](sql-database-service-tiers.md)時可能遇過的輸送量。 批次處理技術的相對優點應該類似。
+> 結果並不是基準，主要是示範 **相對效能**。 計時至少根據 10 個測試回合的平均值。 作業插入至空的資料表。 這些測試是在 V12 以前的版本中測量，不見得符合您在 V12 資料庫中使用新的 [DTU 服務層](sql-database-service-tiers-dtu.md)或[虛擬核心服務層](sql-database-service-tiers-vcore.md)時可能遇過的輸送量。 批次處理技術的相對優點應該類似。
 > 
 > 
 
@@ -209,7 +210,7 @@ SQL 大量複製是另一種將大量資料插入至目標資料庫的方式。 
         }
     }
 
-在某些情況下，大量複製比資料表值參數更適合。 請參閱 [資料表值參數](https://msdn.microsoft.com/library/bb510489.aspx)主題中的資料表值參數與 BULK INSERT 作業的比較表。
+在某些情況下，大量複製比資料表值參數更適合。 請參閱[資料表值參數](https://msdn.microsoft.com/library/bb510489.aspx)一文中的資料表值參數與 BULK INSERT 作業的比較表。
 
 下列臨機操作測試結果顯示 **SqlBulkCopy** 的批次處理效能 (以毫秒為單位)。
 
@@ -592,7 +593,7 @@ PurchaseOrderDetail 資料表中的 OrderID 資料行必須參考 PurchaseOrder 
 如需詳細資訊，請參閱 MERGE 陳述式的文件和範例。 雖然在多步驟的預存程序呼叫中搭配個別的 INSERT 和 UPDATE 作業，也能執行相同的工作，但 MERGE 陳述式會更有效率。 資料庫程式碼也可以建構 Transact-SQL 呼叫，直接使用 MERGE 陳述式，而不需要為 INSERT 和 UPDATE 而分別執行兩次資料庫呼叫。
 
 ## <a name="recommendation-summary"></a>建議摘要
-下列清單提供本主題中討論的批次處理建議的摘要：
+下列清單提供本文所討論批次處理建議的摘要：
 
 * 使用緩衝處理和批次處理，提高 SQL Database 應用程式的效能和延展性。
 * 了解批次處理/緩衝處理和恢復功能之間的權衡取捨。 在角色失敗期間，可能遺失一批尚未處理的商務關鍵資料，這種風險超過批次處理帶來的效能優點。

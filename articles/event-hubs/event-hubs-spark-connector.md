@@ -12,18 +12,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
-ms.author: shvija;sethm;sagrewal
-ms.openlocfilehash: b430b731bdb38f6fe8af347e082fdfb1ef36a945
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: shvija
+ms.openlocfilehash: 09790852d28f2f68e854b37256ca1c8edba992e6
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311289"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>整合 Apache Spark 與 Azure 事件中樞
 
-Azure 事件中樞會與 [Apache Spark](https://spark.apache.org/) 緊密整合，讓您輕鬆建置分散式串流應用程式。 這項整合支援 [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html)、[Spark 串流](http://spark.apache.org/docs/latest/streaming-programming-guide.html)、[結構化串流](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)。 適用於 Apache Spark 的事件中樞連接器可於 [GitHub](https://github.com/Azure/azure-event-hubs-spark) 上取得。 此文件庫也可用於 [Maven 中央存放庫](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C)中的 Maven 專案。
+Azure 事件中樞會與 [Apache Spark](https://spark.apache.org/) 緊密整合，讓您建置分散式串流應用程式。 這項整合支援 [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html)、[Spark 串流](http://spark.apache.org/docs/latest/streaming-programming-guide.html)、[結構化串流](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)。 適用於 Apache Spark 的事件中樞連接器可於 [GitHub](https://github.com/Azure/azure-event-hubs-spark) 上取得。 此文件庫也可用於 [Maven 中央存放庫](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C)中的 Maven 專案。
 
-本文說明如何在 [Azure Databricks](https://azure.microsoft.com/services/databricks/) 中製作連續的應用程式。 雖然本文使用 [Azure Databricks](https://azure.microsoft.com/services/databricks/)，但 Spark 叢集也可與 [HDInsight](../hdinsight/spark/apache-spark-overview.md) 搭配使用。
+本文說明如何在 [Azure Databricks](https://azure.microsoft.com/services/databricks/) 中建立連續的應用程式。 雖然本文使用 [Azure Databricks](https://azure.microsoft.com/services/databricks/)，但 Spark 叢集也可與 [HDInsight](../hdinsight/spark/apache-spark-overview.md) 搭配使用。
 
 下列範例會使用兩個 Scala Notebook，一個用於串流事件中樞的事件，另一個用於將事件傳回給它。
 

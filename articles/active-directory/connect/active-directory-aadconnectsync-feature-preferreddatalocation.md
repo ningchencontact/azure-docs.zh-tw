@@ -1,32 +1,28 @@
 ---
-title: "Azure Active Directory Connect 同步處理：設定 Office 365 中多地理位置功能的慣用資料位置 | Microsoft Docs"
-description: "說明如何利用 Azure Active Directory Connect 同步處理，將 Office 365 使用者資源放在使用者附近。"
+title: Azure Active Directory Connect 同步處理：設定 Office 365 中多地理位置功能的慣用資料位置 | Microsoft Docs
+description: 說明如何利用 Azure Active Directory Connect 同步處理，將 Office 365 使用者資源放在使用者附近。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 04/16/2018
 ms.author: billmath
-ms.openlocfilehash: a5ebd61539af7116b8f92cdf9404cd2b5cdea193
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0020ed42baaa32fbc5ae2d62b37558e491842d67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157402"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 同步處理：設定 Office 365 資源的慣用資料位置
 本主題的目的在於逐步解說如何在 Azure Active Directory (Azure AD) Connect 同步處理中設定慣用資料位置的屬性。當某人在 Office 365 中使用多地理位置功能時，您可使用這個屬性來指定使用者 Office 365 資料的地理位置。 (「區域」與「地區」這兩個詞可交換使用。)
-
-> [!IMPORTANT]
-> 多地理位置功能目前為預覽狀態。 如果您想要加入預覽方案，請連絡您的 Microsoft 代表。
->
->
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>啟用慣用資料位置的同步處理
 根據預設，使用者的 Office 365 資源會與 Azure AD 租用戶位於相同地區。 例如，如果您的租用戶位於北美洲，則使用者的 Exchange 信箱也會位於北美洲。 對於跨國組織，這可能不是最理想的情況。
@@ -34,7 +30,7 @@ ms.lasthandoff: 03/02/2018
 藉由設定 **preferredDataLocation** 屬性，您可以定義使用者的地區。 您可以讓使用者的 Office 365 資源 (例如信箱和 OneDrive) 位於與使用者相同的地區，且整個組織仍有一個租用戶。
 
 > [!IMPORTANT]
-> 為了要使用多地理位置功能，您的 Office 365 訂用帳戶中必須至少有 5000 個基座。
+> 多地理位置目前可供至少具有 5,000 個 Office 365 服務訂用帳戶的客戶使用。 如需詳細資訊，請與您的 Microsoft 代表連絡。
 >
 >
 
@@ -50,12 +46,12 @@ Office 365 中適用多地理位置功能的地區如下：
 | 歐盟 | 歐元 |
 | 印度 | IND |
 | 日本 | JPN |
-| 南韓 | KOR |
+| 韓國 | KOR |
 | 英國 | GBR |
 | 美國 | NAM |
 
 * 如有地區未列於此表中 (例如南美洲)，則無法使用於多地理位置功能。
-* 印度和南韓地區僅適用於具有帳單地址的客戶以及在這些地區購買的授權。
+* 印度地區僅適用於具有帳單地址的客戶以及在此地區購買的授權。
 * 並非所有 Office 365 工作負載都支援使用設定使用者的地區。
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Azure AD Connect 支援同步處理

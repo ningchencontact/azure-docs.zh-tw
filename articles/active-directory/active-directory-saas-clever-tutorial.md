@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 6531e6c8c97bfadac898c4aa4943855dcd32bdfe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b7529b0942cd86b0d9e657d8d0f61313aa7f0a66
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140490"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>教學課程：Azure Active Directory 與 Clever 整合
 
@@ -110,12 +111,12 @@ Clever 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://clever.com/in/<companyname>`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://clever.com/<companyname>`
+    b. 在 [識別碼] 文字方塊中，輸入 URL：`https://clever.com/oauth/saml/metadata.xml`
 
     > [!NOTE]
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Clever 用戶端支援小組](https://clever.com/about/contact/)以取得這些值。
+    > 單一登入 URL 值不是真正的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Clever 用戶端支援小組](https://clever.com/about/contact/)以取得此值。
 
-4. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+4. 在 [SAML 簽署憑證] 區段上，按一下 [複製] 按鈕以複製**應用程式同盟中繼資料 URL**，並將它貼到 [記事本]。
     
     ![設定單一登入](./media/active-directory-saas-clever-tutorial/tutorial_metadataurl.png)
 
@@ -129,7 +130,8 @@ Clever 與 Azure AD 整合提供下列優點：
     
     | 屬性名稱  | 屬性值 |
     | --------------- | -------------------- |
-    | clever.student.credentials.district\_username  | user.userprincipalname |
+    | clever.teacher.credentials.district_username|user.userprincipalname|
+    | clever.student.credentials.district_username| user.userprincipalname |
     | Firstname  | user.givenname |
     | lastname  | user.surname |
 
@@ -157,19 +159,22 @@ Clever 與 Azure AD 整合提供下列優點：
 
     ![立即登入](./media/active-directory-saas-clever-tutorial/ic798984.png "立即登入")
 
+    > [!NOTE]
+    > 您必須先連絡 [Clever 用戶端支援小組](https://clever.com/about/contact/) \(英文\)，在後端啟用 Office 365 SSO，然後才能測試單一登入。
+
 10. 在 [立即登入]  頁面上，執行下列步驟：
-      
+    
       ![立即登入](./media/active-directory-saas-clever-tutorial/ic798985.png "立即登入")
-      
+    
       a. 輸入 [登入 URL] 。
-      
+    
       >[!NOTE]
       >[登入 URL] 是自訂值。 請連絡 [Clever 用戶端支援小組](https://clever.com/about/contact/)以取得此值。
-      
+    
       b. 針對 [識別系統]，選取 [ADFS]。
 
       c. 在 [中繼資料 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [應用程式同盟中繼資料 Url] 值。
-      
+    
       d. 按一下 [檔案] 。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者

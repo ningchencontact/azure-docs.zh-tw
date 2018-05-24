@@ -1,25 +1,26 @@
 ---
-title: "Azure Stack 整合式系統的一般資料中心整合考量 | Microsoft Docs"
-description: "了解您可以執行哪些工作，來立即為資料中心網路與多節點 Azure Stack 的整合做規劃及準備。"
+title: Azure Stack 整合式系統的一般資料中心整合考量 | Microsoft Docs
+description: 了解您可以執行哪些工作，來立即為資料中心網路與多節點 Azure Stack 的整合做規劃及準備。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32769687"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 整合式系統的一般資料中心整合考量
 如果您對 Azure Stack 整合式系統有興趣，您應瞭解一些有關部署的重大規劃考量，及系統如何融入您的資料中心。 本文提供這些考量的高階概觀，協助您為 Azure Stack 多節點系統做出重要的基礎結構決策。 與您的 OEM 硬體廠商一起將 Azure Stack 部署到您的資料中心時，瞭解這些考量有所助益。  
@@ -50,7 +51,9 @@ Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構�
 ## <a name="identity-considerations"></a>身分識別考量
 
 ### <a name="choose-identity-provider"></a>選擇識別提供者
-您必須考量要使用於 Azure Stack 部署 (可能是 Azure AD 或 AD FS) 的識別提供者。 重新部署不含完整系統的部署之後，您無法切換識別提供者。
+您必須考量要使用於 Azure Stack 部署 (可能是 Azure AD 或 AD FS) 的識別提供者。 重新部署不含完整系統的部署之後，您無法切換識別提供者。 如果您不擁有該 Azure AD 帳戶，且使用雲端服務提供者提供的帳戶，又如果您決定切換提供者並使用不同的 Azure AD 帳戶，此時需要連絡解決方案提供者以重新部署解決方案，而您需要自行負擔相關費用。
+
+
 
 您的識別提供者選項與租用戶虛擬機器、識別系統、其使用的帳戶、它們是否能加入 Active Directory 網域等等無關。這是分開的。
 

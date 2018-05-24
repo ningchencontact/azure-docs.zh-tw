@@ -5,21 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 8A336052-8520-41D2-AF6F-0CCE23F727B4
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/23/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 452ed1de0588b380747edaa44dd0cc3805c51392
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1ea65c9c1f69c8eec77eb498a5963b0d77ce57f1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32155202"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本設定檔
 
@@ -44,9 +43,22 @@ API 設定檔會指定 Azure 資源提供者和 Azure REST 端點的 API 版本�
     - **最新**  
         Azure 中所發行的最新 API 版本。
     - **yyyy-mm-dd-hybrid**  
-    每兩年發行一次，此發行著重於跨多個雲端的一致性和穩定性。
+    每兩年發行一次，此發行著重於跨多個雲端的一致性和穩定性。 此設定檔的目標是最佳 Azure Stack 相容性。 
     - **yyyy-mm-dd-profile**  
     落於最佳穩定性和最新功能之間。
+
+### <a name="api-profiles-and-azure-stack-compatibility"></a>API 設定檔和 Azure Stack 相容性
+
+最新的 API 設定檔與 Azure Stack 不相容。 命名慣例可協助您識別要在 Azure Stack 解決方案中使用的設定檔。
+
+**最新**  
+此設定檔是全域 Azure 中的最新 API 版本，它不適用於 Azure Stack。 此設定檔具有最大數目的重大變更。 設定檔不考慮其他雲端的穩定性與相容性。 如果您正在嘗試使用最新 API 版本，便應該使用此設定檔。
+
+**yyyy-mm-dd-hybrid**  
+此設定檔會在每年 3 月和 9 月發行。 此設定檔具有各種雲端的最佳穩定性與相容性。 此設定檔針對全域 Azure 和 Azure Stack 為目標設計。 此設定檔中列出的 Azure API 版本將與 Azure Stack 中列出的版本相同。 您可以使用此設定檔開發混合式雲端方案的程式碼。
+
+**yyyy-mm-dd-profile**  
+此設定檔將在 6 月和 12 月發行給全域 Azure。 此設定檔對 Azure Stack 沒有作用；將有許多的重大變更。 雖然它具有最佳的穩定性和最新功能，但「最新」與此設定檔之間的差異在於，「最新」將始終由最新的 API 版本組成，而不論 API 何時發行。 如果明天為 Compute API 建立了新的 API 版本，則該 API 版本將在「最新」設定檔中列出，但不會在 yyyy-mm-dd-profile 設定檔中列出，因為此設定檔已事先建立。 它涵蓋了 6 月或 12 月之前發行的最新版本。
 
 ## <a name="azure-resource-manager-api-profiles"></a>Azure Resource Manager API 設定檔
 
@@ -67,14 +79,13 @@ API 設定檔可與使用 Azure Resource Manager 的工具搭配運作，例如 
 您可以找到程式碼範例，來協助您使用設定檔整合解決方案與您在 Azure Stack 慣用的語言。 目前，您可以找到下列語言的指引和範例：
 
 - **PowerShell**  
-您可以使用可透過「PowerShell 資源庫」取得的 **AzureRM.Bootstrapper** 模組，來取得使用 API 版本設定檔所需的 PowerShell Cmdlet。  
-如需資訊，請參閱[使用適用於 PowerShell 的 API 版本設定檔](azure-stack-version-profiles-powershell.md)。
+您可以使用可透過「PowerShell 資源庫」取得的 **AzureRM.Bootstrapper** 模組，來取得使用 API 版本設定檔所需的 PowerShell Cmdlet。 如需資訊，請參閱[使用適用於 PowerShell 的 API 版本設定檔](azure-stack-version-profiles-powershell.md)。
 - **Azure CLI 2.0**  
-您可以將環境組態更新為使用 Azure Stack 專屬的 API 版本設定檔。  
-如需資訊，請參閱[使用適用於 Azure CLI 2.0 的 API 版本設定檔](azure-stack-version-profiles-azurecli2.md)。
+您可以將環境組態更新為使用 Azure Stack 專屬的 API 版本設定檔。 如需資訊，請參閱[使用適用於 Azure CLI 2.0 的 API 版本設定檔](azure-stack-version-profiles-azurecli2.md)。
 - **GO**  
-在 GO SDK 中，設定檔結合了不同服務不同版本的不同資源類型。 設定檔可於 profiles/ 路徑下取得，而其版本採用 **YYYY-MM-DD** 格式。  
-如需資訊，請參閱[使用適用於 GO 的 API 版本設定檔](azure-stack-version-profiles-go.md)。
+在 GO SDK 中，設定檔結合了不同服務不同版本的不同資源類型。 設定檔可於 profiles/ 路徑下取得，而其版本採用 **YYYY-MM-DD** 格式。 如需資訊，請參閱[使用適用於 GO 的 API 版本設定檔](azure-stack-version-profiles-go.md)。
+- **Ruby**  
+Azure Stack 資源管理員的 Ruby SDK 會提供工具，可協助您建置及管理基礎結構。 SDK 中的資源提供者包括運算、虛擬網路和使用 Ruby 語言的儲存體。 如需資訊，請參閱[使用 API 版本設定檔與 Ruby](azure-stack-version-profiles-ruby.md)
 
 ## <a name="next-steps"></a>後續步驟
 * [安裝 Azure Stack 適用的 PowerShell](azure-stack-powershell-install.md)

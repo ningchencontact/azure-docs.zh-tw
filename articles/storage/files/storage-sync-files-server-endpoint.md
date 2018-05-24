@@ -1,8 +1,8 @@
 ---
-title: "新增/移除 Azure 檔案同步 (預覽) 伺服器端點 | Microsoft Docs"
-description: "了解規劃 Azure 檔案服務部署時的考量事項。"
+title: 新增/移除 Azure 檔案同步 (預覽) 伺服器端點 | Microsoft Docs
+description: 了解規劃 Azure 檔案服務部署時的考量事項。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 26e4af814bad988da02d4e0cf36f17e1beec872e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187737"
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>新增/移除 Azure 檔案同步 (預覽) 伺服器端點
 Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
@@ -49,7 +50,7 @@ Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azur
 選取 [建立] 以新增伺服器端點。 同步群組命名空間中的檔案現在會保持同步。 
 
 ## <a name="remove-a-server-endpoint"></a>移除伺服器端點
-針對伺服器端點啟用時，雲端階層會將檔案分層到 Azure 檔案共用。 這樣可讓內部部署檔案共用作為快取，而不是資料集的完整複本，以便有效率地使用檔案伺服器上的空間。 不過，如果移除了伺服器端點，但本機伺服器上仍有已分層的檔案，則那些檔案會變成無法存取。 因此，如果您想要繼續存取檔案，您必須從 Azure 檔案服務重新叫用已分層的檔案，然後再繼續取消註冊。 
+針對伺服器端點啟用時，雲端階層會將檔案分層到 Azure 檔案共用。 這樣可讓內部部署檔案共用作為快取，而不是資料集的完整複本，以便有效率地使用檔案伺服器上的空間。 不過，**如果移除了伺服器端點，但本機伺服器上仍有已分層的檔案，則那些檔案會變成無法存取**。 因此，如果希望內部部署檔案共用上有持續的檔案存取，則在繼續刪除伺服器端點之前，您必須從 Azure 檔案重新呼叫所有階層式檔案。 
 
 這可以透過 PowerShell Cmdlet 來完成，如下所示：
 

@@ -1,13 +1,14 @@
 ---
 layout: HubPage
-hide_bc: ''
+hide_bc: true
 title: Microsoft Azure 文件
 description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。
-ms.openlocfilehash: 5084e6f9ab8d73e2c8ffefc95a376bc85222320c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c7f46f9b22bd3696b7d281815687cca2b90b22b3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070053"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -136,6 +137,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="ico48Link">
                                                     <a href="/go/azure/">
+                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt=""/>
                                                         <span>Go</span>
                                                     </a>
                                                 </div>
@@ -449,7 +451,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/load-balancer/">
                                                 <img src="media/index/LoadBalancer.svg" alt="" />
-                                                <p>負載平衡器</p>
+                                                <p>Load Balancer</p>
                                             </a>
                                         </li>
                                         <li>
@@ -699,7 +701,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Backup </p>
+                                                <p>備份</p>
                                             </a>
                                         </li>
                                         <li>
@@ -738,7 +740,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>資料湖分析</p>
+                                                <p>Data Lake Analytics</p>
                                             </a>
                                         </li>
                                         <li>
@@ -852,7 +854,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/time-series-insights/">
                                                 <img src="media/index/time-series-insights.svg" alt="" />
-                                                <p>Time Series Insights</p>
+                                                <p>時間序列深入解析</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -983,7 +985,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Backup </p>
+                                                <p>備份</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1013,7 +1015,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/advisor">
                                                 <img src="media/index/advisor.svg" alt="" />
-                                                <p>Azure 建議程式</p>
+                                                <p>Azure Advisor</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1260,7 +1262,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>負載平衡器</h3>
+                                                    <h3>Load Balancer</h3>
                                                     <p>為您的應用程式提供高可用性和網路效能</p>
                                                 </div>
                                             </div>
@@ -1474,7 +1476,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Backup </h3>
+                                                    <h3>備份</h3>
                                                     <p>簡單、可靠的伺服器備份到雲端</p>
                                                 </div>
                                             </div>
@@ -2183,7 +2185,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>資料湖分析</h3>
+                                                    <h3>Data Lake Analytics</h3>
                                                     <p>分散式分析服務讓巨量資料更容易上手</p>
                                                 </div>
                                             </div>
@@ -2892,7 +2894,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Backup </h3>
+                                                    <h3>備份</h3>
                                                     <p>簡單、可靠的伺服器備份到雲端</p>
                                                 </div>
                                             </div>
@@ -2987,7 +2989,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure 建議程式</h3>
+                                                    <h3>Azure Advisor</h3>
                                                     <p>改善您 Azure 資源的成本效益、效能、高可用性和安全性</p>
                                                 </div>
                                             </div>
@@ -3254,6 +3256,7 @@ ms.lasthandoff: 03/09/2018
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">

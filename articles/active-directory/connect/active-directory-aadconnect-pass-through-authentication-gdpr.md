@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect - 傳遞驗證 - GDPR 合規性 | Microsoft Docs
+title: 使用者隱私權與 Azure Active Directory 傳遞驗證 | Microsoft Docs
 description: 本文說明 Azure Active Directory (Azure AD) 傳遞驗證和 GDPR 合規性。
 services: active-directory
 keywords: Azure AD Connect 傳遞驗證、GDPR、Azure AD 的必要元件、SSO、單一登入
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/28/2018
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 21874c961163e3efba45c2ee8557c03135987f95
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 910eb5bdd1b9d4a2a27a27c89812584bb068bec0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150618"
 ---
-# <a name="azure-active-directory-pass-through-authentication-gdpr-compliance"></a>Azure Active Directory 傳遞驗證：GDPR 合規性
+# <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>使用者隱私權與 Azure Active Directory 傳遞驗證
+
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>概觀
-
-歐洲有一條隱私權法律 ([一般資料保護規定 (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)) 將在 2018 年 5 月生效。 GDPR 會針對想要提供商品和服務給歐盟 (EU) 居民，或想要收集和分析 EU 居民相關資料的公司、政府機關、非營利組織和其他組織，施加新的規則。 無論您位於何處都會適用 GDPR。 
-
-Microsoft 產品和服務目前均可幫助您符合 GDPR 需求。 在[信任中心](https://www.microsoft.com/trustcenter)深入了解 Microsoft 隱私權原則。
 
 Azure AD 傳遞驗證會建立下列記錄類型，其中可以包含 EUII：
 
@@ -35,7 +35,7 @@ Azure AD 傳遞驗證會建立下列記錄類型，其中可以包含 EUII：
 - 驗證代理程式追蹤記錄檔。
 - Windows 事件記錄檔。
 
-有兩種方式可以達到傳遞驗證的 GDPR 合規性：
+適用於傳遞驗證的使用者隱私權可使用兩種方式來達成：
 
 1.  在接到要求時擷取使用者的資料，並從安裝中移除該使用者的資料。
 2.  確保沒有資料會保留超過 48 小時。
@@ -104,4 +104,5 @@ Foreach ($file in $files) {
 如果已啟用稽核記錄，這項產品可能會針對您的網域控制站產生安全性記錄。 若要深入了解設定稽核原則，請閱讀[這篇文章](https://technet.microsoft.com/library/dd277403.aspx)。
 
 ## <a name="next-steps"></a>後續步驟
+* [在信任中心檢閱 Microsoft 隱私權原則](https://www.microsoft.com/trustcenter)
 - [**疑難排解**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - 了解如何解決此功能的常見問題。

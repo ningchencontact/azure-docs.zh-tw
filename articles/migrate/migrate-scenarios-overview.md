@@ -4,15 +4,15 @@ description: 閱讀有關將內部部署資料中心遷移至 Azure 的概觀白
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 04/08/2018
+ms.topic: conceptual
+ms.date: 04/21/2018
 ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: be322596da0c3e5ba18aa64285c437cdb823fc4b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8ba490998ea5f20efca591327716a6e39e9c1ba8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32167750"
 ---
 # <a name="migrating-your-on-premises-workloads-to-azure"></a>將內部部署工作負載遷移到 Azure
 
@@ -27,11 +27,11 @@ Microsoft Azure 可讓身為開發人員與 IT 專業人員的您，存取一組
 
 **案例** | **方案** | **服務** | **文章** 
 --- | --- | --- | ---
-[案例 1：探索和評估](migrate-scenarios-assessment.md) | 探索和評估要移轉至 Azure 的內部部署應用程式與資料 | Data Migration Assistant、Azure Migrate 服務  | 現已推出
-**案例 2：隨即移轉** | 將內部應用程式重新裝載在 Azure 上。 移轉之後，在 Azure 中最佳化。 | Azure Site Recovery、Azure 資料庫移轉服務、Azure SQL 受控執行個體 | 現已推出
-**案例 3：重構和遷移** | 在移轉至 Azure 期間，將內部部署的客戶應用程式予以現代化和重構。 | 規劃中 | 已規劃
-**案例 4：重建和遷移** | 在移轉至 Azure 期間，重建和遷移客戶的交易網站。 | 規劃中 | 已規劃
-**案例 5：重建** |重建客戶的應用程式和資料並遷移至 Azure | 規劃中 | 已規劃
+[案例 1：探索和評估](migrate-scenarios-assessment.md) | 探索和評估要移轉至 Azure 的內部部署應用程式、資料和基礎結構 | Data Migration Assistant、Azure Migrate 服務  | 現已推出
+**[案例 2：重新裝載應用程式](migrate-scenarios-lift-and-shift.md)** | 將應用程式「原形移轉」到 Azure。 | Azure Site Recovery、Azure 資料庫移轉服務、Azure SQL 受控執行個體 | 現已推出
+**案例 3：重構應用程式** | 在移轉到 Azure 的期間重構應用程式。 | 規劃中 | 已規劃
+**案例 4：重新架構應用程式** | 在移轉到 Azure 的期間重新架構應用程式。 | 規劃中 | 已規劃
+**案例 5：重建應用程式** |在移轉到 Azure 的期間重建應用程式 | 規劃中 | 已規劃
 
 
 

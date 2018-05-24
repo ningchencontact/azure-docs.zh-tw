@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 03/30/2018
 ms.author: fryu
-ms.openlocfilehash: c4dc9b231668315af16c625314c737fee99d672d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: da8eb0b9e2e5aba60b61a36d83f525c7ce4a7958
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32776256"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure 儲存體計量移轉
 
@@ -79,7 +80,7 @@ Azure 儲存體會收集舊版計量值、加以彙總並儲存在相同儲存�
 | AnonymousSuccess | 維度 ResponseType 等於 Success 的 Transactions |
 | AnonymousThrottlingError | 維度 ResponseType 等於 ClientThrottlingError 或 ServerBusyError 的 Transactions |
 | AuthorizationError | 維度 ResponseType 等於 AuthorizationError 的 Transactions |
-| Availability | Availability |
+| 可用性 | 可用性 |
 | AverageE2ELatency | SuccessE2ELatency |
 | AverageServerLatency | SuccessServerLatency |
 | ClientOtherError | 維度 ResponseType 等於 ClientOtherError 的 Transactions |
@@ -102,12 +103,12 @@ Azure 儲存體會收集舊版計量值、加以彙總並儲存在相同儲存�
 | SASThrottlingError | 維度 ResponseType 等於 ClientThrottlingError 或 ServerBusyError 的 Transactions |
 | ServerOtherError | 維度 ResponseType 等於 ServerOtherError 的 Transactions |
 | ServerTimeoutError | 維度 ResponseType 等於 ServerTimeoutError 的 Transactions |
-| Success | 維度 ResponseType 等於 Success 的 Transactions |
+| 成功 | 維度 ResponseType 等於 Success 的 Transactions |
 | ThrottlingError | 維度 ResponseType 等於 ClientThrottlingError 或 ServerBusyError 的 Transactions |
-| TotalBillableRequests | Transactions |
-| TotalEgress | Egress |
-| TotalIngress | Ingress |
-| TotalRequests | Transactions |
+| TotalBillableRequests | 交易 |
+| TotalEgress | 輸出 |
+| TotalIngress | 輸入 |
+| TotalRequests | 交易 |
 
 ## <a name="faq"></a>常見問題集
 
@@ -117,7 +118,7 @@ Azure 儲存體會收集舊版計量值、加以彙總並儲存在相同儲存�
 
 * 新的計量資料是否預設儲存在相同的儲存體帳戶中？
 
-答：否。 如果您要將計量資料封存至儲存體帳戶，便可以使用 [Azure 監視器中的診斷設定](https://azure.microsoft.com/blog/azure-monitor-multiple-diagnostic-settings/) \(英文\)
+答：否。 如果您要將計量資料封存至儲存體帳戶，可以使用 [Azure 監視器診斷設定 API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate) \(英文\)
 
 ## <a name="next-steps"></a>後續步驟
 

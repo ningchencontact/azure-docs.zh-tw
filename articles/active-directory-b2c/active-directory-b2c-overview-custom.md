@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 4c09fa5c454cee6ca9a0ed0d3fd4582b222c0c1a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 22d34ac4128da1d1a9f20619aec2aaccc2425a21
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32138912"
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C：自訂原則
 
@@ -64,7 +65,7 @@ Azure AD B2C 依序與識別提供者、使用者、其他系統和本機使用�
 
 ### <a name="identity-experience-framework"></a>身分識別體驗架構
 
-完全可設定、原則導向、雲端式的 Azure 平台，協調標準通訊協定格式 (例如 OpenIDConnect、OAuth、SAML、WSFed) 實體 (大致上是宣告提供者) 和少數非標準格式 (例如：以 REST API 為基礎的系統對系統宣告交換) 實體之間的信任。 I2E 建立方便使用、白標籤的體驗，支援 HTML、CSS 和 javascript。  識別體驗架構目前僅適用於 Azure AD B2C 服務的情況，且優先用於 CIAM 相關的工作。
+完全可設定、原則導向、雲端式的 Azure 平台，協調標準通訊協定格式 (例如 OpenIDConnect、OAuth、SAML、WSFed) 實體 (大致上是宣告提供者) 和少數非標準格式 (例如：以 REST API 為基礎的系統對系統宣告交換) 實體之間的信任。 I2E 建立方便使用、白色標籤體驗，支援 HTML、CSS 和 JavaScript。  識別體驗架構目前僅適用於 Azure AD B2C 服務的情況，且優先用於 CIAM 相關的工作。
 
 ### <a name="built-in-policies"></a>內建原則
 

@@ -1,20 +1,21 @@
 ---
-title: 連接到 Azure Analysis Services | Microsoft Docs
+title: 連接到 Azure Analysis Services 伺服器 | Microsoft Docs
 description: 了解如何在 Azure 連線至 Analysis Services 伺服器並從該伺服器中取得資料。
 author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8493ff1e2b9be48fc8eec1e727684fe09f6af72c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 53a8a1eea5ffa50fcdaf4a60c9bbd03d30d8e311
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151309"
 ---
-# <a name="connect-to-an-azure-analysis-services-server"></a>連接到 Azure Analysis Services 伺服器
+# <a name="connecting-to-servers"></a>連線至伺服器
 
 本文說明如何使用資料模型化和管理應用程式 (例如 SQL Server Management Studio (SSMS) 或 SQL Server Data Tools (SSDT)) 來連接到伺服器。 或是使用用戶端報表應用程式，例如 Microsoft Excel、Power BI Desktop 或自訂應用程式。 連到 Azure Analysis Services 的連線會使用 HTTPS。
 

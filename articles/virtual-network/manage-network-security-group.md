@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894223"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>建立、變更或刪除網路安全性群組
 
@@ -34,6 +35,8 @@ ms.lasthandoff: 05/04/2018
 - 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.4.1 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 - 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.28 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
+您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)中所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+
 ## <a name="work-with-network-security-groups"></a>使用網路安全性群組
 
 您可以建立網路安全性群組、[檢視所有網路安全性群組](#view-all-network-security-groups)[檢視網路安全性群組的詳細資料](#view-details-of-a-network-security-group)，以及[變更](#change-a-network-security-group)和[刪除](#delete-a-network-security-group)網路安全性群組。 您也可以讓網路安全性群組與網路介面或子網路[建立關聯或中斷關聯](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource)。
@@ -44,7 +47,7 @@ ms.lasthandoff: 05/04/2018
 
 1. 在入口網站的左上角，選取 [+ 建立資源]。
 2. 選取 [網路]，然後選取 [網路安全性群組]。
-3. 輸入網路安全性群組的 [名稱]選取您的 [訂用帳戶]建立新的 [資源群組] 或選取現有的資源群組、選取 [位置]，然後選取 [建立]。 
+3. 輸入網路安全性群組的 [名稱]選取您的 [訂用帳戶]建立新的 [資源群組] 或選取現有的資源群組、選取 [位置]，然後選取 [建立]。
 
 **命令**
 
@@ -67,7 +70,7 @@ ms.lasthandoff: 05/04/2018
 3. 若要深入了解列出的一般 Azure 設定，請參閱下列文章：
     *   [活動記錄檔](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [存取控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-    *   [標記](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+    *   [標記](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [自動化指令碼](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -211,7 +214,7 @@ ms.lasthandoff: 05/04/2018
 
 ### <a name="delete-an-application-security-group"></a>刪除應用程式安全性群組
 
-如果應用程式安全性群組內有網路介面，您便無法刪除該群組。 您必須藉由變更網路介面設定或刪除網路介面，從應用程式安全性群組移除所有網路介面。 如需詳細資料，請參閱[在應用程式安全性群組新增或移除網路介面](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups)或[刪除網路介面](virtual-network-network-interface.md#delete-a-network-interface)。
+如果應用程式安全性群組內有網路介面，您便無法刪除該群組。 藉由變更網路介面設定或刪除網路介面，從應用程式安全性群組移除所有網路介面。 如需詳細資料，請參閱[在應用程式安全性群組新增或移除網路介面](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups)或[刪除網路介面](virtual-network-network-interface.md#delete-a-network-interface)。
 
 **命令**
 
@@ -220,18 +223,33 @@ ms.lasthandoff: 05/04/2018
 
 ## <a name="permissions"></a>權限
 
-若要針對網路安全性群組、安全性規則及應用程式安全性群組執行工作，您的帳戶必須被指派給[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或是指派給已獲得下表所列適當權限的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
+若要針對網路安全性群組、安全性規則及應用程式安全性群組執行工作，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派下表所列適當權限的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)：
 
-|作業                                                       |   作業名稱                               |
-|--------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/ruleTables/read                              |   取得網路安全性群組                              |
-|Microsoft.Network/ruleTables/write                             |   建立或更新網路安全性群組                 |
-|Microsoft.Network/ruleTables/delete                            |   刪除網路安全性群組                           |
-|Microsoft.Network/ruleTables/join/action                       |   加入網路安全性群組                             |
-|Microsoft.Network/ruleTables/rules/read                       |   取得規則                                    |
-|Microsoft.Network/ruleTables/rules/write                      |   建立或更新規則                       |
-|Microsoft.Network/ruleTables/rules/delete                     |   刪除規則                                 |
-|Microsoft.Network/networkInterfaces/effectiveruleTable/action  |   「讓網路介面生效」網路安全性群組  | 
-|Microsoft.Network/networkWatchers/nextHop/action                |   從 VM 取得下一個躍點                  |
+### <a name="network-security-groups"></a>網路安全性群組
 
-「加入網路安全性群組」是將網路安全性群組與子網路建立關聯的必要作業。
+| 動作                                                        |   Name                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/ruleTables/read                             |   取得網路安全性群組                                          |
+| Microsoft.Network/ruleTables/write                            |   建立或更新網路安全性群組                             |
+| Microsoft.Network/ruleTables/delete                           |   刪除網路安全性群組                                       |
+| Microsoft.Network/ruleTables/join/action                      |   將網路安全性群組與子網路或網路介面建立關聯 |
+| Microsoft.Network/ruleTables/rules/read                       |   取得規則                                                            |
+| Microsoft.Network/ruleTables/rules/write                      |   建立或更新規則                                               |
+| Microsoft.Network/ruleTables/rules/delete                     |   刪除規則                                                         |
+| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   「讓網路介面生效」網路安全性群組              |
+| Microsoft.Network/networkWatchers/nextHop/action              |   從 VM 取得下一個躍點                                         |
+
+### <a name="application-security-groups"></a>應用程式安全性群組
+
+| 動作                                                                     | Name                                                     |
+| --------------------------------------------------------------             | -------------------------------------------              |
+| Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | 將 IP 設定加入至應用程式安全性群組|
+| Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 將安全性規則加入至應用程式安全性群組    |
+| Microsoft.Network/applicationSecurityGroups/read                           | 取得應用程式安全性群組                        |
+| Microsoft.Network/applicationSecurityGroups/write                          | 建立或更新應用程式安全性群組           |
+| Microsoft.Network/applicationSecurityGroups/delete                         | 刪除應用程式安全性群組                     |
+
+## <a name="next-steps"></a>後續步驟
+
+- 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 範例指令碼，或使用 Azure [Resource Manager 範本](template-samples.md)建立網路或應用程式安全性群組
+- 為虛擬網路建立及套用 [Azure 原則](policy-samples.md)

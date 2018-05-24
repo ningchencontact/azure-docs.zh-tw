@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010919"
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>針對 Azure 檔案同步 (預覽) 進行移難排解
 使用 Azure 檔案同步 (預覽版)，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -34,6 +35,14 @@ ms.lasthandoff: 03/08/2018
 如果您從某個訂用帳戶將資源移到另一個訂用帳戶，系統會阻止檔案同步處理 (儲存體同步處理服務) 資源移動。 
 
 ## <a name="agent-installation-and-server-registration"></a>代理程式安裝和伺服器註冊
+### <a name="during-server-registration-get-the-error-the-term-find-azurermresource-is-not-recognized-as-the-name"></a>在伺服器註冊期間，遇到錯誤「詞彙 'find-AzureRMResource' 無法識別為...」
+問題的原因是 find-AzureRMResource Cmdlet 在 AzureRM v6 中已經變更。  下一個版本的同步代理程式將會修正對 AzureRM v6 的支援。  在此之前，此問題的因應措施如下：
+1. 透過 taskmgr 停止目前的 ServerRegistration.exe
+2. 以系統管理員身分開啟 PowerShell 命令提示字元
+3. PS C:\> Uninstall-Module AzureRM
+4. PS C:\> install-module -name AzureRM -RequiredVersion 5.7.0
+5. Start C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe。
+
 <a id="agent-installation-failures"></a>**針對代理程式安裝失敗進行疑難排解**  
 如果 Azure 檔案同步代理程式安裝失敗，使用提升權限的命令提示字元，執行下列命令，以啟用代理程式安裝期間的記錄：
 

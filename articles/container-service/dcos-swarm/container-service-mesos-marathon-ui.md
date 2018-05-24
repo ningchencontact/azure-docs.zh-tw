@@ -1,19 +1,20 @@
 ---
-title: "使用 Marathon UI 管理 Azure DC/OS 叢集"
-description: "使用 Marathon Web UI 將容器部署到 Azure 容器服務叢集服務。"
+title: 使用 Marathon UI 管理 Azure DC/OS 叢集
+description: 使用 Marathon Web UI 將容器部署到 Azure 容器服務叢集服務。
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b1c5fc223105b1dae0ce07f242a6b42b34fd2ab3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 43407d40db0aab2772cb1baeab3471be68aee2ab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32166978"
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>透過 Marathon Web UI 管理 Azure Container Service DC/OS 叢集
 
@@ -82,7 +83,7 @@ DC/OS 叢集會使用一組私人和公用代理程式來進行部署。 若要�
 
 ![Marathon 主頁面 UI--容器部署狀態](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-當您切換回 DC/OS Web UI (http://localhost/)，您會看到 DC/OS 叢集上正在執行一項工作 (在此案例中是 Docker 格式化容器)。
+當您切換回 DC/OS Web UI (http://localhost/)，便會看到 DC/OS 叢集上正在執行一項工作 (在此案例中是 Docker 格式化容器)。
 
 ![DC/OS Web UI--在叢集上執行的工作](./media/container-service-mesos-marathon-ui/dcos8.png)
 

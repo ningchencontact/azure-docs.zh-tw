@@ -1,11 +1,11 @@
 ---
-title: "服務匯流排和 .NET 與 AMQP 1.0 |Microsoft Docs"
-description: "搭配使用 .NET 的 Azure 服務匯流排與 AMQP"
+title: Azure 服務匯流排和 .NET 與 AMQP 1.0 | Microsoft Docs
+description: 搭配使用 .NET 的 Azure 服務匯流排與 AMQP
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 28b8d7a71f01d8633d020b99fbe6bc5c16f272b4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188492"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>搭配使用 .NET 的服務匯流排與 AMQP 1.0
 
@@ -94,14 +95,9 @@ ms.lasthandoff: 12/22/2017
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | 時間範圍 |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
-## <a name="unsupported-features-restrictions-and-behavioral-differences"></a>不支援的功能、限制和行為差異
+## <a name="behavioral-differences"></a>行為差異
 
-使用 AMQP 時，目前不支援服務匯流排 .NET API 的以下功能：
-
-* 交易
-* 透過傳輸目的地傳送
-
-相較於預設通訊協定，使用 AMQP 時，服務匯流排 .NET API 也有一些細微的行為差異：
+相較於預設通訊協定，使用 AMQP 時，服務匯流排 .NET API 有一些細微的行為差異：
 
 * [OperationTimeout][OperationTimeout] 屬性會被忽略。
 * `MessageReceiver.Receive(TimeSpan.Zero)` 會實作為 `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`。

@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: fa6a994f30c301fd6c7b431467aebc9d3489c6bc
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158983"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶與權限
 Azure AD Connect 安裝精靈提供兩個不同的路徑：
@@ -58,7 +59,7 @@ Azure AD Connect 安裝精靈提供兩個不同的路徑：
 
 | 權限 | 用於 |
 | --- | --- |
-| <li>複寫目錄變更</li><li>複寫目錄變更 (全部) |密碼同步處理 |
+| <li>複寫目錄變更</li><li>複寫目錄變更 (全部) |密碼雜湊同步處理 |
 | 讀取/寫入所有屬性 (使用者) |匯入和 Exchange 混合 |
 | 讀取/寫入所有屬性 (iNetOrgPerson) |匯入和 Exchange 混合 |
 | 讀取/寫入所有屬性 (群組) |匯入和 Exchange 混合 |
@@ -87,7 +88,7 @@ Azure AD Connect 1.1.524.0 版和更新版本有選項可讓 Azure AD Connect �
 | 功能 | 權限 |
 | --- | --- |
 | msDS-ConsistencyGuid 功能 |msDS-ConsistencyGuid 屬性 (詳情記載於[設計概念 - 使用 msDS-ConsistencyGuid 來作為 sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)) 的寫入權限。 | 
-| 密碼同步處理 |<li>複寫目錄變更</li>  <li>複寫目錄變更 (全部) |
+| 密碼雜湊同步處理 |<li>複寫目錄變更</li>  <li>複寫目錄變更 (全部) |
 | Exchange 混合式部署 |[Exchange 混合回寫](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)中記載了使用者、群組和連絡人適用的屬性的寫入權限。 |
 | Exchange 郵件公用資料夾 |公用資料夾屬性 (詳情記載於 [Exchange 郵件公用資料夾](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder)) 的讀取權限。 | 
 | 密碼回寫 |[開始使用密碼管理](../authentication/howto-sspr-writeback.md)中記載了使用者適用的屬性的寫入權限。 |

@@ -1,33 +1,32 @@
 ---
-title: "在 Azure Stack 上使用 SQL 配接器 RP所提供的資料庫 | Microsoft Docs"
-description: "如何建立及管理使用 SQL 配接器的資源提供者佈建的 SQL 資料庫"
+title: 在 Azure Stack 上使用 SQL 配接器 RP所提供的資料庫 | Microsoft Docs
+description: 如何建立及管理使用 SQL 配接器的資源提供者佈建的 SQL 資料庫
 services: azure-stack
-documentationCenter: 
-author: mattbriggs
+documentationCenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mabrigg
-ms.openlocfilehash: 39f6cc30191f07a7c891446a9132222a6d264dc4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 05/01/2018
+ms.author: jeffgilb
+ms.reviewer: jeffgo
+ms.openlocfilehash: 2808847642639069e60102b195ac97957c8593f0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203454"
 ---
 # <a name="create-sql-databases"></a>建立 SQL 資料庫
-
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
-
 自助服務資料庫是透過使用者入口網站體驗所提供的。 使用者需要供應項目中包含資料庫服務的訂用帳戶。
 
 1. 登入 [Azure Stack ](azure-stack-poc.md) 使用者入口網站 (服務管理員也可以使用管理入口網站)。
 
-2. 按一下 [+新增] &gt;[資料+儲存體] &gt;[SQL Server 資料庫 (預覽)] &gt;[新增]。
+2. 按一下 [+ 新增] &gt; [資料 + 儲存體] &gt; [SQL Server 資料庫] &gt; [新增]。
 
 3. 在表單中填入資料庫詳細資料，包括**資料庫名稱**、**大小上限**，並視需要變更其他參數。 系統會要求您為資料庫挑選一個 SKU。 新增主控伺服器時，系統會指派一個 SKU 給它們。 並在構成 SKU 之主控伺服器的該集區中建立資料庫。
 
@@ -47,17 +46,15 @@ ms.lasthandoff: 03/02/2018
 
     ![擷取連接字串](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
 
-## <a name="delete-sql-databases"></a>刪除 SQL 資料庫
-從入口網站，
-
->[!NOTE]
->
->從 RP 刪除 SQL AlwaysOn 資料庫時，會成功從主要伺服器與 AlwaysOn 可用性群組中刪除該資料庫，但根據設計，SQL AG 會使每個複本中的資料庫處於還原中狀態，並且不會卸除資料庫 (除非觸發卸除動作)。 如果未卸除資料庫，次要複本會進入「未進行同步處理」狀態。 透過 RP 以相同方式重新將新資料庫新增至 AG 仍能運作。 請參閱![移除次要資料庫](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/remove-a-secondary-database-from-an-availability-group-sql-server)
-
-## <a name="manage-database-credentials"></a>管理資料庫認證
-您可以更新資料庫認證 (登入設定)。
+## <a name="delete-sql-alwayson-databases"></a>刪除 SQL AlwaysOn 資料庫
+從資源提供者刪除 SQL AlwaysOn 資料庫時，會成功從主要伺服器與 AlwaysOn 可用性群組中刪除該資料庫，但根據設計，SQL AG 會使每個複本中的資料庫處於還原中狀態，並且不會卸除資料庫 (除非觸發卸除動作)。 如果未卸除資料庫，次要複本會進入「未進行同步處理」狀態。 透過 RP 以相同方式重新將新資料庫新增至 AG 仍能運作。
 
 ## <a name="verify-sql-alwayson-databases"></a>確認 SQL AlwaysOn 資料庫
 AlwaysOn 資料庫應該會顯示為已同步處理，而且在所有執行個體和可用性群組中可供使用。 容錯移轉之後，資料庫應該會順暢地連接。 您可以使用 SQL Server Management Studio 來確認資料庫正在同步處理：
 
 ![確認 AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+
+
+## <a name="next-steps"></a>後續步驟
+
+[維護 SQL Server 資源提供者](azure-stack-sql-resource-provider-maintain.md)

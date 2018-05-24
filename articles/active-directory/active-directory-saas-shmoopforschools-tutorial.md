@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Shmoop For Schools 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Shmoop For Schools 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Shmoop For Schools 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Shmoop For Schools 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 48db70834f96adbb7097457caca8489ea1a57da5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 799a88344d6c348061af19bfbbd9022025d2d66b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34350605"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>教學課程：Azure Active Directory 與 Shmoop For Schools 整合
 
@@ -30,7 +31,7 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Shmoop For Schools。
 - 您可以在 Azure 入口網站集中管理您的帳戶。
 
-如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
+如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -79,8 +80,6 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Shmoop For Schools 搭配運作的 Azure AD 單一登入。
 
 若要讓單一登入能夠運作，Azure AD 必須知道 Shmoop For Schools 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者和 Shmoop For Schools 中的相關使用者之間建立連結關聯性。
-
-在 Shmoop For Schools 中，請將與 Azure AD 中 **user name** 相同的值提供給 **Username** 值。 現在您已建立連結關聯性。
 
 若要使用 Shmoop For Schools 來設定並測試 Azure AD 單一登入，請完成下列建置組塊：
 
@@ -146,31 +145,11 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. 若要產生**中繼資料** URL，請採取下列步驟：
+7. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
 
-    a. 選取 [應用程式註冊]。
-    
-    ![設定單一登入](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appregistrations.png)
-   
-    b. 若要開啟 [端點] 對話方塊，請選取 [端點]。  
-    
-    ![設定單一登入](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpointicon.png)
+    ![憑證下載連結](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
-    c. 選取複製按鈕以複製 [同盟中繼資料文件] URL，並將它貼到 [記事本]。
-    
-    ![設定單一登入](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpoint.png)
-     
-    d. 移至 **Shmoop For Schools** 的屬性頁。 然後使用 [複製] 按鈕來複製 [應用程式識別碼]。 將它貼到 [記事本]。
- 
-    ![設定單一登入](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appid.png)
-
-    e. 使用下列模式產生**中繼資料 URL**︰`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`。   
-
-8. 若要在 **Shmoop For Schools** 端設定單一登入，您必須將**中繼資料 URL** 傳送給 [Shmoop For Schools 支援小組](mailto:support@shmoop.com)。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本。 從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，選取 [單一登入] 索引標籤，即可透過底部的 [設定] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)。
-> 
+8. 若要在 **Shmoop For Schools** 端設定單一登入，您必須將**應用程式同盟中繼資料 URL** 傳送給 [Shmoop For Schools 支援小組](mailto:support@shmoop.com)。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -252,7 +231,7 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

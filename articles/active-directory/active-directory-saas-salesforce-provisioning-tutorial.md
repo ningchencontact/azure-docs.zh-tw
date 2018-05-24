@@ -1,6 +1,6 @@
 ---
-title: "教學課程︰以 Azure Active Directory 設定 Salesforce 來自動佈建使用者 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Salesforce 之間的單一登入。"
+title: 教學課程︰以 Azure Active Directory 設定 Salesforce 來自動佈建使用者 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Salesforce 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d300eb397b58b4e1f8c8a6516e0a279980d8d09
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b5a85dd7d4ac6bdabcbab49f654ebfe4adae73cd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140456"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>教學課程︰設定 Salesforce 來進行自動佈建使用者
 
@@ -27,9 +28,13 @@ ms.lasthandoff: 02/09/2018
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
-*   Azure Active Directory 租用戶。
-*   您必須擁有 Salesforce for Work 或 Salesforce for Education 的有效租用戶。 您可以使用免費試用帳戶來使用任何服務。
-*   具有小組系統管理員權限的 Salesforce 使用者帳戶。
+*   Azure Active Directory 租用戶
+*   Salesforce.com 租用戶
+
+>[!IMPORTANT] 
+>如果您使用的是 Salesforce.com 試用帳戶，則將無法設定自動化的使用者佈建。 試用帳戶沒有必要的 API 存取權，必須購買之後才會擁有。 您可以使用免費的[開發人員帳戶](https://developer.salesforce.com/signup) \(英文\)，克服這項限制以完成本教學課程。
+
+如果您使用 Salesforce 沙箱環境，請參閱 [Salesforce 沙箱整合教學課程](https://go.microsoft.com/fwLink/?LinkID=521879)。
 
 ## <a name="assigning-users-to-salesforce"></a>將使用者指派給 Salesforce
 
@@ -89,7 +94,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 10. 複製該權杖，移至您的 Azure AD 視窗，然後將它貼到 [祕密權杖] 欄位。
 
-11. 如果 Salesforce 執行個體是位於 Salesforce 政府雲端上，則應輸入**租用戶 URL**。 否則為選擇性。 使用 https://your-instance.my.salesforce.com 的格式輸入租用戶 URL，將執行個體取代為您 Salesforce 執行個體的名稱。
+11. 如果 Salesforce 執行個體是位於 Salesforce 政府雲端上，則應輸入**租用戶 URL**。 否則為選擇性。 使用 https://your-instance.my.salesforce.com 的格式輸入租用戶 URL，並以您的 Salesforce 執行個體名稱取代 your-instance。
 
 12. 在 Azure 入口網站中，按一下 [測試連接]，以確保 Azure AD 可以連接到您的 Salesforce 應用程式。
 

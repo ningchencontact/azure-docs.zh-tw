@@ -1,45 +1,42 @@
 ---
-title: 透過 Azure 原則以程式設計方式建立原則並檢視合規性資料 | Microsoft Docs
+title: 透過 Azure 原則以程式設計方式建立原則並檢視合規性資料
 description: 本文會逐步引導您以程式設計方式建立及管理 Azure 原則的原則。
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2018
-ms.topic: article
+ms.date: 05/07/2018
+ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: ''
-ms.openlocfilehash: bd0dbb1b6b44b34fc86b8c73fa586b1b4cf880f3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5405566b5254c553eac584acc1653449b51ddffc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195874"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以程式設計方式建立原則並檢視合規性資料
 
-本文會逐步引導您以程式設計方式建立及管理原則。 並說明如何檢視資源的合規性狀態及原則。 原則定義會對您的資源強制執行不同規則和動作。 強制作業可確保資源會符合您的公司標準及服務等級協定規範。
+本文會逐步引導您以程式設計方式建立及管理原則。 並說明如何檢視資源的合規性狀態及原則。 原則定義會對您的資源強制執行不同規則和影響。 強制作業可確保資源會符合您的公司標準及服務等級協定規範。
 
 ## <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您已符合下列必要條件：
 
 1. 請安裝 [ARMClient](https://github.com/projectkudu/ARMClient) (如果尚未安裝)。 此工具會將 HTTP 要求傳送至以 Azure Resource Manager 為基礎的 API。
-2. 將您的 AzureRM PowerShell 模組更新為最新版本。 如需最新版本的詳細資訊，請參閱 Azure PowerShell https://github.com/Azure/azure-powershell/releases。
+2. 將您的 AzureRM PowerShell 模組更新為最新版本。 如需最新版本的詳細資訊，請參閱 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)。
 3. 使用 Azure PowerShell 註冊 Policy Insights 資源提供者，以確保您的訂用帳戶可搭配資源提供者使用。 若要註冊資源提供者，您必須有權執行資源提供者的註冊動作作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+  Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
   如需註冊及檢視資源提供者的詳細資訊，請參閱[資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)。
-4. 如果尚未安裝 Azure CLI，請先安裝。 您可以在＜[在 Windows 上安裝 Azure CLI 2.0](/azure/install-azure-cli-windows?view=azure-cli-latest)＞中取得最新版本。
+4. 如果尚未安裝 Azure CLI，請先安裝。 您可以在＜[在 Windows 上安裝 Azure CLI 2.0](/cli/azure/install-azure-cli-windows)＞中取得最新版本。
 
 ## <a name="create-and-assign-a-policy-definition"></a>建立及指派原則定義
 
 要更清楚看見您資源的首要步驟，是透過您的資源建立及指派原則。 下一步是了解如何以程式設計方式建立及指派原則。 範例原則會使用 PowerShell、Azure CLI 和 HTTP 要求，來稽核已對所有公用網路開放的儲存體帳戶。
-
-下列命令會建立標準層的原則定義。 標準層可協助您達到大規模管理、合規性評估和補救。 如需定價層的詳細資訊，請參閱 [Azure 原則定價](https://azure.microsoft.com/pricing/details/azure-policy)。
 
 ### <a name="create-and-assign-a-policy-definition-with-powershell"></a>使用 PowerShell 建立並指派原則定義
 
@@ -68,7 +65,7 @@ ms.lasthandoff: 04/28/2018
 2. 使用 AuditStorageAccounts.json 檔案，執行下列命令來建立原則定義。
 
   ```azurepowershell-interactive
-  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy AuditStorageAccounts.json
+  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
   ```
 
   此命令會建立名為_對公用網路開放的稽核儲存體帳戶_的原則定義。 如需您可使用的其他參數詳細資訊，請參閱 [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition)。
@@ -76,10 +73,8 @@ ms.lasthandoff: 04/28/2018
 
   ```azurepowershell-interactive
   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
-
   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
-
-  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId –Sku @{Name='A1';Tier='Standard'}
+  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
   ```
 
   以您想要的資源群組名稱取代 _ContosoRG_。
@@ -140,10 +135,6 @@ ms.lasthandoff: 04/28/2018
           "parameters": {},
           "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
           "scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
-      },
-      "sku": {
-          "name": "A1",
-          "tier": "Standard"
       }
   }
   ```
@@ -192,7 +183,7 @@ az policy definition create --name 'audit-storage-accounts-open-to-public-networ
 3. 使用下列命令以建立原則指派。 以您自己的值取代 &lt;&gt; 符號中的範例資訊。
 
   ```azurecli-interactive
-  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
+  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
   ```
 
 您可以使用 PowerShell 與下列命令取得原則定義識別碼：
@@ -211,38 +202,37 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 
 ## <a name="identify-non-compliant-resources"></a>識別不相容的資源
 
-在指派中，如果資源沒有遵循原則或方案規則，則該資源不符合規範。 下表顯示不同的原則動作如何與結果合規性狀態的條件評估搭配使用：
+在指派中，如果資源沒有遵循原則或方案規則，則該資源不符合規範。 下表顯示不同的原則效果如何與結果合規性狀態的條件評估搭配使用：
 
-| **資源狀態** | **Action** | **原則評估** | **合規性狀態** |
+| 資源狀態 | 效果 | 原則評估 | 合規性狀態 |
 | --- | --- | --- | --- |
 | exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | True | 不符合規範 |
 | exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | False | 相容 |
 | 新增 | 稽核、AuditIfNotExist\* | True | 不符合規範 |
 | 新增 | 稽核、AuditIfNotExist\* | False | 相容 |
 
-\* 附加、DeployIfNotExist 和 AuditIfNotExist 動作需要 IF 陳述式為 TRUE。 這些動作也需要存在條件為 FALSE，以呈現不符合規範。 若為 TRUE，IF 條件會觸發相關資源的存在條件評估。
+\* Append、DeployIfNotExist 和 AuditIfNotExist 效果需要 IF 陳述式為 TRUE。 這些效果也需要存在條件為 FALSE，以呈現不符合規範。 若為 TRUE，IF 條件會觸發相關資源的存在條件評估。
 
 為了進一步了解資源如何標示為不符合規範，讓我們使用上面建立的原則指派範例。
 
 例如，假設您有資源群組 – ContosoRG，且部分的儲存體帳戶 (以紅色醒目提示) 會公開至公用網路。
 
-![公開至公用網路的儲存體帳戶](./media/policy-insights/resource-group01.png)
+![公開至公用網路的儲存體帳戶](media/policy-insights/resource-group01.png)
 
 在此範例中，您必須注意安全性風險。 現在您已建立原則指派，其會針對 ContosoRG 資源群組中的所有儲存體帳戶來進行評估。 其會稽核三個不符合規範的儲存體帳戶，並因此將其狀態變更為**不符合規範**。
 
-![已稽核不符合規範的儲存體帳戶](./media/policy-insights/resource-group03.png)
+![已稽核不符合規範的儲存體帳戶](media/policy-insights/resource-group03.png)
 
 使用下列程序來識別資源群組中不符合原則指派的資源。 在範例中，資源是 ContosoRG 資源群組中的儲存體帳戶。
 
 1. 執行下列命令以取得原則指派識別碼：
 
   ```azurepowershell-interactive
-  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object {$_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks'}
-
+  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
   $policyAssignment.PolicyAssignmentId
   ```
 
-  如需有關取得原則指派識別碼的詳細資訊，請參閱 [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment)。
+  如需有關取得原則指派識別碼的詳細資訊，請參閱 [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment)。
 
 2. 執行下列命令，以將不合規資源的資源識別碼複製到 JSON 檔案中：
 
@@ -302,16 +292,6 @@ armclient POST "/subscriptions/<subscriptionId>/providers/Microsoft.Authorizatio
 ```
 
 如同原則狀態，您只能使用 HTTP 要求檢視原則事件。 如需有關查詢原則事件的詳細資訊，請參閱[原則事件](/rest/api/policy-insights/policyevents)參考文章。
-
-## <a name="change-a-policy-assignments-pricing-tier"></a>變更原則指派定價層
-
-您可以使用 Set-AzureRmPolicyAssignment PowerShell Cmdlet 將現有原則指派的定價層更新為為「標準」或「免費」。 例如︰
-
-```azurepowershell-interactive
-Set-AzureRmPolicyAssignment -Id '/subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID>' -Sku @{Name='A1';Tier='Standard'}
-```
-
-如需有關 Cmdlet 的詳細資訊，請參閱 [Set-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment)。
 
 ## <a name="next-steps"></a>後續步驟
 

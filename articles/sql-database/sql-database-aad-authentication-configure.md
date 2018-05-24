@@ -9,11 +9,12 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 1f5f4a4ece116503c8ddb5eaa4998b5b1a407bb1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5451046eb2bfc611db863d18cee93a248e651f88
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194244"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>搭配 SQL Database、受控執行個體或 SQL 資料倉儲來設定及管理 Azure Active Directory 驗證
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 04/23/2018
 
 您的「受控執行個體」需要有可讀取 Azure AD 的權限，才能順利完成工作，例如透過安全性群組成員資格來驗證使用者，或是建立新使用者。 若要讓此流程能夠運作，您必須將權限授與「受控執行個體」以讀取 Azure AD。 執行方式有兩種：從入口網站和 PowerShell。 以下將逐步說明這兩種方法。
 
-1. 在 Azure 入口網站的右上角，按一下您的連線以顯示可能的 Active Directory 下拉式清單。 
+1. 在 Azure 入口網站的右上角，選取您的連線以顯示可能的 Active Directory 下拉式清單。 
 2. 選擇正確的 Active Directory 做為預設 Azure AD。 
 
    此步驟會將 Active Directory 的相關訂用帳戶與「受控執行個體」連結，確定 Azure AD 與「受控執行個體」使用相同的訂用帳戶。
@@ -58,7 +59,7 @@ ms.lasthandoff: 04/23/2018
 
    ![aad](./media/sql-database-aad-authentication/aad.png)
 
-4.  按一下 [Active Directory 系統管理員] 頁面頂端的橫幅。 如果您以 Azure AD 中的全域/公司系統管理員身分登入，則可以從 Azure 入口網站或使用 PowerShell 來執行。
+4.  選取 [Active Directory 系統管理員] 頁面頂端的橫幅。 如果您以 Azure AD 中的全域/公司系統管理員身分登入，則可以從 Azure 入口網站或使用 PowerShell 來執行。
 
     ![授與權限 - 入口網站](./media/sql-database-aad-authentication/grant-permissions.png)
 
@@ -70,17 +71,17 @@ ms.lasthandoff: 04/23/2018
 
     ![成功](./media/sql-database-aad-authentication/success.png)
 
-6.  現在，您可以為您的「受控執行個體」選擇 Azure AD 系統管理員。 若要這麼做，請在 [Active Directory 系統管理員] 頁面上，按一下 [設定系統管理員] 命令。
+6.  現在，您可以為您的「受控執行個體」選擇 Azure AD 系統管理員。 若要這麼做，請在 [Active Directory 系統管理員] 頁面上，選取 [設定系統管理員] 命令。
 
     ![設定系統管理員](./media/sql-database-aad-authentication/set-admin.png)
 
-7. 在 [新增系統管理員] 頁面中，搜尋使用者，選取要成為系統管理員的使用者或群組，然後按一下 [選取]。 
+7. 在 [新增系統管理員] 頁面中，搜尋使用者，選取要成為系統管理員的使用者或群組，然後選取 [選取]。 
 
    [Active Directory 系統管理員] 頁面會顯示您 Active Directory 的所有成員和群組。 呈現灰色的使用者或群組無法選取，因為他們不受支援成為 Azure AD 系統管理員。 請參閱 [Azure AD 功能和限制](sql-database-aad-authentication.md#azure-ad-features-and-limitations) 中支援的系統管理員清單。 角色型存取控制 (RBAC) 僅適用於 Azure 入口網站，不會傳播至 SQL Server。
 
     ![新增系統管理員](./media/sql-database-aad-authentication/add-admin.png)
 
-8. 在 [Active Directory 系統管理員] 頁面頂端，按一下 [儲存]。
+8. 在 [Active Directory 系統管理員] 頁面頂端，選取 [儲存]。
 
     ![儲存](./media/sql-database-aad-authentication/save.png)
 
@@ -90,7 +91,7 @@ ms.lasthandoff: 04/23/2018
 > 設定 Azure AD 系統管理員時，新的系統管理員名稱 (使用者或群組) 不可以已經存在於虛擬主要資料庫中作為 SQL Server 驗證使用者。 如果存在，Azure AD 系統管理員設定將會失敗並復原其建立，其中會指出這樣的系統管理員 (名稱) 已經存在。 由於這類 SQL Server 驗證使用者並非 Azure AD 的成員，因此使用 Azure AD 驗證來連線到伺服器的一切努力都會失敗。
 
 > [!TIP]
-> 若稍後要移除系統管理員，請在 [Active Directory 系統管理員] 頁面頂端，按一下 [移除系統管理員]，然後按一下 [儲存]。
+> 若稍後要移除系統管理員，請在 [Active Directory 系統管理員] 頁面頂端，選取 [移除系統管理員]，然後選取 [儲存]。
  
 ## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>為 Azure SQL Database 伺服器佈建 Azure Active Directory 系統管理員
 
@@ -100,17 +101,24 @@ ms.lasthandoff: 04/23/2018
 下列兩個程序會示範如何在 Azure 入口網站以及使用 PowerShell，佈建 Azure SQL 伺服器的 Azure Active Directory 系統管理員。
 
 ### <a name="azure-portal"></a>Azure 入口網站
-1. 在 [Azure 入口網站](https://portal.azure.com/)的右上角，按一下您的連線以拉下可能的 Active Directory 清單。 選擇正確的 Active Directory 做為預設 Azure AD。 此步驟會連結與訂用帳戶相關聯的 Active Directory 和 Azure SQL 伺服器，確定 Azure AD 和 SQL Server 使用相同的訂用帳戶。 (Azure SQL 伺服器可以裝載 Azure SQL Database 或 Azure SQL 資料倉儲。)   
+1. 在 [Azure 入口網站](https://portal.azure.com/)的右上角，選取您的連線以顯示可能的 Active Directory 下拉式清單。 選擇正確的 Active Directory 做為預設 Azure AD。 此步驟會連結與訂用帳戶相關聯的 Active Directory 和 Azure SQL 伺服器，確定 Azure AD 和 SQL Server 使用相同的訂用帳戶。 (Azure SQL 伺服器可以裝載 Azure SQL Database 或 Azure SQL 資料倉儲。)   
     ![choose-ad][8]   
     
-2. 在左邊的橫幅中，選取 [SQL Server]，接著選取您的 **SQL Server**，然後在 [SQL Server] 頁面中按一下 [Active Directory 系統管理員]。   
-3. 在 [Active Directory 系統管理員] 頁面中，按一下 [設定系統管理員]。   
+2. 在左邊的橫幅中選取 [所有服務]，然後在篩選類型中鍵入 **SQL server**。 選取 [SQL Server]。 
+
+    ![sqlservers.png](media/sql-database-aad-authentication/sqlservers.png)    
+
+    >[!NOTE]
+    > 在此頁面上，於選取 [SQL Server] 之前，您可以選取名稱旁的**星星**將該類別設為「我的最愛」，並將 [SQL Server] 新增至左側的導覽列。 
+
+1. 在 [SQL Server] 頁面上，選取 [Active Directory 系統管理員]。   
+2. 在 [Active Directory 系統管理員] 頁面中，選取 [設定系統管理員]。   
     ![選取 Active Directory](./media/sql-database-aad-authentication/select-active-directory.png)  
     
-4. 在 [新增系統管理員] 頁面中，搜尋使用者，選取要成為系統管理員的使用者或群組，然後按一下 [選取]。 [Active Directory 系統管理員] 頁面會顯示您 Active Directory 的所有成員和群組。 呈現灰色的使用者或群組無法選取，因為他們不受支援成為 Azure AD 系統管理員。 (請在[利用 SQL Database 或 SQL 資料倉儲使用 Azure Active Directory 驗證來驗證](sql-database-aad-authentication.md)的＜Azure AD 功能和限制＞節中參閱支援的系統管理員清單。)以角色為基礎的存取控制 (RBAC) 只會套用至入口網站，並且不會傳播至 SQL Server。   
+4. 在 [新增系統管理員] 頁面中，搜尋使用者，選取要成為系統管理員的使用者或群組，然後選取 [選取]。 [Active Directory 系統管理員] 頁面會顯示您 Active Directory 的所有成員和群組。 呈現灰色的使用者或群組無法選取，因為他們不受支援成為 Azure AD 系統管理員。 (請在[利用 SQL Database 或 SQL 資料倉儲使用 Azure Active Directory 驗證來驗證](sql-database-aad-authentication.md)的＜Azure AD 功能和限制＞節中參閱支援的系統管理員清單。)以角色為基礎的存取控制 (RBAC) 只會套用至入口網站，並且不會傳播至 SQL Server。   
     ![選取系統管理員](./media/sql-database-aad-authentication/select-admin.png)  
     
-5. 在 [Active Directory 系統管理員] 頁面頂端，按一下 [儲存]。   
+5. 在 [Active Directory 系統管理員] 頁面頂端，選取 [儲存]。   
     ![儲存系統管理員](./media/sql-database-aad-authentication/save-admin.png)   
 
 變更系統管理員的程序可能需要幾分鐘的時間。 接著，新的系統管理員就會出現在 [Active Directory 系統管理員]  方塊中。
@@ -120,7 +128,7 @@ ms.lasthandoff: 04/23/2018
    > 
 
 
-若稍後要移除系統管理員，請在 [Active Directory 系統管理員] 頁面頂端，按一下 [移除系統管理員]，然後按一下 [儲存]。
+若稍後要移除系統管理員，請在 [Active Directory 系統管理員] 頁面頂端，選取 [移除系統管理員]，然後選取 [儲存]。
 
 ### <a name="powershell"></a>PowerShell
 若要執行 PowerShell Cmdlet，Azure PowerShell 必須已安裝且正在執行中。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
@@ -273,7 +281,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 1. 啟動 Management Studio 或 Data Tools，並在 [連線到伺服器] \(或 [連線到 Database Engine]) 對話方塊的 [驗證] 方塊中，選取 [Active Directory - 整合式]。 不需要密碼或沒有密碼可輸入，因為現有的認證將會在連接時出現。   
 
     ![選取 AD 整合式驗證][11]
-2. 按一下 [選項] 按鈕，然後在 [連接屬性] 頁面的 [連接到資料庫] 方塊中，輸入您想要連線的使用者資料庫名稱。 ([AD 網域名稱或租用戶 ID] 選項僅對 [通用驗證搭配 MFA 連線] 選項提供支援，否則會呈現灰色。)  
+2. 選取 [選項] 按鈕，然後在 [連線屬性] 頁面的 [連線到資料庫] 方塊中，鍵入您想要連線的使用者資料庫名稱。 ([AD 網域名稱或租用戶 ID] 選項僅對 [通用驗證搭配 MFA 連線] 選項提供支援，否則會呈現灰色。)  
 
     ![選取資料庫名稱][13]
 
@@ -289,7 +297,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 3. 在 [密碼]  方塊中，輸入您的 Azure Active Directory 帳戶或同盟網域帳戶的使用者密碼。
 
     ![選取 AD 密碼驗證][12]
-4. 按一下 [選項] 按鈕，然後在 [連接屬性] 頁面的 [連接到資料庫] 方塊中，輸入您想要連線的使用者資料庫名稱。 (請參閱上一個選項中的圖形。)
+4. 選取 [選項] 按鈕，然後在 [連線屬性] 頁面的 [連線到資料庫] 方塊中，鍵入您想要連線的使用者資料庫名稱。 (請參閱上一個選項中的圖形。)
 
 ## <a name="using-an-azure-ad-identity-to-connect-from-a-client-application"></a>從用戶端應用程式使用 Azure AD 身分識別來連接
 

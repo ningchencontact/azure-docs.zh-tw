@@ -13,14 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2017
+ms.date: 04/24/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cb715960a516c6b2ca16376c12cb6f796e0b395
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 959a483d293caa45180c946e92ac824fc56db084
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195034"
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>Azure 上的 SAP Hana 作業指南
 本文件提供已部署在 Azure 原生虛擬機器 (VM) 上之 SAP Hana 系統的作業指引。 這份文件並非用以取代標準 SAP 文件，包含下列內容：
@@ -172,12 +173,12 @@ Azure Write Accelerator 是專門為 M 系列虛擬機器推出的功能。 如�
 
 Azure Write Accelerator 只能與 [Azure 受控磁碟](https://azure.microsoft.com/services/managed-disks/)搭配運作。 所以至少必須將組成 /hana/log 磁碟區的 Azure 進階儲存體磁碟部署為受控磁碟。
 
-Azure Write Accelerator 可以支援之每個虛擬機器的 Azure 進階儲存體 VHD 有其限制。 目前的限制如下：
+Azure Write Accelerator 可以支援之每個虛擬機器的 Azure 進階儲存體 VHD 有其限制。 目前的上限是：
 
-- 16 VHD 適用於 M128xx 虛擬機器
-- 8 VHD 適用於 M64xx 虛擬機器
+- M128xx VM 上限 16 個 VHD
+- M64xx VM 上限 8 個 VHD
 
-如需如何啟用 Azure Write Accelerator 的詳細指示，可以在 [適用於 SAP 的 Azure Write Accelerator 部署](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator)一文中找到。
+如需如何啟用 Azure Write Accelerator 的詳細指示，可以在[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)一文中找到。
 
 Azure Write Accelerator 的詳細資料和限制可以在相同文件中找到。
 

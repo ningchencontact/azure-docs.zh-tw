@@ -9,11 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 24f352d8743ba8ef72e141498589e1c6c14ff85e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 490b162bcab0656388ef0b211ea693809d446346
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312231"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/18/2018
 
 | **Azure 區域** | **第 4 代** | **第 5 代** |
 |:---|:----------:|:--------------------:|
-| 美國中部 |  | X |
+| 美國中部 | X |  |
 | 美國東部 | X | X |
 | 美國東部 2 | X | X |
 | 美國中北部 | X |  |
@@ -55,14 +56,16 @@ ms.lasthandoff: 04/18/2018
 | 加拿大東部 | X | X |
 | 巴西南部 | X | X |
 | 北歐 | X | X |
-| 西歐 | X | X |
+| 西歐 |  | X |
 | 英國西部 |  | X |
 | 英國南部 |  | X |
 | 東亞 | X |  |
 | 東南亞 | X | X |
 | 澳洲東部 |  | X |
+| 澳大利亞東南部 |  | X |
 | 印度中部 | X |  |
 | 印度西部 | X |  |
+| 印度南部 |  | X |
 | 日本東部 | X | X |
 | 日本西部 | X | X |
 | 韓國南部 |  | X |
@@ -84,7 +87,7 @@ ms.lasthandoff: 04/18/2018
 
 您可以在 Azure 入口網站或使用 Azure CLI 命令來監視 I/O 耗用量。 要監視的相關計量包括[儲存體限制、儲存體百分比、已使用的儲存體和 IO 百分比](concepts-monitoring.md)。
 
-## <a name="backup"></a>Backup 
+## <a name="backup"></a>備份
 
 服務會自動採用伺服器的備份。 備份的最小保留期限是七天。 您可以設定的保留期限最多為 35 天。 在伺服器的存留期期間，您可以在任何時間點調整保留期限。 您可以選擇本地備援和異地備援備份。 異地備援備份也會儲存在您伺服器所在建立區域的[地理配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)中。 此備援能力可在發生災害時提供一層保護。 您也可讓伺服器還原到其他任何 Azure 區域，只要其中的服務可使用異地備援備份。 建立伺服器之後，便無法在兩個備份儲存體選項之間做變更。
 

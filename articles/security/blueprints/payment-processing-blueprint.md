@@ -3,7 +3,7 @@ title: Azure 安全性與合規性藍圖 - 符合 PCI DSS 規範的付款處理�
 description: Azure 安全性與合規性藍圖 - 符合 PCI DSS 規範的付款處理環境
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 2f1e00a8-0dd6-477f-9453-75424d06a1df
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895481"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure 安全性與合規性藍圖 - 符合 PCI DSS 規範的付款處理環境
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 04/16/2018
 - **部署範本**。 在此部署中，透過在安裝期間指定設定參數，系統會使用 [Azure Resource Manager 範本](/azure/azure-resource-manager/resource-group-overview#template-deployment)來將架構的元件自動部署至 Microsoft Azure。
 - **自動化部署指令碼**。 這些指令碼可協助您部署端對端解決方案。 指令碼包括：
     - 模組安裝和[全域管理員](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)安裝指令碼會用來進行安裝，以及確認必要的 PowerShell 模組和全域管理員角色已正確設定。
-    - 安裝 PowerShell 指令碼會用來部署端對端解決方案，並透過 .zip 檔案和 .bacpac 檔案提供，其中包含預先建置的示範 Web 應用程式與 [SQL 資料庫的範例](https://github.com/Microsoft/azure-sql-security-sample)。 內容。 您可以在[藍圖程式碼存放庫][code-repo]檢閱此解決方案的原始程式碼。 
+    - 安裝 PowerShell 指令碼會用來部署端對端解決方案，並透過 .zip 檔案和 .bacpac 檔案提供，其中包含預先建置的示範 Web 應用程式與 [SQL 資料庫的範例](https://github.com/Microsoft/azure-sql-security-sample)。 內容。 您可以在 [藍圖程式碼存放庫][程式碼存放庫] 檢閱此解決方案的原始程式碼。 
 
 ## <a name="architectural-diagram"></a>架構圖
 
@@ -208,7 +209,7 @@ Azure SQL Database 執行個體會使用下列資料庫安全性量值：
 - **活動記錄：**  [活動記錄](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。
 - **診斷記錄：**[診斷記錄](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)是每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure Blob 儲存體、資料表和佇列記錄。
 - **防火牆記錄：**  應用程式閘道會提供完整的診斷和存取記錄。 防火牆記錄可供已啟用 WAF 的應用程式閘道資源使用。
-- **記錄封存：**  所有診斷記錄會設定為寫入到集中且加密的 Azure 儲存體帳戶進行封存，並包含定義的保留期間 (2 天)。 接著，記錄會連線至 Azure Log Analytics 以進行處理、儲存及進行儀表板管理。 [Log Analytics](https://azure.microsoft.com/services/log-analytics) 是種服務，可協助您收集和分析雲端和內部部署環境中的資源所產生的資料。
+- **記錄封存：**  所有診斷記錄會設定為寫入到集中且加密的 Azure 儲存體帳戶進行封存，並包含定義的保留期間 (2 天)。 接著，記錄會連線至 Azure Log Analytics 以進行處理、儲存及進行儀表板管理。 [Log Analytics](https://azure.microsoft.com/services/log-analytics) 是一項服務，可協助您收集和分析雲端及內部部署環境中的資源所產生的資料。
 
 ### <a name="encryption-and-secrets-management"></a>加密和密碼管理
 
@@ -299,7 +300,7 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
 
 ## <a name="deploy-the-solution"></a>部署解決方案
 
-部署此解決方案的元件可在 [PCI 藍圖原始程式碼存放庫][code-repo]中取得。 基本架構的部署需要透過 Microsoft PowerShell v5 執行多個步驟。 若要連線至網站，您必須提供自訂網域名稱 (例如 contoso.com)。 這會使用步驟 2 中的 `-customHostName`參數來指定。 如需詳細資訊，請參閱[針對 Azure Web Apps 購買自訂網域名稱](/azure/app-service-web/custom-dns-web-site-buydomains-web-app)。 自訂網域名稱並不是成功部署和執行解決方案的必要項目，但是您會無法連線至用於示範的網站。
+部署此解決方案的元件可在 [PCI 藍圖程式碼存放庫][程式碼存放庫] 中取得。 基本架構的部署需要透過 Microsoft PowerShell v5 執行多個步驟。 若要連線至網站，您必須提供自訂網域名稱 (例如 contoso.com)。 這會使用步驟 2 中的 `-customHostName`參數來指定。 如需詳細資訊，請參閱[針對 Azure Web Apps 購買自訂網域名稱](/azure/app-service-web/custom-dns-web-site-buydomains-web-app)。 自訂網域名稱並不是成功部署和執行解決方案的必要項目，但是您會無法連線至用於示範的網站。
 
 指令碼會將網域使用者新增至您指定的 Azure AD 租用戶。 我們建議您建立新的 Azure AD 租用戶，以作為測試使用。
 
@@ -384,11 +385,3 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
 - 此頁面上的所有客戶名稱、交易記錄和任何相關資料皆屬虛構，僅為此基本架構而建立，並僅供示範用。 並未影射或關聯任何真實的人、事、物。  
 - 此解決方案由 Microsoft 與 Avyan Consulting 共同開發，而且經過 [MIT 授權](https://opensource.org/licenses/MIT)許可。
 - 此解決方案已由 Coalfire (Microsoft 的 PCI DSS 稽核員) 檢閱。 [PCI 合規性檢閱](https://aka.ms/pciblueprintcrm32)提供解決方案獨立的第三方檢閱，以及需要解決的要素。 
-
-### <a name="document-authors"></a>文件作者
-
-- *Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan Consulting)*
-
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "程式碼存放庫"

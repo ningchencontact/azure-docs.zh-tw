@@ -1,6 +1,6 @@
 ---
-title: "Hyper-V 到 Azure 的 Azure Site Recovery 部署規劃工具 | Microsoft Docs"
-description: "這是 Hyper-V 到 Azure 之案例的 Azure Site Recovery 部署規劃工具使用者指南。"
+title: Hyper-V 到 Azure 的 Azure Site Recovery 部署規劃工具 | Microsoft Docs
+description: 這是 Hyper-V 到 Azure 之案例的 Azure Site Recovery 部署規劃工具使用者指南。
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -9,11 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: nisoneji
-ms.openlocfilehash: dc504ee9def6b500eee640521b57dc48dac9cca4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 17ff3ece76f854cd539172019f8d154742873bb4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187297"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V 到 Azure 的 Site Recovery 部署規劃工具
 
@@ -116,9 +117,9 @@ Azure Site Recovery 部署規劃工具是一項命令列工具，適用於 Hyper
 3.  將 .zip 資料夾解壓縮。
 此資料夾包含多個檔案和子資料夾。 可執行檔是父資料夾中的 ASRDeploymentPlanner.exe。
 
-範例：將 .zip 檔案複製到 E:\ 磁碟機並將它解壓縮。 E:\ASR Deployment Planner_v2.1.zip
+範例：將 .zip 檔案複製到 E:\ 磁碟機並將它解壓縮。 E:\ASR Deployment Planner_v2.2.zip
 
-E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>更新至最新版的部署規劃工具
 如果您的部署規劃工具是舊版的，請執行下列任一動作：
@@ -133,7 +134,7 @@ E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
   >每個新的 Deployment Planner 都是 .zip 檔的累積更新。 您不需要將最新的檔案複製到先前的資料夾。 您可以建立及使用新的資料夾。
 
 ## <a name="version-history"></a>版本歷程記錄
-ASR 部署規劃工具的最新版本為 2.1。
+ASR 部署規劃工具的最新版本為 2.2。
 請參閱 [ASR 部署規劃工具版本記錄](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx)頁面，了解每個更新中所新增的修正。
 
 

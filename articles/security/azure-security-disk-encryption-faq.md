@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2018
-ms.author: devtiw
-ms.openlocfilehash: cb523b4fbf6e8abdf5c5158ab041d3485add9b23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/27/2018
+ms.author: barclayn
+ms.openlocfilehash: 47ccf91a64653c928cc4da01bc98535c97440d37
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187686"
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure 磁碟加密常見問題集
 
@@ -34,7 +35,7 @@ Azure 磁碟加密 GA 支援 Azure Resource Manager 範本、Azure PowerShell �
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Azure 磁碟加密如何收費？
 
-使用 Azure 磁碟加密來加密 VM 磁碟完全免費。
+使用 Azure 磁碟加密加密 VM 磁碟不需付費，但如果使用 Azure Key Vault 則需付費。 如需 Azure Key Vault 成本的詳細資訊，請參閱 [Key Vault 價格](https://azure.microsoft.com/pricing/details/key-vault/)頁面。
 
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Azure 磁碟加密支援哪些虛擬機器層？
 
@@ -68,7 +69,7 @@ Azure 磁碟加密可用於標準層 VM，包括 [A、D、DS、G、GS 及 F](htt
 | SLES | 優先順序：11-SP4 | 資料磁碟 |
 | SLES | 11 SP4 | 資料磁碟 |
 
-*__ADE 可供 RHEL 用於資料磁碟。目前的 ADE 實作適用於 OS 磁碟，但目前不受共同支援。Microsoft 和 Red Hat 都可執行共同支援的解決方案。在過渡期間，您可以在[這裡](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)參考 ADE 白皮書，以取得 Linux OS 磁碟加密的相關資訊。__
+*__ADE 可供 RHEL 用於資料磁碟。目前的 ADE 實作適用於 OS 磁碟，但目前不受共同支援。Microsoft 和 Red Hat 都可執行共同支援的解決方案。在過渡期間，您可以在[這裡](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)參考 ADE 白皮書，以取得 Linux OS 磁碟加密的相關資訊。__
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>如何開始使用 Azure 磁碟加密？
 

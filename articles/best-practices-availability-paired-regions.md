@@ -7,13 +7,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 660ced47b48e981b65c6b9390809e345be8eda2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 754b0bdea4ccb93de16fda4eea5e012e0630daea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939017"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>業務持續性和災害復原 (BCDR)：Azure 配對的區域
 
@@ -25,31 +26,30 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-圖 1 – Azure 區域配對圖表
+圖 1：Azure 地區組
 
 | [地理位置] | 配對的區域 |  |
 |:--- |:--- |:--- |
 | 亞洲 |東亞 |東南亞 |
 | 澳大利亞 |澳洲東部 |澳大利亞東南部 |
+| 巴西 |巴西南部 (2) |美國中南部 |
 | 加拿大 |加拿大中部 |加拿大東部 |
 | 中國 |中國北部 |中國東部|
+| 歐洲 |北歐 |西歐 |
+| 德國 |德國中部 |德國東北部 |
 | 印度 |印度中部 |印度南部 |
 | 印度 |印度西部 (1) |印度南部 |
 | 日本 |日本東部 |日本西部 |
 | 韓國 |韓國中部 |韓國南部 |
-| 北美洲 |美國中北部 |美國中南部 |
 | 北美洲 |美國東部 |美國西部 |
 | 北美洲 |美國東部 2 |美國中部 |
-| 北美洲 |美國西部 2 |美國中西部 |
-| 歐洲 |北歐 |西歐 |
-| 日本 |日本東部 |日本西部 |
-| 巴西 |巴西南部 (2) |美國中南部 |
+| 北美洲 |美國中北部 |美國中南部 |
+| 北美洲 |美國西部 2 |美國中西部 
+| 英國 |英國西部 |英國南部 |
+| 美國國防部 |美國 DoD 東部 |美國國防部中央 |
+| 美國政府 |美國政府亞利桑那州 |美國政府德克薩斯州 |
 | 美國政府 |美國愛荷華州政府 (3) |美國政府維吉尼亞州 |
 | 美國政府 |美國維吉尼亞州政府 (4) |美國政府德克薩斯州 |
-| 美國政府 |美國政府亞利桑那州 |美國政府德克薩斯州 |
-| 美國國防部 |美國 DoD 東部 |美國國防部中央 |
-| 英國 |英國西部 |英國南部 |
-| 德國 |德國中部 |德國東北部 |
 
 表 1 - Azure 區域配對對應表
 

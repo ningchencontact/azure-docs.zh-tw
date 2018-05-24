@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 9a19ac74cd8f7ed6ae680b2acb743101bbcaed44
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 602f4c9b7108c0116e83e302bd73838e0902a7f0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157716"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD 中的自助式密碼重設深入探討
 
@@ -49,7 +50,7 @@ ms.lasthandoff: 04/19/2018
        * 如果未進行設定使用者挑戰，便會建議使用者連絡其管理員來重設其密碼。
      * 如果原則需要兩項查問，則表示使用者必定已針對管理員原則所啟用的至少兩項查問定義適當的資料。
        * 如果未進行設定使用者挑戰，便會建議使用者連絡其管理員來重設其密碼。
-   * 查看使用者的密碼是否在內部部署進行管理 (同盟或密碼雜湊同步)。
+   * 查看使用者的密碼是否會在內部部署進行管理 (同盟、傳遞驗證或密碼雜湊同步處理)。
      * 如果在內部部署中有部署回寫和管理使用者的密碼，則允許使用者進行驗證及重設其密碼。
      * 如果在內部部署中未部署回寫但有管理使用者的密碼，則會要求使用者連絡其管理員來重設其密碼。
 4. 如果判斷使用者能夠成功重設其密碼，則會引導使用者完成重設程序。
@@ -207,7 +208,7 @@ ms.lasthandoff: 04/19/2018
 
 ## <a name="on-premises-integration"></a>內部部署整合
 
-如果您已安裝、設定及啟用 Azure AD Connect，就會有下列其他的內部部署整合選項。 如果這些選項呈現灰色，即未正確設定回寫。 如需詳細資訊，請參閱[設定密碼回寫](../active-directory-passwords-writeback.md#configure-password-writeback)。
+如果您已安裝、設定及啟用 Azure AD Connect，就會有下列其他的內部部署整合選項。 如果這些選項呈現灰色，即未正確設定回寫。 如需詳細資訊，請參閱[設定密碼回寫](howto-sspr-writeback.md#configure-password-writeback)。
 
 ![回寫][Writeback]
 
@@ -217,15 +218,15 @@ ms.lasthandoff: 04/19/2018
 * Azure AD 已上線，並已連線至您的內部部署回寫用戶端。 不過，Azure AD Connect 的已安裝版本似乎已過期。 請考慮[升級 Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md)，以確保您具有最新的連線功能及重要錯誤修正。
 * 抱歉，因為安裝的 Azure AD Connect 版本已過期，所以我們無法檢查您的內部部署回寫用戶端狀態。 請[升級 Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) 以檢查您的連線狀態。
 * 抱歉，我們目前似乎無法連線至您的內部部署回寫用戶端。 請[對 Azure AD Connect 進行疑難排解](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity)以還原連線。
-* 抱歉，因為密碼回寫未正確設定，所以我們無法連線至您的內部部署回寫用戶端。 請[設定密碼回寫](../active-directory-passwords-writeback.md#configure-password-writeback)以還原連線。
+* 抱歉，因為密碼回寫未正確設定，所以我們無法連線至您的內部部署回寫用戶端。 請[設定密碼回寫](howto-sspr-writeback.md#configure-password-writeback)以還原連線。
 * 抱歉，我們目前似乎無法連線至您的內部部署回寫用戶端。 這可能是我們這端的暫時性問題所造成。 如果問題持續發生，請[對 Azure AD Connect 進行疑難排解](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity)以還原連線。
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>將密碼寫回至內部部署目錄
 
 此控制項可決定是否要為此目錄啟用密碼回寫。 如果回寫處於開啟狀態，則表示了內部部署回寫服務的狀態。 如果您需要暫時停用密碼回寫，而不想要重新設定 Azure AD Connect，此設定就很有用。
 
-* 如果此參數設定為 [是]，則回寫會啟用，而且同盟和密碼雜湊同步使用者可以重設其密碼。
-* 如果此參數設定為 [否]，則回寫會停用，而且同盟和密碼雜湊同步使用者無法重設其密碼。
+* 如果將此參數設定為 [是]，則會啟用回寫，而同盟、傳遞驗證或密碼雜湊同步處理的使用者能夠重設其密碼。
+* 如果將此參數設定為 [否]，則會停用回寫，而同盟、傳遞驗證或密碼雜湊同步處理的使用者無法重設其密碼。
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>允許使用者在不重設密碼的情況下解除鎖定帳戶
 
@@ -257,7 +258,7 @@ ms.lasthandoff: 04/19/2018
 * [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](howto-sspr-authenticationdata.md)
 * [哪些驗證方法可供使用者使用？](concept-sspr-howitworks.md#authentication-methods)
 * [使用 SSPR 的原則選項有哪些？](concept-sspr-policy.md)
-* [什麼是密碼回寫，且為什麼我需要了解它？](../active-directory-passwords-writeback.md)
+* [什麼是密碼回寫，且為什麼我需要了解它？](howto-sspr-writeback.md)
 * [如何回報 SSPR 中的活動？](howto-sspr-reporting.md)
 * [SSPR 中的所有選項有哪些，以及它們有何意義？](concept-sspr-howitworks.md)
 * [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)

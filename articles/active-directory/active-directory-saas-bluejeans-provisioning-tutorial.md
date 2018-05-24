@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
-ms.openlocfilehash: 55a907bdab57ce73533361782a3890466e3076ea
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9b071d166f741df523d6343ba771b7a29cd4a303
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32139656"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>教學課程︰設定 BlueJeans 來自動佈建使用者
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 03/08/2018
 
 **若要從 Azure AD 應用程式庫新增 BlueJeans，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -104,7 +105,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 5. 在 [管理員認證] 區段下，輸入 BlueJeans 帳戶的 [管理員使用者名稱] 和 [管理員密碼]。 這些值的範例如下：
 
-    *   在 [管理員使用者名稱] 欄位中，填入 BlueJeans 租用戶中系統管理員帳戶的使用者名稱。 範例： admin@contoso.com.
+    *   在 [管理員使用者名稱] 欄位中，填入 BlueJeans 租用戶中管理帳戶的使用者名稱。 範例： admin@contoso.com.
 
     *   在 [管理員密碼] 欄位中，填入與管理員使用者名稱相對應的密碼。
 
@@ -112,7 +113,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![BlueJeans 佈建](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
-7. 在 [通知電子郵件] 欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選 [發生失敗時傳送電子郵件通知] 核取方塊。
+7. 在 [通知電子郵件] 欄位中，輸入應該收到佈建錯誤通知的個人或群組電子郵件地址，然後選取 [發生失敗時傳送電子郵件通知] 核取方塊。
 
     ![BlueJeans 佈建](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
@@ -143,6 +144,10 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並遵循連結來佈建活動報告，當中會描述 BlueJeans 上的 Azure AD 佈建服務所執行之所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](./active-directory-saas-provisioning-reporting.md)。
+
+## <a name="connector-limitations"></a>連接器限制
+
+* Bluejeans 不允許超過 30 個字元的使用者名稱。
 
 ## <a name="additional-resources"></a>其他資源
 

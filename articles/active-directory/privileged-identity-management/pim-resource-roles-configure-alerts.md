@@ -1,5 +1,5 @@
 ---
-title: 適用於 Azure 資源的 Privileged Identity Management - 安全性警示 | Microsoft Docs
+title: 使用 Privileged Identity Management 管理適用於 Azure 資源的安全性警示 | Microsoft Docs
 description: 說明 PIM 安全性警示。
 services: active-directory
 documentationcenter: ''
@@ -13,20 +13,22 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 86c9a0f12b2598ffbd02810a11622b13b0363a1f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c6c057541b3e3067de6331bab6ca9cccfa092710
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149180"
 ---
-# <a name="privileged-identity-management---resource-roles---alerts"></a>Privileged Identity Management - 資源角色 - 警示
-當您環境中有可疑或不安全的活動時，適用於 Azure 資源的 PIM 會產生警示。 觸發後的警示會顯示在 [警示] 頁面上。 
+# <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>使用 Privileged Identity Management 管理適用於 Azure 資源的安全性警示
+當您的環境中有可疑或不安全的活動時，適用於 Azure 資源的 Privileged Identity Management (PIM) 就會產生警示。 觸發後的警示會顯示在 [警示] 頁面上。 
 
-![](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
+![警示頁面](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
 
 ## <a name="review-alerts"></a>檢閱警示
-選取警示，以查看詳列觸發警示之使用者或角色以及補救建議的報告。
-![](media/azure-pim-resource-rbac/rbac-alert-info.png)
+選取警示，以查看列出觸發警示的使用者或角色以及補救建議的報告。
+
+![警示報告](media/azure-pim-resource-rbac/rbac-alert-info.png)
 
 ## <a name="alerts"></a>警示
 | 警示 | 嚴重性 | 觸發程序 | 建議 |
@@ -39,11 +41,11 @@ ms.lasthandoff: 04/06/2018
 ### <a name="severity"></a>嚴重性
 * **高**：因為發生原則違規而需要立即採取行動。 
 * **中**：不需要立即採取行動，但表示可能發生原則違規。
-* **低**：不需要立即採取行動，但建議進行原則變更。
+* **低**：不需要立即採取行動，但建議進行慣用的原則變更。
 
 ## <a name="configure-security-alert-settings"></a>設定安全性警示設定
-從 [警示] 頁面巡覽至 [設定]。
-![](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
+從 [警示] 頁面中移至 [設定]。
+![設定](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
 
 自訂不同警示的設定，以便合您的環境和安全性目標。
-![](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+![自訂設定](media/azure-pim-resource-rbac/rbac-alert-settings.png)

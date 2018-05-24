@@ -10,11 +10,12 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 85a0157751a1c26fb7f37152d7c12f56b1c423d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193279"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>什麼是受控執行個體 (預覽)？
 
@@ -67,9 +68,9 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 
 ![單一登入](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model"></a>以虛擬核心為基礎的購買模型
+## <a name="vcore-based-purchasing-model-preview"></a>以虛擬核心為基礎的購買模型 (預覽)
 
-以虛擬核心為基礎的購買模型提供彈性、可控制、透明及直接的方法，讓您將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，進行計算、記憶體和儲存體調整。 虛擬核心模型也能夠透過[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，最多節省 30% 的成本。
+以虛擬核心為基礎的購買模型 (預覽) 提供彈性、可控制、透明及直接的方法，讓您將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，進行計算、記憶體和儲存體調整。 虛擬核心模型也能夠透過[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，最多節省 30% 的成本。
 
 虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。
 - 「第 4 代」邏輯 CPU 是以 Intel E5-2673 v3 (Haswell) 2.4-GHz 處理器為基礎。
@@ -186,7 +187,7 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 移轉方法會利用 Azure Blob 儲存體的 SQL 備份。 儲存在 Azure 儲存體 Blob 的備份可以直接用來還原到受控執行個體。 若要將現有的 SQL 資料庫還原至受控執行個體，您可以：
 
 - 使用[資料移轉服務 (DMS)](/sql/dma/dma-overview)。 如需教學課程，請參閱[使用 Azure Database Migration Service (DMS) 移轉至受控執行個體](../dms/tutorial-sql-server-to-managed-instance.md)從資料庫備份檔案還原
-- 使用 [T-SQL RESTORE 命令](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql)。 
+- 使用 [T-SQL RESTORE 命令](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)。 
   - 如需示範如何還原 Wide World Importers - 標準資料庫備份檔案的教學課程，請參閱[還原備份檔案至受控執行個體](sql-database-managed-instance-restore-from-backup-tutorial.md)。 本教學課程顯示，您必須將備份檔案上傳到 Azure Blog 儲存體，並使用共用存取簽章 (SAS) 金鑰保護其安全。
   - 如需從 URL 還原的資訊，請參閱[從 URL 原生還原](sql-database-managed-instance-migrate.md#native-restore-from-url)。
 - [從 BACPAC 檔案匯入](sql-database-import.md)

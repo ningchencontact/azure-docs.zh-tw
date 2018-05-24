@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure Data Lake Analytics 中的 U-SQL 辨識功能| Microsoft Docs"
-description: "了解如何使用 U-SQL 中辨識功能的智慧"
+title: 使用 Azure Data Lake Analytics 中的 U-SQL 辨識功能| Microsoft Docs
+description: 了解如何使用 U-SQL 中辨識功能的智慧
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: ec48a07af0aba78f2e508bad232f34102f0c2073
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cd06e1ae56efdfdcfcd4fec5b2c17ee843d9e9dd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311109"
 ---
 # <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>教學課程︰開始使用 U-SQL 的辨識功能
 
@@ -37,8 +38,8 @@ U-SQL 的辨識功能讓開發人員可以在其公司的巨量資料程式中�
 
 整個程序簡述如下︰
 
-* 使用 REFERENCE ASSEMBLY 陳述式啟用 U-SQL 指令碼的辨識功能
-* 使用 Cognitive UDO 在輸入資料列集中使用 PROCESS，來產生輸出資料列集
+* 使用 `REFERENCE ASSEMBLY` 陳述式啟用 U-SQL 指令碼的辨識功能
+* 以 Cognitive UDO 在輸入資料列集上使用 `PROCESS`，以產生輸出資料列集
 
 ### <a name="detecting-objects-in-images"></a>在映像中偵測物件
 

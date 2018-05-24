@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: ''
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: xiwu
-ms.openlocfilehash: 46849d551b6996caaf020caec1ab8104d5388c8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 393af463c4145e1d865c14f2ace7d5123ab12cfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187380"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>使用適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器加速即時巨量資料分析
 
@@ -38,6 +39,10 @@ ms.lasthandoff: 04/19/2018
 1. Spark 主要節點會連線到 SQL Server 或 Azure SQL Database 並從特定資料表或使用特定 SQL 查詢來載入資料
 2. Spark 主要節點將資料散發到背景工作節點以供轉換。 
 3. 背景工作節點會連線到 SQL Server 或 Azure SQL Database 並將資料寫入資料庫。 使用者可以選擇使用逐列插入或大量插入。
+
+下圖說明此資料流程。
+
+   ![架構](./media/sql-database-spark-connector/architecture.png)
 
 ### <a name="build-the-spark-to-sql-db-connector"></a>建置 Spark 至 SQL DB 連接器
 目前，連接器專案會使用 maven。 若要建置沒有相依性的連接器，您可以執行︰
@@ -153,7 +158,7 @@ collection.show()
 #### <a name="setup-requirement"></a>安裝需求
 如果您使用存取權杖型驗證模式，必須下載 [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java)及其相依項目，並將它們包含在 Java 建置路徑中。
 
-請參閱[使用 Azure Active Directory 驗證向 SQL Database 進行驗證](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication)，以了解如何取得 Azure SQL Database 的存取權杖。
+請參閱[使用 Azure Active Directory 驗證向 SQL Database 進行驗證](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)，以了解如何取得 Azure SQL Database 的存取權杖。
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -211,5 +216,5 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 -   [Azure Databricks Notebook 範例](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [指令碼範例 (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-您也可以檢閱 [Apache Spark SQL、DataFrame 和 Dataset 指南](http://spark.apache.org/docs/latest/sql-programming-guide.html) (英文) 和 [Azure Databricks 文件](https://docs.microsoft.com/en-us/azure/azure-databricks/)。
+您也可以檢閱 [Apache Spark SQL、DataFrame 和 Dataset 指南](http://spark.apache.org/docs/latest/sql-programming-guide.html) (英文) 和 [Azure Databricks 文件](https://docs.microsoft.com/azure/azure-databricks/)。
 

@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 5/4/18
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8db0c28b0ea6b6f78ef86c773ff24f9d22fe3ecd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34353869"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>安裝存取面板的瀏覽器擴充功能
 
@@ -83,6 +84,12 @@ ms.lasthandoff: 04/28/2018
    3. 在 My Apps 入口網站中搜尋可用的應用程式。
    4. 在搜尋結果清單中，選取應用程式。  
        您所使用的最後三個應用程式會顯示在 [最近使用的] 捷徑清單中。
+       
+* 若要遠端使用公司內部 URL，請執行下列作業：
+    1. 在您的租用戶上[設定應用程式 Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) \(英文\)
+    2. 透過應用程式 Proxy [發佈應用程式](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) \(英文\) 和 URL
+    3. 安裝延伸模組，然後藉由選取 [登入以開始使用] 來登入該延伸模組
+    4. 即使在遠端，您還是可以立即瀏覽至公司內部 URL
 
 > [!NOTE]
 > 上述選項僅適用於 Edge、Chrome 和 Firefox。
@@ -118,4 +125,4 @@ ms.lasthandoff: 04/28/2018
 -   Fiddler 追蹤
 
 ## <a name="next-steps"></a>後續步驟
-[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)

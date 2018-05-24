@@ -1,9 +1,9 @@
 ---
-title: "Windows 10 漫遊設定參考 | Microsoft Docs"
-description: "在 Windows 10 中進行漫遊或備份的所有設定的完整清單。"
+title: Windows 10 漫遊設定參考 | Microsoft Docs
+description: 在 Windows 10 中進行漫遊或備份的所有設定的完整清單。
 services: active-directory
-keywords: "企業狀態漫遊, windows 雲端"
-documentationcenter: 
+keywords: 企業狀態漫遊, windows 雲端
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159072"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 漫遊設定參考
 以下是在 Windows 10 中進行漫遊或備份的所有設定的完整清單。 
@@ -47,11 +48,15 @@ ms.lasthandoff: 12/11/2017
 * 輕鬆存取：朗讀程式、螢幕小鍵盤、放大鏡 
 * 其他 Windows 設定：請參閱 Windows 設定詳細資料
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 使用者可以透過 Edge 瀏覽器 [設定] 功能表選項，啟用或停用 Edge 瀏覽器設定群組同步處理 (我的最愛，讀取清單)。
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-edge.png)
+
+針對 Windows 10 版本 1803 或更新版本，使用者可以透過 Internet Explorer [設定] 功能表選項，啟用或停用 Internet Explorer 設定群組 (我的最愛、已輸入的 URL) 同步處理。 
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Windows 設定詳細資料
 在下表中，[設定群組] 資料行中的 [其他] 項目是指您可以移至 [設定] > [帳戶] > [同步處理您的設定] > [其他 Windows 設定] 停用的設定。 

@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 095b0cba8f7d22920203e5e3c4bcd83666188023
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a39cabeb35450e98cc7d7d64645642959aacde0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194983"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>採用 Azure Resource Manager 範本的預期狀態設定延伸模組
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/06/2018
 
 下列程式碼片段會進入範本的 **Resource** 區段。
 DSC 延伸模組會繼承預設的延伸模組屬性。
-如需詳細資訊，請參閱 [VirtualMachineExtension 類別](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.)(英文\)。
+如需詳細資訊，請參閱 [VirtualMachineExtension 類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.)(英文\)。
 
 ```json
 {
@@ -83,7 +84,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 在 **extensions** 下方新增 DSC 擴充功能的詳細資料。
 
 DSC 延伸模組會繼承預設的延伸模組屬性。
-如需詳細資訊，請參閱 [VirtualMachineScaleSetExtension 類別](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet)(英文\)。
+如需詳細資訊，請參閱 [VirtualMachineScaleSetExtension 類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet)(英文\)。
 
 ```json
 "extensionProfile": {
@@ -189,7 +190,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 | settings.configuration.function |字串 |指定 DSC 組態的名稱。 所命名的設定必須包含在 **configuration.script** 所定義的指令碼中。 如果已定義 **settings.configuration.url** 或 **settings.configuration.function**，就需要這個屬性。 如果沒有為這些屬性指定值，延伸模組就會呼叫預設設定指令碼來設定 LCM 中繼資料，而應該提供引數。 |
 | settings.configurationArguments |集合 |定義任何您想要傳遞給 DSC 設定的參數。 這個屬性並未加密。 |
 | settings.configurationData.url |字串 |指定 URL，從中下載您的組態資料 (.psd1) 檔案以做為 DSC 組態的輸入。 如果所提供的 URL 需要 SAS 權杖才能存取，請將 **protectedSettings.configurationDataUrlSasToken** 屬性設定為您 SAS 權杖的值。 |
-| settings.privacy.dataEnabled |字串 |啟用或停用遙測收集。 此屬性只有下列可能值：**Enable****Disable****''**或 **$null**。 將此屬性保持空白或 null 即可啟用遙測。 預設值為 **''**。 如需詳細資訊，請參閱 [Azure DSC 延伸模組集合](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) \(英文\)。 |
+| settings.privacy.dataEnabled |字串 |啟用或停用遙測收集。 此屬性只有下列可能值：**Enable****Disable****''** 或 **$null**。 將此屬性保持空白或 null 即可啟用遙測。 預設值為 **''**。 如需詳細資訊，請參閱 [Azure DSC 延伸模組集合](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) \(英文\)。 |
 | settings.advancedOptions.downloadMappings |集合 |定義要從中下載 WMF 的替代位置。 如需詳細資訊，請參閱 [Azure DSC 延伸模組 2.8 及如何將延伸模組相依性的下載對應至您自己的位置](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx)(英文\)。 |
 | protectedSettings.configurationArguments |集合 |定義任何您想要傳遞給 DSC 設定的參數。 這個屬性已加密。 |
 | protectedSettings.configurationUrlSasToken |字串 |指定用來存取 **configuration.url** 所定義 URL 的 SAS 權杖。 這個屬性已加密。 |
@@ -197,7 +198,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 ## <a name="default-configuration-script"></a>預設設定指令碼
 
-如需有關下列值的詳細資訊，請參閱[本機設定管理員基本設定](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings)。
+如需有關下列值的詳細資訊，請參閱[本機設定管理員基本設定](https://docs.microsoft.com/powershell/dsc/metaconfig#basic-settings)。
 您可以使用 DSC 延伸模組預設設定指令碼來設定的 LCM 屬性僅限下表所列的屬性。
 
 | 屬性名稱 | 類型 | 說明 |
@@ -342,7 +343,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 「Privacy.dataCollection 為 '{0}'。
 僅有的可能值為 ''、'Enable' 和 'Disable'"。
-"WmfVersion 為 '{0}'。
+「WmfVersion 為 '{0}'。
 可能的值為 … 和 'latest'"。
 
 **問題**︰所提供的值不是允許的值。
@@ -352,7 +353,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 ### <a name="invalid-url"></a>無效的 URL
 
-「ConfigurationData.url 為 '{0}'。 這不是有效的 URL」 「DataBlobUri 為 '{0}'。 這不是有效的 URL」 「Configuration.url 為 '{0}'。 這不是有效的 URL」
+「ConfigurationData.url 為 '{0}'。 這不是有效的 URL」「DataBlobUri 為 '{0}'。 這不是有效的 URL」「Configuration.url 為 '{0}'。 這不是有效的 URL」
 
 **問題**︰所提供的 URL 無效。
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: v-ant
-ms.openlocfilehash: 8d612012505ea43a3635650c6a38fe993b8e57f6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c7ec58b0da3a918729733809d326e6f2e5916c9d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32139969"
 ---
 # <a name="tutorial-configure-replicon-for-automatic-user-provisioning"></a>教學課程︰設定 Replicon 來自動佈建使用者
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 03/08/2018
 
 **若要從 Azure AD 應用程式庫新增 Replicon，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -105,7 +106,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 5. 在 [管理員認證] 區段下，輸入 Replicon 帳戶的 [管理員使用者名稱]、[管理員密碼]、[公司識別碼]、[網域]。 這些值的範例如下：
 
-    *   在 [管理員使用者名稱] 欄位中，填入 Replicon 租用戶中系統管理員帳戶的使用者名稱。 範例：contosoadmin。
+    *   在 [管理員使用者名稱] 欄位中，填入 Replicon 租用戶中管理帳戶的使用者名稱。 範例：contosoadmin。
 
     *   在 [管理員密碼] 欄位中，填入與管理員使用者名稱相對應的密碼。
 
@@ -115,7 +116,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     *   在 [網域] 欄位中，填入步驟 6 中所述的網域。
     
-6. 依據 [Replicon 服務說明](https://www.replicon.com/help/determining-the-url-for-your-service-calls)中所述的步驟，取得 Replicon 租用戶帳戶的 **serviceEndpointRootURL**。 取得 URL 時，**網域**會是 **serviceEndpointRootURL** 的子網域，如強調標示的部分所示。 
+6. 依據 [Replicon 服務說明](https://www.replicon.com/help/determining-the-url-for-your-service-calls) \(英文\) 中所述的步驟，取得 Replicon 租用戶帳戶的 **serviceEndpointRootURL**。 取得 URL 時，**網域**會是 **serviceEndpointRootURL** 的子網域，如強調標示的部分所示。 
 
     ![Replicon 佈建](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconEndpoint.png)
 

@@ -4,14 +4,15 @@ description: 提供收集器設備的概觀及其設定方式。
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 05/15/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d0dd310a1f6dff389a4d3dd41dc389b7117272fe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203667"
 ---
 # <a name="collector-appliance"></a>收集器設備
 
@@ -58,7 +59,7 @@ Azure Migrate 收集器是輕量型設備，可用來探索您的內部部署 vC
 > [!NOTE]
 > 收集器不支援 HTTPS 型 Proxy 伺服器。
 
-#### <a name="whitelisting-urls-for-internet-connection"></a>將網際網路連線的 URL 加入允許清單
+#### <a name="whitelisting-urls-for-internet-connection"></a>將網際網路連線的 URL 加入白名單
 
 如果收集器可以透過所提供的設定連線到網際網路，必要條件檢查就會成功。 您可以連線到下表中所提供的 URL 清單來驗證連線檢查。 如果您使用任何 URL 型防火牆 Proxy 控制輸出連線能力，務必將這些必要的 URL 列入允許清單：
 
@@ -89,9 +90,9 @@ Azure Migrate 收集器是輕量型設備，可用來探索您的內部部署 vC
 
 Azure Migrate 收集器服務應在機器上執行。 此服務會在機器開機時自動啟動。 如果服務未執行，您可以透過控制台來啟動 Azure Migrate 收集器服務。 收集器服務會負責連線到 vCenter Server、收集機器中繼資料和效能資料，並將資料傳送給服務。
 
-### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5 
+### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5
 
-您必須安裝 VMware PowerCLI powershell 模組，收集器才能與 vCenter Server 通訊，以及查詢機器詳細資料及其效能資料。 進行必要條件檢查時，系統會自動下載及安裝 Powershell 模組。 自動下載必須將少數 URL 加入允許清單中，若未這麼做，您必須將它們加入允許清單來提供存取，或以手動方式安裝模組。
+您必須安裝 VMware PowerCLI powershell 模組，收集器才能與 vCenter Server 通訊，以及查詢機器詳細資料及其效能資料。 進行必要條件檢查時，系統會自動下載及安裝 Powershell 模組。 自動下載必須將少數 URL 加入白名單中，若未這麼做，您必須將它們加入白名單來提供存取，或以手動方式安裝模組。
 
 使用下列步驟以手動方式安裝模組：
 
@@ -103,7 +104,7 @@ Azure Migrate 收集器服務應在機器上執行。 此服務會在機器開�
 
 收集器應連線到 vCenter Server，而且能夠查詢虛擬機器、其中繼資料及其效能計數器。 專案會使用這項資料來計算評量。
 
-1. 若要連線至 vCenter Server，可以使用具有下表中所提供權限的唯讀帳戶來執行探索。 
+1. 若要連線至 vCenter Server，可以使用具有下表中所提供權限的唯讀帳戶來執行探索。
 
     |Task  |必要的角色/帳戶  |權限  |
     |---------|---------|---------|
@@ -118,13 +119,13 @@ Azure Migrate 收集器服務應在機器上執行。 此服務會在機器開�
 > 僅正式支援 vCenter Server 5.5、6.0 和 6.5 版。
 
 > [!IMPORTANT]
-> 我們建議您為統計資料層級設定最高的一般層級 (3)，以正確收集所有計數器。 如果您的 vCenter 設定為較低層級，只有幾個計數器能完整收集，其他會設定為 0。 因此評定可能會顯示不完整的資料。 
+> 我們建議您為統計資料層級設定最高的一般層級 (3)，以正確收集所有計數器。 如果您的 vCenter 設定為較低層級，只有幾個計數器能完整收集，其他會設定為 0。 因此評定可能會顯示不完整的資料。
 
 ### <a name="selecting-the-scope-for-discovery"></a>選取探索的範圍
 
 連線到 vCenter 後，您可以選取要探索的範圍。 選取範圍，即可探索指定的 vCenter 清查路徑中的所有虛擬機器。
 
-1. 此範圍可以是資料中心、資料夾或 ESXi 主機。 
+1. 此範圍可以是資料中心、資料夾或 ESXi 主機。
 2. 您一次只能選取一個範圍。 若要選取多部虛擬機器，您可以完成一次探索，然後以新的範圍重新啟動探索程序。
 3. 您只能選取「少於 1500 部虛擬機器」的範圍。
 
@@ -141,14 +142,15 @@ Azure Migrate 收集器服務應在機器上執行。 此服務會在機器開�
 
 ### <a name="what-data-is-collected"></a>收集了哪些資料？
 
-收集作業會探索下列關於所選虛擬機器的靜態中繼資料。 
+收集作業會探索下列關於所選虛擬機器的靜態中繼資料。
 
 1. VM 顯示名稱 (在 vCenter 上)
 2. VM 的清查路徑 (vCenter 中的主機/資料夾)
 3. IP 位址
 4. MAC 位址
+5. 作業系統
 5. 核心、磁碟、NIC 數目
-6. RAM、磁碟大小
+6. 記憶體大小、磁碟大小
 7. 以及 VM、磁碟及網路的效能計數器，如下表所列。
 
 下表列出已收集的效能計數器，還列出未收集特定計數器時受到影響的評量結果。
@@ -190,7 +192,7 @@ Azure Migrate 收集器服務應在機器上執行。 此服務會在機器開�
 2. 若要確保下載的 Hotfix 是安全的，請開啟系統管理員命令視窗並執行下列命令來產生 ZIP 檔案的雜湊。 產生的雜湊應該符合針對特定版本所述的雜湊：
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
+
     (使用範例：C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
 3. 將 ZIP 檔案複製到 Azure Migrate 收集器虛擬機器 (收集器設備)。
 4. 以滑鼠右鍵按一下 ZIP 檔案並選取 [全部解壓縮]。

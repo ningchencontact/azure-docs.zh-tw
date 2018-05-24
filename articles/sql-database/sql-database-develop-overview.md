@@ -10,11 +10,12 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: dc78a43fb99428eac921dd0cfffe5547f523a133
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 37f143ce9dabdc2d0eaf6c60dd551c682a141c17
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187669"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 應用程式開發概觀
 本文將逐步解說開發人員在撰寫程式碼以連接到 Azure SQL Database 時應注意的基本考量事項。
@@ -34,7 +35,7 @@ ms.lasthandoff: 04/06/2018
 ## <a name="resource-limitations"></a>資源限制
 Azure SQL Database 使用兩種不同機制來管理資料庫可使用的資源：資源管理和限制強制執行。
 
-* 詳細資訊：[Azure SQL Database 資源限制](sql-database-service-tiers.md)。
+* 更多資訊：[Azure SQL Database 以 DTU 為基礎的資源模型限制](sql-database-dtu-resource-limits.md)和 [Azure SQL Database 以虛擬核心為基礎的資源模型限制 (預覽)](sql-database-vcore-resource-limits.md)。
 
 ## <a name="security"></a>安全性
 Azure SQL Database 提供資源以在 SQL Database 上限制存取、保護資料，以及監視活動。

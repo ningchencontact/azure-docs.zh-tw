@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect 和一般資料保護規定 | Microsoft Docs
+title: Azure AD Connect 與使用者隱私權 | Microsoft Docs
 description: 本文件說明如何使用 Azure AD Connect 取得 GDPR 合規性。
 services: active-directory
 documentationcenter: ''
@@ -11,36 +11,35 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a1fa7f58040b420bf52d89a57b1234416c2fb939
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149384"
 ---
-# <a name="gdpr-compliance-and-azure-ad-connect"></a>GDPR 合規性與 Azure AD Connect 
+# <a name="user-privacy-and-azure-ad-connect"></a>使用者隱私權與 Azure AD Connect 
 
-歐洲有一條隱私權法律 ([一般資料保護規定 (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)) 將在 2018 年 5 月生效。 GDPR 會針對想要提供商品和服務給歐盟 (EU) 居民，或想要收集和分析 EU 居民相關資料的公司、政府機關、非營利組織和其他組織，施加新的規則。 無論您位於何處都會適用 GDPR。 
-
-Microsoft 產品和服務目前均可幫助您符合 GDPR 需求。 在[信任中心](https://www.microsoft.com/trustcenter)深入了解 Microsoft 隱私權原則
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
->本文會討論 Azure AD Connect 和 GDPR 合規性。  如需 Azure AD Connect Health 和 GDPR 合規性的相關資訊，請參閱[這裡](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)的文章。
+>本文會討論 Azure AD Connect 與使用者隱私權。  如需 Azure AD Connect Health 與使用者隱私權的相關資訊，請參閱[這裡](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)的文章。
 
-Azure AD Connect 安裝的一般資料保護規定合規性可以透過兩種方式來達成：
+Azure AD Connect 安裝的使用者隱私權合規性可以透過兩種方式來達成：
 
 1.  在接到要求時擷取使用者的資料，並從安裝中移除該使用者的資料
 2.  確保沒有資料會保留超過 48 小時。
 
 Azure AD Connect 小組建議採用第二個選項，因為此選項較容易實作及維護。
 
-Azure AD Connect 同步伺服器會儲存下列符合 GDPR 合規性適用範圍的資料：
+Azure AD Connect 同步處理伺服器會儲存下列使用者隱私權資料：
 1.  **Azure AD Connect 資料庫**中的個人相關資料
 2.  **Windows 事件記錄**檔案中可能包含個人相關資訊的資料
 3.  **Azure AD Connect 安裝記錄檔**中可能包含的個人相關資料
 
-若要符合 GDPR，Azure AD Connect 客戶應該使用下列指導方針：
+Azure AD Connect 客戶應該在移除使用者資料時使用下列指導方針：
 1.  定期刪除 Azure AD Connect 安裝記錄檔所在資料夾中的內容 – 至少每 48 小時一次
 2.  此產品也可能會建立事件記錄檔。  若要深入了解事件記錄檔的記錄，請參閱[這裡的文件](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx)。
 
@@ -82,5 +81,5 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
 
 
 ## <a name="next-steps"></a>後續步驟
-- [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
-- [Azure AD Connect Health 和 GDPR](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)
+* [在信任中心檢閱 Microsoft 隱私權原則](https://www.microsoft.com/trustcenter)
+- [Azure AD Connect Health 與使用者隱私權](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)

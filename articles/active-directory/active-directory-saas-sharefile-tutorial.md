@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Citrix ShareFile 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Citrix ShareFile 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Citrix ShareFile 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Citrix ShareFile 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2017
+ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 8473c262f98e77708f01d17419e935979a533307
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0e860c1f1db77026e775191c76350333aa66dc7f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34345872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>教學課程：Azure Active Directory 與 Citrix ShareFile 整合
 
@@ -30,7 +31,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 - 您可以讓使用者使用他們的 Azure AD 帳戶，自動登入 Citrix ShareFile (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -58,7 +59,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Citrix ShareFile，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -108,14 +109,33 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 
     ![Citrix ShareFile 網域與 URL 單一登入資訊](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_url.png)
     
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<tenant-name>.sharefile.com/saml/login`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<tenant-name>.sharefile.com/saml/login`
 
-    > [!NOTE] 
-    > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Citrix ShareFile 用戶端支援小組](https://www.citrix.co.in/products/sharefile/support.html)以取得此值。 
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：
+
+    | |
+    |---|
+    | `https://<tenant-name>.sharefile.com`|
+    | `https://<tenant-name>.sharefile.com/saml/info`|
+    | `https://<tenant-name>.sharefile1.com/saml/info`|
+    | `https://<tenant-name>.sharefile1.eu/saml/info`|
+    | `https://<tenant-name>.sharefile.eu/saml/info`|
+    | |
+    
+    c. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
+    | |
+    |---|
+    | `https://<tenant-name>.sharefile.com/saml/acs`|
+    | `https://<tenant-name>.sharefile.eu/saml/<URL path>`|
+    | `https://<tenant-name>.sharefile.com/saml/<URL path>`|
+    | |
+
+    > [!NOTE]
+    > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [Citrix ShareFile 用戶端支援小組](https://www.citrix.co.in/products/sharefile/support.html)以取得這些值。
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
-    ![憑證下載連結](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png) 
+    ![憑證下載連結](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png)
 
 5. 按一下 [儲存]  按鈕。
 
@@ -123,7 +143,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 
 6. 在 [Citrix ShareFile 設定] 區段中，按一下 [設定 Citrix ShareFile] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
-    ![Citrix ShareFile 設定](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png) 
+    ![Citrix ShareFile 設定](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png)
 
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 **Citrix ShareFile** 公司網站。
 
@@ -148,10 +168,6 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
     e. 在 [登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
 
 11. 在 Citrix ShareFile 管理入口網站上，按一下 [儲存]  。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -252,9 +268,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
-
-
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -269,4 +283,3 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_203.png
-

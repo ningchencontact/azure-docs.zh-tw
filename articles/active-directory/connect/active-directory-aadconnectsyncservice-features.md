@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 534e4e6d8b6ea2bfc059383e3e55c0352678ee04
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: eb2a670735db8a72163967d89d0359b4b89a3e2f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150340"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 同步處理服務功能
 Azure AD connect 同步處理功能有兩個元件：
@@ -56,7 +57,7 @@ Azure AD connect 同步處理功能有兩個元件：
 | DeviceWriteback |[Azure AD Connect：啟用裝置回寫](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect 同步處理：目錄擴充](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |如果屬性是另一個物件的複本，即會將該屬性隔離，而不會在匯出期間導致整個物件失敗。 |
-| PasswordSync |[使用 Azure AD Connect 同步處理實作密碼同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| PasswordSync |[使用 Azure AD Connect 同步來實作密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md) \(英文\) |
 | UnifiedGroupWriteback |[預覽：群組回寫](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |目前不支援。 |
 
@@ -88,7 +89,7 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 如需詳細資訊，請參閱 [Office 365、Azure 或 Intune 中的使用者名稱不符合內部部署的 UPN 或替代登入識別碼](https://support.microsoft.com/kb/2523192)。
 
-當內部部署中的 userPrincipalName 有所變更，且您使用密碼同步處理時，啟用此功能可讓同步處理引擎更新 userPrincipalName。如果您使用同盟，則不支援這項功能。
+當內部部署中的 userPrincipalName 有所變更，且您使用密碼雜湊同步處理時，啟用此功能可讓同步處理引擎更新 userPrincipalName。如果您使用同盟，則不支援這項功能。
 
 在新建立的 Azure AD 目錄中，預設會開啟這項功能。 您可以執行下列項目，查看是否已啟用此功能︰  
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect：無縫單一登入 - GDPR 合規性 | Microsoft Docs
+title: 使用者隱私權與 Azure AD 無縫單一登入 | Microsoft Docs
 description: 本文說明 Azure Active Directory (Azure AD) 無縫 SSO 和 GDPR 合規性。
 services: active-directory
 keywords: 何謂 Azure AD Connect、GDPR、Azure AD 的必要元件、SSO、單一登入
@@ -12,27 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: 0c7ed376accb1eed01106358491e925d3b8126c5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149522"
 ---
-# <a name="azure-ad-seamless-single-sign-on-gdpr-compliance"></a>Azure AD 無縫單一登入：GDPR 合規性
+# <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>使用者隱私權與 Azure AD 無縫單一登入
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>概觀
 
-歐洲有一條隱私權法律 ([一般資料保護規定 (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)) 將在 2018 年 5 月生效。 GDPR 會針對想要提供商品和服務給歐盟 (EU) 居民，或想要收集和分析 EU 居民相關資料的公司、政府機關、非營利組織和其他組織，施加新的規則。 無論您位於何處都會適用 GDPR。 
-
-Microsoft 產品和服務目前均可幫助您符合 GDPR 需求。 在[信任中心](https://www.microsoft.com/trustcenter)深入了解 Microsoft 隱私權原則。
 
 Azure AD 無縫 SSO會建立下列記錄類型，其中可以包含 EUII：
 
 - Azure AD Connect 追蹤記錄檔。
 
-有兩種方式可以建立無縫 SSO 的 GDPR 合規性：
+適用於無縫 SSO 的使用者隱私權合規性可透過兩種方式來達成：
 
 1.  在接到要求時擷取使用者的資料，並從安裝中移除該使用者的資料。
 2.  確保沒有資料會保留超過 48 小時。
@@ -65,6 +65,6 @@ Foreach ($file in $Files) {
 如果已啟用稽核記錄，這項產品可能會針對您的網域控制站產生安全性記錄。 若要深入了解設定稽核原則，請閱讀[這篇文章](https://technet.microsoft.com/library/dd277403.aspx)。
 
 ## <a name="next-steps"></a>後續步驟
-
+* [在信任中心檢閱 Microsoft 隱私權原則](https://www.microsoft.com/trustcenter)
 - [**疑難排解**](active-directory-aadconnect-troubleshoot-sso.md) - 了解如何解決此功能的常見問題。
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用於提出新的功能要求。

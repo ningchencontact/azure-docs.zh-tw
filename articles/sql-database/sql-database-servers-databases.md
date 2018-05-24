@@ -9,18 +9,19 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 829cedea9752fe41ad24427339d3f13c2f3e371a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3ffae541020a2672affab774ee6da2a8c707745f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195527"
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>建立和管理 Azure SQL Database 伺服器與資料庫
 
 SQL Database 提供三種類型的資料庫：
 
-- 建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內的單一資料庫，此資源群組具有一組已定義的[計算和儲存體資源來用於不同工作負載](sql-database-service-tiers.md)。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。
-- 建立成 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內[資料庫集區](sql-database-elastic-pool.md)成員的資料庫，此資源群組具有一組已定義的[計算和儲存體資源來用於不同工作負載](sql-database-service-tiers.md)，這些工作負載為集區內的所有資料庫所共用。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。
+- 建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內的單一資料庫，此資源群組具有[一組合併的計算和儲存體資源](sql-database-service-tiers-dtu.md)或[獨立的計算和儲存體資源規模](sql-database-service-tiers-vcore.md)。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。
+- 建立為 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內[資料庫集區](sql-database-elastic-pool.md)成員的資料庫，此資源群組具有[一組合併的計算和儲存體資源 (以 DTU 為基礎)](sql-database-service-tiers-dtu.md) 或[獨立的計算和儲存體資源規模 (以虛擬核心為基礎)](sql-database-service-tiers-vcore.md)，這些資源為集區內的所有資料庫所共用。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。
 - 建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內的 [SQL Server 執行個體](sql-database-managed-instance.md) (受控執行個體)，此資源群組具有一組已定義計算和儲存體資源，可供該伺服器執行個體上所有的資料庫使用。 受控執行個體同時包含系統和使用者資料庫。 「受控執行個體」的設計目的是要讓資料庫可原封不動轉移至完全受控的 PaaS，而不必重新設計應用程式。 「受控執行個體」針對內部部署 SQL Server 程式設計模型提供高相容性，並支援大多數 SQL Server 功能及隨附的工具與服務。  
 
 Microsoft Azure SQL Database 支援表格式資料流 (TDS) 通訊協定用戶端 7.3 版或更新版本，且只允許使用加密的 TCP/IP 連線。
@@ -52,7 +53,7 @@ Azure 資料庫邏輯伺服器：
 - 提供用來存取資料庫的連接端點 (<serverName>.database.windows.net)
 - 藉由連接到 master 資料庫提供存取有關透過 DMV 內含資源的中繼資料 
 - 提供適用於其資料庫的管理原則範圍 - 登入、防火牆、稽核、威脅偵測等等 
-- 受父訂用帳戶內的配額限制 (每個訂用帳戶預設二十部伺服器 - [在此參閱訂用帳戶限制](../azure-subscription-service-limits.md))
+- 受父訂用帳戶內的配額限制 (每個訂用帳戶預設六部伺服器 - [在此參閱訂用帳戶限制](../azure-subscription-service-limits.md))
 - 提供其包含之資源的資料庫配額和 DTU 或虛擬核心配額範圍 (例如 45,000 DTU)
 - 內含資源上啟用功能的版本控制範圍 
 - 伺服器層級主體登入可以管理伺服器上的所有資料庫
@@ -65,11 +66,11 @@ Azure 資料庫邏輯伺服器：
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>使用 Azure 入口網站管理 Azure SQL 伺服器、資料庫和防火牆
 
-您可以事先或在建立伺服器本身的同時，建立 Azure SQL Database 的資源群組。 
+您可以事先或在建立伺服器本身的同時，建立 Azure SQL Database 的資源群組。 有多種方法可以使用新的 SQL Server 表單，可以透過建立新的 SQL Server，或是在建立新資料庫時一起使用。 
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>建立空白的 SQL Server (邏輯伺服器)
 
-若要使用 [Azure 入口網站](https://portal.azure.com)建立 Azure SQL Database 伺服器 (不含資料庫)，請瀏覽至空白的 SQL (邏輯伺服器) 伺服器表單。  
+若要使用 [Azure 入口網站](https://portal.azure.com)建立 Azure SQL Database 伺服器 (不含資料庫)，請瀏覽至空白的 SQL Server (邏輯伺服器) 表單。  
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>建立空白或範例 SQL 資料庫
 
@@ -78,7 +79,7 @@ Azure 資料庫邏輯伺服器：
   ![建立資料庫-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> 如需選取資料庫定價層的資訊，請參閱[服務層](sql-database-service-tiers.md)。
+> 如需選取資料庫定價層的資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)。
 
 若要建立「受控執行個體」，請參閱[建立受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)
 
@@ -91,7 +92,7 @@ Azure 資料庫邏輯伺服器：
    ![伺服器防火牆規則](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> 若要設定資料庫的效能屬性，請參閱[服務層](sql-database-service-tiers.md)。
+> 若要設定資料庫的效能屬性，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)。
 >
 
 > [!TIP]

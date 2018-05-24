@@ -7,14 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f9da67c885974be674f6e88aaacfe66bdc0d58a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 09fd39865a52767195ebf7dad13f24d883af476a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192776"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中搭配使用工作負載管理與資源類別
 指引如何在 Azure SQL 資料倉儲中，使用資源類別來管理查詢的記憶體與並行存取。  
@@ -22,29 +23,31 @@ ms.lasthandoff: 04/18/2018
 ## <a name="what-is-workload-management"></a>什麼是工作負載管理？
 工作負載管理是將所有查詢的整體效能最佳化的能力。 精心調整的工作負載會有效率地執行查詢和載入作業，而不論它們是否為計算密集型或 IO 密集型的作業。  SQL 資料倉儲會針對多使用者環境提供工作負載管理功能。 資料倉儲不適用於多租用戶工作負載。
 
-資料倉儲的效能處理能力取決於[效能等級](memory-and-concurrency-limits.md#performance-tiers)與[資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)。 
+資料倉儲的效能處理能力取決於[資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)。 
 
 - 若要檢視所有效能設定檔的記憶體和並行存取限制，請參閱[記憶體與並行存取限制](memory-and-concurrency-limits.md)。
 - 若要調整效能處理能力，您可以[相應增加或減少](quickstart-scale-compute-portal.md)。
 
-查詢的效能處理能力取決於查詢的資源類別。 此本文其餘部分說明什麼是資源類別，以及要如何調整。
-
+查詢的效能處理能力取決於查詢的資源類別。 本文其餘部分說明什麼是資源類別，以及要如何調整它們。
 
 ## <a name="what-are-resource-classes"></a>什麼是資源類別？
-資源類別是 Azure SQL 資料倉儲中預先決定的資源限制，掌管查詢執行時的計算資源與並行存取。 資源類別可藉由對同時執行的查詢數目和指派給每個查詢的計算資源數目設限，協助您管理工作負載。 記憶體和並行存取之間各有取捨。
+查詢的效能處理能力取決於使用者的資源類別。  資源類別是 Azure SQL 資料倉儲中預先決定的資源限制，掌管查詢執行時的計算資源與並行存取。 資源類別可藉由對同時執行的查詢數目和指派給每個查詢的計算資源數目設限，協助您管理工作負載。 記憶體和並行存取之間各有取捨。
 
 - 較小型的資源類別會減少每個查詢的記憶體上限，但會增加並行存取數。
 - 較大型的資源類別會增加每個查詢的記憶體上限，但會減少並行存取數。 
 
-查詢的效能處理能力取決於使用者的資源類別。
+有兩種類型的資源類別：
 
-- 若要檢視資源類別的資源使用率，請參閱[記憶體和並行存取限制](memory-and-concurrency-limits.md#concurrency-maximums)。
-- 若要調整資源類別，您可以在不同的使用者下執行查詢，或[變更目前使用者的資源類別](#change-a-user-s-resource-class)成員資格。 
+- 靜態資源類別：適合在大小固定的資料集上增加並行存取作業數目。
+- 動態資源類別：適合會隨服務等級相應增加而增長大小並提升效能的資料集。   
 
 資源類別會使用並行位置來測量資源耗用量。  [並行位置](#concurrency-slots)稍後會在本文中加以說明。 
 
+- 若要檢視資源類別的資源使用率，請參閱[記憶體和並行存取限制](memory-and-concurrency-limits.md#concurrency-maximums)。
+- 若要調整資源類別，您可以在不同的使用者下執行查詢，或[變更目前使用者的資源類別](#change-a-users-resource-class)成員資格。 
+
 ### <a name="static-resource-classes"></a>靜態資源類別
-靜態資源類別會配置相同數量的記憶體，而不論目前的效能等級為何，這會以[資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)來測量。 由於不論效能等級為何，查詢取得的記憶體配置都相同，[相應放大資料倉儲](quickstart-scale-compute-portal.md)可讓在資源類別內執行更多的查詢。
+靜態資源類別會配置相同數量的記憶體，而不論目前的效能等級為何，這會以[資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)來測量。 由於不論效能等級為何，查詢取得的記憶體配置都相同，[相應放大資料倉儲](quickstart-scale-compute-portal.md)可讓在資源類別內執行更多的查詢。  如果資料磁碟區為已知且不會改變，靜態資源類別就非常適合。
 
 這些預先定義的資料庫角色會用來實作靜態資源類別：
 
@@ -57,19 +60,31 @@ ms.lasthandoff: 04/18/2018
 - staticrc70
 - staticrc80
 
-這些資源類別最適合增加資源類別以取得額外計算資源的解決方案。
-
 ### <a name="dynamic-resource-classes"></a>動態資源類別
-動態資源類別會根據目前的服務等級來配置數量不一的記憶體。 當您相應增加為較大的服務等級時，查詢會自動獲得更多記憶體。 
+動態資源類別會根據目前的服務等級來配置數量不一的記憶體。 靜態資源類別有利於較高的並行存取和靜態資料磁碟區，動態資源類別則更適合正在成長或數量不一的資料。  當您相應增加為較大的服務等級時，查詢會自動獲得更多記憶體。  
 
 這些預先定義的資料庫角色會用來實作動態資源類別：
 
 - smallrc
 - mediumrc
 - largerc
-- xlargerc。 
+- xlargerc 
 
-這些資源類別最適合增加計算規模以取得額外資源的解決方案。 
+### <a name="gen2-dynamic-resource-classes-are-truly-dynamic"></a>Gen2 動態資源類別是名符其實的動態
+當深入探討 Gen1 上的動態資源類別詳細資料時，有一些細節會增加了解其行為的額外複雜度：
+
+- Smallrc 資源類別搭配固定的記憶體模型運作，就像靜態資源類別一樣。  Smallrc 查詢不會隨服務等級提升而動態地取得更多記憶體。
+- 當服務等級變更時，可用的查詢並行存取作業會增加或減少。
+- 調整服務等級不會等比例變更配置給相同資源類別的記憶體。
+
+在**僅 Gen2** 上，動態資源類別才會真正以動態方式處理上面提到的點。  針對 small-medium-large-xlarge 資源類別配置記憶體百分比的新規則是 3-10-22-70，**不論服務等級為何**。  下表是記憶體配置百分比與可執行的並行存取查詢數目下限詳細資料，不論服務等級為何。
+
+| 資源類別 | 記憶體百分比 | 並行存取查詢下限 |
+|:--------------:|:-----------------:|:----------------------:|
+| smallrc        | 3%                | 32                     |
+| mediumrc       | 10%               | 10                     |
+| largerc        | 22%               | 4                      |
+| xlargerc       | 70%               | 1                      |
 
 
 ### <a name="default-resource-class"></a>預設的資源類別
@@ -145,22 +160,23 @@ Removed as these two are not confirmed / supported under SQLDW
 
 資源類別會實作為預先定義的資料庫角色。 有兩種類型的資源類別：動態和靜態。 檢視資源類別清單，請使用下列查詢：
 
-    ```sql
-    SELECT name FROM sys.database_principals
-    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
-    ```
+```sql
+SELECT name 
+FROM   sys.database_principals
+WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+```
 
 ## <a name="change-a-users-resource-class"></a>變更使用者的資源類別
 
 資源類別會藉由將使用者指派給資料庫角色來實作。 當使用者執行查詢時，查詢會利用使用者的資源類別來執行。 例如，當使用者為 smallrc 或 staticrc10 資料庫角色的成員時，他們的查詢會利用少量記憶體來執行。 當資料庫使用者為 xlargerc 或 staticrc80 資料庫角色的成員時，他們的查詢會利用大量記憶體來執行。 
 
-若要增加使用者的資源類別，請使用預存程序 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) \(英文\)。 
+若要增加使用者的資源類別，請使用預存程序 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) \(機器翻譯\)。 
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-若要減少資源類別，使用 [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) \(英文\)。  
+若要減少資源類別，使用 [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) \(機器翻譯\)。  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';
@@ -198,7 +214,7 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>尋找最佳資源類別的範例程式碼
  
-您可以使用下列預存程序，找出在給定 SLO 時要對每個資源類別授與的並行存取能力和記憶體，以及在給定資源類別時最適合非分割 CCI 資料表上的記憶體密集 CCI 作業使用的最接近資源類別：
+您可以在**僅 Gen1**上使用下列預存程序，找出在給定 SLO 時要對每個資源類別授與的並行存取能力和記憶體，以及在給定資源類別時最適合非分割 CCI 資料表上的記憶體密集 CCI 作業使用的最接近資源類別：
 
 以下是此預存程序的用途：  
 1. 在指定的 SLO，查看對每個資源類別授與的並行和記憶體。 使用者必須同時為結構描述和 tablename 提供 NULL，如此範例所示。  
@@ -229,6 +245,10 @@ EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';
 EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;  
 EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
 ```
+> [!NOTE]
+> 此版本預存程序中定義的值僅適用於 Gen1。
+>
+>
 
 下列陳述式會建立要在前述範例中使用的 Table1。
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
@@ -295,7 +315,7 @@ AS
   UNION ALL
     SELECT 'DW400', 16, 16, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
-     SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
+    SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
     SELECT 'DW600', 24, 24, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
@@ -307,7 +327,7 @@ AS
   UNION ALL
     SELECT 'DW2000', 32, 80, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
-   SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
+    SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
     SELECT 'DW6000', 32, 240, 1, 32, 64, 128, 1, 2, 4, 8, 16, 32, 64, 128
 )

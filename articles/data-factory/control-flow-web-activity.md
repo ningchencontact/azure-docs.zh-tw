@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 05/01/2018
 ms.author: shlo
-ms.openlocfilehash: e6846661370fcad139730fc0443d9df54fa12a70
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 58faed48f5031b26f1340f3766fdd8bdc6bd2ccb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770752"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Web 活動
 使用 Web 活動可以從 Data Factory 管線呼叫自訂的 REST 端點。 您可以傳遞資料集和連結服務，以供活動取用和存取。 
@@ -78,6 +79,16 @@ linkedServices | 傳遞至端點的連結服務清單。 | 連結服務參考的
 
 > [!NOTE]
 > Web 活動叫用的 REST 端點必須傳回 JSON 類型的回應。 如果活動未在 1 分鐘內收到來自端點的回應，就會發生逾時並出現錯誤。
+
+下表顯示 JSON 內容的需求：
+
+| 值類型 | Request body | Response body |
+|---|---|---|
+|JSON 物件 | 支援 | 支援 |
+|JSON 陣列 | 支援 <br/>(目前，JSON 陣列因為錯誤的結果無法運作。 正在執行修正。) | 不支援 |
+| JSON 值 | 支援 | 不支援 |
+| 非 JSON 型別 | 不支援 | 不支援 |
+||||
 
 ## <a name="authentication"></a>驗證
 

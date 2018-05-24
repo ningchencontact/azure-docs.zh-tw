@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: d72a4de8591898a55e4225ace154fd5ed53e6f91
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 847fe0c08d442388cfa506042272bb358058cb4c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194683"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure 服務匯流排中的 AMQP 1.0：要求/回應架構作業
 
@@ -69,7 +70,8 @@ role: RECEIVER,
 ### <a name="transfer-a-request-message"></a>傳輸要求訊息  
 
 傳輸要求訊息。  
-  
+支援交易的作業可以選擇性地新增交易狀態。
+
 ```  
 requestLink.sendTransfer(  
         Message(  
@@ -79,8 +81,12 @@ requestLink.sendTransfer(
                 },  
                 application-properties: {  
                         "operation" -> "<operation>",  
-                },  
-        )  
+                }
+        ),
+        [Optional] State = transactional-state: {
+                txn-id: <txn-id>
+        }
+)
 ```  
   
 ### <a name="receive-a-response-message"></a>接收回應訊息  
@@ -195,7 +201,7 @@ properties: {
   
 ### <a name="schedule-message"></a>排程訊息  
 
-排程訊息。  
+排程訊息。 此作業支援交易。
   
 #### <a name="request"></a>要求  
 
@@ -217,8 +223,9 @@ properties: {
 |Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
 |message-id|字串|yes|`amqpMessage.Properties.MessageId` 為字串|  
-|session-id|字串|yes|`amqpMessage.Properties.GroupId as string`|  
-|partition-key|字串|yes|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
+|session-id|字串|否|`amqpMessage.Properties.GroupId as string`|  
+|partition-key|字串|否|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|via-partition-key|字串|否|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
 |Message|位元組的陣列|yes|AMQP 1.0 連線編碼訊息。|  
   
 #### <a name="response"></a>Response  
@@ -537,6 +544,85 @@ sql-filter 對應必須包含下列項目：
 |StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗|  
 |statusDescription|字串|否|狀態的描述。|  
   
+### <a name="get-rules"></a>取得規則
+
+#### <a name="request"></a>要求
+
+要求訊息必須包含下列應用程式屬性：
+
+|Key|值類型|必要|值內容|  
+|---------|----------------|--------------|--------------------|  
+|operation|字串|yes|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|uint|否|作業伺服器逾時以毫秒為單位。|  
+
+要求訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
+  
+|Key|值類型|必要|值內容|  
+|---------|----------------|--------------|--------------------|  
+|top|int|yes|頁面中要提取的規則數目。|  
+|skip|int|yes|要略過的規則數目。 定義規則清單中的起始索引 (+ 1)。 | 
+
+#### <a name="response"></a>Response
+
+回應訊息包含下列屬性：
+
+|Key|值類型|必要|值內容|  
+|---------|----------------|--------------|--------------------|  
+|StatusCode|int|yes|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 成功，否則失敗|  
+|規則| 對應的陣列|yes|規則的陣列。 每個規則都是以對應表示。|
+
+陣列中的每個對應項目都包含下列屬性：
+
+|Key|值類型|必要|值內容|  
+|---------|----------------|--------------|--------------------|  
+|rule-description|描述物件的陣列|yes|`com.microsoft:rule-description:list` 以及 AMQP 描述代碼 0x0000013700000004| 
+
+`com.microsoft.rule-description:list` 是描述物件的陣列。 此陣列包含下列各項：
+
+|索引|值類型|必要|值內容|  
+|---------|----------------|--------------|--------------------|  
+| 0 | 描述物件的陣列 | yes | `filter` 詳述如下。 |
+| 1 | 描述物件的陣列 | yes | `ruleAction` 詳述如下。 |
+| 2 | 字串 | yes | 規則的名稱。 |
+
+`filter` 可以是下列類型之一：
+
+| 描述項名稱 | 描述項代碼 | 值 |
+| --- | --- | ---|
+| `com.microsoft:sql-filter:list` | 0x000001370000006 | SQL 篩選 |
+| `com.microsoft:correlation-filter:list` | 0x000001370000009 | 相互關聯篩選 |
+| `com.microsoft:true-filter:list` | 0x000001370000007 | 表示 1=1 的 True 篩選 |
+| `com.microsoft:false-filter:list` | 0x000001370000008 | 表示 1=0 的 False 篩選 |
+
+`com.microsoft:sql-filter:list` 是描述陣列，其中包括：
+
+|索引|值類型|必要|值內容|  
+|---------|----------------|--------------|--------------------|  
+| 0 | 字串 | yes | Sql 篩選運算式 |
+
+`com.microsoft:correlation-filter:list` 是描述陣列，其中包括：
+
+|索引 (若存在)|值類型|值內容|  
+|---------|----------------|--------------|--------------------|  
+| 0 | 字串 | 相互關連識別碼 |
+| 1 | 字串 | 訊息識別碼 |
+| 2 | 字串 | 至 |
+| 3 | 字串 | 回覆地址 |
+| 4 | 字串 | 標籤 |
+| 5 | 字串 | 工作階段識別碼 |
+| 6 | 字串 | 回覆至工作階段識別碼|
+| 7 | 字串 | 內容類型 |
+| 8 | 對應 | 應用程式定義屬性的對應 |
+
+`ruleAction` 可以是下列類型之一：
+
+| 描述項名稱 | 描述項代碼 | 值 |
+| --- | --- | ---|
+| `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | 空白規則動作 - 沒有規則動作 |
+| `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | SQL 規則動作 |
+
+`com.microsoft:sql-rule-action:list` 是描述物件的陣列，它的第一個項目是字串，其中包含 SQL 規則動作的運算式。
+
 ## <a name="deferred-message-operations"></a>延遲的訊息作業  
   
 ### <a name="receive-by-sequence-number"></a>依照序號接收  
@@ -583,7 +669,7 @@ sql-filter 對應必須包含下列項目：
   
 ### <a name="update-disposition-status"></a>更新配置狀態  
 
-更新延遲訊息的配置狀態。  
+更新延遲訊息的配置狀態。 此作業支援交易。
   
 #### <a name="request"></a>要求  
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2245fcdaa8b7e85ea37e9af9c939cd188c4d7ed9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157137"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core 的 Application Insights
 
@@ -187,13 +188,13 @@ Application Insights 的負荷極低。 若要檢視新增 Application Insights 
 
    ![即時計量資料流的螢幕擷取畫面](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
 
-   (如果您的 PowerShell 指令碼仍在執行，您應該會看到即時計量，如果已停止，請再次執行指令碼，並讓即時資料流維持開啟狀態。)
+   (如果您的 PowerShell 指令碼仍在執行，您應該會看到即時計量，如果它已停止，請再次執行指令碼，並讓即時資料流維持開啟狀態。)
 
 ## <a name="app-insights-sdk-comparison"></a>App Insights SDK 的比較
 
 Application Insights 產品群組已致力於盡可能達到[完整 .NET Framework SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)與 .Net Core SDK 之間最接近的功能同位。 Application Insights 的 2.2.0 版 [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) 已大幅度縮小功能差距。
 
-深入了解 [.NET 與 .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server)之間的差異和權衡。
+深入了解 [.NET 與 .NET Core](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server)之間的差異和權衡。
 
    | SDK 比較 | ASP.NET        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
   |:-- | :-------------: |:------------------------:|:----------------------:|
@@ -203,7 +204,7 @@ Application Insights 產品群組已致力於盡可能達到[完整 .NET Framewo
    | **SQL 相依性呼叫數**     | **+** |**-** | **+**|
    | **效能計數器*** | **+** | **-**| **-**|
 
-此內容中的_效能計數器_是指[伺服器端效能計數器](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters)，例如處理器、記憶體和磁碟使用狀況。
+此內容中的_效能計數器_是指[伺服器端效能計數器](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters)，例如處理器、記憶體和磁碟使用狀況。
 
 ## <a name="open-source-sdk"></a>開放原始碼 SDK
 [讀取和貢獻程式碼](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)

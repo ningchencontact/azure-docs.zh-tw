@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 TrackVia 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 TrackVia 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 TrackVia 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 TrackVia 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 51b040e1dfaba8fff8136e8947edf716919f53b0
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: f0b0a2f29a1c14477fcd52e03fdfc47fee728c78
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34348388"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>教學課程：Azure Active Directory 與 TrackVia 整合
 
@@ -30,7 +31,7 @@ TrackVia 與 Azure AD 整合提供下列優點：
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 TrackVia (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -58,7 +59,7 @@ TrackVia 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 TrackVia，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -126,11 +127,22 @@ TrackVia 與 Azure AD 整合提供下列優點：
 6. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-trackvia-tutorial/tutorial_general_400.png)
-    
-7. 若要在 **TrackVia** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [TrackVia 支援小組](mailto:support@trackvia.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. 在 [TrackVia 設定] 區段上，按一下 [設定 TrackVia] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 實體識別碼]。
+
+    ![TrackVia 設定](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_configure.png)
+    
+8. 在另一個瀏覽器視窗中，以系統管理員身分登入您的 TrackVia 公司網站。
+
+9. 按一下 Trackvia [我的帳戶] 設定，然後選取 [單一登入] 索引標籤並執行下列步驟：
+
+    ![TrackVia 設定](./media/active-directory-saas-trackvia-tutorial/configure1.png)
+
+    a. 在 [識別提供者實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 **SAML 實體識別碼**值。
+
+    b. 選取 [選擇檔案]，以上傳您從 Azure 入口網站下載的中繼資料檔案。
+
+    c. 按一下 [儲存] 
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -210,9 +222,7 @@ TrackVia 與 Azure AD 整合提供下列優點：
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
-
-
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -227,4 +237,3 @@ TrackVia 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_203.png
-

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: billmath
-ms.openlocfilehash: d3c1c080c1198fd75916a119d4bb08c8db50a05d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 506206d3e0a28f2ffc0e9e029ec27546bc332754
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32160050"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步處理：將屬性同步處理至 Azure Active Directory
 本主題列出 Azure AD Connect 同步處理所同步處理的屬性。  
@@ -42,7 +43,7 @@ ms.lasthandoff: 03/08/2018
 | cn |X | |
 | displayName |X | |
 | objectSID |X |機械屬性。 AD 使用者識別碼，可用來維持 Azure AD 和 AD 之間的同步處理。 |
-| pwdLastSet |X |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼同步處理和同盟使用。 |
+| pwdLastSet |X |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼雜湊同步處理、傳遞驗證和同盟使用。 |
 | sourceAnchor |X |機械屬性。 不可變的識別碼，可維持 ADDS 與 Azure AD 之間的關聯性。 |
 | usageLocation |X |機械屬性。 使用者的國家/地區。 用於授權指派。 |
 | userPrincipalName |X |UPN 是使用者的登入識別碼。 最常與 [mail] 值相同。 |
@@ -234,7 +235,7 @@ ms.lasthandoff: 03/08/2018
 | postOfficeBox |X |X | |SharePoint Online 目前未使用這個屬性。 |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼同步處理和同盟使用。 |
+| pwdLastSet |X | | |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼雜湊同步處理、傳遞驗證和同盟使用。 |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
 | securityEnabled | | |X |衍生自 groupType |
@@ -289,7 +290,7 @@ ms.lasthandoff: 03/08/2018
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼同步處理和同盟使用。 |
+| pwdLastSet |X | | |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼雜湊同步處理、傳遞驗證和同盟使用。 |
 | securityEnabled | | |X |衍生自 groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |機械屬性。 不可變的識別碼，可維持 ADDS 與 Azure AD 之間的關聯性。 |
@@ -331,7 +332,7 @@ ms.lasthandoff: 03/08/2018
 | member | | |X | |
 | objectSID |X | |X |機械屬性。 AD 使用者識別碼，可用來維持 Azure AD 和 AD 之間的同步處理。 |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼同步處理和同盟使用。 |
+| pwdLastSet |X | | |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼雜湊同步處理、傳遞驗證和同盟使用。 |
 | securityEnabled | | |X |衍生自 groupType |
 | sourceAnchor |X |X |X |機械屬性。 不可變的識別碼，可維持 ADDS 與 Azure AD 之間的關聯性。 |
 | usageLocation |X | | |機械屬性。 使用者的國家/地區。 用於授權指派。 |
@@ -359,7 +360,7 @@ ms.lasthandoff: 03/08/2018
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
-| pwdLastSet |X | | |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼同步處理和同盟使用。 |
+| pwdLastSet |X | | |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼雜湊同步處理、傳遞驗證和同盟使用。 |
 | securityEnabled | | |X |衍生自 groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |機械屬性。 不可變的識別碼，可維持 ADDS 與 Azure AD 之間的關聯性。 |
@@ -390,7 +391,7 @@ ms.lasthandoff: 03/08/2018
 | member | | |X | |
 | objectSID |X | | |機械屬性。 AD 使用者識別碼，可用來維持 Azure AD 和 AD 之間的同步處理。 |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼同步處理和同盟使用。 |
+| pwdLastSet |X | | |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼雜湊同步處理、傳遞驗證和同盟使用。 |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |機械屬性。 不可變的識別碼，可維持 ADDS 與 Azure AD 之間的關聯性。 |
 | usageLocation |X | | |機械屬性。 使用者的國家/地區。 用於授權指派。 |

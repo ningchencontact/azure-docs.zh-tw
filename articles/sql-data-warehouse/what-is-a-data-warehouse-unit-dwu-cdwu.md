@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: a83a9f9332d81e02a83efc019ad56027316301ab
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 94791e4dc3d3c841dde4685d34d4e3fdaf7d9af7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32185955"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>資料倉儲單位 (DWU) 和計算資料倉儲單位 (cDWU)
 選擇理想的資料倉儲單位 (DWU、cDWU) 數目以獲得最佳價格與效能，以及如何變更單位數目的建議。 
@@ -36,19 +37,19 @@ ms.lasthandoff: 04/18/2018
 - 增加並行查詢和並行位置的數目上限。
 
 ## <a name="service-level-objective"></a>服務等級目標
-服務等級目標 (SLO) 是決定您資料倉儲之成本和效能層級的延展性設定。 針對計算最佳化之效能層級範圍的服務等級會以計算資料倉儲單位 (cDWU) 來測量，例如 DW2000c。 針對彈性最佳化的服務等級則會以 DWU 來測量，例如 DW2000。 
+服務等級目標 (SLO) 是決定您資料倉儲之成本和效能層級的延展性設定。 Gen2 的服務等級會以計算資料倉儲單位 (cDWU) 來測量，例如 DW2000c。 Gen1 服務等級則會以 DWU 來測量，例如 DW2000。 
 
 在 T-SQL 中，SERVICE_OBJECTIVE 設定會決定您資料倉儲適用的服務等級和效能層級。
 
 ```sql
---Optimized for Elasticity
+--Gen1
 CREATE DATABASE myElasticSQLDW
 WITH
 (    SERVICE_OBJECTIVE = 'DW1000'
 )
 ;
 
---Optimized for Compute
+--Gen2
 CREATE DATABASE myComputeSQLDW
 WITH
 (    SERVICE_OBJECTIVE = 'DW1000c'
@@ -60,12 +61,12 @@ WITH
 
 每一個效能層級都會使用與其資料倉儲單位稍有不同的測量單位。 這項差異會在縮放單位直接轉換為帳單時反映於發票上。
 
-- 針對彈性最佳化的效能層級會以資料倉儲單位 (DWU) 來測量。
-- 針對計算最佳化的效能層級會以計算資料倉儲單位 (cDWU) 來測量。 
+- Gen1 資料倉儲會以資料倉儲單位 (DWU) 來測量。
+- Gen2 資料倉儲則會以計算的資料倉儲單位 (cDWU) 來測量。 
 
-DWU 和 cDWU 均支援將計算相應增加或減少，並且在您不需使用資料倉儲時暫停計算。 這些作業全都依需求指定。 針對計算最佳化的效能層級也會使用計算節點上的本機磁碟型快取來改善效能。 當您調整或暫停系統時，快取就會失效，因此，需要一段快取準備時間，才能達到最佳效能。  
+DWU 和 cDWU 均支援將計算相應增加或減少，並且在您不需使用資料倉儲時暫停計算。 這些作業全都依需求指定。 Gen2 會使用計算節點上的本機磁碟型快取來改善效能。 當您調整或暫停系統時，快取就會失效，因此，需要一段快取準備時間，才能達到最佳效能。  
 
-當您增加資料倉儲單位時，正是以線性方式增加運算資源。 針對計算最佳化的效能層級會提供最佳查詢效能和最高規模，但具有較高的項目價格。 它是專為持續具有效能需求的企業而設計的。 這些系統會充分利用快取。 
+當您增加資料倉儲單位時，正是以線性方式增加運算資源。 Gen2 會提供最佳查詢效能和最高規模，但具有較高的項目價格。 它是專為持續具有效能需求的企業而設計的。 這些系統會充分利用快取。 
 
 ### <a name="capacity-limits"></a>容量限制
 每部 SQL 伺服器 (例如 myserver.database.windows.net) 都有[資料庫交易單位 (DTU)](../sql-database/sql-database-what-is-a-dtu.md) 配額，允許有特定數目的資料倉儲單位。 如需詳細資訊，請參閱[工作負載管理容量限制](sql-data-warehouse-service-capacity-limits.md#workload-management)。
@@ -76,10 +77,9 @@ DWU 和 cDWU 均支援將計算相應增加或減少，並且在您不需使用�
 
 為工作負載尋找最佳 DWU 的步驟：
 
-1. 在開發期間，請先使用針對彈性最佳化的效能層級來選取較小的 DWU。  由於此階段的考量是功能驗證，因此，針對彈性最佳化的效能層級是一個合理的選項。 DW200 是個不錯的起點。 
+1. 首先選取較小的 DWU。 
 2. 當您的測試資料載入系統時監視應用程式效能，觀察比較所選 DWU 數目與您觀察到的效能。
-3. 針對定期的尖峰活動期間，識別任何其他需求。 如果工作負載在活動中顯示明顯的尖峰與低谷，而且有很好的理由經常進行調整，則偏好使用針對彈性最佳化的效能層級。
-4. 如果您需要超過 1000 個 DWU，則偏好使用針對計算最佳化的效能層級，因為這可提供最佳效能。
+3. 針對定期的尖峰活動期間，識別任何其他需求。 如果工作負載在活動中顯示明顯的尖峰與低谷，而且有很好的理由經常進行調整。
 
 SQL 資料倉儲是一個相應放大系統，可以佈建大量的計算以及查詢相當大量的資料。 若要查看真正用以調整的功能 (尤其是在較大的 DWU 上)，建議您在進行調整以確定有足夠資料可提供給 CPU 時調整資料集。 針對調整測試，我們建議至少使用 1 TB。
 

@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355843"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>應用程式閘道的常見問題集
 
@@ -53,7 +54,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 **問：哪些區域提供此服務？**
 
-應用程式閘道適用於全域 Azure 的所有區域。 它也適用於 [Azure China](https://www.azure.cn/) 和 [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)
+應用程式閘道適用於全域 Azure 的所有區域。 它也適用於 [Azure China](https://www.azure.cn/) 和 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 **問：這是我的訂用帳戶專用的部署，還是所有客戶共用？**
 
@@ -155,7 +156,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 * 允許從所有來源至連接埠 65503-65534 的傳入要求以便進行[後端健康情況通訊](application-gateway-diagnostics.md)。
 
-* 允許 [NSG](../virtual-network/virtual-networks-nsg.md) 上傳入的 Azure 負載平衡器探查 (AzureLoadBalancer 標籤) 和輸入虛擬網路流量 (VirtualNetwork 標籤)。
+* 允許 [NSG](../virtual-network/security-overview.md) 上傳入的 Azure 負載平衡器探查 (AzureLoadBalancer 標籤) 和輸入虛擬網路流量 (VirtualNetwork 標籤)。
 
 * 使用「全部拒絕」規則封鎖所有其他傳入流量。
 
@@ -178,6 +179,11 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 **問：手動相應增加/相應減少會造成停機嗎？**
 
 不會停機，執行個體已分散於升級網域和容錯網域。
+
+**問：應用程式閘道是否支援連線清空？**
+
+是。 您可以設定連線清空來變更後端集區內的成員而不會中斷運作。 這可讓現有的連線持續傳送到先前的目的地，直到該連線關閉或可設定的逾時過期。 請注意，連線清空只會等候目前執行中的連線完成。 應用程式閘道並不會知道應用程式的工作階段狀態。
+
 
 **問：是否可在中斷的情況下，將執行個體大小從中型變成大型？**
 
@@ -329,4 +335,4 @@ WAF 目前支援 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解應用程式閘道，請瀏覽[應用程式閘道簡介](application-gateway-introduction.md)。
+若要深入了解應用程式閘道，請瀏覽[什麼是 Azure 應用程式閘道？](overview.md)

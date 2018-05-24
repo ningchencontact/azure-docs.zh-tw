@@ -1,13 +1,13 @@
 ---
-title: "在 Azure Linux 虛擬機器上備份及復原 Oracle Database 12c 資料庫 | Microsoft Docs"
-description: "了解如何在您的 Azure 環境中備份及復原 Oracle Database 12c 資料庫。"
+title: 在 Azure Linux 虛擬機器上備份及復原 Oracle Database 12c 資料庫 | Microsoft Docs
+description: 了解如何在您的 Azure 環境中備份及復原 Oracle Database 12c 資料庫。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 9a2293f13b90e9a4cb11b4169fad969dd622a9a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e804fd17c3dbe9df9e9dc258e67b8f9192c1f8ad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193099"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>在 Azure Linux 虛擬機器上備份及復原 Oracle Database 12c 資料庫
 
@@ -138,7 +139,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 下載 JSON 檔案。
 
-    請從 https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig 下載 VMSnapshotScriptPluginConfig.json。 檔案內容與下面類似：
+    從 https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig 下載 VMSnapshotScriptPluginConfig.json。 檔案內容與下面類似：
 
     ```azurecli
     {
@@ -262,7 +263,7 @@ ms.lasthandoff: 10/11/2017
     # /etc/azure/post_script.sh
     ```
 
-如需詳細資訊，請參閱[適用於 Linux VM 的應用程式一致備份](https://azure.microsoft.com/en-us/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/)。
+如需詳細資訊，請參閱[適用於 Linux VM 的應用程式一致備份](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/)。
 
 
 ### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>步驟 5：使用 Azure 復原服務保存庫來備份 VM

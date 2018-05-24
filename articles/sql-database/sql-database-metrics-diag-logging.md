@@ -10,11 +10,12 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: b6ecedac8e5d040c2e75d28e1dc8e8309f359a1c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c18d4d175bace79fefedc09fb887e707b8c066d9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365758"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄 
 Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
@@ -51,6 +52,7 @@ Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您
 - [逾時](sql-database-metrics-diag-logging.md#time-outs-dataset)：包含有關資料庫上發生之逾時的資訊。
 - [封鎖](sql-database-metrics-diag-logging.md#blockings-dataset)：包含有關資料庫上所發生事件的資訊。
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset)：包含 Intelligent Insights。 [深入了解 Intelligent Insights](sql-database-intelligent-insights.md)。
+- **稽核** / **SQLSecurityAuditEvents**：目前無法使用。
 
 如果您選取事件中樞或儲存體帳戶，您可以指定保留原則。 此原則會刪除早於選取時間期間的資料。 如果您指定 Log Analytics，則保留原則取決於所選的定價層。 如需詳細資訊，請參閱 [Log Analytics 定價](https://azure.microsoft.com/pricing/details/log-analytics/)。 
 
@@ -61,7 +63,7 @@ Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-1. 若要在入口網站中啟用計量和診斷記錄收集功能，請移至您的 SQL Database 或彈性集區分頁，然後選取 [診斷設定]。
+1. 若要在入口網站中啟用計量和診斷記錄收集功能，請移至您的 SSQL Database 或彈性集區分頁，然後選取 [診斷設定]。
 
    ![在 Azure 入口網站中啟用](./media/sql-database-metrics-diag-logging/enable-portal.png)
 
@@ -154,7 +156,7 @@ Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您
 
 ### <a name="rest-api"></a>REST API
 
-了解如何[使用 Azure 監視器 REST API 變更診斷設定](https://msdn.microsoft.com/library/azure/dn931931.aspx)。 
+了解如何[使用 Azure 監視器 REST API 變更診斷設定](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)。 
 
 ### <a name="resource-manager-template"></a>Resource Manager 範本
 

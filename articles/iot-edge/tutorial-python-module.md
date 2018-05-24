@@ -9,11 +9,12 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d5bad277e6a54b23f0e3ef7321e82d212ae885d3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3c46df85f95377f5740526542ac1baf5a8fd77c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32177830"
 ---
 # <a name="develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device---preview"></a>開發 Python IoT Edge 模組並部署到您的模擬裝置 - 預覽
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/20/2018
 您於此教學課程中建立的 IoT Edge 模組，能夠篩選由您的裝置所產生的溫度資料。 它只有在溫度超過指定的閾值時，才會將訊息往上游傳送。 這類於邊緣所進行的分析，對於減少針對雲端所傳輸及儲存的資料量相當有幫助。 
 
 > [!IMPORTANT]
-> 目前 Python 模組只能在 amd64 Linux 容器中執行。 無法在 Windows 容器或 ARM 型容器中執行。 
+> 目前 Python 模組僅能在 amd64 Linux 容器中執行；無法在 Windows 容器 ARM 架構的容器中執行。 
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -40,7 +41,7 @@ ms.lasthandoff: 04/20/2018
 * [適用於 Visual Studio Code 的 Python 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-python.python) \(英文\)。 
 * 在具有 Visual Studio Code 的電腦上也已安裝 [Docker](https://docs.docker.com/engine/installation/) \(英文\)。 針對本教學課程，使用 Community Edition (CE) 便已足夠。 
 * [Python](https://www.python.org/downloads/)。
-* 用於安裝 Python 套件的 [Pip](https://pip.pypa.io/en/stable/installing/#installation)
+* [Pip](https://pip.pypa.io/en/stable/installing/#installation) 用於安裝 Python 套件 (通常包含在您的 Python 安裝中)。
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 在本教學課程中，您會使用適用於 VS Code 的 Azure IoT Edge 擴充功能來建置模組，並從檔案建立**容器映像**。 接著，您會將此映像推送至儲存並管理映像的**登錄**。 最後，您會從登錄部署該映像，以在 IoT Edge 裝置上執行。  
@@ -57,10 +58,10 @@ ms.lasthandoff: 04/20/2018
 ## <a name="create-an-iot-edge-module-project"></a>建立 IoT Edge 模組專案
 下列步驟會示範如何使用 Visual Studio Code 與 Azure IoT Edge 擴充功能來建立 IoT Edge Python 模組。
 1. 在 Visual Studio Code 中，選取 [檢視] > [整合式終端機] 以開啟 VS Code 整合式終端機。
-2. 在整合式終端機中，輸入下列命令來安裝 (或更新) **cookiecutter**：
+2. 在整合式終端機中，輸入下列命令以安裝 (或更新) **cookiecutter** (建議您在虛擬環境下執行此動作，或作為使用者安裝，如下所示)：
 
     ```cmd/sh
-    pip install -U cookiecutter
+    pip install --upgrade --user cookiecutter
     ```
 
 3. 針對新模組建立專案。 下列命令會使用您的容器存放庫來建立專案資料夾 **FilterModule**。 如果您使用 Azure 容器登錄，`image_repository` 的參數格式應該是 `<your container registry name>.azurecr.io/filtermodule`。 在目前的工作資料夾中輸入下列命令：
@@ -78,11 +79,11 @@ ms.lasthandoff: 04/20/2018
     import json
     ```
 
-8. 在全域計數器下加入 `TEMPERATURE_THRESHOLD` 與 `TWIN_CALLBACKS`。 溫度閾值會設定在將資料傳送至 IoT 中樞之前，測量的溫度必須超過的值。
+8. 在全域計數器下加入 `TEMPERATURE_THRESHOLD`、`RECEIVE_CALLBACKS` 與 `TWIN_CALLBACKS`。 溫度閾值會設定在將資料傳送至 IoT 中樞之前，測量的溫度必須超過的值。
 
     ```python
     TEMPERATURE_THRESHOLD = 25
-    TWIN_CALLBACKS = 0
+    TWIN_CALLBACKS = RECEIVE_CALLBACKS = 0
     ```
 
 9. 使用下列內容來更新函式 `receive_message_callback`。
@@ -97,16 +98,16 @@ ms.lasthandoff: 04/20/2018
         message_buffer = message.get_bytearray()
         size = len(message_buffer)
         message_text = message_buffer[:size].decode('utf-8')
-        print ( "    Data: <<<%s>>> & Size=%d" % (message_text, size) )
+        print("    Data: <<<{}>>> & Size={:d}".format(message_text, size))
         map_properties = message.properties()
         key_value_pair = map_properties.get_internals()
-        print ( "    Properties: %s" % key_value_pair )
+        print("    Properties: {}".format(key_value_pair))
         RECEIVE_CALLBACKS += 1
-        print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
+        print("    Total calls received: {:d}".format(RECEIVE_CALLBACKS))
         data = json.loads(message_text)
         if "machine" in data and "temperature" in data["machine"] and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
             map_properties.add("MessageType", "Alert")
-            print("Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
+            print("Machine temperature {} exceeds threshold {}".format(data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
         hubManager.forward_event_to_output("output1", message, 0)
         return IoTHubMessageDispositionResult.ACCEPTED
     ```
@@ -118,14 +119,14 @@ ms.lasthandoff: 04/20/2018
     def device_twin_callback(update_state, payload, user_context):
         global TWIN_CALLBACKS
         global TEMPERATURE_THRESHOLD
-        print ( "\nTwin callback called with:\nupdateStatus = %s\npayload = %s\ncontext = %s" % (update_state, payload, user_context) )
+        print("\nTwin callback called with:\nupdateStatus = {}\npayload = {}\ncontext = {}".format(update_state, payload, user_context))
         data = json.loads(payload)
         if "desired" in data and "TemperatureThreshold" in data["desired"]:
             TEMPERATURE_THRESHOLD = data["desired"]["TemperatureThreshold"]
         if "TemperatureThreshold" in data:
             TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]
         TWIN_CALLBACKS += 1
-        print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
+        print("Total calls confirmed: {:d}\n".format(TWIN_CALLBACKS))
     ```
 
 11. 在類別 `HubManager` 中，將新行加入 `__init__` 方法以初始化您剛新增的 `device_twin_callback` 函式。

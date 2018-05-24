@@ -1,11 +1,11 @@
 ---
-title: "在 VM 上的 SQL Server 應用程式模式 | Microsoft Docs"
-description: "這篇文章涵蓋適用於 Azure VM 上的 SQL Server 應用程式模式。 它們可為解決方案架構師和開發人員提供基礎良好的應用程式架構和設計。"
+title: 在 VM 上的 SQL Server 應用程式模式 | Microsoft Docs
+description: 這篇文章涵蓋適用於 Azure VM 上的 SQL Server 應用程式模式。 它們可為解決方案架構師和開發人員提供基礎良好的應用程式架構和設計。
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 41863c8d-f3a3-4584-ad86-b95094365e05
 ms.service: virtual-machines-sql
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 9a306dc5676bb98baf0c9aa000c4c518279bd932
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: eaeff1e57042b2e6a98559c19dc1dabebbf92ed4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195102"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -57,7 +58,7 @@ ms.lasthandoff: 02/21/2018
 * 您需要與 SQL Server 內部部署完全相容，且想要將現有應用程式按原狀移至 Azure。
 * 您想要利用 Azure 環境的功能，但 Azure SQL Database 不支援您應用程式需要的所有功能。 這可能包括下列部分：
   
-  * **資料庫大小**：本文更新時，SQL Database 支援的資料庫最多可有 1 TB 的資料。 如果應用程式需要的資料超過 1 TB，而您不想要實作自訂分區化解決方案，則建議您使用「Azure 虛擬機器」中的 SQL Server。 如需最新資訊，請參閱[向外延展 Azure SQL Database](https://msdn.microsoft.com/library/azure/dn495641.aspx) 和 [Azure SQL Database 服務層和效能等級](../../../sql-database/sql-database-service-tiers.md)。
+  * **資料庫大小**：本文更新時，SQL Database 支援的資料庫最多可有 1 TB 的資料。 如果應用程式需要的資料超過 1 TB，而您不想要實作自訂分區化解決方案，則建議您使用「Azure 虛擬機器」中的 SQL Server。 如需最新資訊，請參閱[向外擴充 Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn495641.aspx)、[以 DTU 為基礎的購買模型](../../../sql-database/sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](../../../sql-database/sql-database-service-tiers-vcore.md) (預覽)。
   * **HIPAA 法規遵循**：醫療保健產業的客戶和獨立軟體廠商 (ISV) 可以選擇使用 [Azure 虛擬機器中 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) 而不是 [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md)，因為 HIPAA 業務合作協議 (BAA) 已涵蓋 Azure 虛擬機器中的 SQL Server。 如需法規遵循的資訊，請參閱 [Microsoft Azure 信任中心：法規遵循](https://azure.microsoft.com/support/trust-center/compliance/)。
   * **執行個體層級功能**：目前 SQL Database 不支援存在於資料庫外的功能 (例如連結的伺服器、代理程式作業、FileStream、Service Broker 等等)。 如需詳細資訊，請參閱 [Azure SQL Database 方針和限制](https://msdn.microsoft.com/library/azure/ff394102.aspx)。
 

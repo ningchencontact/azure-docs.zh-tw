@@ -14,11 +14,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: f47cf18f70572ad93f5075c2f2c883d80af8220e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2f72f2dd3dbaaf17494d09a36159afc464cc64d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32154285"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓撲
 本文說明使用 Azure AD Connect 同步處理做為重要整合解決方案的各種內部部署和 Azure Active Directory (Azure AD) 拓撲。 本文包含受支援和不受支援的組態。
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/18/2018
 ## <a name="single-forest-single-azure-ad-tenant"></a>單一樹系、單一 Azure AD 租用戶
 ![單一樹系和單一租用戶的拓撲](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
-最常見的拓撲是單一內部部署樹系 (內含一或多個網域) 和單一 Azure AD 租用戶。 對於 Azure AD 驗證，會使用密碼同步處理。 Azure AD Connect 的快速安裝僅支援此拓撲。
+最常見的拓撲是單一內部部署樹系 (內含一或多個網域) 和單一 Azure AD 租用戶。 對於 Azure AD 驗證，會使用密碼雜湊同步處理。 Azure AD Connect 的快速安裝僅支援此拓撲。
 
 ### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>單一樹系、多部同步處理伺服器連接到一個 Azure AD 租用戶
 ![不受支援、已篩選的單一樹系拓撲](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
@@ -64,7 +65,7 @@ Azure AD Connect 安裝精靈會提供數個選項以合併多個樹系中表示
 
 Azure AD Connect 同步處理中的預設組態假設：
 
-* 每個使用者只有一個啟用的帳戶，且此帳戶所在之樹系用於驗證使用者。 此假設適用於密碼同步處理和同盟。 UserPrincipalName 和 sourceAnchor/immutableID 來自此樹系
+* 每個使用者只有一個啟用的帳戶，且此帳戶所在之樹系用於驗證使用者。 這項假設適用於密碼雜湊同步處理、傳遞驗證和同盟。 UserPrincipalName 和 sourceAnchor/immutableID 來自此樹系
 * 每個使用者只有一個信箱。
 * 裝載使用者信箱的樹系具有最佳資料品質，以供屬性在 Exchange 全域通訊清單 (GAL) 中顯示。 如果使用者沒有信箱，則任何樹系皆可用於提供這些屬性值。
 * 如果您有連結的信箱，則不同的樹系中還有帳戶用來登入。
@@ -157,7 +158,7 @@ DNS 網域只能在單一 Azure AD 租用戶中註冊。 內部部署 Active Dir
 
 * 只有其中一個 Azure AD 租用戶可以啟用 Exchange 與內部部署 Active Directory 執行個體的混合。
 * Windows 10 裝置只能與一個 Azure AD 租用戶相關聯。
-* 密碼同步化和傳遞驗證的單一登入 (SSO) 選項只能與單一 Azure AD 租用戶搭配使用。
+* 適用於密碼雜湊同步處理和傳遞驗證的單一登入 (SSO) 選項只能與一個 Azure AD 租用戶搭配使用。
 
 物件互斥集的需求也適用於寫回。 此拓撲不支援部分寫回功能，因為這些功能假設單一內部部署組態。 這些功能包括：
 

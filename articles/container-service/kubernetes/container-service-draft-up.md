@@ -1,19 +1,20 @@
 ---
-title: "使用 Draft 搭配 Azure Container Service 與 Azure Container Registry"
-description: "建立 ACS Kubernetes 叢集和 Azure Container Registry，可使用 Draft 在 Azure 中建立第一個應用程式。"
+title: 使用 Draft 搭配 Azure Container Service 與 Azure Container Registry
+description: 建立 ACS Kubernetes 叢集和 Azure Container Registry，可使用 Draft 在 Azure 中建立第一個應用程式。
 services: container-service
 author: squillace
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: de1e8ec1b712aeb5572c7972b22412f2ae90b7b9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 68ad44bae0856ff000f2847049a15a946d83c0a3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32168532"
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>使用 Draft 搭配 Azure Container Service 與 Azure Container Registry，可將應用程式建置及部署至 Kubernetes
 
@@ -99,8 +100,8 @@ waiting for AAD role to propagate.done
 ## <a name="install-and-configure-draft"></a>安裝及設定草稿
 
 
-1. 在 https://github.com/Azure/draft/releases \(英文\) 下載適用於您環境的 Draft ，並將它安裝到您的 PATH 中以使用該命令。
-2. 在 https://github.com/kubernetes/helm/releases \(英文\) 下載適用於您環境的 Helm，並[將它安裝到您的 PATH 中以使用該命令](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client) \(英文\)。
+1. 在 https://github.com/Azure/draft/releases \(英文\) 下載適用於您環境的 Draft ，並將它安裝到 PATH 中以使用該命令。
+2. 在 https://github.com/kubernetes/helm/releases \(英文\) 下載適用於您環境的 Helm，並將它[安裝到 PATH 中以使用該命令](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client) \(英文\)。
 3. 設定 Draft 以使用您的登錄，並針對它所建立的每個 Helm 圖表建立子網域。 若要設定 Draft，您需要：
   - 您的 Azure Container Registry 名稱 (在此範例中為 `draftacsdemo`)
   - 您的登錄機碼或密碼，從 `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`。

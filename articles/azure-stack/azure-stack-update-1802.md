@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5cf61ccaadc40a5f250dcf477de5b446052aba9a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196214"
 ---
 # <a name="azure-stack-1802-update"></a>Azure Stack 1802 更新
 
@@ -85,6 +86,8 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 
 - **新增多個容錯網域的支援**。  如需詳細資訊，請參閱 [Azure Stack 的高可用性](azure-stack-key-features.md#high-availability-for-azure-stack)。
 
+- **支援的實體記憶體升級** - 您現在可以在初始部署之後，擴增 Azure Stack 整合式系統的記憶體容量。 如需詳細資訊，請參閱[管理 Azure Stack 的實際記憶體容量](azure-stack-manage-storage-physical-memory-capacity.md)。
+
 - 針對效能、穩定性、安全性和 Azure Stack 所使用的作業系統提供了**多項修正**。
 
 <!--
@@ -113,8 +116,6 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 - 可能無法在管理員入口網站中檢視計算或儲存體資源。 之所以發生此問題，是因為在更新安裝期間發生錯誤，且誤將更新報告為成功。 如果發生此問題，請連絡 Microsoft 客戶支援服務以尋求協助。
 
 - 您可能會在入口網站中看到空白的儀表板。 若要復原儀表板，請選取位於入口網站右上角的齒輪圖示，然後選取 [還原預設設定]。
-
-- 當您檢視資源或資源群組的屬性時，[移動] 按鈕顯示為停用。 這是預期的行為。 目前不支援在資源群組或訂用帳戶之間移動資源或資源群組。
 
 - 刪除使用者訂用帳戶會產生孤立的資源。 因應措施是，先刪除使用者資源或整個資源群組，然後再刪除使用者訂用帳戶。
 
@@ -260,6 +261,7 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 
 - 僅支援資源提供者在裝載 SQL 或 MySQL 的伺服器上建立項目。 在不是由資源提供者建立的主機伺服器上建立項目，可能會導致不相符的狀態。  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > 在更新為 Azure Stack 1802 後，您可以繼續使用先前部署的 SQL 和 MySQL 資源提供者。  建議您在新版本可供使用時更新 SQL 和 MySQL。 如同 Azure Stack，請循序套用 SQL 和 MySQL 資源提供者的更新。  例如，如果您使用 1710 版，請先套用 1711 版、再套用 1712，然後更新為 1802。      

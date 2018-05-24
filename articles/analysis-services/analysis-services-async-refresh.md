@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 74ef8ae45215badf2b5a83cc2d82c3db1eef8980
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d1862c5ed83033eb8de74459f26260864c646dfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153121"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 進行非同步重新整理
 使用任何支援 REST 呼叫的程式設計語言，您可以對 Azure Analysis Services 表格式模型執行非同步的資料重新整理作業。 這包括相應放大查詢的唯讀複本同步處理。 
@@ -198,7 +199,7 @@ CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要�
 1.  複製或下載存放庫。 開啟 RestApiSample 解決方案。
 2.  找到 **client.BaseAddress = …** 這一行 並提供您的[基底 URL](#base-url)。
 
-此程式碼範例可以使用互動式登入、使用者名稱/密碼，或[服務主體](#service-principle)。
+此程式碼範例可以使用互動式登入、使用者名稱/密碼，或[服務主體](#service-principal)。
 
 #### <a name="interactive-login-or-usernamepassword"></a>互動式登入或使用者名稱/密碼
 

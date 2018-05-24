@@ -1,12 +1,12 @@
 ---
-title: "重新執行 Azure AD Connect 安裝精靈 | Microsoft Docs"
-description: "說明安裝精靈在第二次執行時的運作方式。"
-keywords: "Azure AD Connect 安裝精靈可讓您在第二次執行時設定維護設定"
+title: 重新執行 Azure AD Connect 安裝精靈 | Microsoft Docs
+description: 說明安裝精靈在第二次執行時的運作方式。
+keywords: Azure AD Connect 安裝精靈可讓您在第二次執行時設定維護設定
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a5a55b15bbffbcfa18e07e251180820e3d9cb6d8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 56cc38275a23eb4529558b876db619768a885a25
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150510"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 同步處理︰第二次執行安裝精靈
 第一次執行 Azure AD Connect 安裝精靈時，它會逐步引導您設定安裝。 如果您再次執行安裝精靈，它則會提供維護選項。
@@ -79,7 +80,7 @@ ms.lasthandoff: 01/18/2018
 ![也會顯示預備模式目前狀態的選項](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
 ## <a name="change-user-sign-in"></a>變更使用者登入
-此選項可讓您從密碼同步處理變更為同盟，反之亦然。 您無法變更為 [不設定] 。
+此選項可讓您將使用者登入方法變更為密碼雜湊同步處理、傳遞驗證或同盟。 您無法變更為 [不設定] 。
 
 如需此選項的詳細資訊，請參閱 [使用者登入](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method)。
 

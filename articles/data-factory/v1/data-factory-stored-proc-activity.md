@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 60df540d847a1e7422e87bc375220819dac4b25c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a628374841126a750ebf6881f8adec66340c1d29
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32178340"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 預存程序活動
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -161,9 +162,9 @@ ms.lasthandoff: 03/23/2018
 
 - **type** 屬性會設定為 **SqlServerStoredProcedure**。 
 - 類型屬性中的 **storedProcedureName** 會設定為 **sp_sample** (預存程序的名稱)。
-- **storedProcedureParameters** 區段包含一個名為 **DataTime** 的參數。 JSON 中參數的名稱和大小寫必須符合預存程序定義中參數的名稱和大小寫。 如果您需要為參數傳遞 null，請使用此語法：`"param1": null` (全部小寫)。
+- **storedProcedureParameters** 區段包含一個名為 **DateTime** 的參數。 JSON 中參數的名稱和大小寫必須符合預存程序定義中參數的名稱和大小寫。 如果您需要為參數傳遞 null，請使用此語法：`"param1": null` (全部小寫)。
  
-1. 按一下**...命令列上的 [更多]**，然後按一下 [新增管線]。
+1. 按一下 **...命令列上的 [更多]**，然後按一下 [新增管線]。
 2. 複製/貼上下列 JSON 程式碼片段：   
 
     ```JSON

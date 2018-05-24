@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8271c4c88245e98fd3709c7279904d36ad009682
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770718"
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的存取控制 
 
@@ -75,13 +76,13 @@ ms.lasthandoff: 04/03/2018
 
 ### <a name="compliant-device"></a>符合規範的裝置
 
-您可以設定以裝置作為基礎的條件式存取原則。 以裝置作為基礎的條件式存取原則目標在於只從信任的裝置授與已設定資源的存取權。 要定義受信任裝置的選項之一，是要求符合規範的裝置。 如果選取此選項，當使用已加入您 Azure Active Directory 且經 MDM 解決方案標示為符合規範的裝置來嘗試存取時，您的條件式存取原則就會對其授與存取權。
+您可以設定以裝置作為基礎的條件式存取原則。 裝置型條件式存取原則的目標是，只從[受控裝置](active-directory-conditional-access-policy-connected-applications.md#managed-devices)授與已設定資源的存取權。 定義受控裝置的必要選項之一，是要求符合規範裝置。 如果選取此選項，使用已向您的 Azure Active Directory [註冊](device-management-introduction.md)且經 MDM 解決方案標示為符合規範的裝置進行存取嘗試時，您的條件式存取原則就會對其授與存取權。
 
 如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
 
-### <a name="domain-joined-device"></a>已加入網域的裝置
+### <a name="hybrid-azure-ad-joined-device"></a>已加入混合式 Azure AD 的裝置
 
-設定以裝置作為基礎的條件式存取原則的另一個選項，是要求已加入網域的裝置。 這項需求是指加入內部部署 Active Directory 的 Windows 桌上型電腦、膝上型電腦和企業平板電腦。 如果選取此選項，當使用已加入您內部部署 Active Directory 和 Azure Active Directory 的裝置來嘗試存取時，您的條件式存取原則就會對其授與存取權。  
+設定裝置型條件式存取原則的另一個必要選項，是要求已加入混合式 Azure AD 的裝置。 這項需求是指加入內部部署 Active Directory 的 Windows 桌上型電腦、膝上型電腦和企業平板電腦。 如果選取此選項，當使用已加入您內部部署 Active Directory 和 Azure Active Directory 的裝置來嘗試存取時，您的條件式存取原則就會對其授與存取權。  
 
 如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
 

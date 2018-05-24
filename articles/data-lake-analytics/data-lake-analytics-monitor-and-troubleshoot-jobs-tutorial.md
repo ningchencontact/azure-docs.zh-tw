@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 入口網站疑難排解 Azure Data Lake Analytics作業 | Microsoft Docs
+title: 使用 Azure 入口網站監視 Azure Data Lake Analytics 中的作業 | Microsoft Docs
 description: '了解如何使用 Azure 入口網站疑難排解資料湖分析作業。 '
 services: data-lake-analytics
 documentationcenter: ''
@@ -14,42 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: f6168997c449be5354bd223c516d4f929a1bf894
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 14b1f4ec9dff78e4b5d2480755a4b1f2579ec135
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33884774"
 ---
-# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>使用 Azure 入口網站對 Azure Data Lake Analytics 作業進行疑難排解
-了解如何使用 Azure 入口網站對 Data Lake Analytics 作業進行疑難排解。
-
-在本教學課程中，您將會建立一個來源檔案遺失的問題，並使用 Azure 入口網站來排解問題。
-
-## <a name="submit-a-data-lake-analytics-job"></a>提交資料湖分析作業
-
-提交下列 U-SQL 作業：
-
-```
-@searchlog =
-   EXTRACT UserId          int,
-           Start           DateTime,
-           Region          string,
-           Query           string,
-           Duration        int?,
-           Urls            string,
-           ClickedUrls     string
-   FROM "/Samples/Data/SearchLog.tsv1"
-   USING Extractors.Tsv();
-
-OUTPUT @searchlog   
-   TO "/output/SearchLog-from-adls.csv"
-   USING Outputters.Csv();
-```
-    
-指令碼中定義的來源檔案是 **/Samples/Data/SearchLog.tsv1**，此處應為 **/Samples/Data/SearchLog.tsv**。
-
-
-## <a name="troubleshoot-the-job"></a>疑難排解作業
+# <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>使用 Azure 入口網站監視 Azure Data Lake Analytics 中的作業
 
 **查看所有工作**
 
@@ -81,5 +53,4 @@ OUTPUT @searchlog
 ## <a name="see-also"></a>另請參閱
 * [Azure 資料湖分析概觀](data-lake-analytics-overview.md)
 * [使用 Azure PowerShell 開始使用 Azure 資料湖分析](data-lake-analytics-get-started-powershell.md)
-* [透過 Visual Studio 開始使用 Azure 資料湖分析與 U-SQL](data-lake-analytics-u-sql-get-started.md)
 * [使用 Azure 入口網站管理 Azure Data Lake Analytics](data-lake-analytics-manage-use-portal.md)

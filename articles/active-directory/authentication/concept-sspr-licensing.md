@@ -2,29 +2,24 @@
 title: 授權自助式密碼重設 - Azure Active Directory
 description: Azure AD 自助式密碼重設授權需求
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: cebfc1dcaca562d26eb9e85d9b8bf0fa14e5edc9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33864649"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 自助式密碼重設的授權需求
 
-為了讓 Azure Active Directory (Azure AD) 密碼重設為函式，您必須至少在組織中被指派一個授權。 我們不會對密碼重設體驗強制執行每個使用者的授權。 若要符合您的 Microsoft 授權合約規定，您需要將授權指派給任何使用進階功能的使用者。
+為了讓 Azure Active Directory (Azure AD) 密碼重設為函式，您必須至少在組織中被指派一個授權。 我們不會對密碼重設體驗強制執行每個使用者的授權。 必須有適當的授權，使用者才能直接或間接從該授權所涵蓋的任何功能獲益。
 
 * **僅限雲端使用者**：Office 365 任何付費的 SKU，或 Azure AD Basic
 * **雲端**或**內部部署使用者**：Azure AD Premium P1 或 P2、Enterprise Mobility + Security (EMS) 或 Microsoft 365
@@ -37,8 +32,9 @@ ms.lasthandoff: 04/23/2018
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Microsoft 365 (方案 E3)
-* Microsoft 365 (方案 E5)
+* Microsoft 365 E3
+* Microsoft 365 E5
+* Microsoft 365 F1
 
 > [!WARNING]
 > 獨立的 Office 365 授權方案不支援密碼回寫，而且需要您具備上述其中一個方案，這項功能才能運作。

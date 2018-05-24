@@ -1,39 +1,36 @@
 ---
-title: "Azure Stack 上的 SQL 主控伺服器 | Microsoft Docs"
-description: "如何新增 SQL 執行個體以透過 SQL 配接器資源提供者佈建"
+title: Azure Stack 上的 SQL 主控伺服器 | Microsoft Docs
+description: 如何新增 SQL 執行個體以透過 SQL 配接器資源提供者佈建
 services: azure-stack
-documentationCenter: 
-author: mattbriggs
+documentationCenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mabrigg
-ms.openlocfilehash: 0a29ef133a045b2828777050f2d7a204c0add4a8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 05/01/2018
+ms.author: jeffgilb
+ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202587"
 ---
-# <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>新增供 SQL 配接器使用的主控伺服器
-
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
-
+# <a name="add-hosting-servers-for-the-sql-resource-provider"></a>為 SQL 資源提供者新增主控伺服器
 您可以使用 [Azure Stack](azure-stack-poc.md) 內 VM 上的 SQL 執行個體，或 Azure Stack 環境外的執行個體，只要資源提供者能夠連線到該執行個體均可。 一般需求為：
 
 * SQL 執行個體必須專門用於 RP 和使用者工作負載。 您無法使用任何其他取用者 (包括 App Service) 正在使用的 SQL 執行個體。
-* RP 配接器未加入網域，並只可以使用 SQL 驗證進行連接。
-* 您必須設定具有適當權限以供 RP 使用的帳戶。
-* RP 和使用者 (例如 Web 應用程式) 會使用使用者網路，因此需要連線到此網路上的 SQL 執行個體。 這項需求通常表示您的 SQL 執行個體 IP 必須在公用網路上。
-* SQL 執行個體和其主機的管理在您；RP 不會執行修補、備份、認證輪替等作業。
+* SQL 資源提供者 VM 未加入網域，因此只能使用 SQL 驗證進行連線。
+* 您必須設定具有適當權限的帳戶以供資源提供者使用。
+* 資源提供者和使用者 (例如 Web 應用程式) 會利用使用者網路，因此需要連線到此網路上的 SQL 執行個體。 這項需求通常表示您的 SQL 執行個體 IP 必須在公用網路上。
+* SQL 執行個體和其主機的管理由您執行；資源提供者不會執行修補、備份、認證輪替等作業。
 * SKU 可以用來建立不同類別的 SQL 能力，例如效能、Always On 等等。
 
-
-您可以透過 Marketplace 管理功能取得一些 SQL IaaS 虛擬機器映像。 請確定在使用 Marketplace 項目部署 VM 之前，一律會下載最新版的 SQL IaaS 延伸模組。 SQL 映像與 Azure 中提供的 SQL VM 相同。 針對從這些映像建立的 SQL VM，IaaS 延伸模組和對應的入口網站增強功能，可提供自動修補和備份功能之類的功能。
+您可以透過 Marketplace 管理功能取得一些 SQL IaaS 虛擬機器映像。 請確定在使用 Marketplace 項目部署 VM 之前，一律會下載最新版的 **SQL IaaS 延伸模組**。 SQL 映像與 Azure 中提供的 SQL VM 相同。 針對從這些映像建立的 SQL VM，IaaS 延伸模組和對應的入口網站增強功能，可提供自動修補和備份功能之類的功能。
 
 有其他選項可用於部署 SQL VM，包含 [Azure Stack 快速入門資源庫](https://github.com/Azure/AzureStack-QuickStart-Templates)中的範本。
 
@@ -84,7 +81,10 @@ ms.lasthandoff: 03/02/2018
 
   SKU 名稱應反映屬性，讓使用者可適當地安置其資料庫。 且 SKU 中的所有主控伺服器都應具有相同的功能。
 
-    例如：
+> [!IMPORTANT]
+> 當您為 SQL 和 MySQL 資源提供者建立 SKU 時，[系列] 或 [層] 名稱不支援特殊字元，包括空格和句點。
+
+例如：
 
 ![SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
@@ -140,27 +140,6 @@ GO
 建立方案和供應項目，將 SQL 資料庫提供給使用者使用。 將 Microsoft.SqlAdapter 服務新增到方案，並新增現有的配額或建立新的配額。 如果建立配額，就可以指定容量以允許使用者使用。
 
 ![建立方案和產品來加入資料庫](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
-
-## <a name="maintenance-of-the-sql-adapter-rp"></a>SQL 配接器 RP 的維護
-
-在這裡未涵蓋 SQL 執行個體的維護，密碼輪替資訊除外。 您需責任修補和備份/復原與 SQL 配接器搭配使用的資料庫伺服器。
-
-### <a name="patching-and-updating"></a>修補和更新
- SQL 配接器不會隨著 Azure Stack 提供，因為它是附加元件。 Microsoft 將視需要為 SQL 配接器提供更新。 SQL 配接器會在預設提供者訂用帳戶底下的 [使用者] 虛擬機器上具現化。 因此，就必須提供 Windows 修補程式、防毒特徵標記等等。隨著修補和更新週期提供的 Windows 更新套件可用來將更新套用至 Windows VM。 釋出更新的配接器時，將提供指令碼來套用更新。 此指令碼會建立新的 RP VM，並移轉您已經具有的任何狀態。
-
- ### <a name="backuprestoredisaster-recovery"></a>備份/還原/災害復原
- SQL 配接器不會隨著 Azure Stack BC-DR 程序進行備份，因為它是附加元件。 會提供指令碼，以便：
-- 備份必要的狀態資訊 (儲存在 Azure Stack 儲存體帳戶中)
-- 在完整的堆疊復原變得必要時還原 RP。
-必須先復原資料庫伺服器 (如有必要)，才能復原 RP。
-
-### <a name="updating-sql-credentials"></a>更新 SQL 認證
-
-您需負責建立及維護 SQL 伺服器上的系統管理員帳戶。 RP 需要具有這些權限的帳戶，才能代表使用者管理資料庫 - 不需要存取那些資料庫中的資料。 如果需要更新 SQL 伺服器的 sa 密碼，您可以使用 RP 管理員介面的更新功能來變更 RP 所使用的已儲存密碼。 這些密碼會儲存在 Azure Stack 執行個體上的金鑰保存庫中。
-
-若要修改設定，請按一下 [瀏覽] &gt; [管理資源] &gt; [SQL 主控伺服器] &gt; [SQL 登入] 並選取登入名稱。 必須先在 SQL 執行個體上 (必要時還需在任何複本上) 進行變更。 在 [設定] 面板中，按一下 [密碼]。
-
-![更新管理員密碼](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 
 ## <a name="next-steps"></a>後續步驟

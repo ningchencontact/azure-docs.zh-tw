@@ -11,11 +11,12 @@ ms.workload: Active
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 37bbbf8ea5a5d8439b300d0740e4f1a048e98e91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189063"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>了解自動 SQL Database 備份
 
@@ -44,8 +45,11 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 備份儲存體異地複寫是根據 Azure 儲存體複寫排程進行。
 
 ## <a name="how-long-do-you-keep-my-backups"></a>您會保留我的備份多久？
-每個 SQL Database 備份都有一個保留期限，該期限是以資料庫的[服務層](sql-database-service-tiers.md)為依據。 資料庫保留期限如下：
+每個 SQL Database 備份都具有保留週期，此週期是依據資料庫的服務層，而且在[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)與[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md) 之間有所不同。 
 
+
+### <a name="database-retention-for-dtu-based-purchasing-model"></a>以 DTU 為基礎之購買模型的資料庫保留
+以 DTU 為基礎之採購模型中的資料庫保留期限取決於服務層。 資料庫保留期限如下：
 
 * 基本服務層為 7 天。
 * 標準服務層為 35 天。
@@ -63,7 +67,13 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 
 > [!IMPORTANT]
 > 如果您刪除裝載 SQL Database 的 Azure SQL Server，所有屬於該伺服器的資料庫也會一併刪除且無法復原。 您無法還原已刪除的伺服器。
-> 
+
+### <a name="database-retention-for-the-vcore-based-purchasing-model-preview"></a>以虛擬核心為基礎之購買模型 (預覽) 的資料庫保留
+
+為了支援 SQL Database 的還原時間點 (PITR) 和長期保留 (LTR) 功能，系統會配置儲存體供資料庫備份使用。 這個儲存體會分別配置給每個資料庫，並以兩個不同的每一資料庫費用來計費。 
+
+- **PITR**：個別的資料庫備份會自動複製到 RA-GRS 儲存體。 儲存體大小會隨著新備份的建立而動態地增加。  每週完整備份、每日差異備份以及每 5 分鐘複製一次的交易記錄備份都使用此儲存體。 儲存體耗用量取決於資料庫的變動率及保留期限。 您可以為每個資料庫設定 7 到 35 天的不同保留期限。 系統會提供等於資料大小 1 倍的最小儲存體數量，且無額外費用。 對於大多數資料庫來說，此數量就足以儲存 7 天份的備份。 如需詳細資訊，請參閱[還原時間點](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **LTR**：SQL Database 提供選項讓您設定完整備份的長期保留期，最長可達 10 年之久。 如果啟用 LTR 原則，這些備份會自動儲存在 RA-GRS 儲存體中，但您可以控制備份的複製頻率。 為了符合不同的合規性需求，您可以針對每週、每月和/或每年備份選取不同的保留期限。 此設定會定義要將多少儲存體用於 LTR 備份。 您可以使用 LTR 定價計算機來估算 LTR 儲存體的成本。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>如何延長備份保留期限？
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: c409788ef68ab41a23e2991ea0ea1effce841a82
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777072"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -61,6 +62,7 @@ Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Window
 
 如果您無法登入，請嘗試下列疑難排解方法：
 
+* 如果您位於 macOS 上，且登入視窗不曾出現在「正在等候驗證...」對話方塊中，請嘗試[這些步驟](#Resetting-the-Mac-Keychain)
 * 重新啟動儲存體總管
 * 如果驗證視窗空白，請在關閉驗證對話方塊之前先等待至少一分鐘。
 * 確認您的機器和儲存體總管都已正確設定 Proxy 和憑證設定
@@ -96,7 +98,8 @@ Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Window
 
 首先，確定您輸入的下列資訊都正確：
 
-*Proxy URL 和連接埠號碼 *使用者名稱和密碼 (如果 Proxy 要求)
+* Proxy URL 和連接埠號碼
+* 使用者名稱和密碼 (如果 proxy 要求)
 
 ### <a name="common-solutions"></a>常見的解決方案
 
@@ -129,7 +132,7 @@ Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Window
 
 如果透過 proxy 連線至 Azure，請確認您的 proxy 設定正確無誤。 如已獲授權可存取訂用帳戶或帳戶擁有者的資源，請確認您已閱讀或列出該資源的權限。
 
-### <a name="issues-with-sas-url"></a>SAS URL 問題
+## <a name="issues-with-sas-url"></a>SAS URL 問題
 如果您使用 SAS URL 連線到服務，而碰到此錯誤：
 
 * 請確認 URL 提供讀取或列出資源的必要權限。
@@ -146,12 +149,25 @@ Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Window
 ## <a name="linux-dependencies"></a>Linux 相依項目
 
 針對 Ubuntu 16.04 以外的 Linux 散發版本，您可能需要手動安裝某些相依性。 一般而言，必要的套件如下：
-* [.NET Core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libsecret`
 * `libgconf-2-4`
 * 最新的 GCC
 
 依據您的散發版本，您可能需要安裝其他套件。 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)包含某些散發版本的特定步驟。
+
+## <a name="resetting-the-mac-keychain"></a>重設 Mac 鑰匙圈
+macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生問題的狀態。 若要使鑰匙圈脫離這種狀態，請嘗試下列步驟：
+1. 關閉 [儲存體總管]。
+2. 開啟鑰匙圈 (**cmd + 空格鍵**，鍵入 keychain，按 Enter)。
+3. 選取 [登入] 鑰匙圈。
+4. 按一下掛鎖圖示以鎖定鑰匙圈 (完成時，掛鎖會以動畫方式顯示到鎖定的位置，視您所開啟的應用程式而定，它可能需要幾秒鐘的時間)。
+
+    ![映像](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. 啟動儲存體總管。
+6. 應會隨即出現一個快顯視窗，指出「服務中樞想要存取鑰匙圈」等內容，請輸入 Mac 系統管理員帳戶的密碼，然後按一下 [一律允許] (或在未提供 [一律允許] 時按一下 [允許])。
+7. 嘗試登入。
 
 ## <a name="next-steps"></a>後續步驟
 

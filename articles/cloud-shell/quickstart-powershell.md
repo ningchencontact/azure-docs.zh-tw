@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: efee0842a2fca2afac28f179bba07c3b6682ee57
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e3e59395b7066169b8a7863f45a446051b830a71
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159267"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell 中 PowerShell 的快速入門 (預覽)
 
@@ -274,13 +275,13 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>使用自訂設定檔，以保存 GIT 和 SSH 設定
 
-因為工作階段在登出之後就不會保存，請將您的 `$env:USERPROFILE\.ssh` 目錄儲存至 `CloudDrive`，或者在 Cloud Shell 啟動時建立符號連結。
-在 profile.ps1 中新增下列程式碼片段，以建立與 CloudDrive 的符號連結。
+因為工作階段在登出之後就不會保存，請將您的 `$env:USERPROFILE\.ssh` 目錄儲存至 `clouddrive`，或者在 Cloud Shell 啟動時建立符號連結。
+在 profile.ps1 中加入下列程式碼片段，建立與 `clouddrive` 的符號連結。
 
 ``` PowerShell
 # Check if the .ssh directory exists
-if( -not (Test-Path $home\CloudDrive\.ssh)){
-    mkdir $home\CloudDrive\.ssh
+if( -not (Test-Path $home\clouddrive\.ssh)){
+    mkdir $home\clouddrive\.ssh
 }
 
 # .ssh path relative to this script
@@ -347,21 +348,21 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 ## <a name="use-azure-files-to-store-your-data"></a>使用 Azure 檔案來儲存資料
 
-您可以建立指令碼 (例如 `helloworld.ps1`)，並將它儲存至 `CloudDrive`，以跨殼層工作階段使用它。
+您可以建立指令碼 (例如 `helloworld.ps1`)，並將它儲存至 `clouddrive`，以跨殼層工作階段使用它。
 
 ``` PowerShell
-cd C:\users\ContainerAdministrator\CloudDrive
-PS C:\users\ContainerAdministrator\CloudDrive> vim .\helloworld.ps1
+cd C:\users\ContainerAdministrator\clouddrive
+PS C:\users\ContainerAdministrator\clouddrive> vim .\helloworld.ps1
 # Add the content, such as 'Hello World!'
-PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
+PS C:\users\ContainerAdministrator\clouddrive> .\helloworld.ps1
 Hello World!
 ```
 
-下次當您在 Cloud Shell 中使用 PowerShell 時，`helloworld.ps1` 檔案將會存在於掛接 Azure 檔案共用的 `CloudDrive` 目錄下。
+下次當您在 Cloud Shell 中使用 PowerShell 時，`helloworld.ps1` 檔案將會存在於掛接 Azure 檔案共用的 `clouddrive` 目錄下。
 
 ## <a name="use-custom-profile"></a>使用自訂設定檔
 
-您可以建立 PowerShell 設定檔 (`profile.ps1` 或 `Microsoft.PowerShell_profile.ps1`) 來自訂 PowerShell 環境。 將它儲存到 `CloudDrive` 下，以在您啟動 Cloud Shell 時將它載入至每個 PowerShell 工作階段。
+您可以建立 PowerShell 設定檔 (`profile.ps1` 或 `Microsoft.PowerShell_profile.ps1`) 來自訂 PowerShell 環境。 將它儲存到 `clouddrive` 下，以在您啟動 Cloud Shell 時將它載入至每個 PowerShell 工作階段。
 
 如需了解如何建立設定檔，請參閱[關於設定檔][profile]。
 
@@ -373,7 +374,7 @@ Hello World!
   git clone https://<your-access-token>@github.com/username/repo.git
 
 ```
-因為在您登出或工作階段逾時之後不會保存 Cloud Shell 中的工作階段，所以下次登入時不會有 Git 設定檔。 若要保存您的 Git 設定，您必須將 .gitconfig 儲存至 `CloudDrive`並複製它，或是在啟動 Cloud Shell 時建立符號連結。 在 profile.ps1 中使用下列程式碼片段，建立與 `CloudDrive` 的符號連結。
+因為在您登出或工作階段逾時之後不會保存 Cloud Shell 中的工作階段，所以下次登入時不會有 Git 設定檔。 若要保存您的 Git 設定，您必須將 .gitconfig 儲存至 `clouddrive`並複製它，或是在啟動 Cloud Shell 時建立符號連結。 在 profile.ps1 中使用下列程式碼片段，建立與 `clouddrive` 的符號連結。
 
  ``` PowerShell
  

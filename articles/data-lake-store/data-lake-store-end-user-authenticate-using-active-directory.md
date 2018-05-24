@@ -1,23 +1,22 @@
 ---
-title: "使用者驗證︰搭配使用 Azure Active Directory 與 Data Lake Store | Microsoft Docs"
-description: "了解如何搭配使用 Azure Active Directory 與 Data Lake Store 以完成使用者驗證"
+title: 使用者驗證︰搭配使用 Azure Active Directory 與 Data Lake Store | Microsoft Docs
+description: 了解如何搭配使用 Azure Active Directory 與 Data Lake Store 以完成使用者驗證
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: dca040fba78d6501bc835fdac402e69149d493b5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 11aed2ee2af239b02375a2d90e2544b4b45b2d41
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197132"
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>使用 Azure Active Directory 以 Data Lake Store 進行使用者驗證
 > [!div class="op_single_selector"]
@@ -83,7 +82,7 @@ Azure Data Lake Store 使用 Azure Active Directory 進行驗證。 撰寫搭配
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>步驟 2：取得應用程式識別碼和重新導向 URI
 
-請參閱[取得應用程式識別碼](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)，以擷取 Azure AD 原生應用程式的應用程式識別碼 (在 Azure 傳統入口網站中也稱為用戶端識別碼)。
+若要擷取應用程式識別碼，請參閱[取得應用程式識別碼](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)。
 
 若要擷取重新導向 URI，請進行下列步驟。
 

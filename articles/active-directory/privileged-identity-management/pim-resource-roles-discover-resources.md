@@ -1,6 +1,6 @@
 ---
-title: 適用於 Azure 資源的 Privileged Identity Management - 探索和管理 Azure 資源 | Microsoft Docs
-description: 說明如何保護 Azure 資源。
+title: 使用 Privileged Identity Management 探索與管理 Azure 資源 | Microsoft Docs
+description: 說明如何使用 PIM 保護 Azure 資源。
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -12,57 +12,56 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
 ms.author: billmath
-ms.openlocfilehash: 78650e47ec92aa144e4ccc8c57f309240bf31ee3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 51a10ea164e8bd7650ad2823281d9ed6a4c91915
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151275"
 ---
-# <a name="discover-and-manage-azure-resources"></a>探索和管理 Azure 資源
+# <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>使用 Privileged Identity Management 探索與管理 Azure 資源
 
-如果貴組織已經使用 Azure AD PIM 來保護您目錄中的管理員，或者您是想要保護所在生產資源的訂用帳戶擁有者。
+了解當您在 Azure Active Directory (Azure AD) 中使用 Privileged Identity Management (PIM) 時，如何探索與管理 Azure 資源。 此資訊對於已經使用 PIM 來保護系統管理員資源的組織，以及想要保護生產資源的訂用帳戶擁有者而言非常實用。
 
-當您第一次啟用適用於 Azure 資源的 PIM 時，您必須探索並選取要使用 PIM 保護的資源。 使用 PIM 可以管理的資源數目沒有限制，但是建議您先從最重要的 (生產) 資源著手。
+當您第一次設定適用於 Azure 資源的 PIM 時，必須探索並選取要使用 PIM 保護的資源。 您可以使用 PIM 管理的資源數目並無任何限制。 不過，我們建議從您最重要的 (生產) 資源開始。
 
-> [!Note]
-> 您只能搜尋並選取訂用帳戶資源進行管理。 選擇在 PIM 中管理訂用帳戶，也將啟用所有子資源的管理。
+> [!NOTE]
+> 您只能使用 PIM 來搜尋並選取要管理的訂用帳戶資源。 當您在 PIM 中管理訂用帳戶時，也可以管理該訂用帳戶中的子資源。
 
 ## <a name="discover-resources"></a>探索資源
 
-巡覽至 Azure AD PIM，然後在左導覽功能表的 [管理] 區段中選取 Azure 資源。
+在 Azure 入口網站中，移至 [Privileged Identity Management] 窗格。 在左側功能表的 [管理] 區段中，選取 [Azure 資源]。
 
-![](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
+![[Privileged Identity Management - Azure 資源] 窗格](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
 
-如果這是您第一次使用適用於 Azure 資源的 PIM，您必須執行探索來尋找要管理的資源。
-按一下畫面中央的 [探索資源] 按鈕，以啟動探索體驗。
+如果這是您第一次針對 Azure 資源使用 PIM，請先執行探索來尋找要管理的資源。 在 [探索資源] 窗格中，選取 [探索資源] 按鈕以啟動探索體驗。
 
-![](media/azure-pim-resource-rbac/aadpim_first_run_discovery.png)
+![[探索資源] 窗格](media/azure-pim-resource-rbac/aadpim_first_run_discovery.png)
 
-如果貴組織中的其他資源或目錄管理員已使用 PIM 管理 Azure 資源，或者您具有某項資源的合格角色指派，則清單檢視會包含以下訊息：「探索資源或啟用合格角色指派以繼續執行」。 
+如果組織中的其他資源或目錄系統管理員已使用 PIM 來管理 Azure 資源，或者您具有某個資源的合格角色指派，則清單檢視會顯示以下訊息：**探索資源或啟用合格的角色指派以繼續**。 
 
-![](media/azure-pim-resource-rbac/aadpim_discover_eligible_not_active.png)
+![[Privileged Identity Manager - Azure 資源] 窗格中的 [探索資源] 按鈕](media/azure-pim-resource-rbac/aadpim_discover_eligible_not_active.png)
 
-當您選取動作列中或 [探索資源] 畫面中央的按鈕時，您會看到可供管理的訂用帳戶清單。 此時，如果您看見醒目提示的訂用帳戶，則表示這些訂用帳戶受 PIM 保護。
+當您選取 [探索資源] 按鈕時，不論是從上層功能表或在窗格中間，都會出現您可以管理的訂用帳戶清單。 反白顯示的訂用帳戶已受到 PIM 保護。
 
-> [!Note]
-> 若要防止其他資源管理員移除 PIM 設定，訂用帳戶一旦受控，就無法變成非受控。
+> [!NOTE]
+> 為了防止其他資源系統管理員移除 PIM 設定，一旦將訂用帳戶設定為受控之後，就無法將其變成非受控。
 
-![](media/azure-pim-resource-rbac/aadpim_discovery_some_selected.png)
+![[Azure 資源 - 探索] 窗格](media/azure-pim-resource-rbac/aadpim_discovery_some_selected.png)
 
-將滑鼠暫留在您想要使用 PIM 保護的訂用帳戶上，並選取資料列最左邊的方塊。 您可以同時選取多個訂用帳戶。
+在 [資源] 欄中，將滑鼠放在您想要使用 PIM 保護的訂用帳戶上方。 然後，選取資源名稱左邊的核取方塊。 您可以同時選取多個訂用帳戶。
 
-![](media/azure-pim-resource-rbac/aadpim_discovery_all_selected.png)
+![[Azure 資源 - 探索] 窗格中的資源清單](media/azure-pim-resource-rbac/aadpim_discovery_all_selected.png)
 
-若要起始上線程序，請選取畫面頂端列中的 [管理資源] 按鈕。
+若要起始上線程序，請在上層功能表中選取 [管理資源]。
 
-![](media/azure-pim-resource-rbac/aadpim_discovery_click_manage.png)
+![[Azure 資源 - 探索] 窗格中的 [管理資源] 按鈕](media/azure-pim-resource-rbac/aadpim_discovery_click_manage.png)
 
-選取的資源現在由 PIM 管理。 使用頁面右上角的 "X" 來關閉探索畫面，然後按一下 [管理 Azure 資源] 畫面頂端列中的 [重新整理]，即可開始管理 PIM 設定及指派成員。
+選取的資源現在由 PIM 管理。 若要關閉探索畫面，請選取右上角的 **X**。若要開始管理 PIM 設定並指派成員，在 [Privileged Identity Management - Azure 資源] 窗格頂端的功能表中，選取 [重新整理] 按鈕。
 
-![](media/azure-pim-resource-rbac/aadpim_discovery_resources_refresh.png)
+![[Privileged Identity Management - Azure 資源] 窗格頂端功能表中的 [重新整理] 按鈕](media/azure-pim-resource-rbac/aadpim_discovery_resources_refresh.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-[配置角色設定](pim-resource-roles-configure-role-settings.md)
-
-[在 PIM 中指派角色](pim-resource-roles-assign-roles.md)
+- [配置角色設定](pim-resource-roles-configure-role-settings.md)
+- [在 PIM 中指派角色](pim-resource-roles-assign-roles.md)

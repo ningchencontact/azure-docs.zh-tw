@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中使用 Team Services 建立 CI/CD 管線 | Microsoft Docs
-description: 了解如何建立用於持續整合和持續傳遞的 Visual Studio Team Services 管線，將 Web 應用程式部署至 Windows VM 上的 IIS
+title: 教學課程 - 在 Azure 中使用 Team Services 建立 CI/CD 管線 | Microsoft Docs
+description: 在本教學課程中，您會了解如何建立用於持續整合和持續傳遞的 Visual Studio Team Services 管線，此管線會在 Azure 中將 Web 應用程式部署至 Windows VM 上的 IIS。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,14 +16,15 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cf6e3013d4dfc7e18d96a717a76b591cde939139
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d017f2453bbd757c16e2df034f5879f24ffe42f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192215"
 ---
-# <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>使用 Visual Studio Team Services 和 IIS 建立持續整合管線
-若要將應用程式開發的組建、測試、部署階段自動化，可以使用持續整合和部署 (CI/CD) 管線。 在本教學課程中，您可以使用 Visual Studio Team Services 以及 Azure 中執行 IIS 的 Windows 虛擬機器 (VM) 建立 CI/CD 管線。 您會了解如何：
+# <a name="tutorial-create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>教學課程：使用 Visual Studio Team Services 和 IIS 建立持續整合管線
+若要將應用程式開發的組建、測試、部署階段自動化，您可以使用持續整合和部署 (CI/CD) 管線。 在本教學課程中，您可以使用 Visual Studio Team Services 以及 Azure 中執行 IIS 的 Windows 虛擬機器 (VM) 建立 CI/CD 管線。 您會了解如何：
 
 > [!div class="checklist"]
 > * 將 ASP.NET Web 應用程式發佈至 Team Services 專案
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/06/2018
 > * 建立發行定義將新的 Web 部署套件發佈至 IIS
 > * 測試 CI/CD 管線
 
-本教學課程需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+本教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
 
 ## <a name="create-project-in-team-services"></a>在 Team Services 中建立專案
@@ -94,29 +95,30 @@ Visual Studio Team Services 可讓您進行簡單的共同作業與開發，不�
 ## <a name="create-virtual-machine"></a>建立虛擬機器
 若要提供執行 ASP.NET Web 應用程式的平台，您需要執行 IIS 的 Windows 虛擬機器。 當您認可程式碼且組建觸發後，Team Services 會使用代理程式來與 IIS 執行個體互動。
 
-使用[此指令碼範例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)建立 Windows Server 2016 VM。 指令碼需要花幾分鐘的時間來執行及建立 VM。 建立 VM 後，使用 [Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermresourcegroup) 開啟連接埠 80 用於 Web 流量，如下所示︰
+使用 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) 建立 Windows Server 2016 VM。 下列範例會在 [美國東部] 位置中建立名為 *myVM* 的 VM。 也會建立資源群組 *myResourceGroupVSTS* 和支援的網路資源。 為允許網路流量，TCP 連接埠 *80* 會開放給 VM。 出現提示時，請提供使用者名稱與密碼以作為 VM 的登入認證：
 
 ```powershell
-Get-AzureRmNetworkSecurityGroup `
-  -ResourceGroupName $resourceGroup `
-  -Name "myNetworkSecurityGroup" | `
-Add-AzureRmNetworkSecurityRuleConfig `
-  -Name "myNetworkSecurityGroupRuleWeb" `
-  -Protocol "Tcp" `
-  -Direction "Inbound" `
-  -Priority "1001" `
-  -SourceAddressPrefix "*" `
-  -SourcePortRange "*" `
-  -DestinationAddressPrefix "*" `
-  -DestinationPortRange "80" `
-  -Access "Allow" | `
-Set-AzureRmNetworkSecurityGroup
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a virtual machine
+New-AzureRmVM `
+  -ResourceGroupName "myResourceGroupVSTS" `
+  -Name "myVM" `
+  -Location "East US" `
+  -ImageName "Win2016Datacenter" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -SecurityGroupName "myNetworkSecurityGroup" `
+  -PublicIpAddressName "myPublicIp" `
+  -Credential $cred `
+  -OpenPorts 80
 ```
 
 若要連線至您的 VM，使用 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 取得公用 IP 位址，如下所示：
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
 ```
 
 建立與 VM 的遠端桌面工作階段：
@@ -125,7 +127,7 @@ Get-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup | Select IpAddress
 mstsc /v:<publicIpAddress>
 ```
 
-在 VM 上，開啟 **系統管理員 PowerShell** 命令提示字元。 安裝 IIS 和所需的 .NET 功能，如下所示︰
+在 VM 上，開啟**系統管理員 PowerShell** 命令提示字元。 安裝 IIS 和所需的 .NET 功能，如下所示︰
 
 ```powershell
 Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
@@ -133,7 +135,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 
 
 ## <a name="create-deployment-group"></a>建立部署群組
-若要將 Web 部署封裝推送到 IIS 伺服器，請在 Team Services 中定義部署群組。 此群組可讓您在 Team Services 認可程式碼且組建完成時，指定哪些伺服器是新組建的目標。
+若要將 Web 部署套件推送到 IIS 伺服器，請在 Team Services 中定義部署群組。 此群組可讓您在 Team Services 認可程式碼且組建完成時，指定哪些伺服器是新組建的目標。
 
 1. 在 Team Services 中，選擇 [組建及發行]，然後選取 [部署群組]。
 2. 選擇 [新增部署群組]。
@@ -188,7 +190,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 3. 在您的發行定義上方會顯示一個小橫幅，例如「已建立 'Release-1' 發行」。 選取發行連結。
 4. 開啟 [記錄] 索引標籤以查看發行進度。
     
-    ![成功的 Team Services 發行和 Web 部署封裝推送](media/tutorial-vsts-iis-cicd/successful_release.png)
+    ![成功的 Team Services 發行和 Web 部署套件推送](media/tutorial-vsts-iis-cicd/successful_release.png)
 
 5. 完成發行後，開啟網頁瀏覽器，並輸入您的 VM 的公用 IP 位址。 您的 ASP.NET Web 應用程式正在執行。
 

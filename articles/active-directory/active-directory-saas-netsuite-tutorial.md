@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Netsuite 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Netsuite 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Netsuite 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Netsuite 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 23e39f20f5b3faa4f6cfba57508d1649e2bbdaa3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f2bd227a3d8c0b797f37026032938fbcfe3de9e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34351332"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>教學課程：Azure Active Directory 與 Netsuite 整合
 
@@ -29,7 +30,7 @@ Netsuite 與 Azure AD 整合提供下列優點：
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Netsuite (單一登入)
 - 您可以在 Azure 入口網站中集中管理您的帳戶
 
-若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -57,7 +58,7 @@ Netsuite 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Netsuite，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -183,7 +184,7 @@ Netsuite 與 Azure AD 整合提供下列優點：
 
     c. 按一下 [新角色] 。
 
-    d. 輸入新角色的 [名稱]，然後選取 [僅單一登入] 核取方塊。
+    d. 針對新角色輸入**名稱**。
       
       ![設定單一登入](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
 
@@ -193,7 +194,7 @@ Netsuite 與 Azure AD 整合提供下列優點：
       
        ![設定單一登入](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
 
-    g. 選取 [設定 SAM 單一登入]，然後按一下 [新增]。
+    g. 選取 [設定 SAML 單一登入]，然後按一下 [新增]。
 
     h. 按一下 [檔案] 。
 
@@ -215,10 +216,6 @@ Netsuite 與 Azure AD 整合提供下列優點：
 
     m. 按一下 [檔案] 。
     
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
@@ -290,12 +287,12 @@ Netsuite 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-若要測試您的單一登入設定，請開啟位於 [https://myapps.microsoft.com](https://myapps.microsoft.com/) 的存取面板，登入測試帳戶，然後按一下 [Netsuite]。
+若要測試您的單一登入設定，請開啟位於 [https://myapps.microsoft.com](https://myapps.microsoft.com/) 的存取面板、登入測試帳戶，然後按一下 [Netsuite]。
 
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 * [設定使用者佈建](active-directory-saas-netsuite-provisioning-tutorial.md)
 
 <!--Image references-->

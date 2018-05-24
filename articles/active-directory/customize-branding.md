@@ -1,25 +1,25 @@
 ---
-title: "自訂 Azure Active Directory 租用戶的登入頁面 | Microsoft Docs"
-description: "了解如何將公司商標新增到 Azure 登入頁面"
+title: 自訂 Azure Active Directory 租用戶的登入頁面 | Microsoft Docs
+description: 了解如何將公司商標新增到 Azure 登入頁面
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 03a6b82f769ed9a36c5d3ff9934de75d1536e1ae
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ac8562b77ba43dbb07e886dfa235586198027796
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764439"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>快速入門：在 Azure AD 中將公司商標新增至登入頁面
 為了避免混淆，許多公司都想對其管理的所有網站和服務套用一致的外觀與風格。 Azure Active Directory (Azure AD) 是透過讓您利用公司標誌和自訂色彩配置來自訂登入頁面外觀的方式，提供這項功能。 登入頁面會在您登入 Web 型應用程式 (例如使用 Azure AD 作為識別提供者的 Office 365) 時顯示。 您可以與此頁面互動來輸入您的認證。
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/24/2018
 
 <!--You can customize the following elements on the sign-in page: <attach image>-->
 
-當使用者存取租用戶特定 URL (例如 [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com)) 時，公司商標自訂會出現在 Azure AD 登入頁面上。
+當使用者存取租用戶特定的 URL (例如 [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com)) 時，公司商標自訂會出現在 Azure AD 登入頁面上。
 
 例如，當使用者瀏覽 www.office.com 時，由於使用者尚未輸入認證，因此登入頁面不會顯示任何公司商標自訂項目。 在使用者輸入其使用者識別碼或選取使用者圖格之後，就會顯示公司商標。
 

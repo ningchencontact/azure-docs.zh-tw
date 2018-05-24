@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Adobe Sign 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Adobe Sign 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Adobe Sign 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Adobe Sign 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: f68701cc345ee1bb04cde265ac4e2d6a402da557
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>教學課程：Azure Active Directory 與 Adobe Sign 整合
 
@@ -57,7 +58,7 @@ ms.lasthandoff: 12/11/2017
 
 **若要從資源庫新增 Adobe Sign，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -129,40 +130,31 @@ ms.lasthandoff: 12/11/2017
 
     ![設定單一登入](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
 
-
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Adobe Sign 公司網站。
 
-8. 在頂端的功能表中，按一下 [帳戶]，然後在左側瀏覽窗格中，按一下 [帳戶設定] 下的 [SAML 設定]。
+8. 在 [SAML] 功能表中，按一下 [帳戶設定]，然後按一下 [SAML 設定]。
    
-   ![帳戶](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "帳戶")
+    ![帳戶](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "帳戶")
 
 9. 在 [SAML 設定] 區段中，執行下列步驟：
+  
+    ![SAML 設定](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML 設定")
    
-   ![SAML 設定](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML 設定")
+    a. 針對 [SAML 模式]，選取 [SAML 強制]。
    
-   a. 針對 [SAML 模式]，選取 [SAML 強制]。
+    b. 選取 [允許 Adobe Sign 帳戶管理員使用其 Adobe Sign 認證登入]。
    
-   b. 選取 [允許 EchoSign 帳戶管理員使用其 EchoSign 認證登入] 。
-   
-   c. 針對 [使用者建立]，選取 [透過 SAML 自動新增已驗證的使用者]。
+    c. 針對 [使用者建立]，選取 [透過 SAML 自動新增已驗證的使用者]。
 
-10. 繼續執行下列步驟：
-
-       ![SAML 設定](./media/active-directory-saas-adobe-echosign-tutorial/ic789522.png "SAML 設定")
-
-    a. 將您從 Azure 入口網站複製的「SAML 實體識別碼」貼到 [IdP 實體識別碼] 文字方塊中。
+    d. 將您從 Azure 入口網站複製的 **SAML 實體識別碼**貼到 [實體識別碼/簽發者 URL] 文字方塊中。
     
-    b. 將您從 Azure 入口網站複製的「SAML 單一登入服務 URL」貼到 [IdP 登入 URL] 文字方塊中。
+    e. 將您從 Azure 入口網站複製的 **SAML 單一登入服務 URL** 貼到 [登入 URL/SSO 端點] 文字方塊中。
    
-    c. 將您從 Azure 入口網站複製的「登出 URL」貼到 [IdP 登出 URL] 文字方塊中。
+    f. 將您從 Azure 入口網站複製的**登出 URL** 貼到 [登出 URL/SLO 端點] 文字方塊中。
 
-    d. 在記事本中開啟下載的「憑證 (Base64)」檔案，將其內容複製到剪貼簿，然後貼到 [IdP 憑證] 文字方塊中
+    g. 在記事本中開啟下載的「憑證 (Base64)」檔案，將其內容複製到剪貼簿，然後貼到 [IdP 憑證] 文字方塊中
 
-    e. 按一下 [儲存變更] 。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    h. 按一下 [儲存變更] 。
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
@@ -208,15 +200,15 @@ ms.lasthandoff: 12/11/2017
 
 2. 在頂端的功能表中，按一下 [帳戶]，然後在左側瀏覽窗格中，按一下 [使用者和群組]，接著按一下 [建立新的使用者]。
    
-   ![帳戶](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "帳戶")
+    ![帳戶](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "帳戶")
    
 3. 在 [建立新的使用者] 區段中，執行下列步驟：
    
-   ![建立使用者](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "建立使用者")
+    ![建立使用者](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "建立使用者")
    
-   a. 在相關的文字方塊中，輸入您想要佈建之有效 AAD 帳戶的 [電子郵件地址]、[名字] 和 [姓氏]。
+    a. 在相關的文字方塊中，輸入您想要佈建之有效 AAD 帳戶的 [電子郵件地址]、[名字] 和 [姓氏]。
    
-   b. 按一下 [建立使用者] 。
+    b. 按一下 [建立使用者] 。
 
 >[!NOTE]
 >Azure Active Directory 帳戶持有者會收到一封電子郵件，其中包含一個用來確認帳戶以使其生效的連結。 

@@ -2,25 +2,26 @@
 title: Azure SQL Database DTU 基準測試概觀
 description: 本主題說明用來測量 Azure SQL Database 效能的 Azure SQL Database 基準測試。
 services: sql-database
-author: jan-eng
-manager: jhubbard
+author: CarlRabeler
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: 0dae04ab3de16e2ef51134ec6979c6c289a6da3f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.author: carlrab
+ms.openlocfilehash: a045a545b8a0d4dda33dd404d0d206723eb822ad
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363973"
 ---
 # <a name="azure-sql-database-dtu-benchmark-overview"></a>Azure SQL Database DTU 基準測試概觀
 ## <a name="overview"></a>概觀
-在以 DTU 為基礎的購買模式中，Microsoft Azure SQL Database 提供三個[服務層](sql-database-service-tiers.md)以及多個效能等級。 每個效能等級都提供越來越多的資源集或「能力」，旨在提供愈來愈高的輸送量。
+在以 DTU 為基礎的購買模式中，Microsoft Azure SQL Database 提供三個[服務層](sql-database-service-tiers-dtu.md)以及多個效能等級。 每個效能等級都提供越來越多的資源集或「能力」，旨在提供愈來愈高的輸送量。
 
 > [!IMPORTANT]
-> Azure SQL Database 現在也支援以 vCore 為基礎的購買模式 (預覽)。 如需相關資訊，請參閱[以 vCore 為基礎的購買模式 (預覽)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)。
+> Azure SQL Database 現在也支援以 vCore 為基礎的購買模式 (預覽)。 如需相關資訊，請參閱[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 
 每個效能等級的增加能力會轉譯成提高的資料庫效能，請務必將其量化。 為了執行此作業，Microsoft 開發了 Azure SQL Database 基準測試 (ASDB)。 基準測試會執行所有 OLTP 工作負載中找到的基本作業的混合。 我們會測量在每個效能等級中執行之資料庫所獲得的輸送量。
 
@@ -126,6 +127,8 @@ Azure SQL Database 基準測試會測量跨某範圍可用服務層和效能等�
 ## <a name="resources"></a>資源
 [SQL Database 簡介](sql-database-technical-overview.md)
 
-[服務層和效能層級](sql-database-service-tiers.md)
+[以 DTU 為基礎的服務層和效能等級](sql-database-service-tiers-dtu.md)
+
+[以虛擬核心為基礎的服務層和效能等級](sql-database-service-tiers-vcore.md)
 
 [單一資料庫的效能指引](sql-database-performance-guidance.md)
