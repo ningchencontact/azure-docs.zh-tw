@@ -17,13 +17,11 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
-    - name: 了解角色定義
-      href: role-definitions.md
     - name: 內建角色
       href: built-in-roles.md
     - name: 自訂角色
       href: custom-roles.md
-    - name: 管理外部使用者的角色指派
+    - name: 為內部及外部使用者指派自訂角色
       href: role-assignments-external-users.md
     - name: 活動記錄
       href: change-history-report.md

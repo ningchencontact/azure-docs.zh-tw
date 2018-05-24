@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 63d5d8de82d97e7f8ca65ad04cdd4357cace0be1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e6bf1962115c4ee9212ae73eb98f664efa3b6a2d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>使用遠端監視解決方案執行進階監視
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 05/07/2018
 
 若要依循本教學課程進行操作，您需要在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案執行個體。
 
-如果您尚未部署遠端監視解決方案，應該先完成[部署遠端監視解決方案加速器](iot-suite-remote-monitoring-deploy.md)教學課程。
+如果您尚未部署遠端監視解決方案，應該先完成[部署遠端監視解決方案加速器](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)教學課程。
 
 ## <a name="choose-the-devices-to-display"></a>選擇要顯示的裝置
 
@@ -115,7 +115,7 @@ To view the device details, pan and zoom the map to locate the devices, then cli
 
 既然您已了解如何監視裝置，建議的後續步驟是了解如何：
 
-* [使用以臨界值作為基礎的規則來偵測問題](./iot-suite-remote-monitoring-automate.md)。
+* [使用以臨界值作為基礎的規則來偵測問題](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md)。
 * [管理及設定您的裝置](./iot-suite-remote-monitoring-manage.md)。
 * [針對裝置問題進行疑難排解和補救](./iot-suite-remote-monitoring-maintain.md)。
 * [使用模擬裝置來測試您的解決方案](iot-suite-remote-monitoring-test.md)。

@@ -156,6 +156,8 @@
               href: azure-stack-backup-enable-backup-powershell.md
             - name: 備份 Azure Stack
               href: azure-stack-backup-back-up-azure-stack.md
+            - name: 備份 Azure Stack 上的檔案和應用程式
+              href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
             - name: 從重大資料遺失的情況下復原
               href: azure-stack-backup-recover-data.md
             - name: 備份最佳做法
@@ -245,6 +247,8 @@
               href: azure-stack-app-service-configure-deployment-sources.md
             - name: App Service on Azure Stack 更新 1 版本資訊
               href: azure-stack-app-service-release-notes-update-one.md
+            - name: App Service on Azure Stack 更新 2 版本資訊
+              href: azure-stack-app-service-release-notes-update-two.md
         - name: 植入 Marketplace
           items:
             - name: Marketplace 概觀

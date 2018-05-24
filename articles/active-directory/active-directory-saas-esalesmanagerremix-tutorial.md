@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 200d87b950ac76c85513bc11da2798562e48bec3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f681eb91c1e79eb42b572956dfab93e620489e74
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>整合 Azure Active Directory 與 E Sales Manager Remix
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/05/2018
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 E Sales Manager Remix (單一登入，又稱為 SSO)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
+若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -270,7 +270,7 @@ ms.lasthandoff: 04/05/2018
 ## <a name="additional-resources"></a>其他資源
 
 * [整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

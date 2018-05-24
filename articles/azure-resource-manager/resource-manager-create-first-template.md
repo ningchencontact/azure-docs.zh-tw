@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/30/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 38ed7040c4f1497192c8c37887dc6281aa7935ea
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 32ff8621eb446f9bcc45398173f47b761b929ac5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>建立及部署第一個 Azure Resource Manager 範本
 本主題會逐步引導您完成建立第一個 Azure Resource Manager 範本的步驟。 Resource Manager 範本是 JSON 檔案，該檔案定義您需要為您的解決方案部署的資源。 若要了解部署和管理 Azure 解決方案的相關概念，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。 如果您有現成的資源且想要取得這些資源的範本，請參閱[從現有資源匯出 Azure Resource Manager 範本](resource-manager-export-template.md)。

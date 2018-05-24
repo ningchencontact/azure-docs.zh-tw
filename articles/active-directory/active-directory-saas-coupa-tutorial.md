@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 Coupa 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 Coupa 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 Coupa 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Coupa 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 30149f181d8b0ebdc1ae6820da5d561f3a942fa3
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 3e87502cbcdb0eff4310ad154083c7682d752e13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>教學課程：Azure Active Directory 與 Coupa 整合
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/12/2017
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Coupa (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/12/2017
 
 **若要從資源庫新增 Coupa，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
@@ -252,7 +252,7 @@ ms.lasthandoff: 12/12/2017
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -1,23 +1,23 @@
 ---
 title: Azure CredentialsCombo UI 元素 | Microsoft Docs
 description: 描述 Azure 入口網站的 Microsoft.Compute.CredentialsCombo UI 元素。
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: c17677a9e34de4c1afca8f04c8bd22c2155c3439
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 914e354265754a05476e96411d35e6cb04183213
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI 元素
 使用 Windows 和 Linux 密碼和 SSH 公開金鑰內建驗證的控制項群組。

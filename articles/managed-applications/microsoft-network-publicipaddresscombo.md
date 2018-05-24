@@ -1,23 +1,23 @@
 ---
 title: Azure PublicIpAddressCombo UI 元素 | Microsoft Docs
 description: 描述 Azure 入口網站的 Microsoft.Network.PublicIpAddressCombo UI 元素。
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: c308b6626f9c37b3928107c4c03e9e0a5da12e6f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: bf0ef5be609fba14ab12e1e6f9f97bc63f032aae
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI 元素
 選取新的或現有公用 IP 位址的控制項群組。

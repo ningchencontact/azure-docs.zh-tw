@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 BambooHR 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 BambooHR 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 BambooHR 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 BambooHR 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 081144a645683d4d00ed0d464e23558378dc1b38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c63a625c1eca7008c751d6904f182f76ee5f343b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>教學課程：Azure Active Directory 與 BambooHR 整合
 
-在本教學課程中，您將了解如何整合 BambooHR 與 Azure Active Directory (Azure AD)。
+在本教學課程中，您會了解如何將 BambooHR 與 Azure Active Directory (Azure AD) 整合。
 
 將 BambooHR 與 Azure AD 整合提供下列優點：
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/09/2018
 - 您可以讓使用者搭配他們的 Azure AD 帳戶使用單一登入 (SSO) 自動登入 BambooHR。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
+如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -239,7 +239,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="additional-resources"></a>其他資源
 
 * [整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 
 

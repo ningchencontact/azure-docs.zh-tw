@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 4cba8aa046b84fe63b17a662990824b1823c1572
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: eaa340e94311f5e70f473eab534df3fb3a87c866
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>教學課程：Azure Active Directory 與 Procore SSO 整合
 
@@ -29,7 +29,7 @@ Procore SSO 與 Azure AD 整合提供下列優點：
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Procore SSO (單一登入)
 - 您可以在 Azure 管理入口網站中集中管理您的帳戶
 
-若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -257,7 +257,7 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 
 
