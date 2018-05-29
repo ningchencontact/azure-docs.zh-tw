@@ -1,25 +1,28 @@
 ---
-title: "Azure AD 同盟中繼資料 | Microsoft Docs"
-description: "本文說明 Azure Active Directory 針對接受 Azure Active Directory 權杖之服務所發佈的同盟中繼資料文件。"
+title: Azure AD 同盟中繼資料 | Microsoft Docs
+description: 本文說明 Azure Active Directory 針對接受 Azure Active Directory 權杖之服務所發佈的同盟中繼資料文件。
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 58e5f62009e4e8b688108c6098ea8eabe8020e51
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cfc79b451eafe7dcdd0b8f4285f92714138260bb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156121"
 ---
 # <a name="federation-metadata"></a>同盟中繼資料
 Azure Active Directory (Azure AD) 會針對服務發佈同盟中繼資料文件，而該服務已設定為接受由 Azure AD 簽發的安全性權杖。 [Web 服務同盟語言 (WS-Federation) 1.2 版](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) (該說明為[適用於 OASIS 安全性聲明標記語言 (SAML) 的中繼資料 2.0 版 的延伸資訊](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf)) 中說明了同盟中繼資料文件格式。

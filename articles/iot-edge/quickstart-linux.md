@@ -9,11 +9,12 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 750f09c91a086b22df5e7557e4b6fc6a763499e2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a9cb627c4d8eff2226717dd675d24349730e90d5
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068716"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux 或 Mac 裝置 - 預覽
 
@@ -21,12 +22,21 @@ Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本�
 
 如果您沒有使用中的 Azure 訂用帳戶，請在開始前建立[免費帳戶][lnk-account]。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本快速入門會以物聯網裝置的形式使用您的電腦或虛擬機器。 若要將您的機器轉換為 IoT Edge 裝置，需要下列服務：
 
 * Python pip，以安裝 IoT Edge 執行階段。
    * Linux：`sudo apt-get install python-pip`。
+      
+      > [!Note]
+      > 特定發佈 (例如，Raspbian) 可能也需要升級特定的 pip 套件並安裝其他相依性：
+      
+        ```
+        sudo pip install --upgrade setuptools pip
+        sudo apt-get install python2.7-dev libffi-dev libssl-dev
+        ```
+        
    * MacOS：`sudo easy_install pip`。
 * Docker，以執行 IoT Edge 模組
    * [安裝適用於 Linux 的 Docker][lnk-docker-ubuntu] 並確定它正在執行。 
@@ -34,7 +44,7 @@ Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本�
 
 ## <a name="create-an-iot-hub-with-azure-cli"></a>使用 Azure CLI 建立 IoT 中樞
 
-在您的 Azure 訂用帳戶中建立 IoT 中樞。 IoT 中樞的可用層級適用於本快速入門。 如果您在過去已使用過 IoT 中樞，並已建立可用的中樞，就可以跳過本節並移至[註冊 IoT Edge 裝置][anchor-register]。 每個訂用帳戶只能有一個免費的 IoT 中樞。 
+在您的 Azure 訂用帳戶中建立 IoT 中樞。 此快速入門適用於 IoT 中樞的免費層級。 如果您在過去已使用過 IoT 中樞，並已建立可用的中樞，就可以跳過本節並移至[註冊 IoT Edge 裝置][anchor-register]。 每個訂用帳戶只能有一個免費的 IoT 中樞。 
 
 1. 登入 [Azure 入口網站][lnk-portal]。 
 1. 選取 [Cloud Shell] 按鈕。 

@@ -1,35 +1,36 @@
 ---
-title: "Operations Management Suite (OMS) 中的 Office 365 解決方案 | Microsoft Docs"
-description: "本文提供在 OMS 中設定和使用 Office 365 解決方案的相關詳細資料。  它包含在 Log Analytics 中所建立之 Office 365 記錄的詳細描述。"
+title: Azure 中的 Office 365 管理解決方案 | Microsoft Docs
+description: 本文提供在 Azure 中設定和使用 Office 365 解決方案的相關詳細資料。  它包含在 Log Analytics 中所建立之 Office 365 記錄的詳細描述。
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 711071eaff7ab5e5199793663aa3cbb36a1e8d8a
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 8797e08ad942687b7d2defd765f4fe3f9765812f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777843"
 ---
-# <a name="office-365-solution-in-operations-management-suite-oms"></a>Operations Management Suite (OMS) 中的 Office 365 解決方案
+# <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
 ![Office 365 標誌](media/oms-solution-office-365/icon.png)
 
-適用於 Operations Management Suite (OMS) 的 Office 365 解決方案可讓您監視 Log Analytics 中的 Office 365 環境。  
+Office 365 管理解決方案可讓您監視 Log Analytics 中的 Office 365 環境。
 
 - 監視 Office 365 帳戶上的使用者活動，以分析使用模式並識別行為趨勢。 例如，您可以擷取特定使用方式情節，例如在貴組織外部共用的檔案或最熱門的 SharePoint 網站。
 - 監視系統管理員活動以追蹤設定變更或高權限作業。
 - 偵測並調查的不必要的使用者行為，並可以針對貴組織的需求進行自訂。
 - 示範稽核與合規性。 例如，您可以監視機密檔案的檔案存取作業，以協助進行稽核與合規性流程。
-- 針對組織的 Office 365 活動資料使用 OMS 搜尋，執行作業疑難排解。
+- 針對組織的 Office 365 活動資料使用[記錄搜尋](../log-analytics/log-analytics-log-search.md)，執行作業疑難排解。
 
 ## <a name="prerequisites"></a>先決條件
 安裝和設定此解決方案之前必須先具備下列項目。
@@ -47,7 +48,7 @@ ms.lasthandoff: 10/16/2017
 ## <a name="configuration"></a>組態
 [將 Office 365 解決方案新增至訂用帳戶](../log-analytics/log-analytics-add-solutions.md)之後，您必須將它連接到 Office 365 訂閱。
 
-1. 使用 [加入方案](../log-analytics/log-analytics-add-solutions.md)所述的程序，將警示管理方案加入您的 OMS 工作區。
+1. 使用[新增方案](../log-analytics/log-analytics-add-solutions.md)中所述的程序，將警示管理方案新增至您的 Log Analytics 工作區。
 2. 在 OMS 入口網站中，移至 [設定]。
 3. 在 [連接的來源] 下，選取 [Office 365]。
 4. 按一下 [連線至 Office 365]。<br>![連線至 Office 365](media/oms-solution-office-365/configure.png)
@@ -63,7 +64,7 @@ Office 365 解決方案不會從任何 [OMS 代理程式](../log-analytics/log-a
 每次建立一筆記錄時，Office 365 都會將 [Webhook 通知](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) \(英文\) 連同詳細資料傳送至 Log Analytics。
 
 ## <a name="using-the-solution"></a>使用解決方案
-當您將 Office 365 解決方案新增至 OMS 工作區時，[Office 365] 圖格會新增至 OMS 儀表板。 此圖格會顯示計數並以圖形表示環境中的電腦數目及其更新合規性。<br><br>
+當您將 Office 365 解決方案新增至 Log Analytics 工作區時，[Office 365] 圖格會新增至儀表板。 此圖格會顯示計數並以圖形表示環境中的電腦數目及其更新合規性。<br><br>
 ![Office 365 摘要圖格](media/oms-solution-office-365/tile.png)  
 
 按一下 [Office 365] 圖格以開啟 [Office 365] 儀表板。
@@ -294,9 +295,9 @@ Office 365 解決方案不會從任何 [OMS 代理程式](../log-analytics/log-a
 
 | 狀態 | 說明 |
 |:--|:--|
-| Active | Office 365 訂閱為作用中狀態，且工作負載已成功連線至您的 OMS 工作區。 |
-| Pending | Office 365 訂閱為作用中狀態，但工作負載尚未成功連線至您的 OMS 工作區。 首次連線 Office 365 訂閱時，所有工作負載都會處於這個狀態，直到成功連線為止。 請等待 24 小時的時間，以讓所有工作負載切換至「作用中」。 |
-| 非使用中 | Office 365 訂閱處於非作用中狀態。 請查看 Office 365 管理員頁面以取得詳細資料。 在您啟用 Office 365 訂閱之後，請取消它和 OMS 工作區之間的連結，然後再次連結它以開始接收資料。 |
+| Active | Office 365 訂閱為作用中狀態，且工作負載已成功連線至您的 Log Analytics 工作區。 |
+| Pending | Office 365 訂閱為作用中狀態，但工作負載尚未成功連線至您的 Log Analytics 工作區。 首次連線 Office 365 訂閱時，所有工作負載都會處於這個狀態，直到成功連線為止。 請等待 24 小時的時間，以讓所有工作負載切換至「作用中」。 |
+| 非使用中 | Office 365 訂閱處於非作用中狀態。 請查看 Office 365 管理員頁面以取得詳細資料。 在您啟用 Office 365 訂閱之後，請取消它和 Log Analytics 工作區之間的連結，然後再次連結它以開始接收資料。 |
 
 
 

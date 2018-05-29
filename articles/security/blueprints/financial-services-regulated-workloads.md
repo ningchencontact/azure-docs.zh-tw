@@ -3,7 +3,7 @@ title: Azure 安全性與合規性藍圖 - 符合 FFIEC 金融服務規範的工
 description: Azure 安全性與合規性藍圖 - 符合 FFIEC 金融服務規範的工作負載
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 17794288-9074-44b5-acc8-1dacceb3f56c
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 497c5a987753cbbe577c1d042d6bf61be9d905ab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: f1339af22132d19f14ea8ebb72fe0e6bd45b7fad
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895549"
 ---
 # <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Azure 安全性與合規性藍圖 - 符合 FFIEC 金融服務規範的工作負載
 
@@ -42,7 +43,7 @@ ms.lasthandoff: 04/16/2018
 - **部署範本**。 在此部署中，透過在安裝期間指定設定參數，系統會使用 [Azure Resource Manager 範本](/azure/azure-resource-manager/resource-group-overview#template-deployment)來將架構的元件自動部署至 Microsoft Azure。
 - **自動化部署指令碼**。 這些指令碼可協助您部署端對端解決方案。 指令碼包括：
     - 模組安裝和[全域管理員](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)安裝指令碼會用來進行安裝，以及確認必要的 PowerShell 模組和全域管理員角色已正確設定。 
-    - 安裝 PowerShell 指令碼會用來部署端對端解決方案，並透過 .zip 檔案和 .bacpac 檔案提供，其中包含預先建置的示範 Web 應用程式與 [SQL 資料庫的範例](https://github.com/Microsoft/azure-sql-security-sample)。 內容。 您可以在[付款處理藍圖代碼存放庫][code-repo]檢閱此解決方案的原始程式碼。 
+    - 安裝 PowerShell 指令碼會用來部署端對端解決方案，並透過 .zip 檔案和 .bacpac 檔案提供，其中包含預先建置的示範 Web 應用程式與 [SQL 資料庫的範例](https://github.com/Microsoft/azure-sql-security-sample)。 內容。 您可以在 [付款處理藍圖程式碼存放庫][程式碼存放庫] 檢閱此解決方案的原始程式碼。 
 
 ## <a name="architectural-diagram"></a>架構圖
 
@@ -305,7 +306,7 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
 
 ## <a name="deploy-the-solution"></a>部署解決方案
 
-用於部署此解決方案的元件可在[藍圖程式碼存放庫][code-repo]中找到。 基本架構的部署需要透過 Microsoft PowerShell v5 執行多個步驟。 若要連線至網站，您必須提供自訂網域名稱 (例如 contoso.com)。 這會使用步驟 2 中的 `-customHostName`參數來指定。 如需詳細資訊，請參閱[針對 Azure Web Apps 購買自訂網域名稱](/azure/app-service-web/custom-dns-web-site-buydomains-web-app)。 自訂網域名稱並不是成功部署和執行解決方案的必要項目，但是您會無法連線至用於示範的網站。
+部署此解決方案的元件可在 [藍圖程式碼存放庫][程式碼存放庫] 中取得。 基本架構的部署需要透過 Microsoft PowerShell v5 執行多個步驟。 若要連線至網站，您必須提供自訂網域名稱 (例如 contoso.com)。 這會使用步驟 2 中的 `-customHostName`參數來指定。 如需詳細資訊，請參閱[針對 Azure Web Apps 購買自訂網域名稱](/azure/app-service-web/custom-dns-web-site-buydomains-web-app)。 自訂網域名稱並不是成功部署和執行解決方案的必要項目，但是您會無法連線至用於示範的網站。
 
 指令碼會將網域使用者新增至您指定的 Azure AD 租用戶。 Microsoft 建議您建立新的 Azure AD 租用戶，以作為測試使用。
 
@@ -388,8 +389,3 @@ Microsoft 強烈建議使用 PowerShell 的全新安裝來部署解決方案。 
 - 此頁面上的所有客戶名稱、交易記錄和任何相關資料皆屬虛構，僅為此基本架構而建立，並僅供示範用。 並未影射或關聯任何真實的人、事、物。  
 - 此解決方案由 Microsoft 與 Avyan Consulting 共同開發，而且經過 [MIT 授權](https://opensource.org/licenses/MIT)許可。
 
-### <a name="document-authors"></a>文件作者
-
-* *Frank Simorjay (Microsoft)*  
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "程式碼存放庫"

@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 10/14/2016
+ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: 263946c1a1bd792b2f23a55388b73a82ddad0000
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 025ff3dea365ab75af55f107da1fb7331861eb06
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166364"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>將 HPC 工作從內部部署電腦提交至在 Azure 中部署的 HPC Pack 叢集
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,9 +30,9 @@ ms.lasthandoff: 04/06/2018
 ![將工作提交至 Azure 中的叢集][jobsubmit]
 
 ## <a name="prerequisites"></a>先決條件
-* **在 Azure VM 中部署的 HPC Pack 前端節點** - 建議您使用 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/) 或 [Azure PowerShell 指令碼](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)等自動化工具來部署前端節點和叢集。 您必須要有前端節點的 DNS 名稱和叢集系統管理員的認證，才能完成本文中的步驟。
+* **在 Azure VM 中部署的 HPC Pack 前端節點** - 建議您使用 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)等自動化工具來部署前端節點和叢集。 您必須要有前端節點的 DNS 名稱和叢集系統管理員的認證，才能完成本文中的步驟。
 * **用戶端電腦** - 您必須要有可執行 HPC Pack 用戶端公用程式的 Windows 或 Windows Server 用戶端電腦 (請參閱[系統需求](https://technet.microsoft.com/library/dn535781.aspx))。 如果您只想要使用 HPC Pack Web 入口網站或 REST API 來提交工作，您可以使用自行選擇的任何用戶端電腦。
-* **HPC Pack 安裝媒體** - 若要安裝 HPC Pack 用戶端公用程式，可從 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=328024)取得最新版 HPC Pack (HPC Pack 2012 R2) 的免費安裝套件。 請確定您下載的是安裝在前端節點 VM 上的相同 HPC Pack 版本。
+* **HPC Pack 安裝媒體** - 若要安裝 HPC Pack 用戶端公用程式，可從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=56360)取得最新版 HPC Pack 的免費安裝套件。 請確定您下載的是安裝在前端節點 VM 上的相同 HPC Pack 版本。
 
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>步驟 1：在前端節點上安裝及設定 Web 元件
 若要啟用透過 HTTPS 以 REST 介面將工作提交至叢集的功能，請確定在 HPC Pack 前端節點上設定 HPC Pack Web 元件。 如果尚未安裝，您必須先執行 HpcWebComponents.msi 安裝檔案，以安裝 Web 元件。 然後，請執行 HPC PowerShell 指令碼 **Set-HPCWebComponents.ps1**，以設定元件。
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/06/2018
 如需詳細程序，請參閱 [安裝 Microsoft HPC Pack Web 元件](http://technet.microsoft.com/library/hh314627.aspx)。
 
 > [!TIP]
-> HPC Pack 的某些 Azure 快速入門範本會自動安裝和設定 Web 元件。 如果您使用 [HPC Pack IaaS 部署指令碼](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)來建立叢集，您可以選擇性地安裝 Web 元件並將其設定為部署的一部分。
+> HPC Pack 叢集的某些 Azure 快速入門範本會自動安裝和設定 Web 元件。
 > 
 > 
 
@@ -81,7 +82,7 @@ ms.lasthandoff: 04/06/2018
     ```
 
 ## <a name="step-2-install-the-hpc-pack-client-utilities-on-an-on-premises-computer"></a>步驟 2：在內部部署電腦上安裝 HPC Pack 用戶端公用程式
-如果您想要在電腦上安裝 HPC Pack 用戶端公用程式，請從 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=328024) 下載 HPC Pack 安裝程式檔案 (完整安裝)。 當您開始安裝時，請選擇安裝 **HPC Pack 用戶端公用程式**。
+如果您想要在電腦上安裝 HPC Pack 用戶端公用程式，請從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=56360) 下載 HPC Pack 安裝程式檔案 (完整安裝)。 當您開始安裝時，請選擇安裝 **HPC Pack 用戶端公用程式**。
 
 若要使用 HPC Pack 用戶端工具將工作提交至前端節點 VM，您也必須從前端節點匯出憑證，並將它安裝在用戶端電腦上。 憑證必須是 .CER 格式。
 

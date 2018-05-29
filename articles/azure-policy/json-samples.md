@@ -1,5 +1,5 @@
 ---
-title: 原則範本範例 | Microsoft Docs
+title: 原則範本範例
 description: Azure 原則的 JSON 範例
 services: azure-policy
 documentationcenter: ''
@@ -16,11 +16,12 @@ ms.workload: ''
 ms.date: 01/17/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 0956f42812307f88e37ef12078a86eb85f407ce6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 458ce4fb77f501d5feba4cf732fe3ce9a49f9c21
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937193"
 ---
 # <a name="templates-for-azure-policy"></a>Azure 原則的範本
 
@@ -79,6 +80,9 @@ ms.lasthandoff: 04/28/2018
 | [允許的資源類型](scripts/allowed-res-types.md) | 確保只部署已核准的資源類型。 您需指定允許的資源類型陣列。  |
 | [允許的儲存體帳戶 SKU](scripts/allowed-stor-acct-skus.md) | 要求儲存體帳戶使用已核准的 SKU。 您需指定已核准的 SKU 陣列。 |
 | [套用標籤及其預設值](scripts/apply-tag-def-val.md) | 附加指定的標籤名稱和值 (如果未提供該標籤)。 您需指定要套用的標籤名稱和值。  |
+| [稽核 SQL Database 加密](scripts/sql-database-encryption-audit.md) | 稽核 SQL 資料庫是否未啟用透明資料加密。 |
+| [稽核 SQL Server 稽核設定](scripts/sql-server-audit.md) | 根據是否已啟用稽核設定，來稽核 SQL 伺服器。 |
+| [強制使用 Data Lake Store 加密](scripts/enforce-datalakestore-encryption.md) | 拒絕任何未啟用加密的 Data Lake Store 帳戶。 |
 | [強制執行標籤及其值](scripts/enforce-tag-val.md) | 要求使用指定的標籤名稱和值。 您需指定要強制執行的標籤名稱和值。  |
 | [不允許的資源類型](scripts/not-allowed-res-type.md) | 禁止部署指定的資源類型。 您需指定要封鎖的資源類型陣列。  |
 | [要求 SQL Server 12.0 版](scripts/req-sql-12.md) | 要求 SQL Server 使用 12.0 版。  |

@@ -8,27 +8,25 @@ manager: mtillman
 editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
+ms.component: msi
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33930981"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>受控服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>常見問題集 (FAQ)
-
-### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>對於即將推出的 MSI 功能與整合，有可用的私人預覽方案嗎？
-
-是。 如果您要在私人預覽方案中進行註冊，[請造訪我們的註冊頁面](https://aka.ms/azuremsiprivatepreview)。
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>MSI 是否使用 Azure 雲端服務？
 
@@ -38,7 +36,7 @@ ms.lasthandoff: 04/18/2018
 
 不行，MSI 未尚未與 ADAL 或 MSAL 整合。 如需使用 MSI REST 端點取得 MSI 權杖的詳細資訊，請參閱[如何使用 Azure VM 受控服務識別 (MSI) 取得權杖](how-to-use-vm-token.md)。
 
-### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>什麼是受控服務身分識別的安全性界限？
+### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>什麼是受控服務識別的安全性界限？
 
 身分識別的安全性界限，是指身分識別所連結到的資源。 例如，虛擬機器 MSI 安全性界限就是虛擬機器。 在該 VM 上執行的任何程式碼，都能呼叫 MSI 端點並要求權杖。 它是與支援 MSI 其他資源類似的體驗。
 
@@ -53,7 +51,7 @@ ms.lasthandoff: 04/18/2018
 
 MSI VM 延伸模組目前仍可供使用；但往後，我們會預設為使用 IMDS 端點。 MSI VM 延伸模組很快就會啟動淘汰計劃。 
 
-如需 Azure 執行個體中繼資料服務的詳細資訊，請參閱 [IMDS 文件](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+如需 Azure 執行個體中繼資料服務的詳細資訊，請參閱 [IMDS 文件](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### <a name="what-are-the-supported-linux-distributions"></a>支援的 Linux 散發套件有哪些？
 
@@ -91,7 +89,7 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 
 「受控服務識別」虛擬機器擴充目前不支援將其結構描述匯出至資源群組範本。 因此，產生的範本不會顯示可在資源上啟用受控服務識別的設定參數。 您可以依照[使用範本來設定虛擬機器受控服務識別](qs-configure-template-windows-vm.md)中的範例，手動新增這些區段。
 
-當結構描述匯出功能變成可用於 MSI 虛擬機器擴充時，就會列在[匯出包含虛擬機器擴充的資源群組](../../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions)中。
+當結構描述匯出功能變成可用於 MSI 虛擬機器擴充時，就會列在[匯出包含虛擬機器擴充的資源群組](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions)中。
 
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Azure 入口網站中沒出現組態刀鋒視窗
 
@@ -99,7 +97,7 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 
 ### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>在 [存取控制 (IAM)] 刀鋒視窗中無法將存取權指派給虛擬機器
 
-在 Azure 入口網站中，如果**虛擬機器**沒有在 [存取控制 (IAM)] >  [新增權限] 中顯示為**指派存取權的對象**，則表示受控服務識別尚未在您區域的入口網站中啟用。 請稍後再試。  您仍然可藉由搜尋受控服務身分識別服務主體，選取 MSI 來指派角色。  在 [選取] 欄位中輸入 VM 名稱，服務主體就會出現在搜尋結果中。
+在 Azure 入口網站中，如果**虛擬機器**沒有在 [存取控制 (IAM)] >  [新增權限] 中顯示為**指派存取權的對象**，則表示受控服務識別尚未在您區域的入口網站中啟用。 請稍後再試。  您仍然可藉由搜尋受控服務識別服務主體，選取 MSI 來指派角色。  在 [選取] 欄位中輸入 VM 名稱，服務主體就會出現在搜尋結果中。
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>VM 從資源群組或訂用帳戶移走後會無法啟動
 
@@ -122,3 +120,16 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
+
+## <a name="known-issues-with-user-assigned-identities"></a>使用者指派身分識別的已知問題
+
+- 使用者指派身分識別的指派僅適用於 VM 和 VMSS。 重要：使用者指派身分識別的指派將會在之後幾個月進行變更。
+- 相同 VM/VMSS 上若有重複的使用者指派身分識別，將導致 VM/VMSS 失敗。 這包括以大小寫不同而新增的身分識別。 例如 MyUserAssignedIdentity 和 myuserassignedidentity。 
+- 將 VM 延伸模組佈建到 VM 的作業，可能會因為 DNS 查閱失敗而失敗。 重新啟動 VM，然後再試一次。 
+- 新增「不存在」的使用者指派身分識別會造成 VM 失敗。 
+- 不支援在名稱中使用特殊字元 (例如底線) 建立使用者指派的身分識別。
+- 針對端對端案例，使用者指派身分識別的名稱僅限 24 個字元。 使用者指派身分識別的名稱若超過 24 個字元，將會無法進行指派。  
+- 新增第二個使用者指派的身分識別時，可能無法使用 clientID 來要求 VM 擴充的權杖。 使用下列兩個 bash 命令重新啟動 MSI VM 延伸模組來作為風險降低措施：
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
+- 當 VM 具有使用者指派的身分識別，但是沒有系統指派的身分識別時，入口網站 UI 會顯示 MSI 為已停用狀態。 若要啟用系統指派的身分識別，請使用 Azure Resource Manager 範本、Azure CLI 或 SDK。

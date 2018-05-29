@@ -1,30 +1,34 @@
 ---
-title: "Azure Active Directory 登入活動報告 API 參考 | Microsoft Docs"
-description: "Azure Active Directory 登入活動報告 API 的參考"
+title: Azure Active Directory 登入活動報告 API 參考 | Microsoft Docs
+description: Azure Active Directory 登入活動報告 API 的參考
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 859459bbce6b81e2e855201d5c310233d88d0393
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 3831146caad4fe922e482ce782d5d41fb70338f4
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155791"
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Azure Active Directory 登入活動報告 API 參考
-本主題是 Azure Active Directory 報告 API 相關主題集合的一部分。  
-Azure AD 報告提供的 API 可讓您使用程式碼或相關工具來存取登入活動報告資料。
-本主題的範疇是為您提供有關 **登入活動報告 API**的參考資訊。
+
+> [!TIP] 
+> 來看看新的[報告](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)用 Microsoft Graph API，這項新的 API 最終將取代此 API。 
+
+本文是 Azure Active Directory (Azure AD) 報告 API 相關文章集合的一部分。 Azure AD 報告提供的 API 可讓您使用程式碼或相關工具來存取稽核資料。
+本文的範疇為您提供有關**稽核 API** 的參考資訊。
 
 請參閱：
 
@@ -35,7 +39,7 @@ Azure AD 報告提供的 API 可讓您使用程式碼或相關工具來存取登
 ## <a name="who-can-access-the-api-data"></a>誰可以存取 API 資料？
 * 具有安全性系統管理員或安全性讀取者角色的使用者和服務主體
 * 全域管理員
-* 任何獲得授權存取 API 的應用程式 (只可以根據全域管理員的權限來設定應用程式授權)
+* 任何獲得授權、可存取 API 的應用程式 (只可以根據全域管理員的權限來設定應用程式授權)
 
 若要設定應用程式存取權以存取安全性 API (例如登入事件)，請使用下列 PowerShell 將應用程式服務主體新增至安全性讀取者角色
 
@@ -49,11 +53,11 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 ## <a name="prerequisites"></a>先決條件
 若要透過報告 API 來存取此報告，您必須具有︰
 
-* [Azure Active Directory Premium P1 或 P2 版本](active-directory-editions.md)
+* [Azure Active Directory Premium P1 或 P2 版本](active-directory-whatis.md)
 * 了解 [存取 Azure AD 報告 API 的必要條件](active-directory-reporting-api-prerequisites.md)。 
 
 ## <a name="accessing-the-api"></a>存取 API
-您可以透過 [Graph 總管](https://graphexplorer2.cloudapp.net) 或以程式設計方式使用 PowerShell 來存取此 API。 為了讓 PowerShell 正確地解譯 AAD Graph REST 呼叫中使用的 OData 篩選語法，您必須使用倒單引號 (也稱為︰抑音符號) 字元來「逸出」$ 字元。 倒單引號字元可做為 [PowerShell 的逸出字元](https://technet.microsoft.com/library/hh847755.aspx)，讓 PowerShell 進行 $ 字元的常值解譯，並且避免將它與 PowerShell 變數名稱 (例如︰$filter) 搞混。
+您可以透過 [Graph 總管](https://graphexplorer2.cloudapp.net) 或以程式設計方式使用 PowerShell 來存取此 API。 為了讓 PowerShell 正確地解譯 AAD Graph REST 呼叫中使用的 OData 篩選語法，您必須使用倒單引號 (也稱為︰抑音符號) 字元來「逸出」$ 字元。 倒單引號字元可作為 [PowerShell 的逸出字元](https://technet.microsoft.com/library/hh847755.aspx)，讓 PowerShell 進行 $ 字元的常值解譯，並且避免將它與 PowerShell 變數名稱 (例如︰$filter) 搞混。
 
 本主題的重點在於 Graph 總管。 如需 PowerShell 範例，請參閱此 [PowerShell 指令碼](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script)。
 
@@ -66,8 +70,7 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 
 由於資料量的緣故，此 API 有一百萬筆傳回記錄的限制。 
 
-此呼叫會分批傳回資料。 每個批次的上限為 1000 筆記錄。  
-若要取得下一批記錄，請使用 [下一個] 連結。 從第一組傳回的資料取得 [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) 資訊。 略過 Token 位於結果集的結尾。  
+此呼叫會分批傳回資料。 每個批次的上限為 1000 筆記錄。 若要取得下一批記錄，請使用 [下一個] 連結。 從第一組傳回的資料取得 [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) 資訊。 略過 Token 位於結果集的結尾。  
 
     https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
 
@@ -76,7 +79,7 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 您可以篩選形式縮小 API 呼叫所傳回的記錄筆數。  
 對於登入 API 相關資料，支援下列篩選︰
 
-* **$top=\<傳回的記錄筆數\>** - 限制傳回的記錄筆數。 這是一項昂貴的作業。 如果您想要傳回數千個物件，則不應該使用此篩選器。  
+* **$top=\<傳回的記錄筆數\>** - 限制傳回的記錄筆數。 這是一項昂貴的作業。 如果您想要傳回數千個物件，則請勿使用此篩選器。  
 * **$filter=\<您的篩選陳述式\>** - 根據支援的篩選欄位，指定您關心的記錄類型
 
 ## <a name="supported-filter-fields-and-operators"></a>支援的篩選欄位和運算子

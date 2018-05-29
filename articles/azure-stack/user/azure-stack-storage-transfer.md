@@ -14,19 +14,21 @@ ms.topic: get-started-article
 ms.date: 04/25/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 2876565f3d6a3411eb170d4da640166fa3e607eb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a148f8089dd104933e6ba95f573182e0c1a32ae5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257949"
 ---
-# <a name="tools-for-azure-stack-storage"></a>Azure Stack 儲存體適用的工具
+# <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 儲存體的資料傳輸工具
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-Microsoft Azure Stack 提供磁碟、Blob、資料表、佇列和帳戶管理功能適用的一組儲存體服務。 如果您要管理資料、將資料移動至 Azure Stack 儲存體，或從 Azure Stack 儲存體移動資料，就可以使用一組 Azure 儲存體工具。 本文提供可用工具的快速概觀。
+Microsoft Azure Stack 提供磁碟、Blob、資料表、佇列和帳戶管理功能適用的一組儲存體服務。 如果您要管理資料、將資料移動至 Azure Stack 儲存體，或從 Azure Stack 儲存體移動資料，就可以使用一組 Azure 儲存體工具。 本文提供可用工具的概觀。
 
-最適合您的工具取決於您的需求：
+您的需求會決定下列哪個工具最適合您：
+
 * [AzCopy](#azcopy)
 
     可下載的儲存體專用命令列公用程式，能夠從儲存體帳戶內或是在儲存體帳戶之間，從一個物件複製資料到另一個物件。
@@ -45,7 +47,6 @@ Microsoft Azure Stack 提供磁碟、Blob、資料表、佇列和帳戶管理功
 
 由於 Azure 和 Azure Stack 的儲存體服務有所不同，因此下列各節所述的各項工具可能會有一些特定的需求。 如需 Azure Stack 儲存體和 Azure 儲存體之間的比較，請參閱 [Azure Stack 儲存體：差異與注意事項](azure-stack-acs-differences.md)。
 
-
 ## <a name="azcopy"></a>AzCopy
 
 AzCopy 是一個命令列公用程式，可以使用簡單命令高效率地將資料複製到和複製自 Microsoft Azure Blob 和資料表儲存體。 您可以從儲存體帳戶內或是在儲存體帳戶之間，從一個物件複製資料到另一個物件。
@@ -54,12 +55,12 @@ AzCopy 是一個命令列公用程式，可以使用簡單命令高效率地將�
 
 AzCopy 公用程式有兩個版本：Windows 上的 AzCopy 和 Linux 上的 AzCopy。
 
- - **AzCopy on Windows**  
+ - **AzCopy on Windows**
     - 下載 Azure Stack 支援的 AzCopy 版本。 在 Azure Stack 和在 Azure 上安裝與使用 AzCopy 的方式一樣。 若要進一步了解，請參閱 [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)。
         - 如果是 1802 更新或更新版本，請[下載 AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417)。
         - 如果是舊版，請[下載 AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20170417)。
 
- - **AzCopy on Linux**  
+ - **AzCopy on Linux**
 
     - AzCopy on Linux 支援 Azure Stack 1802 更新或更新版本。 在 Azure Stack 和在 Azure 上安裝與使用 AzCopy 的方式一樣。 如需深入了解，請參閱 [AzCopy on Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)。
 
@@ -71,13 +72,13 @@ AzCopy 公用程式有兩個版本：Windows 上的 AzCopy 和 Linux 上的 AzCo
 
 **Windows**
 
-````AzCopy  
+````AzCopy
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
 ````
 
 **Linux**
 
-````AzCopy  
+````AzCopy
 azcopy \
     --source https://myaccount.blob.local.azurestack.external/mycontainer \
     --destination /mnt/myfiles \
@@ -89,13 +90,13 @@ azcopy \
 
 **Windows**
 
-```AzCopy  
+```AzCopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
 **Linux**
 
-````AzCopy  
+````AzCopy
 azcopy \
     --source /mnt/myfiles/abc.txt \
     --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
@@ -108,13 +109,13 @@ azcopy \
 
 **Windows**
 
-````AzCopy  
+````AzCopy
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
 ````
 
 **Linux**
 
-````AzCopy  
+````AzCopy
 azcopy \
     --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
     --destination https://myaccount2.blob.core.windows.net/myContainer/ \
@@ -142,15 +143,15 @@ Azure PowerShell 是一個模組，可提供管理 Azure 和 Azure Stack 上服�
 
 此範例假設您已成功[安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 此指令碼將協助您完成設定，並要求您的 Azure Stack 租用戶認證，以便將帳戶新增至本機 PowerShell 環境。 接著，指令碼將設定預設的 Azure 訂用帳戶、在 Azure 中建立新的儲存體帳戶、在這個新的儲存體帳戶中建立新容器，並將現有的映像檔案 (Blob) 上傳至該容器。 指令碼列出該容器中的所有 Blob 之後，它會在本機電腦上建立新的目的地目錄並下載映像檔。
 
-1. 安裝 [Azure Stack 相容的 Azure PowerShell 模組](azure-stack-powershell-install.md)。  
-2. 下載[與 Azure Stack 搭配運作所需的工具](azure-stack-powershell-download.md)。  
+1. 安裝 [Azure Stack 相容的 Azure PowerShell 模組](azure-stack-powershell-install.md)。
+2. 下載[與 Azure Stack 搭配運作所需的工具](azure-stack-powershell-download.md)。
 3. 開啟 [Windows PowerShell ISE] 和 [以系統管理員​​身分執行]，按一下 **[檔案]** > **[新增]**，以建立新的指令碼檔案。
 4. 複製下列指令碼並貼到新的指令碼檔案中。
-5. 根據您的組態設定，更新指令碼變數。 
-  > ![注意]  
-  > 此指令碼必須在 **AzureStack_Tools** 的根目錄上執行。 
+5. 根據您的組態設定，更新指令碼變數。
+   > [!NOTE]
+   > 此指令碼必須在 **AzureStack_Tools** 的根目錄上執行。
 
-```PowerShell 
+```PowerShell
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
@@ -215,10 +216,12 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 # end
 ```
 
-### <a name="powershell-known-issues"></a>PowerShell 的已知問題 
-Azure Stack 目前相容的 Azure PowerShell 模組版本是 1.2.12。 此版本與最新版的 Azure PowerShell 不同。 此差異會影響儲存體服務作業：
+### <a name="powershell-known-issues"></a>PowerShell 的已知問題
 
-* `Get-AzureRmStorageAccountKey` 在 1.2.12 版的傳回值格式有兩個屬性：`Key1` 和 `Key2`，而目前的 Azure 版本則會傳回包含所有帳戶金鑰的陣列。
+Azure Stack 目前相容的 Azure PowerShell 模組版本是 1.3.0。 此版本與最新版的 Azure PowerShell 不同。 此差異會影響儲存體服務作業：
+
+* `Get-AzureRmStorageAccountKey` 在 1.3.0 版的傳回值格式有兩個屬性：`Key1` 和 `Key2`，而目前的 Azure 版本則會傳回包含所有帳戶金鑰的陣列。
+
    ```
    # This command gets a specific key for a Storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
@@ -231,19 +234,30 @@ Azure Stack 目前相容的 Azure PowerShell 模組版本是 1.2.12。 此版本
    -AccountName "MyStorageAccount").Key1
 
    ```
+
    如需詳細資訊，請參閱 [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0)。
 
 ## <a name="azure-cli"></a>Azure CLI
-Azure CLI 是管理 Azure 資源的 Azure 命令列體驗。 您可以將它安裝在 macOS、Linux 及 Windows 上，並從命令列來執行。 
+
+Azure CLI 是管理 Azure 資源的 Azure 命令列體驗。 您可以將它安裝在 macOS、Linux 及 Windows 上，並從命令列來執行。
 
 Azure CLI 已針對以下作業進行最佳化：從命令列管理 Azure 資源進行，以及建置可用於 Azure Resource Manager 的自動化指令碼。 它提供許多與 Azure Stack 入口網站相同的功能，包括眾多資料存取功能。
 
 Azure Stack 需要有 Azure CLI 2.0 版。 如需有關安裝和設定用於 Azure Stack 的 Azure CLI 詳細資訊，請參閱[安裝和設定 Azure Stack CLI](azure-stack-version-profiles-azurecli2.md)。 如需有關如何搭配 Azure Stack 儲存體帳戶中的資源使用 Azure CLI 2.0 執行多種工作的詳細資訊，請參閱[使用 Azure CLI2.0 搭配 Azure 儲存體](../../storage/storage-azure-cli.md)
 
-### <a name="azure-cli-sample-script-for-azure-stack"></a>適用於 Azure Stack 的 Azure CLI 範例指令碼 
-完成 CLI 的安裝和設定之後，您就可以嘗試下列步驟，使用一個小殼層範例指令碼來與 Azure Stack 儲存體資源進行互動。 此指令碼會先在您的儲存體帳戶中建立一個新容器，然後將現有的檔案 (以 Blob 的形式) 上傳至該容器、列出容器中的所有 Blob，最後再將檔案下載到本機電腦上您指定的目的地。 執行此指令碼之前，請確定您已成功連線並登入目標 Azure Stack。 
+### <a name="azure-cli-sample-script-for-azure-stack"></a>適用於 Azure Stack 的 Azure CLI 範例指令碼
+
+完成 CLI 的安裝和設定之後，您就可以嘗試下列步驟，使用一個小殼層範例指令碼來與 Azure Stack 儲存體資源進行互動。 此指令碼可完成下列動作：
+
+* 在儲存體帳戶中建立新的容器。
+* 將現有檔案 (以 blob 形式) 上傳至容器。
+* 列出容器中的所有 Blob。
+* 將此檔案下載至您指定的本機電腦上的目的地。
+
+執行此指令碼之前，請確定您已成功連線並登入目標 Azure Stack。
+
 1. 開啟您喜愛的文字編輯器，然後複製上述指令碼並貼入編輯器中。
-2. 更新指令碼的變數以反映您的組態設定。 
+2. 更新指令碼的變數以反映您的組態設定。
 3. 在您更新必要變數之後，請儲存指令碼並結束編輯器。 後續步驟假設您已將指令碼命名為 **my_storage_sample.sh**。
 4. 如有必要，請將指令碼標示為可執行檔︰`chmod +x my_storage_sample.sh`
 5. 執行指令碼。 例如，在 Bash 中：`./my_storage_sample.sh`
@@ -283,14 +297,13 @@ echo "Done"
 
 ## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure 儲存體總管
 
-Microsoft Azure 儲存體總管是 Windows 提供的獨立應用程式。 此工具可讓您在 Windows、MacOS 和 Linux 上輕鬆處理 Azure 儲存體和 Azure Stack 儲存體的資料。 如果想要輕鬆地管理您的 Azure Stack 儲存體資料，請考慮使用 Microsoft Azure 儲存體總管。
+Microsoft Azure 儲存體總管是 Windows 提供的獨立應用程式。 此工具可讓您在 Windows、MacOS 和 Linux 電腦上輕鬆處理 Azure 儲存體和 Azure Stack 儲存體的資料。 如果想要輕鬆地管理您的 Azure Stack 儲存體資料，請考慮使用 Microsoft Azure 儲存體總管。
 
- - 若要深入了解如何設定 Azure 儲存體總管來搭配 Azure Stack 運作，請參閱[將儲存體總管連線到 Azure Stack 訂用帳戶](azure-stack-storage-connect-se.md)。
- - 若要深入了解 Microsoft Azure 儲存體總管，請參閱[開始使用儲存體總管](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* 若要深入了解如何設定 Azure 儲存體總管來搭配 Azure Stack 運作，請參閱[將儲存體總管連線到 Azure Stack 訂用帳戶](azure-stack-storage-connect-se.md)。
+* 若要深入了解 Microsoft Azure 儲存體總管，請參閱[開始使用儲存體總管](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="next-steps"></a>後續步驟
 * [將儲存體總管連線到 Azure Stack 訂用帳戶](azure-stack-storage-connect-se.md)
 * [開始使用儲存體總管](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [與 Azure 一致的儲存體：差異與注意事項](azure-stack-acs-differences.md)
 * [Microsoft Azure 儲存體簡介](../../storage/common/storage-introduction.md)
-

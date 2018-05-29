@@ -5,21 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 84475302-EFC2-4C35-B4CF-60C857A96345
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 09a774e5dda71d87c3862a6152ff5d2c9468c40c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010059"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>在 Azure Stack 中使用 API 版本設定檔與 GO
 
@@ -35,7 +34,7 @@ ms.lasthandoff: 04/03/2018
 在 Go SDK 中，設定檔可於 profiles/ 路徑下取得，而其版本採用 **YYYY-MM-DD** 格式。 現在，最新的 Azure Stack 設定檔版本為 **2017-03-09**。 若要從設定檔匯入指定的服務，您必須從設定檔匯入其對應的模組。 例如，若要從 **2017-03-09** 設定檔匯入**計算**服務：
 
 ````go
-import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/compute/mgmt/compute" 
+import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute" 
 ````
 
 ## <a name="install-azure-sdk-for-go"></a>安裝 Azure SDK for Go
@@ -63,7 +62,8 @@ GO SDK 需倚賴 Azure Go-AutoRest 模組將 REST 要求傳送至 Azure Resource
 若要在 Azure Stack 上執行 GO 程式碼的範例：
   1. 安裝 Azure SDK for Go 及其相依性。 如需相關指示，請參閱上一節：[安裝 Azure SDK for Go](#install-azure-sdk-for-go)。
   2. 從資源管理員端點取得中繼資料資訊。 此端點會傳回 JSON 檔案，以及執行 GO 程式碼所需的資訊。
-  > [!note]  
+
+  > [!Note]  
   > Azure Stack 開發套件 (ASDK) 中的 **ResourceManagerUrl** 為：`https://management.local.azurestack.external/`  
   > 整合系統中的 **ResourceManagerUrl** 為：`https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > 若要擷取中繼資料，必須要有：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -82,7 +82,7 @@ GO SDK 需倚賴 Azure Go-AutoRest 模組將 REST 要求傳送至 Azure Resource
   ```
 
   3. 如果無法使用，請建立訂用帳戶，並儲存訂用帳戶識別碼供後續使用。 如需建立訂用帳戶的相關資訊，請參閱[在 Azure Stack 中建立供應項目的訂用帳戶](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm)。 
-  4. 建立具有「訂用帳戶」範圍和**擁有者**角色的服務主體。 儲存服務主體的識別碼和密碼。 如需為 Azure Stack 建立服務主體的相關資訊，請參閱[建立服務主體](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad)。 您的 Azure Stack 環境已設定完成。
+  4. 建立具有「訂用帳戶」範圍和**擁有者**角色的服務主體。 儲存服務主體的識別碼和秘密。 如需為 Azure Stack 建立服務主體的相關資訊，請參閱[建立服務主體](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad)。 您的 Azure Stack 環境已設定完成。
   5. 使用程式碼從 GO SDK 設定檔匯入服務模組。 Azure Stack 設定檔目前的版本是 **2017-03-09**。 例如，若要從 **2017-03-09** 設定檔類型匯入網路模組： 
 
   ````go
@@ -129,7 +129,7 @@ func main() {
 
 本節介紹使用用戶端認證在 Azure Stack 上取得授權者權杖的常見方法：
 
-  1. 如果訂用帳戶上有具備擁有者角色的服務主體可供使用，請略過此步驟。 否則，請建立服務主體[指示]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals)，並為其指派範圍限定於您的訂用帳戶[指示]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal)的「擁有者」角色。 儲存服務主體應用程式識別碼和密碼。 
+  1. 如果訂用帳戶上有具備擁有者角色的服務主體可供使用，請略過此步驟。 否則，請建立服務主體[指示]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals)，並為其指派範圍限定於您的訂用帳戶[指示]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal)的「擁有者」角色。 儲存服務主體應用程式識別碼和密碼。 
 
   2. 使用程式碼從 Go-AutoRest 匯入 **adal** 套件。 
   
@@ -178,7 +178,8 @@ func main() {
 ## <a name="example"></a>範例
 
 本節說明在 Azure Stack 上建立虛擬網路的 GO 程式碼範例。 如需 Go SDK 的完整範例，請參閱 [Azure Go SDk 範例存放庫](https://github.com/Azure-Samples/azure-sdk-for-go-samples)。 Azure Stack 範例可從該存放庫之服務資料夾內的 hybrid/ 路徑下取得。
-> [!note]  
+
+> [!Note]  
 > 若要執行此範例中的程式碼，請確認使用的訂用帳戶具有列示為**已註冊**的**網路**資源提供者。 若要加以確認，請在 Azure Stack 入口網站中找出訂用帳戶，然後按一下 [資源提供者]。
 
 1. 使用程式碼匯入所需的套件。 您應使用 Azure Stack 上最新的可用設定檔來匯入網路模組。 
@@ -196,7 +197,7 @@ func main() {
   )
   ````
 
-2. 定義您的環境變數。 請注意，若要建立虛擬網路，您必須具有資源群組。 
+2. 定義您的環境變數。 若要要建立虛擬網路，您必須具有資源群組。 
 
   ````go
   var (

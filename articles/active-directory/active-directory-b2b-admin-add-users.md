@@ -2,29 +2,29 @@
 title: 在 Azure 入口網站中新增 B2B 共同作業使用者 - Azure Active Directory | Microsoft Docs
 description: 說明系統管理員如何使用 Azure Active Directory (Azure AD) B2B 共同作業，將來自夥伴組織的來賓使用者新增到其目錄。
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/11/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 04/02/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 34bd5b51089045c4cd20f29d179bb230e5e3fac2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9d0565468d953c83ca5fee864b3079fbfee9bbf1
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076760"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者
 
 身為全域管理員或是獲派任何受限管理員目錄角色的使用者，您可以使用 Azure 入口網站來邀請 B2B 共同作業使用者。 您可以將來賓使用者邀請到目錄、群組或應用程式。 透過上述任一方法邀請使用者之後，受邀使用者的帳戶就會新增至 Azure Active Directory (Azure AD)，且使用者類型為「來賓」。 來賓使用者接著必須兌換其邀請才能存取資源。
+
+將來賓使用者新增至目錄之後，您就可以將共用應用程式的直接連結傳送給來賓使用者，或者來賓使用者可以按一下邀請電子郵件中的兌換 URL。 如需關於兌換程序的詳細資訊，請參閱 [B2B 共同作業邀請兌換](active-directory-b2b-redemption-experience.md)。
+
+> [!IMPORTANT]
+> 您應該遵循[做法：在 Azure Active Directory 中新增貴組織的隱私權資訊](https://aka.ms/adprivacystatement)的步驟中，以新增貴組織隱私權聲明的 URL。 在第一次邀請兌換程序中，受邀的使用者必須同意您的隱私權條款才能繼續進行。 
 
 ## <a name="add-guest-users-to-the-directory"></a>將來賓使用者新增到目錄
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 04/03/2018
  
 ## <a name="resend-invitations-to-guest-users"></a>將邀請重新傳送給來賓使用者
 
-如果來賓使用者尚未兌換其邀請，您可以重新傳送邀請。
+如果來賓使用者尚未兌換其邀請，您可以重新傳送邀請電子郵件。
 
 1. 以 Azure AD 系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在導覽窗格中，選取 [Azure Active Directory]。
@@ -111,6 +111,4 @@ ms.lasthandoff: 04/03/2018
 
 - 若要了解非 Azure AD 系統管理員要如何新增 B2B 來賓使用者，請參閱[資訊工作者如何新增 B2B 共同作業使用者？](active-directory-b2b-iw-add-users.md)
 - 如需關於邀請電子郵件的資訊，請參閱[B2B 共同作業邀請電子郵件的元素](active-directory-b2b-invitation-email.md)。
-- 如需關於邀請兌換程序的資訊，請參閱[B2B 共同作業邀請兌換](active-directory-b2b-redemption-experience.md)。
-
 

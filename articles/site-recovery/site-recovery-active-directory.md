@@ -1,19 +1,20 @@
 ---
-title: "以 Azure Site Recovery 保護 Active Directory 和 DNS | Microsoft Docs"
-description: "本文說明如何使用 Azure Site Recovery 實作 Active directory 的災害復原解決方案。"
+title: 以 Azure Site Recovery 保護 Active Directory 和 DNS | Microsoft Docs
+description: 本文說明如何使用 Azure Site Recovery 實作 Active directory 的災害復原解決方案。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 97923af5ed4191f66434166c4743e398f8ac635a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072601"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>使用 Azure Site Recovery 保護 Active Directory 和 DNS
 
@@ -57,16 +58,16 @@ ms.lasthandoff: 03/08/2018
 請在次要網站上建立網域控制站。 當您將伺服器提升至網域控制站角色時，請指定主要網站中所使用之相同網域的名稱。 您可以使用 **Active Directory 網站和服務** 嵌入式管理單元來設定網站要新增至的網站連結物件上的設定。 藉由設定網站連結，您可以控制兩個以上的網站之間執行複寫的時機和頻率。 如需詳細資訊，請參閱[排程網站之間的複寫](https://technet.microsoft.com/library/cc731862.aspx)。
 
 ### <a name="site-to-azure-protection"></a>站對 Azure 保護
-首先，[在 Azure 虛擬網路中建立網域控制站](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)。 當您將伺服器提升至網域控制站角色時，請指定主要網站中所使用的相同網域名稱。
+首先，在 Azure 虛擬網路中建立網域控制站。 當您將伺服器提升至網域控制站角色時，請指定主要網站中所使用的相同網域名稱。
 
-然後，[重新設定虛擬網路的 DNS 伺服器](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network)以在 Azure 中使用此 DNS 伺服器。
+然後，重新設定虛擬網路的 DNS 伺服器以在 Azure 中使用此 DNS 伺服器。
 
 ![Azure 網路](./media/site-recovery-active-directory/azure-network.png)
 
 ### <a name="azure-to-azure-protection"></a>Azure 對 Azure 保護
-首先，[在 Azure 虛擬網路中建立網域控制站](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)。 當您將伺服器提升至網域控制站角色時，請指定主要網站中所使用的相同網域名稱。
+首先，在 Azure 虛擬網路中建立網域控制站。 當您將伺服器提升至網域控制站角色時，請指定主要網站中所使用的相同網域名稱。
 
-然後，[重新設定虛擬網路的 DNS 伺服器](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network)以在 Azure 中使用此 DNS 伺服器。
+然後，重新設定虛擬網路的 DNS 伺服器以在 Azure 中使用此 DNS 伺服器。
 
 ## <a name="test-failover-considerations"></a>測試容錯移轉考量
 為了避免影響到生產工作負載，測試容錯移轉會在與生產網路隔離的網路中執行。

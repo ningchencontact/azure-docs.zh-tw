@@ -1,48 +1,56 @@
 ---
-title: "存取 Azure AD 報告 API 的必要條件 | Microsoft Docs"
-description: "了解存取 Azure AD 報告 API 的必要條件"
+title: 存取 Azure Active Directory 報告 API 的必要條件 | Microsoft Docs
+description: 了解存取 Azure AD 報告 API 的必要條件
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 05/07/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1f4d79b59d44bc1c151391290e79026051fe1df
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab05907f1f23c3856b41a941c1b95992ed5a79a4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33929977"
 ---
-# <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>存取 Azure AD 報告 API 的必要條件
+# <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>存取 Azure Active Directory 報告 API 的必要條件
 
-[Azure AD 報告 API](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) 透過一組以 REST 為基礎的 API 為您提供資料的程式設計方式存取。 您可以從各種程式設計語言和工具呼叫這些 API。
+[Azure Active Directory (Azure AD) 報告 API](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) 透過一組以 REST 為基礎的 API 為您提供資料的程式設計方式存取。 您可以從各種程式設計語言和工具呼叫這些 API。
 
-報告 API 會使用 [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) 授權存取 Web API。 
+報告 API 會使用 [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) 授權存取 Web API。
+
+若要準備存取報告 API，您必須︰
+
+1. 指派角色
+2. 註冊應用程式
+3. 授與權限
+4. 收集組態設定
+
+
+
+## <a name="assign-roles"></a>指派角色
 
 若要透過 API 來存取報告資料，您必須已具備下列其中一個指派的角色︰
 
 - 安全性讀取者
+
 - 安全性系統管理員
+
 - 全域管理員
 
 
-若要準備存取報告 API，您必須︰
 
-1. 註冊應用程式 
-2. 授與權限 
-3. 收集組態設定 
 
-如有相關疑問、問題或意見，請[提出支援票證](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)。
-
-## <a name="register-an-azure-active-directory-application"></a>註冊 Azure Active Directory 應用程式
+## <a name="register-an-application"></a>註冊應用程式
 
 即使您使用指令碼來存取報告 API，也必須註冊應用程式。 註冊可讓您取得**應用程式識別碼**，您必須有此識別碼才能進行授權呼叫，以便讓程式碼獲得權杖。
 
@@ -59,15 +67,15 @@ ms.lasthandoff: 12/11/2017
    
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. 在 [Azure Active Directory] 刀鋒視窗中，按一下 [應用程式註冊]。
+2. 在 [Azure Active Directory] 頁面中，按一下 [應用程式註冊]。
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/02.png) 
 
-3. 在 [應用程式註冊] 刀鋒視窗上，按一下頂端工具列中的 [新增應用程式註冊]。
+3. 在 [應用程式註冊] 頁面中，按一下頂端工具列中的 [新增應用程式註冊]。
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/03.png)
 
-4. 在 [建立] 刀鋒視窗上，執行下列步驟︰
+4. 在 [建立] 頁面上，執行下列步驟：
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/04.png)
 
@@ -82,28 +90,37 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="grant-permissions"></a>授與權限 
 
-此步驟的目標是要對應用程式授與 **Windows Azure Active Directory** API 的**讀取目錄資料**權限。
+根據您想要存取的 API，您需要授與應用程式下列權限：  
 
-![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/16.png)
+| API | 權限 |
+| --- | --- |
+| Windows Azure Active Directory | 讀取目錄資料 |
+| Microsoft Graph | 讀取所有稽核記錄資料 |
+
+
+![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/36.png)
+
+
+下節列出適用於這兩個 API 的步驟。 如果您不想存取其中一個 API，可以跳過相關步驟。
  
 
 **若要對應用程式授與 API 使用權限：**
 
-1. 在 [應用程式註冊] 刀鋒視窗中，按一下應用程式清單中的 [報告 API 應用程式]。
+1. 在 [應用程式註冊] 頁面中，按一下應用程式清單中的 [報告 API 應用程式]。
 
-2. 在 [報告 API 應用程式] 刀鋒視窗中，按一下頂端工具列中的 [設定]。 
+2. 在 [報告 API 應用程式] 頁面中，按一下頂端工具列中的 [設定]。 
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/05.png)
 
-3. 在 [設定] 刀鋒視窗中，按一下 [必要權限]。 
+3. 在 [設定] 頁面中，按一下 [必要權限]。 
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/06.png)
 
-4. 在 [必要權限] 刀鋒視窗中，按一下 [API] 清單中的 [Windows Azure Active Directory]。 
+4. 在 [必要權限] 頁面中，按一下 [API] 清單中的 [Windows Azure Active Directory]。 
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/07.png)
 
-5. 在 [啟用存取] 刀鋒視窗中，選取 [讀取目錄資料]。 
+5. 在 [啟用存取] 頁面中，選取 [讀取目錄資料]，並取消選取 [登入及讀取使用者設定檔]。 
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/08.png)
 
@@ -111,17 +128,37 @@ ms.lasthandoff: 12/11/2017
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
 
-7. 按一下 [授與權限]，然後按一下 [是]。
+7. 在 [必要權限] 頁面頂端的工具列中，按一下 [新增]。
+
+    ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/32.png)
+
+8. 在 [新增 API 存取權] 頁面中，按一下 [選取 API]。
+
+    ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/31.png)
+
+9. 在 [選取 API] 頁面中，按一下 [Microsoft Graph]，然後按一下 [選取]。
+
+    ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/33.png)
+
+10. 在 [啟用存取] 頁面中，選取 [讀取所有稽核記錄資料]，然後按一下 [選取]。  
+
+    ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/34.png)
+
+
+11. 在 [新增 API 存取權] 頁面中，按一下 [完成]。  
+
+12. 在 [必要權限] 頁面頂端的工具列中， 按一下 [授與權限]，然後按一下 [是]。
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/17.png)
 
 
 ## <a name="gather-configuration-settings"></a>收集組態設定 
+
 本節說明如何從您的目錄取得下列設定︰
 
-* 網域名稱
-* 用戶端識別碼
-* 用戶端密碼
+- 網域名稱
+- 用戶端識別碼
+- 用戶端密碼
 
 您在設定報告 API 的呼叫時需要這些值。 
 
@@ -133,7 +170,7 @@ ms.lasthandoff: 12/11/2017
    
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. 在 [Azure Active Directory] 刀鋒視窗中，按一下 [自訂網域名稱]。
+2. 在 [Azure Active Directory] 頁面中，按一下 [自訂網域名稱]。
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -148,9 +185,9 @@ ms.lasthandoff: 12/11/2017
    
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. 在 [應用程式註冊] 刀鋒視窗中，按一下應用程式清單中的 [報告 API 應用程式]。
+2. 在 [應用程式註冊] 頁面中，按一下應用程式清單中的 [報告 API 應用程式]。
 
-3. 在 [報告 API 應用程式] 刀鋒視窗中，按一下 [應用程式識別碼] 中的 [按一下以複製]。
+3. 在 [報告 API 應用程式] 頁面中，按一下 [應用程式識別碼] 中的 [按一下以複製]。
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/11.png) 
 
@@ -165,19 +202,19 @@ ms.lasthandoff: 12/11/2017
    
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. 在 [應用程式註冊] 刀鋒視窗中，按一下應用程式清單中的 [報告 API 應用程式]。
+2. 在 [應用程式註冊] 頁面中，按一下應用程式清單中的 [報告 API 應用程式]。
 
 
-3. 在 [報告 API 應用程式] 刀鋒視窗中，按一下頂端工具列中的 [設定]。 
+3. 在 [報告 API 應用程式] 頁面中，按一下頂端工具列中的 [設定]。 
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/05.png)
 
-4. 在 [設定] 刀鋒視窗中，按一下 [APIR 存取] 區段中的 [金鑰]。 
+4. 在 [設定] 頁面中，按一下 [APIR 存取] 區段中的 [金鑰]。 
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/12.png)
 
 
-5. 在 [金鑰] 刀鋒視窗上，執行下列步驟︰
+5. 在 [金鑰] 頁面中，執行下列步驟︰
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/14.png)
 
@@ -191,6 +228,10 @@ ms.lasthandoff: 12/11/2017
 
 
 ## <a name="next-steps"></a>後續步驟
-* 您要以程式設計方式從 Azure AD 報告 API 存取資料嗎？ 請查看 [開始使用 Azure Active Directory 報告 API](active-directory-reporting-api-getting-started.md)。
-* 如果您想要深入了解 Azure Active Directory 報告，請參閱 [Azure Active Directory 報告指南](active-directory-reporting-guide.md)。  
+
+- [使用 Azure Active Directory 報告 API 搭配憑證來取得資料](active-directory-reporting-api-with-certificates.md)。
+
+- [取得報告 API 的第一印象](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+
+- [建立您自己的解決方案](active-directory-reporting-api-getting-started-azure-portal.md#customize)
 

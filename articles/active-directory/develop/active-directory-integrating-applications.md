@@ -3,23 +3,25 @@ title: 整合應用程式與 Azure Active Directory
 description: 如何在 Azure Active Directory (Azure AD) 中新增、更新或移除應用程式。
 services: active-directory
 documentationcenter: ''
-author: PatAltimore
+author: CelesteDG
 manager: mtillman
-editor: mbaldwin
+editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/04/2017
-ms.author: bryanla
+ms.date: 04/18/2018
+ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: 472a1746a338857d457a7b8d5e7fec3ddbf65895
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 76c6ef7d4cf53872dda308628790994b35d8431c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157991"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>整合應用程式與 Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -42,12 +44,12 @@ ms.lasthandoff: 04/16/2018
 
 4. 當 [建立] 頁面出現時，輸入您應用程式的註冊資訊： 
 
-  - **名稱：**輸入有意義的應用程式名稱
+  - **名稱：** 輸入有意義的應用程式名稱
   - **應用程式類型：** 
     - 針對在裝置本機上安裝的[用戶端應用程式](active-directory-dev-glossary.md#client-application) 選取 [原生]。 此設定適用於 OAuth 公用[原生用戶端](active-directory-dev-glossary.md#native-client)。
     - 針對在安全伺服器上所安裝的[用戶端應用程式](active-directory-dev-glossary.md#client-application)和[資源/API 應用程式](active-directory-dev-glossary.md#resource-server)選取 [Web 應用程式/API]。 此設定適用於 OAuth 機密 [Web 用戶端](active-directory-dev-glossary.md#web-client)和公用[使用者代理程式型用戶端](active-directory-dev-glossary.md#user-agent-based-client)。 相同的應用程式也可以公開用戶端和資源/API。
-  - **登入 URL：**在 [Web 應用程式/API] 應用程式中，提供您應用程式的基底 URL。 例如，`http://localhost:31544` 可能是在您的本機電腦上執行之 Web 應用程式的 URL。 使用者會使用此 URL 來登入 Web 用戶端應用程式。 
-  - **重新導向 URI：**在 [原生] 應用程式中，提供 URI 以供 Azure AD 用來傳回權杖回應。 輸入應用程式特定的值，例如 `http://MyFirstAADApp`
+  - **登入 URL：** 在 [Web 應用程式/API] 應用程式中，提供您應用程式的基底 URL。 例如，`http://localhost:31544` 可能是在您的本機電腦上執行之 Web 應用程式的 URL。 使用者會使用此 URL 來登入 Web 用戶端應用程式。 
+  - **重新導向 URI：** 在 [原生] 應用程式中，提供 URI 以供 Azure AD 用來傳回權杖回應。 輸入應用程式特定的值，例如 `http://MyFirstAADApp`
 
    ![註冊新的應用程式 - 建立](./media/active-directory-integrating-applications/add-app-registration-create.png)
 
@@ -56,7 +58,7 @@ ms.lasthandoff: 04/16/2018
 5. 完成後，按一下 [建立]。 Azure AD 會將唯一的應用程式識別碼指派給您的應用程式，然後系統會帶您進入應用程式的主要註冊頁面。 根據您的應用程式是 Web 還是原生應用程式，系統會提供您不同選項以供您在應用程式中新增其他功能。 請參閱下一節，以了解同意概觀以及有關在應用程式註冊 (認證、權限、為其他租用戶的使用者啟用登入) 中啟用其他組態功能的詳細資料。
 
   > [!NOTE]
-  > 根據預設，新註冊的應用程式會設定為**只**允許相同租用戶的使用者登入您的應用程式。
+  > 根據預設，新註冊的 Web 應用程式會設定為**只**允許相同租用戶的使用者登入您的應用程式。
   > 
   > 
 
@@ -65,13 +67,13 @@ ms.lasthandoff: 04/16/2018
 
 ### <a name="overview-of-the-consent-framework"></a>同意架構的概觀
 
-Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 和原生用戶端應用程式，包括多層式應用程式。 這些應用程式允許與應用程式註冊所在的租用戶不同之 Azure AD 租用戶的使用者帳戶登入。 這些應用程式除了存取自己的 Web API 之外，可能也需要存取 Microsoft Graph API 之類的 Web API (用以存取 Azure Active Directory、Intune 及 Office 365 服務) 以及其他 Microsoft 服務的 API。 此架構以使用者或系統管理員為根據，他們可同意讓應用程式在他們的目錄中註冊，並可能包括存取目錄資料。
+Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 應用程式和原生用戶端應用程式。 這些應用程式允許與應用程式註冊所在的租用戶不同之 Azure AD 租用戶的使用者帳戶登入。 這些應用程式除了存取自己的 Web API 之外，可能也需要存取 Microsoft Graph API 之類的 Web API (用以存取 Azure Active Directory、Intune 及 Office 365 服務) 以及其他 Microsoft 服務的 API。 此架構以使用者或系統管理員為根據，他們可同意讓應用程式在他們的目錄中註冊，並可能包括存取目錄資料。
 
 例如，如果 Web 用戶端應用程式需要從 Office 365 讀取有關使用者的行事曆資訊，該使用者必須先同意此用戶端應用程式。 取得同意之後，用戶端應用程式可以代表使用者呼叫 Microsoft Graph API，並視需要使用行事曆資訊。 [Microsoft Graph API (英文)](https://graph.microsoft.io) 可供存取 Office 365 中的資料 (例如 Exchange 中的行事曆和訊息、SharePoint 中的網站和清單、OneDrive 中的文件、OneNote 中的筆記本、Planner 中的工作、Excel 中的活頁簿等等)，以及 Azure AD 中的使用者和群組和多項 Microsoft 雲端服務中的其他資料物件。 
 
 同意架構建置在 OAuth 2.0 和各種不同流程上，例如授權碼授與和用戶端認證授與，使用公用或機密的用戶端。 藉由使用 OAuth 2.0，Azure AD 就可以建置許多不同類型的用戶端應用程式，例如在電話、平板電腦、伺服器或 web 應用程式上，並且存取所需的資源。
 
-如需有關搭配 OAuth2.0 授權授與使用同意架構的詳細資訊，請參閱[使用 OAuth 2.0 和 Azure AD 授權存取 Web 應用程式](active-directory-protocols-oauth-code.md)和 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。 如需透過 Microsoft Graph 取得 Office 365 的授權存取權的相關資訊，請參閱[使用 Microsoft Graph 進行應用程式驗證](https://graph.microsoft.io/docs/authorization/auth_overview)。
+如需搭配 OAuth2.0 授權授與使用同意架構的詳細資訊，請參閱[使用 OAuth 2.0 和 Azure AD 授權存取 Web 應用程式](active-directory-protocols-oauth-code.md)和 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。 如需透過 Microsoft Graph 取得 Office 365 的授權存取權的相關資訊，請參閱[使用 Microsoft Graph 進行應用程式驗證](https://graph.microsoft.io/docs/authorization/auth_overview)。
 
 #### <a name="example-of-the-consent-experience"></a>同意體驗的範例
 
@@ -93,12 +95,12 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 和原生用
 
 5. 使用者同意後，授權碼會傳回您的應用程式，藉以兌換取得存取權杖和重新整理權杖。 如需此流程的詳細資訊，請參閱 [Azure AD 的驗證案例中的 Web 應用程式到 Web API 一節](active-directory-authentication-scenarios.md#web-application-to-web-api)。
 
-6. 身為系統管理員，您也可以代表租用戶中的所有使用者，同意應用程式的委派權限。 系統管理員同意可避免對租用戶的每個使用者都顯示同意對話方塊，並且會在 [Azure 入口網站](https://portal.azure.com)的應用程式頁面中完成。 在應用程式的 [設定] 頁面中，按一下 [必要的權限]，然後按一下 [授與權限] 按鈕。 
+6. 身為系統管理員，您也可以代表租用戶中的所有使用者，同意應用程式的委派權限。 系統管理員同意可避免對租用戶的每個使用者都顯示同意對話方塊，並且可由具有系統管理員角色的使用者在 [Azure 入口網站](https://portal.azure.com)中完成。 在應用程式的 [設定] 頁面中，按一下 [必要的權限]，然後按一下 [授與權限] 按鈕。 
 
   ![授與明確的系統管理員同意權限](./media/active-directory-integrating-applications/grantpermissions.png)
     
   > [!NOTE]
-  > 使用 ADAL.js 的單一頁面應用程式 (SPA) 目前必須使用 [授與權限] 按鈕來授與明確的同意。 否則，應用程式會在要求存取權杖時失敗。   
+  > 使用 ADAL.js 的單一頁面應用程式 (SPA) 目前必須使用 [授與權限] 按鈕來授與明確的同意。 否則，應用程式會在要求存取權杖時失敗。 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>設定用戶端應用程式以存取 Web API
 為了讓 Web/機密用戶端應用程式能夠參與需要驗證的授權授與流程 (及取得存取權杖)，用戶端必須建立安全的憑證。 Azure 入口網站支援的預設驗證方法為用戶端識別碼 + 祕密金鑰。 本節會討論使用用戶端的認證提供秘密金鑰所需的設定步驟。
@@ -120,7 +122,7 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 和原生用
    ![更新應用程式的註冊](./media/active-directory-integrating-applications/update-app-registration.png)
 
 4. 系統會將您帶往應用程式的主要註冊頁面，以開啟應用程式的 [設定] 頁面。 若要為 Web 應用程式的認證新增秘密金鑰：
-  - 按一下 [設定] 頁面上的 [金鑰] 區段。  
+  - 按一下 [設定] 頁面上的 [金鑰] 區段。 
   - 為金鑰新增描述。
   - 選取一年或兩年的持續時間。
   - 按一下 [檔案] 。 在您儲存組態變更之後，最右邊的資料行會包含金鑰值。 **請務必複製此金鑰**，以供在用戶端應用程式的程式碼中使用，因為您一旦離開此頁面就無法再存取此金鑰。
@@ -141,7 +143,7 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 和原生用
 6. 完成後，按一下 [啟用存取] 頁面上的 [選取] 按鈕，然後按一下 [新增 API 存取] 頁面上的 [完成] 按鈕。 您會回到 [所需的權限] 頁面，其中新的資源已新增到 API 清單。
 
   > [!NOTE]
-  > 按一下 [完成] 按鈕，也可以根據您設定的其他應用程式權限，在您的目錄中自動設定您的影用程式權限。  您可以查看應用程式的 [設定] 頁面來檢視這些應用程式權限。
+  > 按一下 [完成] 按鈕，也可以根據您設定的其他應用程式權限，在您的目錄中自動設定您的影用程式權限。 您可以查看應用程式的 [設定] 頁面來檢視這些應用程式權限。
   > 
   > 
 
@@ -182,7 +184,7 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 和原生用
   > 稍後您可以視需要公開其他範圍。 請考慮您的 Web API 可能會公開多個與各種不同功能相關聯的範圍。 在執行階段，您的資源可藉由評估所收到之 OAuth 2.0 存取權杖中的範圍 (`scp`) 宣告，來控制 Web API 的存取。
   > 
 
-6. 完成時，按一下 [儲存]。 您的 Web API 現在已設定為可供目錄中的其他應用程式使用。  
+6. 完成時，按一下 [儲存]。 您的 Web API 現在已設定為可供目錄中的其他應用程式使用。 
 
   ![更新應用程式的註冊](./media/active-directory-integrating-applications/update-app-registration-manifest.png)
 
@@ -210,7 +212,7 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 和原生用
 
 如前文所述，除了在自己的應用程式上公開/存取 API，您也可以註冊用戶端應用程式以存取 Microsoft 資源所公開的 API。 Microsoft Graph API (在入口網站的資源/API 清單中稱為「Microsoft Graph」) 適用於所有已向 Azure AD 註冊的應用程式。 如果您在包含已註冊 Office 365 訂用帳戶之帳戶的租用戶中註冊用戶端應用程式，您也可以存取各種 Office 365 資源所公開的範圍。
 
-如需 Microsoft Graph API 所公開之範圍的完整討論，請參閱[權限範圍 | Microsoft Graph API 概念](https://graph.microsoft.io/docs/authorization/permission_scopes)一文。
+如需 Microsoft Graph API 所公開之範圍的完整討論，請參閱 [Microsoft Graph 權限參考](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference)一文。
 
 > [!NOTE]
 > 由於目前的限制，如果原生用戶端應用程式使用「存取組織的目錄」權限，它們只能呼叫 Azure AD 圖形 API。 這項限制不適用於 web 應用程式。
@@ -309,13 +311,13 @@ Azure AD 的同意架構可讓您輕鬆地開發多租用戶的 Web 和原生用
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>移除其他組織授權的多租用戶應用程式
 在租用戶的主要 [應用程式註冊] 頁面上的 [所有應用程式] 篩選器 (不包括 [我的應用程式] 註冊) 底下顯示的應用程式子集，都是多租用戶應用程式。 就技術上來說，這些多租用戶應用程式是來自其他租用戶，且已在同意程序期間註冊到您的租用戶中。 更具體來說，它們僅由您租用戶中的服務主體物件表示，而沒有對應的應用程式物件。 如需有關應用程式物件與服務主體物件之差異的詳細資訊，請參閱 [Azure AD 中的應用程式和服務主體物件](active-directory-application-objects.md)。
 
-為了移除多租用戶應用程式對您的目錄的存取權 (在授與同意之後)，公司系統管理員必須移除其服務主體。 系統管理員必須擁有全域系統管理員存取權，才能透過 Azure 入口網站移除或使用 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151) 移除存取權。
+為了移除多租用戶應用程式對您的目錄的存取權 (在授與同意之後)，公司系統管理員必須移除其服務主體。 系統管理員必須擁有全域系統管理員存取權，才能透過 Azure 入口網站移除或使用 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151) 來移除存取權。
 
 ## <a name="next-steps"></a>後續步驟
 - 如需如何在 Azure AD 中進行驗證的詳細資訊，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。
 - 如需應用程式視覺化導引的祕訣，請參閱[整合應用程式的商標指導方針](active-directory-branding-guidelines.md)。
 - 如需有關應用程式之「應用程式」和「服務主體」物件之間關係的詳細資訊，請參閱[應用程式物件和服務主體物件](active-directory-application-objects.md)。
 - 若要深入了解應用程式資訊清單所扮演的角色，請參閱[了解 Azure Active Directory 應用程式資訊清單](active-directory-application-manifest.md)
-- 如需核心 Azure Active Directory (AD) 開發人員概念的一些定義，請參閱 [Azure AD 開發人員詞彙](active-directory-dev-glossary.md)。
+- 如需核心 Azure AD 開發人員概念的一些定義，請參閱 [Azure AD 開發人員詞彙](active-directory-dev-glossary.md)。
 - 如需所有開發人員相關內容的概觀，請瀏覽 [Active Directory 開發人員指南](active-directory-developers-guide.md)。
 

@@ -2,25 +2,20 @@
 title: 自助式密碼重設疑難排解 - Azure Active Directory
 description: 針對 Azure AD 自助式密碼重設進行疑難排解
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: d9720cb148af4199ab50a724b17158f9548f35b6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: d3e43d3484d321c93b4ac3b0e2b947b69af5d2c6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869949"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>針對自助式密碼重設進行疑難排解
 
@@ -83,14 +78,14 @@ ms.lasthandoff: 04/19/2018
 
 | Error | 解決方法 |
 | --- | --- |
-| 無法內部部署啟動密碼重設服務。 Azure AD Connect 電腦的應用程式事件記錄中出現錯誤 6800。 <br> <br> 上架之後，同盟或密碼雜湊同步使用者無法重設其密碼。 | 啟用「密碼回寫」時，同步處理引擎會透過與雲端上線服務通訊，呼叫回寫程式庫來執行設定 (上線)。 在上線期間或啟動 Windows Communication Foundation (WCF) 端點來進行「密碼回寫」時，如果發生任何錯誤，都會導致在 Azure AD Connect 電腦的事件記錄中出現錯誤。 <br> <br> 在 Azure AD Sync (ADSync) 服務重新啟動期間，若已設定回寫，就會啟動 WCF 端點。 不過，如果端點啟動失敗，我們會記錄事件 6800，並讓同步處理服務啟動。 出現此事件即表示「密碼回寫」端點並未啟動。 此事件 (6800) 的事件記錄詳細資料，以及 PasswordResetService 元件所產生的事件記錄項目會指出為何無法啟動端點。 如果「密碼回寫」仍然無法運作，請檢閱這些事件記錄錯誤，然後嘗試重新啟動 Azure AD Connect。 如果此問題持續發生，請嘗試先將「密碼回寫」停用再重新啟用。
+| 無法內部部署啟動密碼重設服務。 Azure AD Connect 電腦的應用程式事件記錄中出現錯誤 6800。 <br> <br> 上架之後，同盟、傳遞驗證或密碼雜湊同步使用者無法重設其密碼。 | 啟用「密碼回寫」時，同步處理引擎會透過與雲端上線服務通訊，呼叫回寫程式庫來執行設定 (上線)。 在上線期間或啟動 Windows Communication Foundation (WCF) 端點來進行「密碼回寫」時，如果發生任何錯誤，都會導致在 Azure AD Connect 電腦的事件記錄中出現錯誤。 <br> <br> 在 Azure AD Sync (ADSync) 服務重新啟動期間，若已設定回寫，就會啟動 WCF 端點。 不過，如果端點啟動失敗，我們會記錄事件 6800，並讓同步處理服務啟動。 出現此事件即表示「密碼回寫」端點並未啟動。 此事件 (6800) 的事件記錄詳細資料，以及 PasswordResetService 元件所產生的事件記錄項目會指出為何無法啟動端點。 如果「密碼回寫」仍然無法運作，請檢閱這些事件記錄錯誤，然後嘗試重新啟動 Azure AD Connect。 如果此問題持續發生，請嘗試先將「密碼回寫」停用再重新啟用。
 | 當使用者嘗試在已啟用密碼回寫時重設密碼或解除鎖定帳戶，作業會失敗。 <br> <br> 此外，在解除鎖定作業發生之後，您會在 Azure AD Connect 事件記錄中看到事件，其中包含：「Synchronization Engine returned an error hr=800700CE, message=The filename or extension is too long」。 | 尋找 Azure AD Connect 的 Active Directory 帳戶，並將密碼重設，讓它包含不超過 127 個字元。 然後從 [開始] 功能表開啟 [同步處理服務]。 瀏覽至 [連接器]，然後尋找 [Active Directory 連接器]。 選取它，然後選取 [屬性]。 瀏覽至 [認證] 頁面，然後輸入新密碼。 選取 [確定] 以關閉頁面。 |
 | 在 Azure AD Connect 安裝程序的最後一個步驟，您會看到一個錯誤，指出無法設定「密碼回寫」。 <br> <br> Azure AD Connect 應用程式事件記錄包含錯誤 32009，以及「取得授權權杖時發生錯誤」文字。 | 下列兩種情況會發生此錯誤： <br><ul><li>針對在 Azure AD Connect 安裝程序開始時所指定的全域系統管理員帳戶，指定了錯誤的密碼。</li><li>針對在 Azure AD Connect 安裝程序開始時所指定的全域系統管理員帳戶，嘗試使用同盟使用者。</li></ul> 若要修正此問題，請確定您並未針對在安裝程序開始時所指定的全域系統管理員使用同盟帳戶。 也請確定所指定的密碼正確。 |
 | Azure AD Connect 電腦的事件記錄包含透過執行 PasswordResetService 所擲回的錯誤 32002。 <br> <br> 此錯誤指出：「連線到服務匯流排時發生錯誤。 權杖提供者無法提供安全性權杖。」 | 您的內部部署環境無法連線到雲端的 Azure 服務匯流排端點。 這個錯誤是因為防火牆規則封鎖連往特定連接埠或網址的輸出連線所導致。 如需詳細資訊，請參閱[連線必要條件](./../connect/active-directory-aadconnect-prerequisites.md)。 在您更新這些規則之後，請重新啟動 Azure AD Connect 電腦，「密碼回寫」應該就會再次開始運作。 |
-| 在運作一段時間後，同盟或密碼雜湊同步使用者無法重設其密碼。 | 在某些罕見的情況下，Azure AD Connect 重新啟動後，「密碼回寫」服務可能仍無法重新啟動。 在這些情況下，請先檢查「密碼回寫」是否在內部部署環境中顯示為已啟用。 您可以使用 Azure AD Connect 精靈或 PowerShell 來檢查 (請參閱上一節「做法」)。 如果此功能顯示為已啟用，請再次嘗試透過 UI 或 PowerShell 啟用或停用此功能。 如果這麼做沒有效，請嘗試完整解除安裝再重新安裝 Azure AD Connect。 |
-| 同盟或密碼雜湊同步使用者若嘗試重設其密碼，會嘗試送出密碼後看到錯誤。 此錯誤表示發生服務問題。 <br ><br> 除了這個問題之外，在密碼重設作業期間，您可能會在內部部署的事件記錄中看到關於管理代理程式存取遭拒的錯誤。 | 如果您在事件記錄中看到這些錯誤，請確認在設定時於精靈中指定的 Active Directory 管理代理程式 (ADMA) 帳戶具有密碼回寫的必要權限。 <br> <br> 請注意，給予此權限後，最多需要一小時的時間，此權限才會透過網域控制站 (DC) 上的 `sdprop` 背景工作往下傳遞。 <br> <br> 若要讓密碼重設正常運作，必須在要重設密碼的使用者物件安全性描述元上為權限加上戳記。 在使用者物件上出現此權限之前，密碼重設會繼續因存取遭拒訊息而失敗。 |
-| 同盟或密碼雜湊同步使用者若嘗試重設其密碼，會在送出密碼後看到錯誤。 此錯誤表示發生服務問題。 <br> <br> 除了這個問題之外，在密碼重設作業期間，您可能會在 Azure AD Connect 服務的事件記錄中，看到錯誤指出「找不到物件」錯誤。 | 這個錯誤通常表示同步處理引擎找不到 Azure AD 連接器空間中的使用者物件，或連結的 Metaverse (MV) 或 Azure AD 連接器空間物件。 <br> <br> 若要針對這個問題進行疑難排解，請確定使用者已確實透過 Azure AD Connect 的目前執行個體從內部部屬同步處理到 Azure AD，並檢查連接器空間和 MV 中物件的狀態。 確認 Active Directory 憑證服務 (AD CS) 物件會透過 “Microsoft.InfromADUserAccountEnabled.xxx” 規則連線到 MV 物件。|
-| 同盟或密碼雜湊同步使用者若嘗試重設其密碼，會在送出密碼後看到錯誤。 此錯誤表示發生服務問題。 <br> <br> 除了這個問題之外，在密碼重設作業期間，您可能會在 Azure AD Connect 服務的事件記錄中看到錯誤，指出「找到多個相符項目」錯誤。 | 此錯誤指出同步處理引擎偵測到 MV 物件透過 “Microsoft.InfromADUserAccountEnabled.xxx” 連線到多個 AD CS 物件。 這表示使用者在多個樹系中啟用帳戶。 請注意，密碼回寫不支援此案例。 |
+| 運作一段時間之後，同盟、傳遞驗證或密碼雜湊同步使用者無法重設其密碼。 | 在某些罕見的情況下，Azure AD Connect 重新啟動後，「密碼回寫」服務可能仍無法重新啟動。 在這些情況下，請先檢查「密碼回寫」是否在內部部署環境中顯示為已啟用。 您可以使用 Azure AD Connect 精靈或 PowerShell 來檢查 (請參閱上一節「做法」)。 如果此功能顯示為已啟用，請再次嘗試透過 UI 或 PowerShell 啟用或停用此功能。 如果這麼做沒有效，請嘗試完整解除安裝再重新安裝 Azure AD Connect。 |
+| 同盟、傳遞驗證或密碼雜湊同步使用者若嘗試重設其密碼，會在嘗試提交密碼後看到錯誤。 此錯誤表示發生服務問題。 <br ><br> 除了這個問題之外，在密碼重設作業期間，您可能會在內部部署的事件記錄中看到關於管理代理程式存取遭拒的錯誤。 | 如果您在事件記錄中看到這些錯誤，請確認在設定時於精靈中指定的 Active Directory 管理代理程式 (ADMA) 帳戶具有密碼回寫的必要權限。 <br> <br> 請注意，給予此權限後，最多需要一小時的時間，此權限才會透過網域控制站 (DC) 上的 `sdprop` 背景工作往下傳遞。 <br> <br> 若要讓密碼重設正常運作，必須在要重設密碼的使用者物件安全性描述元上為權限加上戳記。 在使用者物件上出現此權限之前，密碼重設會繼續因存取遭拒訊息而失敗。 |
+| 同盟、傳遞驗證或密碼雜湊同步使用者若嘗試重設其密碼，會在嘗試提交密碼後看到錯誤。 此錯誤表示發生服務問題。 <br> <br> 除了這個問題之外，在密碼重設作業期間，您可能會在 Azure AD Connect 服務的事件記錄中，看到錯誤指出「找不到物件」錯誤。 | 這個錯誤通常表示同步處理引擎找不到 Azure AD 連接器空間中的使用者物件，或連結的 Metaverse (MV) 或 Azure AD 連接器空間物件。 <br> <br> 若要針對這個問題進行疑難排解，請確定使用者已確實透過 Azure AD Connect 的目前執行個體從內部部屬同步處理到 Azure AD，並檢查連接器空間和 MV 中物件的狀態。 確認 Active Directory 憑證服務 (AD CS) 物件會透過 “Microsoft.InfromADUserAccountEnabled.xxx” 規則連線到 MV 物件。|
+| 同盟、傳遞驗證或密碼雜湊同步使用者若嘗試重設其密碼，會在嘗試提交密碼後看到錯誤。 此錯誤表示發生服務問題。 <br> <br> 除了這個問題之外，在密碼重設作業期間，您可能會在 Azure AD Connect 服務的事件記錄中看到錯誤，指出「找到多個相符項目」錯誤。 | 此錯誤指出同步處理引擎偵測到 MV 物件透過 “Microsoft.InfromADUserAccountEnabled.xxx” 連線到多個 AD CS 物件。 這表示使用者在多個樹系中啟用帳戶。 請注意，密碼回寫不支援此案例。 |
 | 密碼作業因設定錯誤而失敗。 應用程式事件記錄中包含 Azure AD Connect 錯誤 6329 和文字：「0x8023061f (作業失敗，因為此管理代理程式上未啟用密碼同步處理)」。 | 如果在已經啟用「密碼回寫」功能之後，變更 Azure AD Connect 設定來新增新的 Active Directory 樹系 (或移除現有樹系再重新加入)，就會發生此錯誤。 位於在這些最近新增樹系中的使用者，其密碼作業會失敗。 若要修正此問題，請在完成樹系設定變更之後，將「密碼回寫」功能先停用，然後再重新啟用。 |
 
 ## <a name="password-writeback-event-log-error-codes"></a>密碼回寫事件記錄錯誤碼
@@ -109,15 +104,15 @@ ms.lasthandoff: 04/19/2018
 
 | 代碼 | 名稱或訊息 | 說明 |
 | --- | --- | --- |
-| 31001 | PasswordResetStart | 這個事件表示內部部署服務偵測到源自雲端、針對同盟或密碼雜湊同步使用者所提出的密碼重設要求。 這個事件是每個密碼重設回寫作業的第一個事件。 |
+| 31001 | PasswordResetStart | 這個事件表示內部部署服務偵測到源自雲端、針對同盟、傳遞驗證或密碼雜湊同步使用者所提出的密碼重設要求。 這個事件是每個密碼重設回寫作業的第一個事件。 |
 | 31002 | PasswordResetSuccess | 這個事件表示使用者在密碼重設作業期間選取了新的密碼。 我們認為這個密碼符合公司的密碼需求。 密碼已成功地寫回至本機的 Active Directory 環境。 |
 | 31003 | PasswordResetFail | 此事件表示使用者選取了密碼，且密碼已成功送達內部部署環境。 但是，當我們嘗試在本機 Active Directory 環境中設定密碼時，發生失敗。 此失敗有幾個可能原因： <br><ul><li>使用者的密碼不符合使用期限、歷程記錄、複雜度或網域篩選需求。 若要解決這個問題，請建立新的密碼。</li><li>ADMA 服務帳戶沒有適當的權限，無法對所提及的使用者帳戶設定新密碼。</li><li>使用者的帳戶位於不允許密碼設定作業的受保護群組中，例如網域或企業系統管理員群組。</li></ul>|
 | 31004 | OnboardingEventStart | 如果您啟用搭配 Azure AD Connect 運作的「密碼回寫」，就會發生此事件，且我們已開始將貴組織在「密碼回寫」Web 服務上線。 |
 | 31005 | OnboardingEventSuccess | 這個事件表示上線程序已順利完成，「密碼回寫」功能已可供使用。 |
-| 31006 | ChangePasswordStart | 這個事件表示內部部署服務偵測到源自雲端、針對同盟或密碼雜湊同步使用者所提出的密碼變更要求。 這個事件是每個密碼變更回寫作業的第一個事件。 |
+| 31006 | ChangePasswordStart | 這個事件表示內部部署服務偵測到源自雲端、針對同盟、傳遞驗證或密碼雜湊同步使用者所提出的密碼變更要求。 這個事件是每個密碼變更回寫作業的第一個事件。 |
 | 31007 | ChangePasswordSuccess | 這個事件表示使用者在密碼變更作業期間選取了新的密碼，我們判斷此密碼符合公司的密碼需求，因此該密碼已成功回寫至本機 Active Directory 環境。 |
 | 31008 | ChangePasswordFail | 這個事件表示使用者選取了密碼，該密碼已成功抵達內部部署環境，但是當我們嘗試在本機 Active Directory 環境中設定密碼時，發生了失敗狀況。 此失敗有幾個可能原因： <br><ul><li>使用者的密碼不符合使用期限、歷程記錄、複雜度或網域篩選需求。 若要解決這個問題，請建立新的密碼。</li><li>ADMA 服務帳戶沒有適當的權限，無法對所提及的使用者帳戶設定新密碼。</li><li>使用者的帳戶位於不允許密碼設定作業的受保護群組中，例如網域或企業系統管理員。</li></ul> |
-| 31009 | ResetUserPasswordByAdminStart | 內部部署服務偵測到源自系統管理員代表使用者針對同盟或密碼雜湊同步使用者所提出的密碼重設要求。 這個事件是每個由系統管理員所起始之密碼重設回寫作業的第一個事件。 |
+| 31009 | ResetUserPasswordByAdminStart | 內部部署服務偵測到源自系統管理員，代表使用者且針對同盟、傳遞驗證或密碼雜湊同步使用者所提出的密碼重設要求。 這個事件是每個由系統管理員所起始之密碼重設回寫作業的第一個事件。 |
 | 31010 | ResetUserPasswordByAdminSuccess | 系統管理員在系統管理員起始密碼重設作業期間選取了新的密碼。 我們認為這個密碼符合公司的密碼需求。 密碼已成功地寫回至本機的 Active Directory 環境。 |
 | 31011 | ResetUserPasswordByAdminFail | 系統管理員代表使用者選取了密碼。 密碼已成功送達內部部署環境。 但是，當我們嘗試在本機 Active Directory 環境中設定密碼時，發生失敗。 此失敗有幾個可能原因： <br><ul><li>使用者的密碼不符合使用期限、歷程記錄、複雜度或網域篩選需求。 若要解決這個問題，請嘗試新的密碼。</li><li>ADMA 服務帳戶沒有適當的權限，無法對所提及的使用者帳戶設定新密碼。</li><li>使用者的帳戶位於不允許密碼設定作業的受保護群組中，例如網域或企業系統管理員。</li></ul>  |
 | 31012 | OffboardingEventStart | 如果您停用搭配 Azure AD Connect 運作的「密碼回寫」，就會發生此事件，此事件表示我們已開始將貴組織在「密碼回寫」Web 服務下架。 |
@@ -283,6 +278,7 @@ Azure AD Connect 需要 Active Directory **重設密碼**權限才能執行密�
 * **日期、時間和時區**：請包含發生錯誤的精確日期和時間 (含時區)。
 * **使用者識別碼**：看到錯誤的使用者是誰？ 例如 user@contoso.com。
     * 這是同盟使用者嗎？
+    * 這是傳遞驗證使用者嗎？
     * 這是密碼雜湊同步使用者嗎？
     * 這是否僅限雲端的使用者？
 * **授權**：使用者是否已獲得 Azure AD Premium 或 Basic 授權？
@@ -304,7 +300,7 @@ Azure AD Connect 需要 Active Directory **重設密碼**權限才能執行密�
 * [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](howto-sspr-authenticationdata.md)
 * [哪些驗證方法可供使用者使用？](concept-sspr-howitworks.md#authentication-methods)
 * [使用 SSPR 的原則選項有哪些？](concept-sspr-policy.md)
-* [什麼是密碼回寫，且為什麼我需要了解它？](../active-directory-passwords-writeback.md)
+* [什麼是密碼回寫，且為什麼我需要了解它？](howto-sspr-writeback.md)
 * [如何回報 SSPR 中的活動？](howto-sspr-reporting.md)
 * [SSPR 中的所有選項有哪些，以及它們有何意義？](concept-sspr-howitworks.md)
 * [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)

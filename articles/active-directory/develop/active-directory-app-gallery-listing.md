@@ -1,25 +1,27 @@
 ---
 title: 在 Azure Active Directory 應用程式庫中列出您的應用程式 | Microsoft Docs
-description: 如何列出 Azure Active Directory 應用程式庫中支援單一登入的應用程式
+description: 了解如何列出 Azure Active Directory 應用程式庫中支援單一登入的應用程式
 services: active-directory
 documentationcenter: dev-center-name
-author: bryanla
-manager: mbaldwin
+author: CelesteDG
+manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2018
-ms.author: bryanla
+ms.date: 05/09/2018
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: e02c60d46fe709c8d418ea4743ba383147e9ddac
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34354447"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>在 Azure Active Directory 應用程式庫中列出您的應用程式
 
@@ -49,9 +51,27 @@ Azure Active Directory (Azure AD) 是雲端式識別服務。 [Azure AD 應用�
 
 *   **OpenID Connect**：在 Azure AD 中建立多租用戶應用程式，然後為您的應用程式實作 [Azure AD 同意架構](active-directory-integrating-applications.md#overview-of-the-consent-framework)。 將登入要求傳送給通用端點，以便讓所有客戶都可以向該應用程式表示同意。 您可以根據租用戶識別碼和在權杖中收到的使用者 UPN 來控制使用者存取權。 若要整合您的應用程式與 Azure AD，請遵循[開發人員指示](active-directory-authentication-scenarios.md)。
 
+    ![在資源庫中列出 OpenID Connect 應用程式的時間表](./media/active-directory-app-gallery-listing/openid.png)
+
+    * 如果您想要使用 OpenID Connect 將應用程式新增至資源庫中的清單，請選取如上所述的 **OpenID Connect 和 OAuth 2.0**。
+
+    * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。 
+
 *   **SAML 2.0** 或 **WS-Fed**：您的應用程式需具備在 SP 或 IDP 模式下進行 SAML/WS-Fed SSO 整合的能力。 如果您的應用程式支援 SAML 2.0，便可以使用[新增自訂應用程式的指示](../active-directory-saas-custom-apps.md)直接將其與 Azure AD 租用戶整合。
 
-*   **密碼 SSO**：建立一個具有可設定[密碼單一登入](../active-directory-appssoaccess-whatis.md)之 HTML 登入頁面的 Web 應用程式。 密碼 SSO 也稱為密碼儲存庫存，可讓您管理使用者對不支援身分識別同盟之 Web 應用程式的存取和密碼。 如果有數個使用者需要共用單一帳戶 (例如共用組織的社交媒體應用程式帳戶)，這也很有用處。
+    ![在資源庫中列出 SAML 2.0 或 WS-Fed 應用程式的時間表](./media/active-directory-app-gallery-listing/saml.png)
+
+    * 如果您想要使用 **SAML 2.0** 或 **WS-Fed** 將應用程式新增至資源庫中的清單，請選取如上所述的 **SAMl 2.0/WS-Fed**。
+
+    * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。 
+
+*   **密碼 SSO**：建立一個具有可設定[密碼單一登入](../manage-apps/what-is-single-sign-on.md)之 HTML 登入頁面的 Web 應用程式。 密碼 SSO 也稱為密碼儲存庫存，可讓您管理使用者對不支援身分識別同盟之 Web 應用程式的存取和密碼。 如果有數個使用者需要共用單一帳戶 (例如共用組織的社交媒體應用程式帳戶)，這也很有用處。
+
+    ![在資源庫中列出密碼 SSO 應用程式的時間表](./media/active-directory-app-gallery-listing/passwordsso.png)
+
+    * 如果您想要使用密碼 SSO 將應用程式新增至資源庫中的清單，請選取如上所述的**密碼 SSO**。
+
+    * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。
 
 ##  <a name="updateremove-existing-listing"></a>更新/移除現有的清單
 
@@ -60,7 +80,7 @@ Azure Active Directory (Azure AD) 是雲端式識別服務。 [Azure AD 應用�
 * 從下圖中選取適當的選項
 
     ![在資源庫中列出 SAML 應用程式的時間表](./media/active-directory-app-gallery-listing/updateorremove.png)
-
+    
     * 如果您想要更新現有的應用程式，請選取 [更新現有的應用程式清單]。
 
     * 如果您想要從 Azure AD 資源庫中移除現有的應用程式，請選取 [移除現有的應用程式清單]
@@ -86,6 +106,10 @@ Azure Active Directory (Azure AD) 是雲端式識別服務。 [Azure AD 應用�
 在應用程式庫中列出 OpenID Connect 應用程式的程序時間表為 2-5 個工作天。
 
    ![在資源庫中列出 SAML 應用程式的時間表](./media/active-directory-app-gallery-listing/timeline2.png)
+
+透過使用者佈建支援在資源庫中列出應用程式的程序時間表為 40-45 個工作天。
+
+   ![在資源庫中列出 SAML 應用程式的時間表](./media/active-directory-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>呈報
 

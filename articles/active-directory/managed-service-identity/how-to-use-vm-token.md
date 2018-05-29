@@ -7,22 +7,27 @@ author: daveba
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 541055eeae5e2c0eaff2fb88d8e83fdc43ba08b0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165446"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>如何使用 Azure 虛擬機器受控服務識別 (MSI) 來取得權杖 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
-本文提供各種取得權杖的程式碼和指令碼，以及處理權杖到期和 HTTP 錯誤等重要主題的指引。 VM 延伸模組端點將會淘汰，因此建議您搭配使用受控服務識別與 IMDS 端點。
+
+在 Azure Active Directory 中，「受控服務身分識別」會提供自動受控身分給 Azure 服務。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
+
+本文提供各種取得權杖的程式碼和指令碼，以及處理權杖到期和 HTTP 錯誤等重要主題的指引。 
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -32,14 +37,14 @@ ms.lasthandoff: 04/23/2018
 
 
 > [!IMPORTANT]
-> - 本文中的所有範例程式碼/指令碼都假設用戶端在已啟用 MSI 的虛擬機器上執行。 在 Azure 入口網站中使用虛擬機器「連線」功能，從遠端連線到您的虛擬機器。 如需有關在虛擬機器上啟用 MSI 的詳細資訊，請參閱[使用 Azure 入口網站設定虛擬機器受控服務識別 (MSI)](qs-configure-portal-windows-vm.md)，或其中一篇變化文章 (使用 PowerShell、CLI、範本或 Azure SDK)。 
+> - 本文中的所有範例程式碼/指令碼均假設用戶端是在已啟用受控服務識別的虛擬機器上執行。 在 Azure 入口網站中使用虛擬機器「連線」功能，從遠端連線到您的虛擬機器。 如需有關在虛擬機器上啟用 MSI 的詳細資訊，請參閱[使用 Azure 入口網站設定虛擬機器受控服務識別 (MSI)](qs-configure-portal-windows-vm.md)，或其中一篇變化文章 (使用 PowerShell、CLI、範本或 Azure SDK)。 
 
 > [!IMPORTANT]
-> - 受控身分識別的安全性界限是資源。 對於已啟用 MSI 的虛擬機器，其上執行的所有程式碼/指令碼都可以要求及擷取權杖。 
+> - 受控服務識別的安全性界限便是正在使用該功能的資源。 在虛擬機器上執行的所有程式碼/指令碼，都能要求並取出其上提供的受控服務識別的權杖。 
 
 ## <a name="overview"></a>概觀
 
-用戶端應用程式可以要求用於存取指定資源的 MSI [僅限應用程式存取權杖](../develop/active-directory-dev-glossary.md#access-token)。 此權杖是[以 MSI 服務主體為基礎](overview.md#how-does-it-work)。 因此，用戶端不需要自行註冊就能取得本身服務主體下的存取權杖。 權杖在[需要用戶端認證的服務對服務呼叫](../develop/active-directory-protocols-oauth-service-to-service.md)中適合作為持有人權杖。
+用戶端應用程式可以要求用於存取指定資源的受控服務識別：[僅限應用程式的存取權杖](../develop/active-directory-dev-glossary.md#access-token)。 此權杖是[以 MSI 服務主體為基礎](overview.md#how-does-it-work)。 因此，用戶端不需要自行註冊就能取得本身服務主體下的存取權杖。 權杖在[需要用戶端認證的服務對服務呼叫](../develop/active-directory-protocols-oauth-service-to-service.md)中適合作為持有人權杖。
 
 |  |  |
 | -------------- | -------------------- |
@@ -48,7 +53,7 @@ ms.lasthandoff: 04/23/2018
 | [使用 Go 取得權杖](#get-a-token-using-go) | 從 Go 用戶端使用 MSI REST 端點的範例 |
 | [使用 Azure PowerShell 取得權杖](#get-a-token-using-azure-powershell) | 從 PowerShell 用戶端使用 MSI REST 端點的範例 |
 | [使用 CURL 取得權杖](#get-a-token-using-curl) | 從 Bash/CURL 用戶端使用 MSI REST 端點的範例 |
-| [處理權杖到期](#handling-token-expiration) | 處理過期存取權杖的指引 |
+| [處理權杖快取](#handling-token-caching) | 處理過期存取權杖的指引 |
 | [錯誤處理](#error-handling) | 從 MSI 權杖端點傳回 HTTP 錯誤的處理指引 |
 | [Azure 服務的資源識別碼](#resource-ids-for-azure-services) | 取得所支援 Azure 服務資源識別碼的地方 |
 
@@ -56,10 +61,10 @@ ms.lasthandoff: 04/23/2018
 
 取得存取權杖的基本介面是以 REST 為基礎，如此可讓用戶端應用程式在可執行 HTTP REST 呼叫的虛擬機器上執行時，可以對其進行存取。 這類似於 Azure AD 的程式設計模型，但用戶端會使用虛擬機器上的端點 (對比於 Azure AD 端點)。
 
-使用 MSI 執行個體中繼資料服務 (IMDS) 端點 (建議) 的範例要求：
+使用 Azure Instance Metadata Service (IMDS) 端點 (建議) 的範例要求：
 
 ```
-GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1 Metadata: true
+GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
 | 元素 | 說明 |
@@ -70,7 +75,7 @@ GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01
 | `resource` | 查詢字串參數，指出目標資源的應用程式識別碼 URI。 也會出現在所核發權杖的 `aud` (對象) 宣告中。 此範例會要求用來存取 Azure Resource Manager 的權杖，其中包含應用程式識別碼 URI https://management.azure.com/。 |
 | `Metadata` | HTTP 要求標頭欄位，MSI 需此元素以減輕伺服器端偽造要求 (SSRF) 攻擊。 此值必須設定為 "true" (全部小寫)。
 
-使用 MSI VM 延伸模組端點 *(即將被取代)* 的範例要求：
+使用受控服務識別 (MSI) VM 延伸模組端點 (即將被取代) 的範例要求：
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -264,23 +269,25 @@ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sy
 echo The MSI access token is $access_token
 ```
 
-## <a name="token-expiration"></a>權杖到期 
+## <a name="token-caching"></a>權杖快取
 
-如果您在程式碼中快取權杖，則應該妥善處理資源指出權杖過期的情節。 
+雖說使用中的受控服務識別 (MSI) 子系統 (IMDS/MSI VM 延伸模組) 會快取處理權杖，仍建議在程式碼內採行權杖的快取處理。 因此請為資源表示權杖到期的情節做好準備。 
 
-注意：因為 IMDS MSI 子系統的確會快取權杖，所以只有在下列情況時，線上呼叫 Azure AD 才會有結果：
-- 由於快取中沒有權杖而發生快取遺漏
-- 權杖已過期
+只有在以下情況中，才會向 Azure AD 進行線上呼叫：
+- 由於 MSI 子系統快取中沒有權杖而發生快取遺漏
+- 快取的權杖已過期
 
 ## <a name="error-handling"></a>錯誤處理
 
-MSI 端點會透過 HTTP 回應訊息標頭的狀態碼欄位 (如 4xx 或 5xx 錯誤) 來發出錯誤通知：
+受控服務識別端點會透過 HTTP 回應訊息標頭的狀態碼欄位 (如 4xx 或 5xx 錯誤) 來發出錯誤通知：
 
 | 狀態碼 | 錯誤原因 | 處理方式 |
 | ----------- | ------------ | ------------- |
+| 404 找不到。 | 正在更新 IMDS 端點。 | 使用指數輪詢重試。 請參閱下面的指引。 |
 | 429 要求太多。 |  已達到 IMDS 節流限制。 | 使用指數輪詢重試。 請參閱下面的指引。 |
 | 要求中的 4xx 錯誤。 | 一個或多個要求參數不正確。 | 請勿重試。  檢查錯誤詳細資料以取得更多資訊。  4xx 錯誤是設計階段錯誤。|
 | 來自服務的 5xx 暫時性錯誤。 | MSI 子系統或 Azure Active Directory 傳回暫時性錯誤。 | 等待至少一秒後即可安全地進行重試。  如果您太快重試或重試太多次，IMDS 和/或 Azure AD 可能會傳回速率限制錯誤 (429)。|
+| timeout | 正在更新 IMDS 端點。 | 使用指數輪詢重試。 請參閱下面的指引。 |
 
 如果發生錯誤，對應的 HTTP 回應主體會包含 JSON 格式的錯誤詳細資料：
 
@@ -303,11 +310,11 @@ MSI 端點會透過 HTTP 回應訊息標頭的狀態碼欄位 (如 4xx 或 5xx �
 |           | access_denied | 資源擁有者或授權伺服器已拒絕要求。 |  |
 |           | unsupported_response_type | 授權伺服器不支援使用此方法取得存取權杖。 |  |
 |           | invalid_scope | 要求的範圍無效、未知或格式不正確。 |  |
-| 500 內部伺服器錯誤 | 未知 | 無法從 Active 目錄擷取權杖。 如需詳細資訊，請參閱\<檔案路徑\>中的記錄 | 請確認虛擬機器上已正確啟用 MSI。 如果您需要設定虛擬機器的協助，請參閱[使用 Azure 入口網站設定虛擬機器受控服務識別 (MSI)](qs-configure-portal-windows-vm.md)。<br><br>也請確認 HTTP GET 要求 URI 的格式正確，尤其是查詢字串中指定的資源 URI。 相關範例請參閱[前一節 REST](#rest) 中的「範例要求」，或請參閱[支援 Azure AD 驗證的 Azure 服務](overview.md#azure-services-that-support-azure-ad-authentication)，以取得服務及其各自資源識別碼的清單。
+| 500 內部伺服器錯誤 | 未知 | 無法從 Active 目錄擷取權杖。 如需詳細資訊，請參閱\<檔案路徑\>中的記錄 | 請確認虛擬機器上已正確啟用 MSI。 如果您需要設定虛擬機器的協助，請參閱[使用 Azure 入口網站設定虛擬機器受控服務識別 (MSI)](qs-configure-portal-windows-vm.md)。<br><br>也請確認 HTTP GET 要求 URI 的格式正確，尤其是查詢字串中指定的資源 URI。 相關範例請參閱[前一節 REST](#rest) 中的「範例要求」，或請參閱[支援 Azure AD 驗證的 Azure 服務](services-support-msi.md)，以取得服務及其各自資源識別碼的清單。
 
-## <a name="throttling-guidance"></a>節流指引 
+## <a name="retry-guidance"></a>重試指引 
 
-節流限制會套用至對 MSI IMDS 端點進行的呼叫數目。 超過節流閾值時，MSI IMDS 端點會在節流生效時，限制任何進一步的要求。 在這段期間，MSI IMDS 端點會傳回 HTTP 狀態碼 429 (「太多要求」)，且要求會失敗。 
+節流限制會套用至對 IMDS 端點進行的呼叫數目。 超過節流閾值時，IMDS 端點會在節流生效時，限制任何進一步的要求。 在這段期間，IMDS 端點會傳回 HTTP 狀態碼 429 (「太多要求」)，且要求會失敗。 
 
 對於重試，我們建議下列策略： 
 
@@ -317,7 +324,7 @@ MSI 端點會透過 HTTP 回應訊息標頭的狀態碼欄位 (如 4xx 或 5xx �
 
 ## <a name="resource-ids-for-azure-services"></a>Azure 服務的資源識別碼
 
-關於支援 Azure AD 且經過 MSI 測試的資源及其各自資源識別碼的清單，請參閱[支援 Azure AD 驗證的 Azure 服務](overview.md#azure-services-that-support-azure-ad-authentication)。
+關於支援 Azure AD 且經過 MSI 測試的資源及其各自資源識別碼的清單，請參閱[支援 Azure AD 驗證的 Azure 服務](services-support-msi.md)。
 
 
 ## <a name="related-content"></a>相關內容

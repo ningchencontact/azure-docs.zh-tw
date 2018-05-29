@@ -6,8 +6,8 @@ documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
 editor: ''
-ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +16,12 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 19a1ae7ae7acc6fe09a529dd174363735343027e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33932008"
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -35,7 +36,7 @@ Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Ma
 在 Azure Active Directory 中使用 SCIM 有兩個使用案例：
 
 * **將使用者與群組佈建至支援 SCIM 的應用程式** - 應用程式若支援 SCIM 2.0，而且使用 OAuth 持有人權杖進行驗證，將可直接與 Azure AD 搭配運作，不需其他設定。
-* **為支援其他 API 型佈建的應用程式建置您自己的佈建解決方案** - 對於非 SCIM 應用程式，您可以建立能夠在 Azure AD SCIM 端點與應用程式為使用者佈建支援的任何 API 之間進行轉譯的 SCIM 端點。 為了協助您開發 SCIM 端點，我們連同程式碼範例提供了通用語言基礎結構 (CLI) 程式庫，為您說明如何提供 SCIM 端點及轉譯 SCIM 訊息。  
+* **為支援其他 API 型佈建的應用程式建置您自己的佈建解決方案** - 對於非 SCIM 應用程式，您可以建立能夠在 Azure AD SCIM 端點與應用程式為使用者佈建支援的任何 API 之間進行轉譯的 SCIM 端點。 為了協助您開發 SCIM 端點，通用語言基礎結構 (CLI) 程式庫中的程式碼範例可向您說明如何提供 SCIM 端點及轉譯 SCIM 訊息。  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>將使用者與群組佈建至支援 SCIM 的應用程式
 Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) Web 服務、並接受以 OAuth 持有人權杖進行驗證的應用程式。 在 SCIM 2.0 規格中，應用程式必須符合下列需求：
@@ -56,7 +57,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
 **若要連接支援 SCIM 的應用程式：**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
-2. 瀏覽至 **Azure Active Directory > 企業應用程式，然後選取 [	新增應用程式] > [全部] > [不在資源庫內的應用程式]。
+2. 瀏覽至 [Azure Active Directory] > [企業應用程式]，然後選取 [新增應用程式] > [全部] > [不在資源庫內的應用程式]。
 3. 輸入您的應用程式名稱，然後按一下 [新增] 圖示，以建立應用程式物件。
     
   ![][1]
@@ -131,12 +132,12 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
    FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
   ````
 8. 在 Windows 中，於 [Windows 設定] > [網路和網際網路設定] 底下，選取 [Windows 防火牆] > [進階設定]，然後建立允許對連接埠 9000 進行輸入存取的「輸入規則」。
-9. 如果 Windows 電腦位於路由器背後，必須將路由器設定為在公開到網際網路的連接埠 9000 和 Windows 電腦上的連接埠 9000 之間執行網路存取轉譯。 為了讓 Azure AD 能夠在雲端中存取這個端點，這是必要的。
+9. 如果 Windows 電腦位於路由器背後，必須將路由器設定為在公開到網際網路的連接埠 9000 和 Windows 電腦上的連接埠 9000 之間執行網路存取轉譯。 為了讓 Azure AD 能夠在雲端中存取這個端點，這是必要的組態。
 
 **若要在 Azure AD 中註冊範例 SCIM 端點：**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
-2. 瀏覽至 **Azure Active Directory > 企業應用程式，然後選取 [	新增應用程式] > [全部] > [不在資源庫內的應用程式]。
+2. 瀏覽至 [Azure Active Directory] > [企業應用程式]，然後選取 [新增應用程式] > [全部] > [不在資源庫內的應用程式]。
 3. 輸入您的應用程式名稱，然後按一下 [新增] 圖示，以建立應用程式物件。 建立的應用程式物件要代表您要佈建和實作登一登入的目標應用程式，而不只是 SCIM 端點。
 4. 在結果畫面中，選取左側資料行中的 [佈建] 索引標籤。
 5. 在 [佈建模式] 功能表上，選取 [自動]。
@@ -144,7 +145,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
   ![][2]
   圖 4：在 Azure 入口網站中設定佈建
     
-6. 在 [租用戶 URL] 欄位中，輸入網際網路公開的 URL 和 SCIM 端點的連接埠。 這看起來會像 http://testmachine.contoso.com:9000 或 http://<ip-address>:9000/，其中 <ip-address> 是網際網路公開 IP 位址。  
+6. 在 [租用戶 URL] 欄位中，輸入網際網路公開的 URL 和 SCIM 端點的連接埠。 此項目就像是 http://testmachine.contoso.com:9000 或 http://<ip-address>:9000/，其中 <ip-address> 是網際網路公開 IP 位址。  
 7. 如果 SCIM 端點需要來自非 Azure AD 簽發者的 OAuth 持有人權杖，那麼便將所需的 OAuth 持有人權杖複製到選擇性 [祕密權杖] 欄位。 如果此欄位保留空白，則 Azure AD 將在每個要求包含從 Azure AD 簽發的 OAuth 持有人權杖。 使用 Azure AD 作為識別提供者的應用程式，可以驗證此 Azure AD 簽發的權杖。
 8. 按一下 [測試連線] 按鈕，讓 Azure Active Directory 嘗試連線到 SCIM 端點。 如果嘗試失敗，則會顯示錯誤資訊。  
 9. 如果嘗試連線到應用程式成功，則按一下 [儲存] 以儲存管理員認證。
@@ -239,7 +240,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
     }
     }
 
-這項服務必須具有 HTTP 位址，而其伺服器驗證憑證的根憑證授權單位是下列其中一項： 
+這項服務必須具有 HTTP 位址，而其伺服器驗證憑證的根憑證授權單位是下列其中一個名稱： 
 
 * CNNIC
 * Comodo
@@ -347,12 +348,12 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
 ## <a name="user-and-group-schema"></a>使用者和群組結構描述
 Azure Active Directory 可以佈建兩種類型的資源至 SCIM Web 服務。  這些類型的資源是使用者和群組。  
 
-用結構描述識別碼 urn:ietf:params:scim:schemas:extension:enterprise:2.0:User 識別使用者資源，此識別碼包含在下列通訊協定規格中：http://tools.ietf.org/html/draft-ietf-scim-core-schema。  以下的表 1 提供相對於urn:ietf:params:scim:schemas:extension:enterprise:2.0:User 資源的屬性，Azure Active Directory 中使用者屬性的預設對應。  
+用結構描述識別碼 "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" 識別使用者資源，此識別碼包含在下列通訊協定規格中：http://tools.ietf.org/html/draft-ietf-scim-core-schema。  以下的表 1 提供相對於 "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" 資源的屬性，Azure Active Directory 中使用者屬性的預設對應。  
 
 用結構描述識別碼 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 識別群組資源。  下面的表 2 顯示 Azure Active Directory 中的群組屬性與 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 資源屬性的預設對應。  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>表 1：預設使用者屬性對應
-| Azure Active Directory 使用者 | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Azure Active Directory 使用者 | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
 | IsSoftDeleted |作用中 |
 | displayName |displayName |
@@ -534,7 +535,7 @@ Azure Active Directory 可以佈建兩種類型的資源至 SCIM Web 服務。  
     GET ~/scim/Users?filter=id eq 54D382A4-2050-4C03-94D1-E769F1D15682 and manager eq 2819c223-7f76-453a-919d-413861904646&attributes=id HTTP/1.1
     Authorization: Bearer ...
   ````
-  屬性查詢參數 id 的值，表示如果滿足提供做為篩選查詢參數值的運算式的使用者物件存在，則服務應該以 urn:ietf:params:scim:schemas:core:2.0:User 或 urn:ietf:params:scim:schemas:extension:enterprise:2.0:User 資源回應，包僅括該資源 id 屬性的值。  要求者知道**識別碼**屬性的值。 它包含在篩選查詢參數的值中；要求它的目的只是實際要求滿足篩選運算式作為任何這類物件是否存在指示之資源的最小表示。   
+  屬性查詢參數 "id" 的值，表示如果滿足提供作為篩選查詢參數值的運算式的使用者物件存在，則服務應該以 "urn:ietf:params:scim:schemas:core:2.0:User" 或 "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" 資源回應，包僅括該資源 "id" 屬性的值。  要求者知道**識別碼**屬性的值。 它包含在篩選查詢參數的值中；要求它的目的只是實際要求滿足篩選運算式作為任何這類物件是否存在指示之資源的最小表示。   
 
   如果是使用 Microsoft 所提供、用於實作 SCIM 服務的通用語言基礎結構程式庫建置服務，會將要求轉譯為對服務提供者的 Query 方法的呼叫。 提供物件的屬性值作為參數引數的值，如下所示： 
   
