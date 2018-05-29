@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9a8b85539ac26629c31e49097fca5c3ce5c5abc2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053365"
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Azure Active Directory 中企業應用程式管理的新功能 
 
@@ -34,11 +35,11 @@ Azure Active Directory (Azure AD) 有增強的企業應用程式管理工具，�
 
 ## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Azure Active Directory 應用程式資源庫的改進功能
 
-新增您喜愛的應用程式，不論這些應用程式是來自[應用程式資源庫](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)、您延伸到雲端的自訂應用程式，或您正在開發的全新應用程式。  按一下 [企業應用程式] 概觀或 [所有應用程式] 刀鋒視窗上的 [新增]，即可開始使用此全新體驗。
+新增您喜愛的應用程式，不論這些應用程式是來自[應用程式資源庫](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)、您延伸到雲端的自訂應用程式，或您正在開發的全新應用程式。  按一下 [企業應用程式] 或 [所有應用程式] 下方的 [新增]，即可開始使用此全新體驗。
  
   ![新增應用程式](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 
-在資源庫中，您會看到支援使用者佈建的所有精選應用程式顯示在最顯著的位置。  您可以瀏覽各種不同的類別，深入鑽研您想知道的應用程式，您也可以使用搜尋體驗，快速找出您想要整合的應用程式。
+在資源庫中，您會看到支援使用者佈建的所有精選應用程式顯示在最顯著的位置。 您可以瀏覽各種不同的類別，深入鑽研您想知道的應用程式，您也可以使用搜尋體驗，快速找出您想要整合的應用程式。
 
   ![應用程式資源庫](./media/active-directory-enterprise-apps-whats-new-azure-portal/02.png)
 
@@ -64,7 +65,7 @@ Azure Active Directory (Azure AD) 有增強的企業應用程式管理工具，�
 ### <a name="developing-new-applications"></a>開發新的應用程式
 
 1. 如果您正在開發新的應用程式，下列方法可讓您在資源庫中輕鬆取得 Application Registry︰
-2. 從 [應用程式資源庫] 按一下 [新增您自己的] 選項，選取 [開發現有的應用程式] 選項，您會看到應用程式新增體驗的快速連結。
+2. 於 [應用程式資源庫] 按一下 [新增您自己的] 選項，選取 [開發現有的應用程式]，即會看到應用程式新增體驗的快速連結。
 
   ![按幾下滑鼠即可新增最近開發的應用程式](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
@@ -75,25 +76,25 @@ Azure Active Directory (Azure AD) 有增強的企業應用程式管理工具，�
   ![管理企業應用程式之下新應用程式的存取](./media/active-directory-enterprise-apps-whats-new-azure-portal/06.png)
 
 
-## <a name="quick-start-get-going-with-your-new-application-right-away"></a>快速啟動︰立即開始使用新的應用程式 
+## <a name="quickstart-get-going-with-your-new-application-right-away"></a>快速入門︰立即開始使用新的應用程式 
 
 新增應用程式之後，不論它已預先整合或是您自己的應用程式，我們都已建立特別量身訂製的快速啟動體驗，讓您快速地開始新的應用程式體驗。 如果您有系統地遵循每個選項，我們將逐步引導您使用 UI，並且示範如何透過新應用程式的試驗盡快快速啟動。 
  
   ![新的應用程式快速啟動經驗](./media/active-directory-enterprise-apps-whats-new-azure-portal/07.png)
 
- 您可以隨時瀏覽這項新的快速啟動體驗，而對任何應用程式而言，只要按一下應用程式左導覽功能表中的 [快速啟動]。
+ 您可以隨時瀏覽這項新的快速啟動體驗，任何應用程式均可使用，只需按一下應用程式左導覽功能表中的 [快速入門] 即可。
 
 
 ## <a name="updated-application-proxy-configuration"></a>已更新的應用程式 Proxy 組態
 現在，假設您新增的其中一個新應用程式正在內部部署環境中執行，而且您想要將它與 Azure AD 整合。  有關新的 Azure AD 入口網站中新應用程式設定體驗的其中一個酷炫新功能就是，藉由從應用程式 Proxy 組態中分割應用程式的登入模式，您現在即可輕鬆地將您公司網路中執行的密碼 SSO 或同盟應用程式直接公開至雲端，而不必建立多個應用程式執行個體。
 
-除此之外，您現在也可以設定您新增的任何新應用程式 (包括支援原生 Windows 驗證經驗的應用程式)，以便直接從新的入口網站搭配 Azure AD 應用程式 Proxy 使用。
+您也可以設定您新增的任何新應用程式 (包括支援原生 Windows 驗證經驗的應用程式)，以便直接從新的入口網站搭配 Azure AD 應用程式 Proxy 使用。
 
   ![設定應用程式以使用整合式 Windows 驗證登入選項](./media/active-directory-enterprise-apps-whats-new-azure-portal/08.png)
  
 
 若要開始設定採用應用程式 Proxy 的原生 Windows 驗證應用程式︰
-1. 在單一登入導覽項目上按一下，然後選擇登入設定刀鋒視窗中的 [整合式 Windows 驗證] 並設定您喜好的設定。
+1. 在單一登入導覽項目上按一下，然後選擇登入設定下的 [整合式 Windows 驗證]，並設定您喜好的設定。
 2. 除了支援這些新的驗證模式以外，您現在也可以從自訂網域上傳憑證，以支援在組織內安全端點上執行的應用程式。  
  
    ![上傳要搭配應用程式 Proxy 使用的憑證](./media/active-directory-enterprise-apps-whats-new-azure-portal/09.png)
@@ -102,28 +103,28 @@ Azure Active Directory (Azure AD) 有增強的企業應用程式管理工具，�
 
 ## <a name="advanced-federated-single-sign-on-configuration"></a>進階同盟單一登入組態
 
-對於目前使用同盟應用程式的使用者而言，SAML 型登入設定刀鋒視窗中有許多新功能。 首先，您現在可以完全自訂、新增、移除及對應在 SAML 權杖中以宣告形式發出的現有使用者屬性。
+對於目前使用同盟應用程式的使用者而言，SAML 型登入設定中有許多新功能。 首先，您現在可以完全自訂、新增、移除及對應在 SAML 權杖中以宣告形式發出的現有使用者屬性。
  
   ![自訂傳遞至同盟應用程式的 SAML 權杖使用者屬性](./media/active-directory-enterprise-apps-whats-new-azure-portal/10.png)
 
 
 若要查看新的同盟 SSO 組態︰
-1. 從左側導覽功能表開啟同盟應用程式的 [單一登入] 刀鋒視窗，並確定已選取 [SAML 型登入] 模式。 
+1. 從左側導覽功能表開啟同盟應用程式的 [單一登入]，並確定已選取 [SAML 型登入] 模式。 
 2. 在那裡，啟用 [使用者屬性] 標題底下的核取方塊，以修改傳遞給該應用程式的 SAML 權杖中包含的所有屬性。
 
-您也可以建立、變換及管理用於同盟單一登入的憑證，以及編輯憑證即將到期時可取得通知的對象。 您會在相同單一登入刀鋒視窗上的 [憑證] 標題之下看到這些新選項。
+您也可以建立、變換及管理用於同盟單一登入的憑證，以及編輯憑證即將到期時可取得通知的對象。 您會在相同單一登入窗格上的 [憑證] 標題之下看到這些新選項。
  
   ![建立新憑證、自訂到期通知電子郵件和憑證簽署選項](./media/active-directory-enterprise-apps-whats-new-azure-portal/11.png)
 
-### <a name="relay-state-paramenter"></a>轉送狀態參數
-最後，我們還擴充了我們支援的這組 SAML URL 參數以包含 [轉送狀態參數]，這就是使用者在登入完成後將於同盟應用程式內登陸的頁面。 如果您想要將使用者快速送往應用程式內的特定位置，這是非常實用的設定。
+### <a name="relay-state-parameter"></a>轉送狀態參數
+最後，我們還擴充了我們支援的這組 SAML URL 參數以包含 [轉送狀態參數]，這就是使用者在登入完成後將於同盟應用程式內登陸的頁面。 如果您想要將使用者快速送往應用程式內的特定位置，這是相當實用的設定。
 
   ![設定 SAML 轉送狀態參數](./media/active-directory-enterprise-apps-whats-new-azure-portal/12.png)
  
 **若要設定轉送狀態參數**：
 
-1. 在單一登入設定刀鋒視窗上，啟用 [網域和 URL] 標題之下的 [顯示進階 URL 設定] 核取方塊。 
-2. 這麼做之後，您就會看到一組新的 URL 輸入方塊出現，讓您進行這項和其他 SAML URL 設定。
+1. 在單一登入設定窗格上，啟用 [網域和 URL] 標題之下的 [顯示進階 URL 設定] 核取方塊。 
+2. 隨即會顯示一組新的 URL 輸入方塊，供您設定此參數和其他 SAML URL 設定。
 
 ## <a name="bring-your-own-password-sso-applications"></a>自備密碼 SSO 應用程式
 
@@ -133,7 +134,8 @@ Azure Active Directory (Azure AD) 有增強的企業應用程式管理工具，�
 
 **若要查看「自備應用程式」功能**：
 
-1. 為您已新增至 [密碼型登入] 的新自訂應用程式設定單一登入模式之後，輸入應用程式會呈現其登入畫面的 URL，然後按一下 [儲存]。  
+1. 為您已新增至 [密碼型登入] 的新自訂應用程式設定單一登入模式之後，輸入應用程式會呈現其登入畫面的 URL，並 
+2. 按一下 [檔案] 。  
 2. 這麼做之後，我們會自動擷取使用者名稱和密碼輸入方塊的該 URL，並可讓您使用 Azure AD 並利用存取面板瀏覽器擴充功能將密碼安全地傳輸到該應用程式。
 
 ## <a name="configure-self-service-application-access"></a>設定自助式應用程式存取
@@ -153,7 +155,7 @@ Azure Active Directory (Azure AD) 有增強的企業應用程式管理工具，�
 
 ## <a name="next-steps"></a>後續步驟
 
-如需詳細資訊，請參閱[使用 Azure Active Directory 管理應用程式](active-directory-enable-sso-scenario.md)。
+如需詳細資訊，請參閱[使用 Azure Active Directory 管理應用程式](manage-apps/what-is-application-management.md)。
 
 
 
