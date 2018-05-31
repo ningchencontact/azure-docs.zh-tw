@@ -15,11 +15,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: db847d5fa3d5f5b2b2f0293f1756226870a8b47e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7914bce6ca71b1b3f00c69fb6f33154f0f52dc7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362177"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理邏輯應用程式
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 03/16/2018
     您可以直接從 Visual Studio Marketplace 下載並安裝 Azure Logic Apps Tools，或了解<a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">如何從 Visual Studio 內部安裝此擴充功能</a>。 
     請務必在完成安裝之後重新啟動 Visual Studio。
 
-* 使用內嵌的邏輯應用程式設計工具時能夠存取 Web
+* 使用內嵌的 Logic Apps 設計工具時能夠存取 Web
 
   設計工具需要網際網路連線才能在 Azure 中建立資源，以及從邏輯應用程式中的連接器讀取屬性和資料。 
   例如，如果您使用 Dynamics CRM Online 連接器，則設計工具會檢查您的 CRM 執行個體，以取得可用的預設和自訂屬性。
@@ -84,7 +85,7 @@ ms.lasthandoff: 03/16/2018
 
   ![從 Azure 入口網站開啟已部署的邏輯應用程式](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   邏輯應用程式在邏輯應用程式設計工具中開啟之後，您可以在設計工具的底部選擇 [程式碼檢視]，以便檢閱基礎邏輯應用程式定義結構。 
+   邏輯應用程式在 Logic Apps 設計工具中開啟之後，您可以在設計工具的底部選擇 [程式碼檢視]，以便檢閱基礎邏輯應用程式定義結構。 
    如果您想要為邏輯應用程式建立部署範本，請了解針對該邏輯應用程式要[如何下載 Azure Resource Manager 範本](#download-logic-app)。 深入了解 [Resource Manager 範本](../azure-resource-manager/resource-group-overview.md#template-deployment)。
 
 <a name="download-logic-app"></a>

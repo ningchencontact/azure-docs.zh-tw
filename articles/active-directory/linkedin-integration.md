@@ -6,24 +6,27 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 05/02/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33762365"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Microsoft 應用程式和服務的 LinkedIn 帳戶連線
 在本文中，您可以了解如何在 Azure Active Directory (Azure AD) 系統管理中心管理您租用戶的 LinkedIn 帳戶連線。 
 
 > [!IMPORTANT]
 > LinkedIn 帳戶連線功能即將推出以供 Azure AD 租用戶使用。 當它推出以供您的租用戶使用時，預設會加以啟用。 它不適用於美國政府客戶，以及將 Exchange Online 信箱裝載於澳洲、加拿大、中國、法國、德國、印度、韓國、英國、日本和南非的組織。 即將推出這些信箱位置的支援。  如需首度發行資訊的最新檢視，請參閱 [Office 365 藍圖](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc)頁面。
+
+## <a name="benefit-to-users"></a>使用者的權益
+當使用者連線他們的 LinkedIn 帳戶之後，就能使用 LinkedIn 資訊，在各種 Microsoft 應用程式或服務中顯示個人化的資訊與功能。 使用者可以在 Microsoft 個人檔案卡片中查看與其合作人員的見解，即使那些人員是組織外部人員也一樣。 經過一段時間之後，他們的 LinkedIn 體驗也將變得更加相關且更適合他們的工作。 例如，LinkedIn 可以根據使用者要合作的對象建議新的連線，或者在其當天的行事曆上呈現有關人員的見解。
 
 ## <a name="how-linkedin-account-connections-appear-to-the-user"></a>對使用者顯示 LinkedIn 帳戶連線的方式
 LinkedIn 帳戶連線可讓使用者看到其某些 Microsoft 應用程式內的公用 LinkedIn 設定檔資訊。 您租用戶中的使用者可以選擇連線其 LinkedIn 和 Microsoft 公司或學校帳戶，以查看其他 LinkedIn 設定檔資訊。 如需詳細資訊，請參閱 [Microsoft 應用程式和服務中的 LinkedIn 資訊與功能](https://go.microsoft.com/fwlink/?linkid=850740)。

@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 中的裝置管理簡介 | Microsoft Docs"
-description: "了解裝置管理如何協助您控制存取您環境中資源的裝置。"
+title: Azure Active Directory 中的裝置管理簡介 | Microsoft Docs
+description: 了解裝置管理如何協助您控制存取您環境中資源的裝置。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: faea960d2b6207aab5a2f5df8dc65fddc9ba5b54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202128"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory 中的裝置管理簡介
 
@@ -73,20 +74,22 @@ Azure AD 加入裝置的目標是簡化：
 
 
 這些目標可藉由提供使用者自助服務體驗，以取得 Azure AD 控制下的工作用裝置來完成。  
-**Azure AD Join** 適用於雲端優先/僅限雲端的組織。 這些通常是不具內部部署 Windows Server Active Directory 基礎結構的中小型企業。 
+**Azure AD Join** 適用於想要雲端優先或僅限雲端的組織。 對於可以部署 Azure AD Join 的組織來說，沒有任何大小或類型的限制。 Azure AD Join 即使在混合式環境中也可運作良好，而且可以啟用對內部部署應用程式及資源的存取。
 
 實作 Azure AD 加入裝置提供下列優點：
 
-- 
-            **單一登入 (SSO)** Azure 受控 SaaS 應用程式和服務。 存取工作資源時，您的使用者看不到額外的驗證提示。 即使它們未連線到網域網路，也可使用 SSO 功能。
+- **單一登入 (SSO)** Azure 受控 SaaS 應用程式和服務。 存取工作資源時，您的使用者看不到額外的驗證提示。 即使它們未連線到網域網路，也可使用 SSO 功能。
 
 - 在跨加入裝置之間進行使用者設定的**企業符合規範漫遊**。 使用者不需要連線 Microsoft 帳戶 (例如 Hotmail) 以查看裝置之間的設定。
 
-- 使用 AD 帳戶**存取商務用 Windows 市集**。 您的使用者可以從組織預先選取之應用程式清查中選擇。
+- 使用 Azure AD 帳戶**存取商務用 Windows 市集**。 您的使用者可以從組織預先選取之應用程式清查中選擇。
 
 - **Windows Hello** 支援安全又方便地存取工作資源。
 
 - **限制**僅從符合合規性原則的裝置存取應用程式。
+
+- 當裝置可以看見內部部署網域控制站時，即可**順暢地存取內部部署資源**。
+
 
 雖然 Azure AD Join 主要適用於沒有內部部署 Windows Server Active Directory 基礎結構的組織，您當然也可以在下列情況下使用之：
 

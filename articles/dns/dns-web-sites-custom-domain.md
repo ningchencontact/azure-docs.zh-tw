@@ -18,6 +18,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771968"
 ---
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>在自訂網域中建立 Web 應用程式的 DNS 記錄
 
@@ -53,7 +54,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 ### <a name="step-2"></a>步驟 2
 
-使用指派的 $rs 變數，將 IPv4 值新增至先前建立的記錄集 "@"。 指派的 IPv4 值將是您 Web 應用程式的 IP 位址。
+使用指派的 $rs 變數，將 IPv4 值新增至先前建立的記錄集 "\@\"。 指派的 IPv4 值將是您 Web 應用程式的 IP 位址。
 
 若要尋找 Web 應用程式的 IP 位址，請依照[在 Azure App Service 中設定自訂網域名稱](../app-service/app-service-web-tutorial-custom-domain.md)的步驟進行。
 

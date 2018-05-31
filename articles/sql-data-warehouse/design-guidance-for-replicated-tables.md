@@ -7,21 +7,18 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: b1d60cc0a83c95c5e33fbaae6083572af3e183ad
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1cc796061056ff017e3d778ebb2e50e13d55a4c1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189559"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中使用複寫資料表的設計指引
 本文針對在「SQL 資料倉儲」結構描述中設計複寫資料表提供建議。 您可以使用這些建議來降低資料移動和查詢的複雜性，以提升查詢效能。
-
-> [!NOTE]
-> 複寫資料表功能目前為公開預覽版。 有些行為可能會變更。
-> 
 
 ## <a name="prerequisites"></a>先決條件
 本文假設您已熟悉「SQL 資料倉儲」中的資料散發和資料移動概念。  如需詳細資訊，請參閱[架構](massively-parallel-processing-mpp-architecture.md)文章。 
@@ -44,20 +41,13 @@ ms.lasthandoff: 04/18/2018
 在下列情況下，請考慮使用複寫資料表：
 
 - 磁碟上的資料表大小小於 2 GB，不論它有幾個資料列。 若要了解資料表的大小，您可以使用 [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) 命令：`DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`。 
-- 資料表用於需要進行資料移動的聯結中。 例如，當聯結資料行不是相同的散發資料行時，雜湊分散式資料表上的聯結就需要進行資料移動。 如果其中一個雜湊分散式資料表是小型資料表，請考慮使用複寫資料表。 循環配置資源資料表上的聯結需要進行資料移動。 建議您在大多數情況下都使用複寫資料表，而不要使用循環配置資源資料表。 
-
-
-在下列情況下，請考慮將現有的分散式資料表轉換成複寫資料表：
-
-- 查詢計劃使用會將資料廣播到所有計算節點的資料移動作業。 BroadcastMoveOperation 相當耗費資源，並且會降低查詢效能。 若要檢視查詢計劃中的資料移動作業，請使用 [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)。
+- 資料表用於需要進行資料移動的聯結中。 加入未分佈在同一資料行的資料表時 (例如雜湊分散式資料表至循環配置資源資料表)，需要移動資料才能完成查詢。  如果其中一個資料表是小型資料表，請考慮使用複寫資料表。 建議您在大多數情況下都使用複寫資料表，而不要使用循環配置資源資料表。 若要檢視查詢計劃中的資料移動作業，請使用 [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)。  BroadcastMoveOperation 是典型的資料移動作業，可以使用複寫資料表刪除。  
  
 在下列情況下，複寫資料表可能無法產生最佳查詢效能：
 
 - 資料表有頻繁的插入、更新及刪除作業。 這些資料操作語言 (DML) 作業需要重建複寫資料表。 經常重建會導致效能變差。
 - 經常調整資料倉儲。 調整資料倉儲會變更計算節點數目，進而導致重建。
-- 資料表有大量資料行，但資料作業通常只存取少數資料行。 在此情況下，以雜湊方式散發資料表，然後針對經常存取的資料行建立索引，可能會比複寫整個資料表還要有效。 當查詢需要進行資料移動時，「SQL 資料倉儲」只會移動所要求資料行中的資料。 
-
-
+- 資料表有大量資料行，但資料作業通常只存取少數資料行。 在此情況下散發資料表，然後針對經常存取的資料行建立索引，可能會比複寫整個資料表還要有效。 當查詢需要進行資料移動時，「SQL 資料倉儲」只會移動所要求資料行中的資料。 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>使用複寫資料表搭配簡單查詢述詞
 在您選擇是要散發還是複寫資料表之前，請先思考您打算對資料表執行的查詢類型。 請儘可能
@@ -67,7 +57,7 @@ ms.lasthandoff: 04/18/2018
 
 需要大量 CPU 的查詢在工作分散於所有計算節點時效能最佳。 例如，以在資料表的每個資料列上執行計算的查詢來說，在複寫資料表上執行會比在分散式資料表上執行效能更佳。 由於複寫資料表是完整儲存在每個計算節點上，因此對複寫資料表執行需要大量 CPU 的查詢時，執行對象會是每個計算節點上的整個資料表。 額外的計算會降低查詢效能。
 
-例如，此查詢含有複雜的述詞。  當供應者是分散式資料表而不是複寫資料表時，它的執行速度較快。 在此範例中，供應者可以是雜湊分散式或循環配置資源分散式資料表。
+例如，此查詢含有複雜的述詞。  當供應者是分散式資料表而不是複寫資料表時，它的執行速度較快。 在此範例中，供應者可以是循環配置資源分散式資料表。
 
 ```sql
 
@@ -132,7 +122,7 @@ WHERE d.FiscalYear = 2004
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>修改複寫資料表時的效能考量
-「SQL 資料倉儲」是透過維護資料表的主要版本來實作複寫資料表。 它會將主要版本複製到每個計算節點上的一個散發資料庫。 當發生變更時，「SQL 資料倉儲」會先更新主資料表。 接著，它會要求重建每個計算節點上的資料表。 重建複寫資料表包括將資料表複製到每個計算節點，然後重建索引。
+「SQL 資料倉儲」是透過維護資料表的主要版本來實作複寫資料表。 它會將主要版本複製到每個計算節點上的一個散發資料庫。 當發生變更時，「SQL 資料倉儲」會先更新主資料表。 接著，它會重建每個計算節點上的資料表。 重建複寫資料表包括將資料表複製到每個計算節點，然後建立索引。  例如，DW400 上的複寫資料表有 5 份資料。  主要複本以及每個計算節點上的完整複本。  所有資料都會儲存在散發資料庫中。 SQL 資料倉儲會使用這個模型支援更快的資料修改陳述式和彈性調整作業。 
 
 在執行下列動作之後，必須進行重建：
 - 載入或修改資料
@@ -143,7 +133,7 @@ WHERE d.FiscalYear = 2004
 - 暫停作業
 - 繼續作業
 
-在修改資料之後，不會立即進行重建。 取而代之的是，會在查詢從資料表選取資料時觸發重建。  在從資料表進行選取的初始 select 陳述式內，包含重建複寫資料表的步驟。  由於重建是在查詢內進行的，因此視資料表的大小而定，可能會對初始 select 陳述式造成明顯的影響。  如果牽涉到多個需要重建的複寫資料表，將會如陳述式內的步驟一般，循序重建每個複本。  為了在重建複寫資料表時維持資料一致性，會在資料表上進行獨佔鎖定。  此鎖定會在重建持續時間，防止所有對資料表進行的存取。 
+在修改資料之後，不會立即進行重建。 取而代之的是，會在查詢從資料表選取資料時觸發重建。  以非同步方式將資料複製到每個計算節點時，觸發重建的查詢會立即讀取主要版本的資料表。 資料複製完成之前，後續的查詢將會繼續使用主要版本的資料表。  如果對強制執行另一次重建的複寫資料表發生任何活動，則資料複本將失效，且下一個 Select 陳述式將會再觸發一次資料複製。 
 
 ### <a name="use-indexes-conservatively"></a>謹慎地使用索引
 標準索引編製做法適用於複寫資料表。 「SQL 資料倉儲」會在重建時，一併重建每個複寫資料表索引。 請只有在效能的提升超過重建索引的代價時，才使用索引。  
@@ -172,7 +162,7 @@ WHERE d.FiscalYear = 2004
 
 
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>在批次載入後重建複寫資料表
-為了確保查詢執行時間一致，建議您在批次載入後，強制重新整理複寫資料表。 否則，第一個查詢將必須等候資料表重新整理，其中包括重建索引。 視受影響的複寫資料表大小和數目而定，可能會有明顯的效能影響。  
+為了確保查詢執行時間一致，請在批次載入後，考慮強制建立複寫資料表。 否則，第一個查詢仍然會使用資料移動方式來完成查詢。 
 
 此查詢使用 [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV 來列出已修改但未重建的複寫資料表。
 
@@ -187,7 +177,7 @@ SELECT [ReplicatedTable] = t.[name]
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
  
-若要強制重建，請針對上面輸出中的每個資料表執行下列陳述式。 
+若要觸發重建，請針對上面輸出中的每個資料表執行下列陳述式。 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]

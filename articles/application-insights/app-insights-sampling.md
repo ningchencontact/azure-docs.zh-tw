@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8f0c6e6567e82f885bb5cd0c6b6af797b393969c
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32309601"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights 中的取樣
 
@@ -38,7 +39,8 @@ ms.lasthandoff: 04/03/2018
 ## <a name="types-of-sampling"></a>取樣類型
 有三個替代的取樣方法：
 
-* **調適性取樣** 會自動調整從您 ASP.NET 應用程式中 SDK 所傳送的遙測量。 從 SDK v 2.0.0-beta3 起，此為預設取樣方法。 調適型取樣目前僅供 ASP.NET 伺服器端遙測使用。 
+* **調適性取樣** 會自動調整從您 ASP.NET 應用程式中 SDK 所傳送的遙測量。 從 SDK v 2.0.0-beta3 起，此為預設取樣方法。 調適型取樣目前僅供 ASP.NET 伺服器端遙測使用。 以完整架構作為目標的 Asp.NET Core 應用程式可從 1.0.0 版的 Microsoft.ApplicationInsights.AspNetCore SDK 使用調適型取樣。 以 NetCore 作為目標的 Asp.NET Core 應用程式可從 2.2.0-beta1 版的 Microsoft.ApplicationInsights.AspNetCore SDK 使用調適型取樣。
+
 * **固定速率取樣**可減少從您 ASP.NET 或 Java 伺服器和使用者的瀏覽器所傳送的遙測量。 而比例則由您設定。 用戶端和伺服器會同步處理它們的取樣，讓您可以在 [搜尋] 終於相關的頁面檢視和要求之間瀏覽。
 * 「擷取取樣」可在 Azure 入口網站中運作。 它會根據您設定的取樣比例，捨棄來自您應用程式的一些遙測。 這不會減少從應用程式傳送的遙測流量，但可協助您讓流量不要超過每月配額。 擷取取樣的主要優點是您不需重新部署應用程式即可設定取樣比例，並且它對所有伺服器和用戶端的運作方式都一致。 
 
@@ -335,7 +337,7 @@ Application Insights SDK for ASP.NET v 2.0.0-beta3 及更新版本提供調適�
 
 採樣演算法會決定要捨棄哪些遙測項目，以及要保留哪些遙測項目 (其是否位於 SDK 或 Application Insights 服務中)。 取樣決策會根據數個規則，目標是要保留相關的資料點不變，在 Application Insights 中保有可採取動作而且即使有縮減資料集仍可靠的診斷經驗。 比方說，如果是失敗的要求，您的應用程式會傳送其他遙測項目 (例如從此要求記錄的例外狀況和追蹤)，取樣將不會分割此要求和其他遙測。 它會一起保留或卸除。 如此一來，當您在 Application Insights 中查看要求詳細資料時，您一律可以看到要求和其相關聯的遙測項目。 
 
-針對定義「使用者」的應用程式 (也就是最常見的 Web 應用程式)，取樣決策是根據使用者識別碼的雜湊，這表示任何特定使用者的所有遙測可加以保留或卸除。 針對沒有定義使用者的應用程式類型 (例如 Web 服務)，取樣決策係根據要求的作業識別碼。 最後，對於未設定使用者或作業識別碼的遙測項目 (例如非同步執行緒報告、不具使用任何 http 內容的遙測項目)，取樣只會擷取每種類型的遙測項目的某個百分比。 
+取樣決策是根據要求的作業識別碼，這表示屬於特定作業的所有遙測項目不是保留下來，就是已捨棄。 對於未設定作業識別碼的遙測項目 (例如非同步執行緒報告、不具使用任何 http 內容的遙測項目)，取樣只會擷取每種類型的遙測項目的某個百分比。 在 2.5.0-beta2 版的 .NET SDK 和 2.2.0-beta3 版的 ASP.NET Core SDK 之前，取樣決策是根據定義「使用者」的應用程式 (也就是最常見的 Web 應用程式) 的使用者識別碼雜湊。 針對沒有定義使用者的應用程式類型 (例如 Web 服務)，取樣決策係根據要求的作業識別碼。
 
 呈現遙測回來給您時，Application Insights 服務會以收集時使用的相同取樣百分比調整度量，來彌補遺漏的資料點。 因此，在 Application Insights 中查看遙測時，使用者會看到統計正確也非常接近實際數的近似值。
 
