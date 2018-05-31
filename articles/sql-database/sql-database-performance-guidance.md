@@ -9,26 +9,27 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: ca9e2935f3d44952235a1669b3f5bebc7708f4bf
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c84104ac9094980d0e6d16b535dcf13c462a645a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195442"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>微調 Azure SQL Database 中的資料庫效能
 
 Azure SQL Database 提供您可以用來改善資料庫效能的[建議](sql-database-advisor.md)，或您可讓 Azure SQL Database [自動調整應用程式](sql-database-automatic-tuning.md)並套用可改善工作負載效能的變更。
 
 如果沒有任何適用的建議且仍有效能問題，您可以使用下列方法來改善效能：
-1. 增加[服務層](sql-database-service-tiers.md)並將更多資源提供給您的資料庫。
-2. 微調您的應用程式，並套用一些可以改善效能的最佳做法。 
-3. 變更索引和查詢來微調資料庫，更有效率地使用資料。
+- 在[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)或[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md) 中增加服務層，以提供更多資源給您的資料庫。
+- 微調您的應用程式，並套用一些可以改善效能的最佳做法。 
+- 變更索引和查詢來微調資料庫，更有效率地使用資料。
 
-這些都是手動方法，因為您必須決定要選擇的[服務層](sql-database-service-tiers.md)，或您必須重寫應用程式或資料庫的程式碼，以及部署所做的變更。
+這些是手動方法，因為您需要決定哪些[以 DTU 為基礎的模型資源限制](sql-database-dtu-resource-limits.md)和[以虛擬核心為基礎的模型資源限制 (預覽)](sql-database-vcore-resource-limits.md) 符合您的需求。 否則，您需要重寫應用程式或資料庫程式碼，並部署變更。
 
 ## <a name="increasing-performance-tier-of-your-database"></a>增加資料庫的效能層級
 
-Azure SQL Database 提供兩種購買模型：以 DTU 為基礎的購買模型和以虛擬核心為基礎的購買模型。 每個模型都有多個[服務層](sql-database-service-tiers.md)，您可以從中選擇。 每個服務層會嚴格地隔離出 SQL Database 可以使用的資源，並保證該服務層級會有可預測的效能。 在本文中，我們會提供指引來協助您選擇應用程式的服務層。 我們也會討論您可以微調應用程式以充分利用 Azure SQL Database 的方式。
+Azure SQL Database 提供兩種您可以從中進行選擇的購買模型：[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)。 每個服務層會嚴格地隔離出 SQL Database 可以使用的資源，並保證該服務層級會有可預測的效能。 在本文中，我們會提供指引來協助您選擇應用程式的服務層。 我們也會討論您可以微調應用程式以充分利用 Azure SQL Database 的方式。
 
 > [!NOTE]
 > 本文著重在 Azure SQL Database 中單一資料庫的效能指引。 如需彈性集區的相關效能指引，請參閱[彈性集區的價格和效能考量](sql-database-elastic-pool-guidance.md)。 但請注意，您可以將本文的諸多微調建議套用到彈性集區中的資料庫，並獲得類似的效能優點。
@@ -48,7 +49,7 @@ Azure SQL Database 提供兩種購買模型：以 DTU 為基礎的購買模型�
 
 ### <a name="service-tier-capabilities-and-limits"></a>服務層的功能和限制
 
-您在每個服務層都可以設定效能等級，因此能夠彈性地只支付所需容量的費用。 您可以在工作負載變更時向上或向下 [調整容量](sql-database-service-tiers.md)。 比方說，如果資料庫工作負載在返校購物季期間很高，您可以在一段固定時間內 (7 月到 9 月) 提高資料庫的效能等級。 當旺季結束時，您可以將效能等級降低。 您可以依據商務季節性最佳化您的雲端環境，藉以將支出降到最低。 此模型也非常適合軟體產品發行週期。 測試小組可以在執行測試回合時配置容量，然後在測試完成時釋放該容量。 在容量要求模型中，您可以在需要時付費使用容量，避免將支出花費在可能很少使用的專用資源上。
+您在每個服務層都可以設定效能等級，因此能夠彈性地只支付所需容量的費用。 您可以在工作負載變更時向上或向下 [調整容量](sql-database-service-tiers-dtu.md)。 比方說，如果資料庫工作負載在返校購物季期間很高，您可以在一段固定時間內 (7 月到 9 月) 提高資料庫的效能等級。 當旺季結束時，您可以將效能等級降低。 您可以依據商務季節性最佳化您的雲端環境，藉以將支出降到最低。 此模型也非常適合軟體產品發行週期。 測試小組可以在執行測試回合時配置容量，然後在測試完成時釋放該容量。 在容量要求模型中，您可以在需要時付費使用容量，避免將支出花費在可能很少使用的專用資源上。
 
 ### <a name="why-service-tiers"></a>為何使用服務層？
 雖然每個資料庫的工作負載可能不同，但服務層的目的是要在各種效能等級提供效能可預測性。 對資料庫有大規模資源需求的客戶，則可以在更專用的運算環境中工作。
@@ -270,7 +271,8 @@ SQL Server 使用者通常會在單一資料庫內結合許多功能。 例如�
 某些資料庫應用程式具有大量讀取工作負載。 對應用程式層進行快取可能會減少資料庫上的負載，並可能使用 Azure SQL Database 而有機會降低支援資料庫所需的效能等級。 使用 [Azure Redis 快取](https://azure.microsoft.com/services/cache/)時，如果您具有大量讀取工作負載，您可以讀取資料一次 (或可能每個應用程式層電腦讀取一次，取決於設定方式)，然後將該資料儲存在 SQL Database 之外。 此方式可減少資料庫負載 (CPU 和讀取 IO)，但會對交易一致性造成影響，因為從快取讀取的資料可能不會與資料庫中的資料同步。 雖然許多應用程式可接受一定程度的不一致性，但並非所有工作負載都是如此。 您應該充分了解應用程式的任何需求，然後再實作應用程式層快取策略。
 
 ## <a name="next-steps"></a>後續步驟
-* 如需服務層的詳細資訊，請參閱 [SQL Database 選項和效能](sql-database-service-tiers.md)
+* 如需以 DTU 為基礎之服務層的詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以 DTU 為基礎的模型資源限制](sql-database-dtu-resource-limits.md)
+* 如需以虛擬核心為基礎之服務層的詳細資訊，請參閱[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)和[以虛擬核心為基礎的資源限制 (預覽)](sql-database-vcore-resource-limits.md)
 * 如需彈性集區的詳細資訊，請參閱[什麼是 Azure 彈性集區？](sql-database-elastic-pool.md)
 * 如需效能和彈性集區的相關資訊，請參閱 [考慮使用彈性集區的時機](sql-database-elastic-pool-guidance.md)
 

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e6f3ae71a924840c973b2536d332070b9a12d0dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33775225"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer Standard 概觀
 
@@ -57,7 +58,7 @@ Load Balancer 資源是一種物件，而您可以在其中表示 Azure 應如�
 | 可用性區域 | 輸入和輸出的區域備援和區域性前端、輸出流程對應存活區域失敗、跨區域負載平衡 | / |
 | 診斷 | Azure 監視器、多維度計量 (包括位元組和封包計數器)、健康情況探查狀態、連線嘗試 (TCP SYN)、輸出連線的健康情況 (SNAT 成功和失敗的流程)、使用中資料層測量 | 僅適用於公用 Load Balancer 的 Azure Log Analytics、SNAT 耗盡警示、後端集區健康情況計數 |
 | HA 連接埠 | 內部 Load Balancer | / |
-| 預設保護 | 針對公用 IP 和 Load Balancer 端點的保護預設為關閉，必須使用網路安全性群組明確地將流程的流量加入允許清單 | 預設為開啟，網路安全性群組為選擇性 |
+| 預設保護 | 針對公用 IP 和 Load Balancer 端點的保護預設為關閉，必須使用網路安全性群組明確地將流程的流量加入白名單 | 預設為開啟，網路安全性群組為選擇性 |
 | 輸出連線 | 多個可選擇退出個別規則的前端。「必須」明確建立輸出案例，虛擬機器才能使用輸出連線能力。  不用輸出連線能力即可與 [VNet 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)連線，且不會計入已處理的資料。  必須透過輸出連線能力連線到任何公用 IP 位址 (包括無法作為 VNet 服務端點的 Azure PaaS 服務)，並計入已處理的資料。 只有內部 Load Balancer 在提供虛擬機器時，就無法透過預設 SNAT 進行輸出連線。 輸出 SNAT 的程式設計依傳輸通訊協定而異，以輸入負載平衡規則的通訊協定為依據。 | 單一前端，有多個前端時會隨機選取。  只有內部 Load Balancer 在提供虛擬機器時，會使用預設 SNAT。 |
 | 多個前端 | 輸入和輸出 | 僅輸入 |
 | 管理作業 | 大部分的作業 < 30 秒 | 通常是 60-90+ 秒 |
@@ -218,11 +219,12 @@ Load Balancer Standard 目前已在所有公用雲端地區推出。
 
 ## <a name="limitations"></a>限制
 
-- Load Balancer 後端執行個體目前不能位於對等互連的虛擬網路中。 所有後端執行個體都必須在相同的區域中。
 - SKU 是不可變動的。 您無法變更現有資源的 SKU。
 - 獨立虛擬機器資源、可用性設定組資源或虛擬機器擴展集資源都只能參考一個 SKU，絕不會同時參考兩者。
-- 目前不支援 [Azure 監視器警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。
+- Load Balancer 規則無法跨越兩個虛擬網路。  前端和其相關的後端執行個體必須位於相同的虛擬網路。  
+- 無法跨全域虛擬網路對等互連存取 Load Balancer 前端。
 - 標準 SKU LB 與 PIP 資源不支援[移動訂用帳戶作業](../azure-resource-manager/resource-group-move-resources.md)。
+- 由於預先 VNet 服務和其他平台服務的運作方式產生副作用，而只使用內部標準 Load Balancer 時，才可存取沒有 VNet 和其他 Microsoft 平台服務的 Web 背景工作角色。 請勿以此作為個別服務本身，否則基礎平台可能會在不經通知的情況下變更。 如果在只使用內部標準 Load Balancer 時有需要，請一律假設您需要明確建立[輸出連線](load-balancer-outbound-connections.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -235,6 +237,6 @@ Load Balancer Standard 目前已在所有公用雲端地區推出。
 - 了解如何使用[多個前端的 Load Balancer](load-balancer-multivip-overview.md)
 - 了解[虛擬網路](../virtual-network/virtual-networks-overview.md)。
 - 深入了解[網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
-- 了解 [VNET 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)
+- 了解 [VNet 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)
 - 了解 Azure 中的一些其他重要[網路功能](../networking/networking-overview.md)。
 - 深入了解 [Load Balancer](load-balancer-overview.md)。

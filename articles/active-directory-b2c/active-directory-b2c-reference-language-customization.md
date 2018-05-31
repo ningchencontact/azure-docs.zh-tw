@@ -11,17 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d0f1f2ffd02873df2e2e7eab9894d9c3421b0f7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 097033b78e3e4f640e7bf4008fd970c53315d5d7
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200547"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的語言自訂
-
->[!NOTE]
->這項功能處於公開預覽狀態。
->
 
 Azure Active Directory B2C (Azure AD B2C) 中的語言自訂可讓您的原則適應不同的語言，以符合您客戶的需求。  Microsoft 提供 [36 種語言](#supported-languages)的翻譯，但您也可以針對任何語言提供自己的的翻譯。 即使您的體驗僅提供單一語言，您也可以自訂頁面上的任何文字。  
 
@@ -49,7 +46,7 @@ Azure Active Directory B2C (Azure AD B2C) 中的語言自訂可讓您的原則�
 5. 閱讀對話方塊中的資訊，然後選取 [是]。
 
 ## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>選取您的使用者旅程中啟用的語言 
-針對您的使用者旅程圖啟用一組語言，以便在未提供 `ui_locales` 參數時進行轉譯。
+啟用一組使用者旅程圖的語言，以在瀏覽器要求但未使用 `ui_locales` 參數時，翻譯成該語言。
 1. 透過前面的指示來確定您的原則已啟用語言自訂。
 2. 從 [編輯原則] 頁面，選取 [語言自訂]。
 3. 選取您要支援的語言。
@@ -102,7 +99,7 @@ Azure Active Directory B2C (Azure AD B2C) 中的語言自訂可讓您的原則�
 以要顯示的新字串來取代 `<ExtensionAttributeValue>`。
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>使用 LocalizedCollections 提供值清單
-如果您想要提供設定好的回應值清單，您需要建立 `LocalizedCollections` 屬性。  `LocalizedCollections` 是 `Name` 和 `Value` 的配對陣列。 若要新增 `LocalizedCollections`，請使用下列格式：
+如果您想要提供設定好的回應值清單，您需要建立 `LocalizedCollections` 屬性。  `LocalizedCollections` 是 `Name` 和 `Value` 的配對陣列。 項目的順序即為顯示它們的順序。  若要新增 `LocalizedCollections`，請使用下列格式：
 
 ```JSON
 {
@@ -153,9 +150,9 @@ https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.h
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="add-custom-locales"></a>新增自訂地區
+## <a name="add-custom-languages"></a>新增自訂語言
 
-您也可以新增 Microsoft 目前不提供翻譯的語言。 您必須提供原則中所有字串的翻譯。
+您也可以新增 Microsoft 目前不提供翻譯的語言。 您必須提供原則中所有字串的翻譯。  僅限 ISO 639-1 標準中的語言和地區設定代碼。 
 
 1. 從 [編輯原則] 頁面，選取 [語言自訂]。
 2. 從頁面頂端選取 [新增自訂語言]。
@@ -165,6 +162,10 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 6. 選取 [啟用]，而您的原則現在可以為您的使用者顯示此語言。
 7. 儲存語言。
 
+>[!IMPORTANT]
+>您必須啟用自訂語言，或為它上傳覆寫才能儲存。
+>
+
 ## <a name="additional-information"></a>其他資訊
 
 ### <a name="page-ui-customization-labels-as-overrides"></a>以頁面 UI 自訂標籤作為覆寫
@@ -172,7 +173,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ### <a name="up-to-date-translations"></a>最新的翻譯
 Microsoft 致力於提供最新的翻譯來供您使用。 Microsoft 會持續改善翻譯，並讓它們符合您的需求。 Microsoft 會找出全域術語中的錯誤和變更，並製作可在使用者旅程圖中順暢運作的更新。
 ### <a name="support-for-right-to-left-languages"></a>支援從右至左的語言
-Microsoft 目前不支援從右至左的語言。 如果您需要此功能，請在 [Azure 意見反應](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag)上投票支持此功能。
+Microsoft 目前不支援從右至左的語言。 您可以使用自訂地區設定，並使用 CSS 變更顯示字串的方式來完成此作業。  如果您需要此功能，請在 [Azure 意見反應](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag)上投票支持此功能。
 ### <a name="social-identity-provider-translations"></a>社交識別提供者的翻譯
 Microsoft 為社交登入提供 `ui_locales` OIDC 參數。 但有些社交識別提供者不接受此參數，包括 Facebook 和 Google。 
 ### <a name="browser-behavior"></a>瀏覽器行為

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33760002"
 ---
 # <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>管理 Azure Active Directory 租用戶中使用者的群組成員資格
 本文說明如何在 Azure Active Directory (Azure AD) 中管理群組的成員。
@@ -32,7 +33,7 @@ ms.lasthandoff: 05/07/2018
 
    ![開啟群組刀鋒視窗](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
 4. 在 [使用者和群組 - 所有群組]  刀鋒視窗上，選取一個群組。
-5. 在 [群組- *groupname*] 刀鋒視窗上，選取 [成員]。
+5. 在 [群組- \*groupname\*] 刀鋒視窗上，選取 [成員]。
 
    ![開啟 [成員] 刀鋒視窗](./media/active-directory-groups-members-azure-portal/view-group-members.png)
 6. 若要將成員新增到群組中，請在 [群組 - 成員] 刀鋒視窗上，選取 [新增成員]。

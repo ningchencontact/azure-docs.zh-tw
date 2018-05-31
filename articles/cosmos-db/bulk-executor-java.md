@@ -10,15 +10,16 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 648b67f4b782b2a2318170ae2b655af40b7bd2a5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e9340e5db78315470052e0c0c70eeef6bf6dafa
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885514"
 ---
 # <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>在 Azure Cosmos DB 資料上使用 BulkExecutor Java 程式庫執行大量作業
 
-本教學課程說明如何使用 Azure Cosmos DB 大量執行程式的 Java 程式庫來匯入和更新 Azure Cosmos DB 文件。 在本教學課程中，您將建置會產生隨機文件的 Java 應用程式，而這些文件會大量匯入至 Azure Cosmos DB 集合。 匯入之後，您會大量更新文件的某些屬性。 
+本教學課程說明如何使用 Azure Cosmos DB 大量執行程式的 Java 程式庫來匯入和更新 Azure Cosmos DB 文件。 若要深入了解 BulkExecutor 程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱 [BulkExecutor 程式庫概觀](bulk-executor-overview.md)一文。 在本教學課程中，您將建置會產生隨機文件的 Java 應用程式，而這些文件會大量匯入至 Azure Cosmos DB 集合。 匯入之後，您會大量更新文件的某些屬性。 
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -91,7 +92,7 @@ ms.lasthandoff: 05/07/2018
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
 ```
-   大量匯入 API 會接受 JSON 序列化的文件集合，並且具有下列語法。如需詳細資訊，請參閱 [API 文件](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async)：
+   大量匯入 API 會接受 JSON 序列化的文件集合，並且具有下列語法。如需詳細資訊，請參閱 [API 文件](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)：
 
    ```java
    public BulkImportResponse importAll(
@@ -135,9 +136,9 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中大量更新資料
 
-您可以使用 BulkUpdateAsync API 來更新現有的文件。 在此範例中，您會將 [名稱] 欄位設為新的值，並移除現有文件中的 [描述] 欄位。 如需完整的支援欄位更新作業集，請參閱 [API 文件](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async)。 
+您可以使用 BulkUpdateAsync API 來更新現有的文件。 在此範例中，您會將 [名稱] 欄位設為新的值，並移除現有文件中的 [描述] 欄位。 如需完整的支援欄位更新作業集，請參閱 [API 文件](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)。 
 
-1. 與相對應的欄位更新作業一起定義及更新項目。 在此範例中，您將使用 SetUpdateOperation 更新 [名稱] 欄位，以及使用 UnsetUpdateOperation 從所有文件中移除 [描述] 欄位。 您也可以執行其他作業，例如透過指定值來遞增文件欄位、將特定值推送至陣列欄位中，或是從陣列欄位中移除特定值。 若要了解大量更新 API 提供的不同方法，請參閱 [API 文件](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async)。  
+1. 與相對應的欄位更新作業一起定義及更新項目。 在此範例中，您將使用 SetUpdateOperation 更新 [名稱] 欄位，以及使用 UnsetUpdateOperation 從所有文件中移除 [描述] 欄位。 您也可以執行其他作業，例如透過指定值來遞增文件欄位、將特定值推送至陣列欄位中，或是從陣列欄位中移除特定值。 若要了解大量更新 API 提供的不同方法，請參閱 [API 文件](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)。  
 
    ```java
    SetUpdateOperation<String> nameUpdate = new SetUpdateOperation<>("Name","UpdatedDocValue");
@@ -159,7 +160,7 @@ ms.lasthandoff: 05/07/2018
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
    ```
 
-   大量更新 API 會接受要更新的項目集合。 每個更新項目會指定要在文件上執行的欄位更新作業清單，而文件會由識別碼和分割區索引鍵定義。 如需詳細資料，請參閱 [API 文件](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async)：
+   大量更新 API 會接受要更新的項目集合。 每個更新項目會指定要在文件上執行的欄位更新作業清單，而文件會由識別碼和分割區索引鍵定義。 如需詳細資料，請參閱 [API 文件](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)：
 
    ```java
    public BulkUpdateResponse updateAll(
