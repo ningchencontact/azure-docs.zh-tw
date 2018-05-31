@@ -12,13 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 4/18/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: fd706737491a4644b0730ea197f6a2a9ed5480e5
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 5fcd42a2453bddbfc1c1d1939dd9e63e7e09bdb0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366523"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]
@@ -198,6 +199,8 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您建立容器�
 ```
 
 透過定義端點，Service Fabric 會將端點發佈至名稱服務。 在叢集中執行的其他服務可以解析容器。 您也可以使用[反向 Proxy](service-fabric-reverseproxy.md)來執行容器對容器通訊。 將 HTTP 接聽連接埠和您想要與之通訊的服務名稱提供給反向 Proxy，並將這些都設為環境變數，便可進行通訊。
+
+服務會接聽特定連接埠 (在此範例中為 8081)。 當應用程式部署至 Azure 中的叢集時，叢集和應用程式都會在 Azure 負載平衡器後方執行。 Azure 負載平衡器必須開啟應用程式連接埠，以便輸入的流量可以通過其傳到服務。  您可以使用 [PowerShell 指令碼](./scripts/service-fabric-powershell-open-port-in-load-balancer.md)或 [Azure 入口網站](https://portal.azure.com)，在 Azure 負載平衡器中開啟這個連接埠。
 
 ## <a name="configure-and-set-environment-variables"></a>設定環境變數
 可以為服務資訊清單中的每個程式碼套件指定環境變數。 所有服務都有這項功能，無論是部署為容器或處理程序或來賓可執行檔。 您可以覆寫應用程式資訊清單中環境變數的值，或在部署期間將它們指定為應用程式參數。

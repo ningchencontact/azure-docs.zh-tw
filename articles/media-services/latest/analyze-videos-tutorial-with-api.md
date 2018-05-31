@@ -12,11 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 54c49645722b6545d8ae872151b9b82674d44523
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0fdc8c6dc9fae96a79e2ab2b05b7db3012834c1e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362289"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>教學課程：使用 Azure 媒體服務分析影片 
 
@@ -66,7 +67,7 @@ ms.lasthandoff: 05/14/2018
 
 ### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>建立要儲存作業結果的輸出資產 
 
-輸出資產會儲存您的作業結果。 專案會定義 **DownloadResults** 函式，以將結果從此輸出資產下載至「輸出」資料夾，因此您可以看到結果。
+輸出[資產](https://docs.microsoft.com/rest/api/media/assets)會儲存您的作業結果。 專案會定義 **DownloadResults** 函式，以將結果從此輸出資產下載至「輸出」資料夾，因此您可以看到結果。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateOutputAsset)]
 
@@ -76,7 +77,7 @@ ms.lasthandoff: 05/14/2018
 
 #### <a name="transform"></a>轉換
 
-建立新的**轉換**執行個體時，您需要指定想要其產生的輸出是什麼。 必要的參數是 **TransformOutput** 物件，如上方程式碼所示。 每個 **TransformOutput** 都會包含 **Preset (預設)**。 **Preset** 會描述影片和/或音訊處理作業的逐步指示，以產生所需的 **TransformOutput**。 此範例中會使用 **VideoAnalyzerPreset** 預設，以及將語言 ("en-US") 傳遞至其建構函式。 此預設可讓您從影片擷取多個音訊和影片見解。 如果您需要從影片擷取多個音訊見解，可以使用 **AudioAnalyzerPreset** 預設。 
+建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)執行個體時，您需要指定想要其產生的輸出是什麼。 必要的參數是 **TransformOutput** 物件，如上方程式碼所示。 每個 **TransformOutput** 都會包含 **Preset (預設)**。 **Preset** 會描述影片和/或音訊處理作業的逐步指示，以產生所需的 **TransformOutput**。 此範例中會使用 **VideoAnalyzerPreset** 預設，以及將語言 ("en-US") 傳遞至其建構函式。 此預設可讓您從影片擷取多個音訊和影片見解。 如果您需要從影片擷取多個音訊見解，可以使用 **AudioAnalyzerPreset** 預設。 
 
 建立**轉換**時，您應該先使用 **Get** 方法檢查是否已有轉換存在，如下列程式碼所示。  在媒體服務 v3 中，如果實體不存在，對實體執行的 **Get** 方法會傳回 **null** (檢查名稱時不區分大小寫)。
 
@@ -84,7 +85,7 @@ ms.lasthandoff: 05/14/2018
 
 #### <a name="job"></a>工作 (Job)
 
-如同前面所述，**轉換**物件是配方，而**作業**則是實際要求媒體服務，將**轉換**套用至指定的輸入影片或音訊內容。 **作業**會指定輸入影片的位置、輸出的位置等資訊。 您可以使用下列項目指定影片的位置：HTTPS URL、SAS URL 或媒體服務帳戶的資產。 
+如同前面所述，[轉換](https://docs.microsoft.com/rest/api/media/transforms)物件是配方，而[作業](https://docs.microsoft.com/en-us/rest/api/media/jobs)則是實際要求媒體服務，將**轉換**套用至指定的輸入影片或音訊內容。 **作業**會指定輸入影片的位置、輸出的位置等資訊。 您可以使用下列項目指定影片的位置：HTTPS URL、SAS URL 或媒體服務帳戶的資產。 
 
 在此範例中，工作輸入是本機影片。  
 
@@ -92,7 +93,7 @@ ms.lasthandoff: 05/14/2018
 
 ### <a name="wait-for-the-job-to-complete"></a>請等待作業完成
 
-此作業需要一些時間來完成，而您可以選擇在完成時收到通知。 取得作業完成通知的選項有很多種。 最簡單的選項 (如此處所示) 是使用輪詢。 
+此作業需要一些時間來完成，而您可以選擇在完成時收到通知。 取得[作業](https://docs.microsoft.com/en-us/rest/api/media/jobs)完成通知的選項有很多種。 最簡單的選項 (如此處所示) 是使用輪詢。 
 
 對生產應用程式而言，輪詢不是建議的最佳做法，因為可能會發生延遲。 如果過度使用帳戶，輪詢可能會進行節流處理。 開發人員應改為使用事件方格。
 
@@ -104,7 +105,7 @@ ms.lasthandoff: 05/14/2018
 
 ### <a name="download-the-result-of-the-job"></a>下載作業結果
 
-下列函式會將結果從輸出資產下載至「輸出」資料夾，因此您可以檢查作業的結果。 
+下列函式會將結果從輸出[資產](https://docs.microsoft.com/rest/api/media/assets)下載至「輸出」資料夾，因此您可以檢查作業的結果。 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 

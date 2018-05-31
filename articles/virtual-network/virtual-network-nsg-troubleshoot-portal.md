@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: be400d674068d89f60d3c999006bc9291944ab1c
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 67ffe826ba13576578e8f09e36f84128f4ceb0f2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366489"
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>使用 Azure 入口網站為網路安全性群組疑難排解
 > [!div class="op_single_selector"]
@@ -30,9 +31,9 @@ ms.lasthandoff: 05/14/2018
 
 如果您在虛擬機器 (VM) 上設定網路安全性群組 (NSG) 卻遇到 VM 連線問題，本文提供診斷 NSG 功能的概觀以協助進一步進行疑難排解。
 
-NSG 可讓您控制流入和流出虛擬機器 (VM) 的流量類型。 您可對 Azure 虛擬網路 (VNet) 中的子網路、網路介面 (NIC) 或兩者套用 NSG。 對 NIC 套用的有效規則是對 NIC 套用的 NSG，以及對 NIC 所連線到的子網路套用的 NSG 兩者中的規則彙總的結果。 這些 NSG 的規則有時候會互相衝突，影響 VM 的網路連線。  
+NSG 可讓您控制流入和流出虛擬機器 (VM) 的流量類型。 您可對 Azure 虛擬網路 (VNet) 中的子網路、網路介面 (NIC) 或兩者套用 NSG。 對 NIC 套用的有效規則是對 NIC 套用的 NSG，以及對 NIC 所連線到的子網路套用的 NSG 兩者中的規則彙總的結果。 這些 NSG 的規則有時候會互相衝突，影響 VM 的網路連線。
 
-您可以檢視 NSG 中對 VM NIC 套用的所有有效安全性規則。 本文說明如何在 Azure Resource Manager 部署模型中使用這些規則對 VM 連線問題進行疑難排解。 如果您不熟悉 VNet 與 NSG 的概念，請參閱[虛擬網路](virtual-networks-overview.md)和[網路安全性群組](virtual-networks-nsg.md)概觀文章。
+您可以檢視 NSG 中對 VM NIC 套用的所有有效安全性規則。 本文說明如何在 Azure Resource Manager 部署模型中使用這些規則對 VM 連線問題進行疑難排解。 如果您不熟悉 VNet 與 NSG 的概念，請參閱[虛擬網路概觀](virtual-networks-overview.md)和[網路安全性群組概觀](security-overview.md)。
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>使用有效安全性規則對 VM 流量流程進行疑難排解
 下面的案例是常見的連線問題範例︰
@@ -66,7 +67,7 @@ NSG 可讓您控制流入和流出虛擬機器 (VM) 的流量類型。 您可對
    * **範圍︰** 設定為在步驟 3 選取的 VM *VM1*。
    * **網路介面︰** *VM1-NIC1* 。 一個 VM 可以有多個網路介面 (NIC)。 每個 NIC 只能有唯一的有效安全性規則。 進行疑難排解時，您可能需要檢視每個 NIC 的有效安全性規則。
    * **相關聯的 NSG：** 可以對 NIC 和 NIC 所連線到的子網路兩者套用 NSG。 在圖片中，已經對 NIC 和所連線的子網路兩者套用 NSG。 您可以按一下 NSG 名稱來直接修改 NSG 中的規則。
-   * **VM1-nsg 索引標籤︰** 圖片中顯示的規則清單是對 NIC 套用的 NSG。 每當建立一個 NSG 時，Azure 就會建立幾個預設的規則。 您無法移除預設規則，但是可以使用較高優先順序的規則覆寫。 若要深入了解預設規則，請閱讀 [NSG 概觀](virtual-networks-nsg.md#default-rules) 文章。
+   * **VM1-nsg 索引標籤︰** 圖片中顯示的規則清單是對 NIC 套用的 NSG。 每當建立一個 NSG 時，Azure 就會建立幾個預設的規則。 您無法移除預設規則，但是可以使用較高優先順序的規則覆寫。 深入了解[預設安全性規則](security-overview.md#default-security-rules)。
    * **DESTINATION 欄︰** 欄中某些規則有文字，而有些規則有位址首碼。 文字是在安全性規則建立時套用的預設標籤名稱。 標籤是系統提供的識別項，代表多個首碼。 選取有標籤的規則，例如 *AllowInternetOutBound* 會在 [位址首碼] 刀鋒視窗中列出首碼。
    * **下載︰** 規則的清單可能很長。 您可以按一下 [下載]  並儲存檔案，下載規則的 .csv 檔案供離線分析。
    * **AllowRDP** 輸入規則︰此規則允許透過 RDP 連線到 VM。

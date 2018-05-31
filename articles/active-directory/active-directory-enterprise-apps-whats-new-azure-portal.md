@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 9a8b85539ac26629c31e49097fca5c3ce5c5abc2
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 30b3fbd415fac1e11a77b3905cb01e5935a62839
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053365"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34350860"
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Azure Active Directory 中企業應用程式管理的新功能 
 
@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) 有增強的企業應用程式管理工具，�
 
 ## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Azure Active Directory 應用程式資源庫的改進功能
 
-新增您喜愛的應用程式，不論這些應用程式是來自[應用程式資源庫](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)、您延伸到雲端的自訂應用程式，或您正在開發的全新應用程式。  按一下 [企業應用程式] 或 [所有應用程式] 下方的 [新增]，即可開始使用此全新體驗。
+新增您喜愛的應用程式，不論這些應用程式是來自[應用程式資源庫](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)、您延伸到雲端的自訂應用程式，或您正在開發的全新應用程式。  按一下 [企業應用程式] 或 [所有應用程式] 下方的 [新增]，即可開始使用此全新體驗。
  
   ![新增應用程式](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 

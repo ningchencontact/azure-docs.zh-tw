@@ -2,18 +2,19 @@
 title: 啟用 Azure SQL Database 的自動調整 | Microsoft Docs
 description: 您可以輕鬆在 Azure SQL Database 上啟用自動調整。
 services: sql-database
-author: veljko-msft
-manager: drasumic
+author: danimir
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: f29a7c883450cbc0f1f2b5a230a6c6e081222906
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e4c3a2c1f21bf14bfc75f20dd18cefca68fd2067
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364466"
 ---
 # <a name="enable-automatic-tuning"></a>啟用自動微調
 
@@ -22,14 +23,14 @@ Azure SQL Database 是自動受控的資料服務，會不斷地監視您的查�
 ## <a name="enable-automatic-tuning-on-server"></a>在伺服器上啟用自動調整
 在伺服器層級上，您可以選擇繼承「Azure 預設值」的自動調整設定，或不繼承設定。 Azure 預設值已啟用 FORCE_LAST_GOOD_PLAN 和 CREATE_INDEX，且已停用 DROP_INDEX。
 
-## <a name="configure-automatic-tuning-e-mail-notifications"></a>設定自動調整電子郵件通知
-
-請參閱[自動調整電子郵件通知](sql-database-automatic-tuning-email-notifications.md)
-
 ### <a name="azure-portal"></a>Azure 入口網站
-若要在 Azure SQL Database 伺服器上啟用自動調整，請導覽至 Azure 入口網站中的伺服器，然後選取功能表中的**自動調整**。 依序選取您想要啟用的自動調整以及 [套用]：
+若要在 Azure SQL Database **伺服器**上啟用自動調整，請導覽至 Azure 入口網站中的伺服器，然後選取功能表中的 [自動調整]。 依序選取您想要啟用的自動調整以及 [套用]。
 
 ![伺服器](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> 請注意，此時 [DROP_INDEX] 選項與使用分割區切換和索引提示的應用程式不相容，並且在這些情況下不應該開啟。
+>
 
 伺服器上的自動調整選項會套用到伺服器上的所有資料庫。 根據預設，所有資料庫會都繼承其父伺服器中的設定，但這可加以覆寫並針對每個資料庫個別加以指定。
 
@@ -46,11 +47,13 @@ Azure SQL Database 可讓您個別指定每個資料庫上的自動調整設定�
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-若要在單一資料庫上啟用自動調整，請導覽至 Azure 入口網站中的資料庫，然後選取 [自動調整]。 您可以選取選項來將單一資料庫設定成從伺服器繼承設定，或者您也可以為資料庫個別指定組態。
+若要在**單一資料庫**上啟用自動調整，請導覽至 Azure 入口網站中的資料庫，然後選取 [自動調整]。 您可以選取選項來將單一資料庫設定成從伺服器繼承設定，或者您也可以為資料庫個別指定組態。
 
 ![資料庫](./media/sql-database-automatic-tuning-enable/database.png)
 
 一旦您選取適當的設定後，按一下 [套用]。
+
+請注意，此時 [DROP_INDEX] 選項與使用分割區切換和索引提示的應用程式不相容，並且在這些情況下不應該開啟。
 
 ### <a name="rest-api"></a>Rest API
 [按一下這裡以深入了解如何透過 REST API 在單一資料庫上啟用自動調整](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning) \(英文\)
@@ -75,6 +78,10 @@ Azure SQL Database 可讓您個別指定每個資料庫上的自動調整設定�
 
 ## <a name="disabled-by-the-system"></a>被系統停用
 自動調整會監視它在資料庫上採取的所有動作，而且在某些情況下，它可以判斷自動調整無法適當地在資料庫上運作。 在此情況下，調整選項將會被系統停用。 在大部分情況下，發生此問題的原因是因為特定資料庫上未啟用查詢資料存放區，或是查詢存放區處於唯讀的狀態。
+
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>設定自動調整電子郵件通知
+
+請參閱[自動調整電子郵件通知](sql-database-automatic-tuning-email-notifications.md)
 
 ## <a name="next-steps"></a>後續步驟
 * 閱讀[自動調整文章](sql-database-automatic-tuning.md)，進一步了解自動調整，以及它如何協助您改善效能。

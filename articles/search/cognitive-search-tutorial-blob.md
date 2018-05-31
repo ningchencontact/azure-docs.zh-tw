@@ -9,11 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 023e55724124afb9c97d01540c6319a775681c84
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c8b3afcda4422fa5df599798bcd9cd94fe58486
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366744"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>教學課程：了解如何呼叫認知搜尋 API (預覽)
 
@@ -23,7 +24,7 @@ ms.lasthandoff: 05/07/2018
 
 > [!div class="checklist"]
 > * 建立對索引路由中的來源資料進行擴充的索引管線
-> * 對範例資料集使用內建的實體辨識、語言偵測、文字操作和關鍵片語擷取技能
+> * 對範例資料集使用內建的技能：實體辨識、語言偵測、文字操作和關鍵片語擷取
 > * 了解如何藉由將技能集的輸入對應至輸出，將多項技術串聯在一起
 > * 執行要求並檢閱結果
 > * 重設索引和索引子以進行進一步開發
@@ -84,7 +85,7 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
   連接字串應為類似於下列範例的 URL：
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y1NIlE9wFVBIabcd562GzZl+JO9TEGdqOerqfbT78C8zrn28Te8DsWlxvKKnjh67P/HM5k80zt4shOt9vqlbg==;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=aaAAAbb123123cccCCCdd456456EeEe789789ffFFgg==;EndpointSuffix=core.windows.net
       ```
 
 此外也有其他方式可指定連接字串，例如提供共用存取簽章。 若要深入了解資料來源認證，請參閱[編製 Azure Blob 儲存體的索引](search-howto-indexing-azure-blob-storage.md#Credentials)。
