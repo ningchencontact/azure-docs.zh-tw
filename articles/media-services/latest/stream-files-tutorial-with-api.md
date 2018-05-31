@@ -12,11 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 7e5054d6f59bb3e06e4148bd9cfb3caed9fec970
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: eefe59da69eb60f2ac9e266389fa7f68e6139215
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362190"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>教學課程：使用 API 上傳、編碼和串流影片
 
@@ -70,7 +71,7 @@ ms.lasthandoff: 05/14/2018
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>建立輸入資產並將本機檔案上傳到其中 
 
-**CreateInputAsset** 函式會建立新的輸入資產，並將指定的本機影片檔案上傳到其中。 這項資產會用來作為編碼作業的輸入。 在媒體服務 v3 中，作業的輸入可以是資產，或是您透過 HTTPS URL 讓媒體服務帳戶可存取的內容。 如果您想要了解如何從 HTTPS URL 進行編碼，請參閱[這篇](job-input-from-http-how-to.md)文章。  
+**CreateInputAsset** 函式會建立新的輸入[資產](https://docs.microsoft.com/rest/api/media/assets)，並將指定的本機影片檔案上傳到其中。 這項資產會用來作為編碼作業的輸入。 在媒體服務 v3 中，作業的輸入可以是資產，或是您透過 HTTPS URL 讓媒體服務帳戶可存取的內容。 如果您想要了解如何從 HTTPS URL 進行編碼，請參閱[這篇](job-input-from-http-how-to.md)文章。  
 
 在媒體服務 v3 中，您會使用 Azure 儲存體 API 來上傳檔案。 下列 .NET 程式碼片段將說明執行方式。
 
@@ -84,7 +85,7 @@ ms.lasthandoff: 05/14/2018
 
 ### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>建立要儲存作業結果的輸出資產 
 
-輸出資產會儲存您的編碼作業結果。 專案會定義 **DownloadResults** 函式，以將結果從此輸出資產下載至「輸出」資料夾，因此您可以看到結果。
+輸出[資產](https://docs.microsoft.com/rest/api/media/assets)會儲存您的編碼作業結果。 專案會定義 **DownloadResults** 函式，以將結果從此輸出資產下載至「輸出」資料夾，因此您可以看到結果。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
@@ -93,17 +94,17 @@ ms.lasthandoff: 05/14/2018
 
 #### <a name="transform"></a>轉換
 
-建立新的**轉換**執行個體時，您需要指定想要其產生的輸出是什麼。 必要的參數是 **TransformOutput** 物件，如下列程式碼所示。 每個 **TransformOutput** 都會包含 **Preset (預設)**。 **Preset** 會描述影片和/或音訊處理作業的逐步指示，以產生所需的 **TransformOutput**。 本文中所述的範例會使用稱為 **AdaptiveStreaming** 的內建 Preset。 Preset 會根據輸入解析度和位元速率，將輸入影片編碼為自動產生的位元速率階梯 (位元速率-解析度配對)，並產生 H.264 影片與 AAC 音訊標準 (對應到每個 位元速率-解析度配對) 的 ISO MP4 檔案。 如需此 Preset 的相關資訊，請參閱[自動產生位元速率階梯](autogen-bitrate-ladder.md)。
+建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)執行個體時，您需要指定想要其產生的輸出是什麼。 必要的參數是 **TransformOutput** 物件，如下列程式碼所示。 每個 **TransformOutput** 都會包含 **Preset (預設)**。 **Preset** 會描述影片和/或音訊處理作業的逐步指示，以產生所需的 **TransformOutput**。 本文中所述的範例會使用稱為 **AdaptiveStreaming** 的內建 Preset。 Preset 會根據輸入解析度和位元速率，將輸入影片編碼為自動產生的位元速率階梯 (位元速率-解析度配對)，並產生 H.264 影片與 AAC 音訊標準 (對應到每個 位元速率-解析度配對) 的 ISO MP4 檔案。 如需此 Preset 的相關資訊，請參閱[自動產生位元速率階梯](autogen-bitrate-ladder.md)。
 
-您可以使用其他內建 EncoderNamedPreset 或使用自訂預設值。 
+您可以使用內建的 EncoderNamedPreset 或使用自訂預設值。 
 
-建立**轉換**時，您應該先使用 **Get** 方法檢查是否已有轉換存在，如下列程式碼所示。  在媒體服務 v3 中，如果實體不存在，對實體執行的 **Get** 方法會傳回 **null** (檢查名稱時不區分大小寫)。
+建立[轉換](https://docs.microsoft.com/rest/api/media/transforms)時，您應該先使用 **Get** 方法檢查是否已有轉換存在，如下列程式碼所示。  在媒體服務 v3 中，如果實體不存在，對實體執行的 **Get** 方法會傳回 **null** (檢查名稱時不區分大小寫)。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#EnsureTransformExists)]
 
 #### <a name="job"></a>工作 (Job)
 
-如同前面所述，**轉換**物件是配方，而**作業**則是實際要求媒體服務，將**轉換**套用至指定的輸入影片或音訊內容。 **作業**會指定輸入影片的位置、輸出的位置等資訊。
+如同前面所述，[轉換](https://docs.microsoft.com/rest/api/media/transforms)物件是配方，而[作業](https://docs.microsoft.com/rest/api/media/jobs)則是實際要求媒體服務，將**轉換**套用至指定的輸入影片或音訊內容。 **作業**會指定輸入影片的位置、輸出的位置等資訊。
 
 在此範例中，輸入影片已從本機電腦上傳。 如果您想要了解如何從 HTTPS URL 進行編碼，請參閱[這篇](job-input-from-http-how-to.md)文章。
 
@@ -111,7 +112,7 @@ ms.lasthandoff: 05/14/2018
 
 ### <a name="wait-for-the-job-to-complete"></a>請等待作業完成
 
-下列程式碼範例會示範如何輪詢服務以取得作業狀態。 對生產應用程式而言，輪詢不是建議的最佳做法，因為可能會發生延遲。 如果過度使用帳戶，輪詢可能會進行節流處理。 開發人員應改為使用事件方格。
+下列程式碼範例說明如何輪詢服務以取得[作業](https://docs.microsoft.com/rest/api/media/jobs)狀態。 對生產應用程式而言，輪詢不是建議的最佳做法，因為可能會發生延遲。 如果過度使用帳戶，輪詢可能會進行節流處理。 開發人員應改為使用事件方格。
 
 事件方格專為高可用性、一致效能及動態調整而設計。 透過事件方格，您的應用程式幾乎可以從所有 Azure 服務和自訂來源接聽及回應事件。 以 HTTP 為基礎的簡單回應式事件處理，可協助您透過智慧型事件篩選和路由來建置有效率的解決方案。  請參閱[將事件路由至自訂 Web 端點](job-state-events-cli-how-to.md)。
 
@@ -121,14 +122,14 @@ ms.lasthandoff: 05/14/2018
 
 ### <a name="get-a-streaminglocator"></a>取得 StreamingLocator
 
-完成編碼之後，下一個步驟是要讓用戶端可播放輸出資產中的影片。 您可以透過兩個步驟來執行此動作：第一步，建立**StreamingLocator**，第二步，建置用戶端可以使用的串流 URL。 
+完成編碼之後，下一個步驟是要讓用戶端可播放輸出資產中的影片。 您可以透過兩個步驟來執行此動作：第一步，建立[StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)，第二步，建置用戶端可以使用的串流 URL。 
 
 建立 **StreamingLocator** 的程序稱為發佈。 根據預設，**StreamingLocator** 會在進行 API 呼叫後立即生效，而且會持續運作到遭到刪除為止 (除非您有設定選擇性的開始和結束時間)。 
 
-建立 **StreamingLocator** 時，您必須指定需要的 **StreamingPolicyName**。 在此範例中，您將串流乾淨或未加密的內容，因此可以使用預先定義的乾淨串流原則 **PredefinedStreamingPolicy.ClearStreamingOnly**。
+建立 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 時，您必須指定需要的 **StreamingPolicyName**。 在此範例中，您將串流乾淨或未加密的內容，因此可以使用預先定義的乾淨串流原則 **PredefinedStreamingPolicy.ClearStreamingOnly**。
 
 > [!IMPORTANT]
-> 使用自訂的 StreamingPolicy 時，您應該為媒體服務帳戶設計一組受限的這類原則，並且在需要相同的加密選項和通訊協定時，對 StreamingLocators 重新使用這些原則。 媒體服務帳戶有 StreamingPolicy 項目的數量配額。 不建議您對每個 StreamingLocator 建立新的 StreamingPolicy。
+> 使用自訂的 [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) 時，您應該為媒體服務帳戶設計一組受限的這類原則，並且在需要相同的加密選項和通訊協定時，對 StreamingLocators 重新使用這些原則。 媒體服務帳戶有 StreamingPolicy 項目的數量配額。 不建議您對每個 StreamingLocator 建立新的 StreamingPolicy。
 
 下列程式碼假設您要呼叫具有唯一 locatorName 的函式。
 
@@ -138,7 +139,7 @@ ms.lasthandoff: 05/14/2018
 
 ### <a name="get-streaming-urls"></a>取得串流 URL
 
-建立了 StreamingLocator 之後，現在您可以取得串流 URL，如 **GetStreamingURLs** 中所示。 若要建置 URL，您需要串連 **StreamingEndpoint** 主機名稱和 **StreamingLocator** 路徑。 此範例會使用預設的 **StreamingEndpoint**。 初次建立媒體服務帳戶時，此預設的 **StreamingEndpoint** 會處於停止狀態，因此您需要呼叫 **Start**。
+建立了 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 之後，現在您可以取得串流 URL，如 **GetStreamingURLs** 中所示。 若要建置 URL，您需要串連 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) 主機名稱和 **StreamingLocator** 路徑。 此範例會使用預設的 **StreamingEndpoint**。 初次建立媒體服務帳戶時，此預設的 **StreamingEndpoint** 會處於停止狀態，因此您需要呼叫 **Start**。
 
 > [!NOTE]
 > 在此方法中，您需要 locatorName，也就是為輸出資產建立 **StreamingLocator** 時所使用的項目。

@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 0c9450099ad3561611796a9b45157932f9ac85a9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 227ea446a75c167be27128b15de1d3c216e6856d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363371"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>使用 Azure 網路監看員安全性群組檢視自動化 NSG 稽核
 
 客戶通常面臨難以驗證其基礎結構的安全性狀態之挑戰。 這項挑戰在其 Azure 中的 VM 沒有不同。 請務必根據套用的網路安全性群組 (NSG) 規則，具有類似的安全性設定檔。 您現在可以使用安全性群組檢視，取得套用到 NSG 中 VM 的規則清單。 您可以每週頻率定義黃金 NSG 安全性設定檔並起始安全性群組檢視，並比較輸出與標準設定檔且建立報告。 如此一來，您可以輕鬆識別不符合指定安全性設定檔規定的所有 VM。
 
-如果您不熟悉網路安全性群組，請造訪[網路安全性概觀](../virtual-network/virtual-networks-nsg.md)
+如果您不熟悉網路安全性群組，請參閱[網路安全性概觀](../virtual-network/security-overview.md)。
 
 ## <a name="before-you-begin"></a>開始之前
 

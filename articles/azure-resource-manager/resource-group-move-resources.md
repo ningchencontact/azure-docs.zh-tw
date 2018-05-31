@@ -11,14 +11,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83eadb3f88c2d83bf2ce39ec67550e602308ff0e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360082"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -156,6 +157,7 @@ ms.lasthandoff: 05/14/2018
 * 虛擬機器 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 * 虛擬機器擴展集 - 請參閱[虛擬機器限制](#virtual-machines-limitations)
 * 虛擬網路 - 請參閱[虛擬網路限制](#virtual-networks-limitations)
+* Visual Studio Team Services - 購買非 Microsoft 擴充功能的 VSTS 帳戶必須先[取消其購買](https://go.microsoft.com/fwlink/?linkid=871160)，才能在訂用帳戶之間移動帳戶。
 * VPN 閘道
 
 ## <a name="services-that-cannot-be-moved"></a>無法移動的服務
@@ -170,10 +172,10 @@ ms.lasthandoff: 05/14/2018
 * Azure Migrate
 * BizTalk 服務
 * 憑證 - App Service 憑證可以移動，但上傳的憑證則有其[限制](#app-service-limitations)。
-* Kubernetes 服務
 * DevTest Labs - 已啟用移動至相同訂用帳戶中新資源群組的功能，但未啟用跨訂用帳戶之間的移動。
 * Dynamics LCS
 * ExpressRoute
+* Kubernetes 服務
 * Load Balancer - 請參閱 [Load Balancer 限制](#lb-limitations)
 * 受控應用程式
 * 受控磁碟 - 請參閱[虛擬機器限制](#virtual-machines-limitations)

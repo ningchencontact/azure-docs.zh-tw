@@ -4,8 +4,8 @@ description: 描述如何設定您的 Azure 帳單上的警示，以避免計費
 keywords: 信用額度警示, 計費警示
 services: ''
 documentationcenter: ''
-author: vikdesai
-manager: tonguyen
+author: adpick
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/9/2017
-ms.author: vikdesai
+ms.author: adpick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8606efc4e0d3050ddd72b6bf8ec87f6ddd84fa2e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: fa7d1853226647917925e8c75e01a1c83d84daeb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359045"
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>為您的 Microsoft Azure 訂用帳戶設定計費或信用額度警示
 如果您是 Azure 訂用帳戶的帳戶管理員，您可以使用「Azure 計費警示服務」來建立自訂計費警示，以協助您監視和管理您 Azure 帳戶的計費活動。
 
 此服務為預覽狀態，因此您必須先在 [預覽功能] 頁面中加以啟用。
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="set-the-alert-threshold-and-email-recipients"></a>設定警示閾值與電子郵件收件者
 1. 請瀏覽[預覽功能頁面](https://account.windowsazure.com/PreviewFeatures)並啟用**計費警示服務**。
@@ -49,7 +52,7 @@ Azure 支援任何電子郵件地址，但不會驗證電子郵件地址是否�
 設定警示之後，[帳戶中心] 會列出這些警示，並顯示您還可以設定多少個警示。 針對每個警示，您會看到其傳送日期和時間 (不論是 [計費總計] 還是 [貨幣信用額度] 警示)，以及您所設定的限制。 日期和時間格式是 24 小時制的世界標準時間 (UTC)，而日期為 yyyy-mm-dd 格式。 您可以按一下清單中某個警示的加號來編輯該警示，或按一下資源回收筒圖示來將它刪除。
 
 ## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>Enterprise 合約 (EA) 客戶適用的計費警示
-透過設定消費配額，EA 客戶可以取得註冊底下每個部門的警示。 請參閱 EA 入口網站中的[部門消費配額](https://ea.azure.com/helpdocs/departmentSpendingQuotas)以便開始使用。
+此服務不支援 EA 訂用帳戶，EA 客戶可藉由設定消費配額來取得註冊之下每個部門的警示。 請參閱 EA 入口網站中的[部門消費配額](https://ea.azure.com/helpdocs/departmentSpendingQuotas)以便開始使用。
 
 ## <a name="learn-more-about-azure-cost-management"></a>深入了解 Azure 成本管理
 - 使用[價格計算機](https://azure.microsoft.com/pricing/calculator/)、[擁有權總成本計算機](https://aka.ms/azure-tco-calculator)，以及新增服務的時間預估成本。

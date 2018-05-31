@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: e0c823982bb799e324dc6fb0fb811fd9ace37878
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160541"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364398"
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM 安全性的最佳作法
 
@@ -52,14 +52,14 @@ ms.locfileid: "34160541"
 
 屬於資源群組的 VM 自然會繼承其原則。 雖然建議這種方法來管理 VM，您也可以使用[角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md)來控制存取個別 VM 原則。
 
-當您啟用 Resource Manager 原則和 RBAC 來控制 VM 存取時，有助於改善 VM 的整體安全性。 我們建議將具有相同生命週期的 VM 合併到相同的資源群組。 藉由使用資源群組，您可以部署、監視和彙總資源的計費成本。 若要讓使用者能夠存取和設定 VM，請使用[最低權限的方法](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models)。 而且當您指派權限給使用者時，計劃使用下列內建的 Azure 角色︰
+當您啟用 Resource Manager 原則和 RBAC 來控制 VM 存取時，有助於改善 VM 的整體安全性。 我們建議將具有相同生命週期的 VM 合併到相同的資源群組。 透過使用資源群組，您可以部署、監視和彙總資源的計費成本。 若要讓使用者能夠存取和設定 VM，請使用[最低權限的方法](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models)。 而且當您指派權限給使用者時，計劃使用下列內建的 Azure 角色︰
 
 - [虛擬機器參與者](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)：可以管理 VM，但無法管理他們連接的虛擬網路或儲存體帳戶。
 - [傳統虛擬機器參與者](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor)：可以管理使用傳統的部署模型建立的 VM，但無法管理 VM 連接的虛擬網路或儲存體帳戶。
 - [安全性系統管理員](../role-based-access-control/built-in-roles.md#security-admin)：可以管理安全性元件及安全性原則。
 - [DevTest Labs 使用者](../role-based-access-control/built-in-roles.md#devtest-labs-user)：可以檢視所有項目，並連接、啟動、重新啟動和關閉 VM。
 
-請勿讓系統管理員共用帳戶和密碼，且請勿在多個使用者帳戶或服務上重複使用密碼，特別是用於社交媒體或其他非系統管理活動的密碼。 在理想情況下，您應該使用 [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) 範本，安全地設定您的 VM。 您可以藉由使用這種方法，來強化部署選項，並強制執行整個部署的安全性設定。
+請勿讓系統管理員共用帳戶和密碼，且請勿在多個使用者帳戶或服務上重複使用密碼，特別是用於社交媒體或其他非系統管理活動的密碼。 在理想情況下，您應該使用 [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) 範本，安全地設定您的 VM。 您可以透過使用這種方法，來強化部署選項，並強制執行整個部署的安全性設定。
 
 未利用諸如 RBAC 等功能來強制執行資料存取控制的組織，可能會對其使用者授與超過所需的權限。 不適當的使用者存取某些資料可能會直接危害該資料。
 
@@ -69,7 +69,7 @@ ms.locfileid: "34160541"
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) 也會要求已負載平衡的 VM 屬於同一個可用性設定組。 如果需要從網際網路存取這些 VM，您必須設定[網際網路面向的負載平衡器](../load-balancer/load-balancer-internet-overview.md)。
 
-將 VM 公開至網際網路時，務必[使用網路安全性群組來控制網路流量 (NSG)](../virtual-network/virtual-networks-nsg.md)。 由於 NSG 可以套用至子網路，依子網路群組您的資源並將 NSG 套用至子網路，即可減少 NSG 的數量。 目的是要建立網路隔離層，您可以藉由在 Azure 中適當設定[網路安全性](../best-practices-network-security.md)功能來完成此動作。
+將 VM 公開至網際網路時，務必[使用網路安全性群組來控制網路流量 (NSG)](../virtual-network/security-overview.md)。 由於 NSG 可以套用至子網路，依子網路群組您的資源並將 NSG 套用至子網路，即可減少 NSG 的數量。 目的是要建立網路隔離層，您可以透過在 Azure 中適當設定[網路安全性](../best-practices-network-security.md)功能來完成此動作。
 
 您也可以從 Azure 資訊安全中心使用 just-in-time (JIT) VM 存取功能，來控制人員以及某人可遠端存取特定 VM 多久的時間。
 
@@ -123,8 +123,8 @@ Azure 提供的原廠映像會定期更新，以包含最新一輪的 Windows Up
 
 當 VM 程序比所應消耗更多的資源時，可能會產生資源不當使用的問題。 VM 的效能問題可能會導致服務中斷，違反可用性的安全性原則。 因此，請務必了解，不只需要在發生問題時以反應性方式監視 VM 存取，還必須主動在正常作業期間如測量完成基準效能。
 
-藉由分析 [Azure 診斷記錄檔](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)，您可以監視 VM 資源，並找出可能影響效能和可用性的潛在問題。 Azure 診斷擴充功能會在以 Windows 為基礎的 VM 上提供監視和診斷功能。 您可以將此擴充功能納入為 Azure Resource Manager [範本](../virtual-machines/windows/extensions-diagnostics-template.md)的一部分，藉以啟用這些功能。
+透過分析 [Azure 診斷記錄檔](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)，您可以監視 VM 資源，並找出可能影響效能和可用性的潛在問題。 Azure 診斷擴充功能會在以 Windows 為基礎的 VM 上提供監視和診斷功能。 您可以將此擴充功能納入為 Azure Resource Manager [範本](../virtual-machines/windows/extensions-diagnostics-template.md)的一部分，藉以啟用這些功能。
 
-您也可以使用 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview-metrics.md)來查看您的資源健康狀態。
+您也可以使用 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview-metrics.md)來查看資源的健康情況。
 
 未監視 VM 效能的組織無法決定效能模式中的特定變更是正常或不正常。 若 VM 比一般消耗更多資源，這類異常狀況可能表示來自外部資源的潛在攻擊，或是在此虛擬機器中執行的入侵程序。

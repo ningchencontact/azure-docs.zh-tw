@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c3b7e7178ef68475f331edf058ca0f23661af3ea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140371"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34338868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>教學課程：Azure Active Directory 與 Adobe Sign 整合
 
@@ -30,7 +30,7 @@ ms.locfileid: "32140371"
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Adobe Sign (單一登入)
 - 您可以在 Azure 入口網站中集中管理您的帳戶
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -104,7 +104,7 @@ ms.locfileid: "32140371"
     ![設定單一登入][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![設定單一登入](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
 
 3. 在 [Adobe Sign 網域及 URL] 區段上，執行下列步驟：
@@ -116,8 +116,8 @@ ms.locfileid: "32140371"
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.echosign.com`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Adobe Sign 用戶端支援小組](https://helpx.adobe.com/in/contact/support.html)以取得這些值。 
- 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Adobe Sign 用戶端支援小組](https://helpx.adobe.com/in/contact/support.html)以取得這些值。
+
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
@@ -128,15 +128,34 @@ ms.locfileid: "32140371"
 
 6. 在 [Adobe Sign 組態] 區段上，按一下 [設定 Adobe Sign] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製「登出 URL」、「SAML 實體識別碼」及「SAML 單一登入服務 URL」。
 
-    ![設定單一登入](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
+    ![設定單一登入](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png)
 
-7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Adobe Sign 公司網站。
+7. 設定之前，您需要連絡 [Adobe Sign Client 支援小組](https://helpx.adobe.com/in/contact/support.html)，將您的網域列入 Adobe Sign 的允許清單中。 請遵循下列步驟來新增此網域：
 
-8. 在 [SAML] 功能表中，按一下 [帳戶設定]，然後按一下 [SAML 設定]。
+    a. [Adobe Sign Client 支援小組](https://helpx.adobe.com/in/contact/support.html)將傳送隨機產生的權杖。 您網域的權杖如下所示：**adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
+
+    b. 您必須在 DNS 文字記錄中發佈驗證權杖，並通知 [Adobe Sign Client 支援小組](https://helpx.adobe.com/in/contact/support.html)。
+    
+    > [!NOTE]
+    > 您可以預期，這可能需要幾天或者更長的時間。 請注意，DNS 傳播延遲表示在 DNS 中發佈的值可能無法顯示一小時以上。 我們希望您的 IT 系統管理員應該知道如何在 DNS 文字記錄中發佈此權杖。
+    
+    c. 一旦您透過支援票證通知 [Adobe Sign Client 支援小組](https://helpx.adobe.com/in/contact/support.html)，在發佈權杖之後，他們就會驗證網域並將它新增至您的帳戶。
+    
+    d. 您可採取以在 DNS 記錄上發佈權杖的一般步驟：
+
+    * 登入您的網域帳戶
+    * 尋找用於更新 DNS 記錄的頁面。 這個頁面可能叫做 [DNS 管理]、[名稱伺服器管理] 或 [進階設定]。
+    * 尋找您網域的 TXT 記錄。
+    * 以 Adobe 提供的完整權杖值新增 TXT 記錄
+    * 儲存您的變更。
+
+8. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Adobe Sign 公司網站。
+
+9. 在 [SAML] 功能表中，按一下 [帳戶設定]，然後按一下 [SAML 設定]。
    
     ![帳戶](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "帳戶")
 
-9. 在 [SAML 設定] 區段中，執行下列步驟：
+10. 在 [SAML 設定] 區段中，執行下列步驟：
   
     ![SAML 設定](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML 設定")
    
@@ -251,7 +270,7 @@ ms.locfileid: "32140371"
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -266,4 +285,3 @@ ms.locfileid: "32140371"
 [201]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_203.png
-

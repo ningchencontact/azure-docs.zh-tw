@@ -1,14 +1,14 @@
 ---
-title: "封裝和部署 Service Fabric 容器應用程式 | Microsoft Docs"
-description: "在本教學課程中，您會了解如何使用 Yeoman 來產生 Azure Service Fabric 應用程式定義以及封裝應用程式。"
+title: 封裝和部署 Service Fabric 容器應用程式 | Microsoft Docs
+description: 在本教學課程中，您會了解如何使用 Yeoman 來產生 Azure Service Fabric 應用程式定義以及封裝應用程式。
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker、容器、微服務、Service Fabric、Azure"
-ms.assetid: 
+keywords: Docker、容器、微服務、Service Fabric、Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fc589b79cf91dcbe24e6d99da44aeee883b58e5f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365362"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>教學課程：建立和部署容器作為 Service Fabric 應用程式
 
@@ -45,7 +46,8 @@ Service Fabric 提供 Scaffolding 工具，可協助您使用 Yeoman 範本產�
 1. 在電腦上安裝 nodejs 和 NPM。 請注意，Mac OSX 使用者將需使用封裝管理員 Homebrew
 
     ```bash
-    sudo apt-get install npm && sudo apt install nodejs-legacy
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+    sudo apt-get install -y nodejs 
     ```
 2. 從 NPM 在您的電腦上安裝 Yeoman 範本產生器 
 
@@ -247,11 +249,11 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
 ./install.sh
 ```
 
-開啟瀏覽器，並瀏覽至 Service Fabric Explorer (http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer)。 展開 [應用程式] 節點，請注意，有一個適用於您應用程式類型的項目，另一個則適用於執行個體。
+開啟瀏覽器，並瀏覽至 http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer 上的 Service Fabric Explorer。 展開 [應用程式] 節點，請注意，有一個適用於您應用程式類型的項目，另一個則適用於執行個體。
 
 ![Service Fabric Explorer][sfx]
 
-為了連接到執行中應用程式，請開啟網頁瀏覽器並移至叢集 URL，例如 http://lin0823ryf2he.cloudapp.azure.com:80 。 您應會在 Web UI 中看到投票應用程式。
+為了連接到執行中應用程式，請開啟網頁瀏覽器並移至叢集 URL，例如 http://lin0823ryf2he.cloudapp.azure.com:80。 您應會在 Web UI 中看到投票應用程式。
 
 ![votingapp][votingapp]
 

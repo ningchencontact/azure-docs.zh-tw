@@ -9,11 +9,12 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: jovanpop
-ms.openlocfilehash: 1d80d199e21222be973fa6f5a06e6e80a505f164
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 7707a40a39e429333ff1c20fb7884a1fb7ee2162
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365962"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database 中的自動調整
 
@@ -61,13 +62,13 @@ Azure SQL Database 自動調整與 SQL Server 自動調整引擎共用其核心�
 ## <a name="automatic-tuning-options"></a>自動調整選項
 
 Azure SQL Database 中可用的自動調整選項有：
- 1. **CREATE INDEX**，能識別可能改善您的工作負載效能、建立索引，並確認它們改善查詢效能的索引。
- 2. **DROP INDEX**，可識別備援和重複的索引，及很長一段時間未使用的索引。
- 3. **FORCE LAST GOOD PLAN**，可識別正在使用較前一個良好計畫更為緩慢之執行計畫的 SQL 查詢，並使用最後一個已知的良好計畫來取代迴歸的計畫。
+ 1. **CREATE INDEX** - 能識別可能改善工作負載效能、建立索引，並自動確認已改善查詢效能的索引。 這個選項的預設 Azure 設定會啟用。
+ 2. **DROP INDEX** - 可識別備援和重複的索引，及很長一段時間未使用的索引。 請注意，此時選項與使用分割區切換和索引提示的應用程式不相容。 這個選項的預設 Azure 設定會停用。
+ 3. **FORCE LAST GOOD PLAN** - 可識別使用較前一個良好計畫更為緩慢之執行計畫的 SQL 查詢，以及使用最後一個已知的良好計畫來取代迴歸計畫的查詢。 這個選項的預設 Azure 設定會啟用。
 
 Azure SQL Database 可識別 **CREATE INDEX**、**DROP INDEX** 和 **FORCE LAST GOOD PLAN** 建議，可以最佳化您的資料庫，並在 Azure 入口網站中顯示它們。 如需找出應變更的索引詳細資訊，可在 [Azure 入口網站中的尋找索引建議](sql-database-advisor-portal.md)中找到。 您可以使用入口網站手動套用建議，或者讓 Azure SQL Database 自動套用建議、監視變更後的工作負載，並確認建議能改善您的工作負載效能。
 
-自動微調選項可以個別開啟或關閉每個資料庫，或可以在邏輯伺服器上設定，並在從伺服器繼承設定的每個資料庫上套用。 在伺服器上設定自動調整選項，並在伺服器中繼承資料庫上的設定，是設定自動調整的建議方法，因為它可簡化大量資料庫上自動調整選項的管理。
+自動微調選項可以個別開啟或關閉每個資料庫，或可以在邏輯伺服器上設定，並在從伺服器繼承設定的每個資料庫上套用。 邏輯伺服器可以繼承 Azure 的自動調整設定預設值。 在伺服器上設定自動調整選項，並在伺服器中繼承資料庫上的設定，是設定自動調整的建議方法，因為它可簡化大量資料庫上自動調整選項的管理。
 
 ## <a name="next-steps"></a>後續步驟
 

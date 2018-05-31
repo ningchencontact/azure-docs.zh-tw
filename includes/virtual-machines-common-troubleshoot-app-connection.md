@@ -1,3 +1,20 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371264"
+---
 有各種原因會造成無法啟動或連接至在 Azure 虛擬機器 (VM) 上執行的應用程式。 原因包括應用程式並未執行，或未在預期的連接埠上接聽，接聽連接埠遭到封鎖，或網路規則未正確將流量傳遞至應用程式。 本文說明條理式方法，以找出並更正問題。
 
 如果您在使用 RDP 或 SSH 連接到 VM 時發生問題，請先參閱下列其中一篇文章︰
@@ -99,7 +116,7 @@
   
   * 確認 VM 的輸入 NAT 規則組態允許連入流量，特別是通訊協定 (TCP 或 UDP) 和公用與私人連接埠號碼。
   * 確認網路安全性群組允許輸入要求與輸出回應的流量。
-  * 如需詳細資訊，請參閱 [什麼是網路安全性群組 (NSG)？](../articles/virtual-network/virtual-networks-nsg.md)
+  * 如需詳細資訊，請參閱[什麼是網路安全性群組？](../articles/virtual-network/security-overview.md)
 
 如果虛擬機器或端點是負載平衡集的成員：
 

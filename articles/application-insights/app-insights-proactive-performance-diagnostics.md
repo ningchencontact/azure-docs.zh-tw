@@ -1,9 +1,9 @@
 ---
-title: "智慧型偵測 - 效能異常 | Microsoft Docs"
-description: "Application Insights 會執行您應用程式遙測的智慧型分析，並且警告您有潛在的問題。 這項功能不需要進行任何設定。"
+title: 智慧型偵測 - 效能異常 | Microsoft Docs
+description: Application Insights 會執行您應用程式遙測的智慧型分析，並且警告您有潛在的問題。 這項功能不需要進行任何設定。
 services: application-insights
 documentationcenter: windows
-author: antonfrMSFT
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: mbullwin
-ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.author: mbullwin; antonfr
+ms.openlocfilehash: 59b88a940e83ed89e8638b62680a57ca1514f8b0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33868929"
 ---
 # <a name="smart-detection---performance-anomalies"></a>智慧型偵測 - 效能異常
 
