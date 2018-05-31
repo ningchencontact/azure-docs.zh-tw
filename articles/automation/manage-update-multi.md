@@ -3,16 +3,18 @@ title: 管理多部 Azure 虛擬機器的更新
 description: 本主題會說明如何管理 Azure 虛擬機器的更新。
 services: automation
 ms.service: automation
+ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 04/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c227af1afa95243390152918a6b81015dbaceaeb
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ae5d2e38f11abfabda067e9affbf81159002cb99
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34054798"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -27,9 +29,9 @@ ms.lasthandoff: 03/30/2018
 
 若要使用更新管理，您需要：
 
-* Azure 自動化執行身分帳戶。 如需有關如何建立帳戶的詳細指示，請參閱 [開始使用 Azure 自動化](automation-offering-get-started.md)。
+- Azure 自動化執行身分帳戶。 如需有關如何建立帳戶的詳細指示，請參閱 [開始使用 Azure 自動化](automation-offering-get-started.md)。
 
-* 已安裝其中一個支援作業系統的虛擬機器或電腦。
+- 已安裝其中一個支援作業系統的虛擬機器或電腦。
 
 ## <a name="supported-operating-systems"></a>受支援的作業系統
 
@@ -37,11 +39,11 @@ ms.lasthandoff: 03/30/2018
 
 ### <a name="windows"></a>Windows
 
-* Windows Server 2008 及更新版本，以及依附 Windows Server 2008 R2 SP1 和更新版本的更新部署。 不支援 Nano Server。
+- Windows Server 2008 及更新版本，以及依附 Windows Server 2008 R2 SP1 和更新版本的更新部署。 不支援 Nano Server。
 
   支援將更新部署到 Windows Server 2008 R2 SP1 需要 .NET Framework 4.5 和 Windows Management Framework 5.0 或更新版本。
 
-* 不支援 Windows 用戶端作業系統。
+- 不支援 Windows 用戶端作業系統。
 
 Windows 代理程式必須設定為可與 Windows Server Update Services (WSUS) 伺服器通訊，或必須能夠存取 Microsoft Update。
 
@@ -51,12 +53,15 @@ Windows 代理程式必須設定為可與 Windows Server Update Services (WSUS) 
 
 ### <a name="linux"></a>Linux
 
-* CentOS 6 (x86/x64) 和 7 (x64)  
-* Red Hat Enterprise 6 (x86/x64) 和 7 (x64)  
-* SUSE Linux Enterprise Server 11 (x86/x64) 和 12 (x64)  
-* Ubuntu 12.04 LTS 和更新版本 (x86/x64)   
+- CentOS 6 (x86/x64) 和 7 (x64)
 
-> [!NOTE]  
+- Red Hat Enterprise 6 (x86/x64) 和 7 (x64)
+
+- SUSE Linux Enterprise Server 11 (x86/x64) 和 12 (x64)
+
+- Ubuntu 12.04 LTS 和更新版本 (x86/x64)
+
+> [!NOTE]
 > 若要避免在 Ubuntu 維護期間以外套用更新，請將自動安裝升級套件重新設定為停用自動更新。 如需詳細資訊，請參閱 [Ubuntu Server 指南中的自動更新主題](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)。
 
 Linux 代理程式必須能夠存取更新存放庫。
@@ -65,16 +70,15 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>為 Azure 虛擬機器啟用更新管理
 
-1. 在 Azure 入口網站中，開啟自動化帳戶。
-2. 在左側窗格中，選取 [更新管理]。
-3. 在視窗頂端，選取 [新增 Azure VM]。
-   ![[新增 Azure VM] 索引標籤](./media/manage-update-multi/update-onboard-vm.png)
-4. 選取要上線的虛擬機器。 [啟用更新管理] 對話方塊隨即顯示。
-5. 選取 [啟用]。
+在 Azure 入口網站中，開啟您的自動化帳戶，然後選取 [更新管理]。
 
-   ![啟用 [更新管理] 對話方塊](./media/manage-update-multi/update-enable.png)
+在視窗頂端，選取 [新增 Azure VM]。
 
-隨即會為您的 Azure 虛擬機器啟用更新管理。
+![[加入 Azure VM] 索引標籤](./media/manage-update-multi/update-onboard-vm.png)
+
+選取要上線的虛擬機器。 [啟用更新管理] 對話方塊隨即顯示。 選取 [啟用] 以使虛擬機器上線。 完成上線之後，隨即會為您的虛擬機器啟用更新管理。
+
+![啟用 [更新管理] 對話方塊](./media/manage-update-multi/update-enable.png)
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>為非 Azure 虛擬機器和電腦啟用更新管理
 
@@ -83,14 +87,22 @@ Linux 代理程式必須能夠存取更新存放庫。
 如需有關如何為非 Azure Linux 虛擬機器和電腦啟用更新管理的指示，請參閱[將您的 Linux 電腦連線到 Log Analytics](../log-analytics/log-analytics-agent-linux.md)。
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>檢視自動化帳戶連結的電腦
-啟用您的電腦的更新管理之後，您可以按一下 [電腦] 來檢視其資訊。 可取得電腦資訊，例如 [名稱]、[合規性]、[環境]、[OS 類型]、[重大和安全性更新] 及 [其他更新]。 
+
+啟用您的電腦的更新管理之後，您可以按一下 [電腦] 來檢視其資訊。 可取得電腦資訊，例如 [名稱]、[合規性]、[環境]、[OS 類型]、[重大和安全性更新]、[其他更新] 及 [更新代理程式整備程度]。
 
   ![檢視電腦索引標籤](./media/manage-update-multi/update-computers-tab.png)
 
 若為最近啟用更新管理的電腦，它們可能尚未評估。 這些電腦的合規性狀態會是 [未評估]。  以下是合規性狀態的值清單：
-* 符合規範 – 未錯過重大或安全性更新的電腦。
-* 不符合規範 – 至少錯過一次重大或安全性更新的電腦。
-* 未評估 – 在預期的時間範圍內，未收到來自電腦的更新評估資料。  Linux 電腦為過去 3 小時內，Windows 電腦則為過去 12 小時內。  
+
+- 符合規範 – 未錯過重大或安全性更新的電腦。
+
+- 不符合規範 – 至少錯過一次重大或安全性更新的電腦。
+
+- 未評估 – 在預期的時間範圍內，未收到來自電腦的更新評估資料。  Linux 電腦為過去 3 小時內，Windows 電腦則為過去 12 小時內。
+
+若要檢視代理程式的狀態，按一下 [更新代理程式整備程度] 欄中的連結。 這會開啟 [混合式背景工作角色] 頁面，並顯示混合式背景工作角色的狀態。 下圖顯示長期未連線至更新管理的代理程式範例。
+
+![檢視電腦索引標籤](./media/manage-update-multi/update-agent-broken.png)
 
 ## <a name="view-an-update-assessment"></a>檢視更新評估
 
@@ -122,29 +134,30 @@ Linux 代理程式必須能夠存取更新存放庫。
 若要安裝更新，請將部署排定在發行排程和服務時段之後。
 您可以選擇要在部署中包含的更新類型。 例如，您可以包含重大更新或安全性更新，並排除更新彙總套件。
 
-選取 [更新管理] 對話方塊頂端的 [排程更新部署]，以針對一或多部虛擬機器排定新的「更新部署」。 在 [新增更新部署] 窗格中，指定下列資訊：
+選取 [更新管理] 對話方塊頂端的 [排程更新部署]，以針對一或多部虛擬機器排定新的「更新部署」。
+在 [新增更新部署] 窗格中，指定下列資訊：
 
-* **名稱**：提供唯一名稱來識別更新部署。
-* **OS 類型**：選取 Windows 或 Linux。
-* **要更新的電腦**：選取您要更新的虛擬機器。
+- **名稱**：提供唯一名稱來識別更新部署。
+- **OS 類型**：選取 Windows 或 Linux。
+- **要更新的電腦**：選取您要更新的虛擬機器。 電腦的整備程度會顯示於 [更新代理程式整備程度] 欄中。 這可讓您在排程更新部署之前，先查看電腦的健康情況狀態。
 
   ![[新增更新部署] 窗格](./media/manage-update-multi/update-select-computers.png)
 
-* **更新分類**：選取更新部署將包含的軟體類型。 分類類型包括：
-  * 重大更新
-  * 安全性更新
-  * 更新彙總套件
-  * Feature Pack
-  * Service Pack
-  * 定義更新
-  * 工具
-  * 更新
-* **排程設定**：您可以接受預設的日期和時間 (目前時間之後的 30 分鐘)。 或是可以指定不同的時間。
+- **更新分類**：選取更新部署將包含的軟體類型。 如需分類類型的說明，請參閱[更新分類](automation-update-management.md#update-classifications)。 分類類型包括：
+  - 重大更新
+  - 安全性更新
+  - 更新彙總套件
+  - Feature Pack
+  - Service Pack
+  - 定義更新
+  - 工具
+  - 更新
+- **排程設定**：您可以接受預設的日期和時間 (目前時間之後的 30 分鐘)。 或是可以指定不同的時間。
    您也可以指定部署是否為發生一次，或為週期性排程。 若要設定週期性排程，請選取 [週期] 下的 [週期性] 選項。
 
    ![排程 [設定] 對話方塊](./media/manage-update-multi/update-set-schedule.png)
 
-* **維護時間範圍 (分鐘)**：指定您要執行更新部署的時段。 此設定有助於確保在您定義的服務時段內執行變更。
+- **維護時間範圍 (分鐘)**：指定您要執行更新部署的時段。 此設定有助於確保在您定義的服務時段內執行變更。
 
 排程設定完成之後，請選取 [建立] 按鈕，就會返回狀態儀表板。 [已排定] 表格會顯示您剛才建立的部署排程。
 
@@ -164,9 +177,9 @@ Linux 代理程式必須能夠存取更新存放庫。
 [更新結果] 窗格會顯示虛擬機器上更新總數和部署結果的總數。
 右邊的表格會提供每個更新的詳細明細及安裝結果。 安裝結果可為下列其中一個值：
 
-* 未嘗試：未安裝更新，因為以所定義的維護時間範圍作為基礎，可用的時間不足。
-* 成功：更新成功。
-* 失敗：更新失敗。
+- 未嘗試：未安裝更新，因為以所定義的維護時間範圍作為基礎，可用的時間不足。
+- 成功：更新成功。
+- 失敗：更新失敗。
 
 若要查看部署已建立的所有記錄項目，請選取 [所有記錄]。
 
@@ -176,5 +189,4 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入了解更新管理 (包括記錄、輸出和錯誤)，請參閱 [Azure 中的更新管理解決方案](../operations-management-suite/oms-solution-update-management.md)。
-
+- 若要深入了解更新管理 (包括記錄、輸出和錯誤)，請參閱 [Azure 中的更新管理解決方案](../operations-management-suite/oms-solution-update-management.md)。

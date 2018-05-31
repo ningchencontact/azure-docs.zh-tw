@@ -1,6 +1,6 @@
 ---
-title: Azure 可用性區域概觀 | Microsoft Docs
-description: 本文概述如何使用「可用性區域」在 Azure 中建立具高可用性及復原能力的應用程式
+title: 什麼是 Azure 可用性區域？ | Microsoft Docs
+description: 若要在 Azure 中建立高度可用且具有恢復功能的應用程式，可用性區域可提供可讓您用來執行資源的實體不同位置。
 services: ''
 documentationcenter: ''
 author: iainfoulds
@@ -16,13 +16,14 @@ ms.workload: na
 ms.date: 03/21/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: a4133779538e412a19a11de678b1527fb8023a87
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9eb7105b2d1a95eb8ccfa96ea0bc5188aab1b4aa
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164716"
 ---
-# <a name="overview-of-availability-zones-in-azure"></a>Azure 中的可用性區域概觀
+# <a name="what-are-availability-zones-in-azure"></a>什麼是 Azure 中的可用性區域？
 「可用性區域」是高可用性供應項目，可保護您的應用程式和資料不受資料中心故障影響。 「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。 地區內「可用性區域」的實體區隔可保護應用程式和資料不受資料中心故障影響。 區域備援服務會將應用程式和資料複寫至所有「可用性區域」，以防止發生單一失敗點情況。 使用「可用性區域」時，Azure 可提供業界最佳的 99.99% VM 執行時間 SLA。 完整 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 說明保證的 Azure 整體可用性。
 
 藉由將運算、儲存體、網路及資料資源共置於某個區域內並複寫至其他區域，即可讓您的應用程式架構內建高可用性。 支援「可用性區域」的 Azure 服務分成兩個類別：
@@ -50,7 +51,7 @@ ms.lasthandoff: 04/03/2018
 - Windows 虛擬機器
 - 虛擬機器擴展集
 - 受控磁碟
-- 負載平衡器
+- Load Balancer
 - 公用 IP 位址
 - 區域備援儲存體
 - SQL Database

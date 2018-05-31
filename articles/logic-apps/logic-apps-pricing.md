@@ -1,24 +1,25 @@
 ---
-title: "定價 & 計費 - Azure Logic Apps | Microsoft Docs"
-description: "了解 Azure Logic Apps 的定價和計費方式"
-author: kevinlam1
-manager: anneta
-editor: 
+title: 定價 & 計費 - Azure Logic Apps | Microsoft Docs
+description: 了解 Azure Logic Apps 的定價和計費方式
 services: logic-apps
-documentationcenter: 
+author: kevinlam1
+manager: cfowler
+editor: ''
+documentationcenter: ''
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 11/11/2017
-ms.author: LADocs; klam
-ms.openlocfilehash: 096fdd5a6604ed8cecc931da2169194b777664d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 05/11/2018
+ms.author: klam
+ms.openlocfilehash: 3f01ac12bb3987d564f8d9f70706ae6aabd0a0ee
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166279"
 ---
 # <a name="logic-apps-pricing-model"></a>Logic Apps 的定價模式
 
@@ -57,7 +58,7 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="integration-account-usage"></a>整合帳戶使用量
 
-以取用量為根據的使用量包括一個[整合帳戶](logic-apps-enterprise-integration-create-integration-account.md)，您可以在其中探勘、開發和測試 Logic Apps 的 [B2B/EDI](logic-apps-enterprise-integration-b2b.md) 和 [XML 處理](logic-apps-enterprise-integration-xml.md)功能，而不需額外成本。 您可以在每個區域中擁有這其中一個整合帳戶，最多可儲存 10 個合約和 25 張地圖。 您可以擁有且上傳不限數量的夥伴、結構描述和憑證。
+以取用量為根據的使用量包括一個[整合帳戶](logic-apps-enterprise-integration-create-integration-account.md)，您可以在其中探勘、開發和測試 Logic Apps 的 [B2B/EDI](logic-apps-enterprise-integration-b2b.md) 和 [XML 處理](logic-apps-enterprise-integration-xml.md)功能，而不需額外成本。 您可以在每個區域擁有一個整合帳戶，並可儲存一定[成品數量](../logic-apps/logic-apps-limits-and-config.md)，例如，EDI 交易夥伴和協議、對應、結構描述、組件、憑證和批次組態。
 
 Logic Apps 也會搭配支援的 Logic Apps SLA 來提供基本和標準整合帳戶。 當您只想使用訊息處理，或者做為與較大商務實體有交易夥伴關係的小型企業夥伴時，就可以使用基本整合帳戶。 標準整合帳戶支援更複雜的 B2B 關係，並增加您可以管理的實體數目。 如需詳細資訊，請參閱 [Azure 價格](https://azure.microsoft.com/pricing/details/logic-apps)。
 

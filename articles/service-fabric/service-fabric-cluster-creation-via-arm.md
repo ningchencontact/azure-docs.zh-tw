@@ -9,16 +9,17 @@ editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: e3e9e0c13368dbf7dd32c8483f8e6783afc1bdbb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 60b447148c5cef24c061274a84620a8221efc430
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207939"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 來建立 Service Fabric 叢集 
 > [!div class="op_single_selector"]
@@ -46,7 +47,7 @@ Service Fabric 會使用 X.509 憑證來保護叢集，並提供應用程式的�
 需有這些憑證 (一個主要憑證和選擇性次要憑證) 以便保護叢集，並避免未經授權的存取。 它會透過兩種方式提供叢集安全性：
 
 * **叢集驗證：** 驗證叢集同盟的節點對節點通訊。 只有可使用此憑證提供其身分識別的節點可以加入叢集。
-* **伺服器驗證：**向管理用戶端驗證叢集管理端點，管理用戶端就能知道它正在交談的對象是真正的叢集，而非「中間人 (man in the middle)」。 此憑證也會為 HTTPS 管理 API 及透過 HTTPS 使用的 Service Fabric Explorer 提供 SSL。
+* **伺服器驗證：** 向管理用戶端驗證叢集管理端點，管理用戶端就能知道它正在交談的對象是真正的叢集，而非「中間人 (man in the middle)」。 此憑證也會為 HTTPS 管理 API 及透過 HTTPS 使用的 Service Fabric Explorer 提供 SSL。
 
 為用於這些用途，憑證必須符合下列要求：
 
@@ -99,17 +100,13 @@ Service Fabric 叢集提供其管理功能的各種進入點 (包括 Web 型 [Se
 ### <a name="login-in-to-azure"></a>登入 Azure。
 
 ```Powershell
-
 Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
-
 ```
 
 ```CLI
-
 azure login
 az account set --subscription $subscriptionId
-
 ```
 #### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module-to-set-up-the-cluster"></a>使用模組中隨附的預設 5 Node 1 nodetype 範本來設定叢集
 
@@ -120,7 +117,6 @@ az account set --subscription $subscriptionId
 以下命令適用於建立 Windows 和 Linux 叢集，您只需要隨之指定作業系統。 Powershell/ CLI 命令也會在指定的 theCertificateOutputFolder 中輸出憑證，但是請確定已建立憑證資料夾。 此命令也需要其他參數如 VM SKU。
 
 ```Powershell
-
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $vaultName="myvault"
@@ -133,11 +129,9 @@ $os="WindowsServer2016DatacenterwithContainers"
 $certOutputFolder="c:\certificates"
 
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser
-
 ```
 
 ```CLI
-
 declare resourceGroupLocation="westus"
 declare resourceGroupName="mylinux"
 declare vaultResourceGroupName="myvaultrg"
@@ -149,14 +143,11 @@ declare vmuser="myadmin"
 declare vmOs="UbuntuServer1604"
 declare certOutputFolder="c:\certificates"
 
-
-
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
     --certificate-output-folder $certOutputFolder --certificate-password $certpassword  \
     --vault-name $vaultName --vault-resource-group $resourceGroupName  \
     --template-file $templateFilePath --parameter-file $parametersFilePath --vm-os $vmOs  \
     --vm-password $vmpassword --vm-user-name $vmuser
-
 ```
 
 #### <a name="use-the-custom-template-that-you-already-have"></a>使用既有的自訂範本 
@@ -179,8 +170,6 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 
 ```PowerShell
-
-
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $CertSubjectName="mycluster.westus.cloudapp.azure.com"
@@ -190,15 +179,12 @@ $certOutputFolder="c:\certificates"
 $parameterFilePath="c:\mytemplates\mytemplateparm.json"
 $templateFilePath="c:\mytemplates\mytemplate.json"
 
-
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
-
 ```
 
 以下是對等的 CLI 命令，可執行相同動作。 將宣告陳述式中的值變更為適當的值。 CLI 可支援上述 PowerShell 命令所支援的所有其他參數。
 
 ```CLI
-
 declare certPassword=""
 declare resourceGroupLocation="westus"
 declare resourceGroupName="mylinux"
@@ -207,12 +193,10 @@ declare parameterFilePath="c:\mytemplates\linuxtemplateparm.json"
 declare templateFilePath="c:\mytemplates\linuxtemplate.json"
 declare certOutputFolder="c:\certificates"
 
-
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
     --certificate-output-folder $certOutputFolder --certificate-password $certPassword  \
     --certificate-subject-name $certSubjectName \
     --template-file $templateFilePath --parameter-file $parametersFilePath
-
 ```
 
 
@@ -227,7 +211,6 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 所用範本可於 [Azure 範例：Windows 範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)和 [Ubuntu 範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)上取得
 
 ```PowerShell
-
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -238,11 +221,9 @@ $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile C:\MyCertificates\chackocertificate3.pfx -CertificatePassword $certPassword -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
-
 ```
 
 ```CLI
-
 declare vmPassword="Password!1"
 declare certPassword="Password!1"
 declare vmUser="myadmin"
@@ -253,13 +234,11 @@ declare vaultName="myvault"
 declare certificate-file="c:\certificates\mycert.pem"
 declare vmOs="UbuntuServer1604"
 
-
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
     --certificate-file $certificate-file --certificate-password $certPassword  \
     --vault-name $vaultName --vault-resource-group $vaultResourceGroupName  \
     --vm-os vmOs \
     --vm-password $vmPassword --vm-user-name $vmUser
-
 ```
 
 #### <a name="use-the-custom-template-that-you-have"></a>使用既有的自訂範本 
@@ -281,7 +260,6 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 
 ```PowerShell
-
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -292,15 +270,12 @@ $parameterFilePath="c:\mytemplates\mytemplateparm.json"
 $templateFilePath="c:\mytemplates\mytemplate.json"
 $certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
 
-
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword $certPassword
-
 ```
 
 以下是對等的 CLI 命令，可執行相同動作。 將宣告陳述式中的值變更為適當的值。
 
 ```CLI
-
 declare certPassword="Password!1"
 declare resourceGroupLocation="westus"
 declare resourceGroupName="mylinux"
@@ -320,17 +295,13 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 若要使用現有的 Key Vault，您「必須將它啟用為可供部署使用」，才能讓計算資源提供者從它取得憑證，然後將它安裝在叢集節點上：
 
 ```PowerShell
-
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
-
 
 $parameterFilePath="c:\mytemplates\mytemplate.json"
 $templateFilePath="c:\mytemplates\mytemplateparm.json"
 $secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
-
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
-
 ```
 以下是對等的 CLI 命令，可執行相同動作。 將宣告陳述式中的值變更為適當的值。
 
@@ -340,11 +311,9 @@ declare $parameterFilePath="c:\mytemplates\mytemplate.json"
 declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
 declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
-
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
     --secret-identifier az $secretID  \
     --template-file $templateFilePath --parameter-file $parametersFilePath 
-
 ```
 
 <a id="add-AAD-for-client"></a>
@@ -366,8 +335,7 @@ Service Fabric 叢集提供其管理功能的各種進入點 (包括 Web 型 [Se
 4. 執行 `SetupApplications.ps1`，並且提供 TenantId、ClusterName 和 WebApplicationReplyUrl 作為參數。 例如︰
 
 ```powershell
-    .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
-
+.\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
 您可以執行 PowerShell 命令 `Get-AzureSubscription` 來找出您的 TenantId。 執行此命令會顯示每個訂用帳戶的 TenantId。
@@ -542,18 +510,18 @@ https://&lt;cluster_domain&gt;:19080/Explorer
 >
 
 ```json
-        "clusterCertificateThumbprint": {
-            "value": ""
-        },
-        "certificateCommonName": {
-            "value": ""
-        },
-        "clusterCertificateUrlValue": {
-            "value": ""
-        },
-        "sourceVaultvalue": {
-            "value": ""
-        },
+"clusterCertificateThumbprint": {
+    "value": ""
+},
+"certificateCommonName": {
+    "value": ""
+},
+"clusterCertificateUrlValue": {
+    "value": ""
+},
+"sourceVaultvalue": {
+    "value": ""
+},
 ```
 
 如果您使用的是應用程式憑證，或已上傳至金鑰保存庫的現有叢集，您需要取得這項資訊並加以填寫 

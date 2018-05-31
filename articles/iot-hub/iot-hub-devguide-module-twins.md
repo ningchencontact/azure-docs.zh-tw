@@ -15,11 +15,12 @@ ms.workload: na
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fbbce06653e60cd914c2ed4d5990aac78ef53a8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 1e6f52da6f7524828cef928c2ee5d5cd92a1de1e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201069"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>了解和使用 IoT 中樞的模組對應項
 
@@ -109,7 +110,7 @@ ms.lasthandoff: 05/03/2018
 在上述範例中，模組對應項包含由模組應用程式所報告的 `batteryLevel` 屬性。 此屬性可讓您根據最後一次報告的電池電量對模組進行查詢和操作。 其他範例包含模組應用程式報告模組功能或連線能力選項。
 
 > [!NOTE]
-> 報告屬性能簡化解決方案後端想要取得屬性之最後已知值的案例。 如果解決方案後端需要以一連串時間戳記事件 (例如時間序列) 的形式處理模組遙測，請使用[裝置到雲端的訊息][lnk-d2c]。
+> 當解決方案後端想要取得屬性的最後已知值時，報告屬性如何簡化這種情況。 如果解決方案後端需要以一連串時間戳記事件 (例如時間序列) 的形式處理模組遙測，請使用[裝置到雲端的訊息][lnk-d2c]。
 
 ### <a name="desired-property-example"></a>所需屬性範例
 在上述範例中，解決方案後端和模組應用程式會使用 `telemetryConfig` 模組對應項的所需屬性和報告屬性，以同步處理此模組的遙測設定。 例如︰

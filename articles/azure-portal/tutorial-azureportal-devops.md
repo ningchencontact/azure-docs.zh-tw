@@ -1,8 +1,8 @@
 ---
-title: "教學課程︰DevOps 與 Azure 入口網站 | Microsoft Docs"
-description: "了解 Azure 入口網站中的各種 DevOps 工作流程。"
+title: 教學課程︰DevOps 與 Azure 入口網站 | Microsoft Docs
+description: 了解 Azure 入口網站中的各種 DevOps 工作流程。
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
 editor: mlearned
@@ -11,14 +11,15 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: d2c059fe415b743e4b2265d6dda492878307be93
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 7fb3de72e28b19f9ca30968b267bf985ae384275
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164834"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>教學課程︰DevOps 與 Azure 入口網站
 Azure 平台充滿著彈性的 DevOps 工作流程。 在本教學課程中，您將會了解如何運用 Azure 入口網站的功能，來開發、測試、部署、疑難排解、監視和管理執行中的應用程式。 本教學課程著重於下列內容︰
@@ -29,7 +30,7 @@ Azure 平台充滿著彈性的 DevOps 工作流程。 在本教學課程中，�
 4. 一般應用程式管理工作
 
 ## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>建立 Web 應用程式並啟用連續部署
-請使用 [Azure App Service](https://azure.microsoft.com/services/app-service/)來建立 Web 應用程式，以用於本教學課程的其餘部分。 一開始，您將會進行從原始程式碼儲存機制到執行中 Azure 環境的連續部署。
+請使用 [Azure App Service](https://azure.microsoft.com/services/app-service/)來建立 Web 應用程式，以用於本教學課程的其餘部分。 一開始，您將會進行從原始程式碼存放庫到執行中 Azure 環境的連續部署。
 
 1. 登入 Azure 入口網站
 2. 選擇 [應用程式服務] &gt; [新增圖示]並輸入名稱，選擇您的訂用帳戶，然後建立要作為服務容器的新資源群組。
@@ -43,7 +44,7 @@ Azure 平台充滿著彈性的 DevOps 工作流程。 在本教學課程中，�
 4. 按一下 URL。 請注意工具和儲存機制的可用選項變化。 您也可以使用自己選擇的語言和架構，包括 .NET、Java 和 Ruby。
    
    ![image3][image3]    
-5. Azure 入口網站可讓連續部署變成只須執行幾個簡單步驟的輕鬆程序。 在 Azure 入口網站中，從您剛才建立的 App Service 的圖示中選擇 [設定]。
+5. Azure 入口網站可讓連續部署變成只須執行幾個簡單步驟的輕鬆程序。 在 Azure 入口網站中，從您建立的 App Service 的圖示中選擇 [設定]。
    
    ![image4][image4]
    
@@ -53,7 +54,7 @@ Azure 平台充滿著彈性的 DevOps 工作流程。 在本教學課程中，�
 6. 接著，進行一些設定，讓應用程式能夠進行連續部署。 按一下 [部署來源]，然後按一下 [選擇來源]。 請注意儲存機制來源所具有的選項變化。
    
    ![image6][image6]
-7. 在此範例中，請選擇 [GitHub]。 選擇性地選擇您所選擇的儲存機制，並設定授權認證。
+7. 在此範例中，請選擇 [GitHub]。 選擇性地選擇您所選擇的存放庫，並設定授權認證。
    
    ![image7][image7]
 8. 在授權給儲存機制之後，您接著可以選擇想要部署的專案和分支。 下面列出幾個虛構的範例。
@@ -152,7 +153,7 @@ Azure 平台充滿著彈性的 DevOps 工作流程。 在本教學課程中，�
 ## <a name="monitoring-and-troubleshooting-an-app"></a>監視和針對應用程式進行疑難排解
 Azure 提供許多用來監視和針對執行中應用程式進行疑難排解的功能。
 
-1. 在我們的 Web 應用程式的 Azure 入口網站中選擇 [工具]。
+1. 在 Web 應用程式的 Azure 入口網站中選擇 [工具]。
    
    ![Image37][image37]
 2. 在 [疑難排解] 類別下，請注意各種使用工具來針對執行中應用程式潛在問題進行疑難排解的選項。 您可以執行監視即時 HTTP 流量、啟用自我修復、檢視記錄檔等等的作業。
@@ -248,7 +249,7 @@ Azure 提供許多用來監視和針對執行中應用程式進行疑難排解�
 11. 在右側的刀鋒視窗中，選擇 [App Service 驗證]。 請注意您可以針對熱門提供者設定的各種選項。
     
      ![image66][image66]
-12. 選擇您所選擇的提供者，並注意該範圍的選項。 您可以提供 [應用程式識別碼] 與 [應用程式密碼]，並快速啟用應用程式的 Facebook 驗證。 Azure 入口網站可讓驗證做為應用程式的周全解決方案。
+12. 選擇您所選擇的提供者，並注意該範圍的選項。 您可以提供 [應用程式識別碼] 與 [應用程式密碼]，並快速啟用應用程式的 Facebook 驗證。 Azure 入口網站可讓驗證作為應用程式的周全解決方案。
     
      ![image67][image67]
 13. 回到 [設定] 刀鋒視窗，並選擇 [資源管理] 類別底下的 [使用者]。
