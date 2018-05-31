@@ -11,17 +11,18 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 01/26/2018
-ms.openlocfilehash: e31cebfd027e93096e233f2963445e4fc50a7e9d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f29fe50468aabadcf92d2ed3de3f9ec631d17f21
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941528"
 ---
 # <a name="what-is-azure-time-series-insights"></a>什麼是 Azure 時間序列深入解析？
 
 時間序列深入解析是針對儲存、視覺化及查詢大量時間序列資料 (例如 IoT 裝置所產生的時間序列資料) 而建置。  如果您想要儲存、管理、查詢或以視覺化方式呈現雲端的時間序列資料，時間序列深入解析可能很適合您。  
 
-![時間序列深入解析流程圖] (media/overview/time-series-insights-flowchart.png)
+![時間序列深入解析流程圖](media/overview/time-series-insights-flowchart.png)
 
 時間序列深入解析有四個主要工作：
 
@@ -68,7 +69,7 @@ ms.lasthandoff: 04/20/2018
 4.  在幾分鐘內使用時間序列深入解析總管查看您的資料。
 
 ## <a name="time-series-insights-explorer"></a>時間序列深入解析總管
-此圖可顯示透過總管檢視的時間序列深入解析資料範例：![時間序列深入解析總管] (media/time-series-insights-explorer/explorer4.png)
+此圖可顯示透過總管檢視的時間序列深入解析資料範例：![時間序列深入解析總管](media/time-series-insights-explorer/explorer4.png)
 
 ## <a name="next-steps"></a>後續步驟
  - [在示範環境中探索如何使用時間序列深入解析](./time-series-quickstart.md)

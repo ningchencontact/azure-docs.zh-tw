@@ -4,7 +4,7 @@ description: 了解如何使用記錄資料來取得應用程式的深入解析�
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b8b5095fceaa369ae8b7a426ca04685c2d86109
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057918"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 記錄與稽核
 ## <a name="introduction"></a>簡介
@@ -70,7 +71,7 @@ Azure 會為每項 Azure 服務產生大量記錄。 這些記錄檔會分類為
 |[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Azure Resource Manager 資源上控制層面的事件|   讓您了解訂用帳戶中的資源所執行之作業。| REST API 與 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Azure 診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|關於訂用帳戶中 Azure Resource Manager 作業的經常性資料| 讓您了解資源自行執行的作業| Azure 監視器、[資料流](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[AAD 報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|記錄和報告|使用者登入活動，以及使用者和群組管理相關的系統活動資訊|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[雲端服務與虛擬機器](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows 事件記錄與 Linux Syslog|    在虛擬機器上擷取系統資料和記錄資料，並將該資料傳送到您所選擇的儲存體帳戶。|   使用 [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure 診斷儲存體) 的 Windows 和 Azure 監視器上的 Linux|
+|[雲端服務與虛擬機器](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows 事件記錄與 Linux Syslog| 在虛擬機器上擷取系統資料和記錄資料，並將該資料傳送到您所選擇的儲存體帳戶。|   使用 [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure 診斷儲存體) 的 Windows 和 Azure 監視器上的 Linux|
 |[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|儲存體記錄，並提供儲存體帳戶的計量資料|讓您了解追蹤要求、分析使用趨勢，以及診斷儲存體帳戶的問題。|    REST API 或[用戶端程式庫](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[NSG (網路安全性群組) 流程記錄](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON 格式，並顯示每個規則的輸出和輸入流程|檢視透過網路安全性群組輸入和輸出 IP 流量的相關資訊|[網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|記錄、例外狀況及自訂診斷|    多個平台上的 Web 開發人員所適用的應用程式效能管理 (APM) 服務。| REST API、[Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
@@ -121,7 +122,7 @@ Azure 診斷記錄提供多個組態選項，亦即 Azure 入口網站、使用 
 
 | 服務 | 結構描述與文件 | 資源類型 | 類別 |
 | ------- | ------------- | ------------- | -------- |
-|負載平衡器| [Azure 負載平衡器的記錄檔分析 (預覽)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
+|Load Balancer| [Azure 負載平衡器的記錄檔分析 (預覽)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
 |||Microsoft.Network/loadBalancers| LoadBalancerProbeHealthStatus
 |網路安全性群組|[網路安全性群組 (NSG) 的記錄檔分析](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
 |||Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|
@@ -131,7 +132,7 @@ Azure 診斷記錄提供多個組態選項，亦即 Azure 入口網站、使用 
 |Key Vault|[Azure 金鑰保存庫記錄](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
 |Azure 搜尋服務|[啟用和使用搜尋流量分析](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
 |Data Lake Store|[存取 Azure Data Lake Store 的診斷記錄](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|稽核|
-|資料湖分析|[存取 Azure Data Lake Analytics 的診斷記錄](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|稽核|
+|Data Lake Analytics|[存取 Azure Data Lake Analytics 的診斷記錄](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|稽核|
 |||Microsoft.DataLakeAnalytics/accounts|Requests|
 |||Microsoft.DataLakeStore/accounts|Requests|
 |Logic Apps|[Logic Apps B2B 自訂追蹤結構描述](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows|WorkflowRuntime|

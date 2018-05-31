@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777547"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>監視 Azure 應用程式和資源
 
@@ -69,7 +70,7 @@ Azure 包含多項服務，能在監視空間內個別執行特定的角色或�
 >
 >
 
-### <a name="azure-advisor"></a>Azure 建議程式
+### <a name="azure-advisor"></a>Azure Advisor
 [Azure Advisor](../advisor/advisor-overview.md) 會持續監視您的資源組態和使用量遙測。 接著，它會根據最佳做法，為您提供個人化建議。 依照這些建議操作將可協助您提升支援應用程式之資源的效能、安全性及可用性。
 
 ### <a name="service-health"></a>服務健康情況
