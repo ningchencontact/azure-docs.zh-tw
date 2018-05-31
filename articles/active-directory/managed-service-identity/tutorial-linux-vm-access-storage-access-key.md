@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 6ca43f86943a0dd90369d285c6bb3356ae7e0b5f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: af0ddebc79100cbe0ea55e46b825c35ab8a775b7
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303751"
 ---
-# <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>使用 Linux VM 受控服務識別，透過存取金鑰存取 Azure 儲存體
+# <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>教學課程：使用 Linux VM 受控服務識別，透過存取金鑰存取 Azure 儲存體
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9ff0b53f6c6f10a2e97bd3158f874fa5cfe33bb6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ec1cc42a0c932e47c08493fa632495426abc4c7
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304455"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過標準負載平衡器來平衡可用性區域間的 VM 負載
 
@@ -37,6 +38,8 @@ ms.lasthandoff: 04/28/2018
 > * 檢視作用中的負載平衡器
 
 如需關於搭配使用可用性區域和標準 Load Balancer 的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
+
+如果您想要，您可以使用 [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md) 完成本教學課程。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
@@ -101,7 +104,7 @@ ms.lasthandoff: 04/28/2018
     - 100 作為 [優先順序]
     - myHTTPRule - 負載平衡器規則的名稱。
     - 允許 HTTP - 負載平衡器規則的描述。
-4. 按一下 [SERVICEPRINCIPAL] 。
+4. 按一下 [確定]。
  
  ![建立虛擬網路](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. 重複步驟 2 到 4 來建立另一個名為 myRDPRule 的規則，以允許使用連接埠 3389 的輸入 RDP 連線，其具有下列值：
@@ -122,7 +125,7 @@ ms.lasthandoff: 04/28/2018
     - myVM1 - 作為虛擬機器的名稱。        
     - azureuser - 作為系統管理員使用者名稱。    
     - myResourceGroupLBAZ - 針對 [資源群組]，選取 [使用現有的]，然後選取 myResourceGroupLBAZ。
-2. 按一下 [SERVICEPRINCIPAL] 。
+2. 按一下 [確定]。
 3. 選取 [DS1_V2] 作為虛擬機器的大小，然後按一下 [選取]。
 4. 輸入 VM 設定的下列值：
     - 區域 1 - VM 放置所在的區域。
@@ -141,18 +144,21 @@ ms.lasthandoff: 04/28/2018
 1. 按一下左側功能表中的 [所有資源]，然後從資源清單按一下位於 myResourceGroupLB 資源群組中的 **myVM1**。
 2. 在 [概觀] 頁面上，按一下 [連線] 以透過 RDP 連入 VM。
 3. 以使用者名稱 azureuser 登入 VM。
-4. 在伺服器桌面上，瀏覽至 [Windows 系統管理工具]>[伺服器管理員]。
-5. 在 [伺服器管理員] 快速入門頁面中，按一下 [新增角色及功能]。
-
-   ![新增至後端位址集區 ](./media/load-balancer-standard-public-availability-zones-portal/servermanager.png)    
-
-1. 在 [新增角色及功能精靈] 中，使用下列值：
-    - 在 [選取安裝類型] 頁面中，按一下 [角色型或功能型安裝]。
-    - 在 [選取目的地伺服器] 頁面中，按一下 [myVM1]。
-    - 在 [選取伺服器角色] 頁面中，按一下 [Web 伺服器 (IIS)]。
-    - 依照指示完成精靈的其餘部分。
-2. 關閉虛擬機器的 RDP 工作階段 - myVM1。
-3. 重複步驟 1 到 7，在 VM myVM2 和 myVM3 上安裝 IIS 7。
+4. 在伺服器桌面上，瀏覽至 [Windows 系統管理工具]>[Windows PowerShell]。
+5. 在 PowerShell 視窗中，執行下列命令以安裝 IIS 伺服器、移除預設 iisstart.htm 檔案，然後新增會顯示 VM 名稱的 iisstart.htm 檔案：
+   ```azurepowershell-interactive
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
+   ```
+6. 使用 myVM1 關閉 RDP 工作階段。
+7. 重複步驟 1 到 6，在 myVM2 和 myVM3 上安裝 IIS 和更新的 iisstart.htm 檔案。
 
 ## <a name="create-load-balancer-resources"></a>建立負載平衡器資源
 
@@ -189,7 +195,7 @@ ms.lasthandoff: 04/28/2018
     - 80 - 作為連接埠號碼。
     - 15 - 探查嘗試的 [間隔] 秒數。
     - 2 - 作為 [狀況不良閾值]，或將 VM 視為狀況不良之前，必須達到的連續探查失敗次數。
-4. 按一下 [SERVICEPRINCIPAL] 。
+4. 按一下 [確定]。
 
    ![新增探查](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
@@ -206,7 +212,7 @@ ms.lasthandoff: 04/28/2018
     - 80 - 作為後端連接埠。
     - myBackendPool - 作為後端集區的名稱。
     - myHealthProbe - 作為健康狀態探查的名稱。
-4. 按一下 [SERVICEPRINCIPAL] 。
+4. 按一下 [確定]。
     
     ![新增負載平衡規則](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 
@@ -215,7 +221,7 @@ ms.lasthandoff: 04/28/2018
 
 2. 將公用 IP 位址複製並貼到您瀏覽器的網址列。 IIS Web 伺服器的預設頁面會顯示在瀏覽器上。
 
-      ![IIS Web 伺服器](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+      ![IIS Web 伺服器](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
 若要查看負載平衡器如何將流量分散到整個區域中的 VM，您可以強制重新整理您的網頁瀏覽器。
 

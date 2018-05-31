@@ -1,23 +1,24 @@
 ---
-title: "Azure Service Fabric 的服務遠端處理 | Microsoft Docs"
-description: "Service Fabric 遠端處理可讓用戶端和服務使用遠端程序呼叫與服務進行通訊。"
+title: Azure Service Fabric 的服務遠端處理 | Microsoft Docs
+description: Service Fabric 遠端處理可讓用戶端和服務使用遠端程序呼叫與服務進行通訊。
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 51a9c8bd628ef9e65d04a3a4ddbdc127d84d4b54
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 074c428662abb5c3acf86835f6fedbf3f8791acf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212971"
 ---
 # <a name="service-remoting-with-reliable-services"></a>使用 Reliable Services 的遠端服務
 > [!div class="op_single_selector"]
@@ -101,7 +102,7 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 ServiceProxy 會處理服務分割區 (ServiceProxy 即是為其建立) 的所有容錯移轉列外狀況。 發生容錯移轉例外狀況 (非暫時性例外狀況) 時，ServiceProxy 會重新解析端點，然後以正確的端點再次嘗試呼叫。 容錯移轉例外狀況的重試次數並無限制。
 若是發生 TransientExceptions，ServiceProxy 僅會重試呼叫。
 
-預設的重試參數會由 [OperationRetrySettings] 提供。 (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) 使用者可透過將 OperationRetrySettings 物件傳遞給 ServiceProxyFactory 建構函式來設定這些值。
+預設的重試參數會由 [OperationRetrySettings] 提供。 (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) 使用者可以將 OperationRetrySettings 物件傳遞至 ServiceProxyFactory 建構函式，來設定這些值。
 
 ## <a name="next-steps"></a>後續步驟
 * [Reliable Services 的安全通訊](service-fabric-reliable-services-secure-communication.md)

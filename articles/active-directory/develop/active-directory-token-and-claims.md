@@ -2,41 +2,44 @@
 title: 了解 Azure AD 支援的不同權杖和宣告類型 | Microsoft Docs
 description: 可供了解及評估 Azure Active Directory (AAD) 所簽發之 SAML 2.0 和 JSON Web Token (JWT) 權杖中的宣告的指南。
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/22/2018
-ms.author: hirsin
+ms.date: 05/22/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 627b5bf39c066cd974b70f9db974fcf3fd73b251
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 95ce83a3f1288d1b731aeeb8dcc32e58bcaefe21
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157916"
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 權杖參考
 Azure Active Directory (Azure AD) 會在處理每個驗證流程時發出數種安全性權杖。 本文件說明每種權杖的格式、安全性特性和內容。 
 
 ## <a name="types-of-tokens"></a>權杖的類型
-Azure AD 支援 [OAuth 2.0 授權通訊協定](active-directory-protocols-oauth-code.md)，該通訊協定會使用 access_tokens 和 refresh_tokens。  它也支援透過 [OpenID Connect](active-directory-protocols-openid-connect-code.md) 進行驗證和登入，這引進第三種類型的權杖 - id_token。  每個權杖都是以「持有人權杖」表示。
+Azure AD 支援 [OAuth 2.0 授權通訊協定](active-directory-protocols-oauth-code.md)，該通訊協定會使用 access_tokens 和 refresh_tokens。 它也支援透過 [OpenID Connect](active-directory-protocols-openid-connect-code.md) 進行驗證和登入，這引進第三種類型的權杖 - id_token。 每個權杖都是以「持有人權杖」表示。
 
 持有人權杖是輕巧型的安全性權杖，授權「持有者」存取受保護的資源。 從這個意義上說，「持有者」是可出示權杖的任何一方。 雖然必須向 Azure AD 驗證才能接收持有人權杖，但必須採取步驟來保護權杖，以避免遭非預期人士攔截。 因為持有人權杖沒有內建的機制可防止未經授權的人士使用權杖，必須在安全通道，例如傳輸層安全性 (HTTPS) 來傳輸它們。 如果以純文字傳輸持有人權杖，便可能利用攔截式攻擊來取得權杖，然後取得對受保護的資源未經授權的存取。 儲存或快取持有者權杖供以後使用時，也適用相同的安全性原則。 務必確定您的應用程式以安全的方式傳輸和儲存持有人權杖。 關於持有者權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](http://tools.ietf.org/html/rfc6750)。
 
-許多由 Azure AD 所簽發的權杖都會實作為 JSON Web 權杖或 JWT。  JWT 是一種精簡的 URL 安全方法，可在兩方之間傳輸資訊。  JWT 中包含的資訊也稱為權杖持有人及主體相關資訊的「宣告」或判斷提示。  JWT 中的宣告是為了傳輸而編碼和序列化的 JSON 物件。  因為 Azure AD 所簽發的 JWT 已簽署但未加密，所以您可以輕鬆地檢查 JWT 的內容以便偵錯。  有數個工具可以進行這項操作，例如 [jwt.ms](https://jwt.ms/)。 如需 JWT 的詳細資訊，您可以參考 [JWT 規格](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。
+許多由 Azure AD 所簽發的權杖都會實作為 JSON Web 權杖或 JWT。 JWT 是一種精簡的 URL 安全方法，可在兩方之間傳輸資訊。 JWT 中包含的資訊也稱為權杖持有人及主體相關資訊的「宣告」或判斷提示。 JWT 中的宣告是為了傳輸而編碼和序列化的 JSON 物件。 因為 Azure AD 所簽發的 JWT 已簽署但未加密，所以您可以輕鬆地檢查 JWT 的內容以便偵錯。 有數個工具可以進行這項操作，例如 [jwt.ms](https://jwt.ms/)。 如需 JWT 的詳細資訊，您可以參考 [JWT 規格](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。
 
 ## <a name="idtokens"></a>Id_tokens
-Id_tokens 是您的應用程式使用 [OpenID Connect](active-directory-protocols-openid-connect-code.md) 執行驗證時收到的一種登入安全性權杖形式。  其以 [JWT](#types-of-tokens)表示，而且包含可用於讓使用者登入您的應用程式的宣告。  您可以適時使用 id_token 中的宣告 - 通常用來顯示顯示帳戶資訊或在應用程式中進行存取控制決策。
+Id_tokens 是您的應用程式使用 [OpenID Connect](active-directory-protocols-openid-connect-code.md) 執行驗證時收到的一種登入安全性權杖形式。 其以 [JWT](#types-of-tokens)表示，而且包含可用於讓使用者登入您的應用程式的宣告。 您可以適時使用 id_token 中的宣告 - 通常用來顯示顯示帳戶資訊或在應用程式中進行存取控制決策。
 
-Id_token 已簽署，但這次不加密。  當您的應用程式收到 id_token 時，它必須[驗證簽章](#validating-tokens)以證明權杖的真實性，以及驗證權杖中的幾個宣告來證明其有效性。  應用程式所驗證的宣告會視案例需求而有所不同，但您的應用程式必須在每一種案例中執行一些 [常見的宣告驗證](#validating-tokens) 。
+Id_token 已簽署，但這次不加密。 當您的應用程式收到 id_token 時，它必須[驗證簽章](#validating-tokens)以證明權杖的真實性，以及驗證權杖中的幾個宣告來證明其有效性。 應用程式所驗證的宣告會視案例需求而有所不同，但您的應用程式必須在每一種案例中執行一些 [常見的宣告驗證](#validating-tokens) 。
 
-如需 Id_tokens 宣告以及 id_token 的相關範例，請參閱下一節。  請注意，id_token 中的宣告不依任何特定順序傳回。  此外，新的宣告可以隨時引進 id_token 中 - 您的應用程式不會在引進新的宣告時中斷。  下列清單包含本文撰寫時您的應用程式可確實解譯的宣告。  如有需要，在 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html)中可找到更多詳細資料。
+如需 Id_tokens 宣告以及 id_token 的相關範例，請參閱下一節。 請注意，id_token 中的宣告不依任何特定順序傳回。 此外，新的宣告可以隨時引進 id_token 中 - 您的應用程式不會在引進新的宣告時中斷。 下列清單包含本文撰寫時您的應用程式可確實解譯的宣告。 如有需要，在 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html)中可找到更多詳細資料。
 
 #### <a name="sample-idtoken"></a>範例 id_token
 ```
@@ -58,9 +61,9 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | 驗證時刻 |記錄驗證發生的日期和時間。 <br><br> **範例 SAML 值**： <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |驗證方法 |識別如何驗證權杖的主體。 <br><br> **範例 SAML 值**： <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **範例 JWT 值**：`“amr”: ["pwd"]` |
 | `given_name` |名字 |提供使用者的名字 (如 Azure AD 使用者物件上所設定)。 <br><br> **範例 SAML 值**： <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>`<br>`<AttributeValue>Frank<AttributeValue>` <br><br> **範例 JWT 值**： <br> `"given_name": "Frank"` |
-| `groups` |群組 |提供代表主體群組成員資格的物件識別碼。 這些值都是唯一的 (請參閱「物件識別碼」)，而且可安全地用來管理存取權，例如強制授權以存取資源。 群組宣告中包含的群組會透過應用程式資訊清單的 "groupMembershipClaims"屬性，針對每個應用程式進行設定。 Null 值將會排除所有群組，"SecurityGroup" 值只會包含 Active Directory 安全性群組成員資格，而 "All" 值將會包含安全性群組和 Office 365 通訊群組清單。 <br><br> **注意**： <br> 請參閱下面的 `hasgroups` 宣告，以取得使用 `groups` 宣告搭配隱含授與的詳細資訊。  <br> 對於其他流程，如果使用者所屬的群組數目超過限制 (SAML 為 150，JWT 為 200)，則會將超額宣告新增至指向宣告來源 (包含使用者群組清單的 Graph 端點)。 (in . <br><br> **範例 SAML 值**： <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **範例 JWT 值**： <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
-|`hasgroups` | JWT 隱含流程群組超額指標| 如果有的話，一律為 `true`，表示使用者在至少一個群組中。  如果完整 groups 宣告會將 URI 片段延伸超出 URL 長度限制 (目前為 6 個或更多群組)，則使用於取代隱含授與流程中 JWT 的 `groups` 宣告。  表示用戶端應該使用 Graph 來判斷使用者的群組 (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`)。 |
-| `groups:src1` <br> `http://schemas.microsoft.com/claims/groups.link` | 群組超額指標 | 若為沒有長度限制 (請參閱上面的 `hasgroups`) 但是對權杖而言仍然太大的權杖要求，則會包含使用者的完整 groups 清單連結。  在 JWT 中以分散式宣告形式取代 `groups` 宣告，在 SAML 中則以新宣告形式取代。 <br><br> **範例 SAML 值**： <br> `<Attribute Name=” http://schemas.microsoft.com/claims/groups.link”>`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` <br><br> **範例 JWT 值**： <br> `"groups":"src1` <br> `_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
+| `groups` |群組 |提供代表主體群組成員資格的物件識別碼。 這些值都是唯一的 (請參閱「物件識別碼」)，而且可安全地用來管理存取權，例如強制授權以存取資源。 群組宣告中包含的群組會透過應用程式資訊清單的 "groupMembershipClaims"屬性，針對每個應用程式進行設定。 Null 值將會排除所有群組，"SecurityGroup" 值只會包含 Active Directory 安全性群組成員資格，而 "All" 值將會包含安全性群組和 Office 365 通訊群組清單。 <br><br> **注意**： <br> 請參閱下面的 `hasgroups` 宣告，以取得使用 `groups` 宣告搭配隱含授與的詳細資訊。 <br> 對於其他流程，如果使用者所屬的群組數目超過限制 (SAML 為 150，JWT 為 200)，則會將超額宣告新增至指向宣告來源 (包含使用者群組清單的 Graph 端點)。 (in . <br><br> **範例 SAML 值**： <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **範例 JWT 值**： <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
+|`hasgroups` | JWT 隱含流程群組超額指標| 如果有的話，一律為 `true`，表示使用者在至少一個群組中。 如果完整 groups 宣告會將 URI 片段延伸超出 URL 長度限制 (目前為 6 個或更多群組)，則使用於取代隱含授與流程中 JWT 的 `groups` 宣告。 表示用戶端應該使用 Graph 來判斷使用者的群組 (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`)。 |
+| `groups:src1` <br> `http://schemas.microsoft.com/claims/groups.link` | 群組超額指標 | 若為沒有長度限制 (請參閱上面的 `hasgroups`) 但是對權杖而言仍然太大的權杖要求，則會包含使用者的完整 groups 清單連結。 在 JWT 中以分散式宣告形式取代 `groups` 宣告，在 SAML 中則以新宣告形式取代。 <br><br> **範例 SAML 值**： <br> `<Attribute Name=” http://schemas.microsoft.com/claims/groups.link”>`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` <br><br> **範例 JWT 值**： <br> `"groups":"src1` <br> `_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
 | `idp` |身分識別提供者 |記錄驗證權杖主體的身分識別提供者。 除非使用者帳戶位於與簽發者不同的租用戶中，否則這個值與 Issuer 宣告值相同。 <br><br> **範例 SAML 值**： <br> `<Attribute Name=” http://schemas.microsoft.com/identity/claims/identityprovider”>`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` <br><br> **範例 JWT 值**： <br> `"idp":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `iat` |IssuedAt |儲存權杖簽發的時間。 這通常用來測量權杖有效時間。 <br><br> **範例 SAML 值**： <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **範例 JWT 值**： <br> `"iat": 1390234181` |
 | `iss` |簽發者 |識別負責建構並傳回權杖的 Security Token Service (STS)。 在 Azure AD 傳回的權杖中，簽發者為 sts.windows.net。 簽發者宣告值中的 GUID 是 Azure AD 目錄的租用戶識別碼。 租用戶識別碼是目錄的不可變且可靠的識別碼。 <br><br> **範例 SAML 值**： <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **範例 JWT 值**： <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
@@ -80,30 +83,29 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 如果您的應用程式僅「使用」存取權杖來存取 API，您可以 (應該) 將存取權杖視為完全不透明 - 這些都是您的應用程式可以在 HTTP 要求中傳遞給資源的字串。
 
-當您要求存取權杖時，Azure AD 也會傳回一些有關存取權杖的中繼資料，以供您的應用程式取用。  此資訊包括存取權杖的到期時間以及其有效範圍。  這可讓您的應用程式執行存取權杖的智慧型快取，而不需剖析存取權杖本身。
+當您要求存取權杖時，Azure AD 也會傳回一些有關存取權杖的中繼資料，以供您的應用程式取用。 此資訊包括存取權杖的到期時間以及其有效範圍。 這可讓您的應用程式執行存取權杖的智慧型快取，而不需剖析存取權杖本身。
 
-如果您的應用程式是使用 Azure AD 保護的 API 且在 HTTP 要求中需要存取權杖，則您應該執行所收到權杖的驗證和檢查。 您的應用程式應該先驗證存取權杖，然後再用它來存取資源。 如需有關驗證的詳細資訊，請參閱[驗證權杖](#validating-tokens)。  
-如需有關如何使用 .NET 執行此作業的詳細資訊，請參閱[使用 Azure AD 的持有者權杖來保護 Web API](active-directory-devquickstarts-webapi-dotnet.md)。
+如果您的應用程式是使用 Azure AD 保護的 API 且在 HTTP 要求中需要存取權杖，則您應該執行所收到權杖的驗證和檢查。 您的應用程式應該先驗證存取權杖，然後再用它來存取資源。 如需有關驗證的詳細資訊，請參閱[驗證權杖](#validating-tokens)。 如需有關如何使用 .NET 執行此作業的詳細資訊，請參閱[使用 Azure AD 的持有者權杖來保護 Web API](active-directory-devquickstarts-webapi-dotnet.md)。
 
 ## <a name="refresh-tokens"></a>重新整理權杖
 
-重新整理權杖是安全性權杖，可供您的應用程式用來在 OAuth 2.0 流程中取得新存取權杖。  它可讓您的應用程式代表使用者長期存取資源，而不需使用者互動。
+重新整理權杖是安全性權杖，可供您的應用程式用來在 OAuth 2.0 流程中取得新存取權杖。 它可讓您的應用程式代表使用者長期存取資源，而不需使用者互動。
 
-重新整理權杖屬於多資源權杖。  也就是說，在一個資源的權杖要求期間收到的重新整理權杖可以兌換完全不同資源的存取權杖。 若要這樣做，請在目標資源的要求中設定 `resource` 參數。
+重新整理權杖屬於多資源權杖。 也就是說，在一個資源的權杖要求期間收到的重新整理權杖可以兌換完全不同資源的存取權杖。 若要這樣做，請在目標資源的要求中設定 `resource` 參數。
 
-重新整理權杖對您的應用程式完全不透明。 它們屬於長效權杖，但不得將您的應用程式撰寫成預期重新整理權杖將持續任何一段時間。  重新整理權杖可能會因為各種原因而隨時失效 - 如要了解這些原因，請參閱[權杖撤銷](#token-revocation)。  讓您的應用程式知道重新整理權杖是否有效的唯一方式，就是對 Azure AD 權杖端點提出權杖要求以嘗試兌換。
+重新整理權杖對您的應用程式完全不透明。 它們屬於長效權杖，但不得將您的應用程式撰寫成預期重新整理權杖將持續任何一段時間。 重新整理權杖可能會因為各種原因而隨時失效 - 如要了解這些原因，請參閱[權杖撤銷](#token-revocation)。 讓您的應用程式知道重新整理權杖是否有效的唯一方式，就是對 Azure AD 權杖端點提出權杖要求以嘗試兌換。
 
-當您兌換重新整理權杖做為新的存取權杖時，您會在權杖回應中收到新的重新整理權杖。  您應儲存新簽發的重新整理權杖，並取代您使用於要求中的重新整理權杖。  這將保證您的重新整理權杖盡可能長期保持有效。
+當您兌換重新整理權杖做為新的存取權杖時，您會在權杖回應中收到新的重新整理權杖。 您應儲存新簽發的重新整理權杖，並取代您使用於要求中的重新整理權杖。 這將保證您的重新整理權杖盡可能長期保持有效。
 
 ## <a name="validating-tokens"></a>驗證權杖
 
-若要驗證 id_token 或 access_token，您的應用程式應該驗證權杖的簽章和宣告。 為了驗證存取權杖，您的應用程式也應該驗證簽發者、受眾及簽署權杖。 這些都需要對 OpenID 探索文件中的值進行驗證。 例如，租用戶獨立版的文件位於 [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration)。 Azure AD 中介軟體已內建驗證存取權杖的功能，您可以瀏覽我們的[範例](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples)，以找到您所選擇語言的範例。 如需如何明確地驗證 JWT 權杖的詳細資訊，請參閱[手動 JWT 驗證範例 (manual JWT validation sample)](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)。  
+若要驗證 id_token 或 access_token，您的應用程式應該驗證權杖的簽章和宣告。 為了驗證存取權杖，您的應用程式也應該驗證簽發者、受眾及簽署權杖。 這些都需要對 OpenID 探索文件中的值進行驗證。 例如，租用戶獨立版的文件位於 [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration)。 Azure AD 中介軟體已內建驗證存取權杖的功能，您可以瀏覽我們的[範例](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples)，以找到您所選擇語言的範例。 如需如何明確地驗證 JWT 權杖的詳細資訊，請參閱[手動 JWT 驗證範例 (manual JWT validation sample)](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)。 
 
-我們提供的程式庫和程式碼範例會示範如何輕鬆地處理權杖驗證 - 想要了解基礎程序的使用者可以參閱以下資訊。  另外還有多個協力廠商開放原始碼程式庫可用於 JWT 驗證 - 幾乎每個平台和語言都有至少一個選項。 如需有關 Azure AD 驗證程式庫和程式碼範例的詳細資訊，請參閱 [Azure AD 驗證程式庫](active-directory-authentication-libraries.md)。
+我們提供的程式庫和程式碼範例會示範如何輕鬆地處理權杖驗證 - 想要了解基礎程序的使用者可以參閱以下資訊。 另外還有多個協力廠商開放原始碼程式庫可用於 JWT 驗證 - 幾乎每個平台和語言都有至少一個選項。 如需有關 Azure AD 驗證程式庫和程式碼範例的詳細資訊，請參閱 [Azure AD 驗證程式庫](active-directory-authentication-libraries.md)。
 
 #### <a name="validating-the-signature"></a>驗證簽章
 
-JWT 包含三個區段 (以 `.` 字元分隔)。  第一個區段稱為**標頭**、第二個稱為**主體**，而第三個稱為**簽章**。  簽章區段可用來驗證權杖的真實性，您的應用程式才得以信任。
+JWT 包含三個區段 (以 `.` 字元分隔)。 第一個區段稱為**標頭**、第二個稱為**主體**，而第三個稱為**簽章**。 簽章區段可用來驗證權杖的真實性，您的應用程式才得以信任。
 
 Azure AD 所簽發的權杖是使用業界標準非對稱式加密演算法 (例如 RSA 256) 進行簽署。 JWT 標頭包含用來簽署權杖的金鑰和加密方法相關資訊：
 
@@ -117,7 +119,7 @@ Azure AD 所簽發的權杖是使用業界標準非對稱式加密演算法 (例
 
 `alg` 宣告表示用來簽署權杖的演算法，而 `x5t` 宣告則表示用來簽署權杖的特定公開金鑰。
 
-在任何指定的時間點，Azure AD 可能會使用一組特定公開-私密金鑰組的其中一個金鑰組來簽署 id_token。 Azure AD 會定期替換一組可能的金鑰，所以應將您的應用程式撰寫成自動處理這些金鑰變更。  檢查 Azure AD 所用公開金鑰的更新的合理頻率為每 24 小時。
+在任何指定的時間點，Azure AD 可能會使用一組特定公開-私密金鑰組的其中一個金鑰組來簽署 id_token。 Azure AD 會定期替換一組可能的金鑰，所以應將您的應用程式撰寫成自動處理這些金鑰變更。 檢查 Azure AD 所用公開金鑰的更新的合理頻率為每 24 小時。
 
 您可以使用位於下列位置的 OpenID Connect 中繼資料文件來取得驗證簽章所需的簽署金鑰資料：
 
@@ -130,15 +132,15 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 > 
 > 
 
-此中繼資料文件是 JSON 物件，內含幾項實用的資訊，例如執行 OpenID Connect 驗證所需的各種端點的位置。  
+此中繼資料文件是 JSON 物件，內含幾項實用的資訊，例如執行 OpenID Connect 驗證所需的各種端點的位置。 
 
-此外，還包含 `jwks_uri`，其提供用來簽署權杖的公用金鑰組的位置。  位於 `jwks_uri` 的 JSON 文件包含在該特定時間點使用的所有公開金鑰資訊。  您的應用程式可以使用 JWT 標頭中的 `kid` 宣告選取本文件中已用來簽署特定權杖的公開金鑰。  接著可以使用正確的公開金鑰和指定的演算法來執行簽章驗證。
+此外，還包含 `jwks_uri`，其提供用來簽署權杖的公用金鑰組的位置。 位於 `jwks_uri` 的 JSON 文件包含在該特定時間點使用的所有公開金鑰資訊。 您的應用程式可以使用 JWT 標頭中的 `kid` 宣告選取本文件中已用來簽署特定權杖的公開金鑰。 接著可以使用正確的公開金鑰和指定的演算法來執行簽章驗證。
 
 執行簽章驗證已超出本文件的範圍 - 有許多開放原始碼程式庫可協助您這麼做 (如有必要)。
 
 #### <a name="validating-the-claims"></a>驗證宣告
 
-如果您的應用程式收到權杖 (在使用者登入時收到 id_token，或在 HTTP 要求中收到存取權杖做為持有人權杖)，則也應該對權杖中的宣告執行一些檢查。  包含但不限於：
+如果您的應用程式收到權杖 (在使用者登入時收到 id_token，或在 HTTP 要求中收到存取權杖做為持有人權杖)，則也應該對權杖中的宣告執行一些檢查。 包含但不限於：
 
 * **對象**宣告 - 確認權杖預定要提供給您的應用程式。
 * **生效時間**和**到期時間**宣告 - 確認權杖尚未過期。
@@ -150,20 +152,22 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 
 ## <a name="token-revocation"></a>權杖撤銷
 
-重新整理權杖可能會因為各種原因而隨時失效或撤銷。  這主要可分成兩大類：逾時和撤銷。 
+重新整理權杖可能會因為各種原因而隨時失效或撤銷。 這主要可分成兩大類：逾時和撤銷。 
 * 權杖逾時
   * MaxInactiveTime：如果未在 MaxInactiveTime 所指定的時間內使用重新整理權杖，重新整理權杖將不再有效。 
-  * MaxSessionAge：如果 MaxAgeSessionMultiFactor 或 MaxAgeSessionSingleFactor 設為其預設值 (直到撤銷為止) 以外的值，則在 MaxAgeSession* 中設定的時間經過之後，將必須重新驗證。  
+  * MaxSessionAge：如果 MaxAgeSessionMultiFactor 或 MaxAgeSessionSingleFactor 設為其預設值 (直到撤銷為止) 以外的值，則在 MaxAgeSession* 中設定的時間經過之後，將必須重新驗證。 
   * 範例：
-    * 租用戶的 MaxInactiveTime 為 5 天，而使用者去渡假一週，因此 AAD 已有 7 天未看見來自該使用者的新權杖要求。  下次使用者要求新的權杖時，將會發現其重新整理權杖已被撤銷，且必須重新輸入其認證。 
-    * 某個敏感的應用程式將 MaxAgeSessionSingleFactor 設為 1 天。  如果使用者在星期一登入，到星期二 (經過 25 小時之後)，他們將必須重新驗證。  
+    * 租用戶的 MaxInactiveTime 為 5 天，而使用者去渡假一週，因此 AAD 已有 7 天未看見來自該使用者的新權杖要求。 下次使用者要求新的權杖時，將會發現其重新整理權杖已被撤銷，且必須重新輸入其認證。 
+    * 某個敏感的應用程式將 MaxAgeSessionSingleFactor 設為 1 天。 如果使用者在星期一登入，到星期二 (經過 25 小時之後)，他們將必須重新驗證。 
 * 撤銷
-  * 自發性密碼變更：如果使用者變更其密碼，他們可能必須在某些應用程式重新驗證，端視取得權杖的方式而定。  請參閱下列附註以了解例外狀況。 
-  * 自發性密碼變更：如果系統管理員強制使用者變更其密碼或加以重設，使用者的權杖若是使用其密碼取得的，則會失效。  請參閱下列附註以了解例外狀況。 
-  * 安全性漏洞：發生安全性漏洞 (例如，密碼的內部部署儲存區遭到入侵) 時，管理員可以撤銷目前已發出的所有重新整理權杖。  這會強制所有使用者進行重新驗證。 
+  * 自發性密碼變更：如果使用者變更其密碼，他們可能必須在某些應用程式重新驗證，端視取得權杖的方式而定。 請參閱下列附註以了解例外狀況。 
+  * 自發性密碼變更：如果系統管理員強制使用者變更其密碼或加以重設，使用者的權杖若是使用其密碼取得的，則會失效。 請參閱下列附註以了解例外狀況。 
+  * 安全性漏洞：發生安全性漏洞 (例如，密碼的內部部署儲存區遭到入侵) 時，管理員可以撤銷目前已發出的所有重新整理權杖。 這會強制所有使用者進行重新驗證。 
 
 > [!NOTE]
->如果是使用驗證的非密碼方法 (Windows Hello、驗證器應用程式、臉部或指紋之類的生物識別技術) 取得權杖，則變更使用者的密碼將不會強制使用者進行重新驗證 (但會強制其驗證器應用程式重新驗證)。  這是因為他們選擇的驗證輸入 (例如臉部) 並未變更，因此可以再次使用進行重新驗證。
+>如果是使用驗證的非密碼方法 (Windows Hello、驗證器應用程式、臉部或指紋之類的生物識別技術) 取得權杖，則變更使用者的密碼將不會強制使用者進行重新驗證 (但會強制其驗證器應用程式重新驗證)。 這是因為他們選擇的驗證輸入 (例如臉部) 並未變更，因此可以再次使用進行重新驗證。
+>
+> 機密用戶端不會受到密碼變更撤銷影響。 在密碼變更之前發出重新整理權杖的機密用戶端，能夠繼續使用該重新整理權杖來取得更多的權杖。 
 
 ## <a name="sample-tokens"></a>權杖範例
 

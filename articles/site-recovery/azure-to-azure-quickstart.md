@@ -1,27 +1,30 @@
 ---
-title: 將 Azure VM 複寫到另一個 Azure 區域 (預覽)
+title: 將 Azure VM 複寫到另一個 Azure 區域
 description: 本快速入門提供將一個 Azure 區域中的 Azure VM 複寫到不同區域所需的步驟。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 04/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a317d54b56f72373d99af35b806cb231c2ef962e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: aec0d93cb9358e7654f8ee1a334b7529fbee604a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208833"
 ---
-# <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>將 Azure VM 複寫到另一個 Azure 區域 (預覽)
+# <a name="replicate-an-azure-vm-to-another-azure-region"></a>將 Azure VM 複寫到另一個 Azure 區域
 
 [Azure Site Recovery](site-recovery-overview.md) 服務藉由確保您的商務應用程式可在計劃性與非計劃性中斷期間持續啟動並執行，來提供商務持續性和災害復原 (BCDR) 策略。 Site Recovery 會管理並協調內部部署機器和 Azure 虛擬機器 (VM) 的災害復原，包括複寫、容錯移轉和復原。
 
-本快速入門說明如何將 Azure VM 複寫到不同的 Azure 區域。
+本快速入門說明如何將 Azure VM 複寫到不同的 Azure 區域。 Azure 至 Azure 複寫目前為預覽狀態
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+
+
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
@@ -31,7 +34,7 @@ ms.lasthandoff: 04/16/2018
 
 1. 在 Azure 入口網站中，按一下 [虛擬機器]，然後選取您想要複寫的 VM。
 
-2. 在 [設定] 中，按一下 [災害復原 (預覽)]。
+2. 在 [設定] 中，按一下 [災害復原]。
 3. 在 [設定災害復原] >  [目標區域] 中，選取您要複寫至的目標區域。
 4. 在本快速入門中，接受其他預設設定。
 5. 按一下 [啟用複寫]。 這會開始一項作業來啟用 VM 的複寫。
@@ -59,7 +62,7 @@ ms.lasthandoff: 04/16/2018
 停止複寫，如下所示︰
 
 1. 選取 VM。
-2. 在 [災害復原 (預覽)] 中，按一下 [更多]。
+2. 在 [災害復原] 中，按一下 [更多]。
 3. 按一下 [停用複寫]。
 
    ![停用複寫](media/azure-to-azure-quickstart/disable2-replication.png)

@@ -3,23 +3,25 @@ title: Azure Active Directory 開發人員詞彙 | Microsoft Docs
 description: 常用 Azure Active Directory 開發人員概念與功能的詞彙清單。
 services: active-directory
 documentationcenter: ''
-author: bryanla
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/16/2017
-ms.author: bryanla
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: d32858c89c59ef8240eddca42824374132255fe7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158144"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 開發人員詞彙
 本文包含某些核心 Azure Active Directory (AD) 開發人員概念的定義，以協助您了解 Azure AD 的應用程式開發。
@@ -35,7 +37,7 @@ ms.lasthandoff: 04/28/2018
 如需詳細資訊，請參閱 [Azure AD 權杖參考][AAD-Tokens-Claims]。
 
 ## <a name="application-id-client-id"></a>應用程式識別碼 (用戶端識別碼)
-唯一識別碼 Azure AD 會核發給應用程式註冊，它會識別特定應用程式和相關聯的設定。  此應用程式識別碼 ([用戶端識別碼](https://tools.ietf.org/html/rfc6749#page-15)) 是在執行驗證要求時使用，並且在開發時提供給驗證程式庫。 應用程式識別碼 (用戶端識別碼) 不是密碼。 
+唯一識別碼 Azure AD 會核發給應用程式註冊，它會識別特定應用程式和相關聯的設定。 此應用程式識別碼 ([用戶端識別碼](https://tools.ietf.org/html/rfc6749#page-15)) 是在執行驗證要求時使用，並且在開發時提供給驗證程式庫。 應用程式識別碼 (用戶端識別碼) 不是密碼。 
 
 ## <a name="application-manifest"></a>應用程式資訊清單
 [Azure 入口網站][AZURE-portal]所提供的功能，這會產生以 JSON 表示的應用程式身分識別組態，以做為其相關聯[應用程式][AAD-Graph-App-Entity]實體和 [ServicePrincipal][AAD-Graph-Sp-Entity] 實體的更新機制。 如需詳細資訊，請參閱[了解 Azure Active Directory 應用程式資訊清單][AAD-App-Manifest]。
@@ -85,7 +87,7 @@ ms.lasthandoff: 04/28/2018
 如需詳細資訊，請參閱 [Azure AD 權杖參考][AAD-Tokens-Claims]。
 
 ## <a name="client-application"></a>用戶端應用程式
-如 [OAuth2 授權架構][OAuth2-Role-Def]所定義，這是代表[資源擁有者](#resource-owner)提出受保護資源要求的應用程式。 「用戶端」一詞並不代表任何特定的硬體實作特性 (例如，應用程式執行於伺服器、桌面還是其他裝置)。  
+如 [OAuth2 授權架構][OAuth2-Role-Def]所定義，這是代表[資源擁有者](#resource-owner)提出受保護資源要求的應用程式。 「用戶端」一詞並不代表任何特定的硬體實作特性 (例如，應用程式執行於伺服器、桌面還是其他裝置)。 
 
 用戶端應用程式會向資源擁有者要求[授權](#authorization)，以參與 [OAuth2 授權授與](#authorization-grant)流程，並可代表資源擁有者存取 API/資料。 OAuth2 授權架構會根據用戶端是否能夠維護其認證的機密性，[定義兩種類型的用戶端][OAuth2-Client-Types]：「機密」和「公用」。 應用程式可實作在 Web 伺服器上執行的 [Web 用戶端 (機密)](#web-client)、安裝在裝置上的[原生用戶端 (公用)](#native-client)，或在裝置的瀏覽器中執行的[使用者代理程式型用戶端 (公用)](#user-agent-based-client)。
 
@@ -121,7 +123,7 @@ ms.lasthandoff: 04/28/2018
 ## <a name="resource-server"></a>資源伺服器
 如 [OAuth2 授權架構][OAuth2-Role-Def]所定義，這是裝載受保護資源的伺服器，且能夠接受並回應出示[存取權杖](#access-token)的[用戶端應用程式](#client-application)所提出的受保護資源要求。 它也稱為「受保護的資源伺服器」或「資源應用程式」。
 
-資源伺服器會使用 OAuth 2.0 授權架構公開 API，並透過[範圍](#scopes)和[角色](#roles)強制執行其受保護資源的存取權。 範例包括可存取 Azure AD 租用戶資料的 Azure AD 圖形 API，以及可存取郵件和行事曆等資料的 Office 365 API。 這兩者也可從 [Microsoft 圖形 API][Microsoft-Graph] 進行存取。  
+資源伺服器會使用 OAuth 2.0 授權架構公開 API，並透過[範圍](#scopes)和[角色](#roles)強制執行其受保護資源的存取權。 範例包括可存取 Azure AD 租用戶資料的 Azure AD 圖形 API，以及可存取郵件和行事曆等資料的 Office 365 API。 這兩者也可從 [Microsoft 圖形 API][Microsoft-Graph] 進行存取。 
 
 和用戶端應用程式一樣，資源應用程式的身分識別組態是透過 Azure AD 租用戶中的 [註冊](#application-registration) 程序來建立，可提供應用程式和服務主體物件。 某些由 Microsoft 所提供的 API (例如 Azure AD 圖形 API) 會在佈建期間將所有租用戶中的預先註冊服務主體設為可用。
 
@@ -177,7 +179,7 @@ Azure AD 租用戶會在註冊期間建立/與 Azure 和 Office 365 訂用帳戶
 一種 [用戶端應用程式](#client-application) ，它會在 Web 伺服器上執行所有程式碼，並且能夠藉由在伺服器上安全地儲存其認證，而當作「機密」用戶端運作。 如需詳細資訊，請參閱 [OAuth2 用戶端類型和設定檔][OAuth2-Client-Types]。
 
 ## <a name="next-steps"></a>後續步驟
-[Azure AD 開發人員指南][AAD-Dev-Guide]是適用於所有 Azure AD 開發相關主題的登陸頁面，內容包括[應用程式整合][AAD-How-To-Integrate]的概觀和 [Azure AD 驗證與支援的驗證案例][AAD-Auth-Scenarios]的基本概念。  您也可以在 [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=) 上找到如何快速啟動及執行的程式碼範例和教學課程。
+[Azure AD 開發人員指南][AAD-Dev-Guide]是適用於所有 Azure AD 開發相關主題的登陸頁面，內容包括[應用程式整合][AAD-How-To-Integrate]的概觀和 [Azure AD 驗證與支援的驗證案例][AAD-Auth-Scenarios]的基本概念。 您也可以在 [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=) 上找到如何快速啟動及執行的程式碼範例和教學課程。
 
 請使用下列留言區段提供意見反應，並協助我們改善與設計內容，包括要求新定義或更新現有定義！
 

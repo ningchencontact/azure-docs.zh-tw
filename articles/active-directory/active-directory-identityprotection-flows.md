@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure AD Identity Protection 時的登入體驗 | Microsoft Docs"
-description: "當 Identity Protection 已降低或補救使用者時，或是原則需要 Multi-Factor Authentication 時，請提供使用者經驗的概觀。"
+title: 使用 Azure AD Identity Protection 時的登入體驗 | Microsoft Docs
+description: 當 Identity Protection 已降低或補救使用者時，或是原則需要 Multi-Factor Authentication 時，請提供使用者經驗的概觀。
 services: active-directory
-keywords: "azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則"
-documentationcenter: 
+keywords: azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 558d1e04e352d5f33201bb15cb7a2dd1c18f524f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164198"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>使用 Azure AD Identity Protection 時的登入體驗
 透過 Azure Active Directory Identity Protection，您可以：
@@ -49,10 +50,7 @@ ms.lasthandoff: 01/16/2018
 ## <a name="multi-factor-authentication-registration"></a>Multi-Factor Authentication 註冊
 在遭到入侵的帳戶復原流程和有風險的登入流程中，最佳的使用者體驗皆是使用者可以自行復原。 如果使用者已註冊 Multi-Factor Authentication，他們便有與其帳戶相關聯的電話號碼可用來通過安全性挑戰。 從帳戶入侵復原時，不需要技術服務人員或系統管理員介入。 因此，強烈建議您讓使用者註冊 Multi-Factor Authentication。 
 
-系統管理員可以：
-
-* 設定一個原則，要求使用者設定其帳戶進行其他安全性驗證。 
-* 允許最多略過 Multi-Factor Authentication 註冊 30 天 (如果他們想給予使用者註冊前的寬限期)。
+系統管理員可以設定一個原則，要求使用者設定其帳戶進行其他安全性驗證。 此原則最多可讓使用者略過多重要素驗證註冊 14 天。 無法設定 14 天的寬限期。
 
 **Multi-Factor Authentication 註冊具有三個步驟：**
 

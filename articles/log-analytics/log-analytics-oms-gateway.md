@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 207b7ab0968f775dba99c2f48c1961d74b4f11c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b3055e6b22e3f391c0bc3f321cd8117d55a95cf5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271644"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>在無網際網路存取下使用 OMS 閘道連線電腦
 本文件說明如何在直接連線或 Operations Manager 監視的電腦沒有網際網路存取時，設定使用 OMS 閘道與 Azure 自動化和 Log Analytics 的通訊。  OMS 閘道是使用 HTTP CONNECT 命令支援 HTTP 通道的 HTTP 正向 Proxy，可以代表這些電腦收集資料並傳送給 Azure 自動化和 Log Analytics 服務。  
@@ -36,7 +37,7 @@ OMS 閘道支援︰
 
 若要為透過閘道與 Log Analytics 通訊的直接連線群組或 Operations Management 群組提供高可用性，您可以使用網路負載平衡來將流量重新導向，並將流量分散到多個閘道伺服器。  如果某個閘道伺服器故障，系統就會將流量重新導向到其他可用節點。  
 
-建議您將 OMS 代理程式安裝在執行 OMS 閘道軟體的電腦上，以監視 OMS 閘道及分析效能或事件資料。 此外，該代理程式也可協助 OMS 閘道識別其需要通訊的服務端點。
+執行 OMS 閘道的電腦上需要有 OMS 代理程式，才能識別其需要與之通訊的服務端點，並監視 OMS 閘道以分析其效能或事件資料。
 
 每個代理程式必須具備對其閘道的網路連線，代理程式才能自動將資料傳輸到閘道，或從閘道傳輸資料。 不建議您將閘道安裝在網域控制站上。
 
@@ -56,6 +57,7 @@ OMS 閘道支援︰
 * Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 及 Windows Server 2008
 * .Net Framework 4.5
 * 至少為 4 核心處理器和 8 GB 記憶體 
+* OMS Agent for Windows 
 
 ### <a name="language-availability"></a>提供的語言
 
@@ -130,20 +132,18 @@ OMS 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不支援安�
 
 若要了解如何設計和部署 Windows Server 2016 網路負載平衡叢集，請參閱[網路負載平衡](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing)。  下列步驟說明如何設定 Microsoft 網路負載平衡叢集。  
 
-1.  使用系統管理帳戶登入屬於 NLB 叢集成員的 Windows 伺服器。  
-2.  在 [伺服器管理員] 中開啟網路負載平衡管理員，然後依序按一下 [工具] 和 [網路負載平衡管理員]。
+1. 使用系統管理帳戶登入屬於 NLB 叢集成員的 Windows 伺服器。  
+2. 在 [伺服器管理員] 中開啟網路負載平衡管理員，然後依序按一下 [工具] 和 [網路負載平衡管理員]。
 3. 若要連線已安裝 Microsoft Monitoring Agent 的 OMS 閘道伺服器，請用滑鼠右鍵按一下叢集的 IP 位址，然後按一下 [新增主機到叢集]。<br><br> ![網路負載平衡管理員 – 新增主機到叢集](./media/log-analytics-oms-gateway/nlb02.png)<br> 
 4. 輸入您要連線之閘道伺服器的 IP 位址。<br><br> ![網路負載平衡管理員 – 新增主機到叢集：連線](./media/log-analytics-oms-gateway/nlb03.png) 
     
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>設定 OMS 代理程式和 Operations Manager 管理群組
 下一節包含的步驟會說明如何為直接連線的 OMS 代理程式、Operations Manager 管理群組或 Azure 自動化混合式 Runbook 背景工作設定 OMS 閘道以與 Azure 自動化或 Log Analytics 通訊。  
 
-若要了解如何在直接連線到 Log Analytics 的 Windows 電腦上安裝 OMS 代理程式的相關需求和步驟，請參閱[將 Windows 電腦連線到 Log Analytics](log-analytics-windows-agents.md)，若是 Linux 電腦，則請參閱[將 Linux 電腦連線到 Log Analytics](log-analytics-quick-collect-linux-computer.md)。  如需自動化混合式 Runbook 背景工作角色 的相關資訊，請參閱[部署混合式 Runbook 背景工作角色](../automation/automation-hybrid-runbook-worker.md)。
-
-### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>設定 OMS 代理程式和 Operations Manager 以將 OMS 閘道作為 Proxy 伺服器
-
 ### <a name="configure-standalone-oms-agent"></a>設定獨立的 OMS 代理程式
-請參閱[使用 Microsoft Monitoring Agent 設定 Proxy 和防火牆設定](log-analytics-proxy-firewall.md)，以了解設定代理程式來使用 Proxy 伺服器 (此案例為閘道) 的相關資訊。  如果您已在網路負載平衡器後方部署了多個閘道伺服器，OMS 代理程式 Proxy 組態會是 NLB 的虛擬 IP 位址︰<br><br> ![Microsoft Monitoring Agent 內容 – Proxy 設定](./media/log-analytics-oms-gateway/nlb04.png)
+若要了解如何在直接連線到 Log Analytics 的 Windows 電腦上安裝 OMS 代理程式的相關需求和步驟，請參閱[將 Windows 電腦連線到 Log Analytics](log-analytics-windows-agents.md)，若是 Linux 電腦，則請參閱[將 Linux 電腦連線到 Log Analytics](log-analytics-quick-collect-linux-computer.md)。 您不需在設定代理程式時指定 Proxy 伺服器，而是以 OMS 閘道伺服器的 IP 位址及其連接埠號碼取代該值。  如果您已在網路負載平衡器後方部署了多個閘道伺服器，OMS 代理程式 Proxy 組態會是 NLB 的虛擬 IP 位址。  
+
+如需自動化混合式 Runbook 背景工作角色 的相關資訊，請參閱[部署混合式 Runbook 背景工作角色](../automation/automation-hybrid-runbook-worker.md)。
 
 ### <a name="configure-operations-manager---all-agents-use-the-same-proxy-server"></a>設定 Operations Manager - 所有代理程式使用相同的 Proxy 伺服器
 您可以設定 Operations Manager 來新增閘道伺服器。  即使設定是空的，Operations Manager Proxy 組態仍會自動套用到所有向 Operations Manager 報告的代理程式。  
@@ -181,7 +181,7 @@ OMS 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不支援安�
 
 1. 開啟 Operations Manager 主控台，然後選取 [撰寫] 工作區。  
 2. 在 [撰寫] 工作區中選取 [規則]，然後按一下 Operations Manager 工具列上的 [範圍] 按鈕。 如果此按鈕無法使用，請進行檢查以確定您在 [監視] 窗格中選取的是物件，而非資料夾。 [範圍管理組件物件] 對話方塊會顯示一般會作為目標之類別、群組或物件的清單。 
-3. 在 [尋找] 欄位中輸入**健康狀態服務**，然後從清單中加以選取。  按一下 [SERVICEPRINCIPAL] 。  
+3. 在 [尋找] 欄位中輸入**健康狀態服務**，然後從清單中加以選取。  按一下 [確定]。  
 4. 搜尋規則 [Advisor Proxy 設定規則]，在 Operations 主控台工具列中按一下 [覆寫]，然後指向 [覆寫規則\針對下列類別的特定物件︰健康狀態服務]，並從清單中選取特定物件。  (選擇性) 您可以建立自訂群組，在其中包含您想要套用此覆寫之伺服器的健康狀態服務物件，然後對該群組套用覆寫。
 5. 在 [覆寫屬性] 對話方塊中，按一下以勾選 [WebProxyAddress] 參數旁的 [覆寫] 資料行。  在 [覆寫值] 欄位中，輸入 OMS 閘道伺服器的 URL，並確保其開頭有 `http://` 前置詞。  
 

@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 001488a8c7e22db595cd9f929bc0f3d631da0715
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207201"
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>快速入門：在 Azure 中建立 .NET Service Fabric 應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -109,6 +110,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
     - 最後，將後端服務的回應傳回給用戶端 **(3)**。
 
 4. 按 **F5** 繼續
+    - 如果瀏覽器出現提示，請將偵錯模式的讀取和執行權限授與 ServiceFabricAllowedUsers 群組。
     - 您現在位於後端服務的中斷點。
     
     ![新增投票後端服務](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
@@ -175,13 +177,15 @@ Thumbprint                                Subject
 ## <a name="scale-applications-and-services-in-a-cluster"></a>調整叢集中的應用程式和服務
 您可以在整個叢集內輕鬆地調整 Service Fabric 服務，以符合服務上的負載變更。 您可以藉由變更叢集中執行的執行個體數目來調整服務。 您有多種方法來調整您的服務，您可以使用 PowerShell 或 Service Fabric CLI (sfctl) 中的指令碼或命令。 在此範例中，請使用 Service Fabric Explorer。
 
-Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可從瀏覽器瀏覽至叢集 HTTP 管理連接埠 (19080) 來存取，例如 `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`。 
+Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可從瀏覽器瀏覽至叢集 HTTP 管理連接埠 (19080) 來存取，例如 `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`。 
 
-您可能會收到位置不受信任的瀏覽器警告。 這是因為憑證是自我簽署的憑證。 您可以選擇忽略警告並繼續進行。 當瀏覽器出現提示時，選取已安裝的憑證來進行連線。 
+您可能會收到位置不受信任的瀏覽器警告。 這是因為憑證是自我簽署的憑證。 您可以選擇忽略警告並繼續進行。
+1. 當瀏覽器出現提示時，選取已安裝的憑證來進行連線。 您從清單中選取的合作對象叢集憑證必須符合您嘗試存取的合作對象叢集。 例如，win243uja6w62r.westus.cloudapp.azure.com。
+2. 如果瀏覽器出現提示，針對此工作階段授與 CryptoAPI 私密金鑰的存取權。
 
 若要調整 Web 前端服務，請執行下列步驟：
 
-1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`。 
+1. 在您的叢集中開啟 Service Fabric Explorer，例如 `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`。 
 2. 在樹狀檢視中，依序展開 [應用程式]->**VotingType**->**fabric:/Voting**。 按一下樹狀檢視中 **fabric:/Voting/VotingWeb** 節點旁的省略符號 (三個點)，然後選擇 [調整服務]。
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
