@@ -1,26 +1,24 @@
 ---
 title: LDAP 驗證和 Azure MFA Server | Microsoft Docs
-description: 此 Azure Multi-Factor Authentication 頁面協助您部署 LDAP 驗證與 Azure Multi-Factor Authentication Server。
+description: 部署 LDAP 驗證與 Azure Multi-Factor Authentication Server。
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: e1a68568-53d1-4365-9e41-50925ad00869
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
-ms.openlocfilehash: 7a66a10dc8d7339577e2e51fc12e0f802eaa9316
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: 2fca59b9b486012367b3d996e0ec76044f48f690
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866445"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP 驗證和 Azure Multi-Factor Authentication Server
+
 根據預設，Azure Multi-Factor Authentication Server 會設定為從 Active Directory 匯入或同步處理使用者。 不過，它可以設定為繫結至不同 LDAP 目錄 (例如 ADAM 目錄) 或特定的 Active Directory 網域控制站。 在透過 LDAP 來連線到目錄時，Azure Multi-Factor Authentication Server 可作為 LDAP Proxy 來執行驗證。 它也支援使用 LDAP 繫結做為 RADIUS 目標、使用 IIS 驗證預先驗證使用者，或做為 Azure MFA 使用者入口網站中的主要驗證。
 
 若要使用 Azure Multi-Factor Authentication 作為 LDAP Proxy，請在 LDAP 用戶端 (例如 VPN 應用裝置、應用程式) 和 LDAP 目錄伺服器之間插入 Azure Multi-Factor Authentication Server。 Azure Multi-Factor Authentication Server 必須設定為能夠與用戶端伺服器和 LDAP 目錄進行通訊。 在此組態中，Azure Multi-Factor Authentication Server 接受來自用戶端伺服器和應用程式的 LDAP 要求，然後轉送至目標 LDAP 目錄伺服器來驗證主要認證。 如果 LDAP 目錄認為主要認證有效，Azure Multi-Factor Authentication 會執行第二步身分識別驗證，然後將回應傳回給 LDAP 用戶端。 只有在 LDAP 伺服器驗證和第二步驗證皆成功時，整個驗證才會成功。

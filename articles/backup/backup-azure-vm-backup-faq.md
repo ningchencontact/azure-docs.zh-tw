@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 785ba078669886cf16041752bd7af5a957899d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205766"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM 備份服務的相關問題
 本文包含常見問題的解答，可協助您快速了解 Azure VM 備份元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -36,7 +37,7 @@ ms.lasthandoff: 04/19/2018
   * 尚未保護 - 移至 VM 刀鋒視窗，並從 [設定] 功能表檢查備份狀態，即可驗證 VM 的備份狀態。 進一步了解如何[檢查 VM 的備份狀態](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
   * 屬於與 VM 相同的區域
 
-## <a name="backup"></a>Backup 
+## <a name="backup"></a>備份
 ### <a name="will-on-demand-backup-job-follow-same-retention-schedule-as-scheduled-backups"></a>隨選備份作業是否會遵循與排定備份相同的保留排程？
 編號 您應該指定隨選備份作業的保留範圍。 根據預設，若從入口網站觸發，會保留 30 天。 
 
@@ -54,6 +55,9 @@ ms.lasthandoff: 04/19/2018
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>我已在已備份的受控磁碟 VM 上啟用資源群組鎖定。 我的備份是否會繼續運作？
 如果使用者鎖定資源群組，備份服務就無法刪除較舊的還原點。 原因是這個新的備份因後端最多只能有 18 個還原點而開始失敗。 如果您的備份在 RG 鎖定之後，因為內部錯誤而發生失敗，請遵循下列[步驟來移除還原點集合](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)。
+
+### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>備份原則是否會將日光節約時間 (DST) 列入考量？
+編號 請留意本機電腦上顯示的日期和時間是您的當地時間，加上目前的日光節約時間偏差。 因此，排程備份設定的時間可能會因為 DST 而與您的當地時間不同。
 
 ## <a name="restore"></a>Restore
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>如何在還原磁碟與完整 VM 還原之間做決定？
