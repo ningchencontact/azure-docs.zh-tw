@@ -15,14 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: 4d5743703f3a1d98b720bd92a30c91549bbf89c0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 21274a71042c5acf38711d29a5062e9f68b6a6a0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196792"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB 防火牆支援
 為了保護 Azure Cosmos DB 資料庫帳戶中所儲存的資料，Azure Cosmos DB 已支援利用強式雜湊式訊息驗證碼 (HMAC) 的密碼型[授權模型](https://msdn.microsoft.com/library/azure/dn783368.aspx)。 現在，除了密碼型授權模型之外，Azure Cosmos DB 還支援使用原則驅動的 IP 型存取控制來進行輸入防火牆支援。 此模型與傳統資料庫系統的防火牆規則相類似，且可為 Azure Cosmos DB 資料庫帳戶提供額外的安全性層級。 您現在可以使用這個模型，設定只能從一組核准的電腦和 (或) 雲端服務存取 Azure Cosmos DB 資料庫帳戶。 透過這些核准的電腦和服務組合來存取 Azure Cosmos DB 資源，仍然需要呼叫者呈現有效的授權權杖。
+
+> [!NOTE]
+> 防火牆支援目前適用於 Azure Cosmos DB SQL API 和 Mongo API 帳戶。 為其他 API 和 Azure 德國或 Azure Government 等主權雲端設定防火牆的功能即將推出。 如果您打算針對已設定現有 IP 防火牆的 Azure Cosmos DB 帳戶設定服務端點 ACL，請注意防火牆組態、移除 IP 防火牆，然後設定服務端點 ACL。 服務端點設定好之後，您可以重新啟用 IP 防火牆 (如有需要)。
 
 ## <a name="ip-access-control-overview"></a>IP 存取控制概觀
 只要要求伴隨有效的授權權杖，預設就可以從公用網際網路存取 Azure Cosmos DB 資料庫帳戶。 若要設定 IP 原則型存取控制，使用者必須以 CIDR 形式提供這組 IP 位址或 IP 位址範圍，以作為指定資料庫帳戶的允許用戶端 IP 清單。 套用這個組態之後，伺服器將會封鎖源自此允許清單外部之電腦的所有要求。  下圖說明 IP 型存取控制的連線處理流程：

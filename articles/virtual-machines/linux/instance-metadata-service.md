@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 8da7573d8790bae8c54d2055fd355372625eccf7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e57470e108faf68cecca703b2200acf357d2f721
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057898"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -36,7 +37,7 @@ Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https:
 
 區域                                        | 可用性？                                 | 支援的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
-[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出   | 2017-04-02, 2017-08-01, 2017-12-01
+[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出   | 2017-04-02、2017-08-01、2017-12-01、2018-02-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02、2017-08-01
 [Azure China](https://www.azure.cn/)                                                           | 正式推出 | 2017-04-02、2017-08-01
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02、2017-08-01
@@ -307,6 +308,7 @@ subnet/prefix | 子網路首碼，範例 24 | 2017-04-02
 ipv6/ipAddress | VM 的本機 IPv6 位址 | 2017-04-02 
 macAddress | VM mac 位址 | 2017-04-02 
 scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-08-01
+身分識別 | (預覽) 受控服務識別。 請參閱[取得存取權杖](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01 
 
 ## <a name="example-scenarios-for-usage"></a>使用方式的範例案例  
 
@@ -391,6 +393,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
+Puppet | https://github.com/keirans/azuremetadata
     
 
 ## <a name="faq"></a>常見問題集

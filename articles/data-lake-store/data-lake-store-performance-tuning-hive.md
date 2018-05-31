@@ -10,16 +10,14 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 43637ee76c1840d9f4d5fd85aca0050f61523e43
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c46eb1b2da62d70337e60066ed0706c3a4fdedcf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168906"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198964"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>HDInsight 和 Azure Data Lake Store 上的 Hive 效能微調方針
 
@@ -47,9 +45,9 @@ ms.locfileid: "32168906"
 
 **hive.tez.container.size** - 容器大小會決定每個工作可以使用多少記憶體。  這是用來控制 Hive 中之並行能力的主要輸入。  
 
-**tez.grouping.min-size** – 此參數可讓您設定每個對應器的大小下限。  如果 Tez 選擇的對應器數目小於此參數的值，Tez 會使用此處設定的值。  
+**tez.grouping.min-size** – 此參數可讓您設定每個對應器的大小下限。  如果 Tez 選擇的對應器數目小於此參數的值，Tez 會使用此處設定的值。
 
-**tez.grouping.max-size** – 此參數可讓您設定每個對應器的大小上限。  如果 Tez 選擇的對應器數目大於此參數的值，Tez 會使用此處設定的值。  
+**tez.grouping.max-size** – 此參數可讓您設定每個對應器的大小上限。  如果 Tez 選擇的對應器數目大於此參數的值，Tez 會使用此處設定的值。
 
 **hive.exec.reducer.bytes.per.reducer** – 此參數會設定每個歸納器的大小。  根據預設，每個歸納器為 256 MB。  
 
@@ -76,9 +74,10 @@ I/O 密集工作負載可以透過減少 Tez 容器大小，而從更符合平�
     # of YARN containers = 768GB / 3072MB = 256
 
 ## <a name="limitations"></a>限制
+
 **ADLS 節流** 
 
-如果您達到 ADLS 所提供的頻寬限制，您會開始看到工作失敗。 透過觀察工作記錄檔中的節流錯誤即可加以識別。  您可以藉由增加 Tez 容器大小來減少平行處理原則。  如果您的作業需要更多並行能力，請與我們連絡。   
+如果您達到 ADLS 所提供的頻寬限制，您會開始看到工作失敗。 透過觀察工作記錄檔中的節流錯誤即可加以識別。  您可以藉由增加 Tez 容器大小來減少平行處理原則。  如果您的作業需要更多並行能力，請與我們連絡。
 
 若要檢查您是否遭到節流，您必須在用戶端啟用偵錯記錄。 做法如下：
 

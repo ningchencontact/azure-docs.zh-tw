@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure
-ms.date: 04/24/2018
+ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 867a1c55c0f96b17f77049d7f24d47f41a90d9f9
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 0f10384e7e21d65b3a16869a10f8294b9643c74c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210193"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>使用 Azure PowerShell 模組建立和管理 VPN 閘道
 
@@ -35,8 +36,9 @@ Azure VPN 閘道提供客戶組織內部與 Azure 之間的跨單位連線。 �
 
 ![VNet 和 VPN 閘道](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
+### <a name="azure-cloud-shell-and-azure-powershell"></a>Azure Cloud Shell 和 Azure PowerShell
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [working with cloudshell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
 如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，必須使用 Azure PowerShell 模組 5.3 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。 
 

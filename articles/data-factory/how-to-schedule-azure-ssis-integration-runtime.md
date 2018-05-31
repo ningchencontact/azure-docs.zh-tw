@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f7806e1155a0129d67f8848b9ba8c4d07cb126d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dfb54aeeff1b1f1640609be708e1b9d767a18c3a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770924"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360320"
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>如何排程 Azure SSIS 整合執行階段的啟動和停止 
 執行 Azure SSIS (SQL Server Integration Services) 整合執行階段 (IR) 會產生相關費用。 因此，您只應在需要於 Azure 中執行 SSIS 套件時才執行 IR，而在不需要時即應加以停止。 您可以使用 Data Factory UI 或 Azure PowerShell，[以手動方式啟動或停止 Azure SSIS IR](manage-azure-ssis-integration-runtime.md)。 本文說明如何使用 Azure 自動化及 Azure Data Factory 來排程 Azure SSIS 整合執行階段 (IR) 的啟動和停止。 以下是本文說明的概要步驟：
@@ -71,9 +71,6 @@ ms.locfileid: "33770924"
 ### <a name="import-data-factory-modules"></a>匯入資料處理站模組
 
 1. 在左側功能表的 [共用資源] 區段中選取 [模組]，然後確認您的模組清單中是否有 **AzureRM.Profile** 和 **AzureRM.DataFactoryV2**。
-
-    > [!IMPORTANT]
-    > 在現階段，您只能使用 **AzureRM.DataFactoryV2 0.5.2** 和 **AzureRM.Profile 4.5.0** 模組。
 
     ![驗證必要的模組](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 

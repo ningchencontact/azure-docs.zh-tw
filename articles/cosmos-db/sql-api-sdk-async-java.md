@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/18/2018
 ms.author: sngun
-ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9dae401bc007b78d8ee3c6993735650e3b26b9d1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359521"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
@@ -55,6 +56,18 @@ SQL API Async Java SDK 與 SQL API Java SDK 的不同之處在於會提供非同
 
 ## <a name="release-notes"></a>版本資訊
 
+### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
+* 新增唯一索引原則的支援。
+* 新增摘要選項中的回應接續權杖大小限制支援。
+* 新增跨資料分割查詢中的分割區分割支援。
+* 修正 Json 時間戳記序列化的錯誤 (bug) ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32))。
+* 修正 Json 列舉序列化的錯誤 (bug)。
+* 修正管理 2 MB 大小的文件時，所出現的錯誤 (bug) ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33))。
+* 因為錯誤 (bug) 而將 com.fasterxml.jackson.core:jackson-databind 相依性升級為 2.9.5 ([jackson-databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
+* 因為錯誤 (bug) 而將 rxjava-extras 上的相依性升級為 0.8.0.17 ([rxjava-extras: github #30](https://github.com/davidmoten/rxjava-extras/issues/30))。
+* 將 POM 檔案中的中繼資料描述更新為與其餘文件一起內嵌。
+* 語法改進 ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41))、([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40))。
+
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * 已在查詢中新增背部壓力支援。
 * 已在查詢中新增分割區索引鍵範圍識別碼的支援。
@@ -79,6 +92,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.0.2](#1.0.2) |2018 年 5 月 18 日|--- |
 | [1.0.1](#1.0.1) |2018 年 4 月 20 日|--- |
 | [1.0.0](#1.0.0) |2018 年 2 月 27 日|--- |
 

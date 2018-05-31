@@ -1,11 +1,11 @@
 ---
-title: "新增 Azure AD 資源庫應用程式時遇到問題 | Microsoft Docs"
-description: "了解新增 Azure AD 資源庫應用程式時的常見問題及如何解決"
+title: 新增 Azure AD 資源庫應用程式時遇到問題 | Microsoft Docs
+description: 了解新增 Azure AD 資源庫應用程式時的常見問題及如何解決
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 79713cd343e1b876cd7a1b6653bbe00b43272a55
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5cb43976c17bfd46d1f16f0bdaff1c164bdc0fb6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053754"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>新增 Azure AD 資源庫應用程式時遇到問題
 
@@ -25,15 +26,15 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>按一下 [新增] 按鈕，但應用程式經過佷久才出現
 
-在某些情況下，將應用程式新增至目錄後，可能需要 1-2 分鐘 (有時更久)，應用程式才會出現。 雖然這不是正常預期的表現，您還是可以按一下 [Azure 入口網站](https://portal.azure.com/)右上角的 **通知** 圖示 (鐘)，尋找標示為 **[建立應用程式]** 的 **進行中** 或 **已完成** 通知，看到正在新增應用程式。
+在某些情況下，將應用程式新增至目錄後，可能需要 1-2 分鐘 (有時更久)，應用程式才會出現。 雖然這不是正常預期的表現，您還是可以按一下 [Azure 入口網站](https://portal.azure.com/)右上角的 [通知] 圖示 (鐘)，尋找標示為 [建立應用程式] 的 [進行中] 或 [已完成] 通知，看到正在新增應用程式。
 
-如果一直都沒有新增的應用程式，或您按一下 [新增] 按鈕時發生錯誤，您會看到**錯誤**狀態的**通知**。 如果您想要取得此錯誤的詳細資訊以進一步了解，或分享給支援工程師，您可以依照[如何查看入口網站通知的詳細資訊](#how-to-see-the-details-of-a-portal-notification)一節的步驟，查看此錯誤的詳細資訊。
+如果一直都沒有新增的應用程式，或您按一下 **[新增]** 按鈕時發生錯誤，您會看到**錯誤**狀態的**通知**。 如果您想要取得更多關於此錯誤的詳細資料以進一步了解，或分享給支援工程師，您可以依照[如何查看入口網站通知的詳細資訊](#how-to-see-the-details-of-a-portal-notification)一節中的步驟，來查看此錯誤的詳細資訊。
 
 ## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>我按一下 [新增] 按鈕，但應用程式沒有出現
 
-有時由於暫時性問題、網路問題或錯誤，新增應用程式會失敗。 當您按一下 Azure 入口網站右上方的 [通知] 圖示 (鐘)，然後在 [建立應用程式] 通知旁看到紅色 (!) 圖示時，就表示發生這種情況。 這表示建立應用程式時發生錯誤。
+有時由於暫時性問題、網路問題或錯誤，新增應用程式會失敗。 當您按一下 Azure 入口網站右上方的**通知**圖示 (鐘)，然後在 [建立應用程式] 通知旁看到紅色 (!) 圖示時，就表示發生這種情況。 這表示建立應用程式時發生錯誤。
 
-如果您按一下 [新增] 按鈕時發生錯誤，您會看到**錯誤**狀態的**通知**。 如果您想要取得此錯誤的詳細資訊以進一步了解，或分享給支援工程師，您可以依照[如何查看入口網站通知的詳細資訊](#how-to-see-the-details-of-a-portal-notification)一節的步驟，查看此錯誤的詳細資訊。
+如果您按一下 [新增] 按鈕時發生錯誤，您會看到**錯誤**狀態的**通知**。 如果您想要取得更多關於此錯誤的詳細資料以進一步了解，或分享給支援工程師，您可以依照[如何查看入口網站通知的詳細資訊](#how-to-see-the-details-of-a-portal-notification)一節中的步驟，來查看此錯誤的詳細資訊。
 
  ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>我在新增應用程式之後不知道如何設定
 
@@ -54,9 +55,7 @@ ms.lasthandoff: 12/11/2017
     >
     >
 
-3.  這會開啟 [通知詳細資料] 刀鋒視窗。
-
-4.  請自行利用這項資訊來了解更多問題的詳細資料。
+4.  請使用 [通知詳細資料] 中的資訊來了解更多關於此問題的詳細資料。
 
 5.  如果您仍然需要協助，您也可以將這項資訊分享給支援工程師或產品群組，以取得協助來解決您的問題。
 
@@ -68,7 +67,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="notification-details-explained"></a>說明通知詳細資料
 
-以下詳細說明每個通知項目的意義，並提供個別的範例。
+如需更多關於通知的詳細資訊，請參閱下列說明。
 
 ### <a name="essential-notification-items"></a>必要通知項目
 
@@ -80,11 +79,11 @@ ms.lasthandoff: 12/11/2017
 
     -   範例 - **輸入的內部 URL 正由另一個應用程式使用中**
 
--   **通知識別碼** - 通知的唯一識別碼
+-   **通知識別碼** – 通知的唯一識別碼
 
     -   範例 - **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **用戶端要求識別碼** - 瀏覽器所產生的特定要求識別碼
+-   **用戶端要求識別碼** – 瀏覽器所產生的特定要求識別碼
 
     -   範例 - **302fd775-3329-4670-a9f3-bea37004f0bc**
 
@@ -92,7 +91,7 @@ ms.lasthandoff: 12/11/2017
 
     -   範例 - **2017-03-23T19:50:43.7583681Z**
 
--   **內部交易識別碼** - 可用來在系統中查閱錯誤的內部識別碼
+-   **內部交易識別碼** – 可用來在系統中查閱錯誤的內部識別碼
 
     -   範例 - **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
@@ -100,11 +99,11 @@ ms.lasthandoff: 12/11/2017
 
     -   範例 - **tperkins@f128.info**
 
--   **租用戶識別碼** - 作業執行使用者所屬之租用戶的唯一識別碼
+-   **租用戶識別碼** – 作業執行使用者所屬之租用戶的唯一識別碼
 
     -   範例 - **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **使用者物件識別碼** - 執行作業之使用者的唯一識別碼
+-   **使用者物件識別碼** – 執行作業之使用者的唯一識別碼
 
     -   範例 - **17f84be4-51f8-483a-b533-383791227a99**
 
@@ -118,17 +117,18 @@ ms.lasthandoff: 12/11/2017
 
     -   範例 – **失敗**
 
--   **物件識別碼** – **(可以是空白)** 執行作業所針對的物件識別碼
+-   **物件識別碼** – **(可以是空白)** 據以執行作業的物件識別碼
 
     -   範例 - **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
 -   **詳細資料** - 作業所產生之結果的詳細描述
 
-    -   範例 - **內部 url 'http://bing.com/' 無效，因為已在使用中**
+    -   範例 – **內部 url 'http://bing.com/' 無效，因為已在使用中**
 
--   **複製錯誤** - 按一下 [複製錯誤] 文字方塊右邊的**複製圖示**，複製所有通知詳細資料來分享給支援工程師或產品群組工程師
+-   **複製錯誤** – 按一下 [複製錯誤] 文字方塊右邊的**複製圖示**，以複製所有通知詳細資料來分享給支援工程師或產品群組 
+-   工程師
 
     -   範例 ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>後續步驟
-[使用 Azure Active Directory 管理應用程式](active-directory-enable-sso-scenario.md)
+[使用 Azure Active Directory 管理應用程式](manage-apps/what-is-application-management.md)

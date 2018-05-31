@@ -1,24 +1,25 @@
 ---
-title: "從 GitHub 下載 Azure Stack 工具 | Microsoft Docs"
-description: "了解如何下載處理 Azure Stack 所需的工具。"
+title: 從 GitHub 下載 Azure Stack 工具 | Microsoft Docs
+description: 了解如何下載處理 Azure Stack 所需的工具。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: E4DF77FA-F468-42B5-B44F-F10ED8049171
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 219fd8e4e164df8c3002044719a90a7be56a9edf
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: thoroet
+ms.openlocfilehash: a116b7a048ff95ca601a65633cdc63f98fefee9d
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34075284"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>從 GitHub 下載 Azure Stack 工具
 
@@ -53,13 +54,10 @@ cd AzureStack-Tools-master
 | 功能 | 說明 | 可以使用此模組的人員 |
 | --- | --- | --- |
 | [雲端功能](user/azure-stack-validate-templates.md) | 使用此模組來取得雲端的雲端功能。 例如，您可使用此模組來取得雲端功能，例如 API 版本和 Azure Resource Manager 資源。 您也可以使用此模組來取得 Azure Stack 和 Azure 雲端的 VM 擴充功能。 | 雲端操作員和使用者 |
-| [Azure Stack 計算系統管理](azure-stack-add-vm-image.md) | 使用此模組，從 Azure Stack Marketplace 新增或移除 VM 映像。 | 雲端操作員 |
-| [Azure Stack 基礎結構系統管理](https://github.com/Azure/AzureStack-Tools/blob/master/Infrastructure/README.md) | 使用此模組來管理 Azure Stack 基礎結構 VM、警示、更新等。 |  雲端操作員|
 | [適用於 Azure Stack 的 Resource Manager 原則](user/azure-stack-policy-module.md) | 使用此模組來設定 Azure 訂用帳戶或 Azure 資源群組，包含與 Azure Stack 相同的版本和服務可用性。 | 雲端操作員和使用者 |
 | [註冊 Azure](azure-stack-register.md) | 搭配使用此模組與 Azure 來註冊您的開發套件執行個體。 註冊之後，您可以從 Azure 下載 Marketplace 項目，並在 Azure Stack 中使用它們。 | 雲端操作員 |
 | [Azure Stack 部署](azure-stack-run-powershell-script.md) | 搭配使用此模組與 Azure Stack 虛擬硬碟 (VHD) 映像，準備要部署與重新部署的 Azure Stack 主機電腦。 | 雲端操作員|
-| [連線至 Azure Stack](azure-stack-connect-powershell.md) | 使用此模組，透過 PowerShell 連線至 Azure Stack 執行個體，並設定 Azure Stack 的 VPN 連線。 | 雲端操作員和使用者 |
-| [Azure Stack 服務系統管理](azure-stack-create-offer.md) | 使用此模組來建立預設租用戶產品，包含跨計算、Azure 儲存體、網路和金鑰保存庫服務的無限制配額。   | 雲端操作員|
+| [連線至 Azure Stack](azure-stack-connect-powershell.md) | 使用此模組來設定對 Azure Stack 的 VPN 連線能力。 | 雲端操作員和使用者 |
 | [範本驗證程式](user/azure-stack-validate-templates.md) | 使用此模組來確認現有或新範本是否可以部署到 Azure Stack。 | 雲端操作員和使用者|
 
 

@@ -4,7 +4,7 @@ description: 在本主題中，您將學習如何使用指令碼動作在以 Lin
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: cc93ed5c-a358-456a-91a4-f179185c0e98
@@ -12,13 +12,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/20/2018
+ms.date: 05/16/2018
 ms.author: larryfr
-ms.openlocfilehash: 707f25a71a22f136a3cfc537ec3dd939e06dea08
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 77d3964dd54d63db58c63b567ebbe7e529473999
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201555"
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Solr
 
@@ -80,8 +81,11 @@ ms.lasthandoff: 05/08/2018
 
 1. 使用 SSH 連線到 HDInsight 叢集
 
+    > [!NOTE]
+    > 將 `sshuser` 取代為叢集的 SSH 使用者。 將 `clustername` 取代為叢集的名稱。
+
     ```bash
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
     如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。

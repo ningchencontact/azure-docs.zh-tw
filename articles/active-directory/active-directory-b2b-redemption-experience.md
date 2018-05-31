@@ -1,50 +1,62 @@
 ---
-title: "Azure Active Directory B2B 共同作業邀請兌換 | Microsoft Docs"
-description: "Azure Active Directory B2B 共同作業邀請兌換體驗"
+title: B2B 共同作業中的邀請兌換 - Azure Active Directory | Microsoft Docs
+description: 描述使用者的 Azure AD B2B 共同作業邀請兌換經驗，包括隱私權條款的協議。
 services: active-directory
-documentationcenter: 
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/11/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 05/24/2017
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 22e572fdebe3d2d6d839d3c3878ad1cc54f66b09
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2e354bc4ae06e86afd5d14e87ef796fce942521b
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34074776"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 共同作業邀請兌換
 
-## <a name="azure-ad-and-microsoft-account-users"></a>Azure AD 與 Microsoft 帳戶使用者
-對於具有現有 Azure AD 帳戶或 Microsoft 帳戶的使用者，兌換體驗就像登入一樣簡單。
+若要透過 Azure Active Directory (Azure AD) B2B 共同作業與夥伴組織的使用者共同作業，您可以邀請來賓使用者存取共用應用程式。 透過使用者介面將來賓使用者新增至目錄之後，或透過 PowerShell 邀請使用者之後，來賓使用者必須經歷第一次同意程序，而他們會在該程序中同意[隱私權條款](#privacy-policy-agreement)。 此程序會以下列任一種方式進行：
 
-## <a name="social-id-user-first-time-redemption"></a>社交識別碼使用者首次兌換
-Azure AD B2B 共同作業可讓使用者使用任何電子郵件地址輕鬆兌換。 看看針對 B2B 共同作業使用非 Microsoft 電子郵件地址的兌換體驗。 此兌換流程的牽涉範圍更廣，因為您可能必須在兌換時建立帳戶。 在下列影片中查看作法：
+- 來賓邀請者會送出共用應用程式的直接連結。 受邀者可按一下連結進行登入、接受隱私權條款，然後順暢地存取共用資源。 (來賓使用者仍會收到具有兌換 URL 的邀請電子郵件，但是除了某些特殊情況，不再需要使用邀請電子郵件。)  
+- 來賓使用者收到邀請電子郵件，並按一下兌換 URL。 在第一次登入時，系統會提示他們接受隱私權條款。
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
-> 
+## <a name="redemption-through-a-direct-link"></a>透過直接連結兌換
+
+來賓邀請者可以將送出共用應用程式的直接連結來邀請來賓使用者。 對來賓使用者而言，兌換經驗與登入共用應用程式一樣簡單。 他們可以按一下應用程式的連結、檢閱並接受隱私權條款，然後順暢地存取應用程式。 在大部分情況下，來賓使用者不再需要按一下電子郵件邀請中兌換 URL。
+
+如果您透過使用者介面邀請來賓使用者，或在 PowerShell 邀請過程中選擇傳送邀請電子郵件，則受邀的使用者還是會收到邀請電子郵件。 此電子郵件在下列特殊案例中很有用：
+
+- 使用者沒有 Azure AD 帳戶或 Microsoft 帳戶 (MSA)。 在此情況下，使用者必須在按一下連結前先建立 MSA，或者可以使用邀請電子郵件中的 兌換 URL。 兌換程序會自動提示使用者建立 MSA。
+- 受邀的使用者物件有時可能因為與連絡人物件 (例如 Outlook 連絡人物件) 衝突，而沒有電子郵件地址。 在此情況下，使用者必須按一下邀請電子郵件中的兌換 URL。
+- 使用者可以使用受邀的電子郵件地址別名登入。 (別名是與電子郵件帳戶相關聯的其他電子郵件位址。)在此情況下，使用者必須按一下邀請電子郵件中的兌換 URL。
+
+如果這些特殊情況對您的組織很重要，建議您使用仍會傳送邀請電子郵件的方法來邀請使用者。 此外，如果使用者不屬於其中一種特殊情況，他們仍可按一下邀請電子郵件中的 URL 來取得存取。
+
+## <a name="redemption-through-the-invitation-email"></a>透過邀請電子郵件兌換
+
+如果透過傳送邀請電子郵件的方法獲得邀請，使用者也可以透過邀請電子郵件兌換邀請。 受邀的使用者可以按一下電子郵件中的兌換 URL，然後檢閱並接受隱私權條款。 以下更詳細地說明此程序：
+
+1.  獲得邀請之後，受邀者會透過 **Microsoft 邀請**所傳送的電子郵件收到邀請。
+2.  受邀者在電子郵件中選取 [開始使用]。
+3.  如果受邀者沒有 Azure AD 帳戶或 MSA，系統會提示他們建立 MSA。
+4.  受邀者會重新導向至 [檢閱權限] 畫面，他們可在其中檢閱邀請組織的隱私權聲明並接受條款。
+
+## <a name="privacy-policy-agreement"></a>隱私權原則協議
+
+在任何來賓使用者第一次登入以存取夥伴組織中的資源之後，他們會看到 [檢閱權限] 畫面。 在這裡，他們可以檢閱邀請組織的隱私權聲明。 使用者必須根據邀請組織的隱私權原則來接受其資訊的使用方式，才能繼續執行。
+
+![顯示 [存取面板] 中的使用者設定的螢幕截圖](media/active-directory-b2b-redemption-experience/ConsentScreen.png) 
+
+有關身為租用戶管理員的您如何連結至貴組織隱私權聲明的詳細資訊，請參閱[做法：在 Azure Active Directory 中新增貴組織的隱私權資訊](https://aka.ms/adprivacystatement)。
 
 ## <a name="next-steps"></a>後續步驟
 
-請瀏覽有關 Azure AD B2B 共同作業的其他文章：
-
-* [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者？](active-directory-b2b-admin-add-users.md)
-* [資訊工作者如何新增 B2B 共同作業使用者？](active-directory-b2b-iw-add-users.md)
-* [B2B 共同作業邀請電子郵件的元素](active-directory-b2b-invitation-email.md)
-* [Azure AD B2B 共同作業授權](active-directory-b2b-licensing.md)
-* [針對 Azure Active Directory B2B 共同作業問題進行疑難排解](active-directory-b2b-troubleshooting.md)
-* [Azure Active Directory B2B 共同作業常見問題 (FAQ)](active-directory-b2b-faq.md)
-* [Azure Active Directory B2B 共同作業 API 和自訂](active-directory-b2b-api.md)
-* [適用於 B2B 共同作業使用者的多重要素驗證](active-directory-b2b-mfa-instructions.md)
-* [在沒有邀請的情況下新增 B2B 共同作業使用者](active-directory-b2b-add-user-without-invite.md)
-* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者](active-directory-b2b-admin-add-users.md)
+- [資訊工作者如何將 B2B 共同作業使用者新增到 Azure Active Directory？](active-directory-b2b-iw-add-users.md)
+- [使用 PowerShell 新增 Azure Active Directory B2B 共同作業使用者](active-directory-b2b-api.md#powershell)
+- [以來賓使用者的身分離開組織](active-directory-b2b-leave-the-organization.md)

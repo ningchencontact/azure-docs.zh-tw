@@ -2,23 +2,26 @@
 title: 了解如何提供選擇性宣告給 Azure AD 應用程式 | Microsoft Docs
 description: 將自訂或額外宣告新增至 Azure Active Directory 所簽發之 SAML 2.0 和 JSON Web Token (JWT) 權杖的指南。
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/15/2018
-ms.author: hirsin
+ms.date: 04/24/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f9cc4f900428e1337fc9b9d428879d6527c60017
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4670a7e957970acea54ff69d56edcd45092c8fe
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157226"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Azure AD 中的選擇性宣告 (預覽)
 
@@ -65,7 +68,9 @@ ms.lasthandoff: 04/03/2018
 | `fwd`                      | IP 位址。  新增發出要求之用戶端的原始 IPv4 位址 (位於 VNET 內部時)                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | 使用者的國家/地區                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | 資源租用戶的國家/地區                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
+| `acct`    | 租用戶中的使用者帳戶狀態。  如果使用者是租用戶的成員，則值為 `0`。  如果是來賓使用者，則值為 `1`。  | JWT、SAML | | |
 | `upn`                      | UserPrincipalName 宣告。  雖然會自動包含此宣告，但在來賓使用者案例中，您可以將它指定為選擇性宣告來附加額外屬性，以修改其行為。 | JWT、SAML  |           | 額外屬性： <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+
 ### <a name="v20-optional-claims"></a>V2.0 選擇性宣告
 在 v1.0 權杖中一律會包含這些宣告，但在 v2.0 權杖中則除非提出要求，否則會移除這些宣告。  這些宣告僅適用於 JWT (識別碼權杖和存取權杖)。  
 
@@ -200,7 +205,7 @@ ms.lasthandoff: 04/03/2018
 -   您可以修改應用程式資訊清單。 以下範例將使用此方法來執行設定。 請先閱讀介紹資訊清單的[了解 Azure AD 應用程式資訊清單](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)文件。
 -   您也可以撰寫使用[圖形 API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api)來更新您應用程式的應用程式。 「圖形 API」參考指南中的[實體和複雜類型參考](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) \(英文\) 可協助您設定選擇性宣告。
 
-**範例：**在以下範例中，您將修改應用程式的資訊清單，以將宣告新增至要用於應用程式的存取權杖、識別碼權杖及 SAML 權杖中。
+**範例：** 在以下範例中，您將修改應用程式的資訊清單，以將宣告新增至要用於應用程式的存取權杖、識別碼權杖及 SAML 權杖中。
 1.  登入 [Azure 入口網站](https://portal.azure.com)。
 2.  驗證後，在頁面右上角選取您的 Azure AD 租用戶。
 3.  從左側導覽面板中選取 [Azure AD 延伸模組]，然後按一下 [應用程式註冊]。

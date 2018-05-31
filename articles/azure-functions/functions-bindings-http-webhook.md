@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 3ee70c3784205a70f455bd7ef147467e4547d167
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d15c5556325284dd3b0b6f11a080c9abc263286c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356319"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 和 Webhook 繫結
 
@@ -37,11 +38,13 @@ ms.lasthandoff: 04/16/2018
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## <a name="trigger"></a>觸發程序
 
 HTTP 觸發程序可讓您透過 HTTP 要求叫用函式。 您可以使用 HTTP 觸發程序來建置無伺服器 API 並回應 Webhook。 
 
-根據預設，HTTP 觸發程序會以 HTTP 200 OK 的狀態碼和空白主體來回應要求。 若要修改回應，請設定 [HTTP 輸出繫結](#http-output-binding)。
+根據預設，HTTP 觸發程序會在 Functions 1.x 中傳回「HTTP 200 正常」與空白主體，或在 Functions 1 2.x 中傳回「HTTP 204 沒有內容」與空白主體。 若要修改回應，請設定 [HTTP 輸出繫結](#http-output-binding)。
 
 ## <a name="trigger---example"></a>觸發程序 - 範例
 
@@ -54,7 +57,7 @@ HTTP 觸發程序可讓您透過 HTTP 要求叫用函式。 您可以使用 HTTP
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
-下列範例會顯示在查詢字串或 HTTP 要求主體中尋找 `name` 參數的 [C# 函式](functions-dotnet-class-library.md)。
+下列範例會顯示在查詢字串或 HTTP 要求主體中尋找 `name` 參數的 [C# 函式](functions-dotnet-class-library.md)。 請注意，傳回值用於輸出繫結，但傳回值屬性並非必要。
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -85,15 +88,29 @@ public static async Task<HttpResponseMessage> Run(
 
 下列範例示範 function.json 檔案中的觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
 
-以下是 *function.json* 檔案中的繫結資料：
+以下是 *function.json* 檔案：
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,
+    "bindings": [
+        {
+            "authLevel": "function",
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "name": "$return",
+            "type": "http",
+            "direction": "out"
+        }
+    ]
+}
 ```
 
 [設定](#trigger---configuration)章節會說明這些屬性。
@@ -145,15 +162,25 @@ public class CustomObject {
 
 下列範例示範 function.json 檔案中的觸發程序繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
 
-以下是 *function.json* 檔案中的繫結資料：
+以下是 *function.json* 檔案：
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [設定](#trigger---configuration)章節會說明這些屬性。
@@ -201,15 +228,25 @@ let Run(req: HttpRequestMessage) =
 
 下列範例示範的是使用繫結之 function.json 檔案，以及 [JavaScript 函式](functions-reference-node.md)中的觸發程序繫結。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
 
-以下是 *function.json* 檔案中的繫結資料：
+以下是 *function.json* 檔案：
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
 ```
 
 [設定](#trigger---configuration)章節會說明這些屬性。
@@ -222,7 +259,7 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
@@ -261,15 +298,25 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 下列範例示範 function.json 檔案中的 Webhook 觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會記錄 GitHub 問題註解。
 
-以下是 *function.json* 檔案中的繫結資料：
+以下是 *function.json* 檔案：
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [設定](#trigger---configuration)章節會說明這些屬性。
@@ -301,15 +348,25 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 下列範例示範 function.json 檔案中的 Webhook 觸發程序繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 此函式會記錄 GitHub 問題註解。
 
-以下是 *function.json* 檔案中的繫結資料：
+以下是 *function.json* 檔案：
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [設定](#trigger---configuration)章節會說明這些屬性。
@@ -345,11 +402,21 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [設定](#trigger---configuration)章節會說明這些屬性。
@@ -384,7 +451,6 @@ public static HttpResponseMessage Run(
 ## <a name="trigger---configuration"></a>觸發程式 - 設定
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `HttpTrigger` 屬性。
-
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
@@ -470,13 +536,13 @@ module.exports = function (context, req) {
 
     if (!id) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "All " + category + " items were requested."
         };
     }
     else {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: category + " item with id = " + id + " was requested."
         };
     }
@@ -547,35 +613,24 @@ HTTP 要求的長度限制為 100MB (104,857,600 個位元組)，而 URL 的長�
 
 ## <a name="output"></a>輸出
 
-使用 HTTP 輸出繫結來回應 HTTP 要求傳送者。 此繫結需要 HTTP 觸發程序，並可讓您自訂與觸發程序要求相關聯的回應。 如果沒有提供 HTTP 輸出繫結，HTTP 觸發程序將會傳回 HTTP 200 OK 和空白主體。 
+使用 HTTP 輸出繫結來回應 HTTP 要求傳送者。 此繫結需要 HTTP 觸發程序，並可讓您自訂與觸發程序要求相關聯的回應。 如果未提供 HTTP 輸出繫結，則 HTTP 觸發程序會在 Functions 1.x 中傳回「HTTP 200 正常」與空白主體，或在 Functions 1 2.x 中傳回「HTTP 204 沒有內容」與空白主體。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
-針對 C# 類別庫，沒有輸出特定的繫結設定屬性。 若要傳送 HTTP 回應，請讓函式傳回類型 `HttpResponseMessage` 或 `Task<HttpResponseMessage>`。
-
-針對其他語言，HTTP 輸出繫結會在 function.json 的 `bindings` 陣列中定義為 JSON 物件，如下列範例所示：
-
-```json
-{
-    "name": "res",
-    "type": "http",
-    "direction": "out"
-}
-```
-
-下表說明您在 function.json 檔案中設定的繫結設定屬性。
+下表說明您在 function.json 檔案中設定的繫結設定屬性。 對於 C# 類別程式庫，沒有任何屬性會對應至這些 function.json 屬性。 
 
 |屬性  |說明  |
 |---------|---------|
 | **type** |必須設為 `http`。 |
 | **direction** | 必須設為 `out`。 |
-|**name** | 函式程式碼中用於回應的變數名稱。 |
+|**name** | 函式程式碼中用於回應的變數名稱，或要使用傳回值的 `$return`。 |
 
 ## <a name="output---usage"></a>輸出 - 使用方式
 
-您可以使用輸出參數來回應 HTTP 或 Webhook 呼叫端。 您也可以使用語言標準回應模式。 如需範例回應，請參閱[觸發程序範例](#trigger---example)和 [webhook 範例](#trigger---webhook-example)。
+若要傳送 HTTP 回應，請使用語言標準回應模式。 在 C# 或 C# 指令碼 中，讓函式傳回類型成為 `HttpResponseMessage` 或 `Task<HttpResponseMessage>`。 在 C# 中，傳回值屬性並非必要。
+
+如需範例回應，請參閱[觸發程序範例](#trigger---example)和 [webhook 範例](#trigger---webhook-example)。
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
+[深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)

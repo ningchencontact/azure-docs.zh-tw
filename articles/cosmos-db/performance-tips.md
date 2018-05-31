@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 51674f80e918f28febf0e854caa72c0da43c589c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 767d08c7a148db3e8a6d8b53bd88b154139d981d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360201"
 ---
 > [!div class="op_single_selector"]
 > * [非同步 Java](performance-tips-async-java.md)
@@ -41,9 +42,13 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
     用戶端連線到 Azure Cosmos DB 的方式，對於效能有重大影響 (尤其對觀察到的用戶端延遲而言)。 有兩個重要組態設定可用來設定用戶端連接原則 - 連接模式和連接[*通訊協定*](#connection-protocol)。  兩個可用的模式︰
 
    1. 閘道模式 (預設值)
+      
+      所有 SDK 平台都支援閘道模式並設為預設值。 如果您的應用程式在有嚴格防火牆限制的公司網路中執行，則閘道模式會是最佳的選擇，因為它會使用標準 HTTPS 連接埠與單一端點。 不過，對於效能的影響是每次讀取或寫入 Azure Cosmos DB 資料時，閘道模式都會涉及額外的網路躍點。 因此，直接模式因為網路躍點較少，所以可提供較佳的效能。
+
    2. 直接模式
 
-      所有 SDK 平台都支援閘道模式並設為預設值。  如果您的應用程式在有嚴格防火牆限制的公司網路中執行，則閘道模式會是最佳的選擇，因為它會使用標準 HTTPS 連接埠與單一端點。 不過，對於效能的影響是每次讀取或寫入 Azure Cosmos DB 資料時，閘道模式都會涉及額外的網路躍點。 因此，直接模式因為網路躍點較少，所以可提供較佳的效能。
+     直接模式支援透過 TCP 和 HTTPS 通訊協定連線。 目前，只有適用於 Windows 平台的 .NET Standard 2.0 支援直接模式。
+      
 <a id="use-tcp"></a>
 2. **連接原則︰使用 TCP 通訊協定**
 
