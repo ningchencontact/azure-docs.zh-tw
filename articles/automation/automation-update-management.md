@@ -3,23 +3,25 @@ title: Azure 中的更新管理解決方案
 description: 本文旨在協助您了解，如何使用這個方案管理 Windows 和 Linux 電腦的更新。
 services: automation
 ms.service: automation
+ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2018
+ms.date: 04/23/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2c54435d893753306e903c0851e319fc3d1621b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c095576ccce7e32850c3fb2daf8303a0d6e957bc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070280"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
-Azure 自動化中的「更新管理」解決方案，可讓您管理 Azure 中所部署 Windows 和 Linux 電腦的作業系統安全性更新、內部部署環境或其他雲端提供者。 您可以快速評估所有代理程式電腦上可用更新的狀態，並管理為伺服器安裝必要更新的程序。
+Azure 自動化中的「更新管理」解決方案，可讓您管理 Azure 中所部署 Windows 和 Linux 電腦的作業系統更新、內部部署環境或其他雲端提供者。 您可以快速評估所有代理程式電腦上可用更新的狀態，並管理為伺服器安裝必要更新的程序。
 
-您可以直接從您的 [Azure 自動化](automation-offering-get-started.md)帳戶啟用虛擬機器的更新管理。
-若要了解如何從您的自動化帳戶啟用虛擬機器的更新管理，請參閱[管理多部虛擬機器的更新](manage-update-multi.md)。
+您可以直接從您的「Azure 自動化」帳戶啟用虛擬機器的更新管理。
+若要了解如何從您的自動化帳戶啟用虛擬機器的更新管理，請參閱[管理多部虛擬機器的更新](manage-update-multi.md)。 您也可以至 Azure 入口網站的虛擬機器頁面，啟用單個虛擬機器的「更新管理」。 此情節適用於 [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) 與 [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) 虛擬機器。
 
 ## <a name="solution-overview"></a>解決方案概觀
 
@@ -38,6 +40,9 @@ Azure 自動化中的「更新管理」解決方案，可讓您管理 Azure 中�
 
 解決方案會根據您設定要同步處理的來源，報告電腦的最新狀態。 如果 Windows 電腦設定為向 WSUS 報告，則視 WSUS 上次與 Microsoft Update 同步處理的時間，結果可能不同於 Microsoft Update 所顯示的結果。 對於設定為向本機存放庫和公用存放庫報告的 Linux 電腦，同樣也是如此。
 
+> [!NOTE]
+> 「更新管理」需要先啟用特定的 URL 與連接埠，才能正確地向服務報告，若要進一步了解這類需求，請參閱[混合式背景工作角色的網路規劃](automation-hybrid-runbook-worker.md#network-planning)。
+
 您可以藉由建立排定的部署，在需要更新的電腦上部署和安裝軟體更新。 歸類為「選擇性」的更新不會包含在 Windows 電腦的部署範圍內，只需要更新。 排定的部署會藉由明確指定電腦，或選取以一組特定電腦之記錄搜尋為基礎的[電腦群組](../log-analytics/log-analytics-computer-groups.md)，定義哪些目標電腦將會收到適用的更新。 您也可以指定核准排程，並指定允許安裝更新的一段時間。 在 Azure 自動化中，會由 Runbook 安裝更新。 您無法檢視這些 Runbook，而它們也不需要任何設定。 更新部署在建立後便會建立排程，以在指定的時間為所包含的電腦啟動主要更新 Runbook。 這個主要 Runbook 會在每個代理程式上啟動子 Runbook，以安裝必要的更新。
 
 在更新部署中指定的日期和時間，目標電腦會以平行方式執行部署。 系統會先執行掃描，以確認安裝仍然需要並加以安裝。 對於 WSUS 用戶端電腦而言，如果未在 WSUS 中核准更新，則更新部署會失敗。
@@ -46,16 +51,16 @@ Azure 自動化中的「更新管理」解決方案，可讓您管理 Azure 中�
 
 ### <a name="supported-client-types"></a>支援的用戶端類型
 
-下表列出支援的作業系統： 
+下表列出支援的作業系統：
 
 |作業系統  |注意  |
 |---------|---------|
 |Windows Server 2008、Windows Server 2008 R2 RTM    | 僅支援更新評估         |
-|Windows Server 2008 R2 SP1 和更新版本     |需要 Windows PowerShell 4.0 或更新版本 ([下載 WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))。<br> 建議使用 Windows PowerShell 5.1 ([下載 WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) 以增加可靠性。         |
+|Windows Server 2008 R2 SP1 和更新版本     |需要 Windows PowerShell 4.0 或更新版本 ([下載 WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))。</br> 建議使用 Windows PowerShell 5.1 ([下載 WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) 以增加可靠性。         |
 |CentOS 6 (x86/x64) 和 7 (x64)      | Linux 代理程式必須能夠存取更新存放庫。        |
 |Red Hat Enterprise 6 (x86/x64) 和 7 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
 |SUSE Linux Enterprise Server 11 (x86/x64) 和 12 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
-|Ubuntu 12.04 LTS 和更新的 x86/x64       |Linux 代理程式必須能夠存取更新存放庫。         |
+|Ubuntu 12.04 LTS、14.04 LTS、16.04 LTS (x86/x64)      |Linux 代理程式必須能夠存取更新存放庫。         |
 
 ### <a name="unsupported-client-types"></a>不支援的用戶端類型
 
@@ -122,7 +127,7 @@ Heartbeat
 
 在 Windows 電腦上，您可以檢閱下列各項來確認與 Log Analytics 的代理程式連線能力︰
 
-1. 在控制台中開啟 Microsoft Monitoring Agent，而代理程式會在 [Azure Log Analytics] 索引標籤上顯示以下訊息︰**Microsoft Monitoring Agent 已成功連線到 Log Analytics**。   
+1. 在控制台中開啟 Microsoft Monitoring Agent，而代理程式會在 [Azure Log Analytics] 索引標籤上顯示以下訊息︰**Microsoft Monitoring Agent 已成功連線到 Log Analytics**。
 2. 開啟 [Windows 事件記錄]，瀏覽至 [應用程式及服務記錄\Operations Manager] 並從來源服務連接器搜尋事件識別碼 3000 和 5002。 這些事件表示電腦已向 Log Analytics 工作區註冊，並且正在接收組態。
 
 如果代理程式無法與 Log Analytics 通訊，並已設定為透過防火牆或 Proxy 伺服器來與網際網路通訊，請藉由檢閱 [Windows 代理程式的網路設定](../log-analytics/log-analytics-agent-windows.md)或 [Linux 代理程式的網路設定](../log-analytics/log-analytics-agent-linux.md)，確認防火牆或 Proxy 伺服器設定正確。
@@ -133,7 +138,7 @@ Heartbeat
 
 在執行評估之後，新增的 Linux 代理程式的狀態會顯示為 [已更新]。 此程序可能需要多達 6 小時的時間。
 
-若要確認 Operations Manager 管理群組正在與 Log Analytics 通訊，請參閱[驗證 Operations Manager 與 Log Analytics 的整合](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms)。
+若要確認 Operations Manager 管理群組正在與 Log Analytics 通訊，請參閱[驗證 Operations Manager 與 Log Analytics 的整合](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics)。
 
 ## <a name="data-collection"></a>資料收集
 
@@ -145,7 +150,7 @@ Heartbeat
 | --- | --- | --- |
 | Windows 代理程式 |yes |方案會從 Windows 代理程式收集系統更新的相關資訊，並起始必要更新的安裝。 |
 | Linux 代理程式 |yes |解決方案會從 Linux 代理程式收集系統更新的相關資訊，並且在支援的散發套件上起始必要更新的安裝。 |
-| Operations Manager 管理群組 |yes |方案會從所連線之管理群組中的代理程式收集系統更新的相關資訊。<br>Operations Manager 代理程式不需要直接連線到 Log Analytics。 資料會從管理群組轉送至 Log Analytics 工作區。 |
+| Operations Manager 管理群組 |yes |方案會從所連線之管理群組中的代理程式收集系統更新的相關資訊。</br>Operations Manager 代理程式不需要直接連線到 Log Analytics。 資料會從管理群組轉送至 Log Analytics 工作區。 |
 
 ### <a name="collection-frequency"></a>收集頻率
 
@@ -196,6 +201,42 @@ Heartbeat
 |排程設定|選取開始時間，並選取 [一次] 或 [週期性] 以定期執行|
 | 維護時間範圍 |為更新設定的分鐘數。 此值不可小於 30 分鐘，且不可超過 6 小時 |
 
+## <a name="update-classifications"></a>更新分類
+
+下表提供「更新管理」中的「更新」分類清單，以及每項分類的定義。
+
+### <a name="windows"></a>Windows
+
+|分類  |說明  |
+|---------|---------|
+|重大更新     | 特定問題的更新，負責處理與安全性無關的重大錯誤。        |
+|安全性更新     | 特定產品的安全性相關更新。        |
+|更新彙總套件     | 一組累計的 Hotfix，封裝在一起以便於部署。        |
+|Feature Pack     | 在產品版本之外散發的新產品功能。        |
+|Service Pack     | 一組套用到應用程式的累計 Hotfix。        |
+|定義更新     | 病毒或其他定義檔案的更新。        |
+|工具     | 有助於完成一或多個工作的公用程式或功能。        |
+|更新     | 目前安裝的應用程式或檔案的更新。        |
+
+### <a name="linux"></a>Linux
+
+|分類  |說明  |
+|---------|---------|
+|重大更新和安全性更新     | 特定問題或特定產品的安全性相關問題的更新，         |
+|其他更新     | 在性質上不重要或非安全性更新的所有其他更新。        |
+
+## <a name="ports"></a>連接埠
+
+以下為「更新管理」特別需求的位址。 這些位址的通訊皆經由連接埠 443 進行。
+
+|Azure 公用  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+
+如需其他混合式 Runbook 背景工作角色所需連接埠的相關資訊，請參閱[混合式背景工作角色連接埠](automation-hybrid-runbook-worker.md#hybrid-worker-role)
+
 ## <a name="search-logs"></a>搜尋記錄
 
 除了入口網站中提供的詳細資訊以外，您也可以對記錄執行搜尋。 在 [變更追蹤] 頁面開啟的情況下，按一下 [記錄分析]，[記錄搜尋] 頁面會隨即開啟
@@ -206,13 +247,13 @@ Heartbeat
 
 | 查詢 | 說明 |
 | --- | --- |
-|更新<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; project Computer, Title, KBID, Classification, PublishedDate |遺漏更新的所有電腦<br>新增下列其中一項以限制 OS：<br>OSType = "Windows"<br>OSType == "Linux" |
-| 更新<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; where Computer == "ContosoVM1.contoso.com"<br>&#124; project Computer, Title, KBID, Product, PublishedDate |特定電腦的遺漏更新 (以您自己的電腦名稱取代此值)|
-| Event<br>&#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates")<br>&#124; where UpdateState == "Needed" and Optional == false <br>&#124; distinct Computer)) |遺漏必要重大更新或安全性更新之機器的錯誤事件 |
-| 更新<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; distinct Title |所有電腦的不同遺漏更新 |
-| UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |在更新執行時更新失敗的電腦<br>新增下列其中一項以限制 OS：<br>OSType = "Windows"<br>OSType == "Linux" |
-| 更新<br>&#124; where OSType == "Linux"<br>&#124; where UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates")<br>&#124; summarize AggregatedValue = count() by Computer |有可以解決重大漏洞或安全性漏洞之可用套件更新的所有 Linux 機器清單 | 
-| UpdateRunProgress<br>&#124; where UpdateRunName == "DeploymentName"<br>&#124; summarize AggregatedValue = count() by Computer|在此更新回合中更新的電腦 (以您的更新部署名稱取代此值) | 
+|更新</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; project Computer, Title, KBID, Classification, PublishedDate |遺漏更新的所有電腦</br>新增下列其中一項以限制 OS：</br>OSType = "Windows"</br>OSType == "Linux" |
+| 更新</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; where Computer == "ContosoVM1.contoso.com"</br>&#124; project Computer, Title, KBID, Product, PublishedDate |特定電腦的遺漏更新 (以您自己的電腦名稱取代此值)|
+| Event</br>&#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates")</br>&#124; where UpdateState == "Needed" and Optional == false </br>&#124; distinct Computer)) |遺漏必要重大更新或安全性更新之機器的錯誤事件 |
+| 更新</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; distinct Title |所有電腦的不同遺漏更新 |
+| UpdateRunProgress</br>&#124; where InstallationStatus == "failed" </br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |在更新執行時更新失敗的電腦</br>新增下列其中一項以限制 OS：</br>OSType = "Windows"</br>OSType == "Linux" |
+| 更新</br>&#124; where OSType == "Linux"</br>&#124; where UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates")</br>&#124; summarize AggregatedValue = count() by Computer |有可以解決重大漏洞或安全性漏洞之可用套件更新的所有 Linux 機器清單 |
+| UpdateRunProgress</br>&#124; where UpdateRunName == "DeploymentName"</br>&#124; summarize AggregatedValue = count() by Computer|在此更新回合中更新的電腦 (以您的更新部署名稱取代此值) |
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>與 System Center Configuration Manager 進行整合
 
@@ -248,18 +289,18 @@ Heartbeat
 
 | 訊息 | 原因 | 解決方法 |
 |----------|----------|----------|
-| 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>System.InvalidOperationException：{"Message":"電腦已經<br>註冊至不同的帳戶。 "} | 電腦已經上架到另一個工作區進行更新管理 | [刪除混合式 Runbook 群組](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)以執行舊構件的清除|
-| 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>System.Net.Http.HttpRequestException：傳送要求時發生錯誤。 ---><br>System.Net.WebException：基礎連線<br>已關閉：接收時發生<br>意外的錯誤。 ---> System.ComponentModel.Win32Exception：<br>用戶端和伺服器無法通訊，<br>因為它們沒有共同的演算法 | Proxy/閘道/防火牆封鎖通訊 | [檢閱網路需求](automation-offering-get-started.md#network-planning)|
-| 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>Newtonsoft.Json.JsonReaderException：剖析正無限值時發生錯誤。 | Proxy/閘道/防火牆封鎖通訊 | [檢閱網路需求](automation-offering-get-started.md#network-planning)|
-| 服務 <wsid>.oms.opinsights.azure.com<br>所提供的憑證不是由 Microsoft 服務所用的<br>憑證授權單位發出。 連絡人<br>您的網路管理員，以查看它們是否正在執行可攔截 TLS/SSL 通訊的<br>Proxy。 |Proxy/閘道/防火牆封鎖通訊 | [檢閱網路需求](automation-offering-get-started.md#network-planning)|
-| 無法註冊電腦進行修補程式管理，<br>註冊失敗並發生例外狀況<br>AgentService.HybridRegistration。<br>PowerShell.Certificates.CertificateCreationException：<br>無法建立自我簽署憑證。 ---><br>System.UnauthorizedAccessException：存取遭到拒絕。 | 自我簽署的憑證產生失敗 | 確認系統帳戶具有<br>以下資料夾的讀取權限：<br>**C:\ProgramData\Microsoft\**<br>** Crypto\RSA**|
+| 無法註冊電腦進行修補程式管理，</br>註冊失敗並發生例外狀況</br>System.InvalidOperationException：{"Message":"電腦已經</br>註冊至不同的帳戶。 "} | 電腦已經上架到另一個工作區進行更新管理 | [刪除混合式 Runbook 群組](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)以執行舊構件的清除|
+| 無法註冊修補管理的機器，註冊失敗並發生例外狀況</br>System.Net.Http.HttpRequestException：傳送要求時發生錯誤。 ---></br>System.Net.WebException：基礎連線</br>已關閉：接收時發生</br>意外的錯誤。 ---> System.ComponentModel.Win32Exception：</br>用戶端和伺服器無法通訊，</br>因為它們沒有共同的演算法 | Proxy/閘道/防火牆封鎖通訊 | [檢閱網路需求](automation-hybrid-runbook-worker.md#network-planning)|
+| 無法註冊電腦進行修補程式管理，</br>註冊失敗並發生例外狀況</br>Newtonsoft.Json.JsonReaderException：剖析正無限值時發生錯誤。 | Proxy/閘道/防火牆封鎖通訊 | [檢閱網路需求](automation-hybrid-runbook-worker.md#network-planning)|
+| 由服務 \<wsid\>.oms.opinsights.azure.com 所提供的憑證</br>所提供的憑證不是由 Microsoft 服務所用的</br>憑證授權單位發出。 連絡人</br>您的網路管理員，以查看它們是否正在執行可攔截 TLS/SSL 通訊的</br>Proxy。 |Proxy/閘道/防火牆封鎖通訊 | [檢閱網路需求](automation-hybrid-runbook-worker.md#network-planning)|
+| 無法註冊電腦進行修補程式管理，</br>註冊失敗並發生例外狀況</br>AgentService.HybridRegistration。</br>PowerShell.Certificates.CertificateCreationException：</br>無法建立自我簽署憑證。 ---></br>System.UnauthorizedAccessException：存取遭到拒絕。 | 自我簽署的憑證產生失敗 | 確認系統帳戶具有</br>以下資料夾的讀取權限：</br>**C:\ProgramData\Microsoft\**</br>** Crypto\RSA**|
 
 ## <a name="next-steps"></a>後續步驟
 
 繼續進行本教學課程，以了解如何管理 Windows VM 的更新。
 
 > [!div class="nextstepaction"]
-> [管理 Azure Windows VM 的更新和修補程式](automation-tutorial-troubleshoot-changes.md)
+> [管理 Azure Windows VM 的更新和修補程式](automation-tutorial-update-management.md)
 
 * 使用 [Log Analytics](../log-analytics/log-analytics-log-searches.md) 中的記錄搜尋，檢視詳細的更新資料。
 * 在偵測到電腦遺漏重大更新或電腦已停用自動更新時[建立警示](../log-analytics/log-analytics-alerts.md)。
