@@ -8,11 +8,12 @@ ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 6d7ccd94243d7064008197518f6194d5837b17be
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9ea51f6ea55c62fdd01efb155d26fade3941ce41
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261433"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>使用 PowerShell 將 Blob 儲存體事件路由至自訂的 Web 端點
 
@@ -21,7 +22,7 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您可以使用 A
 一般而言，您可將事件傳送至可回應事件的端點，例如 Webhook 或 Azure Function。 為了簡化本文中所示的範例，會將事件傳送至只收集訊息的 URL。 使用 [Hookbin](https://hookbin.com/) 提供的第三方工具來建立此 URL。
 
 > [!NOTE]
-> **Hookbin** 不適用於高輸送量的用途。 此工具單純用於示範。 如果您一次推送多個事件，則可能看不到工具中的所有事件。
+> **Hookbin** 不適用於高輸送量的用途。 此工具單純用於示範。 如果您一次推送多個事件，則可能看不到工具中的所有事件。 此外，請注意，**Hookbin** 會取得由 Azure Event Grid 執行的[特殊處理](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#create-a-requestbin-endpoint)。 為了簡化測試，Event Grid 會將事件傳送至該處，而不需要正確回應訂用帳戶驗證要求 (若使用[其他方法](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#validation-details)則可能會有此狀況)。
 
 當您完成本文所述的步驟時，您會看到事件資料已傳送至端點。
 

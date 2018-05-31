@@ -4,14 +4,15 @@ description: 提供 Azure Migrate 服務的概觀。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/03/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 869d426bc76d725cead9bedc73800a20531bb9ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5c63d74158087d2011478d038d41fc1bae44190e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202842"
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -61,7 +62,7 @@ Azure Migrate 可協助您：
 1.  您可建立 Azure Migrate 專案。
 2.  Azure Migrate 會使用稱為收集器設備的內部部署 VM，探索您的內部部署機器相關資訊。 若要建立設備，您可下載開放虛擬化設備 (.ova) 格式的安裝檔案，然後將它匯入為內部部署 vCenter Sever 上的 VM。
 3.  您在 vCenter Server 中使用主控台連線來連線到 VM，在連線時為 VM 指定新密碼，然後在 VM 中執行收集器應用程式來開始探索。
-4.  收集器會使用 VMware PowerCLI Cmdlet 來收集 VM 中繼資料。 探索是無代理程式的，而且不會在 VMware 主機或 VM 上安裝任何項目。 所收集的中繼資料包含 VM 資訊 (核心、記憶體、磁碟、磁碟大小和網路介面卡。 它也會收集 VM 的效能資料，包括 CPU 和記憶體使用量、磁碟 IOPS、磁碟輸送量 (MBps) 以及網路輸出 (MBps)。
+4.  收集器會使用 VMware PowerCLI Cmdlet 來收集 VM 中繼資料。 探索是無代理程式的，而且不會在 VMware 主機或 VM 上安裝任何項目。 所收集的中繼資料包含 VM 資訊 (核心、記憶體、磁碟、磁碟大小和網路介面卡)。 它也會收集 VM 的效能資料，包括 CPU 和記憶體使用量、磁碟 IOPS、磁碟輸送量 (MBps) 以及網路輸出 (MBps)。
 5.  中繼資料會推送至 Azure Migrate 專案。 您可以在 Azure 入口網站中檢視它。
 6.  基於評估目的，您會將探索到的 VM 集合成群組。 例如，您可將執行相同應用程式的 VM 群組在一起。 如需更精確的群組，您可以使用相依性視覺效果來檢視特定機器的相依性，或檢視群組中所有機器的相依性並調整群組。
 7.  在群組形成後，您可建立群組的評估。
@@ -78,7 +79,7 @@ Azure Migrate 可協助您：
 |元件          |通訊對象     |所需的連接埠  |原因   |
 |-------------------|------------------------|---------------|---------|
 |收集器          |Azure Migrate 服務   |TCP 443        |收集器會透過 SSL 連接埠 443 連線至服務|
-|收集器          |vCenter Server          |預設值 9443   | 根據預設，收集器會連線到連接埠 9443 上的 vCenter Server。 如果伺服器接聽不同的連接埠，則應該設定為收集器 VM 上的傳出連接埠。 |
+|收集器          |vCenter Server          |預設值 443   | 根據預設，收集器會連線到連接埠 443 上的 vCenter Server。 如果伺服器接聽不同的連接埠，則應該設定為收集器 VM 上的傳出連接埠。 |
 |內部部署 VM     | Log Analytics 工作區          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |MMA 代理程式會使用 TCP 443 來連線到 Log Analytics。 如果您正在使用相依性視覺效果功能，且正在安裝 Microsoft Monitoring Agent (MMA) 代理程式，您只需要此連接埠。 |
 
 

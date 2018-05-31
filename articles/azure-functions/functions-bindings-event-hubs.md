@@ -16,11 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 44dbe4c3157b1b765004975a6f04e3a96b477846
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b3fb3ba0757744ba9f84280778be7e274d4ac5a2
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303836"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中樞繫結
 
@@ -33,6 +34,8 @@ ms.lasthandoff: 03/28/2018
 對於 Azure Functions 1.x 版，[Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 套件中會提供事件中樞繫結。 對於 Functions 2.x，請使用 [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) 套件。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/) GitHub 存放庫中。
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>觸發程序
 
@@ -82,15 +85,29 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-若要取得事件中繼資料的存取權，請繫結至 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 物件 (`Microsoft.ServiceBus.Messaging` 需要 `using` 陳述式)。
+若要取得函式程式碼中[事件中繼資料](#trigger---event-metadata)的存取權，請繫結至 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 物件 (`Microsoft.ServiceBus.Messaging` 需要 using 陳述式)。 您也可以在方法簽章中使用繫結運算式，以存取相同的屬性。  下列範例示範取得相同資料的兩種方式：
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, TraceWriter log)
+public static void Run(
+    [EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, 
+    DateTime enqueuedTimeUtc, 
+    Int64 sequenceNumber,
+    string offset,
+    TraceWriter log)
 {
-    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    // Metadata accessed by binding to EventData
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.Offset}");
+    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"SequenceNumber={sequenceNumber}");
+    log.Info($"Offset={offset}");
 }
 ```
+
 若要以批次方式接收事件，請讓 `string` 或 `EventData` 成為陣列：
 
 ```cs
@@ -130,16 +147,29 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-若要取得事件中繼資料的存取權，請繫結至 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 物件 (`Microsoft.ServiceBus.Messaging` 需要 using 陳述式)。
+若要取得函式程式碼中[事件中繼資料](#trigger---event-metadata)的存取權，請繫結至 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 物件 (`Microsoft.ServiceBus.Messaging` 需要 using 陳述式)。 您也可以在方法簽章中使用繫結運算式，以存取相同的屬性。  下列範例示範取得相同資料的兩種方式：
 
 ```cs
 #r "Microsoft.ServiceBus"
 using System.Text;
+using System;
 using Microsoft.ServiceBus.Messaging;
 
-public static void Run(EventData myEventHubMessage, TraceWriter log)
+public static void Run(EventData myEventHubMessage,
+    DateTime enqueuedTimeUtc, 
+    Int64 sequenceNumber,
+    string offset,
+    TraceWriter log)
 {
-    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    // Metadata accessed by binding to EventData
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.Offset}");
+    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"SequenceNumber={sequenceNumber}");
+    log.Info($"Offset={offset}");
 }
 ```
 
@@ -180,7 +210,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>觸發程序 - JavaScript 範例
 
-下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會記錄事件中樞觸發程序的訊息本文。
+下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會讀取[事件中繼資料](#trigger---event-metadata)和記錄訊息。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -197,8 +227,12 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 以下是 JavaScript 程式碼：
 
 ```javascript
-module.exports = function (context, myEventHubMessage) {
-    context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);    
+module.exports = function (context, eventHubMessage) {
+    context.log('Event Hubs trigger function processed message: ', myEventHubMessage);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('SequenceNumber =', context.bindingData.sequenceNumber);
+    context.log('Offset =', context.bindingData.offset);
+     
     context.done();
 };
 ```
@@ -262,6 +296,22 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 |**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下[命名空間](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串至少必須具備讀取權限，才能啟動觸發程序。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="trigger---event-metadata"></a>觸發程序 - 事件中繼資料
+
+事件中樞觸發程序提供數個[中繼資料屬性](functions-triggers-bindings.md#binding-expressions---trigger-metadata)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [EventData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata) 類別的屬性。
+
+|屬性|類型|說明|
+|--------|----|-----------|
+|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|`PartitionContext` 執行個體。|
+|`EnqueuedTimeUtc`|`DateTime`|加入佇列的時間 (UTC)。|
+|`Offset`|`string`|相對於事件中樞資料分割串流的資料位移。 此位移是事件中樞串流中事件的標記或識別碼。 此識別碼在事件中樞串流的資料分割內是唯一的。|
+|`PartitionKey`|`string`|事件資料應該傳送至的資料分割。|
+|`Properties`|`IDictionary<String,Object>`|事件資料的使用者屬性。|
+|`SequenceNumber`|`Int64`|事件的邏輯序號。|
+|`SystemProperties`|`IDictionary<String,Object>`|系統屬性，包括事件資料。|
+
+請參閱稍早在本文中使用這些屬性的[程式碼範例](#trigger---example)。
 
 ## <a name="trigger---hostjson-properties"></a>觸發程序 - host.json 屬性
 

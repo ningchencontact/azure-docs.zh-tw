@@ -10,11 +10,12 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ae974162a460289a34443879a9e78224684d94ed
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 213a0e7cebda6a8b89ef460799cbec477b487a64
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166109"
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>在 Windows 中的模擬裝置上部署 Azure IoT Edge -  預覽
 
@@ -29,7 +30,7 @@ Azure IoT Edge 可讓您在裝置上執行分析和資料處理，而不必將�
 
 ![教學課程架構][2]
 
-您在本教學課程中建立的模擬裝置是一個監視器，安裝在會產生溫度、溼度和壓力資料的風力渦輪發電機上。 您之所以需要這些資料，是因為您的渦輪發電機會依據不同天氣條件，產生不同的效能水平。 其他 Azure IoT Edge 教學課程會以您在此所做的工作為基礎，並部署可分析商業見解資料的模組。 
+您在本教學課程中建立的模擬裝置是一個監視器，安裝在會產生溫度、溼度和壓力資料的風力渦輪發電機上。 您之所以需要這些資料，是因為您的渦輪發電機會依據不同天氣條件，產生不同的效能水平。 其他 Azure IoT Edge 教學課程會以您在此所做的工作為基礎，部署模組來分析資料並產生商業洞見。 
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -42,7 +43,7 @@ Azure IoT Edge 可讓您在裝置上執行分析和資料處理，而不必將�
    * Windows 10 
    * Windows Server
 2. 安裝[適用於 Windows 的 Docker][lnk-docker] 並確定它正在執行。
-3. 在 [Windows 上安裝 Python 2.7][lnk-python]，並確定您可以使用 pip 命令。
+3. 在 [Windows 上安裝 Python][lnk-python]，並確定您可以使用 pip 命令。 本教學課程已進行過 >= 2.7.9 和 >= 3.5.4 的 Python 版本測試。  
 4. 執行下列命令以下載 IoT Edge 控制指令碼。
 
    ```cmd
@@ -137,7 +138,7 @@ docker logs -f tempSensor
 
 在本教學課程中，您已建立新的 IoT Edge 裝置，也使用了 Azure IoT Edge 雲端介面來將程式碼部署到裝置上。 現在，您已有模擬裝置，可產生其環境的相關原始資料。 
 
-本教學課程是其他所有 IoT Edge 教學課程的必要條件。 您可以繼續閱讀其他任何教學課程，以了解 Azure IoT Edge 可如何協助您將此資料轉換成具有優勢的商業見解。
+本教學課程是其他所有 IoT Edge 教學課程的必要條件。 您可以繼續閱讀其他任何教學課程，以了解 Azure IoT Edge 可如何協助您將此資料轉換成具有優勢的商業洞見。
 
 > [!div class="nextstepaction"]
 > [開發 C# 程式碼並部署為模組](tutorial-csharp-module.md)

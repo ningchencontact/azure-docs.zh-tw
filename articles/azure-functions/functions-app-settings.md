@@ -1,12 +1,12 @@
 ---
-title: "Azure Functions 的應用程式設定參考"
-description: "Azure Functions 應用程式設定或環境變數的參考文件。"
+title: Azure Functions 的應用程式設定參考
+description: Azure Functions 應用程式設定或環境變數的參考文件。
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2017
 ms.author: tdykstra
-ms.openlocfilehash: ce7bf2cf650b0df7e8998766b2d3f5a37c4a1b72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd5603b8f0e15eeae9dd3799d4e10952e115680f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194262"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的應用程式設定參考
 
@@ -155,8 +156,8 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [了解如何更新應用程式設定](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[了解如何更新應用程式設定](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
 
-> [!div class="nextstepaction"]
-> [請參閱 host.json 檔案中的全域設定](functions-host-json.md)
+[請參閱 host.json 檔案中的全域設定](functions-host-json.md)
+
+[查看 App Service 應用程式的其他應用程式設定](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

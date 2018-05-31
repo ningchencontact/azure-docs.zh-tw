@@ -4,21 +4,22 @@ description: 在本教學課程中，您會將 Azure CDN 端點對應至自訂�
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/06/2018
+ms.date: 05/15/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f57cfe19fd2eee0952a20fabcaa0d73ca96894ef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d20dca9a1248cfb2915ebbc456fba80aadcf81f5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196499"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>教學課程：將自訂網域新增至 Azure CDN 端點
 本教學課程說明如何將自訂網域新增至 Azure 內容傳遞網路 (CDN) 端點。 使用 CDN 端點來傳遞內容時，如果您想要在 CDN URL 中顯示您自己的網域名稱，則需要自訂網域。 有可見的網域名稱對您的客戶而言較為方便，並且也有助於宣傳商標。 
@@ -112,19 +113,28 @@ ms.lasthandoff: 04/28/2018
     
 2. 在 [CDN 設定檔] 頁面上，選取要與自訂網域產生關聯的 CDN 端點。
 
-    [端點] 頁面隨即開啟。
+   [端點] 頁面隨即開啟。
     
 3. 選取 [自訂網域]。 
 
    ![CDN 自訂網域按鈕](./media/cdn-map-content-to-custom-domain/cdn-custom-domain-button.png)
 
-4. 針對 [自訂主機名稱]，輸入您的自訂網域 (包括子網域)。 例如 www.contoso.com 或 cdn.contoso.com。請勿使用 cdnverify 子網域名稱。
+   [新增自訂網域] 頁面隨即開啟。
+
+4. 對於 [端點主機名稱]，系統會從您的 CDN 端點 URL 衍生要作為 CNAME 記錄之目的地網域的端點主機名稱，並預先填入：*&lt;endpoint hostname&gt;*.azureedge.net。 無法予以變更。
+
+5. 針對 [自訂主機名稱]，請輸入您的自訂網域 (包括子網域)，以作為 CNAME 記錄的來源網域。 例如 www.contoso.com 或 cdn.contoso.com。請勿使用 cdnverify 子網域名稱。
 
    ![CDN 自訂網域對話方塊](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain.png)
 
-5. 選取 [新增] 。
+6. 選取 [新增] 。
 
-   Azure 會確認您所輸入的自訂網域名稱有 CNAME 記錄存在。 如果 CNAME 正確，您的自訂網域就會驗證。 CNAME 記錄傳播到名稱伺服器需要一些時間。 如果您的網域未立即驗證，但您確定 CNAME 記錄正確，請等待數分鐘的時間，然後再試一次。 若是**來自 Verizon 的 Azure CDN** 端點，最多可能需要 90 分鐘的時間，自訂網域設定才能傳播至所有 CDN 邊緣節點。  
+   Azure 會確認您所輸入的自訂網域名稱有 CNAME 記錄存在。 如果 CNAME 正確，就會驗證您的自訂網域。 
+
+   新的自訂網域設定傳播至所有 CDN 邊緣節點可能需要一些時間： 
+    - 若為**來自 Microsoft 的標準 Azure CDN** 設定檔，通常會在 10 分鐘內完成傳播。 
+    - 若為**來自 Akamai 的標準 Azure CDN** 設定檔，通常會在一分鐘內完成傳播。 
+    - 若為**來自 Verizon 的標準 Azure CDN** 和**來自 Verizon 的進階 Azure CDN** 設定檔，通常會在 90 分鐘內完成傳播。   
 
 
 ## <a name="verify-the-custom-domain"></a>驗證自訂網域
@@ -133,7 +143,7 @@ ms.lasthandoff: 04/28/2018
  
 1. 確定您有在端點上快取的公用內容。 例如，如果您的 CDN 端點與儲存體帳戶相關聯，則 Azure CDN 會快取公用容器中的內容。 若要測試自訂網域，請確認您的容器設定為允許公用存取，且至少包含一個檔案。
 
-2. 在瀏覽器中，使用自訂網域瀏覽至檔案的位址。 例如，如果您的自訂網域是 cdn.contoso.com，則快取檔案的 URL 應會類似於下列 URL：http:\//cdn.contoso.com/my-public-container/my-file.jpg。
+2. 在瀏覽器中，使用自訂網域瀏覽至檔案的位址。 例如，如果您的自訂網域是 cdn.contoso.com，則快取檔案的 URL 應會類似於下列 URL：http:\//cdn.contoso.com/my-public-container/my-file.jpg。 確認結果與您直接在 *&lt;endpoint hostname&gt;*.azureedge.net 上存取 CDN 端點時相同。
 
 
 ## <a name="map-the-permanent-custom-domain"></a>對應永久自訂網域

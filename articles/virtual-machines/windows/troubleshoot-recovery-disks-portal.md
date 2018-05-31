@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/07/2018
 ms.author: genli
-ms.openlocfilehash: 818e4ca5c4985d1740c477bf4a5aa198e64b506d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: db6a2279347b5746da706e7ad3629b141afd205b
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271159"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>使用 Azure 入口網站將 OS 磁碟連結至復原 VM，以針對 Windows VM 進行疑難排解
 如果 Azure 中的 Windows 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是應用程式更新無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure 入口網站將虛擬硬碟連接至另一個 Windows VM，以修正任何錯誤，然後重新建立原始 VM。
@@ -31,6 +32,7 @@ ms.lasthandoff: 05/10/2018
 4. 從疑難排解 VM 卸載並中斷連結虛擬硬碟。
 5. 使用原始虛擬硬碟建立 VM。
 
+若為使用受控磁碟的 VM，請參閱[藉由連結新的 OS 磁碟來針對受控磁碟 VM 進行疑難排解](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk)。
 
 ## <a name="determine-boot-issues"></a>判斷開機問題
 若要判斷 VM 為何無法正常開機，檢查開機診斷 VM 螢幕擷取畫面。 常見的例子是應用程式更新無效，或因為刪除或移動基礎虛擬硬碟。
@@ -144,6 +146,13 @@ ms.lasthandoff: 05/10/2018
 當您從現有的虛擬硬碟建立 VM 時，可能不會自動啟用開機診斷。 若要檢查開機診斷狀態並在需要時開啟，請在入口網站中選取 VM。 在 [監視] 底下，按一下 [診斷設定]。 請確定狀態是 [開啟]，而且已選取 [開機診斷] 旁邊的核取記號。 如果有進行任何變更，請按一下 [儲存]：
 
 ![更新開機診斷設定](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>藉由連結新的 OS 磁碟來針對受控磁碟 VM 進行疑難排解
+1. 停止受影響的受控磁碟 Windows VM。
+2. 針對受控磁碟 VM 的 OS 磁碟[建立受控磁碟快照集](snapshot-copy-managed-disk.md)。
+3. [從快照集建立受控磁碟](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)。
+4. [連結作為 VM 資料磁碟的受控磁碟](attach-disk-ps.md)。
+5. [將步驟 4 的資料磁碟變更為 OS 磁碟](os-disk-swap.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如果連接至 VM 時發生問題，請參閱[針對 Azure VM 的 RDP 連接進行疑難排解](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 如果存取 VM 上執行的應用程式時發生問題，請參閱[針對 Windows VM 上的應用程式連線問題進行疑難排解](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。

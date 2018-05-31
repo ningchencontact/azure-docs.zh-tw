@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8dbe995ac3c6799c2fa17d9faa8be0cb74d6ee23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258992"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程︰設定 Workday 來自動佈建使用者
 
@@ -185,7 +186,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 1. 在搜尋方塊中輸入 **Domain Security Policies**，然後按一下 [功能區域的網域安全性原則]。  
    
     ![網域安全性原則](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "網域安全性原則")  
-2. 搜尋 system 並選取 [系統]  功能區域。  按一下 [SERVICEPRINCIPAL] 。  
+2. 搜尋 system 並選取 [系統]  功能區域。  按一下 [確定]。  
    
     ![網域安全性原則](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "網域安全性原則")  
 3. 在 [系統] 功能區域的安全性原則清單中，展開 [安全性管理]，並選取 [外部帳戶佈建] 網域安全性原則。  
@@ -804,20 +805,13 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
 
 * 已解決之前位於歐盟的 Azure AD 租用戶上並未出現稽核記錄的問題。 不過，位於歐盟的 Azure AD 租用戶需要進行其他代理程式設定。 欲知詳情，請參閱[第 3 部分：設定內部部署同步代理程式](#Part 3: Configure the on-premises synchronization agent)
 
-## <a name="gdpr-compliance"></a>GDPR 合規性
+## <a name="gdpr-information"></a>GDPR 資訊
 
 [一般資料保護規定 (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) 是歐盟 (EU) 所制定的資料保護和隱私權法律。 GDPR 會針對提供商品和服務給 EU 居民，或收集和分析 EU 居民相關資料的公司、政府機關、非營利組織及其他組織，強制施行規則。 
 
-Azure AD 佈建服務連同其餘 Microsoft 服務和功能都符合 GDPR 規範。 若要深入了解 Microsoft 的 GDPR 案例，請參閱[服務條款](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)。
+若要深入了解 Microsoft 的 GDPR 案例，請參閱[服務條款](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)。
 
-不過，由於適用於 Active Directory 的 Workday 佈建解決方案會要求在已加入網域的伺服器上安裝同步處理代理程式，因此您將必須監視一些事件，才能也保持符合 GDPR 規範。
- 
-代理程式會在 **Windows 事件記錄檔**中建立記錄檔，其中可能包含個人識別資訊。
-
-有兩種方式可讓您保持符合 GDPR 規範：
-
-1. 在收到要求時，擷取使用者的資料，然後從 Windows 事件記錄檔中移除該使用者的資料。 
-2. 將來自 AADSyncAgent 處理序之 Windows 事件記錄檔的保留期維持在 48 小時以內
+請注意適用於 Active Directory 的 Workday 佈建解決方案會要求在已加入網域的伺服器上安裝同步處理代理程式，而此代理程式會在 **Windows 事件記錄**中建立可包含個人識別資訊的記錄。
 
 如需有關如何設定 Windows 事件記錄檔之資料保留期的資訊，請參閱[事件記錄檔的設定](https://technet.microsoft.com/library/cc952132.aspx) \(英文\)。 如需有關 Windows 事件記錄檔的一般資訊，請參閱[這篇文章](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx)。
 
@@ -827,4 +821,3 @@ Azure AD 佈建服務連同其餘 Microsoft 服務和功能都符合 GDPR 規範
 * [瞭解如何針對佈建活動檢閱記錄和取得報告](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
 * [了解如何設定 Workday 與 Azure Active Directory 之間的單一登入](active-directory-saas-workday-tutorial.md)
 * [了解如何將其他 SaaS 應用程式與 Azure Active Directory 整合](active-directory-saas-tutorial-list.md)
-
