@@ -15,24 +15,24 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b76809e615174e7c4e118c6043c8f3fbef3ee94
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 5316cca9d3c944735355d7912a0f1e044c585001
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158025"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34339803"
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入
 本文是關於可讓系統管理員設定單一登入不存在於 Azure Active Directory 應用程式資源庫的應用程式，而「不需要撰寫程式碼」 的功能。 此功能已在 2015 年 11 月 18 日的技術預覽中發行，並且包含在 [Azure Active Directory Premium](active-directory-whatis.md) 中。 如果您要改為尋找有關如何透過程式碼將自訂應用程式與 Azure AD 整合的開發人員指導方針，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。
 
-Azure Active Directory 應用程式資源庫提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單，如 [本文](active-directory-appssoaccess-whatis.md)所說明。 在您 (假設您是 IT 專業人員或組織中的系統整合者) 找到所要連接的應用程式之後，就可以依照 Azure 入口網站中展示的逐步指示來啟用單一登入。
+Azure Active Directory 應用程式資源庫提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單，如 [本文](manage-apps/what-is-single-sign-on.md)所說明。 在您 (假設您是 IT 專業人員或組織中的系統整合者) 找到所要連接的應用程式之後，就可以依照 Azure 入口網站中展示的逐步指示來啟用單一登入。
 
 具有 [Azure Active Directory Premium](active-directory-whatis.md) 授權的客戶還會獲得下列額外功能：
 
 * 任何支援 SAML 2.0 身分識別提供者的應用程式皆可進行自助式整合 (SP 起始或 IdP 起始)
-* Web 應用程式可在使用 [密碼型 SSO](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
+* Web 應用程式可在使用 [密碼型 SSO](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
 * 應用程式可使用 SCIM 通訊協定進行自助式連線，以執行使用者佈建 ([說明請見此處](active-directory-scim-provisioning.md))
-* 能夠在 [Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)中新增任何應用程式的連結
+* 能夠在 [Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)中新增任何應用程式的連結
 
 這不僅包括您所使用、但尚未在 Azure AD 應用程式庫中上線的 SaaS 應用程式，也包括您的組織已部署至您所控制的伺服器 (在雲端或內部部署中) 的第三方 Web 應用程式。
 
@@ -116,18 +116,18 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 如需偵錯提示，請參閱這篇 [有關於如何對應用程式的 SAML 型單一登入進行偵錯的文章](active-directory-saml-debugging.md) 
 
 ## <a name="password-single-sign-on"></a>密碼單一登入
-選取此選項，可為具有 HTML 登入頁面的 Web 應用程式設定 [密碼單一登入](active-directory-appssoaccess-whatis.md) 。 密碼 SSO 也稱為密碼儲存庫存，可讓您管理使用者對不支援身分識別同盟之 Web 應用程式的存取和密碼。 如果有數個使用者需要共用單一帳戶 (例如共用組織的社交媒體應用程式帳戶)，這也很有用處。 
+選取此選項，可為具有 HTML 登入頁面的 Web 應用程式設定 [密碼單一登入](manage-apps/what-is-single-sign-on.md) 。 密碼 SSO 也稱為密碼儲存庫存，可讓您管理使用者對不支援身分識別同盟之 Web 應用程式的存取和密碼。 如果有數個使用者需要共用單一帳戶 (例如共用組織的社交媒體應用程式帳戶)，這也很有用處。 
 
 選取 [下一步] 之後，系統會提示您輸入應用程式的 Web 型登入頁面的 URL。 請注意，這必須是包含使用者名稱和密碼輸入欄位的頁面。 輸入之後，Azure AD 會啟動程序來剖析使用者名稱輸入和密碼輸入的登入頁面。 如果此程序不成功，系統會引導您執行安裝瀏覽器延伸模組 (需要 Internet Explorer、Chrome 或 Firefox) 的替代程序，以讓您手動擷取欄位。
 
-在擷取登入頁面後，即可指派使用者和群組，並且可像 [密碼 SSO 應用程式](active-directory-appssoaccess-whatis.md)一般設定認證原則。
+在擷取登入頁面後，即可指派使用者和群組，並且可像 [密碼 SSO 應用程式](manage-apps/what-is-single-sign-on.md)一般設定認證原則。
 
 注意：您可以在應用程式的 [設定] 索引標籤上使用 [上傳標誌] 按鈕，來上傳應用程式的圖格標誌。 
 
 ## <a name="existing-single-sign-on"></a>現有單一登入
 選取此選項，可將應用程式的連結新增至組織的 Azure AD 存取面板或 Office 365 入口網站。 使用此選項，可讓您新增目前使用 Azure Active Directory 同盟服務 (或其他同盟服務)、而不是使用 Azure AD 的自訂 Web 應用程式的連結，以進行驗證。 或者，您可以新增特定 SharePoint 網頁或其他只要出現在使用者存取面板上的網頁的深層連結。 
 
-選取 [下一步] 之後，系統會提示您輸入要連結到的應用程式的 URL。 完成之後，使用者和群組即可指派給應用程式，而使應用程式出現在這些使用者的 [Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)中。
+選取 [下一步] 之後，系統會提示您輸入要連結到的應用程式的 URL。 完成之後，使用者和群組即可指派給應用程式，而使應用程式出現在這些使用者的 [Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)中。
 
 注意：您可以在應用程式的 [設定] 索引標籤上使用 [上傳標誌] 按鈕，來上傳應用程式的圖格標誌。
 

@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 77effb7892e6d59087d07109958f4682886f12db
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e5d9fb76f66ffb98addab24e9e8bf8b82a82af7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365673"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>針對 SSH 連線至 Azure Linux VM 失敗、發生錯誤或被拒進行疑難排解
 當您嘗試連接到 Linux 虛擬機器 (VM) 時，有許多原因可能會導致您遇到安全殼層 (SSH) 錯誤、SSH 連線失敗或 SSH 被拒。 本文可協助您找出原因並加以更正。 您可以使用 Azure 入口網站、Azure CLI 或適用於 Linux 的 VM 存取擴充功能，針對連線問題進行疑難排解並予以解決。
@@ -34,7 +35,7 @@ ms.lasthandoff: 05/10/2018
 
 1. 重設 SSH 組態。
 2. 重設使用者的認證。
-3. 確認[網路安全性群組](../../virtual-network/virtual-networks-nsg.md)規則允許 SSH 流量。
+3. 確認[網路安全性群組](../../virtual-network/security-overview.md)規則允許 SSH 流量。
    * 確定網路安全性群組規則存在，以允許 SSH 流量 (預設為 TCP 連接埠 22)。
    * 若未使用 Azure 負載平衡器，則無法使用連接埠重新導向 / 對應功能。
 4. 檢查 [VM 資源健康狀態](../../resource-health/resource-health-overview.md)。 

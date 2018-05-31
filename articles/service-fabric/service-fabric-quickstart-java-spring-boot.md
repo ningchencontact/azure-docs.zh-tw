@@ -15,16 +15,17 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e41a7754e6e170dda7818bceadab7858a9d9fa76
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6c84b60018ec03b7f9bc572db9181b8a47a0c595
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365398"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-azure"></a>快速入門：將 Java Spring Boot 應用程式部署到 Azure
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理微服務與容器。 
 
-此快速入門說明如何將 Spring Boot 應用程式部署到 Service Fabric。 本快速入門使用 Spring 網站上的 [Getting Started](https://spring.io/guides/gs/spring-boot/) 範例。 本快速入門使用熟悉的命令列工具，引導您將 Spring Boot 範例部署為 Service Fabric 應用程式。 完成後，您就可以在 Service Fabric 上使用 Spring Boot Getting Started 範例。 
+此快速入門說明如何使用 Mac 或 Linux 開發人員電腦，將 Spring Boot 應用程式部署到 Service Fabric。 本快速入門使用 Spring 網站上的 [Getting Started](https://spring.io/guides/gs/spring-boot/) 範例。 本快速入門使用熟悉的命令列工具，引導您將 Spring Boot 範例部署為 Service Fabric 應用程式。 完成後，您就可以在 Service Fabric 上使用 Spring Boot Getting Started 範例。 
 
 ![應用程式螢幕擷取畫面](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -38,16 +39,36 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 
 ## <a name="prerequisites"></a>先決條件
 若要完成本快速入門：
-1. [安裝 Service Fabric SDK 和 Service Fabric 命令列介面 (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+1. 安裝 Service Fabric SDK 和 Service Fabric 命令列介面 (CLI)
+
+    a. [Mac](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli#cli-mac)
+    
+    b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+
 2. [安裝 Git](https://git-scm.com/)
-3. [安裝 Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-4. [設定 Java 環境](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
+3. 安裝 Yeoman
+
+    a. [Mac](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
+
+    b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+4. 設定 Java 環境
+
+    a. [Mac](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
+    
+    b.  [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
 
 ## <a name="download-the-sample"></a>下載範例
 在終端機視窗中執行下列命令，將 Spring Boot Getting Started 範例應用程式複製到本機電腦。
 ```bash
 git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
+
+## <a name="build-the-spring-boot-application"></a>建置 Spring Boot 應用程式 
+1. 在 `gs-spring-boot/complete` 目錄中，執行下列命令以建置應用程式 
+
+    ```bash
+    ./gradlew build
+    ``` 
 
 ## <a name="package-the-spring-boot-application"></a>封裝 Spring Boot 應用程式 
 1. 在複本的 `gs-spring-boot` 目錄中，執行 `yo azuresfguest` 命令。 
@@ -56,7 +77,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
     ![Yeoman 項目](./media/service-fabric-quickstart-java-spring-boot/yeomanspringboot.png)
 
-3. 在 `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` 資料夾中，建立名為 `entryPoint.sh` 的檔案。 將下列項目新增至檔案。 
+3. 在 `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` 資料夾中，建立名為 `entryPoint.sh` 的檔案。 將下列項目新增至 `entryPoint.sh` 檔案。 
 
     ```bash
     #!/bin/bash
@@ -65,14 +86,60 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
+4. 在 `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` 檔案中新增 [端點] 資源
+
+    ```xml 
+        <Resources>
+          <Endpoints>
+            <Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
+          </Endpoints>
+       </Resources>
+    ```
+
+    **ServiceManifest.xml** 現在如下所示： 
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <ServiceManifest Name="SpringGettingStartedPkg" Version="1.0.0"
+                     xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+       <ServiceTypes>
+          <StatelessServiceType ServiceTypeName="SpringGettingStartedType" UseImplicitHost="true">
+       </StatelessServiceType>
+       </ServiceTypes>
+
+       <CodePackage Name="code" Version="1.0.0">
+          <EntryPoint>
+             <ExeHost>
+                <Program>entryPoint.sh</Program>
+                <Arguments></Arguments>
+                <WorkingFolder>CodePackage</WorkingFolder>
+             </ExeHost>
+          </EntryPoint>
+       </CodePackage>
+        <Resources>
+          <Endpoints>
+            <Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
+          </Endpoints>
+       </Resources>
+     </ServiceManifest>
+    ```
+
 在這個階段，您已經針對可以部署到 Service Fabric 的 Spring Boot Getting Started 範例，建立 Service Fabric 應用程式。
 
 ## <a name="run-the-application-locally"></a>在本機執行應用程式
-1. 執行下列命令來啟動本機叢集：
+1. 執行下列命令，以在 Ubuntu 機器上啟動本機叢集：
 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
+
+    如果使用 Mac，請從 Docker 映像啟動本機叢集 (假設您已遵循[必要條件](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac#create-a-local-container-and-set-up-service-fabric)針對 Mac 設定您的本機叢集)。 
+
+    ```bash
+    docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
+    ```
+
     啟動本機叢集需要一些時間。 若要確認該叢集完全啟動，請存取位於 **http://localhost:19080** 的 Service Fabric Explorer。 五個狀況良好的節點表示本機叢集已啟動並執行。 
     
     ![本機叢集狀況良好](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
@@ -118,13 +185,13 @@ Service Fabric 提供了數項可用來管理叢集及其應用程式的工具�
 
 在此快速入門中，您會使用 Service Fabric CLI 和 Service Fabric Explorer。 
 
-若要使用 CLI，您必須根據您所下載的 PFX 檔案建立 PEM 檔案。 若要轉換此檔案，請使用下列命令。 (對於合作對象叢集，您可以從 [讀我檔案] 頁面上的指示中，複製您的 PFX 檔案適用的特定命令。)
+若要使用 CLI，必須根據您所下載的 PFX 檔案建立 PEM 檔案。 若要轉換此檔案，請使用下列命令。 (對於合作對象叢集，您可以從 [讀我檔案] 頁面上的指示中，複製您的 PFX 檔案適用的特定命令。)
 
-    ```bash
-    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
-    ``` 
+```bash
+openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
+``` 
 
-若要使用 Service Fabric Explorer，您必須將您從合作對象叢集網站下載的憑證 PFX 檔案匯入至憑證存放區 (Windows 或 Mac) 或瀏覽器本身 (Ubuntu)。 您需要 PFX 私密金鑰密碼；此密碼可從 [讀我檔案] 頁面取得。
+若要使用 Service Fabric Explorer，必須將您從合作對象叢集網站下載的憑證 PFX 檔案匯入至憑證存放區 (Windows 或 Mac) 或瀏覽器本身 (Ubuntu)。 您需要 PFX 私密金鑰密碼；此密碼可從 [讀我檔案] 頁面取得。
 
 請使用您最熟悉的方法在您的系統上匯入憑證。 例如︰
 
@@ -140,12 +207,6 @@ Service Fabric 提供了數項可用來管理叢集及其應用程式的工具�
 
 1. 瀏覽到 `gs-spring-boot/SpringServiceFabric` 資料夾。
 2. 執行下列命令，以連接到 Azure 叢集。 
-
-    ```bash
-    sfctl cluster select --endpoint http://<ConnectionIPOrURL>:19080
-    ```
-    
-    如果叢集使用自我簽署的憑證保護，您執行的命令就是： 
 
     ```bash
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
@@ -182,7 +243,7 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可藉�
 
     ```bash 
     # Connect to your local cluster
-    sfctl cluster select --endpoint http://localhost:19080
+    sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
 
     # Run Bash command to scale instance count for your service
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 3 --stateless 

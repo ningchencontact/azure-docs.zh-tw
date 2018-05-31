@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 488787adfbae0147c3bd0425d839e2ad8c5ed786
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 687453b37e15f5d3dd1fa161f89b6d18f90ba279
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2018
-ms.locfileid: "32308758"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34343414"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>教學課程：Azure Active Directory 與 Jamf Pro 整合
 
@@ -31,7 +31,7 @@ Jamf Pro 與 Azure AD 整合提供下列優點：
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Jamf Pro (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -124,7 +124,7 @@ Jamf Pro 與 Azure AD 整合提供下列優點：
 
     ![憑證下載連結](./media/active-directory-saas-jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_certificate.png) 
 
-6. 按一下 [儲存] 按鈕。
+6. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-jamfprosamlconnector-tutorial/tutorial_general_400.png)
     
@@ -153,7 +153,7 @@ Jamf Pro 與 Azure AD 整合提供下列優點：
     >[!NOTE]
     > 這裡的 `aadsso` 為子網域組件 (僅供參考)。 使用此值來完成 Azure 入口網站上 [Jamf Pro 網域及 URL] 區段中的登入 URL 和回覆 URL。
 
-    e. 按一下 [檔案]。
+    e. 按一下 [檔案] 。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -185,7 +185,7 @@ Jamf Pro 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增]。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-jamf-pro-test-user"></a>建立 Jamf Pro 測試使用者
 
@@ -203,7 +203,7 @@ Jamf Pro 與 Azure AD 整合提供下列優點：
 
     ![新增員工](./media/active-directory-saas-jamfprosamlconnector-tutorial/user1.png)
 
-4. 按一下 [新增]。
+4. 按一下 [新增] 。
 
     ![新增員工](./media/active-directory-saas-jamfprosamlconnector-tutorial/user2.png)
 
@@ -227,7 +227,7 @@ Jamf Pro 與 Azure AD 整合提供下列優點：
 
     f. 在 [確認密碼] 文字方塊中，輸入使用者的密碼。
 
-    g. 按一下 [檔案]。
+    g. 按一下 [檔案] 。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -269,7 +269,7 @@ Jamf Pro 與 Azure AD 整合提供下列優點：
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
