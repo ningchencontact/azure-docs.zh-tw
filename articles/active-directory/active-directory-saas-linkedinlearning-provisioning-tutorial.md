@@ -1,8 +1,8 @@
 ---
-title: "教學課程︰以 Azure Active Directory 設定 LinkedIn Learning 來自動佈建使用者 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 來自動佈建並取消佈建使用者帳戶至 LinkedIn Learning。"
+title: 教學課程︰以 Azure Active Directory 設定 LinkedIn Learning 來自動佈建使用者 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 來自動佈建並取消佈建使用者帳戶至 LinkedIn Learning。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: f2ef582bd3a5ecd837dd053067cae6c1ea47b6f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: da39a31777323535c90b4d57e316741295aa873a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34344927"
 ---
 # <a name="tutorial-configure-linkedin-learning-for-automatic-user-provisioning"></a>教學課程︰設定 LinkedIn Learning 來自動佈建使用者
 
@@ -99,7 +100,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 11)  填寫 [系統管理員認證] 底下的下列欄位：
 
-* 在 [租用戶 URL] 欄位中輸入 https://api.linkedin.com。
+* 在 [租用戶 URL] 欄位中，輸入 https://api.linkedin.com。
 
 * 在 [祕密權杖] 欄位中，輸入在步驟 1 產生的存取權杖，然後按一下 [測試連線]。
 
@@ -124,4 +125,4 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 ## <a name="additional-resources"></a>其他資源
 
 * [管理企業應用程式的使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)

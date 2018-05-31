@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 0fe4816dbafc28974796c7d9cd307b04fdb9d6d4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a6a44e30fe58617b43c5491a72fc882015bc9591
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886058"
 ---
 # <a name="smart-contract-integration-patterns"></a>智慧合約整合模式
 
@@ -78,7 +79,7 @@ Azure Blockchain Workbench REST API 可讓您傳送已驗證的要求，以查�
 
 在此案例中，事件發生於智慧合約內，例如特定事件類型的狀態變更或執行。 此事件會透過事件方格廣播至下游取用者，讓這些取用者採取適當的動作。
 
-此案例的範例之一，是取用者在交易發生時會收到警示並可執行動作，例如在 SQL DB 或 Common Data Service 中記錄資訊。 Workbench 會依循此相同模式來填入其*鏈結關閉* SQL DB。
+此案例的範例之一，是取用者在交易發生時會收到警示並可執行動作，例如在 SQL DB 或 Common Data Service 中記錄資訊。 Workbench 會依循此相同模式來填入其「鏈結關閉」SQL DB。
 
 另一個範例，是智慧合約轉換為特定狀態時，例如，當合約進入 *OutOfCompliance* 時。 當此狀態變更發生時，可能會觸發警示並傳送至系統管理員的行動電話。
 
@@ -213,7 +214,7 @@ Azure Blockchain Workbench REST API 可讓您傳送已驗證的要求，以查�
 
 ## <a name="storage-integration"></a>儲存體整合
 
-在許多情況下，都可能需要納入 attestable 檔案。 基於多種原因，將檔案放在區塊鏈上並不適當。 常見的方法是對檔案執行單向雜湊，並在分散式總帳上共用該雜湊。 後續再隨時執行雜湊，應該會傳回相同的結果。 如果檔案已修改，即使只是在影像中修改了一個像素，雜湊也會傳回不同的值。
+在許多情況下，都可能需要納入 attestable 檔案。 基於多種原因，將檔案放在區塊鏈上並不適當。 常見的方法是對檔案執行密碼編譯雜湊 (例如 SHA-256)，並在分散式總帳上共用該雜湊。 後續再隨時執行雜湊，應該會傳回相同的結果。 如果檔案已修改，即使只是在影像中修改了一個像素，雜湊也會傳回不同的值。
 
 ![儲存體整合](media/blockchain-workbench-integration-patterns/storage-integration.png)
 

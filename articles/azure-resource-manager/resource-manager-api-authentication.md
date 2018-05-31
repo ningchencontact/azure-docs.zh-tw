@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 驗證和 Resource Manager | Microsoft Docs"
-description: "使用 Azure Resource Manager API 與 Azure Active Directory 進行驗證以整合應用程式與其他 Azure 訂用帳戶的開發人員指南。"
+title: Azure Active Directory 驗證和 Resource Manager | Microsoft Docs
+description: 使用 Azure Resource Manager API 與 Azure Active Directory 進行驗證以整合應用程式與其他 Azure 訂用帳戶的開發人員指南。
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -9,16 +9,17 @@ editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
-ms.author: dugill;tomfitz
-ms.openlocfilehash: 0b7ddaa7e8a98cdff0e92c87f8a1f7e24efbd67e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: dugill
+ms.openlocfilehash: 1dea8d173432b05a72de72e8b17db4c97ea7924d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359857"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 驗證 API 來存取訂用帳戶
 ## <a name="introduction"></a>簡介
@@ -29,7 +30,7 @@ ms.lasthandoff: 11/16/2017
 1. **使用者 + 應用程式存取**︰適用於代表登入使用者存取資源的應用程式。 此方式適用於僅處理「互動式管理」Azure 資源的應用程式，例如 Web 應用程式和命令列工具。
 2. **僅限應用程式存取**︰適用於執行協助程式服務和已排程之作業的應用程式。 應用程式的身分識別會獲得資源的直接存取權。 此方式適用於需要長期無周邊 (自動) 存取 Azure 的應用程式。
 
-本文提供建立應用程式來運用這兩種授權方法的逐步指示。 它會說明如何使用 REST API 或 C# 執行每個步驟。 完整的 ASP.NET MVC 應用程式可在 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense)取得。
+本文提供建立應用程式來運用這兩種授權方法的逐步指示。 它會說明如何使用 REST API 或 C# 執行每個步驟。 在 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense) 可取得完整的 ASP.NET MVC 應用程式。
 
 ## <a name="what-the-web-app-does"></a>Web 應用程式的功用
 Web 應用程式：
@@ -224,7 +225,7 @@ ASP.NET MVC 範例應用程式的 [UserCanManagerAccessForSubscription](https://
 <a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>取得 Azure AD Graph API 的僅限應用程式存取權杖
-若要驗證您的應用程式，並取得 Azure AD Graph API 的權杖，請向 Azure AD 權杖端點發出用戶端認證授與 OAuth2.0 流程權杖要求 (**http://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**)。
+若要驗證您的應用程式，並取得 Azure AD Graph API 的權杖，請向 Azure AD 權杖端點發出用戶端認證授與 OAuth2.0 流程權杖要求 (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**)。
 
 ASP.net MVC 範例應用程式的 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) 方法使用 Active Directory Authentication Library for .NET，以取得 Graph API 的僅限應用程式存取權杖。
 

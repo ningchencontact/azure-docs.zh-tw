@@ -1,25 +1,26 @@
 ---
-title: "安裝內部部署資料閘道 - Azure Logic Apps | Microsoft Docs"
-description: "在存取內部部署資料來源之前，安裝內部部署資料閘道以便在內部部署資料來源和邏輯應用程式之間快速地傳輸和加密資料"
-keywords: "存取資料, 內部部署, 資料傳輸, 加密, 資料來源"
+title: 安裝內部部署資料閘道 - Azure Logic Apps | Microsoft Docs
+description: 在存取內部部署資料來源之前，安裝內部部署資料閘道以便在內部部署資料來源和邏輯應用程式之間快速地傳輸和加密資料
+keywords: 存取資料, 內部部署, 資料傳輸, 加密, 資料來源
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6c1c954209c08c4ce1262bdc1620755e4a3a6d7e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32179005"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -242,6 +243,11 @@ TcpTestSucceeded       : True
 6. 結果會從資料來源傳送回閘道，然後再到閘道雲端服務。 閘道雲端服務接著就會使用結果。
 
 <a name="faq"></a>
+
+## <a name="tenant-level-administration"></a>租用戶層級管理 
+
+針對其他使用者已安裝並設定的所有閘道，租用戶系統管理員目前無法從單一位置來管理這些閘道。  如果您是租用戶系統管理員，建議您要求組織內的使用者將您新增為所安裝每個閘道的系統管理員。 這可讓您透過 [閘道設定] 頁面或 [PowerShell 命令](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters)，以管理組織中的所有閘道。 
+
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 

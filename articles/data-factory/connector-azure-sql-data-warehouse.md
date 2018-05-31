@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 0bc24fb0206455c723acf5e6f4b82d82002f727c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ba48a9072a85e7d8e6e9fb17957efbf27711df8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886834"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,7 +104,7 @@ ms.lasthandoff: 04/16/2018
     - 應用程式金鑰
     - 租用戶識別碼
 
-2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL Server **[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**。 AAD 系統管理員可以是 AAD 使用者或 AAD 群組。 如果您將系統管理員角色授與具有 MSI 的群組，請略過下面的步驟 3 和 4，因為系統管理員具有資料庫的完整存取權。
+2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL Server **[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 AAD 系統管理員可以是 AAD 使用者或 AAD 群組。 如果您將系統管理員角色授與具有 MSI 的群組，請略過下面的步驟 3 和 4，因為系統管理員具有資料庫的完整存取權。
 
 3. **針對服務主體建立自主資料庫使用者**，方法是以至少具有 ALTER ANY USER 權限的 AAD 身分識別，使用 SSMS 之類的工具連線至您想要將資料複製到其中或從中複製資料的資料倉儲，然後執行下列 T-SQL。 從[這裡](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)深入了解自主資料庫使用者。
     
@@ -114,7 +115,7 @@ ms.lasthandoff: 04/16/2018
 4. 像您一般對 SQL 使用者所做的一樣，**授與服務主體所需的權限**，例如藉由執行以下動作：
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. 在 ADF 中，設定 Azure SQL 資料倉儲連結服務。
@@ -151,6 +152,9 @@ ms.lasthandoff: 04/16/2018
 
 資料處理站可以與[受控服務識別 (MSI)](data-factory-service-identity.md) 相關聯，用後者來表示此特定資料處理站。 您可以針對 Azure SQL 資料倉儲驗證使用此服務識別，讓這個指定的處理站可以存取及複製資料到您的資料倉儲，以及從中存取、複製。
 
+> [!IMPORTANT]
+> 請注意 MSI 驗證目前不支援 PolyBase。
+
 若要使用以 MSI 為基礎的 AAD 應用程式權杖驗證，請遵循下列步驟：
 
 1. **在 Azure AD 中建立群組，並讓處理站 MSI 成為此群組的成員**。
@@ -163,7 +167,7 @@ ms.lasthandoff: 04/16/2018
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL Server **[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**。
+2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL Server **[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。
 
 3. **針對 AAD 群組建立自主資料庫使用者**，方法是以至少具有 ALTER ANY USER 權限的 AAD 身分識別，使用 SSMS 之類的工具連線至您想要將資料複製到其中或從中複製資料的資料倉儲，然後執行下列 T-SQL。 從[這裡](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)深入了解自主資料庫使用者。
     
@@ -174,7 +178,7 @@ ms.lasthandoff: 04/16/2018
 4. 像您一般對 SQL 使用者所做的一樣，**授與 AAD 群組所需的權限**，例如藉由執行以下動作：
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. 在 ADF 中，設定 Azure SQL 資料倉儲連結服務。
@@ -377,11 +381,11 @@ GO
 
 使用 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 是以高輸送量將大量資料載入 Azure SQL 資料倉儲的有效方法。 使用 PolyBase 而不是預設的 BULKINSERT 機制，即可看到輸送量大幅提升。 請參閱[複製效能參考編號](copy-activity-performance.md#performance-reference)了解詳細的比較。 如需使用案例的逐步解說，請參閱[使用 Azure Data Factory 在 15 分鐘內將 1 TB 載入至 Azure SQL 資料倉儲](connector-azure-sql-data-warehouse.md)。
 
-* 如果您的來源資料位在 Azure Blob 或 Azure Data Lake Store，且其格式與 PolyBase 相容，您就可以使用 PolyBase 直接複製到 Azure SQL 資料倉儲。 請參閱**[使用 PolyBase 直接複製](#direct-copy-using-polybase)**了解詳細資料。
+* 如果您的來源資料位在 Azure Blob 或 Azure Data Lake Store，且其格式與 PolyBase 相容，您就可以使用 PolyBase 直接複製到 Azure SQL 資料倉儲。 請參閱**[使用 PolyBase 直接複製](#direct-copy-using-polybase)** 了解詳細資料。
 * 如果您的來源資料存放區與格式不受 PolyBase 支援，您可以改為使用[使用 PolyBase 分段複製](#staged-copy-using-polybase)功能。 它也能透過將資料自動轉換為 PolyBase 相容的格式，並將資料儲存在 Azure Blob 儲存體中，來提供更佳的輸送量。 然後，它會將資料載入 SQL 資料倉儲。
 
 > [!IMPORTANT]
-> 請注意，PolyBase 僅支援 Azure SQL 資料倉儲 SQL 驗證，不支援 Azure Active Directory 驗證。
+> 請注意，受控服務識別 (MSI) 型的 AAD 應用程式權杖驗證目前不支援 PolyBase。
 
 ### <a name="direct-copy-using-polybase"></a>使用 PolyBase 直接複製
 

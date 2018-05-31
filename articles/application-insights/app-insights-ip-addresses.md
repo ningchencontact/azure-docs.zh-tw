@@ -11,13 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 05/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: f56810d6520edd19ce757a91712698714902e668
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4ed0c84dfab58f8a92e0f366bb65634b9e3dab82
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33935631"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 和 Log Analytics 使用的 IP 位址
 [Azure Application Insights](app-insights-overview.md) 服務會使用一些 IP 位址。 如果您所監視的應用程式裝載於防火牆後面，您可能需要知道這些位址。
@@ -49,11 +50,6 @@ ms.lasthandoff: 04/18/2018
 | 組態 |`auth.gfx.ms` | |`443` |
 | 組態 |`login.live.com` | |`443` |
 | 安裝 |`packages.nuget.org`、`nuget.org`、`api.nuget.org`、`az320820.vo.msecnd.net` (NuGet 下載) | |`443` |
-
-## <a name="hockeyapp"></a>HockeyApp
-| 目的 | URL | IP | 連接埠 |
-| --- | --- | --- | --- |
-| 當機資料 |gate.hockeyapp.net |104.45.136.42 |80、443 |
 
 ## <a name="availability-tests"></a>可用性集合
 這是用來執行 [可用性 Web 測試](app-insights-monitor-web-app-availability.md) 的位址清單。 如果您想要在您的應用程式上執行 Web 測試，但您的 Web 伺服器限於為特定用戶端提供服務，則您必須允許來自我們的可用性測試伺服器的連入流量。
@@ -236,14 +232,17 @@ East US
 
 | 目的 | URI | IP | 連接埠 |
 | --- | --- | --- | --- |
-| 代理程式 | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71 | 443
+| 代理程式 | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71<br/>52.230.124.46<br/>52.230.122.9 | 443
 | 入口網站 | gateway.azureserviceprofiler.net | 動態 | 443
 | 儲存體 | *.core.windows.net | 動態 | 443
 
 ## <a name="snapshot-debugger"></a>快照集偵錯工具
 
+> [!NOTE]
+> 分析工具和快照集偵錯工具共用同一組 IP 位址。
+
 | 目的 | URI | IP | 連接埠 |
 | --- | --- | --- | --- |
-| 代理程式 | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 23.101.68.84<br/>52.174.44.101<br/>52.250.121.195<br/>51.143.88.187<br/> | 443
+| 代理程式 | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71<br/>52.230.124.46<br/>52.230.122.9 | 443
 | 入口網站 | ppe.gateway.azureserviceprofiler.net | 動態 | 443
 | 儲存體 | *.core.windows.net | 動態 | 443

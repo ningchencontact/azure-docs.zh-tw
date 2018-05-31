@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf015f4857a22b755813d0be1af5a55a8b7b6535
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360467"
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Microsoft 雲端服務和網路安全性
 Microsoft 雲端服務提供超大規模的服務和基礎結構、企業級的功能，以及許多混合式連線選項。 客戶可以選擇透過網際網路或透過 Azure ExpressRoute (提供私人網路連線能力) 存取這些服務。 Microsoft Azure 平台可讓客戶順暢地將基礎結構延伸至雲端並建置多層式架構。 另外，協力廠商可以提供安全性服務和虛擬設備，以啟用增強的功能。 當客戶使用透過 ExpressRoute 存取的 Microsoft 雲端服務，這份白皮書提供他們應該考慮的安全性和架構性問題的概觀。 也包括在 Azure 虛擬網路中建立更安全的服務。
@@ -124,7 +125,7 @@ Microsoft 有完整的方法來保護執行超大規模全域服務所需的雲�
 * **子網路架構：** 指定虛擬網路，使整個子網路專門作為周邊網路，與相同虛擬網路中的其他子網路分開。 這樣隔開可確保周邊網路與其他內部或私人子網路層之間的流量，一定會流經防火牆或 IDS/IPS 虛擬設備。  界限子網路上使用者定義的路由，需將此流量轉送到虛擬設備。
 * **NSG：** 周邊網路子網路本身應該開啟，允許與網際網路通訊，但這不表示客戶應該略過 NSG。 遵循一般的安全性做法，以減少網路介面暴露在網際網路中。 鎖定可以存取部署或特定應用程式通訊協定和已開啟連接埠的遠端位址範圍。 但可能在某些情況下，完全鎖定不一定行得通。 例如，如果客戶在 Azure 中有外部網站，則周邊網路應該允許從任何公開 IP 位址傳入的 Web 要求，但只應該開啟 Web 應用程式連接埠：80 連接埠 上的 TCP 和/或 443 連接埠上的 TCP。
 * **路由表：** 周邊網路子網路本身必須能夠直接與網際網路通訊，但不應該允許未通過防火牆或安全性設備，就直接與後端或內部部署網路之間往返通訊。
-* **安全性設備設定：**為了路由傳送和檢查周邊網路與受保護網路其餘部分之間的封包，安全性設備 (如防火牆、IDS 和 IPS 裝置) 可以有多重主目錄。 但周邊網路和後端子網路可能有個別的 NIC。 周邊網路的 NIC會使用相應的 NSG 和周邊網路路由表，直接與網際網路往返通訊。 對於相應的後端子網路，連接到後端子網路的 NIC 會有更受限制的 NSG 和路由表。
+* **安全性設備設定：** 為了路由傳送和檢查周邊網路與受保護網路其餘部分之間的封包，安全性設備 (如防火牆、IDS 和 IPS 裝置) 可以有多重主目錄。 但周邊網路和後端子網路可能有個別的 NIC。 周邊網路的 NIC會使用相應的 NSG 和周邊網路路由表，直接與網際網路往返通訊。 對於相應的後端子網路，連接到後端子網路的 NIC 會有更受限制的 NSG 和路由表。
 * **安全性設備功能：** 部署在周邊網路中的安全性設備通常會執行下列功能：
   * 防火牆：對連入要求強制執行防火牆規則或存取控制原則。
   * 威脅偵測和防止：偵測並減輕來自網際網路的惡意攻擊。
@@ -515,11 +516,11 @@ IP 轉送是 UDR 的隨附功能。 IP 轉送是虛擬設備的一項設定，�
 * 使用 Azure Resource Manager 存取 Azure：
 * 使用 PowerShell 存取 Azure：[https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azure/overview)
 * 虛擬網路文件：[https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
-* 網路安全性群組文件：[https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/virtual-networks-nsg.md)
-* 使用者定義路由文件：[https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
-* Azure 虛擬閘道器︰[https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway/)
+* 網路安全性群組文件：[https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/security-overview.md)
+* 使用者定義的路由文件：[https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
+* Azure 虛擬閘道：[https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway/)
 * 站對站 VPN：[https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell](vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-* ExpressRoute 文件 (請務必閱讀＜使用者入門＞和＜作法＞兩節)：[https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
+* ExpressRoute 文件 (請務必閱讀〈使用者入門〉和〈作法〉兩節)：[https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
 
 <!--Image References-->
 [0]: ./media/best-practices-network-security/flowchart.png "Security Options Flowchart"

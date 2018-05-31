@@ -1,9 +1,9 @@
 ---
-title: "針對 Azure Application Insights 中的使用情況分析進行疑難排解"
-description: "疑難排解指南 - 使用 Application Insights 分析網站和應用程式使用情況。"
+title: 針對 Azure Application Insights 中的使用情況分析進行疑難排解
+description: 疑難排解指南 - 使用 Application Insights 分析網站和應用程式使用情況。
 services: application-insights
-documentationcenter: 
-author: numberbycolors
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: mbullwin
-ms.openlocfilehash: cb5f3052301b23eb10cd6b84ab6fae98bcc7ea18
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: mbullwin;daviste
+ms.openlocfilehash: 654b99085c406f13fe95476457234761bf840422
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867563"
 ---
 # <a name="troubleshoot-usage-analytics-in-application-insights"></a>針對 Application Insights 中的使用情況分析進行疑難排解
 您有關於 [Application Insights 中的使用情況分析工具](app-insights-usage-overview.md)：[使用者、工作階段、事件](app-insights-usage-segmentation.md)、[漏斗圖](usage-funnels.md)、[使用者流程](app-insights-usage-flows.md)[保留期](app-insights-usage-retention.md)或同群使用者的問題嗎？ 以下是一些解答。

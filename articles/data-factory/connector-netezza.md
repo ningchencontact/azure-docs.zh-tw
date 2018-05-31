@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 0896f2b23f9b74e12935c0a8b073b64dc743e6a8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940132"
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>使用 Azure Data Factory (搶鮮版 (Beta)) 從 Netezza 複製資料
 
@@ -50,6 +51,13 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | type | 類型屬性必須設為：**Netezza** | yes |
 | connectionString | 連線到 Netezza 的 ODBC 連接字串。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
+
+一般的連接字串為 `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`.。 您可以根據您的案例設定更多屬性：
+
+| 屬性 | 說明 | 必要 |
+|:--- |:--- |:--- |:--- |
+| SecurityLevel | 驅動程式用來連線到資料存放區的安全性 (SSL/TLS) 層級。 例如 `SecurityLevel=preferredSecured`。 支援的值包括：<br/>- 僅限未受保護連線 (**onlyUnSecured**)：驅動程式不會使用 SSL。<br/>- **偏好未受保護連線 (preferredUnSecured) (預設值)**：如果伺服器提供選擇，則驅動程式不使用 SSL。 <br/>- **偏好受保護連線 (preferredSecured)**：如果伺服器提供選擇，則驅動程式會使用 SSL。 <br/>- **僅限受保護連線 (onlySecured)**：除非有 SSL 連線，否則驅動程式不會連線 | 否 |
+| CaCertFile | 伺服器使用的 SSL 憑證完整路徑。 例如 `UseSystemTrustStore=<cert path>;`| 是，如果已啟用 SSL |
 
 **範例：**
 

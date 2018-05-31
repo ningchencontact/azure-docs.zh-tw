@@ -1,9 +1,9 @@
 ---
 title: 工作流程定義語言函式 - Azure Logic Apps | Microsoft Docs
-description: 了解您可以在邏輯應用程式工作流程定義中使用的函式
+description: 了解使用工作流程定義語言來建立邏輯應用程式的函式
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 0155e35641a0407fe48c4da07400fa188152b0af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8240ddf8a93c6589f89f3ad680c1c99c594742c9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182248"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886607"
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Azure Logic Apps 的工作流程定義語言函式參考
 
-本文將說明您使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 建立工作流程時可使用的函式。 如需有關邏輯應用程式定義的詳細資訊，請參閱[Azure Logic Apps 的工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)。 
+本文將說明您使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 建立工作流程時可使用的函式。 若要深入了解邏輯應用程式定義中的函式，請參閱 [Azure Logic Apps 的工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md#functions)。 
 
 > [!NOTE]
 > 在參數定義的語法中，參數後方出現問號 (？) 表示此參數是選擇性的。 例如，請參閱 [getFutureTime()](#getFutureTime)。

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 855525e2c1d3c33cc7134bbc1cd9b53ca59e1a70
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 626dfe07c13c90686157dea710715b333a378136
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34352883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>教學課程：Azure Active Directory 與 SAP HANA 整合
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 SAP Hana。
 - 您可以在 Azure 入口網站集中管理您的帳戶。
 
-如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
+如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -152,7 +153,7 @@ ms.lasthandoff: 12/11/2017
 
     ![[新增識別提供者] 設定](./media/active-directory-saas-saphana-tutorial/sap2.png)
 
-    b. 如果 XML 文件的內容有效，剖析程序會擷取 [一般資料] 畫面區域中的 [主旨]、[實體識別碼] 和 [簽發者] 欄位所需的資訊。 該程序也會擷取 [目的地] 畫面區域中 URL 欄位的所需資訊，例如 [基底 URL] 和 [SingleSignOn URL] **\(*)** 欄位。
+    b. 如果 XML 文件的內容有效，剖析程序會擷取 [一般資料] 畫面區域中的 [主旨]、[實體識別碼] 和 [簽發者] 欄位所需的資訊。 該程序也會擷取 [目的地] 畫面區域中 URL 欄位的所需資訊，例如 [基底 URL] 和 [SingleSignOn URL] (*) 欄位。
 
     ![[新增識別提供者] 設定](./media/active-directory-saas-saphana-tutorial/sap3.png)
 
@@ -276,7 +277,7 @@ SAP Hana 支援預設啟用的 Just-In-Time 佈建。
 ## <a name="additional-resources"></a>其他資源
 
 * [如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4145f7edb93801aa6f98df7e9cff34ae7370fc52
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32768008"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 
@@ -294,7 +295,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 
 系統會針對所有儲存體帳戶啟用 SSE 且無法停用。 在將資料寫入至「Azure 儲存體」時，SSE 會自動加密資料。 當您從「Azure 儲存體」讀取資料時，「Azure 儲存體」會先將資料解密，然後才傳回資料。 SSE 可讓您無須修改程式碼或在任何應用程式中新增程式碼，即可保護資料。
 
-用於 SSE 的金鑰會由 Microsoft 管理。 Microsoft 一開始會產生金鑰，然後除了依照內部 Microsoft 原則所定義的方式管理金鑰的定期輪換之外，也管理其安全儲存體。 客戶管理的金鑰會隨著一條從 Microsoft 管理的金鑰到客戶管理的金鑰之移轉路徑，最後可供使用。
+您可以使用 Microsoft 管理的金鑰，或自己的自訂金鑰。 Microsoft 會產生受控金鑰，然後除了依照內部 Microsoft 原則定義的方式處理金鑰的安全儲存體之外，也會處理其定期輪換。 如需有關使用自訂金鑰的詳細資訊，請參閱[使用 Azure Key Vault 中客戶管理的金鑰進行儲存體服務加密](storage-service-encryption-customer-managed-keys.md)。
 
 SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Resource Manager 和傳統) 以及所有「Azure 儲存體」服務 (Blob、佇列、資料表和檔案) 中的資料加密。 
 

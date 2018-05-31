@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f25c39b602449be3ab9d1cd7e67d6fcfc78afb17
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32176281"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>監視使用量和估計成本
 
@@ -39,12 +40,11 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="new-pricing-model"></a>新的定價模式
 
-我們在 2018 年 4 月發行了新的監視定價模式。 此模式非常適合雲端使用，並具有以使用量為基礎的定價功能。 您只需依用量付費，而無需承擔以節點為基礎的承諾。 [警示、計量、通知](https://azure.microsoft.com/pricing/details/monitor/)、[Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 和 [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) 都有新定價模式的詳細資料可供參考。
+我們在 2018 年 4 月[發行了新的監視定價模式](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)。  此模式非常適合雲端使用，並具有以使用量為基礎的定價功能。 您只需依用量付費，而無需承擔以節點為基礎的承諾。 [警示、計量、通知](https://azure.microsoft.com/pricing/details/monitor/)、[Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 和 [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) 都有新定價模式的詳細資料可供參考。 
 
-對於在 2018 年 4 月 2 日之後開始使用 Log Analytics 或 Application Insights 的客戶而言，新的定價模式將是唯一選項。 已使用這些服務的客戶則可選擇是否移轉至新的定價模式。
+對於在 2018 年 4 月 2 日之後加入 Log Analytics 或 Application Insights 的客戶而言，新的定價模式將是唯一選項。 已使用這些服務的客戶則可選擇是否移轉至新的定價模式。
 
 ## <a name="assessing-the-impact-of-the-new-pricing-model"></a>評估新定價模式的影響
-
 新的定價模式將會根據客戶的監視使用模式，對每個客戶產生不同的影響。 對於在 2018 年 4 月 2 日之前即使用 Log Analytics 或 Application Insights 的客戶，Azure 監視器中的 [使用量和估計成本] 頁面將會估計移轉至新的定價模式時所將產生的成本變更。 此外也提供將訂用帳戶移轉至新模式的途徑。 對大多數客戶而言，新的定價模式將較有利。 但客戶的資料使用量若特別高，或是屬於成本較高的區域，可能就另當別論。
 
 若要對您在 [使用量和估計成本] 頁面上選擇的訂用帳戶查看成本的估計值，請選取頁面頂端附近的藍色橫幅。 建議您一次查看一個訂用帳戶的資料，因為新的定價模式是在此層級上採行的。
@@ -71,11 +71,30 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>新的定價模型和 Operations Management Suite 訂用帳戶的權利
 
-凡購買 Microsoft Operations Management Suite E1 和 E2 的客戶，皆有資格使用 [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) 和 [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans) 的個別節點資料擷取權利。 若要以指定訂用帳戶享用 Log Analytics 工作區或 Application Insights 資源的這些權利，該訂用帳戶的定價模型必須保持在 2018 年 4 月前的定價模型。 在該定價模型中，可使用 Log Analytics「個別節點 (OMS)」定價層和 Application Insights「企業」定價方案。 根據組織所購買套件的節點數目，讓部分訂用帳戶改採新的定價模型仍可能對您有利。 但這一點需要仔細考量。
+凡購買 Microsoft Operations Management Suite E1 和 E2 的客戶，皆符合資格使用 [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) 和 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans) 的按節點資料擷取權利。 若要以指定訂用帳戶享用 Log Analytics 工作區或 Application Insights 資源的這些權利： 
+
+- 該訂用帳戶的定價模式必須保持在 2018 年 4 月前的模式。
+- Log Analytics 工作區應該使用「每個節點 (OMS)」定價層。
+- Application Insights 資源應該使用「企業」定價方案。
+
+根據貴組織所購買套件的節點數目，讓部分訂用帳戶改採新的定價模式仍可能對您有利，但這需要仔細考量。 一般情況下，建議您只要維持如上所述 2018 年 4 月前的模式即可。
+
+> [!WARNING]
+> 如果貴組織已購買 Microsoft Operations Management Suite E1 和 E2，訂用帳戶的定價模式通常最好保持在 2018 年 4 月前的模式。 
+>
 
 ## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>移轉至新定價模式時的變更
 
-將訂用帳戶移轉至新的定價模式，會將每個 Log Analytics 的定價層變更為新的「每一 GB」層 (在 Azure Resource Manager 中名為 "pergb2018")。 此移轉也會將企業方案中的任何 Application Insights 資源變更為基本方案。 成本估計會反映出這些變更的影響。
+新的定價模式可將 Log Analytics 和 Application Insights 定價選項簡化至只有單一層 (或方案)。 將訂用帳戶移轉至新的定價模式將會：
+
+- 將每個 Log Analytics 的定價層變更成新的「每一 GB」層 (在 Azure Resource Manager 中稱為「pergb2018」)
+- 企業方案中的任何 Application Insights 資源會變更為基本方案。
+
+成本估計會反映出這些變更的影響。
+
+> [!WARNING]
+> 重要注意事項：如果您使用 Azure Resource Manager 或 PowerShell 來部署訂用帳戶中的 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration)或 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell)，表示您已移至新的定價模式。 如果您為 Log Analytics 指定「pergb2018」以外的定價層/方案，或是為 Application Insights 指定「基本」方案，而不是因指定無效的定價層/方案而導致部署失敗，如此一來就會成功，**但是只會使用有效的定價層/方案**。 
+>
 
 ## <a name="moving-to-the-new-pricing-model"></a>移轉至新的定價模式
 

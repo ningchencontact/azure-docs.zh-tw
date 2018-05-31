@@ -1,67 +1,89 @@
 ---
 title: 工作流程觸發程序和動作 - Azure Logic Apps | Microsoft Docs
-description: 了解使用邏輯應用程式建立自動化工作流程和程序的觸發程序與動作
+description: 深入了解 Azure Logic Apps 工作流程動作中的觸發程序和動作
 services: logic-apps
-author: divyaswarnkar
-manager: anneta
+author: kevinlam1
+manager: SyntaxC4
 editor: ''
 documentationcenter: ''
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
-ms.date: 10/13/2017
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.topic: reference
+ms.date: 5/8/2018
 ms.author: klam; LADocs
-ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 88ee3d810a80bed418e8dbafa4f3e35ccf5e85b1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886777"
 ---
-# <a name="triggers-and-actions-for-logic-app-workflows"></a>適用於邏輯應用程式工作流程的觸發程序和動作
+# <a name="triggers-and-actions-for-workflow-definitions-in-azure-logic-apps"></a>Azure Logic Apps 工作流程動作中的觸發程序和動作
 
-所有邏輯應用程式都是以觸發程序為開頭，後面再接著動作。 本文說明您可以藉由建置邏輯應用程式，用於建立系統整合及自動執行業務工作流程或程序的觸發程序和動作類型。 
-  
-## <a name="triggers-overview"></a>觸發程序概觀 
+在 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 中，所有邏輯應用程式工作流程的開頭都是觸發程序，後面接著動作。 本文說明您可用來建置邏輯應用程式的觸發程序和動作，以便在整合解決方案中自動執行業務工作流程或程序。 您可以利用 Logic Apps 設計工具以視覺化方式建置邏輯應用程式，或利用[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)直接撰寫基礎工作流程定義，以建置邏輯應用程式。 您可以使用 Azure 入口網站或 Visual Studio。 深入了解[觸發程序和動作的定價方式](../logic-apps/logic-apps-pricing.md)。
 
-所有邏輯應用程式都是以觸發程序為開頭，此觸發程序會指定可以啟動邏輯應用程式回合的呼叫。 以下是您可以使用的觸發程序類型：
+<a name="triggers-overview"></a>
+
+## <a name="triggers-overview"></a>觸發程序概觀
+
+所有邏輯應用程式都是以觸發程序為開頭，此觸發程序會定義可以具現化和啟動邏輯應用程式工作流程的呼叫。 以下是您可以使用的觸發程序類型：
 
 * 「輪詢」觸發程序，用來定期檢查服務的 HTTP 端點
 * 「推送」觸發程序，用來呼叫[工作流程服務 REST API](https://docs.microsoft.com/rest/api/logic/workflows)
-  
-所有觸發程序都包含下列最上層元素︰  
+ 
+所有觸發程序都具有下列最上層元素 (儘管有些是選擇性元素)：  
   
 ```json
-"<myTriggerName>": {
-    "type": "<triggerType>",
-    "inputs": { <callSettings> },
-    "recurrence": {  
-        "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
-        "interval": "<recurrence-interval-based-on-frequency>"
-    },
-    "conditions": [ <array-with-required-conditions> ],
-    "splitOn": "<property-used-for-creating-runs>",
-    "operationOptions": "<options-for-operations-on-the-trigger>"
+"<triggerName>": {
+   "type": "<triggerType>",
+   "inputs": { "<trigger-behavior-settings>" },
+   "recurrence": { 
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": "<recurrence-interval-based-on-frequency>"
+   },
+   "conditions": [ <array-with-required-conditions> ],
+   "splitOn": "<property-used-for-creating-runs>",
+   "operationOptions": "<optional-trigger-operations>"
 }
 ```
 
-## <a name="trigger-types-and-inputs"></a>觸發程序類型和輸入  
+*必要*
 
-每一種觸發程序類型都有不同的介面和定義其行為的不同「輸入」。 
+| 元素名稱 | 類型 | 說明 | 
+| ------------ | ---- | ----------- | 
+| <*triggerName*> | JSON 物件 | 觸發程序的名稱，這是以 Javascript 物件標記法 (JSON) 格式描述的物件  | 
+| type | 字串 | 觸發程序類型，例如："Http" 或 "ApiConnection" | 
+| 輸入 | JSON 物件 | 定義觸發程序行為的觸發程序輸入 | 
+| 週期 | JSON 物件 | 描述觸發程序多久引發一次的頻率和間隔 |  
+| frequency | 字串 | 描述觸發程序多久引發一次的時間單位：[秒]、[分鐘]、[小時]、[天]、[週] 或 [月] | 
+| interval | 整數  | 描述觸發程序根據頻率多久引發一次的正整數。 <p>以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是 "month"，則週期為每隔 6 個月。 | 
+|||| 
+
+*選擇性*
+
+| 元素名稱 | 類型 | 說明 | 
+| ------------ | ---- | ----------- | 
+| [條件](#trigger-conditions) | 陣列 | 決定是否執行工作流程的一個或多個條件 | 
+| [splitOn](#split-on-debatch) | 字串 | 運算式會將陣列項目分割 (或「解除批次」) 為多個工作流程執行個體，進行處理。 此選項時適用於可傳回陣列的觸發程序，而且只可用於直接在程式碼檢視中作業時。 | 
+| [operationOptions](#trigger-operation-options) | 字串 | 某些觸發程序提供可讓您變更預設觸發程序行為的其他選項 | 
+||||| 
+
+## <a name="trigger-types-and-details"></a>觸發程序類型和詳細資料  
+
+每一種觸發程序類型都有不同的介面，以及可定義觸發程序行為的輸入。 
 
 | 觸發程序類型 | 說明 | 
 | ------------ | ----------- | 
-| **週期性** | 根據已定義的排程來引發。 您可以設定一個未來的日期和時間來引發此觸發程序。 您也可以根據頻率來指定工作流程的執行時間和日子。 | 
-| **要求**  | 讓邏輯應用程式進入一個您可以呼叫的端點，也稱為「手動」觸發程序。 | 
-| **HTTP** | 檢查或「輪詢」HTTP Web 端點。 HTTP 端點必須藉由使用 "202" 非同步模式或藉由傳回陣列，來遵守特定觸發合約。 | 
-| **ApiConnection** | 輪詢方式與 HTTP 觸發程序類似，但使用 [Microsoft 受控 API](../connectors/apis-list.md)。 | 
-| **HTTPWebhook** | 與 **Request (要求)** 觸發程序類似，會讓您的邏輯應用程式進入可呼叫的端點，但會呼叫指定的 URL 來進行註冊及取消註冊。 |
-| **ApiConnectionWebhook** | 運作方式與 **HTTPWebhook** 觸發程序類似，但使用 Microsoft 受控 API。 | 
+| [**Recurrence**](#recurrence-trigger) | 根據已定義的排程來引發。 您可以設定一個未來的日期和時間來引發此觸發程序。 您也可以根據頻率來指定工作流程的執行時間和日子。 | 
+| [**Request**](#request-trigger)  | 讓邏輯應用程式成為可呼叫的端點，也稱為「手動」觸發程序。 例如，請參閱[透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](../logic-apps/logic-apps-http-endpoint.md)。 | 
+| [**HTTP**](#http-trigger) | 檢查或「輪詢」HTTP Web 端點。 HTTP 端點必須藉由使用 "202" 非同步模式或藉由傳回陣列，來遵守特定觸發合約。 | 
+| [**ApiConnection**](#apiconnection-trigger) | 運作方式與 HTTP 觸發程序類似，但使用 [Microsoft 受控 API](../connectors/apis-list.md)。 | 
+| [**HTTPWebhook**](#httpwebhook-trigger) | 運作方式與 Request 觸發程序類似，但會呼叫指定的 URL 來進行註冊及取消註冊。 |
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | 運作方式與 HTTPWebhook 觸發程序類似，但使用 [Microsoft 受控 API](../connectors/apis-list.md)。 | 
 ||| 
-
-如需詳細資訊，請參閱[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)。 
 
 <a name="recurrence-trigger"></a>
 
@@ -69,161 +91,265 @@ ms.lasthandoff: 04/20/2018
 
 此觸發程序會根據您指定的週期和排程來執行，提供一個定期執行工作流程的簡單方式。 
 
-以下是一個每天執行的週期觸發程序範例：
+以下是觸發程序定義：
 
 ```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Day",
-        "interval": 1
-    }
+"Recurrence": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month",
+      "interval": <recurrence-interval-based-on-frequency>,
+      "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
+      "timeZone": "<time-zone>",
+      "schedule": {
+         // Applies only when frequency is Day or Week. Separate values with commas.
+         "hours": [ <one-or-more-hour-marks> ], 
+         // Applies only when frequency is Day or Week. Separate values with commas.
+         "minutes": [ <one-or-more-minute-marks> ], 
+         // Applies only when frequency is Week. Separate values with commas.
+         "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
+      }
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
+}
+```
+*必要*
+
+| 元素名稱 | 類型 | 說明 | 
+| ------------ | ---- | ----------- | 
+| 週期性 | JSON 物件 | 觸發程序的名稱，這是以 Javascript 物件標記法 (JSON) 格式描述的物件  | 
+| type | 字串 | 觸發程序類型，也就是 "Recurrence" | 
+| 輸入 | JSON 物件 | 定義觸發程序行為的觸發程序輸入 | 
+| 週期 | JSON 物件 | 描述觸發程序多久引發一次的頻率和間隔 |  
+| frequency | 字串 | 描述觸發程序多久引發一次的時間單位：[秒]、[分鐘]、[小時]、[天]、[週] 或 [月] | 
+| interval | 整數  | 描述觸發程序根據頻率多久引發一次的正整數。 <p>以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是 "month"，則週期為每隔 6 個月。 | 
+|||| 
+
+*選擇性*
+
+| 元素名稱 | 類型 | 說明 | 
+| ------------ | ---- | ----------- | 
+| startTime | 字串 | 使用以下格式的開始日期和時間： <p>YYYY-MM-DDThh:mm:ss (如果您指定時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未指定時區) <p>因此，舉例來說，如果您想要的是 2017 年 9 月 18 日下午 2:00，則請指定 "2017-09-18T14:00:00"，然後指定一個時區，例如 "Pacific Standard Time"，或指定不含時區的 "2017-09-18T14:00:00Z"。 <p>**注意：** 這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不指定時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>就簡單排程來說，開始時間係指第一次發生的時間，而就複雜排程來說，觸發程序會在開始時間一到就立即引發。 如需有關開始日期和時間的詳細資訊，請參閱[建立及排定定期執行的工作](../connectors/connectors-native-recurrence.md)。 | 
+| timeZone | 字串 | 只有當您有指定開始時間時才適用，因為此觸發程序並不接受 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 指定您要套用的時區。 | 
+| hours | 整數或整數陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Day" 或 "Week"，便可指定從 0 到 23 的一或多個整數 (以逗號分隔) 來表示一天中的哪幾個整點。 <p>例如，如果您指定 "10"、"12" 及 "14"，就會得出上午 10 點、下午 12 點及下午 2 點作為整點標記。 | 
+| minutes | 整數或整數陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Day" 或 "Week"，便可指定從 0 到 59 的一或多個整數 (以逗號分隔) 來表示小時中的哪幾個分鐘。 <p>例如，您可以指定 "30" 作為分鐘標記，然後使用上個範例代表一天中的整點，這樣就會得出上午 10:30、下午 12:30 及下午 2:30。 | 
+| weekDays | 字串或字串陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Week"，便可指定一或多天 (以逗號分隔)："Monday"、"Tuesday"、"Wednesday"、"Thursday"、"Friday"、"Saturday" 及 "Sunday" | 
+| 並行 | JSON 物件 | 對於週期性與輪詢觸發程序，此物件會指定可以同時執行的工作流程執行個體數目上限。 使用此值來限制後端系統接收的要求。 <p>例如，此值會將並行限制設定為 10 個執行個體：`"concurrency": { "runs": 10 }` | 
+| operationOptions | 字串 | `singleInstance` 選項指定觸發程序只會在所有作用中的執行完成後引發。 請參閱[觸發程序：只在作用中的執行完成後引發](#single-instance)。 | 
+|||| 
+
+*範例 1*
+
+這個基本週期觸發程序會每天執行：
+
+```json
+"recurrenceTriggerName": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-您也可以排定一個開始日期和時間來引發觸發程序。 例如，若要在每個星期一啟動每週報告，您可以排定讓邏輯應用程式在特定的星期一啟動，如以下範例所示︰ 
+*範例 2*
+
+您可以指定開始日期和時間來引發觸發程序。 此週期觸發程序會於指定的日期開始，然後每天引發：
 
 ```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Week",
-        "interval": "1",
-        "startTime": "2017-09-18T00:00:00Z"
-    }
+"recurrenceTriggerName": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1,
+      "startTime": "2017-09-18T00:00:00Z"
+   }
 }
 ```
 
-以下是此觸發程序的定義：
+*範例 3*
 
-```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "second|minute|hour|day|week|month",
-        "interval": <recurrence-interval-based-on-frequency>,
-        "schedule": {
-            // Applies only when frequency is Day or Week. Separate values with commas.
-            "hours": [ <one-or-more-hour-marks> ], 
-            // Applies only when frequency is Day or Week. Separate values with commas.
-            "minutes": [ <one-or-more-minute-marks> ], 
-            // Applies only when frequency is Week. Separate values with commas.
-            "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
-        },
-        "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
-        "timeZone": "<specify-time-zone>"
-    }
-}
-```
-
-| 元素名稱 | 必要 | 類型 | 說明 | 
-| ------------ | -------- | ---- | ----------- | 
-| frequency | yes | 字串 | 觸發程序引發頻率的時間單位。 只能使用下列其中一個值︰"second"、"minute"、"hour"、"day"、"week" 或 "month" | 
-| interval | yes | 整數  | 描述工作流程根據 frequency 多久執行一次的正整數。 <p>以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是 "month"，則週期為每隔 6 個月。 | 
-| timeZone | 否 | 字串 | 只有當您有指定開始時間時才適用，因為此觸發程序並不接受 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 指定您要套用的時區。 | 
-| startTime | 否 | 字串 | 請使用以下格式來指定開始日期和時間： <p>YYYY-MM-DDThh:mm:ss (如果您指定時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未指定時區) <p>因此，舉例來說，如果您想要的是 2017 年 9 月 18 日下午 2:00，則請指定 "2017-09-18T14:00:00"，然後指定一個時區，例如 "Pacific Standard Time"。 或是指定 "2017-09-18T14:00:00Z"，但不指定時區。 <p>**注意：**這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不指定時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>就簡單排程來說，開始時間係指第一次發生的時間，而就複雜排程來說，觸發程序會在開始時間一到就立即引發。 如需有關開始日期和時間的詳細資訊，請參閱[建立及排定定期執行的工作](../connectors/connectors-native-recurrence.md)。 | 
-| weekDays | 否 | 字串或字串陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Week"，便可指定一或多天 (以逗號分隔)："Monday"、"Tuesday"、"Wednesday"、"Thursday"、"Friday"、"Saturday" 及 "Sunday" | 
-| hours | 否 | 整數或整數陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Day" 或 "Week"，便可指定從 0 到 23 的一或多個整數 (以逗號分隔) 來表示一天中的哪幾個整點。 <p>例如，如果您指定 "10"、"12" 及 "14"，就會得出上午 10 點、下午 12 點及下午 2 點作為整點標記。 | 
-| minutes | 否 | 整數或整數陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Day" 或 "Week"，便可指定從 0 到 59 的一或多個整數 (以逗號分隔) 來表示小時中的哪幾個分鐘。 <p>例如，您可以指定 "30" 作為分鐘標記，然後使用上個範例代表一天中的整點，這樣就會得出上午 10:30、下午 12:30 及下午 2:30。 | 
-||||| 
-
-例如，這個週期觸發程序會指定邏輯應用程式在太平洋標準時間 2017 年 9 月 9 日下午 2:00 起，於每週星期一早上 10:30、下午 12:30 及下午 2:30 執行：
+此週期觸發程序會於 2017 年 9 月 9 日下午 2:00 開始，在每週星期一早上 10:30、下午 12:30 及下午 2:30 (太平洋標準時間) 引發：
 
 ``` json
 "myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Week",
-        "interval": 1,
-        "schedule": {
-            "hours": [
-                10,
-                12,
-                14
-            ],
-            "minutes": [
-                30
-            ],
-            "weekDays": [
-                "Monday"
-            ]
-        },
-       "startTime": "2017-09-07T14:00:00",
-       "timeZone": "Pacific Standard Time"
-    }
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "hours": [ 10, 12, 14 ],
+         "minutes": [ 30 ],
+         "weekDays": [ "Monday" ]
+      },
+      "startTime": "2017-09-07T14:00:00",
+      "timeZone": "Pacific Standard Time"
+   }
 }
 ```
 
-如需有關此觸發程序的週期和開始時間範例，請參閱[建立及排定定期執行的工作](../connectors/connectors-native-recurrence.md)。
+如需此觸發程序外加範例的詳細資訊，請參閱[建立及排定定期執行的工作](../connectors/connectors-native-recurrence.md)。
+
+<a name="request-trigger"></a>
 
 ## <a name="request-trigger"></a>要求觸發程序
 
-此觸發程序可作為可供您用來透過 HTTP 要求呼叫邏輯應用程式的端點。 要求觸發程序看起來就像下面這個範例︰  
-  
+此觸發程序會藉由建立可接受連入 HTTP 要求的端點，讓您的邏輯應用程式可呼叫。 若要呼叫此觸發程序，您必須在 [工作流程服務 REST API](https://docs.microsoft.com/rest/api/logic/workflows) 中使用 `listCallbackUrl` API。 若要了解如何使用這個觸發程序作為 HTTP 端點，請參閱[透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](../logic-apps/logic-apps-http-endpoint.md)。
+
 ```json
-"myRequestTrigger": {
-    "type": "Request",
-    "kind": "Http",
-    "inputs": {
-        "schema": {
-            "type": "Object",
-            "properties": {
-                "myInputProperty1": { "type" : "string" },
-                "myInputProperty2": { "type" : "number" }
-            },
-            "required": [ "myInputProperty1" ]
-        }
-    }
-} 
-```
-
-此觸發程序有一個稱為 `schema` 的選擇性屬性：
-  
-| 元素名稱 | 必要 | 類型 | 說明 |
-| ------------ | -------- | ---- | ----------- |
-| 結構描述 | 否 | Object | 會驗證連入要求的 JSON 結構描述。 適用於協助後續工作流程步驟了解要參考哪些屬性。 | 
-||||| 
-
-若要叫用作為端點的此觸發程序，您必須呼叫 `listCallbackUrl` API。 請參閱[工作流程服務 REST API](https://docs.microsoft.com/rest/api/logic/workflows)。
-
-## <a name="http-trigger"></a>HTTP 觸發程序  
-
-此觸發程序會輪詢指定的端點並檢查回應，以決定是否應該執行工作流程。 這裡的 `inputs` 物件會採用下列建構 HTTP 呼叫時所需的參數︰ 
-
-| 元素名稱 | 必要 | 類型 | 說明 | 
-| ------------ | -------- | ---- | ----------- | 
-| method | yes | 字串 | 使用下列其中一種 HTTP 方法︰"GET"、"POST"、"PUT"、"DELETE"、"PATCH" 或 "HEAD" | 
-| uri | yes| 字串 | 觸發程序所檢查的 HTTP 或 HTTPS 端點。 字串大小上限：2 KB | 
-| 查詢 | 否 | Object | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
-| headers | 否 | Object | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | 否 | Object | 代表傳送至端點的承載。 | 
-| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
-| 驗證 | 否 | Object | 代表要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 <p>除了排程器之外，還有一個支援的屬性︰`authority`。 根據預設，若未指定，此值會是 `https://login.windows.net`，但您可以使用不同的值，例如 `https://login.windows\-ppe.net`。 | 
-||||| 
-
-「重試原則」適用於間歇性失敗，其特徵為 HTTP 狀態碼 408、429 和 5xx，還有任何連線例外狀況。 您可以使用 `retryPolicy` 物件來定義此原則，如以下所示：
-  
-```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+"manual": {
+   "type": "Request",
+   "kind": "Http",
+   "inputs": {
+      "method": "GET | POST | PUT | PATCH | DELETE | HEAD",
+      "relativePath": "<relative-path-for-accepted-parameter>",
+      "schema": {
+         "type": "object",
+         "properties": { 
+            "<propertyName>": {
+               "type": "<property-type>"
+            }
+         },
+         "required": [ "<required-properties>" ]
+      }
+   }
 }
 ```
 
-為了與邏輯應用程式良好搭配運作，HTTP 觸發程序會要求 HTTP API 必須符合特定模式。 此觸發程序可辨識下列屬性：  
+*必要*
+
+| 元素名稱 | 類型 | 說明 | 
+| ------------ | ---- | ----------- | 
+| manual | JSON 物件 | 觸發程序的名稱，這是以 Javascript 物件標記法 (JSON) 格式描述的物件  | 
+| type | 字串 | 觸發程序類型，也就是 "Request" | 
+| kind | 字串 | 要求類型，也就是 "Http" | 
+| 輸入 | JSON 物件 | 定義觸發程序行為的觸發程序輸入 | 
+|||| 
+
+*選擇性*
+
+| 元素名稱 | 類型 | 說明 | 
+| ------------ | ---- | ----------- | 
+| method | 字串 | 要求必須用來呼叫觸發程序的方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" 或 "HEAD" |
+| relativePath | 字串 | HTTP 端點的 URL 接受的參數相對路徑 | 
+| 結構描述 | JSON 物件 | JSON 結構描述，可描述及驗證承載，或觸發程序從連入要求接收的輸入。 此結構描述可協助後續工作流程動作了解要參考的屬性。 | 
+| properties | JSON 物件 | JSON 結構描述中可描述承載的一或多個屬性 | 
+| 必要 | 陣列 | 需要值的一或多個屬性 | 
+|||| 
+
+*範例*
+
+此要求觸發程序會指定連入要求使用 HTTP POST 方法來呼叫觸發程序，以及可驗證來自連入要求之輸入的結構描述： 
+
+```json
+"myRequestTrigger": {
+   "type": "Request",
+   "kind": "Http",
+   "inputs": {
+      "method": "POST",
+      "schema": {
+         "type": "Object",
+         "properties": {
+            "customerName": {
+               "type": "String"
+            },
+            "customerAddress": { 
+               "type": "Object",
+               "properties": {
+                  "streetAddress": {
+                     "type": "String"
+                  },
+                  "city": {
+                     "type": "String"
+                  }
+               }
+            }
+         }
+      }
+   }
+} 
+```
+
+<a name="http-trigger"></a>
+
+## <a name="http-trigger"></a>HTTP 觸發程序  
+
+此觸發程序會輪詢指定的端點並檢查回應。 此回應決定是否應該執行工作流程。 `inputs` JSON 物件包括且需要建構 HTTP 呼叫所需的 `method` 和 `uri` 參數：
+
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
+      "uri": "<HTTP-or-HTTPS-endpoint-to-poll>",
+      "queries": "<query-parameters>",
+      "headers": { "<headers-for-request>" },
+      "body": { "<payload-to-send>" },
+      "authentication": { "<authentication-method>" },
+      "retryPolicy": {
+          "type": "<retry-policy-type>",
+          "interval": "<retry-interval>",
+          "count": <number-retry-attempts>
+      }
+   },
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": <recurrence-interval-based-on-frequency>
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
+}
+```
+
+*必要*
+
+| 元素名稱 | 類型 | 說明 | 
+| ------------ | ---- | ----------- | 
+| HTTP | JSON 物件 | 觸發程序的名稱，這是以 Javascript 物件標記法 (JSON) 格式描述的物件  | 
+| type | 字串 | 觸發程序類型，也就是 "Http" | 
+| 輸入 | JSON 物件 | 定義觸發程序行為的觸發程序輸入 | 
+| method | yes | 字串 | 用於輪詢所指定端點的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" 或 "HEAD" | 
+| uri | yes| 字串 | 觸發程序檢查或輪詢的 HTTP 或 HTTPS 端點 URL。 <p>字串大小上限：2 KB | 
+| 週期 | JSON 物件 | 描述觸發程序多久引發一次的頻率和間隔 |  
+| frequency | 字串 | 描述觸發程序多久引發一次的時間單位：[秒]、[分鐘]、[小時]、[天]、[週] 或 [月] | 
+| interval | 整數  | 描述觸發程序根據頻率多久引發一次的正整數。 <p>以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是 "month"，則週期為每隔 6 個月。 | 
+|||| 
+
+*選擇性*
+
+| 元素名稱 | 類型 | 說明 | 
+| ------------ | ---- | ----------- | 
+| 查詢 | JSON 物件 | 您想要包含在 URL 中的任何查詢參數 <p>例如，此元素會將 `?api-version=2015-02-01` 查詢字串新增至 URL： <p>`"queries": { "api-version": "2015-02-01" }` <p>結果：`https://contoso.com?api-version=2015-02-01` | 
+| headers | JSON 物件 | 要與要求一起傳送的一個或多個標頭 <p>例如，若要設定要求的語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | JSON 物件 | 傳送至端點的承載 (資料) | 
+| 驗證 | JSON 物件 | 連入要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 除了排程器之外，還可支援 `authority` 屬性。 若未指定，預設值為 `https://login.windows.net`，但您可以使用不同的值，例如 `https://login.windows\-ppe.net`。 | 
+| RetryPolicy | JSON 物件 | 此物件可針對具有 4xx 或 5xx 狀態碼的間歇性錯誤，自訂重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
+| 並行 | JSON 物件 | 對於週期性與輪詢觸發程序，此物件會指定可以同時執行的工作流程執行個體數目上限。 使用此值來限制後端系統接收的要求。 <p>例如，此值會將並行限制設定為 10 個執行個體： <p>`"concurrency": { "runs": 10 }` | 
+| operationOptions | 字串 | `singleInstance` 選項指定觸發程序只會在所有作用中的執行完成後引發。 請參閱[觸發程序：只在作用中的執行完成後引發](#single-instance)。 | 
+|||| 
+
+為了與邏輯應用程式良好搭配運作，HTTP 觸發程序會要求 HTTP API 符合特定模式。 HTTP 觸發程序可辨識下列屬性：  
   
 | Response | 必要 | 說明 | 
 | -------- | -------- | ----------- |  
-| 狀態碼 | yes | 狀態碼 200 (代表「正常」) 會促使執行。 其他任何狀態碼則不會導致執行。 | 
-| Retry-after 標頭 | 否 | 邏輯應用程式再次輪詢端點前所需經過的秒數。 | 
+| 狀態碼 | yes | 「200 正常」狀態碼會啟動執行。 其他任何的狀態碼則不會啟動執行。 | 
+| Retry-after 標頭 | 否 | 邏輯應用程式再次輪詢端點前所需經過的秒數 | 
 | 位置標頭 | 否 | 在下一個輪詢間隔時所要呼叫的 URL。 如果未指定，則會使用原本的 URL。 | 
 |||| 
 
-以下是不同要求類型的一些範例行為︰
-  
-| Response code | 多久之後重試 | 行為 | 
-| ------------- | ----------- | -------- | 
+不同要求的範例行為
+
+| 狀態碼 | 多久之後重試 | 行為 | 
+| ----------- | ----------- | -------- | 
 | 200 | {無} | 執行工作流程，然後在所定義的週期之後再次檢查是否有其他資料。 | 
 | 200 | 10 秒 | 執行工作流程，然後在 10 秒之後再次檢查是否有其他資料。 |  
 | 202 | 60 秒 | 不觸發工作流程。 下一次嘗試會依據所定義的週期，在一分鐘內開始。 如果所定義的週期不超過一分鐘，則 retry-after 標頭的優先順序較高。 否則會採用所定義的週期。 | 
@@ -231,181 +357,314 @@ ms.lasthandoff: 04/20/2018
 | 500 | {無}| 伺服器錯誤，不執行工作流程。 如果未定義任何 `retryPolicy`，則會使用預設原則。 達到重試次數之後，觸發程序會在所定義的週期之後再次檢查是否還有資料。 | 
 |||| 
 
-以下是 HTTP 觸發程序輸出： 
-  
+### <a name="http-trigger-outputs"></a>HTTP 觸發程序輸出
+
 | 元素名稱 | 類型 | 說明 |
 | ------------ | ---- | ----------- |
-| headers | Object | HTTP 回應的標頭 | 
-| body | Object | HTTP 回應的主體 | 
+| headers | JSON 物件 | HTTP 回應中的標頭 | 
+| body | JSON 物件 | HTTP 回應中的主體 | 
 |||| 
 
 <a name="apiconnection-trigger"></a>
 
 ## <a name="apiconnection-trigger"></a>APIConnection 觸發程序  
 
-在基本功能中，此觸發程序的運作方式類似 HTTP 觸發程序。 然而，用於識別動作的參數卻不相同。 下列是一個範例：   
-  
+此觸發程序的運作方式與 [HTTP 觸發程序](#http-trigger)類似，但會使用 [Microsoft 受控 API](../connectors/apis-list.md)，因此這個觸發程序的參數不同。 
+
+以下是觸發程序定義 (雖然許多區段都是選擇性區段)，而觸發程序的行為取決於是否包含區段：
+
 ```json
-"myDailyReportTrigger": {
-    "type": "ApiConnection",
-    "inputs": {
-        "host": {
-            "api": {
-                "runtimeUrl": "https://myarticles.example.com/"
-            }
-        },
-        "connection": {
-            "name": "@parameters('$connections')['myconnection'].name"
-        }
-    },  
-    "method": "POST",
-    "body": {
-        "category": "myCategory"
-    }
+"<APIConnectionTriggerName>": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "api": {
+            "runtimeUrl": "<managed-API-endpoint-URL>"
+         },
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>'].name"
+         },
+      },
+      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
+      "queries": "<query-parameters>",
+      "headers": { "<headers-for-request>" },
+      "body": { "<payload-to-send>" },
+      "authentication": { "<authentication-method>" },
+      "retryPolicy": {
+          "type": "<retry-policy-type>",
+          "interval": "<retry-interval>",
+          "count": <number-retry-attempts>
+      }
+   },
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": "<recurrence-interval-based-on-frequency>"
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
 }
 ```
 
-| 元素名稱 | 必要 | 類型 | 說明 | 
-| ------------ | -------- | ---- | ----------- | 
-| host | yes | Object | API App 的所裝載閘道和識別碼 | 
-| method | yes | 字串 | 使用下列其中一種 HTTP 方法︰"GET"、"POST"、"PUT"、"DELETE"、"PATCH" 或 "HEAD" | 
-| 查詢 | 否 | Object | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
-| headers | 否 | Object | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | 否 | Object | 代表傳送至端點的承載。 | 
-| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
-| 驗證 | 否 | Object | 代表要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 | 
-||||| 
+*必要*
 
-以下是 `host` 物件的屬性：  
-  
-| 元素名稱 | 必要 | 說明 | 
-| ------------ | -------- | ----------- | 
-| api runtimeUrl | yes | 受控 API 的端點 | 
-| 連線名稱 |  | 工作流程所使用之受控 API 連線的名稱。 必須參考名為 `$connection` 的參數。 |
+| 元素名稱 | 類型 | 說明 | 
+| ------------ | ---- | ----------- | 
+| *APIConnectionTriggerName* | JSON 物件 | 觸發程序的名稱，這是以 Javascript 物件標記法 (JSON) 格式描述的物件  | 
+| type | 字串 | 觸發程序類型，也就是 "ApiConnection" | 
+| 輸入 | JSON 物件 | 定義觸發程序行為的觸發程序輸入 | 
+| host | JSON 物件 | 描述受控 API 的主機閘道和識別碼的 JSON 物件 <p>`host` JSON 物件具有以下元素：`api` 和 `connection` | 
+| api | JSON 物件 | 受控 API 的端點 URL： <p>`"runtimeUrl": "<managed-API-endpoint-URL>"` | 
+| connection | JSON 物件 | 工作流程所使用的受控 API 連線名稱，其必須包含名為 `$connection` 之參數的參考： <p>`"name": "@parameters('$connections')['<connection-name>'].name"` | 
+| method | 字串 | 用於與受控 API 通訊的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" 或 "HEAD" | 
+| 週期 | JSON 物件 | 描述觸發程序多久引發一次的頻率和間隔 |  
+| frequency | 字串 | 描述觸發程序多久引發一次的時間單位：[秒]、[分鐘]、[小時]、[天]、[週] 或 [月] | 
+| interval | 整數  | 描述觸發程序根據頻率多久引發一次的正整數。 <p>以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是 "month"，則週期為每隔 6 個月。 | 
 |||| 
 
-「重試原則」適用於間歇性失敗，其特徵為 HTTP 狀態碼 408、429 和 5xx，還有任何連線例外狀況。 您可以使用 `retryPolicy` 物件來定義此原則，如以下所示：
-  
+*選擇性*
+
+| 元素名稱 | 類型 | 說明 | 
+| ------------ | ---- | ----------- | 
+| 查詢 | JSON 物件 | 您想要包含在 URL 中的任何查詢參數 <p>例如，此元素會將 `?api-version=2015-02-01` 查詢字串新增至 URL： <p>`"queries": { "api-version": "2015-02-01" }` <p>結果：`https://contoso.com?api-version=2015-02-01` | 
+| headers | JSON 物件 | 要與要求一起傳送的一個或多個標頭 <p>例如，若要設定要求的語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | JSON 物件 | 描述要傳送到受控 API 的承載 (資料) 的 JSON 物件 | 
+| 驗證 | JSON 物件 | 連入要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 |
+| RetryPolicy | JSON 物件 | 此物件可針對具有 4xx 或 5xx 狀態碼的間歇性錯誤，自訂重試行為： <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
+| 並行 | JSON 物件 | 對於週期性與輪詢觸發程序，此物件會指定可以同時執行的工作流程執行個體數目上限。 使用此值來限制後端系統接收的要求。 <p>例如，此值會將並行限制設定為 10 個執行個體：`"concurrency": { "runs": 10 }` | 
+| operationOptions | 字串 | `singleInstance` 選項指定觸發程序只會在所有作用中的執行完成後引發。 請參閱[觸發程序：只在作用中的執行完成後引發](#single-instance)。 | 
+||||
+
+*範例*
+
 ```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+"Create_daily_report": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "api": {
+            "runtimeUrl": "https://myReportsRepo.example.com/"
+         },
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>'].name"
+         }     
+      },
+      "method": "POST",
+      "body": {
+         "category": "statusReports"
+      }  
+   },
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-以下是 API 連線觸發程序的輸出︰
-  
+### <a name="apiconnection-trigger-outputs"></a>APIConnection 觸發程序輸出
+ 
 | 元素名稱 | 類型 | 說明 |
 | ------------ | ---- | ----------- |
-| headers | Object | HTTP 回應的標頭 | 
-| body | Object | HTTP 回應的主體 | 
+| headers | JSON 物件 | HTTP 回應中的標頭 | 
+| body | JSON 物件 | HTTP 回應中的主體 | 
 |||| 
 
-深入了解[定價如何適用於 API 連線觸發程序](../logic-apps/logic-apps-pricing.md#triggers)。
+<a name="httpwebhook-trigger"></a>
 
 ## <a name="httpwebhook-trigger"></a>HTTPWebhook 觸發程序  
 
-此觸發程序與 `Request` 觸發程序類似，會提供一個端點，但 HTTPWebhook 觸發程序還會呼叫指定的 URL 來進行註冊和取消註冊。 HTTPWebhook 觸發程序看起來可能就像下面這個範例︰
+此觸發程序的運作方式與 [Request 觸發程序](#request-trigger)類似，可為邏輯應用程式建立可呼叫的端點。 不過，此觸發程序也會呼叫指定的端點 URL，以便註冊或取消註冊訂用帳戶。 您可以採用與 [HTTP 非同步限制](#asynchronous-limits)相同的方式，來對 Webhook 觸發程序指定限制。 
+
+以下是觸發程序定義 (雖然許多區段都是選擇性區段)，而觸發程序的行為取決於您使用或省略的區段：
 
 ```json
-"myAppsSpotTrigger": {
+"HTTP_Webhook": {
     "type": "HttpWebhook",
     "inputs": {
         "subscribe": {
             "method": "POST",
-            "uri": "https://pubsubhubbub.appspot.com/subscribe",
-            "headers": {},
+            "uri": "<subscribe-to-endpoint-URL>",
+            "headers": { "<headers-for-request>" },
             "body": {
                 "hub.callback": "@{listCallbackUrl()}",
                 "hub.mode": "subscribe",
-                "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+                "hub.topic": "<subscription-topic>"
             },
             "authentication": {},
             "retryPolicy": {}
         },
         "unsubscribe": {
             "method": "POST",
-            "url": "https://pubsubhubbub.appspot.com/subscribe",
+            "url": "<unsubscribe-from-endpoint-URL>",
             "body": {
                 "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
                 "hub.mode": "unsubscribe",
-                "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+                "hub.topic": "<subscription-topic>"
             },
             "authentication": {}
         }
     },
-    "conditions": []
 }
 ```
 
-這些區段之中有許多是選擇性的，而 HTTPWebhook 觸發程序的行為會取決於您所提供或省略的區段。 以下是 HTTPWebhook 觸發程序的屬性：
-  
-| 元素名稱 | 必要 | 說明 | 
-| ------------ | -------- | ----------- |  
-| 訂閱 | 否 | 指定建立觸發程序時要呼叫的連出要求，並執行初始註冊。 | 
-| 取消訂閱 | 否 | 指定刪除觸發程序時要呼叫的連出要求。 | 
+*必要*
+
+| 元素名稱 | 類型 | 說明 | 
+| ------------ | ---- | ----------- | 
+| HTTP_Webhook | JSON 物件 | 觸發程序的名稱，這是以 Javascript 物件標記法 (JSON) 格式描述的物件  | 
+| type | 字串 | 觸發程序類型，也就是 "HttpWebhook" | 
+| 輸入 | JSON 物件 | 定義觸發程序行為的觸發程序輸入 | 
+| 訂閱 | JSON 物件| 建立觸發程序時，要呼叫並執行初始註冊的連出要求。 系統會進行此呼叫，以便觸發程序開始在端點上接聽事件。 如需詳細資訊，請參閱[訂閱和取消訂閱](#subscribe-unsubscribe)。 | 
+| method | 字串 | 用於訂用帳戶要求的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" 或 "HEAD" | 
+| uri | 字串 | 要傳送訂用帳戶要求的端點 URL | 
 |||| 
 
-您可以採用與 [HTTP 非同步限制](#asynchronous-limits)相同的方式，來對 Webhook 觸發程序指定限制。 以下是有關 `subscribe` 和 `unsubscribe` 動作的詳細資訊：
+*選擇性*
 
-* 系統會呼叫 `subscribe`，如此觸發程序才能開始接聽事件。 這個連出呼叫的開頭使用與標準 HTTP 動作相同的參數。 當工作流程以任何方式發生變更時 (例如變換認證或觸發程序的輸入參數變更時)，就會進行此呼叫。 
-  
-  為了支援此呼叫，`@listCallbackUrl()` 函式會針對工作流程中的這個特定觸發程序傳回唯一 URL。 此 URL 代表使用服務 REST API 之端點的唯一識別碼。
-  
-* 當作業使這個觸發程序變成無效時，就會自動呼叫 `unsubscribe`，包括的作業如下：
+| 元素名稱 | 類型 | 說明 | 
+| ------------ | ---- | ----------- | 
+| 取消訂閱 | JSON 物件 | 連出要求，可在作業使觸發程序無效時自動呼叫並取消訂用帳戶。 如需詳細資訊，請參閱[訂閱和取消訂閱](#subscribe-unsubscribe)。 | 
+| method | 字串 | 用於取消要求的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" 或 "HEAD" | 
+| uri | 字串 | 要傳送取消要求的端點 URL | 
+| body | JSON 物件 | 描述訂用帳戶或取消要求的承載 (資料) 的 JSON 物件 | 
+| 驗證 | JSON 物件 | 連入要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 |
+| RetryPolicy | JSON 物件 | 此物件可針對具有 4xx 或 5xx 狀態碼的間歇性錯誤，自訂重試行為： <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
+|||| 
 
-  * 刪除或停用觸發程序。 
-  * 刪除或停用工作流程。 
-  * 刪除或停用訂用帳戶。 
-  
-  此函式的參數與 HTTP 觸發程序的參數相同。
+*範例*
 
-以下是 HTTPWebhook 觸發程序的輸出，並且是連入要求的內容︰
-  
+```json
+"myAppSpotTrigger": {
+   "type": "HttpWebhook",
+   "inputs": {
+      "subscribe": {
+         "method": "POST",
+         "uri": "https://pubsubhubbub.appspot.com/subscribe",
+         "headers": {},
+         "body": {
+            "hub.callback": "@{listCallbackUrl()}",
+            "hub.mode": "subscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         },
+      },
+      "unsubscribe": {
+         "method": "POST",
+         "url": "https://pubsubhubbub.appspot.com/subscribe",
+         "body": {
+            "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
+            "hub.mode": "unsubscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         },
+      }
+   },
+}
+```
+
+<a name="subscribe-unsubscribe"></a>
+
+### <a name="subscribe-and-unsubscribe"></a>`subscribe`和`unsubscribe`
+
+當工作流程以任何方式發生變更時 (例如認證更新，或觸發程序的輸入參數變更時)，就會進行 `subscribe` 呼叫。 此呼叫使用與標準 HTTP 動作相同的參數。 
+ 
+當作業使 HTTPWebhook 觸發程序無效時，就會自動進行 `unsubscribe` 呼叫，例如：
+
+* 刪除或停用觸發程序。 
+* 刪除或停用工作流程。 
+* 刪除或停用訂用帳戶。 
+
+為了支援這些呼叫，`@listCallbackUrl()` 函式會針對這個觸發程序傳回唯一的「回呼 URL」。 此 URL 代表使用服務 REST API 之端點的唯一識別碼。 此函式的參數與 HTTP 觸發程序的參數相同。
+
+### <a name="httpwebhook-trigger-outputs"></a>HTTPWebhook 觸發程序輸出
+
 | 元素名稱 | 類型 | 說明 |
 | ------------ | ---- | ----------- |
-| headers | Object | HTTP 回應的標頭 | 
-| body | Object | HTTP 回應的主體 | 
+| headers | JSON 物件 | HTTP 回應中的標頭 | 
+| body | JSON 物件 | HTTP 回應中的主體 | 
 |||| 
+
+<a name="apiconnectionwebhook-trigger"></a>
+
+## <a name="apiconnectionwebhook-trigger"></a>ApiConnectionWebhook 觸發程序
+
+此觸發程序的運作方式與 [HTTPWebhook 觸發程序](#httpwebhook-trigger)類似，但會使用 [Microsoft 受控 API](../connectors/apis-list.md)。 
+
+以下是觸發程序定義：
+
+```json
+"<ApiConnectionWebhookTriggerName>": {
+   "type": "ApiConnectionWebhook",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>']['connectionId']"
+         }
+      },        
+      "body": {
+          "NotificationUrl": "@{listCallbackUrl()}"
+      },
+      "queries": "<query-parameters>"
+   }
+}
+```
+
+*必要*
+
+| 元素名稱 | 類型 | 說明 | 
+| ------------ | ---- | ----------- | 
+| <*ApiConnectionWebhookTriggerName*> | JSON 物件 | 觸發程序的名稱，這是以 Javascript 物件標記法 (JSON) 格式描述的物件  | 
+| type | 字串 | 觸發程序類型，也就是 "ApiConnectionWebhook" | 
+| 輸入 | JSON 物件 | 定義觸發程序行為的觸發程序輸入 | 
+| host | JSON 物件 | 描述受控 API 的主機閘道和識別碼的 JSON 物件 <p>`host` JSON 物件具有以下元素：`api` 和 `connection` | 
+| connection | JSON 物件 | 工作流程所使用的受控 API 連線名稱，其必須包含名為 `$connection` 之參數的參考： <p>`"name": "@parameters('$connections')['<connection-name>']['connectionId']"` | 
+| body | JSON 物件 | 描述要傳送到受控 API 的承載 (資料) 的 JSON 物件 | 
+| NotificationUrl | 字串 | 針對這個觸發程序傳回受控 API 可以使用的唯一「回呼 URL」 | 
+|||| 
+
+*選擇性*
+
+| 元素名稱 | 類型 | 說明 | 
+| ------------ | ---- | ----------- | 
+| 查詢 | JSON 物件 | 您想要包含在 URL 中的任何查詢參數 <p>例如，此元素會將 `?folderPath=Inbox` 查詢字串新增至 URL： <p>`"queries": { "folderPath": "Inbox" }` <p>結果︰`https://<managed-API-URL>?folderPath=Inbox` | 
+|||| 
+
+<a name="trigger-conditions"></a>
 
 ## <a name="triggers-conditions"></a>觸發程序：條件
 
-對於任何觸發程序，您都可以使用一或多個條件來判斷是否應該執行工作流程。 在此案例中，報告只會在工作流程的 `sendReports` 參數設定為 true 時觸發。 
+對於任何觸發程序，您都可以包含具有一或多個條件的陣列，以判斷是否應該執行工作流程。 在此範例中，報告只會在工作流程的 `sendReports` 參數設定為 true 時引發。 
 
 ```json
 "myDailyReportTrigger": {
-    "type": "Recurrence",
-    "conditions": [ 
-        {
-            "expression": "@parameters('sendReports')"
-        } 
-    ],
-    "recurrence": {
-        "frequency": "Day",
-        "interval": 1
-    }
+   "type": "Recurrence",
+   "conditions": [ {
+      "expression": "@parameters('sendReports')"
+   } ],
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-最後，條件可以參考觸發程序的狀態碼。 例如，您可以只在網站傳回狀態碼 500 時啟動工作流程︰
-  
+此外，條件可以參考觸發程序的狀態碼。 例如，假設您想要只在網站傳回 "500" 狀態碼時啟動工作流程︰
+
 ``` json
-"conditions": [ 
-    {  
-      "expression": "@equals(triggers().code, 'InternalServerError')"  
-    }  
-]  
+"conditions": [ {
+   "expression": "@equals(triggers().code, 'InternalServerError')"  
+} ]  
 ```  
 
 > [!NOTE]
-> 根據預設，觸發程序只會在收到 "200 OK" 回應時引發。 當任何運算式以任何方式參考觸發程序的狀態碼時，就會取代觸發程序的預設行為。 因此，如果想要根據多個狀態碼 (例如狀態碼 200 和 201) 來引發觸發程序，您必須加入這個陳述式作為您的條件： 
+> 根據預設，觸發程序只會在收到 "200 OK" 回應時引發。 當任何運算式以任何方式參考觸發程序的狀態碼時，就會取代觸發程序的預設行為。 因此，如果想要針對多個狀態碼 (例如狀態碼 200 和 201) 來引發觸發程序，您必須加入這個陳述式作為您的條件： 
 >
 > `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
 
 <a name="split-on-debatch"></a>
 
-## <a name="triggers-process-an-array-with-multiple-runs"></a>觸發程序：處理具有多個執行的陣列
+## <a name="triggers-split-an-array-into-multiple-runs"></a>觸發程序：將陣列分割為多個執行
 
 如果觸發程序傳回要讓邏輯應用程式處理的陣列，有時候 "for each" 迴圈會花太多時間來處理每個陣列項目。 您可以改用觸發程序中的 **SplitOn** 屬性來對該陣列進行「解除批次」。 
 
@@ -442,7 +701,7 @@ ms.lasthandoff: 04/20/2018
     "type": "Http",
     "recurrence": {
         "frequency": "Second",
-        "interval": "1"
+        "interval": 1
     },
     "inputs": {
         "uri": "https://mydomain.com/myAPI",
@@ -476,21 +735,36 @@ ms.lasthandoff: 04/20/2018
     }
 }
 ```
-  
-## <a name="triggers-fire-only-after-all-active-runs-finish"></a>觸發程序：只在所有作用中的執行完成時引發
 
-您可以設定週期觸發程序，讓它們只有在所有作用中回合都已完成時才引發。 若要設定這個設定，請將 `operationOptions` 屬性設定為 `singleInstance`：
+<a name="trigger-operation-options"></a>
+
+## <a name="triggers-operation-options"></a>觸發程序：作業選項
+
+以下觸發程序提供可讓您變更預設行為的其他選項。
+
+| 觸發程序 | 作業選項 | 說明 |
+|---------|------------------|-------------|
+| [Recurrence](#recurrence-trigger)、 <br>[HTTP](#http-trigger)、 <br>[ApiConnection](#apiconnection-trigger) | singleInstance | 只在所有作用中的執行完成時引發觸發程序。 |
+||||
+
+<a name="single-instance"></a>
+
+### <a name="triggers-fire-only-after-active-runs-finish"></a>觸發程序：只在作用中的執行完成後引發
+
+對於您可設定週期的觸發程序，您可以指定觸發程序只在所有使用中執行完成後引發。 如果排定的週期在工作流程執行個體正在執行時發生，觸發程序就會略過，等到下一個排定的週期時才再次檢查。 例如︰
 
 ```json
-"myTrigger": {
-    "type": "Http",
-    "inputs": { },
-    "recurrence": { },
+"myRecurringTrigger": {
+    "type": "Recurrence",
+    "recurrence": {
+        "frequency": "Hour",
+        "interval": 1,
+    },
     "operationOptions": "singleInstance"
 }
 ```
 
-如果排定的週期在工作流程執行個體正在執行中時發生，觸發程序就會略過，等到下一個排定的週期間隔時才再次檢查。
+<a name="actions-overview"></a>
 
 ## <a name="actions-overview"></a>動作概觀
 
@@ -548,12 +822,12 @@ HTTP 動作會呼叫指定的端點並檢查回應，以決定是否應該執行
 | ------------ | -------- | ---- | ----------- | 
 | method | yes | 字串 | 使用下列其中一種 HTTP 方法︰"GET"、"POST"、"PUT"、"DELETE"、"PATCH" 或 "HEAD" | 
 | uri | yes| 字串 | 觸發程序所檢查的 HTTP 或 HTTPS 端點。 字串大小上限：2 KB | 
-| 查詢 | 否 | Object | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
-| headers | 否 | Object | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | 否 | Object | 代表傳送至端點的承載。 | 
-| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
+| 查詢 | 否 | JSON 物件 | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
+| headers | 否 | JSON 物件 | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | 否 | JSON 物件 | 代表傳送至端點的承載。 | 
+| RetryPolicy | 否 | JSON 物件 | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
 | operationsOptions | 否 | 字串 | 定義一組要覆寫的特殊行為。 | 
-| 驗證 | 否 | Object | 代表要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 <p>除了排程器之外，還有一個支援的屬性︰`authority`。 根據預設，若未指定，此值會是 `https://login.windows.net`，但您可以使用不同的值，例如 `https://login.windows\-ppe.net`。 | 
+| 驗證 | 否 | JSON 物件 | 代表要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 <p>除了排程器之外，還有一個支援的屬性︰`authority`。 根據預設，若未指定，此值會是 `https://login.windows.net`，但您可以使用不同的值，例如 `https://login.windows\-ppe.net`。 | 
 ||||| 
 
 HTTP 動作和 APIConnection 動作支援「重試原則」。 重試原則適用於間歇性失敗，其典型是 HTTP 狀態碼 408、429 與 5xx，以及任何連線例外狀況。 您可以使用 `retryPolicy` 物件來定義此原則，如以下所示：
@@ -649,15 +923,15 @@ HTTP 動作和 APIConnection 動作支援「重試原則」。 重試原則適�
 
 | 元素名稱 | 必要 | 類型 | 說明 | 
 | ------------ | -------- | ---- | ----------- | 
-| host | yes | Object | 代表連接器資訊，例如 `runtimeUrl` 和對連線物件的參考。 | 
+| host | yes | JSON 物件 | 代表連接器資訊，例如 `runtimeUrl` 和對連線物件的參考。 | 
 | method | yes | 字串 | 使用下列其中一種 HTTP 方法︰"GET"、"POST"、"PUT"、"DELETE"、"PATCH" 或 "HEAD" | 
 | path | yes | 字串 | API 作業的路徑 | 
-| 查詢 | 否 | Object | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
-| headers | 否 | Object | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | 否 | Object | 代表傳送至端點的承載。 | 
-| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
+| 查詢 | 否 | JSON 物件 | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
+| headers | 否 | JSON 物件 | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | 否 | JSON 物件 | 代表傳送至端點的承載。 | 
+| RetryPolicy | 否 | JSON 物件 | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
 | operationsOptions | 否 | 字串 | 定義一組要覆寫的特殊行為。 | 
-| 驗證 | 否 | Object | 代表要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 |
+| 驗證 | 否 | JSON 物件 | 代表要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 |
 ||||| 
 
 重試原則適用於間歇性失敗，其典型是 HTTP 狀態碼 408、429 與 5xx，以及任何連線例外狀況。 您可以使用 `retryPolicy` 物件來定義此原則，如以下所示：
@@ -703,14 +977,14 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
 
 | 元素名稱 | 必要 | 類型 | 說明 | 
 | ------------ | -------- | ---- | ----------- | 
-| host | yes | Object | 代表連接器資訊，例如 `runtimeUrl` 和對連線物件的參考。 | 
+| host | yes | JSON 物件 | 代表連接器資訊，例如 `runtimeUrl` 和對連線物件的參考。 | 
 | path | yes | 字串 | API 作業的路徑 | 
-| 查詢 | 否 | Object | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
-| headers | 否 | Object | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | 否 | Object | 代表傳送至端點的承載。 | 
-| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
+| 查詢 | 否 | JSON 物件 | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
+| headers | 否 | JSON 物件 | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | 否 | JSON 物件 | 代表傳送至端點的承載。 | 
+| RetryPolicy | 否 | JSON 物件 | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
 | operationsOptions | 否 | 字串 | 定義一組要覆寫的特殊行為。 | 
-| 驗證 | 否 | Object | 代表要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 |
+| 驗證 | 否 | JSON 物件 | 代表要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 |
 ||||| 
 
 ## <a name="response-action"></a>回應動作  
@@ -794,9 +1068,9 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
 | ------------ | -------- | ---- | ----------- |  
 | 函式識別碼 | yes | 字串 | 您想要呼叫之 Azure 函式的資源識別碼。 | 
 | method | 否 | 字串 | 用來呼叫函式的 HTTP 方法。 若未指定，則預設方法為 "POST"。 | 
-| 查詢 | 否 | Object | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
-| headers | 否 | Object | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | 否 | Object | 代表傳送至端點的承載。 | 
+| 查詢 | 否 | JSON 物件 | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
+| headers | 否 | JSON 物件 | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | 否 | JSON 物件 | 代表傳送至端點的承載。 | 
 |||||
 
 當您儲存邏輯應用程式時，Logic Apps 引擎會對所參考的函式執行一些檢查︰
@@ -853,7 +1127,7 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
 | Name | 必要 | 類型 | 說明 | 
 | ---- | -------- | ---- | ----------- | 
 | runStatus | yes | 字串 | 目標執行的狀態 (`Failed` 或 `Cancelled`) |
-| runError | 否 | Object | 錯誤詳細資料。 只有當 `runStatus` 已設定為 `Failed`時才支援。 |
+| runError | 否 | JSON 物件 | 錯誤詳細資料。 只有當 `runStatus` 已設定為 `Failed`時才支援。 |
 | runError 代碼 | 否 | 字串 | 執行的錯誤碼 |
 | runError 訊息 | 否 | 字串 | 執行的錯誤訊息 | 
 ||||| 
@@ -990,9 +1264,9 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
 
 | 元素名稱 | 必要 | 類型 | 說明 | 
 | ------------ | -------- | ---- | ----------- | 
-| 直到 | 否 | Object | 以時間點為基礎的等候持續時間 | 
+| 直到 | 否 | JSON 物件 | 以時間點為基礎的等候持續時間 | 
 | 直到時間戳記 | yes | 字串 | 等候時間到期時的時間點 (以 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)指定) | 
-| interval | 否 | Object | 以間隔單位和計數為基礎的等候持續時間 | 
+| interval | 否 | JSON 物件 | 以間隔單位和計數為基礎的等候持續時間 | 
 | 間隔單位 | yes | 字串 | 時間單位。 只能使用下列其中一個值︰"second"、"minute"、"hour"、"day"、"week" 或 "month" | 
 | 間隔計數 | yes | 整數  | 一個正整數，此正整數代表用於表示等候持續時間的間隔單位數 | 
 ||||| 
@@ -1029,9 +1303,9 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
 | ------------ | -------- | ---- | ----------- |  
 | 主機識別碼 | yes | 字串| 您想要呼叫之工作流程的資源識別碼 | 
 | 主機 triggerName | yes | 字串 | 您想要叫用之觸發程序的名稱 | 
-| 查詢 | 否 | Object | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
-| headers | 否 | Object | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | 否 | Object | 代表傳送至端點的承載。 | 
+| 查詢 | 否 | JSON 物件 | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
+| headers | 否 | JSON 物件 | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | 否 | JSON 物件 | 代表傳送至端點的承載。 | 
 ||||| 
 
 此動作的輸出會根據您在子工作流程之 `Response` 動作中所做的定義。 如果子工作流程未定義 `Response` 動作，則輸出會是空的。
@@ -1042,7 +1316,7 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
 
 ## <a name="if-action"></a>If 動作
 
-此動作是條件陳述式，可讓您評估條件，並根據運算式是否評估為 true 來執行分支。 如果條件成功評估為 true，條件就會標示為「成功」。 `actions` 或 `else` 物件中動作會評估為下列值：
+此動作是條件陳述式，可讓您評估條件，並根據運算式是否評估為 true 來執行分支。 如果條件成功評估為 true，此條件就會標示為「成功」狀態。 `actions` 或 `else` 物件中動作會評估為下列值：
 
 * 「Succeeded (成功)」：當動作執行且成功時
 * 「Failed (失敗)」：當動作執行但失敗時
@@ -1076,9 +1350,9 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
 
 | Name | 必要 | 類型 | 說明 | 
 | ---- | -------- | ---- | ----------- | 
-| 動作 | yes | Object | `expression` 評估為 `true` 時要執行的內部動作 | 
+| 動作 | yes | JSON 物件 | `expression` 評估為 `true` 時要執行的內部動作 | 
 | expression | yes | 字串 | 要評估的運算式 |
-| else | 否 | Object | `expression` 評估為 `false` 時要執行的內部動作 |
+| else | 否 | JSON 物件 | `expression` 評估為 `false` 時要執行的內部動作 |
 ||||| 
 
 例如︰
@@ -1133,14 +1407,14 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
    "type": "Switch",
    "expression": "<evaluate-this-object-expression-token>",
    "cases": {
-      "myCase1" : {
-         "actions" : {
+      "myCase1": {
+         "actions": {
            "myAction1": {}
          },
          "case": "<result1>"
       },
       "myCase2": {
-         "actions" : {
+         "actions": {
            "myAction2": {}
          },
          "case": "<result2>"
@@ -1158,10 +1432,10 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
 | Name | 必要 | 類型 | 說明 | 
 | ---- | -------- | ---- | ----------- | 
 | expression | yes | 字串 | 要評估的物件、運算式或權杖 | 
-| 案例 | yes | Object | 包含依循運算式結果執行的內部動作集。 | 
+| 案例 | yes | JSON 物件 | 包含依循運算式結果執行的內部動作集。 | 
 | 案例 | yes | 字串 | 要與結果比對的值 | 
-| 動作 | yes | Object | 案例符合運算式結果時執行的內部動作 | 
-| 預設值 | 否 | Object | 沒有案例符合結果時執行的內部動作 | 
+| 動作 | yes | JSON 物件 | 案例符合運算式結果時執行的內部動作 | 
+| 預設值 | 否 | JSON 物件 | 沒有案例符合結果時執行的內部動作 | 
 ||||| 
 
 例如︰
@@ -1172,13 +1446,13 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
    "expression": "@body('Send_approval_email')?['SelectedOption']",
    "cases": {
       "Case": {
-         "actions" : {
+         "actions": {
            "Send_an_email": {...}
          },
          "case": "Approve"
       },
       "Case_2": {
-         "actions" : {
+         "actions": {
            "Send_an_email_2": {...}
          },
          "case": "Reject"
@@ -1219,7 +1493,7 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
 
 | Name | 必要 | 類型 | 說明 | 
 | ---- | -------- | ---- | ----------- | 
-| 動作 | yes | Object | 要在迴圈內執行的內部動作 | 
+| 動作 | yes | JSON 物件 | 要在迴圈內執行的內部動作 | 
 | foreach | yes | 字串 | 要逐一查看的陣列 | 
 | operationOptions | 否 | 字串 | 指定任何作業選項來自訂行為。 目前僅支援 `Sequential` 來循序執行反覆運算，而預設行為是平行。 |
 ||||| 
@@ -1279,9 +1553,9 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
 
 | Name | 必要 | 類型 | 說明 | 
 | ---- | -------- | ---- | ----------- | 
-| 動作 | yes | Object | 要在迴圈內執行的內部動作 | 
+| 動作 | yes | JSON 物件 | 要在迴圈內執行的內部動作 | 
 | expression | yes | 字串 | 要在每次反覆運算之後評估的運算式 | 
-| limit | yes | Object | 迴圈的限制。 必須至少定義一個限制。 | 
+| limit | yes | JSON 物件 | 迴圈的限制。 必須至少定義一個限制。 | 
 | count | 否 | 整數  | 要執行之反覆運算次數的限制 | 
 | timeout | 否 | 字串 | 指定迴圈應該執行多久的逾時限制 (以 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601) 指定) |
 ||||| 
@@ -1332,7 +1606,7 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
 
 | Name | 必要 | 類型 | 說明 | 
 | ---- | -------- | ---- | ----------- |  
-| 動作 | yes | Object | 要在範圍內執行的內部動作 |
+| 動作 | yes | JSON 物件 | 要在範圍內執行的內部動作 |
 ||||| 
 
 ## <a name="next-steps"></a>後續步驟
