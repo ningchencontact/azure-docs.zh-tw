@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 66032a68634be5b52bbfa544d0a3bcd3d1090652
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359980"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>透過 Azure CDN 進行動態網站加速
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 05/14/2018
 >   
 > 針對**來自 Verizon 的 Azure CDN**設定檔，您無法在 CDN 端點建立之後，變更其最佳化。
 
-## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>設定 CDN 端點以加速動態檔案傳遞
+## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>設定 CDN 端點以加速動態檔案傳遞
 
 若要將 CDN 端點設定成要最佳化動態檔案的傳遞，您可以使用 Azure 入口網站、REST API 或任何用戶端 SDK 以程式設計方式執行相同的動作。 
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 911d6484421cc9fddad0530bf8d9ab4f01d48bf8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 6a755ef4d933046377a6a25be76655b44f4bf508
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361366"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>以資料科學虛擬機器為基礎的團隊分析和 AI 環境 
 [資料科學虛擬機器](overview.md) (DSVM) 在 Azure 雲端上提供豐富的環境，其中包含了適用於 AI 和資料分析的預先建立軟體。 傳統上，DSVM 都是用來當作個別的分析電腦，而個別的資料科學家可以藉由周知的預先建立分析環境來提升生產力。 當大型分析團隊在規劃其資料科學家和 AI 開發人員的分析環境時，其中一個重複出現的主題便是管理方式與企業 IT 原則一致的共用分析開發與實驗基礎結構，同時也要能輔助跨整個資料科學 / 分析團隊的共同作業和一致性。 共用的基礎結構也可讓 IT 能夠更充分地利用分析環境。 某些組織也將團隊資料科學 / 分析基礎結構稱為「分析沙箱」。分析沙箱可讓資料科學家以安全的方式快速了解資料、執行實驗、驗證假設、建立預測模型，而不會在存取各種資料資產時影響生產環境。 
@@ -32,6 +33,17 @@ ms.lasthandoff: 05/10/2018
 * [資料科學虛擬機器的自動調整規模集區](dsvm-pools.md)
 * [對於集區中任何 DSVM 工作區的一般身分識別與存取](dsvm-common-identity.md)
 * [安全存取資料來源](dsvm-secure-access-keys.md)
-* 公司和開放資料集的治理與探索
 
-此系列文章將提供上述各層面的指導方針和建議資訊。 [Azure 架構中心](https://docs.microsoft.com/en-us/azure/architecture/)提供適用於分析基礎結構的詳細完整架構。  
+
+此系列文章將提供上述各層面的指導方針和建議資訊。 很明顯地，在大型企業組態中部署 DSVM 還有許多其他考量和需求，而這些並未直接涵蓋在這一系列的文章中。 以下是一般 Azure 文件的一些其他考量與指標，當您在企業中的 DSVM 執行個體上進行實作時可輕易地使用這些資訊。 
+
+* [網路安全性](https://docs.microsoft.com/azure/security/azure-network-security)
+* [監視](https://docs.microsoft.com/azure/virtual-machines/windows/monitor)與[管理](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
+* [記錄與稽核](https://docs.microsoft.com/azure/security/azure-log-audit)
+* [角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [原則設定和強制執行](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)
+* [反惡意程式碼](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+* [加密](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
+* [資料探索和控管](https://docs.microsoft.com/azure/data-catalog/)
+
+[Azure 架構中心](https://docs.microsoft.com/en-us/azure/architecture/)也是絕佳資源，可提供用於建立和管理雲端式分析基礎結構的詳細端對端架構和模式。 

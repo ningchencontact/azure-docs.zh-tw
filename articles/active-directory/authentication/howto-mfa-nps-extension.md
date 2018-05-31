@@ -1,25 +1,21 @@
 ---
 title: 使用現有的 NPS 伺服器提供 Azure MFA 功能 | Microsoft Docs
-description: Azure Multi-Factor Authentication 的網路原則伺服器擴充功能是可將雲端式雙步驟驗證功能新增至現有驗證基礎結構的簡單解決方案。
+description: 將雲端式雙步驟驗證功能新增至現有的驗證基礎結構
 services: multi-factor-authentication
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 05/01/2018
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/14/2017
-ms.author: joflore
 ms.reviewer: richagi
-ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: fd0f021d451dbf722fe23da7bc414ceb523af17a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 57bf8b81d8d7fee6eaee216b9a2e0c52aa625257
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33868325"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>將現有的 NPS 基礎結構與 Azure Multi-Factor Authentication 整合
 
@@ -52,7 +48,7 @@ NPS 擴充功能是為了搭配現有基礎結構來運作。 請確定您已備
 
 ### <a name="licenses"></a>授權
 
-Azure MFA 的 NPS 擴充功能可透過 [Azure Multi-Factor Authentication 授權](../../multi-factor-authentication/multi-factor-authentication.md) (隨附於 Azure AD Premium、EMS 或 MFA 獨立授權) 來提供給客戶使用。 Azure MFA 以使用情況為基礎的授權 (例如每位使用者或每次驗證授權) 與 NPS 擴充功能並不相容。 
+Azure MFA 的 NPS 擴充功能可透過 [Azure Multi-Factor Authentication 授權](multi-factor-authentication.md) (隨附於 Azure AD Premium、EMS 或 MFA 獨立授權) 來提供給客戶使用。 Azure MFA 以使用情況為基礎的授權 (例如每位使用者或每次驗證授權) 與 NPS 擴充功能並不相容。 
 
 ### <a name="software"></a>軟體
 
@@ -117,14 +113,14 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 您可以在 Azure 中[停用不受支援的驗證方法](howto-mfa-mfasettings.md#selectable-verification-methods)。
 
-### <a name="enable-users-for-mfa"></a>針對 MFA 啟用使用者
+### <a name="register-users-for-mfa"></a>針對 MFA 註冊使用者
 
-在部署完整 NPS 延伸模組之前，您必須針對您想要執行雙步驟驗證的使用者啟用 MFA。 緊接著，若要同時部署與測試延伸模組，您必須至少有一個測試帳戶，並應已針對 Multi-Factor Authentication 完全註冊此帳戶。
+在您部署與使用 NPS 延伸模組之前，必須先針對 MFA 註冊將需執行雙步驟驗證的使用者。 緊接著，若要同時部署與測試延伸模組，您必須至少有一個測試帳戶，並應已針對 Multi-Factor Authentication 完全註冊此帳戶。
 
 使用下列步驟啟動測試帳戶：
 1. 使用測試帳戶登入 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)。 
 2. 遵循提示來設定驗證方法。
-3. 建立條件式存取原則或[變更使用者狀態](../../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md)，以要求測試帳戶進行雙步驟驗證。 
+3. 建立條件式存取原則或[變更使用者狀態](howto-mfa-userstates.md)，以要求測試帳戶進行雙步驟驗證。 
 
 您的使用者在向 NPS 擴充功能驗證之前，也必須遵循下列步驟進行註冊。
 
@@ -176,7 +172,7 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 ### <a name="configuration-limitations"></a>設定限制
 
 - Azure MFA 的 NPS 延伸模組並未包含可將使用者與設定從 MFA Server 移轉至雲端的工具。 有基於此，建議將此延伸模組用於新的部署，而非用於現有部署。 如果您在現有部署上使用此延伸模組，您的使用者必須再次執行證明，以便在雲端中填入其 MFA 詳細資料。  
-- NPS 擴充功能會使用來自內部部署 Active Directory 的 UPN，識別 Azure MFA 上用來執行次要驗證的使用者。此延伸模組可設定為使用不同的識別碼，例如 UPN 以外的替代登入識別碼或自訂 Active Directory 欄位。 如需詳細資訊，請參閱 [Multi-Factor Authentication 之 NPS 延伸模組的進階設定選項](../../multi-factor-authentication/multi-factor-authentication-advanced-vpn-configurations.md)。
+- NPS 擴充功能會使用來自內部部署 Active Directory 的 UPN，識別 Azure MFA 上用來執行次要驗證的使用者。此延伸模組可設定為使用不同的識別碼，例如 UPN 以外的替代登入識別碼或自訂 Active Directory 欄位。 如需詳細資訊，請參閱 [Multi-Factor Authentication 之 NPS 延伸模組的進階設定選項](howto-mfaserver-nps-vpn.md)。
 - 並非所有的加密通訊協定都支援所有的驗證方法。
    - **PAP** 支援通話、單向簡訊、行動裝置應用程式通知和行動裝置應用程式驗證碼
    - **CHAPV2** 和 **EAP** 支援通話和行動裝置應用程式通知
@@ -247,6 +243,6 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 - 在 [Multi-Factor Authentication 之 NPS 延伸模組的進階設定選項](howto-mfa-nps-extension-advanced.md)中，設定登入的替代識別碼，或為不應該執行雙步驟驗證之 IP 設定的例外狀況清單
 
-- 了解如何使用 NPS 延伸模組來整合[遠端桌面閘道](../../multi-factor-authentication/nps-extension-remote-desktop-gateway.md)和 [VPN 伺服器](../../multi-factor-authentication/nps-extension-vpn.md)
+- 了解如何使用 NPS 延伸模組來整合[遠端桌面閘道](howto-mfa-nps-extension-rdg.md)和 [VPN 伺服器](howto-mfa-nps-extension-vpn.md)
 
 - [解決 Azure Multi-Factor Authentication NPS 擴充功能的錯誤訊息](howto-mfa-nps-extension-errors.md)

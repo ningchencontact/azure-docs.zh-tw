@@ -1,11 +1,11 @@
 ---
-title: "管理 Azure 資訊安全中心的安全性建議 | Microsoft Docs"
-description: "本文件將逐步引導您了解「Azure 資訊安全中心」的建議如何協助您保護 Azure 資源及遵守安全性原則。"
+title: 管理 Azure 資訊安全中心的安全性建議 | Microsoft Docs
+description: 本文件將逐步引導您了解「Azure 資訊安全中心」的建議如何協助您保護 Azure 資源及遵守安全性原則。
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 72070f46309adb526901192752fe421a3846398b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364245"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>管理 Azure 資訊安全中心的安全性建議
 本文件將逐步引導您了解如何使用「Azure 資訊安全中心」的建議來協助您保護 Azure 資源。
@@ -39,7 +40,7 @@ ms.lasthandoff: 01/08/2018
 * 開啟資料收集。
 * 選擇要在您的安全性原則中看見的建議。
 
-目前的原則建議是以系統更新、基準規則、反惡意程式碼程式、子網路與網路介面上的 [網路安全性群組](../virtual-network/virtual-networks-nsg.md) 、SQL Database 稽核、SQL Database 透明資料加密及 Web 應用程式防火牆為中心。  [設定安全性原則](security-center-policies.md) 提供每個建議選項的描述。
+目前的原則建議是以系統更新、基準規則、反惡意程式碼程式、子網路與網路介面上的[網路安全性群組](../virtual-network/security-overview.md)、SQL Database 稽核、SQL Database 透明資料加密及 Web 應用程式防火牆為中心。  [設定安全性原則](security-center-policies.md) 提供每個建議選項的描述。
 
 ### <a name="monitor-recommendations"></a>監視建議
 設定安全性原則之後，「資訊安全中心」會分析您資源的安全性狀態，以識別潛在的弱點。 [概觀] 下方的 [建議] 圖格可讓您知道資訊安全中心識別出的建議總數量。

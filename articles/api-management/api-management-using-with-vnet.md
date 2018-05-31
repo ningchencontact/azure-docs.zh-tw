@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: db0fab5b619ddbca4663a0f6afedfff373d406f9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 223fa9bc4a19264cc1dcba9830726b30b0f7446c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355078"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
 「Azure 虛擬網路」(VNET) 可讓您將任何 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
@@ -116,7 +117,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 | * / 1886 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|將健康情況狀態發佈至 [資源健康狀態] 時所需 |外部和內部 |
 | * / 25028 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|連線到 SMTP 轉送以便傳送電子郵件 |外部和內部 |
 | * / 6381 - 6383 |輸入和輸出 |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|存取 RoleInstances 之間的 Redis 快取執行個體 |外部和內部 |
-| * / \* | 輸入 |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure 基礎結構負載平衡器 |外部和內部 |
+| * / * | 輸入 |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure 基礎結構負載平衡器 |外部和內部 |
 
 >[!IMPORTANT]
 > 要成功部署 API 管理服務，就必須有以**粗體**表示其「目的」的連接埠。 不過，封鎖其他連接埠將會降低使用和監視執行中服務的能力。
@@ -168,6 +169,7 @@ Azure 會在每個子網路中保留一些 IP 位址，但這些位址無法使�
 * 子網路和「API 管理」服務必須位於同一個訂用帳戶中。
 * 包含「API 管理」執行個體的子網路無法跨訂用帳戶移動。
 * 針對設定為內部虛擬網路模式的多區域 API 管理部署，使用者需負責管理跨多個區域的負載平衡，因為他們擁有路由。
+* 由於平台限制，無法從另一個區域中全域對等互連 VNET 中的資源連線到內部模式中的 API 管理服務。 如需詳細資訊，請參閱[一個虛擬網路中的資源無法與對等互連虛擬網路中的 Azure 內部負載平衡器通訊](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)。
 
 
 ## <a name="related-content"> </a>相關內容
@@ -188,4 +190,4 @@ Azure 會在每個子網路中保留一些 IP 位址，但這些位址無法使�
 [Related content]: #related-content
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[Network Security Group]: ../virtual-network/virtual-networks-nsg.md
+[Network Security Group]: ../virtual-network/security-overview.md

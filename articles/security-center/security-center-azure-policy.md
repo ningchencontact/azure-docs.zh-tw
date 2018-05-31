@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: d0092f57c162cc8727cfed33218e440d4da11f1c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: aec29ac1ccf9386615e7603898f071fe9cda44cf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364330"
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>整合資訊安全中心安全性原則與 Azure 原則
 本文件可協助您設定 Azure 資訊安全中心安全性原則 (採用 Azure 原則技術)。
@@ -76,7 +77,7 @@ ms.lasthandoff: 05/03/2018
 | 安全性設定 |每天分析作業系統組態，以判斷讓虛擬機器容易遭受攻擊的問題。 此原則還會建議可解決這些弱點的組態變更。 如需受監視之特定組態的詳細資訊，請參閱[建議的基準清單](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)。 (目前，未完全支援 Windows Server 2016)。 |
 | 端點保護 |建議為所有 Windows 虛擬機器 (VM) 設定端點保護，以協助識別和移除病毒、間諜軟體及其他惡意軟體。 |
 | 磁碟加密 |建立在所有虛擬機器中啟用磁碟加密以增強待用資料保護。 |
-| 網路安全性群組 |建議設定 [網路安全性群組](../virtual-network/virtual-networks-nsg.md) 來控制具有公用端點之 VM 的輸入與輸出流量。 除非另有指定，否則所有虛擬機器網路介面都會繼承為子網路設定的網路安全性群組。 除了檢查是否已設定網路安全性群組之外，此原則還會評估輸入安全性規則來識別可允許連入流量的規則。 |
+| 網路安全性群組 |建議設定 [網路安全性群組](../virtual-network/security-overview.md) 來控制具有公用端點之 VM 的輸入與輸出流量。 除非另有指定，否則所有虛擬機器網路介面都會繼承為子網路設定的網路安全性群組。 除了檢查是否已設定網路安全性群組之外，此原則還會評估輸入安全性規則來識別可允許連入流量的規則。 |
 | Web 應用程式防火牆 |建議您，當下列其中一項為真時，在虛擬機器上設定 Web 應用程式防火牆︰ <ul><li>會使用[執行個體層級公開 IP](../virtual-network/virtual-networks-instance-level-public-ip.md)，且會設定相關聯網路安全性群組的輸入安全性規則，以允許存取連接埠 80/443。</li><li>會使用負載平衡 IP，且會設定相關聯的負載平衡和輸入網路位址轉譯 (NAT) 規則，以允許存取連接埠 80/443。 如需詳細資料，請參閱 [Azure Resource Manager 的負載平衡器支援](../load-balancer/load-balancer-arm.md)。</li> |
 | 新一代防火牆 |提供超越 Azure 內建網路安全性群組的網路保護。 資訊安全中心會探索建議使用新一代防火牆的部署，然後您就可以設定虛擬設備。 |
 | SQL 稽核與威脅偵測 |建議針對法規遵循、進階威脅偵測及調查用途，啟用 Azure 資料庫的存取稽核。 |

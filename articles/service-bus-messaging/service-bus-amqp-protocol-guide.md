@@ -1,24 +1,25 @@
 ---
-title: "Azure 服務匯流排和事件中樞的 AMQP 1.0 通訊協定指南 | Microsoft Docs"
-description: "Azure 服務匯流排和事件中樞的 AMQP 1.0 運算式和說明的通訊協定指南"
+title: Azure 服務匯流排和事件中樞的 AMQP 1.0 通訊協定指南 | Microsoft Docs
+description: Azure 服務匯流排和事件中樞的 AMQP 1.0 運算式和說明的通訊協定指南
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
-ms.author: clemensv;hillaryc;sethm
-ms.openlocfilehash: 4e1fa9db3b4801103069163c55a9b342a27d00ac
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.date: 04/30/2018
+ms.author: clemensv
+ms.openlocfilehash: e124ea3f932a81634191785e7ee69c2492cb32fa
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312537"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure 服務匯流排和事件中樞的 AMQP 1.0 通訊協定指南
 
@@ -205,6 +206,8 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 
 下列各節說明服務匯流排會使用標準 AMQP 訊息區段中的哪些屬性，以及它們如何對應到服務匯流排 API 集。
 
+應用程式需要定義的屬性應對應至 AMQP 的 `application-properties` 對應。
+
 #### <a name="header"></a>頁首
 
 | 欄位名稱 | 使用量 | API 名稱 |
@@ -232,6 +235,80 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 | group-id |應用程式為一組相關訊息所定義的識別碼。 用於服務匯流排工作階段。 |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |用以識別訊息在工作階段內的相對序號的計數器。 服務匯流排會忽略。 |無法透過服務匯流排 API 存取。 |
 | reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+
+#### <a name="message-annotations"></a>訊息註解
+
+有幾個其他服務匯流排訊息屬性不屬於 AMQP 訊息屬性，而且會隨著 `MessageAnnotations` 在訊息上傳遞。
+
+| 註解對應索引鍵 | 使用量 | API 名稱 |
+| --- | --- | --- |
+| x-opt-scheduled-enqueue-time | 宣告訊息應出現在實體上的時間 |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
+| x-opt-partition-key | 應用程式定義的索引鍵，指出訊息應落在哪個資料分割中。 | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
+| x-opt-via-partition-key | 當交易用於透過傳輸佇列傳送訊息時，應用程式所定義的資料分割索引鍵值。 | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
+| x-opt-enqueued-time | 由服務定義的 UTC 時間，表示將訊息加入佇列的實際時間。 輸入時忽略。 | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
+| x-opt-sequence-number | 由服務定義並指派給訊息的唯一編號。 | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
+| x-opt-offset | 由服務定義並已加入佇列的訊息序號。 | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
+| x-opt-locked-until | 由服務定義。 訊息在佇列/訂用帳戶中鎖定的日期和時間。 | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
+| x-opt-deadletter-source | 由服務定義。 從無效信件佇列收到訊息時，原始訊息的來源。 | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+
+### <a name="transaction-capability"></a>交易功能
+
+交易會將兩個以上的作業一起分組到執行範圍。 本質上，這類交易必須確定屬於指定作業群組的所有作業都一起成功或失敗。
+作業會依識別碼 `txn-id` 分組。
+
+針對交易式互動，用戶端會當作 `transaction controller` 來控制應分在一組的作業。 服務匯流排服務會當作 `transactional resource` 並依照 `transaction controller` 的要求執行工作。
+
+用戶端與服務會透過用戶端所建立的 `control link` 通訊。 控制器會透過控制連結傳送 `declare` 和 `discharge` 訊息，分別配置及完成交易 (它們不代表交易式工作的區分)。 實際傳送/接收並非在此連結上執行。 每個交易式作業都能以所需的 `txn-id` 明確識別，因此在連線時可能會發生在任何連結上。 如果控制連結已關閉，但存在它所建立的非釋出交易，然後會立即復原所有這類交易，而嘗試在其上執行進一步交易式工作將會導致失敗。 不能預先決定控制連結上的訊息。
+
+每次連線都必須起始自己的控制連結，才能夠開始和結束交易。 服務會定義當作 `coordinator` 的特殊目標。 用戶端/控制站會建立此目標的控制連結。 控制連結超出實體的界限，也就是說，相同的控制連結可用來起始和釋出多個實體的交易。
+
+#### <a name="starting-a-transaction"></a>開始交易
+
+若要開始進行交易式工作： 控制器必須從協調器取得 `txn-id`。 它會藉由傳送 `declare` 類型訊息來執行此作業。 如果宣告成功，協調器就會以 `declared` 的處置結果回應，其中帶有已指派的 `txn-id`。
+
+| 用戶端 (控制站) | | 服務匯流排 (協調器) |
+| --- | --- | --- |
+| attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
+|  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction id}<br/>))|
+
+#### <a name="discharging-a-transaction"></a>釋出交易
+
+控制器會將 `discharge` 訊息傳送至協調器，結束交易式工作。 控制器會在 `fail` 釋出主體上設定旗標，表示它想要認可或復原交易式工作。 如果協調器無法完成釋出，則會以帶有 `transaction-error` 的這個結果拒絕訊息。
+
+> 注意：fail=true 意指「交易復原」，而 fail=false 意指「認可」。
+
+| 用戶端 (控制站) | | 服務匯流排 (協調器) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| | . . . <br/>交易式工作<br/>其他連結上<br/> . . . |
+| transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
+| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
+
+#### <a name="sending-a-message-in-a-transaction"></a>在交易中傳送訊息
+
+所有交易式工作完成時的交易式傳遞狀態都是 `transactional-state`，其帶有 txn-id。在傳送訊息的情況下，交易式狀態是由訊息的傳輸框架傳送。 
+
+| 用戶端 (控制站) | | 服務匯流排 (協調器) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
+| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
+
+#### <a name="disposing-a-message-in-a-transaction"></a>在交易中處置訊息
+
+訊息處置包含 `Complete` / `Abandon` / `DeadLetter` / `Defer` 等作業。 若要在交易內執行這些作業，請隨著處置傳遞 `transactional-state`。
+
+| 用戶端 (控制站) | | 服務匯流排 (協調器) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
+| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
+
 
 ## <a name="advanced-service-bus-capabilities"></a>進階服務匯流排功能
 
@@ -315,6 +392,19 @@ CBS 會定義由傳訊基礎結構所提供的虛擬管理節點 (名為 *$cbs*)
 建立連線和工作階段後，將連結附加至 *$cbs* 節點及傳送 *put-token* 要求是唯一允許的作業。 必須在建立連線後的 20 秒內使用對某個實體節點的 *put-token* 要求成功設定有效的權杖，否則服務匯流排會單方面中斷連線。
 
 用戶端後續會負責追蹤權杖到期。 權杖到期時，服務匯流排會立即卸除個別實體連線上的所有連結。 若要避免這種情況，用戶端可以透過具有相同 *put-token* 軌跡的虛擬 *$cbs* 管理節點隨時使用新的權杖來取代節點的權杖，但不會干擾在不同連結上流動的承載流量。
+
+### <a name="send-via-functionality"></a>傳送方式功能
+
+[傳送方式 / 傳輸傳送者](service-bus-transactions.md#transfers-and-send-via)功能，可讓服務匯流排透過另一個實體將指定的訊息轉寄至目的地實體。 這主要用於在單一交易中執行跨實體的作業。
+
+使用這項功能，您可建立傳送者並建立 `via-entity` 的連結。 建立連結時，系統會傳遞其他資訊，以在此連結上建立訊息/傳輸的真正目的地。 一旦連結成功，在此連結上傳送的所有訊息都會透過 via-entity 自動轉寄到 destination-entity。 
+
+> 注意：建立這個連結之前，必須對 via-entity 和 destination-entity 執行驗證。
+
+| 用戶端 | | 服務匯流排 |
+| --- | --- | --- |
+| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link id},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link id},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## <a name="next-steps"></a>後續步驟
 
