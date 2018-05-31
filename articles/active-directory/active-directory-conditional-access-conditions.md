@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770616"
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的條件 
 
@@ -38,24 +39,32 @@ ms.lasthandoff: 04/23/2018
 
 ![控制](./media/active-directory-conditional-access-conditions/61.png)
 
-本文將簡要說明條件及如何在條件式存取原則中使用條件。 
 
+您未在條件式存取原則中設定的條件不會套用。 某些條件會[強制](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work)將條件式存取原則套用至環境。 
+
+本文將簡要說明條件及如何在條件式存取原則中使用條件。 
 
 ## <a name="users-and-groups"></a>使用者和群組
 
 使用者和群組條件是條件式存取原則中的必要條件。 在原則中，您可以選取 [所有使用者] 或選取特定的使用者或群組。
 
-![控制](./media/active-directory-conditional-access-conditions/02.png)
+![控制](./media/active-directory-conditional-access-conditions/111.png)
 
 當您選取：
 
 - [所有使用者] 時，您的原則會套用至目錄內的所有使用者。 這包括來賓使用者。
 
-- [選取使用者和群組] 時，您可以將目標設定為幾組特定的使用者。 例如，當您選取 HR 應用程式作為雲端應用程式時，可以選取包含 HR 部門所有成員的群組。 
+- [選取使用者和群組] 時，您可以設定下列選項：
 
-- 某個群組時，這可以是 Azure AD 中任何類型的群組，包括動態或已指派的安全性與通訊群組。
+    - [所有來賓使用者] - 可讓您將原則目標鎖定為 B2B 來賓使用者。 此條件符合 [userType] 屬性設為 [來賓] 的任何使用者帳戶。 如果在 Azure AD 的邀請流程中建立帳戶時需立即套用原則，便可使用此設定。
 
-您也可以將特定使用者或群組自原則中排除。 其中一個常見的使用案例是原則強制執行多重要素驗證時的服務帳戶。 
+    - [目錄角色] - 可讓您根據使用者的角色指派來指定目標原則。 此條件支援目錄角色，例如 [全域管理員] 或 [密碼管理員]。
+
+    - [使用者和群組] - 可讓您將目標設定為幾組特定的使用者。 例如，當您選取 HR 應用程式作為雲端應用程式時，可以選取包含 HR 部門所有成員的群組。
+
+某個群組，可以是 Azure AD 中任何類型的群組，包括動態或已指派的安全性與通訊群組
+
+您也可以將特定使用者或群組自原則中排除。 其中一個常見的使用案例是原則強制執行多重要素驗證 (MFA) 時的服務帳戶。 
 
 對於部署新原則來說，以特定的幾組使用者為目標會相當有用。 在新原則中，您應該僅以一組初始使用者為目標來驗證原則行為。 
 
@@ -104,7 +113,18 @@ ms.lasthandoff: 04/23/2018
 如需支援的裝置平台完整清單，請參閱[裝置平台條件](active-directory-conditional-access-technical-reference.md#device-platform-condition)。
 
 
-此條件的其中一個常見使用案例，就是限制只有[受信任的裝置](active-directory-conditional-access-policy-connected-applications.md#trusted-devices)才能存取您雲端應用程式的原則。 如需更多案例 (包括裝置平台條件)，請參閱 [Azure Active Directory 應用程式型條件式存取](active-directory-conditional-access-mam.md)。
+此條件的其中一個常見使用案例，就是限制只有[受控的裝置](active-directory-conditional-access-policy-connected-applications.md#managed-devices)才能存取您雲端應用程式的原則。 如需更多案例 (包括裝置平台條件)，請參閱 [Azure Active Directory 應用程式型條件式存取](active-directory-conditional-access-mam.md)。
+
+
+
+## <a name="device-state"></a>裝置狀態
+
+本裝置狀態條件允許將已加入的混合式 Azure AD 和標示為符合規範的裝置，從條件式存取原則中排除。 當原則只應套用至未受控裝置，以提供多一層工作階段安全性時，此功能就相當實用。 例如裝置未受控時，可以只強制執行 Microsoft Cloud App Security 工作階段控制。 
+
+
+![條件](./media/active-directory-conditional-access-conditions/112.png)
+
+如果您想要封鎖未受控裝置的存取權，則應採取[裝置型條件式存取](active-directory-conditional-access-policy-connected-applications.md)。
 
 
 ## <a name="locations"></a>位置

@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 05/07/2018
 ms.author: danis
-ms.openlocfilehash: f04a9b812a86f999d5c0ec52be85f77158094c27
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9f5d3754d97e44d9944cd09f1ec082e9c04ad206
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895971"
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>適用於 Linux 的 OMS 虛擬機器擴充功能
 
@@ -47,6 +48,7 @@ Log Analytics 可提供雲端和內部部署資產的監視、警示和警示補
 
 | OMS Linux VM 擴充功能版本 | OMS 代理程式套件組合版本 | 
 |--------------------------------|--------------------------|
+| 1.6.42.0 | [1.6.42.0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
 | 1.4.58.7 | [14.2-125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
@@ -199,6 +201,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 10 | VM 已經連線到 Log Analytics 工作區 | 若要將 VM 連線到擴充功能結構描述中所指定的工作區，請在公用設定中將 stopOnMultipleConnections 設定為 false，或是移除此屬性。 針對此 VM 所連線的每個工作區都會向此 VM 計費一次。 |
 | 11 | 提供給擴充功能的組態無效 | 依照上述範例來設定部署所需的所有屬性值。 |
 | 12 | dpkg 套件管理員已鎖定 | 請確定機器上的所有 dpkg 更新作業皆已完成，然後重試。 |
+| 19 | OMI 安裝失敗 | 
 | 20 | SCX 套件安裝失敗 |
 | 51 | VM 的作業系統上不支援此擴充功能 | |
 | 55 | 無法連線至 Microsoft Operations Management Suite 服務 | 請確認系統是否有網際網路存取權，或已提供有效的 HTTP Proxy。 此外，請確認工作區識別碼是否正確。 |

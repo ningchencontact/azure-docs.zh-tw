@@ -1,8 +1,8 @@
 ---
-title: "教學課程︰以 Azure Active Directory 設定 Cerner Central 來自動佈建使用者 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 以自動佈建使用者至 Cerner Central 中的名冊。"
+title: 教學課程︰以 Azure Active Directory 設定 Cerner Central 來自動佈建使用者 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 以自動佈建使用者至 Cerner Central 中的名冊。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: a4aca2db0190b97d209fc6769b9db55b0ad468d9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 060686089634eda5d15345da9668ff294d350012
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337107"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>教學課程︰設定 Cerner Central 來自動佈建使用者
 
@@ -57,7 +58,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 本節會引導您使用 Cerner 的 SCIM 使用者帳戶佈建 API，將 Azure AD 連線至 Cerner Central 的使用者名冊，以及根據 Azure AD 中的使用者和群組指派，設定佈建服務以在 Cerner Central 中建立、更新和停用已指派的使用者帳戶。
 
 > [!TIP]
-> 您也可以選擇啟用 Cerner Central 的 SAML 型單一登入，並遵循 Azure 入口網站 (https://portal.azure.com) 中提供的指示。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。 如需詳細資訊，請參閱 [Cerner Central 單一登入教學課程](active-directory-saas-cernercentral-tutorial.md)。
+> 您也可以選擇啟用 Cerner Central 的 SAML 型單一登入，請遵循 [Azure 入口網站 (https://portal.azure.com) 中提供的指示。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。 如需詳細資訊，請參閱 [Cerner Central 單一登入教學課程](active-directory-saas-cernercentral-tutorial.md)。
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>若要在 Azure AD 中設定自動使用者帳戶佈建至 Cerner Central：
@@ -67,7 +68,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 1.  第一個步驟是確定管理 Cerner 與 Azure AD 整合的人員擁有 CernerCare 帳戶，必須有此帳戶才能存取完成指示所需的文件。 如有必要，請使用下列 URL 在每個適用的環境中建立 CernerCare 帳戶。
 
-   * 沙箱環境：https://sandboxcernercare.com/accounts/create
+   * 沙箱：https://sandboxcernercare.com/accounts/create
 
    * 生產環境：https://cernercare.com/accounts/create  
 
@@ -75,7 +76,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
    * 指示：https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
-   * 沙箱環境：https://sandboxcernercentral.com/system-accounts/
+   * 沙箱：https://sandboxcernercentral.com/system-accounts/
 
    * 生產環境：https://cernercentral.com/system-accounts/
 
@@ -83,11 +84,11 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
    * 指示：https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
-   * 沙箱環境：https://sandboxcernercentral.com/system-accounts/
+   * 沙箱：https://sandboxcernercentral.com/system-accounts/
 
    * 生產環境：https://cernercentral.com/system-accounts/
 
-4. 最後，您需要針對 Cerner 中的沙箱和生產環境取得「使用者名冊領域識別碼」，以完成設定。 如需如何取得此項目的資訊，請參閱：https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM。 
+4. 最後，您需要針對 Cerner 中的沙箱和生產環境取得「使用者名冊領域識別碼」，以完成設定。 如需如何取得此識別碼的相關資訊，請參閱：https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM。 
 
 5. 現在您可以設定 Azure AD 將使用者帳戶佈建至 Cerner。 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式] 區段。
 
@@ -105,7 +106,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 > 沙箱：https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-> 生產：https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> 生產環境：https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * 在 [祕密權杖] 欄位中，輸入您在步驟 3 中產生的 OAuth 持有人權杖，然後按一下 [測試連接]。
 
@@ -130,7 +131,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 * [Cerner Central：使用 Azure AD 發佈身分識別資料](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [教學課程：設定 Cerner Central 搭配 Azure Active Directory 進行單一登入](active-directory-saas-cernercentral-tutorial.md)
 * [管理企業應用程式的使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>後續步驟
 * [了解如何針對佈建活動檢閱記錄和取得報告](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)。

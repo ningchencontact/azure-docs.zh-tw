@@ -2,25 +2,20 @@
 title: 動態群組與 Azure Active Directory B2B 共同作業 | Microsoft Docs
 description: 說明如何搭配 Azure Active Directory B2B 共同作業使用 Azure AD 動態群組
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 12/14/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: d96fefb859cba5db65382801fb1ac143df12b647
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 751502c2be84e9454c507f09a47b609d003ce2c5
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33927846"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>動態群組與 Azure Active Directory B2B 共同作業
 
@@ -47,12 +42,7 @@ ms.lasthandoff: 04/30/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-請瀏覽有關 Azure AD B2B 共同作業的其他文章：
-
-* [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B 共同作業使用者屬性](active-directory-b2b-user-properties.md)
-* [將 B2B 共同作業使用者新增至角色](active-directory-b2b-add-guest-to-role.md)
-* [委派 B2B 共同作業邀請](active-directory-b2b-delegate-invitations.md)
-* [B2B 共同作業程式碼與 PowerShell 範例](active-directory-b2b-code-samples.md)
-* [設定適用於 B2B 共同作業的 SaaS 應用程式](active-directory-b2b-configure-saas-apps.md)
+- [B2B 共同作業使用者屬性](active-directory-b2b-user-properties.md)
+- [將 B2B 共同作業使用者新增至角色](active-directory-b2b-add-guest-to-role.md)
+- [B2B 共同作業使用者的條件式存取](active-directory-b2b-mfa-instructions.md)
 

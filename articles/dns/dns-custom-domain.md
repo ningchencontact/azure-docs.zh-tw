@@ -1,6 +1,6 @@
 ---
-title: "整合 Azure DNS 與您的 Azure 資源 | Microsoft Docs"
-description: "了解如何使用 Azure DNS 為您的 Azure 資源提供 DNS。"
+title: 整合 Azure DNS 與您的 Azure 資源 | Microsoft Docs
+description: 了解如何使用 Azure DNS 為您的 Azure 資源提供 DNS。
 services: dns
 documentationcenter: na
 author: KumudD
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27994377"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>使用 Azure DNS 為 Azure 服務提供自訂網域設定
 
@@ -136,7 +137,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | 您正在為其建立別名的 DNS 名稱，在此範例中是 asverify.adatumfunctiona9ed.blob.core.windows.net (預設提供給儲存體帳戶的 DNS 名稱)。        |
 
-按一下 [儲存體]  >  [儲存體帳戶] 以回到您的儲存體帳戶，選取您的儲存體帳戶，然後選取 [自訂網域]。 在文字方塊中輸入您建立的別名但不含 asverify 前置詞，核取 [使用間接 CNAME 驗證]，然後按一下 [儲存]。 一旦完成這個步驟，返回您的 DNS 區域，建立不含 asverify 前置詞的 CNAME 記錄。  此時，您就可以放心刪除具有 cdnverify 前置詞的 CNAME 記錄。
+按一下 [儲存體]  >  [儲存體帳戶] 以回到您的儲存體帳戶，選取您的儲存體帳戶，然後選取 [自訂網域]。 在文字方塊中輸入您建立的別名但不含 asverify 前置詞，核取 \*\*[使用間接 CNAME 驗證]，然後按一下 [儲存]。 一旦完成這個步驟，返回您的 DNS 區域，建立不含 asverify 前置詞的 CNAME 記錄。  此時，您就可以放心刪除具有 cdnverify 前置詞的 CNAME 記錄。
 
 ![Blob 儲存體自訂網域](./media/dns-custom-domain/indirectvalidate.png)
 

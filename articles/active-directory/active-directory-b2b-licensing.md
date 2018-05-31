@@ -1,27 +1,21 @@
 ---
-title: "Azure Active Directory B2B 共同作業授權指引 | Microsoft Docs"
-description: "Azure Active Directory B2B 共同作業不需要 Azure AD 付費授權，但您也可以取得付費功能給 B2B 來賓使用者"
+title: Azure Active Directory B2B 共同作業授權指引 | Microsoft Docs
+description: Azure Active Directory B2B 共同作業不需要 Azure AD 付費授權，但您也可以取得付費功能給 B2B 來賓使用者
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 08/09/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.custom: it-pro
-ms.openlocfilehash: d4a739e5cb4dc4a6ccafac683fe913592f985ce2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5709c6db422a2357589f35fd77a2b1681a3e446a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33928852"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Azure Active Directory B2B 共同作業授權指引
 
@@ -71,16 +65,7 @@ B2B 來賓使用者是從合作夥伴組織受邀來與主辦組織共同作業�
 
 ## <a name="next-steps"></a>後續步驟
 
-請瀏覽有關 Azure AD B2B 共同作業的其他文章：
+請參閱下列有關 Azure AD B2B 共同作業的文章：
 
 * [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者？](active-directory-b2b-admin-add-users.md)
-* [資訊工作者如何新增 B2B 共同作業使用者？](active-directory-b2b-iw-add-users.md)
-* [B2B 共同作業邀請電子郵件的元素](active-directory-b2b-invitation-email.md)
-* [B2B 共同作業邀請兌換](active-directory-b2b-redemption-experience.md)
-* [針對 Azure Active Directory B2B 共同作業問題進行疑難排解](active-directory-b2b-troubleshooting.md)
 * [Azure Active Directory B2B 共同作業常見問題 (FAQ)](active-directory-b2b-faq.md)
-* [Azure Active Directory B2B 共同作業 API 和自訂](active-directory-b2b-api.md)
-* [適用於 B2B 共同作業使用者的多重要素驗證](active-directory-b2b-mfa-instructions.md)
-* [在沒有邀請的情況下新增 B2B 共同作業使用者](active-directory-b2b-add-user-without-invite.md)
-* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)

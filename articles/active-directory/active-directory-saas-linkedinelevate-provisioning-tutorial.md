@@ -1,8 +1,8 @@
 ---
-title: "教學課程︰以 Azure Active Directory 設定 LinkedIn Elevate 來自動佈建使用者 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 來自動佈建並取消佈建使用者帳戶至 LinkedIn Elevate。"
+title: 教學課程︰以 Azure Active Directory 設定 LinkedIn Elevate 來自動佈建使用者 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 來自動佈建並取消佈建使用者帳戶至 LinkedIn Elevate。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: af922aaae21ab87c7e8d9354bcbae64fc97c6f02
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d0e390cb76888960dbc52c1c5015d1cb9a6c169c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34345770"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>教學課程︰設定 LinkedIn Elevate 來自動佈建使用者
 
@@ -55,7 +56,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 本節會引導您將 Azure AD 連接至 LinkedIn Elevate 的 SCIM 使用者帳戶佈建 API，以及根據 Azure AD 中的使用者和群組指派，設定佈建服務以在 LinkedIn Elevate 中建立、更新和停用指派的使用者帳戶。
 
-**提示︰**您也可以選擇啟用 LinkedIn Elevate 的 SAML 型單一登入，請遵循 [Azure 入口網站](https://portal.azure.com)中提供的指示。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。
+**提示︰** 您也可以選擇啟用 LinkedIn Elevate 的 SAML 型單一登入，請遵循 [Azure 入口網站](https://portal.azure.com)中提供的指示。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>若要在 Azure AD 中設定自動使用者帳戶佈建至 LinkedIn Elevate︰
@@ -98,7 +99,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 11)  填寫 [系統管理員認證] 底下的下列欄位：
 
-* 在 [租用戶 URL] 欄位中輸入 https://api.linkedin.com。
+* 在 [租用戶 URL] 欄位中，輸入 https://api.linkedin.com。
 
 * 在 [祕密權杖] 欄位中，輸入在步驟 1 產生的存取權杖，然後按一下 [測試連線]。
 
@@ -124,4 +125,4 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 ## <a name="additional-resources"></a>其他資源
 
 * [管理企業應用程式的使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)

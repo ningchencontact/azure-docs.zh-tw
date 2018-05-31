@@ -15,24 +15,27 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cbc1efaee7404c3ffc82acea0846136c43eba2a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 17737c2b272f2a123df3d58c62c471b3da5bebe1
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936132"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 憑證簽署要求產生
 
-[從 PowerShell 資源庫](https://aka.ms/AzsReadinessChecker)可取得本文中所述的 Azure Stack 整備檢查工具。 此工具會建立適用於 Azure Stack 部署的憑證簽署要求 (CSR)。 應在部署前要求、產生及驗證憑證，才有足夠的時間進行測試。 
+[從 PowerShell 資源庫](https://aka.ms/AzsReadinessChecker)可取得本文中所述的 Azure Stack 整備檢查工具。 此工具會建立適用於 Azure Stack 部署的憑證簽署要求 (CSR)。 應在部署前要求、產生及驗證憑證，才有足夠的時間進行測試。
 
 Azure Stack 整備檢查工具 (AzsReadinessChecker) 會執行下列憑證要求：
 
  - **標準憑證要求**  
-    根據[產生適用於 Azure Stack 部署的 PKI 憑證](azure-stack-get-pki-certs.md)提出要求。 
+    根據[產生適用於 Azure Stack 部署的 PKI 憑證](azure-stack-get-pki-certs.md)提出要求。
  - **要求類型**  
-    要求多個萬用字元 SAN、多個網域憑證，單一萬用字元憑證要求。
+    指定憑證簽署要求都是單一要求或多個要求。
  - **平台即服務**  
     對 [Azure Stack 公開金鑰基礎結構憑證要求 - 選擇性 PaaS 憑證](azure-stack-pki-certs.md#optional-paas-certificates)中所指定的憑證，選擇性地要求平台即服務 (PaaS) 名稱。
+
+
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -44,6 +47,9 @@ Azure Stack 整備檢查工具 (AzsReadinessChecker) 會執行下列憑證要求
     - 外部完整網域名稱 (FQDN)
     - 主體
  - Windows 10 或 Windows Server 2016
+ 
+  > [!NOTE]
+  > 當您收到從憑證授權單位返回的憑證時，您需要在相同系統中完成[準備 Azure Stack PKI 憑證](azure-stack-prepare-pki-certs.md)中的步驟！
 
 ## <a name="generate-certificate-signing-requests"></a>產生憑證簽署要求
 
@@ -68,10 +74,23 @@ Azure Stack 整備檢查工具 (AzsReadinessChecker) 會執行下列憑證要求
     ````PowerShell  
     $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
     ````
+4.  宣告識別系統
 
-4. 宣告預定用於 Azure Stack 部署的**區域名稱**和**外部 FQDN**。
+    Azure Active Directory
 
-    ```PowerShell  
+    ```PowerShell
+    $IdentitySystem = "AAD"
+    ````
+
+    Active Directory Federation Services
+
+    ```PowerShell
+    $IdentitySystem = "ADFS"
+    ````
+
+5. 宣告預定用於 Azure Stack 部署的**區域名稱**和**外部 FQDN**。
+
+    ```PowerShell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
     ````
@@ -79,19 +98,23 @@ Azure Stack 整備檢查工具 (AzsReadinessChecker) 會執行下列憑證要求
     > [!note]  
     > `<regionName>.<externalFQDN>` 構成 Azure Stack 中所有外部 DNS 名稱據以建立的基礎，在此範例中，入口網站會是 `portal.east.azurestack.contoso.com`。
 
-5. 若要使用包括 PaaS 服務所需的多個主體別名，來產生單一憑證要求：
+6. 若要使用多個主體別名來產生單一憑證要求：
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IncludePaaS
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-6. 若要針對每個 DNS 名稱產生個別憑證簽署要求 (不使用 PaaS 服務)：
+    若要包含 PaaS 服務，請指定 ```-IncludePaaS``` 參數
+
+7. 若要針對每個 DNS 名稱產生個別憑證簽署要求：
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-7. 檢閱輸出：
+    若要包含 PaaS 服務，請指定 ```-IncludePaaS``` 參數
+
+8. 檢閱輸出：
 
     ````PowerShell  
     AzsReadinessChecker v1.1803.405.3 started
@@ -109,9 +132,8 @@ Azure Stack 整備檢查工具 (AzsReadinessChecker) 會執行下列憑證要求
     AzsReadinessChecker Completed
     ````
 
-8.  將所產生的 **.REQ** 檔案提交至您的 CA (內部或公用 CA)。  **Start-AzsReadinessChecker** 的輸出目錄包含必須提交給憑證授權單位的 CSR。  它也包含一個子目錄作為參考，其中包含在憑證要求產生期間所使用的 INF 檔案。 確定您的 CA 會使用所產生的要求來產生符合 [Azure Stack PKI 需求](azure-stack-pki-certs.md)的憑證。
+9.  將所產生的 **.REQ** 檔案提交至您的 CA (內部或公用 CA)。  **Start-AzsReadinessChecker** 的輸出目錄包含必須提交給憑證授權單位的 CSR。  它也包含一個子目錄作為參考，其中包含在憑證要求產生期間所使用的 INF 檔案。 確定您的 CA 會使用所產生的要求來產生符合 [Azure Stack PKI 需求](azure-stack-pki-certs.md)的憑證。
 
 ## <a name="next-steps"></a>後續步驟
 
 [準備 Azure Stack PKI 憑證](azure-stack-prepare-pki-certs.md)
-

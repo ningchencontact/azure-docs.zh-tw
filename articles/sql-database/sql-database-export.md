@@ -9,11 +9,12 @@ ms.custom: load & move data
 ms.date: 04/01/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 7653f0953241fa0b4a1780075641fc3fe5570a23
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 30e89ea940b25e8db4a1203e966000981c47abc9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894036"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>將 Azure SQL 資料庫匯出到 BACPAC 檔案
 
@@ -97,3 +98,4 @@ $exportStatus
 * 若要了解如何將 BACPAC 匯入 SQL Server 資料庫，請參閱 [將 BACPAC 匯入 SQL Server 資料庫](https://msdn.microsoft.com/library/hh710052.aspx)。
 * 若要了解如何將 BACPAC 從 SQL Server 資料庫匯出，請參閱[匯出資料層應用程式](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)和[移轉您的第一個資料庫](sql-database-migrate-your-sql-server-database.md)。
 * 如果您要從 SQL Server 匯出以準備移轉至 Azure SQL Database，請參閱[將 SQL Server 資料庫移轉至 Azure SQL Database](sql-database-cloud-migrate.md)。
+* 若要了解如何管理和共用儲存體金鑰，以及安全地共用存取簽章，請參閱 [Azure 儲存體安全性指南](https://docs.microsoft.com/azure/storage/common/storage-security-guide)。

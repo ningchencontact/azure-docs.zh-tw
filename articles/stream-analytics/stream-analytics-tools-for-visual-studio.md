@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: eaaee36a2f4dd5a313f8871cea5fd885812fe351
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fe9998e3b1f5e2a3376f833c3dd8212e4a639274
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941831"
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>使用適用於 Visual Studio 的 Azure 串流分析工具
 適用於 Visual Studio 的 Azure 串流分析工具現已正式推出。 這些工具為「串流分析」的使用者提供更豐富的疑難排解體驗，而且能撰寫複雜查詢，甚至在本機撰寫查詢。 您也能將串流分析工作匯出到 Visual Studio 專案中。
@@ -28,6 +29,20 @@ ms.lasthandoff: 04/06/2018
 * 使用本機範例資料於本機測試作業。
 * 使用監視功能進行問題疑難排解。
 * 將現有作業匯出到專案。
+
+>[!IMPORTANT]
+>
+>在準備即將於 2018 年 5 月 25 日生效的最新一般資料保護規定 (GDPR) 時，建議適用於 Visual Studio 的 Azure 串流分析工具使用者升級至 2.3.3000.5 版或更新版本。 此版本包含根據最新資料保護需求所做的變更。 請注意，舊版不再提供下載，且將會遭到取代。 
+>
+>**我需要做什麼事嗎？**
+>
+>1. 請檢查您是否使用比 2.3.3000.5 版的適用於 Visual Studio 的 Azure 串流分析工具還要舊的版本。 
+>   
+>   ![檢查工具版本](./media/stream-analytics-tools-for-vs/about-data-lake.png)
+> 
+>2. 如果您的版本比 2.3.3000.5 版還要舊，請藉由造訪下載中心來更新您的 Azure Data Lake Tools for Visual Studio： 
+>    - [針對 Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
+>    - [針對 Visual Studio 2013 和 2015](https://www.microsoft.com/en-us/download/details.aspx?id=54630)
 
 ## <a name="prerequisites"></a>先決條件
 若要完成本教學課程，您需要下列必要條件：

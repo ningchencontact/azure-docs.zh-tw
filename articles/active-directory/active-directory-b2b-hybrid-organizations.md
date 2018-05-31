@@ -2,22 +2,20 @@
 title: 混合式組織的 B2B 共同作業 - Azure Active Directory | Microsoft Docs
 description: 透過 Azure AD B2B 共同作業對夥伴提供內部部署和雲端資源的存取權。
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 04/26/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.service: active-directory
-ms.topic: article
-ms.workload: identity
-ms.date: 04/20/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 0ccf3eb381f42849b48f3d149942be13380b3670
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 943ccadbc87cd8d2345078405e2a27930634668e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33928091"
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>混合式組織的 Azure Active Directory B2B 共同作業
 
@@ -31,8 +29,8 @@ Azure Active Directory (Azure AD) B2B 共同作業可讓您輕鬆地對外部夥
 
 對於搭配使用整合式 Windows 驗證 (IWA) 和 Kerberos 限制委派 (KCD) 的應用程式，您也可以使用 Azure AD Proxy 來進行驗證。 不過，若要讓驗證運作，內部部署 Windows Server Active Directory 中必須要有使用者物件。 有兩種方法可用來建立代表 B2B 來賓使用者的本機使用者物件。
 
-- 您可以使用 Microsoft Identity Manager (MIM) 2016 SP1 和 Microsoft Graph 的 MIM 管理代理程式。 (這需要 Azure AD Premium 1 訂用帳戶)。
-- 您可以使用 PowerShell 指令碼。 (此解決方案不需要 MIM 或 AD Premium)。
+- 您可以使用 Microsoft Identity Manager (MIM) 2016 SP1 和 Microsoft Graph 的 MIM 管理代理程式。
+- 您可以使用 PowerShell 指令碼。 (此解決方案不需要 MIM)。
 
 如需如何實作這些解決方案的詳細資訊，請參閱[對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權](active-directory-b2b-hybrid-cloud-to-on-premises.md)。
 
@@ -40,7 +38,7 @@ Azure Active Directory (Azure AD) B2B 共同作業可讓您輕鬆地對外部夥
 
 在 Azure AD 之前，具有內部部署身分識別系統的組織傳統上是在其內部部署目錄中管理夥伴帳戶的。 如果您是這類組織，請確定您在將應用程式和其他資源移至雲端後，您的夥伴仍繼續擁有存取權。 在理想情況下，建議您讓這些使用者使用同一組認證來存取雲端和內部部署資源。 
 
-我們現在提供方法讓您使用 Azure AD Connect 以「來賓使用者」身分將這些本機帳戶同步至雲端，這些帳戶的行為就和 Azure AD B2B 使用者一樣。 即使您擁有的內部部署身分識別系統可讓夥伴使用他們自己的外部電子郵件地址作為其登入名稱，此解決方案仍有效。
+我們現在提供方法讓您使用 Azure AD Connect 以「來賓使用者」身分將這些本機帳戶同步至雲端，這些帳戶的行為就和 Azure AD B2B 使用者一樣。
 
 若要協助保護公司資料，您可以控制存取權只能存取正確的資源，並設定授權原則以不同於您員工的方式來對待這些來賓使用者。
 
@@ -49,5 +47,6 @@ Azure Active Directory (Azure AD) B2B 共同作業可讓您輕鬆地對外部夥
 ## <a name="next-steps"></a>後續步驟
 
 - [對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權](active-directory-b2b-hybrid-cloud-to-on-premises.md)
-- [使用 Azure AD B2B 共同作業對本機管理的夥伴帳戶授與雲端資源的存取權](active-directory-b2b-hybrid-on-premises-to-cloud.md)。
+- [使用 Azure AD B2B 共同作業對本機管理的夥伴帳戶授與雲端資源的存取權](active-directory-b2b-hybrid-on-premises-to-cloud.md)
+
 

@@ -7,13 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/25/2018
 ms.author: sujayt
-ms.openlocfilehash: a20ec14181e49443b5caf6ed0bcfaedcd4601b1c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d7bfbbe834ac8506b7d12d5748406460df0fe3bc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011623"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>從一個 Azure 區域複寫至另一個區域的支援矩陣
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/18/2018
 --- | ---
 **Azure 入口網站** | 支援
 **傳統入口網站** | 不支援
-**PowerShell** | 目前不支援
+**PowerShell** | [](azure-to-azure-powershell.md)
 **REST API** | 目前不支援
 **CLI** | 目前不支援
 
@@ -95,22 +96,22 @@ ms.lasthandoff: 04/18/2018
 
 **版本** | **行動服務版本** | **核心版本** |
 --- | --- | --- |
-14.04 LTS | 9.11 | 3.13.0-24-generic 至 3.13.0-125-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-83-generic |
 14.04 LTS | 9.12 | 3.13.0-24-generic 至 3.13.0-132-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-96-generic |
 14.04 LTS | 9.13 | 3.13.0-24-generic 至 3.13.0-137-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-104-generic |
 14.04 LTS | 9.14 | 3.13.0-24-generic 至 3.13.0-141-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-112-generic |
-16.04 LTS | 9.11 | 4.4.0-21-generic 至 4.4.0-83-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-27-generic |
+14.04 LTS | 9.15 | 3.13.0-24-generic 至 3.13.0-143-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-116-generic |
 16.04 LTS | 9.12 | 4.4.0-21-generic 至 4.4.0-96-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-35-generic |
 16.04 LTS | 9.13 | 4.4.0-21-generic 至 4.4.0-104-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic |
 16.04 LTS | 9.14 | 4.4.0-21-generic 至 4.4.0-112-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-32-generic、<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1009-azure |
+16.04 LTS | 9.15 | 4.4.0-21-generic 至 4.4.0-116-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-37-generic、<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1012-azure |
 
 
 ### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Azure 虛擬機器支援的 Debian 核心版本
 
 **版本** | **行動服務版本** | **核心版本** |
 --- | --- | --- |
-Debian 7 | 9.14 | 3.2.0-4-amd64 至 3.2.0-5-amd64、3.16.0-0.bpo.4-amd64 |
-Debian 8 | 9.14 | 3.16.0-4-amd64 至 3.16.0-5-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.5-amd64 |
+Debian 7 | 9.14、9.15 | 3.2.0-4-amd64 至 3.2.0-5-amd64、3.16.0-0.bpo.4-amd64 |
+Debian 8 | 9.14、9.15 | 3.16.0-4-amd64 至 3.16.0-5-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.5-amd64 |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Azure 虛擬機器 (執行 Linux OS) 上的支援檔案系統與客體儲存體組態
 
@@ -125,7 +126,7 @@ Debian 8 | 9.14 | 3.16.0-4-amd64 至 3.16.0-5-amd64、4.9.0-0.bpo.4-amd64 至 4.
 **地理叢集** | **Azure 區域**
 -- | --
 美洲 | 加拿大東部、加拿大中部、美國中南部、美國中西部、美國東部、美國東部 2、美國西部、美國西部 2、美國中部、美國中北部
-歐洲 | 英國西部、英國南部、北歐、西歐
+歐洲 | 英國西部、英國南部、北歐、西歐、法國中部、法國南部
 亞洲 | 印度南部、印度中部、東南亞、東亞、日本東部、日本西部、韓國中部、韓國南部
 澳大利亞   | 澳大利亞東部、澳大利亞東南部
 Azure Government    | 美國維吉尼亞州政府、美國愛荷華州政府、美國亞歷桑那州政府、美國德州政府、美國國防部東部、美國國防部中部
@@ -175,7 +176,7 @@ GRS | 支援 |
 RA-GRS | 支援 |
 ZRS | 不支援 |  
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援虛擬機器磁碟
-虛擬網路服務端點 (Azure 儲存體防火牆與虛擬網路)  | 否 | 不支援在用來儲存複寫資料之快取儲存體帳戶上存取特定的 Azure 虛擬網路。
+適用於虛擬網路的 Azure 儲存體防火牆  | 否 | 不支援在用來儲存複寫資料之快取儲存體帳戶上存取特定的 Azure 虛擬網路。
 一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 否 | 與一般用途 V1 儲存體帳戶相比，交易成本大幅增加
 
 >[!IMPORTANT]
@@ -200,6 +201,8 @@ Azure 受控 DNS | 支援 |
 經驗證的 Proxy | 不支援 | 如果 VM 對於輸出連線能力使用經驗證的 Proxy，則無法使用 Azure Site Recovery 加以複寫。    
 內部部署的網站對網站 VPN 與 (不論是否有 ExpressRoute)| 支援 | 請確定設定 UDR 和 NSG 時，站台復原流量不是傳送到內部部署的裝置。 請參閱[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。  
 VNET 對 VNET 連線 | 支援 | 請參閱[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。  
+虛擬網路服務端點 | 支援 | 不支援適用於虛擬網路的 Azure 儲存體防火牆。 不支援在用來儲存複寫資料之快取儲存體帳戶上存取特定的 Azure 虛擬網路。
+加速網路 | 不支援 | 可以複寫已啟用加速網路的 VM，但容錯移轉 VM 將不會啟用加速的網路。 對於容錯回復中的來源 VM，也將停用加速的網路。
 
 
 ## <a name="next-steps"></a>後續步驟

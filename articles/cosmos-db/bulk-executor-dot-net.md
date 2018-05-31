@@ -10,15 +10,16 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 0e559b7ebb5f9efefed194f87e73219fecd1e6ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 608551090ce10e08ba517def644c72186a6f25e1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887237"
 ---
 # <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用 BulkExecutor .NET 程式庫執行大量作業
 
-本教學課程說明如何使用 Azure Cosmos DB 的 BulkExecutor.NET 程式庫將文件匯入並更新至 Azure Cosmos DB 集合。 本教學課程將引導您使用 .NET 應用程式範例，將隨機產生的文件大量匯入至 Azure Cosmos DB 集合。 匯入之後，應用程式會說明如何將修補程式指定為可在特定文件欄位上執行的作業，來大量更新匯入的資料。
+本教學課程說明如何使用 Azure Cosmos DB 的 BulkExecutor.NET 程式庫將文件匯入並更新至 Azure Cosmos DB 集合。 若要深入了解 BulkExecutor 程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱 [BulkExecutor 程式庫概觀](bulk-executor-overview.md)一文。 本教學課程將引導您使用 .NET 應用程式範例，將隨機產生的文件大量匯入至 Azure Cosmos DB 集合。 匯入之後，應用程式會說明如何將修補程式指定為可在特定文件欄位上執行的作業，來大量更新匯入的資料。
 
 ## <a name="prerequisites"></a>先決條件
 
