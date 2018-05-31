@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: e6f3ae71a924840c973b2536d332070b9a12d0dc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775225"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362306"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer Standard 概觀
 
@@ -120,7 +120,7 @@ HA 連接埠負載平衡規則可讓您為虛擬網路設備和任何需要大�
 
 標準 Load Balancer 完全架構於虛擬網路上。  虛擬網路是封閉的私人網路。  由於標準 Load Balancer 和標準公用 IP 位址設計為允許從虛擬網路外部存取此虛擬網路，因此這些資源目前預設為關閉，除非您加以開啟。 這表示目前會使用網路安全性群組 (NSG) 來明確許可和放行允許的流量。  您可以在建立整個虛擬資料中心之後，透過 NSG 決定該中心可供使用的項目和時間。  如果您沒有子網路的 NSG 或虛擬機器資源的 NIC，我們將不會允許存取此資源的流量。
 
-若要深入了解 NSG 及如何將其套用至您的案例，請參閱[網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
+若要深入了解 NSG 及如何將其套用至您的案例，請參閱[網路安全性群組](../virtual-network/security-overview.md)。
 
 ### <a name="outbound"></a> 輸出連線
 
@@ -225,6 +225,8 @@ Load Balancer Standard 目前已在所有公用雲端地區推出。
 - 無法跨全域虛擬網路對等互連存取 Load Balancer 前端。
 - 標準 SKU LB 與 PIP 資源不支援[移動訂用帳戶作業](../azure-resource-manager/resource-group-move-resources.md)。
 - 由於預先 VNet 服務和其他平台服務的運作方式產生副作用，而只使用內部標準 Load Balancer 時，才可存取沒有 VNet 和其他 Microsoft 平台服務的 Web 背景工作角色。 請勿以此作為個別服務本身，否則基礎平台可能會在不經通知的情況下變更。 如果在只使用內部標準 Load Balancer 時有需要，請一律假設您需要明確建立[輸出連線](load-balancer-outbound-connections.md)。
+- Load Balancer 是一款 TCP 或 UDP 產品，用於針對特定的 IP 通訊協定，進行負載平衡和連接埠轉送作業。  負載平衡規則和 NAT 傳入規則均支援 TCP 和 UDP ，但不支援包含 ICMP 在內的其他 IP 通訊協定。 Load Balancer 並不會終止、回應或與 UDP 或 TCP 流程的承載互動。 Load Balancer 並非 Proxy。 前端連線能力必須在與負載平衡或是 NAT 傳入規則 (TCP 或 UDP) 所使用的相同通訊協定中，成功進行頻內驗證，而且至少要有一個虛擬機器必須對用戶端產生回應，以查看來自前端的回應。  未從 Load Balancer 前端接收到頻內回應，即表示沒有任何虛擬機器能夠回應。  在虛擬機器未回應的情況下，無法和 Load Balancer 前端互動。  這也適用於傳出連線，其中[連接埠偽裝 SNAT](load-balancer-outbound-connections.md#snat) 僅支援 TCP 和 UDP，包括 ICMP 在內的任何其他 IP 通訊協定也會失敗。  指派執行個體層級的公用 IP 可減輕負擔。
+- 公用 Load Balancer 從虛擬網路內的私人 IP 位址轉換至公用 IP 位址時會提供[傳出連線](load-balancer-outbound-connections.md)，但是內部 Load Balancers 與公用 Load Balancer 不同，不會將傳出的起源連線轉譯至內部 Load Balancer，因為兩者都位於私人 IP 位址空間內。  如此可避免在無需轉譯的專屬內部 IP 位址空間中將 SNAT 耗盡。  副作用是，如果後端集區 VM 的傳出流程嘗試將流程傳送到其所在集區之內部 Load Balancer 前端的，並且對應回本身，則這兩個流程互不相符，而且流程會失敗。  如果流程未對應回建立流程至前端之後端集區中的相同 VM，則流程將會成功。   當流程對應回本身時，傳出流程似乎是來自 VM 而傳至前端，而對應的傳入流程似乎來自 VM 至而傳至本身。 以客體作業系統來看，相同流程的傳入和傳出部分在虛擬機器內部不相符。 由於來源和目的地不同，TCP 堆疊無法將其中半數的流程視為相同流程的一部分。  當流程對應至後端集區中的任何其他 VM 時，半數流程將會相符，而 VM 就能成功回應流程。  此案例的症狀是間歇性出現連線逾時。 有數個常見的因應措施能夠可靠地實現此情節 (將來自後端集區的流程產生至個別內部 Load Balancer 前端的後端集區)，包括在內部 Load Balancer 後插入協力廠商 Proxy 或[使用 DSR 樣式規則](load-balancer-multivip-overview.md)。  儘管可以使用公用 Load Balancer 來減輕負擔，但產生的情節容易造成 [SNAT 耗盡](load-balancer-outbound-connections.md#snat)，除非謹慎控管，否則應該避免。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -236,7 +238,7 @@ Load Balancer Standard 目前已在所有公用雲端地區推出。
 - 了解[具有 HA 連接埠負載平衡規則的標準 Load Balancer](load-balancer-ha-ports-overview.md)
 - 了解如何使用[多個前端的 Load Balancer](load-balancer-multivip-overview.md)
 - 了解[虛擬網路](../virtual-network/virtual-networks-overview.md)。
-- 深入了解[網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
-- 了解 [VNet 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)
+- 深入了解[網路安全性群組](../virtual-network/security-overview.md)。
+- 了解 [VNET 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)
 - 了解 Azure 中的一些其他重要[網路功能](../networking/networking-overview.md)。
 - 深入了解 [Load Balancer](load-balancer-overview.md)。

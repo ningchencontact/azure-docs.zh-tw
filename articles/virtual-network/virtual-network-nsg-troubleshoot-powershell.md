@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 3d1928428915d3ea5f9f28dc400f251b9f90679f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: edbf76ef5dcf581acfec17970becdf698445cbeb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365435"
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>使用 Azure PowerShell 為網路安全性群組疑難排解
 > [!div class="op_single_selector"]
@@ -30,9 +31,9 @@ ms.lasthandoff: 05/14/2018
 
 如果您在虛擬機器 (VM) 上設定網路安全性群組 (NSG) 卻遇到 VM 連線問題，本文提供診斷 NSG 功能的概觀以協助進一步進行疑難排解。
 
-NSG 可讓您控制流入和流出虛擬機器 (VM) 的流量類型。 您可對 Azure 虛擬網路 (VNet) 中的子網路、網路介面 (NIC) 或兩者套用 NSG。 對 NIC 套用的有效規則是對 NIC 套用的 NSG，以及對 NIC 所連線到的子網路套用的 NSG 兩者中的規則彙總的結果。 這些 NSG 的規則有時候會互相衝突，影響 VM 的網路連線。  
+NSG 可讓您控制流入和流出虛擬機器 (VM) 的流量類型。 您可對 Azure 虛擬網路 (VNet) 中的子網路、網路介面 (NIC) 或兩者套用 NSG。 對 NIC 套用的有效規則是對 NIC 套用的 NSG，以及對 NIC 所連線到的子網路套用的 NSG 兩者中的規則彙總的結果。 這些 NSG 的規則有時候會互相衝突，影響 VM 的網路連線。
 
-您可以檢視 NSG 中對 VM NIC 套用的所有有效安全性規則。 本文說明如何在 Azure Resource Manager 部署模型中使用這些規則對 VM 連線問題進行疑難排解。 如果您不熟悉 VNet 與 NSG 的概念，請參閱[虛擬網路](virtual-networks-overview.md)和[網路安全性群組](virtual-networks-nsg.md)概觀文章。
+您可以檢視 NSG 中對 VM NIC 套用的所有有效安全性規則。 本文說明如何在 Azure Resource Manager 部署模型中使用這些規則對 VM 連線問題進行疑難排解。 如果您不熟悉 VNet 與 NSG 的概念，請參閱[虛擬網路概觀](virtual-networks-overview.md)和[網路安全性群組概觀](security-overview.md)。
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>使用有效安全性規則對 VM 流量流程進行疑難排解
 下面的案例是常見的連線問題範例︰
@@ -159,8 +160,7 @@ NSG 可讓您控制流入和流出虛擬機器 (VM) 的流量類型。 您可對
    
    * 有兩個 **NetworkSecurityGroup** 區段︰一個與子網路 (*Subnet1*) 相關聯，一個與 NIC (*VM1-NIC1*) 相關聯。 在此範例中，兩個都已套用 NSG。
    * **Association** 顯示指定的 NSG 相關聯的資源 (子網路或 NIC)。 如果在移動 NSG 資源/解除 NSG 資源的關聯之後緊接著執行此命令，您可能需要等候幾秒鐘的時間，變更才會反映在命令輸出中。 
-   * 前面加上 *defaultSecurityRules*的規則名稱︰建立 NSG 時，當中會建立幾個預設的安全性規則。 預設規則無法移除，但是可以較高優先順序的規則覆寫。
-     閱讀 [NSG 概觀](virtual-networks-nsg.md#default-rules) 文章以深入了解 NSG 預設安全性規則。
+   * 前面加上 *defaultSecurityRules*的規則名稱︰建立 NSG 時，當中會建立幾個預設的安全性規則。 預設規則無法移除，但是可以較高優先順序的規則覆寫。 深入了解[預設安全性規則](security-overview.md#default-security-rules)。
    * **ExpandedAddressPrefix** 會展開 NSG 預設標籤的位址首碼。 標籤代表多個位址首碼。 對 VM 與特定位址首碼的連線進行疑難排解時，展開標籤很有用。 例如，如果有 VNET 對等互連，VIRTUAL_NETWORK 標籤會在前面的輸出中展開以顯示對等互連的 VNet 首碼。
      
      > [!NOTE]
