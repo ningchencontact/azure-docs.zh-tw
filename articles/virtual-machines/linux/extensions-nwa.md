@@ -3,7 +3,7 @@ title: 適用於 Linux 的 Azure 網路監看員代理程式虛擬機器擴充�
 description: 使用虛擬機器擴充功能在 Linux 虛擬機器上部署網路監看員代理程式。
 services: virtual-machines-linux
 documentationcenter: ''
-author: dennisg
+author: gurudennis
 manager: amku
 editor: ''
 tags: azure-resource-manager
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: bd5dc6a50b521f883dfb453127a4e41b5e46ff15
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a33f183470ec3879344f0cfe335bab38f9ff30f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32778660"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>適用於 Linux 的網路監看員代理程式虛擬機器擴充功能
 
@@ -39,11 +40,12 @@ ms.lasthandoff: 04/28/2018
 |---|---|
 | Ubuntu | 16.04 LTS、14.04 LTS 和 12.04 LTS |
 | Debian | 7 和 8 |
-| RedHat | 6.x 和 7.x |
-| Oracle Linux | 7x |
-| Suse | 11 和 12 |
-| OpenSuse | 7.0 |
-| CentOS | 7.0 |
+| RedHat | 6 和 7 |
+| Oracle Linux | 6.8+ 和 7 |
+| SUSE Linux Enterprise Server | 11 和 12 |
+| OpenSUSE Leap | 42.3+ |
+| CentOS | 6.5+ 和 7 |
+| CoreOS | 899.17.0+ |
 
 請注意，目前不支援 CoreOS。
 

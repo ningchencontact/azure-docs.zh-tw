@@ -6,14 +6,15 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e85db04206927eaf17cf52c11b536c75a47a088e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777007"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>高可用性和 Azure SQL Database
 自推出 Azure SQL Database PaaS 供應項目以來，Microsoft 已對客戶承諾會在服務中內建「高可用性」(HA)，讓客戶無須針對 HA 進行操作、新增特殊邏輯或進行決策。 Microsoft 會保有 HA 系統設定和作業的完整控制權，為客戶提供 SLA。 HA SLA 會套用至區域中的 SQL 資料庫，而對於總區域因超出 Microsoft 可合理控制範圍的因素 (例如天然災害、戰爭、恐怖攻擊、暴動、政府行為，或是 Microsoft 資料中心外的網路或裝置故障，包括在客戶網站上或客戶網站與 Microsoft 資料中心之間) 而發生故障的情況，並不提供保護。
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/19/2018
 
 針對資料，SQL Database 會根據直接連結的磁碟/VHD 使用本機儲存體 (LS)，並根據 Azure 進階儲存體分頁 Blob 使用遠端儲存體 (RS)。 
 - 本機儲存體會用於進階或業務關鍵 (預覽) 資料庫和彈性集區，是專為具有高 IOPS 需求的任務關鍵性 OLTP 應用程式而設計的。 
-- 遠端儲存體會用於「基本」和「標準」服務層，是專為需要儲存和計算能力以獨立調整規模的預算導向型業務工作負載而設計的。 它們針對資料庫和記錄檔使用單一分頁 Blob，並內建儲存體複寫和容錯移轉機制。
+- 遠端儲存體會用於基本、標準和一般用途服務層，這些服務層是專為需要儲存和計算能力以獨立調整規模的預算導向型業務工作負載而設計。 它們針對資料庫和記錄檔使用單一分頁 Blob，並內建儲存體複寫和容錯移轉機制。
 
 在這兩種情況下，會將 SQL Database 的複寫、失敗偵測和容錯移轉機制完全自動化並進行操作，而不需人為介入。 此架構的設計目的是確保認可的資料絕對不會遺失，以及資料持久性的優先順序高於所有其他項目。
 
@@ -56,7 +57,7 @@ SQL Database 中的高可用性解決方案是以 SQL Server 的 [Always ON 可�
 
 ## <a name="remote-storage-configuration"></a>遠端儲存體設定
 
-針對遠端儲存體設定 (「基本」和「標準」層)，在遠端 Blob 儲存體中只能保有一個複本，其中會利用儲存體系統功能來提供持久性、備援及位元衰減偵測。 
+針對遠端儲存體設定 (基本、標準和一般用途各層)，在遠端 Blob 儲存體中只能保有一個複本，其中會利用儲存體系統功能來提供持久性、備援及位元衰減偵測。 
 
 下圖說明高可用性架構：
  
@@ -87,9 +88,14 @@ SQL Database 中的高可用性解決方案是以 SQL Server 的 [Always ON 可�
 ## <a name="read-scale-out"></a>讀取向外延展
 如其所述，進階和業務關鍵 (預覽) 服務層會利用仲裁集和 AlwaysON 技術，在單一區域和區域備援組態中都能取得高可用性。 AlwasyON 的其中一個優點是複本一律處於交易一致狀態。 因為複本的效能層級與主要複本相同，所以應用程式可以利用額外容量來處理唯讀工作負載，不會有額外成本 (讀取向外延展)。 這種方式的唯讀查詢將會與主要讀寫工作負載隔離，而且不會影響其效能。 讀取向外延展功能適用於包含邏輯上分隔唯讀工作負載 (例如分析) 的應用程式，因此不需要連線到主要複本即可利用這個額外容量。 
 
-若要對特定資料庫使用唯讀向外延展功能，您必須在建立資料庫時或者以後明確地啟用它，方法是藉由使用 PowerShell 叫用 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 或 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) Cmdlet，或者透過 Azure Resource Manager REST API 使用 [Databases - Create or Update](/rest/api/sql/databases/createorupdate) 方法來改變它的組態。
+若要對特定資料庫使用讀取相應放大功能，您必須在建立資料庫時或者以後明確地啟動它，方法是藉由使用 PowerShell 叫用 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 或 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) Cmdlet，或者透過 Azure Resource Manager REST API 使用[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)方法來改變它的設定。
 
-為資料庫啟用讀取向外延展之後，系統會根據在應用程式連接字串中設定的 `ApplicationIntent` 屬性，將連線到該資料庫的應用程式導向到該資料庫的讀寫複本或唯讀複本。 如需 `ApplicationIntent` 屬性的詳細資訊，請參閱[指定應用程式意圖](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) 
+為資料庫啟用讀取相應放大之後，系統會根據在應用程式連接字串中設定的 `ApplicationIntent` 屬性，將連線到該資料庫的應用程式導向到該資料庫的讀寫複本或唯讀複本。 如需 `ApplicationIntent` 屬性的詳細資訊，請參閱[指定應用程式意圖](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)。 
+
+如果讀取相應放大已停用，或您在不支援的服務層中設定 ReadScale 屬性，所有連線都會被導向至與 `ApplicationIntent` 屬性無關的讀寫複本。  
+
+> [!NOTE]
+> 也可對標準或一般用途的資料庫啟動讀取相應放大，即使它不會導致將預期唯讀的工作階段路由至不同複本也一樣。 這樣做是為了支援在標準/一般用途與進階/業務關鍵各層之間相應增加和相應減少的現有應用程式。  
 
 讀取向外延展功能支援工作階段層級一致性。 如果唯讀工作階段在無法使用複本所造成的連線錯誤之後重新連線，它會被重新導向到不同的複本。 雖然不太可能，但它會導致處理過時的資料集。 同樣地，如果應用程式使用讀寫工作階段寫入資料，並且使用唯讀工作階段立即讀取它，則新的資料可能無法立即可見。
 
