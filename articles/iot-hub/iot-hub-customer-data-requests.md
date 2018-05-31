@@ -1,0 +1,50 @@
+---
+title: 客戶資料要求功能
+author: dominicbetts
+ms.author: dobett
+ms.date: 05/16/2018
+ms.topic: conceptual
+ms.service: iot-hub
+ms.openlocfilehash: 3af76fe22e93b6c5d502733196994bda61b9a93e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361510"
+---
+# <a name="summary-of-customer-data-request-features"></a>客戶資料要求功能的摘要
+
+Azure IoT 中樞是 REST API 型的雲端服務，目標是企業客戶，它能夠實現數百萬個裝置與資料分割 Azure 服務之間的安全、雙向通訊。
+
+[!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
+
+個別裝置會由租用戶系統管理員指派裝置識別碼 (裝置 ID)。 裝置資料是根據指派的裝置識別碼。 Microsoft 不會保留任何資訊，且無權存取可讓裝置識別碼與使用者相互關聯的任何資料。
+
+在 Azure IoT 中樞中受控的許多裝置都不是個人裝置，例如辦公室恆溫器或工廠機器人。 但是，客戶可能會認為某些裝置能夠識別個人身分，而自行決定要維護本身的資產或將裝置與個人繫結的庫存追蹤方法。 Azure IoT 中樞可管理和儲存與裝置相關聯的所有資料，如同處理個人資料一樣。
+
+租用戶系統管理員可以使用 Azure 入口網站或服務的 REST API，藉由匯出或刪除與裝置識別碼相關聯的資料，來履行資訊要求。
+
+如果您使用 Azure IoT 中樞服務的路由功能，將裝置訊息轉送到其他服務，則必須由租用戶系統管理員為每個路由端點執行資料要求，才能完成指定裝置的完整要求。 請參閱每個端點的參考文件以取得詳細資料。 如需支援端點的詳細資訊，請參閱[參考 - IoT 中樞端點](iot-hub-devguide-endpoints.md)。
+
+如果您使用 Azure IoT 中樞服務的 Azure 事件方格整合功能，則必須由租用戶系統管理員為這些事件的每位訂閱者執行資料要求。 如需詳細資訊，請參閱[使用事件方格以回應 IoT 中樞事件](iot-hub-event-grid.md)。
+
+如果您使用 Azure IoT 中樞服務的 Azure 監視器整合功能來建立診斷記錄，則必須由租用戶系統管理員針對儲存的記錄執行資料要求。 如需詳細資訊，請參閱[監視 Azure IoT 中樞的健康情況](iot-hub-monitor-resource-health.md)。
+
+## <a name="deleting-customer-data"></a>刪除客戶資料
+
+租用戶系統管理員可以利用 Azure 入口網站中，Azure IoT 中樞擴充功能的 IoT 裝置刀鋒視窗來刪除裝置，這樣會刪除與該裝置相關聯的資料。
+
+也可以使用 REST API 執行裝置的刪除作業。 如需詳細資訊，請參閱[裝置 API - 刪除裝置](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice)。
+
+## <a name="exporting-customer-data"></a>匯出客戶資料
+
+租用戶系統管理員可以利用 Azure 入口網站中，Azure IoT 中樞擴充功能的 IoT 裝置刀鋒視窗內的複製和貼上，來匯出與裝置相關聯的資料。
+
+也可以使用 REST API 執行裝置的匯出作業。 如需詳細資訊，請參閱[裝置 API - 取得裝置](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice)。
+
+> [!NOTE]
+> 當您使用 Microsoft 的企業服務時，Microsoft 會產生一些資訊，稱為系統產生的記錄。 租用戶系統管理員無法存取或匯出部分 Azure IoT 中樞系統所產生的記錄。 這些記錄可視為在與個人裝置相關的服務和診斷資料中，所進行的實際動作。
+
+## <a name="links-to-additional-documentation"></a>其他文件的連結
+
+完整的 Azure IoT 中樞裝置 API 文件可於 [https://docs.microsoft.com/rest/api/iothub/deviceapi](https://docs.microsoft.com/rest/api/iothub/deviceapi) 找到。

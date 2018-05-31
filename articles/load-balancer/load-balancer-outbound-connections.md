@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 5cff443ac3bbd89a2245e7adb21458ecc62fd494
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940219"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361942"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的輸出連線
 
@@ -236,9 +236,9 @@ SNAT 連接埠配置為 IP 傳輸通訊協定專屬 (TCP 和 UDP 會個別維護
     nslookup myip.opendns.com resolver1.opendns.com
 
 ## <a name="preventoutbound"></a>防止輸出連線
-有時，您會不想要允許 VM 建立輸出流程。 或是可能需要管理可使用輸出流程來連線到哪些目的地，或哪些目的地可以發起輸入流程。 在此情況下，您可以使用[網路安全性群組](../virtual-network/virtual-networks-nsg.md)來管理 VM 可到連線的目的地。 您也可以使用 NSG 來管理哪個公用目的地可以起始輸入流程。 
+有時，您會不想要允許 VM 建立輸出流程。 或是可能需要管理可使用輸出流程來連線到哪些目的地，或哪些目的地可以發起輸入流程。 在此情況下，您可以使用[網路安全性群組](../virtual-network/security-overview.md)來管理 VM 可到連線的目的地。 您也可以使用 NSG 來管理哪個公用目的地可以起始輸入流程。
 
-當您將 NSG 套用到負載平衡的 VM 時，請注意[預設標籤](../virtual-network/virtual-networks-nsg.md#default-tags)和[預設規則](../virtual-network/virtual-networks-nsg.md#default-rules)。 您必須確定 VM 可以從 Azure Load Balancer 接收健康情況探查要求。 
+當您將 NSG 套用到經過負載平衡的虛擬機器時，請注意[服務標記](../virtual-network/security-overview.md#service-tags)和[預設安全性規則](../virtual-network/security-overview.md#default-security-rules)。 您必須確定 VM 可以從 Azure Load Balancer 接收健康情況探查要求。 
 
 如果 NSG 封鎖來自 AZURE_LOADBALANCER 預設標籤的健全狀況探查要求，您的 VM 健全狀況探查會失敗，且會將 VM 標示為離線。 負載平衡器會停止將新的流程傳送到該 VM。
 
@@ -250,5 +250,5 @@ SNAT 連接埠配置為 IP 傳輸通訊協定專屬 (TCP 和 UDP 會個別維護
 
 - 深入了解 [Load Balancer](load-balancer-overview.md)。
 - 深入了解[標準負載平衡器](load-balancer-standard-overview.md)。
-- 深入了解[網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
+- 深入了解[網路安全性群組](../virtual-network/security-overview.md)。
 - 了解 Azure 中的一些其他重要[網路功能](../networking/networking-overview.md)。
