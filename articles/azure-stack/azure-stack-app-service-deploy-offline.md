@@ -12,20 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359895"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>將 App Service 資源提供者新增至中斷連線且受 AD FS 保護的 Azure Stack 環境
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 之前，請先將 1802 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
+> 在部署 Azure App Service 1.2 之前，請先將 1804 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
 >
 >
 
@@ -80,7 +81,7 @@ ms.lasthandoff: 04/20/2018
 7. 在下一個頁面上：
     1. 按一下 [Azure Stack 訂用帳戶] 方塊旁邊的 [連線] 按鈕。
         - 提供您的管理帳戶。 例如： cloudadmin@azurestack.local。 輸入您的密碼，然後按一下 [登入]。
-    2. 在 [Azure Stack 訂用帳戶] 方塊中，選取您的訂用帳戶。
+    2. 在 [Azure Stack 訂用帳戶] 方塊中，選取 [預設提供者訂用帳戶]。
     3. 在 [Azure Stack 位置] 方塊中，選取對應到您要部署之區域的位置。 例如，如果要部署至 Azure Stack 開發套件，請選取 [本機]。
     4. 按 [下一步] 。
 
@@ -126,7 +127,7 @@ ms.lasthandoff: 04/20/2018
 
     ![App Service 安裝程式][11]
 
-12. 針對用來裝載 App Service 資源提供者資料庫的伺服器執行個體，輸入 SQL Server 詳細資料，然後按 [下一步]。 按 [下一步]，安裝程式即會驗證 SQL 連線屬性。
+12. 針對用來裝載 App Service 資源提供者資料庫的伺服器執行個體，輸入 SQL Server 詳細資料，然後按 [下一步]。 按 [下一步]，安裝程式即會驗證 SQL 連線屬性。 您**必須**輸入內部 ip 或 SQL Server 名稱的完整網域名稱。
 
 > [!NOTE]
 > 在繼續進行之前，安裝程式會先嘗試測試是否能夠與 SQL Server 連線。  不過，如果您已選擇在現有的虛擬網路中部署，安裝程式可能會無法連線至 SQL Server，而會顯示警告來詢問您是否要繼續進行。  請確認 SQL Server 資訊，如果正確，便繼續進行。

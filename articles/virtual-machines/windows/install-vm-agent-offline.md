@@ -12,13 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 05/18/2018
 ms.author: genli
-ms.openlocfilehash: 77ce133232b63a590c6c7f9361d1ca456f484093
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2d332ce0da8622441d31a16a0addb9c06058998c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363289"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>在離線模式安裝 Azure 虛擬機器代理程式 
 
@@ -106,12 +107,11 @@ Azure 虛擬機器代理程式 (VM 代理程式) 提供有用的功能，例如�
 
 13.  存取 VM。 請注意 RdAgent 正在執行，並且正在產生記錄檔。
 
-如果您使用傳統部署模型建立 VM，則您已完成。
-
+如果您使用資源管理員部署模型建立 VM，則您已完成。
 
 ### <a name="use-the-provisionguestagent-property-for-vms-created-with-azure-resource-manager"></a>使用 Azure Resource Manager 建立的 VM，請使用 ProvisionGuestAgent 屬性
 
-如果您使用 Resource Manager 部署模型建立 VM，請使用 Azure PowerShell 模組來更新 **ProvisionGuestAgent** 屬性。 屬性會通知 Azure VM 已安裝 VM 代理程式。
+如果您使用傳統模型建立 VM，請使用 Azure PowerShell 模組來更新 **ProvisionGuestAgent** 屬性。 屬性會通知 Azure VM 已安裝 VM 代理程式。
 
 若要設定 **ProvisionGuestAgent** 屬性，在 Azure PowerShell 中執行下列命令：
 
