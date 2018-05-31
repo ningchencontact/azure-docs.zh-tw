@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: 6ae2ae9cdf018652b5ca81efc014c0c6ccb2e813
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885131"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -50,6 +51,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * 穩定性改進。
+  * 修正處理取消工作的問題，此問題可能會導致某些分割區上的觀察者停止運作。
 * 支援手動檢查點。
 * 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 版和更新版本相容。
 
@@ -72,7 +74,14 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="pre-release-builds"></a>發行前版本組建
 
+### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2 發行前版本
+* 次要 API 變更：
+  * 移除已標記為過時的 ChangeFeedProcessorOptions.IsAutoCheckpointEnabled。
+
 ### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1 發行前版本
+* 穩定性改進：
+  * 改善租用存放區初始化的處理。 如果租用存放區是空的，則只有一個處理器的執行個體可以將它初始化，其他執行個體則須等候。
+  * 更穩定/有效的租用更新/版本。 更新和釋放每一個分割區的租用會與其他租用的更新各自獨立。 在 V1 中，所有分割區會循序完成此動作。
 * 新的 v2 API：
   * 處理器彈性建構的產生器模式：ChangeFeedProcessorBuilder 類別。
     * 可取用參數的任意組合。
@@ -85,6 +94,7 @@ ms.lasthandoff: 05/07/2018
     * IPartitionProcessor - 用於分割區上的自訂處理變更。
 * 記錄 - 使用 [LibLog](https://github.com/damianh/LibLog) 程式庫。
 * 可 100% 回溯相容於 v1 API。
+* 新的程式碼基底。
 * 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21.1 版和更新版本相容。
 
 ## <a name="release--retirement-dates"></a>發行和停用日期

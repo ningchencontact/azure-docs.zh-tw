@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2c06c2220d3a3ed0a27b4f0febb4de95b2137ddc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 22c8616c1585e3f728a03a794c527cb34fc0c4eb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771393"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>管理 Application Insights 的價格和資料量
 
 [Azure Application Insights][start] 的價格是根據每個應用程式的資料量而定。 每項 Application Insights 資源都是個別計費的服務，並且會計入到您的 Azure 訂用帳戶帳單。
 
-Application Insights 有兩種定價方案：「基本」和「企業」。 「基本」定價方案是預設方案。 它包含所有「企業」方案功能，且無須額外付費。 「基本」方案主要是依據擷取的資料量計費。 
+Application Insights 有兩種定價方案：「基本」和「企業」。 「基本」定價方案是預設方案。 它包含所有「企業」方案功能，且無須額外付費。 「基本」方案主要是針對內嵌的資料磁碟區計費。 
 
-「企業」方案會針對每個節點收費，而每個節點每天都會獲得資料額度。 在「企業」定價方案中，當擷取的資料超過內含的額度時，便會向您收取費用。 如果您使用 Operations Management Suite，即應該選擇「企業」方案。 
+「企業」方案會針對每個節點計費，而每個節點會收到每日資料額度。 在「企業」定價方案中，當擷取的資料超過內含的額度時，便會向您收取費用。 如果您使用 Operations Management Suite，即應該選擇「企業」方案。 
 
 如果您有關於 Application Insights 定價運作方式的疑問，請在我們的[論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights)中張貼問題。
 
@@ -40,11 +41,8 @@ Application Insights 有兩種定價方案：「基本」和「企業」。 「�
 
 「基本」方案是建立新 Application Insights 資源時的預設方案。 「基本」方案是適合所有客戶的最佳方案，但已有 Operations Management Suite 訂用帳戶的客戶除外。
 
-* 在「基本」方案中，會依資料量向您收取費用。 資料量係指 Application Insights 所接收的遙測位元組數。 
-    
-    資料量是以 Application Insights 從應用程式接收的未壓縮 JSON 資料套件大小來測量。
-
-    針對[匯入至分析的表格式資料](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import)，資料量是以傳送至 Application Insights 的檔案解壓縮大小來測量。
+* 在「基本」方案中，會依資料量向您收取費用。 資料量係指 Application Insights 所接收的遙測位元組數。 資料量是以 Application Insights 從應用程式接收的未壓縮 JSON 資料套件大小來測量。 針對[匯入至分析的表格式資料](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import)，資料量是以傳送至 Application Insights 的檔案解壓縮大小來測量。
+* 從 2018 年 4 月之後，您的應用程式資料磁碟區費用現在會在名為**資料擷取**的新計費計量上報告。 新的計量可在監視技術之間共用，例如 Applications Insights 和 Log Analytics，且目前位於服務名稱**應用程式服務**底下 (即將變更至 **Log Analytics**)。 
 * [即時計量串流](app-insights-live-stream.md)資料不會計入價格用途。
 * 自 2018 年 4 月起，在「基本」方案中無須額外付費，即可使用[連續匯出](app-insights-export-telemetry.md)和 [Azure Log Analytics 連接器](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409)。
 

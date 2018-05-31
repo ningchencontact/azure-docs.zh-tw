@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 1ba2f2be8db424bddfccdf374704ec7be5691feb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 9a9166e93d24f6402d849b1bee3bcf470685c814
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312163"
 ---
 # <a name="overview-of-azure-monitor"></a>Azure 監視器的概觀
 本文提供 Microsoft Azure 中 Azure 監視器服務的概觀。 它會討論 Azure 監視器所執行的作業，並提供關於如何使用 Azure 監視器之其他資訊的指標。  如果您偏好影片介紹，請參閱本文最後的＜後續步驟＞連結。 
@@ -108,7 +109,7 @@ Azure 監視器具有登陸頁面，可協助使用者：
 
 ### <a name="store-and-archive"></a>儲存與封存
 某些監視資料已經在 Azure 監視器中儲存一段時間且可供使用。 
-- 計量會儲存 30 天。 
+- 計量會儲存 90 天。 
 - 活動記錄項目會儲存 90 天。 
 - 診斷記錄完全不會儲存。 
 
