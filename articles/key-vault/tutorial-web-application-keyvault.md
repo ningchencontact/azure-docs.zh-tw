@@ -1,5 +1,5 @@
 ---
-title: 設定 Azure 網路應用程式，以從 Key Vault 讀取祕密 | Microsoft Docs
+title: 設定 Azure Web 應用程式以從 Key Vault 讀取密碼的教學課程 | Microsoft Docs
 description: 教學課程：設定 ASP.Net Core 應用程式，以從 Key Vault 讀取祕密
 services: key-vault
 documentationcenter: ''
@@ -8,19 +8,20 @@ manager: mbaldwin
 ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 146ea04081a4adebe4a6e9249bb1fe34ba76e3a4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305169"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>教學課程：設定 Azure 網路應用程式，以從 Key Vault 讀取祕密
 
-在本教學課程中，您會經歷讓 Azure Web 應用程式使用受控服務識別從 Key Vault 讀取資訊所需的步驟。 您會了解如何：
+在本教學課程中，我們將引導您完成讓 Azure Web 應用程式使用受控服務識別從 Key Vault 讀取資訊所需的步驟。 您會了解如何：
 
 > [!div class="checklist"]
 > * 建立 Key Vault。
@@ -48,24 +49,22 @@ az login
 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
 ```azurecli
-az group create --name ContosoResourceGroup --location eastus
+# To list locations: az account list-locations --output table
+az group create --name "ContosoResourceGroup" --location "East US"
 ```
 
 本教學課程中會使用您該建立的資源群組。
 
 ## <a name="create-an-azure-key-vault"></a>建立 Azure Key Vault
 
-接下來，您會在上一個步驟中建立的資源群組中建立 Key Vault。 您必須提供一些資訊：
-
->[!NOTE]
-> 雖然“ContosoKeyVault” 作為本教學課程中我們的 Key Vault 名稱，但您必須使用唯一的名稱。
+接下來，您會在上一個步驟中建立的資源群組中建立 Key Vault。 雖然 “ContosoKeyVault” 作為本教學課程中的 Key Vault 名稱，但您必須使用唯一的名稱。 請提供下列資訊：
 
 * 保存庫名稱 **ContosoKeyVault**。
 * 資源群組名稱 **ContosoResourceGroup**。
 * 位置為 [美國東部]。
 
 ```azurecli
-az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East US"
 ```
 
 此命令的輸出會顯示新建立 Key Vault 的屬性。 請記下下列兩個屬性：
@@ -78,23 +77,23 @@ az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceG
 
 此時，您的 Azure 帳戶是唯一獲得授權在此新保存庫上執行任何作業的帳戶。
 
-## <a name="add-a-secret-to-key-vault"></a>將祕密新增至 Key Vault
+## <a name="add-a-secret-to-key-vault"></a>將密碼新增至 Key Vault
 
-我們正要新增祕密，協助說明其運作方式。 您可能正在儲存 SQL 連接字串，或任何您必須安全保存但可供您的應用程式使用的其他資訊。 在本教學課程中，密碼會稱為 **AppSecret** 並將在其中儲存 **MySecret** 的值。
+我們將新增密碼，以協助說明其運作方式。 您可能正在儲存 SQL 連接字串，或任何您必須安全保存但可供您的應用程式使用的其他資訊。 在本教學課程中，密碼會稱為 **AppSecret**，並將在其中儲存 **MySecret** 的值。
 
 輸入下列命令，以在 Key Vault 中建立稱為 **AppSecret** 並將儲存 **MySecret** 值的祕密：
 
 ```azurecli
-az keyvault secret set --vault-name '<YourKeyVaultName>' --name 'AppSecret' --value 'MySecret'
+az keyvault secret set --vault-name "ContosoKeyVault" --name "AppSecret" --value "MySecret"
 ```
 
 若要以純文字檢視包含在祕密中的值：
 
 ```azurecli
-az keyvault secret show --name 'AppSecret' --vault-name '<YourKeyVaultName>'
+az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 ```
 
-此命令會顯示祕密資訊，包括 URI。 完成這些步驟之後，您應有 Azure Key Vault 中祕密的 URI。 請記下此資訊。 您在稍後的步驟中需要此資訊。
+此命令會顯示祕密資訊，包括 URI。 完成這些步驟之後，您的 Azure Key Vault 中應該會有密碼的 URI。 請記下此資訊。 您在稍後的步驟中需要此資訊。
 
 ## <a name="create-a-web-app"></a>建立 Web 應用程式
 
@@ -122,7 +121,7 @@ az keyvault secret show --name 'AppSecret' --vault-name '<YourKeyVaultName>'
 
 ## <a name="modify-the-web-app"></a>修改 Web 應用程式
 
-您的 Web 應用程式有兩個必須安裝的 NuGet 套件。 若要安裝它們，請依照下列步驟執行：
+您的 Web 應用程式有兩個必須安裝的 NuGet 套件。 若要加以安裝，請依照下列步驟操作：
 
 1. 在 [方案總管] 中，於您的網站名稱上按一下滑鼠右鍵。
 2. 選取 [管理解決方案的 NuGet 套件...]
@@ -212,9 +211,9 @@ az keyvault secret show --name 'AppSecret' --vault-name '<YourKeyVaultName>'
 ## <a name="publish-the-web-application-to-azure"></a>將 Web 應用程式發佈至 Azure
 
 1. 在編輯器上方，選取 **WebKeyVault**。
-2. 選取 [發佈]。
-3. 再次選取 [發佈]。
-4. 選取 [建立]。
+2. 選取 [發佈]，然後選取 [開始]。
+3. 建立新的 **App Service**，然後選取 [發佈]。
+4. 選取 [建立] 。
 
 >[!IMPORTANT]
 > 瀏覽器視窗隨即開啟，您將會看見「502.5 - 處理失敗」訊息。 這是預期行為。 您必須授與應用程式識別從 Key Vault 讀取祕密的權限。
@@ -227,11 +226,11 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 2. 執行 assign-identity 命令來建立此應用程式的識別：
 
 ```azurecli
-az webapp assign-identity --name WebKeyVault --resource-group ContosoResourcegroup
+az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResourcegroup"
 ```
 
 >[!NOTE]
->這等同於前往入口網站，並切在 Web 應用程式屬性中將 [受控服務識別] 切換為 [開啟]。
+>此命令等同於前往入口網站，並在 Web 應用程式屬性中將 [受控服務識別] 切換為 [開啟]。
 
 ## <a name="grant-rights-to-the-application-identity"></a>將權限授與應用程式識別
 
@@ -241,16 +240,16 @@ az webapp assign-identity --name WebKeyVault --resource-group ContosoResourcegro
 2. 選取 [存取原則]。
 3. 選取 [新增]，在 [祕密權限] 區段中選取 [取得] 和 [列出]。
 4. 選取 [選取主體]，然後新增應用程式識別。 它將會與應用程式同名。
-5. 選擇 [確定]
+5. 選擇 [確定]。
 
-您在 Azure 中帳戶和應用程式識別現在具有從 Key Vault 讀取資訊的權限。 如果您重新整理頁面，您應該會看到網站的登陸頁面。 如果您選取 [關於]， 您會看見您儲存在 Key Vault 中的值。
+您在 Azure 中帳戶和應用程式識別現在具有從 Key Vault 讀取資訊的權限。 在重新整理頁面時，您應該會看到網站的登陸頁面。 如果您選取 [關於]，則會看到儲存在 Key Vault 中的值。
 
 ## <a name="clean-up-resources"></a>清除資源
 
 若要刪除資源群組和其所有資源，請使用 **az group delete** 命令。
 
   ```azurecli
-  az group delete -n ContosoResourceGroup
+  az group delete -n "ContosoResourceGroup"
   ```
 
 ## <a name="next-steps"></a>後續步驟
