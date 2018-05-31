@@ -6,14 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 05/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5d4c2b3bc55b94b08287a06125e15ac61013834a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362034"
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>將 Azure 串流分析部署為 IoT Edge 模組 - 預覽
 
@@ -57,7 +58,7 @@ Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結�
 
 1. 在 Azure 入口網站中，移至 [建立資源]，在搜尋方塊中輸入**儲存體帳戶**，然後選取 [儲存體帳戶 - Blob、檔案、資料表、佇列]。
 
-2. 在 [建立儲存體帳戶] 窗格中，輸入您的儲存體帳戶名稱，再選取儲存您 IoT 中樞的相同位置，然後選取 [建立]。 記下名稱以在稍後使用。
+2. 在 [建立儲存體帳戶] 窗格中，輸入您的儲存體帳戶名稱，選取儲存 IoT 中樞的同個位置，再選取 IoT 中樞所在的相同資源群組，然後選取 [建立]。 記下名稱以在稍後使用。
 
     ![建立儲存體帳戶][1]
 
@@ -84,32 +85,25 @@ Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結�
 
 3. 選取 [建立] 。
 
-4. 在已建立的作業中，於 [工作拓撲] 下選取 [輸入]，然後選取 [新增]。
-
-5. 在 [新的輸入] 窗格中，執行下列動作：
-
-    a. 在 [輸入別名] 方塊中，輸入**溫度**。
-    
-    b. 在 [來源類型] 方塊中，選取 [資料流]。
-    
-    c. 在剩餘的欄位中，使用預設值。
+4. 在已建立的工作中，從 [作業拓撲] 下方開啟 [輸入]。
 
    ![Azure 串流分析輸入](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-6. 選取 [建立] 。
+5. 選取 [新增資料流輸入]，然後選取 [Edge 中樞]。
 
-7. 在 [工作拓撲] 下選取 [輸出]，然後選取 [新增]。
+5. 在 [新增輸入] 窗格中，輸入 [溫度] 作為輸入的別名。 
 
-8. 在 [新的輸出] 窗格中，執行下列動作：
+6. 選取 [ **儲存**]。
 
-    a. 在 [輸出別名] 方塊中，輸入**警示**。
-    
-    b. 在剩餘的欄位中，使用預設值。 
-    
-    c. 選取 [建立] 。
+7. 在 [作業拓撲] 之下，開啟 [輸出]。
 
    ![Azure 串流分析輸出](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
+8. 選取 [新增]，然後選取 [Edge 中樞]。
+
+8. 在 [新增輸出] 窗格中，輸入 [警示] 作為輸出別名。 
+
+9. 選取 [建立] 。
 
 9. 在下 [工作拓撲] 下選取 [查詢]，並以下列查詢取代預設文字：
 

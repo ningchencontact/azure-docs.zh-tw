@@ -3,56 +3,58 @@ title: 使用 Azure Stack API | Microsoft Docs
 description: 了解如何從 Azure 擷取驗證，以便對 Azure Stack 提出 API 要求。
 services: azure-stack
 documentationcenter: ''
-author: cblackuk
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/14/2018
 ms.author: mabrigg
-ms.reviewer: sijuman
-ms.openlocfilehash: 2bbfe4f829ad5c42a5742fdf08f2d185af627f42
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.reviewer: thoroet
+ms.openlocfilehash: e8a9489a3f487a45303bac45f805381b41427b4b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34056664"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359106"
 ---
-<!--  cblackuk and charliejllewellyn -->
+<!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
 # <a name="use-the-azure-stack-api"></a>使用 Azure Stack API
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-您可以使用 Azure Stack API，將整合 Marketplace 項目之類的作業自動化。
+您可以使用 Azure Stack 應用程式開發介面 (API)，將整合 Marketplace 項目之類的作業自動化。
 
-使用此 API 需要您的用戶端向 Microsoft Azure 登入端點進行驗證。 端點會傳送權杖，以用於每個傳送至 Azure Stack API 之要求的標頭中 (Microsoft Azure 使用 Oauth 2.0)。
+此 API 需要您的用戶端向 Microsoft Azure 登入端點進行驗證。 端點會傳送權杖，以用於每個傳送至 Azure Stack API 之要求的標頭中 Microsoft Azure 使用 Oauth 2.0。
 
-本文提供使用 curl 公用程式建立 Azure Stack 要求的範例。 這些範例將逐步引導您進行擷取權杖以存取 Azure Stack API 的流程。 大部分的程式設計語言都會提供 Oauth 2.0 程式庫，其具有健全的權杖管理，並會處理重新整理權杖之類的工作。
+本文提供使用 **cURL** 公用程式建立 Azure Stack 要求的範例。 cURL 應用程式是用於傳送資料且具有程式庫的命令列工具。 這些範例將逐步引導您進行擷取權杖以存取 Azure Stack API 的流程。 大部分的程式設計語言都會提供 Oauth 2.0 程式庫，其具有健全的權杖管理，並會處理重新整理權杖之類的工作。
 
-查看搭配一般 REST 用戶端 (例如 curl) 使用 Azure Stack REST API 的完整流程，可協助您了解基本要求，並顯示您可預期會在回應承載中接收到的內容。
+檢閱搭配一般 REST 用戶端 (例如 **cURL**) 使用 Azure Stack REST API 的完整流程，可協助您了解基本要求，並顯示您可預期會在回應承載中接收到的內容。
 
-本文不會探索適用於擷取權杖的所有選項，例如互動式登入或建立專用的應用程式識別碼。 如需詳細資訊，請參閱 [Azure REST API 參考](https://docs.microsoft.com/rest/api/) \(英文\)。
+本文不會探索適用於擷取權杖的所有選項，例如互動式登入或建立專用的應用程式識別碼。 若要取得有關這些主題的資訊，請參閱 [Azure REST API 參考](https://docs.microsoft.com/rest/api/)。
 
 ## <a name="get-a-token-from-azure"></a>從 Azure 取得權杖
 
-建立要求「本文」並使用內容類型 x-www-form-urlencoded 加以格式化，以取得存取權杖。 將您的要求 POST 到 Azure REST 驗證和登入端點。
+建立要求本文並使用內容類型 x-www-form-urlencoded 加以格式化，以取得存取權杖。 將您的要求 POST 到 Azure REST 驗證和登入端點。
 
-```
+### <a name="uri"></a>URI
+
+```bash  
 POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 ```
 
 **租用戶識別碼**可能是：
 
-* 您的租用戶網域，例如 fabrikam.onmicrosoft.com
-* 您的租用戶識別碼，例如 8eaed023-2b34-4da1-9baa-8bc8c9d6a491
-* 租用戶獨立金鑰的預設值：common
+ - 您的租用戶網域，例如 `fabrikam.onmicrosoft.com`
+ - 您的租用戶識別碼，例如 `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+ - 租用戶獨立金鑰的預設值：`common`
 
 ### <a name="post-body"></a>張貼本文
 
-```
+```bash  
 grant_type=password
 &client_id=1950a258-227b-4e31-a9cf-717495945fc2
 &resource=https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
@@ -63,32 +65,25 @@ grant_type=password
 
 針對每個值：
 
-  grant_type
+ - grant_type  
+    您將使用的驗證配置類型。 在此範例中，值是 `password`
 
-  您將使用的驗證配置類型。 在此範例中，值是：
+ - **資源**  
+    權杖存取的資源。 您可以藉由查詢 Azure Stack 管理中繼資料端點來尋找資源。 查看 **audiences** 區段
 
-  ```
-  password
-  ```
+ - **Azure Stack 管理端點**  
+    ```
+    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+    ```
 
-  **資源**
-
-  權杖存取的資源。 您可以藉由查詢 Azure Stack 管理中繼資料端點來尋找資源。 查看 **audiences** 區段
-
-  Azure Stack 管理端點：
-
-  ```
-  https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
-  ```
-
- > [!NOTE]
- > 如果您是嘗試存取租用戶 API 的系統管理員，請務必使用租用戶端點，例如：`https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011
+  > [!NOTE]  
+  > 如果您是嘗試存取租用戶 API 的系統管理員，請務必使用租用戶端點，例如：`https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
   例如，使用 Azure Stack 開發套件作為端點：
 
-  ```
-  curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
-  ```
+    ```bash
+    curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
+    ```
 
   回應：
 
@@ -176,13 +171,13 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 
 要求：
 
-```
+```bash  
 curl -H "Authorization: Bearer eyJ0eXAiOi...truncated for readability..." 'https://adminmanagement.local.azurestack.external/subscriptions?api-version=2016-05-01'
 ```
 
 回應：
 
-```
+```bash  
 offerId : /delegatedProviders/default/offers/92F30E5D-F163-4C58-8F02-F31CFE66C21B
 id : /subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8
 subscriptionId : 800c4168-3eb1-406b-a4ca-919fe7ee42e8

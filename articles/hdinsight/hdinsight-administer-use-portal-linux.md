@@ -12,13 +12,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: ea5b19abed0b9d2a2b8131f2be3be14e94e17405
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361966"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集
 
@@ -125,7 +126,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
    * **預設資料來源**︰預設叢集檔案系統。
    * **背景工作節點大小**：背景工作節點的選取 VM 大小。
    * **前端節點大小**：前端節點的選取 VM 大小。
-   * **虛擬網路**：虛擬網路的名稱以及要部署叢集之子網路的名稱，如果已在部署階段選取一個。
+   * **虛擬網路**：要部署叢集的虛擬網路名稱 (如果已在部署階段選取一個的話)。
 
 ## <a name="delete-clusters"></a>刪除叢集
 刪除叢集時，並不會刪除預設的儲存體帳戶或任何連結的儲存體帳戶。 您可以使用相同的儲存體帳戶和相同的中繼存放區重新建立叢集。 建議您在重新建立叢集時使用新的預設 Blob 容器。

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: 7bbe0945981370c15fd10e93498fcc3ee0bf1a39
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d5a9f2ba68574ba8cb99b01ce426ec77a5eecd3d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363956"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 資訊安全中心常見問題集 (FAQ)
 這個常見問題集回答「Azure 資訊安全中心」的相關問題，此資訊安全中心是一項針對 Microsoft Azure 資源的安全性提供更深入的洞悉和更佳控制的服務，可協助您預防、偵測及回應威脅。
@@ -51,16 +52,18 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 請參閱[Azure 資訊安全中心的權限](security-center-permissions.md)以深入了解角色與資訊安全中心允許的動作。
 
 ## <a name="data-collection"></a>資料收集
-資訊安全中心會收集虛擬機器的資料，以便評估其安全性狀態、提供安全性建議，並對您發出威脅警示。 當您第一次存取資訊安全中心時，訂用帳戶中的所有虛擬機器都會啟用資料收集。 您也可以在資訊安全中心原則中啟用資料收集。
+資訊安全中心會從您的 Azure 虛擬機器 (VM) 和非 Azure 電腦收集資料，以監視安全性漏洞與威脅。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄檔，並將資料複製到工作區進行分析。
 
 ### <a name="how-do-i-disable-data-collection"></a>我要如何停用資料收集？
-如果您是使用免費層的 Azure 資訊安全中心，可以隨時從虛擬機器停用資料收集。 標準層上的訂用帳戶需要資料收集。 您可以在安全性原則中停用訂用帳戶的資料收集。 ([登入 Azure 入口網站](https://portal.azure.com)，選取 [瀏覽]，選取 [資訊安全中心]，然後選取 [原則]。)選取訂用帳戶時，會開啟新的刀鋒視窗，並提供您關閉 [資料收集] 的選項。
+預設會關閉自動佈建。 您可以在安全性原則中關閉這項設定，隨時停用資源的自動佈建。 強烈建議進行自動佈建，以便取得安全性警示，以及系統更新、作業系統弱點和端點保護的建議。
+
+若要停用資料收集，請[登入 Azure 入口網站](https://portal.azure.com)，選取 [瀏覽]，選取 [資訊安全中心]，然後選取 [選取原則]。 選取您想要停用自動佈建的訂用帳戶。 當您選取訂用帳戶時，[安全性原則 - 資料收集] 隨即開啟。 在 [自動佈建] 之下，選取 [關閉]。
 
 ### <a name="how-do-i-enable-data-collection"></a>我要如何啟用資料收集？
-您可以在安全性原則中為您的 Azure 訂用帳戶啟用資料收集。 啟用資料收集。 [登入 Azure 入口網站](https://portal.azure.com)，選取 [瀏覽]，選取 [資訊安全中心]，然後選取 [原則]。 將 [資料收集] 設定為 [開啟]。
+您可以在安全性原則中為您的 Azure 訂用帳戶啟用資料收集。 啟用資料收集。 [登入 Azure 入口網站](https://portal.azure.com)，選取 [瀏覽]，選取 [資訊安全中心]，然後選取 [安全性原則]。 選取您想要啟用自動佈建的訂用帳戶。 當您選取訂用帳戶時，[安全性原則 - 資料收集] 隨即開啟。 在 [自動佈建] 之下，選取 [開啟]。
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>啟用資料收集時會發生什麼情況？
-在啟用資料收集之後，Microsoft Monitoring Agent 會自動佈建在部署於訂用帳戶中所有現有和新的虛擬機器上。
+啟用自動佈建時，資訊安全中心會在所有支援的 Azure VM 和任何新建立的 VM 上佈建 Microsoft Monitoring Agent。 強烈建議使用自動佈建，但是手動代理程式安裝也可行。 [深入了解如何安裝 Microsoft Monitoring Agent 擴充功能](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)。
 
 代理程式支援處理序建立事件 4688，及事件 4688 中的 *CommandLine* 欄位。 EventLog 會記錄在 VM 上建立的新處理序，並由資訊安全中心的偵測服務監視。 如需針對每個新處理序所記錄之詳細資料的資訊，請參閱 [4688 中的描述欄位](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields) \(英文\)。 代理程式也會收集在 VM 上建立的 4688 事件並將它們儲存在搜尋中。
 
@@ -87,7 +90,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 「Azure 資訊安全中心」會分析 Azure 資源的安全性狀態。 當發現潛在的安全性弱點時，就會產生相關建議。 這些建議會引導您完成設定所需控制項的程序。 範例包括：
 
 * 佈建反惡意程式碼，以協助識別及移除惡意軟體
-* 設定 [網路安全性群組](../virtual-network/virtual-networks-nsg.md)與規則，以控制對虛擬機器的流量
+* [網路安全性群組](../virtual-network/security-overview.md)與規則，以控制對虛擬機器的流量
 * 佈建 Web 應用程式防火牆，以協助抵禦以 Web 應用程式為目標的攻擊
 * 部署遺漏的系統更新
 * 處理不符合建議基準的作業系統組態

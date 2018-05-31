@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/18/2018
 ms.author: jeffgilb
-ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e08c0bfd3cbed64f5042e469801e20c913c2f70e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33202587"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359419"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>為 SQL 資源提供者新增主控伺服器
 您可以使用 [Azure Stack](azure-stack-poc.md) 內 VM 上的 SQL 執行個體，或 Azure Stack 環境外的執行個體，只要資源提供者能夠連線到該執行個體均可。 一般需求為：
@@ -97,25 +97,21 @@ ms.locfileid: "33202587"
 > [!NOTE]
 > 針對 Always On，SQL 配接器 RP _僅_支援 SQL 2016 SP1 企業版或更新版本的執行個體，因為它需要新的 SQL 功能，例如自動植入。 除了上述的一般需求清單：
 
-* 除了 SQL Always On 電腦，您還必須提供檔案伺服器。 有一個 [Azure Stack 快速入門範本](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-ha)，可以為您建立此環境。 它也可做為建置您自己的執行個體之指南。
+具體來說，您必須在 SQL Server 的每個執行個體的每個可用性群組上啟用[自動植入](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group)：
 
-* 您必須設定 SQL 伺服器。 具體來說，您必須在 SQL Server 的每個執行個體的每個可用性群組上啟用[自動植入](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group)。
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON 'InstanceName'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  ```
 
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>]
-    MODIFY REPLICA ON 'InstanceName'
-    WITH (SEEDING_MODE = AUTOMATIC)
-GO
-```
+在次要執行個體上，使用下列 SQL 命令：
 
-在次要執行個體上
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
-GO
-
-```
-
-
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
 
 若要新增 SQL Always On 主控伺服器，請遵循下列步驟：
 
@@ -125,14 +121,16 @@ GO
 
     您可以使用 [SQL 主控伺服器] 刀鋒視窗，將 SQL Server 資源提供者連線到作為資源提供者後端的 SQL Server 實際執行個體。
 
-
-3. 請使用 SQL Server 執行個體的連線詳細資料填寫表單，並務必使用 Always On 接聽程式的 FQDN 或 IPv4 位址 (並可選用連接埠號碼)。 提供您以系統管理員權限設定之帳戶的帳戶資訊。
+3. 請使用 SQL Server 執行個體的連線詳細資料填寫表單，並務必使用 Always On 接聽程式的 FQDN 位址 (並可選用連接埠號碼)。 提供您以系統管理員權限設定之帳戶的帳戶資訊。
 
 4. 選取此方塊即可啟用 SQL Always On 可用性群組執行個體的支援。
 
     ![主控伺服器](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
-5. 將 SQL Always On 執行個體新增至 SKU。 您不能在相同 SKU 中混合獨立伺服器與 Always On 執行個體。 那是在新增第一部主控伺服器時決定。 之後嘗試混合類型會導致錯誤。
+5. 將 SQL Always On 執行個體新增至 SKU。 
+
+> [!IMPORTANT]
+> 您不能在相同 SKU 中混合獨立伺服器與 Always On 執行個體。 嘗試在新增第一個主控伺服器之後混合類型會導致錯誤。
 
 
 ## <a name="making-sql-databases-available-to-users"></a>將 SQL 資料庫提供給使用者使用

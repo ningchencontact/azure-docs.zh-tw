@@ -1,6 +1,6 @@
 ---
-title: "教學課程：Azure Active Directory 與 SAP Cloud Platform Identity Authentication 整合 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 與 SAP Cloud Platform Identity Authentication 之間的單一登入。"
+title: 教學課程：Azure Active Directory 與 SAP Cloud Platform Identity Authentication 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 SAP Cloud Platform Identity Authentication 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 0c7dd884eaadd1fba4fcbc19b6c9cf92c68a59ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e7cc1df5e550dec62869c2a6f68cdc2a84167142
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34352407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>教學課程：Azure Active Directory 與 SAP Cloud Platform Identity Authentication 整合
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 - 您可以讓使用者使用其 Azure AD 帳戶自動登入 SAP 應用程式。
 - 您可以在 Azure 入口網站集中管理您的帳戶。
 
-如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)一文。
+如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](manage-apps/what-is-single-sign-on.md)一文。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -126,21 +127,25 @@ SAP Cloud Platform Identity Authentication 目前作為 SAP 應用程式的領�
  
     ![單一登入對話方塊](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. 如果您想要在 **IDP** 起始模式中設定應用程式，請在 [SAP Cloud Platform Identity Authentication 網域及 URL] 區段的 [識別碼] 方塊中，以下列模式輸入 URL：`https://<entity-id>.accounts.ondemand.com`。  
+3. 如果您想要在 **IDP** 起始模式中設定應用程式，請在 [SAP Cloud Platform Identity Authentication 網域及 URL] 區段中，執行下列步驟：  
 
     ![SAP Cloud Platform Identity Authentication 網域及 URL 單一登入資訊](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url.png)
 
-    > [!NOTE] 
-    > 這不是真實的值。 請使用實際的識別碼來更新此值。 請連絡 [SAP Cloud Platform Identity Authentication 客戶支援小組](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)以取得此值。 如果您不知道此值，請參閱關於[租用戶 SAML 2.0 設定](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html)的 SAP Cloud Platform Identity Authentication 文件。
+    a. 在 [識別碼] 方塊中，以下列模式輸入 URL：`<IAS-tenant-id>.accounts.ondemand.com`
 
-4. 如果您想要以 **SP** 起始模式設定應用程式，請選取 [顯示進階 URL 設定]。 
+    b. 在 [回覆 URL] 方塊中，使用下列模式輸入 URL：`https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
+
+    > [!NOTE]
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [SAP Cloud Platform Identity Authentication 客戶支援小組](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)以取得這些值。 如果您不知道此識別碼值，請參閱關於[租用戶 SAML 2.0 設定](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html)的 SAP Cloud Platform Identity Authentication 文件。
+
+4. 如果您想要以 **SP** 起始模式設定應用程式，請選取 [顯示進階 URL 設定]。
 
     ![SAP Cloud Platform Identity Authentication 網域及 URL 單一登入資訊](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url1.png)
 
-    在 [登入 URL] 方塊中，以下列模式輸入 URL︰`https://<entity-id>.accounts.ondemand.com/admin`。
+    在 [登入 URL] 方塊中，以下列模式輸入 URL︰`{YOUR BUSINESS APPLICATION URL}`。
 
-    > [!NOTE] 
-    > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [SAP Cloud Platform Identity Authentication 客戶支援小組](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)以取得此值。
+    > [!NOTE]
+    > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請使用您特有的商務應用程式登入 URL。 如有任何疑問，請連絡 [SAP Cloud Platform Identity Authentication 客戶支援小組](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)。
 
 5. 在 [SAML 簽章憑證] 區段中，選取 [中繼資料 XML]。 然後，將中繼資料檔案儲存在您的電腦上。
 
@@ -274,7 +279,7 @@ SAP Cloud Platform Identity Authentication 支援 [識別身分同盟] 選項。
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -289,4 +294,3 @@ SAP Cloud Platform Identity Authentication 支援 [識別身分同盟] 選項。
 [201]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_203.png
-
