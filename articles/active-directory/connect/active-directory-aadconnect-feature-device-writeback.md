@@ -1,10 +1,10 @@
 ---
-title: "Azure AD Connect：啟用裝置回寫 | Microsoft Docs"
-description: "本文詳細說明如何使用 Azure AD Connect 啟用裝置回寫"
+title: Azure AD Connect：啟用裝置回寫 | Microsoft Docs
+description: 本文詳細說明如何使用 Azure AD Connect 啟用裝置回寫
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: femila
 editor: curtand
 ms.assetid: c0ff679c-7ed5-4d6e-ac6c-b2b6392e7892
 ms.service: active-directory
@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 05/08/2018
 ms.author: billmath
-ms.openlocfilehash: fddbbeda50764ade149e8a8f370bf7341da01736
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c813be558df9dc3bdfd9850402b9458f1fdf971a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34353807"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect：啟用裝置回寫
 > [!NOTE]
 > 需要 Azure AD Premium 的訂用帳戶才能使用裝置回寫功能。
->
->
+> 
+> 
 
-以下文件提供有關在 Azure AD Connect 中啟用裝置回寫功能的資訊。 裝置回寫會用於下列案例：
+以下文件提供有關在 Azure AD Connect 中啟用裝置回寫功能的資訊。 裝置回寫用於下列案例：
 
 * 對 ADFS (2012 R2 或更高版本) 保護的應用程式 (信賴憑證者信任)，根據裝置啟用條件式存取。
 
@@ -34,75 +35,52 @@ ms.lasthandoff: 01/05/2018
 
 > [!IMPORTANT]
 > <li>裝置必須位於使用者所在的樹系中。 由於裝置必須回寫到單一樹系中，因此這項功能目前並不支援利用多重使用者樹系的部署。</li>
-> <li>只有一個裝置註冊設定物件可以新增至內部部署 Active Directory 樹系。 這項功能與會將內部部署 Active Directory 同步至多個 Azure AD 租用戶的拓撲不相容。</li>
->
+> <li>只有一個裝置註冊設定物件可以新增至內部部署 Active Directory 樹系。 這項功能與會將內部部署 Active Directory 同步至多個 Azure AD 目錄的拓撲不相容。</li>> 
 
 ## <a name="part-1-install-azure-ad-connect"></a>第 1 部分：安裝 Azure AD Connect
-1. 使用自訂或快速設定安裝 Azure AD Connect。 Microsoft 建議您在啟用裝置回寫之前，首先讓所有使用者和群組成功完成同步處理。
+使用自訂或快速設定安裝 Azure AD Connect。 Microsoft 建議您在啟用裝置回寫之前，首先讓所有使用者和群組成功完成同步處理。
 
-## <a name="part-2-prepare-active-directory"></a>第 2 部分：準備 Active Directory
-使用下列步驟來準備使用裝置回寫。
+## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>第 2 部分：在 Azure AD Connect 中啟用裝置回寫功能
+1. 再次執行安裝精靈。 選取 [其他工作] 頁面中的 [設定裝置選項]，然後按 [下一步]。 
 
-1. 從已安裝 Azure AD Connect 的電腦上，以提升權限的模式啟動 PowerShell。
-2. 如果「未」安裝 Active Directory PowerShell 模組，請安裝「遠端伺服器管理工具」，其中包含了 AD PowerShell 模組，以及執行指令碼所需的 dsacls.exe。 執行以下命令：
+    ![設定裝置選項](./media/active-directory-aadconnect-feature-device-writeback/deviceoptions.png)
 
-   ``` powershell
-   Add-WindowsFeature RSAT-AD-Tools
-   ```
+    >[!NOTE]
+    > 新的設定裝置選項僅適用於 1.1.819.0 版和更新版本。
 
-3. 如果「未」安裝 Azure Active Directory PowerShell 模組，請從 [適用於 Windows PowerShell 的 Azure Active Directory 模組 (64 位元版本)](http://go.microsoft.com/fwlink/p/?linkid=236297)下載並安裝。 此元件依存於隨 Azure AD Connect 一併安裝的登入小幫手。  
-4. 使用企業系統管理員認證執行下列命令，然後結束 PowerShell。
+2. 在裝置選項頁面上，選取 [設定裝置回寫]。 直到啟用裝置回寫以後，才可使用 [停用裝置回寫] 選項。 按 [下一步] 移至精靈的下一頁。
+    ![選擇裝置作業](./media/active-directory-aadconnect-feature-device-writeback/configuredevicewriteback1.png)
 
-   ``` powershell
-   Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
-   ```
-
-   ``` powershell
-   Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}
-   ```
-
-因為需要變更設定命名空間，所以需要有企業系統管理員認證。 網域系統管理員沒有足夠的權限。
-
-![啟用裝置回寫的 Powershell](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)  
-
-Description:
-
-* 如果尚未存在，請在 CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn] 下方建立並設定新的容器和物件。
-* 如果尚未存在，請在 CN=RegisteredDevices,[domain-dn] 下方建立並設定新的容器和物件。 將會在此容器中建立裝置物件。
-* 請在 Azure AD Connector 帳戶上設定必要的權限，以便管理 Active Directory 上的裝置。
-* 即使 Azure AD Connect 安裝在多個樹系上，也只需要在一個樹系上執行。
-
-參數：
-
-* DomainName：將建立裝置物件的 Active Directory 網域。 附註：指定的 Active Directory 樹系的所有裝置都會在單一網域中建立。
-* AdConnectorAccount：Azure AD Connect 會使用此 Active Directory 帳戶來管理目錄中的物件。 這是 Azure AD Connect 同步處理用來連接到 AD 的帳戶。 如果您使用快速設定進行安裝，則這個帳戶的名稱會以 MSOL_ 做為前置詞。
-
-## <a name="part-3-enable-device-writeback-in-azure-ad-connect"></a>第 3 部分：在 Azure AD Connect 中啟用裝置回寫功能
-使用下列程序在 Azure AD Connect 中啟用裝置回寫。
-
-1. 再次執行安裝精靈。 選取 [其他工作] 頁面中的 [自訂同步處理選項]，然後按 [下一步]。
-   ![自訂安裝自訂同步處理選項](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback2.png)
-2. 在 [選用功能] 頁面中，裝置回寫不再呈現灰色。請注意，如果 Azure AD Connect 準備步驟未完成，[選用功能] 頁面中的裝置回寫會變成灰色。 核取裝置回寫的方塊，然後按一下 [下一步 ]。 如果此核取方塊仍然停用中，請參閱＜ [疑難排解](#the-writeback-checkbox-is-still-disabled)＞一節。
-   ![自訂安裝裝置回寫可選功能](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback3.png)
 3. 在 [回寫] 頁面中，您會看到提供的網域已成為預設的裝置回寫樹系。
-   ![自訂安全裝置回寫樹系](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
-4. 完成精靈安裝，不需要變更其他設定。 如有需要，請參閱[自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)。
-5. 如果您已在 Azure AD Connect 中啟用[篩選](active-directory-aadconnectsync-configure-filtering.md)，則請確定新建立的容器 CN=RegisteredDevices 包含在您的範圍中。
+   ![自訂安全裝置回寫樹系](./media/active-directory-aadconnect-feature-device-writeback/writebackforest.png)
 
-## <a name="part-4-verify-devices-are-synchronized-to-active-directory"></a>第 4 部分：確認裝置已同步至 Active Directory
-裝置回寫現在應該正常運作。 請注意，裝置物件寫回至 Active Directory 可能需要 3 小時。 若要確認您的裝置已正確同步，請在同步完成之後執行下列操作：
+4. [裝置容器] 頁面使用下列其中一個可用選項來提供準備 Active Directory 的選項：
+
+    a. **提供企業系統管理員認證**：如果針對裝置需要回寫的樹系提供企業系統管理員認證，則 Azure AD Connect 會在裝置回寫的設定期間自動準備樹系。
+
+    b. **下載 PowerShell 指令碼**：Azure AD Connect 會自動產生 PowerShell 指令碼，以便針對裝置回寫準備 Active Directory。 為了避免無法在 Azure AD Connect 中提供企業系統管理員認證，建議下載 PowerShell 指令碼。 將下載的 PowerShell 指令碼 **CreateDeviceContainer.psq** 提供給要回寫裝置之樹系的企業系統管理員。
+    ![準備 Active Diretory 樹系](./media/active-directory-aadconnect-feature-device-writeback/devicecontainercreds.png)
+    
+    執行下列作業以準備 Active Directory 樹系：
+    * 如果尚未存在，請在 CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn] 下方建立並設定新的容器和物件。
+    * 如果尚未存在，請在 CN=RegisteredDevices,[domain-dn] 下方建立並設定新的容器和物件。 將會在此容器中建立裝置物件。
+    * 請在 Azure AD Connector 帳戶上設定必要的權限，以便管理 Active Directory 上的裝置。
+    * 即使 Azure AD Connect 安裝在多個樹系上，也只需要在一個樹系上執行。
+
+## <a name="verify-devices-are-synchronized-to-active-directory"></a>確認裝置已同步處理至 Active Directory
+裝置回寫現在應該正常運作。 請注意，裝置物件寫回至 Active Directory 可能需要 3 小時。  若要確認您的裝置已正確同步化，請在同步化規則完成之後執行下列作業：
 
 1. 啟動 Active Directory 管理中心。
-2. 展開[第 2 部分](#part-2-prepare-active-directory)中所設定網域內的 [RegisteredDevices]。  
+2. 在同盟的網域中，展開 RegisteredDevices。
 
-   ![Active Directory 管理中心已註冊的裝置](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)  
-   
-3. 此處會列出目前已註冊的裝置。  
+   ![Active Directory 管理中心已註冊的裝置](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
 
-   ![Active Directory 管理中心已註冊的裝置清單](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)  
+3. 此處會列出目前已註冊的裝置。
+
+   ![Active Directory 管理中心已註冊的裝置清單](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
 
 ## <a name="enable-conditional-access"></a>啟用條件式存取
-   如需如何啟用此案例的詳細指示，請參閱 [使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](../active-directory-conditional-access-automatic-device-registration-setup.md)。
+如需如何啟用此案例的詳細指示，請參閱 [使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](../active-directory-conditional-access-automatic-device-registration-setup.md)。
 
 ## <a name="troubleshooting"></a>疑難排解
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>回寫核取方塊仍然停用
@@ -117,13 +95,12 @@ Description:
   * 開啟 [連接器]  索引標籤。
   * 尋找類型為 Active Directory 網域服務的連接器並加以選取。
   * 選取 [動作] 下方的 [屬性]。
-  * 前往 [連線至 Active Directory 樹系] 。 請確認此畫面上所指定的網域和使用者名稱，與提供給指令碼的帳戶相符。  
-  
+  * 前往 [連線至 Active Directory 樹系] 。 請確認此畫面上所指定的網域和使用者名稱，與提供給指令碼的帳戶相符。
     ![Sync Service Manager 中的連接器帳戶](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
 
 確認 Active Directory 中的組態：
 
-* 確認「裝置註冊服務」位於組態命名內容下方 (CN=DeviceRegistrationService,CN=Device Registration Services,CN=Device Registration Configuration,CN=Services,CN=Configuration) 底下的位置。
+* 確認裝置註冊服務位於組態命名內容下方 (CN=DeviceRegistrationService,CN=Device Registration Services,CN=Device Registration Configuration,CN=Services,CN=Configuration) 底下的位置。
 
 ![疑難排解，組態命名空間中的 DeviceRegistrationService](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot1.png)
 
@@ -151,3 +128,4 @@ Description:
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
+
