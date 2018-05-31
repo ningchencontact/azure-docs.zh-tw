@@ -1,19 +1,20 @@
 ---
-title: "部署適用於 Azure IoT Edge 的模組 | Microsoft Docs"
-description: "了解如何將模組部署到 Edge 裝置"
+title: 部署適用於 Azure IoT Edge 的模組 | Microsoft Docs
+description: 了解如何將模組部署到 Edge 裝置
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166330"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>了解針對單一裝置或大規模部署 IoT Edge - 預覽
 
@@ -34,7 +35,7 @@ Azure IoT Edge 提供兩種方式來設定要在 IoT Edge 裝置上執行的模�
  
 本文將逐步解說用以設定及監視部署的每個元件。 如需建立和更新部署的逐步解說，請參閱[大規模部署和監視 IoT Edge 模組][lnk-howto]。
 
-## <a name="deployment"></a>Deployment
+## <a name="deployment"></a>部署
 
 部署會指派 IoT Edge 模組映像，在一組目標的 IoT Edge 裝置上當成執行個體來執行。 其運作方式是設定 IoT Edge 部署資訊清單，以包含具有對應初始化參數的模組清單。 您可以將部署指派到單一裝置 (通常會以裝置識別碼為根據) 或裝置群組 (以標記為根據)。 一旦 IoT Edge 裝置接收到部署資訊清單之後，就會從各自的容器存放庫下載並安裝模組容器映像，並據以設定它們。 建立部署之後，操作員就能監視部署狀態，以查看是否已正確設定目標裝置。   
 
@@ -59,7 +60,7 @@ Azure IoT Edge 提供兩種方式來設定要在 IoT Edge 裝置上執行的模�
 
 系統會持續評估目標條件以納入任何符合需求的新裝置，或是移除任何在部署的生命週期中不再符合需求的裝置。 如果服務偵測到任何目標條件變更，部署將會重新啟動。 比方說，您的部署 A 具有目標條件 tags.environment = 'prod'。 開始進行部署時，有 10 個生產裝置。 模組已成功安裝在這 10 個裝置中。 IoT Edge 代理程式狀態會顯示為共 10 個裝置、10 項成功回應、0 項失敗回應，以及 0 項擱置回應。 現在您再新增 5 個具有 tags.environment = 'prod' 的裝置。 服務偵測到變更，在嘗試部署到五個新裝置時，IoT Edge 代理程式狀態會變成共 15 個裝置、10 項成功回應、0 項失敗回應，以及 5 項擱置回應。
 
-使用裝置對應項標籤上的任何布林值條件或 deviceId 來選取目標裝置。 如果想要使用具標籤的條件，您需要在與屬性相同的層級下，在裝置對應項中新增 "標籤":{} 區段。 [深入了解裝置對應項中的標籤](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
+使用裝置對應項標籤上的任何布林值條件或 deviceId 來選取目標裝置。 如果想要使用具標籤的條件，您需要在與屬性相同的層級下，在裝置對應項中新增 "標籤":{} 區段。 [深入了解裝置對應項中的標籤](../iot-hub/iot-hub-devguide-device-twins.md)
 
 目標條件範例：
 * deviceId ='linuxprod1'

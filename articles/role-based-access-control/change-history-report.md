@@ -6,7 +6,7 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.date: 04/23/2017
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e09ccdc4942a39e54b760cb5ad78c035dbc05f8
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: e48ea2293c186bbc337f9d70464df374d64b5e61
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312418"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203898"
 ---
 # <a name="view-activity-logs-for-role-based-access-control-changes"></a>檢視活動記錄是否有角色型存取控制的變更
 
@@ -117,7 +117,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
    ![入口網站中的 [Log Analytics] 選項](./media/change-history-report/azure-log-analytics-option.png)
 
-1. 選擇性使用 [記錄搜尋][](../log-analytics/log-analytics-log-search.md) 頁面或[進階分析入口網站](https://docs.loganalytics.io/docs/Learn)來查詢和檢視記錄。 如需有關這兩個選項的詳細資訊，請參閱[記錄搜尋頁面或進階分析入口網站](../log-analytics/log-analytics-log-search-portals.md)。
+1. 選擇性使用 [記錄搜尋](../log-analytics/log-analytics-log-search.md) 頁面或[進階分析入口網站](https://docs.loganalytics.io/docs/Learn)來查詢和檢視記錄。 如需有關這兩個選項的詳細資訊，請參閱[記錄搜尋頁面或進階分析入口網站](../log-analytics/log-analytics-log-search-portals.md)。
 
 以下查詢會傳回由目標資源提供者所組織的新角色指派：
 

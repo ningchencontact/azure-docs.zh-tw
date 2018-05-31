@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: sedusch
-ms.openlocfilehash: b1a7b962d07b64aaa662aab937feed1782851a7b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 53bc4a6f4ecca8ffe3575a038b86192a8663c35c
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261478"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>適用於 SUSE Linux Enterprise Server 之 Azure VM 上 NFS 的高可用性
 
@@ -129,12 +130,11 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 1. 建立可用性設定組  
    設定更新網域上限
 1. 建立虛擬機器 1   
-   至少使用 SLES4SAP 12 SP1；此範例中使用 SLES4SAP 12 SP1 BYOS 映像 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES For SAP Applications 12 SP1 (BYOS)  
+   至少使用 SLES4SAP 12 SP3，此範例中使用 SLES4SAP 12 SP3 BYOS 映像 SLES For SAP Applications 12 SP3 (BYOS)  
    選取稍早建立的「可用性設定組」  
 1. 建立虛擬機器 2   
-   至少使用 SLES4SAP 12 SP1；此範例中使用 SLES4SAP 12 SP1 BYOS 映像 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES For SAP Applications 12 SP1 (BYOS)  
+   至少使用 SLES4SAP 12 SP3，此範例中使用 SLES4SAP 12 SP3 BYOS 映像  
+   SLES For SAP Applications 12 SP3 (BYOS)  
    選取稍早建立的「可用性設定組」  
 1. 在兩部虛擬機器上為每個 SAP 系統各新增一個資料磁碟。
 1. 建立負載平衡器 (內部)  
@@ -143,7 +143,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
          1. 開啟負載平衡器，選取前端 IP 集區，然後按一下 [新增]
          1. 輸入新前端 IP 集區 的名稱 (例如 **nw1-frontend**)
          1. 將 [指派] 設定為 [靜態]，然後輸入 IP 位址 (例如 **10.0.0.4**)
-         1. 按一下 [確定]         
+         1. Click OK         
       1. NW2 的 IP 位址為 10.0.0.5
          * 針對 NW2 重複上述步驟
    1. 建立後端集區
@@ -153,7 +153,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
          1. 按一下 [新增虛擬機器]
          1. 選取您稍早建立的可用性設定組
          1. 選取 NFS 叢集的虛擬機器
-         1. 按一下 [確定]
+         1. Click OK
       1. 連線到應屬於 NW2 之 NFS 叢集的所有虛擬機器的主要網路介面
          * 重複上述步驟來為 NW2 建立後端集區
    1. 建立健康狀態探查
@@ -161,7 +161,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
          1. 開啟負載平衡器，選取健康情況探查，然後按一下 [新增]
          1. 輸入新健康狀態探查的名稱 (例如 **nw1-hp**)
          1. 選取 [TCP] 作為通訊協定、連接埠 610**00**，保留 [間隔] 5 和 [狀況不良閾值] 2
-         1. 按一下 [確定]
+         1. Click OK
       1. NW2 的連接埠為 61001
          * 重複上述步驟來為 NW2 建立健康狀態探查
    1. 負載平衡規則
@@ -172,7 +172,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
          1. 保留通訊協定 [TCP]，輸入連接埠 **2049**
          1. 將閒置逾時增加為 30 分鐘
          1. **務必啟用浮動 IP**
-         1. 按一下 [確定]    
+         1. Click OK    
       1. NW1 的 UDP 為 2049
          * 重複上述步驟來為 NW1 設定連接埠 2049 和 UDP
       1. NW2 的 TCP 為 2049
