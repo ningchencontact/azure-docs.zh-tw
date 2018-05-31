@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 84988c815759a726abe93d931f73c284d771a5ba
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786707"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365819"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 認知技能
 
@@ -186,16 +186,14 @@ ms.locfileid: "33786707"
 上述技能集範例假設正規化映像欄位存在。 若要產生此欄位，請將索引子定義中的 *imageAction* 組態設定為 *generateNormalizedImages*，如下所示：
 
 ```json
-{
-  //...rest of your indexer definition goes here ...
-  "parameters":
-  {
-    "configuration": 
-    {
-        "dataToExtract": "contentAndMetadata",
-        "imageAction": "generateNormalizedImages"
-        }
-  }
+{  
+   //...rest of your indexer definition goes here ... 
+  "parameters":{  
+      "configuration":{  
+         "dataToExtract":"contentAndMetadata",
+         "imageAction":"generateNormalizedImages"
+      }
+   }
 }
 ```
 
@@ -203,3 +201,4 @@ ms.locfileid: "33786707"
 + [預先定義的技能](cognitive-search-predefined-skills.md) (英文)
 + [TextMerger 技能](cognitive-search-skill-textmerger.md) (英文)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
++ [建立索引子 (REST)](ref-create-indexer.md)

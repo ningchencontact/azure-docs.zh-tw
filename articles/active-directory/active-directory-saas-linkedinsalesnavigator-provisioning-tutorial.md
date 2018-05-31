@@ -1,8 +1,8 @@
 ---
-title: "教學課程︰以 Azure Active Directory 設定 LinkedIn Sales Navigator 來自動佈建使用者 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 來自動佈建並取消佈建使用者帳戶至 LinkedIn Sales Navigator。"
+title: 教學課程︰以 Azure Active Directory 設定 LinkedIn Sales Navigator 來自動佈建使用者 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 來自動佈建並取消佈建使用者帳戶至 LinkedIn Sales Navigator。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 563cb4e231aaa3abf6e70320df8cfa6b56cd354c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 56060d11373f767b023b092cf01ceb894f70efed
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34346484"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>教學課程︰設定 LinkedIn Sales Navigator 來自動佈建使用者
 
@@ -99,7 +100,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 11)  填寫 [系統管理員認證] 底下的下列欄位：
 
-* 在 [租用戶 URL] 欄位中輸入 https://api.linkedin.com。
+* 在 [租用戶 URL] 欄位中，輸入 https://api.linkedin.com。
 
 * 在 [祕密權杖] 欄位中，輸入在步驟 1 產生的存取權杖，然後按一下 [測試連線]。
 
@@ -125,4 +126,4 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 ## <a name="additional-resources"></a>其他資源
 
 * [管理企業應用程式的使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)

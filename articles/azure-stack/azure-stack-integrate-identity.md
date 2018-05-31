@@ -6,15 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770514"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 資料中心整合 - 身分識別
 您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者來部署 Azure Stack。 請先選擇識別提供者，才能部署 Azure Stack。 使用 AD FS 的部署也稱為在中斷連線模式中部署 Azure Stack。
@@ -60,6 +61,8 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="setting-up-graph-integration"></a>設定 Graph 整合
 
+Graph 僅支援單一 Active Directory 樹系的整合。 如果存在多個樹系，則只有在設定中指定的樹系會用來擷取使用者和群組。
+
 需要下列資訊，做為自動化參數的輸入：
 
 
@@ -95,12 +98,14 @@ ms.lasthandoff: 04/16/2018
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   出現提示時，指定要用於 Graph 服務的使用者帳戶之認證 (例如 graphservice)。
+   出現提示時，指定要用於 Graph 服務的使用者帳戶之認證 (例如 graphservice)。 Register-DirectoryService Cmdlet 的輸入必須是樹系名稱 / 樹系中的根網域，而不是樹系中的其他網域。
 
    > [!IMPORTANT]
    > 等待認證快顯 (特殊權限端點中不支援 Get-Credential)，然後輸入 Graph 服務帳戶認證。
 
 #### <a name="graph-protocols-and-ports"></a>Graph 通訊協定和連接埠
+
+Azure Stack 中的 Graph 服務使用以下通訊協定和連接埠來與可寫入的「通用類別目錄伺服器」(GC) 和「金鑰發佈中心」(KDC) (可在目標 Active Directory 樹系中處理登入要求) 通訊。
 
 Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目標 Active Directory 通訊：
 
