@@ -1,9 +1,9 @@
 ---
-title: "使用分析 - 強大的 Azure Application Insights 搜尋工具 | Microsoft Docs"
-description: "使用分析，這是強大的 Application Insights 診斷搜尋工具。 "
+title: 使用分析 - 強大的 Azure Application Insights 搜尋工具 | Microsoft Docs
+description: '使用分析，這是強大的 Application Insights 診斷搜尋工具。 '
 services: application-insights
-documentationcenter: 
-author: danhadari
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5a49d38ddc9d2181f9b35ac948c44df70bad831b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869881"
 ---
 # <a name="using-analytics-in-application-insights"></a>使用 Application Insights 中的分析
 [分析](app-insights-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。 這些分頁說明 Log Analytics 查詢語言。
@@ -149,9 +150,9 @@ IntelliSense 會向您提示您可使用的運算子和運算式元素。 按一
 
 當您將圖表釘選到儀表板時，圖表會套用某些簡化效果。
 
-**時間限制：**查詢會自動限制為過去 14 天。 效果就像您的查詢包含 `where timestamp > ago(14d)` 一樣。
+**時間限制：** 查詢會自動限制為過去 14 天。 效果就像您的查詢包含 `where timestamp > ago(14d)` 一樣。
 
-**量化計數限制：**如果您顯示的是有許多不連續量化的圖表 (通常是長條圖)，所佔比例較少的量化會自動分組到單一的「其他」量化。 例如，下列查詢︰
+**量化計數限制：** 如果您顯示的是有許多不連續量化的圖表 (通常是長條圖)，所佔比例較少的量化會自動分組到單一的「其他」量化。 例如，下列查詢︰
 
     requests | summarize count_search = count() by client_CountryOrRegion
 

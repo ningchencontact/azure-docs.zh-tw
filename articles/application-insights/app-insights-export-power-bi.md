@@ -1,9 +1,9 @@
 ---
-title: "從 Azure Application Insights 匯出至 Power BI | Microsoft Docs"
-description: "Analytics 查詢可以在 Power BI 中顯示。"
+title: 從 Azure Application Insights 匯出至 Power BI | Microsoft Docs
+description: Analytics 查詢可以在 Power BI 中顯示。
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: 19595983ba49a88d9139c85afbf38d3106d4a81d
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c9b53c26eea0a5eced32acf196204aef3c3bb125
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869048"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>從 Application Insights 提供 Power BI
 [Power BI](http://www.powerbi.com/) 是一套商務工具，可協助您分析資料及分享見解。 每個裝置上都提供豐富的儀表板。 您可以結合許多來源的資料，包含來自 [Azure Application Insights](app-insights-overview.md) 的「分析」查詢。
@@ -121,8 +122,8 @@ ms.lasthandoff: 11/29/2017
 
 1. 建立 [API 金鑰](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)。
 2. 更新您從 Analytics 匯出的 Power BI M 指令碼，方法是將 Azure Resource Manager URL 取代為 Application Insights API。
-   * 將 **https://management.azure.com/subscriptions/...**
-   * 取代為 **https://api.applicationinsights.io/beta/apps/...**
+   * 將 **https://management.azure.com/subscriptions/...** 取代
+   * 為 **https://api.applicationinsights.io/beta/apps/...**
 3. 最後，將認證更新為基本，並且使用您的 API 金鑰。
   
 
