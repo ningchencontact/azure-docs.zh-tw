@@ -1,8 +1,8 @@
 ---
-title: "服務對服務驗證︰使用 Azure Active Directory 以 Data Lake Store 進行 | Microsoft Docs"
-description: "了解如何使用 Azure Active Directory 以 Data Lake Store 完成服務對服務驗證"
+title: 服務對服務驗證︰使用 Azure Active Directory 以 Data Lake Store 進行 | Microsoft Docs
+description: 了解如何使用 Azure Active Directory 以 Data Lake Store 完成服務對服務驗證
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 0b3f19bb92d1eeb214150bf118d546cd1c67cd78
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58f269fa9c153a37a792d9d4efdaf0bd74eb265a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771308"
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>使用 Azure Active Directory 以 Data Lake Store 進行服務對服務驗證
 > [!div class="op_single_selector"]
@@ -69,7 +70,7 @@ Azure Data Lake Store 使用 Azure Active Directory 進行驗證。 撰寫搭配
 5. 按一下 [新增] 圖示，以開啟 [新增自訂存取] 刀鋒視窗。 在此刀鋒視窗中，按一下 [選取使用者或群組]，然後在 [選取使用者或群組] 刀鋒視窗中，尋找您稍早建立的 Azure Active Directory 應用程式。 若您需要搜尋大量的群組，請使用頂端的文字方塊來篩選群組名稱。 按一下您要新增的群組，然後按一下 [選取] 。
    
     ![加入群組](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "加入群組")
-6. 按一下 [選取權限]，選取權限及權限的指派方式 (例如預設 ACL、存取 ACL 或兩者並用)。 按一下 [SERVICEPRINCIPAL] 。
+6. 按一下 [選取權限]，選取權限及權限的指派方式 (例如預設 ACL、存取 ACL 或兩者並用)。 按一下 [確定]。
    
     ![將權限指派至群組](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "將權限指派至群組")
    
@@ -77,6 +78,9 @@ Azure Data Lake Store 使用 Azure Active Directory 進行驗證。 撰寫搭配
 7. 在 [新增自訂存取] 刀鋒視窗中，按一下 [確定]。 具有相關權限的新增群組會列在 [存取] 刀鋒視窗中。
    
     ![將權限指派至群組](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "將權限指派至群組")
+
+> [!NOTE]
+> 如果您打算將 Azure Active Directory 應用程式限制在特定資料夾中，則還需要提供根與 Azure Active Directory 應用程式相同的**執行**權限，才能透過 .NET SDK 進行檔案建立存取。
 
 > [!NOTE]
 > 如果您需要使用 SDK 來建立 Data Lake Store 帳戶，必須將 Azure AD web 應用程式作為角色指派給您在其中建立 Data Lake Store 帳戶的資源群組。

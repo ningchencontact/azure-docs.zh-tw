@@ -1,11 +1,11 @@
 ---
-title: "如何使用 Azure Resource Manager 範本建立 ILB ASE | Microsoft Docs"
-description: "了解如何使用 Azure Resource Manager 範本建立內部負載平衡器 ASE"
+title: 如何使用 Azure Resource Manager 範本建立 ILB ASE | Microsoft Docs
+description: 了解如何使用 Azure Resource Manager 範本建立內部負載平衡器 ASE
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: nirma
-editor: 
+editor: ''
 ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986833"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>如何使用 Azure Resource Manager 範本建立 ILB ASE範本建立 ILB ASE
 
@@ -54,12 +55,12 @@ ms.lasthandoff: 10/11/2017
 提交 Azure Resource Manager 範本之後，需要數小時的時間才能建立 ILB ASE。  建立完成後，ILB ASE 會顯示在觸發部署之訂用帳戶的 App Service 環境清單的入口網站 UX 中。
 
 ## <a name="uploading-and-configuring-the-default-ssl-certificate"></a>上傳和設定「預設」SSL 憑證
-建立 ILB ASE 後， SSL 憑證應與 ASE 相關聯，做為用來建立應用程式的 SSL 連線的「預設」SSL 憑證。  繼續討論假定的 Contoso Corporation 範例，如果 ASE 的預設 DNS 尾碼是 internal-contoso.com，則連接到 https://some-random-app.internal-contoso.com 需要有對 *.internal contoso.com 有效的 SSL 憑證。 
+建立 ILB ASE 後， SSL 憑證應與 ASE 相關聯，做為用來建立應用程式的 SSL 連線的「預設」SSL 憑證。  繼續討論假定的 Contoso Corporation 範例，如果 ASE 的預設 DNS 尾碼是 *internal-contoso.com*，則連接到 *https://some-random-app.internal-contoso.com* 需要有對 **.internal contoso.com* 有效的 SSL 憑證。 
 
 有各種不同的方式可取得有效的 SSL 憑證，包括內部 CA、向外部簽發者購買憑證，以及使用自我簽署的憑證。  無論 SSL 憑證的來源，都需要正確設定下列憑證屬性︰
 
-* 主體︰此屬性必須設為 *.your-root-domain-here.com
-* 主體替代名稱︰此屬性必須同時包含 *.your-root-domain-here.com 和 *.scm.your-root-domain-here.com。第二個項目的原因是將使用 your-app-name.scm.your-root-domain-here.com 形式的位址，進行與每個應用程式相關聯的 SCM/Kudu 網站的 SSL 連線。
+* *主體*︰  此屬性必須設為 **.your-root-domain-here.com*
+* *主體替代名稱*︰  此屬性必須同時包含 **.your-root-domain-here.com* 和 **.scm.your-root-domain-here.com*。第二個項目的原因是將使用 *your-app-name.scm.your-root-domain-here.com* 形式的位址，進行與每個應用程式相關聯的 SCM/Kudu 網站的 SSL 連線。
 
 備妥有效的 SSL 憑證，還需要兩個額外的準備步驟。  SSL 憑證必須能夠轉換/另存為 .pfx 檔案。  請記住，.pfx 檔案必須包含所有中繼和根憑證，而且也必須使用密碼保護。
 
