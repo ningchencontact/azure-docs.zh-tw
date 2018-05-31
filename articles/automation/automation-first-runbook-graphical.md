@@ -4,16 +4,18 @@ description: 教學課程將逐步引導您建立、測試和發佈簡單的圖�
 keywords: runbook, runbook 範本, runbook 自動化, azure runbook
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d47a8a3d8343aaa17346cd63c055e8687f25f812
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7804c67871de546d217d85a4215c817f9c08f6b8
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055739"
 ---
 # <a name="my-first-graphical-runbook"></a>我的第一個圖形化 Runbook
 
@@ -117,12 +119,16 @@ ms.lasthandoff: 04/19/2018
 1. 您不再需要 [Write Hello World to output] \(撰寫 Hello World 到輸出)，因此請按一下省略符號 (...)，並選取 [刪除]。
 1. 在 [程式庫] 控制項中，展開 [資產]、[連線] ，並選取 [新增至畫布] 以將 [AzureRunAsConnection] 新增至畫布。
 1. 在 [程式庫] 控制項中，於搜尋文字方塊中輸入 **Connect-AzureRmAccount**。
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** 現在是 **Connect-AzureRMAccount** 的別名。 搜尋您的程式庫項目時，如果沒有看到 **Connect-AzureRMAccount**，便可以使用 **Add-AzureRmAccount**，或是在自動化帳戶中更新模組。
+
 1. 將 **Connect-AzureRmAccount** 加入至畫布。
 1. 將滑鼠停留在 [取得執行身分連線]，直到圖形的底端出現圓形。 按一下圓形，並將箭頭拖曳到 **Add-AzureRmAccount**。 您剛才建立的箭號是「連結」。 Runbook 會開始使用 [取得執行身分連線]，然後執行 **Connect-AzureRmAccount**。<br> ![建立活動之間的連結](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 1. 在畫布上選取 **Connect-AzureRmAccount**，然後在 [組態] 控制項窗格的 [標籤] 文字方塊中輸入 [登入 Azure]。
 1. 按一下 [參數]，隨即會顯示 [Activity Parameter Configuration] \(活動參數設定) 頁面。
 1. **Connect-AzureRmAccount** 有多個參數集，因此您必須先選取一個參數，才可以提供參數值。 按一下 [參數集]，然後選取 [ServicePrincipalCertificate] 參數集。
-1. 選取參數集之後，參數就會顯示在 [Activity Parameter Configuration] \(活動參數設定) 頁面中。 按一下 [APPLICATIONID]。<br> ![加入 Azure RM 帳戶參數](media/automation-first-runbook-graphical/Connect-AzureRmAccount-params.png)
+1. 選取參數集之後，參數就會顯示在 [Activity Parameter Configuration] \(活動參數設定) 頁面中。 按一下 [APPLICATIONID]。<br> ![加入 Azure RM 帳戶參數](media/automation-first-runbook-graphical/Add-AzureRmAccount-params.png)
 1. 在 [參數值] 頁面中，針對 [資料來源] 選取 [活動輸出]，並從清單中選取 [Get Run As Connection] \(取得執行身分連線)，再於 [欄位路徑] 文字方塊中鍵入 **ApplicationId**，然後按一下 [確定]。 您會指定欄位路徑之屬性的名稱，因為活動會輸出具有多個屬性的物件。
 1. 按一下 [CERTIFICATETHUMBPRINT]，然後在 [參數值] 頁面中，針對 [資料來源] 選取 [活動輸出]。 從清單中選取 [取得執行身分連線]，在 [欄位路徑] 文字方塊中輸入 **CertificateThumbprint**，然後按一下 [確定]。
 1. 按一下 [SERVICEPRINCIPAL]，並在 [參數值] 頁面中，針對 [資料來源] 選取 [ConstantValue]，再按一下選項 [True]，然後按一下 [確定]。
@@ -136,9 +142,6 @@ ms.lasthandoff: 04/19/2018
 1. 在 [參數值] 頁面中，針對 [資料來源] 選取 [變數資產]，接著在清單中選取 [AzureSubscriptionId]，然後按兩次 [確定]。
 1. 將滑鼠停留在 [登入 Azure]  ，直到圖形的底端出現圓形。 按一下圓形，並將箭頭拖曳到 [指定訂用帳戶識別碼] 。
 
-> [!IMPORTANT]
-> **Connect-AzureRmAccount** 現在是 **Connect-AzureRMAccount**的別名。 搜尋您的程式庫項目時，如果您沒有看到 **Connect-AzureRMAccount**，您可以使用 **Connect-AzureRmAccount**，或是在您的自動化帳戶中更新您的模組。
-
 此時您的 Runbook 看起來應該像下面這樣︰ <br>![Runbook 驗證組態](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
 ## <a name="add-activity-to-start-a-vm"></a>新增活動來啟動 VM
@@ -149,8 +152,8 @@ ms.lasthandoff: 04/19/2018
 2. 將 [Start-AzureRmVM] 新增至畫布，然後對它按一下並拖曳到 [指定訂用帳戶識別碼] 底下。
 1. 將滑鼠停留在 [指定訂用帳戶識別碼]  ，直到圖形的底端出現圓形。 按一下圓形，並將箭頭拖曳到 [Start-AzureRmVM] 。
 1. 選取 [Start-AzureRmVM]。 按一下 [參數]，然後按一下 [參數集] 以檢視 [Start-AzureRmVM] 的參數集。 選取 [ResourceGroupNameParameterSetName]  參數集。 [ResourceGroupName] 和 [名稱] 旁邊具有驚嘆號。 這表示它們是必要的參數。 也請注意這兩者應該是字串值。
-1. 選取 [Start-AzureRmVM] 。 在 [資料來源] 中選取 [PowerShell 運算式]，並輸入用雙引號括住的虛擬機器名稱，此為您要用此 Runbook 啟動的虛擬機器。 按一下 [SERVICEPRINCIPAL] 。
-1. 選取 [ResourceGroupName]。 針對 [資料來源] 使用 [PowerShell 運算式]，並輸入用雙引號括住的資源群組名稱。 按一下 [SERVICEPRINCIPAL] 。
+1. 選取 [Start-AzureRmVM] 。 在 [資料來源] 中選取 [PowerShell 運算式]，並輸入用雙引號括住的虛擬機器名稱，此為您要用此 Runbook 啟動的虛擬機器。 按一下 [確定]。
+1. 選取 [ResourceGroupName]。 針對 [資料來源] 使用 [PowerShell 運算式]，並輸入用雙引號括住的資源群組名稱。 按一下 [確定]。
 1. 按一下 [測試] 窗格，您便可測試 Runbook。
 1. 按一下 [開始]  以開始測試。 當它完成時，請檢查虛擬機器已啟動。
 
@@ -162,7 +165,7 @@ ms.lasthandoff: 04/19/2018
 
 1. 按一下 [MyFirstRunbook-Graphical] 窗格上的 [編輯] 來開啟圖形化編輯器。
 1. 選取 [輸入和輸出]，然後選取 [新增輸入]，來開啟 [Runbook Input Parameter] \(Runbook 輸入參數) 窗格。
-1. 對 [ *名稱* ] 指定 **VMName**。 將 [類型] 保留為 *string*，但將 [強制] 變更為 [是]。 按一下 [SERVICEPRINCIPAL] 。
+1. 對 [ *名稱* ] 指定 **VMName**。 將 [類型] 保留為 *string*，但將 [強制] 變更為 [是]。 按一下 [確定]。
 1. 建立稱為 ResourceGroupName 的第二個必要輸入參數，然後按一下 [確定] 來關閉 [輸入和輸出] 窗格。<br> ![Runbook 輸入參數](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
 1. 選取 [Start-AzureRmVM] 活動，然後按一下 [參數]。
 1. 將 [名稱] 的 [資料來源] 變更為 [Runbook 輸入]，然後選取 [VMName]。
@@ -183,9 +186,9 @@ ms.lasthandoff: 04/19/2018
 1. 在 [程式庫] 控制項中，於搜尋文字方塊中輸入 **Get-AzureRm** 。
 1. 將 [Get-AzureRmVM]  加入至畫布。
 1. 選取 [Get-AzureRmVM]，然後選取 [參數集] 以檢視 [Get-AzureRmVM] 的參數集。 選取 [GetVirtualMachineInResourceGroupNameParamSet]  參數集。 [ResourceGroupName] 和 [名稱] 旁邊具有驚嘆號。 這表示它們是必要的參數。 也請注意這兩者應該是字串值。
-1. 在 [名稱] 的 [資料來源] 底下，選取 [Runbook 輸入]，然後選取 [VMName]。 按一下 [SERVICEPRINCIPAL] 。
-1. 在 [ResourceGroupName] 的 [資料來源] 底下，選取 [Runbook 輸入]，然後選取 [ResourceGroupName]。 按一下 [SERVICEPRINCIPAL] 。
-1. 在 [狀態] 的 [資料來源] 底下，選取 [常數值]，然後按一下 [True]。 按一下 [SERVICEPRINCIPAL] 。
+1. 在 [名稱] 的 [資料來源] 底下，選取 [Runbook 輸入]，然後選取 [VMName]。 按一下 [確定]。
+1. 在 [ResourceGroupName] 的 [資料來源] 底下，選取 [Runbook 輸入]，然後選取 [ResourceGroupName]。 按一下 [確定]。
+1. 在 [狀態] 的 [資料來源] 底下，選取 [常數值]，然後按一下 [True]。 按一下 [確定]。
 1. 建立從 [指定訂用帳戶識別碼] 至 [Get-AzureRmVM] 的連結。
 1. 在 [程式庫] 控制項中展開 [Runbook 控制項]，並將 [程式碼] 新增至畫布。  
 1. 建立從 [Get-AzureRmVM] 至 [程式碼] 的連結。  

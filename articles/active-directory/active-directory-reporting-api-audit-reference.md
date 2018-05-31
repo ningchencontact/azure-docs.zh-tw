@@ -1,30 +1,35 @@
 ---
-title: "Azure Active Directory 稽核 API 參考 | Microsoft Docs"
-description: "如何開始使用 Azure Active Directory 稽核 API"
+title: Azure Active Directory 稽核 API 參考 | Microsoft Docs
+description: 如何開始使用 Azure Active Directory 稽核 API
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5cdf80ff1cc49b1582302d411ee6fcc8f193c021
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: e620a7f488e51a60bff6943135831eea0d12816d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158042"
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory 稽核 API 參考
-本主題是 Azure Active Directory 報告 API 相關主題集合的一部分。  
-Azure AD 報告提供的 API 可讓您使用程式碼或相關工具來存取稽核資料。
-本主題的範疇是為您提供有關 **稽核 API**的參考資訊。
+
+> [!TIP] 
+> 請確認一下[報告](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)專用的新 Microsoft Graph API，該 API 終將取代此 API。 
+
+
+本文章屬於 Azure Active Directory (Azure AD) 報告 API 相關系列文章。 Azure AD 報告提供的 API 可讓您使用程式碼或相關工具來存取稽核資料。
+文中提供**稽核 API** 的相關參考資訊。
 
 請參閱：
 
@@ -35,37 +40,36 @@ Azure AD 報告提供的 API 可讓您使用程式碼或相關工具來存取稽
 
 關於：
 
-- 閱讀常見問題集，請參閱我們的[常見問題集](active-directory-reporting-faq.md) 
+- 如有常見問題，請參閱[常見問題集](active-directory-reporting-faq.md) 
 
-- 問題，請[提出支援票證](active-directory-troubleshooting-support-howto.md) 
+- 如有問題，請[提出支援票證](active-directory-troubleshooting-support-howto.md) 
 
 
 ## <a name="who-can-access-the-data"></a>誰可以存取資料？
 * 具有安全性系統管理員或安全性讀取器角色的使用者
 * 全域管理員
-* 任何獲得授權存取 API 的應用程式 (只可以根據全域管理員的權限來設定應用程式授權)
+* 任何獲得授權、可存取 API 的應用程式 (只可以根據全域管理員的權限來設定應用程式授權)
 
 ## <a name="prerequisites"></a>先決條件
 若要透過報告 API 來存取此報告，您必須具有︰
 
-* [Azure Active Directory Free 或更好的版本](active-directory-editions.md)
+* [Azure Active Directory Free 或更好的版本](active-directory-whatis.md)
 * 了解 [存取 Azure AD 報告 API 的必要條件](active-directory-reporting-api-prerequisites.md)。 
 
 ## <a name="accessing-the-api"></a>存取 API
-您可以透過 [Graph 總管](https://graphexplorer2.cloudapp.net) 或以程式設計方式使用 PowerShell 來存取此 API。 為了讓 PowerShell 正確地解譯 AAD Graph REST 呼叫中使用的 OData 篩選語法，您必須使用倒單引號 (也稱為︰抑音符號) 字元來「逸出」$ 字元。 倒單引號字元可做為 [PowerShell 的逸出字元](https://technet.microsoft.com/library/hh847755.aspx)，讓 PowerShell 進行 $ 字元的常值解譯，並且避免將它與 PowerShell 變數名稱 (例如︰$filter) 搞混。
+您可以透過 [Graph 總管](https://graphexplorer2.cloudapp.net) 或以程式設計方式使用 PowerShell 來存取此 API。 為了確保 PowerShell 能夠正確地解譯 AAD Graph REST 呼叫中使用的 OData 篩選語法，必須使用倒單引號 (也稱為︰抑音符號) 字元來「逸出」$ 字元。 倒單引號字元可做為 [PowerShell 的逸出字元](https://technet.microsoft.com/library/hh847755.aspx)，讓 PowerShell 進行 $ 字元的常值解譯，並且避免將它與 PowerShell 變數名稱 (例如︰$filter) 搞混。
 
-本主題的重點在於 Graph 總管。 如需 PowerShell 範例，請參閱此 [PowerShell 指令碼](active-directory-reporting-api-audit-samples.md#powershell-script)。
+本文章會以 Graph 總管為主。 如需 PowerShell 範例，請參閱此 [PowerShell 指令碼](active-directory-reporting-api-audit-samples.md#powershell-script)。
 
 ## <a name="api-endpoint"></a>API 端點
+
 您可以使用下列 URI 來存取此 API︰  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta
 
-Azure AD 稽核 API (使用 OData 分頁) 傳回的記錄筆數沒有任何限制。
-如需報告資料的保留限制，請參閱 [報告保留原則](active-directory-reporting-retention.md)。
+Azure AD 稽核 API (使用 OData 分頁) 傳回的記錄筆數沒有任何限制。 如需報告資料的保留限制，請參閱[報告保留原則](active-directory-reporting-retention.md)。
 
-此呼叫會分批傳回資料。 每個批次的上限為 1000 筆記錄。  
-若要取得下一批記錄，請使用 [下一個] 連結。 從第一組傳回的資料取得 skiptoken 資訊。 略過 Token 位於結果集的結尾。  
+該呼叫會分批傳回資料。 每個批次的上限為 1000 筆記錄。 若要取得下一批記錄，請使用 [下一個] 連結。 從第一組傳回的資料取得跳過權杖資訊。 略過 Token 位於結果集的結尾。  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta&%24skiptoken=-1339686058
 
@@ -73,10 +77,11 @@ Azure AD 稽核 API (使用 OData 分頁) 傳回的記錄筆數沒有任何限�
 
 
 ## <a name="supported-filters"></a>支援的篩選器
-您可以篩選形式縮小 API 呼叫所傳回的記錄筆數。  
-對於登入 API 相關資料，支援下列篩選︰
 
-* **$top=\<傳回的記錄筆數\>** - 限制傳回的記錄筆數。 這是一項昂貴的作業。 如果您想要傳回數千個物件，則不應該使用此篩選器。     
+您可以使用篩選條件，減少 API 呼叫所傳回的記錄筆數。  
+若為登入 API 相關資料，系統支援下列篩選條件︰
+
+* **$top=\<傳回的記錄筆數\>** - 限制傳回的記錄筆數。 這是一項昂貴的作業。 如果想要傳回數千個物件，請勿使用此篩選器。     
 * **$filter=\<您的篩選陳述式\>** - 根據支援的篩選欄位，指定您關心的記錄類型
 
 ## <a name="supported-filter-fields-and-operators"></a>支援的篩選欄位和運算子
@@ -213,7 +218,7 @@ datetime 應採用 UTC 格式
 **注意**：
 
 * 不區分大小寫
-* 您需要時在查詢 Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity 時新增完整的命名空間
+* 查詢 Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity 時，請新增完整的命名空間
 
 - - -
 ### <a name="targetobjectid"></a>target/objectid
@@ -234,10 +239,12 @@ datetime 應採用 UTC 格式
 **注意**：
 
 * 不區分大小寫 
-* 您需要時在查詢 Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity 時新增完整的命名空間
+* 查詢 Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity 時，請新增完整的命名空間
 
 - - -
 ## <a name="next-steps"></a>後續步驟
-* 您想要查看篩選過的系統活動範例嗎？ 請查看 [Azure Active Directory 稽核 API 範例](active-directory-reporting-api-audit-samples.md)。
-* 您想要深入了解 Azure AD 報告 API 嗎？ 請參閱 [開始使用 Azure Active Directory 報告 API](active-directory-reporting-api-getting-started.md)。
+
+- 您想要查看篩選過的系統活動範例嗎？ 請查看 [Azure Active Directory 稽核 API 範例](active-directory-reporting-api-audit-samples.md)。
+
+- 您想要深入了解 Azure AD 報告 API 嗎？ 請參閱 [開始使用 Azure Active Directory 報告 API](active-directory-reporting-api-getting-started.md)。
 

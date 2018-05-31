@@ -14,17 +14,113 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 8ec74f69d2de7b167fcc66d0e2499d052f0bf18e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779000"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure 儲存體總管版本資訊
 
-本文包含 Microsoft Azure 儲存體總管 0.9.6 (預覽) 和先前版本的版本資訊。
+本文包含 Microsoft Azure 儲存體總管 1.0.0 版和先前版本的版本資訊。
 
 [Microsoft Azure 儲存體總管](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
+
+## <a name="version-100"></a>1.0.0 版
+04/16/2018
+
+### <a name="download-azure-storage-explorer-100"></a>下載 Azure 儲存體總管 1.0.0
+- [適用於 Windows 的 Azure 儲存體總管 1.0.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Azure 儲存體總管 1.0.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Azure 儲存體總管 1.0.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>新增
+* 增強式驗證，可讓儲存體總管使用與 Visual Studio 2017 相同的帳戶存放區。 若要使用這項功能，您必須重新登入您的帳戶，並重新設定已篩選的訂用帳戶。
+* 對於 AAD 所支援的 Azure Stack 帳戶，如果已啟用 [目標 Azure Stack]，則儲存體總管現在會擷取 Azure Stack 訂用帳戶。 您不再需要建立自訂登入環境。
+* 已新增數個捷徑，以便進行更快速的導覽。 這些包括切換各種面板並在編輯器之間移動。 如需詳細資訊，請參閱 [檢視] 功能表。
+* GitHub 上現在提供儲存體總管意見反應。 按一下左下方的 [意見反應] 按鈕或移至 [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues)，即可抵達我們的問題頁面。 請隨意提出建議、回報問題、詢問問題，或留下任何其他形式的意見反應。
+* 如果您遇到 SSL 憑證問題，而且找不到引起問題的憑證，現在可以使用 `--ignore-certificate-errors` 旗標從命令列啟動儲存體總管。 使用這個旗標啟動時，儲存體總管會忽略 SSL 憑證錯誤。
+* Blob 和檔案項目的內容功能表中現在有 [下載] 選項。
+* 已改善協助工具和畫面讀取器支援。 如果您需依賴協助工具功能，請參閱[協助工具文件](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility)以取得詳細資訊。
+* 儲存體總管現在使用 Electron 1.8.3
+
+### <a name="breaking-changes"></a>重大變更
+* 儲存體總管已切換到新的驗證程式庫。 切換到此程式庫時，您必須重新登入您的帳戶，並重新設定已篩選的訂用帳戶。
+* 用來加密敏感性資料的方法已變更。 這可能會導致必須重新新增部分的快速存取項目及/或必須重新連結部分已連結的資源。
+
+### <a name="fixes"></a>修正
+* 位於 Proxy 後方的某些使用者會有因為「無法解析」錯誤訊息而中斷的群組 blob 上傳或下載。 已修正此問題。
+* 如果使用直接連結時需要登入，按一下 [登入] 提示就會顯示空白的對話方塊。 已修正此問題。
+* 在 Linux 上，如果儲存體總管因為 GPU 程序損毀而無法啟動，您現在會獲知損毀、得知要使用 '--disable-gpu' 參數，而儲存體總管會接著在已啟用此參數的情況下自動重新啟動。
+* 在 [存取原則] 對話方塊中難以識別無效的存取原則。 無效的存取原則識別碼現在會以紅色標示，讓您更容易辨識。
+* 活動記錄有時在活動的不同部分之間會有大量空白區域。 已修正此問題。
+* 在表格查詢編輯器中，如果您讓時間戳記子句處於無效狀態，然後嘗試修改另一個子句，則編輯器會凍結。 如果偵測到另一個子句變更，編輯器現在會將時間戳記子句還原到其前次有效的狀態。
+* 如果您在樹狀檢視中輸入搜尋查詢時暫停，則搜尋會開始並且從文字方塊竊取焦點。 現在，您必須按 'Enter' 鍵，或按一下 [開始搜尋] 按鈕，明確地開始搜尋。
+* 在檔案共用中的檔案上按一下滑鼠右鍵時，有時會停用 [取得共用存取簽章] 命令。 已修正此問題。
+* 如果在搜尋期間已篩選掉具有焦點的資源樹狀節點，您就無法用 Tab 鍵移入資源樹狀結構並使用方向鍵來瀏覽資源樹狀結構。 現在，如果取得焦點的資源樹狀節點隱藏起來，則資源樹狀結構中的第一個節點會自動取得焦點。
+* 在編輯器工具列中有時可看到額外的分隔符號。 已修正此問題。
+* 階層連結文字方塊有時會溢位。 已修正此問題。
+* 一次上傳許多檔案時，有時會經常重新整理 Blob 和檔案共用編輯器。 已修正此問題。
+* 在檔案共用快照集管理檢視中，[資料夾統計資料] 功能沒有任何用途。 它現在已停用。
+* 在 Linux 上，[檔案] 功能表不會出現。 已修正此問題。
+* 將資料夾上傳至檔案共用時，預設只會上傳資料夾的內容。 現在，預設行為是將資料夾的內容上傳到檔案共用中的相符資料夾。
+* 數個對話方塊中的按鈕順序已反轉。 已修正此問題。
+* 各種安全性相關修正程式。
+
+### <a name="known-issues"></a>已知問題
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。 
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>舊版
+
+* [0.9.6 版](#version-096)
+* [0.9.5 版](#version-095)
+* [0.9.4 和 0.9.3 版](#version-094-and-093)
+* [0.9.2 版](#version-092)
+* [0.9.1 和 0.9.0 版](#version-091-and-090)
+* [0.8.16 版](#version-0816)
+* [版本 0.8.14](#version-0814)
+* [0.8.13 版](#version-0813)
+* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
+* [0.8.9 和 0.8.8 版](#version-089-and-088)
+* [0.8.7 版](#version-087)
+* [0.8.6 版](#version-086)
+* [0.8.5 版](#version-085)
+* [0.8.4 版](#version-084)
+* [0.8.3 版](#version-083)
+* [0.8.2 版](#version-082)
+* [0.8.0 版](#version-080)
+* [0.7.20160509.0 版](#version-07201605090)
+* [0.7.20160325.0 版](#version-07201603250)
+* [0.7.20160129.1 版](#version-07201601291)
+* [0.7.20160105.0 版](#version-07201601050)
+* [0.7.20151116.0 版](#version-07201511160)
 
 ## <a name="version-096"></a>0.9.6 版
 02/28/2018
@@ -66,30 +162,6 @@ ms.lasthandoff: 04/18/2018
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>舊版
-
-* [0.9.5 版](#version-095)
-* [0.9.4 和 0.9.3 版](#version-094-and-093)
-* [0.9.2 版](#version-092)
-* [0.9.1 和 0.9.0 版](#version-091-and-090)
-* [0.8.16 版](#version-0816)
-* [版本 0.8.14](#version-0814)
-* [0.8.13 版](#version-0813)
-* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
-* [0.8.9 和 0.8.8 版](#version-089-and-088)
-* [0.8.7 版](#version-087)
-* [0.8.6 版](#version-086)
-* [0.8.5 版](#version-085)
-* [0.8.4 版](#version-084)
-* [0.8.3 版](#version-083)
-* [0.8.2 版](#version-082)
-* [0.8.0 版](#version-080)
-* [0.7.20160509.0 版](#version-07201605090)
-* [0.7.20160325.0 版](#version-07201603250)
-* [0.7.20160129.1 版](#version-07201601291)
-* [0.7.20160105.0 版](#version-07201601050)
-* [0.7.20151116.0 版](#version-07201511160)
 
 ## <a name="version-095"></a>0.9.5 版
 02/06/2018
@@ -227,7 +299,7 @@ ms.lasthandoff: 04/18/2018
 * 如果您嘗試使用無效的 Windows 檔案名稱開啟或下載 Blob，作業會失敗。 儲存體總管現在會偵測 Blob 名稱是否無效，並詢問您是否要加以編碼或略過該 Blob。 儲存體總管也會偵測檔案名稱是否已經過編碼，並詢問您是否要在上傳之前將它解碼。
 * Blob 上傳期間，目標 Blob 容器的編輯器會有時不正確地重新整理。 已修正此問題。
 * 數種形式的連接字串和 SAS URI 支援已回歸。 我們已經處理所有已知的問題，但如果您遇到其他問題，請傳送意見反應。
-* 0.9.0 中有些使用者的更新通知已中斷。 已修正此問題，以及對於受此錯誤影響的使用者，可以在[這裡](https://azure.microsoft.com/en-us/features/storage-explorer/)手動下載最新版的儲存體總管。
+* 0.9.0 中有些使用者的更新通知已中斷。 已修正此問題，以及對於受此錯誤影響的使用者，可以在[這裡](https://azure.microsoft.com/features/storage-explorer/)手動下載最新版的儲存體總管。
 
 ### <a name="known-issues"></a>已知問題
 * 儲存體總管不支援 ADFS 帳戶。
@@ -281,7 +353,7 @@ ms.lasthandoff: 04/18/2018
 * 如果您嘗試使用無效的 Windows 檔案名稱開啟或下載 Blob，作業會失敗。 儲存體總管現在會偵測 Blob 名稱是否無效，並詢問您是否要加以編碼或略過該 Blob。 儲存體總管也會偵測檔案名稱是否已經過編碼，並詢問您是否要在上傳之前將它解碼。
 * Blob 上傳期間，目標 Blob 容器的編輯器會有時不正確地重新整理。 已修正此問題。
 * 數種形式的連接字串和 SAS URI 支援已回歸。 我們已經處理所有已知的問題，但如果您遇到其他問題，請傳送意見反應。
-* 0.9.0 中有些使用者的更新通知已中斷。 已修正此問題，以及對於受此錯誤影響的使用者，可以在[這裡](https://azure.microsoft.com/en-us/features/storage-explorer/)手動下載最新版的儲存體總管
+* 0.9.0 中有些使用者的更新通知已中斷。 已修正此問題，以及對於受此錯誤影響的使用者，可以在[這裡](https://azure.microsoft.com/features/storage-explorer/)手動下載最新版的儲存體總管
 
 ### <a name="known-issues"></a>已知問題
 * 儲存體總管不支援 ADFS 帳戶。

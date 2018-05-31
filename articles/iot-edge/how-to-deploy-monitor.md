@@ -1,25 +1,26 @@
 ---
-title: "部署和監視適用於 Azure IoT Edge 的模組 | Microsoft Docs"
-description: "管理在 Edge 裝置上執行的模組"
+title: 部署和監視適用於 Azure IoT Edge 的模組 | Microsoft Docs
+description: 管理在 Edge 裝置上執行的模組
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 6d024dfdd661d6bebe7d163b96659d6e169cc5cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33770601"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>大規模部署和監視 IoT Edge 模組 - 預覽
 
 Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能夠管理和監視 IoT Edge 裝置，而不需實際存取每一個。 隨著物聯網解決方案越來越大且越複雜，從遠端管理裝置的能力就變得越來越重要。 Azure IoT Edge 是設計來支援您的商務目標，而不論您新增了多少個裝置。
 
-您可以管理個別裝置，且一次一個對其部署模組。 不過，如果您想要大規模對裝置進行變更，便可以建立 **IoT Edge 部署**。 部署是動態程序，可讓您一次將多個模組部署到多個裝置、追蹤模組的狀態和健康情況，並視需要進行變更。 
+您可以管理個別裝置，且一次一個對其部署模組。 不過，如果您想要大規模地變更裝置，可以建立 **IoT Edge 自動部署**，這是 IoT 中樞內裝置自動管理的一部分。 部署是動態程序，可讓您一次將多個模組部署到多個裝置、追蹤模組的狀態和健康情況，並視需要進行變更。 
 
 ## <a name="identify-devices-using-tags"></a>使用標記識別裝置
 

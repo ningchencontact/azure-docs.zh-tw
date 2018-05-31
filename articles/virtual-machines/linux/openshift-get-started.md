@@ -1,25 +1,26 @@
 ---
-title: "Azure 上的 OpenShift 概觀 | Microsoft Docs"
-description: "Azure 中的 OpenShift 概觀。"
+title: Azure 上的 OpenShift 概觀 | Microsoft Docs
+description: Azure 中的 OpenShift 概觀。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 5d154a1c860a5ebd7af2efd55b470bb14efe6c67
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c8e740a66271c88b3abb036867d1760cc9e77607
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33944496"
 ---
 # <a name="openshift-in-azure"></a>Azure 中的 OpenShift
 
@@ -31,14 +32,14 @@ OpenShift 包含容器協調流程與管理的 Kubernetes。 它加入以開發�
 - 部署及調整更容易。
 - 小組和應用程式的長期生命週期維護。
 
-OpenShift 有多個版本，其中兩個可在 Azure 中執行：
+有多個版本的 OpenShift 可用：
 
 - OpenShift Origin
 - Red Hat OpenShift 容器平台
 - OpenShift 線上
 - OpenShift 專用
 
-在本文涵蓋的四個版本中，其中兩個可供客戶自行部署至 Azure：OpenShift Origin 和 OpenShift 容器平台。
+在本文涵蓋的四個版本中，只有兩個可供客戶部署至 Azure：OpenShift Origin 和 OpenShift 容器平台。
 
 ## <a name="openshift-origin"></a>OpenShift Origin
 

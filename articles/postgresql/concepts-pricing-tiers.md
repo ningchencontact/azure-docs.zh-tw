@@ -9,11 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 3ea7d09338d4d89030138b8c4dc4085a6cd8ccc5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2a16e346e508b96338bb1c216ad6a64c013895f2
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312316"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>適用於 PostgreSQL 的 Azure 資料庫定價層
 
@@ -36,7 +37,8 @@ ms.lasthandoff: 04/05/2018
 | 一般用途 | 需要平衡的計算和記憶體以及可擴充 I/O 輸送量的大多數商務工作負載。 範例包括用於裝載 Web 和行動應用程式的伺服器，以及其他企業應用程式。|
 | 記憶體最佳化 | 需要記憶體內效能來提供更快速交易處理和更高並行性的高效能資料庫工作負載。 範例包括用於處理即時資料的伺服器，以及高效能交易式或分析應用程式。|
 
-建立伺服器之後，虛擬核心數目可在幾秒內增加或減少。 您可以也單獨調高儲存體的數量及延長或縮短備份保留期限，而無須中斷應用程式。 如需詳細資訊，請參閱＜調整資源＞一節。
+建立伺服器之後，虛擬核心數目可在幾秒內增加或減少 (在同一個定價層內)。 您可以也單獨調高儲存體的數量及延長或縮短備份保留期限，而無須中斷應用程式。 但您無法在建立伺服器之後，變更定價層或備份儲存體類型。 如需詳細資訊，請參閱[調整資源](#scale-resources)一節。
+
 
 ## <a name="compute-generations-vcores-and-memory"></a>計算世代、虛擬機器和記憶體
 
@@ -44,7 +46,7 @@ ms.lasthandoff: 04/05/2018
 
 | **Azure 區域** | **第 4 代** | **第 5 代** |
 |:---|:----------:|:--------------------:|
-| 美國中部 |  | X |
+| 美國中部 | X |  |
 | 美國東部 | X | X |
 | 美國東部 2 | X | X |
 | 美國中北部 | X |  |
@@ -53,16 +55,18 @@ ms.lasthandoff: 04/05/2018
 | 美國西部 2 |  | X |
 | 加拿大中部 | X | X |
 | 加拿大東部 | X | X |
-| 巴西南部 | X |  |
+| 巴西南部 | X | X |
 | 北歐 | X | X |
-| 西歐 | X | X |
+| 西歐 |  | X |
 | 英國西部 |  | X |
 | 英國南部 |  | X |
 | 東亞 | X |  |
-| 東南亞 | X |  |
+| 東南亞 | X | X |
 | 澳洲東部 |  | X |
+| 澳大利亞東南部 |  | X |
 | 印度中部 | X |  |
 | 印度西部 | X |  |
+| 印度南部 |  | X |
 | 日本東部 | X | X |
 | 日本西部 | X | X |
 | 韓國南部 |  | X |
@@ -84,13 +88,13 @@ ms.lasthandoff: 04/05/2018
 
 您可以在 Azure 入口網站或使用 Azure CLI 命令來監視 I/O 耗用量。 要監視的相關計量包括[儲存體限制、儲存體百分比、已使用的儲存體和 IO 百分比](concepts-monitoring.md)。
 
-## <a name="backup"></a>Backup 
+## <a name="backup"></a>備份
 
 服務會自動採用伺服器的備份。 備份的最小保留期限是七天。 您可以設定的保留期限最多為 35 天。 在伺服器的存留期期間，您可以在任何時間點調整保留期限。 您可以選擇本地備援和異地備援備份。 異地備援備份也會儲存在您伺服器所在建立區域的[地理配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)中。 此備援能力可在發生災害時提供一層保護。 您也可讓伺服器還原到其他任何 Azure 區域，只要其中的服務可使用異地備援備份。 建立伺服器之後，便無法在兩個備份儲存體選項之間做變更。
 
 ## <a name="scale-resources"></a>調整資源
 
-建立伺服器之後，您可以單獨變更 vCore、儲存體數量及備份保留期限。 但您無法在建立伺服器之後，變更定價層或備份儲存體類型。 您可相應增加或減少虛擬核心及備份保留期限。 儲存體大小只能增加。 您可以透過入口網站或 Azure CLI 來調整資源。 如需使用 Azure CLI 進行調整的範例，請參閱[使用 Azure CLI 來監視和調整適用於 PostgreSQL 的 Azure 資料庫伺服器](scripts/sample-scale-server-up-or-down.md)。
+建立伺服器之後，您可以單獨變更 vCore、儲存體數量及備份保留期限。 但您無法在建立伺服器之後，變更定價層或備份儲存體類型。 虛擬核心數目可在同一個定價層內相應增加或減少。 備份保留期可在 7 到 35 天的範圍內相應增加或減少。 儲存體大小只能增加。  您可以透過入口網站或 Azure CLI 來調整資源。 如需使用 Azure CLI 進行調整的範例，請參閱[使用 Azure CLI 來監視和調整適用於 PostgreSQL 的 Azure 資料庫伺服器](scripts/sample-scale-server-up-or-down.md)。
 
 當您變更 vCore 數目時，系統會以新的計算配置建立一個原始伺服器複本。 當新伺服器已啟動並執行之後，連線就會切換到新的伺服器。 在系統切換到新伺服器的期間，您無法建立任何新的連線，且所有未認可的交易皆會復原。 此期間長短可能有所不同，但大部分情況下是少於一分鐘。
 

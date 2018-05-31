@@ -14,17 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/14/2018
 ms.author: parakhj
-ms.openlocfilehash: cff5c1eed374683ad3e2c1f1a69f6f172f36c536
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d5e5ab1262a9d33fcf34cce91113f39c8c8936f4
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200513"
 ---
 # <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則允許使用者登入多租用戶 Azure AD 識別提供者
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-本文會說明如何透過使用[自訂原則](active-directory-b2c-overview-custom.md)，讓使用 Azure Active Directory (Azure AD) 通用端點的使用者能夠登入。
+本文會說明如何透過使用[自訂原則](active-directory-b2c-overview-custom.md)，讓使用 Azure Active Directory (Azure AD) 多租用戶端點的使用者能夠登入。 這可讓使用者從多個 Azure AD 租用戶登入 Azure AD B2C，而不需設定每個租用戶的技術提供者。 不過，所有這些租用戶中的來賓成員並**不能**登入。 因此，您必須[個別設定每個租用戶](active-directory-b2c-setup-aad-custom.md)。
 
 >[!NOTE]
 > 我們在下列指示中使用 "contoso.com" 作為組織的 Azure AD 租用戶，以及使用 "fabrikamb2c.onmicrosoft.com" 作為 Azure AD B2C 租用戶。
@@ -36,25 +37,22 @@ ms.lasthandoff: 04/18/2018
 這些步驟包括：
      
 1. 建立 Azure Active Directory B2C (Azure AD B2C) 租用戶。
-2. 建立 Azure AD B2C 應用程式。    
-3. 註冊兩個原則引擎應用程式。  
-4. 設定金鑰。 
-5. 設定入門套件。
+1. 建立 Azure AD B2C 應用程式。    
+1. 註冊兩個原則引擎應用程式。  
+1. 設定金鑰。 
+1. 設定入門套件。
 
 ## <a name="step-1-create-a-multi-tenant-azure-ad-app"></a>步驟 1. 建立多租用戶 Azure AD 應用程式
 
-為了讓使用多租用戶 Azure AD 端點的使用者能夠登入，您必須在任何 Azure AD 租用戶中註冊多租用戶應用程式。 在本文中，我們會說明如何在 Azure AD B2C 租用戶中建立多租用戶 Azure AD 應用程式。 然後，透過使用該多租用戶 Azure AD 應用程式讓使用者能夠登入。
-
->[!NOTE]
-> 如果您想要讓 Azure AD 使用者和**具有 Microsoft 帳戶的使用者**登入，請略過本節，並改為在 [Microsoft 開發人員入口網站](https://apps.dev.microsoft.com)中註冊應用程式。
+為了讓使用多租用戶 Azure AD 端點的使用者能夠登入，您必須在其中一個 Azure AD 租用戶中註冊多租用戶應用程式。 在本文中，我們會說明如何在 Azure AD B2C 租用戶中建立多租用戶 Azure AD 應用程式。 然後，透過使用該多租用戶 Azure AD 應用程式讓使用者能夠登入。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 在頂端列上，選取您的帳戶。 從 [目錄] 清單選擇要註冊 Azure AD 應用程式的 Azure AD B2C 租用戶 (fabrikamb2c.onmicrosoft.com)。
-2. 選取左側窗格中的 [更多服務]，然後搜尋「應用程式註冊」。
-3. 選取 [新增應用程式註冊]。
-4. 輸入應用程式的名稱 (例如，`Azure AD B2C App`)。
-5. 選取 [Web 應用程式/API] 作為應用程式類型。
-6. 針對 [登入 URL]，輸入下列 URL，其中 `yourtenant` 由 Azure AD B2C 租用戶的名稱 (`fabrikamb2c.onmicrosoft.com`) 取代：
+1. 選取左側窗格中的 [更多服務]，然後搜尋「應用程式註冊」。
+1. 選取 [新增應用程式註冊]。
+1. 輸入應用程式的名稱 (例如，`Azure AD B2C App`)。
+1. 選取 [Web 應用程式/API] 作為應用程式類型。
+1. 針對 [登入 URL]，輸入下列 URL，其中 `yourtenant` 由 Azure AD B2C 租用戶的名稱 (`fabrikamb2c.onmicrosoft.com`) 取代：
 
     >[!NOTE]
     >在**登入 URL** 中，「yourtenant」的值必須全部小寫。
@@ -82,8 +80,8 @@ ms.lasthandoff: 04/18/2018
    * 針對 [名稱]，選擇與您的 Azure AD 租用戶名稱相符的名稱 (例如，`AADAppSecret`)。  金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
    * 在 [祕密] 方塊中貼上您的應用程式金鑰。
    * 選取 [簽章]。
-5. 選取 [建立] 。
-6. 確認您已建立金鑰 `B2C_1A_AADAppSecret`。
+1. 選取 [建立] 。
+1. 確認您已建立金鑰 `B2C_1A_AADAppSecret`。
 
 ## <a name="step-3-add-a-claims-provider-in-your-base-policy"></a>步驟 3. 在基本原則中新增宣告提供者
 
@@ -114,11 +112,12 @@ ms.lasthandoff: 04/18/2018
         <Item Key="HttpBinding">POST</Item>
         <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
         
-        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. If you would like only specific tenants to be able to sign in, uncomment the line below and update the GUIDs. -->
-        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item> -->
+        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
+        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
 
-        <!-- The commented key below specifies that users from any tenant can sign-in. Comment or remove the line below if using the line above. -->
-        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item>
+        <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
+        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+
       </Metadata>
       <CryptographicKeys>
       <!-- Make sure to update the reference ID of the client secret below you just created (B2C_1A_AADAppSecret) -->
@@ -150,14 +149,15 @@ ms.lasthandoff: 04/18/2018
 1. 更新 `<Description>` 的值。
 1. 將 `<Item Key="client_id">` 設定為註冊 Azure AD 多租用戶應用程式時所得到的應用程式識別碼。
 
-### <a name="step-31-optional-restrict-access-to-specific-list-of-azure-ad-tenants"></a>步驟 3.1 [選擇性] 限制只能存取特定的 Azure AD 租用戶清單
-您可以更新有效權杖簽發者清單，並限制只能存取由使用者可登入的 Azure AD 租用戶所構成的特定清單。 若要取得這些值，您必須查看您想要讓使用者從中登入的每個特定 Azure AD 租用戶中繼資料。 資料的格式看起來如下：`https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`，其中 `yourAzureADtenant` 是 Azure AD 租用戶名稱 (contoso.com 或任何其他 Azure AD 租用戶)。
+### <a name="step-31-restrict-access-to-a-specific-list-of-azure-ad-tenants"></a>步驟 3.1 限制只能存取特定的 Azure AD 租用戶清單
+
+> [!NOTE]
+> 若使用 `https://sts.windows.net` 作為 **ValidTokenIssuerPrefixes** 的值，將可允許所有 Azure AD 使用者登入您的應用程式。
+
+您必須更新有效權杖簽發者清單，並限制只能存取由使用者可登入的 Azure AD 租用戶所構成的特定清單。 若要取得這些值，您必須查看您想要讓使用者從中登入的每個特定 Azure AD 租用戶中繼資料。 資料的格式看起來如下：`https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`，其中 `yourAzureADtenant` 是 Azure AD 租用戶名稱 (contoso.com 或任何其他 Azure AD 租用戶)。
 1. 開啟瀏覽器，然後移至中繼資料 URL。
 1. 在瀏覽器中，尋找 'issuer' 物件並複製其值。 如下所示：`https://sts.windows.net/{tenantId}/`。
 1. 貼上 `ValidTokenIssuerPrefixes` 索引鍵的值。 您可以使用逗號分隔來新增多個值。 上面的 XML 範例中有將這一點的範例標記為註解。
-
-> [!NOTE]
-> 使用 `https://sts.windows.net` 作為前置詞的值會讓所有 Azure AD 使用者都能夠登入您的應用程式。
 
 ## <a name="step-4-register-the-azure-ad-account-claims-provider"></a>步驟 4. 註冊 Azure AD 帳戶宣告提供者
 
@@ -212,11 +212,11 @@ ms.lasthandoff: 04/18/2018
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>步驟 6：將原則上傳至您的租用戶
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，切換至[您的 Azure AD B2C 租用戶環境](active-directory-b2c-navigate-to-b2c-context.md)，然後選取 [Azure AD B2C]。
-2. 選取 [識別體驗架構]。
-3. 選取 [所有原則]。
-4. 選取 [上傳原則]。
-5. 選取 [覆寫已存在的原則] 核取方塊。
-6. 上傳 `TrustFrameworkExtensions.xml` 檔案和 RP 檔案 (例如 `SignUpOrSignInWithAAD.xml`)，並確保這兩個檔案都通過驗證。
+1. 選取 [識別體驗架構]。
+1. 選取 [所有原則]。
+1. 選取 [上傳原則]。
+1. 選取 [覆寫已存在的原則] 核取方塊。
+1. 上傳 `TrustFrameworkExtensions.xml` 檔案和 RP 檔案 (例如 `SignUpOrSignInWithAAD.xml`)，並確保這兩個檔案都通過驗證。
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>步驟 7：使用 [立即執行] 測試自訂原則
 

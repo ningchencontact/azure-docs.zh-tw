@@ -1,26 +1,21 @@
 ---
-title: "Office 365 外部共用語 Azure Active Directory B2B 共同作業 | Microsoft Docs"
-description: "Azure Active Directory B2B 共同作業的宣告對應參考資料"
+title: Office 365 外部共用語 Azure Active Directory B2B 共同作業 | Microsoft Docs
+description: 討論如何使用 O365 和 Azure Active Directory B2B 共同作業來與外部夥伴共用資源。
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/24/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 8486c7518e2cabb1d17a8f38442b7b5a77fddb01
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 4421e6ca2bdce721c360f2701b3693024a694eb6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33931957"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Office 365 外部共用與 Azure Active Directory B2B 共同作業
 
@@ -40,15 +35,7 @@ OneDrive/SharePoint Online 有個別的邀請管理員。 OneDrive/SharePoint On
 
 ## <a name="next-steps"></a>後續步驟
 
-請瀏覽有關 Azure AD B2B 共同作業的其他文章：
-
 * [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B 共同作業使用者屬性](active-directory-b2b-user-properties.md)
 * [將 B2B 共同作業使用者新增至角色](active-directory-b2b-add-guest-to-role.md)
 * [委派 B2B 共同作業邀請](active-directory-b2b-delegate-invitations.md)
 * [動態群組與 B2B 共同作業](active-directory-b2b-dynamic-groups.md)
-* [B2B 共同作業程式碼與 PowerShell 範例](active-directory-b2b-code-samples.md)
-* [設定適用於 B2B 共同作業的 SaaS 應用程式](active-directory-b2b-configure-saas-apps.md)
-* [B2B 共同作業使用者權杖](active-directory-b2b-user-token.md)
-* [B2B 共同作業使用者宣告對應](active-directory-b2b-claims-mapping.md)
-* [B2B 共同作業目前的限制](active-directory-b2b-current-limitations.md)

@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/16/2018
+ms.date: 05/18/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fb102cc43c6e1d17afaa78a2833ae447600a96af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0d8ef36e001aaf417b84efaf99a992fd64f01b6f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366336"
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>案例 1：評估要移轉至 Azure 的內部部署工作負載
 
@@ -22,9 +23,9 @@ Contoso 公司在考慮移轉至 Azure 時，想要進行技術和財務方面�
 
 **Technology** | **說明** | **成本**
 --- | --- | ---
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA 會評估和偵測可能影響 Azure 中資料庫功能的相容性問題。 此外，也會評估 SQL Server 來源和目標之間的功能同位，並針對目標環境的效能和可靠性提出改善建議。 | 此工具可免費下載。 
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA 會評估和偵測可能影響 Azure 中資料庫功能的相容性問題。 此外，也會評估 SQL Server 來源和目標之間的功能同位，並針對目標環境的效能和可靠性提出改善建議。 | 此工具可免費下載。
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | 此服務可協助您評估內部部署機器是否可移轉至 Azure。 它會評估機器是否適合移轉，並提供在 Azure 中執行機器的大小調整和成本預估。 Azure Migrate 服務目前可評估內部部署 VMware VM 是否能移轉至 Azure。 | 使用此服務目前 (2018 年 4 月) 不需付費。
-[服務對應](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate 會使用服務對應來顯示您想要遷移的機器彼此之間的相依性。 |  服務對應是 Azure Log Analytics 的一部分。 目前可使用 180 天而不會產生費用。 
+[服務對應](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate 會使用服務對應來顯示您想要遷移的機器彼此之間的相依性。 |  服務對應是 Azure Log Analytics 的一部分。 目前可使用 180 天而不會產生費用。
 
 在此案例中，我們會下載並執行 DMA，以評估旅遊應用程式的內部部署 SQL Server 資料庫。 我們會搭配使用 Azure Migrate 和相依性對應來評估應用程式的 VM，再將其遷移至 Azure。
 
@@ -50,7 +51,7 @@ Contoso 公司在考慮移轉至 Azure 時，想要進行技術和財務方面�
 以下是部署此案例時所需的項目：
 
 - 執行 5.5、6.0 或 6.5 版的內部部署 vCenter 伺服器。
-- vCenter 伺服器中的唯讀帳戶，或是可供建立帳戶的權限。 
+- vCenter 伺服器中的唯讀帳戶，或是可供建立帳戶的權限。
 - 可在 vCenter 伺服器上使用 .OVA 範本建立 VM 的權限。
 - 至少一個執行 5.0 版或更新版本的 ESXi 主機。
 - 至少兩個內部部署 VMware VM，且其中一個要執行 SQL Server 資料庫。
@@ -106,15 +107,15 @@ Contoso 公司在考慮移轉至 Azure 時，想要進行技術和財務方面�
       現階段，DMA 不支援目標為 SQL 受控執行個體的遷移評估。 為解決此問題，我們會使用「Azure VM 上的 SQL Server」作為我們的假設評估目標。
 
 1.  在 [選取目標版本] 中，指定您要在 Azure 中執行的目標 SQL Server 版本，以及您要在評估中探索的項目：
-    - [相容性問題] 會告訴您可能會中斷移轉的變更，或告訴您必須略做調整再移轉。 此外，也會讓您知道您目前所使用、但已過時的功能。 所有問題會以相容性層級來加以組織。 
-    - [新功能的建議] 會讓您知道，資料庫可於移轉後所使用的目標 SQL Server 平台中，有什麼新功能。 這些新功能會以效能、安全性和儲存來加以組織。 
+    - [相容性問題] 會告訴您可能會中斷移轉的變更，或告訴您必須略做調整再移轉。 此外，也會讓您知道您目前所使用、但已過時的功能。 所有問題會以相容性層級來加以組織。
+    - [新功能的建議] 會讓您知道，資料庫可於移轉後所使用的目標 SQL Server 平台中，有什麼新功能。 這些新功能會以效能、安全性和儲存來加以組織。
 
     ![選取目標](./media/migrate-scenarios-assessment/dma-assessment-2.png)
 
 2. 在 [連線到伺服器] 中，指定執行 SQL Server 執行個體的機器名稱、驗證類型和連線詳細資料。 然後按一下 [ **連接**]。
 
     ![選取目標](./media/migrate-scenarios-assessment/dma-assessment-3.png)
-    
+
 3. 在 [新增來源] 中，選取您想要評估的資料庫，然後按一下 [新增]。
 4. 系統便會以您指定的名稱建立評估。
 
@@ -126,7 +127,7 @@ Contoso 公司在考慮移轉至 Azure 時，想要進行技術和財務方面�
 
 ### <a name="analyze-the-database-assessment"></a>分析資料庫評估結果
 
-一有結果就會顯示在 Assistant 中。 
+一有結果就會顯示在 Assistant 中。
 
 1. 在 [相容性問題] 報告中，檢查資料庫在每個相容性層級是否有問題，如果有，該如何加以修正。 相容性層級與 SQL Server 版本的對應如下：
     - 100：SQL Server 2008/Azure SQL Database
@@ -141,7 +142,7 @@ Contoso 公司在考慮移轉至 Azure 時，想要進行技術和財務方面�
 
     ![功能建議](./media/migrate-scenarios-assessment/dma-assessment-6.png)
 
-3. 如有修正任何問題，請按一下 [重新開始評估] 來加以重新執行。 
+3. 如有修正任何問題，請按一下 [重新開始評估] 來加以重新執行。
 4. 按一下 [匯出報告] 來取得 JSON 或 CSV 格式的評估報告。
 
 如果您要執行較大規模的評估：
@@ -182,8 +183,8 @@ Contoso 公司在考慮移轉至 Azure 時，想要進行技術和財務方面�
     - 針對儲存，Azure Migrate 的建議是在 Azure 中使用標準磁碟，且大小要與內部部署磁碟相同。
     - 針對網路功能，每個內部部署網路介面卡都建議在 Azure 中有一個對應的網路介面卡。
     - 針對計算，Azure Migrate 會查看 VM 核心和記憶體大小，並建議使用有相同設定的 Azure VM。 如果有多個符合資格的 Azure VM 大小，建議使用成本最低的那個。
-   
-    
+
+
 [深入了解](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing)層級 3 的大小調整。
 
 如下所示地設定層級：
@@ -215,7 +216,7 @@ Contoso 公司在考慮移轉至 Azure 時，想要進行技術和財務方面�
     ![Azure Migrate](./media/migrate-scenarios-assessment/project-1.png)
 
 
-    
+
 
 ### <a name="download-the-collector-appliance"></a>下載收集器設備
 
@@ -225,7 +226,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 2. 在 [探索機器] 中，按一下 [下載] 以下載 .OVA 檔案。
 3. 在 [複製專案認證] 中，複製專案識別碼和金鑰。 在設定收集器時，您會需要這些資料。
 
-    ![下載 .ova 檔案](./media/migrate-scenarios-assessment/download-ova.png) 
+    ![下載 .ova 檔案](./media/migrate-scenarios-assessment/download-ova.png)
 
 ### <a name="verify-the-collector-appliance"></a>確認收集器設備
 
@@ -235,14 +236,14 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 2. 執行下列命令以產生 OVA 的雜湊：
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 使用方式範例：```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. 產生的雜湊應符合這些設定 (1.0.9.7 版)
-    
+3. 產生的雜湊應符合這些設定 (1.0.9.8 版)
+
     **演算法** | **雜湊值**
     --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-    
+    MD5 | b5d9f0caf15ca357ac0563468c2e6251
+    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+
 
 ### <a name="create-the-collector-appliance"></a>建立收集器設備
 
@@ -250,14 +251,14 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 
 1. 在 vSphere 用戶端主控台中，按一下 [檔案] > [部署 OVF 範本]。
 
-    ![部署 OVF](./media/migrate-scenarios-assessment/vcenter-wizard.png) 
+    ![部署 OVF](./media/migrate-scenarios-assessment/vcenter-wizard.png)
 
 2. 在 [部署 OVF 範本精靈] > [來源] 中，指定 .OVA 檔案的位置，然後按 [下一步]。
 3. 在 [OVF 範本詳細資料] 中，按 [下一步]。 在 [使用者授權合約] 中，按一下 [接受] 以接受合約，然後按 [下一步]。
 4. 在 [名稱和位置] 中，指定收集器 VM 的易記名稱，以及 VM 將裝載所在的清查位置，然後按 [下一步]。 指定收集器設備的執行所在主機或叢集。
 5. 在 [儲存體] 中指定要用來儲存設備檔案的位置，然後按 [下一步]。
 6. 在 [磁碟格式] 中，指定您要如何佈建儲存體。
-7. 在 [網路對應] 中，指定收集器 VM 所要連線的網路。 此網路必須能夠連線到網際網路，以將中繼資料傳送至 Azure。 
+7. 在 [網路對應] 中，指定收集器 VM 所要連線的網路。 此網路必須能夠連線到網際網路，以將中繼資料傳送至 Azure。
 8. 在 [準備完成] 中檢閱設定，選取 [在部署後開啟電源]，然後按一下 [完成]。
 
 訊息建立好之後，就會發出訊息確認已成功完成。
@@ -270,22 +271,22 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 2. 提供設備的語言、時區和密碼喜好設定。
 3. 在桌面上，按一下 [執行收集器] 捷徑。
 
-    ![收集器捷徑](./media/migrate-scenarios-assessment/collector-shortcut.png) 
-    
+    ![收集器捷徑](./media/migrate-scenarios-assessment/collector-shortcut.png)
+
 4. 在 Azure Migrate 收集器中，開啟 [設定必要條件]。
     - 接受授權條款，並閱讀第三方資訊。
-    - 收集器會確認 VM 是否可存取網際網路、時間是否同步，以及收集器服務是否正在執行 (已依預設安裝在 VM 上)。 它也會確認是否已安裝 VMWare PowerCLI。 
-    
+    - 收集器會確認 VM 是否可存取網際網路、時間是否同步，以及收集器服務是否正在執行 (已依預設安裝在 VM 上)。 它也會確認是否已安裝 VMWare PowerCLI。
+
     > [!NOTE]
     > 我們會假設 VM 可直接存取網際網路，而不會使用 Proxy。
 
     ![驗證必要條件](./media/migrate-scenarios-assessment/collector-verify-prereqs.png)
-    
+
 
 5. 在 [指定 vCenter Server 詳細資料] 中，執行下列動作：
     - 指定 vCenter Server 的名稱 (FQDN) 或 IP 位址。
     - 在 [使用者名稱] 和 [密碼] 中，指定收集器要用來探索 vCenter Server 上之 VM 的唯讀帳戶認證。
-    - 在 [選取範圍] 中，選取虛擬機器探索的範圍。 收集器只能探索指定範圍內的 VM。 範圍可以設定為特定資料夾、資料中心或叢集。 它不應包含超過 1500 個 VM。 
+    - 在 [選取範圍] 中，選取虛擬機器探索的範圍。 收集器只能探索指定範圍內的 VM。 範圍可以設定為特定資料夾、資料中心或叢集。 它不應包含超過 1500 個 VM。
 
     ![連線到 vCenter](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
 
@@ -296,7 +297,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 7. 在 [檢視收集進度] 中監視探索，然後確認從虛擬機器收集到的中繼資料位於範圍內。 收集器會提供概略的探索時間。
 
     ![收集進行中](./media/migrate-scenarios-assessment/collector-collection-process.png)
-   
+
 
 
 ### <a name="verify-vms-in-the-portal"></a>在入口網站中確認 VM
@@ -309,7 +310,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
     ![探索到的機器](./media/migrate-scenarios-assessment/discovery-complete.png)
 
 3. 請注意，機器目前未安裝 Azure Migrate 代理程式。 我們需要安裝這些代理程式，才能檢視相依性。
-    
+
     ![探索到的機器](./media/migrate-scenarios-assessment/machines-no-agent.png)
 
 
@@ -322,7 +323,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 
 如果您想要先複製 VM 再加以修改，請於擷取快照集後再安裝代理程式。
 
-![機器的快照集](./media/migrate-scenarios-assessment/snapshot-vm.png) 
+![機器的快照集](./media/migrate-scenarios-assessment/snapshot-vm.png)
 
 
 ### <a name="download-and-install-the-vm-agents"></a>下載並安裝虛擬機器代理程式
@@ -331,7 +332,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 2.  在每個 VM 的 [探索機器] 頁面上，下載並安裝 Microsoft Monitoring Agent (MMA) 和相依性代理程式。
 3.  複製工作區識別碼與金鑰。 安裝 MMA 時需要這些資料。
 
-    ![代理程式下載](./media/migrate-scenarios-assessment/download-agents.png) 
+    ![代理程式下載](./media/migrate-scenarios-assessment/download-agents.png)
 
 
 
@@ -339,12 +340,12 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 
 1. 按兩下下載的代理程式。
 2. 在 [歡迎] 頁面中按 [下一步]。 在 [授權條款] 頁面上，按一下 [我同意] 以接受授權。
-3. 在 [目的地資料夾] 中，保留預設的安裝資料夾 > [下一步]。 
-4. 在 [代理程式安裝選項] 中，選取 [將代理程式連線至 Azure Log Analytics] > [下一步]。 
+3. 在 [目的地資料夾] 中，保留預設的安裝資料夾 > [下一步]。
+4. 在 [代理程式安裝選項] 中，選取 [將代理程式連線至 Azure Log Analytics] > [下一步]。
 
-    ![MMA 安裝](./media/migrate-scenarios-assessment/mma-install.png) 
+    ![MMA 安裝](./media/migrate-scenarios-assessment/mma-install.png)
 5. 在 **Azure Log Analytics** 中貼上您從入口網站複製的工作區識別碼和金鑰。 按 [下一步] 。
-    ![MMA 安裝](./media/migrate-scenarios-assessment/mma-install2.png) 
+    ![MMA 安裝](./media/migrate-scenarios-assessment/mma-install2.png)
 
 6. 在 [準備安裝] 中安裝 MMA。
 
@@ -356,10 +357,10 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 2.  在 [授權條款] 頁面上，按一下 [我同意] 以接受授權。
 3.  在 [正在安裝] 中，等候安裝完成。 然後按 [下一步] 。
 
-    ![相依性代理程式](./media/migrate-scenarios-assessment/dependency-agent.png) 
+    ![相依性代理程式](./media/migrate-scenarios-assessment/dependency-agent.png)
 
 
-       
+
 ## <a name="step-7-run-and-analyze-the-vm-assessment"></a>步驟 7：執行 VM 評估並加以分析
 
 確認機器相依性並建立群組。 然後，執行評估。
@@ -368,7 +369,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 
 1.  在 [機器] 頁面上，針對您要分析的 VM 按一下 [檢視相依性]。
 
-    ![檢視電腦相依性](./media/migrate-scenarios-assessment/view-machine-dependencies.png) 
+    ![檢視電腦相依性](./media/migrate-scenarios-assessment/view-machine-dependencies.png)
 
 2. SQLVM 的相依性對應顯示下列詳細資料：
 
@@ -376,8 +377,8 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
     - 所有相依機器的輸入 (用戶端) 和輸出 (伺服器) TCP 連線。
     - 已安裝 Azure Migrate 代理程式的相依機器會顯示為不同的方塊
     - 未安裝代理程式的機器則會顯示連接埠和 IP 位址資訊。
-    
- 3. 針對已安裝代理程式的機器 (WEBVM)，按一下機器方塊以檢視詳細資訊，包括 FQDN、作業系統、MAC 位址。 
+
+ 3. 針對已安裝代理程式的機器 (WEBVM)，按一下機器方塊以檢視詳細資訊，包括 FQDN、作業系統、MAC 位址。
 
     ![檢視群組相依性](./media/migrate-scenarios-assessment/sqlvm-dependencies.png)
 
@@ -385,7 +386,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 5. 按一下 [建立群組]，然後指定名稱 (smarthotelapp)。
 
 > [!NOTE]
-    > 若要檢視更細微的相依性，您可以展開時間範圍。 您可以選取特定持續期間，也可以選取開始和結束日期。 
+    > 若要檢視更細微的相依性，您可以展開時間範圍。 您可以選取特定持續期間，也可以選取開始和結束日期。
 
 
 ### <a name="run-an-assessment"></a>執行評估
@@ -409,7 +410,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
     **設定** | **詳細資料** | **預設值**
     --- | --- | ---
     **目標位置** | 要作為移轉目的地的 Azure 位置 | 沒有預設值。
-    **儲存體備援** | Azure VM 會在移轉後使用的儲存體備援類型。 | [本地備援儲存體 (LRS)](../storage/common/storage-redundancy-lrs.md) 是預設值。 Azure Migrate 只支援以受控磁碟為基礎的評估，而受控磁碟只支援 LRS，因此只支援 LRS 選項。 
+    **儲存體備援** | Azure VM 會在移轉後使用的儲存體備援類型。 | [本地備援儲存體 (LRS)](../storage/common/storage-redundancy-lrs.md) 是預設值。 Azure Migrate 只支援以受控磁碟為基礎的評估，而受控磁碟只支援 LRS，因此只支援 LRS 選項。
     **調整大小準則** | Azure Migrate 用於為 Azure 設定適當 VM 大小的準則。 您可以執行*以效能為基礎*的大小調整或將 VM 調整為*內部部署*大小，而不必考量效能歷程記錄。 | 以效能為基礎的大小調整是預設選項。
     **效能歷程記錄** | 考量評估 VM 效能的持續時間。 當調整大小的準則為*以效能為基礎的大小調整*時，此屬性才適用。 | 預設值為一天。
     **百分位數使用率** | 要視為適當大小調整的效能取樣集百分位數值。 當調整大小的準則為*以效能為基礎的大小調整*時，此屬性才適用。  | 預設值為第 95 個百分位數。
@@ -425,7 +426,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 
 ### <a name="analyze-the-vm-assessment"></a>分析 VM 評估
 
-Azure Migrate 評估包含內部部署 VM 是否與 Azure 相容、建議的 Azure VM 正確大小調整，以及預估的 Azure 每月成本等相關資訊。 
+Azure Migrate 評估包含內部部署 VM 是否與 Azure 相容、建議的 Azure VM 正確大小調整，以及預估的 Azure 每月成本等相關資訊。
 
 ![評估報告](./media/migrate-scenarios-assessment/assessment-overview.png)
 
@@ -470,12 +471,12 @@ Azure Migrate 評估包含內部部署 VM 是否與 Azure 相容、建議的 Azu
 
 #### <a name="review-monthly-cost-estimates"></a>檢閱每月成本預估值
 
-此檢視會顯示在 Azure 中執行 VM 的計算和儲存總成本，以及每部機器的詳細資訊。 
+此檢視會顯示在 Azure 中執行 VM 的計算和儲存總成本，以及每部機器的詳細資訊。
 
-![評估整備](./media/migrate-scenarios-assessment/azure-costs.png) 
+![評估整備](./media/migrate-scenarios-assessment/azure-costs.png)
 
 - 會使用機器的大小建議來計算成本預估值。
-- 系統會彙總群組內所有 VM 之計算和儲存的每月預估成本。 
+- 系統會彙總群組內所有 VM 之計算和儲存的每月預估成本。
 
 
 ## <a name="conclusion"></a>結論
@@ -490,6 +491,3 @@ Azure Migrate 評估包含內部部署 VM 是否與 Azure 相容、建議的 Azu
 ## <a name="next-steps"></a>後續步驟
 
 讓我們繼續進行下一個案例，以將內部部署 VM 和資料庫[隨即移轉](migrate-scenarios-lift-and-shift.md)至 Azure。
-
-
-

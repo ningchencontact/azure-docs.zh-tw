@@ -13,52 +13,55 @@ ms.workload: identity
 ms.date: 03/27/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 4c6ae3da34fe5157314b8ea422591f7ecbd2a667
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e164d8adaf5df63dba31bb6aa8e56f768741479c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200870"
 ---
-# <a name="enable-subscription-management"></a>啟用訂用帳戶管理
+# <a name="enable-subscription-management-in-your-tenant"></a>啟用租用戶中的訂用帳戶管理
 
-身為您目錄的全域管理員，您可能沒有您租用戶中所有訂用帳戶資源的預設存取權。 本文將概述取得您租用戶中所有訂用帳戶存取權的步驟，以及在收到存取權之後，繼續符合貴組織所需任何安全性控制的建議方法。
+您身為目錄的全域管理員，可能沒有您租用戶中所有訂用帳戶資源的預設存取權。 本文章會概略說明各項步驟，讓您得以存取您租用戶中的所有訂用帳戶。 也會提供建議的作法，以便在獲得存取權，後仍能符合貴組織對任何安全控制項的規範。
 
 ## <a name="who-can-enable-management-of-subscriptions-in-my-directory"></a>有誰可以啟用我目錄中訂用帳戶的管理？
 
-指派給全域管理員角色的每位使用者都必須遵循下列步驟來啟用訂用帳戶管理。 一旦您自行啟用了訂用帳戶管理，您就可以新增其他也可能需要資源存取權的全域管理員。 沒有任何目錄設定可為全域管理員角色的所有成員啟用存取權。
+指派給全域管理員角色的每位使用者都必須遵循下列步驟來啟用訂用帳戶管理。 您自行啟用了訂用帳戶管理後，就可以新增其他也可能需要資源存取權的全域管理員。 沒有任何目錄設定可為全域管理員角色的所有成員啟用存取權。
 
-## <a name="log-on-to-the-azure-portal"></a>登入 Azure 入口網站
+## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
-首先，使用屬於全域管理員角色合格或有效成員的帳戶來登入 Azure 入口網站。 如果此帳戶是合格的全域管理員，您必須先啟用該角色，再繼續下一個步驟。
+使用屬於全域管理員角色合格或有效成員的帳戶來登入 Azure 入口網站。 如果此帳戶是合格的全域管理員，您必須先啟用該角色，再繼續下一個步驟。
 
-## <a name="access-the-azure-ad-admin-center"></a>存取 Azure AD 系統管理中心
+## <a name="access-the-azure-active-directory-admin-center"></a>存取 Azure Active Directory 管理中心
 
-既然您已使用全域管理員身分登入 Azure 入口網站，您可以編輯將提供 Azure 訂用帳戶存取權的設定。 巡覽至 Azure AD 系統管理中心，找出並選取左導覽功能表中的 [屬性] 索引標籤。
+既然您已使用全域管理員身分登入 Azure 入口網站，就可以編輯提供 Azure 訂用帳戶存取權的設定。 瀏覽至 Azure Active Directory (Azure AD) 管理中心，並選取 [屬性]。
 
-![](media/azure-pim-resource-rbac/aad_properties.png)
+![Azure AD 管理中心的螢幕擷取畫面，以反白顯示 [屬性]](media/azure-pim-resource-rbac/aad_properties.png)
 
-在屬性清單中，將 [全域管理員可管理 Azure 訂用帳戶] 選項切換為 [是]。
+在屬性清單中，於 [全域管理員可管理 Azure 訂用帳戶] 下方選取 [是]。
 
-![](media/azure-pim-resource-rbac/aad_properties_save.png)
+![[屬性] 頁面的螢幕擷取畫面，設定切換為 [是]](media/azure-pim-resource-rbac/aad_properties_save.png)
 
-## <a name="navigate-to-azure-ad-pim"></a>巡覽至 Azure AD PIM
+現在您的帳戶會自動新增至租用戶中每個訂用帳戶資源的「使用者存取權管理員」角色。
 
-啟用此選項後，您的帳戶會自動新增至租用戶中每個訂用帳戶資源的「使用者存取權管理員」角色。 從這裡巡覽至 Azure AD PIM，然後在左導覽功能表的 [管理] 區段下選取 Azure 資源。
+## <a name="browse-to-azure-ad-pim"></a>瀏覽至 Azure AD PIM
 
-![](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
+ 從此處前往 Azure AD Privileged Identity Management (PIM)。 在 [管理] 下方，選取 [Azure 資源]。
+
+![PIM 的螢幕擷取畫面，以反白顯示 [Azure 資源]](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
 
 ## <a name="manage-and-discover-resources"></a>管理及探索資源
 
-如果貴組織已經使用 Azure AD PIM 來保護 Azure Active Directory 中的管理員，您會在刀鋒視窗載入時看到訂用帳戶清單。
+如果貴組織已經使用 Azure AD PIM 來保護 Azure AD 中的管理員，您會在刀鋒視窗載入時看到訂用帳戶清單。
 
-![](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+![PIM 的螢幕擷取畫面，在刀鋒視窗中顯示訂用帳戶清單](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
 
 > [!NOTE]
-> 如果看不到任何資源，請檢查：
->- 您的全域管理員角色並未過期 
->- 您的組織具有 Azure 訂用帳戶
+> 如果看不到任何資源，請確認：
+>- 您的全域管理員角色並未過期。 
+>- 您的組織具有 Azure 訂用帳戶。
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_empty_resource_list.png)
+![PIM 的螢幕擷取畫面，顯示空白的資源清單](media/azure-pim-resource-rbac/aadpim_rbac_empty_resource_list.png)
 
 ## <a name="configure-assignments"></a>設定指派
 
@@ -69,9 +72,9 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="clean-up-standing-access"></a>清除常設存取權
 
-既然您具有貴組織中重要訂用帳戶的合格指派，您可藉由停用目錄屬性中的選項來清除常設存取權：
+既然您具有貴組織中重要訂用帳戶的合格指派，您可藉由停用目錄屬性中的選項來清除常設存取權。
 
-![](media/azure-pim-resource-rbac/aad_properties_no.png)
+![[屬性] 頁面的螢幕擷取畫面，設定切換為 [否]](media/azure-pim-resource-rbac/aad_properties_no.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,8 +1,8 @@
 ---
-title: "使用 Application Insights Profiler 來分析 Azure 上的即時 Web 應用程式 | Microsoft Docs"
-description: "使用低資源使用量的分析工具來找出 Web 伺服器程式碼中的最忙碌路徑。"
+title: 使用 Application Insights Profiler 來分析 Azure 上的即時 Web 應用程式 | Microsoft Docs
+description: 使用低資源使用量的分析工具來找出 Web 伺服器程式碼中的最忙碌路徑。
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,22 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c65ef9141898369b8fcadd4c52972b767aca7cfe
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 34824401ec8d21949c5c5036a11197a09e240bd7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936720"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>使用 Application Insights 來分析即時 Azure Web 應用程式
 
-這個 Azure Application Insights 功能在 Azure App Service 的 Web 應用程式功能是正式運作版，在 Azure 計算資源則是預覽版。
+Azure Application Insights 的這項功能在 Azure App Service 的 Web 應用程式功能中已是正式運作版，但在 Azure 計算資源則是預覽版。如需有關[在內部部署環境使用分析工具](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers)的資訊。
 
-本文討論當您使用 [Application Insights](app-insights-overview.md) 時，在即時 Web 應用程式之每個方法中所花費的時間量。 Application Insights Profiler 工具會顯示由您的應用程式提供服務之即時要求的詳細設定檔。 Profiler 會醒目提示使用最多時間的最忙碌路徑。 系統會根據取樣來分析具有不同回應時間的要求。 藉由使用各種不同的技術，您可以將與應用程式相關聯的額外負荷降至最低。
+本文討論當您使用 [Application Insights](app-insights-overview.md) 時，即時 Web 應用程式的各個方法所花費的時間量。 Application Insights Profiler 工具會針對由您的應用程式所處理的即時要求來顯示詳細設定檔。 Profiler 會醒目提示使用最多時間的最忙碌路徑。 系統會根據取樣來分析具有不同回應時間的要求。 您可以使用各種技術來將應用程式相關的額外負荷降到最低。
 
 Profiler 目前適用於在 Web Apps 上執行的 ASP.NET 和 ASP.NET Core Web 應用程式。 需要基本或更高的服務層，才可使用 Profiler。
 
 ## <a id="installation"></a> 為您的 Web Apps Web 應用程式啟用 Profiler
-如果您已經將應用程式發佈至 Web 應用程式，但是尚未在原始程式碼中進行任何設定以便使用 Application Insights，請執行下列作業：
+如果您已經將應用程式發佈至 Web 應用程式，但原始程式碼還沒為使用 Application Insights 而進行任何設定，請執行下列作業：
 1. 移至 Azure 入口網站中的 [App Service] 窗格。
 2. 在 [監視] 底下，選取 [Application Insights]，然後遵循窗格上的指示以建立新資源，或選取現有 Application Insights 資源以監視您的 Web 應用程式。
 
@@ -63,7 +64,7 @@ ASP.NET Core 應用程式需要安裝 Microsoft.ApplicationInsights.AspNetCore N
 
 ## <a name="view-profiler-data"></a>檢視分析工具資料
 
-確定應用程式正在接收流量。 如果您要進行實驗，則可以使用 [Application Insights 效能測試](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test)來產生 Web 應用程式的要求。 如果您剛啟用 Profiler，則可以執行大約 15 分鐘的簡短負載測試，這應該會產生分析工具追蹤。 如果您啟用 Profiler 已有一段時間，請記住，Profiler 會每個小時隨機執行兩次，每次執行兩分鐘。 建議您先執行一小時的負載測試，以確實取得分析工具追蹤樣本。
+確定應用程式正在接收流量。 如果您要進行實驗，則可以使用 [Application Insights 效能測試](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test)來產生 Web 應用程式的要求。 如果您剛啟用 Profiler，則可以執行大約 15 分鐘的簡短負載測試，這應該會產生分析工具追蹤。 如果您啟用 Profiler 已有一段時間，請記住，Profiler 會每個小時隨機執行兩次，每次執行兩分鐘。 建議您先執行一小時的負載測試，以確實取得分析工具追蹤樣本。
 
 應用程式接收到流量之後，請移至 [效能] 窗格，選取 [採取動作] 以檢視分析工具追蹤，然後選取 [分析工具追蹤]。
 
@@ -255,7 +256,7 @@ Profiler 會在 Web 應用程式中以連續性 Web 作業的形式執行。 您
 當您在 Azure 網站中新增 Web 作業時，基本上便是利用內部的 run.cmd 檔案來建立 zip 封存。 run.cmd 檔案會向 Web 作業的系統指出，當您執行 Web 作業時其該如何應對。
 
 1.  建立新的資料夾 (例如，RunProfiler2Minutes)。
-2.  將解壓縮之 ApplicationInsightProfiler2 資料夾中的檔案複製到這個新的資料夾。
+2.  從已解壓縮的 ApplicationInsightProfiler2 資料夾中，將檔案複製到這個新的資料夾。
 3.  建立新的 run.cmd 檔案。  
     為求方便，您可以在開始之前於 Visual Studio Code 中開啟工作資料夾。
 4.  在檔案中，新增命令 `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`。 命令的說明如下：
@@ -312,7 +313,7 @@ Profiler 會在 Web 應用程式中以連續性 Web 作業的形式執行。 您
 
 * Web Apps 的 Web 作業功能是獨特的。 它在執行 Web 作業時，會確保處理序具有網站最後會擁有的相同環境變數和應用程式設定。 這表示您不需要透過命令列將檢測金鑰傳遞至 Profiler。 Profiler 會從環境中挑選檢測金鑰。 不過，如果您要在開發機器上或 Web Apps 外部的機器上執行 Profiler，則需要提供檢測金鑰。 藉由傳入 `--ikey <instrumentation-key>` 引數即可提供此金鑰。 此值必須符合應用程式所使用的檢測金鑰。 Profiler 的記錄輸出會告訴您 Profiler 啟動時所使用的 ikey，以及在分析時是否偵測到來自該檢測金鑰的活動。
 
-* 手動觸發的 Web 作業可以透過 Web Hook 來觸發。 若要取得此 URL，請在儀表板上的 Web 作業上按一下滑鼠右鍵，然後檢視屬性。 或者，您也可以在資料表中選取 Web 作業之後，在工具列中選取 [屬性]。 這個方法會創造出無限多的可能性，像是從 CI/CD 管線 (例如 VSTS) 或從 Microsoft Flow (https://flow.microsoft.com/en-us/) 等服務來觸發 Profiler。 最終，您的選擇取決於您要讓 run.cmd 檔案 (也可以是 run.ps1 檔案) 變得多複雜，但彈性也在其中。
+* 手動觸發的 Web 作業可以透過 Web Hook 來觸發。 若要取得此 URL，請在儀表板上的 Web 作業上按一下滑鼠右鍵，然後檢視屬性。 或者，您也可以在資料表中選取 Web 作業之後，在工具列中選取 [屬性]。 這個方法會創造出無限多的可能性，像是從 CI/CD 管線 (例如 VSTS) 或從 Microsoft Flow (https://flow.microsoft.com/en-us/)) 等服務來觸發 Profiler。 最終，您的選擇取決於您要讓 run.cmd 檔案 (也可以是 run.ps1 檔案) 變得多複雜，但彈性也在其中。
 
 ## <a name="next-steps"></a>後續步驟
 
