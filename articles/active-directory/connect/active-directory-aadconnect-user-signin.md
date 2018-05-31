@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/08/2018
 ms.author: billmath
-ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055081"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 使用者登入選項
 Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的密碼來登入雲端和內部部署資源。 本文說明每個身分識別模型的主要概念，以協助您選擇要用於登入 Azure AD 的身分識別。
@@ -28,6 +29,7 @@ Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的�
 * 使用[無縫單一登入 (SSO)](active-directory-aadconnect-sso.md) 進行[密碼雜湊同步處理](#password-hash-synchronization)
 * 使用[無縫單一登入 (SSO)](active-directory-aadconnect-sso.md) 進行[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)
 * [同盟 SSO (搭配 Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+* [與 PingFederate 同盟](#federation-with-pingfederate)
 
 > [!NOTE] 
 > 請務必記住，藉由為 Azure AD 設定同盟，您會在 Azure AD 租用戶與同盟網域之間建立信任。 有了這個信任同盟網域，使用者便能夠存取租用戶內的 Azure AD 雲端資源。  
@@ -88,6 +90,13 @@ Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的�
 * 您執行精靈的電腦能夠透過「Windows 遠端管理」，連線到您要安裝 AD FS 或「Web 應用程式 Proxy」的任何其他電腦。
 
 如需詳細資訊，請參閱[設定與 AD FS 搭配的 SSO](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)。
+
+### <a name="federation-with-pingfederate"></a>與 PingFederate 同盟
+使用同盟登入時，使用者可以使用其內部部署密碼來登入 Azure AD 型服務。 當他們在公司網路上時，甚至不需要輸入他們的密碼。
+
+如需設定 PingFederate 以便與 Azure Active Directory 搭配使用的詳細資訊，請參閱[與 Azure Active Directory 和 Office 365 的 PingFederate 整合](https://www.pingidentity.com/AzureADConnect) \(英文\)
+
+如需使用 PingFederate 設定 Azure AD Connect 的相關資訊，請參閱 [Azure AD Connect 自訂安裝](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-pingfederate)
 
 #### <a name="sign-in-by-using-an-earlier-version-of-ad-fs-or-a-third-party-solution"></a>使用舊版 AD FS 或協力廠商解決方案進行登入
 如果您已經使用舊版 AD FS (例如 AD FS 2.0) 或協力廠商同盟提供者來設定雲端登入，您可以選擇略過透過 Azure AD Connect 進行使用者登入設定。 這既可讓您取得最新的同步處理及其他 Azure AD Connect 功能，又可讓您仍然使用現有的解決方案進行登入。
