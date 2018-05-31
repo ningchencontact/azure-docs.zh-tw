@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 05/14/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197805"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 儲存體：差異與考量
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/28/2018
 
 「Azure Stack 儲存體」是 Microsoft Azure Stack 中的一組儲存體雲端服務。 「Azure Stack 儲存體」使用與 Azure 一致的語意來提供 Blob、資料表、佇列及帳戶管理功能。
 
-此文章摘要說明「Azure Stack 儲存體」與「Azure 儲存體」的已知差異。 此外，也摘要說明您部署 Azure Stack 時要記住的其他考量。 若要深入了解 Azure Stack 與 Azure 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)主題。
+此文章摘要說明 Azure Stack 儲存體與 Azure 儲存體服務的已知差異。 也會列出部署 Azure Stack 時所要考量的事項。 若要深入了解 Azure Stack 與 Azure 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)主題。
 
 ## <a name="cheat-sheet-storage-differences"></a>速查表：儲存體差異
 
@@ -49,26 +50,28 @@ Blob 儲存體的虛刪除|預覽|尚不支援。
 |資料表分割區索引鍵和資料列索引鍵大小|1,024 個字元 (2,048 個位元組)|400 個字元 (800 個位元組)
 |Blob 快照集|一個 blob 的快照集數目沒有上限。|一個 blob 的快照集數目上限為 1,000。|
 
-### <a name="metrics"></a>度量
-儲存體度量也有一些差異：
+儲存體計量也有些差異：
+
 * 儲存體度量中的交易資料並不區分內部或外部網路頻寬。
 * 儲存體度量中的交易資料並不包含虛擬機器對所掛接磁碟的存取。
 
 ## <a name="api-version"></a>API 版本
+
 使用「Azure Stack 儲存體」時支援下列版本：
 
 Azure 儲存體服務 API：
 
 1802 更新或更新版本：
+
  - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
  - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
  - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
  - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 舊版：
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure 儲存體服務管理 API：
 
@@ -78,7 +81,7 @@ Azure 儲存體服務管理 API：
 
 ## <a name="sdk-versions"></a>SDK 版本
 
-使用 Azure Stack 儲存體時支援下列用戶端程式庫：
+Azure Stack 儲存體支援下列用戶端程式庫：
 
 | 用戶端程式庫 | Azure Stack 支援的版本 | 連結                                                                                                                                                                                                                                                                                                                                     | 端點規格       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -94,4 +97,3 @@ Azure 儲存體服務管理 API：
 
 * [開始使用 Azure Stack 儲存體開發工具](azure-stack-storage-dev.md)
 * [Azure Stack 儲存體簡介](azure-stack-storage-overview.md)
-

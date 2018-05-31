@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: d2c637dc742ee854c7787cf7cd883930c4eaa8bc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f8149d2af5542fb311ff83160d674e4d525289dc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011368"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V 複寫至 Azure 的支援矩陣
 
@@ -23,9 +24,9 @@ ms.lasthandoff: 04/28/2018
 ## <a name="supported-scenarios"></a>支援的案例
 
 **案例** | **詳細資料**
---- | --- 
+--- | ---
 Hyper-V (含 Virtual Machine Manager) | 您可以針對在 System Center Virtual Machine Manager 網狀架構中管理的 Hyper-V 主機上執行之 VM 執行災害復原至 Azure。<br/><br/> 您可以在 Azure 入口網站中或使用 PowerShell 來部署此案例。<br/><br/> 當 Hyper-V 主機受 Virtual Machine Manager 管理時，您也可以執行災害復原至次要內部部署網站。 若要深入了解此案例，請閱讀[本教學課程](tutorial-vmm-to-vmm.md)。
-Hyper-V (不含 Virtual Machine Manager) | 您可以針對在不是由 Virtual Machine Manager 管理的 Hyper-V 主機上執行之 VM 執行災害復原至 Azure。<br/><br/> 您可以在 Azure 入口網站中或使用 PowerShell 來部署此案例。 
+Hyper-V (不含 Virtual Machine Manager) | 您可以針對在不是由 Virtual Machine Manager 管理的 Hyper-V 主機上執行之 VM 執行災害復原至 Azure。<br/><br/> 您可以在 Azure 入口網站中或使用 PowerShell 來部署此案例。
 
 
 ## <a name="on-premises-servers"></a>內部部署伺服器
@@ -39,7 +40,7 @@ Hyper-V (執行時含 Virtual Machine Manager) | Virtual Machine Manager 2016、
 ## <a name="replicated-vms"></a>複寫 VM
 
 
-下表摘要說明 VM 支援。 Site Recovery 支援在受支援作業系統上執行的任何工作負載。 
+下表摘要說明 VM 支援。 Site Recovery 支援在受支援作業系統上執行的任何工作負載。
 
  **元件** | **詳細資料**
 --- | ---
@@ -78,7 +79,8 @@ Azure 流量管理員 | yes | yes
 保留的 IP | yes | yes
 IPv4 | yes | yes
 保留來源 IP 位址 | yes | yes
-Azure 虛擬網路服務端點<br/><br/> (Azure 儲存體防火牆和虛擬網路) | 否 | 否
+Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | yes | yes
+加速網路 | 否 | 否
 
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 主機儲存體
@@ -125,7 +127,7 @@ RDM | NA | NA
 待用加密 (SSE)| yes | yes
 進階儲存體 | yes | yes
 匯入/匯出服務 | 否 | 否
-Azure 虛擬網路服務端點 (Azure 儲存體防火牆和虛擬網路)，在目標上快取用於儲存複寫資料的儲存體帳戶 | 否 | 否
+設定在目標儲存體/快取儲存體帳戶 (用於儲存複寫資料) 上適用於虛擬網路的 Azure 儲存體防火牆 | 否 | 否
 
 
 ## <a name="azure-compute-features"></a>Azure 計算功能
@@ -159,9 +161,9 @@ VM 類型 | 第 1 代<br/><br/> 第 2 代--Windows | OS 磁碟基本類型的第
 ## <a name="recovery-services-vault-actions"></a>復原服務保存庫動作
 
 **Action** |  **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
---- | --- | --- 
-在資源群組間移動保存庫<br/><br/> 內及跨訂用帳戶 | 否 | 否 
-跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 否 | 否 
+--- | --- | ---
+在資源群組間移動保存庫<br/><br/> 內及跨訂用帳戶 | 否 | 否
+跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 否 | 否
 
 
 ## <a name="provider-and-agent"></a>Provider 和代理程式
@@ -179,4 +181,4 @@ Microsoft Azure 復原服務代理程式 | 協調 HYPER-V VM 與 Azure 之間的
 
 
 ## <a name="next-steps"></a>後續步驟
-了解如何[準備 Azure](tutorial-prepare-azure.md) 的內部部署 Hyper-V VM 災害復原。 
+了解如何[準備 Azure](tutorial-prepare-azure.md) 的內部部署 Hyper-V VM 災害復原。

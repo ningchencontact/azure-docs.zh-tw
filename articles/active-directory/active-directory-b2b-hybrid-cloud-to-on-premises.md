@@ -2,22 +2,20 @@
 title: 對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權 | Microsoft Docs
 description: 說明如何透過 Azure AD B2B 共同作業對雲端 B2B 使用者提供內部部署應用程式的存取權。
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
 ms.service: active-directory
+ms.component: B2B
 ms.topic: article
-ms.workload: identity
 ms.date: 04/20/2018
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 0eb567c8587b0eec367160facc86f163ef6b3c15
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 028bbb28c7091db3c3ebea321ca2e167b999949d
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068791"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權
 
@@ -30,7 +28,7 @@ ms.lasthandoff: 04/23/2018
 您必須執行下列兩個動作：
 
 - 使用非資源庫的應用程式範本整合 SAML 應用程式，如[設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](active-directory-saas-custom-apps.md)所述。 請務必記下您所使用的**登入 URL** 值。
--  使用 Azure AD 應用程式 Proxy 來發行內部部署應用程式，並將 **Azure Active Directory** 設定為驗證來源。 如需指示，請參閱[使用 Azure AD 應用程式 Proxy 發行應用程式](application-proxy-publish-azure-portal.md)。 
+-  使用 Azure AD 應用程式 Proxy 來發行內部部署應用程式，並將 **Azure Active Directory** 設定為驗證來源。 如需指示，請參閱[使用 Azure AD 應用程式 Proxy 發行應用程式](manage-apps/application-proxy-publish-azure-portal.md)。 
 
    當您設定 [內部 Url] 設定時，請使用您在非資源庫的應用程式範本中指定的登入 URL。 如此一來，使用者就可以從組織界限外存取應用程式。 應用程式 Proxy 會為內部部署應用程式執行 SAML 單一登入。
  
@@ -40,13 +38,13 @@ ms.lasthandoff: 04/23/2018
 
 針對使用整合式 Windows 驗證和 Kerberos 限制委派所保護的內部部署應用程式，若要讓 B2B 使用者獲得這些應用程式的存取權，您需要下列元件：
 
-- **透過 Azure AD 應用程式 Proxy 的驗證**。 B2B 使用者必須能夠向內部部署應用程式進行驗證。 若要這麼做，您必須透過 Azure AD 應用程式 Proxy 發行內部部署應用程式。 如需詳細資訊，請參閱[開始使用應用程式 Proxy 並安裝連接器](active-directory-application-proxy-enable.md)和[使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-publish-azure-portal.md)。
-- **透過內部部署目錄中 B2B 使用者物件的授權**。 應用程式必須能夠執行使用者存取權檢查，並授與正確資源的存取權。 IWA 和 KCD 需要內部部署 Windows Server Active Directory 中的使用者物件才能完成此授權。 如[使用 KCD 單一登入的運作方式](active-directory-application-proxy-sso-using-kcd.md#how-single-sign-on-with-kcd-works)所述，應用程式 Proxy 需要這個使用者物件，以模擬使用者並將 Kerberos 權杖交給應用程式。 
+- **透過 Azure AD 應用程式 Proxy 的驗證**。 B2B 使用者必須能夠向內部部署應用程式進行驗證。 若要這麼做，您必須透過 Azure AD 應用程式 Proxy 發行內部部署應用程式。 如需詳細資訊，請參閱[開始使用應用程式 Proxy 並安裝連接器](manage-apps/application-proxy-enable.md)和[使用 Azure AD 應用程式 Proxy 發佈應用程式](manage-apps/application-proxy-publish-azure-portal.md)。
+- **透過內部部署目錄中 B2B 使用者物件的授權**。 應用程式必須能夠執行使用者存取權檢查，並授與正確資源的存取權。 IWA 和 KCD 需要內部部署 Windows Server Active Directory 中的使用者物件才能完成此授權。 如[使用 KCD 單一登入的運作方式](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)所述，應用程式 Proxy 需要這個使用者物件，以模擬使用者並將 Kerberos 權杖交給應用程式。 
 
    B2B 使用者案例提供兩種方法，供您建立在內部部署目錄中進行授權所需的來賓使用者物件：
 
-   - [Microsoft Identity Manager (MIM) 和 Microsoft Graph 的 MIM 管理代理程式](#create-b2b-guest-user-objects-through-mim-preview)。 此解決方案需要您擁有 Azure AD Premium P1 訂用帳戶。 
-   - [PowerShell 指令碼](#create-b2b-guest-user-objects-through-a-script-preview)。 使用指令碼會是更輕量的解決方案，不需要 MIM 或 Azure AD Premium 就可運作。 
+   - Microsoft Identity Manager (MIM) 和 [Microsoft Graph 的 MIM 管理代理程式](#create-b2b-guest-user-objects-through-mim-preview)。 
+   - [PowerShell 指令碼](#create-b2b-guest-user-objects-through-a-script-preview)。 使用指令碼會是更輕量的解決方案，不需要 MIM 就可運作。 
 
 下圖可針對 Azure AD 應用程式 Proxy 如何與內部部署目錄的 B2B 使用者物件產生一起運作，以對 B2B 使用者授與內部部署 IWA 和 KCD 應用程式的存取權，提供高階的概觀。 圖表下方有各編號步驟的詳細說明。
 
@@ -86,6 +84,6 @@ ms.lasthandoff: 04/23/2018
 ## <a name="next-steps"></a>後續步驟
 
 - [混合式組織的 Azure Active Directory B2B 共同作業](active-directory-b2b-hybrid-organizations.md)
-- [使用 Azure AD B2B 共同作業對本機管理的夥伴帳戶授與雲端資源的存取權](active-directory-b2b-hybrid-on-premises-to-cloud.md)
+
 - 如需 Azure AD Connect 的概觀，請參閱[整合您的內部部署目錄與 Azure Active Directory](connect/active-directory-aadconnect.md)。
 

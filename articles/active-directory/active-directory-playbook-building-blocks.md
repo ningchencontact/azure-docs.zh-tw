@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157674"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -40,8 +41,8 @@ ms.lasthandoff: 05/03/2018
 
 | 必要條件 | 資源 |
 | --- | --- |
-| 已定義有效 Azure 訂用帳戶的 Azure AD 租用戶 | [如何取得 Azure Active Directory 租用戶](active-directory-howto-tenant.md)<br/>**注意：**如果您已經有具備 Azure AD Premium 授權的環境，您可以瀏覽至 https://aka.ms/accessaad 來取得沒有上限的訂用帳戶 <br/>深入了解：https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 和 https://technet.microsoft.com/library/dn832618.aspx |
-| 已定義並確認的網域 | [將自訂網域名稱新增到 Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**注意：**有些工作負載 (例如 Power BI) 可能已在幕後佈建 Azure AD 租用戶。 若要檢查指定網域是否與租用戶相關聯，請瀏覽至 https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration。 如果您獲得成功的回應，即表示網域已指派給租用戶，而可能需要接管。 如果是這種情況，請連絡 Microsoft 以獲得進一步的指導。 深入了解接管選項：[什麼是 Azure 的自助式註冊？](active-directory-self-service-signup.md) |
+| 已定義有效 Azure 訂用帳戶的 Azure AD 租用戶 | [如何取得 Azure Active Directory 租用戶](active-directory-howto-tenant.md)<br/>**注意：** 如果您已經有具備 Azure AD Premium 授權的環境，您可以瀏覽至 https://aka.ms/accessaad 來取得沒有上限的訂用帳戶 <br/>深入了解：https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 和 https://technet.microsoft.com/library/dn832618.aspx |
+| 已定義並確認的網域 | [將自訂網域名稱新增到 Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**注意：** 有些工作負載 (例如 Power BI) 可能已在幕後佈建 Azure AD 租用戶。 若要檢查指定網域是否與租用戶相關聯，請瀏覽至 https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration。 如果您獲得成功的回應，即表示網域已指派給租用戶，而可能需要接管。 如果是這種情況，請連絡 Microsoft 以獲得進一步的指導。 深入了解接管選項：[什麼是 Azure 的自助式註冊？](active-directory-self-service-signup.md) |
 | 已啟用 Azure AD Premium 或 EMS 試用版 | [Azure Active Directory Premium 可免費使用一個月](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | 您已將 Azure AD Premium 或 EMS 授權指派給 PoC 使用者 | [在 Azure Active Directory 中進行自身和使用者的授權](active-directory-licensing-get-started-azure-portal.md) |
 | Azure AD 全域管理員認證 | [在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md) |
@@ -162,7 +163,7 @@ ms.lasthandoff: 05/03/2018
 
 ### <a name="considerations"></a>考量
 
-1. 上述[教學課程](active-directory-saas-servicenow-tutorial.md)是參考舊的 Azure AD 管理體驗。 但 PoC 是根據[快速入門](active-directory-enterprise-apps-whats-new-azure-portal.md#quick-start-get-going-with-your-new-application-right-away)體驗。
+1. 上述[教學課程](active-directory-saas-servicenow-tutorial.md)是參考舊的 Azure AD 管理體驗。 但 PoC 是根據[快速入門](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away)體驗。
 2. 如果資源庫中沒有目標應用程式，則您可以使用「自備應用程式」。 深入了解：[Azure Active Directory 中企業應用程式管理的新功能：從一個位置新增自訂應用程式](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>SaaS 密碼 SSO 組態
@@ -241,27 +242,27 @@ ms.lasthandoff: 05/03/2018
 
 | 必要條件 | 資源 |
 | --- | --- |
-| Microsoft Azure AD 基本或進階訂用帳戶，以及您是全域管理員的 Azure AD 目錄 | [Azure Active Directory 版本](active-directory-editions.md) |
+| Microsoft Azure AD 基本或進階訂用帳戶，以及您是全域管理員的 Azure AD 目錄 | [Azure Active Directory 版本](active-directory-whatis.md) |
 | 一個裝載於內部部署環境而您想要設定以供遠端存取的 Web 應用程式 |  |
-| 執行 Windows Server 2012 R2 或 Windows 8.1 或更新版本的伺服器，您可以在該伺服器上安裝「應用程式 Proxy 連接器」 | [了解 Azure AD 應用程式 Proxy 連接器](application-proxy-understand-connectors.md) |
-| 如果路徑中有防火牆，請確定防火牆已開啟，如此連接器才能對「應用程式 Proxy」提出 HTTPS (TCP) 要求 | [在 Azure 入口網站中啟用應用程式 Proxy：應用程式 Proxy 先決條件](active-directory-application-proxy-enable.md#application-proxy-prerequisites) |
-| 如果您的組織使用 Proxy 伺服器來連接到網際網路，請參閱部落格文章＜使用現有的內部部署 Proxy 伺服器＞，以詳細了解如何設定這些伺服器 | [使用現有的內部部署 Proxy 伺服器](application-proxy-working-with-proxy-servers.md) |
+| 執行 Windows Server 2012 R2 或 Windows 8.1 或更新版本的伺服器，您可以在該伺服器上安裝「應用程式 Proxy 連接器」 | [了解 Azure AD 應用程式 Proxy 連接器](manage-apps/application-proxy-connectors.md) |
+| 如果路徑中有防火牆，請確定防火牆已開啟，如此連接器才能對「應用程式 Proxy」提出 HTTPS (TCP) 要求 | [在 Azure 入口網站中啟用應用程式 Proxy：應用程式 Proxy 先決條件](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
+| 如果您的組織使用 Proxy 伺服器來連接到網際網路，請參閱部落格文章＜使用現有的內部部署 Proxy 伺服器＞，以詳細了解如何設定這些伺服器 | [使用現有的內部部署 Proxy 伺服器](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md) |
 
 
 ### <a name="steps"></a>步驟
 
 | 步驟 | 資源 |
 | --- | --- |
-| 在伺服器上安裝連接器 | [在 Azure 入口網站中啟用應用程式 Proxy：安裝並註冊連接器](active-directory-application-proxy-enable.md#install-and-register-a-connector) |
-| 在 Azure AD 中將內部部署應用程式發佈為「應用程式 Proxy」應用程式 | [使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-publish-azure-portal.md) |
-| 指派測試使用者 | [使用 Azure AD 應用程式 Proxy 發佈應用程式 - 新增測試使用者](application-proxy-publish-azure-portal.md#add-a-test-user) |
-| (選擇性) 為您的使用者設定單一登入體驗 | [使用 Azure AD 應用程式 Proxy 提供單一登入](application-proxy-sso-azure-portal.md) |
+| 在伺服器上安裝連接器 | [在 Azure 入口網站中啟用應用程式 Proxy：安裝並註冊連接器](manage-apps/application-proxy-enable.md#install-and-register-a-connector) |
+| 在 Azure AD 中將內部部署應用程式發佈為「應用程式 Proxy」應用程式 | [使用 Azure AD 應用程式 Proxy 發佈應用程式](manage-apps/application-proxy-publish-azure-portal.md) |
+| 指派測試使用者 | [使用 Azure AD 應用程式 Proxy 發佈應用程式 - 新增測試使用者](manage-apps/application-proxy-publish-azure-portal.md#add-a-test-user) |
+| (選擇性) 為您的使用者設定單一登入體驗 | [使用 Azure AD 應用程式 Proxy 提供單一登入](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) |
 | 以指派的使用者身分登入 MyApps 入口網站來測試應用程式 | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>考量
 
-1. 雖然我們建議將連接器放在您的公司網路中，但在某些情況下，您會發現將它放在雲端會有較佳的效能。 深入了解：[使用 Azure Active Directory 應用程式 Proxy 時的網路拓撲考量](application-proxy-network-topology-considerations.md)
-2. 如需進一步的安全性詳細資料，以及這如何僅透過維護輸出連線來提供特別安全的遠端存取解決方案，請參閱：[使用 Azure AD 應用程式 Proxy 從遠端存取應用程式的安全性考量](application-proxy-security-considerations.md)
+1. 雖然我們建議將連接器放在您的公司網路中，但在某些情況下，您會發現將它放在雲端會有較佳的效能。 深入了解：[使用 Azure Active Directory 應用程式 Proxy 時的網路拓撲考量](manage-apps/application-proxy-network-topology.md)
+2. 如需進一步的安全性詳細資料，以及這如何僅透過維護輸出連線來提供特別安全的遠端存取解決方案，請參閱：[使用 Azure AD 應用程式 Proxy 從遠端存取應用程式的安全性考量](manage-apps/application-proxy-security.md)
 
 ## <a name="generic-ldap-connector-configuration"></a>一般 LDAP 連接器組態
 
@@ -451,7 +452,7 @@ ms.lasthandoff: 05/03/2018
 | 步驟 | 資源 |
 | --- | --- |
 | 移至「Azure AD 管理入口網站」的 [條件式存取] 刀鋒視窗 | [Azure AD 管理入口網站：條件式存取](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) |
-| 建立「條件式存取」原則：<br/>- 以 [使用者和群組] 底下的「PoC 使用者」為目標<br/>- 以 [雲端應用程式] 底下的「PoC 應用程式」為目標<br/>- 以所有位置為目標，但 [條件] -> [位置] 底下的受信任位置除外 **注意：**受信任的 IP 是在 [MFA 入口網站](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)中設定<br/>- 在 [授權] 底下要求多重要素驗證 | [開始使用 Azure Active Directory 中的條件式存取：原則設定步驟](active-directory-conditional-access-azure-portal-get-started.md#policy-configuration-steps) |
+| 建立「條件式存取」原則：<br/>- 以 [使用者和群組] 底下的「PoC 使用者」為目標<br/>- 以 [雲端應用程式] 底下的「PoC 應用程式」為目標<br/>- 以所有位置為目標，但 [條件] -> [位置] 底下的受信任位置除外 **注意：** 受信任的 IP 是在 [MFA 入口網站](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)中設定<br/>- 在 [授權] 底下要求多重要素驗證 | [開始使用 Azure Active Directory 中的條件式存取：原則設定步驟](active-directory-conditional-access-azure-portal-get-started.md#policy-configuration-steps) |
 | 從公司網路內部存取應用程式 | [開始使用 Azure Active Directory 中的條件式存取 - 測試原則](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
 | 從公用網路存取應用程式 | [開始使用 Azure Active Directory 中的條件式存取 - 測試原則](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
 
