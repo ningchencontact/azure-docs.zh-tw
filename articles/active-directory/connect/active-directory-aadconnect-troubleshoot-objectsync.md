@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193758"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>針對使用 Azure AD Connect 同步所執行的物件同步處理進行疑難排解
 本文件提供如何使用疑難排解工作來針對物件同步處理問題進行疑難排解的步驟。
@@ -34,6 +35,7 @@ ms.lasthandoff: 03/23/2018
 4.  瀏覽至 [其他工作] 頁面，選取 [疑難排解]，然後按 [下一步]。
 5.  在 [疑難排解] 頁面上，按一下 [啟動]，以在 PowerShell 中啟動疑難排解功能表。
 6.  在主功能表中，選取 [針對物件同步處理進行疑難排解]。
+![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>針對輸入參數進行疑難排解
 疑難排解工作需要下列輸入參數：
@@ -47,6 +49,8 @@ ms.lasthandoff: 03/23/2018
 1.  偵測是否有 UPN 不符的情形 (如果物件是同步處理至 Azure Active Directory)
 2.  檢查是否因為網域篩選而篩選物件
 3.  檢查是否因為 OU 篩選而篩選物件
+4.  檢查是否因為連結信箱，使物件同步遭到封鎖
+5. 檢查物件是否是動態通訊群組，不應進行同步
 
 本節其餘部分會說明工作所傳回的特定結果。 在每個案例中，工作都會提供分析並接著提供可用來解決問題的建議動作。
 
@@ -76,9 +80,19 @@ Azure Active Directory 不允許將 UserPrincipalName (UPN)/替代登入識別�
 物件會因為網域遺漏執行設定檔/執行步驟而超出範圍。 在下列範例中，由於物件所屬的網域遺漏完整匯入執行設定檔的執行步驟，所以物件會超出同步範圍。
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
-### <a name="object-is-filtered-due-to-ou-filtering"></a>因為 OU 篩選而篩選物件
-由於 OU 篩選設定所致，此物件會超出同步範圍。 在下列範例中，物件屬於 OU=NoSync,DC=bvtadwbackdc,DC=com。這個 OU 不會包含在同步範圍內。
-![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+## <a name="object-is-filtered-due-to-ou-filtering"></a>因為 OU 篩選而篩選物件
+由於 OU 篩選設定所致，此物件會超出同步範圍。 在下列範例中，物件屬於 OU=NoSync,DC=bvtadwbackdc,DC=com。這個 OU 不會包含在同步範圍內。</br>
+
+![OU](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+
+## <a name="linked-mailbox-issue"></a>連結信箱問題
+連結信箱應與位在另一個信任帳戶樹系中的外部主要帳戶產生關聯。 如果沒有這類外部主要帳戶，則 Azure AD Connect 不會將對應至 Exchange 樹系中連結信箱的使用者帳戶同步至 Azure AD 租用戶。</br>
+![連結信箱](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch12.png)
+
+## <a name="dynamic-distribution-group-issue"></a>動態通訊群組問題
+由於內部部署 Active Directory 和 Azure Active Directory 之間的各種差異，Azure AD Connect 不會將動態通訊群組同步至 Azure AD 租用戶。
+
+![動態通訊群組](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch13.png)
 
 ## <a name="html-report"></a>HTML 報告
 除了分析物件外，疑難排解工作也會產生具有物件一切已知資訊的 HTML 報告。 如有需要，可與支援小組分享這個 HTML 報告以進行進一步的疑難排解。

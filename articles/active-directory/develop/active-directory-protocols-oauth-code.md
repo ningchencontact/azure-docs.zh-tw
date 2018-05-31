@@ -3,25 +3,28 @@ title: 了解 Azure AD 中的 OAuth 2.0 授權碼流程
 description: 本文說明如何使用 HTTP 訊息來使用 Azure Active Directory 和 OAuth 2.0 授權存取租用戶中的 Web 應用程式和 Web API。
 services: active-directory
 documentationcenter: .net
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
-ms.author: hirsin
+ms.date: 04/17/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2ad995c4b48c2c298edd7c6b4da92ea8f3c4a060
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 93de62a21ca1d3b8c88715fc9207a583920ac33e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158399"
 ---
-# <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>使用 OAuth 2.0 和 Azure Active Directory 授權存取 Web 應用程式
-Azure Active Directory (Azure AD) 使用 OAuth 2.0 讓您授權存取 Azure AD 租用戶中的 Web 應用程式和 Web API。 本指南與語言無關，描述在不使用我們的任何開放原始碼程式庫的情況下，如何傳送和接收 HTTP 訊息。
+# <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>使用 OAuth 2.0 授權碼授與流程，授權存取 Azure Active Directory Web 應用程式
+Azure Active Directory (Azure AD) 使用 OAuth 2.0 讓您授權存取 Azure AD 租用戶中的 Web 應用程式和 Web API。 本指南不限於特定語言，其中說明如何在不使用任何[開放原始碼程式庫](active-directory-authentication-libraries.md)的情況下，傳送和接收 HTTP 訊息。
 
 如需 OAuth 2.0 授權碼流程的說明，請參閱 [OAuth 2.0 規格的 4.1 節](https://tools.ietf.org/html/rfc6749#section-4.1)。 在大多數的應用程式類型中，其用於執行驗證與授權，包括 Web Apps 和原始安裝的應用程式。
 
@@ -33,7 +36,7 @@ Azure Active Directory (Azure AD) 使用 OAuth 2.0 讓您授權存取 Azure AD �
 ![OAuth 授權碼流程](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>要求授權碼
-授權碼流程始於用戶端將使用者導向 `/authorize` 端點。 在這項要求中，用戶端會指出必須向使用者索取的權限。 您可以選取 Azure 入口網站中的 [應用程式註冊] > [端點]，以取得租用戶的 OAuth 2.0 端點。
+授權碼流程始於用戶端將使用者導向 `/authorize` 端點。 在這項要求中，用戶端會指出必須向使用者索取的權限。 您可以選取 Azure 入口網站中的 [應用程式註冊] > [端點]，以取得租用戶的 OAuth 2.0 授權端點。
 
 ```
 // Line breaks for legibility only
@@ -41,7 +44,7 @@ Azure Active Directory (Azure AD) 使用 OAuth 2.0 讓您授權存取 Azure AD �
 https://login.microsoftonline.com/{tenant}/oauth2/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&redirect_uri=http%3A%2F%2Flocalhost%3A%12345
 &response_mode=query
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &state=12345
@@ -49,32 +52,33 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | 參數 |  | 說明 |
 | --- | --- | --- |
-| tenant |必要 |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。  租用戶獨立權杖允許的值為租用戶識別碼，例如 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 或 `contoso.onmicrosoft.com` 或 `common` |
-| client_id |必要 |向 Azure AD 註冊應用程式時，指派給您應用程式的應用程式識別碼。 您可以在 Azure 入口網站中找到這個值。 按一下 [Active Directory]，按一下目錄，選擇應用程式，然後按一下 [設定] |
+| tenant |必要 |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 租用戶獨立權杖允許的值為租用戶識別碼，例如 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 或 `contoso.onmicrosoft.com` 或 `common` |
+| client_id |必要 |向 Azure AD 註冊應用程式時，指派給您應用程式的應用程式識別碼。 您可以在 Azure 入口網站中找到這個值。 按一下服務側邊欄的 [Azure Active Directory]，再按一下 [應用程式註冊]，然後選擇應用程式。 |
 | response_type |必要 |授權碼流程必須包含 `code`。 |
-| redirect_uri |建議使用 |應用程式的 redirect_uri，您的應用程式可在此傳送及接收驗證回應。  其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。  對於原生和行動應用程式，請使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。 |
-| response_mode |建議使用 |指定將產生的權杖送回到應用程式所應該使用的方法。  可以是 `query` 或 `form_post`。 |
-| state |建議使用 |要求中包含的值，也會隨權杖回應傳回。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](http://tools.ietf.org/html/rfc6749#section-10.12)。  此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
-| resource |選用 |Web API (受保護的資源) 應用程式識別碼 URI。 若要尋找 Web API 的應用程式識別碼 URI，請在 Azure 入口網站中，依序按一下 [Active Directory]、目錄、應用程式及 [設定]。 |
+| redirect_uri |建議使用 |應用程式的 redirect_uri，您的應用程式可在此傳送及接收驗證回應。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 對於原生和行動應用程式，請使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。 |
+| response_mode |建議使用 |指定將產生的權杖送回到應用程式所應該使用的方法。 可以是 `query` 或 `form_post`。 `query` 提供的程式碼可作為重新導向 URI 上的查詢字串參數，而 `form_post` 執行 POST，其中包含您重新導向 URI 的程式碼。 |
+| state |建議使用 |要求中包含的值，也會隨權杖回應傳回。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](http://tools.ietf.org/html/rfc6749#section-10.12)。 此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
+| resource | 建議使用 |目標 Web API (受保護的資源) 應用程式識別碼 URI。 若要尋找應用程式識別碼 URI，請在 Azure 入口網站中，按一下 [Azure Active Directory]，再按一下 [應用程式註冊]，開啟應用程式的 [設定] 頁面，再按一下 [屬性]。 其也可能是外部的資源，例如 `https://graph.microsoft.com`。 授權或權杖要求會需要此 URI。 為盡量減少授權提示次數，請將之放置於授權要求內，以確保收到使用者的同意。 |
+| scope | **已忽略** | 若為 v1 Azure AD 應用程式，請務必前往 Azure 入口網站，至應用程式 [設定] 下方的 [所需權限]，以統計方式設定範圍。 |
 | prompt |選用 |表示需要的使用者互動類型。<p> 有效值為： <p> *login*：應提示使用者重新驗證。 <p> *consent*：已授與使用者同意，但需要更新。 應提示使用者同意。 <p> *admin_consent*：應提示管理員代表其組織內的所有使用者同意 |
-| login_hint |選用 |如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。  通常應用程式會在重新驗證期間使用此參數，並已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。 |
+| login_hint |選用 |如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 通常應用程式會在重新驗證期間使用此參數，並已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。 |
 | domain_hint |選用 |提供有關使用者應該用來登入之租用戶或網域的提示。 domain_hint 的值是租用戶的註冊網域。 如果租用戶與內部部署目錄結成同盟，AAD 會重新導向至指定的租用戶同盟伺服器。 |
-| code_challenge_method | 選用    | 用來為 `code_challenge` 參數編碼 `code_verifier` 的方法。 可以是 `plain` 或 `S256` 其中一個。  如果排除，則當包含 `code_challenge` 時，會假設 `code_challenge` 是純文字。  Azure AAD v1.0 同時支援 `plain` 和 `S256`。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
-| code_challenge        | 選用    | 用來透過來自原生用戶端的「代碼交換的證明金鑰」(PKCE) 保護授權碼授與。 如果包含 `code_challenge_method`，則為必要參數。  如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
+| code_challenge_method | 選用    | 用來為 `code_challenge` 參數編碼 `code_verifier` 的方法。 可以是 `plain` 或 `S256` 其中一個。 如果排除，則當包含 `code_challenge` 時，會假設 `code_challenge` 是純文字。 Azure AAD v1.0 同時支援 `plain` 和 `S256`。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
+| code_challenge        | 選用    | 用於透過來自原生用戶端或公開用戶端之代碼交換的證明金鑰 (PKCE) 保護授權碼授與。 如果包含 `code_challenge_method`，則為必要參數。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
 
 > [!NOTE]
 > 如果使用者隸屬於組織，組織的系統管理員可以代表使用者同意或拒絕，或允許使用者自行同意。 只有當系統管理員允許時，使用者才會獲得同意的選項。
 >
 >
 
-此時，會要求使用者輸入其認證，並同意 `scope` 查詢參數所指出的權限。 一旦使用者驗證並授與同意，Azure AD 便會在要求的 `redirect_uri` 位址中傳送回應給應用程式。
+此時，會要求使用者輸入其認證，並同意 Azure 入口網站中應用程式所要求的權限。 一旦使用者驗證並予以同意，Azure AD 便會在要求的 `redirect_uri` 位址中傳送回應給應用程式，並附上該代碼。
 
 ### <a name="successful-response"></a>成功回應
 成功的回應看起來可能像這樣︰
 
 ```
 GET  HTTP/1.1 302 Found
-Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
+Location: http://localhost:12345/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
 ```
 
 | 參數 | 說明 |
@@ -124,7 +128,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code
 &client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA
-&redirect_uri=https%3A%2F%2Flocalhost%2Fmyapp%2F
+&redirect_uri=https%3A%2F%2Flocalhost%3A12345
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &client_secret=p@ssw0rd
 
@@ -133,16 +137,16 @@ grant_type=authorization_code
 
 | 參數 |  | 說明 |
 | --- | --- | --- |
-| tenant |必要 |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。  租用戶獨立權杖允許的值為租用戶識別碼，例如 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 或 `contoso.onmicrosoft.com` 或 `common` |
-| client_id |必要 |向 Azure AD 註冊應用程式時，指派給您的應用程式的識別碼。 您可以在 Azure 入口網站中找到這個值。 應用程式識別碼會顯示在應用程式註冊的設定中。  |
+| tenant |必要 |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 租用戶獨立權杖允許的值為租用戶識別碼，例如 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 或 `contoso.onmicrosoft.com` 或 `common` |
+| client_id |必要 |向 Azure AD 註冊應用程式時，指派給您的應用程式的識別碼。 您可以在 Azure 入口網站中找到這個值。 應用程式識別碼會顯示在應用程式註冊的設定中。 |
 | grant_type |必要 |必須是授權碼流程的 `authorization_code` 。 |
 | code |必要 |您在上一節中取得的 `authorization_code` |
 | redirect_uri |必要 |用來取得 `authorization_code` 的相同 `redirect_uri` 值。 |
-| client_secret |Web 應用程式必備，公用用戶端不允許 |您在應用程式註冊入口網站中為應用程式建立的應用程式密碼。  無法在原生應用程式 (公用用戶端) 中使用，因為 client_secret 無法妥善地儲存在裝置中。  Web 應用程式和 Web API (所有機密用戶端) 都需要應用程式秘密，其能夠將 `client_secret` 安全地儲存在伺服器端。 |
-| resource |如果在授權碼要求中指定，則為必要，否則為選擇性 |Web API (受保護的資源) 應用程式識別碼 URI。 |
-| code_verifier | 選用              | 用來取得 authorization_code 的相同 code_verifier。  如果在授權碼授與要求中已使用 PKCE，則為必要參數。  如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636) \(英文\)   |
+| client_secret |Web 應用程式必備，公用用戶端不允許 |您在 Azure 入口網站的 [金鑰] 中，為應用程式建立的應用程式秘密。 無法在原生應用程式 (公用用戶端) 中使用，因為 client_secret 無法妥善地儲存在裝置中。 Web 應用程式和 Web API (所有機密用戶端) 都需要應用程式秘密，其能夠將 `client_secret` 安全地儲存在伺服器端。 |
+| resource | 建議使用 |目標 Web API (受保護的資源) 應用程式識別碼 URI。 若要尋找應用程式識別碼 URI，請在 Azure 入口網站中，按一下 [Azure Active Directory]，再按一下 [應用程式註冊]，開啟應用程式的 [設定] 頁面，再按一下 [屬性]。 其也可能是外部的資源，例如 `https://graph.microsoft.com`。 授權或權杖要求會需要此 URI。 為盡量減少授權提示次數，請將之放置於授權要求內，以確保收到使用者的同意。 若授權要求和權杖要求均有，則資源的參數一定要相符。 | 
+| code_verifier | 選用 | 用來取得 authorization_code 的相同 code_verifier。 如果在授權碼授與要求中已使用 PKCE，則為必要參數。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636) \(英文\)   |
 
-若要尋找應用程式識別碼 URI，請在 Azure 管理入口網站中，依序按一下 [Active Directory]、目錄、應用程式及 [設定]。
+若要尋找應用程式識別碼 URI，請在 Azure 入口網站中，按一下 [Azure Active Directory]，再按一下 [應用程式註冊]，開啟應用程式的 [設定] 頁面，再按一下 [屬性]。
 
 ### <a name="successful-response"></a>成功回應
 Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端應用程式和與其相關延遲的網路呼叫，用戶端應用程式應該快取存取權杖達 OAuth 2.0 回應中所指定的權杖存留期。 若要判斷權杖存留期，請使用 `expires_in` 或 `expires_on` 參數值。
@@ -173,7 +177,7 @@ Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端�
 | expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。 |
 | resource |Web API (受保護的資源) 應用程式識別碼 URI。 |
 | scope |授與用戶端應用程式的模擬權限。 預設權限為 `user_impersonation`。 受保護資源的擁有者可以在 Azure AD 中註冊其他的值。 |
-| refresh_token |OAuth 2.0 重新整理權杖。 應用程式可以使用這個權杖，在目前的存取權杖過期之後，取得其他的存取權杖。  重新整理權杖的有效期很長，而且可以用來長期保留資源存取權。 |
+| refresh_token |OAuth 2.0 重新整理權杖。 應用程式可以使用這個權杖，在目前的存取權杖過期之後，取得其他的存取權杖。 重新整理權杖的有效期很長，而且可以用來長期保留資源存取權。 |
 | id_token |不帶正負號的 JSON Web Token (JWT)。 應用程式可以 base64Url 解碼這個權杖的區段，要求已登入使用者的相關資訊。 應用程式可以快取並顯示值，但不應依賴這些值來取得任何授權或安全性界限。 |
 
 ### <a name="jwt-token-claims"></a>JWT 權杖宣告
@@ -360,7 +364,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 {
   "error": "invalid_resource",
-  "error_description": "AADSTS50001: The application named https://foo.microsoft.com/mail.read was not found in the tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872.  This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant.  You might have sent your authentication request to the wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
+  "error_description": "AADSTS50001: The application named https://foo.microsoft.com/mail.read was not found in the tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
   "error_codes": [
     50001
   ],

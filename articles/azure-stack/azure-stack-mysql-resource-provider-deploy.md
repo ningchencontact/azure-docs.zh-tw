@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/24/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 66e1d5691b431be0c3d040570b13e8d16b1669ef
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bc88140bf1adea49ff4bc76667d30a379f829bbc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360116"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 MySQL 資料庫
 
@@ -117,7 +118,7 @@ ms.lasthandoff: 04/03/2018
 以下是您可以從 PowerShell 命令提示字元執行的範例。 請務必視需要變更帳戶資訊和密碼：
 
 
-```
+```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
@@ -179,6 +180,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **DebugMode** | 防止在失敗時自動清除。 | 否 |
 | **AcceptLicense** | 略過接受 GPL 授權的提示。  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
+>[!NOTE]
+> 最多需要一小時才能在入口網站中看到 SKU。 在建立 SKU 前，您無法建立資料庫。
 
 ## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>使用 Azure Stack 入口網站來確認部署是否成功
 
@@ -212,6 +215,10 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     - 資料庫容量
     - 自動備份
     - 為個別部門保留高效能伺服器
+
+
+  > [!IMPORTANT]
+  > 您不能在相同 SKU 中混合獨立伺服器與 Always On 執行個體。 嘗試在新增第一個主控伺服器之後混合類型會導致錯誤。
  
 
 SKU 名稱應反映屬性，讓租用戶可適當地安置其資料庫。 且 SKU 中的所有主控伺服器都應具有相同的功能。
@@ -219,8 +226,7 @@ SKU 名稱應反映屬性，讓租用戶可適當地安置其資料庫。 且 SK
 ![建立 MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
->[!NOTE]
-> 最多需要一小時才能在入口網站中看到 SKU。 在建立 SKU 前，您無法建立資料庫。
+
 
 
 ## <a name="test-your-deployment-by-creating-your-first-mysql-database"></a>建立您的第一個 MySQL 資料庫來測試部署

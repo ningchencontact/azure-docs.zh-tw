@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/09/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: e6438c353d84510ee918df120e6d54df0607c89d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 752481186167fccb46d5bf3beb87c1507e0f4feb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936512"
 ---
 # <a name="network-connectivity"></a>網路連線
 本文提供 Azure Stack 網路基礎架構資訊，可協助您決定如何以最佳方式將 Azure Stack 整合至現有的網路環境。 
@@ -70,7 +71,7 @@ HLH 也會裝載部署 VM (DVM)。 DVM 會在 Azure Stack 部署期間使用，�
 此 /27 網路是來自先前所述 Azure Stack 基礎結構子網路中的小範圍，它不需要公用 IP 位址，但確實需要透過 NAT 或 Transparent Proxy 提供的網際網路存取權。 此網路將會配置給緊急修復主控台系統 (ERCS)，ERCS VM 在向 Azure 註冊期間以及在基礎結構備份期間，需要存取網際網路。 ERCS VM 應該可路由到您的管理網路，以進行疑難排解。
 
 ### <a name="public-vip-network"></a>公用 VIP 網路
-公用 VIP 網路會指派給 Azure Stack 中的網路控制器。 它不是交換器上的邏輯網路。 SLB 會針對租用戶工作負載使用位址集區並指派 /32 網路。 在交換器路由表上，這些 /32 IP 會公告為可透過 BGP 使用的路由。 此網路包含外部可存取的 IP 位址或公用 IP 位址。 Azure Stack 基礎結構使用來自此公用 VIP 網路的 8 個位址，而其餘位址則由租用戶 VM 使用。 此子網路上的網路大小範圍從最小 /26 (64 部主機) 到最大 /22 (1022 部主機)，我們建議您規劃 /24 網路。
+公用 VIP 網路會指派給 Azure Stack 中的網路控制器。 它不是交換器上的邏輯網路。 SLB 會針對租用戶工作負載使用位址集區並指派 /32 網路。 在交換器路由表上，這些 /32 IP 會公告為可透過 BGP 使用的路由。 此網路包含外部可存取的 IP 位址或公用 IP 位址。 Azure Stack 基礎結構保留公用 VIP 網路的前 31 個位址，而剩下的由租用戶 VM 使用。 此子網路上的網路大小範圍從最小 /26 (64 部主機) 到最大 /22 (1022 部主機)，我們建議您規劃 /24 網路。
 
 ### <a name="switch-infrastructure-network"></a>交換器基礎結構網路
 此 /26 網路是一個子網路，其中包含可路由傳送的點對點 IP /30 (2 個主機 IP) 子網路和回送 (這是用於頻內交換器管理與 BGP 路由器識別碼的專用 /32 子網路)。 此 IP 位址範圍必須可在 Azure Stack 解決方案外部路由傳送至您的資料中心，而這些 IP 位址可以是私人或公用 IP。

@@ -1,25 +1,28 @@
 ---
-title: "Azure Active Directory v2.0 端點的應用程式類型 | Microsoft Docs"
-description: "Azure Active Directory v2.0 端點所支援的應用程式類型與案例。"
+title: Azure Active Directory v2.0 端點的應用程式類型 | Microsoft Docs
+description: Azure Active Directory v2.0 端點所支援的應用程式類型與案例。
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-ms.author: dastrock
+ms.date: 04/17/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b0344c1da626a8b4679a632db239fc9ded9d5ce6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 134199c879f6793cb4ed0a88cf0593786341f6d8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157660"
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 端點的應用程式類型
 Azure Active Directory (Azure AD) v2.0 端點支援各種新型應用程式架構的驗證，它們全都以產業標準通訊協定 [OAuth 2.0 或 OpenID Connect](active-directory-v2-protocols.md) 為基準。 本文描述您可以使用 Azure AD v2.0 來建置的應用程式類型，不論您慣用的語言或平台是哪一種。 本文中的資訊是設計來協助您在[開始使用程式碼](active-directory-appmodel-v2-overview.md#getting-started)之前，先了解概要的案例。
@@ -95,7 +98,7 @@ Web API 可以從所有類型的應用程式接收存取權杖，包括 Web 伺�
 
 若要了解如何使用 OAuth2 存取權杖來保護 Web API，請查看[開始使用](active-directory-appmodel-v2-overview.md#getting-started)一節中的 Web API 程式碼範例。
 
-在許多情況下，Web API 也需要對受 Azure Active Directory 保護的其他下游 Web API 發出傳出要求。  若要這樣做，Web API 可以利用 Azure AD 的「代理者」流程，它能允許 Web API 將傳入存取權杖交換為要在傳出要求中使用的另一個存取權杖。  v2.0 端點的「代理者」流程已[在此詳細說明](active-directory-v2-protocols-oauth-on-behalf-of.md)。
+在許多情況下，Web API 也需要對受 Azure Active Directory 保護的其他下游 Web API 發出傳出要求。 若要這樣做，Web API 可以利用 Azure AD 的「代理者」流程，它能允許 Web API 將傳入存取權杖交換為要在傳出要求中使用的另一個存取權杖。 v2.0 端點的「代理者」流程已[在此詳細說明](active-directory-v2-protocols-oauth-on-behalf-of.md)。
 
 ## <a name="mobile-and-native-apps"></a>行動和原生應用程式
 裝置安裝的應用程式 (例如行動應用程式和傳統型應用程式) 通常需要存取儲存資料及代表使用者執行功能的後端服務或 Web API。 這些應用程式可以使用 [OAuth 2.0 授權碼流程](active-directory-v2-protocols-oauth-code.md)，將登入和授權新增至後端服務。
@@ -120,4 +123,4 @@ Web API 可以從所有類型的應用程式接收存取權杖，包括 Web 伺�
 
 ![精靈應用程式驗證流程](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
-若要建置精靈應用程式，請參閱[開始使用](active-directory-appmodel-v2-overview.md#getting-started)一節中的用戶端認證文件，或試試 [.NET 範例應用程式](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)。
+若要建置精靈應用程式，請參閱[用戶端認證文件](active-directory-v2-protocols-oauth-client-creds.md)，或試試 [.NET 範例應用程式](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)。

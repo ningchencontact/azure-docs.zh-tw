@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 263cb6e588c9714504a5bb5d9a064f5c4be73e9d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6c7a9bd83af5d23bdc9e6dd8c910dbf64a6efd6f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304914"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>快速入門：使用 Azure CLI 2.0 建立公用負載平衡器以平衡 VM 的負載
 
@@ -61,7 +62,7 @@ ms.lasthandoff: 05/03/2018
 
 ### <a name="create-the-load-balancer"></a>建立負載平衡器
 
-使用 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) 建立名為 **myLoadBalancer** 的公用 Azure Load Balancer，包含名為 **myFrontEndPool** 的前端集區、名為 **myBackEndPool** 的後端集區。與您在前一個步驟中建立的公用 IP 位址 **myPublicIP** 相關聯。
+使用 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) 建立名為 **myLoadBalancer** 的公用 Azure Load Balancer，包含名為 **myFrontEndPool** 的前端集區、名為 **myBackEndPool** 的後端集區，與您在前一個步驟中建立的公用 IP 位址 **myPublicIP** 相關聯。
 
 ```azurecli-interactive
   az network lb create \
@@ -262,4 +263,7 @@ for i in `seq 1 2`; do
 
 
 ## <a name="next-steps"></a>後續步驟
-本快速入門中，您已建立負載平衡器、並將 VM 加以連結、設定負載平衡器流量規則、健康狀態探查，接著測試負載平衡器。 若要深入了解負載平衡器及其相關聯的資源，請繼續進行操作說明文章。
+本快速入門中，您已建立基本 Load Balancer、並將 VM 加以連結、設定負載平衡器流量規則、健康情況探查，接著測試負載平衡器。 若要深入了解 Azure Load Balancer，請繼續 Azure Load Balancer 的教學課程。
+
+> [!div class="nextstepaction"]
+> [Azure Load Balancer 教學課程](tutorial-load-balancer-basic-internal-portal.md)

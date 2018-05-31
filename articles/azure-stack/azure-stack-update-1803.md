@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2fdb77c133d5d8955ad6ae15864cbe0c78bc4e2f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258754"
 ---
 # <a name="azure-stack-1803-update"></a>Azure Stack 1803 更新
 
@@ -40,13 +41,23 @@ Azure Stack 1803 更新組建編號為 **20180329.1**。
 
 
 ### <a name="prerequisites"></a>先決條件
-- 先安裝 Azure Stack [1802 更新](azure-stack-update-1802.md)，然後才套用 Azure Stack 1803 更新。    
+- 先安裝 Azure Stack [1802 更新](azure-stack-update-1802.md)，然後才套用 Azure Stack 1803 更新。   
 
+- 您必須先套用 Azure Stack 1803 更新，才能安裝 **AzS Hotfix – 1.0.180312.1- Build 20180222.2**。 此 Hotfix 會更新 Windows Defender，您可在下載 Azure Stack 的更新時取得此 Hotfix。
+
+  若要安裝 Hotfix，請遵循[安裝 Azure Stack 的更新](azure-stack-apply-updates.md)的一般程序。 更新的名稱會顯示為 **AzS Hotfix – 1.0.180312.1**，並且包含下列檔案： 
+    - PUPackageHotFix_20180222.2-1.exe
+    - PUPackageHotFix_20180222.2-1.bin
+    - Metadata.xml
+
+  將這些檔案上傳至儲存體帳戶和容器之後，請從管理入口網站中的 [更新] 圖格執行安裝。 
+  
+  不同於 Azure Stack 的更新，安裝此更新並不會變更 Azure Stack 的版本。 若要確認此更新已安裝，請檢視**已安裝的更新**清單。
 
 ### <a name="post-update-steps"></a>更新後步驟
 - 在安裝 1803 之後，安裝任何適用的 Hotfix。 如需詳細資訊，請檢視下列知識庫文章，以及我們的[服務原則](azure-stack-servicing-policy.md)。
 
-  - [KB 4103348 - 網路控制器 API 服務在您嘗試安裝 Azure Stack 更新時損毀](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4294441 - 租用戶資源相關作業失敗，以及相同租用戶或基礎結構磁碟區上建立了非預期的共用](https://support.microsoft.com/en-us/help/4294441)
 
 - 安裝此更新之後，請檢閱防火牆設定，確定已開啟[必要的連接埠](azure-stack-integrate-endpoints.md)。 例如，此更新引進的 Azure 監視器會變更活動記錄檔的稽核記錄檔。 而這項變更現在會使用連接埠 13012，您也必須開啟此連接埠。  
 
@@ -108,8 +119,6 @@ Azure Stack 1803 更新組建編號為 **20180329.1**。
 - 可能無法在管理員入口網站中檢視計算或儲存體資源。 之所以發生此問題，是因為在更新安裝期間發生錯誤，且誤將更新報告為成功。 如果發生此問題，請連絡 Microsoft 客戶支援服務以尋求協助。
 
 - 您可能會在入口網站中看到空白的儀表板。 若要復原儀表板，請選取位於入口網站右上角的齒輪圖示，然後選取 [還原預設設定]。
-
-- 當您檢視資源或資源群組的屬性時，[移動] 按鈕顯示為停用。 這是預期的行為。 目前不支援在資源群組或訂用帳戶之間移動資源或資源群組。
 
 - 刪除使用者訂用帳戶會產生孤立的資源。 因應措施是，先刪除使用者資源或整個資源群組，然後再刪除使用者訂用帳戶。
 
@@ -234,6 +243,7 @@ Azure Stack 1803 更新組建編號為 **20180329.1**。
 
 - 僅支援資源提供者在裝載 SQL 或 MySQL 的伺服器上建立項目。 在不是由資源提供者建立的主機伺服器上建立項目，可能會導致不相符的狀態。  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > 在更新至 Azure Stack 1803 之後，您可以繼續使用先前部署的 SQL 和 MySQL 資源提供者。  建議您在新版本可供使用時更新 SQL 和 MySQL。 如同 Azure Stack，請循序套用 SQL 和 MySQL 資源提供者的更新。  例如，如果您使用 1711 版，請先套用 1712 版、再套用 1802 版，然後更新至 1803 版。      

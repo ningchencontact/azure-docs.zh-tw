@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/16/2018
 ms.author: billmath
-ms.openlocfilehash: 2ac28c278b9ac832f05cdb19a48ea576526104b3
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a96e856b55f118b74c7cb43ead925e10e4b74f1c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192433"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱來管理來賓存取權
 
@@ -33,7 +34,11 @@ ms.lasthandoff: 05/14/2018
 
 ## <a name="prerequisites"></a>先決條件 
 
+
+存取權檢閱是 Microsoft Enterprise Mobility + Security, E5 中所含之 Azure AD Premium P2 版本的一項功能。 如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。 透過這項功能進行互動 (包括建立檢閱、填寫檢閱或確認其存取權) 的每個使用者，都需要授權。 
+
 存取權檢閱是 Microsoft Enterprise Mobility + Security, E5 中所含之 Azure AD Premium P2 版本的一項功能。 如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-whatis.md)。 透過這項功能建立檢閱、存取檢閱或套用檢閱結果的每位使用者都需要授權。
+
 
 若您計劃讓來賓使用者檢閱自己的存取權，請閱讀來賓使用者授權相關資訊。 如需詳細資訊，請參閱 [Azure AD B2B 共同作業授權](active-directory-b2b-licensing.md)。
 

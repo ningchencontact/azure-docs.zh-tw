@@ -2,25 +2,20 @@
 title: Azure Active Directory B2B 共同作業常見問題集 | Microsoft Docs
 description: 取得 Azure Active Directory B2B 共同作業常見問題集的解答
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/11/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 03/06/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 77dc239385261c9544b00cf2cf2e450136dce0ae
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076568"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 共同作業常見問題集
 
@@ -37,9 +32,6 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="how-can-i-customize-my-invitation-emails"></a>如何自訂我的邀請電子郵件？
 您可以使用 [B2B 邀請 API](active-directory-b2b-api.md) 自訂關於邀請者程序的幾乎一切事項。
-
-### <a name="can-an-invited-external-user-leave-the-organization-after-being-invited"></a>受邀的外部使用者是否可以在受邀之後離開組織？
-邀請組織的系統管理員，可從他們的目錄中刪除 B2B 共同作業來賓使用者，但來賓使用者不能自行離開邀請的組織目錄。 
 
 ### <a name="can-guest-users-reset-their-multi-factor-authentication-method"></a>來賓使用者是否可以重設其多重要素驗證方法？
 是。 來賓使用者集可以重設其多重要素驗證方法，作法與一般使用者一樣。
@@ -105,9 +97,7 @@ Azure AD 有一組固定的字元、密碼強度，以及帳戶鎖定需求，�
 我們也邀請您前往 [B2B 共同作業構想](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas)提交您的構想和票選未來的功能。
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>我們是否可以傳送自動兌換的邀請，讓使用者「隨時出發」？ 還是使用者一定要按一下才能前往兌換 URL？
-如果是由邀請方組織中的使用者傳送邀請，而此使用者也是夥伴組織的成員，B2B 使用者就不需要兌換該邀請。
-
-建議您從夥伴組織中邀請一位使用者加入邀請方組織。 [將這個使用者新增至資源組織中的來賓邀請者角色](active-directory-b2b-add-guest-to-role.md)。 這位使用者可以使用登入 UI、PowerShell 指令碼或 API，邀請夥伴組織中的其他使用者。 然後，來自該組織的 B2B 共同作業使用者就不需要兌換他們的邀請。
+邀請者可以使用 UI、PowerShell 指令碼或 API，邀請夥伴組織中的其他使用者。 然後，邀請者可以將共用應用程式的直接連結傳送給來賓使用者。 在大部分情況下，不再需要開啟電子郵件邀請，然後按一下兌換 URL。 如需詳細資訊，請參閱 [Azure Active Directory B2B 共同作業邀請兌換](active-directory-b2b-redemption-experience.md)。
 
 ### <a name="how-does-b2b-collaboration-work-when-the-invited-partner-is-using-federation-to-add-their-own-on-premises-authentication"></a>當受邀的合作夥伴使用同盟來新增自己的內部部署驗證時，B2B 共同作業如何運作？
 如果合作夥伴具有與內部部署驗證基礎結構同盟的 Azure AD 租用戶，就會自動達成內部部署單一登入 (SSO)。 如果合作夥伴沒有 Azure AD 租用戶，則系統會為新的使用者建立 Azure AD 帳戶。 
@@ -129,16 +119,5 @@ Azure AD 整合的所有應用程式都支援 Azure B2B 來賓使用者。
 
 ### <a name="next-steps"></a>後續步驟
 
-請瀏覽有關 Azure AD B2B 共同作業的其他文章：
+- [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-* [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Azure AD 管理員如何新增 B2B 共同作業使用者？](active-directory-b2b-admin-add-users.md)
-* [資訊工作者如何新增 B2B 共同作業使用者？](active-directory-b2b-iw-add-users.md)
-* [B2B 共同作業邀請電子郵件的元素](active-directory-b2b-invitation-email.md)
-* [B2B 共同作業邀請兌換](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B 共同作業授權](active-directory-b2b-licensing.md)
-* [針對 Azure AD B2B 共同作業進行疑難排解](active-directory-b2b-troubleshooting.md)
-* [Azure AD B2B 共同作業 API 和自訂](active-directory-b2b-api.md)
-* [適用於 B2B 共同作業使用者的多重要素驗證](active-directory-b2b-mfa-instructions.md)
-* [在沒有邀請的情況下新增 B2B 共同作業使用者](active-directory-b2b-add-user-without-invite.md)
-* [Azure AD 中應用程式管理的文章索引](active-directory-apps-index.md)
