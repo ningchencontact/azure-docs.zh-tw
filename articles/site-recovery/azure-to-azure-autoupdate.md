@@ -1,23 +1,23 @@
 ---
 title: 將 Azure 中的行動服務自動更新至 Azure 災害復原 | Microsoft Docs
-description: 提供自動更新行動服務的概觀，這個功能是用來使用 Azure Site Recovery 來複寫 Azure 虛擬機器。
+description: 在使用 Azure Site Recovery 複寫 Azure 虛擬機器時，提供自動更新行動服務的概觀。
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: rajanaki
-ms.openlocfilehash: 45f2e2927f699769bb385038c04d4dd23e075a9a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: add80b17c76e7262f55e50cd07d4e9b053cfa1ff
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779651"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209826"
 ---
-# <a name="automatic-update-of-mobility-service-extension-in-azure-to-azure-replication"></a>將 Azure 中的行動服務擴充功能自動更新至 Azure 複寫
+# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>將 Azure 中的行動服務自動更新至 Azure 複寫
 
-Azure Site Recovery 每個月都會發行，可以增強現有功能或者新增新功能，並且會修正任何已知問題。 這表示為了要將服務保持在最新狀態，您必須規劃以每月的頻率部署這些修補程式。 為了避免與升級相關聯的額外負荷，使用者可以改為選擇允許 Site Recovery 來管理元件的更新。 如[架構參考](azure-to-azure-architecture.md)中針對 Azure 到 Azure 災害復原的詳細說明，行動服務會安裝在從一個 Azure 區域將虛擬機器複寫到其他區域時，在上面啟用複寫的所有 Azure 虛擬機器。 這份文件會詳細說明下列事項：
+Azure Site Recovery 每個月都會發行，可以增強現有功能或者新增新功能，並且會修正任何已知問題。 這表示為了要將服務保持在最新狀態，您必須規劃以每月的頻率部署這些修補程式。 為了避免與升級相關聯的額外負荷，使用者可以改為選擇允許 Site Recovery 來管理元件的更新。 如[架構參考](azure-to-azure-architecture.md)中針對 Azure 到 Azure 災害復原的詳細說明，行動服務會安裝在從一個 Azure 區域將虛擬機器複寫到其他區域時，在上面啟用複寫的所有 Azure 虛擬機器。 一旦您啟用自動更新，行動服務擴充會隨著每個新的版本更新。 這份文件會詳細說明下列事項：
 
 - 自動更新的運作方式為何？
 - 啟用自動更新
@@ -26,6 +26,9 @@ Azure Site Recovery 每個月都會發行，可以增強現有功能或者新增
 ## <a name="how-does-automatic-update-work"></a>自動更新的運作方式為何
 
 一旦您允許 Site Recovery 管理更新，就會透過自動化帳戶 (建立在與保存庫相同的訂用帳戶中) 部署全域 Runbook (由 Azure 服務使用)。 會將一個自動化帳戶用於特定保存庫。 Runbook 會檢查保存庫中已開啟自動更新的每部虛擬機器，並且在有較新版本可用時，起始行動服務擴充功能升級。 Runbook 的預設排程是在各個複寫虛擬機器地區時區的上午 12:00 點。 Runbook 排程也可以由使用者視需要透過自動化帳戶進行修改。 
+
+> [!NOTE]
+> 啟用自動更新不需要重新啟動您的 Azure 虛擬機器，也不會影響進行中的複寫。
 
 ## <a name="enable-automatic-updates"></a>啟用自動更新
 
