@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 130b3ea0012c5fb21766b26ce2c3e589f0916736
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: df3d843516bce30253c23080716e606dfb56f25e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211556"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>管理 Azure SQL Database 長期備份保留
 
@@ -80,6 +81,10 @@ ms.lasthandoff: 04/19/2018
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>使用 PowerShell 來設定長期保留原則和還原備份
 
 下列各節說明如何使用 PowerShell 來設定長期備份保留、檢視 Azure SQL 儲存體中的備份，以及從 Azure SQL 儲存體中的備份還原。
+
+> [!IMPORTANT]
+> 您必須使用最新的 AzureRM PowerShell 來設定 LTR V2 原則。 目前的版本是 [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview)，這是預覽版本，因此請使用下列命令來安裝它：`Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`。
+> 如需安裝發行前版本的指導方針，請參閱[取得 PowerShellGet 模組](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget)。 AzureRM PowerShell 2018 年 5 月版本將在幾天後發行 (預計是 2018/5/18)，在安裝已可供使用的發行版本時，您可以忽略 -AllowPrelease 參數，並使用下列命令 `Install-Module -Name AzureRM.Sql -Force`。
 
 ### <a name="create-an-ltr-policy"></a>建立 LTR 原則
 
