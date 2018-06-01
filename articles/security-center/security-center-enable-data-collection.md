@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2018
+ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: 90a73545afa82276256a021588eaa594b95ee8da
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 847127c96f23bbeb3cf3a5d1c9768af6e0cc0dc4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203966"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure 資訊安全中心的資料收集
 資訊安全中心會從您的 Azure 虛擬機器 (VM) 和非 Azure 電腦收集資料，以監視安全性漏洞與威脅。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄檔，並將資料複製到工作區進行分析。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄檔 (Windows 事件記錄檔)、執行中程序、電腦名稱、IP 位址、已登入的使用者和租用戶識別碼。 Microsoft Monitoring Agent 也會將損毀傾印檔案複製到工作區。
 
 ## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>啟用 Microsoft Monitoring Agent 的自動佈建     
-啟用自動佈建時，資訊安全中心會在所有支援的 Azure VM 和任何新建立的 VM 上佈建 Microsoft Monitoring Agent。 強烈建議使用自動佈建，但是手動代理程式安裝也可行。 [深入了解如何安裝 Microsoft Monitoring Agent 擴充功能](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)。
+預設會關閉自動佈建。 啟用自動佈建時，資訊安全中心會在所有支援的 Azure VM 和任何新建立的 VM 上佈建 Microsoft Monitoring Agent。 強烈建議使用自動佈建，但是手動代理程式安裝也可行。 [深入了解如何安裝 Microsoft Monitoring Agent 擴充功能](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)。
 
 > [!NOTE]
 > 停用自動佈建會限制對資源的安全性監視。 若要進一步了解，請參閱本文的[停用自動佈建](security-center-enable-data-collection.md#disable-automatic-provisioning)。 即使自動佈建已停用，仍然會啟用 VM 磁碟快照集和成品集合。
@@ -34,11 +35,14 @@ ms.lasthandoff: 04/05/2018
 若要啟用 Microsoft Monitoring Agent 的自動佈建：
 1. 在 [資訊安全中心] 主功能表下，選取 [安全性原則]。
 2. 選取訂用帳戶。
+
+  ![選取訂用帳戶][7]
+
 3. 在 [安全性原則] 下，選取 [資料收集]。
-4. 在 [上架] 下，選取 [開啟] 啟用自動佈建。
+4. 在 [自動佈建] 下，選取 [開啟] 啟用自動佈建。
 5. 選取 [ **儲存**]。
 
-![啟用自動佈建][1]
+  ![啟用自動佈建][1]
 
 ## <a name="default-workspace-configuration"></a>預設工作區組態
 資訊安全中心收集的資料會儲存在 Log Analytics 工作區。  您可以選擇將從 Azure VM 收集而得的資料儲存於資訊安全中心建立的工作區中，或儲存於您建立的現有工作區中。
@@ -49,16 +53,16 @@ ms.lasthandoff: 04/05/2018
 
 若要選取現有的 Log Analytics 工作區：
 
-1. 在 [安全性原則 - 資料收集] 下，選取 [使用其他工作區]。
+1. 在 [預設工作區組態] 下，選取 [使用其他工作區]。
 
    ![選取現有工作區][2]
 
 2. 從下拉式功能表中，選取要儲存收集資料的工作區。
 
-> [!NOTE]
-> 在下拉式功能表中，只會顯示您可存取，而且在您 Azure 訂用帳戶中的工作區。
->
->
+  > [!NOTE]
+  > 在下拉式功能表中，所有訂用帳戶的所有工作區均可供使用。 如需詳細資訊，請參閱[跨訂用帳戶工作區選取](security-center-enable-data-collection.md#cross-subscription-workspace-selection)。
+  >
+  >
 
 3. 選取 [ **儲存**]。
 4. 選取 [儲存] 之後，會詢問您是否要重新設定受監控的虛擬機器。
@@ -73,7 +77,15 @@ ms.lasthandoff: 04/05/2018
 
    - 選取 [取消] 以取消作業。
 
-   ![選取現有工作區][3]
+     ![選取現有工作區][3]
+
+## <a name="cross-subscription-workspace-selection"></a>跨訂用帳戶工作區選取
+當您選取工作區來儲存資料時，所有訂用帳戶的所有工作區均可供使用。 跨訂用帳戶工作區選取可讓您從執行於不同訂用帳戶的虛擬機器收集資料，並將它儲存在您選擇的工作區中。 這項功能同時適用於在 Linux 和 Windows 上執行的虛擬機器。
+
+> [!NOTE]
+> 跨訂用帳戶工作區選取是 Azure 資訊安全中心免費層的一部分。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。
+>
+>
 
 ## <a name="data-collection-tier"></a>資料收集層
 資訊安全中心可以減少事件的數量，同時維持足夠的事件以供調查、稽核和威脅偵測之用。 對於訂用帳戶和工作區，您可以從代理程式將收集的四組事件中選擇合適的篩選原則。
@@ -84,7 +96,8 @@ ms.lasthandoff: 04/05/2018
 - **無** – 停用安全性和 App Locker 記錄檔的安全性事件收集。 對於選擇此選項的客戶，其安全性儀表板上僅有 Windows 防火牆記錄檔和主動式評估，例如反惡意程式碼軟體、基準和更新。
 
 > [!NOTE]
-> 這些集合都是設計用來處理一般情況。 實作之前，請務必評估哪一個適合您的需求。
+> 只能資訊安全中心的標準層會提供這些安全性事件集。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。
+這些集合都是設計用來處理一般情況。 實作之前，請務必評估哪一個適合您的需求。
 >
 >
 
@@ -115,7 +128,7 @@ ms.lasthandoff: 04/05/2018
 >
 
 若要選擇篩選原則：
-1. 在 [安全性原則和設定] 刀鋒視窗的 [安全性事件] 下，選取您的篩選原則。
+1. 在 [安全性原則資料收集] 刀鋒視窗的 [安全性事件] 下，選取您的篩選原則。
 2. 選取 [ **儲存**]。
 
    ![選擇篩選原則][5]
@@ -129,12 +142,13 @@ ms.lasthandoff: 04/05/2018
 >
 
 1. 返回 [資訊安全中心] 主功能表，並選取 [安全性原則]。
-
-   ![停用自動佈建][6]
-
 2. 選取您想要停用自動佈建的訂用帳戶。
-3. 在 [安全性原則 - 資料收集] 刀鋒視窗的 [上架] 下，選取 [關閉]，停用自動佈建。
-4. 選取 [ **儲存**]。  
+3. 在 [安全性原則 - 資料收集] 刀鋒視窗的 [自動佈建] 下，選取 [關閉]。
+4. 選取 [ **儲存**]。
+
+  ![停用自動佈建][6]
+
+自動佈建停用 (關閉) 時，便不會顯示預設的工作區組態區段。
 
 ## <a name="next-steps"></a>後續步驟
 本文說明資料收集和自動佈建如何在資訊安全中心運作。 如要深入了解資訊安全中心，請參閱下列主題：
@@ -153,4 +167,5 @@ ms.lasthandoff: 04/05/2018
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png
+[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
+[7]: ./media/security-center-enable-data-collection/select-subscription.png

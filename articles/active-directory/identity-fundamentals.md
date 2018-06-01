@@ -13,11 +13,12 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 7c00ccf214cfd683d04a76cc3cfad9bd27080561
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3603a1e91bc6bcf8a472b41bb0d0a276bf231d7c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302853"
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Azure 身分識別管理的基本概念
 
@@ -30,7 +31,7 @@ Azure AD Premium 是雲端架構身分識別和存取管理解決方案，其具
 觀看以下短片，快速概覽 Azure AD 身分識別管理和保護功能︰
 >[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
 
-Microsoft 不只提供可讓您隨處通行的身分識別，而且也提供一組工具來自動執行、協助保護及管理您組織內的 IT。 即使在雲端運算問世以後，仍有管理和控制 IT 工作的需求，例如重設使用者密碼的技術支援請求、使用者群組管理，以及應用程式要求。 更為複雜的是，員工現在會帶著個人裝置上班以及使用隨手可得的 SaaS 應用程式。 這使得掌控其橫跨公司資料中心和公用雲端平台的應用程式成為一大挑戰。
+Microsoft 不只提供可讓您隨處通行的身分識別，而且也提供一組工具來自動執行、協助保護及管理您組織內的 IT。 即使在雲端運算問世以後，仍有管理和控制 IT 工作的需求，例如重設使用者密碼的技術支援請求、使用者群組管理，以及應用程式要求。 更複雜的是，員工現在可使其個人裝置運作和使用立即可用的 SaaS 應用程式，這會讓跨公司資料中心和公用雲端平台控管其應用程式成為一大挑戰。
 
 [!INCLUDE [identity](../../includes/azure-ad-licenses.md)]
 
@@ -40,7 +41,7 @@ Microsoft 不只提供可讓您隨處通行的身分識別，而且也提供一�
 完成整合，您只需要 [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)。 Azure AD Connect 會提供功能來支援身分識別同步需求，並取代舊版的身分識別整合工具，如 DirSync 和 Azure AD Sync。使用 Azure AD Connect，身分識別管理和內部部署與 Azure AD 之間的同步處理是透過下列項目啟用︰
 
 - 同步處理 - 此元件負責建立使用者、群組和其他物件。 它也負責確保您的內部部署使用者和群組的身分識別資訊符合雲端。 也可以啟用密碼回寫，當使用者在 Azure AD 中更新其密碼時，讓內部部署目錄保持同步。
-- AD FS - 同盟是 Azure AD Connect 的選用功能，可用來設定使用內部部署 AD FS 基礎結構的混合環境。 組織可以使用同盟來處理複雜部署，例如單一登入、AD 登入原則的強制執行以及智慧卡或協力廠商 MFA。
+- AD FS - 同盟是 Azure AD Connect 的選用功能，可用來設定使用內部部署 AD FS 基礎結構的混合環境。 組織可以使用同盟來處理複雜部署，例如智慧卡或第三方 MFA。
 - 狀況監控 - [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health) 可以提供健全監控，並在 Azure 入口網站中提供檢視此活動的中央位置。
 
 ## <a name="increase-productivity-and-reduce-helpdesk-costs-with-self-service-and-single-sign-on-experiences"></a>經由自助式和單一登入體驗提高生產力並降低技術支援成本

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 490b162bcab0656388ef0b211ea693809d446346
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: e12010f225b5f8db247d1b751615cbedd413dfb3
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312231"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271972"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
@@ -86,6 +86,12 @@ ms.locfileid: "32312231"
 您可以在建立伺服器期間或之後，新增額外的儲存體容量。 基本層不提供 IOPS 保證。 在一般用途和記憶體最佳化定價層中，IOPS 與佈建的儲存體大小會以 3:1 的比例調整。
 
 您可以在 Azure 入口網站或使用 Azure CLI 命令來監視 I/O 耗用量。 要監視的相關計量包括[儲存體限制、儲存體百分比、已使用的儲存體和 IO 百分比](concepts-monitoring.md)。
+
+### <a name="reaching-the-storage-limit"></a>到達儲存體限制
+
+當可用的儲存體數量低於 5 GB 或 5% 的佈建儲存體時 (以較低者為準)，伺服器會標記為唯讀狀態。 例如，如果您已佈建 100 GB 的儲存體，並且實際的使用率超過 95 GB，伺服器會標示為唯讀。 或者，如果您已佈建 5 GB 的儲存體，則當可用儲存體小於 250 MB時，伺服器會標示為唯讀。  
+
+當服務嘗試讓伺服器變為唯讀時，會封鎖所有新的寫入交易要求，而現有的使用中交易會繼續執行。 當伺服器設為唯讀時，所有後續的寫入作業和交易認可都會失敗。 讀取查詢將會繼續運作，不會中斷。 當您增加佈建的儲存體之後，伺服器就可以再次接受寫入交易。
 
 ## <a name="backup"></a>備份
 

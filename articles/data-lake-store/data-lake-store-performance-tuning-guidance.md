@@ -10,15 +10,14 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 29b662aa2f30083b444483554a78d53f0d05cb7f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196979"
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>針對效能目的調整 Azure Data Lake Store
 
@@ -66,7 +65,7 @@ Azure Data Lake Store 可以調整以提供所有分析案例的需要輸送量�
 
 一般情況下，將您的資料組織成較大大小的檔案，以提升效能。  根據經驗法則，將檔案中的資料集組織為 256MB 以上。 在例如映像和二進位資料的某些情況下，不能夠平行處理。  在這些情況下，建議將個別檔案保持在 2GB 以下。
 
-有時候，資料管線對於具有大量小型檔案的未經處理資料，具有受限制的控制權。  建議進行「cooking」程序，該程序會產生較大的檔案，以用於下游應用程式。  
+有時候，資料管線對於具有大量小型檔案的未經處理資料，具有受限制的控制權。  建議進行「cooking」程序，該程序會產生較大的檔案，以用於下游應用程式。
 
 ### <a name="organizing-time-series-data-in-folders"></a>組織資料夾中的時間序列資料
 
@@ -123,7 +122,7 @@ HDInsight 叢集內有三個層級可以微調，以增加容器數目並且使�
 
 根據您的工作負載，一定有需要的最小 YARN 容器大小。 如果您挑選的容器太小，您的作業會遇到記憶體不足的問題。 通常 YARN 容器應該不小於 1GB。 通常會看到 3GB YARN 容器。 針對某些工作負載，您可能需要較大的 YARN 容器。  
 
-**增加每個 YARN 容器的核心。**  增加配置給每個容器的核心數目，以增加在每個容器中執行的平行工作數目。  這適用於類似 Spark 的應用程式，它會在每個容器執行多項工作。  對於像是 Hive 的應用程式，它會在每個容器中執行單一執行緒，所以最好是有多個容器，而不是每個容器有多個核心。   
+**增加每個 YARN 容器的核心。**  增加配置給每個容器的核心數目，以增加在每個容器中執行的平行工作數目。  這適用於類似 Spark 的應用程式，它會在每個容器執行多項工作。  對於像是 Hive 的應用程式，它會在每個容器中執行單一執行緒，所以最好是有多個容器，而不是每個容器有多個核心。
 
 ### <a name="workload-layer"></a>工作負載層
 

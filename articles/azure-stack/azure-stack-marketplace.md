@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 588da055d06d7e63510085ff48169f3ea756c53c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 7b1a6020fb8730aee7ed41d8c82358db0945e4ef
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257637"
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Azure Stack Marketplace 概觀
 
@@ -29,7 +30,7 @@ Marketplace 是針對 Azure Stack 自訂的一組服務、應用程式和資源�
 
 身為 Azure Stack 操作員，可以決定要新增 (發佈) 到 Marketplace 中的項目。 您可以發佈像資料庫、應用程式服務等等的項目。 發佈以後，所有的使用者都可以看到它們。 您可以發佈您所建立的自訂項目。 您也可以從成長中的 [Azure Marketplace 項目清單](azure-stack-marketplace-azure-items.md)內發佈項目。 當您將項目發佈到 Marketplace 中，使用者在五分鐘內就可看到它。
 
-若要開啟 Marketplace，請按一下 [新增] 。
+若要開啟 Marketplace，請在管理主控台中選取 [新增]。
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
@@ -47,5 +48,6 @@ Azure Stack Marketplace 項目是您的使用者可下載並使用的服務、�
 在版本 1803 和更新版本中，當您從 Azure 下載映像或上傳自訂映像時，Azure Stack 會將映像轉換成疏鬆檔案。 此程序會在新增影像時增加時間，但可節省空間並加速這些映像的部署。 轉換只適用於新的映像。  現有的映像不會變更。 
 
 ## <a name="next-steps"></a>後續步驟
+[下載 Marketplace 項目](azure-stack-download-azure-marketplace-item.md)  
 [建立及發佈 Marketplace 項目](azure-stack-create-and-publish-marketplace-item.md)
 
