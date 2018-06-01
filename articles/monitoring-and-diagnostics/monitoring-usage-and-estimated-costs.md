@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32176281"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203772"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>監視使用量和估計成本
 
@@ -93,7 +93,7 @@ ms.locfileid: "32176281"
 成本估計會反映出這些變更的影響。
 
 > [!WARNING]
-> 重要注意事項：如果您使用 Azure Resource Manager 或 PowerShell 來部署訂用帳戶中的 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration)或 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell)，表示您已移至新的定價模式。 如果您為 Log Analytics 指定「pergb2018」以外的定價層/方案，或是為 Application Insights 指定「基本」方案，而不是因指定無效的定價層/方案而導致部署失敗，如此一來就會成功，**但是只會使用有效的定價層/方案**。 
+> 重要注意事項：如果您使用 Azure Resource Manager 或 PowerShell 來部署訂用帳戶中的 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration)或 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell)，表示您已移至新的定價模式。 如果您為 Log Analytics 指定「pergb2018」以外的定價層/方案，或是為 Application Insights 指定「基本」方案，就不會因為指定了無效的定價層/方案而導致部署失敗；不過，雖然部署成功，**但系統也只會使用有效的定價層/方案** (此方式不適用於會產生無效定價層訊息的 Log Analytics 免費層)。
 >
 
 ## <a name="moving-to-the-new-pricing-model"></a>移轉至新的定價模式

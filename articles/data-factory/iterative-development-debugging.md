@@ -4,7 +4,7 @@ description: 了解如何在 Azure 入口網站中反覆地開發和偵錯 Data 
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.topic: article
 ms.service: data-factory
 services: data-factory
@@ -12,15 +12,20 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: b6a6fbd721e4f0af977fe7fa03adc4459de7611f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e403afa5c870b2d007a8c5e1d46162cd899ead29
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164817"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>透過 Azure Data Factory 的反覆式開發與偵錯
 
 Azure Data Factory 可讓您反覆地開發和偵錯 Data Factory 管線。
+
+如需此功能的簡介與示範，請觀看下列 8 分鐘長的影片：
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Iterative-development-and-debugging-with-Azure-Data-Factory/player]
 
 ## <a name="iterative-debugging-features"></a>反覆式偵錯功能
 使用管線畫布中的 [偵錯] 功能來建立管線和執行測試回合，而不需撰寫任何一行程式碼。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 8526918630189824e26b95df7f0560c96392e55d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010919"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213260"
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>針對 Azure 檔案同步 (預覽) 進行移難排解
 使用 Azure 檔案同步 (預覽版)，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -155,7 +155,7 @@ Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -Vo
     2. 確認 Azure 檔案同步服務正在伺服器上執行。 做法是，開啟 [服務] MMC 嵌入式管理單元，並確認儲存體同步代理程式服務 (FileSyncSvc) 正在執行。
 
 <a id="replica-not-ready"></a>**同步處理失敗，發生錯誤：「0x80c8300f - 複本未就緒，無法執行要求的作業」**  
-如果您建立雲端端點並使用包含資料的 Azure 檔案共用，便會發生此問題。 當 Azure 檔案共用上的變更偵測完成 (最多可能需要 24 小時)，同步處理應該就能開始正常運作。
+如果您建立雲端端點並使用包含資料的 Azure 檔案共用，便會發生此問題。 掃描 Azure 檔案共用中變更的變更偵測工作會排定每隔 24 小時一次。  完成時間取決於 Azure 檔案共用中命名空間的大小。  此錯誤在完成後就會消失。
 
 
     > [!NOTE]
