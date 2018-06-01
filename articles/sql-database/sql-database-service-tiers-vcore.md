@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 1424ae2d9ffe7308fe85b7eb8ed6b0062d59ce31
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 9abe7743906064d182453fea403ff94a097c3558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057917"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212376"
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>Azure SQL Database 以虛擬核心為基礎的購買模型 (預覽)
 
@@ -27,7 +27,7 @@ ms.locfileid: "34057917"
 |**購買模型**|**說明**|**適用對象**|
 |---|---|---|
 |以 DTU 為基礎的模型|此模型是以計算、儲存體和 IO 資源的配套量值為基礎。 單一資料庫的效能層級會以資料庫交易單位 (DTU) 表示，而彈性集區的效能層級則會以彈性資料庫交易單位 (eDTU) 表示。 如需 DTU 和 eDTU 的詳細資訊，請參閱[什麼是 DTU 和 eDTU？](sql-database-what-is-a-dtu.md)|適合想要簡單選項且該選項已預先設定好資源的客戶。| 
-|以虛擬核心為基礎的模型|此模型可讓您獨立地調整計算和儲存體資源。 它還可任您使用適用於 SQL Server 的 Azure Hybrid Benefit 來節省成本。|適合重視彈性、控制力和透明度的客戶。|
+|以虛擬核心為基礎的模型|此模型可讓您獨立地調整計算和儲存體資源 - 最多 80 個虛擬核心，4 TB 資料存放區和 200000 IOPS。 它還可任您使用適用於 SQL Server 的 Azure Hybrid Benefit 來節省成本。|適合重視彈性、控制力和透明度的客戶。|
 ||||  
 
 ![定價模型](./media/sql-database-service-tiers/pricing-model.png)
@@ -66,10 +66,10 @@ ms.locfileid: "34057917"
 ||**一般用途**|**商務關鍵性**|
 |---|---|---|
 |適用對象|大部分的商業工作負載。 提供以預算為導向、平衡且可調整規模的計算與儲存體選項。|高 IO 需求的商務應用程式。 使用數個分開的複本，針對失敗提供最高的復原能力。|
-|計算|1 到 16 個虛擬核心|1 到 16 個虛擬核心|
+|計算|1 到 80 個 vCore，第 4 代和第 5 代 |1 到 80 個 vCore，第 4 代和第 5 代|
 |記憶體|每個核心 7 GB |每個核心 7 GB |
-|儲存體|進階遠端儲存體，5 GB – 4 TB|本機 SSD 儲存體，5 GB – 1 TB|
-|IO 輸送量 (大約)|每個虛擬核心 500 IOPS，且 IOPS 上限為 7500|每個核心 5000 IOPS|
+|儲存體|進階遠端儲存體，5 GB – 4 TB|本機 SSD 儲存體，5 GB – 4 TB|
+|IO 輸送量 (大約)|每個虛擬核心 500 IOPS，且 IOPS 上限為 7000|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200000|
 |可用性|1 個複本、無讀取規模|3 個複本、1 個[讀取規模](sql-database-read-scale-out.md)、區域備援 HA|
 |備份|RA-GRS、7-35 天 (預設為 7 天)|RA-GRS、7-35 天 (預設為 7 天)*|
 |記憶體內|N/A|支援|
