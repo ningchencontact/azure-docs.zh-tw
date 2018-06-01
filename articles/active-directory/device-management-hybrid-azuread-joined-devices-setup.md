@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157787"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258307"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>如何設定混合式 Azure Active Directory 已加入的裝置
 
@@ -96,6 +96,7 @@ Azure AD Connect：
 
 - 此外，請在使用者的內部網路區域啟用下列設定：[允許透過指令碼更新狀態列]。
 
+如果您的組織以內部部署 AD 使用受控 (非同盟) 設定，而不是使用 ADFS 與 Azure AD 同盟，則在 Windows 10 上的混合式 Azure AD，就要靠 AD 中的電腦物件與 Azure AD 同步才能加入。 若要在 Azure AD Connect 同步處理組態中進行同步，請確定已啟用其中包含需要加入混合式 Azure AD 電腦物件的任何組織單位 (OU)。
 
 如果組織需要透過輸出 Proxy 存取網際網路，您就必須實作 Web Proxy 自動探索 (WPAD)，以在 Azure AD 中註冊 Windows 10 電腦。
 
@@ -187,6 +188,14 @@ Azure AD Connect：
 
     $deSCP.CommitChanges()
 
+在上述指令碼中，
+
+- `$verifiedDomain = "contoso.com"` 是要使用您 Azure AD 中其中一個已驗證網域名稱來取代的預留位置。 您必須擁有該網域，才能使用它。
+
+如需已驗證之網域名稱的詳細資料，請參閱[將自訂網域名稱新增至 Azure Active Directory](active-directory-domains-add-azure-portal.md)。  
+若要取得已驗證之公司網域的清單，您可以使用 [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) Cmdlet。 
+
+![Get-AzureADDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
 ## <a name="step-2-setup-issuance-of-claims"></a>步驟 2︰設定宣告的發行
 
@@ -330,6 +339,7 @@ Azure AD Connect：
 
 
 如需已驗證之網域名稱的詳細資料，請參閱[將自訂網域名稱新增至 Azure Active Directory](active-directory-domains-add-azure-portal.md)。  
+
 若要取得已驗證之公司網域的清單，您可以使用 [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) Cmdlet。 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)

@@ -216,4 +216,4 @@
 * 瀏覽 [Azure 受控磁碟概觀](../articles/virtual-machines/windows/managed-disks-overview.md)文件，深入了解受控磁碟。
 * 瀏覽 [Microsoft.Compute/virtualMachines 範本參考](/azure/templates/microsoft.compute/virtualmachines)文件，檢閱虛擬機器資源的範本參考文件。
 * 瀏覽 [Microsoft.Compute/disks 範本參考](/azure/templates/microsoft.compute/disks)文件，檢閱磁碟資源的範本參考文件。
- 
+* 如需如何在 Azure VM 擴展集內使用受控磁碟的相關資訊，請瀏覽[使用資料磁碟搭配擴展集](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md)文件。

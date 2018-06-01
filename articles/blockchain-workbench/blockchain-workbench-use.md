@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/26/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 35a45947c2766ccc5e64f4c3523ce163a9680680
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: b15d4980875b805b49f7dc1cdb941e607232f3cb
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258034"
 ---
 # <a name="using-applications-in-azure-blockchain-workbench"></a>在 Azure Blockchain Workbench 中使用應用程式
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 05/12/2018
 
 ## <a name="create-new-contract"></a>建立新的合約 
 
-若要建立新的合約，您必須是 **AllowedInstanceRoles** 角色的成員。 
+若要建立新合約，您必須是指定為合約**啟動者**的成員。 如需有關定義應用程式角色和合約啟動者的資訊，請參閱[組態概觀中的工作流程](blockchain-workbench-configuration-overview.md#workflows)。 如需將成員指派給應用程式角色的資訊，請參閱[將成員新增至應用程式](blockchain-workbench-manage-users.md#add-member-to-application)。
 
 1. 在 Blockchain Workbench 應用程式區段中，選取您想要建立的合約所在的應用程式圖格。 隨即會顯示作用中合約的清單。
 
@@ -51,15 +52,10 @@ ms.lasthandoff: 05/12/2018
 
 ## <a name="take-action-on-contract"></a>對合約採取動作
 
+根據合約所處狀態，成員可以採取動作來將合約轉換至下一個狀態。 這些動作會在[狀態](blockchain-workbench-configuration-overview.md#states)內定義為[轉換](blockchain-workbench-configuration-overview.md#transitions)。 若成員屬於轉換所允許的應用程式或執行個體角色，則該成員可以採取動作。 
+
 1. 在 Blockchain Workbench 應用程式區段中，選取要採取動作的合約所在的應用程式圖格。
-
-    ![應用程式清單](media/blockchain-workbench-use/apps-list.png)
-
-2. 選取清單中的合約。
-
-    ![合約清單](media/blockchain-workbench-use/select-contract.png)
-
-    合約的詳細資料會顯示在不同的區段。 
+2. 選取清單中的合約。 合約的詳細資料會顯示在不同的區段。 
 
     ![合約詳細資料](media/blockchain-workbench-use/contract-details.png)
 
@@ -74,9 +70,14 @@ ms.lasthandoff: 05/12/2018
 
 4. 合約目前狀態的詳細資料會顯示在窗格中。 在下拉式清單中選擇您想要採取的動作。 
 
+    ![選擇動作](media/blockchain-workbench-use/choose-action.png)
+
+5. 選取 [採取動作] 以起始動作。
+6. 若動作需要參數，請指定動作的值。
+
     ![採取動作](media/blockchain-workbench-use/take-action.png)
 
-5. 選取 [執行] 來採取動作。
+7. 選取 [採取動作] 以執行動作。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1d12df7c37c4c96198865479326851040b46986a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a3c81d63593bb7bf268c1026064e34c3a363ef86
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304652"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的網路效能監控解決方案
 
@@ -74,7 +75,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 網路效能監視器會使用綜合交易來監視來源與目的地代理程式之間的網路效能。 您可以從 TCP 和 ICMP 中擇一作為要在監視「效能監視器」和「服務端點監視器」功能中用於監視的通訊協定。 TCP 可用於「ExpressRoute 監視器」。 請確定防火牆允許 Operations Management Suite 代理程式 (這些代理程式將用於在您選擇的通訊協定上進行監視) 之間的通訊。 
 
-* **TCP 通訊協定**：如果您選擇 TCP 作為用於監視的通訊協定，請在用於「網路效能監視器」和「ExpressRoute 監視器」的代理程式上開啟防火牆連接埠，以確保代理程式可以彼此連線。 若要開啟連接埠，請使用系統管理權限執行 EnableRules.ps1 PowerShell 指令碼，而不在 PowerShell 視窗中使用任何參數。
+* **TCP 通訊協定**：如果您選擇 TCP 作為用於監視的通訊協定，請在用於「網路效能監視器」和「ExpressRoute 監視器」的代理程式上開啟防火牆連接埠，以確保代理程式可以彼此連線。 若要開啟連接埠，請使用系統管理權限執行 [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell 指令碼，而不在 PowerShell 視窗中使用任何參數。
 
     使指令碼會建立解決方案所需的登錄機碼。 此外也會建立 Windows 防火牆規則，以允許代理程式建立彼此的 TCP 連線。 此指令碼所建立的登錄機碼會指定是否要記錄偵錯記錄，以及記錄檔的路徑。 此指令碼也會定義用於通訊的代理程式 TCP 連接埠。 此指令碼會自動設定這些機碼的值。 請勿手動變更這些機碼。 預設開啟的連接埠是 8084。 您可以為指令碼提供 portNumber 參數來使用自訂連接埠。 請在指令碼執行所在的所有電腦上使用相同的連接埠。 
 
@@ -82,7 +83,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
     > 指令碼只會在本機設定 Windows 防火牆。 如果您有網路防火牆，請確定它允許傳至網路效能監視器所用 TCP 連接埠的流量。
 
     >[!NOTE]
-    > 您不需要為「服務端點監視器」執行 EnableRules.ps1 PowerShell 指令碼。
+    > 您不需要為「服務端點監視器」執行 [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell 指令碼。
 
     
 

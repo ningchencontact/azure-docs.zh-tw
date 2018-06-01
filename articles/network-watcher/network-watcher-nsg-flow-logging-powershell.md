@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 2419bf981f613137dba02ba0b767edc491324d27
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f0ffdb9127555ecfdd37a399335335885a10a6ea
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204170"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>使用 PowerShell 設定網路安全性群組流量記錄
 
@@ -51,7 +52,7 @@ Get-AzureRmNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $ns
 Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true
 ```
 
-您指定的儲存體帳戶不能為其設定網路規則，以限制只能對 Microsoft 服務或特定虛擬網路進行網路存取。
+您指定的儲存體帳戶不能為其設定網路規則，以限制只能對 Microsoft 服務或特定虛擬網路進行網路存取。 儲存體帳戶和您要啟用流程記錄的 NSG 可以位於相同或不同的 Azure 訂用帳戶。 如果您使用不同訂用帳戶，兩者都必須與相同的 Azure Active Directory 租用戶相關聯。 為每個訂用帳戶所使用的帳戶必須具有[必要的權限](required-rbac-permissions.md)。
 
 ## <a name="disable-network-security-group-flow-logs"></a>停用網路安全性群組流量記錄
 

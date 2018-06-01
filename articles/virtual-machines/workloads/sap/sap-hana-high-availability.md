@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: 5bc578d617edd093a3b7eec7903209bfdb9ebfce
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1965438e64af84d0c808b0684f9e81c797193bff
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34266856"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Azure 虛擬機器 (VM) 上 SAP HANA 的高可用性
 
@@ -228,10 +229,10 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
        sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
        </code></pre>
        
-       建立邏輯磁碟區
+        建立邏輯磁碟區。 使用 lvcreate 而未搭配 -i 參數時，會建立線性磁碟區。 建議您建立等量磁碟區以獲得更好的 IO 效能，-i 引數應該與基礎實體磁碟區的數目相同。 本文件會使用 2 個實體磁碟區來作為資料磁碟區，因此 -i 參數引數是 2。 1 個實體磁碟區用於記錄磁碟區，因此不會明確使用 -i 參數。 當您要對每個資料、記錄或共用磁碟區使用超過 1 個實體磁碟區時，請使用 -i 參數，並將數目取代為相同的基礎實體磁碟區數目。
 
        <pre><code>
-       sudo lvcreate -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+       sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
        sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data
