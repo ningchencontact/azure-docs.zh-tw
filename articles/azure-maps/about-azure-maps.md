@@ -12,14 +12,15 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e84580c4023be87ebfc1988c631af0b76e213987
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4882eadb8db5137d6fcf75c6d80c34ae050d3a6d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193946"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Azure 地圖服務簡介
-Azure 地圖服務是地理空間服務的組合，內含地圖、搜尋、路線規劃、路況和時區的服務 API。 符合 Azure OneAPI 規範的服務組合可讓您使用熟悉的工具，快速開發和調整解決方案，進而將位置資訊整合到 Azure 解決方案中。 Azure 地圖服務為來自各個產業的開發人員提供功能強大的地理空間功能，另納入重要的最新地圖資料，可提供網路和行動應用程式地理空間內容。 Azure 地圖服務是一組 REST API，可進行網頁型 JavaScript 控管並讓開發作業更加輕鬆、有彈性且可在多個媒介中轉移。 
+Azure 地圖服務是地理空間服務的組合，內含地圖、搜尋、路線規劃、路況和時區的服務 API。 此服務組合可讓您使用熟悉的工具，快速開發和調整解決方案，進而將位置資訊整合到 Azure 解決方案中。 Azure 地圖服務為來自各個產業的開發人員提供功能強大的地理空間功能，另納入重要的最新地圖資料，可提供網路和行動應用程式地理空間內容。 Azure 地圖服務是一組 REST API，可進行網頁型 JavaScript 控管並讓開發作業更加輕鬆、有彈性且可在多個媒介中轉移。 
 
 以下影片將介紹 Azure 地圖服務：
 
@@ -87,7 +88,7 @@ Microsoft 的目標是為開發人員社群提供位置服務供應項目的選�
 | 案例 | 使用 Azure 地圖服務的時機： | 使用 Bing 地圖的時機： |
 | ------------- | ------------- | ------------- |
 | 開發環境 | 內建或與其他 Azure 服務搭配使用 | 使用協力廠商雲端或其他開發人員環境 |
-| 開發階段  | 因為 Azure 地圖服務目前正在公開預覽，所以它會針對早期階段測試和概念證明開發最佳化 | 生產環境需要企業等級 SLA |
+| 開發階段  | Azure 地圖服務已針對早期階段測試和概念證明開發最佳化 | 生產環境需要企業等級 SLA |
 | 定價選項 | 初步開發人員定價選項即足夠 | 需要自訂企業等級定價 |
 | 使用案例環境 | 需要車載使用 | 不需要車載使用 |
 | 地理涵蓋範圍 | 印度、中國、日本及南韓不是必要項 | 印度、中國、日本及南韓地圖涵蓋範圍是必要項 |

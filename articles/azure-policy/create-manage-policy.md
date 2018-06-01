@@ -2,18 +2,19 @@
 title: 使用 Azure 原則來建立和管理原則以強制執行組織合規性
 description: 使用 Azure 原則來強制執行標準、符合法規合規性與稽核需求、控制成本、維護安全性與效能一致性，並且強制整個企業的設計原則。
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e04e08d22890246e2b68a55d79e82864201ef9d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+manager: carmonm
+ms.openlocfilehash: 1d13c5c0099b8e4c9ed83221edf6a2ee92fc3c8e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194864"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
@@ -382,7 +383,7 @@ az policy definition list
 
 由於指派的原則或計畫可在兩個位置中檢視，因此無法部署：
 
-- 在作為部署目標的資源群組上：選取分頁左側的 [部署]，並按一下失敗部署的 [部署名稱]。 遭拒的資源將會以 [禁止] 狀態列出。 若要判斷拒絕資源的是原則或計畫還是指派，請在 [部署概觀] 分頁上按一下 [失敗。如需詳細資訊，請按一下這裡 ->]。 視窗會在分頁右側開啟，並附上錯誤資訊。 在 [錯誤詳細資料] 下，會有相關原則物件的 GUID。
+- 在作為部署目標的資源群組上：選取分頁左側的 [部署]，並按一下失敗部署的 [部署名稱]。 遭拒的資源將會以 [禁止] 狀態列出。 若要確認拒絕資源的原則或計畫和指派，請在 [部署概觀] 頁面上按一下 [失敗。如需詳細資訊，請按一下這裡 ->]。 視窗會在分頁右側開啟，並附上錯誤資訊。 在 [錯誤詳細資料] 下，會有相關原則物件的 GUID。
 
    ![部署遭原則指派拒絕](media/create-manage-policy/rg-deployment-denied.png)
 
@@ -390,7 +391,7 @@ az policy definition list
 
    ![指派原則的合規性概觀](media/create-manage-policy/compliance-overview.png)
 
-在此範例中，Trent Baker 是 Contoso 的其中一名資深虛擬化專家，他正在執行必要的工作。 我們必須授與他例外狀況，但我們在任何資源群組中不需要非 12.0 版 SQL 伺服器。 我們建立了新的資源群組 **SQLServers_Excluded**，且現在將授與此群組對此原則指派的例外狀況。
+在此範例中，Trent Baker 是 Contoso 的其中一個資深虛擬化專家，正在執行必要的工作。 我們必須授與他例外狀況，但我們在任何資源群組中不需要非 12.0 版 SQL 伺服器。 我們建立了新的資源群組 **SQLServers_Excluded**，且現在將授與此群組對此原則指派的例外狀況。
 
 ### <a name="update-assignment-with-exclusion"></a>使用排除項目更新指派
 

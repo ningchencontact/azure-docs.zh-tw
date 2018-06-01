@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: fae6a376d4a53a23e22e585c63d97f22ca76c66d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b6f839ace5d80d41b242992feba8dea546b51c2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34340867"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>教學課程：Azure Active Directory 與 HR2day by Merces 整合
 
@@ -29,7 +30,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 HR2day by Merces。
 - 您可以在 Azure 入口網站集中管理您的帳戶。
 
-如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
+如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -57,7 +58,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 HR2day by Merces，請採取下列步驟：**
 
-1. 在 [Azure 入口網站](https://portal.azure.com) 的左方瀏覽窗格中，選取 **Azure Active Directory** 圖示。 
+1. 在 [Azure 入口網站][](https://portal.azure.com) 的左方瀏覽窗格中，選取 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -136,7 +137,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
     
       | 屬性名稱    |   屬性值 |  
     | ------------------- | -------------------- |    
-    | ATTR_LOGINCLAIM | join([mail],"102938475Z",\"\@\" |
+    | ATTR_LOGINCLAIM | join([mail],"102938475Z","@" |
     
       a. 若要開啟 [新增屬性] 對話方塊，請選取 [新增屬性]。
 
@@ -180,7 +181,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
 **若要在 Azure AD 中建立測試使用者，請採取下列步驟：**
 
-1. 在 **Azure 入口網站** 的左方瀏覽窗格中，選取 [Azure Active Directory] 圖示。
+1. 在 **Azure 入口網站** 的左方瀏覽窗格中，選取 **Azure Active Directory** 圖示。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-hr2day-tutorial/create_aaduser_01.png) 
 
@@ -250,7 +251,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 ## <a name="additional-resources"></a>其他資源
 
 * [有關如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](active-directory-saas-tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 9ee54827ae9e8a803a5e3d7464559aec62c67119
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59b0f8e4c7234b246d4fb54d065ff318939e2662
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301830"
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>在 Azure Stack 中啟用多重租用
 
@@ -75,7 +76,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 在您完成 Azure Stack 目錄中的逐步執行之後，Mary 必須同意 Azure Stack 存取來賓目錄，並向 Azure Stack 註冊來賓目錄。 
 
 ### <a name="registering-azure-stack-with-the-guest-directory"></a>向 Azure Stack 註冊來賓目錄
-一旦來賓目錄系統管理員同意讓 Azure Stack 存取 Fabrikam 的目錄，他們必須向 Azure Stack 註冊 Fabrikam 的目錄租用戶。
+一旦來賓目錄系統管理員同意讓 Azure Stack 存取 Fabrikam 的目錄，Mary 必須向 Azure Stack 註冊 Fabrikam 的目錄租用戶。
 
 ````PowerShell
 $tenantARMEndpoint = "https://management.local.azurestack.external"

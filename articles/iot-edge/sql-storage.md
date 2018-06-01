@@ -10,11 +10,12 @@ ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4585e563d59d29ba0a026c992d277e5b0607e681
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: de75a7ab907655d84873949460692a921c8d3186
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166092"
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>使用 SQL Server 資料庫在邊緣儲存資料
 
@@ -95,7 +96,7 @@ ms.lasthandoff: 04/28/2018
         }
    ```
 
-3. 使用在已完成的＜[將 Azure Function 部署為 IoT Edge 模組 - 預覽](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function)＞教學課程中填入的位址取代 `<docker registry address>`
+3. 使用在已完成的＜[將 Azure Function 部署為 IoT Edge 模組](tutorial-deploy-function.md)＞教學課程中填入的位址取代 `<docker registry address>`。
 
    >[!NOTE]
    >容器登錄位址與您從登錄複製的登入伺服器相同。 其格式應該是 `<your container registry name>.azurecr.io`

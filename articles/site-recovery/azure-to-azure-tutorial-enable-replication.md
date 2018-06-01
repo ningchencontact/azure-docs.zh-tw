@@ -1,21 +1,22 @@
 ---
-title: 使用 Azure Site Recovery 設定 Azure VM 到次要 Azure 區域的災害復原 (預覽)
+title: 使用 Azure Site Recovery 設定 Azure VM 到次要 Azure 區域的災害復原
 description: 了解如何使用 Azure Site Recovery 服務，設定 Azure VM 到不同 Azure 區域的災害復原。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca1f8fcd3a69e3f2e287c3d627f41c0f493bea1f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d707122f79b37dd6b979be09693011dead988156
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211662"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>設定 Azure VM 到次要 Azure 區域的災害復原 (預覽)
+# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>設定 Azure VM 到次要 Azure 區域的災害復原
 
 [Azure Site Recovery](site-recovery-overview.md) 服務可藉由管理及協調內部部署電腦與 Azure 虛擬機器 (VM) 的複寫、容錯移轉及容錯回復，為您的災害復原策略做出貢獻。
 
@@ -27,6 +28,7 @@ ms.lasthandoff: 05/08/2018
 > * 設定 VM 的輸出存取
 > * 啟用 VM 複寫
 
+Azure 至 Azure 複寫目前為預覽狀態。
 ## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
@@ -109,7 +111,7 @@ Azure Site Recovery 提供 3 種內建角色，以控制 Site Recovery 管理作
 ### <a name="select-the-source"></a>選取來源
 
 1. 在復原服務保存庫中，按一下 [+複寫]。
-2. 在 [來源] 中，選取 [Azure-PREVIEW]。
+2. 在 [來源] 中，選取 [Azure]。
 3. 在 [來源位置] 中，選取 VM 目前執行所在的來源 Azure 區域。
 4. 選取 VM 的 **Azure 虛擬機器部署模型**：[Resource Manager] 或 [傳統]。
 5. 對於 Resource Manager VM 選取**來源資源群組**，或對於傳統 VM 選取**雲端服務**。

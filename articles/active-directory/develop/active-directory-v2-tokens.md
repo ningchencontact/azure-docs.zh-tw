@@ -3,23 +3,26 @@ title: Azure Active Directory v2.0 權杖參考 | Microsoft Docs
 description: Azure AD v2.0 端點所發出之權杖和宣告的類型
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: hirsin
+ms.date: 04/22/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 071e0c2b802b1bb6ef68092362c61bf3960fd45a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164453"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 權杖參考
 Azure Active Directory (Azure AD) v2.0 端點會在每個[驗證流程](active-directory-v2-flows.md)中發出數種安全性權杖。 本參考文件說明每種權杖的格式、安全性特性及內容。
@@ -49,7 +52,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 ```
 
 > [!TIP]
-> 練習時，為了檢查範例識別碼權杖中的宣告，請將範例識別碼權杖貼到 [calebb.net](http://calebb.net/) 中。
+> 練習時，為了檢查範例識別碼權杖中的宣告，請將範例識別碼權杖貼到 [jwt.ms](http://jwt.ms/) 中。
 >
 >
 
@@ -69,8 +72,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | name |`name` |`Babe Ruth` |名稱宣告會提供人類看得懂的值，用以識別權杖的主體。 此值不保證是唯一值，它是可變動的，並且在設計上僅用於顯示。 需要 `profile` 範圍才能接收此宣告。 |
 | 電子郵件 |`email` |`thegreatbambino@nyy.onmicrosoft.com` |與使用者帳戶相關聯的主要電子郵件地址 (如果有的話)。 其值是可變動的，並且可能隨著時間改變。 需要 `email` 範圍才能接收此宣告。 |
 | 慣用的使用者名稱 |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |代表 v2.0 端點中使用者的主要使用者名稱。 它可以是電子郵件地址、電話號碼或未指定格式的一般使用者名稱。 其值是可變動的，並且可能隨著時間改變。 因為此值會變動，請勿用在授權決策。 需要 `profile` 範圍才能接收此宣告。 |
-| 主旨 |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | 權杖判斷提示其相關資訊的主體，例如應用程式的使用者。 這個值不可變，而且無法重新指派或重複使用。 它可用來安全地執行授權檢查 (例如當權杖用於存取資源時)，並可做為資料庫資料表中的索引鍵。 由於主體一律是存在於 Azure AD 所簽發的權杖中，因此建議您在一般用途的授權系統中使用此值。 不過，主體是成對識別碼，對於特定應用程式識別碼來說，主體是唯一的。  因此，如果單一使用者使用兩個不同的用戶端識別碼登入兩個不同的應用程式，這些應用程式會收到兩個不同的主體宣告值。  視您的架構和隱私權需求而定，這不一定是您想要的。 |
-| 物件識別碼 |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | 物件在 Microsoft 身分識別系統中的不可變識別碼，在此案例為使用者帳戶。  它也可用來安全地執行授權檢查，以及做為資料庫資料表中的索引鍵。 此識別碼可跨應用程式唯一識別使用者，同一位使用者登入兩個不同的應用程式會在 `oid` 宣告中收到相同的值。  這表示在對 Microsoft 線上服務 (例如 Microsoft Graph) 進行查詢時可使用此識別碼。  Microsoft Graph 會傳回這個識別碼做為指定使用者帳戶的 `id` 屬性。  因為 `oid` 可讓多個應用程式相互關聯使用者，因此需要 `profile` 範圍才能接收此宣告。 請注意，如果單一使用者存在於多個租用戶，使用者將會在每個租用戶中包含不同的物件識別碼，它們會被視為不同帳戶，即使使用者使用相同認證來登入各個帳戶也是如此。 |
+| 主旨 |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | 權杖判斷提示其相關資訊的主體，例如應用程式的使用者。 這個值不可變，而且無法重新指派或重複使用。 它可用來安全地執行授權檢查 (例如當權杖用於存取資源時)，並可做為資料庫資料表中的索引鍵。 由於主體一律是存在於 Azure AD 所簽發的權杖中，因此建議您在一般用途的授權系統中使用此值。 不過，主體是成對識別碼，對於特定應用程式識別碼來說，主體是唯一的。 因此，如果單一使用者使用兩個不同的用戶端識別碼登入兩個不同的應用程式，這些應用程式會收到兩個不同的主體宣告值。 視您的架構和隱私權需求而定，這不一定是您想要的。 |
+| 物件識別碼 |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | 物件在 Microsoft 身分識別系統中的不可變識別碼，在此案例為使用者帳戶。 它也可用來安全地執行授權檢查，以及做為資料庫資料表中的索引鍵。 此識別碼可跨應用程式唯一識別使用者，同一位使用者登入兩個不同的應用程式會在 `oid` 宣告中收到相同的值。 這表示在對 Microsoft 線上服務 (例如 Microsoft Graph) 進行查詢時可使用此識別碼。 Microsoft Graph 會傳回這個識別碼做為指定使用者帳戶的 `id` 屬性。 因為 `oid` 可讓多個應用程式相互關聯使用者，因此需要 `profile` 範圍才能接收此宣告。 請注意，如果單一使用者存在於多個租用戶，使用者將會在每個租用戶中包含不同的物件識別碼，它們會被視為不同帳戶，即使使用者使用相同認證來登入各個帳戶也是如此。 |
 
 ### <a name="access-tokens"></a>存取權杖
 
@@ -83,7 +86,7 @@ v2.0 端點可允許已向 Azure AD 註冊的第三方應用程式，針對受�
 
 重新整理權杖屬於多資源權杖。 在一個資源的權杖要求期間收到的重新整理權杖可以兌換完全不同資源的存取權杖。
 
-若要在權杖回應中接收重新整理權杖，您的應用程式必須要求並獲得 `offline_acesss` 範圍。 若要深入了解 `offline_access` 範圍，請參閱[同意和範圍](active-directory-v2-scopes.md)一文。
+若要在權杖回應中接收重新整理權杖，您的應用程式必須要求並獲得 `offline_access` 範圍。 若要深入了解 `offline_access` 範圍，請參閱[同意和範圍](active-directory-v2-scopes.md)一文。
 
 重新整理權杖對您的應用程式來說，一律是完全不透明的。 它們是由 Azure AD v2.0 端點所簽發，只能由 v2.0 端點檢查和解譯。 它們屬於長效權杖，但不得將您的應用程式撰寫成預期重新整理權杖將持續任何一段時間。 重新整理權杖可能會因為各種原因而隨時失效 - 如需詳細資訊，請參閱[權杖撤銷](active-directory-token-and-claims.md#token-revocation)。 讓您的應用程式知道重新整理權杖是否有效的唯一方式，就是對 v2.0 端點提出權杖要求以嘗試兌換。
 
@@ -123,7 +126,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 >
 >
 
-此中繼資料文件是 JSON 物件，內含幾項實用的資訊，例如執行 OpenID Connect 驗證所需的各種端點的位置。  此文件也包含 *jwks_uri*，此 URI 提供用來簽署權杖的公用金鑰組的位置。 位於 jwks_uri 的 JSON 文件包含目前使用中的所有公開金鑰資訊。 您的應用程式可以使用 JWT 標頭中的 `kid` 宣告，來選取本文件中已用來簽署權杖的公開金鑰。 它可接著使用正確的公開金鑰和所指出的演算法，來執行簽章驗證。
+此中繼資料文件是 JSON 物件，內含幾項實用的資訊，例如執行 OpenID Connect 驗證所需的各種端點的位置。 此文件也包含 *jwks_uri*，此 URI 提供用來簽署權杖的公用金鑰組的位置。 位於 jwks_uri 的 JSON 文件包含目前使用中的所有公開金鑰資訊。 您的應用程式可以使用 JWT 標頭中的 `kid` 宣告，來選取本文件中已用來簽署權杖的公開金鑰。 它可接著使用正確的公開金鑰和所指出的演算法，來執行簽章驗證。
 
 執行簽章驗證已超出本文的範圍。 有許多開放原始碼程式庫可協助您進行這方面的操作。
 

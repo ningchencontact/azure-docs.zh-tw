@@ -6,14 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 173e31e3b1f855d488f7f8baf6659b1521ea7aa5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2a96655c26e2df2534f420239b56ef0c3959319a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212869"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>為內部部署 VMware VM 設定災害復原至 Azure
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="select-a-replication-goal"></a>選取複寫目標
 
-1. 在 [復原服務保存庫] 中，選取保存庫名稱 **ContosoVMVault**。
+1. 在 [復原服務保存庫] 中，選取保存庫名稱。 在此案例中，我們會使用 **ContosoVMVault**。
 2. 在 [使用者入門] 中，選取 Site Recovery。 然後選取 [準備基礎結構]。
 3. 在 [保護目標] > [您的電腦位於何處] 中，選取 [內部部署]。
 4. 在 [您要將電腦複寫到何處] 中，選取 [複製到 Azure]。
@@ -139,7 +140,7 @@ Site Recovery 會使用指定的設定連線至 VMware 伺服器並探索 VM。
 1. 開啟 [Azure 入口網站](https://portal.azure.com)，然後選取 [所有資源]。
 2. 選取名為 **ContosoVMVault** 的復原服務保存庫。
 3. 若要建立複寫原則，請選取 [Site Recovery 基礎結構] > [複寫原則] > [+複寫原則]。
-4. 在 [建立複寫原則] 中，選取原則名稱 **VMwareRepPolicy**。
+4. 在 [建立複寫原則] 中，輸入原則名稱。 在此案例中，我們會使用 **VMwareRepPolicy**。
 5. 在 [RPO 閾值] 中，使用預設值 60 分鐘。 這個值可定義復原點的建立頻率。 連續複寫超過此限制時會產生警示。
 6. 在 [復原點保留] 中，使用預設值 24 小時作為每個復原點的保留期長度。 在本教學課程中，使用 72 小時。 複寫的 VM 可以還原至一個週期內的任何時間點。
 7. 在 [應用程式一致快照頻率] 中，使用 60 分鐘預設值作為應用程式一致快照集的建立頻率。 選取 [確定] 以建立原則。

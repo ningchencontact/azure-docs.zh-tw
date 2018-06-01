@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196758"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題
 
@@ -194,21 +195,6 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 #### <a name="solution"></a>解決方法
 
-若要解決此問題，請完成下列步驟來移除還原點集合： <br>
- 
-1. 移除 VM 所在資源群組中的鎖定。 
-2. 使用 Chocolatey 安裝 ARMClient： <br>
-   https://github.com/projectkudu/ARMClient
-3. 登入 ARMClient： <br>
-    `.\armclient.exe login`
-4. 取得 VM 對應的還原點集合： <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
-
-    範例： `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. 刪除還原點集合： <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. 下一個排定的備份會自動建立還原點集合和新的還原點。
-
- 
-如果您再次鎖定資源群組，將會發生此問題。 
+若要解決此問題，請從資源群組中移除鎖定，並且讓 Azure 備份服務在下一次備份中清除復原點集合和基礎快照集。
+完成後，您可以再次於 VM 資源群組放回鎖定。 
 

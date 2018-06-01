@@ -11,13 +11,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 02/20/2018
+ms.date: 05/16/2018
 ms.author: larryfr
-ms.openlocfilehash: ef8b8630c60b209295b844f7e1b67f8631524aff
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 00af8ca67af6ba3242c0fee6c50640944768ec4c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34200753"
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>在 HDInsight 中搭配使用 Java UDF 和 Hive
 
@@ -75,14 +76,14 @@ ms.lasthandoff: 04/16/2018
     </dependencies>
     ```
 
-    這些項目能指定 HDInsight 3.5 隨附之 Hadoop 和 Hive 的版本。 在 [HDInsight 元件版本設定](../hdinsight-component-versioning.md) 文件中，您可以找到有關 HDInsight 隨附之 Hadoop 和 Hive 的版本資訊。
+    這些項目能指定 HDInsight 3.6 隨附之 Hadoop 和 Hive 的版本。 在 [HDInsight 元件版本設定](../hdinsight-component-versioning.md) 文件中，您可以找到有關 HDInsight 隨附之 Hadoop 和 Hive 的版本資訊。
 
     在檔案結尾處 `</project>` 之前新增 `<build>` 區段。 此區段應該包含下列 XML：
 
     ```xml
     <build>
         <plugins>
-            <!-- build for Java 1.8. This is required by HDInsight 3.5  -->
+            <!-- build for Java 1.8. This is required by HDInsight 3.6  -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

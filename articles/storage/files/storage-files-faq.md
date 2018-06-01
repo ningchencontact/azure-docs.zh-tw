@@ -1,5 +1,5 @@
 ---
-title: Azure 檔案服務的常見問題集 | Microsoft Docs
+title: Azure 檔案服務的常見問題集 (FAQ) | Microsoft Docs
 description: 尋找關於 Azure 檔案服務之常見問題集的解答。
 services: storage
 documentationcenter: ''
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: ef8b5b30edaef61eca1be0cf80c5defd09c4dac2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 67884df9e38906ba7dc426b63275941dba2b8130
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210526"
 ---
-# <a name="frequently-asked-questions-about-azure-files"></a>關於 Azure 檔案服務的常見問題集
+# <a name="frequently-asked-questions-faq-about-azure-files"></a>關於 Azure 檔案服務的常見問題集 (FAQ)
 [Azure 檔案服務](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準的[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) \(英文\) (也稱為 Common Internet File System 或 CIFS) 存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步 (預覽)，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
 
 本文將回答有關 Azure 檔案服務特性與功能 (包括將 Azure 檔案同步與 Azure 檔案搭配使用) 的常見問題。 如果您找不到問題的答案，可透過下列管道 (依先後順序) 和我們連絡：
@@ -229,10 +230,10 @@ ms.lasthandoff: 04/28/2018
 **如何在本機電腦上掛接 Azure 檔案共用？**  
     如果已開啟連接埠 445 (TCP 輸出) 且您的用戶端支援 SMB 3.0 通訊協定 (例如，若您使用的是 Windows 10 或 Windows Server 2016)，即可使用 SMB 通訊協定掛接檔案共用。 如果組織的原則或您的 ISP 會封鎖連接埠 445，您可以使用 Azure 檔案同步來存取 Azure 檔案共用。
 
-## <a name="backup"></a>Backup 
+## <a name="backup"></a>備份
 * <a id="backup-share"></a>
 **如何備份我的 Azure 檔案共用？**  
-    您可以使用定期[共用快照集](storage-snapshots-files.md)來防範意外刪除的情況。 您也可以使用 AzCopy、RoboCopy，或是可備份已掛接檔案共用的協力廠商備份工具。 
+    您可以使用定期[共用快照集](storage-snapshots-files.md)來防範意外刪除的情況。 您也可以使用 AzCopy、RoboCopy，或是可備份已掛接檔案共用的協力廠商備份工具。 Azure 備份會提供 Azure 檔案的備份。 深入了解如何[使用 Azure 備份來備份 Azure 檔案共用](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files)。
 
 ## <a name="share-snapshots"></a>共用快照集
 ### <a name="share-snapshots-general"></a>共用快照集：一般

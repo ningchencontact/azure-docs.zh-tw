@@ -11,16 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/14/2018
 ms.author: vinagara
-ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 241ac027a0606f901f51d6a20b9a48a2cf7a9fcf
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166177"
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>如何將警示從 OMS 延伸 (複製) 至 Azure
 自 **2018 年 5 月 14 日**開始，使用在 [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 中設定之警示的所有客戶將會擴充至 Azure。 擴充至 Azure 的警示行為與 OMS 中的行為相同。 監視功能仍維持不變。 將 OMS 中建立的警示擴充至 Azure 可提供許多好處。 如需有關將警示從 OMS 擴充至 Azure 的優點和程序詳細資訊，請參閱[將警示從 OMS 擴充至 Azure](monitoring-alerts-extend.md)。
+
+> [!NOTE]
+> 自 2018 年 5 月 14 日起 - Microsoft 將會啟動將警示自動延伸到 Azure 的程序。 並非所有工作區和警示都會在這一天進行擴充；而是，Microsoft 會在之後幾週內開始分批進行自動延伸警示。 因此，您在 OMS 入口網站中的警示將不會在 2018 年 5 月 14 日立即自動擴充至自 Azure，而且在此期間，使用者仍可使用下列選項詳細資料手動延伸自己的警示。
 
 需要立即將警示從 OMS 移至 Azure 的客戶，可以使用這裡所述的其中一種選項來進行。
 
@@ -221,7 +225,7 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 ```
 
 ## <a name="troubleshooting"></a>疑難排解 
-將警示從 OMS 擴充至 Azure 期間，可能會發生防止系統建立所需[動作群組](monitoring-action-groups.md)的偶發問題。 在這類情況下，錯誤訊息會顯示在 OMS 入口網站 (透過 [警示] 區段中的橫幅) 和對 API 所進行的 GET 呼叫中。
+將警示從 OMS 延伸至 Azure 期間，可能會發生防止系統建立必要[動作群組](monitoring-action-groups.md)的偶發問題。 在這類情況下，錯誤訊息會顯示在 OMS 入口網站 (透過 [警示] 區段中的橫幅) 和對 API 所進行的 GET 呼叫中。
 
 以下列出每個錯誤的補救步驟：
 1. **錯誤：訂用帳戶未註冊為使用命名空間 'microsoft.insights'**：![具有註冊錯誤訊息的 OMS 入口網站 [警示設定] 頁面](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
@@ -236,6 +240,14 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
     a. 如果已啟用範圍鎖定，則會限制在包含 Log Analytics (OMS) 工作區的訂用帳戶或資源群組中進行任何新的變更；系統無法將警示擴充 (複製) 到 Azure 和建立所需的動作群組。
     
     b. 若要解決此問題，請使用 Azure 入口網站、Powershell、Azure CLI 或 API，在包含此工作區的訂用帳戶或資源群組上刪除 ReadOnly 鎖定。 若要深入了解，請檢視[資源鎖定使用方式](../azure-resource-manager/resource-group-lock-resources.md)文章。 
+    
+    c. 根據文章中所述的步驟解決問題後，OMS 就會在隔天的排定執行中將警示擴充至 Azure，而不需進行任何動作或初始。
+
+3. **錯誤：原則出現在訂用帳戶/資源群組層級**：![OMS 入口網站 [警示設定] 頁面與原則錯誤訊息](./media/monitor-alerts-extend/ErrorPolicy.png)
+
+    a. 已套用 [Azure 原則時](../azure-policy/azure-policy-introduction.md)，則會限制在包含 Log Analytics (OMS) 工作區的訂用帳戶或資源群組中的任何新資源；系統無法將警示延伸 (複製) 至 Azure 和建立所需的動作群組。
+    
+    b. 若要解決，請編輯引起 *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* 錯誤的原則，該錯誤會妨礙在您的訂用帳戶或資源群組上，建立包含工作區的新資源。 使用 Azure 入口網站、PowerShell、Azure CLI 或 API；您可以稽核動作來找出導致失敗的適當原則。 若要深入了解，請檢視文章[檢視活動記錄以稽核對資源的動作](../azure-resource-manager/resource-group-audit.md)。 
     
     c. 根據文章中所述的步驟解決問題後，OMS 就會在隔天的排定執行中將警示擴充至 Azure，而不需進行任何動作或初始。
 
