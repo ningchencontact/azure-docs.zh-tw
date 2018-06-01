@@ -1,29 +1,28 @@
 ---
-title: "Azure Stack 網路服務：差異與注意事項"
-description: "使用 Azure Stack 中的網路服務時，瞭解有關差異和注意事項。"
+title: Azure Stack 網路服務：差異與注意事項
+description: 使用 Azure Stack 中的網路服務時，瞭解有關差異和注意事項。
 services: azure-stack
-keywords: 
+keywords: ''
 author: mattbriggs
 manager: femila
 ms.author: mabrigg
-ms.date: 02/28/2018
+ms.date: 05/14/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 4c881a5f5e64ddc9fc67060208f3bef6ae0f5028
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2a4c5bce072970f158a89763ebdf4132eafe9cbe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196248"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 網路服務的注意事項
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-Azure Stack 的網路功能提供了 Azure Stack 中的許多功能，但在開始部署之前應該瞭解一些差異。
+Azure Stack 網路服務有許多 Azure 網路服務所提供的功能。 不過，在部署 Azure Stack 網路之前，您應該了解一些主要差異。
 
-
-本文提供網路服務及其在 Azure Stack 中功能的獨特考量概觀。 若要深入瞭 Azure Stack 與 Azure Stack 之間的高階差異，請參閱[主要考量](azure-stack-considerations.md)主題。
-
+本文提供 Azure Stack 網路服務及其功能的獨特考量概觀。 若要深入了解 Azure Stack 與 Azure 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)主題。
 
 ## <a name="cheat-sheet-networking-differences"></a>速查表：網路服務差異
 

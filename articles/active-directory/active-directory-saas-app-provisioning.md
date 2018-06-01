@@ -1,11 +1,11 @@
 ---
-title: "在 Azure AD 中自動化 SaaS 應用程式使用者佈建 | Microsoft Docs"
-description: "簡介如何使用 Azure AD 自動佈建、解除佈建，以及跨多個協力廠商 SaaS 應用程式持續更新使用者帳戶。"
+title: 在 Azure AD 中自動化 SaaS 應用程式使用者佈建 | Microsoft Docs
+description: 簡介如何使用 Azure AD 自動佈建、解除佈建，以及跨多個協力廠商 SaaS 應用程式持續更新使用者帳戶。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: e14ba62ce2d6c48e47a6b75387bcede68bb1a5b0
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069888"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS 應用程式的自動化使用者佈建是什麼？
@@ -78,9 +79,9 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>如何對應用程式設定自動佈建？
 
-對於所選應用程式的 Azure AD 佈建服務設定會從 **[Azure 入口網站](https://portal.azure.com)**開始。 在 [Azure Active Directory] > [企業應用程式] 區段中，選取 [新增]，然後選取 [所有]，並根據您的情況新增下列其中一項：
+對於所選應用程式的 Azure AD 佈建服務設定會從 **[Azure 入口網站](https://portal.azure.com)** 開始。 在 [Azure Active Directory] > [企業應用程式] 區段中，選取 [新增]，然後選取 [所有]，並根據您的情況新增下列其中一項：
 
-* [精選應用程式] 區段中的所有應用程式皆支援自動佈建。 如需額外的應用程式，請參閱[適用於使用者佈建的應用程式教學課程清單]active-directory-saas-tutorial-list.md)。
+* [精選應用程式] 區段中的所有應用程式皆支援自動佈建。 如需額外的應用程式，請參閱[適用於使用者佈建的應用程式教學課程清單](active-directory-saas-tutorial-list.md)。
 
 * 對於自訂開發的 SCIM 整合使用「非資源庫應用程式」選項
 
@@ -176,7 +177,7 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 
 視佈建作業執行的是初始同步處理還是增量同步處理而定，效能將會有所不同。
 
-針對初始同步處理，完成作業所需的時間將直接取決於來源系統中使用者、群組及群組成員的數量。 具有數百個物件的非常小型來源系統可以在幾分鐘內，就完成初始同步處理。 不過，具有數十萬或數百萬個組合物件的來源系統則可能需要很長的時間。
+針對初始同步處理，完成作業所需的時間將直接取決於來源系統中使用者、群組及群組成員的數量。 具有數百個物件的非常小型來源系統可以在幾分鐘內，就完成初始同步處理。 不過，具有數十萬或數百萬個組合物件的來源系統將需要更長的時間。
 
 針對增量同步處理，所需的時間取決於在該同步處理週期偵測到的變更數量。 如果偵測到的使用者或群組成員資格變更少於 5,000 個，通常在 40 分鐘週期內即可完成同步處理。 
 
@@ -220,4 +221,5 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 * [適用於使用者佈建的範圍篩選器](active-directory-saas-scoping-filters.md)
 * [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](active-directory-scim-provisioning.md)
 * [Azure AD 同步處理 API 概觀](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [適用於應用程式輸出使用者佈建的逐步部署方案](https://aka.ms/userprovisioningdeploymentplan)
 

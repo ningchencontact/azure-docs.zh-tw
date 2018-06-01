@@ -6,14 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 05/03/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f9ad01d3194ee0f8be4c3b4321c83c4bb15ea55c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 888f74d215956f4ad38605ca247f681da700a787
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166211"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Windows 裝置 - 預覽
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 03/28/2018
    * Windows 10 
    * Windows Server
 2. 安裝[適用於 Windows 的 Docker][lnk-docker] 並確定它正在執行。
-3. 在 [Windows 上安裝 Python 2.7][lnk-python]，並確定您可以使用 pip 命令。
+3. 在 [Windows 上安裝 Python][lnk-python]，並確定您可以使用 pip 命令。 本快速入門已進行過 >= 2.7.9 和 >= 3.5.4 的 Python 版本測試。  
 4. 執行下列命令以下載 IoT Edge 控制指令碼。
 
    ```cmd
@@ -49,7 +50,7 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="create-an-iot-hub-with-azure-cli"></a>使用 Azure CLI 建立 IoT 中樞
 
-在您的 Azure 訂用帳戶中建立 IoT 中樞。 IoT 中樞的可用層級適用於本快速入門。 如果您在過去已使用過 IoT 中樞，並已建立可用的中樞，就可以跳過本節並移至[註冊 IoT Edge 裝置][anchor-register]。 每個訂用帳戶只能有一個免費的 IoT 中樞。 
+在您的 Azure 訂用帳戶中建立 IoT 中樞。 此快速入門適用於 IoT 中樞的免費層級。 如果您在過去已使用過 IoT 中樞，並已建立可用的中樞，就可以跳過本節並移至[註冊 IoT Edge 裝置][anchor-register]。 每個訂用帳戶只能有一個免費的 IoT 中樞。 
 
 1. 登入 [Azure 入口網站][lnk-portal]。 
 1. 選取 [Cloud Shell] 按鈕。 

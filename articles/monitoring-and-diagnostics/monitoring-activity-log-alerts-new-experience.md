@@ -1,6 +1,6 @@
 ---
-title: 建立活動記錄警示並使用 Azure 監視器中的新警示 (預覽) 體驗來管理 | Microsoft Docs
-description: 本文提供的資訊說明如何從 Azure 監視器下的 [警示 (預覽)] 索引標籤建立活動記錄警示。 本文詳細說明此功能的新使用者經驗。
+title: 建立活動記錄警示並使用 Azure 監視器中的新警示體驗來管理 | Microsoft Docs
+description: 本文提供的資訊說明如何在 Azure 監視器下的 [警示] 索引標籤中建立活動記錄警示
 author: JYOTHIRMAISURI
 manager: vvithal
 editor: ''
@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: ''
-ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202815"
 ---
-# <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>使用新的警示 (預覽) 體驗建立活動記錄警示
+# <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>使用新的警示體驗建立活動記錄警示
 
 活動記錄警示是發生符合警示中指定條件的新活動記錄事件時所啟動的警示。
 
-這些警示都適用於 Azure 資源，可以使用 Azure Resource Manager 範本來建立。 也可以在 Azure 入口網站中將它們建立、更新或刪除。 本文介紹活動記錄警示背後的概念。 接著說明如何使用 Azure 入口網站，利用 [Azure 警示 (預覽)](monitoring-overview-unified-alerts.md) 中的新體驗來設定活動記錄事件的警示。
+這些警示都適用於 Azure 資源，可以使用 Azure Resource Manager 範本來建立。 也可以在 Azure 入口網站中將它們建立、更新或刪除。 本文介紹活動記錄警示背後的概念。 接著說明如何使用 Azure 入口網站，利用 [Azure 警示](monitoring-overview-unified-alerts.md) 中的新體驗來設定活動記錄事件的警示。
 
 一般而言，您可以建立活動記錄警示，以在 Azure 訂用帳戶中的資源發生特定變更時接收通知 (通常會將範圍限定在特定資源群組或資源)。 例如，在 (範例資源群組) **myProductionResourceGroup** 中的任何虛擬機器被刪除時，您可能會想要收到通知，或者，您可能想要在有任何新角色被指派給訂用帳戶中的使用者時收到通知。
 
@@ -46,11 +47,11 @@ ms.lasthandoff: 04/16/2018
 若要深入了解服務健康情況通知，請參閱[在服務健康情況通知上接收活動記錄警示](monitoring-activity-log-alerts-on-service-notifications.md)。
 
 
-## <a name="whats-new-in-alerts-preview-for-activity-logs"></a>活動記錄的警示 (預覽) 中有哪些新增功能？
+## <a name="whats-new-in-alerts-for-activity-logs"></a>活動記錄的警示中有哪些新增功能？
 
-[Azure 警示 (預覽)](monitoring-overview-unified-alerts.md) 現在加強活動記錄警示的使用者體驗。 有了[加強的警示使用者經驗](monitoring-overview-unified-alerts.md)，您現在可以：
+[Azure 警示](monitoring-overview-unified-alerts.md)現在加強活動記錄警示的使用者體驗。 有了[加強的警示使用者經驗](monitoring-overview-unified-alerts.md)，您現在可以：
 
-- 從[監視器] > [警示 (預覽)] 刀鋒視窗[建立](#create-an-alert-rule-for-an-activity-log)及[管理](#view-and-manage-activity-log-alert-rules)活動記錄警示規則。 深入了解[活動記錄](monitoring-overview-activity-logs.md)。
+- 從[監視器] > [警示] 刀鋒視窗[建立](#create-an-alert-rule-for-an-activity-log)及[管理](#view-and-manage-activity-log-alert-rules)活動記錄警示規則。 深入了解[活動記錄](monitoring-overview-activity-logs.md)。
 
 - **新的警示目標選項**：在建立新的活動記錄警示規則時，您現在可以選取目標資源、資源群組或訂用帳戶。
 
@@ -68,8 +69,8 @@ ms.lasthandoff: 04/16/2018
 
 請使用下列程序：
 
-1. 從 Azure 入口網站選取 [監視器] > [警示 (預覽)]。
-2. 按一下 [警示 (預覽)] 視窗頂端的 [新增警示規則]。
+1. 從 Azure 入口網站選取 [監視器] > [警示]
+2. 按一下 [警示] 視窗頂端的 [新增警示規則]。
 
      ![新增警示規則](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule.png)
 
@@ -79,7 +80,7 @@ ms.lasthandoff: 04/16/2018
 
 3. 在 [定義警示條件] 下提供下列資訊，然後按一下 [完成]。
 
-    - **警示目標：**若要檢視和選取新警示的目標，請使用 [依訂用帳戶篩選] / [依資源類型篩選]，然後從顯示的清單中選取資源或資源群組。
+    - **警示目標：** 若要檢視和選取新警示的目標，請使用 [依訂用帳戶篩選] / [依資源類型篩選]，然後從顯示的清單中選取資源或資源群組。
 
     > [!NOTE]
 
@@ -130,7 +131,7 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="view-and-manage-activity-log-alert-rules"></a>檢視和管理活動記錄警示規則
 
-1. 從 Azure 入口網站按一下 [監視器] > [警示 (預覽)]，然後按一下視窗左上方的 [管理規則]。
+1. 從 Azure 入口網站按一下 [監視器] > [警示]，然後按一下視窗左上方的 [管理規則]。
 
     ![ 管理警示規則](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
 

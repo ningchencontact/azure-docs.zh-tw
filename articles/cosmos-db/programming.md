@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: e6fd51cb2550549e14934c3f4774a40d42281247
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b3d7c94e8b1415a24427e1f90f5613d8c181608a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197988"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 伺服器端程式設計：預存程序、資料庫觸發程序和 UDF
 
@@ -151,6 +152,21 @@ ms.lasthandoff: 05/07/2018
 您可以修改此預存程序，將一批文件本文作為輸入，並將這些本文全都建立在相同的預存程序執行內，而不是用多個要求個別建立這些本文。 您可以使用此預存程序來實作有效率的 Cosmos DB 大量匯入工具 (本教學課程稍後將會討論)。   
 
 上面描述的範例已示範如何使用預存程序。 接著，您將在本教學課程後續的內容中了解觸發程序和使用者定義函式 (UDF)。
+
+### <a name="known-issues"></a>已知問題
+
+使用 Azure 入口網站定義預存程序時，輸入參數一律會以字串形式傳送到預存程序。 即使您以輸入形式傳遞字串陣列，陣列會轉換成字串並傳送至預存程序。 若要解決此問題，您可以在預存程序內定義一個函式，將字串剖析為陣列。 下列程式碼是將字串剖析為陣列的範例： 
+
+``` 
+function sample(arr) {
+    if (typeof arr === "string") arr = JSON.parse(arr);
+    
+    arr.forEach(function(a) {
+        // do something here
+        console.log(a);
+    });
+}
+```
 
 ## <a name="database-program-transactions"></a>資料庫程式交易
 一般資料庫中的交易可以定義為以單一工作邏輯單位執行的一連串作業。 每個交易都提供「ACID 保證」 。 ACID 是一個已知的縮寫，代表四個屬性：不可部分完成性 (Atomicity)、一致性 (Consistency)、隔離性 (Isolation) 及耐用性 (Durability)。  

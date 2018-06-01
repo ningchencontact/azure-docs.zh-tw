@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157787"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>如何設定混合式 Azure Active Directory 已加入的裝置
 
@@ -83,8 +84,20 @@ Azure AD Connect：
 
 - https://device.login.microsoftonline.com
 
-如果您的組織需要透過輸出 Proxy 存取網際網路，則必須實作 Web Proxy 自動探索 (WPAD)，以便將 Windows 10 電腦註冊至 Azure AD。
+- 組織的 STS (同盟網域)
 
+如果尚未完成，使用者的本機內部網路設定中應該包括組織的 STS (適用於同盟網域)。
+
+如果您的組織打算使用隨選即用 SSO，那麼您必須能從組織內部的電腦連線到下列 URL，也必須將其新增至使用者的本機內部網路區域：
+
+- https://autologon.microsoftazuread-sso.com
+
+- https://aadg.windows.net.nsatc.net
+
+- 此外，請在使用者的內部網路區域啟用下列設定：[允許透過指令碼更新狀態列]。
+
+
+如果組織需要透過輸出 Proxy 存取網際網路，您就必須實作 Web Proxy 自動探索 (WPAD)，以在 Azure AD 中註冊 Windows 10 電腦。
 
 ## <a name="configuration-steps"></a>組態步驟
 
@@ -501,7 +514,7 @@ Azure AD Connect：
 
 ### <a name="configure-on-premises-federation-service"></a>設定內部部署同盟服務 
 
-內部部署同盟服務必須支援在收到對 Azure AD 信賴憑證者 (持有 resouce_params 參數且編碼值如下所示) 的驗證要求時發出 **authenticationmehod** 和 **wiaormultiauthn** 宣告︰
+在收到對 Azure AD 信賴憑證者 (持有 resouce_params 參數且編碼值如下所示) 的驗證要求時，內部部署同盟服務必須支援發出 **authenticationmehod** 和 **wiaormultiauthn** 宣告︰
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 
@@ -550,8 +563,6 @@ Azure AD Connect：
 
 - 您可以使用「群組原則」物件來控制已加入網域之 Windows 10 和 Windows Server 2016 電腦的自動註冊導入。 **如果您不想讓這些裝置自動向 Azure AD 註冊或想要控制註冊**，則您必須先在所有這些裝置導入停用自動註冊的群組原則，再開始進行設定步驟。 在完成設定之後，並已為測試做好準備時，您必須僅在測試裝置上導入啟用自動註冊的群組原則，然後在於您選擇的所有其他裝置上導入該原則。
 
-- **只有**已設定導入群組原則物件的情況下，Windows 10 2015 年 11 月更新才會自動加入 Azure AD。
-
 - 若要導入舊版 Windows 電腦，您可以將 [Windows Installer 封裝](#windows-installer-packages-for-non-windows-10-computers)部署到您所選的電腦。
 
 - 如果您將群組原則物件推送到已加入網域的 Windows 8.1 裝置，將會嘗試加入。不過，建議您使用 [Windows Installer 套件](#windows-installer-packages-for-non-windows-10-computers)來加入所有舊版 Windows 裝置。 
@@ -566,7 +577,7 @@ Azure AD Connect：
 2. 移至您要啟用自動註冊現行 Windows 電腦的網域所對應的網域節點。
 3. 在 [群組原則物件] 上按一下滑鼠右鍵，然後選取 [新增]。
 4. 輸入群組原則物件的名稱。 例如，*混合式 Azure AD Join。 
-5. 按一下 [SERVICEPRINCIPAL] 。
+5. 按一下 [確定]。
 6. 以滑鼠右鍵按一下新的群組原則物件，然後選取 [編輯]。
 7. 移至 [電腦設定]  >  [原則]  >  [系統管理範本]  >  [Windows 元件]  >  [裝置註冊]。 
 8. 以滑鼠右鍵按一下 [將已加入網域的電腦註冊為裝置]，然後選取 [編輯]。
@@ -576,7 +587,7 @@ Azure AD Connect：
 
 7. 選取 [已啟用]，然後按一下 [套用]。 如果您想要讓原則阻止此群組原則所控制的裝置自動向 Azure AD 註冊，您必須選取 [停用]。
 
-8. 按一下 [SERVICEPRINCIPAL] 。
+8. 按一下 [確定]。
 9. 將群組原則物件連結到您選擇的位置。 例如，您可以將它連結到特定組織單位。 也可以將它連結到會自動加入 Azure AD 的特定電腦安全性群組。 若要為貴組織中所有已加入網域的 Windows 10 和 Windows Server 2016 電腦設定此原則，請將「群組原則」物件連結至網域。
 
 ### <a name="windows-installer-packages-for-non-windows-10-computers"></a>非 Windows 10 電腦的 Windows Installer 套件

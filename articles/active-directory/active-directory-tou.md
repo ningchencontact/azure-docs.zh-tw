@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 428d70474ba928a9e0c774aeb16395ef6a4cea2e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192950"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。  此呈現可確保使用者看到合法或合規性需求的相關免責聲明。
@@ -39,7 +40,7 @@ Azure AD 使用規定可以用於下列案例：
 請使用下列步驟來設定 Azure AD 使用規定：
 
 1. 對於您要設定 Azure AD 使用規定的目錄，使用全域管理員、安全性系統管理員或條件式存取系統管理員，登入 Azure AD。
-2. 確定該目錄具有 Azure AD Premium P1、P2、EMS E3 或 EMS E5 訂用帳戶。  如果未[取得 Azure AD Premium](active-directory-get-started-premium.md) 或[開始試用](https://azure.microsoft.com/trial/get-started-active-directory/)，
+2. 確定該目錄具有 Azure AD Premium P1、P2、EMS E3 或 EMS E5 訂用帳戶。  如果您未[取得 Azure AD Premium](active-directory-get-started-premium.md) 或[開始試用](https://azure.microsoft.com/trial/get-started-active-directory/)，
 3. 檢視 Azure AD 使用規定儀表板，網址為 [https://aka.ms/catou](https://aka.ms/catou)。
 
 >[!IMPORTANT]
@@ -56,7 +57,7 @@ Azure AD 使用規定可以用於下列案例：
 4. 輸入**顯示名稱**。  使用者在登入時會看到此標頭。
 5. **瀏覽**至您已完成的使用規定 pdf 並加以選取。  建議使用的字型大小是 24。
 6. **選取**使用規定的語言。  語言選項可讓您上傳多個使用規定，各有不同的語言。  終端使用者會看到的使用規定版本將以其瀏覽器喜好設定為基礎。
-7. 選擇開啟或關閉 [要求使用者展開使用規定]。  如果設定為開啟，終端使用者必須先閱讀使用規定，再接受這些規定。
+7. 選擇開啟或關閉 [要求使用者展開使用規定]。  如果此設定設為開啟，則使用者必須先閱讀使用規定，再接受這些規定。
 8. 在 [條件式存取] 之下，您可以選取下拉式清單中的範本或自訂的條件式存取原則，**強制執行**上傳的使用規定。  自訂的條件式存取原則可讓細微使用條款下降到特定雲端應用程式或使用者群組。  如需詳細資訊，請參閱[設定條件式存取原則](active-directory-conditional-access-best-practices.md)
 9. 按一下頁面底部的 [新增] 。
 10. 如果您已選取自訂的條件式存取範本，則新的畫面會出現，可讓您自訂 CA 原則。
@@ -120,6 +121,13 @@ Azure AD 使用規定可以用於下列案例：
 
 4.  您可以在此檢閱您已接受的使用規定。 
 
+## <a name="removing-users-from-an-active-terms-of-use"></a>從作用中的使用規定中移除使用者
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+
+根據預設，已刪除的使用者會在 Azure AD 中以已刪除的狀態保留 30 天，在這段期間內，系統管理員可以視需要加以還原。  經過 30 天後，該使用者將永久刪除。  此外，全域管理員可以使用 Azure Active Directory 入口網站，在該時段結束之前明確地[永久刪除最近刪除的使用者](active-directory-users-restore.md)。  使用者永久刪除後，關於該使用者的資料將會從作用中的使用規定中移除。  與已刪除的使用者有關的稽核資訊仍會保留在稽核記錄中。
+
+
 
 ## <a name="additional-information"></a>其他資訊
 下列是需要留意並可協助使用此使用條款的資訊。
@@ -138,7 +146,7 @@ Azure AD 使用規定可以用於下列案例：
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 **問：如何查看使用者何時或是否已接受使用規定？**</br>
-答：您可以只按一下使用規定旁邊 [已接受] 下方的數字。  如需詳細資訊，請參閱[檢視目前的使用者狀態](#viewing-current-user-status)。  此外，接受使用規定的使用者會寫入至稽核記錄。 您可以搜尋 Azure AD 稽核記錄來查看結果。  
+答：您可以按一下使用規定旁邊 [已接受] 下方的數字。  如需詳細資訊，請參閱[檢視目前的使用者狀態](#viewing-current-user-status)。  此外，接受使用規定的使用者會寫入至稽核記錄。 您可以搜尋 Azure AD 稽核記錄來查看結果。  
 
 **問：如果變更使用規定，是否需要使用者重新接受？**</br>
 答：是，系統管理員可以變更使用規定，而且其需要重新接受新規定。
@@ -153,7 +161,7 @@ Azure AD 使用規定可以用於下列案例：
 答：您可以使用新式驗證，在企業應用程式上建立條件式存取原則。  如需詳細資訊，請參閱[企業應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal)。
 
 **問：是否可以將多個使用規定新增至指定的使用者或應用程式？**</br>
-答：是，方法為建立多個條件式存取原則，將群組或應用程式設為目標。 如果使用者落在多個使用條款的範圍內，則他們一次同意一個使用規定。
+答：是，方法為建立多個條件式存取原則，將群組或應用程式設為目標。 如果使用者落在多個使用規定的範圍內，他們可以逐一同意各項使用規定。
  
 **問：如果使用者拒絕使用規定，會發生什麼事？**</br>
 答：使用者會遭封鎖而無法存取應用程式。 使用者必須再次登入並同意規定，才能取得存取權。

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/29/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d6804f7e546547d734f966656362111b31078a4
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 9186579126525cc269f7e3f9e778e06902b30eb4
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206255"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261277"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>在 Azure AD B2C 中使用年齡管制
 
@@ -48,25 +48,22 @@ ms.locfileid: "33206255"
 在使用者流程中啟用年齡管制後，使用者體驗就會變更。  在註冊時，除了為使用者流程設定的使用者屬性以外，此時系統還會要求使用者提供其出生日期和居住地國家/地區。  在登入時，對於先前未曾輸入出生日期和居住地國家/地區的使用者，系統將會在使用者下一次登入時要求這項資訊。  Azure AD B2C 將藉由這兩個值來識別使用者是否為未成年人，並更新 `ageGroup` 欄位，此值可以是 `null`、`Undefined`、`Minor`、`Adult` 和 `NotAdult`。  接著，系統會使用 `ageGroup` 和 `consentProvidedForMinor` 欄位來計算 `legalAgeGroupClassification`。 
 
 ##<a name="age-gating-options"></a>年齡管制選項
-您可以選擇讓 Azure AD B2C 封鎖未取得家長同意的未成年人，或允許他們進入，而讓應用程式決定要如何處理。  
+您可以選擇讓 Azure AD B2C 直接封鎖未取得家長同意的未成年人；也可以允許他們進入，而讓應用程式決定要如何處理。  
 
 ###<a name="allowing-minors-without-parental-consent"></a>允許未取得家長同意的未成年人
-對於需要註冊和 (或) 登入的使用者流量，您可以選擇允許未經同意的未成年人進入您的應用程式。  未取得家長同意的未成年人可以使用 `legalAgeGroupClassification` 宣告正常登入或註冊，並發出識別碼權杖。  藉由使用此宣告，您可以選擇這些使用者所將擁有的體驗，例如收集家長同意 (並更新 `consentProvidedForMinor` 欄位) 的體驗。
+對於允許註冊和/或登入的使用者流量，您可以選擇允許未經同意的未成年人進入您的應用程式。  未取得家長同意的未成年人可以正常登入或註冊，Azure AD B2C 會以 `legalAgeGroupClassification` 宣告發出識別碼權杖。  藉由使用此宣告，您可以選擇這些使用者所將擁有的體驗，例如收集家長同意 (並更新 `consentProvidedForMinor` 欄位) 的體驗。
 
 ###<a name="blocking-minors-without-parental-consent"></a>封鎖未取得家長同意的未成年人
-對於需要註冊和 (或) 登入的使用者流量，您可以選擇封鎖未經同意的未成年人，而使其無法進入您的應用程式。  有兩個選項可處理 Azure AD B2C 中遭封鎖的使用者：
+對於允許註冊和/或登入的使用者流量，您可以選擇封鎖未經應用程式同意的未成年人。  有兩個選項可處理 Azure AD B2C 中遭封鎖的使用者：
 * 將 JSON 傳回至應用程式 - 此選項會將回應傳回至封鎖未成年人的應用程式。
 * 顯示錯誤頁面 - 使用者將會看見一個頁面，指出他們無法存取應用程式
 
 ##<a name="known-issues"></a>已知問題
-###<a name="customization-unavailable-for-new-pages"></a>新頁面不適用自訂功能
-當您啟用年齡管制時，您可以在使用者流程中使用兩個新頁面。  這些用來在登入和錯誤頁面上收集國家/地區和出生日期的頁面，無法用於頁面版面配置或語言自訂。  在未來的更新中將可使用此選項。
-
 ###<a name="format-for-the-response-when-a-minor-is-blocked"></a>未成年人遭到封鎖時的回應格式。
 回應目前未採用正確格式，此 Bug 將在未來的更新中解決。
 
 ###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>刪除在設定期間新增的特定屬性，可能會使您的目錄無法使用年齡管制。
-在年齡管制的設定中，您透過 `Properties` 中的選項設定了您的目錄。  如果您刪除 `legalCountry` 或 `dateOfBirth`，您的租用戶就無法再使用年齡管制，且這些屬性也無法重新建立。
+在年齡管制的設定中，您透過 `Properties` 中的選項設定了您的目錄。  如果您透過 Graph 刪除 `legalCountry` 或 `dateOfBirth`，您的目錄就無法再使用年齡管制，且這些屬性也無法重新建立。
 
 ###<a name="list-of-countries-is-incomplete"></a>國家/地區清單不完整
 目前，legalCountry 的國家/地區清單並不完整，我們將在未來的更新中新增其餘國家/地區。

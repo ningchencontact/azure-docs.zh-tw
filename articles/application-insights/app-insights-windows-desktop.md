@@ -11,25 +11,26 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/16/2018
+ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5b325fd4326f2594a7386c65dea17a3da19abde8
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ada38fc26f2fce9251ae648302733b04fe4c82ec
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195823"
 ---
-# <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>監視 Windows 傳統型應用程式的使用情況和效能
+# <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>監視傳統型 Windows 桌面應用程式的使用情況和效能
 
-雖然遙測可以從傳統型應用程式傳送至 Application Insights，但這主要是用來進行偵錯和實驗性用途。
+裝載於內部部署、Azure 中和其他雲端中的應用程式，全都可使用 Application Insights。 唯一限制是需要[允許](app-insights-ip-addresses.md)與 Application Insights 服務進行通訊。 若要監視通用 Windows 平台 (UWP) 應用程式，建議您使用 [Visual Studio App Center](app-insights-mobile-center-quickstart.md)。
 
-## <a name="to-send-telemetry-to-application-insights-from-a-windows-application"></a>若要從 Windows 應用程式將遙測傳送至 Application Insights
+## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>將遙測資料從傳統型 Windows 應用程式傳送至 Application Insights
 1. 在 [Azure 入口網站](https://portal.azure.com)中，建立 [Application Insights 資源](app-insights-create-new-resource.md)。 針對應用程式類型，選擇 ASP.NET 應用程式。
 2. 取得檢測金鑰的副本。 在您剛才建立的新資源之 [Essentials] 下拉式清單中尋找金鑰。 
 3. 在 Visual Studio 中，編輯應用程式專案的 NuGet 封裝，並新增 Microsoft.ApplicationInsights.WindowsServer。 (或選擇 Microsoft.ApplicationInsights，如果您只想要單純的 API，而不需要標準遙測集合模組。)
 4. 在程式碼中設定檢測金鑰︰
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "`您的金鑰 `";` 
+    `TelemetryConfiguration.Active.InstrumentationKey = "`您的金鑰 `";`
    
     或在 ApplicationInsights.config 中設定檢測金鑰 (如果您已安裝其中一個標準遙測封裝)︰
    

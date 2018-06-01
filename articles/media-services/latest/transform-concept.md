@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: d256d87548d54951cb77beffb88bba26a1a3de49
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b755e0573098d3dbed1bea18a40af634be609f76
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34272075"
 ---
 # <a name="transforms-and-jobs"></a>轉換與工作
 
@@ -26,6 +27,40 @@ Azure 媒體服務 REST API (v3) 的最新版本引進了一個稱為**轉換**�
 **轉換**物件是方法，而**工作**則是實際要求 Azure 媒體服務，將**轉換**套用至指定的輸入視訊或音訊內容。 **工作**會指定輸入視訊的位置、輸出的位置等資訊。 您可以使用下各項來指定視訊的位置：HTTP(s) URL、SAS URL 或位在本機或 Azure Blob 儲存體中的檔案路徑。 Azure 媒體服務帳戶最多可以有 100 個轉換，並在轉換下提交工作。 然後您可以利用直接與 Azure 事件格線通知系統整合的「通知」來訂閱事件，例如工作狀態變更。 
 
 由於這個 API 是由 Azure Resource Manager 驅動的，因此您可以使用 Resource Manager 範本，在您的媒體服務帳戶中建立及部署轉換。 角色型存取控制可以設定在此 API 的資源層級，讓您能鎖定對特定資源 (如轉換) 的存取。
+
+## <a name="transform-definition"></a>轉換定義
+
+下表顯示轉換的屬性並提供其定義。
+
+|Name|類型|說明|
+|---|---|---|
+|id|字串|資源的完整資源識別碼。|
+|name|字串|資源名稱。|
+|properties.created |字串|轉換建立時的 UTC 日期和時間，格式為 'YYYY-MM-DDThh:mm:ssZ'。|
+|properties.description |字串|轉換的詳細描述 (選擇性)。|
+|properties.lastModified |字串|轉換最後更新時的 UTC 日期和時間，格式為 'YYYY-MM-DDThh:mm:ssZ'。|
+|properties.outputs |TransformOutput[]|一個或多個轉換應該產生的 TransformOutputs 陣列。|
+|type|字串|資源類型。|
+
+如需完整定義，請參閱[轉換](https://docs.microsoft.com/rest/api/media/transforms)。
+
+## <a name="job-definition"></a>工作定義
+
+下表顯示作業的屬性並提供其定義。
+
+|Name|類型|說明|
+|---|---|---|
+|id|字串|資源的完整資源識別碼。|
+|name|字串|資源名稱。|
+|properties.created |字串|轉換建立時的 UTC 日期和時間，格式為 'YYYY-MM-DDThh:mm:ssZ'。|
+|properties.description |字串|作業的詳細描述 (選擇性)。|
+|properties.lastModified |字串|轉換最後更新時的 UTC 日期和時間，格式為 'YYYY-MM-DDThh:mm:ssZ'。|
+|properties.outputs |JobOutput[]:JobOutputAsset[] |作業的輸出。|
+|properties.priority |優先順序 |處理作業時應依循的優先順序。 先處理優先順序較高的作業，再處理優先順序較低的工作。 如果沒有設定，預設值為一般。
+|properties.state |JobState |作業的目前狀態。
+|type|字串|資源類型。|
+
+如需完整定義，請參閱[作業](https://docs.microsoft.com/rest/api/media/jobs)。
 
 ## <a name="typical-workflow-and-example"></a>一般工作流程和範例
 

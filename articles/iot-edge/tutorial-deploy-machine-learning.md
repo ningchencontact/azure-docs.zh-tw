@@ -9,17 +9,18 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d0a508f6430bd97e7c76aee686f4837acf246ad3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6062d8193ce8cf7edaff3187f5c0f7dd9968658b
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165735"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>將 Azure Machine Learning 部署為 IoT Edge 模組 - 預覽
 
-您可以使用 IoT Edge 模組來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您部署 Azure Machine Learning 模組，以根據模擬 IoT Edge 裝置上的感應器資料預測裝置失效的時間 (模擬裝置是在＜在 [Windows][lnk-tutorial1-win] 或 [Linux][lnk-tutorial1-lin] 上的模擬裝置中部署 Azure IoT Edge＞教學課程中所建立的)。 
+您可以使用 IoT Edge 模組來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您部署 Azure Machine Learning 模組，以根據模擬 IoT Edge 裝置上的感應器資料預測裝置失效的時間 (模擬裝置是在＜在 [Windows][lnk-tutorial1-win] 或 [Linux][lnk-tutorial1-lin] 上的模擬裝置中部署 Azure IoT Edge＞教學課程中所建立的)。
 
-在本教學課程中，您了解如何： 
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立 Azure Machine Learning 模組
@@ -27,28 +28,28 @@ ms.lasthandoff: 04/19/2018
 > * 將 Azure Machine Learning 模組部署至 IoT Edge 裝置
 > * 檢視產生的資料
 
-您在本教學課程中建立的 Azure Machine Learning 模組會讀取裝置所產生的環境資料，並將訊息標示為異常或非異常。 
+您在本教學課程中建立的 Azure Machine Learning 模組會讀取裝置所產生的環境資料，並將訊息標示為異常或非異常。
 
 ## <a name="prerequisites"></a>先決條件
 
 * 您在快速入門或第一份教學課程中所建立的 Azure IoT Edge 裝置。
 * IoT 中樞 (連接您的 IoT Edge 裝置) 的 IoT 中樞連接字串。
 * Azure Machine Learning 帳戶。 若要建立帳戶，請遵循[建立 Azure Machine Learning 帳戶，並安裝 Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts) 中的指示。 您不需要針對此教學課程安裝 Workbench 應用程式。 
-* 在您的電腦上的 Azure ML 模組管理。 若要設定您的環境並建立帳戶，請遵循[模型管理設定](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration)中的指示。
+* 在您的電腦上的 Azure ML 模組管理。 若要設定您的環境並建立帳戶，請遵循[模型管理設定](../machine-learning/desktop-workbench/deployment-setup-configuration.md)中的指示。
 
-Azure Machine Learning 模組不支援 ARM 處理器。 
+Azure Machine Learning 模組不支援 ARM 處理器。
 
 ## <a name="create-the-azure-ml-container"></a>建立 Azure ML 容器
-在本節中，您會下載定型模型檔案，並將它們轉換成 Azure ML 容器。  
+在本節中，您會下載定型模型檔案，並將它們轉換成 Azure ML 容器。
 
-在執行 Azure ML 模組管理的電腦上，從 GitHub 上的 Azure ML IoT Toolkit 下載並儲存 [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) 和 [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl)。 這些檔案會定義您將會部署到 IoT Edge 裝置的定型機器學習模型。 
+在執行 Azure ML 模組管理的電腦上，從 GitHub 上的 Azure ML IoT Toolkit 下載並儲存 [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) 和 [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl)。 這些檔案會定義您將會部署到 IoT Edge 裝置的定型機器學習模型。
 
 使用定型模型以建立可以部署到 IoT Edge 裝置的容器。 使用下列命令，您可以：
 
    * 註冊您的模組。
    * 建立資訊清單。
    * 建立名為 machinelearningmodule 的 Docker 容器映像。
-   * 將映像部署至您的 Azure Container Service (AKS) 叢集。
+   * 將映像部署至您的 Azure Kubernetes Service (AKS) 叢集。
 
 ```cmd
 az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
@@ -72,12 +73,12 @@ az ml service create realtime --model-file model.pkl -f iot_score.py -n machinel
 
 Linux：
    ```cmd
-   sudo iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password> 
+   sudo iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password>
    ```
 
 Windows:
    ```cmd
-   iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password> 
+   iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password>
    ```
 
 ## <a name="run-the-solution"></a>執行解決方案
@@ -96,7 +97,7 @@ Windows:
     1. 在 [映像] 欄位中，輸入您的映像地址，例如`<registry_name>.azurecr.io/machinelearningmodule:1`。
     1. 選取 [ **儲存**]。
 1. 回到 [新增模組] 步驟中，選取 [下一步]。
-1. 在 [指定路由] 步驟中，將下列 JSON 複製到文字方塊。 第一個路由會透過所有 Azure Machine Learning 模組使用的「amlInput」端點，將訊息從溫度感應器傳輸到機器學習模組。 第二個路由會將訊息從機器學習模組傳輸到 IoT 中樞。 在此路由中，「amlInput」是所有 Azure Machine Learning 模組用來輸出資料的端點，而「$upstream」代表 IoT 中樞。 
+1. 在 [指定路由] 步驟中，將下列 JSON 複製到文字方塊。 第一個路由會透過所有 Azure Machine Learning 模組使用的「amlInput」端點，將訊息從溫度感應器傳輸到機器學習模組。 第二個路由會將訊息從機器學習模組傳輸到 IoT 中樞。 在此路由中，「amlInput」是所有 Azure Machine Learning 模組用來輸出資料的端點，而「$upstream」代表 IoT 中樞。
 
     ```json
     {
@@ -105,24 +106,24 @@ Windows:
             "machineLearningToIoTHub": "FROM /messages/modules/machinelearningmodule/outputs/amlOutput INTO $upstream"
         }
     }
-    ``` 
+    ```
 
-1. 選取 [下一步] 。 
-1. 在 [檢閱範本] 步驟中，選取 [提交]。 
+1. 選取 [下一步] 。
+1. 在 [檢閱範本] 步驟中，選取 [提交]。
 1. 返回裝置的詳細資料頁面，選取 [重新整理]。  您應該會看到新的 **machinelearningmodule** 正在與 **tempSensor** 模組和 IoT Edge 執行階段模組一起執行。
 
 ## <a name="view-generated-data"></a>檢視產生的資料
 
-您可以使用 [IoT 中樞總管](https://github.com/azure/iothub-explorer) \(英文\) 或適用於 Visual Studio Code 的 Azure IoT Toolkit 擴充功能，來檢視 IoT Edge 裝置傳送的裝置到雲端訊息。 
+您可以使用 [IoT 中樞總管](https://github.com/azure/iothub-explorer) \(英文\) 或適用於 Visual Studio Code 的 Azure IoT Toolkit 擴充功能，來檢視 IoT Edge 裝置傳送的裝置到雲端訊息。
 
-1. 在 Visual Studio Code 中，選取 [IoT 中樞裝置]。 
-2. 從功能表選取 [...]，然後選取 [設定 IoT 中樞連接字串]。 
+1. 在 Visual Studio Code 中，選取 [IoT 中樞裝置]。
+2. 從功能表選取 [...]，然後選取 [設定 IoT 中樞連接字串]。
 
    ![IoT 中樞裝置更多功能表](./media/tutorial-deploy-machine-learning/set-connection.png)
 
 3. 在頁面頂端開啟的文字方塊中，輸入 IoT 中樞的 iothubowner 連接字串。 您的 IoT Edge 裝置應該會出現在 IoT 中樞裝置清單中。
 4. 再次選取 [...]，然後選取 [開始監視 D2C 訊息]。
-5. 每五秒就會觀察來自 tempSensor 的訊息。 訊息本文包含稱為 **anomaly** 的屬性，machinelearningmodule 會搭配 True 或 False 值來提供此屬性。 如果模型已順利執行，**AzureMLResponse** 屬性即會包含 "OK" 值。 
+5. 每五秒就會觀察來自 tempSensor 的訊息。 訊息本文包含稱為 **anomaly** 的屬性，machinelearningmodule 會搭配 True 或 False 值來提供此屬性。 如果模型已順利執行，**AzureMLResponse** 屬性即會包含 "OK" 值。
 
    ![訊息主體中的 Azure ML 回應](./media/tutorial-deploy-machine-learning/ml-output.png)
 

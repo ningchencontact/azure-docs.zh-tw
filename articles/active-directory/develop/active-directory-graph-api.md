@@ -8,6 +8,7 @@ manager: mtillman
 editor: mbaldwin
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,11 +16,12 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: c0f5110fe73fb48cf6cf5307de08045bd843cb5a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4b4f698042f6688e3db484f7d96ccfb06c5cdd4f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158008"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory 圖形 API
 > [!IMPORTANT]
@@ -58,7 +60,7 @@ Azure AD 圖形 API 提供下列功能：
 Azure AD 圖形 API 支援許多應用程式案例。 以下是最常見的案例：
 
 * **企業營運 (單一租用戶) 應用程式**：在此案例中，企業開發人員任職於具有 Office 365 訂用帳戶的組織中。 開發人員正在建置的 Web 應用程式會與 Azure AD 互動來執行工作，例如指派授權給使用者。 這項工作需要存取 Azure AD 圖形 API，所以開發人員在 Azure Ad 中註冊單一租用戶應用程式，並設定 Azure AD 圖形 API 的讀取和寫入權限。 然後，將應用程式設定為使用它自己的認證，或目前登入的使用者認證，以取得權杖來呼叫 Azure AD 圖形 API。
-* **軟體即服務應用程式 (多租用戶)**：在此案例中，獨立軟體廠商 (ISV) 正在開發託管的多租用戶 Web 應用程式，目的是為使用 Azure AD 的其他組織提供使用者管理功能。 這些功能需要存取目錄物件，所以此應用程式需要呼叫 Azure AD 圖形 API。 開發人員在 Azure AD 中註冊此應用程式，將它設定為需要 Azure AD 圖形 API 的讀取和寫入權限，然後啟用外部存取，讓其他組織同意在其目錄中使用此應用程式。 當另一個組織中的使用者第一次向應用程式驗證時，就會出現同意對話方塊及此應用程式所要求的權限。  同意之後，就會給予所要求的權限，讓應用程式在使用者的目錄中存取 Azure AD 圖形 API。 如需同意架構的詳細資訊，請參閱 [同意架構的概觀](active-directory-integrating-applications.md)。
+* **軟體即服務應用程式 (多租用戶)**：在此案例中，獨立軟體廠商 (ISV) 正在開發託管的多租用戶 Web 應用程式，目的是為使用 Azure AD 的其他組織提供使用者管理功能。 這些功能需要存取目錄物件，所以此應用程式需要呼叫 Azure AD 圖形 API。 開發人員在 Azure AD 中註冊此應用程式，將它設定為需要 Azure AD 圖形 API 的讀取和寫入權限，然後啟用外部存取，讓其他組織同意在其目錄中使用此應用程式。 當另一個組織中的使用者第一次向應用程式驗證時，就會出現同意對話方塊及此應用程式所要求的權限。 同意之後，就會給予所要求的權限，讓應用程式在使用者的目錄中存取 Azure AD 圖形 API。 如需同意架構的詳細資訊，請參閱 [同意架構的概觀](active-directory-integrating-applications.md)。
 
 ## <a name="see-also"></a>另請參閱
 [Azure AD Graph API 快速入門指南](active-directory-graph-api-quickstart.md)

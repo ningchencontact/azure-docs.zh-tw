@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/22/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 85a627678f862d783d47013d82bae8b485d7d4e9
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303938"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>部署 Azure Blockchain Workbench
 
@@ -23,6 +24,25 @@ ms.lasthandoff: 05/14/2018
 如需關於 Blockchain Workbench 元件的詳細資訊，請參閱 [Azure Blockchain Workbench 架構](blockchain-workbench-architecture.md)。
 
 ## <a name="prepare-for-deployment"></a>準備部署
+
+Blockchain Workbench 可讓您部署區塊鏈總帳與一組相關的 Azure 服務，這些 Azure 服務最常用來建置以區塊鏈為基礎的應用程式。 部署 Blockchain Workbench 會使下列 Azure 服務佈建在您 Azure 訂用帳戶中的資源群組內。
+
+* 1 個 Event Grid 主題
+* 1 個服務匯流排命名空間
+* 1 個Application Insights
+* 1 個 SQL Database (標準 S0)
+* 2 個應用程式服務 (標準)
+* 2 個 Azure Key Vault
+* 2 個 Azure 儲存體帳戶 (標準 LRS)
+* 2 個虛擬機器擴展集 (用於驗證程式與背景工作節點)
+* 2 個虛擬網路 (包括負載平衡器、網路安全性群組和每個虛擬網路的公用 IP 位址)
+* 選擇性：Azure 監視器
+
+以下是在 **myblockchain** 資源群組中建立的部署範例。
+
+![部署範例](media/blockchain-workbench-deploy/example-deployment.png)
+
+Blockchain Workbench 的成本是彙總基礎 Azure 服務的成本。 Azure 服務的定價資訊可使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)來計算。
 
 要部署 Azure Blockchain Workbench 必須符合幾項必要條件。 必要條件包括 Azure AD 設定和應用程式註冊。
 
@@ -254,9 +274,18 @@ Blockchain Workbench 部署完成後，新的資源群組即會包含您的 Bloc
 
 7. 選取 [儲存] 以更新用戶端註冊。
 
+## <a name="remove-a-deployment"></a>移除部署
+
+當部署不再需要時，您可以藉由刪除 Blockchain Workbench 資源群組來移除部署。
+
+1. 在 Azure 入口網站中，瀏覽至左側瀏覽窗格中的 [資源群組]，然後選取您想要刪除的資源群組。 
+2. 選取 [刪除資源群組]。 輸入資源群組名稱並選取 [刪除]，以確定進行刪除。
+
+    ![刪除資源群組](media/blockchain-workbench-deploy/delete-resource-group.png)
+
 ## <a name="next-steps"></a>後續步驟
 
-在這篇操作說明文章中，您已部署 Azure Blockchain Workbench。 若要了解如何建立區塊鏈應用程式，請繼續閱讀下一篇操作說明文章。
+在這篇操作說明文章中，您已部署了 Azure Blockchain Workbench。 若要了解如何建立區塊鏈應用程式，請繼續閱讀下一篇操作說明文章。
 
 > [!div class="nextstepaction"]
 > [在 Azure Blockchain Workbench 中建立區塊鏈應用程式](blockchain-workbench-create-app.md)

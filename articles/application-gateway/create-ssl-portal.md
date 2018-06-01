@@ -1,6 +1,6 @@
 ---
-title: 建立包含 SSL 終止的應用程式閘道 - Azure 入口網站 | Microsoft Docs
-description: 了解如何使用 Azure 入口網站建立應用程式閘道，並新增 SSL 終止的憑證。
+title: 設定包含 SSL 終止的應用程式閘道 - Azure 入口網站 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站設定應用程式閘道，並新增 SSL 終止的憑證。
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -8,18 +8,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: a24cec5dfa8034cf43ce7cfe26308587cf20dc44
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c64754595ef67b7c083ee8d47da5b412467c191b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195908"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 SSL 終止的應用程式閘道
+# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>使用 Azure 入口網站設定包含 SSL 終止的應用程式閘道
 
-您可以使用 Azure 入口網站來建立[應用程式閘道](overview.md)，當中包含使用虛擬機器作為後端伺服器的 SSL 終止憑證。
+您可以使用 Azure 入口網站來設定[應用程式閘道](overview.md)，當中包含使用虛擬機器作為後端伺服器的 SSL 終止憑證。
 
 在本文中，您將了解：
 
