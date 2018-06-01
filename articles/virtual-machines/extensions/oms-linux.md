@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 05/16/2018
 ms.author: danis
-ms.openlocfilehash: 5c292bf0f92423826d58fb0e9175f51d0599bf44
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: dcc5637b159341fc4b6cc8130b1807c8a2f604fc
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944850"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261820"
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>適用於 Linux 的 OMS 虛擬機器擴充功能
 
@@ -36,12 +36,12 @@ Log Analytics 可提供雲端和內部部署資產的監視、警示和警示補
 
 | 配送映像 | 版本 |
 |---|---|
-| CentOS Linux | 5、6 和 7 |
-| Oracle Linux | 5、6 和 7 |
-| Red Hat Enterprise Linux Server | 5、6 和 7 |
-| Debian GNU/Linux | 6、7 和 8 |
-| Ubuntu | 12.04 LTS、14.04 LTS、15.04、15.10、16.04 LTS |
-| SUSE Linux Enterprise Server | 11 和 12 |
+| CentOS Linux | 5、6 和 7 (x86/x64) |
+| Oracle Linux | 5、6 和 7 (x86/x64) |
+| Red Hat Enterprise Linux Server | 5、6 和 7 (x86/x64) |
+| Debian GNU/Linux | 6、7 和 8 (x86/x64) |
+| Ubuntu | 12.04 LTS、14.04 LTS、16.04 LTS (x86/x64) |
+| SUSE Linux Enterprise Server | 11 和 12 (x86/x64) |
 
 ### <a name="agent-and-vm-extension-version"></a>代理程式和 VM 擴充功能版本
 下表提供每個版本之 OMS VM 擴充功能和 OMS 代理程式套件組合的版本對應。 隨附 OMS 代理程式套件組合版本的版本資訊連結。 版本資訊包含錯誤修正和適用於指定代理程式版本的新功能詳細資料。  

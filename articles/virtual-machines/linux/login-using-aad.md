@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2018
+ms.date: 05/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 652f9867b7423ce4307dba1c77e8f38fcd596c67
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ec330570604494503de2fa3f5484a1e41ddf4603
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943988"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271955"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>在 Azure 中使用 Azure Active Directory 驗證登入 Linux 虛擬機器 (預覽)
 
@@ -35,6 +35,7 @@ ms.locfileid: "33943988"
   - 藉由減少您對本機系統管理員帳戶的依賴，您無須再擔心認證遺失/遭竊、使用者設定弱式認證等問題。
   - 針對 Azure AD 目錄而設定的密碼複雜性及密碼存留期原則，也有助於保護 Linux VM。
   - 若要進一步保護 Azure 虛擬機器的登入，您可以設定多因素驗證。
+  - 使用 Azure Active Directory 登入 Linux 虛擬機器的能力，也適用於使用[同盟服務](../../active-directory/connect/active-directory-aadconnectfed-whatis.md)的客戶。
 
 - **無縫式共同作業：** 透過角色型存取控制 (RBAC)，您可以指定哪些人能夠以一般使用者的身分或系統管理員權限登入指定的 VM。 當使用者加入或退出您的小組時，您可以更新 VM 的 RBAC 原則，以授與適當的存取權。 這項體驗遠比經由刪除 VM 移除非必要的 SSH 公開金鑰來得容易。 當員工離開您的組織時，其使用者帳戶會從 Azure AD 中停用或移除，且他們將無法再存取您的資源。
 
@@ -50,7 +51,7 @@ ms.locfileid: "33943988"
 
 以下是目前在這項功能的預覽期間支援的 Azure 區域：
 
-- 所有公用 Azure 區域
+- 所有全域 Azure 區域
 
 >[!IMPORTANT]
 > 若要使用這項預覽功能，請您僅在支援的 Azure 區域中部署支援的 Linux 發行版。 Azure Government 或主權雲端不支援這項功能。
@@ -167,6 +168,10 @@ Access denied
 - 確認在 SSH 提示字元中指定的登入名稱正確無誤。 登入名稱若有拼字錯誤，即可能導致您在 SSH 提示字元中指定的登入名稱與您用來登入 Azure AD 的帳戶不相符。 例如，如果您輸入 *azuresuer@contoso.onmicrosoft.com*，而不是 *azureuser@contoso.onmicrosoft.com*。
 - 如果您有多個使用者帳戶，請確定您在登入 Azure AD 時，並未在瀏覽器視窗中提供不同的使用者帳戶。
 - Linux 是區分大小寫的作業系統。 'Azureuser@contoso.onmicrosoft.com' 和 'azureuser@contoso.onmicrosoft.com' 之間的差異可能會導致不相符。 請確定您在 SSH 提示字元中指定 UPN 時使用的是正確的大小寫設定。
+
+## <a name="preview-feedback"></a>預覽意見反應
+
+在 [Azure AD 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)上分享您關於這個預覽功能的意見反應或報告它的使用問題
 
 ## <a name="next-steps"></a>後續步驟
 
