@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 1aab466a06711a334df0584334e5229b33f57754
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a62d52e30b04b525dc8ff685ed6c3033d6029542
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942440"
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Microsoft Azure 虛擬資料中心：網路觀點
 **Microsoft Azure**：移動更為快速、節省成本、在內部部署環境整合應用程式和資料
@@ -192,7 +193,7 @@ IT 基礎結構小組的其中一個主要工作是確保整個企業的 IP 位�
 -   [**UDR**][UDR]。 預設會根據系統路由表來路由傳送虛擬網路中的流量。 使用者定義路由是網路系統管理員可建立與一或多個子網路關聯的自訂路由表，可覆寫系統路由表的行為，以及定義虛擬網路內的通訊路徑。 UDR 的存在保證來自支點的輸出流量會傳輸到存在於中樞和支點中的特定自訂 VM 以及 (或) 網路虛擬設備和負載平衡器。
 -   [**NSG**][NSG]. 網路安全性群組是安全性規則清單，而安全性規則是作為 IP 來源、IP 目的地、通訊協定、IP 來源連接埠和 IP 目的地連接埠的流量篩選。 NSG 可以套用至子網路、與 Azure VM 建立關聯的虛擬 NIC 卡，或兩者。 若要實作中樞和支點中的正確流量控制，NSG 不可或缺。 NSG 所提供的安全性層級是您所開啟之連接埠和用途的功能。 客戶應該套用具有主機型防火牆 (例如 IPtables 或 Windows 防火牆) 的其他個別 VM 篩選。
 -   [**DNS**][DNS]。 vDC 之 VNet 中資源的名稱解析是透過 DNS 所提供。 Azure 可提供 DNS 服務以供進行[公用][DNS] 和[私人][PrivateDNS]名稱解析。 私人區域可在虛擬網路內及虛擬網路之間提供名稱解析。 私人區域不僅可以橫跨相同區域內的虛擬網路，也可以橫跨區域和訂用帳戶。 至於公用解析，Azure DNS 可提供 DNS 網域的主機服務，使用 Microsoft Azure 基礎結構提供名稱解析。 只要將您的網域裝載於 Azure，就可以像管理其他 Azure 服務一樣，使用相同的認證、API、工具和計費方式來管理 DNS 記錄。
--   [**訂用帳戶][SubMgmt]和[資源群組管理][RGMgmt]**。 訂用帳戶定義自然界限，以在 Azure 中建立多個資源群組。 在名為「資源群組」的邏輯容器中，會將訂用帳戶中的資源組合在一起。 資源群組代表可組織 vDC 資源的邏輯群組。
+-   [**訂用帳戶**][SubMgmt]和[**資源群組管理**][RGMgmt]。 訂用帳戶定義自然界限，以在 Azure 中建立多個資源群組。 在名為「資源群組」的邏輯容器中，會將訂用帳戶中的資源組合在一起。 資源群組代表可組織 vDC 資源的邏輯群組。
 -   [**RBAC**][RBAC]。 透過 RBAC，可以對應組織角色以及存取特定 Azure 資源的權利，讓您限制使用者只能使用特定子集的動作。 使用 RBAC，您可以將適當的角色指派給相關範圍內的使用者、群組和應用程式，來授與存取權。 角色指派的範圍可以是 Azure 訂用帳戶、資源群組或單一資源。 RBAC 允許繼承權限。 在父範圍指派的角色也會授與其內含子系的存取權。 RBAC 可讓您區隔職責，而僅授與使用者執行工作所需的存取權。 例如，使用 RBAC 讓一位員工管理某個訂用帳戶中的虛擬機器，而讓另一位員工管理相同訂用帳戶內的 SQL DB。
 -   [**VNet 對等**][VNetPeering]。 用來建立 vDC 基礎結構的基礎功能是 VNet 對等互連，這個機制會透過 Azure 資料中心網路或使用跨區域的 Azure 全球骨幹，連接相同區域中的兩個虛擬網路 (VNet)。
 

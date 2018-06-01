@@ -3,7 +3,7 @@ title: Microsoft Azure Stack 開發套件版本資訊 | Microsoft Docs
 description: Azure Stack 開發套件的增強功能、修正及已知問題。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: brenduns
 manager: femila
 ms.assetid: ''
 ms.service: azure-stack
@@ -11,19 +11,128 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
-ms.author: jeffgilb
+ms.date: 05/17/2018
+ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: 3335fdd3a1bb20c378bf36307d742491de0e46ad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a396c51e8eb6262726b7590498500bfb4528924
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258399"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 開發套件版本資訊
 這些版本資訊提供 Azure Stack 開發套件中的增強功能、修正和已知問題的相關資訊。 如果您不確定所執行的版本，可以使用[入口網站來進行檢查](.\.\azure-stack-updates.md#determine-the-current-version)。
 
 > 請訂閱 [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [摘要](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)，以便隨時收到 ASDK 的最新訊息。
+
+
+## <a name="build-201805131"></a>組建 20180513.1
+
+### <a name="new-features"></a>新功能 
+此組建包含下列適用於 Azure Stack 的改良功能與修正。  
+
+- <!-- 1759172 - IS, ASDK --> **More granular administrative subscriptions**. With version 1804 and later, the Default Provider subscription is now complemented with two additional subscriptions. The additions facilitate separating the management of core infrastructure, additional resource providers, and workloads. The following three subscriptions are available:
+  - 預設的提供者訂用帳戶。 請僅針對核心基礎結構使用此訂用帳戶。 請勿在此訂用帳戶上部署資源或資源提供者。
+  - 計量訂用帳戶。 請針對資源提供者部署使用此訂用帳戶。 在此訂用帳戶上部署的資源不會計費。
+  - 取用訂用帳戶。 請針對您想要部署的其他任何工作負載使用此訂用帳戶。 在此部署的資源會收取正常使用價格。
+
+
+### <a name="fixed-issues"></a>已修正的問題
+- <!-- IS, ASDK -->  In the admin portal, you no longer have to refresh the Update tile before it displays information. 
+
+- <!-- 2050709 - IS, ASDK -->  You can now use the admin portal to edit storage metrics for Blob service, Table service, and Queue service.
+
+- <!-- IS, ASDK --> Under **Networking**, when you click **Connection** to set up a VPN connection, **Site-to-site (IPsec)** is now the only available option. 
+
+- 針對效能、穩定性、安全性和 Azure Stack 所使用的作業系統提供了**多項修正**
+
+<!-- ### Changes  --> 
+### <a name="additional-releases-timed-with-this-update"></a>與此更新同時發佈的其他項目  
+以下項目現在可用，但是不需要 Azure Stack 更新 1804。
+- **Microsoft Azure Stack System Center Operations Manager 監視組件的更新**。 適用於 Azure Stack 的新版本 (1.0.3.0) Microsoft System Center Operations Manager 監視套件，現在可供[下載](https://www.microsoft.com/download/details.aspx?id=55184)。 使用此版本，您可以在您新增已連線的 Azure Stack 部署時使用服務主體。 此版本也提供更新管理體驗，可讓您直接從 Operations Manager 內採取補救措施。 也有新的儀表板，會顯示資源提供者、縮放單位以及縮放單位節點。
+
+- **新的 Azure Stack 管理員 PowerShell 1.3.0 版**。  Azure Stack PowerShell 1.3.0 現在可供安裝。 這個版本會為所有管理員資源提供者，提供用來管理 Azure Stack 的命令。  有了這個版本，我們就會從 Azure Stack Tools GitHub [存放庫](https://github.com/Azure/AzureStack-Tools)取代部分內容。 
+
+   如需安裝詳細資訊，請遵循 Azure Stack 模組 1.3.0 的[指示](.\.\azure-stack-powershell-install.md)或[說明](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0)內容。 
+
+- **初始版本的 Azure Stack API Rest 參考**。 [所有 Azure Stack 管理員資源提供者的 API 參考](https://docs.microsoft.com/rest/api/azure-stack/)現已發行。 
+
+### <a name="known-issues"></a>已知問題
+ 
+#### <a name="portal"></a>入口網站
+- <!-- TBD - IS ASDK --> The ability [to open a new support request from the dropdown](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
+    - 針對 Azure Stack 開發套件，請使用 https://aka.ms/azurestackforum。    
+
+- <!-- 2403291 - IS ASDK --> You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
+  ![階層連結](media/asdk-release-notes/breadcrumb.png)
+
+- <!-- TBD -  IS ASDK --> Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
+
+- <!-- TBD -  IS ASDK --> You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
+
+-   <!-- TBD -  IS ASDK --> In the admin portal, you might see a critical alert for the Microsoft.Update.Admin component. The Alert name, description, and remediation all display as:  
+    - *錯誤 - 遺失 FaultType ResourceProviderTimeout 的範本。*
+
+    您可以放心地忽略此警示。 
+
+#### <a name="compute"></a>計算
+- <!-- TBD -  IS ASDK --> Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
+
+- <!-- TBD -  IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
+
+- <!-- TBD -  IS ASDK --> When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
+
+  因應措施是，建立一個具有虛擬 VHD 的新 VM 映像，您可以透過 Hyper-V 建立此 VHD (New-VHD -Path C:\dummy.vhd -Fixed -SizeBytes 1 GB)。 此程序應該可以修正防止刪除失敗項目的問題。 接著，在建立虛擬映像後的 15 分鐘之後，您便可以順利刪除它。
+
+  您可以接著嘗試下載先前失敗的 VM 映像。
+
+- <!-- TBD -  IS ASDK --> If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
+
+- <!-- 1662991 - IS ASDK --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings. 
+
+#### <a name="networking"></a>網路
+- <!-- 1766332 - IS, ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
+
+- <!-- 2388980 -  IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
+
+  目前，您只能將新的公用 IP 位址用於新建立的 VM。
+
+  即使您將 IP 位址重新指派給新的 VM (通常稱為 *VIP 交換*)，還是會發生這種行為。 之後透過此 IP 位址連線的所有嘗試都會導致連線到原先關聯的 VM，而不是新的 VM。
+
+- <!-- 2292271 - IS ASDK --> If you raise a Quota limit for a Network resource that is part of an Offer and Plan that is associated with a tenant subscription, the new limit is not applied to that subscription. However, the new limit does apply to new subscriptions that are created after the quota is increased. 
+
+  若要解決這個問題，請使用附加方案，在方案已與訂用帳戶產生關聯時，增加網路配額。 如需詳細資訊，請參閱如何[提供附加方案](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available)。
+
+- <!-- 2304134 IS ASDK --> You cannot delete a subscription that has DNS Zone resources or Route Table resources associated with it. To successfully delete the subscription, you must first delete DNS Zone and Route Table resources from the tenant subscription. 
+
+
+- <!-- 1902460 -  IS ASDK --> Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
+
+- <!-- 16309153 -  IS ASDK --> On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
+ 
+- <!-- TBD -  IS ASDK --> Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
+
+
+#### <a name="sql-and-mysql"></a>SQL 和 MySQL 
+- <!-- TBD - ASDK --> The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
+
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers. 
+
+#### <a name="app-service"></a>App Service 方案
+- <!-- TBD -  IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
+
+- <!-- TBD -  IS ASDK --> In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
+ 
+#### <a name="usage"></a>使用量  
+- <!-- TBD -  IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
+
+<!-- #### Identity -->
+
+
+
+
+
 
 ## <a name="build-201803291"></a>組建 20180329.1
 
@@ -44,8 +153,6 @@ ms.lasthandoff: 04/28/2018
 
 - <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.  
 
-- 當您檢視資源或資源群組的屬性時，[移動] 按鈕顯示為停用。 這是預期的行為。 目前不支援在資源群組或訂用帳戶之間移動資源或資源群組。
- 
 - 您會看到 [需要啟用] 警告警示，通知您註冊「Azure Stack 開發套件」。 這是預期的行為。
 
 - 刪除使用者訂用帳戶會產生孤立的資源。 因應措施是，先刪除使用者資源或整個資源群組，然後再刪除使用者訂用帳戶。
@@ -104,6 +211,8 @@ ms.lasthandoff: 04/28/2018
 
 - 裝載伺服器的資料庫必須專供資源提供者和使用者工作負載使用。 您無法使用任何其他取用者 (包括「應用程式服務」) 正在使用的執行個體。
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** or **Tier** names when you create a SKU for the SQL and MySQL resource providers.
+
 #### <a name="app-service"></a>App Service 方案
 - 使用者必須在於訂用帳戶中建立第一個 Azure 函式之前，先註冊儲存體資源提供者。
 
@@ -145,8 +254,6 @@ ms.lasthandoff: 04/28/2018
 
 - <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.  
 
-- 當您檢視資源或資源群組的屬性時，[移動] 按鈕顯示為停用。 這是預期的行為。 目前不支援在資源群組或訂用帳戶之間移動資源或資源群組。
- 
 - 您會看到 [需要啟用] 警告警示，通知您註冊「Azure Stack 開發套件」。 這是預期的行為。
 
 - 刪除使用者訂用帳戶會產生孤立的資源。 因應措施是，先刪除使用者資源或整個資源群組，然後再刪除使用者訂用帳戶。
@@ -217,6 +324,8 @@ ms.lasthandoff: 04/28/2018
 
 - 裝載伺服器的資料庫必須專供資源提供者和使用者工作負載使用。 您無法使用任何其他取用者 (包括「應用程式服務」) 正在使用的執行個體。
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
+
 #### <a name="app-service"></a>App Service 方案
 - 使用者必須在於訂用帳戶中建立第一個 Azure 函式之前，先註冊儲存體資源提供者。
 
@@ -235,77 +344,4 @@ ms.lasthandoff: 04/28/2018
   之所以發生此錯誤，是因為新近的 GitHub 支援取代 Tlsv1 和 Tlsv1.1 密碼編譯標準 (PowerShell 的預設值)。 如需詳細資訊，請參閱[弱式密碼編譯標準移除通知](https://githubengineering.com/crypto-removal-notice/)。
 
   若要解決此問題，請將 `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` 新增至指令碼頂端，以強制 PowerShell 主控台在從 GitHub 存放庫下載時使用 TLSv1.2。
-
-
-
-
-## <a name="build-201801032"></a>組建 20180103.2
-
-### <a name="new-features-and-fixes"></a>新功能和修正
-
-- 請參閱 Azure Stack 整合系統之 Azure Stack 1712 更新版本資訊的[新功能和修正](.\.\azure-stack-update-1712.md#new-features-and-fixes)一節。
-
-    > [!IMPORTANT]
-    > **新功能和修正**一節中所列的項目之中，有部分僅與 Azure Stack 整合系統相關。
-
-### <a name="known-issues"></a>已知問題
- 
-#### <a name="deployment"></a>部署
-- 在部署期間，您必須使用 IP 位址指定時間伺服器。
-
-#### <a name="infrastructure-management"></a>基礎結構管理
-- 請勿在 [基礎架構備份] 刀鋒視窗上啟用基礎結構備份。
-- 縮放單位節點的基本資訊中不會顯示基礎板管理控制器 (BMC) IP 位址和模型。 這是 Azure Stack 開發套件中的預期行為。
-
-#### <a name="portal"></a>入口網站
-- 您可能會在入口網站中看到空白的儀表板。 若要復原儀表板，請選取位於入口網站右上角的齒輪圖示，然後選取 [還原預設設定]。
-- 當您檢視資源群組的內容時，會停用 [移動] 按鈕。 這是預期的行為。 目前不支援在訂用帳戶之間移動資源群組。
--  針對任何您可在下拉式清單中選取訂用帳戶、資源群組或位置的工作流程，您可能會遇到一或多個下列問題：
-
-   - 您可能會在清單頂端看到一個空白資料列。 您應該仍能如預期般選取項目。
-   - 如果下拉式清單中的項目清單很短，您可能無法檢視任何項目名稱。
-   - 如果您有多個使用者訂用帳戶，資源群組的下拉式清單可能是空的。 
-
-   若要解決後兩個問題，您可以輸入訂用帳戶或資源群組的名稱 (如果您知道)，或者可以改用 PowerShell。
-
-- 您會看到 [需要啟用] 警告警示，提示您註冊 Azure Stack 開發套件。 這是預期的行為。
-- 如果從任何 [基礎結構角色] 警示按一下 [元件] 連結，產生的 [概觀] 刀鋒視窗就會嘗試載入並且失敗。 此外，[概觀] 刀鋒視窗不會逾時。
-- 刪除使用者訂用帳戶會產生孤立的資源。 因應措施是，先刪除使用者資源或整個資源群組，然後再刪除使用者訂用帳戶。
-- 您無法使用 Azure Stack 入口網站檢視訂用帳戶的權限。 因應措施是，可以使用 PowerShell 確認權限。
-- [服務健全狀況] 刀鋒視窗無法載入。 當您在管理員或使用者入口網站中開啟 [服務健全狀況] 刀鋒視窗時，Azure Stack 顯示錯誤而未載入資訊。 這是預期行為。 雖然您可以選取並開啟 [服務健全狀況]，不過此功能尚無法供使用，但在未來的 Azure Stack 版本中會實作此功能。
-#### <a name="marketplace"></a>Marketplace
-- 基於相容性考量，將移除此版本中的某些市集項目。 在進一步驗證後，會重新啟用這些項目。
-- 使用者不需訂用帳戶就能瀏覽完整的市集，而且將會看到如方案和供應項目的管理項目。 對使用者而言，這些都是非功能性項目。
- 
-#### <a name="compute"></a>計算
-- 系統會提供選項，供使用者建立具備異地備援儲存體的虛擬機器。 此設定會導致虛擬機器建立失敗。 
-- 您可以設定只含一個容錯網域和一個更新網域的虛擬機器可用性設定組。
-- 沒有任何可用以建立虛擬機器擴展集的市集體驗。 您可以使用範本來建立擴展集。
-- 無法在入口網站中使用虛擬機器擴展集的調整設定。 您可以使用 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) 作為因應措施。 由於 PowerShell 版本差異，您必須使用 `-Name` 參數，而不是 `-VMScaleSetName`。
-
-#### <a name="networking"></a>網路
-- 您無法使用入口網站，利用公用 IP 位址來建立負載平衡器。 作為因應措施，您可以使用 PowerShell 來建立負載平衡器。
-- 當您建立網路負載平衡器時，必須建立網路位址轉譯 (NAT) 規則。 如果沒有，在建立負載平衡器之後嘗試新增 NAT 規則時會收到錯誤。
-- 如果您在 [網路] 下按一下 [連線] 來設定 VPN 連線，就會列出 **VNet 對 VNet** 作為可能的連線類型。 請勿選取此選項。 目前，僅支援**站對站 (IPsec)** 選項。
-- 建立 VM 並與公用 IP 位址建立關聯之後，您就無法取消該 IP 位址與虛擬機器 (VM) 的關聯。 取消關聯看似正常運作，但先前指派的公用 IP 位址仍然會與原始 VM 建立關聯。 即使您將 IP 位址重新指派給新的 VM (通常稱為 *VIP 交換*)，還是會發生這種行為。 之後透過此 IP 位址連線的所有嘗試都會導致連線到原先關聯的 VM，而不是新的 VM。 您目前只有在建立新的 VM 時，才能使用新的公用 IP 位址。
-- Azure Stack 操作員可能無法部署、刪除、修改 VNET 或網路安全性群組。 此問題主要會出現在相同套件的後續更新嘗試。 這是因目前正在進行調查的更新之封裝問題所致。
-- 「內部負載平衡」(ILB) 以不正確的方式處理後端 VM 的 MAC 位址，以致 VM 在使用 Linux 執行個體時，將封包丟棄至後端網路。
- 
-#### <a name="sqlmysql"></a>SQL/MySQL 
-- 這最多可能需要一個小時，然後租用戶才能在新的 SQL 或 MySQL SKU 中建立資料庫。 
-- 不支援在不是由資源提供者執行的 SQL 和 MySQL 主控伺服器中直接建立項目，且可能導致不相符的狀態。
-
-#### <a name="app-service"></a>App Service 方案
-- 在訂用帳戶中建立第一個 Azure 函式之前，使用者必須先註冊儲存體資源提供者。
- 
-#### <a name="usage"></a>使用量  
-- 使用量公用 IP 位址使用計量資料會針對每一筆記錄顯示相同的 *EventDateTime* 值，而不是建立記錄時顯示的 *TimeDate* 時間戳記。 目前，您無法使用這項資料來執行公用 IP 位址使用狀況的正確計量。
-
-#### <a name="identity"></a>身分識別
-
-在已部署 Azure Active Directory Federation Services (ADFS) 的環境中，**azurestack\azurestackadmin** 帳戶不再是預設提供者訂用帳戶的擁有者。 並非使用 **azurestack\azurestackadmin** 登入 **Admin portal / adminmanagement endpoint**，您可以使用 **azurestack\cloudadmin** 帳戶，因此您可以管理及使用「預設提供者訂用帳戶」。
-
-> [!IMPORTANT]
-> 即使 **azurestack\cloudadmin** 帳戶是 ADFS 部署環境中「預設提供者訂用帳戶」的擁有者，但它並沒有 RDP 到主機的權限。 視需要繼續使用 **azurestack\azurestackadmin** 帳戶或本機系統管理員帳戶登入、存取和管理主機。
-
 

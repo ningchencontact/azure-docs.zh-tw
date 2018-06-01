@@ -1,25 +1,28 @@
 ---
-title: "Azure AD Xamarin 入門 | Microsoft Docs"
-description: "建置 Xamarin 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。"
+title: Azure AD Xamarin 入門 | Microsoft Docs
+description: 建置 Xamarin 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。
 services: active-directory
 documentationcenter: xamarin
-author: jmprieur
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77ac6a7cfe089fa934592c412c75a9f33efde5e8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac04cddc00bf76bb366a249a5a2ec4c56d5212c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156682"
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin 入門
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -50,15 +53,14 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頂端列中，按一下您的帳戶。 然後，在 [目錄] 清單下，選取您要註冊應用程式的 Active Directory 租用戶。
-3. 按一下左側窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
+3. 按一下左窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選取 [新增]。
 5. 若要建立新的**原生用戶端應用程式**，請遵照提示進行。
   * [名稱] 向使用者說明該應用程式。
-  * [重新導向 URI] 是配置和字串的組合，Azure AD 可用它來傳回權杖回應。 輸入值，(例如， http://DirectorySearcher )。
+  * [重新導向 URI] 是配置與字串的組合，Azure AD 會用它來傳回權杖回應。 輸入一個值 (例如，http://DirectorySearcher)。
 6. 完成註冊之後，Azure AD 會為應用程式指派唯一的應用程式識別碼。 從 [應用程式] 索引標籤複製值，因為稍後將會需要它。
 7. 在 [設定] 頁面中，選取 [必要的權限]，然後選取 [新增]。
-8. 選取 [Microsoft Graph] 做為 API。 在 [委派的權限] 下，新增 [讀取目錄資料] 權限。  
-這個動作可讓應用程式查詢使用者的圖形 API。
+8. 選取 [Microsoft Graph] 做為 API。 在 [委派的權限] 下，新增 [讀取目錄資料] 權限。 這個動作可讓應用程式查詢使用者的圖形 API。
 
 ## <a name="step-3-install-and-configure-adal"></a>步驟 3：安裝及設定 ADAL
 既然您在 Azure AD 中已經擁有應用程式，您可以安裝 ADAL，並撰寫身分識別相關程式碼。 若要讓 ADAL 與 Azure AD 進行通訊，請提供它一些應用程式註冊相關資訊。
@@ -90,8 +92,8 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 3. 將類別成員值取代為您在 Azure 入口網站中輸入的值。 每當使用 ADAL 時，您的程式碼便會參考這些值。
 
   * *tenant* 是您 Azure AD 租用戶的網域 (例如 contoso.onmicrosoft.com)。
-  * ClientId 是您從入口網站複製的應用程式用戶端識別碼。
-  * ReturnUri 是您在入口網站中輸入的重新導向 URI (例如， http://DirectorySearcher )。
+  * *clientId* 是您從入口網站複製的應用程式用戶端識別碼。
+  * returnUri 是您在入口網站中輸入的重新導向 URI (例如，http://DirectorySearcher)。
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>步驟 4：使用 ADAL 來取得 Azure AD 的權杖
 幾乎所有應用程式的驗證邏輯採用 `DirectorySearcher.SearchByAlias(...)`。 平台特定專案所需的只是將內容參數傳遞至 `DirectorySearcher` PCL。
@@ -103,8 +105,7 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
     {
     ```
 
-2. 初始化 `AuthenticationContext`，這是 ADAL 的主要類別。  
-這個動作會傳遞它與 Azure AD 通訊所需的 ADAL 座標。
+2. 初始化 `AuthenticationContext`，這是 ADAL 的主要類別。 這個動作會傳遞它與 Azure AD 通訊所需的 ADAL 座標。
 3. 呼叫 `AcquireTokenAsync(...)`，它可接受 `IPlatformParameters` 物件，並叫用將權杖傳回應用程式所需的驗證流程。
 
     ```csharp

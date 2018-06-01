@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f0604007255d829cab0502e93895ca541da3b93a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33931259"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260504"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>針對存取和使用 My Apps 入口網站的問題進行疑難排解
 
@@ -58,10 +58,11 @@ My Apps 入口網站需要支援 JavaScript 且已啟用 CSS 的瀏覽器。 如
 - **Firefox 26.0 或更新版本**：在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上。
 - **Internet Explorer 11**：在 Windows 7 或更新版本上 (部分支援)。
 
-您也可以直接從下列網站下載適用於 Chrome 和 Edge 的擴充功能：
+您也可以直接從下列網站下載擴充功能：
 
-- [Chrome 擴充功能](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Edge 擴充功能](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 如果您已安裝擴充功能，但仍遇到問題，請嘗試下列各項：
 

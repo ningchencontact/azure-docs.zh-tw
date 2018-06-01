@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: eb824913a4b3482879ccc45e2f660342695b1618
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258941"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -34,6 +35,64 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 所需的權限 | 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](./active-directory-aadconnect-accounts-permissions.md#upgrade)。
 
 下載 | [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)。
+
+## <a name="118190"></a>1.1.819.0
+
+### <a name="release-status"></a>發行狀態
+
+5/14/2018：已發行，可供自動升級和下載。
+
+### <a name="new-features-and-improvements"></a>新功能和改進
+
+新功能和改進
+
+- 此版本包含 Azure AD Connect 中 PingFederate 整合的公開預覽。 客戶可以使用此版本，輕易且可靠地設定其 Azure Active Directory 環境，以將 PingFederate 當作同盟提供者。 若要深入了解如何使用這項新功能，請造訪我們的[線上文件](active-directory-aadconnect-user-signin.md#federation-with-pingfederate)。 
+- 我們已更新 Azure AD Connect 精靈疑難排解公用程式，我們現在可在其中分析更多錯誤案例的連結信箱和 AD 動態群組等。 [在此](active-directory-aadconnect-troubleshoot-objectsync.md)深入了解如何針對公用程式進行疑難排解。
+- 現在只會在 Azure AD Connect 精靈中管理裝置回寫組態。
+- 已新增稱為 ADSyncTools.psm1 的新 PowerShell 模組，其可針對 SQL 連線問題和各種其他疑難排解公用程式進行疑難排解。 [在此](active-directory-aadconnect-tshoot-sql-connectivity.md)深入了解 ADSyncTools 模組。 
+- 已新增其他新工作「設定裝置選項」。 您可以使用此工作來設定下列兩項作業： 
+    -   **加入混合式 Azure AD**：如果您的環境具有內部部署 AD 使用量，而且您也想要從 Azure Active Directory 所提供的功能受益，您可以實作已加入混合式 Azure AD 的裝置。 這些裝置既可以加入您的內部部署 Active Directory，也可以加入 Azure Active Directory。
+    -   **裝置回寫**：裝置回寫用於對 AD FS (2012 R2 或更高版本) 保護的裝置啟用裝置型條件式存取
+
+   >[!NOTE] 
+   > - 從自訂同步處理選項啟用裝置回寫的選項會呈現灰色。 
+   > -  在此版本中，適用於 ADPrep 的 PowerShell 模組已被取代。
+
+
+
+### <a name="fixed-issues"></a>已修正的問題 
+
+- 這個版本會將 SQL Server Express 安裝更新為 SQL Server 2012 SP4，這個版本相較於其他版本，會提供數個安全性弱點的修正。  如需 SQL Server 2012 SP4 的詳細資訊，請參閱[這裡](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information)。
+- 同步處理規則處理：如果父系同步規則不再適用，則應取消套用沒有聯結條件的輸出加入同步處理規則
+- 數個協助工具修正已套用至 Synchronization Service Manager UI 和 Sync Rules Editor
+- Azure AD Connect 精靈：如果 Azure AD Connect 位於工作群組中，則建立 AD 連接器帳戶時會發生錯誤
+- Azure AD Connect 精靈：每當 AD 網域與 Azure AD 已驗證網域有任何不符情形，就會在 Azure AD 登入頁面上顯示驗證核取方塊
+- 自動升級 PowerShell 修正程式，以在嘗試自動升級之後，在某些情況下正確設定自動升級狀態。
+- Azure AD Connect 精靈：已將遙測更新為擷取先前遺漏的資訊
+- Azure AD Connect 精靈：當您使用**變更使用者登入**工作以從 AD FS 切換至傳遞驗證時，已進行下列變更：
+    - 在我們將網域從同盟轉換為受控之前，傳遞驗證代理程式是安裝在 Azure AD Connect 伺服器上，且已啟用傳遞驗證功能。
+    - 使用者無法再從同盟轉換為受控。 只會轉換網域。
+- Azure AD Connect 精靈：當使用者 UPN 有 ' 特殊字元 Regex 更新可支援特殊字元時，AD FS 多網域 Regex 不正確
+- Azure AD Connect 精靈：若沒有變更，則會移除偽造的「設定來源錨點屬性」訊息 
+- Azure AD Connect 精靈：AD FS 支援雙重同盟案例
+- Azure AD Connect 精靈：將受控網域轉換為同盟網域時，不會針對新增的網域更新 AD FS 宣告
+- Azure AD Connect 精靈：在偵測已安裝的套件期間，我們找到過時的 Dirsync/Azure AD Sync/Azure AD Connect 相關產品。 我們現在將嘗試解除安裝過時的產品。
+- Azure AD Connect 精靈：當傳遞驗證代理程式安裝失敗，更正錯誤訊息對應
+- Azure AD Connect 精靈：已從 [網域 OU 篩選] 頁面中移除「組態」容器
+- 同步處理引擎安裝：從同步處理引擎安裝 msi 移除偶爾會失敗的不必要舊版邏輯
+- Azure AD Connect 精靈：修正密碼雜湊同步處理的 [選擇性功能] 頁面上的快顯說明文字
+- 同步處理引擎執行階段：修正 CS 物件具有已匯入刪除和同步處理規則嘗試的案例，以重新佈建此物件。
+- 同步處理引擎執行階段：將線上連線疑難排解指南的說明連結，新增至匯入錯誤的事件記錄
+- 同步處理引擎執行階段：已減少同步處理排程器在列舉連接器時的記憶體使用量
+- Azure AD Connect 精靈：修正問題，以解決沒有 AD 讀取權限的自訂同步處理服務帳戶
+- Azure AD Connect 精靈：已改善網域和 OU 篩選選取項目的記錄功能
+- Azure AD Connect 精靈：AD FS 會將預設宣告新增至為 MFA 案例建立的同盟信任
+- Azure AD Connect 精靈：AD FS 部署 WAP：新增伺服器無法使用新的憑證
+- Azure AD Connect 精靈：未針對網域初始化 onPremCredentials 時的 DSSO 例外狀況 
+- 優先從作用中使用者物件傳送 AD distinguishedName 屬性。
+- 已修正第一個 OOB 同步處理規則的優先順序設定為 99 (而非 100) 時的外觀錯誤
+
+
 
 ## <a name="117510"></a>1.1.751.0
 4/12/2018 狀態：已發行，僅可供下載
@@ -317,7 +376,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 ### <a name="seamless-single-sign-on"></a>無縫單一登入
 #### <a name="fixed-issues"></a>已修正的問題
-* 已修正嘗試啟用[無縫單一登入](active-directory-aadconnect-sso.md)會導致 Azure AD Connect 精靈傳回錯誤的問題。 錯誤訊息是*「Microsoft Azure AD Connect 驗證代理程式的設定失敗。」* 此問題會影響到已按照此篇[文章](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)所述的步驟手動升級[傳遞驗證](active-directory-aadconnect-sso.md)的預覽版驗證代理程式的客戶。
+* 已修正嘗試啟用[無縫單一登入](active-directory-aadconnect-sso.md)會導致 Azure AD Connect 精靈傳回錯誤的問題。 錯誤訊息是 *「Microsoft Azure AD Connect 驗證代理程式的設定失敗。」* 此問題會影響到已按照此篇[文章](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)所述的步驟手動升級[傳遞驗證](active-directory-aadconnect-sso.md)的預覽版驗證代理程式的客戶。
 
 
 ## <a name="115610"></a>1.1.561.0

@@ -6,20 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 49071044-6767-4041-9EDD-6132295FA551
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a158da6fb397b864a439e067ca99d79814e2b8d2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a3dfce6ce1b136e39047cfd47b336b2fb2a35af9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258676"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中輪替使用祕密
 
@@ -48,6 +48,24 @@ Azure Stack 會使用各種祕密來維護 Azure Stack 基礎結構資源和服�
 > 其他所有安全金鑰和字串，包括 BMC 和交換器密碼，以及使用者和系統管理員帳戶密碼仍然由系統管理員手動更新。 
 
 為維持 Azure Stack 基礎結構的完整性，操作員必須可定期輪替其基礎結構的秘密，而輪替頻率需與其組織的安全性需求一致。
+
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>使用新憑證授權單位的外部憑證來輪替祕密
+
+Azure Stack 支援在下列環境中使用新憑證授權單位 (CA) 的外部憑證來輪替祕密：
+
+|已安裝的憑證 CA|要將 CA 輪替為|支援|支援的 Azure Stack 版本|
+|-----|-----|-----|-----|-----|
+|從自我簽署|到企業|不支援||
+|從自我簽署|到自我簽署|不支援||
+|從自我簽署|到公用<sup>*</sup>|支援|1803 或更新版本|
+|從企業|到企業|支援，前提是客戶使用的企業 CA 與部署時所用的一樣|1803 或更新版本|
+|從企業|到自我簽署|不支援||
+|從企業|到公用<sup>*</sup>|支援|1803 或更新版本|
+|從公用<sup>*</sup>|到企業|不支援|1803 或更新版本|
+|從公用<sup>*</sup>|到自我簽署|不支援||
+|從公用<sup>*</sup>|到公用<sup>*</sup>|支援|1803 或更新版本|
+
+<sup>*</sup> 此處的公用憑證授權單位都包含在 Windows 受信任的根憑證計劃之中。 您可以在 [Microsoft 受信任的根憑證計劃：參與者 (自 2017 年 6 月 27 日起)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca) 中找到完整清單。
 
 ## <a name="alert-remediation"></a>警示補救
 

@@ -15,17 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 29dcfaad840b5498dd859082ce11655a4f1fe8af
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e469311609909e3453015702fca7d015a4e72398
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34273961"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>使用 Azure CLI 來進行跨所有可用性區域的 VM 負載平衡
 
-本文會逐步說明如何在不倚賴多個 DNS 記錄的情況下，建立具有區域備援前端的公用 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) 來達到區域備援的目的。 單一前端 IP 位址會自動具備區域備援。  針對您的負載平衡器使用區域備援前端時，只需單一 IP 位址，您現在即可連線至跨所有「可用性區域」之某個區域內某個區域網路中的任何 VM。 萬一整個資料中心失敗或遺失，使用可用性區域可保護您的應用程式和資料免於受害。
+本文會逐步說明如何在不倚賴多個 DNS 記錄的情況下，建立具有區域備援前端的公用 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) 來達到區域備援的目的。 單一前端 IP 位址會自動具備區域備援。  現在，藉由將區域備援前端用於您的負載平衡器，您只需要單一 IP 位址，即可跨所有可用性區域連線至某區域內的區域網路中的任何 VM。 萬一整個資料中心失敗或遺失，使用可用性區域可保護您的應用程式和資料免於受害。
 
-如需有關搭配標準 Load Balancer 使用可用性區域的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
+如需關於搭配使用可用性區域和標準 Load Balancer 的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -218,17 +219,19 @@ runcmd:
 ### <a name="create-the-zonal-virtual-machines"></a>建立區域虛擬機器
 使用 [az vm create](/cli/azure/vm#az_vm_create) 在區域 1、區域 2 及區域 3 建立 VM。 下列範例會在每個區域建立 VM 並產生 SSH 金鑰 (如果尚未存在的話)︰
 
-在區域 1 建立 VM
+在 westeurope 位置的每個區域 (區域 1、區域 2 和區域 3) 中建立 VM。
 
 ```azurecli-interactive
- az vm create \
---resource-group myResourceGroupSLB \
---name myVM$i \
---nics myNic$i \
---image UbuntuLTS \
---generate-ssh-keys \
---zone $i \
---custom-data cloud-init.txt
+for i in `seq 1 3`; do
+  az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --zone $i \
+    --custom-data cloud-init.txt
+done
 ```
 ## <a name="test-the-load-balancer"></a>測試負載平衡器
 

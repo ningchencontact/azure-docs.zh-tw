@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: 9fd046efd01281de6d5b46cca37d22a48671b1b2
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: b964f5c127d627ede6d3ff671ac695e1b33e4558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072584"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203387"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜尋中的服務限制
 儲存體與工作負載的最大限制，以及索引、文件和其他物件的數量上限，皆取決於您是在**免費**、**基本**，還是**標準**定價層中[佈建 Azure 搜尋服務](search-create-service-portal.md)。
@@ -45,10 +45,13 @@ ms.locfileid: "34072584"
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | 索引上限 |3 |5 或 15 |50 |200 |200 |每個分割區 1000 個或每個服務 3000 個 |
 | 每個索引的欄位上限 |1000 |100 |1000 |1000 |1000 |1000 |
-| 每個索引的評分設定檔上限 |100 |100 |100 |100 |100 |100 |
+| 每個索引的[建議工具](https://docs.microsoft.com/rest/api/searchservice/suggesters)上限 |1 |1 |1 |1 |1 |1 |
+| 每個索引的[評分設定檔](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)上限 |100 |100 |100 |100 |100 |100 |
 | 每個設定檔的函式上限 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> 在 2017 年底之後建立的基本服務已將限制提高為 15 個索引、資料來源和索引子。 稍早建立的服務有 5 個。 基本層是唯一具有較低限制 (每個索引 100 個欄位) 的 SKU。
+
+<a name="document-limits"></a>
 
 ## <a name="document-limits"></a>文件限制 
 
@@ -94,7 +97,7 @@ ms.locfileid: "34072584"
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | 索引子上限 |3 |5 或 15|50 |200 |200 |N/A |
 | 資料來源上限 |3 |5 或 15 |50 |200 |200 |N/A |
-| 技能集上限 |3 |5 或 15 |50 |200 |200 |N/A |
+| 技能集上限為 <sup>4</sup> |3 |5 或 15 |50 |200 |200 |N/A |
 | 每次叫用的索引編製負載上限 |10,000 份文件 |僅限制文件上限 |僅限制文件上限 |僅限制文件上限 |僅限制文件上限 |N/A |
 | 執行時間上限 | 1-3 分鐘 |24 小時 |24 小時 |24 小時 |24 小時 |N/A  |
 | Blob 索引子︰Blob 大小上限，MB |16 |16 |128 |256 |256 |N/A  |
@@ -105,6 +108,8 @@ ms.locfileid: "34072584"
 <sup>2</sup> 在 2017 年底之後建立的基本服務已將限制提高為 15 個索引、資料來源和索引子。 稍早建立的服務有 5 個。
 
 <sup>3</sup> S3 HD 服務不包含索引子支援。
+
+<sup>4</sup> 每個技能集上限為 30 個技術。
 
 ## <a name="queries-per-second-qps"></a>每秒查詢數目 (QPS)
 

@@ -1,9 +1,9 @@
 ---
-title: "在 Azure Active Directory 中啟用企業狀態漫遊 | Microsoft Docs"
-description: "Windows 裝置中企業狀態漫遊設定的常見問題集。 企業狀態漫遊提供使用者跨 Windows 裝置的一致體驗，並且減少設定新的裝置所需的時間。"
+title: 在 Azure Active Directory 中啟用企業狀態漫遊 | Microsoft Docs
+description: Windows 裝置中企業狀態漫遊設定的常見問題集。 企業狀態漫遊提供使用者跨 Windows 裝置的一致體驗，並且減少設定新的裝置所需的時間。
 services: active-directory
-keywords: "企業狀態漫遊, windows 雲端, 如何啟用企業狀態漫遊"
-documentationcenter: 
+keywords: 企業狀態漫遊, windows 雲端, 如何啟用企業狀態漫遊
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -13,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 05/14/2018
 ms.author: markvi
-ms.openlocfilehash: 3a8714ddbda10d8e1b4a8de35711101f4c8a0106
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dba749b6d85898e6438ce1160b9bf6eaff6f4ac9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257966"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>在 Azure Active Directory 中啟用企業狀態漫遊
 任何具有 Azure AD Premium 或 Enterprise Mobility + Security (EMS) 授權的組織都可以使用企業狀態漫遊。 如需有關如何取得 Azure AD 訂用帳戶的詳細資訊，請參閱 [Azure AD 產品頁面](https://azure.microsoft.com/services/active-directory)。
 
-當您啟用企業狀態漫遊時，您的組織會自動獲得 Azure Rights Management 的免費但有使用限制的授權。 此免費訂用帳戶只能加密和解密由企業狀態漫遊所同步的企業設定和應用程式資料。 您必須擁有[付費訂用帳戶](https://azure.microsoft.com/pricing/details/active-directory/)，才能使用 Azure Rights Management 的完整功能。
+當您啟用企業狀態漫遊時，您的組織會自動從 Azure 資訊保護獲得 Azure Rights Management 保護的免費但有使用限制的授權。 此免費訂用帳戶只能加密和解密由企業狀態漫遊所同步的企業設定和應用程式資料。 您必須擁有[付費訂用帳戶](https://azure.microsoft.com/pricing/details/information-protection/)，才能使用 Azure Rights Management 服務的完整功能。
 
 ## <a name="to-enable-enterprise-state-roaming"></a>啟用企業狀態漫遊
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 12/11/2017
 若要讓 Windows 10 裝置使用企業狀態漫遊服務，裝置必須使用 Azure AD 身分識別進行驗證。 對於已加入 Azure AD 的裝置，使用者的主要登入身分識別就是其 Azure AD 身分識別，不需要額外設定。 對於使用內部部署 Active Directory 的裝置，IT 管理員必須[將已加入網域的裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)。
 
 ## <a name="data-storage"></a>資料儲存體
-企業狀態漫遊資料裝載於一或多個 [Azure 區域](https://azure.microsoft.com/regions/)，這些區域最符合 Azure Active Directory 執行個體中設定的國家/區域值。 企業狀態漫遊的資料是根據三個主要地理區域來分割︰北美洲、EMEA 和 APAC。 適用於租用戶的企業狀態漫遊資料是位於本機的地理區域中，並不會跨區域複寫。  例如：
+企業狀態漫遊資料裝載於一或多個 [Azure 區域](https://azure.microsoft.com/regions/)，這些區域最符合 Azure Active Directory 執行個體中設定的國家/區域值。 企業狀態漫遊的資料是根據三個主要地理區域來分割︰北美洲、EMEA 和 APAC。 適用於租用戶的企業狀態漫遊資料是位於本機的地理區域中，並不會跨區域複寫。  例如︰
 國家/區域值 | 將其資料裝載於
 ---------------------|-------------------------
 EMEA 國家/地區，例如，法國或尚比亞 | 歐洲內的一個或多個 Azure 區域 

@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: cd5e53b49a850acf851e8351b5e14e2993176435
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0946d5234292cfb69a7e9b5bc7846e6acf94dff4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072618"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>從 Azure 在內部部署網站中重新保護機器
 
@@ -39,6 +40,8 @@ ms.lasthandoff: 03/08/2018
 - 請確定您開啟下列連接埠以進行容錯移轉和容錯回復。
 
     ![容錯移轉和容錯回復的端點](./media/vmware-azure-reprotect/failover-failback.png)
+
+- 您可以在[這裡](vmware-azure-deploy-configuration-server.md#prerequisites)閱讀關於連接埠和 URL 白名單的所有必要條件
 
 ## <a name="deploy-a-process-server-in-azure"></a>在 Azure 中部署處理序伺服器
 
@@ -77,9 +80,9 @@ ms.lasthandoff: 03/08/2018
     - Windows 的預設保留磁碟區為 R 磁碟區。
     - Linux 的預設保留磁碟區為 /mnt/retention。
 - 如果您使用現有的處理序伺服器/組態伺服器電腦，或使用級別或處理序伺服器/主要目標伺服器電腦，需要新增磁碟機。 新的磁碟機應該符合前述需求。 如果保留磁碟機不存在，則不會出現在入口網站上的選取項目下拉式清單中。 將磁碟機新增至內部部署主要目標之後，磁碟機最多需要 15 分鐘才會出現在入口網站上的選取項目中。 如果磁碟機未在 15 分鐘之後出現，您也可以重新整理設定伺服器。
-- 在主要目標伺服器上安裝 VMware 工具。 若沒有 VMware 工具，將無法偵測主要目標之 ESXi 主機上的資料存放區。
+- 在主要目標伺服器上安裝 VMware 工具或 open-vm-tools。 如果沒有工具，就無法偵測主要目標 ESXi 主機上的資料存放區。
 - 在 VMware 的主要目標虛擬機器組態參數中，進行 `disk.EnableUUID=true` 設定。 如果此列不存在，請新增它。 需要此設定才能提供一致的 UUID 給虛擬機器磁碟 (VMDK)，使其可正確掛接。
-- 主要目標應該至少連結一個 VMFS 資料存放區。 如果沒有的話，重新保護頁面上的**資料存放區**輸入會空白，您將無法繼續。
+- 對於其中有建立主要目標的 ESX 主機，應使其與至少一個 VMFS 資料存放區連結。 如果沒有的話，重新保護頁面上的**資料存放區**輸入會空白，您將無法繼續。
 - 主要目標伺服器在磁碟上不能有快照集。 如果有快照集，重新保護和容錯回復會失敗。
 - 主要目標不能有 Paravirtual SCSI 控制器。 控制器只能是 LSI Logic 控制器。 如果沒有 LSI Logic 控制器，重新保護會失敗。
 - 在任何給定的執行個體上，主要目標最多可以連結 60 個磁碟。 如果要重新保護到內部部署主要目標的虛擬機器數目所擁有的磁碟總數合計超過 60 個，則重新保護到主要目標的作業會開始失敗。 請確定您有足夠的主要目標磁碟位置，或再額外部署主要目標伺服器。
@@ -92,7 +95,7 @@ ms.lasthandoff: 03/08/2018
 
 1. 在 [保存庫] > [已複寫的項目] 中，以滑鼠右鍵按一下已容錯移轉的虛擬機器，然後選取 [重新保護]。 您也可以按一下機器，並從命令按鈕中選取**重新保護**。
 2. 確認已選取保護方向 [Azure 至內部部署]。
-3. 在 [主要目標伺服器] 和 [處理伺服器] 中，選取內部部署主要目標伺服器和處理伺服器。
+3. 在 [主要目標伺服器] 和 [處理伺服器] 中，選取內部部署主要目標伺服器和處理伺服器。  
 4. 對於 [資料存放區]，選取您想要將內部部署磁碟復原至該位置的資料存放區。 當內部部署虛擬機器已被刪除且您需要建立新的磁碟時，請使用此選項。 如果磁碟已存在，則會忽略此選項，但您仍然需要指定一個值。
 5. 選擇保留磁碟機。
 6. 系統會自動選取容錯回復原則。

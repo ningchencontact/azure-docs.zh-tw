@@ -7,14 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 05/09/2018
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8d91714e6864ff0a9816f5ec518878334f6ba84
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011759"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>建立、更新 Azure SQL 資料倉儲中資料表的查詢最佳化統計資料
 建立和更新 Azure SQL 資料倉儲中資料表的查詢最佳化統計資料。
@@ -22,24 +23,46 @@ ms.lasthandoff: 04/19/2018
 ## <a name="why-use-statistics"></a>為何要使用統計資料？
 Azure SQL 資料倉儲越了解您的資料，執行查詢的速度就越快。 從資料中收集統計資料，然後將其載入 SQL 資料倉儲是將查詢最佳化最重要的工作之一。 這是因為 SQL 資料倉儲查詢最佳化工具是一種以成本為考量的最佳化工具。 它會比較各種查詢計畫的成本，然後選擇成本最低的計畫，也就是執行速度最快的計畫。 例如，如果最佳化工具估計您在查詢中篩選的日期會傳回一個資料列，一旦它估計選取的日期會傳回一百萬個資料列，它可能會選擇不同的計畫。
 
-建立和更新統計資料的程序目前是手動程序，但做起來很簡單。  很快地，您將能夠自動建立及更新單一資料行和索引上的統計資料。  使用下列資訊可讓您在管理資料的統計資料時，發揮更高的自動化程度。 
+## <a name="automatic-creation-of-statistics"></a>自動建立統計資料
+當自動建立統計資料選項開啟時，AUTO_CREATE_STATISTICS，SQL 資料倉儲會分析連入的使用者查詢，其中會為缺少統計資料的資料行建立單一資料行的統計資料。 查詢最佳化工具會在查詢述詞或聯結條件中的個別資料行上建立統計資料，以改善查詢計劃的基數估計值。 自動建立統計資料目前依預設開啟。
 
-## <a name="scenarios"></a>案例
-建立每個資料行的範本統計資料是一個簡單的入門方法。 過期的統計資料會導致查詢效能欠佳。 不過，隨著資料不斷成長，更新所有資料行的統計資料可能會消耗記憶體。 
+可以執行下列命令，檢查您的資料倉儲是否已將之設定完畢：
 
-以下是針對不同案例的建議：
-| **案例** | 建議 |
-|:--- |:--- |
-| **開始使用** | 移轉至 SQL 資料倉儲後更新所有資料行 |
-| **最重要的統計資料資料行** | 雜湊散發索引鍵 |
-| **次要的統計資料資料行** | 資料分割索引鍵 |
-| **其他重要的統計資料資料行** | Date、常見 JOIN、GROUP BY、HAVING 和 WHERE |
-| **統計資料更新的頻率**  | 保守：每日 <br></br> 載入或轉換資料之後 |
-| **取樣** |  小於 10 億個資料列，使用預設取樣 (20%) <br></br> 超過 10 億個資料列，2% 範圍的統計資料是理想狀況 |
+```sql
+SELECT name, is_auto_create_stats_on 
+FROM sys.databases
+```
+如果您的資料倉儲尚未設定 AUTO_CREATE_STATISTICS，建議執行以下命令來啟用此屬性：
+
+```sql
+ALTER DATABASE <yourdatawarehousename> 
+SET AUTO_CREATE_STATISTICS ON
+```
+若含有聯結或偵測到有述詞存在，下列陳述式將觸發統計資料的自動建立動作：SELECT、INSERT-SELECT、CTAS、UPDATE、DELETE、EXPLAIN。 
+
+> [!NOTE]
+> 不會在暫存或外部資料表上建立自動建立統計資料。
+> 
+
+系統會同步產生自動建立統計資料，因此如果您的資料行尚未為這些陳述式建立統計資料，效能可能會略為降低。 在單一資料行上建立統計資料需要數秒的時間，視資料表大小而定。 若要避免測量效能降低 (尤其在進行效能基準測試時)，請在分析系統前先執行基準測試的工作負載，以確定會先建立統計資料。
+
+> [!NOTE]
+> 統計資料的建立也會記錄在不同使用者內容之下的 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) 中。
+> 
+
+當自動統計資料建立完成時，會採用以下格式：_WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>。 可以執行以下命令來檢視已建立的統計資料：
+
+```sql
+DBCC SHOW_STATISTICS (<tablename>, <targetname>)
+```
 
 ## <a name="updating-statistics"></a>更新統計資料
 
 其中一個最佳做法，是隨著新增新的日期，每天在日期資料行上更新統計資料。 每次有新資料列載入資料倉儲時，就會加入新的載入日期或交易日期。 這些會改變資料散發情況並使統計資料過時。 相反地，客戶資料表中國家/地區資料行上的統計資料，可能永遠不需要更新，因為值散發通常不會變更。 假設客戶間的散發固定不變，將新資料列加入至資料表變化並不會改變資料散發情況。 不過，如果您的資料倉儲原本只包含單一國家/地區，而您又帶入來自新國家/地區的資料，並導致資料倉儲儲存了來自多個國家/地區的資料，您便必須更新國家/地區資料行上的統計資料。
+
+以下為更新統計資料的相關建議：
+
+| **統計資料更新頻率**  | 保守：每日 <br></br> 載入或轉換資料後 | | **取樣** |  小於 10 億個資料列，使用預設取樣 (20%) <br></br> 超過 10 億個資料列，2% 範圍的統計資料是理想狀況 |
 
 為查詢疑難排解時，首先要詢問的問題之一就是「統計資料是最新的嗎？」
 

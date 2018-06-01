@@ -7,14 +7,15 @@ ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0716466eab69ef2a2439a533cd51e92307bd056
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: b110f83274b2b42896bd18fb364c355ecc97a028
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258255"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
@@ -97,6 +98,7 @@ ms.lasthandoff: 05/11/2018
 * Windows 檔案追蹤的資料夾 (目錄)
 * Windows 檔案追蹤的遞迴
 * Windows 檔案追蹤的萬用字元
+* Windows 登錄追蹤的遞迴
 * 路徑變數
 * 網路檔案系統
 * 檔案內容
