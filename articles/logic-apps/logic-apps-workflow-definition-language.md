@@ -3,7 +3,7 @@ title: 工作流程定義語言結構描述 - Azure Logic Apps | Microsoft Docs
 description: 使用工作流程定義語言撰寫 Azure Logic Apps 的自訂工作流程定義
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: SyntaxC4
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 14b273841d1fc15df635eb3b41b02ad77cbef90d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886798"
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33775276"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>使用工作流程定義語言撰寫 Logic Apps 工作流程定義
 
@@ -220,8 +220,7 @@ ms.locfileid: "33886798"
 
 ## <a name="functions"></a>Functions
 
-某些運算式會從邏輯應用程式開始執行時還不存在的執行階段動作中取得其值。 若要在運算式中參考或使用這些值，您可以使用[「函式」](../logic-apps/workflow-definition-language-functions-reference.md)。 例如，您可以使用數學函式進行計算，例如 [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) 函式，以傳回整數或浮點數總和。 如需有關每個函式的詳細資訊，請參閱[依字母順序排列的參考文章](../logic-apps/workflow-definition-language-functions-reference.md)。
-或者，繼續了解函式及其一般用途。
+某些運算式會從邏輯應用程式開始執行時還不存在的執行階段動作中取得其值。 若要在運算式中參考或使用這些值，您可以使用「函式」。 例如，您可以使用數學函式進行計算，例如 [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) 函式，以傳回整數或浮點數總和。 
 
 以下是您可以使用函式執行的幾個範例工作： 
 
