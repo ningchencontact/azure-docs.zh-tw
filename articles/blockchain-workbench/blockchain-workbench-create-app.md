@@ -5,22 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/9/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ffc8be29cecac05fda440eaf72b51ffc6f024424
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e4e2866e18c508c0df7a9a9e85a22c98e4372661
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302148"
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>在 Azure Blockchain Workbench 中建立區塊鏈應用程式
 
 您可以使用 Azure Blockchain Workbench 建立區塊鏈應用程式，來表示組態和智慧合約程式碼所定義的多方工作流程。
 
-您將學習如何：
+您會了解如何：
 
 > [!div class="checklist"]
 > * 設定區塊鏈應用程式
@@ -34,7 +35,11 @@ ms.lasthandoff: 05/07/2018
 * 租用戶中與 Blockchain Workbench 相關聯的 Azure Active Directory 使用者。 如需詳細資訊，請參閱[在 Azure Blockchain Workbench 中新增 Azure AD 使用者](blockchain-workbench-manage-users.md#add-azure-ad-users)。
 * Blockchain Workbench 系統管理員帳戶。 如需詳細資訊，請參閱 [Azure Blockchain Workbench 中的 Blockchain Workbench 系統管理員](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators)。
 
+## <a name="hello-blockchain"></a>你好，區塊鏈！
+
 讓我們建置一個基本應用程式，讓要求者傳送要求，並讓回應者傳送要求的回應。 例如，要求可以是 "Hello, how are you?"，回應可以是 "I'm great!"。 要求和回應都會記錄在基礎區塊鏈上。 
+
+請依照步驟來建立應用程式檔案，或者也可以[從 GitHub 下載範例](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain)。 
 
 ## <a name="configuration-file"></a>組態檔
 
@@ -398,4 +403,7 @@ contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') 
 
 ## <a name="next-steps"></a>後續步驟
 
-您現已建立應用程式，接下來請嘗試[使用區塊鏈應用程式](blockchain-workbench-use.md)。
+在這篇操作說明文章中，您已建立基本的要求和回應應用程式。 若要了解如何使用應用程式，請繼續閱讀下一篇操作說明文章。
+
+> [!div class="nextstepaction"]
+> [使用區塊鏈應用程式](blockchain-workbench-use.md)
