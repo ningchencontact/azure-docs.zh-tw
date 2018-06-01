@@ -1,3 +1,20 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 5eca35141544e8ea451dfc7471a83e3e1e980360
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34307612"
+---
 ## <a name="view-device-telemetry"></a>檢視裝置遙測資料
 
 您可以在解決方案中，檢視從您 [裝置] 頁面上之裝置所傳送的遙測。
@@ -24,7 +41,7 @@
 
     ![選取您的實體裝置](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. 若要顯示您可以在裝置上呼叫的方法清單，選擇 [排程]。 若要排程可在多個裝置上執行的方法，您可以在清單中選取多個裝置。 [排程] 面板會顯示所有您選取之裝置的通用方法。
+1. 若要顯示您可以在裝置上呼叫的方法清單，請依序選擇 [作業] 和 [執行方法]。 若要排程可在多個裝置上執行的作業，您可以在清單中選取多個裝置。 [作業] 面板會顯示所有您選取之裝置的通用方法。
 
 1. 選擇 [FirmwareUpdate]，將作業名稱設定為 [UpdatePhysicalChiller]。 將 [韌體版本] 設定為 [2.0.0]，將 [韌體 URI] 設定為 **http://contoso.com/updates/firmware.bin**，然後選擇 [套用]：
 
@@ -41,4 +58,4 @@
 
 ## <a name="next-steps"></a>後續步驟
 
-[自訂遠端監視預先設定解決方案](../articles/iot-suite/iot-suite-remote-monitoring-customize.md)文章中說明一些自訂預先設定解決方案的方法。
+[自訂遠端監視解決方案加速器](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md)文章中說明一些自訂解決方案加速器的方法。
