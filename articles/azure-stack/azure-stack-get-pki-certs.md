@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 17737c2b272f2a123df3d58c62c471b3da5bebe1
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 69a4529e009d9fdd7081bc4d4b53c468befd8e6d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936132"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304353"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 憑證簽署要求產生
 
@@ -69,10 +69,10 @@ Azure Stack 整備檢查工具 (AzsReadinessChecker) 會執行下列憑證要求
     > [!note]  
     > 如果提供一般名稱 (CN)，這將會由憑證要求的第一個 DNS 名稱所覆寫。
 
-3.  宣告輸出目錄已經存在：
+3.  宣告輸出目錄已經存在。 例如︰
 
     ````PowerShell  
-    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ````
 4.  宣告識別系統
 
@@ -96,7 +96,7 @@ Azure Stack 整備檢查工具 (AzsReadinessChecker) 會執行下列憑證要求
     ````
 
     > [!note]  
-    > `<regionName>.<externalFQDN>` 構成 Azure Stack 中所有外部 DNS 名稱據以建立的基礎，在此範例中，入口網站會是 `portal.east.azurestack.contoso.com`。
+    > `<regionName>.<externalFQDN>` 構成 Azure Stack 中所有外部 DNS 名稱據以建立的基礎，在此範例中，入口網站會是 `portal.east.azurestack.contoso.com`。  
 
 6. 若要使用多個主體別名來產生單一憑證要求：
 
