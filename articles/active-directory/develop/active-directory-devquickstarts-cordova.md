@@ -3,23 +3,25 @@ title: 開始使用 Azure AD Cordova | Microsoft Docs
 description: 如何建置 Cordova 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。
 services: active-directory
 documentationcenter: ''
-author: vibronet
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: vittorib
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6d6d514875aa675bf160ee08a3e94b58944020ee
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156726"
 ---
 # <a name="azure-ad-cordova-getting-started"></a>開始使用 Azure AD Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -33,7 +35,7 @@ iOS、Android、Windows 市集和 Windows Phone 上的 Cordova 外掛程式包�
 在本教學課程中，我們將使用 Active Directory 驗證程式庫 (ADAL) 的 Apache Cordova 外掛程式，加入下列功能來改善一個簡單的應用程式：
 
 * 只要短短幾行程式碼，就可驗證使用者並取得權杖。
-* 使用該權杖叫用 Graph API 來查詢目錄，並顯示結果。  
+* 使用該權杖叫用 Graph API 來查詢目錄，並顯示結果。 
 * 運用 ADAL 權杖快取，將使用者的驗證提示減到最少。
 
 若要實現這些強化功能，您需要︰
@@ -47,7 +49,7 @@ iOS、Android、Windows 市集和 Windows Phone 上的 Cordova 外掛程式包�
 若要完成本教學課程，您需要：
 
 * Azure AD 租用戶，您在其中有一個帳戶具備應用程式開發權限。
-* 為了使用 Apache Cordova 而設定的開發環境。  
+* 為了使用 Apache Cordova 而設定的開發環境。 
 
 如果兩者都已齊備，直接跳到步驟 1。
 
@@ -88,18 +90,18 @@ Azure AD 只會發出權杖給已知的應用程式。 您必須先在租用戶�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頂端列中，按一下您的帳戶。 在 [目錄] 清單中，選擇您要註冊應用程式的 Azure AD 租用戶。
-3. 按一下左側窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
+3. 按一下左窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選取 [新增]。
 5. 遵照提示進行，並建立新的**原生用戶端應用程式**。 (雖然 Cordova 應用程式是 HTML 架構，我們在此要建立的是原生用戶端應用程式。 您必須選取 [原生用戶端應用程式] 選項，否則應用程式將無法運作。)
   * **名稱**向使用者描述您的應用程式。
   * **重新導向 URI** 是用來將權杖傳回至您應用程式的 URI。 輸入 **http://MyDirectorySearcherApp**。
 
-完成註冊之後，Azure AD 會指派唯一的應用程式識別碼給您的應用程式。 您在後續章節中將會用到這個值。 您可以在新建立之應用程式的應用程式索引標籤中找到此值。
+完成註冊之後，Azure AD 會為應用程式指派一個唯一的應用程式識別碼。 您在後續章節中將會用到這個值。 您可以在新建立之應用程式的應用程式索引標籤中找到此值。
 
 為了執行 `DirSearchClient Sample`，請為新建立的應用程式授與可查詢 Azure AD 圖形 API 的權限：
 
-1. 在 [設定] 頁面中，選取 [必要的權限]，然後選取 [新增]。  
-2. 針對 Azure Active Directory 應用程式，選取 [Microsoft Graph] 作為 API，然後在 [委派權限] 底下新增 [以登入使用者的身分存取目錄] 權限。  這樣做可讓您的應用程式查詢圖形 API 的使用者。
+1. 在 [設定] 頁面中，選取 [必要的權限]，然後選取 [新增]。 
+2. 針對 Azure Active Directory 應用程式，選取 [Microsoft Graph] 作為 API，然後在 [委派權限] 底下新增 [以登入使用者的身分存取目錄] 權限。 這樣做可讓您的應用程式查詢圖形 API 的使用者。
 
 ## <a name="step-2-clone-the-sample-app-repository"></a>步驟 2︰複製範例應用程式存放庫
 從 Shell 或命令列，輸入下列命令：
@@ -124,7 +126,7 @@ Azure AD 只會發出權杖給已知的應用程式。 您必須先在租用戶�
   * Windows：`xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
   * Mac：`cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
 
-4. 新增允許清單外掛程式。 這是叫用圖形 API 所需的。
+4. 新增白名單外掛程式。 這是叫用圖形 API 所需的。
 
         cordova plugin add cordova-plugin-whitelist
 
