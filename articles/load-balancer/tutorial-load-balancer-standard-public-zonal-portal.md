@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 52d0aeabab173caf4460827ca0d5984070688f0e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304720"
 ---
 # <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過標準負載平衡器來平衡可用性區域內的 VM 負載
 
@@ -95,9 +96,9 @@ ms.lasthandoff: 04/28/2018
     - TCP - 作為 [通訊協定]
     - 允許 - 作為 [動作]
     - 100 作為 [優先順序]
-    - myHTTPRule - 作為 [名稱]
+    - [myHTTPRule] 作為 [名稱]
     - 允許 HTTP - 作為 [描述]
-4. 按一下 [SERVICEPRINCIPAL] 。
+4. 按一下 [確定]。
  
  ![建立虛擬網路](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 
@@ -119,7 +120,7 @@ ms.lasthandoff: 04/28/2018
     - myVM1 - 作為虛擬機器的名稱。        
     - azureuser - 作為系統管理員使用者名稱。    
     - myResourceGroupZLB - 針對 [資源群組]，選取 [使用現有的]，然後選取 myResourceGroupZLB。
-2. 按一下 [SERVICEPRINCIPAL] 。
+2. 按一下 [確定]。
 3. 選取 [DS1_V2] 作為虛擬機器的大小，然後按一下 [選取]。
 4. 輸入 VM 設定的下列值：
     - 區域 1 - 作為您放置 VM 的可用性區域。
@@ -139,7 +140,7 @@ ms.lasthandoff: 04/28/2018
 2. 在 [概觀] 頁面上，按一下 [連線] 以透過 RDP 連入 VM。
 3. 使用您在建立虛擬機器時指定的使用者名稱和密碼登入虛擬機器 (您可能需要選取 [更多選擇]，然後選取 [使用不同的帳戶] 以指定您在建立虛擬機器時輸入的認證)，然後選取 [確定]。 您可能會在登入過程中收到憑證警告。 選取 [是] 以繼續進行連線。
 4. 在伺服器桌面上，瀏覽至 [Windows 系統管理工具]>[Windows PowerShell]。
-6. 在 PowerShell 視窗中，執行下列命令來安裝 IIS 伺服器、移除 default.htm 檔案，以及新增可顯示 VM 名稱的新 default.htm 檔案：
+6. 在 PowerShell 視窗中，執行下列命令以安裝 IIS 伺服器、移除預設 iisstart.htm 檔案，然後新增會顯示 VM 名稱的 iisstart.htm 檔案：
 
    ```azurepowershell-interactive
     # install IIS server role
@@ -147,10 +148,10 @@ ms.lasthandoff: 04/28/2018
     # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
    ```
-8. 使用 myVM1 關閉 RDP 工作階段
-9. 重複步驟 1 到 8，在 myVM2 上安裝 IIS。
+7. 使用 myVM1 關閉 RDP 工作階段
+8. 重複步驟 1 到 7，在 myVM2 上安裝 IIS。
 
 ## <a name="create-load-balancer-resources"></a>建立負載平衡器資源
 
@@ -184,7 +185,7 @@ ms.lasthandoff: 04/28/2018
     - 80 - 作為連接埠號碼。
     - 15 - 探查嘗試的 [間隔] 秒數。
     - 2 - 作為 [狀況不良閾值]，或將 VM 視為狀況不良之前，必須達到的連續探查失敗次數。
-4. 按一下 [SERVICEPRINCIPAL] 。
+4. 按一下 [確定]。
 
    ![新增探查](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
@@ -201,7 +202,7 @@ ms.lasthandoff: 04/28/2018
     - 80 - 作為後端連接埠。
     - myBackendPool - 作為後端集區的名稱。
     - myHealthProbe - 作為健康狀態探查的名稱。
-4. 按一下 [SERVICEPRINCIPAL] 。
+4. 按一下 [確定]。
     
     ![新增負載平衡規則](./media/tutorial-load-balancer-standard-zonal-portal/load-balancing-rule.png)
 

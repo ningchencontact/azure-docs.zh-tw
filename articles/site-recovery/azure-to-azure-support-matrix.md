@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2018
+ms.date: 05/16/2018
 ms.author: sujayt
-ms.openlocfilehash: d7bfbbe834ac8506b7d12d5748406460df0fe3bc
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: daaca3c7b389642a288f738eb0954050e168abef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011623"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210557"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>從一個 Azure 區域複寫至另一個區域的支援矩陣
 
@@ -31,7 +31,7 @@ ms.locfileid: "34011623"
 --- | ---
 **Azure 入口網站** | 支援
 **傳統入口網站** | 不支援
-**PowerShell** | [](azure-to-azure-powershell.md)
+**PowerShell** | [使用 PowerShell 進行 Azure 到 Azure 複寫](azure-to-azure-powershell.md)
 **REST API** | 目前不支援
 **CLI** | 目前不支援
 
@@ -127,7 +127,7 @@ Debian 8 | 9.14、9.15 | 3.16.0-4-amd64 至 3.16.0-5-amd64、4.9.0-0.bpo.4-amd64
 -- | --
 美洲 | 加拿大東部、加拿大中部、美國中南部、美國中西部、美國東部、美國東部 2、美國西部、美國西部 2、美國中部、美國中北部
 歐洲 | 英國西部、英國南部、北歐、西歐、法國中部、法國南部
-亞洲 | 印度南部、印度中部、東南亞、東亞、日本東部、日本西部、韓國中部、韓國南部
+亞洲 | 印度南部、印度中部、東南亞、東亞、日本東部、日本西部、南韓中部、南韓南部
 澳大利亞   | 澳大利亞東部、澳大利亞東南部
 Azure Government    | 美國維吉尼亞州政府、美國愛荷華州政府、美國亞歷桑那州政府、美國德州政府、美國國防部東部、美國國防部中部
 德國 | 德國中部、德國東北部

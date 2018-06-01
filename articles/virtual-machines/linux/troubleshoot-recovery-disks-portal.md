@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
-ms.openlocfilehash: 08bf4675378918097e177228ee1be4e4e690c63b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 89c4c5c986375177918f14417c6b5a9a24925908
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271737"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>使用 Azure 入口網站將 OS 磁碟連結至復原 VM，以針對 Linux VM 進行疑難排解
 如果 Linux 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是 `/etc/fstab` 中的項目無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure 入口網站將虛擬硬碟連接至另一個 Linux VM，以修正任何錯誤，然後重新建立原始 VM。
@@ -31,6 +32,7 @@ ms.lasthandoff: 04/06/2018
 4. 從疑難排解 VM 卸載並中斷連結虛擬硬碟。
 5. 使用原始虛擬硬碟建立 VM。
 
+若為使用受控磁碟的 VM，請參閱[藉由連結新的 OS 磁碟來針對受控磁碟 VM 進行疑難排解](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk)。
 
 ## <a name="determine-boot-issues"></a>判斷開機問題
 檢查開機診斷和 VM 螢幕擷取畫面來判斷 VM 為何無法正常開機。 常見的例子是 `/etc/fstab` 中的項目無效，或因為刪除或移動基礎虛擬硬碟。
@@ -170,6 +172,13 @@ ms.lasthandoff: 04/06/2018
 當您從現有的虛擬硬碟建立 VM 時，可能不會自動啟用開機診斷。 若要檢查開機診斷狀態並在需要時開啟，請在入口網站中選取 VM。 在 [監視] 底下，按一下 [診斷設定]。 請確定狀態是 [開啟]，而且已選取 [開機診斷] 旁邊的核取記號。 如果有進行任何變更，請按一下 [儲存]：
 
 ![更新開機診斷設定](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>藉由連結新的 OS 磁碟來針對受控磁碟 VM 進行疑難排解
+1. 停止受影響的受控磁碟 Windows VM。
+2. 針對受控磁碟 VM 的 OS 磁碟[建立受控磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
+3. [從快照集建立受控磁碟](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)。
+4. [連結作為 VM 資料磁碟的受控磁碟](../windows/attach-disk-ps.md)。
+5. [將步驟 4 的資料磁碟變更為 OS 磁碟](../windows/os-disk-swap.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如果連接至 VM 時發生問題，請參閱[針對 Azure VM 的 SSH 連接進行疑難排解](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 如果存取 VM 上執行的應用程式時發生問題，請參閱[針對 Linux VM 上的應用程式連線問題進行疑難排解](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。

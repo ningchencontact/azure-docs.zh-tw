@@ -1,21 +1,22 @@
 ---
-title: "使用 Azure Site Recovery 將複寫的 Azure VM 容錯移轉及容錯回復到次要 Azure 區域 (預覽)"
-description: "了解如何使用 Azure Site Recovery 將 Azure VM 複寫容錯移轉及容錯回復到次要 Azure 區域"
+title: 使用 Azure Site Recovery 將複寫的 Azure VM 容錯移轉及容錯回復到次要 Azure 區域
+description: 了解如何使用 Azure Site Recovery 將 Azure VM 複寫容錯移轉及容錯回復到次要 Azure 區域
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc7ead9e7d55d1b22118774e98c741991e8af2d9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209268"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>在 Azure 區域之間容錯移轉及容錯回復 (預覽)
+# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>在 Azure 區域之間容錯移轉及容錯回復 Azure VM
 
 [Azure Site Recovery](site-recovery-overview.md) 服務可藉由管理及協調內部部署電腦與 Azure 虛擬機器 (VM) 的複寫、容錯移轉及容錯回復，為您的災害復原策略做出貢獻。
 
@@ -26,6 +27,8 @@ ms.lasthandoff: 03/09/2018
 > * 重新保護次要 Azure VM，使其能複寫到主要區域
 > * 容錯回復次要 VM
 > * 將主要 VM 放回次要區域保護
+
+Azure 至 Azure 複寫目前為預覽狀態。
 
 ## <a name="prerequisites"></a>先決條件
 

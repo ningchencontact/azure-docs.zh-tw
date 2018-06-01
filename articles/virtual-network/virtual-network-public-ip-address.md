@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8c052b45a0db42e2220c052b03f53f538de107ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c28d409bbdb7a4100f2bb9f00ff6f58a13855ea4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895016"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305050"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>建立、變更或刪除公用 IP 位址
 
-了解公用 IP 位址，以及如何建立、變更和刪除公用 IP 位址。 公用 IP 位址是可加以設定的資源。 將公用 IP 位址指派給其他 Azure 資源，能夠：
-- 對以下資源進行輸入網際網路連線：Azure 虛擬機器、Azure 虛擬機器擴展集、Azure VPN 閘道、應用程式閘道和網際網路面向的 Azure Load Balancer。 如果沒有指派的公用 IP 位址，Azure 資源無法從網際網路接收輸入的通訊。 某些 Azure 資源本質上就可透過公用 IP 位址存取，而其他資源必須有指派的公用 IP 位址，才可以從網際網路存取。
-- 使用可預測 IP 位址對網際網路進行輸出連線。 例如，虛擬機器不需有指派的公用 IP 位址，即可對網際網路進行輸出通訊，但其位址是由 Azure 網路位址轉譯。 指派公用 IP 位址給資源，可讓您知道輸出連線所使用的 IP 位址。 雖然可預測，但位址可能根據選擇的指派方法而有所變更。 如需詳細資訊，請參閱＜[建立公用 IP 位址](#create-a-public-ip-address)＞。 若要深入了解 Azure 資源的輸出連線，請閱讀[了解輸出連線](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。
+了解公用 IP 位址，以及如何建立、變更和刪除公用 IP 位址。 公用 IP 位址是可加以設定的資源。 將公用 IP 位址指派給支援公用 IP 位址的 Azure 資源，可以：
+- 啟用從網路網路到資源的輸入通訊；資源包括 Azure 虛擬機器 (VM)、Azure 應用程式閘道、Azure Load Balancer、Azure VPN 閘道等等。 即使未將公用 IP 位址指派給該虛擬機器，只要虛擬機器是負載平衡器後端集區的一部分，且已將公用 IP 位址指派給負載平衡器，就可以讓您與來自網際網路的虛擬機器等資源進行通訊。 若要判斷資源是否可以將公用 IP 位址指派給特定的 Azure 服務，或者是否可以透過不同 Azure 資源的公用 IP 位址與其進行通訊，請參閱服務的說明文件。 
+- 使用可預測 IP 位址對網際網路進行輸出連線。 例如，虛擬機器不需有指派的公用 IP 位址，即可對網際網路進行輸出通訊，但其位址是由 Azure 轉譯而成的網路位址 (依預設是無法預測的公用位址)。 指派公用 IP 位址給資源，可讓您知道輸出連線所使用的 IP 位址。 雖然可預測，但位址可能根據選擇的指派方法而有所變更。 如需詳細資訊，請參閱＜[建立公用 IP 位址](#create-a-public-ip-address)＞。 若要深入了解 Azure 資源的輸出連線，請參閱[了解輸出連線](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -37,7 +37,7 @@ ms.locfileid: "33895016"
 - 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 - 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
-您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)中所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 公用 IP 位址需要少許費用。 若要檢視價格，請閱讀 [IP 位址價格](https://azure.microsoft.com/pricing/details/ip-addresses)頁面。 
 
