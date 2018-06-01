@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure StorSimple Data Manager 概觀 | Microsoft Docs"
-description: "提供 StorSimple 資料管理員服務的概觀"
+title: Microsoft Azure StorSimple Data Manager 概觀 | Microsoft Docs
+description: 提供 StorSimple 資料管理員服務的概觀
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 429f1edae15a98b3c38ae4980a630f23b3a85d23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271899"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 資料管理員解決方案概觀
 
@@ -80,6 +81,11 @@ StorSimple 資料管理員必須有服務資料加密金鑰，才能從 StorSimp
 如果資料管理員所在的區域與作業定義所在的區域不同，請務必了解這些區域中各自擁有哪些資料/中繼資料。 下圖說明資料管理員與作業定義位於不同區域時的效果。
 
 ![位於不同區域的服務和作業定義](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+
+## <a name="gdpr-compliance"></a>GDPR 合規性
+
+[一般資料保護規定 (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) 是歐盟 (EU) 所制定的資料保護和隱私權法律。 GDPR 包含許多有關如何收集、儲存和使用個人資訊的需求。 GDPR 規則強制實行於 EU 內營運，並且收集、分析 EU 居民相關之資料的公司、政府機關和其他組織。 StorSimple 資料管理員符合 GDPR。 資料管理員服務不會收集個人資料。
+如需詳細資訊，請在[信任中心](https://www.microsoft.com/trustcenter)檢閱 Microsoft 隱私權原則。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 5/10/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 4faa6930c37f9d491a3efa4b34519dbb13761a9d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5fab656734d0984cf44a9fe1f29fd73530bd9aa8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34074927"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34259850"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>使用 PowerShell 啟用 Azure Stack 備份
 
@@ -65,7 +65,7 @@ ms.locfileid: "34074927"
 
 | 變數        | 說明   |
 |---              |---                                        |
-| $username       | 使用共用磁碟機位置的網域和使用者名稱來輸入**使用者名稱**。 例如： `Contoso\administrator`。 |
+| $username       | 使用共用磁碟機位置的網域和使用者名稱 (需具有足夠存取權可讀取和寫入檔案)，來輸入**使用者名稱**。 例如： `Contoso\backupshareuser`。 |
 | $password       | 輸入使用者的**密碼**。 |
 | $sharepath      | 輸入**備份儲存位置**的路徑。 針對裝載在不同裝置的檔案共用路徑，您必須使用通用命名慣例 (UNC) 字串。 UNC 字串會指定資源的位置，例如共用的檔案或裝置。 若要確保備份資料的可用性，裝置應該位於不同的位置。 |
 
