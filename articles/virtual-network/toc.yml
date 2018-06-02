@@ -205,17 +205,9 @@
     - name: 疑難排解
       items:
         - name: 網路安全性群組
-          items:
-            - name: Azure 入口網站
-              href: virtual-network-nsg-troubleshoot-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-nsg-troubleshoot-powershell.md
+          href: diagnose-network-traffic-filter-problem.md
         - name: 路由
-          items:
-            - name: Azure 入口網站
-              href: virtual-network-routes-troubleshoot-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-routes-troubleshoot-powershell.md
+          href: diagnose-network-routing-problem.md
         - name: 輸送量測試
           href: virtual-network-bandwidth-testing.md
         - name: 無法刪除虛擬網路

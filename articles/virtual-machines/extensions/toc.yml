@@ -63,8 +63,6 @@
           href: dsc-template.md
     - name: 適用於 Windows 的 IaaS 反惡意程式碼軟體
       href: iaas-antimalware-windows.md
-    - name: Key Vault
-      href: key-vault-windows.md
     - name: VM Snapshot
       items:
         - name: Linux

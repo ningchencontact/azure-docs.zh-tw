@@ -30,7 +30,7 @@
       href: vpn-gateway-highlyavailable.md
     - name: 關於點對站連線
       href: point-to-site-about.md
-    - name: 關於點對站路由
+    - name: 關於點對站 VPN 路由
       href: vpn-gateway-about-point-to-site-routing.md
 - name: 使用說明指南
   items:
