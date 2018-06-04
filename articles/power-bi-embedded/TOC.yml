@@ -1,0 +1,66 @@
+- name: Power BI Embedded 文件
+  href: index.md
+- name: 概觀
+  items:
+    - name: 什麼是 Power BI Embedded
+      href: what-is-power-bi-embedded.md
+- name: 開始使用
+  items:
+    - name: 開始使用 Power BI Embedded
+      href: get-started.md
+    - name: 以範例作為起始
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+- name: 作法
+  items:
+    - name: 管理容量
+      items:
+        - name: 建立容量
+          href: create-capacity.md
+        - name: 縮放容量
+          href: scale-capacity.md
+        - name: 暫停及啟動容量
+          href: pause-start.md
+    - name: 註冊 Azure AD 應用程式
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/'
+    - name: 內嵌 Power BI 內容
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/'
+    - name: 移轉
+      items:
+        - name: 如何從 Power BI 工作區集合進行遷移
+          href: migrate-from-power-bi-workspace-collections.md
+        - name: 移轉工具
+          href: migrate-tool.md
+        - name: 移轉程式碼片段
+          href: migrate-code-snippets.md
+- name: 範例
+  items:
+    - name: 程式碼範例
+      href: 'https://github.com/Microsoft/PowerBI-Developer-Samples'
+    - name: 範例逐步解說
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+    - name: JavaScript 內嵌範例
+      href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/'
+- name: 參考
+  items:
+    - name: API
+      items:
+        - name: Azure 資源管理 REST API
+          href: 'https://docs.microsoft.com/rest/api/power-bi-embedded/'
+        - name: Power BI REST API
+          href: 'https://msdn.microsoft.com/library/mt147898.aspx'
+- name: 資源
+  items:
+    - name: Power BI 社群
+      href: 'http://community.powerbi.com/t5/Developer/bd-p/Developer'
+    - name: .NET SDK 下載
+      href: 'https://www.nuget.org/packages/Microsoft.PowerBI.Api/'
+    - name: JavaScript SDK 下載
+      href: 'https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/'
+    - name: 定價計算機
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: GitHub 存放庫
+      items:
+        - name: 適用於 Power BI 的 .NET
+          href: 'https://github.com/Microsoft/PowerBI-CSharp'
+        - name: 適用於 Power BI 的 JavaScript
+          href: 'https://github.com/Microsoft/PowerBI-JavaScript'

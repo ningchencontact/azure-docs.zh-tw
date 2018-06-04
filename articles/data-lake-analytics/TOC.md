@@ -22,7 +22,9 @@
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
 #### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [新增使用者](data-lake-analytics-add-users.md)
 ### [原則](data-lake-analytics-policies.md)
+### [安全的作業資料夾](data-lake-analytics-secure.md)
 ### [存取診斷記錄檔](data-lake-analytics-diagnostic-logs.md)
 ### [調整配額限制](data-lake-analytics-quota-limits.md)
 
@@ -38,6 +40,10 @@
 #### [認知擴充功能](data-lake-analytics-u-sql-cognitive.md)
 #### [可程式性指南](data-lake-analytics-u-sql-programmability-guide.md)
 
+### U-SQL SDK
+#### [本機執行和偵錯](data-lake-analytics-data-lake-tools-local-run.md)
+#### [執行及測試](data-lake-analytics-u-sql-sdk.md) 
+
 ### Visual Studio
 #### [安裝](data-lake-analytics-data-lake-tools-install.md)
 #### [瀏覽和檢視作業](data-lake-analytics-data-lake-tools-view-jobs.md)
@@ -46,6 +52,7 @@
 #### [Vertex 執行詳細資料](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 #### [匯出 U-SQL 資料庫](data-lake-analytics-data-lake-tools-export-database.md)
 #### [分析網站記錄](data-lake-analytics-analyze-weblogs.md)
+#### [解決資料扭曲](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
 #### [工作的監視和疑難排解](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ### Visual Studio Code
@@ -64,7 +71,7 @@
 # 資源
 ## [Azure Data Lake 部落格](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [在 UserVoice 上提供意見反應](https://feedback.azure.com/forums/327234-data-lake)
+## [要求變更](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [定價](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
