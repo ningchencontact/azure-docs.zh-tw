@@ -1,8 +1,8 @@
 ---
-title: "設定來源環境 (實體伺服器至 Azure) | Microsoft Docs"
-description: "這篇文章說明如何設定內部部署環境，開始將執行 Windows 或 Linux 的實體伺服器複寫至 Azure。"
+title: 設定來源環境 (實體伺服器至 Azure) | Microsoft Docs
+description: 這篇文章說明如何設定內部部署環境，開始將執行 Windows 或 Linux 的實體伺服器複寫至 Azure。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811135"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>設定來源環境 (實體伺服器至 Azure)
 

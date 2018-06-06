@@ -18,6 +18,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32787411"
 ---
 ## <a name="prepare-for-akv-integration"></a>準備進行 AKV 整合
 若要使用 Azure 金鑰保存庫整合以設定 SQL Server VM，有幾項必要條件： 

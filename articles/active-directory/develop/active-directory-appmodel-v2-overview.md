@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155335"
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>在單一應用程式中登入 Microsoft 帳戶和 Azure Active Directory 使用者
 在過去，應用程式開發人員需要同時支援個人 Microsoft 帳戶和 Azure Active Directory 中的公司帳戶時，必須整合這兩個不同的系統。 Azure Active Directory (Azure AD) v2.0 端點導入新的驗證 API 版本，可簡化此程序。 Azure AD v2.0 端點可使用單一整合從兩種類型的帳戶登入。 使用 Azure AD v2.0 端點的應用程式也可以利用這其中一種帳戶，從 [Microsoft Graph API](https://graph.microsoft.io) 取用 REST API。
