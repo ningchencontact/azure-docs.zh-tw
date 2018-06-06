@@ -9,10 +9,11 @@ ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 19352df7abff23ed44521a11e7907c84c8c0327f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "33835819"
 ---
 在本節中，您會從 .NET 主控台應用程式將即時新聞以加註標記的範本通知形式傳送。 
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 05/07/2018
         Install-Package Microsoft.Azure.NotificationHubs
    
 3. 選取 [輸入]。  
-    此動作會使用 [Microsoft.Azure.Notification Hubs NuGet 套件]來新增對 Azure 通知中樞 SDK 的參考。
+    此動作會使用 [Microsoft.Azure.Notification 中樞 NuGet 封裝]來新增對 Azure 通知中樞 SDK 的參考。
 
 4. 開啟 Program.cs 檔案，並新增下列 `using` 陳述式：
    
@@ -79,4 +80,4 @@ ms.lasthandoff: 05/07/2018
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 [Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
 [How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
-[Microsoft.Azure.Notification Hubs NuGet 套件]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
+[Microsoft.Azure.Notification 中樞 NuGet 封裝]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
