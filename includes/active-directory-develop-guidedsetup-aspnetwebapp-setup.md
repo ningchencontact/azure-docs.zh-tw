@@ -2,24 +2,18 @@
 title: 包含檔案
 description: 包含檔案
 services: active-directory
-documentationcenter: dev-center-name
 author: andretms
-manager: mtillman
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/08/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: abb118610afa55834a3a6792c0a5503a1abfd09e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5d3af1800e18e3686e69d4a25131c68d3bdc805b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33949442"
 ---
 ## <a name="set-up-your-project"></a>設定專案
 
@@ -29,7 +23,7 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="create-your-aspnet-project"></a>建立 ASP.NET 專案
 
-1. 在 Visual Studio 中：`File` > `New` > `Project`<br/>
+1. 在 Visual Studio 中：`File` > `New` > `Project`
 2. 在 *Visual C#\Web* 底下，選取 `ASP.NET Web Application (.NET Framework)`。
 3. 為您的應用程式命名並按一下 [確定]
 4. 選取 `Empty` 並選取核取方塊以新增 `MVC` 參考
@@ -44,7 +38,7 @@ ms.lasthandoff: 04/28/2018
     Install-Package Microsoft.Owin.Security.Cookies
     Install-Package Microsoft.Owin.Host.SystemWeb
     ```
-    
+
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>關於這些程式庫
 >上面的程式庫可透過 Cookie 型驗證，使用 OpenID Connect 啟用單一登入 (SSO)。 完成驗證並將代表使用者的權杖傳送至您的應用程式之後，OWIN 中介軟體就會建立工作階段 Cookie。 接著瀏覽器會在後續要求中使用此 Cookie，因此使用者不需要重新輸入密碼，也不需要進行其他驗證。
@@ -54,9 +48,9 @@ ms.lasthandoff: 04/28/2018
 下面的步驟是用來建立 OWIN 中介軟體啟動類別，以設定 OpenID Connect 驗證。 此類別將會在您的 IIS 處理序啟動時自動執行。
 
 > [!TIP]
-> 如果您專案的根資料夾中沒有 `Startup.cs` 檔案：<br/>
-> 1. 在專案的根資料夾上按一下滑鼠右鍵：>    `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. 將它命名為 `Startup.cs`<br/>
+> 如果您專案的根資料夾中沒有 `Startup.cs` 檔案：
+> 1. 在專案的根資料夾上按一下滑鼠右鍵： > `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 2. 將它命名為 `Startup.cs`
 >
 >> 確定選取的類別是 OWIN 啟動類別，而非標準 C# 類別。 如果命名空間上方顯示 `[assembly: OwinStartup(typeof({NameSpace}.Startup))]`，請勾選以確認此項目。
 
@@ -65,7 +59,8 @@ ms.lasthandoff: 04/28/2018
     ```csharp
     using Microsoft.Owin;
     using Owin;
-    using Microsoft.IdentityModel.Protocols;
+    using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+    using Microsoft.IdentityModel.Tokens;
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OpenIdConnect;
@@ -76,19 +71,19 @@ ms.lasthandoff: 04/28/2018
 
     ```csharp
     public class Startup
-    {        
+    {
         // The Client ID is used by the application to uniquely identify itself to Azure AD.
         string clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
-    
+
         // RedirectUri is the URL where the user will be redirected to after they sign in.
         string redirectUri = System.Configuration.ConfigurationManager.AppSettings["RedirectUri"];
-    
+
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
-    
+
         // Authority is the URL for authority, composed by Azure Active Directory v2 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
-    
+
         /// <summary>
         /// Configure OWIN to use OpenIdConnect 
         /// </summary>
@@ -96,9 +91,9 @@ ms.lasthandoff: 04/28/2018
         public void Configuration(IAppBuilder app)
         {
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
-    
+
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
-                app.UseOpenIdConnectAuthentication(
+            app.UseOpenIdConnectAuthentication(
                 new OpenIdConnectAuthenticationOptions
                 {
                     // Sets the ClientId, authority, RedirectUri as obtained from web.config
@@ -107,13 +102,16 @@ ms.lasthandoff: 04/28/2018
                     RedirectUri = redirectUri,
                     // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it is using the home page
                     PostLogoutRedirectUri = redirectUri,
-                    Scope = OpenIdConnectScopes.OpenIdProfile,
+                    Scope = OpenIdConnectScope.OpenIdProfile,
                     // ResponseType is set to request the id_token - which contains basic information about the signed-in user
-                    ResponseType = OpenIdConnectResponseTypes.IdToken,
+                    ResponseType = OpenIdConnectResponseType.IdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
                     // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
-                    TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters() { ValidateIssuer = false },
+                    TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = false
+                    },
                     // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
                     Notifications = new OpenIdConnectAuthenticationNotifications
                     {
@@ -122,7 +120,7 @@ ms.lasthandoff: 04/28/2018
                 }
             );
         }
-    
+
         /// <summary>
         /// Handle failed authentication requests by redirecting the user to the home page with an error in the query string
         /// </summary>
@@ -135,9 +133,7 @@ ms.lasthandoff: 04/28/2018
             return Task.FromResult(0);
         }
     }
-    
     ```
-
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>相關資訊
