@@ -12,10 +12,11 @@ ms.date: 04/10/2018
 ms.author: bonova
 manager: craigg
 ms.openlocfilehash: ff605b7512a27f81b111560f5d151010dbb62273
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "31425855"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>將資料庫備份還原至 Azure SQL Database 受控執行個體
 
@@ -92,7 +93,7 @@ ms.lasthandoff: 04/16/2018
 
     ![容器詳細資料](./media/sql-database-managed-instance-tutorial/container-detail.png)
 
-13. 按一下 [SERVICEPRINCIPAL] 。
+13. 按一下 [確定]。
 14. 建立容器之後，請開啟該容器。
 
     ![container](./media/sql-database-managed-instance-tutorial/container.png)

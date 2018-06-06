@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: iainfou
 ms.openlocfilehash: 91138ffad0fd906061e0b0ce5cdb251f402d3341
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/05/2018
 ms.locfileid: "32776103"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell-preview"></a>使用 Azure PowerShell (預覽) 加密虛擬機器擴展集中的 OS 和連結的資料磁碟
@@ -59,7 +59,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 Azure 金鑰保存庫儲存可讓您安全地在應用程式和服務中實作的金鑰和密碼 (Secret 或 Password)。 密碼編譯金鑰會使用軟體保護功能儲存在 Azure 金鑰保存庫中，或者您可以在 FIPS 140-2 第 2 級標準認證的硬體安全性模組 (HSM) 中匯入或產生金鑰。 這些密碼編譯金鑰用來加密及解密連接到 VM 的虛擬磁碟。 您可保留這些密碼編譯金鑰的控制權，並可稽核其使用情況。
 
-使用 [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) 建立 Key Vault。 若要允許 Key Vault 用於磁碟加密，請設定 *EnabledForDiskEncryption* 參數。 下列範例也會定義資源群組名稱、Key Vault 名稱和位置的變數。 提供您自己的唯一 Key Vault 名稱：
+使用 [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) 建立 Key Vault。 若要允許 Key Vault 用於磁碟加密，請設定 EnabledForDiskEncryption 參數。 下列範例也會定義資源群組名稱、Key Vault 名稱和位置的變數。 提供您自己唯一的 Key Vault 名稱：
 
 ```azurepowershell-interactive
 $rgName="myResourceGroup"

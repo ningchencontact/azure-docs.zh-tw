@@ -1,11 +1,11 @@
-# [Azure AD Domain Services 文件](index.md)
+# [Azure AD Domain Services 文件](index.yml)
 
 # 概觀
 ## [何謂 Azure AD 網域服務？](active-directory-ds-overview.md)
 ## 適合您嗎？
 ### [與 Windows Server AD 比較](active-directory-ds-comparison.md)
 ### [與 Azure AD 聯結比較](active-directory-ds-compare-with-azure-ad-join.md)
-## [新增功能？](https://azure.microsoft.com/updates/?product=active-directory-ds)
+## [有哪些新功能？](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [特性](active-directory-ds-features.md)
 ## [案例](active-directory-ds-scenarios.md)
 ## [同步處理如何運作](active-directory-ds-synchronization.md)

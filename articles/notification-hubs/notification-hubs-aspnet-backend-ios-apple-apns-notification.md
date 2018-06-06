@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: dimazaid
 ms.openlocfilehash: 36d70c40e3de7bd38cdfc566da37060cdcea9060
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "33777530"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至特定使用者
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -29,7 +30,7 @@ ms.lasthandoff: 05/07/2018
 
 > [!div class="checklist"]
 > * 建立 WebAPI 專案
-> * 將用戶端驗證至 WebAPI 後端
+> * 對 WebAPI 後端驗證用戶端
 > * 使用 WebAPI 後端來註冊通知
 > * 從 WebAPI 後端傳送通知
 > * 發佈新的 WebAPI 後端
@@ -481,7 +482,7 @@ ms.lasthandoff: 05/07/2018
 在本教學課程中，您已學會如何針對具有與其註冊相關聯標記的使用者，將通知推送至這些特定使用者。 若要了解如何推送以位置為基礎的通知，請繼續進行下列教學課程： 
 
 > [!div class="nextstepaction"]
->[推播以位置為基礎的通知](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+>[推送以位置為基礎的通知](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
 
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png

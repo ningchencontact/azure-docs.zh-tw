@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
 ms.openlocfilehash: 8bf5cd802198cba48a99c029d0c75c25dd5f6d84
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "31606517"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 進行影像分類
 
 影像分類方法可用來解決大量電腦視覺問題。
-其中包括建置模型，用來回答下列問題，例如：*影像中是否有物件？*其中物件舉例來說可能是「狗」、「汽車」或「船艦」。 或是更複雜的問題，像是：「此病患的視網膜掃描顯示的眼睛疾病嚴重性等級為何？」。
+其中包括建置模型，用來回答下列問題，例如：*影像中是否有物件？* 其中物件舉例來說可能是「狗」、「汽車」或「船艦」。 或是更複雜的問題，像是：「此病患的視網膜掃描顯示的眼睛疾病嚴重性等級為何？」。
 
 本教學課程說明如何解決這類問題。 我們示範如何使用 [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) 來訓練、評估及部署您自己的影像分類模型，以進行深入了解。
 會提供範例影像，但讀取器也可以攜帶自己的資料集，並訓練自己的自訂模型。

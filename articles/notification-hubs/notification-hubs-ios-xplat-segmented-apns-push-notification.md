@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: f6096238deb2186edfac2eb9d1c9a9e76db07553
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "33776629"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至特定 iOS 裝置
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/07/2018
 ## <a name="overview"></a>概觀
 本教學課程說明如何使用 Azure 通知中樞將即時新聞通知廣播至 iOS 應用程式。 完成時，您將能夠註冊自己所感興趣的即時新聞類別，並僅接收那些類別的推播通知。 此情況為適用於許多應用程式的常見模式，其中必須將通知傳送給先前宣告對該通知感興趣的使用者群組，例如 RSS 閱讀程式、供樂迷使用的應用程式等等。
 
-在通知中樞內建立註冊時，您可以透過包含一或多個 *tags* 來啟用廣播案例。 當通知傳送至標記時，已註冊該標記的裝置都會收到該通知。 由於標籤只是簡單的字串而已，您無需預先佈建標籤。 如需標籤的詳細資訊，請參閱[通知中樞路由與標記運算式](notification-hubs-tags-segment-push-message.md)。
+在通知中樞內建立註冊時，您可以透過包含一或多個 *tags* 來啟用廣播案例。 當通知傳送至標記時，已註冊該標記的裝置都會收到該通知。 由於標籤只是簡單的字串而已，您無需預先佈建標籤。 如需標記的詳細資訊，請參閱[通知中樞路由與標記運算式](notification-hubs-tags-segment-push-message.md)。
 
 在本教學課程中，您會執行下列步驟：
 
@@ -338,7 +339,7 @@ ms.lasthandoff: 05/07/2018
 在本教學課程中，您已將廣播通知傳送至註冊相關類別的特定 iOS 裝置。 若要了解如何推送當地語系化的通知，請繼續進行下列教學課程： 
 
 > [!div class="nextstepaction"]
->[推送當地語系化通知](notification-hubs-ios-xplat-localized-apns-push-notification.md)
+>[推送當地語系化的通知](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
 
 <!-- Images. -->

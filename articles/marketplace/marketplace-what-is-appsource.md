@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
 ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "32178231"
 ---
 # <a name="what-is-appsource"></a>什麼是 AppSource
 AppSource 可讓 Microsoft 合作夥伴透過 Microsoft 支援的線上店面，讓客戶找到他們的技術與服務。 身為 AppSource 發行者，您可讓商務使用者參與 AppSource 以尋找、嘗試及取得企業營運 SaaS 應用程式與實作服務，以協助推動商務成果並縮短創造價值的時程： 

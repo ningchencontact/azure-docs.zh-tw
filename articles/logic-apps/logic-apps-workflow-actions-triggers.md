@@ -15,10 +15,10 @@ ms.topic: reference
 ms.date: 5/8/2018
 ms.author: klam; LADocs
 ms.openlocfilehash: 88ee3d810a80bed418e8dbafa4f3e35ccf5e85b1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/05/2018
 ms.locfileid: "33886777"
 ---
 # <a name="triggers-and-actions-for-workflow-definitions-in-azure-logic-apps"></a>Azure Logic Apps 工作流程動作中的觸發程序和動作
@@ -328,7 +328,7 @@ ms.locfileid: "33886777"
 
 | 元素名稱 | 類型 | 說明 | 
 | ------------ | ---- | ----------- | 
-| 查詢 | JSON 物件 | 您想要包含在 URL 中的任何查詢參數 <p>例如，此元素會將 `?api-version=2015-02-01` 查詢字串新增至 URL： <p>`"queries": { "api-version": "2015-02-01" }` <p>結果：`https://contoso.com?api-version=2015-02-01` | 
+| 查詢 | JSON 物件 | 您想要包含在 URL 中的任何查詢參數 <p>例如，此元素會將 `?api-version=2015-02-01` 查詢字串新增至 URL： <p>`"queries": { "api-version": "2015-02-01" }` <p>結果︰`https://contoso.com?api-version=2015-02-01` | 
 | headers | JSON 物件 | 要與要求一起傳送的一個或多個標頭 <p>例如，若要設定要求的語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | JSON 物件 | 傳送至端點的承載 (資料) | 
 | 驗證 | JSON 物件 | 連入要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 除了排程器之外，還可支援 `authority` 屬性。 若未指定，預設值為 `https://login.windows.net`，但您可以使用不同的值，例如 `https://login.windows\-ppe.net`。 | 
@@ -429,7 +429,7 @@ ms.locfileid: "33886777"
 
 | 元素名稱 | 類型 | 說明 | 
 | ------------ | ---- | ----------- | 
-| 查詢 | JSON 物件 | 您想要包含在 URL 中的任何查詢參數 <p>例如，此元素會將 `?api-version=2015-02-01` 查詢字串新增至 URL： <p>`"queries": { "api-version": "2015-02-01" }` <p>結果：`https://contoso.com?api-version=2015-02-01` | 
+| 查詢 | JSON 物件 | 您想要包含在 URL 中的任何查詢參數 <p>例如，此元素會將 `?api-version=2015-02-01` 查詢字串新增至 URL： <p>`"queries": { "api-version": "2015-02-01" }` <p>結果︰`https://contoso.com?api-version=2015-02-01` | 
 | headers | JSON 物件 | 要與要求一起傳送的一個或多個標頭 <p>例如，若要設定要求的語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | JSON 物件 | 描述要傳送到受控 API 的承載 (資料) 的 JSON 物件 | 
 | 驗證 | JSON 物件 | 連入要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 |

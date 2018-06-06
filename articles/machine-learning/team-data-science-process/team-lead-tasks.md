@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
 ms.openlocfilehash: d17c6c7543416d3f279b7e25152a421dd233a806
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "32777946"
 ---
 # <a name="team-lead-tasks"></a>小組負責人工作
 
@@ -357,7 +358,7 @@ ms.lasthandoff: 05/03/2018
 
 ![34](./media/team-lead-tasks/team-leads-34-attach-s3.png)
 
-**如何以手動方式輸入 Azure 檔案儲存體資訊：**如果您的 Azure 檔案儲存體資訊不在文字檔中，您可以遵循以下畫面的指示，輸入必要的訂用帳戶、儲存體帳戶，及 Azure 檔案儲存體資訊：
+**如何以手動方式輸入 Azure 檔案儲存體資訊：** 如果您的 Azure 檔案儲存體資訊不在文字檔中，您可以遵循以下畫面的指示，輸入必要的訂用帳戶、儲存體帳戶，及 Azure 檔案儲存體資訊：
 
 ![35](./media/team-lead-tasks/team-leads-35-attach-s4.png)
 
@@ -386,7 +387,7 @@ ms.lasthandoff: 05/03/2018
 
 ![40](./media/team-lead-tasks/team-leads-40-attach-s4-linux.png)
 
-**如何以手動方式輸入 Azure 檔案儲存體資訊：**如果您的 Azure 檔案儲存體資訊不在文字檔中，您可以遵循以下畫面的指示，輸入必要的訂用帳戶、儲存體帳戶，及 Azure 檔案儲存體資訊：
+**如何以手動方式輸入 Azure 檔案儲存體資訊：** 如果您的 Azure 檔案儲存體資訊不在文字檔中，您可以遵循以下畫面的指示，輸入必要的訂用帳戶、儲存體帳戶，及 Azure 檔案儲存體資訊：
 
 - 輸入 **n**。
 - 選取訂用帳戶名稱的索引，該訂用帳戶是在上一個步驟中建立 Azure 檔案儲存體的位置：

@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 02/27/2018
 ms.author: jomolesk
 ms.openlocfilehash: e627019f6219509c21ca6245ee1f7f54f2e1669a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "33894308"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI
 
@@ -282,7 +283,7 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 
 **2.金鑰保存庫**會要求與所要求權杖相關聯的密碼。
 
-\*\*3. Azure 角色會驗證要求，並授權金鑰保存庫的存取要求。
+**3. Azure 角色會驗證要求，並授權金鑰保存庫的存取要求。
 
 **4.金鑰保存庫**會傳回密碼，在此情況下為 SQL DB 連接字串。
 
