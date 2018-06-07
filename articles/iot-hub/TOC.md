@@ -9,6 +9,7 @@
 ## [遙測傳送 (.NET)](quickstart-send-telemetry-dotnet.md)
 ## [遙測傳送 (Java)](quickstart-send-telemetry-java.md)
 ## [遙測傳送 (Python)](quickstart-send-telemetry-python.md)
+## [傳送遙測 (iOS)](quickstart-send-telemetry-ios.md)
 ## [控制裝置 (Node.js)](quickstart-control-device-node.md)
 ## [控制裝置 (.NET)](quickstart-control-device-dotnet.md)
 ## [控制裝置 (Java)](quickstart-control-device-java.md)
@@ -18,29 +19,19 @@
 
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [路由訊息](tutorial-routing.md)
+## [設定您的裝置](tutorial-device-twins.md)
+## [測試裝置連線](tutorial-connectivity.md)
 ## 傳送雲端到裝置訊息
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
 ### [Java](iot-hub-java-java-c2d.md)
 ### [Node.js](iot-hub-node-node-c2d.md)
 ### [Python](iot-hub-python-python-c2d.md)
-## 開始使用攣生裝置
-### [Node.js 後端/Node.js 裝置](iot-hub-node-node-twin-getstarted.md)
-### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-twin-getstarted.md)
-### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-twin-getstarted.md)
-### [Java 後端/Java 裝置](iot-hub-java-java-twin-getstarted.md)
-### [Python 後端/Python 裝置](iot-hub-python-twin-getstarted.md)
 ## 開始使用裝置管理
 ### [Node.js 後端/Node.js 裝置](iot-hub-node-node-device-management-get-started.md)
 ### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-device-management-get-started.md)
 ### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-device-management-get-started.md)
 ### [Java 後端/Java 裝置](iot-hub-java-java-device-management-getstarted.md)
 ### [Python 後端/Python 裝置](iot-hub-python-python-device-management-get-started.md)
-## 使用攣生實體的方式
-### [Node.js 後端/Node.js 裝置](iot-hub-node-node-twin-how-to-configure.md)
-### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-twin-how-to-configure.md)
-### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-twin-how-to-configure.md)
-### [Java 後端/Java 裝置](iot-hub-java-java-twin-how-to-configure.md)
-### [Python 後端/Python 裝置](iot-hub-python-python-twin-how-to-configure.md)
 ## 使用裝置作業更新裝置韌體
 ### [Node 後端/Node 裝置](iot-hub-node-node-firmware-update.md)
 ### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-firmware-update.md)
@@ -80,6 +71,8 @@
 ### [配額和節流](iot-hub-devguide-quotas-throttling.md)
 ### [計費範例](iot-hub-devguide-pricing.md)
 ### [裝置與服務 SDK](iot-hub-devguide-sdks.md)
+### [為受限裝置而開發](iot-hub-devguide-develop-for-constrained-devices.md)
+### [為行動裝置而開發](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [MQTT 支援](iot-hub-mqtt-support.md)
 ### [詞彙](iot-hub-devguide-glossary.md)
 
@@ -89,7 +82,6 @@
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
-#### [iOS (Swift)](quickstart-send-telemetry-ios.md)
 ## [使用適用於 C 的 IoT 裝置 SDK](iot-hub-device-sdk-c-intro.md)
 ### [使用 IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [使用序列化程式](iot-hub-device-sdk-c-serializer.md)
@@ -157,17 +149,26 @@
 ### [使用適用於 C 的 IoT 裝置 SDK](iot-hub-device-sdk-c-intro.md)
 #### [使用 IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [使用序列化程式](iot-hub-device-sdk-c-serializer.md)
+### [為受限裝置而開發](iot-hub-devguide-develop-for-constrained-devices.md)
+### [為行動裝置而開發](iot-hub-how-to-develop-for-mobile-devices.md)
 ### 路由訊息
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
 #### [Python](iot-hub-python-python-process-d2c.md)
+### [中樞路由查詢 Avro 資料](iot-hub-query-avro-data.md)
 ### 傳送雲端到裝置訊息
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
 #### [iOS](iot-hub-ios-swift-c2d.md)
+### 開始使用攣生裝置
+#### [Node.js 後端/Node.js 裝置](iot-hub-node-node-twin-getstarted.md)
+#### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-twin-getstarted.md)
+#### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java 後端/Java 裝置](iot-hub-java-java-twin-getstarted.md)
+#### [Python 後端/Python 裝置](iot-hub-python-twin-getstarted.md)
 ### 從裝置上傳檔案
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -217,13 +218,6 @@
 ### [Java](iot-hub-java-java-file-upload.md)
 ### [Node.js](iot-hub-node-node-file-upload.md)
 ### [Python](iot-hub-python-python-file-upload.md)
-
-## 排程及廣播作業
-### [Node.js 後端/Node.js 裝置](iot-hub-node-node-schedule-jobs.md)
-### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-schedule-jobs.md)
-### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-schedule-jobs.md)
-### [Java 後端/Java 裝置](iot-hub-java-java-schedule-jobs.md)
-### [Python 後端/Python 裝置](iot-hub-python-python-schedule-jobs.md)
 
 ## 建立 IoT 中樞 
 ### [使用 Azure 入口網站](iot-hub-create-through-portal.md)

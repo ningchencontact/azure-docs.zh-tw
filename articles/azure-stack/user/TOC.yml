@@ -35,9 +35,9 @@
       href: azure-stack-rest-api-use.md
     - name: 安全性與法規遵循
       items:
-        - name: 管理 RBAC
+        - name: 使用角色型存取控制
           href: azure-stack-manage-permissions.md
-        - name: 建立服務主體
+        - name: 使用服務主體
           href: Azure-stack-create-service-principals.md
     - name: 使用服務
       items:
@@ -107,7 +107,7 @@
           items:
             - name: 安裝 Azure Stack PowerShell
               href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
-            - name: 下載工具
+            - name: 下載 Azure Stack 工具
               href: azure-stack-powershell-download.md
             - name: 設定 PowerShell - 使用者
               href: azure-stack-powershell-configure-user.md
@@ -128,13 +128,13 @@
                   href: azure-stack-version-profiles-python.md
                 - name: 設定檔支援的資源提供者 API
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: 使用原則模組
+        - name: 使用 Azure Stack 原則模組
           href: azure-stack-policy-module.md
         - name: 使用範本
           items:
             - name: 範本概觀
               href: azure-stack-arm-templates.md
-            - name: 開發範本
+            - name: 範本考量
               href: azure-stack-develop-templates.md
             - name: 檢查範本
               href: azure-stack-validate-templates.md

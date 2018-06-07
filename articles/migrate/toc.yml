@@ -10,7 +10,7 @@
       href: tutorial-assessment-vmware.md
 - name: 概念
   items:
-    - name: 收集器概念
+    - name: 關於收集器
       href: concepts-collector.md
     - name: 評量計算
       href: concepts-assessment-calculation.md
@@ -18,13 +18,15 @@
       href: concepts-dependency-visualization.md
 - name: 使用說明指南
   items:
-    - name: 將您的內部部署資源遷移至 Azure
+    - name: Contoso 移轉系列
       items:
-        - name: 案例概觀 - 將您的內部部署資源遷移至 Azure
-          href: migrate-scenarios-overview.md
-        - name: 案例 1 - 存取內部部署資源以移轉至 Azure
+        - name: 1. Contoso 移轉概觀
+          href: contoso-migration-overview.md
+        - name: 2. Contoso - 設定 Azure 基礎結構infrastructure
+          href: contoso-migration-infrastructure.md
+        - name: 3. Contoso - 存取內部部署資源以移轉至 Azure
           href: migrate-scenarios-assessment.md
-        - name: 案例 2 - 隨即移轉至 Azure
+        - name: 4. Contoso - 在 Azure VM 和 Azure SQL 受控執行個體上重新裝載
           href: migrate-scenarios-lift-and-shift.md
     - name: 探索及評定大型環境
       href: how-to-scale-assessment.md

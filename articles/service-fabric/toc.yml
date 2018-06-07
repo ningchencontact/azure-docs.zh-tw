@@ -433,6 +433,8 @@
           href: service-fabric-visualstudio-configure-secure-connections.md
         - name: 在 VS 中對 .NET 服務進行偵錯
           href: service-fabric-debugging-your-application.md
+        - name: 使用 Service Fabric 和 VS 對 Windows 容器進行偵錯
+          href: service-fabric-how-to-debug-windows-containers.md
         - name: 常見錯誤及例外狀況
           href: service-fabric-errors-and-exceptions.md
         - name: 在本機上監視及診斷
@@ -521,12 +523,18 @@
                   href: service-fabric-cluster-creation-via-arm.md
                 - name: 使用憑證一般名稱的叢集
                   href: service-fabric-create-cluster-using-cert-cn.md
+                - name: 啟用適用於 Windows 的磁碟加密
+                  href: service-fabric-enable-azure-disk-encryption-windows.md
+                - name: 啟用適用於 Linux 的磁碟加密
+                  href: service-fabric-enable-azure-disk-encryption-linux.md
             - name: 調整
               items:
-                - name: 手動
+                - name: 手動相應放大
                   href: service-fabric-cluster-scale-up-down.md
-                - name: 以程式設計方式
+                - name: 以程式設計方式相應放大
                   href: service-fabric-cluster-programmatic-scaling.md
+                - name: 相應增加主要節點類型 VM
+                  href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
             - name: 升級
               href: service-fabric-cluster-upgrade.md
             - name: 設定存取控制
@@ -599,10 +607,10 @@
               href: service-fabric-diagnostics-event-analysis-oms.md
         - name: 監視基礎結構
           items:
-            - name: 使用 WAD 進行效能監視
-              href: service-fabric-diagnostics-perf-wad.md
             - name: 使用 OMS 代理程式進行效能監視
               href: service-fabric-diagnostics-oms-agent.md
+            - name: 使用 WAD 進行效能監視
+              href: service-fabric-diagnostics-perf-wad.md
         - name: 監視健康情況
           items:
             - name: 回報和檢查健康情況
@@ -613,6 +621,8 @@
               href: service-fabric-view-entities-aggregated-health.md
         - name: 針對本機叢集進行疑難排解
           href: service-fabric-troubleshoot-local-cluster-setup.md
+        - name: 診斷常見案例
+          href: service-fabric-diagnostics-common-scenarios.md
 - name: 參考
   items:
     - name: Azure PowerShell
@@ -628,20 +638,29 @@
           href: service-fabric-sfctl-application.md
         - name: sfctl chaos
           href: service-fabric-sfctl-chaos.md
+          items:
+            - name: sfctl chaos schedule
+              href: service-fabric-sfctl-chaos-schedule.md
         - name: sfctl cluster
           href: service-fabric-sfctl-cluster.md
         - name: sfctl compose
           href: service-fabric-sfctl-compose.md
+        - name: sfctl container
+          href: service-fabric-sfctl-container.md
         - name: sfctl is
           href: service-fabric-sfctl-is.md
         - name: sfctl node
           href: service-fabric-sfctl-node.md
         - name: sfctl partition
           href: service-fabric-sfctl-partition.md
+        - name: sfctl property
+          href: service-fabric-sfctl-property.md
         - name: sfctl replica
           href: service-fabric-sfctl-replica.md
         - name: sfctl rpm
           href: service-fabric-sfctl-rpm.md
+        - name: sfctl sa-cluster
+          href: service-fabric-sfctl-sa-cluster.md
         - name: sfctl service
           href: service-fabric-sfctl-service.md
         - name: sfctl store

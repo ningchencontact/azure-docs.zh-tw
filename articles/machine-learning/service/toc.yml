@@ -155,6 +155,8 @@
               href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision'
             - name: 建置及部署映像分類模型
               href: how-to-build-deploy-image-classification-models.md
+            - name: 建置和部署物件偵測模型
+              href: how-to-build-deploy-object-detection-models.md
             - name: 模型精確度
               href: how-to-improve-accuracy-for-computer-vision-models.md
         - name: 預測
@@ -219,6 +221,8 @@
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 問題和疑難排解
       href: known-issues-and-troubleshooting-guide.md
+    - name: 匯出或刪除帳戶資料
+      href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
     - name: 支援和訓練
       href: support-for-aml-services.md
     - name: Azure 藍圖

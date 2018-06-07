@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32787458"
 ---
 | 行動和原生應用程式 | Web Apps 和 Web API | 直接整合通訊協定 |
 | --- | --- | --- |
