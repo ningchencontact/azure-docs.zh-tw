@@ -151,11 +151,6 @@
 #### [使用序列化程式](iot-hub-device-sdk-c-serializer.md)
 ### [為受限裝置而開發](iot-hub-devguide-develop-for-constrained-devices.md)
 ### [為行動裝置而開發](iot-hub-how-to-develop-for-mobile-devices.md)
-### 路由訊息
-#### [.NET](iot-hub-csharp-csharp-process-d2c.md)
-#### [Java](iot-hub-java-java-process-d2c.md)
-#### [Node.js](iot-hub-node-node-process-d2c.md)
-#### [Python](iot-hub-python-python-process-d2c.md)
 ### [中樞路由查詢 Avro 資料](iot-hub-query-avro-data.md)
 ### 傳送雲端到裝置訊息
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
