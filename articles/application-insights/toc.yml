@@ -53,6 +53,8 @@
           href: app-insights-asp-net-core.md
         - name: 主控台
           href: application-insights-console.md
+        - name: 應用程式儀表板
+          href: app-insights-overview-dashboard.md
     - name: 監視 Java 應用程式
       items:
         - name: Web 應用程式
@@ -266,6 +268,8 @@
           href: app-insights-export-power-bi.md
     - name: 安全
       items:
+        - name: 個人資料處理
+          href: app-insights-customer-data.md
         - name: 資料收集、保留和儲存
           href: app-insights-data-retention-privacy.md
         - name: 資源、角色和存取控制

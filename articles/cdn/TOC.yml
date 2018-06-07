@@ -10,10 +10,12 @@
   items:
     - name: 建立設定檔和端點
       href: cdn-create-new-endpoint.md
+    - name: 整合儲存體帳戶
+      href: cdn-create-a-storage-account-with-cdn.md
 - name: 教學課程
   items:
     - name: 將 Azure CDN 新增 Web 應用程式
-      href: app-service-web-tutorial-content-delivery-network.md
+      href: cdn-add-to-web-app.md
     - name: 新增自訂網域
       href: cdn-map-content-to-custom-domain.md
     - name: 在自訂網域上設定 HTTPS
@@ -28,29 +30,21 @@
   items:
     - name: 快取的運作方式
       href: cdn-how-caching-works.md
+    - name: 中國內容傳遞
+      href: cdn-china-delivery.md
+    - name: HTTP/2 支援
+      href: cdn-http2.md
 - name: 使用說明指南
   items:
-    - name: 整合
-      items:
-        - name: 儲存體
-          items:
-            - name: 整合儲存體帳戶
-              href: cdn-create-a-storage-account-with-cdn.md
-            - name: SAS 儲存體支援
-              href: cdn-sas-storage-support.md
-        - name: 跨原始資源共用
-          href: cdn-cors.md
     - name: 最佳化內容
+      href: cdn-optimization-overview.md
       items:
-        - name: 最佳化概觀
-          href: cdn-optimization-overview.md
-          items:
-            - name: 大型檔案最佳化
-              href: cdn-large-file-optimization.md
-            - name: 媒體串流最佳化
-              href: cdn-media-streaming-optimization.md
-            - name: 動態網站加速
-              href: cdn-dynamic-site-acceleration.md
+        - name: 大型檔案最佳化
+          href: cdn-large-file-optimization.md
+        - name: 媒體串流最佳化
+          href: cdn-media-streaming-optimization.md
+        - name: 動態網站加速
+          href: cdn-dynamic-site-acceleration.md
     - name: 管理
       items:
         - name: 使用 Azure PowerShell 管理
@@ -61,8 +55,6 @@
           href: cdn-improve-performance.md
         - name: 控制快取行為
           items:
-            - name: 快取的運作方式
-              href: cdn-how-caching-works.md
             - name: 透過快取規則控制快取行為
               href: cdn-caching-rules.md
             - name: 依查詢字串區分的快取內容
@@ -83,35 +75,35 @@
               href: cdn-manage-expiration-of-blob-content.md
         - name: 權杖驗證
           href: cdn-token-auth.md
+        - name: SAS 儲存體支援
+          href: cdn-sas-storage-support.md
+        - name: 跨原始資源共用
+          href: cdn-cors.md
         - name: 監視資源
           href: cdn-resource-health.md
         - name: 使用規則覆寫行為
           href: cdn-rules-engine.md
-        - name: 取得即時警示
-          href: cdn-real-time-alerts.md
-        - name: HTTP/2 支援
-          href: cdn-http2.md
     - name: 分析
+      href: cdn-log-analysis.md
       items:
-        - name: 分析 Azure CDN 使用模式
-          href: cdn-log-analysis.md
+        - name: Azure 診斷記錄
+          href: cdn-azure-diagnostic-logs.md
+        - name: 來自 Verizon 的 Azure CDN 分析工具
           items:
-            - name: Azure 診斷記錄
-              href: cdn-azure-diagnostic-logs.md
-            - name: 來自 Verizon 的 Azure CDN 分析工具
-              items:
-                - name: 來自 Verizon 的核心報告
-                  href: cdn-analyze-usage-patterns.md
-                - name: 來自 Verizon 的自訂報告
-                  href: cdn-verizon-custom-reports.md
-            - name: 來自 Verizon 的 Azure CDN Premium 分析工具
-              items:
-                - name: 產生進階 HTTP 報告
-                  href: cdn-advanced-http-reports.md
-                - name: 檢視即時統計資料
-                  href: cdn-real-time-stats.md
-                - name: 分析邊緣效能
-                  href: cdn-edge-performance.md
+            - name: 來自 Verizon 的核心報告
+              href: cdn-analyze-usage-patterns.md
+            - name: 來自 Verizon 的自訂報告
+              href: cdn-verizon-custom-reports.md
+        - name: 來自 Verizon 的 Azure CDN Premium 分析工具
+          items:
+            - name: 產生進階 HTTP 報告
+              href: cdn-advanced-http-reports.md
+            - name: 檢視即時統計資料
+              href: cdn-real-time-stats.md
+            - name: 分析邊緣效能
+              href: cdn-edge-performance.md
+            - name: 取得即時警示
+              href: cdn-real-time-alerts.md
     - name: 開發
       items:
         - name: .NET

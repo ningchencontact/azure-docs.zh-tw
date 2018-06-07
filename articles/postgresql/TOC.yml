@@ -67,6 +67,8 @@
           href: concepts-firewall-rules.md
         - name: 設定 SSL
           href: concepts-ssl-connection-security.md
+        - name: VNet
+          href: concepts-data-access-and-security-vnet.md
     - name: 業務持續性
       items:
         - name: 概觀
@@ -119,6 +121,12 @@
       items:
         - name: 建立計量警示
           href: howto-alert-on-metric.md
+    - name: 虛擬網路
+      items:
+        - name: Azure 入口網站
+          href: howto-manage-vnet-using-portal.md
+        - name: Azure CLI
+          href: howto-manage-vnet-using-cli.md
 - name: 參考
   items:
     - name: Azure CLI

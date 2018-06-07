@@ -81,7 +81,7 @@
   items:
     - name: 解決方案
       items:
-        - name: IoT 套件預先設定解決方案
+        - name: IoT 解決方案加速器
           href: /azure/iot-suite
         - name: IoT 中心
           href: /microsoft-iot-central
