@@ -15,6 +15,7 @@
 ### [以程式設計方式建立 Azure Dashboards](azure-portal-dashboards-create-programmatically.md)
 ## 管理
 ### [開啟高對比或變更佈景主題](azure-portal-change-theme-high-contrast.md)
+### [匯出或刪除使用者設定](azure-portal-export-delete-settings.md)
 ### [使用入口網站管理資源](../azure-resource-manager/resource-group-portal.md)
 ### [使用角色型存取控制來管理存取](../role-based-access-control/role-assignments-portal.md)
 ### [使用角色型存取控制來共用儀表板](azure-portal-dashboard-share-access.md)

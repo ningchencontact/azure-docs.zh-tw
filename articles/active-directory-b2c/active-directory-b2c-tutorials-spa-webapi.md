@@ -3,16 +3,19 @@ title: 教學課程 - 使用 Azure Active Directory B2C 授與從單頁應用程
 description: 關於如何使用 Active Directory B2C 來保護 .NET Core Web API，以及如何從單頁應用程式加以呼叫的教學課程。
 services: active-directory-b2c
 author: davidmu1
+manager: mtillman
 ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 0e9e3074e2cdd9ec3adc814779811d150cd11010
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 5b99f60c1bd81b77a5fc2be5575f65fc63eb0c11
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34711088"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 授與從單頁應用程式存取 ASP.NET Core Web API 的權限
 
@@ -106,7 +109,7 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
     ![選取應用程式的範圍](media/active-directory-b2c-tutorials-spa-webapi/selecting-scopes-for-app.png)
 
-5. 按一下 [SERVICEPRINCIPAL] 。
+5. 按一下 [確定]。
 
 您的 [我的範例單頁應用程式] 會進行註冊以呼叫受保護的 [Hello Core API]。 使用者會透過 Azure AD B2C 進行[驗證](../active-directory/develop/active-directory-dev-glossary.md#authentication)以使用 WPF 傳統型應用程式。 傳統型應用程式會取得 Azure AD B2C 的[授權授與](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant)，以存取受保護的 Web API。
 
@@ -155,13 +158,15 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
+3. 開啟 [屬性] 下的 **launchSettings.json** 檔案，找出 *applicationURL* 設定，並將值記錄下來以供下一章節使用。
+
 ### <a name="configure-the-single-page-app"></a>設定單頁應用程式
 
 單頁應用程式會使用 Azure AD B2C 進行使用者註冊、登入及呼叫受保護的 ASP.NET Core Web API。 您需要更新單頁應用程式以呼叫 .NET Core Web API。
 若要變更應用程式設定：
 
 1. 開啟 Node.js 單頁應用程式範例中的 `index.html` 檔案。
-2. 使用 Azure AD B2C 租用戶註冊資訊設定此範例。 變更下列幾行程式碼中的 **b2cScopes** 和 **webApi** 值：
+2. 使用 Azure AD B2C 租用戶註冊資訊設定此範例。 在下列程式碼中，將您的租用戶名稱新增至 **b2cScopes**，並將 **webApi** 值變更為您之前記錄的 *applicationURL* 值：
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -169,7 +174,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:58553/api/values',
+        webApi: 'http://localhost:64791/api/values',
     };
     ```
 

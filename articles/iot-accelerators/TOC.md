@@ -3,13 +3,13 @@
 
 # 概觀
 ## [IoT 架構概念](iot-accelerators-what-is-azure-iot.md)
-## [比較各個 Azure IoT 選項](../iot-suite/iot-suite-options.md)
+## [比較各個 Azure IoT 選項](iot-accelerators-options.md)
 ## [解決方案加速器概觀](iot-accelerators-what-are-solution-accelerators.md)
 
 # 開始使用
 ## 遠端監視
 ### [部署解決方案加速器](iot-accelerators-remote-monitoring-deploy.md)
-### [操作解決方案加速器](../iot-suite/iot-suite-remote-monitoring-explore.md)
+### [操作解決方案加速器](iot-accelerators-remote-monitoring-explore.md)
 
 ## 遠端監視 (舊版)
 ### [解決方案加速器是什麼？](../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md)
@@ -35,7 +35,7 @@
 ##### [Windows 上的 C](../iot-suite/iot-suite-v1-connecting-devices.md)
 ##### [Linux 上的 C](../iot-suite/iot-suite-v1-connecting-devices-linux.md)
 ##### [Node.js](../iot-suite/iot-suite-v1-connecting-devices-node.md)
-#### [將邏輯應用程式連接到遠端監視解決方案](../iot-suite/iot-suite-v1-logic-apps-tutorial.md)
+#### [將邏輯應用程式與遠端監視解決方案連線](../iot-suite/iot-suite-v1-logic-apps-tutorial.md)
 #### [自訂解決方案加速器](../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
 #### [搭配使用動態遙測與遠端監視解決方案](../iot-suite/iot-suite-v1-dynamic-telemetry.md)
 #### [在遠端監視解決方案中建立自訂規則](../iot-suite/iot-suite-v1-custom-rule.md)
@@ -43,8 +43,8 @@
 
 
 ## 預測性維護
-### [預測性維護解決方案加速器概觀](../iot-suite/iot-suite-predictive-overview.md)
-### [預測性維護解決方案加速器逐步解說](../iot-suite/iot-suite-predictive-walkthrough.md)
+### [預測性維護解決方案加速器概觀](iot-accelerators-predictive-overview.md)
+### [預測性維護解決方案加速器逐步解說](iot-accelerators-predictive-walkthrough.md)
 
 ## 連線的處理站
 ### [連線的處理站是什麼？](iot-accelerators-connected-factory-features.md)
@@ -70,7 +70,7 @@
 ### [自訂和重新部署微服務](iot-accelerators-microservices-example.md)
 ### [使用 CLI 進行部署](iot-accelerators-remote-monitoring-deploy-cli.md)
 ### [本機部署](iot-accelerators-remote-monitoring-deploy-local.md)
-### [使用時間序列深入解析將資料視覺化](../iot-suite/iot-suite-time-series-insights.md)
+### [使用時間序列深入解析將資料視覺化](iot-accelerators-time-series-insights.md)
 ### [與 Data Lake 整合](iot-accelerators-integrate-data-lake.md)
 ### 連線實體裝置
 #### [Windows 上的 C](iot-accelerators-connecting-devices.md)
@@ -78,7 +78,7 @@
 #### [Node.js (一般)](iot-accelerators-connecting-devices-node.md)
 #### [Raspberry Pi 上的 Node.js](iot-accelerators-connecting-pi-node.md)
 #### [Raspberry Pi 上的 C](iot-accelerators-connecting-pi-c.md)
-#### [MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
+#### [MX Chip AZ3166 DevKit](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### 概念
 #### [遠端監視實作詳細資料](iot-accelerators-remote-monitoring-sample-walkthrough.md)
@@ -89,19 +89,19 @@
 ### [自訂連線的處理站](iot-accelerators-connected-factory-customize.md)
 ### [針對連線的處理站使用 OPC 發行者](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [設定連線的處理站](iot-accelerators-connected-factory-configure.md)
-## [azureiotsuite.com 的權限](../iot-suite/iot-suite-permissions.md)
+## [azureiotsuite.com 的權限](iot-accelerators-permissions.md)
 
 # 參考
 ## [開發人員參考指南](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [開發人員疑難排解指南](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-## [安全性架構](../iot-suite/iot-security-architecture.md)
-## [安全性最佳做法](../iot-suite/iot-security-best-practices.md)
-## [保護您的 IoT 部署](../iot-suite/iot-suite-security-deployment.md)
-## [從頭建立安全性](../iot-suite/securing-iot-ground-up.md)
+## [安全性架構](iot-security-architecture.md)
+## [安全性最佳做法](iot-security-best-practices.md)
+## [保護您的 IoT 部署](iot-accelerators-security-deployment.md)
+## [從頭建立安全性](securing-iot-ground-up.md)
 
 # 相關參考
 ## 解決方案 
-### [IoT 套件預先設定解決方案](/azure/iot-suite) 
+### [IoT 解決方案加速器](/azure/iot-suite) 
 ### [IoT 中心](https://docs.microsoft.com/microsoft-iot-central/) 
 ## 平台服務 
 ### [IoT 中心](/azure/iot-hub) 

@@ -374,17 +374,17 @@
           href: create-azure-ssis-integration-runtime.md
     - name: 在 Azure 中執行 SSIS 套件
       items:
-        - name: 將 Azure SSIS 整合執行階段新增至 VNET
+        - name: 將 Azure-SSIS IR 加入 VNet
           href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: 啟用適用於 Azure-SSIS 整合執行階段的 Azure AD 驗證
+        - name: 啟用適用於 Azure-SSIS IR 的 Azure AD 驗證
           href: enable-aad-authentication-azure-ssis-ir.md
-        - name: 設定 Azure-SSIS 整合執行階段以獲得高效能
+        - name: 設定Azure-SSIS IR 以獲得高效能
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: 佈建 Azure-SSIS 整合執行階段的 Enterprise Edition
+        - name: 佈建適用於 Azure-SSIS IR 的 Enterprise Edition
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Azure-SSIS 整合執行階段自訂設定
+        - name: 適用於 Azure-SSIS IR 的自訂設定
           href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: 部署 Azure-SSIS 整合執行階段的授權元件
+        - name: 安裝適用於 Azure-SSIS IR 的授權元件
           href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: 使用 Execute SSIS Package 活動執行 SSIS 套件
           href: how-to-invoke-ssis-package-ssis-activity.md

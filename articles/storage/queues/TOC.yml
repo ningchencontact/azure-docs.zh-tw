@@ -24,6 +24,26 @@
           href: storage-ruby-how-to-use-queue-storage.md
         - name: PowerShell
           href: storage-powershell-how-to-use-queues.md
+- name: 概念
+  items:
+    - name: Authorization
+      href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      items:
+        - name: 使用 Azure AD 進行驗證
+          href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          items:
+            - name: 使用 RBAC 管理存取權限
+              href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: 從應用程式進行驗證
+              href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: 從受控服務識別進行驗證
+              href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: 使用搭配 CLI 或 PowerShell 的 Azure AD 身分識別
+              href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: 使用共用金鑰進行授權
+          href: /rest/api/storageservices/authenticate-with-shared-key
+        - name: 使用 SAS 進行授權
+          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: 作法
   items:
     - name: 規劃和設計
@@ -101,13 +121,13 @@
         - name: 計量與記錄
           items:
             - name: Azure 監視器中的計量
-              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: 移轉為新計量
-              href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: 儲存體分析
-              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: 啟用和檢視計量 (傳統)
-              href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: 範例
       href: 'https://azure.microsoft.com/documentation/samples/?service=storage&term=queue'
 - name: 參考
@@ -131,13 +151,13 @@
         - name: Resource Manager
           href: 'https://docs.microsoft.com/java/api/overview/azure/storage/managementapi'
     - name: Node.js
-      href: 'http://azure.github.io/azure-storage-node'
+      href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
     - name: Ruby
       href: 'http://azure.github.io/azure-storage-ruby'
     - name: PHP
       href: 'http://azure.github.io/azure-storage-php/'
     - name: Python
-      href: 'https://azure-storage.readthedocs.io/en/latest/index.html'
+      href: 'https://docs.microsoft.com/python/api/overview/azure/storage'
     - name: C++
       href: 'http://azure.github.io/azure-storage-cpp'
     - name: iOS
@@ -161,7 +181,7 @@
     - name: 論壇
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
     - name: 價格
-      href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
+      href: 'https://azure.microsoft.com/pricing/details/storage/queues/'
     - name: 定價計算機
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 服務更新

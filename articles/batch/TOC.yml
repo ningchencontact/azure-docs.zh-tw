@@ -73,6 +73,8 @@
           href: batch-custom-images.md
         - name: 在虛擬網路中建立集區
           href: batch-virtual-network.md
+        - name: 裝載 Azure 檔案共用
+          href: pool-file-shares.md
         - name: 使用計算密集的虛擬機器 VM
           href: batch-pool-compute-intensive-sizes.md
         - name: 使用 Linux 計算節點

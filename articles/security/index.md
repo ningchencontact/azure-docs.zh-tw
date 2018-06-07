@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
 ms.author: carolz
-ms.openlocfilehash: d05b90b5c961bcbdca4b3ac904e015623b05f1a6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4122afcc730c9c8b312373b77eaf4fd004b2248b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641147"
 ---
 # <a name="azure-security-documentation"></a>Azure 安全性文件
 
@@ -48,7 +49,7 @@ Azure 將資訊安全納入了各個層面。 Azure 提供獨特的資訊安全�
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">我正考慮在公司中使用 Azure。 請告訴我 Azure 提供哪些服務？</p>
+                            <p style="font-size: 1.12rem;">我正考慮在公司中使用 Azure。 Azure 提供哪些安全性？</p>
                         </div>
                     </div>
                 </div>
@@ -95,7 +96,7 @@ Azure 將資訊安全納入了各個層面。 Azure 提供獨特的資訊安全�
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-network-security-best-practices">
+        <a href="/azure/security/security-network-overview">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">

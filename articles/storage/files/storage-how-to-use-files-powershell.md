@@ -4,8 +4,8 @@ description: 了解如何使用 Azure PowerShell 管理 Azure 檔案共用。
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: jeconnoc
-editor: ''
+manager: aungoo
+editor: tamram
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: c796ac54eb21af18d21144a00b633c6b6efc28be
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4a7d39910fac6096ef17873a9f81c5e1d1508857
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34757134"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 檔案共用 
 [Azure 檔案](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows、Linux 和 macOS 中掛接。 本指南會逐步說明透過 PowerShell 來使用 Azure 檔案共用的基本概念。 在本文中，您將了解如何：
@@ -34,7 +35,7 @@ ms.lasthandoff: 04/19/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您想要在本機安裝和使用 PowerShell，則在執行本指南時，您必須使用 Azure PowerShell 模組 5.5.1 版或更新版本。 若要確認您所執行的 Azure PowerShell 模組版本，請執行 `Get-Module -ListAvailable AzureRM`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+如果想要在本機安裝和使用 PowerShell，則在執行本指南時，您必須使用 Azure PowerShell 模組 5.1.1 版或更新版本。 若要確認您所執行的 Azure PowerShell 模組版本，請執行 `Get-Module -ListAvailable AzureRM`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 如果您還沒有 Azure 資源群組，您可以使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) Cmdlet 新建一個。 
@@ -165,7 +166,7 @@ Start-AzureStorageFileCopy `
 Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
-雖然 `Start-AzureStorageFileCopy` Cmdlet 很方便用來進行 Azure 檔案共用與 Azure Blob 儲存體容器之間的臨機操作檔案移動，但我們建議較大型的移動 (就移動的檔案數目和大小而言) 應使用 AzCopy。 深入了解[適用於 Windows 的 AzCopy](../common/storage-use-azcopy.md) 和[適用於 Linux 的 AzCopy](../common/storage-use-azcopy-linux.md)。 AzCopy 必須安裝於本機 - 它不適用於 Cloud Shell 
+雖然 `Start-AzureStorageFileCopy` Cmdlet 很方便用來進行 Azure 檔案共用與 Azure Blob 儲存體容器之間的臨機操作檔案移動，但我們建議較大型的移動 (就移動的檔案數目和大小而言) 應使用 AzCopy。 深入了解[適用於 Windows 的 AzCopy](../common/storage-use-azcopy.md) 和[適用於 Linux 的 AzCopy](../common/storage-use-azcopy-linux.md)。 AzCopy 必須安裝於本機 - 它不適用於 Cloud Shell。 
 
 ## <a name="create-and-modify-share-snapshots"></a>建立及修改共用快照集
 可以使用 Azure 檔案共用來執行的另一項實用工作，是建立共用快照集。 快照集會保留 Azure 檔案共用的時間點。 共用快照集類似於您可能已經很熟悉的下列作業系統技術：

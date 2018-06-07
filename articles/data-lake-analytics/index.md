@@ -1,26 +1,24 @@
 ---
-title: "Azure Data Lake Analytics 文件 - 教學課程和 API 參考 | Microsoft Docs"
-description: "了解如何利用 Data Lake Analytics 進行巨量資料分析。 教學課程會示範如何執行批次、即時和互動式分析，以及如何撰寫 U-SQL 查詢。"
+title: Azure Data Lake Analytics 文件 - 教學課程和 API 參考
+description: 了解如何利用 Azure Data Lake Analytics 分析巨量資料。 教學課程會示範如何執行批次、即時和互動式分析，以及如何撰寫 U-SQL 查詢。
 services: data-lake-analytics
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.assetid: 
 ms.service: data-lake-analytics
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 0cad8acb88494755522e0772c77afcc4793d8e74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc7b85e5a5f6173572e390c1073971d927aa7df
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624211"
 ---
-# <a name="data-lake-analytics-documentation"></a>Data Lake Analytics 文件
+# <a name="azure-data-lake-analytics-documentation"></a>Azure Data Lake Analytics 文件
 
-了解如何使用 Data Lake Analytics 來執行擴充至大規模資料集的巨量資料分析作業。 教學課程和其他文件會示範如何建立及管理批次、即時和互動式分析作業，以及如何使用 U-SQL 語言進行查詢。
+了解如何使用 Azure Data Lake Analytics 來執行擴充至大規模資料集的巨量資料分析作業。 教學課程和其他文件會示範如何建立及管理批次、即時和互動式分析作業，以及如何使用 U-SQL 語言進行查詢。
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,7 +96,6 @@ ms.lasthandoff: 10/11/2017
         <td><a href="data-lake-analytics-manage-use-cli.md">Azure CLI</a></td>
         <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET SDK</a></td>
         <td><a href="data-lake-analytics-get-started-python.md">Python SDK</a></td>
-        <td><a href="data-lake-analytics-get-started-java-sdk.md">Java SDK</a></td>
     </tr>
 </table>
 

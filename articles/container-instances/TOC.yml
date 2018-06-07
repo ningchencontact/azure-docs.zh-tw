@@ -51,6 +51,8 @@
           href: container-instances-exec.md
         - name: 監視 CPU 和記憶體使用量
           href: container-instances-monitor.md
+        - name: 透過 Azure Log Analytics 記錄
+          href: container-instances-log-analytics.md
     - name: 執行工作負載
       items:
         - name: 執行容器化工作

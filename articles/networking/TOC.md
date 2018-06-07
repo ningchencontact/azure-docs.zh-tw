@@ -43,11 +43,9 @@
 ### [建立專用私人連線 (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## 管理
+### [網路監視概觀](network-monitoring-overview.md)
+### [檢查資源用量是否超出 Azure 限制](check-usage-against-limits.md)
 ### [檢視網路拓撲](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [管理封包擷取](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [決定路由的下一個躍點](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [確認 VM 的 IP 流量](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [網路監視概觀](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## 範例指令碼
 ### [Azure CLI](cli-samples.md)
