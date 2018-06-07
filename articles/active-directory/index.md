@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
 ms.author: carolz
-ms.openlocfilehash: dd74a0997e450c95ed93efdbb46f31e04735b888
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ac13d584c3312918e06139035da1f777c0030895
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594137"
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 文件
 
@@ -99,7 +100,7 @@ Azure Active Directory (Azure AD) 是多租用戶雲端式目錄和身分識別�
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">身分識別保護</a><br/>
                         <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">條件式存取</a><br/>
-                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure">具特殊權限身分識別管理</a>
+                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json">具特殊權限身分識別管理</a>
                         </p>
                     </div>
                 </div>

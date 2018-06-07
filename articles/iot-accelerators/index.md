@@ -1,19 +1,19 @@
 ---
 title: Azure IoT 解決方案加速器文件 - 教學課程和 API 參考 | Microsoft Docs
 description: Azure IoT 解決方案加速器文件，包括使用者入門手冊、作法文章、教學課程以及 API 參考。
-services: iot-suite
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.service: iot-suite
+author: dominicbetts
+manager: timlt
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: landing-page
 ms.date: 11/27/2017
-ms.author: carolz
-ms.openlocfilehash: cacc09cf926c5af9a770e42967a5e6cbbb46bfd7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: dobett
+ms.openlocfilehash: 3e9fe2b67980e83f57732c10da99738a15a5219e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626967"
 ---
 # <a name="iot-solution-accelerators-documentation"></a>IoT 解決方案加速器文件
 
@@ -30,10 +30,10 @@ ms.lasthandoff: 05/17/2018
                         <ul>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators">解決方案加速器概觀</a></li>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy">部署解決方案加速器</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-explore">現成解決方案功能</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-monitor">監視功能</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-explore">現成解決方案功能</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">監視功能</a></li>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">規則管理功能</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-manage">裝置管理功能</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">裝置管理功能</a></li>
                         </ul>
                     </div>
                 </div>
@@ -53,9 +53,9 @@ ms.lasthandoff: 05/17/2018
                     <div class="cardText">
                         <p>了解如何將您的裝置連線到解決方案加速器</p>
                         <ul>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-schema">裝置模型概觀</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-behavior">自訂您的模擬裝置</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-connecting-devices-node">連線實體裝置</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-schema">裝置模型概觀</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior">自訂您的模擬裝置</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-connecting-devices-node">連線實體裝置</a></li>
                         </ul>
                     </div>
                 </div>
@@ -95,10 +95,10 @@ ms.lasthandoff: 05/17/2018
                 <div class="card">
                     <div class="cardText">
                         <h3>資源</h3>
-                        <p><a href="/azure/iot-suite/iot-security-architecture">安全性架構</a></p>
-                        <p><a href="/azure/iot-suite/iot-security-best-practices">安全性最佳做法</a></p>
-                        <p><a href="/azure/iot-suite/iot-suite-security-deployment">保護您的 IoT 部署</a></p>
-                        <p><a href="/azure/iot-suite/securing-iot-ground-up">從頭建立安全性</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-architecture">安全性架構</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-best-practices">安全性最佳做法</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-accelerators-security-deployment">保護您的 IoT 部署</a></p>
+                        <p><a href="/azure/iot-accelerators/securing-iot-ground-up">從頭建立安全性</a></p>
                    </div>
                 </div>
             </div>

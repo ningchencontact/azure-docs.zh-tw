@@ -4,7 +4,7 @@
 ## [什麼是 Resource Manager？](resource-group-overview.md)
 ## [資源提供者和類型](resource-manager-supported-services.md)
 ## [Resource Manager 與傳統部署](resource-manager-deployment-model.md)
-## [訂用帳戶治理](resource-manager-subscription-governance.md)
+## [訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [利用管理群組組織資源](management-groups-overview.md)
 
 # 開始使用
@@ -50,7 +50,6 @@
 ### [以程式設計方式建立 EA 訂用帳戶](programmatically-create-subscription.md)
 ### [建立管理群組](management-groups-create.md)
 ### [管理您的管理群組](management-groups-manage.md)
-### [治理範例](resource-manager-subscription-examples.md)
 
 ## 控制存取權
 ### 建立服務主體
