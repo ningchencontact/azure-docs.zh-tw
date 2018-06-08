@@ -21,6 +21,8 @@
       href: custom-event-quickstart-portal.md
     - name: 將事件傳送至佇列儲存體
       href: custom-event-to-queue-storage.md
+    - name: 將事件傳送至事件中樞
+      href: custom-event-to-eventhub.md
 - name: 教學課程
   items:
     - name: 當虛擬機器變更時傳送電子郵件
