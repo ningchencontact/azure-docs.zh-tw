@@ -113,6 +113,8 @@
       href: ../azure-supportability/how-to-create-azure-support-request.md
 - name: 參考
   items:
+    - name: 計費自動化案例
+      href: billing-cost-management-automation-scenarios.md
     - name: Azure 計費 API 概觀
       href: billing-usage-rate-card-overview.md
       items:
@@ -120,7 +122,8 @@
           href: 'https://docs.microsoft.com/rest/api/billing'
         - name: 合作夥伴解決方案 - Cloud Cruiser
           href: billing-usage-rate-card-partner-solution-cloudcruiser.md
-    - name: Azure 使用量 API
+    - name: Azure 使用量 API 概觀
+      href: billing-consumption-api-overview.md
       items:
         - name: Azure 使用量 REST API
           href: 'https://docs.microsoft.com/rest/api/consumption'

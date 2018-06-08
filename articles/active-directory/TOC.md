@@ -1,3 +1,5 @@
+# [Azure Active Directory 文件](index.md)
+
 # 概觀
 ## [什麼是 Azure Active Directory？](active-directory-whatis.md)
 ## [關於 Azure 身分識別管理](identity-fundamentals.md)
@@ -46,6 +48,7 @@
 ### [管理使用者設定檔](active-directory-users-profile-azure-portal.md)
 ### [共用帳戶](active-directory-sharing-accounts.md)
 ### [將使用者指派為管理員角色](active-directory-users-assign-role-azure-portal.md)
+### [還原已刪除的使用者](active-directory-users-restore.md)
 ### [從另一個目錄 (B2B) 中新增來賓使用者](b2b/what-is-b2b.md)
 #### [管理員新增 B2B 使用者](b2b/add-users-administrator.md)
 #### [資訊背景工作新增 B2B 使用者](b2b/add-users-information-worker.md)
@@ -80,7 +83,8 @@
 ## [管理群組和成員](active-directory-manage-groups.md)
 ### 管理群組
 #### [Azure 入口網站](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [管理群組成員](active-directory-groups-members-azure-portal.md)
 ### [管理群組擁有者](active-directory-accessmanagement-managing-group-owners.md)
 ### [管理群組成員資格](active-directory-groups-membership-azure-portal.md)
@@ -88,16 +92,16 @@
 #### [將授權指派給群組](active-directory-licensing-group-assignment-azure-portal.md)
 #### [識別並解決群組的授權問題](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [將個別授權使用者移轉至群組型的授權](active-directory-licensing-group-migration-azure-portal.md)
+#### [在產品授權間移轉使用者](active-directory-licensing-group-product-migration.md)
 #### [群組型授權的其他案例](active-directory-licensing-group-advanced.md)
 #### [群組型授權的 Azure PowerShell 範例](active-directory-licensing-ps-examples.md)
 #### [Azure AD 中的產品與服務方案的參考](active-directory-licensing-product-and-service-plan-reference.md)
 ### [設定 Office 365 群組到期時間](active-directory-groups-lifecycle-azure-portal.md)
+### [為群組強制執行命名原則](groups-naming-policy.md)
 ### [檢視全部群組](active-directory-groups-view-azure-portal.md)
 ### [新增 SaaS 應用程式的群組存取權](active-directory-accessmanagement-group-saasapps.md)
 ### [還原已刪除的 Office 365 群組](active-directory-groups-restore-azure-portal.md)
-### 管理群組設定
-#### [Azure 入口網站](active-directory-groups-settings-azure-portal.md)
-#### [Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### [管理群組設定](active-directory-groups-settings-azure-portal.md) 
 ### 建立進階規則
 #### [Azure 入口網站](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [設定自助式群組](active-directory-accessmanagement-self-service-group-management.md)
@@ -114,13 +118,17 @@
 #### [設定具名位置](active-directory-named-locations.md)
 #### [尋找活動報告](active-directory-reporting-migration.md)
 #### [使用 Azure Active Directory Power BI 內容套件](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [修復標幟為有風險的使用者](active-directory-report-security-user-at-risk-remediation.md)
 ### 參考
 #### [保留](active-directory-reporting-retention.md)
 #### [延遲](active-directory-reporting-latencies-azure-portal.md)
 #### [通知](active-directory-reporting-notifications.md)
 #### [稽核活動參考](active-directory-reporting-activity-audit-reference.md)
 #### [登入活動的錯誤代碼](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
+#### [多重要素驗證](active-directory-reporting-activity-sign-ins-mfa.md
+
+
+
 ### 疑難排解
 #### [缺少稽核資料](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [下載中缺少的資料](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -178,6 +186,14 @@
 #### [設定連續報告](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [使用自訂記錄剖析器](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
+### [SaaS 應用程式使用者佈建和解除佈建](active-directory-saas-app-provisioning.md) 
+#### [應用程式整合教學課程](active-directory-saas-tutorial-list.md) 
+#### [啟用 SCIM 應用程式的自動化佈建](active-directory-scim-provisioning.md) 
+#### [自訂屬性對應](active-directory-saas-customizing-attribute-mappings.md) 
+#### [撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md) 
+#### [使用範圍篩選器](active-directory-saas-scoping-filters.md) 
+#### [關於使用者自動佈建的報告](active-directory-saas-provisioning-reporting.md) 
+#### [針對使用者佈建進行疑難排解](active-directory-application-provisioning-content-map.md) 
 
 ### [透過 App Proxy 遠端存取應用程式](manage-apps/application-proxy.md)
 #### 開始使用
@@ -214,7 +230,7 @@
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
 ##### [Qlik](active-directory-application-proxy-qlik.md)
-
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) 
 
 #### [疑難排解](active-directory-application-proxy-troubleshoot.md)
 
@@ -227,9 +243,9 @@
 #### [管理使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
 #### [管理企業應用程式的單一登入](active-directory-enterprise-apps-manage-sso.md)
 #### [適用於 SAML 應用程式的進階憑證](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [隱藏使用者的第三方應用程式經驗](active-directory-coreapps-hide-third-party-app.md)
+#### [將應用程式排除在使用者體驗之外](active-directory-coreapps-hide-third-party-app.md)
 ### [使用 HRD 原則設定登入時自動加速](active-directory-auto-acceleration-using-hrd.md)
-
+### [將 AD FS 應用程式移轉至 Azure AD](migrate-adfs-apps-to-azure.md) 
 ### [管理應用程式的存取權](active-directory-managing-access-to-apps.md)
 #### [SSO 存取](manage-apps/what-is-single-sign-on.md)
 #### [SSO 憑證](active-directory-sso-certs.md)
@@ -244,6 +260,15 @@
 ##### [組態](active-directory-application-config-content-map.md)
 ##### [登入](active-directory-application-sign-in-content-map.md)
 ##### [佈建](active-directory-application-provisioning-content-map.md)
+
+###### [驗證是否已佈建使用者](application-provisioning-when-will-provisioning-finish-specific-user.md) 
+###### [佈建費時過長](application-provisioning-when-will-provisioning-finish.md) 
+###### [如何設定使用者佈建](application-provisioning-config-how-to.md) 
+###### [設定佈建的問題](application-provisioning-config-problem.md) 
+###### [儲存管理員認證的問題](application-provisioning-config-problem-storage-limit.md) 
+###### [未佈建使用者](application-provisioning-config-problem-no-users-provisioned.md) 
+###### [使用者佈建錯誤](application-provisioning-config-problem-wrong-users-provisioned.md) 
+
 ##### [管理存取](active-directory-application-access-content-map.md)
 ##### [存取面板](active-directory-application-access-panel-content-map.md)
 ##### [應用程式 Proxy](active-directory-application-proxy-content-map.md)
@@ -274,11 +299,15 @@
 
 ## 委派資源存取
 ### [管理員角色](active-directory-assign-admin-roles-azure-portal.md)
-#### [指派管理員角色](active-directory-users-assign-role-azure-portal.md)
+#### [將管理員角色指派給使用者](active-directory-users-assign-role-azure-portal.md) 
+#### [比較成員和來賓使用者的權限](users-default-permissions.md) 
+### [保護特殊權限存取](admin-roles-best-practices.md)  
+### [建立緊急存取管理帳戶](active-directory-admin-manage-emergency-access-accounts.md) 
+
+
 #### [預設使用者權限](users-default-permissions.md)
 ### [管理單位](active-directory-administrative-units-management.md)
 ### [設定權杖存留期](active-directory-configurable-token-lifetimes.md)
-### [管理緊急存取管理帳戶](active-directory-admin-manage-emergency-access-accounts.md)
 ### [保護特殊權限角色](admin-roles-best-practices.md)
 
 ## 存取權檢閱
@@ -315,9 +344,7 @@
 #### [技術參考](active-directory-conditional-access-technical-reference.md)
 #### [常見問題集](active-directory-conditional-faqs.md)
 
-### Windows Hello
-#### [無需密碼驗證](active-directory-azureadjoin-passport.md)
-#### [啟用 Windows Hello 企業版](active-directory-azureadjoin-passport-deployment.md)
+
 ### 憑證式驗證
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
@@ -336,8 +363,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
-## [將其他服務與 Azure AD 整合]()
-### [啟用 LinkedIn 整合](linkedin-integration.md)
+## 將其他服務與 Azure AD 整合 
+### [將 linkedIn 與 Azure AD 整合](linkedin-integration.md)
 
 ## [在 Azure 中部署 AD FS](active-directory-aadconnect-azure-adfs.md)
 ### [高可用性](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
