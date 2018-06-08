@@ -4,20 +4,22 @@
   items:
     - name: 關於受控服務識別
       href: overview.md
-    - name: 快速入門
+- name: 快速入門
+  items:
+    - name: 使用 VM MSI 存取 Azure Resource Manager
       items:
-        - name: 使用 VM MSI 存取 Azure Resource Manager
-          items:
-            - name: Windows VM
-              href: tutorial-windows-vm-access-arm.md
-            - name: Linux VM
-              href: tutorial-linux-vm-access-arm.md
+        - name: Windows VM
+          href: tutorial-windows-vm-access-arm.md
+        - name: Linux VM
+          href: tutorial-linux-vm-access-arm.md
 - name: 教學課程
   items:
     - name: Windows VM/VMSS
       items:
         - name: 存取 Azure Data Lake Store
           href: tutorial-windows-vm-access-datalake.md
+        - name: 存取 Azure 儲存體
+          href: tutorial-vm-windows-access-storage.md
         - name: 使用存取金鑰存取 Azure 儲存體
           href: tutorial-windows-vm-access-storage.md
         - name: 使用 SAS 存取 Azure 儲存體
@@ -34,6 +36,8 @@
       items:
         - name: 存取 Azure Data Lake Store
           href: tutorial-linux-vm-access-datalake.md
+        - name: 存取 Azure 儲存體
+          href: tutorial-linux-vm-access-storage.md
         - name: 使用存取金鑰存取 Azure 儲存體
           href: tutorial-linux-vm-access-storage-access-key.md
         - name: 使用 SAS 存取 Azure 儲存體
@@ -116,3 +120,7 @@
       href: known-issues.md
     - name: 支援受控身分識別的 Azure 服務
       href: services-support-msi.md
+    - name: 堆疊溢位
+      href: 'http://stackoverflow.com/questions/tagged/azure-msi'
+    - name: AAD 開發人員論壇
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences'

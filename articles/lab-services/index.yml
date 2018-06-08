@@ -13,11 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/06/2018
   ms.author: spelluru
-  ms.openlocfilehash: f06102399cac6ef1b6b31155dff32999a923e173
-  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.openlocfilehash: 1b37824b113fd9b1aaf225c5cb24b2dd27f1b47f
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 05/07/2018
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34636693"
 abstract:
   description: 了解如何使用 Azure 實驗室服務為雲端中的小組或學生，快速地設定開發、測試、Hackathon 或教室實驗室。 Azure 教學課程、範例等會示範如何建立、管理及保護實驗室。
 sections:
@@ -28,16 +29,16 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/lab-services/tutorial-setup-lab-account">設定實驗室帳戶</a>
-    - html: <a href="/azure/lab-services/tutorial-setup-classroom-lab">設定教室實驗室</a>
-    - html: <a href="/azure/lab-services/tutorial-connect-virtual-machine-classroom-lab">存取教室實驗室</a>
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-setup-lab-account">設定實驗室帳戶</a>
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab">設定教室實驗室</a>
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-connect-virtual-machine-classroom-lab">存取教室實驗室</a>
   - type: paragraph
-    text: 了解如何透過使用 Azure 實驗室服務來建立和使用<b>自訂實驗室</b>。
+    text: 了解如何透過使用Azure DevTest Labs 來使用<b>實驗室</b>。
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/lab-services/tutorial-create-custom-lab">設定自訂實驗室</a>
-    - html: <a href="/azure/lab-services/tutorial-use-custom-lab">存取自訂實驗室</a>
+    - html: <a href="/azure/lab-services/tutorial-create-custom-lab">設定實驗室</a>
+    - html: <a href="/azure/lab-services/tutorial-use-custom-lab">存取實驗室</a>
 - title: 範例
   items:
   - type: paragraph

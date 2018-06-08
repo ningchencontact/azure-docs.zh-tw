@@ -50,3 +50,9 @@
       href: blockchain-workbench-messages-overview.md
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
+    - name: 解決方案範本
+      items:
+        - name: 以太坊工作量證明聯盟
+          href: ethereum-deployment-guide.md
+        - name: Hyperledger Fabric 聯盟
+          href: hyperledger-fabric-single-member-blockchain.md

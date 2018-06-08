@@ -75,6 +75,8 @@
           href: concepts-firewall-rules.md
         - name: 設定 SSL
           href: concepts-ssl-connection-security.md
+        - name: VNet
+          href: concepts-data-access-and-security-vnet.md
     - name: 業務持續性
       items:
         - name: 概觀
@@ -89,6 +91,10 @@
           href: concepts-compatibility.md
         - name: XBOX Video Application Development
           href: concepts-database-application-development.md
+    - name: 複寫
+      items:
+        - name: 複寫中的資料
+          href: concepts-data-in-replication.md
 - name: 使用說明指南
   items:
     - name: 管理伺服器
@@ -141,18 +147,30 @@
       items:
         - name: 建立計量警示
           href: howto-alert-on-metric.md
+    - name: 複寫
+      items:
+        - name: 設定複寫中的資料
+          href: howto-data-in-replication.md
     - name: 疑難排解
       items:
         - name: 針對查詢效能進行疑難排解
           href: howto-troubleshoot-query-performance.md
         - name: 如何使用 sys 結構描述中的檢視
           href: howto-troubleshoot-sys-schema.md
+    - name: 虛擬網路
+      items:
+        - name: Azure 入口網站
+          href: howto-manage-vnet-using-portal.md
+        - name: Azure CLI
+          href: howto-manage-vnet-using-cli.md
 - name: 參考
   items:
     - name: Azure CLI
       href: /cli/azure/mysql
     - name: REST API
       href: /rest/api/mysql
+    - name: 複寫中的資料預存程序
+      href: reference-data-in-stored-procedures.md
 - name: 資源
   items:
     - name: 部署範本

@@ -47,6 +47,8 @@
               href: logic-apps-control-flow-loops.md
             - name: 範圍
               href: logic-apps-control-flow-run-steps-group-scopes.md
+        - name: 建立用來儲存值的變數
+          href: logic-apps-create-variables-store-values.md
         - name: 使用 Azure Functions 新增自訂程式碼
           href: logic-apps-azure-functions.md
         - name: 使用 Azure Functions 呼叫邏輯應用程式

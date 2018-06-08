@@ -101,6 +101,14 @@
               href: hyper-v-vmm-secondary-support-matrix.md
             - name: Hyper-V 至次要網站架構
               href: hyper-v-vmm-architecture.md
+    - name: 網路
+      items:
+        - name: 使用 Site Recovery 的 Azure 流量管理員
+          href: concepts-traffic-manager-with-site-recovery.md
+        - name: 使用 Site Recovery 的 ExpressRoute
+          href: concepts-expressroute-with-site-recovery.md
+        - name: 使用 Site Recovery 的網路安全性群組
+          href: concepts-network-security-group-with-site-recovery.md
     - name: 應用程式災害復原
       href: site-recovery-workload.md
     - name: 關於復原方案
@@ -109,10 +117,6 @@
       href: migrate-overview.md
     - name: 關於站台復原的角色型存取控制
       href: site-recovery-role-based-linked-access-control.md
-    - name: 關於站台復原的 Azure 流量管理員
-      href: concepts-traffic-manager-with-site-recovery.md
-    - name: 關於使用 Site Recovery 的 ExpressRoute
-      href: concepts-expressroute-with-site-recovery.md
     - name: 常見問題集
       href: site-recovery-faq.md
 - name: 使用說明指南

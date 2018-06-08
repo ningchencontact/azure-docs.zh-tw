@@ -64,6 +64,8 @@
               href: deploy-with-resource-manager-template.md
             - name: 在另一個區域中建立
               href: multi-geo.md
+            - name: 檢視和刪除 Studio 帳戶資料
+              href: export-delete-personal-data-dsr.md
     - name: 獲得並瞭解資料
       items:
         - name: 匯入訓練資料
@@ -216,6 +218,8 @@
           href: gallery-collections.md
         - name: 自訂模組
           href: gallery-custom-modules.md
+        - name: 檢視和刪除帳戶資料
+          href: ai-gallery-control-personal-data-dsr.md
 - name: 資源
   items:
     - name: Azure 藍圖

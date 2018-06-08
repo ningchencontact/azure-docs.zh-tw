@@ -11,21 +11,22 @@ metadata:
   ms.service: stream-analytics
   ms.topic: landing-page
   ms.date: 04/25/2018
-  ms.openlocfilehash: aad76cc87130e66908779c07b03d5db326f726ea
-  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+  ms.openlocfilehash: 67ed04486ef6ddd94d6783188f9b94c723506a7a
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 04/28/2018
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34652809"
 abstract:
   description: 了解如何利用串流分析 (完全受控的事件處理引擎)，在雲端執行物聯網 (IoT) 分析。 教學課程和其他文件會示範如何即時分析來自應用程式、感應器、裝置、社交媒體等的資料。
   aside:
     image:
       alt: 
       height: 110
-      src: https://sec.ch9.ms/sessions/connect/T157.png
+      src: ./media/index/streaming-analytics-thumbnail.png
       width: 250
-    title: 使用 Azure 串流分析對 IoT Edge 進行即時分析。 (8:51)
-    href: https://azure.microsoft.com/en-us/resources/videos/connect-2017-real-time-analytics-on-iot-edge-with-azure-stream-analytics/
+    title: Microsoft Azure 上的串流分析。 (8:48)
+    href: https://channel9.msdn.com/Events/Connect/2016/161
     width: 250
 sections:
 - title: 5 分鐘快速入門

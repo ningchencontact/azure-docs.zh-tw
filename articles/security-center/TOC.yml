@@ -109,6 +109,8 @@
           href: security-center-just-in-time.md
         - name: 自適性應用程式控制
           href: security-center-adaptive-application.md
+        - name: 檔案完整性監視
+          href: security-center-file-integrity-monitoring.md
     - name: 管理安全性解決方案
       href: security-center-partner-integration.md
       items:
@@ -145,6 +147,8 @@
           href: security-center-threat-intel.md
         - name: 調查
           href: security-center-investigation.md
+        - name: 管理調查使用者資料
+          href: security-center-investigation-user-data.md
     - name: 將安全性工作流程自動化
       items:
         - name: Logic Apps 手冊
@@ -169,6 +173,8 @@
       href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
 - name: 資源
   items:
+    - name: 管理使用者資料
+      href: security-center-privacy.md
     - name: 常見問題集
       href: security-center-faq.md
     - name: 支援的平台

@@ -32,7 +32,7 @@
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
 - name: 專案規劃
   href: team-data-science-process-project-templates.md
-- name: 專案執行
+- name: 開發
   items:
     - name: 敏捷式開發
       href: agile-development.md
@@ -40,9 +40,15 @@
       href: collaborative-coding-with-git.md
     - name: 執行資料科學工作
       href: execute-data-science-tasks.md
+    - name: 測試程式碼
+      href: code-test.md
     - name: 追蹤進度
       href: track-progress.md
-- name: 範例
+- name: 運算化
+  items:
+    - name: DevOps - CI/CD
+      href: ci-cd-flask.md
+- name: 實用範例
   href: walkthroughs.md
   items:
     - name: Azure Machine Learning
@@ -76,6 +82,10 @@
       href: walkthroughs-sql-server.md
     - name: T-SQL 和 Python 與 SQL DW
       href: walkthroughs-sql-data-warehouse.md
+- name: 公用事業和工具
+  items:
+    - name: 資料瀏覽和模型化公用程式 (GitHub)
+      href: 'https://github.com/Azure/Azure-TDSP-Utilities'
 - name: 訓練
   items:
     - name: 適用於資料科學家
@@ -227,6 +237,8 @@
       href: deploy-models-in-production.md
 - name: 相關參考
   items:
+    - name: Azure Machine Learning - AML
+      href: 'https://docs.microsoft.com/en-us/azure/machine-learning/service/'
     - name: Microsoft 辨識工具組 - CNTK
       href: 'https://docs.microsoft.com/cognitive-toolkit/'
       maintainContext: true
@@ -264,20 +276,16 @@
                   href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: 資源
   items:
-    - name: TSDP 工具和公用程式
-      items:
-        - name: 從 GitHub 下載
-          href: 'https://github.com/Azure/Azure-TDSP-Utilities'
-        - name: 適用於 TSDP 的資料科學公用程式 v.0.11
-          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/01/11/announcing-data-science-utilities-version-0-11-for-the-team-data-science-process/'
-        - name: 適用於 TSDP 的最新公用程式
-          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/'
     - name: 部落格
       items:
         - name: 最近的 TDSP 更新
           href: 'https://blogs.technet.microsoft.com/machinelearning/2017/10/09/the-microsoft-team-data-science-process-tdsp-recent-updates/'
         - name: 在 Azure Machine Learning 中使用 TDSP
           href: 'https://blogs.technet.microsoft.com/machinelearning/2017/09/25/using-the-team-data-science-process-tdsp-in-azure-machine-learning/'
+        - name: 適用於 TSDP 的資料科學公用程式 v.0.11
+          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/01/11/announcing-data-science-utilities-version-0-11-for-the-team-data-science-process/'
+        - name: 適用於 TSDP 的最新公用程式
+          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/'
         - name: 資料科學專案規劃範本
           href: 'https://blogs.msdn.microsoft.com/buckwoody/2017/10/24/a-data-science-microsoft-project-template-you-can-use-in-your-solutions/'
         - name: Cortana Intelligence 和 Machine Learning 部落格

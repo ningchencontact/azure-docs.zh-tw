@@ -1,5 +1,7 @@
 - name: Data Factory V1 文件
   href: null
+- name: 切換至目前版本的文件
+  href: ../index.yml
 - name: 概觀
   items:
     - name: Azure Data Factory 簡介

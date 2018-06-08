@@ -10,6 +10,8 @@
       href: cache-web-app-howto.md
     - name: 建立 .NET 應用程式
       href: cache-dotnet-how-to-use-azure-redis-cache.md
+    - name: 建立 .NET Core 應用程式
+      href: cache-dotnet-core-quickstart.md
     - name: 建立 Node.js 應用程式
       href: cache-nodejs-get-started.md
     - name: 建立 Java 應用程式
@@ -48,6 +50,8 @@
           href: cache-how-to-premium-vnet.md
         - name: 利用叢集來散發您的快取
           href: cache-how-to-premium-clustering.md
+        - name: 從受控快取服務遷移
+          href: cache-migrate-to-redis.md
     - name: 自動化
       items:
         - name: 使用 Azure Powershell 進行部署和管理
