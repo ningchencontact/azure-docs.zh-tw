@@ -7,14 +7,6 @@
       href: asdk-what-is.md
     - name: ASDK 版本資訊
       href: asdk-release-notes.md
-- name: 教學課程
-  items:
-    - name: 訂閱優惠
-      href: asdk-subscribe-services.md
-    - name: 更新優惠和方案
-      href: asdk-update-offers.md
-    - name: 從範本建立虛擬機器
-      href: asdk-create-vm-template.md
 - name: 概念
   items:
     - name: 部署規劃考量

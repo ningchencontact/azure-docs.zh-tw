@@ -17,6 +17,10 @@
           href: stream-files-tutorial-with-api.md
         - name: 透過 REST
           href: stream-files-tutorial-with-rest.md
+    - name: 即時串流
+      items:
+        - name: 透過 .NET Core
+          href: stream-live-tutorial-with-api.md
     - name: 分析您的影片
       items:
         - name: 透過 .NET
@@ -37,6 +41,8 @@
           href: encoding-concept.md
         - name: Autogen 彈性位元速率階梯
           href: autogen-bitrate-ladder.md
+    - name: 即時串流
+      href: live-streaming-overview.md
     - name: 媒體智慧
       href: intelligence-concept.md
     - name: 回應事件

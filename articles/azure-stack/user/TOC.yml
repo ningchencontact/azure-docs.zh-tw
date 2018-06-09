@@ -27,6 +27,10 @@
       href: azure-stack-solution-hybrid-identity.md
     - name: 設定混合式雲端連線
       href: azure-stack-solution-hybrid-connectivity.md
+    - name: 訂閱優惠
+      href: azure-stack-subscribe-services.md
+    - name: 從範本建立虛擬機器
+      href: azure-stack-create-vm-template.md
 - name: 使用說明指南
   items:
     - name: 使用 Azure Stack 入口網站

@@ -199,6 +199,8 @@
               href: azure-stack-plan-offer-quota-overview.md
             - name: 建立方案
               href: azure-stack-create-plan.md
+            - name: 建立附加方案
+              href: create-add-on-plan.md
             - name: 建立優惠
               href: azure-stack-create-offer.md
             - name: 訂閱優惠
