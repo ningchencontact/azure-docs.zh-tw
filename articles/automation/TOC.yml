@@ -29,6 +29,8 @@
   items:
     - name: 登入
       items:
+        - name: 從入口網站將多個 VM 上架
+          href: automation-onboard-solutions-from-browse.md
         - name: 從 Azure 虛擬機器上線
           href: automation-onboard-solutions-from-vm.md
         - name: 從自動化帳戶上線
