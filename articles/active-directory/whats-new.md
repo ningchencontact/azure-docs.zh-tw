@@ -10,19 +10,20 @@ featureFlags:
 - clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/25/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b7ad535976508cb195991c374995b0a0b6e45e10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d0554aacf3f81231d9a09f1b20115fcf268f29af
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159863"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34713961"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -40,6 +41,286 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 -   方案變更
 
 此頁面會每月更新，因此請定期瀏覽。
+
+
+## <a name="may-2018"></a>2018 年 5 月
+ 
+
+
+### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>Microsoft Graph API 適用於 TOU 的系統管理案例
+
+**類型：** 新功能  
+**服務類別：** 使用規定  
+**產品功能：** 開發人員體驗
+ 
+
+ 我們已新增 Microsoft Graph API 的 Azure AD 使用規定系統管理作業。 您可以建立、更新、刪除使用規定物件。
+
+---
+ 
+
+
+### <a name="add-azure-ad-multi-tenant-endpoint-as-an-identity-provider-in-azure-ad-b2c"></a>新增 Azure AD 多租用戶端點作為 Azure AD B2C 中的識別提供者
+
+**類型：** 新功能  
+**服務類別：** B2C - 取用者身分識別管理  
+**產品功能：** B2B/B2C
+ 
+
+您現在可以使用自訂原則，新增 Azure AD 通用端點作為 Azure AD B2C 中的識別提供者。 這使您能夠為登入您應用程式的所有 Azure AD 使用者提供單一進入點。 如需詳細資訊，請參閱 [Azure Active Directory B2C：允許使用者使用自訂原則登入多租用戶 Azure AD 識別提供者](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom)。
+
+ 
+
+---
+
+
+### <a name="use-internal-urls-to-access-apps-from-anywhere-with-our-my-apps-sign-in-extension-and-the-azure-ad-application-proxy"></a>使用內部 URL，透過我們的 My Apps 登入延伸模組與 Azure AD 應用程式 Proxy 從任何地方存取應用程式
+
+**類型：** 新功能  
+**服務類別：** 我的應用程式  
+**產品功能：** SSO
+ 
+
+使用者現在即使在公司網路外，也能使用適用於 Azure AD 的 My Apps Secure Sign-in 延伸模組，透過內部 URL 存取應用程式。 這適用於您使用 Azure AD 應用程式 Proxy 發行的所有應用程式，以及亦安裝存取面板瀏覽器延伸模組的所有瀏覽器。 URL 重新導向功能會在使用者登入延伸模組後自動啟用。 該延伸模組可在 [Edge](https://go.microsoft.com/fwlink/?linkid=845176)、[Chrome](https://go.microsoft.com/fwlink/?linkid=866367) 及 [Firefox](https://go.microsoft.com/fwlink/?linkid=866366) 上下載。
+ 
+
+---
+ 
+
+
+### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>透過登入活動記錄來檢視舊版驗證
+
+**類型：** 新功能  
+**服務類別：** 報告  
+**產品功能：** 監視和報告
+ 
+
+隨著登入活動記錄中稱為 **Client App** 欄位的導入，客戶現在可看見使用舊版驗證的使用者。 客戶可使用登入 MS Graph API 來存取此資訊，或透過 Azure AD 入口網站中的登入活動記錄使用 **Client App** 控制項來篩選舊版驗證。 如需更多詳細資料，請查看文件。
+ 
+
+---
+ 
+
+### <a name="azure-active-directory---data-in-europe-for-europe-customers"></a>Azure Active Directory - 歐洲客戶在歐洲中的資料
+
+**類型：** 新功能  
+**服務類別：** 其他  
+**產品功能：** GoLocal
+ 
+
+歐洲客戶必須將其資料保留在歐洲，而不得於歐洲資料中心外部複寫，以求符合隱私權與歐洲法律。 [本文](https://go.microsoft.com/fwlink/?linkid=872328)提供了特定詳細資料，說明有哪些身分識別資訊會儲存在歐洲，並提供會儲存在歐洲資料中心外之資訊的詳細資料。 
+
+ 
+
+---
+ 
+
+### <a name="new-user-provisioning-saas-app-integrations---may-2018"></a>新的使用者佈建 SaaS 應用程式整合 - 2018 年 5 月
+
+**類型：** 新功能  
+**服務類別：** 應用程式佈建  
+**產品功能：** 協力廠商整合
+ 
+
+Azure AD 可讓您自動化在 SaaS 應用程式 (例如 Dropbox、Salesforce、ServiceNow 等等) 中建立、維護和移除使用者身分識別的作業。 我們在 2018 年 5 月，於 Azure AD 應用程式庫為以下應用程式新增了使用者佈建支援：
+
+- [BlueJeans](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-bluejeans-provisioning-tutorial)
+
+- [Cornerstone OnDemand](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial)
+
+- [Zendesk](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-zendesk-provisioning-tutorial)
+
+如需 Azure AD 資源庫中支援使用者佈建的所有應用程式清單，請參閱 [https://aka.ms/appstutorial](https://aka.ms/appstutorial)。
+
+ 
+
+---
+ 
+
+### <a name="azure-ad-access-reviews-of-groups-and-app-access-now-provides-recurring-reviews"></a>群組和應用程式存取的 Azure AD 存取權檢閱現在提供定期檢閱
+
+**類型：** 新功能  
+**服務類別：** 存取權檢閱  
+**產品功能：** 治理
+ 
+
+Azure AD Premium P2 中現已正式提供群組和應用程式的存取權檢閱功能。  系統管理員能夠設定群組成員資格的存取權檢閱以及應用程式指派，使其在固定時間間隔重複發生，例如每月或每季。
+ 
+
+---
+ 
+
+### <a name="azure-ad-activity-logs-sign-ins-and-audit-are-now-available-through-ms-graph"></a>Azure AD 活動記錄 (登入與稽核) 現可透過 MS Graph 使用
+
+**類型：** 新功能  
+**服務類別：** 報告  
+**產品功能：** 監視和報告
+ 
+
+包含登入與稽核記錄的 Azure AD 活動記錄現已可透過 MS Graph 使用。 我們已公開 2 個可透過 MS Graph 來存取這些記錄的端點。 請查看我們的[文件](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)，了解如何開始以程式設計方式存取 Azure AD 報告 API。 
+ 
+
+---
+ 
+
+
+
+### <a name="improvements-to-the-b2b-redemption-experience-and-leave-an-org"></a>改善 B2B 兌換體驗，以及離開組織
+
+**類型：** 新功能  
+**服務類別：** B2B  
+**產品功能：** B2B/B2C
+ 
+
+**Just-in-time 兌換：** 在您使用 B2B API 與來賓使用者共用資源後，不必傳出特殊的邀請電子郵件。 在大多數情況下，來賓使用者可輕鬆存取資源，並且會即時帶過兌換體驗。 錯過的電子郵件不會產生任何影響。 也不會再向您的來賓使用者詢問「您是否已經按一下系統傳給您的兌換連結?」。 這表示只要 SPO 使用了邀請管理員，所有使用者都能得到相同標準的雲端附件 URL，不論使用者處於內外部，也不論其兌換狀態。
+
+**新式兌換體驗：** 兌換登陸頁面不再分割。 使用者會看到新式的同意體驗，包含組織隱私權聲明的邀請，這與第三方應用程式的做法相似。
+
+
+**來賓使用者可離開組織：** 當使用者與組織的關係結束後，可自行離開組織。 使邀請組織的管理員不會再收到要求「移除」的請求，也不會再產生支援票證。
+ 
+
+---
+ 
+
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2018"></a>Azure AD App 資源庫中有新的同盟應用程式可用 - 2018 年 5 月
+
+**類型：** 新功能  
+**服務類別：** 企業應用程式  
+**產品功能：** 協力廠商整合
+ 
+
+在 2018 年 5 月，我們已在 App 資源庫中新增下列 18 個支援同盟功能的新應用程式：
+
+ 
+
+[AwardSpring](https://docs.microsoft.com/azure/active-directory/active-directory-saas-awardspring-tutorial)、[Infogix Data3Sixty Govern]()、[Yodeck](https://docs.microsoft.com/azure/active-directory/active-directory-saas-infogix-tutorial)、[Jamf Pro](https://docs.microsoft.com/azure/active-directory/active-directory-saas-jamfprosamlconnector-tutorial)、[KnowledgeOwl](https://docs.microsoft.com/azure/active-directory/active-directory-saas-knowledgeowl-tutorial)、[Envi MMIS](https://docs.microsoft.com/azure/active-directory/active-directory-saas-envimmis-tutorial)、[LaunchDarkly](https://docs.microsoft.com/azure/active-directory/active-directory-saas-launchdarkly-tutorial)、[Adobe Captivate Prime](https://docs.microsoft.com/azure/active-directory/active-directory-saas-adobecaptivateprime-tutorial)、[Montage Online](https://docs.microsoft.com/azure/active-directory/active-directory-saas-montageonline-tutorial)、[まなびポケット](https://docs.microsoft.com/azure/active-directory/active-directory-saas-manabipocket-tutorial)、OpenReel、[Arc Publishing - SSO](https://docs.microsoft.com/azure/active-directory/active-directory-saas-arc-tutorial)、[PlanGrid](https://docs.microsoft.com/azure/active-directory/active-directory-saas-plangrid-tutorial)、[iWellnessNow](https://docs.microsoft.com/azure/active-directory/active-directory-saas-iwellnessnow-tutorial)、[Proxyclick](https://docs.microsoft.com/azure/active-directory/active-directory-saas-proxyclick-tutorial)、[Riskware](https://docs.microsoft.com/azure/active-directory/active-directory-saas-riskware-tutorial)、[Flock](https://docs.microsoft.com/azure/active-directory/active-directory-saas-flock-tutorial)、[Reviewsnap](https://docs.microsoft.com/azure/active-directory/active-directory-saas-reviewsnap-tutorial)
+
+ 
+
+您也可以在[這裡](https://aka.ms/appstutorial)找到所有應用程式的文件。
+
+若要在 Azure AD 應用程式庫中列出您的應用程式，請參閱[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing)。 
+
+ 
+
+---
+ 
+
+### <a name="deployment-plans---guidance-to-get-you-started-with-azure-active-directory"></a>部署方案 - Azure Active Directory 的入門指導
+
+**類型：** 新功能  
+**服務類別：** 其他  
+**產品功能：** 目錄
+ 
+
+正在尋找 (SSPR、SSO、CA、應用程式 Proxy、使用者佈建、將 ADFS 改為 PTA 或將 ADFS 改為 PHS) 的逐步部署指導嗎？ 我們可提供部署方案協助！
+
+請前往 [Aka.ms/DeploymentPlans](http://Aka.ms/DeploymentPlans)，這裡提供完整的指導可讓您開始利用這些功能。
+
+
+
+- [如何取得部署方案](http://Aka.ms/DeploymentPlans)？ 
+
+- 您可以在[這裡](http://aka.ms/DeploymentPlanFeedback)提供意見反應
+
+- 有疑問嗎？ 請連絡：[IDGitDeploy@microsoft.com](mailto:IDGitDeploy@microsoft.com)
+
+
+
+     
+
+ 
+
+---
+ 
+
+### <a name="enterprise-applications-search---load-more-apps"></a>企業應用程式搜尋 - 載入更多應用程式
+
+**類型：** 新功能  
+**服務類別：** 企業應用程式  
+**產品功能：** SSO
+ 
+
+尋找您的應用程式/服務主體時發生問題嗎？ 我們已新增讓您載入企業應用程式清單中更多應用程式的功能。 根據預設，我們會顯示 20 項應用程式。 您現在可以按一下 [載入更多應用程式] 來檢視其他應用程式。 
+ 
+
+---
+ 
+
+
+### <a name="public-preview-of-new-and-improved-sign-ins-user-experience-in-azure-portal"></a>Azure 入口網站中，全新且改良的登入使用者體驗公開預覽
+
+**類型：** 已變更的功能  
+**服務類別：** 報告  
+**產品功能：** 監視和報告
+ 
+
+我們很高興能在 Azure AD 入口網站中推出全新且改善的登入記錄使用者體驗。 新的登入使用者體驗現在可為客戶提供下列功能：
+
+- 從 2 小時縮短至 5 分鐘內的延遲。 請參閱[延遲](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-latencies-azure-portal)文件了解詳細資訊。
+
+- 使用 [資料行] 按鈕來動態新增篩選的功能。 透過在 UX 中將資料行新增至登入報告，您可以自動將資料行視為供您使用的篩選。
+
+- 依日期、使用者名稱和應用程式排序的功能。
+
+- 包含舊版驗證和使用 [用戶端應用程式] 資料行篩選舊版驗證的功能。
+
+- 包含可下載的 PowerShell 指令碼，其根據您在 UX 中選擇的篩選條件自訂而成。 使用此 PowerShell 指令碼，您可以 (根據您的篩選準則) 視需要取得多列資料，其輸出格式為 .csv。
+
+如需此功能的詳細資料，請參閱 [Azure Active Directory 入口網站中的登入活動報告](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins)。
+ 
+
+---
+ 
+
+
+### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>五月發行的 AADConnect 包含與 PingFederate 進行整合、重大安全性更新、許多錯誤修正及功能強大的新疑難排解工具的公開預覽。 
+
+**類型：** 已變更的功能  
+**服務類別：** AD Connect  
+**產品功能：** 身分識別生命週期管理
+ 
+
+五月發行的 AADConnect 包含與 PingFederate 之整合、重要安全性更新、許多 Bug 修正和全新絕佳疑難排解工具的公開預覽。 您可以在[這裡](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-version-history#118190)找到版本資訊。
+
+ 
+
+---
+ 
+
+
+### <a name="azure-ad-access-reviews-auto-apply"></a>Azure AD 存取權檢閱：自動套用
+
+**類型：** 已變更的功能  
+**服務類別：** 存取權檢閱  
+**產品功能：** 治理
+ 
+
+Azure AD Premium P2 中現已正式提供群組和應用程式的存取權檢閱功能。 系統管理員可以設定為在存取權檢閱完成時，自動將檢閱者的變更套用至該群組或應用程式。 系統管理員也可以指定在檢閱者未回應、移除存取權、保留存取權或採取系統建議時，使用者繼續存取會如何。 
+
+ 
+
+---
+ 
+
+
+### <a name="id-tokens-can-no-longer-be-returned-using-the-query-responsemode-for-new-apps"></a>新的應用程式無法再使用 query response_mode 傳回 ID 權杖。 
+
+**類型：** 已變更的功能  
+**服務類別：** 驗證 (登入)  
+**產品功能：** 使用者驗證
+ 
+
+在 2018/4/25 當天或之後所建立的應用程式，將無法再使用 **query** response_mode 來要求 **id_token**。  這會使 Azure AD 能與 OIDC 規格保持一致，協助減少您的應用程式受攻擊面。  在 2018/4/25 之前所建立的應用程式，可以使用 **query** response_mode 與 **id_token** 的 response_type。  從 AAD 要求 id_token 時所傳回的錯誤為 **AADSTS70007: 要求權杖時，‘query’ 不是支援的 ‘response_mode’ 值**。
+
+在建立新應用程式物件時 (例如，應用程式 Proxy 使用方式)，**fragment** 與 **form_post** response_modes 會繼續生效，請務必在這些 response_modes 建立新應用程式前使用其中一個 response_modes。  
+ 
+
+---
+ 
+
 
 
 ## <a name="april-2018"></a>2018 年 4 月
@@ -335,7 +616,7 @@ Powershell GA 模組中目前提供應用程式 Proxy Cmdlet 的支援！ 請注
  
 使用 Office 365 原生用戶端 (版本 16.0.8730.xxxx 和更新版本) 的使用者在使用無縫式 SSO 時，能獲得無訊息登入體驗。 能有此項支援是因為已對 Azure AD 新增非互動式通訊協定 (WS-Trust)。
 
-如需詳細資訊，請參閱[原生用戶端上的登入如何與無縫 SSO 搭配運作？](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-how-it-works#how-does-sign-in-on-a-native-client-with-seamless-sso-work)。
+如需詳細資訊，請參閱[原生用戶端上的登入如何與無縫 SSO 搭配運作？](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-how-it-works#how-does-sign-in-on-a-native-client-with-seamless-sso-work)
 
  
 ---
@@ -658,7 +939,7 @@ Azure AD Connect 是在 Azure AD 與內部部署資料來源 (包括 Windows Ser
 
 **已修正的問題**
 
-- 修正 [分割區篩選] 頁面切換至下一頁時背景工作上的時間間隔問題。
+- 修正計時視窗切換至下一個頁面時，在 [資料分割篩選] 頁面背景工作的問題。
 - 修正在 ConfigDB 自訂動作期間造成存取違規的錯誤 (bug)。
 - 修正從 SQL 復原時連線逾時的錯誤 (bug)。
 - 修正含 SAN 萬用字元的憑證在進行必要條件檢查時失敗的錯誤 (bug)。
@@ -667,12 +948,7 @@ Azure AD Connect 是在 Azure AD 與內部部署資料來源 (包括 Windows Ser
 
 **新功能和改進**
 
-- 基於 GDPR，我們必須指出客戶與 Microsoft 共用的資料種類 (遙測、健康情況等)、提供詳細線上文件的連結，以及提供讓您變更其喜好設定的方式。  這項新措施加入下列各項：
-    - 全新安裝 EULA 頁面上的資料共用和隱私權通知。
 
-    - 升級頁面上的資料共用和隱私權通知。
-
-    - 新的額外工作**隱私權設定**，讓使用者可以變更其喜好設定。
  
 - 應用程式遙測 - 系統管理員可以開啟/關閉此類別的資料。
 

@@ -1,22 +1,20 @@
 ---
-title: Azure Active Directory B2C：自訂原則 | Microsoft Docs
-description: Azure Active Directory B2C 自訂原則的主題
+title: Azure Active Directory B2C 自訂原則 | Microsoft Docs
+description: 了解 Azure Active Directory B2C 自訂原則。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 22d34ac4128da1d1a9f20619aec2aaccc2425a21
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 0d507c2116aa9e420ddc0dec4999ea21d28e60fc
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32138912"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709252"
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C：自訂原則
 
@@ -40,7 +38,7 @@ ms.locfileid: "32138912"
 
 ## <a name="policy-files"></a>原則檔
 
-自訂原則以一或多個 XML 格式的檔案表示，各檔案在階層鏈中彼此參考。 XML 元素定義︰宣告結構描述、宣告轉換、內容定義、宣告提供者/技術設定檔和 Userjourney 協調流程步驟等元素。
+自訂原則以一或多個 XML 格式的檔案表示，各檔案在階層鏈中彼此參考。 XML 元素定義：宣告結構描述、宣告轉換、內容定義、宣告提供者/技術設定檔和使用者旅程圖協調流程步驟等元素。
 
 我們建議使用三種類型的原則檔︰
 
@@ -76,7 +74,7 @@ Azure AD B2C 依序與識別提供者、使用者、其他系統和本機使用�
 
 組態檔，定義 Azure AD B2C 租用戶中識別體驗架構的行為。 自訂原則可以一或多個 XML 檔案的形式存取 (請參閱原則檔案定義)，當信賴憑證者 (例如應用程式) 叫用時，會由識別體驗架構執行這些檔案。 身分識別開發人員可以直接編輯自訂原則，可完成的工作數量幾乎沒有限制。 設定自訂原則的開發人員必須仔細定義信任關係，以包含中繼資料端點、精確的宣告交換定義，並設定每個識別提供者所需的祕密、金鑰和憑證。
 
-## <a name="policy-file-definitions-for-identity-experience-framework-trustframeworks"></a>識別體驗架構 Trustframeworks 的原則檔案定義
+## <a name="policy-file-definitions-for-identity-experience-framework-trust-frameworks"></a>識別體驗架構信任架構的原則檔案定義
 
 ### <a name="policy-files"></a>原則檔
 

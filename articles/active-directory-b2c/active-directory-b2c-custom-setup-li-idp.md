@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C：使用自訂原則新增 LinkedIn 作為 OAuth2 識別提供者
-description: 使用 OAuth2 通訊協定和自訂原則來設定 LinkedIn 應用程式的使用說明文章
+title: 在 Azure Active Directory B2C 中使用自訂原則新增 LinkedIn 作為 OAuth2 識別提供者 | Microsoft Docs
+description: 使用 OAuth2 通訊協定和自訂原則來設定 LinkedIn 應用程式的使用說明文章。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: davidmu
-ms.openlocfilehash: 9e5235739abcfbee1e530685890098a45a1b093d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 0544daf310d40ea419cb6a46cbbf308ebc924715
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709320"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則新增 LinkedIn 作為識別提供者
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]

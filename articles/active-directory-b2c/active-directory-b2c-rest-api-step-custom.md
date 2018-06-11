@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C：使用 REST API 宣告交換作為協調流程步驟 | Microsoft Docs
-description: 關於已與 API 整合之 Azure Active Directory B2C 自訂原則的主題
+title: 在 Azure Active Directory B2C 中使用 REST API 宣告交換作為協調流程步驟 | Microsoft Docs
+description: 關於已與 API 整合之 Azure Active Directory B2C 自訂原則的主題。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: davidmu
-ms.openlocfilehash: 0a3f69f8262e67de624d4cd97e0cad49c6a96ef0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 0b8fff2e7a47ad84c146a02fb09b64931398b208
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34710775"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>逐步解說︰將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為協調流程步驟
 

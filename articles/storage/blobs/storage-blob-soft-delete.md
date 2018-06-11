@@ -6,19 +6,20 @@ author: MichaelHauss
 manager: vamshik
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/31/2018
 ms.author: mihauss
-ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 93b60f8957a6ae225dbc5beb33a7de817ffc5bc2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34701678"
 ---
-# <a name="soft-delete-for-azure-storage-blobs-preview"></a>Azure 儲存體 Blob 的虛刪除 (預覽)
+# <a name="soft-delete-for-azure-storage-blobs"></a>Azure 儲存體 Blob 的虛刪除
 
 ## <a name="overview"></a>概觀
 
-Azure 儲存體現在提供 Blob 物件的虛刪除功能 (預覽)，因此，當應用程式或其他儲存體帳戶使用者錯誤地修改或刪除您的資料時，您將可更輕鬆地復原資料。
+Azure 儲存體現在提供 Blob 物件的虛刪除功能，因此，當應用程式或其他儲存體帳戶使用者錯誤地修改或刪除您的資料時，您將可更輕鬆地復原資料。
 
 ## <a name="how-does-it-work"></a>運作方式
 
@@ -29,10 +30,6 @@ Azure 儲存體現在提供 Blob 物件的虛刪除功能 (預覽)，因此，�
 
 虛刪除具有回溯相容性；您不需要對應用程式進行任何變更，即可使用這項功能提供的保護。 不過，[資料復原](#recovery)導入了新的**取消刪除 Blob** API。
 
-> [!NOTE]
-> 在公開預覽期間，並不允許對具有快照集的 Blob 呼叫「設定 Blob 層」。
-虛刪除會產生快照集，以在您的資料遭到覆寫時加以保護。 我們正積極尋求解決方案，設法為具有快照集的 Blob 啟用階層處理。
-
 ### <a name="configuration-settings"></a>組態設定
 
 當您建立新帳戶時，虛刪除會預設為關閉。 現有儲存體帳戶的虛刪除也會預設為關閉。 在儲存體帳戶的有效期間內，您可以隨時將此功能切換為開啟或關閉。
@@ -41,7 +38,7 @@ Azure 儲存體現在提供 Blob 物件的虛刪除功能 (預覽)，因此，�
 
 保留期限會指定虛刪除的資料被儲存且可供復原的時間長度。 對於明確刪除的 Blob 和 Blob 快照集，保留期限時鐘會在資料刪除時啟動。 對於在覆寫資料時由虛刪除功能產生的虛刪除快照集，則會在產生快照集時啟動此時鐘。 目前，您可以將虛刪除的資料保留 1 到 365 天。
 
-您可以隨時變更虛刪除保留期限。 更新的保留期限只會套用至新刪除的資料。 先前刪除的資料，將會在該資料刪除時所設定的保留期限結束後失效。
+您可以隨時變更虛刪除保留期限。 更新的保留期限只會套用至新刪除的資料。 先前刪除的資料，將會在該資料刪除時所設定的保留期限結束後失效。 嘗試刪除已經虛刪除的物件不會影響其到期時間。
 
 ### <a name="saving-deleted-data"></a>儲存已刪除的資料
 
@@ -140,7 +137,7 @@ Copy a snapshot over the base blob:
 - HelloWorld (is soft deleted: False, is snapshot: False)
 ```
 
-請參閱[後續步驟](#Next steps)一節，以取得產生此輸出之應用程式的指標。
+請參閱[後續步驟](#next-steps)一節，以取得產生此輸出之應用程式的指標。
 
 ## <a name="pricing-and-billing"></a>價格和計費
 
@@ -204,6 +201,19 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+### <a name="azure-cli"></a>Azure CLI 
+若要啟用虛刪除，請更新 Blob 用戶端的服務屬性：
+
+```azurecli-interactive
+az storage blob service-properties delete-policy update --days-retained 7  --account-name mystorageaccount --enable true
+```
+
+若要確認虛刪除已開啟，請使用下列命令： 
+
+```azurecli-interactive
+az storage blob service-properties delete-policy show --account-name mystorageaccount 
+```
+
 ### <a name="python-client-library"></a>Python 用戶端程式庫
 
 若要啟用虛刪除，請更新 Blob 用戶端的服務屬性：
@@ -276,11 +286,15 @@ blockBlob.StartCopy(copySource);
 
 **虛刪除是否適用於所有的儲存體帳戶類型？**
 
-是，虛刪除適用於 Blob 儲存體帳戶，以及一般用途儲存體帳戶中的 Blob。 這包括標準和進階帳戶。 虛刪除不適用於受控磁碟。
+是，虛刪除適用於 Blob 儲存體帳戶，以及一般用途 (GPv1 和 GPv2) 儲存體帳戶中的 Blob。 這包括標準和進階帳戶。 虛刪除不適用於受控磁碟。
 
 **虛刪除是否適用於所有儲存層？**
 
 是，虛刪除適用於所有儲存層，包括經常性儲存層、非經常性儲存層和封存層。 不過，虛刪除不會為封存層中的 Blob 提供覆寫保護。
+
+**是否可以使用「設定 Blob 層 API」將具有虛刪除快照集的 Blob 分層？**
+
+是。 已虛刪除的快照集會留在原始階層，但基底 Blob 會移到新階層。 
 
 **進階儲存體帳戶有每個 Blob 100 個快照集的限制。虛刪除快照集是否會計入這項限制中？**
 

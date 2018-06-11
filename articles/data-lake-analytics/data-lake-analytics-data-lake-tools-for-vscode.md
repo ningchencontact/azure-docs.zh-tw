@@ -1,27 +1,21 @@
 ---
-title: Azure Data Lake Tools：使用 Azure Data Lake Tools for Visual Studio Code | Microsoft Docs
-description: '了解如何使用 Azure Data Lake Tools for Visual Studio Code 來建立、測試和執行 U-SQL 指令碼。 '
-Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
+title: 使用 Azure Data Lake Tools for Visual Studio Code
+description: 了解如何使用 Azure Data Lake Tools for Visual Studio Code 來建立、測試和執行 U-SQL 指令碼。
 services: data-lake-analytics
-documentationcenter: ''
 author: Jejiang
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.author: jejiang
+manager: kfile
+editor: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/09/2018
-ms.author: jejiang
-ms.openlocfilehash: f35aa14286874d7c152509a69bd171b95b19e22b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 4f5d51a2a34e89223f51f456f2c730835b1e2451
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011266"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735182"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>使用 Azure Data Lake Tools for Visual Studio Code
 
@@ -39,14 +33,14 @@ Azure Data Lake Tools for VSCode 支援 Windows、Linux 及 MacOS。
 - [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core)。 
 - [Mono 5.2.x](http://www.mono-project.com/download/)。
 
-## <a name="install-data-lake-tools"></a>安裝 Data Lake Tools
+## <a name="install-azure-data-lake-tools"></a>安裝 Azure Data Lake 工具
 
-安裝完必要條件之後，您就可以安裝 Data Lake Tools for VS Code。
+安裝完必要條件之後，您就可以安裝 Azure Data Lake Tools for VS Code。
 
-**安裝 Data Lake Tools**
+**安裝 Azure Data Lake Tools**
 
 1. 開啟 Visual Studio Code。
-2. 按一下左窗格的 [擴充功能]。 在搜尋方塊中輸入 **Azure Data Lake**。
+2. 按一下左窗格的 [擴充功能]。 在搜尋方塊中輸入 **Azure Data Lake Tools**。
 3. 按一下 [Azure Data Lake Tools] 旁邊的 [安裝]。 幾秒鐘後，[安裝] 按鈕就會變為 [重新載入]。
 4. 按一下 [重新載入] 來啟動 **Azure Data Lake Tools** 擴充功能。
 5. 按一下 [重新載入視窗] 進行確認。 您會在 [擴充功能] 窗格中看到 [Azure Data Lake Tools]。
@@ -57,12 +51,14 @@ Azure Data Lake Tools for VSCode 支援 Windows、Linux 及 MacOS。
 ## <a name="activate-azure-data-lake-tools"></a>啟動 Azure Data Lake Tools
 建立一個新的 .usql 檔案或開啟現有的 .usql 檔案，以啟動擴充功能。 
 
-## <a name="open-the-sample-script"></a>開啟範例指令碼
-開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **ADL: Open Sample Script**。 它會開啟此範例的另一個執行個體。 您也可以在此執行個體上編輯、設定及提交指令碼。
 
 ## <a name="work-with-u-sql"></a>使用 U-SQL
 
-您需要開啟 U-SQL 檔案或資料夾以使用 U-SQL。
+若要使用 U-SQL，您需要開啟 U-SQL 檔案或資料夾。
+
+**開啟範例指令碼**
+
+開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **ADL: Open Sample Script**。 它會開啟此範例的另一個執行個體。 您也可以在此執行個體上編輯、設定及提交指令碼。
 
 **開啟 U-SQL 專案的資料夾**
 
@@ -143,10 +139,12 @@ Azure Data Lake Tools for VSCode 支援 Windows、Linux 及 MacOS。
 
     ![Data Lake Tools for Visual Studio Code 組態檔](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
 
-## <a name="use-python-r-and-csharp-code-behind-file"></a>使用 Python、R 和 CSharp 程式碼後置檔案
+
+## <a name="work-with-code-behind-file-csharp-python-and-r"></a>使用程式碼後置檔案：CSharp、Python 和 R
+
 Azure Data Lake Tool 支援多個自訂程式碼，如需指示，請參閱[針對 VSCode 中的 Azure Data Lake Analytics 使用 Python、R、CSharp 開發 U-SQL](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)。
 
-## <a name="use-assemblies"></a>使用組件
+## <a name="work-with-assemblies"></a>使用組件
 
 如需有關開發組件的資訊，請參閱[針對 Azure Data Lake Analytics 作業開發 U-SQL 組件](data-lake-analytics-u-sql-develop-assemblies.md)。
 
@@ -214,20 +212,32 @@ Azure Data Lake Tool 支援多個自訂程式碼，如需指示，請參閱[針�
             USING Outputters.Tsv();
 
 
+## <a name="u-sql-local-run-and-local-debug-for-windows-users"></a>Windows 使用者的 U-SQL 本機執行和本機偵錯
+U-SQL 本機執行會先測試您的本機資料並在本機驗證您的指令碼，然後才將您的程式碼發行至 Data Lake Analytics。 本機偵錯功能可讓您先完成下列工作，再將您的程式碼提交給 Data Lake Analytics： 
+- 偵錯您的 C# 程式碼後置。 
+- 逐步執行程式碼。 
+- 在本機驗證您的指令碼。
+
+如需本機執行和本機偵錯的指示，請參閱[使用 Visual Studio Code 來進行 U-SQL 本機執行和本機偵錯](data-lake-tools-for-vscode-local-run-and-debug.md)。
+
+
 ## <a name="connect-to-azure"></a>連接到 Azure
 
 您必須先連線到 Azure 帳戶，才能在 Data Lake Analytics 中編譯和執行 U-SQL 指令碼。
 
-**連接到 Azure**
+<b id="sign-in-by-command">使用命令連線至 Azure</b>
 
 1.  選取 Ctrl+Shift+P 以開啟命令選擇區。 
-2.  輸入 **ADL: Login**。 登入資訊便會出現在最上方區域。
+2.  輸入 **ADL: Login**。 登入資訊便會出現在右下方。
 
     ![Data Lake Tools for Visual Studio Code 命令選擇區](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
-    ![Data Lake Tools for Visual Studio Code 裝置登入資訊](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-3.  按一下 [複製及開啟] 以開啟 URL 為 https://aka.ms/devicelogin 的登入網頁。 在文字方塊中貼上代碼 **G567LX42V**，然後選取 [繼續]。
 
-   ![Data Lake Tools for Visual Studio Code 登入貼上代碼](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
+    ![Data Lake Tools for Visual Studio Code 裝置登入資訊](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
+
+3.  按一下 [複製及開啟] 以開啟 URL 為 https://aka.ms/devicelogin 的登入網頁。 在文字方塊中貼上代碼，然後選取 [繼續]。
+
+    ![Data Lake Tools for Visual Studio Code 登入貼上代碼](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )  
+     
 4.  依照網頁上的指示登入。 當您連線時，您的 Azure 帳戶名稱會出現在 [VS Code] 視窗左下角的狀態列中。 
 
     > [!NOTE] 
@@ -237,19 +247,45 @@ Azure Data Lake Tool 支援多個自訂程式碼，如需指示，請參閱[針�
 
 若要登出，請輸入命令 **ADL: Logout**。
 
-## <a name="list-your-data-lake-analytics-accounts"></a>列出 Data Lake Analytics 帳戶
+**從總管連線至 Azure**
 
-若要測試連線，請取得 Data Lake Analytics 帳戶的清單。
+若要從總管登入，請展開 [AZURE DATALAKE]，按一下 [登入 Azure]，然後遵循[**使用命令連線至 Azure**](#sign-in-by-command) 的步驟 3 和步驟 4。
 
-**列出您的 Azure 訂用帳戶下的 Data Lake Analytics 帳戶**
+![從總管連線至 Azure](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-sign-in-from-explorer.png )  
+
+您無法從總管登出。 若要登出，請參閱連[**使用命令連線至 Azure**](#sign-in-by-command)。
+
+
+## <a name="create-extract-script"></a>建立擷取指令碼 
+您可以使用命令 **ADL: Create EXTRACT Script** 或從 **AZURE DATALAKE** 總管建立 .csv、.tsv、.txt 檔案的 EXTRACT 指令碼。
+
+**使用命令建立 EXTRACT 指令碼**
+
+1. 選取 Ctrl+Shift+P 來開啟命令選擇區，然後輸入 **ADL: Create EXTRACT Script**。
+2. 指定 Azure 儲存體檔案的完整路徑，然後按 **Enter**。
+3. 選取帳戶。
+4. 若為 .txt 檔案，請選取用來擷取檔案的分隔符號。 
+
+    ![建立擷取指令碼處理序](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-process.png)
+
+系統會根據您的輸入來產生擷取指令碼。 對於無法偵測資料行的指令碼，請選擇兩個選項的其中一個。 如果未選擇，則只會產生一個指令碼。
+
+![建立擷取指令碼結果](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-result.png)
+
+**從總管建立 EXTRACT 指令碼**
+
+另一個可建立 EXTRACT 指令碼的方法，是在資料湖儲存體或 Blob 儲存體中透過 .csv、.tsv、.txt 檔案的滑鼠右鍵功能表來進行。
+
+![從快顯功能表建立擷取指令碼](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-from-context-menu.png)
+
+## <a name="integrate-with-azure-data-lake-analytics-through-command"></a>透過命令與 Azure Data Lake Analytics 整合
+
+您可以存取 Azure Data Lake Analytics 資源，包括列出帳戶、存取中繼資料和檢視分析作業。 
+
+**列出 Azure 訂用帳戶下的 Azure Data Lake Analytics 帳戶**
 
 1. 選取 Ctrl+Shift+P 以開啟命令選擇區。
 2. 輸入 **ADL: List Accounts**。 帳戶會出現在 [輸出] 窗格中。
-
-
-## <a name="access-the-data-lake-analytics-catalog"></a>存取 Data Lake Analytics 目錄
-
-連線至 Azure 之後，您可以使用下列步驟來存取 U-SQL 目錄。
 
 **存取 Azure Data Lake Analytics 中繼資料**
 
@@ -258,9 +294,7 @@ Azure Data Lake Tool 支援多個自訂程式碼，如需指示，請參閱[針�
 3.  選取其中一個 Data Lake Analytics 資料庫。
 4.  選取其中一個結構描述。 您就會看到資料表清單。
 
-## <a name="view-data-lake-analytics-jobs"></a>檢視 Data Lake Analytics 作業
-
-**檢視 Data Lake Analytics 作業**
+**檢視 Azure Data Lake Analytics 作業**
 1.  開啟命令選擇區 (Ctrl+Shift+P)，然後選取 [ADL: Show Job]。 
 2.  選取 Data Lake Analytics 帳戶或本機帳戶。 
 3.  等候帳戶的作業清單出現。
@@ -268,7 +302,7 @@ Azure Data Lake Tool 支援多個自訂程式碼，如需指示，請參閱[針�
 
     ![Data Lake Tools for Visual Studio Code IntelliSense 物件類型](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-show-job.png)
 
-## <a name="azure-data-lake-storage-integration"></a>Azure Data Lake Storage 整合
+## <a name="integrate-with-azure-data-lake-storage-through-command"></a>透過命令與 Azure Data Lake 儲存體整合
 
 您可以使用 Azure Data Lake Storage 相關命令來進行下列作業：
  - 瀏覽 Azure Data Lake Storage 資源。 [列出儲存體路徑](#list-the-storage-path)。 
@@ -320,7 +354,7 @@ Azure Data Lake Tool 支援多個自訂程式碼，如需指示，請參閱[針�
 
 
 ### <a name="download-file"></a>下載檔案 
-您可以輸入 **ADL: Download File** 或 **ADL: Download File (Advanced)** 命令來下載檔案。
+您可以使用 **ADL: Download File** 或 **ADL: Download File (Advanced)** 命令來下載檔案。
 
 **透過 ADL: Download File (Advanced) 下載檔案**
 1. 以滑鼠右鍵按一下指令碼編輯器，然後選取 [Download File (Advanced)]。
@@ -353,13 +387,10 @@ Azure Data Lake Tool 支援多個自訂程式碼，如需指示，請參閱[針�
 
    ![Data Lake Tools for Visual Studio Code 檢查儲存體狀態](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
-## <a name="vscode-explorer-integration-with-azure-data-lake"></a>VSCode Explorer 與 Azure Data Lake 整合
 
-**Azure 整合** 
+## <a name="integrate-with-azure-data-lake-analytics-from-explorer"></a>從總管與 Azure Data Lake Analytics 整合
 
-- 登入 Azure 之前，您一律可以展開 **AZURE DATALAKE**，然後按一下 [登入 Azure] 以登入 Azure。 登入之後，您會看到 Azure 帳戶下的所有訂用帳戶都列在 **AZURE DATALAKE** 的左側面板中。 
-
-   ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
+- 登入之後，您會看到 Azure 帳戶下的所有訂用帳戶都列在 **AZURE DATALAKE** 的左側面板中。 
 
    ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
@@ -381,33 +412,33 @@ Azure Data Lake Tool 支援多個自訂程式碼，如需指示，請參閱[針�
 
     ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
 
-**ADLS 整合** 
+## <a name="integrate-with-azure-data-lake-storage-from-explorer"></a>從總管與 Azure Data Lake 儲存體整合
 
 瀏覽至 **Data Lake Store**
 
- - 在資料夾節點上，您可以在滑鼠右鍵內容功能表中重新整理、刪除、上傳 **、上傳資料夾****、複製相對路徑****、複製完整路徑**。
+ - 在資料夾節點上，您可以在滑鼠右鍵快顯功能表中 [重新整理]、[刪除]、[上傳]**、[上傳資料夾]****、[複製相對路徑]** **和 [複製完整路徑]**。
 
    ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
- - 在檔案節點上，您可以在滑鼠右鍵內容功能表中下載、預覽、刪除、複製相對路徑、複製完整路徑。 
+- 在檔案節點上，您可以在滑鼠右鍵快顯功能表中 [預覽]、[下載]、[刪除]、[建立 EXTRACT 指令碼] (只適用於 CSV、TSV 和 TXT 檔案)，以及 [複製相對路徑] 和 [複製完整路徑]。
 
-   ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+    ![DataLake 總管 - 擷取](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-extract.png)
 
-**WASB 整合**
+## <a name="integrate-with-azure-blob-storage-from-explorer"></a>從總管與 Azure Blob 儲存體整合
 
 瀏覽至 Blob 儲存體
 
-- 在 Blob 容器節點上，您可以在滑鼠右鍵內容功能表中重新整理刪除 Blob 容器上傳 Blob。
+- 在 Blob 容器節點上，您可以在滑鼠右鍵快顯功能表中 [重新整理]、[刪除 Blob 容器] 和 [上傳 Blob]。
 
     ![Blob 儲存體 Blob 容器節點](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
 
-- 在資料夾 節點上，您可以在滑鼠右鍵內容功能表中**重新整理**、上傳 Blob。
+- 在資料夾 節點上，您可以在滑鼠右鍵快顯功能表中 [重新整理] 和 [上傳 Blob]。
 
     ![Blob 儲存體資料夾節點](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
 
-- 在檔案節點上，您可以在滑鼠右鍵內容功能表中預覽/編輯、下載、刪除、複製相對路徑、複製完整路徑。
+- 在檔案節點上，您可以在滑鼠右鍵快顯功能表中 [預覽/編輯]、[下載]、[刪除]、[建立 EXTRACT 指令碼] (只適用於 CSV、TSV 和 TXT 檔案)，以及 [複製相對路徑] 和 [複製完整路徑]。
 
-    ![Blob 儲存體檔案節點](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
+    ![從快顯功能表建立擷取指令碼](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-from-context-menu-2.png)
 
 ## <a name="open-adl-storage-explorer-in-portal"></a>在入口網站中開啟 ADL 儲存體總管
 1. 選取 Ctrl+Shift+P 以開啟命令選擇區。
@@ -415,14 +446,6 @@ Azure Data Lake Tool 支援多個自訂程式碼，如需指示，請參閱[針�
 3. 選取 Data Lake Analytics 帳戶。
 
 Data Lake Tools 會在 Azure 入口網站中開啟 Azure 儲存體路徑。 您可以找到該路徑，並從網路預覽檔案。
-
-## <a name="local-run-and-local-debug-for-windows-users"></a>Windows 使用者的本機執行和本機偵錯
-U-SQL 本機執行會先測試您的本機資料並在本機驗證您的指令碼，然後才將您的程式碼發行至 Data Lake Analytics。 本機偵錯功能可讓您先完成下列工作，再將您的程式碼提交給 Data Lake Analytics： 
-- 偵錯您的 C# 程式碼後置。 
-- 逐步執行程式碼。 
-- 在本機驗證您的指令碼。
-
-如需本機執行和本機偵錯的指示，請參閱[使用 Visual Studio Code 來進行 U-SQL 本機執行和本機偵錯](data-lake-tools-for-vscode-local-run-and-debug.md)。
 
 ## <a name="additional-features"></a>其他功能
 
@@ -450,17 +473,11 @@ Data Lake Tools for VSCode 支援下列功能︰
 
     ![Data Lake Tools for Visual Studio Code 語法醒目顯示](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
-   >[!NOTE]
-   >在準備即將於 2018 年 5 月 25 日生效的最新一般資料保護規定 (GDPR) 時，建議 Azure Data Lake Tools for Visual Studio Code 的使用者升級至 0.2.13 版或更新版本。 此版本包含根據最新資料保護需求所做的變更。 請注意，舊版不再提供下載，且將會遭到取代。 
- 
+   > [!NOTE]
+   > Microsoft 建議您升級至 Azure Data Lake Tools for Visual Studio 2.3.3000.4 版或更新版本。 舊版目前已淘汰，不再提供下載。  
    
 ## <a name="next-steps"></a>後續步驟
 - [針對 VSCode 中的 Azure Data Lake Analytics 使用 Python、R、CSharp 開發 U-SQL](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [使用 Visual Studio Code 來進行 U-SQL 本機執行和本機偵錯](data-lake-tools-for-vscode-local-run-and-debug.md)
 - [教學課程：開始使用 Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)
 - [教學課程：使用 Data Lake Tools for Visual Studio 開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
-- [針對 Azure Data Lake Analytics 作業開發 U-SQL 組件](data-lake-analytics-u-sql-develop-assemblies.md)
-
-
-
-

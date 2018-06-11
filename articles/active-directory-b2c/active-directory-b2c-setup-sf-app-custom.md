@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C︰使用自訂原則新增 Salesforce SAML 提供者 | Microsoft Docs
+title: 在 Azure Active Directory B2C 中使用自訂原則新增 Salesforce SAML 提供者 | Microsoft Docs
 description: 深入了解如何建立及管理 Azure Active Directory B2C 自訂原則。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/11/2017
 ms.author: davidmu
-ms.openlocfilehash: 1ccf5c58eab9df9016224a91ddda952a05457e2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: f4399730755c15fe5e171bf7fd5826c2b7ffea0a
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709643"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C︰使用 Salesforce 帳戶透過 SAML 來登入
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 03/23/2018
 ### <a name="create-a-connected-app-in-salesforce"></a>在 Salesforce 中建立連線應用程式
 
 1. 在 [識別提供者] 分頁中，移至 [服務提供者]。
-2. 按一下 [現在透過連線應用程式建立服務提供者]**。**按一下這裡。
+2. 按一下 [現在透過連線應用程式建立服務提供者]**。** 按一下這裡。
 3. 在 [基本資訊] 下，為連線應用程式輸入必要值。
 4. 在 [Web 應用程式設定] 下，選取 [啟用 SAML] 核取方塊。
 5. 在 [實體識別碼] 欄位中，輸入下列 URL。 請確定您取代 `tenantName` 的值。

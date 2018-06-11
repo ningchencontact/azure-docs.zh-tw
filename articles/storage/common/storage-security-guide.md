@@ -6,23 +6,23 @@ author: craigshoemaker
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: 4145f7edb93801aa6f98df7e9cff34ae7370fc52
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ac301daca769f9cec0d3395e7bde32494dd8e3d1
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32768008"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735322"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
-
-## <a name="overview"></a>概觀
 
 「Azure 儲存體」提供一組完整的安全性功能，這些功能一起可讓開發人員建置安全的應用程式：
 
 - 所有寫入至「Azure 儲存體」的資料都會使用[儲存體服務加密 (SSE)](storage-service-encryption.md)來自動加密。 如需詳細資訊，請參閱[宣佈 Azure Blob、檔案、資料表及佇列儲存體的預設加密](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) \(英文\)。
-- 您可以使用角色型存取控制與 Azure Active Directory 來保護儲存體帳戶本身。 
+- Azure Active Directory (Azure AD) 和角色型存取控制 (RBAC) 可支援 Azure 儲存體，以便進行資源管理作業和資料作業，如下所示：   
+    - 您可以將儲存體帳戶範圍內的 RBAC 角色指派給安全性主體，以及使用 Azure AD 來授權資源管理作業，例如金鑰管理。
+    - Blob 和佇列服務的資料作業預覽版支援 Azure AD 整合。 您可以將訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列範圍內的 RBAC 角色，指派給安全性主體或受控服務識別。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取 (預覽)](storage-auth-aad.md)。   
 - 您可以使用[用戶端加密](../storage-client-side-encryption.md)、HTTPS 或 SMB 3.0，在應用程式和 Azure 之間進行傳輸時保護資料的安全。  
 - 您可以使用 [Azure 磁碟加密](../../security/azure-security-disk-encryption.md)來加密 Azure 虛擬機器所使用的 OS 和資料磁碟。 
 - Azure 儲存體中資料物件的委派存取權可以使用 [共用存取簽章](../storage-dotnet-shared-access-signature-part-1.md)來授與。
@@ -161,12 +161,15 @@ ms.locfileid: "32768008"
 ## <a name="data-plane-security"></a>資料平面安全性
 資料平面安全性是指用來保護儲存在 Azure 儲存體的資料物件 (Blob、佇列、表格和檔案) 的方法。 我們已了解在傳輸資料期間加密資料和安全性的方法，但您該從何處著手來控制對物件的存取？
 
-有兩個方法可授權對資料物件本身的存取。 這些方法包括控制對儲存體帳戶金鑰的存取，以及使用共用存取簽章，來授與一段特定時間對特定資料物件的存取。
+有三個選項可供您授權 Azure 儲存體資料物件的存取權，包括：
+
+- 使用 Azure AD 來授權容器和佇列的存取權 (預覽)。 Azure AD 在授權方面的優勢勝過其他方法，包括不需要在程式碼中儲存祕密。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權 (預覽)](storage-auth-aad.md)。 
+- 使用儲存體帳戶金鑰來透過共用金鑰授權存取權。 透過共用金鑰授權時，需要在應用程式中儲存儲存體帳戶金鑰，因此 Microsoft 建議盡可能改為使用 Azure AD。 對於生產應用程式，或是要授權 Azure 資料表和檔案的存取權，請在 Azure AD 整合處於預覽狀態時，繼續使用共用金鑰。
+- 使用共用存取簽章，來授與一段特定時間對特定資料物件的受控權限。
 
 此外，針對 Blob 儲存體，您可以藉由設定要據以保存 Blob 之容器的存取層級，來允許對您的 Blob 進行公用存取。 如果您將容器的存取權設定為「Blob」或「容器」，將允許該容器中 Blob 的公用讀取存取權。 這表示 URL 指向該容器中 Blob 的任何人都可以在瀏覽器中開啟它，而不需使用共用存取簽章或擁有儲存體帳戶金鑰。
 
 除了透過授權限制存取，您也可以使用[防火牆和虛擬網路](storage-network-security.md)，根據網路規則來限制對儲存體帳戶的存取。  此方法可讓您拒絕對公用網際網路流量的存取，只授與對特定 Azure 虛擬網路或公用網際網路 IP 位址範圍的存取。
-
 
 ### <a name="storage-account-keys"></a>儲存體帳戶金鑰
 儲存體帳戶金鑰是由 Azure 所建立的 512 位元字串，搭配儲存體帳戶名稱就能用來存取儲存於儲存體帳戶中的資料物件。
@@ -265,21 +268,9 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 透過啟用儲存體帳戶[所需的安全傳輸](../storage-require-secure-transfer.md)，您可於呼叫 REST API 來存取儲存體帳戶中的物件時強制使用 HTTPS。 啟用此選項後，使用 HTTP 的連線將被拒絕。
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>傳輸期間透過 Azure 檔案共用使用加密
-使用 REST API 時，Azure 檔案服務支援 HTTPS，但較常用來作為附加到 VM 的 SMB 檔案共用。 SMB 2.1 不支援加密，因此只允許在 Azure 中的相同區域內連接。 不過，SMB 3.0 支援加密，而且可在 Windows Server 2012 R2、Windows 8、Windows 8.1 和 Windows 10 中使用，既可允許跨區域存取，也可允許電腦上的存取。
+[Azure 檔案](../files/storage-files-introduction.md)支援透過 SMB 3.0 加密，以及在使用檔案 REST API 時以 HTTPS 加密。 在 Azure 檔案共用所在的 Azure 區域之外 (例如，內部部署或其他 Azure 區域) 掛接時，一律需要 SMB 3.0 (含加密)。 SMB 2.1 不支援加密，因此，預設只允許在 Azure 中的相同區域內連線，但可以藉由對儲存體帳戶[要求安全傳輸](../storage-require-secure-transfer.md)來強制採用 SMB 3.0 (含加密)。
 
-雖然 Azure 檔案共用可以與 Unix 搭配使用，但 Linux SMB 用戶端尚未支援加密，因此只允許在 Azure 區域內存取。 適用於 Linux 的加密支援已列入開發藍圖中，負責 SMB 功能的 Linux 開發人員將著手開發。 當他們新增加密功能時，您在 Linux 系統中存取 Azure 檔案共用的能力將與在 Windows 系統中相同。
-
-透過啟用儲存體帳戶[所需的安全傳輸](../storage-require-secure-transfer.md)，您可以強制為 Azure 檔案服務使用加密。 如果使用 REST API，則需要 HTTPs。 針對 SMB，只有支援加密的 SMB 連線可以成功連線。
-
-#### <a name="resources"></a>資源
-* [Azure 檔案服務簡介](../files/storage-files-introduction.md)
-* [在 Windows 上開始使用 Azure 檔案服務](../files/storage-how-to-use-files-windows.md)
-
-  本文概述 Azure 檔案共用，以及如何在 Windows 上掛接和使用它們。
-
-* [如何在 Linux 中使用 Azure 檔案服務](../files/storage-how-to-use-files-linux.md)
-
-  本文說明如何在 Linux 系統上掛接 Azure 檔案共用，以及上傳/下載檔案。
+SMB 3.0 (含加密) 可於[所有支援的 Windows 和 Windows Server 作業系統](../files/storage-how-to-use-files-windows.md)中使用，但 Windows 7 和 Windows Server 2008 R2 除外，這兩種僅支援 SMB 2.1。 SMB 3.0 也支援 [macOS](../files/storage-how-to-use-files-mac.md) 和 [Linux](../files/storage-how-to-use-files-linux.md) 散發套件 (使用 Linux 核心 4.11 和更新版本)。 SMB 3.0 的加密支援也由數個 Linux 散發套件回溯導入到較舊版本的 Linux 核心，請參閱[了解 SMB 用戶端需求](../files/storage-how-to-use-files-linux.md#smb-client-reqs)。
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>使用用戶端加密來保護傳送到儲存體的資料
 另一個可協助您確保在用戶端應用程式和儲存體之間傳輸時資料安全性的選項是用戶端加密。 資料會先加密，然後才傳輸到 Azure 儲存體。 從 Azure 儲存體擷取資料時，在用戶端上收到資料之後要將之解密。 即使資料在通過連線時已加密，但還是建議您使用 HTTPS，因為其內建資料完整性檢查，有助於降低影響資料完整性的網路錯誤。
@@ -461,7 +452,7 @@ SSE 是由 Azure 儲存體所管理。 SSE 並不針對傳輸中資料提供安�
 解決此問題的另一個方法是讓 Web 應用程式做為儲存體呼叫所使用的 Proxy。 這表示，如果您要將檔案上傳至 Blob 儲存體，Web 應用程式可以在本機寫入它，然後將它複製到 Blob 儲存體，或者將它全部讀入記憶體，然後將它寫入 Blob 儲存體。 或者，您可以撰寫專屬的 Web 應用程式 (例如 Web API)，本機上傳檔案並將它們寫入 Blob 儲存體。 無論如何，您都必須在判定延展性的需求時負責該功能。
 
 #### <a name="how-can-cors-help"></a>CORS 如何提供協助？
-Azure 儲存體可讓您啟用 CORS – 跨原始來源資源共用。 對於每個儲存體帳戶，您可以指定可存取該儲存體帳戶中之資源的網域。 例如，在上述案例中，我們可以在 fabrikam.blob.core.windows.net 儲存體帳戶上啟用 CORS，然後將它設定為允許存取 contoso.com。然後 Web 應用程式 contoso.com 就能直接存取 fabrikam.blob.core.windows.net 中的資源。
+Azure 儲存體可讓您啟用 CORS – 跨原始來源資源共用。 對於每個儲存體帳戶，您可以指定可存取該儲存體帳戶中之資源的網域。 例如，在上述案例中，我們可以在 fabrikam.blob.core.windows.net 儲存體帳戶上啟用 CORS，然後將它設定為允許存取 contoso.com。 然後 Web 應用程式 contoso.com 就能直接存取 fabrikam.blob.core.windows.net 中的資源。
 
 要注意的一點是，CORS 允許存取，但不提供所有對儲存體資源之非公用存取所需的驗證。 這表示，如果它們是公用的，您就只能存取 Blob，或者您可以包含共用存取簽章來為您提供適當的權限。 表格、佇列和檔案沒有公用存取權且需要 SAS。
 
@@ -514,8 +505,7 @@ Azure 儲存體可讓您啟用 CORS – 跨原始來源資源共用。 對於每
 
    Microsoft 可讓每位客戶決定是否要啟用 FIPS 模式。 我們認為沒有充分的理由來對不受政府法規限制的客戶預設啟用 FIPS 模式。
 
-   **資源**
-
+### <a name="resources"></a>資源
 * [Why We’re Not Recommending "FIPS Mode" Anymore (為什麼我們不再建議「FIPS 模式」)](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   此部落格文章提供 FIPS 概觀，並說明他們為什麼預設不啟用 FIPS 模式。
