@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 30847ff20abf6654e58a0e72a12f04dcd88d5871
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: f84be4ec4d42b77e93cf0855d7fe4740256ed199
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011106"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34715355"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 和 AppSource 發行者指南
 
@@ -100,7 +100,7 @@ Microsoft 提供兩個不同的市集店面，可讓合作夥伴列出供應項�
 |---------|---------|---------|
 | 1.在 Microsoft 合作夥伴網路中註冊 | 15 分鐘 | 加入 Microsoft 合作夥伴網路 (MPN)，成為正式的 Microsoft 合作夥伴，可享有 Azure Marketplace 發行者的其他權益與支援。 若要在 MPN 中註冊，請造訪 Microsoft 合作夥伴網路，並按一下 [註冊]。 註冊時可以獲得您的組織現有的成員資格 (如適用)。 註冊之後，請記下您組織的 MPN ID：我們會要求您提供此 ID，以便在 Cloud Partner 入口網站中啟動您的發行者設定檔 (步驟 3)。      |
 |2.建立 Microsoft ID     |   15 分鐘      |  您將使用此 Microsoft ID 來存取 Cloud Partner 入口網站。 此電子郵件地址必須註冊為 Microsoft ID，並用於 Cloud Partner 入口網站 (步驟 3) 與 Microsoft 開發人員中心 (步驟 4)。 選取的電子郵件地址應最好位於貴公司網域內，並由 IT 小組控制。 如需建立此 ID 前的指導方針，請參閱「指導方針和作法」中的章節。 |
-|3.提交 Marketplace 提名表單     |  1-3 天       | 任命您的組織成為 Microsoft 雲端市集發行者。 此表單包含您組織、您想要發行的第一個應用程式或服務供應項目，以及您所提供支援層級的相關資訊。 <ul><li>[Azure Marketplace 提名表單](http://aka.ms/listonazuremarketplace)</li><li>[AppSource 提名表單](http://aka.ms/listonappsource)</li></ul> 在您提交表單後，Marketplace 小組會檢閱應用程式並驗證要求。 檢閱要求後，將透過電子郵件通知您成為核准的合作夥伴及存取 Cloud Partner 入口網站的後續步驟，接下來您即可完成第一個供應項目清單，並建立其他的供應項目。 經過核准後，您也會收到促銷代碼，可供減免 Microsoft 開發人員中心的註冊費用 (步驟 4)。 |
+|3.提交 Marketplace 提名表單     |  1-3 天       | 任命您的組織成為 Microsoft 雲端市集發行者。 此表單包含您組織、您想要發行的第一個應用程式或服務供應項目，以及您所提供支援層級的相關資訊。 <ul><li>[Azure Marketplace 提名表單](https://azuremarketplace.microsoft.com/sell/signup)</li><li>[AppSource 提名表單](http://aka.ms/listonappsource)</li></ul> 在您提交表單後，Marketplace 小組會檢閱應用程式並驗證要求。 檢閱要求後，將透過電子郵件通知您成為核准的合作夥伴及存取 Cloud Partner 入口網站的後續步驟，接下來您即可完成第一個供應項目清單，並建立其他的供應項目。 經過核准後，您也會收到促銷代碼，可供減免 Microsoft 開發人員中心的註冊費用 (步驟 4)。 |
 |4.向開發人員中心註冊     |    5-10 天     | 若想要在市集中發行具有交易功能的應用程式，例如虛擬機器、解決方案範本和 Azure 受控應用程式，必須使用 Microsoft 開發人員中心。 這項需求條件會讓 Microsoft 驗證您的公司資訊、公司法務、稅務和金融實體。 註冊者必須是組織的有效代表，而且必須提供個人資訊以驗證其身分識別。 註冊人員必須使用公司內共用的 Microsoft ID (步驟 2)，且在 Cloud Partner 入口網站中必須使用同一個帳戶。 <ul>請注意，如果您未填妥 Marketplace 提名表單，系統會要求您支付 99 美元的註冊費用。 若要免除此費用，請填寫 Marketplace 提名表單，您便會透過電子郵件收到促銷代碼。 重要事項：在您嘗試建立 Microsoft 開發人員中心帳戶之前，請先確認公司未曾擁有此帳戶。 如需此程序的逐步解說，請參閱如何在開發人員中心註冊的相關指示。</ul>   |
 |5.登入 Cloud Partner 入口網站     |  15 分鐘       |  在任命獲得核准，且您已在 [Microsoft 合作夥伴網路](https://partner.microsoft.com/en-us/membership/)和 [Microsoft 開發人員](https://dev.windows.com/)中心中註冊後，便會為您建立一個可供存取 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)的帳戶。 提名核准電子郵件中會包含初次登入認證。 如需如何使用 Cloud Partner 入口網站的詳細資訊，請至入口網站中的 [學習][](https://cloudpartner.azure.com/#Learn) 功能表檢閱 [文件] 區段。    |
 
@@ -359,8 +359,8 @@ Microsoft 會使用 AAD 來驗證所有 Marketplace 使用者。 已驗證的使
 |---------|---------|---------|
 | 1.在 Microsoft 合作夥伴網路中註冊 | 15 分鐘 | 加入 Microsoft 合作夥伴網路 (MPN)，成為正式的 Microsoft 合作夥伴，可享有 Azure Marketplace 發行者的其他權益與支援。 若要在 MPN 中註冊，請造訪 Microsoft 合作夥伴網路，並按一下 [註冊]。 註冊時可以獲得您的組織現有的成員資格 (如適用)。 註冊之後，請記下您組織的 MPN ID：我們會要求您提供此 ID，以便在 Cloud Partner 入口網站中啟動您的發行者設定檔 (步驟 3)。      |
 |2.建立 Microsoft ID     |   15 分鐘      |  您將使用此 Microsoft ID 來存取 Cloud Partner 入口網站。 此電子郵件地址必須註冊為 Microsoft ID，並用於 Cloud Partner 入口網站 (步驟 3) 與 Microsoft 開發人員中心 (步驟 4)。 選取的電子郵件地址應最好位於貴公司網域內，並由 IT 小組控制。 如需建立此 ID 前的指導方針，請參閱「指導方針和作法」中的章節。 |
-|3.提交 Marketplace 提名表單     |  1-3 天       | 任命您的組織成為 Microsoft 雲端市集發行者。 此表單包含您組織、您想要發行的第一個應用程式或服務供應項目，以及您所提供支援層級的相關資訊。 <ul><li>[Azure Marketplace 提名表單](http://aka.ms/listonazuremarketplace)</li><li>[AppSource 提名表單](http://aka.ms/listonappsource)</li></ul> 在您提交表單後，Marketplace 小組會檢閱應用程式並驗證要求。 檢閱要求後，將透過電子郵件通知您成為核准的合作夥伴及存取 Cloud Partner 入口網站的後續步驟，接下來您即可完成第一個供應項目清單，並建立其他的供應項目。 經過核准後，您也會收到促銷代碼，可供減免 Microsoft 開發人員中心的註冊費用 (步驟 4)。 |
-|4.向開發人員中心註冊     |    5-10 天     | 若想要在市集中發行具有交易功能的應用程式，例如虛擬機器、解決方案範本和 Azure 受控應用程式，必須使用 Microsoft 開發人員中心。 這項需求條件會讓 Microsoft 驗證您的公司資訊、公司法務、稅務和金融實體。 註冊者必須是組織的有效代表，而且必須提供個人資訊以驗證其身分識別。 註冊人員必須使用公司內共用的 Microsoft ID (步驟 2)，且在 Cloud Partner 入口網站中必須使用同一個帳戶。 <ul>請注意，如果您未填妥 Marketplace 提名表單，系統會要求您支付 99 美元的註冊費用。 若要免除此費用，請填寫 Marketplace 提名表單，您便會透過電子郵件收到促銷代碼。 重要事項：在您嘗試建立 Microsoft 開發人員中心帳戶之前，請先確認公司未曾擁有此帳戶。 如需此程序的逐步解說，請參閱如何在開發人員中心註冊的相關指示。</ul>   |
+|3.提交 Marketplace 提名表單     |  1-3 天       | 任命您的組織成為 Microsoft 雲端市集發行者。 此表單包含您組織、您想要發行的第一個應用程式或服務供應項目，以及您所提供支援層級的相關資訊。 <ul><li>[Azure Marketplace 提名表單](https://azuremarketplace.microsoft.com/sell/signup)</li><li>[AppSource 提名表單](http://aka.ms/listonappsource)</li></ul> 在您提交表單後，Marketplace 小組會檢閱應用程式並驗證要求。 檢閱要求後，將透過電子郵件通知您成為核准的合作夥伴及存取 Cloud Partner 入口網站的後續步驟，接下來您即可完成第一個供應項目清單，並建立其他的供應項目。 經過核准後，您也會收到促銷代碼，可供減免 Microsoft 開發人員中心的註冊費用 (步驟 4)。 |
+|4.向開發人員中心註冊     |    5-10 天     | 若想要在市集中發行具有交易功能的應用程式，例如虛擬機器、解決方案範本、Azure 受控應用程式、容器和 SaaS 訂用帳戶，必須使用 Microsoft 開發人員中心。 這項需求條件會讓 Microsoft 驗證您的公司資訊、公司法務、稅務和金融實體。 註冊者必須是組織的有效代表，而且必須提供個人資訊以驗證其身分識別。 註冊人員必須使用公司內共用的 Microsoft ID (步驟 2)，且在 Cloud Partner 入口網站中必須使用同一個帳戶。 <ul>請注意，如果您未填妥 Marketplace 提名表單，系統會要求您支付 99 美元的註冊費用。 若要免除此費用，請填寫 Marketplace 提名表單，您便會透過電子郵件收到促銷代碼。 重要事項：在您嘗試建立 Microsoft 開發人員中心帳戶之前，請先確認公司未曾擁有此帳戶。 如需此程序的逐步解說，請參閱如何在開發人員中心註冊的相關指示。</ul>   |
 |5.登入 Cloud Partner 入口網站     |  15 分鐘       |  在任命獲得核准，且您已在 [Microsoft 合作夥伴網路](https://partner.microsoft.com/en-us/membership/)和 [Microsoft 開發人員](https://dev.windows.com/)中心中註冊後，便會為您建立一個可供存取 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)的帳戶。 提名核准電子郵件中會包含初次登入認證。 如需如何使用 Cloud Partner 入口網站的詳細資訊，請至入口網站中的 [學習][](https://cloudpartner.azure.com/#Learn) 功能表檢閱 [文件] 區段。    |
 
 
