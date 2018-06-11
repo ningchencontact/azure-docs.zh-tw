@@ -125,7 +125,7 @@
 #### [通知](active-directory-reporting-notifications.md)
 #### [稽核活動參考](active-directory-reporting-activity-audit-reference.md)
 #### [登入活動的錯誤代碼](active-directory-reporting-activity-sign-ins-errors.md)
-#### [多重要素驗證](active-directory-reporting-activity-sign-ins-mfa.md
+#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
 
@@ -326,6 +326,7 @@
 #### [條件](active-directory-conditional-access-conditions.md)
 #### [位置條件](active-directory-conditional-access-locations.md)
 #### [控制項](active-directory-conditional-access-controls.md)
+#### [基準保護](active-directory-conditional-access-baseline-protection.md)
 #### [開始使用](active-directory-conditional-access-azure-portal-get-started.md)
 #### [最佳做法](active-directory-conditional-access-best-practices.md)
 #### [了解 Office 365 服務的裝置原則](active-directory-conditional-access-device-policies.md)

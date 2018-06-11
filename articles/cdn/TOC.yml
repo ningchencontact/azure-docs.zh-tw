@@ -116,6 +116,8 @@
           href: cdn-troubleshoot-endpoint.md
         - name: 檔案壓縮
           href: cdn-troubleshoot-compression.md
+        - name: 允許的憑證授權單位
+          href: cdn-troubleshoot-allowed-ca.md
 - name: 參考
   items:
     - name: 規則引擎參考

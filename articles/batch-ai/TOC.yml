@@ -11,6 +11,10 @@
       href: quickstart-cli.md
     - name: 執行定型作業 - Python
       href: quickstart-python.md
+- name: 使用說明指南
+  items:
+    - name: 遷移至已更新的 API
+      href: migrate-to-new-api.md
 - name: 參考
   items:
     - name: Azure CLI

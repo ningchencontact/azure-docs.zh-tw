@@ -40,6 +40,8 @@
       href: dns-alerts-metrics.md
     - name: 反向 DNS
       href: dns-reverse-dns-overview.md
+    - name: 使用 Azure DNS 和流量管理員進行災害復原
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: 作法
   items:
     - name: 建立自訂 DNS 區域和記錄 - Azure CLI
