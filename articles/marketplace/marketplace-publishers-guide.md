@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: f84be4ec4d42b77e93cf0855d7fe4740256ed199
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 79e7d049ebf184e273e05250bd6f112d4c6be53d
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34715355"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34806865"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 和 AppSource 發行者指南
 
@@ -144,7 +144,7 @@ Microsoft 提供兩個不同的市集店面，可讓合作夥伴列出供應項�
 |支援通道  |說明  |
 |---------|---------|
 |MSDN 論壇：[Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Microsoft Developer Network 論壇。         |
-|Stack Overflow：[Azure](https://stackoverflow.com/questions/tagged/azure)     |    Stack Overflow 環境可供取得解決方案以及詢問和 Azure 與 Marketplace 相關的一切問題：<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure 虛擬機器](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
+|Stack Overflow：[Azure](https://stackoverflow.com/questions/tagged/azure)     |    Stack Overflow 環境可供取得解決方案以及詢問和 Azure 與 Marketplace 相關的一切問題：<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure 虛擬機器](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li><li>[Azure 上的容器](https://stackoverflow.com/search?q=azure+container)</li></ul> |
 
 
 **行銷資源**
@@ -215,7 +215,10 @@ Azure Marketplace 與 AppSource 可讓發行者對數百萬個客戶展示其解
 |**需求**  |**詳細資料** |**發行選項**  |
 |---------|---------|---------|
 |**計費和計量**   |  您的容器必須支援免費或自備授權的計費模式。       |  交易       |
-|**以 Docker 為基礎的映像**    |   容器映像必須以 Docker 映像格式為基礎，且必須從 Azure 容器登錄中提取。      |  交易       |
+|**從 Dockerfile 建置的映像**    |   容器映像必須以 Docker 映像規格為基礎，而必須從 Dockerfile 建置。 在 [這裡] (https://docs.docker.com/engine/reference/builder/#usage) 深入了解建置 Docker 映像。     |  交易       |
+|**在 ACR 中裝載**    |   容器映像必須裝載於 Azure Container Registry (ACR) 存放庫中。 深入了解 ACR 的使用方式 [這裡] (https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)。     |  交易       |
+|**映像標記**    |   容器映像必須包含至少 1 個標籤 (最多可容納 16 個標籤)。 深入了解映像標記 [這裡] (https://docs.docker.com/engine/reference/commandline/tag/)。     |  交易       |
+
 
 #### <a name="prerequisites-specific-to-transation-publishing-for-saas-app-subscriptions"></a>SaaS 應用程式訂用帳戶的交易發行特有的必要條件
 
@@ -224,7 +227,8 @@ Azure Marketplace 與 AppSource 可讓發行者對數百萬個客戶展示其解
 |**計費和計量**    |   您供應項目的定價為每月均一價。 目前不支援以用量計價及根據用量調整的功能。      |   交易      |
 |**取消**  |   客戶可隨時取消您的供應項目。      |   交易      |
 |**交易登陸頁面**     |   您裝載 Azure 共同品牌的交易登陸頁面，使用者能夠在頁面上建立並管理其 SaaS 服務帳戶。      |    交易     |
-|**SaaS 訂用帳戶 API**    |   您公開一項服務，能與 SaaS 訂用帳戶互動，以建立、更新及刪除使用者帳戶與服務方案。 必須在 24 小時內支援重大的 API 變更。 需定期發行非重大的 API 變更。      |     交易    |
+|**訂用帳戶 API**    |   您公開一項服務，能與 SaaS 訂用帳戶互動，以建立、更新及刪除使用者帳戶與服務方案。 必須在 24 小時內支援重大的 API 變更。 需定期發行非重大的 API 變更。      |     交易    |
+
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>諮詢服務發行特有的必要條件
 
