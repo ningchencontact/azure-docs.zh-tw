@@ -235,6 +235,8 @@
               href: vmware-azure-manage-configuration-server.md
             - name: 管理組態伺服器以複寫實體伺服器
               href: physical-manage-configuration-server.md
+            - name: 管理處理序伺服器
+              href: vmware-azure-manage-process-server.md
             - name: 管理 vCenter 伺服器
               href: vmware-azure-manage-vcenter.md
             - name: 移除伺服器並停用保護
