@@ -1,7 +1,7 @@
 ---
-title: "什麼是 Microsoft Genomics？ | Microsoft Docs"
+title: 什麼是 Microsoft Genomics？ | Microsoft Docs
 titleSuffix: Azure
-description: "了解 Microsoft Genomics 如何強化基因組定序，其目前提供 BWA-GATK 的雲端實作以進行次級分析。"
+description: 了解 Microsoft Genomics 如何強化基因組定序，其目前提供 BWA-GATK 的雲端實作以進行次級分析。
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26740431"
 ---
 # <a name="what-is-microsoft-genomics"></a>什麼是 Microsoft Genomics？
 Microsoft Genomics 提供 Burrows-Wheeler Aligner (BWA) 和 Genome Analysis Toolkit (GATK) 的雲端實作，以進行次級分析。 此服務已通過 ISO 認證並符合 HIPAA 法規，可針對您的基因組定序需求提供價格預測能力。 藉由閱讀我們的快速入門、教學課程和說明文件，了解如何使用 Microsoft Genomics 服務並與我們的 API 整合。

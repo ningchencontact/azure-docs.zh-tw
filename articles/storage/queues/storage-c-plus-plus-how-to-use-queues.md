@@ -1,6 +1,6 @@
 ---
-title: "如何使用佇列儲存體 (C++) | Microsoft Docs"
-description: "了解如何在 Azure 中使用佇列儲存體服務。 範例是以 C++ 撰寫的。"
+title: 如何使用佇列儲存體 (C++) | Microsoft Docs
+description: 了解如何在 Azure 中使用佇列儲存體服務。 範例是以 C++ 撰寫的。
 services: storage
 documentationcenter: .net
 author: cbrooksmsft
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059943"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>如何使用 C++ 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -45,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 若要安裝 Azure Storage Client Library for C++，您可以使用下列方法：
 
 * **Linux：** 遵循 [Azure Storage Client Library for C++ 讀我檔案](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 頁面中提供的指示進行。
-* **Windows：**在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。 在 [NuGet 套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。
+* **Windows：** 在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。 在 [NuGet 套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。
 
 ```  
 Install-Package wastorage

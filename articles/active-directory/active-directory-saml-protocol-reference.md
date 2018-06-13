@@ -1,11 +1,11 @@
 ---
-title: "Azure AD SAML 通訊協定參考 | Microsoft Docs"
-description: "這篇文章提供 Azure Active Directory 中單一登入和單一登出 SAML 設定檔的概觀。"
+title: Azure AD SAML 通訊協定參考 | Microsoft Docs
+description: 這篇文章提供 Azure Active Directory 中單一登入和單一登出 SAML 設定檔的概觀。
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 88125cfc-45c1-448b-9903-a629d8f31b01
 ms.service: active-directory
 ms.workload: identity
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26734125"
 ---
 # <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Azure Active Directory 使用 SAML 通訊協定的方式
 Azure Active Directory (Azure AD) 會使用 SAML 2.0 通訊協定，讓應用程式能為其使用者提供單一登入體驗。 Azure AD 的[單一登入](active-directory-single-sign-on-protocol-reference.md)和[單一登出](active-directory-single-sign-out-protocol-reference.md) SAML 設定檔會說明在識別提供者服務中如何使用 SAML 判斷提示、通訊協定和繫結。

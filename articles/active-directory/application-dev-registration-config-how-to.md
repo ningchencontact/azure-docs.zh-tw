@@ -1,11 +1,11 @@
 ---
-title: "如何為指定的 API 選取權限 | Microsoft Docs"
-description: "如何為針對 Azure AD 開發的應用程式或要向 Azure AD 註冊的自訂應用程式尋找驗證端點。"
+title: 如何為指定的 API 選取權限 | Microsoft Docs
+description: 如何為針對 Azure AD 開發的應用程式或要向 Azure AD 註冊的自訂應用程式尋找驗證端點。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26733909"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>如何為指定的 API 選取權限
 
