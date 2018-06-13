@@ -20,6 +20,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072375"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>針對 Azure 中的 Windows 虛擬機器部署問題進行疑難排解
 

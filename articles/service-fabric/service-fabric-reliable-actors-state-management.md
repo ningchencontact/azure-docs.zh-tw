@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206193"
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors 狀態管理
 Reliable Actors 是可封裝邏輯和狀態的單一執行緒物件。 由於動作項目會在 Reliable Services 上執行，因此，它們可以利用相同的持續性和複寫機制，以可靠的方式維護狀態。 如此一來，動作項目就不會在失敗之後、在記憶體回收之後重新啟動，或者因為資源平衡和升級的緣故而在叢集中的節點之間移動時，遺失它們的狀態。

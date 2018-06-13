@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418837"
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>排程器概念、術語及實體階層
 ## <a name="scheduler-entity-hierarchy"></a>排程器實體階層

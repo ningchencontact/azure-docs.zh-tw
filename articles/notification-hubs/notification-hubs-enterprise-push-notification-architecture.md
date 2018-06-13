@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778057"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>企業推送架構指引
 當代的企業正逐漸朝著為使用者 (外部) 或員工 (內部) 建立行動應用程式的方向邁進。 他們擁有現成的後端系統 (無論是大型主機還是某些 LoB 應用程式)，而這些系統必須整合到行動應用程式架構中。 本指南會討論如何以最佳方式進行整合，並針對常見案例建議適用的可行方案。

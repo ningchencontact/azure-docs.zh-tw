@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603307"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中支援的 T-SQL 語言元素
 Azure SQL 資料倉儲中所支援 T-SQL 語言元素的文件連結。
