@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782677"
 ---
 # <a name="configure-localization"></a>設定當地語系化
 Azure Media Clipper 有 18 種語言。 若要設定小工具語言，您必須在初始化期間定義 `language` 參數。 從下列清單傳入想要的語言代碼字串：

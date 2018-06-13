@@ -21,6 +21,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31793856"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>使用網路組態檔來設定虛擬網路 (傳統)
 > [!IMPORTANT]

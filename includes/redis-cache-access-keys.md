@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32196531"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-using-the-azure-portal"></a>使用 Azure 入口網站來擷取主機名稱、連接埠及存取金鑰
 

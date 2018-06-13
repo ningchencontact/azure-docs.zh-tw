@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782577"
 ---
 # <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>設定 Azure Media Clipper 鍵盤快速鍵
 Azure Media Clipper 支援藉由提供選擇性 `keymap` JSON 參數，自訂預設鍵盤快速鍵。

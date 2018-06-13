@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205885"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>檢查 Azure 免費帳戶隨附的免費服務使用量 
 
@@ -50,13 +51,13 @@ ms.lasthandoff: 05/04/2018
 
     該表格包含下列資料行：
 
-* **計量名稱：**識別耗用計量的量值單位。 若要了解服務與計量的對應，請參閱[了解免費服務與計量的對應](billing-understand-free-service-meter-mapping.md)。 
-* **使用量/限制：**目前月份的使用量和計量的限額。 您也可在狀態列中找到此資訊。
-* **狀態：**計量的使用量狀態。 根據您的使用量模式而定，會出現下列其中一個狀態。
-  * **不在使用中：**您未使用計量，或計費的使用量未達到計費系統的標準。
-  * **已在 \<Date> 超過：**您在 \<Date> 超過計量的限額。
-  * **不太可能超過：**您不太可能超過計量的限額。
-  * **將在 \<Date> 超過：**您可能在 \<Date> 超過計量的限額。
+* **計量名稱：** 識別耗用計量的量值單位。 若要了解服務與計量的對應，請參閱[了解免費服務與計量的對應](billing-understand-free-service-meter-mapping.md)。 
+* **使用量/限制：** 目前月份的使用量和計量的限額。 您也可在狀態列中找到此資訊。
+* **狀態：** 計量的使用量狀態。 根據您的使用量模式而定，會出現下列其中一個狀態。
+  * **不在使用中：** 您未使用計量，或計費的使用量未達到計費系統的標準。
+  * **已在 \<Date> 超過：** 您在 \<Date> 超過計量的限額。
+  * **不太可能超過：** 您不太可能超過計量的限額。
+  * **將在 \<Date> 超過：** 您可能在 \<Date> 超過計量的限額。
 
 
 ## <a name="check-usage-through-the-usage-file"></a>透過使用量檔案查看使用量
