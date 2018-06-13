@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783887"
 ---
 # <a name="media-encoder-standard-schema"></a>媒體編碼器標準結構描述
 本文描述[媒體編碼器標準預設值](media-services-mes-presets-overview.md)所根據之 XML 結構描述的一些元素和類型。 本文提供元素和其有效值的說明。  

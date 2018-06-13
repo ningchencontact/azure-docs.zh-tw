@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781707"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>從 VHD 檔案建立自訂映像
 
@@ -59,9 +60,9 @@ ms.lasthandoff: 05/07/2018
 
 1. 如果用來建立自訂映像的映像不是授權的映像 (由 Microsoft 發行)，您也可以輸入計劃名稱、計劃方案及計劃發行者。
 
-   - **方案名稱：**輸入建立此自訂映像的 Marketplace 映像 (SKU) 名稱 
-   - **方案提供：**輸入建立此自訂映像的 Marketplace 映像產品 (提供) 
-   - **方案發行者：**輸入建立此自訂映像的 Marketplace 映像發行者
+   - **方案名稱：** 輸入建立此自訂映像的 Marketplace 映像 (SKU) 名稱 
+   - **方案提供：** 輸入建立此自訂映像的 Marketplace 映像產品 (提供) 
+   - **方案發行者：** 輸入建立此自訂映像的 Marketplace 映像發行者
 
    > [!NOTE]
    > 如果您用來建立自訂映像的映像**不**是授權的映像，則這些欄位是空的，而且您可選擇填入。 如果影像**是**授權的映像，則欄位會自動填入方案資訊。 如果您嘗試在此情況下變更這些，則會顯示警告訊息。

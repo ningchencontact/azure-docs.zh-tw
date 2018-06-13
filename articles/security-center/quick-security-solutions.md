@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774381"
 ---
 # <a name="quickstart-connect-security-solutions-to-security-center"></a>快速入門：將安全性解決方案連線至資訊安全中心
 

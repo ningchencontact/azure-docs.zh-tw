@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814691"
 ---
 1. 登入 [Firebase 主控台](https://firebase.google.com/console/)。 建立新的 Firebase 專案 (如果您還沒有 Firebase 專案的話)。
 2. 建立專案之後，請選取 [將 Firebase 新增至 Android 應用程式]。 然後依照所提供的指示執行。 下載 **google-services.json** 檔案。 

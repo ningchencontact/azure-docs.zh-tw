@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893388"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-node"></a>在 Node 中開始使用轉送混合式連線 Websocket
 

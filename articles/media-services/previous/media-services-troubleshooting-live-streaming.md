@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940919"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>為即時串流而設的疑難排解指南
 本文提供有關如何疑難排解某些即時串流問題的建議。

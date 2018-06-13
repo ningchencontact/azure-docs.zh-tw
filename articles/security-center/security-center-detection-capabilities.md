@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894226"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Azure 資訊安全中心的偵測功能
 本文件討論 Azure 資訊安全中心的進階偵測功能，協助您識別以您的 Microsoft Azure 資源為目標的作用中威脅，並提供您快速回應所需的深入見解。

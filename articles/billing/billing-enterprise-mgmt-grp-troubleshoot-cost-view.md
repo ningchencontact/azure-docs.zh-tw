@@ -17,6 +17,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770350"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>為企業成本檢視疑難排解 
 

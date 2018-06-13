@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779415"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>在 HDInsight 中搭配使用 Apache Mahout 和以 Linux 為基礎的 Hadoop 來產生電影推薦 (SSH)
 
@@ -51,7 +52,7 @@ Mahout 提供的其中一項功能是推薦引擎。 這個引擎接受 `userID`
 
 * **共生**：Bob 和 Alice 同時也喜歡《威脅潛伏》、《複製人全面進攻》和《西斯大帝的復仇》。 Mahout 將判斷喜歡前三部電影的使用者，也會喜歡這三部電影。
 
-* **相似性推薦**：因為 Joe 喜歡前三部電影，Mahout 會查看具有相似偏好的其他使用者所喜歡但 Joe 還沒看過 (喜歡/評價) 的電影。 在此情況下，Mahout 將會推薦*《威脅潛伏》*、*《複製人全面進攻》*和*《西斯大帝的復仇》*。
+* **相似性推薦**：因為 Joe 喜歡前三部電影，Mahout 會查看具有相似偏好的其他使用者所喜歡但 Joe 還沒看過 (喜歡/評價) 的電影。 在此情況下，Mahout 將會推薦 *《威脅潛伏》*、*《複製人全面進攻》* 和 *《西斯大帝的復仇》*。
 
 ### <a name="understanding-the-data"></a>了解資料
 

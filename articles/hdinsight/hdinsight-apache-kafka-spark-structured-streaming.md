@@ -10,13 +10,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: larryfr
-ms.openlocfilehash: bdb2369f81ae8aeeb0a57e092dc1af7d0a7ded8f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8c7c1b37102e94f00ac6077958952eb52b342668
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939242"
 ---
 # <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>教學課程：搭配使用 Spark 結構化串流與 HDInsight 上的 Kafka
 
@@ -147,8 +148,8 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
     | 訂用帳戶 | 您的 Azure 訂用帳戶 |
     | 資源群組 | 包含資源的資源群組。 |
     | 位置 | 資源建立所在的 Azure 區域。 |
-    | Spark 叢集名稱 | Spark 叢集的名稱。 |
-    | Kafka 叢集名稱 | Kafka 叢集的名稱。 |
+    | Spark 叢集名稱 | Spark 叢集的名稱。 前六個字元必須與 Kafka 叢集名稱不同。 |
+    | Kafka 叢集名稱 | Kafka 叢集的名稱。 前六個字元必須與 Spark 叢集名稱不同。 |
     | 叢集登入使用者名稱 | 叢集的管理員使用者名稱。 |
     | 叢集登入密碼 | 叢集的管理員使用者密碼。 |
     | SSH 使用者名稱 | 要為叢集建立的 SSH 使用者。 |

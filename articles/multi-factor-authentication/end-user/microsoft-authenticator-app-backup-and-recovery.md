@@ -14,11 +14,12 @@ ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
 ms.custom: end-user
-ms.openlocfilehash: 8fa9a24b5b402ebebb69bc69f7cda47092436642
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e25ccdad5285bfaa96f538aca415746942523d85
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896260"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>使用 Microsoft Authenticator 應用程式保來備份和復原帳戶認證
 **適用範圍：**
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/28/2018
 Microsoft Authenticator 應用程式會將您的帳戶認證和相關應用程式設定 (例如您的帳戶順序) 備份到雲端。 備份之後，您也可以使用此應用程式在新裝置上復原您的資訊，這有可能避免遭到鎖定或者必須重新建立帳戶。
 
 >[!IMPORTANT]
-> 對於每個備份儲存位置，您需要一個個人 Microsoft 帳戶和一個 iCloud 帳戶。 但是在該儲存位置內，您可以備份數個帳戶。 例如，您可以有個人帳戶、學校帳戶，以及 Facebook、Google 等的第三方帳戶。<br><br>系統只會儲存您的帳戶認證，包括您的使用者名稱以及向 Microsoft Authenticator 應用程式證明您的身分識別所需的 8 位數帳戶驗證碼。 我們不會儲存任何與您帳戶相關聯的其他資訊，包括電子郵件或檔案。 我們也不會以任何方式或與其他產品或服務關聯或共用您的帳戶。 最後，您的 IT 管理員將不會取得有關上述任何帳戶的任何資訊。
+> 對於每個備份儲存位置，您需要一個個人 Microsoft 帳戶和一個 iCloud 帳戶。 但是在該儲存位置內，您可以備份數個帳戶。 例如，您可以有個人帳戶、學校帳戶，以及 Facebook、Google 等的第三方帳戶。<br><br>系統只會儲存您的個人帳戶認證和協力廠商帳戶認證，包括您的使用者名稱與證明身分識別所需的帳戶驗證碼。 我們不會儲存任何與您帳戶相關聯的其他資訊，包括電子郵件或檔案。 我們也不會以任何方式或與其他產品或服務關聯或共用您的帳戶。 最後，您的 IT 管理員將不會取得有關上述任何帳戶的任何資訊。
 
 ## <a name="back-up-your-account-credentials"></a>備份您的帳戶認證
 您必須先具備下列兩者，才能備份您的認證：

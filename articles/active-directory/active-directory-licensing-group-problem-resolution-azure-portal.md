@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33763711"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>識別及解決 Azure Active Directory 中群組的授權指派問題
 
@@ -52,17 +53,17 @@ Azure Active Directory (Azure AD) 中以群組為基礎的授權會介紹使用�
 
 ## <a name="not-enough-licenses"></a>沒有足夠的授權
 
-**問題：**群組中指定的其中一項產品沒有足夠的可用授權。 您需要為產品購買更多授權，或從其他使用者或群組釋放未使用的授權。
+**問題：** 群組中指定的其中一項產品沒有足夠的可用授權。 您需要為產品購買更多授權，或從其他使用者或群組釋放未使用的授權。
 
 若要查看有多少授權可用，請移至 [Azure Active Directory] > [授權] > [所有產品]。
 
 若要查看哪些使用者及群組在取用授權，請選取產品。 在 [授權的使用者] 底下，您會看到已直接或透過一或多個群組而被指派授權的所有使用者的清單。 在 [授權的群組] 底下，您會看到已被指派該產品的所有群組。
 
-**PowerShell：**PowerShell Cmdlet 會將此錯誤報告為 _CountViolation_。
+**PowerShell：** PowerShell Cmdlet 會將此錯誤報告為 _CountViolation_。
 
 ## <a name="conflicting-service-plans"></a>衝突的服務方案
 
-**問題：**群組中指定的其中一個產品包含服務方案，與已透過不同產品指派給使用者的另一個服務方案相衝突。 某些服務方案會設定為不能與另一個相關的服務方案一起指派給相同使用者。
+**問題：** 群組中指定的其中一個產品包含服務方案，與已透過不同產品指派給使用者的另一個服務方案相衝突。 某些服務方案會設定為不能與另一個相關的服務方案一起指派給相同使用者。
 
 請思考一下下列範例。 使用者擁有直接指派的 Office 365 企業版 *E1* 授權，所有方案皆啟用。 使用者已新增至獲得 Office 365 企業版 *E3* 產品指派的群組。 E3 產品包含的服務方案不能與 E1 包含的方案重疊，因此，群組授權指派會失敗，而發生「衝突的服務方案」錯誤。 在此範例中，衝突的服務方案是︰
 
@@ -73,25 +74,25 @@ Azure Active Directory (Azure AD) 中以群組為基礎的授權會介紹使用�
 
 如何解決產品授權的衝突一律屬於系統管理員的決策。 Azure AD 不會自動解決授權衝突。
 
-**PowerShell：**PowerShell Cmdlet 會將此錯誤報告為 _MutuallyExclusiveViolation_。
+**PowerShell：** PowerShell Cmdlet 會將此錯誤報告為 _MutuallyExclusiveViolation_。
 
 ## <a name="other-products-depend-on-this-license"></a>其他產品相依於此授權
 
-**問題：**群組中指定的其中一個產品包含服務方案，必須在另一個產品中針對另一個服務方案啟用，才能夠運作。 當 Azure AD 嘗試移除基礎服務方案時會發生此錯誤。 比方說，從群組移除使用者時可能會發生這種情形。
+**問題：** 群組中指定的其中一個產品包含服務方案，必須在另一個產品中針對另一個服務方案啟用，才能夠運作。 當 Azure AD 嘗試移除基礎服務方案時會發生此錯誤。 比方說，從群組移除使用者時可能會發生這種情形。
 
 若要解決這個問題，您必須確定所需的方案仍透過其他方法指派給使用者，或已停用這些使用者的相依服務。 之後，您可以適當地移除這些使用者的群組授權。
 
-**PowerShell：**PowerShell Cmdlet 會將此錯誤報告為 _DependencyViolation_。
+**PowerShell：** PowerShell Cmdlet 會將此錯誤報告為 _DependencyViolation_。
 
 ## <a name="usage-location-isnt-allowed"></a>不允許使用位置
 
-**問題：**由於當地法律和法規，無法在所有位置使用某些 Microsoft 服務。 您必須為使用者指定 [使用位置] 屬性，才可以將授權指派給使用者。 您可以在 Azure 入口網站的 [使用者] > [設定檔] > [設定] 區段之下指定此位置。
+**問題：** 由於當地法律和法規，無法在所有位置使用某些 Microsoft 服務。 您必須為使用者指定 [使用位置] 屬性，才可以將授權指派給使用者。 您可以在 Azure 入口網站的 [使用者] > [設定檔] > [設定] 區段之下指定此位置。
 
 當 Azure AD 嘗試將群組授權指派給不支援其使用位置的使用者時，將會失敗並對該使用者記錄錯誤。
 
 若要解決這個問題，請從授權群組不支援的位置中移除使用者。 或者，如果目前的使用位置值不代表實際使用者的位置，您可以進行修改，以便下一次正確指派授權 (如果支援新的位置)。
 
-**PowerShell：**PowerShell Cmdlet 會將此錯誤報告為 _ProhibitedInUsageLocationViolation_。
+**PowerShell：** PowerShell Cmdlet 會將此錯誤報告為 _ProhibitedInUsageLocationViolation_。
 
 > [!NOTE]
 > 當 Azure AD 指派群組授權時，不具有指定之使用位置的任何使用者會繼承目錄的位置。 我們建議系統管理員先為使用者設定正確的使用位置值，再使用以群組為基礎的授權，以符合當地法規。

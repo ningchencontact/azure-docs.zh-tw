@@ -21,6 +21,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941423"
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>如何將傳統 Linux 虛擬機器擷取成映像
 > [!IMPORTANT]

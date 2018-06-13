@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777683"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>準備適用於 Azure 的 CentOS 型虛擬機器
 * [準備適用於 Azure 的 CentOS 6.x 虛擬機器](#centos-6x)
@@ -297,7 +298,7 @@ ms.lasthandoff: 05/07/2018
    
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-10. 若要從 **VMWare、VirtualBox 或 KVM 建置映像：**請確定 initramfs 中已包括 Hyper-V 驅動程式：
+10. 若要從 **VMWare、VirtualBox 或 KVM 建置映像：** 請確定 initramfs 中已包括 Hyper-V 驅動程式：
    
    編輯 `/etc/dracut.conf`，新增內容：
    

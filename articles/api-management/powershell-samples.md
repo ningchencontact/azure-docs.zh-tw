@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33934643"
 ---
 # <a name="azure-powershell-samples-for-api-management"></a>API 管理的 Azure PowerShell 範例
 

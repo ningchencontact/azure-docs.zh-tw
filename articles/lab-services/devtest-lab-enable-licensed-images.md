@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781837"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中啟用授權映像
 
@@ -45,8 +46,8 @@ ms.lasthandoff: 05/07/2018
 
     授權映像會顯示下列項目的提供狀態： 
     
-    - **接受條款：**授權映像可供使用者建立 VM。 
-    - **必須檢閱條款：**使用者目前無法使用授權映像。 實驗室使用者必須先接受授權的條款和條件，才能使用它來建立 VM。 
+    - **接受條款：** 授權映像可供使用者建立 VM。 
+    - **必須檢閱條款：** 使用者目前無法使用授權映像。 實驗室使用者必須先接受授權的條款和條件，才能使用它來建立 VM。 
 
 ## <a name="making-a-licensed-image-available-to-lab-users"></a>讓授權映像可供實驗室使用者使用
 為了確保授權映像可供實驗室使用者使用，具有管理員權限的實驗室擁有者必須先接受該授權映像的條款和條件。 啟用以程式設計方式部署與授權映像相關聯的訂用帳戶，會自動接受該映像的法律條款和隱私權聲明。 [在 Azure Resource Manager 上使用 Marketplace 映像](https://azure.microsoft.com/blog/working-with-marketplace-images-on-azure-resource-manager/) \(英文\) 提供以程式設計方式部署 Marketplace 映像的其他資訊。

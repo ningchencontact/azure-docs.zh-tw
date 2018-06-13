@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33927775"
 ---
 # <a name="troubleshoot-azure-active-directory-application-management"></a>針對 Azure Active Directory 應用程式管理問題進行疑難排解
 下列連結會將您帶到一個內容對應表，此對應表可幫助您解決在 Azure Active Directory 中管理「企業應用程式」時，最常面臨的一些問題。

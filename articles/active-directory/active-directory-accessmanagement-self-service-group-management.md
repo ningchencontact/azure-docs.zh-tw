@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33762008"
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>設定 Azure Active Directory 進行自助服務群組管理
 使用者可以在 Azure Active Directory (Azure AD) 中建立及管理自己的安全性群組或 Office 365 群組。 使用者也可以要求安全性群組或 Office 365 群組成員資格，然後群組擁有者可以管理或拒絕成員資格。 您可以將群組成員資格的日常控制權委派給了解該成員資格的商務內容的人員。 自助式群組管理功能僅供安全性群組和 Office 365 群組使用，但具備郵件功能的安全性群組或通訊群組清單無法使用此功能。

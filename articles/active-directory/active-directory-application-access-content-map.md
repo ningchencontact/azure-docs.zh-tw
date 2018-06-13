@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33932637"
 ---
 # <a name="problems-managing-application-access-and-permissions"></a>管理應用程式的存取和權限時發生問題
 

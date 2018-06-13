@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782647"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>使用 Azure Media Clipper 建立剪輯
 Azure Media Clipper 是免費的 JavaScript 程式庫，可讓 Web 開發人員為其使用者提供用於建立媒體剪輯的介面。 此工具可整合到任何網頁中，並提供用於載入資產和提交剪輯作業的 API。
