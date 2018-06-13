@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785757"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>使用工作流程設計工具建立進階編碼工作流程
 ## <a name="overview"></a>概觀

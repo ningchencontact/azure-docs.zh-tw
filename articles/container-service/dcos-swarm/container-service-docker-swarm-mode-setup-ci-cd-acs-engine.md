@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32179566"
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>使用 Visual Studio Team Services 的完整 CI/CD 管線，搭配 ACS 引擎和 Docker Swarm 模式在 Azure Container Service 上部署多容器應用程式。
 

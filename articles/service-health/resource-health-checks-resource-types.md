@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795940"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 資源健康狀態中的資源類型和健康情況檢查
 以下是依資源類型透過資源健康狀態執行之所有檢查的完整清單。

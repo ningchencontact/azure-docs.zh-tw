@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792543"
 ---
 # <a name="data-sources-in-log-analytics"></a>Log Analytics 中的資料來源
 Log Analytics 會從 [連接的來源] 收集資料，並將它儲存在 Log Analytics 工作區中。  而您設定的資料來源可定義要從每個來源收集哪些資料。  Log Analytics 中的資料會儲存為一組記錄。  每個資料來源都會建立特定類型的記錄，每種類型各有自己的一組屬性。

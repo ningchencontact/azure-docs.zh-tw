@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783287"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>使用 Azure Media Clipper 建立剪輯
 本節說明開始使用 Azure Media Clipper 的基本步驟。 以下章節提供有關如何設定 Azure Media Clipper 的細節。

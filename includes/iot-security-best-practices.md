@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814759"
 ---
 # <a name="internet-of-things-security-best-practices"></a>物聯網安全性最佳做法
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31799068"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>如何在 Azure 搜尋服務中模型化複雜資料類型
 用來填入 Azure 搜尋服務索引的外部資料集，有時包含不會整齊細分成表格式資料列集的階層式或巢狀子結構。 這類結構的範例可能包含單一客戶的多個位置和電話號碼、單一 SKU 的多種色彩和大小、單一書籍的多位作者等等。 就模型化而論，您可能會看到這些結構稱之為「複雜資料類型」、「複合資料類型」、「合成資料類型」或「彙總資料類型」等等。

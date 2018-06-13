@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798704"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>教學課程：將搭配 CI/CD 的應用程式部署到 Service Fabric 叢集
 本教學課程是系列中的第四部分，說明如何使用 Visual Studio Team Services (VSTS) 設定 Azure Service Fabric 應用程式的持續整合和部署。  需要現有的 Service Fabric 應用程式，在[建置 .NET 應用程式](service-fabric-tutorial-create-dotnet-app.md)中建立的應用程式將做為範例。

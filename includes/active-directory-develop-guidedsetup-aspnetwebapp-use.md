@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32202703"
 ---
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>新增控制器以處理登入和登出要求
 

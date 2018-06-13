@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805177"
 ---
 ## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>如何使用 Azure CLI 建立傳統 VNet
 您可以使用 Azure CLI 透過任何 Windows、Linux 或 OSX 電腦命令提示字元管理 Azure 資源。

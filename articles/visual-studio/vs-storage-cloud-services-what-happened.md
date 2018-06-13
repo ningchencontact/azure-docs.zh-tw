@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31790673"
 ---
 # <a name="what-happened-to-my-cloud-services-project-visual-studio-azure-storage-connected-service"></a>我的雲端服務專案發生什麼狀況 (Visual Studio Azure 儲存體已連接服務)？
 ## <a name="references-added"></a>加入參考

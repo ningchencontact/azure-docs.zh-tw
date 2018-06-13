@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783037"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>為 VM 和 PaaS 測試環境使用 Azure DevTest Labs
 

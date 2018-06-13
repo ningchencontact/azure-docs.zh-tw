@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783587"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒體服務平台上的媒體分析
 ## <a name="overview"></a>概觀

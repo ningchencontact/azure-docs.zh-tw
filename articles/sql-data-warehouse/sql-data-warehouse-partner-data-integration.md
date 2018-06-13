@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188509"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL 資料倉儲資料整合合作夥伴
 若要建立資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。 本文將重點放在具有可支援「Azure SQL 資料倉儲」之資料整合解決方案的 Microsoft 合作夥伴公司。

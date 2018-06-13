@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33776680"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>教學課程：將通知推送至執行通用 Windows 平台應用程式的特定 Windows 裝置
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]

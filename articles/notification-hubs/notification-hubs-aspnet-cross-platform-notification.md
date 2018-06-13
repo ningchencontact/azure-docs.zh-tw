@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777948"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>使用通知中心向使用者傳送跨平台通知
 在之前的[使用通知中心來通知使用者]教學課程中，您已了解如何將通知推播至所有由特定經驗證使用者所註冊的裝置。 在該教學課程中，需要用多個要求來傳送通知給每個支援的用戶端平台。 Azure 通知中心可支援範本，讓您指定特定裝置接收通知的方式。 此方法使得傳送跨平台通知變得更簡單。 

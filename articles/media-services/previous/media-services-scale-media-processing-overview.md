@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785847"
 ---
 # <a name="scaling-media-processing-overview"></a>調整媒體處理概觀
 此頁面提供調整媒體處理的方式及原因的概觀。 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764201"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>使用 Azure Active Directory 裝置註冊來設定內部部署條件式存取
 當您要求使用者在工作場所將其個人裝置加入至 Azure Active Directory (Azure AD) 裝置註冊服務時，他們的裝置便可標示為組織已知的裝置。 以下是一個逐步指南，說明如何在 Windows Server 2012 R2 中使用 Active Directory Federation Services (AD FS)，來啟用對內部部署應用程式的條件式存取。

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33761216"
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>疑難排解群組的動態成員資格
 **我針對某個群組設定了一個規則，但是群組中的成員資格沒有任何更新**<br/>請針對規則確認使用者屬性的值：是否有符合規則的使用者？ 如果一切良好，請等候一段時間，以填入群組。 根據您的租用戶大小，群組可能最多需要 24 小時來完成初次填入或規則變更。
