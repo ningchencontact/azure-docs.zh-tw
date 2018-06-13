@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785887"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>適用於 iOS 的離線 FairPlay 串流 
  Azure 媒體服務提供一組設計良好的[內容保護服務](https://azure.microsoft.com/services/media-services/content-protection/)，其中涵蓋：

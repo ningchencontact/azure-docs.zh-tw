@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31523892"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的威脅偵測
 設定威脅偵測，並探索 Azure SQL 資料倉儲中的可疑事件。
@@ -53,7 +54,7 @@ ms.lasthandoff: 04/18/2018
    
     ![瀏覽窗格](media/sql-data-warehouse-security-threat-detection/6_td_audit_record_details.png)
 4. 在 [稽核記錄] 刀鋒視窗中，按一下 [在 Excel 中開啟] 開啟預先設定的 Excel 範本，以匯入可疑事件前後的稽核記錄，執行更深入的分析。<br/>
-   **附註：**在 Excel 2010 或更新版本中，必須要有 Power Query 和 [快速合併] 設定
+   **附註：** 在 Excel 2010 或更新版本中，必須要有 Power Query 和 [快速合併] 設定
    
     ![瀏覽窗格](media/sql-data-warehouse-security-threat-detection/7_td_audit_records_open_excel.png)
 5. 若要設定 [快速合併] 設定 - 在 [POWER QUERY] 功能區索引標籤中，選取 [選項] 以顯示 [選項] 對話方塊。 選取 [隱私權] 區段，選擇第二個選項 - [忽略隱私權等級並可能改善效能]：

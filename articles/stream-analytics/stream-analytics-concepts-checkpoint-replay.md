@@ -14,6 +14,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31529201"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Azure 串流分析作業中的檢查點和重新執行概念
 本文說明「Azure 串流分析」中的內部檢查點和重新執行概念，以及這些概念對作業復原的影響。 每次「串流分析」作業執行時，都會在內部維護狀態資訊。 該狀態資訊會定期儲存在檢查點中。 在某些情況下，當發生作業失敗或升級時，會使用檢查點資訊來進行作業復原。 在其他情況下，則無法使用檢查點來進行復原，而是必須使用重新執行。

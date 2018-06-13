@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312690"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教學課程：建立和部署含有 ASP.NET Core Web API 前端服務和具狀態後端服務的應用程式
 本教學課程是一個系列的第一部分。  您將了解如何建立含有 ASP.NET Core Web API 前端和具狀態後端服務的 Azure Service Fabric 應用程式來儲存您的資料。 當您完成時，您會有一個投票應用程式，其 ASP.NET Core Web 前端會將投票結果儲存在叢集中具狀態的後端服務。 如果您不需要以手動建立投票應用程式，可以[下載已完成應用程式的原始程式碼](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)並直接前往[逐步解說投票範例應用程式](#walkthrough_anchor)。  您也可以視需要觀看本教學課程的[視訊逐步解說](https://channel9.msdn.com/Events/Connect/2017/E100)。
