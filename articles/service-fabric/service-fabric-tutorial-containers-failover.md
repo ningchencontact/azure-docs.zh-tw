@@ -1,14 +1,14 @@
 ---
-title: "容錯移轉與調整 Azure Service Fabric 容器應用程式 | Microsoft Docs"
-description: "在本教學課程中，您會了解如何在 Azure Service Fabric 容器應用程式中處理容錯移轉。  亦了解如何調整在叢集中執行的容器與服務。"
+title: 容錯移轉與調整 Azure Service Fabric 容器應用程式 | Microsoft Docs
+description: 在本教學課程中，您會了解如何在 Azure Service Fabric 容器應用程式中處理容錯移轉。  亦了解如何調整在叢集中執行的容器與服務。
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker、容器、微服務、Service Fabric、Azure"
-ms.assetid: 
+keywords: Docker、容器、微服務、Service Fabric、Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29555476"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>教學課程：示範透過 Service Fabric 容錯移轉與調整容器服務
 

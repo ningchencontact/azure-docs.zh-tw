@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34347222"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>教學課程︰設定 DocuSign 來自動佈建使用者
 

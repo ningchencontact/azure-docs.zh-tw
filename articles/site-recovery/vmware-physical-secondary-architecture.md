@@ -11,6 +11,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29854270"
 ---
 # <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>將 VMware VM/實體伺服器複寫至 VMware 的架構
 

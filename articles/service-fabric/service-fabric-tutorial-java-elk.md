@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949815"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>教學課程：使用 ELK 監視 Service Fabric 應用程式 
 本教學課程是一個系列的第四部分。 它會顯示如何使用 ELK (Elasticsearch、Logstash 和 Kibana) 監視在 Azure 中執行的 Service Fabric 應用程式。 

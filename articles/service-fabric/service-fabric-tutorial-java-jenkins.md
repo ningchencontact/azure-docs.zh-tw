@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949832"
 ---
 # <a name="tutorial-set-up-a-jenkins-environment-with-service-fabric"></a>教學課程：使用 Service Fabric 設定 Jenkins 環境
 本教學課程是一個系列的第五部分。 它會示範如何使用 Jenkins 將升級部署至您的應用程式。 在此教學課程中，Service Fabric Jenkins 外掛程式會搭配裝載 Voting 應用程式的 Github 存放庫使用，以將應用程式部署至叢集。 

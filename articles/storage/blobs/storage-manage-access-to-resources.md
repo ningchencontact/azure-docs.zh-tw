@@ -1,6 +1,6 @@
 ---
-title: "對 Azure Blob 儲存體中的容器與 Blob 啟用公用讀取權限 | Microsoft Docs"
-description: "了解如何讓容器與 Blob 可供匿名存取，以及如何以程式設計方式存取。"
+title: 對 Azure Blob 儲存體中的容器與 Blob 啟用公用讀取權限 | Microsoft Docs
+description: 了解如何讓容器與 Blob 可供匿名存取，以及如何以程式設計方式存取。
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29557055"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>管理對容器與 Blob 的匿名讀取權限。
 您可以對 Azure Blob 儲存體中的容器及其 Blob 啟用匿名與公用讀取權限。 如此您就可以將這些資源的唯讀存取權限授與他人，而無須共用您的帳戶金鑰，也無須要求共用存取簽章 (SAS)。
@@ -24,9 +25,9 @@ ms.lasthandoff: 02/24/2018
 
 您可以為容器設定下列權限︰
 
-* **無公用讀取權限︰**只有儲存體帳戶擁有者可以存取容器和其 Blob。 這是所有新建容器的預設值。
-* **僅對 Blob 有公用讀取權限：**您可以透過匿名要求讀取容器內的 Blob，但您無法使用容器資料。 匿名用戶端無法列舉容器內的 Blob。
-* **完整的公用讀取權限：**可以透過匿名要求讀取所有容器和 Blob 資料。 用戶端可以透過匿名要求列舉容器內的 Blob，但無法列舉儲存體帳戶內的容器。
+* **無公用讀取權限︰** 只有儲存體帳戶擁有者可以存取容器和其 Blob。 這是所有新建容器的預設值。
+* **僅對 Blob 有公用讀取權限：** 您可以透過匿名要求讀取容器內的 Blob，但您無法使用容器資料。 匿名用戶端無法列舉容器內的 Blob。
+* **完整的公用讀取權限：** 可以透過匿名要求讀取所有容器和 Blob 資料。 用戶端可以透過匿名要求列舉容器內的 Blob，但無法列舉儲存體帳戶內的容器。
 
 您可以使用下列方式設定容器權限：
 

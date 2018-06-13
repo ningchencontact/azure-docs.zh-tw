@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949798"
 ---
 #  <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>教學課程：偵錯在本機 Service Fabric 叢集上部署的 Java 應用程式 
 本教學課程是一個系列的第二部分。 您會了解如何使用適用於 Service Fabric 應用程式的 Eclipse 來連結遠端偵錯工具。 此外，您會了解如何將執行中應用程式的記錄重新導向至開發人員方便取用的位置。

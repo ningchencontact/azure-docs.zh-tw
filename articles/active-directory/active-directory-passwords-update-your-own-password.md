@@ -1,9 +1,9 @@
 ---
-title: "Azure AD：密碼重設 |Microsoft Docs"
-description: "使用自助式密碼重設重新取得工作或學校使用者帳戶的存取權"
+title: Azure AD：密碼重設 |Microsoft Docs
+description: 使用自助式密碼重設重新取得工作或學校使用者帳戶的存取權
 services: active-directory
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: sahenry
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29463773"
 ---
 # <a name="reset-your-work-or-school-password"></a>重設您的工作密碼或學校密碼
 
