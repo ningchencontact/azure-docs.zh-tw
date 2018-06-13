@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23112836"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>使用 StorSimple 做為 NetBackup 的備份目標
 

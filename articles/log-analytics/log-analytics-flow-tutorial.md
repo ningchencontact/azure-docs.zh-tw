@@ -17,6 +17,7 @@ ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/16/2017
+ms.locfileid: "23444091"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>使用適用於 Microsoft Flow 的連接器自動化 Log Analytics 程序
 [Microsoft Flow](https://ms.flow.microsoft.com) 可讓您使用數百個動作建立各種不同服務的自動化工作流程。 從一個動作的輸出可用來作為另一個動作的輸入，讓您建立不同服務之間的整合。  適用於 Microsoft Flow 的 Azure Log Analytics 連接器可讓您建立工作流程，包含 Log Analytics 記錄搜尋所擷取的資料。

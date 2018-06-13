@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure 自動化 Runbook 管理 StorSimple 裝置 | Microsoft Docs"
-description: "了解如何使用 Azure 自動化 Runbook 將 StorSimple 作業自動化"
+title: 使用 Azure 自動化 Runbook 管理 StorSimple 裝置 | Microsoft Docs
+description: 了解如何使用 Azure 自動化 Runbook 將 StorSimple 作業自動化
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/24/2017
+ms.locfileid: "23493128"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>使用 Azure 自動化 Runbook 管理 StorSimple 裝置
 

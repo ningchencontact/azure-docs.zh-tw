@@ -1,6 +1,6 @@
 ---
-title: "Azure DC/OS 叢集的檔案共用"
-description: "建立檔案共用並將它掛接到 Azure Container Service 中的 DC/OS 叢集"
+title: Azure DC/OS 叢集的檔案共用
+description: 建立檔案共用並將它掛接到 Azure Container Service 中的 DC/OS 叢集
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26331197"
 ---
 # <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>建立檔案共用並將它掛接到 DC/OS 叢集
 

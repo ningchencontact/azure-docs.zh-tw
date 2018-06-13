@@ -1,13 +1,13 @@
 ---
-title: "分析 Azure 網路安全性群組流量記錄 - Graylog | Microsoft Docs"
-description: "了解如何使用網路監看員和 Graylog 在 Azure 中管理和分析網路安全性群組流量記錄。"
+title: 分析 Azure 網路安全性群組流量記錄 - Graylog | Microsoft Docs
+description: 了解如何使用網路監看員和 Graylog 在 Azure 中管理和分析網路安全性群組流量記錄。
 services: network-watcher
 documentationcenter: na
 author: mareat
 manager: vitinnan
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26738307"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>使用網路監看員和 Graylog 在 Azure 中管理和分析網路安全性群組流量記錄
 

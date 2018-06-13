@@ -1,12 +1,12 @@
 ---
-title: "適用於 Blob 儲存體的 Azure CLI 範例 | Microsoft Docs"
-description: "適用於搭配 Azure Blob 儲存體使用的 Azure CLI 範例"
+title: 適用於 Blob 儲存體的 Azure CLI 範例 | Microsoft Docs
+description: 適用於搭配 Azure Blob 儲存體使用的 Azure CLI 範例
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26040170"
 ---
 # <a name="azure-cli-samples-for-azure-blob-storage"></a>適用於 Azure Blob 儲存體的 Azure CLI 範例
 

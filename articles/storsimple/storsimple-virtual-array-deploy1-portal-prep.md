@@ -1,11 +1,11 @@
 ---
-title: "為 StorSimple Virtual Array 準備入口網站 | Microsoft Docs"
-description: "部署 StorSimple Virtual Array 的第一個教學課程，內容為如何準備 Azure 入口網站"
+title: 為 StorSimple Virtual Array 準備入口網站 | Microsoft Docs
+description: 部署 StorSimple Virtual Array 的第一個教學課程，內容為如何準備 Azure 入口網站
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/14/2017
+ms.locfileid: "24526548"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>部署 StorSimple Virtual Array - 準備 Azure 入口網站
 

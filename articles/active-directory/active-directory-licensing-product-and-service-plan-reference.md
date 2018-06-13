@@ -1,13 +1,13 @@
 ---
-title: "用於在 Azure Active Directory 中授權的產品名稱和服務方案識別碼 | Microsoft Docs"
-description: "識別項對應來管理 Azure 入口網站、Office 365 入口網站、PowerShell 或 Microsoft Graph 中的 Azure AD 授權"
+title: 用於在 Azure Active Directory 中授權的產品名稱和服務方案識別碼 | Microsoft Docs
+description: 識別項對應來管理 Azure 入口網站、Office 365 入口網站、PowerShell 或 Microsoft Graph 中的 Azure AD 授權
 services: active-directory
-keywords: "Azure Active Directory 授權服務方案"
-documentationcenter: 
+keywords: Azure Active Directory 授權服務方案
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26732856"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>用於授權的產品名稱和服務方案識別碼
 

@@ -1,11 +1,11 @@
 ---
-title: "重設 Azure VPN 閘道以重新建立 IPsec 通道 | Microsoft Docs"
-description: "本文將逐步引導您重設「Azure VPN 閘道」以重新建立 IPsec 通道。 本文章適用於傳統，和 Resource Manager 部署模型兩者的 VPN 閘道。"
+title: 重設 Azure VPN 閘道以重新建立 IPsec 通道 | Microsoft Docs
+description: 本文將逐步引導您重設「Azure VPN 閘道」以重新建立 IPsec 通道。 本文章適用於傳統，和 Resource Manager 部署模型兩者的 VPN 閘道。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23125816"
 ---
 # <a name="reset-a-vpn-gateway"></a>重設 VPN 閘道
 
