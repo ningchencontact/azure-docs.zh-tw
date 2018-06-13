@@ -1,11 +1,11 @@
 ---
-title: "排程器輸出驗證"
-description: "排程器輸出驗證"
+title: 排程器輸出驗證
+description: 排程器輸出驗證
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040333"
 ---
 # <a name="scheduler-outbound-authentication"></a>排程器輸出驗證
 排程器工作可能需要對外呼叫需要驗證的服務。 如此一來，被呼叫的服務可以判定排程器工作是否可以存取它的資源。 其中某些服務包括其他 Azure 服務、Salesforce.com、Facebook 和安全的自訂網站。

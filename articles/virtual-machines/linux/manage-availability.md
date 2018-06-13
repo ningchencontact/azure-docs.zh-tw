@@ -21,6 +21,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30320980"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>管理 Linux 虛擬機器的可用性
 

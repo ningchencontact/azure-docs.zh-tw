@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34340218"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>教學課程：Azure Active Directory 與 Form.com 整合
 

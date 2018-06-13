@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: zh-TW
   ms.lasthandoff: 05/07/2018
+  ms.locfileid: "33779033"
 abstract:
   description: 了解如何使用通知中樞 (這是一個多平台、可調整的推播通知引擎) 快速地將數百萬則訊息傳送到在各種類型裝置 (Android、iOS、Windows、Windows Phone、百度、Kindle) 上執行的應用程式。 <p>教學課程、API 參考和其他文件會示範如何設定推播通知，並將這類通知從任何後端傳送至任何行動裝置。</p>
   aside:

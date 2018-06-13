@@ -21,6 +21,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165106"
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Azure 入口網站支援的瀏覽器和裝置
 您可以在所有新式的桌上型電腦、平板電腦裝置和瀏覽器上執行 [Azure 入口網站](https://portal.azure.com)。
